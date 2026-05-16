@@ -1,0 +1,769 @@
+{
+  "id": "class_0002",
+  "name": "Drowned Breath Witch",
+  "title_completion": "a Drowned Breath Witch",
+  "flavor_text": "She exhales and the miasma of Yomi rolls out like a tide, carrying the salt of sunken dead and the chill of bones ground to pale grit. From the shore between the living and the forgotten, she conjures surges of brine that dissolve flesh before the wound is even felt. Her breath is not air \u2014 it is the last exhalation of every soul that ever sank into that lightless underworld, and she has learned to spend it freely.",
+  "archetype_tag": "hybrid_mage",
+  "energy_type": "mana",
+  "role_orientation": "hybrid",
+  "range_profile": "long",
+  "dominant_element": "water",
+  "color_palette": [
+    681305,
+    510590,
+    289975,
+    651905,
+    509111,
+    266815,
+    279123,
+    448860,
+    672782,
+    455050,
+    598454,
+    277255,
+    481562,
+    371799
+  ],
+  "stat_distribution": {
+    "strength": 8,
+    "dexterity": 8,
+    "intelligence": 100,
+    "wisdom": 98,
+    "vitality": 56
+  },
+  "skills": [
+    {
+      "id": "skill_000030",
+      "name": "Yomi Brine Surge",
+      "composition_mode": "single",
+      "role": "burst_damage",
+      "canonical_element": "water",
+      "effect_category": "area_damage",
+      "canonical_pair_ref": "canonical/water/area_damage",
+      "energy_cost": 22.0,
+      "cooldown_seconds": 4.7,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 2500,
+            "element": "water"
+          }
+        },
+        {
+          "name": "chill",
+          "params": {
+            "slow_percent": 0.4,
+            "duration_seconds": 2.6
+          }
+        },
+        {
+          "name": "buff_damage",
+          "params": {
+            "percent": 0.25,
+            "duration_seconds": 9.6
+          }
+        }
+      ],
+      "color_value": 681305,
+      "flavor_text": "Salt winds from the underworld gather in a spinning halo, then collapse inward with the crushing weight of preserved grief. What the water touches, it slows \u2014 and what survives carries the cold fury of the deep.",
+      "tier": 1,
+      "chain_id": "chain_A",
+      "chain_position": 1,
+      "parent_skill_ids": [],
+      "scaling_coefficient": 1.0731
+    },
+    {
+      "id": "skill_000031",
+      "name": "Yomi Breath Totem",
+      "composition_mode": "single",
+      "role": "damage_over_time",
+      "canonical_element": "wind",
+      "effect_category": "single_target_damage",
+      "canonical_pair_ref": "canonical/wind/single_target_damage",
+      "energy_cost": 23.7,
+      "cooldown_seconds": 4.1,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "knockback",
+          "params": {
+            "distance": 3.4,
+            "stagger_seconds": 0.9
+          }
+        },
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 750,
+            "element": "wind"
+          }
+        }
+      ],
+      "color_value": 510590,
+      "flavor_text": "A pillar of rot-laced wind rises from the underworld's threshold, exhaling the stale breath of Yomi in slow, suffocating spirals. Those caught within its reach are peeled backward, lungs burning with something older than poison.",
+      "tier": 1,
+      "chain_id": "chain_B",
+      "chain_position": 1,
+      "parent_skill_ids": [],
+      "scaling_coefficient": 1.07
+    },
+    {
+      "id": "skill_000032",
+      "name": "Yomi Bone Wind",
+      "composition_mode": "single",
+      "role": "utility",
+      "canonical_element": "earth",
+      "effect_category": "utility",
+      "canonical_pair_ref": "canonical/earth/utility",
+      "energy_cost": 12.9,
+      "cooldown_seconds": 16.6,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "buff_damage",
+          "params": {
+            "percent": 0.21,
+            "duration_seconds": 4.2
+          }
+        },
+        {
+          "name": "buff_mana_regen",
+          "params": {
+            "percent": 0.25,
+            "duration_seconds": 9.7
+          }
+        }
+      ],
+      "color_value": 289975,
+      "flavor_text": "The pale exhalations of Yomi's deep corridors gather at the caster's marrow, filling hollow places with forgotten force. Wisdom settles like sediment into stone, and for a breath, the earth remembers what the living have not yet learned.",
+      "tier": 1,
+      "chain_id": "chain_B",
+      "chain_position": 2,
+      "parent_skill_ids": [],
+      "scaling_coefficient": 1.0572
+    },
+    {
+      "id": "skill_000033",
+      "name": "Yomi Brine Veil",
+      "composition_mode": "single",
+      "role": "defensive",
+      "canonical_element": "water",
+      "effect_category": "defensive",
+      "canonical_pair_ref": "canonical/water/defensive",
+      "energy_cost": 16.6,
+      "cooldown_seconds": 9.3,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "shield",
+          "params": {
+            "magnitude": 1000,
+            "duration_seconds": 4.5
+          }
+        },
+        {
+          "name": "buff_dodge",
+          "params": {
+            "percent": 0.11,
+            "duration_seconds": 10.0
+          }
+        }
+      ],
+      "color_value": 651905,
+      "flavor_text": "Salt winds off the underworld's shores cling to the caster like a second skin, turning blows aside with the indifferent patience of preserved flesh. The bitter gale remembers every wound it has ever swallowed.",
+      "tier": 1,
+      "chain_id": "chain_C",
+      "chain_position": 1,
+      "parent_skill_ids": [],
+      "scaling_coefficient": 1.0717
+    },
+    {
+      "id": "skill_000153",
+      "name": "Yomi Exhale",
+      "composition_mode": "single",
+      "role": "primary_attack",
+      "canonical_element": "wind",
+      "effect_category": "single_target_damage",
+      "canonical_pair_ref": "canonical/wind/single_target_damage",
+      "energy_cost": 15.84,
+      "cooldown_seconds": 1.43,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 625,
+            "element": "wind"
+          }
+        }
+      ],
+      "color_value": 422835,
+      "flavor_text": "A breath rises from the hollow dark beneath the world, thick with the rot of forgotten seasons. It finds the living and fills them with wind that was never meant to be breathed.",
+      "tier": 1,
+      "chain_id": "chain_C",
+      "chain_position": 2,
+      "parent_skill_ids": [],
+      "scaling_coefficient": 1.0772
+    },
+    {
+      "id": "skill_000035",
+      "name": "Yomi Bone Gale",
+      "composition_mode": "single",
+      "role": "burst_damage",
+      "canonical_element": "earth",
+      "effect_category": "single_target_damage",
+      "canonical_pair_ref": "canonical/earth/single_target_damage",
+      "energy_cost": 27.2,
+      "cooldown_seconds": 8.6,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 2500,
+            "element": "earth"
+          }
+        },
+        {
+          "name": "buff_damage",
+          "params": {
+            "percent": 0.3,
+            "duration_seconds": 7.8
+          }
+        }
+      ],
+      "color_value": 266815,
+      "flavor_text": "A howling wind tears up through cracked earth, carrying pale bone-dust that arcs between targets like lightning through a hollow ribcage. The dead air of Yomi exhales once, and the ground remembers its hunger.",
+      "tier": 2,
+      "chain_id": "chain_A",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000030"
+      ],
+      "scaling_coefficient": 1.0862
+    },
+    {
+      "id": "skill_000036",
+      "name": "Yomi Bone Gust",
+      "composition_mode": "single",
+      "role": "mobility",
+      "canonical_element": "earth",
+      "effect_category": "mobility",
+      "canonical_pair_ref": "canonical/earth/mobility",
+      "energy_cost": 14.3,
+      "cooldown_seconds": 8.7,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "buff_dodge",
+          "params": {
+            "percent": 0.12,
+            "duration_seconds": 8.7
+          }
+        },
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 0,
+            "element": "earth"
+          }
+        }
+      ],
+      "color_value": 279123,
+      "flavor_text": "A hollow wind rises from beneath the pale earth, scattering the self like dry ash before the blow can land. What remains is harder than it was before.",
+      "tier": 2,
+      "chain_id": "chain_A",
+      "chain_position": 2,
+      "parent_skill_ids": [
+        "skill_000030"
+      ],
+      "scaling_coefficient": 1.0877
+    },
+    {
+      "id": "skill_000037",
+      "name": "Yomi Exhale Swarm",
+      "composition_mode": "single",
+      "role": "area_damage",
+      "canonical_element": "wind",
+      "effect_category": "single_target_damage",
+      "canonical_pair_ref": "canonical/wind/single_target_damage",
+      "energy_cost": 20.4,
+      "cooldown_seconds": 4.6,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 1500,
+            "element": "wind"
+          }
+        }
+      ],
+      "color_value": 448860,
+      "flavor_text": "From the breathless dark beneath the world, a choking gust tears outward in ragged tongues of miasmic wind. Each tendril carries the stale rot of Yomi's hollow air, stripping life as it passes.",
+      "tier": 2,
+      "chain_id": "chain_B",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000030"
+      ],
+      "scaling_coefficient": 1.0988
+    },
+    {
+      "id": "skill_000038",
+      "name": "Yomi Brine Gale",
+      "composition_mode": "single",
+      "role": "area_damage",
+      "canonical_element": "water",
+      "effect_category": "single_target_damage",
+      "canonical_pair_ref": "canonical/water/single_target_damage",
+      "energy_cost": 29.1,
+      "cooldown_seconds": 8.0,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 1500,
+            "element": "water"
+          }
+        },
+        {
+          "name": "chill",
+          "params": {
+            "slow_percent": 0.31,
+            "duration_seconds": 2.6
+          }
+        }
+      ],
+      "color_value": 672782,
+      "flavor_text": "A column of salt-heavy wind tears up from the underworld's shore, soaking the living in water that remembers how to preserve the dead. Those caught in its reach move as if their joints have begun to cure.",
+      "tier": 2,
+      "chain_id": "chain_B",
+      "chain_position": 2,
+      "parent_skill_ids": [
+        "skill_000030"
+      ],
+      "scaling_coefficient": 1.1111
+    },
+    {
+      "id": "skill_000039",
+      "name": "Yomi Exhale",
+      "composition_mode": "single",
+      "role": "utility",
+      "canonical_element": "wind",
+      "effect_category": "control",
+      "canonical_pair_ref": "canonical/wind/control",
+      "energy_cost": 17.9,
+      "cooldown_seconds": 18.3,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "buff_damage",
+          "params": {
+            "percent": 0.29,
+            "duration_seconds": 9.0
+          }
+        },
+        {
+          "name": "silence",
+          "params": {
+            "duration_seconds": 1.8
+          }
+        }
+      ],
+      "color_value": 455050,
+      "flavor_text": "You draw breath from the dead world below, filling your lungs with a silence that spreads outward like rot on still air. For a moment, nothing speaks \u2014 and everything bleeds.",
+      "tier": 2,
+      "chain_id": "chain_C",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000030"
+      ],
+      "scaling_coefficient": 1.0834
+    },
+    {
+      "id": "skill_000040",
+      "name": "Yomi Brine Seep",
+      "composition_mode": "single",
+      "role": "damage_over_time",
+      "canonical_element": "water",
+      "effect_category": "control",
+      "canonical_pair_ref": "canonical/water/control",
+      "energy_cost": 17.5,
+      "cooldown_seconds": 6.9,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "chill",
+          "params": {
+            "slow_percent": 0.21,
+            "duration_seconds": 4.9
+          }
+        }
+      ],
+      "color_value": 598454,
+      "flavor_text": "Salt-heavy wind drags up from beneath the roots of the dead world, soaking the ground in a weeping cold that clings to bone and breath alike. Those caught in its slow spread find their limbs growing heavy, as if the tide of Yomi is already pulling them under.",
+      "tier": 3,
+      "chain_id": "chain_A",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000035"
+      ],
+      "scaling_coefficient": 1.1476
+    },
+    {
+      "id": "skill_000151",
+      "name": "Yomi Bone Gale",
+      "composition_mode": "single",
+      "role": "utility",
+      "canonical_element": "earth",
+      "effect_category": "utility",
+      "canonical_pair_ref": "canonical/earth/utility",
+      "energy_cost": 16.8,
+      "cooldown_seconds": 17.5,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "buff_damage",
+          "params": {
+            "percent": 0.14,
+            "duration_seconds": 9.3
+          }
+        },
+        {
+          "name": "buff_mana_regen",
+          "params": {
+            "percent": 0.31,
+            "duration_seconds": 8.6
+          }
+        }
+      ],
+      "color_value": 296257,
+      "flavor_text": "The pale winds of the underworld hollow the marrow and fill it with something older than hunger. Wisdom rises through the emptied self like breath through a flute carved from the dead.",
+      "tier": 3,
+      "chain_id": "chain_B",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000035"
+      ],
+      "scaling_coefficient": 1.1589
+    },
+    {
+      "id": "skill_000042",
+      "name": "Yomi Exhale Ward",
+      "composition_mode": "single",
+      "role": "defensive",
+      "canonical_element": "wind",
+      "effect_category": "defensive",
+      "canonical_pair_ref": "canonical/wind/defensive",
+      "energy_cost": 24.3,
+      "cooldown_seconds": 13.8,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "shield",
+          "params": {
+            "magnitude": 1000,
+            "duration_seconds": 4.8
+          }
+        }
+      ],
+      "color_value": 481562,
+      "flavor_text": "The breath of the underworld rises around you, a choking veil of miasma that turns aside blade and spite alike. For a heartbeat, you are untouchable \u2014 wrapped in the dead wind of Yomi's hollow throat.",
+      "tier": 3,
+      "chain_id": "chain_B",
+      "chain_position": 2,
+      "parent_skill_ids": [
+        "skill_000035"
+      ],
+      "scaling_coefficient": 1.1533
+    },
+    {
+      "id": "skill_000043",
+      "name": "Pale Wind Mending",
+      "composition_mode": "single",
+      "role": "sustain",
+      "canonical_element": "earth",
+      "effect_category": "sustain",
+      "canonical_pair_ref": "canonical/earth/sustain",
+      "energy_cost": 25.9,
+      "cooldown_seconds": 9.7,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "heal",
+          "params": {
+            "magnitude": 1250
+          }
+        },
+        {
+          "name": "heal_over_time",
+          "params": {
+            "tick_heal": 375,
+            "duration_seconds": 9.6
+          }
+        }
+      ],
+      "color_value": 371799,
+      "flavor_text": "From Yomi's breathless depths, a current of bleached air moves through fractured bone and hollow earth, drawing the body back toward wholeness. The channel hums like wind across a field of ancient remains, slow and patient and certain.",
+      "tier": 3,
+      "chain_id": "chain_C",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000035"
+      ],
+      "scaling_coefficient": 1.1589
+    }
+  ],
+  "balance_metadata": {
+    "target_winrate": 0.5,
+    "actual_winrate": 0.507,
+    "convergence_iterations": 9,
+    "converged": true,
+    "final_modifier": 0.0611,
+    "gauntlet_results": {
+      "monster_00017": 0.63,
+      "monster_00018": 0.31,
+      "monster_00019": 0.51,
+      "monster_00016": 0.66,
+      "monster_00020": 0.19,
+      "monster_00021": 0.84,
+      "monster_00022": 0.94,
+      "monster_00023": 0.36,
+      "monster_00024": 0.45,
+      "monster_00025": 0.18
+    }
+  },
+  "convergence_report": {
+    "endgame_L50": {
+      "winrate": 0.507,
+      "iterations": 9,
+      "converged": true,
+      "final_modifier": 0.0611,
+      "dimensions_explored": [
+        "cooldown_energy",
+        "skill_swap",
+        "geometry_mix"
+      ],
+      "optimal_distribution": null,
+      "gauntlet_results": {
+        "monster_00017": 0.63,
+        "monster_00018": 0.31,
+        "monster_00019": 0.51,
+        "monster_00016": 0.66,
+        "monster_00020": 0.19,
+        "monster_00021": 0.84,
+        "monster_00022": 0.94,
+        "monster_00023": 0.36,
+        "monster_00024": 0.45,
+        "monster_00025": 0.18
+      }
+    },
+    "mid_band_L33": {
+      "winrate": 0.664,
+      "iterations": 10,
+      "converged": false,
+      "final_modifier": 0.0509,
+      "dimensions_explored": [],
+      "optimal_distribution": null,
+      "gauntlet_results": {
+        "monster_00041": 0.59,
+        "monster_00042": 0.57,
+        "monster_00043": 0.98,
+        "monster_00044": 0.57,
+        "monster_00045": 0.61
+      }
+    },
+    "early_band_L17": {
+      "winrate": 0.904,
+      "iterations": 10,
+      "converged": false,
+      "final_modifier": 0.0509,
+      "dimensions_explored": [],
+      "optimal_distribution": null,
+      "gauntlet_results": {
+        "monster_00046": 0.82,
+        "monster_00047": 0.88,
+        "monster_00048": 0.98,
+        "monster_00049": 0.96,
+        "monster_00050": 0.88
+      }
+    },
+    "variance_check_L50": {
+      "p50": 0.0,
+      "p75": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "pathology_flagged": false
+    },
+    "doppelganger_validation": {
+      "L17_mirror": {
+        "winrate": 0.42,
+        "balanced": true
+      },
+      "L33_mirror": {
+        "winrate": 0.42,
+        "balanced": true
+      },
+      "L50_mirror": {
+        "winrate": 0.52,
+        "balanced": true
+      }
+    },
+    "recompose_attempts": [
+      {
+        "lever": "skill_swap",
+        "band_id": "L50",
+        "role": "burst_damage",
+        "lever_specifics": {
+          "swapped_from_id": "skill_000041",
+          "swapped_from_role": "burst_damage",
+          "swapped_to_role": "utility",
+          "swapped_to_id": "skill_000151",
+          "role": "burst_damage",
+          "rationale": "reduce_damage_output"
+        },
+        "attempt": 1,
+        "before_winrate": 0.623,
+        "after_winrate": 0.539,
+        "delta": -0.084,
+        "accepted": true,
+        "eval_modifier": 0.0574
+      },
+      {
+        "lever": "skill_swap",
+        "band_id": "L50",
+        "role": "damage_over_time",
+        "lever_specifics": {
+          "swapped_from_id": "skill_000040",
+          "swapped_from_role": "damage_over_time",
+          "swapped_to_role": "utility",
+          "swapped_to_id": "skill_000152",
+          "role": "damage_over_time",
+          "rationale": "reduce_damage_output"
+        },
+        "attempt": 2,
+        "before_winrate": 0.539,
+        "after_winrate": 0.539,
+        "delta": 0.0,
+        "accepted": false,
+        "eval_modifier": 0.0574
+      },
+      {
+        "lever": "geometry_mix",
+        "band_id": "L50",
+        "role": "primary_attack",
+        "lever_specifics": {
+          "skill_id": "skill_000034",
+          "role": "primary_attack",
+          "from_geometry": "multi_projectile",
+          "to_geometry": "single_target",
+          "rationale": "geometry_rebias_reduce_dps"
+        },
+        "attempt": 1,
+        "before_winrate": 0.539,
+        "after_winrate": 0.492,
+        "delta": -0.047,
+        "accepted": true,
+        "eval_modifier": 0.0574
+      },
+      {
+        "lever": "geometry_mix",
+        "band_id": "L50",
+        "role": "area_damage",
+        "lever_specifics": {
+          "skill_id": "skill_000037",
+          "role": "area_damage",
+          "from_geometry": "multi_projectile",
+          "to_geometry": "chain_lightning",
+          "rationale": "geometry_rebias_reduce_dps"
+        },
+        "attempt": 2,
+        "before_winrate": 0.492,
+        "after_winrate": 0.492,
+        "delta": 0.0,
+        "accepted": false,
+        "eval_modifier": 0.0574
+      },
+      {
+        "lever": "cooldown_energy",
+        "band_id": "L50",
+        "role": "primary_attack",
+        "lever_specifics": {
+          "skill_id": "skill_000153",
+          "role": "primary_attack",
+          "param": "cooldown_seconds",
+          "from_cd": 1.3,
+          "to_cd": 1.43,
+          "from_cost": 14.4,
+          "to_cost": 15.84,
+          "rationale": "cd_increase_reduce_dps"
+        },
+        "attempt": 1,
+        "before_winrate": 0.492,
+        "after_winrate": 0.459,
+        "delta": -0.033,
+        "accepted": true,
+        "eval_modifier": 0.0574
+      },
+      {
+        "lever": "cooldown_energy",
+        "band_id": "L50",
+        "role": "primary_attack",
+        "lever_specifics": {
+          "skill_id": "skill_000153",
+          "role": "primary_attack",
+          "param": "cooldown_seconds",
+          "from_cd": 1.43,
+          "to_cd": 1.573,
+          "from_cost": 15.84,
+          "to_cost": 17.42,
+          "rationale": "cd_increase_reduce_dps"
+        },
+        "attempt": 2,
+        "before_winrate": 0.459,
+        "after_winrate": 0.459,
+        "delta": 0.0,
+        "accepted": false,
+        "eval_modifier": 0.0574
+      }
+    ],
+    "recompose_outcome": "primary_loop_converged",
+    "composition_pre_modifier_wr": 1.0,
+    "composition_sufficient_for_055": false,
+    "secondary_loop_attempts": [
+      {
+        "variant": 1,
+        "from_element": "wind",
+        "to_element": "water",
+        "n_swapped": 1,
+        "eval_modifier": 0.0574,
+        "modifier_dist_from_1": 0.9426,
+        "baseline_dist": 0.9426,
+        "accepted": false
+      },
+      {
+        "variant": 2,
+        "from_element": "wind",
+        "to_element": "water",
+        "n_swapped": 1,
+        "eval_modifier": 0.0574,
+        "modifier_dist_from_1": 0.9426,
+        "baseline_dist": 0.9426,
+        "accepted": false
+      }
+    ],
+    "secondary_loop_outcome": "secondary_reverted",
+    "modifier_clamp_observation": {
+      "clamp_range": [
+        0.15,
+        2.5
+      ],
+      "final_modifier": 0.0611,
+      "would_pass_clamp": false
+    }
+  }
+}

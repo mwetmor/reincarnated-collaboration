@@ -1,0 +1,15 @@
+# Catalogue DB — SQLite files are gitignored.
+# The schema doc (catalogue-schema.md) and migration script (../scripts/catalogue_migrations/) are committed.
+# The DB file itself can be regenerated from the migration script.
+catalogue.db
+catalogue.db-wal
+catalogue.db-shm
+
+# Future analytical outputs (defensive — any non-doc SQLite under curated/)
+*.db
+*.db-wal
+*.db-shm
+
+# Archive directory exception — historical SQLite snapshots are intentional, durable, and committed.
+# Filename pattern: archive/<store>-<as-of-date>.db (immutable historical records).
+!archive/*.db

@@ -1,0 +1,442 @@
+{
+  "id": "class_0010",
+  "name": "Hollow Wind Ascetic",
+  "title_completion": "a Hollow Wind Ascetic",
+  "flavor_text": "They say the dead of Yomi do not breathe \u2014 but you do, and what exhales from you is not air. You have learned to weaponize the miasma of pale roads, letting it seep from your lungs in slow, patient gusts that unravel flesh the way rot unravels wood. Rage is your bellows; suffering, your fuel; and you have never once needed to hurry.",
+  "archetype_tag": "experimental",
+  "energy_type": "rage",
+  "role_orientation": "damage",
+  "range_profile": "close",
+  "dominant_element": "physical",
+  "color_palette": [
+    192087,
+    165670,
+    195887,
+    114800,
+    171829,
+    174749,
+    155982,
+    136448,
+    185061,
+    151455
+  ],
+  "stat_distribution": {
+    "strength": 17,
+    "dexterity": 5,
+    "intelligence": 100,
+    "wisdom": 98,
+    "vitality": 50
+  },
+  "skills": [
+    {
+      "id": "skill_000133",
+      "name": "Yomi Breath Rising",
+      "composition_mode": "single",
+      "role": "sustain",
+      "canonical_element": "physical",
+      "effect_category": "sustain",
+      "canonical_pair_ref": "canonical/physical/sustain",
+      "energy_cost": 46.2,
+      "cooldown_seconds": 11.4,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "heal",
+          "params": {
+            "magnitude": 1250
+          }
+        }
+      ],
+      "color_value": 192087,
+      "flavor_text": "A gust from the hollow deep surges upward through cracked bone and sinew, knitting the torn self back into wholeness. What the underwind reclaims, it returns stronger than before.",
+      "tier": null,
+      "chain_id": "flat",
+      "chain_position": null,
+      "parent_skill_ids": [],
+      "scaling_coefficient": null
+    },
+    {
+      "id": "skill_000134",
+      "name": "Yomi Gale Rending",
+      "composition_mode": "single",
+      "role": "damage_over_time",
+      "canonical_element": "physical",
+      "effect_category": "damage_over_time",
+      "canonical_pair_ref": "canonical/physical/damage_over_time",
+      "energy_cost": 36.4,
+      "cooldown_seconds": 5.3,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "bleed",
+          "params": {
+            "tick_damage": 750,
+            "duration_seconds": 6.6
+          }
+        },
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 750,
+            "element": "physical"
+          }
+        }
+      ],
+      "color_value": 165670,
+      "flavor_text": "A strike channeled through the hollow winds of the underworld tears flesh like paper left in a storm. The wound breathes and bleeds long after the blow lands, as if the air itself refuses to let it close.",
+      "tier": null,
+      "chain_id": "flat",
+      "chain_position": null,
+      "parent_skill_ids": [],
+      "scaling_coefficient": null
+    },
+    {
+      "id": "skill_000135",
+      "name": "Gale of Pale Roads",
+      "composition_mode": "single",
+      "role": "burst_damage",
+      "canonical_element": "physical",
+      "effect_category": "single_target_damage",
+      "canonical_pair_ref": "canonical/physical/single_target_damage",
+      "energy_cost": 42.6,
+      "cooldown_seconds": 9.5,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 2500,
+            "element": "physical"
+          }
+        }
+      ],
+      "color_value": 195887,
+      "flavor_text": "A breath drawn from the hollow dark between worlds tears outward in a single, devastating arc. The living call it wind; those who return from Yomi know its true name.",
+      "tier": null,
+      "chain_id": "flat",
+      "chain_position": null,
+      "parent_skill_ids": [],
+      "scaling_coefficient": null
+    },
+    {
+      "id": "skill_000136",
+      "name": "Yomi Gale Rending",
+      "composition_mode": "single",
+      "role": "damage_over_time",
+      "canonical_element": "physical",
+      "effect_category": "damage_over_time",
+      "canonical_pair_ref": "canonical/physical/damage_over_time",
+      "energy_cost": 28.1,
+      "cooldown_seconds": 7.5,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "bleed",
+          "params": {
+            "tick_damage": 750,
+            "duration_seconds": 5.6
+          }
+        }
+      ],
+      "color_value": 114800,
+      "flavor_text": "A breath from the underworld tears open flesh in long, unraveling strips, as if the dead wind itself is hungry. The wound sings with each gust, refusing to close.",
+      "tier": null,
+      "chain_id": "flat",
+      "chain_position": null,
+      "parent_skill_ids": [],
+      "scaling_coefficient": null
+    },
+    {
+      "id": "skill_000137",
+      "name": "Yomi Gale Ward",
+      "composition_mode": "single",
+      "role": "defensive",
+      "canonical_element": "physical",
+      "effect_category": "defensive",
+      "canonical_pair_ref": "canonical/physical/defensive",
+      "energy_cost": 38.8,
+      "cooldown_seconds": 12.1,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "shield",
+          "params": {
+            "magnitude": 1000,
+            "duration_seconds": 4.3
+          }
+        },
+        {
+          "name": "buff_dodge",
+          "params": {
+            "percent": 0.13,
+            "duration_seconds": 4.3
+          }
+        }
+      ],
+      "color_value": 171829,
+      "flavor_text": "The winds of the underworld rise up to meet the blow, wrapping the body in a shroud of displaced air. For a breath's span, strikes find nothing but the hollow where you stood.",
+      "tier": null,
+      "chain_id": "flat",
+      "chain_position": null,
+      "parent_skill_ids": [],
+      "scaling_coefficient": null
+    },
+    {
+      "id": "skill_000138",
+      "name": "Yomi Gale Surge",
+      "composition_mode": "single",
+      "role": "mobility",
+      "canonical_element": "physical",
+      "effect_category": "mobility",
+      "canonical_pair_ref": "canonical/physical/mobility",
+      "energy_cost": 40.0,
+      "cooldown_seconds": 11.4,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "buff_dodge",
+          "params": {
+            "percent": 0.22,
+            "duration_seconds": 4.1
+          }
+        }
+      ],
+      "color_value": 174749,
+      "flavor_text": "The winds of the underworld carry the body faster than death itself can follow. For a breathless moment, every strike lands where shadow cannot.",
+      "tier": null,
+      "chain_id": "flat",
+      "chain_position": null,
+      "parent_skill_ids": [],
+      "scaling_coefficient": null
+    },
+    {
+      "id": "skill_000139",
+      "name": "Gale from Below",
+      "composition_mode": "single",
+      "role": "primary_attack",
+      "canonical_element": "physical",
+      "effect_category": "single_target_damage",
+      "canonical_pair_ref": "canonical/physical/single_target_damage",
+      "energy_cost": 48.3,
+      "cooldown_seconds": 0.4,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 625,
+            "element": "physical"
+          }
+        }
+      ],
+      "color_value": 155982,
+      "flavor_text": "A blow that carries the cold breath of Yomi's depths, splitting air and bone in the same merciless instant. The wind it leaves behind smells faintly of the underworld.",
+      "tier": null,
+      "chain_id": "flat",
+      "chain_position": null,
+      "parent_skill_ids": [],
+      "scaling_coefficient": null
+    },
+    {
+      "id": "skill_000140",
+      "name": "Yomi Gale Surge",
+      "composition_mode": "single",
+      "role": "utility",
+      "canonical_element": "physical",
+      "effect_category": "control",
+      "canonical_pair_ref": "canonical/physical/control",
+      "energy_cost": 27.2,
+      "cooldown_seconds": 14.3,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "buff_damage",
+          "params": {
+            "percent": 0.3,
+            "duration_seconds": 5.4
+          }
+        },
+        {
+          "name": "silence",
+          "params": {
+            "duration_seconds": 2.8
+          }
+        },
+        {
+          "name": "buff_mana_regen",
+          "params": {
+            "percent": 0.32,
+            "duration_seconds": 6.8
+          }
+        }
+      ],
+      "color_value": 136448,
+      "flavor_text": "A roaring breath from the underworld tears outward in a perfect ring, swallowing sound and filling the veins with furious momentum. The wind does not ask \u2014 it simply takes.",
+      "tier": null,
+      "chain_id": "flat",
+      "chain_position": null,
+      "parent_skill_ids": [],
+      "scaling_coefficient": null
+    },
+    {
+      "id": "skill_000141",
+      "name": "Undertow of Yomi",
+      "composition_mode": "single",
+      "role": "control",
+      "canonical_element": "physical",
+      "effect_category": "control",
+      "canonical_pair_ref": "canonical/physical/control",
+      "energy_cost": 31.0,
+      "cooldown_seconds": 8.3,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "silence",
+          "params": {
+            "duration_seconds": 2.5
+          }
+        }
+      ],
+      "color_value": 185061,
+      "flavor_text": "A hammered fist drives the wind itself into the earth, pulling sound down into the hollow dark below. The air around the struck ground goes dead \u2014 no voice, no cry, no breath finds purchase.",
+      "tier": null,
+      "chain_id": "flat",
+      "chain_position": null,
+      "parent_skill_ids": [],
+      "scaling_coefficient": null
+    },
+    {
+      "id": "skill_000142",
+      "name": "Yomi Breath Rising",
+      "composition_mode": "single",
+      "role": "sustain",
+      "canonical_element": "physical",
+      "effect_category": "sustain",
+      "canonical_pair_ref": "canonical/physical/sustain",
+      "energy_cost": 40.7,
+      "cooldown_seconds": 10.7,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "heal",
+          "params": {
+            "magnitude": 1250
+          }
+        }
+      ],
+      "color_value": 151455,
+      "flavor_text": "A current from the deep underworld surges upward through the body, knitting torn flesh with the cold pressure of winds that have never known sunlight. The living feel it as a gasp \u2014 something returned from a place that does not give things back.",
+      "tier": null,
+      "chain_id": "flat",
+      "chain_position": null,
+      "parent_skill_ids": [],
+      "scaling_coefficient": null
+    }
+  ],
+  "balance_metadata": {
+    "target_winrate": 0.5,
+    "actual_winrate": 0.479,
+    "convergence_iterations": 5,
+    "converged": true,
+    "final_modifier": 0.8219,
+    "gauntlet_results": {
+      "monster_00017": 0.65,
+      "monster_00018": 0.28,
+      "monster_00019": 0.23,
+      "monster_00016": 0.89,
+      "monster_00020": 0.14,
+      "monster_00021": 0.71,
+      "monster_00022": 0.93,
+      "monster_00023": 0.51,
+      "monster_00024": 0.36,
+      "monster_00025": 0.09
+    }
+  },
+  "convergence_report": {
+    "endgame_L50": {
+      "winrate": 0.479,
+      "iterations": 5,
+      "converged": true,
+      "final_modifier": 0.8219,
+      "dimensions_explored": [],
+      "optimal_distribution": null,
+      "gauntlet_results": {
+        "monster_00017": 0.65,
+        "monster_00018": 0.28,
+        "monster_00019": 0.23,
+        "monster_00016": 0.89,
+        "monster_00020": 0.14,
+        "monster_00021": 0.71,
+        "monster_00022": 0.93,
+        "monster_00023": 0.51,
+        "monster_00024": 0.36,
+        "monster_00025": 0.09
+      }
+    },
+    "mid_band_L33": {
+      "winrate": 0.5,
+      "iterations": 6,
+      "converged": true,
+      "final_modifier": 0.4953,
+      "dimensions_explored": [],
+      "optimal_distribution": null,
+      "gauntlet_results": {
+        "monster_00041": 0.31,
+        "monster_00042": 0.17,
+        "monster_00043": 0.95,
+        "monster_00044": 0.67,
+        "monster_00045": 0.4
+      }
+    },
+    "early_band_L17": {
+      "winrate": 0.498,
+      "iterations": 3,
+      "converged": true,
+      "final_modifier": 0.2875,
+      "dimensions_explored": [],
+      "optimal_distribution": null,
+      "gauntlet_results": {
+        "monster_00046": 0.45,
+        "monster_00047": 0.35,
+        "monster_00048": 0.28,
+        "monster_00049": 0.9,
+        "monster_00050": 0.51
+      }
+    },
+    "variance_check_L50": {
+      "p50": 0.136,
+      "p75": 0.13,
+      "p95": 0.168,
+      "p99": 0.188,
+      "pathology_flagged": false
+    },
+    "doppelganger_validation": {
+      "L17_mirror": {
+        "winrate": 0.48,
+        "balanced": true
+      },
+      "L33_mirror": {
+        "winrate": 0.38,
+        "balanced": true
+      },
+      "L50_mirror": {
+        "winrate": 0.46,
+        "balanced": true
+      }
+    },
+    "recompose_attempts": [],
+    "recompose_outcome": "skipped_experimental",
+    "composition_pre_modifier_wr": 0.614,
+    "composition_sufficient_for_055": false,
+    "secondary_loop_attempts": [],
+    "secondary_loop_outcome": "skipped_experimental",
+    "modifier_clamp_observation": {
+      "clamp_range": [
+        0.15,
+        2.5
+      ],
+      "final_modifier": 0.8219,
+      "would_pass_clamp": true
+    }
+  }
+}

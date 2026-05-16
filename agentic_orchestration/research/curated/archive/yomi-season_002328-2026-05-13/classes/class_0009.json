@@ -1,0 +1,664 @@
+{
+  "id": "class_0009",
+  "name": "Hollow Breath Warden",
+  "title_completion": "a Hollow Breath Warden",
+  "flavor_text": "From the sunless depths of Yomi, she exhales and the miasma obeys. What the living call wind, the dead call memory \u2014 and she has learned to herd both. Her lantern does not guide souls home; it stills them where they wander.",
+  "archetype_tag": "wind_controller",
+  "energy_type": "mana",
+  "role_orientation": "control",
+  "range_profile": "long",
+  "dominant_element": "wind",
+  "color_palette": [
+    479301,
+    519389,
+    447104,
+    511069,
+    502465,
+    480334,
+    472639,
+    53647,
+    519898,
+    45258,
+    448700,
+    454852,
+    453385
+  ],
+  "stat_distribution": {
+    "strength": 5,
+    "dexterity": 41,
+    "intelligence": 9,
+    "wisdom": 139,
+    "vitality": 76
+  },
+  "skills": [
+    {
+      "id": "skill_000120",
+      "name": "Yomi Exhale",
+      "composition_mode": "single",
+      "role": "control",
+      "canonical_element": "wind",
+      "effect_category": "control",
+      "canonical_pair_ref": "canonical/wind/control",
+      "energy_cost": 22.1,
+      "cooldown_seconds": 19.5,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "knockback",
+          "params": {
+            "distance": 3.8,
+            "stagger_seconds": 1.0
+          }
+        }
+      ],
+      "color_value": 479301,
+      "flavor_text": "The dead air of the underworld surges outward in a single poisoned breath, dragging the living toward the threshold before casting them violently aside. Those caught in its pull stagger with lungs full of something that was never meant to rise.",
+      "tier": 1,
+      "chain_id": "chain_A",
+      "chain_position": 1,
+      "parent_skill_ids": [],
+      "scaling_coefficient": 1.073
+    },
+    {
+      "id": "skill_000121",
+      "name": "Yomi Exhale",
+      "composition_mode": "single",
+      "role": "area_damage",
+      "canonical_element": "wind",
+      "effect_category": "single_target_damage",
+      "canonical_pair_ref": "canonical/wind/single_target_damage",
+      "energy_cost": 16.5,
+      "cooldown_seconds": 4.5,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 1500,
+            "element": "wind"
+          }
+        },
+        {
+          "name": "knockback",
+          "params": {
+            "distance": 4.1,
+            "stagger_seconds": 0.8
+          }
+        }
+      ],
+      "color_value": 519389,
+      "flavor_text": "The breath of the underworld rises through cracked earth, a choking gale that reeks of hollow eternity. Everything caught within staggers, lungs burning with air that was never meant to reach the living.",
+      "tier": 1,
+      "chain_id": "chain_B",
+      "chain_position": 1,
+      "parent_skill_ids": [],
+      "scaling_coefficient": 1.0532
+    },
+    {
+      "id": "skill_000122",
+      "name": "Yomi Breath Scatter",
+      "composition_mode": "single",
+      "role": "mobility",
+      "canonical_element": "wind",
+      "effect_category": "mobility",
+      "canonical_pair_ref": "canonical/wind/mobility",
+      "energy_cost": 14.0,
+      "cooldown_seconds": 11.2,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "knockback",
+          "params": {
+            "distance": 4.4,
+            "stagger_seconds": 0.8
+          }
+        }
+      ],
+      "color_value": 447104,
+      "flavor_text": "The air between here and there turns briefly wrong \u2014 thick with the exhale of a place that does not breathe. Whatever stood in the way finds itself somewhere else, lungs burning, legs unsure.",
+      "tier": 1,
+      "chain_id": "chain_C",
+      "chain_position": 1,
+      "parent_skill_ids": [],
+      "scaling_coefficient": 1.0706
+    },
+    {
+      "id": "skill_000123",
+      "name": "Yomi Miasma Shroud",
+      "composition_mode": "single",
+      "role": "defensive",
+      "canonical_element": "wind",
+      "effect_category": "defensive",
+      "canonical_pair_ref": "canonical/wind/defensive",
+      "energy_cost": 23.5,
+      "cooldown_seconds": 13.8,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "shield",
+          "params": {
+            "magnitude": 1000,
+            "duration_seconds": 4.7
+          }
+        },
+        {
+          "name": "buff_defense",
+          "params": {
+            "percent": 0.16,
+            "duration_seconds": 9.6
+          }
+        },
+        {
+          "name": "buff_dodge",
+          "params": {
+            "percent": 0.25,
+            "duration_seconds": 5.1
+          }
+        }
+      ],
+      "color_value": 511069,
+      "flavor_text": "The breath of the underworld rises around you, a choking veil of poisoned wind that turns blades and dims the eyes of those who seek your ruin. What comes from Yomi does not welcome the touch of the living.",
+      "tier": 1,
+      "chain_id": "chain_C",
+      "chain_position": 2,
+      "parent_skill_ids": [],
+      "scaling_coefficient": 1.0525
+    },
+    {
+      "id": "skill_000124",
+      "name": "Yomi Miasma Veil",
+      "composition_mode": "single",
+      "role": "defensive",
+      "canonical_element": "wind",
+      "effect_category": "defensive",
+      "canonical_pair_ref": "canonical/wind/defensive",
+      "energy_cost": 15.1,
+      "cooldown_seconds": 13.6,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "shield",
+          "params": {
+            "magnitude": 1000,
+            "duration_seconds": 5.2
+          }
+        },
+        {
+          "name": "buff_defense",
+          "params": {
+            "percent": 0.28,
+            "duration_seconds": 9.9
+          }
+        },
+        {
+          "name": "buff_dodge",
+          "params": {
+            "percent": 0.17,
+            "duration_seconds": 6.1
+          }
+        }
+      ],
+      "color_value": 502465,
+      "flavor_text": "The winds of the underworld fold around you in a shroud of poisoned breath, swallowing your form whole and leaving only a faint discoloration in the air where you stood. Whatever strikes at the void finds nothing \u2014 the miasma has already carried you elsewhere, and your skin remembers the chill of that passage as armor.",
+      "tier": 2,
+      "chain_id": "chain_A",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000120"
+      ],
+      "scaling_coefficient": 1.0839
+    },
+    {
+      "id": "skill_000125",
+      "name": "Yomi Exhale",
+      "composition_mode": "single",
+      "role": "control",
+      "canonical_element": "wind",
+      "effect_category": "control",
+      "canonical_pair_ref": "canonical/wind/control",
+      "energy_cost": 28.7,
+      "cooldown_seconds": 11.6,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "knockback",
+          "params": {
+            "distance": 4.9,
+            "stagger_seconds": 0.7
+          }
+        }
+      ],
+      "color_value": 480334,
+      "flavor_text": "The underworld breathes out through cracked earth, a cone of miasmic wind that reeks of still water and forgotten names. Those caught in its path are hurled backward, lungs burning, limbs stuttering against the weight of something that should not be above ground.",
+      "tier": 2,
+      "chain_id": "chain_B",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000121"
+      ],
+      "scaling_coefficient": 1.119
+    },
+    {
+      "id": "skill_000126",
+      "name": "Yomi Exhale",
+      "composition_mode": "single",
+      "role": "utility",
+      "canonical_element": "wind",
+      "effect_category": "control",
+      "canonical_pair_ref": "canonical/wind/control",
+      "energy_cost": 16.7,
+      "cooldown_seconds": 15.9,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "buff_damage",
+          "params": {
+            "percent": 0.12,
+            "duration_seconds": 6.3
+          }
+        },
+        {
+          "name": "silence",
+          "params": {
+            "duration_seconds": 3.9
+          }
+        },
+        {
+          "name": "buff_mana_regen",
+          "params": {
+            "percent": 0.29,
+            "duration_seconds": 7.5
+          }
+        }
+      ],
+      "color_value": 472639,
+      "flavor_text": "The breath of the underworld fills your lungs \u2014 not poison, but purpose, a choking clarity that sharpens the soul and stills the tongue. For a moment you speak the language of the dead, and the wind obeys.",
+      "tier": 2,
+      "chain_id": "chain_C",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000122"
+      ],
+      "scaling_coefficient": 1.1149
+    },
+    {
+      "id": "skill_000127",
+      "name": "Yomi Lantern Gyre",
+      "composition_mode": "single",
+      "role": "control",
+      "canonical_element": "fire",
+      "effect_category": "single_target_damage",
+      "canonical_pair_ref": "canonical/fire/single_target_damage",
+      "energy_cost": 19.5,
+      "cooldown_seconds": 17.6,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "silence",
+          "params": {
+            "duration_seconds": 2.8
+          }
+        },
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 0,
+            "element": "fire"
+          }
+        }
+      ],
+      "color_value": 53647,
+      "flavor_text": "A pale flame tears loose from the underworld's carried light, spinning outward in a breathless coil that swallows sound whole. Whatever it touches burns not with heat but with the hush of a wind that has crossed from somewhere beyond.",
+      "tier": 2,
+      "chain_id": "chain_C",
+      "chain_position": 2,
+      "parent_skill_ids": [
+        "skill_000122"
+      ],
+      "scaling_coefficient": 1.1152
+    },
+    {
+      "id": "skill_000128",
+      "name": "Yomi Exhale",
+      "composition_mode": "single",
+      "role": "area_damage",
+      "canonical_element": "wind",
+      "effect_category": "area_damage",
+      "canonical_pair_ref": "canonical/wind/area_damage",
+      "energy_cost": 15.9,
+      "cooldown_seconds": 5.4,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 1500,
+            "element": "wind"
+          }
+        }
+      ],
+      "color_value": 519898,
+      "flavor_text": "The underworld breathes out, and the air turns wrong \u2014 a slow, wheeling gust thick with the breath of the forgotten dead. Everything caught within it learns what it means to drown in open sky.",
+      "tier": 3,
+      "chain_id": "chain_A",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000124"
+      ],
+      "scaling_coefficient": 1.1547
+    },
+    {
+      "id": "skill_000129",
+      "name": "Lantern Hush of Yomi",
+      "composition_mode": "single",
+      "role": "control",
+      "canonical_element": "fire",
+      "effect_category": "control",
+      "canonical_pair_ref": "canonical/fire/control",
+      "energy_cost": 18.2,
+      "cooldown_seconds": 13.3,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "silence",
+          "params": {
+            "duration_seconds": 2.8
+          }
+        }
+      ],
+      "color_value": 45258,
+      "flavor_text": "A ring of pale fire exhales outward like a lantern's breath snuffed by underworld wind, swallowing every sound it touches. The silence that follows is not empty \u2014 it is carried, the way the dead carry their names.",
+      "tier": 3,
+      "chain_id": "chain_B",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000125"
+      ],
+      "scaling_coefficient": 1.1597
+    },
+    {
+      "id": "skill_000191",
+      "name": "Lantern of Still Passage",
+      "composition_mode": "single",
+      "role": "defensive",
+      "canonical_element": "fire",
+      "effect_category": "defensive",
+      "canonical_pair_ref": "canonical/fire/defensive",
+      "energy_cost": 24.6,
+      "cooldown_seconds": 11.4,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "shield",
+          "params": {
+            "magnitude": 1000,
+            "duration_seconds": 5.2
+          }
+        }
+      ],
+      "color_value": 54464,
+      "flavor_text": "A flame steps out of the wind and becomes a room. Whatever stands inside it borrows the quiet of a place where the dead no longer breathe.",
+      "tier": 4,
+      "chain_id": "chain_A",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000128"
+      ],
+      "scaling_coefficient": 1.1917
+    },
+    {
+      "id": "skill_000193",
+      "name": "Yomi Lantern Wind",
+      "composition_mode": "single",
+      "role": "utility",
+      "canonical_element": "fire",
+      "effect_category": "utility",
+      "canonical_pair_ref": "canonical/fire/utility",
+      "energy_cost": 19.4,
+      "cooldown_seconds": 19.5,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "buff_damage",
+          "params": {
+            "percent": 0.23,
+            "duration_seconds": 4.4
+          }
+        },
+        {
+          "name": "buff_mana_regen",
+          "params": {
+            "percent": 0.11,
+            "duration_seconds": 4.1
+          }
+        }
+      ],
+      "color_value": 27278,
+      "flavor_text": "A flame carried up from the breathless dark below stirs into a totem that hums with the dead's forgotten hunger. It feeds the mind and sharpens the hand for as long as the wind holds its shape.",
+      "tier": 4,
+      "chain_id": "chain_B",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000129"
+      ],
+      "scaling_coefficient": 1.2029
+    },
+    {
+      "id": "skill_000192",
+      "name": "Lantern Slip Wind",
+      "composition_mode": "single",
+      "role": "mobility",
+      "canonical_element": "fire",
+      "effect_category": "mobility",
+      "canonical_pair_ref": "canonical/fire/mobility",
+      "energy_cost": 14.0,
+      "cooldown_seconds": 8.4,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "buff_dodge",
+          "params": {
+            "percent": 0.19,
+            "duration_seconds": 5.3
+          }
+        }
+      ],
+      "color_value": 13448,
+      "flavor_text": "A carried flame gutters sideways and you are already elsewhere, trailing heat-shimmer through the passage between breaths. The lantern of Yomi remembers where you were, not where you are.",
+      "tier": 4,
+      "chain_id": "chain_C",
+      "chain_position": 1,
+      "parent_skill_ids": [],
+      "scaling_coefficient": 1.2288
+    }
+  ],
+  "balance_metadata": {
+    "target_winrate": 0.5,
+    "actual_winrate": 0.516,
+    "convergence_iterations": 3,
+    "converged": true,
+    "final_modifier": 0.1836,
+    "gauntlet_results": {
+      "monster_00017": 0.61,
+      "monster_00018": 0.33,
+      "monster_00019": 0.6,
+      "monster_00016": 0.71,
+      "monster_00020": 0.02,
+      "monster_00021": 0.84,
+      "monster_00022": 0.98,
+      "monster_00023": 0.69,
+      "monster_00024": 0.29,
+      "monster_00025": 0.09
+    }
+  },
+  "convergence_report": {
+    "endgame_L50": {
+      "winrate": 0.516,
+      "iterations": 3,
+      "converged": true,
+      "final_modifier": 0.1836,
+      "dimensions_explored": [
+        "cooldown_energy",
+        "skill_swap",
+        "geometry_mix"
+      ],
+      "optimal_distribution": null,
+      "gauntlet_results": {
+        "monster_00017": 0.61,
+        "monster_00018": 0.33,
+        "monster_00019": 0.6,
+        "monster_00016": 0.71,
+        "monster_00020": 0.02,
+        "monster_00021": 0.84,
+        "monster_00022": 0.98,
+        "monster_00023": 0.69,
+        "monster_00024": 0.29,
+        "monster_00025": 0.09
+      }
+    },
+    "mid_band_L33": {
+      "winrate": 0.48,
+      "iterations": 8,
+      "converged": true,
+      "final_modifier": 0.102,
+      "dimensions_explored": [],
+      "optimal_distribution": null,
+      "gauntlet_results": {
+        "monster_00041": 0.34,
+        "monster_00042": 0.45,
+        "monster_00043": 0.98,
+        "monster_00044": 0.22,
+        "monster_00045": 0.41
+      }
+    },
+    "early_band_L17": {
+      "winrate": 0.528,
+      "iterations": 8,
+      "converged": true,
+      "final_modifier": 0.0574,
+      "dimensions_explored": [],
+      "optimal_distribution": null,
+      "gauntlet_results": {
+        "monster_00046": 0.3,
+        "monster_00047": 0.62,
+        "monster_00048": 0.7,
+        "monster_00049": 0.68,
+        "monster_00050": 0.34
+      }
+    },
+    "variance_check_L50": {
+      "p50": 0.0,
+      "p75": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "pathology_flagged": false
+    },
+    "doppelganger_validation": {
+      "L17_mirror": {
+        "winrate": 0.42,
+        "balanced": true
+      },
+      "L33_mirror": {
+        "winrate": 0.42,
+        "balanced": true
+      },
+      "L50_mirror": {
+        "winrate": 0.48,
+        "balanced": true
+      }
+    },
+    "recompose_attempts": [
+      {
+        "lever": "skill_swap",
+        "band_id": "L50",
+        "role": null,
+        "lever_specifics": {
+          "rationale": "no_swappable_candidates"
+        },
+        "attempt": 1,
+        "before_winrate": 0.573,
+        "after_winrate": 0.573,
+        "delta": 0.0,
+        "accepted": false,
+        "eval_modifier": 0.1094
+      },
+      {
+        "lever": "geometry_mix",
+        "band_id": "L50",
+        "role": "control",
+        "lever_specifics": {
+          "skill_id": "skill_000127",
+          "role": "control",
+          "from_geometry": "vortex_pull",
+          "to_geometry": "ring",
+          "rationale": "geometry_rebias_reduce_dps"
+        },
+        "attempt": 1,
+        "before_winrate": 0.573,
+        "after_winrate": 0.267,
+        "delta": -0.306,
+        "accepted": true,
+        "eval_modifier": 0.1094
+      },
+      {
+        "lever": "geometry_mix",
+        "band_id": "L50",
+        "role": null,
+        "lever_specifics": {
+          "rationale": "no_geometry_candidates"
+        },
+        "attempt": 2,
+        "before_winrate": 0.267,
+        "after_winrate": 0.267,
+        "delta": 0.0,
+        "accepted": false,
+        "eval_modifier": 0.1094
+      },
+      {
+        "lever": "cooldown_energy",
+        "band_id": "L50",
+        "role": "area_damage",
+        "lever_specifics": {
+          "skill_id": "skill_000121",
+          "role": "area_damage",
+          "param": "cooldown_seconds",
+          "from_cd": 4.5,
+          "to_cd": 4.95,
+          "from_cost": 16.5,
+          "to_cost": 18.15,
+          "rationale": "cd_increase_reduce_dps"
+        },
+        "attempt": 1,
+        "before_winrate": 0.267,
+        "after_winrate": 0.267,
+        "delta": 0.0,
+        "accepted": false,
+        "eval_modifier": 0.1094
+      }
+    ],
+    "recompose_outcome": "primary_loop_reverted",
+    "composition_pre_modifier_wr": 1.0,
+    "composition_sufficient_for_055": false,
+    "secondary_loop_attempts": [
+      {
+        "variant": 1,
+        "from_element": "wind",
+        "to_element": "fire",
+        "n_swapped": 3,
+        "eval_modifier": 0.2281,
+        "modifier_dist_from_1": 0.7719,
+        "baseline_dist": 0.8906,
+        "accepted": true
+      }
+    ],
+    "secondary_loop_outcome": "secondary_converged",
+    "modifier_clamp_observation": {
+      "clamp_range": [
+        0.15,
+        2.5
+      ],
+      "final_modifier": 0.1836,
+      "would_pass_clamp": true
+    }
+  }
+}

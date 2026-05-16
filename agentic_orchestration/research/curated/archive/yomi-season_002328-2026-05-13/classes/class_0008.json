@@ -1,0 +1,621 @@
+{
+  "id": "class_0008",
+  "name": "Ossuary Drifter of Yomi",
+  "title_completion": "an Ossuary Drifter of Yomi",
+  "flavor_text": "The dead do not rest in Yomi \u2014 they drift, carried on miasma-thick winds through halls of pale bone and brine-salted dark. You have learned to conduct them, stretching your will across vast distances to raise rattling walls, seal passages with rings of ancient bone, and let the gale do what your hands never could. You do not fight the underworld's current; you become the stillness at its eye.",
+  "archetype_tag": "earth_controller",
+  "energy_type": "mana",
+  "role_orientation": "control",
+  "range_profile": "long",
+  "dominant_element": "earth",
+  "color_palette": [
+    278035,
+    48420,
+    365582,
+    671303,
+    287787,
+    652789,
+    360715,
+    377366,
+    370099,
+    361244,
+    285504,
+    351525
+  ],
+  "stat_distribution": {
+    "strength": 12,
+    "dexterity": 5,
+    "intelligence": 16,
+    "wisdom": 149,
+    "vitality": 88
+  },
+  "skills": [
+    {
+      "id": "skill_000108",
+      "name": "Yomi Bone Wind",
+      "composition_mode": "single",
+      "role": "utility",
+      "canonical_element": "earth",
+      "effect_category": "utility",
+      "canonical_pair_ref": "canonical/earth/utility",
+      "energy_cost": 12.6,
+      "cooldown_seconds": 14.9,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "buff_damage",
+          "params": {
+            "percent": 0.16,
+            "duration_seconds": 4.8
+          }
+        }
+      ],
+      "color_value": 278035,
+      "flavor_text": "A totem of pale remnants rises from cracked earth, and the wind passing through hollow bone carries the weight of what has already been decided. For a breath, every strike lands as if it remembers exactly where to cut.",
+      "tier": 1,
+      "chain_id": "chain_A",
+      "chain_position": 1,
+      "parent_skill_ids": [],
+      "scaling_coefficient": 1.08
+    },
+    {
+      "id": "skill_000109",
+      "name": "Lantern Gust Crossing",
+      "composition_mode": "single",
+      "role": "mobility",
+      "canonical_element": "fire",
+      "effect_category": "mobility",
+      "canonical_pair_ref": "canonical/fire/mobility",
+      "energy_cost": 10.9,
+      "cooldown_seconds": 8.7,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "buff_dodge",
+          "params": {
+            "percent": 0.28,
+            "duration_seconds": 4.5
+          }
+        }
+      ],
+      "color_value": 48420,
+      "flavor_text": "A breath from Yomi's hollow dark catches the flame mid-stride, and the bearer slips between moments like smoke threading a cracked door. The lantern does not waver \u2014 it leads.",
+      "tier": 1,
+      "chain_id": "chain_A",
+      "chain_position": 2,
+      "parent_skill_ids": [],
+      "scaling_coefficient": 1.0587
+    },
+    {
+      "id": "skill_000110",
+      "name": "Yomi Bone Gale",
+      "composition_mode": "single",
+      "role": "control",
+      "canonical_element": "earth",
+      "effect_category": "control",
+      "canonical_pair_ref": "canonical/earth/control",
+      "energy_cost": 15.1,
+      "cooldown_seconds": 9.3,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "root",
+          "params": {
+            "duration_seconds": 2.5
+          }
+        }
+      ],
+      "color_value": 365582,
+      "flavor_text": "A cold wind rises from below, dragging pale earth upward in a spiraling column of bleached grit and hollow remnants. Whatever stands within finds its roots seized \u2014 not by soil, but by the breath of something that no longer moves.",
+      "tier": 1,
+      "chain_id": "chain_B",
+      "chain_position": 1,
+      "parent_skill_ids": [],
+      "scaling_coefficient": 1.0605
+    },
+    {
+      "id": "skill_000111",
+      "name": "Yomi Brine Gale",
+      "composition_mode": "single",
+      "role": "area_damage",
+      "canonical_element": "water",
+      "effect_category": "single_target_damage",
+      "canonical_pair_ref": "canonical/water/single_target_damage",
+      "energy_cost": 15.0,
+      "cooldown_seconds": 6.6,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 1500,
+            "element": "water"
+          }
+        },
+        {
+          "name": "chill",
+          "params": {
+            "slow_percent": 0.28,
+            "duration_seconds": 4.5
+          }
+        }
+      ],
+      "color_value": 671303,
+      "flavor_text": "Salt-laden wind tears up from the underworld's shore, soaking the ground in bitter cold that clings to bone and breath alike. Those caught in its circle find their limbs heavy, as though the dead sea itself pulls them under.",
+      "tier": 2,
+      "chain_id": "chain_A",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000108"
+      ],
+      "scaling_coefficient": 1.1154
+    },
+    {
+      "id": "skill_000112",
+      "name": "Yomi Bone Gale",
+      "composition_mode": "single",
+      "role": "area_damage",
+      "canonical_element": "earth",
+      "effect_category": "single_target_damage",
+      "canonical_pair_ref": "canonical/earth/single_target_damage",
+      "energy_cost": 26.6,
+      "cooldown_seconds": 5.8,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 1500,
+            "element": "earth"
+          }
+        }
+      ],
+      "color_value": 287787,
+      "flavor_text": "The pale winds of the underworld gather inward, dragging loose earth and hollow remnants into a grinding spiral. What the dead left behind does not rest \u2014 it churns.",
+      "tier": 2,
+      "chain_id": "chain_A",
+      "chain_position": 2,
+      "parent_skill_ids": [
+        "skill_000108"
+      ],
+      "scaling_coefficient": 1.081
+    },
+    {
+      "id": "skill_000113",
+      "name": "Yomi Brine Veil",
+      "composition_mode": "single",
+      "role": "defensive",
+      "canonical_element": "water",
+      "effect_category": "defensive",
+      "canonical_pair_ref": "canonical/water/defensive",
+      "energy_cost": 16.7,
+      "cooldown_seconds": 14.8,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "shield",
+          "params": {
+            "magnitude": 1000,
+            "duration_seconds": 5.6
+          }
+        }
+      ],
+      "color_value": 652789,
+      "flavor_text": "A skin of bitter salt wind rises from the deep below, sealing the body against harm the way the sea preserves what it swallows. It holds, cold and absolute, until the gale decides to let go.",
+      "tier": 2,
+      "chain_id": "chain_B",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000110"
+      ],
+      "scaling_coefficient": 1.101
+    },
+    {
+      "id": "skill_000114",
+      "name": "Bone Wind Passage",
+      "composition_mode": "single",
+      "role": "mobility",
+      "canonical_element": "earth",
+      "effect_category": "mobility",
+      "canonical_pair_ref": "canonical/earth/mobility",
+      "energy_cost": 15.3,
+      "cooldown_seconds": 6.6,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "buff_dodge",
+          "params": {
+            "percent": 0.16,
+            "duration_seconds": 6.6
+          }
+        },
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 0,
+            "element": "earth"
+          }
+        }
+      ],
+      "color_value": 360715,
+      "flavor_text": "The bleached corridors of Yomi open for a breath \u2014 you slip between their ribs and emerge elsewhere, the earth remembering where you stood. For a moment, the dead wind clings to your heels and nothing living can follow.",
+      "tier": 2,
+      "chain_id": "chain_B",
+      "chain_position": 2,
+      "parent_skill_ids": [
+        "skill_000110"
+      ],
+      "scaling_coefficient": 1.1147
+    },
+    {
+      "id": "skill_000115",
+      "name": "Yomi Bone Gale",
+      "composition_mode": "single",
+      "role": "control",
+      "canonical_element": "earth",
+      "effect_category": "control",
+      "canonical_pair_ref": "canonical/earth/control",
+      "energy_cost": 28.5,
+      "cooldown_seconds": 12.5,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "root",
+          "params": {
+            "duration_seconds": 3.1
+          }
+        }
+      ],
+      "color_value": 377366,
+      "flavor_text": "A pale wind rises from below, tasting of chalk and old earth, and everything caught in its spiral becomes still. Roots of pale matter coil up through the ground, holding the living in place as the dead once were held.",
+      "tier": 3,
+      "chain_id": "chain_A",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000111"
+      ],
+      "scaling_coefficient": 1.1529
+    },
+    {
+      "id": "skill_000116",
+      "name": "Yomi Bone Stillness",
+      "composition_mode": "single",
+      "role": "defensive",
+      "canonical_element": "earth",
+      "effect_category": "defensive",
+      "canonical_pair_ref": "canonical/earth/defensive",
+      "energy_cost": 17.7,
+      "cooldown_seconds": 13.5,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "shield",
+          "params": {
+            "magnitude": 1000,
+            "duration_seconds": 7.7
+          }
+        },
+        {
+          "name": "buff_defense",
+          "params": {
+            "percent": 0.12,
+            "duration_seconds": 4.4
+          }
+        }
+      ],
+      "color_value": 370099,
+      "flavor_text": "From beneath the windswept underworld, bleached remains rise to encase the body in a shell older than memory. For a breath, nothing moves \u2014 not even the gale.",
+      "tier": 3,
+      "chain_id": "chain_B",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000113"
+      ],
+      "scaling_coefficient": 1.1474
+    },
+    {
+      "id": "skill_000184",
+      "name": "Yomi Ossuary Ring",
+      "composition_mode": "single",
+      "role": "control",
+      "canonical_element": "earth",
+      "effect_category": "control",
+      "canonical_pair_ref": "canonical/earth/control",
+      "energy_cost": 16.8,
+      "cooldown_seconds": 10.3,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "root",
+          "params": {
+            "duration_seconds": 2.3
+          }
+        }
+      ],
+      "color_value": 326443,
+      "flavor_text": "A circle of pale bone erupts from the underworld's breath, locking the living in place as wind carries the silence of forgotten dead. The earth remembers every body returned to it.",
+      "tier": 4,
+      "chain_id": "chain_A",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000115"
+      ],
+      "scaling_coefficient": 1.2196
+    },
+    {
+      "id": "skill_000118",
+      "name": "Yomi Bone Wind",
+      "composition_mode": "single",
+      "role": "damage_over_time",
+      "canonical_element": "earth",
+      "effect_category": "single_target_damage",
+      "canonical_pair_ref": "canonical/earth/single_target_damage",
+      "energy_cost": 20.8,
+      "cooldown_seconds": 4.2,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "root",
+          "params": {
+            "duration_seconds": 3.1
+          }
+        },
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 750,
+            "element": "earth"
+          }
+        }
+      ],
+      "color_value": 285504,
+      "flavor_text": "From the pale underworld a gust rises through the soil, threading dry bone-white roots through living flesh and anchoring the soul to Yomi's cold floor. The earth holds what the wind has claimed.",
+      "tier": 4,
+      "chain_id": "chain_A",
+      "chain_position": 2,
+      "parent_skill_ids": [
+        "skill_000115"
+      ],
+      "scaling_coefficient": 1.23
+    },
+    {
+      "id": "skill_000119",
+      "name": "Yomi Bone Wind",
+      "composition_mode": "single",
+      "role": "utility",
+      "canonical_element": "earth",
+      "effect_category": "utility",
+      "canonical_pair_ref": "canonical/earth/utility",
+      "energy_cost": 10.7,
+      "cooldown_seconds": 17.6,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "buff_damage",
+          "params": {
+            "percent": 0.2,
+            "duration_seconds": 7.5
+          }
+        }
+      ],
+      "color_value": 351525,
+      "flavor_text": "The pale gale rising from the underworld scours flesh from thought, leaving only the hard white truth of purpose. For a breath, you are more remnant than living \u2014 and remnants do not flinch.",
+      "tier": 4,
+      "chain_id": "chain_B",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000116"
+      ],
+      "scaling_coefficient": 1.2197
+    }
+  ],
+  "balance_metadata": {
+    "target_winrate": 0.4,
+    "actual_winrate": 0.396,
+    "convergence_iterations": 7,
+    "converged": true,
+    "final_modifier": 0.1539,
+    "gauntlet_results": {
+      "monster_00017": 0.45,
+      "monster_00018": 0.24,
+      "monster_00019": 0.07,
+      "monster_00016": 0.84,
+      "monster_00020": 0.27,
+      "monster_00021": 0.76,
+      "monster_00022": 0.76,
+      "monster_00023": 0.11,
+      "monster_00024": 0.43,
+      "monster_00025": 0.03
+    }
+  },
+  "convergence_report": {
+    "endgame_L50": {
+      "winrate": 0.396,
+      "iterations": 7,
+      "converged": true,
+      "final_modifier": 0.1539,
+      "dimensions_explored": [
+        "cooldown_energy",
+        "skill_swap",
+        "geometry_mix"
+      ],
+      "optimal_distribution": null,
+      "gauntlet_results": {
+        "monster_00017": 0.45,
+        "monster_00018": 0.24,
+        "monster_00019": 0.07,
+        "monster_00016": 0.84,
+        "monster_00020": 0.27,
+        "monster_00021": 0.76,
+        "monster_00022": 0.76,
+        "monster_00023": 0.11,
+        "monster_00024": 0.43,
+        "monster_00025": 0.03
+      }
+    },
+    "mid_band_L33": {
+      "winrate": 0.384,
+      "iterations": 7,
+      "converged": true,
+      "final_modifier": 0.0945,
+      "dimensions_explored": [],
+      "optimal_distribution": null,
+      "gauntlet_results": {
+        "monster_00041": 0.32,
+        "monster_00042": 0.22,
+        "monster_00043": 0.59,
+        "monster_00044": 0.52,
+        "monster_00045": 0.27
+      }
+    },
+    "early_band_L17": {
+      "winrate": 0.412,
+      "iterations": 9,
+      "converged": true,
+      "final_modifier": 0.0611,
+      "dimensions_explored": [],
+      "optimal_distribution": null,
+      "gauntlet_results": {
+        "monster_00046": 0.26,
+        "monster_00047": 0.44,
+        "monster_00048": 0.4,
+        "monster_00049": 0.69,
+        "monster_00050": 0.27
+      }
+    },
+    "variance_check_L50": {
+      "p50": 0.0,
+      "p75": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "pathology_flagged": false
+    },
+    "doppelganger_validation": {
+      "L17_mirror": {
+        "winrate": 0.44,
+        "balanced": true
+      },
+      "L33_mirror": {
+        "winrate": 0.46,
+        "balanced": true
+      },
+      "L50_mirror": {
+        "winrate": 0.5,
+        "balanced": true
+      }
+    },
+    "recompose_attempts": [
+      {
+        "lever": "skill_swap",
+        "band_id": "L50",
+        "role": null,
+        "lever_specifics": {
+          "rationale": "no_swappable_candidates"
+        },
+        "attempt": 1,
+        "before_winrate": 0.479,
+        "after_winrate": 0.479,
+        "delta": 0.0,
+        "accepted": false,
+        "eval_modifier": 0.1094
+      },
+      {
+        "lever": "geometry_mix",
+        "band_id": "L50",
+        "role": "control",
+        "lever_specifics": {
+          "skill_id": "skill_000117",
+          "role": "control",
+          "from_geometry": "vortex_pull",
+          "to_geometry": "ring",
+          "rationale": "geometry_rebias_reduce_dps"
+        },
+        "attempt": 1,
+        "before_winrate": 0.479,
+        "after_winrate": 0.209,
+        "delta": -0.27,
+        "accepted": true,
+        "eval_modifier": 0.1094
+      },
+      {
+        "lever": "geometry_mix",
+        "band_id": "L50",
+        "role": null,
+        "lever_specifics": {
+          "rationale": "geometry_unchanged"
+        },
+        "attempt": 2,
+        "before_winrate": 0.209,
+        "after_winrate": 0.209,
+        "delta": 0.0,
+        "accepted": false,
+        "eval_modifier": 0.1094
+      },
+      {
+        "lever": "cooldown_energy",
+        "band_id": "L50",
+        "role": "damage_over_time",
+        "lever_specifics": {
+          "skill_id": "skill_000118",
+          "role": "damage_over_time",
+          "param": "cooldown_seconds",
+          "from_cd": 4.2,
+          "to_cd": 4.62,
+          "from_cost": 20.8,
+          "to_cost": 22.88,
+          "rationale": "cd_increase_reduce_dps"
+        },
+        "attempt": 1,
+        "before_winrate": 0.209,
+        "after_winrate": 0.209,
+        "delta": 0.0,
+        "accepted": false,
+        "eval_modifier": 0.1094
+      }
+    ],
+    "recompose_outcome": "primary_loop_converged",
+    "composition_pre_modifier_wr": 1.0,
+    "composition_sufficient_for_055": false,
+    "secondary_loop_attempts": [
+      {
+        "variant": 1,
+        "from_element": "earth",
+        "to_element": "fire",
+        "n_swapped": 1,
+        "eval_modifier": 0.1094,
+        "modifier_dist_from_1": 0.8906,
+        "baseline_dist": 0.8906,
+        "accepted": false
+      },
+      {
+        "variant": 2,
+        "from_element": "earth",
+        "to_element": "fire",
+        "n_swapped": 1,
+        "eval_modifier": 0.1094,
+        "modifier_dist_from_1": 0.8906,
+        "baseline_dist": 0.8906,
+        "accepted": false
+      },
+      {
+        "variant": 3,
+        "from_element": "earth",
+        "to_element": "fire",
+        "n_swapped": 2,
+        "eval_modifier": 0.1094,
+        "modifier_dist_from_1": 0.8906,
+        "baseline_dist": 0.8906,
+        "accepted": false
+      }
+    ],
+    "secondary_loop_outcome": "secondary_reverted",
+    "modifier_clamp_observation": {
+      "clamp_range": [
+        0.15,
+        2.5
+      ],
+      "final_modifier": 0.1539,
+      "would_pass_clamp": true
+    }
+  }
+}

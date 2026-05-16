@@ -1,0 +1,599 @@
+{
+  "id": "class_0007",
+  "name": "Brine Specter of Yomi",
+  "title_completion": "a Brine Specter of Yomi",
+  "flavor_text": "From the sunless waters beneath the dead realm, she calls forth the salt-heavy breath of Yomi \u2014 a miasma that clings, corrodes, and endures long after the living have fled. Her magic is not a storm but a tide: patient, suffocating, inevitable. Those who mistake her stillness for weakness soon find themselves dissolving in brine they never saw rising.",
+  "archetype_tag": "water_mage",
+  "energy_type": "mana",
+  "role_orientation": "damage",
+  "range_profile": "long",
+  "dominant_element": "water",
+  "color_palette": [
+    613811,
+    578557,
+    267564,
+    255384,
+    635580,
+    610377,
+    625724,
+    639731,
+    593277,
+    644219,
+    583267
+  ],
+  "stat_distribution": {
+    "strength": 9,
+    "dexterity": 12,
+    "intelligence": 150,
+    "wisdom": 15,
+    "vitality": 84
+  },
+  "skills": [
+    {
+      "id": "skill_000097",
+      "name": "Yomi Brine Surge",
+      "composition_mode": "single",
+      "role": "burst_damage",
+      "canonical_element": "water",
+      "effect_category": "single_target_damage",
+      "canonical_pair_ref": "canonical/water/single_target_damage",
+      "energy_cost": 29.1,
+      "cooldown_seconds": 6.3,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 2500,
+            "element": "water"
+          }
+        }
+      ],
+      "color_value": 613811,
+      "flavor_text": "Salt-heavy winds drag the dead sea upward through chain after chain of crackling water, each arc bitter as a last breath. The current remembers every drowned thing it has ever preserved.",
+      "tier": 1,
+      "chain_id": "chain_A",
+      "chain_position": 1,
+      "parent_skill_ids": [],
+      "scaling_coefficient": 1.0597
+    },
+    {
+      "id": "skill_000098",
+      "name": "Yomi Brine Gust",
+      "composition_mode": "single",
+      "role": "primary_attack",
+      "canonical_element": "water",
+      "effect_category": "single_target_damage",
+      "canonical_pair_ref": "canonical/water/single_target_damage",
+      "energy_cost": 6.2,
+      "cooldown_seconds": 0.6,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 625,
+            "element": "water"
+          }
+        },
+        {
+          "name": "chill",
+          "params": {
+            "slow_percent": 0.36,
+            "duration_seconds": 4.6
+          }
+        }
+      ],
+      "color_value": 578557,
+      "flavor_text": "A salt-laden wind tears up from the underworld's sunless shore, carrying the cold that preserves and numbs in equal measure. Whatever it touches slows, as if the dead sea itself has claimed a moment of the living.",
+      "tier": 1,
+      "chain_id": "chain_B",
+      "chain_position": 1,
+      "parent_skill_ids": [],
+      "scaling_coefficient": 1.063
+    },
+    {
+      "id": "skill_000099",
+      "name": "Yomi Bone Stillness",
+      "composition_mode": "single",
+      "role": "sustain",
+      "canonical_element": "earth",
+      "effect_category": "sustain",
+      "canonical_pair_ref": "canonical/earth/sustain",
+      "energy_cost": 33.1,
+      "cooldown_seconds": 8.3,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "heal",
+          "params": {
+            "magnitude": 1250
+          }
+        }
+      ],
+      "color_value": 267564,
+      "flavor_text": "From the breathless deep beneath Yomi, a wind that carries no sound draws the cracked and weary flesh back into wholeness. What the earth has long remembered, the bones now speak aloud.",
+      "tier": 1,
+      "chain_id": "chain_B",
+      "chain_position": 2,
+      "parent_skill_ids": [],
+      "scaling_coefficient": 1.0747
+    },
+    {
+      "id": "skill_000100",
+      "name": "Bone Wind Totem",
+      "composition_mode": "single",
+      "role": "utility",
+      "canonical_element": "earth",
+      "effect_category": "control",
+      "canonical_pair_ref": "canonical/earth/control",
+      "energy_cost": 14.9,
+      "cooldown_seconds": 11.6,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "buff_damage",
+          "params": {
+            "percent": 0.17,
+            "duration_seconds": 4.4
+          }
+        },
+        {
+          "name": "silence",
+          "params": {
+            "duration_seconds": 2.9
+          }
+        }
+      ],
+      "color_value": 255384,
+      "flavor_text": "A pillar of pale earth rises from Yomi's silence, its hollow chambers catching the dead wind and turning it into something that sharpens the hand and steals the voice. The bones do not mourn \u2014 they simply remember how to be hard.",
+      "tier": 2,
+      "chain_id": "chain_A",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000097"
+      ],
+      "scaling_coefficient": 1.0819
+    },
+    {
+      "id": "skill_000101",
+      "name": "Yomi Brine Veil",
+      "composition_mode": "single",
+      "role": "defensive",
+      "canonical_element": "water",
+      "effect_category": "defensive",
+      "canonical_pair_ref": "canonical/water/defensive",
+      "energy_cost": 18.0,
+      "cooldown_seconds": 8.7,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "shield",
+          "params": {
+            "magnitude": 1000,
+            "duration_seconds": 4.2
+          }
+        }
+      ],
+      "color_value": 635580,
+      "flavor_text": "Salt-heavy winds from the underworld's shore wrap around the caster, a stinging shroud that neither blade nor current can easily part. The sea remembers what the living forget \u2014 that preservation is its own form of violence.",
+      "tier": 2,
+      "chain_id": "chain_A",
+      "chain_position": 2,
+      "parent_skill_ids": [
+        "skill_000097"
+      ],
+      "scaling_coefficient": 1.096
+    },
+    {
+      "id": "skill_000102",
+      "name": "Yomi Brine Exhale",
+      "composition_mode": "single",
+      "role": "sustain",
+      "canonical_element": "water",
+      "effect_category": "sustain",
+      "canonical_pair_ref": "canonical/water/sustain",
+      "energy_cost": 23.4,
+      "cooldown_seconds": 8.2,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "heal",
+          "params": {
+            "magnitude": 1250
+          }
+        }
+      ],
+      "color_value": 610377,
+      "flavor_text": "A breath rises from the salted depths below the world, carrying the cold preservation of forgotten waters. Where it settles, wounds close like shores sealed by the tide's long memory.",
+      "tier": 2,
+      "chain_id": "chain_A",
+      "chain_position": 3,
+      "parent_skill_ids": [
+        "skill_000097"
+      ],
+      "scaling_coefficient": 1.1136
+    },
+    {
+      "id": "skill_000103",
+      "name": "Yomi Salt Wind",
+      "composition_mode": "single",
+      "role": "mobility",
+      "canonical_element": "water",
+      "effect_category": "mobility",
+      "canonical_pair_ref": "canonical/water/mobility",
+      "energy_cost": 19.0,
+      "cooldown_seconds": 6.5,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "buff_dodge",
+          "params": {
+            "percent": 0.17,
+            "duration_seconds": 7.0
+          }
+        }
+      ],
+      "color_value": 625724,
+      "flavor_text": "A bitter gale rises from the underworld's salted shores, wrapping the body in a stinging veil that makes the eye lose track of where you end. Strikes pass through the space you no longer occupy.",
+      "tier": 2,
+      "chain_id": "chain_B",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000098"
+      ],
+      "scaling_coefficient": 1.1051
+    },
+    {
+      "id": "skill_000104",
+      "name": "Yomi Brine Shroud",
+      "composition_mode": "single",
+      "role": "defensive",
+      "canonical_element": "water",
+      "effect_category": "defensive",
+      "canonical_pair_ref": "canonical/water/defensive",
+      "energy_cost": 21.1,
+      "cooldown_seconds": 11.8,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "shield",
+          "params": {
+            "magnitude": 1000,
+            "duration_seconds": 7.1
+          }
+        },
+        {
+          "name": "buff_defense",
+          "params": {
+            "percent": 0.29,
+            "duration_seconds": 6.3
+          }
+        },
+        {
+          "name": "buff_dodge",
+          "params": {
+            "percent": 0.12,
+            "duration_seconds": 8.5
+          }
+        }
+      ],
+      "color_value": 639731,
+      "flavor_text": "Salt winds from the sunless deep rise and crystallize around the body, hardening into a bitter shell that turns aside both blade and sorrow. The dead sea remembers every wound \u2014 and refuses to let another be made.",
+      "tier": 2,
+      "chain_id": "chain_B",
+      "chain_position": 2,
+      "parent_skill_ids": [
+        "skill_000098"
+      ],
+      "scaling_coefficient": 1.0824
+    },
+    {
+      "id": "skill_000105",
+      "name": "Yomi Brine Fork",
+      "composition_mode": "single",
+      "role": "area_damage",
+      "canonical_element": "water",
+      "effect_category": "single_target_damage",
+      "canonical_pair_ref": "canonical/water/single_target_damage",
+      "energy_cost": 16.7,
+      "cooldown_seconds": 6.0,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 1500,
+            "element": "water"
+          }
+        }
+      ],
+      "color_value": 593277,
+      "flavor_text": "Salt winds split at the threshold of the underworld, driving bitter seawater through every crack and hollow. The dead know this taste \u2014 it is the last thing the living carry down.",
+      "tier": 3,
+      "chain_id": "chain_A",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000100"
+      ],
+      "scaling_coefficient": 1.1696
+    },
+    {
+      "id": "skill_000106",
+      "name": "Brine Wind Passing",
+      "composition_mode": "single",
+      "role": "mobility",
+      "canonical_element": "water",
+      "effect_category": "mobility",
+      "canonical_pair_ref": "canonical/water/mobility",
+      "energy_cost": 14.8,
+      "cooldown_seconds": 8.8,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "chill",
+          "params": {
+            "slow_percent": 0.37,
+            "duration_seconds": 2.2
+          }
+        }
+      ],
+      "color_value": 644219,
+      "flavor_text": "A gust from Yomi's salt-heavy shore cuts through living warmth, leaving the target stiff with the cold of preserved things. The wind does not linger, but its chill remembers.",
+      "tier": 3,
+      "chain_id": "chain_B",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000103"
+      ],
+      "scaling_coefficient": 1.1694
+    },
+    {
+      "id": "skill_000107",
+      "name": "Yomi Brine Spiral",
+      "composition_mode": "single",
+      "role": "damage_over_time",
+      "canonical_element": "water",
+      "effect_category": "area_damage",
+      "canonical_pair_ref": "canonical/water/area_damage",
+      "energy_cost": 23.6,
+      "cooldown_seconds": 7.5,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "chill",
+          "params": {
+            "slow_percent": 0.3,
+            "duration_seconds": 4.8
+          }
+        },
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 750,
+            "element": "water"
+          }
+        }
+      ],
+      "color_value": 583267,
+      "flavor_text": "Salt-heavy winds from the underworld gather in a slow, suffocating ring, pulling warmth from the living and leaving only the cold preservation of the dead. The water remembers every shore it has ever claimed.",
+      "tier": 4,
+      "chain_id": "chain_B",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000106"
+      ],
+      "scaling_coefficient": 1.2425
+    }
+  ],
+  "balance_metadata": {
+    "target_winrate": 0.5,
+    "actual_winrate": 0.493,
+    "convergence_iterations": 2,
+    "converged": true,
+    "final_modifier": 0.0574,
+    "gauntlet_results": {
+      "monster_00017": 0.55,
+      "monster_00018": 0.01,
+      "monster_00019": 0.31,
+      "monster_00016": 0.91,
+      "monster_00020": 0.26,
+      "monster_00021": 0.83,
+      "monster_00022": 0.81,
+      "monster_00023": 0.48,
+      "monster_00024": 0.6,
+      "monster_00025": 0.17
+    }
+  },
+  "convergence_report": {
+    "endgame_L50": {
+      "winrate": 0.493,
+      "iterations": 2,
+      "converged": true,
+      "final_modifier": 0.0574,
+      "dimensions_explored": [
+        "cooldown_energy",
+        "skill_swap",
+        "geometry_mix"
+      ],
+      "optimal_distribution": null,
+      "gauntlet_results": {
+        "monster_00017": 0.55,
+        "monster_00018": 0.01,
+        "monster_00019": 0.31,
+        "monster_00016": 0.91,
+        "monster_00020": 0.26,
+        "monster_00021": 0.83,
+        "monster_00022": 0.81,
+        "monster_00023": 0.48,
+        "monster_00024": 0.6,
+        "monster_00025": 0.17
+      }
+    },
+    "mid_band_L33": {
+      "winrate": 0.732,
+      "iterations": 10,
+      "converged": false,
+      "final_modifier": 0.0509,
+      "dimensions_explored": [],
+      "optimal_distribution": null,
+      "gauntlet_results": {
+        "monster_00041": 0.73,
+        "monster_00042": 0.38,
+        "monster_00043": 0.98,
+        "monster_00044": 0.92,
+        "monster_00045": 0.65
+      }
+    },
+    "early_band_L17": {
+      "winrate": 0.942,
+      "iterations": 10,
+      "converged": false,
+      "final_modifier": 0.0509,
+      "dimensions_explored": [],
+      "optimal_distribution": null,
+      "gauntlet_results": {
+        "monster_00046": 0.95,
+        "monster_00047": 0.84,
+        "monster_00048": 0.98,
+        "monster_00049": 1.0,
+        "monster_00050": 0.94
+      }
+    },
+    "variance_check_L50": {
+      "p50": 0.0,
+      "p75": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "pathology_flagged": false
+    },
+    "doppelganger_validation": {
+      "L17_mirror": {
+        "winrate": 0.3,
+        "balanced": true
+      },
+      "L33_mirror": {
+        "winrate": 0.46,
+        "balanced": true
+      },
+      "L50_mirror": {
+        "winrate": 0.48,
+        "balanced": true
+      }
+    },
+    "recompose_attempts": [
+      {
+        "lever": "skill_swap",
+        "band_id": "L50",
+        "role": "damage_over_time",
+        "lever_specifics": {
+          "swapped_from_id": "skill_000107",
+          "swapped_from_role": "damage_over_time",
+          "swapped_to_role": "control",
+          "swapped_to_id": "skill_000178",
+          "role": "damage_over_time",
+          "rationale": "reduce_damage_output"
+        },
+        "attempt": 1,
+        "before_winrate": 0.692,
+        "after_winrate": 0.545,
+        "delta": -0.147,
+        "accepted": true,
+        "eval_modifier": 0.0648
+      },
+      {
+        "lever": "skill_swap",
+        "band_id": "L50",
+        "role": null,
+        "lever_specifics": {
+          "rationale": "no_swappable_candidates"
+        },
+        "attempt": 2,
+        "before_winrate": 0.545,
+        "after_winrate": 0.545,
+        "delta": 0.0,
+        "accepted": false,
+        "eval_modifier": 0.0648
+      },
+      {
+        "lever": "geometry_mix",
+        "band_id": "L50",
+        "role": null,
+        "lever_specifics": {
+          "rationale": "geometry_unchanged"
+        },
+        "attempt": 1,
+        "before_winrate": 0.545,
+        "after_winrate": 0.545,
+        "delta": 0.0,
+        "accepted": false,
+        "eval_modifier": 0.0648
+      },
+      {
+        "lever": "cooldown_energy",
+        "band_id": "L50",
+        "role": "primary_attack",
+        "lever_specifics": {
+          "skill_id": "skill_000098",
+          "role": "primary_attack",
+          "param": "cooldown_seconds",
+          "from_cd": 0.6,
+          "to_cd": 0.66,
+          "from_cost": 6.2,
+          "to_cost": 6.82,
+          "rationale": "cd_increase_reduce_dps"
+        },
+        "attempt": 1,
+        "before_winrate": 0.545,
+        "after_winrate": 0.545,
+        "delta": 0.0,
+        "accepted": false,
+        "eval_modifier": 0.0648
+      }
+    ],
+    "recompose_outcome": "primary_loop_reverted",
+    "composition_pre_modifier_wr": 1.0,
+    "composition_sufficient_for_055": false,
+    "secondary_loop_attempts": [
+      {
+        "variant": 1,
+        "from_element": "water",
+        "to_element": "earth",
+        "n_swapped": 1,
+        "eval_modifier": 0.0648,
+        "modifier_dist_from_1": 0.9352,
+        "baseline_dist": 0.9352,
+        "accepted": false
+      },
+      {
+        "variant": 2,
+        "from_element": "water",
+        "to_element": "earth",
+        "n_swapped": 1,
+        "eval_modifier": 0.0648,
+        "modifier_dist_from_1": 0.9352,
+        "baseline_dist": 0.9352,
+        "accepted": false
+      },
+      {
+        "variant": 3,
+        "from_element": "water",
+        "to_element": "earth",
+        "n_swapped": 2,
+        "eval_modifier": 0.0648,
+        "modifier_dist_from_1": 0.9352,
+        "baseline_dist": 0.9352,
+        "accepted": false
+      }
+    ],
+    "secondary_loop_outcome": "secondary_reverted",
+    "modifier_clamp_observation": {
+      "clamp_range": [
+        0.15,
+        2.5
+      ],
+      "final_modifier": 0.0574,
+      "would_pass_clamp": false
+    }
+  }
+}

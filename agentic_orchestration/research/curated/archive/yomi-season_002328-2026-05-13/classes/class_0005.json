@@ -1,0 +1,583 @@
+{
+  "id": "class_0005",
+  "name": "Miasma Warden of the Sunken Gale",
+  "title_completion": "a Miasma Warden of the Sunken Gale",
+  "flavor_text": "The winds of Yomi do not carry seeds or songs \u2014 they carry the breath of the unburied dead, and you have learned to wear that breath like armor. You strike fast and vanish into the pale miasma, leaving only the rattle of bleached bones where your fists fell. Down here, beneath the world, stillness is a weapon sharper than any blade.",
+  "archetype_tag": "physical_skirmisher",
+  "energy_type": "stamina-as-resource",
+  "role_orientation": "hybrid",
+  "range_profile": "close",
+  "dominant_element": "physical",
+  "color_palette": [
+    141621,
+    179915,
+    151661,
+    102596,
+    165295,
+    109542,
+    172570,
+    290238,
+    111650,
+    158703
+  ],
+  "stat_distribution": {
+    "strength": 100,
+    "dexterity": 100,
+    "intelligence": 6,
+    "wisdom": 9,
+    "vitality": 55
+  },
+  "skills": [
+    {
+      "id": "skill_000066",
+      "name": "Yomi Gale Rending",
+      "composition_mode": "single",
+      "role": "area_damage",
+      "canonical_element": "physical",
+      "effect_category": "area_damage",
+      "canonical_pair_ref": "canonical/physical/area_damage",
+      "energy_cost": 29.4,
+      "cooldown_seconds": 4.1,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 1500,
+            "element": "physical"
+          }
+        },
+        {
+          "name": "bleed",
+          "params": {
+            "tick_damage": 750,
+            "duration_seconds": 4.5
+          }
+        }
+      ],
+      "color_value": 141621,
+      "flavor_text": "The wind that rises from the underworld does not howl \u2014 it tears, peeling flesh from bone in a silent, spiraling bloom. Those caught within its reach bleed as though the air itself has teeth.",
+      "tier": 1,
+      "chain_id": "chain_A",
+      "chain_position": 1,
+      "parent_skill_ids": [],
+      "scaling_coefficient": 1.06
+    },
+    {
+      "id": "skill_000067",
+      "name": "Yomi Gale Ward",
+      "composition_mode": "single",
+      "role": "defensive",
+      "canonical_element": "physical",
+      "effect_category": "defensive",
+      "canonical_pair_ref": "canonical/physical/defensive",
+      "energy_cost": 19.5,
+      "cooldown_seconds": 13.6,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "shield",
+          "params": {
+            "magnitude": 1000,
+            "duration_seconds": 7.0
+          }
+        },
+        {
+          "name": "buff_defense",
+          "params": {
+            "percent": 0.13,
+            "duration_seconds": 4.5
+          }
+        }
+      ],
+      "color_value": 179915,
+      "flavor_text": "The winds that howl between the living and the dead coil tight around the body, hardening flesh like stone worn smooth by a thousand years of underground storms. Nothing crosses that threshold uninvited.",
+      "tier": 1,
+      "chain_id": "chain_A",
+      "chain_position": 2,
+      "parent_skill_ids": [],
+      "scaling_coefficient": 1.0677
+    },
+    {
+      "id": "skill_000068",
+      "name": "Gale of Sunken Bones",
+      "composition_mode": "single",
+      "role": "burst_damage",
+      "canonical_element": "physical",
+      "effect_category": "single_target_damage",
+      "canonical_pair_ref": "canonical/physical/single_target_damage",
+      "energy_cost": 24.6,
+      "cooldown_seconds": 4.8,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 2500,
+            "element": "physical"
+          }
+        }
+      ],
+      "color_value": 151661,
+      "flavor_text": "The warrior draws breath from the stillness below Yomi and releases it all at once \u2014 a sweeping rush that splits the air like a blade through burial silk. What stands before it does not stand for long.",
+      "tier": 1,
+      "chain_id": "chain_B",
+      "chain_position": 1,
+      "parent_skill_ids": [],
+      "scaling_coefficient": 1.059
+    },
+    {
+      "id": "skill_000069",
+      "name": "Yomi Gale Shroud",
+      "composition_mode": "single",
+      "role": "defensive",
+      "canonical_element": "physical",
+      "effect_category": "defensive",
+      "canonical_pair_ref": "canonical/physical/defensive",
+      "energy_cost": 17.9,
+      "cooldown_seconds": 13.5,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "shield",
+          "params": {
+            "magnitude": 1000,
+            "duration_seconds": 7.3
+          }
+        },
+        {
+          "name": "buff_dodge",
+          "params": {
+            "percent": 0.15,
+            "duration_seconds": 9.2
+          }
+        }
+      ],
+      "color_value": 102596,
+      "flavor_text": "A howling breath from the underworld wraps the body in invisible current, turning flesh into something the wind refuses to touch. Strikes slide past like leaves around a stone.",
+      "tier": 1,
+      "chain_id": "chain_B",
+      "chain_position": 2,
+      "parent_skill_ids": [],
+      "scaling_coefficient": 1.066
+    },
+    {
+      "id": "skill_000070",
+      "name": "Yomi Gale Hush",
+      "composition_mode": "single",
+      "role": "utility",
+      "canonical_element": "physical",
+      "effect_category": "control",
+      "canonical_pair_ref": "canonical/physical/control",
+      "energy_cost": 16.2,
+      "cooldown_seconds": 12.1,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "buff_damage",
+          "params": {
+            "percent": 0.32,
+            "duration_seconds": 7.9
+          }
+        },
+        {
+          "name": "silence",
+          "params": {
+            "duration_seconds": 2.3
+          }
+        }
+      ],
+      "color_value": 165295,
+      "flavor_text": "A circular breath from the underworld rises through the soles and swells the muscles taut, stealing every word from every throat within reach. The wind here does not carry sound \u2014 it consumes it.",
+      "tier": 2,
+      "chain_id": "chain_A",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000066"
+      ],
+      "scaling_coefficient": 1.115
+    },
+    {
+      "id": "skill_000169",
+      "name": "Yomi Stillwind Crash",
+      "composition_mode": "single",
+      "role": "control",
+      "canonical_element": "physical",
+      "effect_category": "control",
+      "canonical_pair_ref": "canonical/physical/control",
+      "energy_cost": 19.1,
+      "cooldown_seconds": 12.7,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "silence",
+          "params": {
+            "duration_seconds": 2.7
+          }
+        }
+      ],
+      "color_value": 148954,
+      "flavor_text": "The fist meets the earth and every sound dies \u2014 not from distance, but from something older pressing down. Even the wind forgets to breathe.",
+      "tier": 2,
+      "chain_id": "chain_A",
+      "chain_position": 2,
+      "parent_skill_ids": [
+        "skill_000066"
+      ],
+      "scaling_coefficient": 1.1132
+    },
+    {
+      "id": "skill_000072",
+      "name": "Yomi Gale Rend",
+      "composition_mode": "single",
+      "role": "mobility",
+      "canonical_element": "physical",
+      "effect_category": "mobility",
+      "canonical_pair_ref": "canonical/physical/mobility",
+      "energy_cost": 10.4,
+      "cooldown_seconds": 9.2,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "bleed",
+          "params": {
+            "tick_damage": 750,
+            "duration_seconds": 5.6
+          }
+        }
+      ],
+      "color_value": 172570,
+      "flavor_text": "A single breath from the underworld tears through flesh as you pass, leaving wounds that weep like open mouths. The wind remembers every body it has crossed.",
+      "tier": 2,
+      "chain_id": "chain_B",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000068"
+      ],
+      "scaling_coefficient": 1.117
+    },
+    {
+      "id": "skill_000073",
+      "name": "Bleached Wind Crossing",
+      "composition_mode": "single",
+      "role": "mobility",
+      "canonical_element": "earth",
+      "effect_category": "mobility",
+      "canonical_pair_ref": "canonical/earth/mobility",
+      "energy_cost": 13.7,
+      "cooldown_seconds": 8.7,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "buff_dodge",
+          "params": {
+            "percent": 0.16,
+            "duration_seconds": 6.8
+          }
+        }
+      ],
+      "color_value": 290238,
+      "flavor_text": "You tear through the pale stillness of Yomi on a gust that remembers only bone and absence. For a breath, the earth beneath you forgets you were ever there.",
+      "tier": 2,
+      "chain_id": "chain_B",
+      "chain_position": 2,
+      "parent_skill_ids": [
+        "skill_000068"
+      ],
+      "scaling_coefficient": 1.107
+    },
+    {
+      "id": "skill_000074",
+      "name": "Gale Wall of Yomi",
+      "composition_mode": "single",
+      "role": "defensive",
+      "canonical_element": "physical",
+      "effect_category": "defensive",
+      "canonical_pair_ref": "canonical/physical/defensive",
+      "energy_cost": 17.5,
+      "cooldown_seconds": 8.8,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "shield",
+          "params": {
+            "magnitude": 1000,
+            "duration_seconds": 4.5
+          }
+        },
+        {
+          "name": "buff_defense",
+          "params": {
+            "percent": 0.23,
+            "duration_seconds": 4.8
+          }
+        }
+      ],
+      "color_value": 111650,
+      "flavor_text": "A howling torrent from the depths of Yomi coalesces into an unyielding barrier of compressed wind, solid as iron against the blow. The body hardens beneath its roar, drinking in the gale's ferocity as armor.",
+      "tier": 3,
+      "chain_id": "chain_B",
+      "chain_position": 1,
+      "parent_skill_ids": [
+        "skill_000072"
+      ],
+      "scaling_coefficient": 1.1438
+    },
+    {
+      "id": "skill_000075",
+      "name": "Yomi Gale Rend",
+      "composition_mode": "single",
+      "role": "primary_attack",
+      "canonical_element": "physical",
+      "effect_category": "damage_over_time",
+      "canonical_pair_ref": "canonical/physical/damage_over_time",
+      "energy_cost": 9.8,
+      "cooldown_seconds": 0.726,
+      "damage_multiplier": 1.0,
+      "effects": [
+        {
+          "name": "damage",
+          "params": {
+            "magnitude": 625,
+            "element": "physical"
+          }
+        },
+        {
+          "name": "bleed",
+          "params": {
+            "tick_damage": 750,
+            "duration_seconds": 5.5
+          }
+        }
+      ],
+      "color_value": 158703,
+      "flavor_text": "A howling slash tears through flesh like wind through hollow reeds, leaving wounds that weep long after the strike has passed. The breath of the underworld does not forget what it has touched.",
+      "tier": 4,
+      "chain_id": "chain_A",
+      "chain_position": 1,
+      "parent_skill_ids": [],
+      "scaling_coefficient": 1.1893
+    }
+  ],
+  "balance_metadata": {
+    "target_winrate": 0.6,
+    "actual_winrate": 0.598,
+    "convergence_iterations": 5,
+    "converged": true,
+    "final_modifier": 0.1094,
+    "gauntlet_results": {
+      "monster_00017": 0.84,
+      "monster_00018": 0.32,
+      "monster_00019": 0.36,
+      "monster_00016": 1.0,
+      "monster_00020": 0.22,
+      "monster_00021": 0.81,
+      "monster_00022": 1.0,
+      "monster_00023": 0.71,
+      "monster_00024": 0.66,
+      "monster_00025": 0.06
+    }
+  },
+  "convergence_report": {
+    "endgame_L50": {
+      "winrate": 0.598,
+      "iterations": 5,
+      "converged": true,
+      "final_modifier": 0.1094,
+      "dimensions_explored": [
+        "cooldown_energy",
+        "skill_swap",
+        "geometry_mix"
+      ],
+      "optimal_distribution": null,
+      "gauntlet_results": {
+        "monster_00017": 0.84,
+        "monster_00018": 0.32,
+        "monster_00019": 0.36,
+        "monster_00016": 1.0,
+        "monster_00020": 0.22,
+        "monster_00021": 0.81,
+        "monster_00022": 1.0,
+        "monster_00023": 0.71,
+        "monster_00024": 0.66,
+        "monster_00025": 0.06
+      }
+    },
+    "mid_band_L33": {
+      "winrate": 0.702,
+      "iterations": 10,
+      "converged": false,
+      "final_modifier": 0.0509,
+      "dimensions_explored": [],
+      "optimal_distribution": null,
+      "gauntlet_results": {
+        "monster_00041": 0.58,
+        "monster_00042": 0.62,
+        "monster_00043": 1.0,
+        "monster_00044": 0.81,
+        "monster_00045": 0.5
+      }
+    },
+    "early_band_L17": {
+      "winrate": 0.988,
+      "iterations": 10,
+      "converged": false,
+      "final_modifier": 0.0509,
+      "dimensions_explored": [],
+      "optimal_distribution": null,
+      "gauntlet_results": {
+        "monster_00046": 0.97,
+        "monster_00047": 0.97,
+        "monster_00048": 1.0,
+        "monster_00049": 1.0,
+        "monster_00050": 1.0
+      }
+    },
+    "variance_check_L50": {
+      "p50": 0.2,
+      "p75": 0.208,
+      "p95": 0.218,
+      "p99": 0.216,
+      "pathology_flagged": false
+    },
+    "doppelganger_validation": {
+      "L17_mirror": {
+        "winrate": 0.46,
+        "balanced": true
+      },
+      "L33_mirror": {
+        "winrate": 0.44,
+        "balanced": true
+      },
+      "L50_mirror": {
+        "winrate": 0.46,
+        "balanced": true
+      }
+    },
+    "recompose_attempts": [
+      {
+        "lever": "skill_swap",
+        "band_id": "L50",
+        "role": "burst_damage",
+        "lever_specifics": {
+          "swapped_from_id": "skill_000071",
+          "swapped_from_role": "burst_damage",
+          "swapped_to_role": "control",
+          "swapped_to_id": "skill_000169",
+          "role": "burst_damage",
+          "rationale": "reduce_damage_output"
+        },
+        "attempt": 1,
+        "before_winrate": 0.664,
+        "after_winrate": 0.488,
+        "delta": -0.176,
+        "accepted": true,
+        "eval_modifier": 0.0797
+      },
+      {
+        "lever": "skill_swap",
+        "band_id": "L50",
+        "role": null,
+        "lever_specifics": {
+          "rationale": "no_swappable_candidates"
+        },
+        "attempt": 2,
+        "before_winrate": 0.488,
+        "after_winrate": 0.488,
+        "delta": 0.0,
+        "accepted": false,
+        "eval_modifier": 0.0797
+      },
+      {
+        "lever": "geometry_mix",
+        "band_id": "L50",
+        "role": null,
+        "lever_specifics": {
+          "rationale": "geometry_unchanged"
+        },
+        "attempt": 1,
+        "before_winrate": 0.488,
+        "after_winrate": 0.488,
+        "delta": 0.0,
+        "accepted": false,
+        "eval_modifier": 0.0797
+      },
+      {
+        "lever": "cooldown_energy",
+        "band_id": "L50",
+        "role": "primary_attack",
+        "lever_specifics": {
+          "skill_id": "skill_000075",
+          "role": "primary_attack",
+          "param": "cooldown_seconds",
+          "from_cd": 0.6,
+          "to_cd": 0.66,
+          "from_cost": 8.1,
+          "to_cost": 8.91,
+          "rationale": "cd_increase_reduce_dps"
+        },
+        "attempt": 1,
+        "before_winrate": 0.488,
+        "after_winrate": 0.462,
+        "delta": -0.026,
+        "accepted": true,
+        "eval_modifier": 0.0797
+      },
+      {
+        "lever": "cooldown_energy",
+        "band_id": "L50",
+        "role": "primary_attack",
+        "lever_specifics": {
+          "skill_id": "skill_000075",
+          "role": "primary_attack",
+          "param": "cooldown_seconds",
+          "from_cd": 0.66,
+          "to_cd": 0.726,
+          "from_cost": 8.91,
+          "to_cost": 9.8,
+          "rationale": "cd_increase_reduce_dps"
+        },
+        "attempt": 2,
+        "before_winrate": 0.462,
+        "after_winrate": 0.442,
+        "delta": -0.02,
+        "accepted": true,
+        "eval_modifier": 0.0797
+      },
+      {
+        "lever": "cooldown_energy",
+        "band_id": "L50",
+        "role": "primary_attack",
+        "lever_specifics": {
+          "skill_id": "skill_000075",
+          "role": "primary_attack",
+          "param": "cooldown_seconds",
+          "from_cd": 0.726,
+          "to_cd": 0.799,
+          "from_cost": 9.8,
+          "to_cost": 10.78,
+          "rationale": "cd_increase_reduce_dps"
+        },
+        "attempt": 3,
+        "before_winrate": 0.442,
+        "after_winrate": 0.442,
+        "delta": 0.0,
+        "accepted": false,
+        "eval_modifier": 0.0797
+      }
+    ],
+    "recompose_outcome": "primary_loop_converged",
+    "composition_pre_modifier_wr": 1.0,
+    "composition_sufficient_for_055": false,
+    "secondary_loop_attempts": [],
+    "secondary_loop_outcome": "secondary_skipped_pure_element",
+    "modifier_clamp_observation": {
+      "clamp_range": [
+        0.15,
+        2.5
+      ],
+      "final_modifier": 0.1094,
+      "would_pass_clamp": false
+    }
+  }
+}
