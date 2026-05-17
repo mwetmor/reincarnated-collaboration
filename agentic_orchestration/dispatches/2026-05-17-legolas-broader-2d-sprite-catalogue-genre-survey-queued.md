@@ -149,3 +149,63 @@ At `agentic_orchestration/research/catalogue/2d-sprite-vendors-genre-survey-2026
 ---
 
 *Dispatched (queued) 2026-05-17 by knight-rider per Matt L3. ~1-2 days when activated. Append completion record when done.*
+
+---
+
+## Completion Record
+
+**Completed:** 2026-05-17 by legolas
+**Status:** COMPLETE
+**Output:** `agentic_orchestration/research/catalogue/2d-sprite-vendors-genre-survey-2026-05-17/vendors.jsonl`
+
+### Summary
+
+- **30 vendors surveyed** across itch.io, CraftPix, OpenGameArt, GameDev Market
+- **register_fit:** STRONG 5 | PARTIAL 21 | WEAK 4
+- **Acceptance criteria:** all met
+
+### Top 5 STRONG-Fit Vendors
+
+| Rank | Vendor | Why STRONG |
+|---|---|---|
+| 1 | CraftPix | Broadest catalogue (2100+ assets); $4/mo membership; character/monster/tileset/VFX/UI all covered; commercial license no attribution |
+| 2 | CreativeKind | ACQUIRED; hand-drawn-pixel register — strongest style match to locked HD-2D register; boss-class animated sprites (Fire Lord, God of Lightning, Angel Guardian); 25+ character/enemy packs |
+| 3 | Pimen | ACQUIRED; VFX-only; hand-drawn-pixel sub-register; Tier-1 spell substrate coverage |
+| 4 | Frostwindz | ACQUIRED; hand-drawn-pixel VFX; death/blood/cosmic substrates unique in catalogue |
+| 5 | Elthen | 400+ packs; widest enemy/monster variety on itch.io; top-down confirmed; character + tileset + VFX |
+
+### Category Coverage Gaps
+
+1. **Hand-drawn-pixel character sprites (PC class + NPC):** No strong vendor other than CreativeKind. Most character vendors are retro-pixel or JRPG-oriented.
+2. **Top-down 8-directional ARPG enemy animations at HD-2D fidelity:** Gap. Penusbmic DARK series is closest aesthetically but retro-pixel register.
+3. **ARPG dark-fantasy HUD/UI in hand-drawn-pixel register:** Partial coverage (IndigoLay, CraftPix) — no vendor ships Diablo-chrome HUD in hand-drawn-pixel.
+4. **Boss-class animated sprites matching hand-drawn-pixel register:** Only CreativeKind. Major gap for ARPG boss gallery build-out.
+5. **Atmospheric mood overlays:** Alenia Studios (CC-BY, 20 effects) uniquely fills this niche — no competing vendor.
+
+### Cost Intelligence Rollup
+
+| Tier | Vendors | Pack Price Range | Notes |
+|---|---|---|---|
+| Premium all-access | CraftPix | $4/mo annual ($48/yr) | Unlocks 2100+ assets; perpetual license on downloads |
+| Premium per-pack | CreativeKind, Frostwindz | $2.70–$9 | Hand-drawn-pixel register; best style match |
+| Mid-market | Penusbmic, ELV Games, finalbossblues, Elthen, DithArt | $3–$15/pack | Dark-fantasy genre fit; retro-pixel register |
+| Budget itch.io | ansimuz, LuizMelo, Szadi Art, Admurin, kiddolink | $1–$6/pack | High volume; variable quality; retro-pixel |
+| Free commercial | Kenney (CC0), brullov (all free), OGA CC0 picks, Anokolisa free | $0 | Floor coverage; retro-pixel register |
+| Bundle value | ELV Rogue Adventure World | $31.99 for 10 biome tilesets | Best dungeon-tileset bundle value |
+
+### Opportunity Flags (Matt-authority acquisition decisions)
+
+1. **Penusbmic DARK Series complete bundle** — 40+ packs with code PENUSBMIC (30% off); Diablo dark-gothic aesthetic; professionally credentialed (Dome Keeper, Shogun Showdown); $4.49/pack individual — best dark-ARPG aesthetic genre fit outside acquired vendors
+2. **ELV Rogue Adventure World $31.99** — 10 dungeon biome tilesets explicitly Diablo/Dark Souls-inspired; attribution required; broadest dungeon-environment coverage per dollar
+3. **Szadi Art RPG Worlds** — 14 biome tilesets at $3-6 each; most permissive license in survey (derivative resale allowed); clean 32x32 top-down pixel art
+4. **Alenia Studios atmospheric VFX** — 20 mood overlays (god rays/snow/rain/fireflies/fog/aurora etc.) PWYW free + CC-BY; unique atmospheric niche; 48-frame seamless loops; no competing vendor found
+5. **Admurin Top Down Monsters Mega Pack** — $15 for 150+ animated top-down monsters; best enemy volume value; license unverified (must check before acquisition)
+
+### Cross-References
+
+- Style register: `canonical/story/style-register.md` (locked HD-2D hand-drawn pixel; Candidate B)
+- Mobile sizing canon: `canonical/story/mobile-pc-pixel-sizing-ratios-2026-05-17.md` (gandalf v1.7)
+- Design frame: `canonical/29-design-overview.md` (ARPG/Isekai genre; Diablo-style single-camera room/hallway)
+- Step B Tier-1 baseline: `agentic_orchestration/qa/findings/2026-05-16-gandalf-step-b-gate3-review.md`
+- Acquired assets: `reincarnated-demo/public/assets/` (CreativeKind, Frostwindz/Deathbringer, Pimen, chierit, GandalfHardcore Samurai, Impact FX/CodeManu, PixelArtRPGVFXLite)
+- Legolas-1 predecessor: `agentic_orchestration/research/catalogue/icons-and-props-2026-05-17/summary.md`
