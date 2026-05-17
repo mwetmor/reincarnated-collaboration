@@ -3591,4 +3591,18 @@ The Court of Forms will remember each substrate's forms at the depth the substra
 
 — gandalf
 
+---
+
+### [2026-05-18 16:20Z] TAG — gandalf — `gandalf/v1.1-canonical-four-trait-pools-1` @ `c09e9b8`
+
+Design-side checkpoint per protocol § 5.2. Tag annotates the commit containing:
+- `canonical/story/d8-canonical-four-trait-pools-2026-05-18.md` (canonical-four trait pool design; 32 traits across fire/water/earth/wind)
+- `canonical/story/hive-mind-protocol-2026-05-17.md` § 14.1.1 amendment (hive-log commit discipline)
+- `agentic_orchestration/hive-mind/phase-1-p1-log.md` (STATE + DECISION × 2 + AMENDMENT + HANDOFF + STATE-close)
+
+Commit `c09e9b8` (canonical-four trait pools + amendment + DECISIONs). 6 commits ahead of origin/main on collab; awaiting push (knight-rider may push at integration-cadence per protocol § 5.3, or gandalf-discretion since the work is design-side and self-contained).
+
+— gandalf
+
+
 
