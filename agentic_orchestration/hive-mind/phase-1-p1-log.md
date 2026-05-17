@@ -7094,3 +7094,38 @@ Conservative: 1-2/17. Realistic: 2-4/17. D11.1 will likely miss the ≥12/17 gat
 
 — gamora
 
+---
+
+## [2026-05-17 late-evening+2] rocket — PRE-SIGNAL § 14.1.1 — D11 demo-sync hotfix STATE incoming
+
+PRE-SIGNAL per hive-mind protocol § 14.1.1. Git fetch origin confirmed clean (last remote commit: `gamora/v1.7` D11.1 math note + hive-log STATE). Five monolithic classes.json files copied engine → demo and committed. Per-class deprecation notes written. Loadout per-class files verified stale (flagged). STATE entry follows immediately.
+
+## [2026-05-17 late-evening+2] rocket — STATE — D11 demo-sync hotfix SHIPPED; HANDOFF → matt
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-rocket-d11-demo-sync-hotfix.md`
+**Authority:** Knight-rider per persistence diagnostic critical secondary finding
+**Tag:** `rocket/v1.13.2-d11-demo-sync-hotfix-1` (applied to reincarnated-demo main; local; push gated per ADR-006)
+**Commits:** `6537625` (demo — 5 classes.json synced) + `004ff45` (engine — 5 _DEPRECATED.md notes)
+
+### What was done
+
+**Step 1 — Copy complete.** Copied `season_002011..002015/classes.json` from engine `output/standard-demo-regen-2026-05-17/` to `reincarnated-demo/public/seasons/`. All 5 seasons verified post-copy:
+- `post_process_d11=True` on all hybrid_mage instances
+- `element_coverage_tax_multiplier=0.93` on multi-element hybrid_mage (1.0 on single-element — correct engine-curated behavior)
+- Skill-level `damage_multiplier=0.93` confirmed on damage-bearing skills
+
+**Step 2 — Per-class deprecation (option a).** Added `_DEPRECATED.md` to each `output/season_NNNNNN/classes/` subdirectory flagging files as D10-era snapshots; authoritative data is `../classes.json`. Not consumed by demo or D11 salvage. Backfill/deletion deferred.
+
+**Step 3 — Loadout per-class file alignment check (STALE FLAG).** `reincarnated-loadout/data/season_002011..002015/classes/class_XXXX.json` files are also D10-era (`post_process_d10=True` only; no `element_coverage_tax_multiplier`). These are separate from the demo fix. Drax owns loadout — flagging for drax/matt awareness. If loadout consumes per-class files directly for display, they show D10 class stats. If loadout reads from the monolithic `classes.json`, unaffected. Recommend drax verify consumer path before next loadout deploy.
+
+### HANDOFF → matt
+
+Hard-refresh demo (Cmd+Shift+R or force-refresh cache). Hybrid_mage classes now play with engine-curated D11 state:
+- Tax applied: `element_coverage_tax_multiplier=0.93` on multi-element classes
+- Still likely overpowered per gamora's D11.1 smoking-gun projection (floor-WR gap too large for skill ceiling to close most instances)
+- But now correctly overpowered-per-engine, not stale-D10 overpowered
+
+Parallel-safe state: jack-ryan D11.1 Gate-1 + rocket D11.1 implementation (queued post-Gate-1) are unaffected — this hotfix touched no engine code.
+
+— rocket
+
