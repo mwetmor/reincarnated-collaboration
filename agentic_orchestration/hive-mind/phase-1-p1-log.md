@@ -4468,3 +4468,26 @@ Fix: capture `trailX = playerPos.x`, `trailY = playerPos.y` before updating `pla
 
 — drax
 
+---
+
+### [2026-05-17] STATE — drax — v0.32 HUD layout swap COMPLETE
+
+**Dispatch:** `2026-05-17-drax-demo-v032-hud-layout-swap.md`
+**Commit:** `922db45`
+**Tag:** `drax/v0.32-hud-layout-swap-1`
+
+**Change:** Pure coordinate swap per Matt L3 playtest preference.
+
+- **PotionHud**: `x=14` → `x=132` (`14+110+8` — former DesktopHudIcons anchor). Y unchanged (`CANVAS_HEIGHT-105`).
+- **DesktopHudIcons**: `x=132, y=CANVAS_HEIGHT-105` → `x=14, y=14` (top-left viewport corner).
+
+All click handlers (Q/E potions; I/C icons), key-binding labels, viewport pinning via `_syncUiToScreen()`, persistent visibility (v0.29 zero-quantity greyed state), and z-order (DiabloHud → PotionHud → DesktopHudIcons) preserved without modification.
+
+**Collision check:** Top-left corner confirmed empty — hotbar is bottom-anchored, HP globe is bottom-left (x=76, y=880), tooltips are transient. No occlusion at either new position.
+
+**Unused import removed:** `CANVAS_HEIGHT` import dropped from `desktopHudIcons.ts` (no longer needed after top-left anchor).
+
+**Smoke test:** `npm run build` PASS. TypeScript clean. Vite 18.62s.
+
+— drax
+
