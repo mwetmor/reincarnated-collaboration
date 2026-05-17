@@ -587,3 +587,88 @@ Session open. Required reading complete:
 
 — knight-rider (capturing Matt's grant + amendment); — Matt (authority)
 
+---
+
+### [2026-05-17 09:45Z] STATE — drax-demo — D27 Track A COMPLETE: session-runner shipped (drax/v0.22)
+
+Tag `drax/v0.22-perception-test-runner-1 @ 550a68a` cut. Commit `4f1f94a` (AGENT_STATE update).
+
+**What shipped:**
+
+- `scripts/perception-test-runner/runner.html` — standalone browser-based session orchestrator
+  - 6-section flow: operator setup → orientation → warm-up → 12-fight cycle → pair-grouping task → download
+  - Neutral display names throughout (substrate names and mechanical details withheld; § 4.3)
+  - Inter-fight rating UI: distinctness 1-7 + identity sentence + vocabulary sentence (§ 3.3)
+  - Pair-grouping task: 8 mechanical-pair tiles, 4 group buckets with color coding
+  - Fight timer (1:30 countdown; pause/reset)
+
+- `scripts/perception-test-runner/runner.js` — session state machine
+  - Counterbalanced pair-order sequences (4 orders; rotate across subjects; § 4.3)
+  - Within-pair slot randomization per session
+  - B-quad (vocabulary-control) fights distributed randomly within session
+  - JSONL output schema: `fight_rating` + `pair_grouping` + `session_header`
+  - localStorage persistence + download to named `.jsonl` file
+  - `TODO(drax)` annotations marking gandalf archetype-spec integration points
+  - 34/34 JS ID references verified against HTML; JS syntax clean
+
+- `scripts/perception-test-runner/reference-monster-spec.md` — reference monster spec (§ 7.3 mitigation)
+  - Three-phase AI: approach+commit / aggression spike / desperation burst
+  - HP 480, armor 18, neutral element resistances, 5.5 m/s
+  - Covers kiting + commitment + mobility response
+
+- `scripts/perception-test-runner/README.md` — operator guide + jack-ryan analysis notes
+  - Output schema full reference; Python analysis pseudocode; TODO checklist before live sessions
+
+**Test suite:** 326/326 PASS (unchanged). Smoke: runner opens, all refs resolve, syntax clean.
+
+**Pending before live sessions:**
+1. Gandalf archetype-spec integration (replace ARCHETYPE_SLOTS TBD placeholders)
+2. Jack-ryan representativeness review of `reference-monster-spec.md`
+3. Demo `?mode=perception_test` param wiring (suppress substrate names in-demo)
+4. Warm-up archetype slot populated
+
+**Architecture note (L1 in-seam decision):** Runner is standalone HTML/JS, not Pixi.js. Rationale: fight context is the existing demo (Matt plays the demo directly); the runner provides the surrounding orchestration infrastructure — neutral naming, rating UI, grouping task, output capture. This keeps the runner simple, ergonomic for 30-45 min sessions, and decoupled from demo engine changes.
+
+— drax-demo
+
+### [2026-05-17 09:45Z] TAG — drax-demo — drax/v0.22-perception-test-runner-1 cut
+
+`drax/v0.22-perception-test-runner-1` annotated tag @ `550a68a` (perception-test-runner commit) in `reincarnated-demo`. Local; push to origin requires Matt authorization per ADR-006.
+
+— drax-demo
+
+### [2026-05-17 09:45Z] HANDOFF — drax-demo → jack-ryan — Reference monster spec ready for representativeness review
+
+`scripts/perception-test-runner/reference-monster-spec.md` is complete and ready for jack-ryan review.
+
+**What jack-ryan reviews (per § 7.3 mitigation):**
+- Three-phase AI shape (approach+commit / aggression spike / desperation burst)
+- HP value (480) — does it produce 60-90s fights across canonical-four archetypes at median engine DPS?
+- Does the encounter shape exercise diverse player responses (kiting / commitment / mobility)?
+- Any bias concerns (e.g., encounter that systematically favors one substrate or role)?
+
+See `reference-monster-spec.md` § 3 (Representativeness considerations) for the questions drax has flagged for jack-ryan attention.
+
+— drax-demo
+
+### [2026-05-17 09:45Z] HANDOFF — drax-demo → gandalf — Session-runner ready to receive archetype specs
+
+D27 Track A is complete. The session-runner is ready for gandalf's archetype-spec integration step (the 0.5-day sub-deliverable per § 8.4).
+
+**What gandalf provides:**
+- 4 mechanical pairs (8 archetypes, canonical-four substrates, per § 3.1):
+  - Pair A1: two fire_damage archetypes, ≥2σ distinct kit vectors
+  - Pair A2: two water_controller archetypes
+  - Pair A3: two earth_caster archetypes
+  - Pair A4: two wind_controller archetypes
+- 1 vocabulary-control quad (4 archetypes, one per canonical-four substrate, deliberately generic vocabulary)
+- Per archetype: `archetype_id` (engine class ID from season JSON) + `season_id` (which season to use)
+
+**What drax does with gandalf's specs:**
+- Replace `ARCHETYPE_SLOTS` TBD placeholders in `runner.js` (lines ~30-70)
+- Populate `WARMUP_SLOT`
+- Smoke-test each archetype loads in the demo
+- Wire `?mode=perception_test` in demo to suppress substrate names + tooltips
+
+— drax-demo
+
