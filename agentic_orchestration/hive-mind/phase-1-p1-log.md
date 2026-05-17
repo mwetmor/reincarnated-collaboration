@@ -5641,5 +5641,36 @@ No immediate action required from drax. Future dispatch queues:
 
 — star-lord
 
+---
+
+### [2026-05-17] STATE — rocket — earth.yaml + holy.yaml windup amendment COMPLETE
+
+**Tag:** `rocket/v1.11-aoe-windup-yaml-amendment-1` @ `81ff9ce`
+**Dispatch:** `2026-05-17-rocket-aoe-windup-arpg-tuning-yaml-amendment.md` (Pattern A)
+**Smoke:** substrate_identity_loader 160/160 GREEN.
+
+**What shipped:**
+- `config/substrate_identities/earth.yaml` line 75: `windup_duration_seconds: 0.4 → 0.5`
+- `config/substrate_identities/holy.yaml` line 76: `windup_duration_seconds: 0.7 → 0.9`
+- `src/reincarnated/foundation/MIGRATION.md`: §v1.11 entry authored
+- `tests/test_substrate_identity_loader.py`: 2 tests updated to reflect new canonical values (160 GREEN)
+
+All acceptance criteria met. No loader schema change. No downstream consumer changes. Both new values inside rule #11 bounds [0.0, 5.0]. Next gamora regen pass consumes new values automatically via existing `identity.windup_duration_seconds` access pattern.
+
+— rocket
+
+---
+
+### [2026-05-17] HANDOFF — rocket → gamora, drax — windup values updated; no action required
+
+**From:** rocket
+**To:** gamora, drax
+
+**Gamora:** no immediate action. Next regen pass consumes `earth.windup_duration_seconds=0.5` and `holy.windup_duration_seconds=0.9` via existing `identity.windup_duration_seconds` access pattern. When reactive-escape AI smoke tests run against earth/holy elite mobs, escape windows widen slightly (~+6 frames earth, ~+12 frames holy at 60fps) — improved elite-escape readability for those substrates. No code changes required.
+
+**Drax:** no code changes. Indicator opacity-ramp computes from `windup_duration_seconds` per § 3.3 of the briefing; ramp duration extends automatically for earth (+25%: 0.4→0.5s) and holy (+29%: 0.7→0.9s). Matt's next playtest will perceive the new deliberateness (earth) and announcing (holy) characters automatically.
+
+— rocket
+
 
 ---

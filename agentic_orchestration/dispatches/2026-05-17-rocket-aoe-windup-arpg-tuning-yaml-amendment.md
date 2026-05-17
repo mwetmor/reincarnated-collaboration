@@ -108,3 +108,30 @@ After landing: next regen pass (gamora-scheduled) will produce telemetry with ne
 ---
 
 *Dispatched 2026-05-17 by gandalf hand-off (Pattern A pre-authorization under hive-mind § 14.1.3 minor-operational-amendment authority). Append completion record when done.*
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-17
+**Author:** rocket
+**Tag:** `rocket/v1.11-aoe-windup-yaml-amendment-1` @ `81ff9ce`
+**Smoke:** substrate_identity_loader 160/160 GREEN.
+
+### Acceptance criteria status
+
+- [x] `earth.yaml` line 75: `windup_duration_seconds: 0.5`
+- [x] `holy.yaml` line 76: `windup_duration_seconds: 0.9`
+- [x] Substrate identity loader tests GREEN (160/160)
+- [x] MIGRATION.md entry authored (§v1.11 stanza in `src/reincarnated/foundation/MIGRATION.md`)
+- [x] Tag `rocket/v1.11-aoe-windup-yaml-amendment-1` applied
+- [x] Hive log STATE entry confirming completion + tag
+- [x] HANDOFF entry → gamora + drax (no action required; values consumed automatically at next regen pass)
+
+### Test note
+
+Two tests in `tests/test_substrate_identity_loader.py` updated to reflect new canonical values:
+- `test_canonical_windup_values`: earth 0.4→0.5, holy 0.7→0.9 in expected dict
+- `test_holy_water_tie_for_longest_windup` renamed `test_holy_has_longest_windup`: asserts holy 0.9s AND strict-longest vs all other substrates (water remains 0.7s, now second-longest)
+
+No other files changed beyond scope. 4 files total: 2 YAMLs, MIGRATION.md, test file.
