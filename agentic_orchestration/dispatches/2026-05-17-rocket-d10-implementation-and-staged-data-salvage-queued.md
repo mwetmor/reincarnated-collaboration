@@ -3,7 +3,25 @@
 **Authority:** Matt L3 2026-05-17 (~23:00 EDT). Commission queued; auto-fires when gamora D10 math note ships.
 **Type:** Pattern B — generation-pipeline implementation + post-process salvage; ~1-2 days.
 **Predecessor (gates auto-fire):** gamora D10 substrate-coherent gen-math note (`agentic_orchestration/dispatches/2026-05-17-gamora-d10-substrate-coherent-gen-math-note.md`).
-**Status:** 🟡 **QUEUED — DO NOT EXECUTE until gamora D10 math note ships completion record.** Knight-rider will activate when gamora lands.
+**Status:** 🟢 **ACTIVATED 2026-05-17 ~00:00 EDT.** Gamora math note shipped (commit `92a4691`).
+
+---
+
+## ⚠️ JACK-RYAN GATE-1 ADVISORY — CONDITIONAL ENDORSE — 3 PRE-FLAGS
+
+Tag: `jack-ryan/v1.4-d10-math-note-gate1-review-1`. Verdict: **CONDITIONAL ENDORSE**. Three pre-flags rocket must address at code-time (these supersede the math note where they conflict):
+
+### PRE-FLAG 1 — WARN — `range_profile` is per-CLASS, not per-skill
+Math note § 1.3 listed `range_profile` as a per-skill input — **wrong**. Empirical inspection of `season_002011/classes.json` confirms `range_profile` lives on the class object, not on individual skill objects. When you iterate skills in `derive_geometry_type()`, pass `class.range_profile` as a per-class constant — NOT a per-skill lookup. A per-skill lookup will KeyError or silently use the wrong value at salvage-script call-time.
+
+### PRE-FLAG 2 — WARN — Gear backfill seed field is `generation_seed`, not `seed`
+Math note § 8.7 specifies `rng = np.random.default_rng(seed + 999)` — **field name wrong**. 002011-015 manifests use `generation_seed` (value 2011/2012/etc.). `manifest.get("seed")` returns None → `default_rng(None + 999)` raises TypeError → deterministic 0-LLM-cost salvage guarantee in § 8.1 breaks. Read `manifest["generation_seed"]` instead.
+
+### PRE-FLAG 3 — INFO — R11(b) round-trip clause required in your acceptance criteria
+`gear_pool_staged.json` is a new output path you'll add to `season_writer.py` that the exporter reads at the export boundary. This is a cross-seam contract change per R11(b) trigger table. Your acceptance criteria must include either a round-trip smoke spec (generation → season_writer write → export fallback read → gear_pool.json populated) or an explicit `Round-trip: not applicable because <reason>` clause. Silence is not valid per R11(b).
+
+### Note for gamora (your dependency)
+When gamora implements `floor_over_band` + `estimated_gap` on `ClassBalanceResult` in balance_loop.py, she'll need a new MIGRATION.md v1.7 entry at `src/reincarnated/simulation/MIGRATION.md` BEFORE her D10 code tag. Not your concern except: don't proceed with `floor_over_band` consumption until gamora's MIGRATION lands.
 
 ---
 

@@ -206,3 +206,57 @@ D10 code phase begins after:
 3. Post-process salvage script runs (gamora or rocket; knight-rider coordinates)
 
 — gamora
+
+---
+
+## Jack-ryan Gate-1 review record
+
+**Reviewer:** jack-ryan
+**Tag reviewed:** `gamora/v1.6-d10-substrate-coherent-gen-math-note-1 @ 92a4691`
+**Jack-ryan tag:** `jack-ryan/v1.4-d10-math-note-gate1-review-1` (engine repo, local)
+**Date:** 2026-05-17
+**Verdict:** CONDITIONAL ENDORSE — 3 pre-flags for rocket, 1 seam-owner action, 1 terminology advisory
+
+### Findings
+
+**[ENDORSE with conditions] Overall assessment**
+
+The math note is well-structured and discipline-compliant. Discipline #1 (math-before-code) is clearly satisfied: empirical basis precedes every constraint, formula, and threshold. Discipline #12 (semantic shift) is explicitly declared at §§ 3.4 and 6.5. Discipline #11 (empirical inspection) is evident throughout — ground-truth vocabulary validated against season_001005 before any derivation rule was written. The three-layer cascade in § 1.3 is coherent, exhaustive-by-construction with a named fallback, and maps cleanly to the 002011–002015 field inventory. The DPS density finding (§ 5.3) is correctly self-correcting — gamora identifies the formula's failure mode and replaces it with a more reliable discriminator before handing off.
+
+**[PRE-FLAG 1 — rocket — WARN] `range_profile` is on the class object, not the skill object**
+
+§ 1.3 Layer 3 and § 1.4 specify `derive_geometry_type(role, canonical_element, effects_list, cooldown_seconds, range_profile)` with `range_profile` as a per-skill input. Empirical inspection of the 002011 data confirms `range_profile` lives on the class JSON object, not on individual skill objects. Rocket must pass `class.range_profile` as a per-class constant into `derive_geometry_type()` for all skills in that class. If rocket implements the function signature assuming per-skill `range_profile`, the post-process salvage script will fail at call-site. Cite: Discipline #11 (empirical inspection over assumption).
+
+**[PRE-FLAG 2 — rocket — WARN] § 8.7 gear_pool backfill references `seed` but manifest field is `generation_seed`**
+
+§ 8.7 states `rng = np.random.default_rng(seed + 999)` and says seed is "canonical seed offset per orchestrator line 464." Confirmed: line 464 of season_orchestrator.py uses `seed + 999`. However, empirical inspection of the 002011–002015 manifests shows the field name is `generation_seed`, not `seed`. Rocket's post-process salvage script must read `manifest["generation_seed"]` (e.g., `2011` for season_002011), not `manifest.get("seed")` (which returns None). A silent None → `default_rng(None)` would produce a non-deterministic gear backfill that cannot be reproduced. Cite: Discipline #11; Discipline #1 (reproducibility guarantee in § 8.1 depends on this).
+
+**[PRE-FLAG 3 — rocket — INFO] R11(b) round-trip scope for `gear_pool_staged.json` and `estimated_gap`**
+
+Two cross-seam contract additions are in scope for rocket's D10 implementation:
+1. `gear_pool_staged.json` is a new output path in season_writer.py (export boundary); the exporter's fallback reads it. This is a cross-seam contract change per R11(b) trigger table ("export packet structure changed"). Rocket's acceptance criteria must include either a round-trip smoke spec or a `Round-trip: not applicable because <reason>` clause.
+2. `estimated_gap` on `ClassBalanceResult` is gamora-seam (§ 6.4 correctly assigns it to gamora, not rocket). However, the star-lord follow-on ALTER TABLE is also a cross-seam contract change. The note correctly flags this as low-priority follow-on — no action needed in this dispatch, but the star-lord dispatch must include R11(b) round-trip spec when it fires.
+Cite: Review Principle 6; R11(b).
+
+**[SEAM-OWNER ACTION — gamora — INFO] `floor_over_band` is gamora-seam; MIGRATION.md entry required before tagging D10 code**
+
+§ 6.5 correctly notes this is an additive semantic extension to `modifier_flag_tier`. The simulation seam's MIGRATION.md (at `src/reincarnated/simulation/MIGRATION.md`) already has a v1.6 entry for the `"review"` tier. When gamora implements `"floor_over_band"` + `estimated_gap` in the D10 code phase, a new MIGRATION.md entry (v1.7 or v1.8 as appropriate) is required at that boundary — both for the `modifier_flag_tier` new value and for the new `estimated_gap` field on `ClassBalanceResult`. This is not blocking the math note handoff but must be in place before the D10 code tag. Cite: ADR-004; Review Principle 3.
+
+**[ADVISORY — INFO] § 5.3 DPS density finding: attribution framing is correct**
+
+Gamora correctly frames the physical_warrior / hybrid_mage density paradox as a structural engagement constraint (close-range kiting penalty), not a formula flaw. This framing is compliant with Discipline #13b — it names a structural presupposition (physical_warrior's engagement-range constraint exists in the simulation) without claiming per-variable causal attribution to convergence outcome. No action needed; noting for the record.
+
+**[WATCHPOINT 1 — § 1.5 validation methodology — INFO]**
+
+The ≥90% match target against 60 season_001005 skills is an appropriate gate for a deterministic derivation algorithm. One structural gap: the ground-truth set is 60 skills from a single season (one seed, one generation run). If any geometry_type in season_001005 was manually corrected or LLM-influenced post-generation, it may not be a clean ground truth for a rule-derived comparison. Rocket should note any systematic miss patterns before adjusting the algorithm — do not chase individual mismatches without checking for pattern first (Discipline #1: re-diagnose mechanism before adjusting magnitude). The 90% gate is the right number; the methodology caveat is informational only.
+
+### Summary for rocket dispatch
+
+Pre-flags to address at implementation time:
+1. `range_profile` is per-class, not per-skill — pass `class.range_profile` as constant into `derive_geometry_type()` for all skills in that class.
+2. Gear backfill seed: read `manifest["generation_seed"]`, not `manifest["seed"]` (field name confirmed from 002011–002015 manifest inspection).
+3. R11(b) round-trip clause required in rocket's acceptance criteria for `gear_pool_staged.json` export boundary.
+
+No BLOCK conditions. Math note is ready for rocket execution.
+
+— jack-ryan
