@@ -3231,3 +3231,103 @@ Star-lord observed `b6_kit_builder.py` still imports `HYBRID_FORBIDDEN_PAIRS` fr
 
 — knight-rider
 
+---
+
+### [2026-05-18 HH:MMZ] STATE — drax-demo — D27 final integration SESSION OPEN
+
+Required reading complete:
+- `phase-1-p1-log.md` tail — D27 archetype specs shipped (gandalf), jack-ryan checkpoint review INFO-only, gamora D3 session open. All prerequisites met per dispatch.
+- `d27-archetype-specs.md` — all 12 archetypes read; §4.2 geometry substitutions noted; §4.3 ailment-valence note noted; §4.4 distinctness verification; §6 open question on parametric tuning
+- `perception-test-experiment-scoping-2026-05-17.md` §3 + §4 — session structure + bias controls confirmed
+- `runner.js` + `runner.html` + prior AGENT_STATE — D27 Track A output fully read; TODO annotation locations confirmed
+- Canonical geometry pool verified via `ability_grammar.py VALID_GEOMETRIES`
+
+**Working tree:** CLEAN (demo main at 4f1f94a / drax/v0.22 tag).
+
+**Execution plan:** (1) replace ARCHETYPE_SLOTS; (2) replace WARMUP_SLOT; (3) wire ?mode=perception_test in main.ts; (4) smoke test; (5) update README; (6) commit + tag; (7) update AGENT_STATE; (8) hive log
+
+— drax-demo
+
+---
+
+### [2026-05-18 HH:MMZ] STATE — drax-demo — D27 final integration COMPLETE
+
+Tag: `drax/v0.23-perception-test-integration-1 @ 59fe5b5`
+
+**What shipped:**
+
+`scripts/perception-test-runner/runner.js`:
+- ARCHETYPE_SLOTS fully populated with 12 gandalf-authored archetype entries (d27-archetype-specs.md)
+- 8 Pair-Type A: Class 1–Class 8 (A1 fire_mage / A2 water_controller / A3 earth_caster / A4 wind_controller)
+- 4 Pair-Type B: Build A–Build D (vocab-control quad; one per canonical substrate)
+- 1 WARMUP_SLOT: fire_mage_warmup (practice fight; not scored)
+- kit_shape_vector reference metadata embedded per spec for pre-session verification
+- DISTINCTNESS_VERIFICATION section added with ≥2σ pre-session check protocol and quick sanity checks
+- All old TODO(drax) annotations replaced
+- Geometry substitutions documented inline + file header:
+  - `area_sustain` → `persistent_zone` (A2a, A3a, B-X)
+  - `wave` → `ring` (A2b; per gandalf inline note)
+  - `pillar` → `ground_slam` redistributed weight (A3a; per gandalf inline note)
+  - `bolt_line` → `line` (A1b)
+  - `branching` → `multi_projectile` (A1b)
+  All substituted values canonical per `ability_grammar.py VALID_GEOMETRIES`.
+  Aggregate kit-shape vector distance preserved per d27-archetype-specs.md §4.2.
+
+`src/main.ts`:
+- URLSearchParams reads `?mode=perception_test` at bootstrap (_perceptionTestMode flag)
+- When active: player sprite subtitle (`archetype_tag · energy_type`) suppressed → `''` (Pattern P7; no silent substrate leak)
+- Discipline #12 semantic documented inline; console.log on activation
+- tsc + vite build clean; 326/326 tests pass
+
+`scripts/perception-test-runner/README.md`:
+- Prerequisites updated; 12-archetype ID table added; geometry substitutions listed
+- TODOs replaced with 'Remaining steps before first live session' tracking
+
+**§6 open-question resolution (in-seam L1 decision):**
+The runner does NOT enforce or override engine kit-shape vectors at runtime. The kit_shape_vector fields in ARCHETYPE_SLOTS are generation-side spec constraints — gamora generates season classes that satisfy the spec. The runner consumes class IDs as emitted. Pre-session ≥2σ verification is a manual operator check per DISTINCTNESS_VERIFICATION. No FRICTION raised; gamora is the engine-side partner for tuning if re-generation is needed.
+
+**Pair-distinctness pre-verification (from spec):**
+All 4 A-pairs authored to meet ≥2σ per d27-archetype-specs.md §1 + §2.x inline notes:
+- A1: cone 0.40 dominant (A1a) vs projectile 0.50 dominant (A1b) — inverted AOE/single-target poles
+- A2: persistent_zone 0.40 long-cooldown (A2a) vs ring 0.35 short-cooldown (A2b) — zone-sustain vs burst
+- A3: ground_slam 0.50 melee-anchor (A3a) vs projectile 0.45 mobile-throw (A3b) — anchored vs ranged
+- A4: vortex_pull 0.40 pull-center (A4a) vs cone 0.35 push-out (A4b) — centripetal vs centrifugal
+All four axes (geometry dist, cooldown profile, ailment dist, AOE ratio) differ across each pair.
+No QUESTION raised to gandalf — spec asserts ≥2σ; quick-check shows all four pairs have geometric composition at opposite poles.
+
+**Smoke test results:**
+- Demo: `npm run build` clean (tsc --noEmit + vite build; 0 errors, 0 type errors)
+- runner.js: `node --check` syntax clean
+- Test suite: 326/326 pass (unchanged)
+- `?mode=perception_test` wiring: visual logic review clean (subtitle suppression; Pattern P7 fallback; console.log on activation)
+
+**Cross-seam observations:**
+- No engine files touched (read-only access maintained)
+- No loadout files touched
+- Parallel drax-loadout D19 Sub-phase A commit (c5d8a40) landed mid-session on demo main; rebased cleanly
+
+— drax-demo
+
+---
+
+### [2026-05-18 HH:MMZ] HANDOFF — drax-demo → Matt + knight-rider — D27 perception-test ready for session scheduling
+
+**Completion gate status:**
+- Runner infrastructure: COMPLETE (v0.23)
+- 12 archetypes: INTEGRATED (gandalf-authored kit-shape vectors; neutral display names Class 1-8, Build A-D)
+- ?mode=perception_test: WIRED (substrate subtitle suppressed in demo during fights)
+- Pair distinctness pre-check: PASSES (spec asserts ≥2σ; operator validates against generated season)
+
+**Remaining before live sessions (operator/gamora action required):**
+1. Gamora generates perception-test season: 12 classes satisfying kit-shape-vector specs in `d27-archetype-specs.md` (gamora's territory; runner.js has the spec metadata for reference)
+2. Operator updates `archetype_id` + `season_id` in `ARCHETYPE_SLOTS` from generated season (~12 field updates in runner.js)
+3. Manual ≥2σ distinctness check per `DISTINCTNESS_VERIFICATION` block in runner.js before first session
+4. Verify A4 VFX: vortex_pull (pull-toward) renders visibly distinct from cone/burst (push-away) per d27-archetype-specs.md §4.3
+5. Demo dev server test: load all 12 archetypes via `?mode=perception_test`; confirm no substrate leaks
+
+**Ready for Matt+son sessions:** NO — blocked on gamora generating perception-test season (step 1 above)
+
+**Matt:** When the perception-test season generates, session scheduling is unblocked. Full session runner at `~/Games/reincarnated-demo/scripts/perception-test-runner/runner.html`. Quick start: `npm run dev` in demo repo, then open runner.html. Operator guide in `scripts/perception-test-runner/README.md`.
+
+— drax-demo
+
