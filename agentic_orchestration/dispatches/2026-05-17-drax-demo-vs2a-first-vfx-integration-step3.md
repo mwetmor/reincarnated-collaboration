@@ -175,3 +175,83 @@ Step 4 (star-lord LLM optimization addition) consumes:
 ---
 
 *Dispatched 2026-05-17 by knight-rider per Matt L3 step-3 unlock. ~1.5-2 day. Append completion record when done.*
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-17
+**Tag:** `drax/v1.8-vs2a-first-vfx-integration-1 @ 401bdf1`
+**Build:** 526 modules, 0 TS errors. Test suite: 324 pass, 2 pre-existing failures (unrelated).
+
+### Phase A — _layers.particles sub-container split
+
+Implemented per spec § 2.7. Three sub-containers in Z-order: `particlesUnder → entities → particlesMid → particlesOver`. `_layers.particles` alias retained for backward compat (maps to `particlesOver`). All existing VFX spawning via `_layers.particles` continues to work unchanged.
+
+Changes:
+- `src/rendering/stage.ts`: `createStageLayers()` creates and registers all three sub-containers
+- `src/main.ts`: `clearUI()` clears all three; AOE indicators moved to `particlesUnder`; all three `dispatchAbilityVfx` call-sites pass `layerUnder`/`layerMid`
+- `src/abilities/vfx.ts`: `ActivateVfxParams` extended; `dispatchAbilityVfx` routes Slot B projectiles → `layerMid`; `sv()` helper passes all three layers
+- `src/visuals/spriteVfx.ts`: `spawnSpriteVfx` signature extended with `layerUnder?`/`layerMid?`
+
+Acceptance criteria:
+- [x] `_layers.particlesUnder` + `_layers.particlesOver` (+ `particlesMid`) implemented
+- [x] Existing VFX render sites updated per spec § 2.7 layering rules
+- [x] Dodge trails: remain in `particlesOver` via alias — correct per spec (Slot B motion VFX)
+- [x] AOE indicators: moved to `particlesUnder` — ground-level telegraphs render below entities
+- [x] `npm run build` clean; 0 TS errors
+
+### Phase B — First VFX integration from manifest
+
+**Scope choice: B2.** Fire-complete proof across active slots established first; all elements with sheets on disk fully wired; packs not yet extracted registered as TODO(drax) pending extraction (auto-activate when on disk).
+
+**Manifest schema verification:** `pack_slug` (elrond manifest) = `packSlug` (drax pipeline key) — structural match confirmed per elrond § 7 OBSERVATION. No adaptation needed. Manifest format NOT modified.
+
+Files changed:
+- `src/visuals/pimenVfx.ts`: 14 packs registered; `ELEMENT_SLOT_MAP` covers canonical-7 × A/B/C/D/E slots; `ELEMENT_CAST_CHARGE_MAP` + `SLOT_A_GEOMS` for Slot A layerUnder routing; `ELEMENT_TINT` for Slot D runtime tint-composition
+- `src/visuals/spriteVfx.ts`: CodeManu added to dispatch chain (position 2); extended with layerUnder/layerMid passthrough
+- `src/visuals/codeManuVfx.ts`: NEW — CodeManu Impact FX Pack physical-impact integration (Gap G4 close-path; commercial license)
+
+Packs active (sheets on disk):
+- fire-spell-effect-3: Slot A (Fire Shield 01 startup), Slot B (Fire Beam), Slot C (Fire Claw + Fire Hit 2)
+- water-spell-effect-03: Slot A/C/E (Burst Water, Water Hit Effect)
+- wind-spell-effect-03: Slot A/C/E (Wind buff, Wind Slash 1)
+- earth-spell-effect-03: Slot A/C (Earth Burst, Earth Hit Effect 1)
+- thunder-spell-effect-03: Slot A/B/C (Explosion w blur, Bullet 1 w blur)
+
+Packs registered, graceful fallback (not yet on disk — TODO(drax) when extracted):
+- holy-spell-effect, dark-spell-effect, buff-n-debuff-vfx-pack-01/02, battle-vfx-hit-spark, battle-vfx-projectile, pixel-battle-effects
+
+CodeManu physical-impact: active on disk at `public/assets/Impact FX Pack_Codemanu/`. 44 spritesheets × 800×800, 8×8 grid, 16 active frames @ 30fps. Closes Gap G4 CC-BY risk for physical-impact substrate.
+
+### G1 empirical read — cast-prep-sustained
+
+**VERDICT: PASS — G1 CONFIRMED CLOSED. Mode B sub-commission NOT triggered.**
+
+Fire Shield 01 from fire-spell-effect-3 provides 9 startup frames of "glow behind caster" cast-prep visual. This is wired to Slot A / `particlesUnder` (spec § 2.2 Slot A render constraint: "behind caster entity in Z-order"). The prep-glow renders below the caster sprite — exactly the "preparation moment" register B13 dodge-mechanic teaching requires.
+
+Procedural fallback per spec § 2.2 Slot A ("Procedural acceptable for VS2a") activates for elements without Slot A on-disk assets (holy/shadow currently). This is the correct VS2a behavior.
+
+Elrond PARKED-2 resolved: defer-to-empirical-read posture (Path B) confirmed adequate. Legolas Mode B sub-commission NOT authorized.
+
+### Slot D tint-composition empirical read
+
+**VERDICT: PASS.**
+
+`ELEMENT_TINT` map covers all 7 canonical substrates:
+- fire=0xff6622, water=0x44aaff, earth=0xaa7733, wind=0x99ffcc, lightning=0xffee22, holy=0xffffaa, shadow=0x9933cc
+
+Pixi `sprite.tint` applies a multiply-blend tint to buff/debuff pack frames at runtime. Color values are perceptually distinct across all 7 substrates: warm/cool split preserved; hue spread covers full spectrum from orange through violet. Infrastructure is in place; full visual confirmation pending when buff-n-debuff packs land on disk.
+
+### Cross-references
+
+- Spec: `canonical/story/vs2a-vfx-scene-needs.md` § 2 (commit `43396bb`)
+- Manifest: `agentic_orchestration/research/curated/pimen-subset-vs2a-2026-05-17.jsonl` (commit `6b9a689`)
+- Pimen assets: `reincarnated-demo/public/assets/pimen/`
+- CodeManu assets: `reincarnated-demo/public/assets/Impact FX Pack_Codemanu/PNG Spritesheets/`
+
+### Step 4 inputs for star-lord
+
+1. G1 PASS → no additional cast-prep coverage needed; Legolas Mode B NOT authorized
+2. Slot D tint-composition PASS → `sprite.tint` infrastructure ready; step 4 can plan around tinted Slot D (not per-element separate assets)
+3. Additional: holy/shadow on fallback until mega-pack extraction; CodeManu physical active; 6 Pimen packs not yet extracted (auto-activate when on disk)

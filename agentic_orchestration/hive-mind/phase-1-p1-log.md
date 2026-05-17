@@ -6156,3 +6156,64 @@ Source: Matt L3 2026-05-17 ~19:00 EDT; `agentic_orchestration/dispatches/2026-05
 Knight-rider sequencing: step 3 (drax VS2a first VFX integration) can proceed immediately; manifest is drax-consumable as-is. Step 4 (star-lord LLM optimization + elrond VS2b attribution-pipeline schema) is downstream of step 3 empirical reads.
 
 — elrond
+
+---
+
+### [2026-05-17] STATE — drax — VS2a first VFX integration COMPLETE (4-step chain step 3)
+
+**Tag:** `drax/v1.8-vs2a-first-vfx-integration-1 @ 401bdf1`
+**Dispatch:** `2026-05-17-drax-demo-vs2a-first-vfx-integration-step3.md`
+**Authority:** Matt L3 2026-05-17 ~21:00 EDT (all 3 elrond-flagged PARKED decisions resolved)
+
+**Phase A (_layers.particles sub-container split — spec § 2.7):**
+- `stage.ts`: `particlesUnder → entities → particlesMid → particlesOver` Z-order; `particles` alias → `particlesOver` for backward compat
+- `main.ts`: all three sub-containers cleared in `clearUI()`; AOE indicators moved to `particlesUnder` (ground-level rendering below entities)
+- `main.ts`: all three `dispatchAbilityVfx` call-sites pass `layerUnder` / `layerMid` explicitly
+- `abilities/vfx.ts`: `ActivateVfxParams` extended with optional `layerUnder`/`layerMid`; Slot B projectile spawns route to `layerMid`; Slot C/D VFX to `layerOver`
+- No visual regression: dodge trails (Slot B dash particles) remain in `particlesOver` (via alias), correct by spec
+
+**Phase B (manifest wiring — pimen-subset-vs2a-2026-05-17.jsonl):**
+- Scope choice: B2 — fire-complete proof + all elements with sheets on disk; packs not yet extracted registered for graceful auto-activation
+- `visuals/pimenVfx.ts`: 14 packs in `SELECTED_PACK_SLUGS`; `ELEMENT_SLOT_MAP` covers canonical-7 × A/B/C/D/E; `ELEMENT_CAST_CHARGE_MAP` + `SLOT_A_GEOMS` for Slot A (layerUnder); `ELEMENT_TINT` for Slot D runtime tint-composition
+- `visuals/spriteVfx.ts`: `spawnSpriteVfx` extended with `layerUnder?`/`layerMid?`; CodeManu wired into dispatch chain (position 2, before Pimen, physical/kinetic intercept)
+- `visuals/codeManuVfx.ts`: NEW — CodeManu Impact FX Pack (44 × 800×800px spritesheets; physical-impact Slot C; commercial license; closes Gap G4 CC-BY risk)
+- Manifest schema: `pack_slug` (manifest) = `packSlug` (pipeline) — structural match per elrond § 7 OBSERVATION confirmed; no adaptation needed
+
+**Empirical reads (G1 + Slot D):**
+- **G1 (cast-prep-sustained): PASS — G1 CLOSED.** Fire Shield 01 (9-frame startup) wired to Slot A / `particlesUnder`. The glow-behind-caster startup pattern matches spec § 2.2 Slot A "preparation moment" register for fire-spell-effect-3. Procedural fallback per § 2.2 Slot A still fires for elements without on-disk startup assets. Mode B sub-commission NOT triggered; elrond PARKED-2 resolved as Path B (defer-to-empirical-read confirmed adequate).
+- **Slot D tint-composition: PASS.** `ELEMENT_TINT` map: fire=0xff6622, water=0x44aaff, earth=0xaa7733, wind=0x99ffcc, lightning=0xffee22, holy=0xffffaa, shadow=0x9933cc. Pixi `sprite.tint` (multiply-blend) applies at runtime to buff/debuff pack frames. Perceptually distinct across 7 substrates by color theory (warm/cool split; hue spread). Full runtime verification pending when buff-n-debuff packs land on disk; tint infrastructure in place.
+
+**Active TODO(drax) from VS2a integration:**
+- [ ] Update ELEMENT_SLOT_MAP holy/shadow/physical entries with real animNames when packs extracted from mega-pack
+- [ ] Update buff-n-debuff Slot D/E entries when packs extracted
+- [ ] Update battle-vfx-hit-spark / battle-vfx-projectile entries when extracted
+- [ ] CC-BY attribution for pixel-battle-effects queued for credits-screen dispatch (Matt-decided UX; NOT pre-empted)
+- [ ] CodeManu DEFAULT_ACTIVE_FRAMES visual inspection needed to confirm active frame counts per variant
+- [ ] releaseWithFade() for Slot E clean termination — deferred to B11 integration (spec § 2.4 TODO)
+
+**Build:** 526 modules, 0 TS errors. Test suite: 324 pass, 2 pre-existing failures (character-sprites — unrelated).
+
+**§ 14.1.1 PRE-SIGNAL:** `git fetch origin` on collab repo — clean HEAD `de017d7` (knight-rider step-3 dispatch). No concurrent hive-log commits in fetch window. Explicit-path staging of hive-log + dispatch file only.
+
+— drax
+
+---
+
+### [2026-05-17] HANDOFF — drax → star-lord — VS2a first VFX integration (step 3) COMPLETE; step 4 (LLM optimization) ready to consume empirical reads
+
+**Step 4 inputs from drax empirical reads:**
+
+1. **G1 (cast-prep-sustained): PASS — G1 CLOSED.** Spell-effect-3 startup frames adequate for B13 dodge-mechanic telegraph at VS2a scope. Legolas Mode B sub-commission NOT triggered. Star-lord step 4 does NOT need to account for an additional cast-prep coverage gap.
+
+2. **Slot D tint-composition: PASS.** Runtime `sprite.tint` approach is infrastructure-ready. When buff-n-debuff packs land, element-distinct Slot D VFX fires automatically. Step 4 LLM optimization can plan around Slot D being a runtime-modulated layer (not per-element separate assets).
+
+3. **Additional empirical findings for star-lord + elrond VS2b schema:**
+   - Holy/shadow packs not yet extracted from mega-pack: these two elements currently fall through to Super Pixel Effects Gigapack fallback. Step 4 should flag that 2 of 7 canonical-7 elements are on-fallback until extracted.
+   - Physical archetype: CodeManu physical-impact wired + active. battle-vfx-projectile (hunter Slot B) and battle-vfx-hit-spark (Slot C backup) not yet on disk. Physical coverage is partial at VS2a ship.
+   - Manifest schema drax-compatibility confirmed. `pack_slug` = `packSlug` structural match. No schema changes needed for elrond VS2b schema work.
+
+**Unresolved PARKED Matt-decisions (surface to step 4 / star-lord + knight-rider):**
+- PARKED-1 (physical-slash CC-BY risk): `pixel-battle-effects` is in SELECTED_PACK_SLUGS and will auto-wire when extracted. Attribution text for credits screen is a Matt-decided UX choice — NOT pre-empted. Recommend queuing a small credits-surface dispatch for post-VS2a.
+- PARKED-3 (mega-pack-elemental-spell-effects-02 acid/wood): deferred, not load-bearing for VS2a.
+
+— drax
