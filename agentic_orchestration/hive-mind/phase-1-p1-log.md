@@ -5566,3 +5566,80 @@ Suggested rocket tag (next available): `rocket/v1.11-aoe-windup-arpg-tuning-yaml
 — gandalf
 
 ---
+
+### [2026-05-17] PRE-SIGNAL — rocket — about to apply earth.yaml + holy.yaml windup amendment
+
+**PRE-SIGNAL per § 14.1.1 (mandatory before substrate identity YAML edit).**
+
+Executing dispatch `2026-05-17-rocket-aoe-windup-arpg-tuning-yaml-amendment.md` (Pattern A; ~5-10 min). Required reading complete: dispatch, gandalf validation STATE entry above, substrate_identity_loader.py (rule #11 bounds [0.0, 5.0]; both 0.5 and 0.9 inside bounds), MIGRATION.md (v1.10 is latest entry).
+
+**Two file edits pending:**
+- `config/substrate_identities/earth.yaml` line 75: `windup_duration_seconds: 0.4 → 0.5`
+- `config/substrate_identities/holy.yaml` line 76: `windup_duration_seconds: 0.7 → 0.9`
+
+No other substrates touched. No loader schema change. No downstream consumer changes. MIGRATION.md stanza + tag + completion record to follow immediately.
+
+— rocket
+
+---
+
+### [2026-05-17] PRE-SIGNAL — star-lord — D15 orchestrator wiring commit about to land (§ 14.1.1)
+
+Pre-signal per hive-mode discipline. Star-lord appending hive log now.
+Engine commit: `5cc0a13`; tag: `star-lord/v1.5-spirit-guide-orchestrator-wiring-1`.
+No concurrent write detected (local == origin @ `b81d136`).
+
+---
+
+### [2026-05-17] STATE — star-lord — D15 Spirit Guide orchestrator wiring SHIPPED
+
+**Tag:** `star-lord/v1.5-spirit-guide-orchestrator-wiring-1` @ `5cc0a13`
+**Dispatch:** `2026-05-17-star-lord-spirit-guide-orchestrator-wiring.md`
+
+D15 authored `build_spirit_guide_prompt()` but never wired it into `season_orchestrator.py`. This dispatch closes that gap — substrate-coherent Spirit Guide voice now flows through to season output.
+
+**Files modified:**
+- `src/reincarnated/generation/season_orchestrator.py` — import `build_spirit_guide_prompt`; `SeasonOutput.spirit_guide_voice: dict | None`; `generate_season()` new params (`earth_self_name`, `earth_self_id`, `court`, `current_season_number`); step 8b wired after `_name_everything()`; `_generate_spirit_guide_voice()` method added
+- `src/reincarnated/output/season_writer.py` — `spirit_guide_voice.json` write wired
+- `src/reincarnated/export/MIGRATION.md` — v1.3 entry: new optional `spirit_guide_voice.json` artifact; drax consumer notes; token cost breakdown
+- `src/reincarnated/export/AGENT_STATE.md` — session record
+- `tests/test_spirit_guide_orchestrator_wiring.py` — 13 new tests (all GREEN)
+
+**Three integration points per season:**
+1. `anchor_revelation` — Guide acknowledges the anchor place (pre-descent moment)
+2. `class_introductions` — Guide comments on each form (1 LLM call per class)
+3. `ascension_threshold` — Guide addresses player's seasonal threshold choice
+
+**Token cost:** ~12 calls for N=10 classes x ~$0.004/call = ~$0.048/regen. Within D15 dispatch envelope ($0.09-0.12 above baseline). Combined D6+D15+D15-wiring delta: ~$0.12-0.14/regen vs empirical $0.85-1.00 baseline — still negligible tier.
+
+**Test summary:** 13/13 GREEN (structural, wiring, token budget, resilience). Pre-existing failure in `test_gear_cp3.py` confirmed pre-existing.
+
+**Pull-rebase:** Local `main` confirmed up-to-date with `origin/main` before commit.
+
+---
+
+### [2026-05-17] HANDOFF — star-lord → drax-loadout, drax-demo — spirit_guide_voice.json now in season artifacts
+
+**From:** star-lord
+**To:** drax-loadout (future), drax-demo (future)
+**Re:** D15 Spirit Guide voice now reaches season output
+
+`spirit_guide_voice.json` is written to `seasons/<id>/` when a season is generated with `earth_self_name` + `llm_client`. Additive change — no existing season artifacts affected.
+
+**File shape:**
+```json
+{
+  "anchor_revelation": "<one Guide line>",
+  "class_introductions": { "<class_id>": "<one Guide line>", ... },
+  "ascension_threshold": "<one Guide line>"
+}
+```
+
+No immediate action required from drax. Future dispatch queues:
+- drax-loadout v1.x: `anchor_revelation` or `ascension_threshold` in Court browser season view. Guard: `spirit_guide_voice?.anchor_revelation ?? ""`
+- drax-demo: `class_introductions[classId]` in class-selection pre-descent screen. Guard: `spirit_guide_voice?.class_introductions?.[classId] ?? ""`
+
+— star-lord
+
+
+---
