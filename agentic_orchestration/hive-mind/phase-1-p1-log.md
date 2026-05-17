@@ -4491,3 +4491,51 @@ All click handlers (Q/E potions; I/C icons), key-binding labels, viewport pinnin
 
 — drax
 
+---
+
+### [2026-05-17] STATE — drax — v0.33 PRE-SIGNAL: potion polish + hotbar focus refinement STARTING
+
+**Dispatch:** `2026-05-17-drax-demo-v033-potion-polish-and-hotbar-focus-refinement.md`
+**Authority:** Matt L3 disposition 2026-05-17 post-v0.32 playtest feedback.
+
+**Scope — two items:**
+1. PotionHud: x shift 132→~155, larger bottle silhouette glyphs (~65% bigger), count rendered INSIDE bottle body (no separate "x3" label), zero-quantity greyed state preserved.
+2. AbilityHotbar: inner skill glyph fills box interior (frame+2px breathing only), inner glyph substrate-color-coded (Option C two-tone: primary fill gradient + secondary accent), key-binding label moved BELOW icon (nameplate style), ULT slot visual prominence preserved.
+
+**In-scope files:** `reincarnated-demo/src/ui/potionHud.ts`, `reincarnated-demo/src/ui/combatHud.ts`
+**Estimated:** ~1-2 hours. Tag: `drax/v0.33-potion-polish-and-hotbar-focus-refinement-1`
+
+— drax
+
+---
+
+### [2026-05-17] STATE — drax — v0.33 potion polish + hotbar focus refinement COMPLETE
+
+**Dispatch:** `2026-05-17-drax-demo-v033-potion-polish-and-hotbar-focus-refinement.md`
+**Commit:** `6c15a3e`
+**Tag:** `drax/v0.33-potion-polish-and-hotbar-focus-refinement-1`
+
+**Item 1 — PotionHud (`potionHud.ts`) DONE:**
+- x: 132 → 155 (hair further right)
+- Bottles rewritten as proper flask silhouettes via Pixi Graphics: oval body (rx=17, ry=22) + tapered neck + rounded cap + glass shimmer highlight ellipse. ~65% taller than v0.32 circles.
+- Count rendered INSIDE bottle body: bold 17pt Text anchored center of body oval. No "×N" label.
+- Zero-quantity: bottle alpha 0.45 + count alpha 0.55 (persistent "0" visible; v0.29 behavior preserved).
+- Key hints [Q]/[E] tertiary text below bottle. Click hit-areas cover full bottle height.
+
+**Item 2 — AbilityHotbar (`combatHud.ts`) DONE:**
+- Inner skill glyph (`_drawInnerGlyph`) fills box interior (frame + 2px PAD). 5 shape archetypes driven by geometry_type:
+  - `burst`: radial spokes + concentric rings (for burst/nova/ring/aura/etc.)
+  - `beam`: elongated diamond + chevron accents (for projectile/beam)
+  - `arc`: swept arc fill + concentric arc accent (for arc/chain)
+  - `zone`: rounded square + corner marks + inner frame (for totem/persistent_zone)
+  - `point`: 4-pointed star + spine lines + core dot (default; melee/leap/targeted)
+- Option C two-tone: primary color fills glyph body (0.26-0.32 alpha); secondary color on accent lines (0.7-0.85 alpha). Both frame AND inner glyph element-colored.
+- Key-binding label moved to BELOW slot box (container-level placement, anchor center-top, y = slotY + slotH + 3). HOTBAR_Y raised by KEY_LABEL_BELOW_H=20px for clearance.
+- Removed in-slot name label (glyph + tier badge carry visual identity). Removed unused deduplicateSkillNames import.
+- ULT 1.15x scale box preserved; innerGlyph.alpha pulses when skill is ready.
+- All v0.28 tier badges, cooldown radial sweeps, tooltips, hover handlers: unchanged.
+
+**Smoke test:** `npm run build` PASS. TypeScript clean. Vite 22.26s.
+
+— drax
+
