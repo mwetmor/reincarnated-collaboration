@@ -131,7 +131,7 @@ Independent of:
 
 Can run in parallel with all the above; only consumes legolas + gandalf bandwidth.
 
-**Recommended priority:** moderate. Drift-14 is pre-VS2b-ship gap, not VS2a-blocking. Sequencing flexibility means knight-rider can route legolas Track A when capacity allows; gandalf Track B follows legolas return.
+**🔴 Priority — UPGRADED to VS2a-GATING per Matt verdict 2026-05-17 ("yes to all four"):** Drift-14 reclassified from pre-VS2b-ship gap to VS2a-gating. Matt directive: *"I really don't want to ship any more canonically biased seasonal themes."* The D1 rubric structurally pushes the selector toward canonical-four conformity (allow-list tier dominated by canonically-aligned substances; non-canonical-but-VFX-coherent entries scattered in quarantine/eligible alongside genuinely-VFX-incoherent ones). Closure folds into the VS2a regen cycle that's already scheduled (end-game-anchored MS + form-bias Stage 1+2 + Stage B export-DTO + B6 main + chierit). **Sequence ahead of VS2a regen.** Knight-rider routes legolas Track A immediately; gandalf Track B follows legolas return; rocket selector hard-floor amendment (if recommended in Track B artifact 3) sequenced before regen fires.
 
 ---
 

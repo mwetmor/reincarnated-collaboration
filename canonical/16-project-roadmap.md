@@ -61,7 +61,8 @@ Track A is the active line. **The two near-term VS2 milestones below are the ope
 | **B6 skill-tree UI surface** | drax (dispatch not yet authored) | 🔴 **CRITICAL gap** — engine emits tree data; demo has no surface to render it. Per P6 forward audit. |
 | **B10 V2 — Sequential-room semantics with HP carryover** | gamora | Sim-side gauntlet structure; visual now matches via drax room/hallway ship |
 | **Character rendering for player combatants** | drax (dispatch authored today) | chierit Elementals zip archives acquired; per-class character rendering. Closes P6.d. |
-| Demo regen on a single season | star-lord + gamora | After all above land |
+| **Pool × VFX-catalogue mapping audit (Drift-14 closure)** | legolas + gandalf + rocket | 🔴 **VS2a-GATING** per Matt verdict 2026-05-17 (*"I really don't want to ship any more canonically biased seasonal themes"*). Commission at `agentic_orchestration/gandalf/requests/2026-05-17-pool-vfx-catalogue-mapping-audit.md`. ~1.5-2 days work; closes Substrate Realignment Stage 1 player-facing canonical-bias gap at the per-season vocabulary surface. Folds into VS2a regen cycle. |
+| Demo regen on a single season **(post-pool-cull)** | star-lord + gamora | After all above land — INCLUDING Drift-14 pool cull |
 
 ### Out of scope for VS2a (deferred)
 
