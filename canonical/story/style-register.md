@@ -135,6 +135,59 @@ The commission request lives at `agentic_orchestration/gandalf/requests/2026-05-
 
 **This deferral does not affect this doc's canonical status.** The register decision is locked (hand-drawn pixel-art, HD-2D-shaped). The operational implementation of that decision in the catalogue rubric is Elrond's domain to design with gandalf's collaboration. The canonical reference for the rubric, once landed, lives in Elrond's curated domain (referenced from here); this doc remains the canonical reference for the design intent.
 
+### Path A reconciliation — "80–100 px HD-2D target" is register aesthetic reference, not operational pixel-count constraint (added 2026-05-16 Day 4)
+
+The "80–100 px HD-2D target" phrasing used elsewhere in this doc (and grounded in legolas's pixel-scale research § 3 against Sea of Stars / Octopath Traveler overworld camera precedent at displayed 1080p resolution) is a **register aesthetic reference** — it names the visual register and asset family the project takes as its style anchor. It is **NOT an operational pixel-count constraint** on the project's specific source assets.
+
+**Path A operationalization (Matt-locked Day-4 close):** the chierit Elementals pack ships at intrinsic figure-content sizes of 34–57 px per character. Under the Path A re-anchoring (`canonical/story/per-slug-scale-lookup-path-a-2026-05-16.md`), chierit characters render at default scale `1.0×` → ~44 px player baseline midpoint. Monster sprites scale proportionally to Path A tier ranges (trash 26–37 px / elite 44–57 px / mini-boss 66–88 px / boss 110–176 px), re-anchored against this 44 px chierit player figure rather than the 80 px SoS-class reference. Path B (upscale chierit ~1.85× to reach 80 px) was rejected by Matt on player-experience grounds (*"scaling that up would just look awkward"*) plus viewport-pressure concerns documented in the per-slug doc.
+
+**What this preserves:** the HD-2D *aesthetic* — pixel-resolution sprites in a hand-drawn-illustration register, paired with detailed environmental art — survives Path A intact. The chierit author's drawn pixel size is the source-of-truth at scale `1.0×`; no upscale artifacts, no pixel-art quality loss. The register lock above (Candidate B: hand-drawn pixel-art HD-2D-shaped) is the same register; Octopath Traveler / Triangle Strategy / Live A Live HD-2D Remake remain the genre-precedent anchors. What differs from those references is the per-asset pixel count, which is determined by the source-asset author's intrinsic frame-content sizes, not by an asserted universal pixel-count floor.
+
+**What this clarifies:** earlier reads of this doc that interpreted "80–100 px" as an *operational pixel-count floor* on every project asset are corrected. Future catalogue work, vendor-pack selection, and per-character scale decisions take the *register* as the lock — not the *pixel count*. The Q1 open question above ("specific fidelity target — 64–128px sprite resolution?") is partially-resolved by Path A: the chierit player baseline lands at ~44 px (below the prior 64–128 range), and monster tier ranges follow proportionally. Q1's resolution is now: **per-source-asset-derived, not universal-target-asserted.**
+
+**Cross-references for this reconciliation:**
+- `canonical/story/per-slug-scale-lookup-path-a-2026-05-16.md` — Path A authoritative operationalization (per-slug scales, tier ranges, schema additions for drax refactor)
+- `canonical/story/sprite-scale-math-impossibility-rulings-2026-05-16.md` — the four math-impossibility rulings the Path A re-anchoring resolves (chierit ~44 px makes angel-guardian a clean downscale; fire-elemental tier-coherence violation accepted at VS2a; god-of-lightning blocked on Matt-decision pending palette-shift)
+- `agentic_orchestration/research/knowledge/character-monster-pixel-scale-2026-05-16.md` § 3 — legolas ground-truth pixel-scale research grounding the 80–100 px SoS/Octopath reference (preserved as register-aesthetic anchor, not pixel-count operational floor)
+
+### Path A-prime reconciliation follow-on — ARPG-anchored operational target (added 2026-05-16 Day 4 evening; ⚠️ supersedes Path A operationalization above)
+
+**Authority:** Matt direct authorization 2026-05-16 Day 4 evening ("all authorized"), following gandalf surfacing the ARPG-vs-JRPG pixel-scale reframing per Legolas Section 4d ground-truth resolution.
+
+**What this follow-on does.** Resolves an incompleteness in the Path A reconciliation above. The Path A framing correctly distinguished *register aesthetic reference* from *operational pixel-count constraint* — but its specific Path A operationalization (chierit at 1.0× → ~44 px player baseline) was anchored against JRPG-overworld pixel-scale conventions which Reincarnated does NOT inherit.
+
+**Why the Path A 44 px chierit baseline was wrong.** Reincarnated is an **ARPG** (single camera; Diablo/PoE room/hallway topology committed Day 4 morning by drax v0.12). Single-camera ARPG genre convention at 1080p displayed resolution = **100-130 px** character rendered height (Diablo IV ~110-130; Diablo III ~100-110; PoE ~100-120; Last Epoch ~100-110; Grim Dawn ~90-110). JRPG dual-camera architecture (overworld 80-100 px + battle camera 75-130 px) does not apply. The ~44 px chierit baseline was anchored against JRPG-overworld conventions per the pre-resolution 80-100 px target framing; per Legolas Section 4d ground-truth measurement + gandalf's ARPG genre lineage call, the correct operational target is ARPG single-camera 100-130 px.
+
+**Path A-prime operationalization (Matt-authorized Day 4 evening):**
+
+| Parameter | Path A (mid-day; superseded) | **Path A-prime (operational)** |
+|---|---|---|
+| Chierit operational scale | 1.0× | **1.31×** (ARPG midpoint of 100-130 band) |
+| Chierit rendered figure-content | ~44 px | **~115 px** |
+| Acceptable chierit scale range | 1.0× only | **~1.14-1.48×** corresponding to 100-130 ARPG band |
+| Tier midpoint table | trash 32 / elite 51 / mini-boss 77 / boss 143 | **trash 83 / elite 132 / mini-boss 201 / boss 374** |
+| Nearest-neighbor enforcement | recommended | **CRITICAL** (most monsters now upscaled; bilinear interpolation produces visible blur) |
+| Per-slug scale values | per Part 3 of per-slug doc | **per Part 6 of per-slug doc (Path A-prime amendment)** |
+
+**What this preserves:**
+- The "register aesthetic reference, not operational pixel-count constraint" distinction at line 138 above (still correct as a framing); Path A-prime simply adopts the correct *operational* anchor for an ARPG context
+- Matt-locked Diablo genre ratios (swarm/trash/magic/elite/mini-boss/boss tier scales) — only the absolute baseline shifts
+- The HD-2D-shaped pixel-art register (Candidate B above; locked) — register is about visual style, not absolute pixel scale; chierit at 1.31× upscale (with nearest-neighbor) remains HD-2D-coherent
+- The Octopath / Triangle Strategy / Live A Live HD-2D Remake genre-precedent anchors for the register aesthetic — but adopts ARPG operational scale conventions on top of that register
+
+**What this corrects (vs Path A above):**
+- The "chierit at 1.0× scales render at the chierit author's intrinsic drawn size" framing was correct for source-asset preservation but operationally undersized for ARPG genre signal. Path A-prime upscales chierit to 1.31× with nearest-neighbor enforcement; pixel-art register coherence preserved through scaler choice, not through staying at native scale.
+- The "Path B rejected on player-experience grounds (*scaling that up would just look awkward*)" framing — Matt's rejection was specifically of the 1.85× upscale Path A had derived against the 80-100 px JRPG-overworld reference. Under Path A-prime, the operational scale is 1.31× (modest) against the ARPG-correct 100-130 px target. The "awkward" concern was specific to the prior framing's larger upscale ratio.
+
+**Per-slug monster scale values shift accordingly** — see `canonical/story/per-slug-scale-lookup-path-a-2026-05-16.md` § Part 6 ("Path A-prime amendment") for the full 11-slug table. Same Matt-locked Diablo ratios applied to the corrected 115 px baseline; most monsters now upscale (1.04-2.40×) where previously they downscaled (0.13-0.85×).
+
+**Verification before drax refactor lands:** drax v0.20.6 composite at Path A-prime scales (knight-rider authors per per-slug doc § 6.7) confirms ARPG-genre coherence in actual room/hallway topology before MONSTER_SCALE_BY_SLUG refactor fires. Knight-rider's intuition is that Path A-prime scales fit drax's already-shipped room/hallway topology cleanly; composite is cheap insurance verifying this.
+
+**Forward implications:**
+- Q1 open question above (specific fidelity target) — Path A-prime resolves this concretely: **ARPG 100-130 px target at 1080p displayed resolution**, chierit operational scale 1.31×, monster tier midpoints per Part 6 of per-slug doc
+- Future vendor-pack acquisitions for VS2c+ should target this 100-130 px ARPG band (or have intrinsic frames sized to land cleanly within 1.0-2.0× scale of the band)
+- The Q1 partial-resolution from Path A ("per-source-asset-derived, not universal-target-asserted") is replaced by Path A-prime's stronger statement: **per-source-asset scale to land at ARPG genre operational target; the operational target is universal, the per-asset scale factor is derived**
+
 ### Enemy-legibility cross-reference
 
 The locked register has a **load-bearing requirement** beyond its own internal consistency: it must support clear visual distinction between enemies and player combatants. This requirement is canonicalized in `enemy-visual-legibility.md` (authored 2026-05-15 by gandalf on Matt's commission, after demo1 family-playtest finding).
@@ -242,6 +295,8 @@ The pivot path exists and is intentional. Lock with confidence; pivot if the wor
 - `court-of-forms.md` — endgame Court presentation; the highest-stakes use of the narrative-moment fidelity tier
 - `gandalf-design-lineage.md` Layer 2 (Diablo art direction lineage) + Layer 5 (isekai studio aesthetic precedents)
 - `agentic_orchestration/research/knowledge/asset-catalogues/2026-05-16-pixijs-compatible-2d-vfx-libraries.md` — empirical asset landscape
+- `canonical/story/per-slug-scale-lookup-path-a-2026-05-16.md` — Path A operationalization (chierit ~44 px player baseline; monster tier ranges; per-slug scale recommendations) — consumes this register's lock; surfaces the "80–100 px = aesthetic reference, not pixel-count constraint" reconciliation (see § "Path A reconciliation" above)
+- `canonical/story/sprite-scale-math-impossibility-rulings-2026-05-16.md` — math-impossibility rulings the Path A re-anchoring resolves; consumes this register's lock as consumption-time filter
 - `agentic_orchestration/AGENTS.md` § "Viability-gate workflow (catalogue work)" — the design-track of catalogue viability-gates, where this register is the load-bearing reference
 - `agentic_orchestration/AGENTS.md` § "Score-don't-filter principle (catalogue data)" — the pivot-insurance pattern
 - File 19 § Phase 02 — the visual_prompt LLM field that consumes this register downstream
