@@ -4539,3 +4539,72 @@ All click handlers (Q/E potions; I/C icons), key-binding labels, viewport pinnin
 
 — drax
 
+---
+
+### [2026-05-17] PRE-SIGNAL — rocket — v1.8 dodge_iframes_seconds schema field ABOUT TO COMMIT
+
+**Dispatch:** `2026-05-17-rocket-narrow-slice-iframe-schema-fields.md`
+**Preceding tag:** `rocket/v1.7-narrow-slice-engine-schema-fields-1` @ `7bcfb0a`
+**About to tag:** `rocket/v1.8-narrow-slice-iframe-schema-field-1`
+
+**What is landing:**
+- All 7 substrate YAMLs extended with `dodge_iframes_seconds` per gandalf briefing § 2.2 cosmological table
+- `SubstrateIdentity` dataclass + `_parse_declaration()` + `_validate_single_declaration()` extended (rule #13: float in [0.0, 2.0])
+- New constants exported: `DODGE_IFRAMES_MIN = 0.0`, `DODGE_IFRAMES_MAX = 2.0`
+- 14 new unit tests (class `TestDodgeIframesSeconds`); cosmological invariants enforced: earth longest (0.45s), wind shortest (0.25s), shadow second-longest (0.40s), fire/water/holy baseline (0.35s)
+- `generation/MIGRATION.md` §v3.3 entry authored
+- Test count: 146 → 160; core foundation smoke (480 tests) clean
+
+**Dispatch acceptance criteria confirmed:**
+- [x] All 7 substrate YAMLs extended with `dodge_iframes_seconds` per table
+- [x] `SubstrateIdentity` dataclass extended; loader populates field
+- [x] Rule #13 validation added; rules #1-#12 continue passing
+- [x] Unit tests added (presence + range + cosmological invariants)
+- [x] Full foundation test smoke green (480/480)
+- [x] `generation/MIGRATION.md` §v3.3 entry authored
+
+**No cross-seam impact.** Field is schema-only; no consumer code changed (drax consumes when narrow-slice engine-coupled dodge lands).
+
+— rocket
+
+---
+
+### [2026-05-17] TAG — rocket — rocket/v1.8-narrow-slice-iframe-schema-field-1
+
+**Commit:** `f3b80ac`
+**Tag:** `rocket/v1.8-narrow-slice-iframe-schema-field-1`
+**Dispatch:** `2026-05-17-rocket-narrow-slice-iframe-schema-fields.md` — COMPLETE
+
+11 files changed, 320 insertions:
+- `config/substrate_identities/{earth,fire,holy,lightning,shadow,water,wind}.yaml` — `dodge_iframes_seconds` added per gandalf § 2.2
+- `src/reincarnated/foundation/substrate_identity_loader.py` — dataclass field + parse + validate rule #13
+- `src/reincarnated/foundation/__init__.py` — exports `DODGE_IFRAMES_MIN`, `DODGE_IFRAMES_MAX`
+- `src/reincarnated/generation/MIGRATION.md` — §v3.3 entry
+- `tests/test_substrate_identity_loader.py` — `TestDodgeIframesSeconds` class (14 tests)
+
+**Test count:** 146 → 160 (+14). All 160 pass.
+
+— rocket
+
+---
+
+### [2026-05-17] STATE — rocket — v1.8 COMPLETE
+
+**Dispatch:** `2026-05-17-rocket-narrow-slice-iframe-schema-fields.md`
+**Commit:** `f3b80ac`
+**Tag:** `rocket/v1.8-narrow-slice-iframe-schema-field-1`
+
+`dodge_iframes_seconds` substrate field shipped. All 7 substrate YAMLs extended. Rule #13 validation
+(float [0.0, 2.0]) enforced fail-loud. Cosmological invariants locked in tests: earth longest (0.45s),
+wind shortest (0.25s), shadow second-longest (0.40s), baselines (fire/water/holy 0.35s).
+160/160 substrate tests pass; 480-test foundation smoke clean.
+
+**HANDOFF → drax:** `dodge_iframes_seconds` is ready to consume. Access pattern:
+`element.identity.dodge_iframes_seconds` where `element = foundation.get_element(player_substrate_name)`.
+This field drives the damage-immunity window during player dodge animation. Consumes alongside
+drax v0.31 dodge cooldown fix (queued). I-frame field is independent of cooldown.
+
+**rocket is FREE.** Next dispatch per AGENT_STATE pickup.
+
+— rocket
+
