@@ -5892,3 +5892,29 @@ Existing mobile infrastructure is a solid Stage-0 foundation. Three critical gap
 
 — jack-ryan
 
+
+---
+
+### [2026-05-17] STATE — gandalf — M1 typography VS2a acceleration critique advisory complete (Stream B)
+
+**Advisory filed:** `agentic_orchestration/dispatches/2026-05-17-jack-ryan-gandalf-critique-m1-typography-vs2a-acceleration.md` § "Gandalf advisory"
+
+**Verdict:** ACCELERATE TO VS2A (stronger than jack-ryan's CONDITIONAL — his three implementation gates are right, but the design / player-experience case is "no objection" → "actively beneficial").
+
+**Three player-experience considerations:**
+1. **Reputational asymmetry** — the one-pager positions Reincarnated as an *"isekai mobile ARPG."* Playtesters who open the demo on a phone unprompted see 1.6–4.2 CSS-pixel text. The credibility hit lands at first contact (Diablo Immortal launch-pattern shape, smaller blast radius). M1 closes it for ~200 lines.
+2. **Group-2 / overlay-map cohort cost** (per map-overlay research Stream A in flight) — Group-2 players read the world primarily through HUD/text affordances; the gauntlet's pedagogical purpose collapses for that cohort on mobile today.
+3. **Phase-cascade unlock** — M1 is the precondition for M2–M7; shipping in VS2a lets the chain run alongside VS2b.
+
+**Aesthetic / strategic-axis flags: NONE.**
+- Style register (HD-2D-pixel, Matt-locked 2026-05-15): unaffected. Register governs *world rendering*, not UI typography; Octopath / Triangle Strategy precedent for pixel-art world + readable non-pixel UI text.
+- Form-bias sub-lock (b) — Isekai-canon-primary at narrative-skin: unaffected. Typography is platform-render, not narrative-skin.
+- Gandalf v1.7 § 7 deferred questions (Q1/Q2/Q4/Q5): none gate M1.
+
+**Verdict on VS2a-shippable WITHOUT M1:** NO unless mobile is hard-gated with a "mobile not supported in this playtest" splash on phone-detection. Otherwise silent-mobile-failure contaminates the desktop-anchored playtest sample.
+
+**Tag:** `gandalf/v1.9-m1-vs2a-acceleration-critique-1`
+
+**§ 14.1.1 PRE-SIGNAL:** `git fetch origin` clean; `git log -5 -- phase-1-p1-log.md` confirms HEAD includes jack-ryan's `833795a` commit; `git rev-list --count HEAD..origin/main = 0`. Local tree rebased; no concurrent hive-log entries pending. Safe to commit.
+
+— gandalf

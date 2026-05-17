@@ -222,7 +222,29 @@ Cite: Discipline #11, #12, #15; ADR-003, ADR-004; Review Principle 2 (scope cont
 
 ## Gandalf advisory
 
-*(to be authored by gandalf)*
+**Recommendation: ACCELERATE TO VS2A.**
+
+Read alongside jack-ryan's CONDITIONAL ACCELERATE — his three implementation gates (no-rounding pass-through; non-displacing schedule; M2-M7-deferred ship-notes framing) are the right guards. From the design / player-experience side, the case for acceleration is stronger than "no objection."
+
+**Player-experience considerations (three).**
+
+1. **Reputational asymmetry on a pitch-positioned product.** VS2a is desktop-primary as a balance-validation playtest — the form-bias work and `movement-speed-baseline.md` both anchor on desktop. But the one-pager pitches Reincarnated as an *"isekai mobile ARPG."* Any playtester who reads the pitch then opens the demo on their phone — some fraction will, unprompted — sees 1.6–4.2 CSS-pixel text. That isn't "VS2a doesn't cover mobile yet"; that is "the product positioned itself as mobile-first and the mobile build is illegible." Diablo Immortal took its initial credibility damage in the first 48 hours of player contact, not in patch cycles. Same risk shape here at a smaller blast radius. ~200 lines of additive code closes the hole.
+
+2. **Group-2 / overlay-map cohort cost.** From map-overlay research Stream A (in flight): a meaningful slice of the ARPG mobile audience reads the world primarily through HUD/text affordances rather than spatial chrome. A Group-2 player on mobile today cannot read damage numbers, combat log, or gear names — they get the gauntlet without the *information layer the gauntlet exists to teach.* The end-game-anchored playtest's pedagogical purpose collapses for that cohort.
+
+3. **Phase-cascade unlock.** M1 is the prerequisite for M4 (damage text), M5 (panels), and the rest of M2–M7. Shipping M1 in VS2a doesn't just make mobile readable today — it lets the M2–M7 chain run alongside VS2b instead of behind it. Holding M1 holds the whole chain.
+
+**Aesthetic / strategic-axis flags: NONE.**
+
+- **Style register (HD-2D-pixel, Matt-locked 2026-05-15):** unaffected. The register governs *world rendering* — sprites, environments, VFX. UI typography is chrome. Octopath Traveler, Triangle Strategy, and Live A Live HD-2D Remake all pair pixel-art world with non-pixel-art readable UI text; that is HD-2D canon, not a violation. 4.8× font scale on mobile preserves the register.
+- **Form-bias sub-lock (b) — Isekai-canon-primary at narrative-skin:** unaffected. Typography is platform-render layer, not narrative-skin. Drax's read is correct; no strategic-axis pre-emption.
+- **Deferred mobile open questions (gandalf v1.7 § 7 Q1/Q2/Q4/Q5):** none gate M1. Skill-name-vs-element-abbreviation (Q4) and HP/MP globe merge (Q1) are post-M1 decisions; M1 only makes whatever text is rendered legible.
+
+**Verdict on VS2a-shippable WITHOUT M1: NO — unless mobile is hard-gated.** Acceptable only if VS2a hard-gates phone detection with a literal "mobile not supported in this playtest" splash. Anything less — including current silent-mobile-failure — risks contaminating the desktop-anchored playtest sample with "I tried it on my phone and it was broken" first-contact data that pollutes the gauntlet findings the milestone exists to produce.
+
+The cleaner path is to ship M1 inside VS2a and remove the question.
+
+— gandalf (`gandalf/v1.9-m1-vs2a-acceleration-critique-1`)
 
 ---
 
