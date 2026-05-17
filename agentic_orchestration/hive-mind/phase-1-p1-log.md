@@ -6070,3 +6070,89 @@ Source: Matt L3 2026-05-17 ~19:00 EDT; `agentic_orchestration/dispatches/2026-05
 
 — jack-ryan
 
+
+---
+
+### [2026-05-17] PRE-SIGNAL — elrond — appending hive log (§ 14.1.1 race-condition discipline)
+
+`git fetch origin` clean; HEAD includes jack-ryan/v1.3 at `728c728` (decisions-log twin entries) which is the latest commit on this file. `git rev-list --count HEAD..origin/main = 0`. No remote-only hive-log commits pending. Working tree clean for log appending. Safe to append.
+
+---
+
+### [2026-05-17] STATE — elrond — Pimen subset selection for VS2a COMPLETE (4-step chain step 2)
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-elrond-pimen-subset-selection-vs2a.md`
+**Authority:** Matt L3 4-step attribution-pipeline chain step 2 (pre-authorized).
+**Predecessor:** VFX scene-needs spec (commit `43396bb`, `canonical/story/vs2a-vfx-scene-needs.md`).
+
+**Manifest path:** `agentic_orchestration/research/curated/pimen-subset-vs2a-2026-05-17.jsonl` (1 header + 31 data rows)
+**Summary doc:** `agentic_orchestration/research/curated/pimen-subset-vs2a-selection-2026-05-17.md`
+**Build script:** `agentic_orchestration/research/scripts/build_pimen_subset_vs2a_2026_05_17.py`
+
+**Subset metrics:**
+- 14 distinct Pimen packs selected (29% retention from 48 curated rows; 71% deferred per Gap G5 active-pruning)
+- 31 manifest data rows across (pack × substrate_tag × slot) decomposition
+- 30 distinct substrate-tags covered
+- Slots A/B/C/D/E populated; Slot F deferred-by-design (procedural per drax § 2.2 Slot F); N/A row reserves Earth Elemental embodiment-trial sprite
+- Attribution classes: commercial-license (30 rows) + cc-by (1 row, `pixel-battle-effects` for `physical-slash`)
+- Acquisition cost: **\$26.35** (dominated by mega-pack-elemental-spell-effects-01 bundle at \$12.75 closing fire/water/earth/wind/thunder/ice/holy/dark in single purchase; \$18.45 saved vs individual packs)
+
+**Coverage matrix (7 elements × 6 slots):** 41 GREEN cells / 0 true YELLOW cells / 7 RED cells. RED cells decompose: 5 intentional architectural absences (earth/holy/shadow Slot B = instant AOE; physical Slot A = character-animation territory); 7 Slot F deferred-by-design; **zero true acquisition-RED cells at VS2a scope.**
+
+**Gap closure (G1-G6):**
+- G1 (cast-prep-sustained / movement-displacement / reactive-defensive): **PARTIAL-CLOSED** via spell-effect-3 startup frames + procedural fallback per drax § 2.2 Slot A. **Mode-B sub-commission NOT triggered** — drax step-3 empirical read is gating signal for B13 dodge-mechanic legibility verification.
+- G2 (tier-aura strong/signature/cinematic): **OPEN-deferred** (not VS2a-load-bearing; addressable post-VS2a via composition strategy OR Tier-1 vendor close).
+- G3 (non-humanoid embodiment sprite): **OPEN-deferred** to future Legolas Mode B non-humanoid commission. Earth Elemental sprite bundled in mega-pack-01 reserved but NOT wired into VFX slots.
+- G4 (CC-BY physical-impact/physical-slash): **FLAGGED PARKED Matt-decision.** `physical-impact` CLOSED via battle-vfx-hit-spark (commercial-license). `physical-slash` still CC-BY-only at Pimen (`pixel-battle-effects`); CodeManu acquisition is documented close-path.
+- G5 (curation pruning opportunity): **CLOSED actively-curated** — 14/48 retention.
+- G6 (atlas-consolidation): **OPEN-deferred to step 4** (out-of-scope per dispatch rule).
+
+**PARKED Matt-decisions surfaced (3):**
+1. **physical-slash CC-BY risk →** accept-CC-BY-for-VS2a (Path B, elrond-recommend) vs CodeManu-acquisition (Path A, elrond-recommend for Stage A2 / post-VS2a).
+2. **Tier-1 cast-prep-sustained →** defer-to-empirical-read (Path B, elrond-recommend) vs Mode-B-sub-commission (Path A, trigger only on drax step-3 insufficiency signal).
+3. **mega-pack-02 →** defer-to-per-season (Path B, elrond-recommend) vs acquire-now (Path A, deferred until per-season vocabulary needs).
+
+**Cross-seam observations:**
+- Manifest schema drax-consumable as-is (no structural mismatch with `scripts/pimen-ingest/` pipeline; keys on `source_asset_id` = `pack_slug`).
+- Step-4 attribution-pipeline schema should distinguish bundle-acquisition cost from per-row-attributed cost (manifest header captures both; per-row uses amortization at \$1.59/element-pack for the \$12.75 bundle).
+- Buff/debuff status-apply tint-composition is load-bearing legibility variable for Slot D substrate-modulation; drax step-3 empirical read should verify.
+
+**No tag** (curation work; not code).
+
+---
+
+### [2026-05-17] HANDOFF — elrond → drax — VS2a first VFX integration (step 3) ready to consume manifest
+
+**Manifest:** `agentic_orchestration/research/curated/pimen-subset-vs2a-2026-05-17.jsonl`
+
+**Consumption pattern:** Iterate over distinct `pack_slug` values in manifest; for each, run `scripts/pimen-ingest/run_pipeline.sh --pack-slug <pack_slug>` to ingest. Per-pack `metadata.json` (Stage 3 output) provides canvas/frame data; manifest's `animations_in_pack_for_slot` indicates which animations to wire per slot.
+
+**Prerequisite (drax step 3 step-0):** `_layers.particles` sub-container split per spec § 2.7 — `particlesUnder` / `particlesMid` / `particlesOver` on either side of `entities` in `app.stage.addChild()` order. Manifest's `render_notes` references these sub-containers. Drax TODO already filed in spec § 2.7.
+
+**Drax step-3 empirical-read responsibilities (gating signals for elrond / matt):**
+1. Verify cast-prep-sustained legibility for B13 dodge-mechanic — Gap G1 PARTIAL-CLOSED status depends on this read. If insufficient, escalate to elrond → Legolas Mode B sub-commission (pre-authorized).
+2. Verify status-apply tint-composition produces element-distinct visuals — if not, per-element status-apply packs may be needed (Step-B Tier-1 fallback).
+3. Verify peak-on-frame-1 discipline for Pimen impact packs (drax § 2.2 Slot C frame-discipline rule).
+4. Surface any of the above as feedback for follow-on catalogue commissions or PARKED Matt-decision escalation.
+
+**Out-of-scope for step 3 (elrond pre-flag):** atlas-grouping schema (step 4 / VS2b territory); embodiment-trial sprite wiring (Earth Elemental row is `vs2a_status: deferred-embodiment-trial-scope` — DO NOT wire).
+
+---
+
+### [2026-05-17] HANDOFF — elrond → matt — three PARKED decisions awaiting L3 sign-off
+
+(Surfacing for Matt's awareness; not blocking step 3 — drax can proceed with current manifest. Matt's decisions inform Stage A2 closeout and any acquisition authorization.)
+
+1. **PARKED-1 (physical-slash CC-BY risk, Gap G4):** authorize CC-BY attribution surface for `pixel-battle-effects` in VS2a credits panel (Path B, \$0, elrond-recommend) OR authorize CodeManu acquisition for Stage A2 follow-on (Path A, \$ TBD per Step-B follow-on commission). Matt-decision.
+
+2. **PARKED-2 (Tier-1 cast-prep-sustained, Gap G1 long-tail):** authorize defer-to-empirical-read posture (Path B, elrond-recommend; trigger Path A only on drax step-3 insufficiency signal) OR pre-authorize Legolas Mode B sub-commission now (Path A; pre-authorized per this dispatch but not auto-triggered). Matt-decision.
+
+3. **PARKED-3 (mega-pack-elemental-spell-effects-02 acquisition):** authorize defer-to-per-season-vocabulary-needs (Path B, elrond-recommend; acid/wood outside canonical-7) OR authorize acquisition now (\$20.40; Path A). Matt-decision.
+
+---
+
+### [2026-05-17] HANDOFF — elrond → knight-rider — step 2 of 4-step chain COMPLETE; step 3 (drax) and step 4 (star-lord + elrond VS2b) downstream
+
+Knight-rider sequencing: step 3 (drax VS2a first VFX integration) can proceed immediately; manifest is drax-consumable as-is. Step 4 (star-lord LLM optimization + elrond VS2b attribution-pipeline schema) is downstream of step 3 empirical reads.
+
+— elrond

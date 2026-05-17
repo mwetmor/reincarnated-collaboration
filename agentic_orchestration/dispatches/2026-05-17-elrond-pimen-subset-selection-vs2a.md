@@ -138,3 +138,40 @@ No tag (curation work; not code; standard authoring discipline applies).
 ---
 
 *Dispatched 2026-05-17 by knight-rider per Matt L3 4-step chain pre-authorization. ~1 day. Append completion record when done.*
+
+---
+
+## Completion record — 2026-05-17 (elrond)
+
+**Status:** COMPLETE. All acceptance criteria met.
+
+**Deliverables:**
+- Manifest: `agentic_orchestration/research/curated/pimen-subset-vs2a-2026-05-17.jsonl` (1 header + 31 data rows; 14 distinct packs; \$26.35 acquisition cost; 30 substrate-tags covered; 2 attribution classes [commercial-license + cc-by]; slots A/B/C/D/E + N/A populated)
+- Summary doc: `agentic_orchestration/research/curated/pimen-subset-vs2a-selection-2026-05-17.md` (7×6 coverage matrix, gap closure G1-G6, acquisition shortlist, manifest reference, cross-references, observations, acceptance checklist, hive-log + handoff)
+- Build script (tool-script, reproducible): `agentic_orchestration/research/scripts/build_pimen_subset_vs2a_2026_05_17.py`
+
+**Cost-optimization deviation from spec § 3.3 ordering:** Bundled mega-pack-01 (\$12.75) supersedes individual purchase of fire/water/earth/wind/thunder/ice/holy/dark spell-effect-3 packs (would have cost \$31.20 individually). Net saving \$18.45. Bundle is dominant-strategy for VS2a canonical-7 scope. Mega-pack-02 deferred (\$20.40; acid/wood outside canonical-7).
+
+**Gap status:**
+- G1 (cast-prep-sustained): PARTIAL-CLOSED via spell-effect-3 startup frames + procedural fallback. Mode-B sub-commission NOT triggered (drax step-3 empirical read is gating signal).
+- G2 (tier-aura at strong/signature/cinematic): OPEN-deferred (not VS2a-load-bearing).
+- G3 (non-humanoid embodiment): OPEN-deferred to embodiment commission (Earth Elemental sprite bundled but reserved-not-wired).
+- G4 (CC-BY physical-slash): FLAGGED PARKED Matt-decision; CodeManu close-path documented.
+- G5 (curation pruning): CLOSED — 29% retention (14/48 packs).
+- G6 (atlas-consolidation): OPEN-deferred to step 4.
+
+**PARKED Matt-decisions surfaced:**
+1. physical-slash CC-BY risk → accept-CC-BY-for-VS2a vs CodeManu-acquisition (elrond recommends Path B for VS2a, Path A for Stage A2).
+2. Tier-1 cast-prep-sustained → defer-to-empirical-read vs Mode-B-sub-commission (elrond recommends defer; trigger only on drax step-3 insufficiency signal).
+3. mega-pack-02 → defer-to-per-season vs acquire-now (elrond recommends defer).
+
+**Cross-seam observations (no follow-up actions required at this dispatch):**
+- Manifest schema is drax-consumable as-is (no structural mismatch with `scripts/pimen-ingest/` pipeline).
+- Step-4 attribution-pipeline schema should distinguish bundle-acquisition cost from per-row-attributed cost (manifest header captures both; per-row uses amortization).
+- Buff/debuff status-apply tint-composition is the load-bearing legibility variable for Slot D substrate-modulation across elements; drax step-3 empirical read should verify.
+
+**No tag** (curation work; not code).
+
+**Hive-log:** STATE + HANDOFFs appended to `agentic_orchestration/hive-mind/phase-1-p1-log.md` per § 14.1.1 PRE-SIGNAL discipline.
+
+— elrond
