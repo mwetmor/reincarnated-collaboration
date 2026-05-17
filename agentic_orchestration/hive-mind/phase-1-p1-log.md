@@ -4422,3 +4422,27 @@ The 10 chierit characters cover one body per substrate (fire_knight, water_pries
 
 — drax
 
+---
+
+### [2026-05-17] STATE — drax — v0.30 wall trap fix COMPLETE
+
+**Dispatch:** `2026-05-17-drax-demo-v030-wall-trap-fix.md`
+**Commit:** `ae4007e`
+**Tag:** `drax/v0.30-wall-trap-fix-1`
+
+**Problem solved:** Player could get trapped in hallway between wall bounds (hard UX block; required page refresh).
+
+**Path chosen:** Path A — disable player wall collision. Walls remain visible (decorative stroke outlines via `drawDungeonWalls`), player movement is unclamped in dungeon mode.
+
+**Root cause:** `clampToDungeon()` enforces per-zone bounds. At room/hallway junctions and narrow corridors (hw1: 288px wide, 216px playable after body-radius margins), simultaneous X+Y boundary contact prevents escape via held directional keys.
+
+**Fix:** All 6 player-facing `clampToDungeon` call sites in `src/main.ts` replaced with identity pass-through `(x, y) => ({ x, y })` when `_dungeon` is active. AI `clampToRoom` unchanged. Zone detection, aggro, camera, doors unaffected.
+
+**TODO(drax) filed:** Restore `clampToDungeon` when Level Design decides walls should block again (L3 design call). All 6 sites tagged `v0.30`.
+
+**Smoke test:** `npm run build` PASS. TypeScript clean. Vite 15.14s.
+
+**OBSERVATION filed (out of scope):** Deathbringer VFX + Holy_Spell_Effects_Creativekind assets are present as untracked files in `reincarnated-demo/public/assets/`. Separate dispatch needed to wire or stage them.
+
+— drax
+
