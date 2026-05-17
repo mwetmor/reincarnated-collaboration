@@ -4446,3 +4446,25 @@ The 10 chierit characters cover one body per substrate (fire_knight, water_pries
 
 — drax
 
+---
+
+### [2026-05-17] STATE — drax — v0.31 dodge cooldown reset + VFX timing fix COMPLETE
+
+**Dispatch:** `2026-05-17-drax-demo-v031-dodge-cooldown-and-vfx-timing-fix.md`
+**Commit:** `ed37a2a`
+**Tag:** `drax/v0.31-dodge-cooldown-and-vfx-timing-fix-1`
+
+**Bug 1 — cooldown never resets (root cause):**
+`_tickDodge` was only called at the call site when `_dodge.active` was true. After the 0.18s dash completes, `_dodge.active` flips to false and `_dodge.cooldown` is set to 0.75. Since the call site guard prevented `_tickDodge` from running when inactive, the cooldown counter never decremented — permanently blocking all subsequent dodges after the first.
+
+Fix: removed the `if (_dodge.active)` guard at the call site. `_tickDodge` now runs every frame unconditionally. The cooldown tick at the top of `_tickDodge` runs regardless; the function early-returns after ticking if not active (movement interpolation is skipped). Second+ dodges now fire correctly after the 0.75s window.
+
+**Bug 2 — VFX clump at endpoint (root cause):**
+Particles were spawned at `playerPos` AFTER the interpolation update within `_tickDodge`. Each frame's 5 particles appeared at the player's new forward position, not where the player had been the frame before. The last frame of the dash (when the player reaches the destination) spawned the most visually prominent cluster, which lingered at the endpoint as the most recently spawned set — creating the "fires after the dodge" appearance.
+
+Fix: capture `trailX = playerPos.x`, `trailY = playerPos.y` before updating `playerPos`, then pass `trailX/trailY` to `_spawnDodgeTrail`. Particles now spawn at the player's prior position each frame, producing a streak of fading circles trailing behind the dash direction.
+
+**Smoke test:** `npm run build` PASS. TypeScript clean. Vite 16.20s.
+
+— drax
+
