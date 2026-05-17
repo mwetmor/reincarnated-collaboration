@@ -351,7 +351,7 @@ Each entry: what drifted; how it was caught; what structural-enforcement gap all
 
 **Enforcement gap:** the file-29-claim ("engine balances against L50 endgame") was structurally locked at the LEVEL layer but not at the MOVEMENT layer. No verification that ALL endgame-state parameters are modeled at endgame values.
 
-**Action:** Pending engine-balance-stewardship.md Gate 3 (forthcoming session 3); may require small rocket/gamora research-pass for empirical confirmation.
+**Action:** Pending engine-balance-stewardship.md Gate 3 (forthcoming session 3); may require small rocket/gamora research-pass for empirical confirmation. **2026-05-16 Day-4 amendment:** Resolved via Matt verdict reversal at Day 4 close — **Option B (end-game-anchored: player 8.0 m/s; trash 5.75 m/s; fast-archetype 7.5 m/s; AI_SPEED_MULTIPLIER 0.719) is the operative resolution.** Both the baseline-anchor portion AND the full Gate-3b sim-consumption portion are now VS2a-gating (per `engine-balance-stewardship.md` § Gate 3 Rec 3b Day-4 close update + `canonical/story/movement-speed-baseline.md` § "Verdict Reversal 2026-05-16"). The earlier Option A (mid-game 7.5 m/s; AI_SPEED_MULTIPLIER 0.767) is superseded.
 
 **Discipline #13 instance:** YES — partial-enforcement-without-verification pattern.
 
@@ -366,6 +366,105 @@ Each entry: what drifted; how it was caught; what structural-enforcement gap all
 **Action:** memory notes capture the drift; rubric work (e.g., `vocabulary_commonness` sub-property; `slot_unambiguous` check) named as future work. Doc 37 § 7 superseded the curated-pool approach under cipher architecture; the drift is rendered moot by the architecture shift but remains as historical evidence of the pattern.
 
 **Discipline #13 instance:** YES — historical instance; renders the pattern empirical not hypothetical (this is one of doc 37 § 9.1's named empirical-instance examples).
+
+### Drift-11 — Load-bearing dimension deferred to "later" until "later" gated near-term ship (two instances 2026-05-16)
+
+**What drifted:** Two scoping decisions made earlier in the project deferred load-bearing dimensions of player experience to later milestones — and "later" turned out to be after the deferred dimension started gating the next near-term ship. Both surfaced in Matt's 2026-05-16 dialogue within hours of each other; both required Matt's direct catch.
+
+**Instance A — Movement-speed baseline.** B12 (*movement speed + boots + gear slot audit*) was scoped to Stage A2 in `canonical/16-project-roadmap.md` § Stage A2 and explicitly deferred out of VS2a (*"not visually load-bearing for VS2a"*). The full B12 scope (gear slots, +% MS affixes, hard-cap design) is legitimate Stage A2 work — but the BASELINE ANCHOR portion (what speed is the player actually moving at?) was implicitly bundled into the deferred scope. Demo VS2a cannot ship with hand-tuned px/s placeholders that don't match a defensible design baseline; the baseline-anchor decision is upstream of VS2a, not downstream. Resolution: `canonical/story/movement-speed-baseline.md` authored same day; B12 split into baseline subset (VS2a scope) + full audit (Stage A2 scope); decisions-log entry queued. **2026-05-16 Day-4 amendment:** The Day-4 verdict reversal sharpened this further — not only the baseline-anchor subset but also the **full Gate-3b sim-consumption portion** (engine consumes end-game-anchored MS values; kiting modeling; AI_SPEED_MULTIPLIER 0.719 wired into convergence-loop telemetry) is **also in VS2a scope**, not a "tightly-following post-VS2a ticket" as the morning framing had it. Matt: *"No point playing a game which is not ran through the sim."* The implicit-deferral pattern bit twice on this same instance — first the baseline-anchor subset (caught earlier in the day); then the sim-consumption subset (caught at Day-4 close evening). Both are now VS2a-gating. The pattern's lesson sharpens: when a deferred milestone surfaces ONE upstream-of-near-term-ship dependency, sweep the rest of the deferred milestone for sibling dependencies in the same session — they tend to cluster, not surface in isolation.
+
+**Instance B — Geometry × element VFX coverage.** The substrate-realignment / `form-bias-cadence-strategy.md` work was scoped around two catalogue axes — element/substrate (fire/void/necrotic/crystal/etc.) + embodiment (warrior/mage/rogue narrative skin). The GEOMETRY axis (impact_burst / projectile / beam / cone / ground_slam / aura / nova / ring / chain / whirlwind / dash_attack / etc.) was implicitly assumed addressable at integration time. B11 (geometry palette 16 → 25; VS2a-gating) drives drax to integrate 9 new geometries × N elements; without geometry-coverage extracted from vendor catalogues, drax integration faces zero-coverage cells with no defensible fallback. Resolution: `agentic_orchestration/gandalf/requests/2026-05-16-geometry-vfx-coverage-investigation-b11-gating.md` filed same day; B11 demo integration phase HELD pending Elrond rubric + gandalf gap-severity assessment.
+
+**How caught:** Matt direct catch 2026-05-16, both within the same dialogue session. Movement-speed surfaced first (Matt: *"I don't want to ship demo VS2a without this"*); geometry-coverage surfaced ~1 hour later (Matt: *"we have scoped alot of work in mapping embodiment categories and elements from JSON to 2D/VFX packages, but have we investigated the skills geometries themselves?"*). Neither was flagged by gandalf at the earlier scoping moments — both flowed through gandalf-authored scoping docs (form-bias-cadence-strategy; B12 deferral) and were missed.
+
+**Enforcement gap:** When scoping a deferred milestone or a multi-axis workstream, no structural check existed for *"is any load-bearing portion of this milestone actually upstream of the near-term ship?"* The form-bias-cadence-strategy scoping named element + embodiment as the catalogue axes; geometry was treated as implicit (verifiable-at-integration-time). The roadmap B12 entry bundled "movement speed + boots + gear slots" as one atomic deferrable unit; the baseline-vs-gear-economy split was treated as implicit. Both implicit assumptions were structurally correct AT SCOPING TIME and operationally wrong AT NEAR-TERM-SHIP TIME.
+
+**Action:** Both instances resolved same-day with operational fixes (see canonical docs above). Pattern P6 named below for future prevention. **Specific forward audit recommended:** sweep current scoped-but-not-yet-active milestones (VS2b Substrate Realignment; Stage A2 B-series; Stage A3+ work) for similar implicit-axis assumptions before they recur.
+
+**Discipline #13 instance:** YES — both instances are partial-enforcement-without-verification. The deferral decisions did not verify that no near-term ship would surface a dependency on the deferred portion. This is the same enforcement-gap shape as Drift-7/8/9, applied to scoping decisions rather than design pillars.
+
+### Drift-12 — Test scaffolding masks production defect (gamora V2.1 emission gap)
+
+**What drifted:** Star-lord's v2.1 telemetry smoke test (`reincarnated-engine/tests/test_telemetry_v21.py` lines 605-606) injected synthetic `loadout_json` values into test fixtures with an explicit workaround comment in order to satisfy the recorder's input preconditions in isolation. The test confirmed the recorder correctly writes the three new V2.1 per-fight fields (`encounter_index_within_room`, `room_won`, `hp_fraction_at_encounter_start`) when those fields are present alongside a non-None `loadout_json`. The test passed.
+
+Meanwhile, gamora's V2 sequential-room execution path in production constructed fight_log dicts with `loadout_json: None`. The star-lord recorder's `is None → continue` guard at `recorder.py` line 477 (a correct V1-era defensive guard) silently dropped every V2 fight record. **All 204,800 rows of season_001006's `class_fight_loadouts` table had NULL on the three V2.1 fields.** The full-class regen completed; nothing alarmed; the gap was only surfaced because star-lord's post-regen recovery check empirically queried the column. The fix (`gamora/v1.3-b10-v2-emission-gap-fix @ df717a8`) emits `"{}"` instead of `None`, which passes the guard. 1114 rows of fresh smoke-season data persisted post-fix (was 0 before).
+
+**How caught:** Star-lord post-regen empirical column check 2026-05-16 (per `agentic_orchestration/qa/findings/2026-05-16-star-lord-full-regen-post-b6-v2.md`). NOT caught by either of: (a) gamora's own V2 smoke pass at the V2 dispatch's intermediate tag, (b) star-lord's v2.1 schema smoke pass at the v2.1 dispatch's intermediate tag. Both seam-isolated smoke passes were green; the cross-seam integration path was silent.
+
+**Enforcement gap:** the v2.1 smoke test exercised the recorder's *code path* with synthetic fixtures but did not exercise the *integration path* with production fixtures. The synthetic-injection workaround was correct as a unit test of the recorder in isolation — and the dispatch's completion record correctly notes that. But there was no cross-seam round-trip smoke test that ran V2 production fight_log dicts through the recorder end-to-end. The seam boundary between gamora's emission and star-lord's persistence had test coverage on each side and no test coverage on the boundary itself.
+
+This is the empirical instance the Pattern P7 framing below is named for.
+
+**Action:** Fix shipped (`df717a8`). MIGRATION.md §v1.4 + §v1.5 entries document the semantic correction. This Drift-12 entry surfaces the underlying pattern (P7) so the prevention prescription can be operationalized at future dispatch authoring.
+
+**Cross-references:**
+- Dispatch: `agentic_orchestration/dispatches/2026-05-16-gamora-v21-per-fight-emission-gap-fix.md` (full completion record at bottom)
+- Star-lord findings: `agentic_orchestration/qa/findings/2026-05-16-star-lord-full-regen-post-b6-v2.md`
+- Engineering disciplines #13b (commit `4259969`): same empirical instance examined at a different abstraction layer. **The relationship is non-overlapping at the discipline-vs-prevention layer:**
+  - Discipline #13b frames the gamora V2.1 case as *outcome attribution opacity*: once the missing-emission symptom appeared, root-cause attribution required targeted ablation/inspection and was not derivable from the symptom alone. #13b is actionable through *empirical experiment*, not process gates.
+  - Drift-12 (Pattern P7) frames the same case as *test-fixture isolation masking production-fixture divergence*: the reason the symptom appeared in production rather than in a green smoke run is that test fixtures bypassed the precondition production violated. P7 is actionable through *process gates* on test-fixture review.
+  - Both true; both load-bearing; complementary rather than duplicative. #13b prescribes ablation; P7 prescribes cross-seam round-trip discipline. The same empirical case demonstrates both gaps simultaneously.
+- P6 forward audit (`canonical/story/p6-forward-audit-2026-05-16.md`): the test-scaffolding pattern is structurally distinct from P6 (P6 is scoping-time axis omission; P7 is implementation-time fixture divergence). Not a P6 instance.
+
+**Discipline #13a instance:** PARTIAL. The canonical intent ("V2 emits these three fields populated") existed in the v2.1 schema design + the V2 dispatch wire-up; the code did emit the fields. But the canonical-vs-code comparison was insufficient because the lower-level precondition (`loadout_json` non-None) was implicit. This is on the edge of #13a's "directly comparable from code" criterion — the gap was only visible by reading the recorder guard and the V2 emission together. P7 is the more precise pattern label for this instance than #13a alone.
+
+### Drift-13 — Vendor deliverable-register confusion (CraftPix cross-product-line split)
+
+**What drifted:** The catalogue-research vocabulary implicitly treated `vendor → style_register` as a one-to-one relationship. Tier-1 vendor sweeps and per-vendor findings docs assumed that if a vendor markets their catalogue as "pixel art," all product lines under that vendor ship pixel-art-shaped raster deliverables. CraftPix.net violates this assumption: its **VFX packs** (e.g., `craftpix-pixel-magic-effects-icons`, surfaced in the Step B Tier-1 2D VFX crawl) ship pixel-art-shaped raster (PNG/PSD, 64×64 / 128×128 / 256×256 frames) and are correctly tagged `style_register: pixel-art` in the catalogue; its **character sprite packs** (verified 2026-05-16 by the legolas character-track scout — Adventure Game Character Sprite Pack, Woman Hero Game Character Sprite, etc.) ship vector deliverables (AI / EPS / PSD layered, with explicit "vector graphics; parts of body divided into separate elements for vector editor" language on product pages). Both product lines carry CraftPix's site-wide "pixel art" marketing label; only per-product-page inspection surfaces the split.
+
+The CraftPix catalogue file already reflects the split empirically — `craftpix/full-2026-05-16.jsonl` contains 5 `style_register: pixel-art` records and 2 `style_register: vector` records (CraftPix is presently the only Tier-1 vendor with mixed registers in its inventory). The records were tagged correctly per-product by the curators on each side; what drifted is the *implicit vocabulary assumption* that downstream consumption could safely aggregate by vendor.
+
+**How caught:** legolas character-track Mode A scout returned 2026-05-16 (`agentic_orchestration/research/catalogue/character-track-vendor-scout-2026-05-16.md`) and flagged CraftPix as `HOLD — register mismatch` in the character-track-only context. Matt then asked the broader question — whether the per-product-line split could mislead downstream wiring (drax) or downstream register validation (gandalf), and whether the prior Step B VFX surface had been treating CraftPix as register-consistent. Cross-reference to the Step B VFX crawl confirmed: the VFX-side curator correctly identified pixel-art-shaped raster (extraction_notes explicitly say `"Not vector"`), but the abstraction-layer assumption that `vendor ⇒ register` was never explicitly stated or verified.
+
+**Enforcement gap:** the catalogue's `style_register` field exists at the per-record (per-product) granularity already, but the catalogue's *consumption-side vocabulary* — per-vendor findings docs, per-vendor rubric notes, vendor-class HOLD/PROMOTE language, and the implicit mental model for "is CraftPix in or out?" — operated at vendor granularity. The dispatch authoring for catalogue crawls did not require `deliverable_register` (or equivalent) be inspected per product line within a vendor before vendor-class judgments were rendered. The first downstream consumer that would have surfaced this mismatch (drax wiring sourcing both VFX and character packs from CraftPix; gandalf register-validation pass) had not yet activated when the implicit assumption was forming.
+
+**Action:** Pattern P8 named below for future prevention. The CraftPix VFX records remain valid (correct register tag); the CraftPix character records remain valid (correct register tag); no catalogue mutation required as result of this drift. Cross-seam forward actions queued (see Cross-references). NOT in scope of this drift entry: retrospective audit of all curated vendor packs (bounded to pattern documentation); CraftPix-specific catalogue re-curation (legolas + elrond own that decision); process-gate operationalization (separate decision; this entry surfaces the pattern).
+
+**Cross-references:**
+- legolas character-track scout: `agentic_orchestration/research/catalogue/character-track-vendor-scout-2026-05-16.md` (CraftPix vector finding at § Vendor 7)
+- Step B 2D VFX inventory: `agentic_orchestration/research/catalogue/cross-vendor-substrate-inventory-2026-05-16.jsonl` (CraftPix VFX records correctly tagged pixel-art)
+- Catalogue empirical evidence: `agentic_orchestration/research/catalogue/craftpix/full-2026-05-16.jsonl` (mixed-register vendor confirmed; 5 pixel-art + 2 vector records)
+- Forward cross-seam actions (queued, not part of this drift entry's commission scope):
+  - **legolas:** future Mode B catalogue dispatches should record per-product-line `deliverable_register` explicitly (not aggregate by vendor) — small persona-rule extension; knight-rider to route if Prevention (a) is selected
+  - **elrond:** catalogue.db schema may need amendment to ensure register is enforced per-record (not per-vendor) and to expose a vendor-level "register-mixed: yes/no" flag at query time; flag for future elrond data-architecture decision
+  - **drax:** downstream dispatches that source from a vendor across multiple product lines (VFX + characters from the same vendor) must check `style_register` at the per-pack level, not at the vendor level
+- Style-register doc (consumption-time filter layer): `canonical/story/style-register.md`
+- NOT cross-referenced (different abstraction layer; verified non-relevant): grouping-layer vocabulary spec
+
+**Discipline #13 instance:** YES — instance of "implicit-pillar drift" applied to the catalogue-research vocabulary layer. The pillar `vendor catalogue inspection records register at the per-deliverable granularity that matches downstream-consumption granularity` was implicit and not structurally enforced. The drift was caught at the moment the first cross-product-line consumer (legolas character scout reading prior VFX work) ran the inspection — earlier than downstream wiring or register-validation would have caught it, which is the desired catch-cadence.
+
+### Drift-14 — Per-season vocabulary pool scored on D1 rubric but not against VFX-catalogue-mapping coherence
+
+**What drifted:** The 156-entry seasonal-element pool (`data/seasonal_elements/pool.json`) was scored Stage A1 (commit `98f1e3f`, 2026-05-12) against the **D1 rubric** — 5 properties × 2 points + Genre Precedent +1 bonus, totaling ~11 max score. The 5 properties scored entries against *conceptual visualizability* (can a player picture it), *fantasy-heroic* (does it read genre-appropriate), *genre precedent* (does it appear in shipped ARPG canon), *common vocabulary* (does an average player know the word), and one or two related properties. **What D1 rubric did NOT score:** whether each entry maps cleanly to our actual 2D elemental / VFX catalogue (Pimen GREEN list + CreativeKind palette-shift coverage). Those are two different questions — the rubric answered the first; the second was implicit-deferred.
+
+The cipher migration architecture (per `canonical/37-form-bias-diagnosis-and-recovery.md` § 6 + `canonical/story/form-bias-cadence-strategy.md` § 7.2) commits to: **L1 substrate (canonical-four) drives VFX; L3 per-season vocabulary drives player-visible labels.** This works elegantly *only if* L3 vocabulary entries are conceptually VFX-coherent with their canonical slot. Concrete failure mode: a season selects `throne` (earth-allow-list, D1 total=11 — top score) as the earth-slot substance; sim emits earth-canonical skills; demo renders earth-canonical VFX (stone particles, mineral debris); player-visible label reads "throne strike" or "throne aura." The mismatch between *vocabulary suggesting royal-conceptual imagery* and *VFX rendering as stone particles* produces cognitive dissonance.
+
+The drift is structural across both tiers:
+- **Allow-list tier (81 entries; supposedly clean):** includes entries with real VFX-mapping ambiguity — `throne` (conceptual, not substance); `blood` (red liquid; canonical water VFX is blue/cyan); `mercury` (silver liquid); `bone / marrow / chitin / claw / horn / scale / thorn / tooth / husk / shell` (biological-organic, distinct visual register from mineral earth); `pearl` (white reflective, palette-shift water possible but unusual).
+- **Quarantine tier (35 entries):** disproportionately contains entries that cannot map at all — wind-quarantine `whisper / hum / sigh / thrum / breath / exhalation / whistle` are *auditory*, not visual; water-quarantine `honey / jelly / milk / nectar / sap / sweat / tear / lather / suds` are specific liquid types requiring custom VFX not palette-shifts; earth-quarantine `threshold / flower / petal` are abstract or non-mineral. The D1 rubric correctly demoted these on visualizability scoring, but the demotion is correlated-with-VFX-incoherence rather than caused-by-it.
+
+**How caught:** Matt direct catch 2026-05-17 Day 4 evening (immediately following gandalf's element-pool diff response): *"Based on this, it seems that we have not filtered those elements which will not map cleanly to our 2D elemental/VFX catalogue out of scope. Is this true? Is there still a gap here for VS2a demo?"* — caught by reading the diff output, not by structural enforcement.
+
+**Enforcement gap:** D1 rubric is structurally enforced (scoring methodology codified at commit `98f1e3f`; selector consumes scores at `element/selector.py`). VFX-catalogue-mapping coherence scoring does NOT exist as a structural enforcement. When the D1 rubric was authored at Stage A1, the VFX catalogue (Pimen, CreativeKind) had not yet been crawled — VFX coverage was unknown. The rubric was authored against what was knowable then; the rubric extension that bridges to VFX coverage was not added when the catalogue work returned (Step B Tier-1 crawl 2026-05-16 + Pimen viability gate PASS).
+
+**This is a Pattern P6 instance.** Load-bearing dimension (VFX-catalogue-mapping coherence) deferred to a later milestone (Stage 3 cipher migration ship) that becomes upstream of a near-term ship (VS2b). Same shape as Drift-11 movement-speed-baseline and geometry-vfx-coverage instances — and same fix shape (explicit rubric extension + bounded audit pass + closes before the ship the deferred dimension gates).
+
+**Is this VS2a-blocking?** Probably not. Pre-Stage-3 cipher migration, the LLM still sees canonical-four labels (fire/wind/water/earth) at VS2a; per-season vocabulary doesn't yet drive player-visible surface end-to-end. The gap is camouflaged in VS2a because Stage 3 hasn't shipped. VS2a end-game-anchored playtest framing (per Day-4 verdict reversal) is also about balance state, not vocabulary feel. **IS this pre-VS2b-ship gap?** Yes. Stage 3 cipher migration + drax-side Stage 3 + manifest parallel structure together make per-season vocabulary go player-visible end-to-end. If `throne strike with stone VFX` or `marrow blast with dirt clouds` ships in VS2b, the cipher migration's player-experience win is structurally compromised by vocabulary that doesn't visually cohere with substrate.
+
+**Action:**
+- Drift-14 entry archived here (this section).
+- Gap-closure commission filed at `agentic_orchestration/gandalf/requests/2026-05-17-pool-vfx-catalogue-mapping-audit.md` — legolas Mode A catalogue audit (Pimen + CreativeKind VFX coverage at concept level — which substance-types render coherently with palette-shift; which require custom VFX work; which can't map without bespoke commission) + gandalf re-scoring pass (add `vfx_catalogue_mapping_clean` property to D1 rubric; score pool against catalogue coverage; produce culled pool for VS2b cipher migration ship). Bounded scope ~1-2 days combined.
+- Forward discipline candidate (D15-candidate territory per P6 forward audit § sub-pattern naming): "Pool-vs-catalogue mapping must be scored at pool-introduction time, not deferred to ship-time." Surface to next jack-ryan engineering-disciplines pass alongside R11(b) + Pattern P7 silent-drop cluster + Drift-11 sibling-cluster-sweep lesson.
+
+**Cross-references:**
+- Source pool: `reincarnated-engine/data/seasonal_elements/pool.json` (current state — 156 entries; 81 allow-list / 40 eligible / 35 quarantine)
+- D1 rubric methodology: Stage A1 commit `98f1e3f` (rubric scored + selector filter + Phase C scoring)
+- Cipher migration architecture: `canonical/37-form-bias-diagnosis-and-recovery.md` § 6 + `canonical/story/form-bias-cadence-strategy.md` § 7.2
+- VFX catalogue coverage: `agentic_orchestration/research/catalogue/cross-vendor-substrate-inventory-2026-05-16.jsonl` (Step B Tier-1 inventory) + Pimen viability-gate PASS findings + `canonical/story/geometry-vfx-coverage-assessment.md`
+- P6 forward audit pattern: `canonical/story/p6-forward-audit-2026-05-16.md`
+- Sibling drift instances (also P6): Drift-11 instance A (movement-speed-baseline) + Drift-11 instance B (geometry × element VFX coverage) — both 2026-05-16 catch
+
+**Discipline #13 instance:** YES — instance of "implicit-pillar drift" applied to the pool-rubric-vs-catalogue-coverage layer. The implicit pillar `pool vocabulary entries are scored against ALL downstream-consumption requirements at scoring time, not just against conceptual visualizability` was never explicitly stated and not structurally enforced. The drift surfaces at the moment the first downstream consumer that depends on VFX coherence (Stage 3 cipher migration → VS2b ship) starts looking upstream — caught one step earlier than downstream-consumer-activation time, which is the desired catch-cadence per the P6 forward-audit prescription.
 
 ---
 
@@ -402,6 +501,87 @@ Example: Drift-4 (style-register Phase-1 onboarding miss). Pattern: agent defini
 Example: Drift-7 (View A/B/C). Pattern: multiple parameters individually tuned over time; the joint-system behavior emerges without anyone analyzing it as a system.
 
 **Prevention:** any system governed by ≥3 parameters that interact mechanically should have an explicit canonical-design-doc naming the joint-behavior intent. Otherwise the emergence is drift.
+
+### Pattern P6 — Load-bearing dimension deferred to "later" until "later" gates near-term ship
+
+Example: Drift-11 (both instances — movement-speed baseline; geometry × element VFX coverage). Pattern: a scoping decision defers a complex multi-part workstream (B12 = baseline + gear economy; substrate-realignment = element + embodiment + ?...geometry?) to a later milestone. The deferred workstream is treated as atomic. A near-term ship downstream surfaces that some *portion* of the deferred workstream is actually upstream of the near-term ship — and the implicit-atomic-deferral was wrong.
+
+This pattern is distinct from P1 (design intent in conversation but not code) because the dimensions WERE in the code/plan; the scoping decision just placed them wrongly in time. It's distinct from P5 (multi-parameter system drift) because the issue is not joint-emergence of tuned parameters but rather omission of an axis from the scoping conversation.
+
+**Prevention:** when scoping a deferred milestone OR a multi-axis workstream:
+
+1. **Decompose the milestone/workstream into its constituent dimensions** before deferring. Name each dimension explicitly. The B12 deferral named "movement speed + boots + gear slot audit" as one unit; if it had been decomposed into (a) baseline anchor, (b) gear-slot architecture, (c) MS affix economy, (d) hard-cap design, the baseline-anchor-vs-VS2a gating would have been visible at scoping time.
+2. **For each dimension, ask:** *"is there a near-term ship between now and this milestone where this dimension becomes load-bearing?"* If yes, split that dimension out of the deferred scope and promote to the near-term-relevant scope.
+3. **Catalogue/categorical workstreams are particularly vulnerable** because the constituent dimensions are not always all named at scoping time. The substrate-realignment scoping named element + embodiment but did not exhaustively enumerate "what other axes does a VFX library vary along?" — geometry was implicit-assumed. Catalogue workstreams should enumerate dimensions exhaustively (or explicitly name "all other axes are scoped post-hoc with this acknowledged risk").
+
+**Forward audit triggered by Drift-11:** sweep current scoped-but-not-yet-active milestones for similar implicit-axis assumptions:
+
+- **VS2b Substrate Realignment** — locked axes are element + embodiment. Other axes that may be upstream of VS2b-target ships? Animation style register; VFX motion conventions; color palette per element; canvas-size discipline per substrate; frame-rate conventions; loop-vs-one-shot structural patterns
+- **Future Stage-A2 B-series work** — each B-item should be decomposed into constituent dimensions; each dimension audited for near-term-gating before locking the Stage-A2 atomic scope
+- **VS2b Pimen full integration** — full integration may surface dimensions the first-Pimen-integration in VS2a didn't expose; recommend dimension-audit at VS2b authoring
+
+This forward audit is gandalf scope; recommend single sweep-and-file pass within next 2 weeks before VS2b work activates.
+
+### Pattern P7 — Test scaffolding masks production defect
+
+Example: Drift-12 (gamora V2.1 emission gap; star-lord v2.1 smoke synthetic `loadout_json` injection masked production V2's `None` emission). Pattern shape, in four steps:
+
+1. **Test setup uses synthetic / workaround fixtures** to satisfy preconditions the production code under test isn't yet expected to satisfy, OR to isolate the seam under test from upstream complexity. The workaround is technically legitimate as a unit test — it does exercise the code path correctly.
+2. **The workaround makes the test green.** All assertions on the seam-under-test pass.
+3. **The production gap becomes invisible.** Production code in the upstream seam fails to satisfy the precondition the test workaround bypassed; downstream code drops/silently-skips/no-ops; the test suite reports green because the test exercised the code path with a manufactured precondition rather than the production-fixture precondition.
+4. **Risk surface:** the test suite confirms "code paths are exercised" but cannot confirm "production fixtures reach those code paths." Cross-seam integration silently degrades; the gap surfaces only when downstream empirical verification (column query; post-regen check; production telemetry inspection) is run by someone outside the seam.
+
+P7 is **structurally distinct** from P1 (intent never made it into code) — in P7 the code is correct and the unit test is correct; the gap is in fixture realism at the seam boundary. P7 is also distinct from P5 (multi-parameter joint behavior un-analyzed) — in P7 there's a single boundary with a single-fixture-shape mismatch, not joint-emergence.
+
+**Why this pattern is high-risk specifically for this project:** Reincarnated's engine has six tightly-coupled seams (rocket/gamora/star-lord/drax/elrond + LLM) that communicate via fixture dicts (fight_log records; loadout dicts; telemetry events). Each seam has unit-test coverage with seam-isolated fixtures. The fixture-shape contract between seams is enforced by Python convention (dict keys) rather than by typed schema with mandatory-vs-optional-field validation. Whenever an upstream seam adds a field, the downstream seam's tests already exercise the *consumer* with synthetic shaped-correctly fixtures — and the upstream seam's tests already exercise the *producer* in isolation. The integration path is the gap; P7 is the named risk-shape for that gap.
+
+**Prevention prescription:**
+
+The commission surfaces four candidate prevention mechanisms. After examining each against the gamora V2.1 instance and against the project's broader test architecture:
+
+- **(a) Workaround-annotation discipline.** Workaround comments in test setup must include a "REVIEW: is this masking a production gap?" annotation. **PARTIALLY RECOMMENDED — limited reach.** This catches the cases where the test author knows they're working around something. It does NOT catch the gamora V2.1 case, where the star-lord smoke author was correctly testing the recorder in isolation and the workaround was correctly framed — no test-author judgment failure occurred. (a) is necessary but insufficient.
+
+- **(b) Round-trip discipline.** **PRIMARY RECOMMENDED.** At least one smoke test per cross-seam contract must use production-path fixtures end-to-end, not seam-isolated fixtures. For the V2.1 case, a smoke that ran a tiny gamora V2 room execution → recorder → DB query → field-population assertion would have caught the gap. The cost is one additional smoke per cross-seam-contract migration; the value is the integration-path coverage that seam-isolated smokes provably cannot provide.
+
+  **Operationalization:** when star-lord or gamora ships a schema/recorder/emission change to a cross-seam contract (telemetry schema; fight_log dict shape; loadout dict shape), the dispatch's acceptance criteria must include one of: (i) a cross-seam round-trip smoke OR (ii) an explicit "round-trip-not-applicable because <reason>" justification. Knight-rider can author this as part of dispatch authoring; jack-ryan can enforce at Gate 1.
+
+- **(c) Audit hook.** Knight-rider's quarterly review reads `# workaround` comments in test files and routes for review. **TERTIARY RECOMMENDED — long-tail catch.** Useful as a periodic sweep but does not catch the gap at dispatch authoring. Lives at the same cadence as this drift-audit's R10 periodic re-pass.
+
+- **(d) Recorder-side fail-loud-on-silent-drop.** **STRONGLY RECOMMENDED as a complementary code-level prevention.** The deeper structural cause of the gamora V2.1 case was that `recorder.py` line 477 silently `continue`d on `loadout_json is None` — a defensive guard that swallowed an unexpected production state. Defensive-silent-skip in recorder code paths is a fixture-contract violation made invisible. Recommend: cross-seam recorders/persistors that drop input should emit a counter or log entry (debug-or-info level) on every drop, so empirical "expected N rows, got 0 rows" gaps become discoverable from the run log without requiring a post-regen DB column query. This is star-lord-seam code change, not a process gate; recommend filing as forward action when star-lord next touches recorder.py.
+
+**Composite recommendation:** (b) at dispatch authoring + (d) at recorder code + (a) as a discipline reminder. (c) deferred to drift-audit R10 quarterly cadence.
+
+**Forward action:** see R11 below for the operationalization route.
+
+### Pattern P8 — Vendor deliverable-register confusion (cross-product-line register inconsistency within a single vendor)
+
+Example: Drift-13 (CraftPix character packs ship vector; CraftPix VFX packs ship pixel-art-shaped raster; both carry the site-wide "pixel art" marketing label). Pattern shape:
+
+1. **Vendor uses consistent surface labeling** across all product lines (marketing copy, category names, store-tier descriptions). The label suggests a single deliverable register.
+2. **Actual deliverable register varies per product line** within the vendor. One product line ships register-A (e.g., pixel-art raster PNG/PSD); another product line ships register-B (e.g., vector AI/EPS) — both labeled identically on the vendor's site.
+3. **Downstream consumption implicitly aggregates by vendor.** Curation rubrics, per-vendor findings docs, vendor-class HOLD/PROMOTE/INCLUDE language, and downstream wiring (drax sourcing; gandalf register-validation) treat the vendor as a single register class. Per-vendor aggregation is the natural research-economy abstraction (one license; one vendor relationship; one rubric pass) but it elides the per-product-line register split.
+4. **Cross-product-line confusion is not surface-visible** until either (a) downstream consumption across multiple product lines from the same vendor surfaces the mismatch (drax integration loading a "pixel" character pack alongside a "pixel" VFX pack and finding deliverable-shape divergence), OR (b) a second curator passes the vendor under a different product-line lens (the Drift-13 instance — VFX-side curator tagged pixel-art correctly; character-side curator tagged vector correctly; the mismatch only became visible when the two passes were compared).
+5. **Risk surface:** vendor sweeps and curation rubrics that aggregate by vendor (not per-product-line) inherit the vendor's marketing-label register and miss the per-deliverable register split. The catalogue's per-record `style_register` field may be correctly populated by individual curators yet still mislead consumers who reason at vendor granularity. Style-register lock (`canonical/story/style-register.md`) operates as a consumption-time filter on per-record register data — its filtering effectiveness depends on per-record register being accurate, which it is — but the *vocabulary* of vendor-class judgment in curation dispatches and findings docs is the layer that drifts.
+
+P8 is **structurally distinct** from P1 (intent never made it into code) — in P8 the per-record data IS in the catalogue correctly; the gap is at the vocabulary/aggregation layer above the catalogue. P8 is distinct from P2 (categorical-register not bridged to operational-register) — in P8 both registers are operational; the issue is per-vendor-vs-per-product-line granularity mismatch. P8 is distinct from P5 (multi-parameter joint behavior) — in P8 there is a single attribute (register) whose granularity is wrong for the consumption layer.
+
+**Why this pattern is high-risk specifically for this project:** Reincarnated's catalogue research is structured by vendor (legolas crawls one vendor at a time; findings-summary docs are filed per-vendor at `research/catalogue/<vendor>/`; HOLD/PROMOTE/INCLUDE decisions are commonly rendered per-vendor). The catalogue's per-record `style_register` field has the correct granularity for downstream filtering, but the human-readable vocabulary above it (and the implicit mental model of "is vendor X a pixel-art vendor or a vector vendor?") aggregates by vendor. Whenever a vendor spans multiple product lines (VFX + characters; environments + portraits; sprites + tilesets), the per-vendor aggregation will be wrong for any vendor that mixes registers. CraftPix is the surfaced empirical instance; the same vendor-class label-vs-deliverable mismatch may exist at other Tier-1+ vendors not yet inspected at the multi-product-line lens.
+
+**Prevention prescription:**
+
+The commission surfaces four candidate prevention mechanisms (relabeled a-d for clarity within this section). After examining each against the CraftPix instance and against the catalogue's broader research architecture:
+
+- **(a) Per-product-line register validation in catalogue dispatches.** legolas Mode B catalogue dispatches should record `deliverable_register` (or equivalent) explicitly per product line, not implicitly aggregate to per-vendor. **PRIMARY RECOMMENDED.** The per-record `style_register` field already exists at the right granularity — what's missing is dispatch-level instruction that the field MUST be populated per product line based on per-product-page inspection, NOT inferred from the vendor's site-wide marketing label. For vendors marketing as one register where any per-product-page inspection finds a different register, the dispatch must surface a "vendor register-mixed: yes" flag in the findings-summary doc. **Operationalization:** small persona-rule extension to legolas (catalogue dispatch authoring + persona file); knight-rider to route once selected.
+
+- **(b) Cross-vendor register-consistency audit.** Periodic audit checking labels-vs-deliverables across all curated vendors (not just CraftPix). **SECONDARY RECOMMENDED — long-tail catch.** Useful as a one-shot sweep AND as a periodic re-pass (quarterly at drift-audit R10 cadence). Cost: re-pass each curated vendor's findings-summary doc against current catalogue records and flag any vendor with mixed `style_register` values. Cheap because the data already exists; just needs aggregation-and-comparison. Recommended cadence: one-shot sweep within the next Tier-1+ catalogue review (since CraftPix is presently the only mixed-register vendor in inventory, the sweep is cheap now); then quarterly at R10.
+
+- **(c) Engineering-discipline candidate (#15 — per-product-line register validation).** **DEFERRED to jack-ryan judgment.** Engineering-discipline codification is jack-ryan dispatch territory; this drift-audit entry surfaces the pattern but does not pre-empt jack-ryan's decision on whether (a) belongs in engineering-disciplines.md as a numbered discipline OR stays as a legolas persona-rule extension. Recommend gandalf flag to jack-ryan via the next handoff; jack-ryan decides discipline-vs-persona-rule scope.
+
+- **(d) Schema-level enforcement at catalogue.db.** Future elrond catalogue.db schema (when materialized from JSONL crawls) should expose a vendor-level "register-mixed: yes/no" computed flag at query time, so any consumer querying by vendor sees the mixed-register state explicitly. **TERTIARY RECOMMENDED — downstream-consumption safety net.** Lives at elrond data-architecture layer; flag for future elrond decision. Does not replace (a) — (a) catches at curation; (d) catches at consumption; both layers benefit from the discipline.
+
+**Composite recommendation:** (a) at legolas dispatch authoring + (b) as a one-shot sweep at next Tier-1+ review (then quarterly at R10) + (d) at next elrond catalogue.db schema decision. (c) deferred to jack-ryan judgment.
+
+**Forward action:** gandalf surfaces (a) and (d) as cross-seam considerations to knight-rider for routing (legolas persona-rule extension; elrond schema flag). (b) folded into R10 quarterly cadence (this drift-audit doc's existing periodic re-pass). (c) referred to jack-ryan via next handoff.
 
 ---
 
@@ -449,6 +629,18 @@ Per work-queue item #9 (small focused doc; queued). Closes a known C.7 partial-e
 
 Per work-queue item #12 (long-term effort). Each authored per-anchor entry incrementally strengthens D1 cosmological-register structural-enforcement at the anchor library layer. May be accelerated significantly if the no-seed reverse-test (R4) produces tooling for reverse-derivation as seed for anchor-prose-notes.
 
+### R11 — Operationalize Pattern P7 prevention (cross-seam round-trip + recorder fail-loud)
+
+Per Pattern P7 prevention prescription (composite of (b) + (d) + (a)):
+
+- **(b) Cross-seam round-trip discipline.** Knight-rider to incorporate into dispatch authoring template: when a dispatch ships a change to any cross-seam contract (telemetry schema; fight_log dict shape; loadout dict shape; export packet shape; any inter-seam fixture format), the acceptance criteria must include either (i) a cross-seam round-trip smoke that uses production-path fixtures end-to-end OR (ii) an explicit "round-trip-not-applicable because <reason>" justification. Jack-ryan Gate-1 hook: surface a check on dispatches that ship cross-seam contract changes without one of the two clauses.
+- **(d) Recorder fail-loud-on-silent-drop.** Forward action for star-lord at next recorder.py touch: replace the `loadout_json is None → silently continue` pattern (and structurally similar defensive-silent-skip patterns) with a counter or log entry so empirical "expected N rows, got 0 rows" gaps surface from the run log without requiring a post-regen DB column query. This is star-lord-seam code; recommend gandalf surfaces to star-lord at next v2.x telemetry dispatch authoring time.
+- **(a) Workaround annotation reminder.** Discipline reminder (lighter than a process gate) at dispatch authoring: when a dispatch's smoke acceptance includes a synthetic-fixture workaround in the test, the dispatch's completion record should note whether the workaround masks a production gap or is genuinely a unit-isolation choice. The star-lord v2.1 dispatch's completion record correctly observed the workaround was unit-isolation, so this annotation is mostly about making the question visible rather than catching new failures.
+
+**Owner:** knight-rider for (b) as a dispatch-template amendment + jack-ryan Gate-1 hook; star-lord for (d) at next recorder touch; gandalf surfaces (a) at the next dispatch-authoring discipline review with knight-rider.
+
+**Pending:** knight-rider + jack-ryan coordination on (b) wording; star-lord notification of (d) for next recorder.py work; (a) reminder embedded in this audit and surfaced when the next dispatch with synthetic test fixtures lands.
+
 ### R10 — Periodic drift-audit re-pass
 
 This doc is ongoing. **Recommendation:** re-pass quarterly (or at major milestones — pre-Stage-A2 ship; pre-Stage-A3 ship; pre-pitch; etc.). Each re-pass:
@@ -470,7 +662,7 @@ Should the project have automated drift-detection (e.g., LLM-call output scannin
 
 ### Q2 — Audit-finding severity tiering
 
-Different drifts have different severities. Should this audit explicitly tier instances (high-severity-form-bias; mid-severity-Fate-substrate; low-severity-pet-overreach)? My instinct: **categorical-only**; quantitative-severity-scoring tempts Goodhart's law. The current pattern-naming (P1-P5) captures severity implicitly via pattern type.
+Different drifts have different severities. Should this audit explicitly tier instances (high-severity-form-bias; mid-severity-Fate-substrate; low-severity-pet-overreach)? My instinct: **categorical-only**; quantitative-severity-scoring tempts Goodhart's law. The current pattern-naming (P1-P7) captures severity implicitly via pattern type.
 
 ### Q3 — Audit ownership
 
@@ -508,6 +700,9 @@ How often should the drift instances be retrospectively reviewed for new pattern
 - `agentic_orchestration/gandalf/requests/2026-05-16-no-seed-cosmology-generation-test.md` — drift-related commission
 - `agentic_orchestration/dispatches/2026-05-16-gandalf-engine-balance-stewardship.md` — drift-related dispatch (session 3)
 - Memory `project_design_intent.md` — D1 element-name override history (Drift-10 source)
+- `agentic_orchestration/dispatches/2026-05-16-gamora-v21-per-fight-emission-gap-fix.md` — Drift-12 source dispatch (completion record at bottom)
+- `agentic_orchestration/qa/findings/2026-05-16-star-lord-full-regen-post-b6-v2.md` — Drift-12 empirical source (star-lord post-regen column check that surfaced the gap)
+- `reincarnated-engine/design/working-agreement/engineering-disciplines.md` § 13b (commit `4259969`) — Discipline #13b cites the same gamora V2.1 instance at the outcome-attribution-opacity layer (complementary to Drift-12's test-fixture-divergence layer)
 
 ---
 
@@ -530,7 +725,7 @@ When drift is observed (in dialogue, in implementation review, in family playtes
 
 1. Author a new entry in § "Drift instances observed and archived."
 2. Name what drifted; how caught; the enforcement gap; the action taken.
-3. Identify if it matches an existing pattern (P1-P5) or surfaces a new pattern.
+3. Identify if it matches an existing pattern (P1-P7) or surfaces a new pattern.
 4. If new pattern, add to § "Cross-cutting drift patterns."
 
 ### Updating enforcement status
