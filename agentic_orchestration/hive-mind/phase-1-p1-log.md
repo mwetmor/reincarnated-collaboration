@@ -2439,3 +2439,113 @@ Continuous-availability LIVE post-session. Status:
 **Status after D4:** Back on D3 hold — awaiting jack-ryan math-note review + gandalf Q1/Q2. No new cross-seam dependencies opened. D4 perimeter is closed.
 
 — gamora
+
+---
+
+### [2026-05-17 08:35Z] STATE — star-lord — D6 Step 4 + Coupling #9 IMPLEMENTATION IN PROGRESS
+
+Reading rocket D2 HANDOFF + refactor plan. Current state:
+
+- rocket D2 Coupling #1 confirmed @ `79fbf41` — `SeasonalElements.slots: dict` LIVE.
+- `naming.py` Sites 6 + 8 implementation: IN PROGRESS.
+- `telemetry/recorder.py` Coupling #9 (lines ~123 + ~713): IN PROGRESS.
+- Tests: writing new test file `tests/test_d6_step4_and_coupling9.py`.
+
+Will post TAG entry on completion.
+
+— star-lord
+
+---
+
+### [2026-05-17 08:45Z] STATE — star-lord — D6 Step 4 + Coupling #9 SHIPPED
+
+Implementation complete. All tests pass.
+
+**What shipped:**
+
+**Site 6 (`naming.py` — `_SLOT_ATTRS` REMOVED, Discipline #12 semantic shift):**
+- `_SLOT_ATTRS` dict eliminated.
+- `_seasonal_element_line()` + `_resolve_seasonal_name()`: use `elements.slots.get(canonical_element)` dict-keyed lookup.
+- All rotating substrates covered automatically (canonical-7-ready).
+- Pre-Coupling-#1 path (`slots == {}`): graceful fallback to grouping-label-only.
+
+**Site 8 (`naming.py` — `_elements_summary_line()` registry-driven):**
+- Old: hardcoded `elements.fire_slot.element_name` × 4.
+- New: `for substrate, slot in elements.slots.items(): grouping = _grouping_label(substrate)`.
+- Canonical-four seasons: identical prompt output (same 4 labels, same order driven by slots dict).
+- Canonical-7 seasons: 3 new entries (resonance=, radiance=, penumbra=) appear automatically.
+- Discipline #14 maintained: no canonical element name leaks to LLM.
+
+**Coupling #9a (`recorder.py` `record_seasonal_elements()` ~line 123):**
+- Iterates `elements.slots.items()`. Canonical-four: 4 rows. Canonical-7: 7 rows.
+- Pattern P7: empty slots → WARN log + legacy fallback (no silent data loss).
+- No schema migration required (`seasonal_elements` is a fact table).
+
+**Coupling #9b (`recorder.py` `_insert_classes()` ~line 713):**
+- `seasonal_name_by_element` lookup now iterates `elements.slots.items()`.
+- `seasonal_element_name` column now populated for lightning/holy/shadow dominant-element classes.
+
+**Tests:**
+- 37 new tests in `tests/test_d6_step4_and_coupling9.py` — all pass.
+- 145-test targeted suite (naming + D2 coupling + recorder + telemetry v24): all pass.
+- Zero regressions.
+
+**MIGRATION.md:** `src/reincarnated/export/MIGRATION.md` — D6 Step 4 + Coupling #9 entry authored.
+**AGENT_STATE.md:** Updated with D6 closure status + D15 next-task queue.
+
+**D6 FULLY CLOSED.** All 9 substrate-iteration drift sites resolved across engine (LLM + telemetry seams).
+Substrate-iteration drift (Discipline #13 implicit-pillar) closed end-to-end alongside rocket D2.
+
+**Tag to cut post-commit:** `star-lord/v1.3-d6-impl-complete-1`
+
+**Jack-ryan WP-2a:** Coupling #9 closed in this commit per dispatch scope. Surface for WP-2a confirmation.
+
+**Next in star-lord queue:** D15 Layer 4 LLM flavor diversifier (iconic_verbs + court_resonance anchoring).
+Requires knight-rider dispatch before starting. D6 closure is the prerequisite — now met.
+
+— star-lord
+
+---
+
+### [2026-05-17 08:50Z] TAG — star-lord — `star-lord/v1.3-d6-impl-complete-1` @ `3d84a24`
+
+Pushed to `https://github.com/mwetmor/reincarnated-engine.git`.
+
+D6 FULLY CLOSED at this tag.
+- `feat(llm+telemetry)`: Phase-1 P1 D6 Step 4 + Coupling #9 @ `3d84a24`
+- `chore(export)`: AGENT_STATE update @ `6fea075`
+
+— star-lord
+
+---
+
+### [2026-05-17 08:50Z] HANDOFF — star-lord → jack-ryan — D6 closure for WP-2a confirmation
+
+D6 is now complete. Coupling #9 closed at `star-lord/v1.3-d6-impl-complete-1`.
+
+Per jack-ryan's WP flag: Coupling #9 was flagged as "must close in D2-equivalent scope." It was dispatched to star-lord seam (telemetry owner) per the coordination matrix. Closing in this dispatch as directed.
+
+**Summary for WP-2a:**
+- Coupling #9a: `recorder.py` `record_seasonal_elements()` iterates `elements.slots.items()` (not hardcoded 4-tuple + getattr).
+- Coupling #9b: `recorder.py` `_insert_classes()` `seasonal_name_by_element` iterates `elements.slots.items()`.
+- Both sites: canonical-7-ready; Pattern P7 compliant (fail-loud on empty slots, not silent skip).
+- Tests: 37 new; 145 targeted suite GREEN.
+
+WP-2a audit trail: `star-lord/v1.3-d6-impl-complete-1` @ `3d84a24`.
+
+— star-lord
+
+---
+
+### [2026-05-17 08:50Z] HANDOFF — star-lord → knight-rider — D15 dispatch request
+
+D6 fully closed. Star-lord seam is clear for D15.
+
+**Next task:** D15 Layer 4 LLM flavor diversifier — `iconic_verbs` + `court_resonance` anchoring per scope-of-work § 1.3.
+**Estimated scope:** ~1-2 weeks (major closure per scope doc).
+**Prerequisites met:** D6 fully closed; registry-driven `_CANONICAL_TO_GROUPING` + prompt scaffold stable.
+**What D15 does:** Wires `SubstrateIdentity.iconic_verbs` + `iconic_register` into `name_skill()` / `name_class()` / `name_monster()` prompts. Adds Court-aware context referencing per `earth-self-diversity-tension § 6.2`.
+
+Requesting knight-rider to author D15 dispatch. D15 is in-seam (llm/ module); no cross-seam design questions outstanding. Rocket D1 substrate identity loader is already live at `1e951be` — the `iconic_verbs` field is available.
+
+— star-lord
