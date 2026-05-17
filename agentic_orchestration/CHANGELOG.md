@@ -6,6 +6,45 @@ Format: reverse chronological, dated entries with brief rationale.
 
 ---
 
+## 2026-05-17 — Phase-1 P1 hive-mind mode ACTIVATED
+
+**Event:** Matt directive 2026-05-17 ("100% heads down development work across the entire team and rebuild the engine from the ground up to achieve full Phase-1 P1 before demo VS2a. ... All in perfect harmony. Let's take this on as a hive mind.") triggered Phase-1 P1 hive-mind operating mode per gandalf invocation request `agentic_orchestration/gandalf/requests/2026-05-17-knight-rider-phase-1-p1-full-overhaul-coordination.md` + operating protocol `canonical/story/hive-mind-protocol-2026-05-17.md`.
+
+**Standard mode SUSPENDED for duration of Phase-1 P1.** Specialists operate under distributed authority (L1 in-seam; L2 cross-seam via knight-rider; L3 architectural to Matt). Jack-ryan continuous-observation replaces Gate-1/Gate-2 retrospective review. Per-dispatch authorization gating removed; specialists execute against the scope-of-work continuously. Gandalf continuously available for design-direction.
+
+**Pre-Phase-1 P1 baselines tagged** (local; not pushed per ADR-006 pending Matt authorization):
+- engine: `hive/v0.0-pre-phase-1-p1 @ f9c363e`
+- demo: `hive/v0.0-pre-phase-1-p1 @ 692c555`
+- loadout: `hive/v0.0-pre-phase-1-p1 @ 90db544`
+
+**Hive operational artifacts authored at activation** (knight-rider; per invocation § 4):
+- `agentic_orchestration/hive-mind/scope-of-work-phase-1-p1.md` — 27-deliverable executable plan with per-seam tasking + critical-path identification + in-flight work disposition (fold/pause/standalone) + risk register + ship-gate criteria
+- `agentic_orchestration/hive-mind/coordination-matrix.md` — seam × deliverable matrix; cross-seam dependency DAG; concurrent-edit hot-spots; MIGRATION.md cadence
+- `agentic_orchestration/hive-mind/phase-1-p1-log.md` — append-only hive log; activation entry + per-seam initial tasking distribution
+- `agentic_orchestration/hive-mind/state-of-hive-2026-05-17.md` — activation-day digest
+
+**Per-seam initial tasking distributed** (per scope-of-work § 2):
+- Rocket: Deliverable 1 (substrate identity loader + 7-YAML extraction) — Layer-1 foundation
+- Gamora: Deliverable 7 math note (resistance matrix 7×7; Discipline #1 load-bearing) + cut pending Gate 3b tag
+- Star-lord: Deliverable 6 PLAN + scoping doc (LLM prompt structure refactor — highest unknown)
+- Drax: Deliverable 27 session-runner readiness + Deliverable 19 planning
+- Jack-ryan: continuous-observation rhythm setup + baseline test-suite snapshot
+- Gandalf: continuous design-direction availability + Deliverable 20 (grouping-vocab extension; 1 day; gates D6 implementation)
+
+**Standing Matt-disposition queue (surfaced in activation broadcast):**
+1. Vendor acquisitions (CraftPix premium + Fellor Crystal + Frostwindz Deathbringer) — blocks D19 implementation
+2. VFX scene-needs spec micro-decisions (gandalf open thread) — fold into activation discussion
+3. Hive activation timing (knight-rider recommendation: STAGED)
+4. Push authorization for 3 baseline tags to origin
+
+**Ship gate (per scope-of-work § 6):** `v1.0-phase-1-p1` tag cut Matt-approved when all 27 deliverables ship + diversity-architecture dominant-cluster success criterion validates + cross-doc updates land + test suite GREEN + retrospective authored.
+
+**Estimated duration:** 8-12 weeks per gandalf invocation; knight-rider re-scopes after Week-1 seam assessments.
+
+**Files updated:** This CHANGELOG entry; hive-mind/ directory created with 4 artifacts; 3 baseline tags created locally (not yet pushed). No agent-definition or governance-doc changes; hive-mode operates over baseline topology per protocol § 2.2.
+
+---
+
 ## 2026-05-17 — Substrate-expansion Branch A confirmed: canonical-four → 6 (Phase-1 P1); vocab freeze standing constraint
 
 **Event:** Gandalf 2026-05-17 escalation on substrate-level genre-positioning surfaced the canonical-four (fire/water/earth/wind) substrate as below-ARPG-genre-floor. Compounding evidence: Case D Fire_Lord thunder math-impossibility resolved Day-4 via mini-boss tier-bump was a symptom of missing substrate, not an isolated case; legolas Track A REVERSE TIER 1 expansion candidates concentrate in beyond-canonical-four substrates (5 of 5: holy/electric/poison/void/shadow); spirit-swap differentiation as load-bearing per 2026-05-08 design intent argues for >4 archetype identities; earth-meta-layer / ascended-spirit / Earth-self thematic framing aligns naturally with luminance axis (Solo Leveling, Bleach, Mushoku Tensei healing-light reference cluster); ARPG-vs-JRPG Day-4 commitment direction.
