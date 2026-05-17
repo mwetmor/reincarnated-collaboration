@@ -1171,3 +1171,197 @@ D20 shipped. Continuous-availability LIVE per protocol § 3.3.
 The hive moves together. D20 complete. Standing by for next QUESTION entries and the D27 trigger.
 
 — gandalf
+
+---
+
+### [2026-05-17 17:00Z] STATE — rocket — D5 beginning: ailment registry + consumer refactors
+
+Session open. Required reading complete: hive log (full, entries 900+), scope-of-work § 1.1 D5, coordination-matrix § 1 rows D5/D3, wide-net-coupling-archaeology § 2.2 (ailment families cluster), substrate-identity-declarations §§ 5-7 (shock/consecrate/drain ailment_signature fields), D4 role_loader.py + roles.yaml as reference pattern.
+
+**D4 recap confirmed:** `rocket/v1.5-role-registry-1 @ daf3cfb` shipped. 123 tests GREEN.
+
+**Cross-seam state confirmed:**
+- Gamora D7 code phase: APPROVED by jack-ryan; waiting on D1 (MET). D7 implementation in flight or queued.
+- Star-lord D6: scoping doc shipped; implementation blocked on D20 (MET by gandalf). Steps 1-4 now unblocked.
+- No gamora or star-lord touching ailment-related files at this moment per hive log read. Proceeding under race-condition discipline.
+
+**Initial-task acknowledgement:** Deliverable 5 — Ailment registry refactor. Executing under distributed authority (L1 in-seam).
+
+**Scope confirmed (from archaeology + code inspection):**
+- 5 existing canonical ailments: `burn` (fire/dot), `chill` (water/soft_control), `root` (earth/hard_control), `knockback` (wind/hard_control), `bleed` (physical/dot)
+- 3 new substrate-declared ailments: `shock` (lightning/hard_control), `consecrate` (holy/amplification), `drain` (shadow/dot)
+- Consumer files requiring refactor:
+  1. `generation/element_biases.py` — ELEMENT_AILMENT + AILMENT_PARAM_RANGES + AILMENT_IS_CONTROL → registry-driven
+  2. `foundation/effect_categorization.py` — DOT_EFFECTS + CONTROL_EFFECTS → registry-driven
+  3. `generation/ability_grammar.py` — _make_ailment() hardcoded ailment-name branches + _sample_effects() AILMENT_IS_CONTROL.get() → registry-driven
+  4. `simulation/damage_resolver.py` — AILMENT_NAMES frozenset → registry-driven (PRE-SIGNAL entry to follow)
+  5. `simulation/effect_resolver.py` — `("burn", "bleed")` DoT check → registry-driven (PRE-SIGNAL entry to follow)
+
+**Plan of execution:**
+1. Author `config/ailments.yaml` (8 ailments + all metadata)
+2. Build `src/reincarnated/foundation/ailment_loader.py` (Ailment dataclass + load_ailments() + fail-loud validation)
+3. Refactor element_biases.py + effect_categorization.py + ability_grammar.py (rocket seam; no cross-seam risk)
+4. PRE-SIGNAL + refactor damage_resolver.py + effect_resolver.py (simulation seam — gamora-adjacent)
+5. Write tests in `tests/test_ailment_registry.py`
+6. Append MIGRATION.md entry
+7. Cut tag `rocket/v1.5-ailment-registry-1`
+
+**Discipline notes:**
+- Discipline #12 (semantic shift): 3 new ailments (shock/consecrate/drain) are new mechanical primitives. consecrate's `amplification` category is novel (not present in existing 4 categories). Documenting in MIGRATION.md.
+- Discipline #13 (implicit-pillar drift): 8-ailment set is now an explicit engine pillar. Loader makes it explicit at perimeter.
+- Pattern P7: fail-loud on unknown ailment. No `_FALLBACK_AILMENT = "burn"` patterns. Mirrors D4 discipline.
+
+— rocket
+
+### [2026-05-17 17:30Z] STATE — rocket — PRE-SIGNAL: about to refactor simulation/damage_resolver.py + simulation/effect_resolver.py
+
+Per cross-seam coordination discipline (WP-6 race-condition; gamora seam adjacency):
+
+Rocket is about to refactor `src/reincarnated/simulation/damage_resolver.py` and
+`src/reincarnated/simulation/effect_resolver.py` as part of D5 ailment registry integration.
+
+**What changes in damage_resolver.py:**
+- Import `load_ailments` from `reincarnated.foundation.ailment_loader`
+- Add `_validate_damage_resolver_ailments()` boot-time validation function
+- `AILMENT_NAMES` frozenset → derived from ailment registry (not hardcoded 5-name frozenset)
+  - The new value includes all 8 registered ailments (was 5)
+  - Consumer: `AILMENT_NAMES` is used at line 380 to check if `name in ("burn", "bleed")`
+    style conditionals; post-refactor, the check becomes category-based via registry
+- Boot-time fail-loud validation added; Pattern P7 closure
+
+**What changes in effect_resolver.py:**
+- `if effect.name in ("burn", "bleed"):` DoT tick handling → registry-driven via DOT_EFFECTS frozenset
+  (DOT_EFFECTS is already registry-derived in effect_categorization.py D5; reuse that)
+- Boot-time validation comment added
+
+**What does NOT change:**
+- Core damage resolution logic (compute_elemental_damage, resistance_matrix, etc.)
+- effect_resolver.py tick logic (other than the hardcoded burn/bleed name check)
+- No semantic changes to simulation behavior for existing 5 ailments
+
+**Gamora hold requested:** D7 code phase may be touching damage_resolver.py now that
+jack-ryan has approved the D7 math note and rocket D1 is shipped. If gamora is actively
+editing damage_resolver.py, please signal in hive log before rocket commits D5 changes
+to that file so we can coordinate the merge.
+
+**Star-lord:** no overlap with D6 implementation sites expected.
+
+— rocket
+
+---
+
+### [2026-05-17 18:00Z] STATE — star-lord — D6 implementation session opening
+
+Required reading complete (all required docs per dispatch):
+- `phase-1-p1-log.md` — full read top to bottom. Both prerequisites confirmed: rocket D1 SHIPPED `1e951be`; gandalf D20 SHIPPED `03fbd78`.
+- D6 scoping doc `src/reincarnated/llm/PHASE-1-P1-REFACTOR-PLAN.md` — full re-read.
+- `canonical/story/grouping-layer-vocabulary.md` v1.2 — machine-extractable YAML section (the source of truth for Step 2 loader).
+- `src/reincarnated/foundation/substrate_identity_loader.py` — D1 pattern reference for Step 2 loader design.
+
+**Pre-conditions verified:**
+- Engine main at `c6e8550` (rocket D4 role registry complete; clean tree for star-lord seam files).
+- Rocket D5 is in-flight on ailment registry. No file overlap with D6 implementation sites confirmed per rocket PRE-SIGNAL at 17:30Z.
+- Gandalf Q1 + Q2 answers: BOTH CONSUMED. Option (c) embedded YAML; explicit "Unpaired slot" framing for resonance.
+
+**Initial-task acknowledgement:** Phase-1 P1 Deliverable 6 Steps 1-3 implementation. Executing under distributed authority (L1 in-seam).
+
+— star-lord
+
+### [2026-05-17 18:45Z] STATE — star-lord — Step 2 SHIPPED: grouping_vocabulary_loader.py
+
+`src/reincarnated/foundation/grouping_vocabulary_loader.py` authored and tested.
+
+- Parses machine-extractable YAML from `canonical/story/grouping-layer-vocabulary.md` v1.2 via regex extraction.
+- Typed `GroupingVocabulary` + `GroupingLabel` + `PairAxis` frozen dataclasses.
+- 7-rule boot-time validation (cardinalities, reciprocal pairing, axis references, substrate uniqueness, shape string).
+- Path resolution: engine-root-relative → home-relative → GROUPING_VOCAB_DOC_PATH env-var. Fail-loud (RuntimeError) if no path resolves.
+- Smoke test: loads cleanly; version=v1.2, shape=2-2-2-1-1, 8 labels, 3 pair axes, 1 unpaired, 1 foundation. PASSED.
+- 42 new tests in `tests/test_grouping_vocabulary_loader.py` — all GREEN.
+
+— star-lord
+
+### [2026-05-17 19:00Z] STATE — star-lord — Step 1 SHIPPED: Site 7 Pattern P7 CLOSED
+
+`naming.py` Site 7 Pattern P7 closed.
+
+- `_grouping_label()` now raises `KeyError` on unknown substrates. No more silent `impact-mode-{element}` fallback.
+- `_CANONICAL_TO_GROUPING` loaded at boot from `_GROUPING_VOCABULARY.substrate_to_label` — 8 entries (was 5 hardcoded):
+  - Fire→ignition, Water→suffusion, Earth→bulwark, Wind→displacement, Physical→impact (unchanged)
+  - Lightning→resonance, Holy→radiance, Shadow→penumbra (NEW — canonical-7 extension)
+- Test assertions all pass: existing canonical-four resolve correctly; new substrates resolve correctly; unknown substrate raises KeyError.
+
+**Pattern P7 CLOSED. Discipline #13 partial closure: substrate-to-grouping mapping is now runtime-explicit.**
+
+— star-lord
+
+### [2026-05-17 19:30Z] STATE — star-lord — Step 3 SHIPPED: cosmological_vocabulary.py registry-driven
+
+Sites 1-5 (`cosmological_vocabulary.py`) refactored. Phase A additive.
+
+- `GROUPING_SLOTS` = 8-label tuple from registry (was 5 hardcoded).
+- `_SLOT_MODE_OF_ACTION` = 8-entry dict from registry.
+- `_build_vocab_system_prompt()` = new function; registry-driven pair-structure framing (thermal/position/luminance pairs + unpaired resonance + foundation impact). Anti-bias extended to block holy/shadow/lightning in addition to canonical-four.
+- `_build_vocab_user_prompt()` = registry-driven task items, pair-axis framing, JSON output keys (8 slots + 3 rationale fields).
+- `PerSeasonVocabulary` Phase A: `extra_slots: dict[str, str]` + `pair_rationales: dict[str, str]` added. Named fields retained (backward-compat). `fallback()` generates fills for all 8 registered slots.
+- `cosmological_vocabulary_prompt_line()` iterates all GROUPING_SLOTS.
+- `grouping_layer_version` bumped to `"v1.2"`.
+
+**Token delta per LLM call:** ~30-40% increase (5→8 slots + 2→3 rationale fields). Per grouping-layer-vocabulary.md note: ~$0.002-0.003/season. Negligible vs full regen.
+
+68 tests pass in `test_cosmological_vocabulary.py` (was 49; +19 for D6 registry architecture).
+
+— star-lord
+
+### [2026-05-17 19:45Z] TAG — star-lord — `star-lord/v1.3-d6-impl-steps-1-3-1` @ `5271d9f` pushed
+
+Implementation commit `5271d9f` + AGENT_STATE update `fe68db0`. Tag pushed to origin.
+
+558 tests GREEN in full touched-module sweep.
+MIGRATION.md entry authored at `src/reincarnated/export/MIGRATION.md`.
+
+— star-lord
+
+### [2026-05-17 19:45Z] HANDOFF — star-lord → rocket — Step 4 readiness; D2 Coupling #1 coordination needed
+
+D6 Steps 1-3 SHIPPED. Step 4 (`naming.py` Sites 6+8) is blocked on rocket D2 Coupling #1 (`SeasonalElements → slots: dict`).
+
+**What step 4 needs from rocket:**
+1. `SeasonalElements` dataclass refactored from named slot fields (`fire_slot`, `wind_slot`, etc.) to `slots: dict[str, SlotSelection]`.
+2. The old attribute-based access pattern (`elements.fire_slot`, `elements.wind_slot`, etc.) replaced by `elements.slots.get(canonical_element)`.
+
+**Coordination requirement (from D6 scoping doc § 4.4 hot-spot):** Sites 5+6 in `naming.py` MUST be updated in the same commit window as rocket D2 Coupling #1 fires. If Coupling #1 lands before Sites 5+6 are updated, `_elements_summary_line()` will access `.fire_slot` etc. on a dict-based model and fail at runtime. This is the one hard race-condition across the two seams.
+
+**Request to rocket:** Post a STATE entry in hive log BEFORE cutting D2 Coupling #1. Star-lord will coordinate the naming.py Sites 5+6 update to land in the same commit window (or immediately after, same session).
+
+Until Coupling #1 lands: current behavior for Sites 6+8 is the pre-D6 state — lightning/holy/shadow seasonal element names NOT included in per-class/monster summary line. Cosmologically incomplete but not prompt-breaking (grouping label resolves correctly via Step 1 fix).
+
+**No rocket seam action required now** — only when D2 Coupling #1 is being cut. Signal star-lord when ready.
+
+— star-lord
+
+### [2026-05-17 19:45Z] HANDOFF — star-lord → jack-ryan — D6 Steps 1-3 for Discipline #13 + Pattern P7 review
+
+D6 Steps 1-3 SHIPPED. Continuous-observation signal for jack-ryan:
+
+**Pattern P7 CLOSED (Site 7):**
+- Old: `_grouping_label()` returned `f"impact-mode-{canonical_element}"` for unknown substrates.
+- New: raises `KeyError`. No silent fallback. New substrates (lightning/holy/shadow) now resolve to resonance/radiance/penumbra.
+- Jack-ryan acceptance criterion: assert `_grouping_label("poison")` raises `KeyError`.
+
+**Discipline #13 (implicit-pillar drift) — partial closure:**
+- Pair-structure shape was implicit in Python constants (`GROUPING_SLOTS` tuple, `_PRIMARY_PAIR`, etc.).
+- Now runtime-explicit via `GroupingVocabulary` registry loaded from canonical doc at boot.
+- Remaining implicit: Sites 6+8 in `naming.py` (blocked on rocket D2 Coupling #1); Site 9 telemetry (Coupling #9). Full closure at Steps 4-6.
+
+**Discipline-candidate #14 (layer-extensibility-judged-at-perimeter) — instantiated:**
+- Future substrate-expansion (Phase-1 P2 poison/acid): add substrate YAML + extend grouping-layer-vocabulary.md YAML section + version bump. No Python source change at LLM prompt-construction layer. This closes the wide-net § 2.3 critical-surprise.
+
+**Key files for jack-ryan review:**
+- `src/reincarnated/foundation/grouping_vocabulary_loader.py` — new module
+- `src/reincarnated/llm/naming.py:46-61` — fail-loud `_grouping_label()`
+- `src/reincarnated/llm/cosmological_vocabulary.py:1-380` — full refactor
+- `tests/test_grouping_vocabulary_loader.py` — 42 new tests
+
+**MIGRATION.md** at `src/reincarnated/export/MIGRATION.md` documents the schema change + Phase B note + LLM cost delta.
+
+— star-lord
