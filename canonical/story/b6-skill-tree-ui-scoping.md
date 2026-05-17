@@ -302,6 +302,21 @@ Confirm with rocket (B6 pre-work) + gamora (B6 main) that the following fields p
 
 **If any field is missing or unreliable at B6 ship time, drax surfaces to knight-rider; do NOT improvise.** Discipline #13a (implementation-vs-intent drift) — placeholder fields invented in demo become locked-in by playtest signal and drift the engine spec.
 
+### 10.1 Stage B export-DTO forward-compat protection (added 2026-05-16 Day 4 close)
+
+Per finding `agentic_orchestration/gandalf/findings/2026-05-16-export-dto-stage-b-silent-drop.md` (Pattern P7 #3 silent-drop instance): engine-side schema fields can be silently dropped at the Stage B export-DTO boundary (`ExportClass` / `ExportMonster` / `ExportSkill` constructors in `season_exporter.py`) before reaching the demo-facing consolidated JSON.
+
+**The 11 fields in § 10 above are individually vulnerable to this drop pattern.** When B6 main ships and emits real `tier` / `chain_id` / `chain_position` / `parent_skill_ids` / `scaling_coefficient` / `cross_chain_rule` / `unlock_gate_thresholds` values, they will silently drop at Stage B unless:
+
+1. **`ExportSkill(...)` constructor** in `season_exporter.py` is extended to pull all the new fields explicitly OR converted to a model-driven approach
+2. **Stage B export-boundary validator** (analogous to Stage A's `_REQUIRED_CLASS_KEYS` in `season_writer.py:322-333`) is added to enumerate the required skill fields
+
+**Required precondition for B6 ship:** the star-lord Track A dispatch per commission `2026-05-16-star-lord-export-dto-stage-b-fix-and-r11b.md` MUST land before B6 main ships, OR knight-rider authors a complementary dispatch that extends `ExportSkill` to include the B6 fields specifically.
+
+**Drax verification on first B6-emitting season:** after B6 main lands + first regen, run `grep -c "\"tier\"" exports/<season_id>/classes.json` — count should equal `(number of classes) × (skills per class)`. If 0, Stage B drop fires; surface to knight-rider before further demo implementation.
+
+This is the same kind of forward-compat protection the B6 schema fields had in Stage A1 (commit `1aa99b5`). The Stage A→B boundary is the gap the Pattern-P7 finding closed; B6 ship is the first major regen-cycle event after the finding lands.
+
 ---
 
 ## 11. Open questions for drax

@@ -58,6 +58,23 @@ The narrative beat is the moment that makes embodiment-as-narrative-skin a real 
 - **Not a build planner** — separate surface (Stage A3 Spirit Guide build coach)
 - **Not a Spirit Guide voice surface** — Spirit Guide speaks first-person ABOUT the player; this surface speaks third-person about the embodiment itself
 
+### 1.1 Pixel-scale framing — ARPG-anchored, not JRPG-anchored (added 2026-05-16 Day 4 close)
+
+This spec's portrait dimensions (96×96 desktop, 64×64 mobile) are UI-surface sizes — the cropped portrait card-cell on the loadout class-header. They are independent of the **in-game character rendered pixel-height target**, which lives in the demo-side embodiment surface (post-VS2b; see § 14).
+
+For the in-game character rendering when it eventually ships, the **operational pixel-scale target is 100-130 px at 1080p displayed resolution** — anchored to ARPG-genre convention (Diablo IV ~110-130; Diablo III ~100-110; PoE ~100-120; Last Epoch ~100-110). This supersedes the earlier 80-100 px framing which referenced JRPG overworld conventions (Octopath overworld 80-90; Sea of Stars battle 75-90). Resolution from Legolas Section 3 ground-truth measurement 2026-05-16 Day 4 close (`agentic_orchestration/research/knowledge/character-monster-pixel-scale-2026-05-16.md` Section 3 + Section 4d).
+
+**Why ARPG band, not JRPG band:**
+- JRPGs have TWO cameras (overworld 80-100 px / battle 75-130 px depending on title). Reincarnated has ONE camera — the room/hallway arena topology drax shipped (`canonical/story/arena-room-hallway-system.md`) commits us to a Diablo/PoE single-camera framing where exploration and combat happen in the same view.
+- ARPG single-camera convention sits at ~100-130 px to give characters enough screen-presence for positional combat readability against pack encounters.
+- The HD-2D-shaped pixel-art register (`style-register.md`) is preserved at this scale — register is about visual style (chunky pixel edges, limited palette, intentional pixel-art aesthetic), not absolute pixel scale.
+
+**Implication for demo-side embodiment-narrative surface (post-VS2b, § 14):** when authored, target chierit characters render at 100-130 px in-fight. This shifts back-derives the chierit `MONSTER_SCALE_BY_SLUG` baseline to ~1.0-1.4 (from the prior 0.45 mid-candidate that was below ARPG genre convention).
+
+**Implication for VS2b loadout-side (this spec):** none. Portrait card-cell crops are UI surfaces sized for the loadout class-header layout; they're independent of in-game character pixel-height target. This § 1.1 is a forward-reference for the demo-side surface, not a binding constraint on this spec.
+
+**Implication for Diablo III class-select reference (§ 1 above):** the D3 reference applies to *visual surface conventions* (portrait + voice line + one paragraph), NOT to absolute pixel scale. D3 class-select portraits are ~256×256 or larger; we use 96×96 because that's the right size for the loadout card-cell context. The reference is about WHAT the surface does, not HOW BIG the portrait is.
+
 ---
 
 ## 2. Visual anatomy
@@ -367,6 +384,25 @@ Confirm with rocket (Stage 1 shipped today; Stage 2 follow-on) + star-lord (Stag
 - `spirit_name` per-season exists via existing naming pipeline
 
 **Only one new engine emission**: `embodiment_narrative_beat`.
+
+### 10.3 Stage B export-DTO forward-compat protection (added 2026-05-16 Day 4 close)
+
+Per finding `agentic_orchestration/gandalf/findings/2026-05-16-export-dto-stage-b-silent-drop.md` (Pattern P7 #3 silent-drop instance): engine-side schema fields can be silently dropped at the Stage B export-DTO boundary (`ExportClass` constructor in `season_exporter.py:581-599`) before reaching the demo-facing consolidated JSON that the loadout app consumes.
+
+**`embodiment_tag` is currently dropped at Stage B** despite being shipped on `PlayerClass` (rocket Stage 1) and wired into `_class_to_dict` (commit `4bbc906`). Empirically verified on `season_001010` (regen 22:41 today, post-all-wiring): zero `embodiment_tag` occurrences in consolidated `classes.json`.
+
+**This blocks the entire spec end-to-end.** Loadout app reads `classes.json`; if `embodiment_tag` + `embodiment_anatomy_tags` + `embodiment_action_register` + `class_role_function` + (eventual) `embodiment_narrative_beat` don't reach `classes.json`, the embodiment-display surface has no data to render.
+
+**Required preconditions for VS2b embodiment-display ship:**
+
+1. **`ExportClass(...)` constructor** in `season_exporter.py` extended to pull all embodiment-axis fields (form-bias Stage 1 wiring) — already scoped in star-lord Track A dispatch per commission `2026-05-16-star-lord-export-dto-stage-b-fix-and-r11b.md`
+2. **`embodiment_narrative_beat` field** added to both `PlayerClass` schema (rocket) AND `ExportClass(...)` constructor (star-lord) simultaneously — Discipline #14 (internal-vs-generative schema separation) requires the GENERATIVE-side schema be the consolidated export, not the intermediate; the field must reach `classes.json` to be useful
+3. **Stage B export-boundary validator** added to enumerate required class fields — catches future-additive embodiment fields silently
+4. **Spirit-name per-season pipeline** must also propagate through Stage B — if `spirit_name` lives on a different generation pipeline than the canonical-four substrate, Stage B handling for it is separately required
+
+**Drax verification on first VS2b-emitting season:** after Stage B fix + first regen with embodiment-narrative-beat generation pipeline shipping, run `grep -c "embodiment_tag\|embodiment_narrative_beat\|spirit_name" exports/<season_id>/classes.json` — count should be ≥3 × (number of classes). If 0, Stage B drop fires; surface to knight-rider before loadout-side wiring proceeds.
+
+This protection is what makes the spec's "engine emits beat → drax displays" pipeline reliable. Without it, the spec's Cluster A (display surface) ships against a Cluster E (LLM-bound) data flow that doesn't reach Cluster A's consumer.
 
 ---
 
