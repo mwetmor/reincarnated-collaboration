@@ -27,20 +27,22 @@ Seven substrates, seven identity declarations. Each substrate commits to:
 - **Iconic register** (tonal commitment)
 - **Cosmological commitment** (the substrate's poetic claim)
 - **Court resonance** (how the Court remembers forms of this substrate)
-- **Pair-structure metadata** (paired_with / pair_axis where applicable)
+- **Pair-structure metadata** (paired_with / pair_axis / forbidden_hybrid_with where applicable)
 - **Grouping label** (L2 grouping-vocabulary mapping)
+
+**2026-05-17 23:45Z amendment (gandalf):** `forbidden_hybrid_with` field added to all seven declarations per substrate-identity-declaration-spec § 2.1 + § 3.6 + § 5.3 amendment (filed in hive log at same timestamp; gandalf authorship; routed to knight-rider for L2/L3 disposition). Field formalizes the canonical-four anti-pole hybrid-forbidden pairings (fire↔water; earth↔wind) at the declaration layer rather than as a hardcoded constant in `b6_archetype_templates.py:24-30`. Holy↔shadow are paired-luminance (amplification) NOT forbidden-hybrid (mechanical-erasure) — the two relationships are cosmologically distinct.
 
 **Pairing summary:**
 
-| Substrate | Paired with | Pair axis | Grouping label (current/proposed) |
-|---|---|---|---|
-| Fire | — | — | ignition (locked) |
-| Water | — | — | suffusion (locked) |
-| Earth | — | — | bulwark (locked) |
-| Wind | — | — | displacement (locked) |
-| Lightning | (none — unpaired) | — | **resonance** (proposed) |
-| Holy | Shadow | luminance | **radiance** (proposed) |
-| Shadow | Holy | luminance | **penumbra** (proposed) |
+| Substrate | Paired with | Pair axis | Forbidden hybrid | Grouping label (current/proposed) |
+|---|---|---|---|---|
+| Fire | — | — | water (anti-pole) | ignition (locked) |
+| Water | — | — | fire (anti-pole) | suffusion (locked) |
+| Earth | — | — | wind (anti-pole) | bulwark (locked) |
+| Wind | — | — | earth (anti-pole) | displacement (locked) |
+| Lightning | (none — unpaired) | — | — (none) | **resonance** (proposed) |
+| Holy | Shadow | luminance | — (amplification-pair NOT erasure-pair) | **radiance** (proposed) |
+| Shadow | Holy | luminance | — (amplification-pair NOT erasure-pair) | **penumbra** (proposed) |
 
 *New grouping labels (resonance / radiance / penumbra) require grouping-vocab extension per pending Task #4. Until that lands, lightning/holy/shadow remain provisionally unmapped at the L2 layer.*
 
@@ -104,6 +106,7 @@ identity:
 
   paired_with: null
   pair_axis: null
+  forbidden_hybrid_with: [water]   # canonical-four anti-pole: suffusion erases escalation
 
 grouping_label: ignition
 ```
@@ -168,6 +171,7 @@ identity:
 
   paired_with: null
   pair_axis: null
+  forbidden_hybrid_with: [fire]   # canonical-four anti-pole: escalation erases suffusion
 
 grouping_label: suffusion
 ```
@@ -234,6 +238,7 @@ identity:
 
   paired_with: null
   pair_axis: null
+  forbidden_hybrid_with: [wind]   # canonical-four anti-pole: displacement erases anchoring
 
 grouping_label: bulwark
 ```
@@ -302,6 +307,7 @@ identity:
 
   paired_with: null
   pair_axis: null
+  forbidden_hybrid_with: [earth]   # canonical-four anti-pole: anchoring erases displacement
 
 grouping_label: displacement
 ```
@@ -370,6 +376,7 @@ identity:
 
   paired_with: null
   pair_axis: null
+  forbidden_hybrid_with: []   # lightning is unpaired per genre convention; composes freely with all substrates
 
 grouping_label: resonance   # proposed; pending grouping-vocab extension (Task #4)
 ```
@@ -444,6 +451,7 @@ identity:
 
   paired_with: shadow
   pair_axis: luminance
+  forbidden_hybrid_with: []   # holy's pair with shadow is amplification (luminance valence), NOT forbidden — holy/shadow can compose in a kit with valenced damage interactions
 
 grouping_label: radiance   # proposed; pending grouping-vocab extension (Task #4)
 ```
@@ -518,6 +526,7 @@ identity:
 
   paired_with: holy
   pair_axis: luminance
+  forbidden_hybrid_with: []   # shadow's pair with holy is amplification (luminance valence), NOT forbidden — holy/shadow can compose in a kit with valenced damage interactions
 
 grouping_label: penumbra   # proposed; pending grouping-vocab extension (Task #4)
 ```

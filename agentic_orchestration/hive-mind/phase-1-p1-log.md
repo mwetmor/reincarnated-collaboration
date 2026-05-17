@@ -1990,3 +1990,284 @@ Pushed to `https://github.com/mwetmor/reincarnated-engine.git`.
 - All 7 substrates included when slots is populated (currently canonical-four; extends at activation)
 
 — rocket
+
+---
+
+### [2026-05-18 00:30Z] STATE — gandalf — session open: 3-item next-task spawn
+
+Required reading complete:
+- `agentic_orchestration/hive-mind/phase-1-p1-log.md` — full tail review since D20 ship (`03fbd78`). Confirmed shipped since I was last out: D1 + D4 + D5 + D7 + D6 Steps 1-3 + D2 Couplings #1/#2/#4/#5 (rocket `79fbf41`); D3 math note authored + jack-ryan-ready.
+- `reincarnated-engine/src/reincarnated/generation/math/d3-path-a-archetype-composition-phase-1-p1.md` § 11 — gamora's four open questions (Q1/Q2 routed to me; Q3 gamora-recommended; Q4 for knight-rider).
+- `agentic_orchestration/hive-mind/d19-vfx-library-extension-plan.md` § 1.7 + § 2.3 — Frostwindz Deathbringer register-coherence question; drax-loadout disposition pending.
+- `canonical/story/substrate-identity-declarations-2026-05-17.md` § 1-§ 7 — all 7 declarations re-confirmed for Q1 cosmological-coherence judgment.
+- `canonical/story/substrate-identity-declaration-spec-2026-05-17.md` § 2 + § 3 + § 8 — to assess Q2 option (a) shape against current field set.
+- `canonical/story/style-register.md` (HD-2D lock + retro-pixel framing) + Path A-prime amendments — to assess Frostwindz register-exception disposition.
+- `canonical/story/perception-test-experiment-scoping-2026-05-17.md` § 3.1 + § 3.3 + § 5 — D27 archetype-pair authoring spec requirements.
+
+**Three items in priority order:**
+1. Item 1 — D3 Q1 + Q2 DECISIONs (highest priority; D3 code phase gated)
+2. Item 2 — Frostwindz Deathbringer register-disposition DECISION
+3. Item 3 — D27 perception-test archetype-pair authoring (unblocks drax-demo D27 Track A final integration)
+
+Authority under hive-mode L1 (in-seam: cosmology / style-register / design-direction). If option (a) is selected for Q2 I will surface an AMENDMENT entry to the substrate-identity-declaration spec per protocol § 10.3 and route to knight-rider for L2/L3 disposition.
+
+— gandalf
+
+---
+
+### [2026-05-18 00:35Z] DECISION — gandalf → gamora — D3 § 11 Q1: cosmologically-forbidden (substrate × role) combos
+
+**Question (gamora § 11 Q1):** Are any (substrate × role) combinations STRUCTURALLY FORBIDDEN by cosmology, or is frequency-weighting via `role_affinities` SUFFICIENT?
+
+**DECISION: Frequency-weighting is sufficient. NO substrate × role combinations are hard-excluded at the composition layer.** Gamora's default proceeds: compose all 21 (substrate × role) templates; `role_affinities` makes incongruent combos infrequent in class rotation.
+
+**Cosmological reasoning per the three specific cases gamora raised:**
+
+- **shadow × sustain — VALID identity.** The "shadow healer" reads as drain-to-self / vitality-theft / steal-life-from-target-restore-to-self. Genre precedent: D2 Necromancer Life-Tap (curse channels enemy damage as healing to allies); PoE Vaal Pact (life leech instant); Solo Leveling Igris-tier shadow soldiers as battery for the player's resource pool; MTG Vampire-tribal drain-to-self. The shadow substrate's `cosmological_commitment: "withdrawal — what takes without striking"` is *operationally identical* to a healing-by-theft mechanic. Shadow's `role_affinities: support: 0.3` correctly makes this rare-but-real. The identity is *darker* support, not no-support.
+
+- **holy × control — VALID identity.** The "holy controller" reads as binding-by-judgment / consecrated-zone-as-cage / blessed-binding. Genre precedent: D2 Hammerdin's Holy Bolt + Blessed Hammer with stun chance; D4 Paladin Condemn (sweep-stun); D2 Crusader Punish + Stun stack; MTG White-control archetype (Stasis / Wrath / lockdown). The holy substrate's `consecrate` ailment is *already a control-flavored ground zone* (per substrate-identity-declarations § 6 — amplification category). Holy's `role_affinities: control: 0.4` (lower than support 0.8 and damage 0.5) correctly de-prioritizes but doesn't deny. The identity is *clerical-judgment* control, distinct from shadow's *withdrawal* control or earth's *immobilization* control.
+
+- **lightning × sustain — VALID identity (but rare).** The "lightning healer" reads as defibrillation / shock-revive / discharge-stabilize. Genre precedent: D3 Witch Doctor's Spirit Vessel (shock-revive); FFXIV White Mage's Benediction (instant full-heal-as-burst); Yu-Gi-Oh Lightning Vortex / lifegain-from-disruption interactions; less canon but genre-coherent. The lightning substrate's `cosmological_commitment: "sudden traversal — the strike that arrives before the warning"` extends naturally to *the burst that restores before the wound completes*. Lightning's `role_affinities: support: 0.3` makes this rare; the burst-not-sustain rhythm aligns with lightning's `HIGH_BURST_LOW_PERSIST` pillar (a lightning healer heals *in bursts*, not via channels — which differentiates it from water/holy sustain shapes).
+
+**Cosmological principle behind the call:** The substrate identity declarations are *commitments to shape*, not *exclusions of role*. Every substrate has *some* expression in every role, even if rare. This is genre-coherent (Diablo / PoE both ship every-class-can-do-most-things with strong-affinity-driven defaults) and architecturally important — the canonical-7 × 4 role grid is the *combinatorial richness* the substrate-expansion-decision § 6.5 thinness criterion guards. Hard-excluding combos throws away the richness the architecture is designed to produce.
+
+**The exception this DECISION reserves:** If a future composed kit shape violates a substrate's `forbidden_mechanics` declaration, that's a Layer-2 composition-validation failure, NOT a (substrate × role) gate. Composition fails-loud per the spec § 5.3 + the wide-net-archaeology § 2.2 fix-shape. The (substrate × role) template still composes; the *kit* fails if it ends up violating forbidden_mechanics. This preserves the principle that *substrate forbids verbs, not roles*.
+
+**Operational consequence for gamora D3 code phase:**
+- All 21 (canonical-7 × 4-role) templates compose. Frequency weighting in class rotation uses `substrate.role_affinities[role]`.
+- No hard gate at `compose_archetype_template`. The function returns a template for any valid substrate × role.
+- The Q4 FLOOR (gamora § 11 Q4, routed to knight-rider) governs class-rotation sampling, not template composition. **Recommend Q4 FLOOR = 0.0 strict** (any non-zero affinity is eligible); given current declarations no substrate has affinity < 0.2, so all 21 combos enter the rotation pool. Frequency weighting handles the rest.
+
+**Player-consequence check:** A player who rolls a shadow_support class one season ("the Drain-Priest") encounters an unusual identity that is *recognizable* (Solo Leveling shadow-army battery; Necromancer life-tap support) and *played differently* from holy_support (clerical buff/heal) — exactly the diversity-architecture promise. Hard-excluding shadow_support would have erased a legitimate fantasy.
+
+— gandalf
+
+---
+
+### [2026-05-18 00:40Z] DECISION — gandalf → gamora — D3 § 11 Q2: canonical-four forbidden hybrid pairs
+
+**Question (gamora § 11 Q2):** Where does fire↔water + earth↔wind forbidden-hybrid live post-D3? Three options surfaced:
+- (a) Add `forbidden_hybrid_with` field to canonical-four YAMLs
+- (b) Explicit constant in composition module (gamora recommendation)
+- (c) Derive cosmologically (paired_with semantics extended)
+
+**DECISION: Option (a) — add `forbidden_hybrid_with` field to substrate identity declarations.** This supersedes gamora's option (b) recommendation. Authoring an AMENDMENT to the substrate-identity-declaration spec to formalize the field.
+
+**Reasoning — why (a) over (b):**
+
+1. **Declarative locus principle.** Per the spec § 1.2 + § 3 + § 8: substrate identity is the *single authoritative source* for what each substrate commits to be and refuses to be. The canonical-four forbidden-hybrid pairs are a *substrate-level identity claim* (fire and water cannot hybrid because they erase each other's mechanical signature; earth and wind cannot hybrid because they erase each other's positional commitment). This is the same class of statement as `forbidden_mechanics`. Putting it in the YAML keeps the substrate's promise *legible at one location*.
+
+2. **Anti-Pattern-P7 discipline.** Option (b) — explicit constant in the composition module — is structurally the *same shape* as the silent-default sites the wide-net-archaeology surfaced (`HYBRID_FORBIDDEN_PAIRS = frozenset({...})` hardcoded in `b6_archetype_templates.py:24-30`). The whole point of the Phase-1 P1 refactor is to migrate these hardcoded constants *into the declarative perimeter*. Re-creating them as a composition-module constant carries the failure mode forward into the new architecture. Discipline #13 (implicit-pillar drift) warning — option (b) preserves the implicit pillar.
+
+3. **Phase-1 P2 extensibility.** When poison/acid is added (substrate-expansion-decision § 6 P2 candidate), authoring its forbidden-hybrid relationships in the YAML is a 1-line change. With option (b), every new substrate requires the composition-module constant to be amended. Spec § 8 explicitly anticipates `cross_substrate_interactions` as a Phase-1 P2+ candidate; `forbidden_hybrid_with` is a strict-subset shape of that future field, authored now.
+
+4. **Cosmological asymmetry is real.** Option (c) — derive from `paired_with` semantics extended — is appealing but cosmologically wrong. Holy ↔ shadow is a **luminance pair** with **mutual amplification** (resistance valence per substrate-expansion-decision § 5.1; resistance matrix gives ×0.75 self-resistance + ×1.25 cross-axis). Fire ↔ water and earth ↔ wind are **anti-pole hybrid-forbidden** with **mechanical erasure** (you cannot meaningfully hybridize fire's escalation with water's suffusion; the kit's mechanical_signature would collapse). These are **two distinct cosmological relationships** that the data model must distinguish. Collapsing them into a single `paired_with` field would *erase* the distinction. Option (a) preserves it cleanly: `paired_with: <substrate>` (luminance amplification pair) vs `forbidden_hybrid_with: [<substrate>]` (mechanical-erasure forbidden pair).
+
+5. **The four canonical-four pairings are not lightly removable.** Per gandalf-design-lineage Layer 2 (Diablo art-direction lineage) + Layer 5 (isekai mechanical genre): fire-vs-water and earth-vs-wind are *the most genre-canonical anti-pole pairings in fantasy gaming*. Encoding them as substrate identity is honoring the cosmology, not just complying with composition mechanics.
+
+**The amendment shape (option a):**
+
+Add to the spec § 2.1 canonical shape, in the "PAIR-STRUCTURE METADATA" section:
+
+```yaml
+forbidden_hybrid_with: [<substrate_name>, ...]  # optional; list of substrates this substrate cannot hybrid with
+  # Mutual: if fire.forbidden_hybrid_with includes water, water.forbidden_hybrid_with must include fire
+  # Distinct from paired_with: paired_with is amplification-pair (luminance valence; resistance matrix valenced)
+  #                            forbidden_hybrid_with is mechanical-erasure pair (composition layer rejects)
+  # Validated reciprocally at loader (loader.py boot-time check)
+  # Empty list / omitted = no forbidden hybrid pairings (current state for lightning/holy/shadow per declarations below)
+  # Canonical-four declarations set:
+  #   fire.forbidden_hybrid_with: [water]
+  #   water.forbidden_hybrid_with: [fire]
+  #   earth.forbidden_hybrid_with: [wind]
+  #   wind.forbidden_hybrid_with: [earth]
+  #   lightning.forbidden_hybrid_with: []
+  #   holy.forbidden_hybrid_with: []   # holy's "pair" is shadow but that's amplification, not forbidden
+  #   shadow.forbidden_hybrid_with: []  # shadow's "pair" is holy but that's amplification, not forbidden
+```
+
+**Why holy and shadow have empty `forbidden_hybrid_with` despite being paired:** The luminance pair is *cosmologically opposed* but *mechanically composable* — a holy/shadow hybrid is an unusual but valid identity (Solo Leveling's "duality-of-light-and-shadow" tier; Tales-of-series "darkness-and-light" caster builds). The opposed-but-composable relationship is what the resistance matrix valence already expresses (×0.75 / ×1.25). Forbidding the hybrid would over-collapse this — fire/water are *mechanically incompatible* (suffusion erases escalation); holy/shadow are *mechanically opposed but composable* (revelation paired with concealment can co-exist in a kit, just with valenced damage interactions).
+
+**Why lightning has empty `forbidden_hybrid_with`:** Per substrate-identity-declarations § 5 notes ("Lightning is **unpaired** by genre convention"), lightning composes freely with all substrates. Genre-canonical: D2 fire/cold/lightning Sorceress unifies them; PoE Tri-Elemental builds; Last Epoch Stormcaller's elemental-rotation kits.
+
+**Filing AMENDMENT entry in next log slot per protocol § 10.3.**
+
+**Operational consequence for gamora D3 code phase:**
+
+- Per spec § 5.3 (loader validation), the loader validates `forbidden_hybrid_with` reciprocally at boot.
+- `compose_archetype_template(substrate, role)` does NOT consume `forbidden_hybrid_with`. The field is consumed by *hybrid composition* (the `hybrid_mage`-style multi-substrate kit-builder logic in `b6_archetype_templates.py` lines 201-225 + Coupling #6 of the archetype-coupling-archaeology), not by single-substrate composition.
+- For D3 single-substrate compositions (the 21-archetype catalog § 9 in the math note), this field is read-but-unused. D3 code phase consumes the field only when (or if) hybrid templates are composed.
+- Hybrid composition is OUT OF D3 SCOPE — `hybrid_mage` retains its hardcoded template in `b6_archetype_templates.py` for Phase-1 P1; hybrid-substrate composition is a Phase-1 P2 candidate per gamora § 10.2 Coupling #6 disposition. The `forbidden_hybrid_with` field is authored *now* so hybrid composition (when it lands P2) inherits the declarative perimeter.
+- **For Phase-1 P1, treat as: data is in the YAML, loader validates reciprocally, composition module reads but does not compose against. Hybrid forbidden-pair logic stays in `b6_archetype_templates.py:24-30` as `HYBRID_FORBIDDEN_PAIRS` *but derives at boot from substrate-identity-loader output*.** This is a minimal-surface change: the constant becomes `HYBRID_FORBIDDEN_PAIRS = derive_from_substrate_identities()` instead of `frozenset({...})`. Pattern P7 closed; Discipline #13 closed at this site.
+
+— gandalf
+
+---
+
+### [2026-05-18 00:45Z] AMENDMENT — gandalf — substrate-identity-declaration-spec § 2.1 + § 3.6 + § 5.3 (add `forbidden_hybrid_with` field)
+
+**Per protocol § 10.3 canonical-doc revision discipline.** Amendment to `canonical/story/substrate-identity-declaration-spec-2026-05-17.md` AND `canonical/story/substrate-identity-declarations-2026-05-17.md`. Both files updated in this session.
+
+**Scope of amendment to spec doc:**
+
+1. **§ 2.1 (canonical shape) — add field declaration** with inline doc-comments distinguishing `forbidden_hybrid_with` from `paired_with`; placement in the "PAIR-STRUCTURE METADATA" section immediately after `pair_axis`; field is OPTIONAL with default `[]`.
+2. **§ 2.2 (field requirements) — add `forbidden_hybrid_with`** to the optional-field list with one-line description.
+3. **§ 3.6 (pair-structure metadata semantics) — add `forbidden_hybrid_with`** semantics paragraph distinguishing mechanical-erasure vs amplification-pair relationships.
+4. **§ 5.3 (validation) — add reciprocity validation rule** (if A.forbidden_hybrid_with includes B, then B.forbidden_hybrid_with must include A; loader fail-loud on non-reciprocal declarations).
+5. **§ 8 (future shape extensions) — annotate `cross_substrate_interactions`** as the future-shape candidate that `forbidden_hybrid_with` is a strict-subset of (formalized at Phase-1 P1 for canonical-four anti-pole pairs).
+
+**Scope of amendment to declarations doc:**
+
+6. **TL;DR pairing summary table** updated to add "Forbidden hybrid" column; 2026-05-17 23:45Z amendment-attribution paragraph added.
+7. **All 7 substrate declarations** updated to include `forbidden_hybrid_with` field with values:
+   - fire → `[water]`; water → `[fire]`; earth → `[wind]`; wind → `[earth]`
+   - lightning / holy / shadow → `[]`
+
+**Effect on rocket D1 substrate identity loader (`1e951be`):**
+
+The loader (shipped) needs a small extension to validate `forbidden_hybrid_with` reciprocity per spec § 5.3. This is similar in shape to the existing `paired_with` reciprocity check. Rocket sub-deliverable estimate: ~30 min. Surfacing to knight-rider for routing — could be folded into rocket D2 follow-on (since D2 just shipped the substrate-coupling sites) or scheduled as a discrete micro-task.
+
+**L-level routing for this amendment:**
+
+Per protocol § 3.1 + § 10.3:
+- The amendment adds an OPTIONAL field with sensible default (empty list). No existing committed declaration is invalidated by the spec change. All seven declarations are updated atomically with the spec amendment.
+- Loader (rocket D1, shipped `1e951be`) needs the reciprocal-validation rule added — minor extension to the existing reciprocity check.
+
+**This is L2 in scope (cross-seam: gandalf spec + gandalf declarations + rocket loader + gamora consumption).** I am surfacing to knight-rider as L2 for routing — knight-rider may judge it L3 (Matt approval) per § 3.1 (substrate identity declaration revision). My L2 recommendation: the amendment is *additive and optional*; no existing committed work is invalidated. Knight-rider's call on whether Matt approval is required pre-merge.
+
+**Pending downstream after this amendment:**
+- Rocket loader extension to validate `forbidden_hybrid_with` reciprocity (~30 min; rocket micro-task)
+- Gamora D3 code-phase consumes the loader output for hybrid composition (hybrid composition stays Phase-1 P2 per the DECISION above; for Phase-1 P1, `HYBRID_FORBIDDEN_PAIRS` derives at boot from substrate-identity output rather than being hardcoded — 10-line helper)
+
+— gandalf
+
+---
+
+### [2026-05-18 00:50Z] HANDOFF — gandalf → gamora — D3 Q1 + Q2 ANSWERED; code-phase unblocked from design side
+
+**Q1 (cosmologically-forbidden combos):** Answered. NO hard-exclusions. Compose all 21 (substrate × role) templates; `role_affinities` makes incongruent combos infrequent. See DECISION entry [2026-05-18 00:35Z].
+
+**Q2 (canonical-four forbidden hybrid pairs):** Answered. Option (a) — add `forbidden_hybrid_with` field to substrate identity declarations. AMENDMENT entry filed [2026-05-18 00:45Z]; spec doc + declarations doc both updated this session; routing to knight-rider for L2/L3 disposition. For D3 single-substrate composition: no impact (the field is read-but-unused for single-substrate templates). For Phase-1 P1 hybrid behavior: `HYBRID_FORBIDDEN_PAIRS` in `b6_archetype_templates.py:24-30` becomes loader-derived, not hardcoded — minimal-surface 10-line change.
+
+**Q3 (earth_caster B11 deferral):** Gamora-recommended option (c) — accept that B11 constraint is lost at D3 and re-author when B11 geometry palette lands. CONFIRMED from design-direction perspective. The deferral note in the D3 commit message is sufficient; the earth_caster template's composition output is mechanically valid without the deferred constraint, just thinner-on-keystone-tier-3-geometry until B11 expands the palette.
+
+**Q4 (role_affinities FLOOR):** Routed to knight-rider per gamora § 11 Q4. My DECISION [00:35Z] notes: recommend FLOOR=0.0 strict (any non-zero affinity is eligible; current substrate declarations have minimum 0.2 so no pruning occurs). Knight-rider's call.
+
+**Composition-layer authority on hybrid forbidden pairs (gamora confirmation request):** Per the AMENDMENT, the *substrate identity declarations* are the authoritative source for forbidden-hybrid relationships. The composition module (Phase-1 P1: still `b6_archetype_templates.py` for hybrid; Phase-1 P2: hybrid-composer module if/when authored) *consumes* this declaration, never overrides it. If gamora encounters a hybrid combination at composition time that's not in the substrate-declared forbidden list but feels mechanically wrong, surface as DECISION request to gandalf for declaration amendment, NOT a composition-module exception.
+
+**Gamora D3 code phase fully unblocked from design side.** Q1 + Q2 closed. Q3 confirmed. Q4 routed. Math note approved by jack-ryan (per WP-3a CLOSED). D5 ailment registry shipped. D4 role registry shipped. D2 substrate coupling sites shipped (rocket `79fbf41`). D1 substrate identity loader shipped (rocket `1e951be`). Proceed when ready.
+
+— gandalf
+
+---
+
+### [2026-05-18 01:00Z] DECISION — gandalf → drax-loadout — Frostwindz Deathbringer register-exception disposition
+
+**Question (drax D19 plan § 2.3, hive log [2026-05-17 12:30Z]):** Frostwindz Deathbringer pack is likely retro-pixel register, not HD-2D-conformant per `canonical/story/style-register.md` (which classifies Frostwindz alongside Foozle/ansimuz/Pipoya in the "16-bit-shaped, low-resolution, classic indie register"). Three options:
+- A — ACCEPT as register-exception
+- B — DECLINE; rely on alternative shadow VFX coverage
+- C — CONDITIONAL accept for specific use cases
+
+**DECISION: Option C — CONDITIONAL ACCEPT, scoped to specific surfaces, NOT to in-combat VFX.**
+
+**Concretely permitted Frostwindz Deathbringer use:**
+1. **Substrate-browser thumbnail (loadout-side)** — static preview frame for the shadow substrate entry in the Court of Forms / loadout substrate browser. UI surface; not combat. The Court is shadow-resonant by cosmology (`court_resonance: "forms that walked alongside what they did not name"`); a retro-bone-iconography preview frame reads as Court-archaeological, not in-combat-stylistic. **APPROVED.**
+2. **Trial-cinematic-frame source material for ascension-of-shadow-form moments** — single-frame composition (not animated playback) under the hand-drawn-pixel asset pipeline. Bone iconography references can be *redrawn* by LLM or commissioned in the HD-2D register using Frostwindz frames as compositional reference, not as direct asset. **APPROVED with redraw requirement.**
+
+**Concretely denied Frostwindz Deathbringer use:**
+1. **In-combat spell VFX** for shadow drain/corrupt/shroud skills. The register clash (retro 16-bit pixel vs HD-2D hand-drawn pixel; chierit character sprites at 105-110 px Group B figure-content with Frostwindz 16-bit-shaped frames in the same scene) would violate the style-coherence finding from the catalogue research (Legolas pass; locked into style-register.md § "empirical asset landscape"). The mixed-register frame is the specific failure mode the HD-2D lock guards against. **DENIED.**
+2. **Court-portrait full-screen composition** at the Court of Forms hub. Court is the highest-stakes endgame fidelity surface per `court-of-forms.md`; mixing registers here would erode the Court's narrative weight. **DENIED.**
+
+**Cosmological / genre reasoning behind the CONDITIONAL:**
+
+- The Solo Leveling precedent (per `gandalf-design-lineage.md` Layer 5) makes bone/skeleton iconography *load-bearing* for shadow substrate — Igris's bone-armor, the Shadow Monarch's death-aesthetic, the Reaper's bone-flute moment. Refusing all bone iconography for shadow would erase a genre-canonical anchor. So a wholesale option-B DECLINE would be wrong.
+- D2 Necromancer's whole bone-and-poison aesthetic (Bone Spear / Bone Spirit / Bone Wall / Skeleton Mage) is *the* shadow-DoT genre anchor across the project's lineage. Without bone iconography somewhere in the loop, shadow_caster archetypes risk reading as generic "dark mage" rather than "necromancer-resonant shadow." The Frostwindz pack content (bone spear / skeleton summon / death wave / bone wall / decay aura per D19 § 2.3 estimate) maps directly to genre-canonical shadow signature.
+- BUT — Frostwindz's *visual register* is retro-pixel. The content is right; the rendering is wrong. The CONDITIONAL ACCEPT preserves the content for surfaces where register-coherence is not load-bearing (UI thumbnails, redraw-source-material) while protecting the in-combat surface where HD-2D coherence *is* load-bearing.
+
+**Why not option B (decline outright)?**
+
+- Pixogen + CreativeKind shadow coverage is thin per D19 § 3.7 (shadow gap assessment). CreativeKind has Dark_Hole + Lich + Dark_Soul + Mutant_skeleton entity sprites; pimen Dark Spell Effect is catalogue-only; no on-disk shadow spell-VFX animation pack at HD-2D register. Declining Frostwindz outright leaves shadow VFX critically thin until either (a) commissioned HD-2D shadow VFX work lands or (b) LLM-image-generation pipeline matures to fill the gap.
+- The CONDITIONAL ACCEPT lets the Frostwindz frames serve as *redraw source material* — drax's pipeline can use Frostwindz bone-spear iconography as a *visual reference* for an HD-2D bone-spear redraw, either via commission or LLM-image-generation against the locked HD-2D prompt-language (per style-register.md § Star-lord operationalization: "hand-drawn pixel-art game illustration, HD-2D style reminiscent of Octopath Traveler, [bone-spear shadow spell VFX], consistent isekai-genre aesthetic").
+
+**Why not option A (accept as register-exception outright)?**
+
+- Style-coherence is *load-bearing per the catalogue research finding* (Legolas / Elrond locked into style-register.md § empirical landscape). A frame-level register exception in in-combat VFX would mean every shadow_caster fight has visibly-retro VFX adjacent to HD-2D character sprites. The style-coherence problem ("mixing pixel-art VFX with hand-drawn characters reads badly") is the specific failure the HD-2D lock guards against. Accepting Frostwindz wholesale would erode the lock.
+- The HD-2D lock has Matt's canonical lock (2026-05-15). Eroding it through register-exception precedent — even for a single substrate's VFX gap — creates drift risk for all future register-coherence decisions. Discipline #13 territory.
+
+**Operational consequences for drax-loadout + drax-demo:**
+
+1. **drax-loadout (substrate browser surface):** APPROVED to use Frostwindz Deathbringer single-frame thumbnails for shadow substrate entry. Pack acquisition (pending Matt action per D19 § 2.3) — when acquired, frames extracted as static PNGs for browser thumbnails. No animation playback in loadout context.
+
+2. **drax-demo (in-combat VFX):** DENIED for direct in-combat use. Alternative paths:
+   - Path I: Use existing on-disk CreativeKind shadow entity sprites (Dark_Hole / Lich / Dark_Soul / Mutant_skeleton) and pimen Dark Spell Effect (catalogue acquisition) as primary HD-2D-conformant shadow VFX. Note that Dark_Hole already provides void-pool geometry-affinity coverage per shadow's `tendril/void_pool/creep` PREFER set.
+   - Path II: When Frostwindz Deathbringer lands, treat as *compositional reference* for an HD-2D redraw commission OR LLM-image-generation pass producing HD-2D-coherent shadow VFX animations against the Frostwindz content templates (bone spear, skeleton summon, death wave, bone wall, decay aura). This is a star-lord LLM-image-generation candidate task — surfacing for knight-rider routing.
+
+3. **Decisions-log:** This DECISION belongs in `reincarnated-engine/design/decisions/decisions-log.md` as a style-register operational record (similar to the Path A-prime amendments). Knight-rider routing for decisions-log entry authoring.
+
+**Cosmological-experience continuity:** The shadow substrate's `court_resonance: "forms that walked alongside what they did not name, and were not always seen even by themselves"` is preserved by this disposition. The Court remembers shadow forms through Court-surface art (where Frostwindz frames are permitted as static composition); the Trial moment when a player chooses to embody a shadow form sees HD-2D-coherent VFX (where Frostwindz is not permitted). Both surfaces honor the substrate; the rendering style differs by surface, not by substrate.
+
+— gandalf
+
+---
+
+### [2026-05-18 01:10Z] HANDOFF — gandalf → drax-demo — D27 perception-test archetype-pair authoring complete
+
+D27 archetype-pair specs authored at `agentic_orchestration/hive-mind/d27-archetype-specs.md` (this session). Companion to `canonical/story/perception-test-experiment-scoping-2026-05-17.md` § 3.1 + § 3.3.
+
+**Content of d27-archetype-specs.md:**
+- 4 Pair-Type A mechanical-distinctness pairs (8 archetypes) — `fire_mage_variant_A1a/A1b`, `water_controller_variant_A2a/A2b`, `earth_caster_variant_A3a/A3b`, `wind_controller_variant_A4a/A4b`. Each pair: same role, same substrate, kit-shape vectors statistically distinct by ≥2σ across geometry distribution + cooldown profile + ailment distribution + AOE/single-target ratio.
+- 1 Pair-Type B vocabulary-control quad (4 archetypes) — `quad_B_class_W/X/Y/Z`, one per canonical-four substrate, mechanically distinct (different roles), with deliberately generic vocabulary (LLM forbidden from substrate-specific phrasings; manual edit of any leaks per perception-test § 7.4 mitigation).
+- Per archetype: substrate label (suppressed from subject display per § 4.3 bias control), role, kit shape vector (4 axes), neutral display name (Class 1 / Class 2 / ... or Build A / Build B / ... per drax preference), special notes.
+
+**Drax actions to unblock D27 Track A final integration:**
+1. Replace `TODO(drax)` placeholders in `runner.js` with the 12 archetype-spec entries from this doc
+2. Confirm each archetype is loadable in the demo1 session-runner context (per perception-test § 3.2)
+3. Confirm per-fight telemetry capture is active (already in V2 schema per § 3.2)
+4. Confirm neutral display name surfacing in the loadout-side per-archetype presentation surface
+
+**Session readiness sequence (per perception-test § 8.4):**
+- Drax: session-runner readiness (D27 Track A) — UNBLOCKED by this handoff (1 day per § 8.4)
+- gandalf + drax: pair generation (UNBLOCKED; specs are this handoff)
+- drax + Matt + son: run sessions (2 hours)
+- jack-ryan + gandalf: analysis + decision call (0.5 day)
+
+Total Phase-1 P1a duration: ~3-4 days end-to-end per § 8.4 estimate; this handoff closes the gandalf-side bottleneck.
+
+**Open question for drax:** the perception-test § 3.1 specifies the engine-side generation uses "current canonical-four engine (no Layer-2 composition refactor needed)" with "deliberately tuned parameters to produce statistically-distinct kit vectors." Drax — confirm whether per-archetype parametric tuning lands in the demo1 session-runner config layer, or whether the engine generates the kit-shape per the spec and the runner just consumes the canonical archetype tags. If the runner needs to override engine output to enforce the ≥2σ distinctness, surface as FRICTION; gandalf will route Q to gamora for engine-side tuning hook.
+
+— gandalf
+
+---
+
+### [2026-05-18 01:15Z] STATE — gandalf — three-item next-task spawn COMPLETE
+
+Continuous-availability LIVE post-session. Status:
+
+**Item 1 (D3 Q1 + Q2 + AMENDMENT):** SHIPPED.
+- Q1 DECISION [00:35Z] — no hard exclusions; frequency-weighting sufficient
+- Q2 DECISION [00:40Z] — option (a); `forbidden_hybrid_with` field
+- AMENDMENT [00:45Z] — substrate-identity-declaration spec § 2.1 + § 2.2 + § 3.6 + § 5.3 + § 8 + declarations doc TL;DR table + all 7 substrate entries (routed to knight-rider for L2/L3 disposition)
+- HANDOFF to gamora [00:50Z] — D3 code-phase unblocked from design side
+
+**Item 2 (Frostwindz disposition):** SHIPPED.
+- DECISION [01:00Z] — Option C conditional accept; UI thumbnails APPROVED; in-combat VFX DENIED; Trial cinematic redraw-reference APPROVED; Court portrait DENIED. Routing decisions-log entry to knight-rider.
+
+**Item 3 (D27 archetype-pair authoring):** SHIPPED.
+- Doc authored: `agentic_orchestration/hive-mind/d27-archetype-specs.md`
+- HANDOFF to drax-demo [01:10Z] — D27 Track A final integration unblocked
+
+**Open routing requests to knight-rider:**
+- L2/L3 disposition on substrate-identity-declaration-spec AMENDMENT (`forbidden_hybrid_with` field)
+- Decisions-log entry routing for Frostwindz Deathbringer style-register conditional-accept disposition
+- Q4 FLOOR (D3 § 11 Q4 — role_affinities pruning floor) — recommended 0.0 strict; knight-rider's call
+- Star-lord LLM-image-generation candidate task: HD-2D-coherent shadow VFX redraw against Frostwindz compositional references (Path II of Frostwindz disposition)
+- Rocket micro-task: extend D1 substrate identity loader to validate `forbidden_hybrid_with` reciprocity (~30 min; can fold into D2 follow-on or discrete)
+
+**Continuous-availability watch:**
+- Gamora D4 consumer-side (`ai_strategies.py`) — no design-direction questions expected; gamora L1 in-seam
+- Rocket D2 substrate-expansion coupling sites — SHIPPED (`79fbf41`); no design-direction questions raised
+- Drax-loadout D19 — Frostwindz DECISION delivered; further D19 questions monitored
+- Drax-demo D27 — archetype-pair specs delivered; engine-side override question may surface (see HANDOFF [01:10Z] open question to drax)
+- Jack-ryan continuous-observation — no design-pillar drift observed at this checkpoint
+
+— gandalf

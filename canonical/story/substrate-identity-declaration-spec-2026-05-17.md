@@ -156,6 +156,25 @@ identity:
     # Name of the pair axis if paired (e.g., "luminance")
     # Layer 4 LLM uses this to generate axis-coherent vocabulary
 
+  forbidden_hybrid_with: [<substrate_name>, ...]   # optional; defaults to []
+    # List of substrate names this substrate cannot HYBRID with (multi-substrate kit composition)
+    # DISTINCT FROM paired_with: paired_with is the amplification-pair (luminance valence per resistance matrix;
+    #   substrate is mechanically opposed BUT composable in a kit). forbidden_hybrid_with is the
+    #   mechanical-erasure pair — the substrates' mechanical_signatures cancel each other and a
+    #   multi-substrate kit cannot meaningfully integrate them.
+    # Mutual: if A.forbidden_hybrid_with includes B, then B.forbidden_hybrid_with must include A
+    # Validated reciprocally at loader (loader.py boot-time fail-loud check)
+    # Empty list / omitted = no forbidden hybrid pairings
+    # Canonical-four values (per substrate-identity-declarations § 1-§ 4 amendment):
+    #   fire.forbidden_hybrid_with: [water]
+    #   water.forbidden_hybrid_with: [fire]
+    #   earth.forbidden_hybrid_with: [wind]
+    #   wind.forbidden_hybrid_with: [earth]
+    # Lightning/holy/shadow values: [] (lightning unpaired; holy↔shadow are amplification-pair not forbidden)
+    # Used by hybrid-composition logic (Phase-1 P2+ scope); read but not consumed by single-substrate
+    #   composition (D3 / Phase-1 P1). For Phase-1 P1, HYBRID_FORBIDDEN_PAIRS in
+    #   `b6_archetype_templates.py:24-30` becomes loader-derived from this field, NOT hardcoded.
+
 # === GROUPING-LAYER LABEL ===
 grouping_label: <label>       # the L2 grouping label the substrate maps to
   # ignition | suffusion | bulwark | displacement | impact |
@@ -167,6 +186,7 @@ grouping_label: <label>       # the L2 grouping label the substrate maps to
 All fields are **required** except:
 - `paired_with` — null/omitted for unpaired substrates
 - `pair_axis` — null/omitted for unpaired substrates
+- `forbidden_hybrid_with` — empty list/omitted for substrates with no hybrid-forbidden pairings (current: lightning/holy/shadow); list of substrate names for canonical-four anti-pole pairs (fire↔water, earth↔wind reciprocal). Distinct from `paired_with` (see § 3.6).
 
 Unspecified `geometry_affinities` entries default to NEUTRAL.
 
@@ -215,6 +235,8 @@ This is *not* a prohibition — even 0.0 affinity allows the archetype to compos
 **`paired_with`** — the opposed substrate name. For holy ↔ shadow: holy's `paired_with: shadow`; shadow's `paired_with: holy`. For unpaired (lightning, physical): null/omitted.
 
 **`pair_axis`** — the pair's axis name (e.g., "luminance"). Drives resistance-matrix valence (per substrate-expansion-decision § 5.1) and Layer-4 axis-coherent vocabulary generation.
+
+**`forbidden_hybrid_with`** — substrates this substrate cannot hybrid with at the composition layer. Distinct from `paired_with`: `paired_with` is the *amplification-pair* (luminance valence per resistance matrix; substrate is mechanically opposed BUT composable in a kit, with valenced damage modifiers — holy↔shadow); `forbidden_hybrid_with` is the *mechanical-erasure pair* (kit composition rejects the multi-substrate combination because the substrates' mechanical_signatures cancel each other — fire↔water suffusion erases escalation; earth↔wind displacement erases anchoring). Mutual: if A.forbidden_hybrid_with includes B, then B.forbidden_hybrid_with must include A. Used by hybrid-composition logic (Phase-1 P2+ scope); read but not consumed by single-substrate composition (Phase-1 P1 D3). For Phase-1 P1, `HYBRID_FORBIDDEN_PAIRS` in `b6_archetype_templates.py:24-30` derives at boot from substrate identity declarations rather than being hardcoded — Pattern P7 closed at that site; Discipline #13 implicit-pillar drift closed.
 
 ### § 3.7 — Grouping-layer label
 
@@ -296,6 +318,7 @@ The loader validates declarations at load-time:
 - `mechanical_signature` ∩ `forbidden_mechanics` is empty (no internal contradiction)
 - `grouping_label` exists in registered grouping vocabulary
 - If `paired_with` is set, the paired substrate exists and is reciprocally paired
+- If `forbidden_hybrid_with` is non-empty, each listed substrate exists and reciprocally lists this substrate (e.g., if fire.forbidden_hybrid_with includes water, water.forbidden_hybrid_with must include fire). Fail-loud on non-reciprocal declarations.
 - `role_affinities` includes all 4 canonical roles
 - `scaling_attribute` is a registered attribute name
 - `ailment_signature.name` is unique across all substrates (no two substrates share an ailment)
@@ -425,9 +448,9 @@ Future shape extensions (Phase-1 P2+) candidates:
 - `gear_affix_pool_size` — per-substrate affix pool size hint
 - `monster_archetype_affinities` — per-substrate × monster-type affinity (parallel to role_affinities for monster generation)
 - `trial_boss_kit_seeds` — per-substrate trial-boss anchor patterns
-- `cross_substrate_interactions` — explicit interaction rules with other substrates (e.g., lightning conducts through water if elemental-physics is ever adopted)
+- `cross_substrate_interactions` — explicit interaction rules with other substrates beyond `forbidden_hybrid_with` (e.g., lightning conducts through water if elemental-physics is ever adopted; fire ignites wind-borne fuel; gem-burst earth amplifies holy radiance — these are richer interaction-matrix entries that go beyond binary hybrid-forbidden disposition). The `forbidden_hybrid_with` field added 2026-05-17 (gandalf AMENDMENT per hive log) is the strict-subset of this future-shape candidate, formalized at Phase-1 P1 for the canonical-four anti-pole pairs.
 
-These are P2+ candidates; not in scope for Phase-1 P1.
+These are P2+ candidates; not in scope for Phase-1 P1 (except `forbidden_hybrid_with`, now in-scope per AMENDMENT).
 
 ---
 
