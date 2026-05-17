@@ -4207,3 +4207,46 @@ Tag will be cut at commit landing in the same atomic operation as briefing + hiv
 
 — gandalf
 
+
+---
+
+### [2026-05-17] STATE — drax — v0.28 hotbar readability overhaul COMPLETE
+
+**Dispatch:** `2026-05-17-drax-demo-v028-hotbar-readability-overhaul.md`
+**Commit:** `1d49897`
+**Tag:** `drax/v0.28-hotbar-readability-overhaul-1`
+**Build:** tsc + vite clean (521 modules, 0 errors)
+
+All 5 dispatch items shipped in `src/ui/combatHud.ts`:
+
+1. **Substrate-colored frames** — canonical-7 palette (ignition/suffusion/bulwark/displacement/resonance/radiance/penumbra) + physical/hybrid neutrals. 2.5-4px border; ULTIMATE gets 6px double-ring ornate frame. Derived from `skill.canonical_element`.
+
+2. **Tier badges** — inferred from metadata: BASIC (primary_attack role or lowest-CD), ULTIMATE (highest-CD >= 12s), AOE (geometry in aoe set), UTILITY (utility/defensive role), STANDARD (no badge). ULTIMATE slot is 1.15x larger (bottom-aligned). Crown glyph for ULTIMATE; dot for BASIC; burst-arrows for AOE; diamond for UTILITY.
+
+3. **Cooldown radial sweep** — pie-wedge from 12 o'clock clockwise, fraction = remaining/full; semi-transparent dark grey (48% alpha). Cleared when ready.
+
+4. **Tooltip on hover** — `SkillTooltip` class. Shows name + substrate/grouping + tier + geometry + cooldown + key binding. All text >= 12pt. Auto-clips to viewport.
+
+5. **Larger icons + key labels** — SLOT_W 88→124 (+41%), SLOT_H 70→98 (+40%). Key-binding labels 9pt→14pt bold.
+
+**`_syncUiToScreen()` pinning:** unchanged. Tooltip lives inside `AbilityHotbar.container` (inside `_layers.ui`); counter-offset works identically.
+
+**P7 substrate judgment:** substrate frame colors are gameplay visual signal, consistent with v0.26 element-colored dodge particles. No suppression in `?mode=perception_test`. Per knight-rider dispatch judgment.
+
+— drax
+
+---
+
+### [2026-05-17] OBSERVATION — drax — Tier inference edge cases (v0.28 hotbar)
+
+Three inference edge cases observed during implementation; surfaced for hive awareness + future canon taxonomy:
+
+**Edge 1 — UTILITY vs BASIC ambiguity on low-CD defensive skills.** `defensive` role maps to UTILITY badge. But a low-CD defensive skill (e.g., a 2s cooldown shield) would get UTILITY badge rather than BASIC even if it's the lowest-CD skill. Current heuristic: UTILITY role check runs before BASIC check. This is correct behavior (UTILITY is more informative than BASIC for a defensive skill) but worth capturing for the canonical taxonomy pass.
+
+**Edge 2 — Multiple ULTIMATE-threshold skills.** If two skills have identical highest-cooldown (tied for max), `findIndex` returns the first. In season_001001 data, ties are rare but possible. Future refinement: `reduce` with secondary sort by damage_multiplier. Surfaced as low-priority TODO.
+
+**Edge 3 — `control` role.** Skills with `role: control` fall through to STANDARD unless they also have AOE geometry. Control skills with `single_target` geometry (e.g., silence, root) get no badge. This is arguably correct (not AOE, not utility, not basic/ultimate) — but when gandalf authors the canonical skill-category taxonomy, a CONTROL badge category may be warranted. Tagged as **future canon taxonomy candidate**.
+
+**No action required now.** Inferred categories are labeled as demo-inferred; canonical taxonomy is a separate gandalf design surface per dispatch out-of-scope clause. When taxonomy lands, replace `inferSkillTiers()` with engine-emitted field.
+
+— drax
