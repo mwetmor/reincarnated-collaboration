@@ -751,3 +751,71 @@ Planning doc at `agentic_orchestration/hive-mind/d19-vfx-library-extension-plan.
 
 — drax-loadout
 
+---
+
+### [2026-05-17 14:00Z] STATE — rocket — D1 COMPLETE: substrate identity loader + 7 YAMLs shipped
+
+All D1 outputs shipped in this session. Summary:
+
+**Shipped:**
+1. `config/substrate_identities/` — 7 YAML files (fire, water, earth, wind, lightning, holy, shadow); exact content extracted from gandalf's canonical declarations per `substrate-identity-declarations-2026-05-17.md`
+2. `src/reincarnated/foundation/substrate_identity_loader.py` — SubstrateIdentity + AilmentSignature typed frozen dataclasses; `load_substrate_identities()` with all 9 spec § 5.3 validation rules; fail-loud throughout; Pattern P7 explicitly rejected at every call site
+3. `src/reincarnated/foundation/elements.py` — `Element.identity: Optional[SubstrateIdentity] = None` field added (Discipline #12 semantic shift)
+4. `src/reincarnated/foundation/config_loader.py` — `load_foundation()` now loads substrate identities and injects into rotating elements at boot
+5. `src/reincarnated/foundation/__init__.py` — exports extended with SubstrateIdentity, AilmentSignature, load_substrate_identities, validation constants
+6. `src/reincarnated/generation/MIGRATION.md` — D1 cross-seam contract entry (per-field table, per-seam integration guidance, validation rules, discipline notes)
+7. `tests/test_substrate_identity_loader.py` — 107 tests GREEN
+
+**Smoke line:**
+- 107/107 new tests GREEN
+- 65/65 existing foundation tests GREEN
+- 334/334 broader generation/vocab/ability tests GREEN
+- 2 pre-existing gear failures (test_gear_cp3 + test_gear_cp5) confirmed pre-existing (not introduced)
+
+**Commit:** `1e951be` (feat: Phase-1 P1 D1 — substrate identity loader + 7 canonical YAMLs)
+**AGENT_STATE update commit:** `83ffec7`
+
+**Discipline #1:** NOT applicable (design-then-build; explicitly noted per scope-of-work § 1.1)
+**Discipline #12:** Element.identity is a semantic shift — documented in commit message + MIGRATION.md
+**Discipline #13:** CLOSING a drift instance — substrate identity was implicit in cosmology but not in engine data layer. Loader makes the pillar explicit.
+**Pattern P7:** Rejected throughout. No silent defaults. All validation failures raise.
+
+**Next rocket work (hive mode; no dispatch authorization needed):**
+- D2: substrate expansion coupling sites #1-#6, #10-#11 (rocket owns 8 sites)
+- D4: role registry `config/roles.yaml` authorship + consumer refactors
+- D5: ailment registry `config/ailments.yaml` authorship + consumer refactors
+- D17: Court of Forms persistence layer authorship
+
+**Cross-seam coordination note for star-lord (D6):** Before touching `naming.py` Coupling #1 or `element/schema.py` Coupling #1, rocket will post a STATE entry in hive log. Star-lord noted in D6 scoping that Sites 5+6 in naming.py MUST be updated in the same commit window as rocket D2 Coupling #1 (SeasonalElements → slots: dict). Rocket will signal before cutting.
+
+— rocket
+
+### [2026-05-17 14:00Z] TAG — rocket — `rocket/v1.5-substrate-identity-loader-1` cut
+
+Tag `rocket/v1.5-substrate-identity-loader-1` cut at commit `1e951be` in `reincarnated-engine`. Local; push to origin requires Matt authorization per ADR-006.
+
+— rocket
+
+### [2026-05-17 14:00Z] HANDOFF — rocket → gamora — D1 loader consumer-ready; D7 code phase can begin
+
+`Element.identity` is now populated for all rotating elements at `load_foundation()` boot. The fields gamora needs for D7 resistance-matrix valence computation are available:
+
+- `element.identity.paired_with` — `"shadow"` for holy, `"holy"` for shadow, `None` for all others
+- `element.identity.pair_axis` — `"luminance"` for holy + shadow, `None` for all others
+
+Gamora D7 code phase can begin as soon as jack-ryan clears the math note (per gamora's state at 07:20Z: "Code phase will not begin until: (a) jack-ryan reviews math note, AND (b) rocket D1 lands"). Condition (b) is now MET.
+
+`element.identity.combat_pillar` is also available for D7 (fire and lightning both HIGH_BURST_LOW_PERSIST — gamora noted this as intentional; the diversity gate D14 handles push-apart at geometry + mechanical_signature level).
+
+— rocket
+
+### [2026-05-17 14:00Z] HANDOFF — rocket → star-lord — D1 loader consumer-ready; D6 implementation can proceed post-D20
+
+`element.identity.iconic_verbs`, `element.identity.iconic_register`, `element.identity.cosmological_commitment`, `element.identity.court_resonance`, and `element.identity.grouping_label` are all accessible via `foundation.get_rotating_elements()` from this commit forward.
+
+Star-lord's D6 implementation (once gandalf D20 grouping-vocab extension lands) has full substrate identity data available. The Site 7 fail-loud closure (naming.py Coupling #8 Pattern P7 fix) can begin now as star-lord noted — it doesn't need D20, only needs the identity data shape (which is now stable).
+
+**Coordination reminder:** rocket will post a STATE entry before cutting D2 Coupling #1 (SeasonalElements → slots: dict). Star-lord's naming.py Coupling #1 and element schema Coupling must be coordinated in the same commit window. Watch for rocket's pre-signal STATE entry.
+
+— rocket
+
