@@ -472,6 +472,44 @@ VS2a end-game-anchored playtest framing (per Day-4 verdict reversal) is balance 
 
 **Discipline #13 instance:** YES — instance of "implicit-pillar drift" applied to the pool-rubric-vs-catalogue-coverage layer. The implicit pillar `pool vocabulary entries are scored against ALL downstream-consumption requirements at scoring time, not just against conceptual visualizability` was never explicitly stated and not structurally enforced. The drift surfaces at the moment the first downstream consumer that depends on VFX coherence (Stage 3 cipher migration → VS2b ship) starts looking upstream — caught one step earlier than downstream-consumer-activation time, which is the desired catch-cadence per the P6 forward-audit prescription.
 
+### Drift-15 — Environment tileset / wall / prop sourcing implicit-deferred without being named as a deferred axis (P6 instance)
+
+**What drifted:** The catalogue research workstream (Step B Tier-1 inventory + per-vendor scouts; 2026-05-16) explicitly scoped TWO visual axes — **VFX** (Pimen GREEN-list + CreativeKind) and **characters** (chierit Elementals + CreativeKind monster sprites). The THIRD axis — **environment assets (floor tiles + wall tiles + props / scenery objects)** — was implicit-deferred without being named as a deferred axis. No catalogue dispatch authored a sweep for environmental tilesets; no canonical-doc named environment as a separate sourcing track; no forward-flag captured "environment is out of Step-B-Tier-1 scope; needs separate sweep at named ship-gate."
+
+The room/hallway arena topology drax shipped 2026-05-16 (commit `5463be8`; `canonical/story/arena-room-hallway-system.md`) committed VS2a to Diablo/PoE-style single-camera ARPG framing where environmental visual identity is load-bearing per genre canon (D2 per-act tilesets; D3/D4 per-zone visual identity; PoE per-map tile families; Hades per-region chamber visuals; Octopath/Sea of Stars/Eiyuden HD-2D environmental detail — all treat environment art as foundational, not decorative). Demo v1 shipped with geometrically-drawn placeholders for walls + "random seasonal structures on the ground"; family-playtest signal flagged geometric walls + random-structures as known-low-quality + geometric floor tiles as merely acceptable.
+
+VS2a is therefore being shaped to ship multiple ARPG-genre + HD-2D-register commitments — end-game-anchored MS values (sim+demo coherent), Path A-prime ARPG-scale sprites (chierit 2.5×; monsters at genre-scale), pool VFX-mapping closure (canonical-bias-clean per-season vocabulary), room/hallway topology (Diablo/PoE single-camera framing) — alongside **geometric environmental placeholders** that contradict every other commitment. Structural incoherence.
+
+**How caught:** Matt direct catch 2026-05-17 Day 5 by reference to demo v1 empirical signal: *"In the demo v1, one of the worst parts of it was the geometrically drawn 'random seasonal structures on the ground' and the geometrically drawn walls. The geometrically drawn floor tiles weren't too bad, but they weren't amazing either... I was wondering if we may have any wall, floor or object shapes which could be mapped to fit each season of the demo VS2a? And if not, would it make sense for legolas to look for anything that might match to our static dimensions of floors/walls? This could REALLY make the difference in the demo."*
+
+**Enforcement gap:** Step B Tier-1 catalogue commission and per-vendor scout dispatches all named VFX + character axes explicitly; none named environment as a deferred-but-needed axis. The implicit assumption was that demo1's existing geometric environment rendering would carry forward into VS2a — that assumption was structurally wrong against the room/hallway topology commitment + the ARPG-register + HD-2D-style commitments shipping in parallel. No structural check on "are all load-bearing visual axes (VFX + characters + environment + UI + audio) explicitly enumerated at scoping time and either in-scope or named-deferred?"
+
+**This is the FOURTH P6 instance** (alongside Drift-11A movement-speed, Drift-11B geometry × element VFX coverage, Drift-14 pool VFX-mapping). The pattern is now empirically robust at four sibling instances within ~24 hours of each other:
+
+| Instance | Implicit-deferred dimension | Surfaced as gating | Catch source |
+|---|---|---|---|
+| Drift-11A | Movement-speed baseline (B12 deferral) | VS2a-gating | Matt direct 2026-05-16 |
+| Drift-11B | Geometry × element VFX coverage | B11-gating | Matt direct 2026-05-16 |
+| Drift-14 | Pool VFX-mapping coherence | VS2a-gating | Matt direct 2026-05-17 |
+| **Drift-15** | **Environment tileset / wall / prop sourcing** | **VS2a-gating (recommended)** | **Matt direct 2026-05-17** |
+
+**The pattern has crossed from "occasional drift" to "load-bearing systematic gap in scoping discipline."** Every catalogue / scoping commission authored to date has surfaced at least one implicit-deferred dimension at near-term-ship-gate time. The prevention prescription from Drift-11 sibling-cluster-sweep ("when one instance surfaces, sweep the rest of the deferred milestone for sibling dependencies in the same session") is correct but reactive. Forward prescription should be: at scoping time, enumerate ALL load-bearing visual axes (VFX + characters + environment + UI + audio) and explicitly state which are in-scope vs deferred-with-named-ship-gate. This is candidate D16 territory ("Multi-axis-catalogue-scoping requires explicit axis-enumeration at scoping time").
+
+**Action:**
+- Drift-15 entry archived here (this section).
+- Gap-closure commission filed at `agentic_orchestration/gandalf/requests/2026-05-17-environment-tileset-catalogue-sweep-and-vs2a-selection.md` — legolas Mode B environment-tileset catalogue sweep (Track A) + gandalf per-season environmental-theming framework (Track B) + Matt VS2a pack selection (Track C) + downstream drax integration dispatch (Track D; separately authored by knight-rider).
+- VS2a-gating reclassification recommended (same logic as Drift-14).
+- Forward discipline candidate D16: "Multi-axis-catalogue-scoping requires explicit axis-enumeration at scoping time" — surface to next jack-ryan engineering-disciplines pass alongside D14, D15, R11(b), Pattern P7 cluster, Drift-11 sibling-cluster-sweep lesson. Disciplinary cluster is now 6 items — strong empirical basis for a coordinated jack-ryan pass when capacity allows.
+
+**Cross-references:**
+- Commission: `agentic_orchestration/gandalf/requests/2026-05-17-environment-tileset-catalogue-sweep-and-vs2a-selection.md`
+- Sibling P6 instances: Drift-11A + Drift-11B + Drift-14 (above)
+- Arena topology commit: `canonical/story/arena-room-hallway-system.md` (drax v0.12 — the room/hallway topology that surfaces environment as load-bearing)
+- Style register: `canonical/story/style-register.md` (Candidate B HD-2D-pixel-art register — the register environment assets must honor)
+- Forward audit: `canonical/story/p6-forward-audit-2026-05-16.md` — pattern naming basis; should be amended to add Drift-15 sub-pattern if a P6-doc-amendment pass happens later
+
+**Discipline #13 instance:** YES — instance of "implicit-pillar drift" applied to the catalogue-scoping-vocabulary layer. The implicit pillar `multi-axis catalogue scoping enumerates ALL load-bearing visual axes at scoping time, with deferred axes explicitly named and ship-gated` was never stated and not structurally enforced. Same shape as Drift-13 (vendor-mixed-register at consumption granularity) applied at one level higher (scoping granularity vs consumption granularity).
+
 ---
 
 ## Cross-cutting drift patterns
