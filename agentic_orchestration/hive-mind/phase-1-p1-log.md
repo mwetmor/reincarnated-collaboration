@@ -2893,4 +2893,54 @@ Current D10 recommendation: no suppression of player's substrate in class rotati
 
 **Requesting gandalf design-direction:** Is Phase-1 P1 scope the right gate, or is this worth implementing now while the generation layer is in flux?
 
+---
+
+### [2026-05-18 12:44Z] STATE — gandalf — canonical-four trait pool L3 decision briefing SHIPPED
+
+Matt explicitly engaged on the canonical-four intrinsic trait pool L3 decision (per knight-rider relay 2026-05-18). Full briefing authored at:
+
+- **`agentic_orchestration/hive-mind/canonical-four-trait-pool-l3-decision-2026-05-18.md`**
+
+**Briefing contents (8 sections):**
+
+- § 0 TL;DR — asymmetry summarized; recommendation surfaced
+- § 1 What I discovered — canonical-four intrinsic pools do not exist; D8 is first authored instance
+- § 2 The asymmetry — player experience, ship state, differentiation impact, perception risk, cosmological integration (the cosmology does not authorize this asymmetry)
+- § 3 Option I — Expand P1 scope: author canonical-four pools (~1 week slip; substrate-symmetric ship). [recommended]
+- § 4 Option II — Defer to P2 (current scope; asymmetric ship). [default per protocol]
+- § 5 Other paths — Option III partial (~half-depth; not recommended); Option IV revert D8 (declined); Option V gandalf-authoring-only during P1 (reasonable fallback)
+- § 6 Recommendation — Option I, with honest naming of the parts that make me uneasy (scope-creep risk; discovery-not-asked-for)
+- § 7 Cascading consequences either way — gamora queue / jack-ryan watchpoints / ship gate / D8 + D9 interaction
+- § 8 What I need from Matt — Option I/II/III/V choice + ~24h decision-by request so gamora's in-flight D8/D9 implementation can absorb scope expansion cleanly rather than reflow after partial completion
+
+**Recommendation in one sentence:** Author canonical-four intrinsic trait pools in P1 (Option I); the cosmology speaks the substrates as peers in the wheel and the player who returns to fire_mage after the expansion deserves to find fire feeling *more* alive, not less.
+
+**Cross-seam observations surfaced during briefing authoring:**
+- D9 informational soft-tension flags interact with this decision — if Option I lands, flags close cleanly; if Option II lands, flags carry forward through P1 → P2 window
+- Option I's gamora-impact (~1-2 days) is bounded; canonical-four trait infrastructure plugs into the same TraitSchema loader being built for D8
+- Genre-canon depth supports the authoring work — canonical-four substrates have *more* ARPG precedent (D2/D3/D4 Sorceress / Wizard / Sorcerer; PoE Elementalist; Last Epoch; Grim Dawn Pyromancer) than the three new substrates; authoring will be faster than D8 was
+- Discipline #12 (semantic shift) signal: this is a mid-P1 scope-addition discovery from gandalf, not a Matt-requested scope item — Matt's prerogative to push back; the briefing surfaces this honestly in § 6
+
+**Routing:** HANDOFF to knight-rider → Matt next status update (see next entry).
+
+— gandalf
+
+---
+
+### [2026-05-18 12:45Z] HANDOFF — gandalf → knight-rider → Matt — L3 briefing surface in next status update
+
+L3 decision briefing ready at `agentic_orchestration/hive-mind/canonical-four-trait-pool-l3-decision-2026-05-18.md`. Briefing is Matt-facing, complete (8 sections, ~3000 words), and structured for direct decision.
+
+**Ask of knight-rider:** Surface the briefing file path in Matt's next status update with a one-line summary ("Gandalf briefing ready — canonical-four trait pool L3; Option I/II/III/V choice + ~24h decision-by request"). The briefing speaks for itself; no knight-rider commentary needed beyond the file pointer.
+
+**Decision-by window (per briefing § 8):** ~24 hours from briefing surface to Matt would let gamora's in-flight D8/D9 implementation absorb scope expansion cleanly. Later decision still actionable but creates a re-scope rather than in-place widen.
+
+**Standing availability for follow-up Q&A:**
+- If Matt wants clarification on any option before deciding — gandalf is continuously-LIVE post-session
+- If Matt wants a written follow-up on any specific concern (cosmological framing detail; player-experience risk magnitude; scope-creep risk vs other Phase-1 P1 deliverables) — gandalf authors on-request
+
+**Queue carry-forward unchanged:** D18 Spirit-Guide voice amendment (when rocket D17 firing-trigger gameplay flow sequences) + D26 cross-doc updates (near ship gate) + continuous-availability for gamora D10 § 10 Q1/Q2 cosmological-direction requests (now ahead of this briefing in gandalf's response queue).
+
+— gandalf
+
 — gamora
