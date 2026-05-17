@@ -5707,3 +5707,65 @@ All 9 acceptance criteria met. No Shift bindings remain. No residual Space confl
 
 — drax
 
+---
+
+### [2026-05-17] PRE-SIGNAL — gandalf — mobile-vs-PC pixel sizing canon authored; tag pending
+
+**Per § 14.1.1:** `git fetch origin` clean; `git log -5 -- phase-1-p1-log.md` confirms HEAD up-to-date with origin/main; `git rev-list --count HEAD..origin/main = 0`. No remote-only hive-log commits to pull. Safe to commit.
+
+**About to commit:**
+- `canonical/story/mobile-pc-pixel-sizing-ratios-2026-05-17.md` (~770 lines; full transformation canon)
+- `agentic_orchestration/research/commissions/2026-05-17-gandalf-to-legolas-mobile-arpg-pixel-survey.md` (Legolas Mode B enrichment sub-commission; pre-authorized per dispatch)
+- Completion record appended to `2026-05-17-gandalf-mobile-pc-pixel-sizing-ratios-commission.md`
+- This STATE entry
+
+**Tag intent:** `gandalf/v1.7-mobile-pc-pixel-sizing-ratios-1`
+
+— gandalf
+
+---
+
+### [2026-05-17] STATE — gandalf — Mobile-vs-PC pixel sizing & ratio canon COMPLETE (v1.7)
+
+**Tag intent:** `gandalf/v1.7-mobile-pc-pixel-sizing-ratios-1` (applied at commit)
+**Dispatch:** `2026-05-17-gandalf-mobile-pc-pixel-sizing-ratios-commission.md` (Pattern B research; Maiar genre-canon synthesis with pre-authorized Legolas Mode B sub-commission)
+**Effort:** ~6 hours offline-Maiar-knowledge synthesis. Legolas Mode B enrichment filed (not gating).
+
+**Verdict:** Mobile-ARPG genre-canon converged 2022-2025; a stable 4-anchor centroid (Diablo Immortal / Torchlight Infinite / Eternium / D3 Switch-port) defines the cross-platform transformation. **Three locks operationalize the PC → mobile mapping:**
+
+1. **World-scale sprites SHRINK at 0.75×** (player, monsters all tiers, projectiles, destructibles) — preserves player:monster cross-ratios that drive encounter readability.
+2. **PIXELS_PER_METER = 48 STAYS PLATFORM-INVARIANT** — tile size, room dimensions, AOE radius, MS all sim-canonical. Mobile compensates via **camera zoom-in 1.33×**. Net: density per visible area is preserved across platforms; sim balances one fight, not two.
+3. **Touch targets UPSCALE to 110-125 px diameter** for action canon (ability buttons, potions); 88 px floor for ambient affordances (top-row inventory/character/log icons). Genre-cluster centroid; Apple HIG / Material Design floors honored.
+
+**Cluster derived from:** DI (solid) + Torchlight Infinite (solid) + Eternium (solid) + D3 Switch reference (solid) + adjacent-genre touch authorities (Genshin / Lost Ark Mobile / Wuthering Waves / Brawl Stars). Sparse-knowledge titles (Anima ARPG / Oniro ARPG / Dungeon of Exile / Dungeon Hunter 6) routed to Legolas Mode B enrichment as a tightening pass; not gating.
+
+**Canonical doc deliverables:**
+- § 1 — PC anchor (empirical sizing inventory from demo1 codebase: TIER_SCALE, PIXELS_PER_METER, CANVAS dimensions, HUD slots, globe radii, joystick / potion / icon constants per the existing mobile-stage implementation)
+- § 2 — Mobile ARPG genre survey (7 named titles + 5 adjacent-genre triangulation)
+- § 3 — Canonical PC → mobile transformation table (world sprites, HUD primitives, gear drops, chests, racks, destructibles, camera framing; per-object pixel sizes + scalars + rationale)
+- § 4 — Seven transformation principles (sprite-shrink uniform / tile sacred / touch-target floors / drop-visibility-via-affordances / destructible-tap-affordance / HUD-layout-not-downscale / camera-zoom-density-preservation)
+- § 5 — Methodology + Legolas Mode B enrichment scope
+- § 6 — Forward hooks for drax (radial-arc hotbar, camera 1.33× zoom, sprite shrink WORLD_SCALE_MOBILE constant; specific refinements to existing `mobile/joystick.ts`, `touchPotions.ts`, `touchIcons.ts`) + elrond (optional `platform_suitability` schema field)
+- § 7 — Five open design questions for Matt (HP-globe ↔ potion-button merge; inventory drawer vs modal; dual-stick vs tap-to-move; resolution baseline; Dungeon of Exile feel-pull)
+- Appendix A — quick-reference card for drax + matt
+
+**Legolas Mode B sub-commission filed:** `agentic_orchestration/research/commissions/2026-05-17-gandalf-to-legolas-mobile-arpg-pixel-survey.md`. Pre-authorized per dispatch. Output to `agentic_orchestration/research/2026-05-17-mobile-arpg-pixel-sizing-survey/`. Consumption: if all 4 sparse titles confirm cluster (within ±10%), canon v1.7 stays authoritative; if material deviations emerge (>±15%), gandalf authors v1.7b refinement.
+
+**Acceptance criteria** (per dispatch):
+- [x] Mobile ARPG genre survey 7+ titles (Matt-named set + adjacent triangulation; Anima/Oniro/DoE/DH6 routed to legolas enrichment)
+- [x] Per-object pixel sizes + ratios captured (sprites, icons, tiles, gear drops, chests, racks, destructibles)
+- [x] Canonical sizing table authored with PC → mobile mapping (§ 3, three sub-tables: world-scale + HUD + new-objects + camera framing)
+- [x] Transformation principles documented (§ 4 — seven principles enabling future scope amendments)
+- [x] Citations + methodology notes captured (§ 5)
+- [x] Forward hooks for drax + elrond identified (§ 6)
+- [x] Canonical doc filed at `canonical/story/mobile-pc-pixel-sizing-ratios-2026-05-17.md`
+- [x] Tag `gandalf/v1.7-mobile-pc-pixel-sizing-ratios-1` (applied at commit)
+- [x] Hive-log STATE entry (this entry)
+
+**Smoke expectation:** Matt reads the canonical doc + § 3 table; can answer *"what size is a vase on mobile?"* (65×80 px, ~0.75× player-sprite-height, tap-affordance ring extends hit zone by 10-12 px) / *"what's the player:monster ratio on mobile vs PC?"* (1.0 : 0.75 trash, 1.0 : 1.55 act-boss — **identical to PC; the TIER_SCALE table is platform-invariant**) directly from the table. Drax can implement mobile sizing without re-running the survey when the mobile dispatch fires.
+
+**Not produced (out of scope per dispatch):** mobile combat tuning, touch-gesture skill design, mobile-rollout timing locks, single-title biased recommendations. The canon is the cluster.
+
+— gandalf
+
+
