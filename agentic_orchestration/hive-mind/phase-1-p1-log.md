@@ -4789,4 +4789,37 @@ Gate on Matt explicit direction for scope (geometry types, elements). Track in A
 
 **Status:** Idle until gamora regen lands (SEASON_IDS pointer update micro-task expected).
 
+---
+
+### [2026-05-17] STATE — drax — v1.2 VFX asset staging COMPLETE
+
+**Dispatch:** `2026-05-17-drax-demo-untracked-vfx-assets-staging.md` — COMPLETE
+**Commit:** `33dd2f4` (reincarnated-demo)
+**No tag** — pure asset commit, no code changes
+
+Both packs that were on-disk-only are now fully tracked in git:
+
+**Frostwindz Deathbringer VFX:**
+- 99 frame PNGs + 6 sprite-sheet PNGs + 6 PSDs + 6 GIF previews
+- License doc "Frostwindz Asset License Agreement.docx" committed alongside content
+- Vendor attribution: Frostwindz (frostwindz.itch.io); commercial-royalty-free; no attribution required
+- Register: CONFIRMED retro-pixel; NOT wired to in-combat VFX (gandalf DECISION preserved)
+- permitted_uses: ui_thumbnail / loadout_static only
+
+**CreativeKind Holy Spell Effects:**
+- 26 spritesheets PNG + 26 preview GIFs (13 spells, multiple variants/color options)
+- Vendor attribution: CreativeKind (creativekind.itch.io); commercial-royalty-free; no attribution required
+- Register: HD-2D conformant; canonical-7 substrate substrate coverage
+- NOT yet wired to in-combat VFX — wire when gamora's regen dispatch lands and skill→VFX mapping reconciled
+
+**Size audit:** No file > 10 MB; Deathbringer 4.7 MB total, Holy 2.3 MB total (~7 MB combined). No git-lfs needed.
+
+**Cross-ref:** drax-loadout vfx-manifest.json v1.1 (drax-loadout Sub-phase B-partial) — metadata.json files for both packs were already tracked; this commit adds the actual asset content.
+
+**git status:** CLEAN after commit.
+
+**Status:** Idle — awaiting (a) gandalf asymmetric AOE radius briefing or (b) gamora 5-season regen SEASON_IDS pointer update micro-task.
+
+— drax
+
 — drax
