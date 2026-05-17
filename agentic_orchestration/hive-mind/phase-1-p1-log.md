@@ -4089,3 +4089,29 @@ Entry `[2026-05-17] §v3.1` appended to `src/reincarnated/generation/MIGRATION.m
 
 — rocket
 
+---
+
+### [2026-05-18] STATE — drax — v0.26 follow-up UI cleanup + demo-only dodge primitive COMPLETE
+
+**Dispatch:** `2026-05-17-drax-demo-followup-ui-cleanup-and-dodge-primitive.md`
+**Commit:** `8fa7573`
+**Tag:** `drax/v0.26-followup-ui-cleanup-and-dodge-primitive-1`
+
+**All 4 items shipped:**
+
+**Item 1 (subtitle text removed):** `_playerSubtitle` in main.ts now always `''`. The `archetype_tag · energy_type` string is no longer passed to `createCombatantSprite`. Class name alone floats above character in normal mode. Pattern P7 (perception_test suppression) is trivially satisfied — there's nothing to suppress.
+
+**Item 2 (energy type text removed):** Was part of the same `_playerSubtitle` string. Removed in the same change as Item 1.
+
+**Item 3 (bars shrunk):** `BAR_WIDTH` 160→96 (~40% reduction), `BAR_HEIGHT` 12→7 (~42% reduction), new `RES_HEIGHT` constant 7→4. All three bar update functions (`updateHpBar`, `updateResourceBar`, `updateShieldBar`) use the constants consistently. Color contrast preserved; fill/depletion still readable.
+
+**Item 4 (dodge primitive):** Shift key (ShiftLeft/ShiftRight). Direction priority: lmbMoveTarget vector → WASD-held direction → facing-toward-primary-actor → east fallback. DODGE_DISTANCE=120px over DODGE_DURATION=0.18s (ease-out), DODGE_COOLDOWN=0.75s. Cancels lmbMoveTarget + lmbAttackMode; resets playerSprite.animState to 'idle' (cast interrupted). Normal movement block gated on `!_dodge.active`. VFX: 5-particle fading circle trail per dodge frame, element-color tinted. clearUI() resets all dodge state + destroys trail particles. Space key collision with hotbar slot 0 avoided (Shift chosen instead). `TODO(drax)` annotation present: replace VFX + mechanic after canonical dodge design lands (gandalf/gamora L3).
+
+**Build:** `tsc --noEmit` + `vite build` clean. 520 modules, 0 errors.
+
+### [2026-05-18] OBSERVATION — drax — P7 status update post-v0.26
+
+With subtitle always empty, the `_perceptionTestMode` variable in main.ts no longer gates any behavior — it only drives a console.log for operator confirmation. The variable and log are harmless and useful for operator assurance; no change needed. Future consideration: if perception_test mode needs to suppress other identity cues (e.g., class name itself), the variable is still wired and ready.
+
+— drax
+
