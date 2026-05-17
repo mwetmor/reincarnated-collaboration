@@ -6239,3 +6239,36 @@ Knight-rider sequencing: step 3 (drax VS2a first VFX integration) can proceed im
 - PARKED-3 (mega-pack-elemental-spell-effects-02 acid/wood): deferred, not load-bearing for VS2a.
 
 — drax
+
+---
+
+### [2026-05-17] STATE — drax-loadout — v1.1 website refresh complete: 11 seasons live, analytics refreshed, canonical-7 narrative playable in browser
+
+**Tag:** `drax/v1.1-loadout-website-refresh-new-seasons-and-analytics-1`
+**Dispatch:** `2026-05-17-drax-loadout-website-refresh-new-seasons-and-analytics.md` — COMPLETE
+**Repo:** reincarnated-loadout (LOADOUT seam only; no demo-repo changes)
+
+**Data layer — 11 seasons, 114 classes:**
+- Historical (canonical-4): season_001001, 001002, 001003, 001004, 001005 (001005 was absent before; sourced from engine/seasons/)
+- Canonical-7: season_002011, 002012, 002013, 002014, 002015 (standard-demo-regen-2026-05-17; lightning/holy/shadow dominant elements present)
+- Yomi (gear-pool): season_002328 (unchanged)
+- `useSeasonData` auto-discovers via `import.meta.glob` — no glob pattern changes needed
+
+**Analytics page refresh:**
+- `SeasonSummaryCards` — per-season card grid in three groups (Historical / Canonical-7 / Yomi); shows theme, anchor, class count, convergence failures, avg modifier, substrate chips with * for new canonical-7 substrates
+- `SubstrateHeatmap` — cross-season substrate count table; intensity-coded cells; canonical-7 columns marked *; C7 season rows left-bordered
+- Canonical-7 callout banner (◈ violet) above summary cards
+- `NewSubstratesBadge` in summary strip: "lightning · holy · shadow"
+- Existing 9 charts (WinRateHistogram, ElementPie, ArchetypeStackedBar, ModifierRangeChart, EnergyPie, ConvergenceChart, SeasonTimelineChart, StatRadarChart, SkillTierChart) fully preserved
+
+**Season pickers on Loadout + Sample pages:**
+- Dropdown at page top; class resets on season change
+- `selectableSeasons` added to `useSeasonData` (all real seasons sorted chronologically, Yomi last)
+
+**constants.ts extensions:**
+- `ELEMENT_COLORS`: lightning/holy/shadow added
+- `ARCHETYPE_LABEL`: 6 new canonical-7 archetype labels + physical_grappler
+
+**Smoke:** npm run build clean (0 TS errors, 760 modules). CourtBrowser + Encounters untouched.
+
+— drax
