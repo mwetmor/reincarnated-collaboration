@@ -5252,3 +5252,69 @@ Per MIGRATION.md §v3.4 acceptance criterion 4 and § 5.4 tuning-drift guard:
 
 — rocket
 
+---
+
+### [2026-05-17] STATE — star-lord — V2.5 perception-asymmetry AOE-cast telemetry schema COMPLETE
+
+**Dispatch:** `2026-05-17-star-lord-perception-asymmetry-telemetry-schema.md`
+**Tag:** `star-lord/v1.4-perception-asymmetry-telemetry-schema-1` (pending commit)
+**Smoke:** 38/38 tests pass. All prior telemetry tests pass (147 combined). 0 regressions.
+
+Per gandalf § 4 telemetry obligation + § 5 KPM gauntlet validation hook:
+
+**Delivered:**
+- `src/reincarnated/telemetry/aoe_cast_event.py` (new): `AoeCastEvent` dataclass — both-present-or-both-absent validation (fail-loud), `spillover_hit_count` property (derived; not stored), `to_db_row()` / `from_db_row()` serialization.
+- `src/reincarnated/telemetry/migrations.py`: `_V2_5` — new `aoe_cast_events` table (14 columns; 4 indexes; `true_radius_hit_count` + `apparent_radius_hit_count` optional/NULL-permitting).
+- `src/reincarnated/telemetry/recorder.py`: `SCHEMA_VERSION` 2.4 → 2.5; `record_aoe_cast_event()` method; `NullRecorder` stub.
+- `src/reincarnated/export/MIGRATION.md`: §V2.5 entry with full consumer obligations + KPM gauntlet acceptance SQL.
+
+**Schema contract (for gamora):**
+- Import `AoeCastEvent` from `reincarnated.telemetry.aoe_cast_event`
+- Construct per AOE-cast damage tick in `fight_engine.py`
+- `true_radius_hit_count`: count mobs within `skill.aoe_radius` (true_radius) at tick
+- `apparent_radius_hit_count`: count mobs within `get_apparent_radius(skill.aoe_radius, owner)` at tick — import `get_apparent_radius` from `reincarnated.foundation.perception_asymmetry` (rocket's module)
+- Call `recorder.record_aoe_cast_event(event)`
+- Both fields must come together — validation fires loud if only one present
+
+**Additive change. No existing tables modified. Backward-compatible. Production DB migration (ADR-006 — CREATE TABLE IF NOT EXISTS; lower risk than prior ALTERs) authorized at next regen.**
+
+— star-lord
+
+---
+
+### [2026-05-17] HANDOFF — star-lord → gamora — AOE-cast telemetry schema ready for emission wiring
+
+**To:** gamora
+**Type:** Action required (emission wiring, part of narrow-slice reactive-escape dispatch)
+
+The `aoe_cast_events` telemetry schema is live in V2.5. The schema contract is:
+
+1. Import `AoeCastEvent` from `reincarnated.telemetry.aoe_cast_event`
+2. Import `get_apparent_radius` from `reincarnated.foundation.perception_asymmetry` (rocket's module — requires rocket v1.9 to land first)
+3. Per AOE-cast damage tick in `fight_engine.py`, after computing which mobs fall within each radius:
+
+```python
+event = AoeCastEvent(
+    season_id=...,
+    run_id=...,
+    fight_id=...,            # e.g. f"{class_id}__{monster_id}__i{iteration:02d}_f{fight_index:02d}"
+    cast_owner="player",     # or "enemy"
+    skill_id=skill.id,
+    skill_substrate=skill.canonical_element,
+    skill_geometry=skill.geometry,
+    true_radius=skill.aoe_radius,
+    apparent_radius=get_apparent_radius(skill.aoe_radius, owner="player"),
+    true_radius_hit_count=<count mobs within true_radius>,
+    apparent_radius_hit_count=<count mobs within apparent_radius>,
+)
+recorder.record_aoe_cast_event(event)
+```
+
+4. Both hit-counts are required together (or both omitted for non-AOE cast paths). `AoeCastEvent.validate()` fires loud if only one is present.
+
+**Dependency:** This requires rocket v1.9 (`foundation/perception_asymmetry.py`) to be landed before gamora can wire the `get_apparent_radius` call. The `AoeCastEvent` itself can be constructed and validated independently.
+
+**KPM gauntlet acceptance (post-emission):** player AOE spillover ratio 5-15%; enemy AOE buffer ratio 10-25%. SQL for both is in MIGRATION.md §V2.5.
+
+— star-lord
+
