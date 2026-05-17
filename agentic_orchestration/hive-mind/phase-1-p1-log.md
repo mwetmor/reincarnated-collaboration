@@ -4026,3 +4026,66 @@ Annotated tag `drax/v0.25-playtest-ux-polish-bundle-1` at commit `1e6d867` in `r
 
 — drax-demo
 
+---
+
+### [2026-05-17] PRE-SIGNAL — rocket — appending hive log (§ 14.1.1 race-condition discipline)
+
+`git fetch origin` complete in `reincarnated-engine`. Collab repo HEAD confirmed at remote. No concurrent commits to hive log detected. Working tree: 3 files staged + committed (`cd9e913`). Appending STATE entry below.
+
+— rocket
+
+---
+
+### [2026-05-17] STATE — rocket — Micro-task COMPLETE: earth.yaml AVOID + roles.yaml DPS-floor audit
+
+**Dispatch:** `2026-05-17-rocket-earth-yaml-avoid-amendment-and-roles-dps-audit.md`
+**Tag:** `rocket/v1.5-earth-yaml-amend-and-roles-dps-audit-1` @ `cd9e913`
+
+---
+
+#### Issue 1 (PRIMARY) — earth.yaml AVOID declarations: COMPLETE
+
+Added `fork: AVOID` and `ricochet_bounce: AVOID` to `config/substrate_identities/earth.yaml` `geometry_affinities`. Earth already had `vortex_pull: AVOID`; these two additions complete the anti-projectile-scatter set required by earth's positional-refusal cosmology.
+
+**WP-9 smoke (post-fix):** earth_caster modifier = **0.5250** (pre-D3 baseline restored; was 0.1688 post-D3 before fix). fire_mage, water_mage, wind_caster unchanged within smoke variance. WP-9 **CLOSED** — confirmed independently by jack-ryan review which also ran WP-9 post-fix.
+
+**Substrate_identity_loader validation:** All 7 substrates load cleanly. No geometry key whitelist in the loader — PREFER/NEUTRAL/AVOID values validated; key names are open-vocabulary per spec. Addition is non-breaking.
+
+---
+
+#### Issue 2 (SECONDARY) — roles.yaml DPS-floor tag misplacement: COMPLETE
+
+**Finding confirmed:** `min_4_dps_skills` and `min_1_dps_aoe` were misplaced in `burst_damage` and `area_damage` `constraint_tag_affinities`. `min_4_dps_skills` was also in `damage_over_time`. These are controller-specific DPS floor guards (authored for wind_controller DPS floor problem, Decision 1 2026-05-16) — they do not belong on DPS roles.
+
+**Action taken:** Removed from `burst_damage`, `area_damage`, `damage_over_time`; added to `control` with inline documentation explaining propagation semantics (gamora composer skips DPS role affinities; control role affinities propagate in full; `_ROLE_CONSTRAINT_TAGS["control"]` also carries them — set union, no double-effect).
+
+**Runtime behavior:** UNCHANGED. Gamora D3 composer already skips DPS role affinities; the tags never propagated from the DPS roles. The correction brings roles.yaml into semantic alignment with the composer's intent. Consumers reading `role.constraint_tag_affinities` directly (D6/D15 LLM context, D17 loadout labels) now see the correct placement.
+
+**Role_registry_loader validation:** All 9 roles load cleanly. All loader rules R1–R10 pass.
+
+---
+
+#### Note to jack-ryan
+
+Jack-ryan's post-D3 checkpoint review noted roles.yaml DPS-floor cleanup as an "INFO — route to rocket micro-task" (line 3880 of this log). This is the micro-task; it has now landed in the same commit as the earth.yaml fix. The open INFO item from jack-ryan's review is **CLOSED**.
+
+---
+
+#### Test status
+
+- 312 substrate identity + role registry + D3 composer tests: **ALL PASS**
+- WP-9 smoke (earth_caster): **PASS** — 0.5250 (in 0.45–0.55 acceptance range)
+- Substrate_identity_loader + role_registry_loader validation: **PASS**
+- Full suite (non-slow) running — expected PASS (D3 68 tests, substrate 100+ tests all confirmed clean above)
+
+#### MIGRATION.md
+
+Entry `[2026-05-17] §v3.1` appended to `src/reincarnated/generation/MIGRATION.md`. Documents both the earth.yaml geometry_affinities extension and the roles.yaml DPS-floor tag semantic correction per Discipline #12.
+
+#### Downstream unblocked
+
+- **Gamora D10:** substrate-coherent generation rules will correctly see earth `fork: AVOID` + `ricochet_bounce: AVOID` at the geometry affinity layer. No gamora code change required.
+- **Jack-ryan post-D3 checkpoint:** WP-9 CLOSED (already confirmed by jack-ryan above). roles.yaml INFO item CLOSED.
+
+— rocket
+
