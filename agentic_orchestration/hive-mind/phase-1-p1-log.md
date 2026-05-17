@@ -672,3 +672,82 @@ D27 Track A is complete. The session-runner is ready for gandalf's archetype-spe
 
 — drax-demo
 
+### [2026-05-17 12:20Z] STATE — drax-loadout — D19 Track B beginning: VFX coverage matrix
+
+Session open. Required reading complete (all 10 required artifacts per dispatch):
+- `phase-1-p1-log.md` — full read top to bottom; gamora D7 Phase 2 in-flight, star-lord D6 scoping, rocket D1 beginning, gandalf D20 beginning, drax-demo D27 Track A beginning and COMPLETE
+- `scope-of-work-phase-1-p1.md` § 1.5 (D19 definition) + § 2 (drax initial tasking)
+- `coordination-matrix.md` § 1 D19/D17/D21/D22 rows + § 3 (drax-only seam; no concurrent edit hot-spots for planning phase)
+- `substrate-expansion-decision-2026-05-17.md` § 3 (substrate naming) + § 4 (cosmology integration)
+- `substrate-identity-declarations-2026-05-17.md` — full read; all 7 declarations; iconic_register + cosmological_commitment + geometry_affinities
+- `style-register.md` — full read; HD-2D pixel-art register locked; Frostwindz = retro-pixel family (load-bearing for § 2.3 register risk)
+- `CHANGELOG.md` 2026-05-17 vendor-acquisitions entry (CraftPix/Fellor/Frostwindz authorized; payment pending)
+- `research/catalogue/` — all vendor subdirectories enumerated; VFX JSONL files read
+- `research/knowledge/vfx-to-pool-expansion-opportunities-2026-05-17.md` — legolas reverse audit SHIPPED; holy/lightning/shadow TIER 1 GREEN-list per § 4.1
+- `reincarnated-loadout/AGENT_STATE.md` — v0.21 cipher consumption COMPLETE; prior session checkpoint
+
+**Pre-conditions verified:**
+- Working tree: CLEAN (loadout main at hive baseline)
+- Demo asset tree inspected (read-only): pimen 7 packs on-disk, CreativeKind 40+ entities/VFX, Elementals_bundle ZIPs (unextracted), zero Fellor/CraftPix/Frostwindz directories on-disk
+- Track A (drax-demo D27) COMPLETE per log above; no file overlap
+
+**Initial-task acknowledgement:** Deliverable 19 — VFX library extension PLANNING. Track B. Executing under distributed authority (L1 in-seam). IMPLEMENTATION BLOCKED (Matt vendor acquisitions pending).
+
+— drax-loadout
+
+### [2026-05-17 12:45Z] STATE — drax-loadout — D19 Track B planning COMPLETE
+
+Planning doc authored: `agentic_orchestration/hive-mind/d19-vfx-library-extension-plan.md`
+All 9 required sections complete.
+
+**Coverage matrix summary (§ 1 — all 7 substrates inventoried):**
+- Fire: ADEQUATE (pimen fire-spell-effect-3 9 animation groups + CreativeKind entities + chierit fire_knight ZIP)
+- Water: ADEQUATE (pimen water-spell-effect-03 7 animation groups + chierit water_priestess ZIP; ice-spell-effect-02 extraction TBD)
+- Earth: MODERATE GAP (stone adequate; crystal = Fellor pending; biological-organic = CraftPix pending)
+- Wind: ADEQUATE (pimen wind-spell-effect-03 12 animation groups + chierit wind_hashashin ZIP)
+- Lightning: STRONG — best-covered new substrate (pimen thunder-spell-effect-03 ~30 animation variants + CreativeKind Lightning_horizontal/vertical VFX + God_of_Lightning x2 palettes + Lich lightning palette + chierit lightning_ronin ZIP)
+- Holy: SIGNIFICANT GAP — entity sprites only; zero holy spell VFX on-disk
+- Shadow: PARTIAL (Dark_Hole VFX + entity sprites; tendril/drain geometry absent; Frostwindz Deathbringer pending with RETRO register risk)
+
+**Vendor acquisition dependencies mapped (§ 2):** placement paths, substrates served, integration touch-points, register risks all documented.
+**Integration plan authored (§ 4):** placement workflow, demo wiring call-sites, loadout D21/D22 surfaces, vfx-manifest.json schema proposed.
+**License tracking authored (§ 5):** CraftPix Pro (no attribution), Fellor/Frostwindz TBD on acquisition, pimen CC-BY-4.0 precedent, chierit per-ZIP.
+**Effort estimate revised (§ 7):** 6-9 days post-acquisitions. Sub-phase A (chierit ZIP extraction + manifest) DISPATCHABLE NOW without Matt acquisitions.
+
+— drax-loadout
+
+### [2026-05-17 12:45Z] OBSERVATION — drax-loadout — Frostwindz register risk re: shadow combat VFX (WARN)
+
+**Severity: WARN**
+
+Frostwindz Deathbringer (shadow-substrate VFX; Matt-authorized 2026-05-17) is in the Frostwindz vendor family. Per `style-register.md`: Frostwindz = retro-pixel (16-bit-shaped, low-resolution) NOT HD-2D-conformant.
+
+Wiring Frostwindz Deathbringer to shadow combat VFX rendering would violate the HD-2D lock without a register exception.
+
+**Three resolution options documented in d19-vfx-library-extension-plan.md § 2.3.** Routing to gandalf as L2 design question.
+
+— drax-loadout
+
+### [2026-05-17 12:45Z] OBSERVATION — drax-loadout — Holy spell VFX acquisition gap (WARN — potential Phase-1 P1 blocker)
+
+**Severity: WARN**
+
+Three Matt-authorized acquisitions (CraftPix/Fellor/Frostwindz) include NO dedicated holy spell VFX pack. Holy geometry profile (radiant_aura/shaft/nova preferred) cannot be served by entity sprites. Zero holy spell-effect animations on-disk.
+
+**Recommended fourth acquisition:** CreativeKind Holy Spell Effects (TIER 1 GREEN-list per legolas; HD-2D-conformant; est. $5-15). Routing to Matt as L3 via knight-rider.
+
+— drax-loadout
+
+### [2026-05-17 12:45Z] HANDOFF — drax-loadout → knight-rider — D19 planning consumable; Sub-phase A dispatchable now
+
+Planning doc at `agentic_orchestration/hive-mind/d19-vfx-library-extension-plan.md`.
+
+**Sub-phase A (chierit ZIP extraction + vfx-manifest.json authoring): DISPATCHABLE NOW — no Matt acquisitions required. 1-2 days.**
+**Sub-phases B + C: BLOCKED on Matt downloads + holy gap resolution.**
+
+**Matt action items surfaced:** (1) Download CraftPix/Fellor/Frostwindz (authorized; pending payment/download); (2) Authorize or decline CreativeKind Holy Spell Effects (~$5-15; new; holy spell VFX gap).
+
+**Cross-seam items for routing:** gandalf (Frostwindz register exception?); star-lord (geometry_animation_map key naming coordination for D17/D22/D15); elrond (curation pass when packs land on-disk).
+
+— drax-loadout
+
