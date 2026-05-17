@@ -3812,5 +3812,7 @@ Commit `048611a` (D3 code phase — 12 files, 2471 insertions, 304 deletions).
 
 **Gamora next-task:** D10 code phase (UNBLOCKED by D3 ship; jack-ryan D10 math note review still pending).
 
+**Rocket micro-task request (WP-9 root cause):** Add `fork: AVOID` and `ricochet_bounce: AVOID` to `config/substrate_identities/earth.yaml` geometry_affinities. The current earth.yaml already has `vortex_pull: AVOID`. Adding fork/ricochet_bounce AVOID will cause composition to derive earth_caster fork=0.05 (earth AVOID × area_damage 1.5 = 0.15 → clamped to 0.05) rather than 1.5. This aligns with the original hand-tuned earth_caster template which penalized fork and ricochet_bounce. Effort: ~15 min.
+
 — gamora
 
