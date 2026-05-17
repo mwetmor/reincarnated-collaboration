@@ -1432,3 +1432,86 @@ D7 COMPLETE. Resistance matrix 7×7 with paired-luminance valence is mechanicall
 Knight-rider: please confirm whether D3 math note or D4 AI strategy consumer-side is the priority next step for gamora.
 
 — gamora
+
+---
+
+### [2026-05-17 21:00Z] STATE — gamora — D3 math note session open
+
+Required reading complete (all items per dispatch):
+- `phase-1-p1-log.md` — full read top to bottom. D7 SHIPPED (`7ec1ff5`). D1 SHIPPED (`1e951be`). D4 SHIPPED (`daf3cfb`). D5 in-flight (rocket). D6 Steps 1-3 SHIPPED (`5271d9f`). jack-ryan WP-3a CLOSED. D20 SHIPPED (`03fbd78`).
+- `scope-of-work-phase-1-p1.md` § 1.1 D3 — full read.
+- `coordination-matrix.md` — D3 row + hot-spots.
+- `canonical/story/archetype-coupling-archaeology-2026-05-17.md` — full read (10 coupling sites).
+- `canonical/story/substrate-identity-declaration-spec-2026-05-17.md` § 3 field semantics.
+- `canonical/story/substrate-identity-declarations-2026-05-17.md` — all 7 declarations.
+- `config/roles.yaml` — D4 role registry (9 roles; stat_emphasis + ai_priority + constraint_tag_affinities).
+- `generation/b6_archetype_templates.py:1-507` — 14 hardcoded templates + geometry bias block.
+- `generation/stat_allocator.py` — 16 hardcoded stat profiles.
+- `generation/class_generator.py:85-178` — `_ARCHETYPE_ACTION_REGISTER` + `_ARCHETYPE_ROLE_FUNCTION`.
+- `generation/archetype_classifier.py` — hardcoded dispatch (P7: falls back to `hybrid_mage` for unknown elements).
+- `generation/b6_kit_builder.py:470-480, 732-764` — silent-skip (line 480) confirmed + constraint-checker registry.
+- `watchpoints-2026-05-17.md` — WP-2b (constraint silent-skip) + WP-2c (geometry silent-neutralization).
+
+**Pre-conditions verified:**
+- D5 in-flight (rocket) — math note phase is doc-only; no file overlap risk.
+- Dispatch is explicit: math note phase ONLY. NO CODE.
+
+**Task acknowledgement:** Deliverable 3 — Path-a archetype-template combinatorial refactor MATH NOTE. Discipline #1: math-before-code. Executing under distributed authority (L1 in-seam).
+
+**Proceeding to author all 12 required sections.** File: `reincarnated-engine/src/reincarnated/generation/math/d3-path-a-archetype-composition-phase-1-p1.md`
+
+— gamora
+
+---
+
+### [2026-05-17 21:30Z] STATE — rocket — D5 COMPLETE: ailment registry shipped
+
+Tag `rocket/v1.5-ailment-registry-1 @ dc7de2d` cut + pushed to origin. AGENT_STATE commit `a633224`.
+
+**What shipped:**
+1. `config/ailments.yaml` — 8 canonical ailments: burn (fire/dot), chill (water/soft_control), root (earth/hard_control), knockback (wind/hard_control), bleed (physical/dot), shock (lightning/hard_control; NEW), consecrate (holy/amplification; NEW — novel category), drain (shadow/dot; NEW). Per-ailment: is_control, category, param_ranges (min/max/default), ai_priority.
+2. `src/reincarnated/foundation/ailment_loader.py` — Ailment frozen dataclass + load_ailments() with 10 fail-loud validation rules + 5 helper functions (get_control_ailments, get_hard_control_ailments, get_soft_control_ailments, get_dot_ailments, get_amplification_ailments)
+3. `src/reincarnated/foundation/__init__.py` — exports extended with all Ailment types + constants
+4. `src/reincarnated/generation/element_biases.py` — ELEMENT_AILMENT + AILMENT_PARAM_RANGES + AILMENT_IS_CONTROL now registry-derived; added lightning/holy/shadow → shock/consecrate/drain mappings
+5. `src/reincarnated/foundation/effect_categorization.py` — DOT_EFFECTS + CONTROL_EFFECTS registry-derived; DOT_EFFECTS includes drain; CONTROL_EFFECTS includes shock
+6. `src/reincarnated/generation/ability_grammar.py` — boot validation + _make_ailment() category-based dispatch (was name-based if-chains; now extensible by category)
+7. `src/reincarnated/simulation/effect_resolver.py` — _DOT_AILMENT_NAMES registry-derived (was hardcoded ("burn","bleed"))
+8. `tests/test_ailment_registry.py` — 86 tests GREEN
+9. `src/reincarnated/generation/MIGRATION.md` — D5 cross-seam contract entry
+
+**Note re: damage_resolver.py:** D5 changes to that file were included in gamora's D7 commit `7ec1ff5` (joint contribution; gamora commit message explicitly attributes rocket). Not re-staged in D5 commit per gamora's coordination note at 20:00Z.
+
+**Smoke line:**
+- 86/86 new ailment registry tests GREEN
+- 364/364 targeted suite (ailment + role + substrate + ability_grammar + combat_simulator) GREEN
+- Full suite (background run): only pre-existing failures (test_gear_cp3 + test_gear_cp5 + test_spirit_guide weak_fit)
+
+**Discipline #12 (semantic shift):** 3 new ailments documented in MIGRATION.md. consecrate's amplification category is novel. drain is semantically distinct from burn despite same dot category.
+**Discipline #13 (implicit-pillar drift):** CLOSED. 8-ailment set now explicit at perimeter.
+**Discipline #14-candidate:** New ailments of existing categories require ZERO code changes.
+**Pattern P7:** Explicitly rejected throughout. Direct dict lookup not .get().
+
+— rocket
+
+### [2026-05-17 21:30Z] TAG — rocket — `rocket/v1.5-ailment-registry-1` @ `dc7de2d` pushed to origin
+
+Tag pushed to `https://github.com/mwetmor/reincarnated-engine.git`.
+
+D5 COMPLETE.
+
+— rocket
+
+### [2026-05-17 21:30Z] HANDOFF — rocket → gamora — D5 ailment registry consumer-ready; D3 composition can consume
+
+`Ailment.is_control`, `Ailment.category`, `Ailment.param_ranges`, `Ailment.ai_priority` available via `from reincarnated.foundation import Ailment, load_ailments`.
+
+For D3 `compose_archetype_template(substrate, role)`:
+- `get_control_ailments(ailments)` → frozenset `{chill, root, knockback, shock}` — hard + soft controls
+- `get_dot_ailments(ailments)` → frozenset `{burn, bleed, drain}` — DoT ailments
+- `get_amplification_ailments(ailments)` → frozenset `{consecrate}` — valenced zone ailments
+- `ailment.is_control in ("hard", "soft")` — whether substrate's ailment qualifies as control effect for control-role composition logic
+- **consecrate's `amplification` category is novel** — D3 composition needs explicit handling for holy substrate's valenced-zone ailment (see _make_ailment() category dispatch in ability_grammar.py for reference)
+
+**D3 fully unblocked from registry side:** D4 (role registry) + D5 (ailment registry) both SHIPPED. Gamora D3 has all registry inputs available.
+
+— rocket
