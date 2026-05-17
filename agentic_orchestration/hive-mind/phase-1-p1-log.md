@@ -3816,3 +3816,120 @@ Commit `048611a` (D3 code phase — 12 files, 2471 insertions, 304 deletions).
 
 — gamora
 
+---
+
+### [2026-05-18 HH:MMZ] STATE — jack-ryan — Post-D3 checkpoint review COMPLETE; APPROVE WITH CONDITIONS
+
+**PRE-SIGNAL:** git fetch origin before append; local == origin/main @ `a49d67a`. No concurrent hive-log write detected. Proceeding.
+
+**Tag under review:** `gamora/v1.4-d3-path-a-impl-1 @ 048611a`
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-jack-ryan-post-d3-checkpoint-review.md`
+**Tests run:** 69/69 D3 + 153/153 D3+D4 + 436/436 cross-seam — all GREEN
+**WP-9 smoke re-run post rocket earth.yaml fix:** PASS (test_canonical_four_modifier_convergence)
+
+---
+
+#### Item 1 — Composition algebra correctness: PASS
+
+**Geometry bias (math note § 4):** `_compose_geometry_bias()` correctly implements `S_w × R_w` with clamp [0.05, 4.0] and NEUTRAL-filter (abs(weight - 1.0) > 0.01). Verified worked examples: fire_mage burst ≈ 4.0 (PREFER 2.0 × burst_damage 2.0); lightning_controller chain_lightning ≥ 1.5 (PREFER 2.0 × control 1.0); melee_arc ≤ 0.2 for lightning_controller (AVOID 0.1 × control 0.7 = 0.07, clamped to 0.05). All geometry bias weight bounds [0.05, 4.0] verified at test assertion level. PASS.
+
+**Stat allocation (math note § 5):** Primary-stat-first (160/150 depending on stat), then remainder distributed via `role.stat_emphasis`. Vitality floor applied as Step 6 with multi-donor transfer and `log.warning` when `stats_transferred > 1`. All stat profiles sum to budget (270). No stat below STAT_MINIMUM (5). Multi-stat floor warning test passes (lightning × control case). PASS.
+
+**WP-11 `compute_forbidden_hybrid_pairs()` (math note § 8.3):** Iterates `substrate.forbidden_hybrid_with` (loader-validated for reciprocity by loader rule #10). `HYBRID_FORBIDDEN_PAIRS` at module boot contains `{fire, water}` and `{earth, wind}`; `{holy, shadow}` correctly absent; lightning not in any pair. Reciprocity: loader validates A→B implies B→A at boot — fail-loud. PASS.
+
+**Constraint composition (math note § 6):** Role/substrate/luminance union correct. DPS-role affinity suppression (`_DPS_ROLES_SKIP_AFFINITIES` = burst_damage, area_damage, damage_over_time, primary_attack) correctly excludes `min_4_dps_skills`/`min_1_dps_aoe` from DPS archetypes. Control role explicitly gets these three DPS-floor guards via `_ROLE_CONSTRAINT_TAGS["control"]`. `test_all_constraint_tags_registered` PASS — no unregistered constraint tags in any composed template across the full ARCHETYPE_TEMPLATES registry. PASS.
+
+---
+
+#### Item 2 — Cross-coupling closure (9 sites): PASS
+
+All 9 coupling sites confirmed closed per MIGRATION.md §v3.0 and code inspection:
+
+- **Coupling #1** (`b6_archetype_templates`): `_build_archetype_templates()` → `compose_from_config()` at module import. Physical (5) and hybrid_mage (1) preserved as explicit dicts. Merged at boot. PASS.
+- **Coupling #2** (`archetype_classifier`): `_derive_archetype_tag()` replaces string-literal dispatch for elemental substrates. New substrates auto-handled. PASS.
+- **Coupling #3** (`stat_allocator`): `get_composed_stat_profile()` replaces hardcoded stat profiles for elemental archetypes. Physical fallback to `_PHYSICAL_STAT_PROFILES`; unknown archetype logs warning (no silent hybrid_mage convergence). PASS.
+- **Coupling #4** (`class_generator`): 11 new entries in `_ARCHETYPE_ACTION_REGISTER` + `_ARCHETYPE_ROLE_FUNCTION` confirmed. Backward-compat entries unchanged (fire_mage → "arcane_channel"/"burst"; water_mage → "sustain"). PASS.
+- **Coupling #5** (`b6_kit_builder`): `_check_constraints()` line 485 raises `ValueError` on unknown tag. Silent-skip pattern ELIMINATED. WP-2b CLOSED. PASS.
+- **Coupling #6** (geometry bias): Substrate YAML `geometry_affinities` × role geometry preferences. WP-2c CLOSED. PASS.
+- **Coupling #7** (`b6_kit_builder` constraint registry): 9 new checkers registered: `require_shock_ailment`, `require_consecrate_ailment`, `require_drain_ailment`, `require_chain_or_arc_geometry`, `require_luminance_emitting_skill`, `require_luminance_draining_skill`, `require_primary_attack_skill`, `require_aoe_primary`, `require_defensive_skill`. All present in `_CONSTRAINT_CHECKERS`. PASS.
+- **WP-10** (`ai_strategies.py`): 11 new explicit `ARCHETYPE_ROLE_PRIORITY` entries (earth_burst, wind_burst, 3×lightning, 3×holy, 3×shadow). All controller archetypes have `control` first. `_PLAYER_CONTROLLER_ARCHETYPES` extended with lightning_controller, holy_controller, shadow_controller. PASS.
+- **WP-11** (hybrid forbidden pairs): loader-derived as above. PASS.
+
+**INFO — WP-10 count labeling discrepancy:** Gamora HANDOFF says "18 new entries." Actual new dict entries in ARCHETYPE_ROLE_PRIORITY = 11. The "18" is the count of new archetype tags introduced by D3 (including canonical-four aliases that already had entries). Behavior is correct; HANDOFF labeling is imprecise. Non-blocking. Cite: attribution clarity.
+
+**PHYSICAL_ARCHETYPE_TEMPLATES and `_HYBRID_ARCHETYPE_TEMPLATES` correctly preserved.** No cross-seam consumers of these templates report breakage. PASS.
+
+---
+
+#### Item 3 — WP-9 smoke closure: CLOSED
+
+**earth.yaml fix confirmed landed:** `fork: AVOID` at line 31, `ricochet_bounce: AVOID` at line 32 in `config/substrate_identities/earth.yaml`. Rocket earth.yaml micro-task complete before this review window.
+
+**WP-9 smoke re-run:** `TestWP9SmokeModifierConvergence::test_canonical_four_modifier_convergence` — **PASS** (66 seconds). Pre-D3 baseline of 0.525 for earth_caster is restored. The composition algebra is correct; the substrate declaration was the gap. WP-9 **CLOSED**.
+
+---
+
+#### Item 4 — Discipline #12 sub-finding (DPS-floor tag propagation): PASS
+
+Fix correctly implemented: `_DPS_ROLES_SKIP_AFFINITIES` suppresses `role.constraint_tag_affinities` propagation for burst_damage/area_damage/damage_over_time/primary_attack. `_ROLE_CONSTRAINT_TAGS["control"]` explicitly includes `["min_4_dps_skills", "min_1_dps_aoe", "min_1_dps_early_tier"]`.
+
+Test coverage: `test_wind_controller_constraints_superset_of_legacy` (3 DPS floor tags present in wind_controller) and `test_fire_mage_constraints_superset_of_legacy` (fire_mage has burn/dot/no_heal; no DPS floor leak). Both PASS.
+
+MIGRATION.md §v3.0 documents the semantic shift correctly.
+
+**INFO — roles.yaml upstream cleanup needed:** `min_4_dps_skills`/`min_1_dps_aoe` remain in `burst_damage` and `area_damage` `constraint_tag_affinities` in roles.yaml. They are correctly suppressed by D3 composition but are semantically misplaced (they are wind_controller-origin guards, not DPS-role attributes). Route to rocket as a discrete micro-task (roles.yaml cleanup, ~30 min). Non-blocking for D3 or D10. Cite: Discipline #12.
+
+---
+
+#### Item 5 — Test suite health: PASS
+
+- 69/69 D3 tests GREEN
+- 153/153 D3+D4 tests GREEN
+- 436/436 cross-seam tests GREEN (substrate identity, role registry, ailment registry, D4 AI strategies, canonical four LLM guard)
+- `test_no_canonical_four_in_llm_prompts.py` 22 tests GREEN (D6 Step-4 slots fix already landed at D15)
+- `b6_kit_builder.py HYBRID_FORBIDDEN_PAIRS` import break: **RESOLVED.** `b6_archetype_templates.py` exports loader-derived `HYBRID_FORBIDDEN_PAIRS`; `b6_kit_builder.py` imports cleanly.
+
+**Coverage gap (INFO):** No end-to-end integration test exercises a full class generation run with a composed lightning/holy/shadow archetype through the kit builder to a valid `ClassSpec` output. This is not a D3 obligation; D10 code phase will exercise this path. Recommend gamora add a smoke-regen check confirming at least one new substrate archetype generates a complete valid class artifact as part of the D10 code phase commitment. Cite: Discipline #2 (smoke-test vs full-regen).
+
+---
+
+#### Item 6 — D10 math note re-affirmation: PASS + READY
+
+D10 math note assumptions against D3 implementation:
+- `compose_all_templates()` produces 21 substrate-role pairs: **CONFIRMED** (7 substrates × 3 composition roles; aliases collapse to 18 distinct tags per `compose_all_templates()` deduplication logic).
+- Deterministic archetype_tag derivation from substrate × role: **CONFIRMED** (`_derive_archetype_tag()` is deterministic; test `TestArchetypeTagDerivation` passes).
+- `role_affinities` loaded from substrate YAML: **CONFIRMED** (`SubstrateIdentity.role_affinities` populated by rocket D1 loader rule, fail-loud on missing fields).
+- D3 composition roles = `{burst_damage, area_damage, control}`: **CONFIRMED** (exact match with `_COMPOSITION_ROLES`).
+
+Gandalf D10 Q1 DECISION (UNIFORM Trial weighting) and Q2 DECISION (NO suppression for P1) were issued before D3 code phase opened. Both absorbed into D10 math note § 5.3 and § 2.6. D3 implementation has no dependency on these decisions; no amendment to D10 math note required.
+
+**D10 code phase: READY.** No math note amendment. No D3 implementation conflict. Gamora may proceed.
+
+---
+
+#### Watchpoint closures
+
+| Watchpoint | Prior status | New status |
+|---|---|---|
+| WP-2b (constraint silent-skip) | OPEN | **CLOSED** — kit builder fail-loud confirmed |
+| WP-2c (geometry silent-neutralization) | OPEN | **CLOSED** — substrate YAML drives composition |
+| WP-9 (earth_caster smoke regression) | REGRESSION → earth.yaml | **CLOSED** — earth.yaml patched; smoke PASS |
+| WP-10 (18 new ARCHETYPE_ROLE_PRIORITY entries) | OPEN | **CLOSED** — 11 new explicit entries confirmed |
+| WP-11 (HYBRID_FORBIDDEN_PAIRS loader-derived) | OPEN | **CLOSED** — loader-derived from substrate.forbidden_hybrid_with |
+| WP-3b (D10 math note pre-code gate) | PENDING | **CLOSED** — D10 math note approved; code phase READY |
+
+**Open INFO items carried forward (non-blocking):**
+- roles.yaml DPS-floor tag cleanup → route to rocket micro-task
+- End-to-end new-substrate smoke → gamora D10 code phase commitment
+- WP-10 HANDOFF count-labeling discrepancy → notation only
+
+---
+
+**DECISION: APPROVE WITH CONDITIONS (no blocking conditions; all conditions are INFO)**
+
+D10 code phase and D8/D9 implementation queue may proceed. The structural seam of Phase-1 P1 is sound. Composition algebra, coupling closure, watchpoint resolution, and test health all pass. The Discipline #12 semantic shift from 14-hardcoded to N-composed is well-documented and empirically verified.
+
+**Tag recommendation:** `jack-ryan/v1.0-post-d3-checkpoint-review-approved`
+
+— jack-ryan
+

@@ -65,14 +65,14 @@ Known gap: drax loadout has no MIGRATION.md and no cross-seam boundary tests. Wi
 ### WP-2b: Coupling #7 — constraint checker silent skip (gamora D3)
 
 **File:** `src/reincarnated/generation/b6_kit_builder.py` constraint-checker registry  
-**Current state:** Unknown constraint tags silently skip (no assertion on unrecognized tag).  
+**Current state:** **CLOSED 2026-05-18** — `_check_constraints()` raises `ValueError` on unknown tag. 9 new checkers registered. Verified at `gamora/v1.4-d3-path-a-impl-1`.  
 **Required fix (D3):** Fail-loud on unknown constraint tags per scope-of-work § 1.1 D3 Coupling #7.  
 **Trigger:** gamora ships D3 refactor without adding explicit `raise ValueError(f"Unknown constraint tag: {tag}")` or equivalent.
 
 ### WP-2c: Coupling #6 — geometry-bias silent-neutralization (gamora D3)
 
 **File:** `src/reincarnated/generation/b6_archetype_templates.py` per-archetype geometry bias  
-**Current state:** Geometry biases are hardcoded per archetype. Post-D3, new substrate archetypes (lightning, holy, shadow) get composed. If `geometry_affinities` lookup falls back to 1.0×, the bias is silently neutralized — lightning archetypes won't prefer chain_lightning geometry.  
+**Current state:** **CLOSED 2026-05-18** — `_compose_geometry_bias()` correctly multiplies `substrate.geometry_affinities` × `_ROLE_GEOMETRY_PREFS`. NEUTRAL-filter prevents 1.0× clutter. All 7 substrates produce non-neutral geometry biases. WP-9 smoke PASS post earth.yaml fix. Verified at `gamora/v1.4-d3-path-a-impl-1`.  
 **Required fix (D3):** Composition function MUST multiply `SubstrateIdentity.geometry_affinities` × role's geometry preferences. No fallback to uniform 1.0×.  
 **Trigger:** gamora D3 ships without confirming per-substrate geometry outputs for all 7 substrates (empirical check).
 
@@ -114,6 +114,7 @@ Gamora's D7 math note is committed at `45a6014`. Gamora's AGENT_STATE explicitly
 ### WP-3b: D10 (substrate-coherent generation rules) — frequency analysis required
 
 Before gamora begins D10 code, per-substrate generation-frequency analysis must be authored. Specifically: at 7 substrates rotating through seasons, what is the expected per-substrate appearance frequency? Are any substrates over- or under-represented?  
+**Status: CLOSED 2026-05-18** — D10 math note approved at `gamora/v1.4-d10-substrate-coherent-gen-math-1 @ abab9c4`. Frequency analysis complete in § 2.5/§ 6. D10 code phase READY.  
 **Trigger:** gamora commits D10 code without a `simulation/math/substrate-generation-frequency-d10.md` (or equivalent) authored first.
 
 ### WP-3c: D14 (Layer-3 diversity gate) — similarity metric formula required
@@ -226,15 +227,24 @@ Per perception-test-experiment-scoping § 7.3: jack-ryan reviews drax's referenc
 
 ---
 
-## Active observation queue (as of 2026-05-17)
+## Active observation queue (updated 2026-05-18 post-D3 checkpoint review)
 
 | Priority | Item | Status |
 |---|---|---|
-| 1 | D7 math note review (gamora requesting) | **PENDING — first active action** |
-| 2 | D1 commit — verify substrate identity loader commits cleanly; all 107 tests pass in git | Awaiting rocket commit |
-| 3 | D27 reference-monster spec review | Awaiting drax HANDOFF |
-| 4 | D6 plan review (star-lord) — confirm 9 call sites complete and open questions filed | Ready to review |
-| 5 | Loadout jest→vi fix — file INFO observation | Low priority; non-blocking |
+| ~~1~~ | D7 math note review | **CLOSED** (approved 2026-05-17) |
+| ~~2~~ | D1 commit coherence check | **CLOSED** (rocket D1 @ `1e951be`) |
+| ~~3~~ | D27 reference-monster spec review | **CLOSED** (drax D27 @ `drax/v0.23`) |
+| ~~4~~ | D6 plan review | **CLOSED** (star-lord D6 @ `3d84a24`) |
+| ~~5~~ | Loadout jest→vi fix | Low priority; non-blocking |
+| ~~WP-2b~~ | Kit builder constraint silent-skip | **CLOSED** D3 @ `048611a` |
+| ~~WP-2c~~ | Geometry bias silent-neutralization | **CLOSED** D3 @ `048611a` |
+| ~~WP-9~~ | earth_caster smoke regression | **CLOSED** earth.yaml patched; smoke PASS |
+| ~~WP-10~~ | New ARCHETYPE_ROLE_PRIORITY entries | **CLOSED** 11 new entries confirmed |
+| ~~WP-11~~ | HYBRID_FORBIDDEN_PAIRS loader-derived | **CLOSED** substrate.forbidden_hybrid_with |
+| ~~WP-3b~~ | D10 math note pre-code gate | **CLOSED** D10 approved; code phase READY |
+| 1 | roles.yaml DPS-floor tag cleanup | INFO — route to rocket micro-task |
+| 2 | New-substrate end-to-end integration smoke | INFO — gamora D10 code phase commitment |
+| 3 | D3 → D14 downstream smoke (Layer-3 diversity gate) | Active — monitor as D8/D9 impl lands |
 
 ---
 
