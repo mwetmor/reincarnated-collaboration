@@ -1322,12 +1322,38 @@ This section extends Section 12 with **active mobility / defensive evasion** as 
 
 ### 🔴 Open → architectural items resolved via B13; tuning details remain for engine impl
 
-1. **Specific evasion geometry roster.** → **LOCKED: 5 geometries** (`roll`, `defensive_dash`, `strafe_mode`, `blink`, `dodge_stance`). Additions like `parry` or `phase_shift` parked as post-B13 extension if playtest demand surfaces.
-2. **i-frame duration ranges.** Genre median: roll ~0.3-0.5s i-frames; dash ~0.2s; longer abilities = no i-frames just movement. Per-skill or palette-wide defaults?
-3. **Cast time on player abilities.** D2/PoE have very few player-side cast times (mostly instant); D4 has some. Should player abilities have telegraphs (other players see them coming) or only enemy abilities?
-4. **Telegraph indicator shape vs hitbox.** Already discussed in post-B11 park-list note: player AOE indicator ~0.92× hitbox (generous edges); enemy AOE indicator ~1.08× hitbox (dodges feel narrow). Lock this when B13 ships.
-5. **Mobility role-tagging in generator.** Should "mobility" be a kit role (like primary_attack / burst / AOE / defensive / utility) so the generator's role coverage rules can include/exclude it cleanly? Or remain implicit (mobility geometries can fill the "utility" role)?
-6. **Archetype-emergence reporting cadence.** Per-season, or cross-season? Surfaced where (telemetry CLI? export packet? memory file?)?
+1. **Specific evasion geometry roster.** → **LOCKED: 5 geometries** (`roll`, `defensive_dash`, `strafe_mode`, `blink`, `dodge_stance`). Additions like `parry` or `phase_shift` parked as post-B13 extension if playtest demand surfaces. **STAY OPEN; B13-proper at Stage A2 closeout** — the 5-geometry roster is a B13-proper deliverable as *kit-pool additions on top of the universal dodge floor* (per L3 narrow-slice decision 2026-05-17; see amendment below). The narrow slice ships the universal dodge mechanic only; the 5 mobility geometries layer on later as per-class kit additions.
+2. **i-frame duration ranges.** → **LOCKED for narrow slice (2026-05-17):** universal dodge i-frame window 0.4s default; substrate numerical asymmetry for earth (~0.45s, shorter distance ~3m) and wind (~0.4s, longer distance ~5m); all other substrates 0.4s/4m. Per gandalf L3 briefing § 2.2. Rationale: minimum substrate-coupling that honors cosmological commitments (earth refuses to move; wind moves things best) without making dodge a balance-sensitive system. Per-skill mobility-ability i-frames remain a B13-proper question.
+3. **Cast time on player abilities.** → **LOCKED for narrow slice (2026-05-17): NO player-AOE telegraph in solo play.** Player AOEs do NOT telegraph; player kit self-discipline is enforced via cooldown not visual telegraph. Per gandalf L3 briefing § 3.6. Multiplayer (out of scope per `project_design_intent.md`) would re-evaluate. Player-AOE indicators DO show post-cast for ~0.3s at 0.92× hitbox (visual feedback only; no escape window from own AOE).
+4. **Telegraph indicator shape vs hitbox.** → **LOCKED for narrow slice (2026-05-17):** indicator geometry mirrors AOE hit-region exactly (existing geometry-painter reuse). Enemy indicator scaling 1.08× hitbox (dodges feel narrow); player post-cast indicator 0.92× hitbox (generous edges, no windup). Per gandalf L3 briefing § 3.3 + existing post-B11 lock. Rocket schema fields landing per `2026-05-17-rocket-narrow-slice-engine-schema-fields.md` dispatch (`windup_duration_seconds` + `indicator_color_hex` per substrate).
+5. **Mobility role-tagging in generator.** **STAY OPEN; B13-proper at Stage A2 closeout** — narrow slice ships universal dodge mechanic but does NOT introduce mobility-as-kit-role taxonomy; that lives with the 5-geometry kit-pool additions in B13-proper.
+6. **Archetype-emergence reporting cadence.** → **LOCKED for narrow slice (2026-05-17): per-substrate windup table** per gandalf L3 briefing § 3.2 (fire 0.8-1.2s escalating; water 1.0-1.5s filling; earth 0.4-0.7s instant+persistent; wind 0.5-0.8s directional; lightning 0.0-0.2s first-arc + 0.4-0.6s chain; holy 1.5-2.0s radiant; shadow 0.3-0.5s late-commit). Cadence values consumed via `windup_duration_seconds` schema field (rocket dispatch). Archetype-emergence telemetry surfacing remains a B13-proper question.
+
+---
+
+### 🟢 Amendment 2026-05-17 — Narrow-slice Phase-1 P1 extension (L3 binding decision)
+
+**Source:** gandalf L3 briefing `canonical/story/dodge-plus-telegraphed-combat-l3-briefing-2026-05-17.md` (tag `gandalf/v1.2-dodge-and-telegraphed-combat-l3-briefing-1` @ `3ec108f`); Matt standing delegation; PARTIAL Phase-1 P1 extension chosen per § 7 recommendation.
+
+**What landed in the narrow slice (folded into Phase-1 P1 as Deliverable 28):**
+
+- Universal player dodge mechanic (Shift-key; ~0.4s i-frame; ~4m distance; 4-5s shared cooldown; substrate-VFX-coupled animation per briefing § 2.2; substrate numerical asymmetry for earth/wind only)
+- Enemy-AOE ground-indicator system (per-substrate windup character per briefing § 3.2; `windup_duration_seconds` + `indicator_color_hex` schema fields per rocket dispatch)
+- Elite-tier reactive escape AI (perpendicular-escape on visible player-AOE indicator with 50-70% probability; gamora narrow-slice work)
+- Player AOEs DO NOT telegraph (solo-play discipline; post-cast 0.3s indicator at 0.92× for feedback only)
+- Indicator geometry mirrors AOE hitbox exactly (geometry-painter reuse)
+
+**What stays open for B13-proper (Stage A2 closeout per `canonical/16-project-roadmap.md`):**
+
+- 5 defensive mobility geometries as kit-pool additions (`roll` / `defensive_dash` / `strafe_mode` / `blink` / `dodge_stance`) — items #1 above
+- Mobility role-tagging in the generator — item #5 above
+- Mini-boss + boss strategic / anticipatory / substrate-coherent escape AI (per briefing § 4.3)
+- Archetype-emergence observability (kit-mobility composition per-class per-season telemetry)
+- Future trait-pool extension surface for windup-modulating / escape-modulating traits (per briefing § 3.4; Phase-1 P2 or B13-proper)
+
+**B13 scope reduction:** narrow slice covers ~25% of original B13 scope; remaining B13 estimate ~2.5-3 weeks at Stage A2 closeout (down from 3-4 weeks per `canonical/16a-roadmap-shipped-log.md` line 86). See `canonical/16-project-roadmap.md` § "What comes after VS2a + VS2b" for the amended B13 scope.
+
+**Why the narrow slice exists:** the D27 perception test was at risk of false-negatives without a spatial-combat substrate (per briefing § 1.3). The narrow slice is the *minimum-viable* substrate that lets substrate-identity-declarations (per `canonical/story/substrate-identity-declarations-2026-05-17.md`) be perceptually distinguishable in 90-second fights. Full B13 polish (richness for the shipped game) stays in its existing post-VS2a slot.
 
 ### 📚 Reference notes (genre research)
 

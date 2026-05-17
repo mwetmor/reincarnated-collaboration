@@ -141,7 +141,9 @@ Fresh regenerated season demonstrates: cipher migration (LLM no longer sees cano
 
 ## 📋 What comes after VS2a + VS2b
 
-**Stage A2 closeout** — items deferred from VS2a return to Stage A2 sprint: B7 (gear-percentile variance gate), B12 full audit (boots/gloves/belt + +% MS affixes + hard-cap), B13 (active mobility + telegraphs + i-frames), B14 (multi-band convergence sim), B16 (loot drop architecture). ~6-10 weeks after VS2a/VS2b close.
+**Stage A2 closeout** — items deferred from VS2a return to Stage A2 sprint: B7 (gear-percentile variance gate), B12 full audit (boots/gloves/belt + +% MS affixes + hard-cap), B13 (active mobility + telegraphs + i-frames — **reduced scope** post-narrow-slice; see below), B14 (multi-band convergence sim), B16 (loot drop architecture). ~6-10 weeks after VS2a/VS2b close.
+
+**🟢 B13 scope reduction (2026-05-17 L3 narrow-slice decision).** Per gandalf L3 briefing `canonical/story/dodge-plus-telegraphed-combat-l3-briefing-2026-05-17.md` § 7 (binding per Matt standing delegation), a *narrow slice* of B13 was folded into Phase-1 P1 as Deliverable 28 (universal dodge mechanic + enemy-AOE telegraph indicators + elite-tier reactive escape AI + cross-doc updates). This covers **~25% of original B13 scope.** Remaining B13 estimate: **~2.5-3 weeks at Stage A2 closeout** (down from 3-4 weeks per `16a-roadmap-shipped-log.md` line 86). Remaining B13-proper scope: 5 defensive mobility geometries as kit-pool additions (`roll` / `defensive_dash` / `strafe_mode` / `blink` / `dodge_stance`); mini-boss + boss strategic/anticipatory/substrate-coherent escape AI; archetype-emergence observability; mobility role-tagging in generator; full B13 trait-pool extension surface. See `canonical/32-progression-design.md` § 12.5 Amendment 2026-05-17 for narrow-slice locks + B13-proper open items.
 
 **Stage A2 forward-audit (gandalf) watch-items** — per `canonical/story/p6-forward-audit-2026-05-16.md`:
 - B6 skill-tree UI surface decomposition (CRITICAL — same as VS2a gap above)

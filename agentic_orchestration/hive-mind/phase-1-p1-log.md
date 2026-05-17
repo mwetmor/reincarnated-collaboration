@@ -4250,3 +4250,84 @@ Three inference edge cases observed during implementation; surfaced for hive awa
 **No action required now.** Inferred categories are labeled as demo-inferred; canonical taxonomy is a separate gandalf design surface per dispatch out-of-scope clause. When taxonomy lands, replace `inferSkillTiers()` with engine-emitted field.
 
 — drax
+
+---
+
+### [2026-05-17] PRE-SIGNAL — gandalf — appending hive log (§ 14.1.1 race-condition discipline)
+
+`git fetch origin` complete in `reincarnated-collaboration`. Hive-log tip at `f4eca28` (drax v0.28 OBSERVATION); no concurrent commits to hive log detected since fetch. Working tree: 3 canonical doc edits staged in-memory (canonical-32 § 12.5 amendment; canonical-16 B13 scope-reduction note; substrate-identity-declarations § 9.1 amendment) + 1 decisions-log draft file created in `reincarnated-engine/design/decisions/drafts/`. Appending STATE + 2 HANDOFFs below.
+
+— gandalf
+
+---
+
+### [2026-05-17] STATE — gandalf — Narrow-slice cross-doc updates COMPLETE
+
+**Dispatch:** `2026-05-17-gandalf-narrow-slice-cross-doc-updates.md`
+**Predecessor:** L3 briefing `gandalf/v1.2-dodge-and-telegraphed-combat-l3-briefing-1` @ `3ec108f`
+**Tag intent:** `gandalf/v1.3-narrow-slice-cross-doc-updates-1` (to be cut at commit)
+
+All 5 dispatch items shipped:
+
+1. **`canonical/32-progression-design.md` § 12.5 amended.** Items #2 (i-frame durations) / #3 (player-cast telegraphs) / #4 (indicator hitbox) / #6 (cadence) locked per narrow-slice spec. Items #1 (5-geometry roster) / #5 (mobility role-tagging) explicitly noted "STAY OPEN; B13-proper at Stage A2 closeout." New "Amendment 2026-05-17 — Narrow-slice Phase-1 P1 extension (L3 binding decision)" subsection appended capturing what landed in narrow slice vs what stays open for B13-proper, plus the D27-perception-test rationale.
+
+2. **`canonical/16-project-roadmap.md` B13 scope-reduction note added** to § "What comes after VS2a + VS2b" / Stage A2 closeout. Narrow slice ~25% of B13 scope; remaining B13 ~2.5-3 weeks (down from 3-4 weeks). Cross-references gandalf L3 briefing as source-of-truth.
+
+3. **`canonical/story/substrate-identity-declarations-2026-05-17.md` § 9.1 amendment added.** Documents Layer-0 spatial-combat substrate underwriting the Layer-1 declarations; itemizes per-substrate Layer-0-dependency examples (wind `displace`, earth `unyielding`, fire-vs-water pillars, lightning `chain`, holy/shadow zones); cross-references narrow-slice resolution (universal dodge + per-substrate windup + elite reactive escape) and remaining B13-proper polish. Layer-1 declarations themselves unchanged by this amendment.
+
+4. **Decisions-log DRAFT entry authored** at `reincarnated-engine/design/decisions/drafts/2026-05-17-narrow-slice-telegraphed-combat-extension-DRAFT.md`. Format follows 2026-05-16 movement-speed-baseline entry (Decision → Reasoning → Alternatives → Cascade → Status → Related). Drafting notes section calls out load-bearing argument structures jack-ryan should preserve under amendment. **Not direct-committed to `decisions-log.md`** — per protocol § 5.3, jack-ryan owns final accept; knight-rider routes the commit.
+
+5. **Hive-log STATE + 2 HANDOFFs** — this entry + below HANDOFFs to jack-ryan + rocket.
+
+**Out-of-scope confirmed not touched:** no engine code; no D8/D9 amendments; no hive-mind protocol amendments; no direct decisions-log commits.
+
+**Open questions for Matt:** the 7 briefing § 9 open questions remain. Gandalf stays LIVE for Matt L3 follow-up Q&A per dispatch continuous-availability ramp. Knight-rider surfaces if/when needed.
+
+— gandalf
+
+---
+
+### [2026-05-17] HANDOFF — gandalf → jack-ryan — Decisions-log DRAFT ready for review
+
+**Draft artifact:** `reincarnated-engine/design/decisions/drafts/2026-05-17-narrow-slice-telegraphed-combat-extension-DRAFT.md`
+
+**Title (suggested):** "L3 — Narrow-slice telegraphed-combat extension for Phase-1 P1 (2026-05-17)"
+
+**Insertion location (suggested):** after the 2026-05-16 movement-speed-baseline entry, before "Recently considered, not yet decided" in `reincarnated-engine/design/decisions/decisions-log.md`.
+
+**Review surfaces:**
+
+- Format conformance with the 2026-05-16 movement-speed-baseline entry (the closest recent precedent for L3-cascade-style entries with parallel ownership tracks)
+- Argument structure: cosmological-vs-pragmatic 70/30 weighting and son-as-substrate-identification framing are intentionally load-bearing — drafting notes call this out
+- Alternatives section: 6 alternatives surfaced (FULL P1 extension; Phase-2 deferral; stamina-gated dodge; D4 charges; pure per-class mobility; substrate-coupled dodge mechanic). Confirm coverage matches briefing § 2.3 + § 7.3 thoroughness.
+- Cascade table: 6 entries with mixed status (rocket DISPATCHED; gandalf DISPATCHED; gamora QUEUED; drax QUEUED; knight-rider PENDING registration; jack-ryan PENDING accept). Format mirrors 2026-05-16 entry.
+- Related-links exhaustiveness: 12 cross-references including canonical docs (post-amendment), perception-test scoping, engine code anchors, drax demo primitive, parallel dispatches, briefing tag + commit.
+
+**Drafting notes section in the draft itself names the three load-bearing argument structures explicitly so they survive amendment.** Please preserve those under any rewrite; the rest is freely amendable.
+
+**Routing:** jack-ryan reviews → knight-rider commits to `decisions-log.md` proper (final accept routes through knight-rider per protocol § 5.3). Gandalf will not direct-commit.
+
+**Timing:** No hard deadline; the briefing's 48hr soft / 5d hard decision-by window applies to Matt's L3 confirmation, not jack-ryan's review of this draft. Suggest landing alongside or shortly after Matt's confirmation surfaces so the decisions-log entry reflects the accepted decision rather than the proposed one. If Matt amends scope, this draft amends with him.
+
+— gandalf
+
+---
+
+### [2026-05-17] HANDOFF — gandalf → rocket — Schema-field consumer obligations formally documented
+
+**Context:** Your in-flight schema work per dispatch `2026-05-17-rocket-narrow-slice-engine-schema-fields.md` (windup_duration_seconds + indicator_color_hex). The cross-doc updates this gandalf session shipped formally document the consumer obligations against your schema additions:
+
+1. **`canonical/32-progression-design.md` § 12.5 Item #6 (post-amendment)** — now references your `windup_duration_seconds` field as the carrier of per-substrate windup cadence. The per-substrate values (fire 0.8-1.2s; water 1.0-1.5s; earth 0.4-0.7s; wind 0.5-0.8s; lightning 0.0-0.2s first-arc + 0.4-0.6s chain; holy 1.5-2.0s; shadow 0.3-0.5s) are now canonical Layer-1 design references — your YAML defaults must match these ranges. Briefing § 3.2 remains the authoritative source-of-truth for cosmological character; canonical-32 § 12.5 mirrors them as the design-decision lock.
+
+2. **`canonical/32-progression-design.md` § 12.5 Item #4 (post-amendment)** — cites your schema dispatch by name as the carrier of `indicator_color_hex`. The 1.08× enemy / 0.92× player asymmetric scaling stays at consumer side (drax demo render); your field provides the substrate color, not the scaling.
+
+3. **`canonical/story/substrate-identity-declarations-2026-05-17.md` § 9.1 (new amendment)** — names the rocket schema-fields dispatch as the implementation surface for the narrow-slice Layer-0 substrate. Your two fields are now part of the Layer-0-substrate substrate-identity contract (alongside the existing `mechanical_signature`, `combat_pillar`, `geometry_affinities`, etc.).
+
+4. **Decisions-log DRAFT entry (pending jack-ryan accept)** — cascade table row #1 references your dispatch + completion status; "Related" links include your dispatch path.
+
+**No action required from you on these doc updates.** This HANDOFF is purely informational — you see this when consuming the canonical docs to ensure your YAML defaults align. If your implementation reveals that any of the windup ranges need tightening (e.g., shadow 0.3-0.5s may want to be 0.2-0.4s after seeing it in a smoke test), surface to gandalf via HANDOFF; canonical-32 § 12.5 + the briefing § 3.2 are the right amendment targets (not the YAML alone — keep them in sync per Discipline #13a).
+
+**Per-substrate value confirmation:** if your loader validation defaults match the briefing § 3.2 table (within tolerance you choose), the consumer obligations are satisfied. Lightning is the trickiest case (two-stage: 0.0-0.2s first-arc + 0.4-0.6s chain) — confirm whether you implement as single field (use 0.4-0.6s as chain dominant; first-arc handled by `is_chain_strike` skill metadata) or two fields. Either is acceptable; brief gandalf if you split the field so canonical-32 § 12.5 reflects the schema reality.
+
+— gandalf
+

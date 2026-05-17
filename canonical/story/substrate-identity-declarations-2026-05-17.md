@@ -594,6 +594,34 @@ These 7 declarations are *canonically authored*; engine integration requires:
 
 ---
 
+### § 9.1 — Amendment 2026-05-17: Layer-0 spatial-combat substrate underwrites these declarations
+
+**Authority:** gandalf L3 briefing `canonical/story/dodge-plus-telegraphed-combat-l3-briefing-2026-05-17.md` (tag `gandalf/v1.2-dodge-and-telegraphed-combat-l3-briefing-1` @ `3ec108f`); Matt standing delegation; PARTIAL Phase-1 P1 extension chosen per briefing § 7.
+
+The seven substrate identity declarations above instantiate **Layer-1** of the diversity architecture (per `substrate-identity-declaration-spec-2026-05-17.md`). Their perceptual legibility — what makes wind's `displace` verb feel different from fire's `escalation` verb in a 90-second fight — is **conditional on a Layer-0 spatial-combat substrate** that the spec deliberately did not specify (it presupposed ARPG conventions).
+
+Matt's son surfaced the missing Layer-0 in focused-playtest test 6 (2026-05-17): *"it would be way more fun if it seemed like the monsters could move out of range of your AOE and vice versa, if you could dodge roll out of the way, or run."* This is the engagement-loop substrate that the Layer-1 declarations assume but the engine did not yet ship.
+
+**Specifically, these Layer-1 declarations are dependent on Layer-0 spatial combat for perceptual legibility:**
+
+- **Wind** `mechanical_signature: [displace, knockback, redirect, mobility]` — collapses into "fire with cyan tint" if monsters cannot be moved out of position AND cannot move to evade.
+- **Earth** `cosmological_commitment: "the substrate of unyielding — what does not move and will not be moved"` — unfalsifiable if nothing moves.
+- **Fire** `combat_pillar: HIGH_BURST_LOW_PERSIST` vs **Water** `SUSTAINED_PRESENCE_ZONE_DENIAL` — pillars resolve identically into "do damage in a fixed area" without movement-into-and-out-of-presence-zones.
+- **Lightning** `mechanical_signature: [chain, propagate, arc, discharge]` — `chain` is identical to flat AOE if monsters cannot reposition between arcs.
+- **Holy / shadow** — `consecrate` zones only matter if targets can enter or leave them; `conceal` only matters if perception decides hit/miss windows.
+
+**Resolution:** the narrow-slice Phase-1 P1 extension (Deliverable 28) ships the Layer-0 substrate:
+
+- Universal player dodge mechanic (Shift-key; substrate-VFX-coupled animation per briefing § 2.2; substrate numerical asymmetry for earth/wind only)
+- Enemy-AOE ground-indicator system with per-substrate windup character (per briefing § 3.2; rocket schema fields `windup_duration_seconds` + `indicator_color_hex` per `2026-05-17-rocket-narrow-slice-engine-schema-fields.md` dispatch)
+- Elite-tier reactive escape AI (gamora narrow-slice work)
+
+Full B13 polish (5 defensive mobility geometries as kit-pool additions; mini-boss/boss strategic + substrate-coherent escape AI; archetype-emergence observability) stays in its existing post-VS2a slot per `canonical/16-project-roadmap.md` § Stage A2 closeout (B13 scope reduced ~25% by narrow slice; ~2.5-3 weeks remaining).
+
+**These declarations are unchanged at the Layer-1 layer by this amendment.** The amendment-note merely acknowledges that Layer-1 legibility *requires* Layer-0 — which the narrow slice now delivers in time for the D27 perception test to land cleanly. See briefing § 1.3 for the D27-false-negative-risk analysis the narrow slice closes.
+
+---
+
 ## § 10 — Cross-references
 
 - `canonical/story/substrate-identity-declaration-spec-2026-05-17.md` — the spec these declarations instantiate
