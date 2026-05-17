@@ -198,3 +198,22 @@ PRE-SIGNAL before hive-log append (per § 14.1.1 race-condition discipline ganda
 ---
 
 *Dispatched 2026-05-17 by knight-rider per Matt L3 disposition. Estimated 2-4 hours. Append completion record when done.*
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-18 by drax-demo.
+**Tag:** `drax/v0.25-playtest-ux-polish-bundle-1` @ commit `1e6d867` in `reincarnated-demo`.
+**Hive log:** STATE + OBSERVATION entries appended to `phase-1-p1-log.md`.
+**Collab commit:** `35027e1`.
+
+**Items completed:**
+
+- **Item 1 (HIGH — hotbar scroll):** DONE. Added `_syncUiToScreen()` in main.ts. Called at 5 stage-mutation sites. Root cause: camera moves `app.stage` which carries `_layers.ui`; counter-offset fixes it.
+- **Item 2 (HIGH — LMB movement):** ALREADY DONE. Phase 9.3 implements the exact behavior. No changes needed.
+- **Item 3 (MEDIUM — debug geometry):** DONE. `DEBUG_DRAW = false` constant + hide `glowRing` + `weaponOverlay` when chierit/monster sprite ready in `tickCombatantAnimation`.
+- **Item 4 (MEDIUM — archetype text):** DONE. `nameLabel.y = -158`, `subtitleLabel.y = -143`. Clears tallest chierit (142px at 2.5x). P7 suppression preserved.
+- **Item 5 (HIGH — season audit):** COMPLETE. All 5 seasons are pre-D3 (generated 2026-05-09/10). No engine_version/SHA in metadata. Zero post-D3 archetype tags (lightning/holy/shadow absent). Path forward: gamora regens 5 standard-demo seasons with post-D3 engine; drax updates SEASON_IDS pointer. Observation filed to knight-rider.
+
+**Build:** tsc + vite clean. Tests: 326/326 pass.
