@@ -3331,3 +3331,72 @@ No QUESTION raised to gandalf — spec asserts ≥2σ; quick-check shows all fou
 
 — drax-demo
 
+---
+
+### [2026-05-18 HiveZ] STATE — drax-loadout — D19 Sub-phase A session open
+
+Required reading complete:
+- `phase-1-p1-log.md` — full read top to bottom. State at session-open:
+  - D1/D2/D4/D5/D7 math+code/D17 SHIPPED (rocket); D6 Steps 1-4/D15 SHIPPED (star-lord); D20/D8/D9 SHIPPED (gandalf); D27 Track A SHIPPED (drax-demo + gandalf + jack-ryan)
+  - Gandalf DECISION [2026-05-18 00:00Z] on Frostwindz Deathbringer: Option C CONDITIONAL ACCEPT (UI thumbnails permitted; in-combat VFX DENIED)
+  - D17 Court persistence SHIPPED (`a8808ac`) — drax D17 loadout browser surface UNBLOCKED
+- `d19-vfx-library-extension-plan.md` — full re-read; Sub-phase A scope confirmed
+- `substrate-identity-declarations-2026-05-17.md` — geometry_affinities per substrate consumed for manifest schema
+
+**Initial-task acknowledgement:** D19 Sub-phase A — chierit ZIP extraction + vfx-manifest.json authoring + MIGRATION.md.
+
+— drax-loadout
+
+### [2026-05-18 HiveZ] STATE — drax-loadout — D19 Sub-phase A: chierit extraction COMPLETE
+
+All 10 chierit Elementals ZIPs extracted to `reincarnated-demo/public/assets/chierit/<character_slug>/`.
+
+- fire_knight: 349 PNGs, 32 GIFs | water_priestess: 328/30 | ground_monk: 281/26
+- crystal_mauler: 306/31 | leaf_ranger: 482/35 | metal_bladekeeper: 324/35
+- wind_hashashin: 293/29 | lightning_ronin: 408/39 | light_valkyrie: 520/47 | shadow_stalker: 550/53
+- **Total: 3,841 PNGs + 357 GIFs (10 character packs, 4,211 files)**
+
+Path convention (L1 in-seam): `public/assets/chierit/<character_slug>/` normalized lowercase.
+Demo commit: `c5d8a40`. License: commercial-use-permitted per itch.io bundle purchase; no embedded license.txt.
+
+— drax-loadout
+
+### [2026-05-18 HiveZ] STATE — drax-loadout — D19 Sub-phase A: vfx-manifest.json + MIGRATION.md COMPLETE
+
+**`reincarnated-loadout/data/vfx-manifest.json` authored** (schema v1.0):
+- 7 substrates: fire/water/earth/wind/lightning/holy/shadow with grouping_labels from D20 v1.2
+- geometry_animation_map keys match substrate-identity-declarations geometry_affinities exactly (D15/D17 coordination point)
+- All 10 extracted chierit packs registered (extraction_status, png_count, gif_count, animation_groups)
+- Frostwindz Deathbringer: register_risk + permitted_uses/denied_uses per gandalf DECISION [2026-05-18 00:00Z]
+- Combat VFX ready: fire/water/earth(stone)/wind/lightning; NOT ready: holy (entity-only), shadow (void_pool only)
+- Schema extensible (Discipline-candidate #16): new substrate = new dict entry; no consumer code changes
+
+**`reincarnated-loadout/MIGRATION.md` authored** (new file — closes WP-4a):
+- §v1.0-vfx-manifest: geometry_animation_map key constraint, chierit extraction table, Frostwindz disposition, consumer responsibilities per seam, schema evolution notes
+
+**Smoke:** vfx-manifest.json parses clean (all structural assertions pass); loadout build 687 modules 0 TS errors.
+Loadout commit: `f659c90` | AGENT_STATE: `9f4bdc8` | Tag: `drax/v0.23-d19-sub-phase-a-chierit-extraction-manifest-1`
+
+— drax-loadout
+
+### [2026-05-18 HiveZ] QUESTION — drax-loadout → star-lord — manifest geometry key naming alignment (D15/D17/D22)
+
+vfx-manifest.json `geometry_animation_map` keys are now committed at `f659c90`. Keys are drawn from substrate-identity-declarations geometry_affinities (burst/cone/arc/bolt_line/branching/chain_lightning/circle/creep/ground_targeted_circle/line/melee_arc/nova/pillar/projectile/radiant_aura/shaft/slam/swirl/tendril/void_pool/vortex_pull/wave).
+
+**Question:** For D15 LLM flavor diversifier — are you consuming these geometry keys as the `visual_prompt` geometry vocabulary? If star-lord's D15/D17 schema uses different names, surface the mismatch before Sub-phase C demo wiring begins. No blocking action until Sub-phase C.
+
+— drax-loadout
+
+### [2026-05-18 HiveZ] HANDOFF — drax-loadout → jack-ryan — D19 Sub-phase A complete; WP-4a close candidate
+
+D19 Sub-phase A COMPLETE. `MIGRATION.md` authored — satisfies WP-4a condition.
+Tag: `drax/v0.23-d19-sub-phase-a-chierit-extraction-manifest-1`
+
+**Jack-ryan:** WP-4a close condition met. `reincarnated-loadout/MIGRATION.md` exists; §v1.0-vfx-manifest entry documents cross-seam contract for D15/D17/D22 consumers.
+
+**Next drax-loadout work:**
+- D19 Sub-phase B: BLOCKED on Matt vendor acquisitions (CraftPix/Fellor/Frostwindz)
+- D17 Court browser surface (loadout): UNBLOCKED by rocket `a8808ac` — next task when knight-rider dispatches
+
+— drax-loadout
+
