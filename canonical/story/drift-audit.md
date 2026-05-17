@@ -128,6 +128,8 @@ Each of the 12 canonical-story docs locks one or more pillars. Inventoried:
 | C.5 | One form ascends per season (the form alive at season's end) | ✅ Locked | cosmology-reincarnated.md § "Ascension and the Court"; court-of-forms.md C5; file 32 § 11; file 33 |
 | C.6 | The Rift (post-Phase-0 liminal space) | 🟡 Partial | cosmology-reincarnated.md § "The Rift" | **OPEN:** specific implementation deferred; not yet structurally enforced beyond canonical-story-doc lock |
 | C.7 | The third-faction (post-Phase-0 adversary; Phase 0 foreshadowing only) | 🟡 Partial | cosmology-reincarnated.md § "The third-faction" | **OPEN:** `third-faction-tease.md` queued for authoring but not yet authored |
+| C.8 | Substrate set = 6 (canonical-four + lightning + holy + shadow paired-luminance-axis) | ✅ Locked | `substrate-expansion-decision-2026-05-17.md`; Matt Branch-A confirmation 2026-05-17; rocket Drift-14 amendment carries `substrate_native` as third D1 dimension; Phase-1 P1 ships extended infrastructure | **REPLACES** the implicit canonical-four substrate pillar that was unenforced pre-2026-05-17. VS2a/VS2b held on canonical-four; expansion lands at Phase-1 P1. |
+| C.9 | Vocab freeze on 7 entries (thunder/lightning/bolt/holy/divine/shadow/umbra) during expansion-pending period | ✅ Locked | `substrate-expansion-decision-2026-05-17.md` § 7; standing constraint until Phase-1 P1 ships; freeze-check at dispatch-authoring Gate 1 |  |
 
 #### `court-of-forms.md` (the Court)
 
