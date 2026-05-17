@@ -146,12 +146,27 @@ Fill in the completion record at the bottom of this dispatch.
 
 ## Completion record
 
-(To be filled in by star-lord on completion)
+**Completed:** 2026-05-16 by star-lord (claude-sonnet-4-6)
+**Migration version:** V2.1
+**Intermediate tag:** `star-lord/v1.3-telemetry-schema-v2.1` at commit `92fe8f7` — pushed to origin
+**Docs commit:** `c3a07cf` (MIGRATION.md + AGENT_STATE)
 
-**Completed:**
-**Migration version:**
-**Intermediate tag:**
-**Smoke status:**
-**MIGRATION.md entry:**
+**Smoke status:** PASSED — 5-class V2 smoke (in-memory), all 6 fields verified end-to-end:
+- class_fight_loadouts: 654 rows, encounter_index_within_room/room_won/hp_fraction 100% non-null
+- encounter_index_within_room cycles [0, 1, 2]; encounter_0 hp_fraction == 1.0 (250/250)
+- room_won consistent per (monster, iteration, fight_index) group
+- class_balance_results: 5 rows, use_room_evaluation=1, room_winrate/room_pack_winrate present
+- 27 new tests (tests/test_telemetry_v21.py): all pass
+- 15 existing tier1 tests: all pass; 1305 full suite: no new failures
+
+**MIGRATION.md entry:** `src/reincarnated/export/MIGRATION.md` — "Schema 2.0 → 2.1" section appended with full field semantics, SQL, downstream consumer notes for drax
+
 **Cross-seam flags:**
+- CLOSED: gamora HIGH flag from `simulation/MIGRATION.md` §v1.4 (persistence for B10 V2 telemetry fields)
+- CLOSED: summary_formatter.py convergence_winrate flag — already fixed at `6d108df`; this dispatch closes the carry-forward notation from gamora's V2 completion record
+
 **Notes for knight-rider:**
+- DB migration (data/telemetry.db V2.0 → V2.1) is NOT yet applied to the live DB. Will apply on next `apply_schema_migrations()` call. Requires Matt authorization per ADR-006 for the write.
+- `use_room_evaluation` is not a field on `ClassBalanceResult` (gamora seam). Recorder reads it from `player_class.balance_metadata["use_room_evaluation"]` via an optional `player_classes` argument. This is within star-lord's seam; no gamora change needed.
+- Next full regen (Matt-authorization required separately) will populate all 6 new columns in the live DB.
+- room_pack_winrate is 0.0 in smoke (single non-pack monster fixture — no pack slots). Full regen with the standard 12-slot gauntlet will show non-zero room_pack_winrate.

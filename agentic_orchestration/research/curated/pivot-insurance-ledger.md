@@ -1,6 +1,6 @@
 # Pivot-Insurance Ledger — Catalogue Coverage Monitoring
 
-**Status:** **Stub (no curation passes have run yet).** First entry will be appended when curation script processes the first Legolas sample.
+**Status:** **Active (substrate-layer resolutions recorded 2026-05-16; per-asset curation passes still pending).** Substrate-track entries below; per-pass embodiment-coverage entries will append when curation script processes the first Legolas sample.
 **Author:** elrond.
 **Pattern:** gandalf-commissioned (dialogue 2026-05-16 Topic 6 addition). Surfaces silent pivot-insurance erosion at the catalogue layer — the asymmetric-stewardship analogue of `engineering-disciplines.md` Discipline #13 (implicit-pillar drift).
 **Audience:** elrond + knight-rider, monthly-ish scan. Surfaces to gandalf when erosion thresholds trip.
@@ -116,6 +116,41 @@ No assets curated yet. Catalogue.db is empty. The v1.0 schema is applied; the fi
 - **`pending-amendment` cluster expected**: `'undead-skeleton'` from LuizMelo Skeleton pack will be the first canonical `pending-amendment` entry; accumulation pressure for an `undead` narrative-layer amendment.
 
 This pre-curation snapshot is a forecast — the first real ledger entry will overwrite/confirm/refute it. Recorded here so future entries have a baseline.
+
+---
+
+## 3a. Substrate-layer resolutions — 2026-05-16 (cipher-width sub-lock resolution)
+
+This section captures substrate-track resolutions from elrond's 2026-05-16 emergent-grouping analysis (delivered inline; operationalized via dispatch `2026-05-16-elrond-catalogue-cleanup-post-step-b.md`). It runs orthogonal to the per-pass embodiment-coverage entries below — both layers participate in pivot-insurance monitoring, but at different abstraction levels.
+
+### Substrate-width resolution (Outcome 2 — single classical-element-anchored grouping)
+
+- **Decision:** 4-6-substrate-tag width; classical-element-anchored single grouping (fire / water / earth / lightning + optional ice / wind / holy / dark / melee-slash as substrate-anchor candidates).
+- **Cipher-width sub-lock status:** RESOLVED per in-pending decisions-log entry `qa/pending/2026-05-16-decisions-log-cipher-width-resolution.md`.
+- **Pivot-insurance implication:** Outcome 1 (multi-grouping architecture) remains AVAILABLE but is currently INACTIVE — per-substrate n is thin (1-2) for the 17 novel substrate tags; multi-grouping cannot be supported empirically without Tier-2 crawl raising per-substrate n above 3.
+
+### 4 flag adjudications applied operationally
+
+| Flag | Adjudication | Operational state | Reversal path |
+|---|---|---|---|
+| Pixogen include-vs-exclude | EXCLUDE (license-pending) | Pixogen rows flagged `cipher_width_analysis_inclusion: false` in `cipher-width-inclusion-flags-2026-05-16.jsonl`; cross-vendor inventory's Pixogen substrates (void-spatial, technology-vfx) flagged with inclusion=false breakdown; technology-vfx substrate becomes UNATTESTED (Pixogen-exclusive). | If Matt verifies the Pixogen license (afgameassets@gmail.com — terms in 18 kB downloadable file), re-include Pixogen rows. Per-effect sub-pack curation precedes re-clustering (separate elrond dispatch). Cluster CLARITY of classical-element anchors will degrade with Pixogen re-included; this is acceptable cost if license verifies. |
+| Blood split-vs-merge | MERGE (single L2 substrate) | Cross-vendor inventory `blood` substrate row supersedes prior `blood-life-drain` + `blood-wound` rows. Vendor sub-registers (`physical-injury` vs `sanguine-magic`) preserved as L3 vocabulary differentiation. | If future evidence (e.g., a Tier-2 crawl that introduces a third blood sub-register that doesn't cluster with the existing two) shows substrate-layer separation is empirically supported, re-split. Currently no empirical signal for split. |
+| Acid vs Poison adjacency | SPLIT (distinct L2 substrates) | Cross-vendor inventory keeps `acid` (Pimen) and `poison-biological` (Fellor + CreativeKind + CraftPix) as distinct L2 substrate rows. Mechanical adjacency (both DoT) noted; cluster-distinct per elrond's analysis (acid → C2 buff/status; poison-biological → C7 kinetic mega-cluster). | If future LLM prompt-construction work surfaces semantic collisions that the cluster-distinct boundary doesn't resolve cleanly, reconsider merge. Currently no operational pressure for merge. |
+| CraftPix vector inclusion | INCLUDE (substrate-side); defer register filtering to drax | Cross-vendor inventory marks `craftpix-topdown-wind-lightning` + `craftpix-magic-sprite-vector` with `register_axis: "vector"` + `cipher_width_analysis_inclusion: true`. New substrate row `multi-element-vector-aura` added to capture the second vector pack's register-axis explicitly. | If drax's register-filter consumption-side work surfaces a need for substrate-side register separation (e.g., vector-only substrate analysis), revisit. Currently register-axis is consumption-side; substrate-side is register-agnostic. |
+
+### Pivot-insurance status across substrate layer (post-cleanup)
+
+- **Outcome 2 width (4-6 tags):** STABLE; matches Foundation 4-rotating-plus-1-physical structure (L2-decoupled per Sub-lock 2). No pivot pressure.
+- **Outcome 1 (multi-grouping):** AVAILABLE but EVIDENCE-CONSTRAINED. Per-substrate n needs to grow above 3 for novel substrates before Outcome 1 can be empirically supported. Future Tier-2 catalogue crawl (specialist novel-substrate vendors) is the binding pivot prerequisite. Ledger documents the gap; not a current blocker.
+- **Pixogen reversal:** SINGLE-POINT-OF-FAILURE for technology-vfx substrate (Pixogen-exclusive; license-pending exclusion strips all evidence). If Matt does not verify Pixogen license, technology-vfx substrate remains UNATTESTED in operational analysis. Acceptable degraded state: technology-themed seasons would lose substrate-evidence support and would rely on per-season vocabulary L2-decoupled fill against the L1 abstract pair structure (β coupling already accommodates this).
+- **Singleton-vendor novel substrates:** crystal-gem-arcane (Fellor), time-temporal (Pipoya), warp-teleportation (Pipoya), chromatic-arcane (CreativeKind), shadow-kinetic (Frostwindz), midas-golden-transform (CraftPix), implosion-gravity (CraftPix), summoning-ritual-object (CraftPix), void-adjacent-arcane (Frostwindz). All n=1; no independent grouping; available for per-season vocabulary L2 fill but cannot anchor a multi-grouping architecture without n raising.
+
+### Cross-refs
+
+- `agentic_orchestration/research/catalogue/cross-vendor-substrate-inventory-2026-05-16.jsonl` — substrate inventory (modified 2026-05-16 to apply 4 flag adjudications)
+- `agentic_orchestration/research/curated/cipher-width-inclusion-flags-2026-05-16.jsonl` — per-asset inclusion-flag sidecar (read-only respect for legolas's per-vendor JSONLs)
+- `agentic_orchestration/research/curated/post-step-b-cleanup-2026-05-16.md` — cleanup-note capturing the operational application
+- `agentic_orchestration/qa/pending/2026-05-16-decisions-log-cipher-width-resolution.md` — in-pending decisions-log entry (this ledger entry precedes the entry's commit; downstream consumers benefit from operational state matching the locked state)
 
 ---
 

@@ -506,3 +506,124 @@ Matt's name decision: `v0.7.1-skill-gate-fix` (matching intermediate for clean p
 - AGENT_STATE updated
 
 All five drax milestone tags from this session are now live on origin: `v0.5.1-bug-fixes`, `v0.5.2-stats-and-slot`, `v0.6.5-analytics-tier3`, `v0.7-encounter-analytics`, `v0.7.1-skill-gate-fix`.
+
+---
+
+## Day 4 CLOSE — handoff to Day 5 (knight-rider, ~late session)
+
+**Day 4 became the largest single-day output to date.** ~41 dispatches executed (eclipsing Day 3's prior record); $140.18 of pixel-art assets acquired (CreativeKind 26-pack monster bundle + Pixogen Lite verification + chierit Samurai/Elementals); three major demo-side gaps closed in one day (room/hallway interior model + player chierit sprites + enemy CreativeKind sprites); form-bias Option II cadence advanced through Stage 1 + Stage 2; telemetry schema progressed V2.1 → V2.4; Pixogen Path-A end-to-end license verification closed; R11(b) cross-seam round-trip discipline operationalized as Gate-1 hook; audio Phase-1 framework filed.
+
+### 🔴 Top items for Matt at Day-5 start
+
+1. **Visual QA on demo with new sprites** — drax v0.19 (player chierit characters wired to combatant sprites via element param) + drax v0.20 (enemy CreativeKind monster sprites wired through ENEMY_TIER_CHARACTER_MAP). Both shipped today, both need eyeball in browser. `DEFAULT_MONSTER_SCALE=0.28` in `monsterSprites.ts` is estimated — likely needs per-monster tuning after seeing them. See the answer to your in-message question below for exact path/build steps.
+
+2. **Star-lord V2 CLI flag + regen** — still in-flight at handoff. When it returns, star-lord Stage 3 cipher migration auto-fires (queued dispatch). Next session: confirm return state; route Stage 3 outcome.
+
+3. **R11(b) escape-hatch confirmed** — Matt confirmed delegation: knight-rider may judge borderline "Round-trip: not applicable because <reason>" cases at dispatch authoring time without escalation; justification lands in dispatch + reviewed at jack-ryan Gate 1. Operating norm going forward.
+
+4. **DEFAULT_MONSTER_SCALE tuning** + per-animation slicing for combined-sheet monsters (Crystal_Golem, Mutant_Skeleton, etc.) — VS2b items, surfaced at Matt's discretion.
+
+### What shipped Day 4 (late-session block)
+
+**Form-bias Option II cadence (Stages 1 + 2):**
+- Stage 1 (rocket): embodiment-axis isolation — `_V2_1` schema column + `embodiment_axis` field on D1 generator side; canonical four substrate isolated from grouping-layer
+- Stage 2 (rocket): grouping-layer pool (ignition/suffusion/bulwark/displacement/impact); per-season cosmological-vocabulary assignment defined
+- Stage 2 (star-lord): cosmological-vocabulary persistence module + manifest version 1.3 → 1.4; tag `star-lord/v1.3-form-bias-stage-2-cosmological-vocabulary @ 5b0285b`; 53/53 tests pass
+- Stage 3 (star-lord, cipher migration): authored + queued (auto-fires when V2 regen returns)
+
+**Telemetry schema progression V2.1 → V2.4 (star-lord):**
+- V2.1: per-fight emission gap fix (gamora cross-seam flag origin)
+- V2.2 / V2.3: schema additions (Pattern P7 prevention; R11(d) recorder fail-loud operationalized)
+- V2.4: `modifier_flag_tier TEXT NULL` on `class_balance_results` (modifier-clamp gate persistence); tag `star-lord/v1.3-telemetry-schema-v2.4-modifier-flag-tier @ 501d616`; 22/22 + 121/121 tests pass. Future jack-ryan calibration analysis may query `modifier_flag_tier='review'` rows for trend detection.
+
+**Pixogen Path-A end-to-end closure (3-track):**
+- drax v0.19: Void Shield wired via Pixi.js tinting; `pixogenVfx.ts` module (handles 64×384 vertical strip); `creditsOverlay.ts` (F1 toggle); tag `drax/v0.19-character-wire-up-void-attribution @ 3256656`
+- elrond catalogue.db: v1.2 migration applied; +1 catalogue_sources row (itch-pixogen); `pixogen-catalogue-curated-2026-05-16.jsonl` 2 rows; MIGRATION.md v1.5 entry
+- legolas findings-summary updated: status UNVERIFIED → VERIFIED proprietary-with-attribution; consumption_hold HOLD → APPROVED-WITH-ATTRIBUTION; pricing correction (Full €19.99 / Lite €0 separate URL); license terms verbatim §§ 2.A.4 + 3.A.1 quoted; attribution_required + pixi_tinting_permitted flags
+- License confirms § 2.A.4 explicitly permits Pixi.js runtime tinting; § 3.A.1 attribution required ("Antoine Fauville / AFGameAssets")
+
+**Demo-side rendering gaps closed:**
+- Player character chierit track (drax v0.19): `characterSprites.ts` + `createCombatantSprite()` element param; `ELEMENT_TO_CHIERIT_MAP`; element-keyed chierit selection
+- Enemy monster CreativeKind track (drax v0.20): two-stage pipeline (sheet assembly + metadata gen); `ENEMY_TIER_CHARACTER_MAP` tier-keyed pools; `resolveMonsterSlug(tier, element, seed)` element-preference + seed variety; 6-state animation machine; 35 pipeline tests + 41 unit tests; tag `drax/v0.20-monster-track-ingest-pipeline @ 88a0dc3`
+- Room/hallway interior model (drax): Diablo/PoE pattern; 15/30/45m room variants; 6-10m hallways; Mode B free traversal doors
+
+**B11 cascade (rocket + gamora):**
+- rocket: B11 generator geometry palette expansion
+- gamora: B11 sim-side geometry resolution
+- 11/13 elements GREEN for B11 demo integration (void + acid still gated)
+- gamora modifier-clamp gate landed with `modifier_flag_tier="review"` flag persistence; cross-seam to star-lord V2.4 closed
+
+**Discipline + process landed:**
+- R11(b) cross-seam round-trip discipline operationalized as Gate-1 BLOCK hook (REVIEW_PROCESS.md Principle 6)
+- Principle 6b WARN-only soft gate for P8 multi-product-line vendor confusion
+- Dispatch template README: mandatory "Cross-seam contract change?" section + trigger-type checklist + formal Acceptance criteria subsection
+- Decisions-log entry filed for R11(b) operationalization (ADR-002 architectural call)
+- Discipline #15 judgment: NO — bar not met on 2 instances; revisit if a third P7 surfaces within-seam
+- Audio-Discipline candidate AD-4 (canonical silence enforcement at Passage Phases 2-4) surfaced
+
+**Gandalf audio scoping framework filed:** `canonical/story/audio-scoping-framework-2026-05-16.md` decomposes audio into 7 sub-axes for Phase-1 (companion to Phase-0 lock `audio-strategy-phase0.md`); 7 Matt-decision surfaces framed (DS-1 to DS-7); none require Day-5 action.
+
+  **🔴 Load-bearing dependency to track for Phase-1 sequencing:** DS-5 / Dependency D2 — Spirit-Guide voice MUST ship AFTER Stage-3+ cipher migration completes AND after S3 paths-audit confirms no canonical-four leaks. Voice synthesized with pre-cipher leaks canonically breaks Spirit-Guide register. Knight-rider must thread this constraint into any Phase-1 voice-commission dispatch.
+
+**Roadmap restructure (gandalf):** `canonical/16-project-roadmap.md` split into three docs:
+- `16-project-roadmap.md` (364 lines) — forward-looking only
+- `16a-roadmap-shipped-log.md` (237 lines) — historical shipped log + closed decisions
+- `16b-roadmap-archive-restructures.md` (130 lines) — meta-history of restructures
+
+Knight-rider should reference 16a/16b when threading historical context; 16 is the live planning surface.
+
+### In-flight at handoff
+
+| Agent | Task | ID | Status |
+|---|---|---|---|
+| star-lord | V2 CLI flag + regen | a8c27ec24c08d7c09 | running; long-tail |
+| (queued) | star-lord Stage 3 cipher migration | — | auto-fires when V2 returns |
+
+Rate cap status: under cap. No other in-flight agents at handoff.
+
+### Standing Matt-decisions (non-blocking; accumulated)
+
+- DEFAULT_MONSTER_SCALE=0.28 tuning + per-animation slicing for combined-sheet monsters (VS2b)
+- Visual inspection of new sprites in demo (chierit + CreativeKind)
+- 4 pre-existing engine-side gamora test failures
+- B12 roadmap amendment
+- Pixogen Full pack acquisition decision (Path B; 6 elrond follow-ons queued)
+- V2.x DB live migration to data/telemetry.db (Matt ADR-006 authorization needed)
+- jack-ryan calibration analysis activation (modifier_flag_tier='review' rows; trend detection)
+- chierit sprite scale tuning + Pimen visual inspection (pre-existing standing items)
+- Pixogen 6 elrond follow-ons (none urgent; Lite per-pack curation; HOLD-era language refresh; decisions-log entry for Path-A closure; cipher-width re-run with void+technology evidence)
+- Memory note for ailment-deferred design proposal
+- Demo-repo branch conventions
+
+### Disciplines + persona-rules updated Day 4
+
+- **R11(b) → Gate-1 hook** (Principle 6) — escape-hatch judgment delegated to knight-rider per Matt
+- **P8 → Principle 6b WARN-only** for multi-product-line vendor dispatches
+- **R11(d) → recorder fail-loud** operationalized today (telemetry V2.1 fix; Pattern P7 prevention)
+- **Discipline #15** — DEFERRED (2 instances insufficient)
+- **Legolas persona-rule** — per-product-line `deliverable_register` field added; per-vendor `findings-summary-<YYYY-MM-DD>.md` file authorship now permitted
+- **Audio-Discipline AD-4** — canonical silence enforcement candidate surfaced
+
+### Threads / open dialogues
+
+- Gandalf canonical-elements thread — status per `agentic_orchestration/gandalf/open-threads/` (check at Day-5 start)
+- Gandalf form-bias cadence strategy — Stage 1 + 2 landed; Stage 3 queued
+- jack-ryan: standing for calibration analysis if Matt activates; otherwise idle
+
+### Day 4 banked totals
+
+- ~41 dispatches completed (eclipses Day 3 record)
+- $140.18 in asset acquisitions verified clean for use
+- 3 major demo-side rendering gaps closed
+- 4 cascades closed end-to-end in single day (form-bias Stage 1+2, B11 5-phase, Pixogen Path-A 3-track, telemetry V2.1-V2.4)
+- 1 process discipline operationalized (R11(b))
+- 1 canonical framework filed (audio Phase-1)
+- 1 roadmap restructure (3-doc split)
+
+### Recommended Day-5 sequence
+
+1. Read in-flight star-lord V2 regen state (check task output); route Stage 3 if returned
+2. Matt visual QA on demo (chierit + CreativeKind) — likely surfaces DEFAULT_MONSTER_SCALE tuning + per-animation-slicing dispatches
+3. Decide whether to activate any Standing Matt-decisions
+4. Author Day 4 CHANGELOG entry (knight-rider; not yet done at handoff time)
+5. Pick form-bias Stage 3 outcome → drax demo-side dispatch authoring

@@ -27,7 +27,11 @@ Tone: factual, structured, concise. Mythic flavor is fine in occasional commenta
 - **`agentic_orchestration/research/`** — directory tree for all your output. Substructure:
   - `research/knowledge/<topic>/<YYYY-MM-DD>-<slug>.md` — Mode A findings
   - `research/catalogue/<source>/<YYYY-MM-DD>-<slug>.json` or `.csv` — Mode B raw extraction
+  - `research/catalogue/<source>/findings-summary-<YYYY-MM-DD>.md` — Mode B per-vendor structured findings summary (substrate evidence + license summary + consumption-readiness flags + cross-seam notes). Authored when a catalogue dispatch requires per-vendor narrative documentation alongside the JSON/CSV extraction. NOT analytical synthesis — operational metadata recording.
+  - `research/catalogue/<source>/<sidecar>-<YYYY-MM-DD>.jsonl` — Mode B sidecar files (geometry-signatures, etc.)
   - `research/commissions/<YYYY-MM-DD>-<commissioner>-<topic>.md` — incoming commission briefs
+
+**Per-product-line `deliverable_register` field (Drift-13 / Pattern P8 prescription)**: when a vendor sells multiple product lines (e.g., VFX packs + character packs), capture `deliverable_register` (e.g., `pixel-art-raster`, `vector-eps`, `hand-drawn-pixel`, `vector-ai`) on EACH product record, not aggregated by vendor. Vendors with consistent labeling across product lines may ship different registers per line (CraftPix VFX packs = pixel-art-raster; CraftPix character packs = vector-eps). Per-product-line capture prevents vendor-class aggregation drift.
 - **Your own findings files.** You write; downstream agents (Elrond, Gandalf, knight-rider) read.
 
 ## What you do NOT own

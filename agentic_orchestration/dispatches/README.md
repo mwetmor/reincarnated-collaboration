@@ -51,13 +51,36 @@
 ## Math-before-code (if applicable)
 <specific math/decisions to document before implementation>
 
+## Cross-seam contract change? (Principle 6 gate — knight-rider completes this at authoring time)
+
+Does this dispatch add, modify, rename, or remove any field on:
+- A telemetry schema table (class_fight_loadouts, class_balance_results, etc.)
+- A fight_log dict key (gamora → star-lord boundary)
+- A loadout dict key (rocket/gamora → star-lord/drax boundary)
+- An export packet structure (season JSON shape; season_writer.py output)
+- Any other inter-seam fixture dict
+
+**If YES:** the Acceptance criteria below MUST include one of:
+  - `Round-trip smoke: <description of production-path fixture used + consumer boundary exercised + field-presence check>`
+  - `Round-trip: not applicable because <explicit reason>`
+
+**If NO:** state `Round-trip: not applicable — no cross-seam contract change in this dispatch.`
+
+Silence on this field is a Gate-1 BLOCK per REVIEW_PROCESS.md Principle 6.
+
 ## Scope
 - [ ] <concrete deliverable 1>
 - [ ] <concrete deliverable 2>
 - [ ] Smoke-test passes
 - [ ] MIGRATION.md if cross-seam impact
+- [ ] Round-trip smoke (or not-applicable justification) per Principle 6
 - [ ] AGENT_STATE.md updated at session end
 - [ ] Tag: <expected tag name>
+
+## Acceptance criteria
+<!-- List each acceptance item explicitly. Cross-seam dispatches must include the round-trip clause here. -->
+- [ ] <criterion 1>
+- [ ] Round-trip smoke: <fixture + boundary + check> OR Round-trip: not applicable because <reason>
 
 ## Out of scope (explicit non-goals)
 - <thing 1 to not do>

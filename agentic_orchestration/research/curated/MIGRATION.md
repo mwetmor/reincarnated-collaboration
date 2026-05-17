@@ -7,6 +7,277 @@
 
 ---
 
+## v1.5 — Pattern A: Pixogen catalogue loop closure (HOLD → APPROVED-WITH-ATTRIBUTION) — 2026-05-16
+
+### What changed (one line)
+
+Pixogen vendor row inserted into `catalogue_sources` (data migration v1.2 against schema v1.1; no schema change); curated JSONL `pixogen-catalogue-curated-2026-05-16.jsonl` filed with HOLD-to-APPROVED-WITH-ATTRIBUTION flag transitions for both Full and Lite SKUs; pricing/access metadata corrected (Full €19.99 paid not-yet-acquired; Lite €0 acquired); attribution-required flag carried per AFGameAssets license § 3.A.1.
+
+### Why (one line)
+
+Closes Pixogen Path-A loop per Matt license-file verification 2026-05-16 (downloaded Lite pack; read 18kB AFGameAssets license) + drax v0.19 Void Shield demo wiring with attribution credit. Prior state: legolas Mode B raw extraction carried `license_unverified: true` + `consumption_hold: HOLD`; cipher-width-inclusion analysis excluded Pixogen; pivot-insurance-ledger flagged Pixogen as SPOF for technology-vfx substrate. Verification cleared HOLD; substrate-evidence may now re-include Pixogen (separate downstream re-analysis dispatch).
+
+### Who's affected
+
+- **Drax** — Pixogen Void Shield wired v0.19 (already done; this dispatch attests upstream catalogue state). Future Pixogen-asset consumption: query `catalogue_sources WHERE source='itch-pixogen'` returns vendor row with `default_license='commercial-royalty-free'` + notes carrying `attribution_required` clause. Per-pack/per-asset rows NOT yet curated in catalogue.db (out of scope for this dispatch); the curated JSONL serves as interim reference for the two SKUs.
+- **Legolas** — PARALLEL dispatch updates `pixogen/findings-summary-2026-05-16.md` with verified `license_terms_verbatim` (license file full text). Coordinate via this MIGRATION.md timestamp (2026-05-17T02:11:09Z, the catalogue.db schema_meta v1.2 applied_at). Legolas's raw extraction file at `catalogue/pixogen/full-2026-05-16.jsonl` is INTENTIONALLY UNTOUCHED by this dispatch per ownership-boundary discipline — raw extraction is a snapshot artifact; curated state lives in `curated/pixogen-catalogue-curated-2026-05-16.jsonl`.
+- **Gandalf** — Pixogen substrate evidence (void-spatial + technology-vfx) is now re-includable in any future cipher-width / cluster-clarity sensitivity analysis. Pivot-insurance-ledger line 136 + cross-vendor substrate inventory still carry HOLD-era exclusion language; UPDATE NOT MADE in this dispatch (downstream document update is a separate gandalf-or-elrond sequencing call). Reversal-path documented in pivot-insurance-ledger line 145 is now ACTIVATED — when next emergent-grouping analysis is run, Pixogen rows can be re-included.
+- **Star-lord** — no engine-side impact; ADR-004 satisfied via elrond-side MIGRATION.md v1.5 only. No cross-DB ATTACH pattern changes.
+- **Rocket** — unaffected.
+- **Knight-rider** — Pixogen Path-A loop CLOSED; consumption is APPROVED-WITH-ATTRIBUTION per AFGameAssets license § 3.A.1. Sequences any follow-on Pixogen pack-curation dispatches (Lite per-animation curation; Full acquisition decision; void/technology re-inclusion in cipher-width analysis).
+- **Matt** — license verification action complete; no further upstream action needed for this loop. Full pack (€19.99) acquisition is a future commission decision; flagged in vendor notes.
+
+### What downstream consumers need to do
+
+**Drax:**
+1. Continue Void Shield consumption per v0.19. When sourcing additional Pixogen assets, ensure attribution credit is maintained in demo + loadout per AFGameAssets license § 3.A.1.
+2. If consuming additional Lite animations (Water/Fire/Wind/Holy/Electric/Fireworks/Explosions), reference `curated/pixogen-catalogue-curated-2026-05-16.jsonl` for asset metadata until per-pack catalogue_assets curation lands.
+
+**Star-lord:** no action.
+
+**Gandalf:**
+1. When commissioning next cipher-width or cluster-clarity sensitivity pass, request Pixogen re-inclusion. Substrate-evidence weights change: void-spatial gains a confirming row (n=2 with CraftPix Black Hole already present); technology-vfx becomes attested (n=1; Pixogen-exclusive).
+2. Consider sequencing a `pivot-insurance-ledger.md` + `cross-vendor-substrate-inventory-2026-05-16.jsonl` HOLD-language refresh dispatch (elrond can author once gandalf signals timing).
+
+**Legolas:** author parallel `pixogen/findings-summary-2026-05-16.md` update populating `license_terms_verbatim` from license file inspection. Timestamp coordination via this v1.5 entry. Raw extraction file (`catalogue/pixogen/full-2026-05-16.jsonl`) remains untouched per legolas ownership.
+
+### Schema diff or example before/after
+
+**catalogue.db schema:** NO CHANGE (v1.1 holds). This is a DATA migration only.
+
+**catalogue.db data:**
+
+| Aspect | Before (v1.4 / data migration v1.1 applied) | After (v1.5 / data migration v1.2 applied) |
+|---|---|---|
+| `catalogue_sources` rows | 2 (itch-pimen, craftpix) | 3 (**+itch-pixogen** — individual-creator, hand-drawn-pixel, commercial-royalty-free, register_mixed=0) |
+| `catalogue_packs` rows | 3 (pimen) | 3 (**no change** — Pixogen pack curation out of scope per dispatch) |
+| `catalogue_assets` rows | 48 (pimen) | 48 (**no change** — Pixogen asset curation out of scope per dispatch) |
+| `schema_meta` rows | 2 (v1.0, v1.1) | 3 (**+v1.2** data-migration entry) |
+| `pixogen-catalogue-curated-2026-05-16.jsonl` | did not exist | **NEW** — 2 rows (Full + Lite) with HOLD-cleared flag state |
+
+**Curated JSONL flag transitions (per row):**
+
+| Field | Before (legolas raw extraction) | After (elrond curated) |
+|---|---|---|
+| `license_unverified` | `true` | `false` |
+| `consumption_hold` | (implicit HOLD; HOLD literal in legolas findings-summary) | `APPROVED-WITH-ATTRIBUTION` |
+| `license_verified_date` | (absent) | `2026-05-16` |
+| `license_verified_by` | (absent) | `matt` |
+| `license_verification_method` | (absent) | `lite-pack-download-license-file-inspection` (Full) / `lite-pack-download-license-file-direct-inspection` (Lite) |
+| `attribution_required` | (absent) | `true` |
+| `attribution_recipient` | (absent) | `Pixogen / AFGameAssets / Antoine Fauville` |
+| `cost_currency` | (absent for Full; absent for Lite) | `EUR` (Full) / `EUR` (Lite, €0) |
+| `cost_usd_approx` | (absent) | `21.59` (Full) / `0.0` (Lite) |
+| `cost_acquired_by_project` | (absent) | `false` (Full) / `true` (Lite) |
+| `cost_acquired_note` | (absent) | corrected pricing/access metadata (Full not-yet-acquired; Lite acquired) |
+| `c2_license_flag` | `true` | `false` |
+| `c2_license_outcome` | "LICENSE UNVERIFIED..." | "CLEARED 2026-05-16 — License verified clean..." |
+| `license` | `proprietary-pending-verification` | `commercial-royalty-free` |
+| `license_terms_verbatim` | "License of AFGameAssets — terms in downloadable 18 kB file; NOT publicly readable..." | "AFGameAssets license (Antoine Fauville) — distributed as 18kB file with each pack. Verified terms: commercial use permitted; modification permitted; Pixi.js runtime tinting permitted per § 2.A.4; attribution REQUIRED per § 3.A.1. (Full verbatim license text held by legolas in pixogen findings-summary update; this row carries verified-status flags only.)" |
+
+**Sequencing note on `license_terms_verbatim`:** elrond carries the abbreviated verified-state summary in the curated jsonl; legolas (parallel dispatch) authors the full verbatim license text in `pixogen/findings-summary-2026-05-16.md`. This split mirrors the ownership boundary: legolas's findings-summary is the canonical full-text reference; elrond's curated jsonl carries operational state. If both touch this field on the same row at the same time, MIGRATION.md timestamps (2026-05-17T02:11:09Z for elrond) are the conflict-resolution reference.
+
+### Pricing/access correction (dispatch item 3)
+
+Prior catalogue metadata referenced "Pixogen Lite free version" framing — Matt clarified the actual structure:
+
+| SKU | Cost | Acquisition path | Project acquisition state |
+|---|---|---|---|
+| Pixel Art RPG VFX (Full Pack) | **€19.99** | itch.io direct purchase OR Mega Pack (€59.99) | **NOT YET ACQUIRED** (future commission decision) |
+| Pixel Art RPG VFX Lite | **€0** | itch.io separate download | **ACQUIRED 2026-05-16** (Matt download; license verification vector) |
+
+The Lite is **not a free version of the Full** — it is a separate standalone free download with a reduced category set (8 categories vs Full's 11). Categories missing from Lite: Technology, Attack Slash, Ice. This distinction is now captured in vendor `notes` + per-SKU `cost_acquired_note` fields.
+
+### Files changed
+
+- `agentic_orchestration/research/curated/catalogue.db` (mutated — schema_meta v1.2 row + catalogue_sources itch-pixogen row inserted)
+- `agentic_orchestration/research/curated/catalogue.db.pre-pixogen-2026-05-16-backup` (NEW — pre-migration safety snapshot; ~1 week soft-retention)
+- `agentic_orchestration/research/curated/pixogen-catalogue-curated-2026-05-16.jsonl` (NEW — 2 rows; verified-state flag transitions)
+- `agentic_orchestration/research/scripts/catalogue_migrations/v1_2_pixogen_vendor_insert.sql` (NEW — idempotent? NO — INSERT with no ON CONFLICT clause; re-run will fail on UNIQUE constraint, which is the intended replay safety)
+- `agentic_orchestration/research/curated/MIGRATION.md` (THIS FILE — v1.5 entry)
+- `agentic_orchestration/research/curated/AGENT_STATE.md` (UPDATED — Pattern A Pixogen dispatch completion)
+
+### Files intentionally NOT changed
+
+- `agentic_orchestration/research/catalogue/pixogen/full-2026-05-16.jsonl` (legolas's raw extraction; ownership boundary — untouched)
+- `agentic_orchestration/research/catalogue/pixogen/findings-summary-2026-05-16.md` (legolas parallel dispatch updates `license_terms_verbatim`)
+- `agentic_orchestration/research/catalogue/pixogen/geometry-signatures-2026-05-16.jsonl` (geometry signatures unchanged by license verification)
+- `agentic_orchestration/research/catalogue/cross-vendor-substrate-inventory-2026-05-16.jsonl` (carries HOLD-era exclusion language; refresh deferred per dispatch scope — separate gandalf-sequencing call)
+- `agentic_orchestration/research/curated/pivot-insurance-ledger.md` (carries HOLD-era exclusion language at line 136 + reversal-path at line 145; refresh deferred per dispatch scope)
+- `agentic_orchestration/research/curated/cipher-width-inclusion-flags-2026-05-16.jsonl` (Pixogen-exclusion flags from HOLD era; refresh deferred per dispatch scope)
+- `agentic_orchestration/research/curated/post-step-b-cleanup-2026-05-16.md` (HOLD-era operational state record; historical artifact, not updated)
+
+### Out-of-scope follow-ons (for knight-rider sequencing)
+
+1. **Pixogen Lite per-pack curation** — 8 Lite animations × catalogue_packs row + 8 catalogue_assets rows; requires curator visual inspection of frames. Estimated: 1-2 hours.
+2. **Pixogen Full acquisition decision** — Matt + knight-rider; €19.99 purchase OR Mega Pack at €59.99. Substrate-coverage argument (technology-vfx is Pixogen-exclusive) may motivate.
+3. **Cipher-width / cluster-clarity sensitivity re-run with Pixogen re-included** — elrond dispatch; substrate-evidence weights will shift (void-spatial gains confirming row; technology-vfx becomes attested).
+4. **HOLD-era language refresh in downstream documents** — pivot-insurance-ledger line 136 + line 145, cross-vendor substrate inventory Pixogen-exclusion blocks, cipher-width inclusion flags. Combined elrond dispatch; estimated 1 hour.
+5. **Decisions-log entry** — knight-rider sequences; codifies Pixogen license-verification + first-vendor-consumption pattern (vendor onboarding playbook precedent).
+
+### Reversibility
+
+Pure data INSERT into `catalogue_sources`. Reverse via:
+```sql
+DELETE FROM catalogue_sources WHERE source='itch-pixogen';
+DELETE FROM schema_meta WHERE version='1.2';
+```
+Safe while no downstream `catalogue_packs` / `catalogue_assets` rows reference `itch-pixogen` (FK constraints block deletion once downstream rows land). Curated jsonl is a flat file; `rm` reverses. Backup at `catalogue.db.pre-pixogen-2026-05-16-backup` is canonical pre-migration snapshot.
+
+---
+
+## v1.4 — Pattern A combined: bundle-pipeline follow-up + register-mixed schema amendment — 2026-05-16
+
+### What changed (one line)
+
+Schema bumped to v1.1 (per-vendor `register_mixed` convenience flag + per-product `deliverable_register` field per Drift-13 / Pattern P8 prescription (d)); CraftPix vendor record added as canonical first cross-register instance; three curation amendments landed on Pimen rows in response to drax bundle-pipeline follow-on items (slug-collision disambiguation hints, new bundle-internal-only Icons sub-pack curated, explosion-effect matcher-correction tags).
+
+### Why (one line)
+
+Closes the Pattern A dispatch ("yes to all 7" Matt-authorization 2026-05-16, decisions #2 + #5): Track A unblocks drax's bundle-pipeline matcher on the slug-collision case + brings the Icons sub-pack into the catalogue + corrects an explosion-VFX misread; Track B operationalizes the Drift-13 / Pattern P8 (d) prevention prescription at the catalogue-db schema layer, with CraftPix as the canonical first cross-register vendor.
+
+### Who's affected
+
+- **Drax** — bundle-pipeline matcher can now consult `bundle-folder-hint:*` tags + `subpack-organization-style:*` tags + `_amendment_2026_05_16_bundle_folder_hint` JSON overlay to resolve the slug-collision case + the per-animation-subfolders style-B case. Existing matcher logic continues to work for the simple slug↔folder cases; the new hints are advisory upgrades. Schema additions (`deliverable_register`, `register_mixed`) consumed at downstream filtering time — drax cross-register safety query in §5.5 of catalogue-schema.md applies once schema doc is amended.
+- **Legolas** — Track B's per-product `deliverable_register` field aligns with persona-rule extension landed today (`legolas.md` line 34). Future Mode B catalogue dispatches populate the field per product line. Pimen rows are NOT retroactively backfilled (Pimen is single-register; `register_mixed=0` holds; field remains NULL for pimen rows, which is valid per CHECK).
+- **Gandalf** — Track B closes the Drift-13 / Pattern P8 prevention prescription (d) (downstream-consumption safety net). Track A's Icons curation extends UI/icon coverage for VS2a/VS2b scene composition. CraftPix vendor record is now schema-attestable as cross-register (queryable via `SELECT register_mixed FROM catalogue_sources WHERE source='craftpix';`).
+- **Star-lord** — no immediate action; cross-store ATTACH pattern unchanged. The new columns are queryable via standard SQLite ATTACH.
+- **Rocket** — unaffected.
+- **Knight-rider** — receives this MIGRATION + dispatch-completion notification; sequences `catalogue-schema.md` v1.1 doc-update follow-on (schema diff captured here is canonical; the design doc should reflect by next session).
+
+### What downstream consumers need to do
+
+**Drax:**
+
+1. Bundle-pipeline matcher upgrades (recommendations in `pimen-bundle-follow-up-2026-05-16.md` §§ 1, 2, 3):
+   - Read `_amendment_2026_05_16_bundle_folder_hint` from `source_metadata_raw` OR scan `asset_style_tags WHERE tag LIKE 'bundle-folder-hint:%'` to disambiguate slug-collision cases.
+   - Consult `animations_count` + new `subpack-organization-style:*` tags before classifying folder structure as "sub-packs" vs "per-animation-subfolders."
+   - Treat `bundle-internal-only:<bundle_id>` tagged rows as bundle-sourced-only (no standalone-product URL applies).
+2. Cross-register-safety query (Track B): when sourcing assets from a vendor with `register_mixed=1`, check `deliverable_register` at the per-row level. CraftPix is the only current `register_mixed=1` vendor; future ones inherit the pattern automatically.
+3. The Icons sub-pack row (`source_asset_id='mega-pack-elemental-icons'`) is `quality_flag='deferred'` until visual inspection completes. Default consumption filter (which requires `quality_flag='pass'`) excludes it for now. Use a `quality_flag IN ('pass','deferred')` widened filter if early-prototype UI work needs the icons before inspection lands.
+
+**Star-lord:** no action. The ATTACH pattern in `catalogue-schema.md` §5.1 continues to work; the new columns are additive.
+
+**Gandalf:**
+
+1. Track A Icons curation widens UI/icon coverage. When VS2a/VS2b design surfaces element-identity-rendering needs, the catalogue row provides the canonical reference.
+2. Track B's `register_mixed=1` CraftPix row attests the Drift-13 instance in schema. Cross-register-safety queries are now expressible — useful for any future register-validation pass against the catalogue.
+
+**Legolas:** no action. Future Mode B crawls populate `deliverable_register` per persona-rule extension; the field is OPTIONAL/NULL-allowed so persona compliance is checked at curation, not at extraction.
+
+### Schema diff or example before/after
+
+**catalogue.db schema:**
+
+| Aspect | Before (v1.0) | After (v1.1) |
+|---|---|---|
+| `catalogue_sources` columns | 7 (source, display_name, url, vendor_type, primary_register_hint, default_license, notes, added_at) | **+1**: `register_mixed INTEGER NOT NULL DEFAULT 0 CHECK (register_mixed IN (0,1))` |
+| `catalogue_assets` columns | 37 (see v1_0_initial.sql) | **+1**: `deliverable_register TEXT NULL CHECK (deliverable_register IN ('pixel-art-raster', 'vector-ai', 'vector-eps', 'vector-svg', 'hand-drawn-pixel', 'painterly-raster', 'photographic', 'audio', 'font', 'mixed', 'not-applicable', 'unknown'))` |
+| Indexes | 9 on catalogue_assets | **+1**: `idx_catalogue_assets_deliverable_register` (partial, WHERE NOT NULL) |
+| `catalogue_sources` rows | 1 (itch-pimen) | 2 (itch-pimen `register_mixed=0`, craftpix `register_mixed=1`) |
+| `catalogue_assets` rows | 47 | 48 (Track A item 2 added `mega-pack-elemental-icons`) |
+| `asset_style_tags` rows | 444 | 461 (+4 bundle-folder-hint amendments + 11 icon tags + 2 explosion matcher-correction) |
+| Schema version | 1.0 | 1.1 |
+
+**Track A non-schema mutations:**
+
+- 2 `catalogue_assets` rows had `source_metadata_raw` JSON amended in-place via additive overlay key `_amendment_2026_05_16_bundle_folder_hint` (the existing `_curation_overlay_2026_05_16` key preserved untouched). Append-only intent: this is an additive metadata layer, not a curation supersession.
+- 1 row had matcher-correction tags appended without metadata mutation (`explosion-effect`).
+- 1 new row inserted (`mega-pack-elemental-icons` — bundle-internal-only sub-pack).
+
+**JSONL snapshot:**
+
+- `pimen-catalogue-curated-2026-05-16.jsonl`: 47 → 48 rows (icon row appended; 2 rows updated in-place with amendment overlay; 1 row updated in-place with 2 new tags).
+
+### Track A — bundle-pipeline follow-up summary
+
+| Item | Drax surface | Elrond resolution |
+|---|---|---|
+| Slug collision (`Earth Spell 03` vs `Earth Effect 03`) | Both fuzzy-match `earth-spell-effect-03`; ambiguous | Same pack in 2 formats inside bundle. Canonical = `Earth Spell 03`; fallback = `Earth Effect 03`. Amendment overlay + 4 bundle-folder-hint tags added. |
+| Icons sub-pack out-of-band | Not curated; inspect + decide | INCLUDED — 10 PNGs (5 elements × 2 variants); curated as `mega-pack-elemental-icons` with `bundle-internal-only` flag; quality_flag=deferred + manual_review_queued=1 |
+| 30 explosion VFX out-of-band | Inspect + recommend subset OR all-out-of-band | MISIDENTIFIED — they ARE the 30 animations of curated `explosion-effect`. 2 matcher-correction tags added; no new curation. |
+
+Full detail: `agentic_orchestration/research/curated/pimen-bundle-follow-up-2026-05-16.md`.
+
+### Track B — schema amendment summary
+
+Per Drift-13 / Pattern P8 prescription (d) (`canonical/story/drift-audit.md`), the catalogue.db schema now exposes register-mixedness at two layers:
+
+1. **Per-product (source-of-truth)** — `catalogue_assets.deliverable_register TEXT NULL` with closed CHECK enum capturing observed vendor-shipping-register vocabulary (`pixel-art-raster`, `vector-ai`, `vector-eps`, `vector-svg`, `hand-drawn-pixel`, `painterly-raster`, `photographic`, `audio`, `font`, `mixed`, `not-applicable`, `unknown`). Populated per-row by curators at curation time. NULL allowed because single-register vendors (where the vendor row's `register_mixed=0` holds) don't require per-row inspection.
+2. **Per-vendor (convenience aggregate)** — `catalogue_sources.register_mixed INTEGER NOT NULL DEFAULT 0 CHECK (register_mixed IN (0,1))`. Set to 1 when any product carries a register different from `primary_register_hint`. Downstream consumers can quickly filter cross-register vendors without scanning per-product rows.
+
+CraftPix added as canonical first instance:
+```
+source='craftpix', vendor_type='aggregator-marketplace',
+primary_register_hint='mixed', default_license='mixed', register_mixed=1,
+notes='Cross-register vendor (Drift-13 / Pattern P8 canonical first instance). ...'
+```
+
+Distinction from existing `derived_register`:
+- `derived_register` (v1.0): curator's inferred VISUAL register from six-axis rubric (hand-drawn-pixel / retro-16bit / clean-vector / painterly-raster / anime-cel / manual-review). Output of rule cascade.
+- `deliverable_register` (v1.1): vendor's SHIPPING register as delivered per product (PNG/PSD pixel-art / AI vector / EPS vector / etc.). Source-of-truth for cross-register routing.
+- Both overlap on happy path; diverge when vendor mislabels OR ships rare formats OR delivers mixed in one product. The two columns together let consumers reason about both visual-register-fit AND shipping-format-fit.
+
+### Pre-migration backup
+
+`agentic_orchestration/research/curated/catalogue.db.pre-v1.1-backup` — byte-identical snapshot of catalogue.db before v1.1 migration applied. Retain until v1.1 has been consumed by drax + gandalf in downstream work, then prune at next housekeeping pass (suggest: 1-week soft-retention).
+
+### Cross-seam ADR compliance
+
+- **ADR-002 (cross-seam schema = Matt approval):** Matt authorized 2026-05-16 ("yes to all 7" — decisions #2 + #5). Schema migration v1.1 applied within authorization scope.
+- **ADR-004 (MIGRATION.md for cross-seam handoff):** this entry fulfills the elrond-side requirement for both Track A (data mutations) + Track B (schema mutation). No engine-telemetry or other-seam schema changed. Drax-side response (matcher updates) is drax-internal; no companion MIGRATION required unless drax declares it.
+- **ADR-006 (external system writes require authorization):** writes confined to elrond-owned paths (`research/curated/*`, `research/scripts/*`, `catalogue.db`). No engine-side mutation. The pre-v1.1 backup is an additional safety layer (not required by ADR but elected here given schema migration is the rarer operation).
+- **ADR-007 (survey-mode):** the bundle-follow-up findings doc reports what exists (inspection findings, decisions, action taken) without interleaving prescriptive content beyond the explicit "Recommendation to drax" subsections.
+
+### Verification
+
+```
+$ python3 agentic_orchestration/research/scripts/amend_pimen_bundle_folder_hints_2026_05_16.py
+[jsonl] {'total_rows': 47, 'amended': 2}
+[db]    {'db_updates': 2, 'tags_inserted': 4, 'tags_already_present': 0}
+
+$ python3 agentic_orchestration/research/scripts/curate_pimen_elemental_icons_2026_05_16.py
+[db] {'inserted': 1, 'asset_uid': 48, 'tags_inserted': 11}
+[jsonl] appended row for mega-pack-elemental-icons
+
+$ sqlite3 catalogue.db < agentic_orchestration/research/scripts/catalogue_migrations/v1_1_register_mixed_flag.sql
+(no output — transaction committed cleanly)
+
+$ sqlite3 catalogue.db "SELECT version, applied_at FROM schema_meta ORDER BY applied_at;"
+1.0|2026-05-16T04:14:38Z
+1.1|2026-05-17T00:29:04Z
+
+$ sqlite3 catalogue.db "SELECT source, vendor_type, primary_register_hint, register_mixed FROM catalogue_sources;"
+itch-pimen|individual-creator|hand-drawn-pixel|0
+craftpix|aggregator-marketplace|mixed|1
+
+$ sqlite3 catalogue.db "SELECT COUNT(*) FROM catalogue_assets;"
+48
+
+$ sqlite3 catalogue.db "SELECT COUNT(*) FROM asset_style_tags;"
+461
+
+$ sqlite3 catalogue.db "INSERT INTO catalogue_sources (source, display_name, url, vendor_type, primary_register_hint, default_license, notes, added_at, register_mixed) VALUES ('test', 'test', 'http://x', 'individual-creator', 'unknown', 'unknown', 't', 't', 2);"
+Error: stepping, CHECK constraint failed: register_mixed IN (0, 1)   ← CHECK enforced
+
+$ sqlite3 catalogue.db "UPDATE catalogue_assets SET deliverable_register='BOGUS-VALUE' WHERE asset_uid=1;"
+Error: stepping, CHECK constraint failed: deliverable_register IN (...)   ← CHECK enforced
+```
+
+Schema v1.1 holds under empirical 48-row pressure with all CHECK constraints enforced. The 47 existing v1.0 rows are preserved (no back-fill required; `deliverable_register=NULL` is valid).
+
+### Open follow-ons (NOT elrond-blocking)
+
+1. **catalogue-schema.md v1.1 doc update** — design doc should be amended to reflect: § 3.2 (`register_mixed` column on catalogue_sources), § 3.4 (`deliverable_register` column on catalogue_assets), § 4 (deliverable_register enum value-set table parallel to license taxonomy), § 5 (new worked-example query for cross-register-safety). Knight-rider sequences — small doc update; ~30 min effort.
+2. **CraftPix vendor curation crawl** — Legolas Mode B dispatch to populate the 7 known CraftPix products (5 pixel-art-raster VFX + 2 vector-ai character; per `craftpix/full-2026-05-16.jsonl`) into catalogue.db, with per-product `deliverable_register` populated per persona-rule extension. Not in this dispatch's scope; queued for future activation.
+3. **Drax bundle-pipeline matcher updates** — per recommendations in `pimen-bundle-follow-up-2026-05-16.md` §§ 1.recommendation, 2.recommendation, 3.recommendation. Drax-side implementation; knight-rider sequences if drax wants a focused matcher-improvement dispatch.
+4. **Backfill `subpack_organization_style` + `bundle_folder_hint` at next curation pipeline pass** — both surfaced as amendment-time additions in this dispatch. Next pipeline pass (per v1.3 open follow-on #2) should promote to first-class curation-time fields.
+5. **Visual-inspection queue grew to 23 rows** (was 22 in catalogue.db post-v1.3 — minor discrepancy with v1.3 curation-log's "21" claim worth noting; the 22-vs-21 delta predates this dispatch and is not investigated here). Icons sub-pack added at MEDIUM priority (bundle-internal; no incremental acquisition decision).
+6. **Pre-v1.1 backup pruning** — `catalogue.db.pre-v1.1-backup` retained until next housekeeping pass (~1 week soft-retention).
+7. **Generalization of `bundle-internal-only` operational pattern** — this is the first instance. Future bundle-inspections should reuse the `bundle_internal_only: true` + `bundle-internal-only:<bundle_id>` tag pair. Eventually candidate for first-class schema field if the pattern recurs.
+
+---
+
 ## v1.3 — First live curation pass (Pimen full-catalogue, 47 rows) — 2026-05-16
 
 ### What changed (one line)

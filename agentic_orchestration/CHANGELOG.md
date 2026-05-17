@@ -6,6 +6,88 @@ Format: reverse chronological, dated entries with brief rationale.
 
 ---
 
+## 2026-05-17 — Substrate-expansion Branch A confirmed: canonical-four → 6 (Phase-1 P1); vocab freeze standing constraint
+
+**Event:** Gandalf 2026-05-17 escalation on substrate-level genre-positioning surfaced the canonical-four (fire/water/earth/wind) substrate as below-ARPG-genre-floor. Compounding evidence: Case D Fire_Lord thunder math-impossibility resolved Day-4 via mini-boss tier-bump was a symptom of missing substrate, not an isolated case; legolas Track A REVERSE TIER 1 expansion candidates concentrate in beyond-canonical-four substrates (5 of 5: holy/electric/poison/void/shadow); spirit-swap differentiation as load-bearing per 2026-05-08 design intent argues for >4 archetype identities; earth-meta-layer / ascended-spirit / Earth-self thematic framing aligns naturally with luminance axis (Solo Leveling, Bleach, Mushoku Tensei healing-light reference cluster); ARPG-vs-JRPG Day-4 commitment direction.
+
+**Decision (Matt-confirmed Branch A 2026-05-17; gandalf design doc landed `1df535b`):** Expand canonical-four → 6 substrates in Phase-1 P1. Substrate naming + light/dark treatment LOCKED per gandalf design doc:
+- + **`lightning`** as own substrate (not wind-flex). Genre-canon across D2-D4/PoE/Last Epoch/Grim Dawn. Closes Case-D pattern at substrate level.
+- + **`holy`** and **`shadow`** as TWO distinct substrates (PAIRED-LUMINANCE-AXIS, not collapsed single-luminance). Rationale: paired-opposition mirrors Mirror/Body-swap/Passage triadic cosmology; ARPG-genre archetype fidelity (D2 Paladin vs Necromancer; D4 Necromancer-vs-Holy); legolas reverse-audit shows distinct VFX coverage for holy-radiance vs shadow-tendril.
+- Defer poison/acid (earth-flex adequate; Phase-2 candidate).
+- Decline void (anti-substrate; boss-exclusive only via trial-room gallery permit).
+- VS2a/VS2b ship on canonical-four explicitly. NO scope creep into in-flight visual surfaces.
+- Final substrate set (6): **fire / water / earth / wind / lightning / holy / shadow** (Phase-1 P1 target state).
+
+**Standing constraints in effect:**
+
+1. **Vocab freeze (operational ask #1, Matt-authorized 2026-05-17):** seven substrate-distinct entries MUST NOT be promoted to allow-list under wind/earth flex pending Phase-1 P1 substrate landing:
+   - **thunder, lightning, bolt** (electric substrate; will land at expansion)
+   - **holy, divine** (light substrate)
+   - **shadow, umbra** (dark substrate)
+   - Any future pool-promotion dispatch (rocket, knight-rider-authored, or otherwise) MUST check against this freeze list before recommending allow-list promotion under canonical-four flex
+   - Freeze duration: until Phase-1 P1 substrate-expansion dispatch chain ships
+
+2. **Rocket Drift-14 pool-cull dispatch — HOLD LIFTED 2026-05-17 (post-design-doc-landing); awaits Matt fire-approval:**
+   - At `agentic_orchestration/dispatches/2026-05-17-rocket-drift-14-pool-cull-and-selector-hardfloor-amendment.md`
+   - Substrate-expansion design doc landed (commit `1df535b`); HOLD condition satisfied
+   - Amendment scope: D1 rubric extension ships `substrate_native` as third dimension alongside `canonical_pair_leak` + `vfx_catalogue_mapping_clean`
+   - **Pool D1 re-score scopes 156 entries across full 6-substrate target state** (fire/water/earth/wind/lightning/holy/shadow), per gandalf substrate-expansion doc § 5.2
+   - **CRITICAL: vocab freeze REMAINS ACTIVE during re-score.** Re-score scopes the TARGET STATE the freeze will lift to (when Phase-1 P1 substrate-expansion ships). The 7 frozen entries (thunder/lightning/bolt/holy/divine/shadow/umbra) re-score to substrate-native primary slots BUT do not lift to allow-list until Phase-1 P1 activates the 6-substrate runtime.
+   - VS2a/VS2b runtime selection stays canonical-four-bounded (selector allow-list filter unchanged)
+
+**Phase-1 P1 dispatch chain (queued per gandalf cascade order; knight-rider sequences after decisions-log entry lands per gandalf recommendation to draft post-rocket-Drift-14-fire):**
+
+Cascade order per gandalf substrate-expansion doc § 6:
+1. ✅ Design doc COMMITTED (`1df535b` 2026-05-17)
+2. **Decisions-log entry** (knight-rider drafts AFTER rocket Drift-14 fires so log references unified state; gandalf reviews)
+3. **Rocket Drift-14 amendment fires** (awaits Matt approval)
+4. **Pool D1 re-score** (within Drift-14 dispatch; scopes 6-substrate target state)
+5. **VS2a + VS2b ship on canonical-four** (unchanged; substrate-orthogonal)
+6. **Phase-1 P1 dispatch chain:**
+   - Rocket: resistance-matrix extension 4×4 → 6×6 (engine-side; symmetry + paired-luminance valence handling per design doc)
+   - Rocket: substrate-coherent generation rules
+   - Jack-ryan: resist-matrix-extension review (Discipline #1 math-before-code; stress-test on architectural assertion)
+   - Gamora: balance-loop modifier table extension + spirit-swap differentiation math validation for **3 new substrate-archetypes (lightning + holy + shadow)** — paired-luminance means holy + shadow are distinct classes, not merged (per gandalf doc § 5.2 correction)
+   - Drax: loadout + demo surface updates for 6-substrate selection (deferred to Phase-1 P1, NOT VS2a/VS2b)
+   - Star-lord: LLM prompt-template extension for 6-substrate vocabulary
+   - Elrond: D1 pool schema extension for `substrate_native` flag + trait-architecture extension (3 new class trait pools per dual-source design 2026-05-12)
+   - Gear-affix gating extension (rocket; D1 affix pool expansion across 6 substrates)
+7. **Revisit poison/acid as P2 candidate** post-Phase-1 P1
+
+**Freeze enforcement infrastructure (advisory; gandalf surface 2026-05-17):**
+- Consider adding `freeze_list` check to dispatch-authoring Gate 1 checklist (knight-rider territory)
+- Consider adding `freeze_list` check to pool-curation Gate 2 review (jack-ryan territory)
+- Optional: rocket Drift-14 amendment could include `freeze_list_member` boolean as fourth D1 dimension (surface to rocket scoping as side-note, not blocking)
+- Gandalf will audit pool weekly during Phase-1 P1 as backstop
+
+**Vendor acquisitions (Matt-authorized 2026-05-17 — VFX track per gandalf Track B Section 3 + Matt override on Frostwindz; ENVIRONMENT track per legolas Mode B sweep):**
+
+**VFX track:**
+- **CraftPix premium (wood-nature substrate)** — ACQUIRE HIGH PRIORITY. Gates earth-slot rebuild after biological-organic cluster cull (+5-8 allow-list entries projected: root/bark/leaf/petal/vine/moss/lichen/wood).
+- **Fellor Crystal pack (gem cluster)** — ACQUIRE MED PRIORITY. Reinforces 13-entry crystal/gem/precious-metal cluster the cull KEEPS.
+- **Frostwindz Deathbringer (bone)** — ACQUIRE per Matt override 2026-05-17. Gandalf Track B initially DEFER'd citing canonical-four-bounded biological-organic drift concern. Matt reframe: under expanded 6-substrate cosmology (Branch A above), bone/death/skeleton VFX has natural home in **shadow substrate** (necromancy / lich / shadow-monarch / earth-meta-layer ascended-spirit register) — not forced into earth-flex where the drift concern lives. Sequencing: acquire alongside Phase-1 P1 substrate-expansion dispatch chain so VFX assets land on disk before shadow-substrate selector/render wiring needs them.
+
+**Environment tileset track (Matt-authorized 2026-05-17 post-legolas Mode B sweep):**
+- **Foozle Lucifer Dungeon** — ACQUIRE IMMEDIATELY (FREE CC0). Drax pipeline-testing baseline; cost-free option-value; 32×32 retro register acceptable as pipeline baseline pending HD-2D-quality VS2a pack acquisition.
+- **Kokoro Reflections Reaper Tileset** — ACQUIRE ($9.99). Death/undead palace/fog theme; 48×48 exact-meter-fit; HD-2D-ADJACENT (gandalf visual inspection needed before VS2a commit).
+- **Kokoro Reflections Phoenix Tileset** — ACQUIRE ($9.99). Fire/volcanic palace/lava theme; 48×48 exact-meter-fit; HD-2D-ADJACENT.
+- **Kokoro Reflections Naga Tileset** — ACQUIRE ($8.99; richest content 13 MB). Serpentine/water palace/marble theme; 48×48 exact-meter-fit; HD-2D-ADJACENT.
+
+Total environment track cost: ~$29 ($28.97 + free baseline). Kokoro Reflections vendor has 2 additional themed palace packs not surfaced by name in legolas Mode B Top-5 (legolas surfaced 3 of 5; remaining 2 can surface in next legolas session if Matt wants full 5-pack acquisition).
+
+**Downstream cascade for environment tileset acquisitions:**
+1. Matt action: license/cost payment for the 3 Kokoro packs
+2. Asset download + on-disk placement at `~/Games/reincarnated-demo/public/assets/<vendor>/<pack>/`
+3. Drax ingest-pipeline extension for environment tilesets (separate knight-rider-authored dispatch; analogous to monster-ingest pipeline)
+4. Gandalf Track B environment-tileset framework authoring (next session per per-seam discipline; gandalf visual-inspect Kokoro samples; Matt VS2a selection)
+5. Drax integration: room/hallway renderer extension consuming environment-pack manifest at season-load time (Phase-1 P1 timeline per gandalf commission Track D)
+
+**Files updated:** This CHANGELOG entry; rocket Drift-14 dispatch HOLD note. Gandalf design doc + decisions-log entry pending. Gandalf substrate-expansion design doc should cross-reference Frostwindz acquisition as already-in-hand dark-substrate VFX precedent.
+
+**Cross-references:** Drift-14 cascade (Track A original + Track B + Track A REVERSE); Case D math-impossibility (Fire_Lord V1 mini-boss tier-bump per gandalf 8a89d1b § Case 4); Drift-15 commission (8a89d1b); Engine Option C 4-phase plan (substrate expansion sits Phase-1 P1, not VS2a/VS2b in-scope); Trait architecture 2026-05-12 (dual-source design extends naturally to 6 with per-class intrinsic pool authoring cost noted).
+
+---
+
 ## 2026-05-16 — Dispatch Gate-1 rubric codified for knight-rider self-discipline
 
 **Event:** Matt and knight-rider reconciled Gate-1 application during Day-4 close. Strict reading of `knight-rider.md` (Dispatch authoring requirements) says every Pattern B dispatch routes through jack-ryan DESIGN-MODE before publishing. In practice during fast-moving sessions, knight-rider had been bypassing this when Matt's directive was explicit.

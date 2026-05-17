@@ -1,10 +1,40 @@
 # AGENT_STATE — elrond (data steward)
 
-**Last updated:** 2026-05-16 (Catalogue structural pre-inventory — COMPLETE)
-**Last session:** Catalogue structural pre-inventory dispatch (`2026-05-16-elrond-catalogue-structural-pre-inventory.md`). Q4-agnostic scaffolding for the abstraction-analysis follow-on. All 47 curated rows surveyed across categorical dimensions + 6 cross-tabs + gap enumeration + 14 parked questions.
+**Last updated:** 2026-05-16 (Pattern A — Pixogen catalogue loop closure — COMPLETE)
+**Last session:** Pattern A dispatch — close Pixogen catalogue loop per drax v0.19 completion + Matt's Lite acquisition + AFGameAssets license file verification (commercial use OK; modification OK; Pixi.js tinting permitted § 2.A.4; attribution required § 3.A.1). Pixogen vendor row inserted into catalogue.db (data migration v1.2 against schema v1.1 — no schema change); curated JSONL `pixogen-catalogue-curated-2026-05-16.jsonl` filed with HOLD-to-APPROVED-WITH-ATTRIBUTION flag transitions for both Full and Lite SKUs; pricing/access metadata corrected (Full €19.99 paid not-yet-acquired; Lite €0 acquired). MIGRATION.md v1.5 entry filed. No new pack/asset rows curated (per dispatch scope).
+
 **Last deliverables (this session):**
-- `agentic_orchestration/research/curated/catalogue-structural-pre-inventory-2026-05-16.md` (NEW — 5-section inventory; ~620 lines)
-- `agentic_orchestration/dispatches/2026-05-16-elrond-catalogue-structural-pre-inventory.md` (UPDATED — Completion section filled)
+- `agentic_orchestration/research/scripts/catalogue_migrations/v1_2_pixogen_vendor_insert.sql` (NEW — data migration; Pixogen vendor row insert + schema_meta v1.2 record)
+- `agentic_orchestration/research/curated/pixogen-catalogue-curated-2026-05-16.jsonl` (NEW — 2 rows, Full + Lite, with HOLD-cleared flag state + corrected pricing/access metadata)
+- `agentic_orchestration/research/curated/catalogue.db` (mutated — catalogue_sources +1 row [itch-pixogen]; schema_meta +1 row [v1.2]; no schema change; total: 3 sources / 3 packs / 48 assets / 461 tags / 1 session)
+- `agentic_orchestration/research/curated/catalogue.db.pre-pixogen-2026-05-16-backup` (NEW — pre-migration safety snapshot; ~1 week soft-retention)
+- `agentic_orchestration/research/curated/MIGRATION.md` (UPDATED — v1.5 entry; Pixogen path-A closure)
+
+**Previous session deliverables (still in force):**
+- Pattern A combined dispatch (Track A drax-bundle-pipeline follow-up + Track B catalogue.db schema amendment for `register_mixed` flag + `deliverable_register` field per Drift-13 / Pattern P8 prevention (d), Matt-authorized "yes to all 7"). Schema bumped v1.0 → v1.1; CraftPix added as canonical first cross-register vendor; 1 new asset row + 3 amended asset rows; 17 new tags; visual-inspection queue 22 → 23.
+**Last deliverables (this session):**
+- `agentic_orchestration/research/scripts/catalogue_migrations/v1_1_register_mixed_flag.sql` (NEW — Track B migration; per-vendor register_mixed + per-product deliverable_register + CraftPix canonical row)
+- `agentic_orchestration/research/scripts/amend_pimen_bundle_folder_hints_2026_05_16.py` (NEW — Track A item 1 amendment script; idempotent)
+- `agentic_orchestration/research/scripts/curate_pimen_elemental_icons_2026_05_16.py` (NEW — Track A item 2 curation script; idempotent)
+- `agentic_orchestration/research/curated/pimen-bundle-follow-up-2026-05-16.md` (NEW — Track A findings doc; 3-item inspection record + drax-matcher recommendations)
+- `agentic_orchestration/research/curated/MIGRATION.md` (UPDATED — v1.4 entry covers both Track A and Track B)
+- `agentic_orchestration/research/curated/catalogue.db` (mutated — schema v1.1; 48 assets / 461 tags / 3 packs / 2 sources / 1 session)
+- `agentic_orchestration/research/curated/catalogue.db.pre-v1.1-backup` (NEW — pre-migration safety snapshot; ~1 week soft-retention)
+- `agentic_orchestration/research/curated/pimen-catalogue-curated-2026-05-16.jsonl` (mutated — 47 → 48 rows; 2 rows amended in-place + 1 row tags appended + 1 row added)
+
+**Previous session deliverables (still in force):**
+- `agentic_orchestration/research/curated/geometry-element-coverage-matrix-2026-05-16.md` (7-section matrix deliverable for gandalf Track 4; 664 lines)
+- `agentic_orchestration/dispatches/2026-05-16-elrond-geometry-element-coverage-rubric.md` (Completion section filled)
+
+**Previous session deliverables (still in force):**
+- `agentic_orchestration/research/curated/post-step-b-cleanup-2026-05-16.md` (cleanup-note capturing operational application)
+- `agentic_orchestration/research/curated/cipher-width-inclusion-flags-2026-05-16.jsonl` (per-asset inclusion-flag sidecar; read-only respect for legolas's per-vendor JSONLs)
+- `agentic_orchestration/research/catalogue/cross-vendor-substrate-inventory-2026-05-16.jsonl` (4 flag adjudications applied; blood merged; acid+poison split-justified; Pixogen exclusion-breakdown; register_axis on every row)
+- `agentic_orchestration/research/curated/pivot-insurance-ledger.md` (Active; section 3a substrate-layer resolutions + reversal-path table)
+
+**Previous session deliverables (still in force):**
+- `agentic_orchestration/research/curated/catalogue-structural-pre-inventory-2026-05-16.md` (5-section inventory; ~620 lines)
+- `agentic_orchestration/dispatches/2026-05-16-elrond-catalogue-structural-pre-inventory.md` (Completion section filled)
 
 **Previous session deliverables (still in force):**
 - `agentic_orchestration/research/curated/pimen-catalogue-curated-2026-05-16.jsonl` (47 curated rows)
@@ -133,6 +163,15 @@ Per knight-rider sequencing direction (2026-05-16). `cp -r reincarnated-loadout/
 - **Star-lord:** no engine-side impact; ADR-004 satisfied via elrond-side MIGRATION.md v1.3 only
 - **Legolas:** Pimen Mode B extraction format works — 0 extraction errors; reference shape for future crawls
 
+## Pixogen path-A follow-ons (newly queued 2026-05-16; knight-rider sequences)
+
+1. **Pixogen Lite per-pack curation** — 8 Lite animations × catalogue_packs row + 8 catalogue_assets rows; requires curator visual inspection of frames. Estimated: 1-2 hours. Unblocks broader Pixogen consumption beyond Void Shield (Water/Fire/Wind/Holy/Electric/Fireworks/Explosions all candidate-ready post-curation).
+2. **Pixogen Full acquisition decision** (Matt + knight-rider) — €19.99 purchase OR Mega Pack at €59.99. Substrate-coverage argument (technology-vfx is Pixogen-exclusive at Tier-1; void-spatial is Pixogen-Black-Hole-anchor) may motivate. Decision-only; no elrond work until decided.
+3. **Cipher-width / cluster-clarity sensitivity re-run with Pixogen re-included** — elrond dispatch (when commissioned by gandalf). Substrate-evidence weights shift: void-spatial gains confirming row (n=2 with CraftPix Black Hole already present); technology-vfx becomes attested (n=1; Pixogen-exclusive).
+4. **HOLD-era language refresh in downstream documents** — pivot-insurance-ledger line 136 + line 145, cross-vendor substrate inventory Pixogen-exclusion blocks, cipher-width inclusion flags. Combined elrond dispatch; estimated 1 hour. Deferred per current dispatch scope.
+5. **Legolas parallel: `pixogen/findings-summary-2026-05-16.md` license_terms_verbatim update** — legolas authors verbatim license file text. Coordinate timestamps via MIGRATION.md v1.5.
+6. **Optional decisions-log entry** — knight-rider sequences; codifies Pixogen license-verification + first-vendor-consumption pattern as vendor-onboarding playbook precedent.
+
 ## Open follow-ons (NOT elrond — knight-rider sequences with star-lord)
 
 1. **scripts/db.py + scripts/capture-regression-baseline.py cleanup** (research.db references from Dispatch A; one-liner draft in archive § E)
@@ -232,9 +271,12 @@ N/a for the rubric / schema work — documentation + empty DB only. Schema verif
 - `engine/exports/` schema: `format_version: 1.0` with `gear_pool.json` at v1.1
 - `engine/seasons/` schema: `manifest_version: 1.3`
 - Season set: 23 in telemetry + seasons/; 5 in exports/; 5 in demo/public/seasons/; 6 in loadout/data/ (including Yomi outlier)
-- **catalogue.db schema version: 1.0** (elrond-owned, this seam) — **POPULATED:** 47 assets / 444 tags / 3 packs / 1 source / 1 session
+- **catalogue.db schema version: 1.1** (elrond-owned, this seam) — **POPULATED:** 48 assets / 461 tags / 3 packs / **3 sources** (itch-pimen, craftpix, **itch-pixogen**) / 1 session
+- **catalogue.db data migration version: 1.2** (DATA-only; no schema change between data migrations and the v1.1 schema)
 - Rubric version: 1.0
-- catalogue corpus: 47 Pimen rows (28 hand-drawn-pixel + 2 retro-16bit + 17 manual-review)
+- catalogue corpus: 47 Pimen rows (28 hand-drawn-pixel + 2 retro-16bit + 17 manual-review) + 1 Pimen bundle-internal Icons sub-pack (manual-review; deferred quality_flag)
+- Cross-register vendor count: 1 (craftpix; register_mixed=1; no curated assets yet — vendor row added in anticipation of future Mode B crawl)
+- Pixogen consumption state: **APPROVED-WITH-ATTRIBUTION** (transitioned from HOLD 2026-05-16 per Matt license verification + drax v0.19 demo wiring); vendor row populated; no pack/asset rows yet (deferred to future per-pack curation dispatch)
 
 ---
 

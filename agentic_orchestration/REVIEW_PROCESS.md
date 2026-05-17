@@ -7,9 +7,9 @@ This document is the **operational playbook** for how changes flow from idea to 
 
 ---
 
-## 1. Five review principles
+## 1. Review principles
 
-These shape every Gate 1 and Gate 2 review. jack-ryan applies them; Matt invokes them when escalating.
+These shape every Gate 1 and Gate 2 review. jack-ryan applies them; Matt invokes them when escalating. Principles 1-5 are founding (2026-05-13). Principle 6 / 6b added 2026-05-16 (R11(b) + P8 operationalization).
 
 ### Principle 1 — Math-before-code on non-trivial changes
 
@@ -42,6 +42,51 @@ When in doubt, the decisions-log wins. New decisions land there before they land
 ### Principle 5 — Severity matters; escalation is normal
 
 INFO < WARN < BLOCK. jack-ryan has BLOCK authority. BLOCK doesn't mean "permanently stop" — it means "this needs Matt's eyes before it ships." Escalation is the system working, not a failure.
+
+### Principle 6 — Cross-seam contract changes require round-trip discipline
+
+Per Drift-audit Drift-12 / R11(b). Operationalized 2026-05-16 after two Pattern P7 instances at different seams (gamora V2.1 emission gap + star-lord season_writer.py form-bias silent drop) confirmed the pattern is structural, not incidental.
+
+**What triggers this principle:** a dispatch ships a change to any cross-seam contract. A cross-seam contract change is any of the following:
+
+| Trigger type | Examples |
+|---|---|
+| Telemetry schema field added/modified | new column on `class_fight_loadouts`; new `class_balance_results` field |
+| Fight_log dict key added/modified | new key emitted by gamora's fight_engine or balance_loop |
+| Loadout dict key added/modified | new key in the loadout packet gamora/rocket passes to star-lord or drax |
+| Export packet structure changed | new top-level key in season JSON; changed season_writer.py output shape |
+| Any inter-seam fixture format changed | new field in any dict crossing a seam boundary |
+
+Note: a field renamed, removed, or made optional is also a cross-seam contract change even if no new field is added.
+
+**Gate 1 question:** "Does this dispatch include a cross-seam round-trip smoke test — generate, export, validate at the consumer boundary using PRODUCTION-PATH fixtures, not test-isolated fixtures — OR an explicit justification for why round-trip is not applicable?"
+
+The two permissible outcomes are:
+- **(i) Round-trip smoke included.** Acceptance criteria must specify: what production-path fixture is used, which consumer boundary is exercised, and what field-presence check confirms the field flows end-to-end.
+- **(ii) Round-trip-not-applicable justification.** Acceptance criteria must include an explicit line: `Round-trip: not applicable because <reason>`. Valid reasons include: "change is additive-nullable; existing consumer code paths tolerate absent keys; isolation verified by <test name>." Invalid reason: silence.
+
+**BLOCK trigger:** a dispatch ships a cross-seam contract change (by the trigger-type table above) with neither clause present in the acceptance criteria.
+
+**Gate 2 check:** when the completion record lands, verify the round-trip smoke output is present (or the justification is present). Missing either is a WARN → BLOCK if the pattern has already been flagged once for this agent.
+
+**What this does NOT cover:**
+- Within-seam refactors with no change to the inter-seam dict/schema surface (Principle 3 already handles the MIGRATION.md angle)
+- Catalogue data layer changes (elrond/legolas seam — see Principle 6b below)
+- Documentation-only dispatches
+
+### Principle 6b — Catalogue dispatches require per-product-line register validation (secondary hook, legolas/elrond seam)
+
+Per Drift-audit Pattern P8 (Drift-13; CraftPix VFX vs character line register confusion). Operationalized 2026-05-16 after 4 P8 instances confirmed the pattern is structural.
+
+**Judgment on scope:** P8 does not warrant a full Gate-1 BLOCK hook equivalent to Principle 6. The per-record `style_register` field already provides the correct granularity; existing per-record curation is correct. The gap is at the *vocabulary layer* — dispatch authoring and findings-summary docs aggregating by vendor where per-product-line granularity is required. The three existing enforcement layers (legolas persona-rule extension per P8(a); elrond schema flag per P8(d); quarterly re-pass per R10/P8(b)) are sufficient. Principle 6b is therefore a *soft gate* — a Gate-1 question, not a BLOCK trigger.
+
+**What triggers this principle:** a dispatch covers catalogue work for a vendor that spans multiple product lines (e.g., VFX + characters; sprites + tilesets; portraits + environments).
+
+**Gate 1 question:** "Does this catalogue dispatch instruct the crawling agent to record `deliverable_register` (or equivalent) per product line — based on per-product-page inspection, NOT inferred from the vendor's site-wide marketing label? And does the findings-summary format include a `vendor-register-mixed: yes/no` flag?"
+
+**WARN trigger (not BLOCK):** catalogue dispatch for a multi-product-line vendor that does not include per-product-line register-validation instruction. WARN because the per-record data is the primary source-of-truth and missing the dispatch instruction does not corrupt existing records; it only risks accumulating new records with wrong register inferences.
+
+**No decisions-log entry required for 6b:** this is a persona-rule and dispatch-authoring convention, not an architectural decision. The P8 pattern is already canonically documented in drift-audit.md; 6b operationalizes it at Gate-1 without requiring a new ADR or decisions-log entry.
 
 ---
 
@@ -94,6 +139,9 @@ When knight-rider dispatches a task to a developer, jack-ryan reviews the prompt
 - Missing math justification (Principle 1)
 - Conflict with decisions-log (Principle 4)
 - Ambiguous cross-seam scope (Principle 3)
+- Cross-seam contract change without round-trip discipline (Principle 6)
+- LLM prompt-construction site exposing internal schema labels (Discipline #14)
+- Outcome-attribution claim without ablation evidence (Discipline #13b)
 
 Gate 1 is fast (~2 min). jack-ryan in DESIGN-MODE — peer collaborator with knight-rider, not gatekeeper.
 
