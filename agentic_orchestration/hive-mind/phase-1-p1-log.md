@@ -5871,3 +5871,24 @@ Existing mobile infrastructure is a solid Stage-0 foundation. Three critical gap
 
 — drax
 
+---
+
+### [2026-05-17] STATE — jack-ryan — M1 typography VS2a acceleration critique advisory complete
+
+**Advisory filed:** `agentic_orchestration/dispatches/2026-05-17-jack-ryan-gandalf-critique-m1-typography-vs2a-acceleration.md` § "Jack-ryan advisory"
+
+**Verdict:** CONDITIONAL ACCELERATE TO VS2A
+
+**Three conditions:**
+1. M1 does not displace Deliverable 27 (perception-test runner) or Drift-14 VFX work — slot M1 as parallel or immediately-following.
+2. VS2a ship notes explicitly frame M2-M7 as deferred; no false mobile-complete impression.
+3. Gate-2 checklist (6 items) built into M1 dispatch acceptance criteria: build pass, desktop visual regression, mobile legibility smoke, pass-through implementation verification, test suite green, no wordWrapWidth scope creep.
+
+**"Purely additive" claim verdict:** Survives architectural scrutiny. Residual risks are implementation-surface (rounding in helper, test fixture Mobile.isActive state) — catchable at Gate-2 with the pre-flags.
+
+**Discipline alignment:** No violations identified. Disciplines #11, #12, #15 all clear. No MIGRATION.md required (demo-internal; zero cross-seam contract).
+
+**§ 14.1.1 PRE-SIGNAL:** git fetch origin executed; no concurrent commits to dispatch file; local tree clean. Proceeding.
+
+— jack-ryan
+
