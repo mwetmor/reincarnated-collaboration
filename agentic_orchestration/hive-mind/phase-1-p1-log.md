@@ -5131,3 +5131,124 @@ No action required from drax-demo. D19 Sub-phase C (demo VFX wiring + substrate 
 
 — drax
 
+---
+
+### [2026-05-17] PRE-SIGNAL — rocket — perception_asymmetry module starting
+
+**Per § 14.1.1 PRE-SIGNAL protocol.**
+
+Starting work on dispatch `2026-05-17-rocket-perception-asymmetry-module.md`.
+
+**Scope:** New `foundation/perception_asymmetry.py` module (ENEMY_AOE_APPARENT_RATIO=1.12, PLAYER_AOE_APPARENT_RATIO=0.90, helper functions, fail-loud sanity check). Export from `foundation/__init__.py`. Cross-language TS constants via Path B (`reincarnated-demo/src/data/perceptionAsymmetry.ts`). Unit tests. MIGRATION.md §v3.4 entry.
+
+**Authority:** Gandalf L3 § 8 binding decision (`gandalf/v1.5-asymmetric-perceived-aoe-radius-briefing-1` @ `6733866`). Matt L3 standing delegation.
+
+**Path B chosen:** Demo already uses `src/data/substrateIdentity.ts` and `src/data/loader.ts` as the cross-language constants pattern. No engine-emitted TS generation exists. Path B (TS constants in demo + MIGRATION.md parity-check obligation for jack-ryan) is consistent with that precedent.
+
+**ETA:** ~0.5 day. Tag target: `rocket/v1.9-perception-asymmetry-module-1`.
+
+— rocket
+
+---
+
+### [2026-05-17] STATE — rocket — perception_asymmetry module COMPLETE
+
+Tag `rocket/v1.9-perception-asymmetry-module-1` @ engine commit `430236f`. Demo commit `4cc7b89`.
+
+**Delivered:**
+- `src/reincarnated/foundation/perception_asymmetry.py` — ENEMY_AOE_APPARENT_RATIO=1.12, PLAYER_AOE_APPARENT_RATIO=0.90, three helpers, fail-loud module-load validation (safe centroid [1.08-1.18] / [0.85-0.93])
+- `foundation/__init__.py` — five new exports
+- `reincarnated-demo/src/data/perceptionAsymmetry.ts` — cross-language mirror (Path B; same pattern as substrateIdentity.ts)
+- `tests/test_perception_asymmetry.py` — 44 tests, all pass; 481 total tests pass in foundation suite
+- `generation/MIGRATION.md §v3.4` — per-seam consumer obligations documented
+
+**Smoke tests passed:**
+- `from reincarnated.foundation import ENEMY_AOE_APPARENT_RATIO, PLAYER_AOE_APPARENT_RATIO` → `1.12 0.9`
+- `enemy_apparent_radius(100.0)` → `112.0`
+- All 481 foundation tests pass
+
+**Path B chosen** (TS constants in demo + jack-ryan parity check). No engine-emitted TS generation pattern exists in the codebase; Path B is consistent with existing `substrateIdentity.ts` precedent.
+
+**Discipline #15 satisfied:** engine and demo both honor the same asymmetry contract. Perception != damage — the semantic split is documented in module docstring, MIGRATION.md §v3.4, and consumer obligation notes.
+
+— rocket
+
+---
+
+### [2026-05-17] TAG — rocket — rocket/v1.9-perception-asymmetry-module-1
+
+Engine repo: `rocket/v1.9-perception-asymmetry-module-1 @ 430236f`
+Demo repo: commit `4cc7b89` (no versioned tag needed for data-only file)
+
+---
+
+### [2026-05-17] HANDOFF — rocket → gamora — perception_asymmetry consumer obligations
+
+**To:** gamora
+**Type:** Action required
+
+`rocket/v1.9-perception-asymmetry-module-1` has landed. Your reactive-escape AI dispatch (in-flight) must consume `get_apparent_radius()` per MIGRATION.md §v3.4 gamora consumer obligations:
+
+1. `from reincarnated.foundation import get_apparent_radius`
+2. Escape decision uses `get_apparent_radius(skill.aoe_radius, owner="player")` — the monster evaluates the player-cast AOE at the *apparent* radius (0.90× true), not true_radius. This produces the player-favoring spillover effect.
+3. Damage resolver stays on `true_radius` — do NOT pass apparent_radius into any damage path.
+4. Telemetry per AOE cast: emit `aoe_true_radius_hit_count` and `aoe_apparent_radius_hit_count` as separate int fields (not folded). Star-lord confirms schema accept.
+
+See `canonical/story/asymmetric-perceived-aoe-radius-briefing-2026-05-17.md` § 4.2 for full contract.
+
+— rocket
+
+---
+
+### [2026-05-17] HANDOFF — rocket → drax-demo — perception_asymmetry TS module ready
+
+**To:** drax-demo
+**Type:** Action required
+
+`reincarnated-demo/src/data/perceptionAsymmetry.ts` is live at commit `4cc7b89`.
+
+Your indicator rendering update (per MIGRATION.md §v3.4 drax consumer obligations):
+
+1. `import { enemyApparentRadius, playerApparentRadius } from '../data/perceptionAsymmetry';`
+2. Enemy AOE indicator: `const indicatorRadius = enemyApparentRadius(skill.aoe_radius)` — was 1.08×, now 1.12×
+3. Player AOE indicator: `const indicatorRadius = playerApparentRadius(skill.aoe_radius)` — was 0.92×, now 0.90×
+4. Existing substrate-coupled VFX (windup, indicator colors, shadow late-commit, earth post-impact-persist) preserved — this is magnitude only.
+
+Target tag: `drax/v1.2-perception-asymmetry-indicator-magnitudes-1`.
+
+— rocket
+
+---
+
+### [2026-05-17] HANDOFF — rocket → star-lord — aoe_cast telemetry fields
+
+**To:** star-lord
+**Type:** Action required (0-0.5 day)
+
+`rocket/v1.9` adds two new AOE-cast telemetry fields (per briefing § 4.5 / MIGRATION.md §v3.4):
+- `aoe_true_radius_hit_count: int` — mobs inside true_radius at damage tick
+- `aoe_apparent_radius_hit_count: int` — mobs inside apparent_radius at damage tick
+
+**Question:** Does the current telemetry event schema accept optional integer fields additively? If yes, 0-day work. If a schema migration is needed, version-bump + update export DTO per your existing migration pattern.
+
+These fields are emitted by gamora (reactive-escape AI dispatch, in-flight). They need to be passable through your telemetry pipeline. No change to existing fields.
+
+— rocket
+
+---
+
+### [2026-05-17] HANDOFF — rocket → jack-ryan — cross-language parity validation + tuning-drift discipline
+
+**To:** jack-ryan
+**Type:** Action required (0.25 day)
+
+Per MIGRATION.md §v3.4 acceptance criterion 4 and § 5.4 tuning-drift guard:
+
+1. **Parity check:** Confirm `reincarnated-demo/src/data/perceptionAsymmetry.ts` constants match Python:
+   - `ENEMY_AOE_APPARENT_RATIO === 1.12` in both
+   - `PLAYER_AOE_APPARENT_RATIO === 0.90` in both
+2. **Discipline entry:** Add to your discipline checklist: any future change to `perception_asymmetry.py` constants requires simultaneous update to `perceptionAsymmetry.ts` AND gandalf design-review sign-off. The factor pair is a design contract, not a tuning parameter.
+3. **Post-gamora:** After gamora reactive-escape AI lands, validate KPM sim spillover ratios per briefing § 5.3 (player AOE spillover 5-15% of hit count; enemy AOE safety-count 10-25% of apparent-hit count).
+
+— rocket
+
