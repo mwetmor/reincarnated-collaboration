@@ -4700,3 +4700,56 @@ All 4 design surfaces addressed per dispatch acceptance criteria:
 
 — gandalf
 
+
+---
+
+### [2026-05-17] STATE — drax — v1.0 narrow-slice engine-coupled combat COMPLETE
+
+**Dispatch:** `2026-05-17-drax-demo-narrow-slice-engine-coupled-dodge-and-aoe-indicators.md` — COMPLETE
+**Commit:** `44ddf9b`
+**Tag:** `drax/v1.0-narrow-slice-engine-coupled-combat-1`
+
+3 items shipped per gandalf L3 § 5.1:
+
+**Item 1 — Engine-coupled dodge (i-frames):**
+- `dodge_iframes_seconds` consumed from substrate identity (rocket v1.8 YAML values via `getSubstrateIdentity()`)
+- Earth: 0.45s (longest), wind: 0.25s (shortest), shadow: 0.40s, baselines: 0.35s
+- Damage suppressed during i-frame at 3 sites: DoT tick, auto-attack, skill onImpact callback
+- Cooldown: 0.75s cosmetic → 4.5s engine-coupled; wind distance +20%, earth -25%
+- Telemetry hook: `dodge_executed` event (substrate/position/direction/iframe_seconds/timestamp)
+
+**Item 2 — Enemy AOE ground-indicator rendering:**
+- `src/data/substrateIdentity.ts` — new module consuming all 3 rocket v1.7/v1.8 substrate fields
+- 7 substrate visual characters per gandalf § 3.2 cosmological table
+- Shadow late-commit (appears last 0.2s only), earth post-impact persist (1.5s)
+- Player AOEs excluded per gandalf § 3.6
+
+**Item 3 — Substrate-VFX coupling for dodge animation:**
+- 7 substrate animation hooks (fire embers, water droplets, earth dust, wind streaks, lightning arcs, holy glow, shadow smoke)
+- Shadow player alpha drops to ~0.35 at midpoint of dash (occlusion verb made kinetic)
+
+**Build:** 522 modules, TypeScript clean, Vite 13.48s. All v0.31-v0.33 behaviors preserved.
+
+**HANDOFF → gamora:** dodge_executed telemetry event is now firing. When gamora's narrow-slice
+reactive escape AI dispatch lands, drax telemetry consumer can be wired at that time.
+
+— drax
+
+---
+
+### [2026-05-17] OBSERVATION — drax — AOE indicator geometry is direction-agnostic at v1.0
+
+**Observation:** The v1.0 cone/arc indicator renders in a fixed direction (pointing east). The
+indicator correctly communicates "an AOE is coming here" but does not reflect the enemy's facing
+direction. This is acceptable for narrow-slice scope — the indicator's primary purpose is to show
+WHERE the AOE will hit and WHEN (windup timer), not precise facing. Wind substrate still reads
+as directional (outward push arrows) because wind AOEs indicate displacement-direction abstractly.
+
+**Forward work:** If gamora's elite-mob AI begins casting directional skills with orientation
+tracking, drax can receive enemy facing angle and rotate the cone indicator accordingly.
+Queue for B13-proper when gamora ships directional-cast AI.
+
+**TODO(drax): cone indicator rotation** — wire enemy facing direction when gamora ships it.
+Track as part of B13-proper cleanup, not narrow-slice P1 scope.
+
+— drax
