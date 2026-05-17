@@ -4249,6 +4249,63 @@ Three inference edge cases observed during implementation; surfaced for hive awa
 
 **No action required now.** Inferred categories are labeled as demo-inferred; canonical taxonomy is a separate gandalf design surface per dispatch out-of-scope clause. When taxonomy lands, replace `inferSkillTiers()` with engine-emitted field.
 
+---
+
+### [2026-05-17] PRE-SIGNAL — rocket — narrow-slice engine schema fields beginning (§ 14.1.1)
+
+Per hive-mind protocol § 14.1.1: signaling before appending to hive log for this commit window.
+
+**Files in scope (all within rocket seam — no cross-seam file touches):**
+- `config/substrate_identities/*.yaml` — all 7 (additive fields; no existing field changes)
+- `src/reincarnated/foundation/substrate_identity_loader.py` — additive field + 2 new validation rules
+- `src/reincarnated/foundation/__init__.py` — additive exports only
+- `tests/test_substrate_identity_loader.py` — new test classes only
+- `src/reincarnated/generation/MIGRATION.md` — append-only entry
+
+**Cross-seam impact:** ADDITIVE ONLY. `SubstrateIdentity` gains 2 new required fields. Any caller that constructs a `SubstrateIdentity` directly (not via loader) will need updating — but there are no such callers outside the loader itself. All consumers read via `load_substrate_identities()` or `Element.identity`. No existing consumer will break.
+
+**Pre-existing working-tree note:** `color_spectrum.py` + `test_foundation.py` are modified by another seam's in-flight work; these are NOT part of this commit window. One pre-existing test failure (`test_unknown_element_raises`) exists against the in-flight color_spectrum.py — not a regression from this dispatch. Flagged below.
+
+— rocket
+
+---
+
+### [2026-05-17] STATE — rocket — narrow-slice engine schema fields COMPLETE
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-rocket-narrow-slice-engine-schema-fields.md`
+**Commit:** `7bcfb0a` (dispatch-scoped files) + `6a5c1f0` (AGENT_STATE)
+**Tag:** `rocket/v1.7-narrow-slice-engine-schema-fields-1 @ 7bcfb0a`
+
+**All 4 dispatch items complete:**
+
+1. **Item 1 — Schema additions to all 7 substrate YAMLs:** DONE. `windup_duration_seconds` + `indicator_color_hex` added to root level of all 7 files per gandalf briefing § 3.2 canonical table. Cosmological rationale comments included per-file.
+
+2. **Item 2 — SubstrateIdentity loader extension:** DONE. Two new fields on `SubstrateIdentity` dataclass. `_parse_declaration()` populates both from YAML at root level. `_validate_single_declaration()` enforces rules #11 + #12 fail-loud. `WINDUP_DURATION_MIN` + `WINDUP_DURATION_MAX` constants exported.
+
+3. **Item 3 — Tests:** DONE. 25 new tests: `TestWindupDurationSeconds` (12 tests) + `TestIndicatorColorHex` (13 tests). Full coverage: presence, type, range, canonical values, cosmological invariants (shadow shortest windup, shadow darkest indicator), all fail-loud paths, boundary conditions. Suite: 121 → 146.
+
+4. **Item 4 — MIGRATION.md § v3.2 entry:** DONE. Consumer obligations documented for gamora (reactive-escape AI timing) and drax (ground-indicator rendering). Design invariants documented. Forward-work (per-substrate-dodge-tweak fields, windup-modulating traits) explicitly marked deferred.
+
+**Smoke results:** 146/146 substrate-identity tests GREEN. 398/398 targeted cross-seam suite GREEN. Smoke verification: all 7 substrates return correct fields via `load_substrate_identities()`.
+
+**What this unblocks:**
+- **Gamora Deliverable 28 (narrow-slice escape AI):** `SubstrateIdentity.windup_duration_seconds` ready to consume for AOE timing in reactive-escape detection. Access via `foundation.get_element(name).identity.windup_duration_seconds`.
+- **Drax Deliverable 28 (narrow-slice indicator rendering):** `SubstrateIdentity.indicator_color_hex` + `windup_duration_seconds` ready to consume for enemy AOE ground-indicator rendering. See MIGRATION.md § v3.2 for access pattern.
+
+**Pre-existing working-tree observation (NOT a rocket regression):**
+`src/reincarnated/foundation/color_spectrum.py` has an in-flight modification by another seam that added `lightning`, `holy`, and `shadow` to `ELEMENT_COLOR_RANGES`. This causes `tests/test_foundation.py::TestColorSpectrum::test_unknown_element_raises` to fail (the test expected `get_element_color_range("lightning")` to raise `KeyError`; it no longer does). This test passes against the current git HEAD. The failure is against the in-flight working-tree state only — not introduced by this dispatch. Jack-ryan + gamora please note: WP-7 (test-suite GREEN threshold) is affected by this pre-existing in-flight change. Rocket has NOT touched `color_spectrum.py` or `test_foundation.py`.
+
+— rocket
+
+---
+
+### [2026-05-17] TAG — rocket — `rocket/v1.7-narrow-slice-engine-schema-fields-1` CUT
+
+Tag: `rocket/v1.7-narrow-slice-engine-schema-fields-1 @ 7bcfb0a`
+Local only (per ADR-006); push to origin on Matt authorization.
+
+— rocket
+
 — drax
 
 ---
