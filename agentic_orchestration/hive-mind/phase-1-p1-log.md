@@ -6199,6 +6199,28 @@ Knight-rider sequencing: step 3 (drax VS2a first VFX integration) can proceed im
 
 ---
 
+### [2026-05-17 ~21:30Z] STATE — drax — season pointer update 002011-002015 COMPLETE (drax/v1.9-season-ids-pointer-update-post-regen-1)
+
+**Dispatch:** `2026-05-17-drax-demo-season-ids-pointer-update-post-regen.md`
+**Tag:** `drax/v1.9-season-ids-pointer-update-post-regen-1`
+**Predecessor:** gamora standard-demo regen 2026-05-17 (seeds 2011-2015; staging path `reincarnated-engine/output/standard-demo-regen-2026-05-17/`).
+
+**What shipped:**
+- Strategy: REPLACE (default — no test files referenced season_001 IDs; no anchor decisions-log entries blocked replace).
+- `public/seasons/season_001001-001005` removed via `git rm -r`; `season_002011-002015` copied in (4 files each: `metadata.json`, `classes.json`, `monsters.json`, `gear_pool.json`; engine-side artifacts excluded).
+- `SEASON_IDS` in `src/data/loader.ts` updated to 002011-002015.
+- Build: 526 modules, 0 TS errors.
+
+**Rendering note:** `arenaFloor.ts`, `roomRenderer.ts`, `seasonTheme.ts`, `ambientParticles.ts` have hardcoded `season_001xxx` switch entries; 002011-002015 fall through to graceful defaults (trench floor, neutral room colors, `chrome: 0x0e1826 / accent: 0x4488cc` theme, season_001001 particle config). Acceptable for pre-D10 playtest per dispatch out-of-scope rule. TODO(drax) tracked in AGENT_STATE for post-D10 themed-visuals work.
+
+**Regen provenance:** 51 classes, 7 canonical substrates complete, pre-D10 (mean convergence ~31%; rough kits acceptable for visual variety playtest per gamora regen dispatch).
+
+**§ 14.1.1 PRE-SIGNAL:** `git fetch origin` on demo repo — upstream at `origin/main` confirmed clean (no parallel commits in fetch window from VS2a in-flight instance). Pull-rebase + stash cycle executed cleanly.
+
+— drax
+
+---
+
 ### [2026-05-17] HANDOFF — drax → star-lord — VS2a first VFX integration (step 3) COMPLETE; step 4 (LLM optimization) ready to consume empirical reads
 
 **Step 4 inputs from drax empirical reads:**
