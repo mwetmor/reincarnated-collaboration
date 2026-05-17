@@ -114,3 +114,31 @@ Author `agentic_orchestration/research/curated/icons-and-props-subset-vs2a-selec
 ---
 
 *Dispatched (queued) 2026-05-17 by knight-rider per Matt L3. ~0.5-1 day when activated. Append completion record when done.*
+
+---
+
+## COMPLETION RECORD — 2026-05-17 elrond (Pattern B; no tag)
+
+**Status:** SHIPPED. Auto-fired on legolas-1 completion (b0d6bce); legolas-2 (b8cbe7d) confirmed parallel-safe before hive-log append.
+
+**Acceptance criteria (per § Acceptance):**
+- [x] Floor-loot subset manifest authored — `agentic_orchestration/research/curated/floor-loot-subset-vs2a-2026-05-17.jsonl` (29 rows)
+- [x] Ambient-props subset manifest authored — `agentic_orchestration/research/curated/ambient-props-subset-vs2a-2026-05-17.jsonl` (25 rows)
+- [x] UI-icons subset manifest authored — `agentic_orchestration/research/curated/ui-icons-subset-vs2a-2026-05-17.jsonl` (25 rows)
+- [x] Per-sub-asset-class GREEN/YELLOW/RED coverage matrix authored
+- [x] Acquisition shortlist with cost + links authored
+- [x] Summary doc authored — `agentic_orchestration/research/curated/icons-and-props-subset-vs2a-selection-2026-05-17.md`
+- [x] Hive-log STATE + HANDOFFs appended (PRE-SIGNAL § 14.1.1 honored)
+- [x] No new vendor commissions without Matt sign-off — all 3 PARKED Matt-decisions surfaced
+
+**Key outputs:**
+- 9 PRIMARY packs de-duplicated across all subsets; $18.20 PRIMARY acquisition cost (matches legolas summary § 5 minimum-cost figure)
+- 4 legolas-flagged gaps closed/PARKED (G-FILL PARKED Path-A-recommended; G-RARITY PARKED Path-A-recommended aligning with gandalf sizing canon § 4.4; G-ARMOR-MANNEQUIN flagged-not-load-bearing; G-COFFIN PARTIALLY-CLOSED via Mucho Pixels)
+- Schema-match parity with elrond Pimen pattern preserved; new fields additive (size_register_fit, curation_status, coverage_cells)
+- Reproducible build script for future re-curation: `agentic_orchestration/research/scripts/build_icons_and_props_subset_vs2a_2026_05_17.py`
+
+**Out-of-scope items (per dispatch § Out of scope):** none triggered — no new vendor commissions, no modification of legolas crawl output, no drax ingest-pipeline modification, no pre-emption of M5 panel redesigns, no scope extension beyond icons/props.
+
+**Cross-seam:** HANDOFF → drax (manifests ready for post-VS2a consumption); HANDOFF → matt PARKED (acquisition authorization + 3 design decisions).
+
+*Filed 2026-05-17 by elrond. Pattern B (~0.5-1 day), shipped within dispatch window.*

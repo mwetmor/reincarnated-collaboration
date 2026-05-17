@@ -6329,3 +6329,78 @@ Knight-rider sequencing: step 3 (drax VS2a first VFX integration) can proceed im
 **HANDOFF → elrond:** catalogue ready for curation dispatch. Summary.md §2 coverage matrix + §3 sizing flags are primary inputs for subset selection.
 
 — legolas
+
+### [2026-05-17] STATE — legolas — broader 2D/sprite catalogue genre-fit survey COMPLETE (legolas-2)
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-legolas-broader-2d-sprite-catalogue-genre-survey-queued.md`
+**Output path:** `agentic_orchestration/research/catalogue/2d-sprite-vendors-genre-survey-2026-05-17/`
+**Files authored:** `vendors.jsonl` (30 vendor rows)
+
+**Vendor scope:** 30 vendors surveyed across itch.io, CraftPix, GameDev Market, OpenGameArt. No re-crawl of legolas-1 icon/prop deep-dive; broader character/enemy/tileset/VFX/UI/atmospheric categories surveyed.
+
+**register_fit distribution:** STRONG: 5 | PARTIAL: 21 | WEAK: 4
+
+**STRONG FIT vendors (5):**
+1. CraftPix — broadest catalogue (2100+ assets, $4/mo annual membership); character/monster/tileset/VFX/UI covered; membership economics best in survey
+2. CreativeKind — ACQUIRED; hand-drawn-pixel register STRONGEST style match; 25+ character/enemy sprites + 40+ VFX + dark structures; boss-class characters for ARPG boss gallery
+3. Pimen — ACQUIRED; VFX-only; hand-drawn-pixel sub-register; Tier-1 spell substrate coverage
+4. Frostwindz — ACQUIRED (Deathbringer); Step B Tier-1 VFX; death/blood/cosmic substrates; hand-drawn-pixel register
+5. Elthen — 400+ packs; broadest enemy monster variety on itch.io; character races + tileset + VFX + UI; mid-fidelity pixel art
+
+**Category coverage gaps:**
+- Hand-drawn-pixel CHARACTER sprites (PC class + NPC): no strong vendor other than CreativeKind
+- Top-down 8-directional ARPG ENEMY animations at HD-2D register: gap — no vendor confirmed
+- ARPG-specific HUD/UI with dark-fantasy chrome in hand-drawn-pixel register: gap
+- Boss-class ANIMATED sprites matching hand-drawn-pixel register: only CreativeKind; major gap for ARPG boss gallery
+
+**Opportunity flags for Matt (acquisition decisions Matt-authority only):**
+- Penusbmic DARK Series complete bundle (code 30% off) — Diablo aesthetic, professional credentials, 40+ packs at ~$4.49 each
+- ELV Rogue Adventure World bundle ($31.99, 10 biome dungeon tilesets, Diablo/Dark Souls-inspired, attribution required)
+- Szadi Art RPG Worlds (14 biome tilesets, $3-6 each, most permissive license in survey — derivative resale allowed)
+- Alenia Studios atmospheric VFX (20 mood overlays, PWYW/free, CC-BY, unique atmospheric niche with no competing vendor)
+
+— legolas
+
+### [2026-05-17] STATE — elrond — icon + interactable-prop curation COMPLETE
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-elrond-icon-and-prop-curation-queued.md` (auto-fired on legolas-1 b0d6bce)
+**Pattern:** B — curation + subset selection (data-steward seam; no engine code)
+**Predecessor consumed:** `agentic_orchestration/research/catalogue/icons-and-props-2026-05-17/` (legolas-1: 79 raw rows / 21 vendors)
+**Output paths:**
+- `agentic_orchestration/research/curated/icons-and-props-subset-vs2a-selection-2026-05-17.md` (selection doc)
+- `agentic_orchestration/research/curated/floor-loot-subset-vs2a-2026-05-17.jsonl` (29 rows: 1 header + 28 data; 3 PRIMARY + 7 BACKUP + 18 DEFER)
+- `agentic_orchestration/research/curated/ambient-props-subset-vs2a-2026-05-17.jsonl` (25 rows: 1 header + 24 data; 5 PRIMARY + 4 BACKUP + 15 DEFER)
+- `agentic_orchestration/research/curated/ui-icons-subset-vs2a-2026-05-17.jsonl` (25 rows: 1 header + 24 data; 4 PRIMARY + 6 BACKUP + 14 DEFER)
+- `agentic_orchestration/research/scripts/build_icons_and_props_subset_vs2a_2026_05_17.py` (reproducible build script)
+
+**Curation results:**
+- **9 PRIMARY packs de-duplicated across all three subsets** (Dire Dungeon Items + Mucho Pixels + SODA + 6 free packs)
+- **De-duplicated PRIMARY acquisition cost: $18.20** (Dire Dungeon $10 CC BY 4.0 + Mucho Pixels $4.95 royalty-free + SODA $3.25 royalty-free; matches legolas summary § 5 min-cost figure)
+- **Pruning ratio: 43% retention / 57% defer** of legolas raw rows
+- **Coverage:** 110 distinct (subcategory × variant) cells across the three subsets
+
+**Gap closure status (legolas-flagged):**
+- **G-FILL (potion fill-level states):** PARKED Matt-decision. Path A recommended (SODA size-tier + Bis empty as proxy; $0).
+- **G-RARITY (ARPG rarity-tier UI borders):** PARKED Matt-decision. Path A recommended (procedural overlay in drax aligned with gandalf sizing canon § 4.4; $0).
+- **G-ARMOR-MANNEQUIN (helmless/full variants):** flagged not-load-bearing for VS2a; defer to post-VS2a custom authoring.
+- **G-COFFIN (sparse coverage):** PARTIALLY CLOSED via Mucho Pixels stone-coffin-open-state (bundled into PRIMARY $4.95 acquisition).
+- **G-AI-POLICY (Pixel-1992 AI-assisted packs):** OPEN; deferred pending team AI-asset policy clarification. Non-blocking.
+- **G-CCBYSA (OGA Clint Bellanger gold):** CLOSED by strict-defer; OGA Bonsaiheldin CC-0 BACKUP provides equivalent coverage.
+
+**Style-register coherence:** Dire Dungeon Items (single $10 CC BY 4.0 acquisition) unifies floor-loot + ui-icons visual register; Mucho Pixels unifies ambient-props (chest + coffin + weapon-stand + pots in one pack). Cross-subset coherence treated as first-class curation criterion.
+
+**Attribution surface:** single-pack CC-BY concentration (Dire Dungeon Items only PRIMARY CC-BY across all subsets) — structurally identical to Pimen Gap-G4 single-CC-BY-pack pattern (pixel-battle-effects). Cumulative attribution-panel surface across all asset categories estimated 3-5 entries.
+
+**HANDOFF → drax:** three manifests consumable in same pattern as Pimen subset (filter `vs2a_status == active` + `curation_status startswith RECOMMEND`; group by `pack_origin`; wire via `coverage_cells`; render-scale via `size_register_fit`). Post-VS2a M5 panel redesigns + ambient prop dispatches consume.
+
+**HANDOFF → matt (PARKED — 3 decisions + acquisition authorization):**
+1. **Acquisition authorization $18.20** — Dire Dungeon Items $10 CC BY + Mucho Pixels $4.95 + SODA $3.25
+2. **G-FILL potion fill-level** — Path A (proxy via SODA + Bis; $0) vs Path B (custom authoring ~$50-200) — recommend Path A
+3. **G-RARITY ARPG rarity borders** — Path A (procedural overlay in drax; $0) vs Path B (custom border authoring ~$200-500) — recommend Path A; aligns with gandalf sizing canon § 4.4
+4. **G-ARMOR-MANNEQUIN** — accept single-state vs custom authoring helmless/full variants — recommend accept for VS2a
+
+**No new vendor commissions auto-triggered.** All gaps surfaced for Matt review per dispatch out-of-scope rule.
+
+**Parallel-safe with legolas-2 (broader 2D/sprite catalogue genre survey) — confirmed:** legolas-2 scope is character/monster/tileset/atmospheric (no icon/prop overlap). Race-condition § 14.1.1 PRE-SIGNAL honored before this append.
+
+— elrond
