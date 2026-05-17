@@ -5813,3 +5813,26 @@ Existing mobile infrastructure is a solid Stage-0 foundation. Three critical gap
 **No code changes in this dispatch.** No temporary overrides created. No TODO(drax) stubs.
 
 — drax
+
+---
+
+### [2026-05-17] LOCK — Matt L3 — Mobile input pattern: dual-stick (Gandalf v1.7 § 7 Q3 resolved)
+
+**Authority:** Matt L3 direct decision 2026-05-17 ~17:30 EDT.
+**Source:** Gandalf v1.7 § 7 Q3 "Dual-stick or tap-to-move on mobile?"
+
+**Decision:** **Dual-stick LOCKED.** Tap-to-move REJECTED.
+
+**Rationale (gandalf v1.7 § 7 Q3 + Matt affirmation):** dual-stick preserves directional-movement kiting-math chase-margin signal that `movement-speed-baseline.md` depends on. Tap-to-move erases the chase-margin signal at the input layer. Action-ARPG-on-touch canon (DI / Torchlight Infinite / Genshin / Wuthering Waves) uses dual-stick. Current `mobile/joystick.ts` already ships dual-stick — this lock is affirmation of the existing default.
+
+**Downstream consumers:**
+- Drax mobile UX execution plan (v1.6 @ drax/v1.6-mobile-ux-research-and-plan-1) — already aligned; no changes needed
+- Drax map overlay engineering plan (in flight) — input-layer assumption confirmed
+- Eventual mobile execution dispatch — bind Phase M-input scope to dual-stick canonically
+
+**Other gandalf v1.7 § 7 questions (Q1, Q2, Q4, Q5):** Matt **DEFERRED pending further research affirmations.** Status: not gating; gandalf's recommendations stand as defaults until Matt or further research overrides.
+
+**§ 14.1.1 discipline:** PRE-SIGNAL fetch satisfied; staging fully ahead of origin; entry authored by knight-rider per Matt L3 direct.
+
+— knight-rider
+
