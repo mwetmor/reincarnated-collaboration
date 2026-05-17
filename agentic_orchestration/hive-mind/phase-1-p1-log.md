@@ -148,3 +148,72 @@ Activation broadcast (per invocation § 4.6) authored as conversational reply to
 (Specialists begin contributing STATE entries as they engage. Knight-rider authors state-of-hive EOD. Jack-ryan establishes baseline-snapshot first. Gandalf available continuously.)
 
 ---
+
+### [2026-05-17 03:48Z] DECISION — Matt — Phase-1 P1 LAUNCH CONFIRMED
+
+Matt go-word: *"go — commit, push tags, distribute pickups"* (2026-05-17 session).
+
+All four standing items dispositioned:
+1. ✅ Phase-1 P1 launch CONFIRMED
+2. ✅ Commit activation artifacts (collab repo `493343d` pushed to origin/main)
+3. ✅ Push 3 baseline tags `hive/v0.0-pre-phase-1-p1` to origin (engine + demo + loadout)
+4. Vendor acquisitions + VFX scene-needs micro-decisions: deferred to first active L3 window (not blocking activation)
+
+Hive-mind mode is OPERATIONALLY LIVE.
+
+### [2026-05-17 03:48Z] TAG — knight-rider — 3 baseline tags pushed to origin
+
+- engine: `hive/v0.0-pre-phase-1-p1 @ f9c363e` → pushed to `https://github.com/mwetmor/reincarnated-engine.git`
+- demo: `hive/v0.0-pre-phase-1-p1 @ 692c555` → pushed to `https://github.com/mwetmor/reincarnated-demo.git`
+- loadout: `hive/v0.0-pre-phase-1-p1 @ 90db544` → pushed to `https://github.com/mwetmor/reincarnated-loadout.git`
+
+Rollback baselines now durable across machines. Any seam needing to roll back can `git checkout hive/v0.0-pre-phase-1-p1` in their repo.
+
+### [2026-05-17 03:48Z] STATE — knight-rider — Per-seam pickup readiness DISTRIBUTED
+
+Each specialist's initial task is documented in this hive log (entries at 03:35Z above) + in `scope-of-work-phase-1-p1.md` § 2. At next session-open, each specialist:
+
+1. **Reads `hive-mind-protocol-2026-05-17.md`** (operational protocol)
+2. **Reads `scope-of-work-phase-1-p1.md`** (their initial task in § 2; their owned deliverables in § 1)
+3. **Reads `coordination-matrix.md`** (their seam's involvement across all 27 deliverables; concurrent-edit hot-spots they touch)
+4. **Reads this hive log from top** (continuous-broadcast state)
+5. **Files STATE entry** at session-open confirming readiness + acknowledging initial task
+6. **Begins execution** under distributed authority (L1 in-seam; L2 surface to knight-rider; L3 surface to Matt)
+
+Per-seam launch commands (Matt may distribute via tmux pane spawn or direct relay):
+
+```bash
+# Rocket (Deliverable 1: substrate identity loader)
+cd ~/Games/reincarnated-engine && claude --agent rocket
+
+# Gamora (cut Gate 3b tag, then Deliverable 7 math note)
+cd ~/Games/reincarnated-engine && claude --agent gamora
+
+# Star-lord (Deliverable 6 PLAN + scoping doc)
+cd ~/Games/reincarnated-engine && claude --agent star-lord
+
+# Drax — perception test session-runner + VFX library planning (dual-track)
+# Track A (perception runner): in demo repo
+cd ~/Games/reincarnated-demo && claude --agent drax
+# Track B (VFX planning): in loadout repo
+cd ~/Games/reincarnated-loadout && claude --agent drax
+
+# Jack-ryan (continuous-observation rhythm + baseline test snapshot)
+cd ~/Games/reincarnated-collaboration && claude --agent jack-ryan
+
+# Gandalf (continuous availability + Deliverable 20 grouping-vocab extension)
+cd ~/Games/reincarnated-collaboration && claude --agent gandalf
+```
+
+Knight-rider stays at `~/Games/reincarnated-collaboration` for hive harmonization + daily state-of-hive authorship.
+
+### [2026-05-17 03:48Z] STATE — knight-rider — Hive mode LIVE
+
+Standard dispatch-sequenced mode is now **suspended**. Specialists execute against the scope-of-work continuously; no per-task dispatch authorization needed. Jack-ryan continuous-observation replaces Gate-1/Gate-2 retrospective review. Gandalf continuously available in hive log.
+
+**Active hours:** TBD per Matt; hive accommodates Matt's availability windows. Knight-rider authors first state-of-hive EOD or first active day, whichever comes first.
+
+**The hive moves together.** Activation complete.
+
+---
+
