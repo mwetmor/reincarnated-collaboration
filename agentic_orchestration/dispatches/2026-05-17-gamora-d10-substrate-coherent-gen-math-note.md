@@ -167,3 +167,42 @@ Cross-references:
 ---
 
 *Dispatched 2026-05-17 by knight-rider per Matt L3. ~0.5 day. Append completion record when done.*
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-17
+**Author:** gamora
+**Tag:** `gamora/v1.6-d10-substrate-coherent-gen-math-note-1` (local; push gated per ADR-006)
+**Math note filed:** `reincarnated-engine/output/standard-demo-regen-2026-05-17/D10-substrate-coherent-gen-math-note-2026-05-17.md`
+
+### Acceptance criteria status
+
+- [x] geometry_type derivation rules documented (§ 1 — 3-layer cascade, 24-type vocabulary, deterministic pure function, validation target ≥90% against season_001005)
+- [x] Skill-count ceiling rules (§ 2 — per-archetype table; pruning algorithm)
+- [x] Multi-element breadth gate (§ 3 — non-hybrid ≤2; hybrid ≤4; pruning rules)
+- [x] buff_damage stacking limit (§ 4 — max 1 utility/mobility; keep longer-CD; defensive exempt)
+- [x] DPS density gate (§ 5 — 5-fight pre-eval approach; threshold=0.90; formula non-discriminating finding documented)
+- [x] floor_over_band flag spec (§ 6 — trigger condition, estimated_gap field, star-lord follow-on noted)
+- [x] gear_pool population investigation (§ 7 — root cause: missing season_writer write step; fix is one-line; NOT separate dispatch)
+- [x] Post-process plan for 002011–002015 salvage (§ 8 — 0 LLM cost; ~30–40 min; 5 steps detailed)
+- [x] Math note doc filed (above path)
+- [x] Hive-log STATE + HANDOFF → rocket (phase-1-p1-log.md appended)
+- [x] Tag `gamora/v1.6-d10-substrate-coherent-gen-math-note-1` (local)
+
+### Additional findings surfaced (not in dispatch scope, included in math note for completeness)
+
+- geometry_type root cause clarified: lives in telemetry DB abilities table; generation seam does not emit it; export SQL query returns null with no DB → fix requires generation-seam emission (rocket D10 scope)
+- gear_pool root cause clarified: orchestrator generates gear correctly in-memory; season_writer writes catalog.json but not gear_pool.json; export reads DB only; bridge is missing (one-line fix)
+- DPS density formula proved non-discriminating cross-archetype: physical_warrior DPS density higher than hybrid_mage due to high base damage magnitudes, yet physical_warrior converges via structural engagement constraint. Quick-eval (5 fights at modifier=1.0) is more reliable discriminator.
+- floor_over_band flag is gamora-seam work (balance_loop.py); gamora implements in D10 code phase (not rocket scope)
+
+### Next
+
+D10 code phase begins after:
+1. Rocket implements derive_geometry_type() + kit constraints + gear_pool bridge
+2. Jack-ryan reviews this math note
+3. Post-process salvage script runs (gamora or rocket; knight-rider coordinates)
+
+— gamora

@@ -6403,4 +6403,36 @@ Knight-rider sequencing: step 3 (drax VS2a first VFX integration) can proceed im
 
 **Parallel-safe with legolas-2 (broader 2D/sprite catalogue genre survey) — confirmed:** legolas-2 scope is character/monster/tileset/atmospheric (no icon/prop overlap). Race-condition § 14.1.1 PRE-SIGNAL honored before this append.
 
+---
+
+### [2026-05-17] STATE — gamora — D10 substrate-coherent gen math note COMPLETE
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-gamora-d10-substrate-coherent-gen-math-note.md`
+**Math note:** `reincarnated-engine/output/standard-demo-regen-2026-05-17/D10-substrate-coherent-gen-math-note-2026-05-17.md`
+**Tag:** `gamora/v1.6-d10-substrate-coherent-gen-math-note-1` (local; push gated per ADR-006)
+**PRE-SIGNAL § 14.1.1:** honored — `git fetch origin` + log check before this append.
+
+**Scope completed:** 9 items (per dispatch acceptance criteria):
+1. geometry_type derivation rules — 3-layer cascade (role → element → effects-override); deterministic pure function; full season_001005 vocabulary (24 types); ≥90% validation target
+2. Skill-count ceiling per archetype — pure mage = 10; controller/caster = 11; hybrid_mage = 12; physical/* = 12; pruning algorithm with protected required-roles
+3. Multi-element breadth gate — non-hybrid ≤ 2 elements; hybrid_mage ≤ 4; pruning: keep primary+secondary, remap/remove tertiary
+4. buff_damage stacking limit — max 1 utility/mobility buff_damage per kit; keep longer-CD; defensive buff exempt
+5. Pre-balance-loop DPS density gate — 5-fight pre-eval at modifier=1.0; threshold=0.90; 60 fights vs 3,600 for failed loop; fires OVER_GENERATED flag; DPS formula proved non-discriminating cross-archetype
+6. floor_over_band modifier flag — trigger: converged=False AND modifier ≤ 0.055; set modifier_flag_tier="floor_over_band" + estimated_gap; GAMORA SEAM (balance_loop.py)
+7. gear_pool root cause — missing season_writer bridge (one-line fix: write gear_pool_staged.json); NOT a separate rocket dispatch
+8. Post-process plan 002011–002015 — 0 LLM cost; ~30–40 min sim time; steps: geometry derivation → kit pruning → balance re-run → manifest → gear_pool backfill; depends on rocket derive_geometry_type() first
+9. Math note filed at output path
+
+**Key structural findings (not in prior STATE entries):**
+- geometry_type is populated from telemetry DB abilities table, not generation seam; shim regen bypasses DB → all null; fix requires generation-seam emission (rocket)
+- gear_pool is generated correctly in-memory by orchestrator but never written to disk by season_writer; export reads from DB only; missing write step is the sole gap
+- DPS density formula non-discriminating cross-archetype (physical_warrior density > hybrid_mage due to high base damage, yet converges via structural kiting loss); quick-eval approach more reliable
+- floor_over_band is symmetric to existing "review" flag; additive change to balance_loop.py; gamora implements
+
+**HANDOFF → rocket:** D10 math note specifies rocket's implementation scope — 7 items listed. Knight-rider monitors and spawns rocket dispatch when this completion record lands.
+**HANDOFF → jack-ryan:** Math note ready for review. Key watchpoints: § 1.5 geometry validation, § 5.3 DPS density formula caveat, § 7.3 legendary-floor design clarity.
+**HANDOFF → star-lord (low priority):** estimated_gap column on class_balance_results (§ 6.4 of math note); not blocking.
+
+— gamora
+
 — elrond
