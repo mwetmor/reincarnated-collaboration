@@ -5918,3 +5918,53 @@ Existing mobile infrastructure is a solid Stage-0 foundation. Three critical gap
 **§ 14.1.1 PRE-SIGNAL:** `git fetch origin` clean; `git log -5 -- phase-1-p1-log.md` confirms HEAD includes jack-ryan's `833795a` commit; `git rev-list --count HEAD..origin/main = 0`. Local tree rebased; no concurrent hive-log entries pending. Safe to commit.
 
 — gandalf
+
+---
+
+### [2026-05-17] STATE — gandalf — ARPG map overlay Stream A canon COMPLETE (v1.8)
+
+**Tag intent:** `gandalf/v1.8-arpg-map-overlay-research-1` (applied at commit)
+**Dispatch:** `2026-05-17-gandalf-drax-arpg-map-overlay-research-commission.md` (Pattern B joint commission; gandalf Stream A canon + drax Stream B engineering plan)
+**Effort:** ~5 hours offline-Maiar-knowledge synthesis + cross-stream coordination with drax-completed Stream B.
+
+**§ 14.1.1 PRE-SIGNAL** (re-run before stage): `git fetch origin` clean; HEAD includes gandalf-v1.9 (M1 typography) `16fbb05`; `git rev-list --count HEAD..origin/main = 0`. No remote-only hive-log commits to pull. My v1.8 PRE-SIGNAL (filed earlier this session) committed in `1b3fd5f` alongside drax v1.6 — discipline observed. Safe to commit Stream A.
+
+**Verdict:** Matt's two-group hypothesis is **correct, with refinement**. Genre evidence across 10 mature ARPG titles (D2 / D3 / D4 / Diablo Immortal / PoE 1+2 / Last Epoch / Grim Dawn / Lost Ark / Torchlight Infinite / Eternium) confirms the two-mode pattern is universal across 25 years of genre evolution. The refinement: "two contexts, not two groups" — most players use both modes contextually (corner = combat-flow peripheral awareness; overlay = navigation committed focus). Group 3 (map-off, ~5-10% cohort) supported via opacity slider in settings.
+
+**Three design locks:**
+1. **Corner-default + Tab-toggle on all platforms** at session start. Mobile uses tap-corner-expand instead of keystroke. Genre canon universal.
+2. **D-canonical room-snap-reveal-on-entry fog model** with 200-400ms ease-in animation. Matches `src/world/topology.ts` room-as-bounded-rect data model; refines drax's aggro-state-tint to `{ discovered, aggro }` two-flag state (same redraw plumbing).
+3. **Stylized geometric symbols, NOT sprite renders** (26 symbols across 9 object classes; 10-color palette). This is the *polish multiplier* — the minimap becomes the project's perceptual-coherence anchor, brushing pack-roughness under the rug.
+
+**Canonical doc deliverables** (sections 1-7 + § 14 design OQs):
+- § 1 — Executive summary with drax-engineering-summary cross-reference
+- § 2 — 10-title genre survey + two-group / two-context refinement + Group 3 / 4 / 5 cohort discussion + per-platform-default recommendation
+- § 3 — Z-ordered layer stack; fog model + reveal-animation; 10-color palette hex codes; opacity per mode; per-platform sizing (consumes `mobile-pc-pixel-sizing-ratios-2026-05-17.md` v1.7); circular corner / rectangular overlay; auto-zoom formula; map rotation; performance budget
+- § 4 — 26-symbol iconography vocabulary table; geometric-not-sprite principle; animation tier discipline (static / slow-pulse / strong / compound); rarity color cluster aligned with `gearDrop.ts TIER_LABEL_COLORS`; substrate-coupling caveat
+- § 5 — Tab vs M debate (recommend Tab; drax M-binding switch to Tab); pause-during-overlay (recommend pause both platforms; design-disagreement with drax — surface to Matt); no v1 click-to-move / annotation; per-player default-state preference; transparency tuning
+- § 6 — Mobile sizing (180/200 px corner); top-right minimap takes precedence over touchIcons (touchIcons shifts down); thumb-reach analysis; full-overlay 5-gesture close vocabulary; safe-area-inset handling; portrait/landscape variants
+- § 7 — 9 perception-engineering principles: stylized symbols / contrast floor / palette discipline / reveal animation / player-dot pulse / frame design / edge feather / dimmed-world underlay / **the perception-engineering thesis** (the minimap as polish-multiplier for the pixel-art-pack heterogeneity surface — Matt's framing realized)
+- § 14 — 12 design OQs (D1-D12) appended after drax's 6 engineering OQs (OQ-1 through OQ-6); cross-references between streams documented
+
+**Acceptance criteria** (per dispatch Stream A):
+- [x] Two-group hypothesis validated with genre evidence (gandalf A1 / § 2)
+- [x] Map content + render decisions per platform (gandalf A2 / § 3)
+- [x] Iconography & symbol vocabulary table (gandalf A3 / § 4)
+- [x] Interaction model decisions (gandalf A4 / § 5)
+- [x] Mobile-specific design (gandalf A5 / § 6)
+- [x] Aesthetic guidance / perception-engineering principles (gandalf A6 / § 7)
+- [x] Shared canonical doc filed
+- [x] Tag `gandalf/v1.8-arpg-map-overlay-research-1` (applied at commit)
+- [x] Completion record appended to commission dispatch
+- [x] § 14.1.1 hive-log commit discipline observed (PRE-SIGNAL + STATE entries; fetch-rebase-stage-commit)
+
+**Single Matt-decision flagged:** § 14 OQ-D2 — pause-during-overlay (gandalf-recommend) vs continue-during-overlay (drax-recommend / PC-D-series canon). Both engineering paths supported in drax plan. Matt's call on game-feel. Other 17 OQs are deferrable / tolerably either-way / tunable post-implementation.
+
+**Smoke expectation:** Matt reads the canonical doc. Can decide (a) corner minimap on all platforms with Tab-toggle as default (per § 1, § 2.6); (b) 10-color palette + 26-symbol vocabulary (per § 3.3 + § 4.2); (c) approve drax MM1 (data layer) as having no design dependencies and proceeding when scheduled; (d) answer the 18 OQs (or defer them as tunable post-implementation). The minimap is positioned to be the project's perceptual-coherence multiplier.
+
+**Cross-stream status:** Both streams complete. Drax Stream B committed in `6e45251` (drax/v1.7 tag applied). Gandalf Stream A pending this commit (v1.8 tag applies). Doc + dispatch + hive-log all unified in one canonical artifact.
+
+**Not produced (out of scope per dispatch):** production code (research + plan only); no implementation timing locks; no asset acquisitions (geometric primitives explicitly chosen to require zero new assets per § 4.1 + § 7.1).
+
+— gandalf
+

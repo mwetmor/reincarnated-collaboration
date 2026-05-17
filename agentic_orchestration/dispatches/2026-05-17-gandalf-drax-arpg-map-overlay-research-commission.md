@@ -290,3 +290,50 @@ Matt reads the canonical doc and can decide:
 ### Cross-stream status
 
 Gandalf sections 1-7 pending. Placeholders in doc at §§ 1-7. Sibling commissions consumed: gandalf v1.7 pixel sizing (shipped), drax v1.6 mobile UX plan (shipped).
+
+---
+
+## Completion record — Stream A (gandalf)
+
+**Completed:** 2026-05-17
+**Tag:** `gandalf/v1.8-arpg-map-overlay-research-1`
+**Agent:** gandalf
+
+### Deliverables
+
+**Canonical doc:** `canonical/story/arpg-map-overlay-research-2026-05-17.md` — sections 1-7 authored + § 14 design-OQs appended after drax's engineering-OQs. Header updated with both-stream tags + companion docs.
+
+**Acceptance criteria (Stream A):**
+- [x] Two-group hypothesis validated with genre evidence (§ 2) — 10 titles surveyed (D2/D3/D4/D-Immortal/PoE1+2/Last Epoch/Grim Dawn/Lost Ark/Torchlight Infinite/Eternium); two-mode pattern confirmed universal; Group 3 (map-off) surfaced; "two contexts not two groups" refinement
+- [x] Map content + render decisions per platform (§ 3) — z-ordered layer stack; D-canonical room-snap-reveal fog model; full color palette table (10 colors + hex codes); opacity-per-mode values; sizing per platform consuming `mobile-pc-pixel-sizing-ratios-2026-05-17.md`; circular corner / rectangular overlay; auto-zoom formula; performance-budget targets
+- [x] Iconography & symbol vocabulary table (§ 4) — 26 symbols across 9 object classes; geometric primitives (NOT sprite renders); animation tier discipline (static / slow-pulse / strong-pulse / compound); substrate-coupling caveat
+- [x] Interaction model decisions (§ 5) — Tab vs M debate (recommend Tab); pause-during-overlay (recommend pause both platforms); no click-to-move v1; per-player default-state preference; opacity slider; annotation deferred
+- [x] Mobile-specific design (§ 6) — sizing (180/200 px corner), positioning resolution for touchIcons conflict, thumb-reach analysis, full-overlay close-gesture vocabulary (5 gestures), safe-area-inset handling, portrait/landscape variants
+- [x] Aesthetic guidance / perception-engineering principles (§ 7) — 9 principles (stylized symbols, contrast floor, palette discipline, reveal animation, player-dot pulse, frame design, edge feather, dimmed-world underlay, the perception-engineering thesis)
+- [x] § 14 design OQs (D1-D12) appended after drax engineering OQs — Tab/M, pause/continue, fog-model, biome-tint, default-state, north-lock, frame style, opacity defaults, boss-room treatment, mobile positioning, linear-dungeon projection, future zone-overview
+- [x] Shared canonical doc filed at `canonical/story/arpg-map-overlay-research-2026-05-17.md`
+- [x] Tag `gandalf/v1.8-arpg-map-overlay-research-1` (applied at commit)
+- [x] Hive-log PRE-SIGNAL + STATE entries appended (§ 14.1.1 discipline observed)
+- [x] Completion record (this entry)
+
+### Key findings
+
+- **Matt's two-group hypothesis is correct, with a refinement**: the genre evidence shows it's "two contexts every player operates in" rather than "two groups of players." All 10 mature ARPG titles ship both modes; refinement is "two contexts, not two groups."
+- **Corner-default + Tab-toggle is the universal genre canon** across 25 years of evolution — D2 (2000) through PoE 2 / Diablo IV (2023). Both platforms; both contexts; one Matt-preference-accommodation (per-player default-state setting).
+- **The minimap is the project's perceptual-coherence multiplier** — geometric symbols + polished palette + smooth animation = the surface that "brushes pack roughness under the rug." § 7.9 articulates the thesis Matt named.
+- **Design alignment with drax engineering plan:** drax's `Graphics`-based pipeline + two-layer split + 6-phase decomposition (MM1-MM6) maps cleanly onto the gandalf design canon. § 3.5 sizing canon updates drax's placeholder values (280 PC / 180-200 mobile); § 4.2 symbol vocabulary defines MM4 iconography; § 7 perception-engineering principles guide MM6 polish; § 5.1 Tab-not-M switch is the single drax engineering edit recommended.
+- **One Matt-decision flagged for L3 resolution:** § 14 OQ-D2 — pause-during-overlay vs continue — gandalf and drax give different recommendations; both engineering paths supported; Matt's call on game-feel.
+
+### Cross-stream status
+
+Both streams complete. Doc filed. Tags applied at commits. Both completion records appended. § 14 contains engineering-OQs (drax OQ-1 through OQ-6) and design-OQs (gandalf OQ-D1 through OQ-D12) for Matt's eventual review.
+
+### Smoke expectation
+
+Matt reads the canonical doc. Can answer:
+- *"Which default mode per platform?"* → corner minimap on all platforms; Tab-toggle (PC) / tap-corner-expand (mobile) to overlay (per § 1, § 2.6)
+- *"What iconography palette to lock?"* → 10-color palette per § 3.3 + 26-symbol vocabulary per § 4.2; geometric primitives only (NOT sprite renders, per § 4.1 / § 7.1)
+- *"Approval to proceed with drax MM1 when scheduled?"* → engineering plan is sound; design canon ratifies; MM1 (data layer extraction) has no design dependencies; MM4-MM6 consume § 3-§ 7 directly
+- *"Open-question answers?"* → § 14 has 18 OQs (6 engineering, 12 design) surfaced; all are deferrable; 1 (Tab vs M) is the single load-bearing pre-MM1 decision; 1 (pause vs continue) is a game-feel decision Matt should weigh in on before MM3 ships
+
+— gandalf
