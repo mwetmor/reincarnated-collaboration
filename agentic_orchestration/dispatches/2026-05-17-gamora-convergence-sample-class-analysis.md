@@ -153,3 +153,43 @@ Matt reads the analysis + comparative table + D10 input recommendations and gets
 ---
 
 *Dispatched 2026-05-17 by knight-rider per Matt L3. ~2-4h. Append completion record when done.*
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-17 by gamora  
+**Tag:** `gamora/v1.5-convergence-sample-analysis-1` (local; push gated per ADR-006)  
+**Output:** `reincarnated-engine/output/standard-demo-regen-2026-05-17/convergence-sample-analysis-2026-05-17.md`
+
+### Acceptance criteria status
+
+- [x] 3 sample classes selected (1 converged + 1 floor-convergent [OVER-BAND framing corrected; see below] + 1 over-band)
+- [x] Per-class deep read complete (substrate / role / archetype / kit / balance-loop telemetry / convergence rationale)
+- [x] Comparative table authored (14-row property comparison)
+- [x] Load-bearing differences identified
+- [x] 4 concrete D10 input recommendations surfaced
+- [x] Analysis doc filed
+- [x] Hive-log STATE entry (phase-1-p1-log.md, 2026-05-17 ~22:30Z)
+- [x] Tag `gamora/v1.5-convergence-sample-analysis-1` (local only)
+
+### Framing correction
+
+The dispatch specified "1 converged + 1 over-band + 1 under-band." **The dataset contains no under-band classes.** All 35 non-converged classes (69%) are over-band — modifier floor (0.05) hit with convergence WR still 0.58–0.83 above target. No class needed a modifier > 1.0 (buffing). Maximum modifier across 51 classes = 0.525 (physical_grappler, season_002011). This is itself a load-bearing D10 finding: base generation is systematically over-powered.
+
+The third sample was reframed as **FLOOR-CONVERGENT** (fire_controller, converged at the floor modifier with WR=0.53, barely within ±3% tolerance). This is the most analytically useful third sample for D10 because it identifies the narrow structural niche where convergence is still possible at the floor.
+
+### D10 input recommendations (4 items)
+
+1. **Hard skill-count ceiling for mana archetypes** — max 10–11 skills. hybrid_mage generates 13–16 and fails 100% of the time. fire_controller (11 skills, 50% convergence) is the upper reference.
+2. **Multi-element breadth gate** — max 2 canonical elements in non-hybrid mana kit. Multi-element breadth (fire/water/wind/physical) makes hybrid_mage immune to gauntlet resistance profiles.
+3. **Buff_damage stacking limit** — max 1 buff_damage effect per kit. 2× simultaneous buff_damage (hybrid_mage) compounds damage above what the floor modifier can neutralize.
+4. **Floor-hit convergence signal** — emit `modifier_flag_tier="floor_over_band"` when `converged=False` and `final_modifier == MODIFIER_FLOOR`. Symmetric to the existing high-end flag. Also: D10 math note should propose a pre-balance-loop DPS density check as a generation gate.
+
+### Wall time
+
+~3h (empirical read + archetype-rate analysis + full per-slot gauntlet breakdowns + D10 synthesis). Within dispatch estimate of 2–4h.
+
+### HANDOFF → gandalf
+
+D10 input #2 (multi-element breadth gate) may intersect spirit-swap differentiation design intent. If D10 constrains hybrid element kit to ≤30% secondary, does that reduce player variety enough to affect spirit-swap design? Gandalf should assess before D10 math note is authored.

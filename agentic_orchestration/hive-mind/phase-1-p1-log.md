@@ -6272,3 +6272,35 @@ Knight-rider sequencing: step 3 (drax VS2a first VFX integration) can proceed im
 **Smoke:** npm run build clean (0 TS errors, 760 modules). CourtBrowser + Encounters untouched.
 
 — drax
+
+---
+
+### [2026-05-17 ~22:30Z] STATE — gamora — Convergence sample-class analysis COMPLETE
+
+**Dispatch:** `2026-05-17-gamora-convergence-sample-class-analysis.md`
+**Output:** `reincarnated-engine/output/standard-demo-regen-2026-05-17/convergence-sample-analysis-2026-05-17.md`
+**Tag:** `gamora/v1.5-convergence-sample-analysis-1` (local; push gated per ADR-006)
+
+**Sample selection:** Season 002012 (10 classes; 4 converged = 40% — best variety across all 5 seasons). All three samples from same gauntlet for clean comparison.
+
+**3 classes selected:**
+- CONVERGED: Charcoal-Handed Surveyor (physical_warrior, class_0019) — mod=0.1688, conv_wr=0.51, iters=4
+- FLOOR-CONVERGENT: Smoldering Cartographer (fire_controller, class_0020) — mod=0.0509, conv_wr=0.53, iters=10 (barely in ±3% band at modifier floor)
+- OVER-BAND: Cartographer of Erased Borders (hybrid_mage, class_0012) — mod=0.0509, conv_wr=0.773, iters=10 (failed; floor hit)
+
+**Key empirical finding — dispatch framing correction:** The dataset contains NO under-band classes. All 35 non-converged classes (69%) are over-band (modifier floor hit, still too strong). No class required buffing (modifier > 1.0). Maximum modifier across all 51 classes = 0.525 (physical_grappler). The balance loop cannot produce modifiers below 0.05, but hybrid_mage requires ~0.025 to converge. This is a systematic over-generation bias, not a tail anomaly.
+
+**Archetype convergence pattern:**
+- Physical/rage energy (physical_warrior, physical_grappler, hunter): 100% convergence — structural engagement constraints throttle DPS naturally
+- Pure-element controllers (holy_controller, earth_controller, fire_controller): 50–100% — CC toolkit neutralizes monster offense; gauntlet-composition-dependent
+- Mage/hybrid archetypes (hybrid_mage, fire_mage, shadow_mage, water_mage, lightning_controller, etc.): 0–33% — mana energy + multi-element breadth + large kit count exceed modifier-reachable nerf range
+
+**4 D10 input recommendations surfaced:**
+1. Hard skill-count ceiling for mana archetypes (10–11 max; hybrid_mage currently generates 13–16)
+2. Multi-element breadth gate (max 2 canonical elements in non-hybrid mana kit)
+3. Buff_damage stacking limit (max 1 buff_damage effect per kit)
+4. Floor-hit convergence signal in telemetry (`modifier_flag_tier="floor_over_band"` when mod=floor + not converged) + pre-balance-loop DPS density check as generation gate
+
+**HANDOFF → gandalf:** D10 input recommendations are ready as empirical input for D10 math note review. No architectural decisions embedded here — pure empirical findings from this regen. Gandalf should assess whether any of the D10 inputs (especially #2 multi-element gate) touch spirit-swap differentiation design intent.
+
+— gamora
