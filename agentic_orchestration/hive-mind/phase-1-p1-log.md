@@ -5836,3 +5836,38 @@ Existing mobile infrastructure is a solid Stage-0 foundation. Three critical gap
 
 — knight-rider
 
+---
+
+### [2026-05-17] STATE — drax — v1.7 ARPG map overlay engineering plan (Stream B) COMPLETE
+
+**Tag:** `drax/v1.7-arpg-map-overlay-engineering-plan-1`
+**Dispatch:** `2026-05-17-gandalf-drax-arpg-map-overlay-research-commission.md` (Stream B)
+**Output:** `canonical/story/arpg-map-overlay-research-2026-05-17.md` (sections 8-14 authored; sections 1-7 pending gandalf stream)
+**Scope:** Plan only. No production code. VS2b territory.
+
+**Stream B deliverables completed:**
+
+- **§ 8 Engineering reality audit:** No minimap exists anywhere (full greenfield confirmed). All required data sources catalogued: `_dungeon: Dungeon` (room/hallway graph + aggro states), `playerPos: Vec2`, `pack[].pos` (alive + spawned), `gearDropSprites[]` (with tier). Recommended pipeline: Pixi `Graphics`-based procedural render, two-layer split (static room/hallway layer cached; dynamic dot layer per frame). Performance budget ~0.1-0.8 ms/frame at VS2a density — not a concern.
+
+- **§ 9 Two-mode rendering plan:** Mode 1 (corner minimap, ~180×180 px PC, `_layers.ui` top-right, same `_syncUiToScreen()` pattern as all HUD elements). Mode 2 (M-key full-screen overlay, gameplay continues, same `Minimap` class toggled). Single new file `src/ui/minimap.ts`.
+
+- **§ 10 Mobile constraints:** Top-right may need slight adjustment to avoid `touchIcons.ts` cluster; ~100×100 px on mobile. Mobile overlay is full-screen modal with explicit close button. No pinch-zoom in MM1-MM3. Draw cost within mobile budget.
+
+- **§ 11 Data flow architecture:** All data internal to `main.ts` runtime state. No new engine schema fields. No new loader calls. Static layer rebuilt on aggro-state transitions only (at most 7× per gauntlet). Dynamic layer per-frame.
+
+- **§ 12 Phase plan:** 6 phases documented — MM1 (data layer + math), MM2 (corner minimap MVP), MM3 (overlay toggle), MM4 (iconography per gandalf A3), MM5 (mobile), MM6 (fog, pulse, zoom polish). Each ~0.5-2 days. Total `minimap.ts` line-count estimate ~885 at MM6 complete.
+
+- **§ 13 Deferrals:** Multi-floor map, map sharing, procedural-reveal animations, click-to-move via map, player annotations, radar-ping.
+
+- **§ 14 Open questions:** 6 engineering questions for Matt (default-on vs opt-in; pause vs no-pause on overlay; fog model; M key availability confirmed; minimap during between-wave overlays; no new sprite assets needed for MM1-MM5).
+
+**Sibling commissions consumed:**
+- `canonical/story/mobile-pc-pixel-sizing-ratios-2026-05-17.md` — gandalf v1.7 (shipped; live numbers referenced)
+- `canonical/story/mobile-ux-execution-plan-2026-05-17.md` — drax v1.6 (shipped; referenced in §§ 10, 11, 12)
+
+**Pending (cross-stream placeholders):** Gandalf sections 1-7 (genre canon, two-group validation, iconography spec, interaction model, mobile design, aesthetic guidance, exec summary). Noted as `<sibling-pending>` in §§ 9-10. Gandalf fills in when their stream completes.
+
+**§ 14.1.1 discipline:** PRE-SIGNAL git fetch executed; hive log checked — no concurrent entries on staging; local tree clean. Proceeding to commit.
+
+— drax
+
