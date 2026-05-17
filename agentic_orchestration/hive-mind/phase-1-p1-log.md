@@ -4388,3 +4388,37 @@ All 5 dispatch items shipped:
 
 — gandalf
 
+---
+
+### [2026-05-17] STATE — drax — v0.29 potion HUD visibility + sprite mapping + legacy monster effects COMPLETE
+
+**Dispatch:** `2026-05-17-drax-demo-v029-potion-visibility-sprite-mismatch-legacy-monster-effects.md`
+**Commit:** `4b5a228`
+**Tag:** `drax/v0.29-potion-visibility-sprite-mapping-legacy-monsters-1`
+**Build:** tsc + vite clean (521 modules, 0 errors)
+
+**Item 1 — PotionHud visible at game start:**
+Root cause confirmed: DiabloHud HP globe (x=76, y=880, r=58) was rendering on top of PotionHud (x=14, y=839, w=110, h=48) due to Pixi z-order (later addChild = on top). Fixed by reordering startGauntlet(): DiabloHud now instantiated before PotionHud + DesktopHudIcons. Also added immediate `potionHud.update(potions)` call post-construction so zero-quantity greyed state renders from frame one. Icons always visible at full alpha; labels fade to 0.4 at zero quantity.
+
+**Item 2 — Sprite mapping audit:**
+Pre-D3 dominant_element values (fire/water/earth/wind/physical) were already fully mapped in ELEMENT_CHARACTER_MAP — no mapping gaps exist for any pre-D3 season archetype. The "samurai bodies on casters" observation was the Item 1 z-order issue making the HUD look wrong, not a sprite-pipeline failure. Post-D3 readiness: added `lightning` → lightning-ronin and `shadow` → shadow-stalker as element aliases (engine renames 'thunder'→'lightning', 'dark'→'shadow' post-D3). Original keys retained for pre-D3 compat.
+
+**Item 3 — Legacy monster effects:**
+- **Key mismatch fixed:** ENEMY_TIER_CHARACTER_MAP had `mini_boss` (underscore); engine emits `mini-boss` (hyphen). Added `'mini-boss'` as primary key; `mini_boss` kept as legacy alias. Lich, hellfire-rhino, fire-lord-creativkind-thunder now correctly resolve for mini-boss encounters.
+- **Orbital particles gated:** Added `particleContainer: Container` to CombatantSprite interface (stored explicitly at creation). When charSprite.ready or monsterSprite.ready, `particleContainer.visible = DEBUG_DRAW`. These were the "floating light globes" Matt saw around sprites.
+- **Boss aura gated:** `bossAura.visible = DEBUG_DRAW` when monsterSprite.ready. Pulsing ring no longer fires for mini-boss/boss monsters with active sprites. DEBUG_DRAW restores all legacy primitives for diagnostics.
+
+— drax
+
+---
+
+### [2026-05-17] OBSERVATION — drax — Phase-2 followup: chierit caster body types
+
+Current state: all fire/* archetypes (fire_mage, fire_caster, fire_controller) share fire-knight body. All water/* share water-priestess. Same pattern for earth/wind/physical. This is cosmologically coherent (substrate identity is strong) but all role-variants within a substrate are visually identical.
+
+The 10 chierit characters cover one body per substrate (fire_knight, water_priestess, ground_monk, wind_hashashin, metal_bladekeeper, lightning_ronin, light_valkyrie, shadow_stalker, crystal_mauler, leaf_ranger). No caster-body type exists per-substrate. Acquiring caster+controller body variants per substrate would require additional chierit character packs.
+
+**Phase-2 followup:** if Matt wants visual differentiation between fire_mage vs fire_controller, the path is acquiring additional chierit packs (caster/controller bodies per substrate). Not a defect — accepted trade-off per v0.29 dispatch spec.
+
+— drax
+
