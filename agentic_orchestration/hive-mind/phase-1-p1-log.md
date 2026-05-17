@@ -7129,3 +7129,422 @@ Parallel-safe state: jack-ryan D11.1 Gate-1 + rocket D11.1 implementation (queue
 
 — rocket
 
+---
+
+## [2026-05-17 late-evening+2] PRE-SIGNAL — jack-ryan — appending hive log (§ 14.1.1 race-condition discipline)
+
+Git fetch origin executed before append. Log tip at `1f76146` (gamora D11.1 completion). Rocket demo-sync hotfix STATE found at hive-log tail (concurrent write; no overlap with jack-ryan Gate-1 content). No race condition. D11.1 Gate-1 advisory STATE entry follows.
+
+## [2026-05-17 late-evening+2] STATE — jack-ryan — D11.1 Gate-1 advisory COMPLETE: CONDITIONAL ENDORSE
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-jack-ryan-d11-1-gate1-hold-the-line-queued.md`
+**Verdict appended to:** `agentic_orchestration/dispatches/2026-05-17-gamora-d11-1-ceiling-primary-tuning-math-note.md`
+**Tag:** `jack-ryan/v1.7-d11.1-math-note-gate1-review-1` (local; push gated per ADR-006)
+
+### Verdict: CONDITIONAL ENDORSE
+
+**Line-hold checks (all PASS):**
+- α=0.08 — VERIFIED (§ 2.2). LINE HOLDS.
+- ceiling=10 as PRIMARY lever — VERIFIED (§ 0 TL;DR + § 2.1 header). LINE HOLDS.
+- D11.2 escalation (NOT α-escalation) on MISS — VERIFIED (§ 8.2 GATE MISSED branch + § 9 explicitly prohibits α > 0.08 and ceiling < 10). LINE HOLDS.
+
+**Framing checks (all PASS):**
+- § 1 honors WARN 3: "α is orthogonal to coverage. Ceiling is the coverage lever." (§ 1.3 closing)
+- § 2 frames ceiling as PRIMARY; α as identity-flavor nudge only (WARN 1)
+- § 3+4 grounded in coverage-span reduction math and fight-duration non-linearity (WARN 3; not damage-percentage math)
+- § 9 D11.2: structural lever candidates listed; no α-chase path; correct "flag but don't author" pattern
+
+**R11(b):** CLEAN. Two 1-line changes; additive provenance fields; MIGRATION.md v1.10 carries forward. Downstream consumers (drax, star-lord) unaffected.
+
+### Empirical field inspection
+
+Inspected class_0007 (season_002011, n_skills=12, Group D) from engine monolithic classes.json. Confirmed: n_skills=12, n_elements=3 (wind/earth/fire from canonical_element), tax_multiplier=0.93, damage_bearing_skills_taxed=8, conv_wr=0.656, final_modifier≈0.05, converged=False. All values match gamora's math note table exactly.
+
+Cross-checked class_0001 (smoking gun): n_skills=10, n_elements=2, tax_multiplier=1.0, damage_bearing_skills_taxed=0, all skill damage_multiplier=1.0, conv_wr=0.667. Smoking gun fully verified in engine data.
+
+Full 17-instance group count confirmed: 4+6+3+4=17.
+
+### Pre-flags (INFO only; no WARN-LINE-HOLD; no REQUEST AMENDMENT)
+
+- [INFO] § 4.2 Group B header says "5 instances" (self-corrected within paragraph to 6; arithmetic correct). Rocket: Group B count is 6.
+- [INFO] Pruning rule dm=1.0 ambiguity (§ 6.2): non-damage-role skills (sustain, utility, defensive) have dm=1.0 after tax alongside tax-exempt damage roles. Rocket should verify pruning identifies lowest-DPS contribution correctly — the protected-role list (§ 6.2 step 1) must cover all non-damage roles before sorting by dm. Verify at implementation time.
+- [INFO] Smoking gun carry-forward for D11.2: n=9-10 instances floor-pin from absolute DPS density (not coverage redundancy). D11.2 must address dual-mode failure if ceiling=10 misses the gate.
+
+### Smoking gun assessment
+
+Does the smoking gun (2-element instances floor-pinning without tax) invalidate D11.1? NO. Gamora correctly accounts for these instances remaining floor-pinned at D11.1 (§ 3.4). D11.1 is correctly scoped to the 7 prunable instances. The smoking gun confirms D11.2 will likely be needed and must address the absolute-DPS-density failure mode for low-n_skills instances. Carry forward as D11.2 design lens.
+
+### Handoffs
+
+**HANDOFF → rocket:** D11.1 implementation auto-fires. Three INFO pre-flags carry forward. Group B = 6. Verify pruning dm=1.0 ambiguity. Gate: ≥12/17 at interior modifier (final_modifier > 0.055).
+
+**HANDOFF → matt:** No line-hold escalations. D11.1 within all authorized parameters. D11.2 likelihood HIGH (1-4/17 realistic projection vs ≥12/17 gate). Anticipate D11.2 escalation post-salvage; § 9 structural candidates (ceiling=9 parametric sweep; tax demotion) are the authorized path. No α escalation will be proposed.
+
+— jack-ryan
+
+
+---
+
+## [2026-05-17 late-evening+3] PRE-SIGNAL § 14.1.1 — gandalf — audio register canon STATE incoming
+
+Git fetch origin executed before append. Log tip at `a8d043c` (rocket D11 demo-sync hotfix STATE) + jack-ryan D11.1 Gate-1 advisory STATE both verified in local working tree; no remote-ahead commits on hive log. No race condition. Audio register canon completion STATE entry follows.
+
+## [2026-05-17 late-evening+3] STATE — gandalf — Audio register canon SHIPPED; HANDOFF → elrond + matt + drax
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-gandalf-audio-register-sonic-identity-canon-queued.md`
+**Canonical doc authored:** `canonical/story/audio-register-canon-2026-05-17.md` (716 lines; within 600-1200 target band)
+**Authority:** Matt L3 2026-05-17 late-evening audio research authorization; auto-fired post-gandalf-D11-postmortem + post-legolas-4-audio-crawl
+**No tag** (canon authoring; not code per dispatch directive)
+
+### What was done
+
+All 12 sections per dispatch structure delivered:
+
+1. **Executive summary** — HYBRID sonic identity headline: Cluster A retro-pixel skill SFX over Cluster C HD-cinematic ambient + Cluster B mid-fi orchestral-synth music + Cluster D minimal/generic UI. Audio analog of HYBRID a3 visual register.
+2. **Sonic register cluster lock (Q1)** — HYBRID lock; endorses legolas-4's split recommendation with two amendments (music = Cluster B not C; UI = Cluster D deliberately). Genre-precedent grounding: D2 Tristram (mid-fi combat + HD-recorded ambient = Reincarnated DNA); PoE2-early-access-mismatch lesson (HD audio over pixel sprites = uncanny valley); JRPG canon (Octopath / FF6 / Sea of Stars for music register).
+3. **Element signature table (Q2)** — 8 rows (fire / water / earth / wind / lightning / holy / shadow / physical) × timbre + pitch + reverb + spectral envelope + reference exemplar + cluster fit at retro-register. **Holy flagged as register-attention zone** (no explicit retro-register pack per legolas-4); composite construction path recommended for VS2a + VS2b.
+4. **Layered architecture (Q3)** — 5-layer SFX model (substrate / class-archetype / foley / atmospheric / music) mirroring elrond's 4-layer VFX with music as audio-only addition. Mix-bus structure, composition order, mandatory ducking rules (5 sidechain pairs), canonical-silence enforcement for Passage Phases 2-4.
+5. **Loudness + signal discipline (Q4)** — Per-layer LUFS targets (-12 short / -16 integrated combat-critical; -18 ambient; -16 music; -14 master integrated mobile-ARPG norm). Frequency-band stratification per layer. Compression / sidechain rules. Polyphony cap = 8 simultaneous combat SFX channels with oldest-drop. Anti-fatigue rules (same-cast 80ms limiter; ±100 cents pitched variation; 4.0s ritual stinger overlap cap).
+6. **Player vs enemy emitter discipline (Q5)** — Same-file + per-emitter mix-bus differentiation. NOT paired files. Player = center pan + dry close + +2 dB presence boost. Enemy = spatial pan + wet-mid + -1.5 dB high-mid + -3 dB attenuation. Per-encounter-type spatial-panning rules (swarm = pack-cluster; boss = always-center).
+7. **Music gap recommendation (Q6)** — Option B (Suno Pro per-season against canonical retro-JRPG anchor prompt) primary; Option A (reuse 001001-005) immediate-unblock; Option D ($77.60 Bit By Bit Sound) at pre-demo-ship gate. Canonical Suno prompt anchor authored (analog of style-register.md's LLM image-generation prompt anchor).
+8. **Voice-over forward-flag (Q7)** — Register: Cluster B-adjacent intimate close-mic. Acquisition triage table (text-only / TTS-synthesized / VA-commissioned). Integration site: Layer 6 voice bus, sidechain priority HIGH. Future-dispatch territory.
+9. **Engineering interaction notes (Q8)** — Folder schema recommendation (`/audio/sfx/{layer}/{element}_{geometry_archetype}.ogg`); mobile audio context constraints (user-gesture; background-suspend; memory pressure ~50 MB budget); audio-bus mixing GainNode tree; 3+1 star-lord telemetry metrics (`music_silent_fallback_fired` / `audio_polyphony_dropped` / `canonical_silence_violated` / optional `sidechain_duck_latency_ms`); 8-step drax integration sequence.
+10. **Open questions for Matt** — 5 Matt L3 decisions (Q-MATT-1 register lock; Q-MATT-2 music gap path; Q-MATT-3 $77.60 spend at pre-ship gate; Q-MATT-4 Suno prompt anchor; Q-MATT-5 holy register-attention path).
+11. **Handoffs** — → elrond (auto-fires per `2026-05-17-elrond-audio-pack-curation-queued.md`); → drax (future-wiring dispatch); → matt (Q1 + Q6 decisions + voice future-dispatch awareness); → star-lord (telemetry instrumentation downstream of drax wiring); → knight-rider (decisions-log entry drafting for cluster lock + Suno prompt anchor).
+12. **Cross-references** — binding companion docs (style-register / audio-scoping-framework / audio-strategy-phase0 / vs2a-vfx-scene-needs / elrond 4-layer VFX architecture / legolas-4 coverage matrix / audio.ts) + contextual companions + downstream-dispatch list.
+
+### Key load-bearing decisions
+
+- **Sonic register HYBRID** matching visual register HYBRID a3 — not pure-retro (Game Boy ambient failure); not pure-HD (PoE2-early-access mismatch); not within-moment cluster mixing (analog of visual no-within-frame mixing rule)
+- **Holy element flagged** as register-attention zone — composite construction path locks for VS2a + VS2b; no Phase-1 commission required
+- **Music register = Cluster B mid-fi orchestral-synth** — canonical Suno prompt anchor authored as inheritance for Matt's workflow; provides per-season register coherence
+- **Same-file + per-emitter mix-bus** for player vs enemy — halves curation effort vs paired-file approach; genre-canon discipline (D2/D3/D4/PoE all ship this)
+- **-14 LUFS master integrated** mobile-ARPG-genre target; loudness-fatigue (not loudness-impact) is the binding constraint over hundreds of hours
+- **Polyphony cap 8 simultaneous combat SFX channels** with oldest-drop; mobile-ARPG-platform norm
+- **Canonical-silence enforcement** at Passage Phases 2-4 via `silence-active` flag muting Layer 1/4/5/7 simultaneously — structural enforcement of the most load-bearing single audio decision in the project
+
+### Handoffs
+
+**HANDOFF → elrond (auto-fires now):** Audio-pack curation per `2026-05-17-elrond-audio-pack-curation-queued.md`. Elrond consumes § 2 cluster lock as register-filter criterion; § 3 element signature table as per-pack scoring rubric; § 4 5-layer architecture as sonic-slot enumeration target; § 5 LUFS target as per-pack normalization target; § 6 same-file decision (no paired-file acquisition); § 7 music path (curation directive for Layer 5 if Path D selected). Produces audio-curation manifest analog to VFX 4-layer manifest.
+
+**HANDOFF → matt (Q1 + Q6 decisions + Q7 awareness):** 5 Matt L3 decisions consolidated at § 10 of the canon. Highest-priority decisions: (Q-MATT-2) music gap path for D10 002011-015 immediate (currently silent in playtest); (Q-MATT-1) register cluster lock at decisions-log canonicalization; (Q-MATT-4) Suno prompt anchor lock. (Q-MATT-3) $77.60 spend authorization is at pre-demo-ship gate timing; (Q-MATT-5) holy composite path proceeds by default unless playtest-flagged. Voice-over (Q7) is forward-flag awareness only — no decision required this canon.
+
+**HANDOFF → drax (future-wiring dispatch):** Engine-side audio integration. Drax consumes § 4 layered architecture as audio-bus implementation target; § 5 loudness + sidechain rules as bus-routing spec; § 6 player vs enemy emitter as `playAbilityCast` signature extension; § 9 engineering interaction notes as integration sequence + folder schema + telemetry instrumentation. NOT this canon's commission — fires when elrond curation lands AND Matt-Q1 register lock confirms.
+
+**HANDOFF → star-lord (downstream of drax wiring):** Telemetry instrumentation per § 9.4. 3+1 metric recommendations. Not this canon's commission; flagged for downstream awareness.
+
+**HANDOFF → knight-rider (decisions-log entry drafting):** Knight-rider drafts decisions-log entries for sonic register cluster lock (§ 2; Q-MATT-1) + music register canonical Suno prompt anchor (§ 7.4; Q-MATT-4) at next governance pass per ADR-002 cross-seam discipline.
+
+### Parallel-safety
+
+Parallel-safe with all in-flight work per dispatch:
+- gamora D11.1 math note (shipped) + jack-ryan D11.1 Gate-1 advisory (shipped) — orthogonal concerns
+- rocket D11.1 implementation (queued) + rocket persistence diagnostic (in flight) — orthogonal concerns
+- rocket D11 demo-sync hotfix (shipped) — orthogonal concerns
+
+No engine code modified; no demo code modified; no decisions-log drafts authored. Canonical-story authoring only.
+
+— gandalf
+
+
+---
+
+## [2026-05-17 late-evening+4] PRE-SIGNAL § 14.1.1 — elrond — monster-subset curation STATE incoming
+
+Git fetch origin executed before append. Log tip at `a8d043c` (rocket D11 demo-sync hotfix STATE) — current working-tree tip is gandalf audio register canon entry. No remote-ahead commits on hive log; local working-tree modifications limited to in-progress agent appends already in current session-state. No race condition. Monster-subset curation completion STATE entry follows.
+
+## [2026-05-17 late-evening+4] STATE — elrond — Monster-subset curation VS2a Final SHIPPED; HANDOFF → drax (v1.14 wiring) + matt (acquisition gaps) + knight-rider (chain coordination)
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-elrond-monster-subset-curation-vs2a-final.md`
+**Authority:** Matt L3 2026-05-17 late-evening VS2a Final Sprint Q7 monster-subset curation YES authorization (un-deferral of prior elrond CraftPix mega-catalogue curation extension stub)
+**No tag** (curation; not code per dispatch directive)
+
+### What was done
+
+All three deliverables per dispatch structure delivered to `agentic_orchestration/research/curated/`:
+
+1. **`monster-subset-vs2a-2026-05-17.jsonl`** — manifest authored (was DEFERRED stub; now AUTHORED v1.0). 10 priority-3+ rows + 2 priority-2 deferred-noted = 12 total preserved candidates. Per-row schema: asset_id / vendor / pack / monster_archetype / canonical_substrate_mapping / role_orientation / tier / animation_states / pixel_dimensions / file_count / license / vs2a_slot_priority / drax_wiring_notes.
+
+2. **`monster-coverage-matrix-vs2a-2026-05-17.md`** — 8 canonical substrates (fire/water/earth/wind/lightning/holy/shadow/physical) × 3 role tiers = 24-cell matrix. Per-cell GREEN/YELLOW/RED with current CK + candidate CP attribution. Pre-curation vs post-curation comparison; substrate-gap-closure scoring; RED-cells-remaining table.
+
+3. **`monster-curation-summary-vs2a-2026-05-17.md`** — executive summary + per-archetype recommendation + acquisition status + drax wiring complexity assessment (phased Option A/B recommendation) + element-imbalance flags + handoffs.
+
+### Key load-bearing decisions
+
+- **10 priority-3+ selections** at upper edge of 8-12 dispatch target band, justified by substrate-gap-closure urgency (water + wind move from RED → YELLOW; earth gains 3-tier coverage; first non-holy boss representations added).
+- **Substrate-gap-first prioritization** as ranking criterion — water and wind substrates had ZERO wired sprites at any tier before this curation despite engine-equal generation (D10/D11 = 55 water + 55 wind monster instances across 5 seasons).
+- **Boss tier expansion 1 → 3 monsters** is the single highest-impact change (was angel-guardian-only; gains slime-boss=water + dragon=fire). Enables substrate-flavored act-culminating encounters.
+- **Overlap resolutions applied:** beholder → net-404608 (dedicated pack); ent → net-838021 (dedicated); dragon → net-678687 (premium 10-state boss); lizard → net-900504 (humanoid); 561178-small-dragon retained as priority-2 elite candidate.
+- **All on-disk; zero acquisition cost.** All 10 selections live under `reincarnated-demo/public/assets/craftpix_catalogue_large/` per legolas-3 confirmation.
+- **License simplicity:** single CraftPix corpus credit covers all 10 monsters (materially simpler than CreativeKind per-pack attribution).
+- **HYBRID a3 register filter:** all CraftPix monster packs ship in pixel-art style_register per legolas-3 inventory; all PASS HYBRID a3; no exclusions on register grounds.
+- **Phased wiring recommendation** for drax v1.14: Option B (Phase A = 6 priority-5 substrate-gap-closure monsters ~3h; Phase B = 4 priority-3-4 variety expansion monsters ~2h) preferred over Option A (single 10-monster dispatch ~5h) to keep wiring sprints bounded.
+
+### Substrate gap-closure scorecard
+
+| Substrate | Wired before | Wired after | Status |
+|---|---|---|---|
+| fire | 1 | 3 | GREEN |
+| water | 0 (RED) | 2 | YELLOW (gained trash+boss; missing elite) |
+| earth | 1 | 4 | GREEN |
+| wind | 0 (RED) | 1 | YELLOW (gained elite; missing trash+boss) |
+| lightning | 1 | 1 | YELLOW (acquisition gap surfaced) |
+| holy | 1 | 1 | YELLOW (acquisition gap surfaced) |
+| shadow | 4 | 5 | GREEN |
+| physical | 2 | 3 | YELLOW (missing boss) |
+
+Total wired roster: **11 → 21 (+91% variety expansion)** with zero acquisition cost.
+
+### Acquisition gaps surfaced for Matt
+
+Two substrate gaps NOT resolvable from on-disk CraftPix corpus:
+
+1. **Holy substrate non-boss tiers** (MEDIUM severity). Current: angel-guardian boss only. Gap: holy trash + elite + mini-boss all RED. Resolution path: legolas-4 chierit-pack-expansion crawl for light-valkyrie / holy-coded sprite availability, OR accept holy-as-boss-only through Phase-1 P1.
+
+2. **Lightning substrate native** (MEDIUM severity). Current: fire-lord-creativkind-thunder is a thunder-shifted re-skin of a fire-pack asset (Case D dispatch). Gap: no native lightning monster. Resolution path: legolas-4 lightning-monster crawl (chierit lightning-ronin or other vendor), OR accept thunder-shift as canonical lightning representation through Phase-1 P1.
+
+Other gaps (wind boss / physical boss / shadow full-boss) addressable via on-disk `craftpix-897123-boss-monsters-pixel-art` pack at v1.15 follow-on — no acquisition needed.
+
+### Handoffs
+
+**HANDOFF → drax (v1.14 wiring inputs):** Manifest + matrix + summary ready in `agentic_orchestration/research/curated/`. Recommended scope: phased Option B per summary § 4.1 — Phase A (6 priority-5 monsters: slime, slime-boss, beholder, golem, dragon, ent) at v1.14 ~3h; Phase B (4 priority-3-4 monsters: imp, zombie, orc, plant) at v1.15 ~2h. All 256x256 monolithic-per-state pattern (drax-familiar from CreativeKind work). Dragon pack (10 animation states) is most complex single addition; recommend wiring essential-5 states first, defer Flight/Landing/Rise to v1.16 cinematic-entry follow-on. Path A-prime per-slug-scale-lookup entries required for all (estimate 0.30-1.8x scale per tier per `rendered_size_target` field). Nearest-neighbor HARD REQ for all per existing monsterSprites.ts enforcement. Auto-fires post-drax-v1.13-VS2a-Final-Sprint validation.
+
+**HANDOFF → matt (acquisition gaps):** Two substrate acquisition decisions (§ 7.2 of summary doc). Holy non-boss tiers and lightning native are both MEDIUM-severity gaps not resolvable from current on-disk corpus. Decision: commission legolas-4 expansion crawl (chierit catalogue per substrate-expansion-decision-2026-05-17.md § 1 line 36 mentions light-valkyrie + lightning-ronin holdings), OR accept current placeholder coverage through Phase-1 P1 substrate expansion gate. Not blocking VS2a (placeholder coverage works mechanically; just doesn't ship native-substrate sprites for holy non-boss / lightning).
+
+**HANDOFF → knight-rider (chain coordination):** Curation complete; three deliverables shipped to `agentic_orchestration/research/curated/`. Recommended next chain links: (1) drax v1.14 dispatch authoring with phased scope per summary § 4.1; (2) Matt-async acquisition decision per § 7.2 (parallel-safe with drax v1.14 — drax doesn't need holy/lightning resolution to wire the 10 monsters); (3) conditional legolas-4 dispatch (chierit-pack-expansion crawl) if Matt § 7.2 = acquire; (4) drax v1.15 dispatch for craftpix-897123 boss-monsters-pixel-art wiring (wind-boss / physical-boss / shadow-boss gap closure). No MIGRATION.md entry required (curation does not change cross-seam schema; overwrote DEFERRED stub at existing path with AUTHORED full manifest).
+
+### Parallel-safety
+
+Parallel-safe with all in-flight work per dispatch:
+- drax v1.13 VS2a Final Sprint (environment + VFX seam, distinct from monster manifest seam) — output feeds drax v1.14 follow-on
+- gandalf audio register canon (canonical/story authoring; separate seam) — shipped before this entry
+- rocket v1.13.2 demo-sync hotfix (engine demo-sync seam) — shipped before this entry
+- D11.1 sprint chain (engine simulation seam) — orthogonal concerns
+- No engine code modified; no demo code modified; no engine schema modified; curation output only.
+
+— elrond
+
+---
+
+### [2026-05-17 19:45Z] STATE — legolas — PRE-SIGNAL: Tier 1 audio fetch in progress; about to append completion record
+
+PRE-SIGNAL per § 14.1.1. Legolas-5 Tier 1 audio fetch (dispatch `2026-05-17-legolas-tier1-audio-fetch.md`) is completing. Writing only to `reincarnated-demo/public/audio/sfx/*` — legolas-own staging territory. No code changes. No cross-seam schema changes. No tag. Parallel-safe with all in-flight drax/rocket/elrond/gandalf work as confirmed by dispatch.
+
+Completion record follows immediately.
+
+— legolas
+
+### [2026-05-17 19:45Z] STATE — legolas — COMPLETION: Tier 1 audio fetch (dispatch 2026-05-17-legolas-tier1-audio-fetch.md)
+
+**Authority:** Matt L3 2026-05-17 — "I authorize legolas for the 3.59 and free tier 1 audio."
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-legolas-tier1-audio-fetch.md`
+**Staging root:** `reincarnated-demo/public/audio/sfx/`
+
+---
+
+#### Pack acquisition results
+
+| Pack | Status | Files staged | Disk | License | Notes |
+|---|---|---|---|---|---|
+| Leohpaz RPG Essentials SFX | STAGED | 48 audio files | 16 MB (zip) | commercial-free-no-attribution | UI, magic, combat, buff/heal, movement — all key slots |
+| Kenney Interface Sounds | STAGED | ~100 audio files | 815 KB (zip) | CC0 | Button/click/switch |
+| Kenney Impact Sounds | STAGED | ~130 audio files | 782 KB (zip) | CC0 | Physical impacts |
+| OGA RPG Sound Pack (artisticdude) | STAGED | 96 audio files | 12 MB (zip) | CC0 | Battle, inventory, UI, creature sounds |
+| TomMusic Free Fantasy 200 SFX | STAGED | 204 audio files (WAV) + 204 (OGG) = 408 total | 317 MB (zip) | commercial-free-no-attribution | Spells, ambient loops, footsteps, attacks, doors |
+| Leohpaz Minifantasy Dungeon SFX | STAGED | 64 audio files | 5.2 MB (zip) | commercial-free-no-attribution | Physical melee, chest/door, dungeon |
+| Leohpaz Minifantasy Dungeon Music | STAGED | included above | 25 MB (zip) | commercial-free-no-attribution | 2 music tracks (exploration + battle) |
+| kmontesdev Fantasy Ambient CC0 | **FLAGGED — NOT STAGED** | 0 | — | CC0 | **Google Drive folder, not CDN-hosted; requires manual download. See note below.** |
+| PixelLoops Ultimate Ambient ($3.59) | **FLAGGED — NOT STAGED** | 0 | — | commercial-royalty-free | **Requires itch.io account + $3.59 payment. No stored credentials available. See note below.** |
+
+**Combined staged:** 6 of 8 packs. Total audio files: ~942 across all vendors. Total disk: ~839 MB (dominated by TomMusic 317 MB zip + Kenney 230 extracted files).
+
+---
+
+#### Vendor-by-vendor staging paths
+
+```
+public/audio/sfx/
+  leohpaz/
+    RPG_Essentials_Free.zip           (16 MB, extracted in-place)
+    8_Atk_Magic_SFX/                  (8 files: fire, ice, thunder, water, wind, earth, charge, poison)
+    8_Buffs_Heals_SFX/
+    10_Battle_SFX/
+    10_UI_Menu_SFX/
+    12_Player_Movement_SFX/
+    Minifantasy_Dungeon_SFX.zip       (5.2 MB, extracted in-place)
+    [64 SFX files from Minifantasy]
+    Minifantasy_Dungeon_Music.zip     (25 MB, extracted in-place)
+    Minifantasy_Dungeon_Music/        (2 music tracks + Licensing.txt + Acknowledgements.txt)
+
+  kenney/
+    kenney_interface-sounds.zip       (815 KB, extracted in-place)
+    kenney_impact-sounds.zip          (782 KB, extracted in-place)
+    Audio/                            (230 files, WAV + OGG)
+    License.txt                       (CC0 original)
+
+  oga/
+    rpg_sound_pack.zip                (12 MB, extracted in-place)
+    RPG Sound Pack/                   (96 audio files across 6 categories: battle/interface/inventory/misc/NPC/world)
+
+  tommusic/
+    Free_Fantasy_SFX_Pack.zip         (317 MB, extracted in-place)
+    Free Fantasy SFX Pack By TomMusic/
+      WAV Files/SFX/                  (Spells, Attacks, Footsteps, Doors, Ambient, etc.)
+      OGG Files/SFX/                  (mirror of WAV set)
+      ReadMe.txt
+
+  kmontesdev/                         (EMPTY — pending manual fetch)
+  pixelloops/                         (EMPTY — pending Matt manual purchase)
+
+  _licenses/
+    kenney-License.txt                (CC0 original from zip)
+    kenney-cc0-license.txt            (legolas summary)
+    oga-rpg-sound-pack-license.txt    (CC0 summary)
+    tommusic-free-fantasy-200-license.txt
+    tommusic-ReadMe.txt               (original from pack)
+    leohpaz-rpg-essentials-sfx-license.txt
+    leohpaz-minifantasy-dungeon-license.txt
+    leohpaz-minifantasy-dungeon-Licensing.txt  (original from pack)
+    leohpaz-minifantasy-Acknowledgements.txt   (original from pack)
+    kmontesdev-fantasy-ambient-cc0-license.txt (pending staging instructions inside)
+    pixelloops-ultimate-ambient-sfx-license.txt (pending staging instructions inside)
+```
+
+---
+
+#### License clearance summary (staged packs only)
+
+| Pack | Non-commercial flag? | Attribution required? | Cleared? |
+|---|---|---|---|
+| Leohpaz RPG Essentials | NO | NO | YES |
+| Kenney Interface Sounds | NO | NO | YES (CC0) |
+| Kenney Impact Sounds | NO | NO | YES (CC0) |
+| OGA RPG Sound Pack | NO | NO | YES (CC0) |
+| TomMusic Free Fantasy 200 | NO | NO | YES |
+| Leohpaz Minifantasy Dungeon | NO | NO | YES |
+
+No "non-commercial", "research-only", or "no commercial use" flags found in any staged pack. All staged packs are cleared for commercial game use.
+
+---
+
+#### Flags for Matt
+
+**FLAG 1 — kmontesdev Fantasy Ambient CC0 (2 GB) — Manual download required**
+- itch.io listing resolves to Google Drive folder (external=true): https://drive.google.com/drive/folders/1tlJMeJp5PabLjmHyc3kTVd5dPycUKSav?usp=drive_link
+- Folder structure visible (AMBIENCE / Battle / dragon / Footsteps / Hits / Horse / Human_amb / Locations / MAGIC WEPONES / monsters_creatures_sfx_1_wav / SWORD — 11 subfolder items)
+- Cannot be fetched without browser session + Google login. Automated download not possible.
+- Disk space available (69 GB free). Disk constraint is NOT the blocker.
+- **Action for Matt:** Download the Google Drive folder (11 items), extract to `reincarnated-demo/public/audio/sfx/kmontesdev/`
+- License is CC0 — no attribution required. License file already written at `_licenses/kmontesdev-fantasy-ambient-cc0-license.txt`
+
+**FLAG 2 — PixelLoops Ultimate Ambient ($3.59) — Manual purchase required**
+- Pack: https://pixelloops.itch.io/ultimate-game-ambient-sound-effects-pack
+- Price: $3.59 (Matt-authorized spend)
+- 192 MB, 100 loopable ambient SFX (Forest/Cave/Dungeon/Swamp/Desert/Ruins/Temple + more)
+- No itch.io credentials stored on disk. Automated purchase not possible.
+- **Action for Matt:** Log in to itch.io, purchase for $3.59, download `ultimate_game_ambient_sound_effects_pack.zip`, extract to `reincarnated-demo/public/audio/sfx/pixelloops/`
+- License file placeholder already written at `_licenses/pixelloops-ultimate-ambient-sfx-license.txt`
+
+---
+
+#### Attribution tracking (for eventual credits file)
+
+All staged packs are NO-attribution-required. However, per dispatch guidance, the following are worth crediting in goodwill:
+
+- Leohpaz (leohpaz.itch.io) — RPG Essentials SFX + Minifantasy Dungeon
+- TomMusic (tommusic.itch.io, tom.gamemusic@gmail.com) — Free Fantasy 200 SFX
+- artisticdude (opengameart.org) — RPG Sound Pack (CC0; credit appreciated per OGA page)
+- Kenney (kenney.nl) — Interface + Impact Sounds (CC0)
+- kmontesdev (pending staging) — Fantasy Ambient CC0
+- PixelLoops Studio (pending Matt purchase) — Ultimate Ambient SFX
+
+---
+
+#### Handoffs
+
+**HANDOFF → elrond:** 6 packs staged at `reincarnated-demo/public/audio/sfx/{vendor}/`. All files in original pack structure (no renaming). Ready for audio curation manifest authoring. Consume staged paths; map to demo Tier 2 lookup convention `ability_{geometry}_{element}.{ext}`. Note: kmontesdev (CC0 ambient, 2 GB) + PixelLoops ($3.59, 100 ambient loops) require Matt manual fetch first — design manifest around the 6 staged packs; flag kmontesdev + pixelloops as "pending Matt fetch" in manifest.
+
+**HANDOFF → drax:** Assets staged and ready for wiring at `reincarnated-demo/public/audio/sfx/{vendor}/`. Trigger: after elrond audio curation manifest + gandalf audio register canon both land. Primary pipeline-unblocker: `leohpaz/8_Atk_Magic_SFX/` (8 elemental spells: fire, ice, thunder, water, wind, earth, charge, poison) + `leohpaz/10_Battle_SFX/` + `leohpaz/10_UI_Menu_SFX/`. Elrond manifest will produce the ability_{geometry}_{element} filename mapping.
+
+**HANDOFF → matt:** Two manual-fetch flags above (kmontesdev + PixelLoops). No spend has occurred yet on the $3.59 PixelLoops purchase — Matt must complete that transaction. Attribution-optional credits list above for eventual game credits file.
+
+---
+
+**Acceptance criteria check:**
+- [x] 6 of 8 Tier 1 packs staged at `reincarnated-demo/public/audio/sfx/{vendor}/`
+- [x] PixelLoops flagged with manual-purchase instructions (blocked: no itch.io credentials)
+- [x] kmontesdev flagged with manual-download instructions (blocked: Google Drive, not CDN)
+- [x] License files preserved + copied to `_licenses/` subdir (11 license files total)
+- [x] Disk-space verification: 69 GB free — not disk-constrained
+- [x] Completion record documents total file count, disk usage, all failures/flags
+- [x] Hive-log STATE entry (this entry)
+- [x] HANDOFF → elrond, drax, matt recorded above
+- [ ] No tag — confirmed (catalogue fetch; not code)
+
+**Spend actual:** $0.00. Matt must complete the $3.59 PixelLoops purchase manually.
+
+— legolas
+
+---
+
+## [2026-05-17 late-evening+4] PRE-SIGNAL § 14.1.1 — rocket — D11.1 STATE incoming
+
+Git fetch origin executed. Log tip at legolas audio-curation STATE (most recent). No remote-ahead commits on hive log. No race condition. D11.1 STATE entry follows.
+
+## [2026-05-17 late-evening+4] STATE — rocket — D11.1 ceiling-primary implementation COMPLETE; GATE MISS; D11.2 escalation flagged
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-rocket-d11-1-ceiling-primary-implementation-queued.md`
+**Tag:** `rocket/v1.14-d11.1-ceiling-primary-implementation-1 @ 7aef4b5` (engine); demo sync @ 8ae74ef; loadout sync @ 1877907
+**LLM cost:** $0.00 (sim only; no naming calls)
+**Runtime:** 4.4 min salvage + Phase A verification + sync
+
+### What was done
+
+**Phase A (implementation):** Two 1-line config changes.
+- `config/_tax_config.yaml`: alpha 0.07→0.08 (identity-flavor; NOT convergence lever per gandalf WARN 1)
+- `src/reincarnated/generation/d10_kit_constraints.py`: `_ARCHETYPE_SKILL_CEILING["hybrid_mage"]` 12→10 (PRIMARY lever; Discipline #12 semantic shift)
+
+Phase A smoke verification PASS: ceiling=10, alpha=0.08, tax_3e=0.92, tax_2e=1.0.
+
+**Phase B (salvage):** `scripts/d11_1_post_process_salvage.py` (new script; INFO-2 compliant — pruning by DPS contribution not dm value).
+
+7 of 17 instances pruned (3x 11→10, 4x 12→10). 10 instances unchanged (already at/below ceiling=10).
+
+Pruned skills were all non-damage roles (utility, sustain, damage_over_time) with dps_score=0.0. No DPS was actually removed from any kit.
+
+**Phase C (results):** 0/17 hybrid_mage converged at interior modifier (>0.055). GATE MISS.
+
+All 17 floor-pinned at modifier=0.05. WARN-3 carried_gear assertion passed all 17 instances.
+
+### WARN 3 structural learning (for D11.2)
+
+WR inelastic to ceiling=10 pruning. Worst-case data points:
+- class_0054 (gamora's strongest candidate, wr_pre=0.567): wr_post=0.567 — zero change
+- class_0007 (pruned 12→10): wr_post=0.656 vs wr_pre=0.656 — zero change
+- class_0056 (pruned 12→10): wr_post=0.656 vs wr_pre=0.656 — zero change
+
+Root cause: the pruning correctly identified lowest-DPS skills — but those skills had dps_score=0.0 (pure non-damage roles). Removing them reduced skill count without reducing damage output. The floor-pin asymptote requires actual DPS reduction to cross the 0.50 threshold.
+
+**D11.2 dual-mode confirmed (INFO-3):**
+- Mode A (n=11-12, 7 prunable instances): ceiling=10 insufficient; WR inelastic; need deeper ceiling or damage-bearing prune
+- Mode B (n=9-10, 10 unprunable instances): no structural relief from any ceiling ≥10; absolute DPS density problem
+
+### Acceptance criteria — all complete
+
+- Phase A: ceiling 12→10 + alpha 0.07→0.08 — DONE
+- Phase B: 17 instances re-salvaged — DONE
+- Phase C: 0/17 converged — documented
+- WARN 3 data: full per-instance table in dispatch completion record
+- Sync: demo (5 classes.json) + loadout (51 per-class files) — DONE
+- MIGRATION.md: no new entry required (v1.10 carries; no ClassBalanceResult fields added)
+- Tag: `rocket/v1.14-d11.1-ceiling-primary-implementation-1` — DONE
+
+### Handoffs
+
+**HANDOFF → knight-rider + matt (D11.2 escalation):**
+Gate missed (0/17). Per gandalf WARN 2: no alpha escalation; no ceiling<10. D11.2 requires structural redesign. Key D11.2 inputs: (1) WR inelastic to pruning when lowest-DPS skills are non-damage roles; (2) dual-mode failure confirmed empirically; (3) class_0054 at 0.567 received 0% improvement — the "convergence candidate" projection failed because projected DPS reduction was ~12-15% but actual was 0% (non-damage roles pruned). D11.2 must either (a) enforce damage-bearing skill pruning at ceiling, or (b) address absolute DPS density via a different mechanism. Knight-rider escalates to Matt L3 for D11.2 authorization.
+
+**HANDOFF → drax (MISS state):**
+D11.1 data is live in demo (`public/seasons/season_002011-002015/classes.json`; `post_process_d11_1=True`; alpha=0.08). Hybrid_mage classes remain floor-pinned but demo is playtest-stable. No gameplay regression. D11.2 will update again when structural fix lands. Drax can continue VS2a work against this state.
+
+— rocket
