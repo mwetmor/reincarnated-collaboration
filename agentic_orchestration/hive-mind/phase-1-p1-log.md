@@ -6619,6 +6619,36 @@ D11 sprint is now ungated. Gamora math note auto-fires; jack-ryan Gate 1 review 
 
 ---
 
+### STATE — legolas — 2026-05-17 — CraftPix mega-catalogue + free_characters_and_vfx crawl COMPLETE
+
+**PRE-SIGNAL § 14.1.1:** honored — `git fetch origin` confirmed last remote commit `5562864` (drax/v1.11); no concurrent hive-log writers active at time of append.
+
+**Dispatch:** `2026-05-17-legolas-craftpix-mega-catalogue-and-character-vfx-crawl.md`
+
+**Output files:**
+- `agentic_orchestration/research/catalogue/craftpix-mega-catalogue-2026-05-17/inventory.jsonl` — 1 header + 67 pack rows
+- `agentic_orchestration/research/catalogue/craftpix-mega-catalogue-2026-05-17/free-characters-and-vfx-inventory.jsonl` — 1 header + 9 folder rows
+- Summary findings returned as legolas final text response (not written as .md per tool constraint)
+
+**Key findings headline:**
+1. Matt's thesis (CraftPix dungeon tilesets replace DireDungeon_Items_Loot) — REFUTED on scope grounds. Different asset classes (tileset/environment vs item/loot-icon). Correct framing: CraftPix dungeon tilesets ADD animated hazard capability DireDungeon never had.
+2. G-COFFIN CLOSED — craftpix-net-298079 ships `coffins.png`. Matt to confirm design fit (dungeon-floor prop vs chest-style).
+3. G4 CC-BY physical-slash — POTENTIALLY CLOSED via Frostwindz Slashes (already on disk, commercial-permitted). CodeManu may be lower priority.
+4. Frostwindz Impacts (7-variant B&W+COLOR) may make Pimen battle-vfx-hit-spark ($4.25) acquisition redundant.
+5. G3 non-humanoid embodiment — SUBSTANTIALLY CLOSED via 17 monster packs on disk.
+6. Alenia Studios Atmospheric (CC BY 4.0) = new VFX slot type (room-atmosphere overlay, 48-frame loop × 20 effects).
+7. NightBorne character — BLOCKED (no license, GIF format wiring concern).
+
+**HANDOFF → elrond:** curation extension dispatch needed. Monster subset selection, dungeon-tileset subset, ZIP expansion, Frostwindz VFX schema integration, Atmospheric new slot type.
+
+**HANDOFF → matt:** 7 open decisions documented in summary § 9. Priority: G4 close path (Q2), Impacts vs hit-spark (Q3), G-COFFIN fit (Q1).
+
+**No tag** (read-only crawl output; standard authoring discipline).
+
+— legolas
+
+---
+
 ## STATE — drax — 2026-05-17 — loot-pipeline wiring: DireDungeon current-state evaluation
 
 **Agent:** drax
@@ -6667,4 +6697,291 @@ D11 sprint is now ungated. Gamora math note auto-fires; jack-ryan Gate 1 review 
 
 **Disciplines observed:** #2 (empirical inspection over assumption — dispatch discipline: wire first, evaluate after); #10 (graceful degradation path retained — emoji+rect fallback in gearDrop.ts); #12 (no pre-empting Matt's KEEP/REPLACE decision — wired current-state, not pre-swapped to CraftPix).
 
+---
+
+## [2026-05-17 ~late+1] gamora — PRE-SIGNAL § 14.1.1 — D11 hybrid_mage tuning math note STATE incoming
+
+PRE-SIGNAL per hive-mind protocol § 14.1.1. D11 math note authored at `output/standard-demo-regen-2026-05-17/D11-hybrid-mage-tuning-math-note-2026-05-17.md` (10 sections). MIGRATION.md v1.10 appended. STATE entry follows immediately.
+
+— gamora
+
+---
+
+## [2026-05-17 ~late+1] gamora — STATE — D11 hybrid_mage tuning math note shipped; jack-ryan Gate 1 + rocket D11 implementation queued
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-gamora-d11-hybrid-mage-tuning-math-note-queued.md`. Pattern B.
+**Predecessor:** gandalf D11 advisory (completion record shipped; advisory at `canonical/story/d11-hybrid-mage-tuning-advisory-2026-05-17.md`).
+
+**Math note authored:** `output/standard-demo-regen-2026-05-17/D11-hybrid-mage-tuning-math-note-2026-05-17.md` — 10 sections.
+**MIGRATION.md:** v1.10 entry appended to `src/reincarnated/simulation/MIGRATION.md`.
+**AGENT_STATE.md:** Updated with D11 completion record.
+**Tag:** `gamora/v1.6-d11-hybrid-mage-tuning-math-note-1` (local; push gated per ADR-006).
+
+**Tuning direction (gamora engine-side translation of gandalf advisory):**
+
+Primary lever: quadratic element-coverage damage tax. `tax_multiplier = 1.0 - 0.07 × max(0, n_elements - 2)²`. Applied at kit finalization (Site A in `d10_kit_constraints.py`; after D10 constraints; before balance loop). All damage-bearing skills in the kit receive scaled `damage_multiplier` values. Tax is universal (not hybrid_mage-specific); only hybrid_mage currently has n_elements > 2 in practice.
+
+Secondary lever: element-breadth ceiling `_ARCHETYPE_ELEMENT_CEILING["hybrid_mage"] = 3` (was 4). 4-element hybrid_mage kits will not be generated in general play. D12+ ceremonial path deferred.
+
+Tax calibration table: n=2 → 1.0 (no tax); n=3 → 0.93 (7%); n=4 → 0.72 (28%, D12+ only); n=5 → 0.37 (guardrail). Anchored against D2 Sorceress specialist-vs-split differential (~40-50%) — 28% at n=4 is correct magnitude for "playable but clearly weaker" per gandalf § 4.1.
+
+**Convergence projection:** D10 baseline 37.1%. Post-D11 projected 50-60% overall if 12+ of 17 hybrid_mage instances converge. Key condition: α=0.07 must be sufficient to move 3-element hybrid_mage modifier above floor (0.055). Projection is an estimate; smoke validates before full regen (Discipline #2).
+
+**α-recalibration flag (Matt-parked):** If smoke shows 3-element hybrid still pins at floor → α too soft; push to 0.08-0.09. If hybrid convergence WR well below target → α too aggressive; drop to 0.05-0.06. Matt-parked per dispatch; gamora surfaces finding if smoke diverges.
+
+**Semantic shift (Discipline #12):** Two shifts declared in MIGRATION.md v1.10:
+1. `_ARCHETYPE_ELEMENT_CEILING["hybrid_mage"]` 4 → 3: 4-element kits no longer generated in general play.
+2. `damage_multiplier` on hybrid_mage skills now reflects element-coverage tax applied at kit finalization. Player-visible values are taxed values (Site A).
+
+**Forward compatibility (Discipline #13 — no hardcoded magic numbers):** Tax coefficients live in `config/substrate_identities/_tax_config.yaml` (new file; rocket creates). Phase-1 P2 hybrid-composer migration remains clean — the tax is decoupled from the holdover `_HYBRID_ARCHETYPE_TEMPLATES`.
+
+**R11(b) round-trip clause:** Clean. No new output paths. Site A application makes exported skill stats truth; demo/loadout renders taxed values. star-lord follow-on for 3 new `class_balance_results` columns (non-blocking).
+
+**Disciplines observed:** #1 (math-before-code: note authored before any code); #11 (empirical inspection: v1.5 Class C is the α anchor; convergence projection grounded in actual WR surplus data); #12 (semantic shift declared and MIGRATION.md v1.10 appended); #13 (config not hardcoded; Phase-1 P2 forward compat).
+
+**HANDOFF → rocket (D11 implementation; auto-fires on dispatch completion record):**
+7 deliverables per math note § 9.1:
+1. `config/substrate_identities/_tax_config.yaml` (alpha=0.07, k_free=2)
+2. `ELEMENT_COVERAGE_TAX_ALPHA` + `ELEMENT_COVERAGE_TAX_K_FREE` constants in `d10_kit_constraints.py`
+3. `apply_element_coverage_tax()` function in `d10_kit_constraints.py`
+4. `_ARCHETYPE_ELEMENT_CEILING["hybrid_mage"] = 3` in `d10_kit_constraints.py`
+5. Call-site in `b6_kit_builder.py` (after `apply_d10_kit_constraints()`; include tax_result in balance_metadata)
+6. 3 new `ClassBalanceResult` fields in `balance_loop.py`
+7. `balance_metadata["element_coverage_tax"]` dict inclusion
+Smoke spec per § 9.2: 5 classes, seed=43, ≥1 hybrid_mage, ≥1 physical_warrior, ≥1 fire_controller. Hybrid_mage must converge above floor before full regen.
+
+**HANDOFF → jack-ryan (Gate 1; parallel-safe with rocket planning):**
+Gate 1 review of D11 math note. Watchpoints per AGENT_STATE.md D11 section. Verdict (ENDORSE / CONDITIONAL ENDORSE / REQUEST AMENDMENT) gates rocket D11 code implementation.
+
+**HANDOFF → star-lord (low priority, non-blocking):**
+MIGRATION.md v1.10 declares 3 new `class_balance_results` columns. Star-lord implements when convenient (non-blocking — balance loop works without them).
+
+— gamora
+
 — drax
+
+---
+
+## [2026-05-17 ~late] gandalf — STATE — DoE doc-cascade (Path A) shipped; portrait-primary locked across four canonical docs
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-gandalf-doe-doc-cascade-path-a-portrait-primary.md` (Matt L3 — "Yes, if A makes portrait primary that works"). Pattern B short; ~0.5 day; doc-only cascade from DoE feel-target.
+
+**What landed (4 canonical-doc amendments + 1 cross-ref update):**
+
+1. `canonical/32-progression-design.md` — new **Section 13** authored: § 13.1 cooldown-gated heal (10.0s baseline / 35% max-HP / 0.0s cast / no resource cost; retires potion-inventory; mana mechanic preserved); § 13.2 react-or-auto interaction primitive (1.2s `auto_complete_window`; applies to chests/doors/levers/dialogue/shrines/glyphs; explicit exclusion list); § 13.3 inventory-as-between-combat clarification; § 13.4 portrait-primary mobile-orientation note.
+
+2. `canonical/17-gear-and-spirit-guide-design.md` — new heal-cooldown affix family inside "Updates 2026-05-11/12" zone: retires 5 potion-interaction affix patterns; introduces `heal_cooldown_reduction` (flat + pct), `heal_magnitude_bonus` (pct + flat), `heal_secondary_effect` enum (5 options; epic+/legendary tier-gated); stacking caps (CD floor 5.0s; magnitude ceiling 60%); engine-side execution map (rocket / star-lord / gamora; jack-ryan Gate-1 advisory flag).
+
+3. `canonical/story/mobile-ux-execution-plan-2026-05-17.md` — § 4.3 (Orientation) **inverted to portrait-primary**; § 4.2 (HUD zone layout) header amended to flag landscape as secondary + portrait TBD pointer; § 7 (Phased execution plan) preamble noting M2-M7 target portrait when they fire VS2b. Portrait HUD diagram contents specified for M5/M6 dispatch.
+
+4. `canonical/story/mobile-pc-pixel-sizing-ratios-2026-05-17.md` — new **§ 3.5** "Portrait-primary tuning" (LOCKED): canvas 944×1800 transposed; HUD positions table (portrait primary + landscape parenthetical fallback for polish-phase); density-preservation invariant restated under portrait; pivot reversibility forward-flag (orientation = presentation, not sim — Discipline #13 architectural commitment).
+
+5. `canonical/story/mobile-feel-target-doe-2026-05-17.md` § 11 — bidirectional cross-references updated; all four amendments marked LANDED 2026-05-17 with pointers to this dispatch.
+
+**Decisions made within gandalf's lane:**
+- Heal baseline: 10.0s CD / 35% max-HP magnitude / +50 HP floor / 0.0s cast / no resource cost (no invuln window by default — available as secondary-effect affix)
+- React-or-auto window: 1.2s
+- Heal-affix family is role-orientation-agnostic + slot-agnostic (intentional: heal is universal survival floor)
+- Stacking floors: 5.0s effective CD; 60% max-HP magnitude ceiling; 2 concurrent secondary-effects
+- Mana/energy resource model preserved unchanged
+
+**Decisions deferred (not gandalf's lane this round):**
+- HP placement on mobile (DoE top-left vs D-series bottom-globe) → drax M5/M6 portrait-layout dispatch
+- Portrait HUD zone diagram → drax M5/M6 dispatch
+- Engine refactor `STAMINA_POTION_USE` → `heal_ability` → VS2b (gamora + star-lord + rocket)
+- Gear-affix gen update → VS2b (rocket)
+- Heal-cast telemetry schema → VS2b (star-lord)
+- Convergence re-run with new affix family → VS2b (gamora)
+
+**HANDOFF → jack-ryan:** Gate-1 advisory on canonical-17 heal-cooldown affix family amendment (load-bearing canon change; discipline-#12 semantic shift; gates VS2b rocket implementation). Three watchpoints: (1) 5.0s CD-stacking floor sanity-check against existing stacking telemetry; (2) `heal_secondary_effect` legendary-tier gating vs existing legendary-mechanical-novelty rate budgets; (3) Spirit Guide `power_score` weighting for defensive expected-value contributions. Parallel-safe with gamora D11 math note authoring.
+
+**HANDOFF → gamora + star-lord + rocket:** VS2b heal_ability refactor (informational; design contract locked in canonical-32 § 13.1 + canonical-17 heal-affix amendment). When VS2b fires, consume those amendments as the contract. MIGRATION.md cross-seam entry needed at execution.
+
+**HANDOFF → drax:** M2-M7 portrait-layout dispatches (informational; mobile-ux-execution-plan § 4.2 + § 4.3 + § 7 amendments + mobile-pc-pixel-sizing-ratios § 3.5 amendments are the consumption surface when VS2b fires). M5/M6 dispatch authors portrait HUD zone diagram contents per § 4.3.
+
+**Disciplines observed:** #1 (math-before-code: baseline values + rationale before refactor); #11 (attribution clarity: every amendment cites L3 lock + DoE doc section + this dispatch); #12 (semantic shift: 5 retired affix patterns explicitly enumerated for rocket's deletion pass); #13 (avoid implicit-pillar drift: orientation explicitly framed as presentation concern, not sim concern). Survey-mode constraint held: what landed vs what's deferred separated cleanly.
+
+**No pushback memo filed.** Path A doc-cascade was clean; DoE feel-target doc had pre-staged the cascade in its § 7. One narrow flag for downstream awareness: `heal_secondary_effect` epic+/legendary-tier gating is the most opinionated call; if rocket affix-gen convergence surfaces balance issues with invuln/cleanse effects, that's the most likely lever to revisit.
+
+**No tag** (doc cascade is not code; per dispatch direction).
+
+DoE feel-target → canon migration is complete. Engine-side VS2b refactor is now well-defined; jack-ryan Gate-1 advisory unblocks rocket implementation; drax M5/M6 portrait-diagram authoring inherits the design contract.
+
+— gandalf
+
+---
+
+### PRE-SIGNAL § 14.1.1 — jack-ryan (2026-05-17)
+
+Hive-log STATE append follows. Two Gate-1 reviews complete.
+
+---
+
+### STATE — jack-ryan Gate-1 twin advisory complete (2026-05-17)
+
+**Agent:** jack-ryan
+**Tags cut:** `jack-ryan/v1.5-d11-math-note-gate1-review-1` (local) + `jack-ryan/v1.6-doe-cascade-canonical-17-gate1-review-1` (local); push gated per ADR-006.
+**Source dispatch:** `agentic_orchestration/dispatches/2026-05-17-jack-ryan-d11-gate1-twin-advisory-math-note-plus-canonical-17.md`
+
+**Review 1 — D11 math note (gamora v1.6)**
+Verdict: CONDITIONAL ENDORSE
+Pre-flags appended to: `agentic_orchestration/dispatches/2026-05-17-gamora-d11-hybrid-mage-tuning-math-note-queued.md`
+Key findings:
+- WARN-1: `skill_effects()` helper undefined — rocket uses `skill.get("effects", [])` pattern instead
+- WARN-2: `schema_version` bump target is manifest.json (not per-class JSON object); empirically verified
+- WARN-3: `carried_gear` preservation not explicitly stated in salvage steps — rocket adds assertion
+- INFO-1/2/3: estimation uncertainty in § 7.2 (expected; smoke anchors it); zero-multiplier edge case guard; telemetry migration version to verify
+Tax formula: consistent across all sections (α=0.07 appears identically in §§ 0, 3.1, 3.1 calibration, 6.3, MIGRATION.md). Application site: unambiguously Site A (gen-time). Ceiling 4→3 + ceremonial deferral: clear. R11(b): clean. MIGRATION.md v1.10: fully specified (3 fields, types, defaults, population method). Empirically inspected season_002012 hybrid_mage classes — `damage_multiplier`, `canonical_element`, `effects`, `role`, `carried_gear` all confirmed present and structurally consistent with math note assumptions.
+
+**Review 2 — Canonical-17 heal-cooldown affix family**
+Verdict: CONDITIONAL ENDORSE
+Pre-flags appended to: `agentic_orchestration/dispatches/2026-05-17-gandalf-doe-doc-cascade-path-a-portrait-primary.md`
+Key findings:
+- WARN-1: Heal-while-stunned/frozen behavior unspecified — Matt must resolve before gamora writes combatant.py spec for VS2b (open question escalated to Matt)
+- WARN-2: CDR stacking order-of-operations (flat + pct) ambiguous — rocket clarifies formula with gamora (recommend Option A: pct-first then flat)
+- WARN-3: `heal_secondary_effect` requires new rocket infrastructure (new affix category in gear schema + tier-gating logic + 2-concurrent equip-resolution cap); not a hookup to existing legendary-novelty infra
+- INFO-1/2/3: magnitude ceiling readability note; Spirit Guide EV formula deferred to VS2b math note; spirit-guide-side potion-affix audit at VS2b code time
+Stacking caps (5.0s CD floor, 60% magnitude ceiling, 2 concurrent secondary): consistent and unambiguous. Retired affixes list: comprehensive for gear-drop side. Cross-seam contract: sufficient for gamora to write VS2b math note conditional on WARN-1 Matt resolution.
+
+**Decisions-log entry authored:**
+Title: "Heal mechanic + heal-affix family canonicalization (DoE feel-target lock 2026-05-17)"
+Location: `reincarnated-engine/design/decisions/decisions-log.md`
+Per ADR-001. Embeds all gandalf-locked baseline values. Surfaces WARN-1 (ailment-gating open question) for Matt.
+
+**HANDOFF → rocket:**
+D11 implementation may fire (CONDITIONAL ENDORSE). Address pre-flags at code-time:
+1. Replace `skill_effects()` with `skill.get("effects", [])` in `_is_damage_bearing()` (WARN-1)
+2. Clarify schema_version bump target: manifest.json only or explicit new per-class field (WARN-2)
+3. Add `carried_gear` preservation assertion to D11 salvage post-process (WARN-3)
+4. VS2b: `heal_secondary_effect` requires new affix category infra in gear_schema.py + gear_generation.py; 2-concurrent cap at equip-resolution time (WARN-3 canonical-17 review)
+5. VS2b: confirm CDR stacking formula (pct-first then flat, Option A) with gamora before implementing heal CDR affix stack resolution
+
+**HANDOFF → Matt:**
+One open question requires Matt resolution before VS2b gamora-side refactor can begin:
+- **Heal-while-stunned behavior (WARN-1, canonical-17 review):** Should `heal_ability` fire unconditionally through status ailments (stun, freeze, silence, root) — matching the current free-action potion model and DoE's implied instant-unconditional pattern — or should it be ailment-gated? Current engine `_maybe_use_potions()` is unconditional. The canonical-32 § 13.1 "0.0s cast / instant" framing implies unconditional, but this is not explicit. Matt's call; gamora needs the answer before writing the combatant.py spec for VS2b.
+
+— jack-ryan
+
+---
+
+### STATE — elrond — 2026-05-17 — CraftPix mega-catalogue curation extension COMPLETE
+
+**Agent:** elrond
+**PRE-SIGNAL § 14.1.1:** honored — `git fetch origin` ran; last remote commit `9fee2ce` (drax hive-log STATE v1.12 DireDungeon eval); local hive-log already modified with jack-ryan D11 Gate-1 advisory entry → appended without rebase to preserve concurrent local entries.
+**Dispatch:** `2026-05-17-elrond-craftpix-mega-catalogue-curation-extension.md` (just completed; completion record appended to dispatch).
+**Predecessor:** legolas-3 CraftPix mega-catalogue + free_characters_and_vfx crawl COMPLETE (raw inventory 67 + 9 rows).
+**Parallel-safety:** drax v1.12 loot-pipeline wiring (in flight; manifests inform follow-on without pre-empting) | drax v1.12.0 hotfix (just shipped) | gamora D11 math note (in flight) | rocket D11 implementation (queued) | gandalf DoE doc cascade (just shipped) | jack-ryan D11 Gate-1 twin-advisory (just shipped). All separate seams; no overlap with elrond data-steward seam.
+**Tag:** none (curation; not code).
+
+**Deliverables shipped:**
+1. Dungeon-tileset subset manifest: `agentic_orchestration/research/curated/dungeon-tileset-subset-vs2a-2026-05-17.jsonl` — 8 packs (3 WIRE-NOW stone-dungeon trio + 4 WIRE-LATER biome expansion + 1 SKIP older-Spriter-era)
+2. Monster-subset manifest: `agentic_orchestration/research/curated/monster-subset-vs2a-2026-05-17.jsonl` — **DEFERRED stub** per Matt Q7 unresolved (17 monster + 4 boss packs carry-forward inventory)
+3. ZIP-expansion stub: `agentic_orchestration/research/curated/craftpix-zip-expansion-deferred-2026-05-17.md` — **DEFERRED** per Matt Q6 unresolved
+4. 4-layer VFX architecture: `agentic_orchestration/research/curated/vfx-layered-architecture-vs2a-2026-05-17.md` + `.jsonl` — Layer 1 Pimen substrate (unchanged) + Layer 2 Frostwindz class-archetype (5 packs) + Layer 3 Frostwindz Slashes+Impacts (G4 close + Pimen hit-spark alternative) + Layer 4 Alenia atmospheric (20 effects)
+5. Summary doc: `agentic_orchestration/research/curated/craftpix-mega-curation-summary-2026-05-17.md` — 10 sections per dispatch spec
+
+**Gap-status changes formalized:**
+- **G-COFFIN CLOSED** via craftpix-net-298079 coffins.png at zero cost (pending Matt Q1 design-fit)
+- **G4 close path on disk** via Frostwindz Slashes (Layer 3) — eliminates CC-BY surface; CodeManu acquisition deferred indefinitely (pending Q2; elrond-recommended ACCEPT)
+- **G3 substantially CLOSED** by 17 monster + 4 boss packs on disk (pending Q7 for VS2a curation)
+- **Pimen $4.25 battle-vfx-hit-spark MAY BE REDUNDANT** — Frostwindz Impacts 7-variant B&W+COLOR superior (pending Q3; elrond-recommended SKIP — save $4.25)
+- **NightBorne BLOCKED** — no license file on disk; excluded from all curated subsets until Matt Q5 resolves
+
+**Cost impact:** Updated VS2a Pimen acquisition $26.35 → $22.10 if Matt approves Q3 SKIP (savings $4.25). CC-BY attribution surface from `pixel-battle-effects` eliminated.
+
+**4-layer VFX architecture observations:**
+- Layer 2 element-imbalance: Frostwindz packs concentrate on shadow (3 sub-registers: Blood Mage, Necromancer, Vampire) + physical (Rogue) + holy/lightning (Starcaller). Fire/water/earth/wind/lightning lack class-archetype overlay coverage. Path C (accept absence for VS2a-VS2b) workable; future Frostwindz commission OR alternative vendor is a forward-flag, not VS2a-blocker.
+- New pixi containers needed for Layer 4: `atmosphericUnder` + `atmosphericOver` (drax integration; not blocking for VS2a Layer 3 work).
+- VS2a-scope: Layer 3 full wiring (replaces CC-BY pixel-battle-effects; may replace Pimen hit-spark) + Layer 4 POC (1-2 atmospheric effects single demo room).
+- VS2b-scope: Layer 2 class-archetype wiring with `spirit.class_archetype` runtime field + full Layer 4 with `room.atmosphere_theme` attribute.
+
+**Carry-forward Matt-decisions (7 from legolas-3 + 3 new from curation):**
+- Q1 G-COFFIN design-fit (elrond-recommended ACCEPT)
+- Q2 Frostwindz Slashes G4 close path (elrond-recommended ACCEPT)
+- Q3 Skip Pimen $4.25 hit-spark (elrond-recommended SKIP)
+- Q4 Accept REFUTED replacement thesis: dungeon-tilesets COMPLEMENT DireDungeon (elrond-recommended ACCEPT)
+- Q5 NightBorne license verification (elrond-recommended DEFER)
+- Q6 ZIPs expansion authorization (no preference; deferred stub authored)
+- Q7 Monster subset curation now vs defer (no preference; deferred stub authored)
+- Q-LAYER-1 Layer 4 VS2a POC scope (elrond-recommended POC 1-2 effects single room)
+- Q-LAYER-2 Layer-2 compositing experimentation authorization (elrond-recommended POC during drax VS2a integration)
+- Q-CHM-HOME craftpix-net-654184 main-characters-home license verification (no license.txt on disk; verify before any integration)
+
+**Disciplines observed:**
+- Source-anchored: every manifest row traces to legolas-3 raw inventory + acquired_path on disk
+- Reversible: curation transformations preserve raw input; raw inventory unchanged
+- Tagged not encoded: explicit substrate_overlay + class_archetype + atmosphere_theme columns rather than packing semantic meaning into IDs
+- No silent transformation: REFUTED replacement thesis explicitly documented + carried forward as Q4
+- Schema is artifact not opinion: 4-layer architecture designed for data that actually exists (Frostwindz + Alenia + Pimen on disk), not the data we wish existed
+- Survey-mode constraint: "what exists" (manifests) and "what's interesting" (top 5 findings) and "what's missing" (Layer 2 element-imbalance) reported separately
+
+**HANDOFF → drax (post-v1.12):**
+- Wire Frostwindz Slashes to physical-slash Slot B/C (replaces CC-BY pixel-battle-effects); pending Matt Q2 ACCEPT
+- Wire Frostwindz Impacts B&W variant + element-tint composite (replaces Pimen hit-spark); pending Matt Q3 SKIP
+- Optional Layer 4 POC: 1-2 Alenia atmospheric effects on single demo room; requires NEW `atmosphericUnder` + `atmosphericOver` pixi containers; pending Matt Q-LAYER-1
+- Dungeon-tileset wiring candidates: 3 WIRE-NOW packs (net-298079 lead with G-COFFIN closure + ghost_trap + dragon_trap + Statue_fire; net-125640 trap trio fire/spike/lattice + Tiled-compatible; net-169442 interactive chest/lever/door + two fire animation variants)
+- Full 4-layer architecture integration plan: `vfx-layered-architecture-vs2a-2026-05-17.md` § 8
+
+**HANDOFF → matt:** 7 carried-forward + 3 new decisions documented in `craftpix-mega-curation-summary-2026-05-17.md` § 6. Highest-priority decisions: Q2 (G4 close path), Q3 ($4.25 savings), Q1 (G-COFFIN design-fit).
+
+**HANDOFF → knight-rider:** standard chain coordination. Completion record appended to dispatch; 5 deliverables shipped. Curation ready for downstream wiring dispatches and acquisition decisions.
+
+— elrond
+
+---
+
+## [2026-05-17 ~18:43Z] rocket D11 hybrid_mage tuning — Phase A+B COMPLETE; alpha recalibration flag raised
+
+**PRE-SIGNAL § 14.1.1:** rocket agent writing to hive log.
+
+**Tag:** `rocket/v1.13-d11-hybrid-mage-tuning-implementation-1`
+**Dispatch:** `2026-05-17-rocket-d11-hybrid-mage-tuning-implementation-queued.md`
+**Predecessor gates:** gamora D11 math note (`gamora/v1.6-d11`) + jack-ryan Gate-1 CONDITIONAL ENDORSE
+
+**STATE: COMPLETE (Phase A+B) / BLOCKED ON ALPHA RECALIBRATION (Phase C)**
+
+### What shipped
+
+**Phase A — D11 rules in generation/:**
+- `_ARCHETYPE_ELEMENT_CEILING["hybrid_mage"]` 4 → 3 (D11 semantic shift; Discipline #12)
+- `apply_element_coverage_tax(skills)` in `d10_kit_constraints.py`
+  - Formula: `tax_multiplier = 1.0 - 0.07 × max(0, n_elements - 2)^2`
+  - 3-element kit: tax_multiplier = 0.93 (7% reduction)
+  - 1/2-element kit: tax_multiplier = 1.0 (no tax)
+- `DAMAGE_CONTRIBUTING_EFFECTS` vocabulary: damage/burn/bleed/drain/shock/consecrate
+- `config/_tax_config.yaml`: alpha=0.07, k_free=2 (Discipline #13)
+- `balance_loop.py`: 3 new `ClassBalanceResult` fields (MIGRATION.md v1.10)
+- All jack-ryan pre-flags addressed: WARN-1 (effects pattern), WARN-2 (manifest only), WARN-3 (carried_gear assertion), INFO-2 (zero damage_multiplier warning)
+
+**Phase B — Post-process salvage (17 hybrid_mage, 002011-015):**
+- Smoke (5 classes, 60.5s): all 11 assertions PASSED
+- Full salvage (17 classes, 269s, $0 LLM): tax applied, carried_gear intact, schema_version=v1.8 on manifest
+
+### Phase C verdict — ALPHA RECALIBRATION FLAG
+
+**Result: 1/17 hybrid_mage converged (6%). Target: ≥12/17 (>50% overall). MISS.**
+
+Empirical findings:
+- convergence_winrate at modifier floor (0.05): 0.56-0.84 across all 17 instances
+- alpha=0.07 → 7% damage reduction → insufficient to break floor-pin
+- The structural over-generation of hybrid_mage kits requires a stronger intervention
+- Per dispatch gate: "surface to Matt before any code change on alpha"
+
+**HANDOFF → knight-rider / Matt:**
+Decision required before D11.1 alpha escalation:
+1. Escalate alpha to 0.08 → tax_multiplier = 1.0 - 0.08 × 1 = 0.92 for 3-element
+2. Escalate alpha to 0.09 → tax_multiplier = 0.91 for 3-element
+3. Complementary lever: hybrid_mage skill-count ceiling reduction (12 → 10)
+4. Combination of above
+
+Evidence base: `output/standard-demo-regen-2026-05-17/d11_salvage_summary.json` has per-class convergence_winrate at floor for all 17 instances.
+
+**HANDOFF → drax (conditional):**
+Seasons 002011-015 are D11-salvaged (d11_post_process=True, element_coverage_tax_multiplier on each hybrid_mage). Data is playable. Drax in-place refresh is unblocked now. However, hybrid_mage classes are still over-powered (floor-pinned). Recommend waiting for D11.1 alpha escalation before drax refresh so players see converged data. Matt/knight-rider to decide timing.
+
+**HANDOFF → drax-loadout (conditional):** Same as drax.
+
+**HANDOFF → star-lord:**
+3 new `ClassBalanceResult` fields require telemetry schema changes (MIGRATION.md v1.10 already documents the contract). Non-blocking for balance loop; star-lord follow-on queued per standard pattern.
+
+— rocket
