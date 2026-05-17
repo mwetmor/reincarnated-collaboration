@@ -6486,3 +6486,185 @@ Pre-D10: 31% convergence (16/51 converged per gamora v1.5 analysis). Post-D10: 3
 **Open question for Matt/knight-rider:** Accept 37.1% convergence for D10 salvage (vs 50% target) with documented root cause, OR require D11 mage ceiling reduction before drax pointer flip? D10 pruning is a clear improvement; seasons are playable; hybrid_mage over-generation is a documented known issue.
 
 — rocket
+
+---
+
+### [2026-05-17] STATE — elrond — icon + interactable-prop acquisition registration COMPLETE
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-elrond-icon-and-prop-acquisition-registration.md`
+**Predecessor:** `agentic_orchestration/dispatches/2026-05-17-elrond-icon-and-prop-curation-queued.md` (selection authored 2026-05-17 early).
+**PRE-SIGNAL § 14.1.1:** honored — `git fetch origin` + log review before this append; no concurrent hive-log writers (rocket D10 completion landed `5b849dd`; legolas DoE crawl is in flight at separate file).
+**No tag** — curation/registration update; manifest re-emission only.
+
+**Scope completed:**
+
+1. Verified content of 7 acquired packs at `reincarnated-demo/public/assets/`:
+   - `DireDungeon_Items_Loot/` — 214 base items + 137,602 animated outline frames (10 colors × 32 frames × 2 modes); explicit `healing_big/medium/small` + `mana_big/medium/small` sprites confirmed (materially advances G-FILL gap)
+   - `Magic_Potions_Pack_V1/` — 25 individual potions (5 colors × 5 shapes); free SUBSTITUTE for SODA + AquaSenshi; vendor + license metadata pending legolas-3 verification
+   - `craftpix-net-189780-...-guild-hall-asset-pack/` — 3 mannequin designs × 4-frame destruction animation (materially upgrades G-ARMOR-MANNEQUIN; multi-state coverage exceeds single-state expectation)
+   - `craftpix-net-255216-...-basic-pixel-art-ui-for-rpg/` — inventory + equipment frames with rarity-coloured gem slot indicators (advances G-RARITY procedural overlay infrastructure)
+   - `craftpix-net-809047-...-animated-magic-book-...` — BONUS pack (not in shortlist); 12-frame book animation + per-element skill icon set
+   - `19.07c - Treasure Chests 1/` — Seliel chest spritesheet (160×192px; 5 designs × open/closed × 3 color swaps); no coffin-style variant
+   - `20.05b - Breakable Pots 1/` — Seliel 4 pot designs × 4 colors + 3-frame break animation + shard particles
+   - `Destructible Objects Sprite Sheet.png` — Elthen destructibles confirmed at bare assets root (barrels, crates, rocks, signs with destruction frames)
+
+2. Manifests updated (schema v1.0 → v1.1; rows stamped with `acquisition_status`, `acquired_path*`, `acquired_date`, `acquired_cost_usd`, `acquisition_notes`):
+   - `agentic_orchestration/research/curated/floor-loot-subset-vs2a-2026-05-17.jsonl` — 4 ACQUIRED rows; 2/3 PRIMARY packs acquired (DireDungeon + Magic_Potions substitute)
+   - `agentic_orchestration/research/curated/ambient-props-subset-vs2a-2026-05-17.jsonl` — 5 ACQUIRED rows; 4/5 PRIMARY packs acquired (Guild Hall + Seliel chests + Seliel pots + Elthen; Mucho Pixels not acquired)
+   - `agentic_orchestration/research/curated/ui-icons-subset-vs2a-2026-05-17.jsonl` — 5 ACQUIRED rows; 3/4 PRIMARY packs acquired (DireDungeon + CraftPix Basic UI + Magic_Potions substitute)
+
+3. Header rollups added: `_acquisition_cost_usd_actual_this_subset`, `_acquired_pack_origins`, `_primary_packs_not_acquired`.
+
+4. Build script `agentic_orchestration/research/scripts/build_icons_and_props_subset_vs2a_2026_05_17.py` extended with `ACQUISITIONS` dict + `BONUS_ACQUISITIONS` list; deterministic re-run from raw legolas crawl produces updated manifests.
+
+5. Selection doc `agentic_orchestration/research/curated/icons-and-props-subset-vs2a-selection-2026-05-17.md` refreshed: new "Post-acquisition status" section at top; gap status table refreshed; per-gap section annotated with pre/post status; § 4.1 acquisition shortlist table extended with Acquired? column.
+
+**Cost rollup — POST-ACQUISITION (de-duplicated cross-subset):**
+
+| Line | Estimate | Actual | Delta |
+|---|---:|---:|---:|
+| Dire Dungeon Items | $10.00 | $10.00 | $0 |
+| Mucho Pixels Dungeon Tileset Pack | $4.95 | $0.00 | -$4.95 (not acquired) |
+| SODA 150 Stylized Potions | $3.25 | $0.00 | -$3.25 (substituted free) |
+| 6 free PRIMARY packs | $0.00 | $0.00 | $0 |
+| **De-duplicated PRIMARY total** | **$18.20** | **$10.00** | **-$8.20 (-45.1%)** |
+
+**Gap status — POST-ACQUISITION:**
+
+| Gap | Pre-acquisition | Post-acquisition | Driver |
+|---|---|---|---|
+| G-FILL (potion fill-level) | PARKED Path A | MATERIALLY ADVANCED | DireDungeon ships healing/mana big/medium/small sprites natively |
+| G-RARITY (UI borders) | PARKED Path A | INFRASTRUCTURE IN HAND | CraftPix Basic UI slot frames + DireDungeon 10-color animated outline overlay |
+| G-ARMOR-MANNEQUIN (armor stand) | flagged not load-bearing | CLOSED + UPGRADED | Guild Hall 3 mannequin designs × 4-frame destruction animation |
+| G-COFFIN (open coffin) | PARTIALLY CLOSED | RE-OPENED (Mucho not acquired) | recommendation: defer post-VS2a or acquire Mucho $4.95 |
+| G-AI-POLICY (Pixel-1992) | OPEN governance | UNCHANGED | n/a |
+| G-CCBYSA (OGA share-alike) | strict-defer | UNCHANGED | n/a |
+
+**Remaining surfacings for Matt/knight-rider:**
+
+1. **G-COFFIN re-opened** — Mucho Pixels not acquired. Elrond recommendation: defer to post-VS2a (not load-bearing for primary slot). Acquire Mucho Pixels $4.95 only if coffin asset becomes load-bearing later (covers coffin + bonus chest state-coverage).
+2. **Magic_Potions_Pack_V1 provenance** — license.txt is 35 bytes (suspiciously short); vendor identity not confirmed. Flag for legolas-3 verification at next crawl. Until then, treated as `vendor TBD, commercial-license assumption` in the manifest; do not publish attribution claim until provenance confirmed.
+3. **Bonus Animated Magic Book pack** — outside shortlist but acquired; logged for drax visibility. Useful as UI decoration / skill-icon backup (per-element 8-frame icon sets for fire/nature/water/lightning).
+
+**HANDOFF → drax:** three manifests are now drax-consumable directly. Each ACQUIRED row carries:
+- `acquired_path` (root pack-level path under `reincarnated-demo/public/assets/`)
+- per-asset-category `acquired_path_*` keys (e.g. `acquired_path_per_item_folder`, `acquired_path_helmet`, `acquired_path_spritesheet`) for direct sub-asset lookup
+- `acquired_date`, `acquired_cost_usd`, `acquisition_notes`
+
+No drax-side ingest pipeline modification required; drax can iterate `_acquired_pack_origins` from header and read per-row `acquired_path*` keys when integrating M5 panel redesigns + ambient prop dispatches post-VS2a.
+
+**HANDOFF → legolas:** Magic_Potions_Pack_V1 vendor + license metadata verification queued for next crawl (low-priority follow-on; pack is functional substitute and works for VS2a regardless).
+
+**HANDOFF → knight-rider:** registration micro-task complete; no further routing required. PARKED Matt-decisions from prior selection doc have changed status — G-FILL materially advanced (Dire Dungeon size-tier sprites), G-RARITY infrastructure in hand (CraftPix Basic UI + DireDungeon outlines), G-ARMOR-MANNEQUIN closed + upgraded. G-COFFIN remains a low-priority deferred decision.
+
+— elrond
+
+---
+
+## [2026-05-17 ~late] gandalf — PRE-SIGNAL § 14.1.1 — D11 hybrid_mage advisory STATE incoming
+
+PRE-SIGNAL per hive-mind protocol § 14.1.1. Advisory authored at `canonical/story/d11-hybrid-mage-tuning-advisory-2026-05-17.md` (1046 lines). STATE entry follows immediately. No concurrent specialist hive-log writers detected at fetch time (last entry: elrond icon+prop acquisition registration; predecessors: rocket v1.12 D10 + gamora v1.6 D10 math note). No rebase needed.
+
+— gandalf
+
+---
+
+## [2026-05-17 ~late] gandalf — STATE — D11 hybrid_mage tuning advisory shipped; gamora math note auto-fires
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-gandalf-d11-arpg-balance-advisory.md` (Matt L3 — "Invoke Gandalf for decision as to how to tune sprint towards ARPG balance"). Pattern B short.
+
+**Authored:** `canonical/story/d11-hybrid-mage-tuning-advisory-2026-05-17.md` — 1046 lines. ARPG-canon evidence base (§§ 2 + 12 appendix) is load-bearing; surveys 13 titles (D1/D2/D3/D4/Immortal/PoE1/PoE2/LE/GD/T2/Lost Ark/Hades/Path of Achra) with system-specific detail.
+
+**Recommendation (executive):** Retain hybrid_mage; reshape via composite lever — (primary) quadratic element-coverage damage tax `tax_multiplier = 1.0 − α × max(0, n_elements − 2)²` with α=0.07; (secondary) element-breadth ceiling tightened 4 → 3 for general generation (4-element ceremonial path deferred to D12+). This closes Matt L3 #42 in the **(iii) reshape** direction.
+
+**Genre alignment:** Reincarnated's chromatic_mage lineage = PoE Elementalist + LE Runemaster + D4 Sorcerer mid-band. The canonical ARPG pattern is **build-cost gated** multi-element (PoE/LE/D2). D3-launch and Lost Ark are explicitly rejected (cautionary tales). Calibration target: 3-element hybrid at 7% damage tax (mid-tier playable); 4-element ceremonial at 28% damage tax (genre-canonical band).
+
+**Sub-question answers:**
+- Sub-Q 1 (ARPG canon): category (b) build-cost gated; § 2 + § 12 appendix
+- Sub-Q 2 (retain/retire/reshape): RESHAPE (closes L3 #42)
+- Sub-Q 3 (lever): quadratic damage tax + ceiling tightening composite
+- Sub-Q 4 (thematic): canonical-7 substrate-commitment framing aligns; form-library Court-of-Forms narrative supported; Spirit Guide voice scaffold drafted (P2)
+- Sub-Q 5 (scope): tight on hybrid_mage; flagged adjacencies for Phase-1 P2 / D12+
+
+**Open questions for Matt (5):**
+1. Rename `hybrid_mage` → `chromatic_mage` (my recommendation: yes; not blocking)
+2. 4-element ceremonial path D12+ design pass — defer-but-flag (my recommendation: defer)
+3. Accept empirical α calibration by gamora (my recommendation: yes)
+4. Damage tax interaction with D10 DPS density gate (flagged for awareness; no decision needed)
+5. Future hybrid archetypes inherit universal tax (my recommendation: yes)
+
+**Pre-flags for downstream:**
+- gamora: tax computation goes in `d10_kit_constraints.py` (or successor); application site = kit finalization (Site A); tax coefficient in config near substrate-identity declarations (P2-compat); empirical α validation against v1.5 Class C sample (season_002012 hybrid_mage; pre-modifier WR 1.000; floor-pinned)
+- rocket: D11 implementation inherits gamora math note; MIGRATION.md entry needed (Discipline #12 semantic shift); cross-seam contract clear via § 4.8 + § 13.4
+- jack-ryan: Gate 1 advisory readiness review can run parallel with gamora math note; watchpoints in § 8.2
+- drax: surface implications (loadout class-detail panel + Spirit Guide voice) deferred to post-D11; not blocking
+
+**HANDOFF → gamora:** D11 math note inputs per § 8.1 (8 items). Auto-fires now that this completion record is appended to the dispatch.
+
+**HANDOFF → jack-ryan:** Gate 1 advisory readiness review per § 8.2 (7 watchpoints). Parallel-safe with gamora math note authoring.
+
+**HANDOFF → drax:** UI/narrative surface follow-on per § 8.3 (2 items; both deferred to post-D11; low priority).
+
+**HANDOFF → knight-rider:** sequencing per § 8.4; standard dispatch chain; no additional sequencing requests.
+
+**Disciplines observed:** #1 (math-before-code: advisory before math note before code); #11 (empirical inspection: v1.5 Class C as α anchor); #12 (semantic shift: tax mechanic flagged for MIGRATION); #13 (implicit-pillar drift avoided: tax in config not hardcoded); R11(b) (round-trip: kit-finalization tax visible at export).
+
+**No pushback memo filed.** Dispatch was well-shaped; L3 #42 closure was clean. One narrow flag (§ 10): the framing of "engine can't model hybrid_mage cleanly at scale" was reasonable empirical exhaustion but should not be the project's settled view going forward; the engine handles hybrid_mage well *given the structural costs successful ARPGs provide*.
+
+**Tag:** `gandalf/v1.3-d11-hybrid-mage-tuning-advisory-1` (local; push gated per ADR-006).
+
+D11 sprint is now ungated. Gamora math note auto-fires; jack-ryan Gate 1 review parallel-safe; rocket implementation downstream.
+
+— gandalf
+
+---
+
+## STATE — drax — 2026-05-17 — loot-pipeline wiring: DireDungeon current-state evaluation
+
+**Agent:** drax
+**PRE-SIGNAL § 14.1.1:** confirmed (git fetch origin before this append; ahead of origin/main by 2 commits from prior v1.11 work; no concurrent hive-log writers active).
+**Tag:** `drax/v1.12-loot-pipeline-wiring-direDungeon-current-state-1` @ `c9afa4ac` (local; push gated ADR-006).
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-drax-demo-loot-pipeline-wiring-direDungeon-current-state.md`
+**Parallel-safety:** legolas-3 catalogue crawl (read-only; no seam overlap); gandalf D11 advisory (canonical/story; no overlap); D11 sprint queue (engine seam; no overlap).
+
+**What shipped:**
+- `src/visuals/direDungeonLoot.ts` (NEW): DireDungeon loot sprite + rarity-glow animation wiring module. Gear sprites (weapon/armor/off_hand/accessory) per slot; DireDungeon native potion fill-tiers (healing/mana × big/medium/small); gem proxies for gold drops; 32-frame animated glow outline frame URL builder; 10-color glow map (common=none; uncommon=green; rare=blue; epic=purple; legendary=orange); prewarm + texture cache.
+- `src/visuals/ambientProps.ts` (NEW): Seliel Treasure Chests (19.07c) + Seliel Breakable Pots (20.05b) state machines. Chest: click-to-open, 3-state (closed/opening/open), pulsing affordance ring, 6× render scale = 96px. Pots: auto-break on 55px proximity, 3-frame break animation at 0.08s/frame, 2.5× render scale = 80px. 5 pot color variants (gray/red/white/yellow/default). Placement helpers: room-edge spacing per encounter.
+- `src/visuals/gearDrop.ts` (UPDATED): DireDungeon item sprites wired into floor-drop tile; animated rarity-glow outline on top; emoji+rect fallback retained; glowSprite animation advances at 12fps in tick.
+- `src/main.ts` (UPDATED): prewarm calls added; _chestProps/_potProps state added; chests+pots spawned in loadWave() per wave; tick calls in all 4 game-state paths; clearAmbientProps on room transition.
+- Assets staged: DireDungeon_Items_Loot/ (214 items + 137,602 animated outline frames), Magic_Potions_Pack_V1/ (25 icons), 19.07c Treasure Chests 1/ (160×192 sheet), 20.05b Breakable Pots 1/ (4 color variants), Destructible Objects Sprite Sheet.png (Elthen, bonus acquisition).
+
+**Visual register check (Area 4):**
+- DireDungeon: GOOD HYBRID a3 alignment. 32×32px clean pixel dungeon register. Potions/gold EXACT to gandalf floor-loot ~35px target; gear 1.5× scale = 48px, CLOSE to ~50px target.
+- Seliel chests: MODERATE — SNES-era 16-bit softer palette; registers distinctly from combat monsters. Matt evaluation input: may feel gentler than gauntlet tone.
+- Seliel pots: MODERATE — same Mana Seed register as chests; internally consistent within Seliel pack.
+- Magic_Potions_Pack_V1: within HYBRID a3 tolerance. Vendor provenance FLAGGED (35-byte license.txt; legolas-3 verification queued).
+
+**Acceptance criteria status:**
+- [x] DireDungeon loot sprites wired into floor-loot spawn path (gear + potions + gold)
+- [x] DireDungeon animation cycles (rarity glow + potion glow) wired (32-frame cycle, 12fps, per-tier colors)
+- [x] Magic_Potions sprites available as alternate potion source (generic fallback path in getPotionSpritePath)
+- [x] Seliel chests placed in encounters with open/closed state + click interaction
+- [x] Seliel pots placed in encounters with 5-color variant + auto-break on proximity
+- [x] Loot-interaction gesture documented: auto-pickup floor loot / click-open chests / proximity-break pots
+- [x] Visual register check per pack — clashes flagged (Seliel MODERATE; Magic_Potions provenance flag)
+- [x] Audit of remaining 3 acquired packs (Guild Hall + Basic UI + Magic Book) — see completion record
+- [x] npm run build clean (528 modules, 0 TS errors)
+- [x] Tag applied: drax/v1.12-loot-pipeline-wiring-direDungeon-current-state-1
+- [ ] Manual smoke (Matt evaluates) — pending Matt run
+
+**Deferred items (not blocking for evaluation):**
+- Chest/pot onOpen/onBreak loot spawning (log-only in v1.12; TODO annotated)
+- Chest + pot spritesheet exact frame layout visual inspection (TODOs annotated in code)
+- Per-archetype weapon routing (one canonical sprite per slot in v1.12)
+- Magic_Potions_Pack_V1 vendor confirmation (legolas-3 queued)
+- CC-BY attribution for DireDungeon in About/footer (commit-message only per current practice)
+- G-COFFIN: OPEN. No coffin in Seliel packs. Mucho Pixels $4.95 remains sole option.
+
+**HANDOFF → Matt:** demo is ready for current-state evaluation. Load any season, complete any encounter — DireDungeon item sprites appear as floor drops with rarity-glow animation; Seliel chests appear at room edges (click to open); Seliel pots scatter near room edges (walk into to break). Evaluate register fit against gauntlet aesthetic → decide: KEEP DireDungeon / REPLACE with CraftPix / PARTIAL.
+
+**HANDOFF → legolas-3 (existing queue):** Magic_Potions_Pack_V1 vendor/license verification still open. 35-byte license.txt. Non-blocking.
+
+**Disciplines observed:** #2 (empirical inspection over assumption — dispatch discipline: wire first, evaluate after); #10 (graceful degradation path retained — emoji+rect fallback in gearDrop.ts); #12 (no pre-empting Matt's KEEP/REPLACE decision — wired current-state, not pre-swapped to CraftPix).
+
+— drax
