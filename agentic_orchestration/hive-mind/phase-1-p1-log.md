@@ -4115,3 +4115,27 @@ With subtitle always empty, the `_perceptionTestMode` variable in main.ts no lon
 
 — drax
 
+
+---
+
+### [2026-05-17] STATE — drax — v0.27 HUD additions (potion/inventory/character icons) COMPLETE
+
+**Dispatch:** `2026-05-17-drax-demo-v027-hud-additions-queued-post-v026.md`
+**Commit:** `ba75e76`
+**Tag:** `drax/v0.27-hud-additions-potion-inventory-character-1`
+
+**All 3 HUD items shipped:**
+
+**Item 1 (Potion icon + quantity + key binding + mouse-clickable):** `PotionHud` constructor now accepts optional `onHealthClick` / `onManaClick` callbacks. Health potion row (key Q) and mana potion row (key E) are mouse-clickable when callbacks are provided. Each row has an invisible hit-area, hover highlight (alpha 0.75), and pointer cursor. Key hints updated to bracket style [Q]/[E]. Mobile path passes undefined (TouchPotions continues to handle touch). Potion use logic extracted into `_handleHealthPotionUse()` and `_handleManaPotionUse()` helpers — shared by both key handler and click callback.
+
+**Item 2 (Inventory icon + [I] + mouse-clickable):** New `DesktopHudIcons` class in `src/ui/desktopHudIcons.ts`. Procedural bag icon with `INVENTORY` label and `[I]` key hint, positioned at bottom-left (x=132, y=CANVAS_HEIGHT-105) — immediately right of PotionHud. Mouse click toggles InventoryPanel (same as KeyI). Hover highlight on pointer-over.
+
+**Item 3 (Character icon + [C] + mouse-clickable):** Bust icon with `CHARACTER` label and `[C]` key hint, positioned at x=210. Mouse click toggles CharacterSheet (same as KeyC). Toggle behavior: click opens; click again (or key C) closes — routed through `openCharSheet()` which already handles the toggle.
+
+**Layout:** Bottom-left HUD band: `[Potion ×N | Q] [Potion ×N | E]` then `[INVENTORY | I]` then `[CHARACTER | C]`. All four items share the same `y = CANVAS_HEIGHT - 105` anchor. Viewport-pinned via `_syncUiToScreen()` (same pattern as hotbar/DiabloHud globes). `DesktopHudIcons` instantiated desktop-only (`!Mobile.isActive`); torn down in `clearUI()`.
+
+**Key collision check:** Q (health potion), E (mana potion), I (inventory), C (character) — no collision with hotbar 1-9, Space (slot 0), LMB (click-to-move/attack), Shift (dodge).
+
+**Build:** tsc + vite clean. 521 modules, 0 errors. **Tests:** 326/326 pass.
+
+— drax
