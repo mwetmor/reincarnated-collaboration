@@ -4823,3 +4823,218 @@ Both packs that were on-disk-only are now fully tracked in git:
 — drax
 
 — drax
+
+---
+
+### [2026-05-17] PRE-SIGNAL — gandalf — appending hive log (§ 14.1.1 race-condition discipline)
+
+`git fetch origin` complete in `reincarnated-collaboration`. Hive-log tip at `cd813f1` (drax v1.2 VFX asset staging STATE) — already in local working tree. Local HEAD `4c2e7ac` (drax v1.2 dispatch completion). No concurrent commits to hive log detected since fetch. Working tree includes one new canonical-story briefing (`canonical/story/asymmetric-perceived-aoe-radius-briefing-2026-05-17.md`) + dispatch completion-record edit. Appending STATE + 5 HANDOFFs below.
+
+— gandalf
+
+---
+
+### [2026-05-17] STATE — gandalf — Asymmetric perceived AOE radius design briefing SHIPPED
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-gandalf-asymmetric-perceived-aoe-radius-briefing.md`
+**Briefing:** `canonical/story/asymmetric-perceived-aoe-radius-briefing-2026-05-17.md` (615 lines)
+**Tag intent:** `gandalf/v1.5-asymmetric-perceived-aoe-radius-briefing-1` (cut at commit)
+**Predecessors:** `gandalf/v1.2-dodge-and-telegraphed-combat-l3-briefing-1` @ `3ec108f`; `gandalf/v1.4-aoe-tuning-and-monster-density-canon-1` (this briefing's prior in 3-briefing AOE-perception arc — telegraphed-combat substrate → density-and-radius tuning → asymmetric-perceived-radius)
+**Trigger:** Matt verbatim recall 2026-05-17 *"I believe that Gandalf once told me that Diablo/PoE converged across the years on the concept that the enemy combatant AOE radius would appear larger than it truly was and that the player combatant AOE radius would appear smaller than it truly was..."*
+
+All 4 dispatch surfaces addressed per acceptance criteria:
+
+1. **Surface 1 — Genre-canon source validation (§ 2):** Matt's recall confirmed accurate. Diablo III RoS (2014) introduced the pattern intentionally per Wyatt Cheng "favor the player" design philosophy. D4 inherited it; Last Epoch documented it publicly (EHG 2023 dev-blog). PoE partially adopted post-2018 shotgun-mechanics revamp (visual-indicator side only; player-side at true_radius). Grim Dawn principled-rejected for hardcore-feedback audience identity. Genre-centroid magnitudes: enemy 1.10-1.15× / player 0.85-0.92× (median 1.12 / 0.90); total asymmetry budget ~20-25% (1.12 + 1/0.90 ≈ 2.23 vs symmetric 2.00); below 15% perceived-skill amplifier evaporates, above 25% feels condescending.
+
+2. **Surface 2 — Phase-1 P1 design specification (§ 3):** **Substrate-agnostic for v1.0** (two scalars at engine config root: APPARENT_RADIUS_FACTOR_ENEMY=1.12; APPARENT_RADIUS_FACTOR_PLAYER=0.90). Substrate-coupled deferred to Phase-2 polish with explicit ~2.5-3 day pivot path (§ 3.4). Two-layer model: damage at true_radius (existing skill schema), AI decisions + indicator rendering at apparent_radius (derived at consumption time via `get_apparent_radius(true_radius, owner)`). Schema location: `reincarnated-engine/src/reincarnated/foundation/perception_asymmetry.py` (substrate-agnostic at engine config root, not per-substrate YAML).
+
+3. **Surface 3 — Per-seam implementation contract (§ 4):**
+   - **Rocket** (~0.5 day): perception_asymmetry.py module + validation rules + TypeScript constant mirror at `reincarnated-demo/src/data/perceptionAsymmetry.ts`
+   - **Gamora** (~1-1.5 day; FOLDED into in-flight narrow-slice reactive-escape dispatch): damage_resolver continues using true_radius (no change); reactive-escape AI consumes apparent_radius for escape decisions; telemetry emits `aoe_true_radius_hit_count` + `aoe_apparent_radius_hit_count` per cast
+   - **Drax-demo** (~0.5 day): indicator-render magnitudes update from post-B11 lock (1.08× / 0.92×) to briefing values (1.12× / 0.90×); cosmetic VFX preserved
+   - **Drax-loadout:** no impact (static surface)
+   - **Star-lord** (~0-0.5 day): confirm telemetry schema accepts two new optional fields
+   - **Jack-ryan** (~0.25 day): cross-language constant parity validation + asymmetry factor centroid bounds check + KPM-gauntlet acceptance ratios post-cascade
+
+4. **Surface 4 — KPM gauntlet validation hook (§ 5):** Spillover-hit-count emitted as SEPARATE field (not folded into aoe_hit_count) per D14 calibration need + forward-work tuning need. Sim acceptance ratios: player AOE spillover_hit_count / true_radius_hit_count = 0.05-0.15 (got-em-too effect); enemy AOE escape-but-safe count / apparent_radius_hit_count = 0.10-0.25 (barely-escaped effect). Tuning-drift discipline: any change to perception_asymmetry.py factors requires gandalf design-review sign-off (factors are *design contract*, not tuning parameter).
+
+**§ 7 implementation parameter table:** 15-row cascade-implementable numerical envelope. Cascade order: rocket → gamora → drax-demo → star-lord → jack-ryan. Total cascade duration ~2 days end-to-end with overlap.
+
+**§ 8 BINDING recommendation (per "trust gandalf + the hive" pillar):** substrate-agnostic at enemy 1.12× / player 0.90× for v1.0. Knight-rider auto-cascades; no Matt-wait gate. Matt L3 ratification non-blocking; counter-direction post-cascade reversible by parameter tweak (~0.5 day) — no architectural rework.
+
+**Cross-impact map (§ 6):** D10 (none in v1.0 — substrate-agnostic; Phase-2 substrate-coupled would interact); D14 (signal-channel — spillover-pattern differs across substrate geometries even with substrate-agnostic factors; D14 scope unchanged); D27 (larger-expected-pass — perceived-skill amplifier improves engagement; H1 signal quality benefits); post-D10 regen (consumes § 7 parameters; § 5.3 acceptance criteria); narrow-slice (tuning-lock; drax v1.0 magnitude tweak + rocket schema add + gamora AI consumption); prior AOE tuning briefing (composition-invariant — that briefing's radii are *true_radius*; asymmetry applies at consumption); substrate identity declarations (none in v1.0; Phase-2 pivot path documented); telegraphed AOE windup (composition-invariant — windup tells *when/where/color*; asymmetry tells *how big the where looks vs is*); roadmap (no B-series entry needed; consumed by cascade); MIGRATION.md (rocket + star-lord co-author at task completion).
+
+**Discipline #15 satisfied:** demo as renderer (apparent_radius for indicators) + engine as simulator (apparent_radius for AI decisions; true_radius for damage); both honor same asymmetry contract.
+
+**§ 9 open questions for Matt:** 7 new (substrate-coupling pivot; budget magnitude; per-class polish exceptions; Grim-Dawn hardcore-mode toggle; B-series entry; telemetry storage form; tuning-drift gating). Combined with prior 3 briefings ~23 questions total parked. All non-blocking.
+
+**Out-of-scope confirmed not touched:** no engine code; no D8/D9 amendments; no substrate-identity declarations amendments beyond Phase-2 pivot-path note; no extension to other player-favoring fudges (monster damage scaling, hit-detection forgiveness, etc. — surfaced as forward-work).
+
+**Continuous-availability ramp:** gandalf stays LIVE for Matt L3 follow-up Q&A on all 5 briefings now stacked; implementation-seam Q&A as rocket / gamora / drax-demo consume § 4 contract.
+
+— gandalf
+
+---
+
+### [2026-05-17] HANDOFF — gandalf → rocket — Perception-asymmetry engine config module
+
+**Briefing § 4.1 + § 7.1 rows 1-3, 11-12.**
+
+**Concrete tasks (~0.5 day; tag `rocket/v1.9-perception-asymmetry-engine-config-1`):**
+
+1. **Create `reincarnated-engine/src/reincarnated/foundation/perception_asymmetry.py`:**
+   ```python
+   APPARENT_RADIUS_FACTOR_ENEMY: float = 1.12
+   APPARENT_RADIUS_FACTOR_PLAYER: float = 0.90
+
+   def get_apparent_radius(true_radius: float, owner: Literal["enemy", "player"]) -> float:
+       """Returns the apparent radius for AI decisions and rendering.
+       Damage resolution uses the true_radius. Per gandalf briefing § 3.1."""
+       if owner == "enemy":
+           return true_radius * APPARENT_RADIUS_FACTOR_ENEMY
+       elif owner == "player":
+           return true_radius * APPARENT_RADIUS_FACTOR_PLAYER
+       else:
+           raise ValueError(f"Unknown AOE owner: {owner}")
+   ```
+
+2. **Add validation invariants (~3 tests in foundation tests):**
+   - `APPARENT_RADIUS_FACTOR_ENEMY ∈ [1.08, 1.18]` (safe centroid; mode 1 guard)
+   - `APPARENT_RADIUS_FACTOR_PLAYER ∈ [0.85, 0.93]` (matching guard)
+   - Concrete value invariants: `get_apparent_radius(10.0, "enemy") == 11.2`; `get_apparent_radius(10.0, "player") == 9.0`
+
+3. **Cross-language constant export:** Create `reincarnated-demo/src/data/perceptionAsymmetry.ts`:
+   ```typescript
+   export const APPARENT_RADIUS_FACTOR_ENEMY = 1.12;
+   export const APPARENT_RADIUS_FACTOR_PLAYER = 0.90;
+   export function getApparentRadius(trueRadius: number, owner: "enemy" | "player"): number {
+     return trueRadius * (owner === "enemy" ? APPARENT_RADIUS_FACTOR_ENEMY : APPARENT_RADIUS_FACTOR_PLAYER);
+   }
+   ```
+   Cross-language values duplicated (matches existing pattern for indicator_color_hex; jack-ryan validates parity).
+
+4. **MIGRATION.md entry** at `reincarnated-engine/simulation/MIGRATION.md` (rocket + star-lord co-author at task completion): perception_asymmetry.py module + 2 telemetry fields (`aoe_true_radius_hit_count`, `aoe_apparent_radius_hit_count`).
+
+**Why now:** Cascade order rocket → gamora → drax. Gamora's narrow-slice reactive-escape AI dispatch line 47 explicitly anticipates this: *"Damage resolution uses the TRUE radius (post-asymmetry-design land; for now uses single radius)"*. Filling this hole now means gamora ships once with apparent-radius-aware AI from day 1, not retrofitted.
+
+**Discipline #15:** Cross-language module duplicates constants by design (TS values mirror Python values). Jack-ryan validates parity. If the values ever change, both files update; jack-ryan checks at commit time.
+
+**No other seam blocked on you.** Drax + gamora start consuming the moment rocket lands.
+
+— gandalf
+
+---
+
+### [2026-05-17] HANDOFF — gandalf → gamora — Apparent-radius for reactive escape AI + telemetry hit-counts
+
+**Briefing § 4.2 + § 7.1 rows 4-5, 8-9. FOLDED into in-flight narrow-slice reactive-escape AI dispatch (`2026-05-17-gamora-narrow-slice-reactive-escape-ai.md`). +~1-1.5 day delta to that dispatch.**
+
+**Concrete tasks (consume `from reincarnated.foundation.perception_asymmetry import get_apparent_radius` once rocket lands):**
+
+1. **Damage resolver unchanged.** Continues using the radius field from skill schema (this is `true_radius` by definition). **Audit recommended (~0.5 day) to confirm no existing site is using a different name for the radius; rename to `true_radius` for clarity if needed.**
+
+2. **Reactive escape AI consumes apparent_radius for escape decisions:**
+   - When the elite-tier escape-decision fires (per your dispatch Item 2), check elite-inside-AOE using **apparent_radius**, not true_radius. The AI "sees" the indicator the same way the player sees it.
+   - Concrete: `apparent_radius = get_apparent_radius(skill.aoe_radius, owner="player")` — the *player's* AOE radius gets the 0.90× factor when the AI evaluates whether to escape.
+   - This produces the player-favoring asymmetry: monsters that escape to "just outside the indicator" are outside apparent_radius but may still be inside true_radius → caught by spillover hits at damage tick.
+
+3. **Telemetry per AOE cast emits both counts:**
+   - `aoe_true_radius_hit_count: int` — mobs whose center was within true_radius at damage tick (these actually took damage)
+   - `aoe_apparent_radius_hit_count: int` — mobs whose center was within apparent_radius at damage tick (these the player expected to hit)
+   - **For player AOEs (apparent < true), the spillover_hit_count = true − apparent** (mobs that took damage outside visible indicator; the "got 'em too" effect)
+   - **For enemy AOEs (apparent > true), the spillover_safety_count = apparent − true** (mobs inside visible danger that did NOT take damage; the "barely escaped" effect)
+   - Both directly observable; D14 calibration uses spillover-pattern as substrate-distinguishing signal
+
+4. **Fight engine windup logic (per your dispatch Item 0):** unchanged. Damage resolution at end-of-windup uses true_radius; AI escape-decision during windup uses apparent_radius. Both contracts hold simultaneously.
+
+**Acceptance criteria (per briefing § 5.3 + § 7.1 row 14-15):**
+- Player AOE spillover_hit_count / true_radius_hit_count ratio: 0.05-0.15 (got-em-too effect; below 5% asymmetry too small; above 15% asymmetry too big)
+- Enemy AOE escape-but-safe count / apparent_radius_hit_count ratio: 0.10-0.25 (barely-escaped effect)
+
+If KPM-gauntlet smoke produces values outside acceptance ranges by >10%, surface to gandalf via HANDOFF — briefing amends (likely magnitude tweak) rather than force-fit.
+
+**Discipline #15 satisfied:** demo + sim both honor apparent_radius for perception/AI; both honor true_radius for damage. KPM-gauntlet measurements should match demo-playtest measurements within ±5% per § 5.3.
+
+**No additional dispatch needed.** Folds into your in-flight dispatch.
+
+— gandalf
+
+---
+
+### [2026-05-17] HANDOFF — gandalf → drax-demo — Indicator magnitude tweak to genre-centroid asymmetry
+
+**Briefing § 4.3 + § 7.1 rows 6-7, 11. ~0.5 day; tag `drax/v1.2-perception-asymmetry-indicator-magnitudes-1`.**
+
+**Concrete tasks (consume `getApparentRadius()` from `src/data/perceptionAsymmetry.ts` once rocket lands):**
+
+1. **Adjust existing AOE indicator-rendering magnitudes** from post-B11 lock values (1.08× / 0.92×) to genre-centroid (1.12× / 0.90×):
+   - Drax v1.0 already implements per-skill-geometry indicator scaling. Update the scale factor to use `getApparentRadius(skill.true_radius, owner)` from the new TypeScript module.
+   - Enemy-AOE windup indicator: renders at `apparent_radius = true_radius × 1.12` (existing visual character preserved — per-substrate windup pattern; opacity ramp; shadow late-commit; earth post-impact-persist).
+   - Player-AOE post-cast feedback indicator (0.3s post-cast): renders at `apparent_radius = true_radius × 0.90` (cosmetic only; not a damage indicator; existing 0.3s duration unchanged).
+
+2. **No engine-coupling change.** Damage comes from engine via existing channels (drax v1.0 already wired). Asymmetry is rendering-side parameter shift, not new pipeline.
+
+3. **No new VFX work.** Existing substrate-coupled indicator VFX preserved.
+
+4. **Touches estimated 2-3 files in drax-demo:**
+   - `src/data/perceptionAsymmetry.ts` (new; from rocket cross-language export)
+   - `src/data/substrateIdentity.ts` indicator-render code site
+   - Possibly the AOE-indicator rendering site in `main.ts` if scale factor is inlined there
+
+**Acceptance criterion:** Indicator visually-perceptible size for enemy AOEs slightly larger than current 1.08×; player AOEs slightly smaller than current 0.92×. Difference is small (4% on enemy, 2% on player) but consistent. Existing v1.1 baseAlpha refinement (0.07→0.25 windup ramp) preserved.
+
+**Why now:** Drax v1.0 just shipped engine-coupled indicators. Magnitude tweak NOW (before drax becomes idle or focuses elsewhere) is the cheap moment; later requires re-engagement with the indicator-render site after context-switch.
+
+**No other seam blocked on you.** Drax + gamora can start consuming the moment rocket lands.
+
+— gandalf
+
+---
+
+### [2026-05-17] HANDOFF — gandalf → star-lord — Telemetry schema: spillover hit-count fields
+
+**Briefing § 4.5 + § 7.1 rows 8-10. ~0-0.5 day.**
+
+**Concrete task:** Confirm telemetry schema accepts two new optional fields per AOE-cast event:
+- `aoe_true_radius_hit_count: int` (mobs damage-resolved)
+- `aoe_apparent_radius_hit_count: int` (mobs inside indicator at damage tick)
+
+`spillover_hit_count` is **derived** at analysis time (true − apparent for player AOEs; apparent − true for enemy AOEs), not stored as separate field. Keeps schema canonical.
+
+If schema is additive-optional-field tolerant: 0-day work; fields appear in export when gamora emits them.
+If schema requires version bump: ~0.5 day; coordinate with rocket MIGRATION.md entry.
+
+**Forward-work signal:** spillover-hit-count is substrate-distinguishing — fire burst-AOE produces different spillover signature than wind cone-AOE even with substrate-agnostic asymmetry factors, because skill *geometry* differs. **D14 calibration may want this channel.** Surface to D14 designers.
+
+**Open question (§ 9 question 6 for Matt):** does star-lord prefer spillover_hit_count as a stored field vs always derived? Recommend derived (cheaper schema; analysis-side derivation negligible); but if query workload benefits from pre-derivation, surface counter-recommendation.
+
+— gandalf
+
+---
+
+### [2026-05-17] HANDOFF — gandalf → knight-rider — Cascade orchestration: rocket → gamora → drax → star-lord → jack-ryan
+
+**Per Matt's "trust gandalf + the hive" pillar, briefing § 8.4 sign-off is BINDING. Auto-cascade unblocked.**
+
+**Cascade order:**
+
+1. **Rocket first** (perception_asymmetry.py module + cross-language TS constants + MIGRATION.md) — ~0.5 day. Other seams can't consume without this.
+2. **Gamora second** (consumes rocket's module in reactive-escape AI; emits telemetry both-counts) — FOLDED into in-flight narrow-slice dispatch (+~1-1.5 day delta to that dispatch). No separate dispatch needed.
+3. **Drax-demo third** (consumes rocket's TS module; magnitude tweak 1.08→1.12 / 0.92→0.90) — ~0.5 day. Can start as soon as rocket lands.
+4. **Star-lord parallel** (telemetry schema confirmation) — ~0-0.5 day. Not blocking; runs alongside.
+5. **Jack-ryan post-cascade** (cross-language constant parity + asymmetry factor centroid bounds + KPM-gauntlet acceptance ratios) — ~0.25 day.
+
+**Total cascade duration:** ~2 days end-to-end with overlap (drax + gamora can both start in parallel once rocket lands).
+
+**Matt-summary surface (for his return):**
+- **Headline:** Matt's recall of Diablo/PoE convergence on player-favoring asymmetric AOE radius is correct (D3-RoS 2014 onward; magnitudes converge at enemy 1.10-1.15× / player 0.85-0.92×). Briefing locks substrate-agnostic at genre centroid (1.12 / 0.90); cascade auto-executes; Matt L3 ratification non-blocking.
+- **Primary recommendation:** § 8 binding — substrate-agnostic for v1.0; Phase-2 substrate-coupling pivot path documented (~2.5-3 days when wanted, if D14/D27 say it would help).
+- **Secondary recommendations:** spillover-hit-count as separate telemetry field; tuning-drift discipline requires gandalf design-review sign-off on any factor change; KPM-gauntlet acceptance ratios make asymmetry effect *measurable* not just *felt*.
+- **7 new open questions (§ 9) for Matt:** all non-blocking; combined ~23 questions stacked across 5 briefings now. Most load-bearing: substrate-coupling Phase-2 yes/no (recommend default no; pivot only on D14/D27 signal).
+- **Discipline #15 satisfied:** demo + engine both honor apparent_radius for perception; both honor true_radius for damage; KPM-gauntlet measurements comparable to demo-playtest measurements.
+
+**Surface as forward-work observation:** other player-favoring fudges (monster damage scaling, hit-detection forgiveness, etc.) are explicit out-of-scope per dispatch. Surface to Matt at his discretion whether genre-canon catalogue of these is worth a future gandalf briefing.
+
+**No blocking dependencies; auto-cascade approved.**
+
+— gandalf
