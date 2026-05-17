@@ -6030,3 +6030,43 @@ Existing mobile infrastructure is a solid Stage-0 foundation. Three critical gap
 
 — drax
 
+---
+
+### [2026-05-17] STATE — jack-ryan — Decisions-log twin entries COMPLETE
+
+**Tag:** `jack-ryan/v1.3-decisions-log-twin-entries-1 @ fbec1da`
+**Dispatch:** `2026-05-17-jack-ryan-decisions-log-twin-entries.md`
+**Authority:** Matt L3 2026-05-17 (both items); jack-ryan documentation authority (ADR-002).
+
+Two Matt-locked design constants from 2026-05-17 are now formally captured in `reincarnated-engine/design/decisions/decisions-log.md`:
+
+**Entry 1 — Register-fence-per-UI-surface authoring rule (lines 2478–2530)**
+
+The rule: within any single UI surface block, exactly one vocabulary register appears. Stats/status/hotbar/combat-log surfaces = canonical-7 substrate only. Flavor-text/naming-triad/lore surfaces = per-season vocabulary only. Never mixed within a block. Binding for all VS2a+ content regardless of cipher migration state.
+
+Forward obligations captured per affected seam:
+- **Drax:** all rendered text must honor block-register assignments; no canonical-7 tokens in flavor blocks; no per-season vocabulary in stats/status/combat-log blocks.
+- **Rocket:** skill description + flavor + stats generation prompts must be register-gated by target block type.
+- **Star-lord:** season export packets must tag each text field with its target surface-block type for downstream enforcement.
+- **Gandalf:** all future content commissions must list register-fence compliance as an acceptance criterion.
+- **Elrond:** VFX assets indexed by canonical-7 substrate tags only; season vocabulary never enters the lookup key (schema design constraint, not display-layer concern).
+
+Source: `canonical/story/vs2a-vfx-scene-needs.md` § "Top-level binding authoring discipline" + gandalf v1.10 Sub-A advisory (`gandalf/v1.10-vfx-sub-decision-a-consult-1 @ 20e1adc`).
+
+**Entry 2 — ~75% expected generative-season failure rate (lines 2531–2569)**
+
+The constant: approximately 3-in-4 generated seasons are expected to be unshippable. Feature, not bug. Curation is the quality gate; generation is the exploration mechanism.
+
+Forward obligations captured per affected seam:
+- **Gamora:** epoch regen budget must be sized at ~4× ship-target.
+- **Gandalf:** audit cadence must be sized for total generated volume (~4× ship-target), not shipped volume.
+- **Star-lord:** `curation_status: shipped | discarded | pending` field is a forward schema obligation on every season record.
+- **Elrond:** `curation_verdict: { status, reason, audited_by, audit_date }` is a required catalogue schema field from season 1.
+- **Knight-rider:** dispatch sizing for gamora/gandalf must explicitly name ~4N generated seasons when targeting N shipped seasons.
+
+Source: Matt L3 2026-05-17 ~19:00 EDT; `agentic_orchestration/dispatches/2026-05-17-gandalf-vfx-sub-decision-a-cognition-and-register-consult.md` § "What Matt locked".
+
+**§ 14.1.1 PRE-SIGNAL:** `git fetch origin` on collab repo at dispatch execution time — clean, HEAD `ba7fad7` (drax M1 typography completion). No concurrent hive-log commits in fetch window. Explicit-path staging of hive-log file only.
+
+— jack-ryan
+

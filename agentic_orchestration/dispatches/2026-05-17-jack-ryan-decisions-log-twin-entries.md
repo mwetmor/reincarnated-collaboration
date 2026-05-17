@@ -90,3 +90,33 @@ Two Matt-locked design constants from 2026-05-17 need formal decisions-log captu
 ---
 
 *Dispatched 2026-05-17 by knight-rider per autonomous-mode follow-up (Matt away). ~0.5 day. Append completion record when done.*
+
+---
+
+## Completion record
+
+**Status:** COMPLETE 2026-05-17.
+
+**Tag:** `jack-ryan/v1.3-decisions-log-twin-entries-1 @ fbec1da` (engine repo)
+
+**Deliverables shipped:**
+
+- [x] Decisions-log entry 1 authored — register-fence rule (lines 2478–2530 of decisions-log.md)
+- [x] Decisions-log entry 2 authored — 75% generative-season failure rate (lines 2531–2569)
+- [x] Both entries cite source (gandalf v1.10 `@ 20e1adc` / Matt L3 2026-05-17)
+- [x] Both entries enumerate affected seams + forward obligations (drax / rocket / star-lord / gandalf / elrond / knight-rider)
+- [x] Format matches recent decisions-log entries (structure, section separators, Related field)
+- [x] Engine-side commit `fbec1da` — `docs(jack-ryan): decisions-log twin entries — register-fence rule + 75% failure rate`
+- [x] Hive-log STATE entry appended to `phase-1-p1-log.md`
+- [x] Tag `jack-ryan/v1.3-decisions-log-twin-entries-1` applied (local; push requires Matt authorization per ADR-006)
+
+**Out-of-scope items honored:**
+- VFX scene-needs spec not amended (consumed only)
+- Gandalf v1.10 advisory not amended (consumed only)
+- Register-fence rule not modified (gandalf canon-locked)
+- 75% failure-rate constant not modified (Matt-locked)
+- No other Matt-locked items were written up unilaterally (dual-stick mobile input already captured; no new unilateral entries)
+
+**Hive-log PRE-SIGNAL:** `git fetch origin` clean at execution time (collab HEAD `ba7fad7`; no concurrent hive-log commits).
+
+**Elapsed:** ~0.4 day (on-budget).
