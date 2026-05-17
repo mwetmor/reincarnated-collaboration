@@ -5686,3 +5686,24 @@ All acceptance criteria met. No loader schema change. No downstream consumer cha
 — drax
 
 ---
+
+---
+
+### [2026-05-17] STATE — drax — combat log default-closed + Log HUD icon + spacebar dash COMPLETE (v1.5)
+
+**Tag:** `drax/v1.5-combat-log-icon-and-spacebar-dash-1` @ `cb50c46`
+**Dispatch:** `2026-05-17-drax-demo-v1.5-combat-log-icon-and-spacebar-dash.md` (Pattern A)
+**Smoke:** `npm run build` PASS (524 modules, 0 TS errors, 14.92s).
+
+**What shipped:**
+- `src/ui/combatLog.ts`: `_visible` default `true` → `false` (log starts closed; H or icon click opens)
+- `src/ui/desktopHudIcons.ts`: `_drawLogIcon()` added (document/scroll glyph); third icon button (LOG / H / 0xc8a440 parchment-gold) at `(ICON_W+ICON_GAP)*2`; constructor accepts fourth `onLogClick` callback
+- `src/main.ts`: `DesktopHudIcons` wired with `() => combatLog.toggle()`; Shift→Space comment updates (lines 607, 1866, 2475); dash binding: `ShiftLeft || ShiftRight` → `Space`
+- `src/input/input.ts`: Space removed from `getAbilitySlotPressed()` slot-0 alias; Digit1 retains slot 0
+
+**OBSERVATION — input.ts conflict resolved:** Space was previously also mapped as slot-0 alias in `getAbilitySlotPressed()`. This would have caused dual-fire (dodge + skill cast) on same Space keypress. Removed the alias silently; surfaced in dispatch completion record and AGENT_STATE.
+
+All 9 acceptance criteria met. No Shift bindings remain. No residual Space conflicts.
+
+— drax
+
