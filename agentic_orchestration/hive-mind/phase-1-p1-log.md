@@ -5968,3 +5968,35 @@ Existing mobile infrastructure is a solid Stage-0 foundation. Three critical gap
 
 — gandalf
 
+---
+
+### [2026-05-17] STATE — drax — VFX scene-needs spec Section 2 COMPLETE
+
+**§ 14.1.1 PRE-SIGNAL:** `git fetch origin` clean; `git log -5 -- phase-1-p1-log.md` confirms HEAD includes gandalf v1.8 at `b74f176`; `git rev-list --count HEAD..origin/main = 0`. No remote-only hive-log commits pending. Safe to append.
+
+**Dispatch:** `2026-05-16-gandalf-drax-vfx-scene-needs-spec.md` (drax secondary role — Section 2 only)
+**Spec path:** `canonical/story/vs2a-vfx-scene-needs.md`
+**Section 2 scope:** Per-skill VFX slot enumeration with render-constraint framing. 6 canonical slots defined (cast-charge, projectile/movement, impact, status-application, status-ambient, skill-expired). Archetype-family slot activation matrix. Timing/sequencing constraints. Composite-skill patterns (leap_strike, beam_channel). Sub-layer requirement for `_layers.particles`. Sprite-vs-procedural discipline per slot. VS2b forward hooks.
+
+**Key findings for gandalf / elrond:**
+
+1. **`_layers.particles` sub-layer split is VS2a integration step 0** — required before any Pimen sprite lands. A flat `particles` Container cannot correctly render Slot C (impact above entity at peak) vs Slot E (aura halos below entity). Minimum: `particlesUnder` + `particlesOver` on either side of `entities` in stage addChild order.
+
+2. **Physical substrate-tags have zero attribution-free coverage in current Pimen catalogue.** `physical-impact` and `physical-slash` tags map only to the two CC-BY assets (`pixel-battle-effects`, `cutting-and-healing`). Elrond subset selection must surface this gap explicitly.
+
+3. **Slot D → Slot E chain is the load-bearing pattern for controller archetypes.** Status-apply (Slot D) → status-ambient (Slot E) handoff via `spriteVfx` pool onComplete callback. Requires `releaseWithFade()` method not yet in pool — **TODO(drax)** filed.
+
+4. **Register-fence enforcement is structural in the attribution pipeline schema.** VFX assets are indexed by canonical-7 substrate tags only. Season vocabulary never enters the lookup key. This is not a display-layer concern — it is a schema design constraint for elrond's VS2b attribution pipeline dispatch.
+
+5. **6 VFX slot substrate-tags per canonical-7 element = 42 substrate-tag slots minimum for elemental archetypes** (7 elements × 6 slots). Physical adds 6 physical-prefix tags. Hybrid mage inherits from elemental. Hunter/rogue share projectile/physical tags. Total substrate-tag inventory: ~50-55 tags at VS2a scope.
+
+**TODO(drax) items filed in Section 2:**
+- `releaseWithFade()` for spriteVfx pool (Slot E termination)
+- `_layers.particles` sub-container split (VS2a step 0)
+- Dissipate variant support in spriteVfx pool
+
+**No tag** (design doc; gandalf manages spec completion record per dispatch).
+**Sections 1/3/4/5:** pending gandalf parallel session. File scaffolded with placeholder headers so gandalf can fill without conflict.
+
+— drax
+
