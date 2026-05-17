@@ -1993,6 +1993,139 @@ Pushed to `https://github.com/mwetmor/reincarnated-engine.git`.
 
 ---
 
+### [2026-05-18 00:45Z] STATE — rocket — D17 Court persistence STARTING
+
+D17 rocket-seam portion beginning. Reading required canonical docs (court-of-forms.md,
+ascension-moment-ritual.md, passage-moment-ritual.md, earth-self-diversity-tension § 4.1).
+
+No concurrent-edit conflict with star-lord (D6 Step 4 touches naming.py + recorder.py;
+D17 creates new file court_persistence.py in foundation seam — no overlap).
+
+Persistence decision (L1 in-seam): separate SQLite file at
+`~/.config/reincarnated/court_of_forms.db`. NOT extending telemetry.db.
+Rationale: Court data is per-player cross-season with different retention semantics
+from generation-run telemetry; extending telemetry.db would couple player-identity
+persistence to star-lord's seam (ADR-004 cross-seam schema coupling violation).
+
+— rocket
+
+---
+
+### [2026-05-18 00:45Z] OBSERVATION — rocket — Trial+Ascension engine code path ABSENT in Phase-0
+
+D17 scope (per dispatch): "If the engine doesn't yet have a Trial+Ascension code path —
+surface that gap as OBSERVATION in hive log."
+
+**Finding:** No engine code exists that fires an "Ascension ritual" at season-end.
+The Trial, Mirror, Passage, and Ascension rituals are fully specified canonically
+(ascension-moment-ritual.md, trial-moment-ritual.md, passage-moment-ritual.md) but
+no Python code path in `generation/` or `simulation/` implements the season-end
+Ascension trigger or calls `ascend_form()`.
+
+**D17 disposition:** Ships the persistence VESSEL (data structure + storage + API).
+The integration hook (`ascend_form()` call at season-end) is documented in
+`src/reincarnated/foundation/MIGRATION.md § D17` under "Integration hook — Ascension
+ritual fire point." The call site is ready to wire when the engine-side season-end
+flow is implemented.
+
+**Severity:** INFO. D17 dispatch explicitly anticipated this gap ("D17's Phase-0
+Trial+Ascension MIGHT be a future deliverable"). This is not blocking D17 completion.
+
+**Routing:** Knight-rider — recommend sequencing the Trial+Ascension engine flow as a
+future deliverable. Possible D17b or Phase-0 follow-on. The persistence vessel is now
+consumable by drax (Court browser) and star-lord (Spirit Guide LLM) without requiring
+the Ascension trigger flow to exist — both consumer APIs work against manually-called
+ascend_form() or future engine-triggered calls.
+
+— rocket
+
+---
+
+### [2026-05-18 00:55Z] TAG — rocket — `rocket/v1.6-d17-court-persistence-1` @ `a8808ac`
+
+D17 rocket-seam COMPLETE.
+
+**What shipped:**
+- `src/reincarnated/foundation/court_persistence.py` — CourtForm + Court + schema migrations
+- `src/reincarnated/foundation/MIGRATION.md` — D17 cross-seam contract (drax + star-lord APIs)
+- `src/reincarnated/foundation/__init__.py` — exports Court, CourtForm, CourtSkill, CourtVisualSignature, DEFAULT_COURT_DB_PATH
+- `tests/test_court_persistence.py` — 43 tests
+
+**Smoke results:** 43/43 D17 GREEN; 402/402 targeted suite GREEN.
+
+**Persistence choice:** Separate SQLite at `~/.config/reincarnated/court_of_forms.db`.
+**Pattern P7:** ascend_form() REJECTS `ritual_outcome != "ascension"` with explicit ValueError.
+**OBSERVATION filed:** Trial+Ascension engine code path absent (see OBSERVATION entry [00:45Z]).
+
+Tag `rocket/v1.6-d17-court-persistence-1 @ a8808ac` pushed to origin.
+
+— rocket
+
+---
+
+### [2026-05-18 00:55Z] HANDOFF — rocket → drax — D17 Court browser surface UNBLOCKED
+
+**`Court.list_forms(earth_self_id)` is live @ `a8808ac`.**
+
+Drax D17 portion (loadout browser surface) is now unblocked.
+
+**API:**
+```python
+from reincarnated.foundation import Court, CourtForm
+
+court = Court()  # default path: ~/.config/reincarnated/court_of_forms.db
+forms: list[CourtForm] = court.list_forms(earth_self_id)
+```
+
+**Fields drax consumes:**
+- `form.form_name` — full LLM-generated name (preserve in full per C3)
+- `form.substrate` — for visual identity / substrate thumbnail
+- `form.class_role_function` — universal function tag for Court class-role display (C8 dual-label)
+- `form.visual_signature.sprite_ref` + `.vfx_register_ref` — cipher-aware names
+- `form.season_number` — ordering / season provenance
+- `form.path_taken` — biographical context
+- `form.key_moments` — detail view biographical markers
+- `form.court_resonance` — per-substrate cosmological text for hover detail
+
+Full field list + integration semantics in `src/reincarnated/foundation/MIGRATION.md § D17`.
+
+— rocket
+
+---
+
+### [2026-05-18 00:55Z] HANDOFF — rocket → star-lord — D17 Spirit Guide LLM API UNBLOCKED
+
+**`Court.get_form_by_season(earth_self_id, season_number)` is live @ `a8808ac`.**
+
+Star-lord D17 portion (Spirit Guide LLM voice integration) + D18 (Spirit Guide voice amendment)
+are now unblocked from the rocket-seam side.
+
+**API:**
+```python
+from reincarnated.foundation import Court, CourtForm
+
+court = Court()
+form: CourtForm | None = court.get_form_by_season(earth_self_id, season_number)
+forms: list[CourtForm] = court.list_forms(earth_self_id)  # recent N = forms[-5:]
+```
+
+**Fields star-lord consumes for Spirit Guide voice:**
+- `form.court_resonance` — per-substrate resonance snippet (per substrate identity Layer-1 declaration)
+- `form.season_cosmology` — season anchor for "you walked as X in [anchor]" references
+- `form.form_name` — use full name in voice lines
+- `form.path_taken` — "you arrived by transformation" vs "you walked unchanged" voice differentiation
+- `form.substrate` — substrate-aware cross-season references
+- `form.archetype_name` — archetype context for comparative references
+
+**Earth-Self token budget recommendation (per earth-self-diversity-tension § 8.5):**
+Use N = 3-5 most-recent Court entries per LLM call: `court.list_forms(earth_self_id)[-5:]`
+
+Full field list + integration semantics in `src/reincarnated/foundation/MIGRATION.md § D17`.
+
+— rocket
+
+---
+
 ### [2026-05-18 00:30Z] STATE — gandalf — session open: 3-item next-task spawn
 
 Required reading complete:
