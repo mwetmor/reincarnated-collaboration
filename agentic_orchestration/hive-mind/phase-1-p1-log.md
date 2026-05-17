@@ -5038,3 +5038,96 @@ If schema requires version bump: ~0.5 day; coordinate with rocket MIGRATION.md e
 **No blocking dependencies; auto-cascade approved.**
 
 — gandalf
+
+---
+
+### [2026-05-17] STATE — drax-loadout — D17 Court browser surface COMPLETE
+
+**Dispatch:** `2026-05-17-drax-loadout-d17-court-browser-surface.md` — COMPLETE
+**Commit:** `9430a35` (reincarnated-loadout main)
+**Tag:** `drax/v1.0-d17-court-browser-surface-1` (significant version bump; D17 loadout milestone)
+**Branch:** main — pushed to origin/main
+
+**Architecture decision: Path A static export** (MIGRATION.md §v1.2)
+- Engine writes JSON snapshot; loadout reads from `public/data/court.json`
+- Path B (API) rejected: service orchestration overhead disproportionate for local-first Phase-1 P1
+- Path C (SQLite watch) rejected: browser security constraints + Node bridge layer complexity
+- Bootstrap empty envelope in place (`public/data/court.json` → triggers empty state until rocket export step ships)
+
+**5 items shipped:**
+
+1. Architecture decision documented in MIGRATION.md §v1.2 with QUESTION to rocket
+2. Court data consumption layer: `courtTypes.ts` (TypeScript types + SUBSTRATE_COLORS 7 substrates) + `useCourtData.ts` (discriminated union hook)
+3. Court browser UI (`CourtBrowser.tsx`): card grid + substrate filter (grouping_label) + search by form_name + sort (season ASC/DESC / substrate / name) + N=5 recency indicator + sprite thumbnails + all 7 substrate colors + empty/loading/error states
+4. MIGRATION.md §v1.2 + AGENT_STATE.md updated
+5. Hive log STATE + QUESTION + HANDOFF (this entry)
+
+**New route:** `/court` — "Court" nav tab in loadout webapp
+
+**Smoke results:** `npm run build` — 690 modules, 0 TypeScript errors. Build clean.
+
+**Frostwindz guard preserved:** Shadow thumbnail in Court browser uses `chierit/shadow_stalker` gif (NOT Frostwindz). `denied_uses: ["court_portrait_full_screen"]` honored.
+
+**BLOCKED on rocket:** Court browser is live but shows empty state until rocket ships `export_json()`. See QUESTION below.
+
+— drax
+
+---
+
+### [2026-05-17] QUESTION — drax-loadout → rocket — court_persistence.py export_json() needed for Path A
+
+**From:** drax-loadout
+**To:** rocket
+**Blocking:** Court browser shows empty state until export ships (non-blocking for Phase-1 P1 ship; browser UI is live)
+
+**Request:** Add `export_json(earth_self_id: str, output_path: str | Path)` to the `Court` class in `reincarnated-engine/src/reincarnated/foundation/court_persistence.py`.
+
+**Required behavior:**
+1. Call `list_forms(earth_self_id)` to get the sorted form list
+2. Serialize each `CourtForm` to a dict (same structure as the existing `_skill_to_dict` / `_visual_to_dict` helpers already in the module)
+3. Write the `CourtExport` envelope to `output_path`:
+
+```json
+{
+  "schema_version": "1.0",
+  "exported_at": "<ISO-8601 timestamp>",
+  "earth_self_id": "<earth_self_id>",
+  "forms": [ ... ]
+}
+```
+
+4. `skills` field: array of dicts (already serialized by `_skill_to_dict`)
+5. `visual_signature` field: dict (already serialized by `_visual_to_dict`)
+6. `key_moments` field: array of strings (already serialized as JSON in the DB)
+
+**Suggested output path convention:** `~/.config/reincarnated/court_export.json` (matches `DEFAULT_COURT_DB_PATH` directory).
+
+**Call site:** Ascension event handler invokes after `ascend_form()` to keep export in sync.
+
+**Loadout consumer path:** `reincarnated-loadout/public/data/court.json` — player copies or symlinks the export here. No loadout code changes needed once the file is populated.
+
+**Context:** `court_persistence.py` at commit `a8808ac` has the full `list_forms()` API and the serialization helpers — this is a thin wrapper calling the existing code and writing a JSON file. Estimated small effort.
+
+**Full spec in MIGRATION.md §v1.2** (reincarnated-loadout/MIGRATION.md — "Item 1 — Architecture decision" section, QUESTION block).
+
+— drax
+
+---
+
+### [2026-05-17] HANDOFF — drax-loadout → drax-demo — Court browser live in loadout (informational)
+
+**From:** drax-loadout
+**To:** drax-demo
+**Type:** Informational (no action required)
+
+Court browser surface is now live in reincarnated-loadout at `/court`. Tag `drax/v1.0-d17-court-browser-surface-1` on main.
+
+The Court browser:
+- Shows empty state until rocket's `export_json()` step ships (QUESTION filed above)
+- Consumes `vfx-manifest.json v1.1` `thumbnail_frame.file` paths for substrate thumbnails — these are demo asset paths (`/assets/chierit/...`). In loadout-standalone serving context thumbnails gracefully degrade (onError hide); they would fully render if demo assets were co-served at the same origin
+- Frostwindz Deathbringer guard honored: shadow thumbnail uses `chierit/shadow_stalker`, not Frostwindz
+
+No action required from drax-demo. D19 Sub-phase C (demo VFX wiring + substrate browser) is the next demo-side work queue item.
+
+— drax
+
