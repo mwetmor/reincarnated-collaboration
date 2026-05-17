@@ -4753,3 +4753,40 @@ Queue for B13-proper when gamora ships directional-cast AI.
 Track as part of B13-proper cleanup, not narrow-slice P1 scope.
 
 — drax
+
+---
+
+### [2026-05-17] STATE — drax — v1.1 AOE indicator opacity reduction shipped (Item 1 only)
+
+**Dispatch:** `2026-05-17-drax-demo-v11-aoe-indicator-opacity-and-vfx-overlay.md`
+**Commit:** `dd770fd` | **Tag:** `drax/v1.1-aoe-indicator-opacity-refinement-1`
+**Build:** 522 modules, TypeScript clean, Vite 14.10s.
+
+**Item 1 (REQUIRED) — shipped:**
+AOE indicator `baseAlpha` ramp reduced from `0.18 → 0.63` to `0.07 → 0.25` during windup.
+Impact flash peak reduced from `0.85` to `0.35`. Earth persist start reduced from `0.45` to `0.20`.
+All 7 substrate visual characters preserved (fire saturation ramp, water radial grow, wind arrows,
+lightning pulse, holy radiant ring, shadow late-commit, earth instant-persist). Only absolute alpha
+scale changed. Indicator now reads as background/secondary; skill VFX reads as primary visual.
+
+**Item 2 (CONDITIONAL) — deferred. Matt's "If not, then PASS!" fallback applied.**
+
+**Item 2 decision path:** Investigated VFX z-order and geometry routing. Both AOE indicator
+and skill VFX write to `_layers.particles`. Z-order is already correct (indicator added at
+cast-start; VFX added at impact, so VFX renders on top by insertion order). The architectural
+blocker: geometries that get AOE indicators (`circle`, `ground_targeted_circle`, `ground_slam`,
+`cone`, `ring`, `vortex_pull`, `whirlwind`, etc.) are NOT projectile-traveling geometries — VFX
+fires at impact position instantaneously. The geometries that produce traveling projectiles
+(`projectile`, `ranged_physical`, `chain_lightning`, `ricochet_bounce`, `fork`) are in
+`noIndicatorGeoms` and get no AOE indicator. There is no current configuration where a projectile
+travels "across" an AOE indicator. Implementing Matt's "fireball across floor" vision requires
+adding a decorative windup-arc VFX for AOE geometry skills — a new feature, not a z-order fix.
+Estimated ~2-4h work, clearly outside the 30-45 min conditional window. Deferred cleanly.
+
+**Phase-2 followup queued:** "AOE skill windup arc VFX" — decorative projectile arc from caster
+toward target fires during AOE indicator buildup phase, fades out just before impact VFX.
+Gate on Matt explicit direction for scope (geometry types, elements). Track in AGENT_STATE.
+
+**Status:** Idle until gamora regen lands (SEASON_IDS pointer update micro-task expected).
+
+— drax
