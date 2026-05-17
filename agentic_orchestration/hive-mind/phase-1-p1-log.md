@@ -4139,3 +4139,71 @@ With subtitle always empty, the `_perceptionTestMode` variable in main.ts no lon
 **Build:** tsc + vite clean. 521 modules, 0 errors. **Tests:** 326/326 pass.
 
 — drax
+
+---
+
+### [2026-05-17 PRE-SIGNAL] PRE-SIGNAL — gandalf — appending hive log (§ 14.1.1 race-condition discipline)
+
+`git fetch origin` complete. Local HEAD == origin/main. No concurrent commits to hive log detected. Working tree contains 1 new file (the L3 briefing) + this hive-log append. Appending STATE + HANDOFF entries below.
+
+— gandalf
+
+---
+
+### [2026-05-17] STATE — gandalf — L3 briefing AUTHORED: dodge mechanic + telegraphed-combat system
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-gandalf-l3-briefing-dodge-plus-telegraphed-combat.md`
+**Deliverable:** `canonical/story/dodge-plus-telegraphed-combat-l3-briefing-2026-05-17.md`
+**Effort:** ~1 day (Pattern B; faster than 1-2 day budget because B13 § 12.5 in canonical 32 had ~80% of the design pre-resolved)
+
+**Briefing summary (TL;DR):**
+
+Three design surfaces, one substrate — *spatial combat with escape windows.* Without it, the canonical-7 substrate identity declarations cannot perceptually distinguish themselves in play. Son's playtest-test-6 feedback identified a load-bearing architectural gap, not a feature request.
+
+- **Surface 1 (player dodge):** universal `Shift`-key mechanic, distance + i-frame hybrid, 4-5s shared cooldown, free (no resource cost). Animation/VFX substrate-coupled per substrate `iconic_register`. Mechanic uniform; expression substrate-distinct. Small numeric tweak for earth (shorter+more-iframe) and wind (longer) to honor positional-refusal vs kinetic-rearrangement cosmologies.
+- **Surface 2 (telegraphed AOE):** enemy AOEs telegraph; player AOEs do NOT (single-player ARPG convention). Per-substrate windup *character* (fire builds; water expands; earth instant-but-persistent; wind directional; lightning instant-first-arc + telegraphed-next; holy slow radiant; shadow late-commit). 2 new engine schema fields (`windup_duration_seconds`, `indicator_color_hex`).
+- **Surface 3 (monster AI escape):** tiered per monster role. Trash mobs commit (correct). Elite mobs reactive-escape (NEW Phase-1 P1 work). Mini-bosses + bosses strategic + anticipatory + substrate-coherent (defer to B13-proper post-VS2a).
+
+**Recommendation in § 7:** **PARTIAL Phase-1 P1 extension** — fold a *narrow slice* (player dodge engine-coupling, enemy AOE telegraph indicator system, elite-tier reactive escape) into Phase-1 P1 *because D27 perception test depends on it* (without spatial-combat substrate, the perception test produces false-negatives for the wrong reason). Defer full B13 (substrate-coherent boss AI, 5 defensive mobility geometries kit-pool, archetype-emergence observability) to existing post-VS2a B13 slot. **Net add to Phase-1 P1: ~11 days (~13% scope add); B13-proper reduced from ~3-4 weeks to ~2.5-3 weeks at Stage A2 closeout.**
+
+**Why this matters at architectural-substrate level (briefing § 1):** the substrate identity declarations' `geometry_affinities`, `mechanical_signature`, and `cosmological_commitment` fields ALL presuppose positioning decides outcomes. Wind's `displace/redirect`, earth's `unyielding`, fire's `HIGH_BURST` vs water's `SUSTAINED_PRESENCE`, lightning's `chain`, holy's `consecrate-zone`, shadow's `concealment` — every substrate's identity claim is mechanically unfalsifiable in the current engagement loop. **Layer-1 identity declarations are conditional on a Layer-0 spatial-combat substrate that the substrate-identity-declaration-spec deliberately did not specify.** Son surfaced that the presupposition has not yet been honored.
+
+**Cross-impact map (briefing § 6):** D27 (LOAD-BEARING; perception test depends on narrow slice), D14 (METRIC-CHOICE-INFORMING; narrow slice produces signal for Layer-3 gate metric choice), D8/D9 (D8 traits CLEAN; future trait surface for windup-modulating traits is Phase-1 P2 candidate, not P1), D10 (substrate-coherent generation rules VALIDATE BETTER against narrow-slice engine), D26 (minor cross-doc updates: canonical 32 § 12.5 amendment marking items #2-4/#6 closed; canonical 16 B13 scope-reduction note; substrate-identity-declarations § 9 amendment-note).
+
+**Open questions for Matt (briefing § 9):** 7 open questions enumerated — universal vs per-class dodge model; cooldown structure; earth/wind dodge asymmetry; player-AOE telegraph policy; shadow late-commit indicator semantics; narrow slice vs full B13 vs Phase-2 deferral; canonical-doc amendment authoring path.
+
+**Decision-by window:** 48 hours soft / 5 days hard (before drax session-runner ships and D27 runs).
+
+— gandalf
+
+---
+
+### [2026-05-17] TAG — gandalf — `gandalf/v1.2-dodge-and-telegraphed-combat-l3-briefing-1` (pending commit)
+
+Tag will be cut at commit landing in the same atomic operation as briefing + hive-log + completion record per dispatch acceptance criteria.
+
+— gandalf
+
+---
+
+### [2026-05-17] HANDOFF — gandalf → knight-rider → Matt — L3 briefing ready to surface
+
+**Briefing artifact:** `canonical/story/dodge-plus-telegraphed-combat-l3-briefing-2026-05-17.md`
+
+**Surfacing recommendation:**
+
+1. **Knight-rider** reviews briefing § 7 recommendation + § 9 open questions; routes the 7 open questions to Matt in a single L3 conversation-opener (no per-question dispatch overhead).
+2. **Matt** considers § 7 recommendation; answers § 9 open questions in any order; issues L3 decision (PARTIAL P1 extension / FULL P1 extension / Phase-2 deferral).
+3. **If PARTIAL P1 extension chosen (recommended):** knight-rider drafts Deliverable 28 (new) at `agentic_orchestration/hive-mind/scope-of-work-phase-1-p1.md` § 1.X — incorporates briefing § 5.1 scope estimate as the 6 sub-items. Knight-rider authors per-seam initial-task entries (drax engine-coupled dodge + indicator rendering + substrate-VFX-coupling; rocket schema fields; gamora elite escape AI; gandalf cross-doc amendments). Knight-rider drafts decisions-log entry capturing L3 decision; jack-ryan reviews.
+4. **If Phase-2 deferral chosen:** drax v0.26 cosmetic dodge stays as-is; D27 runs against current engine; gandalf authors a "D27-result-interpretation-with-narrow-slice-context" addendum if D27 returns ambiguous (preemptive analysis vs Phase-2 re-run cost).
+5. **Continuous-availability ramp:** gandalf stays LIVE for Matt L3 follow-up Q&A on the 7 open questions per dispatch coordination note.
+
+**Coordination notes:**
+
+- This briefing absorbs ~80% of B13 design surface already pre-decided in canonical 32 § 12.5 (Last Epoch model adopted; 5-geometry roster locked; statistical-evasion preserved; telegraph-indicator-shape locked). It does NOT re-litigate those decisions. It applies them to the Phase-1 P1 context with the substrate-identity declaration overlay.
+- Drax v0.26 cosmetic dodge primitive is correctly minimal and supersedes naturally; no rework risk on Matt's deliberation window.
+- D27 perception test session-runner work (drax dispatch in flight) is NOT blocked by L3 decision — drax can complete session-runner readiness regardless of L3 disposition. D27 *execution* benefits from narrow-slice but is not strictly blocked.
+- Gandalf reads briefing as Pattern B / continuous-availability rather than a dispatch with a deadline. The 48-hour soft / 5-day hard decision window is informed by D27 execution timing, not by gandalf-side capacity.
+
+— gandalf
+
