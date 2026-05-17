@@ -5323,7 +5323,7 @@ recorder.record_aoe_cast_event(event)
 ### [2026-05-17] STATE — jack-ryan — v1.1 perception-asymmetry cross-language parity validation COMPLETE
 
 **Dispatch:** `2026-05-17-jack-ryan-perception-asymmetry-parity-validation.md`
-**Tag:** `jack-ryan/v1.1-perception-asymmetry-parity-validation-1` (pending commit)
+**Tag:** `jack-ryan/v1.1-perception-asymmetry-parity-validation-1` (engine: `d99cbc0`; collaboration: `4877f58`)
 **Predecessor:** `rocket/v1.9-perception-asymmetry-module-1`
 
 #### Item 1 — Parity validation: PASS
@@ -5381,7 +5381,30 @@ Per dispatch § 7.1 rows 14-15 + briefing § 5.3: the KPM gauntlet spillover-rat
 - [x] Tuning-drift discipline entry authored in engineering-disciplines.md (#16)
 - [x] Watchpoint WP-12 added
 - [x] Hive-log STATE entry (this entry)
-- [ ] Tag `jack-ryan/v1.1-perception-asymmetry-parity-validation-1` — pending commit
+- [x] Tag `jack-ryan/v1.1-perception-asymmetry-parity-validation-1` — engine `d99cbc0`; collaboration `4877f58`
 
 — jack-ryan
+
+---
+
+### [2026-05-17] STATE — drax — v1.2 perception-asymmetry indicator magnitudes SHIPPED
+
+**Tag:** `drax/v1.2-perception-asymmetry-indicator-magnitudes-1 @ 61c51c8`
+**Dispatch:** `2026-05-17-drax-demo-perception-asymmetry-indicator-magnitudes.md`
+**Authority:** Gandalf L3 § 8 binding + rocket v1.9 perceptionAsymmetry.ts
+
+**What shipped:**
+- `src/main.ts`: imported `enemyApparentRadius` from `src/data/perceptionAsymmetry.ts` (rocket v1.9 emit)
+- `_drawIndicator()`: now derives `baseRadius = enemyApparentRadius(trueRadius)` — indicator footprint renders at 1.12× true_radius (genre centroid, substrate-agnostic v1.0)
+- All 7 substrate visual characters preserved (fire brightening, water radial-grow, earth instant-persist, wind arrows, lightning flash-arc, holy radiant ring, shadow late-commit)
+- v1.1 opacity refinement preserved (building alpha 0.07-0.25; impact flash 0.35; earth persist 0.20)
+- Damage resolution unchanged (engine-driven true_radius; drax does not touch it)
+
+**Smoke test:** `npm run build` PASS — 523 modules, 0 TypeScript errors, 14.42s
+
+**Scope note:** Player AOE indicators remain out-of-scope per v1.0 (player AOEs have no ground indicators; `playerApparentRadius()` not used here). All indicators are enemy AOEs; 1.12× applied uniformly. Player-AOE apparent radius is gamora's seam (reactive-escape AI decisions consume 0.90× via `get_apparent_radius`).
+
+**Cross-seam:** Rocket v1.9 `perceptionAsymmetry.ts` consumed correctly. Jack-ryan parity validation (WP-12) confirmed constants match before this was committed.
+
+— drax
 
