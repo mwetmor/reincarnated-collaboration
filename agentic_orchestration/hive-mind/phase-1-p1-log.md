@@ -4608,3 +4608,95 @@ drax v0.31 dodge cooldown fix (queued). I-frame field is independent of cooldown
 
 — rocket
 
+---
+
+### [2026-05-17] PRE-SIGNAL — gandalf — appending hive log (§ 14.1.1 race-condition discipline)
+
+`git fetch origin` complete in `reincarnated-collaboration`. Hive-log tip at `e0306d9` (rocket v1.8 completion record). No concurrent commits to hive log detected since fetch. Working tree: 1 new canonical-story briefing authored (`canonical/story/aoe-tuning-and-monster-density-genre-canon-validation-2026-05-17.md`). Appending STATE + 2 HANDOFFs below.
+
+— gandalf
+
+---
+
+### [2026-05-17] STATE — gandalf — AOE tuning + monster density genre-canon validation briefing SHIPPED
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-gandalf-aoe-tuning-genre-canon-validation.md`
+**Briefing:** `canonical/story/aoe-tuning-and-monster-density-genre-canon-validation-2026-05-17.md`
+**Tag intent:** `gandalf/v1.4-aoe-tuning-and-monster-density-canon-1` (to be cut at commit)
+**Predecessor:** L3 briefing `gandalf/v1.2-dodge-and-telegraphed-combat-l3-briefing-1` @ `3ec108f` (prior dodge+telegraphed-combat L3 brief; this briefing composes with its § 3 windup ranges)
+
+All 4 design surfaces addressed per dispatch acceptance criteria:
+
+1. **Surface 1 — AOE skill distribution (§ 2):** genre-canon table (D2/D3/D4/PoE/LE/GD/LA); 50% AOE-share consensus at end-game with substrate ±15% modulation. Per-substrate AOE-share targets authored (fire 55-65%; water 65-75%; earth 35-50%; wind 50-60%; lightning 60-70%; holy 40-55%; shadow 45-60%). Role modulation: support −10%; control +5%; damage/hybrid baseline. AOE-character mix per substrate authored (burst/zone/cone/chain/nova/line proportions per substrate `geometry_affinities`).
+
+2. **Surface 2 — Monster density (§ 3):** genre-canon table (D2-LA range 30-500 TMPM at varied difficulty). Recommendation: **TMPM 30-50 for perception-test difficulty** (D4-nightmare-dungeon territory; NOT D3-rift). Pack composition: 3-7 mobs per encounter; 50% elite-bearing; 1 elite + 2-4 trash. Substrate region-density modifier: shadow 0.6-0.7×; water 0.8-0.9×; fire/earth/wind/lightning 1.0×. Pack composition: 70% substrate-homogeneous + 30% 2-substrate-heterogeneous (honoring `forbidden_hybrid_with` from substrate declarations).
+
+3. **Surface 3 — AOE-radius vs spacing coupling (§ 4):** the load-bearing (R/S)² math. Genre canon: medium-AOE hits 3-5 mobs; large-AOE hits 6-10 mobs at S=70px standard spacing. Per-substrate AOE-radius targets authored (R values per substrate × character; chain and vortex explicitly escape the radius math and become substrate-identity signal opportunities). Current demo `packSpawnPositions` spacing (S≈70-90px) is genre-canon — preserve.
+
+4. **Surface 4 — Telegraphed-AOE cognition budget (§ 5):** genre canon caps at 2-3 simultaneous telegraphs. Recommendation: **max 2 simultaneous enemy AOE telegraphs.** Naturally enforced by elite-tier-only telegraphs (per prior briefing § 3.1) + 1-elite-per-encounter pack-composition rule. Mixed-elite windup-cadence rule: forbid >1.0s windup-delta in same encounter (no shadow+holy elite co-presence). Player AOEs unchanged (no telegraph; per prior briefing).
+
+**§ 7 implementation parameter table:** 24-row gamora-implementable numerical envelope, per-substrate where applicable. Includes TMPM target, pack-composition rules, AOE-share targets, AOE-character mix, AOE-radii, region-density modifiers, telegraph caps, and acceptance criteria for post-D10 regen.
+
+**Cross-impact map (§ 6):** D10 (large; consumes § 7 row 11-20 directly); post-D10 regen (large; lock point); D14 (telemetry-channel; no scope change); D27 (signal-quality-informing; no scope change); narrow-slice (complementary; both ship in same regen window); D8/D9 (minimal; no amendment); drax indicator-render (VFX-design-coupling note); roadmap (potential BXX entry — § 6.8 surfaces as OBSERVATION for knight-rider).
+
+**§ 8 open questions for Matt:** 7 questions surfaced, all non-blocking; § 7 is implementable without Matt input. Primary tension: 30-50 TMPM (D4-nightmare reference) vs higher band (D3-rift); confirm or counter.
+
+**Out-of-scope confirmed not touched:** no engine code; no D8/D9 amendments; no substrate-identity-declarations amendments; no narrow-slice pre-emption; the prior briefing's 7 open questions remain parked.
+
+**Continuous-availability ramp:** gandalf stays LIVE for Matt L3 follow-up Q&A on BOTH this briefing AND the prior dodge/telegraphed-combat briefing (§ 9 open questions still parked). Gamora design-direction Q&A when post-D10 regen dispatch fires; drax design-direction Q&A on AOE-indicator visual character as needed.
+
+— gandalf
+
+---
+
+### [2026-05-17] HANDOFF — gandalf → gamora — Post-D10 regen parameter envelope ready for consumption
+
+**Briefing:** `canonical/story/aoe-tuning-and-monster-density-genre-canon-validation-2026-05-17.md`
+**Direct consumer surface:** § 7 implementation parameter table (24 rows; numerical; per-substrate where applicable).
+
+**When you fire the post-D10 regen** (after D10 substrate-coherent generation rules code lands), § 7 is your config envelope. Specifically:
+
+- **§ 7.1 row 1 (TMPM 30-50):** demo spawn-rate target per encounter; sample 5-10 encounters during regen smoke-test to verify
+- **§ 7.1 rows 2-5 (pack composition):** 3-7 trash; 50% elite-bearing; 1 elite + 2-4 trash; mini-boss 1 + 0-3 adds
+- **§ 7.1 rows 6-7 (spacing):** S=70-90px inter-mob; D=150-220px pack cluster — current `enemySpawnPositions()` is in-band, preserve
+- **§ 7.1 rows 8-10 (pack substrate composition):** 70/30 homogeneous/heterogeneous; respect `forbidden_hybrid_with` (no fire+water, no earth+wind mixed packs)
+- **§ 7.1 rows 11-18 (AOE-share targets):** per-substrate × role bands for kit composition; D10 consumes this
+- **§ 7.1 row 19 (AOE-character mix):** per-substrate proportions of burst/zone/cone/chain/nova/line; D10 consumes this
+- **§ 7.1 row 20 (AOE radii):** per-substrate skill-geometry R-values aiming for 4-6 mobs hit per primary AOE cast
+- **§ 7.1 row 21 (region-density modifier):** shadow 0.6-0.7×; water 0.8-0.9×; others 1.0×
+- **§ 7.1 rows 22-24 (telegraph rules):** elite-tier-and-above only; max 2 simultaneous; no mixed-elite >1.0s windup delta
+
+**§ 7.2 acceptance criteria:** 5 numerical checks (TMPM in band; AOE-share ±10% of target; 70/30 composition ±5%; medium-AOE hits 3-5 mobs; no region >60% single-substrate beyond density-modifier prescription). If any fail by >10%, surface to gandalf via HANDOFF — briefing amends rather than parameters force-fit.
+
+**§ 7.3 smoke-test guidance:** 2-class smoke test (water_controller + earth_damage) before full regen. ±20% tolerance against rows 1+20+22 = proceed; outside = retune first.
+
+**Coordination with narrow-slice work:** the post-D10 regen ships into an engine state with telegraphed-combat substrate (universal dodge + enemy-AOE indicators + elite reactive escape AI) per prior briefing § 5.1. § 7's parameters assume this substrate is present. If narrow-slice slips, § 7 still holds for trash tier; elite-tier parameters shift ~5-10% within post-regen tuning tolerance.
+
+**Open questions surfaced (§ 8):** 7 Matt questions parked, all non-blocking. You can proceed with § 7 values as-is; Matt counter-direction would amend the briefing, not block the regen.
+
+**No action needed from you until D10 code lands and post-D10 regen dispatch fires.** This HANDOFF is informational — you see this when consuming the canonical docs for the regen.
+
+— gandalf
+
+---
+
+### [2026-05-17] HANDOFF — gandalf → knight-rider — Briefing ready for Matt-summary surface on his return
+
+**Briefing:** `canonical/story/aoe-tuning-and-monster-density-genre-canon-validation-2026-05-17.md`
+**Tag intent:** `gandalf/v1.4-aoe-tuning-and-monster-density-canon-1`
+
+**For Matt-summary surface (post-return):**
+
+- **Headline:** son's *"more monsters and more AOE moves"* feedback validated against ARPG canon. Both clauses point to the same load-bearing dimension — the AOE-radius ↔ monster-spacing coupling. § 7 has the gamora-implementable 24-row parameter table.
+- **Primary recommendation:** TMPM 30-50 (D4-nightmare-dungeon density, not D3-rift; PoE-Delirium-style screen-spam erases substrate-distinguishability per § 1.1 failure mode 4).
+- **Secondary recommendations:** per-substrate AOE-share bands (water highest at 65-75%; earth lowest at 35-50%); per-substrate AOE-character mix; max 2 simultaneous telegraphs (naturally enforced by elite-tier-only + 1-elite-per-encounter rules).
+- **7 open questions (§ 8) for Matt:** all non-blocking; gamora can implement § 7 as-is. Most load-bearing question: confirm TMPM 30-50 band vs higher band (D3-rift reference).
+
+**Surface as forward design-direction question (§ 6.8):** does this briefing's locks merit a B-series roadmap entry (e.g. **BXX: density-and-radius balance audit**) for forward maintenance, or is consumption-by-post-D10-regen sufficient? Suggest surface to Matt; cheap question with potential long-term-clarity value.
+
+**No blocking dependencies:** briefing is implementable without Matt input. Gamora consumes § 7 at post-D10 regen dispatch time. Matt's L3 follow-up amends rather than blocks.
+
+**Continuous-availability ramp:** gandalf stays LIVE for Matt L3 follow-up Q&A on BOTH this briefing AND the prior dodge/telegraphed-combat briefing's § 9 open questions. Surface to Matt the prior briefing's 7 open questions remain parked (per dispatch out-of-scope).
+
+— gandalf
+
