@@ -188,6 +188,57 @@ The "80–100 px HD-2D target" phrasing used elsewhere in this doc (and grounded
 - Future vendor-pack acquisitions for VS2c+ should target this 100-130 px ARPG band (or have intrinsic frames sized to land cleanly within 1.0-2.0× scale of the band)
 - The Q1 partial-resolution from Path A ("per-source-asset-derived, not universal-target-asserted") is replaced by Path A-prime's stronger statement: **per-source-asset scale to land at ARPG genre operational target; the operational target is universal, the per-asset scale factor is derived**
 
+### Path A-prime ARPG-operational-target second amendment (gandalf, 2026-05-16 Day 4 close — supersedes 1.31× chierit-scale figures above)
+
+**Authority:** gandalf authoring per knight-rider dispatch `agentic_orchestration/dispatches/2026-05-16-gandalf-per-slug-scale-lookup-path-a-prime-v2.md` (Matt-confirmed Path A-prime; v2 lookup table + style-register follow-on amendment authorized in same session).
+
+**Why this second amendment exists.** The first Path A-prime amendment above (added Day 4 evening) correctly identifies the JRPG→ARPG framing shift and the 100–130 px ARPG band as the operational target. **But the specific chierit operational scale figure (1.31×) was anchored against an obsolete baseline (the legolas pre-PIL estimate of ~88 px character figure-in-canvas) rather than the PIL-corrected figure-content baseline (34–57 px per character).** Mathematically: 44 px (Group B mid PIL-corrected figure-content) × 1.31× = **57.6 px rendered**, which is BELOW the 100–130 px ARPG band, not within it. The 1.31× × 88 px → 115 px arithmetic uses the obsolete 88 px canvas figure-in-frame estimate that drax v0.20.4 PIL inspection corrected. This second amendment authors the operationally-correct chierit scale recommendation against the corrected baseline.
+
+**Correct chierit operational scale at Path A-prime: uniform 2.5×** (sub-option (i-prime) per `canonical/story/per-slug-scale-lookup-path-a-prime-2026-05-16.md` Part 1).
+
+| Parameter | First Path A-prime amendment (obsolete baseline) | **Second amendment — operationally-correct (PIL-corrected baseline)** |
+|---|---|---|
+| Chierit operational scale | 1.31× (vs obsolete 88 px estimate) | **2.5×** (vs PIL-corrected 44 px Group B mid figure-content) |
+| Chierit rendered figure-content | claimed ~115 px but math doesn't hold | **~108 px mean** (Group A 133–142 / Group B 105–110 / Group C 85–98) |
+| Acceptable chierit scale range | 1.14–1.48× | **2.3–2.9×** (corresponding to 100–130 ARPG band against figure-content) |
+| Tier midpoints (px rendered) | trash 83 / elite 132 / mini-boss 201 / boss 374 | **trash 84 / elite 132 / mini-boss 200 / boss 370** (effectively same — first amendment's midpoints happened to be approximately correct via different arithmetic) |
+| Nearest-neighbor enforcement | CRITICAL | **CRITICAL** (unchanged; in fact stronger — six monsters upscale at Path A-prime, not "most monsters") |
+| Per-slug scale values | per Part 6 of v1 doc (which doesn't exist; first amendment referenced phantom Part 6) | **per `per-slug-scale-lookup-path-a-prime-2026-05-16.md` Part 3 (v2 doc; new-doc supersession of v1)** |
+
+**Why the math discrepancy matters operationally.**
+
+If drax implements chierit at 1.31× per the first amendment, the rendered figure-content for Group B characters lands at ~58 px (not 115 px) — **below** ARPG band-floor by 42%, closer to the prior JRPG-overworld 80–90 px reference than the ARPG 100–130 px target. The first amendment's narrative framing (ARPG operational target) and its numeric recommendation (1.31×) are not internally consistent against PIL-corrected figure-content.
+
+If drax implements chierit at 2.5× per this second amendment + v2 lookup table, the rendered figure-content for Group B lands at 105–110 px — **in-band** at ARPG-genre operational target. Group A overshoots ceiling by 3–13% (Diablo-IV-Druid-style class-fantasy weight); Group C undershoots floor by 5–15% (Diablo-IV-Necromancer-style class-fantasy compactness). Intra-class variance preserved as design feature; mean rendered height lands at band-floor; matches ARPG genre convention.
+
+**What both amendments agree on (preserved):**
+- ARPG single-camera framing per the room/hallway arena topology — correct
+- 100–130 px ARPG band as the operational target — correct
+- HD-2D pixel-art register preserved (Path A-prime is scale-within-register, not register change) — correct
+- Nearest-neighbor enforcement HARD REQ across monster roster (because most monsters upscale at Path A-prime) — correct (and stronger at Path A-prime than at Path A)
+- Q1 resolution: operational target IS universal (100–130 px ARPG band), per-asset scale factor IS derived — correct framing; operationalization corrects to 2.5× chierit baseline
+
+**What this second amendment corrects (vs first amendment):**
+- Chierit operational scale: **1.31× → 2.5×**
+- Chierit rendered figure-content claim: **"~115 px" with 1.31× → ~108 px mean (105–110 Group B) with 2.5×**
+- Acceptable scale range: **1.14–1.48× → 2.3–2.9×**
+- Per-slug doc reference: **"v1 Part 6 phantom" → `per-slug-scale-lookup-path-a-prime-2026-05-16.md` Part 3 (new v2 doc, supersession-clear from v1)**
+- The first amendment's table values were correct in concept (tier midpoints, nearest-neighbor criticality) but inconsistent with its own chierit-scale figure; this second amendment restores arithmetic consistency end-to-end
+
+**Why sub-option (i-prime) uniform 2.5× over sub-option (ii-prime) per-character normalization** — per `canonical/story/per-slug-scale-lookup-path-a-prime-2026-05-16.md` Part 1:
+- Intra-class silhouette variance is a feature (Diablo D2/D3/D4 class-stature variance lineage; Shadow Stalker tall / Ground Monk compact is author-drawn design intent)
+- Sub-option (ii-prime) collides with form-bias structural-realignment work (homogenization erases the embodiment-substrate variance)
+- Sub-option (ii-prime) at 3.0–3.4× for Group C pushes pixel-art quality threshold further than uniform 2.5× does
+
+**Cross-references for this second amendment:**
+- `canonical/story/per-slug-scale-lookup-path-a-prime-2026-05-16.md` — **canonical operational source-of-truth for Path A-prime; supersedes v1**; chierit at 2.5×; full per-slug table; viewport-pressure analysis (NEW at Path A-prime); bbox-rendering follow-on Matt-decision; Fire_Lord_Creativkind thunder-shift; nearest-neighbor HARD REQ across roster
+- `canonical/story/embodiment-display-loadout.md` § 1.1 (gandalf 85ce42f) — ARPG-anchored framing on the loadout UI surface; ARPG 100–130 px in-game-character target referenced
+- `agentic_orchestration/gandalf/findings/2026-05-16-chierit-character-scale-inspection-strip-corrected-notes.md` — drax v0.20.4 PIL measurements that corrected the obsolete 88 px legolas estimate; figure-content 34–57 px per character is the PIL-correct baseline this second amendment anchors against
+- `agentic_orchestration/research/knowledge/character-monster-pixel-scale-2026-05-16.md` § 3 + § 4d — legolas ARPG-vs-JRPG ground truth (both amendments cite this; both correctly identify ARPG band; only the chierit-scale arithmetic differs)
+- `canonical/story/arena-room-hallway-system.md` — single-camera ARPG room/hallway topology (load-bearing for the JRPG-vs-ARPG framing; both amendments correctly cite)
+
+**Forward-process note for knight-rider:** the first amendment authored under different attribution (added 2026-05-16 Day 4 evening) anchored against the legolas pre-PIL 88 px estimate; this second amendment authored under gandalf attribution per Matt-Day-4-close directive anchors against drax v0.20.4 PIL-corrected 34–57 px figure-content. The numeric divergence between 1.31× and 2.5× is **load-bearing for drax MONSTER_SCALE_BY_SLUG refactor + chierit-scale-revision dispatches** — both held pending v2 lookup table return (this is the v2 lookup table return). Drax should implement against 2.5× per the v2 lookup table; first amendment's 1.31× figure should be treated as superseded.
+
 ### Enemy-legibility cross-reference
 
 The locked register has a **load-bearing requirement** beyond its own internal consistency: it must support clear visual distinction between enemies and player combatants. This requirement is canonicalized in `enemy-visual-legibility.md` (authored 2026-05-15 by gandalf on Matt's commission, after demo1 family-playtest finding).

@@ -404,6 +404,8 @@ Per doc 37 § 6 Position (ii) and the operationalized work in `naming-triad.md` 
 
 The three-layer model **refines** this architecture; it does not replace it. Position (ii) is preserved. The cipher's resistance-translation job is preserved. The new grouping layer adds the per-season opposition selection between substrate and vocabulary.
 
+**Grouping-layer vocabulary (locked 2026-05-16 by gandalf):** the abstract pair-structure labels that LAYER 2 carries on every generated class are locked in `canonical/story/grouping-layer-vocabulary.md`. The mapping: `fire → ignition`, `water → suffusion`, `earth → bulwark`, `wind → displacement`, `physical → impact`. Pair-structure: Primary Opposition is `ignition ↔ suffusion`; Secondary Opposition is `bulwark ↔ displacement`; `impact` is the non-pair foundation slot (Foundation's 1-non-rotating-element). These are the labels the LLM sees at Stage 3 cipher migration in place of canonical-four; per-season vocabulary fills each slot. Replaces the PROVISIONAL scaffolding rocket used in Stage 2 (`kinetic_aggression / fluid_adaptation / structural_resilience / evasive_velocity / raw_force`); rocket follow-on dispatch bumps `GROUPING_LAYER_VERSION` to `v1.1` and updates `_GROUPING_PAIR_STRUCTURE_LABELS` per the locked vocabulary. Star-lord Stage 2 consumes the vocabulary in per-season cosmological-vocabulary generation prompts. See the vocabulary doc for per-element rationale + per-season fill examples + considered-and-rejected alternatives.
+
 ### 6.4 The five resolution levers — applied per cluster
 
 This is the operational expression of the framework. Per § 5.4's decision framework + § 6.1's three-layer model:

@@ -190,7 +190,7 @@ Four AOE-shape variants that would otherwise become new geometry types are inste
 |---|---|---|---|
 | `collision_mode` | `line` | `stop_on_first` \| `pierce_all` | Piercing line — PoE Lightning Arrow, Diablo Bone Spear |
 | `angle_distribution` | `multi_projectile` | `spread` \| `cardinal` \| `diagonal` \| `star` | Cross/plus, X/diagonal, asterisk patterns |
-| `sweep_shape` | `melee_arc` | `pie` \| `crescent` | Curved-band sweep variant |
+| `sweep_shape` | `melee_arc` | `pie` \| `crescent` \| `wide_arc` | Curved-band sweep variant; `wide_arc` expresses the wide horizontal cleave (see collapse entry for `melee_cleave` in Revision 2026-05-16) |
 | `damage_falloff` | all radial geometries (`circle`, `ground_slam`, `ground_targeted_circle`, `ring`, `vortex_pull`, `aura`) | `uniform` \| `linear` \| `exponential` | Proximity damage — clean "positioning matters" lever |
 
 ### Revised damage-radius diversity table
@@ -204,6 +204,8 @@ Four AOE-shape variants that would otherwise become new geometry types are inste
 | **total active** | **16** | **25** |
 
 The 16-active-discrete-AOE count gives heavy-AOE archetypes comfortable kit-variety headroom (controllers' 8-10 AOE slots draw from 16 geometries, no forced repeats). The B6 "no same-geometry duplication unless intentional spam+spender pair" rule holds without crunching kit shapes.
+
+**Note (2026-05-16):** The 25-type count above reflects rocket's actual emit pool at B11 (`ability_grammar.py` @ `ec31682`). 4 additional vocabulary types (projectile_homing, aura_directional, melee_cleave, iframe_dash) existed as canonical-09 vocabulary entries but were never implemented in the generator — vocabulary-vs-implementation drift. These 4 were vocabulary-collapsed via the Track 4 decision (Revision 2026-05-16 below); the 25 count was already correct for the emit pool.
 
 ### Explicitly skipped (2026-05-11 geometry-options review)
 
@@ -268,13 +270,14 @@ B11 added motion-AOE geometries that are OFFENSIVE (whirlwind, dash_attack, leap
 
 ### Updated damage-radius diversity table (post-B11 + B13)
 
-| Category | After 2026-05-08 (CORE + MARGINAL) | After 2026-05-11 (B11) | After 2026-05-11 (B11+B13) |
-|----------|------------------------------------|------------------------|----------------------------|
-| **single_target** | 4 | 4 | 4 |
-| **AOE — active discrete** | 7 | 16 | **16** (+ defensive mobility, but those are mostly "other" radius type) |
-| **AOE — passive/persistent** | 3 | 3 | 3 |
-| **other** (defensive mobility, self_buff, teleport) | 2 | 2 | **7** (+ roll, defensive_dash, strafe_mode, blink, dodge_stance) |
-| **total active** | **16** | **25** | **30** |
+| Category | After 2026-05-08 (CORE + MARGINAL) | After 2026-05-11 (B11) | After 2026-05-11 (B11+B13) | After 2026-05-16 (collapse) |
+|----------|------------------------------------|------------------------|----------------------------|-----------------------------|
+| **single_target** | 4 | 4 | 4 | 4 |
+| **AOE — active discrete** | 7 | 16 | **16** (+ defensive mobility, but those are mostly "other" radius type) | **16** (-0 from collapse; no AOE types collapsed) |
+| **AOE — passive/persistent** | 3 | 3 | 3 | 3 |
+| **other** (defensive mobility, self_buff, teleport) | 2 | 2 | **7** (+ roll, defensive_dash, strafe_mode, blink, dodge_stance) | **7** (-0 from collapse; no "other" types collapsed) |
+| **vocabulary entries removed** | — | — | — | **-4** (projectile_homing, aura_directional, melee_cleave, iframe_dash → collapsed to parameters) |
+| **total active** | **16** | **25** | **30** | **26** |
 
 The 5 new defensive mobility geometries fit the "other" category since they prioritize positional displacement / time-limited buff over damage application.
 
@@ -283,4 +286,62 @@ The 5 new defensive mobility geometries fit the "other" category since they prio
 - file 28 § B13 — full implementation scope
 - file 32 § Section 12.5 — design discussion + reference notes
 - file 33 § "Active evasion + mobility abilities (B13)" — locked decisions
-- engine `design-repo/decisions/decisions-log.md` — pending 2026-05-11 B13 entry (TODO)
+- engine `design/decisions/decisions-log.md` — 2026-05-11 B13 entry (landed with Tier 1 batch commit)
+
+---
+
+## Revision 2026-05-16 — Vocabulary collapse (Track 4)
+
+**Status:** Matt-approved 2026-05-16. Decisions-log entry "Geometry type collapses confirmed" committed at `67946d0`. Authored by gandalf Track 4 assessment; rocket dispatch closes the canonical-09 record. Brings total active palette from **30 (post-B13) → 26 active types**. No B11 or B13 scope is lost.
+
+**Background:** gandalf's geometry-VFX-coverage investigation (commissioned 2026-05-16; see `story/geometry-vfx-coverage-assessment.md`) found that 4 of canonical-09's listed geometry types were vocabulary-vs-implementation drift: none of the 4 appeared in rocket's actual `ability_grammar.py` emit pool. The generator had already implemented the correct collapsed form. This is an Engineering Discipline #13a (implementation-vs-intent drift) remediation — the vocabulary drifted ahead of implementation and the collapse corrects the canonical record.
+
+### Four collapsed geometry types
+
+| Removed type | Collapses to | Behavioral flag / parameter |
+|---|---|---|
+| `projectile_homing` | `projectile_straight` | + `homing: bool` behavioral flag (sim-side trajectory tracking; no VFX distinction from straight projectile) |
+| `aura_directional` | `cone` | + `persistent: true` + `damage_falloff: uniform` (parameter expansions already documented in B11 § "Parameter expansions") |
+| `melee_cleave` | `melee_arc` | + `sweep_shape: wide_arc` (added to the `sweep_shape` parameter values in B11 § "Parameter expansions") |
+| `iframe_dash` | `dash_attack` / `defensive_dash` | + `i_frame_window` metadata (already documented in B13 § "Engine sim metadata"; applies per-skill, not per-geometry) |
+
+All four capabilities remain expressible. The collapse removes redundant vocabulary entries that duplicated parameter-level distinctions as if they were separate geometry primitives.
+
+### Rationale per type
+
+**`projectile_homing`:** No VFX distinction between homing and straight projectile — vendor sidecars show both render identically as projectile_straight VFX. The homing property is a sim behavioral flag (target-tracking trajectory update), not an asset class. D2 Magic Missile and PoE Vaal Spectral Throw both render as projectile_straight VFX with engine-controlled trajectory updates.
+
+**`aura_directional`:** Every vendor's "directional aura" animation classified into `cone` / `nova_wave` / `beam_channel` during legolas's geometry-signature pass. The visual register of a sustained directional emission IS a cone; the distinction from a transient cone is the persistence parameter. Canonical-09 already documented `damage_falloff` and persistence on radial geometries; the aura_directional entry was redundant.
+
+**`melee_cleave`:** Every vendor's "cleave" animation classified as `melee_arc`. The wide-horizontal-sweep variant is a parameter value (`sweep_shape: wide_arc`), not a distinct geometry. PoE Cleave and D4 cleave variants both render via melee_arc VFX with wider sweep angles. Canonical-09 already established the architectural principle that "AOE-shape variety is expressed as PARAMETERS on existing geometries rather than as new geometry types" — this collapse applies that principle.
+
+**`iframe_dash`:** B13 already documented `i_frame_window` as a per-evasion-skill metadata field, not a per-geometry property. Visual register of iframe_dash is identical to dash_attack / defensive_dash (rapid character translation + motion-blur or trail VFX); the i-frame distinction is a sim-state. D4's universal Evade and D2's Whirlwind-dash render identically; i-frame distinction is mechanical.
+
+### B13-deferred geometry types (NOT collapsed — distinct vendor class)
+
+Three defensive-mobility geometry types listed in the B13 extension are **deferred to B13 post-VS2a**, not collapsed. They are character-animation primitives requiring a distinct vendor class (character rigs / animation cycles) rather than the VFX-pack vendor class that covers all other geometry types:
+
+| Type | Status | Reason |
+|---|---|---|
+| `roll` | B13-deferred (character-animation primitive) | Pure character-animation; no VFX-pack vendor covers roll/dodge cycles; B13 character-animation vendor sweep commissioned |
+| `parry_active` | B13-deferred (character-animation primitive) | Shield-flash + parry deflect is character-track, not VFX-track; deferred alongside roll |
+| `block_active` | B13-deferred (character-animation primitive) | Same — requires character rig with block animation cycle |
+
+These three are NOT in the B11 emit pool and are NOT ship-blocking for VS2a / B11. They activate when the B13 character-animation vendor sweep lands and B13 generator integration ships (~6-8 weeks post-B11 per `canonical/16-project-roadmap.md` § B13).
+
+### VS2a B11 GREEN list — 11 of 13 elements
+
+Per gandalf Track 4 assessment § 4.2, the following elements are cleared for B11 demo integration after the vocabulary collapses and composite-render strategies are applied:
+
+**GREEN (cleared for VS2a B11):** fire / water / earth / wind / ice / thunder / holy / dark / poison / kinetic / status — 11 elements
+
+**Not GREEN for VS2a:**
+- `acid` — deprioritized (Pimen single-point-of-failure for all covered cells; not in canonical-four element pool; remains available as LLM-vocab flavor but not a class-defining element until secondary vendor lands)
+- `void` — deferred pending Pixogen license verification; drops from VS2a element pool if license fails
+
+### Cross-references
+
+- `story/geometry-vfx-coverage-assessment.md` — gandalf Track 4 assessment; primary source-of-truth for collapse rationale, per-gap severity table, composite strategies, and GREEN list derivation
+- engine `design/decisions/decisions-log.md` — decisions entry "Geometry type collapses confirmed — 4 canonical-09 types collapsed to behavioral flags; B13 animation primitives deferred; VS2a B11 GREEN list locked" (committed `67946d0`, 2026-05-16 Tier 1 batch)
+- `agentic_orchestration/dispatches/2026-05-16-gamora-b11-sim-side-geometry-resolution.md` — gamora B11 sim dispatch; in-flight; implements `sweep_shape: wide_arc` on `melee_arc` and `i_frame_window` skill metadata
+- Engineering Discipline #13a — implementation-vs-intent drift; this collapse is a #13a remediation
