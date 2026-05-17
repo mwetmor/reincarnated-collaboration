@@ -5408,3 +5408,52 @@ Per dispatch § 7.1 rows 14-15 + briefing § 5.3: the KPM gauntlet spillover-rat
 
 — drax
 
+
+### [2026-05-17] PRE-SIGNAL — rocket — Court.export_json() starting
+
+PRE-SIGNAL per § 14.1.1. Beginning dispatch `2026-05-17-rocket-court-export-json-method.md`.
+Required reading complete: court_persistence.py, courtTypes.ts, loadout MIGRATION.md §v1.2,
+hive log D17 drax QUESTION. Local main at `d99cbc0` (ahead of origin; no remote changes
+to pull-rebase into). Implementing `Court.export_json()` + auto-trigger + DEFAULT_COURT_EXPORT_PATH.
+
+---
+
+### [2026-05-17] STATE — rocket — Court.export_json() COMPLETE
+
+**Tag:** `rocket/v1.10-court-export-json-method-1` @ `1f3585c`
+**Dispatch:** `2026-05-17-rocket-court-export-json-method.md`
+
+**Decisions made:**
+- Trigger: **Option A (on Court mutation)** — `ascend_form()` auto-calls `export_json()` when `export_earth_self_id` is supplied at construction. Simplest user-facing flow; loadout always reflects engine truth.
+- Output path: **Path A** — write directly to `reincarnated-loadout/public/data/court.json` via `DEFAULT_COURT_EXPORT_PATH` computed from sibling-repo layout.
+- Atomic write: temp file + `os.replace()` (POSIX-atomic; no partial-file reads in `useCourtData()`).
+- Discipline #11: `engine_git_sha` in CourtExport envelope via `_get_engine_git_sha()` (subprocess, 5s timeout, fallback `"unknown"`). Inline implementation to avoid cross-seam telemetry import.
+
+**Schema parity:** all TypeScript `CourtForm`/`CourtSkill`/`CourtVisualSignature`/`CourtExport` interface fields covered field-for-field. `engine_git_sha` is an additive extension the TS interface silently ignores.
+
+**Tests:** 50/50 GREEN (7 new in `TestExportJson` + `TestDefaultPath`).
+**Smoke:** `export_json('test-earth-self', '/tmp/court.json')` → valid JSON, `engine_git_sha=d99cbc0`.
+**MIGRATION.md:** `foundation/MIGRATION.md §v1.10` authored with full decisions + consumer obligations.
+
+---
+
+### [2026-05-17] HANDOFF — rocket → drax-loadout — Court browser UNBLOCKED
+
+**From:** rocket
+**To:** drax-loadout
+**Re:** D17 Court browser empty-state resolution
+
+`Court.export_json()` is live at tag `rocket/v1.10-court-export-json-method-1` (`1f3585c`).
+
+**What drax needs to do:**
+1. Instantiate `Court(export_earth_self_id="<player-id>", export_path=DEFAULT_COURT_EXPORT_PATH)` at ascension time (or call `export_json()` explicitly).
+2. Alternatively, call `court.export_json(earth_self_id, "/path/to/reincarnated-loadout/public/data/court.json")` directly after any `ascend_form()` call.
+3. For immediate testing: call `export_json()` from a script or test harness with seed forms to populate the Court browser.
+
+**Loadout file:** `reincarnated-loadout/public/data/court.json` — the bootstrap empty envelope is still in place; the next `export_json()` call overwrites it with a real export.
+
+**No drax code changes required** — `useCourtData()` already reads `public/data/court.json`; the hook transitions from empty-state to populated-state automatically when a real export lands.
+
+**Optional:** add `engine_git_sha?: string` to `CourtExport` in `courtTypes.ts` if you want to surface the engine version in the UI. Not required; TS safely ignores the extra field.
+
+Remove `TODO(drax): remove Path A bootstrap file` from `MIGRATION.md §v1.2` once first real export lands and Court browser populates.
