@@ -7548,3 +7548,113 @@ Gate missed (0/17). Per gandalf WARN 2: no alpha escalation; no ceiling<10. D11.
 D11.1 data is live in demo (`public/seasons/season_002011-002015/classes.json`; `post_process_d11_1=True`; alpha=0.08). Hybrid_mage classes remain floor-pinned but demo is playtest-stable. No gameplay regression. D11.2 will update again when structural fix lands. Drax can continue VS2a work against this state.
 
 — rocket
+
+## [2026-05-17 late-evening+4] PRE-SIGNAL § 14.1.1 — elrond — Audio-pack curation STATE incoming
+
+PRE-SIGNAL per hive-mind protocol § 14.1.1. Git fetch origin executed before append; local HEAD `538c51a` (rocket D11.1 MISS STATE) matches remote tip. Concurrent writers tonight (drax v1.13, rocket D11.2 planning, legolas Tier-1 fetch SHIPPED 19:45Z, gandalf D11 post-mortem, elrond audio curation = this entry). No conflict on hive-log content (last writer was rocket; my STATE is fresh material). STATE entry follows immediately.
+
+## [2026-05-17 late-evening+4] STATE — elrond — Audio-pack curation VS2a SHIPPED; HANDOFF → drax + matt + knight-rider
+
+**Authority:** Standard scout → register → curate chain (Matt L3 audio research authorization 2026-05-17 late evening). AUTO-FIRE per dispatch: both predecessors shipped (legolas-4 audio crawl + gandalf audio register canon both completed earlier today; this completes the chain).
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-elrond-audio-pack-curation-queued.md`
+
+**Inputs consumed:**
+- Gandalf audio register canon (`canonical/story/audio-register-canon-2026-05-17.md`) — 5-layer architecture + cluster lock + element signature table + 5 Matt-decision (Q-MATT-1 through Q-MATT-5) surface
+- Legolas-4 audio vendor catalogue (`agentic_orchestration/research/catalogue/audio-vendors-2026-05-17/inventory.jsonl` + `coverage-matrix.md`) — 35 packs / 18 vendors / 4 sonic clusters
+- Legolas-5 Tier-1 audio fetch completion record (this hive-log line 7337-7468; SHIPPED 19:45Z 2026-05-17) — 6 of 8 packs ON-DISK; 2 FLAGGED for Matt manual fetch
+
+**Deliverables shipped (5):**
+
+1. **Per-layer subset manifests** at `agentic_orchestration/research/curated/audio-{layer}-subset-vs2a-2026-05-17.jsonl`:
+   - `audio-substrate-subset-vs2a-2026-05-17.jsonl` (Layer 1, 14 rows; Cluster A skill SFX + composites)
+   - `audio-class-archetype-subset-vs2a-2026-05-17.jsonl` (Layer 2, 1 forward-flag row; Phase-2 deferred per canon § 4.7)
+   - `audio-foley-subset-vs2a-2026-05-17.jsonl` (Layer 3, 7 rows; Cluster D Kenney primary + Cluster A foley underlays)
+   - `audio-atmospheric-subset-vs2a-2026-05-17.jsonl` (Layer 4, 5 rows; PixelLoops primary + composites)
+   - `audio-music-subset-vs2a-2026-05-17.jsonl` (Layer 5, 5 rows; existing 001001-005 + Suno/Option-A/Option-D paths)
+   - Total active rows across 5 layers: **32**
+
+2. **Coverage matrix** at `agentic_orchestration/research/curated/audio-coverage-matrix-vs2a-2026-05-17.md` — post-curation GREEN/YELLOW/RED per slot; 5 Layer-1 RED cells all constructible per canon § 4.6.
+
+3. **Acquisition shortlist** at `agentic_orchestration/research/curated/audio-acquisition-shortlist-vs2a-2026-05-17.md` — 3 cost paths (Minimum $52.59 / Preferred $186.59 / Aspirational $439.19) plus music-gap sub-path A/B/D pathing + per-vendor invoice line items.
+
+4. **Summary doc** at `agentic_orchestration/research/curated/audio-curation-summary-vs2a-2026-05-17.md` — 8 sections per dispatch acceptance criteria.
+
+5. **Music gap (002011-015) resolution** per canon § 7 Q-MATT-2 Option B Suno: PARKED-MATT-IMMEDIATE; Option A rotation fallback wireable now as engineering-trivial unblocker. Canonical Suno prompt anchor (Q-MATT-4) ready to lock.
+
+**Key findings:**
+
+- **Path 0 (Matt-already-authorized $3.59 + free Tier-1) is in flight** but legolas Tier-1 fetch SHIPPED at 6/8 packs ON-DISK. Two Tier-1 packs FLAGGED for Matt manual fetch:
+  - **FLAG 1 — kmontesdev CC0 2GB:** Google Drive folder requires Matt browser+Google-login (~30 min); spend $0; license-clear CC0
+  - **FLAG 2 — PixelLoops $3.59:** itch.io account credentials not stored; Matt manual purchase + download (~5 min); spend already authorized
+  - **Net Layer-4 ambient coverage impact:** without these, only TomMusic forest is GREEN; PixelLoops unblocks 6-8 canon biomes
+- **WSP $49 (Q-MATT-AUDIO-1)** is the single highest-leverage extension beyond Path 0 — closes 7 of 8 elements at canonical Cluster A retro-pixel register per gandalf canon § 4.1. RECOMMENDED IMMEDIATE-FOR-VS2a.
+- **All 5 Layer-1 RED cells are constructible** per canon § 4.6 + coverage-matrix § Summary composite recipes. No bespoke commission required at VS2a.
+- **Holy element (canon § 3.2 register-attention zone)** composite recipe documented: WSP/WS3 Light base + Kenney impactBell_heavy_*.ogg (ON-DISK confirmed) + pitch-shift. Q-MATT-5 PARKED-default Path 1.
+- **License posture clean:** all curated rows license-clear or PARKED-MATT-with-explicit-flag (Suno game-embedded clause; CC-BY Little Robot attribution-required-if-wired). No WEAK sonic-register-fit assets included per dispatch discipline.
+
+**Matt-decision surface (5 IMMEDIATE + 3 DEFERRED + 2 PROCEEDING):**
+
+IMMEDIATE today:
+- Q-MATT-2: Music gap 002011-015 path (Option B Suno primary; Option A fallback; Option D pre-demo-ship)
+- Q-MATT-4: Canonical Suno prompt anchor lock
+- Q-MATT-AUDIO-1: WSP $49 acquisition for VS2a register-fidelity
+- Q-MATT-AUDIO-4: kmontesdev Google-Drive manual fetch + PixelLoops itch.io purchase (credentials-needed; spend $3.59 pre-authorized)
+- (+ Q-MATT-1 sonic register cluster lock at knight-rider decisions-log canonicalization moment)
+
+DEFERRED to planning horizons:
+- Q-MATT-3: Bit By Bit Sound $77.60 (pre-demo-ship gate)
+- Q-MATT-AUDIO-2: Path 2 $134 additional WS3+WS1 (VS2b planning)
+- Q-MATT-AUDIO-3: Path 3 $252.60 additional (pre-demo-ship gate)
+
+PROCEEDING:
+- Q-MATT-5: Holy register-attention Path 1 composite (elrond proceeds by default)
+- Q-MATT-1: cluster lock (knight-rider drafts decisions-log entry)
+
+### Handoffs
+
+**HANDOFF → drax (audio wiring follow-on dispatch auto-fires now):** This curation completion + legolas Tier-1 fetch completion are BOTH SHIPPED. Per dispatch coordination ("drax wiring follow-on auto-fires when both your curation AND legolas Tier 1 fetch ship completion records"), drax's audio integration dispatch is unblocked. Drax consumes: 5 per-layer manifests (paths in summary § 2); folder schema per canon § 9.1; 5-layer bus structure per canon § 9.3; sidechain rules per canon § 5.3; polyphony cap per § 5.4; pitched-variation per § 5.5; composite recipes for 5 Layer-1 RED cells + holy register-attention zone; telemetry events per canon § 9.4 (forwards to star-lord). Tier-1 partial-staging note: PixelLoops + kmontesdev FLAGGED-NOT-STAGED for Matt manual fetch — drax can implement Layer-4 bus structure now; biome-bed file population fills in after Matt manual fetches complete.
+
+**HANDOFF → matt (5 IMMEDIATE Matt actions + 3 deferred-planning + 2 proceeding):** Consolidated decision surface in `audio-acquisition-shortlist-vs2a-2026-05-17.md` § Matt L3 decision surface + summary doc § 6 + § 7.2. Highest-priority IMMEDIATE: Q-MATT-2 (D10 seasons currently silent in playtest — pick Option A rotation immediate-unblock OR Option B Suno per-season with prompt-anchor lock Q-MATT-4). Highest-leverage spend: Q-MATT-AUDIO-1 WSP $49 single-pack acquisition for Cluster A Layer-1 spell-SFX coverage. Highest-engagement-low-cost: Q-MATT-AUDIO-4 manual fetches (kmontesdev + PixelLoops; spend $3.59 already-authorized; unblocks Layer-4 ambient from 1 GREEN biome to 6-8).
+
+**HANDOFF → knight-rider (standard chain coordination):** Completion record appended below. Auto-fire for drax wiring dispatch now valid (both predecessors shipped). Decisions-log entry drafts queued (Q-MATT-1 sonic register cluster lock + Q-MATT-4 canonical Suno prompt anchor at next governance pass per canon § 11.5; consider adding Q-MATT-AUDIO-1 WSP authorization log entry if Matt approves).
+
+**HANDOFF → legolas (non-blocking feedback):** legolas-4 inventory `file_count` claims vs on-disk extracted reality post-fetch: TomMusic legolas-4-claim = 200 files; legolas-Tier-1-fetch-extraction-verified = 204 WAV + 204 OGG = 408 total. Minor deviation, non-blocking. Verified other 5 staged-on-disk packs match legolas-4 inventory file-count claims within typical extraction-vs-zip-listing deltas.
+
+**PRE-SIGNAL § 14.1.1:** honored — `git fetch origin` ran before append; concurrent drax/rocket/gandalf/legolas-Tier-1 writes verified non-conflicting. No tag (curation; not code).
+
+— elrond
+
+---
+
+### [2026-05-17] STATE — drax — VS2a final sprint COMPLETE (tag: drax/v1.13-vs2a-final-sprint-comprehensive-wiring-1)
+
+**Dispatch:** `2026-05-17-drax-vs2a-final-sprint-comprehensive-wiring.md`
+**Result:** 5/5 areas shipped CLEAN. Build: 530 modules, 0 TS errors. Tag: `drax/v1.13-vs2a-final-sprint-comprehensive-wiring-1` (local, no push per ADR-006). Commit: `1775c82`.
+
+**Area 1 — Map tiles + walls:** New `dungeonTileset.ts`. 3 CraftPix WIRE-NOW packs wired (net-298079/125640/169442). `roomRenderer.ts` updated with optional `spriteLayer` param (all draw functions backward-compatible). `stage.ts` updated with `atmosphericUnder` + `atmosphericOver` containers. G-COFFIN CLOSED via net-298079 coffins.png (CoffinProp state machine). Animated hazard props (ghost_trap, statue_fire, dragon_trap, fire_trap, spike_trap) exposed.
+
+**Area 2 — Layer 4 atmospheric:** New `atmosphericLayer.ts`. 7 Alenia Studios effects wired (15360×180px sheets, 48 frames each). Season mappings per element. Alpha: 0.20-0.30 ambient → 0.07-0.12 combat (exponential lerp). `atmosphericUnder`/`atmosphericOver` containers in stage z-order. Lifecycle managed in main.ts (create/tick/destroy).
+
+**Area 3 — Frostwindz physical (Layer 3, G4 CLOSE):** New `frostwindzPhysical.ts`. Slashes (3 variants, 9/7/9 frames, directional) + Impacts (VFX1-7 B&W, element-tinted at runtime). `vfx.ts dispatchAbilityVfx` intercepts physical/kinetic BEFORE Pimen/SPE. CC-BY `pixel-battle-effects` eliminated for physical.
+
+**Area 4 — Frostwindz class-archetype (Layer 2 POC):** New `frostwindzClassArchetype.ts`. Necromancer (VFX1/2/4, slots A/C/E) + Starcaller (VFX1/2/3, slots A/C/E). `className: caster.name` passed to dispatchAbilityVfx; substring match activates overlay. Blood Mage/Rogue/Vampire deferred.
+
+**Area 5 — Magic book + dungeon props:** New `ambientPropsExtension.ts`. Magic book static (3 variants) + animated (48 frames). CoffinProp (closes G-COFFIN alongside Area 1). Dungeon loops: candles/torches/fountain. Placement helpers.
+
+**Visual coherence assessment:** Stack discipline maintained. Atmospheric alpha levels conservative (tunable). Floor tile scale (32px) and atmospheric canvas scale (5.625×) require Matt playtest evaluation. Layer-2 class-archetype overlay alpha (0.50-0.75) may need tuning based on Layer-1 Pimen read in context.
+
+**Matt-flags / open decisions surfaced:**
+- Q-VFX-PHYSICAL: CodeManu vs Frostwindz quality comparison for physical impacts (both active; side-by-side playtest eval)
+- Q-TILE-SCALE: 32px rendered floor tiles at 1800px canvas — evaluate readability
+- Q-ATMO-ALPHA: atmospheric alpha levels (0.07-0.30) — tune per playtest
+- Q-CLASS-ARCHETYPE-EXPAND: Blood Mage + Rogue + Vampire Layer-2 wiring (~30min follow-on; same module)
+- Layer-2 element-imbalance: fire/water/earth/wind/lightning lack Layer-2 coverage; shadow over-covered. VS2b commission scope.
+
+**PRE-SIGNAL § 14.1.1:** `git fetch origin` confirmed before commit. Explicit-path staging (9 src files). No binary assets staged. No overlap with rocket/public/seasons work. Rocket v1.13.2 + v1.14 already merged into local main (verified via `git log`).
+
+**HANDOFF → Matt:** VS2a visual environment is now fully wired. All 5 area systems are live in demo with graceful fallback paths. Recommend playtest evaluation of: (1) floor tile scale readability, (2) atmospheric overlay loudness vs combat read, (3) class-archetype VFX in shadow-class combat. Matt-flag items listed above.
+
+**HANDOFF → knight-rider:** drax/v1.13 complete; VS2a comprehensive wiring dispatch closed. No blocking items. Next dispatch candidates: (a) monster sprite expansion (elrond Q7 pending), (b) audio wiring when audio chain resolves (gandalf/elrond audio seam), (c) Layer-2 class-archetype expand (Blood Mage + Rogue + Vampire; ~30min).
+
+— drax
