@@ -176,3 +176,34 @@ Document:
 ---
 
 *Dispatched 2026-05-17 by knight-rider per Matt L3. ~1-2 days. Append completion record when done.*
+
+---
+
+## Completion Record
+
+**Completed:** 2026-05-17 by legolas
+**Output path:** `agentic_orchestration/research/catalogue/icons-and-props-2026-05-17/`
+**Files:**
+- `floor-loot.jsonl` — 29 rows (potions: 10, gold: 7, gear-weapon: 7, gear-armor: 5)
+- `ambient-props.jsonl` — 23 rows (chests: 8, coffins: 2, weapon-stands: 5, armor-stands: 3, urns/vases/boxes: 5)
+- `ui-icons.jsonl` — 25 rows (gear-icons: 9, potion-icons: 9, gold-icons: 7)
+- `summary.md` — vendors crawled, coverage matrix, sizing flags, license flags, cost rollup, vendor breadth map
+
+**Acceptance criteria:**
+- [x] Floor-loot JSONL filed
+- [x] Ambient-props JSONL filed
+- [x] UI-icons JSONL filed
+- [x] Summary.md authored
+- [x] All rows have license-class + pack-origin documented
+- [x] Sizing-mismatch flags noted
+- [x] Hive-log STATE + HANDOFF appended
+- [x] No tag (research/catalogue work)
+
+**Key findings:**
+- Pimen: VFX-only confirmed — zero icon/prop/loot content
+- Best comprehensive pack: Dire Dungeon Items ($10, CC BY 4.0, 259 items)
+- Best prop pack: Mucho Pixels Dungeon Tileset ($4.95 — chest+coffin+weapon-stand+pots with states)
+- Rarity-border system: NOT FOUND in any vendor catalogue — custom authoring required
+- AI-assisted flag: Pixel-1992 packs
+- CC-BY-SA flag: OGA Clint Bellanger gold icons (share-alike clause)
+- Sizing gap: all packs 16x16 or 32x32 native; 110-125px UI target bridged by drax frame/slot pipeline

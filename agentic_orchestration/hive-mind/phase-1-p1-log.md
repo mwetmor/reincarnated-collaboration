@@ -6304,3 +6304,28 @@ Knight-rider sequencing: step 3 (drax VS2a first VFX integration) can proceed im
 **HANDOFF → gandalf:** D10 input recommendations are ready as empirical input for D10 math note review. No architectural decisions embedded here — pure empirical findings from this regen. Gandalf should assess whether any of the D10 inputs (especially #2 multi-element gate) touch spirit-swap differentiation design intent.
 
 — gamora
+
+### [2026-05-17] STATE — legolas — icon+prop catalogue crawl COMPLETE
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-legolas-icon-and-prop-catalogue-crawl.md`
+**Output path:** `agentic_orchestration/research/catalogue/icons-and-props-2026-05-17/`
+**Files authored:** floor-loot.jsonl (29 rows), ambient-props.jsonl (23 rows), ui-icons.jsonl (25 rows), summary.md
+
+**Vendor scope:**
+- **Pimen CONFIRMED VFX-only** — zero icon/prop/loot content across all 46 catalogue rows. Existing 2026-05-16 crawl is definitive.
+- Other VFX-only vendors (Pixogen, Frostwindz, CodeManu, CreativeKind, Fellor, Pipoya): same — not re-crawled.
+- New vendors crawled: CraftPix, Seliel the Shaper, Franuka, Akari21, Vennril, DerNachbar, Shikashipx, Mucho Pixels, Elthen, Indie-Vova, Anokolisa, BigWander, Pixel-1992, AquaSenshi, SODA, Bis, OpenGameArt, Kenney, Pixel Serial, PixelExplosive, GandalfHardcore.
+
+**Key findings for elrond:**
+- Best single pack (UI icons + floor loot comprehensive): Dire Dungeon Items by DerNachbar ($10, CC BY 4.0, 259 items — weapon/armor/ring/amulet/potion/coin/gem)
+- Best free prop pack (chest+coffin+weapon-stand+pots with open/broken states): Mucho Pixels Dungeon Tileset ($4.95, GameDev Market Pro Licence)
+- Best free destructibles: Elthen pixel-art-destructible-objects (PWYW free, barrel+pot+crate+chest with damage/destroy animations)
+- Best free chest top-down: Seliel Mana Seed Treasure Chests (free, 5 types open+closed, commercial OK)
+- AI-ASSISTED flag: Pixel-1992 coin piles + chest packs
+- CC-BY-SA flag: OGA Clint Bellanger gold icons — share-alike clause; recommend deferring
+- Rarity-border gap: no vendor supplies pre-built ARPG rarity tier UI border system — custom authoring needed
+- Sizing: all packs at 16x16 or 32x32 native; none native at gandalf's 110-125px UI target — frame/slot rendering pipeline bridges gap
+
+**HANDOFF → elrond:** catalogue ready for curation dispatch. Summary.md §2 coverage matrix + §3 sizing flags are primary inputs for subset selection.
+
+— legolas
