@@ -2549,3 +2549,230 @@ D6 fully closed. Star-lord seam is clear for D15.
 Requesting knight-rider to author D15 dispatch. D15 is in-seam (llm/ module); no cross-seam design questions outstanding. Rocket D1 substrate identity loader is already live at `1e951be` — the `iconic_verbs` field is available.
 
 — star-lord
+
+---
+
+### [2026-05-18 02:30Z] STATE — gandalf — D8 + D9 design-authoring session START
+
+Continuous-availability LIVE. Knight-rider next-task spawn (D8 trait-floor design + D9 gear-affix design) accepted.
+
+**Pre-session context refresh:**
+- Read hive log tail through gamora D4 STATE (`b11d8bb`); rocket D17 Court persistence SHIPPED (per knight-rider spawn note); rocket forbidden_hybrid_with micro-task running in parallel (per spawn note).
+- Re-read substrate-identity-declarations-2026-05-17.md (post-amendment) for 3 new substrate identities (lightning + holy + shadow).
+- Re-read canonical 32 § 4 (trait architecture) + project_trait_architecture memory (dual-source design; rank-stacking).
+- Re-read canonical 17 (gear-affix dual-layer gating; EFFECT_TO_FIT_AXES extension shape).
+- Grounded against engine code: trait_schema.py (VALID_ABILITY_MODIFIER_KEYS), gear_generation.py (EFFECT_TO_FIT_AXES, MATERIAL_BY_ELEMENT, _ELEMENT_SUFFIX, _EFFECT_POWER_WEIGHT).
+
+**Authoring approach:** D8 + D9 in single session per knight-rider effort estimate (~2-3 days gandalf-side combined; background-agent checkpoint at both shipped together).
+
+**Sequencing:** D8 first (intrinsic trait pools establish NEW ability_modifier_keys); D9 second (gear-affix pools reference same NEW keys for rank-stack architecture).
+
+— gandalf
+
+---
+
+### [2026-05-18 03:00Z] DECISION — gandalf — D8 trait-pool sizing (8 traits per class)
+
+**Per scope-of-work § 1.2 D8** (5-10 traits per class). **Selected: 8 traits per class** for all three new substrate archetypal classes.
+
+**Rationale (full doc § 1.2):**
+1. Top of "balanced specialist" range per canonical 32 § Q4.3 build patterns; supports varied build emergence.
+2. 8 ÷ 4 floors = 2 per floor (L1, L12, L25, L38). Each pair gives one identity-anchor + one mechanical-variant per floor cadence.
+3. Cross-substrate parity forward-target: when canonical-four trait pools are eventually authored (currently absent from project; surfaced as discovery in D8 § 5.2), they should mirror at 8 each — symmetric across all 7 substrates.
+
+**Per-floor cadence locked: 2/2/2/2.**
+
+— gandalf
+
+---
+
+### [2026-05-18 03:30Z] DECISION — gandalf — D8 NEW ability_modifier_keys (5 new keys)
+
+D8 trait designs introduce 5 NEW ability_modifier_keys requiring gamora extension to `trait_schema.py:VALID_ABILITY_MODIFIER_KEYS`:
+
+1. `chain_targets_bonus` (additive) — extends chain-skill chain target count; lightning traits Arc Initiate (L1) + Resonant Chain (L12)
+2. `consecrate_radius_bonus` (additive) — extends consecrate ailment zone radius; holy trait Consecrate Walker (L1)
+3. `drain_lifesteal_fraction` (additive) — drain-damage returns as healing to caster; shadow traits Drain Sustain (L1) + Extracted Essence (L25). RECOMMEND cap at ~25% cumulative (jack-ryan note).
+4. `conceal_evasion_bonus` (additive) — temporary evasion buff after concealment proc; shadow trait Concealing Step (L1)
+5. `ailment_cleanse_factor` (MULTIPLICATIVE — must also extend `MULTIPLICATIVE_ABILITY_MODIFIER_KEYS`) — multiplies aligned-target ailment duration <1.0 for faster cleanse; holy trait Cleansing Radiance (L12)
+
+**Sim-side wiring per key:** specified in D8 § 6.5 (~20 lines each; ~100 total). Each new key consumed at specific resolution sites (chain propagation, consecrate zone AOE, drain damage resolution, concealment event, ailment tick).
+
+**Gamora extension surface:** ~10-line addition to two existing frozenset constants. No schema migration. Existing trait validation flow consumes new keys cleanly.
+
+— gandalf
+
+---
+
+### [2026-05-18 03:45Z] DECISION — gandalf — D8 cross-substrate-trait-coherence audit CLEAN
+
+Per scope-of-work § 1.2 D8 design guidance: "Substrate identity declarations' mechanical_signature + forbidden_mechanics constrain trait authoring."
+
+**Audit results (D8 § 5.1 + per-pool audits § 2.2, § 3.2, § 4.2):**
+
+- Lightning pool: no trait introduces root / sustained_aura / ground_persist / slow_channel. ✓
+- Holy pool: no trait introduces drain / conceal / corrupt / stealth. ✓
+- Shadow pool: no trait introduces radiate / consecrate / amplify_allied / reveal. ✓
+- Cross-pool: no D8 trait violates canonical-four substrates' forbidden_mechanics either.
+
+**Soft tension flag** (D8 § 5.1): lightning's `cosmological_commitment` rhetorically resonates with earth's `forbidden_mechanic: sudden_traversal`. Not an actual conflict — earth's forbidden is about earth's OWN refusal, not cross-substrate prohibition. Flag retained for jack-ryan Discipline #13 review.
+
+— gandalf
+
+---
+
+### [2026-05-18 04:00Z] AMENDMENT discovery — gandalf — canonical-four intrinsic trait pools DO NOT EXIST
+
+**Discovery during D8 authoring:** the canonical-four classes (`fire_mage`, `water_controller`, `earth_caster`, `wind_controller`) do not have authored intrinsic trait pools per the canonical 32 § 4 architecture.
+
+**Evidence:**
+- `gear_generation.py:738` defines `_STAT_TRAIT_POOL` — but this is the GEAR-roll stat trait pool, not per-class intrinsic trait pools.
+- `trait_schema.py` defines the schema (TraitSpec, validate_trait, aggregate_traits) but no per-class pool data.
+- No `config/class_trait_pools/<class>.yaml` exists in the engine.
+- canonical 32 § 4 *describes* the architecture (5-10 traits per class; floors L1/12/25/38; converge L50) but the canonical-four instances are not authored.
+
+**Implication for D8:** D8 is technically the FIRST per-class intrinsic trait pool authoring in the project. Phase-1 P1 shipping with 3 substrates having authored trait pools + 4 substrates lacking them is asymmetric — the *new* substrates feel mechanically richer than the *original* ones.
+
+**Routing recommendation:** Canonical-four intrinsic trait-pool authoring as a Phase-1 P1 ship-gate ADDITION (gandalf authors; gamora implements; same pattern as D8). Alternative: defer to Phase-1 P2 as gandalf-design-companion candidate work.
+
+**L-level routing:** This is L3 (Matt approval) — scope addition to Phase-1 P1 ship gate would change the deliverable count. **Surfacing to knight-rider for routing to Matt.** Recommend Matt's call on:
+- Option I — Ship Phase-1 P1 with canonical-four trait pools authored (adds ~3-4 days gandalf authoring + ~5 days gamora impl for canonical-four pools; rolls into D8 deliverable scope expansion)
+- Option II — Ship Phase-1 P1 as-spec (3 new pools only); defer canonical-four pool authoring to Phase-1 P2 (no scope expansion)
+
+**Soft recommendation:** Option I for cross-substrate parity — but the canonical-four classes have functioned through B14.5 + Drift-14 without intrinsic pools; not a ship blocker.
+
+— gandalf
+
+---
+
+### [2026-05-18 04:30Z] DECISION — gandalf — D9 affix-pool sizing (18 per substrate × 3 = 54 total)
+
+**Per scope-of-work § 1.2 D9 operational sizing guidance** (~1.5× expansion since 6/4 = 1.5). **Selected: 18 affixes per substrate × 3 substrates = 54 new affixes.**
+
+**Per-substrate categorical breakdown:** 6 stat + 6 ability-modifier + 6 effect affixes. Uniform across the three substrates.
+
+**Rationale (D9 § 1.3):**
+- Stays within the ~1.5× operational target relative to existing canonical-four affix surface (estimated ~80-100 affixes pre-extension; +54 = ~134-154 post = 1.5-1.7×).
+- Symmetric per-substrate pool sizing avoids "richer/poorer" perception bias at the Layer 3 diversity gate (uniform pool densities).
+- Substrate-identity differentiation lives at the affix-CONTENT level (per-pool § 2.3, § 3.3, § 4.3), not at the affix-COUNT level.
+- 6/6/6 breakdown aligns with the substrate-coherent surface across stat / ability-modifier / effect layers.
+
+— gandalf
+
+---
+
+### [2026-05-18 05:00Z] DECISION — gandalf — D9 canonical-four affix audit produces NO silent-incoherence findings
+
+Per scope-of-work § 1.2 D9 explicit requirement: "no canonical-four affix silently becomes substrate-incoherent — surface to jack-ryan Discipline #13 review."
+
+**Audit (D9 § 5.2):**
+
+- `("buff_dodge", None)` — substrate-neutral; no incoherence with new substrates. NO ACTION.
+- `("buff_mana_regen", None)` — substrate-neutral; broadly aligned with new substrates (lightning + holy use mana). NO ACTION.
+- Material/suffix tables — REQUIRED extension (additive only; canonical-four entries unchanged). Gandalf-suggested values: lightning {Stormglass, Arcsteel, Pulseweave / "of Arcs"}; holy {Brightsteel, Dawnstone, Hallowedglass / "of Dawn"}; shadow {Voidweave, Nightsteel, Drainglass / "of the Void"}.
+
+**Net audit: NO SILENT INCOHERENCE.** Two informational soft-tension flags retained for jack-ryan continuous-observation. No canonical-four affix requires re-categorization.
+
+**Routing note to knight-rider:** Material/suffix names are gandalf-authored placeholders; star-lord LLM creative-vocabulary pass post-Phase-1 P1 may produce richer alternatives. D9 ships with these placeholders; LLM creative pass is non-blocking polish.
+
+— gandalf
+
+---
+
+### [2026-05-18 05:15Z] DECISION — gandalf — D9 forbidden-mechanics audit CLEAN
+
+Mirror of D8 § 5.1 audit, applied to all 54 D9 affixes:
+
+- Lightning affixes: no affix applies drain / conceal / corrupt / radiate / consecrate. ✓
+- Holy affixes: no affix applies drain / conceal / corrupt / stealth. ✓
+- Shadow affixes: no affix applies radiate / consecrate / amplify_allied / reveal. ✓
+
+**Soft-tension flag** (D9 § 2.3 `lightning_effect_storm_call_passive`): "passive lightning aura" reads adjacent to lightning's forbidden_mechanics: [sustained_aura, ground_persist]. Resolution: this is per-second tick of discharge events, not a sustained zone — firing is discharge-shaped (instantaneous), cadence is periodic. Not a violation, but Discipline #13 informational flag retained for jack-ryan review.
+
+— gandalf
+
+---
+
+### [2026-05-18 05:30Z] HANDOFF — gandalf → gamora — D8 design SHIPPED; D9 design SHIPPED
+
+**D8 design doc:** `canonical/story/d8-trait-floor-design-phase-1-p1.md` (this session, this commit).
+
+**D8 contents:**
+- 8-trait pool per class × 3 new classes = 24 traits total
+- Floor cadence 2/2/2/2 across L1/L12/L25/L38
+- L50 convergence per canonical 32 architecture (gamora computes per-rank coefficients)
+- 5 NEW ability_modifier_keys established (per DECISION [03:30Z]; gamora extension to trait_schema.py)
+- Sim-side wiring requirements per NEW key (D8 § 6.5)
+- Cross-substrate-trait-coherence audit CLEAN (per DECISION [03:45Z])
+
+**D9 design doc:** `canonical/story/d9-gear-affix-design-phase-1-p1.md` (this session, this commit).
+
+**D9 contents:**
+- 18-affix pool per substrate × 3 substrates = 54 affixes total (per DECISION [04:30Z])
+- 6 stat + 6 ability-modifier + 6 effect affixes per substrate
+- EFFECT_TO_FIT_AXES extension (6 new entries: 3 damage + 3 ailment)
+- MATERIAL_BY_ELEMENT + _ELEMENT_SUFFIX extension (3 new entries each; gandalf-authored placeholders)
+- _EFFECT_POWER_WEIGHT extension (3 new ailment entries)
+- Canonical-four affix audit produces NO silent-incoherence findings (per DECISION [05:00Z])
+- Forbidden-mechanics audit CLEAN across 54 affixes (per DECISION [05:15Z])
+- Rank-stacking architecture between D8 intrinsic + D9 gear sources specified (D9 § 5.3)
+
+**Gamora implementation contracts:**
+- D8: ~6.5 days gamora-side (loader + YAML extraction + schema extension + sim-side wiring for 5 NEW keys + boot validation + per-rank coefficient calibration + coherence check). D8 § 6.
+- D9: ~4 days gamora-side (EFFECT_TO_FIT_AXES + MATERIAL + SUFFIX + EFFECT_POWER_WEIGHT extensions + 54 EffectPoolEntry transcriptions + boot validation + coherence check + empirical verification). D9 § 6.
+
+**Combined gamora-side estimate: ~10.5 days.** Aligns with knight-rider's combined estimate (~5-7 day each = ~10-14 day combined).
+
+**Sequencing recommendation for gamora:**
+1. D8 implementation first (establishes NEW ability_modifier_keys in trait_schema)
+2. D9 implementation second (consumes those keys for gear-affix entries)
+3. D8 + D9 can land in same gamora seam tag if convenient (tag: `gamora/v1.5-d8-d9-trait-affix-extension-1`)
+
+**Cross-seam dependencies for gamora:**
+- D5 (ailment registry; rocket + gamora SHIPPED) — defines shock / consecrate / drain ailment shapes; D8 + D9 consume.
+- D1 (substrate identity loader; rocket SHIPPED at `1e951be`) — provides substrate identity validation surface; D8 + D9 design grounds against.
+- D7 (resistance matrix 7×7; gamora) — concurrent or precursor work; holy's "aligned" semantics interact with D7 valenced damage. Cross-coherence review opportunity at gamora's discretion.
+
+**Open questions surfaced to gandalf for in-session response (per protocol § 4.1):** None at this checkpoint. Gamora may begin D8 + D9 implementation immediately.
+
+— gandalf
+
+---
+
+### [2026-05-18 05:45Z] STATE — gandalf — D8 + D9 next-task spawn COMPLETE
+
+Knight-rider next-task spawn (D8 + D9 design authoring) SHIPPED at meaningful checkpoint per background-agent constraint.
+
+**This session deliverables:**
+1. D8 design doc: `canonical/story/d8-trait-floor-design-phase-1-p1.md`
+2. D9 design doc: `canonical/story/d9-gear-affix-design-phase-1-p1.md`
+
+**Cross-seam observations from this session:**
+- Canonical-four intrinsic trait pools DO NOT EXIST (discovery; per AMENDMENT [04:00Z]). Routing to Matt for L3 scope disposition.
+- Material/suffix names for lightning/holy/shadow are gandalf-authored placeholders; star-lord LLM creative-vocabulary pass is non-blocking polish opportunity.
+- D5 ailment registry shipped; D8 + D9 consume cleanly.
+- D7 resistance matrix 7×7 interacts with holy "aligned" semantics; cross-coherence review opportunity for gamora.
+
+**Open routing requests to knight-rider (carry-forward from this + prior sessions):**
+- L2/L3 disposition on substrate-identity-declaration-spec AMENDMENT (`forbidden_hybrid_with` field; from prior session [2026-05-18 00:45Z])
+- Decisions-log entry routing for Frostwindz Deathbringer style-register conditional-accept disposition (from prior session [2026-05-18 01:00Z])
+- Q4 FLOOR (D3 § 11 Q4 — role_affinities pruning floor) — recommended 0.0 strict; knight-rider's call (from prior session)
+- Star-lord LLM-image-generation candidate task: HD-2D-coherent shadow VFX redraw against Frostwindz compositional references (from prior session)
+- Rocket micro-task: extend D1 substrate identity loader to validate `forbidden_hybrid_with` reciprocity (~30 min; from prior session)
+- **NEW:** L3 disposition on canonical-four intrinsic trait pool authoring (Phase-1 P1 scope expansion vs Phase-1 P2 deferral; per AMENDMENT [04:00Z])
+- **NEW:** Star-lord LLM creative-vocabulary pass on material/suffix names for lightning/holy/shadow (non-blocking polish)
+- **NEW:** Jack-ryan Discipline #13 review opportunities (lightning's "sudden_traversal" cosmological commitment vs earth's forbidden_mechanic flag; lightning Stormcall passive flag)
+
+**Continuous-availability LIVE post-session:**
+- D8 + D9 questions from gamora — design-direction response window OPEN
+- D18 Spirit-Guide voice amendment (queued; ready when rocket D17 firing-trigger gameplay flow is sequenced)
+- D26 cross-doc updates (queued; near ship gate)
+- Cross-substrate-coherence vigilance per Discipline #13 — continuously available
+
+**Next gandalf-queue items (per knight-rider spawn note):**
+- D18 Spirit-Guide voice amendment (when rocket D17 firing-trigger gameplay flow is sequenced)
+- D26 cross-doc updates (near ship gate)
+
+The substrate identities become traits the player can wear. The substrate identities become gear the player can equip. Phase-1 P1's Layer-1 (identity declarations) propagates through Layer-2 (composition) into Layer-3 (trait + affix surfaces) coherently top-to-bottom.
+
+— gandalf
