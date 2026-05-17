@@ -250,7 +250,27 @@ The cleaner path is to ship M1 inside VS2a and remove the question.
 
 ## Knight-rider synthesis
 
-*(to be authored after both advisories land)*
+**Joint verdict: ACCELERATE Phase M1 into VS2a scope** with jack-ryan's 3 conditions + 6 Gate-2 pre-flags operationalized at M1 dispatch time.
+
+**Convergence:**
+- **Jack-ryan (technical/process):** CONDITIONAL ACCELERATE. Claim survives stress-test; disciplines #11/#12/#15 respected; no MIGRATION.md needed (demo-internal); only real risk is desktop-branch pass-through purity (no `Math.round`/`parseInt`/`|0`/`~~` — `combatLog.ts` has `fontSize: 9.5` that would silently shift desktop rendering by 1px under any integer coercion).
+- **Gandalf (design/experience):** ACCELERATE — "actively beneficial, not merely no objection." Three PX drivers: (1) reputational asymmetry — playtesters opening unprompted on phones see 1.6-4.2 CSS-pixel text at first contact ("Diablo-Immortal-launch-pattern credibility damage"); (2) Group-2 overlay-map cohort cost — gauntlet's pedagogical purpose collapses on mobile for cohorts that read the world through HUD/text; (3) phase-cascade unlock — M1 is precondition for M2-M7. Style register unaffected; form-bias sub-lock (b) unaffected.
+
+**Critical gandalf finding on the binary:** VS2a-shippable WITHOUT M1 is shippable ONLY IF mobile is hard-gated with explicit "mobile not supported in this playtest" splash on phone detection. Anything less contaminates the desktop-anchored playtest sample with "I tried on my phone and it was broken" first-contact data.
+
+**Implication:** the actual binary is:
+- **Option A (recommended by both stewards): ACCELERATE M1** — ~200 lines additive code; mobile becomes playtest-viable
+- **Option B: NO M1 + hard-gate mobile** — adds a splash screen + phone detection; preserves desktop-anchored sample purity but caps playtest reach
+
+Both options are valid. Both stewards prefer A.
+
+**If Matt approves A (ACCELERATE):** knight-rider authors M1 dispatch under standard Pattern A. Drax executes with jack-ryan's 6 Gate-2 pre-flags as acceptance criteria. Tag `drax/v1.7-mobile-typography-foundation-1` (seam-prefixed; Matt may promote to milestone tag at VS2a ship).
+
+**If Matt approves B (HOLD + splash):** knight-rider authors small drax dispatch for the phone-detection splash screen; M1 stays at original post-VS2a slot.
+
+**Awaiting Matt L3 sign-off.**
+
+— knight-rider 2026-05-17 ~18:30 EDT
 
 ---
 
