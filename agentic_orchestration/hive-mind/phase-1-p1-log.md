@@ -5318,3 +5318,70 @@ recorder.record_aoe_cast_event(event)
 
 — star-lord
 
+---
+
+### [2026-05-17] STATE — jack-ryan — v1.1 perception-asymmetry cross-language parity validation COMPLETE
+
+**Dispatch:** `2026-05-17-jack-ryan-perception-asymmetry-parity-validation.md`
+**Tag:** `jack-ryan/v1.1-perception-asymmetry-parity-validation-1` (pending commit)
+**Predecessor:** `rocket/v1.9-perception-asymmetry-module-1`
+
+#### Item 1 — Parity validation: PASS
+
+Files reviewed:
+- `reincarnated-engine/src/reincarnated/foundation/perception_asymmetry.py`
+- `reincarnated-demo/src/data/perceptionAsymmetry.ts`
+
+| Check | Python | TypeScript | Result |
+|---|---|---|---|
+| `ENEMY_AOE_APPARENT_RATIO` value | `1.12` | `1.12` | MATCH |
+| `PLAYER_AOE_APPARENT_RATIO` value | `0.90` | `0.90` | MATCH |
+| Enemy in-bounds [1.08, 1.18] | YES | YES (no TS bounds guard; Python enforces) | PASS |
+| Player in-bounds [0.85, 0.93] | YES | YES | PASS |
+| `enemy_apparent_radius` / `enemyApparentRadius` | `return true_radius * ENEMY_AOE_APPARENT_RATIO` | `return trueRadius * ENEMY_AOE_APPARENT_RATIO` | SEMANTICALLY IDENTICAL |
+| `player_apparent_radius` / `playerApparentRadius` | `return true_radius * PLAYER_AOE_APPARENT_RATIO` | `return trueRadius * PLAYER_AOE_APPARENT_RATIO` | SEMANTICALLY IDENTICAL |
+| `get_apparent_radius` / `getApparentRadius` dispatch | `if "enemy" / elif "player" / else raise ValueError` | `if "enemy" / else if "player" / else throw Error` | SEMANTICALLY IDENTICAL |
+| Unknown-owner behavior | `raise ValueError` (no silent default) | `throw new Error` (no silent default) | PARITY — both fail-loud |
+| `_validate_constants()` load-guard | Present; fires at module import | N/A (TS has no equivalent; Python guards both) | ACCEPTABLE by design — Python is SOT for bounds enforcement |
+
+**Notes on one acceptable structural difference:** The TypeScript module does not replicate the `_validate_constants()` runtime guard or the `_ENEMY_RATIO_MIN` / `_ENEMY_RATIO_MAX` bound constants. This is by design per rocket's Path B cross-language pattern: Python is the authoritative fail-loud layer; TypeScript is a mirror for rendering consumption. Drax (demo) does not need a load-time validator — if a TS-side drift occurs, it will surface at jack-ryan's WP-12 checkpoint review before shipping. Discipline #16 documents this responsibility explicitly.
+
+**Parity verdict: CONFIRMED. No drift found. Cross-language contract intact.**
+
+#### Item 2 — Discipline #16 authored: COMPLETE
+
+`reincarnated-engine/design/working-agreement/engineering-disciplines.md` Discipline #16 (Tuning-drift discipline — perception asymmetry) authored and appended. Format matches existing #11/#12/#13a/#15 structure:
+
+- Named the two canonical constants and their source files (Python + TS)
+- Documented valid bounds with failure-mode rationale sourced from gandalf § 2.4
+- Stated the three required steps for any factor change (gandalf sign-off + same-commit + jack-ryan re-validation)
+- Noted the Python runtime guard (`_validate_constants()`) as the structural enforcement layer
+- Explained why this is a design contract, not a tuning parameter (total asymmetry budget; genre-convergence rationale)
+- Triggerable Gate-1 question added
+- Cross-references to canonical briefing, both source files, MIGRATION.md §v3.4, and WP-12
+
+Anatomy note updated: `#1-#15` → `#1-#16`. Cross-references section extended.
+
+#### Item 3 — WP-12 watchpoint added: COMPLETE
+
+`agentic_orchestration/hive-mind/watchpoints-2026-05-17.md` WP-12 appended:
+
+- **WP-12 — Perception-asymmetry constants drift check (Discipline #16)**
+- Baseline table documented: both constants confirmed `1.12` / `0.90`, in-bounds, parity CONFIRMED
+- Trigger conditions: any commit touching either perception_asymmetry file; any MIGRATION.md §v3.4 amendment; any gandalf briefing amending the asymmetry budget
+- Active observation queue updated with WP-12 row
+
+#### Items not yet checkable (deferred — gamora reactive-escape AI not yet landed)
+
+Per dispatch § 7.1 rows 14-15 + briefing § 5.3: the KPM gauntlet spillover-ratio validation (player AOE 5-15%; enemy AOE safety-count 10-25%) is blocked on gamora's reactive-escape AI dispatch completing. This is a post-gamora validation obligation documented in WP-12 (will surface as a sub-item once gamora's tag lands).
+
+#### Acceptance criteria status
+
+- [x] Parity diff complete; both files numerically aligned
+- [x] Tuning-drift discipline entry authored in engineering-disciplines.md (#16)
+- [x] Watchpoint WP-12 added
+- [x] Hive-log STATE entry (this entry)
+- [ ] Tag `jack-ryan/v1.1-perception-asymmetry-parity-validation-1` — pending commit
+
+— jack-ryan
+

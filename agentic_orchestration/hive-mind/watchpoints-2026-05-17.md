@@ -227,6 +227,47 @@ Per perception-test-experiment-scoping § 7.3: jack-ryan reviews drax's referenc
 
 ---
 
+## WP-12 — Perception-asymmetry constants drift check (Discipline #16)
+
+**Risk level:** MEDIUM (single-constant drift breaks cross-language parity; cross-language parity is structural per gandalf v1.5 briefing § 5.4)
+**Discipline ref:** engineering-disciplines.md #16 (tuning-drift discipline — perception asymmetry)
+**Protocol ref:** gandalf binding v1.5 briefing § 5.4; MIGRATION.md §v3.4
+
+### What to check at every checkpoint review
+
+1. **Python constant values** (`reincarnated-engine/src/reincarnated/foundation/perception_asymmetry.py`):
+   - `ENEMY_AOE_APPARENT_RATIO` is `1.12` (or if intentionally changed: within [1.08, 1.18] AND gandalf sign-off recorded)
+   - `PLAYER_AOE_APPARENT_RATIO` is `0.90` (or if intentionally changed: within [0.85, 0.93] AND gandalf sign-off recorded)
+
+2. **TypeScript constant values** (`reincarnated-demo/src/data/perceptionAsymmetry.ts`):
+   - `ENEMY_AOE_APPARENT_RATIO` matches Python value exactly (currently `1.12`)
+   - `PLAYER_AOE_APPARENT_RATIO` matches Python value exactly (currently `0.90`)
+
+3. **Same-commit discipline:** if either file has changed, confirm the companion file changed in the SAME commit. A commit touching only one of the two files is a discipline violation.
+
+4. **Bounds guard active:** confirm `_validate_constants()` at module load in Python is still present and references the current bounds. Any removal or weakening of the bounds guard is a BLOCK.
+
+### Trigger conditions
+
+- Any commit to `perception_asymmetry.py` or `perceptionAsymmetry.ts`
+- Any commit to `reincarnated-engine/src/reincarnated/generation/MIGRATION.md` §v3.4 (schema amendment)
+- Any new gandalf briefing that amends the asymmetry-budget centroid
+
+### Baseline (validated 2026-05-17 at `rocket/v1.9-perception-asymmetry-module-1`)
+
+| Constant | Python | TypeScript | In-bounds |
+|---|---|---|---|
+| `ENEMY_AOE_APPARENT_RATIO` | `1.12` | `1.12` | YES — [1.08, 1.18] |
+| `PLAYER_AOE_APPARENT_RATIO` | `0.90` | `0.90` | YES — [0.85, 0.93] |
+
+Parity: CONFIRMED. Bounds: PASS. `_validate_constants()`: PRESENT.
+
+**Files monitored:**
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/foundation/perception_asymmetry.py`
+- `/Users/admin/Games/reincarnated-demo/src/data/perceptionAsymmetry.ts`
+
+---
+
 ## Active observation queue (updated 2026-05-18 post-D3 checkpoint review)
 
 | Priority | Item | Status |
@@ -245,6 +286,7 @@ Per perception-test-experiment-scoping § 7.3: jack-ryan reviews drax's referenc
 | 1 | roles.yaml DPS-floor tag cleanup | INFO — route to rocket micro-task |
 | 2 | New-substrate end-to-end integration smoke | INFO — gamora D10 code phase commitment |
 | 3 | D3 → D14 downstream smoke (Layer-3 diversity gate) | Active — monitor as D8/D9 impl lands |
+| WP-12 | Perception-asymmetry constants drift check | ACTIVE — continuous; trigger on any change to perception_asymmetry.py or perceptionAsymmetry.ts |
 
 ---
 
