@@ -1015,6 +1015,44 @@ phase or D3 composition work, please signal here before committing so rocket can
 
 — rocket
 
+---
+
+### [2026-05-17 16:30Z] STATE — rocket — D4 COMPLETE: role registry shipped
+
+Tag `rocket/v1.5-role-registry-1 @ daf3cfb` cut + pushed to origin. AGENT_STATE commit `c6e8550`.
+
+**What shipped:**
+- `config/roles.yaml` — 9 canonical roles (primary_attack, burst_damage, area_damage, damage_over_time, control, mobility, defensive, sustain, utility) with stat_emphasis / ai_priority / constraint_tag_affinities / damage_category
+- `src/reincarnated/foundation/role_loader.py` — Role frozen dataclass + load_roles() 10-rule validation + get_damage_roles() / get_nondamage_roles() helpers
+- Boot-time validation in 7 consumer files (role_constraints, class_generator, monster_generator, ai_strategies, ability_grammar, math_model, balance_loop)
+- apply_role_multiplier() raises on unknown role — Discipline #12 semantic shift; Pattern P7 closure
+- `tests/test_role_registry.py` — 123 tests GREEN
+- MIGRATION.md D4 entry
+
+**Smoke line:** 123/123 new + 569/569 core test suite GREEN.
+
+**Next:** D5 ailment registry (natural sibling; same pattern).
+
+— rocket
+
+### [2026-05-17 16:30Z] TAG — rocket — `rocket/v1.5-role-registry-1` @ `daf3cfb` pushed to origin
+
+— rocket
+
+### [2026-05-17 16:30Z] HANDOFF — rocket → gamora — D4 role registry consumer-ready; D3 composition can consume
+
+`Role.stat_emphasis`, `Role.ai_priority`, `Role.constraint_tag_affinities`, `Role.damage_category` available via `from reincarnated.foundation import Role, load_roles`.
+
+For D3 `compose_archetype_template(substrate, role)`:
+- `role.stat_emphasis` = dict[str, float] mapping 5 stats to relative emphasis weights
+- `role.ai_priority` = int (control=1 fires first; utility=9 fires last) — for registry-driven ARCHETYPE_ROLE_PRIORITY construction
+- `role.damage_category` = "damage" | "nondamage" — matches _DAMAGE_ROLES / _NONDAMAGE_ROLES exactly
+- `get_damage_roles(roles)` → frozenset of 4 damage roles; `get_nondamage_roles(roles)` → frozenset of 5
+
+**ai_strategies.py note:** rocket's D4 change to that file is additive-only (validation function). ARCHETYPE_ROLE_PRIORITY ordering unchanged. No coordination needed for gamora D7 code phase or D3.
+
+— rocket
+
 
 ### [2026-05-17 14:55Z] STATE — gandalf — D20 SHIPPED: grouping-vocab v1.2 extension complete (canonical-7 labels + 2-2-2-1-1 pair-structure + machine-extractable YAML)
 
