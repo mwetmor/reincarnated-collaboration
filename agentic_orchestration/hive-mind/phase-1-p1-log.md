@@ -2776,3 +2776,121 @@ Knight-rider next-task spawn (D8 + D9 design authoring) SHIPPED at meaningful ch
 The substrate identities become traits the player can wear. The substrate identities become gear the player can equip. Phase-1 P1's Layer-1 (identity declarations) propagates through Layer-2 (composition) into Layer-3 (trait + affix surfaces) coherently top-to-bottom.
 
 — gandalf
+
+---
+
+### [2026-05-18 HH:MMZ] STATE — gamora — D10 math note session open
+
+Required reading complete (all required docs per dispatch):
+- `phase-1-p1-log.md` — full read top to bottom. Confirmed state at session open:
+  - D1 ✅ (`1e951be`) + D4 ✅ (`daf3cfb`) + D5 ✅ (`dc7de2d`) + D7 ✅ (`7ec1ff5`) + D2 ✅ (`79fbf41`) — all D10 prerequisites met
+  - Gandalf Q1 ANSWERED [23:35Z/00:35Z]: NO forbidden (substrate × role) combos; frequency-weighting sufficient
+  - Gandalf Q2 ANSWERED [23:40Z/00:40Z]: option (a) `forbidden_hybrid_with` field; AMENDMENT filed; rocket micro-task SHIPPED (`49504d0`)
+  - Jack-ryan Q4 FLOOR auto-accepted: FLOOR=0.0 strict (knight-rider standing L3 authority)
+  - D6 Step 4 + Coupling #9 SHIPPED (`3d84a24`): naming.py + recorder now iterate all 7 substrates
+  - D3 math note COMPLETE (`9627343`) — jack-ryan review pending
+- `scope-of-work-phase-1-p1.md` § 1.2 D10 — full read
+- `coordination-matrix.md` D10 row — confirmed
+- `substrate-expansion-decision-2026-05-17.md` § 5.4 + § 6.5 — full read
+- `substrate-identity-declarations-2026-05-17.md` — all 7 declarations; `role_affinities` confirmed
+- `generation/math/d3-path-a-archetype-composition-phase-1-p1.md` § 9 — 21-archetype catalog confirmed
+- `simulation/math/resistance-matrix-7x7-phase-1-p1.md` — substrate-pair valence confirmed
+- `generation/season_orchestrator.py` — CLASS_COUNT_RANGE=(10,12); cycle logic at line 575
+- `generation/trial_generator.py` — D2 Coupling #5 already fixed; `_roll_resistances()` iterates registry
+- AGENT_STATE.md
+
+**Pre-conditions verified:**
+- Working tree: CLEAN (engine main at `6fea075` before session; `3d84a24` + `6fea075` = D6 Step 4 + star-lord AGENT_STATE)
+- No concurrent-edit conflicts with D10 target files (`generation/math/` dir is new file only)
+- D10 dispatch is explicit: MATH NOTE ONLY. NO CODE.
+
+**Task acknowledgement:** Deliverable 10 — Substrate-coherent generation rules MATH NOTE. Discipline #1: math-before-code. Executing under distributed authority (L1 in-seam).
+
+— gamora
+
+### [2026-05-18 HH:MMZ] STATE — gamora — D10 math note COMPLETE; jack-ryan-ready
+
+`generation/math/d10-substrate-coherent-generation-rules-phase-1-p1.md` authored and committed.
+Commit `abab9c4`. AGENT_STATE update commit `c66fbcb`.
+Tag `gamora/v1.4-d10-substrate-coherent-gen-math-1 @ abab9c4` pushed to origin.
+
+**All 11 required sections authored:**
+
+**Key results:**
+- **CLASS_COUNT_RANGE unchanged.** (10, 12) is sufficient for 7-substrate spirit-swap differentiation. No change needed.
+- **Affinity-weighted frequency distribution:** All 7 substrates within ±5% of 14.3% baseline. Holy lowest at 10.7% (acceptable; Phase-5-gated support drives this). Earth highest at 16.7%. No algorithm correction needed for Phase-1 P1.
+- **Spirit-swap differentiation ceiling:** Canonical-7 Trial pool ceiling at ~14.7 sessions (coupon-collector for 6 non-player substrates); well beyond 8-12 session window. Explicit improvement from canonical-four's ~5.5 sessions.
+- **5-season worked example:** P(≥5 distinct substrates in 50 elemental slots) > 99.5%.
+- **Trial boss:** Uniform weighting recommended; E[2.53 distinct Trial substrates per season].
+- **D10 code phase estimate:** ~4 days; BLOCKED on D3 code phase.
+- **`select_trial_substrate()` API:** fail-loud for empty pool; physical player edge case handled.
+- **Semantic shift (Discipline #12):** cycle → affinity-weighted sampling declared in § 1.4.
+- **Discipline #13 closure:** spirit-swap differentiation rule made explicit at generation layer.
+- **Pattern P7 compliance:** empty pool raises; no silent default.
+
+**4 open questions for § 10 (routes follow):**
+
+— gamora
+
+### [2026-05-18 HH:MMZ] TAG — gamora — `gamora/v1.4-d10-substrate-coherent-gen-math-1` @ `abab9c4` pushed to origin
+
+Math-note checkpoint per protocol § 5.2.
+Commit `abab9c4` (D10 math note + AGENT_STATE). AGENT_STATE hash-update commit `c66fbcb`.
+
+— gamora
+
+### [2026-05-18 HH:MMZ] HANDOFF — gamora → jack-ryan — D10 math note ready for review
+
+**File:** `reincarnated-engine/src/reincarnated/generation/math/d10-substrate-coherent-generation-rules-phase-1-p1.md`
+**Tag:** `gamora/v1.4-d10-substrate-coherent-gen-math-1 @ abab9c4`
+
+Jack-ryan review focus (Discipline #1 + WP-2c-adjacent):
+
+1. **§ 2.4 Affinity weight construction** — is the `BURST_AREA_SPLIT` table defensible? The split between burst_damage and area_damage for each substrate (e.g., fire: 1.0/0.0; earth: 0.3/0.7) reflects the substrate's combat pillar. Review whether the split rationale is grounded or needs gandalf cosmological input.
+
+2. **§ 2.5 Worked example math** — verify the occupancy / coupon-collector calculations. Specifically: P(≥4 distinct substrates in one 10-slot season) = 0.921, and P(≥5 distinct substrates in 50 slots) > 99.5%.
+
+3. **§ 6.2 Holy frequency at 10.7%** — is this within acceptable tolerance, or does WP-2c-adjacent apply? Holy is at the -3.6 point deviation from 14.3% baseline; within the ±5% acceptable window, but the lowest of all 7 substrates. Note that this flows directly from the Phase-5-gated support affinity (holy's primary affinity is `support: 0.8` but support archetypes are excluded from Phase-1 P1 rotation sampling). Does jack-ryan want to surface this as INFO or WARN?
+
+4. **§ 7.2 Pattern P7 guard** — does the `ValueError` on empty pool satisfy the watchpoint? Specifically: does jack-ryan see any other silent-default risk sites in the proposed implementation contract (§ 8)?
+
+5. **§ 8.3 `player_substrate=None` additive API** — is the additive parameter change (defaulting to "no exclusion" = current behavior) sufficient to preserve backward compatibility with existing test callers?
+
+6. **§ 10 Open questions routing** — Q1 and Q2 route to gandalf; Q3 to jack-ryan (already flagged; see item 3 above); Q4 to knight-rider.
+
+**Discipline checks for jack-ryan:**
+- Discipline #12 (semantic shift): declared in § 1.4 — is the framing clear and complete?
+- Discipline #13 (implicit-pillar drift): § 1.5 makes the spirit-swap differentiation rule explicit — does this closure satisfy WP-2c-adjacent at the generation layer?
+- Pattern P7: § 7.2 + § 7.3 physical-player edge case — does the handling satisfy the watchpoint?
+
+— gamora
+
+### [2026-05-18 HH:MMZ] QUESTION — gamora → gandalf — D10 § 10 Q1: Trial boss weighting (uniform vs control-affinity)
+
+Per D10 math note § 10 Q1:
+
+**Should Trial boss substrate selection be uniform across 6 non-player substrates, or weighted by `role_affinities.control`?**
+
+Math note recommendation: uniform for Phase-1 P1. Rationale: uniform gives all 6 non-player substrates equal boss presence; role_affinities_control weighting would systematically under-represent holy (11.3% vs 16.7% uniform) in the Trial boss pool, compounding the already-lower class rotation frequency (10.7%). The resistance matrix (D7) already creates natural tactical variety via the luminance axis — weighting on top of that double-penalizes holy/shadow in the boss pool.
+
+**Requesting gandalf cosmological confirmation:** Is uniform weighting cosmologically neutral, or does the Trial's cosmological role (confrontation with a distinct substrate identity) call for a specific weighting? If gandalf wants high-control substrates (earth, water, wind) to be more frequent Trial adversaries, `role_affinities_control` weighting is the implementation; if cosmological intent is neutral substrate presence in the Trial, uniform is the answer.
+
+**Not blocking D10 code phase** — uniform is the safe default; weighting is a one-parameter change at implementation time.
+
+— gamora
+
+### [2026-05-18 HH:MMZ] QUESTION — gamora → gandalf — D10 § 10 Q2: player substrate suppression in class rotation
+
+Per D10 math note § 10 Q2:
+
+**Should the class rotation algorithm suppress (reduce sampling probability) the player's current substrate, rather than merely excluding it from the Trial boss pool?**
+
+Current D10 recommendation: no suppression of player's substrate in class rotation. The player can be offered the same substrate in the class pool (they can play fire again if fire_mage is in the season's offerings; the differentiation rule applies only to Trial boss, not available classes).
+
+**Design question for gandalf:** Does the cosmological intent of spirit-swap differentiation extend to the class pool? The Court of Forms accumulates forms the player chose to become — if holy is always available, the player may never feel pulled to try shadow. A weight-suppression rule (reduce holy's sampling probability by 30-50% when the player is already a holy archetype) would make "try a new substrate" feel structurally encouraged without removing player agency.
+
+**Recommendation:** defer to Phase-1 P2. The `exclude_substrates` parameter in `sample_season_archetypes()` is reserved for this future use (per § 2.6). For Phase-1 P1, no suppression.
+
+**Requesting gandalf design-direction:** Is Phase-1 P1 scope the right gate, or is this worth implementing now while the generation layer is in flux?
+
+— gamora
