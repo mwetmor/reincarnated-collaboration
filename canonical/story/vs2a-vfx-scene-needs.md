@@ -601,28 +601,521 @@ The spec **does not pre-commit** to any of these expanding cipher-width. Section
 
 ---
 
-## Section 4 — Per-encounter scene-walkthroughs (VS2b forward-looking, per Sub-decision C = Option II)
+## Section 4 — Per-encounter scene-walkthroughs (gandalf; Option II forward-looking)
 
-**(Pending — gandalf parallel session)**
+Per Sub-decision C Option II lock: per-encounter scene-walkthroughs for VS2a + VS2b forward-looking. Each walkthrough describes what the encounter *looks and feels like* in the rendered demo — VFX choreography, substrate-tag selection, drax Slot (A-F) sequencing, embodiment renderings (per Sub-decision B mix-mode), and amendment-trigger placeholders for post-Step-B sub-locks.
+
+These walkthroughs are **the visual storyboards** for the encounter types. Drax's first VS2a integration consumes them as "what the gauntlet should look like when it ships," cross-referenced against drax's Section 2 slot taxonomy. Elrond's Pimen subset selection consumes them as "what substrate-tags Section 3 needs to deliver."
+
+### 4.1 Walkthrough — Swarm encounter
+
+**Encounter profile.** Player enters a room. 8-12 swarm units (PackProxy entity per gamora B10.2) cluster in the middle distance. Pack-cluster aura envelops the cluster — element-coded (Section 1.4 R1 element-palette consistency), single uniform color, *visible at room-clear distance* so the player reads "swarm threat" before melee engagement.
+
+**Substrate-tag selection (canonical-7 element example: fire-coded swarm).**
+- Tier-aura substrate-tag: **pack-cluster** (unified, fire-palette, low-frequency pulse animation)
+- Per-unit silhouette: simple; 16-24px monster sprites for high-density rendering
+- Per-unit element identity: implicit through cluster aura, NOT through per-unit palette-tint (would crowd visual field)
+
+**VFX choreography during combat (mapped to drax Slot taxonomy):**
+1. Player approaches; cluster aura intensifies subtly (drax pipeline: Slot E ambient-style sustained loop; aura-pulse-on-detection trigger locked to player-proximity event)
+2. Pack engages; per-unit attacks fire (simple melee or projectile)
+3. Per-unit Slot A (cast-charge): minimal or absent — swarm units don't telegraph individually; the pack-cluster aura IS the threat read
+4. Per-unit Slot B (projectile, where applicable): visually small — 32×32 frame budget per unit; element-substrate-tagged projectile
+5. Per-unit Slot C (impact): brief impact-burst at 4-6 frames; element-substrate-tagged; intentionally less elaborate than trash-tier impact to prevent visual chaos at density
+6. Pack-shared status applications (rare; affixed swarms only): Slot D triggers cluster-wide aura-color-shift for 2-4 sec, then aura reverts to baseline
+7. As swarm depletes (units die), cluster aura visibly thins (asset count of aura particles tied to surviving-unit count; drax pipeline composition with `aoeRings` or `auras` pool)
+8. Last 1-2 units alive: cluster aura collapses to faint individual aura per surviving unit (per `enemy-visual-legibility.md` S6: pack collapses, transition to individual-trash rendering); allows the player to "clean up" without losing visual clarity
+
+**Embodiment-axis rendering (per Sub-decision B mix-mode).**
+- **Humanoid swarm** (default; chierit-derived simple humanoid sprite): standard rendering per above
+- **Beast swarm** (skeleton-archetype Pimen; rat-pack genre-precedent): same rendering; beast silhouette substituted
+- **Swarm embodiment** (hive-mind self-similar; per `embodiment-narrative-layer.md`): cluster aura BECOMES the entity-identity; per-unit silhouette even simpler — the swarm-form makes more visual sense than humanoid swarm
+- **Other embodiments** (slime / plant / construct / etc.): generation-eligible but VFX-mapping requires non-humanoid sprite assets not curated at VS2a; defers to VS2b
+
+**Per-substrate variant (canonical-7 walkthrough applies to each):**
+
+| Element substrate | Pack-cluster aura signature | Per-unit attack VFX expectation |
+|---|---|---|
+| fire | Warm reds/oranges pulse; ember-particle accents | Quick melee with fire-trail; mini-fireball projectile |
+| water | Blue/teal slow pulse; mist-particle accents | Splash-impact melee; water-bolt projectile |
+| earth | Brown/ochre stable hum; dust-particle accents | Slam impact; pebble-projectile |
+| wind | Pale-blue/white quick pulse; dust-streak accents | Air-slash melee; wind-bolt projectile |
+| lightning | Yellow-white sharp pulse with arc-flicker; spark accents | Zap melee; lightning-bolt projectile |
+| holy | Warm gold/white steady glow; light-shimmer accents | Light-strike melee; light-bolt projectile |
+| shadow | Deep purple/black low pulse; void-particle accents | Drain-strike melee; shadow-bolt projectile |
+| physical (no element) | Neutral grey/iron clinical pulse; no element accents | Pure-impact melee; arrow/dart projectile |
+
+**Register-fence per UI surface application.** Damage numbers off swarm-pack render in canonical-7 substrate words ("fire 12"); status-effect labels render canonical-7-derived ("burning"); item drops from the pack carry per-season label register; flavor text on those items carries per-season vocabulary. No mixed register within any single block.
+
+**Cinematic frame trigger.** None. Swarm is mob-density experience; encounter-banner sufficient.
+
+**Amendment-trigger conditions (VS2b forward-looking per Option II).**
+- IF cipher-width-expanded substrate lands (e.g., `necrotic` becomes a substrate slot): pack-cluster aura signature for necrotic-swarm is dark-purple-decay register; Frostwindz Deathbringer asset family supplies the visual evidence
+- IF per-embodiment narrative-skin display (Stage 4 form-bias migration) lands: per-unit sprite rendering of slime-swarm / construct-swarm becomes scope-active; non-humanoid sprite assets required
+- IF status-application cipher rendering at Stage 3 cipher-migration lands: status-effect label register on the pack shifts from canonical-7-derived to per-season-derived in flavor-text surfaces only (stats-block stays canonical-7 per the register-fence rule)
+
+### 4.2 Walkthrough — Trash encounter
+
+**Encounter profile.** Player enters a room. 1-3 trash-tier monsters scattered in the room. No pack-cluster aura (trash is per-unit threat read). Each unit reads as a *singular threat* — element-palette tint visible on the sprite; tier-aura class is `none` (baseline); name-banner is `standard`.
+
+**Substrate-tag selection (canonical-7 element example: fire-coded trash).**
+- Tier-aura substrate-tag: **none** baseline (silhouette + name-banner carry tier)
+- Element substrate-tag: **fire** palette-tint applied to base sprite via Pixi.js tint operation
+- Per-unit silhouette: standard 32-64px monster sprite (sprite-archetype tag per `enemy-visual-legibility.md` S1)
+
+**VFX choreography during combat (mapped to drax Slot taxonomy):**
+1. Player approaches; trash unit aggro-trigger fires; minimal pre-aggro VFX
+2. Slot A (cast-charge): brief — 4-6 frames at 80ms each; visible but not dodge-demanding (per § 1.4 R3 continuity rule). For elemental mage trash, drax Section 2.2 Slot A "Procedural acceptable for VS2a (radial glow Graphics object scaled to element color)" — fits trash-tier perfectly without per-element catalogued cast-charge asset
+3. Slot B (projectile, where applicable): substrate-tagged projectile asset (fire-bolt at 8-12 frames, element-coded)
+4. Slot C (impact): standard impact-burst (substrate-tagged: `fire-impact` at 6-8 frames; front-loaded peak frame per drax Section 2.2 Slot C frame discipline)
+5. Slot D (status-application, where the skill has one): brief status-application VFX (faint particle burst at impact)
+6. Slot E (status-ambient): persists for status duration (simple looping element-coded particle, low frame count to avoid frame-rate cost at gauntlet density — per drax Section 2.2 Slot E performance discipline)
+7. Trash unit dies: standard death animation; loot drops (canonical loot-drop VFX, currently demo1-default)
+
+**Embodiment-axis rendering.**
+- **Humanoid trash** (chierit-derived simple monster sprite): standard
+- **Beast trash** (Pimen skeleton-archetype): well-supported
+- **Slime trash**, **Spirit trash**, etc.: deferred to VS2b; curation drives at VS2a
+
+**Per-substrate teaching role (per § 1.2 substrate teaching).** Trash encounter is where the player builds element-identity recognition. Same season; multiple seasons of trash; player learns "fire trash = warm-red palette + ember-particle + fire-bolt projectile" by the second encounter of season N. The teaching depends on **consistency**: ALL fire-trash in season N renders identically at the substrate-VFX level. Drax pipeline enforcement: substrate-tag → asset-family lookup is deterministic per season.
+
+**Cinematic frame trigger.** None.
+
+**Amendment-trigger conditions (VS2b forward-looking).**
+- IF cipher-width-expanded substrate lands: trash-tier element-palette tint extends to new substrate slots; e.g., `crystal-trash` renders with gem-mineral element-palette
+- IF Stage 4 per-embodiment narrative-skin display lands: trash-tier non-humanoid renderings unlock; sprite-archetype + element-palette compose
+- IF B13 dodge-mechanic Stage A2 closeout lands: trash cast-charge VFX may extend windup slightly (still brief but more telegraph-readable for cast-prep teaching); Slot A register stays trash-tier
+
+### 4.3 Walkthrough — Magic encounter
+
+**Encounter profile.** Player enters a room. 1-3 magic-tier monsters — visually distinct from trash via faint shimmer aura (per `enemy-visual-legibility.md` S3 magic tier). Magic-tier monsters carry a prefix-style affix (Diablo II precedent): "Fire Burning" (status-application affix); "Quick" (movement speed affix); etc.
+
+**Substrate-tag selection (canonical-7 element example: fire-coded magic; "Fire Burning" affix).**
+- Tier-aura substrate-tag: **faint** (element-palette shimmer; low-frequency animation; sustained Slot-E-style loop)
+- Element substrate-tag: fire (primary palette + aura coloring)
+- Status-affix substrate-tag: status-application (burning); burning DoT visualizable on player-character post-hit (Slots D + E on player)
+- Per-unit silhouette: standard 32-64px monster sprite, slightly upgraded animation density vs trash
+
+**VFX choreography during combat (mapped to drax Slot taxonomy):**
+1. Player approaches; magic unit's faint shimmer aura visible at engagement distance (Diablo II shipped this exact pattern — magic-tier monsters glow blue or pulse with their affix color)
+2. Slot A (cast-charge): more elaborate than trash (8-12 frames; visible windup); element-coded
+3. Slot B (projectile): carries element-substrate + secondary status-affix tint
+4. Slot C (impact): element-coded impact-burst PLUS small status-application secondary VFX (small "burning" particle attaching to player)
+5. Slot D (status-apply): brief status-application animation (Pimen `debuff` pack source per drax Section 2.2)
+6. Slot E (status-ambient): persists on player (burning DoT animation; 4-6 frames looping; subtle but visible)
+7. Magic unit's aura subtly intensifies during its own active-attack moments (pulse-on-cast pattern)
+
+**Embodiment-axis rendering.** Same as trash but with the magic-tier shimmer aura applied; aura asset is element-coded composition (drax pipeline: aura-particle-system + element-tint).
+
+**Per-substrate variant.** Each canonical-7 element has its faint-shimmer rendering target:
+
+| Element | Shimmer signature |
+|---|---|
+| fire | Warm-red flickering ember-shimmer; brief duration, frequent recurrence |
+| water | Blue-teal flowing-shimmer; gentle, steady |
+| earth | Brown-ochre stable-shimmer; minimal animation, palette-coded |
+| wind | Pale-blue dusty-shimmer; quick wisps |
+| lightning | Yellow-white static-shimmer; brief sharp flicks |
+| holy | Gold-white halo-shimmer; soft, steady |
+| shadow | Purple-black void-shimmer; ominous, slow |
+
+**Affix layering.** When the affix is element-mixed (e.g., a fire-monster with `Cold-Slowing` affix), the aura blends two element palettes; the affix-status-application uses the secondary element's substrate-tag.
+
+**Register-fence application.** Affix names render in canonical-7-derived register at combat-text surfaces ("Fire Burning Goblin"); flavor on the affix (e.g., codex entry) renders in per-season vocabulary.
+
+**Cinematic frame trigger.** None.
+
+**Amendment-trigger conditions (VS2b forward-looking).**
+- IF affix-on-monster substrate cipher-width expands: magic-tier affix vocabulary at LLM-visible surface shifts (per cipher migration); register-fence rule preserves stats-block at canonical-7
+- IF status-application cipher renames at Stage 3 cipher: status-ambient particle name in player-facing surfaces (codex/flavor) becomes per-season-vocabulary; status-effect icon tooltip stays canonical-7
+
+### 4.4 Walkthrough — Pack encounter
+
+**Encounter profile.** Player enters a room. 1-3 monsters arranged geometrically (Diablo III pack-precedent: synchronous teleport, formation arrangement). Pack-shared visible aura links the units; pack-shared affix(es) carry distinct VFX signature(s).
+
+**Substrate-tag selection (canonical-7 example: fire-pack with Vortex + Burning affixes).**
+- Tier-aura substrate-tag: **visible** with pack-shared coloring (element + affix-coloring; per `enemy-visual-legibility.md` S3)
+- Element substrate-tag: fire (primary)
+- Affix substrate-tags: vortex (mechanic-family: ambient-environmental persistent area), burning (status-application)
+- Per-unit silhouette: standard, but linked by aura visualization
+
+**VFX choreography during combat (mapped to drax Slot taxonomy):**
+1. Player approaches; pack-shared aura visible (single envelope around the geometric arrangement of units); slow synchronized pulse-pattern
+2. Pack-coordinated cast moment fires: ALL units simultaneously trigger Slot A (cast-charge); cast-charge VFX is synchronized; Slot C impact lands as multi-source convergent burst
+3. Vortex affix creates persistent area effect (ambient-environmental substrate-tag; element-coded fire-vortex; 12-24 frame loop; covers ~3×3 tile arena segment) — drax `aoeRings` or dedicated `vortexPulls` pool per `vfxPools`
+4. Burning affix Slot D applies status to player on contact with vortex OR on direct hit; Slot E sustains burn ambient
+5. Pack-shared aura intensifies during synchronous-cast; relaxes between moments
+6. Killing one pack unit: pack-shared aura unchanged for remaining units (Diablo III precedent: rare-pack affixes persist while any unit alive); affix area-effects unchanged
+7. Last pack unit dying: pack-shared aura collapses; remaining vortex-area-effect fades over 2-4 seconds
+
+**Embodiment-axis rendering.** Same as trash/magic; pack-shared aura overlays atop per-unit sprite-archetype rendering.
+
+**Affix-variety design framing.** Pack affixes are *the variety surface* — packs can ship 2-3 affix combinations (Vortex+Burning; Slowing+Pulling; Teleporting+Explosive). Each affix maps to a mechanic-family substrate-tag from Section 3 Axis 2; each affix VFX is asset-composition (drax pipeline: base mob + affix-aura + affix-effect-asset).
+
+**Cinematic frame trigger.** None.
+
+**Amendment-trigger conditions (VS2b forward-looking).**
+- IF mechanic-family substrate-tag expansion lands (e.g., `movement-displacement` Step B extension): teleport-affix-coded packs get dedicated assets; pre-extension packs render via fallback impact-burst
+- IF per-embodiment narrative-skin display lands: pack composition of non-humanoid forms (e.g., slime-swarm pack with crystallization affix) unlocks; requires non-humanoid sprite + element-palette composition
+
+### 4.5 Walkthrough — Elite encounter
+
+**Encounter profile.** Player enters a room. ONE elite-tier monster, prominently positioned (often central or guarding doorway). Visible element-coded aura; pronounced cast-charge VFX on signature attacks; elevated silhouette-detail.
+
+**Substrate-tag selection (canonical-7 example: lightning-coded elite).**
+- Tier-aura substrate-tag: **visible** (single-color, lightning-palette aura, distinct pulse-pattern; per `enemy-visual-legibility.md` S3)
+- Element substrate-tag: lightning
+- Per-unit silhouette: standard-to-detailed (`display_silhouette_complexity = standard or detailed`)
+- Cast-prep-sustained substrate-tag: needed for elite signature cast-charge (load-bearing per Section 1.4 R3; mechanic-family from Step B extension; drax Section 2.2 Slot A primary consumer)
+
+**VFX choreography during combat (mapped to drax Slot taxonomy):**
+1. Player approaches; elite aura visible at room-clear distance; signals threat-arrival per § 1.2 elite diegetic load
+2. Encounter-banner appears (per `enemy-visual-legibility.md` S5 elite name-banner class = colored text + tier icon); player reads tier + element + name; ~1 second on-screen
+3. Elite engages; first attack: standard Slot A cast-charge (similar to magic tier but slightly more elaborate)
+4. Second attack: SIGNATURE Slot A cast-charge — multi-stage windup (charge → focus → release); 16-24 frames at full density; element-coded; lightning-arcs-building or fire-orb-charging or similar substrate-tagged signature
+5. Slot C signature impact: stronger impact-burst (16-frame cinematic-density); screen-edge tint (lightning-yellow flash on screen-corners) at high-magnitude hit
+6. Slot D (status-application from elite attacks): carries elite-coded status-application VFX (distinct from trash status-application — brighter, longer, more deliberate)
+7. Elite low-HP threshold: aura intensifies and color-shifts slightly (warning state); player reads "phase-shift incoming"
+8. Slot F (skill-expired) optional: on high-cooldown elite signature attacks, brief cast-position flash signals signature is on cooldown (per drax Section 2.2 Slot F NPC-cooldown rationale)
+9. Elite dies: stronger death-VFX; element-coded burst on death; loot drop with elite-tier rarity-visual signature
+
+**Embodiment-axis rendering.**
+- **Humanoid elite** (chierit-derived; the chierit Elementals are *exactly* elite-tier rendered sprites per Path A-prime per-slug scale lookup): default + well-supported
+- **Beast elite**, etc.: deferred to VS2b; curation drives at VS2a; Frostwindz class-archetype packs candidate-Tier-1 partial coverage
+
+**Per-substrate variant.** Each canonical-7 element has a signature-attack rendering target. Examples:
+- fire elite: charge-the-flame-orb signature → release-as-massive-fireball impact
+- lightning elite: gather-arc-static signature → release-as-chain-lightning impact
+- shadow elite: coalesce-darkness signature → release-as-shadow-rending impact
+- holy elite: gather-light signature → release-as-radiant-pillar impact
+- (etc., per element)
+
+**Telegraph-teaching role (per § 1.2 elite diegetic load).** The elite Slot A cast-charge is the FIRST encounter type where dodge cognition matters. The signature-attack windup VFX must be visually distinct enough that the player can read "this is the windup; I should dodge or interrupt" within the 16-24 frame budget. B13 narrow-slice's universal dodge mechanic depends on this; the Slot A signature IS the telegraph surface. **This binds Section 3 Gap G1 (cast-prep-sustained substrate coverage) to elite-tier ship.**
+
+**Register-fence application.** Elite name banner (per `enemy-visual-legibility.md` S5 colored + tier icon) renders with element-substrate icon in canonical register; elite's flavor/lore reference in codex renders in per-season vocabulary.
+
+**Cinematic frame trigger.** None at elite tier (encounter-banner suffices).
+
+**Amendment-trigger conditions (VS2b forward-looking).**
+- IF B13 Stage A2 closeout lands defensive mobility geometry expansion: elite Slot A signature density may extend further (more frames; clearer phase markers); same substrate-tag, more rendering density
+- IF per-embodiment narrative-skin display lands: elite-tier slime / dragonling / spirit renderings unlock; substrate-tag composition with non-humanoid sprite-archetype
+- IF cipher-width-expanded substrate lands (e.g., `crystal`, `void`): new element-coded elite signatures author per the new substrate's visual identity
+
+### 4.6 Walkthrough — Mini-boss encounter
+
+**Encounter profile.** Player approaches a sub-arena (often pre-Trial gating). Mini-boss monster centrally positioned; strong two-color aura; encounter-banner with mini-boss tier-flag; possible Spirit-Guide voice-line ("Be wary — this one has tested forms before"). Mini-boss is the gauntlet's *pre-Trial preview* — visually elevated above elite; cinematically a notch below boss/Trial.
+
+**Substrate-tag selection (canonical-7 example: fire-coded mini-boss with secondary shadow flavor).**
+- Tier-aura substrate-tag: **strong** (two-color: fire-primary + shadow-secondary; per `enemy-visual-legibility.md` S3 mini-boss possibly two-color)
+- Element substrate-tag (primary): fire
+- Element substrate-tag (secondary): shadow (flavors aura + carries signature-attack status-application)
+- Per-unit silhouette: detailed-or-distinct (`display_silhouette_complexity = detailed or distinct`)
+- Cast-prep-sustained substrate-tag: extended; multi-stage windup more pronounced than elite
+
+**VFX choreography during combat (mapped to drax Slot taxonomy):**
+1. Pre-encounter: room-edge transitions (drax: scene-transition VFX or screen-fade); player walks into mini-boss arena
+2. Mini-boss aura visible from arena-entry; strong pulse-pattern; two-color rendering (fire + shadow-edge)
+3. Encounter-banner with mini-boss tier-flag appears (per `enemy-visual-legibility.md` S5 colored + tier icon + tier-flag); Spirit Guide voice (1-2 sec) — optional
+4. First attack: ELITE-equivalent Slot A signature attack; mini-boss carries elite-tier signature as baseline AND adds mini-boss-only variant
+5. Mini-boss-only signature: multi-stage Slot A cast-charge with PHASE markers — initial windup → mid-cast warning particle (player should dodge NOW) → release. The phase markers are visually distinct: a brief pause + color-shift + secondary aura-pulse at the warning particle moment, then release
+6. Slot C mini-boss-only impact: cinematic-tier impact-burst (20-frame density); camera-shake; screen-edge tint with element-coloring
+7. Mid-fight aura-evolution: at mid-HP, aura shifts (e.g., fire+shadow → fire+shadow+intensified-secondary); player reads "the fight is escalating"
+8. Sub-phase mechanic (Reincarnated mini-bosses often carry one sub-phase): triggered at HP-threshold; mini-boss casts a phase-transition VFX (asset: cinematic-tier phase-transition; signature-pulse animation); arena dynamic shifts
+9. Mini-boss dies: cinematic death-VFX (16-24 frames; element-coded multi-burst); elite-tier-plus loot drop; possible Spirit Guide voice-line ("Add this one to your record" or similar)
+
+**Embodiment-axis rendering.**
+- **Humanoid mini-boss**: chierit-derived; mini-boss tier scale per Path A-prime (200 px rendered midpoint); well-supported
+- **Beast mini-boss**: Pimen skeleton-archetype scaled; partial support
+- **Dragonling mini-boss**: deferred to VS2b; dragonling-class-fantasy precedent shipped in Slime franchise + Drifting Dragons; non-humanoid asset gap at VS2a
+
+**Per-substrate variant.** Each canonical-7 element has a mini-boss-signature rendering target. The two-color aura always pairs primary + secondary (per `enemy-visual-legibility.md` S3); pairing combinations like fire+shadow, water+holy, earth+wind, lightning+impact, etc. The secondary signals flavor / status-affinity / sub-cosmology depending on per-season cosmology context.
+
+**Register-fence application.** Mini-boss name banner renders cinematic text with element-substrate icon; mini-boss flavor / codex renders in per-season vocabulary; Spirit Guide voice-line uses per-season vocabulary if the line references season-specific lore (per `embodiment-narrative-layer.md` speech-vocabulary section).
+
+**Cinematic frame trigger.** OPTIONAL at mini-boss tier per § 1.1 table — encounter-banner only is the default; full cinematic pause is reserved for Trial encounter. Mini-boss could OPTIONALLY trigger a brief Spirit Guide voice + banner moment (1-2 seconds) without full screen-takeover.
+
+**Amendment-trigger conditions (VS2b forward-looking).**
+- IF per-embodiment narrative-skin display lands: non-humanoid mini-boss renderings unlock (slime/dragonling/spirit etc. at mini-boss tier); requires non-humanoid sprite + tier-coded scale
+- IF cipher-width-expanded substrate lands: two-color aura combinations may pair canonical-7 with cipher-expanded slot (e.g., fire+crystal mini-boss); secondary substrate-tag composition expands
+- IF Trial moment ritual lands (forthcoming `trial-moment-ritual.md`): mini-boss-as-pre-Trial-preview gets formalized as a specific ritual shape; spec section gets cross-referenced
+- IF boss-cinematic asset register option (b) lands per `enemy-visual-legibility.md` Q4: per-season cinematic-aura set covers mini-boss tier too
+
+### 4.7 Walkthrough — Boss / Trial encounter
+
+**Encounter profile.** Act-culmination. Player approaches the Trial arena. The arena itself has cinematic visual treatment (per-season aura at room-edge; per-season environment tile-set; signature ambient-environmental VFX). Trial encounter triggers the Trial moment ritual: pause-the-game cinematic frame → full LLM-name banner at cinematic-banner scale → Spirit Guide leans in with one contextual voice line → Body-swap/Mirror choice screen surfaces.
+
+**Substrate-tag selection (canonical-7 example: holy-coded Trial boss; "Lantern-Keeper of Yomi's Winds" name per generation).**
+- Tier-aura substrate-tag: **cinematic** (signature aura, often pulsing or animated; screen-edge tint; distinctive shape; per `enemy-visual-legibility.md` S3)
+- Element substrate-tag (primary): holy
+- Element substrate-tag (secondary, where applicable): per Trial boss's converged class fantasy
+- Per-unit silhouette: distinct (`display_silhouette_complexity = distinct`)
+- Cinematic-frame VFX: full screen-takeover at encounter trigger
+- Trial-boss cloak overlay (per `enemy-visual-legibility.md` S4): distinctive aura + silhouette enhancement applied on top of base archetype-sprite
+
+**VFX choreography during combat — Pre-encounter ritual (mapped to drax Slot taxonomy):**
+1. Pre-arena: room-transition VFX with cinematic-tier signature (screen-fade, element-edge-glow, ambient soundscape if audio shipped); Spirit Guide voice-line builds anticipation
+2. Player enters Trial arena; environmental VFX renders (per-season environment tile-set with ambient-environmental aura; e.g., Yomi-season Trial = pomegranate-tree silhouette + wind-shifted ambient particles)
+3. Trial boss revealed; cinematic-tier signature aura visible immediately at room-clear distance (sustained Slot E-class ambient aura at boss-tier intensity)
+4. Trial moment ritual fires (per `enemy-visual-legibility.md` S4 + `court-of-forms.md` C5):
+   - Pause-the-game: combat suspends; player input locked
+   - Cinematic frame: narrative-moment-tier fidelity (per `style-register.md` § "Narrative-moment tier") full-screen frame; LLM-generated cinematic-frame asset OR LLM-image-generated bespoke per Trial
+   - Trial-boss name banner: cinematic-banner scale (large text; element + season-flavor coloring)
+   - Spirit Guide voice: 1-2 sec contextual line referencing the player's specific class build + the Trial boss's flavor
+   - Choice screen surfaces: Body-swap path OR Mirror path (per `cosmology-reincarnated.md` § Trial Path); player chooses
+5. Combat resumes (after choice); from this point forward, the Trial boss is rendered per the chosen path:
+   - **Body-swap path**: Trial boss renders as the LLM-generated class (sprite-archetype-tagged per the Trial boss class; cinematic aura + cloak overlay applied)
+   - **Mirror path**: Trial boss renders as the PLAYER'S current class/sprite (per `enemy-visual-legibility.md` S7 Mirror exception); recognition-coded subtle cues per cosmology doc
+
+**VFX choreography during combat — Active combat (mapped to drax Slot taxonomy):**
+1. Trial boss multi-attack rotation; Slot A signature attacks at cinematic-tier density
+2. Each signature attack: Slot A cast-charge with explicit phase markers (matches mini-boss + extends); Slot C cinematic impact-burst; camera-shake significant; screen-edge tint sustained for 0.5-1 sec
+3. Phase-transition (Trial bosses typically 2-3 phases): cinematic phase-transition VFX (asset: dedicated cinematic-phase-transition; element-coded multi-burst with screen-takeover-flash)
+4. Mid-phase aura evolution: cinematic aura color-shifts and shape-shifts per phase; arena environment may dynamically shift (drax pipeline: per-phase arena VFX overlay)
+5. Trial boss low-HP: pre-death VFX (gathering-energy signature; ominous aura intensification; possibly Spirit Guide voice if narrative beat warrants)
+6. Trial boss dies: cinematic death-VFX (24+ frames; element-coded multi-burst; screen-takeover-flash; possible cinematic frame for the ascension moment if Body-swap path was chosen)
+7. Post-combat: ascension cinematic frame (per `court-of-forms.md` C5 commemorated-event pattern; Court accumulation moment); narrative-moment-tier fidelity
+
+**Embodiment-axis rendering.**
+- **Humanoid Trial boss**: chierit-derived + element-coded; tier scale per Path A-prime (370 px rendered midpoint); well-supported
+- **Non-humanoid Trial boss** (per Sub-decision B mix-mode): generation-eligible; curation-likely at VS2a low-medium; well-suited for VS2b once non-humanoid sprite assets land via Legolas Mode B commission
+
+**Per-substrate variant — Cinematic aura signature.** Each canonical-7 element has its cinematic-tier signature (per `enemy-visual-legibility.md` Q4 option (b) recommendation: per-season cinematic-aura set; three signatures per season honoring three act-end bosses):
+- fire Trial: blazing-corona signature with screen-edge ember-tint
+- water Trial: depth-of-ocean signature with screen-edge wave-tint
+- earth Trial: stone-stability signature with screen-edge mineral-tint
+- wind Trial: rushing-currents signature with screen-edge atmospheric-tint
+- lightning Trial: storm-crowning signature with screen-edge static-tint
+- holy Trial: pillar-of-light signature with screen-edge radiance-tint
+- shadow Trial: enveloping-darkness signature with screen-edge void-tint
+
+The signatures are *per-season-modulated* — the season's cosmology shapes the rendering. A Yomi-themed wind Trial boss reads with rushing-current signature flavored by Yomi's threshold cosmology (pomegranate-petal-wind particles, threshold-coded color-modulation, etc.). The substrate-tag is wind; the cinematic rendering layers per-season-flavor on top.
+
+**Register-fence application.** Trial boss name banner: cinematic text with element-substrate icon at canonical register; Spirit Guide voice-line uses per-season vocabulary (Yomi season uses threshold/pomegranate/winter-king vocabulary; never uses canonical-7 substrate words like "wind" or "holy" in the line); choice screen UI uses canonical-register at the action labels ("Body-swap" / "Mirror") and per-season flavor at the descriptive prose; post-combat ascension cinematic uses per-season vocabulary in the dialogue + canonical at the mechanical "ascension confirmed" UI.
+
+**Cinematic frame trigger.** YES — full Trial moment ritual.
+
+**Amendment-trigger conditions (VS2b forward-looking).**
+- IF Stage 4 per-embodiment narrative-skin display lands: non-humanoid Trial boss renderings unlock; slime / spirit / dragonling Trial bosses become curation-eligible at VS2b
+- IF cipher-width-expanded substrate lands: cinematic-aura signature library expands; per-season cinematic-aura set covers new substrate slots (the Q4 option (b) approach scales naturally)
+- IF Trial moment ritual doc (`trial-moment-ritual.md`) lands: ritual-specific VFX details get formalized; this section's ritual choreography becomes pointer-to-canonical-doc rather than load-bearing
+- IF per-LLM-cinematic-frame image generation lands at star-lord (per `style-register.md` § "What this locks operationally" Star-lord directive): each Trial encounter gets bespoke LLM-generated cinematic frame asset; current state is asset-library-composed cinematic frames
+- IF B14.5 Trial-boss convergence balance work refines tier mechanics: VFX presence may need to scale with refined difficulty curve; substrate-tag layer unchanged
+
+### 4.8 Section 4 — completion summary
+
+| Encounter type | Drax Slots referenced | VS2b amendment-triggers parked | Substrate-tags referenced |
+|---|---|---:|---|
+| Swarm | E (sustained pack-cluster); minimal A/B/C per-unit | 3 | element + tier-aura.pack-cluster + mechanic.ambient-environmental |
+| Trash | A (procedural OK) / B / C / D / E | 3 | element + tier-aura.none |
+| Magic | A / B / C / D / E (status-application + ambient on player) | 2 | element + tier-aura.faint + mechanic.buff-debuff-status |
+| Pack | A (synchronized) / B / C / D / E + ambient-environmental affix area | 2 | element + tier-aura.visible + mechanic.ambient-environmental + mechanic.movement-displacement |
+| Elite | A (signature) / C (cinematic-density) / D / E / F (optional) | 3 | element + tier-aura.visible + mechanic.cast-prep-sustained + mechanic.buff-debuff-status |
+| Mini-boss | A (multi-stage signature) / C (cinematic) / phase-transition asset / D / E | 4 | element (primary + secondary) + tier-aura.strong + mechanic.cast-prep-sustained |
+| Boss / Trial | A (phase-marked signature) / C (cinematic) / cinematic-frame asset / Trial-cloak / E (boss-tier ambient) | 5 | element (primary + season-flavor) + tier-aura.cinematic + mechanic.cast-prep-sustained + Trial-cloak overlay |
+| **TOTAL** | **All 6 drax slots used across 7 encounter types** | **22 amendment-triggers** | **8 substrate-tag axes referenced across walkthroughs** |
 
 ---
 
-## Section 5 — Open questions surfaced by the spec
+## Section 5 — Open questions surfaced by the spec (parking lot)
 
-**(Pending — gandalf parallel session; drax open questions embedded in Section 2 via TODO(drax) annotations and § 2.5 CC-BY gap note)**
+Per dispatch § "Section 5 — Open questions surfaced by the spec," the following surface from the authoring session but SHOULDN'T be resolved unilaterally. Each is tagged with downstream dispatch / Matt-decision dependency. Drax's Section 2 surfaces additional TODO(drax) items inline; those are tracked at drax pipeline; the questions below are spec-level.
+
+### Q1 — Pimen subset selection: which 5-10 packs do VS2a's slots actually need?
+
+**Source:** Section 3.3 Gap G5 + § 3.3 gandalf-design-ordering recommendation. **Dependency:** elrond downstream dispatch (Pimen subset selection). **Status:** OPEN. The 8-pack ordering in § 3.3 is *gandalf design input*; elrond owns operational selection with consumption-pipeline constraints (RAR-unpack effort, atlas-pad budget, file-format normalization, etc.).
+
+**Decision-by:** before drax VS2a first-VFX integration ships (per knight-rider 4-step plan step 2).
+
+### Q2 — VFX-attribution-pipeline schema: what does the manifest schema look like?
+
+**Source:** the spec's substrate-tag → catalogue-asset mapping is currently implicit; the manifest formalization is downstream. Drax Section 2.9 #4 surfaces `atlas_group` schema field as a target VS2b extension. **Dependency:** elrond VS2b attribution-pipeline schema dispatch (per knight-rider 4-step plan step 3). **Status:** OPEN. This spec feeds substrate-tag inventory + slot-cross-product (Section 3 Gap G6) but does not pre-design the schema.
+
+**Decision-by:** after VS2a ad-hoc integration produces friction findings; elrond's schema absorbs those findings.
+
+### Q3 — Per-embodiment rendering decisions: which embodiments ship at VS2a, in what scenes, with what asset support?
+
+**Source:** Sub-decision B mix-mode lock + § 1.3 embodiment matrix. **Dependency:** Matt + curation decision (per Sub-decision B's "curation selects" framing); elrond + drax converge on what assets are operationally consumable at VS2a. **Status:** OPEN. The spec authors against generation-supported mix-mode; what ships is curation's call.
+
+**Decision-by:** before each VS2a-eligible season closes for curation; ~per-season rolling decision.
+
+### Q4 — Cipher-width amendment-trigger conditions: when does the spec need updating per post-Step-B sub-lock resolutions?
+
+**Source:** Section 3.4 cipher-width forward-looking hypotheses + § 4 walkthroughs' amendment-trigger placeholders. **Dependency:** Step B Tier-1 crawl completion + elrond emergent-grouping analysis + the four catalogue-track sub-locks (cipher-width / Foundation / D1 / per-season vocabulary coupling) resolving. **Status:** PARKED per § 5.3 of `form-bias-cadence-strategy.md`.
+
+**Amendment trigger conditions:**
+
+| Trigger | Spec section affected | Update scope |
+|---|---|---|
+| Cipher-width Option A / B / C resolves to NOT canonical-7 | Sections 3.1, 3.4, 4 | Add new substrate-tag rows; update per-substrate walkthrough variants; preserve canonical-7 fallback |
+| Mechanic-family substrate-tag extension lands (movement-displacement / reactive-defensive / cast-prep-sustained verified at Tier-1) | Section 3.2 Axis 2; Section 4 elite/mini-boss/boss walkthroughs | Update mechanic-family cells; promote cast-prep-sustained from "gap" to "covered" if true |
+| Per-embodiment narrative-skin display lands (Stage 4 form-bias migration) | Section 1.3 + Section 4 embodiment-axis renderings; drax Section 2.9 #1 per-embodiment impact skins | Update embodiment matrix; promote non-humanoid renderings from "deferred to VS2b" to "active" |
+| Status-application cipher renames at Stage 3 | Section 4 register-fence applications + status-application walkthroughs | Re-confirm per-status-effect register: canonical-7-derived stays at combat-text; per-season flavor stays at codex |
+
+**Decision-by:** rolling per catalogue-track milestone closes.
+
+### Q5 — Status-effect register canonicalization (canonical-7 extensions)
+
+**Source:** gandalf v1.10 advisory § "Completion record" footnote — *"holy = 'blessed'? 'consecrated'? shadow = 'shrouded'? 'withered'? lightning = 'shocked' already canonical."* **Dependency:** gandalf design-call + drax UI integration. **Status:** OPEN.
+
+The register-fence rule above lists status-effect-labels as canonical-7-derived. The canonical-7-derived status vocabulary needs explicit lock for the substrates from canonical-7 expansion:
+
+**Recommendation (gandalf design call; pending Matt confirmation):**
+
+| Substrate | Canonical-7 status label |
+|---|---|
+| fire | **burning** (locked; genre-canonical) |
+| water | **frozen** (locked; genre-canonical) — water-as-cold uses "frozen"; water-as-water can also surface "drenched" / "soaked" for slow effects |
+| earth | **rooted** (control-coded; genre-canonical) — earth-as-poison uses "poisoned" for ailment if substrate fully separated |
+| wind | **dazed** OR **disoriented** (control-coded) — neither is genre-locked; gandalf-pick **dazed** for brevity |
+| lightning | **shocked** (locked; genre-canonical; D2/D4 precedent) |
+| holy | **consecrated** OR **blessed** — gandalf-pick **consecrated** (locked; D2/D4 holy-status-precedent for player-affecting holy) — holy-as-buff-on-self uses "blessed"; holy-as-debuff-on-enemy uses "consecrated" |
+| shadow | **withered** OR **shrouded** — gandalf-pick **withered** (locked; D2 necromancer / D4 shadow-DoT precedent) — shadow-as-buff-on-self could use "veiled"; shadow-as-debuff uses "withered" |
+| impact / physical | **stunned** (locked; genre-canonical for physical-CC) — physical-as-DoT uses "bleeding" for explicit blood-substrate |
+
+**Decision-by:** drax VS2a UI integration consumes; lock at first integration.
+
+### Q6 — Item-label generation lexical-distance rule (per v1.10 advisory follow-up flag)
+
+**Source:** gandalf v1.10 advisory § "Completion record" — *"Per-season vocabulary's interaction with item-label generation needs a separate guard: item labels are typically 2-4 words and the boundary between 'derived label' and 'flavor text' is fuzzy; recommend the spec defines an explicit lexical-distance rule (item label may share per-season theme words but never the per-season substrate-replacement word)."* **Dependency:** gandalf + star-lord LLM-prompt construction. **Status:** OPEN.
+
+**Recommendation (gandalf design proposal):**
+
+> **Item-label generation rule:** item labels may echo per-season *theme* words (drawn from the season's cosmology) but MUST NOT include the per-season *substrate-replacement* word (the per-season vocabulary that ciphers to a canonical-7 substrate). E.g., for a "wind" season that uses "the Stream" as its substrate-replacement, item labels may use "currents", "breeze", "rushing" (theme echoes) but NOT "Stream" (substrate replacement). The substrate-replacement word lives in flavor text and naming-triad surfaces only.
+>
+> **Operational measure:** star-lord LLM-prompt construction for item-label generation: pass the per-season cosmological-theme vocabulary as *allowed* + the per-season substrate-replacement words as *forbidden* tokens. The LLM-pipeline is responsible for prompting around the substrate-replacement leak.
+
+**Decision-by:** before star-lord per-season vocabulary generation Stage 3 lands (cipher migration).
+
+### Q7 — Cinematic-frame asset register option (b) operationalization
+
+**Source:** Section 4.7 Trial walkthrough + `enemy-visual-legibility.md` Q4 option (b) recommendation. **Dependency:** Matt + future LLM-image generation budget call + drax asset-pipeline integration. **Status:** OPEN.
+
+The `enemy-visual-legibility.md` Q4 option (b) recommendation is *per-season cinematic-aura set (3 signatures per season, one per act-end boss)*. This produces ~3 LLM-image generations per season at Trial-cinematic-frame asset register; cost ~$0.30-1.50 per season at current LLM-image pricing.
+
+**Decision-by:** before star-lord per-season LLM-image generation work begins (post-VS2b cipher migration; Stage A7 territory).
+
+### Q8 — Per-encounter VFX timing / animation-frame-budget standardization
+
+**Source:** Section 1.4 R3 continuity rule + drax Section 2 per-skill VFX slot enumeration + drax Section 2.4 timing-and-sequencing constraints. **Dependency:** drax pipeline engineering. **Status:** OPEN; drax owns.
+
+The spec is asset-level granular; drax pipeline owns frame-rate normalization across encounter tiers (swarm fast cycles; trash standard; magic moderate; elite slower; mini-boss / boss / Trial cinematic). The 80ms-per-frame Pimen default vs CodeManu 100×100 vs CreativeKind density-density needs reconciliation at consumption time, not at spec time.
+
+**Decision-by:** drax first VS2a integration; surfaces frame-budget findings as elrond pipeline-schema feedback.
+
+### Q9 — Mirror-path VFX rendering specifics
+
+**Source:** Section 4.7 Trial walkthrough Mirror-path branch + `enemy-visual-legibility.md` S7 Mirror exception. **Dependency:** drax + gandalf at Trial moment ritual doc landing. **Status:** OPEN.
+
+The Mirror-path uses the PLAYER'S current sprite + recognition-coded subtle cues. Specifically how do those cues render? Candidate cues:
+- Slight palette-shift toward an ominous register (saturation reduction + warm-tone-shift OR cool-tone-shift toward shadow)
+- Mirrored animations (left-right reversal of player attack frames)
+- Voice lines quoting player's recent build choices (per `cosmology-reincarnated.md` § "The Mirror"; star-lord LLM-call territory)
+- Ambient aura with player's element-palette but darker
+
+**Decision-by:** at `trial-moment-ritual.md` authoring; this spec parks.
+
+### Q10 — VFX-asset acquisition pipeline + acquisition-decision authority
+
+**Source:** Sections 3 + 4 reference asset families across Pimen + Step B Tier-1 + cipher-width-hypothesized; some packs are paid + some are CC-BY + some require Mode B crawls. **Dependency:** Matt + elrond + drax converge. **Status:** OPEN per ADR-006 (Matt-acquisition-decision territory).
+
+**Decision-by:** rolling per catalogue-acquisition decision; outside this spec's scope.
+
+### Q11 — Drax Section 2 follow-up TODOs
+
+**Source:** Drax Section 2 surfaces multiple inline TODOs and forward-looking hooks. **Dependency:** drax pipeline. **Status:** TRACKED INLINE (Section 2). Surfacing here at spec level for downstream visibility:
+- TODO(drax): dissipate-variant support in `spriteVfx` pool (Section 2.2 Slot E termination discipline; Section 2.4 Slot E termination)
+- TODO(drax): releaseWithFade(frames) method on spriteVfx pool (Section 2.4)
+- TODO(drax): particles layer split (`particlesGround` / `particlesMid` / `particlesOver`) — VS2a first-integration step 0 (Section 2.7)
+- Section 2.9 forward-looking hooks: per-embodiment impact skins; releaseWithFade; atlas consolidation; character-animation track for physical archetype Slot B
+
+**Decision-by:** drax B11 integration / VS2a first-VFX integration.
+
+### Q12 — Spec amendment cadence post-VS2a + VS2b sub-lock resolutions
+
+**Source:** This entire spec exists at the "before-VS2a-ships" snapshot. Many forward-looking placeholders will resolve over coming months. **Dependency:** knight-rider sequencing. **Status:** OPEN.
+
+**Recommendation:** spec amendment lands as an append-block at first major sub-lock resolution (likely cipher-width landing) with full re-versioning + diff-record. Don't re-author from scratch; preserve archaeology of what was anticipated vs what landed.
+
+**Decision-by:** when first significant amendment-trigger fires; knight-rider drafts amendment commission.
+
+### 5.13 Section 5 — completion summary
+
+| Metric | Value |
+|---|---:|
+| Open questions parked | 12 (Q1-Q12) |
+| Downstream-dispatch-dependent | 5 (Q1, Q2, Q4, Q6, Q11) |
+| Matt-decision-dependent | 4 (Q3, Q7, Q10, Q12) |
+| Gandalf/Drax-design-dependent | 3 (Q5, Q8, Q9) |
+
+---
+
+## Spec-level completion summary
+
+| Section | Author | Status |
+|---|---|---|
+| Header + register-fence top-level rule | gandalf | LANDED |
+| Section 1 — Encounter-type inventory | gandalf | LANDED |
+| Section 2 — Per-skill VFX slots | drax | LANDED |
+| Section 3 — Substrate-tag inventory + gaps | gandalf | LANDED |
+| Section 4 — Per-encounter walkthroughs | gandalf | LANDED |
+| Section 5 — Open questions | gandalf (with drax TODOs tracked at Q11) | LANDED |
+
+**Cross-references for knight-rider follow-up:**
+- The register-fence top-level rule (§ "Top-level binding authoring discipline") deserves its own decisions-log entry — its authority extends across the project, not just VFX-spec scope. Recommend knight-rider drafts a decisions-log entry capturing the rule (per ADR-002 cross-seam authority).
+- Section 3.3 gap G1 (cast-prep-sustained substrate-tag) is *load-bearing for B13 narrow-slice* dodge-mechanic telegraph teaching AND drax Section 2.2 Slot A integration. Verify Tier-1 vendor coverage closes the gap before VS2a ships; otherwise queue follow-on commission.
+- Section 4 Trial walkthrough's Trial moment ritual choreography is rich enough to inform `trial-moment-ritual.md` authoring (Phase 2 work queue item #5); cross-pollinate when that doc lands.
+- Drax Section 2.5 + Section 3 Gap G4 jointly raise the **physical-impact / physical-slash + heal/healing CC-BY attribution risk** — load-bearing for B11 physical-archetype integration. CodeManu acquisition is the primary close-path; bring to Matt acquisition-decision when commissioning.
+
+---
+
+## Maintenance protocol
+
+When spec amendments land (per Q4 + Q12 + Q11 close):
+
+1. Append new sections under a clear amendment heading; preserve original spec content
+2. Update Section 3 substrate-tag inventory with new substrate-tags
+3. Update Section 4 walkthroughs with cipher-width-expanded variants
+4. Update Section 5 open-question list — close resolved questions; surface new ones
+5. Maintain the register-fence top-level rule's authority across amendments
+
+When downstream dispatches consume:
+
+1. elrond Pimen subset selection (Q1): read Section 3.3 gandalf-design-ordering input
+2. elrond VS2b attribution-pipeline schema (Q2): read Section 4 walkthroughs as schema-shape input; cross-reference drax Section 2.9 hooks
+3. drax VS2a first VFX integration: read Sections 1 + 2 + 3.5 + 4 + register-fence rule
+
+When new canonical-story docs touch VFX presentation:
+
+1. Cross-reference this spec
+2. Defer to the register-fence top-level rule on register-mixing decisions
+3. Defer to Section 1's encounter-type inventory + Section 4 walkthroughs on per-encounter VFX presence
 
 ---
 
 ## Completion record
 
-**(To be filled in jointly on full spec completion)**
+**Completed:** 2026-05-17 (joint gandalf + drax authoring session per dispatch ACTIVATED Matt L3 ~19:30 EDT)
 
-**Completed:**
-**Spec path:**
-**Encounter types enumerated:**
-**VFX slots enumerated:**
-**Substrate-tag inventory size:**
-**Gaps flagged (count):**
-**Section 4 (VS2b forward-looking) status:** included (per Sub-decision C = Option II)
-**Open questions parked (count):**
+**Spec path:** `canonical/story/vs2a-vfx-scene-needs.md`
+
+**Encounter types enumerated:** 7 (swarm / trash / magic / pack / elite / mini-boss / boss / Trial — 7 types with Trial collapsed under boss tier per gauntlet structure)
+
+**VFX slots enumerated (drax):** 6 canonical (A cast-charge / B projectile-movement / C impact / D status-application / E status-ambient / F skill-expired)
+
+**Substrate-tag inventory size:** 3 axes × 26 tags total (8 element + 10 mechanic-family + 8 tier-aura)
+
+**Gaps flagged (count):** 6 (G1-G6: cast-prep-sustained absent at Pimen-only; tier-aura strong/signature/cinematic thin; non-humanoid embodiment sprite gap; CC-BY attribution risk for physical/heal; Pimen-curation pruning opportunity; atlas-consolidation schema gap)
+
+**Section 4 (VS2b forward-looking) status:** INCLUDED (per Sub-decision C = Option II); 22 amendment-trigger conditions parked across 7 walkthroughs
+
+**Open questions parked (count):** 12 (Q1-Q12) — 5 downstream-dispatch-dependent / 4 Matt-decision-dependent / 3 gandalf-drax-design-dependent
+
 **Notes for knight-rider:**
+1. **Register-fence top-level rule** (§ "Top-level binding authoring discipline") deserves its own decisions-log entry per ADR-002. Authority is broader than this spec — covers all VS2a+ player-facing content regardless of cipher migration timing.
+2. **Gap G1 cast-prep-sustained** is load-bearing for B13 dodge-mechanic + drax Slot A; verify Tier-1 vendor coverage before VS2a ships.
+3. **CC-BY attribution risk** (Gap G4 + drax Section 2.5) requires Matt acquisition-decision input on CodeManu acquisition for physical-archetype VFX coverage close.
+4. **Atlas-consolidation strategy** (Gap G6 + drax Section 2.9 #4) feeds elrond VS2b attribution-pipeline schema; substrate-tag × slot cross-product is the natural input.
+5. **Race-condition discipline applied** per § 14.1.1: drax authored Section 2 first (~280 lines); gandalf integrated sections 1, 3, 4, 5 + top-level rule via explicit-path Edit operations against the existing file. No overwriting of drax's content. Pre-signal fetched origin before commit.
+
+— gandalf, primary author of sections 1, 3, 4, 5 + top-level register-fence rule, 2026-05-17
+— drax, secondary author of section 2 (parallel session), 2026-05-17

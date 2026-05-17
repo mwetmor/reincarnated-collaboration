@@ -201,14 +201,36 @@ Open-thread micro-decisions (gandalf + Matt) ─→ Knight-rider activates THIS 
 
 ## Completion record
 
-(To be filled in by gandalf + drax jointly on completion)
+**Completed:** 2026-05-17 (joint gandalf + drax parallel authoring session per dispatch ACTIVATED Matt L3 ~19:30 EDT)
 
-**Completed:**
-**Spec path:**
-**Encounter types enumerated:**
-**VFX slots enumerated:**
-**Substrate-tag inventory size:**
-**Gaps flagged (count):**
-**Section 4 (VS2b forward-looking) status:** included / skipped (per PLACEHOLDER C resolution)
-**Open questions parked (count):**
+**Spec path:** `canonical/story/vs2a-vfx-scene-needs.md` (1121 lines total; gandalf + drax joint authorship)
+
+**Encounter types enumerated:** 7 (swarm / trash / magic / pack / elite / mini-boss / boss-Trial — full gauntlet content-type coverage per `canonical/29-design-overview.md` § "Genre-anchored gauntlet")
+
+**VFX slots enumerated (drax Section 2):** 6 canonical (A cast-charge / B projectile-movement / C impact / D status-application / E status-ambient / F skill-expired); per-archetype slot activation matrix across 7 archetype families; sub-layer requirement (`particlesGround` / `particlesMid` / `particlesOver`) surfaced as VS2a first-integration prerequisite
+
+**Substrate-tag inventory size (gandalf Section 3):** 3 axes × 26 tags total — 8 element (canonical-7 + impact) + 10 mechanic-family (7 Pimen-derived + 3 Step-B-extension) + 8 tier-aura (per `enemy-visual-legibility.md` S3 enum)
+
+**Gaps flagged (count):** 6 (G1 cast-prep-sustained absent at Pimen-only; G2 tier-aura strong/signature/cinematic thin; G3 non-humanoid embodiment sprite gap; G4 CC-BY attribution risk for physical-slash/heal; G5 Pimen-curation pruning opportunity with gandalf 8-pack design ordering; G6 atlas-consolidation schema gap feeding VS2b)
+
+**Section 4 (VS2b forward-looking) status:** **INCLUDED** per Sub-decision C Option II resolution; 22 amendment-trigger conditions parked across 7 walkthroughs; cipher-width-expanded hypothesized substrate-tags (necrotic / cosmic / void / crystal / technology / time / poison / psychic) cataloged in § 3.4 without pre-commitment
+
+**Open questions parked (count):** 12 (Q1-Q12) — 5 downstream-dispatch-dependent (Q1 Pimen subset selection; Q2 VS2b schema; Q4 cipher-width amendment-triggers; Q6 item-label lexical-distance rule; Q11 drax Section 2 TODOs); 4 Matt-decision-dependent (Q3 per-embodiment curation; Q7 cinematic-frame asset register; Q10 acquisition pipeline; Q12 amendment cadence); 3 gandalf-drax-design-dependent (Q5 status-effect register canonicalization; Q8 timing standardization; Q9 Mirror-path VFX specifics)
+
 **Notes for knight-rider:**
+
+1. **Register-fence top-level rule (§ "Top-level binding authoring discipline")** was lifted from gandalf v1.10 Sub-A advisory and promoted to top-level spec discipline per dispatch follow-up directive. The rule's authority extends across the project (all VS2a+ player-facing content regardless of cipher migration timing), not just VFX-spec scope. **Strongly recommend decisions-log entry per ADR-002 cross-seam authority.**
+
+2. **Gap G1 cast-prep-sustained substrate-tag** is load-bearing for B13 dodge-mechanic narrow-slice telegraph teaching AND drax Section 2.2 Slot A integration. Verify Tier-1 vendor coverage (Frostwindz class-archetype packs candidate) closes the gap before VS2a ships; otherwise queue follow-on commission.
+
+3. **Gap G4 CC-BY attribution risk** (physical-impact/physical-slash + heal/healing concentration in CC-BY assets) is load-bearing for B11 physical-archetype integration. CodeManu acquisition (44-animation kinetic specialist; Step B Tier-1 candidate) is the primary close-path; bring to Matt acquisition-decision when commissioning.
+
+4. **Drax Section 2 TODOs** tracked at Q11 — three drax pipeline items surface as VS2a first-integration prerequisites: (a) particles layer split into ground/mid/over sub-containers; (b) `releaseWithFade(frames)` method on `spriteVfx` pool; (c) dissipate-variant support on Slot E termination. Drax-internal; tracked for knight-rider visibility.
+
+5. **Race-condition discipline applied** per § 14.1.1: drax authored Section 2 first (~280 lines committed before gandalf session opened); gandalf integrated sections 1, 3, 4, 5 + top-level rule via explicit-path Edit operations against drax's landed content. No overwriting of drax's Section 2. Pre-signal fetch was clean at gandalf session start. Spec file is one document; both seams' content preserved verbatim where authored.
+
+6. **Section 4 cinematic-frame work** in the Trial walkthrough (§ 4.7) is rich enough to inform `trial-moment-ritual.md` authoring (Phase 2 work queue item #5); cross-pollinate when that doc lands. The forthcoming Trial moment ritual doc may absorb § 4.7 as canonical content; revise § 4.7 to pointer-to-canonical when that happens.
+
+7. **Downstream sequencing** (per dispatch § Sequencing): spec landing fires knight-rider → elrond Pimen subset selection dispatch authoring task; that dispatch consumes § 3.3 gandalf design ordering as primary input.
+
+— gandalf + drax, joint authoring 2026-05-17
