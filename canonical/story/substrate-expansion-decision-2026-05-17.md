@@ -218,6 +218,66 @@ Authorship sequencing: design-direction (gandalf) drafts substrate-coherence + m
 
 ---
 
+## § 6.5 — Phase-1 P1 success criterion (post-Legolas-literature-pass amendment)
+
+**Authored 2026-05-17 as amendment** following Legolas Mode A literature pass `agentic_orchestration/research/knowledge/diversity-architecture-literature-pass-2026-05-17.md` Finding 2 (combinatorial thinness > starvation as dominant failure mode in shipped ARPGs).
+
+### § 6.5.1 — The genre reality
+
+The literature pass surfaced a structural finding that shapes how Phase-1 P1 success should be measured. Across mature ARPG genre shops:
+
+- **Grim Dawn's 105 dual-class pairings collapse to ~5-8 dominant build patterns in actual play.**
+- **Path of Exile 2 with 36 ascendancy classes still shows Deadeye at 32-34% of top players.**
+- **Diablo IV class-fundamentals data shows similar Pareto-collapse to small dominant clusters.**
+
+**Mechanical validity does not guarantee breadth of play distribution.** Even when the architecture produces N mechanically-distinct viable archetypes, players cluster on a small subset. This is the genre operating normally, not a failure of generation.
+
+### § 6.5.2 — The corrected success criterion
+
+For Phase-1 P1 to be judged successful, the criterion is **not** "all 21 archetypes (7 substrate-mechanical-identities × 3 roles) are equally played" — that is genre-impossible and not the architecture's promise.
+
+The criterion is:
+
+> **Of the archetypes produced by the diversity architecture, the dominant cluster of 5-8 actually-played archetypes is *meaningfully different in mechanical shape*, not cosmetic skins of the same shape.**
+
+Three measurable sub-criteria:
+
+1. **Mechanical-shape diversity in the dominant cluster.** Players cluster on 5-8 archetypes; those 5-8 should have demonstrably distinct kit shapes (geometry distribution, role-orientation, cooldown profile, ailment family) — not 5-8 fire-mage variants.
+
+2. **Substrate representation in the dominant cluster.** At least 4-5 of the 7 substrates are represented in the dominant cluster. (If only fire + water + earth + wind appear and lightning/holy/shadow never reach the cluster, the substrate expansion is mechanically valid but functionally vestigial.)
+
+3. **Role representation in the dominant cluster.** At least 3 of 4 role-orientations (damage / support / control / hybrid) are represented in the dominant cluster.
+
+### § 6.5.3 — What this does NOT mean
+
+- **Not "force equal play distribution."** Player cluster behavior is emergent from build optimization, genre familiarity, content pacing, and meta-discovery. The architecture cannot — and should not try to — force equal distribution.
+- **Not "reject any archetype that doesn't reach the cluster."** Some archetypes will be played by 5% of players. That is genre-normal. The architecture's job is to *enable* their viability, not their popularity.
+- **Not "ship 21 archetypes and stop."** Future P2/P3 expansion (poison/acid; additional roles; substrate-role combinations not in P1) continues to broaden the cluster's outer edge.
+
+### § 6.5.4 — Measurement infrastructure implication
+
+Layer 5 (telemetry feedback) is the natural measurement layer for these sub-criteria. Per-season player-build telemetry can directly measure:
+
+- Dominant-cluster composition (which 5-8 archetypes did most players play?)
+- Mechanical-shape distance within the cluster (are they actually different shapes?)
+- Substrate representation (which substrates appear in the cluster?)
+- Role representation (which roles appear in the cluster?)
+
+**This positions Layer 5 as both the diversity-pressure mechanism AND the success-measurement mechanism.** The same telemetry that pushes converging archetypes apart in next-season generation also reports whether the architecture is delivering meaningful diversity. **Layer 5 is the architecture's observability layer.** Worth holding when scope-cutting tempts cuts to Layer 5.
+
+### § 6.5.5 — Phase-1 P1 retrospective protocol
+
+When Phase-1 P1 ships, the retrospective question is NOT "are all archetypes equally played?" but:
+
+> **"Is the dominant played cluster of 5-8 archetypes mechanically distinct, substrate-diverse (≥4-5 of 7 substrates), and role-diverse (≥3 of 4 roles)?"**
+
+Yes → ship validated; iterate via Layer-5 telemetry pressure for next-season pushing-apart of any convergence detected.
+No → diagnose which sub-criterion failed; surface to gandalf for substrate identity declaration refinement, gamora for composition-layer adjustment, or knight-rider for cascade re-sequencing.
+
+This protocol is what jack-ryan Gate 2 review consumes when Phase-1 P1 work returns for validation.
+
+---
+
 ## § 7 — Vocab freeze documentation
 
 ### § 7.1 The frozen list
