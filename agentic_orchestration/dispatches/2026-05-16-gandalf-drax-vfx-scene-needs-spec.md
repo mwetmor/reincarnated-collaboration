@@ -2,8 +2,8 @@
 
 **From:** knight-rider (authored per Matt's 2026-05-16 Day 4 directive; sequencing the upcoming attribution-pipeline work)
 **To:** **gandalf** (primary — design framing + style register + per-encounter VFX-slot enumeration) AND **drax** (secondary — pipeline/render constraints + per-slot consumption requirements)
-**Approved by:** PENDING — held on (a) Matt + gandalf converging on the 3 micro-decisions in open-thread `agentic_orchestration/gandalf/open-threads/2026-05-16-vfx-scene-needs-spec-micro-decisions.md`; (b) Matt approving dispatch activation post-micro-decisions
-**Status:** 🔴 **HELD — do NOT execute. Knight-rider will confirm when this dispatch is active.** Placeholders embedded for (a1/a2), (b1/b2), (I/II) per the open-thread; once micro-decisions converge, placeholders hard-lock and status flips to PENDING — ACTIVE.
+**Approved by:** Matt L3 2026-05-17 (~19:30 EDT) — all 3 micro-decisions resolved; dispatch ACTIVATED for joint gandalf+drax authoring session.
+**Status:** 🟢 **ACTIVE — execute now.** All 3 placeholders hard-locked per § "Micro-decision placeholders (RESOLVED)" below.
 **Estimated effort:** 1 joint session (~3-5 hours); design + render-constraint analysis. NOT a long sequence.
 **Acceptance:** A VS2a-targeted VFX scene-needs spec document filed at `canonical/story/vs2a-vfx-scene-needs.md` (or equivalent) capturing per-encounter-type VFX slot enumeration at substrate-level (gandalf design framing + drax render constraints). Spec serves as the primary input to elrond's eventual VS2b attribution-pipeline schema dispatch.
 
@@ -23,22 +23,36 @@ Per the form-bias 5-entry batch (committed `5d51b5a`) + ailment-deferral entry (
 
 But three micro-decisions tighten the spec's VS2a-substrate scope and benefit from gandalf input. Those decisions live in the open-thread referenced above. Once they converge, this dispatch activates; placeholders below flip to hard locks.
 
-## Micro-decision placeholders (resolve before dispatch activation)
+## Micro-decision placeholders (RESOLVED 2026-05-17)
 
-**Sub-decision A (element vocabulary commitment):**
-- 🔴 **[PLACEHOLDER A — resolves to (a1) OR (a2) per open-thread]**
-- (a1) Canonical-four labels at player-facing surface (knight-rider recommended; cadence Option II aligned)
-- (a2) Per-season vocabulary at player-facing surface (accelerates Stage 3 cipher migration to VS2a)
+**Sub-decision A (element vocabulary at player-facing surface): LOCKED — HYBRID a3.**
 
-**Sub-decision B (embodiment scope):**
-- 🔴 **[PLACEHOLDER B — resolves to (b1) OR (b2) per open-thread]**
-- (b1) Humanoid-only roster (knight-rider recommended; cadence Option II aligned)
-- (b2) Includes 1-3 non-humanoid embodiments (Slime / Spider / Dragon-Hatchling subset)
+Per gandalf v1.10 advisory (`gandalf/v1.10-vfx-sub-decision-a-consult-1 @ 20e1adc`):
+- **Canonical-7 substrate vocabulary** at combat-text surface (damage numbers, status effects, hotbar tooltips, combat log, stats block) — fire/water/earth/wind/lightning/holy/shadow (canonical-7 shipped 2026-05-17 via Phase-1 P1 D20)
+- **Per-season vocabulary** at flavor-text / lore / NPC dialog / quest-description surfaces only
+- **BINDING AUTHORING RULE — REGISTER-FENCE PER UI SURFACE BLOCK:**
+  > Within any single UI surface block, exactly one vocabulary register appears. Stats block = canonical-7 only. Flavor-text block = per-season vocabulary only (NEVER the canonical-7 substrate words). Item-label block = season-authored derived label (may echo per-season theme, never mixes canonical-7 substrate words). Skill-name block = canonical-7-derived for VS2a; per-season-derived deferred to Stage 3 (VS2b).
 
-**Sub-decision C (spec deliverable scope):**
-- 🔴 **[PLACEHOLDER C — resolves to (I) OR (II) per open-thread]**
-- (I) VS2a-only substrate-level (~30-50 lines per scene type; knight-rider recommended)
-- (II) VS2a + VS2b forward-looking (~80-120 lines per scene type; placeholder for cipher-width-expanded substrate + per-embodiment narrative-skin renaming hooks + Stage 4 amendment-trigger placeholders)
+The register-fence rule is **load-bearing for ALL VS2a+ content regardless of cipher migration timing** and should be lifted into the spec itself as a top-level authoring discipline (not just buried in this Sub-A resolution).
+
+**Sub-decision B (embodiment scope): LOCKED — mix-mode (humanoid fixed + non-humanoid allowed at generation; curation selects).**
+
+Per Matt L3 2026-05-17:
+- Engine generation infrastructure supports both humanoid AND non-humanoid embodiments at season creation
+- ~75% expected generative-season failure rate (Matt-locked design constant; jack-ryan decisions-log entry queued)
+- Curation step selects which generated seasons ship to playtest
+- Frame: "this IS a feature of the design, NOT a bug/failure" — non-humanoid generation that doesn't ship is *expected*, not waste
+
+**Implication for spec scope:** Section 1 (encounter-type inventory) covers BOTH humanoid and non-humanoid embodiments per encounter type. Section 4 (per-embodiment narrative-skin rendering, if applicable) covers expected non-humanoid embodiments (Slime / Spider / Dragon-Hatchling subset at minimum) as forward-looking content.
+
+**Sub-decision C (spec deliverable scope): LOCKED — Option II (VS2a + VS2b forward-looking).**
+
+Per Matt L3 2026-05-17, justified by:
+- 7-substrate scope (canonical-7 shipped today + per-season vocabulary at flavor)
+- Non-humanoid embodiment generation enabled (Sub-B mix-mode)
+- Spec authoring must anticipate cipher-width-expanded substrate + per-embodiment narrative-skin renaming hooks + Stage 4 amendment-trigger placeholders
+
+**Spec output target:** ~80-120 lines per scene type with both VS2a-locked + VS2b-forward-looking content. Section 4 (per-encounter scene-walkthroughs) is INCLUDED per Option II.
 
 ## Strategic-axis context (load-bearing — applies regardless of micro-decisions)
 
