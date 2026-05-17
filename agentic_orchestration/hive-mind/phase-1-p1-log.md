@@ -1515,3 +1515,106 @@ For D3 `compose_archetype_template(substrate, role)`:
 **D3 fully unblocked from registry side:** D4 (role registry) + D5 (ailment registry) both SHIPPED. Gamora D3 has all registry inputs available.
 
 — rocket
+
+---
+
+### [2026-05-17 22:00Z] STATE — rocket — D2 session open: substrate expansion coupling sites beginning
+
+Required reading complete (full hive log read top-to-bottom; all prior D2 required docs). State at session-open:
+
+**Confirmed shipped (D1+D4+D5+D7+D6-Steps-1-3):**
+- D1 `rocket/v1.5-substrate-identity-loader-1 @ 1e951be` — foundation layer complete
+- D4 `rocket/v1.5-role-registry-1 @ daf3cfb` — role registry complete
+- D5 `rocket/v1.5-ailment-registry-1 @ dc7de2d` — ailment registry complete
+- D7 `gamora/v1.4-resistance-matrix-7x7-impl-1 @ 7ec1ff5` — resistance matrix live
+- D6 Steps 1-3 `star-lord/v1.3-d6-impl-steps-1-3-1 @ 5271d9f` — LLM prompt structure registry-driven (Steps 4-6 await Coupling #1)
+
+**D2 scope (rocket-owned): Couplings #1, #2, #4, #5 + confirmations #10, #11**
+
+**Initial-task acknowledgement:** Deliverable 2 — Substrate expansion coupling sites. Executing under distributed authority (L1 in-seam).
+
+**Discipline notes:**
+- Discipline #12 (semantic shift): Coupling #1 SeasonalElements 4-slot → `slots: dict` IS a major semantic shift. Phase A additive backward-compat approach: retain named slot fields, add `slots` dict, deprecate named fields at Phase B.
+- Discipline #13 (implicit-pillar drift): All 13 substrate-keyed sites closed after D2 (D2 closes #1/#2/#4/#5; #3/#6 subsumed by gamora D3; #7 gamora seam; #8 ✅ star-lord; #9 star-lord next; #10/#11 GOOD PATTERNS confirmed; #13 ✅ star-lord D6 Steps 1-3).
+- Pattern P7: fail-loud at all coupling fix-shapes. No silent defaults.
+
+**Execution plan (this session):**
+1. Confirm GOOD PATTERNS (#10 season_orchestrator + #11 gear_catalog) — read-only verify
+2. Coupling #2 — `element/selector.py:34` VALID_SLOTS computed from foundation registry
+3. Coupling #4 — `generation/monster_generator.py:234-241` resistance roll iterate registry
+4. Coupling #5 — `generation/trial_generator.py:112-116` resistance roll iterate registry
+5. PRE-SIGNAL before Coupling #1 → wait for star-lord coordination window
+6. Coupling #1 — `element/schema.py:27-30` SeasonalElements Phase-A additive (slots dict alongside named fields)
+7. Tests + MIGRATION.md entries
+8. Tag `rocket/v1.5-d2-substrate-coupling-1`
+
+— rocket
+
+---
+
+### [2026-05-17 22:30Z] STATE — gamora — D3 math note COMPLETE; jack-ryan-ready
+
+`generation/math/d3-path-a-archetype-composition-phase-1-p1.md` authored and committed.
+Commit `9627343`. Tag `gamora/v1.4-d3-path-a-math-1` cut + pushed to origin.
+
+**NOTE re: D5 completion:** Rocket D5 ailment registry SHIPPED (`dc7de2d`) while gamora was
+authoring D3 math note. D3 code phase is now fully unblocked from registry side (D4 + D5
+both shipped). Code phase awaits jack-ryan review of math note.
+
+All 12 required sections authored:
+
+**Key results:**
+- **Composition API:** `compose_archetype_template(substrate, role, all_roles) → ArchetypeTemplate`; archetype_tag from substrate.substrate + role suffix; physical substrate preserved separately.
+- **Geometry bias (§ 4):** multiplicative S_w × R_w with clamp [0.05, 4.0]. Substrate Layer-1 AVOID wins over role Layer-2 PREFER (0.1×1.5=0.15×). Full 29-geometry × 8-role preference table authored. Worked examples for lightning × control (chain_lightning:2.0, vortex_pull:0.20, area_sustain:0.15) and holy × burst_damage (nova:3.0, shaft:3.0, chain_lightning:0.15). **WP-2c closes in code phase.**
+- **Stat allocation (§ 5):** primary-stat-first + role.stat_emphasis remainder + per-role vitality floor (control floor=80; defensive floor=100). Worked example: lightning × control → {intelligence:160, vitality:80, wisdom:5, dexterity:14, strength:11}.
+- **Constraint composition (§ 6):** role tags ∪ substrate mechanical_signature tags ∪ luminance pair tags; fail-loud at boot. 9 new constraint checkers required. **WP-2b closes in code phase.**
+- **21-archetype catalog (§ 9):** 7 substrates × 3 composition roles, with genre precedents.
+- **Implementation contract (§ 10):** new module `archetype_composer.py`; 9 refactor sites; gamora estimate 10-14 days.
+- **4 open questions for gandalf (§ 11):** Q1 cosmological forbidden combos; Q2 canonical-four forbidden pairs; Q3 earth_caster B11 deferral; Q4 role_affinities floor.
+
+— gamora
+
+### [2026-05-17 22:30Z] TAG — gamora — `gamora/v1.4-d3-path-a-math-1` @ `9627343` pushed to origin
+
+Tag pushed to `https://github.com/mwetmor/reincarnated-engine.git`.
+
+— gamora
+
+### [2026-05-17 22:30Z] HANDOFF — gamora → jack-ryan — D3 math note ready for Discipline #1 review
+
+**File:** `reincarnated-engine/src/reincarnated/generation/math/d3-path-a-archetype-composition-phase-1-p1.md`
+**Tag:** `gamora/v1.4-d3-path-a-math-1 @ 9627343`
+**Watchpoints:** WP-2b (constraint silent-skip) + WP-2c (geometry neutralization) — both close in code phase
+
+Jack-ryan review focus:
+1. **§ 4 Geometry bias — multiplicative composition:** is S_w × R_w the right combinator for Layer-1-primacy? Does clamp [0.05, 4.0] feel right?
+2. **§ 5 Stat allocation — vitality floor table:** are the per-role floor values (control=80, defensive=100, etc.) defensible starting points for smoke validation?
+3. **§ 6 Constraint fail-loud gate:** WP-2b closure mechanism — raise at composition time (boot) for unknown tags. Does this satisfy the watchpoint?
+4. **§ 9 21-archetype catalog:** complete? Any missing or double-counted combos?
+5. **§ 11 Q1-Q4:** route Q1/Q2 to gandalf; Q3 gamora recommendation is option (c) accepted pending gandalf; Q4 for knight-rider.
+6. **§ 10.4 Test plan:** smoke delta threshold (avg |mod-1.0| within 0.45–0.55 post-D3) appropriately tight?
+
+WP-2b + WP-2c: these watchpoints close when D3 code ships. Math note documents the mechanism.
+
+— gamora
+
+### [2026-05-17 22:30Z] QUESTION — gamora → gandalf — D3 § 11 Q1/Q2 (design-direction needed before code phase)
+
+**Q1 — Cosmological forbidden combos:**
+
+Are any (substrate × role) combinations structurally forbidden by cosmology?
+- shadow × sustain: "shadow healer" — drain-to-self / vitality theft as self-sustain. Valid identity or cosmologically incoherent?
+- holy × control: "holy controller" — CC through consecration / blessed binding. Valid, or does CC belong to shadow's domain?
+- lightning × sustain: "lightning healer" — conceivable within the cosmology of sudden-traversal?
+
+Gamora default: compose all combos; role_affinities makes incongruent combos infrequent. Requesting gandalf confirmation: any combo should be HARD EXCLUDED (don't compose template at all), or is frequency-weighting sufficient?
+
+**Q2 — Canonical-four forbidden hybrid pairs:**
+
+`HYBRID_FORBIDDEN_PAIRS = {fire↔water, earth↔wind}` currently hardcoded. Under D3, forbidden pairs derive from `paired_with` (→ holy↔shadow only). The canonical-four pairs are not declared.
+
+Options: (a) add `forbidden_hybrid_with` field to canonical-four YAMLs; (b) explicit constant in composition module; (c) derive from cosmological principles.
+
+Gamora recommendation: option (b) for Phase-1 P1. Requesting gandalf design-direction preference before code phase.
+
+— gamora
