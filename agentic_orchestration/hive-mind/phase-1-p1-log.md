@@ -3134,3 +3134,100 @@ Required reading complete per dispatch:
 - § 9 archetype count: commit message will clarify 21 substrate-role pairs / 18 distinct tags / hybrid special
 
 — gamora
+
+---
+
+### [2026-05-18 14:30Z] STATE — gandalf — SESSION OPEN; Matt-authorized Option I; canonical-four trait-pool authoring + § 14.1 amendment + D10 Q1/Q2
+
+Knight-rider dispatch received. Matt **AUTHORIZED Option I** 2026-05-18 (relayed via knight-rider). Scope expansion is Matt + gandalf + knight-rider aligned per protocol § 10.1.
+
+**Session scope (3 items in priority order):**
+
+1. **Item 1 (HIGHEST) — Canonical-four intrinsic trait pool authoring** (fire_mage / water_controller / earth_caster / wind_controller). Substrate-symmetric with the 3 D8 pools. 4 pools × 8 traits = 32 new traits. Estimated ~3-4 days.
+2. **Item 2 (MEDIUM) — § 14.1 amendment** (hive-log commit discipline; race-condition pattern formalization per jack-ryan OBSERVATION 5; 3 instances observed this session). ~30-60 min.
+3. **Item 3 (LOW) — D10 Q1 + Q2 cosmological/design DECISIONs** in hive log. ~30-60 min.
+
+**Authoring decision (Item 1 structure):** Companion doc `canonical/story/d8-canonical-four-trait-pools-2026-05-18.md` rather than D8 extension. D8 ships as authored ("three new substrate archetypal classes") preserving its committed narrative frame; companion doc completes the canonical-7 substrate-symmetric trait floor. Both docs cross-reference each other; gamora implementation contract spans both (one loader, seven pool files).
+
+**Required reading complete:**
+- `canonical-four-trait-pool-l3-decision-2026-05-18.md` — own L3 briefing; recommendation surfaces structure
+- `canonical/story/d8-trait-floor-design-phase-1-p1.md` — full pattern reference (8 traits per class, floor cadence 2/2/2/2, substrate-identity cross-reference protocol, gamora implementation contract shape)
+- `canonical/story/substrate-identity-declarations-2026-05-17.md` § 1-4 — fire/water/earth/wind declarations (mechanical_signature, forbidden_mechanics, combat_pillar, ailment_signature, geometry_affinities, role_affinities, iconic_verbs, iconic_register, cosmological_commitment, court_resonance — all read and held)
+- `canonical/32-progression-design.md` § 4 — trait-floor architecture confirmed: 5-10 traits per class; auto-unlock; per-rank scaling; B9a convergence at L50
+- `canonical/story/hive-mind-protocol-2026-05-17.md` § 14.1 — existing amendment structure read
+- `reincarnated-engine/src/reincarnated/generation/trait_schema.py` — VALID_STAT_KEYS, VALID_ABILITY_MODIFIER_KEYS, MULTIPLICATIVE_ABILITY_MODIFIER_KEYS confirmed; D8 introduces 5 new ABILITY keys (chain_targets_bonus, consecrate_radius_bonus, drain_lifesteal_fraction, conceal_evasion_bonus, ailment_cleanse_factor); canonical-four pools may add modest additional keys (TBD per authoring)
+- `reincarnated-engine/src/reincarnated/generation/math/d10-substrate-coherent-generation-rules-phase-1-p1.md` § 10 Q1 + Q2 — Q1 (Trial boss weighting uniform vs control-affinity) + Q2 (player substrate suppression vs exclusion in class rotation)
+
+**Working tree:** CLEAN. Local main 2 commits ahead of origin/main (L3 briefing + star-lord D15 entries; safe).
+
+**Cross-seam awareness:**
+- Gamora D8 implementation contract extends from 3 → 7 substrate pools (~+1-2 days appended to existing D8 ~6.5-day contract)
+- D9 informational soft-tension flags (canonical-four affix coherence vs intrinsic pools) close cleanly under Option I
+- Jack-ryan continuous-observation discipline #13 watchpoint: cross-substrate parity on per-rank curve calibration — bounded; gamora B14.5-style balance work covers
+- Discipline #13 (implicit-pillar drift) closure: Matt's Option I authorization resolves the canonical-four trait-pool drift the L3 briefing surfaced
+
+**Cosmological framing held during authoring (per L3 briefing § 6):** the cosmology speaks the substrates as peers in the wheel; the player who returns to fire_mage after Phase-1 P1 substrate expansion deserves to find fire feeling *more* alive, not less. The canonical-four pools must honor:
+
+- Fire = escalation; consequence accumulating in time; the substrate of *the spark that finishes what it began*
+- Water = pervading presence; state-change-by-immersion; the substrate of *the world inside being different from the world above*
+- Earth = positional refusal; unyielding; the substrate of *can-I-be-here being answered yes-and-so-can-what-stands-with-me*
+- Wind = kinetic rearrangement; not destruction but redistribution; the substrate of *never-where-the-fight-expected-them*
+
+These cosmological commitments anchor every trait. Genre-canon (D2 Sorceress / D3 Wizard / D4 Sorcerer / PoE Elementalist / Last Epoch / Grim Dawn / FFXIV elemental schools / Fire Emblem) provides depth precedent; the authoring's task is to fit familiar mechanical primitives into the substrate-identity-declaration frame.
+
+**Estimated session output:** Item 1 ships first (canonical-four pools doc + tag); Items 2 + 3 follow if session-time allows; otherwise queued for next gandalf spawn per dispatch priority guidance.
+
+— gandalf
+
+---
+
+### [2026-05-17 12:56Z] STATE — knight-rider — star-lord D15 SHIPPED; cross-seam coordination flag (expected mid-flight)
+
+**Star-lord D15 (Layer-4 LLM flavor diversifier) — SHIPPED.**
+
+Tag: `star-lord/v1.3-d15-llm-flavor-diversifier-1 @ 5ead304` (engine; pre-push per ADR-006).
+
+**What shipped:**
+- `src/reincarnated/llm/spirit_guide_voice.py` — Court-aware Spirit Guide referencing engine (4 builders + 1 inspector); Pattern P7 fail-loud on empty iconic_verbs; locked Beatrice register retained.
+- `src/reincarnated/llm/naming.py` — `name_skill` / `name_class` / `name_monster` / `name_gear_item` extended with optional `substrate_identity=` (backward-compat default None).
+- `tests/test_d15_layer4_flavor_diversifier.py` — 54 tests, all passing. Combined suite 260 tests pass.
+- `tests/test_no_canonical_four_in_llm_prompts.py` — fixture fix: `_make_elements()` populates `slots=` dict (closes pre-existing D6-Step-4 test gap; 22 tests now pass; 1 previously failing).
+- `export/MIGRATION.md` — D15 cross-seam contract entry (token budget, Discipline #12 semantic shifts, Spirit Guide register confirmation, drax action items: none).
+- `export/AGENT_STATE.md` — D15 session record.
+
+**Token budget impact (beyond D6 baseline):**
+- Iconic-verbs anchor: ~15-30 tokens (substrate provided to naming functions)
+- Cosmological commitment: ~40-60 tokens (class naming only)
+- Court context (N=5): ~100-200 tokens (Spirit Guide calls with court provided)
+
+Estimated +$0.04-0.05/regen above D6; **combined D6+D15 delta ≈ $0.09-0.12/regen.** Well within the $0.85-1.00 empirical full-season benchmark.
+
+**Semantic shifts captured (Discipline #12):**
+1. naming.py with substrate_identity → substrate-coherent LLM prose (shadow uses shrouds/drains/occludes; lightning uses arcs/chains/discharges; etc.).
+2. Court-aware Spirit Guide references → cross-season memory in Spirit Guide voice for seasons 2+ (register unchanged; no prior-form mechanics surfaced; no current-season spoilers).
+
+**Empirical prompt quality smoke:** DEFERRED. Test suite verifies structural prompt content (correct verbs appear per substrate); prose-quality LLM smoke against real output is post-wiring validation. Jack-ryan flagged in star-lord HANDOFF.
+
+**Spirit Guide orchestration wiring:** NOT YET CONNECTED. `build_spirit_guide_prompt()` authored + tested but `season_orchestrator.py` doesn't call it yet. Capability exists; wiring is the next connection point. Queued for star-lord next session.
+
+---
+
+**Cross-seam INFORMATIONAL (expected mid-flight; no action required):**
+
+Star-lord observed `b6_kit_builder.py` still imports `HYBRID_FORBIDDEN_PAIRS` from `b6_archetype_templates.py` while gamora's in-flight D3 working tree removes that constant. Test collection breaks for any test importing `ClassGenerator` during gamora's refactor.
+
+**Knight-rider assessment:** EXPECTED MID-FLIGHT. Per gamora D3 SESSION-OPEN entry above, gamora's execution-plan step 6 (`b6_kit_builder.py` — fail-loud + 9 new constraint checkers) closes this import contract. WP-11 micro-task (`49504d0`) shipped the `forbidden_hybrid_with` substrate-identity field; the consumer migration lives inside gamora D3's atomic commit. Resolves when gamora D3 ships.
+
+**Hive-mode coordination note:** This is exactly the type of momentary working-tree inconsistency the hive log surfaces and the protocol tolerates (atomic refactor crossing module boundaries). Star-lord correctly observed + flagged; jack-ryan continuous-observation watchpoint covers test-suite breakage detection at D3 ship-tag.
+
+---
+
+**Star-lord queue carry-forward:** D22 embodiment-display substrate extension (joint with drax). Route through knight-rider dispatch before star-lord re-spawn.
+
+**Deliverable progress update (post-D15):**
+- Critical-path / high-value closures since activation: D11 (rocket pre-activation), D1 (rocket), D2 (rocket), D4 (rocket), D5 (rocket), D7 math+code (gamora), D6 PLAN+Step-1-4 (star-lord), D17 (rocket), D8 — 3 substrates (gandalf), D9 — 3 substrates (gandalf), D20 (gandalf), D27 prep (drax-demo + gandalf + jack-ryan), Layer-1 loader hardening, **D15 (star-lord)** ← this entry.
+- In flight: gamora D3 code phase (~2 weeks), drax-demo D27 final integration (~0.5-1 day), drax-loadout D19 Sub-phase A (~1-2 days), gandalf canonical-four trait pools + § 14.1 + D10 Q1/Q2 (~3-4 days).
+- Standalone Matt-disposition: 4 vendor acquisitions (URLs delivered; awaiting download landing on disk for D19 Sub-phases B+C).
+
+— knight-rider
+
