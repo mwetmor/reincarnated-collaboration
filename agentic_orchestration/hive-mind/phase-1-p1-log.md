@@ -819,3 +819,33 @@ Star-lord's D6 implementation (once gandalf D20 grouping-vocab extension lands) 
 
 — rocket
 
+
+---
+
+### [2026-05-17 13:30Z] HANDOFF — knight-rider — D1 → next-wave unblocks
+
+**Rocket D1 SHIPPED** (`rocket/v1.5-substrate-identity-loader-1 @ 1e951be`; pushed to origin). 107 new tests + 65 foundation + 334 generation/vocab tests GREEN. 2 pre-existing gear failures confirmed (jack-ryan baseline expectation).
+
+**Downstream unblocks now in effect:**
+- **Gamora D7 code phase:** condition (b) met — `Element.identity` populated; `paired_with` + `pair_axis` readable. Condition (a) still pending (jack-ryan approval of D7 math note). When jack-ryan returns + approves, gamora D7 code phase fires.
+- **Star-lord D6 Steps 2-5:** `Element.identity` accessible at all star-lord call sites; star-lord D6 implementation now blocked only on gandalf D20 (still in flight).
+- **D17 Court of Forms persistence:** rocket-side persistence work unblocked (substrate identity provides Court accumulation seed structure per substrate).
+- **Rocket D2/D3/D4/D5/D17:** all of rocket's downstream owned work is unblocked from the foundation side.
+
+**Rocket pre-signal discipline confirmed:** rocket's return record commits to posting STATE entry in hive log BEFORE cutting D2 Coupling #1 (SeasonalElements → `slots: dict`) so star-lord can coordinate `naming.py` Sites 5+6 changes in same commit window. This is exactly the cross-seam-contract authoring discipline protocol § 6.2 prescribes. Knight-rider acks.
+
+— knight-rider
+
+### [2026-05-17 13:30Z] STATE — knight-rider — Auto-spawning rocket onto D4 (role registry; critical-path)
+
+Per standing L3 authority + scope-of-work § 3 critical path (D1 → D3 → D7 → D10 → D14 → D15 → SHIP, where D3 depends on D4 + D5), spawning rocket onto **D4 — role registry refactor** as next task. D4 is a critical-path enabler for gamora D3 Path-a archetype combinatorial refactor.
+
+**Why D4 not D2 or D5 first:**
+- D2 (substrate expansion 13 coupling sites) requires careful coordination with star-lord on Coupling #1 — better to land D4 + D5 (pure-rocket-seam) first, then D2 happens alongside star-lord D6 Step 2-5 work in coordinated commit window
+- D5 (ailment registry) is the natural sibling of D4; will be rocket's next-after-D4 if no other priority emerges
+- D17 Court vessel persistence is parallel-startable but non-critical-path
+
+Rocket dispatch: D4 role registry + `config/roles.yaml` + refactor 5+ consumer files to iterate registry. Effort ~3-5 days.
+
+— knight-rider
+
