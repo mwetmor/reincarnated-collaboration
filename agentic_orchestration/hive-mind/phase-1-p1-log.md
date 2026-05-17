@@ -3933,3 +3933,96 @@ D10 code phase and D8/D9 implementation queue may proceed. The structural seam o
 
 — jack-ryan
 
+---
+
+### [2026-05-18 PRE-SIGNAL] PRE-SIGNAL — drax-demo — appending hive log (§ 14.1.1 race-condition discipline)
+
+`git fetch origin` complete. Collab repo at `origin/main` HEAD confirmed. No concurrent commits. Working tree clean on main. Appending STATE + OBSERVATION entries below.
+
+— drax-demo
+
+---
+
+### [2026-05-18] STATE — drax-demo — Playtest UX polish bundle SHIPPED (drax/v0.25)
+
+Dispatch: `2026-05-17-drax-demo-playtest-ux-polish-bundle.md`. All 4 code items executed; Item 5 is investigation-only (reported as OBSERVATION below). Tag `drax/v0.25-playtest-ux-polish-bundle-1` cut at commit `1e6d867`.
+
+**Item 1 — Skill hotbar pinned to viewport bottom: DONE**
+
+Root cause confirmed: `applyCameraOffset` sets `app.stage.x/y` which shifts the entire stage including `_layers.ui`. The hotbar was correct in canvas coordinates but scrolled with the world.
+
+Fix: added `_syncUiToScreen()` helper in main.ts — sets `_layers.ui.x = -app.stage.x; _layers.ui.y = -app.stage.y`. Called at all 5 stage-mutation sites: two stage-reset calls, door_active camera branch, legacy screen-shake fallback (non-dungeon), and main combat camera update. HUD elements are now screen-pinned regardless of camera pan or shake amplitude.
+
+**Item 2 — LMB click-to-move + attack: ALREADY IMPLEMENTED**
+
+Phase 9.3 (`_handleLmbClick`, `getWorldPos`, `_pickLmbSkill`) implements the exact behavior the dispatch specifies. LMB on empty ground → `lmbMoveTarget` issued; LMB on enemy → `lmbAttackMode = true` + lowest-CD skill fires. Keyboard inputs continue in parallel. No code changes required.
+
+**Item 3 — Remove vestigial debug aura circle + weapon: DONE**
+
+The `glowRing` (drawCircle r=36 around character feet) and `weaponOverlay` (drawWeapon geometric primitive) were pre-chierit-pipeline placeholder shapes that remained visible after the real character/monster sprites loaded. The existing comment at the chierit-ready path said "glowRing, weaponOverlay remain visible for visual richness" — that rationale was from before chierit sprites were visually tested.
+
+Fix: added `DEBUG_DRAW = false` constant at top of sprites.ts. In `tickCombatantAnimation`, when `charSprite.ready` or `monsterSprite.ready`, now also sets `sprite.glowRing.visible = DEBUG_DRAW` and `sprite.weaponOverlay.visible = DEBUG_DRAW`. Set `DEBUG_DRAW = true` to restore primitives for diagnostics. Fallback-primitive renders (no chierit/monster sprite mapped) still show glowRing + weapon.
+
+**Item 4 — Archetype text floats above character: DONE**
+
+Prior positions: nameLabel.y = -50, subtitleLabel.y = -38. These placed the text in the middle of the character sprite (chierit tallest = 142px at 2.5x scale, anchored at foot; top at y ≈ -142; text was 50px above foot, inside the sprite).
+
+Fix: nameLabel.y = -158 (8px above tallest chierit top), subtitleLabel.y = -143 (15px below name). Both anchored 0.5/1 (bottom-center). Pattern P7 substrate suppression (`?mode=perception_test` → subtitle = '') is upstream of positioning — unaffected.
+
+**Acceptance check:**
+- `npm run build`: tsc + vite clean
+- `npm test`: 326/326 pass
+- No new test failures introduced
+
+**Pending (not blocking playtest):** Season data is pre-D3 (see OBSERVATION below). Demo loads canonical-four archetypes only until gamora regens + drax updates SEASON_IDS pointer. TODO(drax) note added to AGENT_STATE.md.
+
+— drax-demo
+
+---
+
+### [2026-05-18] OBSERVATION — drax-demo → knight-rider — Season data freshness audit (Item 5)
+
+**Q1: What season file(s) is the demo loading?**
+
+Demo loads from `/public/seasons/{season_id}/` for all 5 season IDs hardcoded in `src/data/loader.ts:SEASON_IDS` (`season_001001` through `season_001005`). File sizes (classes.json): 188 KB, 184 KB, 208 KB, 200 KB, 203 KB. All files have mtime 2026-05-09 23:00.
+
+**Q2: What engine version/SHA produced these seasons?**
+
+Unknown. The metadata.json files contain no `engine_version` or `engine_git_sha` fields. Generation timestamps:
+- season_001001: `2026-05-09T23:38Z`
+- season_001002: `2026-05-10T00:22Z`
+- season_001003: `2026-05-10T01:05Z`
+- season_001004: `2026-05-10T01:30Z`
+- season_001005: `2026-05-10T02:02Z`
+
+All generated 2026-05-09/10. Engine D3 shipped 2026-05-17 (commit `048611a`). These seasons predate D3 by approximately 7 days.
+
+**Q3: Are any post-D3-introduced archetype tags present?**
+
+No. Full archetype roster across all 5 seasons: `fire_mage`, `fire_controller`, `water_mage`, `water_controller`, `earth_caster`, `earth_controller`, `wind_caster`, `wind_controller`, `hybrid_mage`, `physical_warrior`, `physical_skirmisher`, `rogue`, `hunter`.
+
+Post-D3 tag check (all ABSENT):
+- `lightning_mage` / `lightning_caster` / `lightning_controller`: ABSENT
+- `holy_mage` / `holy_caster` / `holy_controller`: ABSENT
+- `shadow_mage` / `shadow_caster` / `shadow_controller`: ABSENT
+- `earth_burst`: ABSENT
+- `wind_burst`: ABSENT
+
+Note on preserved tags: `hybrid_mage` and `rogue` appear in multiple seasons. Per dispatch (and per D3 design), these are correctly preserved (`hybrid_mage` in `_HYBRID_ARCHETYPE_TEMPLATES`; `rogue` in `PHYSICAL_ARCHETYPE_TEMPLATES`). Their presence is not a bug. Matt's observation of "old classes" is because the substrate-expanded classes (lightning/holy/shadow) are absent — not because physical/hybrid archetypes are wrong.
+
+**Q4: Path forward**
+
+Demo loads static JSON from `public/seasons/`. To show post-D3 content: gamora regenerates standard-demo seasons using current engine main (post-`048611a` / gamora D3 tag). Drax places new JSON at same paths OR adds new season IDs to `src/data/loader.ts:SEASON_IDS` and points to new directories. No demo code changes needed beyond the file pointer + JSON copy.
+
+**Knight-rider action requested:** Dispatch gamora for standard-demo season regen (5 seasons) using post-D3 engine. When gamora signals generation complete, dispatch drax to update the season pointer.
+
+— drax-demo
+
+---
+
+### [2026-05-18] TAG — drax-demo — `drax/v0.25-playtest-ux-polish-bundle-1` cut
+
+Annotated tag `drax/v0.25-playtest-ux-polish-bundle-1` at commit `1e6d867` in `reincarnated-demo`. Local; push to origin requires Matt authorization per ADR-006.
+
+— drax-demo
+
