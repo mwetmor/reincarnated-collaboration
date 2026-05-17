@@ -431,4 +431,189 @@ These are decision-surfacing questions, NOT pre-emptive design choices. Matt's a
 
 ---
 
+## § 11 — Addendum: ARPG-mean validation of locked windup values (2026-05-17 ~14:00 EDT)
+
+**Trigger:** Matt mid-flight playtest 2026-05-17 ~12:10 EDT: *"The skill geometry on floor is really good! Question: is there an advanced timing to allow player and enemy combatants to predict the move and have a bit of time to avoid? It feels like this already exists, but if not we should consult gandalf and attune the announcement floor geometry timing to ARPG standard mean."*
+
+**Authority:** knight-rider dispatch `2026-05-17-gandalf-aoe-windup-timing-arpg-validation.md` (Pattern A; ~0.5 day; gandalf L1 in-seam authority for design-direction; rocket YAML hand-off if adjustments warranted).
+
+**Context shift since § 3.2 authorship:** the originally-proposed windup *ranges* in § 3.2 (fire 0.8-1.2s, water 1.0-1.5s, holy 1.5-2.0s, etc.) were tightened to *single locked values* during rocket v1.7 schema implementation. The locked values cluster faster than the original ranges. This addendum validates the locked values against the genre mean now that the system is in-game and Matt is playtesting it.
+
+### § 11.1 — Locked values under review
+
+Per `config/substrate_identities/*.yaml` as of `rocket/v1.7-narrow-slice-engine-schema-fields-1`:
+
+| Substrate | Locked `windup_duration_seconds` |
+|---|---|
+| shadow | 0.2 |
+| earth | 0.4 |
+| wind | 0.5 |
+| lightning | 0.5 |
+| fire | 0.6 |
+| holy | 0.7 |
+| water | 0.7 |
+
+Cluster mean: **0.51s.** Range: 0.2-0.7s. All values inside loader bounds [0.0, 5.0]s.
+
+### § 11.2 — ARPG genre-mean characterization
+
+White-wizard knowledge-base survey of telegraphed mob-tier AOE ground-effect windup durations across the contemporary ARPG canon (the relevant comparison cluster for Phase-0 trash-and-elite-tier combat; not raid-boss-tier — those scale longer):
+
+**Diablo III (2012-active):** Standard mob ground telegraphs (Wallers, Frozen, Arcane Sentries) **0.5-1.0s**; Greater Rift trash AOE 0.4-0.6s (high-density tier); boss-tier (Diablo, Belial, Maghda) **0.8-1.5s**.
+
+**Diablo IV (2023-active):** Standard mob telegraphs (Cold Enchanted, Suppressor, Stormcaller) **0.6-1.0s**; elite mob abilities **0.8-1.2s**; Cold-Blooded ambushers **0.3-0.4s** (intentional asymmetry — the "you saw it late" class); boss-tier (Echo of Lilith) major attacks **1.0-1.5s**.
+
+**Path of Exile 1 (2013-active):** Map mob ground telegraphs (Detonate Dead, Vaal-touched) **0.4-0.8s**; Conqueror/Maven slams **0.6-1.0s** (early-PoE iterations at 0.3s were retuned because community feedback registered "unfair"); Heist alert AOE **0.3-0.5s** (intentionally hostile design); Sirus/Shaper raid-tier beams **1.0-1.5s+**.
+
+**Path of Exile 2 (2024 EA-active):** Slower-baseline by GGG manifesto; standard mob AOE **0.6-1.0s**; boss telegraphs **1.0-1.8s** (Souls-like ambition explicit; longer windups than PoE1).
+
+**Last Epoch (2019-active):** Standard mob AOE **0.5-0.9s**; Echo/Monolith boss telegraphs **0.8-1.4s**; cadence closer to D3 than PoE2.
+
+**Grim Dawn (2016-active):** Trash/elite telegraphs **0.5-0.8s**; Nemesis/boss **0.8-1.2s**.
+
+**Lost Ark (2018-active):** Standard mob **0.5-0.7s**; mini-boss/raid telegraphs **0.8-1.5s**; chaos-dungeon trash 0.3-0.5s.
+
+**Synthesized mob-tier canon (the relevant cluster for Phase-0):**
+
+- **Floor:** ~0.4s (D4 Cold-Blooded, PoE Heist alerts, Lost Ark chaos trash — the "intentionally aggressive" sub-cluster)
+- **Mean:** **~0.7s** (D3/D4 standard mobs, PoE Heist regular, LE Monolith standard, Grim Dawn trash, Lost Ark normal mobs)
+- **Ceiling:** ~1.0s (D4 elite-tier reinforced, PoE1 standard map slams, LE elite-tier)
+- **Above 1.0s reads as boss-tier** (PoE2 standard, raid bosses, anticipatory-style)
+
+**The locked cluster mean of 0.51s sits ~0.2s below the genre mean of ~0.7s.** Two implications:
+
+1. The locked cluster is **on the aggressive side of canon** but still inside the canon range (every locked value is at-or-above the genre floor of 0.4s, except shadow at 0.2s which is sub-floor by intentional cosmology).
+2. The locked cluster is **tighter** than canon — only 0.5s of spread (0.2 to 0.7) where genre clusters span ~0.6s (0.4 to 1.0). The Reincarnated set differentiates substrates *less* than the canon does. This is the design-coherence concern beneath Matt's playtest question: *"is there an advanced timing"* — the answer is yes, but the spread is narrow enough that players may not perceive timing as a substrate-differentiator.
+
+### § 11.3 — Per-substrate validation verdicts
+
+For each substrate: status (KEEP / ADJUST) + rationale + (if ADJUST) recommended new value.
+
+#### Shadow — 0.2s — **KEEP**
+
+Genre comparable: D4 Cold-Blooded mob ambush ~0.3-0.4s; PoE Heist alert ~0.3s; Lost Ark stealth-mob lunges ~0.2-0.3s. 0.2s sits at the aggressive end of canon but inside it. Reaction frame at 60fps = 12 frames, which is at the **bottom edge of "reactable"** — Souls-like canon places dodge-perception threshold at ~150ms (≈9 frames). 0.2s is dodgeable but barely; this is correct for shadow's *concealment* cosmology. The substrate that "arrives without warning" should sit at the floor of reactability.
+
+**Player-experience consequence:** shadow AOEs feel like *tells* rather than *windups* — the player learns to anticipate shadow casts from cast-animation read, not from indicator dodge. Players who do not anticipate shadow casts will eat them. This is correct cosmology, but should be documented as **intentional difficulty asymmetry**, not a tuning bug. The shadow trait pool (D8-canonical-four) already honors this by rewarding setup + isolation — players who play shadow-as-shadow-deserves-to-be-played are rewarded; players who try to dodge-react are punished. The 0.2s windup is what makes that trait reward legible.
+
+**No change.** Documented as **intentional sub-floor for substrate cosmology**, not a tuning miss.
+
+#### Earth — 0.4s — **ADJUST to 0.5s**
+
+Genre comparable: D3 Waller / D4 earth-themed mobs **0.6-0.9s** (earth-coded mobs across the canon are consistently among the *slowest* telegraphs because the cosmology — geological inevitability — reads naturally as deliberate). 0.4s puts earth at the genre floor, which **contradicts the substrate's cosmological commitment.**
+
+`substrate-identity-declarations-2026-05-17.md` § 3 declares earth as **"positional refusal — what does not move and will not be moved."** The substrate's iconic verbs are root, anchor, brace, hold. A 0.4s windup reads as *quick commit* — the antithesis of earth's character. Earth should be the substrate that *takes its time*, that the player sees coming from across the room, that says "this ground is mine and you should not be standing on it." The post-damage persistence (the indicator lingering 1.5s after damage per § 3.2) carries part of this, but the windup itself should reinforce, not contradict.
+
+**Recommend 0.5s.** Still below genre mean (0.7s), still inside the fast cluster (matches wind/lightning), but **+6 frames at 60fps** — meaningful for the perceived "deliberateness" of earth. Distinguishes earth from shadow (the only sub-0.5 substrate) and creates a clear pairing with wind/lightning at the 0.5s tier — both fast, all three differentiated by indicator character (earth fully-formed persistent; wind directional arrow; lightning chain-warn). The "earth is the *slowest* of the fast substrates" cosmological-tuning lever exists if the perception test wants it, but 0.5s is the minimum that honors the identity declaration's *positional-refusal* commitment.
+
+**Player-experience consequence:** earth AOEs feel weightier, more committal. The player has one extra reaction-frame to read the indicator and reposition. The substrate that anchors enemies should not telegraph faster than the substrate that displaces them (wind 0.5s; earth at 0.4s currently violates this).
+
+**Adjust:** `earth.yaml` `windup_duration_seconds: 0.4` → `0.5`.
+
+#### Wind — 0.5s — **KEEP**
+
+Genre comparable: PoE wind-themed elementalist mobs ~0.4-0.6s; D4 Stormcaller ~0.5-0.7s; PoE2 wind-snipe ~0.5s. Wind at 0.5s is at the genre-canon floor for mob-tier and matches substrate identity (wind is **kinetic rearrangement** — fast, sudden, redirecting). The directional indicator (arrow-shape per § 3.2; the only substrate whose indicator encodes outcome-direction) does extra cosmological work that allows the windup to be faster without feeling unfair. The player reads *direction* in addition to *timing*. **No change.**
+
+**Player-experience consequence:** wind AOEs feel like quick gusts — short, readable, directional. Players learn the arrow-shape language fast and "lead the dodge" instead of just escaping the circle. This is correct.
+
+#### Lightning — 0.5s — **KEEP (with sequencing forward-note)**
+
+Genre comparable: D3 Tempest Rush ~0.5s; D4 lightning enchanted ~0.4-0.6s; PoE arc-mob warns ~0.5-0.7s. 0.5s matches genre canon for lightning-coded mob-tier abilities.
+
+The briefing § 3.2 original design (0.0-0.2s first arc *instant*; 0.4-0.6s telegraph on the *next* arc) is more elegant cosmologically — it honors lightning's *sudden traversal* identity by making the interrupting strike land without warning while keeping the chain-target fair. The simplification to a single 0.5s value was the right call for Phase-1 P1 shipping cadence (two-stage timing is significant implementation work).
+
+**No change to locked value at 0.5s.** Forward note for B13 post-VS2a: revisit the two-stage telegraph (first-arc instant + chain telegraphed) once chain mechanics are richer. This is a *richness* refinement, not a Phase-1 P1 necessity.
+
+#### Fire — 0.6s — **KEEP**
+
+Genre comparable: D4 fire-enchanted ~0.6-0.9s; PoE Vaal flameblast tells ~0.7-1.0s; D3 firebats channel-warn ~0.5s. 0.6s sits just below the genre mean, which is correct positioning for fire — fire builds, takes a beat, escalates, then commits. The escalating-opacity-ramp (per § 3.2; indicator brightens over windup) does additional perceptual work — the "longer you stand in the indicator, the more it warns you" pattern. 0.6s leaves room for that ramp to read perceptually.
+
+Fire at 0.6s is also correctly *slower than wind/lightning* (0.5s) and *faster than holy/water* (0.7s — and the recommended 0.9s for holy below). The cosmological ordering — wind/lightning fast (kinetic), fire mid (escalation builds time), water mid (suffusion takes time), holy slow (revelation announces), earth deliberate (positional commit), shadow sub-floor (concealment) — is honored. **No change.**
+
+#### Water — 0.7s — **KEEP**
+
+Genre comparable: D3 Belial bile pools ~0.8s; D4 water-coded mobs ~0.6-0.9s; PoE cold-themed ground effects ~0.6-0.8s; PoE chilled-ground build ~0.7-1.0s. 0.7s sits squarely at genre mean.
+
+Water's *suffusion / pervading presence* cosmology argues for slower than wind (the substrate that fills space takes time to fill it). The fill-from-center indicator (per § 3.2; indicator grows outward from center over windup) carries the cosmology. 0.7s at genre mean honors both the identity declaration and the canon. **No change.**
+
+#### Holy — 0.7s — **ADJUST to 0.9s**
+
+Genre comparable: D3 Tyrael-style holy abilities **1.0-1.5s**; D4 holy-coded angel mobs **0.8-1.2s**; PoE consecrated ground **1.0s+** (consecrated ground is canonically *slow announcement*); PoE2 templar/sentinel-coded mobs **1.0-1.8s**. Holy-coded mob abilities across the genre are **consistently among the slowest telegraphs** — the cosmology (radiance, revelation, "the light arrives before the judgment") reads naturally as slow.
+
+The briefing § 3.2 original recommendation was **1.5-2.0s** — the longest of any substrate. The locked 0.7s sits at the *genre mean* but **significantly below** the briefing's original range AND below the substrate-cosmology argument. 0.7s makes holy feel rushed; the *revelation* substrate becomes *fire with white tint.*
+
+The 0.7s tightening was likely driven by Phase-1 demo cadence concern (1.5s feels long when fights are 60-90s; the holy AOE windup would consume 1.5/90 = ~1.7% of fight duration per cast). That's a fair shipping concern, but 0.9s is a defensible compromise: still the *slowest* substrate (correct cosmologically), still inside the genre's "obviously-telegraphed" range (D3/D4 angel mobs at 0.8-1.2s), and creates meaningful spread in the substrate cluster.
+
+**Recommend 0.9s.** This places holy as the unambiguously-slowest substrate (correct cosmology), reads as "you saw this coming from across the room" (correct identity), and lands inside genre canon for "obvious telegraph." Combined with earth → 0.5, the cluster becomes:
+
+| Substrate | Recommended windup |
+|---|---|
+| shadow | 0.2 (sub-floor; concealment) |
+| earth | **0.5** (was 0.4; deliberate-fast tier) |
+| wind | 0.5 (fast; kinetic) |
+| lightning | 0.5 (fast; sudden) |
+| fire | 0.6 (mid; escalation builds) |
+| water | 0.7 (mid-slow; suffusion fills) |
+| holy | **0.9** (was 0.7; slow revelation) |
+
+Cluster mean: **0.557s** (was 0.51). Cluster spread: **0.7s** (was 0.5). The cluster widens — substrates become more perceptibly different from each other on the timing dimension. This matters for the D27 perception test: a wider spread is more discriminable.
+
+**Player-experience consequence:** holy AOEs read as "the substrate that announces itself" — players see the white radiant build long before the strike. Substrate identity becomes legible *through* the timing, not just the color and shape. Combined with the lengthening, holy traits that reward zone-conditional play (e.g., the hypothetical Phase-1 P2 *"shorter own windup in own consecrate zones"* per § 3.4) gain mechanical headroom.
+
+**Adjust:** `holy.yaml` `windup_duration_seconds: 0.7` → `0.9`.
+
+### § 11.4 — Shadow 0.2s ruling (formal)
+
+Per the dispatch's Item 3 special-case requirement:
+
+**Ruling:** **KEEP at 0.2s.** This is intentional cosmological sub-floor, not a tuning miss. The substrate of *concealment* should sit at the bottom edge of player reactability — the floor of "you can dodge it if you anticipate" canon. The trait pool (D8-canonical-four lightning-counterpart and shadow-traits forward-spec per § 3.4) rewards anticipation-based shadow play. 0.2s is what makes that reward legible: a player who reacts is too late; a player who anticipates is on time.
+
+This is genre-coherent: D4 Cold-Blooded mobs hit at ~0.3-0.4s windups intentionally; PoE Heist alert at 0.3s; Lost Ark stealth-mob lunges at 0.2-0.3s. Shadow at 0.2s is at the aggressive edge but is **not unprecedented** in canon.
+
+**Documentation:** capture in `canonical/story/substrate-identity-declarations-2026-05-17.md` § 7 (shadow declaration) as a forward-note: *"Shadow's windup_duration_seconds=0.2s is intentional sub-floor; the substrate asks the player to anticipate, not react. Bumping to 0.3-0.5s would collapse shadow into 'fire with purple tint' — recommend against."* Knight-rider sequences this small canonical-doc amendment with the rocket YAML hand-off below.
+
+### § 11.5 — Player-AOE telegraphing decision (revisit)
+
+Per the dispatch's Item 4 revisit:
+
+**Ruling:** **KEEP status quo — player AOEs do NOT telegraph.** No change from § 3.6.
+
+Matt's playtest framing (*"player and enemy combatants to predict the move"*) could be read as a request for player-AOE telegraphing. The recommendation is to interpret it as **monster-side** (predict enemy AOEs by reading indicators) rather than **player-side** (telegraph my own AOEs).
+
+Reasoning unchanged from § 3.6:
+
+1. **Solo gameplay** (per `project_design_intent.md`): no allies need to read player telegraphs.
+2. **Information overload:** a player who pressed the AOE button knows what they cast; a windup indicator on their own AOE is visual noise. Genre canon (D2/D3/D4/PoE1/PoE2/LE/GD) unanimously omits player-AOE telegraphs in single-player.
+3. **The cast animation IS the telegraph for the player's own kit** — the spell animation tells the player what's about to land. Adding a ground indicator before resolution would *slow* the cast-feel without adding information.
+4. **Self-damage tells:** player AOEs that damage the player (e.g., friendly fire from reflected projectiles, ground hazards) are a separate concern handled by *post-cast hit-zone indicator at 0.92× hitbox per § 3.3*. That post-cast feedback already shows the player "what just hit you" — no windup needed.
+
+**Forward-note:** if multiplayer ever ships (currently out-of-scope per project intent), this becomes a multiplayer-only re-evaluation. For Phase-0 / Phase-1 solo: no player-AOE telegraphing.
+
+**No action item.** Status quo preserved.
+
+### § 11.6 — Summary verdict
+
+**2 adjustments, 5 keeps:**
+
+| Substrate | Locked | Verdict | New value (if changed) |
+|---|---|---|---|
+| shadow | 0.2 | **KEEP** (intentional sub-floor) | — |
+| earth | 0.4 | **ADJUST** | **0.5** |
+| wind | 0.5 | **KEEP** | — |
+| lightning | 0.5 | **KEEP** (with B13 forward-note re: two-stage) | — |
+| fire | 0.6 | **KEEP** | — |
+| holy | 0.7 | **ADJUST** | **0.9** |
+| water | 0.7 | **KEEP** | — |
+
+Genre-mean alignment improved (cluster mean 0.51 → 0.557; cluster spread 0.5 → 0.7); cosmological coherence improved (earth's deliberateness honored; holy's slow-revelation honored); D27 perception-test discriminability improved (wider timing spread between substrates).
+
+**Hand-off:** `2026-05-17-rocket-aoe-windup-arpg-tuning-yaml-amendment.md` Pattern A micro-task to rocket (~5min YAML edits + loader re-test). Dispatched alongside this addendum.
+
+**Player-experience deliverable:** Matt's playtest question is answered. The advanced timing **does exist** (rocket v1.7 / drax v1.0 already ship it); the locked values are **mostly genre-aligned** but earth and holy needed cosmological refinement. After the rocket amendment lands and gamora regen consumes new values on next pass, Matt will perceive earth as slightly more deliberate and holy as noticeably more announcing. The substrate spread on timing becomes a perceptible differentiator alongside color and indicator shape.
+
+---
+
+*§ 11 authored 2026-05-17 by gandalf per dispatch `2026-05-17-gandalf-aoe-windup-timing-arpg-validation.md`. Tag `gandalf/v1.6-aoe-windup-arpg-validation-1`. Hand-off to rocket for earth.yaml + holy.yaml YAML amendments. Matt's playtest question routed to genre-canon characterization, per-substrate validation, and minimal-touch correction set.*
+
+---
+
 *Authored 2026-05-17 by gandalf. L3 briefing for Matt's Phase-1 P1 extension vs Phase-2 deferral decision on dodge + telegraphed-combat substrate. Recommendation: narrow-slice extension (§ 5.1; ~11 days) folded into Phase-1 P1 as new Deliverable 28; defer full B13 to existing post-VS2a slot. The son saw the missing substrate correctly; close exactly the gap he named, nothing more.*

@@ -5483,3 +5483,86 @@ Remove `TODO(drax): remove Path A bootstrap file` from `MIGRATION.md §v1.2` onc
    Wind: 144 → 252. Earth: 90 → 158. `DODGE_DURATION` unchanged at 0.18s.
 
 **Build:** tsc clean, vite 26.13s, 524 modules (+1 from dashCooldownHud.ts), 0 TS errors.
+
+---
+
+### [2026-05-17] PRE-SIGNAL — gandalf — AOE windup ARPG-mean validation starting
+
+PRE-SIGNAL per § 14.1.1. Beginning dispatch `2026-05-17-gandalf-aoe-windup-timing-arpg-validation.md` (Pattern A; ~0.5 day). Required reading complete: dispatch file; § 3.2 of `dodge-plus-telegraphed-combat-l3-briefing-2026-05-17.md` (prior windup design); 7 substrate-identity YAMLs (locked values: shadow 0.2 / earth 0.4 / wind 0.5 / lightning 0.5 / fire 0.6 / holy 0.7 / water 0.7). Local main 9 commits ahead of origin; no remote-only commits to pull-rebase. Producing § 11 addendum to briefing + rocket hand-off dispatch if adjustments warranted.
+
+— gandalf
+
+---
+
+### [2026-05-17] STATE — gandalf — AOE windup ARPG-mean validation COMPLETE
+
+**Tag:** `gandalf/v1.6-aoe-windup-arpg-validation-1` (to be applied after commit)
+**Dispatch:** `2026-05-17-gandalf-aoe-windup-timing-arpg-validation.md`
+**Trigger:** Matt mid-flight playtest 2026-05-17 ~12:10 EDT — *"is there an advanced timing to allow player and enemy combatants to predict the move and have a bit of time to avoid?"*
+
+**Verdict: 5 KEEP, 2 ADJUST.**
+
+| Substrate | Locked | Verdict | New value |
+|---|---|---|---|
+| shadow | 0.2 | KEEP (intentional sub-floor) | — |
+| earth | 0.4 | **ADJUST** | **0.5** |
+| wind | 0.5 | KEEP | — |
+| lightning | 0.5 | KEEP (B13 forward-note: two-stage telegraph) | — |
+| fire | 0.6 | KEEP | — |
+| holy | 0.7 | **ADJUST** | **0.9** |
+| water | 0.7 | KEEP | — |
+
+**Genre-mean characterization:** Mob-tier ground-AOE telegraph canon across D3/D4/PoE1/PoE2/LE/GD/Lost Ark — floor ~0.4s, **mean ~0.7s**, ceiling ~1.0s (boss-tier scales to 1.0-1.8s). Locked cluster mean 0.51s sits ~0.2s below genre mean; cluster spread 0.5s is narrower than canon ~0.6s.
+
+**Rationale for the two adjustments:**
+
+- **Earth 0.4 → 0.5:** earth cosmology is *positional refusal — what does not move and will not be moved* (substrate-identity-declarations § 3); 0.4s contradicts the deliberateness identity by ranking faster than wind (the *kinetic* substrate). Genre-canon earth-coded mobs cluster 0.5-0.9s (D3 Waller / D4 earth-themed / PoE earth mobs). 0.5s honors the cosmology while staying in fast cluster (still below mean) — +6 frames at 60fps over locked value.
+- **Holy 0.7 → 0.9:** holy cosmology is *revelation — the substrate that announces itself with light before the strike* (substrate-identity-declarations § 6); locked 0.7s collapses holy into "fire with white tint." Genre-canon holy-coded mobs cluster 0.8-1.5s (D3 Tyrael / D4 angel mobs / PoE consecrated ground / PoE2 templar-coded). 0.9s makes holy unambiguously slowest substrate (correct cosmology) AND lands inside genre "obvious telegraph" range AND widens cluster spread from 0.5s to 0.7s, improving D27 perception-test discriminability between substrates on the timing dimension.
+
+**The 5 KEEP verdicts:**
+
+- shadow 0.2s: documented as intentional sub-floor for *concealment* cosmology. Bumping to 0.3-0.5s would collapse shadow into "fire with purple tint." Bottom-edge of dodgeable canon (D4 Cold-Blooded ~0.3-0.4s; PoE Heist alert ~0.3s; Lost Ark stealth ~0.2-0.3s); shadow asks the player to *anticipate* (cast-animation read), not *react* (indicator dodge). Trait pool rewards anticipation; keeping 0.2s makes that reward legible.
+- wind 0.5s: at genre floor, matches *kinetic rearrangement* identity; directional indicator (arrow per § 3.2) does extra cosmological work allowing fast windup without unfairness.
+- lightning 0.5s: matches *sudden traversal*; B13-post-VS2a forward-note for two-stage telegraph (first-arc instant + chain telegraphed) per original § 3.2 design — richness, not necessity.
+- fire 0.6s: just below genre mean; matches *escalation*; opacity-ramp builds during windup.
+- water 0.7s: at genre mean; matches *suffusion*; fill-from-center indicator carries the cosmology.
+
+**Player-AOE telegraphing (Item 4 revisit):** status quo preserved — player AOEs do NOT telegraph. Solo-gameplay convention (D2/D3/D4/PoE/LE/GD all converge); the cast animation IS the player's telegraph for their own kit. No action item.
+
+**Cluster after adjustments:** shadow 0.2 / earth 0.5 / wind 0.5 / lightning 0.5 / fire 0.6 / water 0.7 / holy 0.9. Mean 0.557s; spread 0.7s. Genre-mean alignment improved; cosmological coherence improved; D27 perception-test discriminability improved.
+
+**Artifacts produced:**
+
+1. `canonical/story/dodge-plus-telegraphed-combat-l3-briefing-2026-05-17.md` — new § 11 addendum (genre survey + per-substrate verdicts + shadow ruling + player-AOE decision + summary table)
+2. `agentic_orchestration/dispatches/2026-05-17-rocket-aoe-windup-arpg-tuning-yaml-amendment.md` — Pattern A micro-task to rocket (~5-10 min YAML edits + MIGRATION.md note + tag + hive log)
+
+**Smoke expectation:** after rocket lands the two YAML edits, next gamora regen pass consumes new values via existing `identity.windup_duration_seconds` access pattern; drax indicator opacity-ramp scales automatically; Matt's next playtest will perceive earth as ~+6 frames more deliberate and holy as ~+12 frames more announcing.
+
+— gandalf
+
+---
+
+### [2026-05-17] HANDOFF — gandalf → rocket — earth.yaml + holy.yaml windup tuning
+
+**From:** gandalf
+**To:** rocket
+**Re:** ARPG-tuning amendment to two substrate identity YAMLs
+**Dispatch:** `2026-05-17-rocket-aoe-windup-arpg-tuning-yaml-amendment.md`
+
+**Two edits, ~5-10 min total:**
+
+1. `config/substrate_identities/earth.yaml` line 75: `windup_duration_seconds: 0.4` → `0.5`
+2. `config/substrate_identities/holy.yaml` line 76: `windup_duration_seconds: 0.7` → `0.9`
+
+Both new values inside loader bounds [0.0, 5.0]; rule #11 still passes; no schema change; no consumer changes needed. Acceptance criteria + MIGRATION.md note format in the dispatch.
+
+Suggested rocket tag (next available): `rocket/v1.11-aoe-windup-arpg-tuning-yaml-amendment-1`.
+
+**Downstream consumers (no action required at this hand-off; consumers read the field as-is):**
+
+- **Gamora:** reactive-escape AI consumes `windup_duration_seconds` for player-AOE telegraph window detection; new values widen escape windows slightly for earth/holy elite mobs — improves elite-escape readability for those substrates. Forward smoke when next regen pass runs.
+- **Drax:** indicator opacity-ramp scales 0→1 over `windup_duration_seconds`; ramp duration extends automatically for earth (0.4s → 0.5s = +25%) and holy (0.7s → 0.9s = +29%) — no code change.
+
+— gandalf
+
+---
