@@ -6436,3 +6436,53 @@ Knight-rider sequencing: step 3 (drax VS2a first VFX integration) can proceed im
 — gamora
 
 — elrond
+
+---
+
+### [2026-05-17] STATE — rocket — D10 implementation + staged data salvage (002011-015) COMPLETE
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-rocket-d10-implementation-and-staged-data-salvage-queued.md`
+**Tags:** `rocket/v1.12-d10-implementation-and-staged-data-salvage-1` (local; push gated per ADR-006)
+**PRE-SIGNAL § 14.1.1:** honored — `git fetch origin` + log check before this append; no concurrent commits found.
+
+**Phase A — Implemented (commit `c0a622a`):**
+
+1. `src/reincarnated/generation/geometry_derivation.py` — new module; `derive_geometry_type(role, element, effects, cd, range_profile) -> str`; 3-layer cascade; 24-type vocabulary; deterministic; fallback=single_target with WARNING.
+2. `src/reincarnated/generation/d10_kit_constraints.py` — new module; `apply_skill_count_ceiling`, `apply_element_breadth_gate`, `apply_buff_damage_stacking_limit`, `apply_d10_kit_constraints` (combined entry point); per-archetype ceiling table; pruning algorithms per math note §§ 2-4.
+3. `src/reincarnated/output/season_writer.py` — geometry_type emitted at serialization time (D10 fix; eliminates DB-read dependency for future regens); `gear_pool_staged.json` bridge added (§ 7.4 one-line fix; was root cause of empty gear_pool.json).
+4. `scripts/d10_post_process_salvage.py` — post-process script for 002011-015; derives geometry_type; applies D10 pruning; re-runs balance loop; rebuilds classes.json + gear_pool.json.
+5. `MIGRATION.md` — D10 entry with cross-seam contracts for star-lord + drax.
+
+**Phase B — Salvage results (9 min 15 sec, smoke_test=True, 15 fights/matchup):**
+
+| Season | Classes | Skills before→after | Converged | Convergence |
+|---|---|---|---|---|
+| season_002011 | 10 | 114→92 | 2/10 | 20% |
+| season_002012 | 10 | 105→88 | 4/10 | 40% |
+| season_002013 | 11 | 120→98 | 5/11 | 45% |
+| season_002014 | 10 | 118→98 | 4/10 | 40% |
+| season_002015 | 10 | 115→97 | 4/10 | 40% |
+| **TOTAL** | **51** | **572→473** | **19/51** | **37.1%** |
+
+All seasons: 200 gear items each (gear_pool.json populated, was empty []). geometry_type populated on all 473 skills (was null). schema_version=v1.7. post_process_d10=True provenance on all classes.
+
+**Phase C — Acceptance criteria:**
+- classes_retained=51 ≥30: **PASS**
+- avg_convergence=37.1% >50%: **FAIL** (documented as known limitation — see below)
+
+**D10 convergence finding:**
+Pre-D10: 31% convergence (16/51 converged per gamora v1.5 analysis). Post-D10: 37.1% (19/51). Improvement is real (+6.1pp) but the 50% target was not met. Root cause: hybrid_mage structural over-generation is not fully solved by D10 pruning. Even at 9-12 skills (ceiling applied), hybrid_mage kits maintain 0.63-0.82 WR at the modifier floor because they carry multi-element coverage immunity against gauntlet resistance profiles. D11 follow-on required: reduce hybrid_mage ceiling further (to ~8-9 skills) or redesign kit composition rules. Non-hybrid archetypes (physical, controllers, hunters, experimental small kits) converge at 40-100% rates.
+
+**Converged archetype patterns (post-D10):** physical_warrior, physical_grappler, earth_controller, wind_controller, water_controller, lightning_controller, fire_controller, holy_controller, wind_caster, earth_caster, holy_caster, hunter, experimental (small kits), lightning_mage (close range).
+
+**HANDOFF → drax-demo:** D10-curated seasons 002011-015 ready at `reincarnated-engine/output/standard-demo-regen-2026-05-17/season_002011...015/`. classes.json has geometry_type populated on all skills. gear_pool.json populated (200 items each). SEASON_IDS pointer flip from 001001-005 back to 002011-015 is unblocked. Note: convergence rate is 37% (not 50%); seasons are playable with known over-generated hybrid_mage classes that will hit floor modifier.
+
+**HANDOFF → drax-loadout:** data/ refresh to D10-curated versions. Post-D10 analytics will show convergence delta (+6.1pp improvement vs pre-D10).
+
+**HANDOFF → star-lord (low priority):** `estimated_gap` field added to per-class balance_metadata in post-processed classes.json. Telemetry schema follow-on: `ALTER TABLE class_balance_results ADD COLUMN estimated_gap REAL NULL` — not blocking.
+
+**HANDOFF → jack-ryan:** MIGRATION.md D10 entry ready for review. Key watchpoints: semantic shifts × 3 (geometry_type generation-time; skill ceilings; element-breadth + buff_damage limits). Cross-seam contract for star-lord (export seam geometry_type fallback) documented.
+
+**Open question for Matt/knight-rider:** Accept 37.1% convergence for D10 salvage (vs 50% target) with documented root cause, OR require D11 mage ceiling reduction before drax pointer flip? D10 pruning is a clear improvement; seasons are playable; hybrid_mage over-generation is a documented known issue.
+
+— rocket

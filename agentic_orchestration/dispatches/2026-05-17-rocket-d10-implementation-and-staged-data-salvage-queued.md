@@ -136,3 +136,62 @@ Output: updated `reincarnated-engine/output/standard-demo-regen-2026-05-17/` wit
 ---
 
 *Dispatched (queued) 2026-05-17 by knight-rider per Matt L3 hive-fast D10 plan. ~1-2 days when activated. Append completion record when done.*
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-17
+**Agent:** rocket
+**Tags:** `rocket/v1.12-d10-implementation-and-staged-data-salvage-1` (local; push gated per ADR-006)
+**Engine commits:** `c0a622a` (Phase A), `0f7e010` (smoke_test fix)
+
+### Phase A — D10 implementation
+
+All 7 items from gamora math note implemented:
+
+1. `derive_geometry_type()` — `src/reincarnated/generation/geometry_derivation.py` (new module; 3-layer cascade; 24-type vocabulary)
+2. Skill-count ceiling — `d10_kit_constraints.py` + `season_writer.py` (per-archetype max table: mage=10, controller=11, hybrid=12, physical=12)
+3. Element-breadth gate — `d10_kit_constraints.py` (non-hybrid ≤2 elements; hybrid ≤4)
+4. buff_damage stacking limit — `d10_kit_constraints.py` (max 1 utility/mobility buff_damage per kit)
+5. Pre-balance-loop DPS density gate — implemented as smoke_test pre-eval (the math note § 5.4 approach)
+6. geometry_type at generation time — `season_writer.py` emits geometry_type via derive_geometry_type() (eliminates DB-read dependency)
+7. gear_pool_staged.json bridge — `season_writer.py` one-line addition (math note § 7.4)
+
+Note: floor_over_band modifier_flag_tier is gamora's seam (balance_loop.py); not implemented here per math note § 6 assignment.
+
+### Phase B — 5 staged seasons salvaged (002011-015)
+
+| Season | Classes | Skills pruned | Convergence |
+|---|---|---|---|
+| season_002011 | 10/10 retained | 114→92 | 20% (2/10) |
+| season_002012 | 10/10 retained | 105→88 | 40% (4/10) |
+| season_002013 | 11/11 retained | 120→98 | 45% (5/11) |
+| season_002014 | 10/10 retained | 118→98 | 40% (4/10) |
+| season_002015 | 10/10 retained | 115→97 | 40% (4/10) |
+| **TOTAL** | **51/51** | **572→473** | **37.1% avg** |
+
+All seasons: 200 gear items each (was []), geometry_type populated on all 473 skills (was null), schema_version=v1.7, post_process_d10=True provenance.
+
+### Phase C — Acceptance criteria
+
+- [x] Phase A: D10 rules implemented in generation/ (with smoke tests)
+- [x] Phase B: 5 staged seasons salvaged + gear_pools populated (200 items each)
+- [x] Phase C: per-season verdict documented (see table above)
+- [x] classes_retained = 51 ≥ 30: PASS
+- [ ] convergence_rate_post = 37.1% > 50%: **FAIL** — documented known limitation (hybrid_mage structural over-generation; D11 follow-on required)
+- [x] HANDOFF → drax-demo: seasons 002011-015 ready for SEASON_IDS flip (documented in hive log STATE)
+- [x] HANDOFF → drax-loadout: data/ refresh follow-on
+- [x] MIGRATION.md entry (D10 section appended)
+- [x] Hive-log STATE entry
+- [x] Tag `rocket/v1.12-d10-implementation-and-staged-data-salvage-1` (local)
+
+### Known limitations + follow-on (D11 roadmap)
+
+The 37.1% convergence rate (below 50% target) is due to hybrid_mage structural over-generation. Even at 9-12 skills (ceiling applied), hybrid_mage maintains 0.63-0.82 WR at the modifier floor due to multi-element coverage immunity against gauntlet resistance profiles. D11 resolution: reduce hybrid_mage ceiling to 8-9 skills OR redesign element distribution rules.
+
+Non-hybrid archetypes converge well post-D10: controllers (40-100%), physical (100%), hunters (100%), experimental small kits.
+
+**Open question for Matt/knight-rider:** Accept 37.1% convergence for drax pointer flip, or require D11 fix first? D10 is a clear improvement (+6.1pp vs pre-D10); seasons are playable.
+
+*Completed 2026-05-17 by rocket.*
