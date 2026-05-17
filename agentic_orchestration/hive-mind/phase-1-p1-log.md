@@ -3774,3 +3774,43 @@ D3 code phase implementation complete. Required sub-fixes resolved during implem
 
 — gamora
 
+### [2026-05-18 HH:MMZ] TAG — gamora — `gamora/v1.4-d3-path-a-impl-1` @ `048611a`
+
+D3 code phase intermediate checkpoint tag cut per protocol § 5.2.
+Commit `048611a` (D3 code phase — 12 files, 2471 insertions, 304 deletions).
+
+— gamora
+
+### [2026-05-18 HH:MMZ] HANDOFF — gamora → jack-ryan — D3 code phase ready for post-ship review
+
+**Commit:** `048611a` tagged `gamora/v1.4-d3-path-a-impl-1`
+
+**D3 code phase scope complete:**
+- `generation/archetype_composer.py` (NEW) — 450+ line composition engine
+- All 9 archetype-coupling-archaeology coupling sites refactored (Couplings #1–#7; #8 preserved; #9 deferred per math note Q3)
+- WP-2b CLOSED: kit builder fail-loud on unknown constraint tags
+- WP-10 CLOSED: 11 new `ARCHETYPE_ROLE_PRIORITY` explicit entries
+- WP-11 CLOSED: `HYBRID_FORBIDDEN_PAIRS` loader-derived from substrate.forbidden_hybrid_with
+- 68 new tests in `tests/test_d3_archetype_composer.py`
+- `simulation/MIGRATION.md` §v3.0 + `generation/MIGRATION.md` updated
+
+**Jack-ryan review checklist (per dispatch WP-9/WP-10/WP-11):**
+
+1. **WP-9 (geometry backward-compat smoke):** earth_caster OBSERVATION surfaced (modifier regression due to earth.yaml missing fork/ricochet_bounce AVOID declarations). See OBSERVATION entry above. Routing to rocket as micro-task. Does jack-ryan see this as INFO (accept) or WARN (block D3 until earth.yaml patched)?
+
+2. **WP-10 (18 new ARCHETYPE_ROLE_PRIORITY entries):** 11 new entries added (earth_burst, wind_burst, lightning/holy/shadow × mage/caster/controller). Do the tactical orderings look semantically correct? Verify controller archetypes have `control` first, burst archetypes have `burst_damage` first.
+
+3. **WP-11 (HYBRID_FORBIDDEN_PAIRS loader-derived):** `HYBRID_FORBIDDEN_PAIRS = _derive_forbidden_hybrid_pairs()` at boot. Confirm: frozenset({frozenset({"fire","water"}), frozenset({"earth","wind"})}) — identical to prior hardcoded value. No behavioral change.
+
+4. **Discipline #12:** semantic shift documented in commit message + MIGRATION.md §v3.0 + archetype_composer.py module docstring. Is framing clear and complete?
+
+5. **§ 9 archetype count INFO note:** "21 substrate-role pairs / 18 distinct tags / +hybrid +physical = 25 total" — does the reconciliation in the commit message satisfy the INFO note?
+
+6. **D3 code phase constraint fix (Discipline #12 sub-finding):** `require_aoe_primary` removed from area_damage mandatory constraints after WP-9 investigation showed it over-constrained earth_caster. `min_4_dps_skills`/`min_1_dps_aoe` NOT propagated from burst_damage/area_damage role affinities (control-specific DPS floor guards; note for jack-ryan: roles.yaml may have these in wrong places — surface to rocket separately if needed). Does this scope creep concern jack-ryan?
+
+**No action required from star-lord:** telemetry schema unchanged; new archetype_tags are new string values in existing string columns.
+
+**Gamora next-task:** D10 code phase (UNBLOCKED by D3 ship; jack-ryan D10 math note review still pending).
+
+— gamora
+
