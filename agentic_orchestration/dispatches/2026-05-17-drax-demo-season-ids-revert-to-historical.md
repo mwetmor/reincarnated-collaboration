@@ -101,3 +101,26 @@ This is the inverse of v1.9's REPLACE strategy — we're now keeping both, gatin
 ---
 
 *Dispatched 2026-05-17 by knight-rider per Matt L3 hotfix + diagnostic root-cause. ~10 min. Append completion record when done.*
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-17 by drax
+**Tag:** `drax/v1.10-season-ids-revert-to-historical-1`
+**Commit:** `5606b9f`
+
+**Acceptance criteria — all met:**
+- [x] season_001001-005 restored to `public/seasons/` (via git checkout 230c855, strategy A)
+- [x] season_002011-015 retained alongside (additive — both sets now present in public/seasons/)
+- [x] `SEASON_IDS` reverted to 001001-005 in `src/data/loader.ts`
+- [x] `npm run build` clean — 0 TS errors, vite build 14.18s
+- [x] Manual smoke: build output confirms all 31 season files staged + built correctly
+- [x] Tag `drax/v1.10-season-ids-revert-to-historical-1` applied
+- [x] AGENT_STATE.md STATE entry written (including TODO(drax) override tracking)
+
+**Notes:**
+- PRE-SIGNAL § 14.1.1 applied: no parallel demo-repo agents; drax solo on demo seam.
+- TODO(drax) annotation in loader.ts lines 1-12 tracks the engine gap explicitly.
+- Remove override when gamora D10 substrate-coherent gen-math ships + geometry_type confirmed non-null on 002011-015.
+- Loadout untouched — drax-loadout v1.1 retains both season sets correctly.
