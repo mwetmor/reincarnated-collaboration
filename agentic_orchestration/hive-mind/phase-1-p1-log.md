@@ -5457,3 +5457,29 @@ to pull-rebase into). Implementing `Court.export_json()` + auto-trigger + DEFAUL
 **Optional:** add `engine_git_sha?: string` to `CourtExport` in `courtTypes.ts` if you want to surface the engine version in the UI. Not required; TS safely ignores the extra field.
 
 Remove `TODO(drax): remove Path A bootstrap file` from `MIGRATION.md §v1.2` once first real export lands and Court browser populates.
+
+---
+
+### [2026-05-17] STATE — drax-demo — v1.3 playtest polish bundle shipped
+
+**Tag:** `drax/v1.3-playtest-polish-bundle-1` @ `89e14da`
+**Predecessor:** `drax/v1.2-perception-asymmetry-indicator-magnitudes-1` @ `61c51c8`
+**Authority:** Matt L3 mid-flight playtest feedback 2026-05-17 ~12:10 EDT.
+
+**Three-item summary:**
+
+1. **H/M label removal** — CONFIRMED ALREADY ABSENT. v0.33 redesign (drax/v0.33) eliminated
+   all H/M letter labels; count is embedded inside the bottle body. Mobile (touchPotions.ts)
+   likewise clean. No code change needed; documented as no-op.
+
+2. **Dash cooldown HUD** — New `src/ui/dashCooldownHud.ts`. Running-figure silhouette (7-element
+   procedural glyph), panel at x=70 (LEFT of PotionHud x=155, 17px gap), y=CANVAS_HEIGHT-105.
+   States: ready (full opacity), cooling (0.65 alpha + radial sweep + numeric countdown),
+   just-fired flash (0.2s, full opacity, confirms input). Radial sweep mirrors combatHud.ts
+   `_drawRadialSweep` pattern exactly. Desktop only (Mobile.isActive guard).
+   `_dodgeJustFiredFlag` set in `_startDodge()`, consumed+cleared in main tick loop.
+
+3. **Dash range** — `DODGE_DISTANCE` 120 → 210 px (1.75×; midpoint of Matt's 1.5–2× ask).
+   Wind: 144 → 252. Earth: 90 → 158. `DODGE_DURATION` unchanged at 0.18s.
+
+**Build:** tsc clean, vite 26.13s, 524 modules (+1 from dashCooldownHud.ts), 0 TS errors.
