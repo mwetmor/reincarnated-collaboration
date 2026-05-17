@@ -2404,3 +2404,38 @@ Continuous-availability LIVE post-session. Status:
 - Jack-ryan continuous-observation — no design-pillar drift observed at this checkpoint
 
 — gandalf
+
+---
+
+### [2026-05-17 (wait-window)] STATE — gamora — D4 consumer-side AI strategy refactor COMPLETE
+
+**Tag:** `gamora/v1.4-d4-consumer-side-ai-strategies-1` @ `b11d8bb` — pushed to origin.
+
+**What shipped:**
+
+`simulation/ai_strategies.py`:
+- `_load_and_validate_registry()` — single boot load; returns registry (replaces prior `_validate_ai_strategy_roles()` standalone)
+- `_ROLE_REGISTRY: dict[str, Role]` — module-level registry reference (D3 archetype_composer can import this directly; no re-load needed)
+- `_REGISTRY_DEFAULT_PRIORITY: list[str]` — 9 roles sorted by `Role.ai_priority`: `['control', 'burst_damage', 'area_damage', 'damage_over_time', 'primary_attack', 'mobility', 'sustain', 'defensive', 'utility']`
+- `get_priority_roles(archetype: str) -> list[str]` — single access point; explicit override for known archetypes; registry fallback + log.warning for unknown
+- `_scripted()` now calls `get_priority_roles()` instead of `.get(archetype, ["primary_attack"])`
+- Duplicate `"tank"` key removed (pre-existing Python dict shadowing; zero semantic change)
+
+`simulation/MIGRATION.md §v2.0` — full Discipline #12 + #13 documentation.
+
+`tests/test_d4_ai_strategies_consumer.py` — 73 new tests.
+
+**Discipline #12 (semantic shift):**
+- Known archetypes: ZERO semantic change. All 21 ARCHETYPE_ROLE_PRIORITY entries verbatim.
+- Unknown archetypes: fallback improved from degenerate `["primary_attack"]` → `_REGISTRY_DEFAULT_PRIORITY` (all 9 roles, registry-sorted, control-first). This is a semantic shift for D3-composed archetypes not yet in the dict. Log warning makes these visible.
+
+**Critical diagnostic finding:**
+`Role.ai_priority` is a GLOBAL default ordering, NOT an archetype-specific tactical ordering. 16/21 archetypes intentionally deviate from global sort (caster fires area_damage before burst_damage; swarmer fires mobility before burst; water_mage is DoT-first; etc.). These deviations are load-bearing identity decisions. The per-archetype dict IS the override layer; `Role.ai_priority` provides the fallback for unknown archetypes only. Implication for D3: when D3 composes new archetype_tags, their `ARCHETYPE_ROLE_PRIORITY` entries should be authored explicitly alongside the archetype_composer module. Registry default covers them with a visible warning until then.
+
+**Cross-seam:** Rocket D2 + D17 landed during wait window. No overlap with ai_strategies.py. Race-condition discipline maintained (git fetch origin + log-check before commit).
+
+**Tests:** 277 (role/orientation/D4) + 383 (simulation) + 44 (balance loop) = 704 pass, 0 fail.
+
+**Status after D4:** Back on D3 hold — awaiting jack-ryan math-note review + gandalf Q1/Q2. No new cross-seam dependencies opened. D4 perimeter is closed.
+
+— gamora
