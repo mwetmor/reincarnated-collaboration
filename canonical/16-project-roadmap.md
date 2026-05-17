@@ -45,7 +45,7 @@ Track A is the active line. **The two near-term VS2 milestones below are the ope
 
 ## 🎯 VS2a — Gauntlet + Geometry + First Catalogue Integration
 
-**Strategic frame.** Player drops into a Diablo/PoE-style room sequence, fights tier-diverse encounters with new geometry shapes, sees real VFX on hits, moves at coherent speed. Playtest-validatable slice.
+**Strategic frame.** Player drops into a Diablo/PoE-style room sequence, fights tier-diverse encounters with new geometry shapes, sees real VFX on hits, moves at coherent speed. **Playtest-validatable slice ANCHORED TO END-GAME BALANCE STATE** (Matt verdict reversal 2026-05-16 Day 4 close per `canonical/story/movement-speed-baseline.md` § "Verdict Reversal"). The gauntlet shows the player what end-of-progression feels like; sim and demo agree on the same values; what the player feels IS what the engine balanced for. VS2a does NOT cover early-game pacing (that's Playtest Cycle 1 post-Stage-A2-closeout).
 
 **Estimated working effort:** ~3-4 months from VS2a kickoff (mid-May 2026). Drax is the binding-constraint seam.
 
@@ -53,7 +53,7 @@ Track A is the active line. **The two near-term VS2 milestones below are the ope
 
 | Item | Owner | Status |
 |---|---|---|
-| Movement-speed baseline (engine schema + demo consumption) | rocket + drax | ✅ Values locked; rocket schema + drax `world/movement.ts` in flight |
+| Movement-speed baseline **(end-game-anchored per Matt verdict reversal 2026-05-16 Day 4 close)** | rocket + drax + gamora | ✅ Option-B values locked (player 8.0 m/s; trash 5.75; fast 7.5; AI_SPEED_MULTIPLIER 0.719). Rocket schema-default-update pending; drax demo MS pending engine-emitted JSON consumption (precondition: Stage B export-DTO fix); **gamora Gate 3b sim consumption NOW VS2a-GATING** (was post-VS2a tight follow) |
 | Room/hallway arena topology (replaces single-ellipse) | drax | ✅ Shipped (drax/v0.12) — Diablo/PoE square rooms 15-45m + hallways 6-10m; per-room aggro |
 | B11 — Geometry palette expansion (16 → 25 active types) | rocket + gamora + drax | ✅ Generator (rocket) + sim (gamora) + demo (drax/v0.15) all shipped today |
 | B11 GREEN-list element VFX (11/13 elements; first Pimen integration) | drax + elrond | In flight; Pimen ingest pipeline shipping iteratively (drax v0.13–v0.17) |
@@ -67,11 +67,13 @@ Track A is the active line. **The two near-term VS2 milestones below are the ope
 
 B7, B12 full audit, B13, B14, B16. Substrate Realignment work and full Pimen integration are explicitly in VS2b.
 
+**Explicit non-coverage (end-game-anchor framing).** VS2a is deliberately framed as an **end-game playtest** per the 2026-05-16 Day-4 verdict reversal (see `canonical/story/movement-speed-baseline.md` § "Verdict Reversal"). The gauntlet ships end-game-balance state (player 8.0 m/s, fast-monster 7.5, AI_SPEED_MULTIPLIER 0.719); sim and demo agree on the same values via engine-emitted JSON. **VS2a does NOT validate early-game progression feel** — that question is deferred to **Playtest Cycle 1 (post-Stage-A2-closeout)**, after B12 full audit lands and player MS becomes an earned axis of gear investment. Playtest reports on VS2a must not claim early-game pacing coverage.
+
 ### Seam allocation
 
 | Seam | VS2a work | Capacity |
 |---|---|---|
-| gamora | B6 main; B10 V2 sequential-room; Gate-3b sim MS extension (post-VS2a, not gating) | Modifier-clamp gate complete; B11 sim shipped; B6 next |
+| gamora | B6 main; B10 V2 sequential-room; **Gate-3b sim MS extension (NOW VS2a-GATING per 2026-05-16 Day-4 verdict reversal)** | Modifier-clamp gate complete; B11 sim shipped; B6 next; Gate-3b sequenced behind rocket schema + star-lord export DTO fix |
 | rocket | B11 generator (shipped); B6 pre-work; MS schema (shipping) | B11 + Stage 1 + Stage 2 shipped today; B6 pre-work next |
 | drax | B11 demo (shipped); Pimen ingest + first VFX integration; MS implementation; character-track ingest; B6 skill-tree UI (open) | **Most loaded.** |
 | elrond | Pimen curation pipeline; subset selection | Pipeline in flight |
@@ -79,7 +81,7 @@ B7, B12 full audit, B13, B14, B16. Substrate Realignment work and full Pimen int
 
 ### Ship trigger
 
-Single regenerated season demonstrates: updated gauntlet (B6 kits + B10 V2 sequential rooms) + new geometry palette (B11 + 11 GREEN-list element VFX) + movement-speed baseline + first Pimen integration + chierit character rendering — all without override compensation.
+Single regenerated season demonstrates: updated gauntlet (B6 kits + B10 V2 sequential rooms) + new geometry palette (B11 + 11 GREEN-list element VFX) + **end-game-anchored movement-speed baseline** (player 8.0 / fast-monster 7.5 / multiplier 0.719 per `canonical/story/movement-speed-baseline.md` § "Verdict Reversal"; sim + demo agree via engine-emitted JSON) + first Pimen integration + chierit character rendering — all without override compensation.
 
 ### Design watch-items (gandalf)
 
