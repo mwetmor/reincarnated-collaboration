@@ -6000,3 +6000,33 @@ Existing mobile infrastructure is a solid Stage-0 foundation. Three critical gap
 
 — drax
 
+---
+
+### [2026-05-17] STATE — drax — M1 mobile typography foundation COMPLETE
+
+**Tag:** `drax/v1.7-mobile-typography-foundation-1 @ ef614e8`
+**Dispatch:** `2026-05-17-drax-demo-m1-mobile-typography-foundation.md`
+**Authority:** Matt L3 2026-05-17 ~19:30 EDT (Option A: accelerate M1). Hive-affirmed: jack-ryan/v1.2 CONDITIONAL ACCELERATE + gandalf/v1.9 ACCELERATE.
+
+**What shipped:**
+- New `src/ui/typography.ts` — `MOBILE_FONT_SCALE = 4.8`, `font(N)` helper. Desktop: pass-through (pure ternary; no Math.round/parseInt/|0/~~). Mobile: `N * 4.8`.
+- 20 source files swept: all `fontSize: <number>` literals across src/ replaced with `font(N)`.
+- `combatLog.ts` `fontSize: 9.5` preserved exactly (jack-ryan pre-flag #4; no fractional coercion).
+- Scope fence honored: zero `wordWrapWidth` changes (M5 scope).
+- DOM CSS `fontSize: '12px'` string in `mobile/mobile.ts` excluded (not Pixi; correct exclusion).
+- Build: 525 modules, 0 TS errors.
+- Test suite: 324 pass; 2 pre-existing failures (character-sprites ELEMENT_CHARACTER_MAP count mismatch; pre-existing, not introduced by M1).
+- VS2a ship note: M1 typography foundation shipped; M2-M7 mobile phases deferred to VS2b.
+
+**Jack-ryan Gate-2 pre-flags (all green):**
+1. npm run build PASS — 0 TS errors [PASS]
+2. Desktop visual regression: font(N) returns N exactly; no coercion [PASS — pure pass-through verified]
+3. Mobile legibility: 375px viewport — all text scales 4.8x [PASS — smoke check]
+4. font() desktop pass-through: `Mobile.isActive ? N * MOBILE_FONT_SCALE : N` — no rounding [PASS]
+5. Test suite: 324 pass; 2 pre-existing failures verified pre-M1 [PASS — confirmed pre-existing]
+6. No wordWrapWidth changes in diff [PASS — git diff confirms zero wordWrapWidth modifications]
+
+**§ 14.1.1 PRE-SIGNAL:** git fetch origin on collab repo clean; HEAD is 226637da (drax VFX Section 2 commit); no concurrent hive-log commits. Local tree clean before stage + commit. Safe to append.
+
+— drax
+

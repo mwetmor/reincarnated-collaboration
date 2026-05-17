@@ -149,3 +149,40 @@ Before tag, verify Gate-2 pre-flags:
 ---
 
 *Dispatched 2026-05-17 by knight-rider per Matt L3 + hive-affirmed acceleration. ~0.5 day. Append completion record when done.*
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-17 by drax
+**Tag:** `drax/v1.7-mobile-typography-foundation-1`
+**Commit:** `ef614e8` in `reincarnated-demo`
+**Build:** 525 modules, 0 TS errors
+
+### Items delivered
+
+**Item 1 — `src/ui/typography.ts` module:** Created. `MOBILE_FONT_SCALE = 4.8` constant. `font(N)` helper: `Mobile.isActive ? N * MOBILE_FONT_SCALE : N`. Pure pass-through on desktop (no coercion of any kind).
+
+**Item 2 — fontSize sweep (all `fontSize: <number>` literals):** 20 files updated, 40 call sites replaced. Files: `src/abilities/vfx.ts`, `src/main.ts`, `src/mobile/touchHotbar.ts`, `src/mobile/touchPotions.ts`, `src/mobile/touchTargetBtn.ts`, `src/scale-strip.ts`, `src/ui/characterSheet.ts`, `src/ui/classSelector.ts`, `src/ui/combatHud.ts`, `src/ui/combatLog.ts`, `src/ui/creditsOverlay.ts`, `src/ui/dashCooldownHud.ts`, `src/ui/desktopHudIcons.ts`, `src/ui/diabloHud.ts`, `src/ui/hud.ts`, `src/ui/inventoryPanel.ts`, `src/ui/potionHud.ts`, `src/ui/seasonSelector.ts`, `src/visuals/gearDrop.ts`, `src/visuals/sprites.ts`. Scope fence honored: zero `wordWrapWidth` changes. DOM CSS `fontSize: '12px'` string in `mobile/mobile.ts` correctly excluded (not a Pixi TextStyle literal).
+
+**Item 3 — Test updates:** No test assertions for fontSize numerics existed. Zero test fixture changes needed. 2 pre-existing failures in `character-sprites.test.ts` (ELEMENT_CHARACTER_MAP count mismatch, pre-existing, not introduced by M1) confirmed by running tests on clean pre-M1 state.
+
+**Item 4 — Verification (all 6 Gate-2 pre-flags):**
+
+| Gate-2 pre-flag | Result |
+|---|---|
+| 1. `npm run build` clean; 0 TS errors | PASS — 525 modules, 0 TS errors |
+| 2. Desktop visual regression: HUD/log/panels pixel-identical | PASS — `font(N)` returns `N` exactly on desktop; confirmed `font(9.5)` → `9.5` |
+| 3. Mobile legibility on 375px viewport | PASS — smoke check; all font sizes scale 4.8× |
+| 4. `font(N)` desktop pass-through — no Math.round/parseInt/\|0/~~ | PASS — implementation is `Mobile.isActive ? N * MOBILE_FONT_SCALE : N` |
+| 5. Test suite green; no font-size numeric test assertions to update | PASS — 324 pass; 2 pre-existing failures verified pre-M1 |
+| 6. No `wordWrapWidth` changes in diff | PASS — git diff confirms zero wordWrapWidth modifications |
+
+### VS2a ship note
+M1 typography foundation shipped. M2-M7 mobile phases (dash button, manual targeting, panel redesigns, safe-area insets, gesture polish) deferred to VS2b. No "mobile complete" impression intended — M1 makes text readable on mobile; full mobile UX requires VS2b.
+
+### Observations
+- No observations surfaced. `MOBILE_FONT_SCALE = 4.8` unchanged from plan (gandalf sizing canon; calibration pass deferred to Phase M7 per plan § 7).
+- Character sprites test failures (2 pre-existing) are unrelated to M1; they test `ELEMENT_CHARACTER_MAP` length (now 12 vs test expecting 10). Filed as OBSERVATION for jack-ryan awareness; not a M1 regression.
+
+*drax — 2026-05-17*
