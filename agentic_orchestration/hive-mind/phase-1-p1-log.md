@@ -5768,4 +5768,48 @@ All 9 acceptance criteria met. No Shift bindings remain. No residual Space confl
 
 — gandalf
 
+---
 
+### [2026-05-17] PRE-SIGNAL — gandalf — ARPG map overlay research Stream A authoring in progress
+
+**Per § 14.1.1:** `git fetch origin` clean; `git log -5 -- phase-1-p1-log.md` confirms HEAD at `46412f4` (mobile-PC pixel sizing commit); `git rev-list --count HEAD..origin/main = 0`. No remote-only hive-log commits to pull. Safe to commit when ready.
+
+**Concurrent-agent risk:** drax-map-overlay is executing Stream B in parallel per dispatch `2026-05-17-gandalf-drax-arpg-map-overlay-research-commission.md`. Both agents will author into the shared canonical doc and will append hive-log STATE entries. CRITICAL § 14.1.1 discipline: each agent re-runs `git fetch origin` + `git log -5` immediately before staging the hive-log file for commit; rebase if needed; explicit-path stage; commit. Drax appends to canonical doc § 8-14; gandalf authors § 1-7. Section 1 (exec summary) gandalf composes after drax sections land; section 14 (open questions) compiled by whichever ships last.
+
+**About to author (this session):**
+- `canonical/story/arpg-map-overlay-research-2026-05-17.md` — § 1-7 (executive summary stub + two-group validation + map content + iconography + interaction model + mobile-specific + aesthetic guidance)
+- Completion record appended to `2026-05-17-gandalf-drax-arpg-map-overlay-research-commission.md` (gandalf stream)
+- Tag intent: `gandalf/v1.8-arpg-map-overlay-research-1`
+
+**Cross-stream awareness:** Stream B (drax) authors § 8-14. If drax lands first, gandalf composes § 1 exec summary against drax's actual content; if gandalf lands first, gandalf cites `<drax-pending>` placeholders for engineering details in § 1 and drax fills the exec summary's drax-specific bullets on Stream B completion. The shared doc tolerates either ordering by design.
+
+**Sibling commission consumption:** `canonical/story/mobile-pc-pixel-sizing-ratios-2026-05-17.md` v1.7 is LANDED — § 3.2 mobile HUD-primitive sizes and § 4.6 (HUD compresses via layout reorganization) directly inform map-overlay mobile sizing. Drax mobile UX research is `<sibling-pending>` (commission filed; not yet executed); placeholders cited where applicable.
+
+— gandalf
+
+
+---
+
+### [2026-05-17] STATE — drax — Mobile UX research and execution plan COMPLETE (v1.6)
+
+**Tag:** `drax/v1.6-mobile-ux-research-and-plan-1` (pending git tag below)
+**Dispatch:** `2026-05-17-drax-demo-mobile-ux-research-and-plan-commission.md` (Pattern B — plan artifact only)
+**Plan artifact:** `canonical/story/mobile-ux-execution-plan-2026-05-17.md`
+
+**Audit scope completed:**
+- All 7 files in `src/mobile/` — per-file capability summary in plan § 2.1
+- All `Mobile.isActive` branches in `src/main.ts` — ~9 branch points catalogued
+- All UI panels — combatLog, characterSheet, inventoryPanel, combatHud, dashCooldownHud, potionHud, diabloHud, desktopHudIcons, touchHotbar, touchIcons, touchPotions, touchTargetBtn
+- Floating text / damage number rendering (`src/abilities/vfx.ts`)
+- Gandalf sizing canon (`canonical/story/mobile-pc-pixel-sizing-ratios-2026-05-17.md`) — fully consumed; live numbers used throughout plan
+
+**Gap matrix verdict:**
+Existing mobile infrastructure is a solid Stage-0 foundation. Three critical gaps: (1) no dash button, (2) no tap-to-target (cycle-only), (3) all text hardcoded at 8-20px canvas-space = unreadable on 375px CSS phone. Safe-area insets also missing. Panel layouts not adapted. Touch target sizes below Apple HIG floor on icons and potions (minor).
+
+**Plan structure:** 7 phases, M1-M7. M1 (typography foundation) is unblocking. M2 (dash) + M3 (targeting) deliver the two input gaps Matt flagged. M4 (damage text), M5 (panel redesigns), M6 (safe area), M7 (polish) complete the rework. Each phase is a single dispatch (~0.5-2 days). Total estimated: ~8-12 days of implementation work when authorized.
+
+**Scope window:** VS2b territory or later — NOT VS2a-gating. Plan is the artifact; implementation dispatches reference it phase by phase.
+
+**No code changes in this dispatch.** No temporary overrides created. No TODO(drax) stubs.
+
+— drax
