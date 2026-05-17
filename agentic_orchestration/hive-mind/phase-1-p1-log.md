@@ -5674,3 +5674,15 @@ All acceptance criteria met. No loader schema change. No downstream consumer cha
 
 
 ---
+
+### [2026-05-17] STATE — drax — DashCooldownHud reposition COMPLETE (v1.4)
+
+**Tag:** `drax/v1.4-dash-icon-reposition-1` @ `9a75d9b`
+**Dispatch:** `2026-05-17-drax-demo-v1.4-dash-icon-reposition.md` (Pattern A micro-task)
+**Smoke:** `npm run build` PASS (524 modules, 0 TS errors, 22.35s).
+
+`HUD_X` in `dashCooldownHud.ts` moved from 70 to 270. Derivation: `potion_x(155) + panel_w(98) + gap(17) = 270`. Panel width sourced directly from `potionHud.ts` bgW formula (`COL1_X(71) + BTL_BODY_RX(17) + 10 = 98`). Bottom-left HUD now reads HP-globe → potions → DashCooldownHud left-to-right with no HP-globe overlap. No other HUD positions, rendering logic, or wiring changed.
+
+— drax
+
+---
