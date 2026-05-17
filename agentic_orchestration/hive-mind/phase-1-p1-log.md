@@ -6985,3 +6985,112 @@ Seasons 002011-015 are D11-salvaged (d11_post_process=True, element_coverage_tax
 3 new `ClassBalanceResult` fields require telemetry schema changes (MIGRATION.md v1.10 already documents the contract). Non-blocking for balance loop; star-lord follow-on queued per standard pattern.
 
 — rocket
+
+---
+
+### [2026-05-17 late-evening Z] STATE — gandalf — PRE-SIGNAL: about to append D11 post-mortem verdict + dispatch completion record
+
+**Action:** appending § 14.1.1 PRE-SIGNAL + STATE entry + dispatch completion record. File touches:
+- `canonical/story/d11-postmortem-option-b-verdict-2026-05-17.md` (CREATED above; ~720 lines)
+- `agentic_orchestration/dispatches/2026-05-17-gandalf-d11-postmortem-option-b-veto-authority.md` (appending Completion record section)
+- `agentic_orchestration/hive-mind/phase-1-p1-log.md` (this STATE entry)
+
+No code touched. No engine outputs touched. No simulation rerun. Read-only inspection of `season_002012/classes/class_0012.json` + manifest.json + d11_salvage_summary.json.
+
+Parallel-safe with drax v1.12.0.1 audio hotfix + rocket v1.13.1 monster geometry backfill (both in flight; both independent of D11 design decisions).
+
+---
+
+### [2026-05-17 late-evening Z] STATE — gandalf — D11 post-mortem complete: **STOP verdict on Option B**
+
+**Dispatch:** `2026-05-17-gandalf-d11-postmortem-option-b-veto-authority.md` (Matt L3 explicit early-stop grant)
+**Post-mortem doc:** `canonical/story/d11-postmortem-option-b-verdict-2026-05-17.md`
+
+**VERDICT: STOP.** Knight-rider: do NOT auto-fire gamora D11.1. Hold and re-surface to Matt with this verdict.
+
+### Verdict TL;DR
+
+Option B (α=0.08-0.09 + skill-count 12→10) is incompatible with chromatic_mage design intent AND does not address the actual failure mode of D11.0. Two stacked reasons:
+
+1. **The D11.0 failure was not a magnitude failure; it was a wrong-lever failure.** Per § 1 self-critique (Discipline #1 violation acknowledged): I anchored α=0.07 against D2 Sorceress genre evidence (a *design-feel* anchor) without computing the floor-pin escape velocity (the *engineering-math* anchor). The empirical evidence — 17 instances pinning at conv_wr=0.56-0.84 at modifier floor after the 7% tax — shows the kit's structural DPS density is the problem, not the per-skill damage scalar. Damage tax in any reasonable magnitude (0.07, 0.09, 0.15) cannot break the floor-pin asymptote. Skill-count ceiling reduction (the structural lever) operates at the right level.
+
+2. **A live inspection of season_002012/class_0012 (the original Class C anchor) revealed a persistence discrepancy** worth diagnosing before any D11.x fires (Discipline #11 finding): manifest has `post_process_d11: True` but per-class JSON has no `d11_post_process` field and skills still show `damage_multiplier = 1.000`. Either rocket's completion-record assertions need clarification or the persistence path didn't fully write tax-applied values to the class JSONs (which would contradict math note § 3.2's Site A claim). Diagnostic recommended.
+
+### Sub-Q summary
+
+- **Sub-Q 1 (math-before-code self-critique):** Defect 1 — wrong genre anchor (design-feel vs engineering-math). Defect 2 — ignored floor-modifier asymptote. Defect 3 — no empirical-calibration POC before full salvage. Lesson: genre evidence constrains lever *type*; engine empirics constrain lever *magnitude*. Advisory should have been 30% shorter on genre survey and 30% longer on engine-math anchor.
+- **Sub-Q 2 (Option B compatibility):** INCOMPATIBLE. Skill-count cut (12→10) shrinks the breadth the damage tax is paying for, breaking the design trade. Dual-ceiling stacking puts chromatic_mage more-taxed than any canonical genre exemplar (PoE Elementalist, LE Runemaster, D4 Sorcerer, D2 Sorceress, GD all use *one* lever type; combining capacity + power-investment is a genre novelty in the punitive direction).
+- **Sub-Q 3 (rename timing):** (b) tune NOW, rename LATER. Land mechanical convergence first; rename when archetype stabilizes. Design docs use "chromatic_mage" going forward; engine-side `hybrid_mage` until a clean post-D11.x pass.
+
+### Alternative: Option C-prime — skill-count primary + empirical-calibration gate
+
+Per post-mortem § 5: primary lever = hybrid_mage skill-count ceiling 12 → 10 (calibrate to 9 if 10 smoke shows insufficient). Damage tax demoted to α=0.05 or α=0.00 as identity-flavor (preserves substrate-commitment thematic framing). Element-breadth ceiling unchanged at 3. Empirical-calibration gate: 3-point skill-count smoke (10/9/8) on 5 representative classes before full salvage; ~10-15 min sim time; catches magnitude mismatches in real-time.
+
+### Open questions for Matt
+
+1. Accept STOP + Option C-prime + empirical-calibration gate?
+2. Persistence diagnostic — fire small rocket dispatch (~30 min) to reconcile on-disk class state vs completion-record assertions?
+3. Rename timing locked as (b) tune NOW, rename LATER?
+4. New Discipline #14 — empirical-calibration-before-full-salvage — propose for jack-ryan addition?
+
+### Handoffs
+
+- **knight-rider:** HALT gamora D11.1 auto-fire. Re-surface to Matt with verdict. Once Matt confirms: fire new gamora dispatch per § 5; sequence persistence diagnostic in parallel.
+- **gamora:** standby; new math note brief on Option C-prime if Matt confirms.
+- **jack-ryan:** standby; consider Discipline #14 formalization.
+- **rocket:** conditional small persistence diagnostic dispatch if Matt confirms.
+- **drax, star-lord:** no action (parallel-safe with their in-flight work).
+
+### Engineering-discipline cross-refs
+
+- **Discipline #1 violation acknowledged** (math-before-code) — magnitude assigned by genre analogy, not engine empirics
+- **Discipline #2** — smoke discipline working at implementation layer; need extension to math-magnitude layer
+- **Discipline #11 active** — live data inspection caught the persistence discrepancy
+- **Discipline #14 proposed** — empirical-calibration before full-regen / full-salvage; 3-point parametric sweep on small sample to validate lever's actual response curve before committing full operation
+
+— gandalf
+
+---
+
+## [2026-05-17 late-evening+1] gamora — PRE-SIGNAL § 14.1.1 — D11.1 ceiling-primary tuning math note STATE incoming
+
+PRE-SIGNAL per hive-mind protocol § 14.1.1. Git fetch origin confirmed clean (last remote commit: rocket/v1.13.1 monster geometry_type backfill). D11.1 math note authored at `output/standard-demo-regen-2026-05-17/D11.1-ceiling-primary-tuning-math-note-2026-05-17.md` (9 sections). STATE entry follows immediately.
+
+## [2026-05-17 late-evening+1] gamora — STATE — D11.1 ceiling-primary tuning math note SHIPPED; jack-ryan Gate-1 + rocket D11.1 queued
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-gamora-d11-1-ceiling-primary-tuning-math-note.md`
+**Authority:** Matt L3 Option B + Gandalf post-mortem ENDORSE-with-3-warnings
+**Output:** `output/standard-demo-regen-2026-05-17/D11.1-ceiling-primary-tuning-math-note-2026-05-17.md` — 9 sections
+**Tag:** `gamora/v1.7-d11.1-ceiling-primary-tuning-math-note-1` (local; push gated per ADR-006)
+**MIGRATION.md:** No new entry. v1.10 from v1.13 carries forward.
+
+### Lever delta from v1.13
+
+- **NEW (PRIMARY):** `_ARCHETYPE_SKILL_CEILING["hybrid_mage"] = 10` in `d10_kit_constraints.py` — gauntlet resistance-immunity-coverage structural lever
+- **NUDGE (identity-flavor):** α: 0.07 → 0.08 in `config/_tax_config.yaml` — Δtax ≈ 1% at n_elements=3; not a convergence mechanism
+- **UNCHANGED:** Tax formula; Site A; element-breadth ceiling 3; k_free 2; DAMAGE_CONTRIBUTING_EFFECTS
+
+### Key new empirical finding (Discipline #11)
+
+Two 2-element instances from v1.13 (class_0001 n_elements=2 WR=0.667, class_0029 n_elements=2 WR=0.744) received NO tax yet floor-pin above 0.50. This is the smoking gun: the failure mode is absolute kit DPS density, not element-count-based resistance immunity. Coverage lever (ceiling) is confirmed as the right tool; damage-scalar lever (α) is confirmed as the wrong primary tool.
+
+Also resolved: tax persistence IS working (dm_non_1_count confirms 5-9 non-1.0 damage_multiplier per 3-element instance). Gandalf's § 4 persistence concern was a field-path look-up issue, not a write-path bug.
+
+### Convergence projection
+
+Conservative: 1-2/17. Realistic: 2-4/17. D11.1 will likely miss the ≥12/17 gate. The math shows the floor-WR gap (0.56-0.84 → needs <0.50) is too large for a 16.7% skill-count reduction to close across most instances. The 4 instances at n_skills=9 are unaffected by ceiling=10. The 6 at n_skills=10 are unaffected. Only the 7 instances at n_skills=11-12 get pruned; only class_0054 (WR=0.567) is a genuine convergence candidate. Gate must be run regardless — projection is a prediction, not a measurement.
+
+### Acceptance gate + D11.2 path
+
+- **Gate:** ≥12/17 hybrid_mage converged at interior modifier (final_modifier > 0.055) after salvage
+- **HIT:** D11.1 ships; HANDOFF → drax
+- **MISS:** D11.2 escalation (NOT α-escalation). No α > 0.08 proposals. No ceiling < 10 without Matt + gandalf authorization.
+
+### Handoffs
+
+**HANDOFF → jack-ryan:** D11.1 Gate-1 (auto-fires on completion record). Line-hold checks: α=0.08 exactly; ceiling=10 exactly; ceiling framed as PRIMARY; § 3+4 in coverage-reduction terms; § 9 D11.2 escalation path.
+
+**HANDOFF → rocket (queued after jack-ryan):** D11.1 implementation. Two 1-line changes + 17-instance salvage. ~30-60 min.
+
+— gamora
+
