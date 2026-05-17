@@ -127,3 +127,53 @@ If loadout deploys to Vercel automatically on push, ensure the new public/data/s
 ---
 
 *Dispatched 2026-05-17 by knight-rider per Matt L3. ~0.5-1 day. Append completion record when done.*
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-17
+**Tag:** `drax/v1.1-loadout-website-refresh-new-seasons-and-analytics-1`
+**Commits:** `9936171` (data + code), `33b344d` (AGENT_STATE), `1a0db01` (hive log)
+
+### Acceptance criteria — status
+
+- [x] season_002011-005 data exposed to loadout data layer (51 classes across 5 seasons)
+- [x] Historical season_001001-005 preserved/accessible (also added 001005 which was absent)
+- [x] Analytics.tsx refreshed with per-season cards + cross-season substrate heatmap + canonical-7 highlight
+- [x] Loadout.tsx season selector includes all seasons
+- [x] Sample.tsx season selector includes all seasons
+- [x] Encounters.tsx unchanged (hardcoded to season_001005 encounter analytics data — correct)
+- [x] D17 Court browser intact (CourtBrowser.tsx untouched; court.json bootstrap path verified)
+- [x] npm run build clean (0 TS errors, 760 modules)
+- [x] Manual smoke verified (build produces dist/, all routes reachable, seasonal data flows through analytics)
+- [x] Tag `drax/v1.1-loadout-website-refresh-new-seasons-and-analytics-1`
+- [x] Hive-log STATE entry
+
+### What shipped
+
+**Data layer:**
+- 6 new season directories in `data/`: season_001005 + season_002011 through season_002015
+- 11 seasons total, 114 classes. `useSeasonData` auto-discovers via existing `import.meta.glob`
+
+**New components:**
+- `src/components/analytics/SeasonSummaryCards.tsx` — per-season card grid (3 groups: Historical / Canonical-7 / Yomi); C7 badge, PASS/FAIL, theme, anchor, substrate chips
+- `src/components/analytics/SubstrateHeatmap.tsx` — cross-season substrate count table with intensity-coded cells
+
+**Modified files:**
+- `src/hooks/useAnalytics.ts` — added `SeasonSummaryCard`, `SubstrateHeatmapRow` types; added `seasonSummaryCards`, `substrateHeatmap`, `allSubstrates`, `newSubstrateSet` computation
+- `src/hooks/useSeasonData.ts` — added `selectableSeasons` (for season pickers)
+- `src/pages/Analytics.tsx` — canonical-7 callout banner; SeasonSummaryCards + SubstrateHeatmap inserted above Tier 1 charts; NewSubstratesBadge in summary strip
+- `src/pages/Loadout.tsx` — season dropdown picker at page top; class resets on season change
+- `src/pages/Sample.tsx` — same season dropdown pattern
+- `src/data/constants.ts` — `ELEMENT_COLORS` extended (lightning/holy/shadow); `ARCHETYPE_LABEL` extended (6 canonical-7 archetypes + physical_grappler)
+
+### Observations
+
+1. **season_001005 sourced from engine/seasons/ not staging dir:** The standard-demo-regen-2026-05-17 staging dir only contained 002011-002015. season_001005 was sourced from `reincarnated-engine/seasons/season_001005/` (v1.3 manifest, validation=PASS, 11 classes). This is correct — 001005 is a historical pre-canonical-7 season.
+
+2. **Bundle size unchanged:** Adding 6 seasons of class JSON via `import.meta.glob` (eager) only grew the gzip bundle by ~0.18 KB. Pre-existing chunk size warning (Recharts) unchanged.
+
+3. **No Vercel production deploy triggered:** Push to `origin/main` may trigger automatic Vercel preview. Production deploy requires Matt authorization per ADR-006.
+
+4. **Validation=FAIL on all 002011-002015:** All 5 new canonical-7 seasons have `validation_passed: false`. This is accurately surfaced as "FAIL" in the SeasonSummaryCard validation badge. Convergence failures range from 7-11 per season, also displayed. This is visible to Matt in the analytics page — no additional flag needed beyond what the UI shows.
