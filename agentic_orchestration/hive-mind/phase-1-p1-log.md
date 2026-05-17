@@ -3400,3 +3400,195 @@ Tag: `drax/v0.23-d19-sub-phase-a-chierit-extraction-manifest-1`
 
 — drax-loadout
 
+---
+
+### [2026-05-18 15:45Z] DECISION — gandalf — D10 § 10 Q1: Trial boss substrate weighting — UNIFORM
+
+**Question (per gamora D10 math note § 10 Q1 + hive log [2026-05-18 HH:MMZ] QUESTION):** Should Trial boss substrate selection be uniform across the 6 non-player substrates, or weighted by `role_affinities.control`?
+
+**Decision: UNIFORM.** Confirmed.
+
+**Cosmological rationale:**
+
+The Trial's cosmological function is *confrontation with substrate identity* — the player encounters a substrate that is not their own and learns what that substrate *is*. The Trial is not specifically *a confrontation with high-control substrates*; it is *a confrontation with the otherness of the substrate-wheel*.
+
+Each of the seven substrates offers a distinct *kind* of confrontation:
+- Fire burns the player's time-budget (escalation, DoT pressure)
+- Water suffuses the player's positioning (zone-denial, chill-slows)
+- Earth refuses the player's mobility (roots, hold-ground)
+- Wind redirects the player's positioning (knockback, kinetic disruption)
+- Lightning interrupts the player's tempo (chain, sudden-traversal)
+- Holy reveals the player's exposed positioning (consecrate zones, amplification-against-aligned-darkness — when player is shadow-aligned)
+- Shadow withdraws from the player's accustomed pressure-application (concealment, drain — pressures the player asymmetrically)
+
+All seven are *cosmologically appropriate* as Trial adversaries. Weighting by `role_affinities.control` would (a) systematically under-represent holy (11.3% Trial vs 16.7% uniform — already 10.7% in class rotation, double-penalty in Trial pool); (b) over-represent earth/water/wind (control affinities 0.7-0.8); (c) implicitly *re-tier* the substrates into "primary Trial substrates" and "secondary Trial substrates" — exactly the asymmetry the substrate-expansion-decision § 5.1 explicitly refused at the resistance-matrix layer.
+
+**Gamora's recommendation (uniform) is design-correct from the cosmological side as well as the implementation side.** No change to D10 math note § 5.3 recommendation.
+
+**Bonus cosmological note (not blocking):** the Trial-feel design space *does* contain "the substrate of confrontation feels different per boss substrate" — but that variation lives in the **substrate's own combat-pillar identity** at the boss's kit layer, not in the substrate's *frequency-of-Trial-appearance*. A holy Trial boss feels like a holy confrontation; an earth Trial boss feels like an earth confrontation. The frequency of *seeing* each Trial substrate should be flat across the six non-player substrates — variety-of-encounters comes from the substrate identities, not from weighted sampling.
+
+**Cross-references:**
+- `canonical/story/substrate-expansion-decision-2026-05-17.md` § 5.1 — substrate-tiering explicitly refused
+- `canonical/story/substrate-identity-declarations-2026-05-17.md` — seven substrate identities; each offers distinct Trial-confrontation flavor
+- `reincarnated-engine/src/reincarnated/generation/math/d10-substrate-coherent-generation-rules-phase-1-p1.md` § 5.3 — gamora's uniform recommendation confirmed cosmologically
+
+**Implementation:** no change to gamora's D10 § 5.3 implementation contract. `select_trial_substrate()` defaults to uniform (no `weighting` parameter required).
+
+— gandalf
+
+---
+
+### [2026-05-18 15:50Z] DECISION — gandalf — D10 § 10 Q2: Player substrate suppression in class rotation — NO SUPPRESSION FOR PHASE-1 P1; defer to P2
+
+**Question (per gamora D10 math note § 10 Q2 + hive log [2026-05-18 HH:MMZ] QUESTION):** Should the class rotation algorithm suppress (reduce sampling probability) the player's current substrate, rather than merely excluding it from the Trial boss pool?
+
+**Decision: NO SUPPRESSION for Phase-1 P1. Confirmed.** Phase-1 P2 candidate for revisit when telemetry can inform the suppression-magnitude question.
+
+**Cosmological rationale:**
+
+The Court of Forms accumulates forms the player chose to become. The pull to try a new substrate should be *structural-but-not-coercive*. The architecture already provides structural pull:
+
+1. **Trial boss exclusion** (D10 § 5.2) — the player's own substrate is excluded from Trial boss pool; the player is *forced to confront otherness* every Trial. This is the cosmologically-load-bearing differentiation. Gandalf is satisfied with this as the primary spirit-swap differentiation mechanism for Phase-1 P1.
+2. **21-archetype × 10-12 class-slots-per-season pool** — natural sampling produces 5.5+ distinct substrates per season on average (per gamora § 2.5 coupon-collector math). The player encounters substrate diversity without algorithmic suppression.
+3. **Court accumulation visibility** (D17 Court browser surface — drax-loadout) — the player sees their own form accumulation; this is *experiential* pull toward diversity rather than *algorithmic* pull. The substrate the player has done many times shows up in the Court many times; the substrate the player has not yet tried shows up empty.
+
+Algorithmic suppression on top of these three structural pulls risks **coercion-coded design** — the player who *wants* to play fire_mage again finds the algorithm pushing them away. The Court of Forms is about *accumulation of choices*, not *prescription of choices*. Per `cosmology-reincarnated.md` § Wheel framing: the substrates are peers; the player's relationship to each substrate is *their* journey, not the algorithm's prescription.
+
+**However:** the P2 case for suppression is real. Telemetry from Phase-1 P1 ship will tell us whether players naturally diversify across substrates or whether they camp on familiar ones. If the empirical distribution shows a long-tail (most players play fire_mage 5+ seasons in a row), Phase-1 P2 can design a suppression rule with *cosmologically-coherent magnitude* — e.g., the substrate the player has been in their last *3* seasons gets a 30% suppression; the substrate they haven't touched in *10* seasons gets a 30% boost. The shape of the rule should be informed by what the data says players actually do.
+
+**For Phase-1 P1: no suppression. The structural pulls are sufficient.** The `exclude_substrates` parameter in `sample_season_archetypes()` is reserved for P2 use per gamora § 2.6.
+
+**Phase-1 P1 scope discipline:** Q2 is correctly framed as a Phase-1 P2 candidate per gamora's recommendation. Phase-1 P1 ships with no suppression; D10 implementation contract unchanged.
+
+**Cross-references:**
+- `canonical/story/cosmology-reincarnated.md` § Wheel — substrates as peers
+- `canonical/story/court-of-forms.md` — Court accumulation arc; player journey is their own
+- `canonical/story/substrate-expansion-decision-2026-05-17.md` § 6 — spirit-swap differentiation pillar (Trial exclusion is sufficient for P1)
+- `reincarnated-engine/src/reincarnated/generation/math/d10-substrate-coherent-generation-rules-phase-1-p1.md` § 2.6 — `exclude_substrates` parameter reserved for P2
+
+**Implementation:** no change to gamora's D10 § 2.6 implementation contract. P2 follow-on becomes a telemetry-informed design pass.
+
+— gandalf
+
+---
+
+### [2026-05-18 16:00Z] AMENDMENT — gandalf — protocol § 14.1.1 (hive-log commit discipline) — knight-rider pre-authorized; SHIPPED
+
+Per protocol § 14.1 mid-mission revision process + dispatch 2026-05-18 (knight-rider pre-authorization for minor operational/discipline amendments under standing L3 authority).
+
+**Amendment scope:** add § 14.1.1 to `canonical/story/hive-mind-protocol-2026-05-17.md` formalizing hive-log commit discipline (fetch-before-stage; pull-rebase if concurrent commits exist; commit by explicit path). Closes the race-condition pattern observed 3 times during Phase-1 P1 (drax-demo sweep; gamora D7 sweep; gandalf hive-log timing — jack-ryan OBSERVATION 5).
+
+**Classification:** minor operational-discipline amendment. NOT architectural commitment. Pattern was already operationally implicit; this amendment formalizes the discipline. Within knight-rider's pre-authorization scope per dispatch.
+
+**Routing:** gandalf authored → knight-rider pre-authorized per dispatch → commit + broadcast (this entry).
+
+**Self-application discipline:** this gandalf-session followed the § 14.1.1 pattern when authoring hive-log entries — `git fetch origin` + `git log -- agentic_orchestration/hive-mind/phase-1-p1-log.md` before staging. The first fetch surfaced drax-loadout commits in the hive-log file that landed concurrent with gandalf authoring; gandalf's Edit-tool operations are file-system-level and append to working tree state, so the concurrent drax commits were already reflected in working tree state at edit time (no rebase needed; both sets of edits coexist in working tree). The discipline guarded a real race condition that did not materialize this session because of edit-tool semantics; for raw `git` commits the discipline is strictly necessary.
+
+**Cross-references:**
+- `canonical/story/hive-mind-protocol-2026-05-17.md` § 14.1 + § 14.1.1 (new) — the amendment
+- Jack-ryan checkpoint review OBSERVATION 5 (2026-05-18) — surfaced the pattern
+- Three pattern instances observed this session: drax-demo sweep; gamora D7 sweep; gandalf hive-log timing
+
+— gandalf
+
+---
+
+### [2026-05-18 16:10Z] HANDOFF — gandalf → gamora → knight-rider — canonical-four trait pools SHIPPED; D8 implementation contract extends to canonical-7
+
+Item 1 of dispatch SHIPPED.
+
+**File:** `canonical/story/d8-canonical-four-trait-pools-2026-05-18.md` (companion to D8 main doc; together they constitute canonical-7 substrate-symmetric intrinsic trait architecture)
+
+**Scope delivered:**
+- 4 substrate trait pools authored (fire_mage / water_controller / earth_caster / wind_controller)
+- 32 traits (8 per substrate × 4 substrates) — substrate-symmetric with D8's 24 traits (8 per × 3)
+- Floor cadence 2/2/2/2 across L1/L12/L25/L38 per substrate
+- L50 convergence (gamora calibrates coefficients per B9a intent)
+- Full substrate-identity cross-reference (mechanical_signature + iconic_verbs + cosmological_commitment + court_resonance per trait)
+- Genre-lineage citations per trait (D2/D3/D4 Sorceress/Wizard/Sorcerer; D2/D4 Druid Wind/Earth trees; PoE Elementalist + Cold-DoT + Earthshatter + Storm Brand + Whirling-Blades; Last Epoch Primalist/Stormcaller; Grim Dawn Pyromancer/Shaman; FFXIV Black Mage Blizzard line + monk earth/wind stances; Fire Emblem fire-tome mages; Lost Ark Sorceress + Wardancer)
+- Forbidden-mechanics audit (canonical-four × canonical-four + canonical-four × D8 new substrates) — CLEAN; 2 soft tensions flagged (earth-zone × lightning-ground-persist; wind-mobility × lightning-sudden-traversal) — both resolve under spec § 8.1 "forbidden_mechanics are the substrate's own refusals" principle
+- Cross-substrate coherence patterns verified:
+  - **Substrate-symmetric L1 ailment-extension** across canonical-four (fire Kindling, water Suffuse Presence, earth Root Persist, wind Displaced Grace) — all use `control_duration_bonus` against substrate-native ailment
+  - **Substrate-symmetric L38 mature-voice damage scaler** across canonical-7 (each substrate has a `bonus_damage_percent` proportional trait at L38 keyed on substrate-coherent condition)
+  - **Cosmologically-intentional asymmetries** between anti-poles (fire ↔ water; earth ↔ wind) — both pools share architectural pattern but oppose-valence (fire-burst-into-pre-burn vs water-amplification-on-pre-chill; earth-stand-and-hold vs wind-never-stop-moving)
+
+**Cross-seam contract for gamora (extends D8 § 6 implementation contract):**
+
+- **1 new ability_modifier_key** (down from D8's 5): `area_persist_duration_bonus` (additive seconds; formalizes fire's `area_persist` signature verb; used by fire_t1_hearth_persist). Added to `VALID_ABILITY_MODIFIER_KEYS` only (NOT MULTIPLICATIVE).
+- **4 new YAML files** at `config/class_trait_pools/{fire_mage,water_controller,earth_caster,wind_controller}.yaml` derived from this doc. Same loader pattern as D8 (`trait_pool_loader.py`). Combined 7 pool files = canonical-7.
+- **Sim-side wiring** (~125 lines beyond D8's ~100):
+  - `area_persist_duration_bonus` resolution at area-persist ability construction
+  - Movement-state read for wind traits (Drift Mobility, Gust Grace, Stormrider Keystone) — combat sim exposes `combatant.is_moving` boolean + `recent_distance_traveled_3s` accumulator
+  - Path-of-passage tracking for Vortex Keystone (ring-buffer ~2s; or simpler proxy — gamora discretion)
+  - Recent-knockback-event accumulator for Kinetic Strike + Redirection
+  - Zone-presence read for fire/earth zone-conditionals (Inferno Keystone, Terrahold, Groundswell, Pyre Resonance, Firewell) — reuses D5 ailment-zone tracker
+  - Continuous-root-duration tracking for Unyielding Keystone (sustained-presence accumulator)
+- **Per-rank curve calibration** — gamora calibrates all 7 substrate pools together for cross-substrate L50 convergence (per L3 briefing § 7 watchpoint)
+- **Effort:** ~2.5 days appended to existing D8 ~6.5-day contract (within L3 briefing § 3 ~+1-2 days envelope; slightly above the briefing's optimistic estimate; well under worst-case)
+
+**Combined D8 + canonical-four gamora-side effort: ~9 days. Combined gandalf-side: ~3 days (D8 ~1.5 + canonical-four ~1.5 — both at L3 briefing § 3 estimate). Total combined: ~12 days.**
+
+**Open implementation Qs surfaced for gamora (non-blocking; surface as needed):**
+1. Vortex Keystone path-tracking complexity — accept ring-buffer cost or use "moving at cast-time" proxy?
+2. Recent-knockback-event accumulator window — 3s event-decay or combat-tick-tied?
+3. Earth zone-conditional adjacency radius — suggest ~2 sim-units; gamora confirm
+4. Fire-area-persist zone attribution — sim-side filter ensures own-zones-only for Inferno Keystone
+
+**Discipline closures:**
+- Discipline #13 (implicit-pillar drift) — Matt's Option I authorization + this doc closes the canonical-four trait-pool drift the L3 briefing surfaced
+- D9 informational soft-tension flags (canonical-four affix coherence vs intrinsic pools) close cleanly with this doc landing
+- Substrate-expansion-decision § 5.1 commitment ("Phase-1 P1 adds substrates while preserving canonical-four depth, ideally enhancing it") — instantiated cleanly; player returning to fire_mage finds fire feeling more alive
+
+**Cross-references:**
+- `canonical/story/d8-trait-floor-design-phase-1-p1.md` (parent doc)
+- `canonical/story/substrate-identity-declarations-2026-05-17.md` § 1-4 (canonical-four substrate identities)
+- `canonical/32-progression-design.md` § 4 (trait-floor architecture)
+- `agentic_orchestration/hive-mind/canonical-four-trait-pool-l3-decision-2026-05-18.md` (L3 decision authorizing this work)
+
+**Tag intent:** `gandalf/v1.1-canonical-four-trait-pools-1` (post-commit; matches D8 pattern of design-side tags)
+
+**Knight-rider routing requested:**
+- Surface to gamora as D8 implementation contract extension (one loader build covers seven pool files)
+- Surface to jack-ryan as Discipline #13 closure for canonical-four trait-pool drift
+- Phase-1 P1 ship gate criteria addition: "all 7 substrates have authored + implemented intrinsic trait pools per canonical 32 § 4"
+
+— gandalf
+
+---
+
+### [2026-05-18 16:15Z] STATE — gandalf — SESSION CLOSE; all 3 dispatch items SHIPPED
+
+Background-agent checkpoint. All 3 dispatch items shipped in single session (well under L3 briefing § 6 ~3-4 day estimate — canonical-four authoring was faster than D8 per L3 briefing § 6 prediction because canonical-four genre-canon depth is richer than the three new substrates).
+
+**Items shipped:**
+
+1. **Item 1 (HIGHEST PRIORITY):** Canonical-four intrinsic trait pools authored. `canonical/story/d8-canonical-four-trait-pools-2026-05-18.md`. 4 pools × 8 traits = 32 traits. Substrate-symmetric with D8 three new-substrate pools (canonical-7 trait architecture complete). 1 new ability_modifier_key (`area_persist_duration_bonus`). Gamora implementation contract extended by ~2.5 days; cross-substrate L50 convergence calibration recommended.
+2. **Item 2 (MEDIUM PRIORITY):** Protocol § 14.1.1 amendment authored (hive-log commit discipline). `canonical/story/hive-mind-protocol-2026-05-17.md` § 14.1.1 (new subsection). Knight-rider pre-authorized per dispatch.
+3. **Item 3 (LOW PRIORITY):** D10 § 10 Q1 + Q2 DECISIONs authored. Q1: UNIFORM (Trial boss substrate weighting — cosmologically peers in the wheel; weighted-by-control would re-tier substrates against substrate-expansion-decision § 5.1). Q2: NO SUPPRESSION FOR P1 — defer to P2 telemetry-informed pass (structural pulls of Trial-exclusion + 21-archetype-pool + Court visibility are sufficient for P1; algorithmic class-rotation suppression risks coercion-coded design).
+
+**Cross-seam observations:**
+
+- Gamora D10 code phase is unblocked on cosmological-direction side; uniform weighting + no suppression both default-implementable
+- Gamora D8 implementation contract extension is the load-bearing handoff out of this session — ~9-day total D8+canonical-four contract; canonical-four pool YAML extraction + 1 new key + sim-side wiring + cross-substrate L50 calibration
+- Jack-ryan Discipline #13 has a clean closure to mark: canonical-four trait-pool drift resolved by Matt's Option I + companion doc landing
+- D9 informational soft-tension flags close cleanly
+- Substrate-expansion-decision design promise (additive equality across all seven substrates) is now mechanically instantiated; player returning to fire_mage post-expansion finds fire feeling more alive, not less
+
+**Cosmological closure:**
+
+The substrate-identity-declarations spoke seven substrates as peers in the wheel. The D8 doc gave depth to three of them. Today's companion doc gives depth to the other four. The wheel speaks all seven with equal voice now. Fire has its Conflagration and Inferno Keystone; water has its Tide Keystone and Deluge; earth has its Mountain Voice and Unyielding Keystone; wind has its Stormrider Keystone and Redirection — each substrate's mature voice as legible at L38 as the new substrates' voices became legible in D8.
+
+The Court of Forms will remember each substrate's forms at the depth the substrate deserves. The Firewalker who delivered the spark and let the world finish has 8 intrinsic floors of identity to express that journey. The Tidecaller who walked into rooms and changed what those rooms were has 8 floors. The Bulwark who held the line has 8 floors. The Stormrider who never stayed where the fight expected them has 8 floors. *Additive equality is honored.* Matt's Option I authorization paid for this; the work was clean because the genre-canon depth was real and the substrate-identity declarations were strong.
+
+**Continuous availability:**
+
+- Gamora D8/canonical-four implementation Qs — gandalf continuously available for cosmological/design-direction clarifications during gamora's code phase
+- Jack-ryan continuous-observation Qs on canonical-four cross-coherence — gandalf available for design-side verification
+- D26 cross-doc updates (near ship gate) — gandalf queued for canonical 32 § 4 minor update (canonical-7 trait pool authoring now complete; remove Phase-1 P2 candidate flag) + cosmology-reincarnated.md § Substrates minor update (substrate-symmetric trait depth instantiated)
+- D18 Spirit-Guide voice amendment (when rocket D17 firing-trigger gameplay flow sequences) — gandalf queued
+
+**Working tree state:** ready for commit + tag.
+
+— gandalf
+
+

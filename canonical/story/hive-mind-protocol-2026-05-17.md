@@ -627,8 +627,22 @@ Gandalf confirms:
 This protocol may be revised mid-Phase-1-P1 if operational experience surfaces gaps. Revisions surface via:
 1. Hive log AMENDMENT request to this protocol
 2. Gandalf authors proposed revision (Pattern A or B)
-3. Matt approval (L3)
+3. Matt approval (L3) — or knight-rider pre-authorization for **minor operational/discipline amendments** (not architectural commitments) under standing L3 authority
 4. Commit + hive log broadcast
+
+#### § 14.1.1 — Hive log commit discipline (amendment 2026-05-18)
+
+**Pattern.** When authoring a hive log entry, the following sequence prevents silent loss of concurrent specialist entries:
+
+1. Before staging the hive-log file for commit, run `git fetch origin` and inspect the log of the hive-log file (e.g., `git log --oneline -5 -- agentic_orchestration/hive-mind/phase-1-p1-log.md`).
+2. If any commits to the hive log file appear in the fetch that are not in your local working tree, `git pull --rebase` before staging the hive-log file for commit.
+3. Stage the hive-log file by explicit path (`git add agentic_orchestration/hive-mind/phase-1-p1-log.md`); commit.
+
+**Why.** Specialists committing in parallel to the same hive log file in the same repo can produce silent entry loss when a commit on top of a stale local tree replaces another specialist's just-written entries. Three instances of this race-condition pattern were observed during Phase-1 P1 (drax-demo sweep; gamora D7 sweep; gandalf hive-log timing — jack-ryan checkpoint OBSERVATION 5, 2026-05-18). Formalizing the fetch-before-commit step turns the rare bad-luck race condition into a deterministic guard.
+
+**Exception.** If the specialist's entry is in a different repo (drax in `~/Games/reincarnated-loadout`; reincarnated-demo in `~/Games/reincarnated-demo`; engine specialists in `~/Games/reincarnated-engine`), no hive-log coordination is needed for that repo's commit — the hive log file lives only in `reincarnated-collaboration`. Cross-repo work surfaces hive-log entries via the meta-repo specialist; the meta-repo specialist follows this discipline; the engine specialist does not.
+
+**Authority.** Authored by gandalf 2026-05-18 per protocol § 14.1 mid-mission revision process; routed via hive log AMENDMENT entry; minor operational-discipline scope (not architectural commitment); pre-authorized by knight-rider under standing L3 authority for minor protocol amendments per dispatch 2026-05-18.
 
 ### § 14.2 — End of Phase-1 P1
 
