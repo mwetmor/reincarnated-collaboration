@@ -1,9 +1,17 @@
 # AGENT_STATE — elrond (data steward)
 
-**Last updated:** 2026-05-16 (Pattern A — Pixogen catalogue loop closure — COMPLETE)
-**Last session:** Pattern A dispatch — close Pixogen catalogue loop per drax v0.19 completion + Matt's Lite acquisition + AFGameAssets license file verification (commercial use OK; modification OK; Pixi.js tinting permitted § 2.A.4; attribution required § 3.A.1). Pixogen vendor row inserted into catalogue.db (data migration v1.2 against schema v1.1 — no schema change); curated JSONL `pixogen-catalogue-curated-2026-05-16.jsonl` filed with HOLD-to-APPROVED-WITH-ATTRIBUTION flag transitions for both Full and Lite SKUs; pricing/access metadata corrected (Full €19.99 paid not-yet-acquired; Lite €0 acquired). MIGRATION.md v1.5 entry filed. No new pack/asset rows curated (per dispatch scope).
+**Last updated:** 2026-05-18 (Pattern A — WSP Layer 1 curation — COMPLETE)
+**Last session:** Pattern A dispatch — WSP (WOW Sound Pixel Magic SFX Pack) Layer 1 curation per Matt L3 acquisition (Q-MATT-AUDIO-1 $49 approved 2026-05-18). 404 .wav files inventoried at `/Users/admin/Games/reincarnated-demo/public/audio/sfx/Pixel Magic Sound Effects Pack/`. Element categorization completed: PM_ELEM_Fire (29) + Water (4) + Ice (23) + Earth (6) + Wind (21) + Electric (17) + Light (34) + Dark (34) + Time (29) + PM_GENERIC (55) + PM_SPELL_Buff (32) + PM_SPELL_Cast (32) + PM_SPELL_Debuff (24) + PM_UI (8) = 404 total. WSP→canonical-7 routing: Fire→fire, Water+Ice→water (Ice supplies projectile/beam/slam/aura where PM_ELEM_Water thin at 4 files), Earth→earth, Wind→wind, Electric→lightning, Dark→shadow, Light→holy (RESOLVES canon § 3.2 register-attention zone — WSP supplies retro-pixel holy directly; composite construction Path 1 NO LONGER REQUIRED). TWO RED-CELLS RESOLVED by WSP: water+slam (PM_ELEM_Ice04_Avalanche.wav) + holy+slam (PM_ELEM_Light07_Resurrect_FULL.wav). 72-slot upgrade manifest authored covering all 7 magic elements × 9 archetypes + 9 physical_* slots (physical retained as Cluster D foley per canon § 3.1 — NOT WSP territory). Drax v1.18 (or v1.19 per queue position) handoff brief included: 9-step wire-in checklist + loudness norm recommendation (-1 to -3 dB pre-gain pre-canon § 5.1 −12 LUFS target) + smoke verification protocol. No sfx-manifest.json modification (drax seam). No file preprocessing (drax does loudness norm).
 
 **Last deliverables (this session):**
+- `agentic_orchestration/research/curated/wsp-layer-1-upgrade-manifest-2026-05-18.jsonl` (NEW — 1 meta-row + 72 slot rows + 1 handoff-brief row = 74 lines; 167 WSP file references all cross-validated on-disk; covers 72 logical Layer-1 slots from sfx-manifest.json schema; STRONG register-fit across 7 magic elements + physical retained as foley)
+- Tag `elrond/v1.9-wsp-layer-1-curation-1` (local; no push per ADR-006)
+
+**Previous session deliverables (still in force) — 2026-05-18 dungeon objects audit:**
+- `agentic_orchestration/research/curated/dungeon-objects-quality-audit-2026-05-18.md`
+- Tag `elrond/v1.8-dungeon-objects-quality-audit-1`
+
+**Previous session deliverables (still in force) — 2026-05-16 Pixogen catalogue loop closure:**
 - `agentic_orchestration/research/scripts/catalogue_migrations/v1_2_pixogen_vendor_insert.sql` (NEW — data migration; Pixogen vendor row insert + schema_meta v1.2 record)
 - `agentic_orchestration/research/curated/pixogen-catalogue-curated-2026-05-16.jsonl` (NEW — 2 rows, Full + Lite, with HOLD-cleared flag state + corrected pricing/access metadata)
 - `agentic_orchestration/research/curated/catalogue.db` (mutated — catalogue_sources +1 row [itch-pixogen]; schema_meta +1 row [v1.2]; no schema change; total: 3 sources / 3 packs / 48 assets / 461 tags / 1 session)

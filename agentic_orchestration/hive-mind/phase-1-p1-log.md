@@ -7966,3 +7966,34 @@ Coupling #3 stat_allocator fallback → ValueError on unrecognized archetype. Ro
 **HANDOFF → Matt:** canonical/ + canonical/story/ are canonical-6 coherent. No doc in the canonical tree implies hybrid_mage is part of the live roster. All historical references have retirement annotations with forward pointers to the canonical-6 transition doc and decisions-log. The Coupling #3 stat_allocator follow-up is flagged as non-urgent; recommend sequencing after the first canonical-6 new-season regen validates the canonical-6 pipeline end-to-end.
 
 — jack-ryan
+
+---
+
+### [2026-05-18] STATE — elrond — WSP Layer 1 curation COMPLETE (tag elrond/v1.9-wsp-layer-1-curation-1)
+
+**PRE-SIGNAL § 14.1.1:** `git fetch origin` executed pre-append; hive-log tip at `4c05383` (jack-ryan v1.8 cross-canon strip pass); local working tree includes latest. No concurrent hive-log write detected at append time. Proceeding by-path stage.
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-18-elrond-wsp-layer-1-curation.md` (Pattern A — Matt L3 Q-MATT-AUDIO-1 $49 approved 2026-05-18; WSP staged on-disk at `/Users/admin/Games/reincarnated-demo/public/audio/sfx/Pixel Magic Sound Effects Pack/`).
+
+**Outcome:** WSP (WOW Sound Pixel Magic SFX Pack) 404 .wav files curated into Layer 1 substrate upgrade manifest. Replaces Leohpaz/TomMusic baseline for 54 of 72 Layer-1 slots; 9 slots WSP-supplemented with foley underlayers retained (melee/slam); 9 slots unchanged (physical_* — Cluster D foley territory, NOT WSP scope).
+
+**Key resolutions:**
+- **Canon § 3.2 register-attention zone for holy RESOLVED.** WSP supplies retro-pixel holy directly (34 PM_ELEM_Light files). Path 1 composite-construction (WS3 Light + Kenney bell-chime + pitch-shift) NO LONGER REQUIRED for normal operation. Path 1 recipe remains documented as fallback if WSP Light timbre proves register-mismatched at playtest audition.
+- **TWO canon § 4.6 RED-cells RESOLVED:** `water_slam` → `PM_ELEM_Ice04_Avalanche.wav` (cascading ice-mass impact) + `holy_slam` → `PM_ELEM_Light07_Resurrect_FULL.wav` (descending holy-impact). Remaining RED-cells: `earth_beam` (WSP earth thin — 6 impact-only files; Leohpaz fallback retained + composite recipe documented) + `physical_beam` + `physical_aura` (unchanged — foley territory, WSP cannot help).
+
+**Element categorization (197 element files):**
+- PM_ELEM_Fire (29) — STRONG / Water (4) + Ice (23) — STRONG via Ice / Earth (6) — STRONG impact-only, sustain layer thin / Wind (21) — STRONG / Electric (17) — STRONG → lightning / Light (34) — STRONG → holy / Dark (34) — STRONG → shadow / Time (29) — NOT canonical-7, deferred to Layer-3 status dispatch.
+
+**Supplementary unwired files (~210, deferred for future dispatches):** PM_GENERIC 55 (Layer-3 foley + death slots — direct mapping to existing death_* slots), PM_SPELL_Buff 32 (Layer-3 status_buff supplements), PM_SPELL_Cast 32 (Layer-1 G9 BUFF cast-preambles), PM_SPELL_Debuff 24 (Layer-3 status_debuff), PM_UI 8 (Layer-3 ui_* upgrade candidates).
+
+**Deliverable:** `agentic_orchestration/research/curated/wsp-layer-1-upgrade-manifest-2026-05-18.jsonl` — 74 lines (1 meta + 72 slot rows + 1 handoff brief). 167 WSP file references cross-validated on-disk (zero ghosts).
+
+**Drax v1.18 (or v1.19 post-mobile-audit re-sequencing) handoff brief embedded in manifest final row.** 9-step wire-in checklist: (1) path replacements per slot table; (2) strip TODO(drax) markers; (3) update RED-cell resolution notes; (4) loudness norm (-1 to -3 dB pre-gain to land canon § 5.1 -12 LUFS short-term — recommendation: runtime GainNode offset, not batch ffmpeg); (5) smoke verify one ability per element × archetype; (6) per-emitter mix bus preserved (canon § 6 same-file convention); (7) star-lord telemetry sanity check; (8) register-attention-zone resolution note; (9) tag + completion record.
+
+**Drax queue post-this:** v1.17 ship (DONE per commit `8764f13`) → **WSP wire-in (this manifest)** → mobile audit → mobile polish (per dispatch coordination note).
+
+**Out of scope honored:** NO modification to `reincarnated-demo/public/audio/sfx-manifest.json` (drax v1.18 seam). NO preprocessing of WSP files (drax does loudness norm). NO touching of Layers 2/3/4/5. NO tag push (ADR-006).
+
+**Tag:** `elrond/v1.9-wsp-layer-1-curation-1` (local).
+
+— elrond
