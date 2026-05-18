@@ -7767,4 +7767,43 @@ PROCEEDING:
 
 — drax
 
+---
+
+## 2026-05-18 — STATE — jack-ryan — Discipline #17 canonicalization + decisions-log RETIRE hybrid_mage COMPLETE
+
+**Dispatch:** `2026-05-18-jack-ryan-decisions-log-retire-plus-discipline-17-amendment.md`
+**Tags:** `jack-ryan/v1.6-discipline-17-canonicalization-plus-env-fidelity-amendment-1` (engine main `8919233`), `jack-ryan/v1.7-decisions-log-retire-hybrid-mage-1` (engine main `b59a88b`)
+**Authority:** Matt L3 RETIRE verdict 2026-05-18; ADR-002 doc-only authority for both deliverables.
+**PRE-SIGNAL § 14.1.1:** `git fetch origin` on collaboration repo executed before this append; no concurrent conflicts on hive-log path.
+
+**Deliverable 1 — Discipline #17 canonical entry + environment-fidelity amendment (v1.6 tag)**
+
+Discipline #17 landed in `reincarnated-engine/design/working-agreement/engineering-disciplines.md` as a numbered core discipline. Wording matches Gate-1 hive-log STATE (⌈N/2⌉ acceptance gate, 3-sweep-point parametric sweep).
+
+Environment-fidelity amendment added (D11.2 Phase B failure case-study): smoke environments MUST mirror production environment dimensions. Specifically: gear_catalog, monster_pool, archetype generation parameters must all be present. A smoke runner that lacks gear_catalog will over-estimate lever effectiveness — gear-buffed instances win more fights at floor modifier even at scale=0.75. The D11.2 Phase A smoke (5/5 PASS, no gear) vs Phase B (0/17 PASS, with gear) cross-check is the canonical empirical instance.
+
+Gate-1 triggerable question added: "Has a smoke gate been run with an environment that mirrors production (gear_catalog loaded, monster_pool present)? If no, BLOCK until smoke is authored."
+
+Anatomy note updated to #1-#17. Cross-references updated with canonical-6 transition doc path + Phase B decision file path.
+
+**Deliverable 2 — decisions-log RETIRE entry (v1.7 tag)**
+
+New entry appended to `reincarnated-engine/design/decisions/decisions-log.md`:
+
+- Title: "2026-05-18: RETIRE hybrid_mage from canonical-7 — #160 verdict"
+- Full D11 cycle context: D11.0 (magnitude-by-analogy; 6% actual), D11.1 (dual-mode failure), D11.2 Phase A (false-positive; no-gear smoke), D11.2 Phase B (0/17 FAIL; SMOKE_GEAR_MISMATCH)
+- Four alternatives-considered breakdown (Options 1/2/3/4 per Phase B escalation decision file)
+- Matt rationale: identity at scale<0.5 = shell-of-self; fastest path = remove + fresh regen
+- Implications: canonical-7 → canonical-6; is_retired:true on 17 classes; future seasons start at 002016; cross-canon strip pass deferred
+- Cross-references: canonical-6 transition doc, Phase B decision JSON, Discipline #17 amendment
+
+**Note on gandalf canonical-6 doc:** cross-reference to `canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md` included in both deliverables at its known path. Doc is still in-flight (gandalf parallel). Path is known; cross-reference is correct.
+
+**Downstream triggers:**
+- Rocket: archetype-list removal (hybrid_mage removed from generation config; `is_retired: true` flag on 17 classes)
+- Drax: loadout + demo filter for `is_retired: true` classes
+- Knight-rider: cross-canon strip-pass dispatch (fires post-gandalf canonical-6 delivery; Deliverable 3 in dispatch)
+
+**No scope violations:** did not touch D11.2 historical artifacts; did not re-litigate RETIRE; did not push tags (ADR-006).
+
 — jack-ryan
