@@ -87,3 +87,31 @@ Plus a top-level **engine-side data inventory** summarizing:
 ---
 
 *Dispatched 2026-05-18 evening by knight-rider per overnight sprint invocation Track B § 2.2 deliverable 6 (engine-side). Single-night sprint cadence.*
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-18 (overnight sprint)
+**Author:** star-lord
+**Manifest landed at:** `agentic_orchestration/research/curated/loadout-analytics-data-manifest-2026-05-18.md`
+
+### What was delivered
+
+Engine-side half of the co-authored data manifest. Survey-mode discipline applied throughout (what exists vs. what's missing — clearly separated). Covers all 6 gandalf IA arcs from the engine-side data angle.
+
+**Key findings:**
+1. **Cosmological vocabulary (Arc 2):** 5 vs2a seasons complete and structurally consistent. 8 slot fills + 3 pair rationale blocks per season. This is the highest-value unshipped data asset — ready to bundle and ship tonight.
+2. **D1 corpus (Arc 2):** `data/seasonal_elements/pool.json` — 156 entries (60 allow-list / 50 eligible / 46 quarantine, 4 primary substrates). Note: MEMORY.md count discrepancy (81/40/35 vs current 60/50/46) explained — VFX runtime gate auto-demotes entries; static pool.json counts (60/50/46) are correct for analytics display.
+3. **Role × substrate matrix (Arc 4):** Pre-extracted from all 51 classes across 5 seasons. Table included in manifest — drax can use directly as TS const.
+4. **CRITICAL GAP: vs2a seasons absent from telemetry.db.** Seasons 002011-002015 have zero records in any telemetry table. Analytics suite must consume artifact JSON files directly, not telemetry.
+5. **Hive dispatch pulse (Arc 6):** 231 dispatches, cleanly parseable by filename pattern. Extraction script provided. Last 4 active days: 10 / 92 / 96 / 32 dispatches.
+6. **Existing useAnalytics.ts data (Arcs 1/4/5):** Already wired — archetype distribution, modifier ranges, season cards, timeline. No new extraction needed.
+
+**Panels shippable tonight (drax):** Cosmological vocabulary (Arc 2), D1 corpus bar (Arc 2), substrate identity grid (Arc 1 — needs 15-min TS transcription), role × substrate matrix (Arc 4), hive dispatch pulse (Arc 6 — script provided). Existing useAnalytics.ts reuse panels: all ready.
+
+**Phase-2 items captured:** 5 engine-side items (vs2a telemetry backfill, dispatch-by-purpose scan, full git commit pulse, D1 per-entry browser, LLM cost for vs2a seasons).
+
+### Handoff state
+- Elrond catalogue-side section: pending append to same manifest doc (§ 8 stub reserved)
+- Knight-rider: fires drax-loadout-analytics-iteration-1 after elrond appends

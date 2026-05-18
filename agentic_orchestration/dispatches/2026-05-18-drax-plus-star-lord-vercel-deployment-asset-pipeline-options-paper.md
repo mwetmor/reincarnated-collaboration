@@ -108,3 +108,42 @@ Both authors agree on § 4 recommendation. If they disagree, surface as L2 to kn
 ---
 
 *Dispatched 2026-05-18 evening by knight-rider per overnight sprint invocation § 2.4 (drax + star-lord joint scoping). Single-night sprint cadence.*
+
+---
+
+## Completion record (star-lord — partial)
+
+**Star-lord sections complete:** 2026-05-18 (overnight sprint)
+**Options paper:** `canonical/story/demo-vercel-deployment-asset-pipeline-options-2026-05-18.md`
+**Status:** STAR-LORD SECTIONS DONE — awaiting drax § 1.3 / § 3 code-touch / § 4.2 co-sign
+
+### What star-lord delivered
+
+**§ 1 (partial) — Current state measurements:**
+- Demo `public/` on-disk: 6.1 GB total (audio 4 GB + assets 1.9 GB + sprites 173 MB + seasons 6.2 MB)
+- Git object size: 3.27 GiB; 152,631 tracked files (152,495 in `public/`)
+- Primary committed asset breakdown: DireDungeon_Items_Loot (138,032 files, 539 MB), chierit (4,211 files), characters (4,159 files)
+- craftpix_catalogue_large (1.1 GB on disk) = NOT committed; free_characters_and_vfx (28 MB on disk) = NOT committed
+- Audio packs (3.4 GB) gitignore'd; tilesets gitignore'd
+
+**§ 2 — Vercel tier constraints (complete):**
+- Hobby: 100 MB static upload limit; Pro: 1 GB static upload limit
+- BOTH size AND file count (15,000 source files) are hard blockers — the demo at 152K files is 10× the limit
+- Standard "push and deploy" is not viable on any tier without asset strategy change
+
+**§ 3 — Architectural perspectives per path (complete):**
+- Path 1 (ship everything): BLOCKED on both size + file count. Do not pursue.
+- Path 2 (external CDN/R2): viable; 4-8h setup; ~$20/month Vercel Pro + R2 negligible
+- Path 3 (Vercel Blob): viable; 3-6h setup; Pro $20/month includes 5 GB blob
+- Path 4 (vendor subset): viable; 2-4h; no code changes; .vercelignore only; recommended Phase 1
+- Path 5 (other hosts): same asset blocker on all platforms; not recommended as standalone
+
+**§ 4.1 — Recommendation (star-lord):** Path 4 (subset) for Phase 1; Path 3 (Blob) for Phase 2. Reasoning in paper.
+
+**§ 5 — Consultation pre-stage (complete):** Two dispatch templates written (one per path) for vercel:deployment-expert.
+
+### Handoff to drax
+Drax needed for: § 1.3 (code-loading patterns + refactor surface estimate), § 3 per-path code-touch complexity, § 4.2 (recommendation co-sign or amendment). Options paper is readable as-is for Matt L3 decision; drax additions provide code-touch ground-truth.
+
+### Matt L3 on morning
+**Decision needed:** Which path (1-5). Recommended: Path 4. If Path 4 — drax confirms which assets are critical-path for vs2a demo before deploying. Knight-rider fires the vercel:deployment-expert dispatch for whichever path Matt chooses.
