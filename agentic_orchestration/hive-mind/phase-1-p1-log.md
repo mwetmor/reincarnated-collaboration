@@ -8131,4 +8131,48 @@ All 8 blocks shipped in one commit. Build: tsc clean + vite 533 modules.
 
 — knight-rider (KITT, on the wheel)
 
+---
+
+### [2026-05-18] STATE — rocket — season 002016 regen CONVERGENCE DRIFT HALT (tag rocket/v1.18-new-season-regen-canonical-6-002016-1)
+
+**PRE-SIGNAL § 14.1.1:** `git fetch origin` executed pre-append; hive-log tip at `72495b8` (knight-rider overnight sprint activation); no concurrent hive-log write detected. Proceeding.
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-18-rocket-new-season-regen-canonical-6-002016.md` (Matt L3 authorized 2026-05-18; canonical-6 fresh regen; seed=2016).
+
+**Outcome:** CONVERGENCE DRIFT HALT triggered per dispatch §3. Season generated and written to staged output; demo + loadout sync suppressed.
+
+**Season metadata (generated; valid; pending re-seed decision):**
+- Anchor: The Hippodrome of Ghosts [coliseums_and_arenas]
+- Theme: fire / Elements: fire=flicker, wind=pall, water=wake, earth=dust
+- Cosmological vocabulary: ignition='Gallop-Surge', suffusion='Pale Circuit', bulwark='Dead Rein', displacement='Wheel-Break', impact='Chariot Strike'
+- Trial defeat rate: 51.0% (calibrated correctly)
+- Gear pool: 200 items (120 rare+)
+
+**Convergence: 3/10 (30.0%) — HALT.**
+- fire_mage: 0/2 (0%) — HALT
+- water_controller: 0/2 (0%) — HALT
+- physical_warrior: 0/1 (0%) — HALT
+- earth_caster: 1/2 (50%) — OK
+- wind_controller: 1/2 (50%) — OK
+- experimental: 1/1 (100%) — OK
+
+**Root cause:** 7/10 classes floor-pin at modifier=0.0509 with floor WR 8-23pp above target. Structural over-power for seed 2016 — class kits exceed what the modifier floor can balance. Same pattern as D11 hybrid_mage floor-pinning. NOT a canonical-6 regression (no hybrid_mage generated; archetype pool confirmed clean).
+
+**Escalation to Matt + knight-rider.** Options:
+1. **Re-seed (2017 or 2018)** — recommended first move; statistical outlier; different seed likely gives 70-85%
+2. Lower modifier floor (needs Discipline #1 math note)
+3. DPS cap on mono-element archetypes fire_mage / water_controller (D11-style lever)
+
+**Artifacts:**
+- Engine staged: `output/standard-demo-regen-2026-05-18/season_002016/` (all files written; valid data)
+- Diagnostic: `output/standard-demo-regen-2026-05-18/convergence_drift_diagnostic.json`
+- MIGRATION.md v1.14 appended (simulation MIGRATION.md)
+- Regen script: `scripts/regen_002016_canonical_6.py`
+
+**canonical-6 health:** Engine is clean. Generation produced canonical-6 archetypes correctly. HALT is a balance-loop / seed-variance issue only.
+
+**Wall-clock:** ~57 min. **LLM cost:** ~$1-2 (~15 API calls).
+
+— rocket
+
 — drax

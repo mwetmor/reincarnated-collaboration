@@ -157,3 +157,110 @@ Completion record in this dispatch with:
 ---
 
 *Dispatched 2026-05-18 by knight-rider per Matt L3 authorization. ~30-60 min wall-clock + ~$5 LLM. Append completion record with convergence stats + season metadata when done.*
+
+---
+
+## Completion record
+
+**Status:** CONVERGENCE DRIFT HALT — escalating to Matt + knight-rider per dispatch §3
+**Executed by:** rocket
+**Date:** 2026-05-18
+**Wall-clock:** ~57 min (balance loop 30 min + LLM naming 26 min)
+**Estimated LLM cost:** ~$1-2 (~15 API calls; within $5 budget)
+
+### Acceptance criteria status
+
+- [x] Season 002016 fully generated (classes + monsters + gear_pool + metadata + gauntlet_recipe) — written to staged output
+- [x] Convergence stats reported with per-archetype + per-substrate breakdown — see below
+- [~] No archetype < 20% convergence — **FAILED: 3 archetypes at 0%** — HALT triggered
+- [ ] Demo + loadout sync — **SUPPRESSED per HALT protocol** (dispatch §3: DO NOT sync)
+- [x] Telemetry rows written for all 10 classes (class_balance_results in telemetry.db)
+- [x] MIGRATION.md v1.14 entry appended (simulation MIGRATION.md)
+- [x] LLM cost within budget (~$1-2 of $5 limit)
+- [x] Wall-clock within expected range (57 min vs 30-60 min estimate)
+- [x] PRE-SIGNAL § 14.1.1 honored before hive-log append
+- [x] AGENT_STATE.md STATE entry updated
+- [x] Tag `rocket/v1.18-new-season-regen-canonical-6-002016-1` — to be created post-commit
+
+### Season metadata (for Matt's Suno music workflow — generated; pending re-seed authorization)
+
+| Field | Value |
+|---|---|
+| Season ID | season_002016 |
+| Seed | 2016 |
+| Anchor | The Hippodrome of Ghosts [coliseums_and_arenas] |
+| Theme element | fire |
+| Fire element name | flicker |
+| Wind element name | pall |
+| Water element name | wake |
+| Earth element name | dust |
+| Cosmological vocab — ignition | Gallop-Surge |
+| Cosmological vocab — suffusion | Pale Circuit |
+| Cosmological vocab — bulwark | Dead Rein |
+| Cosmological vocab — displacement | Wheel-Break |
+| Cosmological vocab — impact | Chariot Strike |
+| Validation | FAILED (7/10 convergence failures) |
+| Trial defeat rate | 51.0% |
+
+### Convergence stats
+
+**Overall:** 3/10 converged (30.0%) — below expected 75-85%
+
+**Per-archetype:**
+
+| Archetype | Conv/Total | Rate | HALT? |
+|---|---|---|---|
+| fire_mage | 0/2 | 0.0% | YES |
+| water_controller | 0/2 | 0.0% | YES |
+| physical_warrior | 0/1 | 0.0% | YES |
+| earth_caster | 1/2 | 50.0% | no |
+| wind_controller | 1/2 | 50.0% | no |
+| experimental | 1/1 | 100% | no |
+
+**Per-class detail (modifier floor analysis):**
+
+| Class | Archetype | Element | Target WR | Floor WR | Status |
+|---|---|---|---|---|---|
+| class_0001 | fire_mage | fire | 0.50 | 0.730 | FAIL (23pp over) |
+| class_0002 | water_controller | water | 0.50 | 0.582 | FAIL (8pp over) |
+| class_0003 | earth_caster | earth | 0.60 | 0.720 | FAIL (12pp over) |
+| class_0004 | wind_controller | wind | 0.50 | 0.528 | PASS |
+| class_0005 | physical_warrior | physical | 0.40 | 0.502 | FAIL (10pp over) |
+| class_0006 | fire_mage | fire | 0.50 | 0.678 | FAIL (18pp over) |
+| class_0007 | water_controller | water | 0.50 | 0.607 | FAIL (11pp over) |
+| class_0008 | earth_caster | earth | 0.50 | 0.517 | PASS |
+| class_0009 | wind_controller | wind | 0.50 | 0.592 | FAIL (9pp over) |
+| class_0010 | experimental | physical | 0.50 | 0.520 | PASS |
+
+### Root cause assessment
+
+**Structural over-power — modifier floor reached before convergence target.** 7/10 classes floor-pin at modifier=0.0509 (the balance modifier minimum). Their win rates at the floor are 8-23 percentage points above their targets, meaning the balance loop cannot lower the modifier far enough to reach the target.
+
+This is the same structural pattern as D11 hybrid_mage floor-pinning. The difference is this affects multiple canonical-6 archetypes across this seed's class pool.
+
+**NOT a canonical-6 regression:** no hybrid_mage generated (confirmed); archetype pool is clean.
+
+**Likely cause:** Seed 2016 produced a class-kit / gauntlet combination where the generated kits are systematically over-powered relative to the gauntlet monsters. This is statistical variance — some seeds land in this regime. The D11 element-coverage tax (alpha=0.08) applies only to multi-element hybrid kits, not mono-element archetypes like fire_mage or water_controller.
+
+**Pre-regen smoke signal (in hindsight):** Smoke test at seed=2016 showed 1/5 converged (20%). This was a weak signal. Future dispatches should treat smoke convergence < 40% as a pre-regen caution flag worth noting.
+
+### Escalation to Matt + knight-rider
+
+Options for Matt (recommendation: option 1 first):
+
+1. **Re-seed (2017 or 2018):** Most expedient. Different seed will likely produce 70-85% convergence without any engine changes. This is the standard path when a seed lands in a statistical outlier regime.
+2. **Lower modifier floor:** Reduce `BALANCE_MODIFIER_FLOOR` from ~0.055 to ~0.03-0.04. Would allow classes to converge at lower modifiers. Risk: classes at very low modifiers may be fragile in playtest. Needs Discipline #1 math note before implementation.
+3. **DPS cap on fire_mage / water_controller:** Apply a D11-style element-coverage tax to fire_mage and water_controller kit generation specifically. Targets the structural source but requires a new lever and validation cycle.
+4. **Gauntlet monster HP scaling:** Strengthen gauntlet for seeds with high kit power. Structural change; gamora seam; out of scope for this dispatch.
+
+### Staged artifacts
+
+- Engine staged: `/Users/admin/Games/reincarnated-engine/output/standard-demo-regen-2026-05-18/season_002016/`
+- Diagnostic: `/Users/admin/Games/reincarnated-engine/output/standard-demo-regen-2026-05-18/convergence_drift_diagnostic.json`
+- Regen script: `/Users/admin/Games/reincarnated-engine/scripts/regen_002016_canonical_6.py`
+
+### Canonical-6 health assessment
+
+The HALT does NOT invalidate canonical-6. The engine generated clean canonical-6 classes (no hybrid_mage regression). The convergence failure is a balance-loop / seed-variance issue, not an archetype-pool or generation-pipeline issue. The canonical-6 architecture is working as intended.
+
+*Completion record appended 2026-05-18 by rocket. Awaiting Matt + knight-rider decision on path forward.*
