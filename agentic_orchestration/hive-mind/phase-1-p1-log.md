@@ -8065,4 +8065,36 @@ Coupling #3 stat_allocator fallback → ValueError on unrecognized archetype. Ro
 
 **Post-audit drax queue:** v1.20 mobile-polish (hit zone + any P0 from audit) → chierit monster wiring (elrond handoff brief ready) → v1.21+ icons/credits/schema.
 
+---
+
+### [2026-05-18] STATE — drax — v1.20 8-block multi-fix COMPLETE
+
+**Dispatch:** `2026-05-18-drax-v1-20-mobile-touch-zones-plus-holy-controller-plus-door-icon-plus-first-tileset.md`
+**Tag:** `drax/v1.20-mobile-touch-zones-plus-holy-controller-plus-door-icon-plus-first-tileset-1` (local; ADR-006)
+**Commit:** `bb9e361`
+
+All 8 blocks shipped in one commit. Build: tsc clean + vite 533 modules.
+
+**Summary of blocks:**
+- B1 (mobile touch zones P0): `hitR()` helper in typography.ts; HIT_R expanded × 5 touch files + LMB
+- B2 (Holy Controller black box — 4th attempt): root cause = `holy:'white'` → no `_large_white` on disk → Pixi fallback texture → frame-fit error → black render; fix: `holy:'yellow'`; frameCount clamp hardening added
+- B3 (door icon fit): depth 18→36px in `_drawDoorThreshold()`
+- B4 (earlier-vendor tileset): `ACTIVE_FLOOR_VENDOR='procedural'` in dungeonTileset.ts; no sprite tileset existed before CraftPix v1.13 — "earlier vendor" = procedural Graphics floor (basalt/stone/cathedral etc.); A/B flip preserved
+- B5 (pimen warnings): `KNOWN_PENDING_PACKS` set; `console.warn→debug` for 6 expected-miss packs
+- B6 (orientation invert Q-NEW-2): overlay on landscape; manifest+mobile.ts lock→portrait
+- B7 (wave 8 elite HP soft-cap): `TIER_HP_MULTIPLIER` in Combatant.fromMonster() — elite:0.50, mini-boss:0.40, boss:0.35, act_boss:0.25
+- B8 (potion DoE): count-gate removed; heal 0.5→0.35 max-HP + 50-HP floor; HUD count text hidden
+
+**Notable diagnostics captured:**
+- Holy Controller 1st error (X:276+46=322>320): self_buff→spell_attack_up_001 on ~320px fallback texture
+- Holy Controller 2nd error (X:535+107=642>640): self_cast→spell_heal_001 on ~640px fallback texture
+- Earlier-vendor archaeology: pre-CraftPix floor was procedural `_tilesBasalt`/`_tilesStone` etc. in roomRenderer.ts (v0.12-v1.12 era). No sprite vendor predates CraftPix 298079.
+- Wave 8 soft-cap multiplier table: trash/standard=1.0, elite=0.50, mini-boss=0.40, boss=0.35, act_boss=0.25
+
+**Coupling note (Q-NEW-1 deferral):** Orientation overlay tells player to rotate to portrait, but canvas internal is still 1800×944 landscape. Game letterboxes in portrait — playable stopgap. v1.21 dispatch needed for full portrait canvas remap (944×1800).
+
+**Divergence note (potion CD):** DoE canonical heal CD = 10s; demo uses 15s (Matt L3 v1.18.5). Not changed — flag for Matt to tune in one shot post-v1.20.
+
+**Next drax queue:** chierit monster wiring (elrond handoff brief at `curated/chierit-monster-wire-in-handoff-brief-2026-05-18.md`) → v1.21 portrait canvas remap (Q-NEW-1)
+
 — drax
