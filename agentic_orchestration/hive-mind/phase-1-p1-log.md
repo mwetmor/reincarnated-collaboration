@@ -8230,3 +8230,33 @@ All 8 blocks shipped in one commit. Build: tsc clean + vite 533 modules.
 **Effort vs estimate:** dispatch estimated ~2 hours; delivered in window. No L3 surfaced from authoring — all design calls fit pre-authorization matrix § 6 row 11 (new canonical-story doc; not load-bearing canonical amendment).
 
 — gandalf (Mithrandir, on the page)
+
+---
+
+### [2026-05-18 morning/afternoon] STATE — galadriel — online; Track C reroute acknowledged; dispatches read; prep work in parallel under D11.5 gate
+
+**PRE-SIGNAL § 14.1.1:** `git fetch origin` executed pre-append; hive-log tip at `87ce534` (gandalf loadout analytics IA); local working tree current. No concurrent hive-log write detected. Proceeding by-path stage.
+
+**Activation:** First-invocation session. Agent definition at `.claude/agents/galadriel.md` (Matt L3 morning approval `85a4629`). Track C reroute (`c5fe5a6`) — galadriel-native ownership restored on both pipeline + report dispatches; drax stand-in dispatches superseded.
+
+**Onboarding completed:** AGENTS.md + hive-mind-protocol-2026-05-17 + overnight-sprint invocation § 2.3 + § 4 + § 6 + mobile-feel-target-doe-2026-05-17 + MANIFEST.md (7 DoE captures) + both active dispatches + superseded-spec dispatch (for detailed scope) + morning-briefing-2026-05-19 + skill_handoff_2026-05-18 + adjacent hive-log entries.
+
+**Dispatch gate state:**
+- `2026-05-18-galadriel-capture-pipeline-and-state-matched-captures.md` — 🟡 QUEUED. Predecessor: drax-D11.5 debug-state hook. **GATE NOT OPEN** — latest demo commit `7e5b93b drax/v1.21`; no `?debug-state` hook in demo bootstrap yet. Drax-D11.5 dispatch active but unexecuted.
+- `2026-05-18-galadriel-plus-gandalf-visual-benchmark-report-vs2a.md` — 🟡 QUEUED. Predecessor: capture pipeline completes.
+
+**Galadriel posture under D11.5 gate:**
+
+Per "long sight, patient gaze" methodology + pre-authorization matrix § 6 rows 8 (npm-local Playwright install), 9 (headless capture against local dev server), 11 (new canonical-story / rubric docs), prep work runs in parallel while waiting on drax-D11.5:
+
+1. **Pipeline scaffolding** — `agentic_orchestration/galadriel/pipeline/{package.json, .gitignore, capture.mjs, states.json, README.md}` per superseded-dispatch spec § Deliverable 1. Playwright npm-local install. Smoke-test launch (without D11.5; just confirm headless Chromium boots + screenshots the demo's default landing state). When D11.5 lands, captures fire immediately with no pipeline setup tax.
+2. **Rubric v1 DRAFT authoring** — `agentic_orchestration/galadriel/rubrics/2026-05-18-rubric-doe-comparison-v1.md`. Per-axis criteria designed from DoE references + canonical mobile-feel-target-doe doc. No captures required — methodology design. Will iterate against actual captures when they exist.
+3. **No actual scoring** without state-matched captures (rubric methodology requires state-matched comparison; per agent-definition anti-pattern: "Genre-median triangulation in absence of a reference — if there is no reference image, the rubric does not score; the surface becomes a *finding*").
+
+**Halt-condition awareness:** If D11.5 does not land before this session's working window closes, primary capture defers to next session. Secondary captures (the demo's whatever-state default) can still produce useful cross-viewport regression-check evidence — galadriel will surface those as FRICTION-with-disclaimer rather than scoring them as state-matched comparisons.
+
+**Cross-track signal received:** Gandalf loadout IA landed (`87ce534`); Track B unblocked downstream of gandalf. Rocket convergence-drift halt at L3-3 queued for Matt morning (no Track C impact — galadriel captures whatever demo loads). Knight-rider continuing coordination-only posture.
+
+**Reference set verified:** 7 DoE captures present at `agentic_orchestration/galadriel/reference-images/` per MANIFEST.md (1 combat + 6 town states; 1290×2796 portrait class; Matt-rights, non-commercial benchmark use only). Provenance discipline preserved per agent-definition § Reference image sourcing rules.
+
+— galadriel (The Mirror, set; awaiting the picture)
