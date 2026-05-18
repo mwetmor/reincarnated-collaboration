@@ -2,8 +2,14 @@
 
 **Authority:** Overnight sprint invocation `agentic_orchestration/gandalf/requests/2026-05-18-knight-rider-mobile-playable-analytics-visual-benchmark-sprint.md` § 2.4 deliverable 14; pre-authorization matrix § 6 row 6.
 **Type:** Pattern B; ~2-3 hours; **DRAX + STAR-LORD JOINT.**
-**Status:** 🟢 **ACTIVE — parallelizable with all other tracks. SCOPING ONLY. No deployment commit tonight.**
+**Status:** ⛔ **CLOSED-REDUNDANT 2026-05-18 afternoon. DO NOT EXECUTE.** Matt L3 morning "Accept #1. Fire drax on R2 hybrid" + afternoon VFX/SFX gap diagnostic locked Path 1 (R2 hybrid). Options-comparison exercise no longer needed; implementation dispatch `2026-05-18-drax-demo-r2-hybrid-deployment.md` carries the decision rationale in its preamble. Star-lord's partial completion record (Sections 1-2-4.1) preserved below as historical reference. **Drax does NOT author Sections 1.3 / 3 / 4.2 — that scope is short-circuited.**
 **Tag intent:** none (canonical-story doc).
+
+---
+
+## ⛔ CLOSURE NOTE — 2026-05-18 afternoon
+
+Matt console-diagnostic confirmed VFX + SFX gap on deployed demo. Root cause = missing asset packs (CreativeKind 28 MB not in git; SFX 3.4 GB gitignored). R2 hybrid is the architectural fix. Decision was made before this paper was written; paper is now postdiction documentation at best. Knight-rider verdict: not load-bearing — fold rationale into R2 implementation dispatch completion record instead. Star-lord redirected; drax stays on his sequence (D11.5 → R2 hybrid → loadout v1.18 → camera zoom).
 
 ---
 
