@@ -1,0 +1,49 @@
+{
+  "_schema_version": "1.0",
+  "_authored_by": "galadriel — 2026-05-18",
+  "_purpose": "Named demo-state configurations for headless capture. Each state maps to a debug-state URL param (per drax-D11.5 deliverable) and a list of viewports for capture.",
+  "_d11_5_dependency": "All states with non-null wait_for require drax-D11.5 debug-state URL hook in demo bootstrap. Without D11.5, only the `landing` state (no debug-state param) produces a meaningful capture.",
+
+  "_viewports": {
+    "mobile-portrait-1290x2796": { "width": 1290, "height": 2796, "deviceScaleFactor": 3, "isMobile": true, "_notes": "iPhone 14 Pro Max class; DoE-reference exact aspect" },
+    "mobile-portrait-390x844":   { "width": 390,  "height": 844,  "deviceScaleFactor": 3, "isMobile": true, "_notes": "iPhone 14 class" },
+    "mobile-portrait-375x667":   { "width": 375,  "height": 667,  "deviceScaleFactor": 2, "isMobile": true, "_notes": "iPhone SE class; small-phone regression check" },
+    "desktop-1920x1080":         { "width": 1920, "height": 1080, "deviceScaleFactor": 1, "isMobile": false, "_notes": "canonical PC resolution; non-DoE comparison" }
+  },
+
+  "states": {
+    "landing": {
+      "url_path": "/",
+      "viewports": ["mobile-portrait-1290x2796", "mobile-portrait-390x844", "desktop-1920x1080"],
+      "wait_for": null,
+      "warmup_ms": 3000,
+      "doe_reference": null,
+      "_notes": "Whatever-state default landing. Pre-D11.5 fallback for cross-viewport regression check. NOT state-matched comparison-grade.",
+      "_purpose": "Smoke-test the pipeline + provide a non-state-matched baseline if D11.5 is delayed."
+    },
+    "combat-midfight": {
+      "url_path": "/?debug=true&debug-state=combat-midfight",
+      "viewports": ["mobile-portrait-1290x2796", "mobile-portrait-390x844", "mobile-portrait-375x667", "desktop-1920x1080"],
+      "wait_for": "[debug-state] activated=combat-midfight",
+      "warmup_ms": 2500,
+      "doe_reference": "DOE-combat-whisper-rift-2-2026-05-17.png",
+      "_purpose": "PRIMARY comparison-grade capture. State-matched against DoE combat reference. Requires drax-D11.5 hook."
+    },
+    "combat-empty-room": {
+      "url_path": "/?debug=true&debug-state=combat-empty-room",
+      "viewports": ["mobile-portrait-1290x2796", "mobile-portrait-390x844"],
+      "wait_for": "[debug-state] activated=combat-empty-room",
+      "warmup_ms": 2000,
+      "doe_reference": null,
+      "_purpose": "HUD-only inspection (no combat noise). Supports rubric's typography + UI-register axis. Requires drax-D11.5 hook."
+    },
+    "inventory-open": {
+      "url_path": "/?debug=true&debug-state=inventory-open",
+      "viewports": ["mobile-portrait-1290x2796", "mobile-portrait-390x844"],
+      "wait_for": "[debug-state] activated=inventory-open",
+      "warmup_ms": 2000,
+      "doe_reference": null,
+      "_purpose": "Inventory-UI inspection. Tertiary; not scored against DoE tonight (no DoE inventory reference in current 7-image set). Requires drax-D11.5 hook."
+    }
+  }
+}

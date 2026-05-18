@@ -1,0 +1,23 @@
+{
+  "name": "galadriel-capture-pipeline",
+  "version": "0.1.0",
+  "description": "Headless Chromium capture harness for galadriel's visual-benchmark pipeline. State-matched demo captures vs DoE references.",
+  "private": true,
+  "type": "module",
+  "license": "UNLICENSED",
+  "scripts": {
+    "capture": "node capture.mjs",
+    "capture:all": "node capture.mjs --all-states",
+    "smoke": "node capture.mjs --smoke"
+  },
+  "dependencies": {
+    "playwright": "1.49.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "author": "galadriel (visual-perception steward) — agentic_orchestration",
+  "attribution": {
+    "playwright": "Microsoft, Apache-2.0 — used as headless-Chromium driver for state-matched screenshot capture"
+  }
+}
