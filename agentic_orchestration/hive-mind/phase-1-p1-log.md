@@ -7807,3 +7807,53 @@ New entry appended to `reincarnated-engine/design/decisions/decisions-log.md`:
 **No scope violations:** did not touch D11.2 historical artifacts; did not re-litigate RETIRE; did not push tags (ADR-006).
 
 — jack-ryan
+
+---
+
+## 2026-05-18 — STATE — gandalf — Canonical-6 transition design doc SHIPPED (RETIRE hybrid_mage)
+
+**Dispatch:** `2026-05-18-gandalf-canonical-6-retire-hybrid-mage-design-doc.md`
+**Doc:** `canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md` (~11 sections; ~600 lines)
+**Tag:** `gandalf/v1.11-canonical-6-retire-hybrid-mage-1` (local; push gated per ADR-006)
+**Authority:** Matt L3 RETIRE verdict 2026-05-18.
+**PRE-SIGNAL § 14.1.1:** `git fetch origin` executed before this append. Concurrent writers per dispatch heads-up: jack-ryan (already shipped both deliverables per STATE above), rocket (archetype-list removal in-flight per dispatch `2026-05-18-rocket-canonical-6-archetype-removal-plus-is-retired-flag.md`), drax (v1.16.2 audio), elrond (dungeon-objects audit). No conflict on canonical/story/ path or hive-log content (my STATE is fresh material; jack-ryan's already integrated).
+
+**Doc scope — all 5 dispatch deliverables shipped within the single canonical-6 doc + handoff briefs:**
+
+**§ 1 Decision context.** Three-attempt D11 cycle framed honestly: D11.0 (α=0.07; 6%; magnitude-by-genre-analogy MISS); D11.1 (ceiling=10; 0%; coverage-redundancy hypothesis REFUTED via dps_score=0.0 pruning); D11.2 (Lever B scale=0.75; smoke 5/5 PASS no-gear → Phase B 0/17 FAIL with-gear; environment-fidelity bug). Matt's L3 verdict framed as design simplification under empirical pressure (not failure verdict; not thematic verdict on hybrid identity).
+
+**§ 2 What was hybrid_mage.** Generative shape (lone integrator archetype; not composed from SubstrateIdentity×Role; explicit `_HYBRID_ARCHETYPE_TEMPLATES` entry); thematic identity (substrate-commitment-cost framing; LE Runemaster / PoE Elementalist / D4 mid-band Sorcerer lineage); three intertwined design intents (genre-canonical multi-element slot; Reincarnated accumulation-cost story; mechanical breadth-cost exploration). 17 staged instances become historical record with `is_retired: true`.
+
+**§ 3 Why it didn't survive contact with the balance loop.** Three layered findings: (a) multi-element kits compound DPS-density via larger damage-bearing-skill counts (4-8 vs 3-5 for substrate-coherent); (b) gear Monte Carlo over-buffs hybrid kits via broader affix-pool eligibility (root cause of Phase A→B mismatch); (c) no clean lever at identity-preserving magnitude (scale<0.5 = shell-of-self).
+
+**§ 4 Canonical-6 archetype list.** Six substrate-coherent integrator slots reaffirmed (fire / water / earth / wind / lightning / holy-shadow paired-luminance). Physical archetypes unaffected. Note on terminology: canonical-6 specifically the substrate-coherent integrator roster previously paired with hybrid_mage = canonical-7. Verified terminology consistency with jack-ryan decisions-log capture path.
+
+**§ 5 Where the lost identity-DNA lives now.** Three threads redistributed: (a) multi-element flex builds → Spirit Guide / form library / loadout layer (the *journey* expression; canonical-17 + Earth-Self meta-layer carry this naturally); (b) "wide and modest" tactical positioning → lightning archetypes (canonical-7-declared unpaired status) + controllers (higher non-damage proportion); (c) layered identity → player-built composition at gear/trait/spirit-guide-swap layer. Two optional post-canonical-6 design considerations flagged (lightning secondary-element-bias review; form-library narrative integrator-form emphasis) — neither blocking.
+
+**§ 6 Alternative resurrection paths (flagged not committed).** Three paths: (a) experimental-tier archetype with separate balance treatment (cleanest; ~1-2 day sprint cost); (b) Spirit-Guide bonus / Earth-Self meta-perk (temporary weave-of-forms ability; Phase 2 territory); (c) Phase-2 substrate expansion (alchemy/poison/acid era — substrate landscape designed FOR hybrid composition from start). Common pattern: hybrid identity returns when design surface is honest about structural cost.
+
+**§ 7 What's lost (honest accounting).** Thematic variety in-season (first-season players have narrower roster); specific player-fantasy paths (wild mage / polymath wizard / trickster-without-commitment); genre vocabulary slot empty (multi-element-mage slot that PoE/LE/D4 fill); future-design constraint (substrate composition is now known-hard, not unknown).
+
+**§ 8 Cross-canon cleanup list (for jack-ryan strip pass).** Comprehensive enumeration: 7 canonical/ docs (09, 17, 28, 30, 32, 33, 16a) + 7 canonical/story/ docs (D11 chain + archetype-coupling-archaeology + embodiment-narrative-layer + vs2a-vfx-scene-needs); engine code locations (flagged for rocket cross-ref; rocket dispatch handles); loadout + demo consume-time surfaces; decisions-log + engineering-disciplines (jack-ryan already shipped). Recommended annotation pattern: `[hybrid_mage RETIRED 2026-05-18 per canonical-6 transition; this reference is historical record. See canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md for context.]` — historical references retain+annotate; live design statements strip+replace; illustrative uses update to canonical-6 archetype.
+
+**§ 9 Decisions-log handoff brief.** Structured input for jack-ryan's decisions-log entry: title, decision, date, authority, context (D11.0/D11.1/D11.2/Phase B detail), Matt's rationale, four alternatives-considered (Options 1/2/3/4 per Phase B decision file), implications (canonical-6 engine; is_retired flag; cross-canon strip; future seasons start 002016; resurrection paths parked), forward pointers, cross-references (L3 #42 surfaces in RETIRE direction; Discipline #17 canonical landing). **Note:** jack-ryan already shipped decisions-log entry per their STATE above; my § 9 lands as confirmatory + ensures my doc's cross-reference is captured in jack-ryan's entry (jack-ryan noted "cross-reference to canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md included" — confirmed).
+
+**§ 10 Closing.** The chromatic_mage that walks lightly across many substrates remains a recognizable form in the cosmology. It is not a class the generator produces in canonical-6; it is the journey-shape of the player who accumulates forms across seasons. Retire is honest. Substrate-commitment-cost framing remains true — we stop trying to express it in a single generated kit and express it instead in the long arc of forms collected across many lives. The Court of Forms remembers.
+
+**Out-of-scope honored:** did not amend cross-canon docs myself (jack-ryan strip pass deferred dispatch); did not re-litigate RETIRE; did not commit to resurrection paths (§ 6 flagged not committed); did not touch generation code; did not push tag.
+
+**HANDOFF → knight-rider:** canonical-6 design doc shipped. Cross-canon strip-pass dispatch can fire to jack-ryan per the dispatch downstream-trigger ("knight-rider fires post-gandalf list"). My § 8 enumeration is the strip-pass input. Recommend including § 8.6 annotation-pattern guidance in the strip-pass dispatch so jack-ryan's pass uses consistent annotation across all docs.
+
+**HANDOFF → jack-ryan:** my § 9 decisions-log handoff brief = confirmatory of your already-shipped entry (your STATE above shows full alignment). One adjacent finding for next strip pass: `canonical/story/archetype-coupling-archaeology-2026-05-17.md` Coupling #3 (stat_allocator fallback to hybrid_mage stats) needs re-decision post-canonical-6 — the fallback target archetype no longer exists; recommend ValueError on unrecognized archetype rather than silent fallback. This is a real engineering follow-up (rocket's territory) that may warrant separate dispatch. Flagged at § 8.2 item #12 of canonical-6 doc.
+
+**HANDOFF → rocket:** canonical-6 design doc § 4 contains the canonical-6 substrate-coherent integrator slot list; § 5.4 + § 8.3 contain the engine-code cleanup pointers (flagged for cross-reference to your dispatch; you own the actual engine-code strip). Your dispatch handles archetype-list removal + `is_retired: true` flag pass. No content overlap; my doc is upstream design-canon.
+
+**HANDOFF → drax + loadout-side:** the canonical-6 design doc establishes the consume-time-filter intent (`is_retired: true` filter at demo + loadout layers). Implementation is rocket dispatch (engine emits flag) + your seam (consume + filter). No additional asks from my seam.
+
+**HANDOFF → Matt:** canonical-6 transition design doc shipped per L3 verdict. Five deliverables (transition doc / hive-log STATE / cross-canon cleanup list / identity-DNA preservation recommendation / decisions-log handoff brief) all landed within the single canonical-6 doc + parallel jack-ryan completion. Three alternative-resurrection paths (§ 6) flagged for future design consideration without commitment. Two adjacent open items (lightning secondary-element-bias review; form-library narrative integrator-form emphasis) flagged as post-canonical-6 polish. Fresh new-season regen at canonical-6 unblocks per your stated milestone.
+
+**Tag:** `gandalf/v1.11-canonical-6-retire-hybrid-mage-1` (local; canon authoring; doc seam; no engine code; push gated per ADR-006).
+**Completion record:** appended to dispatch `2026-05-18-gandalf-canonical-6-retire-hybrid-mage-design-doc.md`.
+**Total time:** ~1.5 hours (within dispatch target).
+
+— gandalf
