@@ -234,7 +234,7 @@ Each class kit organized as a TREE structure with:
 - **10-15 skills per class** (variable per archetype):
   - Approachable archetypes (warrior, brute, simple casters): 10-11
   - Standard archetypes (single-element mages, hunters, controllers): 12-13
-  - Complex archetypes (hybrid_mage, multi-element specialists): 14-15
+  - Complex archetypes (hybrid_mage, multi-element specialists): 14-15 *[hybrid_mage RETIRED 2026-05-18 per canonical-6 transition; this reference is historical record. The "complex 14-15" band no longer has a primary member in the canonical-6 roster. Post-canonical-6, the kit-size distribution collapses to approachable (10-11) and standard (12-13) bands only. See `canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md` for context.]*
 - **Math implication:** 120 ÷ 15 = ~8 fully-maxable skills regardless of kit size — every kit forces meaningful endgame allocation.
 
 ### Trait pool

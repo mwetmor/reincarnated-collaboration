@@ -158,6 +158,8 @@ The geometry palette work is therefore a meaningful but bounded chunk of Option 
 
 **Status:** Decision conversation 2026-05-11 (post-demo1-ship). Supersedes parts of the 2026-05-08 decision below. Driving forces: (1) revised AOE coverage targets per genre research (file 28 § B6: controllers 60-75% AOE, hybrid_mage 65-80%) cannot fit cleanly in the 7-active-discrete-AOE palette without forced repeats; (2) the consumability constraints that drove three "DEFER" decisions in 2026-05-08 have been retired by demo1's actual delivery (Phase 6 positional combat, Phase 8.2 weapon animations, Phase 12 Super Pixel Effects pack).
 
+*[hybrid_mage RETIRED 2026-05-18 per canonical-6 transition; this reference is historical record. The AOE-share design discussion above (controllers 60-75%, hybrid_mage 65-80%) is pre-canonical-6 context — hybrid_mage no longer exists in the canonical roster. AOE coverage targets for the canonical-6 roster are governed by the B6/B11 palette decisions for substrate-coherent archetypes. See `canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md` for context.]*
+
 **Full rationale and implementation plan: `28-engine-arpg-rebalance-design.md` § B11.** This section captures the palette decisions only.
 
 ### Updates to the 2026-05-08 decision table

@@ -117,7 +117,9 @@ The **validity matrix** constrains which combinations are allowed. Example const
 
 After dimensional sampling, an **archetype_tag** is derived post-hoc by `archetype_classifier.py` based on `(element, energy_type, role_orientation)` lookup. Known archetypes:
 
-`fire_mage, water_mage, earth_caster, wind_caster, hybrid_mage, fire_controller, water_controller, earth_controller, wind_controller, hunter, physical_warrior, physical_grappler, physical_skirmisher, rogue` + monster archetypes (`brute, caster, controller, sniper, swarmer, tank`).
+`fire_mage, water_mage, earth_caster, wind_caster, fire_controller, water_controller, earth_controller, wind_controller, hunter, physical_warrior, physical_grappler, physical_skirmisher, rogue` + monster archetypes (`brute, caster, controller, sniper, swarmer, tank`).
+
+*Note: this enumeration reflects the **canonical-6** roster as of 2026-05-18. `hybrid_mage` was removed from this list when it was retired from the canonical archetype roster per Matt L3 verdict 2026-05-18. The roster transitioned from canonical-7 (6 substrate-coherent integrator slots + hybrid_mage) to canonical-6 (6 substrate-coherent integrator slots only). See `canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md` for the full transition rationale and identity-DNA redistribution plan. See `reincarnated-engine/design/decisions/decisions-log.md` for the RETIRE entry.*
 
 Total ~10 playable classes + 2 act-bosses per season. Act-bosses use `INTENTIONAL_OUTLIER` convergence mode (one undertuned ~40% win rate, one overtuned ~60% for harder/easier feel).
 

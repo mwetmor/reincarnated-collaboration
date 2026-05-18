@@ -202,7 +202,7 @@ The engine emits skills against these archetype families (per `b6_archetype_temp
 | **Physical warrior** | `physical_warrior`, `physical_grappler`, `physical_skirmisher` | `burst_damage`, `area_damage`, `control` (CC), `defensive` | `melee_arc`, `melee_strike`, `ground_slam_directional`, `leap_strike` (composite) |
 | **Hunter** | `hunter` | `burst_damage`, `mobility`, `defensive` | `projectile_straight`, `impact_burst`, `dash_attack` |
 | **Rogue** | `rogue` | `burst_damage`, `mobility` (×2) | `dash_attack`, `projectile_straight`, `melee_strike` |
-| **Hybrid mage** | `hybrid_mage` | `area_damage` (×2), `burst_damage` (×2), `damage_over_time`, `defensive`, `utility` | `nova_radial`, `nova_wave`, `aura_radial`, `beam_channel`, `projectile_straight` |
+*Note: `hybrid_mage` was removed from this archetype coverage table per canonical-6 transition 2026-05-18. The hybrid mage row (area_damage ×2, burst_damage ×2, damage_over_time, defensive, utility; nova_radial / nova_wave / aura_radial / beam_channel / projectile_straight) is historical record. VFX commissions originally scoped for hybrid_mage should be re-mapped to substrate-coherent canonical-6 archetypes where needed. `beam_channel` geometry is not uniquely hybrid_mage's — controller archetypes can use it per b6_archetype_templates. See `canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md` for context.*
 
 The VFX slot enumeration that follows covers these families in aggregate. Per-archetype variations are noted where they materially differ.
 
@@ -233,7 +233,7 @@ Six canonical slots. All skills cast by any archetype family consume a subset of
 | Property | Constraint |
 |---|---|
 | **What it is** | In-flight visual for skills with a travel leg: projectile moving toward a target, dash-arc of the caster, or beam channel from caster to impact point. |
-| **Applies to** | `projectile_straight` (mage/caster/hunter/rogue), `beam_channel` (hybrid_mage), `dash_attack` + `defensive_dash` (rogue/hunter/skirmisher). Does NOT apply to instant-delivery geometries (`impact_burst`, `nova_radial`, `ground_targeted_circle`). |
+| **Applies to** | `projectile_straight` (mage/caster/hunter/rogue), `beam_channel` (hybrid_mage *[RETIRED 2026-05-18 — beam_channel re-maps to controller archetypes in canonical-6]*), `dash_attack` + `defensive_dash` (rogue/hunter/skirmisher). Does NOT apply to instant-delivery geometries (`impact_burst`, `nova_radial`, `ground_targeted_circle`). |
 | **Duration** | Travel-time-bound: `range / speed` engine fields. Typical: 0.1–0.5s for melee range; 0.3–1.2s for max-range projectile. Beam_channel: sustain duration, 0.5–2s. |
 | **Anchor** | Moving: projectile Container translates from `fromX/fromY` to `toX/toY` each frame via `tickProjectiles()`. Current demo implementation moves a Graphics-drawn circle; Pimen sprite replaces the circle primitive. |
 | **Layer** | `particles` layer, ABOVE arena floor but BELOW entity sprites (so a projectile travels "through" the world plane rather than over the caster). Z-index between `bg` and `entities`. |
@@ -375,7 +375,7 @@ These two geometry types require composite Slot B rendering — two simultaneous
 - Slot C: `ground_slam` impact VFX at landing point (Pimen earth/fire/physical slam assets are the source)
 - Per `geometry-vfx-coverage-assessment.md` § 2, this composite path (leap arc + ground_slam VFX) is the approved VS2a rendering strategy for leap_strike. Drax wires the composite.
 
-**beam_channel (hybrid_mage):**
+**beam_channel (hybrid_mage):** *[hybrid_mage RETIRED 2026-05-18 per canonical-6 transition; this VFX pattern is historical record. beam_channel VFX rendering pattern below remains valid for any canonical-6 archetype that uses beam_channel geometry (e.g., controller archetypes). The Slot A/B/C pattern is geometry-driven, not archetype-specific. See `canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md` for context.]*
 - Slot A: standard mage cast-charge at caster
 - Slot B: beam strip (static sprite or tiled repeat between caster and target positions; rendered for the full channel duration)
 - Slot C: concurrent with Slot B — ongoing `<element>-impact` flash at the target end of the beam, ticking at beam-tick-rate (NOT at 12.5fps — at the engine's DoT tick rate, typically 1/s)

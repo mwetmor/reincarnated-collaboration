@@ -149,9 +149,11 @@ These are committed canonical. They are derived from the engine's existing arche
 | **Mobility** | Repositioning specialist; kiting; in-and-out engagement | physical_skirmisher, mobility-archetype emergent |
 | **Specialist** | Niche-function; doesn't fit the above; novel-archetype emergent | hybrid_mage variants, novel emergent archetypes |
 
+*[hybrid_mage RETIRED 2026-05-18 per canonical-6 transition; references to hybrid_mage in the Sustain and Specialist rows above are historical record. Post-canonical-6, the Specialist row maps to novel emergent archetypes only; the Sustain row's hybrid_mage mapping no longer applies. The seven function-tag system remains valid for the canonical-6 roster; controller + caster variants now anchor Control and Specialist respectively. See `canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md` for context.]*
+
 Mapping notes:
 - Most existing player-class archetypes map cleanly to one function tag.
-- "Hybrid_mage" can land in multiple tags depending on which side of the hybrid dominates; the engine emits the most-fitting tag at convergence time per the archetype-emergence work (file 28 § B13 emergence observability).
+- "Hybrid_mage" can land in multiple tags depending on which side of the hybrid dominates; the engine emits the most-fitting tag at convergence time per the archetype-emergence work (file 28 § B13 emergence observability). *[hybrid_mage RETIRED 2026-05-18 per canonical-6 transition; this note is historical record.]*
 - The seven tags are sized to give the Court a recognizable hierarchy without flattening too many archetypes into one bucket. Solo Leveling's Shadow Army has comparable role-grouping (~5-7 roles; commanders/knights/scouts/soldiers/specialists).
 
 ### The 7 × embodiment Layer 2 lookup
@@ -190,7 +192,7 @@ Per the form-bias-cadence-strategy doc § 5 sub-lock (a) (ARPG-canon-primary at 
 
 | Tier name | energy_type values | `skill_power_tier` | Magnitude ratio (vs mana baseline) | Archetype examples |
 |---|---|---|---|---|
-| **Baseline** | `mana` | 50 | 1.00× | fire/water/earth/wind mage, caster, controller, hybrid_mage |
+| **Baseline** | `mana` | 50 | 1.00× | fire/water/earth/wind mage, caster, controller, hybrid_mage *[RETIRED 2026-05-18]* |
 | **Partial** | `combo`, `focus` | 58 | 1.35× (58² / 50²) | hunter, rogue, physical_skirmisher |
 | **Full** | `rage` | 65 | 1.69× (65² / 50²) | physical_warrior, physical_grappler |
 | **Outlier** | (any) | 50 | 1.00× | experimental (intentional baseline; does not participate in tier shift) |
@@ -201,7 +203,9 @@ The three-tier refinement (vs a simpler binary mana-vs-physical shift) reflects 
 
 ### One conceptual clarification — `hybrid_mage` placement
 
-`hybrid_mage` lands in the baseline (mana) tier. "Hybrid" in class-name refers to **element-mixing** (a class drawing from multiple element pools), not **energy-type-mixing**. There is no "hybrid energy_type"; energy_type is single-valued per class. This clarification matters for future class generation: a "hybrid_warrior" class (if generated) would still be tier=65 by energy_type; its hybrid-ness is at the element layer, not the energy layer. Star-lord and rocket dispatches authoring class-template prompts should reflect this.
+*[hybrid_mage RETIRED 2026-05-18 per canonical-6 transition; hybrid_mage no longer exists in the canonical roster. The naming-discipline note below is retained as a standing discipline for any future archetype with "hybrid" in its name. See `canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md` for context.]*
+
+`hybrid_mage` (when it existed) landed in the baseline (mana) tier. "Hybrid" in class-name refers to **element-mixing** (a class drawing from multiple element pools), not **energy-type-mixing**. There is no "hybrid energy_type"; energy_type is single-valued per class. **This naming discipline remains active:** a future "hybrid_warrior" class (if generated) would still be tier=65 by energy_type; its hybrid-ness would be at the element layer, not the energy layer. Star-lord and rocket dispatches authoring class-template prompts should reflect this.
 
 ### The energy_type three-tier per-embodiment narrative skin
 
@@ -261,7 +265,7 @@ In other words: Stage 4's rename is *labeling-only work*, not mechanical-refacto
 
 - **Humanoid-default leakage at the energy-source layer.** Without this section, LLM-generated content would render every class's energy as "mana" or "fury" by training-default, even for slime / construct / spirit embodiments where those words don't fit. With it, embodiment-aware energy vocabulary is the canonical reference.
 - **Stage 4 rename mechanical-drift.** The rename's risk is breaking the 50/58/65 tier mapping. With L2 vocabulary committed per embodiment, the rename has explicit rendering targets that preserve the tier discriminator role.
-- **`hybrid_mage` energy-tier ambiguity.** Without explicit clarification, "hybrid" in class names could be read as "hybrid energy type." This section locks "hybrid = element-mixing only" so future class generation doesn't drift toward "hybrid_warrior_in_rage-mana-tier-50" or similar incoherence.
+- **`hybrid_mage` energy-tier ambiguity (naming discipline, retained post-retire).** Without explicit clarification, "hybrid" in class names could be read as "hybrid energy type." This section locks "hybrid = element-mixing only" so future class generation doesn't drift toward "hybrid_warrior_in_rage-mana-tier-50" or similar incoherence. *[hybrid_mage RETIRED 2026-05-18 per canonical-6 transition; the naming discipline described here is retained for any future archetype with "hybrid" in its name, even though hybrid_mage itself no longer exists in the canonical roster.]*
 
 ---
 

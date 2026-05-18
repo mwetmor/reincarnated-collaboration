@@ -40,7 +40,7 @@ This doc is the record of what was found.
 A frozen dict `ARCHETYPE_TEMPLATES` with exactly **14 hardcoded templates:**
 - 4 elemental mages (fire_mage, water_mage, earth_caster, wind_caster)
 - 4 elemental controllers (fire_controller, water_controller, earth_controller, wind_controller)
-- 1 hybrid_mage
+- 1 hybrid_mage *[hybrid_mage RETIRED 2026-05-18 per canonical-6 transition; this reference is historical record. The canonical roster is now 13 archetypes. See `canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md` for context.]*
 - 1 hunter (physical)
 - 3 other physicals (physical_warrior, physical_grappler, physical_skirmisher)
 - 1 rogue (physical)
@@ -66,7 +66,7 @@ def classify_archetype(dominant_element: str, ..., role_orientation: str = "dama
     if role_orientation == "control":
         return f"{dominant_element}_controller"  # → "lightning_controller", but no template exists
     if role_orientation == "hybrid":
-        return "hybrid_mage"
+        return "hybrid_mage"  # [hybrid_mage RETIRED 2026-05-18; this branch commented out in engine per rocket v1.17]
     if dominant_element in ("fire", "water"):
         return f"{dominant_element}_mage"
     if dominant_element in ("earth", "wind"):
@@ -89,6 +89,8 @@ def classify_archetype(dominant_element: str, ..., role_orientation: str = "dama
 **Convergence risk:** New archetypes fall back to **hybrid_mage stats** (INT/WIS 100/100) — silent convergence. Lightning_mage at gen-time has the *exact same stat distribution* as a hybrid mage, not the lightning-coherent profile a Sorceress-Lightning archetype would need.
 
 **Fix-shape:** Compose stats from substrate identity declaration's `scaling_attribute` + role shape's stat-emphasis pattern.
+
+*[hybrid_mage RETIRED 2026-05-18 per canonical-6 transition; this Coupling #3 reference is historical record AND has a live engineering follow-up. Post-canonical-6, the stat_allocator fallback target (hybrid_mage) is a retired archetype — the fallback behavior should become a `ValueError` on unrecognized archetype rather than silently falling back to a retired archetype's stats. Rocket retained hybrid_mage stats in `_PHYSICAL_STAT_PROFILES` for Pattern P7 continuity with retirement comment, but the stat_allocator.allocate_stats() fallback path should be cleaned up in a future dispatch. See `canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md` § 8.3 for context. Flagged as non-urgent follow-up.]*
 
 ---
 
@@ -193,7 +195,7 @@ Plus the silent-bias layer:
 ### § 6.3 — Top 3 convergence vectors
 
 1. **Geometry bias silent neutralization** (Coupling #6) — without explicit geometry bias, new substrates produce identically-shaped kits.
-2. **Stat allocation fallback** (Coupling #3) — falls to hybrid_mage stats → silent convergence; unbalanced classes pass.
+2. **Stat allocation fallback** (Coupling #3) — falls to hybrid_mage stats → silent convergence; unbalanced classes pass. *[hybrid_mage RETIRED 2026-05-18; fallback target is now a retired archetype — see Coupling #3 annotation above for engineering follow-up.]*
 3. **Constraint checker silent skip** (Coupling #7) — unknown tags silently skipped → invalid kit shapes pass.
 
 These are the three sites where the diversity architecture's Layer 1 (substrate identity declaration) + Layer 3 (mirror-match diversity gate) need explicit attention to prevent silent failures.

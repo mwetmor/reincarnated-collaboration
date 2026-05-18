@@ -7914,3 +7914,55 @@ CONFIRMED. Engine is canonical-6 compliant. Ready for fresh new-season regen onc
 The Pattern P7 fallback in `stat_allocator.allocate_stats()` falls back to hybrid_mage stats on unknown archetype_tag. gandalf flagged this should become `ValueError` post-canonical-6 rather than silent fallback to a retired archetype. This is a real but non-urgent engineering follow-up. Not addressed in this dispatch (scope was archetype-list removal only). Flagged for Matt/knight-rider consideration as separate dispatch post-regen.
 
 — rocket
+
+## 2026-05-18 — STATE — jack-ryan — Cross-canon strip pass: hybrid_mage canonical-6 transition COMPLETE
+
+**Dispatch:** `2026-05-18-jack-ryan-cross-canon-strip-pass-hybrid-mage.md`
+**Tag:** `jack-ryan/v1.8-cross-canon-strip-pass-1` (local; push gated per ADR-006)
+**Authority:** gandalf § 8 cleanup list + Matt L3 RETIRE verdict 2026-05-18 + canonical-6 transition doc
+**PRE-SIGNAL § 14.1.1:** Checked — `git fetch origin` run; hive-log last commit is `80f806f` (rocket v1.17); local is ahead by 26 commits (all local; no concurrent remote hive-log entries); no pull rebase needed.
+
+**Canonical coherence sweep COMPLETE — 14 docs amended per gandalf § 8 list:**
+
+**canonical/ docs (7):**
+- `canonical/09-geometry-palette-discussion.md` — annotation on B11 AOE-share reference (historical; retained)
+- `canonical/17-gear-and-spirit-guide-design.md` — CLEAN (no hybrid_mage archetype-tag references; two generic "hybrid" English uses confirmed non-archetype)
+- `canonical/28-engine-arpg-rebalance-design.md` — 5 inline annotations on B-series historical references (B-series cross-chain rule; B11 AOE problem statement; B14.5 V1 adaptive quick-estimate; B14.5 V1 doppelganger floor; kit-size band)
+- `canonical/30-engine-explainer-current.md` — enumeration-amend: hybrid_mage stripped from archetype list; canonical-6 transition paragraph added
+- `canonical/32-progression-design.md` — 2 annotations on live design rules (chain-count rule; cross-chain unlock table) with post-canonical-6 context
+- `canonical/33-progression-skeleton.md` — inline annotation on kit-size band (complex 14-15 no longer has primary canonical-6 member)
+- `canonical/16a-roadmap-shipped-log.md` — inline annotation on B6-templates-documented shipped-log entry (historical record)
+
+**canonical/story/ docs (7):**
+- `d11-hybrid-mage-tuning-advisory-2026-05-17.md` — top-level RETIRED OUTCOME block; identity-preservation argument noted as retracted
+- `d11-hybrid-mage-tuning-postmortem-2026-05-17.md` — top-level RETIRED OUTCOME block
+- `d11-postmortem-option-b-verdict-2026-05-17.md` — top-level RETIRED OUTCOME block
+- `d11-2-structural-redesign-advisory-2026-05-17.md` — top-level RETIRE clause ACTIVATED block
+- `archetype-coupling-archaeology-2026-05-17.md` — 4 annotations including Coupling #3 stat_allocator fallback follow-up engineering note
+- `embodiment-narrative-layer.md` — 5 annotations; naming discipline (hybrid = element-mixing only) retained as standing discipline
+- `vs2a-vfx-scene-needs.md` — hybrid_mage VFX table row stripped + historical note; beam_channel re-mapped to controller archetypes; Slot A/B/C pattern retained (geometry-driven)
+
+**No accidental deletion of design context:** retain-with-annotation pattern honored throughout. Body content of D11 advisory chain docs preserved intact with top-level block annotations.
+
+**Audit log:** `agentic_orchestration/research/curated/cross-canon-strip-pass-audit-2026-05-18.md` (per-doc amendment summary with location refs, amendment types, rationale)
+
+**AGENT_STATE:** `agentic_orchestration/qa/AGENT_STATE.md` (new — jack-ryan state file created this dispatch)
+
+**Engineering follow-up flagged (non-blocking, future dispatch):**
+Coupling #3 stat_allocator fallback → ValueError on unrecognized archetype. Rocket retained hybrid_mage stats in `_PHYSICAL_STAT_PROFILES` for Pattern P7 continuity with retirement comment; allocate_stats() fallback cleanup is a future dispatch. Flagged in coupling-archaeology annotation + AGENT_STATE + this entry. Confirm with Matt/knight-rider when to sequence.
+
+**Chain status after jack-ryan v1.8:**
+- gandalf v1.11 (canonical-6 design doc): DONE
+- jack-ryan v1.7 (decisions-log RETIRE entry): DONE
+- jack-ryan v1.6 (Discipline #17): DONE
+- rocket v1.17 (archetype removal + is_retired flag): DONE
+- jack-ryan v1.8 (cross-canon strip pass): DONE (this dispatch)
+- drax v1.17 (is_retired filter at consume time): **PENDING — last dependency**
+
+**Once drax v1.17 lands: CANONICAL-6 LOCKED. New-season regen at canonical-6 unblocks per Matt's stated milestone.**
+
+**HANDOFF → knight-rider:** canonical-6 orchestration-side terminal node complete. Cross-canon coherence restored. drax v1.17 is the last remaining dependency in the canonical-6 chain. Recommend surfacing to Matt: "jack-ryan strip pass done; drax v1.17 is the final piece before canonical-6 lock and new-season regen authorization."
+
+**HANDOFF → Matt:** canonical/ + canonical/story/ are canonical-6 coherent. No doc in the canonical tree implies hybrid_mage is part of the live roster. All historical references have retirement annotations with forward pointers to the canonical-6 transition doc and decisions-log. The Coupling #3 stat_allocator follow-up is flagged as non-urgent; recommend sequencing after the first canonical-6 new-season regen validates the canonical-6 pipeline end-to-end.
+
+— jack-ryan

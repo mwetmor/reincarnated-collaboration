@@ -257,7 +257,7 @@ Each class kit organized as a TREE with:
 
 Generator picks chain count + depths per class based on archetype dimensions:
 - Single-element specialists → favor fewer/deeper chains
-- Multi-element hybrid_mage → favor more chains (broader element coverage)
+- Multi-element hybrid_mage → favor more chains (broader element coverage) *[hybrid_mage RETIRED 2026-05-18 per canonical-6 transition; this reference is historical record. Post-canonical-6, multi-element generated archetypes are not produced; this chain-count rule was hybrid_mage-specific and no longer applies to any canonical-6 archetype. See `canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md` for context.]*
 - Engine generates the shape; novel archetypes (e.g., "dual-keystone-rusher") emerge
 
 #### Hierarchical unlock gates (the mathematical dimension)
@@ -283,6 +283,8 @@ Unlocks are based on **per-skill rank** (not cumulative across skills). Tier 4 r
 | **Single-element** (fire_mage, etc.) | **Only SAME-CHAIN Tier N skill unlocks SAME-CHAIN Tier N+1** (strict chain investment) | Build depth; specialist identity; forces deep commitment to one chain at a time |
 
 This **mechanically encodes archetype identity into the skill tree structure** — single-element classes get focused specialist depth; multi-element classes get build breadth.
+
+*[hybrid_mage RETIRED 2026-05-18 per canonical-6 transition; the "Multi-element" row above is historical record. Post-canonical-6, multi-element generatively-produced archetypes are not part of the canonical roster; the cross-chain unlock rule for multi-element classes no longer applies to any actively-generated archetype. If gear-secondary-element kit shapes emerge (see canonical-6 transition § 5.3), their skill-tree cross-chain rules are a post-canonical-6 design decision. See `canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md` for context.]*
 
 #### Smooth rank cap (preserved)
 

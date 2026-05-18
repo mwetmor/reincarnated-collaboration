@@ -24,7 +24,7 @@
 - Pool state: 155 entries (84 allow-list / 36 eligible / 35 quarantine); wind expanded to 17 primary-wind allow-list entries (parity with fire); organic earth downgraded; web recategorized to earth flex
 - Selector Phase B (runtime filter + scoring weight) + Phase C (novel-word LLM mini-call) operational
 
-**B6 templates documented:** 14 archetypes (4 mages + 4 controllers + hybrid_mage + hunter + 3 physical + rogue) with kit size / AOE share / element distribution / chain count + depth / cross-chain rule / required roles / geometry bias / special constraints. Same-family-distinct-secondary rule enforced.
+**B6 templates documented:** 14 archetypes (4 mages + 4 controllers + hybrid_mage + hunter + 3 physical + rogue) with kit size / AOE share / element distribution / chain count + depth / cross-chain rule / required roles / geometry bias / special constraints. Same-family-distinct-secondary rule enforced. *[hybrid_mage RETIRED 2026-05-18 per canonical-6 transition; this shipped-log entry is historical record of the B6 template state at the time of documentation. The canonical roster has since transitioned to canonical-6 (13 archetypes; hybrid_mage removed). See `canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md` for context.]*
 
 **A4 shield scaling locked:** HoT-style `damage_modifier` scaling (Option B).
 

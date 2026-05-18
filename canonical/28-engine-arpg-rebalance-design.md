@@ -346,7 +346,7 @@ Each class kit is generated as a TREE structure (not a flat skill list). Tree st
 - Tier 4: ≥8 ranks invested in any Tier 3 parent skill
 
 **Cross-chain unlock asymmetry (encodes archetype identity):**
-- **Multi-element classes** (hybrid_mage, etc.): ANY Tier N parent skill unlocks Tier N+1 (cross-chain investment counts)
+- **Multi-element classes** (hybrid_mage, etc.): ANY Tier N parent skill unlocks Tier N+1 (cross-chain investment counts) *[hybrid_mage RETIRED 2026-05-18 per canonical-6 transition; this reference is historical record. See `canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md` for context.]*
 - **Single-element classes** (fire_mage, water_mage, etc.): Only SAME-CHAIN Tier N parent unlocks SAME-CHAIN Tier N+1 (strict chain investment)
 - This **mechanically encodes archetype identity into the skill tree structure**
 
@@ -494,7 +494,7 @@ Within each tier slot: 4-element diversity pass → archetype variety pass → t
 
 **B11. Geometry palette expansion — un-defer motion-AOE types + add radial/multi-projectile/fork (NEW 2026-05-11; expanded 2026-05-11 evening after geometry-options review; co-required with B6 + B10)**
 
-**Problem identified:** revised B6 AOE shares (controllers 60-75%, hybrid_mage 65-80%) combined with B6's "no same-geometry duplication unless intentional spam+spender pair" rule **don't fit in the current 7-active-discrete-AOE palette.** Heavy-AOE archetypes need 8-11 AOE slots; with only 7 active-AOE geometries available, kits must repeat or fall back to passive types (aura/totem) more than feels natural.
+**Problem identified:** revised B6 AOE shares (controllers 60-75%, hybrid_mage 65-80%) combined with B6's "no same-geometry duplication unless intentional spam+spender pair" rule **don't fit in the current 7-active-discrete-AOE palette.** *[hybrid_mage RETIRED 2026-05-18 per canonical-6 transition; this B11 reference is historical record. See `canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md` for context.]* Heavy-AOE archetypes need 8-11 AOE slots; with only 7 active-AOE geometries available, kits must repeat or fall back to passive types (aura/totem) more than feels natural.
 
 **Math by archetype:**
 
@@ -865,7 +865,7 @@ for each generated class:
 
 **V1 architecture as shipped (additions beyond the original locked architecture above):**
 
-1. **Adaptive quick-estimate.** Before lever cycling, run an adaptive binary search to find a modifier where lever evaluation produces measurable signal. Iterates until WR lands in `[0.30, 0.70]` (signal range — not at 0% or 100% ceiling). Safety cap: 10 iterations. Without this, classes with extreme converged modifiers (e.g., hybrid_mage near 0.054) produce zero lever signal at modifier=1.0 evaluation, breaking the loop.
+1. **Adaptive quick-estimate.** Before lever cycling, run an adaptive binary search to find a modifier where lever evaluation produces measurable signal. Iterates until WR lands in `[0.30, 0.70]` (signal range — not at 0% or 100% ceiling). Safety cap: 10 iterations. Without this, classes with extreme converged modifiers (e.g., hybrid_mage near 0.054) produce zero lever signal at modifier=1.0 evaluation, breaking the loop. *[hybrid_mage RETIRED 2026-05-18 per canonical-6 transition; this B14.5 V1 architecture reference is historical record. See `canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md` for context.]*
 
 2. **Direction-aware lever logic.** Lever attempts use the eval_modifier to decide direction:
    - `eval_modifier < 0.30` (MODIFIER_LOW_THRESHOLD): kit too strong → try `reduce_dps` direction (weaken so modifier can rise toward 1.0)
@@ -878,7 +878,7 @@ for each generated class:
 
 4. **Smoke-test mode (`--smoke` CLI flag).** Generates 5 classes / 30 fights/eval / 1 band (L33) / no experimental / skips B14.2/3/4 band passes. ~51 seconds vs ~10 minutes for full regen. Use for in-development lever iteration; full regen reserved for success-metric capture and pre-tag validation.
 
-5. **Doppelganger modifier floor (B14.4 design gap fix).** `_evaluate_doppelganger` runs at `eval_modifier = max(player_class.balance_modifier, DOPPELGANGER_MODIFIER_FLOOR)` (floor = 0.30). B14.4 was calibrated assuming modifiers in a normal range; B14.5 exposed extreme low-modifier classes (hybrid_mage ~0.054) where fights always timeout at balance_modifier → doppelganger wins every timeout via +5% HP with no kit-quality signal. Floor preserves "validate at balanced power" semantics for ~95% of classes; floored value ensures fight resolution for extremes. Uses a separate constant (`DOPPELGANGER_MODIFIER_FLOOR`, not `MODIFIER_LOW_THRESHOLD`) since the two thresholds serve different purposes (lever direction heuristic vs fight resolution guarantee) and may diverge over time. Note: the first fix attempt (modifier=1.0, ignoring balance_modifier) was rejected because it silently changed the gate from "validate at balanced power" to "validate raw damage potential" — a semantic shift, not a bug fix. Lesson codified as engineering discipline #11: semantic-shifting fixes need explicit design decision framing. See `decisions-log.md` 2026-05-12 B14.5 doppelganger gate entry.
+5. **Doppelganger modifier floor (B14.4 design gap fix).** `_evaluate_doppelganger` runs at `eval_modifier = max(player_class.balance_modifier, DOPPELGANGER_MODIFIER_FLOOR)` (floor = 0.30). B14.4 was calibrated assuming modifiers in a normal range; B14.5 exposed extreme low-modifier classes (hybrid_mage ~0.054) where fights always timeout at balance_modifier → doppelganger wins every timeout via +5% HP with no kit-quality signal. *[hybrid_mage RETIRED 2026-05-18 per canonical-6 transition; this B14.5 V1 architecture reference is historical record. See `canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md` for context.]* Floor preserves "validate at balanced power" semantics for ~95% of classes; floored value ensures fight resolution for extremes. Uses a separate constant (`DOPPELGANGER_MODIFIER_FLOOR`, not `MODIFIER_LOW_THRESHOLD`) since the two thresholds serve different purposes (lever direction heuristic vs fight resolution guarantee) and may diverge over time. Note: the first fix attempt (modifier=1.0, ignoring balance_modifier) was rejected because it silently changed the gate from "validate at balanced power" to "validate raw damage potential" — a semantic shift, not a bug fix. Lesson codified as engineering discipline #11: semantic-shifting fixes need explicit design decision framing. See `decisions-log.md` 2026-05-12 B14.5 doppelganger gate entry.
 
 **V1 telemetry schema additions (in `convergence_report`):**
 
@@ -1134,7 +1134,7 @@ When progression system ships, engine scales-back: a level 20 character has X tr
 **Per-archetype kit size selection** (generation-time decision):
 - "Approachable" archetypes (warrior, brute, simple casters): 10-11 skills
 - "Standard" archetypes (single-element mages, hunters, controllers): 12-13 skills
-- "Complex" archetypes (hybrid_mage, multi-element specialists): 14-15 skills
+- "Complex" archetypes (hybrid_mage, multi-element specialists): 14-15 skills *[hybrid_mage RETIRED 2026-05-18 per canonical-6 transition; this reference is historical record. The "complex 14-15" band no longer has a primary member in the canonical-6 roster. See `canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md` for context.]*
 
 **Structure:**
 ```
