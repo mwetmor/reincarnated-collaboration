@@ -8030,3 +8030,39 @@ Coupling #3 stat_allocator fallback → ValueError on unrecognized archetype. Ro
 **Post-completion elrond queue (per knight-rider PRE-SIGNAL):** Tier 5.1/5.2 final curation pass — icon style Game-icons.net consistency + consistent prop scale + medium density + single credits.txt + catalogue-DB schema authoring. Knight-rider fires post-this.
 
 — elrond
+
+---
+
+### [2026-05-18] STATE — drax — Mobile readiness audit COMPLETE (tag target: drax/v1.19.5-mobile-readiness-audit-1)
+
+**PRE-SIGNAL § 14.1.1:** Rocket regen in flight in reincarnated-engine (different repo); no cross-seam dependency on this audit. Proceeding.
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-18-drax-mobile-readiness-audit-queued.md` (re-fire post v1.18.5 + v1.18.6 + v1.19; Pattern A audit).
+
+**Audit doc:** `agentic_orchestration/research/curated/mobile-readiness-audit-2026-05-18.md` — 6 blocks complete; 40 findings stratified (WORKING / LIKELY-WORKING-UNVERIFIED / BROKEN / MISSING / PENDING-DECISION); severity rated (P0/P1/P2); v1.20 follow-on scope authored; 3 new Matt-decision items surfaced.
+
+**Key finding (P0 — root cause):** All canvas-space touch HIT_R values translate to 8-11 CSS px on a 375px phone (1800px canvas / 375px CSS = 4.8× scale). Canon floor: 88px. This affects every touch element except the joystick (partially). Root cause: HIT_R authored in canvas-space without MOBILE_FONT_SCALE compensation. Fix: `hitR()` helper analogous to `font()` helper already in `typography.ts`. ~15-line fix across 5 files unblocks the entire touch layer.
+
+**Orientation gap (P1):** `orientationOverlay.ts` and `manifest.json` still target landscape. Post-Matt L3 2026-05-17 portrait-primary canon lock, these must invert. Currently the demo tells players to rotate to landscape while the canon target is portrait-first.
+
+**Portrait canvas gap (P0 / PENDING-DECISION):** Internal canvas is 1800×944 (landscape). Portrait-primary canon specifies 944×1800. Full portrait HUD layout is the M5/M6 work from the mobile UX execution plan. New Matt-decision item surfaced: portrait canvas implementation timing (v1.20 or separate v1.21 dispatch?).
+
+**Positive baseline:** Mobile detection, font scaling (M1), canvas CSS scaling, viewport meta, safe-area body padding, PWA manifest + icons, install hint, coordinate conversion (`clientToCanvas`), `pointerConsumedByUI` flag, orientation overlay logic, joystick, auto-cast (v1.17), cooldown-heal architecture (v1.18.5), drawer-mobile (v1.19) — all architecturally correct.
+
+**v1.20 scope (from audit § 4):**
+- P0: touch hit zone fix (`hitR()` helper + HIT_R expansion, ~15 lines across 5 files)
+- P0: tap-to-target forgiveness radius on mobile (CLICK_HIT_RADIUS mobile branch)
+- P1: orientation overlay invert + lock direction fix + manifest orientation field
+- P1: portrait canvas + HUD layout (large scope; may be its own dispatch)
+- P2: safe-area in-canvas compensation, service worker, single Healing button DoE polish
+
+**Matt-decision items (3 new, § 5 of audit):**
+- Q-NEW-1: Portrait canvas timing — v1.20 or v1.21 dispatch?
+- Q-NEW-2: Orientation overlay — suppress or invert until portrait HUD ships?
+- Q-NEW-3: Multi-touch joystick + skill arc simultaneous: verify on device in v1.20 smoke-test?
+
+**Tag:** `drax/v1.19.5-mobile-readiness-audit-1` (local; push requires Matt authorization per ADR-006)
+
+**Post-audit drax queue:** v1.20 mobile-polish (hit zone + any P0 from audit) → chierit monster wiring (elrond handoff brief ready) → v1.21+ icons/credits/schema.
+
+— drax
