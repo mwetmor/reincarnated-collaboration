@@ -177,3 +177,82 @@ Tax persistence IS working (resolved Gandalf's § 4 concern). Two 2-element inst
 **rocket D11.1 implementation:** auto-fires after jack-ryan Gate-1 verdict per dispatch `2026-05-17-rocket-d11-1-ceiling-primary-implementation-queued.md`.
 
 — gamora
+
+---
+
+## Jack-ryan D11.1 Gate-1 advisory
+
+**Reviewer:** jack-ryan
+**Date:** 2026-05-17 (late evening +1)
+**Verdict:** CONDITIONAL ENDORSE
+**Tag (on completion):** `jack-ryan/v1.7-d11.1-math-note-gate1-review-1` (local; push gated per ADR-006)
+
+---
+
+### Line-hold checks (mandatory per gandalf WARN 2)
+
+- **α=0.08:** VERIFIED. § 2.2 specifies `element_coverage_tax_alpha: 0.08`. Formula application confirmed: `tax_multiplier = 1.0 - 0.08 × max(0, n_elements-2)²` = 0.92 at n=3. No α escalation beyond 0.08. LINE HOLDS.
+- **ceiling=10:** VERIFIED. § 2.1 specifies `_ARCHETYPE_SKILL_CEILING["hybrid_mage"] = 10`. Framed as PRIMARY lever. No ceiling below 10 proposed. LINE HOLDS.
+- **D11.2 escalation path (NOT α-escalation):** VERIFIED. § 9 explicitly states D11.2 is the MISS escalation path and lists three structural lever candidates (deeper ceiling, parametric smoke gate, tax demotion). § 8.2 repeats the prohibition on α > 0.08 and ceiling < 10 in the GATE MISSED branch. No α-chase path in the document. LINE HOLDS.
+
+---
+
+### Framing checks
+
+**§ 1 — WARN 3 translation:** PASS. Gamora correctly names the D2-DPS-race anchor failure (§ 1.3), frames gauntlet resistance-immunity-coverage as the real mechanism with the quadratic coverage argument (n skills × elements → resistance profile redundancy), and explicitly states "α is orthogonal to coverage. Ceiling is the coverage lever." (§ 1.3 closing line). WARN 3 is honored.
+
+**§ 2 — Ceiling as PRIMARY:** PASS. The TL;DR (§ 0) leads with ceiling as PRIMARY lever. § 2.1 header says "NEW: skill-count ceiling for hybrid_mage = 10 (PRIMARY lever)". § 2.2 header explicitly says "(identity-flavor nudge only)" for α. WARN 1 is honored.
+
+**§ 3+4 — Coverage-reduction grounding (not damage-reduction):** PASS with one minor notation note. § 3 frames the projection in coverage span terms (n_skills × n_elements element-slot-event reduction). § 4 grounds the per-group projection in skill-count-reduction → DPS-contribution math, then fight-duration compounding — this is the correct non-linear path (not a flat percentage damage reduction). The projection correctly distinguishes: Groups A+B (0/10 pruned; marginal α nudge only; no convergence expected) from Group D (4/4 pruned; only class_0054 is a convergence candidate). Framing is sound.
+
+**§ 9 — D11.2 scope:** PASS. The out-of-scope list is explicit: no α > 0.08, no ceiling < 10 without Matt+gandalf authorization, no pre-authored D11.2 rework. D11.2 is flagged as escalation trigger with three structural lever candidates described — this is the correct "flag but don't author" pattern.
+
+**R11(b):** CLEAN per § 7.2. No new output paths; additive provenance fields in existing balance_metadata dict; ClassBalanceResult unchanged; MIGRATION.md v1.10 carries forward. Verified: two 1-line config/code changes + salvage script extension. Consumer seams (drax, star-lord) unaffected.
+
+---
+
+### Empirical field inspection
+
+**Target class inspected:** class_0007 (season_002011, Group D, n_skills=12) — selected as the strongest Group D candidate for ceiling impact verification. Also cross-checked class_0001 (smoking gun verification).
+
+**Findings from engine monolithic classes.json (NOT stale per-class files):**
+
+- class_0007: n_skills=12 confirmed; n_elements=3 confirmed (canonical_element: wind/earth/fire); tax_multiplier=0.93 confirmed; damage_bearing_skills_taxed=8; conv_wr=0.6555 confirmed; converged=False; final_modifier≈0.05 (floor-pinned). All values match gamora's math note table exactly.
+- class_0001 (smoking gun): n_skills=10; n_elements=2 confirmed from element_coverage_tax.n_elements; tax_multiplier=1.0 confirmed; damage_bearing_skills_taxed=0 confirmed; ALL skill damage_multiplier values = 1.0 (no tax applied); conv_wr=0.6667 confirmed; floor-pinned. Smoking gun is fully verified in engine data.
+- Full 17-instance cross-check: n_skills distribution confirmed as [4×n=9, 6×n=10, 3×n=11, 4×n=12]. Group sizes in gamora's math note are correct.
+
+**One notation issue found (INFO, not blocking):** § 4.2 Group B header says "5 instances" in parentheses while listing 6 class IDs (class_0001, 0002, 0013, 0014, 0040, 0047). Gamora self-corrects with a "Wait — re-count" note later in the same paragraph, arriving at the correct count of 6. The arithmetic in § 4.3 uses the correct count of 6 (4+6+3+4=17). Engine data confirms 6 instances at n_skills=10. No mathematical error — this is a draft artifact from the self-correction. Rocket should be aware the correct Group B count is 6.
+
+---
+
+### Smoking gun carry-forward (INFO — D11.2 design lens)
+
+[INFO] Gamora's § 1.2 and § 3.4 correctly identify that the two 2-element instances (class_0001 WR=0.667, class_0029 WR=0.744) floor-pin WITHOUT any tax applied (tax_multiplier=1.0, damage_bearing_skills_taxed=0). This is verified in engine data.
+
+Design implication for D11.2: the floor-pin failure mode is ABSOLUTE KIT DPS DENSITY at n_skills=9-10, not element-count-based resistance immunity. These two instances will remain floor-pinned at D11.1 because ceiling=10 does not prune them (they are already at n_skills=9-10). If D11.1 misses the gate, D11.2 must address the absolute DPS density problem for low-skill-count instances — not just the coverage redundancy problem for 11-12-skill instances. The structural lever candidates in § 9 (deeper ceiling to 9, or parametric smoke gate) are appropriate framings for this dual-mode failure.
+
+This does NOT invalidate D11.1's framing. D11.1 correctly targets the 7 prunable instances and is explicit about the 2-element instances remaining floor-pinned (§ 3.4). Gamora's honest projection (1-4/17 realistic, 0/10 unpruned converging) fully accounts for this. Carry-forward for D11.2 design: the problem has two modes — (a) coverage redundancy for n=11-12 instances; (b) absolute DPS density for n=9-10 instances. D11.2 must address both or the gate will remain unreachable.
+
+---
+
+### Pre-flag list
+
+- [INFO] § 4.2 Group B header says "5 instances" — should be 6 (self-corrected within the paragraph; arithmetic correct; draft artifact only). Rocket: use count of 6 for Group B.
+- [INFO] § 6.2 pruning rule states "drop lowest-modifier skills" as the convergence-conservative approach. Note that for class_0007 specifically, 4 of 12 skills have damage_multiplier=1.0 (non-damage roles: sustain, utility, defensive, damage_over_time). The "lowest modifier" rule may need clarification: tax-exempt skills (non-damage roles) have dm=1.0 and are NOT the lowest-damage contributors — they contribute 0 DPS through the tax path. Rocket should verify: does the pruning rule apply to `damage_multiplier` as stored (which is the tax-adjusted multiplier), or to underlying skill DPS contribution? For the pruning to be "convergence-conservative" (retain highest DPS), the protected-role list in § 6.2 step 1 (primary_attack, defensive, mobility) should be verified against actual role names in the engine (e.g., class_0007 has roles: burst_damage, area_damage, damage_over_time, sustain, utility, defensive, primary_attack). Flag for rocket to verify pruning path handles the non-damage-role dm=1.0 ambiguity correctly.
+- [INFO] Smoking gun carry-forward: D11.2 design must address dual-mode failure (coverage redundancy for n=11-12 AND absolute DPS density for n=9-10). Not a D11.1 concern — the math note correctly scopes D11.1 as ceiling-only. Carry to D11.2 design brief.
+
+No WARN-LINE-HOLD pre-flags. No REQUEST AMENDMENT items. The three α-hold, ceiling-hold, and escalation-path checks all pass.
+
+---
+
+### Verdict rationale
+
+Gamora's math note is structurally sound, empirically grounded (Discipline #11), and honors all three gandalf warnings. The framing is correct (ceiling PRIMARY; α identity-flavor; coverage-reduction projection; D11.2 escalation on miss). The acceptance gate (≥12/17 at interior modifier) is precisely stated. The honest projection (1-4/17 realistic, below gate) demonstrates math-before-code discipline — gamora authored the note knowing D11.1 will likely miss, because the gate is the measurement instrument.
+
+The CONDITIONAL ENDORSE (rather than full ENDORSE) is solely for the INFO-level pre-flags above: the § 4.2 Group B count notation, the pruning-rule dm=1.0 ambiguity for non-damage roles, and the D11.2 dual-mode carry-forward. None of these require amendment before rocket fires. Rocket addresses them at implementation time per the D10/D11 CONDITIONAL ENDORSE pattern.
+
+**HANDOFF → rocket:** D11.1 implementation auto-fires on this verdict. Address the three INFO pre-flags at code-time. Confirm pruning rule handles non-damage-role dm=1.0 correctly. Group B count is 6.
+
+**HANDOFF → matt:** No line-hold escalations. D11.1 is within authorized parameters. D11.2 likelihood is HIGH per gamora's honest projection (1-4/17 realistic vs ≥12/17 gate). Matt should anticipate D11.2 escalation after rocket's D11.1 salvage run confirms the miss. D11.2 structural candidates per § 9: ceiling=9 parametric sweep; tax demotion. No α escalation will be proposed.
+
+— jack-ryan

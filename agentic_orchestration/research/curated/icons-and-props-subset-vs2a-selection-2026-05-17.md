@@ -1,11 +1,66 @@
 # Icons + Props subset selection for VS2a — 2026-05-17
 
 **Author:** elrond
-**Dispatch:** `agentic_orchestration/dispatches/2026-05-17-elrond-icon-and-prop-curation-queued.md` (auto-fired on legolas-1 completion)
+**Dispatch (original):** `agentic_orchestration/dispatches/2026-05-17-elrond-icon-and-prop-curation-queued.md` (auto-fired on legolas-1 completion)
+**Dispatch (registration):** `agentic_orchestration/dispatches/2026-05-17-elrond-icon-and-prop-acquisition-registration.md` (Matt L3 post-acquisition)
 **Predecessor:** legolas-1 icon + interactable-prop catalogue crawl (`agentic_orchestration/research/catalogue/icons-and-props-2026-05-17/`)
 **Sizing canon:** `canonical/story/mobile-pc-pixel-sizing-ratios-2026-05-17.md` § 3.3
 **Pattern reference:** `agentic_orchestration/research/curated/pimen-subset-vs2a-selection-2026-05-17.md` (elrond Pimen selection — same methodology)
 **Successor:** drax M5 panel redesigns + post-VS2a ambient prop dispatches consume the manifest
+
+---
+
+## Post-acquisition status — 2026-05-17 (Matt L3, ~00:30 EDT)
+
+Matt acquired **7 of 9 PRIMARY packs**. De-duplicated **actual outlay: $10.00** (vs $18.20 estimate; **savings $8.20** = 45.1%).
+
+| Pack | Status | Local path under `reincarnated-demo/public/assets/` |
+|---|---|---|
+| Dire Dungeon Items + Loot (DerNachbar, CC BY 4.0) | **ACQUIRED $10** | `DireDungeon_Items_Loot/` |
+| Magic_Potions_Pack_V1 (substitute for SODA + AquaSenshi; vendor TBD, FREE) | **ACQUIRED-SUBSTITUTE** | `Magic_Potions_Pack_V1/` |
+| CraftPix Guild Hall (189780, FREE) | **ACQUIRED** | `craftpix-net-189780-free-top-down-pixel-art-guild-hall-asset-pack/` |
+| CraftPix Basic Pixel Art UI (255216, FREE) | **ACQUIRED** | `craftpix-net-255216-free-basic-pixel-art-ui-for-rpg/` |
+| Seliel Treasure Chests 1 (19.07c, FREE) | **ACQUIRED** | `19.07c - Treasure Chests 1/` |
+| Seliel Breakable Pots 1 (20.05b, FREE) | **ACQUIRED** | `20.05b - Breakable Pots 1/` |
+| Elthen Destructible Objects (PWYW FREE) | **ACQUIRED** | `Destructible Objects Sprite Sheet.png` (bare, no folder) |
+| Mucho Pixels Dungeon Tileset Pack ($4.95) | **NOT ACQUIRED** | n/a |
+| SODA 150 Stylized Potions ($3.25) | **NOT ACQUIRED** | n/a — covered partially by Magic_Potions_Pack_V1 substitute |
+
+**Bonus acquisition (outside shortlist):** CraftPix Animated Magic Book pack 809047 (`craftpix-net-809047-free-animated-magic-book-pixel-art-asset-pack/`) — 12-frame book open/close animation + per-element skill-icon set (fire/nature/water/lightning, 8 frames each). Available as decoration or skill-icon backup; does not modify VS2a curation rollup.
+
+### Gap closure status — post-acquisition refresh
+
+| Gap | Pre-acquisition status | Post-acquisition status | Driver |
+|---|---|---|---|
+| **G-FILL** (potion fill-level) | PARKED — Path A recommended | **MATERIALLY ADVANCED.** Dire Dungeon ships explicit **healing_big/medium/small + mana_big/medium/small** sprites — explicit 3-tier size variants for health AND mana potions. This IS an explicit size-tier proxy at native vendor level (not a synthesized SODA proxy). Path A now over-delivered for health/mana primaries; remaining sub-types still lack fill states but those are non-primary | DireDungeon `potions/` folder |
+| **G-RARITY** (rarity-tier UI borders) | PARKED — Path A (procedural overlay) recommended | **INFRASTRUCTURE NOW IN HAND.** CraftPix Basic UI Inventory + Equipment screens contain rarity-coloured slot gem indicators (blue/orange/red visible in Inventory.png + Equipment.png), AND Dire Dungeon ships full 10-color animated outline glow folder per item (137,602 frames across `DireDungeonItems_animatedOutlines_by_DerNachbar/`). Procedural overlay path A is now fully infrastructure-supported | CraftPix Basic UI + DireDungeon animatedOutlines |
+| **G-ARMOR-MANNEQUIN** (armor stand variants) | Flagged but NOT load-bearing | **CLOSED + MATERIALLY UPGRADED.** Guild Hall ships 3 mannequin designs × 4-frame destruction animation each (`Attacked_Manequin1/2/3_with_shadow.png`). Multi-state armor stand coverage materially exceeds single-state expectation; helmet/helmless inferable from destruction frame sequence | CraftPix Guild Hall |
+| **G-COFFIN** (open-state coffin) | PARTIALLY CLOSED via Mucho Pixels | **STILL OPEN.** Mucho Pixels NOT acquired; Seliel Treasure Chests 1 contains chest-only assets (no coffin-style variants visible in 160×192px composite). Coffin gap reverts to OPEN. **Recommendation:** defer coffin to post-VS2a (not load-bearing for VS2a primary slot) OR acquire Mucho Pixels $4.95 if coffin becomes load-bearing | none — gap re-opened |
+| **G-AI-POLICY** (Pixel-1992 packs) | OPEN — pending policy clarification | UNCHANGED — Pixel-1992 packs not acquired, governance question still pending | n/a |
+| **G-CCBYSA** (OGA share-alike) | CLOSED via strict-defer | UNCHANGED CLOSED | n/a |
+
+### Cost rollup — post-acquisition
+
+| Line | Pre-acquisition estimate | Post-acquisition actual |
+|---|---:|---:|
+| Dire Dungeon Items (CC BY 4.0) | $10.00 | $10.00 |
+| Mucho Pixels Dungeon Tileset Pack | $4.95 | $0.00 (not acquired) |
+| SODA 150 Stylized Potions | $3.25 | $0.00 (not acquired; partial coverage via free substitute) |
+| 6 free PRIMARY packs | $0.00 | $0.00 |
+| **De-duplicated PRIMARY total** | **$18.20** | **$10.00** |
+| Bonus pack (Magic Book) | $0.00 | $0.00 |
+| Savings vs estimate | — | **$8.20 (-45.1%)** |
+
+### Remaining gaps flagged for Matt
+
+1. **G-COFFIN** — re-opened after Mucho Pixels not acquired. **Recommendation:** defer to post-VS2a (not load-bearing). If a coffin asset becomes load-bearing for trial-room or boss-room dressings, two options: (a) acquire Mucho Pixels $4.95 (coffin + extra chest state-coverage bundled), (b) commission custom coffin sprite (~$50-150 indie-art).
+2. **G-BARREL-POT-MUCHO-COVERAGE** — Mucho Pixels' multi-pot/barrel state-coverage was a PRIMARY anchor for ambient-props subset. Seliel pots (4 designs × 4 colors + break animation + shards) + Elthen destructibles (barrels, crates, signs with destruction frames) **together cover the destructible-prop need without Mucho Pixels**. Chest coverage falls back to Seliel + Pixel Serial BACKUP (animated chest opening from BACKUP tier).
+3. **G-WEAPON-STAND-MUCHO** — Mucho's 7-weapons-on-stand + broken-variant detail level not acquired. CraftPix Guild Hall `Interior_objects.png` contains weapon racks + banner stands (top-down register), and BigWander Weapons Rack 128 (FREE BACKUP) supplements. State-coverage for weapon-stand is functional but not as polished as Mucho. **Recommendation:** functional pass for VS2a; revisit if visual polish proves insufficient.
+4. **Magic_Potions_Pack_V1 vendor metadata pending** — license.txt is 35 bytes (suspiciously short); pack appears to be a free SODA-equivalent substitute but exact provenance (vendor, license, attribution requirements) needs legolas-3 verification at next crawl. Until then, treat as commercial-license (assumption) and avoid public attribution claim. Stamped in manifest as `vendor TBD`.
+
+### Manifests refreshed
+
+All three manifests bumped to schema version `1.1` (adds `acquisition_status`, `acquired_path*`, `acquired_date`, `acquired_cost_usd`, `acquisition_notes` per-row; adds `_acquisition_cost_usd_actual_this_subset`, `_acquired_pack_origins`, `_primary_packs_not_acquired` in header). Drax can now read manifests directly without resolving pack_origin → local-path manually. Build script: `agentic_orchestration/research/scripts/build_icons_and_props_subset_vs2a_2026_05_17.py` (re-runnable from raw crawl).
 
 ---
 
@@ -179,7 +234,8 @@ GREEN = ≥1 commercial-license or CC-0 PRIMARY/BACKUP pack covers. YELLOW = cov
 
 ### Gap G-FILL — Potion fill-level states (legolas-flagged)
 
-**Status:** **PARKED Matt-decision.**
+**Status (pre-acquisition):** **PARKED Matt-decision.**
+**Status (post-acquisition 2026-05-17):** **MATERIALLY ADVANCED.** Dire Dungeon `potions/` folder includes explicit `healing_big.png` / `healing_medium.png` / `healing_small.png` AND `mana_big.png` / `mana_medium.png` / `mana_small.png` files — 3-tier size variants at native vendor level for the two load-bearing potion types. Path A over-delivered for primary potion families. Remaining ~10 other potion colors lack fill states but those are non-primary.
 
 Three options, ranked by elrond preference:
 
@@ -191,7 +247,8 @@ Three options, ranked by elrond preference:
 
 ### Gap G-RARITY — ARPG rarity-tier UI borders (legolas-flagged)
 
-**Status:** **PARKED Matt-decision.**
+**Status (pre-acquisition):** **PARKED Matt-decision.**
+**Status (post-acquisition 2026-05-17):** **INFRASTRUCTURE NOW IN HAND.** CraftPix Basic UI ships pre-built slot frames with rarity-coloured gem indicators (visible in `Inventory.png` + `Equipment.png` — blue/orange/red gem inserts), AND Dire Dungeon ships `DireDungeonItems_animatedOutlines_by_DerNachbar/` folder with 10 outline-glow colors × 32 frames per item × ~214 items = 137,602 frames of animated rarity overlay. Procedural overlay path A is fully infrastructure-supported with native vendor assets — no custom authoring needed for tier-color animation.
 
 Per `mobile-pc-pixel-sizing-ratios-2026-05-17.md` § 4.4 sub-rule: "rarity differentiation is visual-layer-coded, not size-coded. Common = small sprite, no beam, no name. Magic = small sprite, blue beam, name on. Rare = small sprite, yellow beam, name on, faint ring. Legendary = small sprite, orange beam, name on, animated ring + glow." This canon **does not require pre-built bordered icons** — it requires loot beams + name plates + affordance rings layered procedurally.
 
@@ -204,15 +261,13 @@ Two options:
 
 ### Gap G-ARMOR-MANNEQUIN — Armor-stand helmless/full variants (legolas-flagged)
 
-**Status:** flagged but NOT load-bearing for VS2a primary scope.
-
-CraftPix guild-hall mannequin provides single-state armor-stand coverage. Helmless/full variants would enable "shows what's equipped" affordance in trial rooms or NPC guild displays — flavor improvement, not core requirement. Defer to post-VS2a custom authoring or future commission.
+**Status (pre-acquisition):** flagged but NOT load-bearing for VS2a primary scope.
+**Status (post-acquisition 2026-05-17):** **CLOSED + MATERIALLY UPGRADED.** CraftPix Guild Hall ships 3 mannequin designs × 4-frame destruction animation each (`Attacked_Manequin1_with_shadow.png`, `Attacked_Manequin2_with_shadow.png`, `Attacked_Manequin3_with_shadow.png`, plus without-shadow variants). Multi-state mannequin coverage (intact + 3 destruction frames per design) materially exceeds the single-state expectation. Helmet/helmless inference available from destruction frame sequence (sprite reveals underlying structure as it breaks).
 
 ### Gap G-COFFIN — Sparse coffin coverage (legolas-flagged)
 
-**Status:** **PARTIALLY CLOSED.**
-
-Mucho Pixels is the only confirmed coffin-with-open-state vendor in the crawl. Single-coverer dependency is not fragile here — Mucho Pixels is bundled with chest + weapon-stand + pot acquisition (single $4.95 already authorized in PRIMARY). Wooden / decorative coffin variants and additional state coverage are NOT covered; deferred as not-load-bearing for VS2a.
+**Status (pre-acquisition):** **PARTIALLY CLOSED** (via Mucho Pixels).
+**Status (post-acquisition 2026-05-17):** **RE-OPENED.** Mucho Pixels NOT acquired (was the only confirmed coffin-with-open-state vendor in the crawl). Seliel Treasure Chests 1 contains chest-only assets, no coffin variants visible in 160×192px composite. **Recommendation:** defer coffin to post-VS2a (not load-bearing for VS2a primary slot). If a coffin asset becomes load-bearing later: (a) acquire Mucho Pixels $4.95 (coffin + bonus chest state-coverage), or (b) commission custom coffin sprite (~$50-150).
 
 ### Gap G-AI-POLICY — AI-assisted Pixel-1992 packs (deferred pending policy clarification)
 
@@ -232,12 +287,15 @@ CC-BY-SA 3.0 share-alike clause conflicts with proprietary commercial release. O
 
 ### 4.1 PRIMARY acquisitions (de-duplicated)
 
-| Pack | Cost | License | URL | Covers (across subsets) |
-|---|---:|---|---|---|
-| Dire Dungeon Items (DerNachbar) | $10.00 | CC BY 4.0 | https://dernachbar.itch.io/dire-dungeon-items | floor-loot gear-weapon + gear-armor + gold; ui-icons gear-icon + gold-icon (partial); 259 items single-acquisition style-register coherence |
-| Mucho Pixels Dungeon Tileset Pack | $4.95 | GameDev Market Pro Licence (royalty-free) | https://muchopixels.itch.io/dungeon-tileset-pack | ambient-props chest + coffin + weapon-stand + urn-vase-box (4 subcategories in 1 pack) |
-| SODA 150 Stylized Potions | $3.25 | Royalty-free | https://soda-1.itch.io/150-stylized-potion-icon-pack-32x32 | floor-loot potion + ui-icons potion-icon (shared) |
-| **Total acquisition cost** | **$18.20** | | | |
+**ACQUISITION STATE (2026-05-17 Matt L3):** see § Post-acquisition status section at top of doc for current state. Table below preserves the pre-acquisition shortlist for the historical record.
+
+| Pack | Cost | License | URL | Covers (across subsets) | Acquired? |
+|---|---:|---|---|---|---|
+| Dire Dungeon Items (DerNachbar) | $10.00 | CC BY 4.0 | https://dernachbar.itch.io/dire-dungeon-items | floor-loot gear-weapon + gear-armor + gold; ui-icons gear-icon + gold-icon (partial); 259 items single-acquisition style-register coherence | **YES $10** |
+| Mucho Pixels Dungeon Tileset Pack | $4.95 | GameDev Market Pro Licence (royalty-free) | https://muchopixels.itch.io/dungeon-tileset-pack | ambient-props chest + coffin + weapon-stand + urn-vase-box (4 subcategories in 1 pack) | **NO** |
+| SODA 150 Stylized Potions | $3.25 | Royalty-free | https://soda-1.itch.io/150-stylized-potion-icon-pack-32x32 | floor-loot potion + ui-icons potion-icon (shared) | **NO** (partial substitute via Magic_Potions_Pack_V1 FREE) |
+| **Pre-acquisition estimate total** | **$18.20** | | | | |
+| **Post-acquisition actual outlay** | **$10.00** | | | | **savings $8.20** |
 
 **Free PRIMARY packs (no acquisition fee; verify license terms at acquisition):**
 

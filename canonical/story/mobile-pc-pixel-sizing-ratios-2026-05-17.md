@@ -320,6 +320,60 @@ The dispatch's primary output. The table below maps each PC sprite / icon / tile
 
 **The density-preservation invariant.** This is the key cross-platform commitment: a player on PC and a player on mobile **see the same number of monsters per visible area** at the same density. PC shows more world; mobile shows fewer monsters; *density per square meter is identical*. This is what makes the sim-emitted monster-spawn densities (per `aoe-tuning-and-monster-density-genre-canon-validation-2026-05-17.md` § 3) platform-portable.
 
+### § 3.5 — Portrait-primary tuning (LOCKED 2026-05-17; supersedes prior portrait/landscape symmetry)
+
+**Source:** Matt L3 lock 2026-05-17 — Path A doc-cascade dispatch (`agentic_orchestration/dispatches/2026-05-17-gandalf-doe-doc-cascade-path-a-portrait-primary.md`); DoE feel-target evidence at `canonical/story/mobile-feel-target-doe-2026-05-17.md` § 7.1. Earlier framing of mobile as portrait/landscape-symmetric is **superseded** — portrait is the primary orientation; landscape is secondary / polish-phase.
+
+**Canvas + viewport implications (portrait):**
+
+| Parameter | Portrait-primary value | Notes |
+|---|---|---|
+| **Internal canvas resolution** | 944 × 1800 (transposed from landscape 1800 × 944) | CSS-scaled to `100vw × 100dvh` via `object-fit: contain`; logical aspect ratio swaps |
+| **Effective viewport dimensions (typical phone)** | ~390 × ~844 CSS pixels (iPhone 14/15 portrait) → ~944 × ~2040 device pixels at 2.4× DPR; canvas-mapped via existing letterbox math | Internal resolution unchanged; visual scaling by CSS preserves canvas-space coordinates |
+| **Camera zoom** | player ~10-12% of viewport-height (taller viewport = slightly looser zoom than landscape) | Density-preservation invariant holds; world-area-visible shifts from `~28m × ~15m` landscape to `~15m × ~28m` portrait |
+| **Player thumb-reach zones** | bottom 35% of viewport (both thumbs reach comfortably to ~y=1170-1800 in canvas-space) | DoE pattern: skill bar + heal + ultimate + portrait + currency all live in bottom-third |
+| **Top zone (HUD)** | top 15-18% of viewport (y=0 to ~y=270-324 in canvas-space) | DoE pattern: rift banner + minimap + timer + HP bar + return portal |
+| **Mid zone (gameplay)** | y=270 to ~y=1170 — ~50% of viewport-height for gameplay field | Density and monster-per-area math (per § 4.1, § 4.7) hold; portrait viewport just shows different ratio of height to width |
+
+**HUD element positioning (portrait-primary; landscape positions in parentheses as fallback for polish-phase landscape support):**
+
+| Element | Portrait position (canvas-space; canvas is 944 × 1800) | Landscape fallback (canvas 1800 × 944) | Touch-target sizing |
+|---|---|---|---|
+| **Rift name banner + minimap module** | top-left (x=20-300, y=20-200) | top-left (x=40-360, y=40-160) | Minimap diameter ~180 px portrait (vs ~160 px landscape) |
+| **HP bar** | attached to minimap module top-left (y=100-130 horizontal bar) | bottom-left globe (x=76, y=880) — D-series landscape pattern | DoE-pattern attached-to-minimap on portrait is recommended; not yet locked (see DoE doc § 7.4) |
+| **Timer** | top-left, below minimap (y=140-170) | n/a in landscape (typically not surfaced) | small text per § 5 typography table |
+| **Return-to-city portal** | top-right (x=820-924, y=20-150) | top-right (x=1700-1800, y=40-160) | 110-130 px diameter circular |
+| **Character portrait + red-dot loot affordance** | bottom-left (x=20-140, y=1500-1620) | bottom-left (x=40-200, y=830-920) | 120 px diameter circular |
+| **Currency display** | bottom-center-left (x=140-380, y=1620-1680) | bottom-center-left (x=200-500, y=890-920) | small text + icon |
+| **Skill bar** | bottom-center (x=200-744, y=1480-1700; 3-5 slots in horizontal row) | bottom-center radial arc (per § 3.2) | 120 px circular per slot |
+| **Ultimate button** | bottom-center-right (x=744-870, y=1500-1660) | right-of-skill-bar in arc | 150 px circular |
+| **Heal button (single, cooldown-gated)** | bottom-right corner (x=820-924, y=1640-1760) | bottom-right corner in arc | 140 px circular — most-tapped action target |
+| **Objective counter + XP bar** | bottom edge (y=1750-1800; full width 0-944) | bottom edge (y=920-944; full width 0-1800) | bar height 8-12 px; counter text ~14 px font |
+
+**Density-preservation invariant under portrait:**
+
+- The 0.75× sprite scalar (per § 3.1) holds unchanged. Player sprite, monster sprites, drops, destructibles — all sized identically to landscape values.
+- `PIXELS_PER_METER = 48` holds unchanged (per § 4.2; platform-invariant; orientation-invariant by extension).
+- Camera shows a portrait-aspect slice of the world (~15m × ~28m vs landscape's ~28m × ~15m). Total area visible is similar; the *shape* of the visible area differs.
+- Sim-emitted monster densities + AOE radii + projectile travel are unchanged; the engine emits world-canonical values consumed by both orientations.
+
+**Why portrait is the primary target (canon-aligned rationale):**
+
+1. **Genre convergence.** DoE / Diablo Immortal / Torchlight Infinite / Eternium / Dungeon Hunter 6 / Anima ARPG / Oniro ARPG — every reference in § 2 is portrait-primary or portrait-only. Landscape mobile ARPG is a niche position (Genshin / Honkai Star Rail are gacha-adventure, not ARPG; their orientation is genre-specific).
+2. **One-handed thumb-reach.** Portrait + bottom-third HUD lets a single-thumb player reach all action affordances (skill bar, heal, ultimate, portrait). Landscape requires two-handed grip at the typical phone form factor.
+3. **Notification overlay coexistence.** iOS Dynamic Island / Android notification shade sit at the top of the device; portrait orientation naturally places the gameplay-critical UI below the notification zone. Landscape splits notifications across the visual field.
+4. **App Store discovery + sharing.** Portrait screenshots dominate App Store listings for mobile-first games; portrait gameplay clips share more cleanly to TikTok / Instagram / vertical-first platforms.
+
+**Touch-target sizing canon is unchanged** (per § 4.3). The 88 px minimum / 110-125 px action centroid floor applies identically across orientations; finger ergonomics are orientation-invariant.
+
+**Landscape support (polish-phase, not v1):**
+
+The landscape diagram in `canonical/story/mobile-ux-execution-plan-2026-05-17.md` § 4.2 is retained as the secondary-orientation reference. When landscape support eventually ships (polish-phase), the existing HUD-positions table above provides the landscape fallback values. The transformation from portrait to landscape (or vice versa) at runtime is a pure layout reorganization; no canvas-resolution change, no sim-state change, no asset-pipeline change.
+
+**Pivot reversibility (forward-flag):**
+
+If a future Reincarnated mobile title (e.g., the Earth-meta-layer game) requires landscape-primary, the pivot back is straightforward: the landscape positions in the table above become primary; the portrait positions become fallback; canvas resolution swaps; HUD layout file updates. Sim, asset pipeline, and engine code are orientation-invariant by design. (This is the architectural commitment Option-B / Discipline #13 enforces: orientation is a presentation concern, not a sim concern.)
+
 ---
 
 ## § 4 — Transformation principles (the "why")

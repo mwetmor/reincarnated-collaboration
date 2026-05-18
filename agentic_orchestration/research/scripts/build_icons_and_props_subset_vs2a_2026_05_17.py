@@ -107,6 +107,322 @@ OUTPUTS = {
 #   - Acquisition shortlist is derivable from cost_usd > 0 AND curation_status
 #     == RECOMMEND-PRIMARY rows.
 # -----------------------------------------------------------------------------
+# Post-acquisition update — 2026-05-17 (Matt L3 acquisition pass):
+#   Matt acquired 7 packs ~00:30 EDT 2026-05-17 (dispatch
+#   `2026-05-17-elrond-icon-and-prop-acquisition-registration.md`).
+#   ACQUISITIONS dict below maps each acquired asset_id → relative path under
+#   `reincarnated-demo/public/assets/` plus actual cost. curate_row stamps
+#   `acquired_path`, `acquired_date`, and `acquired_cost_usd` fields on
+#   matching rows so drax can consume the manifest directly without resolving
+#   pack-origin → local-path manually.
+# -----------------------------------------------------------------------------
+
+
+ACQUISITIONS: dict[str, dict] = {
+    # ─────────────────────────────────────────────────────────────────────
+    # DireDungeon Items + Loot ($10 CC BY 4.0; DerNachbar)
+    # Single bundle acquisition covers floor-loot AND ui-icons subsets.
+    # PNG tileset + per-item folders + 10-color animated outline rarity
+    # proxy + size-tier potion variants (healing/mana big/medium/small)
+    # confirmed at acquisition. 214 base items × 10 outline colors × 2 modes
+    # = 137,602 animated frames in animatedOutlines folder.
+    # ─────────────────────────────────────────────────────────────────────
+    "itch-direndachbar.floor-loot.gold.dire-dungeon-items-coins": {
+        "acquired_path": "DireDungeon_Items_Loot/",
+        "acquired_path_primary_asset": (
+            "DireDungeon_Items_Loot/DireDungeonItemsTileset_by_DerNachbar (v1.0).png"
+        ),
+        "acquired_path_per_item_folder": (
+            "DireDungeon_Items_Loot/DireDungeonItems_by_DerNachbar/"
+        ),
+        "acquired_date": "2026-05-17",
+        "acquired_cost_usd": 10.00,
+        "acquisition_notes": (
+            "Shared acquisition with dire-dungeon weapon/armor/potions/UI rows. "
+            "45 coin variants in 32x32 confirmed."
+        ),
+    },
+    "itch-direndachbar.floor-loot.gear-weapon.dire-dungeon-weapons": {
+        "acquired_path": (
+            "DireDungeon_Items_Loot/DireDungeonItems_by_DerNachbar/melee_weapons/"
+        ),
+        "acquired_path_ranged": (
+            "DireDungeon_Items_Loot/DireDungeonItems_by_DerNachbar/ranged_weapons/"
+        ),
+        "acquired_animated_outlines": (
+            "DireDungeon_Items_Loot/DireDungeonItems_animatedOutlines_by_DerNachbar/melee_weapons/"
+        ),
+        "acquired_date": "2026-05-17",
+        "acquired_cost_usd": 0.00,  # shared with dire-dungeon coins; bundle paid once
+        "acquisition_notes": (
+            "6 melee categories (axes/daggers/maces/polearms/staves/swords); "
+            "9 sword variants × 10 outline colors × 32 frames in animated outlines."
+        ),
+    },
+    "itch-direndachbar.floor-loot.gear-armor.dire-dungeon-armor": {
+        "acquired_path_body": (
+            "DireDungeon_Items_Loot/DireDungeonItems_by_DerNachbar/body/"
+        ),
+        "acquired_path_helmet": (
+            "DireDungeon_Items_Loot/DireDungeonItems_by_DerNachbar/helmet/"
+        ),
+        "acquired_path_gloves": (
+            "DireDungeon_Items_Loot/DireDungeonItems_by_DerNachbar/gloves/"
+        ),
+        "acquired_path_shoes": (
+            "DireDungeon_Items_Loot/DireDungeonItems_by_DerNachbar/shoes/"
+        ),
+        "acquired_path_jewelry": (
+            "DireDungeon_Items_Loot/DireDungeonItems_by_DerNachbar/jewelry/"
+        ),
+        "acquired_path_shields": (
+            "DireDungeon_Items_Loot/DireDungeonItems_by_DerNachbar/shields/"
+        ),
+        "acquired_date": "2026-05-17",
+        "acquired_cost_usd": 0.00,  # shared
+        "acquisition_notes": (
+            "body/helmet/gloves/shoes/jewelry/shields all present; belt slot still "
+            "uncovered (per prior G-BELT non-load-bearing flag)."
+        ),
+    },
+    "itch-direndachbar.ui-icon.gear-icon.dire-dungeon-items-all": {
+        "acquired_path": "DireDungeon_Items_Loot/",
+        "acquired_path_tileset": (
+            "DireDungeon_Items_Loot/DireDungeonItemsTileset_by_DerNachbar (v1.0).png"
+        ),
+        "acquired_path_no_outlines": (
+            "DireDungeon_Items_Loot/DireDungeonItemsTileset_noOutlines_by_DerNachbar (v1.0).png"
+        ),
+        "acquired_path_items_outlines": (
+            "DireDungeon_Items_Loot/items_outlines/"
+        ),
+        "acquired_date": "2026-05-17",
+        "acquired_cost_usd": 0.00,  # shared
+        "acquisition_notes": (
+            "Both outlined and outline-free spritesheets present + per-category "
+            "subfolders for direct UI-icon ingest. items_outlines folder gives "
+            "black-outline single-state variants suitable for UI rendering."
+        ),
+    },
+    "itch-direndachbar.ui-icon.potion-icon.dire-dungeon-potions": {
+        "acquired_path": (
+            "DireDungeon_Items_Loot/DireDungeonItems_by_DerNachbar/potions/"
+        ),
+        "acquired_date": "2026-05-17",
+        "acquired_cost_usd": 0.00,  # shared
+        "acquisition_notes": (
+            "16 potion variants confirmed including healing_big/medium/small + "
+            "mana_big/medium/small — these are explicit fill-level/size-tier "
+            "states. MATERIAL UPGRADE to G-FILL gap status (see selection doc)."
+        ),
+    },
+    "itch-direndachbar.ui-icon.gold-icon.dire-dungeon-coins-gems": {
+        "acquired_path_jewelry": (
+            "DireDungeon_Items_Loot/DireDungeonItems_by_DerNachbar/jewelry/"
+        ),
+        "acquired_path_gems": (
+            "DireDungeon_Items_Loot/DireDungeonItems_by_DerNachbar/gems/"
+        ),
+        "acquired_date": "2026-05-17",
+        "acquired_cost_usd": 0.00,  # shared
+        "acquisition_notes": "10 gem variants + jewelry confirmed.",
+    },
+    # ─────────────────────────────────────────────────────────────────────
+    # Magic_Potions_Pack_V1 (FREE; substitute for SODA — vendor TBD)
+    # 25 individual potion icons (5 colors × 5 shapes); no fill-level
+    # variants, no buff/debuff/elemental labels. Functional substitute for
+    # AquaSenshi + partial SODA coverage. Vendor metadata pending — flagged
+    # for legolas to confirm provenance + license at future crawl.
+    # ─────────────────────────────────────────────────────────────────────
+    "itch-aquasenshi.floor-loot.potion.medieval-rpg-potions": {
+        "acquired_path": "Magic_Potions_Pack_V1/",
+        "acquired_path_individual_icons": "Magic_Potions_Pack_V1/Individual_Icons/",
+        "acquired_path_spritesheet": "Magic_Potions_Pack_V1/Spritesheet.png",
+        "acquired_date": "2026-05-17",
+        "acquired_cost_usd": 0.00,
+        "acquisition_notes": (
+            "SUBSTITUTE acquisition: Matt acquired Magic_Potions_Pack_V1 (vendor "
+            "TBD, free) in lieu of AquaSenshi-specific pack. 25 icons (5 colors × "
+            "5 shapes: classic/heart/round/skull/square). No explicit "
+            "health/mana/poison/energy/speed labels — vendor neutral; color-coded "
+            "use mapping required at drax integration. Vendor + license metadata "
+            "pending legolas verification."
+        ),
+    },
+    "itch-aquasenshi.ui-icon.potion-icon.medieval-rpg-25": {
+        "acquired_path": "Magic_Potions_Pack_V1/Individual_Icons/",
+        "acquired_date": "2026-05-17",
+        "acquired_cost_usd": 0.00,
+        "acquisition_notes": (
+            "SUBSTITUTE acquisition (same Magic_Potions_Pack_V1 as floor-loot). "
+            "Vendor TBD, license pending legolas verification."
+        ),
+    },
+    # ─────────────────────────────────────────────────────────────────────
+    # CraftPix Guild Hall (FREE; closes G-ARMOR-MANNEQUIN with damage states)
+    # Pack 189780. Contains 3 attacked-mannequin spritesheets (4×4 frames
+    # each — destruction animation) + Interior_objects.png with weapon
+    # racks, banner stands, bookshelves, shield displays + Exterior.png +
+    # citizen NPCs. The attacked-mannequin sheets provide MULTI-STATE armor
+    # stand coverage — materially better than single-state expectation.
+    # ─────────────────────────────────────────────────────────────────────
+    "craftpix.ambient-prop.weapon-stand.guild-hall-free": {
+        "acquired_path": "craftpix-net-189780-free-top-down-pixel-art-guild-hall-asset-pack/",
+        "acquired_path_interior_objects": (
+            "craftpix-net-189780-free-top-down-pixel-art-guild-hall-asset-pack/PNG/Interior_objects.png"
+        ),
+        "acquired_date": "2026-05-17",
+        "acquired_cost_usd": 0.00,
+        "acquisition_notes": (
+            "Interior_objects.png contains weapon racks, banner stands, "
+            "bookshelves with skill-tome filler, banner displays. Top-down register "
+            "confirmed."
+        ),
+    },
+    "craftpix.ambient-prop.armor-stand.guild-hall-mannequin": {
+        "acquired_path_mannequin1": (
+            "craftpix-net-189780-free-top-down-pixel-art-guild-hall-asset-pack/PNG/Attacked_Manequin1_with_shadow.png"
+        ),
+        "acquired_path_mannequin2": (
+            "craftpix-net-189780-free-top-down-pixel-art-guild-hall-asset-pack/PNG/Attacked_Manequin2_with_shadow.png"
+        ),
+        "acquired_path_mannequin3": (
+            "craftpix-net-189780-free-top-down-pixel-art-guild-hall-asset-pack/PNG/Attacked_Manequin3_with_shadow.png"
+        ),
+        "acquired_date": "2026-05-17",
+        "acquired_cost_usd": 0.00,
+        "acquisition_notes": (
+            "MATERIAL UPGRADE on G-ARMOR-MANNEQUIN: 3 mannequin designs × 4-frame "
+            "destruction animation each (with + without shadow variants). "
+            "Multi-state armor stand coverage materially exceeds the single-state "
+            "expectation in prior selection doc. Helmet/helmless variants are "
+            "implicit in the destruction frame sequence (broken stand reveals "
+            "what's underneath)."
+        ),
+    },
+    # ─────────────────────────────────────────────────────────────────────
+    # CraftPix Basic Pixel Art UI for RPG (FREE; LOAD-BEARING)
+    # Pack 255216. Provides inventory/equipment frames with rarity-coloured
+    # gem inserts (blue/orange/red visible in Inventory.png + Equipment.png).
+    # Equipment.png explicitly shows paper-doll character with helm + sword
+    # + shield — armor-stand-equivalent affordance baked in.
+    # ─────────────────────────────────────────────────────────────────────
+    "craftpix.ui-icon.gear-icon.basic-pixel-art-ui-rpg": {
+        "acquired_path": "craftpix-net-255216-free-basic-pixel-art-ui-for-rpg/",
+        "acquired_path_inventory": (
+            "craftpix-net-255216-free-basic-pixel-art-ui-for-rpg/PNG/Inventory.png"
+        ),
+        "acquired_path_equipment": (
+            "craftpix-net-255216-free-basic-pixel-art-ui-for-rpg/PNG/Equipment.png"
+        ),
+        "acquired_path_icons": (
+            "craftpix-net-255216-free-basic-pixel-art-ui-for-rpg/PNG/Icons.png"
+        ),
+        "acquired_path_shop": (
+            "craftpix-net-255216-free-basic-pixel-art-ui-for-rpg/PNG/Shop.png"
+        ),
+        "acquired_path_craft": (
+            "craftpix-net-255216-free-basic-pixel-art-ui-for-rpg/PNG/Craft.png"
+        ),
+        "acquired_date": "2026-05-17",
+        "acquired_cost_usd": 0.00,
+        "acquisition_notes": (
+            "MATERIAL UPGRADE on G-RARITY: Inventory + Equipment screens contain "
+            "rarity-coloured slot indicators (blue/orange/red gem inserts) visible "
+            "in Inventory.png + Equipment.png — supports procedural rarity-border "
+            "path with native pre-built slot frames. Equipment.png shows paper-doll "
+            "with helm + sword + shield (armor-stand-equivalent UI panel)."
+        ),
+    },
+    # ─────────────────────────────────────────────────────────────────────
+    # Seliel Treasure Chests 1 (19.07c, FREE) — closes Seliel-side chest row
+    # 160×192px spritesheet visible: ~5 chest types × 6+ rows = open/closed
+    # states × multiple color swaps.
+    # ─────────────────────────────────────────────────────────────────────
+    "seliel.ambient-prop.chest.mana-seed-treasure-chests": {
+        "acquired_path": "19.07c - Treasure Chests 1/",
+        "acquired_path_spritesheet": "19.07c - Treasure Chests 1/treasure chests.png",
+        "acquired_date": "2026-05-17",
+        "acquired_cost_usd": 0.00,
+        "acquisition_notes": (
+            "160×192px composite spritesheet (10 cols × 12 rows at 16px grid). "
+            "5 chest types × open/closed × 3 color swaps visible. No coffin-style "
+            "variant present — G-COFFIN remains OPEN."
+        ),
+    },
+    # ─────────────────────────────────────────────────────────────────────
+    # Seliel Breakable Pots 1 (20.05b, FREE)
+    # 128×128px composite + 4 color variant sheets (gray/red/white/yellow).
+    # 4 pot designs × 3-frame breaking animation + 6 shard particles per
+    # design.
+    # ─────────────────────────────────────────────────────────────────────
+    "seliel.ambient-prop.urn-vase-box.breakable-pots": {
+        "acquired_path": "20.05b - Breakable Pots 1/",
+        "acquired_path_composite": "20.05b - Breakable Pots 1/breakable pots.png",
+        "acquired_path_gray": "20.05b - Breakable Pots 1/breakable pots (gray).png",
+        "acquired_path_red": "20.05b - Breakable Pots 1/breakable pots (red).png",
+        "acquired_path_white": "20.05b - Breakable Pots 1/breakable pots (white).png",
+        "acquired_path_yellow": "20.05b - Breakable Pots 1/breakable pots (yellow).png",
+        "acquired_date": "2026-05-17",
+        "acquired_cost_usd": 0.00,
+        "acquisition_notes": (
+            "4 color variants (not 3 as legolas crawled — minor uplift). 3-frame "
+            "breaking animation + shard particles per pot confirmed."
+        ),
+    },
+    # ─────────────────────────────────────────────────────────────────────
+    # Elthen Destructible Objects (FREE PWYW) — confirmed acquired
+    # Sprite sheet placed at assets root (not in vendor folder).
+    # ─────────────────────────────────────────────────────────────────────
+    "itch-elthen.ambient-prop.urn-vase-box.destructible-objects": {
+        "acquired_path_spritesheet": "Destructible Objects Sprite Sheet.png",
+        "acquired_date": "2026-05-17",
+        "acquired_cost_usd": 0.00,
+        "acquisition_notes": (
+            "Composite sprite sheet acquired at assets root. Contains barrels, "
+            "crates, rocks/stones, signs, sign-posts with 3-state intact + "
+            "destruction frames + shard particles per object."
+        ),
+    },
+}
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Non-shortlisted bonus acquisition: CraftPix Animated Magic Book
+# (pack 809047, FREE). Not in the original 3-manifest selection but acquired
+# alongside the others. Stored here as a registration footnote so the
+# audit trail records what was acquired.
+# ─────────────────────────────────────────────────────────────────────────────
+BONUS_ACQUISITIONS: list[dict] = [
+    {
+        "pack_origin": "craftpix-net-809047-free-animated-magic-book",
+        "acquired_path": "craftpix-net-809047-free-animated-magic-book-pixel-art-asset-pack/",
+        "acquired_date": "2026-05-17",
+        "acquired_cost_usd": 0.00,
+        "acquisition_class": "bonus",
+        "rationale": (
+            "Not in prior PRIMARY/BACKUP shortlist; acquired bonus pack. "
+            "Provides 12-frame animated magic-book open/close + per-element "
+            "skill-icon set (fire/nature/water/lightning) with 8 frames per "
+            "icon. Useful as UI lore/decoration asset or skill-icon backup. "
+            "Logged for downstream drax visibility but does not modify the "
+            "VS2a curation rollup."
+        ),
+        "coverage_cells_potential": [
+            ("ui-decoration", "magic-book-animated"),
+            ("ui-icon", "skill-element-fire"),
+            ("ui-icon", "skill-element-nature"),
+            ("ui-icon", "skill-element-water"),
+            ("ui-icon", "skill-element-lightning"),
+        ],
+    }
+]
+
+
+# -----------------------------------------------------------------------------
+# (CURATION dict below — pre-acquisition. Acquisitions are stamped onto rows
+# at curate_row() time by joining ACQUISITIONS[asset_id] into the output.)
+# -----------------------------------------------------------------------------
 
 
 CURATION: dict[str, dict] = {
@@ -1107,7 +1423,7 @@ def curate_row(raw: dict) -> dict | None:
         render_notes_pieces.append("frame-slot-system-eligible")
     render_notes = " | ".join(render_notes_pieces)
 
-    return {
+    row = {
         "asset_id": asset_id,
         "vendor": raw["vendor"],
         "category": raw["category"],
@@ -1131,6 +1447,21 @@ def curate_row(raw: dict) -> dict | None:
         ),
         "vs2a_status": decision["vs2a_status"],
     }
+
+    # Stamp acquisition fields if this asset_id was acquired by Matt
+    # (registration pass 2026-05-17).
+    if asset_id in ACQUISITIONS:
+        acq = ACQUISITIONS[asset_id]
+        # acquisition_status surfaces this row as drax-consumable directly.
+        row["acquisition_status"] = "ACQUIRED"
+        # Promote all acquired_path_* keys to the row top-level so drax can
+        # iterate them without nested lookup.
+        for k, v in acq.items():
+            row[k] = v
+    else:
+        row["acquisition_status"] = "NOT-ACQUIRED"
+
+    return row
 
 
 def build_subset(name: str, src: Path, dst: Path) -> dict:
@@ -1165,7 +1496,7 @@ def build_subset(name: str, src: Path, dst: Path) -> dict:
         }
     )
 
-    acquisition_cost = 0.0
+    acquisition_cost_estimate = 0.0
     seen_packs = set()
     for r in curated:
         if (
@@ -1173,15 +1504,38 @@ def build_subset(name: str, src: Path, dst: Path) -> dict:
             and r["pack_origin"] not in seen_packs
             and r.get("cost_usd")
         ):
-            acquisition_cost += float(r["cost_usd"])
+            acquisition_cost_estimate += float(r["cost_usd"])
             seen_packs.add(r["pack_origin"])
+
+    # Actual acquisition cost rollup (de-duplicated by pack_origin).
+    # ACQUIRED rows record acquired_cost_usd per occurrence; sum once per
+    # pack_origin where the first occurrence carries the canonical cost.
+    actual_cost = 0.0
+    acquired_packs_seen_cost: dict[str, float] = {}
+    for r in curated:
+        if r.get("acquisition_status") != "ACQUIRED":
+            continue
+        po = r["pack_origin"]
+        ac = float(r.get("acquired_cost_usd", 0.0) or 0.0)
+        if po not in acquired_packs_seen_cost:
+            acquired_packs_seen_cost[po] = ac
+            actual_cost += ac
+
+    acquired_pack_origins = sorted(acquired_packs_seen_cost.keys())
+    primary_packs_not_acquired = sorted(
+        set(active_packs) - set(acquired_pack_origins)
+    )
 
     header = {
         "_manifest_kind": f"{name}-subset-vs2a",
-        "_manifest_version": "1.0",
+        "_manifest_version": "1.1",  # bumped: adds acquisition_status fields
         "_generated_at": datetime.now(timezone.utc).isoformat(),
         "_generated_by": "elrond+build_icons_and_props_subset_vs2a_2026_05_17.py",
         "_dispatch_ref": (
+            "agentic_orchestration/dispatches/"
+            "2026-05-17-elrond-icon-and-prop-acquisition-registration.md"
+        ),
+        "_predecessor_dispatch_ref": (
             "agentic_orchestration/dispatches/"
             "2026-05-17-elrond-icon-and-prop-curation-queued.md"
         ),
@@ -1192,7 +1546,10 @@ def build_subset(name: str, src: Path, dst: Path) -> dict:
         "_curation_status_counts": statuses,
         "_active_primary_pack_origins": active_packs,
         "_active_backup_pack_origins": backup_packs,
-        "_acquisition_cost_usd_primary_only": round(acquisition_cost, 2),
+        "_acquisition_cost_usd_primary_only_estimate": round(acquisition_cost_estimate, 2),
+        "_acquisition_cost_usd_actual_this_subset": round(actual_cost, 2),
+        "_acquired_pack_origins": acquired_pack_origins,
+        "_primary_packs_not_acquired": primary_packs_not_acquired,
         "_attribution_classes": attribution_classes,
         "_subcategories": subcategories,
     }
@@ -1216,22 +1573,82 @@ def main() -> None:
         print(f"   primary packs: {len(header['_active_primary_pack_origins'])}")
         print(f"   backup packs: {len(header['_active_backup_pack_origins'])}")
         print(
-            "   acquisition cost (PRIMARY only): "
-            f"${header['_acquisition_cost_usd_primary_only']:.2f}"
+            "   acquisition cost ESTIMATE (PRIMARY only): "
+            f"${header['_acquisition_cost_usd_primary_only_estimate']:.2f}"
         )
+        print(
+            "   acquisition cost ACTUAL (this subset): "
+            f"${header['_acquisition_cost_usd_actual_this_subset']:.2f}"
+        )
+        print(
+            f"   acquired packs in this subset: "
+            f"{len(header['_acquired_pack_origins'])}"
+        )
+        if header["_primary_packs_not_acquired"]:
+            print(
+                f"   primary packs not acquired: "
+                f"{header['_primary_packs_not_acquired']}"
+            )
 
-    grand_primary_packs = set()
-    grand_cost = 0.0
+    # Cross-subset de-duplicated rollups
+    grand_primary_packs: set[str] = set()
+    grand_acquired_packs: set[str] = set()
+    grand_actual_cost_by_pack: dict[str, float] = {}
+    grand_not_acquired: set[str] = set()
     for header in summary.values():
         for pack in header["_active_primary_pack_origins"]:
-            if pack not in grand_primary_packs:
-                grand_primary_packs.add(pack)
-    # NOTE: acquisition-cost rollup requires de-dup across subsets (Dire
-    # Dungeon used in floor-loot AND ui-icons; Mucho Pixels used in ambient
-    # chest+coffin+weapon-stand+pots). Per-subset rollup over-counts shared
-    # packs. The selection doc reports the de-duplicated rollup explicitly.
+            grand_primary_packs.add(pack)
+        for pack in header["_acquired_pack_origins"]:
+            grand_acquired_packs.add(pack)
+        for pack in header["_primary_packs_not_acquired"]:
+            grand_not_acquired.add(pack)
 
-    print(f"\nDistinct PRIMARY packs across all subsets: {len(grand_primary_packs)}")
+    # Sum actual cost once per acquired pack across all rows in all subsets
+    for name in ("floor-loot", "ambient-props", "ui-icons"):
+        with OUTPUTS[name].open("r", encoding="utf-8") as fh:
+            for i, line in enumerate(fh):
+                if i == 0:
+                    continue
+                r = json.loads(line)
+                if r.get("acquisition_status") != "ACQUIRED":
+                    continue
+                po = r["pack_origin"]
+                ac = float(r.get("acquired_cost_usd", 0.0) or 0.0)
+                if po not in grand_actual_cost_by_pack:
+                    grand_actual_cost_by_pack[po] = ac
+
+    grand_actual_cost = sum(grand_actual_cost_by_pack.values())
+
+    # Estimate cost rollup (de-duplicated)
+    grand_est_cost_by_pack: dict[str, float] = {}
+    for name in ("floor-loot", "ambient-props", "ui-icons"):
+        with OUTPUTS[name].open("r", encoding="utf-8") as fh:
+            for i, line in enumerate(fh):
+                if i == 0:
+                    continue
+                r = json.loads(line)
+                if r["curation_status"] != "RECOMMEND-PRIMARY":
+                    continue
+                po = r["pack_origin"]
+                cost = r.get("cost_usd")
+                if cost and po not in grand_est_cost_by_pack:
+                    grand_est_cost_by_pack[po] = float(cost)
+
+    grand_est_cost = sum(grand_est_cost_by_pack.values())
+
+    print(
+        f"\n── Cross-subset rollup ──────────────────────────────────────"
+    )
+    print(f"Distinct PRIMARY packs across all subsets: {len(grand_primary_packs)}")
+    print(f"Distinct ACQUIRED packs across all subsets: {len(grand_acquired_packs)}")
+    print(f"De-duplicated ESTIMATE cost (PRIMARY): ${grand_est_cost:.2f}")
+    print(f"De-duplicated ACTUAL outlay (ACQUIRED): ${grand_actual_cost:.2f}")
+    print(f"Cost savings vs estimate: ${grand_est_cost - grand_actual_cost:.2f}")
+    print(f"PRIMARY packs not acquired: {sorted(grand_not_acquired)}")
+    print(
+        f"\nBONUS acquisitions (outside shortlist): "
+        f"{[b['pack_origin'] for b in BONUS_ACQUISITIONS]}"
+    )
 
 
 if __name__ == "__main__":

@@ -171,7 +171,9 @@ The canvas already uses `max-width:100vw`, `max-height:100dvh`, `object-fit:cont
 - Pass canvas-space insets to all HUD components as constants at init time. Components shift their anchors inward by the inset amount.
 - Components affected: joystick (bottom-left), dash button (bottom-right), potion buttons (bottom-right), top-row icons (top corners), TouchHotbar arc (bottom-right).
 
-### § 4.2 — HUD zone layout (landscape phone)
+### § 4.2 — HUD zone layout (landscape phone — secondary orientation; portrait diagram TBD per § 4.3 amendment)
+
+> **AMENDED 2026-05-17:** Mobile orientation is now **portrait-primary** (per § 4.3 amendment + `agentic_orchestration/dispatches/2026-05-17-gandalf-doe-doc-cascade-path-a-portrait-primary.md`). The landscape diagram below is retained as the **secondary-orientation reference**. The **portrait HUD zone diagram is TBD** — drax authors it in the M5/M6 portrait-layout dispatch when it fires VS2b. See § 4.3 for the contents specification.
 
 ```
 +--[BAR: HP | LVL | RES]----------------------------------+
@@ -207,7 +209,27 @@ Zone breakdown (canvas-space, 1800×944 internal, landscape):
 
 ### § 4.3 — Orientation
 
-`orientationOverlay.ts` correctly blocks portrait mode. No orientation-related changes planned. Landscape-only is the right call for this game at this stage. If Matt decides portrait is worth investigating (for iOS App Store guidelines), that is a separate commission.
+**AMENDED 2026-05-17 (Matt L3 lock; DoE feel-target cascade — `agentic_orchestration/dispatches/2026-05-17-gandalf-doe-doc-cascade-path-a-portrait-primary.md`):**
+
+**Portrait-primary, landscape-secondary.** Mobile target is portrait orientation. Landscape support is retained as a polish-phase item, not a v1 requirement.
+
+**Rationale.** The DoE reference (Dungeon of Exile, Matt's 2026-05-17 play session) is portrait-only; the ARPG-mobile cluster (Diablo Immortal portrait-primary, Torchlight Infinite portrait-primary, Eternium portrait, Dungeon Hunter 6 portrait) converges on portrait orientation. Thumb-reach ergonomics and notification-overlay coexistence favor portrait. Full provenance: `canonical/story/mobile-feel-target-doe-2026-05-17.md` § 7.1.
+
+**Implications for this plan:**
+
+- `orientationOverlay.ts` logic **inverts** — currently blocks portrait; should block landscape (or warn-but-allow) as the polish-phase mobile-secondary path. M6 layout-pass dispatch carries the inversion.
+- HUD zone layout (§ 4.2) currently diagrams landscape phone. **Portrait diagram is TBD** — authored by drax in the M5/M6 portrait-layout dispatch when it fires VS2b. The landscape diagram is retained as the secondary-orientation reference; the portrait diagram becomes primary.
+- All Phase M2-M7 dispatches (§ 7) target portrait viewport first when they fire VS2b; landscape adaptations are an opt-in polish-phase task.
+- Touch-target sizing canon (per `canonical/story/mobile-pc-pixel-sizing-ratios-2026-05-17.md` § 4.3) is unchanged — portrait orientation does not change finger ergonomics; the 88 px floor and 110-125 px action centroid remain.
+
+**Pending M5/M6 portrait-diagram contents (forward-flag for M5/M6 dispatch):**
+
+The portrait HUD zone diagram should specify (derived from DoE screenshot per `canonical/story/mobile-feel-target-doe-2026-05-17.md` § 2):
+
+- Top strip: rift name banner + corner minimap (top-left, attached); HP bar attached to minimap module; timer below; return-to-city portal top-right
+- Mid: gameplay field; floating damage numbers; resource bar overhead on player sprite (not in HUD)
+- Bottom: character portrait (bottom-left, with red-dot loot-equip affordance); currency display (bottom-center-left); skill bar (bottom-center, 3-5 slots); ultimate (right of skill bar); **heal button** (bottom-right corner; cooldown-gated per canonical-32 § 13.1, single button, no potion-stack count); objective counter + XP bar at very bottom edge
+- HP placement: forward-flagged in `canonical/story/mobile-feel-target-doe-2026-05-17.md` § 7.4 — recommend top-left attached-to-minimap (DoE pattern) over bottom-corner globe (D-series). Not locked in this dispatch; surface to drax M5/M6 portrait-layout dispatch.
 
 ---
 
@@ -303,6 +325,8 @@ Create `src/ui/typography.ts` exporting a single `font(basePx: number): number` 
 ---
 
 ## § 7 — Phased execution plan
+
+> **AMENDED 2026-05-17:** Phases M2-M7, when they fire VS2b, target **portrait-primary** viewport per § 4.3 amendment. Phase M1 (Typography foundation) is orientation-agnostic and is unchanged. Landscape support adaptations migrate to a polish-phase track; they are not in the v1 mobile target. Provenance: `agentic_orchestration/dispatches/2026-05-17-gandalf-doe-doc-cascade-path-a-portrait-primary.md`.
 
 ### Phase M1 — Typography foundation
 

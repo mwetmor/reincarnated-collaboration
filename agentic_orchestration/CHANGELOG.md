@@ -2,6 +2,21 @@
 
 This log records **team-level events** — agent additions, ADR additions/amendments, process changes, scope re-allocations. It does NOT log routine developer commits (those live in their respective git repos).
 
+---
+
+## 2026-05-17 — drax v1.16.1 HOTFIX: wave-progression hang + audio/VFX gap
+
+**Event:** Matt L3 playtest on drax v1.16 revealed two critical blockers in VS2a demo.
+
+**Bug 2 (wave-hang) root cause:** v1.16 `gauntletFromRecipe()` paired 2 pack-proxies per wave (3 × 16-mob rooms). The `allPackDead` condition (`pack.every(m => !m.combatant.isAlive)`) stalls when any mob survives outside its anchor room — mobs halt pursuit at room edge per `shouldHaltPursuit()`, leaving the player in `fighting` state indefinitely. Additionally: 8 total waves vs. 7-room dungeon caused `roomForWave(dungeon, 8) = undefined` — act-boss wave 2 had no room anchor. **Fix: Reshape A** — 1 pack-proxy per wave (6 × 8 mobs), extending to 11 total waves + 11-room dungeon plan.
+
+**Bug 1 (audio gap) root cause:** AudioContext suspended before user gesture. Howler v2.2 auto-resumes its own context, but our Web Audio API Tier-1 procedural context (`getAudioCtx()`) is a separate `AudioContext` that does not. **Fix:** `_hookAudioContextResume()` explicitly resumes both contexts on first `mousedown`/`keydown`/`touchstart`.
+
+**Diagnostic logging added** throughout both subsystems (grep `[diag]` tag) for Matt's re-playtest DevTools session.
+
+**Commit:** `430a9f4` (reincarnated-demo); **tag:** `drax/v1.16.1-hotfix-wave-hang-plus-audio-vfx-gap-1`
+**Dispatch:** `2026-05-17-drax-v1-16-1-hotfix-wave-hang-plus-audio-vfx-gap.md` — completion record appended.
+
 Format: reverse chronological, dated entries with brief rationale.
 
 ---
