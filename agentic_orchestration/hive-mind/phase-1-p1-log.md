@@ -8294,3 +8294,23 @@ The demo's season-selector menu surface renders **clean at desktop 1920×1080** 
 **Cross-track signal observed:** Star-lord engine-side data manifest + elrond catalogue-side data manifest appear in flight (uncommitted modifications visible on `agentic_orchestration/dispatches/...star-lord...` + new `research/curated/loadout-analytics-data-manifest-2026-05-18.md`). Track B advancing in parallel. Track A.2 mobile-render validation + Track A.D11.5 — no demo-side commits since `7e5b93b`; drax-D11.5 still queued or in-progress externally.
 
 — galadriel (The Mirror, set; pipeline ready; rubric drafted; the picture awaited)
+
+---
+
+### [2026-05-18 afternoon] OBSERVATION — gandalf (relaying elrond subagent return) — pitch asset validation pass complete; no blockers
+
+**PRE-SIGNAL § 14.1.1:** `git fetch origin` executed pre-append; hive-log tip at `77a209e` (gandalf pitch-to-life sprint commit); no concurrent hive-log write detected. Proceeding.
+
+**Context:** Elrond fired as parallel subagent under gandalf orchestration for the pitch-to-life sprint per dispatch `agentic_orchestration/gandalf/requests/2026-05-18-star-lord-pitch-to-life-vercel-automation-sprint.md` § 2.4 deliverable 6. ~25 min runtime; returned findings inline per elrond agent-prompt override (no file write).
+
+**Three checks, three outcomes:**
+
+1. **Substrate-icon coverage — GAP (8/8 uncovered).** No substrate-keyed SVGs in `~/Games/reincarnated-loadout/public/icons/`; no `SubstrateIcon` component exists. **Not blocking** — iter-1 substitute is substrate-accent rule lines + substrate-name labels (per IA § 3.2 Tailwind palette). Recommended game-icons.net CC-BY-3.0 slugs filed for iter-2 grab: fire=`lorc/fire`, water=`lorc/water-drop`, earth=`lorc/stone-pile`, wind=`lorc/wind-slap`, lightning=`lorc/lightning-bolt`, holy=`lorc/sundial` (instrument-not-deity per substrate doc § 3.1), shadow=`lorc/sight-disabled` (occlusion-not-malice per Solo Leveling precedent), physical=`lorc/fist`.
+2. **Anchor-location backdrop art — GAP (0 painterly environments in catalogue).** 48 catalogue_assets rows; 0 environment category. One BACKGROUND_PIECE candidate (PIXELHUNT 135 Dungeon Topdown) but blockers: license-clarity (commercial-use unconfirmed); aspect-ratio mismatch; theme-mismatch for outdoor anchors. **Not blocking** — iter-1 substitute is substrate-accent restrained dark wash (e.g., `bg-stone-900/40` for earth, `bg-cyan-950/40` for water) per IA § 3.2 + § 3.6 (no marketing hero-gradients). Forward queue item for iter-2: Mode B catalogue commission for painterly anchor-backdrops thematically keyed to the 5 anchors.
+3. **Accent-palette coherence sanity check — DEFERRED.** No portraits yet (star-lord still generating). Drift-modes pre-documented for post-portrait eyeball pass: (a) holy/lightning collision risk (both prompts request yellow-amber; image-gen models often collapse warm-vs-cool distinction); (b) shadow over-saturating risk (must read withdrawn/quiet not electric/malevolent per IA § 3.2 critical register note); (c) earth muddying to flat brown-grey risk (loses burnt-amber accent); (d) water cyan→teal drift risk (no center hero affected; supporting heroes only). Gandalf eyeballs when star-lord lands portraits; surfaces drift as iter-2 OBSERVATIONS.
+
+**Disposition:** Star-lord image-gen run + drax `/pitch` scaffold proceed unblocked. Both subagents remain in flight. No L3 surfaced. Two soft gaps with named iter-1 substitutions; one forward-deferred sanity check with predicted drift-modes captured.
+
+**Full findings:** returned inline by elrond (~600 lines); not filed to disk per elrond agent-prompt scope. Key recommendations + risk modes preserved above for hive-record.
+
+— gandalf (relaying elrond return)
