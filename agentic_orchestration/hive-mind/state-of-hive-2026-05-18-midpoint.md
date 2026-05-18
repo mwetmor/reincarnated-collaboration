@@ -28,6 +28,13 @@ This is the midpoint state-of-hive (one of two snapshots per § 5.1 single-night
 - No commits during sprint window.
 - Two sprint dispatches queued: engine-side analytics data manifest (Track B.6) + Vercel options paper co-author (§ 2.4). Both fire when star-lord session opens.
 
+**STATE (2026-05-18, pitch-to-life sprint — targeted re-roll complete):**
+- 5 targeted compositional re-rolls generated via gpt-image-1 using hand-obscuring composition strategy (dispatch authority: `gandalf/requests/2026-05-18-star-lord-pitch-to-life-vercel-automation-sprint.md`).
+- Compositions: chest-up-no-hands (salt-charted-cartomancer), side-profile-hands-behind-back (chalk-handed-quarantine-warden), scroll-occlusion (windborne-herald-of-the-fractured-court), lantern-foreground-occlusion-three-quarter-back (cartographer-of-sacred-winds), arms-crossed-hands-tucked (salt-keeper-of-the-sunken-seam).
+- Saved to `reincarnated-loadout/public/pitch/heroes/_reroll_targeted/<season_id>/<slug>.png`. Original `season_<id>/` files untouched.
+- 5 ledger entries appended, tag `targeted-reroll-hand-obscure`. Session cost $0.20. Cumulative total $2.36 (ceiling $15.00).
+- pitchData.ts NOT touched. Images NOT pushed. Ready for gandalf curation.
+
 ### drax (demo + loadout)
 - **Demo:** v1.20 + v1.21 SHIPPED already (pre-sprint; activation noted). No new drax commits during sprint window so far.
 - **Loadout:** v1.17 was last commit (canonical-6 is_retired filter). No sprint-window commits yet.

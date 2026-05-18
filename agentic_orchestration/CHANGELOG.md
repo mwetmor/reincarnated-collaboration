@@ -4,6 +4,51 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-18 — hive-log STATE: star-lord bulk re-roll resume complete — 12 missing portraits generated; total 24/24 in `_reroll_all/`
+
+**Event:** Resumed `bulk_reroll_anatomy.py` after prior run died silently at 12/24. Patched script with skip-if-exists idempotency guard, then ran to completion synchronously.
+
+**Root cause (prior silent death):** Script had no skip-if-exists check — re-running from scratch would have re-generated already-complete images. The silent kill was most likely a process-level timeout or OOM from the agent harness after the 12th sequential gpt-image-1 API call (~10 min elapsed). No retry or resume path existed in the original script. Idempotency patch closes the gap.
+
+**12 images generated this session:**
+- `season_002011/pitch-smuggler.png` (fire mage)
+- `season_002013/shaft-diver.png` (physical hunter — canary slug skipped per brief)
+- `season_002014/` — all 5: plague-wind-censer, plague-lantern-bearer, chalk-handed-quarantine-warden, quarantine-lector, plague-diver
+- `season_002015/` — all 5: marble-tongued-royal-scribe, banished-royal-herald, windborne-herald-of-the-fractured-court, mad-kings-lector, exiles-gauntlet
+
+**Cost this session:** 12 × $0.04 = $0.48. Ledger total: $2.16. Sprint ceiling remaining: $12.84.
+
+**Script patched + committed:** `fix(star-lord): bulk_reroll_anatomy.py idempotency — skip existing files` — commit `55fa186` on `reincarnated-engine/main`.
+
+**Constraints honored:** pitchData.ts NOT touched. Images NOT pushed. Originals at `season_<id>/<slug>.png` NOT disturbed.
+
+**Status: READY FOR GANDALF CURATION.** All 24/24 portraits now present in `_reroll_all/`. Gandalf curates winners, wires pitchData.ts, and pushes.
+
+Output dir: `/Users/admin/Games/reincarnated-loadout/public/pitch/heroes/_reroll_all/`
+Cost ledger: `/Users/admin/Games/reincarnated-loadout/public/pitch/cost-ledger.json`
+
+---
+
+## 2026-05-18 — hive-log STATE: Canary reroll complete — ready for gandalf curation
+
+**Event:** Star-lord completed anatomy-correction re-roll for Canary of the Drowned Seam (Hero of the Engine). All 3 existing Canary images had hand-anatomy failures (canonical + preflight: 3 fingers; attempt-1: 4 distorted fingers). 4 new attempts generated with progressively stronger anatomy interventions.
+
+**Files generated (all OK, $0.04 each):**
+- `/Users/admin/Games/reincarnated-loadout/public/pitch/heroes/_reroll_canary/canary-attempt-1.png` — original composition + aggressive anatomy negatives embedded in prompt
+- `/Users/admin/Games/reincarnated-loadout/public/pitch/heroes/_reroll_canary/canary-attempt-2.png` — pose change: flame hovering above open palm (summoned, not grasped — eliminates grip failure mode)
+- `/Users/admin/Games/reincarnated-loadout/public/pitch/heroes/_reroll_canary/canary-attempt-3.png` — pose change: hand at side, flame floats behind shoulder near canary (hand minimized in focal area)
+- `/Users/admin/Games/reincarnated-loadout/public/pitch/heroes/_reroll_canary/canary-attempt-4.png` — tight chest-up portrait: hand and flame both below bottom frame edge (hand problem eliminated entirely)
+
+**Cost:** $0.16 total (4 × $0.04). Ledger total now $1.20. Sprint ceiling remaining: $13.80.
+
+**Constraints honored:** pitchData.ts NOT touched. Images NOT pushed. Existing _preflight/ and season_002013/ files NOT disturbed.
+
+**Status: READY FOR GANDALF CURATION.** Gandalf reviews all 4, picks winner, wires into pitchData.ts and triggers push as part of swap commit.
+
+Script preserved at: `/Users/admin/Games/reincarnated-engine/scripts/pitch/canary_reroll.py`
+
+---
+
 ## 2026-05-18 evening — Overnight autonomous sprint ACTIVATED (mobile-playable + loadout analytics + visual benchmark)
 
 **Event:** Matt-authorized single-night autonomous sprint launched within Phase-1 P1 hive-mind operating mode. Invocation authored by gandalf 2026-05-18 evening per Matt directive; knight-rider engaged at session-open and activated per § 11 checklist.

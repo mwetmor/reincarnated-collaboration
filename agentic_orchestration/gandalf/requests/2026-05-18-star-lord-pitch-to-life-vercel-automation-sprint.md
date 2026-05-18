@@ -362,3 +362,27 @@ That is the pitch. The hive ships it.
 ---
 
 *Authored 2026-05-18 afternoon by gandalf, per Matt directive. Pattern-A orchestration sprint; star-lord-coordinated; image-gen LLM-integrated; Vercel-preview-deployed. Mithrandir signs.*
+
+---
+
+## Completion record — targeted re-roll (hand-obscuring compositions)
+
+**Completed:** 2026-05-18 by star-lord.
+**Scope:** 5 targeted compositional re-rolls for portraits where anatomy negatives alone could not resolve the 3-finger failure mode (identified by gandalf post bulk-anatomy-correction inspection).
+
+**Compositions applied:**
+1. `season_002012/salt-charted-cartomancer` — chest-up; crystal floats free; both shoulders below frame (hands absent)
+2. `season_002014/chalk-handed-quarantine-warden` — side profile; chalk X already on door; hands tucked behind back
+3. `season_002015/windborne-herald-of-the-fractured-court` — chest-up; ceremonial scroll in front of body occluding both hands at rolled ends
+4. `season_002012/cartographer-of-sacred-winds` — three-quarter back view; large ritual lantern on surveying table fully occluding hands and lower torso
+5. `season_002013/salt-keeper-of-the-sunken-seam` — chest-up arms-crossed; hands tucked under armpits
+
+**Saved to:** `reincarnated-loadout/public/pitch/heroes/_reroll_targeted/<season_id>/<slug>.png`
+**Original season files:** untouched (not overwritten).
+**pitchData.ts:** not touched.
+**Images pushed:** no — gandalf curates + integrates.
+
+**Cost:** 5 × $0.04 = $0.20. Ledger entries: 5, tag `targeted-reroll-hand-obscure`. Cumulative session: $2.36 / $15.00 ceiling.
+**API:** gpt-image-1, 5/5 success, all attempt-1. No retries needed.
+
+**Ready for gandalf curation.**
