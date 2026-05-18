@@ -1389,6 +1389,99 @@ Sources: [LE skill specialization](https://maxroll.gg/last-epoch/resources/passi
 
 ---
 
+## Section 13 — React-or-auto interaction primitive + healing-cooldown mechanic (added 2026-05-17)
+
+**Source:** gandalf DoE feel-target doc `canonical/story/mobile-feel-target-doe-2026-05-17.md` (§§ 5.3, 5.4, 7.1, 7.2, 7.6). Matt L3 lock 2026-05-17 evening: "Yes, if A makes portrait primary that works" — Path A doc-cascade (this dispatch) locks the design contract; engine-side refactor deferred to VS2b (`agentic_orchestration/dispatches/2026-05-17-gandalf-doe-doc-cascade-path-a-portrait-primary.md`).
+
+This section is the canonical home for two related design primitives surfaced by the Dungeon of Exile play-session reference: (a) **react-or-auto** affordances for environmental interactions, and (b) the **single cooldown-gated heal** that replaces the inventoried potion stack. Both apply on PC and mobile (consistency lock).
+
+### § 13.1 — Healing: cooldown-gated ability (retires the potion-inventory mechanic)
+
+**Decision (LOCKED 2026-05-17):** Reincarnated does not use a potion-inventory mechanic. Healing is a single ability on a global cooldown, surfaced as one button on PC (default key `Q`) and one bottom-right button on mobile. There is no stack count, no "potion of greater healing vs lesser healing" inventory, no shop-purchased restock. The same primitive ships on both platforms.
+
+**Genre alignment:** DoE/Diablo Immortal converged on this on mobile because input-frequency cost made inventory potion management hostile to combat flow; PC-side, D3/D4 retain stack-based health pots but already gate them by Healing Potion CD (~30s in D3, ~30s ramping in D4). Reincarnated collapses the gate-and-stack pair into a single cooldown-only affordance — closer to D4's evolution and explicitly genre-canonical for mobile-first design.
+
+**Baseline values (tunable; gear/trait modifiable per Section 5 + canonical-17 § 13 amendment):**
+
+| Parameter | Baseline | Notes |
+|---|---|---|
+| `heal_cooldown_seconds` | **10.0s** | Center of the 8-12s band per DoE feel-target § 7.2. Tunable via gear/trait. |
+| `heal_magnitude_pct_max_hp` | **35%** | Restores 35% of max HP per cast. Significant but not single-cast full-heal; player still positions and dodges. |
+| `heal_floor_hp_flat` | **+50 HP** | Minimum-restore safety floor for low-max-HP early-game characters. |
+| `heal_cast_time_seconds` | **0.0s** | Instant on cast; no animation lock. |
+| `heal_invuln_window_seconds` | **0.0s baseline** | No invulnerability granted by default. (Affix `heal_secondary_effect = "brief_invuln"` can add 1.0-2.0s; see canonical-17 amendment.) |
+| `heal_consumes_resource` | **No** | Heal does not drain mana / energy / stamina; it is its own gated resource (the cooldown is the cost). |
+
+**Mana / energy mechanic survives unchanged.** The substrate-energy resource model (per dimensional refactor + Section 4) is independent of the heal mechanic. Mana remains spend-as-you-cast for skills; the heal cooldown is parallel infrastructure.
+
+**Inventory-slot impact.** Slots that would have held potion stacks are freed for build-crafting consumables (e.g., future buff scrolls, identification reagents, town-portal-equivalents if any) or are simply not surfaced as a UI affordance. Per § 5 Q5.9, inventory is already a Spirit-Guide-curated rare-or-better surface; removing potions reduces inventory's combat-time relevance further (DoE-validated: inventory is a between-combat inspect surface, not a during-combat surface — see § 13.3 below).
+
+**Engine-side execution (deferred to VS2b).** The engine refactor (`STAMINA_POTION_USE` → cooldown-gated `heal_ability` in `combatant.py`) is out of scope for this dispatch — see Knight-rider VS2b sequencing. Cross-references: gamora + star-lord + rocket execute post-D11.
+
+**CC interaction — heals BLOCKED during stun / freeze / silence (LOCKED 2026-05-17; Matt L3 verdict #121):**
+
+`heal_ability` is blocked during stun, freeze, and silence states (and any future CC ailment satisfying "actor cannot take voluntary action"). The heal is suppressed — not queued, not partial, not delayed — and the cooldown does not advance during the CC window. When the CC ends, the heal cooldown state is unchanged from when CC was applied: a heal that was ready before CC fires remains ready; a heal on cooldown resumes its timer from where it paused.
+
+Cross-reference: `canonical/17-gear-and-spirit-guide-design.md` § "Heal-cooldown affix family — CC interaction" (affix-layer mirror of this rule); `reincarnated-engine/design/decisions/decisions-log.md` entry "2026-05-17: Heal blocked by CC ailments — #121 verdict" (full rationale, alternative considered, seam obligations).
+
+### § 13.2 — React-or-auto interaction primitive (new design primitive)
+
+**Decision (LOCKED 2026-05-17):** Every battlefield environmental interaction (chests, doors, levers, NPC dialogue triggers, shrine activations, lore-glyph readings) follows the **react-or-auto** primitive. The interaction surfaces as a pop-up affordance when the player enters its activation radius. If the player taps/clicks within the `auto_complete_window`, the activation is treated as intentional; if the window expires without input, the game auto-completes the interaction on the player's behalf.
+
+**Baseline values (tunable per interaction type):**
+
+| Parameter | Baseline | Notes |
+|---|---|---|
+| `auto_complete_window_seconds` | **1.2s** | Centroid of the 0.8-1.5s band per DoE feel-target § 5.3. Long enough to react during combat; short enough to keep flow when the player chooses to ignore. |
+| `affordance_visual` | hand-icon + ring | A pop-up icon (DoE-canonical "hand/finger button" per Matt's paragraph) overlaid on the interaction target. Affordance ring visible at activation-radius edge. |
+| `intentional_tap_priority` | wins ties | If `auto_complete_window` is mid-countdown and the player taps the affordance, the tap is treated as intentional (no double-fire). |
+| `auto_complete_idempotent` | true | Auto-completion must produce identical world-state effects to a manual tap. No "missed it" penalty. |
+| `combat-state-suppression` | optional per interaction | Some interactions may be suppressed entirely when the player is `combat_active` (e.g., shrines), to avoid mid-fight auto-completion of high-commitment activations. Per-interaction config. |
+
+**Applies to:**
+
+- Treasure chests (small / medium / large / strongbox)
+- Doors (passable doors, locked doors with key-bearer state, story-gated doors)
+- Levers / pressure plates (single-state activations; not repeatedly-tappable mechanisms)
+- NPC dialogue triggers in hub / non-combat zones
+- Shrine activations (with `combat-state-suppression = true` recommended; player should intentionally invoke a shrine, not auto-fire one while running past in a fight)
+- Lore-glyph readings (low-stakes; auto-complete safely surfaces the lore text in the floating-text channel)
+
+**Does NOT apply to:**
+
+- **Combat skill activations** — skills are tap-only; never auto-cast. (Auto-attack is separate infrastructure per § 5.5 / combat-loop pattern; auto-attack is not a react-or-auto skill.)
+- **Loot equip** — the "tap red-dot character portrait to equip" affordance is its own pattern (DoE § 4.3) and does NOT auto-fire. Equip is an intentional player decision; the Spirit Guide's marginal-value gate already filters down to upgrades-only, but the final tap is always intentional. (Rationale: silent auto-equip would surprise the player; the red-dot is opt-in.)
+- **High-stakes one-way activations** — e.g., entering a trial-room from a hub-side portal. The player intentionally enters; no auto-complete on proximity.
+- **Substrate / element activations during combat** — any interaction that triggers a substrate event (e.g., shadow-substrate altar) requires intentional tap to preserve archetype-emergence telemetry attribution.
+
+**Design rationale (player-experience).** The primitive reduces decision fatigue in dense combat: the player should not have to break combat focus to tap a chest icon during a fight; the chest opens for them. It preserves agency by giving the player a window to intentionally engage; nothing happens without the player at least walking past it. The pattern is mature ARPG mobile canon (DoE, Diablo Immortal, Torchlight Infinite) and lifts cleanly to PC (the keybind / click-during-window pattern is symmetrical).
+
+**Genre alignment.** DoE: chest auto-opens after ~1.0-1.5s if not tapped. Diablo Immortal: shrine + lever interactions are tap-only (no auto-complete) — Reincarnated is going *further* than DI in adopting react-or-auto as a generalized primitive. PoE and PC-era Diablo: pure tap-only (legacy keyboard/mouse era). Reincarnated's adoption of react-or-auto on PC is intentional and forward-leaning; it is also low-risk because intentional tap always wins (no behavior loss).
+
+### § 13.3 — Inventory-as-between-combat (clarification, not new lock)
+
+This section captures a clarification of the Stage A3 demo-follow-on inventory model (Section 5 Q5.9) in light of the DoE reference: inventory is **inspect-and-equip**, not active management. Modal contents prioritize equipped-gear visualization, comparison-pane, affix/set-bonus detail, loadout-swap shortcut. Inventory-grid sorting / management is secondary.
+
+Cross-reference: `canonical/story/mobile-feel-target-doe-2026-05-17.md` § 4.4 + § 7.3.
+
+### § 13.4 — Mobile orientation: portrait-primary, landscape-secondary
+
+**Decision (LOCKED 2026-05-17):** Mobile target is **portrait-primary**. Landscape is supported as a secondary / polish-phase orientation, not a v1 requirement. PC orientation is unchanged (landscape canvas remains the desktop target).
+
+**Why portrait.** The DoE reference is portrait-only; the cluster (Diablo Immortal, Torchlight Infinite, Eternium, Dungeon Hunter 6, Anima ARPG) is portrait-primary or portrait-only. One-handed thumb-reach ergonomics, App Store / Play Store discovery patterns, and notification-overlay coexistence all favor portrait. The HUD-layout consequences (HP-bar top-attached-to-minimap, heal button bottom-right, skill arc bottom-center) are derived in `canonical/story/mobile-feel-target-doe-2026-05-17.md` § 2 + `canonical/story/mobile-ux-execution-plan-2026-05-17.md` § 4.2 (portrait-amended; see Amendment 3 of this dispatch).
+
+**Cross-reference:** Section 7 (combat-UI sparseness) and § 13.1-13.2 above apply identically across orientations; the orientation lock affects HUD layout, not interaction primitives.
+
+### 📚 Reference notes (genre research)
+
+- **DoE (Dungeon of Exile):** portrait-only; cooldown-gated single heal button; react-or-auto chests + environmental interactions; auto-attack handles most damage output. Reference: `canonical/story/mobile-feel-target-doe-2026-05-17.md` (Matt's 15-minute play-session capture + screenshot).
+- **Diablo Immortal:** portrait-primary (landscape supported on tablet); single heal potion on ~30s CD with stack count (3 charges) — partially-stacked but cooldown-gated; chest interactions are tap-only.
+- **Diablo III / IV (PC + console):** Healing Potion on ~30s CD with stack count (1-3 charges); chest interactions tap-only; no react-or-auto primitive.
+- **PoE 1 / 2:** Flask system (5 flasks, charge-recovery via kills; not cooldown-gated in the same way). Reincarnated deliberately diverges from the flask paradigm — flasks are a build-crafting surface in PoE; Reincarnated's heal is a survival floor, not a build-crafting surface (build-crafting expression lives in skills + traits + gear, per Sections 4-5).
+- **Last Epoch:** Health potion on cooldown with charge recovery from kills (hybrid model). Could be a future Reincarnated direction if a "earn-your-heal" feedback loop becomes desirable, but the baseline is the pure-cooldown DoE model.
+
+---
+
 ## Cross-section integration — the unified progression vector
 
 By the end of this discussion, we should be able to write down, for any character level N:

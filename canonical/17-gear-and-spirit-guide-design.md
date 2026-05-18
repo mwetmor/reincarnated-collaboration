@@ -103,6 +103,77 @@ Canonical reference: file 32 § Section 5 Q5.9.
 
 ---
 
+### Heal-cooldown affix family — retires potion-interaction affixes (LOCKED 2026-05-17)
+
+**Source:** gandalf DoE feel-target doc `canonical/story/mobile-feel-target-doe-2026-05-17.md` (§§ 5.4, 7.2); Matt L3 lock 2026-05-17 evening — Path A doc-cascade dispatch (`agentic_orchestration/dispatches/2026-05-17-gandalf-doe-doc-cascade-path-a-portrait-primary.md`).
+
+The healing mechanic is now a cooldown-gated ability rather than an inventory-stack of potions (per canonical-32 § 13.1). Gear affixes that previously would have interacted with the potion-inventory mechanic are retired; a new affix family targets the cooldown ability.
+
+**Retired affixes (do not generate):**
+
+- `+1 potion slot` / `+N max potion stack`
+- `+X% potion drop rate`
+- `+X% potion magnitude` (the inventoried-potion variant)
+- `+X potions granted on kill / on level-up`
+- Any affix premised on multiple potion types (greater/lesser/health/mana inventory) — Reincarnated has one heal, one cooldown; the affix surface follows.
+
+**Note:** the *mana / energy* resource model survives unchanged (see canonical-32 § 13.1). Affixes that modify mana regeneration, mana max, energy cost reduction, and resource-substrate interactions are NOT retired; they are independent of the heal mechanic.
+
+**New affix family — `heal_*` affixes (eligible on all gear slots; tier-gated per existing affix budget):**
+
+| Affix | Range (rough; rocket calibrates at gen time) | Tier eligibility | Notes |
+|---|---|---|---|
+| `heal_cooldown_reduction` | `-0.5s` to `-3.0s` flat reduction | Magic+ (uncommon roll); Rare+ (stronger rolls) | Subtracts from the 10.0s baseline (per canonical-32 § 13.1). Floor at ~5s effective cooldown via stacking cap. |
+| `heal_cooldown_reduction_pct` | `-5%` to `-15%` percentage | Rare+ | Multiplicative reduction; stacks additively with flat reduction. |
+| `heal_magnitude_bonus_pct` | `+5%` to `+30%` | Magic+ | Increases the `heal_magnitude_pct_max_hp` baseline (35% → up to 45.5% per cast at max roll). |
+| `heal_magnitude_bonus_flat_hp` | `+10 HP` to `+100 HP` | Magic+ | Adds to the `heal_floor_hp_flat` (50 HP baseline → up to 150 HP). Most useful early-game where % is small. |
+| `heal_secondary_effect` (enum) | one of: `brief_invuln_1s` / `brief_invuln_2s` / `cleanse_1_debuff` / `mana_refund_25pct` / `cleanse_all_dots` | Epic+ (legendary-tier in some cases) | Rarer "mechanical novelty" tier per existing legendary-mechanic system (file 17 § "Legendary mechanical novelty"). One per item; stacks across items capped at 2 total active. |
+
+**Stacking caps (preserves balance against runaway-CDR builds):**
+
+- Total flat CDR floor: `heal_cooldown_seconds` cannot drop below **5.0s** (50% of baseline).
+- Total magnitude bonus: `heal_magnitude_pct_max_hp` cannot exceed **60%** of max HP (baseline 35% + cap 25 percentage-points of bonuses).
+- `heal_secondary_effect` cap: 2 concurrent (e.g., `brief_invuln_1s` + `cleanse_1_debuff` is permitted; three is not).
+
+**CC interaction — heals BLOCKED during stun / freeze / silence (LOCKED 2026-05-17; Matt L3 verdict #121):**
+
+Heal-affix-triggered heals (and the heal ability proper) are **BLOCKED during stun / freeze / silence states**. The heal is **suppressed** — not queued, not partial, not delayed. The cooldown does not advance during the CC window. When the CC ends, the heal becomes available on its normal cooldown timer: if the affix or ability was off-cooldown when CC was applied, it remains off-cooldown when CC ends.
+
+This applies to all `heal_*` affix resolutions, including `heal_secondary_effect` variants — if the primary heal is CC-suppressed, no secondary effect fires either (the heal never resolves; there is nothing to trigger a secondary from).
+
+The CC gate is defined as: actor has one or more of `{ stun, freeze, silence }` in its active ailment set, or any future CC ailment whose design spec satisfies "actor cannot take voluntary action." Ailments that do not satisfy that definition (e.g., a slow that only reduces movement speed) do not block heal and must be explicitly noted as non-blocking in their individual design specs.
+
+Cross-reference: `reincarnated-engine/design/decisions/decisions-log.md` entry "2026-05-17: Heal blocked by CC ailments — #121 verdict"; `canonical/32-progression-design.md` § 13.1 CC-gate clause.
+
+**Affix-coherence interaction (per existing § "Affix coherence" filter):**
+
+- `heal_*` affixes are **role-orientation-agnostic** — heal is a universal survival floor, not a class-flavor mechanic. All classes benefit equally; no archetype gating.
+- `heal_*` affixes can roll on **any gear slot** (no slot bias). This is intentional: heal-CDR is a build-defining choice; players who prioritize survival can stack it across slots; players who prioritize damage will see CDR rolls as decisively replaceable.
+- `heal_secondary_effect` is **gated to high-tier gear** (epic+) consistent with the legendary-mechanic-tier pattern (existing § "Legendary mechanical novelty"); these are the affixes that make a piece feel build-defining.
+
+**Spirit Guide interaction:**
+
+- Spirit Guide's marginal-value math treats heal-CDR and heal-magnitude affixes as standard contributors to `power_score` (calibrated as defensive expected-value contributions).
+- Spirit Guide does NOT bias recommendations toward heal-affixes for struggling classes (per § "Why this avoids the patronizing adaptive difficulty trap"). If heal-CDR gear happens to help a struggling form more (because that form takes more damage, so heal-frequency matters more), that is the same emergent equalization mechanic operating; no per-affix tuning.
+- `heal_secondary_effect = "brief_invuln_*"` produces interesting Guide-recommendation dynamics for fragile classes (the invuln-window has high marginal value when the player dies frequently); these emerge as natural recommendations without special-casing.
+
+**Cross-references:**
+
+- `canonical/32-progression-design.md` § 13.1 (canonical heal-mechanic definition)
+- `canonical/story/mobile-feel-target-doe-2026-05-17.md` § 7.2 (decision provenance)
+- `agentic_orchestration/dispatches/2026-05-17-gandalf-doe-doc-cascade-path-a-portrait-primary.md` (this dispatch)
+- File 17 § "Affix coherence — affix pool filtered by dimensional fit + stat affinity" (existing affix-filter rules apply unchanged)
+- File 17 § "Legendary mechanical novelty" (the `heal_secondary_effect` family rides this existing tier-gating infrastructure)
+
+**Engine-side execution (deferred to VS2b; informational here):**
+
+- `rocket`: update gear-affix generation to emit `heal_cooldown_reduction` / `heal_magnitude_bonus_*` / `heal_secondary_effect` per the table above; retire potion-interaction affix generation pathways.
+- `star-lord`: telemetry update — emit per-heal-cast event records (timestamp, cooldown-at-cast, magnitude-resolved, secondary-effect-triggered) to support D11-style empirical balance analysis on the heal surface.
+- `gamora`: re-run convergence with the new affix family included to verify that heal-CDR stacking doesn't break per-class win-rate distributions outside their convergence band.
+- **Gate-1 advisory flag:** this is a load-bearing canon change to the gear-affix pool. jack-ryan Gate-1 advisory gates the VS2b rocket implementation per the discipline-#12 semantic-shift pattern (heal-affix family is a new affix taxonomy entrant).
+
+---
+
 ## Priority naming → current (Stage A) naming
 
 The base doc below uses the older "Priority 02 / Priority 13 / Priority 14 / Priority 15" naming. Translation for cross-reading:
