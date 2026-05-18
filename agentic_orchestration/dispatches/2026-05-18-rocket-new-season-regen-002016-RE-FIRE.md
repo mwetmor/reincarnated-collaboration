@@ -145,7 +145,15 @@ LLM budget: ~$2-5 (≤ $10 hard cap).
 
 ## Detach record
 
-*(rocket appends here at launch — agent-session work; do NOT include completion data here)*
+**Launch timestamp:** 2026-05-18T07:00:54Z (UTC)
+**PID:** 17673 (written to `/tmp/regen_002016.pid`)
+**Log path:** `/tmp/regen_002016.log`
+**Sentinel path:** `output/standard-demo-regen-2026-05-18/REGEN_COMPLETE.json`
+**Start sentinel confirmed:** `output/standard-demo-regen-2026-05-18/REGEN_STARTING.json` — present, pid=17673
+**Detachment verified:** ppid=1 at t+3s (init is parent — detached from agent session)
+**macOS note:** `setsid` not available on Darwin; used `nohup ... &` via shell-script wrapper with ppid=1 confirmed. Equivalent detachment achieved.
+**Script amendments applied:** REGEN_STARTING.json (start of main), REGEN_COMPLETE.json SUCCESS at end of main, REGEN_COMPLETE.json HALTED on hybrid_mage regression + convergence drift halt paths.
+**Agent exits cleanly here. Knight-rider picks up REGEN_COMPLETE.json sentinel in next session (~30-60 min).**
 
 ---
 
