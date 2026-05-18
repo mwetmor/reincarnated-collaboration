@@ -1,5 +1,7 @@
 # 2026-05-18 — gandalf + drax — Visual benchmark report (Track C.13; rubric + first-pass scoring)
 
+> ⛔ **SUPERSEDED 2026-05-18 morning by Matt L3 reroute.** Galadriel agent file approved + dropped in (`.claude/agents/galadriel.md` commit `85a4629`). Track C work returns to its native owner. **Drax: DO NOT EXECUTE this dispatch.** New owners: galadriel (primary author — rubric design + scoring application + report) + gandalf (critique-pair — design-interpretation review + Mirror voice). New dispatch: `2026-05-18-galadriel-plus-gandalf-visual-benchmark-report-vs2a.md` — identical scope + same destination `canonical/story/visual-benchmark-vs2a-2026-05-18.md`. Drax's Track A + Track B work continues unchanged.
+
 **Authority:** Overnight sprint invocation `agentic_orchestration/gandalf/requests/2026-05-18-knight-rider-mobile-playable-analytics-visual-benchmark-sprint.md` Track C § 2.3 deliverables 12 + 13; pre-authorization matrix § 6 row 11.
 **Type:** Pattern B; ~3-5 hours total (rubric authoring + scoring + report co-authoring).
 **Predecessor:** drax-galadriel-workaround-capture-pipeline-and-state-matched-captures dispatch completed; primary + secondary captures exist at `agentic_orchestration/galadriel/captures/2026-05-18/`.

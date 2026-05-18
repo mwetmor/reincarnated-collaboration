@@ -1,5 +1,7 @@
 # 2026-05-18 — drax — Galadriel-workaround capture pipeline + state-matched DoE-comparison captures (Track C; deferred-agent-creation posture)
 
+> ⛔ **SUPERSEDED 2026-05-18 morning by Matt L3 reroute.** Galadriel agent file approved + dropped in (`.claude/agents/galadriel.md` commit `85a4629`). Track C work returns to its native owner. **Drax: DO NOT EXECUTE this dispatch.** New owner: galadriel. New dispatch: `2026-05-18-galadriel-capture-pipeline-and-state-matched-captures.md` — identical scope, galadriel-primary authorship, same destination paths (`agentic_orchestration/galadriel/pipeline/` + `captures/`). Drax's Track A + Track B work continues unchanged.
+
 **Authority:** Overnight sprint invocation `agentic_orchestration/gandalf/requests/2026-05-18-knight-rider-mobile-playable-analytics-visual-benchmark-sprint.md` Track C § 2.3 deliverables 11 + 11.5 (already in drax-D11.5 dispatch) + capture-pipeline portion of deliverable 11; pre-authorization matrix § 6 rows 8, 9, 10.
 **Type:** Pattern B; ~2-2.5 hours (includes Playwright install + pipeline + state-matched captures).
 **Predecessor:** drax-debug-state-url-hook-D11-5 dispatch must land first (D11.5 hook must exist so captures can be state-matched).
