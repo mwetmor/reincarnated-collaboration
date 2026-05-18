@@ -33,7 +33,52 @@ This document accumulates throughout the sprint. Every L3-queued item, every hal
 
 ---
 
-### L3-2 — Subagent spawn mechanism unavailable in knight-rider session
+### L3-3 — Rocket season 002016 regen CONVERGENCE DRIFT HALT (3/10 = 30% convergence; re-seed recommended)
+
+**Surfaced at:** Rocket commit `4102cee` ~04:01 local Matt time, during overnight sprint window. Rocket session ran in parallel (external to knight-rider's session); appended hive-log STATE entry at `phase-1-p1-log.md:8136`.
+
+**Context:** Rocket v1.18 fired the canonical-6 fresh-regen dispatch (`2026-05-18-rocket-new-season-regen-canonical-6-002016.md`) at Matt L3 authorization 2026-05-18. Seed=2016. Outcome: CONVERGENCE DRIFT HALT triggered per dispatch §3 — 3/10 (30%) convergence; 7/10 classes floor-pinned at modifier=0.0509 with floor WR 8-23pp above target.
+
+Per-class result:
+- fire_mage 0/2 (0%) HALT
+- water_controller 0/2 (0%) HALT
+- physical_warrior 0/1 (0%) HALT
+- earth_caster 1/2 (50%) OK
+- wind_controller 1/2 (50%) OK
+- experimental 1/1 (100%) OK
+
+Season metadata is valid (Hippodrome of Ghosts anchor; fire theme; flicker/pall/wake/dust elements; cosmological vocab generated; trial defeat 51% calibrated). canonical-6 archetype pool generated cleanly (no hybrid_mage). HALT is a balance-loop / seed-variance issue, NOT a canonical-6 regression.
+
+**Rocket's escalation:** Three options listed:
+1. **Re-seed (2017 or 2018)** — recommended first move; statistical outlier; different seed likely gives 70-85%
+2. Lower modifier floor — needs Discipline #1 math note
+3. DPS cap on mono-element archetypes fire_mage / water_controller — D11-style lever
+
+**Disposition:** This is an L3 decision (per protocol § 3.1 L3 examples: "Substrate-coherent generation rules" related; balance-loop architecture). Knight-rider does NOT decide. Queued for Matt morning per § 5.2 sprint amendment.
+
+**Hive recommendation:** Option 1 (re-seed 2017 or 2018) is rocket's preferred path AND the lowest-risk first move (single seed variance is a known pattern from D11 work — see `~/.claude/projects/-Users-admin-Games-reincarnated-collaboration/memory/MEMORY.md` "B14.5 sidecar analyses" entry: hunter archetype has 1.82 modifier range across seeds; seed variance is real and known). If 2017/2018 yields ≥70% convergence, the seed-variance explanation is confirmed and Option 1 is durably correct. If 2017/2018 ALSO fails, the structural-over-power hypothesis is reinforced and Option 2 or 3 becomes load-bearing.
+
+**What blocked execution:** Matt L3 absent; rocket cannot autonomously re-seed (dispatch authorized seed=2016 specifically; re-seed is a new authorization).
+
+**What the hive routed to instead:** Engine output is staged at `output/standard-demo-regen-2026-05-18/season_002016/` with full diagnostic at `convergence_drift_diagnostic.json`; demo + loadout sync suppressed (correct behavior — don't push a 30%-convergence season into downstream). MIGRATION.md v1.14 appended. Rocket session likely waits for Matt L3 (re-seed or pivot); does not block tonight's three-track sprint deliverables.
+
+**Cross-track impact:** None. Track A (mobile demo), Track B (loadout analytics), Track C (visual benchmark) are independent of season 002016 regen status. The existing demo seeds (002011-015) remain the demo's data source; analytics suite ingests existing artifacts; benchmark captures whatever-state demo loads at. The convergence halt does not change the sprint's deliverable map.
+
+---
+
+### L3-2 — Subagent spawn mechanism unavailable in knight-rider session (REVISED)
+
+**Revised note:** Rocket's commit `4102cee` ~04:01 demonstrates that **parallel specialist sessions ARE running externally** during this overnight window (rocket session is open somewhere outside knight-rider's invocation). The constraint is narrower than originally surfaced: knight-rider's *own* session does not have Task-tool / subagent-spawn capability, but external specialist sessions appear to be operating in the way the hive-mind protocol § 3 expects. The sprint model is not as degraded as L3-2 originally suggested.
+
+What this means for tonight:
+- Knight-rider DOES NOT need to spawn specialists; specialists are running on their own (presumably Matt configured external session spawn before going AFK, or the harness has out-of-band specialist-spawn mechanisms)
+- Knight-rider's role is the originally-intended coordination role: read commits as they land, update hive-log, update morning-briefing with L3 surfaces, update midpoint + morning state-of-hive
+- The 8 dispatches authored at activation are visible to specialists as they open sessions — Pattern B dispatch mechanism works as designed
+- Tonight's sprint **may** complete substantial deliverables if specialist sessions continue to land commits overnight
+
+(Original L3-2 disposition preserved below for context, but the SEVERITY of L3-2 is downgraded.)
+
+**Original L3-2 disposition:**
 
 **Surfaced at:** Sprint activation, immediately after dispatch authoring completed (2026-05-18 evening).
 **Context:** Per protocol § 3 + invocation § 3 per-seam tasking, knight-rider would normally spawn specialists in parallel (gandalf for IA, drax for D11.5, star-lord for Vercel options paper, etc.) so the three tracks run concurrently overnight. The Task tool / subagent-spawn mechanism is not available in this knight-rider session — only deferred tools related to background-shell-stopping, worktree-management, and web-fetch are surfaced; no Task-equivalent tool exists for spawning gandalf, drax, star-lord, elrond, or jack-ryan as parallel subagents.

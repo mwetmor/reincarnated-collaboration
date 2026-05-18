@@ -4,6 +4,42 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-18 evening — Overnight autonomous sprint ACTIVATED (mobile-playable + loadout analytics + visual benchmark)
+
+**Event:** Matt-authorized single-night autonomous sprint launched within Phase-1 P1 hive-mind operating mode. Invocation authored by gandalf 2026-05-18 evening per Matt directive; knight-rider engaged at session-open and activated per § 11 checklist.
+
+**Three tracks active:**
+- **Track A — Mobile-playable demo (local-dev path).** v1.20 + v1.21 already shipped; D11.5 debug-state URL hook + mobile-render validation queued.
+- **Track B — Loadout analytics suite iteration-1.** Gandalf IA → star-lord + elrond data manifests (parallel) → drax implementation → Vercel preview auto-deploy.
+- **Track C — Visual benchmark pilot (galadriel commission).** State-matched captures vs Matt's 7-image DoE reference set; rubric authoring; first-pass benchmark report.
+
+**Galadriel — new agent commission.** Sixteenth agent role: visual perception and UX-similarity steward (Tier C+; mirrors elrond/legolas conventions). Persona: Galadriel, keeper of the Mirror. Owns `agentic_orchestration/galadriel/`. **Status: deferred to morning Matt approval** — `.claude/agents/galadriel.md` write was denied by harness at activation; full agent-file draft preserved at `agentic_orchestration/galadriel/AGENT-DRAFT.md` for clean drop-in (see morning-briefing L3-1). Track C work proceeds under deferred-agent-creation workaround (gandalf + drax co-author).
+
+**Protocol amendments for single-night cadence (per invocation § 5):**
+- Hive log entries every 30 minutes minimum per active seam
+- Two state-of-hive snapshots (midpoint + end-of-sprint) vs daily
+- DECISION entries can be 1-sentence rationale during sprint
+- Per-seam intermediate tags optional; only morning-checkpoint tag required (`sprint/v0.1-mobile-analytics-benchmark-2026-05-18`)
+- Knight-rider expanded L2.5 authority within § 6 pre-authorization matrix; L3 items queue to `morning-briefing-2026-05-19.md`
+- Halt-condition discipline preserved (queue-for-morning is not failure)
+
+**Dispatches authored at activation (8 total):**
+- `2026-05-18-gandalf-loadout-analytics-suite-information-architecture.md` (Track B.5; critical-path BLOCKER)
+- `2026-05-18-drax-debug-state-url-hook-D11-5-plus-mobile-render-validation.md` (Track A.2 + D11.5)
+- `2026-05-18-star-lord-loadout-analytics-data-manifest-engine-side.md` (Track B.6 engine-side)
+- `2026-05-18-elrond-loadout-analytics-data-manifest-catalogue-side.md` (Track B.6 catalogue-side)
+- `2026-05-18-drax-plus-star-lord-vercel-deployment-asset-pipeline-options-paper.md` (§ 2.4 scoping)
+- `2026-05-18-drax-galadriel-workaround-capture-pipeline-and-state-matched-captures.md` (Track C pipeline)
+- `2026-05-18-drax-loadout-analytics-suite-iteration-1.md` (Track B.7 implementation)
+- `2026-05-18-gandalf-plus-drax-visual-benchmark-report-vs2a.md` (Track C.13 report)
+- `2026-05-18-jack-ryan-overnight-sprint-watchpoints.md` (continuous-observation)
+
+**Pre-authorization matrix § 6 verified.** HARD NOs honored: no vendor acquisitions, no `git push --force`, no Vercel demo deployment (scope-only paper), no CLAUDE.md / AGENTS.md modifications, no Phase-1 P1 scope changes, no load-bearing canonical-doc amendments.
+
+**Sprint activation commit:** `72495b8` (hive-log STATE + 8 dispatches + morning-briefing + galadriel working tree).
+
+---
+
 ## 2026-05-17 — drax v1.16.1 HOTFIX: wave-progression hang + audio/VFX gap
 
 **Event:** Matt L3 playtest on drax v1.16 revealed two critical blockers in VS2a demo.
