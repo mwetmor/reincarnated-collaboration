@@ -8540,3 +8540,35 @@ Once corrected: one command fires the full 26-image pipeline from a clean state.
 **Cross-track impact:** None on Tracks A or B. Track C scoring is unaffected (the aggregate 2.3/5 was computed across the 6 scored axes vs DoE-combat-whisper-rift-2 only — town references were never folded into the score, just into structured findings, so the resolution does not change the numeric result; it changes only the *meaning* of the gap going forward).
 
 — galadriel (the Mirror notes: the Court is for later; tonight's picture is the dungeon)
+
+---
+
+### [2026-05-18 evening] HANDOFF — galadriel → drax — portrait HUD diagnosis brief landed (3 root causes; ~90 min remediation)
+
+**PRE-SIGNAL § 14.1.1:** `git fetch origin` executed pre-append; hive-log tip at `6f362c5` (galadriel L3 town-gap RESOLVED); local working tree current. No concurrent hive-log write detected. Proceeding by-path stage.
+
+**Authority:** Matt directive 2026-05-18 evening: *"help drax fix the portrait HUD clipping. Continue with hive-mind protocols. You do not need my go ahead."*
+
+**Brief location:** `agentic_orchestration/galadriel/reports/2026-05-18-drax-portrait-hud-handoff-brief.md`
+
+**Diagnosis approach:** galadriel read-only inspection of demo source (`src/ui/diabloHud.ts`, `src/ui/combatHud.ts`, `src/mobile/touchHotbar.ts`, `src/ui/typography.ts`, `src/rendering/stage.ts`, `src/ui/potionHud.ts`) cross-referenced against the 6 combat captures. The rank-1 dissonance from benchmark report § 5.1 ("portrait viewport CLIPS demo's actual HUD") decomposes into three distinct fixable root causes:
+
+1. **DiabloHud module-load-time landscape coords** (`src/ui/diabloHud.ts:11-16`). `HP_X=76 / RES_X=1724 / GLOBE_Y=880` captured at module-load before `Mobile.init()` flips `CANVAS_WIDTH` from 1800→944. At portrait, resource globe is off-canvas by 780px (invisible); HP globe is mid-screen not bottom. **Fix path:** make positions live-binding at construction (pattern already exists at `potionHud.ts:311-312`). ~30 min.
+2. **CombatStatus wave-header line-overlap at mobile font scale** (`src/ui/combatHud.ts:830-840`). waveLabel `font(13)=62.4pt` and phaseLabel `font(10)=48pt` placed only 17px apart in Y — lines overlap dramatically. Same MOBILE_FONT_SCALE=4.8 (`src/ui/typography.ts:11`) that "compensates canvas-CSS downscale" is too aggressive for tight-layout originally designed for desktop. **Fix path:** Y-spacing proportional to font-height. ~15 min.
+3. **TouchHotbar BG circles disappear into dark scene** (`src/mobile/touchHotbar.ts:90-94`). BG fill `0x0a1018` at 0.78 alpha is too close to dark scene background; only cooldown text labels visible. Buttons read as floating numbers rather than ability affordances. **Fix path:** lighter+more-opaque BG + thicker accent outline. ~15 min.
+4. **Bonus audit recommendation (§ 3.5 of brief).** The same `font()`+tight-Y-spacing pattern likely affects season-selector menu rendering (rubric § 6.3 finding). Grep + single-file audit would close that bug family. ~30 min if action taken.
+
+**Total estimated wall-clock for drax:** ~90 minutes if all 4 land in one pass; each is independent and pickable.
+
+**Why this is a brief, not a dispatch:** per agent definition § Cross-seam coordination, drax owns implementation; galadriel observes + consults on technical render details. The brief is evidence + diagnosis + remediation paths with file:line pointers; drax picks paths + writes code. Galadriel does NOT modify demo source.
+
+**Verification protocol (galadriel-side, async):** when drax's fix lands at a new demo SHA, galadriel re-runs `node capture.mjs --state combat-midfight --viewport mobile-portrait-1290x2796` (~10s), re-applies rubric axis 3.4 scoring, writes updated scoring.json, updates benchmark report § 4.1 row, posts hive-log STATE. Non-blocking — drax does not wait for re-score before moving on.
+
+**Open consult points** (drax→galadriel mid-fix, optional):
+- Mid-fix render check after § 2 globes fix
+- A/B color choice for § 4 BG circle
+- Rank-2 atmospheric-layer dissonance (§ 5.2 of report) is a separate diagnosis if drax wants a second brief; galadriel offers to author
+
+**Cross-track impact:** None on Tracks A/B/non-HUD parts of C. The brief is additive evidence for drax's portrait HUD pass; doesn't change any other in-flight specialist work.
+
+— galadriel (the Mirror has named what it saw; the smith may work the iron)
