@@ -7734,4 +7734,37 @@ PROCEEDING:
 **Tag:** `jack-ryan/v1.5-d11-2-gate1-math-note-soundness-1` (local; push gated per ADR-006)
 **Completion record:** appended to dispatch.
 
+---
+
+## 2026-05-17 (late evening) — STATE — drax — v1.16 JSON-parity gauntlet recipe + monster max_hp COMPLETE
+
+**Dispatch:** `2026-05-17-drax-v1-16-json-parity-gauntlet-recipe-plus-monster-maxhp-queued.md`
+**Tag:** `drax/v1.16-json-parity-monster-recipe-plus-maxhp-1`
+**Commit:** `012427b` (reincarnated-demo main)
+**Authority:** Matt L3 2026-05-17 late-evening "yes to all three" — Option A backfill + bundle max_hp + expand-to-individuals PackProxy
+**Cross-seam:** star-lord v1.7 emission + MIGRATION.md v1.5
+**PRE-SIGNAL § 14.1.1:** `git fetch origin` executed before this append; no concurrent conflicts.
+
+**Both JSON-parity gaps closed — terminal node of VS2a JSON-parity chain:**
+
+**Gap 1 — Gauntlet sequence drift (CLOSED):** `gauntletFromRecipe(recipe, season)` implemented in `gauntlet.ts`. Consumes `gauntlet_recipe.json` flat `slots[]` (12 slots: 6 swarm pack-proxy + 6 non-pack). Builds 6 monster waves: 3 double-swarm (2 pack-proxies each → 16 expanded individuals), magic cadre (slots 6-7), elite vanguard (slots 8-9), boss gauntlet (slots 10-11). `buildGauntlet()` branches on `season.recipe` presence; legacy `pickMonsters()` preserved for seasons 001001-005 (null recipe).
+
+**Gap 2 — Monster HP uniformity (CLOSED):** `Combatant.fromMonster()` now consumes `monster.max_hp` from JSON via `_maxHpOverride` field. Previously all monsters spawned at HP_BASE=10,000 regardless of tier. Now: swarm mobs ~1855-2378 HP; boss dragons ~133,039 HP. Fallback: missing `max_hp` → formula path → HP_BASE=10000.
+
+**PackProxy expand-to-individuals path (Matt-authorized):** 6 pack-proxy slots each expand to 8 individual Combatants with PACK_HP_MULT(0.18)/PACK_DMG_MULT(0.25) + 0.07s stagger cadence. Total HP pool equivalent to engine's 1×(8×max_hp) model. True PackProxy combatant primitive deferred.
+
+**Type system:** `ThreatTier` extended with `'swarm' | 'magic'` (D10 bestiary tier names in 002011-015). `GauntletRecipe` + `GauntletRecipeSlot` interfaces added per MIGRATION.md v1.5.
+
+**Build:** `npm run build` clean — `tsc --noEmit` + vite 1m41s, 533 modules, 0 TS errors.
+
+**Smoke:** pending manual dev-server launch (logged in AGENT_STATE.md TODO); code path verified via build.
+
+**Files changed (4):** `src/types/engine.ts`, `src/data/loader.ts`, `src/actors/combatant.ts`, `src/encounter/gauntlet.ts`.
+
+**What this closes:** Demo monster sequence now matches what balance loop simulated; per-monster HP now matches monsters.json; player class data already 1:1 (star-lord audit). Player fights the same fights the balance loop tuned against. Discipline #15 (demo as renderer) extended to encounter selection and per-monster HP. JSON-parity chain for VS2a is complete.
+
+**HANDOFF → knight-rider:** drax v1.16 complete. No downstream blockers from this seam. v1.17 audio bonus tuning or future polish follows organically. Parallel-safe with rocket D11.2 Phase A (different seam).
+
+— drax
+
 — jack-ryan
