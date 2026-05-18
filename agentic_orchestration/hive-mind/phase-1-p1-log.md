@@ -8260,3 +8260,37 @@ Per "long sight, patient gaze" methodology + pre-authorization matrix § 6 rows 
 **Reference set verified:** 7 DoE captures present at `agentic_orchestration/galadriel/reference-images/` per MANIFEST.md (1 combat + 6 town states; 1290×2796 portrait class; Matt-rights, non-commercial benchmark use only). Provenance discipline preserved per agent-definition § Reference image sourcing rules.
 
 — galadriel (The Mirror, set; awaiting the picture)
+
+---
+
+### [2026-05-18 afternoon] STATE — galadriel — pipeline scaffolded + smoke validated + rubric v1-DRAFT landed; 3 landing-state captures committed; D11.5 still ungated
+
+**PRE-SIGNAL § 14.1.1:** `git fetch origin` executed pre-append; hive-log tip at `1e39457` (galadriel online STATE); local working tree current. No concurrent hive-log write detected. Proceeding by-path stage.
+
+**Pipeline v0.1 landed** at `agentic_orchestration/galadriel/pipeline/` (commit `ff447f4`):
+- Playwright 1.49.0 (Apache-2.0, Microsoft) installed local-only
+- `capture.mjs` headless harness; `--smoke`, `--state`, `--viewport`, `--out-dir`, `--dev-url`, `--all-states`
+- `states.json` (landing + combat-midfight + combat-empty-room + inventory-open × 4 viewports incl DoE-matched 1290×2796)
+- Reproducibility-first JSON sidecars (demo SHA, console log tail, friction notes, wait_for diagnostics)
+- README with quickstart + troubleshooting + Phase-2 future-work list
+
+**Smoke validated** against live demo dev server at `localhost:5173` (demo SHA `7e5b93b drax/v1.21`). 3 landing-state captures across mobile-portrait-1290×2796, mobile-portrait-390×844, desktop-1920×1080.
+
+**Rubric v1-DRAFT landed** at `agentic_orchestration/galadriel/rubrics/2026-05-18-rubric-doe-comparison-v1.md` (commit `d87085e`):
+- 8 axes (6 combat + 2 town-only); per-state × per-axis applicability matrix
+- Manual-scoring methodology + Phase-2 quantitative back-end deferral (HSV histogram cosine, Canny edge density, pHash/dHash)
+- Honesty floor: scores of 1/5 require 2 evidence-cites; downgrade-to-defensible discipline
+- Anti-pattern guard: no scoring without reference image (per agent-definition rule)
+- 5 open questions for gandalf critique-pair (axis weighting, register-innovation-vs-dissonance framing, town-gap disposition framing, honesty floor mechanic, menu-anomaly placement)
+
+**OBSERVATION (§ 6.3 of rubric) — drax-actionable, surfaced from smoke captures:**
+
+The demo's season-selector menu surface renders **clean at desktop 1920×1080** (5 season tiles in 3+2 grid, REINCARNATED title, italicized description quotes, 4 element-pill rows per tile, ENTER prompts, "Choose a Season" subtitle) but **breaks at portrait phone aspect** (1290×2796 + 390×844). At portrait phone aspect, tile widths are not phone-responsive; titles bleed into adjacent tiles; decorative text fragments overlap. Evidence at `agentic_orchestration/galadriel/captures/2026-05-18/landing/{desktop-1920x1080, mobile-portrait-1290x2796, mobile-portrait-390x844}/`. This is a menu-surface mobile-responsiveness item (likely v1.22+); independent of combat-midfight scoring path. Not a rubric score (no DoE menu reference); surfaced as structured finding.
+
+**D11.5 gate state UNCHANGED.** Latest demo commit still `7e5b93b drax/v1.21`. Combat-midfight + combat-empty-room + inventory-open states cannot be state-matched captured until drax-D11.5 hook ships. Pipeline records this as `friction_notes` in the sidecar — failure visible, not silent.
+
+**Track C posture going forward:** rubric is *the apparatus*; the scoring application waits for state-matched captures. When D11.5 lands, the v1-DRAFT rubric becomes v1-SCORED via `node capture.mjs --state combat-midfight --viewport mobile-portrait-1290x2796` (~10s harness runtime) + manual per-axis scoring against DoE ref #1 (~2-3h). Gandalf critique-pair review of rubric methodology can run in parallel with D11.5; doesn't block.
+
+**Cross-track signal observed:** Star-lord engine-side data manifest + elrond catalogue-side data manifest appear in flight (uncommitted modifications visible on `agentic_orchestration/dispatches/...star-lord...` + new `research/curated/loadout-analytics-data-manifest-2026-05-18.md`). Track B advancing in parallel. Track A.2 mobile-render validation + Track A.D11.5 — no demo-side commits since `7e5b93b`; drax-D11.5 still queued or in-progress externally.
+
+— galadriel (The Mirror, set; pipeline ready; rubric drafted; the picture awaited)
