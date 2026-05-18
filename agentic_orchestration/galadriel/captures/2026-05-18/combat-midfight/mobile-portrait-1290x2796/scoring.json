@@ -1,0 +1,109 @@
+{
+  "_schema_version": "1.0",
+  "_purpose": "Per-axis rubric scoring for the primary state-matched capture. Roll-up consumed by the visual benchmark report.",
+  "_rubric": "../../../rubrics/2026-05-18-rubric-doe-comparison-v1.md (v1-DRAFT)",
+  "_capture": "capture.png + capture.json (this directory)",
+  "_reference": "../../../reference-images/DOE-combat-whisper-rift-2-2026-05-17.png",
+  "_scored_at_utc": "2026-05-18T22:55:00Z",
+  "_scorer": "galadriel (v1-DRAFT manual scoring; gandalf critique-pair review pending)",
+  "_demo_git_sha": "59b9330",
+
+  "state": "combat-midfight",
+  "viewport": "mobile-portrait-1290x2796",
+  "doe_reference": "DOE-combat-whisper-rift-2-2026-05-17.png",
+
+  "axes": {
+    "3_1_visual_density": {
+      "score": 2,
+      "score_band": "demo's combat scene reads as significantly sparser; majority of DoE's mid-band elements absent",
+      "doe_observation": "Heavy mid-band density: player + 4-8 enemies in formation + 2 telegraphed AOE rectangles (red horizontal bands upper-mid) + floating damage numbers (22, 15 left of player) + crimson ground-swirl AOE + particle bursts + bones/debris ground detail. Vertical density rhythm essentially gap-free.",
+      "demo_observation": "Thin mid-band: player + 1 actively-engaged enemy (mid-right with red HP ring + blue particle aura) + 2 small enemy sprites at top-of-frame (possibly tier indicators). NO telegraphed AOE rectangles. The lower-right number cluster is HUD skill-cooldown countdowns clipped to portrait edge — NOT floating combat-damage numbers. Mid-band's lower 2/3 is near-empty dark space.",
+      "evidence_cite": "Primary-viewport mid-band contains 1 actively-engaged enemy + 2 small top-of-frame sprites; no floating damage numbers in mid-band (the lower-right cluster is HUD-clipped per axis 3.4 evidence); no telegraphed AOE rectangles or ground swirl; picture's lower 2/3 is near-empty.",
+      "capture_timing_caveat": "Late-midfight state (alive=1 dead=7 at warmup_ms=2500). Lightning_mage decimates wave 1 fast. Earlier-midfight state may have higher density. Surfaced in CAPTURE-SET-SUMMARY observation 6.",
+      "doe_delta": "Demo's combat mid-band lacks DoE's telegraphed-AOE bands and floating damage-number cluster near the player. Recommended remediation focus: surface telegraphed-AOE rendering + position floating combat-damage numbers in mid-band (not HUD-rail-edge)."
+    },
+
+    "3_2_color_register": {
+      "score": 3,
+      "score_band": "demo shows dungeon-darkness but contrast accent strategy is significantly different; color identity reads as related-but-distinct",
+      "doe_observation": "Dark-brown-with-crimson register. Background: dim brown/black with red ember tones. Mid-scene: warm reds/oranges (fire/blood/AOE). Saturated contrast accents in warm hues (bright-red AOE, orange damage numbers, silver/white player armor). Status text in cyan/blue ('Slow'). HUD: muted gold + red. Overall: warm lit-volume-in-darkness.",
+      "demo_observation": "Dark navy/black register. Background: near-black with very subtle floor texture. Mid-scene: cool tones dominate — blue particle aura around enemies, cyan-green mana bar, white-text labels. Warm tones appear only in HUD UI (red HP orb, red potion vial, yellow circular icons top) — NOT in scene combat effects. Overall: cool lit-volume-in-darkness — opposite warm/cool valence at scene level.",
+      "evidence_cite": "Demo scene-volume is dominated by dark navy/black + cool-blue particle effects + white text labels; warm tones appear only in HUD UI (red HP orb, red potion vial icon) not in scene combat effects. DoE reference scene-volume is dark-brown + warm-crimson AOE + orange damage numbers — fundamentally opposite warm/cool register at scene level.",
+      "doe_delta": "Demo's combat scene is cool-cold-in-dark vs DoE's warm-warmth-in-dark. Recommended remediation focus: warm up the scene-level color register — crimson AOE telegraphs, orange damage-number rendering, or warm atmospheric tint pass."
+    },
+
+    "3_3_lighting_atmosphere": {
+      "score": 2,
+      "score_band": "lighting is functional but doesn't tell a depth story",
+      "doe_observation": "Strong lit-volume-in-darkness. Player + AOE + particles glow against dark backdrop. Crimson ground-swirl has internal luminance. Atmospheric red haze in mid-band creates depth. Ground has visible blood/debris detail. The scene reads as 'a stage lit inside a dark hall' — depth via lighting, not via prop count.",
+      "demo_observation": "Some lit-volume on player (blue particle aura) and on enemy HP rings, but broader scene reads as flat-dark-void. No atmospheric haze visible despite `clima_niebla_espesa` + 6 other atmospheric packs prewarmed per console log. No ground particles. No depth cues via lighting. The scene reads as 'characters floating in dark void' rather than 'stage lit inside a hall.'",
+      "evidence_cite_1": "Console logs confirm `clima_niebla_espesa` atmospheric pack loaded for season_002011 plus 6 other atmospheric packs prewarmed (clima_chispas_fuego, clima_congelacion, clima_tornado_epico, clima_tormenta_electrica, clima_godrays, clima_viento_estetico), but the rendered scene shows no visible atmospheric haze.",
+      "evidence_cite_2": "Mid-band lacks ground particles, debris, or depth-cue lighting; the lower 2/3 of the viewport is near-uniform dark space with no atmospheric contribution; DoE reference has strong atmospheric red haze in mid-band creating dramatic lit-volume contrast.",
+      "doe_delta": "Demo's atmospheric layer loaded but not visibly contributing; scene lacks depth-via-lighting. Recommended remediation focus: investigate why atmospheric pack is not visibly rendering at portrait viewport (alpha? z-order? clip-region? viewport-coverage?); add ground particle work + ambient haze contribution to scene-volume."
+    },
+
+    "3_4_typography_ui_register": {
+      "score": 2,
+      "score_band": "HUD layout is recognizably different (e.g., menus instead of bottom skill rail; modals instead of always-on modules)",
+      "doe_observation": "HUD modules: top-left minimap + [EASY] Whisper Rift 2 banner + countdown 00:41 + skull-icon objective + HP/MP bars; top-right circular 'Return to City' button; bottom portrait + 4 skill cooldown icons + 'Healing' button + segmented mana bar + Level 5 79% XP bar at very bottom + 'X 55 killed' counter mid-bottom. Damage-numbers in stencil-orange. Status text in cyan/blue. Bold caps section banners.",
+      "demo_observation": "At PRIMARY viewport (1290×2796 portrait): 3 small circular icons top (avatar + blue secondary + gold tertiary); 'Wave 1 of 11' centered top with jagged double-strike text rendering; HP numeric '16890 / 16890 HP' stacked vertically LEFT of player with thin red bar + cyan-green segmented mana bar; right-edge skill cooldown indicators CLIPPED to vertical sliver (cooldown numbers visible: 6.2 / 5 / 11.9 / 6.1 / 8.0 / 0.3); joystick + 'C' indicator + red+blue potion icons + '[Q]E' hotkey label bottom-left. NO minimap, NO objective banner, NO countdown, NO 'killed' counter, NO Level XP bar, NO Healing button, NO Return to City button.",
+      "evidence_cite_1": "At primary viewport, demo HUD is significantly thinner than DoE reference: no minimap (DoE: top-left), no objective banner (DoE: '[EASY] Whisper Rift 2'), no countdown, no 'kills' counter, no Level XP bar, no Healing button, no Return to City button; bottom skill rail is clipped to a vertical sliver on the right edge instead of horizontal rail.",
+      "evidence_cite_2": "'Wave 1 of 11' header text renders with jagged double-strike / overlap artifact at portrait viewport — the typography fails to render cleanly, which itself is a register-level failure. Same bug family observed at season-selector menu (rubric § 6.3).",
+      "additional_context": "At DESKTOP viewport (1920×1080) the demo HAS substantially more HUD architecture visible: 3 top-left icons with hotkey labels (inventory/character/skills); 6 skill cooldown slots in a horizontal rail with cooldown numbers 0.3/8.1/6.3/11.9/9.6/6.2; HP orb (red) + mana orb (blue '90 / 270') bottom-corners. The portrait viewport is CLIPPING this rail rather than the demo lacking it. Re-scoring at desktop viewport would land around 4 (register present, modules close to DoE but inventory iconography differs).",
+      "doe_delta": "Demo's bottom skill rail does not fit portrait viewport at 1290×2796 — clipped to right-edge vertical sliver. Recommended remediation focus: portrait-viewport HUD layout pass (wrap skill rail to horizontal bottom band per gandalf v1.7 §3.5; surface minimap + objective banner modules; fix 'Wave N of M' text rendering)."
+    },
+
+    "3_5_reading_order_hierarchy": {
+      "score": 3,
+      "score_band": "reading order is recognizably ARPG but center mass and HUD weight feel rebalanced",
+      "doe_observation": "Reading order: (1) player avatar (center mid-band, brightest sustained element); (2) telegraphed AOE bands (high-contrast horizontal red rectangles upper-mid); (3) floating damage numbers (saccadic attractors 22 + 15 left of player); (4) HUD top-left (objective + minimap — situational awareness); (5) '55 killed' counter (mid-bottom central with skull icon); (6) HUD bottom skill rail (less visually dominant than mid-band). The eye is forced to combat first; HUD is information-on-demand around periphery.",
+      "demo_observation": "Reading order at primary viewport: (1) '16890 / 16890 HP' numeric stack (large white text + red bar) LEFT of player — first eye attractor; (2) '-Shocked Smuggler' floating label (clipped on left edge); (3) player avatar (small, ~50px); (4) enemy with HP ring mid-right + below; (5) cooldown indicators cluster lower-right edge; (6) 'Wave 1 of 11' jagged top header; (7) joystick bottom-left. The HP numeric and edge-clipped cooldown cluster pull eye away from mid-band; player is visually less dominant than HUD elements.",
+      "evidence_cite": "Demo's primary-viewport eye attractor is the '16890 / 16890 HP' numeric (large white text + red horizontal bar) positioned LEFT of the player; player avatar is rendered small (~50px height) and visually less dominant than the HP module; cooldown indicators cluster lower-right at edge rather than visible-on-rail. DoE reference center-mass is the player+AOE+damage feedback in mid-band; HUD is informational-periphery, not dominant.",
+      "doe_delta": "Demo HUD is competing with combat for eye attention; HP numeric and edge-clipped cooldown indicators pull eye away from mid-band. Recommended remediation focus: re-scale HP numeric (smaller text or bar-only); restore cooldown rail to bottom horizontal band; ensure player avatar reads as visual center-mass."
+    },
+
+    "3_6_animation_cadence": {
+      "score": 2,
+      "score_band": "demo capture shows the player + enemies but no mid-animation feedback elements",
+      "doe_observation": "5 motion-vocabulary tells visible in still: 2 active floating damage numbers (mid-lifecycle, fading); telegraphed AOE rectangles drawn at full intensity (pre-resolution flash); particle bursts around player/enemies; crimson ground-swirl mid-animation; cooldown radial-fills on bottom skills. The still implies ~5 motion systems active simultaneously.",
+      "demo_observation": "1-2 motion-vocabulary tells: cooldown countdown numbers at edge (1 tell — but clipped); subtle particle work around player + enemy HP rings (1 tell — barely visible). No visible AOE telegraph elements. No visible mid-band floating damage numbers. The still implies thin motion-vocabulary surface.",
+      "evidence_cite_1": "Primary-viewport still shows no visible AOE-telegraph elements (DoE: 2 red rectangles + crimson ground swirl); no visible mid-band floating damage numbers (the lower-right number cluster is HUD-clipped cooldown indicators per axis 3.4 evidence).",
+      "evidence_cite_2": "Subtle particle work around player and enemy HP rings is barely visible; cooldown radial-fills are not visible on the clipped skill rail edge (only the numeric countdowns are visible).",
+      "capture_timing_caveat": "Late-midfight state (1 of 8 enemies remaining at warmup_ms=2500) may under-represent peak-cadence; the lightning_mage's fast-clear means earlier-midfight may have more visible feedback. FRICTION surfaced in CAPTURE-SET-SUMMARY observation 6.",
+      "doe_delta": "Demo's still implies thin motion-vocabulary surface — likely partially capture-timing artifact, partially actual AOE-telegraph absence. Recommended remediation focus: confirm AOE-telegraph rendering at runtime (drax-side); consider capture-timing fix per CAPTURE-SET-SUMMARY observation 6 (combat-midfight-paused variant) to validate true cadence."
+    }
+  },
+
+  "aggregate": {
+    "method": "arithmetic mean across 6 scored axes (v1-DRAFT)",
+    "scores": [2, 3, 2, 2, 3, 2],
+    "mean": 2.33,
+    "rounded_to_1_decimal": 2.3,
+    "interpretation": "Demo is recognizably in the same ARPG family as DoE but has significant dissonances across multiple axes — most prominently visual density, lighting+atmosphere, typography+UI register at portrait viewport, and animation cadence. Color register and reading order are closer (recognizable family with rebalanced weight) than the others (significantly thinner)."
+  },
+
+  "strongest_dissonances": [
+    {
+      "rank": 1,
+      "axis": "3.4 typography+UI register",
+      "summary": "Portrait viewport CLIPS demo's actual HUD (skill rail visible only at desktop). Wave header text rendering broken at portrait. Recommended remediation: portrait-viewport HUD layout pass."
+    },
+    {
+      "rank": 2,
+      "axis": "3.3 lighting+atmosphere",
+      "summary": "Atmospheric layer loaded per console but not visibly contributing. Scene reads as flat-dark-void vs DoE's lit-volume-in-darkness. Recommended remediation: investigate atmospheric pack render alpha/z-order/clip-region."
+    },
+    {
+      "rank": 3,
+      "axis": "3.2 color register",
+      "summary": "Cool-cold-in-dark vs DoE's warm-warmth-in-dark — opposite warm/cool valence at scene level. Recommended remediation: warm scene-level color register pass."
+    }
+  ],
+
+  "advisory_notes": [
+    "Aggregate of 2.3 is consistent with first-pass v1-DRAFT honest scoring — demo is on the way toward DoE register but not there yet. Multiple high-leverage axes have specific drax-actionable remediation focuses identified.",
+    "Per rubric § 8 open question 1: gandalf may revise aggregate weighting; current mean is unweighted. Some axes (typography+UI register, color register) may merit higher weight than animation cadence (low-confidence per § 3.6 caveat).",
+    "Per rubric § 8 open question 2: gandalf interprets register-innovation-vs-dissonance. Demo's joystick + element-prefixed cooldowns may represent innovation (mobile-touch convention; element-aware UI) rather than pure dissonance. Galadriel scored the dissonance honestly; gandalf interprets.",
+    "Per CAPTURE-SET-SUMMARY observation 6: capture-timing artifact on visual density (2) and animation cadence (2) — both may be partially explained by late-midfight state. v2 scoring should use combat-midfight-paused variant once available."
+  ]
+}
