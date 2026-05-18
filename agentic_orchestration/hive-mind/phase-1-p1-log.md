@@ -8469,3 +8469,53 @@ Once corrected: one command fires the full 26-image pipeline from a clean state.
 **Spend ceiling status:** $1.04 of $15.00 used. Reroll budget of ~$13.96 available if gandalf flags off-register portraits.
 
 — star-lord
+
+---
+
+### [2026-05-18 evening] STATE — galadriel — Track C visual benchmark vs2a v1-DRAFT COMPLETE; D11.5 captures landed; report ready for gandalf critique-pair
+
+**PRE-SIGNAL § 14.1.1:** `git fetch origin` executed pre-append; hive-log tip at `19eb638` (star-lord pitch image-gen STATE); local working tree current. No concurrent hive-log write detected. Proceeding by-path stage.
+
+**D11.5 GATE OPENED.** Drax shipped `c039184 drax/v1.22` (D11.5 debug-state URL hook) + subsequent `e4214a8`/`b462eca`/`59b9330` (drax/v1.23 R2+Vercel hybrid deployment). The `[debug-state] activated=<state>` confirmation signals match galadriel's states.json wait_for exactly. Drax-D11.5 spec at `~/Games/reincarnated-demo/src/debug/debugStates.ts` documents the determinism contract (season_002011 + first playable class + wave 1 + aggro before first tick).
+
+**Captures landed** at demo SHA `59b9330` (commit `185dd61`):
+- combat-midfight × mobile-portrait-1290×2796 (PRIMARY; DoE-matched aspect)
+- combat-midfight × mobile-portrait-390×844 + 375×667 + desktop-1920×1080 (secondary + context)
+- combat-empty-room × mobile-portrait-1290×2796 + 390×844 (HUD-isolated)
+- CAPTURE-SET-SUMMARY.md authored with 6 key descriptive observations + per-capture observations
+
+**Rubric v1-DRAFT scoring applied** (commit `33f3e6d`):
+- 6 axes scored against DOE-combat-whisper-rift-2 reference; aggregate **2.3 / 5.0**
+- Per-axis: visual density=2 / color register=3 / lighting+atmosphere=2 / typography+UI register=2 / reading order=3 / animation cadence=2
+- Honesty floor honored — 5.1/5.2 strongest-dissonances carry 2-cite evidence per § 2.4
+- Scoring artifact at `captures/2026-05-18/combat-midfight/mobile-portrait-1290x2796/scoring.json` (machine-readable)
+
+**Track C primary deliverable landed:** `canonical/story/visual-benchmark-vs2a-2026-05-18.md` (galadriel primary on §§ 1–4, 6; galadriel-drafts-gandalf-refines §§ 5, 7, 8). 10 sections; TL;DR + 3 strongest dissonances + 5 structured findings + Mirror voice + next-iteration trajectory.
+
+**Three strongest dissonances (drax-actionable for v1.24+):**
+
+1. **Portrait viewport CLIPS the demo's actual HUD** — skill rail (6 cooldown slots visible at desktop) becomes vertical right-edge sliver; "Wave 1 of 11" header text renders with jagged double-strike artifact. The demo HAS the HUD design (visible at desktop); the portrait-fit is the dissonance, not the design.
+2. **Atmospheric layer loaded but not visibly contributing** — `clima_niebla_espesa` + 6 other atmospheric packs prewarmed per console log, but rendered scene shows no visible atmospheric haze. Either alpha/z-order/clip-region investigation needed. Single highest-leverage visual-feel lever.
+3. **Color register cool-cold-in-dark vs DoE's warm-warmth-in-dark** — demo scene-volume dark navy + cool-blue particles vs DoE dark-brown + warm-crimson. Routes through gandalf for design-direction call (intentional Reincarnated distinguishing register vs render drift).
+
+**Five structured findings (unscored; routed to gandalf or noted as drax-actionable):**
+
+1. Town-feel gap — 5 of 7 DoE references unmatched (DoE has hub-wide, vendor-row, forge, alt-angle, vendor-close-up; demo dungeon-only). Product-scope finding; (a) vs (b) disposition routes to gandalf § 7.
+2. Town-to-dungeon transition gap (DoE ref #6) — tied to § 6.1.
+3. Menu-surface rendering anomaly at portrait phone aspect (season selector tiles bleed; same bug family as "Wave 1 of 11" header artifact — likely common font/render-target mismatch).
+4. Capture-timing artifact — lightning_mage fast-clearing means warmup_ms=2500 captures land late-midfight (alive=1 dead=7). Future: `combat-midfight-paused` D11.5 variant for capture-stable scenes.
+5. Floor tileset loaded but barely visible (decorative-prop-free per Matt L3 v1.18.6; DoE has ground detail — gandalf design-direction call).
+
+**Open questions for gandalf critique-pair pass:**
+
+1. Aggregate weighting — unweighted mean (current) vs typography+UI register or color register weighted higher
+2. Register innovation vs register dissonance framing — joystick + element-prefixed cooldowns may be innovation, not dissonance
+3. Town-gap disposition framing — Phase-2 scope (a) vs feel-target-load-bearing (b)
+4. Color register design-direction call — canonical-Reincarnated cool vs render drift
+5. Floor-visibility design-direction call — without decorative props, what visibility level is canonical?
+
+**Galadriel posture going forward:** v1-DRAFT scoring lands; v2 happens after gandalf critique-pair refinement; v2-RE-SCORED happens after drax remediation on the 3 strongest dissonances; v2.1 swaps in HSV histogram cosine sim back-end for color-register axis (replaces manual subjective scoring with reproducible numeric measure); future iterations as reference set extends + Phase-2 quantitative back-ends roll in.
+
+**Net for the sprint:** Track C primary deliverable shipped. The Mirror was set; the picture has come; the picture has been read carefully; the report is on disk for Matt's morning read.
+
+— galadriel (The Mirror, having looked; the picture is what it is)
