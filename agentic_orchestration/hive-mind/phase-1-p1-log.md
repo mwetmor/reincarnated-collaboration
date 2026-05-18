@@ -8519,3 +8519,24 @@ Once corrected: one command fires the full 26-image pipeline from a clean state.
 **Net for the sprint:** Track C primary deliverable shipped. The Mirror was set; the picture has come; the picture has been read carefully; the report is on disk for Matt's morning read.
 
 — galadriel (The Mirror, having looked; the picture is what it is)
+
+---
+
+### [2026-05-18 evening] DECISION — galadriel (Matt L3) — town-gap disposition L3-RESOLVED to (a); benchmark report Open Question #3 CLOSED before gandalf critique-pair pass
+
+**PRE-SIGNAL § 14.1.1:** `git fetch origin` executed pre-append; hive-log tip at `2b6f55a` (galadriel Track C COMPLETE STATE); local working tree current. No concurrent hive-log write detected. Proceeding by-path stage.
+
+**Disposition:** Matt L3 2026-05-18 evening, verbatim *"We have no town by the way"* + *"L3-RESOLVED to (a)"*.
+
+**What was resolved:** Track C visual benchmark vs2a v1-DRAFT report's § 6.1 + § 7 Open Question #3 framing — whether the town-gap (5 of 7 DoE references unmatched; demo dungeon-only) reads as (a) Phase-2+ scope-prioritization OR (b) feel-target-load-bearing. Matt picked (a). Town is a Phase-2+ feature; gap is intentional scope-prioritization; not a feel-target shortfall.
+
+**Updates landed (galadriel):**
+- `canonical/story/visual-benchmark-vs2a-2026-05-18.md` — § 0 TL;DR + § 6.1 + § 7 + § 7 Open Question #3 (CLOSED) + § 9 v2 row all updated to record L3 resolution
+- `agentic_orchestration/galadriel/rubrics/2026-05-18-rubric-doe-comparison-v1.md` — § 8 Q3 (CLOSED) + § 9 v2 row
+- `agentic_orchestration/hive-mind/morning-briefing-2026-05-19.md` — L3-4 entry appended with full disposition record
+
+**Gandalf critique-pair pass guidance:** Question #3 is removed from the critique-pair surface. The pass now focuses on Questions #1 (aggregate weighting), #2 (register innovation vs dissonance), #4 (color register design-direction — cool-Reincarnated vs render-drift), #5 (floor-visibility design-direction without decorative props). The town-feel-target methodology is settled: future v2+ benchmark reports record town references as recognized scope-deferred gaps; they do not drag aggregate scores down.
+
+**Cross-track impact:** None on Tracks A or B. Track C scoring is unaffected (the aggregate 2.3/5 was computed across the 6 scored axes vs DoE-combat-whisper-rift-2 only — town references were never folded into the score, just into structured findings, so the resolution does not change the numeric result; it changes only the *meaning* of the gap going forward).
+
+— galadriel (the Mirror notes: the Court is for later; tonight's picture is the dungeon)

@@ -127,6 +127,28 @@ The dispatches on disk are comprehensive (each ~5-10KB; full required-reading, d
 
 ---
 
+### L3-4 — Town-gap disposition for visual benchmark vs2a — RESOLVED (a) [recorded post-hoc]
+
+**Surfaced at:** Track C visual benchmark vs2a v1-DRAFT report (`canonical/story/visual-benchmark-vs2a-2026-05-18.md`) § 6.1 + § 7 Open Question #3. Report shipped 2026-05-18 evening with town-gap framing left open for gandalf critique-pair pass.
+
+**Context:** DoE reference set is 7 captures (1 combat + 6 town surfaces). Reincarnated demo has no town. 5 of 7 references are unmatched. The report's structured-findings § 6.1 surfaced two readings:
+- (a) Town is a Phase-2+ feature; gap is intentional scope-prioritization
+- (b) Town-feel is load-bearing for mobile-ARPG cluster reference adherence; town pulls forward as higher-priority Phase-2 deliverable
+
+**Disposition (Matt L3 2026-05-18 evening, verbatim):** *"We have no town by the way"* + *"L3-RESOLVED to (a)"*.
+
+**Resolution:** Town is Phase-2+; intentional scope-prioritization. Galadriel's rubric methodology v2+ continues to record town-state references as structured findings of *expected-absence* (scope-deferred), not as feel-target dissonance — they do not drag aggregate scores down. When/if town surfaces are authored in Reincarnated, the rubric extends to score them against DoE town references at that point.
+
+**Updates landed at this resolution (galadriel):**
+- `canonical/story/visual-benchmark-vs2a-2026-05-18.md` § 0 TL;DR + § 6.1 + § 7 + § 7 Open Question #3 (CLOSED) + § 9 v2 row
+- `agentic_orchestration/galadriel/rubrics/2026-05-18-rubric-doe-comparison-v1.md` § 8 Q3 (CLOSED) + § 9 v2 row
+- This morning-briefing entry (L3-4)
+- Hive log STATE entry (galadriel — Q3 closed before gandalf critique-pair pass)
+
+**Cross-track impact:** None on Tracks A, B, or other Track C scoped axes. Gandalf critique-pair pass on the report no longer needs to deliberate Question #3 — focuses on Questions #1 (aggregate weighting), #2 (register innovation vs dissonance), #4 (color register design-direction), #5 (floor-visibility design-direction).
+
+---
+
 ## Halt-condition triggers (if any)
 
 (None yet at sprint open.)

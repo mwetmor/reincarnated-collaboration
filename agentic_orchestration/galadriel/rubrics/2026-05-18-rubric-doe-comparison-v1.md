@@ -339,7 +339,7 @@ Per dispatch § 3, gandalf reviews rubric methodology + axis weighting before sc
 
 1. **Axis weighting in the aggregate score.** v1 uses arithmetic mean across scored axes. Should some axes (typography/UI register, color register) carry higher weight than others (animation cadence, which v1 flags as low-confidence)? Galadriel proposes mean for v1; gandalf weighs in.
 2. **Register innovation vs register dissonance.** Per § 3.4 note — when the demo intentionally diverges from DoE register, the rubric scores it as dissonance (lower score). Is that correct, or should the rubric flag *innovation* separately from *dissonance*? Galadriel's lean: score the dissonance; let gandalf interpret innovation-vs-dissonance in § 7 of the report.
-3. **Town-gap framing.** § 6.1 disposition (a) vs (b) — galadriel surfaces; gandalf interprets. Confirm framing approach.
+3. **~~Town-gap framing.~~** ✅ **CLOSED — L3-RESOLVED to disposition (a)** by Matt 2026-05-18 evening. Town is Phase-2+; intentional scope-prioritization. Per benchmark report § 6.1 + § 7. Future v2+ rubric methodology: town-state references remain structured findings of *expected-absence* (scope-deferred), not feel-target dissonance — they do not drag aggregate scores down. When/if town surfaces are authored in Reincarnated, the rubric extends to score them against DoE town references at that point.
 4. **Honesty floor mechanic.** § 2.4 (1/5 require 2 cites; downgrade if cites insufficient) — agree with the mechanic? Adjust threshold?
 5. **Menu-surface anomaly (§ 6.3).** OBSERVATION-level finding from smoke captures. Surface in the rubric (current placement) or in a separate drax-actionable note in the report?
 
@@ -353,7 +353,7 @@ Gandalf review can land in `agentic_orchestration/galadriel/rubrics/2026-05-18-r
 |---|---|---|
 | **v1-DRAFT (this doc)** | Methodology + axes + per-state applicability + manual scoring + structured findings | Pre-D11.5 authoring (capture-independent) |
 | **v1-SCORED** | v1-DRAFT methodology applied to actual state-matched captures from D11.5-enabled pipeline | After drax-D11.5 + first comparison-grade capture |
-| **v2** | Gandalf-reviewed axis revisions; weighting if proposed; town-gap framing finalized | Post-gandalf review |
+| **v2** | Gandalf-reviewed axis revisions; weighting if proposed. Town-gap framing already L3-RESOLVED (a) 2026-05-18. | Post-gandalf review |
 | **v2.1** | First quantitative back-end (HSV histogram cosine sim implemented in `pipeline/score.mjs`) | Phase-2 |
 | **v2.2** | Edge density + pHash back-ends; multi-frame cadence | Phase-2 |
 | **v3** | Multi-reference triangulation (if reference set extends); additional Matt-captured DoE states | When reference set grows |

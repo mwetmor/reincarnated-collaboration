@@ -22,7 +22,7 @@ The Mirror was set. The picture has come. Here is what it shows.
 
 **Five structured findings (not scored — reference-without-counterpart):**
 
-1. Town-feel gap — DoE has 5 distinct town states (vendor row, forge area, hub-wide, alt-angle, vendor close-up); Reincarnated demo has zero town surfaces.
+1. Town-feel gap — DoE has 5 distinct town states (vendor row, forge area, hub-wide, alt-angle, vendor close-up); Reincarnated demo has zero town surfaces. **L3-RESOLVED to disposition (a)** by Matt 2026-05-18: town is Phase-2+; intentional scope-prioritization. See § 6.1.
 2. Town-to-dungeon transition gap — DoE has a stone-path lit-to-dark transition with NPCs lining the route; Reincarnated demo opens directly into dungeon.
 3. Menu-surface rendering anomaly at portrait phone aspect — season selector renders clean at desktop, breaks at portrait (tile widths not phone-responsive; titles bleed across tiles).
 4. Capture-timing artifact — lightning_mage's fast-clearing on wave 1 means warmup_ms=2500 captures land in late-midfight (alive=1 dead=7). May under-represent peak combat density and cadence.
@@ -182,11 +182,15 @@ DoE's town surfaces (refs #2, 3, 4, 5, 7) show:
 
 Demo state: zero town surfaces. Demo opens directly into dungeon-combat. No vendor system, no town map, no NPC roster, no service-vendor convention. The 5/7 unmatched references are a *product-scope* finding, not a visual-rendering finding — it's not drax's renderer missing a surface; it's the project's feature scope not having that surface yet.
 
-**Disposition:** routes through gandalf for design-direction interpretation (§ 7). Two reasonable readings:
-- **(a)** Town is a Phase-2+ feature; the gap is intentional scope-prioritization (per Phase-1 P1 focus on combat foundation).
-- **(b)** Town-feel is load-bearing for mobile-ARPG cluster reference adherence; the gap is recognition that DoE's full feel cannot be achieved without it, and town becomes a higher-priority Phase-2 deliverable.
+**Disposition: L3-RESOLVED to (a)** by Matt 2026-05-18 evening (verbatim: *"We have no town by the way"* + *"L3-RESOLVED to (a)"*). Town is a Phase-2+ feature; the gap is intentional scope-prioritization (per Phase-1 P1 focus on combat foundation). DoE town surfaces enter Reincarnated's reference universe as a *future-state surface that has not been authored yet*, not as a feel-target shortfall.
 
-Galadriel does not pick between (a) and (b). The evidence is recorded; gandalf interprets.
+Two readings considered:
+- **(a) — RESOLVED-CHOSEN.** Town is a Phase-2+ feature; the gap is intentional scope-prioritization.
+- **(b) — RESOLVED-REJECTED.** Town-feel as load-bearing for mobile-ARPG cluster reference adherence (would have meant town pulls forward as higher-priority Phase-2 deliverable).
+
+**Implication for rubric methodology (galadriel-side):** future v2+ scoring continues to record town-state references as structured findings of *expected-absence*, not feel-target dissonance. When/if town surfaces are authored in Reincarnated, the rubric extends to score them against DoE town references at that point. Until then, the 5 unmatched town references are noted in every benchmark report as a recognized scope-deferred gap, not as a scoring caveat that drags aggregate down.
+
+**Implication for the report (this doc):** Open Question #3 in § 7 is CLOSED. Gandalf critique-pair pass on this report no longer needs to deliberate the (a) vs (b) framing; it can focus on Open Questions #1, #2, #4, #5.
 
 ### 6.2 — Town-to-dungeon transition gap (DoE ref #6)
 
@@ -236,7 +240,7 @@ The picture says: the demo is **on the way toward DoE register but not there yet
 
 This is encouraging. The demo's combat-feel design is sound; the portrait-fit + render-pipeline observable surface is where the work concentrates next.
 
-**On the town-feel gap (§ 6.1):** gandalf's interpretation pending. Five of seven DoE references unmatched. Disposition (a) [Phase-2 scope] vs (b) [feel-target-load-bearing] is a design-direction call. Galadriel's lean: the dispatch (and Matt's directive 2026-05-18) was explicit about *mobile-playable demo via dungeon surface for VS2a*; town is implicit Phase-2. But gandalf may have a stronger reading on whether DoE's full feel can be achieved without town surfaces *eventually* — and whether that timing should be pulled forward.
+**On the town-feel gap (§ 6.1): L3-RESOLVED to (a)** by Matt 2026-05-18 evening (verbatim: *"We have no town by the way"* + *"L3-RESOLVED to (a)"*). Town is a Phase-2+ feature; the gap is intentional scope-prioritization. Gandalf critique-pair pass no longer needs to deliberate this framing — the design-direction call is made. The 5 unmatched town references stand as recognized scope-deferred gaps in every benchmark report until town surfaces are authored. Galadriel's rubric methodology extends to score town surfaces against DoE town references at that future point.
 
 **On the color register dissonance (§ 5.3):** gandalf's interpretation pending. Is cool-cold-in-dark the *intentional* Reincarnated palette (distinguishing register vs DoE-cluster default) or default-drift that should warm up? The Reincarnated cosmology references shadow + holy + lightning + warm-fire substrates; the substrate-identity-declaration spec is gandalf's seam. If shadow/lightning are dominant in season_002011's lightning_mage scene, cool may be canonical — and the rubric should re-anchor the color-register reference against a different DoE frame (e.g., a fire-substrate-themed scene) for that specific season's combat capture.
 
@@ -246,7 +250,7 @@ This is encouraging. The demo's combat-feel design is sound; the portrait-fit + 
 
 1. **Aggregate weighting.** v1 uses unweighted mean. Should typography+UI register or color register carry higher weight than animation cadence (where stills under-represent and capture-timing artifact suppresses)?
 2. **Register innovation vs register dissonance.** Demo's joystick (mobile-touch convention) and element-prefixed cooldown labels (LIG / WIN / etc.) may be register *innovation* rather than register *dissonance*. Galadriel scored the dissonance honestly; gandalf interprets whether to flag innovation separately in the scorecard.
-3. **Town-gap disposition framing.** § 6.1 (a) vs (b) — gandalf picks.
+3. **~~Town-gap disposition framing.~~** ✅ **CLOSED — L3-RESOLVED to (a)** by Matt 2026-05-18 evening. Town is Phase-2+; intentional scope-prioritization. § 6.1 + § 7 updated. Gandalf does not need to deliberate this in the critique-pair pass.
 4. **Color register design-direction call.** § 5.3 — gandalf interprets whether cool-cold-in-dark is canonical-Reincarnated or render drift.
 5. **Floor-visibility design-direction call.** § 6.5 — whether floor *should* be more visible at portrait without re-adding decorative props.
 
@@ -277,7 +281,7 @@ For v1-SCORED → v2 → v2.1+:
 | Iteration | Target |
 |---|---|
 | **v1-SCORED** (this report) | Manual scoring against primary capture; aggregate 2.3/5; 3 strongest dissonances named; 5 structured findings |
-| **v2 (post-gandalf)** | Gandalf-refined § 7 interpretation; design-direction calls on color register (§ 5.3) + town-gap disposition (§ 6.1); axis weighting if revised |
+| **v2 (post-gandalf)** | Gandalf-refined § 7 interpretation; design-direction calls on color register (§ 5.3); axis weighting if revised. Town-gap disposition (§ 6.1) already L3-RESOLVED. |
 | **v2-RE-SCORED** | Re-score after drax remediation on 3 strongest dissonances (portrait HUD layout pass; atmospheric pack rendering investigation; warm color-register pass if § 5.3 routes to disposition warmer) |
 | **v2.1** | HSV histogram cosine sim implemented in `pipeline/score.mjs`; replaces manual color-register subjective scoring with reproducible numeric comparison |
 | **v2.2** | Canny edge density per region + pHash/dHash + multi-frame capture for animation cadence (depends on combat-midfight-paused variant per § 6.4) |
