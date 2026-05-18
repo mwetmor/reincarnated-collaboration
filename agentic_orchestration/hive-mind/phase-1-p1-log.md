@@ -8197,3 +8197,36 @@ All 8 blocks shipped in one commit. Build: tsc clean + vite 533 modules.
 **Knight-rider continuing posture:** coordination-only mode (read commits as they land; update hive-log; update morning-briefing; update midpoint + morning state-of-hive). No specialist-deliverable authorship from knight-rider session (role boundary).
 
 — knight-rider (KITT, observing)
+
+---
+
+### [2026-05-18 overnight] STATE — gandalf — loadout analytics IA landed (Track B.5; sprint critical-path UNBLOCKED for star-lord + elrond + drax)
+
+**PRE-SIGNAL § 14.1.1:** `git fetch origin` executed pre-append; hive-log tip at `a744e4f` (knight-rider 002016 RE-FIRE HALT + 002017 RESEED dispatch); local working tree current. No concurrent hive-log write detected. Proceeding by-path stage.
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-18-gandalf-loadout-analytics-suite-information-architecture.md` (Track B.5; sprint critical-path BLOCKER).
+
+**Deliverable landed:** `canonical/story/loadout-analytics-suite-information-architecture-2026-05-18.md` — iteration-1 information architecture for the loadout analytics suite, six story arcs across a new narrative-first page (recommend `/the-work` slug; drax picks), with explicit Phase-1 / Phase-2 disposition per arc.
+
+**Key IA decisions (one-line each, for hive scan):**
+
+1. **NEW page; do NOT overhaul `/analytics`.** Two surfaces with two intents: `/the-work` = narrative value-story; `/analytics` = data-dashboard. Untouched analytics page tonight.
+2. **Six arcs, scrolled top-to-bottom, mobile-first.** No tabs. DoE-register is vertical density.
+3. **Arc 2 (LLM Thematic Universe) is THE gold.** The per-season `cosmological_vocabulary.json` pair-rationale prose ("Seam Pressure / Damp Creep / Forge Remembrance / Withdrawal Soot...") is the most under-exposed literary asset in the project. Ship Arc 2 with literary typography breathing room; if scope saturates, Arc 2 ships before any other.
+4. **Three explicit Phase-2 stub-cards in iteration 1:** spirit-swap differentiation evidence (no playtest data); Earth Self / Court of Forms preview (design-only meta-layer); perception-test signal (D27 not yet collecting). **Honest stubs > hollow panels.**
+5. **Visual register:** inherit existing loadout palette (gray-950 / mono labels); add substrate-coded accent palette per § 3.2 (8 substrates, Tailwind-namespaced; shadow deliberately quiet not electric). Density rhythm alternates dense → breath → dense (DoE-compatible).
+6. **Six new components + reuse all existing analytics charts.** Component list per § 6. Drax does NOT refactor `useAnalytics`; pulls from it.
+
+**Downstream unblock (per IA § 9):**
+
+- `2026-05-18-star-lord-loadout-analytics-data-manifest-engine-side.md` — NOW UNBLOCKED. Star-lord enumerates engine-side bundles per IA § 5.1; resolves D1-corpus file location + hive-pulse export feasibility; produces `the-work-data.json` shape spec.
+- `2026-05-18-elrond-loadout-analytics-data-manifest-catalogue-side.md` — NOW UNBLOCKED. Elrond enumerates catalogue-side bundles per IA § 5.2; resolves funnel-numbers gaps; produces `the-work-catalogue-summary.json` shape spec.
+- `2026-05-18-drax-loadout-analytics-suite-iteration-1.md` — BLOCKED on star-lord + elrond manifests landing. Drax implements per IA § 2/3/6 once both manifests are in hand.
+
+**Honest scope discipline preserved (IA § 7):** iteration-1 is *first-pass*, not perfection. Three principles bind: honesty over filler; reuse over re-architecture; sectioned scrolling not paged tabs. Priority order if wall-clock saturates: **Arc 2 (vocabulary) → Arc 1 (substrates) → Arc 4 (diversity) → Arc 3 (catalogue) → Arc 5 (journey) → Arc 6 (hive).** Arc 2 alone earns the suite.
+
+**Cross-track:** Track A (mobile demo) and Track C (visual benchmark) are independent of this IA — both continue per their own DAGs. Galadriel will later screenshot the deployed iteration-1 preview URL for register-coherence review (Track B deliverable 8), at which point IA § 3 visual-register guidance is the scoring rubric for "does it look like one thing with the demo?"
+
+**Effort vs estimate:** dispatch estimated ~2 hours; delivered in window. No L3 surfaced from authoring — all design calls fit pre-authorization matrix § 6 row 11 (new canonical-story doc; not load-bearing canonical amendment).
+
+— gandalf (Mithrandir, on the page)
