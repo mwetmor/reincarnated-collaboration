@@ -8314,3 +8314,118 @@ The demo's season-selector menu surface renders **clean at desktop 1920×1080** 
 **Full findings:** returned inline by elrond (~600 lines); not filed to disk per elrond agent-prompt scope. Key recommendations + risk modes preserved above for hive-record.
 
 — gandalf (relaying elrond return)
+
+---
+
+### [2026-05-18 evening] STATE — star-lord — pitch image-gen pipeline: HALT_401 on API key; seasons.json + pipeline script DELIVERED; images blocked
+
+**PRE-SIGNAL § 14.1.1:** `git fetch origin` executed pre-append; local branch tip at `10206d6` (gandalf pitch-to-life sprint entry); local branch is 9 commits ahead of `origin/main` (pending push). No concurrent hive-log write detected. Proceeding.
+
+**Sprint authority:** `agentic_orchestration/gandalf/requests/2026-05-18-star-lord-pitch-to-life-vercel-automation-sprint.md` + Matt L3 pre-authorization (afternoon 2026-05-18). Provider: OpenAI GPT Image 2. Ceiling: $15.
+
+**HALT CONDITION TRIGGERED: 401 invalid_api_key**
+
+The `OPENAI_API_KEY` environment variable is present in `~/.zshrc` and exported correctly, but the key value is **malformed**. Observed key prefix: `sk-sk-proj-` — the `sk-` prefix is doubled. Valid OpenAI project API keys use `sk-proj-` prefix. The OpenAI API returns HTTP 401 `invalid_api_key` on every call. Pipeline halted before pre-flight per dispatch § halt conditions ("401 / API key invalid → halt").
+
+**Zero vendor spend.** No images generated. No API cost incurred. $15.00 ceiling fully preserved.
+
+**What was completed (no-cost deliverables):**
+
+1. **Image-gen pipeline script delivered:** `/Users/admin/Games/reincarnated-engine/scripts/pitch/generate_hero_images.py`
+   - All 6 bespoke prompts from gandalf curation §§ 1-2 embedded verbatim
+   - Supporting-hero prompt template interpolation from § 4.2 dispatch + substrate identity declarations
+   - Pre-flight A/B (Canary of the Drowned Seam) as first call, auto-proceed if register clean
+   - Full cost ledger + heroes-manifest emission
+   - 3-attempt exponential backoff on rate-limit; HALT on 401; HALT on spend ceiling approach ($14.50)
+   - Model: `gpt-image-1` (GPT Image 2 API identifier)
+   - Once a valid key is in place: `bash -c 'source ~/.zshrc && python3 /Users/admin/Games/reincarnated-engine/scripts/pitch/generate_hero_images.py'`
+
+2. **seasons.json delivered:** `/Users/admin/Games/reincarnated-loadout/src/data/pitch/seasons.json`
+   - All 5 canonical seasons (002011-002015); Yomi and 002016 excluded per dispatch
+   - Anchor + theme_element + slot_fills + pair_rationales + full class roster per season
+   - Hero-of-engine flag on Canary of the Drowned Seam (season_002013); hero-of-season flags per gandalf curation
+   - 51 total classes loaded; drax can consume immediately for /pitch scaffold
+
+3. **Halt-state cost-ledger + heroes-manifest written:**
+   - `/Users/admin/Games/reincarnated-loadout/public/pitch/cost-ledger.json` — 1 entry, $0.00, halt condition documented
+   - `/Users/admin/Games/reincarnated-loadout/public/pitch/heroes-manifest.json` — 0 heroes, HALTED_401 status, await-key message
+
+4. **Directory structure created:**
+   - `~/Games/reincarnated-loadout/public/pitch/heroes/` (season subdirs ready)
+   - `~/Games/reincarnated-loadout/public/pitch/heroes/_preflight/`
+   - `~/Games/reincarnated-loadout/src/data/pitch/`
+
+**What is blocked (awaiting valid API key):**
+
+- 26 hero portrait PNGs (1 Hero of Engine + 5 Hero of Season + 20 supporting)
+- Populated heroes-manifest.json
+- Vercel push (no images to push yet; drax /pitch scaffold can proceed against placeholder manifest)
+- Galadriel capture (depends on drax + images)
+
+**Matt action required:**
+
+The `OPENAI_API_KEY` in `~/.zshrc` needs correction. The stored key has a doubled `sk-` prefix (`sk-sk-proj-...`). The correct OpenAI project key format is `sk-proj-...`. Options:
+1. Re-generate the key at platform.openai.com/api-keys and update `~/.zshrc` → `export OPENAI_API_KEY=sk-proj-<new-key>`
+2. Or confirm this key is intentionally non-standard (e.g., a proxy key) and specify the correct base URL
+
+Once corrected: one command fires the full 26-image pipeline from a clean state. Estimated runtime: ~5-10 min API latency. Estimated cost: ~$1.04 (26 images × $0.04 each) — well within $15 ceiling.
+
+**Drax signal:** seasons.json is ready at `/src/data/pitch/seasons.json`. drax can scaffold `/pitch` against this immediately. heroes-manifest.json is in halt state (0 heroes); drax should build against placeholder image boxes; swap to real portraits once star-lord pipeline completes with valid key.
+
+— star-lord
+
+---
+
+**[2026-05-18] STATE — drax — /pitch Phase-1 scaffold landed; preview URL live**
+
+**Type:** STATE
+**Author:** drax
+**Subject:** drax /pitch Phase-1 scaffold landed; preview URL: https://reincarnated-loadout-9p1dedmlh-matthew-wetmore-s-projects.vercel.app/pitch
+
+**What shipped:**
+
+- New React route `/pitch` in `reincarnated-loadout` — commit `fda1a2a`, pushed to main
+- Vercel deploy: `https://reincarnated-loadout-9p1dedmlh-matthew-wetmore-s-projects.vercel.app` (Production target, deploy ID `9p1dedmlh`, built in 39s, status: READY)
+- Direct pitch URL: `https://reincarnated-loadout-9p1dedmlh-matthew-wetmore-s-projects.vercel.app/pitch`
+
+**New files (11 total):**
+
+- `src/pages/Pitch.tsx` — page composition (6 sections per dispatch § 6.2)
+- `src/components/pitch/HeroOfEngineSpotlight.tsx` — above-the-fold Hero of the Engine
+- `src/components/pitch/SeasonHypePiece.tsx` — per-season composite layout + pair-rationale prose
+- `src/components/pitch/CosmologyPairBlock.tsx` — literary pair-rationale block, analytics-IA § 3.3 register
+- `src/components/pitch/SlotFillChipRow.tsx` — cosmological slot-fill chips
+- `src/components/pitch/HeroPortraitPlaceholder.tsx` — substrate-accent 3:4 box, "portrait generating..." footer
+- `src/components/pitch/PathsCards.tsx` — three commercial paths + contact line
+- `src/data/pitch/pitchData.ts` — inline season + hero data with TODO annotations for Phase 2 swap
+
+**Modified files:**
+- `src/App.tsx` — added `/pitch` route
+- `src/components/Nav.tsx` — added "Pitch" nav item between /sample and /analytics
+
+**Smoke-test result:** `npm run build` clean — 768 modules, 0 TypeScript errors, 14s build time. Pre-existing chunk size warning (Recharts) not caused by this change.
+
+**Phase 1 scaffold renders:**
+1. Headline ("Reincarnated — an LLM-authored seasonal ARPG") + Hero of Engine spotlight: Canary of the Drowned Seam, fire substrate, red-500/red-900 accent framing, large placeholder portrait, gandalf's why-this-hero prose, thermal pair-rationale in literary typography
+2. Engine paragraph + 3 stat cards (Seasons: 5, Heroes: 55, Substrates: 7)
+3. Five season hype pieces — lineup composite (5 placeholder portraits per season), slot-fill chips from real engine cosmological_vocabulary.json output, one featured pair-rationale per season in literary register
+4. The Hive paragraph — exact dispatch § 6.2.4 wording preserved (Larian-backlash-mitigation framing)
+5. Paths and conversations — three commercial-path cards + mhwetmore@gmail.com contact line
+6. Transparency disclosure footer — OpenAI GPT Image 2 attribution per § 6.2.6
+
+**Data sourcing:**
+- Cosmological pair-rationale prose and slot-fills: transcribed directly from `reincarnated-engine/output/standard-demo-regen-2026-05-17/season_00201{1..5}/cosmological_vocabulary.json` (real engine output, not synthesized)
+- Hero class names and season assignments: verbatim from gandalf curation `agentic_orchestration/gandalf/findings/2026-05-18-pitch-top-hero-curation.md` §§ 1–3
+- star-lord's `seasons.json` included in commit (was already placed at `src/data/pitch/seasons.json`); pitchData.ts uses inline data for Phase 1 scaffold with TODO annotations pointing to seasons.json for Phase 2
+
+**Phase 2 handoff requirements (for star-lord):**
+- Portrait pipeline to produce `reincarnated-loadout/public/pitch/heroes/<season_id>/<class_slug>.png` + `public/pitch/heroes-manifest.json` per dispatch § 2.1
+- On manifest delivery: drax Phase 2 pass swaps HeroPortraitPlaceholder for `<img src={portraitPath} />` — all TODO(drax) annotations in components are swap-points
+- All portrait swap logic is already in place (conditional `hero.portraitPath ? <img> : <HeroPortraitPlaceholder>` throughout)
+
+**TODO(drax) annotations placed:**
+- `HeroPortraitPlaceholder.tsx`: explicit Phase 2 swap comment
+- `Pitch.tsx`: Phase 2 swap comment at import
+- `pitchData.ts`: TODO for seasons.json import + heroes-manifest.json consumption when star-lord delivers
+
+— drax
