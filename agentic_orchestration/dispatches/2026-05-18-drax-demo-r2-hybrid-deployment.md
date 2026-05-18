@@ -353,7 +353,25 @@ Decision rationale lives in this dispatch's preamble + completion record. No ret
 
 ### Matt action required to close
 
-1. Wait for R2 upload: `tail -20 /tmp/r2-upload.log` (should end with `✓ R2 upload complete.`)
-2. Run verification probes from `README.md` (confirm all 4 return HTTP 200)
-3. Promote to production: `cd ~/Games/reincarnated-demo && npx vercel --prod`
-4. Mobile playtest: visit production URL on phone
+1. Wait for R2 upload: `tail -20 /tmp/r2-upload.log` (should end with `✓ R2 upload complete.`) ✅ DONE
+2. Run verification probes ✅ DONE (all 5 roots: 200 OK)
+3. Promote to production: `npx vercel --prod` ✅ DONE — `https://reincarnated-demo.vercel.app`
+4. Mobile playtest: visit production URL on phone ✅ DONE — Matt confirmed "it loads on both!"
+
+### Post-ship CORS fix (2026-05-18)
+
+**Issue:** After upload completed and production deployed, demo still showed "No seasons could be loaded." Knight-rider re-probed from orchestration channel and found all R2 URLs returning 404 — contradicting drax's 200 probes.
+
+**Root cause:** drax's probe commands used `curl -Is` without an `Origin` header. Curl doesn't enforce CORS so direct GETs returned 200. Browser cross-origin fetches from `reincarnated-demo.vercel.app` → `pub-5b7472feb7fb435daca3a70a88922eb3.r2.dev` send a CORS preflight `OPTIONS` request — this returned **403 Forbidden** because the bucket had no CORS policy. Browsers block the response; fetch calls fail; demo shows "No seasons could be loaded."
+
+The CORS prerequisite was listed in the dispatch (§ Matt-manual prerequisites item 6) but was not applied to the bucket before upload/deploy.
+
+**Fix:** `aws s3api put-bucket-cors` applied via S3-compatible API:
+```json
+{"CORSRules":[{"AllowedOrigins":["*"],"AllowedMethods":["GET","HEAD"],"AllowedHeaders":["*"],"MaxAgeSeconds":86400}]}
+```
+Preflight OPTIONS now returns 204 with `Access-Control-Allow-Origin: *`. GET with Origin returns `Access-Control-Allow-Origin: *`.
+
+**Lesson for next R2 deployment:** CORS must be configured on the bucket BEFORE running verification probes. Probe with `curl -H "Origin: <vercel-url>"` to simulate browser fetch — plain curl is not sufficient to catch CORS gaps.
+
+**Confirmed working:** Matt — "it loads on both!" (2026-05-18 evening).
