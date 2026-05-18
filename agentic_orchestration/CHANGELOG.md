@@ -4,6 +4,26 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-18 — hive-log STATE: star-lord multi-season encounter analytics complete — telemetry.db backfilled for 6 seasons + MS/AOE schema extended
+
+**Event:** star-lord completed dispatch `2026-05-18-star-lord-fights-jsonl-ingest-plus-multi-season-encounter-analytics`. Matt L3 authorized "fire star-lord on Path A."
+
+**Block 1 — fights.jsonl ingest:** New script `scripts/ingest_fights_jsonl_to_telemetry.py` (engine). Backfilled `class_fight_loadouts`, `abilities`, and `monsters` in `telemetry.db` for 6 seasons: 002011, 002012, 002013, 002014, 002015, and 002328. Total: 609,800 fight rows. Row counts match class-phase JSONL counts exactly. Idempotency smoke-tested (drop-and-replace pattern for fight rows; INSERT OR IGNORE for abilities/monsters). Geometry_type derived via `derive_geometry_type()` 3-layer cascade (same as D10 generation). All V2.x spatial columns NULL for backfilled rows — fights.jsonl has no positional data.
+
+**Block 2 — multi-season encounter analytics:** 6 per-season `encounter_analytics_NNNNNN.json` files landed in `reincarnated-loadout/data/`. Existing `encounter_analytics.json` (season_001005) renamed to `encounter_analytics_001005.json` for naming consistency (original retained).
+
+**Block 3 — MS/AOE radius bands:** Extended `gen_encounter_analytics.py` with two new per-class fields. `movement_speed_band` (slow/medium/fast, per-season 33rd/67th percentile). `aoe_radius_band` (tight/medium/wide, same). AOE radius sourced from canonical geometry-type default table (B11 math note) — per-skill spatial radius params do not exist in class JSON. Documented in output JSON and MIGRATION.md v1.15.
+
+**Findings:** All D10 seasons have uniform movement_speed=8.0 m/s — MS bands degenerate (all "slow"). season_002328 predates movement_speed field (NULL). AOE-vs-monster-position correlation not possible from existing data — no spatial data in fights.jsonl. Flagged to knight-rider for future instrumentation dispatch.
+
+**Engine commit:** `d85fb45`, `89f83c2` — pushed to main. **Loadout commit:** `9b23382` — pushed to main.
+**Tag:** `star-lord/v1.8-fights-jsonl-ingest-plus-multi-season-encounter-analytics-plus-ms-aoe-bands-1`
+**MIGRATION.md:** v1.15 appended.
+
+**drax v1.18 Block 2 status:** UNBLOCKED. Per-season encounter_analytics files ready for consumption.
+
+---
+
 ## 2026-05-18 — hive-log STATE: star-lord bulk re-roll resume complete — 12 missing portraits generated; total 24/24 in `_reroll_all/`
 
 **Event:** Resumed `bulk_reroll_anatomy.py` after prior run died silently at 12/24. Patched script with skip-if-exists idempotency guard, then ran to completion synchronously.

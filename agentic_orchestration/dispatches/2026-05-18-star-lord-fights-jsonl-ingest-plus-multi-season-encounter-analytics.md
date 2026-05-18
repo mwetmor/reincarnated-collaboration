@@ -164,4 +164,39 @@ The AOE-vs-position correlation requires a new engine instrumentation pass (capt
 
 ## Completion record
 
-*(star-lord appends here when done)*
+**Status:** COMPLETE
+**Completed:** 2026-05-18
+**Engine commit:** d85fb45 (feat(star-lord): multi-season encounter analytics + MS/AOE schema extension)
+**Loadout commit:** 9b23382 (data(star-lord): 6 per-season encounter_analytics + 001005 rename)
+**Tag:** `star-lord/v1.8-fights-jsonl-ingest-plus-multi-season-encounter-analytics-plus-ms-aoe-bands-1`
+
+### Acceptance criteria verification
+
+- [x] Block 1: `scripts/ingest_fights_jsonl_to_telemetry.py` authored; idempotent; smoke-verified on season_002011
+- [x] Block 1: all 6 seasons ingested (002011-002015 + 002328); row counts match class-phase JSONL line counts
+  - 002011: 109,200 / 002012: 100,800 / 002013: 118,800 / 002014: 106,800 / 002015: 112,800 / 002328: 61,000 = 609,800 total
+  - Non-class-phase rows (~500/season) correctly excluded via `phase == 'class'` filter
+- [x] Block 1: abilities + monsters tables backfilled for all 6 seasons from per-season JSONs
+  - season_002328 sourced from `reincarnated-engine-side-seed/seasons/` (not present in main engine output)
+- [x] Block 2: 6 per-season `encounter_analytics_NNNNNN.json` files staged in `reincarnated-loadout/data/`
+- [x] Block 2: existing `encounter_analytics.json` renamed to `encounter_analytics_001005.json` (original retained)
+- [x] Block 3: MS + AOE radius bands present in all 6 per-season JSONs (with raw values + bucketed bands)
+- [x] MIGRATION.md v1.15 entry appended
+- [x] AGENT_STATE updated
+- [x] Tag applied
+
+### Observations and findings
+
+**season_002328 location:** `~/Games/reincarnated-engine-side-seed/seasons/season_002328/` — not in main engine `output/` dir. Fights.jsonl = 63,999 lines, 61,000 class-phase rows. Classes/monsters ingested from side-seed dir.
+
+**season_002328 MS:** NULL — predates `movement_speed` field in class JSON (season generated 2026-05-13). AOE radius bands present (derived from geometry_type).
+
+**AOE radius implementation note:** The dispatch spec references `skill.effects[N].params.radius` — this field does NOT exist in the class JSON format. Class JSON `effects[N].params` contains only `magnitude`, `duration_seconds`, `element`, etc. AOE radius is derived from canonical geometry-type default values (B11 math note). This is documented in the output JSON `aoe_radius_band_thresholds.note` field and in MIGRATION.md v1.15.
+
+**MS bands for D10 seasons:** All 10 classes in seasons 002011-002015 have `movement_speed = 8.0 m/s` — uniform across the D10 regen batch. Percentile bands degenerate to all "slow" for these seasons (p33=p67=8.0). This is correct behavior given the data.
+
+**Positional telemetry gap (flagged for knight-rider):** AOE-vs-monster-spawn-position correlation is not possible from existing data. fights.jsonl has no spatial data. Future engine instrumentation required: monster spawn positions, AOE cast positions, player spawn positions per fight. This is a separate scope item for a future dispatch.
+
+**Geometry_type derivation for abilities:** Class JSON `skills` lack `geometry_type` on the skill object. Derived deterministically via `derive_geometry_type()` (3-layer cascade, same algorithm as D10 generation). Fallback = "single_target" with WARNING log if no rule matches.
+
+**drax v1.18 Block 2:** Unblocked. Drax can now consume the 6 `encounter_analytics_NNNNNN.json` files for multi-season Encounters page support. Guard: `class.movement_speed_band ?? null`, `class.aoe_radius_band ?? null` (NULL for 002328 MS; NULL for 001005 both fields if regenerated from old format).
