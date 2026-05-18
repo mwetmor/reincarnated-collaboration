@@ -7997,3 +7997,36 @@ Coupling #3 stat_allocator fallback → ValueError on unrecognized archetype. Ro
 **Tag:** `elrond/v1.9-wsp-layer-1-curation-1` (local).
 
 — elrond
+
+---
+
+### [2026-05-18] STATE — elrond — chierit substrate mapping COMPLETE (tag elrond/v1.10-chierit-substrate-mapping-1)
+
+**PRE-SIGNAL § 14.1.1:** `git fetch origin` executed pre-append; hive-log tip at `b40fc78` (elrond/v1.9 WSP Layer 1 curation, prior entry); local working tree includes latest. No concurrent hive-log write detected at append time. Proceeding by-path stage.
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-18-elrond-chierit-substrate-mapping.md` (Pattern A — Matt L3 acquisition 2026-05-18; Lightning Ronin Full $7.50 + Light Valkyrie Complete $12 = ~$19.50; closes #138 monster acquisition gaps for lightning + holy non-boss substrates).
+
+**Outcome:** chierit Elementals series (Lightning Ronin + Light Valkyrie) mapped to monster mini-boss-tier slots for lightning + holy substrate gap closure. Coverage matrix updates: lightning advances from YELLOW (mini-boss only via thunder-shifted Fire_Lord palette) to GREEN (mini-boss native chierit anchor coexisting 2-deep with thunder Fire_Lord); holy advances from YELLOW (boss only via angel-guardian) to GREEN (mini-boss + boss tier-progressive ladder). Coverage matrix § 6 ACQUISITION gaps both addressed; #138 closed.
+
+**Key resolutions:**
+- **Substrate-gap acquisition closure.** Lightning substrate native (was MEDIUM ACQUISITION) — RESOLVED via Lightning Ronin Full (34 animation states + 4 lightning-specific mobility states + 15 elemental-mode variants). Holy substrate non-boss tiers (was MEDIUM ACQUISITION) — PARTIALLY RESOLVED via Light Valkyrie Complete at mini-boss tier (43 animation states + 14 elemental-mode + flight + ranged-projectile + sp_atk VFX spritesheets); holy trash + elite tiers remain as future acquisition gaps.
+- **Dual-use sprite reuse pattern.** Both chierit packs are ALREADY wired as PLAYER characters at /assets/characters/lightning-ronin/ + /assets/characters/light-valkyrie/ (per characterSprites.ts ELEMENT_CHARACTER_MAP). Recommended monster wire-in REUSES the same preprocessed sheets at /assets/characters/<slug>/sheets/ via distinct monster slugs (lightning-ronin-monster + light-valkyrie-monster). Zero new preprocessing; clean namespace separation. The chierit Elementals series naturally serves both player-character role (player IS the lightning/holy elemental) and enemy-monster role (player FACES the lightning/holy elemental) — a legitimate dual-use pattern.
+- **Tier recommendation: BOTH mini-boss (not boss).** Rationale: (1) holy boss already filled by angel-guardian — adding a second holy boss redundant for VS2a single-gauntlet scope; (2) mini-boss is the highest-impact substrate-coverage move per coverage matrix § 3.3; (3) lightning + holy mini-boss tier creates tier-progressive ladders (lightning: 2-deep at mini-boss; holy: mini-boss → angel-guardian boss); (4) chierit Lightning Ronin + Light Valkyrie sprite-scale at ~4.0× canvas-height lands in mini-boss 173-230 px Path A-prime band cleanly; (5) Light Valkyrie's boss-tier-richness (44 anims + flight + ranged + VFX bonuses) can be re-elevated to boss tier post-VS2a if angel-guardian retires.
+
+**Pack content audit summary (PIL-measured):**
+- Lightning Ronin Full: 34 anim states, 288×128 frames uniform, master spritesheet 12672×4224. Notable: lightning_dash + lightning_dash_loop (lightning-flavor mobility), transform 44f + back2human 12f (Elemental Mode), death_cen + death_uncen variants.
+- Light Valkyrie Complete: 43 anim states, 288×128 frames uniform, master spritesheet 10080×5760. Notable: projectile_atk 17f + sp_atk_cast 29f (charging ranged), j_up_loop + j_down_loop + e_up_loop + e_down_loop (flight loops), couch_* suite (4 states), climb suite (ladder/ledge/rope/wall — 5 states), 2 bonus VFX spritesheets (light_projectile 96×64 7-frame; light_sp_atk_vfx 160×128 18-frame), 2 transition frames (1.1 addon).
+
+**Deliverables:**
+- `agentic_orchestration/research/curated/monster-subset-vs2a-2026-05-17.jsonl` — EXTENDED with 1 addendum-meta row + 2 monster rows appended at lines 14-16 (chierit-lightning-ronin-monster + chierit-light-valkyrie-monster, both mini-boss, both priority-5, full drax wiring notes embedded).
+- `agentic_orchestration/research/curated/chierit-monster-wire-in-handoff-brief-2026-05-18.md` — NEW 9-section drax wire-in handoff brief covering pack audit, monsterSprites.ts insertion targets (ENEMY_TIER_CHARACTER_MAP + ELEMENT_PREFERRED_SLUG + MONSTER_SCALE_BY_SLUG with scale-math justification), per-monster metadata.json templates (with cross-folder ../../characters/<slug>/sheets/<anim>.png sheet_path reuse pattern), animation state machine mappings (idle/walk/attack/hurt/death/casting per monster), Elemental Mode wire-now-vs-Phase-2 recommendation (DEFER to Phase-2 — engine-side activation logic absent; v1.21+ scope), Light Valkyrie 1_atk.png GPU upload investigation cross-reference per drax v1.16.2 holy VFX flag (texture preload opportunity: eager BaseTexture.from() at monster sprite instantiation), attribution credit posture (existing creditsOverlay.ts CREDITS[0] umbrella covers CC-BY 4.0 obligation; recommend supplemental Monster-tier credit for in-game clarity), 7-step smoke verification protocol.
+
+**Out of scope honored:** NO wiring (drax v1.20 seam — queued post-mobile chain). NO sprite preprocessing (chierit stage1 already produced /assets/characters/<slug>/sheets/). NO drax v1.18 WSP wire-in or mobile audit pre-empt. NO other monster manifest row modification. NO tag push (ADR-006).
+
+**Tag:** `elrond/v1.10-chierit-substrate-mapping-1` (local).
+
+**Drax v1.20 queue position:** post-mobile chain (drax v1.18 WSP wire-in in flight in parallel; v1.19 mobile audit + v1.19 mobile polish before v1.20 chierit-monster-wiring per dispatch coordination note). Drax handoff brief is comprehensive — should consume directly.
+
+**Post-completion elrond queue (per knight-rider PRE-SIGNAL):** Tier 5.1/5.2 final curation pass — icon style Game-icons.net consistency + consistent prop scale + medium density + single credits.txt + catalogue-DB schema authoring. Knight-rider fires post-this.
+
+— elrond
