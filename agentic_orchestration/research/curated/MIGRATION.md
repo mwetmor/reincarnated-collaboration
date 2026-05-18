@@ -7,6 +7,128 @@
 
 ---
 
+## v1.6 — Pattern A: Tier 5.1/5.2 final curation — additive schema spec + manifest extension — 2026-05-18
+
+### What changed (one line)
+
+Authored additive catalogue-DB schema spec (`catalogue-db-schema-v2-2026-05-18.md`) introducing `usage_recommendation` + `license_class` enum columns on `catalogue_assets` per Matt L3 Tier 5.2 approval; extended `ambient-props-subset-vs2a-2026-05-17.jsonl` with 8 new prop rows (Tier 5.1 prop pool extension); authored consolidated drax v1.21+ handoff brief covering icons + props + credits.txt + schema cross-reference.
+
+### Why (one line)
+
+Closes Tier 5.1 (Game-icons.net SIL-1.1 / consistent prop scale 0.75× / medium decoration density / single credits.txt) + Tier 5.2 (additive schema rubber-stamp); operationalizes the dungeon-objects audit § 6 curation lesson at schema level (per-file `usage_recommendation` prevents shred-defect class); enables programmatic credits.txt generation via `license_class` per-asset specific-license tracking.
+
+### Who's affected
+
+- **Drax** — receives `tier-5-1-5-2-drax-v1.21-handoff-brief-2026-05-18.md` as consumption-ready brief for v1.21+ wire-in (queued post-mobile-chain + post-chierit-monster-wiring; lowest VS2a polish priority). Brief covers 28-icon game-icons.net role mapping, `PROP_RENDER_SCALE_OVERRIDE = 0.75` application, 8 new prop descriptors with source coords, complete credits.txt verbatim text, schema cross-reference. No drax-side schema consumption required in v1.21+ pass (schema is upstream-curator-facing; future passes populate the new columns).
+- **Legolas** — no action; future Mode B crawls can populate `usage_recommendation` per persona-rule extension if knight-rider sequences. Optional addition to legolas.md per-row output format.
+- **Gandalf** — schema additions enable license-risk + per-class-substrate queries; surfaces for any future cipher-width / cluster-clarity sensitivity that wants to factor license-class exposure.
+- **Star-lord** — no engine-side impact; ADR-004 satisfied via elrond-side MIGRATION.md v1.6 only.
+- **Rocket** — unaffected.
+- **Knight-rider** — receives this MIGRATION + handoff-brief + schema spec + manifest extension + AGENT_STATE update. Sequences drax v1.21+ at lowest VS2a polish priority; sequences future elrond v1.12 schema-execution dispatch when convenient.
+- **Matt** — Tier 5.1 + Tier 5.2 lock satisfied at the curation seam; no further upstream action needed for this loop.
+
+### What downstream consumers need to do
+
+**Drax (v1.21+ when fired):**
+
+1. Download 28 game-icons.net icons (SIL-1.1; zero spend) per handoff brief § 1.3 role mapping.
+2. Apply `PROP_RENDER_SCALE_OVERRIDE = 0.75` multiplier per handoff brief § 2.1.
+3. Append 8 new prop descriptors to `STATIC_PROP_DESCS` per handoff brief § 2.3.
+4. Extend `dungeonPropsForRoom()` to per-room-size variable density per handoff brief § 2.2.
+5. Deploy verbatim `credits.txt` text per handoff brief § 3.1.
+6. Acceptance criteria per handoff brief § 5; out-of-scope guards per § 6.
+
+**Star-lord:** no action.
+
+**Gandalf:** schema additions enable license-class + usage-recommendation queries when next abstraction-analysis pass benefits.
+
+**Legolas:** future Mode B crawls may populate `usage_recommendation` per-row optionally; persona.md addition not in scope for this dispatch.
+
+### Schema diff or example before/after
+
+**catalogue.db schema:** NO CHANGE EXECUTED IN THIS DISPATCH. v1.1 schema columns hold. v1.6 spec is authored and approved but execution is deferred to a future elrond v1.12 dispatch (per `catalogue-db-schema-v2-2026-05-18.md` § 7).
+
+**catalogue.db data:** NO CHANGE. v1.5 data state (3 sources / 3 packs / 48 assets / 461 tags / 1 session) holds.
+
+**Curated-layer artifacts:**
+
+| Artifact | Before | After |
+|---|---|---|
+| `ambient-props-subset-vs2a-2026-05-17.jsonl` row count | 26 (1 meta + 25 rows) | **35** (1 meta + 25 rows + **1 addendum-meta + 8 new rows**) |
+| `catalogue-db-schema-v2-2026-05-18.md` | did not exist | **NEW** — spec for `usage_recommendation` + `license_class` columns + indexes + v1.6 schema_meta row |
+| `tier-5-1-5-2-drax-v1.21-handoff-brief-2026-05-18.md` | did not exist | **NEW** — consolidated 4-deliverable brief (icons + props + credits + schema cross-ref) |
+| `MIGRATION.md` | v1.5 latest | **v1.6 entry appended** |
+
+**Schema-spec-only mutations (NOT yet applied to catalogue.db):**
+
+| Aspect | Spec'd v1.6 | Execution |
+|---|---|---|
+| New column `usage_recommendation TEXT NULL CHECK (...)` on `catalogue_assets` | spec'd | deferred to elrond v1.12 |
+| New column `license_class TEXT NULL CHECK (...)` on `catalogue_assets` | spec'd | deferred to elrond v1.12 |
+| Partial indexes on new columns | spec'd | deferred |
+| `schema_meta` v1.6 row | spec'd | deferred |
+| Migration script `v1_6_usage_recommendation_license_class.sql` | NOT yet authored (spec-only) | future dispatch |
+
+### Tier 5.1 / 5.2 Matt-lock satisfaction record
+
+| Tier 5.1 lock | Satisfied by |
+|---|---|
+| Game-icons.net (SIL-1.1) | Handoff brief § 1 (role mapping for 28 icons + license posture + on-disk placement spec) |
+| Consistent prop scale | Handoff brief § 2.1 (`PROP_RENDER_SCALE_OVERRIDE = 0.75` per gandalf v1.7 canon) |
+| Medium decoration density | Handoff brief § 2.2 (4-6-8 per-room-size density rules + within-room uniqueness) |
+| Single credits.txt | Handoff brief § 3.1 (complete verbatim file content for drax deployment) |
+
+| Tier 5.2 lock | Satisfied by |
+|---|---|
+| Defer mega-pack-02 | No mega-pack-02 work in this dispatch; pass-through |
+| Rubber-stamp HD-cinematic | Pass-through (no elrond surface) |
+| Approve catalogue-DB additive schema | Schema spec authored at `catalogue-db-schema-v2-2026-05-18.md`; v1.6 design-locked, execution deferred |
+
+### Cross-seam ADR compliance
+
+- **ADR-002 (cross-seam schema = Matt approval):** Matt L3 2026-05-18 explicit approval of additive schema. v1.6 spec is within scope.
+- **ADR-004 (MIGRATION.md for cross-seam handoff):** this entry. Engine telemetry untouched.
+- **ADR-006 (external system writes require authorization):** writes confined to elrond-owned paths (`research/curated/*`). No drax/demo/loadout code touched. No tag push.
+- **ADR-007 (survey-mode):** handoff brief separates "what to wire" from "what NOT to wire" (§ 6 out-of-scope guards explicit).
+
+### Files changed
+
+- `agentic_orchestration/research/curated/catalogue-db-schema-v2-2026-05-18.md` (NEW)
+- `agentic_orchestration/research/curated/tier-5-1-5-2-drax-v1.21-handoff-brief-2026-05-18.md` (NEW)
+- `agentic_orchestration/research/curated/ambient-props-subset-vs2a-2026-05-17.jsonl` (EXTENDED — 26 → 35 lines)
+- `agentic_orchestration/research/curated/MIGRATION.md` (THIS FILE — v1.6 entry)
+- `agentic_orchestration/research/curated/AGENT_STATE.md` (UPDATED — Pattern A Tier 5.1/5.2 completion record)
+
+### Files intentionally NOT changed
+
+- `agentic_orchestration/research/curated/catalogue.db` — schema execution deferred per § Schema diff
+- `agentic_orchestration/research/scripts/catalogue_migrations/v1_6_*.sql` — migration script NOT yet authored (future dispatch)
+- `reincarnated-demo/public/credits.txt` — drax v1.21+ seam (this dispatch authors text only)
+- `reincarnated-demo/src/visuals/ambientPropsExtension.ts` — drax v1.21+ seam
+- `reincarnated-demo/src/visuals/gameIcons.ts` — drax v1.21+ seam (new module)
+- Other curated artifacts (`dungeon-objects-quality-audit-2026-05-18.md` etc.) — unchanged
+
+### Reversibility
+
+Spec-only mutation:
+- Three new docs (`catalogue-db-schema-v2-*`, `tier-5-1-5-2-drax-v1.21-handoff-brief-*`, MIGRATION.md v1.6 entry) — revertible by `rm` + git-reset
+- Manifest extension (`ambient-props-subset-vs2a-2026-05-17.jsonl`) — revertible by `head -n 26` (the addendum-meta + 8 rows are contiguous at the file tail)
+- No catalogue.db mutation in this dispatch; no DB backup needed.
+
+### Out-of-scope follow-ons (for knight-rider sequencing)
+
+1. **elrond v1.12 — execute v1.6 schema migration** — author `v1_6_usage_recommendation_license_class.sql`; apply to catalogue.db; create pre-v1.6 backup. Estimated 30-45 min.
+2. **elrond v1.13 — back-fill existing 48 rows with `usage_recommendation` + `license_class`** — single curator pass over the corpus. Estimated 1-2 hours.
+3. **drax v1.21+ — wire-in per handoff brief** — Tier 5.1 surfaces (icons + props + credits.txt). Estimated 2-3 hours when sequenced.
+4. **legolas persona.md extension** — optional addition of `usage_recommendation` field to Mode B crawl output schema. Knight-rider sequences.
+5. **future curation passes consume `license_class`** — credits.txt generator script (research/scripts/) when corpus crosses ~100 attribution surfaces and hand-curation becomes brittle.
+
+### Tag
+
+`elrond/v1.11-tier-5-1-5-2-final-curation-1` (local; no push per ADR-006)
+
+---
+
 ## v1.5 — Pattern A: Pixogen catalogue loop closure (HOLD → APPROVED-WITH-ATTRIBUTION) — 2026-05-16
 
 ### What changed (one line)
