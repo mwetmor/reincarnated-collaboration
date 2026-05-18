@@ -8097,4 +8097,38 @@ All 8 blocks shipped in one commit. Build: tsc clean + vite 533 modules.
 
 **Next drax queue:** chierit monster wiring (elrond handoff brief at `curated/chierit-monster-wire-in-handoff-brief-2026-05-18.md`) → v1.21 portrait canvas remap (Q-NEW-1)
 
+---
+
+### [2026-05-18 evening] STATE — knight-rider — overnight sprint ACTIVATED (mobile-playable + loadout analytics + visual benchmark)
+
+**PRE-SIGNAL § 14.1.1:** `git fetch origin` executed; hive-log tip at `c40eb08` (gandalf invocation doc) is local-current. No concurrent hive-log write detected at append. Proceeding by-path stage.
+
+**Invocation:** `agentic_orchestration/gandalf/requests/2026-05-18-knight-rider-mobile-playable-analytics-visual-benchmark-sprint.md` (gandalf, per Matt directive; AWAITING KNIGHT-RIDER ENGAGEMENT → now ENGAGED).
+
+**Sprint mode:** Single-night autonomous; human-out-of-the-loop; protocol amendments per invocation § 5 (30-min hive-log cadence per active seam; midpoint + end-of-sprint state-of-hive; expanded L2.5 latitude within § 6 pre-authorization matrix; hard NOs honored). Standard hive-mind protocol REMAINS bedrock; tonight is scope-focus, not mission replacement.
+
+**Three tracks active:**
+- **Track A (mobile-playable demo):** drax v1.20 already SHIPPED (`bb9e361`); v1.21 portrait remap also SHIPPED (`7e5b93b` in demo / `e6db947` in collab). Track A.1 unblocked. Sequencing → drax local-dev mobile-render validation (Track A.2) + debug-state hook D11.5 + first-tileset visibility confirmation.
+- **Track B (loadout analytics):** gandalf authors IA (Track B.5) FIRST → star-lord + elrond data manifests in parallel (Track B.6) → drax implementation (Track B.7) → galadriel screenshot validation (Track B.8). Vercel preview auto-deploy on push.
+- **Track C (visual benchmark pilot):** galadriel newly commissioned (per invocation § 4 + pre-authorization row 1); reference set + MANIFEST.md already saved at `agentic_orchestration/galadriel/reference-images/` (7 DoE captures, 1 combat + 6 town); galadriel onboarding → capture pipeline (Playwright/Puppeteer headless) → rubric draft → state-matched scoring → first-pass benchmark report co-authored with gandalf.
+
+**Pre-authorization verified:** All § 6 ACT rows acceptable for tonight's operational reality. All HARD-NO rows (vendor spend, force push, actual Vercel demo deploy, Phase-1 P1 scope changes, load-bearing canonical amendments, CLAUDE.md/AGENTS.md modifications) honored.
+
+**Activation actions now in flight:**
+1. Galadriel agent definition: creating `.claude/agents/galadriel.md` from invocation § 4 spec (template: gandalf.md + elrond.md structure)
+2. Galadriel working tree: extending `agentic_orchestration/galadriel/` with `captures/` + `rubrics/` + `reports/` subdirs
+3. Per-seam initial tasking distributed per invocation § 3
+4. Morning-briefing accumulation doc opened at `agentic_orchestration/hive-mind/morning-briefing-2026-05-19.md`
+5. Midpoint state-of-hive target: ~03:00-04:00 local Matt time (or first meaningful milestone)
+6. End-of-sprint state-of-hive target: morning hand-off
+7. Sprint-end checkpoint tag intent: `sprint/v0.1-mobile-analytics-benchmark-2026-05-18`
+
+**In-flight Phase-1 P1 work continues unaffected:** rocket new-season-regen (002016 dispatch in flight per `output/standard-demo-regen-2026-05-17/` untracked files), elrond catalogue work, gamora D11.2 advisory queues, jack-ryan continuous-observation rhythm. Tonight's three tracks are ADDITIVE.
+
+**Hard halt conditions per invocation § 5.3:** L3 outside matrix → queue for morning; track-specific halt-conditions per § 2 → queue; >1h test breakage → halt; engine unrecoverable → rollback + queue. Halting is NOT failure; it's the right response.
+
+**Matt-AFK posture:** All L3 surfaces queued to `morning-briefing-2026-05-19.md`. Knight-rider operates expanded L2.5 within § 6 matrix; routes alternates when blocked.
+
+— knight-rider (KITT, on the wheel)
+
 — drax
