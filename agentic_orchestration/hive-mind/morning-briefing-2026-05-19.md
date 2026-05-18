@@ -33,7 +33,52 @@ This document accumulates throughout the sprint. Every L3-queued item, every hal
 
 ---
 
-(Additional L3 items will accumulate below as the sprint progresses. Empty until the next surfaces.)
+### L3-2 — Subagent spawn mechanism unavailable in knight-rider session
+
+**Surfaced at:** Sprint activation, immediately after dispatch authoring completed (2026-05-18 evening).
+**Context:** Per protocol § 3 + invocation § 3 per-seam tasking, knight-rider would normally spawn specialists in parallel (gandalf for IA, drax for D11.5, star-lord for Vercel options paper, etc.) so the three tracks run concurrently overnight. The Task tool / subagent-spawn mechanism is not available in this knight-rider session — only deferred tools related to background-shell-stopping, worktree-management, and web-fetch are surfaced; no Task-equivalent tool exists for spawning gandalf, drax, star-lord, elrond, or jack-ryan as parallel subagents.
+**Implication:** The 8 dispatches authored tonight are on disk and ready, but knight-rider cannot directly *fire* them as parallel subagent sessions during the overnight window. The Pattern B file-based dispatch mechanism still works — specialists pick up dispatches when their sessions open — but that requires Matt (or a harness-external mechanism) to actually open specialist sessions. Without that, the dispatches sit queued until morning.
+
+**Disposition:** Knight-rider honors role boundary (per `.claude/agents/knight-rider.md` + project CLAUDE.md: "You read everything, write nothing production."). Tonight's pre-authorization matrix § 6 entries that name knight-rider's *own* authoring (rows 11-13: canonical-story docs, decisions-log drafts, hive-log entries) cover coordination docs, NOT specialist deliverables. The IA, the Vercel options paper, the rubric, the data manifest, the benchmark report — those are specialist authorship; knight-rider authors dispatches FOR them, not the documents themselves.
+
+What knight-rider DID tonight under role-appropriate authority:
+- Read and verified the invocation in full
+- Authored hive-log activation STATE entry per § 14.1.1
+- Created `agentic_orchestration/galadriel/` working tree subdirectories (row 2)
+- Drafted the full galadriel agent file at `AGENT-DRAFT.md` for Matt morning approval (row 1 fallback)
+- Authored 8 dispatches covering all three tracks' specialist work (orchestration role)
+- Opened morning-briefing accumulation doc (this file)
+- Committed activation snapshot at `72495b8` (no push per ADR-006)
+
+What knight-rider does NOT do tonight under role boundary:
+- Implement code (drax / rocket / gamora / star-lord / elrond domain)
+- Author canonical-story docs as primary author (gandalf / specialist domain)
+- Author benchmark reports or rubrics (galadriel / gandalf / drax domain)
+- Author Vercel options paper (drax + star-lord domain)
+- Author IA seed (gandalf domain — even a "seed" intrudes on design-direction authorship)
+- Run the demo dev server or capture pipeline (drax / galadriel domain)
+- Push commits to any remote (ADR-006 hard)
+
+**Hive recommendation for Matt morning:** Open three specialist sessions in parallel and the sprint completes in a morning window (~6-8h):
+
+```bash
+# Three terminals:
+cd ~/Games/reincarnated-collaboration && claude --agent gandalf   # picks up IA dispatch
+cd ~/Games/reincarnated-demo && claude --agent drax-demo          # picks up D11.5 + mobile-render-validation dispatch
+cd ~/Games/reincarnated-collaboration && claude --agent star-lord # picks up Vercel options paper co-author + data manifest
+```
+
+After gandalf IA lands, elrond joins for catalogue-side data manifest. After both manifests land, drax pivots to loadout-analytics iteration-1. After drax-D11.5 lands, drax (or galadriel if Matt approves agent file) builds capture pipeline. After captures land, gandalf + drax co-author benchmark report.
+
+The dispatches on disk are comprehensive (each ~5-10KB; full required-reading, deliverables, math-before-code where applicable, completion criteria, out-of-scope, halt conditions, HARD NOs). A specialist opening their session can read their dispatch and execute without back-and-forth.
+
+**What blocked execution:** Tooling — no Task/subagent-spawn tool in knight-rider session. Worth investigating for future knight-rider invocations whether this is harness configuration, intentional design, or session-specific. The "single-night autonomous sprint" model in the invocation assumes parallel-subagent-spawn from knight-rider — without it, the model degrades to "dispatches-queued-overnight, specialists-execute-on-morning."
+
+**What the hive routed to instead:** Coordination-only mode. All 8 specialist dispatches are authored, on disk, ready to be picked up. The morning-briefing and the (forthcoming) midpoint + end-of-sprint state-of-hive surface the situation honestly. Matt opens specialist sessions on morning; sprint executes in a compressed morning window with the dispatch tree pre-positioned.
+
+---
+
+(Additional L3 items will accumulate below as the sprint progresses.)
 
 ---
 
