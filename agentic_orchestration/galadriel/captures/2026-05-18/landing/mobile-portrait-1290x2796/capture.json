@@ -1,10 +1,10 @@
 {
   "state": "landing",
   "state_purpose": "Smoke-test the pipeline + provide a non-state-matched baseline if D11.5 is delayed.",
-  "viewport": "mobile-portrait-390x844",
+  "viewport": "mobile-portrait-1290x2796",
   "viewport_spec": {
-    "width": 390,
-    "height": 844,
+    "width": 1290,
+    "height": 2796,
     "deviceScaleFactor": 3,
     "isMobile": true
   },
@@ -13,7 +13,7 @@
   "doe_reference": null,
   "demo_git_sha": "7e5b93b17658408d00bd928ed80846078407544d",
   "demo_git_short_sha": "7e5b93b",
-  "captured_at_utc": "2026-05-18T14:36:04.086Z",
+  "captured_at_utc": "2026-05-18T14:36:00.687Z",
   "ok": true,
   "error": null,
   "wait_for": null,
@@ -31,6 +31,6 @@
     "[warning]     at http://localhost:5173/src/ui/seasonSelector.ts?t=1779089293425:54:22\n    at Array.forEach (<anonymous>)\n    at createSeasonSelector (http://localhost:5173/src/ui/seasonSelector.ts?t=1779089293425:45:13)\n    at showSeasonMenu (http://localhost:5173/src/main.ts?t=1779089703442:1757:5)\n    at main (http://localhost:5173/src/main.ts?t=1779089703442:1967:3)",
     "[endGroup] console.groupEnd"
   ],
-  "capture_png": "2026-05-18/landing/mobile-portrait-390x844/capture.png",
+  "capture_png": "2026-05-18/landing/mobile-portrait-1290x2796/capture.png",
   "pipeline_version": "0.1.0"
 }

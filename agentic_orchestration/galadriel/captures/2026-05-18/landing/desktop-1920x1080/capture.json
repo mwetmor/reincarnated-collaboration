@@ -1,19 +1,19 @@
 {
   "state": "landing",
   "state_purpose": "Smoke-test the pipeline + provide a non-state-matched baseline if D11.5 is delayed.",
-  "viewport": "mobile-portrait-390x844",
+  "viewport": "desktop-1920x1080",
   "viewport_spec": {
-    "width": 390,
-    "height": 844,
-    "deviceScaleFactor": 3,
-    "isMobile": true
+    "width": 1920,
+    "height": 1080,
+    "deviceScaleFactor": 1,
+    "isMobile": false
   },
   "dev_url": "http://localhost:5173",
   "full_url": "http://localhost:5173/",
   "doe_reference": null,
   "demo_git_sha": "7e5b93b17658408d00bd928ed80846078407544d",
   "demo_git_short_sha": "7e5b93b",
-  "captured_at_utc": "2026-05-18T14:36:04.086Z",
+  "captured_at_utc": "2026-05-18T14:36:07.414Z",
   "ok": true,
   "error": null,
   "wait_for": null,
@@ -24,13 +24,12 @@
     "[debug] [vite] connecting...",
     "[debug] [vite] connected.",
     "[warning] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://goo.gl/7K7WLu",
-    "[log] [mobile] detected=true userAgent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/131.0.6778.33 Safa",
     "[log] [audio:diag] manifest fetch status=200 ok=true",
     "[log] [audio:diag] manifest loaded: layer1=72 keys layer3=27 keys layer4=8 keys",
     "[startGroupCollapsed] %cPixiJS Deprecation Warning: %c%s color:#614108;background:#fffbe6 font-weight:normal;color:#614108;background:#fffbe6 Setting interactive is deprecated, use eventMode = 'none'/'passive'/'auto'/'static'/'dynamic' instead.\nDeprecated since v7.2.0",
     "[warning]     at http://localhost:5173/src/ui/seasonSelector.ts?t=1779089293425:54:22\n    at Array.forEach (<anonymous>)\n    at createSeasonSelector (http://localhost:5173/src/ui/seasonSelector.ts?t=1779089293425:45:13)\n    at showSeasonMenu (http://localhost:5173/src/main.ts?t=1779089703442:1757:5)\n    at main (http://localhost:5173/src/main.ts?t=1779089703442:1967:3)",
     "[endGroup] console.groupEnd"
   ],
-  "capture_png": "2026-05-18/landing/mobile-portrait-390x844/capture.png",
+  "capture_png": "2026-05-18/landing/desktop-1920x1080/capture.png",
   "pipeline_version": "0.1.0"
 }
