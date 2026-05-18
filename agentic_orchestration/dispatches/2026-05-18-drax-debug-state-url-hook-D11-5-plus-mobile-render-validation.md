@@ -112,3 +112,46 @@ When dispatch completes:
 ---
 
 *Dispatched 2026-05-18 evening by knight-rider per overnight sprint invocation Track A § 2.1 deliverable 2 + Track C § 2.3 deliverable 11.5. Single-night sprint cadence; § 14.1.1 PRE-SIGNAL discipline applies.*
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-18  
+**Tag:** `drax/v1.22-debug-state-hook-1` (commit `c039184`)  
+**Smoke:** `tsc --noEmit` clean; `npm run build` 534 modules, 0 errors.
+
+### D11.5 — Debug-state URL hook
+
+**Files changed:**
+- `src/debug/debugStates.ts` — NEW. Exports `parseDebugParams()`, `VALID_DEBUG_STATES`, `DebugState`, `DebugSpec` types. Complete JSDoc with usage examples and production-safety contract.
+- `src/main.ts` — import `parseDebugParams`; replaced `showSeasonMenu()` at bottom of `main()` with debug-routing block (async IIFE that auto-boots season + class then applies state setup).
+
+**States wired:**
+| State | URL | Console signal |
+|---|---|---|
+| `combat-midfight` | `?debug=true&debug-state=combat-midfight` | `[debug-state] activated=combat-midfight class=<name> season=season_002011 monsters=<n> aggro=active wave=1` |
+| `combat-empty-room` | `?debug=true&debug-state=combat-empty-room` | `[debug-state] activated=combat-empty-room class=<name> season=season_002011 monsters=0` |
+| `inventory-open` | `?debug=true&debug-state=inventory-open` | `[debug-state] activated=inventory-open class=<name> season=season_002011 monsters=<n>` |
+
+**Production-safety verified:** Without `?debug=true`, `parseDebugParams()` returns null → `showSeasonMenu()` runs normally. Code path is explicit; no silent leak possible.
+
+**Determinism contract:**
+- Season: `season_002011` (first in SEASON_IDS — stable)  
+- Class: `getPlayableClasses(season)[0]` (first non-retired, non-boss)  
+- Wave: wave 1 (trash tier); HP/Mana 100%; aggro immediately active  
+- Arena fade: bypassed (`_arenaFadeElapsed = 1.0`, both layers alpha=1) — scene fully visible on first captured frame  
+- Monster positions: deterministic from room 1 geometry + pack slot index as seed
+
+**Variance galadriel should expect:** Monster sprite selection uses slot index as seed (deterministic for same pack size within a season). Background/atmospheric textures are season-deterministic. Portrait vs desktop differs; debug hook works in both orientations (respects `Mobile.isActive` through `startGauntlet`).
+
+### Track A.2 — Mobile-render validation
+
+**vite.config.ts:** `server.host = '0.0.0.0'` added — dev server now LAN-bindable on port 5173.  
+**LAN URL pattern:** `http://<host-LAN-IP>:5173/?debug=true&debug-state=combat-midfight`  
+**Screenshot stills:** Capture directory pre-created at `agentic_orchestration/galadriel/captures/2026-05-18-drax-mobile-render-validation/` with three viewport subdirs (iphone-se-375x667, iphone-14-390x844, iphone-14-pro-max-414x896) and `.gitkeep`. Actual stills: galadriel pipeline captures against D11.5 hook — drax has no browser session for headless capture.
+
+### Handoff
+
+- **Galadriel:** D11.5 hook live at tag `drax/v1.22-debug-state-hook-1`. Three states ready. Use console signal `[debug-state] activated=<state>` to confirm state before capture. Capture stills to `agentic_orchestration/galadriel/captures/2026-05-18-drax-mobile-render-validation/<viewport>/<state>.png`.
+- **Knight-rider:** Next drax task per Matt's instruction is `2026-05-18-drax-demo-r2-hybrid-deployment.md` (promoted 🔴). Tag intent: `drax/v1.23-r2-hybrid-deployment-1`.
