@@ -7658,3 +7658,80 @@ PROCEEDING:
 **HANDOFF → knight-rider:** drax/v1.13 complete; VS2a comprehensive wiring dispatch closed. No blocking items. Next dispatch candidates: (a) monster sprite expansion (elrond Q7 pending), (b) audio wiring when audio chain resolves (gandalf/elrond audio seam), (c) Layer-2 class-archetype expand (Blood Mage + Rogue + Vampire; ~30min).
 
 — drax
+
+---
+
+## 2026-05-17 (late evening) — STATE — gandalf D11.2 structural redesign advisory authored
+
+**Dispatch:** `2026-05-17-gandalf-d11-2-structural-redesign-advisory.md` (Matt L3 authorization).
+**Advisory:** `canonical/story/d11-2-structural-redesign-advisory-2026-05-17.md` (~900 lines).
+**Type:** Pattern B structural-design advisory; empirical-anchor over genre-analogy this time per dispatch mandate.
+
+**VERDICT TL;DR — RECOMMENDED LEVER: B (kit-aggregate DPS-density uniform scaling on damage-bearing skills).** Anchor band: scale_factor ∈ [0.55, 0.75] (25–45% kit-DPS reduction). Magnitude assignment deferred to Discipline #17 (proposed) smoke-gate, NOT assigned by analogy. Lever B selected over A (identity-destructive), C (existing-salvage = A), D (right for secondary; wrong for primary), E (high engineering for refuted mechanism). **Composite B+D (5% HP penalty) recommended only if B-alone shows smoke-gate brittleness.**
+
+**Sub-Q 1 self-critique (3 failed mental models):** Genre-design-feel analogies (D2 split-Sorceress; gauntlet resistance-coverage; Immortal capacity cap) legitimately constrained lever *type* but were used to also assign *magnitude* and *site of operation* — illegitimately. The common failure shape: conflating "what feels coherent to player" with "what moves WR-at-floor below 0.50 on this specific engine." Durable learning: write down engine balance-loop function explicitly before recommending lever magnitude; empirical-elasticity anchoring at operationalization boundary.
+
+**Sub-Q 3 empirical anchor (NEW work — owed but undelivered in D11):** WR-elasticity-to-damage at floor modifier ≈ 0.5–1.0% WR per 1% damage-bearing-skill DPS reduction (derived from D11.0 → D11.1 measured WR deltas). Floor-pin escape velocity: ~25–45% kit-aggregate DPS reduction to drop median instance WR below 0.50. This grounds Lever B's anchor band; the smoke gate validates magnitude empirically.
+
+**Sub-Q 4 — Discipline #17 (PROPOSED to jack-ryan) — Empirical-calibration parametric sweep before full-regen / full-salvage.** Smoke: 3 sweep points (scale_factor ∈ {0.75, 0.65, 0.55}) × 5 representative instances (class_0054, class_0007, class_0029, class_0012, class_0031). Acceptance: ≥3/5 interior convergence at scale_factor=0.55. Wall-time: ~15 min. Lineage: D11.0 → D11.1 cycle is the case study; a pre-smoke would have saved both implement-fail-escalate iterations.
+
+**Sub-Q 5 — RETIRE clause (empirical trigger):** RETIRE surfaces if smoke at scale_factor=0.55 produces <3/5 interior convergence AND B+D composite at scale_factor=0.65 + 5% HP also <3/5 in follow-up smoke. Surfaces L3 #42 in (ii) RETIRE direction. **Not expected to trigger** — anchor band math supports B at scale_factor=0.65 closing the median.
+
+**Identity preservation (Sub-Q 3):** chromatic_mage post-B reads as LE Runemaster lineage cleanly — modestly-powered multi-element kit; breadth not punished but expressed structurally; substrate-commitment-cost framed as kit-uniform magnitude restraint rather than per-element tax surcharge. Rename deferred (per D11 post-mortem § 3, unchanged).
+
+**Open questions for Matt (§ 7):** Q1 endorse B+Discipline-#17 smoke gate? Q2 smoke acceptance ≥3/5 vs ≥4/5? Q3 composite B+D magnitude if needed (5% recommended)? Q4 final gate ≥10/17 at scale=0.65 OR ≥12/17 at scale=0.55? Q5 Discipline #17 formal addition? Q6 dps_score persistence gap fix in salvage (adjacent finding).
+
+**HANDOFF → knight-rider (auto-fire trigger):** **FIRE gamora D11.2 math note with Lever B embedded + Discipline #17 smoke-gate as mandatory Phase A.** Inputs specified in advisory § 8.1 (anchor band, sweep parameters, 5 smoke instances, sliding-gate calibration, provenance-fix requirement). **ESCALATE TO MATT only if** smoke at upper bound fails ≥3/5; then RETIRE recommendation surfaces. **AMENDMENT path:** if Matt's Q1–Q6 answers shift composite-with-D, gate-threshold, or smoke-acceptance, amend before firing.
+
+**HANDOFF → gamora (gated on knight-rider fire):** D11.2 math note covers Lever B definition (algorithm spec for `_apply_dps_density_cap()`), reference DPS-density target (recommend multiplicative scale_factor form), Discipline #17 smoke Phase A spec, full salvage Phase B (gated on Phase A pass), convergence projection (anchored in advisory § 3), acceptance criteria per Matt's Q4 answer, out-of-scope (no α-escalation; no further ceiling adjustments).
+
+**HANDOFF → jack-ryan (Gate readiness + Discipline #17 canonicalization):** Standby for gamora math note review (Gate 1; similar to D11.1 structure plus Discipline #17 smoke-gate verification). Separately: please consider canonicalizing Discipline #17 per advisory § 4.1. If amendment desired, surface to gandalf before adding. Math note will reference Discipline #17 in acceptance criteria.
+
+**HANDOFF → rocket (gated on Gate 1 pass):** Implementation has Phase A (smoke: 3×5 sweep, ~15 min sim) → Phase B (full salvage, gated on Phase A pass) → Phase C (cycle close + drax refresh signal). Provenance fix: persist `dps_score` per skill + `kit_aggregate_dps` per class at salvage time.
+
+**HANDOFF → drax + star-lord:** No D11.2 action until Phase B closes with gate-met. Parallel-safe with drax v1.14 (in flight) + v1.15 (queued).
+
+**PRE-SIGNAL § 14.1.1:** `git fetch origin` performed before this hive-log append. `git log --oneline -5 -- agentic_orchestration/hive-mind/phase-1-p1-log.md` confirmed no remote entries beyond local. Explicit-path staging (1 advisory + 1 hive-log append + 1 dispatch completion record). No race with drax/v1.13 (already merged) or pending rocket/elrond work.
+
+**Tag:** none (canon authoring; not code).
+**Completion record:** appended to dispatch `2026-05-17-gandalf-d11-2-structural-redesign-advisory.md`.
+**Total time:** ~1 hour (well under ~1 day target — empirical data was concentrated and the lever selection followed directly from the elasticity calculation).
+
+— gandalf
+
+---
+
+## 2026-05-17 (late evening) — STATE — jack-ryan — D11.2 Gate-1 math note + smoke soundness review COMPLETE
+
+**Dispatch:** `2026-05-17-jack-ryan-d11-2-gate1-math-note-plus-smoke-soundness.md`
+**Review target:** `reincarnated-engine/src/reincarnated/simulation/math/d11-2-lever-b-and-smoke-gate.md` (gamora, tag `gamora/v1.8-d11-2-lever-b-math-note-1`)
+**Type:** Gate-1 review; 7 dimensions; ~55 min.
+
+**VERDICT: CONDITIONAL ENDORSE.** Knight-rider is clear to fire rocket D11.2 Phase A dispatch.
+
+**Algorithm (Dim 1):** Site A placement sound — after `apply_element_coverage_tax()` in `d10_kit_constraints.py` is the correct seam. `_is_damage_bearing()` predicate confirmed sound from source (lines 484-493). Scope guard is correct for current taxonomy; Condition #1 (externalize archetype string to config) for rename-robustness.
+
+**Idempotency (Dim 2):** Restore-before-apply math is correct. Edge case: `previous_scale=0.0` needs a ValueError guard (INFO; non-blocking). Condition #2: flat vs nested provenance key inconsistency — MIGRATION.md § 1.6 reads flat `balance_metadata.get("hybrid_mage_dps_scale_factor")` while § 5.1 defines nested `balance_metadata["hybrid_mage_lever_b"]["scale_factor"]`. Rocket must write both on every salvage pass and document which is the idempotency restore key.
+
+**Smoke gate (Dim 3):** Sweep points {0.75, 0.65, 0.55}, sequential order, ≥3/5 acceptance — all SOUND. RETIRE clause is mechanizable (L3 #42 RETIRE direction; specific options stated). Composite B+D escalation path is clean.
+
+**Instance selection (Dim 4):** ADEQUATE. WR range 0.567-0.867; Mode A + B; 2-element + 3-element; damage-skill count 4-8. INFO: no mid-WR/mid-count instance; Phase B predictions for 0.65-0.73 WR / 5-6 damage-skill cluster may have mild surprises.
+
+**Elasticity (Dim 5):** SOUND. Central 0.75% WR per 1% DPS is a defensible prior anchored to D11.0 observation (0.57%). D11.0→D11.1 marginal correctly identified as noise-dominated (below ±3% WR fight-variance floor). 4/5 expected pass at scale=0.65 is internally consistent. class_0031 non-convergence prediction honest and appropriate.
+
+**Composite B+D split (Dim 6):** Semantic split is CORRECT — B at kit finalization (skill JSON), D at combatant creation (fight time). Condition #3: `composite_d_active` flag must be read once at top of `balance_class()` from incoming class JSON (same injection pattern as element-coverage tax at balance_loop.py lines 427-432), not re-read mid-loop from balance_metadata (which is rebuilt each iteration). Relevant only if Step 3 smoke fails.
+
+**Discipline #17 canonicalization (Dim 7): ADOPTED with one amendment.** Acceptance gate wording corrected from `⌈(N/2)+1⌉` to `⌈N/2⌉` (simple majority) to match D11.2's ≥3/5 calibration and correctly handle worst-case outlier sets without forcing premature RETIRE. Canonical wording appended in verdict text. Case study lineage (D11.0 → D11.1 cycle) fully justifies load-bearing discipline status. Knight-rider should dispatch engineering-disciplines.md addition as documentation-only change (jack-ryan approval authority per ADR-002).
+
+**MIGRATION.md v1.11 (R11(b)):** Condition #4: missing round-trip clause. Gamora or rocket must append R11(b) deferral clause before Phase B (naming Phase A smoke as the round-trip exercise point for the `hybrid_mage_dps_scale_factor` field).
+
+**Conditions for rocket (4 total):** #1 config-constant archetype guard; #2 flat+nested provenance key resolution; #3 composite_d_active injection mechanism (if composite path triggers); #4 R11(b) clause on MIGRATION.md v1.11. None require math-note revision. All implementation-layer.
+
+**INFO carry-forwards:** consecrate dps_score inspection at smoke time; dps_score persistence per Discipline #7; Phase B sliding gate (≥10/17 at 0.65 OR ≥12/17 at 0.55) to be included in rocket dispatch.
+
+**HANDOFF → knight-rider:** CONDITIONAL ENDORSE; fire rocket D11.2 Phase A dispatch with 4 conditions + INFO-C/D embedded. Discipline #17 adoption dispatch (doc-only change to engineering-disciplines.md) can run parallel.
+
+**Tag:** `jack-ryan/v1.5-d11-2-gate1-math-note-soundness-1` (local; push gated per ADR-006)
+**Completion record:** appended to dispatch.
+
+— jack-ryan
