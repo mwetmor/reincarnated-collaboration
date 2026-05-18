@@ -7857,3 +7857,60 @@ New entry appended to `reincarnated-engine/design/decisions/decisions-log.md`:
 **Total time:** ~1.5 hours (within dispatch target).
 
 — gandalf
+
+## 2026-05-18 — STATE — rocket — Canonical-6 transition: hybrid_mage retired from generation pool + is_retired flag COMPLETE
+
+**Dispatch:** `2026-05-18-rocket-canonical-6-archetype-removal-plus-is-retired-flag.md`
+**Tag:** `rocket/v1.17-canonical-6-retire-hybrid-mage-1` (local; push gated per ADR-006)
+**Authority:** Matt L3 RETIRE verdict 2026-05-18.
+**PRE-SIGNAL § 14.1.1:** Checked hive log before appending. jack-ryan STATE + gandalf STATE already integrated. No hive-log conflict on this append.
+
+**Five deliverables COMPLETE:**
+
+**Deliverable 1 — Archetype list removal at canonical sites:**
+hybrid_mage removed from all canonical archetype enumeration sites:
+- `b6_archetype_templates.py`: `_HYBRID_ARCHETYPE_TEMPLATES` dict commented out; hybrid_mage not in ARCHETYPE_TEMPLATES; removed from ARCHETYPES_FORBIDDEN_CLOSE_RANGE
+- `archetype_classifier.py`: `role_orientation="hybrid"` path commented out; falls through to elemental substrate derivation
+- `class_generator.py`: hybrid_mage entries commented out in `_ARCHETYPE_ACTION_REGISTER` and `_ARCHETYPE_ROLE_FUNCTION`
+- `d10_kit_constraints.py`: hybrid_mage entries commented out in skill ceiling and element ceiling tables
+- `b6_kit_builder.py`: hybrid_element_slots branch commented out
+- `ai_strategies.py`: hybrid_mage entry commented out in ARCHETYPE_ROLE_PRIORITY
+- `season_orchestrator.py`: comment updated
+- `balance_loop.py`: Lever D guards preserved (correct for staged instances if re-run); retirement note added
+- `stat_allocator.py`: hybrid_mage stat profile retained in `_PHYSICAL_STAT_PROFILES` for Pattern P7 fallback; retirement comment added
+D11.2 Lever B (`_apply_dps_density_scale` + `LEVER_B_TARGET_ARCHETYPE_TAG`): RETAINED as dead code with retirement comment per dispatch recommendation (generalizable lever; D12+ reuse candidate).
+12 tests marked `pytest.mark.skip(reason="hybrid_mage RETIRED 2026-05-18 ...")`. 8 pre-existing failures confirmed.
+
+**Deliverable 2 — Backfill script:**
+`scripts/canonical_6_retire_hybrid_mage_flag.py` — idempotent.
+17/17 instances flagged across 3 locations: engine staged + demo classes.json entries + loadout per-class files.
+`is_retired: true` + `retirement_reason: "canonical_6_transition_2026_05_18"` on all instances.
+Verified idempotent (second run: 17/17 already_flagged, 0 errors).
+
+**Deliverable 3 — Generation smoke:**
+SMOKE VERDICT: PASS. 5/5 classes generated without hybrid_mage.
+`hybrid_mage` absent from `b6_archetype_templates.ARCHETYPE_TEMPLATES`.
+`role_orientation="hybrid"` falls through to elemental substrate (fire→fire_mage, water→water_mage, etc.).
+Balance loop seam: 44/44 tests pass. Targeted generation tests: 544 pass, 10 skip, 8 pre-existing failures (controller stat + wind_controller floor constraints — confirmed pre-existing via git stash check).
+
+**Deliverable 4 — MIGRATION.md v1.13:**
+Appended at `src/reincarnated/simulation/MIGRATION.md`. Includes: Phase B FAILED result + root cause amendment; canonical-6 transition; Lever B retention rationale; data flag pass provenance; cross-seam impact for drax + loadout filter; new-season regen readiness signal.
+
+**Deliverable 5 — New-season regen readiness:**
+CONFIRMED. Engine is canonical-6 compliant. Ready for fresh new-season regen once gandalf + jack-ryan + drax-filter all land. Matt authorizes the regen dispatch.
+
+**Commits:**
+- engine: `1aa5e99` (reincarnated-engine main; 20 files; generation + simulation seam + tests + MIGRATION.md + AGENT_STATE.md + backfill script)
+- demo: `686711b` (reincarnated-demo main; 5 files; classes.json is_retired flag)
+- loadout: `b8e0bf5` (reincarnated-loadout main; 17 files; per-class is_retired flag)
+
+**LLM cost:** $0.00 (no LLM calls; code-only dispatch)
+
+**HANDOFF → knight-rider:** rocket canonical-6 land complete. Chain status: gandalf DONE, jack-ryan DONE, rocket DONE. drax is_retired filter dispatch still needs to land. Once drax-filter ships, chain locks for new-season regen authorization to Matt. Recommend surfacing: "all three seams landed; drax filter is the last dependency before new-season regen can fire."
+
+**HANDOFF → drax:** is_retired flag is live on all 17 hybrid_mage instances across demo classes.json (public/seasons/season_00201{1-5}/classes.json) and loadout per-class files (data/season_00201{1-5}/classes/class_xxxx.json). Filter pattern: `if (cls.is_retired) continue;` or equivalent at consume time. drax dispatch v1.17 should handle this. Rocket seam complete; no further flag/data action needed.
+
+**Adjacent open item (surfaced by gandalf § 8.2 + § 8.3, flagged for future dispatch):**
+The Pattern P7 fallback in `stat_allocator.allocate_stats()` falls back to hybrid_mage stats on unknown archetype_tag. gandalf flagged this should become `ValueError` post-canonical-6 rather than silent fallback to a retired archetype. This is a real but non-urgent engineering follow-up. Not addressed in this dispatch (scope was archetype-list removal only). Flagged for Matt/knight-rider consideration as separate dispatch post-regen.
+
+— rocket
