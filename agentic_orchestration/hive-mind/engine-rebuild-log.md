@@ -3135,3 +3135,37 @@ Both commissions gated only on F3 framework landing. With this STATE entry + col
 **Tag-fire request:** `vs2a/v0.1-geometry-type-schema-shipped` — knight-rider to fire + push. The `rocket/v1.21-f1-schema-shipped` intermediate tag is NOT needed (both seams in one dispatch; `vs2a/v0.1` is the appropriate milestone tag per dispatch acceptance criteria).
 
 **Gamora re-test dispatch request:** knight-rider to author dispatch for gamora R2 H1 re-test — runs R2 sub-gauntlet using `spatial_geometry_type` direct-field-read; applies original H1 variance ≥ 0.10 threshold; tags `vs2a/v0.2-r2-h1-revalidated` on PASS.
+
+---
+
+## 2026-05-19 — F5 legolas Track A — Drift-14 pool × VFX catalogue mapping audit COMPLETE
+
+### [2026-05-19] STATE — legolas — F5 Track A COMPLETE
+
+**Authority:** AUTONOMOUS (VS2a hive-mind protocol § 4.0; pre-approval-batch authority Matt 2026-05-19).
+
+**Deliverable:** `agentic_orchestration/research/knowledge/pool-vfx-catalogue-mapping-audit-2026-05-19.md`
+
+**Summary of findings:**
+
+All 156 manifest entries verified against F3 framework Tier A–E methodology. Manifest is structurally sound — no reclassifications required. Key results:
+
+- **Tier distribution:** A=29 / B=57 / C=41 / D=21 / E=8
+- **vfx_catalogue_mapping_clean = True:** 86 entries; **False:** 70 entries
+- **3 auto-demote entries confirmed:** `lantern`, `torch`, `tinder` (all fire-slot, all Tier-C object-framing, all d1_total 8–9, all allow-list). Auto-demote fires at pool-load → effective allow-list post-demote = **57** (target ~55; +2 acceptable).
+- **canonical_pair_leak coverage:** complete; 21/21 entries confirmed
+- **5 borderline cases surfaced for gandalf Track B:**
+  - `fume` (Tier-C rationale text inconsistency; rationale says "no visual register" but tier is C)
+  - `bone` (Tier-C vs Tier-D; biological-organic register question)
+  - `blood` (Tier-C vs Tier-D; design-intent permanence for eligible status)
+  - `web` (Tier-C vs Tier-D; strand-vs-particle compositing depth)
+  - `miasma` (Tier-C confirmed; noted for completeness)
+- **No findings-blockers.** Catalogue data sufficient for all determinations.
+- **No Tier-2 vendor acquisition routing needed** from this audit.
+
+**Readiness signal:**
+- gandalf Track B re-scoring pass UNBLOCKED. Estimated effort: 2–3h (down from original 4–6h estimate per F3 reframing; 156-entry manifest already annotated; only 4–5 borderline adjudications + potential culled-pool summary doc required).
+- Tag fire `vs2a/v0.10-drift14-audit-complete` ready when gandalf Track B complete.
+- F5 dispatch completion record appended.
+
+**Operating mode:** AUTONOMOUS per protocol § 4.0. No Matt-wait.

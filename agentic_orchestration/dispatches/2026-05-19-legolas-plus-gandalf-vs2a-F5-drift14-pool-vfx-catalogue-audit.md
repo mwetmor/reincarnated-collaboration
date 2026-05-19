@@ -137,3 +137,30 @@ Per F3 framework + 2026-05-17 commission § Track A:
 ---
 
 *Authored 2026-05-19 by knight-rider under pre-approval-batch authority (Matt 2026-05-19). F5 closes Drift-14 against the F3 framework; the canonical-bias residue dissolves from the per-season vocabulary surface.*
+
+---
+
+## Track A completion record — legolas — 2026-05-19
+
+**Status:** COMPLETE. Filed 2026-05-19 under autonomous-operation authority.
+
+**Output:** `agentic_orchestration/research/knowledge/pool-vfx-catalogue-mapping-audit-2026-05-19.md`
+
+**Acceptance criteria status:**
+- [x] 156/156 entries each have `vfx_mapping_tier` assignment verified
+- [x] Sub-category flags and borderline cases surfaced (5 cases for gandalf adjudication)
+- [x] `canonical_pair_leak` coverage confirmed complete (21/21 entries)
+- [x] Auto-demote ground-truth: 3 entries (lantern/torch/tinder) confirmed; post-demote allow-list = 57 (target ~55)
+- [x] No findings-blockers; catalogue data sufficient
+- [x] 0 reclassifications; manifest verified as-is
+
+**Key findings:**
+- Manifest is structurally sound. All 156 Tier A–E annotations confirmed against F3 framework definitions.
+- 3 auto-demote entries confirmed: `lantern` (fire, Tier-C, d1=9), `torch` (fire, Tier-C, d1=9), `tinder` (fire, Tier-C, d1=8). All object-framing entries; Tier-C correct.
+- Post-auto-demote effective allow-list: **57** (target ~55 per rocket math note § 2.4; +2 variance acceptable).
+- 5 borderline cases surfaced for gandalf Track B: `fume` (Tier-C rationale text vs Tier-E ambiguity), `bone` (Tier-C vs Tier-D biological-organic), `blood` (Tier-C vs Tier-D design-intent question), `web` (Tier-C vs Tier-D strand-vs-particle compositing depth), `miasma` (Tier-C confirmed; noted for completeness).
+- 0 entries requiring Tier-2 vendor acquisition to resolve.
+
+**Readiness signal:** gandalf Track B re-scoring pass UNBLOCKED. Estimated effort: 2–3h gandalf (4–5 borderline adjudications + culled-pool summary if material changes land). Tag fire `vs2a/v0.10-drift14-audit-complete` ready when Track A + Track B both complete.
+
+*Completion record appended by legolas 2026-05-19.*
