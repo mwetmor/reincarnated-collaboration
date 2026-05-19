@@ -993,3 +993,67 @@ LLM MIGRATION.md required no changes — it already used `"inverted"` throughout
 - R3 tag `hive-rebuild/v0.4-r3-schema-draft-committed`: UNBLOCKED if rocket confirms WARN-R3-1 + WARN-R3-2 resolutions are complete in this commit
 
 **Jack-ryan:** WARN-R7-1 and WARN-R8-1 are ready for re-verification in engine commit `021e6da`. No re-review required for rocket's WARN-R3 changes unless jack-ryan deems the archetype vocabulary reconciliation needs a separate pass.
+
+---
+
+## 2026-05-19 — gamora R1 per-tier convergence implementation COMPLETE
+
+### [2026-05-19] STATE — gamora — R1 per-tier convergence operational; hive-rebuild/v0.2 tagged
+
+**Engine commit:** `3a73d94` (pushed to origin/main)
+**Tags:**
+- `gamora/v1.5-r1-per-tier-convergence-impl-1` (intermediate seam tag — engine repo)
+- `hive-rebuild/v0.2-r1-per-tier-convergence-operational` (milestone tag — engine repo)
+
+**Deliverables completed:**
+
+**1. ClassBalanceResult extended (5 new fields):**
+- `per_tier_win_rates: dict | None` — per-tier WR at convergence ({"swarm": float, ...})
+- `per_tier_pass: dict | None` — per-tier pass/fail under R1 [floor, ceiling] criteria
+- `convergence_gate_passed: bool` — True iff all 5 tiers pass; False for legacy rows
+- `failing_tiers: list | None` — tier names (R1 key) where pass=False; [] if all pass
+- `aggregate_wr_legacy: float` — mean(per_tier_win_rates.values()); NOT the gate
+
+**2. balance_loop.py modified:**
+- New module-level constants: `FIGHT_BATCH_SIZE_BOSS=60`, `FIGHT_BATCH_SIZE_MINI_BOSS=60` (single-slot variance compensation; named NOT inline per Pattern P7); `TIER_TARGETS/FLOORS/CEILINGS`, `TIER_EVALUATION_ORDER`, `GAUNTLET_TIER_TO_R1_KEY`.
+- New dataclasses: `TierConvergenceResult`, `ConvergenceGateResult`.
+- New methods: `_compute_per_tier_win_rates()`, `_evaluate_convergence_gate()`.
+- Post-convergence R1 gate evaluation: `_evaluate_convergence_gate()` called after binary search finalizes modifier; result populates ClassBalanceResult + balance_metadata + convergence_report.
+- Discipline #12 semantic shift documented in code, commit message, and MIGRATION.md: aggregate-mean-only gate → per-tier-AND-pass gate. The binary-search signal (`_compute_convergence_winrate`) is unchanged; the ACCEPTANCE gate is new.
+- Pattern P7 explicit (WP-R1-B-1): no aggregate-mean-only pass path remains. WP-R1-B-2: per-tier failure cause logged at WARNING and written to `balance_metadata` (not only stdout).
+- Jack-ryan rolling-median implementation note preserved in `_evaluate_convergence_gate()` docstring: window MUST reset on modifier change (not iteration count).
+
+**3. simulation/MIGRATION.md v1.15 authored (concurrent with code change per ADR-004):**
+- Cross-seam contract documented: gamora→star-lord boundary on ClassBalanceResult 5 new fields.
+- Convergence semantics change documented: aggregate-mean-only → per-tier-AND-pass (Discipline #12).
+- Consumer obligations stated: `converged=True` can co-exist with `convergence_gate_passed=False`.
+- Rolling median implementation note (jack-ryan Gate 1) documented.
+- Round-trip R11(b) requirement documented.
+
+**4. Test 1 failure-rate (same data, new gate):**
+- Result: 51/51 classes fail (100% failure rate).
+- Threshold: ≥ 60%. PASS.
+- Data: same 5 shipped seasons as baseline (no new simulation). Gate semantics are new (implemented in `_evaluate_convergence_gate()`); result is consistent with baseline (as expected — same data, same thresholds).
+- Output: `output/R1-test1-failure-rate.md`.
+
+**5. Smoke: 300 tests PASS** (standard test suite; `smoke_b11_geometry.py` pre-existing failure from `preferred_behavior` kwarg — R3 implementation, not gamora-scope).
+
+**6. Round-trip smoke: REAL (not staged).**
+Star-lord's schema 2.9 was already landed in working tree (`telemetry/migrations.py` + `telemetry/recorder.py`). `tests/round_trip_r1_telemetry.py` (15 tests): **15/15 PASS**. Real round-trip confirmed:
+- Schema 2.9 columns present in `class_balance_results`.
+- ClassBalanceResult → recorder → SELECT → value match (all tiers passing + boss-failing cases).
+- Pre-R1 ClassBalanceResult writes NULL in all 7 new columns with no exception.
+- Additive check: V2.1/V2.4 columns unaffected.
+
+**Watchpoints closed:**
+- WP-R1-A-1 (math note before balance_loop.py): CLOSED — Gate 1 PASS `bf47591` preceded this implementation.
+- WP-R1-A-2 (boss-tier n-shot strategy): CLOSED — N=60 implemented as named constant.
+- WP-R1-B-1 (no silent aggregate-mean pass): CLOSED — `_evaluate_convergence_gate()` is the gate; aggregate mean preserved only as legacy diagnostic.
+- WP-R1-B-2 (per-tier failure to telemetry): CLOSED — WARNING logs + `balance_metadata` write.
+- WP-MIGRATION-5 (R1 simulation MIGRATION.md): CLOSED — v1.15 authored concurrent with code.
+
+**Open items (out of scope this session, per dispatch):**
+- Class-retuning sprint (post-Test 1; separate workstream).
+- R1 Test 2 (post-retune pass-rate ≥ 70%).
+- R1 Test 3 (playtest packet for Matt).
+- Rolling median implementation for single-slot tiers (future session; note preserved in docstring).
