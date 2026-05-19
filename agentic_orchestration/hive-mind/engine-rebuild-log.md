@@ -3376,3 +3376,83 @@ PASS. Hunter (`archetype_tag="hunter"`, `energy_type="focus"`) received `power_t
 **B6 pre-work is READY for S1 first-batch regen.** Tier assignment works against any emergent catalogue shape. S1 can fire as soon as gamora's R1 sprint v3 (disposition-3 calibration) provides the first-batch validation gate calibration.
 
 **Operating mode:** AUTONOMOUS per protocol § 4.0. S1-prereq COMPLETE.
+
+---
+
+## 2026-05-19 — F6 Track B gandalf — Drift-15 environment-pack shortlist COMPLETE
+
+### [2026-05-19] STATE — gandalf — F6 Track B COMPLETE — VS2a M1 shortlist ready (Drift-15)
+
+**Authority:** AUTONOMOUS L2-equivalent (VS2a hive-mind protocol § 4.0; pre-approval-batch authority Matt 2026-05-19). Per F3 framework `canonical/story/per-season-environmental-theming-2026-05-19.md` § 3.2 (Track B autonomous; shortlist authoring on Track A return).
+
+**Predecessor:** F6 Track A SHIPPED 2026-05-19 by legolas (scout doc + 21-entry JSONL inventory). Track B gate cleared.
+
+#### Process executed
+
+1. **Required inputs read** (in order per dispatch): Track A scout doc + JSONL inventory + F3 framework + style register + arena topology + cosmology + Drift-15 entry + F6-D dispatch (pre-authored) + season_001003 metadata + design_context
+2. **Visual inspection of 7 priority Kokoro packs** via WebFetch product-page preview imagery (Blocker 1 closure):
+   - First-pass (catalog-text-heavy queries): variable verdicts; summarizer leaned on "RPG Maker tileset" text framing
+   - Second-pass (preview-image-focused queries): consistent verdicts emerged — Naga + Wizard's Hideout sit cleanly within **HD-2D-shaped pixel-art**; Reaper + Elemental Dungeon + Snow Castle + Phoenix + Heavenly Palace cluster at **mid-fidelity-pixel-with-hand-painted-sensibility** (HD-2D-adjacent within the register-adjacent space `style-register.md` § "Pivot insurance" accepts under score-don't-filter)
+   - **Verdict: register-fit clears for all top Kokoro packs.** Compare to demo v1 geometric placeholders: any Kokoro pack is a massive register upgrade. The strict-HD-2D-peak (Octopath Traveler-equivalent) is unreachable from sub-$100 sourceable asset-library pricing — that register requires commissioned art or LLM-generation. Per `style-register.md` Candidate B language, "the higher-fidelity end of itch.io" inclusively names the band these packs occupy.
+3. **Season anchor mapping** for VS2a regen target = `season_001003` — "The Cathedral of Bone" (water-element; per-season element renames torch/breath/milk/bone; anchor canonically referenced in `cosmology-reincarnated.md` § "The Seasonal Journey"). Multi-anchored: Death + Hermit + Water. Anti-fits ruled out (Phoenix off-element, Snow Castle off-anchor, Heavenly off-register, Wizard's Hideout off-aesthetic, Elthen retro-register sub-EXACT_FIT, Foozle CC0 retro-baseline).
+4. **F3 four-axis scoring** applied per-candidate: thematic-fit / visual-coherence / coverage / license.
+5. **Five findings-blockers from Track A** addressed in shortlist § 4 — all resolved or routed.
+
+#### Deliverable filed
+
+**Shortlist doc:** `canonical/story/vs2a-environment-pack-shortlist-2026-05-19.md` — 9 sections; ~3,000 lines of decision archaeology; three candidates with full F3 four-axis scoring + per-pack Track D integration cost forecast.
+
+**Three M1 candidates:**
+
+| Rank | Pack | Price | Decision dimension |
+|---|---|---|---|
+| **A** | KR Legendary Palaces ~ Reaper Tileset | $9.99 | **Tightest thematic fit for Cathedral of Bone** (gravestones / chains / fog overlays / dark cathedral architecture; Death+Hermit anchors); lowest acquisition footprint; gandalf design recommendation |
+| **B** | KR Legendary Palaces ~ Naga Tileset | $8.99 | **Strongest HD-2D register fit per visual inspection** (cleanest pixel-art quality in Kokoro catalogue); water-element-coherent palette; deepest single-theme content (13 MB) |
+| **C** | KR Elemental Dungeon Tiles | $15.99 | **Multi-pack capital efficiency** (single purchase covers fire/water/earth/wind across VS2a/VS2b/VS2c+ element-season cadence); mirrors Reincarnated element taxonomy; 42 MB deepest catalogue content |
+
+#### Gandalf design recommendation
+
+**Pack A — Reaper.** Three reasons stacked: (1) tightest thematic fit for Cathedral of Bone multi-anchor (Death + Hermit + relics vocabulary via gravestones/chains/dark-cathedral architecture); (2) **cosmology-prototype responsibility** — season_001003 is the canonical season-anchor exemplar cited in `cosmology-reincarnated.md`; picking the tightest-anchored pack here protects cosmology-internal-coherence and prevents visual-cosmology drift as a forward Drift-pattern risk; (3) lowest price ($9.99) + smallest acquisition footprint (8.5 MB) + fastest Track D integration cycle. **But Matt decides at M1 wind-down per M2 pattern.**
+
+#### Findings-blockers closure summary
+
+- **Blocker 1 (PRIMARY)**: CLOSED via visual inspection. Register-fit clears at HD-2D-adjacent quality across all top Kokoro packs.
+- **Blocker 2** (Elemental Dungeon wall-count per element = 2): ADDRESSED as Track D forward-flag for drax post-acquisition assessment; not a Pack-selection-disqualifier.
+- **Blocker 3** (Elthen variant counts): N/A for shortlist — Elthen ruled out for primary VS2a per § 2.3.
+- **Blocker 4** (Full Moon / Hanged Man coverage gaps): N/A for season_001003 (Cathedral of Bone is Death+Hermit+Water multi-anchored, not Moon/Hanged-Man).
+- **Blocker 5** (KR Heavenly Palace community-validation): ADDRESSED via exclusion — Heavenly Palace off-anchor for Cathedral of Bone; not a candidate.
+
+#### Drift-audit update
+
+`canonical/story/drift-audit.md` § Drift-15 entry amended with:
+- Status header: **Track B CLOSED 2026-05-19; Track C HELD for wind-down (M1)**
+- Action section: Track A + Track B completion records added with full deliverable references
+- Cross-references: Track A scout + Track A JSONL + Track B shortlist + F6-D dispatch + season_001003 metadata references added
+
+#### Readiness signal — M1 (Matt-gated; HELD for wind-down)
+
+**M1 unblocked from gandalf side.** Matt picks 1 of 3 shortlist candidates at next wind-down session per F3 § 3.3 M2-pattern. Knight-rider drafts decisions-log entry at M1 close + tag-fires `vs2a/v0.15-drift15-matt-selected`. Then F6-D activates with Matt-picked pack ID substituted; drax executes ~3-5 days; Track D tag-fires `vs2a/v0.16-drift15-drax-integration-complete` at completion.
+
+#### Cross-seam coordination
+
+- **drax** (Track D owner): pre-authored F6-D dispatch references this shortlist § 3.1/3.2/3.3 per-pack integration-cost-forecasts; drax should re-read shortlist at Track D activation
+- **knight-rider** (decisions-log drafter + tag-firer): M1 decisions-log entry pattern per F3 § 3.3; tag-fire `vs2a/v0.12-drift15-track-b-shortlist-ready` at next collab commit
+- **Matt**: 3 candidates with full justification + gandalf design read + explicit "Matt decides" framing; M1 wind-down session is the decision checkpoint
+
+#### Tag-fire request
+
+**`vs2a/v0.12-drift15-track-b-shortlist-ready`** (intermediate; knight-rider fires at next collab commit). Track C remains M1 Matt-gated; Track D F6-D remains held.
+
+#### Acceptance criteria — all met per Track B scope
+
+- [x] Visual inspection of top-priority Kokoro packs (Blocker 1 closure)
+- [x] HD-2D register verdict documented per-pack
+- [x] 3 candidate shortlist authored with full F3 four-axis justification
+- [x] Per-candidate Track D integration cost forecast
+- [x] All 5 Track-A findings-blockers addressed
+- [x] Gandalf design recommendation surfaced with "Matt decides at wind-down" framing
+- [x] Drift-15 entry updated (status + Action + Cross-references)
+- [x] F6-D Track D dispatch cross-referenced
+- [x] No Matt-wait at any point during Track B authoring (autonomous L2-equivalent)
+
+**Operating mode:** AUTONOMOUS per protocol § 4.0. F6 Track B complete. Drift-15 Track B CLOSED; M1 readiness signal surfaced.
