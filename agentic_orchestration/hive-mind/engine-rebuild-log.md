@@ -1840,3 +1840,68 @@ The R1 gate measures fight OUTCOMES (including timeout-HP wins). It does not mea
 - `agentic_orchestration/hive-mind/engine-rebuild-log.md` (this DECISION entry)
 
 **LLM cost:** $0.00. No LLM calls.
+
+---
+
+## 2026-05-19 — star-lord schema 2.11: R1 disposition kill_rate columns
+
+### [2026-05-19] STATE — star-lord — schema 2.11 COMPLETE
+
+**Author:** star-lord
+**Engine commit:** `886391e` — feat(star-lord): schema 2.11 — kill_rate columns for R1 disposition
+**Tag:** `star-lord/v1.12-r1-kill-rate-telemetry-1` (pushed to origin)
+**Authority:** Knight-rider L2 pre-authorization per § 6.6 (autonomous-operation mode; additive
+  nullable ALTER TABLE pre-authorized following star-lord prior pattern at schema 2.9 + 2.10).
+
+**Scope:** Additive schema extension supporting gandalf's R1 structural-blockers disposition
+(Discipline #12 semantic shift — kills-only WR for boss + mini-boss tiers).
+
+**Schema 2.11 ALTER TABLE — smoke + reversibility + prod-apply:**
+
+| Step | Result |
+|---|---|
+| Dry-run (in-memory DB): populated write + pre-disposition NULL | PASS |
+| Reversibility: `DROP COLUMN boss_kill_rate` + `DROP COLUMN mini_boss_kill_rate` on SQLite 3.42.0 | PASS |
+| Prod apply (`data/telemetry.db`): columns 22 + 23 present; schema_meta 2.11 entry at 07:47:50 | PASS |
+
+```sql
+ALTER TABLE class_balance_results ADD COLUMN boss_kill_rate         REAL;
+ALTER TABLE class_balance_results ADD COLUMN mini_boss_kill_rate    REAL;
+```
+
+**recorder.py extension:**
+- SCHEMA_VERSION: `"2.10"` → `"2.11"`
+- `record_class_balance_results()`: reads `boss_kill_rate` + `mini_boss_kill_rate` via
+  `getattr(result, "boss_kill_rate", None)` and `getattr(result, "mini_boss_kill_rate", None)`
+  (Pattern P7 dataclass-boundary discipline)
+- INSERT param count: 21 → 23 (new columns before `recorded_at` + `schema_version`)
+- NullRecorder unchanged (signature already matches — no params added to stub)
+
+**Round-trip smoke — `tests/round_trip_r1_kill_rate.py`: 11/11 PASS**
+- Schema 2.11 columns present (REAL, nullable, correct position 22+23)
+- Prior schema columns unaffected (2.9, 2.7, 2.1 columns all present)
+- Post-disposition write + read value match (boss 0.38, mini-boss 0.35)
+- kill_rate coexists with legacy win_rate columns in same row
+- Explicit zero (0.0) writes 0.0, not NULL
+- Pre-disposition result (no kill_rate attrs) writes NULL in both columns; no exception
+- Post-disposition result with None kill_rate writes NULL; no exception
+- SCHEMA_VERSION constant is "2.11"
+- DB row schema_version matches SCHEMA_VERSION constant
+
+**Regression check — `tests/round_trip_r1_telemetry.py`: 15/15 PASS** (no regressions)
+
+**Coordination with gamora (retune sprint v2):**
+Gamora's next session implements the kills-only semantic in `balance_loop.py` and adds
+`boss_kill_rate` + `mini_boss_kill_rate` to `ClassBalanceResult`. The recorder reads them
+via `getattr` at the dataclass boundary — no further recorder change required. The fields
+become non-NULL automatically when gamora emits them. Pre-disposition rows (NULL in both
+kill_rate columns) are distinguishable from post-disposition rows.
+
+**Files authored this session (engine repo `886391e`):**
+- `src/reincarnated/telemetry/migrations.py` (_V2_11 migration + MIGRATIONS entry)
+- `src/reincarnated/telemetry/recorder.py` (SCHEMA_VERSION bump; record_class_balance_results extended)
+- `tests/round_trip_r1_kill_rate.py` (new 11-test round-trip smoke)
+- `src/reincarnated/export/MIGRATION.md` (schema 2.11 section appended per ADR-004)
+- `src/reincarnated/export/AGENT_STATE.md` (session checkpoint)
+
+**LLM cost (star-lord session):** $0.00. No LLM calls.
