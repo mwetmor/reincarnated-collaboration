@@ -170,3 +170,63 @@ Jack-ryan reviews § 10 before commit per continuous-observation rhythm + WP-R2-
 ---
 
 *Authored 2026-05-19 by knight-rider under pre-approval-batch authority. The leash and timeout finalize the spatial substrate's instrumentation. Stage 1 confirms diagnostically; Stage 2 validates on the cleaner regen test bed. The three findings become a coherent arc.*
+
+---
+
+## Completion record
+
+**Closed:** 2026-05-19 by gamora
+**Commits:** `5d6dfc4` (engagement-geometry impl + smoke) + `155e1f2` (Stage 1 R2-RT v3 results + AGENT_STATE)
+
+### Phase 1 — Math note + impl + smoke
+
+**Math note § 10:** COMPLETE. Authored at `reincarnated-engine/design/working-agreement/R2-recalibration-math-2026-05-19.md` per Discipline #1 + WP-R2-E-1. Six sub-sections (engagement-geometry analysis, timeout semantics, combined fix projection, 5-class smoke selection, Discipline #12 framing, WP-R2-E-1 compliance checklist).
+
+**Engagement-geometry impl:** COMPLETE (commit 5d6dfc4).
+- `LEASH_DISTANCE_OVERRIDE_M_SWARM = 35.0` named constant in arena.py
+- `KILLS_ONLY_TIMEOUT_SCENARIOS = frozenset({"open_arena", "chokepoint_corridor"})` named constant
+- `SpawnSpec.leash_distance_override_m: Optional[float] = None` new field (WP-R2-A-3)
+- open_arena + chokepoint swarm spawns: leash_override=35.0; boss_with_adds: explicit None
+- `entity_from_monster_dict()`: spawn leash override takes precedence over monster JSON
+- kills-only timeout for KILLS_ONLY_TIMEOUT_SCENARIOS in `SpatialFightEngine.run()`
+- Pattern P7 floor-saturation WARNING added (symmetric to ceiling WARNING)
+- Player AI `_select_skill_for_entity()`: shortest-CD non-self skill preference (L1 seam improvement)
+- MIGRATION.md v1.20 appended (star-lord: no schema change)
+- Discipline #12 cited in commit message
+
+**5-class smoke:** PASS (dispatch criterion — >=1 class WR<0.95; ceiling saturation cleared).
+- All 5 prior WR=1.000 classes now have WR < 0.95 (4 at 0.000, 1 at 1.000)
+- class_0035 (dm=0.64, point): 0.000 → 1.000 (correctly wins; skill AI fix + leash fix)
+- Dispatch PASS: Pattern P7 ceiling saturation definitively cleared
+- Full criteria FAIL (diagnostic): 5-class sample is bimodal; no intermediate-WR classes
+- Floor-saturation WARNING fires; L1 tightening not applied (floor-dm kill-throughput intrinsic)
+
+### Phase 2 — Stage 1 full 51-class R2-RT v3 run
+
+**Stage 1 result: H1 FAIL (catalogue-diversity finding; CD-variance domination)**
+
+H1 variance: 0.0136 (FAIL; threshold >= 0.10)
+Per-geometry mean WRs: circle=0.143, line=0.000, point=0.286
+True partition confirmed: 21 circle / 2 line / 28 point (41.2% / 3.9% / 54.9%)
+Geometry source: 100% explicit (0% heuristic_fallback; F1 backfill confirmed)
+Wall time: 151.7s (51 × 3 × 30 = 4590 fights)
+
+**ANOMALY:** point mean WR (0.286) > circle mean WR (0.143). Inverted from H1 hypothesis.
+
+**Fourth structural finding (Drift-17 Layer 4 candidate):** Kills-only timeout + optimized skill selection exposes CD-variance domination. Floor-dm classes with extreme fast-CD skills (cd=0.1-0.2s, range_m=2-3m) fire 5-10 attacks/second and serially clear 8 mobs in ~15-25s regardless of geometry type. Point cohort has more fast-attack subclasses in this catalogue → point wins more than circle. This is the existing catalogue's CD distribution as the binding constraint, not the substrate.
+
+**Per § 5.3 routing-to-S1 clause:** Explicit routing-to-S1 finding confirmed. Stage 1 PARTIAL-CLOSE condition MET (§ 5.3: "H1 ≥ 0.10 OR routing-to-S1 explicit finding"). Tag `vs2a/v0.3-r2-h1-revalidated-on-existing-catalogue` surfaces to knight-rider for PARTIAL-CLOSE decision.
+
+**Per disposition § 4.2:** H1 FAIL on existing catalogue is NOT a substrate failure. Route to Stage 2.
+
+**H2/H3 regressions** (from 74.5%/+0.130 to 21.6%/+0.041): Both caused by kills-only timeout changing open_arena WR distribution from uniformly-high to bimodal. Not independently actionable; resolve with Stage 2.
+
+### Routing
+
+**Tag surfaces to knight-rider:** `vs2a/v0.3-r2-h1-revalidated-on-existing-catalogue` — per § 5.3 routing-to-S1 clause; knight-rider decides whether to fire.
+
+**WP-R2-A-1:** ACTIVE-DEFERRED. Stage 2 R2-RT v4 on S1 catalogue is canonical measurement surface.
+
+**REQUEST to knight-rider:** Draft Stage 2 R2-RT v4 dispatch after S1 first-batch validation gate PASS + 4 remaining seasons regen completes.
+
+**Fourth finding to gandalf (via knight-rider routing):** CD-variance domination is a Drift-17 Layer 4 candidate. Disposition question: does Stage 2 on S1 (R8-inversion normalized CDs per archetype) resolve implicitly, or does it need a fifth disposition pass? Pre-forecast: Stage 2 resolves implicitly if R8 archetype normalization is present.

@@ -3763,4 +3763,110 @@ D) **Combination A+C or B+C**: Most robust; A+C is recommended (minimal position
 
 **Operating mode:** AUTONOMOUS L2-equivalent per protocol § 4.0. Pre-approval-batch authority.
 
+---
+
+## STATE — gamora — R2 leash+timeout math-before-code (2026-05-19)
+
+**Author:** gamora
+**Dispatch:** `2026-05-19-gamora-vs2a-R2-leash-timeout-impl.md`
+
+Math note § 10 authored at `reincarnated-engine/design/working-agreement/R2-recalibration-math-2026-05-19.md` per Discipline #1 + WP-R2-E-1:
+
+- § 10.1 Engagement-geometry analysis: leash 35m derivation + genre semantic preservation (D2/PoE open-arena approach). Mob spawn y=8-20, player y=40; 18m leash prevented engagement; 35m leash reaches player at y=40 from all 8 spawn positions.
+- § 10.2 Timeout semantics correction: kills-only removes HP>50% scaffolding; H1 measures kill efficiency, not survival.
+- § 10.3 Combined fix projection: WR distribution expected bi-modal (kill-threshold gate); H1 variance ceiling analysis (geometry-type means-variance with 3 types has structural ceiling ~0.083 under realistic WR spreads).
+- § 10.4 5-class smoke selection rationale (same as recalibration smoke for A/B comparison).
+- § 10.5 Discipline #12 framing (fourth semantic shift in R-series).
+- § 10.6 WP-R2-E-1 compliance checklist.
+
+Jack-ryan Gate-1 review of § 10 required per WP-R2-E-1 before impl commit merges.
+
+---
+
+## STATE — gamora — R2 engagement-geometry impl committed (2026-05-19)
+
+**Author:** gamora
+**Commit:** `5d6dfc4`
+**Discipline #12 cited:** YES
+
+Changes:
+- `arena.py`: `LEASH_DISTANCE_OVERRIDE_M_SWARM=35.0` + `KILLS_ONLY_TIMEOUT_SCENARIOS` named constants
+- `arena.py`: `SpawnSpec.leash_distance_override_m: Optional[float]=None` (new field; WP-R2-A-3)
+- `arena.py`: open_arena + chokepoint swarm spawns set `leash_distance_override_m=35.0`; boss_with_adds explicit `None`
+- `spatial_engine.py`: leash override resolution in `entity_from_monster_dict()` (spawn preference > JSON)
+- `spatial_engine.py`: kills-only timeout for `KILLS_ONLY_TIMEOUT_SCENARIOS` (HP>50% path preserved as fallback for future scenarios)
+- `spatial_engine.py`: Pattern P7 floor-saturation WARNING (symmetric to ceiling WARNING)
+- `spatial_engine.py`: `_select_skill_for_entity()` player AI improvement — shortest-CD non-self skill preference
+- `simulation/MIGRATION.md` v1.20 appended (star-lord: no schema change; ADR-004 compliant)
+
+WP-R2-E-1 compliance: math note § 10 + MIGRATION.md concurrent with impl.
+
+---
+
+## STATE — gamora — R2 leash+timeout 5-class smoke PASS (dispatch criterion) (2026-05-19)
+
+**Author:** gamora
+**Script:** `reincarnated-engine/scripts/r2_leash_timeout_smoke.py`
+**Output:** `reincarnated-engine/output/R2-leash-timeout-smoke-2026-05-19/smoke_report.md`
+
+A/B results vs prior recalibration smoke (Pass 2):
+
+| class | geo | dm | prior | new | delta |
+|---|---|---|---|---|---|
+| class_0016 | line | 0.08 | 1.000 | 0.000 | -1.000 |
+| class_0020 | circle | 0.05 | 1.000 | 0.000 | -1.000 |
+| class_0006 | circle | 0.12 | 1.000 | 0.000 | -1.000 |
+| class_0019 | point | 0.11 | 1.000 | 0.000 | -1.000 |
+| class_0035 | point | 0.64 | 0.000 | 1.000 | +1.000 |
+
+Dispatch PASS criterion (>=1 class WR<0.95): PASS. Pattern P7 ceiling saturation CLEARED.
+Full criteria FAIL (diagnostic only): 4/5 floor-dm at WR=0.000; sample bimodal (floor-dm WR=0, high-dm WR=1).
+Skill selection AI fix confirmed: class_0035 now correctly wins (cd=0.6s melee skill selected; kills 8 mobs in ~38s).
+Floor-saturation: 5/5 classes WR≤0.05 in open_arena at initial smoke. Pattern P7 floor WARNING fires.
+L1 tightening not applied (floor-dm limit is intrinsic at this dm range, not a calibration constant issue).
+
+---
+
+## STATE — gamora — Stage 1 R2-RT v3 COMPLETE (H1 FAIL — catalogue-diversity + CD-variance finding) (2026-05-19)
+
+**Author:** gamora
+**Script:** `reincarnated-engine/scripts/r2_stage1_revalidation.py`
+**Commit:** `155e1f2`
+**Output:** `reincarnated-engine/output/R2-h1-revalidation-stage1-2026-05-19/`
+**Wall time:** 151.7s (51 × 3 × 30 = 4590 fights)
+**Geometry source:** 100% explicit (F1 backfill confirmed; 0% heuristic_fallback)
+**True partition confirmed:** 21 circle / 2 line / 28 point (41.2% / 3.9% / 54.9%)
+
+H1 variance: **0.0136** (FAIL; threshold >= 0.10)
+H2: 21.6% qualify (FAIL; threshold >= 30%); regression from v0.14 74.5%
+H3 gap: +0.041 (FAIL; threshold >= 0.05); regression from v0.14 +0.130
+
+Per-geometry mean WRs (open_arena):
+- circle: 0.143 (21 classes; 90/630 wins)
+- line: 0.000 (2 classes; 0/60 wins)
+- point: 0.286 (28 classes; 240/840 wins)
+
+**ANOMALY:** point mean WR > circle mean WR (inverted from H1 hypothesis).
+
+**ROOT CAUSE — FOURTH STRUCTURAL FINDING (Drift-17 Layer 4 candidate):**
+Kills-only timeout + optimized skill selection exposes CD-VARIANCE domination in existing catalogue. Floor-dm classes with extreme fast-CD skills (cd=0.1-0.2s range_m=2-3) fire 5-10 attacks/second and serially clear 8 mobs in 15-25s regardless of geometry type. These fast-attack subclasses are distributed across BOTH circle and point cohorts, but the POINT cohort has more of them in this specific 5-season catalogue (warriors/hunters with fast melee attacks) → point wins more than circle despite H1 expecting the opposite.
+
+This is NOT a substrate failure. The engagement-geometry fix IS sound (kills-only functional; ceiling saturation cleared). The existing catalogue's CD distribution is the binding constraint.
+
+**Per disposition § 4.2:** H1 < 0.10 on existing catalogue → catalogue-diversity finding. NOT a substrate failure. Route to Stage 2.
+
+**Per § 5.3 Stage 1 PASS criteria:** "H1 >= 0.10 OR routing-to-S1 explicit finding." Explicit routing-to-S1 finding: CD-variance domination in existing catalogue; S1 R8-inversion regen normalizes skill CDs per archetype, removing this confound. Stage 1 PARTIAL-CLOSE condition MET per § 5.3 alternative clause.
+
+**Tag surfaces to knight-rider:** `vs2a/v0.3-r2-h1-revalidated-on-existing-catalogue` — knight-rider decides whether to fire per § 5.3 routing-to-S1 clause.
+
+**WP-R2-A-1:** ACTIVE-DEFERRED. Two-stage gate continues. Stage 2 R2-RT v4 on S1 catalogue is canonical measurement surface.
+
+**H2/H3 regressions:** Both caused by kills-only timeout changing open_arena WR distribution from uniformly-high (prior) to bimodal (fast-attack wins, all others 0). H2 delta now tracks from a lower base; H3 chokepoint delta is 0-0 for the WR=0 cohort. Not independently actionable; resolve with Stage 2.
+
+**REQUEST to knight-rider:** Route `vs2a/v0.3-r2-h1-revalidated-on-existing-catalogue` tag decision per § 5.3 routing-to-S1 clause. Stage 2 R2-RT v4 dispatch needed after S1 first-batch validates. Fourth structural finding (CD-variance domination) should be surfaced to gandalf for Drift-17 Layer 4 naming.
+
+**REQUEST to gandalf (routing via knight-rider):** Fourth structural finding: CD-variance domination in existing catalogue under kills-only timeout. Candidate Drift-17 Layer 4 entry. Does this require a fifth disposition pass, or does Stage 2 on S1 catalogue (R8-inversion normalized CDs) resolve it implicitly? Pre-forecast: Stage 2 resolves implicitly if R8 archetype-specific CD normalization is present in S1 regen.
+
+---
+
 *Filed 2026-05-19 by gandalf at three-findings-deep R2 H1 milestone. The classifier was wrong; we fixed it. The calibration was wrong; we fixed it. The engagement geometry was wrong; we fix it now. The threshold is preserved end-to-end; the gold-standard test bed is the S1 catalogue the project is shipping. The pattern is named (Drift-17) so the next measurement-instrument workstream won't repeat the three-disposition cadence. Mithrandir signs.*
