@@ -1480,3 +1480,71 @@ Static analysis: pre-fix ~60% kiting (pre-backfill over-application of "long"); 
 - R7 DemoAgentMock replacement: integration bridge target is now `PackActor.aggroRadiusPx` / `.kiteTriggerPx` / `.preferredBehavior`
 
 **LLM cost:** $0.00. No LLM calls.
+
+---
+
+## 2026-05-19 — drax R4 demo collision + leash + range
+
+### [2026-05-19] STATE — drax — R4 COMPLETE; 6/6 deliverables; build clean
+
+**Author:** drax
+**Demo commit:** `542f1115b` — pushed to origin/main
+**Tag (seam):** `drax/v1.26-r4-collision-leash-range-1` — demo repo pushed to origin
+**Tag (milestone):** `hive-rebuild/v0.15-r4-collision-leash-range-operational` — demo repo pushed; collab applied this commit
+**Authority:** AUTONOMOUS L1 in-seam per protocol § 4.0 + knight-rider Batch 5 dispatch (direct prompt, no dispatch file)
+
+**Pre-session read:** hive-mind-protocol §§ 4.0, 5.7; solutions doc § 5 R4; hive log tail through R5 STATE; R3-schema-design-2026-05-19.md (R-0 through R-8); R5 implementation (movement.ts, aggro.ts); PackActor R3 fields; AGENT_STATE.md.
+
+**6 R4 deliverables (all COMPLETE):**
+
+| # | Deliverable | Status | Evidence |
+|---|---|---|---|
+| D1 | Soft separation via push-apart force | COMPLETE | `src/world/separation.ts` — `applyPackSeparation()`; `ENTITY_RADIUS_PX=40px`; `SEPARATION_FORCE=320px/s`; O(n²) over pack; applied post-FSM each frame |
+| D2 | Aggro + leash per monster (read from JSON) | COMPLETE | `tickFSMMove()` leashing state in `movement.ts`; `resetHpToFull()` added to `combatant.ts`; console-logged on leash break + HP reset |
+| D3 | Per-skill range as real check | COMPLETE | `isSkillInRangeR4()` in `movement.ts`; `_firePlayerSkillAtActor()` checks range_m before damage; out-of-range → orange "Out of range" text + combat log + cooldown; monster AI uses `isSkillInRangeR4` in `ai.ts` skill filter |
+| D4/D5 | Range_profile distribution rebalance | CONFIRMED | 50/34/16 distribution (per R5 audit); FSM routes by preferred_behavior not range_profile; 88.6% non-kiting behaviors |
+| D6 | AI FSM (idle→approach→attack→reposition→leashing) | COMPLETE | `tickFSMMove()` in `movement.ts`; 6 states; 6 preferred_behavior variants; `attackOrbitPx()` helper; `_moveToward()` / `_moveAway()` helpers; hit_and_run reposition trigger post-skill-fire |
+| D7 | Smoke + round-trip | COMPLETE | `tsc --noEmit` CLEAN; `npm run build` 536 modules, 0 errors (+1 vs R5 baseline: separation.ts) |
+
+**Files changed (11):**
+- `src/world/separation.ts` — NEW: push-apart force module
+- `src/world/movement.ts` — FSM types + `tickFSMMove()` + `isSkillInRangeR4()` + `_moveToward()`/`_moveAway()` helpers
+- `src/encounter/ai.ts` — `pickAISkill()` filter uses `isSkillInRangeR4` (monster AI respects range_m)
+- `src/actors/combatant.ts` — `resetHpToFull()` (leash HP reset; preserves resource/cooldowns)
+- `src/types/engine.ts` — `range_m?: number` added to `Skill` interface (R3 consumer)
+- `src/main.ts` — `PackActor` + `spawnPos` + `fsm`; `tickFSMMove` replaces `tickAIMove`; separation block; out-of-range guard; hit_and_run reposition trigger
+- `AGENT_STATE.md` — v1.26 checkpoint
+- `docs/R4-test1-pack-spread.md` — Test 1 documentation
+- `docs/R4-test2-leash-reset.md` — Test 2 documentation
+- `docs/R4-test3-out-of-range.md` — Test 3 documentation
+- `docs/R4-test4-constant-flee.md` — Test 4 documentation
+
+**Hypothesis test status:**
+
+| Test | Status | Evidence |
+|---|---|---|
+| Test 1 — pack spread visible | IN-SESSION STRUCTURAL; PLAYTEST-DEFERRED | `applyPackSeparation()` mathematically enforces separation; capture requires live playtest |
+| Test 2 — leash + HP reset ≤ 5s | IN-SESSION STRUCTURAL; PLAYTEST-DEFERRED | Console logs `[R4] leash return HP reset` available for timing verification |
+| Test 3 — out-of-range visibly fails | IN-SESSION VERIFIABLE | Console `[R4 range] ... OUT OF RANGE` + orange float text + combat log + cooldown code path verified by inspection |
+| Test 4 — constant-flee < 2/10 fights | STRUCTURAL FIX CONFIRMED; PLAYTEST-DEFERRED | 88.6% of monsters never kite (prefer melee/cast_at_range/charge/stationary); only ranged_kite (11.4%) intentionally kites |
+
+**TODO(drax) in AGENT_STATE.md:**
+- `tickAIMove` + `PREFERRED_RANGE`/`KITE_TRIGGER` — remove when FSM validated in playtest
+- `ENTITY_RADIUS_PX = 40px` — replace with engine-emitted field when available
+- `hit_and_run` — no production monsters; code path correct but untested in live play
+
+**Tag status:**
+- `drax/v1.26-r4-collision-leash-range-1` — demo repo pushed
+- `hive-rebuild/v0.15-r4-collision-leash-range-operational` — demo + collab repos (this commit); criteria: build clean + automated test structure verified
+- `hive-rebuild/v0.16-r4-hypothesis-test-passed` — HELD pending Matt-side playtest confirmation (Tests 1, 2, 4)
+
+**Vercel preview deploy:** `https://reincarnated-demo-k9i06rmm7-matthew-wetmore-s-projects.vercel.app` — READY (prebuilt; commit `542f1115b`)
+
+**LLM cost:** $0.00. No LLM calls.
+
+### [2026-05-19] TAG — drax — `hive-rebuild/v0.15-r4-collision-leash-range-operational`
+
+| Repo | Commit | Tag pushed |
+|------|--------|------------|
+| reincarnated-demo | `542f1115b` | `drax/v1.26-r4-collision-leash-range-1` + `hive-rebuild/v0.15-r4-collision-leash-range-operational` — pushed to origin |
+| reincarnated-collaboration | (this commit) | hive log STATE entry + `hive-rebuild/v0.15-r4-collision-leash-range-operational` applied |
