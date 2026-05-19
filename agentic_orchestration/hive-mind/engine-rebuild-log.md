@@ -1223,3 +1223,87 @@ Milestone tag `hive-rebuild/v0.5-r3-schema-implementation-complete` applied + pu
 **Pattern-B:** still PARKED. No signals to file today.
 
 **Wind-down trigger:** unchanged. Matt's explicit declaration only.
+
+---
+
+## 2026-05-19 — elrond R3 backfill execution complete
+
+### [2026-05-19] STATE — elrond — R3 backfill executed across 5 shipped seasons; tag fired; warn-on-None noise dissolved
+
+**Author:** elrond
+**Engine commit:** `61d70de` — feat(elrond): R3 backfill execution — 5 shipped seasons + tool + validation report
+**Demo commit:** `07a3b37f0` — chore(elrond): mirror R3-backfilled season JSONs from engine
+**Tags:**
+- `elrond/v1.0-r3-backfill-execution-1` (engine seam tag)
+- `hive-rebuild/v0.6-r3-backfill-complete` (milestone, engine + collab repos)
+
+**Authority:** AUTONOMOUS L1 in-seam (elrond data steward) per protocol § 4.0.
+
+**Tool delivered:**
+- Path: `scripts/backfill_r3_2026-05-19.py`
+- Mirrors d10 backfill patterns + calls rocket's `_derive_skill_range_m()` + `_derive_r3_ai_fields()` directly (Discipline #13a drift avoidance — backfilled and freshly-generated post-R3 content derive from the SAME functions + SAME tables; the corrected archetype vocabulary swarmer/controller/sniper + boss/elite/mini-boss tier overrides flows through naturally)
+- CLI: `--dry-run`, `--validate-only`, `--strict`, `--smoke-fight`, `--compare-to-fresh`, `--no-demo-sync`, `--season`, `--output-summary`, `--verbose`
+
+**Per-season backfill counts (uniform across all 5 seasons — totals on right):**
+
+| Season | Monsters | Monster skills (range_m) | Class skills (geom + range) | Monster AI fields | Duration |
+|---|---:|---:|---:|---:|---:|
+| 002011 | 44 | 105 | 92 | 44 | 0.02s |
+| 002012 | 44 | 98 | 88 | 44 | 0.02s |
+| 002013 | 44 | 97 | 98 | 44 | 0.02s |
+| 002014 | 44 | 105 | 96 | 44 | 0.02s |
+| 002015 | 44 | 104 | 94 | 44 | 0.02s |
+| **Totals** | **220** | **509** | **468** | **220** | **~0.12s** |
+
+**Fallback count: 0 across all derivations.** Rocket's tables (`_EFFECT_CATEGORY_RANGE_M` + `_ARCHETYPE_PREFERRED_BEHAVIOR` + tier overrides) fully cover the shipped catalogue vocabulary. No Pattern P7 escapes.
+
+**3-layer validation results (per Discipline #8 + #2):**
+
+| Layer | Scope | Result |
+|---|---|---|
+| 1 — post-condition assert | 0 NULL R3 fields after backfill | PASS all 5 seasons |
+| 2 — pydantic R3 round-trip | Monster `@model_validator` constraints + skill range_m bounds | 220/220 monsters + 977/977 skills pass; 0 errors |
+| 3 — smoke-fight (R3 probes) | A: `_skill_in_range()` consistency × 4 distances on every backfilled skill; B: `get_priority_roles()` routing per monster; C: schema constraints re-check | A: 3,908/3,908 consistent; B: 220/220 routed; C: 220/220 pass |
+
+**Idempotency proof:** `--validate-only` re-run after production backfill produced **zero diff across all 5 seasons** (all 977 skills + 220 monsters re-derive to stored values). Manifest provenance flag `r3_backfill: True` is observable; script detects on entry.
+
+**Smoke-fight outcomes:** All 3 R3-targeted probes pass. Note Probe B (preferred_behavior routing) exercises 5 of 6 enum values — `hit_and_run` has no archetype in the shipped catalogue (empirically expected, not a gap). Full PlayerClass / Monster pydantic round-trip on shipped export-format JSONs is NOT viable due to pre-R3 schema gaps in the export shape (those JSONs omit `abilities`, `geometry`, `timing`, `power_tier`, `scaling_attribute`, `color_palette`, `stats`, etc. — pre-R3 export-shape issue, out of scope for R3 backfill).
+
+**Warn-on-None log noise DISSOLVED.** Verification:
+- Pre-R3 probe (skill with range_m=None): 1 WARN line (expected — confirms warn path still fires for genuinely pre-R3 content)
+- Post-R3 bulk probe: 2,931 `_skill_in_range()` calls across all 977 backfilled skills × 3 distances → **0 WARN lines**
+
+Rocket's flagged log-noise concern from the R3 implementation handoff is resolved. Fights against R3-backfilled monsters no longer produce the noise.
+
+**Demo-mirror sync:** All 10 demo JSONs (`reincarnated-demo/public/seasons/season_002011/`–`002015/` × `{monsters,classes}.json`) synced from engine staging. Engine ↔ demo parity verified per-season (count match: 44 monsters with preferred_behavior; matching range_m skill counts).
+
+**Distributional summary (220 monsters, 977 skills):**
+
+`preferred_behavior` distribution: melee_aggressive 80 (36.4%) | cast_at_range 55 (25.0%) | charge_then_melee 30 (13.6%) | stationary_caster 30 (13.6%) | ranged_kite 25 (11.4%) | hit_and_run 0 (0.0%).
+
+`range_m` banded distribution: close 752 (77.0%) | medium 225 (23.0%) | long 0 | extreme 0. Reflects the shipped catalogue's d10/d11 close-range emphasis + rocket's effect_category caps (single_target_damage=2m, burst=3.5m).
+
+**Validation report:** `reincarnated-engine/output/R3-backfill-log-2026-05-19/README.md` + `summary.json` + 5 per-season summary JSONs. Includes tool description, per-season counts, 3-layer validation results, idempotency proof, sample diff, Pattern P7 audit, coordination receipts.
+
+**Files modified:**
+- Engine staging: 220 per-monster JSONs (untracked), 51 per-class JSONs (untracked); 5 bundle classes.json (tracked); 5 manifest.json (tracked, provenance flag).
+- Demo: 10 season files (tracked, shipped artifact).
+- Tool + report: `scripts/backfill_r3_2026-05-19.py`, `output/R3-backfill-log-2026-05-19/` (new).
+
+**Downstream unblocks:**
+- Star-lord R7 parity-test harness: can now read R3 AI fields off real backfilled content (CombatantState carries them via rocket's `from_monster()` path)
+- Gamora R1 class-retuning sprint (Test 2 path): may proceed when knight-rider sequences; backfilled `range_m` now populates `class_fight_loadouts.skill_range_m` telemetry column on future fight runs
+- Drax R5 dispatch: shipped seasons now carry preferred_behavior + leash + aggro fields if/when demo loadout app or react app wants to read them
+
+**Push status:**
+- Engine: PUSHED to origin/main (commit `61d70de`; tags `elrond/v1.0-r3-backfill-execution-1` + `hive-rebuild/v0.6-r3-backfill-complete`)
+- Demo: PUSHED to origin/main (commit `07a3b37f0`)
+- Collab: this STATE entry + tag `hive-rebuild/v0.6-r3-backfill-complete` per § 6.6 commit-push authority
+
+**LLM cost:** $0.00. No LLM calls. Pure deterministic re-derivation.
+**Runtime:** ~0.12s default mode across all 5 seasons; +~0.1s for strict+smoke-fight validation suite.
+
+**Out of scope (documented; not done this session):**
+- Pre-D3 legacy seasons (001001–001005) — excluded per § E-1
+- Export-format schema gap (per-monster/per-class JSONs missing pre-R3 required fields) — predates R3; would require separate audit
+- Encounter analytics backfill (loadout app `encounter_analytics_002NNN.json`) — star-lord's § SL-5 plans forward-only emission
