@@ -4,6 +4,60 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-19 — VS2a S1 first-batch FAIL + critique-pair dispositions (gandalf design + jack-ryan process)
+
+**Event:** S1 first-batch validation gate on season_100001 returned a split verdict:
+
+- **Cohesion (criterion 3) PASS** at 4.83/5.0 (gandalf judgment; exceeds R8 inverted A/B benchmark of 4.77). Season_100001 surfaced as candidate cohesion-5 anchor referent.
+- **Mechanics (criteria 1+2) FAIL** under canonical R1 sprint by gamora — 0/11 boss kills (0.000 WR); only 1/11 at mini_boss kill-rate threshold. Statistically indistinguishable from shipped catalogue kit-broken subset.
+
+Critique-pair fired in parallel:
+
+**Gandalf disposition** (`canonical/story/s1-firstbatch-fail-disposition-2026-05-19.md`): Option 1 + Option 4 SELECTED. 5-season regen authorization WITHDRAWN. season_100001 prose retained as cohesion-5 anchor referent; mechanical substrate discarded. Retry path: 3-seed serial budget (100002, 100003, 100004) under substrate-archetypal-stance prior — prefer wind/ember/grit/brine-action; reject char/pall/miasma/rime + aftermath/mourning anchor framing + >50% convergence_failures. Path-a fallback (hand-redesign) activates automatically if all 3 retries fail. Major design insight surfaced: substrate-archetypal-stance is a real design lever; battlefield-clerical canonical rosters (char) have low damage-throughput convention; force/strike/ignite substrates (wind/ember/grit) have higher native throughput.
+
+**Jack-ryan DEV-MODE Gate 2 audit** (`agentic_orchestration/qa/pending/2026-05-19-s1-measurement-discrepancy-audit.md`): transposition hypothesis REFUTED. Root cause is **methodology conflation**, not cross-season copy-paste. Rocket used convergence-time kill-rate estimates (floor modifier, N=30, NO disposition-3 calibration) as proxy for canonical R1 sprint measurements. Disciplines violated: #11 (empirical inspection over assumption), #10 (attribution clarity), #2 (smoke vs full milestone). **Failure point of origin: knight-rider's dispatch authoring** — § 2.4 underspecified the measurement instrument. Four process fixes recommended:
+
+1. Gate criterion must specify instrument, not just threshold
+2. Convergence-time estimates must be labeled provisional, not gate-eligible
+3. Gate 2 audit before knight-rider fires any first-batch PASS tag
+4. Dispatch author (knight-rider) responsible for instrument specification
+
+BLOCK on the PASS claim, not on the work quality. First-batch FAIL is the correct starting state for an iterative sprint. Matt review warranted for the BLOCK severity + future-dispatch standard adoption.
+
+**Knight-rider operational consolidation:**
+
+- Retry dispatch authored: `agentic_orchestration/dispatches/2026-05-19-rocket-plus-gandalf-vs2a-S1-retry-with-seed-constraint.md` — incorporates gandalf § 2.3 substrate prior + jack-ryan § 2.4-bis instrument specification + § 7 process-fix enforcement
+- Retry 1 fired to rocket (seed 100002; agentId on file). Serial execution per Discipline #3.
+- Matt briefing on deck for natural wind-down re-entry; autonomous execution continues per "do not stop unless I intervene" directive.
+
+**Outstanding tag amendment:** `rocket/v1.22-s1-first-batch-regen` (already pushed) does not claim PASS semantics — it marks the intermediate seam state. The PASS claim lives in the dispatch completion record + AGENT_STATE; both are to be amended by rocket per Fix 2 (convergence-summary heading) during the retry.
+
+---
+
+## 2026-05-19 — VS2a tag-fire batch (intermediate milestones; autonomous-op tag-fire authority per ADR-006 amendment)
+
+**Event:** Knight-rider fired four intermediate milestone tags during autonomous-operation execution:
+
+- `vs2a/v0.1-geometry-type-schema-shipped` @ `cd6e5dd` (engine) — F1 close; star-lord schema 2.13 + geometry_type_source round-trip; 79/79 tests PASS
+- `vs2a/v0.3-r2-h1-revalidated-on-existing-catalogue` @ `155e1f2` (engine) — Stage 1 R2-RT v3 PARTIAL-CLOSE per gandalf § 5.3 routing-to-S1 OR-clause; CD-variance domination finding (Drift-17 Layer 4); Stage 2 on S1 regenerated catalogue queued
+- `vs2a/v0.6-b6-skilltree-ui-decomposition` @ `08a9f325e` (demo) — F4 close; drax B6 skill-tree UI surface decomposition (design dispatch + prototype shipped; § 7 data contract surfaced to S2)
+- `rocket/v1.22-s1-first-batch-regen` @ `f609928` (engine) — S1 first-batch regen; season_100001 generated under R8 `inverted` pipeline; 4/5 first-batch validation criteria PASS (cohesion pending gandalf judgment)
+
+**Rationale (per ADR-006 amendment under autonomous-operation authority):** Developers surface tag-fire requests via AGENT_STATE; knight-rider fires + pushes under pre-approval-batch authority. Matt re-enters only at wind-down.
+
+**In-flight at this moment:**
+- Background agent `a263f7a885ae19bfb` — gamora R1 sprint re-run on regenerated catalogue (validation gate criteria 1+2 confirmation at bigger N + includes SMOKE_CLASS_IDS metadata-sampling fix per rocket B6 pre-work audit flag)
+- Background agent `a5683abd1cbb8dc88` — gandalf cohesion judging on season_100001 (criterion 3; R8 6-facet rubric; ≥ 4.0 threshold)
+
+**Next gated work (held pending notifications):**
+- Full 5-season regen (rocket; gated on validation gate PASS)
+- Stage 2 R2-RT v4 on S1 catalogue (gamora; gated on full regen)
+- S3 sim MS extension (gamora; independent of S1; C1 cascade ready; held to avoid sim-code collision with in-flight R1 sprint re-run)
+- S2 B6 main work (rocket + gamora; gated on S1 full regen)
+- L1 demo regen / VS2a SHIP GATE (star-lord + gamora; gated on all VS2a upstream)
+
+---
+
 ## 2026-05-19 — Stage A2 PRE-APPROVAL BATCH authored (full 7-dispatch set; VS2A → VS2B → Stage A2 continuation per Matt directive)
 
 **Event:** Per Matt directive 2026-05-19 ("approved, proceed all the way through Stage A2"), knight-rider authored the complete Stage A2 closeout dispatch set alongside VS2a + VS2b pre-approval batches. Combined 25-dispatch production sprint under one Matt approval.

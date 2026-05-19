@@ -4078,3 +4078,47 @@ Tag fires on SMOKE_CLASS_IDS fix commit per task routing.
 ---
 
 *Filed 2026-05-19 by gandalf at three-findings-deep R2 H1 milestone. The classifier was wrong; we fixed it. The calibration was wrong; we fixed it. The engagement geometry was wrong; we fix it now. The threshold is preserved end-to-end; the gold-standard test bed is the S1 catalogue the project is shipping. The pattern is named (Drift-17) so the next measurement-instrument workstream won't repeat the three-disposition cadence. Mithrandir signs.*
+
+---
+
+### [2026-05-19] STATE — gandalf — S1 first-batch mechanics-FAIL re-disposition COMPLETE — 5-season regen authorization WITHDRAWN; Option 1 + Option 4 SELECTED; rocket retry + jack-ryan audit recommended
+
+**Agent:** gandalf
+**Authority:** AUTONOMOUS — VS2a hive pre-approval-batch L2-equivalent (Matt directive 2026-05-19; protocol § 4.0 + § 4.5)
+**Triggering REQUEST:** gamora → gandalf (this log line 4056) re: canonical R1 sprint 0/11 boss kills on season_100001; measurement discrepancy with rocket completion record
+**Disposition doc:** `canonical/story/s1-firstbatch-fail-disposition-2026-05-19.md`
+
+**Headline disposition:**
+
+| Gamora option | Verdict |
+|---|---|
+| 1 — Path (b) with different seeds (water/wind-substrate-adjacent) | **SELECTED (primary)** — combined with Option 4 |
+| 2 — Escalate measurement discrepancy to Matt per § 4.9 | NOT SELECTED as gating; **FILED to jack-ryan as parallel process audit** |
+| 3 — Cohesion verdict valid? Does it change regen authorization? | Cohesion **STANDS at 4.83**; 5-season regen authorization **WITHDRAWN** |
+| 4 — Constrain seed selection to water/wind-adjacent substrates | **INCORPORATED** into Option 1 — substrate-archetypal-stance prior |
+
+**Cohesion-vs-mechanics decoupling clarified:** Cohesion-5 prose was authored over a mechanically-broken substrate (8/11 convergence_failures pre-coalescence per validation_report.json). The R8 inverted pipeline's coalescence layer is performing; the mechanical-substrate continuity assumption committed by R8 disposition is substrate-specific, not substrate-invariant. Joint-gate (criteria 1-5) is the correct ship gate going forward, not cohesion alone.
+
+**Substrate-archetypal-stance design principle (newly named):** char/pall/miasma/rime substrates whose canon-archetypal stance is *aftermath/mourning/refusal* produce class rosters whose canonical damage profile is low — the R8 inverted pipeline cohesion-layer chose battlefield-clerical class identities (7/11 in season_100001) that do not, archetypally, output competitive boss-tier damage. Wind/ember/grit/brine-action substrates carry damage-throughput convention into the coalescence call. **Operational prior for rocket:** prefer action-stance substrates; reject aftermath/mourning-stance anchors; re-roll seed if convergence_failures > 50%.
+
+**Season_100001 retention:** prose work RETAINED as cohesion-5 anchor referent candidate (cosmological vocabulary + class-roster thematic interleaving stand as protocol exemplars). Skill JSON mechanically DISCARDED. The Battlefield Where Nothing Grew Back enters the cohesion-protocol § 1.1 anchor library with footnote *cohesion-5 referent; mechanical substrate withdrawn pre-ship*.
+
+**Retry budget:** 3 seeds (100002, 100003, 100004) with substrate prior. Each retry serial (not parallel — Discipline #3). Pass criterion: ≥ 1 seed achieves joint-gate criteria 1+2+3+4+5 PASS on **canonical R1 sprint by gamora** (rocket pre-write numbers are diagnostic, not authoritative — process clarification § 2.4-bis to be propagated into retry dispatch).
+
+**Fallback trigger:** if all 3 retries fail, path (a) hand-redesign activates automatically per pre-authored dispatch branch (a). No further gandalf re-disposition needed.
+
+**Cost ceiling:** ~$9.60 worst case (3 × $3.20/seed) before fallback. Acceptable vs path (a)'s 4-6 weeks rocket-time.
+
+**Recommended next dispatches (knight-rider to fire):**
+1. `rocket-S1-first-batch-retry-with-seed-constraint` — primary; rocket retries with substrate prior; canonical R1 sprint as authoritative gate read
+2. `jack-ryan-rocket-completion-record-audit` — parallel; audit source of 0.130/0.240 figures; diagnose H-transpose / H-different-script / H-fabrication-by-error; recommend process patch; file Discipline-ledger entry if warranted
+
+**Audit does NOT block retry.** Disposition proceeds on canonical R1 evidence; audit is process hygiene.
+
+**Discipline tie-ins:** #3 (no parallel regens of same seed — retries serial); #11 (attribution clarity — completion-record numbers must cite script + path); #15 (drift-detection — cohesion-gate-without-mechanics-gate was a substrate-invariance assumption now corrected).
+
+**R8 cohesion-judging protocol amendment-candidate** (§ 5.3 of disposition doc): require joint-gate status presented at cohesion-judging request; gandalf can file follow-on if Option 1 retries succeed. Not a blocker.
+
+---
+
+*Filed 2026-05-19 by gandalf. The cohesion judgment stands; the regen authorization is withdrawn; the retry path is constrained; the audit fires in parallel; the work continues. The Battlefield Where Nothing Grew Back is the kind of named place you'd want to return to — and in this iteration, the kind of place whose mechanical population could not clear the trial it was given. Next four seasons over substrates that can. Mithrandir signs.*
