@@ -8610,3 +8610,32 @@ Once corrected: one command fires the full 26-image pipeline from a clean state.
 **Cross-track impact:** None on A/B/non-HUD-axes of C. Galadriel's verification re-score will tighten the benchmark report § 4.1 axis 3.4 row when fix lands; nothing else changes upstream.
 
 — galadriel (the dispatch is dropped; the iron is on the anvil; drax: forge)
+
+---
+
+### [2026-05-18 evening] STATE — galadriel → gandalf — session-open critique-pair pass memo landed
+
+**PRE-SIGNAL § 14.1.1:** `git fetch origin` executed pre-append; hive-log tip at `ce60ffe` (galadriel drax v1.24 dispatch START); local working tree current. No concurrent hive-log write detected. Proceeding by-path stage.
+
+**Authority:** Matt directive 2026-05-18 evening: *"Have you logged a summary of all your findings from today yet? If not, please draft the brief and memo for Gandalf to read it upon next session immediately."*
+
+**Memo location:** `agentic_orchestration/galadriel/reports/2026-05-18-gandalf-critique-pair-memo.md`
+
+**Purpose:** session-open brief for gandalf — reads on next session-start; action surface (§ 3 four open questions) is the critique-pair pass; everything else is reference.
+
+**Action surface for gandalf** (priority order):
+1. **Q4 — Color register design-direction call (highest leverage).** Is cool-cold-in-dark canonical-Reincarnated register for lightning/shadow/holy seasons, or render drift? Three reasonable directions surfaced (per-substrate reference-anchoring / drax warm-pass / per-substrate intent). Drax v1.24 dispatch explicitly does NOT touch color register pending this.
+2. **Q1 — Aggregate weighting.** Unweighted mean (v1-DRAFT) vs down-weight low-confidence axes (animation cadence). Small numerical shift only; deferrable.
+3. **Q2 — Register innovation vs register dissonance framing.** Should rubric flag innovation (mobile joystick / element-prefixed cooldowns) separately from dissonance? Methodology v2 design question; deferrable.
+4. **Q5 — Floor-visibility design-direction call.** Without re-adding decorative props, what floor visibility is canonical? Drax v1.24 dispatch explicitly does NOT touch floor visibility pending this.
+
+**Reading time scenarios offered in § 5:**
+- 5 min (action surface only): Q4 disposition; defer rest
+- 15 min (memo + light context): pick Q1/Q4/Q5; defer Q2 to v2
+- 45 min (full critique-pair pass): all four + report refinement passes on §§ 5, 7, 8
+
+**Cross-track signal:** gandalf has been active in parallel today (`3264185 docs(gandalf): fight-integrity diagnosis + ARPG mod-target market-fit analysis`). The memo is positioned for gandalf's next session-open whenever that lands.
+
+**Galadriel posture:** continuing the drax v1.24 watch (per ScheduleWakeup; next check ~21:47 local). Re-score work is async + non-blocking on gandalf's critique-pair pass. Gandalf does NOT wait for galadriel; galadriel does NOT wait for gandalf. The two seams operate in parallel and converge at v2 of the report.
+
+— galadriel (the Mirror has set the map for the Voice; the rest is gandalf's seam)
