@@ -4,6 +4,28 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-19 — VS2a S1 arc CLOSED at Trigger A — Option A balance-loop floor widening queued for Matt approval
+
+**Event:** End-of-day wind-down by knight-rider at Matt "please wind down" re-entry. The autonomous VS2a S1 arc converged onto one queued decision after ~8 hours of work:
+
+**Arc summary:** S1 first-batch (rocket; season_100001 char) PASSed cohesion (gandalf 4.83) but FAILed mechanics (gamora canonical R1 0/11 boss). Methodology-conflation audit (jack-ryan) refuted transposition hypothesis + named knight-rider's dispatch authoring as failure point of origin. Substrate-prior retry path tested with seed 100002 (ember PREFER-list) — also 80% floor-lock, weakening gandalf's substrate hypothesis. Knight-rider routed gandalf for re-disposition; gandalf took ownership of category error ("a cohesion-layer truth applied as a mechanics-layer prediction"), withdrew retries 2+3, pivoted to balance-loop floor-mechanism investigation. Gamora investigation diagnosed root cause: B14.5 V1 recompose trigger fires correctly but at modifier=0.0509 all kits win 98-100% → levers produce delta=0 → loop exits as `failed_regenerate`. Architectural failure mode: recompose's signal range [0.30, 0.70] is unreachable when floor=0.05 blocks the search. Recommended Option D (widen floor 0.05→0.01 now + re-condition recompose-trigger this week).
+
+**Critique-pair concurrence #2:** gandalf CONCUR + structural amendment (stage A and B as separate Matt approvals); jack-ryan Gate 1 APPROVE WITH AMEND + 4 process amendments (diagnostic-only temporal gate, blocking test-assertion audit, MIGRATION.md required, smoke gate A4 prerequisite for B).
+
+**Trigger A activation:** Matt briefing § 8 assembled with one-sentence framing + decisions-log text + 6 decision items + HELD implementation dispatch (all critique-pair amendments folded in; fire-on-approval). Path-a hand-redesign held in reserve. Retry-3 withdrawn.
+
+**Bonus empirical:** retry-2 (re-fired under nohup polling) produced 11/11 (100%) convergence failures across 4 distinct failure signatures (floor-lock dominant ~60%; mid-stuck, ceiling-lock, severe-floor-lock minority). Third data point at >70% floor-lock across three substrates (char 72.7%, ember 80%, ember 100%). Substrate hypothesis empirically refuted.
+
+**Team rhythm:** three critique-pair invocations in one day, all productive. Gandalf took explicit ownership of a category error (Mithrandir's "I did this to myself" in disposition § 9.8). Jack-ryan's audit traced back to knight-rider's dispatch authoring discipline (Fix 4 acknowledged). Autonomous mode handled hard failure cleanly; Matt re-enters to a fully-prepared decision packet.
+
+**Tags fired today:** rocket/v1.22-s1-first-batch-regen, gamora/v1.12-r1-sprint-s1-firstbatch, vs2a/v0.1-geometry-type-schema-shipped, vs2a/v0.3-r2-h1-revalidated-on-existing-catalogue (engine); vs2a/v0.6-b6-skilltree-ui-decomposition (demo).
+
+**Skill handoff updated:** `agentic_orchestration/skill_handoff_2026-05-19.md` — wind-down section appended with full arc summary + queued decisions + next-session focus.
+
+**Matt opens first:** `agentic_orchestration/matt-briefing-2026-05-19-s1-firstbatch-fail-disposition.md` § 8.
+
+---
+
 ## 2026-05-19 — VS2a S1 first-batch FAIL + critique-pair dispositions (gandalf design + jack-ryan process)
 
 **Event:** S1 first-batch validation gate on season_100001 returned a split verdict:

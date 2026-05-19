@@ -222,3 +222,117 @@ All hive-rebuild tags + vs2a/v0.0 pushed to origin per ADR-006 amendment.
 ---
 
 *Filed 2026-05-19 by knight-rider at engine-rebuild v1.0 batch close + VS2a kickoff. The seven workstreams have done their work. Five close fully; two land their substrate and wait at the gate for the player. The road continues to VS2a without delay. The next batch is mapped; the first dispatches await authoring. The hive proceeds.*
+
+---
+
+# Wind-down update — 2026-05-19, end-of-day (post-autonomous-VS2a-S1-arc)
+
+**Updated:** 2026-05-19 EOD by knight-rider at Matt re-entry / "please wind down"
+
+## What changed since the kickoff snapshot
+
+The autonomous VS2a sprint converged onto **one major decision queued for Matt**: Option A balance-loop floor widening. The arc consumed ~8 hours of autonomous work, three Mithrandir signatures, two jack-ryan audits, and three critique-pair invocations. The team rhythm gelled.
+
+## Arc summary (chronological)
+
+1. **VS2a tag-fire batch** — F1 (geometry-type schema) + F4 (B6 skill-tree UI) + Stage 1 R2 PARTIAL-CLOSE + rocket S1 first-batch regen tags fired + pushed across engine + demo
+2. **S1 first-batch regen (rocket)** — season_100001 "The Battlefield Where Nothing Grew Back" (char element, R8 inverted). Rocket reported gate criteria 1+2 PASS using convergence-time estimates (later confirmed methodology conflation).
+3. **Cohesion judgment (gandalf)** — 4.83/5.0; criterion 3 PASS; candidate cohesion-5 anchor referent surfaced
+4. **Canonical R1 sprint (gamora)** — 0/11 boss kills; criteria 1+2 FAIL; measurement-discrepancy with rocket's pre-write. Routed to gandalf for re-disposition; routed jack-ryan for methodology audit (critique-pair fire #1)
+5. **Critique-pair #1 returns** — gandalf disposition: 3-seed retry with substrate prior (Option 1 + 4); jack-ryan audit: transposition REFUTED, root cause is methodology conflation, 4 process fixes recommended, BLOCK on PASS claim not work, Matt review warranted. Disciplines #2/#10/#11 violated; failure point of origin: knight-rider's underspecified § 2.4 instrument
+6. **Retry-1 (rocket; seed 100002)** — REJECT at 80% convergence-failure threshold. Substrate prior PASSed (ember + action-anchor) but pathology persisted. Substrate hypothesis weakened with 2 data points
+7. **Retry-2 attempt 1 (rocket)** — generation died early due to subagent-exit + background-process detach failure; re-fire with explicit polling pattern queued but knight-rider skipped re-fire and routed gandalf for re-disposition based on 3 data points (incl. season_099002 brine from gandalf's earlier check)
+8. **Gandalf re-disposition** (§ 9 of disposition doc) — substrate hypothesis WEAKENED to non-operative; gandalf takes ownership of category error; pivot to balance-loop floor-mechanism investigation; retry-2 + retry-3 WITHDRAWN; path-a HELD in reserve; Trigger A reframed (Matt re-entry at code-change approval, not retry-exhaustion)
+9. **Gamora balance-loop floor investigation** — diagnosed root cause: B14.5 V1 recompose trigger fires correctly but at modifier=0.0509 all kits win 98-100% → levers produce delta=0 → loop exits as `failed_regenerate`. Architectural failure mode: recompose's signal range [0.30, 0.70] is unreachable when floor=0.05 blocks the search. Option D (A now + B this week) recommended.
+10. **Critique-pair #2 returns** — gandalf concurrence (CONCUR + stage A and B as SEPARATE Matt approvals); jack-ryan Gate 1 (APPROVE WITH AMEND + 4 process amendments: diagnostic-only temporal gate, blocking test-assertion audit, MIGRATION.md required, smoke gate A4 for B prerequisite)
+11. **Matt briefing § 8 assembled** — one-sentence framing + decisions-log entry text + 6 decision items + HELD implementation dispatch with all critique-pair amendments folded in
+12. **Retry-2 attempt 2 (rocket re-fire)** — actually succeeded under nohup; ran ~60-90 min producing 11/11 (100%) convergence failures with 4 distinct failure signatures (floor-lock dominant ~60%, mid-stuck, ceiling-lock, severe-floor-lock minority). Bonus empirical evidence for Option A approval. Pipeline still in LLM naming phase at wind-down time
+
+## What shipped
+
+**Engine repo tags pushed:**
+- `rocket/v1.22-s1-first-batch-regen` (S1 first-batch baseline)
+- `gamora/v1.12-r1-sprint-s1-firstbatch` (R1 canonical sprint + SMOKE_CLASS_IDS fix)
+- `vs2a/v0.1-geometry-type-schema-shipped` (F1 complete)
+- `vs2a/v0.3-r2-h1-revalidated-on-existing-catalogue` (Stage 1 PARTIAL-CLOSE per gandalf § 5.3)
+
+**Demo repo tags pushed:**
+- `vs2a/v0.6-b6-skilltree-ui-decomposition` (F4 complete)
+
+**Engine commits (latest 5):**
+- `dfa39b8` docs(team): wind-down critique-pair artifacts (knight-rider commit)
+- `cfda6aa` rocket retry-2 setup + Fix 2 audit corrections to AGENT_STATE
+- `40e3ad5` rocket S1 retry-1 REJECT (80% convergence-failure)
+- `210bed5` gamora SMOKE_CLASS_IDS metadata-sampling fix + R1 sprint
+- `f609928` rocket S1 first-batch regen season_100001
+
+**Collab repo commits (latest 5):**
+- `f1c2105` HELD Option A implementation dispatch (fire-on-Matt-approval)
+- `840eb5c` Trigger A activation — Matt briefing § 8 assembled
+- `65fee77` retry-1 REJECT update + systemic floor-lock observation
+- `21ff8f5` S1 first-batch FAIL critique-pair dispositions
+- `abb1144` rocket S1 dispatch completion record
+
+## What's blocked
+
+**Everything VS2a-downstream is blocked on Matt approval of Option A:**
+- S2 (B6 main work; rocket + gamora) — gated on S1 closure
+- L1 (demo regen / VS2a ship gate; star-lord + gamora) — gated on S2
+- All VS2b dispatches V1-V6 — gated on VS2a L1 ship
+- All Stage A2 dispatches A1-A7 — gated on VS2b V6 ship
+
+**S3 (sim MS extension) is gate-clear but held** to avoid sim-code collision; will fire after Option A path resolves.
+
+**Retry-3 (seed 100004) WITHDRAWN** per gandalf § 9.7.
+
+**Path-a hand-redesign HELD in reserve** — not activating unless Option A + Option B both fail to deliver.
+
+## What's queued for next session
+
+**Matt decisions on deck** (briefing § 8.5 + § 6):
+- A1 — Approve Option A implementation (default: approve; fires HELD dispatch verbatim)
+- A2/A3/A4 — Sub-decisions folded into A1 (telemetry flag, stop-gap regen, named constant)
+- B0 — Confirm Option B staged for separate approval after A regen lands
+- C — Re-evaluate VS2a path after Option A regen evidence
+- § 6.1-6.5 — 5 lower-stakes decisions (process fix permanent adoption; prior-record audit; cohesion-PASS / mechanics-FAIL insight; retry budget confirmation; cohesion-5 anchor referent retention)
+
+**Implementation dispatch ready to fire on approval:**
+- `agentic_orchestration/dispatches/HELD-2026-05-19-gamora-balance-loop-floor-option-A-implementation.md` — knight-rider renames (removes HELD- prefix) + fires gamora on Matt approval
+
+**Background work still running at wind-down:**
+- Retry-2 LLM naming phase (~30-40 min remaining); will close out on its own; rocket Monitor will write final STATE entry
+
+## Key new artifacts
+
+- `canonical/story/s1-firstbatch-fail-disposition-2026-05-19.md` (gandalf disposition + § 11 concurrence; the canonical design record of the arc)
+- `reincarnated-engine/design/working-agreement/balance-loop-floor-investigation-2026-05-19.md` (gamora's investigation report)
+- `agentic_orchestration/qa/pending/2026-05-19-s1-measurement-discrepancy-audit.md` (jack-ryan methodology audit)
+- `agentic_orchestration/qa/pending/2026-05-19-balance-loop-floor-option-d-gate1.md` (jack-ryan Gate 1)
+- `agentic_orchestration/matt-briefing-2026-05-19-s1-firstbatch-fail-disposition.md` (the briefing Matt opens first)
+- `agentic_orchestration/dispatches/HELD-2026-05-19-gamora-balance-loop-floor-option-A-implementation.md` (the dispatch knight-rider fires on approval)
+
+## Session ending state — git tree
+
+| Repo | HEAD SHA | Working tree | Tag(s) added today |
+|---|---|---|---|
+| reincarnated-collaboration | `f1c2105` | gandalf research/hive-runs-review-2026-05-19/ untracked (not session work) | — (no collab tags) |
+| reincarnated-engine | `dfa39b8` | output/ untracked dirs (retry-2 in-flight; standard-demo-regen-2026-05-17 historical); `54000` stray file | rocket/v1.22-s1-first-batch-regen, gamora/v1.12-r1-sprint-s1-firstbatch, vs2a/v0.1-geometry-type-schema-shipped, vs2a/v0.3-r2-h1-revalidated-on-existing-catalogue |
+| reincarnated-demo | `08a9f325e` | clean | vs2a/v0.6-b6-skilltree-ui-decomposition |
+| reincarnated-loadout | `ec73ea7` | clean | — |
+
+All session-related tags pushed to origin per ADR-006 amendment.
+
+## What I'd flag for next-session focus (knight-rider self-note)
+
+1. **Once Matt approves Option A**: fire the HELD dispatch (remove `HELD-` prefix + Agent fire to gamora). Monitor the smoke gates (A2 BLOCKING test-assertion audit must clear before commit lands). Stop-gap regen of 099002 + 100001 + 100002 follows.
+2. **After Option A regen lands**: assemble Option B briefing for separate Matt approval (gandalf condition 1). B-scope includes the bidirectional recompose levers question (whether to address ceiling-lock + mid-stuck in B or split into B-prime).
+3. **VS2a path forward**: once Option A regen evidence lands, re-evaluate whether S1 first-batch retry under widened floor delivers, OR whether VS2a pivots to path-a, OR whether VS2b leapfrogs. Matt decision C in briefing.
+4. **Discipline ledger entry** (jack-ryan recommended; non-blocking): "completion-record-figure-must-be-reproducible-from-canonical-output-file-and-script-invocation" — propose adding to engineering-disciplines.md as #13 or similar after Matt approves the four process fixes for permanent adoption.
+
+## What the team got right today
+
+The critique-pair pattern fired three times in a row, each time productively. Gandalf took ownership of his own category error in the substrate-hypothesis re-disposition (a teachable moment for the team — Mithrandir's "I did this to myself" in § 9.8 is the discipline working). Jack-ryan's measurement-discrepancy audit caught a process-level gap that traced back to knight-rider's dispatch authoring (Fix 4 — accepted). Gamora's investigation produced exactly the diagnostic decomposition gandalf asked for. Rocket's retry-2 Monitor delivered bonus empirical evidence even after the diagnostic decision was made. The autonomous mode handled a hard failure cleanly without Matt-interrupt; Matt re-enters to a fully-prepared decision packet.
+
+---
+
+*Filed 2026-05-19 EOD by knight-rider at "please wind down". The autonomous arc converged on one queued Matt decision (Option A balance-loop floor widening). All artifacts pushed; all critique-pair amendments folded into the HELD implementation dispatch; all gates documented. The substrate prior was the wrong abstraction; the floor is. The pipeline-level pathology is named, diagnosed, and ready for the 4-line fix. Matt re-enters when ready.*
