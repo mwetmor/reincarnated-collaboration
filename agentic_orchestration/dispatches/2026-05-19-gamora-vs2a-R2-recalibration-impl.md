@@ -162,3 +162,64 @@ Jack-ryan reviews math before commit per continuous-observation rhythm.
 ---
 
 *Authored 2026-05-19 by knight-rider under pre-approval-batch authority. The instrument was corrected; the calibration follows. Two knobs across two files; the spatial substrate becomes measurable under its original threshold.*
+
+---
+
+## Completion record
+
+**Completed by:** gamora
+**Date:** 2026-05-19
+**Commit:** `24cdc7e` (reincarnated-engine main)
+**Dispatch scope status:** PARTIAL — implementation complete; smoke FAIL (structural finding); full R2-RT v3 BLOCKED pending gandalf re-disposition.
+
+### Phase 1: Math note + impl + 5-class smoke
+
+**Math note:** `design/working-agreement/R2-recalibration-math-2026-05-19.md` — authored before implementation per Discipline #1. §§ 1-8 cover saturation derivation, recalibration math, variance projection, application boundary, Discipline #12 citation, 5-class smoke selection. § 9 added post-smoke with structural finding documentation.
+
+**Implementation:**
+- `SPATIAL_DAMAGE_SCALE` updated 8.0 → 4.0 (`spatial_engine.py`) ✓
+- `MOB_HP_DIFFICULTY_MULTIPLIER = 1.5` (NEW) in `arena.py` constants block ✓
+- `MOB_HP_DIFFICULTY_TIERS` + `MOB_HP_DIFFICULTY_SCENARIOS` added (application boundary) ✓
+- `run_spatial_fight()` applies multiplier per scenario+tier ✓
+- Pattern P7 ceiling-saturation WARNING at WR ≥ 0.95 ✓
+- `MOB_DAMAGE_SCALE` 0.25 → 0.40 (L1 second-pass combination tightening, disposition § 2.4 option 3) ✓
+- `PLAYER_ARMOR_FACTOR_VS_STANDARD = 0.85` PRESERVED ✓
+- Boss-with-adds calibration UNCHANGED (§ 3.4 forward-flag) ✓
+- MIGRATION.md v1.19 entry ✓
+- Discipline #12 cited in commit message ✓
+- WP-R2-D-1 CLOSED ✓
+
+**5-class smoke: FAIL — structural finding**
+
+Pass 1 (HYBRID Option C as disposed, MOB_DAMAGE_SCALE=0.25): all 5 classes WR=1.000. Root cause: mob DPS=45/s, player TTD=336s >> 120s fight cap. Timeout win condition universally met.
+
+Pass 2 (+ MOB_DAMAGE_SCALE=0.40): partial signal. class_0035 (point, dm=0.64) WR=0.000. Signal direction correct. 4/5 floor-dm classes still WR=1.000.
+
+**Structural finding (exceeds L1 calibration tightening scope):**
+Mob `leash_distance_m = 18m` (monster JSON default) vs spawn-to-player distance 20-32m (SCENARIO_OPEN_ARENA, 50×50 arena). Mobs oscillate; empirically 11 mob hits total in 120s fight (expected ~686). Player HP 98.8% at fight end. This is a scenario spawn/leash geometry issue, not a calibration constant issue.
+
+See:
+- `output/R2-recalibration-smoke-2026-05-19/smoke_report.md` — full structural analysis
+- `design/working-agreement/R2-recalibration-math-2026-05-19.md` § 9 — second-pass addendum
+
+### Phase 2: Full R2-RT v3
+
+**Status: BLOCKED** — smoke FAIL prevents execution per dispatch acceptance criteria.
+
+### Routing
+
+**Dispatch routing clause invoked:** "If H1 still FAIL: STATE entry + REQUEST entry to gandalf for further disposition."
+
+STATE + REQUEST entries filed in `agentic_orchestration/hive-mind/engine-rebuild-log.md`.
+
+REQUEST to gandalf: spawn/leash/timeout architecture re-disposition required. Options surfaced:
+- A: Reduce player spawn y (40→25) in SCENARIO_OPEN_ARENA
+- B: Override leash_distance_m per scenario (18→35m)
+- C: Kills-only timeout for open_arena + chokepoint (semantic change)
+- D: Combination A+C (recommended)
+
+**Tag status:** `vs2a/v0.2-r2-h1-revalidated` HELD. `vs2a/v0.2-r2-h1-revalidated` will fire after re-disposition + smoke PASS + R2-RT v3 PASS.
+
+**WP-R2-A-1:** ACTIVE-DEFERRED — H1 measurement still blocked; routing re-opened to gandalf.
+**WP-R2-A-2:** ACTIVE-MONITORING — Pattern P7 WARNING operational.
+**WP-R2-D-1:** CLOSED.

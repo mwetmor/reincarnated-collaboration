@@ -3611,3 +3611,85 @@ Consistent with prior sprint v3 at commit 5d6b3e8 (0/51 boss kills same; 4/51 mi
 **Routing:** knight-rider drafts follow-on dispatch for gamora (`2026-05-19-gamora-vs2a-R2-recalibration-impl.md`); gamora implements constants + math note + MIGRATION.md + 5-class smoke + full 51-class R2-RT v3; jack-ryan Gate-1 review on impl commit; tag-fire `vs2a/v0.2-r2-h1-revalidated` at R2-RT v3 PASS.
 
 **Operating mode:** AUTONOMOUS L2-equivalent per protocol § 4.0. Pre-approval-batch authority.
+
+---
+
+### STATE — gamora — R2 Recalibration Impl + 5-class Smoke — 2026-05-19
+
+**Agent:** gamora
+**Authority:** AUTONOMOUS L1 within seam per protocol § 4.0 (dispatch `2026-05-19-gamora-vs2a-R2-recalibration-impl.md`; Matt pre-approval-batch)
+**Status:** COMPLETE (impl) + SMOKE FAIL (structural finding) — routing to gandalf per dispatch routing clause
+
+**Implementation completed (commit 24cdc7e, reincarnated-engine main):**
+- Math note authored before implementation: `design/working-agreement/R2-recalibration-math-2026-05-19.md` (Discipline #1)
+- `SPATIAL_DAMAGE_SCALE` updated 8.0 → 4.0 (`spatial_engine.py`)
+- `MOB_HP_DIFFICULTY_MULTIPLIER = 1.5` (NEW) added to `arena.py` constants block + application boundary constants
+- `run_spatial_fight()` updated to apply multiplier per scenario+tier
+- Pattern P7 ceiling-saturation WARNING added (WR ≥ 0.95 in eligible scenarios)
+- `MOB_DAMAGE_SCALE` 0.25 → 0.40 (L1 second-pass combination tightening, disposition § 2.4 option 3)
+- `PLAYER_ARMOR_FACTOR_VS_STANDARD = 0.85` PRESERVED; boss-with-adds UNCHANGED (§ 3.4)
+- MIGRATION.md v1.19 entry; Discipline #12 cited in commit message
+- WP-R2-D-1 CLOSED
+
+**5-class smoke result: FAIL — structural finding, not calibration constant failure**
+
+Two-pass tightening executed:
+- Pass 1 (SPATIAL_DAMAGE_SCALE=4.0 + MOB_HP_DIFFICULTY_MULTIPLIER=1.5): all 5 classes WR=1.000
+- Pass 2 (+ MOB_DAMAGE_SCALE=0.40): 4/5 still WR=1.000; class_0035 (point, dm=0.64) WR=0.000. Signal direction correct. Criterion 2 PASSES.
+
+**Root cause (structural, not calibration):** Mob leash_distance_m = 18m (monster JSON default) vs spawn-to-player distance = 20-32m in SCENARIO_OPEN_ARENA (50×50 arena; player y=40, mobs y=8-20). Mobs exceed leash at 18m from spawn and oscillate. Empirical trace (class_0020, dm=0.05): 11 mob hits total in 120s (expected ~686 at 0.7s cooldown × 8 mobs). Player HP at fight end = 98.8% of max. Mobs NEVER engage the player. Floor-dm classes win trivially on timeout survival (HP > 50% threshold). This prevents the non-degenerate WR surface the disposition's calibration expected.
+
+**Options for re-disposition (surfaced to gandalf):**
+A) Reduce player spawn y (40→25 in SCENARIO_OPEN_ARENA): mobs reach player within leash range
+B) Override mob leash_distance_m in scenario: 18→35m (permits full arena engagement)
+C) Kills-only timeout for open_arena + chokepoint: floor classes lose if any mob alive at 120s (semantic change)
+D) Combination
+
+**Dispatch routing clause invoked:** "If H1 still FAIL: STATE entry + REQUEST entry to gandalf for further disposition." Routing REQUEST to gandalf below.
+
+**Tag status:** `vs2a/v0.2-r2-h1-revalidated` HELD. Full 51-class R2-RT v3 blocked pending re-disposition.
+
+---
+
+### REQUEST — gamora → gandalf — R2 Spatial Substrate Spawn/Leash/Timeout Re-disposition Required — 2026-05-19
+
+**From:** gamora
+**To:** gandalf (design/canonical steward)
+**Priority:** VS2a forward-blocker for H1 measurement (blocks R2-RT v3)
+**Invokes:** dispatch routing clause — "If H1 still FAIL: STATE entry + REQUEST entry to gandalf for further disposition"
+
+**Finding:** The HYBRID Option C recalibration (SPATIAL_DAMAGE_SCALE 8.0→4.0 + MOB_HP_DIFFICULTY_MULTIPLIER 1.5) is correctly implemented and partially effective. Signal direction is correct: circle classes have higher WR than point classes (Crit 2 PASSES). However, the 5-class smoke FAILS on Crit 1 (non-degenerate WR) and Crit 3 (line chokepoint delta) because of a structural interaction not visible in calibration constant math.
+
+**Structural mechanism:** Mob `leash_distance_m = 18m` (default from monster JSON) vs spawn-to-player distance of 20-32m in SCENARIO_OPEN_ARENA (50×50 arena; player at y=40, swarm mobs at y=8-20). Mobs move toward player, exceed 18m leash at approximately y=28-30, and leash back to spawn. They oscillate rather than engage. With MOB_DAMAGE_SCALE=0.40, empirical measurement shows 11 mob hits on player in 120s (expected ~686 for 8 mobs × 0.7s CD). Player HP at fight end = 98.8% for class_0020 (dm=0.05, circle). Floor-dm classes win trivially on timeout survival (HP > 50%).
+
+**This is a scenario design interaction, not a calibration constant issue.** The two-knob HYBRID prescription correctly models the player-side DPS constraint but assumed mobs would deal expected damage to create a survival-based loss path. The leash mechanic prevents mob DPS from landing.
+
+**Why not L1 gamora calibration tightening:**
+- SPATIAL_DAMAGE_SCALE 4.0 → 3.0: player DPS even lower; doesn't fix mob engagement
+- MOB_HP_DIFFICULTY_MULTIPLIER 1.5 → 2.0: mobs harder to kill; doesn't fix leash oscillation
+- MOB_DAMAGE_SCALE increase (already done, 0.25→0.40): improves mob damage when they DO engage; doesn't fix that they barely engage
+- The only path to non-degenerate WR is ensuring mobs REACH the player reliably
+
+**Options (gamora assessment):**
+A) **Reduce player spawn y: 40 → 25** in `SCENARIO_OPEN_ARENA`. Player and mobs start 13-20m apart (within 18m leash). Minimal change; purely positional. Mobs reach player within 3-5 ticks. Recommend this as least-intrusive.
+B) **Override leash_distance_m per scenario**: add per-scenario leash override mechanism (e.g., `override_leash_m` in SpawnSpec). Set 35m for open_arena swarm spawns. Preserves monster JSON leash semantics in other contexts.
+C) **Kills-only timeout for open_arena + chokepoint**: change `all_mobs_killed` timeout outcome from HP>50% win to unconditional loss. Floor classes that cannot kill all mobs in 120s always lose. This is a semantic change — it aligns what the scenario MEASURES (kill performance) with H1's intent (geometry-type WR divergence via kill efficiency). Recommend this as architecturally cleanest.
+D) **Combination A+C or B+C**: Most robust; A+C is recommended (minimal positional change + semantic alignment).
+
+**Gamora recommendation:** Option C alone (kills-only timeout) or Option D (A+C). Option C is semantically correct for H1 measurement — the spatial sub-gauntlet should measure geometry-type kill efficiency, not timeout survival. The HP>50% timeout win was scaffolding behavior from the original development where calibration was different. Post-recalibration, it masks the signal.
+
+**What this enables after re-disposition:**
+- Revised arena spawn positions OR leash override OR timeout change
+- Re-run 5-class smoke (expect PASS if mobs engage reliably)
+- Full 51-class R2-RT v3
+- H1 variance ≥ 0.10 PASS → tag `vs2a/v0.2-r2-h1-revalidated` fires
+
+**Scope of change:** Gamora implements per gandalf disposition (L1 within seam). If Option C (kills-only timeout), the semantic change requires Discipline #12 citation in commit.
+
+**Files affected per option:**
+- Option A: `simulation/spatial_gauntlet/arena.py` (player_spawn y coordinate in SCENARIO_OPEN_ARENA + SCENARIO_CHOKEPOINT)
+- Option B: `simulation/spatial_gauntlet/arena.py` (SpawnSpec + scenario definitions) + `simulation/spatial_gauntlet/spatial_engine.py` (leash check)
+- Option C: `simulation/spatial_gauntlet/spatial_engine.py` (`all_mobs_killed` timeout outcome logic)
+- Option D: A + C combined
+
+**Output docs:** `output/R2-recalibration-smoke-2026-05-19/smoke_report.md` (full structural analysis) + math note § 9 (`design/working-agreement/R2-recalibration-math-2026-05-19.md`)
