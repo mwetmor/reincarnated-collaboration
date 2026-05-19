@@ -1307,3 +1307,88 @@ Rocket's flagged log-noise concern from the R3 implementation handoff is resolve
 - Pre-D3 legacy seasons (001001–001005) — excluded per § E-1
 - Export-format schema gap (per-monster/per-class JSONs missing pre-R3 required fields) — predates R3; would require separate audit
 - Encounter analytics backfill (loadout app `encounter_analytics_002NNN.json`) — star-lord's § SL-5 plans forward-only emission
+
+---
+
+## 2026-05-19 — star-lord Batch 3: R7 parity-test harness + R8 LLM orchestration
+
+### [2026-05-19] STATE — star-lord — R7 + R8 implementation complete; schema 2.10 live
+
+**Author:** star-lord
+**Engine commit:** `c0cc2f5` — pushed to origin/main
+**Tag (seam):** `star-lord/v1.11-r7-r8-impl-1` — engine repo pushed to origin
+**Tag (milestone):** `hive-rebuild/v0.7-r7-parity-test-operational` — engine repo pushed to origin (collab tag applied in this commit)
+**Authority:** AUTONOMOUS L1 in-seam + L2 schema 2.10 pre-authorization per knight-rider Batch 3 dispatch
+
+#### R7 Parity-Test Harness
+
+**Location:** `/Users/admin/Games/reincarnated-engine/tests/test_r7_parity.py`
+
+**Architecture:** instantiate-both-engines (per spec § 3). DemoAgentMock (Python behavioral contract validator; pre-R5) + engine-sim CombatantState construction from monster JSON dict.
+
+**Test results: 9/9 PASS**
+
+| Test | Description | Result |
+|---|---|---|
+| Test 1 | aggro_radius 8m→12m propagates to both surfaces within ±10% | PASS |
+| Test 2 | Intentional break (BrokenDemoAgentMock hardcodes 8.0m) detected with file:line + Pattern P7 language | PASS |
+| Test 3a | melee_aggressive cross-surface preferred_behavior exact match | PASS |
+| Test 3b | ranged_kite cross-surface preferred_behavior exact match | PASS |
+| Test 3c | charge_then_melee cross-surface preferred_behavior exact match | PASS |
+| Test 3 aggregate | All 3 preferred_behaviors match: 3/3 (100% required) | PASS |
+| Mock self: reads JSON | DemoAgentMock reads aggro_radius_m from JSON (two different inputs produce two different outputs) | PASS |
+| Mock self: missing field | DemoAgentMock KeyError on missing required R3 field | PASS |
+| Mock self: broken constant | BrokenDemoAgentMock returns same constant for different JSON inputs (Pattern P7 hardcoding confirmed) | PASS |
+
+**Tolerance applied:** ±10% aggro_radius (numeric); ±15% leash_distance (pre-R4 approximation); exact match preferred_behavior (categorical).
+
+**JSON report:** `output/R7-parity-report-latest.json` — machine-readable per-monster per-facet results for jack-ryan continuous observation.
+
+**Pattern P7 discipline:**
+- DemoAgentMock: `monster_json["aggro_radius_m"]` (direct key access; KeyError = fail loud)
+- BrokenDemoAgentMock: `HARDCODED_AGGRO_M = 8.0` (deliberate violation; parity test detects and reports with file:line)
+- _build_combatant_state_from_json: validates all 4 required R3 fields are present before instantiation
+
+#### R8 LLM Orchestration — Schema 2.10 + Telemetry + Client
+
+**Schema 2.10:**
+
+| Item | Status |
+|---|---|
+| `migrations.py` `_V2_10`: `ALTER TABLE llm_calls ADD COLUMN generation_mode TEXT` | COMPLETE |
+| Registered as "2.10" (NOT "2.8" — migration runner skips <= current 2.9) | CORRECT |
+| Production DB `data/telemetry.db` migration applied | PASS |
+| Pre-R8 rows: 3,181 rows; generation_mode = NULL | CONFIRMED |
+| In-memory smoke: column present; INSERT round-trips all 4 modes + NULL | PASS |
+| Reversibility (DROP COLUMN SQLite 3.42.0) | PASS |
+
+**recorder.py changes:**
+- `SCHEMA_VERSION` bumped `"2.9"` → `"2.10"`
+- `start_llm_call()` gains `generation_mode: str | None = None` parameter
+- INSERT SQL extended: `generation_mode` column included
+- `NullRecorder.start_llm_call()` signature updated to match
+
+**tracked_client.py changes (confirmed from design session):**
+- `from_client()` initializes `_generation_mode: str | None = None`
+- `set_context()` accepts optional `generation_mode` with sticky retention semantics
+- `complete()` passes `generation_mode=getattr(self, "_generation_mode", None)` to `start_llm_call()`
+
+**Sticky semantics (R8 § SL-4):** when `set_context()` is called without `generation_mode`, the existing session-level mode is retained. Only a non-None value overwrites. This allows per-purpose calls (skill_naming, monster_naming) to inherit the session-level mode without re-passing it.
+
+**Cost telemetry mode-tagged:** all 4 modes (baseline/inverted/inverted_no_naming/no_coalesce) write to `llm_calls.generation_mode`. Pre-season query `SELECT generation_mode, COUNT(*), SUM(estimated_cost_usd) FROM llm_calls GROUP BY generation_mode` is now possible.
+
+**MIGRATION.md updates:**
+- `export/MIGRATION.md`: schema 2.10 section appended (SQL, reversibility, smoke results, cross-seam obligations)
+- `llm/MIGRATION.md`: status SKELETON → IMPLEMENTED; implementation table + scope boundary notes added
+
+**Test fix:** `round_trip_r3_telemetry.py::test_schema_version_bumped_to_2_9` updated from exact `== "2.9"` to `>= "2.9"` comparison (using `_version_lt`). 185/185 telemetry tests pass.
+
+#### Scope boundary note
+
+Rocket's R8 pipeline changes (`cli.py`, `season_orchestrator.py`, `season_writer.py`, `summary_formatter.py`) are in the engine working tree from a parallel Batch 3 session. Star-lord staged and committed ONLY the files in its seam. Rocket's files remain unstaged in the working tree — rocket's session owns those.
+
+#### Open items (not this session)
+
+- R8 A/B run (separate phase): requires rocket pipeline + star-lord LLM orchestration (both now complete) + gandalf cohesion judging + elrond backfill (complete) + round-trip smoke per § SL-6 smoke 1/2/3. Knight-rider fires this dispatch.
+- Pattern-B: still PARKED.
+- R7 post-R5 mock replacement: when drax R5 lands, replace DemoAgentMock with integration bridge. Test interface unchanged.
