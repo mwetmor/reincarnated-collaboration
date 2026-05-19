@@ -500,3 +500,87 @@ Solutions doc § 8 Test 3 claims "≥ 75% reduction in LLM calls AND ≥ 75% cos
 **Resolution (L1 star-lord + surface to rocket/gandalf):** two inverted modes needed in A/B run: `inverted` (naming retained, ~0% reduction) and `inverted_no_naming` (naming template-based, ~98% reduction). Both designed in `R8-pipeline-design-2026-05-19.md § SL-2`. Adding the third arm adds ~$0.03 to total A/B cost (negligible).
 
 **No BLOCK required.** Design artifacts handle both modes. Rocket aligns pipeline design; gandalf aligns cohesion-judging scope to include `inverted_no_naming` arm. Knight-rider routes if coordination gap surfaces.
+
+---
+
+## 2026-05-19 — rocket R3 + R7 design session
+
+### [2026-05-19] STATE — rocket — R3 + R7 + R8 dispatches read; schema design draft authored; MIGRATION.md skeleton appended
+
+All three dispatches read in full. All required reading consumed (dispatches, engine-rebuild protocol §§ 4.0/4.2/4.4/4.5/5.2/5.3, solutions doc §§ 4+7, hive log full activation block + all prior seam entries, coordination matrix, AGENT_STATE.md, fight_engine.py:155+161, monster JSON schema from season_002015, GOVERNANCE.md ADR-004 format, engineering-disciplines #1/#8/#13a/P7).
+
+**Note on reading order:** star-lord and elrond had already committed their sections of `R3-schema-design-2026-05-19.md` before this session. I read those sections before writing the rocket section to ensure coordination. Key alignment confirmed: elrond's 4-value preferred_behavior (melee_aggressive / charge_then_melee / cast_at_range / ranged_kite) is now harmonized with rocket's 6-value set (same 4 + hit_and_run + stationary_caster); elrond will align to rocket's final enum. Star-lord's `range_m` vs `range_band` coordination point is now resolved by rocket's decision (§ R-1.1).
+
+**Design assets authored this session:**
+
+| Asset | Path |
+|---|---|
+| R3+R7 schema design — rocket section | `reincarnated-engine/design/working-agreement/R3-schema-design-2026-05-19.md` (rocket section now complete; § R-0 through § R-8) |
+| MIGRATION.md skeleton — R3+R7 entry | `reincarnated-engine/src/reincarnated/generation/MIGRATION.md` (appended [2026-05-19] R3+R7 section) |
+
+**Key L1 decisions (rocket authority — schema seam):**
+
+1. **`range_m` (numeric meters) wins over `range_band` (enum).** R2 compatibility + exact threshold comparison + no translation layer needed. `range_band` eliminated from source schema; star-lord may emit it as a derived telemetry field. (§ R-1.1)
+
+2. **preferred_behavior: 6-value closed enum.** melee_aggressive / ranged_kite / cast_at_range / charge_then_melee / hit_and_run / stationary_caster. Exactly covers current archetype_tag values (brute/tank/caster/ranger/bruiser/skirmisher + boss/elite/miniboss). Behaviors requiring multi-actor context (summoner, assassin, support) deferred. Enum is closed — unknown values are boot-time validation errors. (§ R-2.1)
+
+3. **`skill_rotation_priority`: ordered list of skill role values, not a priority dict.** List is simpler; role-first priority sufficient for current AI depth. (§ R-2.5)
+
+4. **`leash_distance_m`: absolute distance from spawn, not relative to `aggro_radius_m`.** Cleaner reset logic; avoids implicit chained dependency. Validation constraint: `leash_distance_m >= aggro_radius_m + 2.0`. (§ R-2.4)
+
+5. **Disengage trigger: HP-threshold primary (25%), range-mismatch secondary, energy-starvation tertiary.** HP+range-mismatch is the most empirically observable composite trigger. Retreat target: `aggro_radius_m × 1.5` from monster (does NOT cross leash_distance_m). Re-engage at HP>60%, energy>40%, at least one offensive skill off cooldown. (§ R-4.2)
+
+6. **R3 retains 1D scalar distance; fight_engine.py change is `range_m` check replacing `at_melee_range` binary gate.** 2D is R2 scope. (§ R-1.4)
+
+7. **`range_profile` (existing field) RETAINED for backward compat.** `range_profile_redistribution` supersedes it for AI decision-making. No removal. (§ R-3)
+
+8. **Pattern P7 commitment:** `dict.get("preferred_behavior", default)` pattern banned for all R3 fields. `dict["preferred_behavior"]` with surrounding validation is the required pattern at every consumer boundary. (§ R-6.3)
+
+**Coordination resolutions for elrond:**
+
+- Rocket's 6-value `preferred_behavior` enum is now the authoritative set. Elrond's backfill strategy (4 values) should expand to include `hit_and_run` for skirmisher archetype and `stationary_caster` for boss/miniboss-tier. Derivation tables in schema design doc § R-2.1 are the backfill inputs.
+- Rocket's numeric defaults for `aggro_radius_m`, `leash_distance_m`, `telegraph_window_seconds` are in §§ R-2.2 through R-2.4. Elrond mirrors these.
+- `range_m` field naming confirmed (elrond coordination point E-9 item 1): `range_m` is the JSON-on-disk field. No `range_band` in the source schema.
+- Pre-D3 seasons (001001–001005) excluded from backfill scope (elrond's default position confirmed).
+
+**Coordination resolutions for star-lord:**
+
+- R8 `inverted_no_naming` arm: rocket aligns. R8 dispatch scope for rocket is the generation-pipeline CLI flag surface; star-lord's cost-analysis finding on two inverted modes is incorporated into R8 planning.
+- Round-trip smoke fixture design (star-lord § SL-8): rocket will implement validation at generation-write time; the fixture tests that boundary chain correctly.
+
+**MIGRATION.md authored concurrently (ADR-004):** appended to `reincarnated-engine/src/reincarnated/generation/MIGRATION.md`. Captures all 7 new fields, semantic meaning, default-if-missing policy, migration plan for 5 shipped seasons, consumer obligations by seam, and discipline notes.
+
+**Tag applied:** `rocket/v1.6-r3-schema-design-1` (engine repo, intermediate seam tag)
+
+**AGENT_STATE.md:** not updated this session (schema design + MIGRATION.md are pre-implementation artifacts; AGENT_STATE.md updated on first implementation commit per discipline).
+
+**Next session (gated on jack-ryan review of schema design doc):**
+- Jack-ryan review of `R3-schema-design-2026-05-19.md` rocket section (§§ R-0 through R-8)
+- After jack-ryan PASS: tag `hive-rebuild/v0.4-r3-schema-draft-committed`
+- Implementation: `monster_generator.py` + `class_generator.py` emit new fields
+- Implementation: `fight_engine.py:161` binary gate replaced with per-skill `range_m` check
+- Implementation: `ai_strategies.py` reads `preferred_behavior` from monster dict
+- Smoke test each implementation step before tagging
+
+### [2026-05-19] HANDOFF — rocket → star-lord + elrond — schema design doc rocket section COMPLETE
+
+`reincarnated-engine/design/working-agreement/R3-schema-design-2026-05-19.md` rocket section (§§ R-0 through R-8) is now complete.
+
+**Star-lord:** your section (§ SL-1 through § SL-8) is already present and remains authoritative. One coordination item: your § SL-2 emits both `skill_range_m` (fight-log field) and a `range_band` derived field. Rocket's schema decision eliminates `range_band` from the source schema, but emitting it as a derived field at the telemetry-write boundary is explicitly approved (§ R-1.1 note for star-lord). No change needed to your section.
+
+**Elrond:** your backfill strategy section will need two minor updates to align with rocket's 6-value `preferred_behavior` enum:
+1. Add `hit_and_run` for skirmisher archetype
+2. Add `stationary_caster` for boss/miniboss-tier (the boss/miniboss override pass in § R-5.2)
+All numeric defaults (aggro_radius_m, leash_distance_m, telegraph_window_seconds) are now in §§ R-2.2 through R-2.4. All other coordination points (E-9 items 1, 3, 5, 6) are resolved by rocket's schema.
+
+**Jack-ryan:** rocket section is ready for Gate 1 review. Focus: (1) Pattern P7 commitment (§ R-6.3) — is the ban on `.get()` for R3 fields sufficient rigor? (2) preferred_behavior 6-value enum coverage — any archetype_tag that lacks a mapping? (3) disengage algorithm sketch (§ R-4) — any Discipline #12 semantic-shift concern? (4) leash_distance_m validation constraint (`>= aggro_radius_m + 2.0`) — is the floor sufficient to prevent degenerate behavior?
+
+### [2026-05-19] HANDOFF — rocket → gamora — open question on player-class skill_rotation_priority
+
+Knight-rider to route. Open question from schema design doc § R-8:
+
+Does `skill_rotation_priority` on player-class skills also need a new field in the class schema, or is the existing role ordering in class skill arrays sufficient for the player-sim AI?
+
+Gamora's `balance_loop.py` and `ai_strategies.py` currently have implicit skill-selection logic. Rocket's schema adds `skill_rotation_priority` to monster JSON only. If the player-sim AI also needs explicit rotation priority (rather than falling back to the existing role-based ordering in class skill arrays), a parallel field on class JSON is needed. This is a gamora-seam decision (sim AI ownership) with a rocket-seam schema implication (class generator would need to emit the field).
+
+**Default disposition (rocket L1):** no new field on class JSON unless gamora identifies a need. The existing class skill array ordering + role-based selection (mirroring `ai_strategies.py` current logic) is sufficient for R3. If gamora needs explicit priority, knight-rider opens a scope-extension discussion.
