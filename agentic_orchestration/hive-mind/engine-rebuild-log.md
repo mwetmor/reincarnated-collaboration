@@ -188,6 +188,90 @@ Knight-rider will author the amendment to galadriel's agent definition (`.claude
 
 ---
 
+## 2026-05-19 — jack-ryan activation + Gate 1: R1 math note review
+
+### [2026-05-19] OBSERVATION — jack-ryan — Engine-rebuild scope read; watchpoints established; continuous-observation active
+
+**Severity: INFO**
+
+Scope read complete. All required documents consumed in order:
+- `hive-mind-protocol-engine-rebuild-2026-05-19.md` (full — §§ 0-10; § 4.5 jack-ryan continuous-observation operative)
+- `engine-rebuild-2026-05-19-gap-solutions-and-tests.md` (full — seven workstreams, hypothesis tests, CLI surface)
+- `engine-vs-demo-fight-integrity-gap-2026-05-18.md` (full — five axes; architectural diagnosis)
+- `engine-rebuild-log.md` (activation block through gamora R1 STATE entry)
+- `scope-of-work-engine-rebuild.md` (full)
+- `coordination-matrix-engine-rebuild.md` (full — concurrent-edit hot-spots noted)
+- All four first-fire dispatches (R1, R3, R7, R8)
+- `engineering-disciplines.md` (full — all 17 disciplines; R11(b); P7; P6.a; Discipline #14)
+- `decisions-log.md` (recent decisions; context confirmed)
+
+**Watchpoints document established:** `agentic_orchestration/hive-mind/watchpoints-engine-rebuild-2026-05-19.md`
+
+**Watchpoint summary (29 watchpoints across 8 categories):**
+
+| Category | WPs | Risk | Key exposure |
+|---|---|---|---|
+| WP-R1-A: Discipline #1 for R1 math | 2 | HIGH | Math note before balance_loop.py; boss n-shot strategy |
+| WP-R1-B: Pattern P7 for R1 | 2 | HIGH | No silent aggregate-mean pass; per-tier failure to telemetry |
+| WP-R3-A: Discipline #13a for R3 schema drift | 4 | HIGH | Field naming drift across 4 seams; MIGRATION.md concurrency; validator fail-loud |
+| WP-R7-A: Discipline #11 for R7 parity test | 4 | HIGH | Parity-test spec before harness; consumer audit coverage; Test 2 intentional-break |
+| WP-R8-A: Methodology for R8 | 4 | MEDIUM | Judging protocol before A/B run; scale anchoring; Discipline #14 for coalescence prompt |
+| WP-MIGRATION: MIGRATION.md cadence | 5 | HIGH | R3 generation + export; R7 cross-repo contract; R8 LLM surface |
+| WP-XSEAM: Cross-seam contract vigilance | 3 | HIGH | balance_loop concurrent edit; monster JSON three-seam; R7 source before R5 consumer |
+| WP-HIVELOG + WP-TAG | 3 | MEDIUM/LOW | Fetch-before-commit discipline; tag namespace; no smoke-only milestone tags |
+
+**Pre-existing concerns surfaced at activation (all INFO or WARN — no BLOCK):**
+
+1. [INFO] Gamora's math note is committed and awaiting Gate 1 review. Scope read confirmed this prior to authoring watchpoints. Gate 1 review follows this entry (see below).
+2. [WARN] MIGRATION.md for R3 not yet authored. This is expected (schema design doc not yet committed either) but is the highest-risk MIGRATION gap — four downstream workstreams depend on it. WP-MIGRATION-1 is the operative watchpoint.
+3. [WARN] R7 parity-test spec not yet authored. WP-R7-A-1 is operative.
+4. [WARN] R8 gandalf methodology docs (theme-coalescence prompt + cohesion-judging protocol) not yet authored. WP-R8-A-1 is operative.
+5. [INFO] R3, R7, R8 seams have not yet acknowledged in hive log. This is normal at dispatch time; WP-R3-A-4 watches for extended silence.
+
+**Continuous-observation rhythm established.** Jack-ryan will file OBSERVATION entries in the hive log at each workstream milestone tag + when any watchpoint trigger fires. BLOCK authority retained; first response to any watchpoint trigger is OBSERVATION, not BLOCK.
+
+**Decisions-log entry:** deferred to first workstream ship. Engine-rebuild activation itself is captured in the hive log + protocol + scope-of-work artifacts; a separate decisions-log entry would be redundant until first hypothesis test passes. Re-evaluate at `hive-rebuild/v0.3-r1-hypothesis-test-passed`.
+
+---
+
+### [2026-05-19] OBSERVATION — jack-ryan — Gate 1 review: R1 per-tier math note
+
+**Severity: INFO (all checklist items pass; one observation surfaced)**
+
+**Target:** `reincarnated-engine/design/working-agreement/R1-per-tier-math-2026-05-19.md`
+**Developer:** gamora
+**Disciplines applied:** Discipline #1 (math-before-code), Pattern P7 (silent-default), R11(b) (cross-seam round-trip)
+
+**Gate 1 review — gamora § 11 checklist:**
+
+- [x] **§ 2.3 floor/ceiling as operative gate:** correct. Floor/ceiling as hard bounds with target as optimizer aim is the right semantics. The asymmetric bands (boss ±0.08/0.07; mini-boss ±0.10) are appropriate given the single-slot variance analysis in § 4. The ceiling as operative constraint (class with boss WR 0.60 fails) is load-bearing — without ceiling enforcement the optimizer could trivialize the tier and the gate would miss it.
+
+- [x] **§ 3.3 all-tiers-evaluate + full failure report:** the decision to evaluate all 5 tiers and report all failures (not early-exit on first) is correct for the class-retuning sprint use case. The sprint needs to know whether a failing class fails only boss or also mini-boss — early-exit would systematically under-report. Evaluate-all is the right choice.
+
+- [x] **§ 4.2 N=60 for single-slot tiers:** the variance analysis is sound. At N=30, the 95% CI half-width of ±0.174 for boss WR spans the entire [0.30, 0.45] band and both sides — making the convergence gate noise-dominated. At N=60, ±0.123 — a class genuinely at WR 0.38 will not false-fail the floor with 95% probability. This is the minimum statistical tractability threshold. The cost rationale (16.7% additional fight volume; ~8s to smoke-test) is acceptable.
+
+- [x] **§ 4.3 rolling median for single-slot tiers — semantic check:** the 3-iteration rolling median is a variance-suppression technique, not a semantic change to what is being measured. The median WR over 3 iterations at the same modifier level approximates "what is this class's true WR at this modifier, given noise" — which is exactly what the convergence signal should measure. It does NOT change what convergence means; it reduces the signal noise. Discipline #12 (semantic-shifting fixes) is not triggered. **One implementation caution:** gamora's math note notes that "when to reset the window on modifier change" is an implementation decision. Jack-ryan flags this as a low-risk but non-trivial implementation detail — the reset behavior must be conservative (reset on modifier change, not on convergence-iteration count). If the window is NOT reset on modifier change, the median will incorporate WR observations at different modifier levels, which IS a semantic issue. The note should be explicit. This is an INFO observation, not a BLOCK — the note acknowledges the detail; gamora should document the reset-on-modifier-change behavior in the implementation comment.
+
+- [x] **§ 5.2 fail-loud requirement:** satisfies Pattern P7 prevention. Three specific requirements are met: (1) WARNING log on per-tier failure naming tier + observed WR + band + reason; (2) no silent re-tune; (3) telemetry capture of `ConvergenceGateResult` at every evaluation. Cite: engineering-disciplines Pattern P7 prevention mechanism (R11(d) complement: "cross-seam recorders/persistors that drop input should emit a counter or log entry on every drop rather than silently continuing").
+
+- [x] **§ 6.2 MIGRATION.md triggering — is this a cross-seam contract change?** YES. `per_tier_win_rates`, `per_tier_pass`, `convergence_gate_passed`, `failing_tiers`, `aggregate_wr_legacy` are new fields on `ClassBalanceResult` crossing the gamora→star-lord boundary. MIGRATION.md is required per ADR-004. The gamora math note correctly identifies this. Additive-nullable column design (all new columns NULL for legacy rows) is the correct additive choice. Round-trip smoke is required per R11(b). Gamora has correctly flagged all three: MIGRATION.md required, star-lord coordination required, round-trip smoke required.
+
+- [x] **§ 6.3 round-trip smoke — R11(b) correctly triggered?** YES. `per_tier_win_rates` is a new cross-seam contract field. Gamora's note explicitly designates a round-trip smoke at § 9 implementation checklist. R11(b) is satisfied in the math note; it must also be satisfied in the completion record.
+
+- [x] **§ 7 genre precedent — boss-0.30 floor grounded?** YES. Three comparators cited with specific tuning rationale (Diablo II Uber Tristram ~30-40% first-attempt, PoE pinnacle bosses ~30-50% at minimum viable spec, Grim Dawn celestials ~1-in-3 minimum viable). The 0.30 floor is the genre-convergent minimum — not conservative, not arbitrary.
+
+**GATE 1 RESULT: PASS.** Gamora may proceed to baseline measurement run and `balance_loop.py` implementation.
+
+**One implementation-time observation (INFO, not blocking):**
+
+The rolling median window reset behavior (§ 4.3) should be explicitly documented in the implementation comment when gamora writes `_evaluate_convergence_gate()`. Specifically: the rolling median window must reset whenever the binary-search modifier changes (not just when the iteration counter resets). If the window bridges across modifier changes, the median will mix WR observations at different modifier levels, which conflates "noise at one modifier level" with "change in WR due to modifier change." This is the implementation detail the math note leaves open — gamora resolves it as L1. WP-R1-A watchpoints updated to note this detail was surfaced.
+
+**WP-R1-A-2 closure note:** N=60 strategy with rolling median documented. Boss-tier n-shot strategy watchpoint satisfied by the math note. WP-R1-A-2 can be closed when implementation matches spec.
+
+**Cite:** Discipline #1 (math-before-code); Discipline #12 (semantic-shifting fixes — explicitly NOT triggered here); Pattern P7 (satisfied); R11(b) (correctly triggered and designated).
+
+---
+
 ## End of activation block
 
 Hive is **ACTIVE** as of 2026-05-19 04:26Z. Next entries follow append-only protocol; specialist seams pick up dispatches at session-open and acknowledge here.
