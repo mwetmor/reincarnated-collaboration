@@ -1686,3 +1686,79 @@ Template naming confirmed (inverted_no_naming, anchor="The Cloud-Wrapped Peak"):
 1. Doppelganger test verification result (running; ~20 min)
 2. Pre-existing `test_wind_controller_dps_floor.py` failures — gamora scope; recommend noting in watchpoints
 3. Milestone `hive-rebuild/v0.9-r8-prototype-operational`: held pending (a) doppelganger PASS; (b) star-lord R8 LLM orchestration state confirmation; (c) knight-rider milestone decision
+
+---
+
+## 2026-05-19 — gamora R1 class-retuning sprint batch 1
+
+### [2026-05-19] STATE — gamora — R1 retuning sprint batch 1 complete; Test 2 NOT MET; structural blockers diagnosed
+
+**Author:** gamora
+**Engine commit:** `9b2ebf4`
+**Tag:** `gamora/v1.6-r1-retuning-sprint-1` (engine seam tag, intermediate)
+**Milestone NOT fired:** `hive-rebuild/v0.3-r1-hypothesis-test-passed` — Test 2 NOT MET (0% pass rate)
+**Authority:** AUTONOMOUS L1 in-seam per protocol § 4.0.
+
+**Retuning strategy chosen:** Tier-weighted convergence signal + swarm HP difficulty scaling. Rejected per-class modifier tuning (modifiers already at floor) and encounter-parameter editing (would touch shipped season content). Single-site change to `balance_loop.py` — opt-in parameter `use_tier_weighted_convergence=False` default preserves all existing production paths.
+
+**Mechanism implemented:**
+- `TIER_CONVERGENCE_WEIGHTS`: boss=4.0, mini_boss=2.0, elite=1.0, magic=0.5, swarm=0.0
+- `SWARM_HP_DIFFICULTY_MULTIPLIER=3.5`: scales PackProxy max_hp at gauntlet construction
+- `R1_RETUNE_TARGET_WINRATE=0.47`: weighted-path binary-search target
+- `_compute_weighted_convergence_winrate()`: new method; called when flag is set
+- `balance_class(use_tier_weighted_convergence=False)`: opt-in; default=False
+
+**Sprint results (34 active classes; 17 retired hybrid_mage excluded):**
+
+| Tier | Floor | Ceiling | Mean WR post-retune | Pass count | Pass rate |
+|------|-------|---------|---------------------|-----------|-----------|
+| swarm | 0.65 | 0.80 | 0.681 | 12/34 | 35.3% |
+| magic | 0.55 | 0.70 | 0.732 | 1/34 | 2.9% |
+| elite | 0.45 | 0.60 | 0.516 | 22/34 | 64.7% |
+| mini_boss | 0.35 | 0.55 | 0.072 | 0/34 | 0.0% |
+| boss | 0.30 | 0.45 | 0.586 | 1/34 | 2.9% |
+
+**Overall pass rate: 0% (0/34 classes pass all 5 tiers). Test 2 NOT MET.**
+
+**Structural blockers — REQUEST to gandalf per protocol § 2.3 DEPENDS:**
+
+**BLOCKER-1: Timeout-win semantic inflates boss WR for healing classes.**
+The fight engine resolves 120-second timeout by HP%. Classes with heavy healing kits "win" boss fights on timeout (higher HP% remaining) giving boss WR=1.000 — which fails the ceiling (0.45). These classes never kill the boss; they sustain through the time limit. The R1 per-tier gate conflates timeout-HP wins with genuine boss kills. Affects all healing-heavy classes (30+ of 51 have boss WR=0.0 because they're non-healing and can't kill boss, OR boss WR=1.0 because they heal through timeout).
+
+Fix candidates:
+  (a) Kills-only boss WR measurement: `termination_reason == "a_dead"` (class killed boss) vs timeout. Requires fight_engine.py change (rocket seam) OR balance_loop.py gate semantics change (gamora seam, jack-ryan Gate review).
+  (b) Reduce fight duration for boss tier to 60s: forces actual DPS sufficiency as criterion.
+
+**BLOCKER-2: Mini-boss DPS floor — 29/34 classes have mini_boss WR=0.000.**
+The gauntlet reference selects a tank-archetype mini-boss (HP ~69k, armor reduction 32.3% → 67.7% through). At the modifier levels that produce boss WR in [0.30, 0.45], class DPS is insufficient to kill the mini-boss within 120 seconds. Even mage classes (int=159, scale=1.795) need modifier ~0.66 to deal sufficient damage — but at modifier 0.66, boss WR is below floor (boss HP=133k, armor 86.4% mitigation). The two constraints cannot be simultaneously satisfied at the current HP ratios.
+
+Fix candidates:
+  (a) Reduce gauntlet mini-boss HP 50% at construction time (SWARM_HP_DIFFICULTY_MULTIPLIER analog for mini-boss).
+  (b) Prefer non-tank archetype in gauntlet mini-boss selection (swarmer or controller mini-boss has lower HP, making it more killable).
+  (c) Extend fight duration to 180s for mini-boss/boss tiers.
+
+Each fix requires a math note + jack-ryan Gate review (gate semantics or gauntlet construction change).
+
+**Root cause confirmed (Discipline #12 semantic shift — explicit):**
+The R1 gate measures fight OUTCOMES (including timeout-HP wins). It does not measure "class kills boss" or "class kills mini-boss within time". This is a semantic gap between what Matt's playtest experience measures ("can I beat the boss?") and what the gate measures. Flagging as a semantic issue per Discipline #12.
+
+**Smoke results:**
+- 44/44 test_balance_loop.py tests pass
+- 67/67 combined tests pass (balance_loop + combat_simulator)
+- All new constants importable; `_compute_weighted_convergence_winrate` method present
+
+**Files:**
+- Engine: `scripts/r1_class_retune_sprint.py` (new), `balance_loop.py` (modified), `AGENT_STATE.md` (updated)
+- Math notes: `design/working-agreement/R1-retuning-math-2026-05-19.md`, `R1-retuning-methodology-2026-05-19.md`
+- Output: `output/R1-class-retune-2026-05-19/`, `output/R1-test2-post-retune-pass-rate.md`, `output/R1-test3-playtest-packet.md`
+
+**Next session (estimated 1-2 sessions to complete Test 2):**
+1. Math note: timeout-win fix + mini-boss DPS floor fix
+2. jack-ryan Gate review for proposed semantic changes
+3. Implement approved fixes
+4. Re-run `scripts/r1_class_retune_sprint.py` on all 51 classes
+5. If ≥70%: fire milestone `hive-rebuild/v0.3-r1-hypothesis-test-passed`
+6. Test 3 playtest packet (3 passing classes; Matt playtest)
+
+**LLM cost:** $0.00. No LLM calls.
+**Sprint wall time:** ~875 seconds for 34 active classes (approx 26s/class at 30 fights/matchup).
