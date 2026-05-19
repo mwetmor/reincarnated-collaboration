@@ -3093,3 +3093,45 @@ Both commissions gated only on F3 framework landing. With this STATE entry + col
 **Operating mode:** AUTONOMOUS per protocol § 4.0 + § 4.9. F3 fires under autonomous L2-equivalent design-steward authority; no L3-to-Matt; Matt re-enters only at wind-down for M1.
 
 **Collab commit:** (forthcoming; knight-rider's commit will land the two framework docs + drift-audit amendments + F3 dispatch completion record + this STATE entry + tag-fires)
+
+---
+
+### [2026-05-19 — late] STATE — rocket — VS2a F1 COMPLETE — spatial_geometry_type schema shipped
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-19-rocket-plus-star-lord-vs2a-geometry-type-schema.md`
+**Authority:** AUTONOMOUS — VS2a hive-mind F1, pre-approved under Matt directive 2026-05-19
+**Engine commits:** `0392095` (source + backfill), `3202f9b` (2026-05-18 season backfill)
+
+**What shipped:**
+
+1. Schema design doc at `design/working-agreement/F1-geometry-type-schema-design-2026-05-19.md` (Discipline #1 first)
+2. `spatial_geometry_type: str | None = None` on `Skill` pydantic model + `season_writer` emits for all new content
+3. `derive_spatial_geometry_type()` in `geometry_derivation.py` — complete 24-type → 6-type mapping (`_RICH_TO_SPATIAL`, all 24 entries mapped)
+4. `_determine_geometry_type()` + `_determine_geometry_type_with_source()` — 3-path resolver (explicit / rich-type-translation / heuristic-fallback) in `spatial_engine.py`; `_assert_measurable_geometry()` for Pattern P7 enforcement on `mixed`/`none`
+5. Backfill: 1,850 skills across 7 season directories; 0 null violations post-backfill; idempotent
+6. `SpatialFightResult.geometry_type_source` — per-fight drift telemetry (Discipline #13)
+7. DB schema 2.13: `geometry_type_source` column on `spatial_fight_results` (ALTER TABLE additive)
+8. `generation/MIGRATION.md` entry appended; `manifest_version` bumped `"1.7"` → `"1.8"`
+
+**Key naming decision (L1):** `spatial_geometry_type` (not `geometry_type`) — pre-existing `geometry_type` field on skills carries 24-type ARPG rich vocab from D10. Named separately to avoid collision. Documented in design doc § 1.2 and MIGRATION.md.
+
+**Smoke results:**
+
+| Test | Status | Notes |
+|---|---|---|
+| Seed 99998 (52 skills) | PASS | circle/cone/line/point/none all present; 0 nulls |
+| Seed 99997 (58 skills) | PASS | All skills have valid spatial_geometry_type |
+| derive_spatial_geometry_type unit tests | 10/10 PASS | All 3 paths + Path 4 fallback covered |
+| _determine_geometry_type_with_source | PASS | Path 1/2/3 + P7 enforcement confirmed |
+| Post-backfill null validation | 0 violations | 1,850 skills checked |
+
+**WP-R2-A-1 readiness signal:** ALL shipped seasons carry explicit `spatial_geometry_type`. The architecture pre-condition for H1 re-test under original variance ≥ 0.10 threshold is MET. Gamora re-test dispatch can fire.
+
+**Star-lord follow-on readiness:** Schema + backfill landed. Star-lord can now:
+- Append `## Telemetry + Export Surface` section to `design/working-agreement/F1-geometry-type-schema-design-2026-05-19.md`
+- Update `export/MIGRATION.md` for `geometry_type_source` consumer obligations
+- Extend round-trip parity test to include `spatial_geometry_type` field-presence check
+
+**Tag-fire request:** `vs2a/v0.1-geometry-type-schema-shipped` — knight-rider to fire + push. The `rocket/v1.21-f1-schema-shipped` intermediate tag is NOT needed (both seams in one dispatch; `vs2a/v0.1` is the appropriate milestone tag per dispatch acceptance criteria).
+
+**Gamora re-test dispatch request:** knight-rider to author dispatch for gamora R2 H1 re-test — runs R2 sub-gauntlet using `spatial_geometry_type` direct-field-read; applies original H1 variance ≥ 0.10 threshold; tags `vs2a/v0.2-r2-h1-revalidated` on PASS.

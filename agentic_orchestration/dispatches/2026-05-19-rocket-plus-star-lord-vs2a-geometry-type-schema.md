@@ -259,3 +259,55 @@ Per launch dispatch § 3 + protocol § 4.0 (inherited):
 ---
 
 *Authored 2026-05-19 by knight-rider under autonomous-operation authority. F1 fires immediately. The instrument R2 H1 needed becomes the catalogue's first-class design lever. The heuristic stays as fallback; the field becomes truth; the re-test under the original threshold becomes possible.*
+
+---
+
+## Completion record
+
+**Date:** 2026-05-19
+**Author:** rocket (seam PRIMARY)
+**Status:** ROCKET SCOPE COMPLETE — star-lord follow-on PENDING
+
+### Rocket deliverables — shipped
+
+- [x] Schema design doc at `design/working-agreement/F1-geometry-type-schema-design-2026-05-19.md` (Discipline #1 first)
+- [x] MIGRATION.md appended at `src/reincarnated/generation/MIGRATION.md`
+- [x] `spatial_geometry_type` field on `Skill` pydantic model (additive nullable → Stage 2 non-null enforced post-backfill)
+- [x] `derive_spatial_geometry_type()` in `geometry_derivation.py` — complete 24-type → 6-type mapping
+- [x] Season writer emits `spatial_geometry_type` for all new content; `manifest_version` `"1.7"` → `"1.8"`
+- [x] `_determine_geometry_type()` + `_determine_geometry_type_with_source()` — 3-path resolver with Discipline #13 drift telemetry + Pattern P7 fail-loud on `mixed`/`none`
+- [x] Backfill across 7 season directories (1,850 skills; 0 null violations; idempotent)
+- [x] Schema validator: non-null enforcement confirmed (Stage 2 active)
+- [x] `SpatialFightResult.geometry_type_source` field for per-fight drift telemetry
+- [x] DB schema 2.13: `geometry_type_source` on `spatial_fight_results` (ALTER TABLE additive)
+- [x] `SqliteSpatialTelemetryWriter` updated to write `geometry_type_source`
+- [x] AGENT_STATE.md updated
+- [x] Hive log STATE entry appended
+
+### Smoke results
+
+| Test | Seeds/scope | Result |
+|---|---|---|
+| Generation smoke | --no-llm --smoke --seed 99997, 99998 | PASS: all skills have spatial_geometry_type; distribution correct |
+| Unit: derive_spatial_geometry_type | 10 test cases | 10/10 PASS |
+| Unit: _determine_geometry_type_with_source | 3-path + P7 | PASS |
+| Post-backfill null validation | 1,850 skills | 0 violations |
+
+### Key design decision (L1 — field naming)
+
+`spatial_geometry_type` (not `geometry_type`) — pre-existing `geometry_type` on skills carries 24-type ARPG rich vocab from D10 work. Named separately to avoid collision. See design doc § 1.2.
+
+### Star-lord follow-on state
+
+READY. Star-lord can fire immediately:
+- Append `## Telemetry + Export Surface` to design doc
+- Update `export/MIGRATION.md` for `geometry_type_source` consumer obligations
+- Extend round-trip parity test for `spatial_geometry_type` field-presence check at each boundary
+
+### Tag-fire request (knight-rider action)
+
+`vs2a/v0.1-geometry-type-schema-shipped` — fire on engine repo at commit `3202f9b` and collab repo at the commit this completion record lands in.
+
+### Gamora re-test dispatch request (knight-rider to author)
+
+R2 H1 re-test dispatch. Gamora runs R2 sub-gauntlet with `spatial_geometry_type` direct-field-read; applies original H1 variance ≥ 0.10 threshold. Tags `vs2a/v0.2-r2-h1-revalidated` on PASS. WP-R2-A-1 closes on that tag.
