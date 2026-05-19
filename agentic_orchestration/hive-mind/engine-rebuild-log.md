@@ -584,3 +584,79 @@ Does `skill_rotation_priority` on player-class skills also need a new field in t
 Gamora's `balance_loop.py` and `ai_strategies.py` currently have implicit skill-selection logic. Rocket's schema adds `skill_rotation_priority` to monster JSON only. If the player-sim AI also needs explicit rotation priority (rather than falling back to the existing role-based ordering in class skill arrays), a parallel field on class JSON is needed. This is a gamora-seam decision (sim AI ownership) with a rocket-seam schema implication (class generator would need to emit the field).
 
 **Default disposition (rocket L1):** no new field on class JSON unless gamora identifies a need. The existing class skill array ordering + role-based selection (mirroring `ai_strategies.py` current logic) is sufficient for R3. If gamora needs explicit priority, knight-rider opens a scope-extension discussion.
+
+---
+
+## 2026-05-19 — gamora R1 baseline measurement
+
+### [2026-05-19] STATE — gamora — R1 baseline measurement COMPLETE; 100% failure rate confirmed
+
+**Gate 1 PASS honored.** Jack-ryan's Gate 1 PASS (committed `bf47591`) cleared gamora for baseline measurement execution. All 8 checklist items confirmed. Implementation-time note honored in AGENT_STATE.md: rolling median window resets on modifier change (not iteration count) — will be documented in implementation comment when `balance_loop.py` is modified next session.
+
+**Approach: cheap path.** Existing `balance_metadata.gauntlet_results` in `classes.json` re-bucketed by tier using `monsters.json` `threat_tier` field. No re-simulation required. N=100 fights per opponent in final convergence iteration (verified from `fights.jsonl` inspection) — exceeds math note § 4.2 N=60 minimum for single-slot tiers.
+
+**Results: 51 classes across 5 seasons; 51/51 FAIL under R1 per-tier criteria.**
+
+| Tier | Floor | Ceiling | Mean WR | Failures | Primary mode |
+|------|-------|---------|---------|----------|--------------|
+| swarm | 0.65 | 0.80 | 0.995 | 51/51 | above_ceiling |
+| magic | 0.55 | 0.70 | 0.988 | 51/51 | above_ceiling |
+| elite | 0.45 | 0.60 | 0.736 | 36/51 | above_ceiling (35); below_floor (1) |
+| mini-boss | 0.35 | 0.55 | 0.352 | 41/51 | mixed (26 below_floor, 15 above_ceiling) |
+| boss | 0.30 | 0.45 | 0.004 | 51/51 | below_floor |
+
+**R1 Test 1 threshold (≥60% failure rate): MET with extreme margin (100%).**
+
+The pattern is consistent and structural: aggregate-only convergence tunes each class to a mean WR of ~0.62 across 12 fights, which requires winning almost all swarm/magic/elite fights (which they do — near-perfect WR) and losing almost all boss fights (which they do — mean boss WR 0.004). This is the P7 silent-pass confirmed empirically. All 19 archetype types fail; failure is not archetype-specific. All 5 seasons fail at the same rate.
+
+**This fully confirms Matt's playtest finding** ("sub-20% boss, only beat miniboss with one class"): the data shows boss WR essentially zero across all 51 shipped classes.
+
+**Rocket → gamora open question on `skill_rotation_priority`:** gamora confirms NO new field needed on class JSON for R3. The existing class skill array ordering + role-based selection in `ai_strategies.py` is sufficient for the player-sim AI. Rocket's schema decision stands. Knight-rider does not need to open a scope-extension discussion.
+
+**Commits and tags:**
+- Engine commit `7da1dd1`: baseline measurement output + script
+- Engine commit `c8f3b39`: AGENT_STATE.md update
+- Tag `gamora/v1.4-r1-baseline-measurement-1` pushed to engine origin
+- Tag `hive-rebuild/v0.1-r1-baseline-measurement-captured` pushed to engine origin
+
+**Output artifacts:**
+- `output/R1-baseline-measurement-2026-05-19/baseline-per-tier-distribution.json` (51 classes × 5 tiers × full tier detail)
+- `output/R1-baseline-measurement-2026-05-19/baseline-summary.md` (human-readable summary + histograms)
+- `output/R1-baseline-measurement-2026-05-19/methodology.md` (measurement approach + sample size documentation)
+- `scripts/r1_baseline_measurement.py` (the measurement script; reusable)
+
+### [2026-05-19] TAG — gamora — `hive-rebuild/v0.1-r1-baseline-measurement-captured`
+
+| Repo | Commit | Tag pushed |
+|------|--------|------------|
+| reincarnated-engine | `c8f3b39` | `hive-rebuild/v0.1-r1-baseline-measurement-captured` pushed to origin |
+| reincarnated-engine | `c8f3b39` | `gamora/v1.4-r1-baseline-measurement-1` pushed to origin |
+| reincarnated-collaboration | (this commit) | hive log STATE entry |
+
+Collab repo hive-rebuild tag: `hive-rebuild/v0.1-r1-baseline-measurement-captured` applied to this commit (push follows).
+
+### [2026-05-19] HANDOFF — gamora → jack-ryan — baseline measurement for review
+
+Jack-ryan: the baseline measurement is complete. Key data point: 100% failure rate (51/51), with boss mean WR 0.004. This exceeds the R1 Test 1 predicted threshold. No watchpoints triggered in this session — baseline measurement is read-only (no `balance_loop.py` touched; no telemetry schema changed; WP-R1-B-1 and WP-R1-B-2 remain open per their gating condition).
+
+WP-R1-A-1 (math note before balance_loop.py) remains satisfied and forward-looking: balance_loop.py is NOT modified this session. Implementation is gated on star-lord MIGRATION.md coordination (see HANDOFF entry below).
+
+WP-XSEAM-1 (balance_loop concurrent edit): gamora declares intent to modify `balance_loop.py` in the NEXT session, after star-lord MIGRATION.md coordination confirms schema field alignment. No concurrent modification risk at this time.
+
+### [2026-05-19] HANDOFF — gamora → star-lord — coordination needed before balance_loop.py modification
+
+Star-lord: before gamora modifies `balance_loop.py`, the new `ClassBalanceResult` fields need to be addressed in star-lord's MIGRATION.md plan. Gamora's math note § 6.2 specifies five new fields:
+
+- `per_tier_win_rates: dict[str, float]` — per-tier WR at convergence
+- `per_tier_pass: dict[str, bool]` — per-tier pass/fail under R1 criteria
+- `convergence_gate_passed: bool` — True iff all 5 tiers pass
+- `failing_tiers: list[str]` — tier names where passed=False
+- `aggregate_wr_legacy: float` — existing field; preserved for continuity
+
+These cross the gamora→star-lord boundary at the `ClassBalanceResult` seam. MIGRATION.md entry required (ADR-004). The schema note from math note § 6.2 specifies nullable additive columns on `class_balance_results` table (NULL for legacy rows; non-null after R1 ships).
+
+Star-lord's `src/reincarnated/export/MIGRATION.md` skeleton (schema 2.6, committed `ed31d5f`) is visible. Does it include these fields? If yes, gamora reads star-lord's MIGRATION.md in next session and proceeds to implementation. If no, star-lord appends the entry and gamora follows.
+
+Gamora will author the gamora-side `simulation/MIGRATION.md` v1.12 entry concurrently with the `balance_loop.py` implementation (per ADR-004).
+
+**Knight-rider:** please route or confirm the star-lord MIGRATION.md coordination is unblocked. This is the only gate between the baseline measurement session and the balance_loop.py implementation session for gamora.
