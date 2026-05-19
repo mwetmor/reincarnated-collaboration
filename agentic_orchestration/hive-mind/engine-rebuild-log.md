@@ -874,6 +874,45 @@ Open: `inverted_no_naming` arm addendum (per knight-rider routing) not yet prese
 
 ---
 
+## 2026-05-19 — rocket WARN-R3-1 + WARN-R3-2 resolution
+
+### [2026-05-19] STATE — rocket — WARN-R3-1 + WARN-R3-2 resolved; tag fired
+
+**Author:** rocket
+**Commit (engine):** `021e6da` (committed by parallel star-lord session; rocket's edits captured)
+**Tag (engine + collab):** `hive-rebuild/v0.4-r3-schema-draft-committed` pushed to origin — both repos
+
+**WARN-R3-1 resolution (archetype vocabulary alignment):**
+
+Empirical audit confirmed. Shipped catalogue (seasons 002011–002015, 44 monsters per season, consistent across all 5) has exactly 6 archetype_tag values: `brute`, `tank`, `caster`, `swarmer`, `controller`, `sniper`. Vocabulary `ranger`/`bruiser`/`skirmisher` is absent from production.
+
+Resolution: adopted Option 1 (rocket adopts shipped vocabulary). Updated `R3-schema-design-2026-05-19.md`:
+
+- § R-2.1 enum mapping table: replaced ranger→ranged_kite / bruiser→charge_then_melee / skirmisher→hit_and_run with swarmer→melee_aggressive / controller→cast_at_range / sniper→ranged_kite. Added rationale column. Added vocabulary note documenting the correction and future-archetype procedure.
+- § R-2.5 skill_rotation_priority defaults: replaced ranger/bruiser/skirmisher rows with swarmer/controller/sniper rows; added elite and miniboss rows.
+- `hit_and_run` behavior value retained as valid enum (no production archetype currently maps to it; available for future addition).
+
+Elrond's backfill vocabulary (swarmer/controller/sniper) and rocket's generator vocabulary now match. WP-R3-A-1 CLOSED.
+
+**WARN-R3-2 resolution (range_m minimum):**
+
+Decision: schema design doc § R-1.2 is correct. Minimum is 0.0 for all skills; the role cross-check (role not in {defensive, sustain, mobility} AND range_m == 0.0 → raise) is the non-self-cast gate. No separate 0.5 numeric floor.
+
+Updated `src/reincarnated/generation/MIGRATION.md` [2026-05-19 R3+R7 section]:
+- Line 2102 type description: "minimum 0.5 for non-self-cast" → "minimum 0.0 — role cross-check is the non-self-cast gate, NOT a 0.5 numeric floor"
+- Added clarifying note after validation item 7: "Validator enforces `range_m >= 0` for all skills + role-validator catches non-self-cast skills with `range_m == 0` (self-cast sentinel only for defensive/sustain/mobility skills with appropriate role). There is NO separate numeric 0.5 floor enforced."
+
+**Tag status:**
+- `hive-rebuild/v0.4-r3-schema-draft-committed` FIRED — engine repo tagged at `021e6da`; collab repo tagged at `1512214`. Both pushed to origin/main.
+
+**Elrond coordination note:** WARN-R3-1 re-resolution preserves the 6-value `preferred_behavior` enum. Elrond's backfill addendum (queued in next-batch dispatch) adopts the corrected archetype vocabulary (swarmer/controller/sniper replaces ranger/bruiser/skirmisher in elrond's derivation table).
+
+**WP-R3-A-1 status:** CLOSED. Archetype vocabulary is now consistent across rocket's generator section and elrond's backfill section. Both reference the empirically confirmed shipped-catalogue set.
+
+**Next-batch unblock:** elrond + rocket + star-lord R3/R7/R8 implementation dispatches can now fire (WARN-R3-1 + WARN-R3-2 + WARN-R7-1 + WARN-R8-1 all resolved).
+
+---
+
 ## 2026-05-19 — star-lord WARN resolution (WARN-R7-1 + WARN-R8-1)
 
 ### [2026-05-19] STATE — star-lord — WARN-R7-1 + WARN-R8-1 resolved; R7 + R8 implementation phases unblocked
