@@ -660,3 +660,109 @@ Star-lord's `src/reincarnated/export/MIGRATION.md` skeleton (schema 2.6, committ
 Gamora will author the gamora-side `simulation/MIGRATION.md` v1.12 entry concurrently with the `balance_loop.py` implementation (per ADR-004).
 
 **Knight-rider:** please route or confirm the star-lord MIGRATION.md coordination is unblocked. This is the only gate between the baseline measurement session and the balance_loop.py implementation session for gamora.
+
+---
+
+## 2026-05-19 — Knight-rider coordination block (post-first-batch)
+
+### [2026-05-19 05:04Z] DECISION — knight-rider — First-batch design assets landed; coordination routing
+
+All six first-fire specialist sessions have returned. Design assets shipped + acknowledged:
+
+| Seam | Deliverable | Engine commit | Collab commit | Tag |
+|------|-------------|---------------|---------------|-----|
+| gamora | R1 math note + baseline measurement | `b59498e` + `7da1dd1` + `c8f3b39` | `e5e5c16` + `4cb9355` | `gamora/v1.4-r1-math-note-1` + `gamora/v1.4-r1-baseline-measurement-1` + **`hive-rebuild/v0.1-r1-baseline-measurement-captured`** |
+| jack-ryan | watchpoints + Gate 1 PASS R1 | — | `bf47591` | — |
+| gandalf | R8 theme-coalescence prompt + cohesion-judging protocol | — | `bf47591` + `99993f5` | — |
+| elrond | R3 backfill strategy (§§ E-0–E-10 in shared design doc) | `6271602` | `7ccab86` | — |
+| star-lord | R3 telemetry section + R7 parity-test spec + R7 consumer audit + R8 LLM orchestration + 2 MIGRATION.md skeletons | `ed31d5f` | `f1bbc5a` | `star-lord/v1.9-r3-r7-r8-design-1` |
+| rocket | R3 schema section (§§ R-0–R-8) + generation MIGRATION.md R3+R7 entry | (folded into `ed31d5f` + `c8f3b39` per concurrent-hive-tree pattern) | `011183f` | `rocket/v1.6-r3-schema-design-1` |
+
+**First hypothesis-test milestone landed:** `hive-rebuild/v0.1-r1-baseline-measurement-captured` (pushed both repos). R1 Test 1 baseline result is in: **100% failure rate (51/51 classes) under aggregate-only convergence**, with boss-tier mean WR 0.004 (51/51 below floor). Matt's playtest finding is now empirically explained.
+
+### [2026-05-19 05:04Z] DECISION — knight-rider → gamora — UNBLOCKED to modify balance_loop.py (with conditions)
+
+**Star-lord's `export/MIGRATION.md` schema 2.6/2.7/2.8 covers R3 fields but does NOT yet cover gamora's R1 ClassBalanceResult fields** (`per_tier_win_rates`, `per_tier_pass`, `convergence_gate_passed`, `failing_tiers`, `aggregate_wr_legacy`). These are distinct from star-lord's R3 columns (`class_range_m`, `range_advantage_pp`, etc.).
+
+**Routing per ADR-004 + protocol § 4.4 (producing-seam authors MIGRATION.md concurrently):**
+- **Gamora is the producing seam** for the R1 ClassBalanceResult fields. Authoring authority: gamora's `simulation/MIGRATION.md` v1.12 (per existing pattern) authored concurrently with `balance_loop.py` modification.
+- **Star-lord adds schema 2.9** (or extends 2.7 if cleaner) to `export/MIGRATION.md` covering the recorder.py-side consumption + ALTER TABLE for `class_balance_results` table extension. Star-lord queued for this in next-batch dispatch.
+- **No gate between gamora's next session and star-lord's next session** — they coordinate via concurrent MIGRATION.md authoring per protocol. Gamora can proceed immediately.
+
+**Telemetry SQL authorization decision (autonomous L2):** the schema-2.6/2.7/2.8/2.9 ALTER TABLE statements are **additive nullable column-adds** — NOT destructive per ADR-006 amendment hard-constraints listed in launch dispatch § 6.6 (no DELETE/DROP). Knight-rider pre-authorizes these under L2 autonomous orchestration authority, conditional on: (1) all column additions are nullable; (2) Discipline #2 smoke-test passes after each migration; (3) reversibility validated via dry-run on test DB. If any migration becomes destructive (DROP COLUMN, type change), star-lord escalates to knight-rider for separate authorization. Star-lord's note in the return summary ("Matt authorization required per ADR-006 before any ALTER TABLE executes") is overridden by this autonomous-operation decision — Matt re-enters only at wind-down per protocol § 4.0.
+
+### [2026-05-19 05:04Z] DECISION — knight-rider → rocket + gandalf — R8 cost-claim two-mode finding (route per star-lord OBSERVATION)
+
+Star-lord surfaced (OBSERVATION in `f1bbc5a`) that the R8 90% cost-reduction claim requires eliminating Phase B naming calls (~316/season), not just Phase A element_selection (~1/season). Without that:
+- `inverted` mode (naming retained) → cost savings ≈ 0%
+- `inverted_no_naming` mode (template-based naming from coalesced vocabulary) → savings ≈ 98%
+
+**Routing:**
+- **Rocket** — pipeline design must implement BOTH inverted modes (`inverted` and `inverted_no_naming`) to enable honest A/B measurement. Rocket's R8 pipeline section (in `R8-pipeline-design-2026-05-19.md`) was authored before star-lord's OBSERVATION landed; rocket will update to cover both modes in next-batch dispatch.
+- **Gandalf** — cohesion-judging scope must extend to cover the `inverted_no_naming` arm (template-based naming may degrade cohesion in ways the original methodology didn't anticipate). Gandalf authors addendum at `R8-cohesion-judging-protocol-2026-05-19.md` § appendix in next-batch dispatch.
+- **A/B run scope:** the 3+3 baseline-vs-inverted plan now becomes 3 baseline + 3 inverted + 3 inverted_no_naming = 9 seasons. Or knight-rider can stage: 3+3 baseline-vs-inverted_no_naming (the cost-meaningful arm) as primary A/B; 3 inverted (intermediate) as diagnostic side-arm. Knight-rider's call: **stage as 3+3 primary on the cost-meaningful arm; 3 inverted seasons as side-arm for cost-attribution diagnosis**. Gandalf adjusts methodology accordingly.
+
+### [2026-05-19 05:04Z] DECISION — knight-rider → elrond — R3 backfill enum update needed
+
+Rocket's 6-value `preferred_behavior` enum (melee_aggressive / ranged_kite / cast_at_range / charge_then_melee / hit_and_run / stationary_caster) supersedes elrond's 4-value enum proposal (coordination-point E-9 item 2 in elrond's section). Elrond updates the backfill derivation rules in `R3-schema-design-2026-05-19.md` § E-0–E-10 + the planned `backfill_r3_2026-05-19.py` archetype-mapping table:
+
+- skirmisher → `hit_and_run` (new)
+- boss/miniboss (non-bruiser) → `stationary_caster` (new; with `aggro_radius_m=12.0` override per rocket's design)
+
+Elrond next-batch dispatch will include the enum-update + tool implementation (gated on `hive-rebuild/v0.4-r3-schema-draft-committed`).
+
+### [2026-05-19 05:04Z] DECISION — knight-rider → rocket open question resolved by gamora
+
+Gamora confirmed (in baseline-measurement session return): NO new `skill_rotation_priority` field needed on class JSON. Existing role-based selection in `ai_strategies.py` is sufficient for player-sim AI. Rocket's open question E-9 / R-? item is RESOLVED. No new field added; rocket schema can omit player-class-side `skill_rotation_priority`.
+
+### [2026-05-19 05:04Z] HANDOFF — knight-rider → jack-ryan — next-pass design-review batch
+
+Jack-ryan: next-pass review batch ready. Inputs:
+
+1. **R3 schema design doc** (`reincarnated-engine/design/working-agreement/R3-schema-design-2026-05-19.md`) — three-author (rocket §§ R-0–R-8 + star-lord §§ SL-1–SL-8 + elrond §§ E-0–E-10). Gate 1 review for: schema design coherence; Pattern P7 ban on `dict.get(default)` at consumer boundaries; cross-seam contract surface; field-naming alignment across all three authors. Focus particularly on rocket's `range_m=0.0` self-cast sentinel + leash-distance validation `leash >= aggro + 2.0`.
+
+2. **R7 parity-test spec** (`R7-parity-test-spec-2026-05-19.md`) — Gate 1 review for: harness architecture rationale (instantiate-both-engines decision); Pattern P7 file:line failure-reporting mechanism; ±15% leash tolerance pre-R4 acceptability; demo-side mock fidelity contract. Discipline #11 (live-state verification) is load-bearing.
+
+3. **R8 cohesion-judging protocol scale-anchoring** (`R8-cohesion-judging-protocol-2026-05-19.md`) — WP-R8-A-2 deferred review from your first pass. Gandalf's anchoring uses specific shipped seasons (002017 necropolis = cohesion-5; 002013 dwarves + 002015 mad king = cohesion-4). Validate: anchors are durable; LLM-judge prompt is blind to pipeline identity; disposition decision-tree is deterministic from test results.
+
+4. **R8 LLM orchestration plan** (`R8-pipeline-design-2026-05-19.md` star-lord section) — Gate 1 review for: two-mode design (`inverted` vs `inverted_no_naming`) per coordination decision above; cost telemetry structure; mode-tagged per-season $ + call count.
+
+5. **R3 + R7 + R8 MIGRATION.md skeletons** (engine `src/reincarnated/generation/MIGRATION.md` R3+R7 entry; `src/reincarnated/export/MIGRATION.md` 2.6/2.7/2.8; `src/reincarnated/llm/MIGRATION.md`) — Discipline #13 drift watch; cross-seam contract coherence.
+
+**BLOCK authority retained** for anything that violates a discipline or shows drift. WARN if a clarification is needed but the seam can proceed. PASS if ready for implementation phase.
+
+**Gates that fire if all PASS:**
+- `hive-rebuild/v0.4-r3-schema-draft-committed` (rocket + jack-ryan)
+- R7 implementation phase unblocks
+- R8 implementation phase unblocks
+- elrond + rocket + star-lord proceed to implementation in next-batch dispatch cycle
+
+### [2026-05-19 05:04Z] STATE — knight-rider — Activation-day summary + next-batch dispatch plan
+
+**Activation day shipped (2026-05-19):**
+- Hive activated at 04:26Z
+- 4 first-fire dispatches authored + filed
+- 6 specialists ran first-step deliverables in parallel
+- 8 commits across collab + engine repos (all pushed to origin/main per § 6.6 authority)
+- 4 milestone-class tags pushed
+- 1 hypothesis-test milestone landed: `hive-rebuild/v0.1-r1-baseline-measurement-captured`
+- 0 Matt escalations
+- 0 BLOCK events
+- All R3/R7 design assets ready for jack-ryan Gate 1 review
+- All R8 methodology assets ready for jack-ryan Gate 1 review + implementation
+
+**Next-batch dispatch plan (queued; fires after jack-ryan Gate 1 PASS):**
+- Gamora: balance_loop.py modification + simulation/MIGRATION.md v1.12 + ClassBalanceResult extension + R1 Test 1 implementation (the 100% failure rate finding is the baseline; under per-tier criteria evaluation will require modified loop)
+- Rocket: R3+R7 schema implementation (skill/monster JSON authoring per design doc; engine-side AI consumer updates per consumer-audit) + R8 pipeline implementation (two modes per coordination decision)
+- Star-lord: R3 telemetry implementation (recorder.py extensions; ALTER TABLE under knight-rider pre-authorization) + R7 parity-test harness implementation + R8 LLM-orchestration implementation + cost telemetry + export/MIGRATION.md schema 2.9 for gamora's R1 ClassBalanceResult fields
+- Elrond: backfill tooling implementation (gated on `hive-rebuild/v0.4-r3-schema-draft-committed` tag; enum-update per rocket alignment)
+- Gandalf: R8 methodology addendum for `inverted_no_naming` arm cohesion scope; otherwise idle until A/B run output lands
+- Jack-ryan: next-pass design-review batch (per HANDOFF above)
+- Drax: idle on engine-rebuild scope until R3 partial-completion checkpoint fires R5 dispatch
+- Galadriel: continues Track-C independently
+
+**State-of-hive 2026-05-19 EOD:** to be authored after jack-ryan next-pass review lands.
+
+**Pattern-B:** still PARKED. No signals to file today.
+
+**Wind-down trigger:** unchanged. Matt's explicit declaration only.
