@@ -398,3 +398,52 @@ R3 dispatch at `agentic_orchestration/dispatches/2026-05-19-rocket-plus-star-lor
 **No tag applied this session.** Tagging deferred to backfill execution session (`hive-rebuild/v0.5-r3-backfill-complete` when validated).
 
 **AGENT_STATE.md update:** deferred until backfill execution session (current session produces design artifact only; no code change to seam under elrond ownership).
+
+---
+
+## 2026-05-19 — gandalf R8 methodology authoring
+
+### [2026-05-19] STATE — gandalf — R8 dispatch acknowledged; methodology assets authored
+
+R8 dispatch (`agentic_orchestration/dispatches/2026-05-19-rocket-plus-star-lord-plus-gandalf-R8-season-as-emergent-output.md`) read in full. Engine-rebuild protocol § 5.4 R8 activation requirements read. Companion canonical (`canonical/story/engine-rebuild-2026-05-19-gap-solutions-and-tests.md` § 8) re-read for the 5 hypothesis tests. Substrate-identity-declarations canonical re-read (Test 4 referent). Current LLM call map (`canonical/19-llm-call-map.md`) re-read (the surface that potentially collapses under Disposition A). Grouping-layer-vocabulary canonical re-read (the 8-slot vocabulary the coalescence prompt produces against). Four prior shipped seasons' `cosmological_vocabulary.json` outputs examined (season_002011 Border Wall, season_002013 Dwarves' Empty Halls, season_002015 Throne Room of the Mad King, season_002017 Subterranean City of the Dead) — these calibrate "what good coalesced theme looks like" operationally and serve as the cohesion-judging scale anchors.
+
+**Two methodology assets authored** (both present in repo; surfaced to the hive in commit `bf47591` alongside jack-ryan's Gate 1 work):
+
+1. **Theme-coalescence prompt** at `agentic_orchestration/hive-mind/R8-theme-coalescence-prompt-2026-05-19.md` (405 lines)
+   - Single-call structure (not multi-call) — cost discipline + coherence enforcement + Test 5 stability surface + operational simplicity
+   - Takes converged season content as distilled distribution tables (element / role / archetype / geometry / gear-substrate / ailment), NOT per-entity dumps
+   - System prompt's 7 discipline rules: READ FIRST → NAME WHAT IS THERE → COMMIT → COHERE → PRESERVE SUBSTRATE IDENTITY → PAIR RATIONALES STRUCTURAL → ANCHOR CATEGORY FROM TAXONOMY
+   - Structured JSON output: anchor_name + anchor_category + season_theme_element + 8 slot_fills + 3 pair_rationales + dominant_substrate_confirmed + coalescence_notes (the last two are Test 4 instruments)
+   - Temperature 0.3 for deterministic-friendly Test 5 stability
+   - No flavor-text passthrough (prevents memorization-and-reproduction; forces real coalescence from mechanical pattern)
+   - Anchor examples per category rotated across seasons (prevents LLM favorite-defaulting)
+   - Per-entity naming explicitly NOT in this prompt's scope — star-lord's LLM-orchestration template-distribution mechanism handles class/skill/monster/gear naming from the coalesced vocabulary
+   - Pre-A/B-run dry-run validation step specified (run prompt against stripped season_002017; verify dominant_substrate_confirmed matches; verify slot_fills exhibit shared register)
+   - Prompt-evolution discipline locked: revisions = v2 with re-run + tag, no silent iteration
+
+2. **Cohesion-judging protocol** at `agentic_orchestration/hive-mind/R8-cohesion-judging-protocol-2026-05-19.md` (533 lines)
+   - 1-5 cohesion scale anchored to specific shipped seasons: cohesion-5 = season_002017 (necropolis); cohesion-4 = season_002013 (dwarves) + season_002015 (mad king); cohesion 3/2/1 defined by failure modes
+   - 6 facets evaluated per season: F1 anchor coherence / F2 slot-fill register unity / F3 anchor-to-slot-fill extension / F4 element-anchor-mechanic fit / F5 pair rationale articulation / F6 cross-content consistency
+   - Cross-content sampling: 3 classes / 5 monsters / 5 skills / 1 trial boss + 5 skills / 3 legendary gear per season; deterministic season-id seeded; same sample for human + LLM judges
+   - **Human-judge process — gandalf-primary under autonomous-operation authority.** Matt-deferred ONLY if disposition is borderline (0.4-0.6 of baseline) AND wind-down hasn't been called. Blinded shuffle; first-impression scores stand
+   - **LLM-judge prompt** (full text inline) — same model (Sonnet), temperature 0.2, blind to pipeline identity, same 6-facet structure, JSON output for direct comparison to human scores
+   - **Disposition decision criteria** (the load-bearing addition): three explicit dispositions (A: commit-to-emergent-default / B: revert-to-input-driven / C: partial-commit-opt-in) with full criteria tables; decision-tree summary; explicit gandalf-authors-and-decides authority per dispatch
+   - **Test 4 examination protocol** (gandalf-owned discovery): substrate-identity invariance check across all 3 inverted seasons; informs Disposition A canonical-doc amendments
+   - **Pre-A/B-run dry-run validation** specified for judging instrument calibration (judge season_002017 first; both judges must score 4.5-5.0)
+   - **A/B run gandalf-side execution sequence** (steps 1-13) — covers from "R8 prototype operational" tag through disposition decision authoring
+
+**Decisions captured (all under autonomous-operation authority):**
+
+- **Single-call vs multi-call for coalescence:** single call. Cost + coherence + stability + simplicity all favor it. (Dispatch open-question "Theme-coalescence prompt structure" resolved.)
+- **Cohesion-scale calibration:** anchored to specific shipped seasons (5 = necropolis; 4 = dwarves/mad-king); both human + LLM judges use same anchors. (Dispatch open-question "Cohesion-scale calibration" resolved.)
+- **LLM judge model + temperature:** Sonnet at temperature 0.2 (same model family as coalescence; lower temperature for deterministic judging). (Dispatch open-question "LLM judge prompt" resolved as the methodology default; star-lord can refine at A/B-run time if operational concerns surface.)
+- **Human-judge process:** gandalf-only as primary; Matt-deferred secondary ONLY at borderline disposition. (Resolved per autonomous-operation authority.)
+- **Test 4 disposition routing:** if non-invariance surfaces, gandalf authors substrate-identity revision as part of R8 (NOT deferred); included in Disposition A canonical-doc amendments per protocol § 5.5 item 8. (Dispatch open-question "Test 4 disposition" resolved.)
+
+**No surfaced questions for knight-rider arbitration.** All sub-questions decided under gandalf L1/L2 authority per autonomous-operation amendment.
+
+**Open dependency on rocket + star-lord:** the A/B run cannot execute until rocket ships the inverted-pipeline CLI flags and star-lord ships the LLM-orchestration changes (per dispatch § "Rocket scope" + § "Star-lord scope"). Gandalf-side methodology is ready in advance; gandalf-side execution begins when `hive-rebuild/v0.10-r8-ab-run-complete` is tagged.
+
+**WP-R8-A-1 closure note (per jack-ryan watchpoint):** both R8 gandalf methodology assets now authored + committed. Watchpoint can be closed. Jack-ryan's WP-R8-A-2 (cohesion-scale anchoring) is also satisfied per cohesion-judging protocol § 1.1.
+
+**Cite:** R8 dispatch acceptance criteria § "Gandalf scope" items 1 + 2 + 3 (methodology authoring + disposition decision criteria embedded in cohesion-judging protocol).
