@@ -127,3 +127,37 @@ In order:
 ---
 
 *Authored 2026-05-19 by knight-rider under pre-approval-batch authority. F6 Track A closes the third visual axis catalogue gap; gandalf shortlists; Matt picks at wind-down; drax integrates post-selection.*
+
+---
+
+## F6 Track A Completion Record
+
+**Completed:** 2026-05-19 by legolas under autonomous-operation authority (VS2a hive-mind protocol § 4.0).
+
+**Acceptance criteria status:**
+- [x] Vendor-by-vendor scout doc filed: `agentic_orchestration/research/catalogue/environment-tileset-vendor-scout-2026-05-19.md`
+- [x] Cross-vendor inventory JSONL produced: `agentic_orchestration/research/catalogue/environment-substrate-inventory-2026-05-19.jsonl` (21 entries)
+- [x] Top 5–10 candidate packs identified with primary-fit-themes
+- [x] Sample images accessible for gandalf Track B visual inspection (all Kokoro product pages have accessible preview images; no paywall)
+- [x] Findings-blockers surfaced (5 blockers; see scout doc Section 5)
+- [x] Hive log entry appended (legolas STATE)
+- [x] Tag fire request surfaced: `vs2a/v0.11-drift15-track-a-complete`
+
+**Key finding summary (for knight-rider routing):**
+
+Primary vendor: **Kokoro Reflections** — 48×48 exact-meter-fit packs, HD-2D-adjacent register pending gandalf visual confirmation. Seven packs cover the full Reincarnated season-anchor range.
+
+**Priority new pack:** KR Elemental Dungeon Tiles ($15.99; 42 MB) — fire/water/earth/wind themed dungeons at 48×48; single purchase covers four element-season environments matching Reincarnated's element taxonomy. This is the highest-strategic-fit pack discovered across both the 2026-05-17 and 2026-05-19 crawls.
+
+**Top 5 candidates for gandalf Track B shortlist:**
+1. KR Elemental Dungeon Tiles — $15.99 — fire/water/earth/wind elemental dungeons — 4 seasons from 1 pack
+2. KR Snow Castle Tileset — $15.99 — ice palace + ruined variant — Capricorn + Tower anchors
+3. KR Legendary Palaces ~ Reaper Tileset — $9.99 — death/shadow/undead palace — Death + Hermit anchors
+4. KR Heavenly Palace Tileset — $16.99 — celestial/divine — Sun/Justice/High Priestess anchors (new; limited validation)
+5. KR Legendary Palaces ~ Naga Tileset — $8.99 — water/serpentine — Moon/Temperance anchors
+
+**Tier-1 sufficient? YES** — Tier-2 sweep not recommended at this stage. Rate-limiting gate is gandalf Track B visual inspection of Kokoro pack preview images (all accessible without purchase).
+
+**Register blocker:** No Kokoro pack has been formally confirmed as HD-2D-register by gandalf. All 5 top candidates carry "REQUIRES-VISUAL-INSPECTION" tag. This is the primary gate before Track C (Matt selection).
+
+**Tag fire request:** `vs2a/v0.11-drift15-track-a-complete` — knight-rider fires after hive log entry lands.

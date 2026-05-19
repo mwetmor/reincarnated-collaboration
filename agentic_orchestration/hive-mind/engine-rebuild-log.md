@@ -3169,3 +3169,55 @@ All 156 manifest entries verified against F3 framework Tier A–E methodology. M
 - F5 dispatch completion record appended.
 
 **Operating mode:** AUTONOMOUS per protocol § 4.0. No Matt-wait.
+
+---
+
+### [2026-05-19] STATE — legolas — F6 Track A complete: environment tileset catalogue sweep (Drift-15)
+
+**Commission:** F6 dispatch `agentic_orchestration/dispatches/2026-05-19-legolas-vs2a-F6-drift15-environment-tileset-sweep.md`
+**Mode:** B (systematic catalogue crawl)
+**Gating:** F3 framework `canonical/story/per-season-environmental-theming-2026-05-19.md` (gandalf; § 7 commission criteria)
+
+**Scope executed:** Tier-1 pixel-art vendors (Pimen / CreativeKind / Ansimuz / Pipoya / Foozle / Elthen / CraftPix) + secondary-discovery vendors from 2026-05-17 (Kokoro Reflections primary; Val Sama 66 secondary). Updated Kokoro Reflections catalogue with two new packs not present in prior crawl (KR Elemental Dungeon Tiles + KR Heavenly Palace). Itch.io supplementary searches executed for any new HD-2D-class tilesets; no additional vendors above Kokoro Reflections quality bar surfaced.
+
+**Outputs filed:**
+- Scout doc: `agentic_orchestration/research/catalogue/environment-tileset-vendor-scout-2026-05-19.md`
+- JSONL inventory: `agentic_orchestration/research/catalogue/environment-substrate-inventory-2026-05-19.jsonl` (21 entries across 5 vendors)
+
+**Key findings (summary for downstream consumers):**
+
+1. **Primary vendor confirmed:** Kokoro Reflections. Seven packs at 48×48 px (exact 1m/tile at PIXELS_PER_METER=48). All commercial-royalty-free. HD-2D-adjacent register pending gandalf visual confirmation. No other Tier-1 vendor approaches this quality/dimensional fit combination.
+
+2. **Priority new pack: KR Elemental Dungeon Tiles** ($15.99; 42 MB) — fire/water/earth/wind dungeon environments at 48×48. Single purchase covers four element-season environments. Direct structural alignment with Reincarnated's element taxonomy (fire/water/earth/wind matching canonical element system). Per-element coverage: floor variants (element-specific ground/brick/concrete/crystal), wall variants (2 types per element), props (element-themed statues/pillars/thrones), interactive elements (bridges/doors/windows/magic rings), animated effects.
+
+3. **Top 5 candidate shortlist for gandalf Track B:**
+   - Rank 1: KR Elemental Dungeon Tiles — $15.99 — 4 element-season environments
+   - Rank 2: KR Snow Castle Tileset — $15.99 — ice palace + ruined variant (Capricorn + Tower anchors)
+   - Rank 3: KR Legendary Palaces ~ Reaper Tileset — $9.99 — death/shadow palace (Death + Hermit anchors)
+   - Rank 4: KR Heavenly Palace Tileset — $16.99 — celestial/divine (Sun/Justice/High Priestess; brand new; limited community validation)
+   - Rank 5: KR Legendary Palaces ~ Naga Tileset — $8.99 — water/serpentine (Moon/Temperance anchors)
+
+4. **Secondary candidates (Elthen):** 10+ packs at $10 each; 32×32 tiles; retro-to-borderline register; distinctive animated props (occult pillars, energy pipes, sandfall). Recommended for: (a) Cultist Dungeons for occult/void season anchors not served by Kokoro; (b) Arcane Dungeons for magic/mage anchors; (c) free Dungeon Tileset for drax pipeline integration testing before paid packs acquired.
+
+5. **Free CC0 baseline:** Foozle Lucifer Dungeon Tileset — immediate acquisition recommended for drax pipeline integration testing. No cost, no attribution, Aseprite source files included.
+
+6. **Season-anchor coverage gaps:** Full Moon (moonlit/silver) and Hanged Man (suspended/inverted) have no direct candidate pack match. Secondary concern — VS2a ships only one pack; these gaps matter at VS2b+ cadence.
+
+**Findings-blockers (5 filed; see scout doc Section 5):**
+- Blocker 1 (PRIMARY): HD-2D register confirmation pending gandalf visual inspection — no Kokoro pack formally confirmed as HD-2D by gandalf yet
+- Blocker 2: KR Elemental Dungeon wall count per element (2 types) — may be UNDER_VARIETY for default-room wall fill; gandalf visual assessment needed
+- Blocker 3: Elthen tile variant counts unconfirmed — small file sizes suggest UNDER_VARIETY; $10 download required to verify
+- Blocker 4: Season-anchor gaps for Full Moon and Hanged Man anchors — no current pack match
+- Blocker 5: KR Heavenly Palace is brand-new with limited community validation
+
+**Tier-1 sufficiency:** YES — Tier-2 sweep NOT recommended. Rate-limiting gate is gandalf visual inspection of Kokoro product page preview images (all accessible without purchase).
+
+**Readiness signal for downstream:**
+- gandalf Track B shortlist authoring UNBLOCKED — all Track A deliverables filed
+- Tag fire request: `vs2a/v0.11-drift15-track-a-complete` — knight-rider fires
+- Track B estimated effort: ~2h gandalf (visual inspection of Kokoro previews + shortlist doc authoring)
+- Track C (Matt selection) HELD for wind-down per M2 pattern
+
+**Dispatch completion record:** appended to F6 dispatch file.
+
+**Operating mode:** AUTONOMOUS per protocol § 4.0. No Matt-wait. F6 Track A complete.
