@@ -4,6 +4,29 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-19 — VS2a first-fire batch DISPATCHED (F1 + F2 + F3 + F4 authored)
+
+**Event:** Knight-rider authored four VS2a first-fire dispatches under AUTONOMOUS-OPERATION (continuation of engine-rebuild close → VS2a sequencing per dispatch § 6.5 explicit ordering). All four fire immediately; no upstream gating on each other beyond F3 → F5/F6 (second-fire batch). C1–C4 in-flight continuations independent. M1 + M2 Matt-gated items HELD for wind-down.
+
+**Dispatches authored (`agentic_orchestration/dispatches/`):**
+
+1. **F2 — gandalf — VS2a kit-redesign approach Gate-1 decision** (`2026-05-19-gandalf-vs2a-kit-redesign-approach-decision.md`) — HIGHEST leverage; gates S1 + S2. Decision: hand-redesign (a) vs R8-inversion (b) vs hybrid (c). Acceptance: `canonical/story/vs2a-kit-redesign-approach-2026-05-19.md` + tag `vs2a/v0.5-kit-redesign-approach-decided`.
+2. **F1 — rocket + star-lord — VS2a `geometry_type` per-skill schema field** (`2026-05-19-rocket-plus-star-lord-vs2a-geometry-type-schema.md`) — engine-rebuild R2 H1 fall-out per gandalf R2 disposition § 3.1 + jack-ryan Q1 disposition. Schema additive-nullable → non-null post-backfill. MIGRATION.md required at both seams. Round-trip smoke per Principle 6. Acceptance: tag `vs2a/v0.1-geometry-type-schema-shipped`.
+3. **F3 — gandalf — Drift-14 + Drift-15 design framework** (`2026-05-19-gandalf-vs2a-drift14-15-framework.md`) — gates F5 + F6 legolas commissions. Drift-15 framework includes EXPLICIT autonomous-vs-Matt-gated step separation (Tracks A+B autonomous; Track C HELD for wind-down per M2 pattern; Track D post-Matt). Acceptance: framework docs + drift-audit.md updates + tags `vs2a/v0.3` + `vs2a/v0.4`.
+4. **F4 — drax — VS2a B6 skill-tree UI surface decomposition** (`2026-05-19-drax-vs2a-b6-skilltree-ui-decomposition.md`) — closes fifth P6 instance (engine emits tree data; demo has no rendering surface). Drax authors design dispatch + ships prototype. Acceptance: design doc + prototype + tag `vs2a/v0.6-b6-skilltree-ui-decomposition`.
+
+**Second-fire (gated on F3):** F5 (legolas Mode A Drift-14 pool × VFX-catalogue mapping audit) + F6 (legolas Mode B Drift-15 environment-tileset sweep Track A).
+
+**In-flight continuations (specialist independent; no knight-rider dispatch):** C1 movement-speed baseline + C2 B11 GREEN-list VFX + C3 chierit character rendering + C4 Pimen curation pipeline.
+
+**Matt-gated (HELD for wind-down):** M1 (Drift-15 Matt-selection per Track C) + M2 (engine-rebuild playtest tags `v0.12-r5-hypothesis-test-passed` + `v0.16-r4-hypothesis-test-passed`).
+
+**Operating mode:** AUTONOMOUS per protocol § 4.0 + § 4.9 (inherited from engine-rebuild protocol into VS2a per scope-of-work § 6). No L3-to-Matt during operation. Matt re-enters only at wind-down.
+
+**Authority:** Matt directive 2026-05-19 (autonomous-operation continuation); knight-rider operationalization + dispatch authoring under launch-dispatch § 6.5 routing.
+
+---
+
 ## 2026-05-19 — Engine-rebuild batch CLOSED (`hive-rebuild/v1.0-engine-rebuild-complete` fired across all 4 repos)
 
 **Event:** Engine-rebuild hive-mind session completed under AUTONOMOUS-OPERATION mode. Knight-rider proceeds immediately to VS2a per dispatch § 6.5 explicit ordering; Matt does NOT return to loop (wind-down trigger remains exclusively Matt's explicit declaration per protocol § 4.9).

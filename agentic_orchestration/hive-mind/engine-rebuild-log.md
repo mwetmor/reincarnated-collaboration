@@ -2772,3 +2772,63 @@ This is NOT a fix that belongs to gamora now — it is correctly deferred to VS2
 **R8 workstream status:** All 3 disposition implementation tasks COMPLETE. R8 closed.
 
 **Forward routing note:** Knight-rider's v1.0 disposition entry (gamora session) listed `seasonal_dominant_element` write-back + Test 5 execution as VS2a items. These are now COMPLETED ahead of VS2a — inform knight-rider at next routing decision so VS2a scope-of-work list can be updated.
+
+---
+
+## 2026-05-19 — VS2a first-fire batch authored (F1 + F2 + F3 + F4)
+
+### [2026-05-19 ~12:00Z] STATE — knight-rider — VS2a first-fire batch DISPATCHED
+
+Per VS2a kickoff continuation (engine-rebuild close → VS2a sequencing per dispatch § 6.5). Four dispatches authored under autonomous-operation authority; specialists will pick up at next session-start per Pattern-B file-based dispatch protocol.
+
+**Dispatches authored (all under `agentic_orchestration/dispatches/`):**
+
+1. **F2 — gandalf — VS2a kit-redesign approach Gate-1 decision** (`2026-05-19-gandalf-vs2a-kit-redesign-approach-decision.md`)
+   - HIGHEST leverage. Gates S1 (kit-redesign sprint) AND S2 (B6 main work).
+   - Decision: hand-redesign (a) vs R8-inversion (b) vs hybrid (c) for 30-40 kit-broken/kit-mediocre classes.
+   - Acceptance: decision doc at `canonical/story/vs2a-kit-redesign-approach-2026-05-19.md` + tag `vs2a/v0.5-kit-redesign-approach-decided`.
+   - Effort: 0.5-1 day gandalf authoring + decision.
+
+2. **F1 — rocket + star-lord — VS2a `geometry_type` per-skill schema field** (`2026-05-19-rocket-plus-star-lord-vs2a-geometry-type-schema.md`)
+   - Engine-rebuild R2 H1 fall-out per gandalf R2 disposition § 3.1 + jack-ryan Q1 disposition.
+   - Adds `geometry_type` enum field (circle/cone/line/point/mixed/none); backfill 5 shipped seasons; updates `_determine_geometry_type()` to direct-field-read with heuristic fallback + Pattern-P7 fail-loud.
+   - MIGRATION.md required at both generation + export seams. Round-trip smoke per Principle 6.
+   - Acceptance: tag `vs2a/v0.1-geometry-type-schema-shipped`; downstream gamora R2 H1 re-test gated under original variance ≥ 0.10 threshold (separate dispatch; tags `vs2a/v0.2-r2-h1-revalidated`).
+   - Effort: 2-4 wk parallel with S1.
+
+3. **F3 — gandalf — Drift-14 + Drift-15 design framework** (`2026-05-19-gandalf-vs2a-drift14-15-framework.md`)
+   - Gates F5 (legolas Mode A Drift-14 audit) + F6 (legolas Mode B Drift-15 environment-tileset sweep Track A).
+   - Drift-14: D1 rubric extension methodology + pool-status threshold redefinition + selector hard-floor recommendation.
+   - Drift-15: per-season environmental theming framework with EXPLICIT autonomous-vs-Matt-gated step separation. Tracks A + B autonomous; Track C (Matt picks 3 packs) HELD for wind-down per M2 pattern; Track D (drax integration) post-Matt.
+   - Acceptance: framework docs authored at `canonical/story/d1-rubric-vfx-mapping-extension-2026-05-19.md` + `canonical/story/per-season-environmental-theming-2026-05-19.md` + `drift-audit.md` updates. Tags: `vs2a/v0.3-drift14-framework-decided` + `vs2a/v0.4-drift15-framework-decided`.
+   - Effort: 0.5-1 day gandalf total.
+
+4. **F4 — drax — VS2a B6 skill-tree UI surface decomposition** (`2026-05-19-drax-vs2a-b6-skilltree-ui-decomposition.md`)
+   - Closes fifth P6 instance in 2026-05-16/17 closure cascade. Engine emits tree data; demo has NO rendering surface.
+   - Drax authors design dispatch (rendering shape; node icons; unlock-feedback; mobile-first; tap-to-allocate; respec; § 7 data contract for S2) + ships prototype in reincarnated-demo.
+   - Acceptance: design doc + prototype + AGENT_STATE update. Tag: `vs2a/v0.6-b6-skilltree-ui-decomposition`.
+   - Effort: design 1-2 days; prototype 1-2 wk.
+
+**Second-fire batch (gated on F3):**
+- F5 — legolas Mode A Drift-14 pool × VFX-catalogue mapping audit (~3-5h legolas + ~4-6h gandalf re-scoring)
+- F6 — legolas Mode B Drift-15 environment-tileset catalogue sweep Track A (~5-8h legolas)
+
+Knight-rider fires F5 + F6 once gandalf F3 frameworks land.
+
+**In-flight (specialist independent timelines; no knight-rider dispatch needed):**
+- C1 (movement-speed baseline — rocket + drax + gamora)
+- C2 (B11 GREEN-list VFX 11/13 elements — drax + elrond Pimen ingest)
+- C3 (chierit character rendering — drax)
+- C4 (Pimen curation pipeline + subset selection — elrond)
+
+**Matt-gated (HELD for wind-down):**
+- M1 — Drift-15 Matt-selection (3 environment tilesets per Matt eye)
+- M2 — engine-rebuild playtest tags v0.12 + v0.16
+
+**Note from rocket previous STATE:** `seasonal_dominant_element` write-back + Test 5 stability execution + CLI default flip — all COMPLETE ahead of VS2a (engine `9f6e4e6`; `rocket/v1.20-r8-disposition-impl-1`). Updated knight-rider awareness; scope-of-work-vs2a.md § 2.2 already reflects "items removed from queue this session." No further VS2a impact.
+
+**Operating mode:** AUTONOMOUS per protocol § 4.0 + § 4.9. No L3-to-Matt during operation. Matt re-enters only at wind-down.
+
+**Authority:** AUTONOMOUS — full per protocol § 4.0 + dispatch § 6.5 + § 6.6.
+
+**Collab commit:** (this commit fires F1+F2+F3+F4 dispatches + log update + CHANGELOG event entry)
