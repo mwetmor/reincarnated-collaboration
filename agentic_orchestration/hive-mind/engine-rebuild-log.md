@@ -3172,6 +3172,50 @@ All 156 manifest entries verified against F3 framework Tier A–E methodology. M
 
 ---
 
+## 2026-05-19 — VS2a F1 star-lord follow-on — schema 2.13 + geometry_type_source round-trip COMPLETE
+
+### [2026-05-19] STATE — star-lord — VS2a F1 COMPLETE
+
+**Authority:** AUTONOMOUS (VS2a hive-mind protocol § 4.0; pre-approval-batch authority Matt 2026-05-19).
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-19-rocket-plus-star-lord-vs2a-geometry-type-schema.md` (star-lord seam — follow-on to rocket F1)
+
+**Summary:**
+
+VS2a F1 telemetry + export adaptation complete. Both seams (rocket + star-lord) now shipped. The `spatial_geometry_type` → `geometry_type_source` → DB boundary chain is fully operational and parity-tested.
+
+**Deliverables:**
+
+- `SCHEMA_VERSION` `"2.12"` → `"2.13"` | Production DB: migration 2.13 applied; `geometry_type_source` column live on `spatial_fight_results`
+- `ExportSkill.spatial_geometry_type: str | None = None` additive field on export packet schema (schemas.py + season_exporter._build_skill)
+- Round-trip parity test: 40/40 PASS (21 new F1 tests; 4 new test classes covering column presence, all 3 source values, negative-case legacy fallback, Pattern P7 invalid-source rejection)
+- Regression suite: 40/40 (r1 + r3 telemetry) + 39/39 (test_export) = 79/79 PASS
+- F1 design doc `## Telemetry + Export Surface` section (§ T1–T7) appended
+- `export/MIGRATION.md` schema 2.13 section + consumer obligations appended
+- `export/AGENT_STATE.md` updated
+
+**Engine commits:** `cd6e5dd` + `5f42032` (main branch)
+
+**Boundary chain verified (Principle 6):**
+1. Generator: `SpatialFightResult.geometry_type_source` validated (3 valid; 5 invalid rejected)
+2. Telemetry: `SqliteSpatialTelemetryWriter` writes `geometry_type_source` via `getattr(..., None)` (version-gated)
+3. Storage: `spatial_fight_results.geometry_type_source` column present; all 3 source values round-trip
+4. Consumer: SELECT verified; NULL for pre-2.13 rows (backward-compat confirmed)
+
+**Negative-case smoke:** `heuristic_fallback` path produces correctly labeled DB row. Distinguishable from `explicit` via `geometry_type_source != 'heuristic_fallback'` filter. Pre-2.13 NULL rows backward-compatible.
+
+**L1 decisions:** additive ALTER TABLE on `spatial_fight_results`; no `class_balance_results` extension (JOIN-at-analysis-time sufficient); `ExportSkill.spatial_geometry_type` additive passthrough; drax no immediate action.
+
+**WP-R2-A-1 readiness:** CONFIRMED. 1,850 backfilled skills + `geometry_type_source` DB column + full parity test coverage. Gamora re-test dispatch can fire immediately under knight-rider's next action.
+
+**Tag-fire request:** `vs2a/v0.1-geometry-type-schema-shipped` — fire on engine repo at commit `cd6e5dd` (latest F1 completion commit; both seams complete). Also fire on collab repo at the commit landing this entry.
+
+**Gamora re-test dispatch request:** knight-rider to author R2 H1 re-test dispatch. Gamora runs R2 sub-gauntlet with `spatial_geometry_type` direct-field-read; applies original H1 variance ≥ 0.10 threshold; tags `vs2a/v0.2-r2-h1-revalidated` on PASS. WP-R2-A-1 closes on that tag.
+
+**Operating mode:** AUTONOMOUS per protocol § 4.0. No Matt-wait.
+
+---
+
 ### [2026-05-19] STATE — legolas — F6 Track A complete: environment tileset catalogue sweep (Drift-15)
 
 **Commission:** F6 dispatch `agentic_orchestration/dispatches/2026-05-19-legolas-vs2a-F6-drift15-environment-tileset-sweep.md`
@@ -3221,3 +3265,70 @@ All 156 manifest entries verified against F3 framework Tier A–E methodology. M
 **Dispatch completion record:** appended to F6 dispatch file.
 
 **Operating mode:** AUTONOMOUS per protocol § 4.0. No Matt-wait. F6 Track A complete.
+
+---
+
+## 2026-05-19 — F5 gandalf Track B — Drift-14 pool × VFX catalogue mapping re-scoring COMPLETE
+
+### [2026-05-19] STATE — gandalf — F5 Track B COMPLETE — Drift-14 CLOSED
+
+**Authority:** AUTONOMOUS L2-equivalent (VS2a hive-mind protocol § 4.0; pre-approval-batch authority Matt 2026-05-19). Per F5 dispatch `agentic_orchestration/dispatches/2026-05-19-legolas-plus-gandalf-vs2a-F5-drift14-pool-vfx-catalogue-audit.md` Track B scope.
+
+**Deliverables (all filed under autonomous-operation; no Matt-wait):**
+
+1. **Culled-pool summary** — `canonical/story/pool-vfx-mapping-culled-2026-05-19.md`
+   - 5 borderline cases adjudicated against gandalf design lens + cross-genre ARPG evidence
+   - 2 tier upgrades C→D (`bone`, `web`); 3 rationale-text corrections (`fume`, `blood`, `miasma`)
+   - Manifest verification + selector-side recommendation (no new rocket dispatch needed)
+   - D15 forward-flag section + complete cross-references
+
+2. **Manifest amendments** — `reincarnated-engine/data/seasonal_elements/vfx_coverage_manifest.json`
+   - 5 entries amended (rationale text + 2 tier reclassifications)
+   - JSON validates; 156 total entries; new tier distribution A=29 / B=57 / C=39 / D=23 / E=8
+   - Total `vfx_catalogue_mapping_clean=True` unchanged at 86 entries
+   - No `d1_status` changes; no allow-list shifts; auto-demote outcome unchanged (57 effective post-demote)
+
+3. **Drift-14 entry update** — `canonical/story/drift-audit.md` § Drift-14
+   - Status header added: **CLOSED 2026-05-19**
+   - § Action section: F5 Track A + Track B completion records added; D15 REQUEST filing noted
+   - § Cross-references: Track A doc + Track B doc + amended manifest references added; allow-list math note updated to empirical 57/53/46 post-cull (was target ~55/~50/~46)
+
+4. **F5 dispatch completion record** — appended to F5 dispatch file `agentic_orchestration/dispatches/2026-05-19-legolas-plus-gandalf-vs2a-F5-drift14-pool-vfx-catalogue-audit.md`
+
+**Key adjudication summary (gandalf design lens; cross-genre evidence cited):**
+- `fume` — Tier-C confirmed; rationale corrected. Genre-standard poison-cloud composite (D2 Necromancer Poison Nova / D3 Witch Doctor / PoE Caustic Arrow / Last Epoch Disintegrate Necrotic) renders unambiguously despite "invisible" mundane-chemistry sense.
+- `bone` — **Tier-D upgrade (the genuine borderline)**. Cross-genre evidence is unambiguous: D2 Necromancer Bone Spear / PoE Volatile Dead / Grim Dawn Bone Harvest / Last Epoch Reaper Form all render bone-VFX as bespoke white-fragment particle systems on the death-necrotic substrate, NOT as palette-shifted earth-particles. Rendering bone via earth-VFX would produce textbook Drift-14 cognitive dissonance. Forward path: `shadow` substrate at Phase-1 P1.
+- `blood` — Tier-C confirmed for VFX-axis; rationale text now distinguishes VFX-axis (Tier-C palette-shift achievable; pre-CodeManu-blood-effects-vol1 acquisition state) from design-axis (eligible permanence is DESIGN-INTENT — Matt direction away from blood-themed seasons in demo tonal direction, independent of VFX availability).
+- `web` — **Tier-D upgrade**. Strand-structure rendering crosses F3 § 2.1 minor-compositing threshold. No ARPG renders web via palette-shifted particle effects (D2 Andariel web-prison / PoE Spider's Cage / Grim Dawn Spider Queen — all bespoke sprite work).
+- `miasma` — Tier-C confirmed; rationale text clarifies `vocab-obscure` tag is D1-axis (2026-05-12 manual override), NOT VFX-axis. Eliminates ambiguity for forward readers.
+
+**Drift-14 closure status:** **CLOSED.** F3 framework (2026-05-19) + F5 Track A audit (2026-05-19 legolas) + F5 Track B re-scoring (2026-05-19 gandalf) + 2026-05-17 implementation cascade (rocket + gandalf + legolas) together close the structural gap. The canonical-bias residue dissolves from the per-season vocabulary surface. Future pool additions inherit the doctrine without re-derivation.
+
+**Tag-fire request:** `vs2a/v0.10-drift14-audit-complete` (Track A + B joint milestone; Drift-14 closed). Knight-rider fires + pushes at next collab commit per ADR-006.
+
+**Acceptance criteria — all met per F5 dispatch Track B:**
+- [x] 5 borderline cases adjudicated
+- [x] Manifest amendments applied (2 tier upgrades + 3 rationale corrections; JSON validates)
+- [x] Culled-pool summary doc filed
+- [x] Drift-14 entry update — status: CLOSED
+- [x] D15 candidate filing — REQUEST entry below
+- [x] Tag-fire request surfaced
+- [x] Hive log STATE entry (this entry)
+- [x] No Matt-wait at any point during Track B
+
+**Collab commit:** (forthcoming; knight-rider's commit will land culled-pool summary + drift-audit amendment + F5 dispatch Track B completion record + manifest amendments + this STATE entry + D15 REQUEST + tag-fires)
+
+### [2026-05-19] REQUEST — gandalf → jack-ryan — D15 discipline candidate
+
+**Candidate text (verbatim from F3 framework § 7):**
+> *"Pool-vs-catalogue mapping must be scored at pool-introduction time, not deferred to ship-time. Any pool entry that will become player-visible at a downstream ship MUST be scored against the operational catalogue at pool-introduction time, not just against conceptual rubric properties."*
+
+**Pattern category:** Discipline #13 (implicit-pillar drift) — load-bearing dimension was implicit-deferred at Stage A1 D1-rubric authoring; surfaced as VS2a-gating drift at 2026-05-17 Matt direct catch.
+
+**Empirical evidence base:** Drift-14 itself (P6 instance # 4 in 2026-05-16/17 cascade); the F3 framework + F5 audit + Track B re-scoring closure cycle (~6h total agentic effort) was the closure mechanism. Forward-extension recommendation per F3 framework § 6.2: all new pool entries MUST be added with paired commits (`pool.json` entry + `vfx_coverage_manifest.json` entry). Pool loader's conservative default (`missing manifest entry → vfx_catalogue_mapping_clean = False → auto-demote on next load`) is the safety net; D15 codifies the process discipline upstream of the safety net.
+
+**Disciplinary cluster pairing per F3 framework § 7:** surface alongside D14 + D16 + R11(b) + Pattern P7 silent-drop cluster + Drift-11 sibling-cluster-sweep lesson. Cluster is at 6+ items, strong empirical basis for a coordinated jack-ryan engineering-disciplines pass when capacity allows.
+
+**Routing:** knight-rider to surface to jack-ryan via standard dispatch route when capacity allows. Not VS2a-gating; forward-discipline-pass territory.
+
+**Operating mode:** AUTONOMOUS per protocol § 4.0. F5 Track B complete. Drift-14 CLOSED.

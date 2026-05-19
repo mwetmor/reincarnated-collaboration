@@ -311,3 +311,56 @@ READY. Star-lord can fire immediately:
 ### Gamora re-test dispatch request (knight-rider to author)
 
 R2 H1 re-test dispatch. Gamora runs R2 sub-gauntlet with `spatial_geometry_type` direct-field-read; applies original H1 variance ≥ 0.10 threshold. Tags `vs2a/v0.2-r2-h1-revalidated` on PASS. WP-R2-A-1 closes on that tag.
+
+---
+
+## Completion record — star-lord seam
+
+**Date:** 2026-05-19
+**Author:** star-lord (telemetry + export seam)
+**Status:** COMPLETE — F1 BOTH SEAMS SHIPPED
+
+### Star-lord deliverables — shipped
+
+- [x] `## Telemetry + Export Surface` section (§ T1–T7) appended to `design/working-agreement/F1-geometry-type-schema-design-2026-05-19.md`
+- [x] `export/MIGRATION.md` schema 2.13 section + consumer obligations (gamora/drax/jack-ryan/S1) appended
+- [x] `SCHEMA_VERSION` bumped `"2.12"` → `"2.13"` in `telemetry/recorder.py`
+- [x] Production DB: migration 2.13 applied (`geometry_type_source` column live on `spatial_fight_results`)
+- [x] `ExportSkill.spatial_geometry_type: str | None = None` additive field in `export/schemas.py`
+- [x] `season_exporter._build_skill()` reads `spatial_geometry_type` from skill JSON (defensive `.get()` pattern)
+- [x] Round-trip parity test extended: 21 new F1 tests in `tests/round_trip_spatial_telemetry.py`
+  - `TestSchema213GeometryTypeSourceColumn` (3 tests): column exists, nullable, expected-columns set
+  - `TestGeometryTypeSourceRoundTrip` (4 tests): all 3 source values; full field-presence chain
+  - `TestNegativeCaseLegacySeasonFallback` (3 tests): heuristic_fallback labeled; distinguishable; NULL backward-compat
+  - `TestGeometryTypeSourcePatternP7` (7 tests): 5 invalid sources rejected; valid accepted
+  - `TestSchemaVersionBump` extended with 2.13 migration assertion
+- [x] `export/AGENT_STATE.md` updated
+- [x] Hive log STATE entry appended
+
+### Smoke results — star-lord seam
+
+| Test suite | Count | Result |
+|---|---|---|
+| `round_trip_spatial_telemetry.py` (F1 extended) | 40/40 | **PASS** |
+| `round_trip_r1_kill_rate.py` + `round_trip_r1_telemetry.py` + `round_trip_r3_telemetry.py` (regression) | 40/40 | **PASS** |
+| `test_export.py` (schemas.py + season_exporter.py) | 39/39 | **PASS** |
+
+### Key L1 decisions
+
+1. **Additive on `spatial_fight_results`**: ALTER TABLE adds `geometry_type_source TEXT DEFAULT NULL`. ADR-004 pattern. NULL = pre-F1 row.
+2. **No `class_balance_results` extension for F1**: per-class geometry derivable via JOIN; no tight-coupling to convergence loop.
+3. **No `class_fight_loadouts` extension for F1**: 1D and 2D tables are separate; derivable.
+4. **`ExportSkill.spatial_geometry_type` additive**: passes through to downstream consumers additive; drax ignores for now; S1 can consume when ready.
+
+### Engine commits (star-lord)
+
+- `cd6e5dd` — feat(star-lord): VS2a F1 telemetry + export adaptation — schema 2.13, geometry_type_source round-trip
+- `5f42032` — docs(star-lord): AGENT_STATE update — VS2a F1 complete, schema 2.13 shipped
+
+### Tag-fire request (updated — knight-rider action)
+
+`vs2a/v0.1-geometry-type-schema-shipped` — fire on engine repo at commit `cd6e5dd` (star-lord's shipping commit; this supersedes rocket's earlier request for `3202f9b` — fire at the latest commit that completes both seams). Also fire on collab repo at the commit this completion record lands in.
+
+### WP-R2-A-1 readiness
+
+Both seams complete. `spatial_geometry_type` on all 1,850 skills. `geometry_type_source` DB column live. Round-trip parity test confirms the full generator → telemetry → export → consumer boundary chain. WP-R2-A-1 closure gates on gamora re-test dispatch confirming 0 `heuristic_fallback` rows on shipped seasons.
