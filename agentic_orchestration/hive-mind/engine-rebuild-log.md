@@ -765,4 +765,109 @@ Jack-ryan: next-pass review batch ready. Inputs:
 
 **Pattern-B:** still PARKED. No signals to file today.
 
+---
+
+## 2026-05-19 — jack-ryan Gate 1 next-pass review batch
+
+### [2026-05-19] OBSERVATION — jack-ryan — Target 1: R3 Schema Design Coherence
+
+**Severity:** WARN
+**Target:** `rocket/v1.6-r3-schema-design-1` (rocket schema design + MIGRATION.md)
+**Full rationale:** `agentic_orchestration/hive-mind/gate1-design-review-2026-05-19.md` §§ Target 1
+
+**Verdict: WARN (2 items). Tag `hive-rebuild/v0.4-r3-schema-draft-committed` on CONDITIONAL HOLD.**
+
+Two pre-implementation documentation consistency fixes required:
+
+**WARN-R3-1 (Discipline #13a):** Archetype vocabulary mismatch between rocket and elrond sections. Rocket's derivation tables (§§ R-2.1, R-2.5) use `ranger`/`bruiser`/`skirmisher` — NOT present in the 5 shipped seasons. Elrond's empirical audit confirms shipped catalogue uses `swarmer`/`controller`/`sniper`. Backfill will derive using elrond's vocabulary; new generation (if rocket implements against the schema doc) will use different vocabulary. This is latent Discipline #13a drift — two seams will derive from different archetype dictionaries. **Rocket (L1) must reconcile before implementation.** Coordination: elrond reads rocket's resolution.
+
+**WARN-R3-2 (Discipline #13a):** `range_m` minimum stated as "minimum 0.5 for non-self-cast" in generation MIGRATION.md (line 2102) but the schema design doc § R-1.2 specifies minimum 0.0 with a role cross-check as the enforcement mechanism. Clarification needed in MIGRATION.md before validator implementers produce inconsistent behavior. **Rocket to clarify.**
+
+Non-blocking observations: Pattern P7 commitment (§ R-6.3) is strong; `leash >= aggro + 2.0` validation is sound (verified boss/miniboss override case 18.0 >= 14.0); MIGRATION.md concurrency satisfied (ADR-004); all 7 new fields named; WP-R3-A-2 CLOSED.
+
+**Routing:** WARN-R3-1 routes to rocket (L1 schema authority) + elrond (coordination per WP-XSEAM-2). Knight-rider to route if schedule pressure.
+
+---
+
+### [2026-05-19] OBSERVATION — jack-ryan — Target 2: R7 Parity Test Spec
+
+**Severity:** WARN
+**Target:** `star-lord/v1.9-r3-r7-r8-design-1` (R7 parity-test spec)
+**Full rationale:** `agentic_orchestration/hive-mind/gate1-design-review-2026-05-19.md` §§ Target 2
+
+**Verdict: WARN (1 item). R7 implementation CONDITIONAL HOLD until spec fix.**
+
+**WARN-R7-1 (Pattern P7):** `DemoAgentMock.__init__()` uses `monster_json.get("field")` for all four required fields (`aggro_radius_m`, `leash_distance_m`, `preferred_behavior`, `range_profile`). Only `aggro_radius_m` has a subsequent `assert is not None` — the other three can be silently `None`. A parity harness designed to CATCH Pattern P7 in production consumers must not contain Pattern P7 in its own mock. **Fix: replace all four `.get()` calls with direct key access `monster_json["field"]` per § R-6.3 Pattern P7 ban.** Star-lord to update spec before harness implementation.
+
+Non-blocking observations: harness architecture (instantiate-both-engines) is sound; Test 2 (intentional-break) is explicitly included — WP-R7-A-3 CLOSED; ±15% leash tolerance pre-R4 is correctly motivated; demo-side mock replacement post-R5 is documented; Discipline #11 load-bearing satisfied. WP-R7-A-2 (consumer audit known sites) CLOSED.
+
+---
+
+### [2026-05-19] OBSERVATION — jack-ryan — Target 3: R7 Consumer Audit
+
+**Severity:** INFO
+**Target:** `star-lord/v1.9-r3-r7-r8-design-1` (R7 consumer audit)
+**Full rationale:** `agentic_orchestration/hive-mind/gate1-design-review-2026-05-19.md` §§ Target 3
+
+**Verdict: PASS.**
+
+Engine-side 4 call sites are comprehensive (fight_engine.py:384-386 skill range gate, fight_engine.py:404-411 disengage new addition, ai_strategies.py:160-189 preferred_behavior override, ai_strategies.py:197-200 dispatch routing). Demo-side 2 sites (world/movement.ts:74-78, :81) correctly flagged for drax/R5. Rocket CombatantState construction section is a placeholder by design — gated on schema design finalization. Non-blocking.
+
+---
+
+### [2026-05-19] OBSERVATION — jack-ryan — Target 4: R8 LLM Orchestration Design
+
+**Severity:** WARN
+**Target:** `star-lord/v1.9-r3-r7-r8-design-1` (R8 pipeline design + LLM MIGRATION.md)
+**Full rationale:** `agentic_orchestration/hive-mind/gate1-design-review-2026-05-19.md` §§ Target 4
+
+**Verdict: WARN (1 item). R8 implementation CONDITIONAL HOLD until naming fix.**
+
+**WARN-R8-1 (Discipline #13a):** R8 pipeline design doc § SL-2 names the first inverted sub-mode `"inverted_naming"`. But the telemetry column values (§ SL-4, LLM MIGRATION.md, Smoke 1 assertion) all use `"inverted"`. Knight-rider's routing decision also uses `"inverted"`. Implementers reading the design concept name vs the column value will produce inconsistent code. **Fix: rename `"inverted_naming"` to `"inverted"` in § SL-2 of R8 pipeline design doc.** Star-lord to update.
+
+Non-blocking observations: two-mode design (`inverted` + `inverted_no_naming`) cleanly documented; cost analysis is correct (naming-retained mode saves ~0%; no-naming mode saves ~98%); retry/fallback for coalescence call is sound; Pattern P7 for `--no-coalesce` satisfied in Smoke 3; Discipline #14 clean in orchestration design.
+
+---
+
+### [2026-05-19] OBSERVATION — jack-ryan — Target 5: R8 Cohesion-Judging Protocol
+
+**Severity:** INFO
+**Target:** gandalf authorship (committed bf47591 + 99993f5)
+**Full rationale:** `agentic_orchestration/hive-mind/gate1-design-review-2026-05-19.md` §§ Target 5
+
+**Verdict: PASS. WP-R8-A-2 CLOSED.**
+
+Scale anchoring is durable: cohesion-5 anchored to season_002017 (specific slot-fill examples quoted); cohesion-4 anchored to two seasons (002013 + 002015) with named inter-season variation documented. LLM-judge prompt is confirmed blind to pipeline identity — no "inverted"/"baseline" language in prompt body. Disposition decision-tree is deterministic and complete (all paths terminate at A/B/C with explicit thresholds; borderline 0.4–0.6 range maps to Matt-deferred with well-specified conditions). 6-facet structure is independently scorable with equal weights. Dry-run validation gate (§ 7) is a model Discipline #1 application.
+
+Open: `inverted_no_naming` arm addendum (per knight-rider routing) not yet present — expected; dispatched for next gandalf session.
+
+---
+
+### [2026-05-19] STATE — jack-ryan — Gate 1 next-pass review COMPLETE
+
+**5-verdict summary:**
+
+| Target | Verdict |
+|---|---|
+| R3 Schema Design Coherence | WARN (2) |
+| R7 Parity Test Spec | WARN (1) |
+| R7 Consumer Audit | PASS |
+| R8 LLM Orchestration Design | WARN (1) |
+| R8 Cohesion-Judging Protocol | PASS |
+
+**Zero BLOCKs.** All 4 WARNs are pre-implementation documentation consistency fixes. No architectural revision required.
+
+**Tag status:**
+- `hive-rebuild/v0.4-r3-schema-draft-committed` — CONDITIONAL HOLD (WARN-R3-1 + WARN-R3-2)
+- R7 implementation — CONDITIONAL HOLD (WARN-R7-1)
+- R8 implementation — CONDITIONAL HOLD (WARN-R8-1)
+
+**Watchpoints closed this session:** WP-R3-A-2, WP-R7-A-2, WP-R7-A-3, WP-R8-A-2, WP-R8-A-3, WP-MIGRATION-1, WP-MIGRATION-2.
+
+**Watchpoints upgraded this session:** WP-R3-A-1 (field naming drift) → surfaced as WARN-R3-1 (archetype vocabulary mismatch).
+
+**Knight-rider routing requested:** WARN-R3-1 routes to rocket + elrond; WARN-R7-1 and WARN-R8-1 route to star-lord. All four are spec-edit actions — no implementation rework needed.
+
+**Gate decisions document:** `agentic_orchestration/hive-mind/gate1-design-review-2026-05-19.md`
+
 **Wind-down trigger:** unchanged. Matt's explicit declaration only.

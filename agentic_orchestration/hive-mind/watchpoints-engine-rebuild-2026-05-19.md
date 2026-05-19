@@ -379,23 +379,23 @@ After R1 convergence loop ships and Test 1 reveals the failure cascade, gamora b
 | WP-R1-A-2 (boss-tier n-shot strategy) | OPEN | 2026-05-19 |
 | WP-R1-B-1 (no silent aggregate-mean pass) | OPEN | 2026-05-19 |
 | WP-R1-B-2 (per-tier failure to telemetry) | OPEN | 2026-05-19 |
-| WP-R3-A-1 (schema field naming drift) | OPEN — schema draft not yet authored | 2026-05-19 |
-| WP-R3-A-2 (MIGRATION.md concurrent authoring) | OPEN | 2026-05-19 |
-| WP-R3-A-3 (schema validators fail-loud) | OPEN | 2026-05-19 |
-| WP-R3-A-4 (R3 critical-path silence watch) | OPEN | 2026-05-19 |
-| WP-R7-A-1 (parity-test spec before harness) | OPEN — spec not yet authored | 2026-05-19 |
-| WP-R7-A-2 (consumer audit enumeration) | OPEN | 2026-05-19 |
-| WP-R7-A-3 (Test 2 intentional-break required) | OPEN | 2026-05-19 |
-| WP-R7-A-4 (registry-iterate, not constant-fallback) | OPEN | 2026-05-19 |
-| WP-R8-A-1 (methodology docs before A/B run) | OPEN — gandalf docs not yet authored | 2026-05-19 |
-| WP-R8-A-2 (cohesion scale anchoring) | OPEN | 2026-05-19 |
-| WP-R8-A-3 (Discipline #14 for coalescence prompt) | OPEN | 2026-05-19 |
-| WP-R8-A-4 (--no-coalesce silent fill risk) | OPEN | 2026-05-19 |
-| WP-MIGRATION-1 (R3 generation MIGRATION.md) | OPEN | 2026-05-19 |
-| WP-MIGRATION-2 (R3 export MIGRATION.md) | OPEN | 2026-05-19 |
-| WP-MIGRATION-3 (R7 cross-repo contract) | OPEN | 2026-05-19 |
-| WP-MIGRATION-4 (R8 LLM MIGRATION.md) | OPEN | 2026-05-19 |
-| WP-MIGRATION-5 (R1 simulation MIGRATION.md) | OPEN | 2026-05-19 |
+| WP-R3-A-1 (schema field naming drift) | WARN-R3-1 FILED — archetype vocabulary mismatch (swarmer/controller/sniper vs ranger/bruiser/skirmisher); routes to rocket+elrond | 2026-05-19 |
+| WP-R3-A-2 (MIGRATION.md concurrent authoring) | CLOSED — both MIGRATION.md files exist with R3 entries; ADR-004 honored | 2026-05-19 |
+| WP-R3-A-3 (schema validators fail-loud) | OPEN — implementation not yet written; validator design is specified correctly in schema doc § R-6 | 2026-05-19 |
+| WP-R3-A-4 (R3 critical-path silence watch) | OPEN — monitoring | 2026-05-19 |
+| WP-R7-A-1 (parity-test spec before harness) | WARN-R7-1 FILED — spec exists but DemoAgentMock uses .get() for required fields; fix before harness impl | 2026-05-19 |
+| WP-R7-A-2 (consumer audit enumeration) | CLOSED — movement.ts:74-78 and :81 both named in audit | 2026-05-19 |
+| WP-R7-A-3 (Test 2 intentional-break required) | CLOSED — test_intentional_break_fails_loud() explicitly included in spec § 7 | 2026-05-19 |
+| WP-R7-A-4 (registry-iterate, not constant-fallback) | OPEN — implementation not yet written; spec design is correct | 2026-05-19 |
+| WP-R8-A-1 (methodology docs before A/B run) | CLOSED — both gandalf docs exist and are reviewed | 2026-05-19 |
+| WP-R8-A-2 (cohesion scale anchoring) | CLOSED — Gate 1 PASS; anchors durable, blindness confirmed, decision-tree deterministic | 2026-05-19 |
+| WP-R8-A-3 (Discipline #14 for coalescence prompt) | CLOSED — sanity skim confirms no canonical-four structural keys in prompt | 2026-05-19 |
+| WP-R8-A-4 (--no-coalesce silent fill risk) | OPEN — Smoke 3 spec exists; implementation not yet written | 2026-05-19 |
+| WP-MIGRATION-1 (R3 generation MIGRATION.md) | CLOSED — all 7 fields present in generation MIGRATION.md R3+R7 section | 2026-05-19 |
+| WP-MIGRATION-2 (R3 export MIGRATION.md) | CLOSED — additive-only documented; consumer obligations stated | 2026-05-19 |
+| WP-MIGRATION-3 (R7 cross-repo contract) | OPEN — cross-repo catalogue→demo read path documented in generation MIGRATION.md; parity test not yet implemented | 2026-05-19 |
+| WP-MIGRATION-4 (R8 LLM MIGRATION.md) | WARN-R8-1 FILED — mode naming inconsistency ("inverted_naming" vs "inverted"); routes to star-lord | 2026-05-19 |
+| WP-MIGRATION-5 (R1 simulation MIGRATION.md) | OPEN — gamora will author concurrently with balance_loop.py modification per knight-rider decision | 2026-05-19 |
 | WP-XSEAM-1 (balance_loop concurrent edit) | OPEN | 2026-05-19 |
 | WP-XSEAM-2 (monster JSON three-seam) | OPEN | 2026-05-19 |
 | WP-XSEAM-3 (R7 source before R5 consumer) | OPEN | 2026-05-19 |
@@ -408,7 +408,18 @@ After R1 convergence loop ships and Test 1 reveals the failure cascade, gamora b
 
 ---
 
-## Closed watchpoints (none at activation — all open until workstream progress)
+## Closed watchpoints (updated 2026-05-19, second jack-ryan session)
+
+| WP | Closed | Evidence |
+|---|---|---|
+| WP-R3-A-2 (MIGRATION.md concurrent authoring) | 2026-05-19 | generation/MIGRATION.md + export/MIGRATION.md both have R3 entries authored before implementation |
+| WP-R7-A-2 (consumer audit enumeration) | 2026-05-19 | R7-consumer-audit § 5 names movement.ts:74-78 and :81 as primary sites |
+| WP-R7-A-3 (Test 2 intentional-break required) | 2026-05-19 | R7-parity-test-spec § 7 includes test_intentional_break_fails_loud() |
+| WP-R8-A-1 (methodology docs before A/B run) | 2026-05-19 | Both gandalf docs exist and reviewed; A/B run not yet fired |
+| WP-R8-A-2 (cohesion scale anchoring) | 2026-05-19 | Gate 1 PASS; anchors durable; decision-tree deterministic |
+| WP-R8-A-3 (Discipline #14 for coalescence prompt) | 2026-05-19 | Sanity skim confirms no canonical-four structural keys in LLM judge prompt or coalescence prompt |
+| WP-MIGRATION-1 (R3 generation MIGRATION.md) | 2026-05-19 | All 7 new fields present in [2026-05-19] R3+R7 section |
+| WP-MIGRATION-2 (R3 export MIGRATION.md) | 2026-05-19 | Additive-only decision documented; no breaking changes; consumer obligations stated |
 
 *Watchpoints close when the specific condition is verified via hive log entry, tag, or direct code observation. Jack-ryan updates this table and files a corresponding hive log OBSERVATION on each closure.*
 
