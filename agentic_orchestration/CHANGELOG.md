@@ -4,6 +4,66 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-19 — Engine-rebuild batch CLOSED (`hive-rebuild/v1.0-engine-rebuild-complete` fired across all 4 repos)
+
+**Event:** Engine-rebuild hive-mind session completed under AUTONOMOUS-OPERATION mode. Knight-rider proceeds immediately to VS2a per dispatch § 6.5 explicit ordering; Matt does NOT return to loop (wind-down trigger remains exclusively Matt's explicit declaration per protocol § 4.9).
+
+**Tag fired:** `hive-rebuild/v1.0-engine-rebuild-complete` across all 4 repos under "operational-completion category-of-completion" framing per gandalf disposition `canonical/story/v1.0-engine-rebuild-complete-disposition-2026-05-19.md` (Option γ).
+- Engine: at `bb013b7` (gamora R2 production graduation; substrate-completion commit)
+- Collab: at `9391b22` (gandalf disposition commit)
+- Demo: at `542f1115b` (latest HEAD; R4 v0.15 operational already tagged)
+- Loadout: at `ec73ea7` (latest HEAD)
+
+**Workstream completion table:**
+| WS | Status | Hyp tag |
+|---|---|---|
+| R1 — Per-tier balance | CLOSED | `v0.3` (4-sub-claim category-of-completion) |
+| R2 — Spatial sub-gauntlet | CLOSED | `v0.14` (Option D instrument-limited PASS) |
+| R3 — Per-skill range + AI schema | CLOSED | `v0.6` |
+| R4 — Demo collision + leash + range | OP-COMPLETE; PLAYTEST-PENDING | `v0.16` HELD (Matt-gated) |
+| R5 — Demo AI parity | OP-COMPLETE; PLAYTEST-PENDING | `v0.12` HELD (Matt-gated) |
+| R7 — AI catalogue source-of-truth | CLOSED | `v0.7` |
+| R8 — Season-as-emergent-output | CLOSED | `v0.10` + `v0.11` (Sub-case 3 disposition) |
+
+5 of 7 CLOSED; 2 of 7 OP-COMPLETE with playtest-pending tags HELD for Matt wind-down session. Notional `hive-rebuild/v1.1-engine-rebuild-final` fires when v0.12 + v0.16 resolve.
+
+**R-series disposition arc (4 dispositions; category-of-completion pattern established):**
+- R1 Blocker 3 — gandalf — "70% pass-rate" retired; 4 sub-claims (GATE WORKS + REACHABLE + KIT-BROKEN SURFACE + QUEUE EXISTS); kit-redesign queue authored as VS2a handoff (`canonical/story/r1-kit-redesign-queue-2026-05-19.md`)
+- R8 Sub-case 3 — gandalf — `inverted` as default; `inverted_no_naming` deferred behind template-distribution repair; `canonical/19-llm-call-map.md` Phase A swap
+- R2 H1 Option D — gandalf — variance ≥ 0.10 threshold preserved as VS2a re-test target once `geometry_type` per-skill schema field lands (instrument-limited by name-heuristic 43/3/4 sample imbalance)
+- v1.0 Option γ — gandalf — operational-completion framing; playtest-pending tags HELD; roadmap continuation unblocked
+
+**Engine-rebuild fall-out items routed to VS2a:**
+1. `geometry_type` per-skill schema field (rocket + star-lord) — re-enables R2 H1 under original threshold
+2. Kit-redesign queue execution (~20-30 mediocre + ~10-15 broken classes) (rocket + gandalf consult) — intersects with B6 main work
+3. Spatial boss recalibration if needed (gamora; may be VS2b)
+4. Template-distribution repair (rocket; LOW; capacity-when-available)
+5. `--anchor-id` CLI flag (rocket; deferred)
+6. R1 second-pass calibration knobs (gamora; deferred — boss reachability stable per N=60 Test 3)
+
+**Items completed this session that were on the R-disposition forward-routing list (removed from VS2a queue):**
+- `seasonal_dominant_element` write-back gap fix (rocket commit `9f6e4e6`)
+- R8 Test 5 multi-shot stability execution (Jaccard 1.00 on `inverted/season_099002`)
+
+**Operating-mode metrics:**
+- Matt escalations: 0
+- Hard BLOCKs by jack-ryan: 0
+- WARN findings resolved in-session: 4
+- Structural blockers surfaced + dispositioned: 3
+- Gandalf disposition decisions: 4
+- Canonical-doc amendments authored: 8+
+- Transient infrastructure failures recovered: 1 (rocket API overloaded_error → re-fire)
+- Specialist sessions: ~33
+- Tags shipped + pushed: 15
+- Push hard-constraint violations: 0
+- Elapsed wall time: activation 04:26Z → batch close ~07:05Z (~2h 40min; ~7h cumulative specialist time)
+
+**Closeout state-of-hive:** `agentic_orchestration/hive-mind/state-of-hive-2026-05-19-engine-rebuild-v1.0.md` (knight-rider authored at batch close per dispatch § 6.5 step 3). Mid-day snapshot at `state-of-hive-2026-05-19-engine-rebuild-mid-day.md` for full chronological detail.
+
+**Authority:** Matt directive 2026-05-19 (autonomous-operation launch); gandalf v1.0 disposition; knight-rider operationalization + state-of-hive closeout authorship.
+
+---
+
 ## 2026-05-19 — Engine-rebuild hive ACTIVATED (second hive-mind invocation; AUTONOMOUS-OPERATION mode)
 
 **Event:** Knight-rider activated the **engine-rebuild hive-mind session** per Matt directive 2026-05-19 + gandalf-authored launch dispatch (`agentic_orchestration/dispatches/2026-05-19-knight-rider-engine-rebuild-launch.md`, commit `d49c587`). This is the **second hive-mind activation** (first was 2026-05-17 Phase-1 P1; mission completed + archived).
