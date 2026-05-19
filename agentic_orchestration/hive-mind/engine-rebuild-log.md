@@ -447,3 +447,56 @@ R8 dispatch (`agentic_orchestration/dispatches/2026-05-19-rocket-plus-star-lord-
 **WP-R8-A-1 closure note (per jack-ryan watchpoint):** both R8 gandalf methodology assets now authored + committed. Watchpoint can be closed. Jack-ryan's WP-R8-A-2 (cohesion-scale anchoring) is also satisfied per cohesion-judging protocol § 1.1.
 
 **Cite:** R8 dispatch acceptance criteria § "Gandalf scope" items 1 + 2 + 3 (methodology authoring + disposition decision criteria embedded in cohesion-judging protocol).
+
+---
+
+## 2026-05-19 — star-lord R3 + R7 + R8 design session
+
+### [2026-05-19] STATE — star-lord — R3 + R7 + R8 dispatches acknowledged; design assets authored
+
+All three dispatches read in full. All required reading consumed (dispatches, engine-rebuild protocol §§ 4.0/4.2/4.4/4.5/5.2/5.3/5.4, solutions doc §§ 4+7+8, hive log full, coordination matrix, AGENT_STATE.md, telemetry recorder full surface, LLM call map, current LLM orchestration, engine-sim AI, demo-side AI READ-ONLY, engineering disciplines #1/#8/#11/P7).
+
+**Design assets authored this session:**
+
+| Asset | Path |
+|---|---|
+| R3 schema design — star-lord telemetry section | `reincarnated-engine/design/working-agreement/R3-schema-design-2026-05-19.md` (rocket + elrond placeholders maintained) |
+| R7 parity test spec | `reincarnated-engine/design/working-agreement/R7-parity-test-spec-2026-05-19.md` |
+| R7 consumer audit — engine-side | `reincarnated-engine/design/working-agreement/R7-consumer-audit-2026-05-19.md` (rocket section placeholder maintained) |
+| R8 pipeline design — LLM orchestration section | `reincarnated-engine/design/working-agreement/R8-pipeline-design-2026-05-19.md` (rocket section placeholder maintained) |
+| Export MIGRATION.md — R3/R7/R8 skeleton | `reincarnated-engine/src/reincarnated/export/MIGRATION.md` (appended schema 2.6/2.7/2.8) |
+| LLM MIGRATION.md | `reincarnated-engine/src/reincarnated/llm/MIGRATION.md` (new file — R8 orchestration change) |
+
+**Key L1 decisions:**
+1. Telemetry strategy: **additive over breaking** (schema 2.5→2.6/2.7/2.8; all nullable; Matt authorization required per ADR-006 before any SQL executes)
+2. `range_advantage_pp`: **`class_balance_results` grain** (aggregate property, not per-fight)
+3. R7 parity harness: **instantiate-both-engines** (telemetry-comparison cannot support controlled JSON mutation)
+4. R7 tolerances: **±10% default; ±15% leash pre-R4; exact-match for `preferred_behavior`**
+5. R8 cost analysis: **two inverted modes required** — `inverted` (~0% cost reduction) and `inverted_no_naming` (~98% cost reduction); 90% Test 3 claim requires the no-naming mode; both needed for honest A/B measurement
+
+**Consumer audit (engine-side): 4 call sites identified.** fight_engine.py: 2 sites (_maybe_act skill gate + disengage addition). ai_strategies.py: 2 sites (preferred_behavior override + routing extension). Demo-side: 2 sites flagged READ-ONLY (drax/R5 seam). Full detail in `R7-consumer-audit-2026-05-19.md`.
+
+**Intermediate tag:** `star-lord/v1.9-r3-r7-r8-design-1` applied to engine repo.
+
+### [2026-05-19] HANDOFF — star-lord → jack-ryan — R7 parity test spec READY FOR REVIEW
+
+`reincarnated-engine/design/working-agreement/R7-parity-test-spec-2026-05-19.md` is ready for jack-ryan Gate 1 review before implementation. Discipline #11 (live-state verification) is load-bearing for R7.
+
+**Review focus:**
+- § 3 harness architecture: instantiate-both-engines rationale — acceptable for jack-ryan's continuous-observation tooling requirement?
+- § 4 failure reporting: Pattern P7 file:line mechanism — sufficient rigor for jack-ryan's silent-default watch?
+- § 2 tolerances: ±15% leash pre-R4 — concern with being too permissive before full per-monster leash lands?
+- § 5 demo mock: mock reads from JSON (same fields R5 will wire) — mock-fidelity drift risk acceptable for the pre-R5 phase?
+- `test_pattern_p7_missing_range_field_logs_warn()` in § 3 — is Pattern P7 coverage sufficient?
+
+Consumer audit at `R7-consumer-audit-2026-05-19.md` is also available for jack-ryan review.
+
+### [2026-05-19] OBSERVATION — star-lord — R8 cost claim clarification surfaced
+
+Solutions doc § 8 Test 3 claims "≥ 75% reduction in LLM calls AND ≥ 75% cost reduction." Baseline is ~317 calls/~$0.74 (LLM call map, empirically verified).
+
+**Finding:** eliminating only Phase A (element_selection, 1 call) produces ~0% cost reduction, not 90%. The naming phase (Phase B, ~316 calls) must also be eliminated/replaced to reach the claimed reduction.
+
+**Resolution (L1 star-lord + surface to rocket/gandalf):** two inverted modes needed in A/B run: `inverted` (naming retained, ~0% reduction) and `inverted_no_naming` (naming template-based, ~98% reduction). Both designed in `R8-pipeline-design-2026-05-19.md § SL-2`. Adding the third arm adds ~$0.03 to total A/B cost (negligible).
+
+**No BLOCK required.** Design artifacts handle both modes. Rocket aligns pipeline design; gandalf aligns cohesion-judging scope to include `inverted_no_naming` arm. Knight-rider routes if coordination gap surfaces.
