@@ -2480,3 +2480,67 @@ MIGRATION.md v1.18: spatial_fight_results table schema spec (star-lord consumes 
 
 **Watchpoint closure:**
 - WP-R1-C-1 (Discipline #1 math note for R2): CLOSED — math note precedes implementation; confirmed in commit `18dfc4c`.
+
+---
+
+## 2026-05-19 — star-lord schema 2.12 — R2 spatial_fight_results table + concrete writer
+
+### [2026-05-19] STATE — star-lord — schema 2.12 COMPLETE; SqliteSpatialTelemetryWriter implemented; gamora R2 next session unblocked
+
+**Dispatch:** engine-rebuild autonomous-operation protocol (Matt directive 2026-05-19); R2 telemetry implementation per gamora R2 first-session handoff (commit `18dfc4c`, tag `gamora/v1.9-r2-scaffolding-1`)
+**Session trigger:** gamora REQUEST in R2 first-session hive log STATE entry
+**Predecessor:** schema 2.11 (boss_kill_rate; engine `886391e`; tag `star-lord/v1.12-r1-kill-rate-telemetry-1`)
+
+**Deliverables:**
+
+**Schema 2.12 migration:**
+- NEW TABLE `spatial_fight_results` — one row per 2D spatial fight; 20 user fields + `id` PK; 5 indexes
+- Does NOT modify existing tables; does NOT conflict with 1D `class_fight_loadouts` / `class_balance_results`
+- `fight_id` UNIQUE (INSERT OR IGNORE dedup); `wr_1d_fight` nullable (NULL when no 1D baseline)
+- `player_kill` INTEGER 0/1 (SQLite bool convention); all other required fields NOT NULL with DEFAULT
+- Migration registered as "2.12" in MIGRATIONS list; description references gamora's math note § 9.1
+
+**SqliteSpatialTelemetryWriter (`src/reincarnated/telemetry/spatial_recorder.py`):**
+- Implements `SpatialTelemetryWriter` interface (gamora's ABC in `simulation/spatial_gauntlet/spatial_telemetry.py`)
+- Pattern P7: `result.validate()` called before write; `ValueError` on missing/invalid field → ERROR log + swallowed (no propagation); `writes_failed` counter increments
+- `player_kill` bool → INTEGER 0/1; `wr_1d_fight` via `getattr(result, "wr_1d_fight", None)` (version-gated optional)
+- `flush()` is no-op (per-write commit; consistent with recorder.py pattern)
+- `summary()` returns `{writes_ok, writes_failed}` for post-run audit
+
+**Wire-in:** gamora's `SpatialFightEngine` + `run_spatial_fight()` already accept `telemetry_writer: Optional[SpatialTelemetryWriter]`. Default remains `NullSpatialTelemetryWriter` (no-op; unit tests unchanged). For production R2 runs: pass `SqliteSpatialTelemetryWriter(conn)` to `run_spatial_fight()`.
+
+**SCHEMA_VERSION:** `recorder.py` bumped `"2.11"` → `"2.12"`
+
+**Smoke + reversibility:**
+- Dry-run (in-memory DB): CREATE TABLE + INSERT/SELECT round-trip + DROP TABLE — **PASS**
+- Production DB (`data/telemetry.db`): `spatial_fight_results` created; schema_meta 2.12 entry at 2026-05-19 10:19:50; 0 pre-existing rows — **PASS**
+
+**Round-trip smoke (`tests/round_trip_spatial_telemetry.py`): 21/21 PASS**
+- Table exists + all 20 columns present + `id` PK
+- Full field round-trip (all 20 fields written and read back correctly)
+- `player_kill` bool→int (True→1, False→0)
+- `wr_1d_fight=None` → NULL; `wr_1d_fight=0.65` → 0.65
+- 3 fights × 3 scenarios persist independently
+- Duplicate `fight_id` → INSERT OR IGNORE; no exception; first write preserved
+- Pattern P7: invalid winner / geometry_type_dominant / empty fight_id raise `ValueError` at `validate()`
+- Invalid result not written to DB; `writes_failed` counter increments; no propagation
+- All 6 valid `geometry_type_dominant` values accepted without error
+- Chokepoint fields (`aoe_hits_in_chokepoint`, `cone_hit_fraction`) round-trip correctly
+
+**Regression: 40/40 PASS** (round_trip_r1_kill_rate + r1_telemetry + r3_telemetry — no regressions)
+
+**WP-R2-B-1 (star-lord schema 2.12 round-trip before production graduation):** CLOSED. 21/21 round-trip PASS; Pattern P7 enforced at write boundary.
+
+**Engine commit:** `9038d46`
+**Collab commit:** (this log append)
+**Tag:** `star-lord/v1.13-r2-spatial-telemetry-1` (engine repo; intermediate; pushed)
+
+**Gamora UNBLOCKED for R2 next session:**
+- `SqliteSpatialTelemetryWriter` is ready in `src/reincarnated/telemetry/spatial_recorder.py`
+- Wire: `from reincarnated.telemetry.db import initialize_telemetry_db; from reincarnated.telemetry.spatial_recorder import SqliteSpatialTelemetryWriter; writer = SqliteSpatialTelemetryWriter(conn)` — pass to `run_spatial_fight()` or `SpatialFightEngine()`
+- Default `NullSpatialTelemetryWriter` still active in scaffolding tag; gamora swaps in production writer when R2 sub-gauntlet exits scaffolding (after jack-ryan Gate-1 review of math note)
+
+**Open items for next session (route through knight-rider):**
+1. WP-R2-C-1: damage calibration smoke gate — gamora's R2 next session (armor mitigation approximation → non-degenerate WR)
+2. WP-R1-C-2: rolling median for modifier stability — deferred; future R1 follow-on
+3. Telemetry field gaps (engine_version unknown, termination_reason missing) — pre-existing; still in queue
