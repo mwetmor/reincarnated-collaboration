@@ -1392,3 +1392,91 @@ Rocket's R8 pipeline changes (`cli.py`, `season_orchestrator.py`, `season_writer
 - R8 A/B run (separate phase): requires rocket pipeline + star-lord LLM orchestration (both now complete) + gandalf cohesion judging + elrond backfill (complete) + round-trip smoke per § SL-6 smoke 1/2/3. Knight-rider fires this dispatch.
 - Pattern-B: still PARKED.
 - R7 post-R5 mock replacement: when drax R5 lands, replace DemoAgentMock with integration bridge. Test interface unchanged.
+
+---
+
+## 2026-05-19 — drax R5 demo AI parity audit
+
+### [2026-05-19] STATE — drax — R5 demo AI parity audit COMPLETE; read-from-JSON implemented
+
+**Author:** drax
+**Demo commit:** `932eb5891` — pushed to origin/main
+**Tag (seam):** `drax/v1.25-r5-demo-ai-parity-audit-1` — demo repo pushed to origin
+**Milestone tag:** `hive-rebuild/v0.12-r5-hypothesis-test-passed` — HELD pending Matt-side playtest (Test 2)
+**Authority:** AUTONOMOUS L1 in-seam per protocol § 4.0 + knight-rider Batch 4 dispatch
+
+**Audit findings (pre-fix state):**
+
+Current TS constants in `world/movement.ts`:
+- `PREFERRED_RANGE: { close: 90, medium: 420, long: 660 }` (px) — hardcoded; no per-monster read
+- `KITE_TRIGGER: 300` (px) — hardcoded; no per-monster read
+- Unit-conversion: `PIXELS_PER_METER = 48` (Matt-locked 2026-05-16)
+
+Range profile distribution in shipped seasons (all 5 seasons, 220 monsters):
+- `close`: 110 / 220 = 50.0%
+- `medium`: 75 / 220 = 34.1%
+- `long`: 35 / 220 = 15.9% (all snipers with `ranged_kite` preferred_behavior)
+
+Note on dispatch estimate vs actual: dispatch stated elrond's backfill produced "close 77% / medium 23% / long 0%". Actual mirrored data shows 50/34/16. The skill `range_m` banded distribution IS 77/23/0 (per elrond's backfill report — that's SKILL range_m, not MONSTER range_profile). The MONSTER `range_profile` is 50/34/16.
+
+`preferred_behavior` distribution (post-R3 backfill):
+- `melee_aggressive`: 80/220 = 36.4%
+- `cast_at_range`: 55/220 = 25.0%
+- `charge_then_melee`: 30/220 = 13.6%
+- `stationary_caster`: 30/220 = 13.6%
+- `ranged_kite`: 25/220 = 11.4%
+
+**Read-from-JSON implementation:**
+
+Files changed in demo repo commit `932eb5891`:
+
+1. `src/world/movement.ts` — added R5 conversion helpers:
+   - `aggroRadiusToPx(aggroRadiusM, rangeProfile, label)` — converts `aggro_radius_m` to px; Pattern-P7 WARN + fallback to `PREFERRED_RANGE` if field absent
+   - `kiteTriggerFromAggroRadius(aggroRadiusM, label)` — derives kite threshold as `aggro_radius_m * PPM * 0.625`; P7 WARN + fallback to `KITE_TRIGGER`
+   - `leashDistanceToPx(leashDistanceM, label)` — converts `leash_distance_m` to px; P7 WARN + returns `Infinity` if absent
+   - `PREFERRED_RANGE` and `KITE_TRIGGER` deprecated to fallback-only (documented, not removed; TODO(drax) for R4)
+   - `tickAIMove` gains two optional params: `preferredOrbitPx?` and `kiteTriggerPx?`
+
+2. `src/main.ts` — updated imports; `PackActor` interface gains R5 fields:
+   - `preferredBehavior: string` (from `preferred_behavior`)
+   - `aggroRadiusPx: number` (from `aggro_radius_m * PIXELS_PER_METER`)
+   - `kiteTriggerPx: number` (from `aggro_radius_m * PIXELS_PER_METER * 0.625`)
+   - `leashDistancePx: number` (from `leash_distance_m * PIXELS_PER_METER`)
+   - `skillRotationPriority: string[]` (from `skill_rotation_priority`)
+   - `rangeProfileRedistribution: {close,medium,long}` (from `range_profile_redistribution`)
+   - Monster spawn code reads R3 fields at load boundary; act-boss narrowed via `isActBoss` to avoid ClassData type mismatch
+   - Console log at spawn: `[R5] spawn monster:<name> preferred_behavior=<pb> aggroRadiusPx=<px> kiteTriggerPx=<px> leashDistancePx=<px>` — round-trip verification per Pattern P7 discipline
+   - Both `tickAIMove` call sites pass `m.aggroRadiusPx` and `m.kiteTriggerPx`
+
+3. `src/types/engine.ts` — added `PreferredBehavior` type; added R3 optional fields to `MonsterData`
+
+4. `docs/R5-demo-ai-audit-2026-05-19.md` — audit document
+5. `docs/R5-test1-distribution.md` — Test 1 result (PASS)
+6. `docs/R5-test2-kite-default-reduction.md` — Test 2 methodology staged
+
+**Build smoke:** `tsc --noEmit` clean + `npm run build` 535 modules, 0 errors.
+
+**Test 1 result (distribution match): PASS**
+
+Demo runtime now reads `aggro_radius_m` from monster JSON. Per-monster orbit distances:
+- `melee_aggressive` (36.4%): aggroRadiusPx=288px (6m), kiteTriggerPx=180px — will NOT kite except at very close range
+- `cast_at_range` (25.0%): aggroRadiusPx=384px (8m), kiteTriggerPx=240px
+- `charge_then_melee` (13.6%): aggroRadiusPx=384px (8m), kiteTriggerPx=240px
+- `stationary_caster` (13.6%): aggroRadiusPx=576px (12m), kiteTriggerPx=360px
+- `ranged_kite` (11.4%): aggroRadiusPx=480px (10m), kiteTriggerPx=300px — INTENTIONAL kite behavior for snipers
+
+**Test 2 result (kite-default reduction): METHODOLOGY STAGED**
+
+Static analysis: pre-fix ~60% kiting (pre-backfill over-application of "long"); post-fix ~11.4% intentional kiting (ranged_kite only, by design). Estimated reduction: (60-11.4)/60 = 81% — exceeds ≥70% threshold. Full playtest execution deferred to Matt-side session. Milestone tag `hive-rebuild/v0.12-r5-hypothesis-test-passed` HELD until playtest confirms.
+
+**R7 coordination note:** star-lord's R7 parity-test harness `DemoAgentMock` now has a counterpart in the real demo: both read the same `aggro_radius_m`, `leash_distance_m`, `preferred_behavior` fields directly (no `.get()` fallback for required R3 fields — Pattern P7 compliant). When star-lord ships the R7 post-R5 mock replacement (per open items), the integration bridge will wire to the live `PackActor` fields established here.
+
+**Vercel preview deploy:** `https://reincarnated-demo-qp51b1h8e-matthew-wetmore-s-projects.vercel.app` — READY (758KB uploaded, prebuilt). Production deploy pending Matt's standing informed-consent.
+
+**Demo AGENT_STATE.md updated:** v1.25 checkpoint with all R5 deliverables.
+
+**Downstream unblocks:**
+- R4 demo collision + leash + range: `PackActor` now carries `preferredBehavior`, `leashDistancePx`, `skillRotationPriority`, `rangeProfileRedistribution` — R4 FSM has the data it needs at spawn
+- R7 DemoAgentMock replacement: integration bridge target is now `PackActor.aggroRadiusPx` / `.kiteTriggerPx` / `.preferredBehavior`
+
+**LLM cost:** $0.00. No LLM calls.
