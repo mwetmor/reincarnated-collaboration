@@ -80,6 +80,21 @@ If you concur with permanent adoption, I'll surface these as an amendment to ADR
 - **If retry 1 FAILs**: retry 2 (seed 100003) fires automatically.
 - **If retries 1-3 all FAIL**: path-a fallback activates (4-6 weeks rocket; gandalf consult cadence). At that point I escalate to you for re-confirmation (Trigger A in the retry dispatch § 10).
 
+### § 4-bis — Retry-1 result (interim update, mid-sprint)
+
+**REJECT seed 100002** at convergence-failure threshold (80% — well above 50% hard-reject line). Substrate prior PASSed (ember substrate; "The Forest That Walks" anchor reads action-framing; cosmological vocabulary Canopy Kindle / Branch Strike / Sap Surge are damage-throughput convention). **Retry-2 (seed 100003) fired immediately per serial plan.**
+
+**Systemic observation (rocket-flagged, knight-rider amplified):** Seed 100001 (char, 8/11 = 73%) AND seed 100002 (ember, 8/10 = 80%) both show the same floor-lock pattern — convergence pins 8 classes at modifier=0.0509 regardless of substrate. **This weakens gandalf's substrate-archetypal-stance hypothesis.** The pathology may be pipeline-level (balance-loop floor mechanism, modifier-convergence search) rather than substrate-specific.
+
+**Operational implication (knight-rider decision while in autonomy):**
+- Retry-2 is fired per plan; if it shows ~80% floor-lock again, this is the third data point of systemic pathology
+- **At retry-2 result, knight-rider will route to gandalf for re-disposition** — likely skipping retry-3 (would burn $3.20 + 60-90 min on probable repeat) and pivoting to either:
+  - Path-a fallback activation (Trigger A) — Matt re-entry
+  - OR a new disposition: balance-loop floor-mechanism investigation (the floor at modifier=0.0509 may need adjustment OR the convergence search range may be insufficient)
+- Knight-rider has NOT decided this on Matt's behalf — gandalf gets to weigh in before path-a triggers
+
+**Why this matters for you:** if path-a triggers, the 4-6 week rocket investment is sized for *kit hand-redesign*. The systemic finding suggests an *additional* investigation track: the balance-loop floor mechanism itself. Whether to do both, sequence them, or pick one is a Matt-level call. This is queued for the natural wind-down briefing rather than firing an interrupt now.
+
 ---
 
 ## § 5 — Other state worth knowing
