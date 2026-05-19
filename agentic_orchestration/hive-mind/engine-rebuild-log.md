@@ -3332,3 +3332,47 @@ VS2a F1 telemetry + export adaptation complete. Both seams (rocket + star-lord) 
 **Routing:** knight-rider to surface to jack-ryan via standard dispatch route when capacity allows. Not VS2a-gating; forward-discipline-pass territory.
 
 **Operating mode:** AUTONOMOUS per protocol § 4.0. F5 Track B complete. Drift-14 CLOSED.
+
+---
+
+### [2026-05-19] STATE — rocket — VS2a S1-prereq: B6 pre-work parameterization audit COMPLETE
+
+**Agent:** rocket
+**Dispatch:** VS2a S1-prereq — B6 pre-work parameterization (knight-rider directive 2026-05-19)
+**Authority:** AUTONOMOUS — pre-approval-batch, Matt directive 2026-05-19. L1 within seam.
+**Tag-fire request:** `rocket/v1.21-b6-prework-parameterized` (intermediate seam tag; knight-rider fires)
+
+#### Summary
+
+Audit question: Does the B6 pre-work (energy-type-aware tier assignment, committed 2026-05-16) contain any hard-coded `class_id` references that would break under F2 path (b) full R8-inversion catalogue regeneration?
+
+**Answer: No. Zero code changes required.**
+
+The generation seam already operates through class metadata fields exclusively:
+- Tier assignment: `ARCHETYPE_TEMPLATES.get(archetype_tag)` → `template.skill_power_tier` — keyed on `archetype_tag`, not `class_id`
+- Energy type: derived from `dominant_element` in `_pick_energy_type()` — not `class_id`
+- Role/range: derived from element + energy metadata — not `class_id`
+
+The `class_id` is a sequence counter emitted after all generation decisions are made. The B6 pre-work logic runs upstream of ID assignment.
+
+#### Smoke results
+
+**Smoke 1 — R8 inverted season_099002** (10 emergent classes from the pre-approved A/B run):
+All 10 PASS. `physical_grappler` (rage energy) received `power_tier=65` via `archetype_tag` lookup. All mana archetypes received `power_tier=50`. Experimental class received `power_tier=50` via `experimental_fallback` path. No `no_template_fallback` cases. Zero class_id references needed.
+
+**Smoke 2 — Fresh regen seed 99998** (3 classes, no_coalesce mode):
+PASS. Hunter (`archetype_tag="hunter"`, `energy_type="focus"`) received `power_tier=58` via template lookup. New emergent IDs produced correctly.
+
+#### Out-of-scope finding (inter-seam surface note)
+
+`scripts/r1_class_retune_sprint.py::SMOKE_CLASS_IDS` (gamora's seam) hard-codes 5 shipped-catalogue class_ids for smoke selection. Under path (b), these IDs will not exist post-regen. This is gamora's script to update before running R1 against the regenerated catalogue — suggest metadata-based sampling (one class per archetype group by `archetype_tag`) rather than fixed IDs. **This is not blocking S1 regen.** Routing note for knight-rider to include in S1 dispatch to gamora.
+
+#### MIGRATION.md
+
+`src/reincarnated/generation/MIGRATION.md` appended with `[2026-05-19] VS2a S1-prereq` entry documenting audit scope, findings, smoke evidence, and S1 readiness signal.
+
+#### S1 readiness signal
+
+**B6 pre-work is READY for S1 first-batch regen.** Tier assignment works against any emergent catalogue shape. S1 can fire as soon as gamora's R1 sprint v3 (disposition-3 calibration) provides the first-batch validation gate calibration.
+
+**Operating mode:** AUTONOMOUS per protocol § 4.0. S1-prereq COMPLETE.
