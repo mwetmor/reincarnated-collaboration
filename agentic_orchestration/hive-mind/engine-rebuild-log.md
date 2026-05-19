@@ -2222,3 +2222,43 @@ Wall time: 1836s. Overall pass: 0%. Boss/mini-boss kills: class_0019 boss=0.033;
 
 **REQUEST to gandalf/jack-ryan:** decisions-log entry for full R1 disposition arc (dispositions 1+2+3; both Discipline #12 semantic shifts; revised PASS criterion; kit-redesign queue handoff) per disposition-3 § 9.6.
 
+
+---
+
+### [2026-05-19 09:58Z] STATE — rocket — R8 9-season A/B run COMPLETE
+
+**9 seasons generated across 3 modes x 3 seeds. All seasons saved. Handoff to gandalf for cohesion judging.**
+
+**Run grid:**
+
+| Seed   | Mode                | Anchor                                   | Element | Cl | Fail | Duration |
+|--------|---------------------|------------------------------------------|---------|----|------|----------|
+| 099001 | inverted_no_naming  | The Library of Babel                     | ember   | 11 | 8    | 36 min   |
+| 099001 | inverted            | The Coliseum                             | pyre    | 11 | 8    | 75 min   |
+| 099001 | baseline            | The Coliseum                             | char    | 11 | 9    | 78 min   |
+| 099002 | inverted_no_naming  | The Drowned Lighthouse                   | brine   | 10 | 5    | 34 min   |
+| 099002 | inverted            | The Drowned Lighthouse                   | brine   | 10 | 6    | 73 min   |
+| 099002 | baseline            | The Drowned Lighthouse                   | brine   | 10 | 5    | 88 min   |
+| 099003 | inverted_no_naming  | The Labyrinth at the Heart of the Palace | ember   | 11 | 9    | 40 min   |
+| 099003 | inverted            | The Labyrinth at the Heart of the Palace | ember   | 11 | 9    | 72 min   |
+| 099003 | baseline            | The Labyrinth at the Heart of the Palace | grit    | 11 | 9    | 72 min   |
+
+All 9: Validation FAILED. Pre-existing R1 balance blocker — not caused by A/B run. Seasons are cohesion-judgeable.
+
+**Test 3 result (LLM cost reduction):**
+- inverted_no_naming: 1 LLM call per season (post-convergence coalescence only)
+- baseline: ~393 calls per season (element_selection + full naming pipeline)
+- Reduction: 99.7% call reduction. Cost: ~$0.04 vs ~$3.23. **Test 3: PASS (strong)**
+
+**Total cost: ~$6.47. Budget: $10. Within budget.**
+
+**Telemetry anomaly:** 6+ concurrent Python processes against `data/telemetry.db` caused widespread SQLite write-lock telemetry loss. inverted mode has ZERO committed telemetry. HTTP session logs are ground truth. Star-lord seam: WAL retry logic or serialized regen protocol needed.
+
+**Anchor parity note:** Seeds 99002 + 99003 achieved same anchor across all 3 modes (concurrent DB state). Seed 99001 diverged (inverted_no_naming ran in prior session context → Library of Babel; inverted + baseline → The Coliseum). Test 4 substrate-identity invariance will need `--anchor-id` flag for fully controlled comparison.
+
+**Output paths:** `reincarnated-engine/output/R8-ab-run-2026-05-19/{baseline,inverted,inverted_no_naming}/season_099{001,002,003}/`
+
+**README:** `reincarnated-engine/output/R8-ab-run-2026-05-19/README.md`
+
+**Handoff to gandalf:** per `hive-mind/R8-cohesion-judging-protocol-2026-05-19.md`. Judge from manifests + class files + cosmological vocabularies only (blinded protocol — do NOT read generation logs).
+

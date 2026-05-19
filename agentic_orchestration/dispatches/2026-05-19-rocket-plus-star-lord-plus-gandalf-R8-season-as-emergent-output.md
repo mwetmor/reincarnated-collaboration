@@ -215,3 +215,50 @@ Per launch dispatch § 3 + protocol § 4.0 + protocol § 4 design-decision routi
 ---
 
 *Authored 2026-05-19 by knight-rider under autonomous-operation authority. R8 is the science experiment. The hypothesis is held; the test is honest; the disposition is gandalf's call. Either result is valuable — the theme either survives inversion or doesn't, and the engine learns which.*
+
+---
+
+## Completion record
+
+**Status:** COMPLETE — all 9 seasons generated and saved. Handoff to gandalf for cohesion judging.
+**Executed by:** rocket
+**Date:** 2026-05-19
+**Wall-clock total:** ~8 hours (6 sessions in parallel, CPU-bound class balancing + sequential LLM naming)
+**Estimated LLM cost:** ~$6.47 total (inverted_no_naming: $0.04 / inverted: $3.22 / baseline: $3.23)
+
+### Acceptance criteria status
+
+- [x] 9 seasons generated (3 modes x 3 seeds at seed parity) — all saved to `output/R8-ab-run-2026-05-19/`
+- [x] Test 3 LLM cost reduction >= 75% — **PASS: 99.7% call reduction (1 call vs ~393)**
+- [x] README.md authored with methodology + cost telemetry + 9-season grid + anomalies
+- [x] Engine-rebuild-log.md STATE entry appended (hive log handoff to gandalf)
+- [x] AGENT_STATE.md updated with checkpoint
+- [x] Dispatch completion record appended (this record)
+- [ ] COMMIT + TAG + PUSH — pending (next step in this session)
+- [ ] Test 1 (cohesion) — **awaiting gandalf blinded judging**
+- [ ] Test 2 (mechanical variety) — **awaiting gandalf analysis**
+- [ ] Test 4 (substrate-identity invariance) — **partial; anchor parity not fully achieved for seed 99001**
+- [ ] Test 5 (multi-shot stability) — **not run; deferred per dispatch**
+
+### 9-season grid
+
+| Seed   | Mode                | Anchor                                   | Element | Val    | Cl | Fail |
+|--------|---------------------|------------------------------------------|---------|--------|----|------|
+| 099001 | inverted_no_naming  | The Library of Babel                     | ember   | FAILED | 11 | 8    |
+| 099001 | inverted            | The Coliseum                             | pyre    | FAILED | 11 | 8    |
+| 099001 | baseline            | The Coliseum                             | char    | FAILED | 11 | 9    |
+| 099002 | inverted_no_naming  | The Drowned Lighthouse                   | brine   | FAILED | 10 | 5    |
+| 099002 | inverted            | The Drowned Lighthouse                   | brine   | FAILED | 10 | 6    |
+| 099002 | baseline            | The Drowned Lighthouse                   | brine   | FAILED | 10 | 5    |
+| 099003 | inverted_no_naming  | The Labyrinth at the Heart of the Palace | ember   | FAILED | 11 | 9    |
+| 099003 | inverted            | The Labyrinth at the Heart of the Palace | ember   | FAILED | 11 | 9    |
+| 099003 | baseline            | The Labyrinth at the Heart of the Palace | grit    | FAILED | 11 | 9    |
+
+All validation failures are the pre-existing R1 balance blocker (gamora retune sprint ongoing). Not caused by R8.
+
+### Anomalies
+
+1. **SQLite write-lock contention**: 6+ concurrent processes → widespread telemetry loss. inverted mode has ZERO committed telemetry. HTTP logs are ground truth. Star-lord seam needs WAL retry or serialized regen protocol.
+2. **Anchor non-parity (seed 99001)**: inverted_no_naming ran in prior context → different DB exclusion state → Library of Babel instead of The Coliseum. Seeds 99002 + 99003 achieved anchor parity.
+3. **All 9 seasons: Validation FAILED**: Pre-existing R1 condition. Seasons are usable for cohesion judging.
+
