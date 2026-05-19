@@ -195,3 +195,43 @@ Hive is **ACTIVE** as of 2026-05-19 04:26Z. Next entries follow append-only prot
 Daily state-of-hive cadence: knight-rider authors `state-of-hive-YYYY-MM-DD-engine-rebuild.md` at end of each active day (per protocol § 4.3 inherited).
 
 Wind-down trigger: Matt's explicit declaration. Engine-rebuild completion → continuation onto VS2a → VS2b → Stage A2 per Matt directive 2026-05-19 (launch dispatch § 6.5).
+
+---
+
+## 2026-05-19 — gamora R1 activation
+
+### [2026-05-19] STATE — gamora — R1 dispatch read; math note authored; Discipline #1 satisfied
+
+R1 dispatch at `agentic_orchestration/dispatches/2026-05-19-gamora-R1-per-tier-balance-targets.md` read in full. All required reading consumed:
+- Engine-rebuild protocol (§ 4.0 autonomous-operation, § 4.5 jack-ryan continuous-observation, § 5.1 R1 activation requirements)
+- Solutions doc § 2 (R1 specification + hypothesis tests) + § 10 Q1 (per-tier targets pre-confirmed)
+- Hive log (activation block; knight-rider HANDOFF to gamora)
+- `balance_loop.py:1907-1936` (existing `_compute_convergence_winrate` — the call site to be replaced)
+- `AGENT_STATE.md` (D11 cycle closed; no prior R1 work in flight)
+- Engineering disciplines (Discipline #1, #2, Pattern P7, R11(b))
+
+**Per-tier math note authored.** Path: `reincarnated-engine/design/working-agreement/R1-per-tier-math-2026-05-19.md`
+
+**Key decisions resolved in the math note (gamora L1 authority):**
+
+1. **Tolerance semantics:** floor/ceiling are the operative gate; target is the optimizer's aim. A tier passes iff `floor <= observed_WR <= ceiling`. Asymmetric bands: swarm/magic/elite ±0.07/0.08; mini-boss ±0.10; boss ±0.08/0.07.
+
+2. **Early-exit semantics:** evaluate ALL 5 tiers per convergence call; report ALL failures. No early-exit. Rationale: the class-retuning sprint needs the full per-tier failure profile, not just the first failing tier.
+
+3. **N-shot strategy for single-slot tiers:** N=60 fights for boss and mini-boss (double the default N=30). Reduces 95% CI half-width from ±0.174 to ±0.123 for boss at target WR 0.38. Additionally: 3-iteration rolling median for single-slot tier WR during binary-search to suppress oscillation.
+
+4. **Pattern P7 remediation:** fail-loud on every per-tier miss (WARNING log naming tier, observed WR, expected band, failure reason). Aggregate-mean preserved as a legacy diagnostic field only — no code path may accept convergence based on aggregate mean alone.
+
+5. **Telemetry cross-seam impact:** per-tier WR crosses the gamora→star-lord boundary. New fields on `ClassBalanceResult`: `per_tier_win_rates`, `per_tier_pass`, `convergence_gate_passed`, `failing_tiers`, `aggregate_wr_legacy`. MIGRATION.md required (concurrent with code change). Round-trip smoke required per R11(b).
+
+6. **Genre precedent:** boss-0.30 floor grounded in Diablo II / Path of Exile / Grim Dawn boss-tier design norms (~30% win rate for build-designed-for-content at minimum viable spec).
+
+7. **Baseline measurement plan:** documented as plan; NOT executed. Runs next session (after jack-ryan Gate 1 review of math note). Output path: `reincarnated-engine/output/R1-baseline-measurement-2026-05-19/baseline-per-tier-distribution.json`.
+
+**`balance_loop.py` is NOT modified in this session.** Modification is gated on jack-ryan Gate 1 review of the math note.
+
+**Jack-ryan:** Gate 1 review of `reincarnated-engine/design/working-agreement/R1-per-tier-math-2026-05-19.md` is now open. Review checklist is in § 11 of the math note. Key focus: floor/ceiling operative semantics (§ 2.3), N=60 single-slot variance strategy (§ 4.2), rolling median semantic-shift question (§ 4.3), R11(b) cross-seam round-trip smoke requirement (§ 6.3).
+
+**Tag:** `gamora/v1.4-r1-math-note-1` applied to engine repo (intermediate seam tag; not pushed per ADR-006 default; no milestone yet).
+
+**AGENT_STATE.md updated.** Next session: jack-ryan Gate 1 → baseline measurement run → `balance_loop.py` modification → tag `hive-rebuild/v0.1-r1-baseline-measurement-captured`.
