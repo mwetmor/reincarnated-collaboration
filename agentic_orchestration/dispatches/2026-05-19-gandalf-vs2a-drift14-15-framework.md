@@ -233,3 +233,68 @@ Per launch dispatch § 3 + protocol § 4.0 + § 4.9 (inherited):
 ---
 
 *Authored 2026-05-19 by knight-rider under autonomous-operation authority. F3 unblocks both legolas commissions. Drift-14 closes the canonical-bias residue gap pre-VS2a ship. Drift-15 closes the environment-art gap pre-VS2a ship — with the one Matt-gated step you've held for his eye intact. The frameworks are yours to author; the road continues.*
+
+---
+
+## F3 completion record (gandalf 2026-05-19)
+
+**Status:** COMPLETE under autonomous-operation authority (VS2a hive-mind protocol § 4.0). Both frameworks landed; drift-audit amendments applied; readiness signal for F5 + F6 surfaced.
+
+### Frameworks delivered
+
+1. **Drift-14 framework:** `canonical/story/d1-rubric-vfx-mapping-extension-2026-05-19.md`
+   - Q6 `vfx_catalogue_mapping_clean` Tier A–E methodology (formalized; § 2.1)
+   - Q7 `canonical_pair_leak` audit-only boolean (formalized; § 2.2)
+   - Pool-status threshold redefinition: vfx-clean / vfx-acceptable / vfx-blocked (formalized; § 3)
+   - Legolas Mode A commission criteria: audit-and-refinement pass of existing 156-entry manifest (§ 4)
+   - Re-scoring pass workflow: gandalf 3-pass adjudication (§ 5)
+   - Selector hard-floor recommendation: SHIPPED 2026-05-17 (Track 1+2); no new rocket dispatch in F5; Track 3 remains DEFERRED post-VS2a (§ 6)
+   - Drift-14 drift-audit entry amendment applied (§ 8.1 → drift-audit.md § Drift-14 Action + Cross-references)
+   - Discipline #15 forward-flag captured (§ 7)
+   - Note: substantial implementation cascade was already shipped 2026-05-17 (rocket dispatch + cull-decisions doc + manifest + schema + selector wiring); F3 framework formalizes the doctrine canonically. F5 is verification + refinement pass, not greenfield audit.
+
+2. **Drift-15 framework:** `canonical/story/per-season-environmental-theming-2026-05-19.md`
+   - Four-axis decision framework: thematic fit / visual coherence / coverage / license (§ 2)
+   - **EXPLICIT autonomous-vs-Matt-gated step separation** (§ 3):
+     - Track A (legolas Mode B catalogue sweep) — AUTONOMOUS
+     - Track B (gandalf framework + shortlist) — AUTONOMOUS; shortlist staged for wind-down
+     - Track C (Matt picks 1 of 3) — **HELD FOR WIND-DOWN per M2 pattern**
+     - Track D (drax integration) — HELD POST-MATT-SELECTION; separate downstream dispatch
+   - Named the **autonomous-design-with-Matt-taste-call pattern** for forward-reference (§ 3.5)
+   - Selection cadence: VS2a 1 pack / VS2b 1 additional / VS2c+ full cadence (§ 4)
+   - Asset acquisition flow + `environment-packs.json` data file forward-flag (§ 5)
+   - Legolas Mode B commission criteria for F6 Track A (§ 7)
+   - Drift-15 drift-audit entry promotion: forward-flag candidate → filed Drift instance with prevention prescription (§ 8 → drift-audit.md § Drift-15 Action + Cross-references)
+   - Open questions resolved under L2-equivalent authority (§ 9)
+
+### Drift-audit.md amendments applied
+
+- **Drift-14 § Action:** updated to reflect 2026-05-17 implementation cascade + 2026-05-19 framework formalization; F5 residual closure named; tag-fire trigger captured
+- **Drift-14 § Cross-references:** added F3 framework doc + 2026-05-17 implementation cascade docs + post-cull target numbers
+- **Drift-15 § Action:** promoted from forward-flag candidate to filed Drift instance; F3 framework formalization captured; explicit autonomous-vs-Matt-gated separation referenced; prevention prescription (D16 candidate) propagated forward
+- **Drift-15 § Cross-references:** added F3 framework doc + M2 pattern precedent
+
+### Tag-fire requests (surfaced for knight-rider)
+
+- `vs2a/v0.3-drift14-framework-decided` — F3 Drift-14 framework landed
+- `vs2a/v0.4-drift15-framework-decided` — F3 Drift-15 framework landed
+
+Per ADR-006 amendment: knight-rider fires tags + pushes after this completion record commits. No Matt approval gate (autonomous-operation).
+
+### Readiness signals for second-fire batch
+
+- **F5 (legolas Mode A Drift-14 audit) — READY TO FIRE.** Knight-rider commissions per framework § 4 scope (audit-and-refinement pass of 156-entry manifest; 3–5h legolas + 2–3h gandalf re-scoring). Output: `agentic_orchestration/research/knowledge/pool-vfx-catalogue-mapping-audit-2026-05-19.md`.
+- **F6 (legolas Mode B Drift-15 catalogue sweep Track A) — READY TO FIRE.** Knight-rider commissions per framework § 7 scope (Tier-1 vendor crawl; 5–8h legolas; time-cap with findings-blocker triggers). Output: `agentic_orchestration/research/catalogue/environment-tileset-vendor-scout-2026-05-19.md` + `environment-substrate-inventory-2026-05-19.jsonl`.
+
+Both commissions gated only on F3 framework landing. With this completion record committed, both gates clear.
+
+### Acceptance criteria status
+
+- [x] Drift-14 framework authored at `canonical/story/d1-rubric-vfx-mapping-extension-2026-05-19.md`
+- [x] Drift-15 framework authored at `canonical/story/per-season-environmental-theming-2026-05-19.md` with explicit autonomous-vs-Matt-gated step separation
+- [x] `canonical/story/drift-audit.md` updated: Drift-14 status update + Drift-15 promoted from forward-flag candidate to filed Drift instance with prevention prescription
+- [x] Tag-fire requests surfaced in hive log (per STATE entry; below in engine-rebuild-log.md)
+- [x] Hive log entry: gandalf STATE entry capturing both frameworks authored + Matt-gated steps explicitly named for M1 (Drift-15 Track C) + readiness signal for F5 + F6 legolas commissions
+- [x] No Matt-wait at any point during F3. Matt re-enters only at wind-down for M1 (Drift-15 Track C; HELD).
+
+*F3 closure filed 2026-05-19 by gandalf under autonomous L2-equivalent authority. The frameworks are landed; the legolas commissions wait only on knight-rider's dispatch authoring; the road continues.*

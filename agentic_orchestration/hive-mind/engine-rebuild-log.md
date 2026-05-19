@@ -2893,3 +2893,66 @@ Surface `vs2a/v0.5-kit-redesign-approach-decided` to knight-rider for firing on 
 **Collab commit:** (forthcoming; knight-rider's batch-close commit will land this disposition + amendment + completion record + STATE entry)
 
 *Filed 2026-05-19 by gandalf at F2 completion. F2 is the highest-leverage first-fire dispatch in VS2a; S1 + S2 unblocked. The catalogue's identity emerges under the engine's new default. Mithrandir signs.*
+
+---
+
+## 2026-05-19 — F3 gandalf — Drift-14 + Drift-15 frameworks LANDED
+
+### [2026-05-19 ~13:30Z] STATE — gandalf — F3 frameworks COMPLETE
+
+**Authority:** AUTONOMOUS L2-equivalent (VS2a hive-mind protocol § 4.0). Per F3 dispatch `agentic_orchestration/dispatches/2026-05-19-gandalf-vs2a-drift14-15-framework.md`.
+
+**Frameworks delivered (both filed under autonomous-operation; no Matt-wait):**
+
+1. **Drift-14 framework** — `canonical/story/d1-rubric-vfx-mapping-extension-2026-05-19.md`
+   - Q6 `vfx_catalogue_mapping_clean` Tier A–E methodology formalized; Q7 `canonical_pair_leak` audit-only boolean formalized
+   - Pool-status threshold redefinition: vfx-clean / vfx-acceptable / vfx-blocked AND-gated on D1 + VFX-mapping
+   - Legolas Mode A commission criteria (F5): audit-and-refinement pass of 156-entry manifest (3–5h legolas + 2–3h gandalf re-scoring)
+   - Selector hard-floor recommendation: SHIPPED 2026-05-17 (Track 1+2); no new rocket dispatch needed; Track 3 remains DEFERRED post-VS2a
+   - Drift-14 drift-audit § Action + Cross-references amended in same commit
+   - **Critical context preserved:** substantial 2026-05-17 implementation cascade (rocket dispatch + gandalf cull-decisions + manifest + schema + selector wiring) was already shipped; F3 formalizes the doctrine canonically so future pool additions inherit it without re-derivation. F5 is verification + refinement pass, NOT greenfield audit.
+
+2. **Drift-15 framework** — `canonical/story/per-season-environmental-theming-2026-05-19.md`
+   - Four-axis decision framework: thematic fit / visual coherence / coverage / license
+   - **EXPLICIT autonomous-vs-Matt-gated step separation** (load-bearing § 3 of framework):
+     - Track A (legolas Mode B catalogue sweep, 5–8h) — AUTONOMOUS
+     - Track B (gandalf framework + shortlist, ~2h+~2h) — AUTONOMOUS; shortlist staged for Matt's wind-down read
+     - Track C (Matt picks 1 of 3 candidates, ~30 min) — **HELD FOR WIND-DOWN per M2 pattern**
+     - Track D (drax integration, ~3–5 days) — HELD POST-MATT-SELECTION; separate downstream dispatch
+   - Named the **autonomous-design-with-Matt-taste-call pattern** for forward-reference (§ 3.5)
+   - Selection cadence: VS2a 1 pack / VS2b 1 additional / VS2c+ full cadence
+   - Legolas Mode B commission criteria for F6 Track A
+   - Drift-15 PROMOTED from forward-flag candidate to filed Drift instance with prevention prescription (D16 candidate)
+
+**Drift-audit.md amendments applied:**
+- Drift-14 § Action + Cross-references: framework formalization captured; 2026-05-17 implementation cascade enumerated; F5 residual closure named
+- Drift-15 § Action + Cross-references: promoted to filed instance; F3 framework formalization captured; autonomous-vs-Matt-gated separation cross-referenced; D16 prevention prescription propagated
+
+**Tag-fire requests surfaced for knight-rider:**
+- `vs2a/v0.3-drift14-framework-decided` (F3 Drift-14 framework landed)
+- `vs2a/v0.4-drift15-framework-decided` (F3 Drift-15 framework landed)
+
+Per ADR-006 amendment: knight-rider fires + pushes after collab commit lands.
+
+**Readiness signals — second-fire batch:**
+- **F5 (legolas Mode A Drift-14 audit) READY TO FIRE** — gated only on F3 framework landing; commission scope per framework § 4. Effort: 3–5h legolas + 2–3h gandalf re-scoring.
+- **F6 (legolas Mode B Drift-15 catalogue sweep Track A) READY TO FIRE** — gated only on F3 framework landing; commission scope per framework § 7. Effort: 5–8h legolas. Track B gandalf shortlist follows Track A return (~2h autonomous).
+
+Both commissions gated only on F3 framework landing. With this STATE entry + collab commit, both gates clear. Knight-rider authors F5 + F6 dispatches when capacity allows.
+
+**Matt-gated steps (M1; HELD for wind-down):**
+- Drift-15 Track C (Matt picks 1 of 3 environment-pack candidates from gandalf shortlist) — per M2 pattern; Matt's eye at wind-down session
+- `vs2a/v0.15-drift15-matt-selected` tag fires at Matt's wind-down pick; knight-rider drafts decisions-log entry at same checkpoint
+- Track D (drax integration) dispatch authored post-Matt-selection
+
+**Acceptance criteria — all met per F3 dispatch:**
+- [x] Drift-14 framework authored
+- [x] Drift-15 framework authored with explicit autonomous-vs-Matt-gated step separation
+- [x] drift-audit.md updated: Drift-14 + Drift-15 amendments
+- [x] Tag-fire requests surfaced
+- [x] Hive log entry (this entry)
+- [x] No Matt-wait at any point during F3
+
+**Operating mode:** AUTONOMOUS per protocol § 4.0 + § 4.9. F3 fires under autonomous L2-equivalent design-steward authority; no L3-to-Matt; Matt re-enters only at wind-down for M1.
+
+**Collab commit:** (forthcoming; knight-rider's commit will land the two framework docs + drift-audit amendments + F3 dispatch completion record + this STATE entry + tag-fires)
