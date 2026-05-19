@@ -1057,3 +1057,51 @@ Star-lord's schema 2.9 was already landed in working tree (`telemetry/migrations
 - R1 Test 2 (post-retune pass-rate ≥ 70%).
 - R1 Test 3 (playtest packet for Matt).
 - Rolling median implementation for single-slot tiers (future session; note preserved in docstring).
+
+---
+
+## 2026-05-19 — star-lord R1+R3 telemetry implementation (schema 2.6/2.7/2.9)
+
+### [2026-05-19] STATE — star-lord — R1+R3 telemetry implementation complete; schema 2.6/2.7/2.9 live in production DB
+
+**Author:** star-lord
+**Engine commit:** `42f5467` — pushed to origin/main
+**Tag (engine + collab):** `star-lord/v1.10-r1-r3-telemetry-impl-1` — both repos pushed to origin
+**Authority:** AUTONOMOUS L1 in-seam + L2 telemetry SQL pre-authorization per knight-rider DECISION commit `0b51312`
+
+**Schema migrations executed (all additive nullable ALTER TABLE):**
+
+| Migration | Table | Columns added | Smoke dry-run | Reversibility | Production apply |
+|---|---|---|---|---|---|
+| 2.6 | `class_fight_loadouts` | 8 R3 per-fight range/AI columns | PASS | PASS (SQLite 3.42.0 DROP COLUMN) | PASS |
+| 2.7 | `class_balance_results` | 6 R3 range-summary columns | PASS | PASS | PASS |
+| 2.9 | `class_balance_results` | 7 R1 per-tier convergence columns | PASS | PASS | PASS |
+
+Schema 2.8 (R8 `llm_calls.generation_mode`) DEFERRED to R8 implementation session. CRITICAL NOTE: must register as version "2.10" (not "2.8") because current SCHEMA_VERSION is "2.9" — the migration runner skips versions <= current. Documented in `migrations.py` comment + `export/MIGRATION.md`.
+
+**Production DB state:** 3,120,817 `class_fight_loadouts` rows + 42 `class_balance_results` rows untouched (all new columns NULL). No data destroyed.
+
+**recorder.py extensions:**
+- `SCHEMA_VERSION`: `"2.5"` → `"2.9"`
+- `record_class_balance_results()`: reads R3 range fields via `getattr(result, field, None)` + R1 per-tier fields via `getattr(result, "per_tier_win_rates", None)` dict unpacking. JSON-encodes `convergence_range_profile` (dict→str) and `failing_tiers` (list→JSON str). INSERT extended from 8 to 21 bound params.
+- `record_class_fight_loadouts()`: reads 8 new R3 fields via `entry.get()`. `fight_disengage_succeeded` encoded bool→int. SQL extended from 26 to 34 columns. Pre-R3 fight logs write NULL for all new columns — no error.
+- NullRecorder: existing stubs unchanged — signatures already matched.
+
+**Pattern P7 discipline:**
+- R3 fields on fight_log: `entry.get()` (optional at receiver boundary per SL-2; pre-R3 backward compat). WARN path for missing `skill_range_m` documented with TODO for post-R3 version-flag signal.
+- R1 fields on ClassBalanceResult: `getattr+None` (dataclass boundary; attribute absence is version-gated). NULL-write is visible in telemetry, not silently wrong.
+- `convergence_gate_passed` bool→int: explicit `int(bool(...))` conversion; None→None preserved.
+
+**Round-trip smoke fixtures:**
+- `tests/round_trip_r3_telemetry.py`: 14 tests — 14/14 PASS
+- `tests/round_trip_r1_telemetry.py`: 15 tests — 15/15 PASS
+- Full telemetry suite (176 tests): 176/176 PASS (1 pre-existing test updated: `test_schema_version_is_25` → `>= "2.5"` assertion)
+
+**export/MIGRATION.md schema 2.9 section:** authored per ADR-004 format. Encoding decisions documented (flat columns over JSON blob for 5 fixed tiers; failing_tiers_json JSON for variable-length list). Reversibility SQL included. Gamora cross-seam coordination note: when gamora's R1 ClassBalanceResult exposes `per_tier_win_rates`, recorder picks them up automatically — no recorder changes needed.
+
+**Cross-seam coordination — no action required by other agents:**
+- gamora: when `ClassBalanceResult.per_tier_win_rates`, `convergence_gate_passed`, `failing_tiers` land, recorder reads them automatically.
+- rocket: when fight_log gains R3 range/AI fields, recorder writes them automatically.
+- drax: no consumer impact (class_balance_results not in export packets).
+
+**LLM cost this session:** $0.00. No LLM calls. Pure schema/code implementation.
