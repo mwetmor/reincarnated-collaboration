@@ -3693,3 +3693,74 @@ D) **Combination A+C or B+C**: Most robust; A+C is recommended (minimal position
 - Option D: A + C combined
 
 **Output docs:** `output/R2-recalibration-smoke-2026-05-19/smoke_report.md` (full structural analysis) + math note § 9 (`design/working-agreement/R2-recalibration-math-2026-05-19.md`)
+
+---
+
+### STATE — gandalf — R2 H1 Leash + Timeout Re-disposition COMPLETE (third R2 disposition pass) — 2026-05-19
+
+**Agent:** gandalf
+**Authority:** AUTONOMOUS L2-equivalent per protocol § 4.0 (Matt directive 2026-05-19; pre-approval-batch authority)
+**Status:** COMPLETE — third R2 disposition authored; routes to gamora for engagement-geometry impl + Stage 1 R2-RT v3 (via new dispatch from knight-rider)
+**Closes route opened by:** gamora's STATE + REQUEST entries (preceding, this log) — engagement-geometry re-disposition route opened by R2 recalibration smoke FAIL
+
+**Three-findings-deep meta-pattern recognition:** Finding 1 (classifier; v0.14) → Finding 2 (calibration; vs2a/v0.13) → Finding 3 (engagement-geometry; vs2a/v0.14). Each finding fixed one scaffolding layer; each fix unmasked the next layer's implicit-coupling assumption as binding constraint. Pattern named canonically: **Drift-16 (calibration-against-instrument; 2 instances)** + **Drift-17 (scaffolding-coupled measurement degeneracy; 3-layer instance)** both FILED in `canonical/story/drift-audit.md`.
+
+**Disposition path: γ — Hybrid B + C engagement-geometry fix with two-stage validation gate.**
+
+| Lever | Old | New | Magnitude |
+|---|---|---|---|
+| Mob leash override (NEW per-scenario field on SpawnSpec or ArenaScenario) | implicit JSON default 18m | **35m** for swarm spawns in `open_arena` + `chokepoint_corridor` | Preserves "approach across open arena" semantic; mobs pursue full 50m |
+| Timeout win condition for `open_arena` + `chokepoint_corridor` | HP > 50% → win | **kills_only** (any mob alive at 120s → loss) | Semantic alignment with H1 intent (geometry-aware kill efficiency) |
+| Player spawn y (both scenarios) | y=40 | y=40 (unchanged) | Option A REJECTED |
+| Boss-with-adds | unchanged | unchanged | § 3.4 forward-flag continues |
+
+**Why B+C, not gamora-recommended D (A+C):** Option A (move player spawn y=40→25) compresses the open_arena scenario's spatial-dynamic semantic — "approach across open space" is genre-canonical (D2 Bloody Foothills, PoE Twilight Strand, Last Epoch Imperial Era, Grim Dawn Wightmire) and is the *meaning* of the open_arena scenario. Compressing it collapses two of three scenarios to similar spatial profiles. Option B (per-scenario leash override 18→35m) preserves the spatial-dynamic semantic while loosening the engagement-mechanic constraint that was implicit-default-from-monster-JSON, not scenario-tuned. Option C (kills-only timeout) is semantic alignment with H1 intent; both B + C are jointly required (B alone leaves floor-dm classes winning on HP>50% survival; C alone leaves mob HP-pool calibration assuming engagement that doesn't happen).
+
+**Two-stage validation gate:**
+- **Stage 1 — R2-RT v3 on existing 5-shipped-season catalogue (diagnostic confirmation):** engagement-geometry fix produces non-degenerate WR surface; signal direction preserved; partial H1 evidence. Tag: `vs2a/v0.3-r2-h1-revalidated-on-existing-catalogue` (HELD pending Stage 1).
+- **Stage 2 — R2-RT v4 on S1 regenerated catalogue (gold-standard threshold validation):** H1 ≥ 0.10 PASS under original threshold on the catalogue the project is shipping. Tag: `vs2a/v0.4-r2-h1-validated-on-S1-catalogue` (HELD pending S1 completion + Stage 2).
+- **Original tag `vs2a/v0.2-r2-h1-revalidated` REPLACED** by two-tag schema (one tag per validation surface). Threshold preserved end-to-end — original ≥ 0.10 across all three findings.
+
+**This is NOT a category-of-completion reframe** (which v0.14 § 2.2 warned against). The original threshold remains the validation target. What changes is the catalogue on which it is measured — and that change is *required anyway* per WP-R2-A-2's commitment to re-validate after partition shift. The two-stage gate makes the two surfaces explicit so neither inherits perpetual-deferral framing.
+
+**Tag landscape (this pass):**
+- `vs2a/v0.14-r2-leash-timeout-disposed` — **FIRES** on this disposition's commit (3rd-pass milestone)
+- `vs2a/v0.2-r2-h1-revalidated` — REPLACED by two-tag schema
+- `vs2a/v0.3-r2-h1-revalidated-on-existing-catalogue` — HELD pending Stage 1
+- `vs2a/v0.4-r2-h1-validated-on-S1-catalogue` — HELD pending Stage 2
+
+**Watchpoints (updated):**
+- WP-R2-A-1 — two-stage gate (Stage 1 partial-close; Stage 2 full-close)
+- WP-R2-A-2 — REFINED from ACTIVE-MONITORING conditional → **ACTIVE-COMMITTED-RE-TEST under Stage 2**
+- WP-R2-A-3 (NEW) — engagement-geometry parity across scenarios under future scenario additions
+- WP-R2-E-1 (NEW) — math note § 10 extension + MIGRATION.md concurrent for leash + timeout impl
+- WP-R2-E-2 (NEW) — two-stage validation gate sequencing
+- WP-R2-D-1 — CLOSED (recalibration impl satisfied math note + MIGRATION.md + Discipline #12 obligations)
+
+**Forecast (fourth-finding probability):** medium-low. Three structural scaffolding layers in the test fixture have now been named and addressed (classifier; calibration; engagement-geometry). The remaining substrate-layer is *catalogue geometric diversity*, addressable via S1 + (if necessary) a generation-side disposition. If a fourth finding emerges, it would more likely be a *measurement-philosophy* finding (variance-of-3-means is a structurally-low-ceiling metric) than a *substrate* finding — and that category would be of a different shape than the prior three.
+
+**Doc amendments applied this session:**
+- `canonical/story/r2-h1-leash-timeout-disposition-2026-05-19.md` — NEW (this disposition; ~15K words)
+- `canonical/story/drift-audit.md` — Drift-16 + Drift-17 entries APPENDED
+- `agentic_orchestration/hive-mind/watchpoints-engine-rebuild-2026-05-19.md` — WP-R2-A-1 + WP-R2-A-2 status refined; WP-R2-A-3 + WP-R2-E-1 + WP-R2-E-2 added; WP-R2-D-1 confirmed CLOSED
+- `agentic_orchestration/dispatches/2026-05-19-gamora-vs2a-R2-recalibration-impl.md` — DISPATCH COMPLETION RECORD appended (route opened by gamora's REQUEST CLOSED)
+- `canonical/story/r2-h1-disposition-2026-05-19.md` § 3.4 forward-flag — to be amended in follow-on commit (forward-flag updated to reference this third disposition)
+- `canonical/story/r2-h1-recalibration-disposition-2026-05-19.md` § 6.3 — to be amended in follow-on commit (Drift-16 candidate filing record appended)
+- `canonical/story/engine-rebuild-2026-05-19-gap-solutions-and-tests.md` § 3 — to be amended in follow-on commit (third disposition subsection appended + two-stage validation noted)
+
+**Routing:**
+- Knight-rider drafts follow-on dispatch: `agentic_orchestration/dispatches/2026-05-19-gamora-vs2a-R2-leash-timeout-impl.md` — scope: implement engagement-geometry fix per disposition § 2.1 + 5-class smoke + Stage 1 R2-RT v3 (existing catalogue) + tag-fire at diagnostic confirmation
+- Gamora implements per dispatch + new disposition
+- Knight-rider sequences Stage 1 vs S1 timing (Stage 1 is independent of S1; can fire immediately OR be deferred to land alongside Stage 2 per knight-rider discretion)
+- Jack-ryan Gate-1 review on engagement-geometry impl commit (WP-R2-E-1 obligation)
+
+**Tag-fire request: `vs2a/v0.14-r2-leash-timeout-disposed`** (3rd-pass milestone) — fires on this disposition's commit. Knight-rider sequences at commit time per VS2a tag-landscape.
+
+**Discipline #17 candidate (smoke-before-full-run) routing:** Pattern is now load-bearing in three R-series dispositions (R1 Blocker 3 § 10.1; R2 H1 recalibration § 2.4; this disposition § 2.3). Strong empirical basis for jack-ryan to lock Discipline #17 at next disciplines pass. Surfaces via knight-rider routing — not blocking this disposition.
+
+**Output files:**
+- `canonical/story/r2-h1-leash-timeout-disposition-2026-05-19.md` (this disposition; ~15K words; 10 sections + provenance)
+
+**Operating mode:** AUTONOMOUS L2-equivalent per protocol § 4.0. Pre-approval-batch authority.
+
+*Filed 2026-05-19 by gandalf at three-findings-deep R2 H1 milestone. The classifier was wrong; we fixed it. The calibration was wrong; we fixed it. The engagement geometry was wrong; we fix it now. The threshold is preserved end-to-end; the gold-standard test bed is the S1 catalogue the project is shipping. The pattern is named (Drift-17) so the next measurement-instrument workstream won't repeat the three-disposition cadence. Mithrandir signs.*

@@ -223,3 +223,45 @@ REQUEST to gandalf: spawn/leash/timeout architecture re-disposition required. Op
 **WP-R2-A-1:** ACTIVE-DEFERRED — H1 measurement still blocked; routing re-opened to gandalf.
 **WP-R2-A-2:** ACTIVE-MONITORING — Pattern P7 WARNING operational.
 **WP-R2-D-1:** CLOSED.
+
+---
+
+## DISPATCH COMPLETION RECORD — gandalf re-disposition closes route (2026-05-19)
+
+**Closed by:** `canonical/story/r2-h1-leash-timeout-disposition-2026-05-19.md` (third R2 H1 disposition pass under AUTONOMOUS L2-equivalent authority).
+
+**Disposition resolution:** Path γ (Hybrid B + C with two-stage validation gate).
+
+**Chosen engagement-geometry fix:**
+- **Option B:** per-scenario leash override field on SpawnSpec or ArenaScenario; **35m for swarm spawns in SCENARIO_OPEN_ARENA + SCENARIO_CHOKEPOINT** (preserves "approach across open arena" spatial-dynamic semantic; mobs pursue full 50m arena).
+- **Option C:** kills-only timeout for `open_arena` + `chokepoint_corridor` (semantic alignment with H1 intent — geometry-aware kill efficiency, not timeout survival).
+- **Option A REJECTED:** moving player spawn y=40→y=25 would compress the open_arena scenario's spatial-dynamic semantic and collapse two of three scenarios to similar spatial profiles.
+- **Option D REJECTED:** A + C combines a scenario-redesign with a semantic change; B + C is the cleaner pairing.
+
+**Two-stage validation gate (per disposition § 4-5):**
+- **Stage 1 — R2-RT v3 on existing 5-shipped-season catalogue (diagnostic confirmation):** non-degenerate WR surface confirmed; signal direction preserved; partial H1 evidence. Tag: `vs2a/v0.3-r2-h1-revalidated-on-existing-catalogue` (HELD pending Stage 1).
+- **Stage 2 — R2-RT v4 on S1 regenerated catalogue (gold-standard threshold validation):** H1 ≥ 0.10 PASS under original threshold on the catalogue the project is shipping. Tag: `vs2a/v0.4-r2-h1-validated-on-S1-catalogue` (HELD pending S1 completion + Stage 2).
+- **Original tag `vs2a/v0.2-r2-h1-revalidated` REPLACED** by the two-tag schema (one tag per validation surface).
+
+**Meta-pattern recognition (three findings deep):**
+- Finding 1 (classifier layer): name-heuristic → F1 schema disposition
+- Finding 2 (calibration layer): SPATIAL_DAMAGE_SCALE + MOB_HP → HYBRID Option C disposition
+- Finding 3 (engagement-geometry layer): leash + timeout → this disposition
+- Pattern named in drift-audit: **Drift-16** (calibration-against-instrument; 2 instances) + **Drift-17** (scaffolding-coupled measurement degeneracy; this 3-layer instance).
+
+**Route closure:** REQUEST opened by gamora's STATE + REQUEST entries (preceding) is now satisfied by gandalf disposition. New dispatch will be drafted by knight-rider: `agentic_orchestration/dispatches/2026-05-19-gamora-vs2a-R2-leash-timeout-impl.md` (engagement-geometry impl + 5-class smoke + Stage 1 R2-RT v3).
+
+**Tag status (updated):**
+- `vs2a/v0.14-r2-leash-timeout-disposed` — **FIRES** on gandalf disposition commit (3rd-pass milestone)
+- `vs2a/v0.2-r2-h1-revalidated` — **REPLACED** by two-tag schema (Stage 1 + Stage 2)
+- `vs2a/v0.3-r2-h1-revalidated-on-existing-catalogue` — HELD pending Stage 1
+- `vs2a/v0.4-r2-h1-validated-on-S1-catalogue` — HELD pending Stage 2
+
+**Watchpoint status (updated):**
+- WP-R2-A-1 — ACTIVE-DEFERRED → two-stage gate (Stage 1 partial-close; Stage 2 full-close)
+- WP-R2-A-2 — REFINED from ACTIVE-MONITORING conditional re-test to **ACTIVE-COMMITTED-RE-TEST under Stage 2** (S1 catalogue IS the named re-test surface)
+- WP-R2-A-3 (NEW) — scenario-definition rationale block for future scenario additions
+- WP-R2-E-1 (NEW) — math note § 10 extension + MIGRATION.md concurrent for leash + timeout impl
+- WP-R2-E-2 (NEW) — two-stage validation gate sequencing
+
+**This dispatch is CLOSED 2026-05-19** by gandalf re-disposition. Gamora awaits new dispatch (`2026-05-19-gamora-vs2a-R2-leash-timeout-impl.md`) for engagement-geometry implementation phase.

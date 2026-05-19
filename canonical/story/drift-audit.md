@@ -536,6 +536,100 @@ VS2a is therefore being shaped to ship multiple ARPG-genre + HD-2D-register comm
 
 **Discipline #13 instance:** YES — instance of "implicit-pillar drift" applied to the catalogue-scoping-vocabulary layer. The implicit pillar `multi-axis catalogue scoping enumerates ALL load-bearing visual axes at scoping time, with deferred axes explicitly named and ship-gated` was never stated and not structurally enforced. Same shape as Drift-13 (vendor-mixed-register at consumption granularity) applied at one level higher (scoping granularity vs consumption granularity).
 
+### Drift-16 — Calibration-against-instrument: test-fixture multiplier constants tuned against under-classified instruments that schema work later corrects
+
+**What drifted:** Test-fixture calibration constants (HP / damage / armor / duration multipliers in the gauntlet sim and spatial sub-gauntlet) were tuned against the OUTPUT of approximation instruments (e.g., name-keyword geometry classifier; HP>50% timeout-as-win-condition boss measurement). When subsequent schema work corrected the instruments (e.g., F1 explicit `spatial_geometry_type` field; R1 kills-only boss semantic), the calibration constants — which had been implicit-tuned against the *un-corrected* instrument's reading of the catalogue — became out-of-tune in predictable directions (over-rewarding the now-correctly-counted population OR over-punishing it).
+
+**Empirical instances (both 2026-05-19; same day filing because the pattern surfaced twice in 24 hours):**
+
+| Instance | Instrument corrected | Calibration affected | Direction of out-of-tune | Disposition shape |
+|---|---|---|---|---|
+| **R1 Blocker 3** (`reincarnated-engine/design/working-agreement/R1-blocker-3-disposition-2026-05-19.md`) | Boss-tier win-semantic: HP>50% timeout-survival → kills-only | Boss encounter: HP × armor × duration knobs | Calibration became anomalously hostile (the timeout-survival path had been silently passing classes that couldn't actually kill the boss) | Multi-knob hybrid: HP × 0.50 + armor × 0.55 + duration 180s; three modest knobs spreading the recalibration |
+| **R2 H1 recalibration** (`canonical/story/r2-h1-recalibration-disposition-2026-05-19.md`) | Geometry classifier: name-heuristic 43/3/4 → F1 explicit field 21/2/28 | Spatial sub-gauntlet: SPATIAL_DAMAGE_SCALE + (implicit) MOB_HP × 1.0 | Calibration became over-rewarding (heuristic had under-counted circle skills as point; F1 correction means 18 additional classes now deal proper AOE damage; saturation at WR=1.000) | Two-knob hybrid: SPATIAL_DAMAGE_SCALE 8.0→4.0 + MOB_HP_DIFFICULTY_MULTIPLIER 1.5; two modest knobs spreading the recalibration |
+
+**Pattern shape (canonical):**
+1. An *instrument* (heuristic classifier OR scaffolding scaffolding-semantic OR schema gap) under-counts / mis-classifies / mis-semantically-counts a salient population
+2. *Test-fixture calibration constants* (HP / damage / armor / duration / scale multipliers) are tuned against the under-counted population's effective behavior at the time the calibration was authored
+3. Schema work corrects the instrument
+4. The corrected instrument reveals calibration is now out-of-tune in a predictable direction
+5. Disposition: spread the recalibration across multiple knobs; preserve original threshold; re-test under corrected instrument
+
+**How caught (both instances):** Test-fixture re-run produced degenerate outcome (universal pass OR universal fail OR universal saturation) under the corrected instrument; the degenerate outcome was the empirical signal that calibration had been tuned against the prior approximation.
+
+**Enforcement gap:** No structural check exists at *schema-correcting workstream scoping time* for "if this schema correction lands, which downstream calibration constants tuned against the prior approximation will need recalibration?" The expectation was that schema work is a purely-additive correction; the reality is that schema correction *destabilizes* any calibration tuned against the approximation. Drift surfaces at first re-test after the correction.
+
+**This is a Pattern P5 (multi-parameter joint analysis) instance applied to test-fixture calibration vs instrument schema.** The calibration constants and the instrument schema were each individually tunable; the JOINT behavior (calibration accurate iff schema unchanged) was implicit and never explicitly analyzed at scoping time.
+
+**Status: ACTIVE-MONITORING.** Both instances disposed 2026-05-19. Prevention prescription filed below; routes to next jack-ryan engineering-disciplines pass as candidate D17 territory.
+
+**Action:**
+- Drift-16 entry archived here (this section).
+- Both instances disposed:
+  - R1 Blocker 3: `reincarnated-engine/design/working-agreement/R1-blocker-3-disposition-2026-05-19.md` (multi-knob hybrid; gamora sprint v3 verified)
+  - R2 H1 recalibration: `canonical/story/r2-h1-recalibration-disposition-2026-05-19.md` (HYBRID Option C two-knob; gamora impl complete; engagement-geometry second-order finding routed via Drift-17 below)
+- **Prevention prescription (D17 candidate territory):** *"Schema-correction workstreams must include a calibration-impact analysis at scoping time. For each downstream test-fixture or production-balance calibration constant that was tuned against the to-be-corrected instrument's reading, name the constant + predicted direction of recalibration + multi-knob hybrid pattern. If recalibration is required, the schema work and recalibration are co-dispatched (not separately-dispatched)."* Surface to next jack-ryan engineering-disciplines pass alongside D14 + D15 + D16 + D18 + R11(b) + Pattern P7 cluster.
+
+**Cross-references:**
+- R1 Blocker 3 disposition: `reincarnated-engine/design/working-agreement/R1-blocker-3-disposition-2026-05-19.md` (Discipline #12 framing; multi-knob hybrid; smoke-before-full-run)
+- R2 H1 recalibration disposition: `canonical/story/r2-h1-recalibration-disposition-2026-05-19.md` (HYBRID Option C; Drift-16 candidate surfaced inline at § 6.3)
+- R2 H1 leash + timeout disposition: `canonical/story/r2-h1-leash-timeout-disposition-2026-05-19.md` § 7.1 — distinguishes Drift-16 from Drift-17 (this entry vs next)
+- F1 schema work: `reincarnated-engine/design/working-agreement/F1-geometry-type-schema-design-2026-05-19.md`
+- R1 kills-only semantic disposition: `reincarnated-engine/design/working-agreement/R1-structural-blockers-disposition-2026-05-19.md`
+- Sibling discipline cluster: D14 + D15 (drift-14/15) + D16 (this) + D17 (smoke-before-full-run) + D18 (drift-17 below)
+
+**Discipline #13 instance:** YES — instance of "implicit-pillar drift" applied to the calibration-vs-instrument coupling layer. The implicit pillar `test-fixture calibration constants are recalibrated as part of any schema-correcting workstream that affects the instrument they were tuned against` was never explicitly stated and not structurally enforced. Same shape as Drift-7 (View A/B/C) applied at one level deeper (calibration-constant tuning vs view-parameter tuning).
+
+### Drift-17 — Scaffolding-coupled measurement degeneracy: multiple coupled scaffolding decisions in a measurement instrument each implicit-calibrated against the others
+
+**What drifted:** A measurement instrument (specifically: the R2 spatial sub-gauntlet) had MULTIPLE coupled scaffolding decisions — geometry classifier (name-heuristic vs explicit schema), damage calibration (player DPS scale + mob HP scale), engagement geometry (mob leash distance), and win-condition semantic (HP>50% timeout-survival vs kills-only). Each scaffolding decision was implicit-calibrated against the others' assumptions at authoring time; each individually appeared plausible. When the geometry classifier was corrected (F1 schema work landed), the calibration layer's implicit-coupling-to-classifier surfaced as a finding (Drift-16; R2 recalibration disposition). When the calibration was corrected (HYBRID Option C), the engagement-geometry layer's implicit-coupling-to-calibration surfaced as the NEXT finding (leash + timeout disposition). Three findings deep, three layers of scaffolding peeled.
+
+**Empirical instance (three layers deep across 24 hours, 2026-05-19):**
+
+| Layer | What was scaffolding-coupled | Implicit assumption made false by upstream correction | Disposition that named it |
+|---|---|---|---|
+| **Layer 1 (classifier)** | Name-keyword geometry heuristic + sample partition 43/3/4 | "Variance-of-3-means metric is measurable under heuristic classifier" — false because 43 vs 3+4 sample imbalance makes the variance metric near-zero by construction | `canonical/story/r2-h1-disposition-2026-05-19.md` (Finding 1; category-of-completion + F1 forward routing) |
+| **Layer 2 (calibration)** | SPATIAL_DAMAGE_SCALE × 8.0 + (implicit) MOB_HP × 1.0 | "Calibration accurate iff classifier under-counts circle skills as point" — false once F1 corrected the classifier; calibration over-rewarded the correctly-counted-now circle cohort | `canonical/story/r2-h1-recalibration-disposition-2026-05-19.md` (Finding 2; HYBRID Option C two-knob recalibration) |
+| **Layer 3 (engagement-geometry + win-condition)** | leash_distance_m × 18m (monster JSON default) + HP>50% timeout-as-win-condition | "Engagement geometry adequate iff calibration over-rewarding" — false once calibration was corrected; under recalibrated DPS, mobs never reach floor-dm classes (leash bypass) AND floor-dm classes win on survival anyway (HP>50% safety valve) | `canonical/story/r2-h1-leash-timeout-disposition-2026-05-19.md` (Finding 3; engagement-geometry fix + kills-only semantic; THIS DISPOSITION) |
+
+**Distinguishing feature from Drift-16:** Drift-16 is single-instrument-correction → single-calibration-recalibration (one instrument, one calibration knob set). Drift-17 is **multi-scaffolding-instrument-with-coupling** — MULTIPLE scaffolding decisions in a measurement instrument, each pairwise-calibrated against the others' implicit assumptions; correcting any single decision unmasks the next decision's implicit-coupling assumption as the new binding constraint. Drift-16 produces ONE recalibration disposition; Drift-17 produces ITERATIVE dispositions, one per peeled layer, until the substrate-instrument is fully audited.
+
+**Pattern shape (canonical):**
+1. A *measurement instrument* has multiple coupled scaffolding decisions (classifier + calibration + engagement-geometry + win-condition + ...)
+2. Each scaffolding decision was implicit-calibrated against the others' assumptions at authoring time
+3. The decisions individually appear plausible; jointly they produce a degenerate measurement surface in some calibration regime
+4. Correcting any single scaffolding layer unmasks the next layer's implicit-coupling as the new binding constraint
+5. Multiple iterative dispositions are required to peel each layer; each disposition surfaces a deeper layer until the substrate-instrument is fully audited
+
+**How caught:** Each finding surfaced when the prior disposition's fix produced a NEW degenerate outcome at the NEXT scaffolding layer. The pattern was not visible until three layers had been peeled; only at Finding 3 did the multi-layer coupling structure become clear enough to name.
+
+**Enforcement gap:** No structural check exists at *measurement-instrument design time* for "what are ALL the load-bearing scaffolding decisions in this instrument, and what implicit coupling do each pair of decisions have on each other's assumptions?" The R2 spatial sub-gauntlet was authored with each scaffolding decision made plausibly but independently; the joint coupling was not explicitly audited.
+
+**This is a Pattern P5 (multi-parameter joint analysis) instance at the measurement-instrument-design level**, sibling to Drift-7 (View A/B/C) and Drift-16 (calibration-vs-instrument). The shared root pattern is "system governed by multiple parameters with joint behavior that was never explicitly analyzed." The distinct subpattern of Drift-17 is that the parameters are *scaffolding decisions in a measurement instrument*, not *runtime view-state parameters* (Drift-7) or *calibration-constants-vs-schema* (Drift-16).
+
+**Status: ACTIVE-MONITORING.** Three layers disposed across 24 hours; substrate-instrument fully audited per the three dispositions. No fourth scaffolding-layer is presently expected; Stage 1 + Stage 2 validation gates will confirm or refute this. Prevention prescription filed below; routes to next jack-ryan engineering-disciplines pass as candidate D18 territory.
+
+**Action:**
+- Drift-17 entry archived here (this section).
+- Three-finding R2 H1 arc disposed:
+  - Finding 1: `canonical/story/r2-h1-disposition-2026-05-19.md` (classifier layer; v0.14)
+  - Finding 2: `canonical/story/r2-h1-recalibration-disposition-2026-05-19.md` (calibration layer; vs2a/v0.13)
+  - Finding 3: `canonical/story/r2-h1-leash-timeout-disposition-2026-05-19.md` (engagement-geometry + win-condition layer; vs2a/v0.14)
+- **Two-stage validation gate** per Finding 3 disposition § 5: Stage 1 (R2-RT v3 existing-catalogue diagnostic) + Stage 2 (R2-RT v4 S1-catalogue gold-standard threshold validation).
+- **Prevention prescription (D18 candidate territory):** *"Measurement-instrument workstreams (test-fixture sub-gauntlets; balance gauntlets; convergence loops; any other measurement-instrument with multiple scaffolding decisions) must enumerate ALL load-bearing scaffolding decisions at instrument-design time and explicitly audit each pair for implicit-coupling assumptions. For each scaffolding decision X, name the assumption it makes about scaffolding decision Y, and vice versa. If decisions are pairwise-coupled, the joint behavior is documented and the test-fixture is load-tested across the full coupling matrix before being used to gate downstream workstreams."* Surface to next jack-ryan engineering-disciplines pass alongside D14 + D15 + D16 + D17 + R11(b) + Pattern P7 cluster.
+
+**Cross-references:**
+- Finding 1 disposition: `canonical/story/r2-h1-disposition-2026-05-19.md` (classifier layer)
+- Finding 2 disposition: `canonical/story/r2-h1-recalibration-disposition-2026-05-19.md` (calibration layer)
+- Finding 3 disposition: `canonical/story/r2-h1-leash-timeout-disposition-2026-05-19.md` (engagement-geometry + win-condition layer; THIS DISPOSITION)
+- Smoke FAIL analysis: `reincarnated-engine/output/R2-recalibration-smoke-2026-05-19/smoke_report.md`
+- Math note (extended across layers): `reincarnated-engine/design/working-agreement/R2-recalibration-math-2026-05-19.md` (§ 1-8 calibration math; § 9 second-pass smoke addendum; § 10 to be extended with engagement-geometry math)
+- Sibling drift instance (Drift-16): one-level-up sibling; Drift-16 is one-instrument-correction → one-recalibration, Drift-17 is multi-scaffolding-with-coupling → iterative-dispositions
+- Pattern P5 (multi-parameter joint analysis): canonical pattern; this instance is P5 applied to measurement-instrument-design level
+- Sibling P5 instances: Drift-7 (View A/B/C; runtime view-state) + Drift-16 (calibration-vs-instrument; this section above)
+- WP-R2-A-1 / WP-R2-A-2 / WP-R2-A-3 (engagement-geometry parity): `agentic_orchestration/hive-mind/watchpoints-engine-rebuild-2026-05-19.md`
+
+**Discipline #13 instance:** YES — instance of "implicit-pillar drift" applied to the measurement-instrument-coupling-design layer. The implicit pillar `measurement instruments with multiple scaffolding decisions enumerate the coupling matrix at design time so that downstream consumers (re-tests; threshold validations; pass/fail gates) can be load-tested under the joint behavior` was never explicitly stated and not structurally enforced. Same shape as Drift-7 (View A/B/C) applied at the measurement-instrument-design level (vs runtime view-state level).
+
 ---
 
 ## Cross-cutting drift patterns
