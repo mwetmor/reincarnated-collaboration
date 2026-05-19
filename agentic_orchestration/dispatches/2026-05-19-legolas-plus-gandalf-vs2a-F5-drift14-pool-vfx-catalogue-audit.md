@@ -164,3 +164,40 @@ Per F3 framework + 2026-05-17 commission § Track A:
 **Readiness signal:** gandalf Track B re-scoring pass UNBLOCKED. Estimated effort: 2–3h gandalf (4–5 borderline adjudications + culled-pool summary if material changes land). Tag fire `vs2a/v0.10-drift14-audit-complete` ready when Track A + Track B both complete.
 
 *Completion record appended by legolas 2026-05-19.*
+
+---
+
+## Track B completion record — gandalf — 2026-05-19
+
+**Status:** COMPLETE. Filed 2026-05-19 under autonomous-operation authority (VS2a hive-mind protocol § 4.0; pre-approval-batch authority Matt 2026-05-19).
+
+**Outputs:**
+- Culled-pool summary: `canonical/story/pool-vfx-mapping-culled-2026-05-19.md`
+- Manifest amendments (5 entries): `reincarnated-engine/data/seasonal_elements/vfx_coverage_manifest.json`
+- Drift-14 entry CLOSED: `canonical/story/drift-audit.md` § Drift-14
+- D15 candidate REQUEST: hive log `engine-rebuild-log.md` (concurrent STATE entry)
+
+**Acceptance criteria status:**
+- [x] 5 borderline cases adjudicated (`fume` / `bone` / `blood` / `web` / `miasma`)
+- [x] 2 tier upgrades C→D (`bone`, `web`); 3 rationale-text corrections (`fume`, `blood`, `miasma`)
+- [x] Manifest JSON validates; 156 entries; tier distribution A=29 / B=57 / C=39 / D=23 / E=8
+- [x] Total `vfx_catalogue_mapping_clean=True` unchanged at 86 entries
+- [x] No `d1_status` changes; no allow-list shifts; auto-demote outcome unchanged (57 effective post-demote)
+- [x] Culled-pool summary doc filed with adjudication outcomes + manifest verification + selector-side recommendation
+- [x] Selector-side: NO new rocket dispatch required (Track 1+2 shipped 2026-05-17; Track 3 DEFERRED post-VS2a per F3 § 6.1)
+- [x] Drift-14 entry update — status: CLOSED
+- [x] D15 candidate REQUEST filed in hive log
+- [x] Tag-fire request surfaced: `vs2a/v0.10-drift14-audit-complete` (Track A + B joint milestone)
+
+**Key adjudication outcomes:**
+- `fume` — Tier-C confirmed; rationale corrected from "no visual register" to genre-standard poison-cloud composite (D2 Necromancer / D3 Witch Doctor / PoE Caustic Arrow / Last Epoch Necrotic).
+- `bone` — Tier-D upgrade. Cross-genre evidence (D2 Necromancer Bone Spear / PoE Volatile Dead / Grim Dawn Bone Harvest / Last Epoch Reaper Form) is unambiguous: bone-VFX is categorically a death-necrotic substrate, NOT modified-earth. Coherent rendering requires the `shadow` substrate (vocab-frozen for Phase-1 P1).
+- `blood` — Tier-C confirmed for VFX-axis; rationale text now distinguishes VFX-axis (Tier-C palette-shift achievable) from design-axis (eligible permanence is DESIGN-INTENT not VFX-incoherence).
+- `web` — Tier-D upgrade. Strand-structure crosses F3 § 2.1 minor-compositing threshold; no ARPG renders web via palette-shifted particle effects (D2 Andariel / PoE Spider's Cage / Grim Dawn Spider Queen all use bespoke sprite work).
+- `miasma` — Tier-C confirmed; rationale text clarifies the `vocab-obscure` tag is D1-axis (2026-05-12 manual override), NOT VFX-axis — eliminates ambiguity for forward readers.
+
+**Operating mode:** AUTONOMOUS per protocol § 4.0. No Matt-wait. L2-equivalent design-steward authority.
+
+**Drift-14 closure complete.** F3 + F5 Track A + F5 Track B + 2026-05-17 implementation cascade together close the structural gap. The canonical-bias residue dissolves from the per-season vocabulary surface.
+
+*Completion record appended by gandalf 2026-05-19.*
