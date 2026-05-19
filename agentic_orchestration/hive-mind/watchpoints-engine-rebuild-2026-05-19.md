@@ -405,6 +405,10 @@ After R1 convergence loop ships and Test 1 reveals the failure cascade, gamora b
 | WP-D14-1 (coalescence prompt Discipline #14) | CLOSED — prior session | 2026-05-19 |
 | WP-D14-2 (--theme-input new sites) | OPEN — rocket R8 pipeline shipped (`bfa3fc3`); no new LLM prompt sites observed that leak canonical-four as structural keys; monitoring | 2026-05-19 impl-pass |
 | WP-D17-1 (retuning lever smoke gate) | CLOSED — sprint v3 5-class smoke + targeted reachability test executed before full 51-class sprint; Discipline #17 satisfied | 2026-05-19 gate1-pass |
+| WP-R1-C-1 (Discipline #1 math note for R2) | CLOSED — math note `R2-spatial-combat-math-2026-05-19.md` precedes implementation in same commit `18dfc4c`; confirmed by Gate-1 review 2026-05-19 | 2026-05-19 r2-gate1 |
+| WP-R2-A-1 (name-heuristic mis-classification) | OPEN — 51-class run not yet executed; monitoring | 2026-05-19 r2-gate1 |
+| WP-R2-B-1 (star-lord schema 2.12 round-trip) | OPEN — star-lord DB writer not yet implemented; gates production graduation tag | 2026-05-19 r2-gate1 |
+| WP-R2-C-1 (damage calibration smoke before 51-class run) | OPEN — armor mitigation fix pending gamora next session | 2026-05-19 r2-gate1 |
 
 **New watchpoints added this session (in-flight work):**
 
@@ -414,6 +418,14 @@ After R1 convergence loop ships and Test 1 reveals the failure cascade, gamora b
 | WP-R1-C-2 (rolling median future session) | gamora | When rolling median is added: window MUST reset on modifier change, not iteration count. Math note + docstring both document this. No action now; trigger if future implementation omits the reset. | LOW — future session only |
 | WP-PLAYTEST-1 (v0.12 tag trigger) | knight-rider / drax | `hive-rebuild/v0.12-r5-hypothesis-test-passed` fires when Matt playtest confirms kite-default reduction (Test 2). Static-analysis 81% projection is credible but insufficient. | LOW — gate is clear |
 | WP-PLAYTEST-2 (v0.16 tag trigger) | knight-rider / drax | `hive-rebuild/v0.16-r4-hypothesis-test-passed` fires when Matt playtest confirms Tests 1, 2, 4. Test 3 (out-of-range visual) is in-session verifiable NOW — knight-rider may fire that sub-criterion independently if useful. | LOW — gate is clear |
+
+**New watchpoints added 2026-05-19 — jack-ryan R2 Gate-1 session:**
+
+| WP | Owner | Condition | Risk |
+|---|---|---|---|
+| WP-R2-A-1 (name-heuristic mis-classification) | gamora | In 51-class full run: if `geometry_type_dominant = "mixed"` exceeds 20% of classes, investigate name-heuristic keyword collision. Threshold: >20% "mixed" triggers OBSERVATION. Resolution: VS2a `geometry_type` schema field. | LOW — scaffolding approximation; acceptable for hypothesis-test phase |
+| WP-R2-B-1 (star-lord schema 2.12 round-trip) | star-lord | Production-graduation tag for R2 may NOT fire before star-lord's concrete `SpatialTelemetryWriter` DB writer is smoke-tested end-to-end: fight → `SpatialFightResult` → `write_fight_result()` → DB row queryable. `validate()` confirmed called before write. Pattern P7 at DB write boundary. | HIGH — R11(b) obligation |
+| WP-R2-C-1 (damage calibration smoke before 51-class run) | gamora | Full 51-class R2 sprint must not fire before 5-class smoke (with armor mitigation fix applied) confirms non-degenerate WR (≥0.10 for at least 2 classes in open arena scenario). Discipline #17 environment-fidelity: smoke environment must include armor mitigation factor. | MEDIUM — Discipline #17 |
 
 ---
 

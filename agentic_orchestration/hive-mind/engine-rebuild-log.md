@@ -2422,3 +2422,61 @@ MIGRATION.md v1.18: spatial_fight_results table schema spec (star-lord consumes 
 
 **Engine commit:** (pending this session's commit)
 **Collab commit:** (pending this session's commit)
+
+---
+
+## 2026-05-19 — jack-ryan Gate-1 review R2 spatial combat math note
+
+### [2026-05-19] OBSERVATION — jack-ryan — Gate-1 review R2 math note (commit `18dfc4c`, tag `gamora/v1.9-r2-scaffolding-1`)
+
+**Scope:** Gate-1 review of `R2-spatial-combat-math-2026-05-19.md` per Discipline #1 LOAD-BEARING gate requirement. Covers §§ 1–12 of math note + implementation cross-check against `spatial_gauntlet/` module.
+
+**Documents reviewed:** engine-rebuild-log.md (post-12bc604), R2-spatial-combat-math-2026-05-19.md, R2-scenario-design-2026-05-19.md, spatial_engine.py, arena.py, spatial_telemetry.py, engine-rebuild-2026-05-19-gap-solutions-and-tests.md § 3, watchpoints-engine-rebuild-2026-05-19.md, engineering-disciplines.md (#1 + P7 + R11(b)).
+
+**Finding summary:**
+
+1. **Discipline #1 compliance:** PASS. Math note authored before or concurrently with implementation (same commit `18dfc4c`); all major subsystems documented with exact formulas before code. No implementation-without-math instances.
+
+2. **Position representation + boundary clamping:** PASS. 2D Cartesian in meters, origin bottom-left, boundary clamping formula exact-match between math note and `arena.py:63-77`. Spawn position semantics correct.
+
+3. **Distance + movement math:** PASS. Euclidean distance, `max_step × dt`, navigation target logic all match math note exactly. All six AI behavior types implemented; `hit_and_run` documented as `ranged_kite` approximation.
+
+4. **Collision math:** PASS. Soft push-apart formula with `SEPARATION_FORCE_CONSTANT=2.0` verified: at full overlap, push ≈ 0.8m/tick → clears in ~2 ticks as stated. Hard boss collision body enforced correctly. O(N²) at N≤13 acceptable.
+
+5. **AOE geometry:** PASS (with WARN-1). Circle, cone, line all match math note formulas. Cone hit probability arithmetic verified: gamora's 0.008 figure confirmed. Name-heuristic for cone/line accepted as scaffolding approximation — Pattern P7 risk documented and acknowledged.
+
+6. **Flanking math:** WARN-2. Algorithm is correct. Spawn position boundary condition: Add 1 at (4,25) and Add 2 at (26,25) produce delta = exactly 90.0° from player heading → NOT counted as flanking under strict inequality (`delta > π/2`). Scenario design intends these as flanking positions. Fix: adjust to (3,26) and (27,26) → delta ≈ 94.8° → correctly flanking.
+
+7. **Chokepoint math:** PASS. Zone clamping `[2.5, 7.5]` at y∈[23,27] correct. Bottleneck width math verified (5 entity widths; 3 mobs abreast practical). Chokepoint hit detection uses mob y-position at hit time — correct signal.
+
+8. **Telemetry schema:** PASS. All 20 fields semantically clear. `SpatialFightResult.validate()` enforces Pattern P7 at write time — called even in `NullSpatialTelemetryWriter`. R11(b) round-trip obligation open for star-lord's schema 2.12 implementation. `export/MIGRATION.md` is star-lord's obligation next session. `simulation/MIGRATION.md v1.18` authored (gamora's side, ADR-004 met).
+
+9. **Q1 (geometry_type field):** DEFER. Name-heuristic acceptable for scaffolding + full 51-class run. R3 schema extension deferred to VS2a when `geometry_type` becomes load-bearing for kit redesign. No cross-seam work initiated now.
+
+10. **Q2 (area_radius_m):** DEFER. Per-category defaults sufficient for R2 hypothesis-test phase. Deferred to VS2a/VS2b.
+
+11. **Q3 (preferred_range_m formula):** PASS. Weighted average formula verified correct; `range_profile_redistribution` weights validated to sum to 1.0 ± 0.01 by `monster_schema.py` at generation time. Formula is a proper weighted average, not an unnormalized sum.
+
+**Gate-1 verdict:** CONDITIONAL PASS. Spatial math substrate sound; no BLOCK items. Two WARNs:
+- WARN-1 (name-heuristic P7 risk): accepted for scaffolding; watchpoint filed.
+- WARN-2 (flanking spawn boundary): spawn position tweak required before production graduation tag.
+
+**Production graduation:** R2 may proceed to next-session work (damage calibration + full 51-class run + hypothesis tests). Production-graduation tag gates on: (a) WARN-2 spawn fix, (b) damage calibration smoke gate, (c) star-lord R11(b) round-trip, (d) hit_fraction field computation.
+
+**Finding file:** `agentic_orchestration/hive-mind/gate1-r2-math-note-2026-05-19.md`
+
+### [2026-05-19] DECISION — jack-ryan — Three open-question dispositions + new watchpoints
+
+**Q1 disposition:** DEFER `geometry_type` R3 schema extension → VS2a. Name-heuristic operative for full R2 run. Rationale: R3 schema already shipped; reopening mid-rebuild disproportionate. `geometry_type` is load-bearing only when kit redesign assigns explicit spatial intent (VS2a).
+
+**Q2 disposition:** DEFER `area_radius_m` per-skill field → VS2a/VS2b. Per-category defaults adequate for hypothesis-test phase. 977-skill backfill cost not justified at this stage.
+
+**Q3 disposition:** PASS. Formula is a proper weighted average given `range_profile_redistribution` weight validation in `monster_schema.py`. Mathematically defensible.
+
+**New watchpoints filed in `watchpoints-engine-rebuild-2026-05-19.md`:**
+- WP-R2-A-1: Name-heuristic mis-classification tracking (LOW risk; threshold: "mixed" dominant geometry < 20% of classes in 51-class run)
+- WP-R2-B-1: star-lord schema 2.12 round-trip before production graduation (HIGH risk; Pattern P7 at DB write boundary)
+- WP-R2-C-1: Damage calibration smoke gate before full 51-class run (MEDIUM risk; Discipline #17)
+
+**Watchpoint closure:**
+- WP-R1-C-1 (Discipline #1 math note for R2): CLOSED — math note precedes implementation; confirmed in commit `18dfc4c`.
