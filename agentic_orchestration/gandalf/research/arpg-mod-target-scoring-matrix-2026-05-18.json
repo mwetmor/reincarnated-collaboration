@@ -1,0 +1,405 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ARPG Mod-Target Scoring Matrix",
+  "description": "Machine-readable companion to arpg-mod-target-database-2026-05-18.md and arpg-mod-target-ranked-recommendations-2026-05-18.md. Captures the Modding Fit Score (MFS) per candidate target with axis breakdowns. Authored by gandalf 2026-05-18.",
+  "authored": "2026-05-18T23:00:00Z",
+  "methodology": {
+    "axes": {
+      "kpi_compatibility": {
+        "description": "Does the host model fights similarly to Reincarnated? Spatial substrate, geometry system, range/AOE/AI pattern match, balance methodology.",
+        "scale": "1-5",
+        "weight": 0.20
+      },
+      "schema_compatibility": {
+        "description": "How cleanly does Reincarnated JSON output map to host's required input schema?",
+        "scale": "1-5",
+        "weight": 0.35
+      },
+      "pipeline_accessibility": {
+        "description": "Official tools / SDK quality, distribution channel, mod-merging, learning curve.",
+        "scale": "1-5",
+        "weight": 0.30
+      },
+      "community_vitality": {
+        "description": "2024-2026 active modder base, reachable audience, mod-creator engagement.",
+        "scale": "1-5",
+        "weight": 0.15
+      }
+    },
+    "score_interpretation": {
+      "5": "Perfect / vibrant / direct 1:1 map",
+      "4": "Strong / active / minor translation",
+      "3": "Moderate / sustained / moderate translation",
+      "2": "Weak / niche / significant translation",
+      "1": "Incompatible / dormant / cannot mod without source"
+    },
+    "tier_bands": {
+      "PRIMARY": "MFS >= 4.0 — recommended primary mod-export target",
+      "PRIMARY-2": "MFS 3.7-3.99 — strong secondary target",
+      "Secondary": "MFS 3.0-3.69 — viable with caveats",
+      "Niche": "MFS 2.0-2.99 — proof-of-concept only",
+      "NotViable": "MFS < 2.0 — platform-dead or technically intractable"
+    },
+    "revision_triggers": [
+      "If top-MFS candidate is commercially impotent, re-weight community-vitality up",
+      "If top-MFS candidate requires fundamental engine work that defeats quick-modding goal, re-weight schema-compatibility up",
+      "If multiple candidates tie at high MFS, introduce 5th axis: Pipeline maturity (patch-resistance / stability)"
+    ]
+  },
+  "producer_profile": {
+    "name": "Reincarnated Engine",
+    "version": "1.4-d3-path-a",
+    "output_artifacts": [
+      {
+        "type": "monster_json",
+        "path_pattern": "season_*/monsters/monster_NNNNN.json",
+        "field_count": 14,
+        "key_fields": ["id", "name", "threat_tier", "archetype_tag", "energy_type", "role_orientation", "range_profile", "dominant_element", "seasonal_dominant_element", "max_hp", "armor", "elemental_resistances", "skills", "balance_metadata", "movement_speed"]
+      },
+      {
+        "type": "class_json",
+        "path_pattern": "season_*/classes/class_NNNN.json",
+        "field_count": 14,
+        "key_fields": ["id", "name", "title_completion", "flavor_text", "archetype_tag", "energy_type", "role_orientation", "range_profile", "dominant_element", "seasonal_dominant_element", "color_palette", "stat_distribution", "skills", "carried_gear", "balance_metadata", "movement_speed"]
+      },
+      {
+        "type": "skill_json",
+        "path_pattern": "embedded in monster/class skills arrays",
+        "field_count": 21,
+        "key_fields": ["id", "name", "composition_mode", "role", "canonical_element", "seasonal_element", "geometry_type", "effect_category", "canonical_pair_ref", "energy_cost", "cooldown_seconds", "damage_multiplier", "effects", "color_value", "flavor_text", "tier", "chain_id", "chain_position", "parent_skill_ids", "scaling_coefficient", "trait_slots", "unlock_flavor", "cast_time", "damage_resolution_time", "i_frame_window"]
+      },
+      {
+        "type": "gear_json",
+        "path_pattern": "season_*/gear/[slot]/[tier]/item_NNNNN.json",
+        "field_count": 25,
+        "key_fields": ["id", "base_type_id", "slot", "tier", "rarity_score", "handedness", "dominant_element", "stats", "rolled_effects", "ability_modifiers", "traits", "stat_requirements", "power_score", "class_fit_profile", "canonical_pair_ref", "color_value", "color_palette", "color_signature", "set_id", "set_position", "set_piece_count_required", "name", "flavor_text", "visual_prompt", "season_id", "generation_mode"]
+      },
+      {
+        "type": "season_manifest",
+        "path_pattern": "season_*/manifest.json",
+        "field_count": 15,
+        "key_fields": ["manifest_version", "season_id", "generated_at", "engine_git_sha", "engine_version", "generation_seed", "season_theme_element", "anchor", "elements", "seasonal_elements", "elements_metadata", "cosmological_vocabulary", "summary", "validation_passed"]
+      }
+    ],
+    "schema_gaps": {
+      "for_path_b_mod_export": [
+        "per_skill_range_in_tooltip_units",
+        "per_skill_spatial_footprint_dimensions",
+        "vfx_audio_asset_bindings",
+        "ai_behavior_specification_beyond_archetype_priority"
+      ],
+      "for_path_a_standalone": [
+        "all_of_path_b_gaps",
+        "aggro_radius_per_mob",
+        "leash_distance_per_mob",
+        "telegraph_window_per_skill",
+        "world_geometry_quest_structure"
+      ]
+    },
+    "internal_kpis": {
+      "geometry_type_count": 24,
+      "canonical_role_count": 9,
+      "canonical_ailment_count": 8,
+      "canonical_substrate_count": 8,
+      "element_pool_size": 156,
+      "tick_size_seconds": 0.1,
+      "max_fight_duration_seconds": 120.0,
+      "balance_loop_max_iterations": 10,
+      "balance_loop_wr_tolerance": 0.03,
+      "pack_proxy_size": 8,
+      "per_hit_damage_variance_band": "+/-20%",
+      "per_fight_dps_variance_band": "+/-25%",
+      "llm_calls_per_season_typical": 317,
+      "llm_cost_per_season_usd_typical": 0.74
+    }
+  },
+  "scoring_matrix": [
+    {
+      "rank": 1,
+      "name": "Grim Dawn",
+      "developer": "Crate Entertainment",
+      "year": 2016,
+      "modding_pipeline": "Asset Manager + World Editor + Database Editor + Quest Editor + Lua",
+      "scores": {"kpi": 3, "schema": 4, "pipeline": 5, "community": 4},
+      "mfs": 4.05,
+      "tier": "PRIMARY",
+      "phase_assignment": "Phase 1",
+      "effort_estimate_weeks": "6-9",
+      "key_friction": ["One-mod-at-a-time constraint", "v1.2 modding tool compat verify", "no Steam Workshop"],
+      "key_precedent": "Dawn of Masteries (53 ported classes); Grimarillion compilation"
+    },
+    {
+      "rank": 2,
+      "name": "Titan Quest Anniversary Edition",
+      "developer": "THQ Nordic / Iron Lore (orig 2006)",
+      "year": 2016,
+      "modding_pipeline": "ARC tools (official) + Art Manager + ARZ Explorer + Mod Merge",
+      "scores": {"kpi": 4, "schema": 3.5, "pipeline": 3.5, "community": 2.5},
+      "mfs": 3.275,
+      "tier": "Secondary",
+      "phase_assignment": "Phase 2",
+      "effort_estimate_weeks_incremental_over_phase_1": "2-3 for adapter; plus per-mastery UI art authoring",
+      "key_friction": ["UI authoring overhead: 8+ DBR files + art assets per mastery", "Affix library structural mismatch with Reincarnated rolled_effects", "One-mod-at-a-time engine constraint (same as GD)", "Community ~742 avg concurrent May 2026"],
+      "key_precedent": "ShadowChampions Multimaster (Mar 2025); Legion of Champions Reloaded (active May 2026); TQ→GD ports established practice (GD→TQ direction unconfirmed but architecturally feasible)",
+      "wave_2a_revision_note": "Revised down from 3.85 — UI authoring + affix mismatch + smaller community than initial estimate"
+    },
+    {
+      "rank": 3,
+      "name": "Torchlight 2",
+      "developer": "Runic Games / Echtra",
+      "year": 2012,
+      "modding_pipeline": "GUTS editor (official) + DAT plain-text format + Steam Workshop auto-sync via .sch + Nexus",
+      "scores": {"kpi": 4, "schema": 3.5, "pipeline": 4, "community": 2},
+      "mfs": 3.525,
+      "tier": "Secondary",
+      "phase_assignment": "Phase 3 Option A (preferred over Terraria)",
+      "effort_estimate_weeks": "3-4",
+      "key_friction": ["~250 daily concurrent player base", "Game stagnant since 2017 Runic shutdown", "Class-registration single-conflict-point (options/character-select file)", "10-mod simultaneous limit"],
+      "key_precedent": "SynergiesMOD (4 new classes — 661k subscribers); TL2-ACE (6 classes + 2 acts); Classes Reborn (40+ classes); 90+ individual class mods in 'New Characters and Classes' collection",
+      "wave_2a_revision_note": "Revised up from 3.50 — DAT text format directly editable (no GUTS required); Workshop auto-sync better than GD/TQ; class injection pattern most-traveled. SynergiesMOD has NO license for third-party builds (drops SynergiesMOD-nest option)."
+    },
+    {
+      "rank": 4,
+      "name": "Terraria (tModLoader)",
+      "developer": "Re-Logic + tModLoader community",
+      "year": 2011,
+      "modding_pipeline": "tModLoader (official, C# / .NET 8) + Steam Workshop",
+      "scores": {"kpi": 2, "schema": 2, "pipeline": 5, "community": 4},
+      "mfs": 3.20,
+      "tier": "Secondary",
+      "phase_assignment": "Phase 3 Option B (presentation pivot)",
+      "effort_estimate_weeks": "4-6 plus substantial art re-authoring",
+      "key_friction": ["NO runtime JSON path; all content compile-time C#", "Per-season cadence requires weekly rebuild + Workshop push", "2D side-scrolling presentation requires full art re-authoring at 16-64px native pixel art"],
+      "key_precedent": "Calamity Mod (9.18M subscribers); Thorium Mod (3 new classes); kRPG (closest procedural-item analog)",
+      "concurrent_players_2026": "~32k avg / 79k peak Feb 2026"
+    },
+    {
+      "rank": 5,
+      "name": "Minecraft (Forge/Fabric)",
+      "developer": "Mojang / Microsoft",
+      "year": 2011,
+      "modding_pipeline": "Forge + Fabric + CurseForge (largest mod ecosystem)",
+      "scores": {"kpi": 2, "schema": 2, "pipeline": 4, "community": 5},
+      "mfs": 2.85,
+      "tier": "Niche",
+      "phase_assignment": "Not recommended Phase 1-3",
+      "key_friction": ["Voxel aesthetic deeply distinct", "Minecraft UX conventions mandatory", "Genre adjacency Moderate-Low in practice"],
+      "key_precedent": "Vault Hunters (ARPG looter modpack); ~11M active modded-Minecraft monthly"
+    },
+    {
+      "rank": 6,
+      "name": "Rimworld",
+      "developer": "Ludeon Studios",
+      "year": 2018,
+      "modding_pipeline": "Steam Workshop (XML + C# DLLs)",
+      "scores": {"kpi": 1, "schema": 2, "pipeline": 4, "community": 4},
+      "mfs": 2.50,
+      "tier": "Niche",
+      "key_friction": ["Colony sim loop vs ARPG combat loop"],
+      "key_precedent": "Star Wars KOTOR TC; TiberiumRim; Rim-Effect"
+    },
+    {
+      "rank": 7,
+      "name": "Baldur's Gate 3",
+      "developer": "Larian Studios",
+      "year": 2023,
+      "modding_pipeline": "BG3 Script Extender v31 (Norbyte, Apr 2026) + official Toolkit (Patch 7 Sept 2024) + in-game mod.io manager + LSX/LSF formats",
+      "scores": {"kpi": 1, "schema": 1.5, "pipeline": 3.5, "community": 5},
+      "mfs": 2.525,
+      "tier": "Niche",
+      "phase_assignment": "Optional outreach play post Phase 1-3",
+      "key_friction": ["Real-time vs turn-based fundamental mismatch", "24 geometries → ~8 SpellTypes collapse", "cooldown_seconds → action economy", "energy_cost continuous → spell slots discrete", "stat_distribution 270 → 5e 1-20", "HP scale 3,820 → 50-300 bounded 5e", "Duration seconds → turns (6s/turn)"],
+      "key_precedent": "Artificer mod (Nexus 1779); Blood Hunter (2151); 5e Cleric Subclasses Combined (16007); Expansion Level 13-20 (279); 15,000+ Nexus mods",
+      "wave_2a_revision_note": "Revised up from 2.25 — pipeline + community stronger than initial; mechanical fit weaker. Best framed as 'subclass injection per Reincarnated elemental archetype' for community-engagement / brand-presence play, not faithful port."
+    },
+    {
+      "rank": 8,
+      "name": "Elden Ring",
+      "developer": "FromSoftware",
+      "year": 2022,
+      "modding_pipeline": "Mod Engine 2 + Elden Mod Loader + Nexus",
+      "scores": {"kpi": 2, "schema": 2, "pipeline": 3, "community": 5},
+      "mfs": 2.65,
+      "tier": "Niche",
+      "key_friction": ["Souls class system is just starting equipment (no build-system depth)", "Audience expects punishing action not procedural ARPG", "Shadow of Erdtree DLC 2024 disrupted mod compat"],
+      "key_precedent": "The Convergence (new spells / weapons / areas / enemies); ER Reforged"
+    },
+    {
+      "rank": 9,
+      "name": "Dark Souls 3",
+      "developer": "FromSoftware",
+      "year": 2016,
+      "modding_pipeline": "DSMapStudio + Nexus",
+      "scores": {"kpi": 2, "schema": 2, "pipeline": 3, "community": 4},
+      "mfs": 2.50,
+      "tier": "Niche",
+      "key_friction": ["Same Souls audience concerns as Elden Ring"],
+      "key_precedent": "Cinders (Feb 2025); Archthrones (Mar 2025); The Convergence DS3"
+    },
+    {
+      "rank": 10,
+      "name": "Crusader Kings 3",
+      "developer": "Paradox",
+      "year": 2020,
+      "modding_pipeline": "PDX Clausewitz (Jomini) + Steam Workshop",
+      "scores": {"kpi": 1, "schema": 1, "pipeline": 4, "community": 4},
+      "mfs": 2.20,
+      "tier": "Niche",
+      "key_friction": ["Dynasty management not ARPG combat loop"],
+      "key_precedent": "Elder Kings 2 (TES TC); Godherja; LotR Realms in Exile"
+    },
+    {
+      "rank": 11,
+      "name": "Mount & Blade II: Bannerlord",
+      "developer": "TaleWorlds",
+      "year": 2022,
+      "modding_pipeline": "BSE + Nexus + ModDB + Steam Workshop",
+      "scores": {"kpi": 1, "schema": 1, "pipeline": 4, "community": 4},
+      "mfs": 2.20,
+      "tier": "Niche",
+      "key_friction": ["Sandbox combat not ARPG dungeon-crawl"],
+      "key_precedent": "Game of Thrones TC; The Old Realms (magic + undead)"
+    },
+    {
+      "rank": 12,
+      "name": "V Rising",
+      "developer": "Stunlock Studios",
+      "year": 2022,
+      "modding_pipeline": "BepInEx + Thunderstore",
+      "scores": {"kpi": 2, "schema": 2, "pipeline": 3, "community": 3},
+      "mfs": 2.40,
+      "tier": "Niche",
+      "key_friction": ["Smaller community than top-tier", "Thunderstore discovery lower than Nexus"],
+      "key_precedent": "Bloodcraft (class + leveling + professions + familiars + perk tree via BepInEx)",
+      "note": "MECHANICAL RESONANCE with Reincarnated boss-gallery + form-library loop"
+    },
+    {
+      "rank": 13,
+      "name": "Torchlight 2 SynergiesMOD nest",
+      "note": "Investigate as add-on host to TL2 base; depends on SynergiesMOD openness verdict (Wave 2A)"
+    },
+    {
+      "rank": 14,
+      "name": "Diablo II Median XL / Project D2",
+      "developer": "Blizzard (orig)",
+      "year": 2000,
+      "modding_pipeline": "MPQ archives + fan loaders (plugY / D2Mod / D2SE)",
+      "scores": {"kpi": 4, "schema": 3, "pipeline": 1, "community": 3},
+      "mfs": 2.70,
+      "tier": "Niche",
+      "key_friction": ["Archaic 25-year-old engine MPQ pipeline", "D2R explicitly excluded by Median XL team", "SP only legal-footing weak"],
+      "key_precedent": "Median XL (full overhaul); Project Diablo 2"
+    },
+    {
+      "rank": 15,
+      "name": "Starfield",
+      "developer": "Bethesda",
+      "year": 2023,
+      "modding_pipeline": "Creation Kit (official 2024) + CK Platform Extended + Nexus",
+      "scores": {"kpi": 1, "schema": 2, "pipeline": 4, "community": 4},
+      "mfs": 2.45,
+      "tier": "Niche",
+      "key_friction": ["Sci-fi genre mismatch; Bethesda perk architecture deeply locked-in"],
+      "key_precedent": "Star Wars Genesis modlist"
+    },
+    {
+      "rank": 16,
+      "name": "Dragon's Dogma 2",
+      "developer": "Capcom",
+      "year": 2024,
+      "modding_pipeline": "REFramework (Lua API)",
+      "scores": {"kpi": 2, "schema": 2, "pipeline": 3, "community": 3},
+      "mfs": 2.50,
+      "tier": "Niche",
+      "key_friction": ["RE Engine recombination-only; total-conversion not feasible", "Sub-genre mismatch (action-RPG vs looter-ARPG)", "December 2024 patch broke many mods"],
+      "key_precedent": "SkillMaker; DD2_VocationKit; Dullahan Overhaul",
+      "note": "Director recommendation #2"
+    },
+    {
+      "rank": 17,
+      "name": "Wolcen: Lords of Mayhem",
+      "developer": "Wolcen Studio",
+      "year": 2020,
+      "modding_pipeline": "XML file replacement in encrypted CryEngine .PAK archives",
+      "scores": {"kpi": 3, "schema": 1, "pipeline": 2, "community": 1},
+      "mfs": 1.65,
+      "tier": "NotViable",
+      "key_friction": ["Platform end-of-life; last patch Jul 2023; multiplayer shut down Sept 2024", "~24 avg concurrent May 2026", "No Steam Workshop", "Cannot mod Gate of Fates / AI behaviors / skill animations"],
+      "note": "Director recommendation #1 — technical inversion finding"
+    }
+  ],
+  "tier_summary": {
+    "PRIMARY": ["Grim Dawn"],
+    "Secondary": ["Torchlight 2", "Titan Quest Anniversary Edition", "Terraria/tModLoader"],
+    "Niche": ["Minecraft", "Rimworld", "Baldur's Gate 3", "Elden Ring", "Dark Souls 3", "Crusader Kings 3", "Mount & Blade Bannerlord", "V Rising", "Diablo II Median XL", "Starfield", "Dragon's Dogma 2"],
+    "NotViable": ["Wolcen"]
+  },
+  "wave_2a_summary": {
+    "completion_timestamp": "2026-05-18T23:55:00Z",
+    "agents_returned": ["Titan Quest AE", "Torchlight 2", "Terraria/tModLoader", "Baldur's Gate 3"],
+    "tier_movements": {
+      "Titan Quest AE": "PRIMARY-2 → Secondary (UI authoring + affix mismatch + smaller community)",
+      "Torchlight 2": "Secondary → Secondary (slight up; DAT text format / Workshop auto-sync)",
+      "Terraria/tModLoader": "Secondary → Secondary (down for compile-time-only constraint)",
+      "Baldur's Gate 3": "Niche → Niche (pipeline+community up, schema down)"
+    },
+    "primary_recommendation_unchanged": "Phase 1 Grim Dawn → Phase 2 Titan Quest AE → Phase 3 deferred",
+    "phase_3_recommendation_refined": "Torchlight 2 now stronger Phase-3 candidate than Terraria by MFS (3.525 vs 3.20); Terraria audience advantage holds but operational cost real",
+    "drops": ["SynergiesMOD-nest option (no license for third-party builds)"]
+  },
+  "recommended_sequencing": {
+    "phase_0_prerequisite": {
+      "weeks": "1-2",
+      "owner": "gamora",
+      "deliverable": "R1 — per-tier balance targets in gauntlet"
+    },
+    "phase_0b_schema_migration": {
+      "weeks": "3-5",
+      "owner": "rocket + star-lord + elrond",
+      "deliverable": "R3-subset — per-skill range + geometry params + AI behavior fields in catalogue + backfill 5 shipped seasons"
+    },
+    "phase_1": {
+      "weeks": "6-11",
+      "target": "Grim Dawn",
+      "owner": "rocket + star-lord",
+      "deliverable": "Grim Dawn DBR exporter; first single-class mod ship; Crate-forum modder community feedback loop"
+    },
+    "phase_2": {
+      "weeks": "12-14",
+      "target": "Titan Quest Anniversary Edition",
+      "owner": "rocket + star-lord",
+      "deliverable": "TQAE ARC adapter (translates GD exporter output to TQAE files); same first mod ported to TQAE"
+    },
+    "phase_3_options": {
+      "trigger": "Phase 1+2 reception evaluation",
+      "options": [
+        {
+          "name": "Option A - Torchlight 2 SynergiesMOD nest",
+          "weeks": "3-4",
+          "strategic_value": "completes ARPG-mastery-system mod-host trinity"
+        },
+        {
+          "name": "Option B - Terraria/tModLoader pivot",
+          "weeks": "4-6 plus art re-authoring",
+          "strategic_value": "maximum reach; aesthetic re-authoring is significant"
+        },
+        {
+          "name": "Option C - Path C transition",
+          "weeks": "Path C ops layer 6-10",
+          "strategic_value": "transitions mod-validation to engine-as-tool monetization"
+        }
+      ]
+    }
+  },
+  "outstanding_research": [
+    "Wave 2A: Titan Quest AE modding interface deep-dive (in flight)",
+    "Wave 2A: Torchlight 2 GUTS editor + SynergiesMOD openness (in flight)",
+    "Wave 2A: Baldur's Gate 3 Script Extender API + LSX schema (in flight)",
+    "Grim Dawn v1.2.0.0 modding tool compatibility verification",
+    "Titan Quest AE concurrent player base 2025-2026 Steam Charts data",
+    "Project Diablo 2 third-party class loader status update",
+    "V Rising Bloodcraft mod license / openness for nested platform use",
+    "Asset-binding model decision (human-art / host-default / LLM-image-gen / hybrid)",
+    "Per-host LLM naming budget approval"
+  ]
+}
