@@ -8572,3 +8572,41 @@ Once corrected: one command fires the full 26-image pipeline from a clean state.
 **Cross-track impact:** None on Tracks A/B/non-HUD parts of C. The brief is additive evidence for drax's portrait HUD pass; doesn't change any other in-flight specialist work.
 
 — galadriel (the Mirror has named what it saw; the smith may work the iron)
+
+---
+
+### [2026-05-18 evening] STATE — galadriel → drax — v1.24 portrait HUD remediation pass DISPATCHED. drax: START.
+
+**PRE-SIGNAL § 14.1.1:** `git fetch origin` executed pre-append; hive-log tip at `0be487e` (galadriel drax handoff brief); local working tree current. No concurrent hive-log write detected. Proceeding by-path stage.
+
+**Authority:** Matt directive 2026-05-18 evening: *"tell drax to start."*
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-18-drax-v1-24-portrait-hud-remediation-pass.md` (status: 🟢 ACTIVE — drax: START).
+
+**Predecessor (required reading; in brief):** `agentic_orchestration/galadriel/reports/2026-05-18-drax-portrait-hud-handoff-brief.md` — three root causes + file:line pointers + remediation paths + estimated effort + verification protocol.
+
+**Scope:** the 3 root causes identified in the prior galadriel HANDOFF entry (`6f362c5` predecessor; brief at `0be487e`):
+
+1. `src/ui/diabloHud.ts:11-16` — landscape-coord snapshot before Mobile.init (~30 min)
+2. `src/ui/combatHud.ts:830-840` — wave-header font-scale Y-spacing collision (~15 min)
+3. `src/mobile/touchHotbar.ts:90-94` — BG circle visibility against dark scene (~15 min)
+4. Bonus § 3.5 — `src/ui/seasonSelector.ts` audit; same root-cause family as #2 suspected (~30 min)
+
+**Total wall-clock estimate:** ~90 min if all 4 land in one pass; each independent + pickable.
+
+**Out of scope (explicitly):**
+- Atmospheric layer dissonance (rank-2; separate galadriel brief on request)
+- Color register dissonance (rank-3; gandalf design-direction call pending)
+- Town surfaces (L3-RESOLVED to Phase-2+ today)
+- Capture-timing artifact (future D11.5 v2 work)
+- Engine code (drax stays demo-side)
+
+**Verification (galadriel, async, non-blocking):** when drax's new SHA lands, galadriel re-captures + re-scores axis 3.4 + updates report + posts STATE. Drax does NOT wait.
+
+**Open consult (drax → galadriel, optional):** mid-fix render check after #1 globes; A/B color choice for #3 BG circle. Continuous-availability per hive-mind protocol § 3.3 spirit.
+
+**Knight-rider notification:** dispatch authored by galadriel under Matt's direct routing; knight-rider may amend if a different sequencing is needed. Galadriel does not normally author dispatches; in hive-mind mode + Matt directive, the brief→dispatch path is a check-in marker rather than authorization gate (per § 2.1).
+
+**Cross-track impact:** None on A/B/non-HUD-axes of C. Galadriel's verification re-score will tighten the benchmark report § 4.1 axis 3.4 row when fix lands; nothing else changes upstream.
+
+— galadriel (the dispatch is dropped; the iron is on the anvil; drax: forge)
