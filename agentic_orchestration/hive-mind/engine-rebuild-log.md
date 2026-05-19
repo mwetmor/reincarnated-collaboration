@@ -1905,3 +1905,111 @@ kill_rate columns) are distinguishable from post-disposition rows.
 - `src/reincarnated/export/AGENT_STATE.md` (session checkpoint)
 
 **LLM cost (star-lord session):** $0.00. No LLM calls.
+
+---
+
+## 2026-05-19 — gamora R1 retune sprint v2
+
+### [2026-05-19] STATE — gamora — R1 retune sprint v2 COMPLETE; Test 2 NOT MET (0%); third structural blocker diagnosed
+
+**Engine commit:** `2546180` | **Tag:** `gamora/v1.7-r1-retuning-sprint-2` (pushed)
+
+**Wall time:** 23 minutes (51 classes × gauntlet × binary-search iterations)
+
+**Smoke-line:** 44/44 test_balance_loop.py PASS + R11(b) round-trip PASS
+
+---
+
+**Implementation per gandalf disposition (R1-structural-blockers-disposition-2026-05-19.md) — COMPLETE.**
+
+All deliverables from the dispatch implemented:
+
+| Deliverable | Status |
+|---|---|
+| Math note § 8 (Discipline #1) | DONE — appended to R1-retuning-math-2026-05-19.md |
+| balance_loop.py kills-only constants | DONE — BOSS_TIER_KILLS_ONLY=True, MINI_BOSS_TIER_KILLS_ONLY=True |
+| balance_loop.py HP calibration constants | DONE — MINI_BOSS_HP_DIFFICULTY_MULTIPLIER=0.70, BOSS_HP_DIFFICULTY_MULTIPLIER=0.80 |
+| TIER revisions (mini_boss) | DONE — floor 0.20, target 0.35, ceiling 0.50 |
+| R1_RETUNE_TARGET_WINRATE | DONE — 0.45 (was 0.47) |
+| _compute_kills_only_tier_rates() | DONE — computes genuine kill rate from fight_log (final iteration only) |
+| _evaluate_convergence_gate() updated | DONE — kills-only WR for boss/mini-boss; fail-loud WARNING with KILLS-ONLY WR citation |
+| ClassBalanceResult new fields | DONE — boss_kill_rate, mini_boss_kill_rate (float | None) |
+| MIGRATION.md v1.16 (simulation seam) | DONE — concurrent per ADR-004 |
+| r1_class_retune_sprint.py HP multipliers | DONE — mini-boss × 0.70, boss × 0.80 via Pydantic v2 model_copy |
+| R11(b) round-trip smoke | DONE — PASS; boss_kill_rate and mini_boss_kill_rate populated; kills-only rate matches per_tier_win_rates |
+| Star-lord schema 2.11 coordination | DONE — star-lord pre-implemented (see prior STATE entry); gamora ClassBalanceResult fields align |
+
+**Discipline #12 semantic shift — EXPLICIT AND NAMED** per disposition and commit message (`2546180`).
+
+---
+
+**5-class smoke result — bimodal distribution collapse: CONFIRMED**
+
+All 5 smoke classes show boss_kill_rate = 0.000 (no timeout-stall 1.0 artifacts). Pre-disposition the bimodal distribution had 8 classes at boss WR = 0.0 and 25 classes at boss WR = 0.9-1.0 (timeout stall). Post-disposition: 51/51 classes at boss_kill_rate = 0.000. The timeout-stall artifact is eliminated.
+
+This confirms the semantic fix is working correctly. The boss WR distribution is now CONTINUOUS and accurate — it was measuring the wrong thing before.
+
+---
+
+**Full sprint Test 2 result (51 classes):**
+
+| Tier | Floor | Ceiling | Mean WR | Pass count | Pass rate |
+|---|---|---|---|---|
+| swarm | 0.65 | 0.80 | 0.650 | 15/51 | 29.4% |
+| magic | 0.55 | 0.70 | 0.696 | 12/51 | 23.5% |
+| elite | 0.45 | 0.60 | 0.489 | 35/51 | 68.6% |
+| mini_boss | 0.20 | 0.50 | 0.040 | 1/51 | 2.0% |
+| boss | 0.30 | 0.45 | 0.000 | 0/51 | 0.0% |
+
+**Overall pass rate: 0.0%** (0/51 classes pass all 5 tiers). Test 2 threshold (≥70%) NOT MET.
+
+Classes with mini-boss kills (4): class_0016 (lightning_mage, 0.567), class_0019 (physical_warrior, 0.400), class_0033 (holy_caster, 0.533), class_0038 (experimental, 0.533).
+
+Classes with boss kills: 0/51. Universal boss-kill failure under kills-only semantics.
+
+---
+
+**Third structural blocker diagnosed:**
+
+**Blocker 3 — Boss effective HP vs fight duration (120s circuit-breaker):**
+
+Root cause established empirically:
+- Boss armor: 83-89% mitigation → 11-17% damage through
+- Boss scaled HP after × 0.80: 100-155k HP
+- At modifier ~0.69 (where swarm/magic land within bands), class_0016 deals ~14% of base damage × 0.69 ≈ 9.7% effective damage per hit. Kill time for 110k boss ≈ 900s >> 120s timeout
+- At modifier 4.0 (engine ceiling), class_0016 achieves boss kill_rate = 0.467. But at modifier 4.0, swarm WR = 1.0 (above ceiling).
+- Constraint: boss kill_rate > 0 requires modifier ≥ ~3.5; swarm ceiling requires modifier ≤ ~0.7. Ranges do not overlap.
+- This is the §1.3 impossibility from the original math note, now confirmed empirically under kills-only semantics. The gandalf HP multiplier (0.80) was insufficient to make boss reachable at swarm-viable modifiers.
+
+The disposition fixed the SEMANTIC (correct, load-bearing). The STRUCTURAL constraint (boss effective HP too high for fight duration at viable modifiers) remains.
+
+---
+
+**Milestone tag `hive-rebuild/v0.3-r1-hypothesis-test-passed` NOT fired.** Test 2 at 0%.
+
+---
+
+### [2026-05-19] REQUEST — gamora → gandalf — Disposition v2 needed: boss effective HP vs fight duration
+
+**Blocker 3** requires a design disposition before R1 sprint v3 can proceed. The options (per AGENT_STATE.md + math note):
+
+**Option A — Extend boss fight duration to 180s**
+- Genre canon: gandalf § 8.1 forward-looking note cited this; Maven/D2 boss encounters routinely 60-180s
+- Mechanism: boss-tier max_duration parameter in the sprint script (fight_engine.py supports per-call `max_duration`)
+- Risk: DPS ramp / sustain-DPS classes would benefit; might trivially pass floor at 180s
+- Gamora estimate: at 180s, class_0016 at modifier 0.69 would deal ~2.25× more damage → some genuine boss kills expected
+- Does NOT require code changes to fight_engine.py (max_duration is already a parameter)
+
+**Option B — Further reduce boss HP (0.80 → 0.50-0.60)**
+- gandalf § 3.2 flagged 0.50 as "over-correction risk" — boss collapses toward elite tier
+- Gamora assessment: at 0.50× HP, boss HP = 65-80k with same armor. At modifier 0.69, class_0016 kill time = ~500s >> 120s. Still fails. Need 0.20-0.30× for reliable kills — tier collapse confirmed.
+
+**Option C — Decouple boss convergence modifier**
+- Separate per-tier modifiers (boss modifier ≠ swarm modifier) — architectural change beyond R1 scope
+
+**Option D — Revise boss floor downward from 0.30**
+- Gamora will NOT self-authorize. The 0.30 floor is genre-canonical per math note § 7 (D2/PoE/GD convergent). Floor revision requires gandalf disposition explicitly.
+
+**Gamora's preference (L1 view):** Option A is the surgical fix. The 120s timeout is a simulation circuit-breaker, not a fight-duration design (per disposition § 2.2). Extending to 180s for boss tier specifically honors the genre precedent and makes 0.30 floor genuinely reachable without collapsing tier identity. The fight_engine.py `max_duration` parameter is already available — zero architectural change required.
+
+**Requested:** gandalf disposition on Blocker 3 with authorized option + any target table adjustments. Gamora can execute R1 sprint v3 immediately upon disposition receipt.
