@@ -123,3 +123,54 @@ In order:
 ---
 
 *Authored 2026-05-19 by knight-rider under pre-approval-batch authority. The instrument is mended; the test runs under the original threshold; the spatial signal either confirms or surfaces a deeper catalogue finding. Either result is honest progress.*
+
+---
+
+## Completion record
+
+**Completed by:** gamora
+**Date:** 2026-05-19
+**Execution session:** VS2a R2-RT + R1 sprint v3 batch session
+
+### Status: COMPLETE — H1 FAIL (new finding)
+
+**Result:** H1 FAIL under corrected instrument. This is NOT a catalogue diversity failure. It is a spatial calibration saturation event.
+
+**Root cause:** VS2a F1 correctly reclassified 18 additional circle-dominant classes (was 3, now 21 of 51). Circle skills now deal proper AOE damage in simulation. The DPS correction is large enough to produce WR=1.000 for all 51 classes in open_arena and chokepoint under the existing spatial calibration constants. H1 variance = 0.000 because the WR measuring surface is degenerate.
+
+**True geometry partition (post-F1 backfill):**
+
+| Geometry | n_classes | pct | was (heuristic) |
+|---|---|---|---|
+| circle | 21 | 41.2% | 3 |
+| line | 2 | 3.9% | 0 |
+| point | 28 | 54.9% | 43 |
+
+**H-test results:**
+- H1: FAIL (variance=0.000; threshold >=0.10; calibration saturation not catalogue diversity)
+- H2: PASS at 100% (sanity check; boss_with_adds still 0.000; degenerate delta — consistent)
+- H3: FAIL (chokepoint also at 1.000 WR ceiling; gap=0.000; same root cause)
+
+**WP-R2-A-1:** PARTIALLY CLOSED — heuristic_fallback=0% (backfill condition MET); H1 measurement blocked by calibration saturation.
+
+**Tag `vs2a/v0.2-r2-h1-revalidated` HELD** pending gandalf spatial calibration disposition + follow-on re-test.
+
+**Scope completed:**
+- [x] F1 completion verified (spatial_geometry_type in all shipped seasons; 0 heuristic_fallback)
+- [x] R2 sub-gauntlet re-run executed (51 × 3 × 30; same seeds as production sprint)
+- [x] H1/H2/H3 recomputed under explicit field
+- [x] Per-class geometry-type distribution audited (true partition surfaced)
+- [x] Result docs filed at `output/R2-h1-revalidation-2026-05-19/`
+- [x] Hive log STATE + REQUEST entries filed
+- [x] AGENT_STATE.md updated
+- [ ] Tag `vs2a/v0.2-r2-h1-revalidated` HELD (H1 FAIL; spatial calibration disposition needed)
+
+**Routing:** REQUEST to gandalf (hive log REQUEST entry filed) — spatial sub-gauntlet calibration recalibration before H1 can be measured under corrected instrument. Gandalf disposition covers open_arena/chokepoint calibration constants (SPATIAL_DAMAGE_SCALE, mob HP/count, or combination).
+
+**Output files:**
+- `/Users/admin/Games/reincarnated-engine/output/R2-h1-revalidation-2026-05-19/R2-test1.md`
+- `/Users/admin/Games/reincarnated-engine/output/R2-h1-revalidation-2026-05-19/R2-test2.md`
+- `/Users/admin/Games/reincarnated-engine/output/R2-h1-revalidation-2026-05-19/R2-test3.md`
+- `/Users/admin/Games/reincarnated-engine/output/R2-h1-revalidation-2026-05-19/summary.md`
+- `/Users/admin/Games/reincarnated-engine/output/R2-h1-revalidation-2026-05-19/geometry_audit.md`
+- `/Users/admin/Games/reincarnated-engine/scripts/r2_h1_revalidation.py` (new script)

@@ -3456,3 +3456,99 @@ PASS. Hunter (`archetype_tag="hunter"`, `energy_type="focus"`) received `power_t
 - [x] No Matt-wait at any point during Track B authoring (autonomous L2-equivalent)
 
 **Operating mode:** AUTONOMOUS per protocol § 4.0. F6 Track B complete. Drift-15 Track B CLOSED; M1 readiness signal surfaced.
+
+---
+
+### STATE — gamora — VS2a R2-RT H1 Revalidation — 2026-05-19
+
+**Agent:** gamora
+**Dispatch:** `2026-05-19-gamora-vs2a-R2-H1-revalidation.md`
+**Status:** COMPLETE — H1 FAIL (new finding: spatial calibration saturation, not catalogue diversity)
+**Tag:** `vs2a/v0.2-r2-h1-revalidated` HELD
+
+**What ran:** 51 classes × 3 scenarios × 30 fights under explicit `spatial_geometry_type` (VS2a F1; Path 1 direct field read). 0% heuristic_fallback — backfill confirmed complete.
+
+**True geometry partition (corrected instrument):**
+
+| Geometry | n_classes | pct | was (heuristic) |
+|---|---|---|---|
+| circle | 21 | 41.2% | 3 |
+| line | 2 | 3.9% | 0 |
+| point | 28 | 54.9% | 43 |
+
+**H-test results:**
+
+| Test | Result | Metric | v0.14 baseline |
+|---|---|---|---|
+| H1 | FAIL | variance=0.000 (threshold >=0.10) | 0.017 (FAIL) |
+| H2 | PASS | 100% classes qualify (threshold >=30%) | 74.5% (PASS) |
+| H3 | FAIL | gap=+0.000 (threshold >=0.05) | +0.130 (PASS) |
+
+**Root cause (NEW FINDING — not in dispatch scope):**
+
+The F1 backfill correctly reclassified 18 additional circle-dominant classes (was 3, now 21). Circle-type skills now deal proper AOE damage in simulation. The DPS increase is large enough to produce WR=1.000 for ALL 51 classes in open_arena and chokepoint at the existing spatial calibration constants (armor_factor=0.85, damage_scale=8.0). The original calibration was inadvertently compensated for the heuristic's geometry under-classification.
+
+H1 variance = 0.000 because all geometry types return WR=1.000 — no discriminating surface. This is NOT a catalogue diversity failure; it is a calibration saturation event caused by correct geometry classification.
+
+**WP-R2-A-1:** PARTIALLY CLOSED (heuristic_fallback=0% confirms backfill complete); H1 measurement remains blocked by calibration saturation.
+
+**Forward routing:** REQUEST to gandalf — spatial sub-gauntlet calibration recalibration required. Open_arena calibration constants need re-tuning for AOE-correct cohort before H1 is measurable.
+
+**Output files:**
+- `output/R2-h1-revalidation-2026-05-19/R2-test1.md` — H1 result + calibration saturation analysis
+- `output/R2-h1-revalidation-2026-05-19/R2-test2.md` — H2 sanity check (PASS at 100%)
+- `output/R2-h1-revalidation-2026-05-19/R2-test3.md` — H3 sanity check (FAIL; ceiling saturation)
+- `output/R2-h1-revalidation-2026-05-19/summary.md` — full revalidation summary + finding
+- `output/R2-h1-revalidation-2026-05-19/geometry_audit.md` — true partition audit
+
+**Operating mode:** AUTONOMOUS per protocol § 4.0. Pre-approval-batch authority.
+
+---
+
+### STATE — gamora — R1 Sprint v3 Catalogue Partition — 2026-05-19
+
+**Agent:** gamora
+**Context:** VS2a S1 first-batch validation gate prerequisite (gandalf F2 disposition)
+**Status:** COMPLETE — partition delivered
+
+**Results:** 51 classes × full convergence sprint (disposition-3 calibration).
+
+| Category | Count | Pct | Forecast | Delta |
+|---|---|---|---|---|
+| kit-acceptable | 0 | 0.0% | 5-10 | -5 to -10 |
+| kit-mediocre | 13 | 25.5% | 20-30 | -7 to -17 |
+| kit-broken | 38 | 74.5% | 10-15 | +23 to +28 |
+
+Boss kills: 0/51. Mini-boss kills: 4/51 (class_0016 mb=0.60, class_0019 mb=0.40, class_0033 mb=0.53, class_0038 mb=0.40).
+
+**This partition is the VS2a S1 first-batch validation BASELINE.** The R8-inverted first-batch must exceed: >= 1 class with boss_kill_rate >= 0.10; >= 2 classes with mini_boss_kill_rate >= 0.15.
+
+Consistent with prior sprint v3 at commit 5d6b3e8 (0/51 boss kills same; 4/51 mini-boss same class set). Stochastic variation only.
+
+**Output files:**
+- `output/R1-sprint-v3-2026-05-19/sprint-v3-summary.md` — category partition + S1 baseline
+- `output/R1-sprint-v3-2026-05-19/per_class_results.json` — raw per-class data
+
+**Operating mode:** AUTONOMOUS per protocol § 4.0. Pre-approval-batch authority.
+
+---
+
+### REQUEST — gamora → gandalf — Spatial Calibration Recalibration Required — 2026-05-19
+
+**From:** gamora
+**To:** gandalf (design/canonical steward)
+**Priority:** VS2a forward-blocker for H1 measurement
+
+**Finding:** The VS2a F1 geometry backfill corrected geometry classification from a heuristic that systematically under-classified circle-type skills as point (single-target). The correction is correct. However, the spatial sub-gauntlet calibration constants (PLAYER_ARMOR_FACTOR_VS_STANDARD=0.85, SPATIAL_DAMAGE_SCALE=8.0) were tuned against the heuristic cohort. Under corrected classification, all 51 classes achieve WR=1.000 in open_arena — ceiling saturation.
+
+**What this blocks:** H1 re-test (variance >= 0.10 threshold) cannot be measured when all WRs are 1.000. WP-R2-A-1 cannot fully close.
+
+**What is needed:** A disposition on spatial calibration constants for the open_arena and chokepoint scenarios. Options:
+1. Reduce SPATIAL_DAMAGE_SCALE (e.g., 8.0 → 4.0 or lower) — reduces player damage output to produce sub-1.0 WRs
+2. Increase mob HP/armor in open_arena scenario — makes mobs harder to kill, requiring more than 1 AOE hit
+3. Increase mob count in open_arena scenario — more mobs = harder to clear even with circle AOE
+4. Combination approach per genre-canonical norms
+
+**Gamora recommendation:** this is a calibration-layer decision (equivalent to the disposition-3 encounter recalibration for 1D R1 balance). Gandalf disposition preferred. L1 gamora can implement once design decision is made.
+
+**Tag status:** `vs2a/v0.2-r2-h1-revalidated` HELD pending this disposition + follow-on re-test.
