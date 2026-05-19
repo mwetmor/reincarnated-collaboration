@@ -4182,3 +4182,40 @@ Ember + The Forest That Walks is a substrate-prior-preferred seed. The rejection
 Please fire `rocket` dispatch for seed 100003 (retry-2) per the retry dispatch § 3.1 sequence. Retry budget: 2 remaining (100003, 100004).
 
 ---
+
+## STATE — gamora — Balance-loop floor investigation COMPLETE (2026-05-19)
+
+**Date:** 2026-05-19
+**Author:** gamora
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-19-gamora-balance-loop-floor-investigation.md`
+**Authority:** AUTONOMOUS L2-equivalent per VS2a hive pre-approval-batch § 4.5
+**Status:** INVESTIGATION COMPLETE. No code changes. Surfaces to knight-rider for gandalf review + Trigger A Matt approval.
+
+### Investigation findings
+
+**Empirical (§ 3.1-3.3):** Over-power-at-floor confirmed for 7/8 floor-locked classes in season_100002 at modifier=0.0509. Swarm/magic/elite WR 0.82-1.00 (above tier ceilings) for all 8. Boss WR ranges 0.00-0.74 with median ~0.28. Dispatch diagnostic criteria all met. Diagnosis: correct — binary-search floor is the constraint.
+
+**Mechanism (§ 4.1-4.4):** All four `low=0.05` sites (balance_loop.py lines 767, 891, 1247, 1941) share the same inline constant — no named constant, no docstring. `_quick_modifier_estimate` bottoms out at ~0.0509 for extreme kits, returning `eval_modifier ~0.0509`. Recompose trigger fires correctly (`eval_modifier < MODIFIER_LOW_THRESHOLD=0.30` → `reduce_dps=True`). Lever deltas are 0.0 at modifier=0.0509 (WR at 0.98-1.00; no lever signal). All levers rejected. `recompose_outcome="failed_regenerate"` for all floor-locked classes. This is structural — the search cannot reach lever-signal range [0.30, 0.70] from below the floor. Not a B14.5 V1 bug.
+
+### Summary table
+
+| Option | Description | LOC | Cross-seam | Runtime | Semantic shift | Unstucks seasons |
+|--------|-------------|-----|------------|---------|----------------|-----------------|
+| A | Widen floor: `low=0.05` → `low=0.01` | 4 | telemetry value distribution only | negligible | YES — new modifier range [0.01, 0.05) converges | YES |
+| B | Re-condition recompose: floor-lock detection + forced lower working modifier | 25-50 | possibly rocket b6_kit_builder.py | +16-24% for floor-locked classes | YES — new recompose_outcome values; kit compositions change | YES |
+| C | Lower per-tier target WRs | 8-12 | none | none | YES — design intent inversion | TECHNICALLY (rejected) |
+| **D (RECOMMENDED)** | **A now (stop-gap) + B this week (design-correct)** | **A+B** | **see A+B** | **see A+B** | **see A+B** | **YES** |
+
+**Discipline #18 follow-on (regardless of option):** Promote `low=0.05` to named constant `MODIFIER_SEARCH_FLOOR` with docstring. Four sites currently use inline literal; no design-doc rationale exists. Gandalf § 9.8 confirmed.
+
+### Investigation doc
+
+`reincarnated-engine/design/working-agreement/balance-loop-floor-investigation-2026-05-19.md`
+
+### REQUEST — knight-rider
+
+Please route this investigation to gandalf for review. Trigger A per § 9.6 of gandalf's re-disposition activates on knight-rider + gandalf concurrence. Matt approval required before any implementation (Option A, B, or D). Dispatch per `2026-05-19-gamora-balance-loop-floor-investigation.md` § 8 / Trigger A.
+
+Retries 100003 and 100004 WITHDRAWN per dispatch § 6 (out of scope; their floor-lock rate is predicted 60-80% without a fix).
+
+---

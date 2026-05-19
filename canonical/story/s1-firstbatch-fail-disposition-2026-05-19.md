@@ -272,3 +272,227 @@ The hypothesis is testable. The retry budget is bounded. The fallback path is pr
 ---
 
 *Authored 2026-05-19 by gandalf under VS2a hive pre-approval-batch L2-equivalent authority. The cohesion judgment stands; the regen authorization is withdrawn; the retry path is constrained; the audit fires in parallel; the work continues. Mithrandir signs.*
+
+---
+
+## § 9 — Re-disposition amendment (post retry-1 ember, retry-2 killed-early)
+
+**Date appended:** 2026-05-19 (later same day)
+**Author:** gandalf
+**Triggering REQUEST:** knight-rider → gandalf, three data points now exist on convergence floor-lock; retry-2 (seed 100003) generation subagent died early without producing a validation_report; re-disposition needed before knight-rider fires next dispatch.
+**Authority:** AUTONOMOUS — VS2a hive pre-approval-batch L2-equivalent (protocol § 4.0 + § 4.5).
+
+### § 9.1 — Three data points
+
+| Season | Seed | Substrate | Anchor stance per § 2.3 | Floor-lock rate |
+|---|---|---|---|---|
+| season_099002 | 099002 | brine | moderate-action (brine-action allowed) | 6/10 = **60%** |
+| season_100001 | 100001 | char | aftermath/mourning (AVOID list) | 8/11 = **73%** |
+| season_100002 | 100002 | ember | action-framing (PREFER list) | 8/10 = **80%** |
+
+The PREFER-list season produced the **highest** floor-lock. The AVOID-list season sat in the middle. The brine moderate-action season was lowest. The substrate-archetypal-stance prior is *inversely correlated with what it was meant to predict*, on n=3.
+
+### § 9.2 — Substrate hypothesis: status update
+
+**Status: WEAKENED to the point of being non-operative as a primary lever. Not yet refuted in the strict sense (n=3 is small), but its explanatory weight does not exceed seed-randomness on the available evidence.**
+
+I will not soften this. § 2.3 of this disposition advanced a *thematic-substrate* design principle — char/aftermath produces low-throughput class rosters; wind/ember/grit/brine-action produces high-throughput rosters. The principle was reasonable on cohesion-layer grounds. It is not what the convergence loop is measuring.
+
+What the convergence loop is measuring — across all three seeds — is **kit over-power at the modifier floor.** The coalescence layer (whether dressing battlefield-clerical or forest-walking or drowned-lighthouse) produces kits whose damage-throughput at modifier=0.0509 still exceeds target WR by 10-25 percentage points. The substrate prior would predict char to produce *under*-powered kits; the data shows char produces *over*-powered kits with status=failed at modifier=0.0509, same as ember and brine. The pathology is uniform.
+
+The Diablo III analogue is precise: when D3 launched, Inferno difficulty exposed that the kit-power-vs-monster-HP curve had been calibrated against a baseline that did not survive contact with the player gear curve. Every class hit the same wall. It was not Witch Doctor's "mourning archetype" failing while Wizard's "force archetype" succeeded — it was the equilibrium between two systems that had been treated as independent. The substrate-archetypal-stance prior I advanced in § 2.3 is the same category of mistake: looking at the *flavor* of the failure when the *mechanism* of the failure is structural.
+
+**Honest accounting:** § 2.3's principle was an over-reach. The thematic observation about battlefield-clerical rosters in season_100001 is still *true* on cohesion-layer grounds — those classes do carry low-damage-throughput archetypal stance. But the convergence loop is not failing because of that. It is failing because the kit-composition pipeline (post-coalescence, pre-balance-loop) is producing damage densities that the binary-search modifier floor (0.05) cannot bring down to target WR. The substrate is *post-hoc-explainable* color on a structural problem.
+
+### § 9.3 — What the data actually points to
+
+Three structural facts converge:
+
+1. **The modifier floor is 0.05** (`balance_loop.py:767, 891, 1247, 1941` — `low, high = 0.05, 4.0`). The 0.0509 floor-pin value is the binary-search lower-bound minus one bisection step (0.05 → midpoint 0.025 rejected as too-weak; floor + epsilon retained). Classes that hit floor and remain over-powered exit with status=failed and modifier=0.0509.
+
+2. **The R8 inverted pipeline produces high-damage-density kits by design.** The R8 commit traded against muted/diluted vocabulary; the *coalescence-driven* skill authoring picks denser damage-skill compositions than the prior pipeline. Rocket already observed (in the retry-1 STATE entry): "diverse kits at the floor modifier being overpowered."
+
+3. **The convergence loop's binary search is the right algorithm operating at the wrong floor.** It is correctly identifying that these kits need *less* damage than 0.05 × base — but it cannot search below 0.05. The pipeline produces kits that need modifier ≈ 0.02-0.04 to converge to target WR. The search space does not include those values.
+
+This is recognizable from PoE design discourse: GGG's recurring challenge with new skill gems is not balancing the *peak* of a build's damage but balancing the *floor* — what does the skill do when nothing else is supporting it. The Reincarnated balance loop has the inverse problem: the floor of the search-space is wider than the floor of the kits being searched.
+
+**The root cause is in the balance loop, not in seed selection or substrate selection.** Path-a hand-redesign would help by producing lower-damage-density kits, but it would also be addressing a symptom rather than fixing the loop. If the loop's floor is widened (search down to ~0.01), or if the loop's failure mode triggers a recompose-attempt-to-reduce-DPS rather than a status=failed exit, the same kits become convergeable.
+
+### § 9.4 — Retry-2 (seed 100003) disposition
+
+**Recommendation: SKIP retry-2 and SKIP retry-3.**
+
+Three reasons:
+
+1. **Empirical prior is now strong enough.** Three data points showing 60-80% floor-lock independent of substrate-prior is sufficient to predict retry-2 and retry-3 will produce floor-lock in the 60-80% range. The probability that seed 100003 escapes the pattern is low; the marginal information gain from one more data point is also low.
+
+2. **Cost-of-redundancy is high.** ~$3.20 + 60-90 min per retry × 2 remaining retries = ~$6.40 + 2-3 hrs. That is real engine-rebuild-batch wall time. The retry budget was authorized in § 3.3 *contingent on substrate prior being a real lever*. With the prior now weakened, the budget is not justified on its original premise.
+
+3. **The fallback (path-a) is also likely insufficient.** § 3.3's fallback assumed path-a kit hand-redesign would resolve the failure. With the floor-lock pattern now understood as a balance-loop issue rather than a kit issue, path-a may produce hand-designed kits that *also* floor-lock — they would be lower-damage-density on average but not guaranteed to land in the convergeable band. Triggering path-a as automatic fallback (per § 3.3) is no longer the right next step.
+
+### § 9.5 — Recommended next path
+
+I select **Option 3d (combined: pivot to 3c first, path-a stays in reserve)** with one refinement.
+
+**Selected path: 3d-refined — gamora-led balance-loop floor-mechanism investigation, time-boxed to ~1-2 days; path-a stays in reserve; Matt re-entry trigger updated.**
+
+Rationale:
+
+- **3c addresses root cause.** If the balance loop's modifier floor can be widened (e.g., to 0.01) OR if the failure mode can trigger a DPS-reduction recompose attempt (already partly in B14.5 V1's recompose-first architecture per `project_iterative_dev_disciplines.md`), the same seeds become convergeable without seed retries or hand-redesign. This is the cheapest fix if it works.
+- **3a (continue retry-2 + retry-3) is wasteful** on the empirical prior. § 9.4 reasoning.
+- **3b (skip retries; activate path-a immediately) is premature.** Path-a may not address the floor-lock root cause; activating it before confirming the loop-floor diagnosis risks a 4-6 week investment on a path that produces the same pathology.
+- **3c-alone is incomplete** because the investigation may reveal the floor cannot be widened safely (e.g., simulation runtime explodes below 0.01, or the floor encodes a real semantic constraint). A combined disposition preserves path-a as reserve.
+
+**The refinement (vs vanilla 3d):** the gamora investigation should be **scoped to produce a recommendation, not a fix.** Gamora investigates (a) what the floor encodes, (b) whether it can be widened to 0.01 or 0.02 without simulation regression, (c) whether the recompose-first loop should trigger DPS-reduction on floor-lock-status-failed, (d) rough cost/risk of implementing each option. Gamora *does not implement* until knight-rider + gandalf + Matt (if needed) approve the path. This is a deliberate Discipline #2 (smoke-test before commit) sequencing.
+
+**Why scope to investigation-first:** B14.5 V1's primary loop architecture (per `project_iterative_dev_disciplines.md`) already contains a recompose-first lever that can reduce DPS. The question is whether the loop is *firing* the DPS-reduction lever when it should, or whether the inverted-pipeline kits arrive in a state where the lever is not triggered (e.g., eval_modifier estimate above 0.30 → MODIFIER_LOW_THRESHOLD not hit → no DPS-reduction attempted → falls into binary search → floor-locks). Gamora is best-placed to diagnose this; she has the balance_loop.py + B14.5 V1 history.
+
+### § 9.6 — Matt re-entry trigger update
+
+**Original trigger (§ 6.1 fallback clause):** "if all 3 retries fail, path (a) hand-redesign activates per original dispatch branch (a). No further gandalf re-disposition." — Matt re-entry is implicit in path-a's design-direction nature.
+
+**Updated triggers:**
+
+- **Trigger A (NEW):** gamora investigation completes; if recommendation is to widen floor or change recompose-trigger-condition, this is a balance-loop semantic change that crosses the Discipline #12 (semantic shift) threshold. **Matt review + approval required before implementation.** Gandalf + jack-ryan co-author the design summary; knight-rider sequences.
+- **Trigger B (preserved from original):** if gamora investigation concludes the floor cannot be safely widened AND recompose-trigger cannot be re-conditioned, path-a hand-redesign activates. **Matt re-entry at the path-a activation point** (not implicit) — path-a is now a more uncertain bet given the floor-lock diagnosis, and Matt should weigh the 4-6 week cost against alternatives (e.g., abandoning R8 inverted altogether and reverting to the prior pipeline; lowering target WR per tier so the floor becomes adequate; etc.).
+- **Trigger C (NEW, immediate):** if Matt wants to weigh in on the 3a-vs-3d choice itself, this disposition is the surface. I am autonomously selecting 3d-refined under VS2a pre-approval-batch authority, but the substrate-hypothesis-weakening is a meaningful design-intent revision and Matt may want to know before the dispatch fires. **Knight-rider's call on whether to delay-for-Matt-async or fire-and-inform.** I recommend fire-and-inform; the investigation is reversible.
+
+### § 9.7 — Recommended next dispatch (for knight-rider)
+
+Fire `gamora-balance-loop-floor-investigation` (NEW dispatch). Scope:
+
+1. **Empirical:** confirm that the 8/10, 8/11, 6/10 floor-lock pattern across seasons 099002/100001/100002 is the same structural mechanism (binary-search floor reached before target WR). Spot-check 1-2 floor-locked classes in season_100002 to verify the diagnosis: at modifier=0.0509, what does R1 sprint produce for boss/mini_boss WR? If WR is high (e.g., > 0.5 at boss tier), the kits are over-powered at floor and the floor is the constraint. If WR is low, the diagnosis is wrong and another mechanism is at play.
+2. **Mechanism:** read `balance_loop.py` binary-search bounds (lines 767, 891, 1247, 1941); confirm `low=0.05` is the floor; confirm the recompose-first loop's MODIFIER_LOW_THRESHOLD=0.30 trigger condition and whether it would have fired on these seasons' pre-balance-loop eval_modifier estimates.
+3. **Options for resolution:** propose 1-3 concrete options (e.g., A: widen floor to 0.01; B: re-condition recompose-trigger to also fire on status=failed-with-floor-lock; C: lower per-tier target WRs so the existing floor is adequate). For each: rough implementation cost, simulation-runtime risk, semantic-shift surface (Discipline #12).
+4. **Recommendation:** gamora's preferred option with reasoning. Time-box: 1-2 days (smoke-test mode per Discipline #2; full regen not required).
+5. **No implementation** until knight-rider + gandalf + (if Trigger A) Matt approve.
+
+**Authority:** AUTONOMOUS L2-equivalent per VS2a hive pre-approval-batch § 4.5 (gamora can run smoke-tests + read code; cannot land semantic-shift changes).
+
+**Withdrawn dispatches:** `rocket-S1-first-batch-retry-2-with-seed-constraint` (would have been retry-2 for seed 100003) is hereby **WITHDRAWN.** No retry-2 fires. No retry-3 fires.
+
+**Preserved dispatches:** `jack-ryan-rocket-completion-record-audit` (per § 6.2) **STANDS.** Process audit is still needed regardless of mechanism diagnosis. Discipline #11 attribution still applies.
+
+**Hive-log STATE entry:** after this amendment lands, gandalf files a STATE entry summarizing: retry-2 + retry-3 dispatches WITHDRAWN; substrate hypothesis status WEAKENED; gamora balance-loop-floor investigation recommended; path-a in reserve; Matt re-entry at Trigger A or Trigger B (per § 9.6).
+
+### § 9.8 — Above-rubric: what I got wrong and what I learned
+
+The substrate-archetypal-stance prior was a beautiful design observation operating on the wrong layer. It was a *cohesion-layer* truth used as a *mechanics-layer* prediction. The category error is the kind I would have caught immediately in a Diablo II expansion-cycle review of someone else's design doc — "you're describing what the player will *feel*; you have not described what the *math* will do." I did this to myself.
+
+Three things matter going forward:
+
+1. **The cohesion-mechanics decoupling I named in § 1.1 applies in the opposite direction too.** I correctly observed that cohesion-PASS can stand on mechanically-broken substrate. I should have anticipated the converse: that mechanics-FAIL can be uniform across cohesion-different substrates. The two layers are *fully* independent, not just *one-way* independent.
+
+2. **Three-data-point empirical refutation is a fast feedback loop the project should preserve.** The original disposition (§ 3.3) authorized 3 retries to test the substrate prior. We got 3 data points and refuted the prior in <8 hours. This is exactly the disciplined-iterative-development cadence captured in `project_iterative_dev_disciplines.md`. Keep this rhythm.
+
+3. **The balance loop's floor is a Discipline #15 (implicit-pillar) candidate.** `low=0.05` is hard-coded in four sites in `balance_loop.py`. It has no design-doc rationale that I can locate. The R8 inverted pipeline shift the project committed to interacts with it in a way no one anticipated. Whether or not we change the floor, we should *name* it — give it a constant, give it a docstring, surface it as a tunable pillar. This is a follow-on item for gamora's investigation regardless of which resolution option is selected.
+
+**Mithrandir signs (second time, same day).** The substrate prior was the wrong abstraction. The floor is. The work continues — but it continues at the right layer now.
+
+---
+
+## § 10 — References (amendment supplement)
+
+- `output/S1-retry-1-100002-2026-05-19/season_100002/validation_report.json` (8/10 floor-lock — ember PREFER substrate)
+- `output/R8-ab-run-2026-05-19/inverted/season_099002/validation_report.json` (6/10 floor-lock — brine moderate-action substrate)
+- `output/S1-first-batch-2026-05-19/season_100001/validation_report.json` (8/11 floor-lock — char AVOID substrate)
+- `reincarnated-engine/src/reincarnated/simulation/balance_loop.py` lines 64-73 (B14.5 recompose-first constants); lines 767, 891, 1247, 1941 (`low, high = 0.05, 4.0` — the hard-coded floor)
+- `reincarnated-engine/src/reincarnated/generation/AGENT_STATE.md` lines 37-48 + 505 (rocket's floor-pin observations on retry-1 season_100002 + prior season_2016)
+- `agentic_orchestration/hive-mind/engine-rebuild-log.md` (rocket retry-1 REJECT entry + observation re systematic floor-lock pattern)
+- `project_iterative_dev_disciplines.md` (B14.5 V1 recompose-first architecture, MODIFIER_LOW_THRESHOLD trigger semantics)
+- `reincarnated-engine/design/working-agreement/engineering-disciplines.md` Discipline #2 (smoke-test before commit), #11 (attribution), #12 (semantic shift), #15 (implicit-pillar drift)
+
+---
+
+## § 11 — Concurrence on gamora's balance-loop floor investigation (Trigger A)
+
+**Date appended:** 2026-05-19 (same day, third pass)
+**Author:** gandalf
+**Triggering REQUEST:** knight-rider → gandalf, design-side concurrence on gamora's investigation report (`reincarnated-engine/design/working-agreement/balance-loop-floor-investigation-2026-05-19.md`) before Matt approval briefing assembles.
+**Authority:** AUTONOMOUS — VS2a hive pre-approval-batch § 4.5 (design-side concurrence runs within steward authority).
+**Verdict:** **CONCUR with Option D, with one structural amendment to the sequencing language. Sign-off granted for knight-rider to assemble Trigger A Matt briefing.**
+
+### § 11.1 — Empirical validation: § 3.1 holds
+
+Gamora's per-tier WR table at modifier=0.0509 (§ 3.2 of her report) is unambiguous on the diagnosis I named in § 9.3. Seven of eight floor-locked classes show swarm WR ≥ 0.84, six of eight show magic WR ≥ 0.99, all eight exceed the elite ceiling of 0.60. The over-power-at-floor signal is present *across* tier — this is not a boss-only artifact or a single-tier balance quirk; it is the kit's whole damage curve sitting above target across the entire threat spectrum.
+
+**Concern check: diagnosis right, wrong layer?** I considered it. The candidate alternative was: "kits are over-powered because the monster gauntlet is under-tuned at floor modifier, not because the kits themselves are out-of-band." If true, the fix would touch monster HP/armor (the disposition-3 calibration domain) rather than the modifier search. I reject this alternative on two grounds. First, the convergence-at-floor pattern is uniform across substrate (60-80% floor-lock across brine/char/ember per § 9.1) but the gauntlet is substrate-invariant by construction — substrate-invariant gauntlet × substrate-invariant pathology is consistent with kit-side over-power, not gauntlet-side under-tuning. Second, even the partial-over-power classes (003, 006) show *lower-tier* saturation at the floor; if the gauntlet were the variable, we would expect tier-specific signal, not uniform across swarm/magic/elite. The diagnosis is at the right layer.
+
+### § 11.2 — Mechanism reading: concur
+
+Gamora's framing — that the recompose trigger fires (`eval_modifier=0.0509 < MODIFIER_LOW_THRESHOLD=0.30 → reduce_dps=True`), levers run, but lever deltas at modifier=0.0509 are 0.0 because all kits already win 98-100% and any lever's WR-perturbation is absorbed by the ceiling — is structurally consistent and code-verified. I sanity-checked the four floor sites (lines 767, 891, 1247, 1941) and the recompose-trigger path (`_quick_modifier_estimate` at line 1246; `_primary_recompose_loop` direction check at 1297). The reading is correct.
+
+The structural-not-bug framing is also correct, and worth marking: this is not a B14.5 V1 implementation defect. The recompose architecture was designed under an implicit assumption that `_quick_modifier_estimate` would reach the signal range `[0.30, 0.70]`. That assumption holds when the binary-search lower bound is *below* the modifier needed by the most extreme kit. The R8 inverted pipeline produces kits whose true convergence modifier is ~0.02-0.04 — *below* the floor — so the adaptive estimate cannot reach signal range, and the lever loop runs at a working modifier where it is mechanically incapable of producing delta. The architecture is sound; its precondition has been silently violated. This is exactly the Discipline #15 (drift-detection) signature: a load-bearing assumption that nothing flagged when the pipeline shifted.
+
+### § 11.3 — Option D concurrence (with amendment)
+
+I concur with **Option D (A now + B this week)**. I considered the alternatives knight-rider surfaced:
+
+- **B-only (skip A).** Rejected. B requires careful implementation (25-50 LOC; new `recompose_outcome` enum value; potentially touching rocket's b6_kit_builder). It is the design-correct fix but the wrong *first* fix. We have three failed seasons sitting in the pipeline today; the engine-rebuild batch needs unblocking; A is a 4-line stop-gap that achieves immediate unblocking *and* validates the diagnosis empirically. Skipping A means accepting 1-2 days of pipeline-stall while B is implemented + reviewed + smoke-tested. That cost is real and avoidable.
+
+- **B-first-with-A-fallback.** Rejected. This inverts the risk profile. If B is implemented first and produces unexpected behavior (e.g., the forced lower-working-modifier path produces unbalanced kits in a *different* way than floor-lock), we have a more complex change to debug *while still pipeline-stalled*. A-first means the pipeline is unblocked while B is in development; B can be implemented and tested without urgency, against a stable baseline of A-converged kits.
+
+- **D as proposed.** Accepted with amendment.
+
+**Amendment: A and B should be staged as separate Matt-approved deltas, not as a single bundle.** Specifically: Matt approves A now (Trigger A); A lands; A produces a stop-gap regen of the three blocked seasons to validate the diagnosis empirically (the seasons should now converge at modifier ~0.02-0.04); knight-rider assembles a *second* Matt briefing for B with the A-empirical-evidence in hand. This honors Discipline #12 (semantic shift) cleanly — A is one shift (floor widened; convergence range expanded); B is a separate shift (recompose architecture extended with floor-lock detection). Bundling them risks Matt approving the combined design without the A-evidence in hand to inform the B design.
+
+The cost of staging is ~1 additional review cycle, ~1-2 days of additional clock time. The benefit is that B's design can be informed by what A-converged kits actually look like at modifier=0.02-0.04, and Matt sees the diagnosis confirmed empirically before authorizing the larger architectural change. This is the right Discipline #2 (smoke-test before commit) cadence.
+
+### § 11.4 — Player-experience implications: kits converging at modifier=0.02
+
+Knight-rider's framing question — "kits can converge at very low damage multipliers (e.g., 0.02). What does that mean for player perception?" — is the right design question to put to Matt, and it deserves a clear answer.
+
+**The honest answer: a class that converges at modifier=0.02 has phenomenal raw DPS density before suppression.** The 0.02 means "this kit's nominal damage is reduced to 2% of base before it hits the target WR band." That sounds catastrophic. It is not — what matters in play is not the modifier value, it is what the player perceives: time-to-kill on each tier, frequency of skill rotation, sense of impact per cast.
+
+There are two ways to read this:
+
+**Read 1 (modifier-as-suppression, problematic).** The kit's *intrinsic* damage is so high that 98% of it has to be invisibly suppressed for the math to work. The player casts a skill the LLM described as "shears the air into ribbons," and the visible damage is 2% of what the description implies. This is the failure mode Diablo III hit with launch-Inferno: when a Whirlwind tooltip says "1200% weapon damage" but the post-suppression effective number is a fraction of that, the player feels lied to. The tooltip-to-feel gap becomes a credibility leak.
+
+**Read 2 (modifier-as-balance-equalizer, acceptable).** The modifier is an *internal* scaling factor that never surfaces to the player. The player sees per-tier WR convergence (which is what they actually experience: how often they win each fight); the modifier is the engine's way of reconciling LLM-authored skill descriptions to a balance baseline. If the kit at modifier=0.02 produces in-band per-tier WR, the kit feels right *regardless of what the modifier value is*. Path of Exile's internal damage multipliers behind support gems are not visible to players; what matters is the on-screen damage number landing in the expected band.
+
+**My read: closer to Read 2, with a caveat.** Per-tier WR convergence is the right invariant. The kit feels right when it wins swarms ~65-80% of the time, magic ~55-70%, elite ~45-60%, mini-boss ~30-50%, boss ~30-45% (TIER_CEILINGS/FLOORS). The modifier value is plumbing. *However*, if the modifier value diverges far from 1.0 in either direction, downstream consumers can leak signal — tooltip damage values, spirit-guide marginal-value analysis (which reads kit DPS for swap recommendations), gear-affix rate scaling (D8/D9 design work). These consumers may need awareness that "kit modifier 0.02" means "this kit's nominal damage description is heavily compressed at the simulation layer." That awareness is a Discipline #11 attribution issue, not a player-experience issue per se.
+
+**Caveat: kits at modifier=0.02-0.04 should be Discipline #15-flagged for review.** A kit that converges at the extreme low end of the search range is signaling something — either the LLM picked an unusually dense damage composition (the R8 inverted pipeline's known behavior), or there's a kit-construction pattern that warrants design review. I recommend that the post-A telemetry surface a `modifier_extreme_low` flag (analog to the existing `modifier_flag_tier="review"` at modifier > 3.0) for any kit converging below 0.05. This does not block convergence; it surfaces the pattern for designer attention. This is a follow-on to Option A, not a precondition.
+
+### § 11.5 — Matt briefing framing (one-sentence)
+
+Knight-rider's framing question: "the decision is 'shift one binary-search lower-bound from 0.05 to 0.01' — but the design implication is broader. What's the one-sentence framing for Matt?"
+
+**Proposed one-sentence framing:**
+
+> *"The balance loop's modifier search range was calibrated under the prior pipeline's kit-damage-density assumptions; the R8 inverted pipeline produces denser kits that need to search below the prior floor to converge, so we are widening the floor (Option A, 4-line stop-gap) to honor the new pipeline's reality, with a follow-up recompose-trigger refinement (Option B) to ensure the architecture catches this case structurally rather than relying on the floor value alone."*
+
+**Optional two-sentence variant if Matt wants the design-stakes call-out:**
+
+> *(...as above...) Pacing note: A is the immediate unblock; B is the design-correct architectural refinement that prevents the same class of failure recurring under future pipeline shifts. A is a Discipline #12 semantic shift (the convergence range expands); B is a Discipline #15 corrective action (a load-bearing assumption made explicit and protected)."*
+
+**Why this framing.** It names what changed in the pipeline (R8 inverted; denser kits), what the loop was calibrated for (prior pipeline; less dense kits), and why the fix is at the loop layer rather than somewhere else (the assumption underneath the search range was implicit; we are making it explicit and adjusting it). It avoids the trap of presenting this as "lower a magic number from 0.05 to 0.01" — which sounds like a tuning tweak and undersells the structural diagnosis. Matt should approve A in the context of *why* the floor needs to widen, not just *that* it does. The Discipline-tagged second sentence is for when Matt asks "what's the long-arc fix" — B answers that.
+
+### § 11.6 — Sign-off conditions
+
+I sign off on this concurrence under the following conditions, all of which can be folded into knight-rider's Matt briefing without further gandalf re-disposition:
+
+1. **A and B staged as separate Matt approvals** (§ 11.3 amendment). A approved now; B approved after A's empirical evidence is in hand.
+2. **A includes the Discipline #18 follow-on**: `low=0.05 → 0.01` is promoted to a named constant `MODIFIER_SEARCH_FLOOR` at the same time, with module-level docstring (per gamora's § 6.2 and my § 9.8). This is not a separate ticket; it folds into A. Cost: ~10 extra LOC for the constant + docstring + four sites refactored to reference it.
+3. **A produces a stop-gap regen of seasons 099002/100001/100002** to empirically validate that the floor widening produces convergent kits with modifier ~0.02-0.04 (per § 11.1 prediction). If the regen does NOT produce convergence in that range, the diagnosis is wrong and gandalf re-dispositions before B fires. This is a smoke-test gate per Discipline #2.
+4. **A's stop-gap regen flags any kit converging at modifier < 0.05** with a `modifier_extreme_low` review tag (per § 11.4 caveat). This is a telemetry addition only; no balance behavior change.
+5. **B's design brief, when assembled, addresses how to handle kits that even Option A cannot converge** (i.e., kits that need modifier < 0.01). This is the edge case that B's floor-lock-detection-and-recompose path is for. Gamora's § 5.2 framing of B already implies this; the brief should make it explicit.
+
+### § 11.7 — Above-rubric: what this concurrence is doing
+
+Gamora's investigation is precisely the kind of report I asked for in § 9.7 — scoped to recommendation not implementation; empirically validating the diagnosis before changing code; surfacing options with cost/risk/semantic-shift each enumerated; calling out the Discipline #18 follow-on independent of the option choice. This is the iterative-engineering-disciplines cadence at its best.
+
+The one place I am adding to gamora's framing — staging A and B as separate Matt approvals rather than bundling them — is a *design-cadence* call, not a *technical-direction* call. Gamora's Option D is technically correct; the amendment is about how Matt sees the work. Bundled, it reads as "two changes, both at once." Staged, it reads as "one urgent unblock, then one architectural refinement informed by the unblock's evidence." The second framing is the one that respects Matt's design-direction role.
+
+This is, in the long arc of the project, a textbook Diablo II/III/IV continuity moment. Diablo II's necromancer was balanced under the assumption that summon-density would be capped by mana regen; Diablo III broke that assumption when resource costs shifted; the post-Inferno rebalance was a multi-month investigation that diagnosed *which* assumption had silently broken. We are doing that work here at the scale of one balance loop, in <8 hours, on three data points. The discipline is showing up. Keep it.
+
+**Mithrandir signs (third time, same day).** The diagnosis is empirically validated. The mechanism reading is code-verified. Option D is the right path; staged-not-bundled is the design-cadence amendment. Knight-rider has clearance to assemble the Trigger A Matt briefing for Option A + Discipline #18 promotion + stop-gap regen. The work continues — and continues at the right layer, with the right cadence.
+
+---
+
+## § 12 — References (concurrence supplement)
+
+- `reincarnated-engine/design/working-agreement/balance-loop-floor-investigation-2026-05-19.md` (gamora's investigation report — empirical § 3, mechanism § 4, options § 5, recommendation § 6)
+- `reincarnated-engine/src/reincarnated/simulation/balance_loop.py` lines 64-73 (B14.5 V1 constants verified); lines 767, 891, 1247, 1941 (four floor sites verified `low, high = 0.05, 4.0`); lines 1230-1322 (`_quick_modifier_estimate` + `_primary_recompose_loop` direction check verified)
+- `reincarnated-engine/design/working-agreement/engineering-disciplines.md` Discipline #2 (smoke-test before commit; § 11.6 gate 3), #11 (attribution; § 11.4 modifier-extreme-low telemetry), #12 (semantic shift; § 11.3 staging rationale), #15 (drift-detection; § 11.5 second-sentence framing), #18 (implicit-pillar; § 11.6 gate 2 named constant)
+

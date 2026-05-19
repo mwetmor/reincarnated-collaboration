@@ -129,3 +129,94 @@ The other surprise: gandalf's substrate-archetypal-stance design insight. The ge
 ---
 
 *Filed 2026-05-19 by knight-rider mid-sprint. The retry path is active; the briefing is on deck; the work continues. Matt's "do not stop" stands.*
+
+---
+
+# § 8 — Trigger A activation: Option A balance-loop floor widening (Matt approval requested)
+
+**Update timestamp:** 2026-05-19, post-gamora-investigation + critique-pair concurrence
+
+## § 8.1 — How we got here (compressed arc)
+
+After retry-1 (seed 100002, ember substrate) hit 80% floor-lock — PREFER-list substrate, same magnitude as char AVOID — knight-rider routed gandalf for re-disposition (skipping retry-2 + retry-3 to save ~$6.40 + 2-3 hrs on what was empirically likely to repeat).
+
+Gandalf re-disposition (`canonical/story/s1-firstbatch-fail-disposition-2026-05-19.md` § 9): **substrate hypothesis WEAKENED to non-operative as primary lever** (PREFER-list ember had the worst floor-lock; AVOID-list char was middle; substrate prior is not predictive). Gandalf took ownership of the category error ("a cohesion-layer truth used as a mechanics-layer prediction"). Pivoted to balance-loop floor-mechanism investigation via gamora.
+
+Gamora investigation (`reincarnated-engine/design/working-agreement/balance-loop-floor-investigation-2026-05-19.md`): empirical + mechanism + options + recommendation. **Diagnosis: over-power-at-floor confirmed.** 7/8 floor-locked classes in season_100002 exceed tier ceilings at modifier=0.0509. The B14.5 V1 recompose trigger fires correctly but at modifier=0.0509 all kits win 98-100% — recompose levers produce delta=0 → loop exits as `failed_regenerate`. **Architectural failure mode:** recompose's signal range [0.30, 0.70] is unreachable when floor=0.05 blocks the search.
+
+Critique-pair concurrence (gandalf design + jack-ryan Gate 1 process):
+- **Gandalf: CONCUR + 1 structural amendment** — stage A and B as SEPARATE Matt approvals, not bundled
+- **Jack-ryan: APPROVE WITH AMEND + 4 process amendments** — diagnostic-only temporal gate, blocking test-assertion audit, MIGRATION.md note, smoke gate A4 for B prerequisite
+
+Bonus empirical (retry-2 is still running in background; data accumulating live): 4 distinct failure signatures observed in season_100003 so far — floor-lock dominant but also mid-stuck (no overlap in modifier range), ceiling-lock (underpowered even at max modifier 1.7500), and severe-floor-lock (overpowered at low tiers AND underpowered at high tiers same modifier). Floor-lock is the dominant case (~60% of failures); Option A addresses the dominant. Option B (recompose-trigger refinement) addresses the architectural edge cases.
+
+## § 8.2 — Your decision: approve Option A?
+
+**One-sentence framing (gandalf-authored):**
+
+> The balance loop's modifier search range was calibrated under the prior pipeline's kit-damage-density assumptions; the R8 inverted pipeline produces denser kits that need to search below the prior floor to converge, so we are widening the floor (Option A, 4-line stop-gap) to honor the new pipeline's reality, with a follow-up recompose-trigger refinement (Option B) to ensure the architecture catches this case structurally rather than relying on the floor value alone.
+
+**Option A scope (4 LOC + named-constant + docstring + smoke gates + MIGRATION):**
+
+- Change `low, high = 0.05, 4.0` → `low, high = 0.01, 4.0` at four sites in `balance_loop.py` (lines 767, 891, 1247, 1941)
+- Promote `low=0.05` (now 0.01) to module-level constant `MODIFIER_SEARCH_FLOOR` with docstring covering: design rationale, four call sites, semantic-shift framing (Discipline #18 follow-on, mandatory per gamora § 5 + gandalf § 9.8 + jack-ryan § 2)
+- Smoke gates (jack-ryan § 4):
+  - **A1**: floor-lock regression smoke (1 class @ widened floor; confirm status=converged + per-tier WR in-band on lower tiers)
+  - **A2 (BLOCKING)**: test-assertion audit — grep for `modifier >= 0.05` literal asserts; if found, fix in same commit (Discipline #9)
+  - **A3**: telemetry-recorder range check (5-min read; confirm no validation guard rejects modifier < 0.05)
+- MIGRATION.md note at engine seam: telemetry consumers querying `modifier < 0.06` as floor-lock filter need terminology update
+- Stop-gap regen of seasons 099002 / 100001 / 100002 at widened floor to empirically validate (Discipline #2)
+- `modifier_extreme_low` telemetry flag for any kit converging at modifier < 0.05 (gandalf § 11.4; analog to existing `modifier_flag_tier="review"` at > 3.0)
+
+**Diagnostic-only temporal gate** (jack-ryan § 3 + gandalf condition 1): Option-A-generated seasons are not promotion-eligible until Option B lands. They exist to validate the diagnosis empirically.
+
+**Reversibility:** 4-line change; reversible at any point. If Option B investigation reveals the recompose re-conditioning cannot be achieved safely, Option A stands as a permanent widening (semantically defensible on its own).
+
+## § 8.3 — Decisions-log entry (jack-ryan § 5; ready to file on your approval)
+
+> **2026-05-19: Balance-loop modifier-search floor widened to 0.01 (Option A stop-gap); Option B (floor-lock recompose re-conditioning) authorized for this-week implementation [PENDING SEPARATE MATT APPROVAL].** The binary-search lower bound `low=0.05` was hard-coded at four sites in `balance_loop.py` with no named constant; R8-inverted pipeline produces kits that require modifier ~0.02-0.04 to converge, below the prior floor. Option A (4-line change: `low=0.05 → low=0.01`, promoted to `MODIFIER_SEARCH_FLOOR` named constant) is the validated stop-gap; classes converging at modifier < 0.05 now exit `status=converged` with extreme-suppression modifier rather than `status=failed`, which is a semantic shift per Discipline #12 (modifier range widens from [0.05, 4.0] to [0.01, 4.0]). Option-A-generated seasons are diagnostic-only until Option B lands; MIGRATION.md note required for telemetry consumers using modifier < 0.06 as a floor-lock filter. Option B (re-condition recompose trigger to detect floor-lock and retry via lower working modifier) is the design-correct follow-up; reversion path for Option A is reversible at any point.
+
+## § 8.4 — Option B (held for separate approval — DO NOT approve here)
+
+Per gandalf amendment (condition 1): Option B is **deferred until Option A lands and produces stop-gap regen data**. Reasons:
+- A-evidence informs B's brief (what do A-converged kits actually look like at modifier=0.02-0.04?)
+- Cleaner Discipline #12 attribution (one semantic shift at a time)
+- B's edge-case scope (kits even A cannot converge — needing modifier < 0.01) only definable after A-regen evidence
+
+Option B blocking acceptance criterion (jack-ryan amend 4): **smoke gate A4** — confirm recompose lever delta is non-zero at modifier=0.025 before committing to the 25-50 LOC change. If still zero at the widened floor, the architecture assumption needs re-investigation.
+
+Option B scope (informational; final brief assembled post-A-regen):
+- Re-condition `MODIFIER_LOW_THRESHOLD=0.30` trigger to ALSO fire on `status=failed AND eval_modifier ≤ low_threshold + epsilon`
+- Lets B14.5 V1 catch floor-lock cases and re-author kits with lower damage density (DPS-reduction levers)
+- 25-50 LOC; +16-24% sim runtime for floor-locked classes
+- Additional B-scope-candidate: address ceiling-lock + mid-stuck failure modes surfaced by retry-2 (would extend B to bidirectional recompose levers — DPS-reduction AND DPS-increase as needed by kit's failure signature). Whether to include in B or split as B' is a design call after A lands.
+
+## § 8.5 — Your specific decision items for § 8
+
+| # | Decision | Default if you don't object |
+|---|---|---|
+| **A1** | **Approve Option A implementation** (4 LOC + named constant + docstring + smoke gates A1/A2/A3 + MIGRATION.md + diagnostic-only temporal gate) | **Approve** — fire gamora implementation dispatch with all critique-pair amendments included; commit decisions-log entry at landing |
+| **A2** | Approve `modifier_extreme_low` telemetry flag (gandalf condition 4) | **Approve** — folds into Option A dispatch |
+| **A3** | Approve stop-gap regen of 099002 / 100001 / 100002 at widened floor (gandalf condition 3 + Discipline #2 smoke) | **Approve** — folds into Option A acceptance criteria |
+| **A4** | Approve Discipline #18 follow-on (named constant + docstring; folded into Option A) | **Approve** — mandatory regardless of option |
+| **B0** | Hold Option B for separate approval (gandalf amendment) — NOT a decision now; just confirming the staging | **Confirm staged** |
+| **C** | Re-evaluate VS2a path forward after Option A regen lands: does S1 first-batch retry with widened floor / does S1 path flip to path-a / does VS2a pivot? | **Hold until A-regen evidence lands** — re-disposition required after empirical data |
+
+## § 8.6 — What I'm doing autonomously (no Matt-wait)
+
+- Retry-2 background process continues to run (sunk cost; provides bonus empirical data). Will document final state in hive log.
+- Retry-3 dispatch (seed 100004) **WITHDRAWN** per gandalf § 9.7. Will NOT fire.
+- Path-a fallback **HELD IN RESERVE** — not activating without your input even if Option A fails to deliver
+- All VS2b + Stage A2 dispatches remain gated on VS2a closure (no change)
+- Investigation report + concurrence docs + Gate 1 audit doc all committed + pushed
+- Continuing autonomous coordination of any non-balance-loop work that can proceed in parallel (currently: none meaningful — S3 + L1 + downstream all gated)
+
+## § 8.7 — Why I'm surfacing now and not waiting for full path-a trigger
+
+Original briefing § 4 had Trigger A = "path-a activates after all 3 retries fail." That trigger is OBSOLETE under the gandalf re-disposition (retry-3 withdrawn; path-a held in reserve; balance-loop investigation is the actual next step). The **new Trigger A** is "Option A balance-loop change requires Matt approval before implementation." That trigger fires now.
+
+The change in Matt re-entry framing:
+- Original: Matt re-enters when retry path exhausts (defensive escalation)
+- Now: Matt re-enters when a semantic-shift code change is proposed for the balance loop (proactive escalation per Discipline #12 + ADR-002)
+
+Net: a much faster Matt re-entry than the original plan would have produced, with much sharper diagnostic evidence. The diagnosis arc consumed ~8 hours total (cohesion + R1 sprint + critique-pair + retry-1 + critique-pair-2 + investigation + critique-pair-3); the empirical mass is heavy; the recommendation is implementable; the disciplines are honored.
