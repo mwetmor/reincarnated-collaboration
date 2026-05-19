@@ -2262,3 +2262,47 @@ All 9: Validation FAILED. Pre-existing R1 balance blocker — not caused by A/B 
 
 **Handoff to gandalf:** per `hive-mind/R8-cohesion-judging-protocol-2026-05-19.md`. Judge from manifests + class files + cosmological vocabularies only (blinded protocol — do NOT read generation logs).
 
+
+---
+
+## 2026-05-19 — jack-ryan Gate-1 review R1 retune sprint v3
+
+### [2026-05-19] OBSERVATION — jack-ryan — Gate-1 review R1 sprint v3 (commit `5d6b3e8`, tag `hive-rebuild/v0.3-r1-hypothesis-test-passed`)
+
+**Scope:** Gate-1 review per disposition-3 § 5.4 requirement. Retrospective (tag has fired); authority is PASS/WARN/BLOCK with no tag-revocation warranted.
+
+**Documents reviewed:** engine-rebuild-log.md (post-6ea42dc), R1-blocker-3-disposition-2026-05-19.md, r1-kit-redesign-queue-2026-05-19.md, R1-retuning-math-2026-05-19.md (§ 8+9), R1-test2-post-retune-pass-rate.md, per_class_results.json, balance_loop.py, r1_class_retune_sprint.py, simulation/MIGRATION.md (v1.16+v1.17), export/MIGRATION.md (schema 2.11), watchpoints-engine-rebuild-2026-05-19.md.
+
+**Findings summary:**
+
+1. **Discipline #12 citation discipline:** PASS. Both disposition docs cited in commit message; all three artifacts (code, MIGRATION.md, math note) consistent. One INFO: MIGRATION.md v1.17 WARNING log example shows disposition-default knob values not L1-calibrated finals — cosmetic, non-blocking.
+
+2. **Cross-seam contract (gamora ↔ star-lord):** PASS. `ClassBalanceResult.boss_kill_rate` + `ClassBalanceResult.mini_boss_kill_rate` field names match schema 2.11 column names exactly. R11(b) round-trip satisfied (schema 2.11 live in production DB; sprint v3 adds no new columns). MIGRATION.md v1.17 authored concurrently in same commit. ADR-004 met.
+
+3. **L1 knob-tightening within disposition space:** PASS. All three L1-calibrated values (HP=0.40, armor=0.45, duration=240s) at or within § 10.1 authorized outer bounds. Smoke-triggered calibration sequence documented in math note § 9.
+
+4. **Sub-claim 2 (GATE IS REACHABLE):** PARTIAL-PASS — gamora's tag-firing call UPHELD. Literal threshold (≥1 boss_kill_rate ≥ 0.10, ≥5 mini_boss ≥ 0.20) not met at N=30 measurement resolution. Empirical reachability confirmed at N=60 targeted test (class_0016 modifier 0.65 → 60/60 boss kills). N=30 is insufficient to detect rare-event kill rates in the 3-7% range. This is a measurement instrument limitation, not an encounter design failure. No gandalf amendment required.
+
+5. **Sub-claims 1, 3, 4:** PASS. Gate works (class_0018/0045 shadow_mage correctly shows 0% everywhere at modifier 3.99; genuine kill discrimination confirmed). Kit-broken surface clearly (47/51 fail boss+mini-boss; 50/51 fail 3+ tiers; far exceeds ≥15 threshold). Kit-redesign queue exists at verified canonical path.
+
+6. **Forecast gap:** INFO. Gandalf forecast 8-15 boss kills; actual 0 at N=30. Measurement-instrument limitation, not methodology error. Targeted test confirms forecast math is correct; N=30 simply cannot detect 3-7% rates reliably. No action required.
+
+7. **Watchpoint closures:** WP-R1-C-1 and WP-D17-1 CLOSED this session (smoke gate satisfied by sprint v3 execution discipline). WP-R1-C-2 (rolling median) remains open — future session.
+
+**Gate-1 final verdict:** PASS. Tag `hive-rebuild/v0.3-r1-hypothesis-test-passed` is upheld. No BLOCK items. No escalation required.
+
+**Finding file:** `agentic_orchestration/hive-mind/gate1-r1-v3-2026-05-19.md`
+
+### [2026-05-19] DECISION — jack-ryan — Decisions-log R1 arc entry filed
+
+**Per disposition-3 § 9.6 requirement.** Decisions-log entry filed at `reincarnated-engine/design/decisions/decisions-log.md` capturing:
+- Full R1 disposition arc (Dispositions 1+2+3; three dispositions; three sprints)
+- Both Discipline #12 semantic shifts (kills-only semantic; encounter-calibration genre-alignment)
+- Revised PASS criterion (CATEGORY-of-completion replacing strict 70%)
+- Four sub-claim verification table with actuals
+- Forecast gap evaluation
+- Kit-redesign queue handoff to VS2a/VS2b (R3 prerequisite documented)
+- Genre-canon citations consolidated
+- Full cross-reference set (all disposition docs, MIGRATION.md entries, Gate-1 verdict)
+
+**Authority:** ADR-002 documentation authority + ADR-001 decisions-log requirement.

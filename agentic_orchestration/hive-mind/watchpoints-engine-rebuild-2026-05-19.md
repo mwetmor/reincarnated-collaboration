@@ -404,13 +404,13 @@ After R1 convergence loop ships and Test 1 reveals the failure cascade, gamora b
 | WP-TAG-2 (no tag against smoke-only) | OPEN — continuing monitoring; all milestone tags observed have full-path hypothesis test evidence | 2026-05-19 impl-pass |
 | WP-D14-1 (coalescence prompt Discipline #14) | CLOSED — prior session | 2026-05-19 |
 | WP-D14-2 (--theme-input new sites) | OPEN — rocket R8 pipeline shipped (`bfa3fc3`); no new LLM prompt sites observed that leak canonical-four as structural keys; monitoring | 2026-05-19 impl-pass |
-| WP-D17-1 (retuning lever smoke gate) | OPEN — gamora retuning sprint not yet started; watchpoint active | 2026-05-19 impl-pass |
+| WP-D17-1 (retuning lever smoke gate) | CLOSED — sprint v3 5-class smoke + targeted reachability test executed before full 51-class sprint; Discipline #17 satisfied | 2026-05-19 gate1-pass |
 
 **New watchpoints added this session (in-flight work):**
 
 | WP | Owner | Condition | Risk |
 |---|---|---|---|
-| WP-R1-C-1 (retuning lever smoke gate per Discipline #17) | gamora | Each retuning lever must pass 3-sweep-point parametric smoke gate WITH gear_catalog (Discipline #17 environment-fidelity amendment) before full-cohort application. If gamora applies a lever to full cohort without smoke evidence, file WARN. | MEDIUM |
+| WP-R1-C-1 (retuning lever smoke gate per Discipline #17) | gamora | CLOSED 2026-05-19 gate1-pass — sprint v3 5-class smoke + targeted test before full sprint. Discipline #17 satisfied. | CLOSED |
 | WP-R1-C-2 (rolling median future session) | gamora | When rolling median is added: window MUST reset on modifier change, not iteration count. Math note + docstring both document this. No action now; trigger if future implementation omits the reset. | LOW — future session only |
 | WP-PLAYTEST-1 (v0.12 tag trigger) | knight-rider / drax | `hive-rebuild/v0.12-r5-hypothesis-test-passed` fires when Matt playtest confirms kite-default reduction (Test 2). Static-analysis 81% projection is credible but insufficient. | LOW — gate is clear |
 | WP-PLAYTEST-2 (v0.16 tag trigger) | knight-rider / drax | `hive-rebuild/v0.16-r4-hypothesis-test-passed` fires when Matt playtest confirms Tests 1, 2, 4. Test 3 (out-of-range visual) is in-session verifiable NOW — knight-rider may fire that sub-criterion independently if useful. | LOW — gate is clear |
