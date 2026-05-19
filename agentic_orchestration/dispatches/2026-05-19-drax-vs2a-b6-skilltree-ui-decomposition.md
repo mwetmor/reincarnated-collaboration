@@ -271,3 +271,33 @@ Per launch dispatch § 3 + protocol § 4.0 (inherited):
 ---
 
 *Authored 2026-05-19 by knight-rider under autonomous-operation authority. F4 closes the fifth P6 instance in the closure cascade. Engine emits a skill tree; the player needs a surface to see it. Drax owns the surface — design and build. The road to L1 ship continues; the player needs every workstream visible.*
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-19 by drax
+**Demo commits:** `54c17dac6` (prototype), `08a9f325e` (AGENT_STATE)
+**Collab commit:** `1f1e40e` (design dispatch + hive log)
+**Build smoke:** tsc --noEmit CLEAN; npm run build 536 modules, 0 errors
+
+### Acceptance criteria status
+
+- [x] Design dispatch authored: `agentic_orchestration/dispatches/2026-05-19-drax-b6-skilltree-ui-decomposition-design.md`
+- [x] All 8 design sections present (§ 1 rendering shape; § 2 node icons; § 3 unlock-feedback; § 4 mobile-first sizing; § 5 tap-to-allocate; § 6 point-allocation + respec; § 7 data contract; § 8 scope phasing)
+- [x] Prototype B6 skill-tree UI surface shipped in `reincarnated-demo` (src/ui/skillTree/)
+- [x] Placeholder data fixture exercised (SAMPLE_FIRE_MAGE_TREE; 9-node fire_mage; 2 chains; 4 tiers)
+- [x] Mobile + desktop responsive at minimum viable level (DrawerShell + desktop modal; hitR(44) touch zones)
+- [x] AGENT_STATE.md updated
+- [x] Hive log: STATE (design phase) + HANDOFF (§ 7 S2 contract) + STATE (prototype phase)
+- [ ] Tag fire request surfaced: `vs2a/v0.6-b6-skilltree-ui-decomposition` — knight-rider fires
+- [x] § 7 data contract surfaced to rocket + gamora in hive log HANDOFF entry
+
+### Open items carried to next session
+
+- Portrait 2×2 chain sub-grid (design complete; wiring deferred)
+- Mobile TouchIcons button (KeyT keyboard only today)
+- chierit per-archetype icons (pending gandalf mapping decision)
+- Pimen VFX affordance (pending C4 pipeline)
+- Respec cost UX (pending gandalf B6 spec decision)
+- S2 fixture replacement (gated on rocket + gamora S2 dispatch)
