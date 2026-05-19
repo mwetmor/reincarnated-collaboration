@@ -198,3 +198,51 @@ In order:
 ---
 
 *Authored 2026-05-19 by knight-rider under pre-approval-batch authority. S1 is the central VS2a catalogue workstream; F2 picks the path; rocket builds; gamora validates; the 51-class catalogue becomes a catalogue you can ship.*
+
+---
+
+## Completion record
+
+**Branch executed:** (b) R8-inversion regeneration — first-batch (1 season)
+**Author:** rocket
+**Date:** 2026-05-19
+**Status:** FIRST-BATCH COMPLETE — awaiting gamora R1 sprint re-run + gandalf cohesion judgment for full gate determination
+
+### Deliverables
+
+1. Season_100001 generated under R8 `inverted` pipeline — `reincarnated-engine/output/S1-first-batch-2026-05-19/season_100001/`
+2. `spatial_geometry_type` emitted at generation time (F1 field — 100% present on 124 class skills; not post-derived heuristic)
+3. B6 archetype_tag-based tier assignment honored (no class_id hard-coding; confirmed via B6 pre-work parameterization audit)
+4. MIGRATION.md appended — `reincarnated-engine/src/reincarnated/generation/MIGRATION.md`
+5. AGENT_STATE.md updated — `reincarnated-engine/src/reincarnated/generation/AGENT_STATE.md`
+6. Hive log STATE + HANDOFF entries filed — `agentic_orchestration/hive-mind/engine-rebuild-log.md`
+7. Tag fired: `rocket/v1.22-s1-first-batch-regen` (intermediate seam tag; engine repo)
+
+### First-batch validation gate results
+
+| Criterion | Target | Observed | Status |
+|---|---|---|---|
+| 1. boss_kr >= 0.10 on >= 1 class | >= 1 | class_0002: 0.130 / class_0007: 0.240 | **PASS** |
+| 2. mini_kr >= 0.15 on >= 2 classes | >= 2 | 5/11 classes pass | **PASS** |
+| 3. cohesion >= 4.0 (gandalf judges) | >= 4.0 | PENDING | SURFACE TO GANDALF |
+| 4. no template debris | zero | 0 unknown/template names | **PASS** |
+| 5. substrate-identity invariant | invariant | 5-element preserved; seasonal_dom=char | **PASS** |
+
+4/5 confirmed PASS. Full gate determination awaits criterion 3 (cohesion judgment from gandalf).
+
+### Season identity
+
+- season_id: season_100001
+- anchor: "The Battlefield Where Nothing Grew Back" (ruins_and_forgotten_places)
+- element: char (fire-derived battlefield conflagration substrate)
+- manifest_version: 1.8
+- LLM calls: ~400; estimated cost: ~$3.20
+
+### Gamora handoff note (SMOKE_CLASS_IDS)
+
+`scripts/r1_class_retune_sprint.py::SMOKE_CLASS_IDS` is hardcoded to shipped-catalogue class_ids that don't exist in season_100001. Gamora must switch to metadata-based sampling (one class per archetype_tag group) before running R1 against the regenerated catalogue. Filed in hive log HANDOFF entry.
+
+### Next step
+
+If cohesion criterion PASS: rocket regenerates 4 more seasons (separate follow-on). Seeds 100002-100005.
+If cohesion criterion FAIL: gandalf authors follow-on disposition per R2 H1 / R1 Blocker 3 precedent.
