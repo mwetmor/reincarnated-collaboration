@@ -4,6 +4,31 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-19 — VS2a PRE-APPROVAL BATCH authored (full 12-dispatch set; per Matt directive)
+
+**Event:** Per Matt directive 2026-05-19 ("Batch all of VS2a now so I can approve everything in advance"), knight-rider authored the full VS2a dispatch set (12 dispatches total) for Matt's pre-approval review before autonomous execution proceeds. After Matt's review + approval, no further Matt-engagement is required until wind-down (M1 + M2 + retrospective).
+
+**Eight additional dispatches authored (sibling to F1+F2+F3+F4 from earlier today):**
+
+5. **F5 — legolas + gandalf — VS2a Drift-14 pool × VFX-catalogue mapping audit** — Mode A audit + gandalf re-scoring + culled-pool summary; gates: F3 framework lands; tag: `vs2a/v0.10-drift14-audit-complete`
+6. **F6 — legolas — VS2a Drift-15 environment-tileset Track A sweep** — Mode B catalogue crawl across Tier-1 pixel-art vendors; gates: F3 framework lands; tag: `vs2a/v0.11-drift15-track-a-complete`
+7. **F6-D — drax — VS2a Drift-15 Track D environment-tileset integration** — renderer extension + pack manifest consumption; gates: M1 Matt-selection at wind-down; tag: `vs2a/v0.16-drift15-drax-integration-complete`
+8. **R2-RT — gamora — VS2a R2 H1 re-validation under explicit geometry_type** — R2 disposition § 3.2 forward-routed re-test under ORIGINAL variance ≥ 0.10 threshold; gates: F1 acceptance complete; tag: `vs2a/v0.2-r2-h1-revalidated`
+9. **S1 — rocket + gandalf consult — VS2a kit-redesign sprint (3-branch per F2 path)** — three-branch pre-authored dispatch (hand-redesign / R8-inversion / hybrid); gates: F2 + F1 land; tag: `vs2a/v0.7-kit-redesign-sprint-complete`
+10. **S2 — rocket + gamora — VS2a B6 main work (tree structure + tree-aware convergence)** — per `canonical/28` B6 extension; gates: F2 + rocket pre-work + S1 partial; tag: `vs2a/v0.8-b6-main-work-complete`
+11. **S3 — gamora — VS2a Gate-3b sim MS extension** — sim consumer of engine-emitted JSON MS values; gates: rocket schema-default + star-lord export-DTO (C1 in-flight cascade); tag: `vs2a/v0.9-sim-ms-gate3b-complete`
+12. **L1 — star-lord + gamora — VS2a demo regen on single season (SHIP GATE)** — full integrated stack demonstration; gates: F1 + F4 + S1 + S2 + S3 + C1 + C2 + C3 + F5; tag: `vs2a/v1.0-vs2a-ship`
+
+**Pre-approval surface for Matt review:** `agentic_orchestration/hive-mind/vs2a-pre-approval-batch-2026-05-19.md` — full inventory + DAG + activation-gate map + Matt-approval pattern (what Matt approves; what Matt may amend; what Matt does NOT need to approve under autonomous-mode).
+
+**Operating mode:** AUTONOMOUS per protocol § 4.0 + § 4.9 (Matt re-enters only at wind-down). Pre-approval-batch mode is the Matt-side preference shift: Matt reviews the whole sprint plan up front, then walks away knowing every dispatch is locked.
+
+**M1 + M2 Matt-gated items unchanged:** Drift-15 Matt-selection at wind-down; engine-rebuild playtest tag firings v0.12 + v0.16. F6-D drax integration is pre-authored but HELD post-M1.
+
+**Authority:** Matt directive 2026-05-19 (pre-approval-batch mode); knight-rider operationalization + dispatch authoring under autonomous-mode authority.
+
+---
+
 ## 2026-05-19 — VS2a first-fire batch DISPATCHED (F1 + F2 + F3 + F4 authored)
 
 **Event:** Knight-rider authored four VS2a first-fire dispatches under AUTONOMOUS-OPERATION (continuation of engine-rebuild close → VS2a sequencing per dispatch § 6.5 explicit ordering). All four fire immediately; no upstream gating on each other beyond F3 → F5/F6 (second-fire batch). C1–C4 in-flight continuations independent. M1 + M2 Matt-gated items HELD for wind-down.
