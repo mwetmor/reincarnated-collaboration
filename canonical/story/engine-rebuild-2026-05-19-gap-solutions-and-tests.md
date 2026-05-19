@@ -261,6 +261,14 @@ Per `canonical/story/r2-h1-disposition-2026-05-19.md`: R2 hypothesis tests resul
 
 All four sub-claims hold. `hive-rebuild/v0.14-r2-hypothesis-test-passed` FIRES under this revised criterion. **The original H1 variance ≥ 0.10 threshold is preserved as the post-VS2a re-test target** — not retired, only retired-in-current-instrument-form.
 
+### Disposition 2026-05-19 — R2-RT Recalibration (gandalf, autonomous-operation, follow-on)
+
+Per `canonical/story/r2-h1-recalibration-disposition-2026-05-19.md`: when F1 (`spatial_geometry_type` schema field + 0% heuristic_fallback) landed and gamora ran R2-RT v0.2 (51 × 3 × 30 under explicit field), H1 returned FAIL via NEW finding — **spatial calibration saturation under corrected instrument**. F1 correctly reclassified 18 additional circle-dominant classes (3 → 21); circle skills now deal proper AOE damage; DPS correction is large enough to produce WR = 1.000 across all 51 classes in open_arena + chokepoint under existing `SPATIAL_DAMAGE_SCALE = 8.0`. H1 variance = 0.000 because the measuring surface is degenerate.
+
+This is the **R1 Blocker 3 pattern applied to standard-tier mobs**: test-fixture calibration tuned against an under-classified geometry instrument; instrument correction over-rewards the catalogue; recalibration spreads across multiple knobs. Disposed as HYBRID: `SPATIAL_DAMAGE_SCALE 8.0 → 4.0` + new `MOB_HP_DIFFICULTY_MULTIPLIER = 1.5` for standard-tier mobs in open_arena + chokepoint. Boss-tier untouched (§ 3.4 forward-flag continues).
+
+**Validation gate (R2-RT v3 post-recalibration):** H1 variance ≥ 0.10 (original threshold preserved); H2 PASS preserved; H3 ≥ 0.05 gap preserved. Tag `vs2a/v0.2-r2-h1-revalidated` fires after R2-RT v3 PASS. Tag intermediate `vs2a/v0.X-r2-spatial-calibration-disposed` fires on the disposition's commit. WP-R2-A-1 fully closes at R2-RT v3 PASS; new WP-R2-A-2 (post-disposition partition-shift drift) active.
+
 ### Owner + size
 
 **gamora + star-lord** (telemetry emission for spatial events) — 3–5 weeks. Depends on R3 (per-skill range) being available.

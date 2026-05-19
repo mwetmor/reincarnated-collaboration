@@ -3552,3 +3552,62 @@ Consistent with prior sprint v3 at commit 5d6b3e8 (0/51 boss kills same; 4/51 mi
 **Gamora recommendation:** this is a calibration-layer decision (equivalent to the disposition-3 encounter recalibration for 1D R1 balance). Gandalf disposition preferred. L1 gamora can implement once design decision is made.
 
 **Tag status:** `vs2a/v0.2-r2-h1-revalidated` HELD pending this disposition + follow-on re-test.
+
+---
+
+### STATE — gandalf — R2 Spatial Calibration Recalibration Disposed — 2026-05-19
+
+**Agent:** gandalf
+**Authority:** AUTONOMOUS L2-equivalent per protocol § 4.0 (Matt directive 2026-05-19; pre-approval-batch authority)
+**Status:** COMPLETE — disposition authored; routes to gamora for impl + R2-RT v3 re-test
+**Closes route opened by:** gamora's REQUEST entry (preceding, this log)
+
+**Disposition path: HYBRID (Option C).**
+
+| Lever | Old | New | Magnitude |
+|---|---|---|---|
+| `SPATIAL_DAMAGE_SCALE` | 8.0 | **4.0** | -50% player damage multiplier |
+| `MOB_HP_DIFFICULTY_MULTIPLIER` (NEW; open_arena + chokepoint swarm) | implicit 1.0 | **1.5** | +50% mob HP for standard-tier |
+| `PLAYER_ARMOR_FACTOR_VS_STANDARD` | 0.85 | 0.85 (unchanged) | survivability preserved |
+| Boss-with-adds calibration | (unchanged) | (unchanged) | § 3.4 forward-flag continues |
+
+**Rationale:** R1 Blocker 3 precedent (gandalf 2026-05-19) is structurally identical — test-fixture calibration tuned against under-classified instrument; instrument correction (F1) over-rewards catalogue; recalibration spreads across multiple knobs (R1 used HP × 0.50 + armor × 0.55 + duration 180s — three knobs, no single lever doing heavy lifting). Same shape inverted: SPATIAL_DAMAGE_SCALE × 0.5 + MOB_HP_DIFFICULTY_MULTIPLIER × 1.5 = two knobs spreading the difficulty restoration. Genre canon (D2 Hell `/players N` HP scaling; PoE Map Tier scaling) supports spreading difficulty across multiple dimensions vs weaponizing a single multiplier.
+
+**This is NOT a category-of-completion reframe.** v0.14 already used that framing to preserve the original H1 ≥ 0.10 threshold as the re-test target; the re-test path is now MET (F1 shipped, instrument correct). Remaining task IS the re-test, and the recalibration enables it. Reframing a second time would silently retire the original threshold — precisely the move v0.14 § 2.2 warned against.
+
+**Substrate-identity continuity:** spatial sub-gauntlet's "kind of thing" unchanged. Three scenarios, win conditions, geometry resolution paths, telemetry table — all preserved from v0.13/v0.14. This is a magnitude question (calibration), not a kind question (substrate identity).
+
+**Sequencing:** Fires alongside S1, not before/after. Different files (S1 = catalogue regen in `generation/` + season JSONs; this = sim constants in `simulation/spatial_gauntlet/`). No concurrent-edit risk. Gandalf recommendation for R2-RT v3 timing: fire on EXISTING 5-shipped-season catalogue BEFORE S1 ships (catalogue's F1 geometry partition is already correct; coupling R2-RT v3 to S1 would conflate recalibration with kit-redesign as two findings in one re-test). L1 gamora has autonomy on sequencing.
+
+**Validation gate (R2-RT v3 post-recalibration):**
+- H1 variance ≥ 0.10 (ORIGINAL threshold preserved — not retired, not lowered)
+- H2 PASS preserved (boss-vs-arena delta detection ≥ 30%; expected to PASS once standard-tier WR distribution is non-degenerate)
+- H3 ≥ 0.05 gap preserved (chokepoint geometry mechanism restored once WR distribution is non-degenerate)
+- True-partition check: confirm 41.2% / 3.9% / 54.9% partition unchanged
+
+**Forecast:** H1 PASS extremely likely. The v0.14 28pp underlying delta (point 0.721 vs cone/circle 1.000) was instrument-limited by sample imbalance (43/3/4); under corrected 21-circle distribution + non-saturated calibration, variance should land in 0.10–0.25 range. Pure FAIL would route to S1 catalogue-diversity refinement (rocket + gandalf consultation).
+
+**Tag landscape:**
+- `vs2a/v0.2-r2-h1-revalidated` — REMAINS HELD pending R2-RT v3 PASS
+- `vs2a/v0.X-r2-spatial-calibration-disposed` — FIRE REQUEST on this disposition's commit (knight-rider numbers tag at commit time per VS2a tag-landscape sequence)
+
+**Watchpoints:**
+- WP-R2-A-1 — status updated from ACTIVE-DEFERRED to PARTIALLY CLOSED (instrument condition MET; H1 measurement blocked by saturation; closes fully at R2-RT v3 PASS)
+- WP-R2-A-2 (NEW) — spatial calibration drift under post-disposition partition changes; smoke required if catalogue geometry partition shifts ≥ 10pp (e.g., post-S1 kit-redesign regen)
+- WP-R2-D-1 (NEW) — recalibration impl must include math note + MIGRATION.md + Discipline #12 citation; 5-class smoke before full 51-class re-run
+
+**Surfaced canonical-doc work:**
+- Drift-16 candidate — "Calibration-against-instrument" pattern (R1 Blocker 3 + this R2 recalibration = pattern named twice in 24 hours; deserves canonical drift-audit § 16 entry; follow-on routing to gandalf, not blocking)
+
+**Doc amendments applied this session:**
+- `canonical/story/r2-h1-disposition-2026-05-19.md` § 3.4 — amendment paragraph added cross-referencing this recalibration
+- `canonical/story/engine-rebuild-2026-05-19-gap-solutions-and-tests.md` § 3 — new disposition subsection appended
+- `agentic_orchestration/hive-mind/watchpoints-engine-rebuild-2026-05-19.md` — WP-R2-A-1 status updated; WP-R2-A-2 + WP-R2-D-1 added
+- Gamora dispatch completion record cross-references this disposition
+
+**Output files:**
+- `canonical/story/r2-h1-recalibration-disposition-2026-05-19.md` (this disposition; ~10K words)
+
+**Routing:** knight-rider drafts follow-on dispatch for gamora (`2026-05-19-gamora-vs2a-R2-recalibration-impl.md`); gamora implements constants + math note + MIGRATION.md + 5-class smoke + full 51-class R2-RT v3; jack-ryan Gate-1 review on impl commit; tag-fire `vs2a/v0.2-r2-h1-revalidated` at R2-RT v3 PASS.
+
+**Operating mode:** AUTONOMOUS L2-equivalent per protocol § 4.0. Pre-approval-batch authority.

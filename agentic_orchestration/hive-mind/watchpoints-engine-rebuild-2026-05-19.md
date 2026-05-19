@@ -406,7 +406,7 @@ After R1 convergence loop ships and Test 1 reveals the failure cascade, gamora b
 | WP-D14-2 (--theme-input new sites) | OPEN — rocket R8 pipeline shipped (`bfa3fc3`); no new LLM prompt sites observed that leak canonical-four as structural keys; monitoring | 2026-05-19 impl-pass |
 | WP-D17-1 (retuning lever smoke gate) | CLOSED — sprint v3 5-class smoke + targeted reachability test executed before full 51-class sprint; Discipline #17 satisfied | 2026-05-19 gate1-pass |
 | WP-R1-C-1 (Discipline #1 math note for R2) | CLOSED — math note `R2-spatial-combat-math-2026-05-19.md` precedes implementation in same commit `18dfc4c`; confirmed by Gate-1 review 2026-05-19 | 2026-05-19 r2-gate1 |
-| WP-R2-A-1 (name-heuristic mis-classification) | ACTIVE-DEFERRED — 51-class run complete; "mixed" dominant = 0% (OK well under 20% threshold); 43/51 classes "point" dominant (instrument-limited per R2 H1 disposition); resolves at VS2a `geometry_type` schema field landing + H1 re-test under explicit field (original variance ≥ 0.10 threshold preserved) | 2026-05-19 r2-h1-disp |
+| WP-R2-A-1 (name-heuristic mis-classification) | PARTIALLY CLOSED → ACTIVE-DEFERRED (post-recalibration) — R2-RT v0.2 confirmed instrument condition MET (heuristic_fallback=0%; F1 backfill complete); H1 measurement blocked under R2-RT v0.2 by calibration saturation (new finding); resolves at R2-RT v3 post-recalibration PASS per gandalf disposition `canonical/story/r2-h1-recalibration-disposition-2026-05-19.md` (`SPATIAL_DAMAGE_SCALE 8.0 → 4.0` + `MOB_HP_DIFFICULTY_MULTIPLIER 1.5`; H1 original variance ≥ 0.10 threshold preserved) | 2026-05-19 r2-recalibration-disp |
 | WP-R2-B-1 (star-lord schema 2.12 round-trip) | OPEN — star-lord DB writer not yet implemented; gates production graduation tag | 2026-05-19 r2-gate1 |
 | WP-R2-C-1 (damage calibration smoke before 51-class run) | OPEN — armor mitigation fix pending gamora next session | 2026-05-19 r2-gate1 |
 
@@ -426,6 +426,13 @@ After R1 convergence loop ships and Test 1 reveals the failure cascade, gamora b
 | WP-R2-A-1 (name-heuristic mis-classification) | gamora | In 51-class full run: if `geometry_type_dominant = "mixed"` exceeds 20% of classes, investigate name-heuristic keyword collision. Threshold: >20% "mixed" triggers OBSERVATION. Resolution: VS2a `geometry_type` schema field. | LOW — scaffolding approximation; acceptable for hypothesis-test phase |
 | WP-R2-B-1 (star-lord schema 2.12 round-trip) | star-lord | Production-graduation tag for R2 may NOT fire before star-lord's concrete `SpatialTelemetryWriter` DB writer is smoke-tested end-to-end: fight → `SpatialFightResult` → `write_fight_result()` → DB row queryable. `validate()` confirmed called before write. Pattern P7 at DB write boundary. | HIGH — R11(b) obligation |
 | WP-R2-C-1 (damage calibration smoke before 51-class run) | gamora | Full 51-class R2 sprint must not fire before 5-class smoke (with armor mitigation fix applied) confirms non-degenerate WR (≥0.10 for at least 2 classes in open arena scenario). Discipline #17 environment-fidelity: smoke environment must include armor mitigation factor. | MEDIUM — Discipline #17 |
+
+**New watchpoints added 2026-05-19 — gandalf R2 recalibration disposition session:**
+
+| WP | Owner | Condition | Risk |
+|---|---|---|---|
+| WP-R2-A-2 (spatial calibration drift under post-disposition partition changes) | gamora | Whenever the catalogue geometry partition shifts materially from the post-F1 41.2/3.9/54.9 distribution (e.g., S1 kit-redesign regen may shift it; future regenerations may shift it again), re-run 5-class smoke under recalibrated constants. Threshold: if circle-pct or line-pct shifts ≥10pp, smoke required; if smoke shows saturation either direction, surface to gandalf for second-pass disposition. Resolution: smoke pass re-confirms calibration; otherwise L1 gamora retunes within disposition framework OR L2-equivalent gandalf re-disposition. | MEDIUM — depends on S1 kit-redesign shape; may require constants retune if S1 deliberately rebalances geometry distribution |
+| WP-R2-D-1 (recalibration math note + MIGRATION.md concurrent authoring per Discipline #1 + ADR-004) | gamora | Recalibration impl commit MUST include `R2-recalibration-math-2026-05-19.md` math note + `simulation/MIGRATION.md` entry concurrent. Discipline #12 cited in commit message. 5-class smoke results in output dir before full 51-class re-run. Constants NAMED (no inline literals). | MEDIUM — Discipline #1 + #12 + ADR-004 |
 
 ---
 

@@ -128,6 +128,8 @@ Boss-with-adds WR = 0.000 across all 51 classes is consistent with R1's finding 
 
 If post-kit-redesign spatial boss WR remains 0.000 despite repaired kit composition, a spatial-specific boss recalibration may be needed (e.g., adjusting boss HP further in the spatial substrate, or revising spatial_damage_scale for boss fights). That is VS2b territory at earliest.
 
+**Amendment 2026-05-19 (post-R2-RT v0.2):** The R2 H1 revalidation under F1's explicit `spatial_geometry_type` instrument surfaced a NEW finding — spatial calibration saturation on the STANDARD-TIER mobs in open_arena and chokepoint scenarios (NOT the boss-tier scenario covered by this § 3.4). With 21 of 51 classes correctly classified as circle-dominant under F1, the existing `SPATIAL_DAMAGE_SCALE = 8.0` produces WR = 1.000 ceiling saturation across all 51 classes. Disposed at `canonical/story/r2-h1-recalibration-disposition-2026-05-19.md` (gandalf, autonomous L2-equivalent) — hybrid recalibration: `SPATIAL_DAMAGE_SCALE 8.0 → 4.0` + new `MOB_HP_DIFFICULTY_MULTIPLIER = 1.5` for standard-tier mobs in open_arena + chokepoint. **This § 3.4 boss-tier forward-flag continues unchanged** — boss recalibration remains VS2b territory; the recalibration disposition explicitly scopes itself to standard-tier and preserves § 3.4's boss-tier deferral.
+
 ---
 
 ## § 4 — Revised H1 PASS criterion (CATEGORY-of-completion, parallel to R1 precedent)

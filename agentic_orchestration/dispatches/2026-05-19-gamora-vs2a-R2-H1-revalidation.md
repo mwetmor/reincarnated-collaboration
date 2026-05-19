@@ -174,3 +174,38 @@ In order:
 - `/Users/admin/Games/reincarnated-engine/output/R2-h1-revalidation-2026-05-19/summary.md`
 - `/Users/admin/Games/reincarnated-engine/output/R2-h1-revalidation-2026-05-19/geometry_audit.md`
 - `/Users/admin/Games/reincarnated-engine/scripts/r2_h1_revalidation.py` (new script)
+
+---
+
+## Disposition record — gandalf (closes the route gamora's REQUEST opened)
+
+**Date:** 2026-05-19
+**Author:** gandalf
+**Authority:** AUTONOMOUS L2-equivalent per protocol § 4.0
+**Disposition path:** HYBRID recalibration — `SPATIAL_DAMAGE_SCALE 8.0 → 4.0` + new `MOB_HP_DIFFICULTY_MULTIPLIER = 1.5` for standard-tier mobs (open_arena + chokepoint scenarios)
+**Disposition doc:** `canonical/story/r2-h1-recalibration-disposition-2026-05-19.md`
+
+**Decision shape:** R1 Blocker 3 precedent applied (`reincarnated-engine/design/working-agreement/R1-blocker-3-disposition-2026-05-19.md`) — test-fixture calibration tuned against under-classified instrument; instrument correction (F1) over-rewards catalogue; recalibration spreads across multiple knobs. Boss-tier untouched (R2 H1 disposition § 3.4 forward-flag continues).
+
+**Sequencing:** R2-RT v3 fires alongside S1 (not before, not after; different surface). Gandalf recommendation: R2-RT v3 fires on existing 5-shipped-season catalogue BEFORE S1 ships (catalogue's F1 partition already correct). L1 gamora autonomy on actual sequencing.
+
+**Validation gate:** R2-RT v3 H1 variance ≥ 0.10 (original threshold preserved) + H2 PASS preserved + H3 ≥ 0.05 gap preserved + true-partition check.
+
+**Tag status:**
+- `vs2a/v0.2-r2-h1-revalidated` — REMAINS HELD pending R2-RT v3 PASS
+- `vs2a/v0.X-r2-spatial-calibration-disposed` — fires on this disposition's commit
+
+**Implementation specification (for gamora's follow-on impl sprint):**
+- See `canonical/story/r2-h1-recalibration-disposition-2026-05-19.md` § 2.3 for full code-change spec
+- Math note required (`reincarnated-engine/design/working-agreement/R2-recalibration-math-2026-05-19.md`)
+- 5-class smoke required before full 51-class re-run (Discipline #17)
+- L1 gamora authority on second-pass calibration tightening if smoke fails (per disposition § 2.4; R1 Blocker 3 § 10.1 precedent)
+
+**Follow-on dispatch:** knight-rider drafts `2026-05-19-gamora-vs2a-R2-recalibration-impl.md` (impl + smoke + full re-run + tag-fire).
+
+**Watchpoints surfaced:**
+- WP-R2-A-1 — PARTIALLY CLOSED → fully closes at R2-RT v3 PASS
+- WP-R2-A-2 (NEW) — spatial calibration drift under partition changes (post-S1 watchpoint)
+- WP-R2-D-1 (NEW) — recalibration impl Discipline #1 + #12 + ADR-004 compliance
+
+**Operating mode:** AUTONOMOUS L2-equivalent. No Matt-wait. Route closed.
