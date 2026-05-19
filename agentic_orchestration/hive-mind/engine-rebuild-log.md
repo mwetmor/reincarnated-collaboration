@@ -1629,3 +1629,60 @@ Decisions-log entry authored at `reincarnated-engine/design/decisions/decisions-
 This entry is filed under jack-ryan's ADR-002 documentation-only approval authority.
 
 **Cite:** ADR-002 (tiered approval authority); ADR-006 (push authority); ADR-004 (MIGRATION.md) — related context.
+
+---
+
+## 2026-05-19 — rocket R8 pipeline implementation
+
+### [2026-05-19] STATE — rocket — R8 pipeline implementation complete
+
+**Author:** rocket
+**Engine commits:** `bfa3fc3` (R8 impl) + `f17db74` (backward-compat fix)
+**Tag (engine):** `rocket/v1.8-r8-pipeline-impl-1` — pushed to origin/main
+**Authority:** AUTONOMOUS L1 in-seam + L2 collab per knight-rider Batch 3 dispatch
+
+**CLI flag surface:**
+
+| Flag | Mode | Season theme element | LLM calls | Use case |
+|---|---|---|---|---|
+| (no flags, CLI default) | `inverted_no_naming` | OUTPUT (coalesced) | ~1-2 | A/B cost test |
+| `--keep-llm-naming` | `inverted` | OUTPUT (coalesced) | ~316 | A/B cost-attribution diagnosis |
+| `--theme-input PATH` | `baseline` | INPUT (from file) | ~317 (legacy) | Legacy pipeline |
+| `--no-coalesce` | `no_coalesce` | null | 0 | Mod-export / raw mechanics |
+
+CLI default = `inverted_no_naming`. Python API `generate_season()` default = `"baseline"` (backward-compat for existing programmatic callers — preserves RNG parity).
+
+**Mode dispatch:** baseline runs element_selection (Phase A) before generation; inverted modes skip it and run `_coalesce_seasonal_theme()` post-convergence; no_coalesce skips all LLM calls.
+
+**New methods:** `_coalesce_seasonal_theme()` (1 LLM call, 3 retries, gandalf's prompt § 2.1/2.2), `_build_coalescence_payload()` (distribution tables only, no flavor text), `_parse_coalescence_response()` (P7 null-theme on missing fields), `_apply_template_naming()` (17-entry geometry→slot map, per-entity templates, P7 WARN on ambiguous), `_anchor_short_name()`.
+
+**Coordination with star-lord:** `TrackedLLMClient.set_context()` gains `generation_mode` param (already in star-lord's implementation); wired at season_init call site; sticky across all subsequent calls.
+
+**manifest.json changes:** version `"1.6"` → `"1.7"`; `generation_mode` field added; `season_theme_element` semantics: OUTPUT (inverted) / INPUT (baseline) / null (no_coalesce).
+
+**4-mode smoke results** (seed 99999, --no-llm, --smoke; `output/R8-mode-smoke-2026-05-19/`):
+
+| Mode | season_theme_element | manifest generation_mode | Status |
+|---|---|---|---|
+| no_coalesce | null | no_coalesce | PASS |
+| inverted_no_naming | water (fallback, no LLM) | inverted_no_naming | PASS |
+| baseline | flicker (from theme file) | baseline | PASS |
+| inverted | water (fallback, no LLM) | inverted | PASS |
+
+Template naming confirmed (inverted_no_naming, anchor="The Cloud-Wrapped Peak"): classes "Peak Pyre Drifter", "Peak Wake Striker", "Peak Stone Warden"; trial "water Sovereign".
+
+**Test suite status:**
+- 744 key unit tests: 744/744 PASS
+- `test_wind_controller_dps_floor.py` (4 tests): pre-existing failures at origin/main HEAD before R8 (gamora's R1 scope — DPS floor constraints on earth_controller)
+- `test_b6_generator_wired.py::test_taxonomy_doppelganger_in_band`: fixed by baseline API default; verification run in progress
+
+**Backward-compat issue found + fixed:** inverted_no_naming API default shifted RNG (element_selection skipped → doppelganger win rates boundary violation). Fixed by two-tier default design. See commit `f17db74`.
+
+**MIGRATION.md:** `src/reincarnated/generation/MIGRATION.md` R8 section appended.
+
+**LLM cost:** $0.00 (all smokes --no-llm)
+
+**Open items for knight-rider:**
+1. Doppelganger test verification result (running; ~20 min)
+2. Pre-existing `test_wind_controller_dps_floor.py` failures — gamora scope; recommend noting in watchpoints
+3. Milestone `hive-rebuild/v0.9-r8-prototype-operational`: held pending (a) doppelganger PASS; (b) star-lord R8 LLM orchestration state confirmation; (c) knight-rider milestone decision
