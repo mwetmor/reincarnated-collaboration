@@ -871,3 +871,45 @@ Open: `inverted_no_naming` arm addendum (per knight-rider routing) not yet prese
 **Gate decisions document:** `agentic_orchestration/hive-mind/gate1-design-review-2026-05-19.md`
 
 **Wind-down trigger:** unchanged. Matt's explicit declaration only.
+
+---
+
+## 2026-05-19 — star-lord WARN resolution (WARN-R7-1 + WARN-R8-1)
+
+### [2026-05-19] STATE — star-lord — WARN-R7-1 + WARN-R8-1 resolved; R7 + R8 implementation phases unblocked
+
+Both WARNs from jack-ryan's next-pass Gate 1 review resolved in engine commit `021e6da` (pushed to origin/main).
+
+**WARN-R7-1 resolution (DemoAgentMock Pattern P7 fix):**
+
+All four `.get()` calls in `DemoAgentMock.__init__()` replaced with direct key access (`monster_json["field"]`). Pattern per § R-6.3: KeyError fires immediately on missing field — no silent None propagation. Redundant asserts retained for all four required fields (`aggro_radius_m`, `leash_distance_m`, `preferred_behavior`, `range_profile`) with a comment explaining the discipline: KeyError is the primary fail-loud gate; asserts document intent and which fields are required. This approach is consistent with the "try/except KeyError with explicit message" alternative named in the gate review — but the direct key access form is cleaner for a mock whose sole purpose is contract validation.
+
+Cross-reference confirmed: `R7-consumer-audit-2026-05-19.md` § R-6.3 specifies "direct key access" as the Pattern P7 avoidance pattern. DemoAgentMock now matches that discipline.
+
+**WARN-R8-1 resolution (mode-name consistency):**
+
+`"inverted_naming"` renamed to `"inverted"` in `R8-pipeline-design-2026-05-19.md` § SL-2. Full mode set after rename: `baseline` / `inverted` (naming retained; Phase A eliminated; coalescence feeds Phase B) / `inverted_no_naming` (template-based naming from coalesced vocabulary; ~98% cost reduction) / `no_coalesce` (raw mechanics, no theme).
+
+Consistency verified across all reference points:
+- § SL-4 column values: `"inverted"` (unchanged — was already correct)
+- Smoke 1 assertion (`llm_calls.generation_mode = "inverted"`): consistent
+- LLM MIGRATION.md `set_context(generation_mode="inverted")` example: consistent
+- Knight-rider routing decision (hive log `0b51312`): consistent
+- No `"inverted_naming"` occurrences remain in any of the four affected documents
+
+LLM MIGRATION.md required no changes — it already used `"inverted"` throughout.
+
+**Collateral note:** rocket's WARN-R3-1 and WARN-R3-2 resolutions were present as staged working-tree changes in the engine repo and were included in commit `021e6da` alongside my R7/R8 fixes. These are rocket's doc-only changes (archetype vocabulary reconciliation in R3-schema-design-2026-05-19.md + range_m minimum clarification in generation/MIGRATION.md). Attributing to rocket per seam ownership; commit SHA is shared.
+
+**Engine commit:** `021e6da` — pushed to origin/main
+- `design/working-agreement/R7-parity-test-spec-2026-05-19.md` (WARN-R7-1)
+- `design/working-agreement/R8-pipeline-design-2026-05-19.md` (WARN-R8-1)
+- `design/working-agreement/R3-schema-design-2026-05-19.md` (rocket WARN-R3-1 — collateral)
+- `src/reincarnated/generation/MIGRATION.md` (rocket WARN-R3-2 — collateral)
+
+**Implementation-phase status:**
+- R7 implementation: UNBLOCKED (WARN-R7-1 cleared)
+- R8 implementation: UNBLOCKED (WARN-R8-1 cleared)
+- R3 tag `hive-rebuild/v0.4-r3-schema-draft-committed`: UNBLOCKED if rocket confirms WARN-R3-1 + WARN-R3-2 resolutions are complete in this commit
+
+**Jack-ryan:** WARN-R7-1 and WARN-R8-1 are ready for re-verification in engine commit `021e6da`. No re-review required for rocket's WARN-R3 changes unless jack-ryan deems the archetype vocabulary reconciliation needs a separate pass.
