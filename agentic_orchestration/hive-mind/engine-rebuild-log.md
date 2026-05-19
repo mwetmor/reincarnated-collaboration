@@ -2835,6 +2835,143 @@ Knight-rider fires F5 + F6 once gandalf F3 frameworks land.
 
 ---
 
+## 2026-05-19 — drax VS2a F4 — B6 skill-tree UI decomposition + prototype
+
+### [2026-05-19] STATE — drax — F4 Phase 1 COMPLETE: design dispatch authored
+
+**Author:** drax
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-19-drax-vs2a-b6-skilltree-ui-decomposition.md` (commission)
+**Design dispatch (authored now):** `agentic_orchestration/dispatches/2026-05-19-drax-b6-skilltree-ui-decomposition-design.md`
+**Authority:** AUTONOMOUS — VS2a F4 first-fire; drax L1 in-seam; no Matt-wait
+
+**Design dispatch covers all 8 sections per commission § "What you're authoring":**
+
+1. **Rendering shape** — Tier-row layout (D2-style rows + column chains). 4 horizontal tier rows (T1 Primaries → T4 Keystones); 2–4 chain columns within each row. Genre precedent: Grim Dawn devotion, D4 paragon board, Last Epoch per-skill tree. Rationale: B6 tree is intentionally small (10–15 skills, 4 tiers, 2–4 chains) — not a 1,300-node PoE passive sphere. Tier-row preserves all B6 structural dimensions (tier = power axis → rows; chain = thematic axis → columns; parent-child arrows visible between rows) while working in portrait orientation on mobile.
+
+2. **Node icon strategy** — Primitive geometric icons (circle T1/T2; hexagon T3/T4) + element-coded color + tier-coded shape. chierit per-archetype integration forward-flagged pending gandalf mapping decision. Pimen VFX frames on T3/T4 forward-flagged pending C4 pipeline. Both tracked via TODO(drax) in prototype code + this AGENT_STATE.
+
+3. **Unlock-feedback affordance** — Color burst (8 pixel-art squares, element-colored, 0.35s), rank-pop scale animation (1→1.3→1, 0.2s), edge-pulse connector to newly-unlocked child node (0.45s). No confirmation modal. Invalid-tap shake feedback (8px ±oscillation, 0.25s). No audio (deferred per audio-strategy-phase0.md).
+
+4. **Mobile-first sizing** — hitR(44) = 211 canvas-px touch zone per node. Node visuals: 72–96 canvas-px diameter. Column spacing: 450px canvas on landscape (4 chains at 1800px), 315px on portrait (3 chains at 944px). Portrait 4-chain layout uses 2×2 sub-grid design (full implementation deferred to next polish session).
+
+5. **Tap-to-allocate UX** — Single-tap = 1 rank immediate; long-press (>400ms) = skill detail overlay; double-tap within 1.2s = de-allocate 1 rank; 0-points shake; locked-node shake + requirement tooltip.
+
+6. **Point-allocation + respec** — Pool display at header (available bold / total allocated muted). Free per-session respec ("Reset All" button). No cross-session persistence (player-save layer absent). Per-node undo via double-tap. Gandalf design-consult queued via hive log (respec cost semantics — prototype assumes free-per-session until B6 spec closes respec-cost design).
+
+7. **Data contract with engine (§ 7 — S2 handoff)** — See HANDOFF entry below.
+
+8. **Scope phasing** — Prototype ship-line: rendering + tap-to-allocate + point pool + unlock-feedback + free respec + mobile+desktop layout. Post-prototype: chierit/Pimen icons; audio; respec cost; localStorage persistence; S2 engine data consumption.
+
+**Authority:** drax L1 decisions (all 8 sections); gandalf design-consult queued for respec semantics and chierit per-archetype mapping (when it lands, drax integrates).
+
+---
+
+### [2026-05-19] HANDOFF — drax — § 7 data contract for rocket + gamora S2
+
+**Author:** drax
+**For:** rocket (B6 pre-work) + gamora (S2 main work)
+**Context:** drax authored the UI-side B6 data contract. S2 dispatch should honor this contract when emitting skill-tree data from the engine.
+
+**Where the tree lives in season output:**
+```
+ClassData.skill_tree: SkillTree   // new field on existing ClassData
+ClassData.skill_points_available: number  // total earned - spent; or drax derives floor(level/2)
+ClassData.skill_points_spent: number
+```
+
+**SkillTree shape:**
+```jsonc
+{
+  "class_id": "fire_mage",
+  "element_distribution": "single" | "multi",
+  "cross_chain_unlock": "strict" | "permissive",
+  "chains": [
+    {
+      "chain_id": "spark",
+      "label": "Spark Chain",  // LLM-named
+      "element": "fire",
+      "palette_hex": "#ff6622",
+      "skills": [ /* SkillNode[] */ ]
+    }
+  ]
+}
+```
+
+**SkillNode key fields:**
+- `skill_id: string` — stable; used as allocation key
+- `chain_id: string` — references parent chain
+- `tier: 1 | 2 | 3 | 4`
+- `parent_skill_ids: string[]` — empty for Tier 1
+- `rank_unlock_threshold: number` — 0 for Tier 1
+- `rank_cap: number` — per B6 spec smooth rank cap formula
+- `scaling_coefficient: number` — T1: 1.05-1.08; T2: 1.08-1.12; T3: 1.12-1.18; T4: 1.18-1.25
+- `effects: SkillNodeEffect[]` — base_value + per_rank_delta
+- `energy_cost`, `cooldown_seconds`, `geometry_type`, `range_m` — existing fields, already in Skill interface
+- `icon_hint?: string` — optional; chierit/Pimen icon selector when available
+- `archetype_tag: string`, `flavor_text: string`
+
+**Full schema in `reincarnated-demo/src/ui/skillTree/types.ts`.** S2 MIGRATION.md should reference this file.
+
+**What drax does NOT need from S2:**
+- Respec cost economics (free-respec until gandalf closes B6 spec)
+- Rank cap per-level formula evaluated (drax uses rank_cap field; formula advisory)
+- Chain palette generation (drax uses palette_hex string per chain)
+
+---
+
+### [2026-05-19] STATE — drax — F4 Phase 2 COMPLETE: prototype shipped
+
+**Author:** drax
+**Demo commit:** `54c17dac6` + `08a9f325e` (AGENT_STATE) — pushed to origin/main
+**Build smoke:** `tsc --noEmit` CLEAN; `npm run build` 536 modules, 0 errors, 784KB bundle (+18KB delta)
+**Authority:** AUTONOMOUS — VS2a F4; drax L1 in-seam
+
+**Files shipped:**
+- `src/ui/skillTree/types.ts` — SkillTree / SkillChain / SkillNode / SkillAllocationState / SkillPointBudget (§ 7 contract)
+- `src/ui/skillTree/skillTreePanel.ts` — full rendering + interaction + animation surface
+- `src/ui/skillTree/fixtures/sampleTree.ts` — synthesized fire_mage placeholder (9 nodes; 2 chains: Spark/Ember; 4 tiers)
+- `src/ui/skillTree/index.ts` — module entry
+- `src/main.ts` — KeyT shortcut + openSkillTree() function (mobile DrawerShell + desktop modal paths)
+
+**Prototype delivers per F4 ship-line:**
+- Tier-row layout: 4 tier rows (Primaries/Mids/Advanced/Keystones), chain columns
+- Node state encoding: Locked / Available / Allocated / Maxed (visual fill + border glow)
+- Node shapes: circle (T1/T2), hexagon (T3/T4), scaled by tier
+- Tap-to-allocate: single-rank per tap; immediate state transition
+- Per-node undo: double-tap within 1.2s window shows "tap again to remove" hint
+- Unlock feedback: color burst + rank-pop + edge-pulse to newly-unlocked child
+- Invalid-tap feedback: node shake + pool-counter shake
+- Point pool display: available (highlighted) + total + spent (live-updating)
+- Free respec: "Reset All" button returns all ranks to pool
+- Desktop: centered modal (960×640); dismiss via Close button or backdrop click
+- Mobile: DrawerShell slide-up drawer; dismiss via swipe-down or backdrop tap
+- Long-press (>400ms): skill detail tooltip with requirement text
+- Locked-node tap: tooltip shows parent rank requirement
+
+**TODO(drax) items from F4 (tracked in AGENT_STATE.md):**
+- Replace SAMPLE_FIRE_MAGE_TREE with engine-emitted data (S2 gating)
+- chierit per-archetype icons (gandalf mapping decision)
+- Pimen VFX node-unlock affordance (C4 pipeline)
+- Respec cost UX (gandalf B6 spec)
+- localStorage persistence (player-save layer)
+- Mobile TouchIcons button (KeyT keyboard only today; mobile needs tap target)
+- Portrait 2×2 chain sub-grid (design complete; implementation deferred)
+
+**Tag fire request:** `vs2a/v0.6-b6-skilltree-ui-decomposition` — knight-rider fires + pushes per ADR-006 amendment.
+
+**F4 acceptance criteria status:**
+- [x] Design dispatch authored covering all 8 sections
+- [x] Prototype B6 skill-tree UI surface shipped in reincarnated-demo
+- [x] Placeholder data fixtures (sampleTree.ts) in contract-compliant shape
+- [x] Mobile + desktop responsive at minimum viable level
+- [x] tsc --noEmit CLEAN + npm run build 0 errors
+- [x] AGENT_STATE.md updated
+- [x] § 7 data contract surfaced in hive log for rocket + gamora S2
+- [ ] Tag fire (knight-rider fires)
+- [x] Visual smoke: build succeeds, demo launches; visual screenshot deferred — galadriel sub-agent restriction in effect per protocol § 7
+
+---
+
 ## 2026-05-19 — gandalf F2 disposition COMPLETE: full R8-inversion regeneration committed
 
 ### [2026-05-19] STATE — gandalf — F2 path-decision DECIDED: path (b) R8-inversion regeneration with first-batch validation gate
