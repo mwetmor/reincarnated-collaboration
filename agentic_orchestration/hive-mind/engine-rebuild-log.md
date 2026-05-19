@@ -1105,3 +1105,64 @@ Schema 2.8 (R8 `llm_calls.generation_mode`) DEFERRED to R8 implementation sessio
 - drax: no consumer impact (class_balance_results not in export packets).
 
 **LLM cost this session:** $0.00. No LLM calls. Pure schema/code implementation.
+
+---
+
+## 2026-05-19 — rocket R3 schema implementation
+
+### [2026-05-19] STATE — rocket — R3 schema implementation complete; tag fired
+
+**Author:** rocket
+**Commit (engine):** `8d64c0c`
+**Tag (engine):** `rocket/v1.7-r3-schema-impl-1` — pushed to origin/main
+
+**Scope:** R3 schema implementation per dispatch + design doc §§ R-0 through R-8 (R8 excluded per scope boundary).
+
+**Schema extension:**
+
+- `skill_schema.py`: `Skill.range_m: float | None = None` — required for new content post-R3; None for pre-R3 skills awaiting elrond backfill
+- `monster_schema.py`: 6 new R3 AI behavior fields (`preferred_behavior`, `telegraph_window_seconds`, `aggro_radius_m`, `leash_distance_m`, `skill_rotation_priority`, `range_profile_redistribution`) with Pattern P7 `@model_validator` enforcement; `PREFERRED_BEHAVIOR_VALUES` frozenset at module level for enum validation
+
+**Generator integration:**
+
+- `monster_generator.py`: Full R3 derivation tables added (8 tables covering the complete § R-2.1 through R-2.6 + § R-1.3 spec). `_derive_skill_range_m()` and `_derive_r3_ai_fields()` helper functions. `MonsterGenerator.generate()` emits all R3 fields. Boss/elite/mini-boss tier overrides applied. Idempotency preserved (seed → same output).
+
+**4 R7 consumer audit sites modified:**
+
+1. `fight_engine.py` (384-386): `_skill_in_range()` helper replaces binary at_melee_range gate for ranged skill availability — per-skill `distance_m <= skill.range_m` check; Pattern P7 warn on range_m=None; ValueError on missing attribute
+2. `fight_engine.py` (404-411): `_evaluate_player_disengage()` + disengage action in `_maybe_act()` — HP<25%/range-mismatch/energy-starvation triggers; sustain skills fire during retreat; offensive action blocked during disengage tick
+3. `ai_strategies.py` (160-189): `get_priority_roles()` extended with `preferred_behavior` param; 6-entry `_PREFERRED_BEHAVIOR_ROLES` dict; unknown behavior logs WARN, falls through to archetype lookup
+4. `ai_strategies.py` (197-200): `choose_action()` adds preferred_behavior routing case for scripted monster combatants
+
+**Disengage + leash-return implemented:**
+
+- Player disengage: HP/range-mismatch/energy-starvation triggers; sustain-during-retreat; offensive pause; documented in `_evaluate_player_disengage()` + `_maybe_act()`
+- Monster leash-return: per-tick state machine in `simulate_fight()` main loop; `is_leashing` flag; immune during return; HP reset on spawn arrival; re-aggro on `aggro_radius_m` re-entry
+- Both applied to `CombatantState` via new fields: `preferred_behavior`, `aggro_radius_m`, `leash_distance_m`, `skill_rotation_priority`, `range_profile_redistribution`, `is_leashing`, `spawn_distance_m`
+
+**at_melee_range binary gate retired (Discipline #12):**
+
+- Binary gate retired specifically for ranged skill availability decision in `_maybe_act()`. The `at_melee_range` flag is retained for MELEE_GEOMETRIES gate in `can_use_skill()` (melee skills still require physical contact). Semantic shift documented in `_skill_in_range()` docstring + `_maybe_act()` inline comment + AGENT_STATE.md.
+
+**Pattern P7 validation operational:**
+
+- Boot-time: `monster_schema.py` @model_validator rejects invalid enum / out-of-range / constraint violations at construction time
+- Generation: `_derive_r3_ai_fields()` + `_derive_skill_range_m()` raise ValueError on unknown archetype/effect_category
+- Sim consumer: `_skill_in_range()` raises ValueError on missing range_m attribute; logs WARN on None (pre-R3 skill)
+
+**Smoke results:**
+
+- Import smoke: all 7 modified modules import clean
+- Generator round-trip: 6 archetypes × trash + boss/elite tier overrides — all R3 fields present + schema validates
+- Fight smoke: fire_mage vs all 6 monster archetypes — GREEN (no errors)
+- Test suite: 687 tests run across 7 test files — 0 failures (232 + 66 + 389)
+
+**Star-lord coordination note:** MIGRATION.md R3+R7 entry already present (commit `021e6da`). `from_monster()` now carries `preferred_behavior`, `aggro_radius_m`, `leash_distance_m`, `skill_rotation_priority`, `range_profile_redistribution` on CombatantState — available for star-lord's telemetry recorder to write when R3 fight_log fields land.
+
+**Downstream unblocks:**
+
+- Elrond backfill: unblocked by `rocket/v1.7-r3-schema-impl-1` tag. Schema accepts new fields; derivation tables are the authoritative backfill inputs.
+- Star-lord R7 parity-test harness: can now read `preferred_behavior` from CombatantState
+- R8 pipeline implementation: separate later session (rocket owns, not in this session)
+
+**LLM cost:** $0.00. No LLM calls.
