@@ -1166,3 +1166,60 @@ Schema 2.8 (R8 `llm_calls.generation_mode`) DEFERRED to R8 implementation sessio
 - R8 pipeline implementation: separate later session (rocket owns, not in this session)
 
 **LLM cost:** $0.00. No LLM calls.
+
+---
+
+## 2026-05-19 — Knight-rider Batch 2 closeout + Batch 3 dispatch
+
+### [2026-05-19 05:50Z] TAG — knight-rider — `hive-rebuild/v0.5-r3-schema-implementation-complete` pushed both repos
+
+R3 schema implementation is now COMPLETE end-to-end:
+- Rocket: schema definitions + generator integration + 4 R7 consumer audit sites modified + disengage + leash-return + at_melee_range gate retired (commit `8d64c0c`, tag `rocket/v1.7-r3-schema-impl-1`)
+- Star-lord: telemetry schema 2.6/2.7/2.9 ALTER TABLEs executed + recorder.py extension + 176/176 round-trip smoke PASS (commit `42f5467`, tag `star-lord/v1.10-r1-r3-telemetry-impl-1`)
+- Gamora: R1 per-tier convergence operational + ClassBalanceResult extended + 300 tests PASS (commit `3a73d94`, tag `hive-rebuild/v0.2-r1-per-tier-convergence-operational`)
+
+The R3 schema + R1 per-tier convergence + R1+R3 telemetry stack is in production. The `_skill_in_range()` warn-on-None path is currently producing log noise during fights against pre-R3 monsters (per rocket's note) — this dissolves when elrond backfill executes (Batch 3).
+
+Milestone tag `hive-rebuild/v0.5-r3-schema-implementation-complete` applied + pushed to BOTH repos at current HEADs (collab `5c13feb`, engine `8d64c0c`).
+
+### [2026-05-19 05:50Z] STATE — knight-rider — Batch 2 closeout; Batch 3 fired
+
+**Batch 2 (implementation phase) closeout summary:**
+
+| Specialist | Workstream | Tag | Smoke + round-trip |
+|---|---|---|---|
+| gamora | R1 per-tier convergence | hive-rebuild/v0.2 + gamora/v1.5-r1-impl-1 | 300/300 + R1 round-trip 15/15 |
+| star-lord | R1+R3 telemetry | star-lord/v1.10 | 176/176 telemetry suite (incl R3 14/14 + R1 15/15) |
+| rocket | R3 schema | rocket/v1.7-r3-schema-impl-1 | 687/687 across 7 test files |
+
+**Cumulative implementation-day metrics (activation 04:26Z → now 05:50Z, ~1h25m):**
+- 14 specialist sessions completed
+- 12+ commits across collab + engine (all pushed)
+- 8 hive-rebuild milestone tags (v0.0, v0.1, v0.2, v0.4, v0.5 + 3 seam tags pushed cross-repo)
+- 0 Matt escalations
+- 0 BLOCKs
+- 4 WARNs filed + resolved cleanly
+- 3 jack-ryan Gate decisions (1 PASS + 1 PASS-with-WARNs + 1 PASS)
+- Production telemetry DB extended additively with 21 new nullable columns + 3.1M existing rows preserved
+
+### [2026-05-19 05:50Z] HANDOFF — knight-rider → Batch 3 specialists
+
+**Batch 3 dispatched in parallel (3 specialists, 4 deliverables):**
+
+1. **Elrond — R3 backfill execution.** Gate cleared (`rocket/v1.7-r3-schema-impl-1` landed). Execute `backfill_r3_2026-05-19.py` across 5 shipped seasons; idempotency + validation per design § E-? specs. Tag on completion: `hive-rebuild/v0.6-r3-backfill-complete`. This dissolves the rocket warn-on-None log noise.
+
+2. **Star-lord — R7 parity-test harness implementation.** Gate cleared (WARN-R7-1 resolved; rocket schema landed; CombatantState carries preferred_behavior). Implement the instantiate-both-engines harness per spec; Test 1 (aggro_radius change reflects on both surfaces ±10%) + Test 2 (intentional break reports file:line) + Test 3 (preferred_behavior cross-surface 100% match). Tag on hypothesis-test pass: `hive-rebuild/v0.7-r7-parity-test-operational`.
+
+3. **Star-lord — R8 LLM orchestration implementation** (combined with R7 in same session; star-lord's per-session bandwidth allows). Implement two inverted modes (`inverted` + `inverted_no_naming`) + `no_coalesce` per § SL-2 design; schema 2.10 ALTER TABLE for `llm_calls.generation_mode` (NOT 2.8 — protocol-critical naming requirement); cost telemetry mode-tagged.
+
+4. **Rocket — R8 pipeline implementation.** Independent of R3 (different files: season_orchestrator.py). Implement default-coalesce + opt-in `--theme-input` + opt-out `--no-coalesce` CLI flags per § SL-2 + dispatch design. Tag: `rocket/v1.8-r8-pipeline-impl-1`. Coordinates with star-lord R8 LLM orchestration via shared `R8-pipeline-design-2026-05-19.md`.
+
+**Held for next-batch (not Batch 3):**
+- Gamora R1 class-retuning sprint (Test 2 path) — waits for elrond backfill completion so retune can leverage populated range_m fields
+- Jack-ryan continuous-observation pass (will continue naturally on Batch 3 work; explicit spawn if needed)
+- Drax R5 dispatch — fires when R3 partial-completion sufficient (already at `v0.5`)
+- R4 demo collision/leash/range — fires after R3 complete + R5 partial
+
+**Pattern-B:** still PARKED. No signals to file today.
+
+**Wind-down trigger:** unchanged. Matt's explicit declaration only.
