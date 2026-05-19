@@ -4,6 +4,39 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-19 — VS2b PRE-APPROVAL BATCH authored (full 6-dispatch set; VS2A → VS2B continuation per Matt directive)
+
+**Event:** Per Matt directive 2026-05-19 ("approved, proceed with VS2A → VS2B"), knight-rider authored the complete VS2b dispatch set alongside the VS2a pre-approval batch. Pre-approval-batch mode extended through VS2b. Combined VS2a + VS2b = 18 dispatches; Matt approves one batched sprint plan; no Matt-engagement between batches.
+
+**Six VS2b dispatches authored:**
+
+1. **V1 — rocket — `embodiment_narrative_beat` schema field** — per `canonical/story/embodiment-display-loadout.md` § 15; Discipline #14 generative-side schema; two-stage migration; tag `vs2b/v0.1`
+2. **V2 — star-lord — LLM beat-generation call orchestration** — folds into Stage 2 cosmological-vocabulary pipeline as follow-on; anti-bias scaffolding per Discipline #14 candidate; tag `vs2b/v0.2`
+3. **V3 — drax — loadout embodiment-narrative-display surface** — per spec § 15 + § 13 implementation cascade; loadout-first; Diablo III class-select reference; tag `vs2b/v0.3`
+4. **V4 — gandalf — chierit element-reconciliation (small ~30 min)** — closes VS2a + VS2b chierit watch-items; element-only mapping decision + physical/hybrid fallback; tag `vs2b/v0.4`
+5. **V5 — drax + elrond — full Pimen catalogue integration** — extends VS2a C2 (11/13 GREEN-list) to full coverage; tag `vs2b/v0.5`
+6. **V6 — star-lord + gamora — VS2b ship gate (regen season_001005)** — fresh regen demonstrates cipher migration + embodiment-axis + embodiment-narrative display + Pimen full integration; tag `vs2b/v1.0-vs2b-ship` (VS2b CLOSED)
+
+**Roadmap-drift surfaced + flagged:** `canonical/16-project-roadmap.md` § VS2b lists some items as "in-flight" or "dispatch not yet authored" that have shipped per dispatch completion records. Stage 1 (rocket) + Stage 2 vocab + Stage 3 engine + Stage 3 drax all shipped 2026-05-16. Roadmap doc amendment forward-flagged to gandalf at next pass. Scope-of-work-vs2b § 1 captures ground truth.
+
+**Combined VS2a + VS2b inventory:**
+- VS2a: 12 dispatches (F1-F4 + F5 + F6 + F6-D + R2-RT + S1 + S2 + S3 + L1)
+- VS2b: 6 dispatches (V1-V6)
+- In-flight: C1-C4 (continue per AGENT_STATE)
+- Matt-gated: M1 (Drift-15 selection) + M2 (engine-rebuild playtest tags)
+- TOTAL: 24 roadmap items locked under pre-approval-batch
+
+**Operating mode:** AUTONOMOUS per protocol § 4.0 + § 4.9. Matt re-enters only at wind-down (his discretion). Post-VS2b: Stage A2 closeout pre-approval-batch decision DEFERRED to Matt at next wind-down session.
+
+**Pre-approval surface (Matt's one-doc review):**
+- `agentic_orchestration/hive-mind/vs2a-pre-approval-batch-2026-05-19.md` (12 dispatches)
+- `agentic_orchestration/hive-mind/vs2b-pre-approval-batch-2026-05-19.md` (6 dispatches)
+- `agentic_orchestration/hive-mind/scope-of-work-vs2b.md` + `coordination-matrix-vs2b.md` (companion plans)
+
+**Authority:** Matt directive 2026-05-19 (VS2A → VS2B pre-approval continuation); knight-rider operationalization + dispatch authoring under autonomous-mode authority.
+
+---
+
 ## 2026-05-19 — VS2a PRE-APPROVAL BATCH authored (full 12-dispatch set; per Matt directive)
 
 **Event:** Per Matt directive 2026-05-19 ("Batch all of VS2a now so I can approve everything in advance"), knight-rider authored the full VS2a dispatch set (12 dispatches total) for Matt's pre-approval review before autonomous execution proceeds. After Matt's review + approval, no further Matt-engagement is required until wind-down (M1 + M2 + retrospective).
