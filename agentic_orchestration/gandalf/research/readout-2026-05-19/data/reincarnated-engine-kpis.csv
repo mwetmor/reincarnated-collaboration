@@ -1,0 +1,42 @@
+category,kpi_name,value,unit_or_notes
+internal_palette,geometry_type_count,24,active geometry types in palette
+internal_palette,canonical_role_count,9,roles per skill (damage / support / control / hybrid + sub-orientations)
+internal_palette,canonical_ailment_count,8,control ailments
+internal_palette,canonical_substrate_count,8,fire / water / wind / earth / lightning / holy / shadow / cold/poison (post-canonical-6 retire of hybrid_mage)
+internal_palette,element_pool_size,156,allow-list 81 + eligible 40 + quarantine 35
+simulation,tick_size_seconds,0.1,fight engine tick
+simulation,max_fight_duration_seconds,120.0,timeout cap
+simulation,pack_proxy_size,8,N mobs collapsed to single proxy for swarm slots
+simulation,per_hit_damage_variance_band,+/-20%,uniform per-hit roll
+simulation,per_fight_dps_variance_band,+/-25%,KI-B6-1 resolution
+balance_loop,max_iterations,10,convergence cap before halt
+balance_loop,wr_tolerance,0.03,acceptable distance from target WR
+balance_loop,target_wr_default,0.50,aggregate gauntlet mean
+balance_loop,known_gap,no_per_tier_targets,Gandalf 2026-05-18 diagnosis — Track F R1
+generation,llm_calls_per_season_typical,317,naming + cosmology + flavor
+generation,llm_cost_per_season_usd_typical,0.74,~$22 per 30-season generation pass
+output_artifacts,monster_json_field_count,14,id name threat_tier archetype energy role range element resistances skills metadata speed
+output_artifacts,class_json_field_count,14,id name title flavor archetype energy role range element palette stat_dist skills gear metadata speed
+output_artifacts,skill_json_field_count,24,composition role element geometry effect_cat energy cooldown damage effects color flavor tier chain timing
+output_artifacts,gear_json_field_count,25,base_type slot tier rarity handedness element stats rolled_effects abilities traits requirements power_score class_fit set name
+output_artifacts,season_manifest_field_count,15,manifest_version season_id timestamps engine_sha generation_seed theme anchor elements cosmology summary
+gauntlet,fight_count_per_class,12,sequential 1v1 gauntlet
+gauntlet,slot_composition,swarm:6 magic:2 elite:2 miniboss:1 boss:1,12-slot composition per balance_loop.py:269-275
+gauntlet,spatial_substrate,1D scalar distance,no 2D; 3-band state machine (CLOSE <=1.5m / MID 1.5-12m / FAR >=12m)
+gauntlet,collision_model,none,single opponent per engagement; PackProxy collapses N to 1
+gauntlet,known_gap,no_per_skill_range,Gandalf 2026-05-18 — Track F R3
+schema_gap_path_b,per_skill_range_in_tooltip_units,MISSING,required for mod-export to GD/TQ
+schema_gap_path_b,per_skill_spatial_footprint_dimensions,MISSING,required for AOE shape rendering
+schema_gap_path_b,vfx_audio_asset_bindings,PLACEHOLDER,host-game default fallback acceptable for Path B
+schema_gap_path_b,ai_behavior_spec_beyond_archetype_priority,MISSING,host games typically have simpler AI; gap small
+schema_gap_path_a,aggro_radius_per_mob,MISSING,Path B can use host-game defaults
+schema_gap_path_a,leash_distance_per_mob,MISSING,Path B can use host-game defaults
+schema_gap_path_a,telegraph_window_per_skill,MISSING,per-role defaults acceptable for Path A
+schema_gap_path_a,world_geometry_quest_structure,N/A,Path B routes around via host authoring tools
+seasons_shipped,001005,1,Phase-0 demo seed
+seasons_shipped,002011,1,canonical-7 substrate
+seasons_shipped,002012,1,canonical-7 substrate
+seasons_shipped,002013,1,canonical-7 substrate
+seasons_shipped,002014,1,canonical-7 substrate
+seasons_shipped,002015,1,canonical-7 substrate
+seasons_shipped,002328,1,Yomi - light/dark/lightning - 404 on prod R2 as of 2026-05-18 19:10

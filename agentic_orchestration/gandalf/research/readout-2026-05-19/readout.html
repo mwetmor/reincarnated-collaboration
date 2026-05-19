@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Reincarnated Mod-Target Analytical Readout — 2026-05-19</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --ink: #1a1612;
+  --paper: #f5efe1;
+  --paper-light: #faf6ec;
+  --rule: #c9bfa5;
+  --primary-tier: #b8860b;      /* dark gold — PRIMARY */
+  --secondary-tier: #6b8e23;    /* olive — Secondary */
+  --niche-tier: #708090;        /* slate — Niche */
+  --notviable-tier: #8b3a1a;    /* rust — NotViable */
+  --director: #4a3a5a;          /* aubergine — Director context */
+  --emphasis: #6b2d1f;          /* deep brick — emphasis */
+  --quiet: #6a6357;
+}
+body {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  background: var(--paper);
+  color: var(--ink);
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+  line-height: 1.55;
+  font-size: 16px;
+}
+h1 {
+  font-size: 28px;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.5px;
+  font-weight: 600;
+}
+h1 + .subtitle {
+  color: var(--quiet);
+  font-style: italic;
+  margin: 0 0 28px 0;
+  font-size: 15px;
+}
+h2 {
+  font-size: 22px;
+  margin: 48px 0 14px 0;
+  font-weight: 600;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 6px;
+}
+h3 {
+  font-size: 17px;
+  margin: 26px 0 10px 0;
+  font-weight: 600;
+  color: var(--emphasis);
+}
+.status-banner {
+  background: var(--paper-light);
+  border-left: 4px solid var(--director);
+  padding: 12px 16px;
+  margin: 16px 0 24px 0;
+  font-size: 14px;
+  color: var(--quiet);
+}
+.tldr {
+  background: var(--paper-light);
+  border: 1px solid var(--rule);
+  padding: 18px 22px;
+  margin: 20px 0 32px 0;
+  border-radius: 2px;
+}
+.tldr ol { margin: 8px 0 4px 22px; padding: 0; }
+.tldr li { margin: 6px 0; }
+.director-callout {
+  background: #ede7f1;
+  border-left: 4px solid var(--director);
+  padding: 14px 20px;
+  margin: 24px 0;
+  font-size: 14.5px;
+  border-radius: 0 2px 2px 0;
+}
+.director-callout h3 {
+  margin-top: 0;
+  color: var(--director);
+}
+.director-callout blockquote {
+  margin: 8px 0;
+  padding-left: 14px;
+  border-left: 2px solid var(--director);
+  color: var(--ink);
+  font-style: italic;
+}
+.chart-frame {
+  background: var(--paper-light);
+  border: 1px solid var(--rule);
+  padding: 16px 18px 8px;
+  margin: 16px 0 26px 0;
+  border-radius: 2px;
+}
+.chart-frame h3 {
+  margin: 0 0 6px 0;
+  color: var(--ink);
+}
+.chart-caption {
+  font-size: 13px;
+  color: var(--quiet);
+  font-style: italic;
+  margin: 0 0 12px 0;
+}
+canvas {
+  max-width: 100%;
+}
+.chart-tall { height: 460px; }
+.chart-med { height: 360px; }
+.chart-short { height: 300px; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0 22px 0;
+  font-size: 14px;
+}
+th {
+  background: var(--paper-light);
+  text-align: left;
+  font-weight: 600;
+  padding: 8px 10px;
+  border-bottom: 2px solid var(--rule);
+}
+td {
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+tr:hover { background: var(--paper-light); }
+.tier-primary { color: var(--primary-tier); font-weight: 600; }
+.tier-secondary { color: var(--secondary-tier); font-weight: 600; }
+.tier-niche { color: var(--niche-tier); }
+.tier-notviable { color: var(--notviable-tier); font-style: italic; text-decoration: line-through; }
+
+.gap-callout {
+  background: #fcefe2;
+  border-left: 4px solid var(--emphasis);
+  padding: 12px 18px;
+  margin: 20px 0;
+  font-size: 14.5px;
+}
+.gap-callout h3 { margin-top: 0; color: var(--emphasis); }
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 14px 0;
+}
+
+footer {
+  margin-top: 60px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+  font-size: 13px;
+  color: var(--quiet);
+  font-style: italic;
+}
+
+.legend-tier {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
+  margin-right: 4px;
+  border-radius: 2px;
+}
+.pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+}
+.pill-primary { background: var(--primary-tier); }
+.pill-secondary { background: var(--secondary-tier); }
+.pill-niche { background: var(--niche-tier); }
+.pill-notviable { background: var(--notviable-tier); }
+</style>
+</head>
+<body>
+
+<h1>Reincarnated Mod-Target Analytical Readout</h1>
+<p class="subtitle">What the data is saying — and what we still do not yet know. Pattern-B input, 2026-05-19.</p>
+
+<div class="status-banner">
+<strong>Document status:</strong> v4 — all six riders returned. <strong>R6 — Host-Calibration Protocol</strong> added after Matt push-back exposed a flaw in the original "R3 OPTIONAL for Path B" claim (see § 4.5). <strong>Modding-economics rider empirically resolves Matt's class-only-vs-world-content question (see § 11)</strong> with a discipline correction on the $5K–$50K-per-pack number I authored as a "rough estimate" in the original Apex debrief and then propagated as if it had come from the Director. <strong>Empirical Patreon ceiling is much lower</strong>: Calamity (max-scope Terraria TC) sustains $2,552/month; ALL top GD/TL2/TQAE class-only mods sit at $0 monetization. <strong>The community accepts class-only as complete</strong> (Dawn of Masteries, SynergiesMOD, Soulvizier — all class-only, all top-recommended, all free); the constraint is mod-culture-norms on paid content, not perceived completeness.
+</div>
+
+<div class="gap-callout" style="border-left-color: var(--emphasis); background: #fcefe2;">
+<h3 style="color: var(--emphasis); margin-top: 0;">§ 0.5 — Discipline correction note (drift acknowledged)</h3>
+<p style="margin-bottom: 0;">The Apex Director debrief I authored yesterday contains my own synthesis-time estimate <em>"~$5K–$50K-ish ceiling per mod-pack"</em> — labeled "rough" in that doc, but I subsequently propagated it as if it represented the Director's framing. <strong>The Director did not state this number.</strong> His debrief said "money can be made from mod packet sales" with no dollar range. Empirical data from rider 6 now shows the real numbers are much smaller (top Patreon at max-scope Terraria TC = ~$30K/year; class-only ARPG mods = $0). This correction matters because the framing of Path B as a revenue play vs credibility play depends materially on this number. <strong>Going forward: numbers I make up at synthesis time must be tagged as my estimate every time I cite them downstream — not lifted into the next layer as if they were sourced.</strong></p>
+</div>
+
+<h2>§ 0 — Executive readout (the headline)</h2>
+
+<div class="tldr">
+<strong>Four findings from the data, in increasing strategic weight:</strong>
+<ol>
+  <li><strong>Grim Dawn is the only PRIMARY-tier mod-target (MFS 4.05).</strong> No other host clears the 4.0 threshold. The pipeline-accessibility axis (5/5) and schema-compatibility axis (4/5) carry it; the gap to the next-best target is 0.525 MFS points — a meaningful spread, not a tie.</li>
+  <li><strong>The Director's three named recommendations (Wolcen / Grim Dawn / Dragon's Dogma 2) are technically inverted.</strong> Correct ordering by MFS: <span class="tier-primary">Grim Dawn 4.05</span> &gt; Dragon's Dogma 2 2.50 &gt; <span class="tier-notviable">Wolcen 1.65 (DROPPED — end-of-life)</span>. Director's #1 pick is dead; #3 pick is #1. This is the most consequential single finding.</li>
+  <li><strong>The Crate-Iron-Lore lineage produces an engineering-leverage pairing</strong> (Grim Dawn + Titan Quest AE) the Director didn't surface. Shared mastery-system DNA + established TQ→GD cross-port community practice means a Phase-2 TQAE adapter costs ~+25% incremental on top of Phase 1 Grim Dawn work. <em>Wave-2A tempered the audience reach</em> (TQAE community ~742 avg concurrent May 2026) — but cross-host credibility for any future Path-C buyer narrative holds.</li>
+  <li><strong>R3 OPTIONAL for Path B; R6 host-calibration protocol is NOT.</strong> <em>Corrected v3 after Matt push-back.</em> Host games absorb spatial substrate, AI, range, aggro/leash <em>at runtime</em> — but the engine's balance loop converges at <em>generation time</em> against the 1D PackProxy gauntlet. Classes engine-rated "balanced" tune against a combat model that does not exist in Grim Dawn. Path B does not route around the fight-integrity gap; it restates the gap as a host-calibration problem requiring <strong>R6 — Reincarnated-class → host-class analog mapping</strong> (2–3 wk for protocol, reusable across Crate-lineage hosts).</li>
+</ol>
+</div>
+
+<div class="director-callout">
+<h3>Strategic context — Apex Director's reframe (2026-05-18 Zoom)</h3>
+<blockquote>
+"Rather than using the engine to create iterative seasonal worlds, he would want to cement a season for a time period (3/6/9/12 months) and generate copious playable assets from it through countless simulations of the same season. He would then plan his entire seasonal strategy upon the pre-generated assets and stories. He would create decision trees and use them to pre-plan for new content launch cycles and for player feedback scenarios with assets and stories ready to be deployed as the timeline of the seasonal journey unfolds."
+</blockquote>
+<p>The Director's load-bearing insight separates two axes the project had been collapsing: <strong>player-facing season cadence</strong> (Reincarnated's current weekly) from <strong>studio-facing asset-generation depth</strong> (thousands of variants pre-built for one cemented season). His strongest leaning: <strong>mod-first into Wolcen / Grim Dawn / Dragon's Dogma → engine sale to the host studio as the strategic prize</strong>. The MFS analysis below preserves the leaning while inverting the target ordering. <em>His read of the path was right; his ranking of the targets was not.</em></p>
+</div>
+
+<h2>§ 1 — MFS ranking (the picture, ordered)</h2>
+
+<div class="chart-frame">
+<h3>Figure 1 — Modding Fit Score (MFS) per candidate host</h3>
+<p class="chart-caption">Weighted mean of 4 axes: KPI compatibility (20%) + schema compatibility (35%) + pipeline accessibility (30%) + community vitality (15%). Tier bands: PRIMARY ≥4.0, Secondary 3.0–3.99, Niche 2.0–2.99, NotViable &lt;2.0.</p>
+<div class="chart-tall"><canvas id="chart-mfs"></canvas></div>
+<p style="font-size: 13px; color: var(--quiet);">
+<span class="legend-tier" style="background: var(--primary-tier);"></span>PRIMARY
+<span class="legend-tier" style="background: var(--secondary-tier); margin-left: 14px;"></span>Secondary
+<span class="legend-tier" style="background: var(--niche-tier); margin-left: 14px;"></span>Niche
+<span class="legend-tier" style="background: var(--notviable-tier); margin-left: 14px;"></span>NotViable
+</p>
+</div>
+
+<h2>§ 2 — Axis decomposition (which axis drives each host)</h2>
+
+<div class="chart-frame">
+<h3>Figure 2 — Top-4 candidate hosts on the four scoring axes</h3>
+<p class="chart-caption">Radar shows each host's normalized score (1–5) across all four axes. The shape reveals what each host is strong/weak on — Grim Dawn's "balanced strength" pattern vs. Terraria's "pipeline+community but weak schema" inversion vs. TQAE's "KPI+schema but smaller community."</p>
+<div class="chart-tall"><canvas id="chart-radar"></canvas></div>
+</div>
+
+<div class="chart-frame">
+<h3>Figure 3 — Axis weighted-contribution stacked (top 8 hosts)</h3>
+<p class="chart-caption">Each bar segment is one axis's weighted contribution to the MFS. Reveals at a glance which axis is doing the heaviest lifting per host — and which axis is the floor-holder that's preventing higher placement.</p>
+<div class="chart-tall"><canvas id="chart-stacked"></canvas></div>
+</div>
+
+<h2>§ 3 — Effort vs reach (the commercial map)</h2>
+
+<div class="chart-frame">
+<h3>Figure 4 — Effort-weeks vs community-vitality scatter (PRIMARY/Secondary tier only)</h3>
+<p class="chart-caption">X axis: estimated engineering weeks for first mod ship (lower = better). Y axis: community-vitality score (higher = bigger reachable audience). Bubble size: MFS overall score. The upper-left quadrant is "cheap and reaches the most people" — empty in our case. Grim Dawn sits in the lower-left attractor (modest reach, moderate cost, high MFS). The takeaway: <strong>there is no easy win; the leverage is in the Crate-lineage pairing</strong>.</p>
+<div class="chart-tall"><canvas id="chart-scatter"></canvas></div>
+</div>
+
+<h2>§ 4 — What the data is saying (interpretation)</h2>
+
+<h3>4.1 — The pipeline-accessibility axis is the dominant variance source</h3>
+<p>Across the 16 candidates, pipeline-accessibility scores range 1.0 → 5.0 (full 4-point spread). Schema-compatibility scores range 1.0 → 4.0. KPI-compatibility ranges 1 → 4. Community-vitality ranges 1 → 5. <strong>Pipeline accessibility is doing more work than its 30% weight suggests</strong> because it's the axis with the widest absolute spread. Hosts with strong communities and weak pipelines (Elden Ring 5/3, BG3 5/3.5) stay stuck in Niche tier; hosts with weak communities and strong pipelines (TL2 2/4) rise to Secondary. <em>For Reincarnated specifically — a procedural content-injection use case — pipeline accessibility is the real gate.</em></p>
+
+<h3>4.2 — The schema-compatibility moat for Crate-lineage hosts</h3>
+<p>Grim Dawn (4.0) and TQAE (3.5) are the only two hosts where schema-compatibility scores at or above the 3.5 threshold. This is because the mastery-system DBR architecture maps cleanly to Reincarnated's class/skill/monster/gear JSON schemas. <strong>This is the single most important fact in the entire matrix.</strong> Schema work is the irreducible engineering cost of mod-export; it cannot be skipped or shortcut. Grim Dawn and TQAE are the two hosts where the schema work is shortest.</p>
+
+<h3>4.3 — The community-vitality floor — what "small" actually means</h3>
+<p>Community-vitality scores of 2/5 (TQAE, TL2) translate to: hundreds-to-low-thousands concurrent players. That's <strong>not a viable commercial reach</strong> for monetized mod sales — but it <em>is</em> a viable proof-of-concept population. The honest framing for Phase 1+2 is: "we ship into the most-modded ARPG-mastery-system hosts to <em>demonstrate the engine works at all</em>, not to <em>extract direct mod revenue.</em>" Direct mod revenue per the Director's debrief is ~$5K–$50K per pack ceiling for niche-genre. The strategic prize is the engine-sale conversation, and the GD+TQAE pairing is the demonstration that earns that conversation.</p>
+
+<h3>4.4 — The Track-F gap as commercial-path differentiator (v3 corrected)</h3>
+<p>The fight-integrity gap diagnosis (Gandalf, 2026-05-18) identified ~9–15 dev-weeks of engineering required to ship a genre-credible standalone (Path A): per-tier balance targets, spatial sub-gauntlet, AI/range schema migration, demo collision/leash, demo AI parity. <strong>Path B routes the gap into a host-calibration problem</strong> — host games handle runtime substrate, but our balance loop still has to converge against *something*, and host-game combat is what it must converge against. <strong>The corrected cost spread:</strong></p>
+
+<table>
+<thead><tr><th>Path</th><th>Track-F core</th><th>Calibration approach</th><th>Total to first ship</th></tr></thead>
+<tbody>
+<tr><td><strong>A — standalone</strong></td><td><span class="tier-notviable" style="text-decoration: none;">~9–15 dev-weeks (full R1–R5)</span></td><td>Native (we own the combat reality)</td><td><strong>~9–15 wk</strong></td></tr>
+<tr><td><strong>B — mod-first</strong></td><td><span class="tier-secondary" style="text-decoration: none;">~3–5 wk (R1 + R3-subset)</span></td><td>+ <strong>R6 host-calibration protocol</strong> (~2–3 wk, reusable across Crate-lineage hosts)</td><td><strong>~5–8 wk per host</strong> (+2–3 wk for second host leveraging R6 reuse)</td></tr>
+<tr><td><strong>C — engine-as-tool</strong></td><td><span class="tier-niche" style="text-decoration: none;">~3–5 or ~9–15 wk</span></td><td>Per-buyer (their substrate, their calibration data)</td><td>Bimodal</td></tr>
+</tbody>
+</table>
+
+<p>Path B is still cheaper than Path A, but the spread was inflated in Path B's favor in v1. <strong>The corrected spread (~5–8 wk per host vs ~9–15 wk for A) is the honest one.</strong> The Crate-lineage advantage holds — one R6 calibration protocol covers GD + TQAE + TL2 because all three share Diablo-isometric combat DNA.</p>
+
+<div class="gap-callout">
+<h3 style="color: var(--emphasis);">4.5 — R6 Host-Calibration Protocol (correction after Matt push-back)</h3>
+<p><strong>Matt's challenge (verbatim):</strong> <em>"Although these two host games will manage the spatial substrate, AI behavior, range mechanics, and aggro/leash defaults, how will we provide balanced classes through the engine without converging on those via use of said mechanics at generative/sim time?"</em></p>
+<p><strong>Acknowledged:</strong> the original "R3 OPTIONAL" claim conflated runtime substrate (host game absorbs) with generation-time balance convergence (engine still has to converge against *something*). The engine's balance loop currently tunes classes against the 1D PackProxy gauntlet — a combat model that does not exist in Grim Dawn. <strong>Classes shipped to GD without calibration would manifest the same fight-integrity gap the demo shows today, just on a different surface.</strong> The host game doesn't make our balance true; it exposes the same wrongness in a new place.</p>
+
+<p><strong>Five viable approaches</strong> to closing the calibration gap:</p>
+<table>
+<thead><tr><th>Option</th><th>Approach</th><th>Engineering cost</th></tr></thead>
+<tbody>
+<tr><td>A</td><td>Host-specific balance harness — approximate GD combat math + 2D dynamics in Python</td><td>5–8 wk per host</td></tr>
+<tr><td>B</td><td>Headless host-game test harness — automated combat in GD; telemetry feedback</td><td>3–5 wk IF GD permits; indefinite if not</td></tr>
+<tr style="background: var(--paper);"><td><strong>C ★</strong></td><td><strong>Reincarnated-class → host-class analog mapping</strong> — declare GD-class equivalent per Reincarnated class (fire wizard → Demolitionist, shadow controller → Necromancer); extend <code>balance_metadata</code> schema; balance loop targets analog parameters</td><td><strong>2–3 wk; reusable across seasons + Crate-lineage hosts</strong></td></tr>
+<tr><td>D</td><td>Hybrid 1D gauntlet + per-host DPS-translation table</td><td>2–3 wk per host</td></tr>
+<tr><td>E</td><td>Curator-in-the-loop — engine produces directional candidate pool; human curator picks winners</td><td>~0 up-front; 1–2 wk curator time per season</td></tr>
+</tbody>
+</table>
+<p><strong>Recommended: Option C as the load-bearing engineering work; Option E as deployment safety net during Phase 1.</strong> Option C is what every successful GD content mod (Dawn of Masteries, Reign of Terror) does <em>by hand</em> — we automate it. Our LLM-generation + structured balance metadata makes this automatable in a way hand-modders cannot match. <strong>This is the actual Path-B engineering advantage that Reincarnated uniquely owns.</strong></p>
+<p><strong>The fight-integrity gap diagnosis is now stronger, not weaker.</strong> It was named as "engine balances the wrong game vs. demo." The correction restates it as <em>"engine balances the wrong game vs. ANY runtime that isn't the 1D gauntlet itself"</em> — including all three Path-B host candidates. This will be reflected in a canonical-doc amendment after Pattern-B closes.</p>
+</div>
+
+<h2>§ 5 — Open gaps (what the data is NOT yet saying)</h2>
+
+<div class="gap-callout">
+<h3>Gap 1 — Per-host developer-permission scope (5 riders en route)</h3>
+<p>The scoring matrix captures <em>can you author</em> (pipeline accessibility) and <em>does your schema map</em> (schema compatibility) — but it does <strong>NOT</strong> capture <em>are you permitted to author</em> (the EULA / developer-policy axis). Specifically unknown per host:</p>
+<ul>
+<li><strong>What's modifiable vs locked.</strong> Can a mod replace the skill-tree system or only fill into existing mastery slots? Can it replace combat math, or only tune data values? Custom shaders / particle systems, or asset-swap only?</li>
+<li><strong>Monetization rights.</strong> Crate's, THQ Nordic's, Re-Logic's stance on paid mods. Workshop monetization policy per-host.</li>
+<li><strong>Total-conversion legal precedent.</strong> Grim Dawn's <em>Reign of Terror</em> directly reimplements Diablo 2 in GD — is this Crate-blessed, tolerated, or under-the-radar? Critical for understanding how aggressively we can push the host.</li>
+<li><strong>Distribution restrictions.</strong> External dependencies (linked DLLs, network calls for cosmology fetch, telemetry) per-host. Reincarnated wants to ship content + LLM-generated naming, possibly with cosmetic image-gen — what's allowed.</li>
+<li><strong>Engine fragility 2024-2026.</strong> Patch cadence per host; mod-break risk; DLC fragmentation handling.</li>
+</ul>
+<p>Four riders are filing per-host modding-scope briefs (Grim Dawn, TQAE, Torchlight 2, Terraria/tModLoader) for v2 augment.</p>
+</div>
+
+<div class="gap-callout">
+<h3>Gap 2 — Modding-purpose taxonomy per host community</h3>
+<p>Different host communities make different KINDS of mods. Reincarnated's procedural content-injection use case fits some communities naturally and is unusual in others. The scoring matrix doesn't capture this. The 5th rider (Mount Doom scout) is producing per-host taxonomy: QoL / Cosmetic / Content-addition / Total-conversion / Balance-overhaul / Lore / Mechanic-injection / Multiplayer / <strong>Procedural-generative</strong> (the closest analog to Reincarnated's use case).</p>
+<p><em>Hypothesis to be tested by data:</em> the Crate-lineage communities (GD + TQAE) lean content-addition + balance-overhaul + total-conversion; Terraria leans content-addition + mechanic-injection at very large scale; BG3 leans cosmetic + class-injection. Reincarnated's procedural-generative pattern is most natural where communities have already normalized "content-from-elsewhere flowing in" patterns. <strong>If communities are hostile to procedural injection, MFS scores must adjust downward post-rider.</strong></p>
+</div>
+
+<div class="gap-callout">
+<h3>Gap 3 — Post-training-cutoff games (Mount Doom scout)</h3>
+<p>Several 2024–2026 ARPG/RPG releases were not yet in the survey at the time of the 2026-05-18 pass. Specifically: <strong>Last Epoch</strong> (Eleventh Hour, 1.0 Feb 2024), <strong>Path of Exile 2</strong> (GGG, EA Dec 2024), <strong>Diablo IV: Vessel of Hatred</strong> + Spiritborn (Blizzard, late 2024), <strong>No Rest for the Wicked</strong> (Moon Studios, EA April 2024), <strong>Avowed</strong> (Obsidian, Feb 2025), <strong>Tainted Grail: The Fall of Avalon</strong>, <strong>Stalker 2</strong>, <strong>Eternal Strands</strong>. Most are unlikely to add to the PRIMARY/Secondary tier (most AAA releases forbid modding; most modern indie ARPGs lack official tools), but the 5th rider is checking for surprises. <em>Path of Exile 2 in particular would be a major addition if GGG has softened on modding.</em></p>
+</div>
+
+<h2>§ 6 — Sequencing — the data's recommended Pattern-B answer (v3 with R6)</h2>
+
+<table>
+<thead>
+<tr><th>Week(s)</th><th>Phase</th><th>Workstream</th><th>Owner</th><th>Deliverable</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>Pattern-B</td><td>Direction commit</td><td>Matt</td><td>Path-B mod-first + Path-C warm-parallel commit (data-recommended) — or alternate verdict; pre-Phase-1 Crate outreach on monetization</td></tr>
+<tr><td>1–2</td><td>Phase 0</td><td>R1 per-tier balance targets</td><td>gamora</td><td>Per-tier WR convergence targets in gauntlet — replaces "balanced" claim that masks per-tier failure</td></tr>
+<tr><td>3–5</td><td>Phase 0b</td><td>R3-subset schema migration</td><td>rocket + star-lord + elrond</td><td>Per-skill range + geometry params + AI behavior fields; backfill across 5 shipped seasons</td></tr>
+<tr style="background: #fcefe2;"><td>3–5</td><td><strong>Phase 0c</strong> ★ <em>new in v3</em></td><td><strong>R6 host-calibration protocol</strong></td><td>rocket + gamora</td><td><strong>Reincarnated-class → host-class analog mapping</strong>; balance_metadata schema extension; balance loop convergence targeting host-class parameters (DPS / HP-armor / range / cooldowns). Addresses fight-integrity-gap-restated-for-Path-B. <em>Reusable across Crate-lineage hosts.</em></td></tr>
+<tr><td>6–11</td><td><strong>Phase 1</strong></td><td>Grim Dawn DBR exporter</td><td>rocket + star-lord</td><td>JSON → DBR translation; Asset Manager batch compile; first single-class mod ship; <em>classes calibrated to GD-class analogs per R6</em>; Crate-forum community feedback loop</td></tr>
+<tr><td>12–14</td><td><strong>Phase 2</strong></td><td>TQAE ARC adapter OR TL2 GUTS/DAT adapter</td><td>rocket + star-lord</td><td>Translation layer for second host; same first mod ported; R6 calibration absorbs second host with ~+2–3 wk delta</td></tr>
+<tr><td>15+</td><td>Phase 3</td><td>Reception evaluation → trinity-completion OR Terraria pivot OR Path C transition</td><td>Matt verdict</td><td>Phase 3 trigger conditions depend on Phase 1+2 reception</td></tr>
+</tbody>
+</table>
+
+<p style="margin-top: 16px;"><strong>Total Track-F engineering: ~14 weeks to two-mod-host viability</strong> (Phase 1 estimate ~9–12 wk including R6; Phase 2 adds ~+2–3 wk leveraging R6 reuse). Still significantly less than Path A's ~9–15 weeks of full Track F + class-retuning. The Path-C operational layer prototype emerges as a side-effect of the export pipeline.</p>
+
+<p><strong>Cost-spread correction (v3):</strong> the original "~14 weeks total" was right; the per-path framing of "~3-5 wk Path B vs ~9-15 wk Path A" was wrong because it omitted R6. The corrected spread is "~5-8 wk per host for Path B vs ~9-15 wk for Path A" — Path B still cheaper, less than the inflated original claim suggested.</p>
+
+<h2>§ 7 — What I deem useful additional context</h2>
+
+<h3>7.1 — The fight-integrity gap is the structural reason Path B is the Director's correct call</h3>
+<p>The Director's reasoning for Path B was commercial — mod sales build the case for engine acquisition. The fight-integrity gap analysis adds an <strong>architectural reason that compounds the commercial one</strong>: Path B is the only path where the host game absorbs our hardest unsolved problem (spatial substrate) for free. Path A pays the ~9–15 dev-week tax. Path C pays bimodally. Path B alone gets the spatial substrate as a free dependency. When the <em>engineering</em> case and the <em>commercial</em> case point the same direction, that's rare enough to take seriously.</p>
+
+<h3>7.2 — The Director's "cement-deep-season" framing is closer to Path-C-MVP than originally priced</h3>
+<p>The engine already generates variants within a thematic frame (every season regen is exactly this — we just don't <em>bank</em> them deliberately). Banking is mostly persistence + tagging (weeks not months). The decision-tree authoring tool is genuine new surface (4–8 weeks). The buyer's API is custom per-deal anyway. <strong>Minimum-viable Path C — enough to demonstrate the cement-deep-season model — may be ~6–10 weeks, not the 3–6 months originally priced.</strong> Enterprise-grade Path C is still the bigger number, but only relevant after a buyer says yes.</p>
+
+<h3>7.3 — The Q5 dimension the data cannot speak to</h3>
+<p>Path B and Path C both take the deliverable away from "the game we're playing together" toward "the content that runs in someone else's game" or "the tool that powers other studios' seasons." Matt's son has been load-bearing in design-instinct via playtesting. <strong>The data cannot tell us whether the playtest partnership is a load-bearing project constraint or a graceful-degrade benefit.</strong> Only Matt can. The recommended Path B + warm-parallel Path C posture assumes graceful-degrade; if the partnership is load-bearing, the answer becomes Path A-prime (Reincarnated-the-game as developer-portfolio-grade playable demo with explicitly documented Phase-0 scope, eating less Track F because per-tier WR failures and missing range mechanics are <em>named</em> rather than <em>hidden</em>). This is the hybrid the original draft did not explicitly name and the data alone cannot resolve.</p>
+
+<h3>7.4 — Visual benchmark trajectory (galadriel, in flight)</h3>
+<p>Today's other in-flight work: galadriel's visual benchmark report scored the demo's current state at 2.3/5 against the Diablo: Path of Exile / Diablo IV (DoE) reference. After drax v1.24 portrait HUD remediation + color-register reconciliation + ground-particle pass, the trajectory is ~3.5+/5. <strong>This is load-bearing for Path A if pursued</strong> — visual baseline being 3.5+ closes most of the genre-credibility gap. For Path B mod-first, host-game art absorbs this entirely. Another structural Path-B advantage.</p>
+
+<h2>§ 8 — The recommendation in one paragraph</h2>
+
+<p style="background: var(--paper-light); padding: 18px; border-left: 4px solid var(--primary-tier); font-size: 16px;">
+<strong>The data recommends Path B mod-first (Phase 1 Grim Dawn → Phase 2 Titan Quest AE, ~14 weeks total) with Path C kept warm-parallel via legolas buyer-profile scouting + star-lord ops-layer specing.</strong> Path A is preserved at portfolio-demo scope (not retired). The Director's strongest leaning is preserved; the target ordering is corrected; the Crate-lineage pairing is added; the per-host EULA/permission gap is acknowledged and being filled by riders; the post-training-cutoff candidate gap is acknowledged and being filled. The Q5 family-partnership question is Matt's alone to weigh and gates whether the recommendation stands or shifts to Path A-prime.
+</p>
+
+<h2>§ 9 — Rider returns: per-host modding-scope</h2>
+
+<p>The scoring matrix knew the pipeline. The riders fetched what the pipeline does not say: <strong>what's allowed</strong>, <strong>what's locked</strong>, <strong>who owns what you make</strong>, and <strong>can you charge for it</strong>. Four per-host scouts plus Mount Doom (next section) returned with the following picture.</p>
+
+<table>
+<thead>
+<tr>
+<th>Host</th>
+<th>EULA / monetization</th>
+<th>Modifiable surface (high-leverage)</th>
+<th>Locked surface (compiled / engine)</th>
+<th>Risk signal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Grim Dawn</strong><br/><span class="pill pill-primary">PRIMARY</span></td>
+<td><strong>No published mod EULA.</strong> Tools page invites mods; no prohibitions stated. <em>Monetization stance: UNKNOWN / UNPUBLISHED.</em> Zero precedent for paid or Patreon-gated GD mods.</td>
+<td>Mastery slots (slot-additive up to ~30 engine cap), all combat .dbr parameters, full world/quest/dialogue authoring, UI textures (Window layouts), custom 3D models / textures / animations / sound, ReShade post-process.</td>
+<td>Core AI logic (engine), shader code (native), damage formula arithmetic (Lua restricted to event hooks), UI layout anchors. Lua API <em>undocumented — reverse-engineer only.</em></td>
+<td>v1.2 Dec 2024 broke mods via <code>gameengine.dbr</code> changes. <strong>v1.3.0 + Fangs of Asterkarn (H1 2026)</strong> likely repeats — Crate signals end-of-expansion-cycle after that, then stability. No Steam Workshop. Reign of Terror TC is <em>tolerated</em>, not <em>licensed</em> — by Crate or Blizzard.</td>
+</tr>
+<tr style="background: #fcefe2;">
+<td><strong>Titan Quest AE</strong><br/><span class="pill pill-secondary">Secondary</span></td>
+<td><strong style="color: var(--emphasis);">EULA harsh.</strong> Sweeping IP-assignment clause that technically vests ownership of generated content in THQ Nordic GmbH on publication. Commercial distribution requires "prior written consent." No Verified Creators program. No indie-tolerance carve-out documented.</td>
+<td>Masteries fully replaceable, AI parameters via DBR, full world/quest authoring, mod merging, base assets via Art Manager.</td>
+<td><strong>Core damage formula is compiled-in (NOT DBR-accessible).</strong> 3D mesh toolchain never released. UI partially hardcoded (compass / merchant / HUD anchors). <strong>Affix system cannot be bypassed</strong> — Reincarnated's inline <code>rolled_effects</code> must translate into LootRandomizer library entries.</td>
+<td><strong>Atlantis update historically broke ALL existing mods</strong> (ARC format + MapCompiler path shift). Legion of Champions hard-requires Eternal Embers. Patch stability unguaranteed. <em>IP-assignment clause is the dominant Pattern-B signal.</em></td>
+</tr>
+<tr>
+<td><strong>Torchlight 2</strong><br/><span class="pill pill-secondary">Secondary</span></td>
+<td>IP chain: Runic → Perfect World → Gearbox Publishing SF → <strong>Arc Games (April 2024, Embracer)</strong>. NOT Echtra. Runic ToU §6.4 prohibits commercial exploitation; remains operative; no successor has modified it. Patreon/donation: <em>gray zone, unenforced, no precedent.</em></td>
+<td>Classes, skills, combat balance parameters (DAT plain-text), UI layout, custom 3D models (Ogre mesh, 3DSMax plugins), texture / animation / sound (no official audio pipeline tool — community workarounds).</td>
+<td>Combat formula functions = compiled C++ (inaccessible). Procedural dungeon assembly logic = compiled C++. AI = data-parameterized but primitive.</td>
+<td><strong>IP orphan state is real.</strong> No successor entity has issued ANY new mod policy at any IP transition since 2017. SynergiesMOD has dual unresolved permission problem (Salan unreachable + ToU layer). Engine frozen since 2017 = stable + stagnant. Risk is IP abandonment, not hostile interference.</td>
+</tr>
+<tr>
+<td><strong>Terraria / tModLoader</strong><br/><span class="pill pill-secondary">Secondary</span></td>
+<td><strong style="color: var(--secondary-tier);">Strongest EULA posture in the corpus.</strong> Re-Logic hired tModLoader devs onto payroll (jopojelly May 2024). tModLoader free Steam DLC. MIT license. Patreon-supported free mods (Calamity) tolerated. Direct paid mods prohibited.</td>
+<td>DamageClass injection, ModNPC/ModItem/ModProjectile full C# API, full custom world generation (ModWorldgen), full UI replacement, full asset replacement.</td>
+<td>No runtime JSON path — content compile-time C#. Workaround: <strong>kRPG pre-allocated-slot pattern is documented and viable</strong> — pool of fixed C# item slots, runtime variation driven by ModConfig.ServerSide JSON that auto-syncs to clients. CI pipeline (Reincarnated JSON → C# transpiler → GitHub Actions → Workshop) is technically constructible.</td>
+<td><strong>Patch fragility is the active risk.</strong> Terraria 1.4.5 launched late 2024; tModLoader compat to 1.4.5 still in progress as of May 2026. 1.4.4 historically took 9 months. Any Reincarnated season mod tied to 1.4.4-stable branch indefinitely unless Re-Logic accelerates 1.4.5 porting.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>9.1 — What the rider returns change about the recommendation</h3>
+
+<p><strong>The TQAE IP-assignment clause is the load-bearing finding.</strong> The Crate-lineage "killer pairing" relied on the assumption that TQAE adoption costs ~+25% incremental engineering on top of Grim Dawn for ~2× audience-plus-credibility. The engineering case still holds — the schema work translates. But the <em>commercial</em> case now has a poison-pill axis: any Reincarnated content published as a TQAE mod could be claimed by THQ Nordic under their IP-assignment clause. This does not affect Grim Dawn Phase 1, but it changes what Phase 2 actually is:</p>
+
+<ul>
+<li><strong>Phase 2-as-credibility-only (acceptable):</strong> if Phase 2 TQAE is just a technical-credibility play — "we ship into the second Crate-lineage mod-host to prove cross-host portability for Path-C buyer narratives" — and we never plan to monetize TQAE content separately, the IP-assignment clause is dormant. The risk surfaces if Reincarnated later tries to commercialize or license the TQAE-ported content.</li>
+<li><strong>Phase 2-as-revenue (not acceptable without legal):</strong> any path that sells TQAE mods directly, or that publishes Reincarnated-branded TQAE content as a portfolio artifact, runs into the IP clause. Requires written agreement with THQ Nordic GmbH that does not currently exist for any modder we found.</li>
+<li><strong>Phase 2-as-skipped (also viable):</strong> the data might be telling us to ship Grim Dawn Phase 1 + skip directly to <strong>Torchlight 2 Phase 3 Option A</strong> as the second host, because TL2's permission shape is also imperfect (Runic ToU non-commercial, IP-orphan-at-Embracer) but lacks the active IP-assignment poison pill. <em>This is a meaningful Pattern-B refinement.</em></li>
+</ul>
+
+<p><strong>The Grim Dawn monetization UNKNOWN is the second material gap.</strong> Crate publishes no monetization policy; zero precedent for paid GD mods exists. Before Phase 1 ships commercially, Matt needs to directly contact Crate (Medierra / Zantai are public dev presences on the Crate forum) and ask. This is a pre-Phase-1 outreach, not a Pattern-B blocker — but it is a real action item the data surfaced.</p>
+
+<p><strong>The Torchlight 2 IP-orphan state strengthens its Phase-3 position</strong> precisely because no one is enforcing anything. Runic ToU §6.4 prohibits commercial exploitation, but Arc Games has not issued mod policy at any IP transition since 2017; SynergiesMOD operates without a publishable license under absence-of-enforcement. <em>For a non-commercial Phase-3 credibility play, this is workable.</em> For a paid mod ladder, it is not — but neither is anywhere else in the corpus.</p>
+
+<p><strong>The Terraria runtime-JSON workaround is more viable than the original scoring assumed.</strong> kRPG's pre-allocated-slot pattern + ModConfig.ServerSide auto-sync is a documented production pattern. The CI pipeline (transpile Reincarnated JSON to C# weekly, push to Workshop) is technically constructible with no documented frequency cap. <em>But the 1.4.5 compat lag (9-month historical) means any Reincarnated season mod is tied to 1.4.4-stable indefinitely</em> — which is fine for procedural content output but means Reincarnated cannot ride Terraria's most-current-version momentum.</p>
+
+<h3>9.2 — Revised tier signal after rider returns</h3>
+
+<table>
+<thead><tr><th>Host</th><th>Original MFS</th><th>Permission-axis verdict</th><th>Recommended Pattern-B posture</th></tr></thead>
+<tbody>
+<tr><td><strong>Grim Dawn</strong></td><td>4.05 / PRIMARY</td><td>Open technically, <strong>UNKNOWN monetization</strong></td><td>Phase 1 confirmed. <strong>Pre-Phase-1 outreach to Crate</strong> (Medierra / Zantai) on monetization stance.</td></tr>
+<tr><td><strong>Titan Quest AE</strong></td><td>3.275 / Secondary</td><td><strong style="color: var(--emphasis);">IP-assignment clause — material risk</strong></td><td>Phase 2 viable as <strong>technical-credibility-only</strong> play; <strong>not viable for monetization or portfolio licensing</strong>. Or skip in favor of TL2 Phase 3-as-Phase-2.</td></tr>
+<tr><td><strong>Torchlight 2</strong></td><td>3.525 / Secondary</td><td>IP-orphan at Embracer; non-commercial enforced, paid prohibited; absence-of-enforcement</td><td><strong>Promote from Phase 3 to Phase 2 candidate</strong> if TQAE IP clause is deemed disqualifying. Same trinity completion strategy, lower IP risk.</td></tr>
+<tr><td><strong>Terraria / tModLoader</strong></td><td>3.20 / Secondary</td><td><strong style="color: var(--secondary-tier);">Strongest posture in corpus — Re-Logic blessing</strong></td><td>Phase 3 Option B viable; <strong>1.4.5 compat lag tempers urgency</strong>; revisit when tModLoader 1.4.5 stabilizes.</td></tr>
+</tbody>
+</table>
+
+<div class="gap-callout">
+<h3>The revised "killer pairing" question</h3>
+<p>The original GD+TQAE pairing optimized for engineering leverage (same Crate-lineage schema). The rider returns surface that <strong>GD+TL2 may now be the more defensible pairing</strong> — different schemas (slightly more engineering cost) but better aggregate permission posture for any commercial future. The trade-off is real and worth Pattern-B deliberation:</p>
+<ul>
+<li><strong>GD+TQAE:</strong> ~+25% incremental engineering, ~2× audience (modest), <strong>IP-assignment risk on Phase 2 content</strong></li>
+<li><strong>GD+TL2:</strong> ~+50–60% incremental engineering (different DBR/DAT schemas), broader audience (TL2 community lighter but cleaner permission), <strong>no active IP-assignment risk</strong></li>
+</ul>
+<p>The Mount Doom rider's cultural-receptivity finding (§ 10.2 below) <strong>strengthens GD+TL2</strong> — TL2 is one of the two most receptive communities to "a new mastery this season" framing, and has native procedural-generation DNA (dungeon randomizer) that primes the conceptual model. TQAE's smaller and more conservative community does not appear in the most-receptive set.</p>
+</div>
+
+<h2>§ 10 — Mount Doom rider: new releases + modding-purpose taxonomy</h2>
+
+<h3>10.1 — Post-training-cutoff new releases (Job 1)</h3>
+
+<p><strong>The single most important finding: no 2024–2026 new release challenges Grim Dawn for the PRIMARY tier.</strong> The Mount Doom sweep confirms the existing scoring matrix is structurally complete for current commercial paths. But three findings reshape the future:</p>
+
+<table>
+<thead><tr><th>Candidate</th><th>Verdict</th><th>Why it matters for Reincarnated</th></tr></thead>
+<tbody>
+<tr>
+<td><strong>Titan Quest II</strong><br/><span class="pill" style="background: var(--niche-tier);">Watch</span><br/>EA Aug 2025, THQ Nordic / UE5</td>
+<td>Estimated MFS ~2.75. Official modding tools <strong>"under internal discussion" — NOT CONFIRMED.</strong> Community UE5 pak mods active on Nexus. Recheck at 1.0 (~late 2026).</td>
+<td><strong>The TQAE adapter (Phase 2) would likely be partially reusable</strong> if THQ Nordic ships official TQ2 modding tools. Assuming TQAE IP-assignment clause carries forward to TQ2, treat TQ2 as a <strong>Phase 4 future option</strong> rather than a near-term target.</td>
+</tr>
+<tr>
+<td><strong>Last Epoch</strong><br/><span class="pill pill-notviable">Closed pipeline</span><br/>Eleventh Hour, 1.0 Feb 2024</td>
+<td>Near-perfect ARPG game-loop match for Reincarnated. <strong>No official modding tools. MelonLoader is offline-only.</strong> Developer is monetizing class expansion as paid DLC ("Paradox Classes").</td>
+<td><strong>This is critical Path-C context:</strong> Eleventh Hour Games is doing exactly what Reincarnated would do — paid class-pack DLC on their own engine. They are the closest commercial analog. <em>Last Epoch's pricing, sales cadence, and community reception of Paradox Classes should be reverse-engineered as Path-C market validation data.</em> Worth a follow-up Legolas Mode A pass.</td>
+</tr>
+<tr>
+<td><strong>STALKER 2</strong><br/><span class="pill pill-notviable">Genre mismatch</span><br/>Nov 2024, GSC / UE5</td>
+<td>Zone Kit June 2025 official SDK + Mod.io + Steam Workshop. <strong>Capable modding pipeline.</strong> FPS survival-RPG genre.</td>
+<td>Demonstrates UE5 modding is real and shippable as official SDKs. Useful precedent for what TQ2's tools might look like.</td>
+</tr>
+<tr>
+<td><strong>PoE 2 / D4 / Avowed / Hades II / Wartales / Throne and Liberty / Eternal Strands / Tainted Grail / No Rest for the Wicked / Elden Ring Nightreign</strong></td>
+<td><span class="pill pill-notviable">NotViable</span> for various structural reasons</td>
+<td>None challenge GD's PRIMARY position. Most prohibit modding outright (PoE2, D4) or have wrong genre loop (Souls roguelike, FPS survival, action). EA limbo (NRftW). Mobile ARPGs uniformly closed.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>10.2 — Per-host modding-purpose taxonomy (Job 2)</h3>
+
+<div class="director-callout">
+<h3>The first-mover signal</h3>
+<p style="margin-bottom: 0;"><strong>Procedural/generative modding is universally absent across all 8 surveyed host communities.</strong> No host community currently has a normalized pattern of "procedurally-generated content packs flowing in from external tools." Reincarnated's use case would be <strong>genuinely novel</strong> in every modding community we surveyed. <em>This is a feature, not a bug</em> — it is the first-to-narrative opportunity Legolas's pre-meeting research flagged, now confirmed empirically. The question becomes: <strong>which communities are least hostile to the novel pattern?</strong></p>
+</div>
+
+<table>
+<thead><tr><th>Receptivity tier</th><th>Hosts</th><th>Why</th></tr></thead>
+<tbody>
+<tr>
+<td><strong style="color: var(--primary-tier);">Most receptive</strong></td>
+<td>Grim Dawn, Torchlight 2</td>
+<td>Both communities treat large external class/mastery drops as <strong>first-class content</strong> (Dawn of Masteries 53-port compilation; Classes Reborn 40+ classes). <em>"A new mastery this season"</em> is intelligible vocabulary already. TL2 has additional native procedural-generation DNA (dungeon randomizer) that primes the conceptual model. <strong>These are the two communities most culturally prepared for what Reincarnated would deliver.</strong></td>
+</tr>
+<tr>
+<td><strong style="color: var(--secondary-tier);">Moderately receptive</strong></td>
+<td>Terraria, Minecraft</td>
+<td>Highest tolerance for novel systems in modding generally. Terraria's blocker is operational (compile-time C# + tModLoader 1.4.5 compat lag), not cultural. Minecraft's blocker is the voxel genre conversion.</td>
+</tr>
+<tr>
+<td><strong style="color: var(--niche-tier);">Underrated dark-horse</strong></td>
+<td>V Rising</td>
+<td>Server-operator community thinks in terms of <strong>"what do I deploy this season?"</strong> — more culturally prepared for a seasonal content-pack framing than any other community. Small audience (MFS 2.40 stands), but the mental model is right. <em>Worth a Path-C-adjacent revisit if server-operator buyers become a Path-C buyer profile.</em></td>
+</tr>
+<tr>
+<td><strong style="color: var(--emphasis);">Unreceptive</strong></td>
+<td>Baldur's Gate 3, Elden Ring</td>
+<td>BG3 community is cosmetic-first / narrative-immersion. Elden Ring community treats curated handcrafted content as <strong>core identity</strong>. Procedural generation is antithetical to the FromSoftware ethos. The numerical MFS isn't the full story for these hosts; cultural fit is also weak.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>10.3 — What Mount Doom changes about the recommendation</h3>
+
+<p><strong>The cultural-receptivity finding strengthens the GD+TL2 revised pairing over GD+TQAE.</strong> Both Crate-lineage hosts share schema DNA, but TL2 ranks in the <em>most-receptive</em> cultural tier alongside GD, while TQAE does not. The original "killer pairing" optimized for engineering leverage; the rider returns recommend optimizing for <strong>community-cultural fit</strong>:</p>
+
+<table>
+<thead><tr><th>Pairing</th><th>Engineering</th><th>Audience</th><th>Permission</th><th>Cultural fit</th><th>Net signal</th></tr></thead>
+<tbody>
+<tr>
+<td><strong>GD + TQAE</strong> (original)</td>
+<td>~+25% incremental</td>
+<td>Modest (~2×)</td>
+<td>IP-assignment risk</td>
+<td>Mixed (GD strong, TQAE smaller/conservative)</td>
+<td>Engineering-optimized</td>
+</tr>
+<tr style="background: var(--paper-light);">
+<td><strong>GD + TL2</strong> (revised, recommended)</td>
+<td>~+50–60% incremental</td>
+<td>Broader, lighter</td>
+<td>IP-orphan but no active risk</td>
+<td><strong>Both in most-receptive tier</strong>; TL2 has native procedural DNA</td>
+<td><strong>Culture- and permission-optimized</strong></td>
+</tr>
+<tr>
+<td><strong>GD + V Rising</strong> (dark horse)</td>
+<td>~+80% incremental (different schema entirely)</td>
+<td>Modest</td>
+<td>BepInEx tolerated</td>
+<td>Server-operator "deploy this season" mental model = unique fit for Path-C buyer narrative</td>
+<td>Path-C-adjacent strategic play</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>The Last Epoch market-validation finding is a Path-C deliverable.</strong> Eleventh Hour Games's <em>Paradox Classes</em> paid-DLC pricing, sales cadence, and community reception is the closest commercial analog to what Reincarnated would sell — built on their own engine, monetizing class-pack content drops. This is the Path-C buyer-side validation data Pattern-B Q4 has been waiting for. <strong>Recommend commissioning a Legolas Mode A pass on Paradox Classes reception data</strong> when Pattern-B Q1 commits direction.</p>
+
+<p><strong>The TQ2 watch is a 12–18 month deferred option.</strong> If THQ Nordic ships official TQ2 modding tools at 1.0 (~late 2026), and assuming the IP-assignment clause carries forward, treat TQ2 as Phase 4: the TQAE adapter (if built) absorbs ~70-80% of TQ2 work. <em>This is a real reason to retain Phase 2 = TQAE even with the IP-clause caveat</em> — it future-proofs into TQ2 ground.</p>
+
+<h2>§ 11 — Modding economics + scope (rider 6, the load-bearing answer)</h2>
+
+<h3>11.1 — Matt's question, empirically resolved</h3>
+
+<p><strong>Q (verbatim):</strong> <em>"Will a complete overhaul of classes/characters for Grim Dawn with novel move sets, character and seasonal cohesion, with new loot (exactly matching the needs of the character/class progression), new skill trees, new VFX/SFX be enough? If there is not also new maps, new questlines, new NPCs, is it still worth paying for? Is the class system worth anything without the story/map changes?"</em></p>
+
+<p><strong>A: YES — the community accepts class-only as complete.</strong> The constraint is host-platform culture, not perceived completeness. Direct empirical proof from four top-tier mods that ship class-only-with-loot-and-skills without new world content:</p>
+
+<table>
+<thead><tr><th>Mod</th><th>Host</th><th>Scope (no new world)</th><th>Community treatment</th></tr></thead>
+<tbody>
+<tr><td><strong>Dawn of Masteries</strong></td><td>Grim Dawn</td><td>53 classes, no maps/quests/NPCs</td><td><em>"Can't play vanilla anymore"</em> — top-recommended; treated as <strong>definitive</strong> GD experience</td></tr>
+<tr><td><strong>Grimarillion</strong></td><td>Grim Dawn</td><td>Masteries from TQ + D3 + others</td><td><em>"Most stable class-expansion option"</em>; actively maintained through GD 1.2</td></tr>
+<tr><td><strong>SynergiesMOD</strong></td><td>Torchlight 2</td><td>4 new classes + endgame dungeons</td><td><strong>661,700 Steam Workshop subscribers</strong>; 5-star with 12,795 ratings; PCGamer <em>"#1 free download of the summer"</em></td></tr>
+<tr><td><strong>Soulvizier</strong></td><td>TQAE</td><td>Mastery + loot depth</td><td><em>"Ten thousand times better with Soulvizier"</em>; treated as complete</td></tr>
+</tbody>
+</table>
+
+<p><strong>The GD community's definition of "complete" for a class mod:</strong> all skills functional, all items have loot entries, maintained for current game version. <strong>New maps are not in the definition.</strong> Players don't say <em>"I wish this had new maps"</em> about Dawn of Masteries — they say <em>"now I can play forever."</em></p>
+
+<h3>11.2 — Revenue empirics (replacing my $5K-$50K drift)</h3>
+
+<table>
+<thead><tr><th>Mod</th><th>Host</th><th>Scope</th><th>Patron count</th><th>Monthly revenue</th></tr></thead>
+<tbody>
+<tr><td>Calamity Mod Team</td><td>Terraria</td><td>Max-scope TC (class + biomes + bosses + lore)</td><td>2,669</td><td><strong>$2,552/month</strong> (~$30K/year)</td></tr>
+<tr><td>Vault Hunters</td><td>Minecraft</td><td>Full modpack</td><td>1,868</td><td>$2,455/month</td></tr>
+<tr><td>Median XL</td><td>Diablo 2</td><td>Full overhaul + server costs</td><td>693</td><td>starting $1/mo (server costs)</td></tr>
+<tr style="background: var(--paper-light);"><td><strong>Dawn of Masteries</strong></td><td>Grim Dawn</td><td>53 classes</td><td><strong>None</strong></td><td><strong>$0</strong></td></tr>
+<tr style="background: var(--paper-light);"><td><strong>Reign of Terror</strong></td><td>Grim Dawn</td><td>Full D2 TC</td><td><strong>None — explicitly refused</strong></td><td><strong>$0</strong></td></tr>
+<tr style="background: var(--paper-light);"><td><strong>Grimarillion</strong></td><td>Grim Dawn</td><td>Mastery compilation</td><td><strong>None</strong></td><td><strong>$0</strong></td></tr>
+<tr style="background: var(--paper-light);"><td><strong>SynergiesMOD</strong></td><td>Torchlight 2</td><td>4 classes + endgame</td><td><strong>None</strong></td><td><strong>$0</strong></td></tr>
+<tr style="background: var(--paper-light);"><td><strong>Soulvizier</strong></td><td>TQAE</td><td>Mastery depth</td><td><strong>None</strong></td><td><strong>$0</strong></td></tr>
+</tbody>
+</table>
+
+<p><strong>Nexus Donation Points pool:</strong> ~$325K/month distributed across <em>all</em> opted-in mods on the entire platform. A top GD mod earns "a few hundred dollars/month at most" — supplemental, not a business model. <strong>Patreon ceiling at MAXIMUM scope (Calamity):</strong> $2,552/month with 9.18M Workshop subscribers (0.03% conversion rate). <em>This is the entire category's revenue ceiling.</em></p>
+
+<h3>11.3 — The critical reframe: constraint is mod-culture, not scope</h3>
+
+<div class="gap-callout">
+<p style="margin: 0;"><em>"Not a single ARPG class mod charges for its content. All are free. Reign of Terror (full D2 reimplementation in GD) explicitly refuses donations on principle. <strong>The constraint is not perceived value but host-platform culture. Attempting to charge $5 for a GD mastery pack would be a culture break, not just a pricing decision.</strong>"</em></p>
+</div>
+
+<p>This empirically reframes Path B:</p>
+
+<ul>
+<li><strong>Path B mod-revenue is essentially zero.</strong> Patreon at $0–$30K/year ceiling. The mod itself does not pay.</li>
+<li><strong>Path B is a credibility play, not a revenue play.</strong></li>
+<li><strong>The Director's commercial reasoning is validated more strongly</strong> — engine sale (mid-six to low-seven figures) is where the math actually lives. Mod-sales noise compared.</li>
+<li><strong>Path B = years of credibility-building that earns the engine-sale conversation.</strong></li>
+</ul>
+
+<h3>11.4 — The Enderal alternative: standalone-product path (new option in space)</h3>
+
+<div class="director-callout">
+<p style="margin: 0;"><em>"Enderal (Skyrim TC) went on Steam as a free standalone. A Reincarnated class pack as a paid standalone on itch.io or Steam is a different question than 'paid Grim Dawn mod.'"</em></p>
+</div>
+
+<p><strong>Path B-as-standalone-product:</strong> use host-mod credibility to launch Reincarnated as a paid Steam/itch.io standalone at indie pricing ($5–$20). <strong>Bypasses mod-platform-cultural no-paid-mods constraint entirely.</strong> This is <strong>Path A in standalone-product clothing</strong>, riding on Path B's credibility ladder:</p>
+
+<ol>
+<li><strong>Phase 1–2</strong> (free mods in GD/TL2): build community credibility + Dawn-of-Masteries-tier reception</li>
+<li><strong>Phase 2.5</strong> (standalone launch): ship Reincarnated-as-paid-standalone using credentialed reception</li>
+<li><strong>Phase 3</strong>: continue toward engine sale OR sustain standalone product</li>
+</ol>
+
+<p><strong>This re-opens Pattern-B Q3</strong> — Reincarnated-the-game's disposition. It doesn't retire and doesn't become only-a-mod. It becomes the <strong>credentialed-standalone-after-mod-ladder</strong>. The playtest partnership with Matt's son survives intact.</p>
+
+<h3>11.5 — Open action items from rider 6</h3>
+
+<ul>
+<li><strong>Combined Crate outreach:</strong> Matt contacts Medierra / Zantai on (a) commercial mod stance + (b) Reincarnated-as-paid-standalone-on-itch.io-while-built-on-GD. Both questions in one ask.</li>
+<li><strong>GGMods watch</strong> (launched January 7, 2026 with salaried-modder contracts — Skyrim/BG3/Fallout 4 at launch, no GD/TL2/TQAE yet). Structural change in mod monetization worth tracking.</li>
+<li><strong>LLM-generated/procedural seasonal content as subscription service has no precedent.</strong> Reincarnated would define the category.</li>
+</ul>
+
+<footer>
+<strong>Provenance:</strong> Authored 2026-05-19 morning by gandalf during Pattern-B dialogue with Matt.
+Synthesis across <code>arpg-mod-target-database-2026-05-18.md</code>, <code>arpg-mod-target-ranked-recommendations-2026-05-18.md</code>, <code>arpg-mod-target-scoring-matrix-2026-05-18.json</code>,
+<code>arpg-fight-mechanics-database-2026-05-18.md</code>, <code>arpg-gap-analysis-2026-05-18.md</code>,
+<code>canonical/story/apex-director-debrief-2026-05-18.md</code>,
+and <code>canonical/story/engine-vs-demo-fight-integrity-gap-2026-05-18.md</code>.
+v1 v2-augment lands when 5 riders return.
+</footer>
+
+<script>
+// ----- DATA -----
+const hostsAll = [
+  {name: "Grim Dawn", mfs: 4.05, tier: "PRIMARY", kpi: 3, schema: 4, pipeline: 5, community: 4, effort: 7.5},
+  {name: "Torchlight 2", mfs: 3.525, tier: "Secondary", kpi: 4, schema: 3.5, pipeline: 4, community: 2, effort: 3.5},
+  {name: "Titan Quest AE", mfs: 3.275, tier: "Secondary", kpi: 4, schema: 3.5, pipeline: 3.5, community: 2.5, effort: 2.5},
+  {name: "Terraria (tModLoader)", mfs: 3.20, tier: "Secondary", kpi: 2, schema: 2, pipeline: 5, community: 4, effort: 5},
+  {name: "Minecraft", mfs: 2.85, tier: "Niche", kpi: 2, schema: 2, pipeline: 4, community: 5, effort: null},
+  {name: "Diablo II Median XL", mfs: 2.70, tier: "Niche", kpi: 4, schema: 3, pipeline: 1, community: 3, effort: null},
+  {name: "Elden Ring", mfs: 2.65, tier: "Niche", kpi: 2, schema: 2, pipeline: 3, community: 5, effort: null},
+  {name: "Baldur's Gate 3", mfs: 2.525, tier: "Niche", kpi: 1, schema: 1.5, pipeline: 3.5, community: 5, effort: null},
+  {name: "Rimworld", mfs: 2.50, tier: "Niche", kpi: 1, schema: 2, pipeline: 4, community: 4, effort: null},
+  {name: "Dark Souls 3", mfs: 2.50, tier: "Niche", kpi: 2, schema: 2, pipeline: 3, community: 4, effort: null},
+  {name: "Dragon's Dogma 2", mfs: 2.50, tier: "Niche", kpi: 2, schema: 2, pipeline: 3, community: 3, effort: null},
+  {name: "Starfield", mfs: 2.45, tier: "Niche", kpi: 1, schema: 2, pipeline: 4, community: 4, effort: null},
+  {name: "V Rising", mfs: 2.40, tier: "Niche", kpi: 2, schema: 2, pipeline: 3, community: 3, effort: null},
+  {name: "Crusader Kings 3", mfs: 2.20, tier: "Niche", kpi: 1, schema: 1, pipeline: 4, community: 4, effort: null},
+  {name: "Bannerlord", mfs: 2.20, tier: "Niche", kpi: 1, schema: 1, pipeline: 4, community: 4, effort: null},
+  {name: "Wolcen (DROPPED)", mfs: 1.65, tier: "NotViable", kpi: 3, schema: 1, pipeline: 2, community: 1, effort: null},
+];
+
+const tierColor = {
+  "PRIMARY": "#b8860b",
+  "Secondary": "#6b8e23",
+  "Niche": "#708090",
+  "NotViable": "#8b3a1a"
+};
+
+// ----- CHART 1: MFS Ranking horizontal bar -----
+new Chart(document.getElementById("chart-mfs"), {
+  type: "bar",
+  data: {
+    labels: hostsAll.map(h => h.name),
+    datasets: [{
+      label: "MFS",
+      data: hostsAll.map(h => h.mfs),
+      backgroundColor: hostsAll.map(h => tierColor[h.tier]),
+      borderColor: "#1a1612",
+      borderWidth: 1
+    }]
+  },
+  options: {
+    indexAxis: "y",
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          afterLabel: (ctx) => {
+            const h = hostsAll[ctx.dataIndex];
+            return `Tier: ${h.tier} • KPI ${h.kpi}/5 • Schema ${h.schema}/5 • Pipeline ${h.pipeline}/5 • Community ${h.community}/5`;
+          }
+        }
+      },
+      annotation: {}
+    },
+    scales: {
+      x: {
+        min: 0, max: 5,
+        title: { display: true, text: "Modding Fit Score (1=worst, 5=best)" },
+        grid: { color: "#e5dec9" }
+      },
+      y: { grid: { display: false } }
+    }
+  }
+});
+
+// ----- CHART 2: Radar — top 4 hosts -----
+const topFour = hostsAll.slice(0, 4);
+const radarColors = ["rgba(184,134,11,0.55)", "rgba(107,142,35,0.45)", "rgba(74,58,90,0.45)", "rgba(139,58,26,0.35)"];
+const radarLines = ["#b8860b", "#6b8e23", "#4a3a5a", "#8b3a1a"];
+new Chart(document.getElementById("chart-radar"), {
+  type: "radar",
+  data: {
+    labels: ["KPI compatibility", "Schema compatibility", "Pipeline accessibility", "Community vitality"],
+    datasets: topFour.map((h, i) => ({
+      label: `${h.name} (MFS ${h.mfs})`,
+      data: [h.kpi, h.schema, h.pipeline, h.community],
+      backgroundColor: radarColors[i],
+      borderColor: radarLines[i],
+      borderWidth: 2,
+      pointBackgroundColor: radarLines[i]
+    }))
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    scales: {
+      r: {
+        min: 0, max: 5,
+        ticks: { stepSize: 1, color: "#6a6357" },
+        grid: { color: "#d8cfb5" },
+        angleLines: { color: "#c9bfa5" },
+        pointLabels: { font: { size: 13 } }
+      }
+    },
+    plugins: { legend: { position: "bottom" } }
+  }
+});
+
+// ----- CHART 3: Stacked weighted contribution -----
+const topEight = hostsAll.slice(0, 8);
+new Chart(document.getElementById("chart-stacked"), {
+  type: "bar",
+  data: {
+    labels: topEight.map(h => h.name),
+    datasets: [
+      { label: "KPI (×0.20)", data: topEight.map(h => h.kpi * 0.20), backgroundColor: "#a47551" },
+      { label: "Schema (×0.35)", data: topEight.map(h => h.schema * 0.35), backgroundColor: "#6b8e23" },
+      { label: "Pipeline (×0.30)", data: topEight.map(h => h.pipeline * 0.30), backgroundColor: "#4a6c8a" },
+      { label: "Community (×0.15)", data: topEight.map(h => h.community * 0.15), backgroundColor: "#b8860b" }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: "bottom" } },
+    scales: {
+      x: { stacked: true, grid: { display: false } },
+      y: {
+        stacked: true, min: 0, max: 5,
+        title: { display: true, text: "MFS weighted contribution" },
+        grid: { color: "#e5dec9" }
+      }
+    }
+  }
+});
+
+// ----- CHART 4: Effort vs Reach scatter (PRIMARY + Secondary only) -----
+const eligible = hostsAll.filter(h => h.effort !== null);
+new Chart(document.getElementById("chart-scatter"), {
+  type: "bubble",
+  data: {
+    datasets: eligible.map(h => ({
+      label: h.name,
+      data: [{ x: h.effort, y: h.community, r: h.mfs * 4 }],
+      backgroundColor: tierColor[h.tier] + "AA",
+      borderColor: tierColor[h.tier],
+      borderWidth: 2
+    }))
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position: "right" },
+      tooltip: {
+        callbacks: {
+          label: (ctx) => {
+            const h = eligible[ctx.datasetIndex];
+            return `${h.name}: ${h.effort} wk, community ${h.community}/5, MFS ${h.mfs}`;
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        title: { display: true, text: "Effort (engineering weeks for first mod ship)" },
+        min: 0, max: 10, grid: { color: "#e5dec9" }
+      },
+      y: {
+        title: { display: true, text: "Community vitality (1–5; reach proxy)" },
+        min: 0, max: 5, grid: { color: "#e5dec9" }
+      }
+    }
+  }
+});
+</script>
+
+</body>
+</html>

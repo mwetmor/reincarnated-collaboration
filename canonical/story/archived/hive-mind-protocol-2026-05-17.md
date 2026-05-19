@@ -1,3 +1,17 @@
+> ## 📦 ARCHIVED — 2026-05-19
+>
+> **Status:** Mission COMPLETED (Phase-1 P1 substrate expansion + diversity architecture shipped). This protocol is preserved as historical record of the first hive-mind activation.
+>
+> **Mechanics inheritance:** The operating mechanics in §§ 3, 4, 5, 6, 7, 8, 9, 10, 11 of this doc are **inherited by reference** by subsequent hive-mind protocols, beginning with `canonical/story/hive-mind-protocol-engine-rebuild-2026-05-19.md` (second activation). Those mechanics remain operationally live for current and future hive-mind work; this doc is the canonical mechanics reference even while archived as a mission artifact.
+>
+> **Why archived (not deleted):** the mission scope (Phase-1 P1 substrate work) is complete and not load-bearing for current operations, but the mechanics layer is still load-bearing for active engine-rebuild hive work. Moving to `archived/` reflects mission-completion; preserving the file (rather than deleting) preserves the canonical mechanics reference.
+>
+> **Do NOT delete.** Active protocols cross-reference this doc by path.
+>
+> **Path moved 2026-05-19** from `canonical/story/hive-mind-protocol-2026-05-17.md` to `canonical/story/archived/hive-mind-protocol-2026-05-17.md` per Matt directive for archive-with-banner clarity.
+
+---
+
 # Hive-Mind Operating Protocol — Phase-1 P1 Full Overhaul
 
 **Authority:** Matt (mhwetmore@gmail.com), 2026-05-17 — directive: *"100% heads down development work across the entire team and rebuild the engine from the ground up to achieve full Phase-1 P1 before demo VS2a. ... All in perfect harmony. Let's take this on as a hive mind."*
