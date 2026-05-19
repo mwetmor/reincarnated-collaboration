@@ -2306,3 +2306,55 @@ All 9: Validation FAILED. Pre-existing R1 balance blocker — not caused by A/B 
 - Full cross-reference set (all disposition docs, MIGRATION.md entries, Gate-1 verdict)
 
 **Authority:** ADR-002 documentation authority + ADR-001 decisions-log requirement.
+
+---
+
+## 2026-05-19 — gamora R2 spatial sub-gauntlet first-pass (scaffolding)
+
+### [2026-05-19] STATE — gamora — R2 first-pass COMPLETE; math note + scenario design + scaffolding + 2-class smoke; tag gamora/v1.9-r2-scaffolding-1
+
+**Dispatch:** engine-rebuild autonomous-operation protocol R2 activation (knight-rider dispatch; § 5.6 prereqs satisfied — R3 complete, R1 complete)
+**Session trigger:** Matt directive 2026-05-19 (autonomous-operation); knight-rider R2 dispatch
+**Predecessor:** R1 sprint v3 complete (engine `18dfc4c` predecessor `63d4b37`; v0.3 milestone FIRED)
+
+**Deliverables:**
+
+Discipline #1 (math-before-code, LOAD-BEARING per dispatch):
+- `design/working-agreement/R2-spatial-combat-math-2026-05-19.md` — full spatial combat math note (12 sections)
+- `design/working-agreement/R2-scenario-design-2026-05-19.md` — 3 scenario designs (knight-rider quick decision: 3 not 5)
+
+Module `simulation/spatial_gauntlet/` (NEW Python package; runs ALONGSIDE 1D fight_engine.py):
+- `arena.py` — Arena, ArenaScenario, ChokeZone; 3 scenarios instantiated
+- `spatial_engine.py` — SpatialEntity, SpatialFightEngine, run_spatial_fight; full 2D fight sim
+- `spatial_telemetry.py` — SpatialFightResult dataclass; SpatialTelemetryWriter interface (star-lord implements DB writer next session)
+- `scripts/r2_spatial_smoke.py` — 2-class smoke runner
+
+MIGRATION.md v1.18: spatial_fight_results table schema spec (star-lord consumes as schema 2.12).
+
+**Smoke results (2 classes × 3 scenarios × 30 fights = 180 fights; 2.5s wall time):**
+
+| class_id | archetype | open_arena_wr | chokepoint_wr | boss+adds_wr | boss_kills |
+|---|---|---|---|---|---|
+| class_0016 | lightning_mage | 0.000 | 0.000 | 0.000 | 0 |
+| class_0019 | physical_warrior | 0.000 | 0.000 | 0.000 | 0 |
+
+**Spatial substrate CONFIRMED WORKING:** engine runs without crashing; player navigates toward mobs (closes from 28m to 2m correctly); skills fire when in range (30 AOE hits confirmed); mob deaths confirmed (2 kills in diagnostic run); flanking detection fires (19 flanking ticks in boss-with-adds); different geometry per class (class_0016=point, class_0019=cone).
+
+**WR = 0.000 CALIBRATION ISSUE (not spatial geometry bug):** simplified damage model lacks armor mitigation. Mob combined DPS (~1200 at 8 mobs) overwhelms player HP (15k) before full mob wave dies. Next-session fix: add simplified armor mitigation factor to spatial damage model.
+
+**Tag:** `gamora/v1.9-r2-scaffolding-1` (engine repo; intermediate; pushed)
+
+**Next-session work:**
+1. Damage model calibration (armor mitigation approximation → non-degenerate WR)
+2. Full 51-class R2 run (all 3 scenarios × 51 classes × 30 fights)
+3. 1D vs 2D WR comparison
+4. Hypothesis tests H1/H2/H3 execution
+5. Jack-ryan Gate-1 review of math note (production graduation gate)
+6. Star-lord telemetry schema 2.12 implementation
+
+**REQUEST to jack-ryan:** Gate-1 review of `R2-spatial-combat-math-2026-05-19.md`. Review scope: math note § 10.3 (position representation, movement model, collision, AOE geometry, telemetry schema, 3 open questions). Required before sub-gauntlet graduates from scaffolding tag to production tag.
+
+**REQUEST to star-lord:** Schema 2.12 — implement `spatial_fight_results` DB table per `simulation/MIGRATION.md` v1.18 spec. Interface: `SpatialTelemetryWriter` in `simulation/spatial_gauntlet/spatial_telemetry.py`. Current scaffolding uses `NullSpatialTelemetryWriter` (no-op). Star-lord replaces with concrete DB writer. Also: author `export/MIGRATION.md` entry for the new table.
+
+**Engine commit:** `18dfc4c`
+**Collab commit:** (pending this log append)
