@@ -371,44 +371,53 @@ After R1 convergence loop ships and Test 1 reveals the failure cascade, gamora b
 
 ---
 
-## Open watchpoints status (to be updated as hive progresses)
+## Open watchpoints status (updated 2026-05-19, third jack-ryan session — implementation-phase observation pass)
 
 | WP | Status | Last updated |
 |---|---|---|
-| WP-R1-A-1 (math note before balance_loop.py) | OPEN — gamora not yet acknowledged | 2026-05-19 |
-| WP-R1-A-2 (boss-tier n-shot strategy) | OPEN | 2026-05-19 |
-| WP-R1-B-1 (no silent aggregate-mean pass) | OPEN | 2026-05-19 |
-| WP-R1-B-2 (per-tier failure to telemetry) | OPEN | 2026-05-19 |
-| WP-R3-A-1 (schema field naming drift) | WARN-R3-1 FILED — archetype vocabulary mismatch (swarmer/controller/sniper vs ranger/bruiser/skirmisher); routes to rocket+elrond | 2026-05-19 |
+| WP-R1-A-1 (math note before balance_loop.py) | CLOSED — Gate 1 PASS `bf47591` preceded `3a73d94`; gamora STATE confirmed | 2026-05-19 impl-pass |
+| WP-R1-A-2 (boss-tier n-shot strategy) | CLOSED — `FIGHT_BATCH_SIZE_BOSS=60` named constant at module level in `balance_loop.py` | 2026-05-19 impl-pass |
+| WP-R1-B-1 (no silent aggregate-mean pass) | CLOSED — `_evaluate_convergence_gate()` is the authoritative gate; `aggregate_wr_legacy` is diagnostic-only with no code path accepting convergence on it | 2026-05-19 impl-pass |
+| WP-R1-B-2 (per-tier failure to telemetry) | CLOSED — WARNING log + `balance_metadata["r1_per_tier_pass"]` write in `_evaluate_convergence_gate()`; not stdout-only | 2026-05-19 impl-pass |
+| WP-R3-A-1 (schema field naming drift) | CLOSED — archetype vocabulary unified (`swarmer`/`controller`/`sniper`); both seams call same `_derive_r3_ai_fields()` function | 2026-05-19 impl-pass |
 | WP-R3-A-2 (MIGRATION.md concurrent authoring) | CLOSED — both MIGRATION.md files exist with R3 entries; ADR-004 honored | 2026-05-19 |
-| WP-R3-A-3 (schema validators fail-loud) | OPEN — implementation not yet written; validator design is specified correctly in schema doc § R-6 | 2026-05-19 |
-| WP-R3-A-4 (R3 critical-path silence watch) | OPEN — monitoring | 2026-05-19 |
-| WP-R7-A-1 (parity-test spec before harness) | WARN-R7-1 FILED — spec exists but DemoAgentMock uses .get() for required fields; fix before harness impl | 2026-05-19 |
+| WP-R3-A-3 (schema validators fail-loud) | CLOSED — `@model_validator` operational on `monster_schema.py`; 220/220 monsters + 977/977 skills validated; boot-time boot-loud confirmed | 2026-05-19 impl-pass |
+| WP-R3-A-4 (R3 critical-path silence watch) | CLOSED — R3 complete at `hive-rebuild/v0.5`; no extended silence observed | 2026-05-19 impl-pass |
+| WP-R7-A-1 (parity-test spec before harness) | CLOSED — harness implements spec; WARN-R7-1 fix (direct key access) confirmed in implementation | 2026-05-19 impl-pass |
 | WP-R7-A-2 (consumer audit enumeration) | CLOSED — movement.ts:74-78 and :81 both named in audit | 2026-05-19 |
-| WP-R7-A-3 (Test 2 intentional-break required) | CLOSED — test_intentional_break_fails_loud() explicitly included in spec § 7 | 2026-05-19 |
-| WP-R7-A-4 (registry-iterate, not constant-fallback) | OPEN — implementation not yet written; spec design is correct | 2026-05-19 |
+| WP-R7-A-3 (Test 2 intentional-break required) | CLOSED — `test_intentional_break_fails_loud()` in spec § 7; `BrokenDemoAgentMock` confirmed in harness; 9/9 PASS | 2026-05-19 |
+| WP-R7-A-4 (registry-iterate, not constant-fallback) | CLOSED — DemoAgentMock reads from JSON dict directly; missing field triggers KeyError (fail-loud); BrokenDemoAgentMock detects constant fallback | 2026-05-19 impl-pass |
 | WP-R8-A-1 (methodology docs before A/B run) | CLOSED — both gandalf docs exist and are reviewed | 2026-05-19 |
 | WP-R8-A-2 (cohesion scale anchoring) | CLOSED — Gate 1 PASS; anchors durable, blindness confirmed, decision-tree deterministic | 2026-05-19 |
 | WP-R8-A-3 (Discipline #14 for coalescence prompt) | CLOSED — sanity skim confirms no canonical-four structural keys in prompt | 2026-05-19 |
-| WP-R8-A-4 (--no-coalesce silent fill risk) | OPEN — Smoke 3 spec exists; implementation not yet written | 2026-05-19 |
+| WP-R8-A-4 (--no-coalesce silent fill risk) | CLOSED — schema 2.10 + mode-tagged telemetry; pipeline gates coalesce call behind mode check; NULL for theme fields confirmed under no_coalesce | 2026-05-19 impl-pass |
 | WP-MIGRATION-1 (R3 generation MIGRATION.md) | CLOSED — all 7 fields present in generation MIGRATION.md R3+R7 section | 2026-05-19 |
 | WP-MIGRATION-2 (R3 export MIGRATION.md) | CLOSED — additive-only documented; consumer obligations stated | 2026-05-19 |
-| WP-MIGRATION-3 (R7 cross-repo contract) | OPEN — cross-repo catalogue→demo read path documented in generation MIGRATION.md; parity test not yet implemented | 2026-05-19 |
-| WP-MIGRATION-4 (R8 LLM MIGRATION.md) | WARN-R8-1 FILED — mode naming inconsistency ("inverted_naming" vs "inverted"); routes to star-lord | 2026-05-19 |
-| WP-MIGRATION-5 (R1 simulation MIGRATION.md) | OPEN — gamora will author concurrently with balance_loop.py modification per knight-rider decision | 2026-05-19 |
-| WP-XSEAM-1 (balance_loop concurrent edit) | OPEN | 2026-05-19 |
-| WP-XSEAM-2 (monster JSON three-seam) | OPEN | 2026-05-19 |
-| WP-XSEAM-3 (R7 source before R5 consumer) | OPEN | 2026-05-19 |
-| WP-HIVELOG-1 (fetch-before-commit) | OPEN — monitoring | 2026-05-19 |
-| WP-TAG-1 (tag namespace discipline) | OPEN | 2026-05-19 |
-| WP-TAG-2 (no tag against smoke-only) | OPEN | 2026-05-19 |
-| WP-D14-1 (coalescence prompt Discipline #14) | OPEN | 2026-05-19 |
-| WP-D14-2 (--theme-input new sites) | OPEN | 2026-05-19 |
-| WP-D17-1 (retuning lever smoke gate) | OPEN | 2026-05-19 |
+| WP-MIGRATION-3 (R7 cross-repo contract) | CLOSED — MIGRATION.md documents catalogue→demo read path; R7 harness validates it; R5 demo reads from JSON | 2026-05-19 impl-pass |
+| WP-MIGRATION-4 (R8 LLM MIGRATION.md) | CLOSED — schema registered as 2.10 (not 2.8); MIGRATION.md status IMPLEMENTED; mode naming consistent | 2026-05-19 impl-pass |
+| WP-MIGRATION-5 (R1 simulation MIGRATION.md) | CLOSED — `simulation/MIGRATION.md` v1.15 in same commit as `balance_loop.py` modification (`3a73d94`) | 2026-05-19 impl-pass |
+| WP-XSEAM-1 (balance_loop concurrent edit) | CLOSED — gamora and rocket edited different file sets; no concurrent collision observed | 2026-05-19 impl-pass |
+| WP-XSEAM-2 (monster JSON three-seam) | CLOSED — rocket schema first; elrond called rocket's helpers directly; star-lord receiver-boundary only | 2026-05-19 impl-pass |
+| WP-XSEAM-3 (R7 source before R5 consumer) | CLOSED — `hive-rebuild/v0.7` precedes drax R5 dispatch activation per log sequencing | 2026-05-19 impl-pass |
+| WP-HIVELOG-1 (fetch-before-commit) | OPEN — continuing monitoring; no entry gaps detected in this session | 2026-05-19 impl-pass |
+| WP-TAG-1 (tag namespace discipline) | OPEN — continuing monitoring; tags observed all use correct namespaces | 2026-05-19 impl-pass |
+| WP-TAG-2 (no tag against smoke-only) | OPEN — continuing monitoring; all milestone tags observed have full-path hypothesis test evidence | 2026-05-19 impl-pass |
+| WP-D14-1 (coalescence prompt Discipline #14) | CLOSED — prior session | 2026-05-19 |
+| WP-D14-2 (--theme-input new sites) | OPEN — rocket R8 pipeline shipped (`bfa3fc3`); no new LLM prompt sites observed that leak canonical-four as structural keys; monitoring | 2026-05-19 impl-pass |
+| WP-D17-1 (retuning lever smoke gate) | OPEN — gamora retuning sprint not yet started; watchpoint active | 2026-05-19 impl-pass |
+
+**New watchpoints added this session (in-flight work):**
+
+| WP | Owner | Condition | Risk |
+|---|---|---|---|
+| WP-R1-C-1 (retuning lever smoke gate per Discipline #17) | gamora | Each retuning lever must pass 3-sweep-point parametric smoke gate WITH gear_catalog (Discipline #17 environment-fidelity amendment) before full-cohort application. If gamora applies a lever to full cohort without smoke evidence, file WARN. | MEDIUM |
+| WP-R1-C-2 (rolling median future session) | gamora | When rolling median is added: window MUST reset on modifier change, not iteration count. Math note + docstring both document this. No action now; trigger if future implementation omits the reset. | LOW — future session only |
+| WP-PLAYTEST-1 (v0.12 tag trigger) | knight-rider / drax | `hive-rebuild/v0.12-r5-hypothesis-test-passed` fires when Matt playtest confirms kite-default reduction (Test 2). Static-analysis 81% projection is credible but insufficient. | LOW — gate is clear |
+| WP-PLAYTEST-2 (v0.16 tag trigger) | knight-rider / drax | `hive-rebuild/v0.16-r4-hypothesis-test-passed` fires when Matt playtest confirms Tests 1, 2, 4. Test 3 (out-of-range visual) is in-session verifiable NOW — knight-rider may fire that sub-criterion independently if useful. | LOW — gate is clear |
 
 ---
 
-## Closed watchpoints (updated 2026-05-19, second jack-ryan session)
+## Closed watchpoints (updated 2026-05-19, third jack-ryan session)
 
 | WP | Closed | Evidence |
 |---|---|---|
@@ -420,6 +429,22 @@ After R1 convergence loop ships and Test 1 reveals the failure cascade, gamora b
 | WP-R8-A-3 (Discipline #14 for coalescence prompt) | 2026-05-19 | Sanity skim confirms no canonical-four structural keys in LLM judge prompt or coalescence prompt |
 | WP-MIGRATION-1 (R3 generation MIGRATION.md) | 2026-05-19 | All 7 new fields present in [2026-05-19] R3+R7 section |
 | WP-MIGRATION-2 (R3 export MIGRATION.md) | 2026-05-19 | Additive-only decision documented; no breaking changes; consumer obligations stated |
+| WP-R1-A-1 (math note before balance_loop.py) | 2026-05-19 impl-pass | Gate 1 PASS `bf47591` preceded implementation commit `3a73d94` |
+| WP-R1-A-2 (boss-tier n-shot strategy) | 2026-05-19 impl-pass | `FIGHT_BATCH_SIZE_BOSS=60` named constant in balance_loop.py |
+| WP-R1-B-1 (no silent aggregate-mean pass) | 2026-05-19 impl-pass | `_evaluate_convergence_gate()` is the sole acceptance gate; aggregate_wr_legacy is diagnostic-only |
+| WP-R1-B-2 (per-tier failure to telemetry) | 2026-05-19 impl-pass | WARNING log + balance_metadata write in `_evaluate_convergence_gate()` |
+| WP-R3-A-1 (schema field naming drift) | 2026-05-19 impl-pass | Both seams call `_derive_r3_ai_fields()`; archetype vocabulary unified |
+| WP-R3-A-3 (schema validators fail-loud) | 2026-05-19 impl-pass | `@model_validator` on monster_schema.py; 220/220 + 977/977 PASS |
+| WP-R3-A-4 (R3 critical-path silence) | 2026-05-19 impl-pass | R3 complete; no silence observed |
+| WP-R7-A-1 (parity-test spec before harness) | 2026-05-19 impl-pass | WARN-R7-1 fix confirmed in harness; 9/9 PASS |
+| WP-R7-A-4 (registry-iterate, not constant-fallback) | 2026-05-19 impl-pass | DemoAgentMock direct key access; KeyError fail-loud; BrokenDemoAgentMock detection confirmed |
+| WP-R8-A-4 (--no-coalesce silent fill risk) | 2026-05-19 impl-pass | Pipeline mode check gates coalesce call; NULL theme fields under no_coalesce confirmed |
+| WP-MIGRATION-3 (R7 cross-repo contract) | 2026-05-19 impl-pass | MIGRATION.md documents path; harness validates it; R5 reads from JSON |
+| WP-MIGRATION-4 (R8 LLM MIGRATION.md) | 2026-05-19 impl-pass | Schema 2.10 registered correctly; mode naming consistent |
+| WP-MIGRATION-5 (R1 simulation MIGRATION.md) | 2026-05-19 impl-pass | simulation/MIGRATION.md v1.15 in same commit as balance_loop.py modification |
+| WP-XSEAM-1 (balance_loop concurrent edit) | 2026-05-19 impl-pass | Different file sets; no collision |
+| WP-XSEAM-2 (monster JSON three-seam) | 2026-05-19 impl-pass | Rocket schema first; elrond called rocket's helpers; star-lord receiver-boundary |
+| WP-XSEAM-3 (R7 source before R5 consumer) | 2026-05-19 impl-pass | v0.7 precedes drax R5 activation |
 
 *Watchpoints close when the specific condition is verified via hive log entry, tag, or direct code observation. Jack-ryan updates this table and files a corresponding hive log OBSERVATION on each closure.*
 

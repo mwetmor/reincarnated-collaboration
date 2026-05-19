@@ -1548,3 +1548,84 @@ Static analysis: pre-fix ~60% kiting (pre-backfill over-application of "long"); 
 |------|--------|------------|
 | reincarnated-demo | `542f1115b` | `drax/v1.26-r4-collision-leash-range-1` + `hive-rebuild/v0.15-r4-collision-leash-range-operational` — pushed to origin |
 | reincarnated-collaboration | (this commit) | hive log STATE entry + `hive-rebuild/v0.15-r4-collision-leash-range-operational` applied |
+
+---
+
+## 2026-05-19 — jack-ryan implementation-phase observation pass
+
+### [2026-05-19] OBSERVATION — jack-ryan — Implementation-phase continuous-observation pass COMPLETE
+
+**Severity: INFO**
+**Scope:** Post-`1512214` through `hive-rebuild/v0.15` — all 8 workstreams reviewed
+**Full report:** `agentic_orchestration/hive-mind/impl-observation-2026-05-19.md`
+**Watchpoints updated:** `agentic_orchestration/hive-mind/watchpoints-engine-rebuild-2026-05-19.md`
+
+**Per-workstream verdicts: ALL PASS**
+
+| Workstream | Commit | Verdict |
+|---|---|---|
+| R1 per-tier convergence (gamora) | `3a73d94` | PASS |
+| R1+R3 telemetry (star-lord) | `42f5467` | PASS |
+| R3 schema impl (rocket) | `8d64c0c` | PASS |
+| R3 backfill (elrond) | `61d70de` | PASS |
+| R7 parity-test harness (star-lord) | `c0cc2f5` | PASS |
+| R8 LLM orchestration (star-lord) | `c0cc2f5` | PASS |
+| R5 demo parity (drax) | `932eb5891` | PASS |
+| R4 demo collision/leash/FSM (drax) | `542f1115b` | PASS |
+
+**Zero BLOCKs. Zero new WARNs.**
+
+**WARN resolutions confirmed:**
+- WARN-R3-1 (archetype vocabulary): rocket adopted shipped vocabulary (`swarmer`/`controller`/`sniper`); both seams call same derivation function. CLOSED.
+- WARN-R3-2 (range_m minimum): generation MIGRATION.md line 2102 updated; role cross-check is the operative gate. CLOSED.
+- WARN-R7-1 (DemoAgentMock Pattern P7): direct key access `monster_json["aggro_radius_m"]` confirmed in `test_r7_parity.py:119-122`. CLOSED.
+- WARN-R8-1 (mode naming): no `"inverted_naming"` occurrences remaining; all references use `"inverted"`. CLOSED.
+
+**Discipline compliance summary:**
+- Discipline #1 (math-before-code): SATISFIED — Gate 1 preceded all implementations
+- Discipline #2 (smoke): SATISFIED — 687+176+300+29+9 tests pass across seams
+- Discipline #8 (schema validation): SATISFIED — @model_validator operational; 977/977 skills validated
+- Discipline #11 (live-state verification): SATISFIED — 9/9 parity tests PASS including intentional-break
+- Discipline #12 (semantic shift documented): SATISFIED — per-tier gate shift documented in code + MIGRATION.md + commit
+- Discipline #13a (drift): SATISFIED — no new vocabulary drift observed; archetype fix flows through both seams correctly
+- Pattern P7 (silent-default ban): SATISFIED — DemoAgentMock direct key access; backfill 0 fallbacks; recorder WARN path logged (not silent)
+- ADR-004 (MIGRATION.md concurrency): SATISFIED — all 5 MIGRATION.md entries authored concurrently with code changes
+
+**Watchpoints closed this session: 15** (WP-R1-A-1, WP-R1-A-2, WP-R1-B-1, WP-R1-B-2, WP-R3-A-1, WP-R3-A-3, WP-R3-A-4, WP-R7-A-1, WP-R7-A-4, WP-R8-A-4, WP-MIGRATION-3, WP-MIGRATION-4, WP-MIGRATION-5, WP-XSEAM-1, WP-XSEAM-2, WP-XSEAM-3)
+
+**New watchpoints added: 4** (WP-R1-C-1 retuning smoke gate; WP-R1-C-2 rolling median future session; WP-PLAYTEST-1 v0.12 trigger; WP-PLAYTEST-2 v0.16 trigger)
+
+**3 INFO observations surfaced:**
+
+1. **[INFO] `hit_and_run` behavior: 0 production monsters.** Expected per catalogue vocabulary — `skirmisher` archetype is absent from shipped seasons. The FSM branch and enum value are correct dead code against current content. Activates when a new archetype maps to `hit_and_run`.
+
+2. **[INFO] range_m vs range_profile distribution distinction.** Skill `range_m` band distribution is 77% close / 23% medium / 0% long. Monster `range_profile` distribution is 50% close / 34% medium / 16% long. These are two distinct distributions — the dispatch briefing conflated them. Drax caught and documented this in the R5 state entry. No action needed; documented for calibration.
+
+3. **[INFO] Rolling median NOT yet implemented in R1.** `_evaluate_convergence_gate()` uses per-call evaluation only. Math note § 4.3 rolling median is preserved as a future-session enhancement in the docstring (with the reset-on-modifier-change note). N=60 strategy is the primary variance-suppression mechanism — this is sufficient for the current convergence gate. Rolling median is a future improvement.
+
+**Held milestone tag dispositions:**
+- `hive-rebuild/v0.12-r5-hypothesis-test-passed`: HOLD MAINTAINED. Static-analysis 81% projection is credible but Test 2 criterion requires Matt playtest confirmation.
+- `hive-rebuild/v0.16-r4-hypothesis-test-passed`: HOLD MAINTAINED. Tests 1, 2, 4 require live-demo playtest. Test 3 (out-of-range visual) is in-session verifiable — knight-rider may use it as an intermediate trigger.
+
+**Decisions-log assessment:**
+- ADR-006 push-authority governance entry recommended NOW (the L2 autonomous ALTER TABLE + cross-repo push authority established at launch dispatch § 6.6 is not captured in the decisions-log; jack-ryan will author this entry under ADR-002 documentation authority in this session).
+- R1 hypothesis-test entry deferred to `hive-rebuild/v0.3-r1-hypothesis-test-passed` per original commitment.
+
+**Cite:** engineering-disciplines #1, #2, #8, #11, #12, #13a, P7; ADR-004; Review Principles 1-5; protocol § 4.5.
+
+---
+
+### [2026-05-19] OBSERVATION — jack-ryan — ADR-006 push-authority governance entry filed
+
+**Severity: INFO**
+
+Decisions-log entry authored at `reincarnated-engine/design/decisions/decisions-log.md` (append-only) capturing the ADR-006 extension established at hive launch:
+
+- **Decision:** L2 autonomous-operation push authority extends to include: (a) additive nullable ALTER TABLE on engine DB under knight-rider pre-authorization; (b) cross-repo pushes by all hive specialists under standing launch-authority grant; (c) commit-push of hive log and watchpoints files by jack-ryan under continuous-observation authority.
+- **Authority basis:** launch dispatch `2026-05-19-knight-rider-engine-rebuild-launch.md` § 6.6; engine-rebuild protocol § 4.0 autonomous-operation amendment.
+- **Hard constraints:** no DELETE/DROP; no non-nullable ALTER; no schema version skip below current (the 2.8→2.10 naming precedent is documented here).
+- **Wind-down:** Matt re-enters at wind-down and reviews all schema migrations applied.
+
+This entry is filed under jack-ryan's ADR-002 documentation-only approval authority.
+
+**Cite:** ADR-002 (tiered approval authority); ADR-006 (push authority); ADR-004 (MIGRATION.md) — related context.
