@@ -2832,3 +2832,64 @@ Knight-rider fires F5 + F6 once gandalf F3 frameworks land.
 **Authority:** AUTONOMOUS — full per protocol § 4.0 + dispatch § 6.5 + § 6.6.
 
 **Collab commit:** (this commit fires F1+F2+F3+F4 dispatches + log update + CHANGELOG event entry)
+
+---
+
+## 2026-05-19 — gandalf F2 disposition COMPLETE: full R8-inversion regeneration committed
+
+### [2026-05-19] STATE — gandalf — F2 path-decision DECIDED: path (b) R8-inversion regeneration with first-batch validation gate
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-19-gandalf-vs2a-kit-redesign-approach-decision.md`
+**Authority:** AUTONOMOUS L2-equivalent per protocol § 4.0 + Matt directive 2026-05-19. No Matt-wait.
+
+**Decision:** **Path (b) — full R8-inversion regeneration of the shipped catalogue with 1-season first-batch validation gate.**
+
+**Decision doc authored:** `canonical/story/vs2a-kit-redesign-approach-2026-05-19.md` (~400 lines; full disposition: TL;DR + criteria + implementation shape + B6/S2 implications + first-batch class selection criteria + validation gate + risk/watchpoints + cross-references + provenance).
+
+**Reciprocal amendment authored:** `canonical/story/r1-kit-redesign-queue-2026-05-19.md` § 5.4 appended capturing path commitment + per-category partition becomes informational + redesign criteria become post-hoc validation targets (not generation-time prompt constraints).
+
+**Path (b) one-paragraph rationale:** R8 A/B 3-season empirical evidence already shows `inverted` producing more boss-tier-functional kits than the entire 51-class shipped catalogue (best boss_kr 0.22 at class_0007 vs shipped best 0.033 at class_0019; 20% of inverted classes vs 0% of shipped achieve boss_kr ≥ 0.10) with R8 Test 1 +0.20 cohesion above baseline + R8 Test 4 substrate-identity invariance at canonical-element level. The shipped catalogue's pathology (archetype-mechanic mismatch; single-vector defensive layer; range-collapse) is an artifact of theme-driving-mechanic under the legacy baseline pipeline; the engine's now-committed `inverted` default inverts that ordering. Hand-redesigning 30-40 classes (path a) is 4-6 wk of rocket bandwidth fighting against a generator that is, post-R8, no longer the one that produced the pathology. Hybrid (path c) leaves permanent dual-generation-mode archaeology in the catalogue. The cleanest path is to regenerate the catalogue under the engine's new default, with a 1-season first-batch gate de-risking the scale before full commitment.
+
+**S1 + S2 implications:**
+
+- **S1 (kit-redesign sprint) shape:** full R8-inversion regen with first-batch validation gate. Rocket regenerates 1 season; gandalf cohesion-judges + gamora R1-sprints first-batch (PASS criteria: ≥ 1 boss_kr ≥ 0.10 + ≥ 2 mini_kr ≥ 0.15 + cohesion ≥ 4.0 + no template debris + substrate-identity invariant); on PASS rocket regenerates 4 more seasons; full R1 sprint validates 70-85% per-tier pass-rate target. Effort: ~6-8 wk wall, ~3-4 wk less rocket bandwidth than path (a). LLM cost ~$16-19; worst-case ~$30-40 with re-runs.
+- **S2 (B6 main work) shape:** skill-tree emerges from regenerated-catalogue composition; rocket pre-work must parameterize for any-catalogue-shape (no hard class_id references); B6 main work begins against regenerated catalogue. Schedule impact: ~1-2 wk deferred from current expectations; offset by faster S1.
+
+**Prerequisites for S1 firing:**
+
+- F1 (geometry_type schema) — already dispatched by knight-rider; sequencing in motion
+- F2 (this decision) — COMPLETE
+- R1 disposition-3 sprint v3 (gamora) — gates first-batch R1 sprint calibration; knight-rider sequences
+- Rocket pre-work parameterization (B6 must work against any catalogue) — knight-rider surfaces to rocket AGENT_STATE
+- R8 disposition `inverted` default — already committed and shipped in engine `9f6e4e6`
+
+**Risks + watchpoints surfaced (5 — for knight-rider's watchpoints file):**
+
+1. First-batch regen archetype-coverage drift (e.g., all-mage emergent batch)
+2. Naming-vocabulary saturation at 5-season scale (e.g., "Beacon ___" repetition pattern across seasons)
+3. R1 sprint pass-rate plateau (60-70% range — do NOT auto-fire v0.7 tag; gandalf authors partial-pass disposition per R2 H1 precedent)
+4. R8 disposition § 5a (template-distribution repair) re-opens if `inverted` at 51-class scale surfaces template-fixedness pattern (would escalate VS2a-blocking)
+5. B6 main-work shape change — S2 dispatch awaits regenerated-catalogue manifest
+
+**Open question dispositions (per F2 dispatch § 5):**
+
+- Sprint v3 dependency: required upstream of first-batch validation; NOT required for this F2 decision. Decision fires under sprint v2 + R8 A/B empirics + design judgment.
+- S1 LLM budget: ~$16-19 (5 seasons × $3.20); worst-case $30-40 with re-runs. Absorbable; rocket logs in CHANGELOG.
+- S2 shape change: yes, captured § 3 of decision doc.
+- Substrate-identity amendment: NOT in this commit; R8 § 9.5 amendment is sufficient. Author further amendment only if first-batch surfaces preservation regression.
+- `inverted_no_naming` template-distribution opt-in: not a dependency; remains deferred per R8 § 5a; VS2b territory.
+
+**TAG-FIRING REQUEST (per autonomous-operation protocol § 4.3):**
+
+Surface `vs2a/v0.5-kit-redesign-approach-decided` to knight-rider for firing on the commit that lands the F2 decision doc + R1 queue § 5.4 amendment + this hive log STATE entry + F2 dispatch completion record. Knight-rider executes tag-firing + push per the autonomous-operation tag-firing pattern.
+
+**Tag fires on collab repo** (canonical-story disposition; no engine-repo code change in this commit). Knight-rider may consider parallel tag on engine repo if there is a coordination convention precedent — gandalf surfaces the question without prescribing.
+
+**No Matt-wait at any point.** F2 decided under L2-equivalent authority per protocol § 4.0.
+
+**Authority:** AUTONOMOUS L2-equivalent per protocol § 4.0 + F2 dispatch + Matt directive 2026-05-19.
+
+**Engine commit:** N/A (disposition is collab-repo canonical-story authoring)
+**Collab commit:** (forthcoming; knight-rider's batch-close commit will land this disposition + amendment + completion record + STATE entry)
+
+*Filed 2026-05-19 by gandalf at F2 completion. F2 is the highest-leverage first-fire dispatch in VS2a; S1 + S2 unblocked. The catalogue's identity emerges under the engine's new default. Mithrandir signs.*

@@ -217,6 +217,44 @@ R8 (season-as-emergent-output A/B; rocket + star-lord + gandalf; 1-2 wk) tests w
 
 **The decision between the two paths (VS2a hand-redesign vs R8-inversion regeneration) is roadmap-level and depends on R8's A/B outcome.** This queue doc captures both alternatives so Matt + gandalf + rocket have the design surface to choose at commit time.
 
+### § 5.4 — Path decided (F2 disposition 2026-05-19): full R8-inversion regeneration with first-batch validation
+
+**Amendment authored 2026-05-19 by gandalf concurrent with `canonical/story/vs2a-kit-redesign-approach-2026-05-19.md` (F2 disposition).**
+
+The path decision is **(b) full R8-inversion regeneration** with a 1-season first-batch validation gate before commitment to the full 5-season regen. Disposition reasoning:
+
+- **Empirical signal:** R8 A/B 3-season output (`output/R8-ab-run-2026-05-19/inverted/season_099002/`) already produced more boss-tier-functional kits than the entire 51-class shipped catalogue (best boss_kr 0.22 vs shipped best 0.033; 20% of inverted classes vs 0% of shipped achieve boss_kr ≥ 0.10).
+- **Cohesion preserved:** R8 Test 1 demonstrated +0.20 cohesion above baseline; coalescence-derived naming reads as more cohesive than input-themed naming.
+- **Substrate-identity preserved:** R8 Test 4 invariance at canonical-element level; ~90% substrate-mode-of-action preservation under `inverted` (per R8 § 9.5 amendment).
+- **Rocket bandwidth:** ~1-2 weeks regen orchestration + 0.5 wk gandalf cohesion judging vs 4-6 weeks hand-redesign. Frees S2 to begin earlier.
+- **Catalogue uniformity:** path (b) produces a uniformly post-R8-pipeline catalogue, no dual-mode archaeology.
+
+Path (a) hand-redesign is rejected because: (i) the legacy generator that produced the pathology remains the generator going forward unless R8-inversion is also adopted, which makes path (a) work redundant once path (b) is on the table; (ii) per-class judgment generalization is uncertain (a redesign rule that works for one *_mage may not generalize to all *_mages); (iii) hand-redesign costs ~4-6 weeks of rocket bandwidth that path (b) saves.
+
+Path (c) hybrid is rejected because: (i) catalogue archaeology cost (permanent two-generation-mode lineage); (ii) the "kit-acceptable" subset can't be enumerated until R1 sprint v3 lands so freezing the partition is premature; (iii) R8-inversion is not worse than acceptable-shipped at scale (cohesion + boss-viability gain by construction).
+
+**First-batch validation gate (operationalized in § 2.4 of the F2 disposition doc):**
+
+1. ≥ 1 first-batch class achieves boss_kill_rate ≥ 0.10 under disposition-3 calibration
+2. ≥ 2 of first-batch classes achieve mini_boss_kill_rate ≥ 0.15
+3. Gandalf cohesion judgment ≥ 4.0 mean across 6 facets
+4. No "Unknown" or template-debris in player-facing names
+5. Substrate-identity invariant at canonical-element level
+
+PASS → proceed to full 5-season regen. FAIL → gandalf authors follow-on disposition; path-decision re-opens.
+
+**Operational consequences for this queue doc:**
+
+- § 2.1 / § 2.2 / § 2.3 kit-acceptable / kit-mediocre / kit-broken partition becomes *informational* (descriptive of the shipped catalogue's pathology surface) rather than *operational* (the partition does not drive per-class action under path (b)). The partition remains valuable as a record of what was learned about the legacy catalogue.
+- § 3.1-§ 3.5 redesign criteria become *post-hoc validation targets* (the R1 sprint re-run measures whether the regenerated catalogue passes the gates that imply the criteria are honored) rather than *generation-time prompt constraints* (which would un-invert the pipeline). § 3.1 range-diversity is the strongest implicit criterion in R1 boss-kr measurement.
+- § 5.1 VS2a sprint shape is **R8-inversion regeneration**, not hand-redesign. Effort estimate is ~1-2 wk regen + 0.5 wk first-batch judging + ~3-4 wk full-catalogue review + R1 sprint re-run (~6-8 wk total wall vs 4-6 wk hand-redesign — slightly longer wall but ~3-4 wk less rocket bandwidth).
+- § 5.2 VS2b validation pass remains as scoped (R1 sprint re-run is the canonical metric; decisions-log entry by jack-ryan; tag fires at PASS).
+- § 6 rocket seam consultation: HOW to redesign is now "regenerate under `inverted` with first-batch gate" (gandalf-authoritative per F2). WHICH classes first is now "first-batch is one fresh regenerated season; emergent class identity per coalescence" (no class-by-class selection). WHAT the new geometry/range/role assignments are: emerges from converged pipeline + R1 sprint validation; NOT hand-tuned.
+
+**Cross-reference:** F2 disposition doc `canonical/story/vs2a-kit-redesign-approach-2026-05-19.md` § 0-§ 8 is the authoritative path commitment. This § 5.4 captures the amendment back-pressure into this queue doc.
+
+**Tag:** `vs2a/v0.5-kit-redesign-approach-decided` fires on the commit landing the F2 disposition + this amendment.
+
 ---
 
 ## § 6 — Rocket seam consultation (advisory; not binding)
