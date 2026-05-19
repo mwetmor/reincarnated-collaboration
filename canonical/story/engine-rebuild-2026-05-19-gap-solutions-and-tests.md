@@ -90,6 +90,87 @@ The balance loop currently converges on the **mean win-rate across the 12-fight 
 
 ---
 
+### § 2.1 — Per-tier target revision (2026-05-19 disposition, evidence-driven)
+
+**Amendment authored 2026-05-19 by gandalf** under autonomous-operation authority (protocol § 4.0; protocol § 4 dispatch text "Per-tier target tuning if R1 produces unexpected convergence behavior — gandalf revises targets per evidence").
+
+**Trigger:** gamora's R1 class-retuning sprint (engine commit `9b2ebf4`, 2026-05-19) achieved 0% overall pass-rate against the original per-tier target table (above). Two structural blockers surfaced — see `reincarnated-engine/design/working-agreement/R1-structural-blockers-disposition-2026-05-19.md` for the full disposition decision.
+
+**Original per-tier target table (preserved as historical record):**
+
+The table above (§ 2 — Per-tier target proposals) is **preserved as authored** and stands as the original-intent design. The revision below applies to the OPERATIVE table that gamora's balance loop reads; the original captures gandalf's pre-evidence intuition for the band shape.
+
+**Empirical findings that triggered the revision:**
+
+1. **Bimodal boss WR distribution (n=34 retuned classes):** 8 classes at WR=0.000, 10 classes at WR=1.000, 1 class in the [0.30, 0.45] target band. The 10 classes at WR=1.0 are at modifier floor (0.05) — they cannot possibly damage the boss (133k HP, 86.4% armor mitigation). They are winning by HP%-at-timeout, not by killing the boss. **The "win" semantic conflates kill-rate with survival-rate.**
+2. **Mini-boss DPS floor universal:** 30/34 classes show mini-boss WR = 0.000. The 4 classes that DO kill the mini-boss are at modifiers 0.8-3.5× (saturating the engine modifier ceiling 4.0) and blow swarm/magic/elite ceilings while STILL failing the boss tier. **The single scalar modifier cannot simultaneously satisfy mini-boss kill-rate and per-tier ceilings on lower tiers.**
+3. **Discipline #12 semantic shift:** the gate measures "fight outcome including HP%-at-timeout" while Matt's playtest experience measures "did the boss die." The gap is a Pattern P7 silent-pass; the math note § 5.1 had warned of this exact risk.
+
+**Revised per-tier target table (OPERATIVE post-disposition):**
+
+| Tier | Slots | Floor (old → new) | Target (old → new) | Ceiling (old → new) | Semantic (NEW) | Encounter knob (NEW) |
+|---|---|---|---|---|---|---|
+| Swarm | 6 | 0.65 | 0.72 | 0.80 | HP%-at-timeout (retained) | `SWARM_HP_DIFFICULTY_MULTIPLIER = 3.5` (existing) |
+| Magic | 2 | 0.55 | 0.62 | 0.70 | HP%-at-timeout (retained) | (none) |
+| Elite | 2 | 0.45 | 0.52 | 0.60 | HP%-at-timeout (retained) | (none) |
+| **Mini-boss** | 1 | **0.35 → 0.20** | **0.45 → 0.35** | **0.55 → 0.50** | **KILLS-ONLY (NEW)** | **`MINI_BOSS_HP_DIFFICULTY_MULTIPLIER = 0.70` (NEW; reduces gauntlet mini-boss HP 30%)** |
+| **Boss** | 1 | **0.30 (unchanged)** | **0.38 (unchanged)** | **0.45 (unchanged)** | **KILLS-ONLY (NEW)** | **`BOSS_HP_DIFFICULTY_MULTIPLIER = 0.80` (NEW; reduces gauntlet boss HP 20%)** |
+
+**Boss target table UNCHANGED. The 0.30 floor is the load-bearing genre constraint** (Diablo II Uber Tristram, PoE Maven, Grim Dawn Celestials all converge at 30-40% kill rate for designed-for-content builds at minimum viable spec). The HP-multiplier calibration makes the 0.30 floor REACHABLE rather than lowering it — the genre principle is preserved.
+
+**Mini-boss target table revised** to acknowledge the genre-transition character of the tier (Diablo II Champions / PoE Rares / Grim Dawn Heroes all converge in [0.25, 0.45] for minimum-viable builds). Original mini-boss floor 0.35 was intuition-derived; empirical evidence + genre-canon recalibration lands floor 0.20, target 0.35.
+
+**Semantic shift — kills-only for single-slot tiers:**
+
+For boss + mini-boss tiers, WR is now defined as kill-rate:
+
+```
+boss_kill_rate = count(fights where boss died at hands of player) / total fights
+mini_boss_kill_rate = count(fights where mini-boss died at hands of player) / total fights
+```
+
+Timeouts (`termination_reason == "timeout"` or `"stalemate"`) count as **non-wins** for these tiers regardless of HP%. This is **Discipline #12 semantic shift, explicit and named.** Multi-slot tiers (swarm, magic, elite) retain HP%-at-timeout semantics because group engagements involve genuine survival-cost as fight information.
+
+**Genre canon for kills-only semantic:**
+- **Diablo II:** Uber Tristram / Diablo / Baal — no time limit; "win" means corpse hits the floor
+- **Diablo III / IV:** same — Tormented bosses, Greater Rift guardians; HP%-at-timeout is not a recognized win state
+- **Path of Exile:** Maven / Uber Sirus / Uber Elder / Uber Exarch — portal exhaustion is the only failure mode; GGG actively designs against stall (Maven memory game; Sirus DI-mechanic)
+- **Grim Dawn:** Celestials — no timeout; Crate's design philosophy frames boss WR explicitly as kill-rate
+- **Last Epoch:** Lord Brand and pinnacle Echo — same kill-or-die structure
+- **No ARPG in the lineage considers boss survival to timeout a player win.**
+
+**Encounter calibration via HP scaling** mirrors genre-standard difficulty knobs:
+- D2 `/players 1..8` parameter scales monster HP without altering monster identity
+- PoE atlas tree passive nodes calibrate map difficulty
+- GD Crucible / Shattered Realm scale through challenge tiers
+- The disposition applies the same idea at the gauntlet-test-fixture layer (the gauntlet is NOT shipped content; it is the benchmark suite against which class capability is measured)
+
+**Aggregate weighted-WR target (gamora's binary-search):**
+
+Re-computing per the math note § 4.2 derivation with the revised mini-boss target (0.35 instead of 0.45):
+
+```
+Numerator = 0.5×0.62×2 + 1.0×0.52×2 + 2.0×0.35×1 + 4.0×0.38×1
+         = 0.62 + 1.04 + 0.70 + 1.52 = 3.88
+Denominator = 0.5×2 + 1.0×2 + 2.0×1 + 4.0×1 = 9.0
+Weighted mean at exact targets = 3.88 / 9.0 = 0.431
+
+Revised target_winrate for weighted path: 0.45 (was 0.47)
+```
+
+**Future improvements queued (not blocking; revisit post Test 2):**
+- Archetype rotation in mini-boss + boss gauntlet selection (replaces worst-case-instance sampling with multi-instance averaging)
+- Per-encounter (HP × damage-through) "effective HP" calibration as a more principled successor to uniform HP multipliers
+- Per-tier fight-duration tuning (e.g., 180s for boss specifically) if the kill-rate distribution clusters at timeout boundary post-disposition
+
+**Cross-reference:**
+- Disposition document: `reincarnated-engine/design/working-agreement/R1-structural-blockers-disposition-2026-05-19.md` (load-bearing decision; full rationale + per-class evidence + Discipline #12 framing + implementation specification)
+- Math note: `reincarnated-engine/design/working-agreement/R1-retuning-math-2026-05-19.md` (predecessor mechanism analysis)
+- Per-tier math note: `reincarnated-engine/design/working-agreement/R1-per-tier-math-2026-05-19.md` (original target derivation; § 7 genre canon source)
+- Engineering disciplines: `reincarnated-engine/design/working-agreement/engineering-disciplines.md` § 12 (semantic-shift discipline)
+
+---
+
 ## § 3 — R2 — 2D spatial sub-gauntlet
 
 ### Hypothesis

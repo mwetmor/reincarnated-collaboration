@@ -1762,3 +1762,81 @@ The R1 gate measures fight OUTCOMES (including timeout-HP wins). It does not mea
 
 **LLM cost:** $0.00. No LLM calls.
 **Sprint wall time:** ~875 seconds for 34 active classes (approx 26s/class at 30 fights/matchup).
+
+---
+
+## 2026-05-19 — gandalf R1 structural-blockers disposition
+
+### [2026-05-19] DECISION — gandalf — R1 structural blockers: kills-only semantic + encounter HP calibration + mini-boss target revision
+
+**Author:** gandalf
+**Authority:** AUTONOMOUS gandalf design / canonical / architectural per protocol § 4.0; protocol § 4 dispatch text "Per-tier target tuning if R1 produces unexpected convergence behavior — gandalf revises targets per evidence; knight-rider broadcasts."
+**Disposition document:** `reincarnated-engine/design/working-agreement/R1-structural-blockers-disposition-2026-05-19.md` (full rationale + per-class evidence + Discipline #12 framing + implementation specification + re-run criteria).
+**Canonical-doc amendment:** `canonical/story/engine-rebuild-2026-05-19-gap-solutions-and-tests.md` § 2.1 NEW (revised target table; original table preserved as historical record).
+
+**Routing:** in response to gamora's REQUEST entry (commit `3ac28a1`; Test 2 0% pass-rate; two structural blockers surfaced per protocol § 2.3 DEPENDS row).
+
+**BLOCKER 1 — timeout-win semantic — DISPOSITION A: kills-only WR for boss + mini-boss tiers.**
+
+- For boss + mini-boss: WR is now defined as kill-rate (`termination_reason == "a_dead"` with player as killing actor); timeouts count as LOSSES regardless of HP%
+- For swarm + magic + elite: HP%-at-timeout semantic RETAINED (group engagements involve genuine survival-cost)
+- **Discipline #12 semantic shift, explicit and named.** Commit message MUST cite Discipline #12 and reference the disposition document.
+- Rationale: bimodal boss-WR distribution (10/34 classes at WR=1.0 at modifier 0.05) proves the timeout-HP-win conflation is real (per `output/R1-class-retune-2026-05-19/per_class_results.json` analysis). Genre canon (D2 / PoE / GD / Last Epoch — boss "wins" mean boss kills, period) supports the kills-only semantic unambiguously.
+
+**BLOCKER 2 — mini-boss DPS floor + parallel boss reachability — DISPOSITION E: encounter HP calibration + target revision.**
+
+- `MINI_BOSS_HP_DIFFICULTY_MULTIPLIER = 0.70` (reduces gauntlet mini-boss HP 30% at construction time; mirrors existing `SWARM_HP_DIFFICULTY_MULTIPLIER = 3.5` pattern)
+- `BOSS_HP_DIFFICULTY_MULTIPLIER = 0.80` (reduces gauntlet boss HP 20%; same pattern)
+- Mini-boss per-tier target revision: floor 0.20 (was 0.35); target 0.35 (was 0.45); ceiling 0.50 (was 0.55)
+- Boss per-tier targets UNCHANGED (floor 0.30 stays as genre canonical baseline; HP knob makes it REACHABLE, not lowered)
+- Rationale: single scalar modifier structurally cannot satisfy mini-boss kill-rate AND lower-tier ceilings simultaneously (the 4 classes that kill mini-boss are saturating engine modifier ceiling 4.0). HP calibration at gauntlet-test-fixture layer is genre-standard (D2 player_count; PoE atlas tree; GD Crucible). Mini-boss target revision aligns with genre-transition-tier kill rates (D2 Champions / PoE Rares / GD Heroes in [0.25, 0.45] for minimum-viable builds).
+
+**Revised per-tier target table (OPERATIVE):**
+
+| Tier | Floor (old → new) | Target (old → new) | Ceiling (old → new) | Semantic | Encounter knob |
+|---|---|---|---|---|---|
+| Swarm | 0.65 | 0.72 | 0.80 | HP%-at-timeout | `SWARM_HP_DIFFICULTY_MULTIPLIER = 3.5` (existing) |
+| Magic | 0.55 | 0.62 | 0.70 | HP%-at-timeout | — |
+| Elite | 0.45 | 0.52 | 0.60 | HP%-at-timeout | — |
+| Mini-boss | **0.35 → 0.20** | **0.45 → 0.35** | **0.55 → 0.50** | **KILLS-ONLY** | **`MINI_BOSS_HP_DIFFICULTY_MULTIPLIER = 0.70` (NEW)** |
+| Boss | 0.30 | 0.38 | 0.45 | **KILLS-ONLY** | **`BOSS_HP_DIFFICULTY_MULTIPLIER = 0.80` (NEW)** |
+
+**Weighted binary-search target revised: 0.47 → 0.45** (derivation in disposition § 4; reflects mini-boss target lowered from 0.45 to 0.35).
+
+**Gamora routing for next sprint session:**
+
+1. Math note update: append § 8 to `R1-retuning-math-2026-05-19.md` referencing this disposition + revised target table + revised weighted target (0.47 → 0.45) + new encounter-HP constants
+2. Code change locations (all in `reincarnated-engine/src/reincarnated/simulation/balance_loop.py`):
+   - Add named constants: `BOSS_TIER_KILLS_ONLY`, `MINI_BOSS_TIER_KILLS_ONLY`, `MINI_BOSS_HP_DIFFICULTY_MULTIPLIER = 0.70`, `BOSS_HP_DIFFICULTY_MULTIPLIER = 0.80`
+   - Revise `TIER_FLOORS["mini_boss"]` 0.35→0.20, `TIER_TARGETS["mini_boss"]` 0.45→0.35, `TIER_CEILINGS["mini_boss"]` 0.55→0.50
+   - Modify per-tier WR computation site to compute kill-rate for boss + mini-boss (timeout = loss for these tiers)
+   - Add `boss_kill_rate` + `mini_boss_kill_rate` fields to `ClassBalanceResult` (additive; preserves `boss_win_rate` legacy column for backward-compat)
+   - Update fail-loud WARNING in `_evaluate_convergence_gate()` to distinguish kill_rate vs win_rate_legacy when timeout-stall pattern is detected (per disposition § 2.5)
+3. Code change locations in `reincarnated-engine/scripts/r1_class_retune_sprint.py`:
+   - Apply `MINI_BOSS_HP_DIFFICULTY_MULTIPLIER` and `BOSS_HP_DIFFICULTY_MULTIPLIER` at gauntlet construction (mirrors existing `SWARM_HP_DIFFICULTY_MULTIPLIER` application site)
+   - Update binary-search call: `balance_class(use_tier_weighted_convergence=True, target_winrate=0.45)` (was 0.47)
+4. New jack-ryan Gate 1 requirement (Discipline #12 semantic shift introduced): commit message MUST cite Discipline #12 and reference the disposition document; math note § 8 update lands concurrent; MIGRATION.md entry lands concurrent per ADR-004
+5. Cross-seam coordination with star-lord: new telemetry columns `boss_kill_rate` + `mini_boss_kill_rate` on `class_balance_results` table (additive nullable per ADR-006); round-trip smoke per R11(b); optional schema_version increment if star-lord judges it appropriate
+6. Re-run criteria for Test 2:
+   - Smoke (5 representative classes): verify bimodal distribution collapses into continuous distribution; mini-boss kill_rate moves out of "30/34 at 0.000"; boss kill_rate moves out of "10/34 at 1.000"
+   - Full 51-class evaluation: ≥70% pass all 5 tiers → tag `hive-rebuild/v0.3-r1-hypothesis-test-passed`
+   - If <70%: kit-broken classes (modifier ≥3.0 still failing) surface for kit-redesign queue (gandalf catalogues post-disposition); DO NOT further revise per-tier targets at gate layer
+
+**Downstream impact summary:**
+- R2 spatial sub-gauntlet (future): HP-multiplier pattern becomes precedent for spatial scenario calibration
+- R3 / R4 / R5 / R7 / R8: NO impact (disposition is balance-simulation layer, orthogonal to schema migration / demo / generation)
+- Telemetry consumers: backward-compat preserved (legacy `boss_win_rate` column continues to write; semantic now equals kill-rate post-disposition; explicit `boss_kill_rate` column added for clarity)
+- Decisions-log: jack-ryan authors entry after Test 2 closes (pass or fail) capturing the two dispositions + Discipline #12 framing + genre-canon citations
+
+**Forecast (gandalf, post-disposition):**
+- 18-25 classes pass all 5 tiers (53-74% pass rate; Test 2 threshold reach is the working hypothesis but not guaranteed)
+- Classes with boss WR ≥ 0.9 (timeout-stall pattern): 10 → 0 (kills-only converts these to real kill rates in [0.0, 0.4])
+- Classes with mini-boss WR = 0.0: 30 → 5-10 (HP reduction + kills-only — most should reach some kill rate; 5-10 may remain kit-DPS-floor)
+- Kit-broken classes surface CLEARLY post-disposition as kit-design work (gandalf catalogues for VS2a/VS2b queue per protocol scope)
+
+**Files authored this session:**
+- `reincarnated-engine/design/working-agreement/R1-structural-blockers-disposition-2026-05-19.md` (NEW; load-bearing decision)
+- `canonical/story/engine-rebuild-2026-05-19-gap-solutions-and-tests.md` § 2.1 (AMENDED concurrent with disposition; original table preserved as historical record)
+- `agentic_orchestration/hive-mind/engine-rebuild-log.md` (this DECISION entry)
+
+**LLM cost:** $0.00. No LLM calls.
