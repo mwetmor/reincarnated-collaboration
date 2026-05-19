@@ -177,3 +177,111 @@ Pending sprint-end checkpoint tag: `sprint/v0.1-mobile-analytics-benchmark-2026-
 ---
 
 *Authored 2026-05-18 ~04:15 local Matt time by knight-rider, mid-sprint. Will be augmented in end-of-sprint state-of-hive at morning hand-off.*
+
+---
+
+# AFTERNOON + EVENING AUGMENTATION (2026-05-18 ~19:30 local)
+
+Authored by knight-rider after the operational day completed. The morning/mid-sprint sections above capture state through ~04:15. This section adds everything from morning re-engagement through evening close.
+
+## Major arcs (afternoon + evening)
+
+### Arc 1 — R2 hybrid demo deployment chain (drax v1.22 → v1.23)
+
+Multi-hour shipping arc. Drax's D11.5 debug-state URL hook dispatch was queued from 03:53 but drax session never picked it up — found dormant at re-engagement. Matt re-fired drax session manually; D11.5 shipped clean (`c039184 drax/v1.22: D11.5 debug-state URL hook + vite LAN bind`). Then promoted R2 hybrid dispatch to fire next.
+
+Drax shipped v1.23 R2 hybrid:
+- `e4214a8` — assetUrl helper + full path refactor (src/utils/assetPath.ts + audit every /assets/ /audio/ /seasons/ ref)
+- `b462eca` — public-vercel/ dir + vite.config publicDir switch for lean Vercel build
+- `59b9330` — AGENT_STATE checkpoint
+- `334ce7f` (collab) — dispatch completion + CORS-fix postmortem
+
+**Root cause for the deploy mess:** CORS bucket policy missing on R2; once set, public URL serves were unblocked. NOT `--delete` as initially suspected.
+
+### Arc 2 — R2 upload "done" claim ↔ empirical state mismatch
+
+Repeated pattern through the afternoon: drax declared "R2 upload complete + 200 OK" multiple times based on probes against the authenticated S3 API endpoint (`R2_ENDPOINT`). Knight-rider re-probed the public r2.dev URL each time and found 404s on critical prefixes. Disposition: drax acknowledged H1 (wrong endpoint), then declared done again, requiring re-verification.
+
+**Final empirical state at 19:10** (per public r2.dev probes):
+- ✅ Seasons 001005, 002011, 002012, 002013, 002014, 002015 — metadata.json all 200
+- ❌ Season 002328 (Yomi / light/dark/lightning) — 404
+- ❌ `assets/free_characters_and_vfx/` entire pack (1785 files) — 404 (Necromancer/Starcaller/B&W/Slashes overlays)
+- ❌ `audio/sfx/{kenney,oga,leohpaz,tommusic,AMBIENCE,Battle}/` — 404 (2168 files)
+- ❌ `tilesets/` directory — 404 (non-blocking; procedural fallback)
+- ✅ Pimen + CodeManu + Frostwindz + Super Pixel Effects + audio/music — 200
+
+Demo loads and is playable, but VFX overlay layer + SFX vendor packs are still missing on prod. Drax needs to re-run upload script (probably with `--delete` removed; the flag was a foot-gun that may have wiped files between passes).
+
+### Arc 3 — Encounters page diagnosis (Matt L3 ask)
+
+Matt observed loadout Encounters page still doesn't include new seasons (002011-015 + 002328). Diagnosis:
+- ✅ Data side: star-lord Path A actually shipped — 6 per-season `encounter_analytics_NNNNNN.json` files exist in `reincarnated-loadout/data/`
+- ❌ Frontend side: `useEncounterAnalytics.ts` has hardcoded static import of singular `encounter_analytics.json` (001005 data). Hook accepts no `seasonId`. Encounters page has no season selector.
+
+Dispatch authored: `2026-05-18-drax-loadout-v1-18-encounters-multi-season-plus-skill-schema-version.md` — 2 blocks (encounters refactor + skill-tree schema-version-aware rendering for 002011-015 classes that lack tier/chain fields). ~2-3h drax. Queued 🔴 next on drax-loadout.
+
+### Arc 4 — ADR-006 amendment (governance change)
+
+Matt directed: grant knight-rider git-push capability under per-instruction Matt authorization + proactive push-readiness rhythm after large dev sessions. Authored amendment, dispatched jack-ryan for Gate-1 DESIGN-MODE review.
+
+**Jack-ryan verdict: ENDORSE-WITH-REVISIONS.** 4 required edits + 1 WARN:
+1. Constraint 2: explicit `git push origin <branch>` refspec; `push.followTags` config check
+2. Constraint 5: branch confirmed in summary (not inferred)
+3. Vercel-connected repos must name deploy trigger in summary; Matt's "go" = informed consent to push + deploy
+4. Summary generated from live `git log`/`git status` per Discipline #11 (not session recall)
+5. (WARN) Trigger #4 (3+ unpushed commits) narrowed to exclude active-dev-session context
+
+All 5 folded in before commit. Amendment landed (`3119863`). Inaugural use: pushed all 4 repos clean tonight.
+
+### Arc 5 — Galadriel disposition decision
+
+Matt raised: does galadriel have a durable place? Honest assessment requested + delivered. Disposition: **probationary, exit-criterion-bound on Track C visual-benchmark report delivery.**
+
+Memo authored for gandalf at `agentic_orchestration/gandalf/open-threads/2026-05-19-knight-rider-memo-galadriel-disposition-plus-day-roundup.md` — gandalf reads at session start. Includes day roundup + queue.
+
+Exit criterion: when Track C report ships (or stalls), evaluate: (a) did galadriel produce measurement that gandalf-alone wouldn't have; (b) did the measurement change a design decision Matt then made; (c) is methodology durable. Both yes = keep. Either no = fold seam back into gandalf-with-headless-capture-subskill; return to 8-entity team.
+
+### Arc 6 — Star-lord pitch-to-life portraits
+
+Star-lord shipped portrait re-roll work across the day:
+- Canary anatomy re-roll (4 attempts, $0.16)
+- Bulk re-roll resume completing 12/24 missing portraits ($0.48; script patched with idempotency guard)
+- Targeted hand-obscure session (5 compositional re-rolls, $0.20)
+
+Cumulative sprint spend: $2.36 / $15.00 ceiling. All 24/24 portraits present in `_reroll_all/` + `_reroll_targeted/`. Ready for gandalf curation.
+
+---
+
+## Repo push state (as of 19:10 local)
+
+All 4 repos clean (post-amendment push):
+- engine: up-to-date (origin/main matches HEAD — star-lord fixes pushed earlier)
+- demo: up-to-date (drax v1.22 + v1.23 chain pushed)
+- loadout: up-to-date (cost-ledger tick `ec73ea7` pushed)
+- collab: up-to-date (drax CORS postmortem + knight-rider ADR-006 + pitch-to-life record all pushed)
+
+Final unpushed-tag check: none. No tag pushes occurred (per amendment).
+
+---
+
+## In flight at evening close
+
+- 🟢 **rocket re-seed 002017** — detached PID 22486, running on its own clock. No completion sentinel yet observed.
+- 🟡 **drax v1.18 loadout dispatch** — queued, fires next on drax-loadout (encounters multi-season + skill schema-version)
+- 🟡 **galadriel Track C captures + report** — queued; pipeline scaffold exists, captures dir is mostly `.gitkeep`
+- 🟡 **drax R2 upload completion** — needs re-run; ~2168 SFX + 1785 free_characters_and_vfx + 161 tileset + 1 season (002328) files missing on prod
+- 🟢 **star-lord Path A SHIPPED** — per-season encounter_analytics JSONs delivered to loadout `data/`
+
+---
+
+## Discipline learnings (afternoon)
+
+- **`aws s3 sync --delete` is a foot-gun in iterative sync workflows.** Combined with interrupted uploads or working-dir mismatches, `--delete` wipes files from prior successful passes. Future asset-pipeline scripts should default to non-destructive sync; gate `--delete` behind an explicit flag invoked only after deliberate confirmation.
+- **S3 API endpoint vs public CDN URL divergence is a recurring trap.** Probing `${R2_ENDPOINT}` with AWS auth tells you what's in the bucket; probing `${R2_PUBLIC_URL}` with curl tells you what end-users actually receive. Always verify externally-served paths via the public URL, never via authenticated S3 API. Add to project conventions doc.
+- **"Done" claims need empirical verification at the output boundary, not the work boundary.** Drax declared done multiple times based on his own work-side probes; each time, output-boundary probes (public URL → end-user request flow) found gaps. Future dispatch acceptance criteria should specify the exact verification command + expected URL + expected response code — not "verify it works" in prose.
+- **Team-topology changes (adding/retiring agents) sit at L3 + critique-pair gate.** Galadriel's creation under sprint pressure surfaced the protocol gap. Future agent additions should: (a) run Gate-1 DESIGN-MODE through jack-ryan before file authoring, (b) be authored by knight-rider or Matt, not by other specialists, (c) include explicit exit criterion at creation. ADR addition candidate for next governance pass.
+- **Live-state verification per Discipline #11 — now codified in ADR-006 amendment.** Knight-rider push-readiness summaries must be generated from `git log`/`git status`/`git diff --stat` per-repo at the moment of authoring, never from session recall.
+
+---
+
+*Augmented 2026-05-18 ~19:30 local Matt time by knight-rider, post-operational-day. End-of-sprint state-of-hive at hive-mind/ will pick up after rocket re-seed convergence completes (likely overnight to next-morning).*
