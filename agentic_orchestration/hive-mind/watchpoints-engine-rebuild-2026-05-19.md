@@ -406,7 +406,7 @@ After R1 convergence loop ships and Test 1 reveals the failure cascade, gamora b
 | WP-D14-2 (--theme-input new sites) | OPEN — rocket R8 pipeline shipped (`bfa3fc3`); no new LLM prompt sites observed that leak canonical-four as structural keys; monitoring | 2026-05-19 impl-pass |
 | WP-D17-1 (retuning lever smoke gate) | CLOSED — sprint v3 5-class smoke + targeted reachability test executed before full 51-class sprint; Discipline #17 satisfied | 2026-05-19 gate1-pass |
 | WP-R1-C-1 (Discipline #1 math note for R2) | CLOSED — math note `R2-spatial-combat-math-2026-05-19.md` precedes implementation in same commit `18dfc4c`; confirmed by Gate-1 review 2026-05-19 | 2026-05-19 r2-gate1 |
-| WP-R2-A-1 (name-heuristic mis-classification) | OPEN — 51-class run not yet executed; monitoring | 2026-05-19 r2-gate1 |
+| WP-R2-A-1 (name-heuristic mis-classification) | ACTIVE-DEFERRED — 51-class run complete; "mixed" dominant = 0% (OK well under 20% threshold); 43/51 classes "point" dominant (instrument-limited per R2 H1 disposition); resolves at VS2a `geometry_type` schema field landing + H1 re-test under explicit field (original variance ≥ 0.10 threshold preserved) | 2026-05-19 r2-h1-disp |
 | WP-R2-B-1 (star-lord schema 2.12 round-trip) | OPEN — star-lord DB writer not yet implemented; gates production graduation tag | 2026-05-19 r2-gate1 |
 | WP-R2-C-1 (damage calibration smoke before 51-class run) | OPEN — armor mitigation fix pending gamora next session | 2026-05-19 r2-gate1 |
 

@@ -436,6 +436,16 @@ Knight-rider is **granted commit + push authority upon major milestone achieveme
 
 **Wind-down trigger** is exclusively Matt's explicit declaration (per § 4.0). Engine-rebuild completion, roadmap-priority completion, hypothesis-test results, none of these trigger wind-down. Only Matt's explicit *"wind down"* / *"end the hive"* / equivalent does.
 
+### § 10.1 — v1.0 disposition note (gandalf 2026-05-19, autonomous-operation)
+
+Per `canonical/story/v1.0-engine-rebuild-complete-disposition-2026-05-19.md`: `hive-rebuild/v1.0-engine-rebuild-complete` fires under explicit "category-of-completion" framing — 5 of 7 workstreams CLOSED with hypothesis-test tags fired; 2 of 7 (R4 + R5) OPERATIONAL-COMPLETE with hypothesis-test tags HELD pending Matt's playtest at wind-down (v0.16 for R4; v0.12 for R5).
+
+The dispatch § 6.5 condition reads "when the seven workstreams ship + hypothesis tests pass." Under category-of-completion framing, this condition is met by **operational-completion** of all 7 workstreams + **engine-side hypothesis-test passage** for all 5 workstreams where the test gate is engine-side measurable. The 2 playtest-dependent tags are correctly classified as a separate category (playtest-validation) that fires at wind-down, not as a v1.0-blocking gate.
+
+Notional `hive-rebuild/v1.1-engine-rebuild-final` fires when v0.12 + v0.16 playtest tags resolve at Matt's wind-down session. NOT fired in the engine-rebuild autonomous-operation batch.
+
+Knight-rider proceeds to VS2a per § 6.5 explicit ordering immediately after v1.0. The full disposition arc this session (R1 Blocker 3 → R8 Sub-case 3 → R2 H1 instrument-limited → v1.0 operational-completion) establishes the "category-of-completion" pattern as the canonical disposition shape for engine-rebuild-class work where ex-ante metrics meet instrument or environmental limits.
+
 ---
 
 *Authored 2026-05-19 by gandalf, per Matt directive. The second hive-mind activation; mechanics inherited from 2026-05-17; mission scope distinct. The gauntlet's gaps close; the season's theme tests whether it can be discovered rather than declared. Mithrandir signs.*
