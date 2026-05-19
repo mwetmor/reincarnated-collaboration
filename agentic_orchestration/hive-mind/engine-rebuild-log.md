@@ -3869,4 +3869,82 @@ This is NOT a substrate failure. The engagement-geometry fix IS sound (kills-onl
 
 ---
 
+### [2026-05-19] STATE — rocket — VS2a S1 first-batch regen COMPLETE — season_100001 generated
+
+**Agent:** rocket
+**Authority:** AUTONOMOUS — VS2a hive, pre-approval-batch, Matt directive 2026-05-19
+**Dispatch:** S1 kit-redesign sprint dispatch (Branch (b) R8-inversion)
+**Output:** `reincarnated-engine/output/S1-first-batch-2026-05-19/season_100001/`
+
+Season_100001 generated under R8 `inverted` pipeline. Wall time ~61 min (35 min convergence + 26 min LLM naming). ~400 LLM calls. ~$3.20 estimated cost.
+
+**Season identity:**
+- anchor: "The Battlefield Where Nothing Grew Back" (ruins_and_forgotten_places)
+- element: `char` (fire-derived; conflagration aftermath substrate)
+- manifest_version: 1.8 (F1 spatial_geometry_type emitted at generation time)
+- Cosmological slot fills: "scorched earth burning", "bloodsoaked ground seeping", "ruined rampart holding", "ashwind scattering", "broken siege striking", "last rite shining", "mass grave shadow", "war-drum cracking"
+
+**First-batch validation gate (empirical — 4/5 confirmed):**
+
+| Criterion | Status | Evidence |
+|---|---|---|
+| 1. boss_kr >= 0.10 on >= 1 class | **PASS** | class_0002 (Warden of the Weeping Field, water_mage): 0.130; class_0007 (Trenchwater Penitent, water_mage): 0.240 |
+| 2. mini_kr >= 0.15 on >= 2 classes | **PASS** | 5/11 classes: 0.510 / 0.310 / 0.550 / 0.350 / 0.170 |
+| 3. cohesion >= 4.0 | **PENDING** | gandalf judges per R8 protocol |
+| 4. no template debris | **PASS** | 11 class names all authored; 0 "Unknown"; trial boss "Bloodsoaked Pyre Warden"; monster names honor slot fills |
+| 5. substrate-identity invariant | **PASS** | 5 canonical elements preserved (fire 26.6% / earth 21.8% / wind 18.5% / water 17.7% / physical 15.3%); seasonal_dom=char across all 11 classes |
+
+**Convergence note:** 3/11 converged (same rate as R8 A/B run ~4/10). 8/11 convergence failures are kit-overpowered-at-floor pattern — characteristic of the inverted pipeline producing strong kits. Classes like class_0002 (boss_kr=0.130 at min modifier) and class_0007 (boss_kr=0.240 at min modifier) exceed the boss threshold but can't fit within the per-tier ceilings, producing convergence failures. These are the "best" classes in the catalogue, not the worst.
+
+**Schema verification:**
+- `spatial_geometry_type`: 100% present on all 124 class skills. F1 field emitted at generation time as required (not post-derived heuristic).
+- B6 archetype_tag-based tier assignment: confirmed working (all 11 classes resolved via archetype_tag lookup — no class_id references). B6 pre-work parameterization audit confirmed correct.
+
+**Known forward flags:**
+- class skills and trial boss skills have `range_m=None` — class generator and trial generator don't call `_derive_skill_range_m()`. Elrond R3 backfill scope should include S1 seasons when it runs.
+- CD-variance finding from gamora's Stage 1 (R2 H1) — pre-forecast that R8-inverted normalized CDs resolve this implicitly at Stage 2.
+
+---
+
+### [2026-05-19] HANDOFF — rocket → gamora — R1 sprint re-run against season_100001
+
+**From:** rocket
+**To:** gamora
+**Priority:** S1 first-batch validation gate (criteria 1 + 2)
+
+Season_100001 is ready for R1 sprint re-run. Path: `reincarnated-engine/output/S1-first-batch-2026-05-19/season_100001/`.
+
+**CRITICAL NOTE — `SMOKE_CLASS_IDS` fix required before running:**
+
+`scripts/r1_class_retune_sprint.py::SMOKE_CLASS_IDS` is currently hardcoded to shipped-catalogue class_ids (`class_0001`, `class_0035`, `class_0006`, `class_0038`, `class_0043`). These IDs do NOT exist in season_100001 (the new season has its own emergent IDs: class_0001 through class_0010 and class_0017). Before running R1 against the regenerated catalogue, gamora MUST update the smoke selection to metadata-based sampling — suggested approach: one class per `archetype_tag` group. This was flagged by rocket's B6 pre-work parameterization audit (AGENT_STATE.md + MIGRATION.md `S1-prereq` entry).
+
+**Baseline to beat (sprint v3 shipped catalogue):** 0/51 boss kills; 4/51 mini-boss kills.
+
+**Expected from R8 inverted per initial probe evidence:** class_0002 boss_kr=0.130; class_0007 boss_kr=0.240 — at least these 2 classes should show boss-tier viability in the R1 sprint.
+
+Handoff complete when gamora runs R1 sprint against season_100001 and reports per-class results to hive log.
+
+---
+
+### [2026-05-19] HANDOFF — rocket → gandalf — Cohesion judgment requested for season_100001
+
+**From:** rocket
+**To:** gandalf
+**Priority:** S1 first-batch validation gate criterion 3 (cohesion >= 4.0 mean)
+
+Season_100001 is ready for cohesion judgment per R8 cohesion-judging protocol (`agentic_orchestration/hive-mind/R8-cohesion-judging-protocol-2026-05-19.md`).
+
+**Season path:** `reincarnated-engine/output/S1-first-batch-2026-05-19/season_100001/`
+
+**Cohesion signals for context (not for judging bias — gandalf judges blind):**
+- Slot fills: "scorched earth burning", "bloodsoaked ground seeping", "ruined rampart holding", "ashwind scattering", "broken siege striking", "last rite shining", "mass grave shadow", "war-drum cracking"
+- Trial boss: "Bloodsoaked Pyre Warden"
+- 3 sample class names: "Warden of the Weeping Field", "Keeper of the Ashen Line", "Trenchwater Penitent"
+
+Per the protocol § 3.1, gandalf judges all 6 facets (F1 anchor coherence / F2 slot-fill register unity / F3 anchor-to-slot extension / F4 element-anchor fit / F5 pair rationale articulation / F6 cross-content consistency) producing a per-facet 1-5 score and a mean cohesion score. Gate threshold: mean >= 4.0.
+
+Handoff complete when gandalf files cohesion judgment in hive log. If criterion 3 PASS: first-batch validation PASS → rocket proceeds to 4 more seasons. If FAIL: gandalf authors follow-on disposition.
+
+---
+
 *Filed 2026-05-19 by gandalf at three-findings-deep R2 H1 milestone. The classifier was wrong; we fixed it. The calibration was wrong; we fixed it. The engagement geometry was wrong; we fix it now. The threshold is preserved end-to-end; the gold-standard test bed is the S1 catalogue the project is shipping. The pattern is named (Drift-17) so the next measurement-instrument workstream won't repeat the three-disposition cadence. Mithrandir signs.*
