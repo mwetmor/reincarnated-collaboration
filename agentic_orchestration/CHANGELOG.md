@@ -4,6 +4,52 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-19 — Engine-rebuild hive ACTIVATED (second hive-mind invocation; AUTONOMOUS-OPERATION mode)
+
+**Event:** Knight-rider activated the **engine-rebuild hive-mind session** per Matt directive 2026-05-19 + gandalf-authored launch dispatch (`agentic_orchestration/dispatches/2026-05-19-knight-rider-engine-rebuild-launch.md`, commit `d49c587`). This is the **second hive-mind activation** (first was 2026-05-17 Phase-1 P1; mission completed + archived).
+
+**Mission scope:** Seven workstreams closing the gauntlet-simulator gaps diagnosed 2026-05-18 + running the season-as-emergent-output A/B test:
+- **R1** Per-tier balance targets (gamora; 1–2 wk)
+- **R3** Per-skill range + AI behavior schema migration (rocket + star-lord + elrond; 2–4 wk)
+- **R7** AI catalogue source of truth (rocket + star-lord; 2–3 wk parallel with R3)
+- **R8** Season-as-emergent-output A/B (rocket + star-lord + gandalf; 1–2 wk)
+- **R5** Demo AI parity audit (drax; 1 wk, queued behind R3)
+- **R2** 2D spatial sub-gauntlet (gamora + star-lord; 3–5 wk, queued behind R3)
+- **R4** Demo collision + leash + range (drax; 2–3 wk, queued behind R3)
+
+**Out of scope:** R6 Host-Calibration (Pattern-B parked per `agentic_orchestration/gandalf/open-threads/2026-05-19-pattern-b-commercial-direction-PARKED.md`); Pattern-B commercial-direction work; Phase-1 P1 re-work.
+
+**First-fire batch (parallel, dispatches authored):** R1 + R3 + R7 + R8. R5 + R2 + R4 queued behind R3.
+
+**Critical operational change vs 2026-05-17 protocol:** **AUTONOMOUS OPERATION** per protocol § 4.0. No L3-to-Matt escalation during operation. SME agents decide within their seams; gandalf decides cross-cutting design/canonical/architectural; knight-rider decides orchestration/sequencing. Matt re-enters **only** at wind-down — engine-rebuild completion does NOT trigger wind-down; flow continues onto VS2a → VS2b → Stage A2 per Matt roadmap-continuation directive (launch dispatch § 6.5).
+
+**Commit + push authority extended** per launch dispatch § 6.6 (ADR-006 amendment extension): knight-rider may commit + push on major milestone achievement and hypothesis-test passage without per-action authorization. Hard constraints retained (no force-push, no hook bypass, explicit refspec, summary from live git state).
+
+**Mechanics inheritance:** All operating mechanics from `canonical/story/archived/hive-mind-protocol-2026-05-17.md` §§ 3–11 inherit by reference; engine-rebuild protocol specifies what's distinct (mission scope, coordination matrix, autonomous-operation amendment, galadriel sub-agent restriction).
+
+**Galadriel sub-agent restriction in effect** per protocol § 7 + amendment to `.claude/agents/galadriel.md` (already authored 2026-05-19 per Matt directive). Galadriel does NOT invoke sub-agents during the hive; surfaces requests via hive log REQUEST entry.
+
+**Pre-rebuild safety baseline tagged + pushed across all 4 repos:**
+- `hive-rebuild/v0.0-pre-engine-rebuild`
+- collaboration `d49c587`, engine `89f83c2`, demo `59b933031`, loadout `ec73ea7`
+
+**Operational artifacts committed:** activation commit `edeeea8` (collaboration repo, main, pushed):
+- `agentic_orchestration/hive-mind/engine-rebuild-log.md` (append-only hive log with activation STATE + 4 HANDOFF entries)
+- `agentic_orchestration/hive-mind/scope-of-work-engine-rebuild.md`
+- `agentic_orchestration/hive-mind/coordination-matrix-engine-rebuild.md`
+- `agentic_orchestration/hive-mind/state-of-hive-2026-05-19-engine-rebuild.md`
+- 4 first-fire dispatches at `agentic_orchestration/dispatches/`:
+  - `2026-05-19-gamora-R1-per-tier-balance-targets.md`
+  - `2026-05-19-rocket-plus-star-lord-plus-elrond-R3-schema-migration.md`
+  - `2026-05-19-rocket-plus-star-lord-R7-ai-catalogue-source-of-truth.md`
+  - `2026-05-19-rocket-plus-star-lord-plus-gandalf-R8-season-as-emergent-output.md`
+
+**Authority:** Matt directive 2026-05-19 (autonomous-operation launch); gandalf protocol + solutions doc + Pattern-B PARKED thread (commit `d49c587`); knight-rider operationalization.
+
+**Tag namespace:** `hive-rebuild/v0.<N>-<milestone>` (distinct from `hive/v0.<N>` used for Phase-1 P1).
+
+---
+
 ## 2026-05-18 — hive-log STATE: star-lord multi-season encounter analytics complete — telemetry.db backfilled for 6 seasons + MS/AOE schema extended
 
 **Event:** star-lord completed dispatch `2026-05-18-star-lord-fights-jsonl-ingest-plus-multi-season-encounter-analytics`. Matt L3 authorized "fire star-lord on Path A."
