@@ -2358,3 +2358,67 @@ MIGRATION.md v1.18: spatial_fight_results table schema spec (star-lord consumes 
 
 **Engine commit:** `18dfc4c`
 **Collab commit:** (pending this log append)
+
+---
+
+## 2026-05-19 — gandalf R8 cohesion judging + disposition
+
+### [2026-05-19] STATE — gandalf — R8 cohesion judging COMPLETE + Sub-case 3 disposition AUTHORED; tag `hive-rebuild/v0.11-r8-disposition-decided` FIRES
+
+**Dispatch:** knight-rider engine-rebuild autonomous-operation R8 cohesion judging + disposition (this session's dispatch)
+**Predecessor:** rocket R8 9-season A/B run complete (engine `15c840c`; tag `hive-rebuild/v0.10-r8-ab-run-complete`)
+
+**Methodology executed:**
+- Stratified shuffle (RNG seed 20260519): 9 positions, each consecutive trio contains all 3 arms; arm-blind during F1-F6 cohesion scoring; arm revealed for TSI second-pass
+- 6-facet cohesion scoring per protocol § 3.4 / § A.5 per season
+- TSI 6-failure-mode scoring per § A.2 for the 3 `inverted_no_naming` seasons
+- Test 4 substrate-identity examination (canonical-element invariance + downstream substrate-mode preservation per § A.6)
+- Test 5 staged for post-disposition execution per dispatch budget guidance
+
+**Per-arm cohesion means (6-facet, 3 seasons):**
+- baseline: **4.57**
+- inverted: **4.77** (+0.20 above baseline)
+- inverted_no_naming: **3.87** (−0.70 below baseline)
+
+**Test 1 verdict:** inverted PASS strong (+0.20); inverted_no_naming FAIL (−0.70 exceeds 0.5 tolerance)
+**Test 2 verdict:** both inverted arms PASS (mechanical substrate identical across arms per Test 4a)
+**Test 3 (cost):** inverted_no_naming PASS strong (99.7% reduction); inverted MINIMAL (~2%)
+**Test 4 findings:** (a) substrate-identity at canonical-element level PERFECTLY INVARIANT across all 3 arms × 3 seeds (mechanical substrate byte-equal); (b) substrate-mode preservation in downstream surface ~90% under per-entity LLM naming vs ~63% under template-distribution (3x erosion); (c) anchor parity DB-state-dependent (seeds 99002+99003 parity, seed 99001 non-parity); (d) pipeline gap discovered — `seasonal_dominant_element` is None on all inverted-arm class records
+**Test 5:** STAGED (methodology authored; execution deferred per dispatch budget guidance)
+**TSI per inverted_no_naming season:** uniformly 1.0 (floor) — every FM at severe (FM-1 vocabulary fixedness: 5 unique skill names across 110+; FM-3 cross-content uniformity: all classes "Anchor X Y" template; FM-5 slot-mode mismatch: 37%; FM-6 trial-boss singularity: "weight Sovereign" lowercase template debris)
+
+**Disposition (Sub-case 3 per § A.3 decision-tree):**
+- **COMMIT `inverted` as engine default** (coalescence-first + per-entity LLM naming retained). R8 hypothesis HOLDS on cohesion + substrate-identity for this mode.
+- **DEFER `inverted_no_naming` opt-in** pending template-distribution repair (see disposition § 5a — string normalization, geometry-aware template families, class-name salt-diversification, slot-mode validation). NOT shippable as-is due to literal "Unknown" string leak, lowercase common-noun boss names ("weight Sovereign"), 5-unique-skill-names monotony.
+- **PRESERVE `baseline` mode** via `--theme-input` opt-in (content-team workflows).
+- CLI default flips: no-flag now → `inverted`; `--keep-llm-naming` deprecated as no-op.
+
+**Canonical amendments authored:**
+- `canonical/19-llm-call-map.md` — Phase A: `element_selection` → `theme_coalescence` swap (new default); legacy `element_selection` preserved for `baseline` mode; Phase B annotated with R8 amendment note
+- `canonical/story/substrate-identity-declarations-2026-05-17.md` — appended § 9.5 "Substrate-identity at the surface — pipeline dependency" capturing Test 4a + 4d findings (canonical-element invariance preserved; surface-readability pipeline-dependent at ~90% vs ~63%)
+- `canonical/story/r8-disposition-2026-05-19.md` — NEW disposition doc; full per-test summary + Sub-case 3 logic + operating envelope + 4 follow-on items
+
+**Test result outputs (engine repo):**
+- `output/R8-ab-run-2026-05-19/cohesion-scoring-gandalf.md` — per-season 6-facet scoring sheets (9 seasons) + TSI second-pass scoring (3 inverted_no_naming seasons)
+- `output/R8-test1-cohesion.md` — Test 1 verdict + per-facet breakdown
+- `output/R8-test2-variety.md` — Test 2 verdict + mechanical-variety metrics
+- `output/R8-test4-substrate-identity.md` — Test 4 discovery findings (5 findings + pipeline-gap discovery)
+- `output/R8-test5-stability.md` — Test 5 staged methodology + follow-on execution plan
+- `output/R8-tsi-inverted-no-naming.md` — TSI scoring with per-FM evidence per season
+
+**Follow-on engineering items (per disposition § 5):**
+1. Template-distribution repair (rocket) — pre-condition for future `inverted_no_naming` opt-in commit
+2. `seasonal_dominant_element` write-back gap (rocket or star-lord) — independent of template repair, address now
+3. Test 5 multi-shot stability execution (rocket or star-lord) — run 3× coalescence on `inverted/season_099002` post-tag
+4. `--anchor-id` CLI flag for future substrate-identity controlled experiments
+
+**Tag fires:** `hive-rebuild/v0.11-r8-disposition-decided` (milestone; engine + collab; will push per protocol § 6.6)
+
+**Authority:** AUTONOMOUS — judging + disposition full per protocol § 4.0; no Matt-wait per dispatch.
+
+**Open questions for knight-rider (non-blocking):**
+- Route follow-on item 5a (template-distribution repair) to rocket as a separate dispatch when capacity allows? Item is non-P0; can wait until R2 spatial work lands + R1 kit-redesign queue is sized.
+- Item 5b (seasonal_dominant_element write-back) — recommended fast-fix; route to star-lord or rocket per their seam (likely rocket since it's pipeline-internal).
+
+**Engine commit:** (pending this session's commit)
+**Collab commit:** (pending this session's commit)

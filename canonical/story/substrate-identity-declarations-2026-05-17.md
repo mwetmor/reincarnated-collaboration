@@ -622,6 +622,20 @@ Full B13 polish (5 defensive mobility geometries as kit-pool additions; mini-bos
 
 ---
 
+## § 9.5 — Substrate-identity at the surface — pipeline dependency (R8 amendment 2026-05-19)
+
+**Empirical confirmation from R8 A/B run.** The R8 A/B run (2026-05-19; see `canonical/story/r8-disposition-2026-05-19.md` + `output/R8-ab-run-2026-05-19/`) tested whether substrate-identity is invariant across three season-generation pipelines: baseline (input-themed + per-entity LLM naming), inverted (coalescence-first + per-entity LLM naming retained), and inverted_no_naming (coalescence-first + template-based downstream naming).
+
+**Finding (mechanical substrate): Substrate-identity at the canonical-element level is PERFECTLY INVARIANT across all 3 pipelines for 3 seeds.** Per-seed canonical-element distribution (fire:N, water:N, earth:N, wind:N, physical:N) is byte-identical across the 3 arms. The mechanical substrate IS the substrate; naming pipeline is a downstream cosmetic decoration of that substrate. This is the strongest possible empirical form of substrate-identity preservation: substrate is a property of the mechanical-generator + seed, not of the naming-pipeline.
+
+**Finding (surface substrate-mode-of-action): Player-facing READABILITY of substrate-mode depends on the naming pipeline.** Per-entity LLM naming (the R8-committed `inverted` default) preserves substrate-mode-of-action in ~90% of player-facing skill names. Template-based composition (the deferred `inverted_no_naming` opt-in) preserves substrate-mode in only ~63% of skill names; the remaining ~37% are surface-token-bearing but mode-of-action-mismatched (e.g., a `bulwark`-slot skill composing as "Ink Strike" with `self_buff` geometry — the token honors substrate, the mode does not).
+
+**Implication for substrate-identity declarations:** the seven identity declarations in §§ 2-8 hold at the mechanical-substrate layer regardless of naming pipeline (Layer-1 trait-as-promise is mechanical, not naming-derived). The Layer-2 grouping-vocabulary surface (slot labels, skill names, monster names, trial-boss names) preserves substrate-mode at ~90% under per-entity LLM naming; at ~63% under template-distribution. Future implementations choosing template-distribution for cost reasons should be aware that ~1 in 3 skill-name surfaces will read as substrate-mode-mismatched until template-distribution is repaired to honor slot-mode-of-action (per R8 disposition § 5a follow-on item).
+
+**The substrate is preserved at the level of what it commits to be (mechanical). The substrate's surface-readability — what a player FEELS when they read a skill name — is pipeline-dependent.** The declarations remain authoritative for what the substrate IS; the pipeline determines how reliably the player can sense it through naming.
+
+---
+
 ## § 10 — Cross-references
 
 - `canonical/story/substrate-identity-declaration-spec-2026-05-17.md` — the spec these declarations instantiate

@@ -17,11 +17,14 @@ This separation is structural. Mechanical generation and combat simulation are p
 
 ## Current call sites (5 purposes, 2 logical phases)
 
-### Phase A — Season setup (before generation)
+> **R8 amendment 2026-05-19** (per `canonical/story/r8-disposition-2026-05-19.md`): Phase A `element_selection` is replaced by `theme_coalescence` in the new default pipeline (the `inverted` mode committed per R8 Sub-case 3). Phase B per-entity LLM naming is RETAINED (template-distribution variant `inverted_no_naming` was tested + deferred pending repair). The `baseline` mode preserving `element_selection` remains available via `--theme-input` opt-in. The numbers below describe the new default; the historical baseline pattern is annotated alongside.
 
-| Purpose | Location | Frequency | Notes |
-|---|---|---|---|
-| `element_selection` | `src/reincarnated/element/selector.py` (`select_seasonal_elements`) | 1 call per season (occasionally 2–3 with retries on validation failure) | The LLM returns `{selections: ..., proposals: ...}` in one JSON response; any new-element proposals (`element_proposals`) happen *within* this call, not as a separate request |
+### Phase A — Season setup
+
+| Purpose | Mode | Location | Frequency | Notes |
+|---|---|---|---|---|
+| `theme_coalescence` (new default, post-R8) | `inverted` | `src/reincarnated/element/coalescer.py` (post-convergence) | 1 call per season | Runs AFTER mechanical generation + balance loop. Returns `{anchor, season_theme_element, slot_fills (8), pair_rationales (3)}` in one JSON response. Substitutes for input-theme as the source of cosmological vocabulary. |
+| `element_selection` (preserved opt-in, pre-R8 default) | `baseline` (`--theme-input`) | `src/reincarnated/element/selector.py` (`select_seasonal_elements`) | 1 call per season (occasionally 2–3 with retries on validation failure) | The LLM returns `{selections: ..., proposals: ...}` in one JSON response; any new-element proposals (`element_proposals`) happen *within* this call, not as a separate request. Retained for content-team workflows that want explicit theme control. |
 
 ### Phase B — `_name_everything` (after all mechanical generation, after balance loop)
 
@@ -36,6 +39,8 @@ Located in `src/reincarnated/generation/season_orchestrator.py`. Iterates over g
 | `gear_unique_naming` | 1 call per epic/legendary item | ~80 (gear pool) + ~10 (carried_gear epic+ items with no name) |
 
 **Correction vs. original Phase 3 doc**: The original table listed monster naming as "~8 (gauntlet size)". This was wrong — `_name_everything` iterates the full `bestiary` list (40 monsters), not the 8-monster reference gauntlet. Monster skill naming is similarly ~120, not ~44.
+
+**Phase B note (R8 amendment 2026-05-19):** In the new default `inverted` mode, the coalesced theme vocabulary (8 slot fills + 3 pair rationales + anchor + seasonal element from `theme_coalescence`) is passed in context to every Phase B per-entity naming call. This is what enables the inverted pipeline to preserve cohesion (R8 Test 1: +0.20 above baseline). The cost-aggressive variant that would eliminate Phase B (`inverted_no_naming`, template-distribution) was tested and FAILED cohesion (−0.70 below baseline; TSI 1.0 max template strain); it is deferred pending template-distribution repair (see disposition doc § 5a).
 
 ## Calls per season (post-Priority-02, verified against season_001001)
 
