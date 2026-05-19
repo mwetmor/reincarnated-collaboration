@@ -319,3 +319,82 @@ R1 dispatch at `agentic_orchestration/dispatches/2026-05-19-gamora-R1-per-tier-b
 **Tag:** `gamora/v1.4-r1-math-note-1` applied to engine repo (intermediate seam tag; not pushed per ADR-006 default; no milestone yet).
 
 **AGENT_STATE.md updated.** Next session: jack-ryan Gate 1 → baseline measurement run → `balance_loop.py` modification → tag `hive-rebuild/v0.1-r1-baseline-measurement-captured`.
+
+---
+
+## 2026-05-19 — elrond R3 activation (backfill scope)
+
+### [2026-05-19] STATE — elrond — R3 dispatch read; backfill strategy authored; coordination notes for rocket flagged
+
+R3 dispatch at `agentic_orchestration/dispatches/2026-05-19-rocket-plus-star-lord-plus-elrond-R3-schema-migration.md` read in full. All required reading consumed:
+- Engine-rebuild protocol (§ 4.0 autonomous-operation; § 4.2 amendment hive-log commit discipline; § 4.4 cross-seam coordination; § 4.5 jack-ryan continuous-observation; § 5.2 R3 activation requirements)
+- Solutions doc § 4 (R3 specification + hypothesis tests — out-ranging, disengage, range-profile redistribution)
+- Hive log (full activation block through gamora R1 STATE + jack-ryan Gate 1 PASS)
+- Past elrond dispatches on catalogue curation + research-db retirement (for migration tooling patterns; `2026-05-16-elrond-*.md`)
+- Engineering disciplines #1, #2 (smoke-test for validation question), #8 (export-boundary schema validation), #11 (live-state verification), #13a (implementation-vs-intent), Pattern P7 (silent-default convergence)
+- Existing engine artifacts: `output/standard-demo-regen-2026-05-17/season_002011..002015` shape; `monsters.json` vs per-monster JSON divergence; class-skill geometry_type gap; `d10_monster_geometry_type_backfill.py` precedent; `backfill_gauntlet_recipe_002011_015.py` patterns; `geometry_derivation.py` (24-type vocabulary); `b6_archetype_templates.py` (archetype enum)
+
+**Backfill strategy section authored.** Path: `reincarnated-engine/design/working-agreement/R3-schema-design-2026-05-19.md` § "Elrond section — Backfill strategy" (§§ E-0 through E-10).
+
+**The 5 shipped seasons (identified by inspection + cross-checked against manifest provenance flags + cross-confirmed against `regen_standard_demo_2026_05_17.py`):**
+
+| Season ID | Engine staging path | Demo mirror | Monsters | Monster-skills | Classes | Class-skills |
+|---|---|---|---|---|---|---|
+| `season_002011` | `output/standard-demo-regen-2026-05-17/season_002011/` | `reincarnated-demo/public/seasons/season_002011/` | 44 | 105 | 10 | 92 |
+| `season_002012` | `output/standard-demo-regen-2026-05-17/season_002012/` | `reincarnated-demo/public/seasons/season_002012/` | 44 | 98 | 10 | 88 |
+| `season_002013` | `output/standard-demo-regen-2026-05-17/season_002013/` | `reincarnated-demo/public/seasons/season_002013/` | 44 | 97 | 11 | 98 |
+| `season_002014` | `output/standard-demo-regen-2026-05-17/season_002014/` | `reincarnated-demo/public/seasons/season_002014/` | 44 | 105 | 10 | 96 |
+| `season_002015` | `output/standard-demo-regen-2026-05-17/season_002015/` | `reincarnated-demo/public/seasons/season_002015/` | 44 | 104 | 10 | 94 |
+| **Totals** | | | **220** | **509** | **51** | **468** |
+
+**Out of scope:** seasons 002016/002017 (post-shipped regens with newer engine — will receive R3 fields at generation time); pre-D3 seasons 001001–001005 (predate canonical-six retirement; coordination point with rocket if scope expansion needed).
+
+**Key backfill decisions resolved (elrond L1 in-seam authority):**
+
+1. **Re-derive (deterministic), NOT re-roll.** Mirrors `d10_monster_geometry_type_backfill.py` precedent. Preserves shipped balance state + convergence telemetry (R1 baseline depends on this). Zero LLM cost. Per § E-2.
+
+2. **Both `range_m` (float) + `range_band` (enum) emitted per skill.** Aligns with star-lord's § SL-2 telemetry shape. Numeric for runtime range gating; band for grouping/dashboard analysis. Per § E-3.1.
+
+3. **Geometry-anchored range derivation.** Range_m derives from `geometry_type` (24-type vocabulary from `geometry_derivation.py`) with parent `range_profile` multiplier + sniper-archetype +2m boost. Per § E-3.1 lookup table.
+
+4. **Archetype 1:1 → preferred_behavior mapping.** Empirical inspection of all 220 shipped monsters showed `archetype_tag × range_profile` is 100% deterministic in the catalogue: brute/swarmer/tank → close, caster/controller → medium, sniper → long. This makes `archetype_tag` the single anchor for `preferred_behavior` assignment. Per § E-3.2: 4-value enum `melee_aggressive` / `charge_then_melee` / `cast_at_range` / `ranged_kite`. Per-archetype defaults for `telegraph_window_seconds`, `aggro_radius_m`, `leash_distance_m`, `skill_rotation_priority`, `range_profile_redistribution` — all per archetype table in § E-3.2.
+
+5. **Pre-step: class-skill `geometry_type` backfill.** The d10 backfill applied geometry_type to monster skills only; class skills in shipped seasons still lack it. R3 backfill's Step 1 derives geometry_type for class skills using the same `derive_geometry_type()` function from `src/reincarnated/generation/geometry_derivation.py`. Per § E-3.3.
+
+6. **Idempotency via per-season manifest flag `r3_backfill: True` + per-field "if missing, derive" guard.** Mirrors d10 precedent. Re-run on backfilled seasons is a no-op (or, with `--validate-only`, a diff-zero validation). Recovery from partial completion: manifest flag is set in Step 6 only; pre-Step-6 crash leaves manifest flag absent → next invocation re-attempts from Step 1 (each per-content-type step is idempotent). Per § E-5.
+
+7. **3-layer validation per Discipline #8 + #2:** (a) Layer 1 post-condition assert (no NULL R3 fields remain; fail loud per d10 precedent); (b) Layer 2 pydantic round-trip against rocket's updated `Skill`/`Monster` schemas (`--strict` mode); (c) Layer 3 round-trip smoke fight using `--smoke` regen mode to exercise R3 fields end-to-end through the fight engine (per dispatch's "round-trip smoke" acceptance criterion). Per § E-6.
+
+8. **Pattern P7 avoidance: explicit field emission.** Every required R3 field is written into the JSON output dict before re-emission — never default-elided. Mirrors star-lord's § SL-1 principle 2 (fail-loud on missing fields at recorder boundary) on the producer side. Fallback values are clearly named, WARN-logged, and counted in per-season summary (`fallback_count`).
+
+**Tooling sketch:**
+
+- **Location:** `reincarnated-engine/scripts/backfill_r3_2026-05-19.py` (co-located with `d10_monster_geometry_type_backfill.py` and `backfill_gauntlet_recipe_002011_015.py`).
+- **CLI surface:** default = all 5 seasons; `--season <id>` (repeatable) for single-season runs; `--dry-run` for idempotency rehearsal; `--validate-only` for diff-zero re-run check; `--strict` for pydantic round-trip; `--smoke-fight` for round-trip end-to-end validation (~5 min total); `--compare-to-fresh <path>` for distributional drift detection against post-R3 fresh seasons; `--no-demo-sync` for engine-only runs; `--output-summary <path>`; `--verbose`.
+- **Logging:** per-season log + summary JSON at `output/R3-backfill-log-2026-05-19/per_season_logs/season_NNNNNN_{r3_backfill.log,summary.json}` + global `summary.json` + required README at `output/R3-backfill-log-2026-05-19/README.md`.
+- **Estimated execution:** ~5–10 sec/season; ~30–60 sec total default backfill (deterministic, no LLM, no network). `--smoke-fight` adds ~51 sec/season for the smoke regen (~5 min total).
+
+**Open coordination points for rocket (L2 — documented in § E-9):**
+
+1. `range_m` vs `range_band` field name + presence — emitting both; will align to rocket's choice when shipped (single-field edit).
+2. `preferred_behavior` enum vocabulary — proposing 4 values per dispatch examples + archetype 1:1 mapping; will align if rocket's vocabulary differs.
+3. Numeric defaults for `range_m`, `aggro_radius_m`, `leash_distance_m`, `telegraph_window_seconds` — proposing values per geometry + archetype tables; will mirror rocket's generator-side defaults so backfilled seasons are distributionally consistent with fresh post-R3 seasons.
+4. Scope question — pre-D3 seasons 001001–001005 included? Default = excluded (not part of current shipped surface); L2 escalation if extension changes effort estimate.
+5. `range_profile_redistribution` semantics — per-monster dict per archetype; will migrate if rocket prefers class-level or season-manifest-level.
+6. Class-skill geometry_type pre-step (§ E-3.3) — proposing unified single script; will split into separate script matching d10's atomic structure if rocket prefers.
+
+**Sequencing dependency:** I cannot land `backfill_r3_2026-05-19.py` until rocket's schema fields + numeric defaults commit. Strict dependency: rocket's MIGRATION.md entry → my backfill script. Star-lord's telemetry shape is already committed (§ SL-2); my code aligns to it without further coordination. I monitor the hive log for rocket's `hive-rebuild/v0.4-r3-schema-draft-committed` tag.
+
+**Next session (gated on rocket schema ship):**
+- Implement `backfill_r3_2026-05-19.py` aligned to rocket's final schema
+- Execute backfill on all 5 shipped seasons
+- Author validation report at `output/R3-backfill-log-2026-05-19/README.md`
+- Run `--validate-only` idempotency proof
+- Run `--smoke-fight` round-trip validation
+- Apply tag `hive-rebuild/v0.5-r3-backfill-complete`
+
+**Jack-ryan:** the backfill strategy is in `R3-schema-design-2026-05-19.md` § Elrond section. Pre-implementation Gate-1 review available. Key focus per WP-R3-A series: (1) field-naming-drift watch — my section currently uses star-lord's `skill_range_m` field for the telemetry surface but the JSON-on-disk field is `range_m` (rocket's schema territory) — coordination point E-9 item 1 captures the surface; (2) Pattern P7 avoidance section (§ E-6 producer-side mirror of star-lord's recorder-side guard); (3) Discipline #11 live-state verification — I empirically surveyed all 220 monsters across the 5 seasons before designing derivation rules (not reasoning from assumption); (4) Discipline #13a — the backfill is a pure mechanical attachment to existing identity; no implementation-vs-intent drift introduced.
+
+**No tag applied this session.** Tagging deferred to backfill execution session (`hive-rebuild/v0.5-r3-backfill-complete` when validated).
+
+**AGENT_STATE.md update:** deferred until backfill execution session (current session produces design artifact only; no code change to seam under elrond ownership).
