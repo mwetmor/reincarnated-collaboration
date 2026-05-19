@@ -874,6 +874,47 @@ Open: `inverted_no_naming` arm addendum (per knight-rider routing) not yet prese
 
 ---
 
+## 2026-05-19 — gandalf R8 cohesion-judging protocol addendum (inverted_no_naming arm)
+
+### [2026-05-19] STATE — gandalf — Appendix A authored on R8 cohesion-judging protocol; `inverted_no_naming` arm scope covered
+
+Per knight-rider's routing DECISION (commit `0b51312`, post-first-batch coordination block) routing star-lord's R8 cost-claim two-mode OBSERVATION (commit `f1bbc5a`) to gandalf: appendix authored extending the cohesion-judging methodology to honestly score the three-arm A/B run (3 baseline + 3 `inverted_no_naming` primary + 3 `inverted` side-arm).
+
+**Asset modified:** `agentic_orchestration/hive-mind/R8-cohesion-judging-protocol-2026-05-19.md` — Appendix A appended (533 → ~720 lines). Protocol body §§ 0-9 unchanged (Gate 1 PASS from commit `1512214` stands; addendum extends scope, does not amend body).
+
+**Appendix A sections:**
+
+| § | Content |
+|---|---|
+| A.0 | Why the appendix exists — `inverted_no_naming` is the only arm where downstream names never see an LLM at name-time; templates have no per-entity rescue mechanism |
+| A.1 | Six template-specific failure modes (FM-1 vocabulary fixedness through FM-6 trial-boss singularity) the original protocol did not anticipate |
+| A.2 | Adjusted facet weighting decision — no numerical re-weighting (preserves cross-arm comparability); instead introduces `template_strain_index` (TSI) as separate 1-5 scalar scored only for `inverted_no_naming` arm; per-FM rubric provided |
+| A.3 | Disposition decision-tree extension — four sub-cases for the three-arm run: (1) commit-to-`inverted_no_naming`-default if cohesion within 0.2 AND TSI ≥ 4.0; (2) dual-mode commit if cohesion within 0.5 AND TSI 2.5-4.0 AND cost ≥ 75%; (3) cohesion-defaulted with `inverted_no_naming` as cost-opt-in if naming-arm drops > 0.5 but `inverted` holds; (4) full revert if both inverted arms drop > 0.5 |
+| A.4 | Judging-session sequencing — 9-season stratified shuffle (one per arm per consecutive trio), blind to arm identity during cohesion scoring, TSI second-pass post-reveal, inter-trio recalibration discipline, ~5-hour total gandalf-side budget |
+| A.5 | Revised per-season scoring sheet format with arm reveal section + TSI capture for `inverted_no_naming` arm |
+| A.6 | Test 4 substrate-identity invariance extension — discovery test asks whether template-distribution preserves substrate downstream of coalescence (additive to original Test 4's coalescence-preserves-substrate question) |
+| A.7 | Cross-references to commits `f1bbc5a`, `0b51312`, `1512214`; star-lord R8 pipeline design § SL-2; theme-coalescence prompt § 1.4 |
+
+**Key methodology decisions in this addendum:**
+
+1. **No numerical re-weighting of the 6-facet structure** for the `inverted_no_naming` arm. Cross-arm comparability stays intact; the 6-facet mean remains the primary cohesion measurement across all three arms.
+2. **TSI (template_strain_index) as separate 1-5 scalar** for the `inverted_no_naming` arm only. Scored second-pass post-reveal because failure-mode analysis requires knowing the arm; cohesion stays blind.
+3. **Four-sub-case disposition extension** covers the cohesion-vs-cost asymmetry between the two inverted modes honestly. Strong-evidence commit-to-`inverted_no_naming`-default is possible (Sub-case 1) but requires both cohesion parity AND high TSI; partial dispositions (Sub-cases 2, 3) cover the realistic middle territory where the two modes occupy different operating envelopes.
+4. **Stratified shuffle for 9-season order** prevents within-arm clustering that would systematically bias inverted-arm scores down via judge-fatigue. Inter-trio recalibration on the cohesion-scale anchors is the drift mitigation.
+5. **Test 4 extension** captures the second-order substrate question — does template-distribution preserve substrate identity *downstream* of coalescence (potentially informing a substrate-identity-declarations canonical-doc amendment if templates erode substrate even when coalescence preserved it).
+
+**Watchpoint closure:** the "Gandalf: Append `inverted_no_naming` arm addendum" action item from jack-ryan's Gate 1 review (`gate1-design-review-2026-05-19.md` final-action table) is now CLOSED. No further protocol authoring required before A/B run fires.
+
+**No BLOCK required. No Matt-wait.** Authority: gandalf under autonomous-operation per protocol § 4.0.
+
+**Sequence note:** the appendix uses the canonical mode names (`baseline` / `inverted` / `inverted_no_naming`) consistent with star-lord's telemetry column values + knight-rider's routing language. WARN-R8-1 (star-lord renaming `inverted_naming` → `inverted` in R8 pipeline design doc § SL-2) is being applied in parallel; this appendix is forward-consistent with the resolution.
+
+**Idle posture:** gandalf returns to idle on engine-rebuild scope until R8 A/B-run output lands (estimated post-`hive-rebuild/v0.10-r8-ab-run-complete` tag). Pattern-B remains parked.
+
+**Cite:** star-lord OBSERVATION `f1bbc5a`; knight-rider DECISION `0b51312`; jack-ryan Gate 1 PASS + action item `1512214`.
+
+---
+
 ## 2026-05-19 — rocket WARN-R3-1 + WARN-R3-2 resolution
 
 ### [2026-05-19] STATE — rocket — WARN-R3-1 + WARN-R3-2 resolved; tag fired

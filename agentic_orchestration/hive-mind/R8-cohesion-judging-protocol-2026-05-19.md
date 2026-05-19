@@ -530,4 +530,233 @@ The full gandalf-side cycle (steps 4-13) is estimated ~1 day of focused work onc
 
 ---
 
+## Appendix A — `inverted_no_naming` arm cohesion scope (addendum 2026-05-19)
+
+**Status:** Addendum to the protocol body. Authored 2026-05-19 by gandalf under autonomous-operation authority in response to star-lord's R8 cost-claim two-mode OBSERVATION (commit `f1bbc5a`) + knight-rider's routing decision (commit `0b51312`). Gate 1 PASS on the protocol body (commit `1512214`) stands; this appendix extends scope, it does not amend the body.
+
+### § A.0 — Why this appendix exists
+
+The protocol body (§§ 0–9) was written for a two-arm A/B run: `baseline` (theme-as-input, per-entity LLM naming) vs `inverted` (theme-coalesced, per-entity LLM naming retained but receiving coalesced vocabulary as context). Both arms in that framing share one property: **every downstream named entity passes through an LLM call** that has the coalesced vocabulary in context and can do per-entity register adjustment in flight.
+
+Star-lord's cost analysis (R8 pipeline design § SL-2, surfaced as OBSERVATION in `f1bbc5a`) showed that the original 90% cost-reduction claim cannot be honored by `inverted` alone — eliminating `element_selection` (Phase A, ~1 call/season) against a baseline of ~317 calls is ~0.3% savings, not 90%. Reaching the claim requires eliminating Phase B per-entity naming too — replacing it with **template-based name composition from the coalesced vocabulary** (the `inverted_no_naming` arm, ~98% cost reduction).
+
+Knight-rider's routing (DECISION in `0b51312`) accepts the three-mode A/B run: 3 baseline + 3 `inverted_no_naming` (primary cost-meaningful arm) + 3 `inverted` (diagnostic side-arm). This appendix extends the cohesion-judging methodology to honestly score the third arm.
+
+**Critical asymmetry:** `inverted_no_naming` is the **only** arm where downstream entity names never see an LLM at name-time. The vocabulary is coalesced once; templates compose names from a finite pool of strings (slot fills + pair-rationale fragments + anchor category + seasonal-element token) blended with structural-source labels (archetype tag, geometry family). The original protocol's F2/F3/F6 facets were authored for an arm where per-entity LLM calls could **rescue** register drift in flight. Template composition has no such rescue. The judging methodology must adjust for that.
+
+### § A.1 — `inverted_no_naming` failure modes the original protocol did not anticipate
+
+Six failure modes specific to template-based naming. These are gandalf's design-judgment forecast based on (a) the coalescence prompt's structural commitment to producing 8 slot fills + 3 pair rationales as the only thematic vocabulary downstream consumers see, (b) star-lord's template structure (R8 theme-coalescence prompt § 1.4: class names = archetype-tag × seasonal-element × anchor-category-noun; skill names = geometry-type × seasonal-element), and (c) historical patterns from rule-based name generation in pre-LLM ARPGs (Diablo I/II affix systems; Path of Exile's modifier-name composition pre-flavor-text pass).
+
+**FM-1: Vocabulary fixedness — name-collision within the season.**
+Template composition draws from a fixed coalesced pool: 1 anchor name, 1 seasonal-element token, 8 slot fills, 3 pair-rationale fragments. Across ~10 classes + ~40 monsters + ~150-200 skills + ~10 legendary gear + 1 trial boss + 5 trial skills (~215+ named entities), template composition forces re-use. The same slot-fill noun ("Pyre Debt") may appear in 4-6 skill names across different classes. The same seasonal-element token ("char") appears in nearly every name. Cohesion at the entity-pair level (skill names across one class) may suffer monotony even if season-level register holds.
+
+*Watch in F2 (slot-fill register unity) and F6 (cross-content consistency). The slot fills themselves may be tight — but if their composed surface produces "Pyre Debt Cascade" + "Pyre Debt Settled" + "Pyre Debt Coalescing" + "Pyre Debt Echo" across one class's 5 skills, the player reads monotony, not authored variety.*
+
+**FM-2: Cohesion drift — template-composition does not honor the spirit of the anchor.**
+Template substitution is syntactic. The anchor's *world* ("the bureaucratic necropolis where energy is owed and audited") doesn't enter the templating step — only its *vocabulary tokens* do (the anchor name string, the slot fills, the category noun). A template producing "(geometry-verb) + (seasonal-element)" can compose "Burst Char" or "Settled Char" or "Cascading Char" — vocabulary present, register hollow. Per-entity LLM calls in `inverted` mode could reach back to the cosmological *meaning* in flight; templates cannot.
+
+*Watch in F3 (anchor-to-slot-fill extension). The extension question becomes: does template-composed downstream content extend the anchor's world, or does it merely carry its vocabulary tokens? A composed name that uses "char" but reads as generic-mode-of-action ("Char Burst") is vocabulary-present + extension-absent. This is the cohesion-3 "workmanlike but templated" failure mode the protocol body anticipates — but it now becomes the **default risk** of the arm rather than a per-season failure.*
+
+**FM-3: Cross-content uniformity collapse.**
+Per-entity LLM calls produce variation. Even when constrained to the same coalesced vocabulary, the LLM in `inverted` mode will produce "Cremator" for one class and "Ash-Tender" for another and "Pyre-Warden" for a third — variant register-faithful nouns drawn from the world. Template composition with a fixed pool produces uniform variation: each class name = (archetype-mode-label) + (seasonal-element) + (anchor-noun). The structural sameness reads as uniform even when surface tokens vary.
+
+*Watch in F6 (cross-content consistency). The original sampling discipline (3 classes / 5 monsters / 5 skills / 1 trial boss + 5 skills / 3 legendary gear, ≈22 names) asks "how many feel of-this-place." Under template-based naming, the more dangerous question is **how many feel of-this-template** — the player may sense composed-from-rules rather than authored-by-one-hand, even if each individual name is plausible.*
+
+**FM-4: Pair-rationale orphaning.**
+The coalescence prompt produces three pair_rationales (thermal, position, luminance) as 1-2 sentence cosmological articulations. In `inverted` mode, per-entity naming has the rationales in context; downstream skill names in the ignition/suffusion slots can echo their thermal-pair-rationale's framing. In `inverted_no_naming`, the rationales never reach downstream entity composition — they exist only in `cosmological_vocabulary.json` as season metadata. Player-facing content is composed from the 8 slot fills + element token + anchor only.
+
+*Watch in F5 (pair rationale articulation). The pair_rationales themselves may score well — the LLM produced them — but if no downstream content extends their cosmological framing, the rationales become orphaned artifacts. F5 measures rationale articulation; the new latent question is whether the rationales connect to anything player-visible. Capture in F5 holistic note.*
+
+**FM-5: Slot-mechanism semantic mismatch.**
+Skill-name templates blend geometry-family verbs with seasonal-element tokens. A skill in the `bulwark` slot whose geometry is `ground_targeted_circle` might template to "Lay Char" — semantically nonsensical (bulwark is positional-refusal; "lay" reads as deposition not refusal). The per-entity LLM in `inverted` mode would catch this and produce "Char Wall" or "Embedded Char" instead. Templates do not.
+
+*Watch in F2 (slot-fill register unity) but extend the per-skill check: do composed skill names honor their slot semantics, or do template combinations produce slot/mechanism violations?*
+
+**FM-6: Trial-boss singularity.**
+The trial boss is one entity. Per-entity LLM naming gives the trial boss the budget to compose a name that anchors the season's climax — "The Cremator-Lord of Settled Debts" pulls the cosmology to a focal point. Template composition produces "(boss-archetype-noun) + (seasonal-element)" — likely "Char Hierarch" or "Char Sovereign" — competent but unfocal. The trial boss's name carries disproportionate cohesion weight (player encounters it as the season's apex moment); template-only naming may produce a forgettable apex.
+
+*Watch in F6 (cross-content consistency) but also call out separately in the holistic note. The trial boss is a single high-leverage data point; weight it accordingly.*
+
+### § A.2 — Adjusted facet weighting for the `inverted_no_naming` arm
+
+The original 6-facet structure (§ 2) gives each facet equal weight (1/6). For the `inverted_no_naming` arm, three facets are systematically more vulnerable to the failure modes in § A.1: **F2 slot-fill register unity**, **F3 anchor-to-slot-fill extension**, and **F6 cross-content consistency**. The other three (F1 anchor coherence, F4 element-anchor-mechanic fit, F5 pair rationale articulation) measure the *coalescence output itself*, which is shared across `inverted` and `inverted_no_naming` — those facets should score nearly identically across the two inverted arms because the same coalescence prompt produces both. Their variation between modes is noise; their variation between baseline and inverted is signal.
+
+**Decision: do NOT re-weight the per-facet scores numerically.** Re-weighting would prevent direct cross-arm comparison ("inverted cohesion = 4.0; inverted_no_naming = 3.5" remains the operational comparison; if F6 is given 2x weight in one arm only, the means stop comparing cleanly). The 6-facet mean stays the protocol's primary cohesion measurement across all three arms.
+
+**Instead, introduce a `template_strain_index` (TSI)** — a separate 1-5 scalar scored only for the `inverted_no_naming` arm, capturing how much the arm's template-based composition strains under the FM-1 through FM-6 failure modes. TSI is reported alongside the cohesion score, not folded into it.
+
+**TSI scoring rubric:**
+
+| TSI | Meaning |
+|---|---|
+| **5** | Template composition produced names that read as authored — no detectable name-collision, register hollowness, or structural sameness. The template is invisible. |
+| **4** | Minor strain — 1-2 of the FM failures surface mildly. Player would probably not notice. Cohesion holds. |
+| **3** | Moderate strain — 3+ FM failures or one severe FM failure (e.g., trial-boss-singularity strongly hits, or cross-content uniformity is uncomfortably high). Player attentive to naming would notice. |
+| **2** | Heavy strain — template composition is visible. Multiple FM failures compound. Player would feel "this season's names are composed, not authored" even without naming the cause. |
+| **1** | Severe strain — name-collisions are common, semantic mismatches occur, vocabulary monotony saturates. The template fails to compose plausible names. |
+
+**TSI per-FM rubric** (gandalf scores each FM 0/1/2 — none/mild/severe — and TSI = 5 minus (sum / 2.4), rounded to one decimal, floored at 1):
+
+| FM | What to look for |
+|---|---|
+| FM-1 vocabulary fixedness | Across the 22-name sample, count repeated slot-fill nouns. > 4 repetitions of the same noun = severe (2); 2-4 = mild (1); 0-1 = none (0). |
+| FM-2 cohesion drift | Of the slot-fill-noun-bearing names, what fraction read as world-extending vs vocabulary-bearing? < 40% extending = severe; 40-70% = mild; > 70% = none. |
+| FM-3 cross-content uniformity | Do the 3 class names share structural pattern visibility (same template skeleton readable)? Highly visible = severe; somewhat = mild; varied = none. |
+| FM-4 pair-rationale orphaning | Do any downstream names echo the pair_rationales' framing? None = severe; 1-2 = mild; multiple = none. |
+| FM-5 slot-mechanism mismatch | Across the 5 skill samples, count skills whose composed name does not honor their slot's mode-of-action. 2+ = severe; 1 = mild; 0 = none. |
+| FM-6 trial-boss singularity | Does the trial boss name carry focal weight, or does it read as another templated entity? Forgettable = severe; competent-but-not-focal = mild; focal = none. |
+
+TSI is reported per `inverted_no_naming` season in the per-season scoring sheet (§ A.5) alongside the standard 6-facet cohesion score. TSI does not exist for `baseline` or `inverted` seasons — those arms have no template-strain dimension to measure.
+
+**Diagnostic role of TSI:** if cohesion holds (e.g., `inverted_no_naming` mean cohesion is within 0.5 of baseline) BUT TSI is low (≤ 2.5), the disposition is partial — the template *almost* works but with named strain. If both cohesion holds AND TSI is high (≥ 4.0), the template is the legitimate winner — cheap and cohesion-faithful. The combination matters for the four-way disposition extension (§ A.3).
+
+### § A.3 — Disposition decision-tree extension for three-arm A/B run
+
+The protocol body § 5 defined three dispositions (A commit / B revert / C partial-opt-in). The three-arm A/B run requires extending the decision logic to handle the asymmetric cohesion-vs-cost tradeoff between the two inverted modes. Four sub-cases:
+
+**Sub-case 1: `inverted_no_naming` cohesion within 0.2 of baseline AND TSI ≥ 4.0.**
+Strong-evidence commit on the simpler-cheaper option. `inverted_no_naming` becomes the engine's default; the original `inverted` mode is documented as available-but-unused (since `inverted_no_naming` strictly dominates on cost and matches on cohesion). The `inverted` mode may remain implemented as an opt-in for callers who specifically want LLM per-entity naming (e.g., the eventual hero/legendary content tier that warrants it), but it is no longer the default. **→ DISPOSITION A variant: commit-to-`inverted_no_naming`-default.**
+
+**Sub-case 2: `inverted_no_naming` cohesion within 0.5 of baseline AND TSI 2.5-4.0 AND cost savings ≥ 75%.**
+Honest commit case for `inverted_no_naming` as a primary mode with documented quality envelope. Cohesion holds; template-strain is visible but not breaking. Cost claim is honored. `inverted_no_naming` ships as opt-in default for cost-sensitive contexts (Path B mod export, batch regenerations, demo-class content) with `inverted` available as opt-in for quality-sensitive contexts (canonical Path A content). The disposition doc names where each mode is appropriate. **→ DISPOSITION C variant: dual-mode commit, both legitimate, callers choose.**
+
+**Sub-case 3: `inverted_no_naming` cohesion drops > 0.5 below baseline BUT `inverted` cohesion holds within 0.5.**
+The naming work matters; per-entity LLM calls were doing real cohesion work that template composition cannot replicate. Commit `inverted` as default (Phase A coalescence retained; Phase B per-entity naming retained); `inverted_no_naming` is documented as opt-in for cost-sensitive callers who accept lower cohesion. The disposition doc names the cohesion-cost frontier honestly: "you can have ~98% cost savings but you forfeit ~0.5-1.0 cohesion points; for canonical content, the `inverted` mode at ~0% cost savings is what you want." **→ DISPOSITION C variant: cohesion-defaulted, cost-opt-in.**
+
+**Sub-case 4: `inverted_no_naming` cohesion drops > 0.5 below baseline AND `inverted` cohesion also drops > 0.5.**
+Both inverted modes fail. Coalescence-from-mechanics did not preserve cohesion at parity. Revert to baseline. The R8 hypothesis is closed as findings: substrate-identity is recoverable from mechanics post-hoc, but cosmological cohesion is not — input-driven theming was load-bearing. **→ DISPOSITION B.**
+
+**Decision-tree summary (extending § 5.4):**
+
+```
+START → judge Test 1 cohesion on all 3 arms (baseline, inverted, inverted_no_naming)
+
+├── inverted_no_naming within 0.2 of baseline AND TSI ≥ 4.0
+│   ├── + Tests 2/3/4/5 pass per § 5.1 thresholds (substituting inverted_no_naming for inverted)
+│   │   └── DISPOSITION A (commit-to-inverted_no_naming-default)
+│   └── + any of Tests 2/3/4/5 fail → DISPOSITION C (dual-mode commit)
+├── inverted_no_naming within 0.5 of baseline AND TSI 2.5-4.0 AND cost ≥ 75%
+│   └── DISPOSITION C (dual-mode commit per Sub-case 2)
+├── inverted_no_naming > 0.5 below baseline AND inverted within 0.5
+│   └── DISPOSITION C (cohesion-defaulted, cost-opt-in per Sub-case 3)
+└── inverted_no_naming > 0.5 below AND inverted > 0.5 below
+    └── DISPOSITION B (full revert per Sub-case 4)
+```
+
+**Note on `inverted`-mode-only disposition:** the protocol body § 5 still applies if for any reason the A/B run produces only `inverted` data (e.g., `inverted_no_naming` implementation is deferred). In that case, treat `inverted` as the experimental arm and apply § 5 unchanged. The three-arm extension above is additive when `inverted_no_naming` data is present.
+
+**Cross-reference for canonical-doc amendments triggered by each disposition:**
+
+| Disposition | Canonical amendments |
+|---|---|
+| A (commit-to-`inverted_no_naming`) | LLM call map collapse (`canonical/19-llm-call-map.md`) — the ~317 → ~1-2 call profile. Document template-composition mechanism (likely a new doc in `canonical/story/` describing how seasonal vocabulary distributes via templates). Substrate-identity amendment if Test 4 triggered. |
+| A (commit-to-`inverted` default) | Phase A elimination only. LLM call map updates to remove `element_selection` and add `theme_coalescence`. ~316 → ~317 calls (one call swap). Cost savings minimal but Phase A complexity removed. |
+| C (dual-mode commit) | LLM call map documents both modes; callers' opt-in path. Operating envelope per use-case (batch / canonical / mod-export). Substrate-identity amendment if Test 4 triggered. |
+| C (cohesion-defaulted, cost-opt-in) | Same as above but `inverted` is the default; `inverted_no_naming` is the cost-sensitive opt-in. |
+| B | No canonical changes; findings doc + close hypothesis. |
+
+### § A.4 — Judging-session sequencing for 9 seasons across 3 arms
+
+The protocol body § 3.1 assumed a 6-season run (3 baseline + 3 inverted). With 9 seasons (3 baseline + 3 inverted + 3 inverted_no_naming), the judging session is longer (~3 hours focused; ~15-20 min per season × 9). Order discipline is more important — 9-season anchor drift is a real risk if scoring drifts toward the median across the session.
+
+**Order-randomization protocol:**
+
+1. **Knight-rider (or rocket as A/B run executor) generates a shuffled order** of all 9 seasons before gandalf scores. The shuffle MUST be stratified — each consecutive trio of judging positions contains one season from each arm (positions 1-3 = one of each arm in random order; positions 4-6 = one of each; positions 7-9 = one of each). This prevents the worst-case clustering ("all 3 baselines scored first, then all 6 inverted, with judge fatigue setting in") that would systematically bias inverted-arm scores down.
+
+2. **Gandalf is blind to arm-identity during scoring** — sees only `Judging Position 1` through `Judging Position 9`. Arm identity is revealed only after all 9 scoring sheets are committed. (Per protocol body § 3.1 step 1, extended to 9 positions.)
+
+3. **Inter-season recalibration step** — after every third season (positions 3, 6, 9), gandalf re-reads the cohesion-scale anchors (§ 1.1) before continuing. This is a 2-minute discipline against drift; the anchor's specific examples (season_002017's "Pyre Debt" slot, season_002013's "Withdrawal Soot") get re-grounded.
+
+4. **Single sitting strongly preferred.** If split across two sessions, gandalf MUST complete a full stratified trio (positions 1-3 or 4-6 or 7-9) within one sitting, never split mid-trio. Within-trio judging benefits from immediate cross-arm calibration.
+
+5. **TSI scoring** is done in a second pass — after all 9 cohesion sheets are complete and arm identities are revealed, gandalf returns to the 3 `inverted_no_naming` seasons and scores TSI. TSI cannot be blind (the failure-mode analysis requires knowing the arm), and it's scored second to avoid the FM-checking exercise contaminating the cohesion score.
+
+6. **LLM-judge runs in the same shuffled order** as gandalf (sequential, not parallel, per protocol body § 4.3 item 4). Same season IDs hidden; same payloads as gandalf saw.
+
+**Time budget (revised):**
+- Cohesion judging (9 seasons × 15-20 min): ~2.5-3 hours
+- TSI judging (3 inverted_no_naming seasons × 10 min): ~30 min
+- LLM-judge run + parse: ~30 min (asynchronous; can run in background)
+- Cross-arm score aggregation + divergence analysis: ~30-45 min
+- Disposition write-up: ~1-2 hours
+
+**Total gandalf-side budget: ~5 hours focused work** (vs ~2 hours for the original 6-season plan). Worth budgeting as a ~half-day session.
+
+### § A.5 — Per-season scoring sheet format (revised for arm-aware capture)
+
+Extends protocol body § 3.4 with TSI capture and arm reveal section:
+
+```
+Judging Position: <1-9; hidden no longer after reveal>
+Season ID: <hidden during scoring; revealed post-scoring>
+Arm: <baseline | inverted | inverted_no_naming; hidden during scoring>
+
+— COHESION SCORING (all 3 arms, blind) —
+
+F1 — Anchor coherence: <1-5>
+Rationale: <1 sentence>
+
+F2 — Slot-fill register unity: <1-5>
+Rationale: <1 sentence>
+
+F3 — Anchor-to-slot-fill extension: <1-5>
+Rationale: <1 sentence>
+
+F4 — Element-anchor-mechanic fit: <1-5>
+Rationale: <1 sentence>
+
+F5 — Pair rationale articulation: <1-5>
+Rationale: <1 sentence; for inverted_no_naming arm post-reveal, note if rationales feel orphaned per FM-4>
+
+F6 — Cross-content consistency: <1-5>
+Rationale: <1 sentence>
+
+COHESION SCORE: <mean across 6 facets, rounded to 1 decimal>
+Holistic note: <1-2 sentences>
+
+— TSI SCORING (inverted_no_naming arm only; second pass post-reveal) —
+
+FM-1 vocabulary fixedness: <0/1/2>
+FM-2 cohesion drift: <0/1/2>
+FM-3 cross-content uniformity: <0/1/2>
+FM-4 pair-rationale orphaning: <0/1/2>
+FM-5 slot-mechanism mismatch: <0/1/2>
+FM-6 trial-boss singularity: <0/1/2>
+
+TSI: <5 - (sum / 2.4), rounded to 1 decimal, floored at 1>
+TSI holistic note: <1-2 sentences capturing what the template strain feels like in this specific season>
+```
+
+### § A.6 — Test 4 substrate-identity invariance for `inverted_no_naming`
+
+Test 4 (protocol body § 6) examines whether the coalescence call's `dominant_substrate_confirmed` field matches the converged content's `dominant_element` distribution. Because both `inverted` and `inverted_no_naming` run the same coalescence call (the difference is downstream naming, not the coalescence itself), Test 4 results should be **identical or near-identical across the two inverted arms** for the same seed. If they diverge, that's an instrument-anomaly worth investigating (likely temperature variation across runs).
+
+The new Test 4 question for `inverted_no_naming` is **downstream**: does template-extension from the coalesced vocabulary preserve substrate identity, or does the template-mechanic produce more uniform substrate-identity-collapse than per-entity LLM naming would?
+
+**Specific examination (gandalf, post-A/B):**
+
+1. **For each of the 3 `inverted_no_naming` seasons**, sample 5 skill names. For each name, classify: does the composed name read as substrate-mode-of-action (e.g., a `bulwark`-slot skill reads as positional-refusal regardless of seasonal-element token), or does the template force a substrate-mode mismatch (FM-5 instance)?
+
+2. **Compare the substrate-mode classification rate** across the 3 `inverted_no_naming` seasons against the 3 `inverted` seasons' equivalent samples. If `inverted_no_naming` shows systematically lower substrate-mode-clarity than `inverted` for the same coalescence vocabulary, the templates are eroding substrate identity in the downstream surface that the player sees — even when the coalescence call preserved substrate identity in `dominant_substrate_confirmed`.
+
+3. **Capture as discovery finding** in `output/R8-test4-substrate-identity.md`. This is additive to the original Test 4 question (does coalescence preserve substrate); the new question is (does template-distribution preserve substrate downstream of coalescence). Both are pass/fail-free discovery measurements.
+
+**Why this matters for disposition:** if substrate identity erodes in template-distribution, the substrate-identity-declarations canonical doc (`canonical/story/substrate-identity-declarations-2026-05-17.md`) may need a downstream-preservation amendment — the declarations might say "fire-substrate exists at the coalescence level but is not reliably surfaceable through templates alone." That's a meaningful canonical refinement and informs whether Disposition A or C is appropriate.
+
+### § A.7 — Cross-references
+
+- **Star-lord OBSERVATION:** hive log entry `f1bbc5a` (commit `f1bbc5a17d975d5b54af7cd4d5b51fa3008d51be`) — R8 cost-claim two-mode finding surfaced to rocket + gandalf
+- **Knight-rider routing DECISION:** hive log entry `0b51312` (commit `0b51312a119ca674e22d821d425a74df71e544ba`) — three-mode A/B run (3 baseline + 3 inverted_no_naming primary + 3 inverted side-arm)
+- **Jack-ryan Gate 1 PASS:** hive log entry + `gate1-design-review-2026-05-19.md` (commit `1512214`) — protocol body PASSED; `inverted_no_naming` addendum noted as expected open item
+- **Star-lord R8 pipeline design:** `reincarnated-engine/design/working-agreement/R8-pipeline-design-2026-05-19.md` § SL-2 — three-mode design with `inverted_no_naming` as primary cost-savings arm
+- **WARN-R8-1 rename fix:** being applied in parallel by star-lord (per `gate1-design-review-2026-05-19.md` § Target 4) — telemetry column values are canonical mode names (`baseline` / `inverted` / `inverted_no_naming`); this appendix uses those names throughout
+- **Theme-coalescence prompt (unchanged):** `R8-theme-coalescence-prompt-2026-05-19.md` § 1.4 explicitly anticipates template-based downstream naming as the load-bearing claim of R8; this appendix operationalizes the cohesion-judging side of that anticipation
+
+---
+
+*Appendix A authored 2026-05-19 by gandalf under autonomous-operation authority in response to star-lord's R8 cost-claim two-mode finding + knight-rider's three-mode A/B routing decision. The hypothesis is held; the test extends; the disposition stays gandalf's call. Three arms, three possible outcomes per the disposition-tree above — the engine learns whichever it learns. Mithrandir signs.*
+
+---
+
 *Authored 2026-05-19 by gandalf under autonomous-operation authority. R8 methodology asset 2 of 2. The hypothesis is held; the test is honest; the disposition is gandalf's call. Either result is valuable — the season-as-emergent-output either survives the test or it doesn't, and the engine learns which. Mithrandir signs.*
