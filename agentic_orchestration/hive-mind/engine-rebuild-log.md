@@ -4122,3 +4122,63 @@ Tag fires on SMOKE_CLASS_IDS fix commit per task routing.
 ---
 
 *Filed 2026-05-19 by gandalf. The cohesion judgment stands; the regen authorization is withdrawn; the retry path is constrained; the audit fires in parallel; the work continues. The Battlefield Where Nothing Grew Back is the kind of named place you'd want to return to — and in this iteration, the kind of place whose mechanical population could not clear the trial it was given. Next four seasons over substrates that can. Mithrandir signs.*
+
+---
+
+## STATE — 2026-05-19 — rocket — VS2a S1 retry-1 (seed 100002) REJECTED — convergence_failure threshold
+
+**Filed by:** rocket
+**Session:** retry session (prior session died before generation completed)
+**Engine SHA:** 3f3ca96 (commit: "docs(rocket): S1 retry session — apply jack-ryan Fix 2 audit corrections")
+
+### What happened
+
+S1 retry-1 fired under R8 inverted pipeline, seed 100002. Generation completed at ~12:59 PM EDT (57 min wall time). Output: `output/S1-retry-1-100002-2026-05-19/season_100002/`.
+
+### Season produced
+
+| Field | Value |
+|---|---|
+| season_id | season_100002 |
+| seed | 100002 |
+| anchor | "The Forest That Walks" (forests_and_woodland) |
+| element (post-coalescence) | ember |
+| wall time | ~57 min |
+| output path | output/S1-retry-1-100002-2026-05-19/season_100002/ |
+
+### Reject checks
+
+**Check 1 — Substrate prior:** PASS
+- Element `ember` is in the PREFER list (ember-derived substrates carry damage-throughput convention)
+- Anchor "The Forest That Walks" is action-framing ("the woodland that moves slowly each year; never in the same place twice") — not aftermath/mourning
+- Vocabulary (Canopy Kindle, Branch Strike, Sap Surge, Root Seep) — all action-framed, no mourning/residue language
+- This season had good substrate characteristics. Rejection is NOT on substrate grounds.
+
+**Check 2 — Convergence-failure threshold:** REJECT
+- `validation_report.json::summary::convergence_failures`: 8
+- `total_classes`: 10
+- Rate: 8/10 = **80%**
+- Threshold per dispatch § 3.1: > 50% = reject
+- Dispatch § 8 borderline window: 50-60%. 80% is not borderline.
+- **REJECT on convergence_failure threshold.**
+
+Source: `output/S1-retry-1-100002-2026-05-19/season_100002/validation_report.json` — NOT canonical R1 sprint (convergence_failures field is from the generation pipeline itself, not a gamora measurement).
+
+### Classes generated (diagnostic — not canonical R1 sprint)
+
+10 classes, all ember/forest framing, no template debris:
+- Smoldering Canopy Witch (fire_mage), Waterlogged Ember Warden (water_mage), Smoldering Treewarden (earth_controller), Wandering Bark Whisperer (wind_caster), Smoldering Poacher (rogue/physical), Understory Arsonist (fire_controller), Waterlogged Canopy Witch (water_mage), Embered Treewarden (earth_caster), Sporewind Wanderer (wind_caster), Scorched Arborist (experimental/physical)
+
+### Verdict
+
+**REJECT seed 100002.** Convergence failure rate 80% > 50% dispatch threshold. Incrementing to retry-2 seed 100003.
+
+### Observation
+
+Ember + The Forest That Walks is a substrate-prior-preferred seed. The rejection is the same convergence floor-lock pattern as S1 first batch (8/11 = 72.7%). This is a systematic pattern — diverse kits at the floor modifier being overpowered — rather than a substrate quality issue. The substrate prior filter is working correctly (ember pass is correct). The convergence threshold is the discriminating filter. Whether retry-2 or -3 will escape this pattern depends on seed randomness. If all 3 retries show similar convergence failure rates, path (a) may need to address the balance loop floor, not just the substrate.
+
+### REQUEST — knight-rider: trigger retry-2
+
+Please fire `rocket` dispatch for seed 100003 (retry-2) per the retry dispatch § 3.1 sequence. Retry budget: 2 remaining (100003, 100004).
+
+---
