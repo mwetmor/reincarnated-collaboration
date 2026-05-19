@@ -4,6 +4,47 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-19 — Stage A2 PRE-APPROVAL BATCH authored (full 7-dispatch set; VS2A → VS2B → Stage A2 continuation per Matt directive)
+
+**Event:** Per Matt directive 2026-05-19 ("approved, proceed all the way through Stage A2"), knight-rider authored the complete Stage A2 closeout dispatch set alongside VS2a + VS2b pre-approval batches. Combined 25-dispatch production sprint under one Matt approval.
+
+**Seven Stage A2 dispatches authored:**
+
+1. **A1 — gamora — B7 gear-percentile variance gate** — engine-only sim; gates catalogue stability across gear rolls; tag `stage-a2/v0.1`
+2. **A2 — rocket + gamora + drax — B12 full audit** — boots/gloves/belt slot expansion + +% MS affixes + hard-cap + UI; cross-seam contract change; tag `stage-a2/v0.2`
+3. **A3 — rocket + gamora — B13 post-narrow-slice** — 5 defensive mobility geometries (`roll`/`defensive_dash`/`strafe_mode`/`blink`/`dodge_stance`) + mini-boss/boss strategic escape AI + archetype-emergence observability + trait-pool extension; tag `stage-a2/v0.3`
+4. **A4 — gamora — B14 multi-band convergence sim** — extends B14.5 V1 canonical balance-loop pattern; riskiest piece; rollback to `v1.3-b14-5-primary-loop` available; tag `stage-a2/v0.4`
+5. **A5 — rocket + drax — B16 loot drop architecture** — drop rules + auto-pickup + visual layer per A6 framework; **Drift-12 candidate filing**; tag `stage-a2/v0.5`
+6. **A6 — gandalf — Stage A2 design watch-items framework** — single framework covering B12 visual/UX + B13 telegraph-art convention + B16 loot visual layer; Drift-12 filing; tag `stage-a2/v0.6`
+7. **A7 — gandalf + knight-rider + Matt — Playtest Cycle 1** — three phases: autonomous prep + Matt-gated execution + autonomous disposition; substrate = VS2a regen season_001003 + VS2b regen season_001005; tag `stage-a2/v1.0-stage-a2-ship` (Stage A2 CLOSED)
+
+**Combined sprint inventory (consolidated):**
+- VS2a: 12 production dispatches (F1-F4 + F5 + F6 + F6-D + R2-RT + S1 + S2 + S3 + L1)
+- VS2b: 6 production dispatches (V1-V6)
+- Stage A2: 7 production dispatches (A1-A7)
+- TOTAL production: **25 dispatches**
+- In-flight VS2a continuations: C1-C4 (4 items)
+- Matt-gated wind-down items: M1 (Drift-15 selection) + M2 (engine-rebuild playtest tags) + A7-exec (Playtest Cycle 1 execution) = 3 items
+- GRAND TOTAL: **32 roadmap items** locked under pre-approval-batch
+
+**Estimated duration:** ~10-16 weeks wall from VS2a L1 ship through Stage A2 v1.0 ship, depending on parallel execution + Matt wind-down session cadence.
+
+**Operating mode:** AUTONOMOUS per protocol § 4.0 + § 4.9 through Stage A2 closeout. Matt re-enters at wind-down (his discretion) for M1 + M2 + A7-exec triple-gated step (Drift-15 pack + engine-rebuild playtest tags + Stage A2 Playtest Cycle 1 — all addressable in single Matt session).
+
+**Forward routing post-Stage-A2:**
+- Stage A3 (B9 series; ~4-6 weeks; design fully resolved 2026-05-12 in file 32) — pre-approval-batch decision DEFERRED to Matt at next wind-down session
+- Stage A4 (B5 + B15) / A5 / A6 / A7 (progression system) — further deferred
+- Playtest Cycles 2-4 — gandalf authors rubrics per A7 template; Matt-gated execution
+
+**Pre-approval surface (Matt's three-doc review):**
+- `agentic_orchestration/hive-mind/vs2a-pre-approval-batch-2026-05-19.md` (12 dispatches)
+- `agentic_orchestration/hive-mind/vs2b-pre-approval-batch-2026-05-19.md` (6 dispatches)
+- `agentic_orchestration/hive-mind/stage-a2-pre-approval-batch-2026-05-19.md` (7 dispatches; consolidated combined view in § 6)
+
+**Authority:** Matt directive 2026-05-19 (VS2A → VS2B → Stage A2 pre-approval continuation); knight-rider operationalization + dispatch authoring under autonomous-mode authority.
+
+---
+
 ## 2026-05-19 — VS2b PRE-APPROVAL BATCH authored (full 6-dispatch set; VS2A → VS2B continuation per Matt directive)
 
 **Event:** Per Matt directive 2026-05-19 ("approved, proceed with VS2A → VS2B"), knight-rider authored the complete VS2b dispatch set alongside the VS2a pre-approval batch. Pre-approval-batch mode extended through VS2b. Combined VS2a + VS2b = 18 dispatches; Matt approves one batched sprint plan; no Matt-engagement between batches.
