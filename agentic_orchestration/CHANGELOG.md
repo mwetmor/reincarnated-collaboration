@@ -4,6 +4,51 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-rebuild P0 W0.9 Phase 2.5 COMPLETE: CRITICAL FINDING — boss AI leash-reset bug; W0.9 ready for cumulative Gate-2
+
+**Event:** W0.9 Phase 2.5 (W0.9.6 calibration sweep co-run with W0.1) returned. Tag `qd-rebuild/v0.9-phase-2-5-calibration-sweep-complete` fired (engine commit `0837c7b`). **All 5 W0.9 sub-phases now COMPLETE.**
+
+**Calibration sweep telemetry verified:** 10 kits × 5 tiers × 30 fights = 1,500 `spatial_fight_results` rows + **975,450 fight_events rows** emitted cleanly with zero failures. SqliteSpatialTelemetryWriter operational in production-mirror environment.
+
+**PERFORMANCE PASS — 6× FASTER THAN PACKPROXY:** measured 0.17× ratio vs PackProxy baseline (math note §3.4 target ≤5×; prediction <2×; actual achievement: 6× IMPROVEMENT). Per-kit avg 4.9s vs PackProxy baseline 28.3s per class.
+
+**🚨 CRITICAL FINDING — DISCIPLINE #17 STRUCTURAL ANOMALY (50/50 tier-class combos flagged):**
+
+**Root cause empirically diagnosed per Discipline #11 inspection (NOT a scaling/calibration issue):**
+
+**Boss AI leash-reset bug** prevents player engagement of boss:
+1. Player AI targets nearest alive mob — elite add at ~12m, NOT boss at ~17m
+2. Player damages add → add chases player beyond `leash_distance_m=12.0` from spawn → add leashes back → `entity.hp = entity.max_hp` (FULL HP RESET)
+3. Repeat for 240s timeout. Boss (stationary_caster) NEVER ENGAGED.
+4. Empirical evidence: physical_grappler dealt 215,238 damage total (145 casts × 1,485 base damage = 215k); elite add HP dropped only 4,453 (consistent with ~3 hits landing between leash cycles).
+
+**Math shows boss IS killable if reached:** at modifier=0.742, `spatial_DM = 0.742 × 4.0 = 2.97`; `base_damage = 1.0 × 500 × 2.97 = 1485`; `boss_HP after 0.40× = 53,216`; DPS at 1.5s CD = 990 HP/s; **TTK = ~54s well within 240s timeout**. Boss tier is reachable; the structural block is that player AI never focuses the boss.
+
+**This is the recompose-hive "fix the arena, not the synergy" principle catching the NEXT arena bug.** PackProxy ×8 was the wrong arena (Phase 2.1 retired it); the new spatial arena reveals its own player-AI bug (boss never engaged due to add-leash-reset cycle). The principle catches both issues exactly as designed.
+
+**Required remediation (Discipline #1 math-note required before code):**
+- Player AI boss-focus mode when `win_condition == "boss_killed"`
+- Add spawn position calibration (move adds near boss, not at arena edge)
+- Scope: `spatial_engine.py` player action phase + `arena.py` spawn positions
+
+**Boss AI fix is a NEW open item — scoped for follow-on workstream.** Discipline #11/Discipline #17 escalation filed to knight-rider + gandalf per W0.9.5 standards. **Does NOT block W0.9 cumulative Gate-2 architectural review** (architectural components — PackProxy retirement, usage modes, performance, telemetry — are solid; the structural bug is in player AI behavior).
+
+**Joint-resolution empirical verdict: DEFERRED pending boss AI fix.** Once fix ships, math note §5.3 prediction should hold (high-modifier kits exit boss-zero floor at spatial_DM=2.97; low-modifier mage kits need multi-dim convergence per P2/P3).
+
+**OQ-6 (physical hunter modifier=1.0 ceiling): CLOSED.** Hunter at modifier=0.6355 (not at ceiling). Boss WR=0 reflects add-leash bug, not modifier saturation.
+
+**OQ-7 (stamina-as-resource 1.25× probe overcorrection): CLOSED.** physical_warrior modifier=0.1094 (well below 1.0; no overcorrection). Pool-design escalation not needed.
+
+**Multi-tier archive gap:** routed to P1/P2 follow-on workstream per gamora disposition.
+
+**Discipline #1 (W0.1 + W0.9 math-note predict-vs-measure):** pre-B6 kits used in this sweep (modifiers below prediction band). Full Discipline #1 verification of W0.1 lever predictions requires B6+W0.1 kits — deferred to post-B6 verification sweep (W0.1 Concern 1 not yet fully resolved).
+
+**W0.9 CUMULATIVE GATE-2 READY.** All 5 sub-phases complete; architectural components verified; boss AI fix is new open item for follow-on. Knight-rider fires Gate-2 critique-pair next.
+
+State-of-hive § 1 W0.9 row updated.
+
+---
+
 ## 2026-05-21 — QD-rebuild P0 W0.9 Phase 2.4 COMPLETE: telemetry instrumentation LIVE; PARALLEL MODE PRODUCTION READY
 
 **Event:** W0.9 Phase 2.4 (W0.9.5 telemetry instrumentation) returned. Tag `qd-rebuild/v0.9-phase-2-4-telemetry-instrumented` fired (engine commit `8b1703f`). 154/154 tests PASS (36 new W0.9.5 + 118 prior W0.9).
