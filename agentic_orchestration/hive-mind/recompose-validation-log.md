@@ -280,3 +280,38 @@ Per protocol § 6 P1 + § 4 coordination matrix (jack-ryan = Gate-1 critique on 
 **P1 sequencing reminder:** brief → Gate-1 → implementation → smoke B1 → tag. Gandalf brief is done; jack-ryan Gate-1 is the gate; everything downstream is sequenced from this point.
 
 Routing now.
+
+---
+
+## 2026-05-19 EDT — jack-ryan STATE — P1 Gate-1 Critique COMPLETE
+
+**Disposition: APPROVE-WITH-AMEND.**
+
+**Critique filed:** `agentic_orchestration/qa/pending/2026-05-19-p1-option-b-recompose-trigger-gate1.md`
+
+**Amendments — 4 REQUIRED, 1 RECOMMENDED, 1 OPTIONAL:**
+
+1. **(REQUIRED)** Module-level named constants `RECOMPOSE_SIGNAL_HI = 0.70` and `RECOMPOSE_SIGNAL_LO = 0.30` to replace the brief's local `_QUICK_SIGNAL_HI = 0.70` in `_primary_recompose_loop` and the local `_SIGNAL_LO, _SIGNAL_HI = 0.30, 0.70` in `_quick_modifier_estimate`. Discipline #18 implicit-pillar: two local literals encoding the same semantic threshold create silent-drift risk. Single source of truth required.
+2. **(REQUIRED)** Fail-loud log entries (`log.debug`) in the floor-lock detection branch for two edge cases: `current_wr > RECOMPOSE_SIGNAL_HI` at `working_modifier=0.005` (kit still saturated — classic Pattern-A case) and `current_wr < 0.15` (over-suppressed — kit collapses at probe value). Pattern P7 silent-default watch. No behavior change; converts silent no-ops into observable-from-run-log events.
+3. **(REQUIRED)** Minimum test count raised from "≥ 3" to 4; four specific test cases enumerated in critique § 5 (Amendment 3). Covers all four observable Option B branch states including the telemetry-field round-trip assertion.
+4. **(REQUIRED)** MIGRATION.md v1.22 template additions: explicit R11(b) round-trip justification clause ("additive-nullable; existing consumers tolerate absent keys; isolation verified by test_floor_lock_recompose_field_in_classbalanceresult") and explicit rocket watchpoint (floor_lock_recompose=True is a PASS condition; kit is promotable despite modifier_extreme_low history). Currently implicit in "rest of entry follows v1.21 template" — must be explicit.
+5. **(RECOMMENDED)** WARN-level near-floor secondary in smoke B1 script: if class_0001 post-recompose `final_modifier ∈ [0.05, 0.10)`, log warning "Option B marginal recovery" for P2 inspection.
+6. **(OPTIONAL)** Consider renaming `floor_lock_recompose` → `recompose_floor_lock` for naming consistency with `modifier_extreme_low` pattern (modifier/condition comes before qualifier).
+
+**Verdicts on three gandalf-flagged framings:**
+
+(a) **§ 2.3 departure defensibility:** CONFIRMED. `last_wr > _SIGNAL_HI` is the correct signal. `status=failed` is definitionally unavailable at recompose-time (post-binary-search state, not observable pre-recompose). `eval_modifier ≤ floor + ε` is false-positive ambiguous (legitimate signal-range-reached classes at floor also satisfy this). No consumer in `balance_loop.py` or callers depends on the rejected semantic — the substitution is architecturally clean.
+
+(b) **§ 4.2 smoke B1 condition #4 tightness:** CONDITION AS WRITTEN ACCEPTABLE AS BLOCKING. `modifier_extreme_low=False` (≥ 0.05) is a meaningful proof-of-effectiveness threshold — it tests whether the class no longer requires sub-0.05 suppression. Amendment 4 (RECOMMENDED) adds a WARN-level near-floor flag for the `[0.05, 0.10)` range.
+
+(c) **§ 3.2 `LEVER_FLOOR_LOCK_WORKING_MODIFIER = 0.005` magnitude:** MAGNITUDE IS CORRECT. Half-floor is the right single-probe value. "Kit-redesign flag" is the correct disposition for kits that still saturate at 0.005 — the lever library cannot address raw damage-magnitude pathology, only compositional ratios. No fallback probe needed; escalating probe has no principled termination.
+
+**Disciplines audit:** #1 ✓, #2 ✓ (with Amendment 3), #11 ✓, #12 ✓ (with Amendment 6), #13a triggered Amendment 1, #15 ✓, #18 ✓ (with Amendment 1), R11(b) triggered Amendment 6, Pattern P7 triggered Amendment 2.
+
+**Cross-seam coordination:** star-lord schema v2.13 (additive-nullable; naming confirmed consistent with v2.12 conventions; recommended query-filter patterns confirmed correct). Rocket informational watchpoint needs to be explicit in MIGRATION.md v1.22 (Amendment 6). Drax: no impact confirmed.
+
+**Reversibility:** both reversion paths in § 9 are sound. Option 1 (full revert) is clean — single git revert, telemetry schema additions survive as nullable columns. Option 2 (parameter-level soft-disable via `LEVER_FLOOR_LOCK_WORKING_MODIFIER = MODIFIER_SEARCH_FLOOR`) is verified correct — setting probe equal to floor makes `working_modifier == eval_modifier` for floor-locked cases, reverting to pre-Option-B lever behavior while preserving diagnostic telemetry.
+
+**Routing recommendation:** knight-rider folds amendments 1-4 + 6 into gamora implementation dispatch as REQUIRED acceptance criteria; amendment 5 as gamora discretion. No back-routing to gandalf. Gamora implementation can proceed directly from brief + amendments.
+
+**Hive trigger watch:** no signals. ⏸ Triggers 1-4 unsignaled. P1 Gate-1 complete.
