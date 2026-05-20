@@ -145,3 +145,100 @@ Per Matt's 2026-05-21 autonomous-operation directive: "You do not need my approv
 - `canonical/story/substrate-generalization-track-c-synthesis-2026-05-21.md` § 2.3 (joint-resolution prediction; BLOCKED until W0.10 ships)
 - W0.9 math note + 5 sub-phase tags
 - `agentic_orchestration/dispatches/2026-05-21-knight-rider-qd-rebuild-hive-activation.md` § 2.9 (gauntlet architecture commitment; W0.10 framing addition recorded per gandalf Amendment 3)
+
+---
+
+## Partial completion record — Phase 1 math-before-code COMPLETE; Phase 2 pending Gate-1
+
+**Date:** 2026-05-21
+**Author:** gamora
+**Status:** Phase 1 math-before-code COMPLETE. Phase 2 (implementation) pending jack-ryan Gate-1 + gandalf architectural review.
+
+### W0.10.1 deliverable
+
+Math note authored at:
+`reincarnated-engine/src/reincarnated/simulation/math/w0-10-boss-ai-leash-reset-fix.md`
+
+**Sections completed:** 9 sections covering all dispatch-required topics:
+§1 Bug mechanism formalization (state machine + targeting priority math + empirical quantification)
+§2 Add spawn position calibration (geometry analysis; 30m leash recommendation; spawn positions preserved)
+§3 Boss-focus AI targeting logic (pseudocode; activation gate; open questions resolved)
+§4 Predicted re-sweep outcomes (per-tier WR; Track C §2.3 + W0.9 §5.3 cross-reference)
+§5 Joint-resolution empirical verification design (re-sweep protocol; acceptance criteria)
+§6 #13a-partition compliance (win_condition partition; no substrate keying; Gate-1 compliance question)
+§7 Leash semantics architectural question (ARPG canon survey; scenario-conditional disposition; Discipline #12 shift)
+§8 Machine-readable predictions summary
+§9 Concerns for Gate-1
+
+### Open question resolutions
+
+**Boss-focus activation gate:** BOTH `"boss_killed"` AND `"mini_boss_killed"`. Same bug affects both scenarios;
+mini_boss_killed 150s soft timeout makes boss-focus even more critical. Mechanical encounter property partition only.
+
+**Add behavior under boss-focus:** THREATEN (incidental damage). No despawn. ARPG canon (D2/PoE/Last Epoch).
+Add DPS at PLAYER_ARMOR_FACTOR_VS_BOSS=0.95: 6 HP/s per 2 adds — non-fight-determining (player survives adds alone for 2,510s).
+
+**Leash semantics:** SCENARIO-CONDITIONAL. New `suppress_leash_hp_reset: bool = False` on SpawnSpec. Set to True
+for boss/mini-boss scenario adds. D2/PoE semantics (retain HP on leash) replaces D3 semantics (HP-reset).
+This is a Discipline #12 semantic shift — requires commit message + MIGRATION.md v1.29 explicit framing.
+
+**Spawn positions:** PRESERVED for both SCENARIO_BOSS_WITH_ADDS and SCENARIO_MINI_BOSS. Flanking geometry maintained.
+`leash_distance_override_m`: None → 30.0 for adds in both boss/mini-boss scenarios.
+
+### Scope checkbox update
+
+- [x] Math note authored (W0.10.1) — COMPLETE 2026-05-21
+- [x] jack-ryan Gate-1 + gandalf review (W0.10.2 + W0.10.3) — COMPLETE (both APPROVE-WITH-AMEND; no BLOCK)
+- [ ] Phase 2 implementation (W0.10.4) — PENDING kickoff
+- [ ] Re-run calibration sweep (W0.10.5) — PENDING
+- [ ] Caller-side wiring fold-in (W0.10.6) — PENDING
+- [ ] Cumulative Gate-2 (W0.10.7) — PENDING
+- [ ] MIGRATION.md v1.29 per ADR-004 — PENDING
+- [x] AGENT_STATE.md updated — COMPLETE 2026-05-20
+- [ ] Tag: `qd-rebuild/v0.10-boss-ai-leash-reset-fixed` — PENDING Phase 2 completion
+
+### Tag NOT cut
+
+Existing tag `qd-rebuild/v0.10-math-note-phase-1-complete` is the Phase 1.5 milestone marker.
+Per dispatch Phase 1.5 scope: no new tag cut for amendment fold-in. Tag absorbs into existing milestone.
+
+---
+
+## Completion record — Phase 1.5 amendment fold-in COMPLETE
+
+**Date:** 2026-05-20
+**Author:** gamora
+**Status:** Phase 1.5 COMPLETE. Phase 2 implementation ready to kick off.
+
+### Amendments folded
+
+**AMEND-1 (jack-ryan; REQUIRED):**
+- §3.2 rewritten. Incorrect `entity_id == f"mob_{focus_index}"` string-lookup proposal removed.
+- Reference-storage pattern adopted as primary spec: `self.mobs[focus_index]` at fight setup stores
+  `self._boss_focus_entity`; targeting function checks `boss_focus_entity in alive_mobs` (object identity).
+- `_get_player_primary_target` signature updated to take `boss_focus_entity: SpatialEntity | None`
+  instead of `scenario: ArenaScenario`. Call sites in §3.3 updated accordingly.
+- §9.1 Gate-1 concern updated: RESOLVED — reference-storage pattern eliminates entity_id naming
+  dependency entirely.
+
+**A1 (gandalf; Discipline #12 semantic shift sharpener):**
+- §7.3 MIGRATION.md v1.29 mandate sharpened. Added explicit D3→D2/PoE/Last Epoch genre repositioning
+  cite with quotable architectural rationale: boss-scenario adds are permanent encounter participants,
+  not open-world territory guards; D3 HP-reset convention is architecturally wrong for this encounter type.
+
+**A2 (gandalf; P0 close empirical-completion archaeology):**
+- §5.3 artifact requirement added. W0.9.6 vs W0.10.5 comparison table must be recorded as a
+  separately-tagged artifact section in AGENT_STATE.md post-re-sweep. Tag format specified.
+  Phase 2 obligation.
+
+**A3 (gandalf; encounter-configurable-leash forward-looking principle):**
+- §7.3 forward-looking architectural commitment flagged: encounter-configurable-leash principle
+  requires separate documentation lift into canonical architecture record post-W0.10 ratification.
+  Knight-rider queues follow-on documentation task. Not a Phase 2 blocker.
+
+### State after Phase 1.5
+
+- Math note: fully amended; all 4 amendments folded.
+- AGENT_STATE.md: updated to reflect Phase 1.5 completion and Phase 2 kickoff readiness.
+- No new tag cut (per dispatch: existing `qd-rebuild/v0.10-math-note-phase-1-complete` absorbs Phase 1.5).
+- Phase 2 (spatial_engine.py + arena.py + tests + MIGRATION.md v1.29 + re-sweep) is the next work item.
