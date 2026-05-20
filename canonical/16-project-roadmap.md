@@ -1,6 +1,6 @@
 # 16 — Project Roadmap (forward-looking)
 
-**Last updated:** 2026-05-16 (Day 4 — gandalf structural re-author; bloat split into companion docs 16a + 16b)
+**Last updated:** 2026-05-21 (gandalf — QD-engine rebuild chapter added as next-major-initiative; VS2a/VS2b superseded by rebuild plan)
 
 **Stewardship:** Forward-looking roadmap stewardship sits with **gandalf** (story + design steward) — the WHY/WHAT. **Knight-rider** feeds the IS-vs-IS-STATED drift signal as a mechanical input. Mechanical updates by gandalf directly; recommendations touching locked design positions route through Matt via decisions-log Gate-1.
 
@@ -12,7 +12,72 @@
 
 ---
 
-## 🎉 Where we are right now (2026-05-16, Day 4 close)
+## 🌟 Major architectural commitment (2026-05-21) — QD-engine rebuild
+
+After the recompose-validation hive (closed 2026-05-20) verdict — CANNOT REJECT NULL; kit-composition pathology IS the load-bearing problem — Matt committed to the architectural answer: **rebuild the engine as a Quality-Diversity (QD) optimizer with substrate-as-cohesion architecture.**
+
+**Canonical document stack (read in order):**
+
+1. `canonical/story/engine-architecture-vision-qd-profile-2026-05-19.md` — vision (QD-engine + 4 profiles + IDC meta-principle)
+2. `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` — operational spec (8 BC axes × 68,040 cells)
+3. `canonical/story/substrate-design-supplement-2026-05-21.md` — substrate-as-cohesion architecture (substrate identity is post-generation coalescence, NOT generation constraint)
+4. `canonical/story/qd-engine-end-to-end-workflow-2026-05-21.md` — 8-phase workflow with Profile A/B/C/D touchpoints
+5. `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` — 8-phase execution plan (P0-P7; 24-37 weeks)
+
+**Audit deliverables synthesized into rebuild plan:**
+
+- Legolas Phase 1 substrate-sufficiency audit (`agentic_orchestration/legolas/research/substrate-sufficiency-audit-2026-05-20/`)
+- Jack-ryan legacy constraint audit (`agentic_orchestration/jack-ryan/research/legacy-constraint-audit-2026-05-21/`) — 62 constraints, 12 HIGH-risk
+- Rocket Alt A substrate-generalization study (`agentic_orchestration/rocket/research/substrate-generalization-study-2026-05-21/`) — Pattern-A generalizes universally
+
+**Knight-rider activation dispatch:** `agentic_orchestration/dispatches/2026-05-21-knight-rider-qd-rebuild-hive-activation.md`
+
+**Matt-resolved decisions (D1-D6 + post-protocol refinements):**
+
+| ID | Decision |
+|---|---|
+| D1 | Unity render pipeline: URP |
+| D2 | Phase 0 element scope: 7 elements (fire/water/earth/wind/lightning/holy/shadow) |
+| D3 | Cohesion-BC sequenced post-cipher migration |
+| D4 | BC Axis 2 measurement: all fights, fight-context-tagged |
+| D5 | Foundation validator: 7-substrate |
+| D6 | Vision-layer geometry gaps documented for v1.1; do not block P0 |
+| Substrate-as-cohesion architectural recommitment | Generation substrate-agnostic; cohesion-judge assigns substrate/element/theme post-generation |
+| Shadow = trade-off (cohesion theme) | ARPG canon: D2 Necro, D3 WD, D4 Necro Sever, PoE Blood Magic; Solo Leveling shadow extraction |
+| Physical = warcry/shout exception (cohesion theme) | D2/D3/D4 Barbarian canonical |
+| Holy = aura self-amplification primary | D2 Paladin, D3 Crusader, PoE Guardian canonical |
+| Reincarnated-game Unity production initiative | New repo at `~/Games/reincarnated-game/`; Meshy 6 pipeline replaces Mixamo for humanoids |
+| Dual-render Profile A | Pixi.js 2D (existing demo) + Unity 3D (reincarnated-game); missing sprites acceptable |
+| Kit-redesign queue CANCELED | Contradicts QD-engine philosophy; 12-archetype list preserved as P7 W7.2 reference roster |
+| § 2.8 Skill tree node population P1 W1.13 (NEW WORKSTREAM) | Procedural per-class-per-season ~120-node trees; multi-dim convergence over node-subset × coefficients × modifier; resolves Pattern-A compression mathematically |
+| § 2.9 Gauntlet architecture | Single implementation (true multi-monster positional swarms); PackProxy ×8 retired; P7 certification is archive query, NOT gauntlet re-execution |
+
+**Phase plan (P0-P7; estimated 24-37 weeks total):**
+
+| Phase | Name | Duration | Critical work |
+|---|---|---|---|
+| P0 | Constraint removal + drift cleanup | 3-4 weeks | 12 HIGH-risk LCs resolved; B6 energy-type fix; archetype refactor; foundation validator (7-substrate); W0.9 gauntlet migration |
+| P1 | Substrate enrichment | 5-8 weeks | Ability schema extensions; HP-econ + charge-stack + damage-converts substrate; W1.13 skill tree node population |
+| P2 | BC measurement infrastructure | 3-4 weeks | All 8 axes operational; Discipline #17 calibration |
+| P3 | MAP-Elites archive implementation | 2-3 weeks | Pareto / crowding / Mahalanobis / hypervolume / KL gates |
+| P4 | Sim extensions for deferred bins | 4-6 weeks | Proxy / dodger sub-cases / charge / damage-converts / channel mechanics |
+| P5 | Theme coalescence + cohesion-BC + visual-BC | 3-5 weeks | LUCB1; joint-gate (Discipline #18); cipher migration coordination |
+| P6 | Profile assembly layer | 2-3 weeks | All 4 profiles (A/B/C/D); coreset + submodular packaging |
+| P7 | Validation gauntlet + production cutover | 2-3 weeks | Reference-archetype certification via archive query; Profile A ship |
+
+**Profile A near-term ship windows:**
+- P3 reduced-cell-space ship (~11-16 weeks): 25,920 cells; missing summoners/stealth/blood-magic/charge-stack/damage-converts archetypes
+- P4 full-cell-space ship (~15-22 weeks): 68,040 cells; full ARPG archetype roster
+
+**Parallel reincarnated-game initiative:** Multi-month Unity 3D production; Meshy 6 pipeline; ships independently of QD-engine rebuild timeline.
+
+**Queued assessment (does not block P0):** Monster thematic depth (Legolas + Galadriel + Gandalf synthesis; per `agentic_orchestration/dispatches/2026-05-21-monster-thematic-depth-assessment.md`)
+
+**Stewardship under rebuild:** Knight-rider orchestrates the QD-rebuild hive autonomously per protocol § 7. Gandalf decides cross-cutting design; jack-ryan critique-pair gating; Matt approves structural changes + production cutover only.
+
+---
+
+## 🎉 Where we are right now (2026-05-21 close; pre-rebuild)
 
 | Component | State |
 |---|---|

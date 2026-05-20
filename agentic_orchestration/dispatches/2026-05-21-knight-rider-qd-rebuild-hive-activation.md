@@ -251,6 +251,92 @@ The `node_subset + per_node_coefficients` pair IS the player-adoptable reference
 
 ---
 
+### 2.9 Gauntlet architecture — single implementation, single execution path; P7 certification is archive query
+
+**Matt 2026-05-21 surfaced critical architectural gap:** my prior framing implied two separate gauntlets (convergence + validation) which the recompose-hive's "fix the arena, not the synergy" principle warns against. Matt's follow-up: "*do we need the second gauntlet in that case?*" — and then "*might save engineering cycles due to redundant process elimination.*" That second catch eliminated phantom redundancy I had introduced.
+
+#### Architectural commitment
+
+**ONE gauntlet implementation: TRUE MULTI-MONSTER POSITIONAL SWARMS** with large/small room structure (per existing R2 spatial sub-gauntlet pattern). PackProxy ×8 swarm-tier abstraction RETIRED.
+
+**ONE execution path: convergence during archive population (P2/P3/P4).** Every candidate kit runs through the true multi-monster gauntlet as part of normal convergence. Reference archetypes (ARPG-canonical builds: D2 Hammerdin, D3 DH, PoE Cyclone Slayer, etc.) are SEEDED into the generation queue as targeted BC cells — they get tested against the gauntlet during regular archive filling, NOT as a separate re-execution.
+
+**P7 certification is an ARCHIVE QUERY, not a gauntlet re-execution:**
+- For each reference archetype, query the archive: does the expected cell contain a kit matching expected outcomes (BC coordinate + per-tier WR + cohesion theme)?
+- If yes: certification passes that reference
+- If no: investigate — convergence may have failed to produce the reference; that IS the certification signal
+- Total P7 W7.2 compute: ~12 archive queries (essentially free) instead of ~12 reference kits × ~5 tiers × full multi-monster sim
+
+**Engineering cycles saved by single-execution-path framing:**
+
+| Item | Saved |
+|---|---|
+| P7 gauntlet re-execution | ~1-2 days compute + coordination |
+| "Validation usage" codepath | Eliminated; one usage mode |
+| Architectural complexity | Two usage modes → one |
+| Maintenance burden | Single execution path; single calibration |
+
+#### Why this matters — the "fix the arena, not the synergy" alignment
+
+Recompose-hive governance principle (2026-05-20 close):
+> *"When your test arena lacks the monster you designed your synergy against, you fix the arena, not the synergy."*
+
+PackProxy ×8 abstracted 8-monster swarms as one big entity with N×HP and ×N AOE damage. This is the WRONG ARENA for kits that will face true 8-monster spatial gameplay in actual Reincarnated demo + game. Synergies validated against PackProxy may misalign with synergies needed in true gameplay.
+
+**True multi-monster positional gauntlet IS the same arena the player faces.** Synergy validation against this gauntlet aligns engine-trained kits with actual gameplay reality.
+
+#### Phase placement
+
+**New workstream: P0 W0.9 — Gauntlet architecture migration** (gamora; ~1-2 weeks)
+
+This is constraint removal — PackProxy ×8 is a legacy convergence-time abstraction that the new architecture retires. Sits naturally in P0 (constraint removal phase).
+
+| Sub-task | Description |
+|---|---|
+| W0.9.1 | Retire PackProxy ×8 from swarm-tier convergence path; route swarm-tier through true multi-monster spatial sim |
+| W0.9.2 | Extend existing R2 spatial sub-gauntlet to be the DEFAULT convergence path for all 5 tiers (not just spatial sub-tests) |
+| W0.9.3 | Implement gauntlet usage modes (convergence vs validation) — same sim code, different input/output pipelines |
+| W0.9.4 | Performance optimization: smoke-test mode (Discipline #2) for fast initial evaluation; full-fidelity at archive insertion; parallel batches; cell-targeted convergence |
+| W0.9.5 | Telemetry instrumentation for true multi-monster sim (per-entity damage logs; spatial positioning data; AI behavior traces) — feeds P2 BC measurement |
+| W0.9.6 | Calibration sweep: verify true multi-monster gauntlet produces sensible per-tier WR distributions; compare to PackProxy ×8 baseline; Discipline #17 |
+
+**Phase placement rationale:** P0 W0.9 happens BEFORE P1 substrate enrichment because all subsequent workstreams (substrate creation; BC measurement; archive insertion) depend on the gauntlet's output. Retiring PackProxy first ensures all downstream phases operate on consistent gauntlet structure.
+
+#### Performance considerations
+
+True multi-monster spatial sim is slower than PackProxy ×8 abstraction. Mitigations baked into W0.9.4:
+
+- **Smoke-test mode** (Discipline #2): fast initial evaluation per kit; full-fidelity escalation only for kits that pass smoke
+- **Parallel batches**: archive filling parallelizes across many kits simultaneously
+- **Cell-targeted convergence**: don't exhaustively converge all kits; target cells we need to fill per Phase 1 archive-state inspection priority
+- **Possibly: reduced-tick-rate evaluation** for early convergence iterations; full-tick-rate only for final convergence verification
+
+Net performance impact: **archive filling may be 2-5× slower than PackProxy-based filling, but each archive entry is empirically valid against actual gameplay reality.** Trade-off strongly favored by "fix the arena" principle.
+
+#### What this resolves
+
+- **PackProxy ×8 "wrong arena" risk** — retired
+- **Architectural ambiguity** in my protocol (was convergence PackProxy or true multi-monster? — now explicit)
+- **Two-gauntlet phantom redundancy** — collapsed to single execution path; P7 certification is archive query
+- **R2 spatial sub-gauntlet status** — promoted to default convergence path; not a sub-test anymore
+- **P7 W7.2 compute cost** — reduced from gauntlet re-execution to archive query (~free)
+
+#### Timeline impact
+
+- P0 duration: ~2-3 weeks → ~3-4 weeks (with W0.9 added)
+- Total rebuild: now 25-38 weeks (with W1.13 and W0.9 both added)
+- Still within vision-doc 18-26 + slack envelope
+
+**Net add: ~1-2 weeks for architectural consistency between engine training and actual gameplay reality. Strong value-per-week.**
+
+#### Critique-pair structure for W0.9
+
+- **gandalf** reviews architectural alignment ("fix the arena" principle; one-implementation-two-usages framing)
+- **jack-ryan** reviews migration correctness (PackProxy retirement complete; no legacy paths remain; Discipline #13a drift check)
+- **Matt approves** the workstream framing before W0.9 fires (new scope from protocol v1.1)
+
+---
+
 ### 2.7 VFX procurement defer to P6
 
 When Unity production initiative fires (separately), VFX procurement (Hovl RPG VFX Bundle ~$48; PixPlays Elemental Spells ~$36; etc.) happens at P6 W6.1-equivalent for that initiative. Free baselines (Hovl Magic Effects FREE; Digital Ruby Fire & Spell Effects) can be used in earlier Unity-init test runs without cost.

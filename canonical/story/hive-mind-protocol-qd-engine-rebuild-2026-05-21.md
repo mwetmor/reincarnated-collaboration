@@ -1072,7 +1072,9 @@ Run comprehensive validation gauntlet. Confirm reference-archetype recognition. 
 - Identify any axes/bins that remain empty after baseline run (substrate gaps surface here)
 - Tag: `qd-rebuild/v7.1-archive-sweep`
 
-**W7.2 — Reference-archetype validation** (gandalf + Matt)
+**W7.2 — Reference-archetype certification (ARCHIVE QUERY)** (gandalf + Matt)
+
+**Architectural note (per Matt 2026-05-21):** This is NOT a gauntlet re-execution. The data is already generated and inserted to the archive during P2/P3/P4 convergence — reference archetypes are seeded into the generation queue as targeted BC cells, so they're tested against the gauntlet during normal archive filling. P7 W7.2 is an archive QUERY for reference-archetype coverage + outcome matching. Engineering cycles saved by eliminating phantom redundant gauntlet execution.
 - Reference archetypes (ARPG-canonical builds): D2 Hammerdin, D3 Demon Hunter, PoE Cyclone Slayer, D2 Sorc Frozen Orb, etc.
 - For each reference: does the engine produce a kit that lands in the expected cell?
 - Cell-address validation against ARPG-canonical expectations
