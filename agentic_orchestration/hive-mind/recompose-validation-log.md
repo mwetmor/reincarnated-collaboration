@@ -1267,3 +1267,46 @@ Phase 1 (rocket) + Phase 2 (gamora) + Phase 3 (star-lord) all delivered per disp
 Firing gandalf as background subagent for P3 synthesis. Jack-ryan fires after gandalf HANDOFF.
 
 Routing now.
+
+---
+
+## 2026-05-20 EDT — gandalf STATE — P3 canonical findings synthesis COMPLETE
+
+**Verdict: CANNOT REJECT NULL.** Hypothesis H_RC is not supported by season_100005 empirical evidence; H_RC_0 is reinforced. Observed: 0% kit-acceptable (0/10 classes), 100% Pattern-A (10/10 classes boss WR = 0.0), 0/10 floor-lock-recovery candidates. The empirical figure is at the worst-case bound of the verdict gate (scope-of-work § 1: < 60% threshold).
+
+**Canonical findings document filed:** `canonical/story/per-tier-recompose-validation-findings-2026-05-19.md` (12 sections per dispatch § 3.1; AUTONOMOUS L2-equivalent authority).
+
+**Recommendation: SURFACE TO MATT (wind-down trigger #3 signals per protocol § 7).** P4 does NOT fire autonomously per protocol § 7 + dispatch § 6 HARD out-of-scope #1. Knight-rider authors Matt briefing post-Gate-2 disposition.
+
+**Verdict reasoning (load-bearing):**
+1. Empirical evidence is unambiguous (0% vs 60% threshold; not at edge case)
+2. Three independent lines triangulate on same diagnosis (R1 kit-redesign queue 38/51; R2+ST joint synthesis Row 5 "catalogue has deeper pathology"; this hive's P2 evidence at full-season scope on shadow substrate under disposition-3 calibration)
+3. The hive produced the cleanest possible diagnosis per protocol § 11 — Option A's mechanism is verified, Option B's mechanism is verified mechanically and preserved as sleeping safety net, methodological findings captured, governance precedents established, and the next architectural decision is now obvious (kit-redesign queue execution; alternatives § 10.2 enumerated)
+
+**Per-failure-mode disaggregation (§ 6 of findings doc; transparent push-back on knight-rider's framing):** I agree with knight-rider's "100% boss-DPS-floor-structural" load-bearing conclusion AND disaggregate transparently:
+- Sub-pattern 2 (boss-DPS-floor) = 10/10 universal — observable failure mode
+- Sub-pattern 5 (recompose-couldn't-recover) = 9/9 canonical — operational failure mode (recompose mechanism IS operating; lever space cannot rewrite generation rules)
+- Sub-pattern 6 (generation-rule-pathology) = 10/10 universal — architectural failure mode where the fix has to live
+- Sub-pattern 4 (floor-lock-still-active) = 0/10 — explicitly NOT implicated
+- class_0009 shadow_controller carries an additional sub-pattern layer (controller-mechanic mismatch on elite tier over-shoot 0.670) — disaggregated for the kit-redesign queue's downstream authoring so that one-size-fits-all kit-redesign doesn't miss controller-archetype-specific work
+
+**Engineering-disciplines candidates (queued for P5 amendment OR Matt-briefing inclusion at trigger #3 surface):** my design-judgment recommendation (§ 9.6) is to fold the two P1 + P2 findings into a **single Discipline #11 elaboration** rather than two standalone disciplines, because they share the same root-cause epistemic pattern (state-space conflation: signals from non-equilibrium pipeline states conflated with equilibrium-state population properties). Proposed elaboration language is drafted in § 9.6 for P5 co-authoring refinement. Alternative (two standalone disciplines) considered + rejected because of the load-bearing pattern unity.
+
+**Methodology finding framing (§ 9):** the P1-vs-P2 signal-reversal and P1 smoke-B1 test-class-selection error are the same epistemic pattern surfaced ~24 hours apart by two independent hive events. That convergence is the load-bearing argument for elevating the pattern to engineering-disciplines amendment. Retrospective applications (gandalf brief v1.0 § 4.1; knight-rider Phase 1 P2 read) + prospective applications (smoke-gate design, population-level diagnostic reads, future R-batch generation-time-telemetry use) documented.
+
+**Routing recommendation for knight-rider:**
+1. Route jack-ryan for Gate-2 critique on this synthesis structure + evidence-coverage + scope discipline (BLOCK reserved for material misrepresentation; APPROVE-WITH-AMEND expected per dispatch § 3.2)
+2. On Gate-2 disposition (APPROVE-AS-IS / APPROVE-WITH-AMEND): knight-rider fires `recompose-hive/v0.4-validation-verdict` (engine + collab) + authors Matt briefing at `agentic_orchestration/matt-briefing-recompose-validation-2026-05-20.md` per protocol § 7 trigger #3
+3. On BLOCK from jack-ryan: knight-rider routes back to gandalf for re-synthesis (autonomous L2 dispute resolution per dispatch § 3.3)
+
+**Tag intent:** `gandalf/v<X.Y>-p3-canonical-findings-synthesis` (seam tag; gandalf fires after this hive log STATE update under autonomous L2-equivalent authority per engine-rebuild protocol § 4.0).
+
+**Hive trigger watch:** ⏸ Triggers 1, 2, 4 still unsignaled. **⏰ Trigger 3 (P3 CANNOT REJECT NULL verdict) SIGNALS at this entry.** Per protocol § 7, the hive deactivates pending Matt direction once knight-rider completes verdict-handoff (tag + Matt briefing + decisions-log entry filed).
+
+**Disciplines anchored by this synthesis:**
+- #1 (math-before-code): synthesis reasoning grounded in empirical record before any architectural recommendation
+- #11 (empirical inspection): two methodological findings captured (P1 + P2 signal-state conflation)
+- #12 (semantic shift): "CANNOT REJECT NULL" explicitly named as the worst-case-bound verdict, not framed as hive failure
+- #15 (drift-detection): kit-composition pathology framing aligned with R1 + R2+ST + this hive's evidence (no drift between three independent diagnoses)
+
+Mithrandir's measure: the hive walked the road it was authored to walk. The road forward is named. That is what the road was for. The synthesis stands; jack-ryan critiques next.
