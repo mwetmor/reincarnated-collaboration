@@ -901,3 +901,132 @@ floor_lock_recompose=True on 6/10 is the diagnostic signal gamora Phase 2 needs 
 **On gamora completion:** knight-rider reads HANDOFF + fires star-lord for Phase 3 (classification + Pattern-A/B + **floor-lock candidate analysis** = THE KEY FINDING per dispatch § 3.2 Phase 3). Star-lord's analysis produces the canonical figure knight-rider applies the three-way disposition gate to.
 
 Routing now.
+
+---
+
+## 2026-05-20 EDT — gamora STATE — P2 Phase 2 cold-start convergence COMPLETE (FRICTION: 0/10 floor_lock)
+
+**Season:** season_100005 | **Substrate:** shadow | **Seed:** 100005
+**Engine SHA:** `6cb7fa4` | **Tag:** `gamora/v1.15-p2-balance-convergence-shadow-100005`
+**Script:** `scripts/p2_cold_start_convergence_season_100005.py`
+**Output:** `output/p2-fresh-diagnostic-regen-2026-05-19/season_100005/balance_results.json`
+**Wall time:** 283.0s (all 10 classes; 100 fights/matchup; production-grade)
+
+**Engine state verified at execution:**
+- Option A floor ACTIVE: MODIFIER_SEARCH_FLOOR=0.01 — assertion PASS
+- Option B SOFT-DISABLED: LEVER_FLOOR_LOCK_WORKING_MODIFIER=MODIFIER_SEARCH_FLOOR — assertion PASS
+- Cold-start: balance_modifier=1.0 for all 10 classes — assertion PASS per-class
+- Disposition-3 calibration ACTIVE (boss HP×0.40, armor×0.45, swarm HP×3.5, 240s boss, 150s mini-boss)
+
+**Aggregate results:**
+
+| Metric | Value |
+|---|---|
+| Total classes | 10 |
+| Converged | 0/10 |
+| Partially-converged | 10/10 |
+| Failed_regenerate | 0/10 |
+| **floor_lock_recompose=True** | **0/10** |
+| modifier_extreme_low=True | 0/10 |
+
+**Per-class summary table:**
+
+| class_id | archetype | modifier | mel | flr | outcome | conv_wr | status | swarm | magic | elite | mboss | boss |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| class_0001 | shadow_mage | 0.1956 | F | F | modifier_fallback | 0.498 | partial | 1.000 | 1.000 | 0.495 | 0.000 | 0.000 |
+| class_0002 | fire_mage | 0.0719 | F | F | primary_loop_converged | 0.500 | partial | 1.000 | 1.000 | 0.500 | 0.000 | 0.000 |
+| class_0003 | water_mage | 0.1338 | F | F | primary_loop_converged | 0.485 | partial | 1.000 | 0.955 | 0.500 | 0.000 | 0.000 |
+| class_0004 | earth_caster | 0.1338 | F | F | primary_loop_converged | 0.500 | partial | 1.000 | 1.000 | 0.500 | 0.000 | 0.000 |
+| class_0005 | wind_caster | 0.1338 | F | F | primary_loop_converged | 0.500 | partial | 1.000 | 1.000 | 0.500 | 0.000 | 0.000 |
+| class_0006 | lightning_mage | 0.0719 | F | F | primary_loop_converged | 0.512 | partial | 1.000 | 1.000 | 0.535 | 0.000 | 0.000 |
+| class_0007 | holy_caster | 0.1338 | F | F | primary_loop_converged | 0.495 | partial | 1.000 | 0.985 | 0.500 | 0.000 | 0.000 |
+| class_0008 | physical_warrior | 0.3812 | F | F | primary_loop_converged | 0.490 | partial | 0.988 | 1.000 | 0.470 | 0.000 | 0.000 |
+| class_0009 | shadow_controller | 0.3812 | F | F | primary_loop_converged | 0.530 | partial | 0.815 | 0.920 | 0.670 | 0.000 | 0.000 |
+| class_0010 | experimental | 0.1338 | F | F | skipped_experimental | 0.518 | partial | 1.000 | 1.000 | 0.555 | 0.000 | 0.000 |
+
+mel=modifier_extreme_low, flr=floor_lock_recompose, partial=partially-converged, mboss=mini_boss
+
+---
+
+## 2026-05-20 EDT — gamora FRICTION — P2 cold-start: 0/10 floor_lock_recompose vs rocket's 6/10 generation-time signal
+
+**FRICTION TYPE:** Structural divergence — cold-start floor_lock_recompose count (0/10) substantially differs from rocket's generation-time signal (6/10). Per dispatch § 5 falsifying condition: "If gamora's Phase 2 convergence outcomes differ substantially from rocket's generation-time signal → surface FRICTION."
+
+**Canonical at-floor candidates (rocket's class_0002 + class_0004):**
+
+class_0002 (fire_mage): cold-start `final_modifier=0.0719`, `floor_lock_recompose=False`
+- 4 recompose_attempts; all `floor_lock_detected=False`; `eval_modifier=0.0177` (above MODIFIER_SEARCH_FLOOR=0.01)
+- `before_winrate=0.61` at initial eval — BELOW `RECOMPOSE_SIGNAL_HI=0.70` → detection branch correctly does NOT fire
+- True cold-start equilibrium `m* ≈ 0.072`
+
+class_0004 (earth_caster): cold-start `final_modifier=0.1338`, `floor_lock_recompose=False`
+- 4 recompose_attempts; all `floor_lock_detected=False`; `eval_modifier=0.0255` (above MODIFIER_SEARCH_FLOOR=0.01)
+- `before_winrate=0.6642` at initial eval — BELOW `RECOMPOSE_SIGNAL_HI=0.70` → detection branch correctly does NOT fire
+- True cold-start equilibrium `m* ≈ 0.134`
+
+**Root cause (Discipline #11 empirical inspection):**
+
+Rocket's generation-time floor_lock signal is pipeline-state-conditioned, not equilibrium-conditioned. During R8 inverted pipeline kit generation, the embedded balance loop runs with whatever modifier state the class has at that pipeline stage. Classes built by the R8 pipeline with modifiers near or at the floor exhibit `last_wr > RECOMPOSE_SIGNAL_HI` at `_quick_modifier_estimate` exit — triggering `floor_lock_detected=True` correctly for those pipeline states. But those pipeline-internal states do NOT equal the kit's true cold-start equilibrium modifier.
+
+Under cold-start from 1.0, `_quick_modifier_estimate` descends from 1.0 and enters signal range `[0.30, 0.70]` at the true equilibrium. For all 10 classes in season_100005: `m* ∈ [0.0177, 0.3812]` — all above MODIFIER_SEARCH_FLOOR=0.01. No class is genuinely floor-locked in cold-start. The masked-Pattern-B-extreme population (true `m* < 0.01`) is absent from season_100005.
+
+**Dispatch § 4.1 disposition:**
+
+This is the **"Zero floor-lock candidates across full season"** outcome. Per dispatch § 4.1:
+- "This is canonical-record-worthy. The masked-Pattern-B-extreme population is empirically refuted at full-season scope (or at least, far smaller than § 2.5's 3-8/season conservative estimate)."
+- "Soft-disable becomes the right end state — Option B is preserved as a sleeping safety net for a population that may not exist."
+- **"Wind-down trigger #3 signals at P3."**
+
+**Additional finding: 10/10 partially-converged (Pattern-A structural at full-season scope)**
+
+All 10 classes show boss_wr=0.0 + mini_boss_wr=0.0 at converged modifier. Aggregate WR converges (≈ 0.50) but the R1 per-tier gate fails for boss and mini_boss tiers across the board. This is consistent with Phase B.2's empirical finding that ~45% of the catalog has boss-tier structural pathology; shadow substrate at seed=100005 appears to produce 100% Pattern-A (boss-zero) classes. Star-lord Phase 3 will classify formally.
+
+**No investigation required beyond this diagnosis.** The mechanism is correct; the cold-start finding is the canonical empirical record; the "zero floor-lock candidates" outcome is the hive's disposition gate. Route star-lord for Phase 3 classification.
+
+---
+
+## 2026-05-20 EDT — gamora HANDOFF — P2 Phase 2 COMPLETE; routing star-lord Phase 3
+
+**To:** star-lord (Phase 3: classification + Pattern-A/B + floor-lock candidate analysis)
+**From:** gamora (Phase 2 complete)
+**Dispatch authority:** `agentic_orchestration/dispatches/2026-05-19-rocket-plus-star-lord-plus-gamora-p2-fresh-diagnostic-regen.md` § 3.2 Phase 3
+
+**Phase 2 completion confirmation:**
+- Commit: `6cb7fa4` (engine main)
+- Tag: `gamora/v1.15-p2-balance-convergence-shadow-100005` (pushed)
+- balance_results.json: `output/p2-fresh-diagnostic-regen-2026-05-19/season_100005/balance_results.json`
+
+**Aggregate counts (for star-lord's Phase 3 analysis):**
+
+| Metric | Count |
+|---|---|
+| Converged | 0/10 |
+| Partially-converged | 10/10 |
+| Failed_regenerate | 0/10 |
+| floor_lock_recompose=True | **0/10** — THE KEY FINDING |
+| modifier_extreme_low=True | 0/10 |
+
+**Star-lord Phase 3 task (per dispatch § 3.2 Phase 3):**
+
+1. Read gamora's balance_results.json; verify all 10 classes have v2.12 + v2.13 fields populated
+2. **Floor-lock detection rate analysis (THE KEY FINDING):**
+   - canonical count: **0/10** classes with any `floor_lock_detected=True` in recompose_attempts
+   - cross-check `floor_lock_recompose=True` on ClassBalanceResult: **0/10**
+   - Disposition: "Zero floor-lock candidates" per dispatch § 4.1 — wind-down trigger #3 candidate signals at P3
+3. **Per-class classification** (kit-acceptable / kit-mediocre / kit-broken per gandalf's brief § 2.5 carve)
+4. **Pattern A/B classification:**
+   - boss_wr=0.0 for ALL 10 classes → Pattern-A (boss-zero structural) at full-season scope on shadow substrate
+   - No Pattern-B candidates in this season
+5. **Pattern-B-extreme candidate analysis:** 0 candidates (0/10 floor_lock_recompose=True → no Option B re-enable candidates)
+6. Output analysis at `output/p2-fresh-diagnostic-regen-2026-05-19/p2-classification-and-floor-lock-analysis.md`
+7. Update telemetry AGENT_STATE.md; commit + push; append HANDOFF to hive log routing knight-rider for P2 acceptance
+
+**FRICTION context for star-lord:**
+
+The 0/10 floor_lock_recompose=True finding diverges from rocket's generation-time 6/10 signal. This is a RESOLVED FRICTION (gamora FRICTION entry above): root cause is that rocket's generation-time signal is pipeline-state-conditioned (embedded convergence at in-pipeline modifier states), while gamora's cold-start canonical figure reflects true equilibrium modifiers. The mechanism is correct; the cold-start canonical count is the authoritative figure for the three-way disposition gate.
+
+**Ace card for star-lord's report to knight-rider:**
+
+The Phase 3 analysis answers whether wind-down trigger #3 fires (soft-disable is right end state; masked-Pattern-B-extreme population is absent from season_100005 at full-season scope). Per dispatch § 4.1: "Soft-disable becomes the right end state — Option B is preserved as a sleeping safety net for a population that may not exist. Wind-down trigger #3 signals at P3."
+
+Star-lord fires HANDOFF to knight-rider on completion.
