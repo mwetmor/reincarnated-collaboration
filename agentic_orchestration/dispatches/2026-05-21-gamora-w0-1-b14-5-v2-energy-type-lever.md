@@ -113,14 +113,14 @@ MIGRATION.md entry per ADR-004. Coordinate with star-lord + W0.9 (schema v2.14 l
 
 ## Scope
 
-- [ ] Math-before-code note authored (Step 0; route through knight-rider for jack-ryan Gate-1 BEFORE code change)
+- [x] Math-before-code note authored (Step 0; route through knight-rider for jack-ryan Gate-1 BEFORE code change)
 - [ ] Energy-type lever implemented in primary recompose loop (Step 1)
 - [ ] Unit tests added + smoke pass (Step 2)
 - [ ] Calibration sweep documented (Step 3; mean |mod - 1.0| shift; per-tier WR validation)
 - [ ] Coordinated with W0.9 sequencing (Step 4)
 - [ ] MIGRATION.md per ADR-004 (Step 5)
 - [ ] Round-trip smoke per Principle 6
-- [ ] AGENT_STATE.md updated
+- [x] AGENT_STATE.md updated
 - [ ] Tag: `qd-rebuild/v0.1-b14-5-v2-energy-type-lever`
 
 ## Acceptance criteria
@@ -164,3 +164,34 @@ MIGRATION.md entry per ADR-004. Coordinate with star-lord + W0.9 (schema v2.14 l
 - `reincarnated-engine/design/decisions/decisions-log.md` 2026-05-16 "B10.4 Option 2 modifier baseline" entry (LC-004 derivation)
 - `reincarnated-engine/design/working-agreement/engineering-disciplines.md` (especially #1, #2, #11.1, #17, R11(b), #18 named-constants, Pattern P7)
 - `agentic_orchestration/matt-briefing-qd-rebuild-activation-2026-05-21.md` § 4 (this dispatch interpretation of W0.1; gandalf endorsement)
+
+---
+
+## Completion record
+
+### Phase 1 (math-before-code) — COMPLETE 2026-05-21
+
+**Completed by:** gamora
+**Date:** 2026-05-21
+**Math note:** `reincarnated-engine/src/reincarnated/simulation/math/w0-1-b14-5-v2-energy-type-lever.md`
+**AGENT_STATE.md:** updated with W0.1 Phase 1 status
+
+**Key deliverables:**
+- LC-004 decomposition updated with Discipline #11.1 cold-start tier-aware factors (boss-tier miss rate 1.82×, not the warm-start aggregate ~1.18×)
+- Lever design: combined sub-lever A (rage startup energy cost priority in `_lever_cooldown_energy`) + sub-lever B (new `_lever_energy_type_calibration` as 4th lever in `_primary_recompose_loop`; probe adjustment factor `ENERGY_TYPE_LEVER_PROBE_ADJUSTMENT = 1.25` for `frozenset({"rage", "combo", "stamina-as-resource"})` classes)
+- Modifier compression prediction: physical_warrior 0.38 → 0.60–0.70 (post-B6+W0.1 combined); mean |mod-1.0| 0.82 → 0.65–0.72
+- OQ-6 disposition: IRREDUCIBLE at W0.1 simulation layer; routes to W0.2 + W0.9 joint resolution
+- W0.9 joint-resolution call: W0.1 is physical/rage upward compression; mage low-modifier compression is W0.9 + existing tier-weighted convergence (boss_weight=4.0) path; these are parallel, not serial
+- Reversibility: `ENERGY_TYPE_LEVER_PROBE_ADJUSTMENT = 1.0` for soft-disable; named constants; floor-lock interaction guard (G3 — sub-lever B must short-circuit when `floor_lock_detected=True`)
+- Cross-seam: `energy_type_lever_applied: bool` field rides W0.9 schema v2.14 migration (coordinate with star-lord)
+- Three Gate-1 architectural concerns documented: G1 (probe adjustment soundness), G2 (focus/hunter exclusion criterion), G3 (floor-lock interaction)
+
+**Open questions resolved:**
+- Lever composition: combined sub-lever A + B (not armor adjustment — armor gap closed by B6; not per-tier target modification — global change, incorrect seam)
+- W0.9 sequencing: calibration sweep preferred AFTER W0.9 Phase 2; document as PackProxy baseline if run before
+- OQ-6: documented as W0.2 + W0.9 joint resolution; NOT a W0.1 acceptance blocker (per dispatch § OQ-6)
+- Reversibility: documented per recompose-hive precedent (named constants, soft-disable, docstring framing)
+
+**Phase 2 (implementation) status:** PENDING — awaiting jack-ryan Gate-1 + gandalf architectural review routing via knight-rider
+
+**Tag `qd-rebuild/v0.1-b14-5-v2-energy-type-lever`:** NOT YET — fires after full implementation + calibration sweep ships
