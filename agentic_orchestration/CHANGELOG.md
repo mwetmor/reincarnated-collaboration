@@ -4,6 +4,54 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — engineering-disciplines.md § 13a-partition ratified: Calibration Lever Partition Principle
+
+**Event:** Per gandalf W0.1 architectural review amendment A8, ratified by jack-ryan DESIGN-MODE as new sub-prescription **Discipline #13a-partition** (Option A — elaboration under existing #13a drift-discipline; route-of-authority for substrate-keying-at-calibration anti-pattern detection). Engine commit `18f47a8`.
+
+**The principle (load-bearing one-sentence statement):**
+*"Calibration levers in the balance loop and convergence pipeline must partition their adjustments by mechanical population properties (energy_type, geometry-range, arena scenario, etc.) — never by substrate identity (physical / shadow / holy / lightning / etc.)."*
+
+**Empirical anchors:**
+- W0.1 sub-lever B (energy_type partition; first statement of principle in gamora math note § 5)
+- W0.9 spatial migration (arena/geometry partition in gamora math note)
+- substrate-as-cohesion-only architectural recommitment (substrate supplement 2026-05-21 § 1 + § 3)
+
+**Rationale for Option A:** substrate-keyed calibration branching is observable from code-reading alone (detectable at Gate-1 without telemetry) — exact structural signature of a Discipline #13a drift violation against the substrate-as-cohesion-only commitment. Routing through #13a consolidates drift-discipline authority.
+
+**Detection mechanism:** any `if substrate == "X"` branching in `balance_loop.py` or `convergence_pipeline.py` flagged at Gate-1 as a #13a-partition violation. Reviewers cross-check substrate-keyed branches against this discipline.
+
+**Cross-references:**
+- `canonical/story/substrate-design-supplement-2026-05-21.md` § 1 + § 3 (architectural recommitment + five safeguard principles)
+- `reincarnated-engine/src/reincarnated/simulation/math/w0-1-b14-5-v2-energy-type-lever.md` § 5 A8 (first statement of principle)
+- `reincarnated-engine/src/reincarnated/simulation/math/gauntlet-migration-arena-equivalence.md` (W0.9 math note; arena/geometry partition)
+- `agentic_orchestration/dispatches/2026-05-21-knight-rider-qd-rebuild-hive-activation.md` § 2.0 (architectural intent enforced)
+
+**Authority:** jack-ryan DESIGN-MODE per ADR-002 + Matt's autonomous-operation directive 2026-05-21; knight-rider authorized the codification per the protocol § 7.1 routine governance flow.
+
+---
+
+## 2026-05-21 — QD-rebuild P0 W0.2 Phase 1 COMPLETE: archetype removal math-before-code
+
+**Event:** W0.2 (rocket; archetype template Path-a refactor under substrate-as-cohesion-only — REMOVE archetype layer entirely) Phase 1 math-before-code complete. Engine commit `e306c0b`. Math note at `reincarnated-engine/src/reincarnated/generation/math/w0-2-archetype-removal-bc-target-composition.md` (865 lines, 11 sections).
+
+**Scope sharpened by W0.4 LC-001 finding** (D3 Path-a composition already live): W0.2 is NOT "refactor frozen dict to compose at boot" (done) but "REMOVE the archetype layer entirely; pure BC-target-driven composition from unified substrate-AGNOSTIC mechanic pool."
+
+**Key design decisions:**
+- **Composition algorithm:** 8-step pseudocode; weighted-random draw without replacement; per-axis alignment score product as weight; role-shape constraints POST-assembly; infeasible → None or DeferredEvaluation
+- **Unified pool:** ~150-250 mechanics; substrate tags stripped from 23 current templates
+- **ARCHETYPE_TEMPLATES disposition:** DEPRECATE-IN-PLACE (mirrors recompose-hive precedent)
+- **`archetype_label` format:** BC-coordinate-derived `"{eng_bin}/{geo_bin}/{ctrl_bin}/{def_bin}/{econ_bin}_{role}_{cost_type}"`
+- **Energy-type tier carry-forward:** B6 tier amounts preserved (rage=65, combo/focus=58, mana=50); keying migrates to cost_type (mechanical pillar; satisfies #13a-partition)
+- **Cross-seam:** v2.15 schema bump on class_fight_loadouts (archetype_label TEXT nullable) — **aligns with W0.1's v2.15** for co-migration opportunity
+
+**Four architectural concerns for Gate-1:** season_orchestrator coupling (deferred to W0.2.2); shim translation table is prediction-only; physical template special constraints map to mechanic geometry; support role deferred Profile A.
+
+**Joint-resolution triad confirmed:** W0.2 (source diversity) + W0.9 (arena fidelity) + W0.1 (calibration fairness) — all three needed; orthogonal architectural layers.
+
+**Phase 2 routing:** jack-ryan Gate-1 + gandalf architectural review fired in parallel. Phase 2 implementation pending consolidation.
+
+---
+
 ## 2026-05-21 — QD-rebuild P0 W0.1 Phase 1 + Phase 1.5 COMPLETE: B14.5 V2 energy-type lever math-before-code locked
 
 **Event:** W0.1 (gamora; B14.5 V2 energy-type lever in primary recompose loop) Phase 1 (math-before-code) + Phase 1.5 (amendment fold-in) workstreams complete. Tag `qd-rebuild/v0.1-math-note-phase-1-complete` fired (engine commit `5bbc2f4`; collab commit `351252a`).
