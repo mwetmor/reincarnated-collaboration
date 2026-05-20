@@ -115,3 +115,68 @@ Dispatch fires verbatim as the brief. Gamora authority: AUTONOMOUS L1 within eng
 **Next action for knight-rider:** Fire `gamora/v1.13-balance-loop-floor-widened-option-a` tag; file decisions-log entry (text in dispatch § 7); promote to `recompose-hive/v0.1-option-a-floor-widened` on Gate-2-read pass; route P1 to gandalf for Option B design brief.
 
 **P1 scope reminder (HARD out-of-scope for this commit):** Option B (recompose-trigger floor-lock detection + forced lower working modifier) — gandalf design brief first, then jack-ryan Gate-1, then gamora implementation. The stop-gap regen's warm-start finding (modifier_extreme_low=0) means Option B remains the only path to demonstrably produce sub-0.05 modifier outcomes in a production season.
+
+---
+
+## 2026-05-19 23:00 EDT — knight-rider STATE — P0 ACCEPTED; tags fired; decisions-log filed
+
+**P0 Gate-2-read disposition: ACCEPT.** All gamora-reported smoke gates verified clean; acceptance criteria fulfilled (3 of 4 explicit + spirit-of-acceptance on the 4th — cold-start sub-0.05 demonstration deferred to P2 per gamora's documented warm-start vs cold-start framing, which knight-rider accepts as the right scope split).
+
+**Disposition rationale:** the mechanism unblocking is unambiguous at the code level (`MODIFIER_SEARCH_FLOOR=0.01`; 4 sites updated; `MODIFIER_SEARCH_CEILING=4.0` paired; module-level docstring filed). Smoke A1 demonstrated `FAILED → CONVERGED` for class_0001 season_100002 — the floor-lock failure mode is eliminated. The empirical sub-0.05 demonstration requires cold-start initial-conditions; warm-starting from `final_modifier=0.0509` satisfies TOLERANCE at the prior floor (1 iteration to converge). This is correct behavior, not a defect. P2 fresh diagnostic regen runs cold-start; that's the proper venue for the sub-0.05 empirical case. Blocking P0 on cold-start demonstration would force a wasted 4th stop-gap regen given P2 will do it under the new mechanism.
+
+**Tags fired (Gate-2-read pass + standing ADR-006 amendment authority):**
+- `gamora/v1.13-balance-loop-floor-widened-option-a` (engine seam tag) — engine `a58b60f`
+- `recompose-hive/v0.1-option-a-floor-widened` (P0 hive milestone tag) — engine `a58b60f` + collab `0335e72`
+- Both pushed.
+
+**Decisions-log entry filed:** engine `design/decisions/decisions-log.md` commit `a58b60f`. Covers P0 mechanism + Discipline #18 resolution + #12 semantic shift + Option B authorization + recompose-validation hive context + Phase B.2 Pattern A/B empirical foundation.
+
+**Cross-seam follow-on signals:**
+- Star-lord: schema v2.12 (additive nullable `modifier_extreme_low` column on `class_balance_results`) — picked up at P2 telemetry work; no immediate dispatch authoring required. Knight-rider files reminder when P2 dispatch authors.
+- Rocket: informational only; convergence outcomes shift for R8-inverted kits.
+- Drax: no impact.
+
+**Engineering disciplines confirmed by P0 work:** #1 math-before-code (gamora's investigation pre-authored); #2 smoke-test (single-class A1, test-suite A2, 3-season stop-gap); #11 empirical inspection (warm-start finding documented, not hand-waved); #12 semantic shift (named explicitly in commit message + MIGRATION.md v1.21 header + docstring + ClassBalanceResult annotation); #18 implicit-pillar named-constant (resolved with full docstring).
+
+**Hive trigger watch:**
+- ⏸ Trigger 1 (explicit wind-down): not signaled
+- ⏸ Trigger 2 (P5 completion): pre-P1
+- ⏸ Trigger 3 (P3 CANNOT REJECT NULL): pre-P3
+- ⏸ Trigger 4 (hard architectural blocker): no signal — P0 clean
+
+**Next action:** route P1 design brief authoring to gandalf via subagent invocation. Gandalf's task: author the Option B trigger re-conditioning brief covering (a) where the recompose trigger re-conditions in `balance_loop.py`, (b) what signal range engages the re-conditioning, (c) what smoke gate B1 applies. Expected ~1-2h gandalf effort. On brief receipt: knight-rider routes to jack-ryan for Gate-1 critique, then authors gamora implementation dispatch from gandalf's brief + jack-ryan amendments.
+
+---
+
+## 2026-05-19 23:00 EDT — knight-rider HANDOFF — P1 design brief AUTHORING ROUTED TO GANDALF
+
+P0 acceptance fired; P1 begins. Per protocol § 6 P1 + § 4 coordination matrix:
+
+**P1 owner sequence:**
+1. **gandalf** authors Option B design brief (this handoff)
+2. **jack-ryan** Gate-1 critique on gandalf's brief
+3. **gamora** implements per brief + critique amendments
+4. **knight-rider** fires P1 acceptance tag on smoke B1 PASS
+
+**Design question for gandalf** (the brief's load-bearing center):
+
+Where, when, and how should the recompose trigger be re-conditioned so that it fires on floor-lock cases (now reachable post-Option-A) and produces non-zero lever deltas in the signal range?
+
+Gamora's investigation § 4.3 established: the current trigger `if eval_modifier < MODIFIER_LOW_THRESHOLD (0.30): reduce_dps = True` fires correctly, but at `eval_modifier ~0.0509` the working WR is ~1.00 (ceiling) and lever deltas are 0.0 — levers can't find signal. The proposed re-condition (per investigation § 5.2): ALSO fire on `status=failed AND eval_modifier ≤ MODIFIER_SEARCH_FLOOR + epsilon`. But the design questions are:
+- What value of `epsilon`? (Detection sensitivity vs false-positive on classes converging legitimately just above floor)
+- Should the re-condition force a lower working modifier for lever evaluation (e.g., `working_modifier = 0.025`), or use the search's current operating modifier?
+- What is the smoke gate B1 acceptance condition? (Investigation § 5.2 proposes "recompose lever delta at modifier=0.025 produces non-zero acceptance for 1+ test class"; gandalf may refine.)
+- What is the cross-seam impact? (Star-lord telemetry: should recompose-fire-count include a `floor_lock_recompose` sub-bucket?)
+- Discipline #12 semantic-shift framing: how does the signal range expand, and what does MIGRATION.md v1.22 record?
+
+**Gandalf brief deliverable:** authored at `agentic_orchestration/dispatches/2026-05-19-gandalf-p1-option-b-recompose-trigger-design-brief.md` (or similar path; gandalf chooses). On completion, brief routes to jack-ryan for Gate-1 critique; jack-ryan amendments fold; knight-rider authors gamora implementation dispatch.
+
+**P1 effort estimate:** gandalf ~1-2h design; jack-ryan ~1-2h Gate-1; gamora ~4-6h implementation + smoke. Total ~6-10h.
+
+**Out-of-scope for P1 (HARD):**
+- P2 fresh regen substrate choice — held for after P1 acceptance; gandalf picks then
+- True-season scope decisions (P4) — held until P3 verdict
+- Pattern-B PARKED thread — remains parked; do NOT re-open during P1 authoring
+- Bidirectional recompose levers (DPS-increase for ceiling-lock) — B-prime scope, not Option B
+
+Routing now.
