@@ -392,9 +392,11 @@ The QD-engine workflow operates in **8 phases** from archive-state inspection to
    - Cohesion theme (shadow + close-fast + tank) → search VFX library for shadow-aligned visual assets
    - Element-thematic VFX selection (fire effects for fire theme; ice for water; etc.)
 
-2. **Mixamo animation matching** (3D production via reincarnated-game/):
+2. **Meshy 6 animation matching** (3D production via reincarnated-game/; Meshy 6 supersedes Mixamo per 2026-05-21 research):
+   - For humanoid characters: Meshy 6 Animation API (500+ game-ready motions integrated with Rigging API)
+   - For non-humanoid creatures: Claude+Blender custom rigging fallback
    - Pick animations matching engagement profile (close-fast → fast-melee animations; ranged-slow → stationary-cast animations)
-   - Anchor VFX to rig points (hands / weapon / body / ground)
+   - Anchor VFX to Meshy-standard rig points (hands / weapon / body / ground)
 
 3. **Visual style register compliance:**
    - CV pipeline scores asset coherence with locked style register

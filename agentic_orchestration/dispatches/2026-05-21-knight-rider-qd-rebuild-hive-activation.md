@@ -85,9 +85,15 @@ Per Matt 2026-05-21: committed to Unity production for Reincarnated the game.
 - **New repo created at `~/Games/reincarnated-game/`** (seeded with CLAUDE.md 2026-05-21)
 - **Owner:** drax (extends player-facing presentation layer from Pixi.js to Unity 3D)
 - **Render pipeline:** URP (D1 resolved)
-- **Production pipeline:** ChatGPT → Meshy → Mixamo → VFX mapped
+- **Production pipeline (REVISED post-Meshy 6 research):**
+  - **Humanoid:** ChatGPT (A-pose) → Meshy 6 (image-to-3D + auto-rig + animation library) → Claude vision + CLIP scoring → JSON to Unity
+  - **Non-humanoid:** ChatGPT → Meshy (mesh only) → Claude+Blender custom rig → scoring → JSON to Unity
+  - **Mixamo eliminated from humanoid path** (Meshy 6 covers what Mixamo did)
+- **Hardware confirmed:** Mac mini M2 8GB workable for 2D/2.5D ARPG dev (per Matt's hardware research)
 - **This is a PARALLEL initiative to QD-rebuild**, not a sub-track. Multi-month scope; ships independently.
 - **Knight-rider does NOT coordinate this repo's work** beyond awareness. Drax-owned. Future dispatch will scope its initialization.
+
+**Engine-side implication of pipeline simplification:** the legolas substrate-sufficiency audit's Track C (Mixamo deep inventory) becomes substantially less critical. Mixamo redundant for humanoids. Track C may pivot to Meshy 6 capability documentation for the future reincarnated-game initiative.
 
 ### 2.5 Dual-render Profile A ship target
 
