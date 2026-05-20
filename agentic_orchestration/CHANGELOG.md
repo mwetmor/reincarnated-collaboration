@@ -4,6 +4,55 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-20 — RECOMPOSE-VALIDATION HIVE WIND-DOWN TRIGGER #3 SIGNALED: P3 verdict CANNOT REJECT NULL; hive autonomous-operation phase ENDS
+
+**Event:** The recompose-validation hive (third hive activation; six-phase mission) reached its P3 validation synthesis verdict: **CANNOT REJECT NULL**. Hypothesis H_RC ("per-tier convergence is satisfiable for existing generation rules if recompose can fire") is **not supported** by season_100005 evidence (observed 0% kit-acceptable at worst-case bound; 100% Pattern-A boss-DPS-floor structural; 0/10 floor-lock-recovery candidates). H_RC_0 (null: generation rules require revision) is **reinforced**. Wind-down trigger #3 signals per protocol § 7; **P4 (ship true season) does NOT fire autonomously**. Hive autonomous-operation phase ENDS pending Matt direction. Matt briefing filed at `agentic_orchestration/matt-briefing-recompose-validation-2026-05-20.md`.
+
+**Hive cycle pace:** ~4 hours wall-clock total from activation (2026-05-19 22:28 EDT) through verdict-handoff (2026-05-20). ~2x faster than the 4-7 day parallelized estimate. 11 subagent invocations + orchestration cycles. Two FRICTION events surfaced + dispositioned within hive scope (P1 smoke-B1 test-class-selection + P2 Phase 1-vs-Phase-2 signal reversal); both resolved cleanly under autonomous-operation framework as designed.
+
+**Six-phase outcome summary:**
+- **P0** Option A floor widening: SHIPPED 2026-05-19 (engine `a58b60f`; tag `recompose-hive/v0.1-option-a-floor-widened`). Mechanism verified; prior floor-lock failure mode eliminated.
+- **P1** Option B recompose-trigger conditioning: MECHANICALLY COMPLETE / BEHAVIORALLY SOFT-DISABLED 2026-05-19 (engine `554e310`; tag `gamora/v1.14-balance-loop-option-b-recompose-conditioned-soft-disable` with load-bearing qualifier; hive milestone `recompose-hive/v0.2-option-b-recompose-conditioned` HELD permanently per current evidence). Mechanism verified mechanically; preserved as sleeping safety net.
+- **P2** Fresh diagnostic regen: ACCEPTED 2026-05-20 (tag `recompose-hive/v0.3-diagnostic-regen-complete`). Rocket Phase 1 (engine `07d13f8`) + gamora Phase 2 (engine `6cb7fa4`) + star-lord Phase 3 (engine `46d850c`).
+- **P3** Validation synthesis: VERDICT CANNOT REJECT NULL 2026-05-20 (gandalf canonical findings collab `3205d0e` + amendments; jack-ryan Gate-2 collab `fe3a2c1`; tag `recompose-hive/v0.4-validation-verdict`).
+- **P4** Ship true season: **HELD** — does not fire on CANNOT REJECT NULL per protocol § 7.
+- **P5** Canonical record: subsumed into this CHANGELOG entry + Matt briefing + decisions-log entry + canonical findings doc; if Matt directs hive closure at P5, deliverables get folded (engineering-disciplines.md amendment for single Discipline #11 elaboration; hive-runs review update; retrospective doc).
+
+**Three canonical findings produced:**
+
+1. **Empirical (cleanest possible diagnosis per protocol § 11):** 100% Pattern-A at full-season scope on shadow substrate. Catalogue kit-composition pathology IS the load-bearing problem. Triangulation: R1 (38/51 broken kits) + R2+ST counterfactual joint synthesis Row 5 ("catalogue has deeper pathology") + this hive's P2 evidence all converge.
+
+2. **Methodological (single Discipline #11 elaboration candidate; queued for P5):** *Pipeline-state-conditioned signals are NOT equivalent to equilibrium-state-conditioned canonical convergence signals.* Two independent hive events surfaced this pattern within ~24 hours (P1 smoke-design warm-start-signature error + P2 generation-time-vs-cold-start signal reversal); shared root cause is state-space conflation. Gandalf's proposed elaboration language drafted in canonical findings § 9.6 for P5 co-authoring.
+
+3. **Per-failure-mode disaggregation (kit-redesign queue handoff input; from jack-ryan Gate-2 Amendment 2):** sub-pattern 2 boss-DPS-floor = 10/10 universal; sub-pattern 5 recompose-couldn't-recover = 9/9 canonical (disaggregated into 8 compression-only [classes 0002-0009] + 1 lever-signal-gap [class_0001 modifier_fallback path; deeper kit-architecture revision need]); sub-pattern 6 generation-rule-pathology = 10/10 universal; sub-pattern 4 floor-lock-still-active = 0/10 explicitly NOT implicated. class_0009 shadow_controller carries additional controller-mechanic mismatch sub-pattern (elite over-shoot + boss=0). Prevents one-size-fits-all kit-redesign assumptions.
+
+**Three governance principles surfaced + codified during the hive:**
+
+1. **A BLOCKING smoke gate exists to falsify the design diagnosis, not the mechanism.** These are different failure modes that demand different dispositions. Authored at P1 re-disposition (gandalf brief v1.1 § 4.4 amendment); applied to disposition the smoke-B1-test-class-selection failure as soft-disable rather than full revert.
+2. **Hive milestone tags do not fire on un-empirically-tested behavioral changes.** Tag-firing discipline as governance precedent. Applied to HOLD `recompose-hive/v0.2-option-b-recompose-conditioned` pending empirical verification on a real subject (which P2 + this hive's evidence empirically refuted at season scope).
+3. **"When your test arena lacks the monster you designed your synergy against, you fix the arena, not the synergy."** Diablo II Iron Maiden / Returned-Damage lesson restated. Authored as load-bearing principle for soft-disable disposition; preserved 165 LOC of Gate-1-approved infrastructure rather than throwing away on a test-design miss.
+
+**Recommended next-step architectural decision (FOR MATT'S CONSIDERATION; not committed):**
+- **Primary:** kit-redesign queue execution (R1 38/51 queue + per-failure-mode disaggregation; ~4-6 weeks)
+- **Alternative A (knight-rider's framing favorite for epistemic insurance):** substrate-generalization study (regen on different substrate; ~hours) before committing to kit-redesign weeks
+- **Alternative B:** disposition-3 sensitivity check (~hours)
+- **Alternative C:** targeted single-class kit-redesign pilot (~2-3 weeks) before queue execution
+
+**Hive state at deactivation:**
+- Code: Option A active; Option B installed + soft-disabled; 179/179 tests PASS at engine HEAD
+- Telemetry: schema v2.13 in force; diagnostic fields automatically record on future regens
+- Documentation: canonical findings doc + Gate-1 + Gate-2 critiques + briefs + analyses + hive log + state-of-hive docs (Day 0 + Day 1) + MIGRATION.md v1.21 + v1.22 + Matt briefing + this CHANGELOG entry + engine decisions-log entry
+- Tags: 4 hive milestones fired (v0.0, v0.1, v0.3, v0.4); 1 held (v0.2 — fires retrospectively only if future evidence + re-enable + smoke PASS); seam tags fired through full disposition arc
+- Engine-side P5 corrective deferred (star-lord analysis "33" carry-over of pre-amendment count; per jack-ryan Gate-2 § 5 Amendment 1 out-of-collab-scope note; included in Matt briefing § 7 (A) execution items if Matt directs P5 closure)
+
+**Adjacent canonical work running in parallel (informational; not in hive scope):** Matt's QD-engine + profile architecture vision; gandalf's QD-engine BC axes work; legolas dispatch v3; jack-ryan QD-rebuild legacy constraint audit. These continue independently of trigger #3.
+
+**Hive trigger watch at CHANGELOG entry close:** ⏰ Trigger 3 (CANNOT REJECT NULL verdict) SIGNALED. ⏸ Triggers 1, 2, 4 await Matt's response category per Matt briefing § 7 (accept wind-down + P5 / direct further investigation / direct alternative architectural path).
+
+**The hive walked the road it was authored to walk.** The cleanest possible diagnosis has been delivered; the road forward is named; Matt's direction sets the next step.
+
+---
+
 ## 2026-05-20 (early morning) — RECOMPOSE-VALIDATION HIVE P2 Phase 1: empirical signal REINFORCES hive central premise (6/10 floor_lock_recompose=True at generation-time)
 
 **Event:** Rocket completed P2 Phase 1 (full-season fresh diagnostic regen; season_100005, substrate=shadow-first rotation, R8 inverted pipeline; engine `07d13f8`; tag `rocket/v1.22-p2-fresh-regen-shadow-100005`). The generation-time embedded balance-loop convergence run surfaced **a substantively positive empirical signal for the recompose-validation hive's central premise**: 6/10 classes (60%) show `floor_lock_recompose=True` — FAR ABOVE gandalf brief § 2.5's 3-8/season conservative estimate (3-8 classes per ~49-class season = 6-16% expected rate). Pre-Phase 2 canonical convergence, the structure of the masked-Pattern-B-extreme population is visible at full-season scope.

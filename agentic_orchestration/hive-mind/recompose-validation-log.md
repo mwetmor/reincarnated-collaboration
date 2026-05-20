@@ -1516,3 +1516,85 @@ Routing now.
 **Routing concurrence:** verdict-handoff sequence (5 steps per knight-rider STATE) fires next. No revisions to verdict; no revisions to recommendation; no new architectural surfacing beyond what synthesis already names. Knight-rider is clear to fire `recompose-hive/v0.4-validation-verdict` (engine + collab) and proceed through the verdict-handoff sequence on this commit landing.
 
 The road is at its closing turn. Mithrandir signs the amendment.
+
+---
+
+## 2026-05-20 EDT — knight-rider STATE — VERDICT-HANDOFF COMPLETE; WIND-DOWN TRIGGER #3 SIGNALED; HIVE AUTONOMOUS-OPERATION PHASE ENDS
+
+**This is the FINAL knight-rider STATE entry of the hive's autonomous-operation phase.**
+
+**Verdict-handoff sequence executed:**
+
+1. ✅ **`recompose-hive/v0.4-validation-verdict` tag FIRED (engine + collab)** under standing ADR-006 amendment authority. Both pushed.
+2. ✅ **Matt briefing finalized** at `agentic_orchestration/matt-briefing-recompose-validation-2026-05-20.md`. Updated per gandalf's Amendment 2 recommendation: § 4.3 sub-pattern 5 now explicitly carries 5a (8/9 compression-only, composition-shift candidates) + 5b (1/9 lever-signal-gap, class_0001 paradigm-level candidate, Diablo II Sorceress Frozen-Orb vs Lightning analog); § 5.1 primary recommendation language updated to reflect disaggregation for kit-redesign queue prioritization.
+3. ✅ **Engine decisions-log entry filed (engine `c5332cd`)** capturing P3 verdict + three canonical findings + three governance principles + hive state + recommended next-step + alternatives + engine-side P5 corrective deferral.
+4. ✅ **Collab CHANGELOG entry filed** (this verdict-handoff cycle's commit; bundled with hive log final STATE + Matt briefing update) capturing trigger #3 signal as team-level milestone.
+5. ✅ **This final hive log STATE entry** — "Wind-down trigger #3 signaled; hive autonomous-operation phase ENDS."
+
+**Hive end-of-mission summary:**
+
+- **6 phases planned; 4 phases shipped; 2 phases held** (P4 ship-true-season HELD per protocol § 7 on CANNOT REJECT NULL verdict; P5 canonical record subsumed into verdict-handoff cycle — Matt direction determines P5 closure dispatch if any)
+- **5 hive milestone tags + 1 permanently held:** v0.0-pre-activation (4 repos) + v0.1-option-a-floor-widened + v0.3-diagnostic-regen-complete + v0.4-validation-verdict (engine + collab each); **v0.2-option-b-recompose-conditioned HELD PERMANENTLY** per current evidence (would fire retrospectively only if future evidence + re-enable + smoke PASS)
+- **11 documented subagent invocations + 12 knight-rider orchestration cycles**
+- **2 FRICTION events dispositioned within hive scope** (P1 smoke-B1 test-class-selection + P2 Phase-1-vs-Phase-2 signal reversal); both resolved cleanly under autonomous-operation framework
+- **~4h 35min wall-clock total** from activation (2026-05-19 22:28 EDT) through verdict-handoff (~2x faster than 4-7d parallelized estimate)
+
+**Three canonical findings produced:**
+
+1. **Empirical (cleanest diagnosis per protocol § 11):** 100% Pattern-A at full-season scope on shadow substrate; catalogue kit-composition pathology IS the load-bearing problem; triangulated across R1 + R2+ST + this hive's P2.
+2. **Methodological (single Discipline #11 elaboration candidate; queued for P5):** pipeline-state vs equilibrium-conditioned signal distinction; two independent hive events converged within ~24h; gandalf's § 9.6 proposed language P5-ready.
+3. **Per-failure-mode disaggregation (jack-ryan Gate-2 Amendment 2):** 5a compression-only (8/9 canonical; composition-shift candidates) + 5b lever-signal-gap (1/9 canonical; class_0001 paradigm-level candidate) + class_0009 controller-mechanic mismatch overlay. Kit-redesign queue handoff prioritization-input.
+
+**Three governance principles surfaced + codified during the hive:**
+
+1. A BLOCKING smoke gate exists to falsify the design diagnosis, not the mechanism.
+2. Hive milestone tags do not fire on un-empirically-tested behavioral changes.
+3. "When your test arena lacks the monster you designed your synergy against, you fix the arena, not the synergy."
+
+**Engine state preserved (no rollback; ready for next step):**
+
+- Option A floor widening: ACTIVE
+- Option B recompose-trigger conditioning: INSTALLED + SOFT-DISABLED (one-line re-enable cost if Matt directs future verification)
+- Schema v2.13 telemetry: ACTIVE (4 fields populate normally)
+- 179/179 tests PASS at engine HEAD
+
+**Documentation filed (cumulative):**
+- Canonical findings doc (collab `3205d0e` original + `9b425db` amendments) + tag `gandalf/v0.4.1-p3-canonical-findings-amended`
+- Jack-ryan Gate-1 + Gate-2 critiques
+- Gandalf brief v1.1 (P1 design)
+- Gamora P2 + star-lord P3 analyses
+- Hive log (this file; continuous broadcast)
+- State-of-hive docs (Day 0 + Day 1)
+- MIGRATION.md v1.21 + v1.22 (engine simulation seam)
+- Matt briefing (collab `b0805db` pre-draft + this verdict-handoff cycle's update)
+- Engine decisions-log entries (P0 + P1 + P3; engine `c5332cd` latest)
+- Collab CHANGELOG entries (activation + P2 Phase 1 + verdict-handoff; this cycle's commit latest)
+
+**Adjacent canonical work (informational; ran in parallel; not in hive scope):** Matt's QD-engine + profile architecture vision; gandalf's QD-engine BC axes work; legolas dispatch v3; jack-ryan QD-rebuild legacy constraint audit. These continue independently of this hive's wind-down.
+
+**Hive trigger watch at FINAL STATE entry:**
+
+- ⏰ **Trigger 3 (P3 CANNOT REJECT NULL verdict) SIGNALED.** Hive autonomous-operation phase ENDS at this entry.
+- ⏸ Trigger 1 (Matt explicit wind-down): pending Matt's decision per Matt briefing § 7 (A)
+- ⏸ Trigger 2 (P5 completion): pending Matt's response category
+- ⏸ Trigger 4 (hard architectural blocker): not signaled
+
+**What does NOT happen autonomously from this entry forward:**
+
+- **P4 (ship true season) DOES NOT FIRE** per protocol § 7.
+- **Kit-redesign queue execution DOES NOT FIRE** — Matt direction next-step.
+- **Engine state DOES NOT CHANGE** until Matt directs.
+- **No further dispatches autonomously authored** by knight-rider for this hive's scope.
+
+**What Matt's next signal does** (per Matt briefing § 7):
+- **(A)** Accept hive wind-down + commit P5 canonical record (engineering-disciplines.md amendment for single Discipline #11 elaboration + retrospective + final tag `recompose-hive/v1.1-canonical-record-complete`; engine-side star-lord "33" correction folded in here)
+- **(B)** Direct further investigation (Alternative A/B/C from Matt briefing § 5)
+- **(C)** Direct alternative architectural path (kit-redesign queue / other)
+
+**Knight-rider status at hive close:** stable wind-down posture; no active dispatches; no pending sequential workflows; awaiting Matt's next signal. Engine state preserved; team in clean handoff state.
+
+**The hive walked the road it was authored to walk.** The recompose mechanism was tested; the cleanest possible diagnosis was produced; the kit-composition pathology is empirically the load-bearing problem at full-season scope; the next architectural decision is named for Matt's consideration. The autonomous-operation framework + critique-pair pattern + sequential HANDOFF workflow + transparent push-back culture all worked as designed.
+
+The road forward awaits Matt's direction.
+
+— knight-rider, hive close, 2026-05-20.

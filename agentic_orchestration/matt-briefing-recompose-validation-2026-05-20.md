@@ -146,7 +146,9 @@ Gandalf's recommendation (P3 synthesis § 9.6) + knight-rider concurrence: fold 
 Per gandalf P3 synthesis § 6, the 100% Pattern-A failure mode disaggregates into multiple sub-patterns firing JOINTLY on the 10 classes:
 
 - **Sub-pattern 2 (boss-DPS-floor structural):** 10/10 universal — observable failure mode
-- **Sub-pattern 5 (recompose-couldn't-recover):** 9/9 canonical — operational failure mode (recompose mechanism IS operating; lever space cannot rewrite generation rules)
+- **Sub-pattern 5 (recompose-couldn't-recover):** 9/9 canonical — operational failure mode (recompose mechanism IS operating; lever space cannot rewrite generation rules). **Disaggregated per gandalf P3 amendment 2 (jack-ryan Gate-2):**
+  - **5a — Compression-only (8/9 canonical; classes 0002-0009):** at least one lever accepted; lower-tier WR compressed (swarm/magic shifted toward band); boss_wr unchanged. **Composition-shift redesign candidates** — kit-redesign queue can move DPS density into boss-tier-effective skills.
+  - **5b — Lever-signal-gap (1/9 canonical; class_0001 shadow_mage):** all 3 attempts at delta=0; none accepted; outcome=`modifier_fallback`. **Paradigm-level redesign candidate** — kit-architecture revision needed (not just skill swap; potentially burst-vs-sustained or AOE-vs-single-target re-think). Analog: Diablo II Sorceress Frozen-Orb (lever-acceptable) vs Sorceress Lightning (lever-signal-gap at certain difficulty/boss combos).
 - **Sub-pattern 6 (generation-rule-pathology):** 10/10 universal — architectural failure mode where the fix has to live
 - **Sub-pattern 4 (floor-lock-still-active):** 0/10 — explicitly NOT implicated; Option A's fix worked as designed
 - **Additional sub-pattern (class_0009 shadow_controller only):** controller-mechanic mismatch on elite tier (over-shoot 0.670 + boss = 0; Diablo II Sorceress-Nova-vs-Druid-Tornado analogy)
@@ -162,7 +164,7 @@ The hive surfaces options; Matt directs. The hive does NOT commit Matt to any sp
 ### § 5.1 — Primary recommendation: kit-redesign queue execution
 
 **Empirically corroborated path:** the R1 kit-redesign queue (`canonical/story/r1-kit-redesign-queue-2026-05-19.md`) names three pathology patterns and explicit redesign criteria; this hive's P2 evidence confirms the queue's relevance at full-season scope. **Recommendation:** commission a kit-redesign sprint (rocket-led; gandalf co-design for archetype-specific approach) targeting:
-1. The 9/9 boss-DPS-floor pattern (DPS-density revision for primary kit-DPS-output skills)
+1. The 8/9 compression-only sub-pattern (composition-shift candidates — DPS-density revision for primary kit-DPS-output skills) PLUS the 1/9 lever-signal-gap (class_0001 — paradigm-level redesign; deeper kit-architecture revision per gandalf P3 § 6.1 Diablo II analog)
 2. The controller-mechanic mismatch overlay on class_0009 (separate handling; consider boss-tier CC immunity bypass mechanism)
 
 Estimated effort: 4-6 weeks (R1 queue's prior estimate; this hive's evidence confirms scope).
