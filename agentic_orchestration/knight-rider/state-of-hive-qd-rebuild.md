@@ -19,7 +19,7 @@
 
 | ID | Description | Owner | Status | Tag |
 |---|---|---|---|---|
-| W0.1 | B6 energy-type-aware tier assignment (LC-004 fix; Matt-pre-approved per decisions-log 2026-05-16) | rocket | PENDING | `qd-rebuild/v0.1-b6-energy-type-tier` |
+| W0.1 | B6 energy-type-aware tier assignment (LC-004 fix; Matt-pre-approved per decisions-log 2026-05-16) | rocket | **VERIFICATION REQUIRED** — partial fix already shipped 2026-05-16 at `rocket/v1.3-b6-energy-type-tiers` (commit `639ac3d`); B14.5 V2 energy-type lever in primary recompose loop is the remaining ~0.50 target portion. Scope ambiguity: re-tag-existing vs author B14.5 V2 follow-on. Surfacing to Matt at activation summary. | `qd-rebuild/v0.1-b6-energy-type-tier` |
 | W0.2 | Archetype template Path-a refactor (LC-001 fix; SIMPLER under substrate-as-cohesion — REMOVE templates entirely) | rocket | PENDING (Matt-approval optional; was structural per protocol § 6.1.5) | `qd-rebuild/v0.2-archetype-refactor` |
 | W0.3 | Foundation validator update (LC-012 fix; D5 = 7-substrate) | rocket | PENDING | `qd-rebuild/v0.3-foundation-validator-N` |
 | W0.4 | Specialist code audit (12 HIGH-risk LCs verify; 18 MEDIUM-risk follow-up; **INCLUDES** § 2.8 W1.13 current-state verification + OQ-2 (lightning chain_lightning boss multi-hop) + OQ-3 (5-skill kit generation anomaly) per Alt A) | rocket + gamora + star-lord; jack-ryan reviews | PENDING | `qd-rebuild/v0.4-code-side-audit-N` |
