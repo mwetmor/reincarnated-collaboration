@@ -4,6 +4,34 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-rebuild P0 W0.2 FULLY CLOSED: Phase 2.5 cleanup amendments folded
+
+**Event:** W0.2 Phase 2.5 (rocket cleanup fold-in) completed. All 3 jack-ryan Gate-2 amendments folded. Engine commit `6d4743d`; collab commit `5387256`. Tag `qd-rebuild/v0.2-phase-2-5-cleanup` fired.
+
+**Amendments folded:**
+- **A1 (WARN — b6_archetype_templates.py deprecation banner):** explicit deprecation block added matching `archetype_composer.py` pattern (DEPRECATED date + tag + removal gate P5 W5.X + replacement module + math note §9.3 + recompose-hive Option B precedent cites)
+- **A2 (WARN — test file paths):** test artifact table appended to AGENT_STATE.md: `tests/test_w02_bc_target_composer.py: 57/57` + `tests/test_d3_archetype_composer.py: 67/67` (2 pre-existing skips, not failures). 124 pass / 2 skipped / 0 failures verified.
+- **A3 (INFO — unified_mechanic_pool.yaml footer):** corrected stale count from "70 / 4 / 74" → accurate "67 / 4 / 71" matching the W0.2.1 deliverable.
+
+**W0.2 FULLY CLOSED.** All W0.2 tags:
+- `qd-rebuild/v0.2-math-note-phase-1-complete` (Phase 1+1.5 math-before-code)
+- `qd-rebuild/v0.2-archetype-refactor-complete` (Phase 2 implementation)
+- `qd-rebuild/v0.2-phase-2-5-cleanup` (Phase 2.5 cleanup)
+
+**Carry-forward advisories** (documented in AGENT_STATE open items):
+- gandalf A3 (P5 W5.X): scrub substrate-origin section-header comments from `unified_mechanic_pool.yaml` at cohesion-judge ship-gate cleanup
+- gandalf A4 (Phase 3 handoff): treat `pool_depletion_events` counter as pool-expansion diagnostic, not algorithm-tuning input
+- v2.15 migration execution: star-lord seam; gated on W0.1 round-trip smoke E.2 PASS
+
+**Substrate-AGNOSTIC GENERATION ARCHITECTURALLY COMPLETE.** The substrate-as-cohesion-only commitment ratified 2026-05-21 is now fully implemented at the generation layer of the engine. Phase 5 cohesion-judge will supersede `archetype_label` with thematic substrate identity at P5 W5.X.
+
+State-of-hive § 1 W0.2 row updated to FULLY CLOSED. Joint-resolution triad status:
+- ✅ W0.2 source diversity (archetype-lock removed; substrate-AGNOSTIC composition LIVE)
+- 🔄 W0.9 arena fidelity (Phase 2.1 done; 2.2-2.4 queued)
+- 🔄 W0.1 calibration fairness (Phase 2 implementation in-flight)
+
+---
+
 ## 2026-05-21 — QD-rebuild P0 W0.2 Phase 2 Gate-2 critique-pair returns: BOTH APPROVE-WITH-AMEND (no BLOCK)
 
 **Event:** Both Gate-2 reviews of W0.2 Phase 2 implementation returned per protocol § 4.2 critique-pair pattern.
