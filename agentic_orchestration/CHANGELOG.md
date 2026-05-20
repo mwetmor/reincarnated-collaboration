@@ -4,6 +4,33 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-rebuild P0 W0.9 Phase 2 kickoff dependencies COMPLETE; Phase 2.1 implementation IN-FLIGHT
+
+**Event:** Both W0.9 Phase 2 kickoff dependencies returned successfully + Phase 2.1 implementation fired.
+
+**A8 (gandalf) — Magic/elite/mini-boss arena scenario definitions** complete (collab commit `6b1134e`). Deliverable at `canonical/story/gauntlet-arena-scenarios-magic-elite-miniboss-2026-05-21.md`. 3 new arena scenarios:
+- SCENARIO_MAGIC_PACK (32.7×14m; 1 magic + 3 swarm; 120s kills-only; WR 0.55-0.70)
+- SCENARIO_ELITE_PACK (28×28m; 1 elite + 2 magic; 180s kills-only; WR 0.45-0.60)
+- SCENARIO_MINI_BOSS (30×30m; 1 mini-boss + 2 elite; 150s soft/240s hard; WR 0.35-0.55)
+- Boss tier: existing SCENARIO_BOSS_WITH_ADDS — no new scenario needed.
+- Substrate-AGNOSTIC § 7 commitment explicit.
+- § 9 gamora implementation handoff: 7 concrete arena.py changes.
+
+**A5 (star-lord) — Schema v2.14 migration spec** complete (engine tag `star-lord/v1.16-w0-9-schema-v2-14-spec`; commits `dd5fa42` + `8a41a57`). MIGRATION.md authored (570 lines). 4 amendments to gamora §6.7 first draft:
+- NEW `fight_events` table (not ALTER on existing); per-event fan-out linked via `class_fight_loadout_id`
+- `mitigation_source TEXT` (mechanism label) vs gamora's `mitigation_applied` (which implied float magnitude)
+- `event_type TEXT` collapsed (was event_direction split)
+- Resource events unified under same `event_type` column
+- LC-003 fields placement: `floor_lock_recompose` on `class_balance_results`; `working_modifier` + `floor_lock_detected` on NEW `recompose_attempts` table
+- Storage flag: ~430 MB/season at full emission; `fight_events_sample_rate` parameter (default 0.0 = off) recommended
+- 2 round-trip smoke fixtures specified per R11(b) discipline
+
+**W0.9 Phase 2.1 implementation IN-FLIGHT** (gamora; agentId `a246a66bda7e52889`). Scope: W0.9.1 (PackProxy ×8 retirement from swarm-tier convergence) + W0.9.2 (R2 spatial sub-gauntlet promotion to default for all 5 tiers; 3 new arena scenarios per A8 § 9 handoff). W0.9.3/4/5/6 fire in subsequent Phase 2 sub-sessions.
+
+Cross-seam dependency from A8: encounter_kind enum needs "magic" value added (`spatial-data-jsonschema.md:275`). Folded into Phase 2.1 dispatch instructions for gamora-star-lord coordination.
+
+---
+
 ## 2026-05-21 — QD-rebuild P0 W0.3 COMPLETE: Foundation validator update (D5 = 7-substrate; LC-012 drift closed)
 
 **Event:** W0.3 (rocket; trivial-actionable workstream) completed and merged. Engine commit `3e428ae`; tag `qd-rebuild/v0.3-foundation-validator-7-substrate` pushed.
