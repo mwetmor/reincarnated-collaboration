@@ -101,3 +101,50 @@ Default disposition: **Round-trip: not applicable — validator is generation-in
 - `agentic_orchestration/jack-ryan/research/legacy-constraint-audit-2026-05-21/constraint-inventory.md` LC-012
 - `reincarnated-engine/design/decisions/decisions-log.md` 2026-05-21 QD-rebuild activation entry D5 row
 - `reincarnated-engine/design/working-agreement/engineering-disciplines.md` § 13a (drift discipline; this dispatch closes a drift-candidate)
+
+---
+
+## Completion record
+
+**Completed by:** rocket
+**Date:** 2026-05-21
+**Status:** COMPLETE
+
+### Scope checklist (final state)
+
+- [x] LC-012 description re-read
+- [x] `foundation/foundation.py:39-65` updated from 4-rotating+1-physical → 7-substrate aligned with `config/substrate_identities/`
+- [x] Inline literals + test references updated
+- [x] Smoke + full test suite PASS (no regressions)
+- [x] MIGRATION.md — NOT REQUIRED (validator is generation-internal; no cross-seam impact confirmed)
+- [x] AGENT_STATE.md updated
+- [x] Tag: `qd-rebuild/v0.3-foundation-validator-7-substrate`
+
+### Acceptance criteria (final state)
+
+- [x] 7-element season generation passes validator — confirmed via `test_validator_accepts_7_substrate_elements` (constructs Foundation with lightning element, validates)
+- [x] Prior 4-element seasons still validate — confirmed: existing config (4 rotating + physical) loads without change; all foundation tests pass
+- [x] No test regressions — 70/70 foundation tests pass; 382/382 core generation tests pass; 2 pre-existing failures confirmed unchanged via git stash verification
+- [x] Round-trip: not applicable — validator is generation-internal; no cross-seam contract change found
+
+### Files modified
+
+| File | Lines | Change |
+|---|---|---|
+| `src/reincarnated/foundation/foundation.py` | 39-65 | Validator: 4-rotating+1-physical → CANONICAL_SUBSTRATES set check, 1-7 rotating, ≤1 non-rotating |
+| `tests/test_foundation.py` | 40-49, 113-181 | Updated `test_four_rotating_elements` → `test_rotating_elements_are_canonical_substrates`; added 2 validator acceptance tests |
+| `tests/test_substrate_identity_loader.py` | 679-682 | Comment update: clarified "current config state; not a validator constraint" |
+| `src/reincarnated/generation/AGENT_STATE.md` | header + new section | Checkpoint updated |
+
+### Implementation decision (open question resolution)
+
+The 4→7 change was a structural validator logic update (not a single-line constant), but minimal: removed `len(non_rotating) != 1` + `name != "physical"` hard-checks; replaced with CANONICAL_SUBSTRATES frozenset membership check on rotating elements + `len(non_rotating) <= 1` + `name == "physical"` if present. Physical remains as optional non-rotating cohesion exception per substrate supplement § 2.2.
+
+### Pre-existing failures (not caused by this change)
+
+- `test_all_elements_monsters` — bruiser archetype gap in monster_generator._ARCHETYPE_PREFERRED_BEHAVIOR (pre-existing)
+- `test_geared_player_deals_more_damage` — gear cp3 balance assertion (pre-existing)
+
+### Cross-seam contract change
+
+NONE. Validator is generation-internal. No MIGRATION.md required.
