@@ -4,6 +4,37 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-rebuild P0 W0.9 Phase 2.4 COMPLETE: telemetry instrumentation LIVE; PARALLEL MODE PRODUCTION READY
+
+**Event:** W0.9 Phase 2.4 (W0.9.5 telemetry instrumentation) returned. Tag `qd-rebuild/v0.9-phase-2-4-telemetry-instrumented` fired (engine commit `8b1703f`). 154/154 tests PASS (36 new W0.9.5 + 118 prior W0.9).
+
+**6 implementation tasks COMPLETE:**
+
+1. **SqliteSpatialTelemetryWriter LIVE** at `telemetry/spatial_recorder.py` — implements `write_fight_event()` + `write_fight_events_batch()`. `_run_spatial_slot()` accepts `spatial_telemetry_writer` parameter (NullWriter default; SqliteWriter for production seasons via caller-side wiring).
+
+2. **8-axis BC fight_events emission per math note §6.7 + star-lord §B amendments:**
+   - `FightEvent` dataclass with 14 fields (final spec)
+   - 4 event types emitted from `SpatialFightEngine.run()`:
+     - `damage_dealt` (Axis 2 / 3B / 2A / 2B) — at player skill fires
+     - `damage_received` (Axis 4) — at mob hits landing; mitigation_source="armor"
+     - `resource_spent` (Axis 5) — at player skill energy consumption
+     - `resource_recovered` (Axis 5) — at tick-level passive energy regen; recovery_source="passive_regen"
+   - All 4 star-lord §B amendments honored
+
+3. **Archive insertion from convergence wired:** `BatchGauntletRunner.run_batch()` accepts `archive + archive_entry_builder` callable; insertion under `archive_lock` after each future completes; non-fatal failure handling (WARNING + result returned)
+
+4. **R11(b) round-trip smoke 36/36 PASS** at `tests/test_w095_telemetry.py`: 5-fight convergence at sample_rate=1.0 → fight_events rows populated → SELECT → column presence + value round-trip confirmed
+
+5. **PARALLEL MODE PRODUCTION READY:** `TestParallelIntegration::test_parallel_batch_with_archive_no_corruption` PASS — 2-kit batch via ProcessPoolExecutor with archive insertion; both entries land independently; no shared-state corruption
+
+6. **Storage flag:** `fight_events_sample_rate=0.0` is production default (off; ~430 MB/season at 1.0 prohibitive for routine convergence). Enable 1.0 for targeted BC measurement / calibration sweep passes. 4 dedicated test coverage cases.
+
+**Discipline #12 semantic shift:** the gauntlet now emits per-fight events (8-axis BC fan-out); prior was per-class aggregates only. Documented MIGRATION.md v1.27.
+
+**Phase 2.5 (W0.9.6) fires next** — gamora launched (agentId `ad3feeef4d192f508`). FINAL W0.9 sub-phase + deferred Discipline #17 verification for both W0.1 and W0.9. Calibration sweep design + execution (10-kit roster; production-mirror env; fight_events_sample_rate=1.0) + joint W0.9+W0.1 empirical verification + perf wall-clock benchmark + OQ-6/OQ-7 dispositions + multi-tier archive gap disposition.
+
+---
+
 ## 2026-05-21 — QD-rebuild P0 W0.9 Phase 2.3 COMPLETE: 4 performance mitigations LIVE + A3 stability verified
 
 **Event:** W0.9 Phase 2.3 (W0.9.4 performance optimization) returned. Tag `qd-rebuild/v0.9-phase-2-3-performance-optimized` fired (engine commit `09cb812`). 161 tests PASS (37 W0.9.4 + 41 W0.9.3 + 27 W0.9.2 + 56 balance_loop).
