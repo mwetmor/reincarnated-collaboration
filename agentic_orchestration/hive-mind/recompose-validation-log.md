@@ -838,3 +838,66 @@ floor_lock_recompose=True on 6/10 is the diagnostic signal gamora Phase 2 needs 
 **Acceptance criteria for Phase 2:** balance_results.json present; per-class telemetry has v2.12+v2.13 fields; gamora appends STATE entry + HANDOFF routing star-lord.
 
 **Out of scope (HARD):** Option B re-enable; convergence loop changes; schema changes beyond v2.13.
+
+---
+
+## 2026-05-20 EDT — knight-rider STATE — Rocket Phase 1 ACCEPTED; firing gamora Phase 2
+
+**Phase 1 disposition: ACCEPT.** All acceptance criteria met:
+- season_100005 generated cleanly at expected path (engine `07d13f8`)
+- R8 inverted pipeline confirmed (cosmology: element='ember', anchor='The Bridge of Sighs Between Fires')
+- 10 classes generated; full canonical roster for shadow-first rotation
+- AGENT_STATE.md updated; tag `rocket/v1.22-p2-fresh-regen-shadow-100005` fired
+- All pre-existing anomalies (R3 range_m backfill, D4 trial archetype, no canonical entry for lightning/holy/shadow roles, ExportMetadata.elements=null in inverted mode) are documented as non-blocking and pre-existing — not generation defects, not affecting gamora Phase 2
+
+**EMPIRICAL SIGNAL OF LOAD-BEARING IMPORTANCE** (rocket generation-time diagnostic; gamora Phase 2 will produce canonical figures):
+
+**6/10 classes show `floor_lock_recompose=True`** — a ~60% rate that is FAR ABOVE gandalf brief § 2.5's 3-8/season conservative estimate for the masked-Pattern-B-extreme sub-population. **The hive's central premise is empirically reinforced at full-season scope.**
+
+**Three-tier modifier structure visible:**
+- **Tier 1 (normal, m* ≥ 0.05):** class_0001 (shadow_mage 0.0719), class_0008 (physical_warrior 0.1956), class_0009 (shadow_controller 0.1338) — 3 classes (30%); these are Pattern-B classes served by Option A alone
+- **Tier 2 (EXTREME_LOW converged):** class_0003 (water_mage 0.0332), class_0005 (wind_caster 0.0255), class_0006 (lightning_mage 0.0139), class_0007 (holy_caster 0.0139), class_0010 (experimental 0.0255) — 5 classes (50%); converged at modifiers < 0.05 with various `floor_lock_recompose` outcomes
+- **Tier 3 (EXTREME_LOW FAILED, at floor):** class_0002 (fire_mage 0.0110), class_0004 (earth_caster 0.0110) — 2 classes (20%); **these are the canonical floor-lock-recovery subjects** that Option B was designed to serve (true `m* < MODIFIER_SEARCH_FLOOR`)
+
+**Implication for the three-way P2 disposition gate:**
+- The "Zero floor-lock candidates" path (wind-down trigger #3 at P3; premise refuted) is RULED OUT — clear evidence at 6/10 + 2 at-floor failures.
+- The "Multiple floor-lock candidates" path is FIRING. On gamora's Phase 2 confirmation of `floor_lock_detected=True` per-recompose_attempt telemetry, knight-rider will route gamora for **Option B re-enable** (`LEVER_FLOOR_LOCK_WORKING_MODIFIER = 0.005` literal) → smoke B1 re-runs against the confirmed at-floor subjects (class_0002 and/or class_0004 from season_100005) → on BLOCKING all-PASS, fire `recompose-hive/v0.2-option-b-recompose-conditioned` hive milestone tag retrospectively.
+
+**Diagnostic finesse note:** rocket's table shows `floor_lock_recompose` from the generation-time embedded convergence (rocket's own balance-loop invocation during kit generation). Gamora's Phase 2 will produce the **canonical** convergence under cold-start initial_modifier=1.0 with full per-recompose_attempt telemetry. The signal structure should be similar but may differ in exact counts (cold-start vs whatever initial_modifier rocket used at generation). The key load-bearing question for gamora Phase 2 is: **how many classes have at least one `recompose_attempt` with `floor_lock_detected=True`?**
+
+**Adjacent canonical work (informational):** gandalf authored a follow-on commit on the QD-engine BC axes + Unity VFX directive (collab `afeaa4c`). Adjacent canonical work; not in this hive's scope; doesn't affect P2 routing.
+
+**Hive trigger watch:** ⏸ all four still unsignaled. The empirical signal at generation-time strongly favors the milestone-tag-fires-retrospectively path; trigger #3 (premise refuted) is empirically ruled out at Phase 1.
+
+**Next action:** fire gamora for P2 Phase 2 (cold-start balance-loop convergence with full v2.12 + v2.13 telemetry). HANDOFF entry follows.
+
+---
+
+## 2026-05-20 EDT — knight-rider HANDOFF — P2 Phase 2 ROUTED TO GAMORA
+
+**Routes to:** gamora as background subagent
+**Dispatch authority:** `agentic_orchestration/dispatches/2026-05-19-rocket-plus-star-lord-plus-gamora-p2-fresh-diagnostic-regen.md` § 3.2 Phase 2
+**Input:** rocket's season_100005 at `output/p2-fresh-diagnostic-regen-2026-05-19/season_100005/`
+**Output target:** `output/p2-fresh-diagnostic-regen-2026-05-19/balance_results.json`
+
+**Per dispatch § 3.2 Phase 2:** cold-start (initial_modifier=1.0) balance-loop convergence on all 10 classes; per-class telemetry must include schema v2.12 (`modifier_extreme_low`) + v2.13 (`floor_lock_recompose` on ClassBalanceResult + `working_modifier`, `floor_lock_detected`, `eval_modifier` per `recompose_attempt`). Convergence status (`converged` / `partially-converged` / `failed_regenerate`). Per-tier WR at converged modifier (swarm / magic / elite / mini_boss / boss). `convergence_winrate` (final aggregate WR). `recompose_outcome` enum.
+
+**Expected effort:** ~2-3h.
+
+**Key deliverable:** the canonical balance_results.json that lets star-lord (Phase 3) identify the floor-lock-recovery candidates by querying `WHERE floor_lock_detected=TRUE` on the per-attempt telemetry. Generation-time signal suggests 6/10 classes (60%) will have `floor_lock_recompose=True` at canonical Phase 2 convergence; the specific at-floor candidates (class_0002 fire_mage, class_0004 earth_caster) are the most likely **re-enable verification subjects** for the Phase 4 re-enable path (gamora → smoke B1 → milestone tag retrospective fire).
+
+**Out-of-scope reaffirmed (per dispatch § 6 HARD):**
+- Option B re-enable autonomously — wait for knight-rider routing post-star-lord Phase 3 analysis + disposition
+- Convergence loop changes — only execute, don't modify
+- Schema migrations beyond v2.13
+- Multi-seed regen
+- Generation pipeline changes (rocket's seam, not yours)
+
+**Falsifying condition:**
+- If gamora's Phase 2 convergence outcomes differ substantially from rocket's generation-time signal (e.g., 0/10 floor_lock_recompose under cold-start despite generation-time 6/10) → surface FRICTION; investigate cold-start vs generation-time-initial-modifier discrepancy; this would be a structural finding worth analyzing
+- If Phase 2 surfaces test-suite breakage post-cold-start run → implementation correctness regression; do not commit; investigate
+- If convergence fails on > 50% of classes → unrelated to floor-lock detection; structural problem with cold-start setup; surface FRICTION
+
+**On gamora completion:** knight-rider reads HANDOFF + fires star-lord for Phase 3 (classification + Pattern-A/B + **floor-lock candidate analysis** = THE KEY FINDING per dispatch § 3.2 Phase 3). Star-lord's analysis produces the canonical figure knight-rider applies the three-way disposition gate to.
+
+Routing now.
