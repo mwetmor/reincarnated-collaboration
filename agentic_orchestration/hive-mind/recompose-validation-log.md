@@ -451,3 +451,60 @@ Two options per dispatch § 6:
 Gamora recommends Option 2: the mechanism is correct, the instrumentation is correct, the unit tests confirm the branch fires under the right conditions. Holding the code with soft-disable while P2 confirms the floor-lock population saves re-implementation work and preserves the diagnostic telemetry for P2 analysis.
 
 **Hive trigger watch:** ⏸ Trigger 1 (explicit wind-down): not signaled. ⏸ Trigger 4 (hard architectural blocker): not signaled — the mechanism is correct; this is a test-selection miss, not an architectural defect.
+
+---
+
+## 2026-05-19 EDT — knight-rider STATE — P1 FRICTION received; routing to gandalf for re-disposition
+
+**Disposition received:** gamora P1 implementation MECHANICALLY COMPLETE (5 deliverables landed + 179/179 tests PASS) but smoke gate B1 BLOCKING **FAILED** on class_0001 cold-start: conditions 1 + 2 misses; conditions 3 + 4 pass. Gamora's diagnostic finding: class_0001's true `m* ≈ 0.072` (above floor); the warm-start floor-lock signature was an artifact of the prior floor; under cold-start, class_0001 is NOT in the masked Pattern-B-extreme sub-population. The three test classes (0001/0003/0006) all converge above-floor; none are real floor-lock-recovery subjects.
+
+**Knight-rider Gate-2-read disposition (orchestration layer):** the mechanism is verified mechanically (unit tests PASS under controlled mock conditions; `floor_lock_detected=True` fires when `last_wr=0.98` mock; production path through `ClassBalanceResult.floor_lock_recompose` confirmed; 0% false-positive rate across 3 cold-start classes). The smoke B1 BLOCKING failure is a TEST-CLASS-SELECTION miss in the smoke design, not a mechanism defect. The smoke design (gandalf brief § 4.1) selected class_0001 as canonical because it exhibited floor-lock under warm-start — but cold-start reveals the warm-start signature was a TOLERANCE-at-old-floor artifact, not the kit's true equilibrium.
+
+**This is a design-correctness gap that surfaced during empirical validation.** The dispatch § 4.5 literal reading says BLOCKING failure → P1 rollback. The dispatch § 6 reversibility options 1 (full revert) and 2 (parameter-level soft-disable) cover the rollback paths. Gamora recommends Option 2 (soft-disable: `LEVER_FLOOR_LOCK_WORKING_MODIFIER = MODIFIER_SEARCH_FLOOR`).
+
+**The right disposition is a load-bearing design call** — does the smoke B1 BLOCKING failure indicate the smoke design was wrong (re-author smoke; preserve mechanism), the mechanism was wrong (full rollback), or the timing was wrong (preserve mechanism + verify at P2)? This is the kind of architectural / load-bearing cross-cutting decision the autonomous-operation amendment routes to **gandalf** (per § 4.0 amended authority hierarchy).
+
+**Knight-rider's framing for gandalf** (three options to disposition):
+
+1. **Accept-with-caveat** (no infrastructure changes; explicit caveat in decisions-log): the mechanism is correct; unit tests verify the branch logic; smoke B1 conditions 3+4 verify no regression; the missing piece is a real subject which doesn't exist in the smoke sample; P2 (fresh diagnostic regen across more classes) is the venue where a real subject is likely to surface, and the mechanism will fire naturally. Fire P1 milestone tag with explicit caveat that empirical floor-lock-recovery demonstration is deferred to P2 (analog to P0's warm-start vs cold-start deferral pattern).
+
+2. **Soft-disable (gamora's recommendation)**: one-line change `LEVER_FLOOR_LOCK_WORKING_MODIFIER = MODIFIER_SEARCH_FLOOR`. Branch fires; `floor_lock_detected=True` still records when conditions met; `working_modifier == eval_modifier` so lever evaluation behavior is pre-Option-B. Preserves all infrastructure for P2 re-enable. P1 tag with explicit soft-disable qualifier.
+
+3. **Full rollback** (literal § 4.5 BLOCKING semantics): revert per § 6 option 1. Re-implement P1 if/when P2 surfaces a confirmed floor-lock population. Throws away clean infrastructure but adheres strictly to the dispatch's stated falsifying condition.
+
+**Knight-rider's read** (orchestration not design):
+- Option 1 (accept-with-caveat) is the simplest preservation but rests on trusting unit tests + non-triggering smoke as sufficient for the milestone.
+- Option 2 (soft-disable) is the most conservative preservation — explicitly acknowledges we don't have field evidence; one-line revert when field evidence appears.
+- Option 3 (full rollback) is overkill given the mechanism is verified.
+
+**Gandalf's design call answers:** what does smoke B1 BLOCKING failure mean when the test class doesn't have the property the test was designed to check? And does the autonomous-operation framework support fire-with-caveat, soft-disable, or hard-revert as the right disposition?
+
+**Routing to gandalf as background subagent for re-disposition.** No back-routing to Matt; this is autonomous operation. Gandalf weighs in; knight-rider sequences whatever gandalf decides; tags + decisions-log + P2 routing follow.
+
+**Tags HELD pending gandalf disposition:**
+- `gamora/v1.14-balance-loop-option-b-recompose-conditioned` (engine seam tag)
+- `recompose-hive/v0.2-option-b-recompose-conditioned` (hive milestone tag; engine + collab)
+
+**Hive trigger watch:** ⏸ all four still unsignaled. The smoke B1 BLOCKING failure is NOT a hard architectural blocker (gamora's diagnostic is clean; the mechanism is correct; we're routing within hive scope for a design clarification). This is hive-internal autonomous disposition, not Matt-trigger #4.
+
+---
+
+## 2026-05-19 EDT — knight-rider HANDOFF — P1 smoke-B1-FRICTION RE-DISPOSITION ROUTED TO GANDALF
+
+**Brief gandalf:** smoke B1 BLOCKING conditions 1 + 2 failed on class_0001 cold-start because the test class's true `m* ≈ 0.072` is above floor — class_0001 is NOT in the Pattern-B-extreme sub-population the smoke was designed to check. Mechanism verified mechanically (unit tests PASS; 0% false-positive rate; 179/179 test suite). Three disposition options enumerated in knight-rider STATE entry above. Gandalf decides; knight-rider sequences.
+
+**Gandalf authority:** AUTONOMOUS L2-equivalent per engine-rebuild protocol § 4.0 (Architectural / load-bearing cross-cutting decisions — gandalf decides; no escalation). This re-disposition is design judgment on what the smoke B1 BLOCKING failure means + how P1 acceptance + P2 routing should be sequenced.
+
+**Expected gandalf effort:** ~30 min. Smaller than the original brief authoring (this is a focused interpretation question).
+
+**Gandalf deliverable:**
+1. Append a STATE entry to hive log with disposition + reasoning
+2. If amendment to existing brief/dispatch required (e.g., re-authored smoke B1 design), file at the brief path with version bump
+3. Return concise report to knight-rider (~200 words) covering chosen disposition + reasoning + next-action sequencing
+
+**On gandalf re-disposition:**
+- If "fire-with-caveat": knight-rider fires both tags with explicit caveat in decisions-log + P2 routing
+- If "soft-disable": knight-rider routes gamora for one-line change `LEVER_FLOOR_LOCK_WORKING_MODIFIER = MODIFIER_SEARCH_FLOOR`; fires intermediate seam tag; holds hive milestone tag pending P2 verification
+- If "full rollback": knight-rider routes gamora for full revert; P1 re-implementation queued post-P2 if subjects appear
+
+Routing now.
