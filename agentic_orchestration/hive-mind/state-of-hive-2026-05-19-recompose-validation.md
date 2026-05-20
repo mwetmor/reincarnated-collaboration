@@ -13,12 +13,12 @@
 
 | Seam | Status | In flight | Blocked? |
 |---|---|---|---|
-| **gamora** | **ACTIVE on soft-disable** (one-line change `LEVER_FLOOR_LOCK_WORKING_MODIFIER = MODIFIER_SEARCH_FLOOR` + docstring update + 179/179 re-verify + MIGRATION.md/AGENT_STATE updates); ~5-10 min effort | — | No |
-| **rocket** | IDLE (P2 + P4 work upcoming) | — | No |
-| **star-lord** | IDLE; schema v2.12 + v2.13 obligations both queued from MIGRATION.md (v1.21 + v1.22); picked up at P2 telemetry work. Note: under soft-disable, `floor_lock_recompose` + `working_modifier` + `floor_lock_detected` fields still populate normally; query patterns unchanged | — | No |
+| **gamora** | P1 soft-disable COMPLETE (`554e310` + `4d94026`; 179/179 PASS); IDLE pending P2 Phase 2 (balance-loop convergence on shadow seed=100005 cold-start; fires after rocket Phase 1 HANDOFF) | — | No |
+| **rocket** | **ACTIVE on P2 Phase 1** (full-season generation for seed=100005, substrate=shadow, R8 inverted pipeline; output at `output/p2-fresh-diagnostic-regen-2026-05-19/season_100005/`) | — | No |
+| **star-lord** | IDLE pending P2 Phase 3 (classification + Pattern-A/B + **floor-lock candidate analysis** = THE KEY FINDING; fires after gamora Phase 2 HANDOFF). Schema v2.13 obligations remain in force under soft-disable; `floor_lock_detected` query is the load-bearing analysis at P2 close | — | No |
 | **drax** | IDLE (P4 loadout sync upcoming if schema changes) | — | No |
-| **jack-ryan** | P1 Gate-1 critique COMPLETE; IDLE; continuous-observation mode. Will review knight-rider's decisions-log entry post-soft-disable (gandalf step 5) | — | No |
-| **gandalf** | P1 smoke-B1-FRICTION RE-DISPOSITION COMPLETE (`674b77c`); chose **Option 2 (soft-disable)**; brief v1.1 amendment with new smoke-design discipline candidate (mandatory cold-start dry-run before locking canonical smoke subject); IDLE pending P2 substrate confirmation (gandalf preference: **shadow**) | — | No |
+| **jack-ryan** | P1 Gate-1 + decisions-log entry reviews (continuous-observation; not blocking). IDLE for active dispatch; will engage at P3 Gate-2 | — | No |
+| **gandalf** | P1 re-disposition COMPLETE; P2 substrate choice = **shadow** filed in dispatch step 4; IDLE pending P3 synthesis (active engagement at floor-lock candidate findings analysis) | — | No |
 
 ---
 
@@ -74,22 +74,30 @@ No other failure modes detected. P0 + Gate-1 + smoke-FRICTION-disposition all cl
 
 ## § 6 — Tomorrow's priorities (cycle Day 1)
 
-Driven by gamora's soft-disable completion notification. On gamora completion:
+Driven by rocket's P2 Phase 1 (generation) completion notification. On rocket completion: fire gamora for P2 Phase 2 (convergence); on gamora completion: fire star-lord for P2 Phase 3 (classification + floor-lock analysis); on star-lord completion: knight-rider applies the three-way disposition gate (zero / one / multiple floor-lock candidates).
 
-1. Read gamora's soft-disable report (~150 words)
-2. **Verify soft-disable** per gandalf's specification:
+**Previously-driven sequence (COMPLETED 2026-05-19 cycle close):**
+
+1. ~~Read gamora's soft-disable report (~150 words)~~ ✅
+2. ~~**Verify soft-disable** per gandalf's specification:~~ ✅
    - `LEVER_FLOOR_LOCK_WORKING_MODIFIER = MODIFIER_SEARCH_FLOOR` (named-constant reference, not literal)
    - Docstring updated with soft-disable state + re-enable condition
    - 179/179 tests PASS post-change
    - MIGRATION.md v1.22 + AGENT_STATE.md updated with soft-disable note
 3. **Fire seam tag** `gamora/v1.14-balance-loop-option-b-recompose-conditioned-soft-disable` (engine; load-bearing `-soft-disable` qualifier)
 4. **HOLD hive milestone tag** `recompose-hive/v0.2-option-b-recompose-conditioned` (fires only when P2 surfaces confirmed floor-lock-recovery subject + re-enable + smoke PASS)
-5. **File decisions-log entry** per gandalf step 5: "P1 — MECHANICALLY COMPLETE / BEHAVIORALLY SOFT-DISABLED — hive milestone tag held; behavioral landing routed to P2 empirical verification." Frame as canonical example of test-class-selection failure surfacing during empirical validation + soft-disable as correct response. Jack-ryan reviews per gandalf step 5.
-6. **Author + fire P2 dispatch** (rocket + star-lord + gamora; substrate=**shadow** per gandalf preference; seed=100005; special instructions per gandalf step 4):
-   - Full-season fresh diagnostic regen at the new mechanism (per-tier WR convergence + Option A floor + Option B recompose-conditioning under soft-disable + disposition-3 calibration)
-   - Post-regen: query `class_balance_results WHERE floor_lock_detected=TRUE`
-   - **If any rows return:** those are the candidate re-enable subjects — gamora re-enables `LEVER_FLOOR_LOCK_WORKING_MODIFIER=0.005` → re-runs season → reports whether `floor_lock_recompose=TRUE` materially changes `final_modifier` for those rows. If empirical PASS: fire `recompose-hive/v0.2-option-b-recompose-conditioned` hive milestone retrospectively.
-   - **If zero rows return:** soft-disable is the right end state; wind-down trigger #3 signals at P3 (premise refuted by P2 evidence + gandalf synthesis at P3)
+5. ~~**File decisions-log entry** per gandalf step 5~~ ✅ (engine `22b1c3c` filed)
+6. ~~**Author + fire P2 dispatch**~~ ✅ (P2 dispatch authored; rocket fired as Phase 1)
+
+**Current sequence (in flight; cycle Day 0 closing or Day 1 opening depending on wall-clock):**
+
+7. Rocket Phase 1 (generation) → HANDOFF → gamora Phase 2 (convergence) → HANDOFF → star-lord Phase 3 (classification + floor-lock analysis) → HANDOFF → knight-rider P2 acceptance
+8. **Three-way disposition gate** on floor-lock candidate count:
+   - **Zero floor-lock candidates** → soft-disable is right end state; wind-down trigger #3 signals at P3; gandalf P3 synthesis frames premise-refutation verdict for Matt
+   - **Multiple floor-lock candidates** → route gamora for one-line re-enable + smoke B1 against confirmed subject; on BLOCKING all-PASS, fire `recompose-hive/v0.2-option-b-recompose-conditioned` hive milestone retrospectively
+   - **One floor-lock candidate** (edge) → gandalf re-disposition
+9. P2 acceptance tag `recompose-hive/v0.3-diagnostic-regen-complete` fires on knight-rider verification (engine + collab)
+10. **Route P3** (validation synthesis) to gandalf + jack-ryan per protocol § 3 P3 + Gate-2 critique; canonical findings document at `canonical/story/per-tier-recompose-validation-findings-2026-05-19.md`
 
 **Branch points to watch in P2:**
 - **Zero floor-lock candidates at full-season scope:** validates gandalf's premise-re-framing observation (small sample n=3 was inconclusive; n≈49 produces strong signal). Triggers wind-down trigger #3 at P3 with explicit Matt briefing on what the soft-disable end state means.
