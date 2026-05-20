@@ -1,12 +1,27 @@
 # Option B Design Brief — Recompose-Trigger Re-conditioning (P1)
 
+**Version:** v1.1 (amended 2026-05-19 by gandalf post smoke-B1-FRICTION re-disposition; see § 4.1 retrospective, § 4.4 BLOCKING-semantics tightening, § 9 soft-disable elevation, and v1.1 amendment note at § 0)
 **Author:** gandalf (story-and-design steward)
 **Authority:** AUTONOMOUS L2-equivalent per engine-rebuild protocol § 4.0 + recompose-validation hive (Architectural / load-bearing cross-cutting decisions — gandalf decides; no escalation).
-**Date:** 2026-05-19 (same evening as P0 acceptance)
+**Date:** 2026-05-19 (same evening as P0 acceptance; amended same day)
 **Hive:** Recompose-Validation (third activation; P1)
 **Predecessor:** `agentic_orchestration/dispatches/2026-05-19-gamora-balance-loop-floor-option-A-implementation.md` (P0, landed in `recompose-hive/v0.1-option-a-floor-widened`)
 **Triggering hive handoff:** `agentic_orchestration/hive-mind/recompose-validation-log.md` entry `2026-05-19 23:00 EDT — knight-rider HANDOFF — P1 design brief AUTHORING ROUTED TO GANDALF`
+**Re-disposition handoff:** `agentic_orchestration/hive-mind/recompose-validation-log.md` entry `2026-05-19 EDT — knight-rider HANDOFF — P1 smoke-B1-FRICTION RE-DISPOSITION ROUTED TO GANDALF` (gamora cold-start exposed class_0001's true `m* ≈ 0.072`; smoke B1 conditions 1+2 BLOCKING-failed; mechanism mechanically verified by unit tests; this is a test-class-selection issue, not a mechanism defect)
 **Next routing:** jack-ryan Gate-1 critique → knight-rider authors gamora implementation dispatch from this brief + jack-ryan amendments.
+
+---
+
+## v1.1 amendment note (2026-05-19, post smoke-B1-FRICTION)
+
+The v1.0 brief routed through jack-ryan Gate-1 (APPROVE-WITH-AMEND; 4 required + 1 recommended + 1 optional amendments folded) and gamora implementation (179/179 tests PASS; mechanism mechanically verified). Smoke gate B1 BLOCKING failed on class_0001 cold-start because the test class's true equilibrium `m* ≈ 0.072` is *above* `MODIFIER_SEARCH_FLOOR=0.01` — class_0001 is NOT in the masked-Pattern-B-extreme population the smoke was designed to test. The v1.0 brief's § 4.1 rationale for selecting class_0001 leaned on its warm-start signature (`modifier=0.0509` + saturated WR); that signature is a TOLERANCE-satisfied-at-old-floor artifact, not a true `m* < 0.01` equilibrium.
+
+**v1.1 amendments (substance):**
+- **§ 4.1:** explicit retrospective on the warm-start-signature error; correction that cold-start dry-run is mandatory before any future canonical smoke test class is locked in.
+- **§ 4.4:** BLOCKING semantics tightened — "BLOCKING fails when smoke conditions fail AND post-hoc analysis confirms the test class actually has the property the smoke was designed to detect." When post-hoc analysis shows the test class doesn't have the property, disposition is *test-design failure*, not *mechanism failure*; proper response is soft-disable + re-route empirical question to natural venue (P2 full-season regen).
+- **§ 9:** Reversibility option 2 (soft-disable via `LEVER_FLOOR_LOCK_WORKING_MODIFIER = MODIFIER_SEARCH_FLOOR`) elevated from "alternative" to "preferred path when smoke fails due to test-class-selection issues." The full-revert path (option 1) is reserved for cases where the mechanism itself is independently invalidated, not for test-class-selection misses.
+
+**v1.1 disposition:** Option B is MECHANICALLY COMPLETE / BEHAVIORALLY SOFT-DISABLED. Hive milestone tag `recompose-hive/v0.2-option-b-recompose-conditioned` HELD pending P2 empirical verification. Intermediate seam tag `gamora/v1.14-balance-loop-option-b-recompose-conditioned-soft-disable` fires under autonomous L1 once gamora applies the one-line constant change. Full STATE entry: hive log `2026-05-19 EDT — gandalf STATE — P1 smoke-B1-FRICTION RE-DISPOSITION: OPTION 2 (SOFT-DISABLE)`.
 
 ---
 
@@ -303,17 +318,27 @@ Default `None` for backward-compat with pre-Option-B results.
 
 ### § 4.1 — Test class selection
 
-**Primary B1 test class: class_0001 (fire_mage) from season_100002 (ember).** Rationale:
+> **v1.1 RETROSPECTIVE (2026-05-19):** the v1.0 rationale below was partially wrong. Class_0001's warm-start signature (`modifier=0.0509` + saturated WR) was interpreted as evidence of true equilibrium `m* < MODIFIER_SEARCH_FLOOR`. Cold-start under Option B exposes class_0001's true `m* ≈ 0.072`, well *above* floor. The warm-start signature was a TOLERANCE-satisfied-at-old-floor artifact: warm-starting from `modifier=0.0509` satisfied convergence TOLERANCE immediately at the pre-Option-A floor without the binary search descending into the signal range. Symptom-driven test selection conflated "binary search bottomed out at floor with WR-saturation" (the symptom) with "true equilibrium below floor" (the cause). The symptom appears for both Pattern-B-extreme classes AND for any-`m*` classes warm-started from prior-floor convergence; the v1.0 smoke design did not distinguish these.
+>
+> **Discipline #11 (empirical inspection over assumption) applies retroactively.** A cold-start dry-run on class_0001 *before* locking it in as the canonical B1 subject would have surfaced `m* ≈ 0.072` and disqualified it. This is now mandatory smoke-design discipline: **for any future smoke designed to test a population-membership property, the candidate test class must be confirmed (via dedicated empirical dry-run) to have the property the smoke is designed to detect, before the smoke is locked in as BLOCKING.** The discipline goes into the engineering-disciplines record as an extension to Discipline #11.
+>
+> The remainder of this section preserves the v1.0 rationale as the historical record + correction context.
+
+**Primary B1 test class (v1.0; superseded by v1.1 retrospective): class_0001 (fire_mage) from season_100002 (ember).** Rationale:
 
 - Pre-Option-A: status=failed at modifier=0.0509 with all per-tier WR at ceiling (per gamora investigation § 3.2).
-- Post-Option-A stop-gap regen: `modifier_extreme_low=0` warm-started in (per gamora P0 STATE 2026-05-19) — the cold-start case is the binding test, but class_0001's profile suggests it is in the "true m* < 0.01" population.
-- Already canonical test class for P0 A1 smoke gate (FAILED→CONVERGED demonstrated). Continuity of test surface.
-- fire_mage is the modal R8 inverted archetype: high damage density, wide skill pool. Behavior on this class is broadly representative.
+- Post-Option-A stop-gap regen: `modifier_extreme_low=0` warm-started in (per gamora P0 STATE 2026-05-19) — the cold-start case is the binding test, but class_0001's profile suggests it is in the "true m* < 0.01" population. *[v1.1: this inference was wrong — cold-start reveals `m* ≈ 0.072`.]*
+- Already canonical test class for P0 A1 smoke gate (FAILED→CONVERGED demonstrated). Continuity of test surface. *[v1.1: continuity was the wrong selection criterion; population-membership confirmation is the right one.]*
+- fire_mage is the modal R8 inverted archetype: high damage density, wide skill pool. Behavior on this class is broadly representative. *[v1.1: representativeness for general behavior is not the same as representativeness for the *specific* property the smoke tests. class_0001 is broadly representative AND not in the masked-Pattern-B-extreme population.]*
 
-**Secondary B1 test classes (WARN-level, not BLOCKING):**
+**Secondary B1 test classes (WARN-level, not BLOCKING; v1.0):**
 
-- class_0003 (earth_controller) from season_100002: the *partial-over-power* case per gamora § 3.3 (modifier=0.0500 exact, boss WR=0.00). Tests Option B's behavior on a class where lower-tier saturation drives the floor-lock but boss-tier failure is from a different mechanism (energy-cycle on tanky boss). Expected outcome: lever evaluation runs at working_modifier=0.005; lower-tier WR drops into signal range; lever picks reduce_dps direction; some lever accepts on a swarm/magic-tier kit; binary search re-converges at modifier above floor. Boss-tier failure may persist (genuinely orthogonal); flag as kit-redesign candidate.
-- class_0006 (fire_controller) from season_100002: similar to class_0003 but different element. Robustness check.
+- class_0003 (earth_controller) from season_100002: the *partial-over-power* case per gamora § 3.3 (modifier=0.0500 exact, boss WR=0.00). Tests Option B's behavior on a class where lower-tier saturation drives the floor-lock but boss-tier failure is from a different mechanism (energy-cycle on tanky boss). Expected outcome: lever evaluation runs at working_modifier=0.005; lower-tier WR drops into signal range; lever picks reduce_dps direction; some lever accepts on a swarm/magic-tier kit; binary search re-converges at modifier above floor. Boss-tier failure may persist (genuinely orthogonal); flag as kit-redesign candidate. *[v1.1 empirical: class_0003 cold-start `final_modifier=0.2575`, `floor_lock_recompose=False` — class_0003 is also above-floor, not floor-lock-recovery population. Same warm-start artifact pattern as class_0001.]*
+- class_0006 (fire_controller) from season_100002: similar to class_0003 but different element. Robustness check. *[v1.1 empirical: `final_modifier=0.1338`, same above-floor pattern.]*
+
+**v1.1 forward-looking smoke-design discipline (the lesson):**
+
+Any future smoke gate that tests a population-membership claim (e.g., "this class is in the masked-Pattern-B-extreme population") must include a **pre-lock empirical confirmation step**: a dedicated cold-start dry-run on the candidate test class, in the post-fix configuration, to confirm the candidate has the property the smoke is designed to detect. The cost is small (~5 min per candidate) and the cost-of-not-doing-it is the FRICTION we are now resolving. The discipline extends Discipline #11 (empirical inspection over assumption) into smoke-design specifically: empirical confirmation of the *test subject* is itself a pre-condition for empirical validity of the *test*.
 
 ### § 4.2 — B1 BLOCKING acceptance condition (class_0001)
 
@@ -343,11 +368,23 @@ WARN-level conditions (do not block P1 acceptance but inform P2 substrate choice
 
 ### § 4.4 — Falsifying condition (the P1 rollback trigger)
 
-**P1 rolls back if any of the following:**
+> **v1.1 BLOCKING-SEMANTICS TIGHTENING (2026-05-19):** the v1.0 falsifying conditions below are partially superseded. The literal reading "smoke B1 BLOCKING fails → P1 rolls back" is too coarse: it treats *mechanism failure* and *test-design failure* as the same disposition. They are not. The v1.1 reading distinguishes:
+>
+> | Failure mode | Diagnosis | Disposition |
+> |---|---|---|
+> | Smoke fails AND test class is empirically confirmed (via independent cold-start analysis) to have the property the smoke is designed to detect AND mechanism cannot be verified by unit tests | Mechanism is wrong | Full revert (option 1) |
+> | Smoke fails AND test class is empirically confirmed NOT to have the property the smoke is designed to detect | Test-design failure | Soft-disable (option 2) + re-route empirical question to natural venue (P2) + brief amendment + new smoke-design discipline |
+> | Smoke fails AND mechanism IS verified by unit tests AND test-class population membership is ambiguous | Underspecified disposition; surface to gandalf for re-disposition | Hold tags; re-disposition |
+>
+> The P1 smoke-B1-FRICTION (2026-05-19) falls in the second row. Disposition: soft-disable, this brief amendment (v1.1), and re-route empirical question to P2. **The v1.0 "literal BLOCKING → full revert" reading is retired as overly literal.** Gandalf's authority to re-dispose on the *meaning* of a BLOCKING failure is explicit per the autonomous-operation framework (engine-rebuild protocol § 4.0).
+>
+> v1.0 conditions retained below as historical record + base contract for future smoke gates that *do* have empirically-confirmed test classes.
 
-1. **Smoke gate B1 BLOCKING fails on class_0001** (any of the four BLOCKING conditions above misses). Implication: the design diagnosis is wrong; the working-modifier-at-0.005 mechanism does not unlock lever signal.
-2. **B1 passes on class_0001 but `floor_lock_detected=True` fires for >50% of classes across class_0001, class_0003, class_0006** — implication: the re-condition threshold is too aggressive (false-positive on legitimately-converging-at-floor classes); revisit `_SIGNAL_HI` value or the signal logic.
-3. **Existing test suite regression** (any test in `tests/test_balance_loop.py` or `tests/test_range_profile.py` that previously passed now fails) — implementation correctness regression.
+**P1 rolls back if any of the following (v1.0; superseded by v1.1 distinction above for the test-class-selection failure mode):**
+
+1. **Smoke gate B1 BLOCKING fails on class_0001** (any of the four BLOCKING conditions above misses). Implication: the design diagnosis is wrong; the working-modifier-at-0.005 mechanism does not unlock lever signal. *[v1.1: this implication only holds when class_0001 is empirically confirmed to be in the masked-Pattern-B-extreme population. The 2026-05-19 cold-start finding disconfirms class_0001's membership; the implication does not apply; disposition is test-design failure, not mechanism failure.]*
+2. **B1 passes on class_0001 but `floor_lock_detected=True` fires for >50% of classes across class_0001, class_0003, class_0006** — implication: the re-condition threshold is too aggressive (false-positive on legitimately-converging-at-floor classes); revisit `_SIGNAL_HI` value or the signal logic. *[v1.1 empirical: 0/3 = 0% false-positive rate observed; condition 2 not triggered; signal is not over-aggressive.]*
+3. **Existing test suite regression** (any test in `tests/test_balance_loop.py` or `tests/test_range_profile.py` that previously passed now fails) — implementation correctness regression. *[v1.1 empirical: 179/179 PASS; condition 3 not triggered.]*
 
 ### § 4.5 — Smoke gate B1 minimal-regen scope
 
@@ -503,21 +540,33 @@ The following are explicitly NOT in P1's scope:
 
 ## § 9 — Reversibility
 
+> **v1.1 ELEVATION (2026-05-19):** Reversion option 2 (parameter-level soft-disable) is now the **preferred path** when smoke fails due to test-class-selection issues (the situation we are in). The v1.0 framing treated option 1 (full revert) as the default and option 2 as an alternative; v1.1 inverts that framing. Full revert is reserved for cases where the mechanism itself is independently invalidated (e.g., unit tests fail; production path through `ClassBalanceResult.floor_lock_recompose` is broken; the branch produces incoherent behavior under mock conditions). When the mechanism is verified by unit tests and the failure is a test-class-selection issue, soft-disable preserves the verified infrastructure for cheap re-enable on the natural empirical venue (P2 full-season regen).
+
 Option B's revert path is clean and minimal.
 
 **Reversion option 1 (full revert):** remove the floor-lock-detection branch in `_primary_recompose_loop` (lines added per § 3.1). Restore `working_modifier = eval_modifier` unconditionally. Remove `LEVER_FLOOR_LOCK_WORKING_MODIFIER` constant. Remove `floor_lock_recompose` field from `ClassBalanceResult`. Remove `working_modifier` / `floor_lock_detected` fields from `recompose_attempts` records.
 
 Single git revert reverses everything except telemetry-table schema additions (those can stay as nullable columns indefinitely). No persistent data depends on Option B's behavior.
 
-**Reversion option 2 (parameter-level disable):** set `LEVER_FLOOR_LOCK_WORKING_MODIFIER = MODIFIER_SEARCH_FLOOR` (i.e., 0.01). This makes the floor-lock branch a no-op semantically: `working_modifier` becomes equal to `eval_modifier` for floor-locked cases (since `eval_modifier ≈ 0.01` at floor-lock). The `floor_lock_detected` flag still fires, but the lever evaluation reverts to pre-Option-B behavior. This is the "soft disable" path — preserves the diagnostic telemetry while disabling the behavioral change.
+*v1.1 use criterion:* full revert applies when mechanism is independently invalidated. Not the current situation.
 
-**Reversion conditions (when to revert):**
+**Reversion option 2 (parameter-level disable; v1.1 preferred path for test-class-selection failures):** set `LEVER_FLOOR_LOCK_WORKING_MODIFIER = MODIFIER_SEARCH_FLOOR` (i.e., 0.01). This makes the floor-lock branch a no-op semantically: `working_modifier` becomes equal to `eval_modifier` for floor-locked cases (since `eval_modifier ≈ 0.01` at floor-lock). The `floor_lock_detected` flag still fires, but the lever evaluation reverts to pre-Option-B behavior. This is the "soft disable" path — preserves the diagnostic telemetry while disabling the behavioral change.
 
-- Smoke gate B1 BLOCKING fails (per § 4.4 condition 1). Immediate full revert.
+*v1.1 use criterion:* soft-disable applies when (a) the mechanism is verified by unit tests + production-path inspection, AND (b) the smoke gate failed due to test-class-selection issues (test class doesn't have the population-membership property the smoke was designed to detect). Under soft-disable, infrastructure + telemetry are preserved; one-line re-enable (`LEVER_FLOOR_LOCK_WORKING_MODIFIER = 0.005`) is available when a confirmed floor-lock-recovery subject surfaces (P2 venue).
+
+*v1.1 soft-disable tag convention:* the seam tag fires with an explicit qualifier — `gamora/v1.14-balance-loop-option-b-recompose-conditioned-soft-disable` — to make the soft-disable state visible to future archaeologists. The hive milestone tag (`recompose-hive/v0.2-option-b-recompose-conditioned`) is HELD; it does not fire until the behavioral change is empirically demonstrated (P2 surfaces a real subject + re-enable + smoke passes).
+
+**Reversion conditions (when to revert; v1.1):**
+
+- Smoke gate B1 BLOCKING fails AND mechanism independently invalidated → full revert (option 1).
+- Smoke gate B1 BLOCKING fails AND mechanism verified by unit tests AND test class confirmed NOT in target population → soft-disable (option 2); brief amendment; route empirical question to P2.
 - P2 fresh diagnostic regen surfaces a defect where Option B produces unbalanced kits in a different failure mode (e.g., recompose pushes a class to modifier=0.50 but with a kit composition that fails per-tier WR checks). Surface to gandalf for re-disposition; soft-disable via option 2 until disposition.
 - P3 validation verdict is CANNOT REJECT NULL (per scope-of-work § 1). H_RC refutation may implicate Option B specifically — surface to Matt with the Option B sub-population's behavior analyzed.
+- P2 returns zero `floor_lock_detected=TRUE` rows across full-season regen → wind-down trigger #3 candidate (masked-Pattern-B-extreme population may not exist at the scale § 2.5 predicted); soft-disable becomes the right end state; surface to Matt at P3 with the empirical verdict.
 
 **What survives revert:** the design diagnosis (this brief), the empirical Pattern-A/B carve from Phase B.2, the named-constant precedent for `MODIFIER_SEARCH_FLOOR` (Option A's gift), and the floor-lock-detected telemetry schema. None of these depend on Option B's behavior; all remain valuable independent of whether Option B's implementation ships.
+
+**What survives soft-disable:** in addition to the items that survive full revert, soft-disable also preserves (a) the full Option B branch logic (verified by unit tests), (b) `LEVER_FLOOR_LOCK_WORKING_MODIFIER` as a named constant (value changed from 0.005 → MODIFIER_SEARCH_FLOOR=0.01; docstring updated to reflect soft-disable state + re-enable path), (c) all telemetry fields and their per-attempt round-trip, (d) the smoke gate B1 script (preserved for re-use when a real subject is identified at P2). Re-enable cost: one-line constant change.
 
 ---
 
