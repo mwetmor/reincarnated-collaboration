@@ -94,3 +94,22 @@ If the verdict is STILL PRESENT and you propose a fix: produce a math note per D
 - `agentic_orchestration/jack-ryan/research/legacy-constraint-audit-2026-05-21/constraint-inventory.md` LC-026
 - `reincarnated-engine/design/working-agreement/engineering-disciplines.md` § 1 (math-before-code), § 11.1 (state-space conditioning), § 17 (empirical calibration)
 - `reincarnated-engine/design/decisions/decisions-log.md` 2026-05-21 QD-rebuild activation entry
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-21
+**Verdict:** RESOLVED
+**Tags shipped:** `qd-rebuild/v0.5-mana-bug-verify-resolved`
+**Smoke results:** 54/54 test_energy_types.py PASS; 75 passed test_balance_loop.py + test_class_generation.py; 23/23 test_combat_simulator.py PASS. No code changes — empirical inspection only.
+**MIGRATION.md written:** No — empirical inspection workstream; no cross-seam contract change.
+**Math note written:** `reincarnated-engine/src/reincarnated/simulation/math/w0-5-mana-bug-verify.md`
+**LC-026 disposition:** Addendum file created at `agentic_orchestration/jack-ryan/research/legacy-constraint-audit-2026-05-21/lc-026-mana-bug-verify-addendum-2026-05-21.md` (co-located with constraint-inventory; gamora did not modify jack-ryan's audit file directly).
+
+**Notes for knight-rider / jack-ryan:**
+- LC-026 is cleared. No follow-on fix workstream needed. Phase 1 dimensional refactor resolved the structural bug at both layers (pool assignment + skill costing).
+- Residual: `base_stamina` column in `classes` telemetry table is never written by `recorder.py`. Out of scope for LC-026 (it is a documentation gap, not a fight-engine bug). Flag to star-lord for telemetry schema awareness if BC axis 5 profiling needs stamina pool data.
+- `resource_over_time` per-fight telemetry field referenced in dispatch does not exist in current schema. Empirical inspection used `classes.base_mana`, `classes.int_stat/wis_stat`, and `abilities.energy_cost_pct` as equivalent evidence — sufficient for a RESOLVED verdict.
+- QD-rebuild P1 substrate work (HP-economy substrate, charge-stack substrate, damage-converts substrate) can proceed with mana pipeline structurally sound. LC-025 and LC-030 remain open as separate P1 substrate extension requirements.
+- No cross-seam or scope-creep concerns surfaced.
