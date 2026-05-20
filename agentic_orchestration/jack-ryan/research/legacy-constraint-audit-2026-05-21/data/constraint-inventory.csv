@@ -1,0 +1,63 @@
+constraint_id,constraint_name,status,engine_surface_affected,bc_axis_affected,qd_rebuild_risk,recommended_disposition,dependencies
+LC-001,Archetype template hardcoded dict (Cluster-B humanoid-fantasy substrate),DOCUMENTED,generation,cross-cutting,HIGH,REMOVE,LC-002/LC-003/LC-022
+LC-002,Element selection bias — structural-presupposition toward fire 23.6%,EMPIRICALLY-SURFACED,generation/element selector,Axis 2B/3B,HIGH,ABLATE,LC-001/LC-020
+LC-003,Modifier floor-lock calibration epoch (mean |mod-1.0| ~0.82),DOCUMENTED,simulation/balance_loop,cross-cutting,HIGH,VERIFY,LC-004/LC-009
+LC-004,Energy-type mechanical gradient (~3-5x DPS differential rage vs mana),DOCUMENTED,simulation/generation,Axis 3A/3B/4,HIGH,REMOVE,LC-003/LC-001
+LC-005,AOE skew — PackProxy x8 multiplier creates AOE win-rate inflation,DOCUMENTED,simulation/balance_loop,Axis 2/3A,HIGH,PRESERVE+DOCUMENT,LC-003
+LC-006,Canonical-four element labels universally exposed to LLM (Cluster E drift),DRIFT-CANDIDATE,generation/llm,cross-cutting,HIGH,REMOVE,LC-007/LC-014
+LC-007,Humanoid-presupposing gear schema (Cluster A — loadout/gear 14-item),DOCUMENTED,generation/export,Axis 4/5,HIGH,REMOVE,LC-006/LC-008
+LC-008,STR/DEX/INT attribute axes as math-bearing humanoid labels,DOCUMENTED,generation/simulation,Axis 4/5,HIGH,PRESERVE+DOCUMENT,LC-007/LC-006
+LC-009,Hunter archetype modifier range 1.82 — inconsistent convergence shape,EMPIRICALLY-SURFACED,generation/simulation/balance_loop,Axis 1/3A/3B,HIGH,ABLATE,LC-001/LC-004
+LC-010,Proxy density measurement gap — current sim is solo-only,DOCUMENTED,simulation,Axis 2A,HIGH,PRESERVE+DOCUMENT,LC-001
+LC-011,Convergence iterations highest for controllers/mages lowest for rogue/hunter,EMPIRICALLY-SURFACED,simulation/balance_loop,Axis 2B/cross-cutting,HIGH,ABLATE,LC-001/LC-004
+LC-012,Foundation model validator hard-codes 4-rotating + 1-physical (Flag B),DRIFT-CANDIDATE,generation/foundation,cross-cutting,HIGH,VERIFY/REMOVE,LC-001/LC-006
+LC-013,Mage range constraint — ARCHETYPES_FORBIDDEN_CLOSE_RANGE list,DOCUMENTED,generation,Axis 1,MEDIUM,PRESERVE+DOCUMENT,LC-001
+LC-014,D1 element-name pool humanoid-fantasy selection bias (Flag A + three-level drift),DRIFT-CANDIDATE,generation/element selector,Axis 2B/3A/3B,MEDIUM,ABLATE+DOCUMENT,LC-006/LC-012
+LC-015,DOPPELGANGER_MODIFIER_FLOOR=0.30 — gate behavior discontinuity,DOCUMENTED,simulation/balance_loop,cross-cutting,MEDIUM,PRESERVE+DOCUMENT,LC-003/LC-004
+LC-016,Per-fight damage variance +/-25% (Prop 4),DOCUMENTED,simulation,Axis 3B/5,MEDIUM,ABLATE,LC-009
+LC-017,Gauntlet composition — 6 PackProxy slots + 6 non-proxy 1v1 slots,DOCUMENTED,simulation/balance_loop,Axis 2/3A,MEDIUM,DOCUMENT,LC-005
+LC-018,Energy homogeneity — low variance in energy patterns across kits,EMPIRICALLY-SURFACED,generation/simulation,Axis 5,MEDIUM,ABLATE,LC-001/LC-030
+LC-019,Cohesion gate — LLM-judged thematic coherence not yet wired,IMPLIED,simulation/telemetry/export,cohesion-BC,MEDIUM,DOCUMENT,LC-006
+LC-020,Per-tier WR convergence targets (A1/A2 diagnostic-only A3 primary),DOCUMENTED,simulation/balance_loop,cross-cutting,MEDIUM,PRESERVE+DOCUMENT,LC-003
+LC-021,Movement-modeling abstraction limitation — sim is movement-speed-blind,DOCUMENTED,simulation,Axis 1,MEDIUM,DOCUMENT,LC-001
+LC-022,Substrate-expansion archetype matrix gap (6-substrate expansion has no templates),IMPLIED,generation,cross-cutting,MEDIUM,VERIFY,LC-001/LC-012
+LC-023,Recompose-gauntlet stripping PackProxy — three-context semantic asymmetry,DOCUMENTED,simulation/balance_loop,Axis 2/3A,MEDIUM,DOCUMENT,LC-005/LC-017
+LC-024,Dodger bin — stealth/iframe/reflection sub-cases deferred,DOCUMENTED,simulation,Axis 4,MEDIUM,PRESERVE,LC-010
+LC-025,Charge-stack and damage-taken-converts bins deferred (Axis 5),DOCUMENTED,simulation/generation,Axis 5,MEDIUM,VERIFY,LC-018
+LC-026,Mana bug (structural) — non-mana classes assigned mana by pipeline,DOCUMENTED,simulation/generation,Axis 5,MEDIUM,VERIFY,LC-004
+LC-027,Ailment-damage-signatures DEFERRED (thematic secondary damage on control ailments),DOCUMENTED,simulation/generation,Axis 2B/3A/3B,MEDIUM,PRESERVE,LC-011
+LC-028,Single-word rule for element names constrains seasonal vocabulary,DOCUMENTED,generation/element selector,LOW,MEDIUM,VERIFY,LC-014
+LC-029,Swarm eff_attr=7 calibration — minor attack threat floor,DOCUMENTED,simulation,Axis 4/3A,LOW,PRESERVE,LC-005/LC-017
+LC-030,HP-cost skill variety gap — structural Axis 5 bin,IMPLIED,generation/simulation,Axis 5,MEDIUM,VERIFY,LC-018/LC-025
+LC-031,Auto-accept LLM element proposals for Phase 0,DOCUMENTED,generation/element selector,Axis 2B,LOW,DOCUMENT,LC-014
+LC-032,END_GAME_DROPS_PER_SLOT=50 loadout sampling model,DOCUMENTED,simulation/balance_loop,Axis 4/5,LOW,PRESERVE,none
+LC-033,Discipline #17 smoke-environment-must-mirror-production (D11.2 amendment),DOCUMENTED,simulation/balance_loop,cross-cutting,LOW,PRESERVE,none
+LC-034,Single-season-per-playtest cost guardrail,DOCUMENTED,generation,all,LOW,DOCUMENT,none
+LC-035,Block fires before crit — combat damage resolution ordering,DOCUMENTED,simulation,Axis 4,LOW,PRESERVE,none
+LC-036,Percentage armor formula K=3000 — no zero-damage floor for physical,DOCUMENTED,simulation,Axis 4,LOW,PRESERVE,LC-004
+LC-037,DoT bypass fix — buff_dmg_mult applied to tick_damage,DOCUMENTED,simulation,Axis 3A/3B,LOW,PRESERVE,none
+LC-038,SWAP_VALUE_FLOOR=0.10 Spirit Guide threshold,DOCUMENTED,spirit_guide,Axis 5,LOW,PRESERVE,none
+LC-039,B14.5 hybrid rejection gate — reverts levers if modifier moves away from 1.0,DOCUMENTED,simulation/balance_loop,cross-cutting,LOW,PRESERVE,LC-003
+LC-040,Season manifest versioning 1.3 (forward-compat schema additions),DOCUMENTED,export,none,LOW,PRESERVE,none
+LC-041,Gauntlet backward-compat "standard" tier treated as "trash",DOCUMENTED,simulation/generation,Axis 4,LOW,PRESERVE,none
+LC-042,R8 inverted-mode coalescence — season theme coalesced post-convergence,DOCUMENTED,generation/llm,cohesion-BC,LOW,PRESERVE,LC-006/LC-019
+LC-043,earth_caster B6 constraint deferred — tier1_ground_slam_and_melee_arc unsatisfiable,DOCUMENTED,generation,Axis 2,LOW,VERIFY,LC-001
+LC-044,Solo gameplay only (summoner multi-actor gated to Phase 5),DOCUMENTED,simulation/generation,Axis 2A,LOW,PRESERVE,LC-010
+LC-045,Profile A scope filter — excludes deferred bins from shippable seasons,DOCUMENTED,generation/simulation,Axis 2A/4/5,LOW,PRESERVE,LC-010/LC-024/LC-025
+LC-046,ARPG-canon-primary at substrate-mechanical layer (explicit-hybrid Phase-0 lock),DOCUMENTED,generation/simulation,cross-cutting,LOW,PRESERVE,LC-007/LC-008
+LC-047,View A — AOE classes earn pack-clear identity as genre-correct archetype payoff,DOCUMENTED,simulation/balance_loop,Axis 2/4,LOW,PRESERVE,LC-005
+LC-048,B14.5 success metric — mean |modifier - 1.0| not max/min spread ratio,DOCUMENTED,simulation/balance_loop,none,LOW,PRESERVE,none
+LC-049,Court of Forms meta-archetype registry — cross-season accumulation,DOCUMENTED,export/telemetry,none,LOW,PRESERVE,none
+LC-050,Naming triad — Trial/Mirror/Passage universal frame locked,DOCUMENTED,generation/export/telemetry,none,LOW,PRESERVE,none
+LC-051,Style register locked — Hand-drawn pixel-art (HD-2D-shaped),DOCUMENTED,export,none,LOW,PRESERVE,none
+LC-052,Perception asymmetry constants — tuning-drift discipline (Discipline #16),DOCUMENTED,simulation/demo,Axis 1/2,LOW,PRESERVE,none
+LC-053,Body-swap gear rules — three paths with distinct gear outcomes,DOCUMENTED,simulation/generation,Axis 4/5,LOW,PRESERVE,none
+LC-054,Divergence floor constraint — ≥2 differing axes per archetype-mate pair,DOCUMENTED,generation/simulation,cross-cutting,LOW,PRESERVE,none
+LC-055,Canonical-four as resistance-cipher only (Position ii locked),DOCUMENTED,generation,cross-cutting,LOW,PRESERVE,LC-006/LC-012
+LC-056,Experimental classes bypass recompose loop,DOCUMENTED,simulation/balance_loop,all,LOW,PRESERVE,LC-001
+LC-057,B10.4 divergence ceiling — per-class WR ≥ 25% per content type,DOCUMENTED,simulation/balance_loop,cross-cutting,LOW,PRESERVE,LC-020
+LC-058,B9 per-band SP allocation deferred — A1/A2 diagnostic-only,DOCUMENTED,simulation/balance_loop,cross-cutting,LOW,PRESERVE,LC-020
+LC-059,IDC meta-principle default — season theme coalesced post-convergence,DOCUMENTED,generation/llm,cohesion-BC,LOW,PRESERVE,LC-042
+LC-060,Trait architecture — skill-specific traits on gear prohibited,DOCUMENTED,generation,Axis 5,LOW,PRESERVE,none
+LC-061,Mage range constraint extension candidates (earth_caster wind_caster controllers) unresolved,ABLATION-CANDIDATE,generation,Axis 1,LOW,ABLATE,LC-013
+LC-062,AGI stat — dead/reserved column,DOCUMENTED,telemetry,Axis 4,LOW,PRESERVE,LC-024

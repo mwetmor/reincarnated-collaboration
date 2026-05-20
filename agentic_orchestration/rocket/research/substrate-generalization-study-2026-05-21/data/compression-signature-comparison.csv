@@ -1,0 +1,17 @@
+substrate,data_source,n_classes,modifier_mean,modifier_sd,modifier_cv,modifier_range_min,modifier_range_max,boss_wr_mean,boss_wr_sd,boss_wr_zero_pct,mb_wr_mean,mb_wr_zero_pct,pattern_a_pct,calibration_note
+fire,historical_R1R2_telemetry,24,0.0521,0.0059,0.11,0.0500,0.0797,0.385,0.407,25.0%,0.108,41.7%,25.0%,pre_disposition3_v2.10-2.13
+water,historical_R1R2_telemetry,20,0.0519,0.0034,0.07,0.0500,0.0648,0.448,0.382,15.0%,0.340,20.0%,15.0%,pre_disposition3_v2.10-2.13
+earth,historical_R1R2_telemetry,20,0.0524,0.0065,0.12,0.0500,0.0797,0.242,0.353,40.0%,0.224,25.0%,40.0%,pre_disposition3_v2.10-2.13
+wind,historical_R1R2_telemetry,20,0.0722,0.0582,0.81,0.0500,0.2875,0.320,0.414,40.0%,0.238,40.0%,40.0%,pre_disposition3_v2.10-2.13
+physical,historical_R1R2_telemetry,20,0.4400,0.3665,0.83,0.0797,1.7500,0.000,0.000,100.0%,0.005,95.0%,100.0%,pre_disposition3_v2.10-2.13
+lightning,historical_R1R2_telemetry,0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,not_in_rotating_set_pre_P2
+holy,historical_R1R2_telemetry,0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,not_in_rotating_set_pre_P2
+shadow,historical_R1R2_telemetry,0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,not_in_rotating_set_pre_P2
+shadow,P2_season100005_cold_start,2,0.2884,0.1313,0.46,0.1956,0.3812,0.000,0.000,100.0%,0.000,100.0%,100.0%,disposition3_v2.13
+fire,P2_season100005_cold_start,2,0.1029,0.0439,0.43,0.0719,0.1338,0.000,0.000,100.0%,0.000,100.0%,100.0%,disposition3_v2.13
+water,P2_season100005_cold_start,1,0.1338,N/A,N/A,0.1338,0.1338,0.000,N/A,100.0%,0.000,100.0%,100.0%,disposition3_v2.13
+earth,P2_season100005_cold_start,1,0.1338,N/A,N/A,0.1338,0.1338,0.000,N/A,100.0%,0.000,100.0%,100.0%,disposition3_v2.13
+wind,P2_season100005_cold_start,1,0.1338,N/A,N/A,0.1338,0.1338,0.000,N/A,100.0%,0.000,100.0%,100.0%,disposition3_v2.13
+lightning,P2_season100005_cold_start,1,0.0719,N/A,N/A,0.0719,0.0719,0.000,N/A,100.0%,0.000,100.0%,100.0%,disposition3_v2.13
+holy,P2_season100005_cold_start,1,0.1338,N/A,N/A,0.1338,0.1338,0.000,N/A,100.0%,0.000,100.0%,100.0%,disposition3_v2.13
+physical,P2_season100005_cold_start,1,0.3812,N/A,N/A,0.3812,0.3812,0.000,N/A,100.0%,0.000,100.0%,100.0%,disposition3_v2.13

@@ -4,6 +4,85 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-ENGINE REBUILD HIVE ACTIVATED: continuous single-hive multi-phase rebuild (P0-P7; 24-37 weeks)
+
+**Event:** Per gandalf activation dispatch `agentic_orchestration/dispatches/2026-05-21-knight-rider-qd-rebuild-hive-activation.md`, the QD-engine rebuild hive activates under knight-rider's autonomous orchestration. This is the longest road the project has walked — multi-month continuous single-hive operating mode through phases P0 (constraint removal) → P7 (validation + production cutover for Profile A).
+
+**Architectural foundation (canonical stack now etched + committed):**
+- `canonical/story/engine-architecture-vision-qd-profile-2026-05-19.md` — vision (QD-engine + 4 profiles + IDC meta-principle)
+- `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` — operational spec (8 BC axes × 68,040 cells)
+- `canonical/story/substrate-design-supplement-2026-05-21.md` — substrate-as-cohesion-only architectural recommitment (substrate identity coalesces post-generation; mechanical generation is substrate-agnostic and BC-target-driven)
+- `canonical/story/qd-engine-end-to-end-workflow-2026-05-21.md` — 8-phase workflow with Profile A/B/C/D touchpoints
+- `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` — phased rebuild plan
+
+**Audit deliverables synthesized into rebuild plan:**
+- `agentic_orchestration/legolas/research/substrate-sufficiency-audit-2026-05-20/phase-1-reconnaissance/` (substrate gaps; Mixamo TOS; procurement shortlist; vision-layer geometry gaps)
+- `agentic_orchestration/jack-ryan/research/legacy-constraint-audit-2026-05-21/constraint-inventory.md` (62 constraints; 12 HIGH-risk)
+- `agentic_orchestration/rocket/research/substrate-generalization-study-2026-05-21/` (Alt A; Pattern-A generalizes universally)
+
+**Matt-resolved decisions (delegated to gandalf 2026-05-21):**
+- **D1** Unity render pipeline: URP
+- **D2** Phase 0 element scope: 7 elements (fire / water / earth / wind / lightning / holy / shadow)
+- **D3** Cohesion-BC sequenced post-cipher migration
+- **D4** BC Axis 2 measurement: all fights, fight-context-tagged
+- **D5** Foundation validator: 7-substrate
+- **D6** Vision-layer geometry gaps documented for v1.1; do not block P0
+
+**Post-protocol architectural refinements (substrate-as-cohesion-only recommitment 2026-05-21):**
+- Substrate identity is a pure cohesion-layer concern; mechanical generation is substrate-agnostic and BC-target-driven
+- Shadow = trade-off thematic identity (cohesion theme; ARPG + cultural + isekai canon grounding)
+- Physical = warcry/shout exception (cohesion theme; D2/D3/D4 Barbarian canonical)
+- Holy = aura self-amplification primary (cohesion theme; D2 Paladin / D3 Crusader / PoE Guardian canonical)
+- Kit-redesign queue CANCELED (philosophical contradiction with QD-engine paradigm); 12-archetype list preserved as P7 W7.2 archive-query reference roster
+- **NEW separate repo `~/Games/reincarnated-game/`** — Unity production (drax-owned PARALLEL initiative; multi-month scope; Meshy 6 pipeline; URP); ships independently of QD-rebuild
+- Dual-render Profile A: Pixi.js 2D (existing demo) + Unity 3D (reincarnated-game); missing sprites acceptable
+- VFX procurement deferred to P6-equivalent in reincarnated-game initiative (NOT QD-rebuild scope)
+- W1.8/W1.9/W1.10 REMOVED from QD-rebuild P1 (moved to reincarnated-game initiative)
+- **NEW P1 W1.13** — skill tree node population (procedural per-class-per-season ~120-node trees; multi-dim convergence over node-subset × per-node-coefficients × scalar modifier; resolves Pattern-A compression mathematically per § 2.8 of activation dispatch)
+- **NEW P0 W0.9** — gauntlet architecture migration (retire PackProxy ×8; true multi-monster positional gauntlet as default convergence path; P7 W7.2 certification is archive QUERY not re-execution; per § 2.9 of activation dispatch)
+
+**Decision authority during hive (per activation dispatch § 5):** knight-rider operates autonomously, surfacing to Matt only for: structural architecture changes / procurement >$100 cumulative / production cutover (W7.5) / Discipline #18 ratification (P5 W5.6) / Profile A ship-blocker / axis-lock v1.1+ revision / W0.9 + W1.13 framing approval (new scope from protocol v1.1).
+
+**Knight-rider opening sequence (per activation dispatch § 4):**
+1. Close recompose-hive trigger #3 (P5 canonical record commit; engineering-disciplines.md #11 elaboration; star-lord "33" → "35" corrective; final tag `recompose-hive/v1.1-canonical-record-complete`; retrospective doc) — **EXECUTED THIS SESSION**
+2. Draft decisions-log entries for D1-D6 + QD-rebuild hive activation + Discipline #11 elaboration ratification + Discipline #18 candidate registration + § 2.8 W1.13 commitment + § 2.9 W0.9 commitment — **EXECUTED THIS SESSION**
+3. Acknowledge Track C in-flight (gandalf synthesizes verdict when it returns; fold synthesis into P1 W1.11 scope-finalization) — **ACKNOWLEDGED**
+4. Open QD-rebuild P0 with workstream sequence W0.1 + W0.5 + W0.8 front-loaders; W0.2 + W0.4 substantial; W0.3 + W0.6 + W0.7 + W0.9 in parallel
+5. Tag `v0.0-constraint-removal-shipped` at P0 completion
+6. Open P1 with W1.13 (new scope; Matt approval required for framing before fires)
+7. Continuous execution through P7
+
+**Background dispatches in flight:**
+- Track C resumption (TC-1 water resume + TC-2 earth; SKIP TC-3 shadow per shadow trade-off framing) — running when activation dispatched; verdict feeds P1 W1.11 substrate enrichment scope; does NOT block P0 fire
+- Monster thematic depth assessment (Legolas + Galadriel + gandalf synthesis) — QUEUED to fire post-P0 open
+
+**Tag namespace:** `qd-rebuild/v<X.Y>-<descriptor>` (intermediate); `v<X.0>-<phase-name>-shipped` (Matt-approved milestone); `v8.0-qd-engine-final` (production cutover).
+
+**Hive-state hygiene:** state-of-hive doc at `agentic_orchestration/knight-rider/state-of-hive-qd-rebuild.md`; phase-progress logs at `agentic_orchestration/knight-rider/daily/<YYYY-MM-DD>.md`; skill_handoff docs per Matt session-open.
+
+---
+
+## 2026-05-21 — RECOMPOSE-VALIDATION HIVE CANONICAL RECORD CLOSED: trigger #3 P5 completion at full scope
+
+**Event:** Per gandalf QD-rebuild activation dispatch § 4 Step 1 and Matt's blended-path-A acceptance, the recompose-validation hive's canonical record is committed at FULL P5 scope (Matt response category A from Matt briefing § 7). This supersedes the 2026-05-20 lightweight close.
+
+**Full P5 deliverables completed at this entry:**
+- ✅ Single Discipline #11 elaboration applied to `reincarnated-engine/design/working-agreement/engineering-disciplines.md` (§ 11.1 state-space conditioning of empirical signals — ratified per gandalf P3 § 9.6 P5-ready language)
+- ✅ Retrospective doc filed at `agentic_orchestration/hive-mind/retrospective-recompose-validation.md`
+- ✅ Engine-side star-lord analysis count corrective applied (33 → 35; `output/p2-fresh-diagnostic-regen-2026-05-19/p2-classification-and-floor-lock-analysis.md`; per jack-ryan Gate-2 Amendment 1 out-of-collab-scope)
+- ✅ Final tag `recompose-hive/v1.1-canonical-record-complete` fires on this commit (engine + collab parity)
+
+**Continuity to QD-rebuild:** the recompose-hive's findings (empirical kit-composition pathology + Discipline #11.1 elaboration + "fix the arena, not the synergy" governance principle) anchor multiple downstream QD-rebuild workstreams. Specifically: substrate-as-cohesion-only architecture (resolves kit-composition pathology architecturally); Discipline #17 calibration sweeps (carry equilibrium-state conditioning forward); P0 W0.9 gauntlet architecture migration (retire PackProxy ×8 per the "fix the arena" principle). See retrospective § 6 for full continuity map.
+
+**Hive state at full close:**
+- Engine code state: Option A active (`MODIFIER_SEARCH_FLOOR = 0.01`); Option B installed + soft-disabled (`LEVER_FLOOR_LOCK_WORKING_MODIFIER = MODIFIER_SEARCH_FLOOR`); 179/179 tests PASS; schema v2.13 telemetry live; no rollback executed
+- Documentation state: canonical findings v0.4.1 amended (collab) + retrospective (collab) + Discipline #11.1 (engine) + decisions-log entries (engine; new entry filed at this Step 2) + engine-side analysis count corrective applied
+- All hive milestone tags resolved: v0.0 + v0.1 + v0.3 + v0.4 FIRED; v1.1 FIRES at this commit; v0.2 HELD PERMANENTLY
+
+**Hive close is final. Future references to recompose-hive findings cite the canonical artifact inventory in the retrospective doc § 5.**
+
+---
+
 ## 2026-05-20 — RECOMPOSE-VALIDATION HIVE DEACTIVATED: Matt explicit wind-down (Trigger 1) signaled post-Trigger 3
 
 **Event:** Matt explicit wind-down signal received (verbatim: *"please commit/push and wind down"*). Trigger 1 per protocol § 7 signaled at this entry, completing the recompose-validation hive's deactivation cycle (Trigger 3 fired at verdict-handoff; Trigger 1 fires at Matt's explicit wind-down acceptance).
