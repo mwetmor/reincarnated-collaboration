@@ -1,3 +1,7 @@
+**⚡ NEXT-SESSION KNIGHT-RIDER: read `agentic_orchestration/next-session-pickup-memo-2026-05-19.md` FIRST.** Two pickup items: (1) retry-2 LLM-naming closeout (mechanical commit), (2) Matt's Option A approval decision (the headline). Then continue with this skill_handoff wind-down section at the bottom.
+
+---
+
 # Skill Handoff — 2026-05-19 (Engine-Rebuild Close + VS2a Kickoff)
 
 **Authored:** 2026-05-19 04:26Z by knight-rider at engine-rebuild activation.
