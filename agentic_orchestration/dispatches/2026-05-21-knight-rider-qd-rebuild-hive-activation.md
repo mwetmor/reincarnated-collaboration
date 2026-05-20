@@ -52,7 +52,70 @@ Per `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` § 4:
 
 ## 2. Operational refinements (added to protocol post-v1.1)
 
-These three refinements modify the protocol v1.1 slightly. Either fold into protocol v1.2 amendment or operate with this memo as the delta.
+These refinements modify the protocol v1.1 slightly. Either fold into protocol v1.2 amendment or operate with this memo as the delta.
+
+### 2.0 ARCHITECTURAL RECOMMITMENT 2026-05-21 — Substrate-as-cohesion-only
+
+**This is the most consequential refinement.** Matt's pushback against archetype-lock-in risk surfaced the deeper architectural answer: **substrate identity is a pure cohesion-layer concern; mechanical generation is substrate-agnostic and BC-target-driven.**
+
+See companion docs:
+- `canonical/story/substrate-design-supplement-2026-05-21.md` — full architectural rationale + ARPG canon
+- `canonical/story/qd-engine-end-to-end-workflow-2026-05-21.md` — end-to-end workflow with this architecture
+
+**Implications for your hive operation:**
+
+- **LC-001 archetype refactor (P0 W0.2) becomes even simpler** — remove archetype templates entirely; generation is BC-target-driven from unified substrate-agnostic mechanic pool
+- **LC-012 foundation validator (P0 W0.3) reinterpreted** — validator becomes cohesion-layer check, not substrate-mechanic enforcer
+- **Substrate identity YAMLs (P1 W1.11) repurposed** — become cohesion-judge reference docs, not generation constraints
+- **5× rule recalibrates** — substrate-agnostic per axis × bin (not per-substrate variety; total mechanical variety)
+- **Cohesion-BC archive (P5) gains canonical substrate/element/theme authority**
+
+**Three substrate-design refinements adopted (cohesion-layer only):**
+
+1. **Shadow = trade-off thematic identity** (bloodlust, dark embrace, faustian pact, vampiric, soul exchange) — ARPG + cultural + isekai canon grounding per supplement
+2. **Physical = warcry/shout exception** (D2/D3/D4 Barbarian canonical; active-CD self-amplification)
+3. **Holy = aura self-amplification primary** (D2 Paladin / D3 Crusader / PoE Guardian canonical; multi-actor as bonus future-context mode; D7 resolved by architecture)
+
+These refinements are PURE COHESION layer; they don't affect mechanical generation.
+
+### 2.4 Reincarnated game Unity production — NEW separate repo (PARALLEL initiative)
+
+Per Matt 2026-05-21: committed to Unity production for Reincarnated the game.
+
+- **New repo created at `~/Games/reincarnated-game/`** (seeded with CLAUDE.md 2026-05-21)
+- **Owner:** drax (extends player-facing presentation layer from Pixi.js to Unity 3D)
+- **Render pipeline:** URP (D1 resolved)
+- **Production pipeline:** ChatGPT → Meshy → Mixamo → VFX mapped
+- **This is a PARALLEL initiative to QD-rebuild**, not a sub-track. Multi-month scope; ships independently.
+- **Knight-rider does NOT coordinate this repo's work** beyond awareness. Drax-owned. Future dispatch will scope its initialization.
+
+### 2.5 Dual-render Profile A ship target
+
+Profile A produces output for TWO render targets:
+- **Pixi.js 2D** (existing reincarnated-demo) — near-term ship at P3 reduced-cell-space (~11-16 weeks) or P4 full-cell-space (~15-22 weeks); missing sprites acceptable per Matt
+- **Unity 3D** (new reincarnated-game) — future ship target via reincarnated-game initiative; archive entries served identically to both render paths
+
+### 2.6 W1.8/W1.9/W1.10 REMOVED from QD-rebuild P1 scope
+
+These workstreams (VFX procurement, Mixamo integration, ChatGPT→Meshy→Mixamo→VFX pipeline test) **moved to the parallel Unity production initiative.** They don't belong in QD-engine scope.
+
+P1 W1.X workstream list updated:
+- W1.1 — Ability schema extensions ✓
+- W1.2-W1.6 — substrate creation ✓ (HP-economy, charge-stack, damage-converts, movement, proxy substrate prep)
+- W1.7 — Legolas Phase 2 (substrate audit depth pass) ✓
+- ~~W1.8 — VFX procurement~~ MOVED to reincarnated-game initiative
+- ~~W1.9 — Mixamo integration~~ MOVED to reincarnated-game initiative
+- ~~W1.10 — pipeline test~~ MOVED to reincarnated-game initiative
+- W1.11 — Element-specific substrate enrichment (now COHESION-layer reference work; substrate identity YAMLs as cohesion-judge inputs)
+- W1.12 — Galadriel proactive visual style review ✓ (applies to demo1 Pixi.js output; Unity work is separate initiative)
+
+**P1 duration reduces from 4-6 weeks to ~3-4 weeks** with Unity scope removed.
+
+### 2.7 VFX procurement defer to P6
+
+When Unity production initiative fires (separately), VFX procurement (Hovl RPG VFX Bundle ~$48; PixPlays Elemental Spells ~$36; etc.) happens at P6 W6.1-equivalent for that initiative. Free baselines (Hovl Magic Effects FREE; Digital Ruby Fire & Spell Effects) can be used in earlier Unity-init test runs without cost.
+
+### 2.1 Continuous single-hive operating mode
 
 ### 2.1 Continuous single-hive operating mode
 
