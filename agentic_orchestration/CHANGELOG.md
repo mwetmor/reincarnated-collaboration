@@ -4,6 +4,62 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-rebuild P0 W0.10 FULLY CLOSED: cumulative Gate-2 BOTH APPROVED clean; joint-resolution triad empirically discharged
+
+**Event:** W0.10 cumulative Gate-2 critique-pair returned. Both reviews APPROVED. NO amendments required. Final tag `qd-rebuild/v0.10-boss-ai-leash-reset-fixed` STANDS (commit `27011e1`).
+
+**gandalf architectural close-out — ARCHITECTURALLY ALIGNED** (no amendments, no escalation):
+
+5 attestations:
+1. **§ 2.3.1 behavioral-correctness caveat HONORED** — W0.10 is scoped strictly as per-bug resolution; W0.2/W0.1/W0.9 triad components untouched; bimodal post-fix outcome is the textbook § 2.3.1 reading. The caveat-amendment pattern is now empirically validated by the first per-bug resolution to fully exercise it.
+2. **ARPG-canon alignment ATTESTED** — MIGRATION.md v1.29 carries D3→D2/PoE/Last Epoch genre repositioning rationale verbatim (lines 3231-3239); D3 HP-reset correctly identified as outlier, not genre default; Reincarnated's trial-room boss-gallery framing is D2/PoE-shaped.
+3. **"Fix the arena" principle continuation ATTESTED** — W0.9.2.1 (PackProxy retirement) + W0.10 (boss AI + leash) are structurally identical arena-side defects. After fixing the arena, the legitimate synergy-side gap (low-modifier kits) is now visible without confound.
+4. **Joint-resolution triad empirical close ATTESTED** — high-modifier band (≥0.64): § 5.3 prediction CONFIRMED (physical_grappler + hunter boss_wr=1.000); low-modifier band (≤0.33): modifier-scaling gap routes to P2/P3 multi-dim convergence per § 5.3.
+5. **Bimodal-roster outcome ACCEPTABLE** — TTK math fills the band the empirical roster doesn't cover; structural sufficiency is about arena correctness, not WR-curve smoothness across modifier; mid-band gets empirically populated in § 2.8 P1 W1.13 sequentially, not concurrently.
+
+**jack-ryan DEV-MODE Gate-2 — APPROVE** (no amendments required):
+
+All 11 focus areas PASS:
+- FA-1 math-spec correspondence: PASS (reference-storage `_boss_focus_entity` matches Phase 1.5 spec exactly)
+- FA-2 #13a-partition compliance: PASS (Test 6 enforces prohibition list programmatically; canonical exemplar pattern from W0.1)
+- FA-3 leash semantics correctness: PASS (propagation chain complete; D2/D3 branches verified)
+- FA-4 test surface adequacy: PASS (9 tests cover full required surface)
+- FA-5 MIGRATION.md v1.29: PASS (Discipline #12 semantic shift documented; ADR-004 NOT applicable; W0.10.6 disposition explicit)
+- FA-6 caller-side wiring fold-in (W0.9 Amendment 1): PASS disposition accepted
+- FA-7 re-sweep predict-vs-measure: PASS with documented residual (bimodal-roster artifact correctly explained)
+- FA-8 Discipline #17 anomaly count: PASS (bimodal signal interpretation accurate)
+- FA-9 R11(b) round-trip: PASS (1,198,890 fight_events rows, 0 failures; inherited from W0.9.5)
+- FA-10 no regressions: PASS (36/36 spatial tests; verified live)
+- FA-11 Discipline compliance summary: PASS all 12
+
+All prior amendments fully folded: AMEND-1 (reference-storage), A1 (genre repositioning quotable text), A2 (empirical-close artifact preserved), A3 (encounter-configurable-leash carry-forward).
+
+**5 carry-forward concerns surfaced — ALL PARKED non-blocking:**
+
+- **C1 Discipline #17 anomaly-cause-classification refinement** — PARKED gandalf-internal until 3rd close-out's evidence base; do NOT fire dispatch now
+- **C2 A3 encounter-configurable-leash principle lift to engineering-disciplines.md** — PARKED until second encounter-configurable instance arrives (likely P1/P2); "one instance is not a principle"
+- **C3 Multi-tier archive insertion** — already on radar, P1/P2 convergence restructuring
+- **C4 B6+W0.1 verification re-sweep** — awaits B6 generation (Concern 1 from W0.1 review)
+- **C5 Convergence-path SqliteSpatialTelemetryWriter wiring** — ACCEPTED split (validation-path wired; convergence-path stays NullWriter default until P1)
+
+**W0.10 FULLY CLOSED. Joint-resolution triad empirically discharged:**
+- ✅ W0.2 source diversity — substrate-AGNOSTIC composition LIVE
+- ✅ W0.1 calibration fairness — #13a-partition canonical exemplar LIVE
+- ✅ W0.9 arena fidelity — PackProxy retired; spatial gauntlet promoted
+- ✅ W0.10 behavioral correctness — boss AI focus + D2/PoE leash semantics LIVE (the per-bug resolution under § 2.3.1 caveat)
+
+**Empirical evidence on file:**
+- physical_grappler (modifier=0.742): boss_wr 0.000→1.000 (+1.000)
+- hunter (modifier=0.636): boss_wr 0.000→1.000 (+1.000)
+- Low-modifier kits (0.05-0.33): boss_wr 0.000 (routes to P2/P3 multi-dim)
+- holy_controller TTK at modifier=0.332: 1989s >> 240s cap (modifier-scaling gap diagnosis confirmed)
+
+State-of-hive § 1 W0.10 row updated to FULLY CLOSED. Reviews filed at `agentic_orchestration/gandalf/qa/w0-10-architectural-close-out-2026-05-21.md` + `agentic_orchestration/jack-ryan/qa/w0-10-gate-2-review-2026-05-21.md` (per agent outputs).
+
+**Next: W0.7 ablation experiments dispatch fires. On W0.7 close → P0 milestone tag `v0.0-constraint-removal-shipped` (the only remaining P0 workstream).**
+
+---
+
 ## 2026-05-21 — QD-rebuild P0 W0.10 Phase 2 IN-FLIGHT: boss AI leash-reset fix implementation + W0.10.5 re-sweep verification
 
 **Event:** W0.10 Phase 2 implementation dispatched to gamora (agentId `a49ef8e61d492ab72`). FINAL substantial implementation of P0 per gandalf Option A disposition.
