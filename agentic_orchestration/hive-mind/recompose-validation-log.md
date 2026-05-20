@@ -1142,3 +1142,54 @@ Phase 2 seam tag (`gamora/v1.15-...`) already fired by gamora. Hive milestone `r
 **On star-lord HANDOFF:** knight-rider verifies P2 acceptance (all three phases' deliverables complete) + fires `recompose-hive/v0.3-diagnostic-regen-complete` (engine + collab milestone) + routes P3 (validation synthesis) to gandalf + jack-ryan. P3 deliverable: canonical findings document at `canonical/story/per-tier-recompose-validation-findings-2026-05-19.md` per protocol § 3 P3 + § 6 P3.
 
 Routing now.
+
+---
+
+## 2026-05-20 EDT — star-lord HANDOFF — P2 Phase 3 COMPLETE; routing knight-rider for P2 acceptance
+
+**To:** knight-rider (P2 acceptance verification + P3 routing)
+**From:** star-lord (Phase 3 complete)
+**Dispatch authority:** `agentic_orchestration/dispatches/2026-05-19-rocket-plus-star-lord-plus-gamora-p2-fresh-diagnostic-regen.md` § 3.2 Phase 3
+
+**Phase 3 completion confirmation:**
+- Engine commit: `46d850c` (tag: `star-lord/v1.14-p2-classification-shadow-100005`)
+- Analysis document: `output/p2-fresh-diagnostic-regen-2026-05-19/p2-classification-and-floor-lock-analysis.md`
+- Telemetry AGENT_STATE.md: `src/reincarnated/telemetry/AGENT_STATE.md` (created; P2 Phase 3 record appended)
+
+**Schema verification:** PASS — all v2.12 (modifier_extreme_low) + v2.13 (floor_lock_recompose / working_modifier / floor_lock_detected) fields present and correctly populated on all 10 classes. Experimental class NULL handling correct per MIGRATION.md v1.22 spec.
+
+**Aggregate counts:**
+
+| Metric | Count | Pct |
+|---|---|---|
+| kit-acceptable | 0/10 | 0% |
+| kit-mediocre | 0/10 | 0% |
+| kit-broken | 10/10 | 100% |
+| Pattern-A (boss-zero structural) | 10/10 | 100% |
+| Pattern-B (boss-nonzero) | 0/10 | 0% |
+| Pattern-B-extreme candidates (floor_lock_recompose=True + Pattern-B) | 0/10 | 0% |
+| **floor-lock recovery candidates (canonical)** | **0/10** | **0%** |
+
+**THE KEY FINDING — canonical floor-lock candidate count: 0/10**
+
+- `floor_lock_detected=True` in any recompose_attempt: 0 across all 33 attempts on 9 canonical classes
+- `floor_lock_recompose=True` on ClassBalanceResult: 0/9 canonical (1 experimental NULL — correct)
+- Cross-check: PASS
+
+**Signal reversal (canonical methodological finding):**
+
+Phase 1 generation-time signal (rocket): 6/10 floor_lock_recompose=True. Phase 2 cold-start canonical signal (gamora): 0/10. Reversal is clean and explained: rocket's embedded convergence runs at pipeline-internal modifier states (near-floor by design during R8 kit construction), not true equilibrium states. Under cold-start from initial_modifier=1.0, all 10 classes find equilibrium modifiers in [0.0719, 0.3812] — above MODIFIER_SEARCH_FLOOR=0.01; no class is genuinely floor-locked. Pipeline-state-conditioned signals are NOT equivalent to equilibrium-conditioned canonical signals. This finding is engineering-disciplines candidate (Discipline #11 extension; flagged for P5 canonical record).
+
+**Recommended disposition: "Zero floor-lock candidates" path per dispatch § 4.1**
+
+Per dispatch § 4.1:
+- Masked-Pattern-B-extreme population is empirically absent from season_100005 at full-season scope on shadow substrate (0/10 vs 3-8/season conservative estimate).
+- Option B soft-disable is confirmed as the correct end state. No Option B re-enable routing needed.
+- **Wind-down trigger #3 signals at P3.** Scope-of-work § 1: 0% kit-acceptable < 60% threshold → CANNOT REJECT NULL verdict strongly indicated at P3 synthesis.
+
+**P3 routing recommendation:**
+- Knight-rider verifies P2 acceptance (all three phases complete; dispatch § 4 checklist)
+- Fires `recompose-hive/v0.3-diagnostic-regen-complete` (engine + collab milestone)
+- Routes P3 (validation synthesis) to gandalf + jack-ryan
+- Gandalf P3 consumes `output/p2-fresh-diagnostic-regen-2026-05-19/p2-classification-and-floor-lock-analysis.md` as canonical empirical record
+- P3 deliverable: `canonical/story/per-tier-recompose-validation-findings-2026-05-19.md` per protocol § 3 P3
