@@ -315,3 +315,60 @@ Routing now.
 **Routing recommendation:** knight-rider folds amendments 1-4 + 6 into gamora implementation dispatch as REQUIRED acceptance criteria; amendment 5 as gamora discretion. No back-routing to gandalf. Gamora implementation can proceed directly from brief + amendments.
 
 **Hive trigger watch:** no signals. ⏸ Triggers 1-4 unsignaled. P1 Gate-1 complete.
+
+---
+
+## 2026-05-19 EDT — knight-rider STATE — P1 Gate-1 received; implementation dispatch authored + routing to gamora
+
+**Disposition received:** APPROVE-WITH-AMEND. Four required + one recommended + one optional. No back-routing to gandalf required (jack-ryan explicit; all amendments are correctness/clarity improvements that fold into the implementation dispatch).
+
+**Implementation dispatch authored** at `agentic_orchestration/dispatches/2026-05-19-gamora-p1-option-b-recompose-trigger-implementation.md`. All six amendments folded per jack-ryan's routing recommendation:
+
+| Amendment | Disposition | Folded as |
+|---|---|---|
+| 1 (REQUIRED) — `RECOMPOSE_SIGNAL_HI/LO` module-level constants | Acceptance criterion | Dispatch § 3.1(a) + § 5 |
+| 2 (REQUIRED) — fail-loud log for `current_wr` edge cases | Acceptance criterion | Dispatch § 3.1(c) + § 5 |
+| 3 (REQUIRED) — minimum 4 specific test cases | Acceptance criterion | Dispatch § 3.2 + § 5 |
+| 4 (RECOMMENDED) — WARN-level near-floor secondary in smoke | Smoke-script feature | Dispatch § 4.2 + § 5 |
+| 5 (OPTIONAL) — naming `floor_lock_recompose` → `recompose_floor_lock` | Gamora discretion | Dispatch § 3.1(d) (noted) |
+| 6 (REQUIRED) — MIGRATION.md v1.22 R11(b) round-trip clause + explicit rocket watchpoint | Acceptance criterion | Dispatch § 3.3 + § 5 |
+
+**Knight-rider Gate-2-read disposition on the Gate-1 critique:** the critique is thorough; all three gandalf-flagged framings (a/b/c) have clean verdicts (defensibility CONFIRMED CLEAN; condition #4 ACCEPTABLE AS BLOCKING with Amendment 4 augmentation; magnitude 0.005 CORRECT with kit-redesign-as-disposition for the still-saturated edge case). Amendments are precise (specific test names enumerated; specific log messages drafted; specific MIGRATION.md clauses provided). No re-disposition needed.
+
+**Secondary loop interaction (jack-ryan § 6 informational):** documented in dispatch § 3.5 as gamora obligation. The double-invocation of `_primary_recompose_loop` at line 764 (secondary loop's element-variant pass) will exercise the floor-lock detection branch correctly if the redistributed class is still floor-locked. Gamora verifies via existing integration tests + documents in AGENT_STATE.md.
+
+**No new tags at this transition.** P1 milestone tag fires post-implementation + smoke B1 BLOCKING all-PASS.
+
+**Hive trigger watch:** no signals. ⏸ Triggers 1-4 unsignaled.
+
+---
+
+## 2026-05-19 EDT — knight-rider HANDOFF — P1 implementation ROUTED TO GAMORA
+
+Per protocol § 6 P1 + coordination-matrix-recompose-validation.md (gamora = OWNS implementation):
+
+**Dispatch path:** `agentic_orchestration/dispatches/2026-05-19-gamora-p1-option-b-recompose-trigger-implementation.md`
+
+**Gamora task:** Option B floor-lock recovery implementation under AUTONOMOUS L1 within engine-sim seam. All design + critique-pair amendments are folded; dispatch fires verbatim as the brief (same pattern as P0).
+
+**Gamora authority:** AUTONOMOUS L1 within engine-sim seam per engine-rebuild protocol § 4.0 + recompose-validation hive § 4.1. No Matt waiting; no knight-rider routing on in-seam implementation decisions. Cross-seam touchpoint (star-lord schema v2.13 + rocket informational) is captured in MIGRATION.md v1.22 per § 3.3 of the dispatch.
+
+**Expected gamora effort:** ~4-6h per gandalf brief § 3.4 estimate (~165 LOC total scope: ~30 LOC implementation in `_primary_recompose_loop` + ~25 LOC docstring on `LEVER_FLOOR_LOCK_WORKING_MODIFIER` + ~15 LOC docstring pair on `RECOMPOSE_SIGNAL_LO/HI` + ~10 LOC fail-loud logging + ~50 LOC tests + ~80 LOC MIGRATION.md v1.22).
+
+**Acceptance for P1 milestone tag** (knight-rider verifies on completion):
+- All 13 dispatch § 5 acceptance criteria PASS
+- Smoke gate B1 BLOCKING all-PASS on class_0001 cold-start (§ 4.1)
+- Test suite regression check PASS (§ 4.3)
+- AGENT_STATE.md + hive log STATE updated
+- On all-PASS: knight-rider fires `gamora/v1.14-balance-loop-option-b-recompose-conditioned` (engine seam) + `recompose-hive/v0.2-option-b-recompose-conditioned` (engine + collab hive milestone)
+
+**Falsifying condition (P1 rollback per § 4.5):**
+- Smoke B1 BLOCKING fails on class_0001 → full revert per § 6 option 1 (gamora surfaces FRICTION in hive log)
+- `floor_lock_detected=True` fires for > 50% of the three test classes → parameter-level soft-disable per § 6 option 2; gandalf re-engages
+- Existing test suite regression → implementation correctness regression; investigate root cause
+
+**Out-of-scope reaffirmed (dispatch § 7; same as gandalf brief § 8):** no bidirectional levers; no further floor changes; no `_quick_modifier_estimate` internal changes; no full-season regen at P1; no new lever types; no rocket b6_kit_builder changes; no per-tier WR target changes; no `RECOMPOSE_DELTA_FLOOR` changes; no doppelganger / experimental class changes; no `recompose_outcome` enum value additions.
+
+**On P1 acceptance:** knight-rider routes P2 (fresh diagnostic regen) phase — gandalf picks substrate (suggested earth or shadow per protocol § 6); knight-rider authors rocket + star-lord + gamora dispatch.
+
+Routing now.
