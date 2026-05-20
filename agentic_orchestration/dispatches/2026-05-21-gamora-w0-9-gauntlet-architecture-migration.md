@@ -154,3 +154,68 @@ MIGRATION.md entry required per ADR-004. Coordinate with star-lord at the schema
 - `canonical/story/qd-engine-end-to-end-workflow-2026-05-21.md` Phase 3 (convergence + measurement; consumer of new gauntlet)
 - `reincarnated-engine/design/decisions/decisions-log.md` 2026-05-21 QD-rebuild activation entry (W0.9 commitment)
 - `reincarnated-engine/design/working-agreement/engineering-disciplines.md` (especially #1, #2, #11.1, #17, R11(b), Pattern P7)
+
+---
+
+## Completion record
+
+**Phase 1 (math-before-code): COMPLETE — 2026-05-21**
+**Phase 2 (implementation W0.9.1–W0.9.6): PENDING jack-ryan Gate-1 review**
+
+### Step 0 deliverables
+
+- [x] Math note authored: `reincarnated-engine/src/reincarnated/simulation/math/gauntlet-migration-arena-equivalence.md`
+- [x] PackProxy call sites inventoried (10 live sites in balance_loop.py; 2 in damage_resolver.py; 2 in combatant.py; 3 test files)
+- [x] R2 spatial sub-gauntlet locations documented (spatial_gauntlet/ module; 7 script callers; ZERO balance_loop integration; SCAFFOLDING status confirmed)
+- [x] AGENT_STATE.md updated: "W0.9 Step 0 math-before-code complete; awaiting jack-ryan Gate-1 routing before Phase 2 implementation"
+- [x] Dispatch partial-completion record appended (this record)
+
+### Key findings from Step 0
+
+**PackProxy call sites (live, non-comment):** 10 distinct sites in balance_loop.py + 2 in damage_resolver.py + 3 test files requiring migration attention.
+
+**R2 spatial sub-gauntlet current state:** Fully decoupled from convergence path (scripts-only callers). SCAFFOLDING status per spatial_engine.py docstring. Three existing scenarios: open_arena (8 swarm), chokepoint (8 swarm), boss_with_adds (1 boss + 2 elite). Magic and elite tier spatial scenarios are NOT yet defined — gap for W0.9.2.
+
+**Math note key predictions:**
+1. Per-tier WR: Swarm drops from ~1.000 to 0.70–0.85 (AOE classes) under spatial; boss WR partially emerges from 0.000 — high-modifier classes (≥0.30) predicted 0.30–0.55; low-modifier mages predicted 0.05–0.20.
+2. AOE damage: NOT conserved — spatial k_bar≈3–4 vs PackProxy automatic 8×; single-target conserved (1:1). Load-bearing semantic shift confirmed as intentional.
+3. Performance: ≤5× target requires reduced-tick-rate evaluation (W0.9.4 optional → REQUIRED per math note). Baseline mitigations + parallel batches reach ~3–10×; adding reduced-tick brings to <2×.
+4. Convergence iterations: +1–4 additional iterations vs 1D; mage/controller overhead increases from 5–9 to 6–12. Recommend MAX_ITERATIONS=15 for spatial path.
+5. Joint-resolution call: Spatial migration PARTIALLY resolves Pattern-A. Full resolution for mage archetypes requires joint resolution with B14.5 V2 tier-weighted lever (W0.1).
+
+**Architectural concerns for Gate-1 review:**
+- SPATIAL_DAMAGE_SCALE=4.0 needs re-calibration for convergence use (currently calibrated for sub-gauntlet smoke only)
+- Magic and elite spatial scenario definitions are a Phase 2 design gap (W0.9.2)
+- Swarm convergence weight: recommend 0.0→1.0 (Discipline #12 semantic shift requiring explicit framing)
+- `MAX_ITERATIONS` increase to 15 for spatial path
+
+### Routing
+
+- **jack-ryan:** Gate-1 review of math note for migration correctness + Discipline #13a drift check
+- **gandalf:** Architectural alignment review ("fix the arena" principle + one-implementation-two-usages framing + Track C empirical-validation alignment)
+- **knight-rider:** Fold verdict into state-of-hive + P1 readiness assessment; decide W0.9.4 reduced-tick-rate call before gamora begins Phase 2
+
+### Tags
+
+- `qd-rebuild/v0.9-gauntlet-migration-complete` — NOT YET (fires after full implementation + calibration sweep)
+
+---
+
+**Phase 1.5 (amendment fold-in): COMPLETE — 2026-05-20**
+
+### Phase 1.5 deliverables
+
+All 7 Gate-1 amendments folded into math note `simulation/math/gauntlet-migration-arena-equivalence.md`:
+
+- [x] **A1 (REQUIRED — jack-ryan):** §6.6 added — LC-003 cross-seam schema gap acknowledged; 3 floor-lock fields (`floor_lock_recompose`, `working_modifier`, `floor_lock_detected`) confirmed in v2.14 scope; round-trip smoke fixture spec written
+- [x] **A2+A6 combined (WARN + Architectural):** §6.1 updated — `SPATIAL_DAMAGE_SCALE` reframed as Discipline #17 empirical-calibration parameter (not design constant); re-calibration trigger condition added ("required if physical_warrior boss WR < 0.30 in W0.9.6 sweep")
+- [x] **A3 (WARN — jack-ryan):** §3.4 updated — tick-rate stability verification criterion added (±0.05 WR delta threshold; disqualification logic per tier)
+- [x] **A4 (Architectural — gandalf):** §6.4 updated — P7 W7.2 archive-query clarification added; architectural violation clause for certification re-execution
+- [x] **A5 (Architectural — gandalf, most consequential):** §6.7 added — W0.9.5 telemetry plan for all 8 BC axes; per-fight event spec for Axes 2, 2A, 2B, 3A, 3B, 4, 5; Axis 1 derivable from Axis 2 geometry tags; BLOCKING gap framing
+- [x] **A7 (Architectural — gandalf):** §5.4 updated — swarm weight 0.0→1.0 framed as architectural shift (arena change), not tuning preference; commit message + decisions-log requirement stated
+- [x] **A8 (Architectural — gandalf):** §6.3 updated — hard gate for magic/elite/mini-boss scenario definitions; gandalf delegation requirement stated; fallback scope (swarm+boss only) if delegation not confirmed at Phase 2 kickoff
+- [x] Math note status header updated to Phase 1 + Phase 1.5 complete
+- [x] AGENT_STATE.md updated: "W0.9 Phase 1 + Phase 1.5 (amendment fold-in) complete; awaiting Phase 2 implementation kickoff"
+- [x] Intermediate tag fired: `qd-rebuild/v0.9-math-note-phase-1-complete`
+
+**Phase 2 (implementation W0.9.1–W0.9.6): PENDING — awaiting Phase 2 implementation kickoff**
