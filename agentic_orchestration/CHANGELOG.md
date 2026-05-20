@@ -4,6 +4,37 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-rebuild Cross-seam: v2.15 co-migration spec authored (W0.2 + W0.1 jointly)
+
+**Event:** Per jack-ryan W0.2 Gate-1 Amendment A4 mandate (single ALTER TABLE for co-migration), star-lord authored the v2.15 schema co-migration spec. Engine tag `star-lord/v1.17-w0-2-w0-1-schema-v2-15-co-migration-spec` fired (commit `c4a409c`).
+
+**v2.15 transition (telemetry/MIGRATION.md Sections A-F; ~460 lines):**
+- **Section A** versioning rationale: v2.14 amendment path closed (W0.9 Phase 2.1 in-flight race risk); v2.15 clean non-racing bump; co-migration batches both columns into single `_V2_15` SQL block
+- **Section B** W0.2 `archetype_label TEXT NULL` on `class_fight_loadouts`. **Critical clarification:** `class_fight_loadouts` does NOT carry `archetype_tag` column in existing schema — that field lives on rocket's in-memory `ArchetypeTemplate` kit object. The "deprecated-in-place" obligation therefore applies to rocket's kit object, not telemetry schema column. Drax NOT affected (telemetry-only field).
+- **Section C** W0.1 `recompose_energy_calibration_applied INTEGER NULL` on `recompose_attempts`. NULL/0/1 semantics; NULL semantically distinct from 0. Pattern P7 WARN-level trigger when `floor_lock_detected` is present (post-W0.9.5 gamora) but the new key is absent.
+- **Section D** single `_V2_15` SQL block (no window where one column exists without the other); SCHEMA_VERSION bump `"2.14" → "2.15"` sequenced AFTER both round-trip fixtures PASS
+- **Section E** two round-trip smoke fixtures per R11(b):
+  - E.1 W0.2 archetype_label: rocket stub dict (write) + star-lord recorder (9-step assertions)
+  - E.2 W0.1 recompose_energy_calibration_applied: gamora write (physical_warrior rage =True + fire_mage mana =False) + star-lord recorder (16-step including P7 WARN trigger test)
+- **Section F** ownership + migration execution gate: both fixtures pass + knight-rider authorization (per Matt autonomous-operation directive 2026-05-21)
+
+**Cross-seam coordination questions surfaced:**
+
+For rocket (W0.2 Phase 2 in-flight, agentId `a6b155079a5eff915`):
+1. fight_log dict key must be exactly `archetype_label`
+2. Smoke fixture E.1 can be minimal stub dict — no full season regen required
+3. archetype_label is telemetry-only (NOT export schema)
+
+For gamora (W0.1 Phase 2 future):
+1. Every attempt dict post-W0.1 must include `recompose_energy_calibration_applied` as explicit key (False for non-rage classes; not absent — triggers P7 WARN otherwise)
+2. `floor_lock_detected` must also be always-present in post-W0.9.5 dicts (False not absent)
+3. Smoke fixture E.2 modifier value 0.55 needs to fall within sub-lever B trigger range — gamora confirms
+
+For knight-rider:
+- Migration execution gate: both fixtures PASS → knight-rider authorizes ALTER TABLE migration execution against production telemetry.db (under Matt autonomous-operation directive 2026-05-21)
+
+---
+
 ## 2026-05-21 — QD-rebuild P0 W0.2 Phase 1 + Phase 1.5 COMPLETE: archetype removal math-before-code locked + substantial-workstream-triad math-before-code FULLY LOCKED
 
 **Event:** W0.2 (rocket; archetype template Path-a refactor under substrate-as-cohesion-only) Phase 1 + Phase 1.5 (amendment fold-in) complete. Tag `qd-rebuild/v0.2-math-note-phase-1-complete` fired (engine commit `ad22883`; collab commit `784750e`).
