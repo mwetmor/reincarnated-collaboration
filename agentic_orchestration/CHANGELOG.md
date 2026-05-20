@@ -4,6 +4,41 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-rebuild P0 W0.2 Phase 1 + Phase 1.5 COMPLETE: archetype removal math-before-code locked + substantial-workstream-triad math-before-code FULLY LOCKED
+
+**Event:** W0.2 (rocket; archetype template Path-a refactor under substrate-as-cohesion-only) Phase 1 + Phase 1.5 (amendment fold-in) complete. Tag `qd-rebuild/v0.2-math-note-phase-1-complete` fired (engine commit `ad22883`; collab commit `784750e`).
+
+**Math note canonical version** at `reincarnated-engine/src/reincarnated/generation/math/w0-2-archetype-removal-bc-target-composition.md`. 6 amendments handled from jack-ryan Gate-1 (4) + gandalf architectural review (2):
+
+**Folded into math note pre-Phase-2:**
+1. **gandalf A2 — resolve_cost_type input lockdown (§4.1):** function signature changed to `(econ_bin, role, rng) ONLY`. Role-cost_type correlation table PUBLISHED in math note (damage prefers rage>combo>focus>mana>stamina; control prefers mana>focus>stamina>combo>rage; support mana-dominant; hybrid spans all). Econ_bin-to-cost_type structural mapping published.
+2. **jack-ryan A1 — Pool depletion fallback (§4.3):** `PoolDepletionError → DeferredEvaluation` route chosen. No silent truncation. Telemetry obligation: log `pool_depletion_events` counter per (cost_type, role) pair; >10% rate triggers pool extension.
+3. **jack-ryan A2 — v2.15 column bump LOCKED (§8.2):** "DECISION" framing replaces "recommendation." Column-repurpose path explicitly closed per Discipline #12. NEW `archetype_label TEXT` alongside existing `archetype_tag` is ONLY acceptable path.
+4. **gandalf A1 — season_orchestrator.py Phase 1 architectural contract (§11.5):** expanded with 3 locked commitments (seasonal elements feed P5 cohesion-judge ONLY; orchestrator emits BC-targets not archetype tags; W0.2.2 orchestrator-severance-audit hard gate before any smoke run).
+
+**Deferred to W0.2.6 MIGRATION.md authoring:**
+- jack-ryan A3 (§5.1 tail): shim pass/fail criterion — >20% drift on any axis triggers recalibration before P5
+- jack-ryan A4 (§8.4): v2.15 co-migration mandatory — SINGLE ALTER TABLE script covering W0.2 (`archetype_label`) + W0.1 (`recompose_energy_calibration_applied`); star-lord joint authorship
+
+**Gandalf closing assessment of W0.2 Phase 1:** *"Cleanest expression of substrate-as-cohesion-only that has yet appeared in the engine."* All five safeguard principles of the substrate supplement honored at algorithm level.
+
+**SUBSTANTIAL-WORKSTREAM TRIAD MATH-BEFORE-CODE FULLY LOCKED:**
+- ✅ W0.9 Phase 1 + 1.5 + A8 + A5 (gauntlet architecture migration; Phase 2.1 implementation in-flight)
+- ✅ W0.1 Phase 1 + 1.5 (B14.5 V2 energy-type lever; Phase 2 pending W0.9 Phase 2.1)
+- ✅ W0.2 Phase 1 + 1.5 (archetype removal; Phase 2 pending co-migration spec)
+
+Joint-resolution triad architecturally locked: W0.2 source diversity + W0.9 arena fidelity + W0.1 calibration fairness. Three orthogonal layers; all three needed to resolve Pattern-A boss-floor.
+
+**Phase 2 implementation routing (next):**
+- W0.9 Phase 2.1 in-flight (must complete before W0.1 Phase 2 because both touch `balance_loop.py`)
+- W0.1 Phase 2 fires after W0.9 Phase 2.1 returns
+- W0.2 Phase 2 can fire independently (different seam: `generation/` vs `simulation/`)
+- Star-lord v2.15 co-migration spec coordinates W0.2 + W0.1 columns jointly
+
+State-of-hive § 1 W0.2 row updated. **8 P0 workstreams milestone-complete** (W0.3 + W0.4 star-lord + W0.4 rocket + W0.5 + W0.6 + W0.8 + W0.1 phase-1.5 + W0.9 phase-1.5 + W0.2 phase-1.5; W0.9 Phase 2.1 implementation in-flight; W0.1 + W0.2 Phase 2 implementations queued; W0.7 + W0.4 gamora portion remaining).
+
+---
+
 ## 2026-05-21 — engineering-disciplines.md § 13a-partition ratified: Calibration Lever Partition Principle
 
 **Event:** Per gandalf W0.1 architectural review amendment A8, ratified by jack-ryan DESIGN-MODE as new sub-prescription **Discipline #13a-partition** (Option A — elaboration under existing #13a drift-discipline; route-of-authority for substrate-keying-at-calibration anti-pattern detection). Engine commit `18f47a8`.
