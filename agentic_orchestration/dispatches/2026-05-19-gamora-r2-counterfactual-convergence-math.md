@@ -478,3 +478,37 @@ R2 `boss_with_adds_wr = 0.000` for all 51 classes. This replicates R1 1D `boss_w
 **Phase B Experiment 1 requires methodology reframe** per § 6.3 of methodology doc.
 
 **Routing:** Methodology doc → gandalf review → Phase B authorization if approved.
+
+---
+
+## Completion record — Phase B.2 (R2 modifier sweep — proper H1 test)
+
+**Phase:** B.2 (multi-modifier R2 sweep per knight-rider amendment § 8.3 + Matt directive)
+**Completed:** 2026-05-19
+**By:** gamora
+**Math note:** `reincarnated-engine/design/working-agreement/r2-modifier-sweep-phase-b2-2026-05-19.md`
+**Sim output:** `reincarnated-engine/output/R2-modifier-sweep-2026-05-19/`
+**Script:** `reincarnated-engine/scripts/r2_modifier_sweep_phase_b2.py`
+
+### Phase B.2 outcome: COMPLETE
+
+**Executed:**
+- Math note written before simulation (Discipline #1)
+- Smoke test: 5 classes × 6 modifiers × 3 scenarios × 5 fights = 450 fights — PASS
+- Full sweep: 49 classes × 6 modifiers × 3 scenarios × 30 fights = 26,460 fights
+- M* derivation: per-class joint satisfiability computed for all 49 classes
+- H1 + H2 hypothesis verdicts produced
+- Joint matrix re-evaluated
+- AGENT_STATE.md + CHANGELOG updated
+
+**H1 verdict: CANNOT_REJECT_NULL.** 0/49 classes achieve joint M* satisfiability.
+**H2 verdict: CONFIRMED.** 49/49 classes unsatisfiable.
+**Joint matrix: Row 5 — catalogue has deeper pathology.**
+
+**Key finding (NEW vs Phase A):**
+22/49 classes (44.9%) CAN achieve boss kills at modifier ≥ 0.50–2.0. Boss-kill capability is modifier-dependent, not universally absent. However, both WR surfaces (swarm + boss) are binary step functions — the narrow target bands [0.65, 0.80] and [0.30, 0.45] are architecturally unreachable under 30-fight cardinality + current R2 calibration. Joint satisfiability = 0 is a combination of kit-quality pathology (27/49) and binary WR surface structure (22/49).
+
+**Simplification:** Option (b) — R2 simplified damage chain accepted. No modifications to spatial_engine.py.
+**No production catalogue changes. No balance_loop code changes. No telemetry DB writes.**
+
+**Routing:** gamora → knight-rider → gandalf for Phase B.2 verdict review + Phase E gate disposition.

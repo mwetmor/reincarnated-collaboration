@@ -4,6 +4,35 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-19 (night) — Phase B.2 R2 modifier sweep COMPLETE — row 5 confirmed with key refinement
+
+**Event:** Gamora executed Phase B.2 — the proper H1 test of the R2-as-canonical counterfactual. Multi-modifier R2 sweep run for 49 classes at {0.05, 0.10, 0.20, 0.50, 1.0, 2.0} × 3 scenarios × 30 fights = 26,460 fights.
+
+**Verdicts:**
+- H1 (R2-as-canonical architectural critique): **CANNOT_REJECT_NULL** — 0/49 classes (0.0%) achieve joint M* satisfiability (threshold: 60%)
+- H2 (catalogue-quality counter-hypothesis): **CONFIRMED** — 49/49 classes unsatisfiable (threshold: 40%)
+- Joint matrix: **Row 5 confirmed** — catalogue has deeper pathology
+
+**Critical NEW finding (not visible from Phase A):** 22/49 classes (44.9%) CAN achieve boss kills at modifier ≥ 0.50–2.0. Phase A observed boss WR = 0 at the single 1D-converged modifier and concluded boss-kill inability was universal. The sweep shows boss-kill capability is modifier-dependent for nearly half the catalogue.
+
+**Why H1 still cannot reject null:** The WR surfaces are binary step functions (WR ∈ {0.000, 1.000} only). No intermediate values across 30 fights per modifier point. The narrow target bands [0.65, 0.80] (swarm) and [0.30, 0.45] (boss) are architecturally unreachable under the current R2 calibration (decisive fight outcomes). Joint satisfiability requires the swarm and boss targets to overlap — impossible when both WR transitions happen at the same modifier (ceiling violation on swarm at the modifier where boss becomes killable).
+
+**Two distinct unsatisfiability patterns:**
+- Pattern A (boss_nz_never, 27/49 = 55.1%): Kit-composition pathology. Cannot kill boss at any modifier ≤ 2.0. Kit-redesign queue.
+- Pattern B (swarm_ceiling_at_boss_nz, 22/49 = 44.9%): Latent boss-kill capability gated by modifier floor + binary WR structure. These classes benefit from Option A.
+
+**Artifacts filed:**
+- Math note: `reincarnated-engine/design/working-agreement/r2-modifier-sweep-phase-b2-2026-05-19.md`
+- Sweep script: `reincarnated-engine/scripts/r2_modifier_sweep_phase_b2.py`
+- Sim output: `reincarnated-engine/output/R2-modifier-sweep-2026-05-19/per_class_modifier_results.json`
+- AGENT_STATE.md updated
+
+**Routing:** gamora → knight-rider → gandalf for Phase B.2 verdict review + Phase E gate disposition (Phase E does not trigger under CANNOT_REJECT_NULL).
+
+**Wind-down trigger:** Phase B.2 verdict ready. Row 5 stands. Option A + kit-redesign queue remain the actionable path.
+
+---
+
 ## 2026-05-19 (later evening) — AMENDMENT: R2+ST counterfactual refutation framing was overreach
 
 **Event:** Matt push-back on the entry below ("Investigation COMPLETE") surfaced that the disposition language overstated what existing telemetry could support. The "both levers empirically eliminated" framing closed two architectural-direction doors that the data did not actually close.
