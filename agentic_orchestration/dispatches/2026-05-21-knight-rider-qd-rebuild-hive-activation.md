@@ -117,6 +117,140 @@ P1 W1.X workstream list updated:
 
 **P1 duration reduces from 4-6 weeks to ~3-4 weeks** with Unity scope removed.
 
+### 2.8 Skill tree node population — NEW P1 W1.13 workstream + multi-dim convergence
+
+**Matt 2026-05-21 identified the missing mathematical layer.** Current engine likely produces flat-list skill kits (~10-15 skills per kit) using single-scalar modifier as the only convergence lever. This is mathematically underdetermined for multi-tier WR contracts — single scalar cannot satisfy 5 simultaneous tier WR targets, hence Pattern-A compression observed empirically (Alt A findings: 100% Pattern-A across all 7 substrates at same calibration).
+
+The fix is structural: **procedural skill tree node population per class per season, with rank-N coefficient scaling per node, and multi-dim convergence over node-subset × per-node-coefficients × scalar modifier.**
+
+#### Architecture — explicit specification
+
+**Per-class-per-season tree generation (P1 W1.13 infrastructure):**
+
+```
+For each class C in {7 elements × role variants}:
+  For each season S:
+    generate_tree(C, S) → SkillTree{
+      nodes: [Node_1, Node_2, ..., Node_120]   # ~120 nodes per tree
+      topology: {branches, prerequisites, synergies}
+    }
+```
+
+**Node anatomy:**
+
+```yaml
+Node:
+  id: "node_C_S_N"
+  base_effect: <mechanic_class>         # damage / control / defense / mobility / utility
+  rank_coefficient_curve: [r1, r2, ..., r20]   # per-rank scaling (damage / range / cooldown / etc.)
+  tree_position: {branch, prerequisite_chain, synergy_partners}
+  bc_axis_contribution_tags:            # how this node contributes to mechanical BC
+    axis_1_engagement: <weight>
+    axis_2_geometry: <bin_contribution>
+    axis_2A_proxy: <count_contribution>
+    axis_2B_control: <budget_contribution>
+    axis_3A_tempo: <event_rate_contribution>
+    axis_3B_variance: <variance_contribution>
+    axis_4_defensive: <eHP_or_avoidance_contribution>
+    axis_5_economy: <resource_pattern_contribution>
+```
+
+**Critical architectural alignment with substrate-as-cohesion:**
+
+- **Nodes are substrate-AGNOSTIC at generation.** A node has no inherent fire/water/shadow/etc. identity. It carries mechanical-BC-axis-contribution tags only.
+- **Substrate identity coalesces post-generation** when cohesion-judge sees the selected node-subset's signature and assigns theme (Phase 5 of workflow).
+- **Tree topology is mechanical, not thematic.** Branches encode mechanical synergies (e.g., "all damage-amplification nodes connect via prerequisite chain"); not thematic synergies.
+- **Same tree serves all themes.** A single ~120-node tree per class per season produces fire-themed kits, shadow-themed kits, hybrid kits — depending on which subset cohesion-judge sees + themes.
+
+**Player + engine pick from the SAME tree (alignment mechanic):**
+
+- **Engine archive generation:** picks 5-8-node subset + per-node coefficients to hit BC-target
+- **Player gameplay:** picks 5-8-node subset during their playthrough
+- **Same tree → same possible builds → player can adopt engine-discovered builds as templated meta**
+
+**Active slot count: 5-8 nodes (matches ARPG canonical):**
+- D3: 6 active skills
+- D4: 6 active skills
+- PoE: 5 active skill slots
+- Last Epoch: 5 active skills
+- Reincarnated target: 5-8 active (resolves playtest 15-skill overload)
+
+#### Multi-dim convergence (P2/P3 leverage of P1 W1.13 infrastructure)
+
+**Old (scalar) convergence:**
+```
+modifier_search(kit, per_tier_WR_targets) → scalar_modifier
+```
+Single knob. Mathematically underdetermined for 5-tier WR contract. → Pattern-A compression.
+
+**New (multi-dim) convergence:**
+```
+multi_dim_optimizer(
+  tree=class_season_tree,
+  bc_target=cell_coord,
+  per_tier_WR_targets
+) → (node_subset, per_node_coefficients, scalar_modifier)
+```
+Many knobs:
+- Node-subset selection (which 5-8 of ~120)
+- Per-node coefficient (which rank of each node)
+- Scalar modifier (final calibration)
+
+Mathematically over-determined tuning surface. → Per-tier WR contract satisfiable. → Pattern-A resolves.
+
+#### Reference build output (first-class engine deliverable)
+
+Every QD-archive entry stores:
+```yaml
+ArchiveEntry:
+  bc_coordinate: [Axis1..Axis5_bins]
+  node_subset: [node_id_1, ..., node_id_8]
+  per_node_coefficients: {node_id: rank_1_to_20}
+  scalar_modifier: <float>
+  per_tier_WR: {swarm, magic, elite, mini_boss, boss}
+  cohesion_theme: <assigned_at_P5>
+  visual_identity: <assigned_at_P6>
+```
+
+The `node_subset + per_node_coefficients` pair IS the player-adoptable reference build — canonical ARPG build-guide pattern (D2 Hammerdin guides specify which Paladin skills + which rank; D3 build templates specify 6 active + 4 passive choices).
+
+**Profile A Reincarnated ship includes:** archive cells + their reference builds → players can adopt them OR experiment freely within the same node tree.
+
+#### Phase placement
+
+| Phase | What happens |
+|---|---|
+| **P0 W0.4** (specialist code audit) | Verify current state of tree infrastructure (~1-2 hours rocket). Matt is "fairly sure" gap exists; verification is bullet-proof confirmation. |
+| **P1 W1.13** (NEW WORKSTREAM, ~2-4 weeks) | Procedural per-class-per-season tree generation. Node anatomy with BC-axis-contribution tags. Tree topology generator. Coefficient curve library. |
+| **P2 W2.X** (BC measurement) | BC coordinate computation reads kit shape from node-subset + active coefficients (cleaner signature than flat-list). |
+| **P2 W2.10 / P3** (convergence) | Multi-dim optimizer replaces scalar-modifier-only search. Per-tier WR convergence operates on (subset × coefficients × modifier) tuning surface. |
+| **P3 W3.X** (archive) | Archive insertion considers tree-derived diversity. Reference builds stored alongside BC coordinates. |
+| **P5** (cohesion) | Cohesion-judge sees node-subset signature → assigns substrate/element/theme. No substrate-bound nodes; theme emerges from subset's mechanical signature (substrate-as-cohesion architecture preserved). |
+| **P6** (profile assembly) | Reference builds packaged into profile output (player-adoptable). |
+
+#### What this DOESN'T break
+
+- **Substrate-as-cohesion architecture** — nodes are substrate-agnostic; cohesion-judge themes selected subset (architecture stands)
+- **8-axis BC** — nodes contribute to axes via tags; BC measurement aggregates node contributions cleanly
+- **Profile A/B/C/D framework** — profiles consume archive entries (now including reference builds) per existing config
+- **Knight-rider's autonomous operation** — adds workstream; doesn't change critique-pair patterns or escalation paths
+
+#### Timeline impact
+
+- P1 duration: ~3-4 weeks (post-Unity-removal) → ~5-8 weeks (with W1.13 added)
+- Total rebuild: 22-33 weeks → 24-37 weeks
+- Still within vision-doc 18-26 week + slack envelope
+
+**Net add: ~2-4 weeks for the foundational lever the engine cannot mathematically work without. Strong value-per-week ratio.**
+
+#### Critique-pair structure for W1.13
+
+- **gandalf** reviews architectural alignment (substrate-as-cohesion preservation; reference build output completeness)
+- **jack-ryan** reviews implementation correctness (BC-axis-contribution tagging; coefficient curve sensibility)
+- **Matt approves** the workstream framing before W1.13 fires (since this is new scope from protocol v1.1)
+
+---
+
 ### 2.7 VFX procurement defer to P6
 
 When Unity production initiative fires (separately), VFX procurement (Hovl RPG VFX Bundle ~$48; PixPlays Elemental Spells ~$36; etc.) happens at P6 W6.1-equivalent for that initiative. Free baselines (Hovl Magic Effects FREE; Digital Ruby Fire & Spell Effects) can be used in earlier Unity-init test runs without cost.
