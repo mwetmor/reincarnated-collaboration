@@ -22,7 +22,7 @@
 | W0.1 | **B14.5 V2 energy-type lever in primary recompose loop** (LC-004 calibration-side fix; complements B6 pre-work already shipped 2026-05-16 at `rocket/v1.3-b6-energy-type-tiers`); gandalf endorsed B14.5 V2 follow-on interpretation per matt-briefing § 4 | gamora | DISPATCH ACTIVE | `2026-05-21-gamora-w0-1-b14-5-v2-energy-type-lever.md` | `qd-rebuild/v0.1-b14-5-v2-energy-type-lever` |
 | W0.2 | Archetype template Path-a refactor (LC-001; REMOVE templates entirely under substrate-as-cohesion-only) | rocket | DISPATCH ACTIVE | `2026-05-21-rocket-w0-2-archetype-template-path-a-refactor.md` | `qd-rebuild/v0.2-archetype-refactor-complete` |
 | W0.3 | Foundation validator update (LC-012 fix; D5 = 7-substrate) | rocket | **✅ COMPLETE 2026-05-21** — engine commit `3e428ae`; tag `qd-rebuild/v0.3-foundation-validator-7-substrate` pushed. foundation.py:39-65 `CANONICAL_SUBSTRATES` frozenset check. 70/70 foundation tests + 382/382 generation + 3092 full suite (2 pre-existing failures unchanged). No cross-seam impact. | `2026-05-21-rocket-w0-3-foundation-validator-d5.md` | `qd-rebuild/v0.3-foundation-validator-7-substrate` (FIRED) |
-| W0.4 | Specialist code audit (12 HIGH-risk LCs verify; 18 MEDIUM-risk follow-up; INCLUDES § 2.8 W1.13 current-state verification + OQ-2 + OQ-3 per Alt A) | rocket + gamora + star-lord; jack-ryan reviews | **🔄 PARTIAL: star-lord portion ✅ COMPLETE 2026-05-21** (engine tag `star-lord/v1.15-w0-4-code-side-audit-1`); rocket + gamora portions queued. Critical findings surfaced — see § 2.2.2 below. | `2026-05-21-rocket-plus-gamora-plus-star-lord-w0-4-specialist-code-audit.md` | `qd-rebuild/v0.4-code-side-audit-complete` (hive tag fires when all 3 seams + jack-ryan reviews) |
+| W0.4 | Specialist code audit (12 HIGH-risk LCs verify; 18 MEDIUM-risk follow-up; INCLUDES § 2.8 W1.13 current-state verification + OQ-2 + OQ-3 per Alt A) | rocket + gamora + star-lord; jack-ryan reviews | **🔄 PARTIAL: star-lord ✅ + rocket ✅ COMPLETE 2026-05-21** (tags `star-lord/v1.15-w0-4-code-side-audit-1` + `rocket/v1.23-w0-4-code-side-audit-1`). gamora portion deferred (likely folded into W0.7 ablations). **MAJOR FINDING from rocket portion: LC-001 DRIFT-FROM-AUDIT (positive) — D3 Path-a composition ALREADY LIVE; W0.2 scope reframes significantly.** | `2026-05-21-rocket-plus-gamora-plus-star-lord-w0-4-specialist-code-audit.md` | `qd-rebuild/v0.4-code-side-audit-complete` (hive tag fires when gamora portion done + jack-ryan reviews) |
 | W0.5 | Mana-bug verify (LC-026 quick verify; ~2 hours) | gamora | **✅ COMPLETE 2026-05-21 — RESOLVED** — engine commit `4bce461`; tag `qd-rebuild/v0.5-mana-bug-verify-resolved` pushed. Phase 1 dimensional refactor (2026-05-08 commit `4c28ed6`) structurally resolved at pool-assignment + skill-costing layers. 152 tests PASS. Substrate-as-cohesion compatibility CONFIRMED. **Residual:** `base_stamina` column never written by `recorder.py` — flagged for star-lord W0.4 in-flight. | `2026-05-21-gamora-w0-5-mana-bug-verify.md` | `qd-rebuild/v0.5-mana-bug-verify-resolved` (FIRED) |
 | W0.6 | Drift candidate closures (LC-006, LC-007, LC-014, LC-028) | jack-ryan DESIGN-MODE primary + gandalf architectural disposition | **✅ FULL CLOSURE 2026-05-21** — engine commit `2b1b9a6`; tag `qd-rebuild/v0.6-drift-closures-complete` fired (supersedes -partial). LC-006 graduated to full closure per gandalf disposition (D3 cohesion-judge architecturally clean; Option B + Option-C label-emission sliver). | `2026-05-21-multi-seam-w0-6-drift-candidate-closures.md` | `qd-rebuild/v0.6-drift-closures-complete` (FIRED) |
 | W0.7 | LC-002 + LC-009 + LC-011 ablation experiments | gamora | DISPATCH ACTIVE (queued; jack-ryan Gate-1 per ablation) | `2026-05-21-gamora-w0-7-ablation-experiments.md` | `qd-rebuild/v0.7-ablation-complete` |
@@ -94,6 +94,34 @@ Per W0.4 star-lord portion completion 2026-05-21 (engine tag `star-lord/v1.15-w0
 - v2.12 + v2.13 LIVE in production DB as of 2026-05-19; no drift from AGENT_STATE records
 
 **No new HIGH-risk LCs surfaced — no § 7.4 phase-halt trigger.**
+
+### 2.2.3 W0.4 rocket portion findings (folded into downstream consumers)
+
+Per W0.4 rocket portion completion 2026-05-21 (engine tag `rocket/v1.23-w0-4-code-side-audit-1`; commit `f4554f7`):
+
+**MAJOR FINDING — LC-001 DRIFT-FROM-AUDIT (positive):**
+- D3 Path-a composition is ALREADY LIVE via `archetype_composer.py`. `ARCHETYPE_TEMPLATES` is built at boot from SubstrateIdentity × Role (not the "frozen 14-entry dict" jack-ryan's Phase 1 audit described).
+- 23 templates total: 18 composed elemental (7 substrates × 3 composition roles, with fire/water alias collapse + earth_burst + wind_burst variants) + 5 physical hardcoded (hunter / physical_warrior / physical_grappler / physical_skirmisher / rogue).
+- **Implication for W0.2:** under substrate-as-cohesion-only, W0.2 scope is NOT "refactor frozen dict to compose at boot" (already done) but "REMOVE the archetype layer entirely; pure BC-target-driven composition from unified substrate-AGNOSTIC mechanic pool." Sharper starting point for W0.2 math-before-code.
+- **Cross-seam drift surfaced:** D3 added 11 new archetype tags (lightning/holy/shadow variants: 3×3=9 + earth_burst + wind_burst); no MIGRATION.md was filed. Any gamora/star-lord telemetry/analysis code enumerating hardcoded archetype-tag lists needs update awareness.
+
+**Per-LC verdicts (rocket seam):**
+- LC-001: **DRIFT-FROM-AUDIT (positive)** as above; W0.2 scope reframes
+- LC-002: **VERIFIED** — 2 structural surfaces: allow-list pool imbalance (fire=20 vs wind=7 → 2× fire sampling weight); `ELEMENT_AFFINITY.fire=[wind,earth]` cascade (fire as secondary). Ablation per Discipline #13b still needed (W0.7 territory).
+- LC-006: **SUBSTANTIALLY-RESOLVED** — `_SYSTEM_PROMPT` uses grouping-layer labels; `_build_d1_rubric_questions()` Q7 canonical-four is audit-flag tool, not LLM leak; `library_generator.py:84` is one-time setup. **Outstanding rocket-owned action:** add `_build_prompt()` test coverage to `tests/test_no_canonical_four_in_llm_prompts.py` (the example JSON output keys `fire_slot`/`wind_slot`/etc. at lines 663-674 are architecturally acceptable per W0.6 but currently lack test coverage).
+- LC-007: **VERIFIED** (humanoid gear schema confirmed; Position C migration P4 W4.1 deferred)
+- LC-008: **NEEDS-DOWNSTREAM-FIX** — rocket-side `can_equip()` uses internal math keys (not LLM-visible); actionable fix site is star-lord's `naming.py:323` per star-lord's W0.4 finding
+- LC-012: **RESOLVED** (W0.3 commit `3e428ae`; tag `qd-rebuild/v0.3-foundation-validator-7-substrate`)
+
+**§ 2.8 W1.13 current-state findings (rocket primary):**
+- Skill-tree-node infrastructure is **completely absent** from `b6_kit_builder.py`, `class_generator.py`, `b6_archetype_templates.py`
+- No SkillTreeNode / node_subset / per_node_coefficients / bc_coordinate / tree-node concept anywhere
+- TIER_UNLOCK_REQUIREMENTS + TIER_SCALING_BANDS exist but are kit-composition scalars, not tree-node objects
+- **W1.13 requires building entirely new infrastructure on both seams:** rocket (generation output schema extended for ArchiveEntry-compatible kit descriptions) + star-lord (new `archive_entries` table per W0.4 star-lord finding)
+
+**Alt A OQ-2 + OQ-3 verification:**
+- **OQ-2 (chain_lightning boss multi-hop):** chain_lightning uses geometric-series fan-out at `damage_resolver.py:325-337`. Default params: n=3 arcs, decay=0.7, total multiplier ~2.76×. In solo-sim 1v1, all arc hits resolve on single boss defender (no additional targets to hop to). **Sim gives chain_lightning FULL geometric-series credit against a boss.** Not bin-limited. KEY CAVEAT: this OVER-estimates relative to multi-target environment (post-P4 / under W0.9 spatial migration) where arcs would hop to nearby enemies rather than re-hitting boss. Flag for W0.9.6 calibration sweep.
+- **OQ-3 (5-skill kit anomaly):** **NOT REPRODUCIBLE from current code.** Kit size is triangular-sampled from (kit_min, kit_mode, kit_max); all current templates kit_min=10 or 12. `_plan_tier_counts()` band-constraint logic cannot produce kit below kit_min. If Alt A's 5-skill observation was real, it was from legacy template state or test fixture; not current code.
 
 ### 2.2.1 W0.8 findings (folded into downstream consumers)
 

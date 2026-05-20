@@ -4,6 +4,33 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-rebuild P0 W0.4 rocket portion COMPLETE: LC-001 DRIFT-FROM-AUDIT (positive); W0.2 scope reframed
+
+**Event:** W0.4 rocket portion completed and merged. Engine tag `rocket/v1.23-w0-4-code-side-audit-1` fired (commit `f4554f7`).
+
+**MAJOR FINDING — LC-001 DRIFT-FROM-AUDIT (positive):** D3 Path-a composition is ALREADY LIVE via `archetype_composer.py`. `ARCHETYPE_TEMPLATES` is built at boot from SubstrateIdentity × Role (NOT the "frozen 14-entry dict" jack-ryan's Phase 1 audit described). 23 templates total: 18 composed elemental (7 substrates × 3 composition roles with fire/water alias collapse + earth_burst + wind_burst) + 5 physical hardcoded (hunter / physical_warrior / physical_grappler / physical_skirmisher / rogue).
+
+**Implication for W0.2:** under substrate-as-cohesion-only, W0.2 scope is NOT "refactor frozen dict to compose at boot" (already done) but "**REMOVE the entire archetype layer; pure BC-target-driven composition from unified substrate-AGNOSTIC mechanic pool**." Sharper starting point for W0.2 math-before-code.
+
+**Other findings:**
+- LC-002 VERIFIED — 2× fire sampling weight + ELEMENT_AFFINITY cascade; ablation per Discipline #13b still needed (W0.7 territory)
+- LC-006 SUBSTANTIALLY-RESOLVED — rocket-owned outstanding action: add `_build_prompt()` test coverage to `tests/test_no_canonical_four_in_llm_prompts.py`
+- LC-007 VERIFIED (deferred P4)
+- LC-008 NEEDS-DOWNSTREAM-FIX — star-lord seam (`naming.py:323`)
+- LC-012 RESOLVED (W0.3)
+
+**W1.13 current-state:** infrastructure FULLY ABSENT from `b6_kit_builder.py`, `class_generator.py`, `b6_archetype_templates.py`. W1.13 requires building new infrastructure on both seams (rocket generation + star-lord archive_entries table). Purely additive.
+
+**Alt A OQ verification:**
+- **OQ-2 (chain_lightning boss multi-hop):** sim gives FULL geometric-series credit (~2.76× multiplier all hitting boss in solo-sim). Over-estimates relative to multi-target environment under W0.9 spatial migration. Flag for W0.9.6 calibration sweep.
+- **OQ-3 (5-skill kit anomaly):** NOT REPRODUCIBLE from current code. Kit_min=10/12 hardcoded. Alt A observation likely from legacy state or test fixture.
+
+**Cross-seam drift surfaced:** D3 added 11 new archetype tags (lightning/holy/shadow variants); no MIGRATION.md was filed. Knight-rider awareness item.
+
+State-of-hive § 2.2.3 captures the canonical record of W0.4 rocket portion findings for downstream consumption. W0.4 PARTIAL: star-lord ✅ + rocket ✅ complete; gamora portion deferred (likely folded into W0.7 ablations since most gamora LCs are empirical/ablation-bound: LC-003 already verified by star-lord; LC-005 PackProxy being retired in W0.9 Phase 2.1; LC-009/010/011 ablation territory).
+
+---
+
 ## 2026-05-21 — QD-rebuild P0 W0.9 Phase 2 kickoff dependencies COMPLETE; Phase 2.1 implementation IN-FLIGHT
 
 **Event:** Both W0.9 Phase 2 kickoff dependencies returned successfully + Phase 2.1 implementation fired.
