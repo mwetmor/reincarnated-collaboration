@@ -4,6 +4,57 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-20 — RECOMPOSE-VALIDATION HIVE DEACTIVATED: Matt explicit wind-down (Trigger 1) signaled post-Trigger 3
+
+**Event:** Matt explicit wind-down signal received (verbatim: *"please commit/push and wind down"*). Trigger 1 per protocol § 7 signaled at this entry, completing the recompose-validation hive's deactivation cycle (Trigger 3 fired at verdict-handoff; Trigger 1 fires at Matt's explicit wind-down acceptance).
+
+**Hive deactivation deliverables verified at this CHANGELOG entry:**
+- All canonical findings + amendments committed + pushed (collab `9b425db` v0.4.1 amended state)
+- Matt briefing finalized + pushed (collab `e7b4a65` with gandalf Amendment 2 disaggregation language folded)
+- Engine decisions-log entries P0 + P1 + P3 all filed (engine `a58b60f` + `22b1c3c` + `c5332cd`)
+- Hive log final knight-rider STATE + this CHANGELOG closing entry committed (collab; this commit)
+- All hive milestone tags fired at this close: v0.0-pre-activation + v0.1-option-a-floor-widened + v0.3-diagnostic-regen-complete + v0.4-validation-verdict
+- v0.2-option-b-recompose-conditioned HELD PERMANENTLY per current evidence
+
+**P5 disposition under Matt's wind-down framing (lightweight; NOT full § 7 (A)):**
+
+Matt's directive was minimal ("commit/push and wind down") — not directing full P5 (engineering-disciplines.md amendment + retrospective doc + hive-runs review v5 update + tag `recompose-hive/v1.1-canonical-record-complete`). The verdict-handoff cycle's substantive deliverables (canonical findings doc + Matt briefing + decisions-log entries + CHANGELOG entries + hive log + state-of-hive docs) already constitute the de-facto P5 canonical record at lightweight close.
+
+**Deferred to future Matt-direction:**
+- Single Discipline #11 elaboration applied to `reincarnated-engine/design/working-agreement/engineering-disciplines.md` (proposed language in canonical findings doc § 9.6 P5-ready)
+- Retrospective doc at `agentic_orchestration/hive-mind/retrospective-recompose-validation.md`
+- Hive-runs review v5 update (gandalf research; fold this hive's findings)
+- Engine-side star-lord analysis count corrective (33 → 35; per jack-ryan Gate-2 Amendment 1 out-of-collab-scope)
+- Tag `recompose-hive/v1.1-canonical-record-complete` (would fire on full P5 completion)
+
+**Knight-rider next-session continuity:** `agentic_orchestration/skill_handoff_2026-05-20.md` filed at this commit. If Matt later directs full P5 closure OR an alternative architectural direction (kit-redesign queue / substrate-generalization study / etc.), knight-rider's next session picks up from the skill_handoff context.
+
+**Engine state preserved at deactivation:**
+- Option A active; Option B installed + soft-disabled (one-line re-enable cost if future verification directs)
+- 179/179 tests PASS at engine HEAD
+- Schema v2.13 telemetry active
+- No rollback executed; ready for next-step architectural direction
+
+**Hive cumulative metrics:**
+- ~4h 45min wall-clock total (activation 2026-05-19 22:28 EDT → final wind-down 2026-05-20)
+- ~2x faster than 4-7d parallelized estimate
+- 11+ subagent invocations; 12+ knight-rider orchestration cycles
+- 2 FRICTION events dispositioned cleanly within hive scope
+- 4 hive milestone tags fired + 1 held permanently
+- 3 canonical findings produced (empirical + methodological + per-failure-mode)
+- 3 governance principles surfaced + codified
+- 0 Matt-trigger escalations during autonomous-operation phase (clean autonomous run)
+
+**Recommended next-step architectural decisions REMAIN ON RECORD for future Matt direction** (per Matt briefing § 5):
+- Primary: kit-redesign queue execution (R1 + per-failure-mode disaggregation)
+- Alt A: substrate-generalization study (~hours; cheapest epistemic insurance)
+- Alt B: disposition-3 sensitivity check (~hours)
+- Alt C: targeted single-class kit-redesign pilot (~2-3 weeks)
+
+**Hive DEACTIVATED.** No further knight-rider orchestration cycles for this hive's scope. The road forward awaits Matt's next direction at whatever cadence.
+
+---
+
 ## 2026-05-20 — RECOMPOSE-VALIDATION HIVE WIND-DOWN TRIGGER #3 SIGNALED: P3 verdict CANNOT REJECT NULL; hive autonomous-operation phase ENDS
 
 **Event:** The recompose-validation hive (third hive activation; six-phase mission) reached its P3 validation synthesis verdict: **CANNOT REJECT NULL**. Hypothesis H_RC ("per-tier convergence is satisfiable for existing generation rules if recompose can fire") is **not supported** by season_100005 evidence (observed 0% kit-acceptable at worst-case bound; 100% Pattern-A boss-DPS-floor structural; 0/10 floor-lock-recovery candidates). H_RC_0 (null: generation rules require revision) is **reinforced**. Wind-down trigger #3 signals per protocol § 7; **P4 (ship true season) does NOT fire autonomously**. Hive autonomous-operation phase ENDS pending Matt direction. Matt briefing filed at `agentic_orchestration/matt-briefing-recompose-validation-2026-05-20.md`.

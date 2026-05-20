@@ -1598,3 +1598,48 @@ The road is at its closing turn. Mithrandir signs the amendment.
 The road forward awaits Matt's direction.
 
 — knight-rider, hive close, 2026-05-20.
+
+---
+
+## 2026-05-20 EDT — knight-rider STATE — Matt EXPLICIT WIND-DOWN signal received; TRIGGER 1 signaled; hive DEACTIVATED
+
+**Matt directive received** (verbatim): *"please commit/push and wind down"*
+
+**Trigger 1 (Matt explicit wind-down) per protocol § 7 signaled.** This is the second wind-down/completion trigger of this hive's close (Trigger 3 fired at verdict-handoff completion; Trigger 1 now fires at Matt's explicit acceptance of wind-down).
+
+**Working-tree state at wind-down:**
+- Collab: clean for this hive's scope (untracked `jack-ryan/` + `legolas/` directories are adjacent QD-engine work; not in this hive's scope; Matt+gandalf's parallel workstream)
+- Engine: clean for this hive's scope (untracked output directories from prior sessions; not this hive's commits)
+- All recompose-validation hive deliverables COMMITTED + PUSHED:
+  - Canonical findings doc + amendments (collab `9b425db`)
+  - Jack-ryan Gate-1 + Gate-2 critiques (collab `93c2a29` + `fe3a2c1`)
+  - Matt briefing (collab `e7b4a65` finalized)
+  - CHANGELOG team-level milestone (collab `e7b4a65`)
+  - Hive log final knight-rider STATE (this entry — collab pending commit at this cycle close)
+  - Engine decisions-log P0 + P1 + P3 entries (engine `a58b60f` + `22b1c3c` + `c5332cd`)
+  - All hive milestone tags fired (v0.0 / v0.1 / v0.3 / v0.4) + seam tags (gamora/rocket/gandalf/star-lord/jack-ryan)
+  - v0.2-option-b-recompose-conditioned HELD PERMANENTLY per current evidence
+
+**P5 canonical record disposition (per Matt's wind-down framing):**
+
+Matt directed "commit/push and wind down" — minimal closure. NOT directing full § 7 (A) P5 (which would include gandalf engineering-disciplines.md amendment for the single Discipline #11 elaboration + retrospective doc + hive-runs review v5 update + tag `recompose-hive/v1.1-canonical-record-complete`).
+
+**Knight-rider interpretation:** the verdict-handoff cycle's deliverables (canonical findings + Matt briefing + decisions-log + CHANGELOG + hive log) already constitute substantive P5 canonical record. Full P5 (engineering-disciplines amendment + retrospective + hive-runs review) is **DEFERRED**; Matt may direct later or it stays as a future-hive's pickup item per the queued candidates surfaced during this hive.
+
+**Engineering-disciplines amendment candidate (deferred):** the single Discipline #11 elaboration on pipeline-state vs equilibrium-conditioned signal distinction. Gandalf's § 9.6 proposed language is in `canonical/story/per-tier-recompose-validation-findings-2026-05-19.md` for future co-authoring. NOT applied to `reincarnated-engine/design/working-agreement/engineering-disciplines.md` at this wind-down.
+
+**Retrospective doc (deferred):** `agentic_orchestration/hive-mind/retrospective-recompose-validation.md` not filed. The hive log + state-of-hive docs serve as the de-facto retrospective; an explicit retrospective doc can be authored if Matt later directs.
+
+**Engine-side P5 corrective (deferred per jack-ryan Gate-2 Amendment 1 out-of-collab-scope note):** star-lord's analysis at `output/p2-fresh-diagnostic-regen-2026-05-19/p2-classification-and-floor-lock-analysis.md` carries "33 recompose_attempts" (pre-amendment count); corrected in canonical findings doc to "35"; engine-side carries pre-amendment count. Defer.
+
+**Hive trigger watch at FINAL deactivation:**
+- ✅ Trigger 1 (Matt explicit wind-down): SIGNALED at this entry
+- ✅ Trigger 3 (P3 CANNOT REJECT NULL verdict): SIGNALED at verdict-handoff (prior entry)
+- ⏸ Trigger 2 (P5 completion): partially-fulfilled by canonical findings + Matt briefing + decisions-log + CHANGELOG; full P5 (engineering-disciplines + retrospective) deferred per Matt's lightweight wind-down framing
+- ⏸ Trigger 4 (hard architectural blocker): never signaled (clean hive close)
+
+**Hive DEACTIVATED.** No further knight-rider orchestration cycles for this hive's scope. Next-session continuity surfaced via `agentic_orchestration/skill_handoff_2026-05-20.md` (filed at this commit) for whichever knight-rider session next reads it.
+
+**Skill-handoff continuity item:** if Matt later directs full P5 closure (engineering-disciplines amendment + retrospective + hive-runs review v5 update + tag `recompose-hive/v1.1-canonical-record-complete`), knight-rider's next session executes per protocol § 6 P5. Until then, hive is at rest.
+
+— knight-rider, FINAL hive close, 2026-05-20.
