@@ -30,16 +30,18 @@ The rebuild proceeds in **8 phases** over 22-33 weeks:
 | **P6** | Profile assembly layer | 2-3 weeks | 4 profiles operational; coreset + submodular |
 | **P7** | Validation gauntlet + production cutover | 2-3 weeks | Reference-archetype validation; Profile A ship |
 
-**Critical decision-points awaiting Matt's resolution before P0 starts** (see § 4):
+**Critical decision-points — ALL RESOLVED 2026-05-21 by Matt-delegation to gandalf** (see § 4):
 
-| ID | Decision | Default recommendation |
+| ID | Decision | RESOLUTION (2026-05-21) |
 |---|---|---|
-| **D1** | Unity render pipeline (URP / Built-in / HDRP) | URP |
-| **D2** | Phase 0 element scope (7 elements / 4 core) | 7 (matches committed substrate identities) |
-| **D3** | Cohesion-BC sequencing (parallel / post-cipher) | Sequenced (clean baseline; +5-8 weeks; safer measurements) |
-| **D4** | BC Axis 2 measurement context (pack-fights / non-pack / both) | Both (compute geometry from all fights; document explicit per-context measurement) |
-| **D5** | Foundation validator scope (4-substrate / 6-substrate / 7-substrate) | 7-substrate (Phase-1 P1 committed expansion, fully aligned with substrate_identities/) |
-| **D6** | Vision-layer geometry gap response (4 candidate bins) | Document as v1.1 axis-lock revision candidates; do not block P0 |
+| **D1** | Unity render pipeline | **URP** ✓ |
+| **D2** | Phase 0 element scope | **7 elements** (fire / water / earth / wind / lightning / holy / shadow) ✓ |
+| **D3** | Cohesion-BC sequencing | **Sequenced** (post-cipher migration) ✓ |
+| **D4** | BC Axis 2 measurement context | **All fights, fight-context-tagged** ✓ |
+| **D5** | Foundation validator scope | **7-substrate** (aligns with D2; closes LC-012 drift) ✓ |
+| **D6** | Vision-layer geometry gap response | **Document for v1.1 axis-lock revision** (do not block P0) ✓ |
+
+P0 is unblocked. Knight-rider drafts decisions-log entry on session-open; jack-ryan reviews; Matt's explicit delegation is the approval.
 
 **The audits validated the architecture.** The 8-axis lock is sound; the substrate gaps were correctly anticipated; the deferred-bin mechanism is the right answer. The work ahead is execution against a clean specification.
 
@@ -249,11 +251,24 @@ These don't block P0. They're known coverage gaps to revisit when archive maturi
 
 ---
 
-## 4. Matt decision points (BEFORE rebuild starts)
+## 4. Matt decision points — ALL RESOLVED 2026-05-21
 
-These six decisions block P0 start. Each has a recommended default. Matt resolves on session-open.
+These six decisions blocked P0 start. **All six resolved 2026-05-21 by Matt-delegation to gandalf.** P0 is unblocked.
 
-### 4.1 D1 — Unity render pipeline
+**Resolution status at-a-glance:**
+
+| ID | RESOLUTION |
+|---|---|
+| D1 | **URP** |
+| D2 | **7 elements** |
+| D3 | **Sequenced (post-cipher)** |
+| D4 | **All fights, fight-context-tagged** |
+| D5 | **7-substrate** |
+| D6 | **Document for v1.1; do not block P0** |
+
+Detail per decision below preserved for record (rationale, alternatives considered, downstream effects).
+
+### 4.1 D1 — Unity render pipeline — **RESOLVED: URP**
 
 **Question:** Should the Reincarnated game use Unity's Universal Render Pipeline (URP), Built-in render pipeline, or HDRP?
 
@@ -268,7 +283,7 @@ These six decisions block P0 start. Each has a recommended default. Matt resolve
 
 **If Matt picks Built-in:** Hovl RPG VFX Bundle still works (multi-pipeline), but Ultimate Movement FX (URP-only) and VFX Graph - Summon Creatures Vol.1 (URP/HDRP only) are unavailable.
 
-### 4.2 D2 — Phase 0 element scope
+### 4.2 D2 — Phase 0 element scope — **RESOLVED: 7 elements**
 
 **Question:** Should Phase 0 (Reincarnated initial ship) target all 7 elements (fire / water / earth / wind / lightning / holy / shadow) or only the 4-core (fire / water / earth / wind)?
 
@@ -282,7 +297,7 @@ These six decisions block P0 start. Each has a recommended default. Matt resolve
 
 **If Matt picks 4 core:** P1 W1.11 limits to 4 elements; lightning/holy/shadow defer to a post-rebuild Phase-1 expansion. Saves 2-3 weeks in P1.
 
-### 4.3 D3 — Cohesion-BC sequencing
+### 4.3 D3 — Cohesion-BC sequencing — **RESOLVED: Sequenced (post-cipher migration)**
 
 **Question:** Should the cohesion-BC archive (LLM-judge measurement) be implemented in parallel with mechanical BC (P2/P5), or sequenced after the Stage 3 cipher migration ships?
 
@@ -296,7 +311,7 @@ These six decisions block P0 start. Each has a recommended default. Matt resolve
 
 **If Matt picks parallel:** P5 includes explicit "pre-cipher contaminated baseline" calibration flag; post-cipher recalibration becomes a P7+ task.
 
-### 4.4 D4 — BC Axis 2 measurement context
+### 4.4 D4 — BC Axis 2 measurement context — **RESOLVED: All fights, fight-context-tagged**
 
 **Question:** Should Axis 2 (damage geometry) be computed from all fight telemetry, only non-pack fights (per Option 2 convergence rule), or only pack fights?
 
@@ -311,7 +326,7 @@ These six decisions block P0 start. Each has a recommended default. Matt resolve
 
 **If Matt picks non-pack only:** AOE kits get systematically misclassified as single-target specialists. Strongly recommend against unless there's a structural reason.
 
-### 4.5 D5 — Foundation validator scope
+### 4.5 D5 — Foundation validator scope — **RESOLVED: 7-substrate**
 
 **Question:** Should the `foundation/foundation.py:39-43` validator be updated to enforce 4-substrate, 6-substrate, or 7-substrate (matching `config/substrate_identities/`)?
 
@@ -326,7 +341,7 @@ These six decisions block P0 start. Each has a recommended default. Matt resolve
 
 **If Matt picks 4-substrate:** Documents the committed direction as deferred-or-canceled. May require revisiting decisions-log entries.
 
-### 4.6 D6 — Vision-layer geometry gap response
+### 4.6 D6 — Vision-layer geometry gap response — **RESOLVED: Document for v1.1 axis-lock revision; do not block P0**
 
 **Question:** How should the 4 vision-layer geometry patterns that don't fit our 5 bins (Blessed Hammer / Storm Brand / Saboteur / Seven-Sided Strike) be handled?
 
