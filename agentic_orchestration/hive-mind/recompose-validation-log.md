@@ -679,3 +679,94 @@ The road continues. The lever waits. Mithrandir signs.
 **No unexpected behavior.** Forward-reference issue on `MODIFIER_SEARCH_FLOOR` resolved by repositioning the constant block; this is a within-seam refactor with no behavioral impact.
 
 Routing now.
+
+---
+
+## 2026-05-19 EDT — knight-rider STATE — Soft-disable ACCEPTED; tags fired; decisions-log filed; routing P2
+
+**Gamora soft-disable disposition: ACCEPT.** All verification criteria met:
+- `LEVER_FLOOR_LOCK_WORKING_MODIFIER = MODIFIER_SEARCH_FLOOR` (named-constant reference; engine `554e310`)
+- Constant block repositioning resolved forward-reference cleanly (no semantic impact)
+- 179/179 tests PASS under soft-disable (295.82s)
+- All 4 unit tests for floor-lock detection still PASS (branch logic verified; production path through `ClassBalanceResult.floor_lock_recompose` confirmed)
+- MIGRATION.md v1.22 SOFT-DISABLE NOTE appended
+- AGENT_STATE.md updated with soft-disable record (prior P1 FRICTION + smoke B1 diagnostic retained)
+
+**Tags fired (knight-rider under standing ADR-006 amendment authority):**
+- ✅ `gamora/v1.14-balance-loop-option-b-recompose-conditioned-soft-disable` (engine seam tag with load-bearing `-soft-disable` qualifier; engine `554e310` + `4d94026`)
+- ⏸ **HELD:** `recompose-hive/v0.2-option-b-recompose-conditioned` (hive milestone tag — fires only on P2 empirical verification → re-enable → smoke PASS path)
+
+**Decisions-log entry filed:** engine `design/decisions/decisions-log.md` commit `22b1c3c`. Covers full P1 disposition arc:
+- Mechanism landed + smoke B1 BLOCKING test-class-selection failure
+- Gandalf re-disposition Option 2 (soft-disable) + three load-bearing governance principles
+- Brief v1.1 amendment + new smoke-design discipline candidate (P5 queue)
+- Re-enable condition + re-enable mechanics
+- Hive premise status (INTACT) + P3 trigger #3 candidate framing if P2 returns zero floor-lock candidates
+- All alternatives considered + rejected with reasoning
+- Cross-seam status (star-lord schema v2.13 obligations unchanged; rocket informational watchpoint; drax no impact)
+
+Jack-ryan continuous-observation mode reviews; if concerns, will surface in hive log (not blocking the P2 routing).
+
+**Engineering disciplines confirmed by P1 disposition** (per decisions-log entry):
+- #1 math-before-code (gandalf brief § 2 + gamora investigation pre-authored)
+- #2 smoke-test (single-class B1; ~20 min total smoke effort; mandatory cold-start dry-run candidate for P5)
+- #11 empirical inspection (cold-start diagnostic finding correctly disposed; new smoke-design discipline elaboration)
+- #12 semantic shift (preserved; deferred behavioral landing pending P2 verification)
+- #13a implicit-pillar drift (resolved by `RECOMPOSE_SIGNAL_LO/HI` module-level constants)
+- #15 drift-detection (implicit precondition made explicit via `floor_lock_detected`)
+- #18 named constants (3 introduced: `RECOMPOSE_SIGNAL_LO/HI` + `LEVER_FLOOR_LOCK_WORKING_MODIFIER`; soft-disable threaded via named-constant reference)
+- R11(b) cross-seam round-trip (MIGRATION.md v1.22 explicit clause + test confirmation)
+- Pattern P7 silent-default (Amendment 2 fail-loud logging for `current_wr` edge cases)
+
+**Hive trigger watch:** ⏸ all four still unsignaled. P1 dispositioned within autonomous-operation framework as designed; the FRICTION → re-disposition → execution cycle is the framework working correctly under stress.
+
+**Cycle pace (Day 0):** ~2h elapsed total (activation through P1 disposition + soft-disable execution + tags + decisions-log + this STATE entry). The hive is significantly ahead of the 4-7d parallelized estimate.
+
+**Next action:** author + fire P2 dispatch (rocket + star-lord + gamora; substrate=shadow per gandalf step 4; seed=100005; special instructions: post-regen query `floor_lock_detected=TRUE` + re-enable path / wind-down-trigger-3 path based on results). HANDOFF entry follows.
+
+---
+
+## 2026-05-19 EDT — knight-rider HANDOFF — P2 fresh diagnostic regen ROUTED TO ROCKET + STAR-LORD + GAMORA (sequential)
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-19-rocket-plus-star-lord-plus-gamora-p2-fresh-diagnostic-regen.md`
+
+**Substrate:** **shadow** (gandalf preference per re-disposition step 4 — different geometric mix from ember exposes whether masked-Pattern-B-extreme is element-dependent or substrate-general).
+**Seed:** 100005.
+**Mode:** Cold-start (initial_modifier=1.0 for all classes; NOT warm-started from prior season).
+**Engine state:** Option A floor widened (active); Option B mechanism installed + SOFT-DISABLED (`LEVER_FLOOR_LOCK_WORKING_MODIFIER = MODIFIER_SEARCH_FLOOR`).
+**Total wall-time estimate:** ~4-6h (rocket 1-2h → gamora 2-3h → star-lord 1-2h sequential).
+
+**Per-seam sequential workflow** (each seam fires the next via HANDOFF entry in hive log):
+
+1. **rocket** (Phase 1): full season generation for seed=100005, substrate=shadow under R8 inverted pipeline; output at `output/p2-fresh-diagnostic-regen-2026-05-19/season_100005/`
+2. **gamora** (Phase 2): cold-start balance-loop convergence on all classes; per-class telemetry with full schema v2.12 + v2.13 fields
+3. **star-lord** (Phase 3): classification + Pattern-A/B + **floor-lock candidate analysis** (THE KEY FINDING); output at `output/p2-fresh-diagnostic-regen-2026-05-19/p2-classification-and-floor-lock-analysis.md`
+
+**Three-way disposition gate (knight-rider applies on star-lord completion):**
+
+- **Zero floor-lock candidates** across full season (~10-12 classes) → soft-disable is right end state; **wind-down trigger #3 signals at P3** (premise empirically refuted at full-season scope; surface to Matt via gandalf P3 synthesis briefing). Canonical-record-worthy: masked-Pattern-B-extreme population may not exist or is far smaller than § 2.5's 3-8/season estimate.
+- **Multiple floor-lock candidates (≥ 1)** → knight-rider routes gamora for one-line re-enable (`LEVER_FLOOR_LOCK_WORKING_MODIFIER = 0.005`); smoke B1 re-runs against confirmed subject; on BLOCKING all-PASS, fire `recompose-hive/v0.2-option-b-recompose-conditioned` hive milestone retrospectively + record empirical validation in decisions-log.
+- **One floor-lock candidate** (edge): same as multiple but gandalf may re-disposition on whether one subject is enough empirical evidence to fire the milestone tag.
+
+**P2 acceptance tag (on knight-rider verification):** `recompose-hive/v0.3-diagnostic-regen-complete` (engine + collab; per protocol § 6 P2 acceptance gate).
+
+**P2 → P3 routing:** on P2 acceptance, route P3 (validation synthesis) to gandalf + jack-ryan. P3 deliverable: canonical findings document at `canonical/story/per-tier-recompose-validation-findings-2026-05-19.md` per protocol § 3 P3. Disposition framing depends on floor-lock candidate count (see above three-way gate).
+
+**Out-of-scope at P2 (HARD per dispatch § 6):**
+- Option B re-enable autonomously by gamora during convergence — disposition routes through knight-rider + gandalf
+- Generation pipeline changes (rocket uses current b6_kit_builder + R8)
+- Schema migrations beyond v2.13 (star-lord uses v2.13 contract)
+- Convergence loop changes (gamora executes; doesn't modify)
+- Substrate roster changes (full canonical for shadow)
+- Multi-seed regen (single seed=100005 sufficient for n≈49 cold-start verification)
+- Pattern-A kit-redesign (deferred to post-hive)
+- R6 host-calibration (Pattern-B-conditional; not this hive)
+- VS2a S1 first-batch retry (different track)
+
+**Falsifying condition (P2 rollback per dispatch § 7):**
+- P2 needs re-run if any seam's output has a structural defect surfaced post-completion (rare)
+- Floor-lock-candidate count non-trivial AND smoke B1 re-runs on a candidate FAILS BLOCKING again → hard architectural blocker (wind-down trigger #4); surface to Matt via Matt briefing
+
+**Hive trigger watch:** ⏸ all four still unsignaled at P2 firing. The P2 regen IS the venue where trigger #3 (premise refuted) may or may not signal at P3.
+
+Routing to rocket as Phase 1 of three-seam sequential workflow. Rocket fires first; rocket's HANDOFF on completion fires gamora; gamora's HANDOFF on completion fires star-lord; star-lord's HANDOFF on completion fires knight-rider's P2 acceptance verification.
