@@ -4,6 +4,32 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-rebuild P0 W0.9 Phase 2.2 COMPLETE: convergence vs validation usage modes implemented
+
+**Event:** W0.9 Phase 2.2 (W0.9.3) returned. Tag `qd-rebuild/v0.9-phase-2-2-usage-modes-implemented` fired (engine commit `c7ede22`). 124 tests PASS (41 W0.9.3 + 27 W0.9.2 + 56 balance_loop).
+
+**P7 W7.2 architectural commitment LIVE.** Two new modules + balance_loop.py delegation:
+
+**`gauntlet_archive.py`** — archive data layer + P7 W7.2 query surface:
+- `PerTierWinRate` (per-tier spatial WR record; Optional[float])
+- `GauntletArchiveEntry` (one converged kit at BC-cell coord; validate() per Pattern P7)
+- `ArchiveQueryResult` (found / entry / certification_pass / failing_tiers)
+- `TIER_WR_CONTRACT` (5-tier dict mirroring balance_loop TIER_FLOORS/CEILINGS)
+- `GauntletArchive` class: `insert()` (convergence path) + `query()` (validation path) + `query_all()` + `certification_summary()`
+
+**`gauntlet_modes.py`** — explicit caller-level routing:
+- `ConvergenceUsageMode` — convergence caller; `run_slot()` calls `run_spatial_fight()`
+- `ValidationUsageMode` — P7 W7.2 caller; `certify()` / `certify_batch()` call `archive.query()` ONLY; **architecturally barred from calling `run_spatial_fight()` — verified by test**
+- `CertificationRequest` / `CertificationResult` (P7 W7.2 I/O records)
+
+**Architectural violation clause (math note §6.4 A4):** future code calling `run_spatial_fight()` inside P7 W7.2 certification path requires explicit ADR-level approval. The structural barrier is in code, not just in commentary.
+
+**balance_loop.py delegation:** `_run_spatial_slot()` now delegates to `ConvergenceUsageMode(session_id_prefix=SWARM_SPATIAL_SESSION_PREFIX).run_slot(...)`. Functional behavior unchanged. Discipline #12 semantic shift documented MIGRATION.md v1.25.
+
+**Phase 2.3 (W0.9.4) fires next** — gamora launched (agentId `a325dc8096ab5d272`). 4 performance mitigations: smoke-test mode + parallel batches + cell-targeted convergence + reduced-tick-rate (REQUIRED per math note §3.4 + A3 stability criterion).
+
+---
+
 ## 2026-05-21 — QD-rebuild P0 W0.1 FULLY CLOSED: B14.5 V2 energy-type lever shipped + Gate-2 critique-pair complete
 
 **Event:** W0.1 Phase 2 Gate-2 critique-pair returned with both reviews. Tag `qd-rebuild/v0.1-b14-5-v2-energy-type-lever` stands (engine commit `a0889d2`). Documentation amendment folded by knight-rider per jack-ryan ADR-002 APPROVE authority (engine commit `9254980`).
