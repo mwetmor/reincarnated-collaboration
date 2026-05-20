@@ -13,12 +13,12 @@
 
 | Seam | Status | In flight | Blocked? |
 |---|---|---|---|
-| **gamora** | P0 COMPLETE; IDLE pending P1 implementation dispatch (after gandalf brief + jack-ryan Gate-1 land) | — | No |
+| **gamora** | **ACTIVE on P1 implementation** (Option B recompose-trigger conditioning) | `_primary_recompose_loop` floor-lock detection branch + `RECOMPOSE_SIGNAL_LO/HI` + `LEVER_FLOOR_LOCK_WORKING_MODIFIER=0.005` named constants + 4 unit tests + MIGRATION.md v1.22 + smoke gate B1 cold-start on class_0001 + secondary-loop interaction verification. Estimated ~4-6h. | No |
 | **rocket** | IDLE (P2 + P4 work upcoming after P1 acceptance) | — | No |
-| **star-lord** | IDLE; schema v2.12 queued from MIGRATION.md v1.21 (additive nullable `modifier_extreme_low` column on `class_balance_results`); picked up at P2 telemetry work | — | No |
+| **star-lord** | IDLE; schema v2.12 queued from MIGRATION.md v1.21 (`modifier_extreme_low` column); schema v2.13 queued from forthcoming MIGRATION.md v1.22 (`floor_lock_recompose` + `working_modifier` + `floor_lock_detected` fields); both picked up at P2 telemetry work | — | No |
 | **drax** | IDLE (P4 loadout sync upcoming if schema changes) | — | No |
-| **jack-ryan** | **ACTIVE on P1 Gate-1 critique** (DESIGN-MODE; ~1-2h expected) | Gate-1 critique of gandalf's brief at `dispatches/2026-05-19-gandalf-p1-option-b-recompose-trigger-design-brief.md`; three flagged framings (departure defensibility / smoke B1 #4 tightness / LEVER_FLOOR_LOCK_WORKING_MODIFIER magnitude) + own-discretion audit items (Discipline #13/P7/test coverage/back-compat/cross-seam/MIGRATION template/Discipline #12 framing/reversibility) | No |
-| **gandalf** | P1 design brief COMPLETE (`a400436`); IDLE pending Gate-1 disposition; on jack-ryan amendments may re-engage | — | No |
+| **jack-ryan** | P1 Gate-1 critique COMPLETE (`93c2a29`); APPROVE-WITH-AMEND (4 required + 1 recommended + 1 optional); IDLE; observes gamora implementation in continuous-observation mode | — | No |
+| **gandalf** | P1 design brief COMPLETE (`a400436`); IDLE pending P2 substrate choice on P1 acceptance | — | No |
 
 ---
 
@@ -29,8 +29,11 @@
 - **L2 — P0 acceptance.** Knight-rider Gate-2-read disposition ACCEPT (spirit-of-acceptance on cold-start sub-0.05 demonstration; deferred to P2 per gamora's warm-start framing). Tags fired (gamora seam + hive milestone). Decisions-log entry filed in engine.
 - **L2 — P1 routing (gandalf).** Knight-rider routed P1 design brief authoring to gandalf as background subagent. Design brief deliverable specifies signal-range math + epsilon choice + working-modifier disposition + smoke B1 + cross-seam impact + Discipline #12 semantic-shift framing.
 - **Gandalf brief filed (`a400436`).** 10 sections, ~720 LOC. Principled departure from gamora § 5.2: `last_wr > _SIGNAL_HI` replaces `eval_modifier ≤ floor + ε` (avoids false-positive on legitimate sub-floor convergence). New named constant `LEVER_FLOOR_LOCK_WORKING_MODIFIER = 0.005` (half-floor; Discipline #18). Smoke B1: 4 BLOCKING conditions on class_0001 cold-start + WARN-level on class_0003/0006. Predicts "masked Pattern-B-extreme" subset (3-8 classes per season conservative).
-- **L2 — Gate-1 routing (jack-ryan).** Knight-rider routed brief to jack-ryan for Gate-1 critique as background subagent. DESIGN-MODE; Pattern A/B/C; three gandalf-flagged framings + own-discretion items. Deliverable at `qa/pending/2026-05-19-p1-option-b-recompose-trigger-gate1.md` + hive log STATE + report to knight-rider.
-- **MIGRATION.md handoff** (producer = gamora; consumer = star-lord): v1.21 entry in engine MIGRATION.md captures schema v2.12 obligations (additive nullable `modifier_extreme_low` column). No immediate blocker; consumed at P2 telemetry work. v1.22 (Option B; star-lord schema v2.13) template authored in gandalf brief § 5.4; gamora finalizes at implementation.
+- **L2 — Gate-1 routing (jack-ryan).** Knight-rider routed brief to jack-ryan for Gate-1 critique as background subagent. DESIGN-MODE; Pattern A/B/C; three gandalf-flagged framings + own-discretion items.
+- **L2 — Gate-1 disposition (jack-ryan).** APPROVE-WITH-AMEND (`93c2a29`); 4 required (1: `RECOMPOSE_SIGNAL_HI/LO` module-level constants; 2: fail-loud log entries for `current_wr` edge cases; 3: 4 specific unit tests enumerated; 6: MIGRATION.md v1.22 R11(b) round-trip + explicit rocket watchpoint) + 1 recommended (4: near-floor secondary WARN in smoke) + 1 optional (5: naming consistency). All three gandalf-flagged framings (a/b/c) confirmed sound; no back-routing to gandalf.
+- **L2 — P1 implementation routing (gamora).** Knight-rider authored P1 implementation dispatch (`c61cc25`) folding all six amendments per jack-ryan's routing recommendation; fired gamora as background subagent. Tag intent: `gamora/v1.14-balance-loop-option-b-recompose-conditioned` (engine seam) + `recompose-hive/v0.2-option-b-recompose-conditioned` (hive milestone on engine + collab).
+- **MIGRATION.md handoff** (producer = gamora; consumer = star-lord): v1.21 entry in engine MIGRATION.md captures schema v2.12 obligations (additive nullable `modifier_extreme_low`). v1.22 (Option B; star-lord schema v2.13: `floor_lock_recompose` + `working_modifier` + `floor_lock_detected`) template authored in gandalf brief § 5.4 + jack-ryan Amendment 6 (R11(b) round-trip + explicit rocket watchpoint); gamora finalizes at implementation.
+- **Adjacent canonical work (informational):** Matt authored `engine-architecture-vision-qd-profile-2026-05-19.md` (canonical/, commit `00581bf`) — QD-engine + profile architecture vision document; not in hive scope; not affecting routing.
 
 ---
 
@@ -63,20 +66,26 @@ None. Activation + P0 + P0 acceptance + P1 routing all clean. Smoke gates A1/A2/
 
 ## § 6 — Tomorrow's priorities (cycle Day 1)
 
-Driven by jack-ryan's Gate-1 disposition notification. On jack-ryan completion:
+Driven by gamora's P1 implementation completion notification. On gamora completion:
 
-1. Read jack-ryan's report (~300-400 words + the Gate-1 critique doc at `qa/pending/`)
-2. Disposition routing:
-   - **APPROVE-AS-IS** → knight-rider authors gamora implementation dispatch directly from gandalf brief; fire to gamora
-   - **APPROVE-WITH-AMEND** → knight-rider folds amendments into gamora implementation dispatch; fire to gamora
-   - **BLOCK** → knight-rider routes back to gandalf for re-disposition (hive runs; not surfaced to Matt unless gandalf-jack-ryan dispute cannot resolve autonomously → wind-down trigger #4)
-3. On gamora implementation completion: knight-rider verifies smoke B1 BLOCKING all-PASS; if PASS, tag `recompose-hive/v0.2-option-b-recompose-conditioned`; if smoke fails per § 4.4 falsifying condition, P1 rolls back per gandalf brief § 9 reversibility
-4. On P1 acceptance: P2 (fresh diagnostic regen) phase begins — gandalf picks substrate (suggested earth or shadow per protocol § 6 P2); knight-rider authors rocket + star-lord + gamora dispatch
+1. Read gamora's report (≤ 500 words by dispatch contract)
+2. **Verify P1 acceptance gate** per dispatch § 5 + § 4.1:
+   - All 16 acceptance-criteria checkboxes checked
+   - Smoke gate B1 BLOCKING all-PASS on class_0001 cold-start (4 conditions)
+   - Test suite regression check PASS (44/44 existing + 4 new = 48/48)
+   - MIGRATION.md v1.22 + AGENT_STATE.md + hive log STATE all updated
+3. **Three-way outcome:**
+   - **PASS** → fire `gamora/v1.14-balance-loop-option-b-recompose-conditioned` (engine seam) + `recompose-hive/v0.2-option-b-recompose-conditioned` (engine + collab hive milestone) + push; file P1 decisions-log entry if appropriate; route P2 phase
+   - **PARTIAL** (Amendment 4 WARN-level for `final_modifier ∈ [0.05, 0.10)`) → still ACCEPT P1; flag class for P2 inspection
+   - **FAIL** (smoke B1 BLOCKING any condition misses) → P1 rolls back per dispatch § 4.5 / § 6 reversibility; gamora surfaces FRICTION in hive log; investigate root cause
+4. **P2 phase routing (on P1 acceptance):** gandalf picks substrate (suggested earth or shadow per protocol § 6 P2); knight-rider authors rocket + star-lord + gamora dispatch covering full season regen at the new mechanism (per-tier WR convergence + Option A floor + Option B recompose-conditioning + disposition-3 calibration). Seed: 100005 (next available diagnostic seed, not used in prior batch).
 
-**Branch points to watch for in jack-ryan's Gate-1:**
-- If jack-ryan dispositions BLOCK on the § 2.3 departure: surfaces a real design-correctness gap; gandalf re-engages; knight-rider mediates the gandalf↔jack-ryan iteration
-- If jack-ryan dispositions APPROVE-WITH-AMEND on smoke B1 condition #4 tightness: amendment folds into implementation dispatch; gamora implements per new threshold
-- If jack-ryan surfaces Discipline #13 implicit-pillar candidates beyond `LEVER_FLOOR_LOCK_WORKING_MODIFIER` (e.g., `_QUICK_SIGNAL_HI = 0.70` being a single-source-of-truth question): amendment to promote to named constant in same commit (Option A precedent)
+**Branch points to watch for in gamora's P1 implementation:**
+- If smoke B1 BLOCKING fails on class_0001 (any of 4 conditions): hard architectural blocker watch (wind-down trigger #4). Gandalf re-disposition may be required. Surface root-cause diagnosis with the FRICTION entry.
+- If `floor_lock_detected=True` fires for > 50% of three test classes: false-positive on legitimately-converging-at-floor classes; revisit `RECOMPOSE_SIGNAL_HI` value or signal logic; knight-rider routes back to gandalf for re-disposition (not Matt-trigger #4 unless gandalf-knight-rider cannot resolve)
+- If existing test suite regresses: implementation correctness regression; investigate via knight-rider mediation; do not commit until resolved
+- If Amendment 5 OPTIONAL naming was applied (`floor_lock_recompose` → `recompose_floor_lock`): verify all downstream references in MIGRATION.md v1.22 + tests + dispatch documentation are updated consistently
+- Secondary-loop double-invocation verification (dispatch § 3.5): gamora documents in AGENT_STATE.md whether the second-pass `_primary_recompose_loop` call correctly exercises the floor-lock detection branch when the redistributed class is still floor-locked
 
 ---
 
@@ -109,4 +118,4 @@ Current trigger watch:
 
 ---
 
-*Authored 2026-05-19 by knight-rider at activation close; updated as Day 0 cycle progressed. Day 0 cycle: activation (22:28 EDT) → P0 fired → gamora P0 complete in ~26min → P0 acceptance + tags fired (~23:00 EDT) → P1 design brief routed to gandalf → gandalf brief filed (~9 min, `a400436`) → brief routed to jack-ryan for Gate-1 critique. Hive autonomous; next wake-up trigger is jack-ryan Gate-1 disposition. The road continues.*
+*Authored 2026-05-19 by knight-rider at activation close; updated as Day 0 cycle progressed. Day 0 cycle: activation (22:28 EDT) → P0 fired → gamora P0 complete in ~26min → P0 acceptance + tags fired (~23:00 EDT) → P1 design brief routed to gandalf → gandalf brief filed (~9 min, `a400436`) → brief routed to jack-ryan for Gate-1 → jack-ryan APPROVE-WITH-AMEND (~7 min, `93c2a29`) → knight-rider authored P1 implementation dispatch folding 6 amendments → fired gamora for P1 implementation (~4-6h expected). Hive autonomous; next wake-up trigger is gamora's P1 implementation completion. The road continues.*
