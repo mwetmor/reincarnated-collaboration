@@ -213,3 +213,28 @@ If P2's floor-lock-candidate count is non-trivial AND smoke B1 re-runs on a cand
 ---
 
 *Authored 2026-05-19 by knight-rider, folding gandalf P1 re-disposition step 4 (P2 substrate choice = shadow; special instructions on floor-lock query). All three seams fire under AUTONOMOUS L1 within their respective seams. P2 is the load-bearing empirical test of the hive's central premise. The road continues.*
+
+---
+
+## Completion record — rocket Phase 1
+
+**Agent:** rocket
+**Completed:** 2026-05-20 01:35 EDT
+**Engine commit:** `07d13f8` (tag `rocket/v1.22-p2-fresh-regen-shadow-100005`)
+**Wall time:** 49.9 min
+
+**Generation summary:**
+- 10 classes generated (shadow-first rotation; shadow x2, fire x2, water, earth, wind, lightning, holy, physical + 1 experimental)
+- Convergence: 8/10 (80%)
+- modifier_extreme_low=True: 7/10
+- floor_lock_recompose=True: 6/10 (diagnostic; gamora authoritative)
+- Failures: class_0002 (fire/0.0110) + class_0004 (earth/0.0110) — both at MODIFIER_SEARCH_FLOOR
+- Coalescence: element='ember', anchor='The Bridge of Sighs Between Fires' (liminal_and_threshold)
+- Trial defeat rate: 52.8% (converged)
+- Monsters: 44; Gear pool: 200 items (120 rare+)
+
+**Artifacts:** `output/p2-fresh-diagnostic-regen-2026-05-19/season_100005/` (engine-side artifacts complete; export pipeline failed — metadata.json/damage_formula.md/design_context.md absent; not a blocker for gamora)
+
+**Anomalies (all pre-existing):** [R3] skill range_m=None; [D4] unknown archetype 'trial'; no canonical entry for new substrates; export ExportMetadata.elements=null in inverted mode.
+
+**Handoff:** gamora Phase 2 (cold-start balance-loop convergence) routed via hive log 2026-05-20 01:35 EDT HANDOFF entry.
