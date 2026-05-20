@@ -4,6 +4,37 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-rebuild P0 W0.9 Phase 2.3 COMPLETE: 4 performance mitigations LIVE + A3 stability verified
+
+**Event:** W0.9 Phase 2.3 (W0.9.4 performance optimization) returned. Tag `qd-rebuild/v0.9-phase-2-3-performance-optimized` fired (engine commit `09cb812`). 161 tests PASS (37 W0.9.4 + 41 W0.9.3 + 27 W0.9.2 + 56 balance_loop).
+
+**4 Mitigations LIVE:**
+
+1. **Smoke-test mode:** `SmokeTierConfig` (n_fights=30, tick_size=REDUCED_TICK_SIZE, wr_floor=0.05, wr_ceiling=0.95) + `SmokeResult` + `ConvergenceUsageMode.run_slot_smoke()` + tick_size parameter on `run_slot()`. Quick-reject/accept signals enable convergence binary-search early-exit.
+
+2. **Parallel batches (ProcessPoolExecutor):** `KitSlotSpec` picklable + `_run_kit_slot_worker()` top-level + `BatchGauntletRunner.run_batch(use_parallel=True)` + `BatchGauntletRunner.archive_lock` pre-wired for Phase 2.4. Parallelism boundary: ACROSS kits, SEQUENTIAL within a kit.
+
+3. **Cell-targeted convergence:** `CellPriorityResult(NamedTuple)` + `GauntletArchive.cell_priorities()` returns priorities 1=sparse / 2=failing-certification / 3=satisfied. Callers filter `priority < 3` to skip satisfied cells. Estimated ~50% avg convergence iteration reduction.
+
+4. **Reduced-tick-rate (REQUIRED per math note §3.4):** `REDUCED_TICK_SIZE = 0.5` in `spatial_engine.py`. `SpatialFightEngine.tick_size` propagates through all 5 tick operations (mob navigation, player step, cooldown, energy, elapsed).
+
+**A3 stability verification PASS** (math note §3.4 criterion: per-class WR delta ≤ ±0.05 for any tier between 0.1s and 0.5s tick rates):
+
+| Tier | WR(0.1s) | WR(0.5s) | Delta | Status |
+|------|----------|----------|-------|--------|
+| swarm (open_arena) | 1.0000 | 1.0000 | 0.0000 | PASS |
+| boss (boss_with_adds) | 1.0000 | 1.0000 | 0.0000 | PASS |
+
+**REDUCED_TICK_SIZE is QUALIFIED for both swarm and boss tier smoke passes.** No tier disqualification.
+
+**Performance wall-clock benchmark deferred to Phase 2.5 (W0.9.6 calibration sweep with full class cohort).**
+
+**Discipline #12 semantic shift documented (MIGRATION.md v1.26):** smoke-tier convergence iterations at REDUCED_TICK_SIZE=0.5s produce coarser WR time-resolution than full-fidelity iterations. Deliberate: smoke WR is quick binary-search signal, not archive-insertion quality.
+
+**Phase 2.4 (W0.9.5) fires next** — gamora launched (agentId `a7a3920cf469454a1`). Wires real spatial telemetry writer to LIVE v2.15 schema + 8-axis BC fight_events emission + archive insertion via BatchGauntletRunner.archive_lock + round-trip smoke + parallel integration test + fight_events_sample_rate storage flag.
+
+---
+
 ## 2026-05-21 — QD-rebuild P0 W0.9 Phase 2.2 COMPLETE: convergence vs validation usage modes implemented
 
 **Event:** W0.9 Phase 2.2 (W0.9.3) returned. Tag `qd-rebuild/v0.9-phase-2-2-usage-modes-implemented` fired (engine commit `c7ede22`). 124 tests PASS (41 W0.9.3 + 27 W0.9.2 + 56 balance_loop).
