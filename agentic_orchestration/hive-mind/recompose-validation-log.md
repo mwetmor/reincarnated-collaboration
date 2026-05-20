@@ -1310,3 +1310,71 @@ Routing now.
 - #15 (drift-detection): kit-composition pathology framing aligned with R1 + R2+ST + this hive's evidence (no drift between three independent diagnoses)
 
 Mithrandir's measure: the hive walked the road it was authored to walk. The road forward is named. That is what the road was for. The synthesis stands; jack-ryan critiques next.
+
+---
+
+## 2026-05-20 EDT — knight-rider STATE — Gandalf P3 synthesis RECEIVED + ratified; routing jack-ryan Gate-2
+
+**Synthesis disposition (knight-rider orchestration layer):** RECEIVED + RATIFIED. The verdict is unambiguous; the synthesis lands cleanly; gandalf's transparent push-back on knight-rider's per-failure-mode framing is design-judgment correctly exercised under autonomous-operation authority.
+
+**Three load-bearing observations from gandalf's synthesis** that knight-rider concurs with (recorded for the canonical record):
+
+1. **Per-failure-mode disaggregation matters for kit-redesign queue handoff.** Knight-rider's "100% Pattern-A / 100% boss-DPS-floor structural" framing was load-bearing-correct but coarse. Gandalf's disaggregation (sub-patterns 2+5+6 jointly fire on 9/9 canonical; sub-pattern 4 explicitly NOT; class_0009 shadow_controller carries additional controller-mechanic mismatch sub-pattern) is finer-grained and prevents one-size-fits-all kit-redesign assumptions downstream. **The kit-redesign queue handoff will need to incorporate this disaggregation; future hives or kit-redesign dispatches should reference gandalf P3 § 6 directly.**
+
+2. **Single-Discipline-#11-elaboration framing is the right discipline-amendment shape.** Both methodological findings (P1 smoke-design + P2 signal-reversal) share the root-cause epistemic pattern: state-space conflation between non-equilibrium pipeline states and equilibrium-state population properties. Folding as one Discipline #11 elaboration preserves conceptual coherence + reduces surface area. Knight-rider concurs; the P5 engineering-disciplines.md amendment (or trigger-#3 Matt-briefing inclusion) names a single discipline elaboration.
+
+3. **Convergence within ~24 hours is the load-bearing argument** for elevating to engineering-discipline. Two independent hive events surfaced the same epistemic pattern; that's not coincidence, it's a methodological pattern that future hives can systematically guard against.
+
+**Verdict acceptance status:** knight-rider does NOT override gandalf's CANNOT REJECT NULL verdict. The empirical evidence is unambiguous (0% kit-acceptable at worst-case bound; not edge case). Routing proceeds.
+
+**Tags HELD pending Gate-2:**
+- ⏸ `recompose-hive/v0.4-validation-verdict` (fires post-Gate-2 disposition; per dispatch § 3.3)
+
+**Hive trigger watch:** ⏸ Triggers 1, 2, 4 still unsignaled. **⏰ Trigger 3 (CANNOT REJECT NULL verdict) signals at jack-ryan Gate-2 disposition + knight-rider verdict-handoff completion.** Gandalf's STATE entry calls trigger #3 signaled at gandalf's entry; knight-rider's framing pegs trigger #3 signal at the verdict-handoff (tag fire + Matt briefing filed) — this is a semantic difference, not a substantive one. Either way, trigger #3 fires before Matt re-enters.
+
+**Next action:** route jack-ryan for Gate-2 critique via HANDOFF entry below.
+
+---
+
+## 2026-05-20 EDT — knight-rider HANDOFF — P3 Gate-2 critique ROUTED TO JACK-RYAN
+
+**Routes to:** jack-ryan as background subagent (Gate-2 mode; BLOCK authority retained but reserved for material misrepresentation)
+**Dispatch authority:** `agentic_orchestration/dispatches/2026-05-20-gandalf-plus-jack-ryan-p3-validation-synthesis.md` § 3.2
+**Brief to critique:** `canonical/story/per-tier-recompose-validation-findings-2026-05-19.md` (gandalf P3 synthesis; collab `3205d0e`; tag `gandalf/v0.4-p3-canonical-findings-synthesis`)
+
+**Jack-ryan task:**
+
+1. Read gandalf P3 synthesis in full + knight-rider STATE entries (preceding entries in hive log)
+2. **Pattern A discipline audit:** #1 math-before-code (synthesis grounded in empirical record); #11 empirical inspection (both methodological findings); #12 semantic shift ("CANNOT REJECT NULL" naming as worst-case-bound, not hive failure); #15 drift-detection (triangulation across R1 + R2+ST + this hive)
+3. **Pattern B technical correctness:**
+   - Does the empirical evidence support CANNOT REJECT NULL? (Yes per gandalf; jack-ryan verifies against star-lord's analysis doc + gamora's balance_results.json directly)
+   - Are there evidence gaps? (Check star-lord's coverage; gandalf's per-class analysis vs the raw data)
+   - Is the per-failure-mode disaggregation sound? (Sub-patterns 2+5+6 jointly fire on 9/9; sub-pattern 4 explicitly NOT; class_0009 controller-mechanic mismatch — verify against per-class telemetry)
+   - Is the single-Discipline #11-elaboration framing appropriate, or should the two findings be standalone disciplines? (Gandalf recommends single; jack-ryan critiques; knight-rider concurs with single)
+4. **Pattern C scope discipline:**
+   - Does the canonical findings doc stay within P3 scope? (No autonomous P4 routing; no speculation beyond evidence; recommendations as "for Matt's consideration")
+   - Is the kit-redesign queue recommendation transparent + non-prescriptive?
+   - Are the three alternatives (substrate-generalization study / disposition-3 sensitivity / single-class kit-redesign pilot) framed as Matt-options, not hive directives?
+5. File Gate-2 critique at `agentic_orchestration/qa/pending/2026-05-20-p3-validation-synthesis-gate2.md` (standard Gate-2 format)
+6. Disposition: APPROVE-AS-IS / APPROVE-WITH-AMEND / BLOCK
+7. Append STATE entry to hive log (fetch-before-commit discipline per 2026-05-17 § 14.1.1)
+8. Commit + push (autonomous L2 authority for the docs commit)
+9. Return concise report to knight-rider (~250 words) covering disposition + amendments (if any) + sub-pattern verification + Discipline #11 framing concurrence/dissent + routing recommendation
+
+**Expected effort:** ~30 min - 1h. The synthesis is clean; the verdict is unambiguous; jack-ryan's critique focuses on structural integrity + evidence-coverage + scope discipline.
+
+**On jack-ryan Gate-2 disposition:**
+
+- **APPROVE-AS-IS / APPROVE-WITH-AMEND** → knight-rider:
+  1. Fold any amendments (if APPROVE-WITH-AMEND) into the canonical findings doc (gandalf concurs or re-engages briefly; lightweight)
+  2. Fire `recompose-hive/v0.4-validation-verdict` (engine + collab) under standing ADR-006 amendment authority
+  3. Author Matt briefing at `agentic_orchestration/matt-briefing-recompose-validation-2026-05-20.md` per protocol § 7 trigger #3
+  4. File decisions-log entry (engine) capturing P3 verdict (jack-ryan concurs; knight-rider drafts; jack-ryan continuous-observation may add amendments)
+  5. CHANGELOG entry (team-level milestone: trigger #3 signaled)
+  6. Hive log STATE: "Wind-down trigger #3 signaled; hive autonomous-operation phase ENDS; pending Matt direction"
+  7. P4 does NOT fire autonomously per protocol § 7
+- **BLOCK** → knight-rider routes back to gandalf for re-synthesis (autonomous L2 dispute resolution; not Matt-trigger #4)
+
+**Critical:** if jack-ryan APPROVES, the hive's autonomous-operation phase ENDS at knight-rider's verdict-handoff. Matt's next signal is the next wake-up after Matt reads the briefing. The hive deactivates pending Matt direction.
+
+Routing now. The verdict-handoff approaches.
