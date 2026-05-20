@@ -195,3 +195,32 @@ MIGRATION.md entry per ADR-004. Coordinate with star-lord + W0.9 (schema v2.14 l
 **Phase 2 (implementation) status:** PENDING — awaiting jack-ryan Gate-1 + gandalf architectural review routing via knight-rider
 
 **Tag `qd-rebuild/v0.1-b14-5-v2-energy-type-lever`:** NOT YET — fires after full implementation + calibration sweep ships
+
+---
+
+### Phase 1.5 (amendment fold-in) — COMPLETE 2026-05-20
+
+**Completed by:** gamora
+**Date:** 2026-05-20
+**Math note:** `reincarnated-engine/src/reincarnated/simulation/math/w0-1-b14-5-v2-energy-type-lever.md` (amended in-place)
+**Tag:** `qd-rebuild/v0.1-math-note-phase-1-complete` — fired this session
+
+**All 8 amendments incorporated:**
+
+- **A1 (BLOCK resolved):** Sub-lever A activation condition gap confirmed empirically. `balance_loop.py:1509-1519` inspection: `increase_dps=True` requires `eval_modifier > MODIFIER_HIGH_THRESHOLD=3.0`. Physical_warrior at ~0.55 never satisfies this. Sub-lever A as Phase 1 described does NOT fire for the target population. §3.1 updated with full gap analysis + Phase 2 design obligation: option (a) fine-tune WR-direction activation inside `_lever_cooldown_energy` when `energy_type=="rage"` and `not reduce_dps and not increase_dps and WR < 0.50`.
+
+- **A2 (BLOCK resolved):** R11(b) schema path = PATH (b) v2.15 bump. Rationale: W0.9 Phase 2.3 race risk makes v2.14 amendment untenable. v2.15 spec: `ALTER TABLE recompose_attempts ADD COLUMN recompose_energy_calibration_applied INTEGER`. §8.2 updated with full path choice rationale + migration spec.
+
+- **A3 (WARN resolved):** Epoch arithmetic corrected. "4 × 0.866" (not "6 × 0.866"); denominator = 9 (not 11). W0.1-only delta = 0.78 (Discipline #17 baseline prediction); B6+W0.1 combined = 0.65–0.72 (aspirational). Distinction explicitly documented.
+
+- **A4 (WARN resolved):** §6.1 updated: calibration sweep must use production-mirror `gear_catalog` + full `monster_pool` per Discipline #17 D11.2 amendment.
+
+- **A5 (INFO resolved):** Probe scope isolation guard documented as Phase 2 implementation obligation in §2.2. Code-level comment spec added: `adjusted_probe` is local to `_lever_energy_type_calibration`; must not propagate to `_check_convergence_gate()` or binary-search paths.
+
+- **A6 (Architectural resolved):** Field name: `recompose_energy_calibration_applied` adopted throughout. All occurrences of `energy_type_lever_applied` updated. Naming rationale: action-description (what the lever DID) over mechanical-jargon (what the lever IS named).
+
+- **A7 (Architectural resolved):** G3 floor-lock guard elevated to architectural invariant. §10 updated with assertion-at-top spec: `assert not floor_lock_detected, "sub-lever B must not fire on floor-locked kits..."`. Lever-ownership principle applied: each lever owns its conditions exclusively; overlapping ownership is assertion-level error.
+
+- **A8 (Architectural resolved):** Calibration lever partition principle named in §5: "Calibration levers are partitioned by mechanical population (energy_type, geometry-range, etc.), never by substrate identity." Flagged as candidate Discipline #13a/13b. §5 now leads with this principle before the W0.9 coordination content.
+
+**Phase 2 (implementation) status:** PENDING — Phase 1.5 completion unblocks Phase 2. No jack-ryan re-review required for amendments (all BLOCKs resolved within this fold-in; WARNs addressed; architectural amendments accepted as written per critique-pair convergence signal).
