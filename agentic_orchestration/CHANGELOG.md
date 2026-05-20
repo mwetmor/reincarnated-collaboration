@@ -4,6 +4,102 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-rebuild P0 W0.10 Phase 2 IN-FLIGHT: boss AI leash-reset fix implementation + W0.10.5 re-sweep verification
+
+**Event:** W0.10 Phase 2 implementation dispatched to gamora (agentId `a49ef8e61d492ab72`). FINAL substantial implementation of P0 per gandalf Option A disposition.
+
+**Phase 1 + Phase 1.5 LOCKED + both critique-pair reviews APPROVED prior to Phase 2 fire:**
+- Math note at `reincarnated-engine/src/reincarnated/simulation/math/w0-10-boss-ai-leash-reset-fix.md` (1027 lines)
+- jack-ryan Gate-1 — APPROVE-WITH-AMEND (AMEND-1: §3.2 entity ID lookup `entity_id == f"mob_{focus_index}"` was incorrect; folded via Phase 1.5 reference-storage pattern `_boss_focus_entity` as primary)
+- gandalf Gate-1 — ARCHITECTURALLY ALIGNED ("textbook continuation of W0.9 architectural commitments"); 3 sharpening amendments folded (A1, A2, A3)
+
+**Phase 2 implementation scope:**
+1. Player AI boss-focus targeting in `spatial_engine.py` (with `_boss_focus_entity` reference-storage)
+2. Add leash semantics in `arena.py` + NEW `SpawnSpec.suppress_leash_hp_reset` flag
+3. D2/PoE preserved-HP semantics on leash for boss/mini-boss scenarios; D3 HP-reset retained for swarm/magic/elite (degenerate-edge no-op)
+4. New tests at `tests/test_w010_boss_ai_focus.py`
+5. MIGRATION.md v1.29 with explicit D3 → D2/PoE genre repositioning cite
+6. Caller-side wiring fold-in (jack-ryan W0.9 cumulative Amendment 1)
+7. W0.10.5 re-sweep verification + W0.10.5 vs W0.9.6 archaeology artifact
+
+**Predicted re-sweep outcomes (from locked math note §5):**
+- physical_grappler boss WR: 0.80-0.90
+- shadow/wind boss WR: 0.55-0.75
+- water/earth boss WR: 0.30-0.50
+- fire_mage residual: 0.05-0.15 (multi-dim convergence territory; expected)
+- Discipline #17 anomaly count target: 2-8 (vs current 50/50)
+
+**On Phase 2 return:** knight-rider fires W0.10 cumulative Gate-2 critique-pair (jack-ryan + gandalf parallel) → on Gate-2 APPROVAL → final tag `qd-rebuild/v0.10-boss-ai-leash-reset-fixed` fires → W0.7 ablation experiments dispatch fires → on W0.7 close → P0 milestone tag `v0.0-constraint-removal-shipped`.
+
+State-of-hive § 1 W0.10 row added; P0 roster expanded 9 → 10.
+
+---
+
+## 2026-05-21 — QD-rebuild P0 W0.9 FULLY CLOSED: cumulative Gate-2 APPROVED; joint-resolution triad structurally sufficient (§ 2.3.1 caveat folded)
+
+**Event:** W0.9 cumulative Gate-2 critique-pair returned. Both reviews APPROVED w/ amendments. Final tag `qd-rebuild/v0.9-gauntlet-migration-complete` FIRED.
+
+**gandalf cumulative Gate-2 — ARCHITECTURALLY ALIGNED:**
+*"Joint-resolution triad structurally sufficient — W0.9 PackProxy retirement + spatial gauntlet promotion completes the W0.9 leg. The triad's structural sufficiency claim survives."*
+
+Triad close-out summary:
+- ✅ W0.2 source diversity — substrate-AGNOSTIC composition LIVE
+- ✅ W0.1 calibration fairness — #13a-partition canonical exemplar LIVE
+- ✅ W0.9 arena fidelity — PackProxy retired; spatial gauntlet promoted; 6× faster than baseline
+
+**§ 2.3.1 BEHAVIORAL-CORRECTNESS CAVEAT AMENDMENT** (folded into `canonical/story/substrate-generalization-track-c-synthesis-2026-05-21.md` by gandalf):
+
+The triad addresses *structural* sufficiency. Behavioral correctness of arena occupants (player AI, monster AI, leash semantics, targeting logic) is a separate, lower-tier concern that the triad implicitly assumed. **Triad presumes arena-occupant behavioral correctness; defects in occupant AI are out-of-band and resolved per-bug.**
+
+The W0.10 boss AI fix workstream is the per-bug resolution for the leash-reset behavior surfaced by Phase 2.5. Future occupant-behavior bugs follow the same per-bug pattern (Discipline #11.1 cold-start empirical surfaces them; the triad does not pre-suppose them).
+
+**The triad's structural sufficiency claim survives. The behavioral-correctness caveat is an addition, not a refutation.**
+
+**jack-ryan cumulative Gate-2 DEV-MODE — APPROVE-WITH-AMEND** (1 amendment, non-blocking):
+
+All 5 W0.9 sub-phase commits verified clean:
+- Phase 2.1 PackProxy retirement + R2 promotion ✅
+- Phase 2.2 ConvergenceUsageMode / ValidationUsageMode (P7 W7.2 barred from `run_spatial_fight`) ✅
+- Phase 2.3 4 perf mitigations + A3 stability ✅
+- Phase 2.4 SqliteSpatialTelemetryWriter + 8-axis BC fight_events ✅
+- Phase 2.5 calibration sweep + critical finding ✅
+
+R11(b) round-trip smoke confirms 975,450 fight_events rows landed cleanly. Discipline #12 semantic shifts documented across MIGRATION.md v1.24-v1.28.
+
+**Amendment 1 (caller-side wiring fold-in) — folded into W0.10 Phase 2 scope:** the `_run_spatial_slot` caller-side wiring of `spatial_telemetry_writer` parameter requires production-caller readiness verification. Folded into W0.10 Phase 2 to ride along with that workstream's caller-side wiring touches.
+
+State-of-hive § 1 W0.9 row updated to FULLY CLOSED.
+
+---
+
+## 2026-05-21 — QD-rebuild P0 W0.10 Phase 1 + 1.5 COMPLETE: boss AI leash-reset fix math-before-code locked
+
+**Event:** W0.10 math-before-code Phase 1 + amendment fold-in Phase 1.5 returned. Tag `qd-rebuild/v0.10-math-note-phase-1-complete` FIRED. Math note at `reincarnated-engine/src/reincarnated/simulation/math/w0-10-boss-ai-leash-reset-fix.md` (1027 lines).
+
+**Scope per gandalf Option A disposition:** structural arena-AI bug surfaced by W0.9 Phase 2.5 calibration sweep. Player AI targets nearest mob → elite add chases beyond `leash_distance_m=12.0` → leashes back with `entity.hp = entity.max_hp` full reset cycle → boss never engaged in 240s.
+
+**Math validates boss IS killable if reached:** at modifier=0.742, `spatial_DM=2.97`, `base_damage=1485`, `boss_HP=53,216`, DPS=990 HP/s, TTK=~54s well within 240s timeout. NOT a scaling issue — structural arena-AI bug.
+
+**Fix design (per locked math note):**
+1. Player AI boss-focus when `win_condition == "boss_killed"` (reference-storage pattern `_boss_focus_entity`; per Phase 1.5 fold-in)
+2. Leash semantics rework: D2/PoE preserved-HP on leash for boss/mini-boss scenarios (NO HP reset cycle); D3 HP-reset retained for swarm/magic/elite (where it's degenerate-edge no-op)
+3. NEW `SpawnSpec.suppress_leash_hp_reset` flag (per-encounter configurable; gandalf A3 architectural amendment)
+4. MIGRATION.md v1.29 documents Discipline #12 semantic shift + D3→D2/PoE genre repositioning cite
+
+**Phase 1.5 amendment fold-in:**
+- jack-ryan AMEND-1: §3.2 entity ID lookup `entity_id == f"mob_{focus_index}"` was incorrect — folded via reference-storage `_boss_focus_entity` adopted as primary mechanism
+- gandalf A1: smoke-test prediction band sharpening (per-archetype WR predictions explicit)
+- gandalf A2: Discipline #17 anomaly count target (2-8 vs current 50/50)
+- gandalf A3: leash semantics as ARPG-canon repositioning (D2/PoE behavior; not just bug fix)
+
+**Both Gate-1 reviews APPROVED:**
+- jack-ryan: APPROVE-WITH-AMEND (Amendment 1 folded into Phase 1.5)
+- gandalf: ARCHITECTURALLY ALIGNED ("textbook continuation of W0.9 architectural commitments")
+
+**Phase 2 fires next** (gamora launched agentId `a49ef8e61d492ab72`). Final substantial implementation of P0.
+
+---
+
 ## 2026-05-21 — QD-rebuild P0 W0.9 Phase 2.5 COMPLETE: CRITICAL FINDING — boss AI leash-reset bug; W0.9 ready for cumulative Gate-2
 
 **Event:** W0.9 Phase 2.5 (W0.9.6 calibration sweep co-run with W0.1) returned. Tag `qd-rebuild/v0.9-phase-2-5-calibration-sweep-complete` fired (engine commit `0837c7b`). **All 5 W0.9 sub-phases now COMPLETE.**

@@ -15,7 +15,7 @@
 **Phase tag namespace:** `qd-rebuild/v0.X-<descriptor>`
 **Milestone tag at phase close:** `v0.0-constraint-removal-shipped`
 
-### P0 workstream roster (9 workstreams)
+### P0 workstream roster (10 workstreams; W0.10 added 2026-05-21 per gandalf Option A disposition)
 
 | ID | Description | Owner | Status | Dispatch | Tag |
 |---|---|---|---|---|---|
@@ -27,7 +27,8 @@
 | W0.6 | Drift candidate closures (LC-006, LC-007, LC-014, LC-028) | jack-ryan DESIGN-MODE primary + gandalf architectural disposition | **✅ FULL CLOSURE 2026-05-21** — engine commit `2b1b9a6`; tag `qd-rebuild/v0.6-drift-closures-complete` fired (supersedes -partial). LC-006 graduated to full closure per gandalf disposition (D3 cohesion-judge architecturally clean; Option B + Option-C label-emission sliver). | `2026-05-21-multi-seam-w0-6-drift-candidate-closures.md` | `qd-rebuild/v0.6-drift-closures-complete` (FIRED) |
 | W0.7 | LC-002 + LC-009 + LC-011 ablation experiments | gamora | DISPATCH ACTIVE (queued; jack-ryan Gate-1 per ablation) | `2026-05-21-gamora-w0-7-ablation-experiments.md` | `qd-rebuild/v0.7-ablation-complete` |
 | W0.8 | Axis 2 substrate completeness check (~2-3 hours; map 16-type palette to 5-bin Axis 2; identify per-bin gap to 5× rule) | rocket | **✅ COMPLETE 2026-05-21** — collab commit `d7544bf`; tag `qd-rebuild/v0.8-axis-2-substrate-check` pushed | `2026-05-21-rocket-w0-8-axis-2-substrate-check.md` | `qd-rebuild/v0.8-axis-2-substrate-check` (FIRED) |
-| **W0.9** | **Gauntlet architecture migration** (NEW per § 2.9; retire PackProxy ×8; true multi-monster positional gauntlet as default; ~1-2 weeks) — **gandalf-attested Matt-approval "Confirm § 2.9 edit"** | gamora | **✅ ALL 5 SUB-PHASES COMPLETE** (tags 2.1-2.5 fired). **CRITICAL FINDING from Phase 2.5 calibration sweep: BOSS AI LEASH-RESET BUG** prevents player engagement of boss. Math shows boss IS killable if reached (54s TTK at 0.742 modifier; 240s timeout). NOT a scaling issue — structural arena-AI bug surfaced by new arena (the recompose-hive "fix the arena, not the synergy" principle now reveals THIS arena's residual bug). Performance PASS at 0.17× PackProxy (6× FASTER). Boss AI fix is NEW open item (Discipline #1 math-note required first); does NOT block W0.9 Gate-2 architectural review. Gate-2 critique-pair fires next. | `2026-05-21-gamora-w0-9-gauntlet-architecture-migration.md` | `qd-rebuild/v0.9-gauntlet-migration-complete` (final after Gate-2) |
+| **W0.9** | **Gauntlet architecture migration** (NEW per § 2.9; retire PackProxy ×8; true multi-monster positional gauntlet as default; ~1-2 weeks) — **gandalf-attested Matt-approval "Confirm § 2.9 edit"** | gamora | **✅ FULLY CLOSED 2026-05-21** — all 5 sub-phases complete (tags 2.1-2.5 fired) + cumulative Gate-2 critique-pair APPROVED. Tag `qd-rebuild/v0.9-gauntlet-migration-complete` FIRED. Performance PASS at 0.17× PackProxy (6× FASTER). gandalf Gate-2: "ARCHITECTURALLY ALIGNED — joint-resolution triad structurally sufficient" with § 2.3.1 behavioral-correctness caveat amendment (occupant-AI bugs are per-bug, out-of-band; triad presumes arena-occupant behavioral correctness). jack-ryan Gate-2: APPROVE-WITH-AMEND (Amendment 1: caller-side wiring fold-in folded into W0.10 Phase 2). **CRITICAL FINDING from Phase 2.5: BOSS AI LEASH-RESET BUG** scoped to W0.10 per gandalf Option A. | `2026-05-21-gamora-w0-9-gauntlet-architecture-migration.md` | `qd-rebuild/v0.9-gauntlet-migration-complete` (FIRED) |
+| **W0.10** | **Boss AI leash-reset fix** (NEW per gandalf Option A disposition 2026-05-21; structural arena-AI bug surfaced by W0.9 Phase 2.5 calibration sweep; player AI targets nearest mob → elite add chases beyond leash → leashes back with full HP reset → boss never engaged; math confirms boss IS killable if reached — 54s TTK at 0.742 modifier within 240s timeout). Phase 1 math-note LOCKED + Phase 1.5 amendment fold-in LOCKED (reference-storage `_boss_focus_entity` adopted; A1/A2/A3 sharpening folded). Both critique-pair reviews APPROVED. | gamora | **🔄 PHASE 2 IN-FLIGHT** (agentId `a49ef8e61d492ab72` running). Phase 2 implementation: player AI boss-focus targeting + arena.py leash semantics + SpawnSpec.suppress_leash_hp_reset flag + new tests + MIGRATION.md v1.29 + caller-side wiring fold-in + W0.10.5 re-sweep verification + W0.10.5 vs W0.9.6 archaeology artifact. Predicted re-sweep outcomes: physical_grappler boss WR 0.80-0.90; shadow/wind 0.55-0.75; water/earth 0.30-0.50; fire_mage 0.05-0.15 residual; Discipline #17 anomaly count target 2-8 vs current 50/50. | `2026-05-21-gamora-w0-10-boss-ai-leash-reset-fix.md` | `qd-rebuild/v0.10-boss-ai-leash-reset-fixed` (final after Phase 2 + cumulative Gate-2) |
 
 ### P0 sequencing plan
 
@@ -43,7 +44,8 @@
 - W0.4: gandalf reviews seam-by-seam findings (cross-seam coherence)
 - W0.5 + W0.7: jack-ryan reviews ablation experiment design before fires
 - W0.6: critique-pair sequence per drift item (gandalf design-side, jack-ryan dev-side)
-- W0.9: gandalf reviews architectural alignment ("fix the arena" principle); jack-ryan reviews migration correctness (PackProxy retirement complete; Discipline #13a drift check); **Matt approves framing before fire**
+- W0.9: gandalf reviews architectural alignment ("fix the arena" principle); jack-ryan reviews migration correctness (PackProxy retirement complete; Discipline #13a drift check); **Matt approves framing before fire** ✅ CLOSED
+- W0.10: jack-ryan Phase 1 review + gandalf Phase 1 review (both APPROVED w/ amendments folded into Phase 1.5); cumulative Gate-2 critique-pair fires post-Phase-2 + re-sweep verification
 
 ---
 
