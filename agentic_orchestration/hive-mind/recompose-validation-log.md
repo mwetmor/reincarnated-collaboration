@@ -220,3 +220,63 @@ Option B's served population is **"masked Pattern-B-extreme"** — unknown size,
 **Reversibility path (brief § 9):** two options — (1) full revert via single git revert (telemetry-table schema additions stay as nullable columns); (2) parameter-level soft-disable via setting `LEVER_FLOOR_LOCK_WORKING_MODIFIER = MODIFIER_SEARCH_FLOOR`, which makes the floor-lock branch a behavioral no-op while preserving diagnostic telemetry.
 
 **Next action for knight-rider:** route brief to jack-ryan for Gate-1 critique. On critique returned + amendments folded, knight-rider authors gamora implementation dispatch. Expected jack-ryan ~1-2h; expected gamora ~4-6h.
+
+---
+
+## 2026-05-19 EDT — knight-rider STATE — P1 brief received; routing to jack-ryan Gate-1
+
+**Brief received** and reviewed in full (10 sections, ~720 LOC). Knight-rider orchestration disposition: **brief is Gate-1-ready; route to jack-ryan with attention to three specific framings gandalf surfaced.**
+
+**Knight-rider's brief read (orchestration perspective, not technical critique — that's jack-ryan's seam):**
+
+The brief makes one principled departure from the activation-prompt-reified framing of gamora § 5.2, and lands a coherent design. The departure is legible: `last_wr > _SIGNAL_HI` is unambiguous + floor-value-independent + symmetric for future B-prime, while `eval_modifier ≤ floor + ε` requires post-hoc disambiguation between legitimate-floor-convergence and floor-lock. The reframing is at the architectural seam between "what is the trigger detecting" and "what does the trigger fire on" — well within gandalf's architectural / load-bearing cross-cutting authority per § 4.0.
+
+The smoke gate B1 design has a sharp falsifying condition (§ 4.4) — the BLOCKING condition #4 in particular (`final_modifier > 0.01` AND `modifier_extreme_low=False` post-recompose) is the *proof-of-effectiveness* test, distinct from the mechanism-fires-correctly tests (#1-3). This is engineering discipline well-anchored.
+
+The "masked Pattern-B-extreme" prediction (§ 2.5) is empirically testable at P2 and gives the hive a clean way to disposition the P3 verdict: if the floor_lock_recompose population is non-trivial AND recompose succeeds on them (modifier shifts above floor + per-tier WR enters band), the recompose-validation hive's central premise is validated. If floor_lock_recompose population is large AND recompose still fails (levers can't find traction even at 0.005), kit-redesign queue is the actual fix and CANNOT_REJECT_NULL fires.
+
+**Three framings gandalf flagged for jack-ryan attention** (lifted from gandalf's report):
+
+(a) **The departure from gamora § 5.2 in § 2.3** — is the re-condition signal substitution defensible, or is there a case missed? (Specifically: does anywhere in the engine still depend on the `eval_modifier ≤ floor + ε` semantic in a way the brief's substitution would break? Jack-ryan's audit will trace this.)
+
+(b) **Smoke B1 BLOCKING condition #4** (`final_modifier > MODIFIER_SEARCH_FLOOR` post-recompose) — is this the right post-recompose proof-of-effectiveness, or should it be tighter? (Candidates: `final_modifier > 0.05`? `final_modifier > 0.10`? Or band-relative — `final_modifier ∈ [0.10, 0.50]`? Jack-ryan dispositions.)
+
+(c) **`LEVER_FLOOR_LOCK_WORKING_MODIFIER = 0.005`** — is half-floor the right magnitude? (Brief argues yes via § 2.4 three justifications; jack-ryan stress-tests for the edge case where 0.005 is still too high for some over-armed kit, even though brief argues that's a kit-redesign-queue case not a balance-loop case.)
+
+**No knight-rider objections at this layer.** The departure is well-reasoned, the math is shown, the falsifying condition is sharp, the scope is HARD-bounded, and the cross-seam impact is enumerated with consumer obligations for star-lord (schema v2.13). Discipline anchors (#1, #2, #11, #12, #15, #18) all named and justified. Reversibility path is clean (single git revert OR parameter-level soft-disable).
+
+**Hive trigger watch:** no signals; P1 brief land clean. ⏸ Triggers 1-4 unsignaled.
+
+**Tag intent:** no new tag at this transition. P1 milestone tag fires after gamora implementation + smoke B1 BLOCKING all-PASS.
+
+---
+
+## 2026-05-19 EDT — knight-rider HANDOFF — P1 brief ROUTED TO JACK-RYAN GATE-1
+
+Per protocol § 6 P1 + § 4 coordination matrix (jack-ryan = Gate-1 critique on P1):
+
+**Brief path:** `agentic_orchestration/dispatches/2026-05-19-gandalf-p1-option-b-recompose-trigger-design-brief.md`
+
+**Jack-ryan task:** Gate-1 critique under DESIGN-MODE (peer collaborator, not gatekeeper-with-BLOCK). Pattern A (discipline audit) + Pattern B (technical correctness) + Pattern C (scope discipline) — the standard Gate-1 critique pattern. Expected effort ~1-2h.
+
+**Jack-ryan attention surfaces (the three framings gandalf flagged + jack-ryan's own discretion):**
+
+1. § 2.3 departure defensibility — does anywhere in `balance_loop.py` or its callers still depend on the `eval_modifier ≤ floor + ε` semantic such that the brief's substitution would break?
+2. § 4.2 smoke B1 BLOCKING condition #4 tightness — is `final_modifier > MODIFIER_SEARCH_FLOOR` the right proof-of-effectiveness threshold, or should it be tighter (e.g., `> 0.05`, `> 0.10`, band-relative)?
+3. § 3.2 `LEVER_FLOOR_LOCK_WORKING_MODIFIER = 0.005` magnitude — is half-floor right? what about kits that are still saturated at 0.005? (gandalf argues that's kit-redesign-queue scope; jack-ryan dispositions.)
+4. **Jack-ryan's own discretion:** Discipline #13 implicit-pillar drift watch (other implicit literals in `balance_loop.py` that should be promoted to named constants in the same commit per Option A precedent); Pattern P7 silent-default watch (any code path in the new branch that falls back to default without failing-loud); test coverage adequacy for the new branch; back-compat assertion (existing `recompose_outcome` enum values unchanged; existing `recompose_attempts` schema additive).
+
+**Jack-ryan deliverable:**
+
+1. File Gate-1 critique at `agentic_orchestration/qa/pending/2026-05-19-p1-option-b-recompose-trigger-gate1.md` (standard QA pending path; standard Gate-1 critique format)
+2. Disposition: APPROVE-AS-IS / APPROVE-WITH-AMEND / BLOCK
+3. If APPROVE-WITH-AMEND: enumerated amendments with rationale; knight-rider folds into the gamora implementation dispatch
+4. If BLOCK: surface the blocker reasoning; knight-rider routes back to gandalf for re-disposition
+5. Append STATE entry to hive log on completion (fetch-before-commit discipline)
+6. Return concise report (~300-400 words) to knight-rider with disposition + amendment summary
+
+**On Gate-1 disposition received:** knight-rider authors gamora implementation dispatch from brief + jack-ryan amendments. Expected gamora ~4-6h. P1 acceptance tag `recompose-hive/v0.2-option-b-recompose-conditioned` fires on smoke B1 BLOCKING all-PASS.
+
+**P1 sequencing reminder:** brief → Gate-1 → implementation → smoke B1 → tag. Gandalf brief is done; jack-ryan Gate-1 is the gate; everything downstream is sequenced from this point.
+
+Routing now.
