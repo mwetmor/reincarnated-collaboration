@@ -1,12 +1,24 @@
 # Dispatch — Kit-Redesign Queue: Scope-of-Work (Parallel Track to QD-Rebuild)
 
+**⛔ CANCELED 2026-05-21 by gandalf per Matt's pushback: "why would we add archetypes when we are literally eliminating them with QD?"**
+
+**Why canceled:** the dispatch as authored contradicted QD-engine philosophy. Hand-tuning 8-12 discrete archetypes is the OLD paradigm answer to kit-composition pathology; QD-engine is the NEW paradigm (generative diversity across BC archive). Running both in parallel is philosophically incoherent. The white wizard should have surfaced this when authoring; failed to. Matt caught it.
+
+**Disposition of the 12-archetype list:** preserved as **reference-archetype roster for P7 W7.2 validation targets.** Same list, different role — not shipped as Profile A content; used to validate QD-archive output. Zero waste.
+
+**Near-term Reincarnated ship path (replacement):** QD-engine Profile A ships from reduced-cell-space at ~P3 completion (~11-16 weeks). See protocol § 10.3 + revised knight-rider activation dispatch.
+
+**This dispatch remains in repo as historical record. Do NOT fire.**
+
+---
+
 **Date:** 2026-05-21
 **Author:** gandalf
 **Recipient:** rocket (primary; specialist on generation seam)
-**Status:** **QUEUED — DO NOT FIRE UNTIL P0 SHIPS** (`v0.0-constraint-removal-shipped` tag)
-**Priority:** MEDIUM (Reincarnated near-term content path; runs parallel to QD-rebuild from P1)
-**Estimated effort:** 4-6 weeks of focused specialist work
-**Earliest fire date:** ~2026-06-04 to 2026-06-11 (post-P0 completion)
+**Status:** **CANCELED — do not fire**
+**Priority:** N/A (canceled)
+**Estimated effort:** N/A (canceled)
+**Earliest fire date:** N/A (canceled)
 
 ---
 

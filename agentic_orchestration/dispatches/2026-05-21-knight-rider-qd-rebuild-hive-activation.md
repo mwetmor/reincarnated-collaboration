@@ -64,14 +64,25 @@ The 22-33 week rebuild operates as ONE hive, not a sequence of separate hives. S
 - **State-of-hive doc maintained continuously** — knight-rider updates on every phase transition + major workstream completion
 - **Long-running mode is the design intent** — not an exception; do not treat as needing special handling beyond normal hive-state hygiene
 
-### 2.2 Kit-redesign queue as parallel track within hive
+### 2.2 Kit-redesign queue — CANCELED per Matt 2026-05-21
 
-The kit-redesign queue (dispatch at `agentic_orchestration/dispatches/2026-05-21-kit-redesign-queue-scope.md`) is **a parallel track within this hive**, not a separate hive.
+The kit-redesign queue dispatch (`agentic_orchestration/dispatches/2026-05-21-kit-redesign-queue-scope.md`) was **canceled** after Matt surfaced the philosophical contradiction: hand-tuning 8-12 archetypes is the OLD paradigm; QD-engine generative-diversity is the NEW paradigm; running both is incoherent.
 
-- **You coordinate both tracks.** No separate orchestration.
-- **Tag namespaces stay separate** (per § 2.1) to keep signal clean.
-- **Critique-pair patterns apply across tracks** — kit-redesign deliverables route through jack-ryan (Discipline #13a regression check) + gandalf (archetype-recognition alignment) before tag-fires.
-- **Telemetry source-tagging required** — sim runs from kit-redesign carry track attribution `kit-redesign-queue`; sim runs from QD-rebuild carry attribution `qd-rebuild-validation`.
+**Disposition:** the 12-archetype list authored in that dispatch is preserved as the **reference-archetype roster for P7 W7.2 validation targets** (not shipped as Profile A content).
+
+**Near-term Reincarnated ship path (replacement):** QD-engine Profile A ships from **reduced-cell-space at P3 completion (~11-16 weeks)**. Per protocol § 10.3:
+
+```
+Reduced-cell-space (deferred bins excluded) = 25,920 cells
+= 6 × 5 × 1(solo-only) × 3 × 3 × 3 × 4 × 4(HP-econ + starved + gen-spender + steady excluded)
+```
+
+**Bins missing from reduced-cell-space (defer to P4 sim extensions):**
+- Axis 2A: proxy-light, proxy-heavy
+- Axis 4: dodger sub-cases (stealth, iframes, reflection — evasion-chance available via W4.2)
+- Axis 5: HP-economy, charge-stack, damage-taken-converts
+
+**Architectural integrity preserved.** No parallel track to coordinate. Knight-rider has ONE track only — QD-rebuild phases P0 through P7.
 
 ### 2.3 New workstream P0 W0.8 — Axis 2 substrate completeness check
 
