@@ -9,11 +9,16 @@
 **Verdict gate:** scope-of-work § 1 thresholds (≥ 80% kit-acceptable → PASS strong; 60-80% → PASS moderate; < 60% → CANNOT REJECT NULL).
 **Sign:** Mithrandir.
 
+**Amended:** 2026-05-20 per jack-ryan Gate-2 critique — 2 REQUIRED + 1 RECOMMENDED amendments folded:
+- A1 (REQUIRED): recompose_attempts count corrected 33 → 35
+- A2 (REQUIRED): § 6 sub-pattern 5 + § 6.1 class_0001 note disaggregated (compression-only vs lever-signal-gap)
+- A3 (RECOMMENDED): § 0 TL;DR substrate scope parenthetical added
+
 ---
 
 ## § 0 — TL;DR + Verdict
 
-**Verdict: CANNOT REJECT NULL.** Hypothesis H_RC ("per-tier convergence is satisfiable for existing generation rules if recompose can fire") is **not supported** by season_100005 empirical evidence. Null hypothesis H_RC_0 ("even with recompose unblocked, per-tier convergence does not produce shippable kits — generation rules require revision") is **not refuted**, and is in fact reinforced by an unambiguous data shape: 0% kit-acceptable, 100% kit-broken, 100% Pattern-A (boss-DPS-floor structural), 0/10 floor-lock-recovery candidates. The empirical figure is far below the < 60% CANNOT REJECT NULL threshold — it is 0%.
+**Verdict: CANNOT REJECT NULL.** Hypothesis H_RC ("per-tier convergence is satisfiable for existing generation rules if recompose can fire") is **not supported** by season_100005 empirical evidence. Null hypothesis H_RC_0 ("even with recompose unblocked, per-tier convergence does not produce shippable kits — generation rules require revision") is **not refuted**, and is in fact reinforced by an unambiguous data shape: 0% kit-acceptable, 100% kit-broken, 100% Pattern-A (boss-DPS-floor structural), 0/10 floor-lock-recovery candidates (on shadow substrate seed=100005 under disposition-3 calibration). The empirical figure is far below the < 60% CANNOT REJECT NULL threshold — it is 0%.
 
 This is **not a hive failure.** Per protocol § 11 ("If H_RC fails, we have the cleanest possible diagnosis of where the actual pathology lives — and the next architectural decision becomes obvious"), the hive has produced exactly that: Option A's mechanism is verified (prior floor-lock failure mode IS eliminated); Option B's mechanism is verified mechanically (unit tests + production-path round-trip) but its served population is empirically absent at full-season scope on shadow substrate; the load-bearing diagnosis is now unambiguously **kit-composition pathology at the boss + mini-boss tiers**. The recompose mechanism cannot fix kit composition that lacks fundamental boss-kill capability — and at season_100005, every class lacks it.
 
@@ -154,7 +159,7 @@ Gamora surfaced FRICTION (Phase 1 vs Phase 2 signal reversal: 6/10 → 0/10); ro
 
 Engine `46d850c`; tag `star-lord/v1.14-p2-classification-shadow-100005`; canonical analysis at `output/p2-fresh-diagnostic-regen-2026-05-19/p2-classification-and-floor-lock-analysis.md`.
 
-**Floor-lock candidate count (canonical):** 0/10 across 33 recompose_attempts on 9 canonical classes (experimental class_0010 NULL — correct per MIGRATION.md v1.22 spec). Cross-check via class-level `floor_lock_recompose` field: 0/9 (NULL on experimental). **The masked-Pattern-B-extreme sub-population is empirically absent from season_100005 at full-season scope on shadow substrate.**
+**Floor-lock candidate count (canonical):** 0/10 across **35** recompose_attempts on 9 canonical classes (class_0001=3 attempts, classes 0002-0009=4 attempts each; experimental class_0010 NULL — correct per MIGRATION.md v1.22 spec). Cross-check via class-level `floor_lock_recompose` field: 0/9 (NULL on experimental). **The masked-Pattern-B-extreme sub-population is empirically absent from season_100005 at full-season scope on shadow substrate.**
 
 **Kit classification (per gandalf brief § 2.5 carve):** 0 kit-acceptable / 0 kit-mediocre / **10 kit-broken**.
 
@@ -226,7 +231,7 @@ Mapping P2 evidence to these patterns:
 | 2. Boss-DPS-floor structural insufficiency | **10/10 classes** show boss_wr=0.000 + mini_boss_wr=0.000 at converged modifier. This is the **load-bearing universal sub-pattern.** All 10 classes have this. | **Confirmed universal.** |
 | 3. Defensive-layer absence | Not directly observable from P2 data (defensive-layer composition requires per-skill inspection). Probable contributor for the universal pattern (R1 queue § 1.2 evidence: most kits carry 1 defensive skill + 4 damage skills; insufficient against melee-aggressive boss). | **Probable contributor; not verified per-class.** Surface to kit-redesign queue. |
 | 4. Floor-lock-still-active | 0/10 — no class triggered `floor_lock_detected=True`; all classes' true `m* > MODIFIER_SEARCH_FLOOR`. **Empirically refuted at this season.** | **Not implicated.** |
-| 5. Recompose-couldn't-recover | 0/10 — under soft-disable, Option B's behavioral change does not fire; under cold-start, the recompose loop converges at each class's true equilibrium (`primary_loop_converged` outcome on 8/10; `modifier_fallback` on class_0001; `skipped_experimental` on class_0010). The recompose mechanism is *operating* — the levers find traction in the signal range — but the kit-composition changes the levers produce are not changing boss WR from 0. | **Mechanism is operating; output cannot reach boss WR > 0.** This is the load-bearing finding: levers operate, kits adjust, boss WR stays at 0. |
+| 5. Recompose-couldn't-recover | 9/9 canonical (0/10 over all classes; experimental class_0010 skipped by design). Disaggregates into two operational sub-mechanisms: **(5a) compression-only — 8 classes (0002-0009)**: at least one lever accepted (negative delta ∈ [-0.13, -0.03]); WR compression occurred at lower tiers only; boss_wr unchanged at 0. Levers found signal and applied DPS reduction; the reduction direction is wrong for boss tier (boss tier doesn't benefit from DPS suppression). Outcome on all 8: `primary_loop_converged`. **(5b) lever-signal-gap — 1 class (class_0001)**: 3 attempts, all delta=0, none accepted; the lever library found no signal at all at the eval_modifier (0.0719). The loop exhausted lever options and fell through to `modifier_fallback`. Problem is upstream of lever-direction-choice — the lever evaluation produced delta=0 before any directionality question could be asked. | **Mechanism is operating; output cannot reach boss WR > 0 — through two distinct paths.** (5a) is "lever-direction-wrong" (DPS compression doesn't help boss tier); (5b) is "lever-signal-absent" (lever library cannot find any composition shift to evaluate). Kit-redesign queue prioritization implication: (5a) cases may admit composition-shift redesigns that move DPS density into boss-tier-effective skills; (5b) cases (class_0001) may require deeper kit-architecture revision — not just reshape skill composition but redesign the kit's damage paradigm (burst vs sustained, AOE vs single-target, primary-attack-skill identity). Diablo II analog: (5a) is "Sorceress Frozen-Orb build that scales DPS but bosses are cold-immune" — composition can shift element/skill mix; (5b) is "Sorceress Lightning build where every lever returns delta=0 because the kit's damage architecture is structurally incompatible with the test arena" — the redesign question is paradigm-level, not skill-mix-level. |
 | 6. Generation-rule-pathology | **10/10 classes** emitted from R8 inverted pipeline with kit compositions that converge cleanly at modifiers in [0.07, 0.38] (above floor) but produce 0 boss kills under disposition-3 calibration. The generation rules emit kits that the recompose lever cannot rescue *because the kit-composition lever space available to recompose (skill-swap / role-swap / element-swap) cannot inject what isn't in the kit pool: ranged skills for mages, multi-vector defense, sustained-damage windows, kiting tools.* The lever library is compositional-rearrangement, not generation-rule rewrite. | **Confirmed universal at this season.** This is the architectural finding the kit-redesign queue framing names. |
 
 ### § 6.1 — Sub-pattern summary
@@ -235,18 +240,20 @@ Mapping P2 evidence to these patterns:
 
 | class_id | sub-pattern 2 (boss-DPS-floor) | sub-pattern 4 (floor-lock-still-active) | sub-pattern 5 (recompose-couldn't-recover) | sub-pattern 6 (gen-rule-pathology) | additional |
 |---|---|---|---|---|---|
-| 0001 shadow_mage | ✓ | — | ✓ | ✓ | recompose outcome: `modifier_fallback` (recompose path tried and exhausted; final modifier set by fallback) |
-| 0002 fire_mage | ✓ | — | ✓ | ✓ | — |
-| 0003 water_mage | ✓ | — | ✓ | ✓ | — |
-| 0004 earth_caster | ✓ | — | ✓ | ✓ | — |
-| 0005 wind_caster | ✓ | — | ✓ | ✓ | — |
-| 0006 lightning_mage | ✓ | — | ✓ | ✓ | — |
-| 0007 holy_caster | ✓ | — | ✓ | ✓ | — |
-| 0008 physical_warrior | ✓ | — | ✓ | ✓ | highest converged modifier (0.3812) — kit DPS density lowest of season; consistent with R1 queue § 1.1 modifier-saturated warrior |
-| 0009 shadow_controller | ✓ | — | ✓ | ✓ | + elite tier over-shoot (0.670) — controller-mechanic mismatch (R1 § 0 pattern 1 layered on base sub-pattern 2/5/6) |
+| 0001 shadow_mage | ✓ | — | ✓ (sub-mechanism **5b lever-signal-gap**) | ✓ | recompose outcome: `modifier_fallback` — 3 attempts, all delta=0, none accepted; lever library found no signal at eval_modifier=0.0719 before fallback path. Kit-redesign queue implication: paradigm-level rebuild candidate (damage architecture restructuring), not composition-shift redesign |
+| 0002 fire_mage | ✓ | — | ✓ (**5a compression-only**) | ✓ | accepted lever delta=-0.105; lower-tier WR compression; boss_wr unchanged at 0 |
+| 0003 water_mage | ✓ | — | ✓ (**5a compression-only**) | ✓ | accepted lever delta=-0.0417 |
+| 0004 earth_caster | ✓ | — | ✓ (**5a compression-only**) | ✓ | accepted lever delta=-0.1333 |
+| 0005 wind_caster | ✓ | — | ✓ (**5a compression-only**) | ✓ | accepted lever delta=-0.0767 |
+| 0006 lightning_mage | ✓ | — | ✓ (**5a compression-only**) | ✓ | accepted lever delta=-0.0317 |
+| 0007 holy_caster | ✓ | — | ✓ (**5a compression-only**) | ✓ | accepted lever delta=-0.1108 |
+| 0008 physical_warrior | ✓ | — | ✓ (**5a compression-only**) | ✓ | accepted lever delta=-0.1142; highest converged modifier (0.3812) — kit DPS density lowest of season; consistent with R1 queue § 1.1 modifier-saturated warrior |
+| 0009 shadow_controller | ✓ | — | ✓ (**5a compression-only**) | ✓ | accepted lever delta=-0.0925; + elite tier over-shoot (0.670) — controller-mechanic mismatch (R1 § 0 pattern 1 layered on base sub-pattern 2/5/6) |
 | 0010 experimental | ✓ | — | (N/A — experimental skips recompose by design) | ✓ | `recompose_outcome=skipped_experimental` per design |
 
 **100% of canonical-class failures (9/9, excluding experimental) fire sub-patterns 2 + 5 + 6 jointly. 0% fire sub-pattern 4 (floor-lock-still-active).** The base failure mode is *"recompose operates correctly + boss-DPS-floor structural insufficiency persists because lever library cannot rewrite generation rules"* — which is exactly the architectural shape the recompose mechanism was always going to expose, *once it was unblocked*. The hive's job was to verify that shape; the hive has verified it.
+
+**Sub-pattern 5 operational disaggregation (kit-redesign queue prioritization input):** of the 9 canonical classes firing sub-pattern 5, **8 (classes 0002-0009) exhibit sub-mechanism 5a (compression-only)** — lever library found signal and applied DPS suppression (accepted delta ∈ [-0.13, -0.03]), but the suppression direction is wrong for boss tier (boss tier doesn't benefit from DPS compression); these are composition-shift redesign candidates (move DPS density into boss-tier-effective skills — burst windows, single-target multipliers, sustained-damage skills with higher per-cast yield against high-HP/high-armor targets). **1 (class_0001) exhibits sub-mechanism 5b (lever-signal-gap)** — all 3 attempts at delta=0, no lever accepted; lever evaluation produced no signal whatsoever at eval_modifier=0.0719, exhausting options before falling through to `modifier_fallback`; this is paradigm-level redesign territory — not just reshape skill composition but reconsider the kit's damage architecture (burst vs sustained, AOE vs single-target, primary-attack-skill identity). The Diablo II analog for the distinction: 5a is "Sorceress Frozen-Orb build whose lever-library can swap element mix and cooldown weighting" — composition shifts have signal; 5b is "Sorceress Lightning build where every lever returns delta=0 because the kit's damage paradigm and the test-arena tier requirements are structurally mismatched" — the redesign question is paradigm-level, not skill-mix-level. The kit-redesign queue should consume this distinction so the queue's first authoring session prioritizes (5b) cases (deeper architectural intervention) separately from (5a) cases (composition shifts).
 
 ### § 6.2 — Where I push back on knight-rider's framing (transparency)
 
@@ -449,7 +456,7 @@ The hive's empirical evidence eliminates the following from the candidate-lever 
 The canonical empirical record at `output/p2-fresh-diagnostic-regen-2026-05-19/` is the artifact:
 
 - **rocket Phase 1 generation artifacts:** season_100005 full canonical roster (10 classes; 44 monsters; 200 gear items; cosmology + anchor; manifest)
-- **gamora Phase 2 balance telemetry:** balance_results.json with full schema v2.12 + v2.13 fields populated; 10/10 classes; 33 recompose_attempts across 9 canonical classes; cold-start equilibrium modifiers; per-tier WR at converged modifier
+- **gamora Phase 2 balance telemetry:** balance_results.json with full schema v2.12 + v2.13 fields populated; 10/10 classes; **35** recompose_attempts across 9 canonical classes (class_0001=3, classes 0002-0009=4 each); cold-start equilibrium modifiers; per-tier WR at converged modifier
 - **star-lord Phase 3 classification analysis:** `p2-classification-and-floor-lock-analysis.md` — per-class kit-acceptable/mediocre/broken classification; Pattern-A/B classification; floor-lock candidate count; signal-reversal methodological documentation; aggregate statistics
 
 This is the first full-season cold-start canonical regen under per-tier WR + disposition-3 calibration + Option A floor-widened + Option B mechanism-installed engine state. **It is the canonical empirical record of catalogue pathology at full-season scope on shadow substrate under the new tuning contract.** Future hives reference this record; the kit-redesign queue execution work uses this record as the empirical baseline.

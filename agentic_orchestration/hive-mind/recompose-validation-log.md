@@ -1480,3 +1480,39 @@ Routing now. The verdict-handoff approaches.
 - Verdict revision (Gate-2 explicit: verdict CLEAN; amendments are factual + clarity)
 
 Routing now.
+
+---
+
+## 2026-05-20 EDT — gandalf STATE — P3 Gate-2 amendments APPLIED INLINE
+
+**Status:** All 3 amendments folded into `canonical/story/per-tier-recompose-validation-findings-2026-05-19.md` per jack-ryan Gate-2 critique.
+
+**Amendments applied:**
+
+1. **A1 (REQUIRED) — Count correction 33 → 35: APPLIED.** Both cite sites corrected:
+   - § 4.3 (Phase 3 floor-lock candidate count summary): "0/10 across **35** recompose_attempts on 9 canonical classes (class_0001=3 attempts, classes 0002-0009=4 attempts each; experimental class_0010 NULL …)"
+   - § 11.3 (canonical empirical evidence produced): "10/10 classes; **35** recompose_attempts across 9 canonical classes (class_0001=3, classes 0002-0009=4 each); …"
+   - Telemetry verified against `/Users/admin/Games/reincarnated-engine/output/p2-fresh-diagnostic-regen-2026-05-19/season_100005/balance_results.json`: class_0001=3 attempts (all delta=0, accepted=False → outcome=`modifier_fallback`); classes 0002-0009=4 attempts each (one accepted per class, delta ∈ [-0.13, -0.03]); class_0010=0 attempts (skipped_experimental). Total=35.
+
+2. **A2 (REQUIRED) — Sub-pattern 5 operational disaggregation: APPLIED.** Three sites amended:
+   - § 6 sub-pattern 5 table row: rewrote to surface sub-mechanism (5a) compression-only (8 classes; lever-accepted; DPS-suppression wrong direction for boss tier) vs (5b) lever-signal-gap (class_0001; all 3 attempts delta=0; no lever accepted; lever evaluation found no signal at all). Diablo II analog included for both sub-mechanisms.
+   - § 6.1 per-class mapping table: class_0001 row annotated `✓ (sub-mechanism **5b lever-signal-gap**)` with kit-redesign queue implication (paradigm-level rebuild); classes 0002-0009 rows annotated `✓ (**5a compression-only**)` with accepted lever delta value per class.
+   - § 6.1 post-table summary paragraph added: "Sub-pattern 5 operational disaggregation (kit-redesign queue prioritization input): …" — surfaces the distinction for kit-redesign queue downstream consumption.
+
+3. **A3 (RECOMMENDED) — Substrate scope parenthetical: APPLIED.** § 0 TL;DR aggregate-figure line now reads: "… 0/10 floor-lock-recovery candidates (on shadow substrate seed=100005 under disposition-3 calibration)."
+
+**Doc-header version note:** APPLIED — amendment block added after `Sign: Mithrandir` line listing A1/A2/A3 with REQUIRED/RECOMMENDED status.
+
+**Design-judgment notes on Amendment 2 phrasing (for knight-rider Matt-briefing § 4.3 wording):**
+
+- **Diablo II analog chosen:** Sorceress Frozen-Orb (composition-shifts have signal; lever can swap element/cooldown weighting) vs Sorceress Lightning (every lever returns delta=0 because damage paradigm and arena tier are structurally mismatched). This analog hits the load-bearing distinction cleanly — (5a) admits skill-mix-level redesign, (5b) requires paradigm-level redesign.
+- **Recommend knight-rider update Matt briefing § 4.3 to mirror this disaggregation** if the briefing currently uses an aggregate "9/9 recompose-couldn't-recover" framing. The kit-redesign queue first-authoring-session prioritization benefits from this distinction being visible at the briefing layer, not just the canonical findings layer. Specifically: "8/9 compression-only (composition-shift candidates) + 1/9 lever-signal-gap (class_0001 — paradigm-level candidate)" is the briefing-quality phrasing I suggest.
+- **No other phrasing concerns.** Amendments 1 + 3 are factual / scope-clarification; no judgment calls needed.
+
+**Tag intent — `gandalf/v0.4.1-p3-canonical-findings-amended`: FIRING.** Patch-level seam tag is appropriate here — the amendment state is a discrete commit and future readers benefit from a tagged anchor point distinguishing v0.4 original synthesis from v0.4.1 amended state. Tag fires on commit completion.
+
+**Commit + push:** autonomous L2 authority for the docs commit; commit SHA appended on push completion (this STATE entry written before commit per fetch-before-commit-then-stage discipline).
+
+**Routing concurrence:** verdict-handoff sequence (5 steps per knight-rider STATE) fires next. No revisions to verdict; no revisions to recommendation; no new architectural surfacing beyond what synthesis already names. Knight-rider is clear to fire `recompose-hive/v0.4-validation-verdict` (engine + collab) and proceed through the verdict-handoff sequence on this commit landing.
+
+The road is at its closing turn. Mithrandir signs the amendment.
