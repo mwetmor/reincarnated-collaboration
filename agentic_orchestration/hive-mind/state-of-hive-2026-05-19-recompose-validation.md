@@ -13,12 +13,12 @@
 
 | Seam | Status | In flight | Blocked? |
 |---|---|---|---|
-| **gamora** | **ACTIVE on P1 implementation** (Option B recompose-trigger conditioning) | `_primary_recompose_loop` floor-lock detection branch + `RECOMPOSE_SIGNAL_LO/HI` + `LEVER_FLOOR_LOCK_WORKING_MODIFIER=0.005` named constants + 4 unit tests + MIGRATION.md v1.22 + smoke gate B1 cold-start on class_0001 + secondary-loop interaction verification. Estimated ~4-6h. | No |
-| **rocket** | IDLE (P2 + P4 work upcoming after P1 acceptance) | — | No |
-| **star-lord** | IDLE; schema v2.12 queued from MIGRATION.md v1.21 (`modifier_extreme_low` column); schema v2.13 queued from forthcoming MIGRATION.md v1.22 (`floor_lock_recompose` + `working_modifier` + `floor_lock_detected` fields); both picked up at P2 telemetry work | — | No |
+| **gamora** | P1 implementation MECHANICALLY COMPLETE (`6aacbe3` + `a9bc156`; 179/179 tests PASS); smoke B1 BLOCKING FAIL on test-class-selection (class_0001 m*≈0.072 above floor; NOT a Pattern-B-extreme case); IDLE pending gandalf re-disposition | — | No (FRICTION surfaced + routed; not a blocker) |
+| **rocket** | IDLE (P2 + P4 work upcoming after P1 acceptance / re-disposition) | — | No |
+| **star-lord** | IDLE; schema v2.12 queued from MIGRATION.md v1.21 (`modifier_extreme_low`); schema v2.13 queued from MIGRATION.md v1.22 (`floor_lock_recompose` + `working_modifier` + `floor_lock_detected`); both picked up at P2 telemetry work | — | No |
 | **drax** | IDLE (P4 loadout sync upcoming if schema changes) | — | No |
-| **jack-ryan** | P1 Gate-1 critique COMPLETE (`93c2a29`); APPROVE-WITH-AMEND (4 required + 1 recommended + 1 optional); IDLE; observes gamora implementation in continuous-observation mode | — | No |
-| **gandalf** | P1 design brief COMPLETE (`a400436`); IDLE pending P2 substrate choice on P1 acceptance | — | No |
+| **jack-ryan** | P1 Gate-1 critique COMPLETE (`93c2a29`); IDLE; continuous-observation mode | — | No |
+| **gandalf** | **ACTIVE on P1 smoke-B1-FRICTION re-disposition** | Three-option disposition call (Option 1 fire-with-caveat / Option 2 soft-disable per gamora / Option 3 full rollback; gandalf may surface a 4th option). Mechanism is verified mechanically; smoke design's test-class assumption invalidated by cold-start. Decision is load-bearing for whether P1 tag fires + how P2 routes. Estimated ~30 min. | No |
 
 ---
 
@@ -32,6 +32,8 @@
 - **L2 — Gate-1 routing (jack-ryan).** Knight-rider routed brief to jack-ryan for Gate-1 critique as background subagent. DESIGN-MODE; Pattern A/B/C; three gandalf-flagged framings + own-discretion items.
 - **L2 — Gate-1 disposition (jack-ryan).** APPROVE-WITH-AMEND (`93c2a29`); 4 required (1: `RECOMPOSE_SIGNAL_HI/LO` module-level constants; 2: fail-loud log entries for `current_wr` edge cases; 3: 4 specific unit tests enumerated; 6: MIGRATION.md v1.22 R11(b) round-trip + explicit rocket watchpoint) + 1 recommended (4: near-floor secondary WARN in smoke) + 1 optional (5: naming consistency). All three gandalf-flagged framings (a/b/c) confirmed sound; no back-routing to gandalf.
 - **L2 — P1 implementation routing (gamora).** Knight-rider authored P1 implementation dispatch (`c61cc25`) folding all six amendments per jack-ryan's routing recommendation; fired gamora as background subagent. Tag intent: `gamora/v1.14-balance-loop-option-b-recompose-conditioned` (engine seam) + `recompose-hive/v0.2-option-b-recompose-conditioned` (hive milestone on engine + collab).
+- **L2 — P1 FRICTION (gamora).** P1 implementation mechanically complete (engine `6aacbe3` + `a9bc156`; collab `ed0b522`); smoke B1 BLOCKING FAIL on class_0001 cold-start: conditions 1+2 fail because class_0001 true `m*≈0.072` is ABOVE floor; warm-start floor-lock signature was a TOLERANCE artifact. 0/3 floor-lock detection rate across 3 cold-start classes (well below 50% false-positive threshold). 179/179 tests PASS. Mechanism is verified mechanically; smoke design's test-class assumption invalidated.
+- **L2 — P1 re-disposition routing (gandalf).** Knight-rider routed FRICTION to gandalf as background subagent (`a837c0d1824588bb1`) for design-direction call. Three options enumerated (fire-with-caveat / soft-disable / full-rollback). Tags HELD pending gandalf disposition. Hive trigger watch: ⏸ all four still unsignaled (this is hive-internal autonomous disposition, NOT a Matt-trigger #4).
 - **MIGRATION.md handoff** (producer = gamora; consumer = star-lord): v1.21 entry in engine MIGRATION.md captures schema v2.12 obligations (additive nullable `modifier_extreme_low`). v1.22 (Option B; star-lord schema v2.13: `floor_lock_recompose` + `working_modifier` + `floor_lock_detected`) template authored in gandalf brief § 5.4 + jack-ryan Amendment 6 (R11(b) round-trip + explicit rocket watchpoint); gamora finalizes at implementation.
 - **Adjacent canonical work (informational):** Matt authored `engine-architecture-vision-qd-profile-2026-05-19.md` (canonical/, commit `00581bf`) — QD-engine + profile architecture vision document; not in hive scope; not affecting routing.
 
@@ -47,7 +49,11 @@
 
 ## § 4 — Failure modes detected
 
-None. Activation + P0 + P0 acceptance + P1 routing all clean. Smoke gates A1/A2/A3 all PASS. No Discipline #13 drift, no Pattern P7 silent-default, no schema coherence breakdown, no test-suite breakage.
+**One surfaced + routed within hive scope (not a blocker):**
+
+- **P1 smoke B1 BLOCKING failure on test-class-selection** (NOT a mechanism defect). Gamora's cold-start regen of class_0001 reveals true `m*≈0.072` (above floor). The smoke design (gandalf brief § 4.1) selected class_0001 based on warm-start floor-lock signature (modifier=0.0509) which cold-start now reveals was a TOLERANCE-at-old-floor artifact. The class is NOT a Pattern-B-extreme case. Smoke conditions 1+2 FAIL (no `floor_lock_detected=True`, no `working_modifier=0.005`); conditions 3+4 PASS (no regression on existing recompose + binary search). 179/179 test suite PASS. Mechanism verified mechanically via 4 unit tests + 0% false-positive rate across 3 cold-start classes. **Routed to gandalf for design re-disposition** (autonomous L2-equivalent; no Matt escalation).
+
+No other failure modes detected. P0 + Gate-1 transitions all clean. No Discipline #13 drift, no Pattern P7 silent-default in code (Amendment 2 added fail-loud logging proactively), no schema coherence breakdown, no test-suite breakage.
 
 ---
 
@@ -66,26 +72,21 @@ None. Activation + P0 + P0 acceptance + P1 routing all clean. Smoke gates A1/A2/
 
 ## § 6 — Tomorrow's priorities (cycle Day 1)
 
-Driven by gamora's P1 implementation completion notification. On gamora completion:
+Driven by gandalf's P1 re-disposition completion notification. On gandalf completion:
 
-1. Read gamora's report (≤ 500 words by dispatch contract)
-2. **Verify P1 acceptance gate** per dispatch § 5 + § 4.1:
-   - All 16 acceptance-criteria checkboxes checked
-   - Smoke gate B1 BLOCKING all-PASS on class_0001 cold-start (4 conditions)
-   - Test suite regression check PASS (44/44 existing + 4 new = 48/48)
-   - MIGRATION.md v1.22 + AGENT_STATE.md + hive log STATE all updated
-3. **Three-way outcome:**
-   - **PASS** → fire `gamora/v1.14-balance-loop-option-b-recompose-conditioned` (engine seam) + `recompose-hive/v0.2-option-b-recompose-conditioned` (engine + collab hive milestone) + push; file P1 decisions-log entry if appropriate; route P2 phase
-   - **PARTIAL** (Amendment 4 WARN-level for `final_modifier ∈ [0.05, 0.10)`) → still ACCEPT P1; flag class for P2 inspection
-   - **FAIL** (smoke B1 BLOCKING any condition misses) → P1 rolls back per dispatch § 4.5 / § 6 reversibility; gamora surfaces FRICTION in hive log; investigate root cause
-4. **P2 phase routing (on P1 acceptance):** gandalf picks substrate (suggested earth or shadow per protocol § 6 P2); knight-rider authors rocket + star-lord + gamora dispatch covering full season regen at the new mechanism (per-tier WR convergence + Option A floor + Option B recompose-conditioning + disposition-3 calibration). Seed: 100005 (next available diagnostic seed, not used in prior batch).
+1. Read gandalf's re-disposition report (~200-250 words)
+2. **Execute chosen path:**
+   - **Option 1 (fire-with-caveat)** → fire both tags with explicit decisions-log caveat (analog to P0's spirit-of-acceptance pattern); route P2 with explicit empirical-verification-as-floor-lock-detection observation
+   - **Option 2 (soft-disable per gamora)** → route gamora for one-line change `LEVER_FLOOR_LOCK_WORKING_MODIFIER = MODIFIER_SEARCH_FLOOR`; fire `gamora/v1.14-...-soft-disable` (or similar qualifier) seam tag; HOLD `recompose-hive/v0.2-option-b-recompose-conditioned` hive milestone; route P2 with explicit re-enable plan
+   - **Option 3 (full rollback)** → route gamora for full revert per dispatch § 6 option 1; P1 re-implementation queued post-P2 if subjects appear
+   - **Fourth option** (gandalf may surface): execute per gandalf's specification
+3. **P2 phase routing (in all three options):** gandalf picks substrate (suggested earth or shadow per protocol § 6 P2); knight-rider authors rocket + star-lord + gamora dispatch covering full-season regen at the new mechanism (per-tier WR convergence + Option A floor + Option B recompose-conditioning [active or soft-disabled depending on gandalf's call] + disposition-3 calibration). Seed: 100005. The P2 regen will reveal whether any class triggers `floor_lock_detected=True` — that's the empirical question the smoke B1 missed.
 
-**Branch points to watch for in gamora's P1 implementation:**
-- If smoke B1 BLOCKING fails on class_0001 (any of 4 conditions): hard architectural blocker watch (wind-down trigger #4). Gandalf re-disposition may be required. Surface root-cause diagnosis with the FRICTION entry.
-- If `floor_lock_detected=True` fires for > 50% of three test classes: false-positive on legitimately-converging-at-floor classes; revisit `RECOMPOSE_SIGNAL_HI` value or signal logic; knight-rider routes back to gandalf for re-disposition (not Matt-trigger #4 unless gandalf-knight-rider cannot resolve)
-- If existing test suite regresses: implementation correctness regression; investigate via knight-rider mediation; do not commit until resolved
-- If Amendment 5 OPTIONAL naming was applied (`floor_lock_recompose` → `recompose_floor_lock`): verify all downstream references in MIGRATION.md v1.22 + tests + dispatch documentation are updated consistently
-- Secondary-loop double-invocation verification (dispatch § 3.5): gamora documents in AGENT_STATE.md whether the second-pass `_primary_recompose_loop` call correctly exercises the floor-lock detection branch when the redistributed class is still floor-locked
+**Branch points to watch for in gandalf's re-disposition:**
+- If gandalf chooses Option 1 (fire-with-caveat): the caveat needs careful framing in decisions-log so future readers understand why P1 was accepted despite literal § 4.5 BLOCKING semantics. The framing is analog to P0's warm-start vs cold-start spirit-of-acceptance.
+- If gandalf chooses Option 2 (soft-disable): preserves all infrastructure; P2 has a contingent re-enable. The hive milestone tag is held; this may affect P2's framing.
+- If gandalf surfaces a 4th option (e.g., re-author smoke B1 with broader test-class strategy): may require gamora additional implementation work; knight-rider authors follow-on dispatch.
+- If gandalf reframes the hive's central premise (cold-start of 3 classes finds 0 floor-lock-recovery candidates — is masked-Pattern-B-extreme a smaller population than Phase B.2 predicted, or just a small-sample issue?): may surface to Matt as a finding worth Matt's awareness (informational; not a wind-down trigger unless severity warrants).
 
 ---
 
@@ -118,4 +119,4 @@ Current trigger watch:
 
 ---
 
-*Authored 2026-05-19 by knight-rider at activation close; updated as Day 0 cycle progressed. Day 0 cycle: activation (22:28 EDT) → P0 fired → gamora P0 complete in ~26min → P0 acceptance + tags fired (~23:00 EDT) → P1 design brief routed to gandalf → gandalf brief filed (~9 min, `a400436`) → brief routed to jack-ryan for Gate-1 → jack-ryan APPROVE-WITH-AMEND (~7 min, `93c2a29`) → knight-rider authored P1 implementation dispatch folding 6 amendments → fired gamora for P1 implementation (~4-6h expected). Hive autonomous; next wake-up trigger is gamora's P1 implementation completion. The road continues.*
+*Authored 2026-05-19 by knight-rider at activation close; updated as Day 0 cycle progressed. Day 0 cycle: activation (22:28 EDT) → P0 fired → gamora P0 complete in ~26min → P0 acceptance + tags fired (~23:00 EDT) → P1 design brief routed to gandalf → gandalf brief filed (~9 min, `a400436`) → brief routed to jack-ryan for Gate-1 → jack-ryan APPROVE-WITH-AMEND (~7 min, `93c2a29`) → knight-rider authored P1 implementation dispatch folding 6 amendments → gamora P1 implementation mechanically complete in ~34 min (`6aacbe3` + `a9bc156` + `ed0b522`); smoke B1 BLOCKING FAIL on test-class-selection (cold-start reveals class_0001 m*≈0.072 above floor) → gamora surfaced FRICTION + recommended Option 2 soft-disable → knight-rider routed re-disposition to gandalf (`a837c0d1824588bb1`) for design-direction call (3 options enumerated + invitation for 4th). Hive autonomous; next wake-up trigger is gandalf's re-disposition. The road continues — the empirical findings are informing the design as designed.*
