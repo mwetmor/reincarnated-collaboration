@@ -1193,3 +1193,77 @@ Per dispatch § 4.1:
 - Routes P3 (validation synthesis) to gandalf + jack-ryan
 - Gandalf P3 consumes `output/p2-fresh-diagnostic-regen-2026-05-19/p2-classification-and-floor-lock-analysis.md` as canonical empirical record
 - P3 deliverable: `canonical/story/per-tier-recompose-validation-findings-2026-05-19.md` per protocol § 3 P3
+
+---
+
+## 2026-05-20 EDT — knight-rider STATE — P2 FULL ACCEPTANCE; hive milestone tag FIRED; routing P3 to gandalf + jack-ryan
+
+**P2 disposition: ACCEPT (full-phase acceptance — all three sub-phases complete).**
+
+Phase 1 (rocket) + Phase 2 (gamora) + Phase 3 (star-lord) all delivered per dispatch § 4 checklist. The canonical empirical record at `output/p2-fresh-diagnostic-regen-2026-05-19/p2-classification-and-floor-lock-analysis.md` (star-lord, engine `46d850c`) is the load-bearing input for gandalf's P3 synthesis.
+
+**Canonical figures locked:**
+- **0/10 floor-lock-recovery candidates** (0% across 33 recompose_attempts on 9 canonical classes; experimental class correctly NULL)
+- **10/10 kit-broken** (100%; all classes have ≥4 failing tiers; minimum 2-tier failure floor of boss_wr=0 + mini_boss_wr=0 universal)
+- **10/10 Pattern-A** (boss-zero structural at full-season scope on shadow substrate)
+- **0% kit-acceptable** (< 60% threshold per scope-of-work § 1 → CANNOT REJECT NULL verdict strongly indicated)
+
+**Hive milestone tag FIRED:**
+- ✅ `recompose-hive/v0.3-diagnostic-regen-complete` (engine + collab; both pushed; knight-rider under standing ADR-006 amendment authority)
+
+**Three-way disposition gate resolution:** "Zero floor-lock candidates" path per dispatch § 4.1. The masked-Pattern-B-extreme population is empirically absent from season_100005 at full-season scope. Soft-disable is confirmed as the correct end state. Option B mechanism preserved for future hives if substrate-generalization at a later season surfaces floor-lock-recovery candidates (Matt-direction next step).
+
+**Three findings the hive has now produced for canonical record:**
+
+1. **Methodological finding (engineering-disciplines candidate)** — *Pipeline-state-conditioned generation-time signals are NOT equivalent to equilibrium-state-conditioned canonical convergence signals.* Generation-time embedded convergence runs at pipeline-internal modifier states (near or at floor by design during R8 kit construction); cold-start canonical from initial_modifier=1.0 reveals true equilibrium. Applies retrospectively to gandalf brief v1.0 § 4.1 warm-start class-selection error (warm-start from prior `final_modifier=0.0509` is similarly state-artifact-conditioned, not equilibrium) AND prospectively to any future hive validating convergence properties. This finding is Discipline #11 extension; queued for engineering-disciplines.md amendment at P5 if hive completes; surfaced separately in Matt briefing at trigger #3 if CANNOT REJECT NULL fires.
+
+2. **Smoke-design methodological finding (engineering-disciplines candidate, surfaced at P1)** — *Mandatory cold-start dry-run on any candidate canonical smoke test class before locking it as the canonical subject.* Per gandalf brief v1.1 § 4.1 amendment retrospective. Same root cause as finding 1: warm-start signatures are pipeline-state-conditioned, not equilibrium-conditioned. Queued for engineering-disciplines.md amendment at P5.
+
+3. **Empirical finding (the cleanest possible diagnosis per protocol § 11)** — *100% Pattern-A at full-season scope on shadow substrate.* Catalogue kit-composition pathology IS the load-bearing problem. Option A's mechanism is correct (prior floor-lock failure mode eliminated). Option B's mechanism is correct mechanically (unit tests verify) but its served population is empirically absent in this season. The recompose mechanism cannot fix kit composition that lacks fundamental boss-kill capability. Empirically reinforces R2+ST counterfactual joint synthesis Row 5 ("catalogue has deeper pathology") + the prior 38/51 broken-kits finding from jack-ryan + star-lord.
+
+**Probability assessment (continuing to revise from current evidence):**
+- P3 CANNOT REJECT NULL → wind-down trigger #3: probability VERY HIGH (~85-90%) given star-lord's analysis is unambiguous
+- P3 PASS (strong or moderate): probability VERY LOW (~5%) — would require gandalf to materially re-classify what star-lord's data shows
+- P3 PARTIAL / re-disposition: LOW (~5%)
+- Hard architectural blocker → trigger #4: LOW (~5%)
+
+**Hive trigger watch:** ⏸ Triggers 1, 2, 4 still unsignaled. ⏸ Trigger 3 probability VERY HIGH; verdict awaits gandalf P3 synthesis.
+
+**Next action:** route P3 to gandalf + jack-ryan via HANDOFF entry below.
+
+---
+
+## 2026-05-20 EDT — knight-rider HANDOFF — P3 (validation synthesis) ROUTED TO GANDALF + JACK-RYAN
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-20-gandalf-plus-jack-ryan-p3-validation-synthesis.md`
+
+**P3 sequence:**
+1. **Gandalf** authors canonical findings document at `canonical/story/per-tier-recompose-validation-findings-2026-05-19.md` per protocol § 3 P3 + dispatch § 3.1 (12 required sections)
+2. **Jack-ryan** Gate-2 critique at `agentic_orchestration/qa/pending/2026-05-20-p3-validation-synthesis-gate2.md` per dispatch § 3.2
+3. **Knight-rider** fires `recompose-hive/v0.4-validation-verdict` (engine + collab) + authors Matt briefing if CANNOT REJECT NULL verdict (trigger #3)
+
+**Sequencing:** gandalf fires first; on gandalf HANDOFF, knight-rider routes jack-ryan for Gate-2; on jack-ryan disposition, knight-rider produces verdict-handoff (Matt briefing if CANNOT REJECT NULL; P4 routing if PASS strong/moderate).
+
+**Gandalf task:** synthesize per-class classification + per-failure-mode analysis + H_RC verdict + recommendation. Author canonical findings doc (12 sections per dispatch § 3.1). Methodology finding (§ 9) is canonical-record-worthy. Recommendation (§ 10) on kit-redesign queue execution as next-step architectural decision for Matt's consideration. AUTONOMOUS L2-equivalent authority on the verdict-call.
+
+**Jack-ryan task (post-gandalf):** Gate-2 critique on synthesis structure + reasoning + evidence-coverage + scope discipline. APPROVE-AS-IS / APPROVE-WITH-AMEND / BLOCK. BLOCK reserved for cases where synthesis materially misrepresents evidence or verdict is structurally unsound.
+
+**Expected total P3 effort:** ~3-4h (gandalf 1-2h synthesis + jack-ryan ~30 min - 1h Gate-2 + knight-rider 30-60 min verdict-handoff including Matt briefing if CANNOT REJECT NULL).
+
+**Out-of-scope (HARD; per dispatch § 6):**
+- P4 firing autonomously on CANNOT REJECT NULL (protocol § 7 explicit)
+- Re-running P2 regen
+- Code changes
+- Substrate-generalization claims beyond season_100005
+- Architectural recommendations beyond what evidence supports
+- Kit-redesign queue execution at P3
+- Pattern-B PARKED thread
+
+**On verdict + Gate-2 disposition received:**
+- If **PASS strong/moderate**: knight-rider fires `recompose-hive/v0.4-validation-verdict` + routes P4 per protocol § 6 P4
+- If **CANNOT REJECT NULL**: knight-rider fires `recompose-hive/v0.4-validation-verdict` + authors Matt briefing at `agentic_orchestration/matt-briefing-recompose-validation-2026-05-20.md` per protocol § 7 trigger #3; **P4 does NOT fire autonomously**; hive deactivates pending Matt direction
+- If **jack-ryan BLOCK**: knight-rider routes back to gandalf for re-synthesis (autonomous L2 dispute resolution; not Matt-trigger #4)
+
+Firing gandalf as background subagent for P3 synthesis. Jack-ryan fires after gandalf HANDOFF.
+
+Routing now.
