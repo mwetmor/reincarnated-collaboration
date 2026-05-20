@@ -1378,3 +1378,48 @@ Mithrandir's measure: the hive walked the road it was authored to walk. The road
 **Critical:** if jack-ryan APPROVES, the hive's autonomous-operation phase ENDS at knight-rider's verdict-handoff. Matt's next signal is the next wake-up after Matt reads the briefing. The hive deactivates pending Matt direction.
 
 Routing now. The verdict-handoff approaches.
+
+---
+
+## 2026-05-20 EDT — jack-ryan STATE — P3 Gate-2 Critique COMPLETE
+
+**Disposition: APPROVE-WITH-AMEND.**
+
+**Critique filed:** `agentic_orchestration/qa/pending/2026-05-20-p3-validation-synthesis-gate2.md`
+
+**Required reading absorbed:** hive log (all 1,380 lines); synthesis doc (12 sections); star-lord P3 analysis (9 sections); raw telemetry (`balance_results.json`) verified via Python against all claims; scope-of-work §§ 0-2; protocol §§ 3+6 P3+§7; prior Gate-1 critique; P3 dispatch § 3.2; engineering disciplines #1, #11, #12, #15.
+
+**Verdict verification: CONFIRMED.** CANNOT REJECT NULL is the correct verdict. 0% kit-acceptable verified directly against raw telemetry. Boss_wr=0.0 for all 10 classes confirmed in JSON. All cold_start_verified=True. No class has `floor_lock_detected=True` in any of the 35 recompose_attempts across 9 canonical classes.
+
+**Sub-pattern verification:**
+- Sub-pattern 2 (boss-DPS-floor) = 10/10: CONFIRMED via raw data
+- Sub-pattern 4 (floor-lock-still-active) = 0/10: CONFIRMED (0/35 attempts with floor_lock_detected=True)
+- Sub-pattern 5 (recompose-couldn't-recover) = 9/9 canonical: CONFIRMED (all 9 had attempts; all have boss_wr=0)
+- Sub-pattern 6 (generation-rule-pathology) = 10/10: CONFIRMED as appropriate inference
+- class_0009 elite over-shoot 0.670: CONFIRMED via raw data
+
+**Amendments — 2 REQUIRED, 1 RECOMMENDED:**
+
+1. **(REQUIRED)** Recompose-attempt count: synthesis and star-lord cite "33 recompose_attempts on 9 canonical classes." Raw telemetry shows **35** (class_0001=3; classes 0002-0009=4 each). Replace 33→35 in synthesis doc.
+
+2. **(REQUIRED)** Sub-pattern 5 nuance for class_0001: `modifier_fallback` path (all 3 attempts at delta=0, none accepted) is mechanistically distinct from classes 0002-0009 (at least 1 accepted lever, negative delta, lower-tier WR compression). Amend § 6 sub-pattern 5 prose and § 6.1 class_0001 row to capture this operational distinction for kit-redesign queue downstream precision.
+
+3. **(RECOMMENDED)** Substrate scope parenthetical in § 0 TL;DR: add "(on shadow substrate seed=100005 under disposition-3 calibration)" to the aggregate figure summary, for readers who consume only the TL;DR (and for the Matt briefing's executive summary).
+
+**Discipline audit:**
+- #1 (math-before-code): CONFIRMED. Synthesis reasoning flows entirely from empirical record.
+- #11 (empirical inspection): CONFIRMED. Both methodological findings captured with correct state-space framing.
+- #12 (semantic shift / verdict naming): CONFIRMED. "CANNOT REJECT NULL" used with statistical precision throughout; "not supported" vs "false" distinction maintained.
+- #15 (drift-detection): CONFIRMED. Triangulation across R1 + R2+ST + this hive's evidence; no drift between framings.
+
+**Single-Discipline-#11-elaboration framing: CONCUR.** Both P1 + P2 findings share root-cause epistemic pattern (non-equilibrium pipeline state conflated with equilibrium state). Single elaboration preserves conceptual unity. Proposed § 9.6 language is P5-co-authoring-ready. Two-event ~24h convergence argument is load-bearing-sound (two independent agents, two independent phases, same epistemic error pattern).
+
+**Substrate-generalization scope: CLEAN.** Synthesis body correctly bounds claims to shadow/seed=100005/disposition-3. § 0 TL;DR is the only gap (Amendment 3 advisory).
+
+**Scope discipline: CONFIRMED.** No autonomous P4 routing. § 8 + § 10 recommendations framed as Matt-options throughout. Kit-redesign queue recommendation is transparent and non-prescriptive.
+
+**Matt-briefing readiness:** HIGH, with two caveats: (a) Amendment 1 count correction should be reflected in any briefing figure; (b) Amendment 3 substrate qualifier should appear in the briefing's executive summary if not added to § 0 TL;DR; (c) Amendment 2 class_0001 modifier_fallback distinction should inform the failure-mode summary in the briefing.
+
+**Routing recommendation:** Knight-rider routes amendments 1-2 to gandalf for inline resolution (lightweight; factual corrections to specific sentences, no re-synthesis required). On gandalf concurrence, fire `recompose-hive/v0.4-validation-verdict` + author Matt briefing per protocol § 7 trigger #3. P4 does NOT fire autonomously.
+
+**Hive trigger watch:** ⏰ Trigger 3 (CANNOT REJECT NULL verdict) CONFIRMED at this entry. The Gate-2 critique does not hold the trigger — APPROVE-WITH-AMEND clears the verdict-handoff pending amendment resolution. Triggers 1, 2, 4 remain unsignaled.
