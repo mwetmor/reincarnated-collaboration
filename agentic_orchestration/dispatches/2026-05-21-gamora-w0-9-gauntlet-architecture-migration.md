@@ -371,3 +371,64 @@ Phase 2.4 (W0.9.5) fires next. Key coordination items from Phase 2.3:
 4. **Parallel execution integration test**: `use_parallel=True` is implemented but not yet integration-tested with real archive. Phase 2.4 should verify no shared-state corruption.
 
 5. **W0.9.6 calibration sweep**: Phase 2.5, co-run with W0.1 sweep. Measures actual wall-clock vs PackProxy baseline to verify ≤5× target.
+
+---
+
+**Phase 2.5 (W0.9.6 calibration sweep): COMPLETE — 2026-05-20**
+
+### Phase 2.5 deliverables
+
+- [x] **W0.9.6 — Calibration sweep executed:**
+  - 10-kit roster × 5 tiers × 30 fights = 1,500 fights total
+  - fight_events_sample_rate=1.0: 975,450 fight_events emitted (0 failures)
+  - Production-mirror environment: gear_catalog + monster_pool from standard-demo-regen seasons
+  - Script: `scripts/w096_calibration_sweep.py`
+
+- [x] **Task 3 — Performance benchmark:**
+  - Mean per-kit wall time: 4.9s vs PackProxy 28.3s/class → ratio = 0.17× (PASS; target ≤5×)
+  - Spatial gauntlet at 30 fights/tier is 6× FASTER than PackProxy full convergence
+
+- [x] **Task 5 — Multi-tier archive gap disposition:**
+  - Routed to P1/P2 follow-on. Boss/mini-boss WR anomaly blocks meaningful archive insertion.
+  - Swarm-tier archive insertion remains functional.
+
+- [x] **Task 6 — OQ-7 (stamina-as-resource):**
+  - No overcorrection: physical_warrior modifier=0.109 < 1.0. 1.25× probe acceptable.
+
+- [x] **OQ-6 (physical hunter ceiling):**
+  - Hunter modifier=0.636 not ceiling-bound. W0.1 focus exclusion correct.
+
+- [x] **MIGRATION.md v1.28** authored — calibration sweep findings + Discipline #17 anomaly documented
+
+- [x] **AGENT_STATE.md updated:** Phase 2.5 complete; boss AI fix scoped for next session
+
+- [x] **Intermediate tag fired:** `qd-rebuild/v0.9-phase-2-5-calibration-sweep-complete`
+
+### Key finding: Discipline #17 structural anomaly
+
+**ALL boss/mini-boss tier WRs = 0.000 universally**, including high-modifier archetypes (physical_grappler 0.742, hunter 0.636). Refutes math note §5.3 prediction.
+
+**Root cause diagnosed:** Elite add leash-reset mechanism in `SCENARIO_BOSS_WITH_ADDS` and `SCENARIO_MINI_BOSS`:
+- Player AI targets nearest alive mob (elite add at ~12m, not boss at 17m)
+- Player damages elite add → add leashes back to spawn (leash_distance_m=12.0) → HP resets to max
+- Cycle repeats for 240s. Boss HP untouched (stationary_caster at 17m from player spawn)
+- Evidence: physical_grappler dealt 215k damage in 240s fight but elite add HP net reduction = 4.5k (3 casts out of ~145 — rest wasted to leash resets)
+
+**Required remediation (gamora seam; Discipline #1 math-note required before code):**
+1. Player AI boss-focus mode: when win_condition=boss_killed, boss is PRIMARY target
+2. Add leash calibration: elite spawns at arena edge create reset cycles; spawn adds near boss instead
+
+**This is NOT a SPATIAL_DAMAGE_SCALE issue.** The damage scale is sufficient; the structural bug is in AI targeting and add spawn positioning.
+
+### W0.9 cumulative Gate-2 readiness
+
+**READY for Gate-2 critique-pair review:**
+- gandalf: architectural alignment ('fix the arena' + one-implementation-two-usages)
+- jack-ryan: migration correctness + Discipline #13a drift check + R11(b) round-trip
+- knight-rider: fold into state-of-hive + P1 readiness assessment
+
+**Open item before boss-tier convergence production:** boss AI fix + add leash calibration. Requires math-note (Discipline #1) before implementation. W0.7 ablations + W0.4 gamora portion can proceed independently.
+
+### Tags
+
+- `qd-rebuild/v0.9-phase-2-5-calibration-sweep-complete` — FIRED
