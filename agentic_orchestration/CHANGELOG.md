@@ -4,6 +4,29 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-rebuild P0 W0.5 COMPLETE: Mana-bug verify LC-026 — RESOLVED
+
+**Event:** Per W0.5 dispatch `agentic_orchestration/dispatches/2026-05-21-gamora-w0-5-mana-bug-verify.md`, gamora completed empirical inspection of LC-026 mana-bug. **Verdict: RESOLVED.** No follow-on fix workstream required. Engine commit `4bce461`; LC-026 addendum at `agentic_orchestration/jack-ryan/research/legacy-constraint-audit-2026-05-21/lc-026-mana-bug-verify-addendum-2026-05-21.md`.
+
+**Tag fired:** `qd-rebuild/v0.5-mana-bug-verify-resolved` (engine + pushed to origin).
+
+**Key findings:**
+
+- **Phase 1 dimensional refactor (engine commit `4c28ed6`, 2026-05-08) structurally resolved at both layers:**
+  - Pool assignment (`combatant.py:362-366`): `_ENERGY_CONFIGS` branches before stat computation — rage gets pool=100/start=0/regen=0; combo gets pool=5/start=0; focus gets pool=100/start=full/regen=-5/s; stamina-as-resource gets pool=150/start=full/regen=+20/s. The int/wis values no longer influence pool size for non-mana classes.
+  - Skill costing (`ability_grammar.py:341-364`): `_get_energy_cost()` routes by energy_type — rage skills cost 25-50, combo primaries cost 0/spenders cost 3, all within respective pool maximums.
+- **Test surface validates:** 54/54 test_energy_types.py PASS + 75 passed test_balance_loop.py + test_class_generation.py + 23 passed test_combat_simulator.py = 152 tests PASS. No regressions.
+- **Architectural compatibility confirmed:** substrate and energy_type are orthogonal axes — no coupling. Axis 5 (resource economy) BC profiling can read `energy_type` from class schema as the correct structural signal — fully compatible with substrate-as-cohesion-only architecture.
+
+**Residual finding (documentation gap, NOT a fight-engine defect):**
+- `base_stamina` column in telemetry `classes` table is never written by `recorder.py`. Flagged for star-lord (whose W0.4 portion is currently in-flight; will fold this into the cross-seam audit).
+
+**Downstream implication:** QD-rebuild P1 substrate work can proceed with mana pipeline structurally sound. No P1 W1.X resource-economy substrate creation work is blocked.
+
+State-of-hive § 1 W0.5 row updated to COMPLETE. Second P0 workstream complete; 7 remaining (W0.3 + W0.4 star-lord portion in-flight; W0.1 + W0.2 + W0.4 rocket/gamora portions + W0.6 + W0.7 + W0.9 queued).
+
+---
+
 ## 2026-05-21 — QD-rebuild P0 W0.8 COMPLETE: Axis 2 (damage geometry) substrate completeness check
 
 **Event:** Per W0.8 dispatch `agentic_orchestration/dispatches/2026-05-21-rocket-w0-8-axis-2-substrate-check.md`, rocket completed the Axis 2 substrate completeness analytical workstream. Deliverable filed at `agentic_orchestration/rocket/research/qd-rebuild-w0-8-axis-2-substrate-check.md` (44KB; collab commit `d7544bf`).
