@@ -1,30 +1,42 @@
-# Dispatch — Legolas Mode A: Substrate-Sufficiency Audit for QD-Engine BC Axes
+# Dispatch — Legolas Mode A: Substrate-Sufficiency + Comprehensive External-Asset Catalog Audit
 
 **Date:** 2026-05-20
 **Author:** gandalf
-**Recipient:** legolas (Mode A — analytical research)
-**Status:** ACTIVE (amended 2026-05-20 evening — 8-axis final lock + Unity VFX directive elevation)
+**Recipient:** legolas (Mode A — analytical research, multi-phase commission)
+**Status:** ACTIVE (v3 — comprehensive scope after 2026-05-20 evening amendments)
 **Priority:** HIGH (gates QD-engine rebuild commitment)
-**Estimated effort:** 14-22 hours of structured research + synthesis (raised from initial 8-14 estimate after 8-axis lock + external-asset-acquisition elevation)
+**Estimated effort:** 60-100+ hours of structured research + synthesis across multi-phase commission
 
 ---
 
 ## 0. TL;DR
 
-The QD-engine architectural vision (`canonical/story/engine-architecture-vision-qd-profile-2026-05-19.md`) and the locked operational spec (`canonical/story/qd-engine-bc-axes-lock-2026-05-20.md`) commit to MAP-Elites over **8 mechanical Behavior Characteristic (BC) axes** with 68,040 cells total. For QD to function, the generative substrate must produce **at minimum ~5× as many distinguishable outputs as the bin count of each axis.** If the substrate is undersupplied on any axis, that axis becomes dead — its bins fill unevenly or not at all, and the QD gate produces no signal.
+This is a **comprehensive five-track research commission** that gates the QD-engine rebuild. It expanded substantially during 2026-05-20 evening conversation between Matt and gandalf as the architectural target sharpened.
 
-**Your task — two-track audit:**
+**Five tracks:**
 
-1. **Internal substrate inventory** — what does the current engine already produce per axis × bin?
-2. **External-asset-acquisition research** — what Unity Asset Store VFX packs, Mixamo animations, and open-source asset libraries can be acquired to fill substrate gaps? **This is a primary deliverable, not a secondary suggestion.** Matt's directive (2026-05-20): "legolas needs to bring these in from Unity VFX." The expectation is concrete shortlists with pack names, asset counts, prices, license terms, and per-axis-bin mapping.
+1. **Track A — Internal substrate inventory** (current engine state per axis × bin)
+2. **Track B — Unity Asset Store comprehensive VFX catalog** (every relevant pack, tagged by geometry / timing / size / element / Mixamo-rig-compatibility)
+3. **Track C — Mixamo deep animation inventory** (every detail; rig-anchor compatibility constraints)
+4. **Track D — ARPG canon vision-layer skill geometry enumeration** (comprehensive enumeration of shipped skills across the ARPG canon to validate bin cuts and surface anything folded)
+5. **Track E — Production pipeline integration audit** (ChatGPT Image Gen → Meshy 3D Model → Mixamo Rig → VFX-mapped — the canonical Reincarnated asset-creation pipeline)
+
+**Two architectural layers (Matt's framing 2026-05-20 evening):**
+
+- **Vision layer** — what is conceptually possible across the canon (Track D research feeds this)
+- **Operational layer** — what fills the 8-axis × 24-bin space at ≥5× sufficiency (Tracks A, B, C feed this; Track E governs integration)
+
+The vision layer informs whether our 8-axis lock captures the canon comprehensively or accidentally folds a meaningfully-distinct geometry/mechanic. The operational layer governs ship-readiness.
 
 ---
 
-## 1. The 8 locked BC axes (FINAL — companion spec at `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md`)
+## 1. The locked 8 BC axes (operational target)
+
+Reference: `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md`
 
 | # | Axis | Bins | Bin labels |
 |---|---|---|---|
-| 1 | **Engagement profile** (range × mobility) | 6 | close-fast / close-slow / mid-fast / mid-slow / ranged-fast / ranged-slow |
+| 1 | **Engagement profile** | 6 | close-fast / close-slow / mid-fast / mid-slow / ranged-fast / ranged-slow |
 | 2 | **Damage geometry** | 5 | single-target / small-AOE / large-AOE / chain / multi-spawn |
 | 2A | **Proxy density** | 3 | solo / proxy-light / proxy-heavy |
 | 2B | **Control density** | 3 | damage-pure / mixed / control-pure |
@@ -33,215 +45,290 @@ The QD-engine architectural vision (`canonical/story/engine-architecture-vision-
 | 4 | **Defensive profile** | 4 | tank / mitigator / dodger / glass |
 | 5 | **Resource economy** | 7 | HP-economy / charge-stack / damage-taken-converts / starved / overflow / generator-spender / steady |
 
-**Sufficiency rule:** substrate must produce ≥ 5× the bin count of distinguishably-different outputs per axis.
-
-| Axis | Bins | Substrate target | Current state (pre-audit prior) |
-|---|---|---|---|
-| 1 | 6 | ~30 engagement profiles | Likely partial — range tagged; mobility undertagged |
-| 2 | 5 | ~25 damage geometries | Likely strong — 16-type palette adopted; verify distribution |
-| 2A | 3 | ~15 proxy configurations | **Likely severely undersupplied** — player-side proxies absent |
-| 2B | 3 | ~15 control compositions | Likely moderate — confirm CC variety |
-| 3A | 3 | ~15 damage tempos | Likely moderate — depends on skill cadence variety |
-| 3B | 3 | ~15 variance profiles | Likely moderate |
-| 4 | 4 | ~20 defensive profiles | Mixed — tank/mitigator/glass likely OK; dodger likely partial |
-| 5 | 7 | ~35 economy mechanisms | **Likely severely undersupplied** — charge mechanics + damage-conversion absent |
-
-**The two-track sufficiency check:** for every axis × bin, is it sufficient via (a) current internal generation alone, OR (b) current + cost-effective external asset acquisition? Audit must answer per bin.
+Sufficiency rule: substrate must produce ≥ 5× the bin count of distinguishably-different outputs per axis.
 
 ---
 
-## 2. Research scope — two tracks
+## 1.5 Element / substrate dimension (cross-cutting tag)
+
+Element is a **substrate-tagging dimension, NOT a 9th BC axis.** Each kit has an element tag (fire/water/earth/wind/etc.) that drives:
+
+- Theme coalescence (LLM chooses element-themed names + flavor)
+- Substrate filtering at generation time (use fire-VFX for fire kits)
+- Profile filtering (B2B customers may want element-specific season packs)
+- Style register alignment (visual element coherence)
+
+**Canonical element list:** confirm from `reincarnated-engine/src/reincarnated/canonical/` element files. Initial prior (subject to verification): fire / water / earth / wind / lightning + possibly nature / arcane / dark / holy / void / blood. The D1 element-name pool work (2026-05-12) suggests a 5-primary core (fire / water / earth / wind / one-other) but the audit should confirm the operative list.
+
+**Critical implication for Track B (Unity Asset Store catalog):** every VFX asset must be tagged with its element. When the engine generates a fire kit, the substrate-filtering layer needs to know which Unity packs provide fire-tinged effects. Same for water, earth, wind, etc.
+
+---
+
+## 1.6 Production pipeline integration constraint (Track E governance)
+
+**The canonical Reincarnated asset-creation pipeline (per Matt 2026-05-20):**
+
+```
+ChatGPT Image Gen  →  Meshy 3D Model  →  Mixamo Rig  →  VFX mapped
+```
+
+Each stage constrains the next:
+
+| Stage | Output | Constrains downstream |
+|---|---|---|
+| ChatGPT Image Gen | 2D image of character/monster/effect | Must produce Meshy-importable image (consistent perspective, clear silhouette) |
+| Meshy 3D Model | 3D mesh from image | Must be Mixamo-compatible topology (humanoid preferred for Mixamo; other rigs need alternative rigging path) |
+| Mixamo Rig | Rigged humanoid model with animation library | Must be VFX-mountable (standard Mixamo bone anchor points: hands, feet, head, weapon-attachment) |
+| VFX mapped | Final usable asset for engine | Must work at Mixamo-rig anchor points with consistent style + element |
+
+**Implications for Track B (Unity VFX catalog):**
+
+Every Unity VFX pack assessed must be tagged for:
+- Mixamo-rig compatibility (does it mount on standard Mixamo anchor points?)
+- Required attachment points (hands? weapon? full-body aura? ground-anchored?)
+- Scale matching (does it scale to Mixamo standard humanoid proportions?)
+- Style register match (does it work with ChatGPT-Meshy stylization, or does it require a different visual style?)
+
+VFX packs that don't fit this pipeline (e.g., custom-rig-required, non-humanoid-anchored, mismatched style register) are documented but flagged as low-priority for procurement.
+
+---
+
+## 2. Research tracks — five-track structure
 
 ### 2.1 Track A — Internal substrate inventory (codebase survey)
 
 For each axis × bin, document what currently exists in the engine that could feed that bin:
 
-- **Generation systems** — which `reincarnated-engine/src/reincarnated/generation/`, `element/`, `anchor/`, `foundation/` modules contribute?
-- **Canonical palette / library** — what's in `reincarnated-engine/src/reincarnated/canonical/`?
-- **Skill / gear / kit templates** — current variety; tagging discipline (are skills tagged for their BC contribution today, or would tagging need to be added?)
-- **Simulation outcomes** — what does the simulator currently *measure* that could become the BC coordinate calculator?
+- **Generation systems** — `reincarnated-engine/src/reincarnated/generation/`, `element/`, `anchor/`, `foundation/`
+- **Canonical palette / library** — `reincarnated-engine/src/reincarnated/canonical/`
+- **Skill / gear / kit templates** — current variety; BC-tagging discipline state
+- **Simulation outcomes** — what telemetry currently exists to support BC measurement
 
 **Key existing references:**
-- `canonical/09-geometry-palette-discussion.md` — 16-type damage geometry palette (feeds Axis 2)
-- `canonical/17-gear-and-spirit-guide-design.md` — gear architecture (feeds Axes 3, 4, 5)
-- `canonical/32-progression-design.md` + `canonical/33-progression-skeleton.md` — class progression structure
-- `reincarnated-engine/src/reincarnated/canonical/` — engine's internal canonical library
+- `canonical/09-geometry-palette-discussion.md` — 16-type damage geometry palette
+- `canonical/17-gear-and-spirit-guide-design.md` — gear architecture
+- `canonical/32-progression-design.md` + `canonical/33-progression-skeleton.md` — class progression
+- `reincarnated-engine/src/reincarnated/canonical/` — engine canonical library
 
-### 2.2 Track B — External-asset-acquisition research (PRIMARY DELIVERABLE)
-
-**Matt's directive 2026-05-20:** "legolas needs to bring these in from Unity VFX." This means external asset research is not a sidebar — it's a core deliverable. The QD-engine substrate enrichment plan WILL involve external asset acquisition; the audit must produce the concrete shortlist that enables that acquisition decision.
-
-#### 2.2.1 Unity Asset Store (PRIORITY)
-
-Survey Unity Asset Store comprehensively for VFX assets relevant to each axis × bin. For each candidate pack:
-
-**Required documentation per pack:**
-- Pack name + Unity Asset Store URL
-- Publisher + reputation indicators (rating, sales volume, review count)
-- Total asset count + **asset-count-of-the-type-we-need** (most important — the former is often inflated)
-- Price tier (USD)
-- License terms (single-seat / commercial / royalty-free / attribution requirements)
-- Per-axis-bin mapping (which assets serve which BC dimensions)
-- Quality assessment (preview review)
-
-**Search priorities by axis:**
-
-| Axis | Unity Asset Store search targets |
-|---|---|
-| Axis 1 (Engagement) | Movement-skill VFX packs (dash, blink, teleport, charge animations); cyclone/channel-move VFX; ranged-cast traversal effects |
-| Axis 2 (Geometry) | AOE VFX packs (radial blasts, ground-effect persistent), chain-lightning packs, multi-spawn / meteor / area-explosion packs, single-target projectile packs |
-| Axis 2A (Proxy) | Summon/minion/totem VFX; spawn-effect VFX; convert/charm effect packs |
-| Axis 2B (Control) | CC-effect VFX (stun, freeze, root, fear, blind, knockback); slow-aura VFX; debuff visualizations |
-| Axis 3 (Rhythm) | Channel-skill VFX; charge-up-effect packs; burst-skill telegraph VFX |
-| Axis 4 (Defense) | Shield/aura VFX; dodge/iframe visual cues; stealth/invisibility shaders; reflection effects; thorns/spike-aura packs |
-| Axis 5 (Economy) | Resource-conversion VFX (life-leech, mana-conversion); charge-stack visualizers; HP-cost visual feedback |
-
-**Don't pre-restrict** to listed search targets if you find adjacent relevant packs. Surface anything that serves substrate enrichment.
-
-#### 2.2.2 Mixamo (PRIORITY)
-
-Animation arc library for character + monster movement, attack, dodge, casting profiles. Document:
-
-- Available animation categories relevant to each axis
-- Per-category animation count (e.g., "27 melee-arc animations," "14 cast-arc animations," "8 dodge-roll animations")
-- License terms (Mixamo is free with Adobe account but commercial-use terms vary)
-- Per-axis-bin mapping (which animations serve which BC dimensions, especially Axis 1 mobility + Axis 2 geometry)
-
-#### 2.2.3 OpenGameArt / Kenney / itch.io (SECONDARY)
-
-Open-source / royalty-free alternatives to Unity Asset Store. Lower priority but worth surveying for:
-- Cost-free substrate fills (where free assets meet quality threshold)
-- License-cleaner alternatives where commercial Unity assets have problematic licensing
-- Stylistic alternatives (pixel-art, hand-drawn — relevant to galadriel's locked style register)
-
-#### 2.2.4 ARPG canonical reference counts (BENCHMARK)
-
-This is **benchmark research, not procurement research.** Document how many distinguishable values exist in shipped ARPGs per axis as a market-comparable target:
-
-- Diablo 3/4 skill database (Diablofans, Maxroll, official wiki)
-- Path of Exile skill gem inventory (PoE Wiki, official tree)
-- Last Epoch skill counts (LE wiki)
-- Grim Dawn class data (Grim Dawn wiki)
-- Diablo Immortal skill catalog
-
-Per axis, what does each shipped ARPG ship? This sets a "minimum competitive substrate" baseline.
-
-### 2.3 Special audit items — deferred-bin substrate
-
-Several BC bins route to **deferred-evaluation pool** in current sim state (see `qd-engine-bc-axes-lock-2026-05-20.md` § 5 Sim Deferral Matrix). The substrate audit must still cover these — we need to know what generation enrichment will be required when sim catches up:
-
-| Deferred bin | Substrate audit priority |
-|---|---|
-| Axis 2A proxy-light + proxy-heavy | **High** — substantial known gap; player-side proxy generation absent |
-| Axis 4 dodger stealth/iframe/reflection sub-cases | **High** — sim extension parallel work; substrate variety needs early audit |
-| Axis 5 charge-stack mechanic | **High** — generation infrastructure for charge-pool absent |
-| Axis 5 damage-taken-converts | **High** — generation infrastructure for damage-to-resource absent |
-| Axis 3B channeled-tag | Moderate — channel-tagged skill mechanic |
-
-For each deferred bin, the audit reports:
-1. What generation infrastructure would be needed to produce kits in this bin?
-2. What sim extension would be needed to evaluate kits in this bin?
-3. What external assets (Unity VFX, Mixamo) would support visual realization of this bin?
-4. Cost estimate for end-to-end enablement?
-
-### 2.4 Cross-axis observations
-
-After per-axis work, surface cross-axis patterns:
-
-- Which axes are most undersupplied? (Where does enrichment have highest leverage?)
-- Which axes are over-supplied? (Where can we widen bins for finer discrimination?)
-- Are any axes structurally impossible given current architecture?
-- **Which Unity packs / Mixamo categories serve MULTIPLE axes?** (Cross-cutting acquisitions = best $/bin ratio)
-- **What's the cheapest path to QD-rebuild readiness?** (Combined external + internal cost estimate)
+**Deliverable:** per-axis CSV with current internal substrate count + 5×-rule gap analysis.
 
 ---
 
-## 3. Deliverables
+### 2.2 Track B — Unity Asset Store comprehensive VFX catalog (PRIMARY DELIVERABLE)
 
-Produce a Mode A research readout at:
+**Matt's directive 2026-05-20:** "research every single Unity VFX pack and list the geometry / timing / size / element"
+
+The intent is comprehensive coverage. Practical scoping:
+- "Every single" means **every relevant + quality-rated pack** (filter out abandoned packs, low-rated packs, single-asset junk; include high-rated packs even if niche)
+- Phase 1: top 30-50 most-relevant packs cataloged in depth
+- Phase 2: expansion to comprehensive coverage (200-500+ packs surveyed; ~100-200 cataloged in depth)
+- Phase 3: synthesis + procurement recommendations
+
+**Per-asset metadata required (each VFX in each pack):**
+
+| Field | Values |
+|---|---|
+| `pack_name` | text |
+| `pack_url` | text (Unity Asset Store URL) |
+| `publisher` | text |
+| `pack_price_usd` | numeric |
+| `pack_license` | enum: single-seat / multi-seat / commercial / royalty-free |
+| `asset_name` | text (specific VFX within pack) |
+| `geometry` | enum: single-target / small-AOE / large-AOE / chain / multi-spawn / line / cone / radial-blast / persistent-ground / projectile / aura / point |
+| `timing` | enum: instant / charge-up / channel / sustained / triggered / DOT |
+| `size` | enum: small / medium / large / scaling / variable |
+| `element` | enum: fire / water / earth / wind / lightning / nature / arcane / dark / holy / void / blood / physical / neutral |
+| `target_type` | enum: self / target-locked / ground-aoe / projectile / aura |
+| `mixamo_rig_compatible` | enum: yes / partial / no |
+| `anchor_points` | comma-list: hands / weapon / feet / head / body / ground / target-locked |
+| `style_register` | enum: realistic / stylized / cartoon / pixel / hybrid |
+| `performance_tier` | enum: mobile / mid / high |
+| `quality_rating` | numeric: 1-5 (publisher rating + review-derived) |
+| `bc_axis_mapping` | per-axis mapping (axis_1 through axis_5: which bins does this asset serve?) |
+| `notes` | text |
+
+**Search priorities by axis (entry points; not exhaustive):**
+
+| Axis | Unity Asset Store search targets |
+|---|---|
+| Axis 1 (Engagement) | Movement-skill VFX (dash, blink, teleport, charge); cyclone/channel-move VFX; ranged-cast traversal effects |
+| Axis 2 (Geometry) | AOE VFX (radial blast, ground-effect persistent), chain-lightning, multi-spawn (meteor/area-explosion), single-target projectile |
+| Axis 2A (Proxy) | Summon/minion/totem VFX; spawn-effect VFX; convert/charm effect packs |
+| Axis 2B (Control) | CC VFX (stun, freeze, root, fear, blind, knockback); slow-aura; debuff visualizations |
+| Axis 3 (Rhythm) | Channel-skill VFX; charge-up effects; burst-skill telegraphs |
+| Axis 4 (Defense) | Shield/aura VFX; dodge/iframe cues; stealth/invisibility shaders; reflection effects; thorns/spike-aura |
+| Axis 5 (Economy) | Resource-conversion VFX (life-leech, mana-conversion); charge-stack visualizers; HP-cost feedback |
+
+**Per-element search priority (the substrate-element catalog):**
+- Fire VFX packs (likely high availability — fire is dominant in Unity asset library)
+- Water/ice/frost VFX packs
+- Earth/stone/nature VFX packs
+- Wind/air/storm VFX packs
+- Lightning/electric VFX packs
+- Dark/void/blood VFX packs (if those elements are canonical)
+
+---
+
+### 2.3 Track C — Mixamo deep animation inventory
+
+**Matt's directive 2026-05-20:** "gather all of the details we can from Mixamo"
+
+Mixamo is Adobe's free animation library tied to the canonical production pipeline. Deep inventory required because **VFX must mount on Mixamo-rigged characters** — the two go hand in hand.
+
+**Per-category catalog required:**
+
+| Field | Notes |
+|---|---|
+| Category name | Mixamo's classification (e.g., "Melee attack," "Spell casting," "Dodge / evade") |
+| Animation count | How many distinct animations in this category |
+| Sub-categories | If applicable (e.g., melee → sword / spear / bow / unarmed) |
+| Rig type | Standard Mixamo humanoid? Other? |
+| Animation length range | Min/max duration |
+| Loop-capable count | How many loop cleanly |
+| Compatible VFX anchor points | Which body parts move; which can host VFX attachments |
+| BC axis relevance | Per-axis mapping (especially Axis 1 mobility, Axis 2 geometry, Axis 4 defensive — dodge animations) |
+| License terms | Mixamo standard terms; commercial use; any restrictions |
+
+**Specific Mixamo categories to inventory:**
+- Movement (walk, run, sprint, dodge, dash, blink-substitutes)
+- Combat — melee (all weapon types)
+- Combat — ranged (bow, throw, cast)
+- Combat — spell-casting (channel, instant cast, charge-cast)
+- Combat — defensive (block, parry, evade, hit-react)
+- Death / down
+- Idle / breathing
+- Emote / non-combat
+- Boss / monster (if Mixamo has non-humanoid rigs)
+
+---
+
+### 2.4 Track D — ARPG canon vision-layer skill geometry enumeration (NEW PER MATT 2026-05-20)
+
+**The vision-vs-operational distinction (Matt's insight 2026-05-20 evening):**
+
+- The **operational layer** locks 5 bins for damage geometry (single-target / small-AOE / large-AOE / chain / multi-spawn). The substrate audit measures sufficiency against these bins.
+- The **vision layer** asks: across the entire ARPG canon, are there shipped skill geometries that don't fit cleanly into these 5 bins? If so, the bin cuts may be wrong, OR we may have folded something that deserves its own bin in a future revision.
+
+**Track D commission:** comprehensive enumeration of shipped skill geometries across the ARPG canon. For each skill:
+
+| Field | Notes |
+|---|---|
+| `game` | Diablo 1/2/3/4/Immortal, PoE, PoE2, Last Epoch, Grim Dawn, Torchlight 1/2/3, Lost Ark, Wolcen, Wolcen, Marvel Heroes, others |
+| `class` | The class the skill belongs to |
+| `skill_name` | Canonical name |
+| `geometry` | Same enum as Track B (single-target / small-AOE / large-AOE / chain / multi-spawn / line / cone / etc.) |
+| `element` | Fire / cold / lightning / poison / physical / etc. |
+| `timing_pattern` | Instant / channel / charge-up / DOT / triggered / etc. |
+| `defensive_offensive_role` | Primary damage / support / mobility / defense / utility |
+| `signature_or_minor` | Signature skill (a build-defining choice) vs minor (gap-filler skill) |
+| `notes` | Special mechanics: charge stacks, reactive triggers, etc. |
+
+**Scope honest-truth:** there are ~10,000+ shipped ARPG skills. Comprehensive enumeration is not realistic in a single phase. Practical scoping:
+
+- **Phase 1**: 50-100 most-iconic, signature shipped skills (the ones every ARPG fan knows by name)
+- **Phase 2**: expansion to 300-500 (full canonical class skill rosters for D2, D3, D4, PoE)
+- **Phase 3**: comprehensive sweep targeting ~1000+ unique geometries
+
+**Cross-references for canonical enumeration:**
+- PoE Wiki skill gem inventory
+- Diablo 3 Diablofans / Maxroll skill databases
+- Diablo 4 official codex
+- Last Epoch wiki
+- Grim Dawn wiki
+- Diablo 2 wiki / Path of Diablo databases
+
+**Vision-layer-validation output:**
+
+After enumeration, surface:
+1. Skill geometries that don't fit cleanly into our 5 operational bins (candidates for future bin-cut revision)
+2. Element distributions across the canon (informs canonical element list)
+3. Timing patterns across the canon (validates Axis 3A/3B + structural tags)
+4. Recurring geometry/element/timing combinations (validates whole-kit archetypes)
+
+---
+
+### 2.5 Track E — Production pipeline integration audit
+
+**The canonical pipeline:** ChatGPT Image Gen → Meshy 3D Model → Mixamo Rig → VFX mapped
+
+For each stage, document:
+
+| Stage | Audit questions |
+|---|---|
+| ChatGPT Image Gen | What prompts produce Meshy-importable images? Style consistency? Cost per image? Iteration speed? |
+| Meshy 3D Model | What image formats work best? Output mesh quality? Topology compatibility with Mixamo? Manual cleanup required? Cost per model? |
+| Mixamo Rig | Which Meshy outputs auto-rig cleanly? Manual rigging fallback? Animation-library compatibility? Custom-rig path for non-humanoid? |
+| VFX mapping | Unity workflow for attaching VFX to Mixamo-rigged characters? Anchor-point conventions? Performance implications? |
+
+**Deliverable:** integration playbook documenting the working pipeline, known failure modes, manual-intervention steps, and recommendations for pipeline improvements.
+
+---
+
+## 3. Deliverables (multi-phase)
+
+Final deliverable location:
 
 ```
 agentic_orchestration/legolas/research/substrate-sufficiency-audit-2026-05-2X/
-  ├── summary.md                       — synthesis (4-6 pages)
-  ├── per-axis-detail.md               — axis-by-axis findings (longer; per-bin breakdown)
-  ├── unity-asset-store-shortlist.md   — PRIMARY deliverable: pack-by-pack acquisition shortlist
-  ├── mixamo-animation-inventory.md    — animation-category catalog with per-axis mapping
-  ├── opengameart-survey.md            — open-source alternatives
-  ├── arpg-canonical-benchmarks.md     — shipped-game substrate reference
-  ├── data/
-  │   ├── axis-1-engagement.csv
-  │   ├── axis-2-geometry.csv
-  │   ├── axis-2A-proxy.csv
-  │   ├── axis-2B-control.csv
-  │   ├── axis-3A-tempo.csv
-  │   ├── axis-3B-variance.csv
-  │   ├── axis-4-defensive.csv
-  │   ├── axis-5-economy.csv
-  │   ├── unity-pack-candidates.csv
-  │   ├── mixamo-animation-categories.csv
-  │   └── arpg-canonical-substrate-counts.csv
-  └── prerequisite-cost-estimate.md    — engineering hours + asset acquisition $ per gap-closure path
+  ├── phase-1-reconnaissance/
+  │   ├── summary.md
+  │   ├── unity-store-initial-survey.md
+  │   ├── mixamo-initial-inventory.md
+  │   ├── arpg-canon-initial-enumeration.md
+  │   ├── pipeline-integration-notes.md
+  │   ├── internal-substrate-state.md
+  │   └── methodology-questions-for-matt.md
+  ├── phase-2-depth-pass/
+  │   └── (deeper per-track research)
+  ├── phase-3-synthesis/
+  │   └── (final recommendations + procurement shortlist)
+  └── data/
+      ├── unity-asset-catalog.csv          ← Track B comprehensive
+      ├── mixamo-animation-catalog.csv     ← Track C comprehensive
+      ├── arpg-canon-skill-catalog.csv     ← Track D comprehensive
+      ├── per-axis-internal-substrate.csv  ← Track A
+      └── pipeline-integration-checklist.csv ← Track E
 ```
 
-### 3.1 summary.md structure
+### 3.1 Phase 1 — Reconnaissance pass (initial Agent invocation)
 
-1. **Executive summary** — one paragraph per axis: sufficient / marginal / undersupplied via internal + external paths
-2. **The blocking-gap table** — axes where (internal + reasonable external acquisition) < 2× bin count (these block QD rebuild)
-3. **Prioritized enrichment recommendations** — what to do first; rough sequencing; combined internal + external
-4. **Unity Asset Store shortlist** — top 5-10 packs worth procurement evaluation, with rough $ totals
-5. **Mixamo shortlist** — top animation categories for acquisition
-6. **Engine-extension shortlist** — top 5-10 internal palette/system extensions needed
-7. **Total estimated procurement cost** — combined Unity + Mixamo + engineering hours
-8. **Open questions** — places where the audit surfaced ambiguity that needs gandalf or Matt input
+**Scope:** establish methodology + initial findings across all five tracks. Out of scope: comprehensive coverage.
 
-### 3.2 per-axis-detail.md structure (repeat 8 times — one per axis)
+**Deliverables:**
+- `summary.md` (3-4 pages): reconnaissance findings, methodology validation, surprises, recommendations for Phase 2 scoping
+- `unity-store-initial-survey.md`: top 20-30 candidate packs cataloged in depth with all metadata fields
+- `mixamo-initial-inventory.md`: category-level inventory + animation counts per category
+- `arpg-canon-initial-enumeration.md`: 50-100 most-iconic shipped skills cataloged
+- `pipeline-integration-notes.md`: initial pipeline audit findings
+- `internal-substrate-state.md`: per-axis quick assessment of current engine substrate
+- `methodology-questions-for-matt.md`: scoping questions + recommendations for Phase 2 priorities
+- All Phase 1 data CSVs populated with initial entries
 
-For each axis:
+**Phase 1 effort estimate:** 8-15 hours of focused research time
 
-- **Bin definitions (canonical from lock doc)** — reference, not re-stated
-- **Current internal substrate inventory** — what exists per bin
-- **Substrate count vs 5× rule** — concrete numbers
-- **Gap analysis per bin** — which bins underfilled
-- **Internal enrichment options** (engine extension, palette expansion, generation-system additions)
-- **External enrichment options** (Unity packs, Mixamo categories, OpenGameArt) — **per bin**
-- **Combined sufficiency verdict** — sufficient / marginal (1-3× rule via combined) / undersupplied (<1× rule even with reasonable external) / structurally-blocked
-- **Estimated cost to reach sufficient** — engineering hours + asset $ + acquisition complexity
+### 3.2 Phase 2 — Depth pass (subsequent invocations as authorized)
 
-### 3.3 unity-asset-store-shortlist.md structure (PRIMARY DELIVERABLE)
+**Scope:** comprehensive coverage of all five tracks based on Phase 1 methodology + Matt's Phase 1 review feedback.
 
-Pack-by-pack acquisition shortlist. For each pack:
+**Phase 2 effort estimate:** 30-60 additional hours; potentially split across multiple Agent invocations
 
-- Pack name + Unity Asset Store URL
-- Publisher
-- Price (USD) + license tier
-- Total asset count + usable-for-our-purposes count
-- **Per-axis-bin coverage matrix** — which BC bins does this pack feed?
-- Quality assessment (review-based)
-- Acquisition priority (P1/P2/P3)
-- Notes (substitutes, related packs, licensing concerns)
+### 3.3 Phase 3 — Synthesis + procurement recommendations
 
-Aim for 15-30 pack candidates. Final shortlist of 5-10 with strongest cost/coverage ratio.
+**Scope:** final analysis, gap closure recommendations, procurement shortlists with cost estimates, integration sequencing.
 
-### 3.4 data CSVs
-
-Per-axis CSVs:
-
-| bin_label | current_internal_substrate_count | distinguishable_outputs_estimate | gap_to_5x_rule | internal_enrichment_path | internal_enrichment_cost_hours | external_enrichment_recommendation | external_cost_usd | combined_sufficiency_verdict |
-
-Unity pack candidates CSV:
-
-| pack_name | url | publisher | price_usd | license_tier | total_assets | usable_assets | axis_1 | axis_2 | axis_2A | axis_2B | axis_3A | axis_3B | axis_4 | axis_5 | priority | notes |
+**Phase 3 effort estimate:** 8-15 hours
 
 ---
 
 ## 4. Methodology constraints
 
 - **Read-only across all sources.** No code changes, no asset acquisitions, no schema modifications. Pure research.
-- **Cite specifically.** Internal: file paths + line numbers. External: pack name + URL + asset count + license terms verbatim.
+- **Cite specifically.** Internal: file paths + line numbers. External: pack/asset name + URL + asset count + license terms verbatim.
 - **Estimate honestly.** When "distinguishable output count" is fuzzy, say so. Better to flag as `~15-25, hard to count` than commit to a false-precision `19`.
 - **Stay in Mode A.** Do not invoke sub-agents (per `.claude/agents/legolas.md` § sub-agent constraint).
 - **No commitment authority.** Recommendations are recommendations; gandalf reviews + Matt approves before procurement or engineering work begins.
-- **External-acquisition research is mandatory, not optional.** Matt's explicit directive: legolas brings in Unity VFX (and analogous external assets). The Unity Asset Store shortlist is a required deliverable; the audit is incomplete without it.
+- **Phase 1 is reconnaissance, not comprehensive.** Do not over-commit Phase 1 effort to depth in one track at the expense of breadth across all five.
+- **Surface methodology questions early.** If a track has ambiguous scope or unclear sources, ask in `methodology-questions-for-matt.md` rather than guess.
 
 ---
 
@@ -249,37 +336,39 @@ Unity pack candidates CSV:
 
 - `canonical/story/engine-architecture-vision-qd-profile-2026-05-19.md` — the architectural target
 - **`canonical/story/qd-engine-bc-axes-lock-2026-05-20.md`** — **AUTHORITATIVE 8-axis operational spec; this dispatch operationalizes the audit of that spec**
-- `canonical/story/hive-mind-protocol-per-tier-recompose-validation-2026-05-19.md` — concurrent hive (recompose validation); ships before QD rebuild begins
-- `reincarnated-engine/design/working-agreement/engineering-disciplines.md` — disciplines #13a / #13b drift attribution; substrate-sufficiency audit is in part a #13b ablation precondition
-- `canonical/09-geometry-palette-discussion.md` — 16-type geometry palette decision; reference for Axis 2 baseline
-- `canonical/17-gear-and-spirit-guide-design.md` — gear + spirit guide architecture; touches Axes 3, 4, 5
+- `canonical/story/hive-mind-protocol-per-tier-recompose-validation-2026-05-19.md` — concurrent hive (recompose validation)
+- `reincarnated-engine/design/working-agreement/engineering-disciplines.md` — disciplines #13a / #13b / #17
+- `canonical/09-geometry-palette-discussion.md` — 16-type geometry palette; Axis 2 baseline
+- `canonical/17-gear-and-spirit-guide-design.md` — gear architecture; Axes 3, 4, 5 baseline
+- `reincarnated-engine/src/reincarnated/canonical/` — canonical engine library (element list source)
 
 ---
 
-## 6. Timing
+## 6. Timing + phasing
 
-- **Start:** immediately on receipt
-- **Target completion:** 5-7 days (14-22 hours of focused research time)
-- **Blocks:** QD-engine rebuild start (cannot commit until audit + recompose-hive both ship)
-- **Concurrent with:** recompose-validation hive (firing now); no interaction needed
-- **Output review:** gandalf reviews on completion; Matt approves any procurement decisions
+- **Phase 1 start:** immediately upon Agent fire
+- **Phase 1 completion:** single Agent session (8-15 hours of effective research time)
+- **Phase 1 review:** gandalf + Matt review Phase 1 findings; scope Phase 2
+- **Phase 2 start:** authorized after Phase 1 review
+- **Phase 2 completion:** 30-60 hours, potentially across multiple Agent invocations
+- **Phase 3 start:** authorized after Phase 2 review
+- **Total commission completion target:** 1-3 weeks
 
-The estimate raised from 8-14 hours (original dispatch) to 14-22 hours reflects:
-- Axis count expansion from 6 to 8
-- Bin count expansion (notably Axis 5 from 4 → 7 bins)
-- Unity Asset Store shortlist elevation to primary deliverable
-- Mixamo + OpenGameArt formalization
+**Blocks:** QD-engine rebuild start (cannot commit until commission Phase 3 + recompose-hive both ship)
+
+**Concurrent with:** recompose-validation hive (firing now); no interaction needed
 
 ---
 
 ## 7. Escalation
 
-- **Methodology questions:** route to gandalf
+- **Methodology questions:** route to gandalf via Phase deliverable `methodology-questions-for-matt.md`
 - **Scope/priority disputes:** gandalf decides; escalate to Matt only if gandalf+legolas cannot converge
-- **External-asset license ambiguities:** flag in summary.md § 8 open questions; do not attempt to resolve
+- **External-asset license ambiguities:** flag in summary; do not attempt to resolve
 - **If audit surfaces axes that look structurally impossible given current architecture:** flag immediately to gandalf; may trigger axis-lock revision
+- **If Track D enumeration surfaces a geometry that doesn't fit our 5 bins:** flag explicitly; this is the vision-layer-validation output we want
 
 ---
 
 **Signed:** gandalf (story-and-design steward)
-**For:** the QD-engine architectural commitment, fully operationalized.
+**For:** the QD-engine architectural commitment, fully operationalized with vision-layer validation.
