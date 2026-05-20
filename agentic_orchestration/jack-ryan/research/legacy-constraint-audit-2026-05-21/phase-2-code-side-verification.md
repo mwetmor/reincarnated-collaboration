@@ -62,9 +62,74 @@ Both LIVE as of 2026-05-19 production DB apply. No drift.
 
 ---
 
-## Rocket Section (Generation Seam)
+## W0.4 Rocket Portion (Generation Seam; 2026-05-21)
 
-**Status: PENDING — rocket to append**
+**Author:** rocket
+**Seam tag:** `rocket/v1.23-w0-4-code-side-audit-1`
+**Full deliverable:** `agentic_orchestration/rocket/research/qd-rebuild-w0-4-rocket-code-side-audit.md`
+
+### LC Verdicts — Rocket Seam
+
+| LC | Constraint | Verdict | Key File:Line |
+|---|---|---|---|
+| LC-001 | Archetype template hardcoded dict | DRIFT-FROM-AUDIT (positive — D3 composition live) | `b6_archetype_templates.py:290-305`; `archetype_composer.py` (D3 Path-a, tag `gamora/v1.4-d3-path-a-impl-1`) |
+| LC-002 | Fire selection bias | VERIFIED (structural presupposition confirmed; ablation not yet run) | `selector.py:601-609` (allow-list 2× weight); `b6_archetype_templates.py:36-46` (ELEMENT_AFFINITY) |
+| LC-006 | Canonical-four LLM exposure | SUBSTANTIALLY-RESOLVED (test coverage gap outstanding) | `selector.py:65-73` compliant; `selector.py:663-674` `fire_slot` keys in example JSON (architecturally acceptable per W0.6; test not yet extended to `_build_prompt()` output); `library_generator.py:84` non-issue (one-time setup) |
+| LC-007 | Humanoid gear schema | VERIFIED (not yet fixed; deferred P4 W4.1) | `gear_schema.py:29-34, 131-177, 198-216`; `gear_catalog.py:12-42` |
+| LC-008 | STR/DEX/INT math-bearing labels | NEEDS-DOWNSTREAM-FIX (star-lord `naming.py:323` is the actionable site; rocket-side `can_equip()` is math-bearing and clean) | `gear_generation.py:263-315` |
+| LC-012 | Foundation validator | RESOLVED (W0.3 work; commit `3e428ae`; no drift) | `foundation/foundation.py:39-65` |
+
+### LC-001 — Archetype Template Structural Inventory (W0.2 Prerequisite)
+
+The hardcoded-14-template architecture was replaced by D3 Path-a (on-boot composition from SubstrateIdentity × Role). Current state:
+
+**ArchetypeTemplate fields:** `archetype_tag`, `kit_min/kit_mode/kit_max` (triangular), `aoe_share_min/max`, `dominant_share/secondary_share/tertiary_share`, `chain_count_min/max`, `tier_depth` (3=generalist / 4=specialist), `cross_chain_rule` (STRICT/FLEXIBLE), `required_roles` (list of (role, count)), `geometry_bias` (name→multiplier), `energy_type`, `skill_power_tier`, `special_constraints`.
+
+**Composition count:** 23 total templates in `ARCHETYPE_TEMPLATES` (18 composed elemental + 5 physical hardcoded). hybrid_mage RETIRED 2026-05-18.
+
+**Role × substrate matrix:** burst_damage → `_mage`; area_damage → `_caster`; control → `_controller`. Aliases: fire/water burst=area share same tag (fire_mage, water_mage). earth/wind burst = earth_burst, wind_burst (distinct from caster). All 7 canonical substrates × 3 roles populated.
+
+**BC-target implicit assumptions:**
+- All elemental: `energy_type="mana"`, `skill_power_tier=50`
+- Physical warrior/grappler: `energy_type="rage"`, `skill_power_tier=65`
+- Hunter/skirmisher/rogue: `energy_type="focus"/"combo"`, `skill_power_tier=58`
+
+**W0.2 notes:** Physical hardcoded templates carry role-specific geometry constraints (`require_cleave`, `require_escape_mobility`, `require_2_mobility`) not expressible via substrate-identity × role formula. These are W0.2's most structurally resistant surface.
+
+### § 2.8 W1.13 Current-State Verification
+
+**Skill-tree-node infrastructure is FULLY ABSENT from generation seam.** No `SkillTreeNode`, `TreeNode`, `node_subset`, `per_node_coefficients`, `bc_coordinate`, or any tree-node concept in `b6_kit_builder.py`, `class_generator.py`, or `b6_archetype_templates.py`. Kit builder operates on flat `_SlotPlan` list (tier/chain/role/element). W1.13 requires building NEW generation-side infrastructure to produce `ArchiveEntry`-compatible kit descriptions with node_subset + per_node_coefficients fields — no modifications to existing classes.
+
+### OQ-2 — chain_lightning Boss Multi-Hop
+
+chain_lightning uses geometric-series fan-out model: total multiplier = `(1 - decay^(n+1)) / (1 - decay)`, default n=3 arcs, decay=0.7 → ~2.76× (`damage_resolver.py:323-337`). In solo-sim (1v1), all arc hits resolve on the single boss defender — full multiplier applied. Not bin-limited. Key caveat: solo-sim OVER-estimates chain_lightning boss damage vs multi-target environments where arcs would hop to nearby enemies. File: `damage_resolver.py:325-337`.
+
+### OQ-3 — 5-Skill Kit Generation Anomaly
+
+No hard 5-skill floor in code. Kit size is triangular-sampled from `(kit_min, kit_mode, kit_max)` per template (`b6_kit_builder.py:129-135`), minimum kit_min=10 for all current templates. `_plan_tier_counts()` (lines 312-346) allocates via band constraints; last tier gets remainder clamped to band. If a 5-skill kit was observed in Alt A spot-checks, it is not reproducible from current templates (kit_min=10 prevents it). This anomaly may have been from a legacy template state or test fixture. File: `b6_kit_builder.py:312-346`.
+
+### MEDIUM-Risk LCs — Rocket Seam Quick Verdicts
+
+| LC | Verdict |
+|---|---|
+| LC-013 | VERIFIED — `ARCHETYPES_FORBIDDEN_CLOSE_RANGE = {fire_mage, water_mage}` at `b6_archetype_templates.py:343-347`; earth_caster/wind_caster not in list (acknowledged asymmetry) |
+| LC-014 | FORMALLY-DEFERRED per W0.6; Q4 syllable-cap gate active; Q2 `{word}-bolt` unamended |
+| LC-018 | VERIFIED as DOCUMENTED — all elemental archetypes energy_type="mana"; structural homogeneity confirmed |
+| LC-022 | DRIFT-FROM-AUDIT (positive) — D3 composition generates lightning/holy/shadow templates at boot; 11 new tags present |
+| LC-025 | VERIFIED ABSENT — no charge-stack or CWDT-style skill generation in ability_grammar.py or b6_kit_builder.py |
+| LC-026 | DRIFT-FROM-AUDIT (positive) — mana bug RESOLVED; `combatant.py:362-375` branches correctly on energy_type |
+| LC-028 | VERIFIED — single-word rule enforced in `selector.py:658` in `_build_prompt()` rules block |
+| LC-030 | VERIFIED ABSENT — no `hp_cost` or `cost_type` in generation seam; HP-economy Axis 5 bin will be empty |
+
+### Cross-Seam Contract Notes
+
+- LC-001 D3 tag expansion: 23 tags in `ARCHETYPE_TEMPLATES` vs prior 13. Telemetry queries enumerating hardcoded archetype tags need updating. No MIGRATION.md entry filed for the tag expansion — gamora/star-lord awareness item.
+- LC-006 test coverage: W0.6 action item outstanding — add `_build_prompt()` user prompt coverage assertion to `tests/test_no_canonical_four_in_llm_prompts.py`. Rocket seam owns this addition.
+- LC-007 gear schema → drax: Position C migration requires Loadout schema changes surfacing in reincarnated-loadout/ (drax seam). MIGRATION.md + Discipline #15 UI decomposition required when P4 W4.1 dispatch fires.
+
+### New HIGH-Risk LC Discovery
+
+None. No phase-halt triggered.
 
 ---
 

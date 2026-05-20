@@ -142,7 +142,35 @@ Not applicable to verification work; the dispatch is INSPECTION not implementati
 **New HIGH-risk LC discovered:** None (no phase-halt triggered).
 **Open items for knight-rider:** (1) P1 dispatch for `floor_lock_*` telemetry columns before gamora Option B ships; (2) star-lord as W0.9 stakeholder for fight-context discriminator column when PackProxy is retired.
 
-### Rocket section — PENDING
+### Rocket section — COMPLETE 2026-05-21
+
+**Tag:** `rocket/v1.23-w0-4-code-side-audit-1`
+**Deliverable:** `agentic_orchestration/rocket/research/qd-rebuild-w0-4-rocket-code-side-audit.md`
+
+**LC verdicts (rocket seam):**
+- LC-001: DRIFT-FROM-AUDIT (positive) — D3 Path-a composition live; 23 templates at boot; hardcoded-14 replaced; physical (5 templates) hardcoded by design
+- LC-002: VERIFIED — fire allow-list 20 vs wind 7 (2× weight imbalance); ELEMENT_AFFINITY.fire=[wind,earth] secondary-slot contamination as structural presupposition; ablation needed per Discipline #13b
+- LC-006: SUBSTANTIALLY-RESOLVED — system prompt clean; `_build_prompt()` `fire_slot`/`wind_slot` example keys present but architecturally acceptable per W0.6; test coverage gap for `_build_prompt()` user prompt outstanding (W0.6 action item)
+- LC-007: VERIFIED — humanoid gear schema confirmed as-documented; 4-slot Loadout; medieval BASE_ITEMS in gear_catalog.py; deferred P4 W4.1
+- LC-008: NEEDS-DOWNSTREAM-FIX — star-lord `naming.py:323` is actionable site; rocket-side `can_equip()` str/dex/int are math-bearing abbreviations, not LLM-visible
+- LC-012: RESOLVED — W0.3 commit `3e428ae`; no drift
+
+**W0.2 prerequisite:** LC-001 structural inventory captured — ArchetypeTemplate field set, role×substrate matrix, BC-target implicit assumptions, physical template constraints. W0.2 math-before-code can consume this directly.
+
+**W1.13:** Skill-tree-node infrastructure FULLY ABSENT. W1.13 builds NEW generation-side infrastructure (node_subset + per_node_coefficients in class output schema).
+
+**OQ-2:** chain_lightning receives full geometric-series multiplier on boss in solo-sim (~2.76×). NOT bin-limited. Solo-sim over-estimates vs multi-target. `damage_resolver.py:325-337`.
+
+**OQ-3:** No 5-skill floor in code. kit_min=10 for all current templates. 5-skill anomaly not reproducible from current code. `b6_kit_builder.py:312-346`.
+
+**Positive MEDIUM-LC drifts:** LC-022 (D3 generates lightning/holy/shadow — 11 new tags live); LC-026 (mana bug RESOLVED in combatant.py:362-375).
+
+**New HIGH-risk LC discovered:** None. No phase-halt triggered.
+
+**Open items for knight-rider:**
+1. LC-006 test coverage: Add `_build_prompt()` user prompt assertion to `tests/test_no_canonical_four_in_llm_prompts.py` (non-blocking; W0.6 action item)
+2. LC-001 tag expansion awareness: D3 added 11 new archetype tags; telemetry queries enumerating hardcoded tags need updating (gamora/star-lord seam awareness; no MIGRATION.md filed)
+3. W0.2 is next substantial rocket workstream
 
 ### Gamora section — PENDING
 
