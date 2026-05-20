@@ -649,4 +649,33 @@ The road continues. The lever waits. Mithrandir signs.
 
 **Tag namespace clarification:** the seam tag uses the load-bearing qualifier `-soft-disable`. Future archaeologists who do `git tag --list 'recompose-hive/v*'` will see only `v0.0-pre-activation` and `v0.1-option-a-floor-widened`; the absence of `v0.2-option-b-recompose-conditioned` (no qualifier) at that point is itself part of the canonical record — the milestone hasn't landed yet.
 
+---
+
+## 2026-05-19 EDT — gamora STATE — P1 Option B SOFT-DISABLE COMPLETE
+
+**Disposition:** Gandalf Option 2 (soft-disable) executed per knight-rider HANDOFF. AUTONOMOUS L1 within engine-sim seam.
+
+**Commit landed in `reincarnated-engine` main:**
+- `554e310` — feat(gamora): Option B soft-disable — LEVER_FLOOR_LOCK_WORKING_MODIFIER = MODIFIER_SEARCH_FLOOR (recompose-hive P1)
+
+**Code change summary:**
+- `balance_loop.py`: `LEVER_FLOOR_LOCK_WORKING_MODIFIER: float = MODIFIER_SEARCH_FLOOR` (was `0.005`). Constant repositioned to after `MODIFIER_SEARCH_FLOOR` definition (line 142 → line 200) to resolve forward-reference; the named-constant reference (not the literal `0.01`) is the single-source-of-truth form per Discipline #18.
+- `balance_loop.py`: Docstring updated (~55 LOC) — "SOFT-DISABLE STATE (2026-05-19)" section added covering behavioral state, re-enable condition, references. Original design rationale retained for re-enable context.
+
+**Test verification: 179/179 PASS** (295.82s). All 4 floor-lock unit tests pass under soft-disable:
+- Tests 1, 2, 4: branch logic verified (mock-controlled; pass regardless of working_modifier value)
+- Test 3 (`test_floor_lock_recompose_field_in_classbalanceresult`): PASS — field is `bool`; production path through `ClassBalanceResult.floor_lock_recompose` confirmed
+
+**MIGRATION.md v1.22:** SOFT-DISABLE NOTE section appended covering held-tag state, behavioral state under soft-disable, telemetry obligations (star-lord schema v2.13 unchanged), P2 special instructions, re-enable condition.
+
+**AGENT_STATE.md:** Soft-disable record added; prior P1 FRICTION + smoke B1 diagnostic retained as canonical empirical record.
+
+**Telemetry note (for star-lord):** Schema v2.13 obligations (`floor_lock_recompose` + `working_modifier` + `floor_lock_detected`) unchanged. Fields populate normally under soft-disable. `working_modifier` will equal `eval_modifier` in all `recompose_attempts` records (no divergence to 0.005 under soft-disable). `WHERE floor_lock_detected=TRUE` queries still apply for P2 analysis.
+
+**Tag intent:** `gamora/v1.14-balance-loop-option-b-recompose-conditioned-soft-disable` — awaiting knight-rider to fire. The "-soft-disable" qualifier is load-bearing.
+
+**Hive milestone tag `recompose-hive/v0.2-option-b-recompose-conditioned` remains HELD** per gandalf disposition. Re-enable path: P2 surfaces a confirmed floor-lock-recovery subject → gamora restores `LEVER_FLOOR_LOCK_WORKING_MODIFIER = 0.005` → smoke B1 runs against that subject → conditions 1+2+3+4 PASS → milestone tag fires.
+
+**No unexpected behavior.** Forward-reference issue on `MODIFIER_SEARCH_FLOOR` resolved by repositioning the constant block; this is a within-seam refactor with no behavioral impact.
+
 Routing now.
