@@ -314,3 +314,60 @@ W0.9.6 (calibration sweep; Discipline #17) fires in Phase 2.5.
 - Parallel batches via `concurrent.futures.ProcessPoolExecutor`
 - Cell-targeted convergence: target uncertain cells first
 - Performance target: ≤5× slower than PackProxy baseline
+
+---
+
+**Phase 2.3 (W0.9.4): COMPLETE — 2026-05-20**
+
+### Phase 2.3 deliverables
+
+- [x] **Mitigation 1 — Smoke-test mode:**
+  - `SmokeTierConfig`, `SmokeResult` dataclasses in `gauntlet_modes.py`
+  - `ConvergenceUsageMode.run_slot_smoke()`: fast initial eval; quick-reject/accept signals
+  - `ConvergenceUsageMode.run_slot()`: `tick_size` parameter added
+
+- [x] **Mitigation 2 — Parallel batches:**
+  - `KitSlotSpec` dataclass (picklable), `_run_kit_slot_worker()` (top-level picklable function)
+  - `BatchGauntletRunner`: `run_batch(specs, use_parallel)` + `archive_lock` Phase 2.4 wiring surface
+  - Parallelism boundary documented: ACROSS kits, SEQUENTIAL within a kit
+
+- [x] **Mitigation 3 — Cell-targeted convergence:**
+  - `CellPriorityResult(NamedTuple)` in `gauntlet_archive.py`
+  - `GauntletArchive.cell_priorities()`: sorted (sparse=1, failing=2, satisfied=3); ~50% iteration reduction
+
+- [x] **Mitigation 4 — Reduced-tick-rate (REQUIRED per §3.4):**
+  - `REDUCED_TICK_SIZE=0.5s` constant in `spatial_engine.py`
+  - `SpatialFightEngine.__init__()`: `tick_size` param → `self._tick_size`
+  - `SpatialFightEngine.run()`: 5 `TICK_SIZE` refs → `self._tick_size`
+  - `run_spatial_fight()`: `tick_size` param passed through
+
+- [x] **A3 stability criterion verified (math note §3.4):**
+  - swarm (open_arena): delta=0.0000 < ±0.05. PASS. REDUCED_TICK_SIZE QUALIFIED.
+  - boss (boss_with_adds): delta=0.0000 < ±0.05. PASS. REDUCED_TICK_SIZE QUALIFIED.
+  - No tier disqualification.
+
+- [x] **Discipline #12 semantic shift documented** in commit message AND MIGRATION.md v1.26
+
+- [x] **Smoke: 37 W0.9.4 tests PASS; 41 W0.9.3 tests PASS; 27 W0.9.2 tests PASS; 56 balance_loop tests PASS**
+
+- [x] **MIGRATION.md v1.26** authored
+
+- [x] **AGENT_STATE.md updated:** Phase 2.3 complete; Phase 2.4 (W0.9.5) coordination notes documented
+
+- [x] **Intermediate tag fired:** `qd-rebuild/v0.9-phase-2-3-performance-optimized`
+
+- [x] **Commit:** `09cb812`
+
+### Phase 2.4 next-fire context (W0.9.5 — telemetry instrumentation)
+
+Phase 2.4 (W0.9.5) fires next. Key coordination items from Phase 2.3:
+
+1. **Archive insertion wiring**: `BatchGauntletRunner.archive_lock` is the Phase 2.4 surface. Wire `with runner.archive_lock: archive.insert(entry)` after `run_batch()`. `ConvergenceFightResult` carries all fields needed for `GauntletArchiveEntry`.
+
+2. **balance_loop.py smoke-tier hook**: `_run_spatial_slot()` unchanged in Phase 2.3 (still calls `run_slot()` at full tick). Phase 2.4 decides whether to restructure the convergence loop to use `run_slot_smoke()` for early iterations.
+
+3. **Telemetry schema v2.14**: coordinate with star-lord. `spatial_telemetry.py` is the writer boundary. Phase 2.4 replaces `NullSpatialTelemetryWriter` with real writer in convergence path.
+
+4. **Parallel execution integration test**: `use_parallel=True` is implemented but not yet integration-tested with real archive. Phase 2.4 should verify no shared-state corruption.
+
+5. **W0.9.6 calibration sweep**: Phase 2.5, co-run with W0.1 sweep. Measures actual wall-clock vs PackProxy baseline to verify ≤5× target.
