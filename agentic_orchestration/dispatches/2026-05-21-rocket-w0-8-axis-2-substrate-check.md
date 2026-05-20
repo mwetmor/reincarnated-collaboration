@@ -119,3 +119,36 @@ Not applicable — this dispatch produces an analytical mapping + gap list, not 
 - `agentic_orchestration/legolas/research/substrate-sufficiency-audit-2026-05-20/phase-1-reconnaissance/` (full Phase 1 deliverables)
 - `canonical/story/substrate-generalization-track-c-synthesis-2026-05-21.md` (uniform-depth + OQ-7 water DPS density)
 - `reincarnated-engine/design/working-agreement/engineering-disciplines.md` § 11.1 (state-space conditioning)
+
+---
+
+## Completion record
+
+**Completed by:** rocket
+**Date:** 2026-05-21
+**Tag fired:** `qd-rebuild/v0.8-axis-2-substrate-check`
+**Deliverable:** `agentic_orchestration/rocket/research/qd-rebuild-w0-8-axis-2-substrate-check.md`
+
+### Scope checklist
+
+- [x] 16-type palette (28 in VALID_GEOMETRIES) mapped to 5-bin Axis 2 spec — full mapping table in deliverable § 2
+- [x] Per-bin distinguishable-template count documented — empirically grounded, sources cited in § 4
+- [x] Gap-to-5×-rule quantified per bin — explicit per-bin table in § 5
+- [x] HIGH-priority enrichment seed list authored — chain: 12 candidates (§ 6); multi-spawn: 12 candidates (§ 7)
+- [x] OQ-7 water DPS density folded in — § 8 with specific instantaneous-burst template recommendations
+- [x] Structural metadata gaps flagged — § 11 includes `bounce_count` and `spawn_count` as new fields needed beyond legolas's existing list
+- [x] Intermediate tag fired
+
+### Key findings for knight-rider / hive state doc
+
+1. **Palette count:** VALID_GEOMETRIES has 28 entries in current engine state (canonical-09 final table says 26 due to counting methodology differences; code is authoritative).
+2. **Aggregate gap:** ~58-64 distinguishable templates currently across all 5 bins vs ~125 target. At ~49-52% of target overall.
+3. **Chain bin:** ~3-4 distinguishable templates vs ~25 target; gap ~21-22. No `bounce_count` parameter exists; no `is_chain` schema field. 2 geometry types only.
+4. **Multi-spawn bin:** ~5-6 distinguishable templates vs ~25 target; gap ~19-20. No `spawn_count` parameter; no `is_multi_spawn` schema field. 2 geometry types only.
+5. **Small-AOE bin:** near-target (~20-22); lowest priority for enrichment; richest bin with 11 geometry types.
+6. **New schema fields recommended:** add `bounce_count` (chain geometries) and `spawn_count` (multi-spawn geometries) to Ability schema alongside the 3 fields legolas already identified (`aoe_radius`, `is_chain`, `is_multi_spawn`).
+7. **OQ-7 water DPS disposition:** water's sustained-zone geometry preference (large-AOE dominant) is the structural cause of elevated modifier requirements. Instantaneous-burst multi-spawn (M-3, M-8) and short-chain (C-4) templates are the recommended enrichment targets for water-cohesion balance.
+
+### Scope-creep / structural flags for knight-rider
+
+None. No ambiguities required escalation. Multi-bin edge cases (leap_strike, cone, aura) resolved via damage-weighted argmax interpretation per dispatch instructions. Proxy entity vs multi-spawn scoping (totem = multi-spawn; summon_combatant = Axis 2A deferred) applied cleanly.
