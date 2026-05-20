@@ -6,7 +6,27 @@
 
 ---
 
-## Two pickup items in priority order
+## ⚡ Late-evening addition (post-wind-down; PRIMARY new headline)
+
+**A new substantive workstream landed post-wind-down**: gandalf authored a math-before-code investigation dispatch for gamora, covering two counterfactual hypothesis experiments (R2-as-canonical convergence + ST damage multiplier sweep). Both could obviate or amend Option A. **This is now the primary pickup, ahead of Option A approval.**
+
+**Activation prompt:** `agentic_orchestration/next-session-activation-prompt-2026-05-19.md` § 1 — paste-ready for `claude --agent knight-rider` startup. Two activation paths documented (knight-rider-led OR gandalf-led hive-iteration; Matt's recommended path is knight-rider-led per the prompt).
+
+**Substantive artifacts:**
+- `agentic_orchestration/dispatches/2026-05-19-gamora-r2-counterfactual-convergence-math.md` (the gamora dispatch; 34KB)
+- `agentic_orchestration/gandalf/requests/2026-05-19-gandalf-iterate-with-gamora-on-counterfactual-math.md` (the gandalf operating mandate for hive-iteration alternative path)
+
+**Effort estimate:** 6-10 hours math-only (Phases A-D); 12-22 hours end-to-end if math validates a lever and Phase E implementation triggers.
+
+**How this changes the previous priority order:**
+
+- **NEW priority 1**: fire gamora R2+ST counterfactual dispatch per the activation prompt; coordinate gandalf-gamora iteration; Phase E implementation triggers Matt-approval only if scope exceeds bound (per dispatch § 0).
+- **DEMOTED priority 2**: Option A approval pickup (was previous priority 1 — now HELD pending math results that may amend or obviate it). HELD dispatch stays parked at its file path.
+- **UNCHANGED priority 3**: retry-2 mechanical closeout (commit STATE entries if rocket Monitor wrote them).
+
+---
+
+## Original two pickup items in priority order (now demoted; retain for reference)
 
 ### 1. Retry-2 LLM-naming closeout (mechanical; ~30 min after 2026-05-19 wind-down)
 
