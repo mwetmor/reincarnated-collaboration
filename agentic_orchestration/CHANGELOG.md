@@ -4,6 +4,36 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-rebuild P0 W0.9 Phase 2.1 COMPLETE: PackProxy retired; 5-tier spatial gauntlet promoted
+
+**Event:** W0.9 Phase 2.1 (PackProxy ×8 retirement from swarm-tier convergence + R2 spatial sub-gauntlet promotion to default for all 5 tiers + 3 new arena scenarios per A8 § 9) returned successfully after ~46 minutes of substantial implementation work. Engine tag `qd-rebuild/v0.9-phase-2-1-packproxy-retired-r2-promoted` fired (commit `0041a12`).
+
+**PackProxy disposition: DEPRECATED in-tree (not removed).** Rationale: 3 test files contain PackProxy-specific assertions documenting pre-W0.9.1 behavior; `damage_resolver.py` `pack_proxy_size` AOE multiplier preserved for backward-compat; backward-compat with telemetry reads of pre-W0.9.1 season data. "Fix the arena, not the synergy" principle calls for removal from the *convergence path* — in-tree retention is correct for the DEPRECATED class itself until a deliberate cleanup dispatch.
+
+**3 new ArenaScenario constants** authored in `simulation/spatial_gauntlet/arena.py` per gandalf A8 § 9 handoff:
+- `SCENARIO_MAGIC_PACK` (32.7×14m; 1 magic + 3 swarm; 120s kills-only; WR 0.55-0.70)
+- `SCENARIO_ELITE_PACK` (28×28m; 1 elite + 2 magic; 180s kills-only; WR 0.45-0.60)
+- `SCENARIO_MINI_BOSS` (30×30m; 1 mini-boss + 2 elite; mini_boss_killed; 150s soft / 240s hard)
+- Boss tier uses existing `SCENARIO_BOSS_WITH_ADDS` (per A8 § 6 — no new scenario)
+
+`ArenaScenario` dataclass extended with `mini_boss_index`, `soft_timeout_s`, `has_mini_boss` property. `SpatialFightEngine.run()` handles `mini_boss_killed` with two-phase timeout.
+
+**Encounter_kind `"magic"` enum value DEFERRED to W0.9.5** (Phase 2.3 star-lord territory). Phase 2.1 uses `NullSpatialTelemetryWriter` — no telemetry emitted from convergence-path spatial fights. `"elite"` + `"mini-boss"` already exist in schema. Cross-seam request documented in `simulation/MIGRATION.md v1.23`.
+
+**Test results:** 311 targeted smoke tests PASS; 27 new `test_spatial_gauntlet_scenarios.py` tests PASS. 2 previously failing `TestModifierClampGate` tests fixed by extending mock coverage to `_run_spatial_slot`.
+
+**Discipline #12 semantic shifts documented** in commit message + MIGRATION.md v1.23:
+1. Swarm-tier opponent type: `PackProxy` → raw `Monster` (spatial sim) — architectural arena change
+2. `TIER_CONVERGENCE_WEIGHTS["swarm"]`: 0.0 → 1.0 — under PackProxy, swarm WR was 1.000 trivially (no info content; weight 0.0 correct). Under true multi-monster, swarm WR carries information about positional AOE effectiveness; weight 1.0 reflects ARENA change, not tuning preference.
+
+**Phase 2.2 next-fire context (W0.9.3):** `_run_spatial_slot()` provides convergence-mode entry point. P7 W7.2 archive-query validation path (per math note §6.4) is load-bearing architectural commitment.
+
+**W0.1 Phase 2 UNBLOCKED** (balance_loop.py changes now safely sequential; W0.1 fires per its own dispatch).
+
+State-of-hive § 1 W0.9 row updated to Phase 2.1 COMPLETE.
+
+---
+
 ## 2026-05-21 — QD-rebuild Cross-seam: v2.15 co-migration spec authored (W0.2 + W0.1 jointly)
 
 **Event:** Per jack-ryan W0.2 Gate-1 Amendment A4 mandate (single ALTER TABLE for co-migration), star-lord authored the v2.15 schema co-migration spec. Engine tag `star-lord/v1.17-w0-2-w0-1-schema-v2-15-co-migration-spec` fired (commit `c4a409c`).
