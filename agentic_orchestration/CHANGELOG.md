@@ -4,6 +4,48 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-rebuild P0 W0.9 Phase 1 + Phase 1.5 COMPLETE: math-before-code locked
+
+**Event:** W0.9 (gauntlet architecture migration) Phase 1 (math-before-code) + Phase 1.5 (amendment fold-in) workstreams complete. Tag `qd-rebuild/v0.9-math-note-phase-1-complete` fired (engine commit `edcac29`); collab commit `1a1b3d7` (dispatch completion record).
+
+**Math note canonical version** at `reincarnated-engine/src/reincarnated/simulation/math/gauntlet-migration-arena-equivalence.md`. 7 unique amendments folded from jack-ryan Gate-1 (3) + gandalf architectural review (5; with 1 overlap):
+
+1. §6.6 NEW — LC-003 cross-seam schema gap acknowledgment + round-trip smoke fixture spec (jack-ryan A1; REQUIRED)
+2. §6.1 — SPATIAL_DAMAGE_SCALE Discipline #17 calibration parameter anchoring + re-calibration trigger condition (jack-ryan A2 + gandalf A6 combined)
+3. §3.4 — tick-rate stability verification criterion (±0.05 WR delta threshold per tier; jack-ryan A3)
+4. §6.4 — P7 W7.2 archive-query clarification (gandalf A4)
+5. §6.7 NEW — W0.9.5 telemetry coverage for all 8 BC axes (gandalf A5; most consequential)
+6. §5.4 — swarm convergence weight 0.0→1.0 Discipline #12 semantic-shift annotation (gandalf A7)
+7. §6.3 — magic/elite/mini-boss scenario gate phrasing (gandalf A8)
+
+**Phase 2 kickoff dependencies surfaced by Phase 1.5 completion:**
+- **Gandalf A8 follow-on:** magic/elite/mini-boss arena dimensions + composition + win conditions are gandalf-territory design decisions. Phase 2 W0.9.2 (all-5-tier promotion) cannot complete without these. Knight-rider routes gandalf dispatch.
+- **Star-lord A5 follow-on:** §6.7 8-axis BC event spec needs star-lord review before W0.9.5 instrumentation begins. Schema v2.14 migration includes LC-003 fields + 8-axis BC fields. Knight-rider routes star-lord dispatch (pre-Phase 2 schema agreement).
+- **LC-003 round-trip smoke fixture (gamora-owned):** gamora authors + runs smoke; star-lord confirms recorder mapping once schema proposal surfaces.
+
+**Gandalf closing assessment of Phase 1 work:** *"Cleanest piece of math-before-code work I've seen out of this seam."* Architectural commitment holds; recommend Gate-1 pass on architectural-alignment lane pending amendments (now folded).
+
+State-of-hive § 1 W0.9 row updated. Phase 2 implementation fires when A8 + A5 dispatches return.
+
+---
+
+## 2026-05-21 — QD-rebuild P0 W0.6 FULL CLOSURE: drift candidate dispositions complete (LC-006 + LC-007 + LC-014 + LC-028)
+
+**Event:** W0.6 drift candidate closures workstream completes with full closure (supersedes earlier `qd-rebuild/v0.6-drift-closures-partial`). Tag `qd-rebuild/v0.6-drift-closures-complete` fired (engine commit `2b1b9a6`). Per-LC final dispositions:
+
+- **LC-006 canonical-four LLM exposure — FULL CLOSURE.** RESOLVED at LLM-prompt-construction layer (W0.4 star-lord verified: cipher migration live in `llm/naming.py`; test guard at `tests/test_no_canonical_four_in_llm_prompts.py`). D3 cohesion-judge layer architecturally clean by design (gandalf disposition 2026-05-21 — Option B with Option-C label-emission sliver). **No second cipher migration required at cohesion-judge layer.** Implementation contract for P5 cohesion-judge prompt design: mechanical signature + thematic-grammar reference + canonical-7 label-set as emission vocabulary (NOT candidate labels). Critical test guard: prompt must NOT inject canonical-seven as "candidate labels to choose from."
+- **LC-007 humanoid gear schema — FORMAL-DEFER** to P4 W4.1 (sim extensions enable non-humanoid) + Stage 1 form-bias migration (separately scoped per cadence strategy).
+- **LC-014 D1 element-name pool humanoid-fantasy selection bias — FORMAL-DEFER** to catalogue-track sub-locks per decisions-log 2026-05-16. Q4 syllable-cap gate amendment is partial implicit mitigation; BC measurement risk LOW; deferral does not block QD archive filling.
+- **LC-028 single-word rule — REVISE-CANONICAL-DOC (knight-rider action item COMPLETE).** Decisions-log entry 2026-05-21 scopes rule to D1 + L2 layers only; L3 cipher-generated per-season vocabulary explicitly NOT constrained. Pre-cipher-migration-dispatch requirement satisfied.
+
+**Architectural insight (gandalf disposition for LC-006):** the cohesion-judge runs BACKWARD (kit-already-exists → name-it). The bias-removal job is structurally satisfied because the mechanical kit is locked before the judge looks. The judge IS allowed to know the canonical-7 label-set exists — that's its output vocabulary, not an inference-shaping input. The grouping-layer cipher (canonical-7 v1.2) exists for FORWARD generation to hide substrate during inference. For BACKWARD judgment, the architecture dissolves the concern.
+
+**Engineering disciplines anchored:** Discipline #13 (implicit-pillar drift) — the alternative framing "find the kit's archetype slot from a known set" would have recreated archetype-lock-in pathology one phase later; the architectural test guard prevents this.
+
+State-of-hive § 1 W0.6 row updated to FULL CLOSURE. **Fourth P0 workstone milestone complete** (W0.5 + W0.6 + W0.8 + W0.4 star-lord portion). 5 remaining.
+
+---
+
 ## 2026-05-21 — QD-rebuild P0 W0.4 star-lord portion COMPLETE: telemetry/export-side LC verification + critical cross-seam gap surfaced
 
 **Event:** Per multi-seam W0.4 dispatch, star-lord completed the telemetry/export seam portion. Engine tag `star-lord/v1.15-w0-4-code-side-audit-1` fired (pushed). Deliverables: `agentic_orchestration/star-lord/research/qd-rebuild-w0-4-star-lord-code-side-audit.md` + shared `agentic_orchestration/jack-ryan/research/legacy-constraint-audit-2026-05-21/phase-2-code-side-verification.md` (star-lord section).
