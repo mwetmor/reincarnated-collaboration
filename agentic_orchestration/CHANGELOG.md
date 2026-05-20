@@ -4,7 +4,35 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-19 (later evening) — AMENDMENT: R2+ST counterfactual refutation framing was overreach
+
+**Event:** Matt push-back on the entry below ("Investigation COMPLETE") surfaced that the disposition language overstated what existing telemetry could support. The "both levers empirically eliminated" framing closed two architectural-direction doors that the data did not actually close.
+
+**What was overstated:**
+
+- **Experiment 1 (R2-as-canonical) was NOT TESTED.** The existing R2 telemetry carries a single converged modifier per class — the one each class reached under 1D PackProxy convergence. It does NOT carry per-class WR observations across the modifier landscape. The investigation observed *"at the 1D-converged modifier, what does R2 show?"* — NOT *"if R2 had been the convergence target, where would each class converge to?"* The latter requires multi-modifier R2 data per class to fit a sigmoid and solve for hypothetical M\*. Phase A correctly identified the sigmoid as uncalibratable; the disposition then mistakenly treated absence-of-multi-modifier-signal as refutation rather than "the experiment cannot be run with this data."
+
+- **Experiment 2 (ST K-sweep) refutation is correct AT the floor-locked modifier, but UNPROVEN above.** When WR_boss_baseline = 0, the linearization WR(K) = WR_base × DPS_ratio(K) = 0 for any K (mathematically exact). But the very classes where WR_base > 0 at their current modifier — including any class converging above the floor — are exactly where K would have its strongest potential effect, and K's effect at those modifiers was not tested. K-as-lever is not eliminated; it is bounded-below by whatever moves boss WR off zero.
+
+**What stays correct in the original entry:** the mathematical observation about WR_base = 0; the Phase A finding that R2 boss_with_adds_wr = 0.000 for all 51 classes at their 1D-converged modifiers; the `get_1d_wr_for_class()` bug finding; the actionable-lever sharpening (Option A + kit-redesign queue remain the right immediate paths under either reading); the joint matrix row 5 interpretation insofar as it captures "at the 1D operating point" observations.
+
+**What was commissioned to correct the gap:** **Phase B.2 — R2 modifier sweep.** Re-run R2 spatial sub-gauntlet for each class at a sweep of modifier values (rather than only the 1D-converged value), producing the per-class per-modifier WR observations needed to fit the sigmoid and solve for hypothetical M\* under R2-as-canonical convergence. Until Phase B.2 lands, H1 remains untested.
+
+**Artifacts amended in place (audit trail preserved):**
+
+- `canonical/story/r2-st-counterfactual-findings-2026-05-19.md` — top banner + new § 8 ("Methodological gap correction") binding the disposition language in § 0-§ 7
+- `agentic_orchestration/gandalf/research/hive-runs-review-2026-05-19/review.html` — top banner + new Part 2.B.5.amend section + Decision #1 inline correction; document status bumped to v1.3
+- This CHANGELOG entry
+
+**Discipline pattern (fourth same-day self-correction):** the previous three same-day self-corrections were substantive empirical updates. This fourth is a *framing correction* — a disposition that was empirically grounded but rhetorically over-extended. The team lesson: *empirical evidence that bounds-the-question is not the same as empirical evidence that closes-the-question.* The disposition language must distinguish them, especially when existing data was collected for a different purpose than the question being asked.
+
+**Trigger A queue impact:** unchanged. Option A modifier-floor widening remains the actionable next step under either reading of the counterfactual evidence. Matt's approval gate stands. The corrected disposition does not change Decision #1's recommendation; it sharpens the rationale for *why* Option A leads (it's the prerequisite that moves boss WR off zero, making K-as-lever testable for the subset of classes that would benefit).
+
+---
+
 ## 2026-05-19 — R2+ST Counterfactual Math Investigation COMPLETE (gamora Phases B+C+D)
+
+> **⚠️ AMENDED — see entry above ("AMENDMENT: refutation framing was overreach").** The "Investigation COMPLETE" language and the "both levers empirically eliminated" framing in this entry overstate what the data supported. Read this entry through the amendment lens. Specifically: "R2-as-canonical convergence would not have moved boss-tier collapse" is true *at the 1D operating point* but does not bind the counterfactual; the counterfactual is the question Phase B.2 actually tests.
 
 **Event:** Gamora completed Phases B, C, and D of the R2+ST counterfactual math investigation commissioned by gandalf this morning and authorized in § 13.1 of the S1-firstbatch-fail disposition. Three math notes filed. Trigger A does not fire. Joint matrix row 5.
 

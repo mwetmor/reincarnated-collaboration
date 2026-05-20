@@ -73,8 +73,12 @@ code { background: var(--paper-light); padding: 1px 4px; border-radius: 2px; fon
 <h1>Hive-Mind Runs Comprehensive Review</h1>
 <p class="subtitle">A, B, C, D — engine-rebuild through Phase A2, with successes, failures, and items awaiting Matt's decision. 2026-05-19.</p>
 
+<div class="banner" style="background:#fff7e6; border:2px solid #d97706; padding:14px; margin-bottom:14px;">
+<strong>⚠️ AMENDED 2026-05-19 — refutation framing incomplete.</strong> The Part 2.B.5 R2 + ST counterfactual section as originally authored described both alternative architectural levers as "empirically eliminated." Matt push-back surfaced that this overstates what existing telemetry could support: (1) Experiment 1 (R2-as-canonical) was <em>not tested</em> by available data — existing R2 telemetry is single-modifier-per-class at the 1D-converged operating point, not multi-modifier across the landscape required for the counterfactual; (2) Experiment 2 (ST K-sweep) refutation is <em>correct at the floor-locked modifier</em> but <em>unproven above the floor</em>. <strong>Phase B.2 (R2 modifier sweep) has been commissioned to do the actual H1 test.</strong> See the corrected lever-analysis section below Part 2.B.5 + the canonical-findings amendment at <code>canonical/story/r2-st-counterfactual-findings-2026-05-19.md</code> § 8.
+</div>
+
 <div class="banner">
-<strong>Document status:</strong> v1.2 (augmented post-counterfactual-investigation). Authored by gandalf 2026-05-19 ~19:15Z; augmented ~19:35Z with knight-rider wind-down EOD content (commit <code>1ac0cab</code>) + critique-pair artifacts commit (<code>dfa39b8</code>); augmented later evening with R2 + ST counterfactual Phase D findings (see Part 2.B.5 new section). Covers four runs: <strong>A) Engine-rebuild (CLOSED at v1.0)</strong>; <strong>B) VS2a (WIND-DOWN — substantial completion, S1 sprint structurally stalled, hive paused at Matt 'please wind down')</strong>; <strong>C) VS2b (PRE-APPROVED, not yet active)</strong>; <strong>D) Phase A2 (NOT REACHED)</strong>. The hive surfaced 11 decisions for Matt; details in Part 3. <strong>The hive is now PAUSED, not closed</strong> — knight-rider's autonomous-operation arc converged on one queued Matt decision (Option A) and stopped per Matt's wind-down directive. The R2 + ST counterfactual investigation ran post-wind-down under gandalf-with-gamora hive-iteration authority and is now also closed; findings reinforce Option A as the actionable lever. Resumes on Matt re-entry.
+<strong>Document status:</strong> v1.3 (amended post-Matt-push-back on counterfactual framing). Authored by gandalf 2026-05-19 ~19:15Z; augmented ~19:35Z with knight-rider wind-down EOD content (commit <code>1ac0cab</code>) + critique-pair artifacts commit (<code>dfa39b8</code>); augmented later evening with R2 + ST counterfactual Phase D findings (see Part 2.B.5 new section); <strong>amended 2026-05-19 later evening</strong> with Matt-surfaced refutation-framing correction (see top banner + new Part 2.B.5.amend section). Covers four runs: <strong>A) Engine-rebuild (CLOSED at v1.0)</strong>; <strong>B) VS2a (WIND-DOWN — substantial completion, S1 sprint structurally stalled, hive paused at Matt 'please wind down')</strong>; <strong>C) VS2b (PRE-APPROVED, not yet active)</strong>; <strong>D) Phase A2 (NOT REACHED)</strong>. The hive surfaced 11 decisions for Matt; details in Part 3. <strong>The hive is now PAUSED, not closed</strong> — knight-rider's autonomous-operation arc converged on one queued Matt decision (Option A) and stopped per Matt's wind-down directive. The R2 + ST counterfactual investigation ran post-wind-down under gandalf-with-gamora hive-iteration authority; <strong>findings as originally described overstated empirical certainty; Phase B.2 actually tests H1</strong>; Option A remains the actionable lever <em>under either reading</em>. Resumes on Matt re-entry.
 </div>
 
 <div class="toc">
@@ -567,6 +571,58 @@ This is the dispatch's worst-case-for-architectural-elegance row. Both hypothesi
 
 <p>Hive-iteration mode deactivates. Knight-rider folds in commits + push on Matt re-entry. The math notes (3 documents) + canonical findings memo + this review section + Matt-briefing § 9 amendment (separate file) are the wrap deliverables. The road continues toward Option A's Matt approval gate.</p>
 
+<h3 id="run-b-counterfactual-amend" style="background:#fff7e6; padding:10px; border-left:4px solid #d97706;">Part 2.B.5.amend — Refutation framing correction (Matt push-back; 2026-05-19 later evening)</h3>
+
+<div class="warn-box" style="background:#fff7e6; border:1px solid #d97706;">
+<strong>Amendment:</strong> the Part 2.B.5 disposition language ("both levers empirically eliminated"; "Phase E does not trigger because both refuted") overstates what the existing telemetry could support. Matt push-back surfaced the framing gap; the canonical record is corrected here in place. The original Part 2.B.5 is preserved for audit trail; this section binds its disposition.
+</div>
+
+<h4>What the existing R2 telemetry actually contains</h4>
+
+<p>The R2 sprint output (<code>output/R2-sprint-2026-05-19/per_class_results.json</code>) carries <em>one</em> R2 spatial WR observation per class — at the modifier each class converged to under <strong>1D PackProxy convergence</strong>. It is a point-observation at the 1D operating point, not a multi-modifier sweep across the R2 landscape.</p>
+
+<h4>What Experiment 1 actually tested vs what it was designed to test</h4>
+
+<table>
+<tr><th>Design question (dispatch § 2.1)</th><th>What existing data supports</th></tr>
+<tr><td><em>"If R2 had been the convergence target, what modifier would each class have converged to under per-tier WR targets?"</em></td><td><em>Not testable from existing data.</em> Requires R2 WR observations at multiple modifier values per class to fit a sigmoid and solve for M*. Existing data is single-point per class.</td></tr>
+<tr><td><em>"At the current 1D-converged modifier, what does R2 show?"</em></td><td>R2 boss WR = 0.000 for all 51 classes; R2 swarm WR bimodal (38 at 1.0, 13 at 0.0). <strong>This is what was actually observed.</strong></td></tr>
+</table>
+
+<p>The point-observation establishes that <em>at the 1D operating point</em>, R2 does not surface a different boss-tier signal than 1D. It does <strong>not</strong> establish that R2-as-convergence-target would or would not converge classes to a different modifier. The two are different questions.</p>
+
+<h4>What Experiment 2 actually proved</h4>
+
+<p>The K-sweep refutation <strong>is correct at the floor-locked modifier</strong>: when WR_boss_baseline = 0 (the case for ~60-80% of classes at the floor-locked modifier), the linearization WR(K) = WR_base × DPS_ratio(K) = 0 for any K. Mathematically exact, not approximation failure.</p>
+
+<p>The K-sweep refutation <strong>is unproven at non-floor-locked modifiers.</strong> The very classes where WR_base &gt; 0 at their current modifier — including any class converging above the floor — are exactly where K would have its strongest potential effect, and K's effect at those modifiers was not tested. Gamora's own joint-synthesis observation captures this verbatim: <em>"K becomes testable AGAIN only if Option A or kit-redesign moves boss WR off zero."</em> K-as-lever is not eliminated; it is bounded-below by whatever moves boss WR off zero.</p>
+
+<h4>Corrected lever-analysis</h4>
+
+<table>
+<tr><th>Lever</th><th>Status (original disposition)</th><th>Status (corrected)</th></tr>
+<tr><td><strong>R2-as-canonical convergence</strong></td><td>Refuted (Experiment 1 H1: cannot reject null)</td><td><strong>Untested</strong>. Existing data does not support the counterfactual. <strong>Phase B.2 (R2 modifier sweep) commissioned to do the actual H1 test.</strong></td></tr>
+<tr><td><strong>ST per-cast damage multiplier K</strong></td><td>Refuted (Experiment 2 H3+H4: cannot reject null)</td><td><strong>Bounded-below at floor-locked modifier</strong>; testable above floor once boss WR moves off zero (via Option A or kit-redesign).</td></tr>
+<tr><td><strong>Option A modifier-floor widening</strong></td><td>Reinforced as actionable</td><td>Reinforced as actionable. <em>Unchanged.</em></td></tr>
+<tr><td><strong>Kit-redesign queue</strong></td><td>Reinforced as actionable</td><td>Reinforced as actionable. <em>Unchanged.</em></td></tr>
+</table>
+
+<h4>Why this matters and why Option A still leads</h4>
+
+<p>The disposition-language overreach risks closing two design-direction doors that the data did not actually close. R2-as-canonical remains a live architectural question; ST-K-as-lever remains a live tuning question (post Option A or kit-redesign). However, <strong>the actionable next-step is unchanged</strong>: Option A modifier-floor widening + kit-redesign queue are the right immediate paths under either reading of the counterfactual evidence. Both are reinforced by the existing observations (R2 boss WR = 0.000 at 1D operating point is real; floor-locked-modifier kits cannot be K-rescued is real).</p>
+
+<h4>Phase B.2 — what it tests</h4>
+
+<p>Phase B.2 (commissioned per Matt's direction) will run R2 spatial sub-gauntlet for each class at a sweep of modifier values — not only the 1D-converged value — producing per-class per-modifier WR observations sufficient to fit the sigmoid and solve for hypothetical M* under R2-as-canonical convergence. Until Phase B.2 completes, H1 remains untested.</p>
+
+<h4>Discipline note: which discipline pattern is this?</h4>
+
+<p>This amendment is a fourth same-day self-correction following the three documented in Part 2.B.5 above. The previous three were substantive empirical updates. This fourth is a <em>framing correction</em>: a disposition that was empirically grounded but rhetorically over-extended. The team lesson worth recording:</p>
+
+<blockquote style="border-left:4px solid #d97706; padding-left:12px; margin-left:0; color:#555; font-style:italic;">Empirical evidence that bounds-the-question is not the same as empirical evidence that closes-the-question. The disposition language must distinguish them, especially when the existing data was collected for a different purpose than the question being asked.</blockquote>
+
+<p>Matt's push-back surfaced this gap; the canonical record is corrected; the lesson is named. Phase B.2 proceeds. The actionable levers in the meantime are unchanged.</p>
+
 <!-- ===================== RUN C ===================== -->
 <h2 id="run-c">Part 2.C — VS2b (PRE-APPROVED, NOT ACTIVE)</h2>
 
@@ -671,6 +727,8 @@ This is the dispatch's worst-case-for-architectural-elegance row. Both hypothesi
 
 <div class="success-box">
 <strong>Reinforced by R2 + ST counterfactual investigation (Part 2.B.5):</strong> the post-wind-down hive iteration empirically eliminated <em>both</em> alternative architectural levers (R2-as-canonical convergence and ST per-cast damage multiplier). Option A is now the only remaining surgical engine-side lever before kit-redesign work. The findings do not obviate this decision — they sharpen it. See <code>canonical/story/r2-st-counterfactual-findings-2026-05-19.md</code> § 3.1.
+
+<br><br><span style="background:#fff7e6; padding:2px 6px; border-left:3px solid #d97706;"><strong>⚠️ Framing correction (Part 2.B.5.amend):</strong> "empirically eliminated" overstates what existing telemetry could support; R2-as-canonical was <em>not tested</em> (single-modifier data) and ST K-as-lever is <em>bounded at floor-locked modifier</em> but unproven above. Phase B.2 (R2 modifier sweep) commissioned for actual H1 test. <strong>Option A still leads as the actionable next step under either reading</strong> — the corrected disposition does not change Decision #1's recommendation.</span>
 </div>
 
 <h4>Decision tree</h4>

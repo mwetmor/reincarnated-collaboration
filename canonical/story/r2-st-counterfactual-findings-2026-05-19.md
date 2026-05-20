@@ -1,10 +1,21 @@
+> # ⚠️ AMENDED 2026-05-19 — refutation framing incomplete
+>
+> **The original framing of this memo as a "refutation" of the R2-as-canonical hypothesis is methodologically incomplete.** The existing R2 telemetry data carries a single converged modifier per class (the one each class reached under 1D PackProxy convergence). It does NOT carry per-class WR observations across the modifier landscape. Therefore Experiment 1 as executed observed *"at the current 1D-converged modifier, what does R2 show?"* — NOT *"if R2 had been the convergence target, where would each class converge to?"* The two are different questions.
+>
+> The Experiment 2 K-sweep refutation is correct **at the floor-locked modifier**: when WR_boss_baseline = 0, the linearization WR(K) = WR_base × DPS_ratio(K) = 0 for all K (mathematically exact). But it is **unproven** at non-floor-locked modifiers where WR_boss_baseline > 0 — K's effect at those modifiers was not tested.
+>
+> **Phase B.2 — R2 modifier sweep — has been commissioned to do the actual H1 test.** Matt surfaced the framing gap; the canonical record is corrected here in place. **See § 8 — Methodological gap correction** below for full detail. The original § 0-§ 7 narrative is preserved as authored, but its disposition language should be read through the § 8 lens: what was actually tested vs what wasn't.
+
+---
+
 # R2 + ST Counterfactual Investigation — Findings Memo
 
 **Date:** 2026-05-19 (evening)
 **Author:** gandalf (story-and-design steward)
 **Phase:** D wrap — joint synthesis + design disposition
+**Amended:** 2026-05-19 (later evening) — knight-rider, per Matt push-back on refutation framing
 **Authority:** AUTONOMOUS L2-equivalent per hive-mind protocol § 4.0 + operating mandate § 6 ("permissible authoring during iteration"); math-only investigation; no code changes.
-**Sign:** Mithrandir.
+**Sign:** Mithrandir (original); knight-rider (amendment).
 
 ---
 
@@ -204,3 +215,82 @@ The investigation closes. The levers that remain are now sharper. The road conti
 ---
 
 *Filed 2026-05-19 evening by gandalf. The math spoke. Two architectural levers eliminated. Option A and kit-redesign remain. The investigation closes; the steward updated; the road continues. Mithrandir signs.*
+
+---
+
+## § 8 — Methodological gap correction (knight-rider amendment, 2026-05-19 later evening)
+
+**Author:** knight-rider, per Matt push-back surfacing the framing gap
+**Status:** binds the disposition above; preserves the audit trail by leaving § 0-§ 7 narrative intact
+**Sign:** knight-rider
+
+### § 8.1 — What the "refutation" actually established
+
+Re-reading § 0-§ 7 carefully, the language of *empirical refutation* / *eliminated levers* / *both levers empirically eliminated* overstates what the existing telemetry could support. Specifically:
+
+**Experiment 1 (R2 counterfactual) — the design question and the actual measurement do not match.**
+
+- **The design question (per dispatch § 2.1):** *"if R2 had been the convergence target instead of 1D PackProxy, what modifier would each class have converged to under per-tier WR targets?"*
+- **What the existing R2 telemetry actually contains:** a *single* converged modifier per class — the modifier each class reached under **1D PackProxy convergence** — along with the R2 spatial WR observed at that one modifier.
+- **What was actually tested:** *"at the current 1D-converged modifier, what does R2 show?"*
+- **What was NOT tested:** *"if R2 had been the convergence target, where would each class converge to?"*
+
+These are different questions. The first is a point-observation at the 1D operating point. The second is a counterfactual sweep across modifiers, requiring R2 WR observations at multiple modifier values per class to fit a sigmoid (or equivalent) and solve for M\* such that WR_swarm_R2(M\*) ∈ [0.65, 0.80] AND WR_boss_R2(M\*) ∈ [0.30, 0.45]. The existing R2 data does not support the second question; Phase A correctly identified the sigmoid as uncalibrable for this reason, and the disposition then mistakenly treated the absence of multi-modifier signal as a refutation rather than as "the experiment cannot be run with this data."
+
+**Experiment 2 (ST K-sweep) — the refutation is correct AT the floor-locked modifier, but unproven elsewhere.**
+
+- **The mathematical claim was:** when WR_boss_baseline = 0 (the case for 49/49 classes at their 1D-converged modifier), the linearization WR(K) = WR_base × DPS_ratio(K) = 0 for any K. This is mathematically exact at WR_base = 0.
+- **What this proves:** at the *current 1D-converged modifier* (which is the floor-locked modifier for ~60-80% of classes), no per-cast ST multiplier K can rescue boss-tier WR.
+- **What this does NOT prove:** that K cannot rescue boss-tier WR at *non-floor-locked modifiers* where WR_base > 0. K's effect at those modifiers was not tested — and the very classes where WR_base > 0 at their current modifier are the classes where K would have its strongest potential effect.
+
+Gamora's own joint-synthesis observation captured the same insight (verbatim from her return summary): *"K becomes testable AGAIN only if Option A or kit-redesign moves boss WR off zero."* The implication that should have been carried into the canonical findings: **K-as-lever is not eliminated; K-as-lever is bounded-below by whatever mechanism moves boss WR off zero.**
+
+### § 8.2 — Why the framing gap matters
+
+The disposition language as authored ("both levers eliminated") risks closing two design-direction doors that the data did not actually close. Specifically:
+
+1. **R2-as-canonical** remains genuinely open as an architectural question. The 1D-vs-2D measurement-layer hypothesis is *not* refuted; it is *untested*. The existing R2 telemetry was collected to validate convergence outputs, not to support multi-modifier counterfactual analysis.
+2. **ST K-as-lever** remains conditionally open: post-Option-A or post-kit-redesign, when boss WR moves off zero for some subset of classes, K's effect on those classes becomes testable and is a candidate for further surgical tuning.
+
+Closing both doors prematurely would prune branches of the design space that the math has not actually invalidated.
+
+### § 8.3 — Phase B.2 commissioned to do the actual H1 test
+
+To properly test H1 (the R2-as-canonical hypothesis), R2 telemetry across the modifier landscape per class is required. **Phase B.2 — R2 modifier sweep — has been commissioned** (or will be commissioned per Matt's direction). Its scope: re-run R2 spatial sub-gauntlet for each class at a sweep of modifier values (rather than only the 1D-converged value), producing the per-class per-modifier WR observations needed to fit the sigmoid and solve for hypothetical M\* under R2-as-canonical convergence.
+
+Phase B.2 supersedes Experiment 1 as the actual H1 test. The findings in § 0-§ 7 above remain valid as observations *at the 1D-converged operating point*; they do not bind the counterfactual question.
+
+### § 8.4 — What stays correct in the original disposition
+
+- **The mathematical observation** that WR(K) = WR_base × DPS_ratio(K) and that K cannot rescue WR_base = 0 — exact, unchanged
+- **The Phase A finding** that R2 boss_with_adds_wr = 0.000 for all 51 classes at their 1D-converged modifiers — exact, unchanged, important
+- **The Phase A finding** that the existing R2 column `d1_swarm_wr` / `d1_boss_wr` is synthetic-zero due to the `get_1d_wr_for_class()` bug — exact, unchanged, P3 follow-on stands
+- **The actionable-lever sharpening** of Option A modifier-floor widening + kit-redesign queue as the immediate paths forward — unchanged; both remain viable + reinforced as the right starting points regardless of where H1 lands under Phase B.2
+
+### § 8.5 — What changes in the disposition language
+
+For any future reader: when § 0-§ 7 above says *"empirically eliminated"* or *"refuted"* with respect to the R2-as-canonical or ST-K-as-lever hypotheses, read instead as:
+
+- R2-as-canonical: **not tested by existing data; Phase B.2 is the actual test.**
+- ST-K-as-lever: **bounded-below at the floor-locked modifier; testable above floor once boss WR moves off zero.**
+
+The actionable disposition (Option A + kit-redesign queue as immediate paths) survives both readings. The premature closure of architectural-direction doors does not.
+
+### § 8.6 — Discipline note: which discipline pattern is this?
+
+This amendment is itself a fourth same-day self-correction. The original disposition (§ 5) called the three same-day self-corrections a discipline pattern worth marking; this is the fourth — and it is also the most subtle. The previous three were *substantive empirical updates* (the substrate hypothesis failed empirically; the floor-mechanism diagnosis emerged; the 1D-vs-2D refutation was preliminarily surfaced by Phase A). This fourth one is a *framing correction*: a disposition that was empirically grounded but rhetorically over-extended. The lesson worth recording for the team:
+
+> Empirical evidence that bounds-the-question is not the same as empirical evidence that closes-the-question. The disposition language must distinguish them, especially when the existing data was collected for a different purpose than the question being asked.
+
+Matt's push-back surfaced this gap; the canonical record is corrected; the lesson is named. Phase B.2 proceeds. The actionable levers in the meantime are unchanged.
+
+### § 8.7 — Reading order for future readers
+
+1. **Read § 0 (original TL;DR) for orientation.** It captures what was actually computed.
+2. **Read § 8 (this amendment) BEFORE interpreting § 0's disposition language.** § 8 binds § 0-§ 7.
+3. **Read § 1-§ 7 (original investigation arc) for the empirical observations.** Those stand.
+4. **For the actual H1 verdict, consult Phase B.2 outputs when they land** (separate dispatch; superseding artifact). Until then, H1 is untested.
+
+---
+
+*Amendment filed 2026-05-19 (later evening) by knight-rider per Matt push-back on refutation framing. The original disposition stands as an honest record of what was tested; § 8 corrects what was *claimed* about what was tested. Phase B.2 is the actual H1 test. The canonical record is now self-consistent.*
