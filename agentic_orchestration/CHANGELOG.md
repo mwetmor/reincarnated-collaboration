@@ -4,6 +4,35 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-19 (late evening) — INVESTIGATION CLOSURE: R2+ST counterfactual chain complete; Pattern-B finding aligns with new hive's central premise
+
+**Event:** Matt confirms Phase B.2 verdict aligns with the next hive's framing. Investigation chain (R2+ST counterfactual; Phases A through B.2) is now CLOSED. This session's role ends at Phase B.2 closure + clean handoff. Hive holds position pending Matt's explicit wind-down + launch of fresh knight-rider window for the recompose-validation hive (third hive activation).
+
+**Phase B.2 verdict alignment with new framing (per Matt):**
+
+- **22 Pattern-B classes (44.9% of catalogue)** — boss WR becomes nonzero at modifier ∈ [0.50, 2.0] but swarm WR ceiling-violates first at those modifiers. **These 22 classes empirically validate the recompose-hive's central premise.** The latent boss-kill capability exists; the 1D-floor blocks it; recompose-trigger refinement (or per-tier-recompose validation) is the right surgical lever for this slice.
+
+- **27 Pattern-A classes (55.1% of catalogue)** — boss WR = 0.000 at all modifiers ≤ 2.0; pure kit-composition pathology. **These 27 classes are the open empirical question** that the new hive's fresh regen will answer: does the recompose-validation mechanism produce kits that escape this pattern, or do they require kit-redesign queue work?
+
+The 49-class catalogue splits cleanly between the two paths the new hive will exercise: ~half empirically reachable via the recompose mechanism (Pattern B); the other half is the test of whether the new hive's regen mechanism produces categorically different kits (Pattern A's open question).
+
+**Investigation chain artifacts (all committed + pushed; engine `c2eb1a6` + collab `b3738fa`):**
+
+- Phase A: methodology + sigmoid blockers
+- Phase B+C+D: original-framing math notes (Exp 1 / Exp 2 / joint synthesis)
+- Phase B.2: actual H1 test with proper modifier-sweep data
+- Canonical findings memo with § 8 methodological amendment
+- Sweep script (new; no engine code modifications)
+
+**Continuation path (NOT this session):** the recompose-validation hive (third hive activation) fires from a fresh knight-rider window per Matt. Launch artifacts (Matt-authored; uncommitted in this session's working tree intentionally; Matt commits + activates from the fresh window):
+
+- Protocol: `canonical/story/hive-mind-protocol-per-tier-recompose-validation-2026-05-19.md`
+- Launch dispatch: `agentic_orchestration/dispatches/2026-05-19-knight-rider-recompose-validation-hive-launch.md`
+
+**Discipline pattern for the project record (running total today):** four same-day self-corrections — (1) substrate hypothesis weakened; (2) floor-mechanism diagnosis; (3) 1D-vs-2D measurement-architecture critique surfaced and then refuted-in-its-own-data; (4) refutation-framing correction (Matt-surfaced; canonical record amended in place per § 8 + Phase B.2 commissioned as the actual H1 test). The cadence — disposition language updated when evidence does not actually support it — is the project's immune system working.
+
+---
+
 ## 2026-05-19 (night) — Phase B.2 R2 modifier sweep COMPLETE — row 5 confirmed with key refinement
 
 **Event:** Gamora executed Phase B.2 — the proper H1 test of the R2-as-canonical counterfactual. Multi-modifier R2 sweep run for 49 classes at {0.05, 0.10, 0.20, 0.50, 1.0, 2.0} × 3 scenarios × 30 fights = 26,460 fights.
