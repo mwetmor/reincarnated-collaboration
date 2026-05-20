@@ -77,6 +77,16 @@ The skill tree node population work (§ 2.8 P1 W1.13) is therefore **NOT optiona
 
 **Caveat: this is a HYPOTHESIS, not proven.** The boss-floor might be a function of both gauntlet structure AND framework tuning dimensions. Both fixes (§ 2.8 + § 2.9) likely needed; either alone may be insufficient.
 
+### 2.3.1 Joint-resolution triad framing — behavioral-correctness caveat (gandalf amendment 2026-05-21)
+
+Per gandalf W0.9 cumulative Gate-2 architectural close-out 2026-05-21: the joint-resolution triad (W0.2 source diversity + W0.1 calibration fairness + W0.9 arena fidelity) addresses **structural** sufficiency. The empirical discovery from W0.9 Phase 2.5 calibration sweep — the boss AI leash-reset bug — surfaces a fourth concern: **arena-occupant behavioral correctness**.
+
+The triad's claim was always *structural* sufficiency. Behavioral correctness of arena occupants (player AI, monster AI, leash semantics, targeting logic) is a separate, lower-tier concern that the triad implicitly assumed. **Triad presumes arena-occupant behavioral correctness; defects in occupant AI are out-of-band and resolved per-bug.**
+
+The W0.10 boss AI fix workstream (added 2026-05-21 per gandalf Option A disposition) is the per-bug resolution for the leash-reset behavior surfaced by Phase 2.5. Future occupant-behavior bugs follow the same per-bug pattern (Discipline #11.1 cold-start empirical surfaces them; the triad does not pre-suppose them).
+
+**The triad's structural sufficiency claim survives.** The behavioral-correctness caveat is an addition, not a refutation.
+
 ### 2.4 Profile A ship-window implication
 
 Both ship windows preserved:

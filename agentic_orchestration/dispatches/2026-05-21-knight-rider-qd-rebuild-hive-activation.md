@@ -300,6 +300,8 @@ This is constraint removal — PackProxy ×8 is a legacy convergence-time abstra
 | W0.9.5 | Telemetry instrumentation for true multi-monster sim (per-entity damage logs; spatial positioning data; AI behavior traces) — feeds P2 BC measurement |
 | W0.9.6 | Calibration sweep: verify true multi-monster gauntlet produces sensible per-tier WR distributions; compare to PackProxy ×8 baseline; Discipline #17 |
 
+**ADDENDUM 2026-05-21 (per gandalf W0.9 cumulative Gate-2 Option A disposition):** W0.9 ships ARCHITECTURALLY COMPLETE per cumulative Gate-2 critique-pair (engine tag `qd-rebuild/v0.9-gauntlet-migration-complete`). W0.9.6 calibration sweep surfaced a structural arena-AI bug (boss AI leash-reset cycle) — this is the recompose-hive "fix the arena, not the synergy" principle catching the NEXT arena bug after PackProxy ×8 retirement. PackProxy and boss-AI-leash-reset are structurally identical falsifications (arena-side defects stripping legitimate synergies of demonstration). **New workstream W0.10 added** as late-P0 workstream addressing the boss AI fix; "fix the arena" continuation, not detour. W0.10 is empirical-completion-of-P0 work; closes P0 on both architectural AND empirical commitments. See `agentic_orchestration/dispatches/2026-05-21-gamora-w0-10-boss-ai-leash-reset-fix.md`.
+
 **Phase placement rationale:** P0 W0.9 happens BEFORE P1 substrate enrichment because all subsequent workstreams (substrate creation; BC measurement; archive insertion) depend on the gauntlet's output. Retiring PackProxy first ensures all downstream phases operate on consistent gauntlet structure.
 
 #### Performance considerations
