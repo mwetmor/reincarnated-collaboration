@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>R2 Spatial Sub-Gauntlet — Visual Schematics</title>
+<style>
+:root {
+  --ink: #1a1612;
+  --paper: #f5efe1;
+  --paper-light: #faf6ec;
+  --rule: #c9bfa5;
+  --player: #2563a8;
+  --mob: #8b3a1a;
+  --boss: #6b1410;
+  --elite: #aa3d18;
+  --leash: rgba(75, 110, 165, 0.18);
+  --leash-stroke: #4b6ea5;
+  --choke: rgba(218, 165, 32, 0.25);
+  --choke-stroke: #b8860b;
+  --quiet: #6a6357;
+  --emphasis: #6b2d1f;
+}
+body { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; background: var(--paper); color: var(--ink); max-width: 1180px; margin: 0 auto; padding: 32px; line-height: 1.55; font-size: 15.5px; }
+h1 { font-size: 26px; margin: 0 0 4px 0; letter-spacing: -0.5px; }
+h1 + .subtitle { color: var(--quiet); font-style: italic; margin: 0 0 24px 0; font-size: 14.5px; }
+h2 { font-size: 22px; margin: 40px 0 10px; border-bottom: 2px solid var(--rule); padding-bottom: 4px; }
+h3 { font-size: 17px; margin: 22px 0 8px; color: var(--emphasis); }
+.scenario { display: flex; gap: 30px; align-items: flex-start; margin: 18px 0 32px; flex-wrap: wrap; }
+.diagram { background: var(--paper-light); border: 1px solid var(--rule); padding: 14px; border-radius: 3px; }
+.details { flex: 1; min-width: 360px; font-size: 14px; }
+.details table { width: 100%; border-collapse: collapse; margin: 6px 0 14px; font-size: 13px; }
+.details th { background: var(--paper-light); text-align: left; padding: 5px 8px; border-bottom: 2px solid var(--rule); }
+.details td { padding: 4px 8px; border-bottom: 1px solid var(--rule); }
+.legend { background: var(--paper-light); border-left: 4px solid var(--quiet); padding: 10px 14px; margin: 14px 0; font-size: 13.5px; }
+.legend ul { margin: 4px 0 0 16px; padding: 0; }
+.callout { background: #fcefe2; border-left: 4px solid var(--emphasis); padding: 10px 16px; margin: 14px 0; font-size: 14px; }
+.callout h4 { margin-top: 0; color: var(--emphasis); }
+code { background: var(--paper-light); padding: 1px 4px; border-radius: 2px; font-size: 13px; font-family: "SF Mono", Menlo, monospace; }
+.banner { background: var(--paper-light); border-left: 4px solid #4a3a5a; padding: 12px 18px; margin: 14px 0 24px; font-size: 14px; }
+svg .label { font-family: "SF Mono", Menlo, monospace; font-size: 9px; fill: var(--ink); }
+svg .label-title { font-family: "SF Mono", Menlo, monospace; font-size: 11px; fill: var(--ink); font-weight: 600; }
+svg .grid { stroke: #d8cfb5; stroke-width: 0.5; }
+svg .bound { stroke: var(--ink); stroke-width: 1.5; fill: none; }
+svg .axis-label { font-family: "SF Mono", Menlo, monospace; font-size: 8px; fill: var(--quiet); }
+footer { margin-top: 40px; padding-top: 14px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--quiet); font-style: italic; }
+</style>
+</head>
+<body>
+
+<h1>R2 Spatial Sub-Gauntlet — Visual Schematics</h1>
+<p class="subtitle">Faithful-to-scale diagrams of all three scenarios. Source: <code>reincarnated-engine/src/reincarnated/simulation/spatial_gauntlet/arena.py</code>. Authored 2026-05-19 by gandalf at Matt's request.</p>
+
+<div class="banner">
+<strong>What you're looking at:</strong> the engine's internal 2D combat-test scenarios that R2 ran 51 classes through (3 scenarios × 30 fights each = ~4,500 fights logged). These are NOT player-facing surfaces — they're internal simulation arenas the balance loop uses to measure per-skill geometry-type variance, leash mechanics, range mechanics, and boss-with-adds composition. The dimensions and spawn coordinates below are exact, pulled from the production code.
+</div>
+
+<div class="legend">
+<strong>Legend (applies to all three diagrams):</strong>
+<ul>
+<li><span style="color: var(--player); font-weight: 600;">● blue</span> = player (0.5m entity radius)</li>
+<li><span style="color: var(--mob); font-weight: 600;">● red</span> = swarm mob (0.5m radius)</li>
+<li><span style="color: var(--elite); font-weight: 600;">● darker red</span> = elite add (0.5m radius)</li>
+<li><span style="color: var(--boss); font-weight: 600;">● large dark red</span> = boss (1.5m radius — hard collision body)</li>
+<li>Dashed circle = 35m leash override (swarm only in Scenarios 1 + 2; boss uses monster JSON default)</li>
+<li>Yellow shaded zone = chokepoint x-clamp region (Scenario 2 only)</li>
+<li>Grid lines every 5m for scale; bottom-left origin (0, 0)</li>
+</ul>
+</div>
+
+<!-- ============== SCENARIO 1 ============== -->
+<h2>Scenario 1 — Open Arena</h2>
+
+<div class="scenario">
+<div class="diagram">
+<svg width="500" height="500" viewBox="0 0 500 500">
+  <!-- Grid every 5m (10px in 50m arena) -->
+  <g class="grid">
+    <line x1="0" y1="50" x2="500" y2="50"/>
+    <line x1="0" y1="100" x2="500" y2="100"/>
+    <line x1="0" y1="150" x2="500" y2="150"/>
+    <line x1="0" y1="200" x2="500" y2="200"/>
+    <line x1="0" y1="250" x2="500" y2="250"/>
+    <line x1="0" y1="300" x2="500" y2="300"/>
+    <line x1="0" y1="350" x2="500" y2="350"/>
+    <line x1="0" y1="400" x2="500" y2="400"/>
+    <line x1="0" y1="450" x2="500" y2="450"/>
+    <line x1="50" y1="0" x2="50" y2="500"/>
+    <line x1="100" y1="0" x2="100" y2="500"/>
+    <line x1="150" y1="0" x2="150" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="500"/>
+    <line x1="250" y1="0" x2="250" y2="500"/>
+    <line x1="300" y1="0" x2="300" y2="500"/>
+    <line x1="350" y1="0" x2="350" y2="500"/>
+    <line x1="400" y1="0" x2="400" y2="500"/>
+    <line x1="450" y1="0" x2="450" y2="500"/>
+  </g>
+  <!-- Arena boundary -->
+  <rect class="bound" x="2" y="2" width="496" height="496"/>
+  <!-- Axis labels -->
+  <text class="axis-label" x="498" y="498" text-anchor="end">50m</text>
+  <text class="axis-label" x="5" y="495">(0, 0)</text>
+  <text class="axis-label" x="495" y="12" text-anchor="end">y=50</text>
+
+  <!-- Leash radius overlays (35m radius around each mob; semi-transparent) -->
+  <!-- Mob at (20, 12) → SVG (200, 380); leash 35m = 350px radius -->
+  <!-- Only showing one mob's leash radius for clarity -->
+  <circle cx="250" cy="400" r="350" fill="none" stroke="var(--leash-stroke)" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+  <text class="axis-label" x="260" y="60" fill="var(--leash-stroke)">35m leash override (swarm)</text>
+
+  <!-- Player at (25, 40) → SVG center (250, 100) -->
+  <circle cx="250" cy="100" r="5" fill="var(--player)" stroke="var(--ink)" stroke-width="0.5"/>
+  <text class="label" x="258" y="103">PLAYER (25, 40) — facing south</text>
+
+  <!-- Mobs (8 swarm) -->
+  <!-- (20, 12) → SVG (200, 380) -->
+  <circle cx="200" cy="380" r="5" fill="var(--mob)"/>
+  <text class="label" x="206" y="383">M1 (20, 12)</text>
+  <!-- (25, 10) → SVG (250, 400) -->
+  <circle cx="250" cy="400" r="5" fill="var(--mob)"/>
+  <text class="label" x="256" y="403">M2 (25, 10)</text>
+  <!-- (30, 12) → SVG (300, 380) -->
+  <circle cx="300" cy="380" r="5" fill="var(--mob)"/>
+  <text class="label" x="306" y="383">M3 (30, 12)</text>
+  <!-- (18, 18) → SVG (180, 320) -->
+  <circle cx="180" cy="320" r="5" fill="var(--mob)"/>
+  <text class="label" x="186" y="323">M4 (18, 18)</text>
+  <!-- (32, 18) → SVG (320, 320) -->
+  <circle cx="320" cy="320" r="5" fill="var(--mob)"/>
+  <text class="label" x="326" y="323">M5 (32, 18)</text>
+  <!-- (23, 8) → SVG (230, 420) -->
+  <circle cx="230" cy="420" r="5" fill="var(--mob)"/>
+  <text class="label" x="236" y="423">M6 (23, 8)</text>
+  <!-- (27, 8) → SVG (270, 420) -->
+  <circle cx="270" cy="420" r="5" fill="var(--mob)"/>
+  <text class="label" x="276" y="423">M7 (27, 8)</text>
+  <!-- (29, 15) → SVG (290, 350) -->
+  <circle cx="290" cy="350" r="5" fill="var(--mob)"/>
+  <text class="label" x="296" y="353">M8 (29, 15)</text>
+
+  <!-- Title -->
+  <text class="label-title" x="250" y="25" text-anchor="middle">Open Arena 50m × 50m</text>
+  <text class="axis-label" x="250" y="40" text-anchor="middle">8 swarm mobs · approach from south · max 120s · kills-only win</text>
+</svg>
+</div>
+
+<div class="details">
+<h3>Scenario 1 specifications</h3>
+<table>
+<tr><th>Property</th><th>Value</th></tr>
+<tr><td>scenario_id</td><td><code>open_arena</code></td></tr>
+<tr><td>Arena dimensions</td><td>50m × 50m, no obstacles</td></tr>
+<tr><td>Player spawn</td><td>(25, 40) — center-north, facing south</td></tr>
+<tr><td>Mob count</td><td>8 swarm mobs at y=8-20</td></tr>
+<tr><td>Mob archetype</td><td>swarmer</td></tr>
+<tr><td>Entity radius</td><td>0.5m (player) + 0.5m × 8 (mobs)</td></tr>
+<tr><td>Player→nearest-mob distance</td><td>20m (M6 at y=8)</td></tr>
+<tr><td>Player→farthest-mob distance</td><td>~32m (M4/M5)</td></tr>
+<tr><td>Leash override</td><td><strong>35m</strong> (overrides 18m monster JSON default)</td></tr>
+<tr><td>Max duration</td><td>120s</td></tr>
+<tr><td>Win condition</td><td>all_mobs_killed (timeout with mobs alive = LOSS — kills-only)</td></tr>
+<tr><td>HP difficulty multiplier</td><td>1.5× (R2 recalibration; +50% mob HP for non-degenerate measurement)</td></tr>
+</table>
+
+<h4>What this scenario measures</h4>
+<p>Reference baseline for geometry-type WR divergence. The 50×50 open layout removes geometry constraints so AOE shape differences emerge cleanly: cone/circle vs point vs line skills produce different per-mob coverage. The 8-mob spread at y=8-20 produces a target cluster that's reachable for cone (~5m radius) but partial-coverage for point skills.</p>
+
+<h4>Engagement-geometry fix applied (2026-05-19)</h4>
+<p>The 18m monster JSON default leash caused mobs to oscillate at their leash boundary before reaching the player (mobs at y=8 leashed at y=26 &lt; player y=40). The 35m override lets mobs pursue across the arena: M6 at y=8 + leash=35 = leash boundary y=43 &gt; player y=40 ✓. Genre semantic preserved: "approach across open space" (D2 Bloody Foothills / PoE Twilight Strand).</p>
+
+<h4>R2 H1 finding for this scenario</h4>
+<p>Mean WR by geometry type: <strong>circle = 1.000 (n=3); cone = 1.000 (n=4); point = 0.721 (n=43)</strong>. Point-geometry classes lose 28pp WR vs cone/circle at open arena. This is the geometry-type variance signal the 1D PackProxy gauntlet couldn't surface.</p>
+</div>
+</div>
+
+<!-- ============== SCENARIO 2 ============== -->
+<h2>Scenario 2 — Chokepoint Corridor</h2>
+
+<div class="scenario">
+<div class="diagram">
+<svg width="120" height="500" viewBox="0 0 120 500">
+  <!-- Grid every 5m -->
+  <g class="grid">
+    <line x1="0" y1="50" x2="120" y2="50"/>
+    <line x1="0" y1="100" x2="120" y2="100"/>
+    <line x1="0" y1="150" x2="120" y2="150"/>
+    <line x1="0" y1="200" x2="120" y2="200"/>
+    <line x1="0" y1="250" x2="120" y2="250"/>
+    <line x1="0" y1="300" x2="120" y2="300"/>
+    <line x1="0" y1="350" x2="120" y2="350"/>
+    <line x1="0" y1="400" x2="120" y2="400"/>
+    <line x1="0" y1="450" x2="120" y2="450"/>
+    <line x1="20" y1="0" x2="20" y2="500"/>
+    <line x1="40" y1="0" x2="40" y2="500"/>
+    <line x1="60" y1="0" x2="60" y2="500"/>
+    <line x1="80" y1="0" x2="80" y2="500"/>
+    <line x1="100" y1="0" x2="100" y2="500"/>
+  </g>
+  <!-- Choke zone: x in [2.5, 7.5], y in [23, 27] → SVG x in [25, 75], y in [230, 270] -->
+  <rect x="25" y="230" width="50" height="40" fill="var(--choke)" stroke="var(--choke-stroke)" stroke-width="0.5" stroke-dasharray="2,1"/>
+  <text class="label" x="60" y="252" text-anchor="middle" fill="var(--emphasis)" font-weight="600">CHOKE</text>
+  <text class="label" x="60" y="262" text-anchor="middle" fill="var(--emphasis)" font-size="7">x:[2.5,7.5]</text>
+
+  <!-- Arena boundary -->
+  <rect class="bound" x="2" y="2" width="116" height="496"/>
+
+  <!-- Player at (5, 40) → SVG (50, 100) -->
+  <circle cx="50" cy="100" r="4" fill="var(--player)" stroke="var(--ink)" stroke-width="0.5"/>
+  <text class="label" x="56" y="103">P (5,40)</text>
+
+  <!-- Mobs -->
+  <!-- (2, 10) → SVG (20, 400) -->
+  <circle cx="20" cy="400" r="4" fill="var(--mob)"/>
+  <text class="label" x="3" y="395" font-size="7">M1</text>
+  <!-- (5, 10) → SVG (50, 400) -->
+  <circle cx="50" cy="400" r="4" fill="var(--mob)"/>
+  <text class="label" x="56" y="403" font-size="7">M2</text>
+  <!-- (8, 10) → SVG (80, 400) -->
+  <circle cx="80" cy="400" r="4" fill="var(--mob)"/>
+  <text class="label" x="86" y="403" font-size="7">M3</text>
+  <!-- (3, 15) → SVG (30, 350) -->
+  <circle cx="30" cy="350" r="4" fill="var(--mob)"/>
+  <text class="label" x="3" y="345" font-size="7">M4</text>
+  <!-- (7, 15) → SVG (70, 350) -->
+  <circle cx="70" cy="350" r="4" fill="var(--mob)"/>
+  <text class="label" x="76" y="353" font-size="7">M5</text>
+  <!-- (4, 5) → SVG (40, 450) -->
+  <circle cx="40" cy="450" r="4" fill="var(--mob)"/>
+  <text class="label" x="3" y="450" font-size="7">M6</text>
+  <!-- (6, 5) → SVG (60, 450) -->
+  <circle cx="60" cy="450" r="4" fill="var(--mob)"/>
+  <text class="label" x="66" y="453" font-size="7">M7</text>
+  <!-- (5, 20) → SVG (50, 300) -->
+  <circle cx="50" cy="300" r="4" fill="var(--mob)"/>
+  <text class="label" x="56" y="303" font-size="7">M8</text>
+
+  <!-- Axis labels -->
+  <text class="axis-label" x="5" y="495">(0,0)</text>
+  <text class="axis-label" x="115" y="495" text-anchor="end">10m</text>
+  <text class="axis-label" x="60" y="12" text-anchor="middle">y=50</text>
+
+  <text class="label-title" x="60" y="25" text-anchor="middle">Chokepoint 10×50</text>
+</svg>
+</div>
+
+<div class="details">
+<h3>Scenario 2 specifications</h3>
+<table>
+<tr><th>Property</th><th>Value</th></tr>
+<tr><td>scenario_id</td><td><code>chokepoint_corridor</code></td></tr>
+<tr><td>Arena dimensions</td><td>10m × 50m corridor</td></tr>
+<tr><td>Choke zone</td><td>y ∈ [23, 27], x clamped to [2.5, 7.5] (5m-wide bottleneck)</td></tr>
+<tr><td>Player spawn</td><td>(5, 40) — north of bottleneck, facing south</td></tr>
+<tr><td>Mob count</td><td>8 swarm mobs at y=5-20 (south of bottleneck)</td></tr>
+<tr><td>Mob archetype</td><td>swarmer</td></tr>
+<tr><td>Player→nearest-mob distance</td><td>20m (M8 at y=20)</td></tr>
+<tr><td>Player→farthest-mob distance</td><td>~35m (M6/M7 at y=5)</td></tr>
+<tr><td>Leash override</td><td><strong>35m</strong> (overrides 18m default)</td></tr>
+<tr><td>Max duration</td><td>120s</td></tr>
+<tr><td>Win condition</td><td>all_mobs_killed (timeout with mobs alive = LOSS)</td></tr>
+<tr><td>HP difficulty multiplier</td><td>1.5×</td></tr>
+</table>
+
+<h4>What this scenario measures</h4>
+<p>Cone / line AOE exploitation + positional advantage. The 5m bottleneck (the yellow zone) clamps mob x-position to [2.5, 7.5] when y ∈ [23, 27], queueing mobs into a narrow lane as they pursue the player. This concentrates targets for cone/line skills (perpendicular AOE swept across the corridor) but does not help point skills (single-target damage doesn't benefit from spatial concentration).</p>
+
+<h4>Chokepoint mechanic</h4>
+<p>The x-clamp is the engine's simplification of pathfinding — entities pass through the y∈[23,27] zone with their x forced into [2.5, 7.5]. Outside that y-range, entities move freely within the 10m corridor width. This models the bottleneck without requiring full pathfinding (per <code>arena.py</code> docstring + math note § 3.3).</p>
+
+<h4>R2 H3 finding for this scenario</h4>
+<p>Chokepoint gap: <strong>+0.130 mean</strong> (threshold 0.05; 2.6× over). Cone/circle classes achieve mean WR 1.000 in chokepoint (same as open). Point classes drop from 0.721 (open) to <strong>0.581 (choke) — a 14pp WR decrease</strong>. The geometric signal "point can't exploit chokepoints" is empirically confirmed.</p>
+</div>
+</div>
+
+<!-- ============== SCENARIO 3 ============== -->
+<h2>Scenario 3 — Boss With Adds</h2>
+
+<div class="scenario">
+<div class="diagram">
+<svg width="360" height="360" viewBox="0 0 360 360">
+  <!-- Grid every 5m -->
+  <g class="grid">
+    <line x1="0" y1="60" x2="360" y2="60"/>
+    <line x1="0" y1="120" x2="360" y2="120"/>
+    <line x1="0" y1="180" x2="360" y2="180"/>
+    <line x1="0" y1="240" x2="360" y2="240"/>
+    <line x1="0" y1="300" x2="360" y2="300"/>
+    <line x1="60" y1="0" x2="60" y2="360"/>
+    <line x1="120" y1="0" x2="120" y2="360"/>
+    <line x1="180" y1="0" x2="180" y2="360"/>
+    <line x1="240" y1="0" x2="240" y2="360"/>
+    <line x1="300" y1="0" x2="300" y2="360"/>
+  </g>
+  <!-- Arena boundary -->
+  <rect class="bound" x="2" y="2" width="356" height="356"/>
+
+  <!-- Player at (15, 25) → SVG (180, 60) -->
+  <circle cx="180" cy="60" r="6" fill="var(--player)" stroke="var(--ink)" stroke-width="0.5"/>
+  <text class="label" x="190" y="63">PLAYER (15, 25)</text>
+  <text class="label" x="190" y="74">facing south toward boss</text>
+
+  <!-- Add 1 at (3, 26) → SVG (36, 48); left flank ~95° offset -->
+  <circle cx="36" cy="48" r="6" fill="var(--elite)" stroke="var(--ink)" stroke-width="0.5"/>
+  <text class="label" x="46" y="51">ADD-L (3, 26)</text>
+  <text class="label" x="46" y="62">elite/brute · 95° flank</text>
+
+  <!-- Add 2 at (27, 26) → SVG (324, 48); right flank ~95° offset -->
+  <circle cx="324" cy="48" r="6" fill="var(--elite)" stroke="var(--ink)" stroke-width="0.5"/>
+  <text class="label" x="260" y="51">ADD-R (27, 26)</text>
+  <text class="label" x="260" y="62">elite/brute</text>
+
+  <!-- Boss at (15, 8) → SVG (180, 264); radius 1.5m = 18px -->
+  <circle cx="180" cy="264" r="18" fill="var(--boss)" stroke="var(--ink)" stroke-width="1"/>
+  <text class="label" x="155" y="305" fill="var(--boss)" font-weight="600">BOSS (15, 8)</text>
+  <text class="label" x="138" y="316">1.5m hard collision body</text>
+
+  <!-- Player→Boss line showing 17m distance -->
+  <line x1="180" y1="66" x2="180" y2="246" stroke="var(--quiet)" stroke-width="0.5" stroke-dasharray="3,2"/>
+  <text class="label" x="184" y="160" fill="var(--quiet)">17m engagement</text>
+
+  <!-- Axis labels -->
+  <text class="axis-label" x="5" y="356">(0,0)</text>
+  <text class="axis-label" x="356" y="356" text-anchor="end">30m</text>
+  <text class="axis-label" x="180" y="12" text-anchor="middle">y=30</text>
+
+  <text class="label-title" x="180" y="25" text-anchor="middle">Boss With Adds 30×30</text>
+  <text class="axis-label" x="180" y="40" text-anchor="middle">max 240s · boss_killed win</text>
+</svg>
+</div>
+
+<div class="details">
+<h3>Scenario 3 specifications</h3>
+<table>
+<tr><th>Property</th><th>Value</th></tr>
+<tr><td>scenario_id</td><td><code>boss_with_adds</code></td></tr>
+<tr><td>Arena dimensions</td><td>30m × 30m, no obstacles</td></tr>
+<tr><td>Player spawn</td><td>(15, 25) — center-north, facing south</td></tr>
+<tr><td>Boss spawn</td><td>(15, 8) — center-south, 1.5m radius (hard collision body)</td></tr>
+<tr><td>Add 1 (left flank)</td><td>(3, 26) — 95° offset from player heading; elite/brute archetype</td></tr>
+<tr><td>Add 2 (right flank)</td><td>(27, 26) — 95° offset from player heading; elite/brute archetype</td></tr>
+<tr><td>Player→Boss distance</td><td>17m</td></tr>
+<tr><td>Player→Add-L distance</td><td>~12m diagonal</td></tr>
+<tr><td>Player→Add-R distance</td><td>~12m diagonal</td></tr>
+<tr><td>Leash override</td><td><strong>None</strong> — boss + adds use monster JSON defaults (§ 3.4 forward-flag)</td></tr>
+<tr><td>Max duration</td><td>240s (R1 boss-tier calibration)</td></tr>
+<tr><td>Win condition</td><td><strong>boss_killed</strong> (boss HP → 0, regardless of add status)</td></tr>
+<tr><td>HP difficulty multiplier</td><td>NOT applied (R2 recalibration excludes boss-with-adds)</td></tr>
+</table>
+
+<h4>What this scenario measures</h4>
+<p>Spatial composition that the 1D gauntlet literally cannot represent. The 1D PackProxy collapses N entities into a single proxy at a single distance scalar — but here, the boss is straight ahead (17m) while the adds flank at ~95° offsets (~12m diagonal). This forces decisions visible in the data: aggro adds first (risk losing time on boss-DPS) or fight boss while adds chip (risk being interrupted by add damage)?</p>
+
+<h4>The 95° flanking angles (jack-ryan WARN-2 fix)</h4>
+<p>Initial scenario design had adds at exactly 90° lateral offsets; jack-ryan's WARN-2 noted that strict 90° produces measurement artifacts at the boundary of "side" vs "behind" — strictly-flanking-but-not-behind requires &gt;90° offset. The 95° design ensures the adds are unambiguously side-flanking the player from boss-facing orientation.</p>
+
+<h4>R2 boss-with-adds result for the shipped catalogue</h4>
+<p>All 51 classes scored <strong>0.000 mean WR</strong> on this scenario. Same pattern as 1D boss WR. The shipped catalogue cannot kill the boss whether the engine measures with PackProxy or with full 2D spatial composition — the kit-quality pathology is invariant to measurement methodology.</p>
+</div>
+</div>
+
+<!-- ============== KEY DESIGN NOTES ============== -->
+<h2>Key design notes</h2>
+
+<h3>Why these three scenarios?</h3>
+
+<p>The three scenarios are designed to surface three distinct signals the 1D PackProxy gauntlet cannot:</p>
+
+<table>
+<tr><th>Scenario</th><th>Hypothesis tested</th><th>Result</th></tr>
+<tr><td>Open arena</td><td>H1 — geometry-type WR variance ≥ 0.10 within same role</td><td><strong>0.279 variance</strong> (point 0.721 vs cone/circle 1.000) — 2.79× over threshold, PASS strong</td></tr>
+<tr><td>Chokepoint corridor</td><td>H2 — cone/line geometries exploit chokepoints; point doesn't</td><td><strong>+0.130 chokepoint gap</strong> for cone/circle vs point — threshold 0.05, 2.6× over, PASS</td></tr>
+<tr><td>Boss with adds</td><td>H3 — boss-with-adds delta vs open arena ≥ 10pp for ≥ 30% of classes</td><td><strong>74.5% of classes (38/51) show ≥ 10pp delta</strong> — 2.5× over threshold, PASS strong</td></tr>
+</table>
+
+<h3>The engagement-geometry fix (2026-05-19)</h3>
+
+<div class="callout">
+<h4>The 18m → 35m leash override</h4>
+<p>Initial R2 implementation used monster JSON default leash = 18m. Empirical test (class_0020): <strong>only 11 mob-hits in 120s</strong> when expected ~686. Player HP 98.8% at timeout.</p>
+<p>Root cause: mobs at y=8 with leash 18m have leash boundary at y=26 — but the player is at y=40. Mobs reached their leash boundary and oscillated south of y=26 instead of pursuing the player at y=40.</p>
+<p>Fix: per-scenario leash override of 35m for swarm mobs in open_arena + chokepoint_corridor. Boss-with-adds keeps the JSON default (boss at y=8 + player at y=25 = 17m distance &lt; 18m default, so no oscillation issue).</p>
+<p>Verification: mob at y=8 + leash=35 = leash boundary at y=43 &gt; player at y=40 ✓.</p>
+</div>
+
+<h3>The "kills-only timeout" semantic change</h3>
+
+<p>Open arena + chokepoint both use <strong>kills-only timeout</strong>: if any mob is alive at 120s, the player LOSES regardless of HP. The previous semantic (HP&gt;50% survival win) was retired because it produced "I camped the leash boundary and survived" wins that didn't measure kill efficiency — the actual question R2 wants to answer.</p>
+
+<p>Boss-with-adds keeps the <code>boss_killed</code> win condition (boss HP → 0 wins regardless of add status). This is a forward-flagged boss-tier-specific calibration question for VS2b (§ 3.4 forward-flag in arena.py).</p>
+
+<h3>What R2 does NOT model</h3>
+
+<p>Some things the spatial sub-gauntlet explicitly does NOT include:</p>
+<ul>
+<li><strong>Full pathfinding.</strong> The choke zone is an x-clamp, not A* pathfinding. Entities don't navigate around obstacles dynamically.</li>
+<li><strong>Line-of-sight.</strong> Skills don't check LOS; if target is in range, skill fires.</li>
+<li><strong>Terrain variation.</strong> No elevation; no movement cost; no environmental damage.</li>
+<li><strong>Multi-pack composition.</strong> Each scenario has one mob group (or boss+adds). No "wave 2 spawns when wave 1 dies."</li>
+<li><strong>Visible rendering.</strong> R2 produces telemetry, not Pixi.js frames. The demo's 2D rendering is drax's seam (R4 + R5); R2 is the engine-side measurement layer.</li>
+</ul>
+
+<h3>Mapping to the player-facing demo</h3>
+
+<p>R2 is the engine's <em>measurement</em> layer; drax's demo (R4 + R5) is the player's <em>rendering</em> layer. They share the same R3 schema (per-skill range; aggro/leash/disengage AI behavior fields) so the engine's measurements match the demo's runtime behavior — that's R7's parity-test infrastructure. But the demo has its own visual register (Pixi.js sprites, R4 separation force, Drift-15 tilesets) that R2's schematic does not capture.</p>
+
+<p>If you wanted to see R2's scenarios <em>in the demo</em>, drax would need to implement a "spatial gauntlet replay" mode that loads R2 scenario configs and renders them in Pixi.js. That doesn't exist as a feature — R2's purpose is empirical balance measurement, not playtest visualization. Could be authored as a future feature if useful.</p>
+
+<h3>Which agents can produce different representations</h3>
+
+<table>
+<tr><th>Representation</th><th>Owner</th><th>Available now?</th></tr>
+<tr><td>This HTML/SVG schematic (you're reading it)</td><td>gandalf (this session)</td><td>✅ Done</td></tr>
+<tr><td>Python matplotlib diagram with actual fight frames</td><td>gamora (engine seam)</td><td>Would require dispatch when hive resumes</td></tr>
+<tr><td>Pixi.js playable replay of scenarios</td><td>drax (demo seam)</td><td>Doesn't exist; would need feature work</td></tr>
+<tr><td>Telemetry overlay (mob position traces over time)</td><td>star-lord + gamora</td><td>Could be derived from <code>spatial_fight_results</code> table (schema 2.12)</td></tr>
+<tr><td>3D / cinematic visualization</td><td>None — out of scope</td><td>Not in current team capability</td></tr>
+</table>
+
+<footer>
+<strong>Provenance:</strong> Authored 2026-05-19 by gandalf in response to Matt's question. Source data: <code>~/Games/reincarnated-engine/src/reincarnated/simulation/spatial_gauntlet/arena.py</code> (production code; exact dimensions, spawn coordinates, leash overrides, choke zone, win conditions). R2 hypothesis test results: <code>~/Games/reincarnated-engine/output/R2-sprint-2026-05-19/</code>.
+<br><br>
+<em>The arenas are drawn; the spawns are placed; the chokepoint and the flank and the leash are shown to scale. Mithrandir signs the schematic.</em>
+</footer>
+
+</body>
+</html>

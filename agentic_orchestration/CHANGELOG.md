@@ -4,6 +4,31 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-19 — R2+ST Counterfactual Math Investigation COMPLETE (gamora Phases B+C+D)
+
+**Event:** Gamora completed Phases B, C, and D of the R2+ST counterfactual math investigation commissioned by gandalf this morning and authorized in § 13.1 of the S1-firstbatch-fail disposition. Three math notes filed. Trigger A does not fire. Joint matrix row 5.
+
+**Experiment 1 (R2 convergence counterfactual):** PRIMARY FINDING: R2 spatial boss WR = 0.000 identically to R1 1D boss WR = 0.000 for all 51 classes. R2-as-canonical convergence would not have moved boss-tier collapse for this catalogue. Matt's architectural critique ("tuning against 1D while gating on R2 is counterproductive") is not empirically supported; the spatial measurement replicates the same zero-kill-rate pathology as the 1D measurement. The kit-composition diagnosis is corroborated, not undermined. SECONDARY FINDING: R2 swarm WR is bimodal (38/51 WR=1.0, 13/51 WR=0.0); threshold between pass/fail is kit-composition-driven, not modifier-driven.
+
+**Experiment 2 (ST damage multiplier K sweep):** K* = None. K** = None. K*** = None. All-tier-pass rate = 0.0% at every K in [1.0, 2.5] (31 values). Structural blocker: boss WR = 0.000 for 49/49 eligible classes. The linearization model WR(K) = WR_base * DPS_ratio(K) returns 0 for all K when WR_base = 0. Per-cast DPS scaling cannot rescue a zero-kill-rate tier at the current modifier floor.
+
+**Sensitivity subsection (R2-modifier baseline for 17 mismatched classes):** K* = None under R2 baseline for all computable cases (same structural blocker). Robustness flag: N/A — no K* exists to characterize robustness of.
+
+**Joint synthesis matrix:** Row 5 — "cannot reject H1 + no K works + catalogue has deeper pathology." Both hypothesized levers (R2-as-canonical + ST scaling) insufficient for current catalogue at current modifier levels.
+
+**Trigger A:** DOES NOT FIRE. Phase E (ST multiplier implementation) does not proceed.
+
+**Recommended next dispatches:** (1) Option A HELD dispatch for Matt approval (modifier floor adjustment); (2) Kit-redesign queue continuation (jack-ryan / star-lord); (3) P3 R2 bug fix `get_1d_wr_for_class()` (rocket + star-lord); (4) D11 design review for zero-damage classes (class_0043, class_0060).
+
+**Math notes filed:**
+- `design/working-agreement/r2-counterfactual-convergence-math-2026-05-19.md` (Experiment 1)
+- `design/working-agreement/st-damage-multiplier-counterfactual-math-2026-05-19.md` (Experiment 2 + sensitivity)
+- `design/working-agreement/r2-st-counterfactual-joint-synthesis-2026-05-19.md` (Phase D joint synthesis)
+
+**Routing:** gamora → knight-rider → gandalf for Phase D final summary + Trigger A gate disposition.
+
+---
+
 ## 2026-05-19 — VS2a S1 arc CLOSED at Trigger A — Option A balance-loop floor widening queued for Matt approval
 
 **Event:** End-of-day wind-down by knight-rider at Matt "please wind down" re-entry. The autonomous VS2a S1 arc converged onto one queued decision after ~8 hours of work:

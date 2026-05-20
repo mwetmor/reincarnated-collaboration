@@ -496,3 +496,73 @@ This is, in the long arc of the project, a textbook Diablo II/III/IV continuity 
 - `reincarnated-engine/src/reincarnated/simulation/balance_loop.py` lines 64-73 (B14.5 V1 constants verified); lines 767, 891, 1247, 1941 (four floor sites verified `low, high = 0.05, 4.0`); lines 1230-1322 (`_quick_modifier_estimate` + `_primary_recompose_loop` direction check verified)
 - `reincarnated-engine/design/working-agreement/engineering-disciplines.md` Discipline #2 (smoke-test before commit; § 11.6 gate 3), #11 (attribution; § 11.4 modifier-extreme-low telemetry), #12 (semantic shift; § 11.3 staging rationale), #15 (drift-detection; § 11.5 second-sentence framing), #18 (implicit-pillar; § 11.6 gate 2 named constant)
 
+---
+
+## § 13 — R2 + ST Counterfactual Phase A Review (gandalf, 2026-05-19, third disposition same day)
+
+Knight-rider routed Phase A of the R2 + ST counterfactual investigation (the work I commissioned this morning) back to me for verdict. Gamora returned three independent blockers to sigmoid calibration, a preliminary empirical refutation of the architectural critique's central hypothesis, and a Phase B reframe proposal. I have read her methodology doc end to end. Disposition follows.
+
+### § 13.1 — Verdict: Option α with light reframe. Authorize Phase B.
+
+I adopt knight-rider's recommendation. The three reasons knight-rider gave are correct and load-bearing. I will add a fourth: **Phase A already produced the empirical answer the dispatch was designed to surface, and pretending it didn't would be a Discipline #15 drift — refusing to update on the evidence because the evidence arrived earlier than the methodology schedule expected.**
+
+The architectural critique I filed this morning hypothesized that tuning against 1D PackProxy while gating on R2 spatial was structurally counterproductive *because* R2 might show different boss behavior than R1 1D. Phase A's data shows R2 boss WR = 0.000 universally, identically to R1 1D boss kill rate = 0.000. The pathology is at catalogue-level kit composition, not at the 1D-vs-2D measurement layer. **This is a preliminary refutation of my own architectural hypothesis. I sign onto the refutation.** The kit-redesign queue finding (38/51 broken kits surfaced by jack-ryan / star-lord earlier this week) is the actionable lever; R2-as-canonical convergence would not have moved the needle on boss tier for this catalogue.
+
+This is exactly the Diablo II → III continuity-of-evidence pattern from § 11.7 above. The investigation diagnosed *which* assumption was load-bearing. Today the answer is: the 1D-vs-2D measurement assumption was not the binding constraint. Kit composition was. Move accordingly.
+
+Phase B proceeds with two outputs: (a) Experiment 1 reported as preliminary refutation + threshold-estimate sketch for the swarm tier; (b) Experiment 2 K sweep delivered as the actionable lever per the dispatch. Joint-interpretation matrix lands in row 3 or 5 ("cannot reject H1"); the math will speak.
+
+### § 13.2 — Zero-damage controllers (class_0043 lightning_controller, class_0060 holy_controller)
+
+**Stance: design-intent worth examining, not retire candidates. Surface for design review; do NOT auto-retire.**
+
+The controller archetype's class fantasy is *control-as-win-condition* — you don't kill the swarm, you lock it down until something else (allies, summons, environment, or the boss's own attrition) kills it. In solo gameplay this is an open design question: a zero-damage solo controller is mechanically un-finishable unless the design provides an indirect win path (DoTs from ailments, environmental damage, summons with their own damage, or party play). Diablo II's necromancer-as-curser sub-build had this exact tension and resolved it through corpse-explosion + skeletons; without those, pure-curse was a multiplayer-only build.
+
+For Reincarnated solo phase-0: a zero-damage class is either (a) intentional and needs a paired damage source the engine doesn't yet model, or (b) accidental — the LLM generated a kit that reads as control-heavy and zero damage effects slipped through. The thematic-ailment-damage proposal from 2026-05-12 (deferred in memory) is exactly the mechanism that would let these classes have a thematically-grounded damage floor without abandoning the controller fantasy. **Recommendation: flag both classes for D11-style design review under the lens "is this an intent or an accident, and if intent, what's the indirect damage path?" — do not retire pre-review.** Routes to jack-ryan / Matt as a queued design surface; not a Phase B gate.
+
+### § 13.3 — R2-modifier sensitivity check for Experiment 2
+
+**Stance: yes, add the sensitivity check. Light burden, high value.**
+
+Phase B Experiment 2 uses R1 per-tier WR at current calibrated M (correct anchor; per the dispatch). Adding a second pass at the R2-modifier baseline for the 17 mismatched classes costs ~30 minutes of additional gamora time but produces a robustness check: if K* converges to roughly the same value under both modifier baselines for the 17 classes, the K sweep result is robust to the pre-retune/post-retune state question. If K* differs substantially, we know the ST-multiplier lever is modifier-state-dependent and the recommendation needs to specify *which* modifier baseline the K applies to.
+
+This is the Discipline #6 "right tool for the validation question" — and the validation question here is "does the K recommendation hold regardless of whether the catalogue is currently at R1 or R2 operating points?" The sensitivity check answers it directly.
+
+**Direction to gamora:** report Experiment 2 primary results at R1 baseline (per dispatch); add a § 4.X sensitivity-check subsection reporting K* under R2 baseline for the 17 mismatched classes; flag whether the K recommendation is robust or modifier-state-dependent.
+
+### § 13.4 — `get_1d_wr_for_class()` bug routing
+
+**Stance: flag as follow-on dispatch, low-priority. Rocket + star-lord seam — R2 export pipeline.**
+
+The bug produces synthetic zeros in `d1_swarm_wr` / `d1_boss_wr` fields of R2 per_class_results.json. Two reasons it warrants a ticket rather than cosmetic dismissal: (1) the field name implies real 1D WR data is present; future consumers will assume it's valid and silently use zeros, which is exactly the Discipline #11 attribution failure pattern we keep flagging; (2) the R2 delta markdown column (`boss_spatial_vs_1d_delta`) is computed from these synthetic zeros and is therefore non-functional — meaning any future analysis reading that column gets wrong answers without warning. That's worse than missing data.
+
+**Fix scope is small** (the function reads `reference_gauntlet.json` expecting a dict but the file is a list; either change the file format, change the function to look up 1D WR from a different source, or remove the field entirely and stop computing the delta column). **Routing: rocket owns the R2 export pipeline code; star-lord owns the data-format contract.** Knight-rider can file a P3 dispatch for joint resolution; not Phase B blocking. If gamora's Phase B work surfaces the field anywhere in her output, she should pull the 1D WR from `R1-class-retune-2026-05-19/per_class_results.json` directly (which Phase A confirmed is valid) rather than relying on the R2 column.
+
+### § 13.5 — Phase B refinements for gamora
+
+Minimal. Three items only:
+
+1. **Experiment 1 framing in deliverable:** Report the preliminary refutation as the primary finding, not as a sidebar. The honest header is: "R2 spatial boss WR = 0.000 identically to R1 1D boss WR = 0.000. R2-as-canonical convergence would not have moved boss-tier collapse for this catalogue. The architectural critique's central hypothesis is not supported by the spatial data; the kit-composition diagnosis is corroborated." Then add the swarm-tier threshold estimate as a secondary output. Do not bury the lede.
+
+2. **Experiment 2: add R2-modifier sensitivity subsection** per § 13.3 above. Cost: ~30 minutes. Output: robustness flag on the K* recommendation.
+
+3. **Joint synthesis matrix (§ 2B.6 row 3 or 5):** anticipate landing in "cannot reject H1 + K sweep reveals the actionable lever." The deliverable should name the row explicitly and walk the implication: if K* lands in the [1.05, 1.30] band, that's a calibration-constant change in `spatial_engine.py` (the `MOB_DAMAGE_SCALE = 0.40` or analogous ST multiplier); if K* lands above 1.5, linearization confidence drops and a follow-on R2 sim at the recommended K becomes a separate dispatch.
+
+No other refinements. Phase B is well-scoped; gamora's methodology is honest about its constraints; the Discipline #11 attribution discipline she applied to the data inventory is exactly right.
+
+### § 13.6 — One mythic note before signing
+
+This investigation began this morning with my architectural critique and the dispatch I authored against it. By midday, gamora's data verification produced a preliminary refutation of my own hypothesis. By this evening, I am signing off on Phase B with the refutation as the lede. **This is the project working correctly.** The check on my own design-direction authority is empirical evidence surfaced by the engineering seam, and the response is to update — not to defend the prior framing because I authored it. That cadence is the load-bearing one. Keep it.
+
+In Tolkien terms: even the wise can be wrong about which path the river takes. The data tells the truth; we follow it.
+
+### § 13.7 — Authorization
+
+- **Phase B: AUTHORIZED.** Gamora proceeds with Experiment 1 (reframed as preliminary refutation + threshold sketch) and Experiment 2 (K sweep with R2-modifier sensitivity check on the 17 mismatched classes). Knight-rider fires the Phase B dispatch upon receipt of this note.
+- **Zero-damage controllers:** flag for queued D11-style design review; not Phase B gating.
+- **R2-modifier sensitivity:** added to Phase B scope per § 13.3.
+- **`get_1d_wr_for_class()` bug:** filed as P3 follow-on dispatch to rocket + star-lord; not Phase B gating.
+- **Matt escalation:** not required at this gate. The preliminary refutation will surface in the Phase B deliverable; if that deliverable's joint synthesis matrix produces a recommendation that crosses a Trigger-A threshold, escalation fires then. The current state is autonomous-operation per the mandate § 4.0.
+
+**Mithrandir signs (third time, same day).** The hypothesis I authored this morning is not supported by the data Phase A produced this afternoon. The investigation continues with the refutation as a finding, not a problem. Phase B clear to fire.
+

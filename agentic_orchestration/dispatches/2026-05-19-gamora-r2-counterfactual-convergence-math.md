@@ -443,3 +443,38 @@ If Matt's critique is right, this resolves the entire boss-collapse pathology wi
 ---
 
 *Filed 2026-05-19 by gandalf, per Matt directive. Math-before-code in the spirit of Discipline #1. The architectural critique is sharp; the math resolves whether it's correct; the engine waits for the data to speak. Mithrandir signs the dispatch.*
+
+---
+
+## Completion record
+
+**Phase:** A (methodology only)  
+**Completed:** 2026-05-19  
+**By:** gamora  
+**Methodology doc:** `reincarnated-engine/design/working-agreement/r2-st-counterfactual-methodology-2026-05-19.md`
+
+### Phase A outcome: COMPLETE with critical blockers identified
+
+**Executed:**
+- All 5 input files verified on disk (§ 1)
+- 51 classes extracted: R1 modifier + per-tier WR + skill composition (§ 2)
+- DPS-to-WR sigmoid calibration assessed: NOT POSSIBLE from available data (§ 3)
+- Napkin assumptions replaced with empirical data where feasible (§ 4)
+- All 4 methodology open questions resolved under L1 authority (§ 5)
+- Phase B readiness assessed with blockers documented (§ 6)
+
+**Critical finding (empirical, not methodological):**  
+R2 `boss_with_adds_wr = 0.000` for all 51 classes. This replicates R1 1D `boss_wr = 0.000` for all 51 classes. Boss-tier collapse is NOT a 1D PackProxy measurement artifact for this catalogue — it persists in the full R2 spatial context at the same severity. The kit-redesign queue finding (38/51 kit-broken) is corroborated, not undermined, by R2 data.
+
+**Secondary finding (data quality):**  
+`d1_swarm_wr` and `d1_boss_wr` fields in R2 per_class_results.json are synthetic zeros (not real 1D WR data). `get_1d_wr_for_class()` reads a list-format `reference_gauntlet.json` expecting a dict, returns 0.0 default for all classes. This field is non-functional and must not be used in downstream analysis.
+
+**Blockers for Phase B:**
+1. HIGH: Boss sigmoid cannot be fit (WR=0 universally); Experiment 1 boss M* derivation is blocked
+2. MEDIUM: Swarm WR bimodal (0 or 1 only); threshold estimate only, not sigmoid slope
+3. LOW: Per-geometry hit_fraction not in per_class_results.json (in telemetry DB only)
+
+**Phase B is viable for Experiment 2 (ST multiplier sweep)** using R1 1D per-tier WR + linearization model.  
+**Phase B Experiment 1 requires methodology reframe** per § 6.3 of methodology doc.
+
+**Routing:** Methodology doc → gandalf review → Phase B authorization if approved.

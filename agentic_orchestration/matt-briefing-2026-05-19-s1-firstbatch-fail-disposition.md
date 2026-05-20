@@ -220,3 +220,56 @@ The change in Matt re-entry framing:
 - Now: Matt re-enters when a semantic-shift code change is proposed for the balance loop (proactive escalation per Discipline #12 + ADR-002)
 
 Net: a much faster Matt re-entry than the original plan would have produced, with much sharper diagnostic evidence. The diagnosis arc consumed ~8 hours total (cohesion + R1 sprint + critique-pair + retry-1 + critique-pair-2 + investigation + critique-pair-3); the empirical mass is heavy; the recommendation is implementable; the disciplines are honored.
+
+---
+
+## § 9 — Post-briefing addendum: R2 + ST counterfactual findings (2026-05-19 evening)
+
+**Authored:** later evening 2026-05-19 by gandalf, post-knight-rider wind-down, under gandalf-with-gamora hive-iteration mode (operating mandate at `agentic_orchestration/gandalf/requests/2026-05-19-gandalf-iterate-with-gamora-on-counterfactual-math.md`). Folded into this briefing so § 8 reads with the complete state of the lever queue at Matt re-entry.
+
+### § 9.1 — What ran while the hive was wound down
+
+The R2 + ST counterfactual math investigation I commissioned this morning ran to completion under gandalf-with-gamora autonomous authority (math-only; no code changes; no schema migrations; no convergence-loop alterations). Two experiments executed:
+
+- **Experiment 1:** R2-as-canonical convergence counterfactual — would the architectural critique I filed this morning (1D measurement / 2D validation divergence) have moved boss-tier collapse if R2 had been the convergence target?
+- **Experiment 2:** ST per-cast damage multiplier K sweep — would a slight increase in single-target damage (your earlier hunch about "do ST skills just need a small bump?") resolve per-tier convergence?
+
+Three math notes filed at `reincarnated-engine/design/working-agreement/`. Joint synthesis at `reincarnated-engine/design/working-agreement/r2-st-counterfactual-joint-synthesis-2026-05-19.md`. Canonical findings memo at `canonical/story/r2-st-counterfactual-findings-2026-05-19.md`.
+
+### § 9.2 — Both levers empirically eliminated
+
+| Lever tested | Verdict |
+|---|---|
+| R2-as-canonical convergence (H1) | **CANNOT REJECT NULL — refuted.** R2 boss WR = 0.000 for 51/51 classes, identical to R1 1D boss WR = 0.000. The two measurement systems agree on boss tier. The architectural critique's central hypothesis is not supported. |
+| ST damage-multiplier K (H3 + H4) | **CANNOT REJECT NULL — decisively refuted.** No K in [1.0, 2.5] produces >=60% all-tier-pass rate. K\* = None at every step. The boss-tier zero-floor is mathematically immune to per-cast scaling (0 × any K = 0). |
+| R2-modifier sensitivity (Refinement 2, 17 classes) | K\* = None under R2 baseline as well. Robustness flag is moot — there is no K\* to characterize robustness of. |
+| Joint matrix row | **Row 5: "catalogue has deeper pathology."** Both levers fail independently. |
+| Phase E (implementation off this investigation) | **DOES NOT TRIGGER.** No code changes warranted from this investigation. |
+
+### § 9.3 — What this means for the § 8 decisions you're about to approve
+
+**Option A (Decision A1) is reinforced, not obviated.** Two architectural levers (R2-as-canonical, ST K multiplier) are now empirically off the table for the current S1 catalogue. The 4-LOC modifier-floor widening change is now the only remaining surgical engine-side fix in the queue. Option A's empirical regen of seasons 099002 / 100001 / 100002 is the test that decides whether the engine can clear S1 with this single lever — or whether kit-redesign is also required.
+
+The chain of reasoning is now sharper than § 8 alone would suggest:
+- R2 substitution refuted → ~2-4 week architectural detour avoided
+- K multiplier refuted at current modifier levels → spatial_engine calibration-constant change avoided
+- Modifier-floor widening (Option A) is the remaining engine-side surgical lever
+- Kit-redesign queue (jack-ryan + star-lord's 38/51 finding) is corroborated as the parallel layer
+
+**Recommendation: approve Option A as authored in § 8.** No § 8 decision items change. Section 9 only reinforces what § 8 already recommends.
+
+### § 9.4 — The mythic note (for the team record)
+
+This is the third design-direction self-correction by gandalf today, all empirically driven, all signed in the canonical document chain:
+
+1. Morning: "substrate-determined pathology" hypothesis (char/aftermath produces low-damage kits) → corrected when convergence-failure shape appeared across brine, char, ember uniformly.
+2. Midday: "floor-mechanism diagnosis" → refined when this investigation showed the floor IS binding at convergence layer, but boss WR=0 is a SEPARATE catalogue-level kit-composition problem.
+3. Evening: "1D-vs-2D measurement-architecture critique" → refuted when R2 and 1D agreed completely on boss tier.
+
+The cadence is the load-bearing pattern. State-of-belief reconciles with state-of-evidence inside the same calendar day, in the same canonical document chain, signed. The Diablo III pre-Inferno anti-pattern (internal balance assumptions diverging from published rules for months) is the failure mode we are deliberately *not* in. Worth marking; not a problem to fix.
+
+### § 9.5 — Wind-down status
+
+Hive-iteration mode deactivates on this addendum's commit. Knight-rider folds in commits + push on Matt re-entry. The investigation closes. The road continues toward Option A's approval gate.
+
+*Mithrandir signs (fourth time, same day). The math spoke. The investigation closes. Option A awaits your approval.*
