@@ -328,3 +328,62 @@ Pool depletion: CC pool depletion for control+stamina/focus thin-pool cases corr
 4. R11(b) complete round-trip: recorder.py star-lord seam must write archetype_label field (v2.15)
 5. Orchestrator full wiring: _generate_classes() → bc_target_composer path (Phase 3 scope)
 - [ ] Tag: `qd-rebuild/v0.2-archetype-refactor-complete`
+
+---
+
+## Completion record — Phase 2.5 (Gate-2 amendment fold-in) — 2026-05-21
+
+**Agent:** rocket
+**Status:** COMPLETE — all 3 jack-ryan WARN/INFO amendments folded. No algorithm changes.
+**Tag fired:** `qd-rebuild/v0.2-phase-2-5-cleanup`
+
+### Scope
+
+Gate-2 returned APPROVE-WITH-AMEND (gandalf + jack-ryan; both APPROVED). 5 total amendments:
+- 2 gandalf advisories: carry forward to P5/Phase 3 (NOT in this fold-in per task scope)
+- 3 jack-ryan WARN/INFO: folded here
+
+### Amendments folded
+
+**A1 (WARN — b6_archetype_templates.py deprecation banner):** COMPLETE
+  Added explicit W0.2 deprecation block to module docstring in `b6_archetype_templates.py`.
+  Matches `archetype_composer.py` pattern (lines 1-33). Banner includes:
+  - DEPRECATED — W0.2 Phase 2 (2026-05-21)
+  - Removal gate: P5 W5.X (cohesion-judge ship-gate cleanup)
+  - Replacement: bc_target_composer.py
+  - Cite: math note §9.3 + recompose-hive Option B precedent
+
+**A2 (WARN — Test file paths in qa/pending submission):** COMPLETE
+  Test artifact paths + pass counts appended to AGENT_STATE.md:
+
+  | File | Pass count | Notes |
+  |---|---|---|
+  | `tests/test_w02_bc_target_composer.py` | 57/57 | All new W0.2 tests; 0 skips |
+  | `tests/test_d3_archetype_composer.py` | 67/67 | D3 backward-compat through shim; 2 pre-existing skips |
+
+  Verification run (Phase 2.5): 124 passed / 2 skipped / 0 failures.
+
+**A3 (INFO — unified_mechanic_pool.yaml footer count correction):** COMPLETE
+  Corrected footer from stale "Active: 70 / Deferred: 4 / Total: 74"
+  to accurate "Active: 67 / Deferred: 4 / Total: 71" (aligns with W0.2.1 deliverable).
+
+### Files modified
+
+- `reincarnated-engine/src/reincarnated/generation/b6_archetype_templates.py` — A1: deprecation banner added
+- `reincarnated-engine/src/reincarnated/generation/unified_mechanic_pool.yaml` — A3: footer count corrected
+- `reincarnated-engine/src/reincarnated/generation/AGENT_STATE.md` — A2: test paths added; Phase 2.5 noted; header updated
+
+### Acceptance criteria check
+
+- [x] A1 folded: deprecation banner in b6_archetype_templates.py matching archetype_composer.py pattern
+- [x] A2 folded: test file paths + pass counts in AGENT_STATE.md (57/57 + 67/67; verified by run)
+- [x] A3 folded: unified_mechanic_pool.yaml footer corrected to 67/4/71
+- [x] AGENT_STATE.md updated (test paths + Phase 2.5 fold-in noted + header updated)
+- [x] Phase 2.5 completion record appended to dispatch file
+- [x] Tag: `qd-rebuild/v0.2-phase-2-5-cleanup` fired
+
+### Carry-forward (NOT in this fold-in)
+
+- gandalf advisory A3 (P5 W5.X comment scrubbing): carry to Phase 3
+- gandalf advisory A4 (Phase 3 pool-depletion diagnostic): carry to Phase 3
+- v2.15 migration execution: star-lord seam; gated on round-trip smoke fixtures from W0.1 Phase 2
