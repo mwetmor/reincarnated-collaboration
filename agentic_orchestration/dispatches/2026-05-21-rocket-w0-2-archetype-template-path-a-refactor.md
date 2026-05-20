@@ -264,4 +264,67 @@ Added §8.4: W0.2.6 MIGRATION.md must mandate a SINGLE ALTER TABLE script coveri
 - [ ] Smoke + 179/179 tests (W0.2.5) — gated on W0.2.2 orchestrator severance
 - [ ] MIGRATION.md entry per ADR-004 (W0.2.6) — must include shim pass/fail criterion + single ALTER TABLE mandate
 - [ ] Round-trip smoke per Principle 6
+
+---
+
+## Completion record
+
+**Date:** 2026-05-21
+**Agent:** rocket
+**Tag fired:** `qd-rebuild/v0.2-archetype-refactor-complete` (engine commit `e696b9f`)
+
+### Sub-task completion status
+
+| Sub-task | Status | Key finding |
+|---|---|---|
+| W0.2.1 — Unified mechanic pool | COMPLETE | `unified_mechanic_pool.yaml`: 67 active / 4 deferred / 5 cost types / 15 CC mechanics |
+| W0.2.2 — bc_target_composer.py + severance audit | COMPLETE | Orchestrator CONFIRMED COMPLIANT (see audit below) |
+| W0.2.3 — ARCHETYPE_TEMPLATES deprecate | COMPLETE | `archetype_composer.py` + `_build_archetype_templates()` deprecated in-place with P5 W5.X gate |
+| W0.2.4 — legacy_archetype_shim.py | COMPLETE | 24-row translation table; all archetype tags produce ComposedKit or valid DeferredEvaluation |
+| W0.2.5 — Smoke + tests | COMPLETE | 57/57 new tests pass; 204/204 existing generation tests pass; baseline preserved |
+| W0.2.6 — MIGRATION.md + R11(b) | COMPLETE | MIGRATION.md updated; PlayerClass.archetype_label field added (nullable); R11(b) incomplete (recorder.py — star-lord seam) |
+
+### Orchestrator severance audit finding (W0.2.2 HARD GATE)
+
+STATUS: CONFIRMED COMPLIANT — no emergency severance required before smoke.
+
+`season_orchestrator._generate_classes()` passes (element, energy_type, role_orientation, range_profile) to ClassGenerator. archetype_tag is derived INSIDE ClassGenerator via `classify_archetype()`, not an orchestrator selection. Seasonal elements (selector.py) feed coalescence/naming only (Contract 1 satisfied). No archetype-tag emission from orchestrator to composition queue.
+
+Full audit text: `src/reincarnated/generation/bc_target_composer.py::ORCHESTRATOR_SEVERANCE_AUDIT`
+
+### Shim BC distribution comparison (Discipline #11.1)
+
+New-composer produces 7 distinct (eng_bin, geo_bin) coordinate families across 24 archetype tags. Diverse BC coverage confirmed: close-fast/single-target (warrior), ranged-slow/chain (lightning), mid-slow/small-AOE (controllers), ranged-fast/large-AOE (wind), etc.
+
+Physical warrior: rage → tier 65 (B6 carry-forward confirmed).
+Hunter: focus → tier 58 (B6 carry-forward confirmed).
+Elemental archetypes: mana → tier 50 (baseline).
+Pool depletion: CC pool depletion for control+stamina/focus thin-pool cases correctly routes to DeferredEvaluation (not truncation). Telemetry: pool_depletion_events logged per (cost_type, role).
+
+### Test results (W0.2.5)
+
+- New W0.2 tests: 57/57 PASS
+- Existing generation tests (class generation, energy types, substrate coupling, canonical, embodiment schema): 204/204 PASS
+- D3 archetype composer tests: 67/67 PASS + 2 skipped (pre-existing; unchanged)
+- Pre-existing failures unchanged: `test_all_elements_monsters` (bruiser archetype gap), `test_geared_player_deals_more_damage` (gear cp3 balance)
+
+### Acceptance criteria check
+
+- [x] ARCHETYPE_TEMPLATES deprecated in-place (not removed; P5 gate documented)
+- [x] Generation produces kits via BC-target-driven composition from unified substrate-AGNOSTIC pool
+- [x] No substrate tagging at generation (kits emerge substrate-blind)
+- [x] Role-shape constraints applied post-assembly (not pre-filter)
+- [x] season_orchestrator.py severance audit deliverable filed (CONFIRMED COMPLIANT)
+- [x] Existing tests pass (204/204 generation tests + 57 new tests)
+- [x] Round-trip schema field: PlayerClass.archetype_label added (recorder integration = star-lord seam, not yet wired)
+- [x] BC distribution comparison documented
+- [x] Tag: `qd-rebuild/v0.2-archetype-refactor-complete` fired
+
+### Open items for Gate-2 reviews
+
+1. gandalf architectural review: verify substrate-as-cohesion preservation in implementation
+2. jack-ryan Gate-2: verify implementation correctness vs math note + Discipline compliance
+3. Shim calibration pass/fail (jack-ryan A3): requires W0.9 gauntlet operational; Phase 4 deliverable
+4. R11(b) complete round-trip: recorder.py star-lord seam must write archetype_label field (v2.15)
+5. Orchestrator full wiring: _generate_classes() → bc_target_composer path (Phase 3 scope)
 - [ ] Tag: `qd-rebuild/v0.2-archetype-refactor-complete`
