@@ -10,24 +10,24 @@
 
 ## 1. Current phase: P0 — Constraint Removal + Drift Cleanup
 
-**Phase state:** OPENING (workstream dispatches not yet fired)
+**Phase state:** P0 OPEN — 7 of 9 dispatches authored + active. gandalf attestation 2026-05-21 cleared all framing-approval blockers; Matt's prior approvals (Confirm § 2.9 / Confirm § 2.8 / substrate-as-cohesion ratification) are attested on record. Track C synthesis absorbed; uniform-depth enrichment confirmed for P1 W1.11.
 **Phase duration estimate:** 3-4 weeks (with W0.9 added per § 2.9 of activation dispatch)
 **Phase tag namespace:** `qd-rebuild/v0.X-<descriptor>`
 **Milestone tag at phase close:** `v0.0-constraint-removal-shipped`
 
 ### P0 workstream roster (9 workstreams)
 
-| ID | Description | Owner | Status | Tag |
-|---|---|---|---|---|
-| W0.1 | B6 energy-type-aware tier assignment (LC-004 fix; Matt-pre-approved per decisions-log 2026-05-16) | rocket | **VERIFICATION REQUIRED** — partial fix already shipped 2026-05-16 at `rocket/v1.3-b6-energy-type-tiers` (commit `639ac3d`); B14.5 V2 energy-type lever in primary recompose loop is the remaining ~0.50 target portion. Scope ambiguity: re-tag-existing vs author B14.5 V2 follow-on. Surfacing to Matt at activation summary. | `qd-rebuild/v0.1-b6-energy-type-tier` |
-| W0.2 | Archetype template Path-a refactor (LC-001 fix; SIMPLER under substrate-as-cohesion — REMOVE templates entirely) | rocket | PENDING (Matt-approval optional; was structural per protocol § 6.1.5) | `qd-rebuild/v0.2-archetype-refactor` |
-| W0.3 | Foundation validator update (LC-012 fix; D5 = 7-substrate) | rocket | PENDING | `qd-rebuild/v0.3-foundation-validator-N` |
-| W0.4 | Specialist code audit (12 HIGH-risk LCs verify; 18 MEDIUM-risk follow-up; **INCLUDES** § 2.8 W1.13 current-state verification + OQ-2 (lightning chain_lightning boss multi-hop) + OQ-3 (5-skill kit generation anomaly) per Alt A) | rocket + gamora + star-lord; jack-ryan reviews | PENDING | `qd-rebuild/v0.4-code-side-audit-N` |
-| W0.5 | Mana-bug verify (LC-026 quick verify; ~2 hours) | gamora | PENDING | `qd-rebuild/v0.5-mana-bug-verify` |
-| W0.6 | Drift candidate closures (LC-006, LC-007, LC-014, LC-028) | jack-ryan + specialists | PENDING (LC-006 may defer per D3 sequencing; LC-007 may defer to P4) | `qd-rebuild/v0.6-drift-closures-N` |
-| W0.7 | LC-002 + LC-009 + LC-011 ablation experiments | gamora | PENDING | `qd-rebuild/v0.7-ablation-N` |
-| W0.8 | Axis 2 substrate completeness check (~2-3 hours; map 16-type palette to 5-bin Axis 2; identify per-bin gap to 5× rule) | rocket | PENDING | `qd-rebuild/v0.8-axis-2-substrate-check` |
-| **W0.9** | **Gauntlet architecture migration** (NEW per § 2.9; retire PackProxy ×8; true multi-monster positional gauntlet as default; ~1-2 weeks) — **AWAITING MATT FRAMING APPROVAL** | gamora | BLOCKED-ON-MATT (framing approval per activation dispatch § 5) | `qd-rebuild/v0.9-gauntlet-migration-N` |
+| ID | Description | Owner | Status | Dispatch | Tag |
+|---|---|---|---|---|---|
+| W0.1 | **B14.5 V2 energy-type lever in primary recompose loop** (LC-004 calibration-side fix; complements B6 pre-work already shipped 2026-05-16 at `rocket/v1.3-b6-energy-type-tiers`); gandalf endorsed B14.5 V2 follow-on interpretation per matt-briefing § 4 | gamora | DISPATCH ACTIVE | `2026-05-21-gamora-w0-1-b14-5-v2-energy-type-lever.md` | `qd-rebuild/v0.1-b14-5-v2-energy-type-lever` |
+| W0.2 | Archetype template Path-a refactor (LC-001; REMOVE templates entirely under substrate-as-cohesion-only) | rocket | DISPATCH ACTIVE | `2026-05-21-rocket-w0-2-archetype-template-path-a-refactor.md` | `qd-rebuild/v0.2-archetype-refactor-complete` |
+| W0.3 | Foundation validator update (LC-012 fix; D5 = 7-substrate) | rocket | DISPATCH ACTIVE | `2026-05-21-rocket-w0-3-foundation-validator-d5.md` | `qd-rebuild/v0.3-foundation-validator-7-substrate` |
+| W0.4 | Specialist code audit (12 HIGH-risk LCs verify; 18 MEDIUM-risk follow-up; INCLUDES § 2.8 W1.13 current-state verification + OQ-2 + OQ-3 per Alt A) | rocket + gamora + star-lord; jack-ryan reviews | DISPATCH ACTIVE | `2026-05-21-rocket-plus-gamora-plus-star-lord-w0-4-specialist-code-audit.md` | `qd-rebuild/v0.4-code-side-audit-complete` |
+| W0.5 | Mana-bug verify (LC-026 quick verify; ~2 hours) | gamora | DISPATCH ACTIVE | `2026-05-21-gamora-w0-5-mana-bug-verify.md` | `qd-rebuild/v0.5-mana-bug-verify-*` |
+| W0.6 | Drift candidate closures (LC-006, LC-007, LC-014, LC-028; LC-006 may defer per D3; LC-007 may defer to P4) | jack-ryan + specialists | QUEUED (next session author dispatch) | (next session) | `qd-rebuild/v0.6-drift-closures-N` |
+| W0.7 | LC-002 + LC-009 + LC-011 ablation experiments | gamora | QUEUED (next session author dispatch) | (next session) | `qd-rebuild/v0.7-ablation-N` |
+| W0.8 | Axis 2 substrate completeness check (~2-3 hours; map 16-type palette to 5-bin Axis 2; identify per-bin gap to 5× rule) | rocket | DISPATCH ACTIVE | `2026-05-21-rocket-w0-8-axis-2-substrate-check.md` | `qd-rebuild/v0.8-axis-2-substrate-check` |
+| **W0.9** | **Gauntlet architecture migration** (NEW per § 2.9; retire PackProxy ×8; true multi-monster positional gauntlet as default; ~1-2 weeks) — **gandalf-attested Matt-approval "Confirm § 2.9 edit"** | gamora | DISPATCH ACTIVE | `2026-05-21-gamora-w0-9-gauntlet-architecture-migration.md` | `qd-rebuild/v0.9-gauntlet-migration-complete` |
 
 ### P0 sequencing plan
 
@@ -70,15 +70,22 @@
 
 ### 2.3 Background dispatches in flight
 
-- **Track C resumption** (TC-1 water resume + TC-2 earth; SKIP TC-3 shadow per shadow trade-off framing) — was running when activation dispatched; gandalf synthesizes verdict when it returns; verdict feeds P1 W1.11 substrate enrichment scope-finalization. Does NOT block P0 fire.
+- **Track C resumption** — **SYNTHESIS LANDED 2026-05-21 ~10:03 EDT** at `canonical/story/substrate-generalization-track-c-synthesis-2026-05-21.md` (gandalf commit `623f8a3`). Key findings:
+  - OQ-1 resolved: COLLAPSE — substrate severity gradient is CALIBRATION ARTIFACT, not substrate-intrinsic
+  - **P1 W1.11 scope: UNIFORM comprehensive enrichment depth** confirmed (saves ~1-2 weeks vs differentiated approach)
+  - § 2.8 + § 2.9 empirically validated as necessary, not optional
+  - New OQ-6 (physical hunter modifier ceiling) + OQ-7 (water DPS density) for downstream attention (P7 W7.2 + P1 W1.11 scoping respectively)
+  - Knight-rider absorbed; folded into P1 W1.11 scope-finalization (no new dispatch needed)
 - **Monster thematic depth assessment** (Legolas + Galadriel + gandalf synthesis dispatch at `agentic_orchestration/dispatches/2026-05-21-monster-thematic-depth-assessment.md`) — QUEUED to fire post-P0 open.
 
 ### 2.4 Matt-blocking items
 
 | Item | Surfaced | Status |
 |---|---|---|
-| W0.9 gauntlet architecture migration framing approval | 2026-05-21 hive activation | **AWAITING MATT** |
-| W1.13 skill tree node population framing approval | 2026-05-21 hive activation | AWAITING MATT (P1 timeframe) |
+| W0.9 gauntlet architecture migration framing approval | 2026-05-21 hive activation | **CLEARED** — gandalf attestation 2026-05-21 § 3.1 (Matt 2026-05-21 "Confirm § 2.9 edit"); W0.9 dispatch ACTIVE |
+| W1.13 skill tree node population framing approval | 2026-05-21 hive activation | **CLEARED** — gandalf attestation 2026-05-21 § 3.2 (Matt 2026-05-21 "Confirm § 2.8 edit"); fires at P1 boundary |
+| W0.2 archetype template Path-a refactor (structural per protocol § 6.1.5) | 2026-05-21 activation | **CLEARED** — gandalf attestation 2026-05-21 § 3.3 (implicit approval via substrate-as-cohesion ratification "1 = yes / 2 = yes / 3 = yes / all 3 confirmed. Free to write."); W0.2 dispatch ACTIVE |
+| W0.1 scope interpretation | 2026-05-21 activation | **CLEARED** — gandalf attestation 2026-05-21 § 4 (endorses B14.5 V2 follow-on; operationally correct empirical inspection finding); W0.1 dispatch ACTIVE |
 | Per activation dispatch § 5: structural architecture changes / procurement >$100 / production cutover (W7.5) / Discipline #18 ratification / Profile A ship-blocker / axis-lock v1.1+ revision | — | none currently pending |
 
 ### 2.5 Engine state (carry-forward from recompose-hive close)

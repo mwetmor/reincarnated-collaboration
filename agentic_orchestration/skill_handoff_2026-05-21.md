@@ -1,4 +1,4 @@
-# Skill Handoff — 2026-05-21 — QD-Engine Rebuild Hive Activated
+# Skill Handoff — 2026-05-21 — QD-Engine Rebuild Hive Activated (P0 OPEN; 7 of 9 dispatches active)
 
 **Author:** knight-rider (session ending at this commit)
 **Purpose:** continuity context for next knight-rider session
@@ -7,17 +7,21 @@
 
 ## TL;DR — what to read first
 
-The QD-Engine Rebuild hive activated this session per gandalf activation dispatch 2026-05-21. The recompose-validation hive's full P5 canonical record closed (Discipline #11.1 ratified; "33→35" engine-side corrective applied; retrospective filed). Three Matt-blocking framing approvals (W0.9 + W0.2 + W1.13) and one W0.1 scope-ambiguity surfaced — knight-rider authored Matt-facing activation briefing and paused P0 substantial dispatch fire pending Matt's response.
+The QD-Engine Rebuild hive activated this session per gandalf activation dispatch 2026-05-21 + gandalf attestation 2026-05-21 cleared all Matt-blocking framing approvals (W0.9 / W0.2 / W1.13) + endorsed W0.1 B14.5 V2 follow-on interpretation. The recompose-validation hive's full P5 canonical record closed (Discipline #11.1 ratified; "33→35" engine-side corrective applied; retrospective filed). Track C synthesis landed mid-session and absorbed into P1 W1.11 scope-finalization (uniform-depth confirmed; saves ~1-2 weeks).
+
+**7 of 9 P0 dispatches authored this session and ACTIVE for specialist execution. W0.6 + W0.7 queued for next session. W1.13 dispatch staged for P1 boundary.**
 
 **At next session-open, read in this order:**
 
 1. `agentic_orchestration/CHANGELOG.md` — most recent 2 entries (QD-rebuild activation + recompose-hive full closure)
-2. `agentic_orchestration/matt-briefing-qd-rebuild-activation-2026-05-21.md` — the Matt-facing activation briefing (§ 3 + § 4 are the gates)
-3. `agentic_orchestration/knight-rider/state-of-hive-qd-rebuild.md` — operational state-of-hive (continuously maintained)
-4. `agentic_orchestration/knight-rider/daily/2026-05-21.md` — activation day phase-progress log
-5. `agentic_orchestration/dispatches/2026-05-21-knight-rider-qd-rebuild-hive-activation.md` — the activation dispatch (still the source of authority)
-6. `reincarnated-engine/design/decisions/decisions-log.md` — 3 new 2026-05-21 entries (search "2026-05-21")
-7. `reincarnated-engine/design/working-agreement/engineering-disciplines.md` § 11.1 — newly ratified
+2. `agentic_orchestration/knight-rider/state-of-hive-qd-rebuild.md` — operational state-of-hive (continuously maintained; reflects all gandalf clearances)
+3. `agentic_orchestration/knight-rider/daily/2026-05-21.md` — activation day phase-progress log
+4. `canonical/story/substrate-generalization-track-c-synthesis-2026-05-21.md` — Track C verdict (absorbed into P1 W1.11 scope)
+5. `agentic_orchestration/dispatches/2026-05-21-knight-rider-qd-rebuild-hive-activation.md` — the activation dispatch (source of authority)
+6. `agentic_orchestration/matt-briefing-qd-rebuild-activation-2026-05-21.md` — Matt-facing briefing (note: gandalf cleared § 3 + § 4 mid-session; briefing is historical record)
+7. 7 P0 dispatches at `agentic_orchestration/dispatches/2026-05-21-*-w0-*.md` (the active P0 workstream dispatches)
+8. `reincarnated-engine/design/decisions/decisions-log.md` — 3 new 2026-05-21 entries (search "2026-05-21")
+9. `reincarnated-engine/design/working-agreement/engineering-disciplines.md` § 11.1 — newly ratified
 
 ---
 
@@ -26,13 +30,16 @@ The QD-Engine Rebuild hive activated this session per gandalf activation dispatc
 **Steps 1-3 of activation sequence: EXECUTED**
 - Step 1: recompose-hive trigger #3 closed (Discipline #11.1 ratified; "33→35" corrective; retrospective; final tag `recompose-hive/v1.1-canonical-record-complete` fired engine + collab)
 - Step 2: 3 decisions-log entries authored + jack-ryan reviewed APPROVE-WITH-AMEND + amendments folded + committed
-- Step 3: Track C acknowledged in state-of-hive § 2.3
+- Step 3: Track C acknowledged + synthesis ABSORBED into P1 W1.11 (uniform-depth confirmed)
 
-**Step 4: P0 OPENING (Matt-gated; in-progress)**
-- Matt-facing briefing surfaces W0.9 + W0.2 + W1.13 framing approvals + W0.1 scope-ambiguity
-- 6 autonomously-fireable workstreams queued: W0.3, W0.4, W0.5, W0.6, W0.7, W0.8
+**Step 4: P0 OPEN — 7 of 9 dispatches active**
+- gandalf attestation 2026-05-21 cleared all framing-approval blockers
+- W0.1 / W0.2 / W0.3 / W0.4 / W0.5 / W0.8 / W0.9 dispatches authored + ACTIVE
+- W0.6 + W0.7 queued for next session (follow-on workstreams)
+- W1.13 dispatch staged for P1 boundary
+- Track C synthesis findings (OQ-6 physical hunter; OQ-7 water DPS density) folded into W0.1 + W0.8 dispatches as downstream surfaces / Open Questions
 
-**Steps 5-7: PENDING** (downstream of Step 4 progression)
+**Steps 5-7: PENDING** (downstream of P0 completion)
 
 ---
 
@@ -42,15 +49,12 @@ The QD-Engine Rebuild hive activated this session per gandalf activation dispatc
 
 ---
 
-## What Matt's next signal directs
+## What Matt sees on return
 
-Per `matt-briefing-qd-rebuild-activation-2026-05-21.md` § 6, Matt's next signal resolves:
-1. **W0.9 framing approval** — gauntlet architecture migration (knight-rider recommendation: APPROVE)
-2. **W0.2 framing approval** — archetype template Path-a refactor under substrate-as-cohesion (knight-rider recommendation: APPROVE)
-3. **W0.1 scope interpretation** — knight-rider recommendation: interpretation (b) — author B14.5 V2 follow-on
-4. **W1.13 framing acknowledgment** — not urgent (P1 timeframe)
+Per gandalf attestation 2026-05-21 closing:
+> *"Matt resumes session-open with: (1) Confirmation that the hive activated successfully + P0 opened; (2) Your activation-day summary (3 steps complete; W0.X workstreams firing); (3) Track C verdict synthesis (folded into P1 W1.11 scope); (4) Any phase-completion or escalation surface you've generated by then."*
 
-Everything else proceeds autonomously per § 5 decision-authority matrix of activation dispatch.
+All Matt-blocking items from § 3 + § 4 of the activation briefing are CLEARED via gandalf attestation. Matt's next signal directs ongoing operational rhythm + any new architectural direction; no pending framing approval blocks knight-rider's autonomous progression.
 
 ---
 
@@ -60,16 +64,13 @@ Per agent definition first-invocation:
 
 1. Read this skill_handoff (latest)
 2. Read latest CHANGELOG entries
-3. Read state-of-hive-qd-rebuild.md
-4. Read Matt's response (if filed since session close)
-5. **If Matt resolved W0.2 + W0.9 + W0.1**: fire dispatches in sequence per briefing § 5 sequencing plan
-   - First salvo (parallel): W0.5 (gamora; 2hr) + W0.8 (rocket; 2-3hr) + W0.3 (rocket; trivial)
-   - Substantial: W0.4 (rocket + gamora + star-lord; specialist code audit; includes § 2.8 W1.13 readiness + Alt A OQ-2 + OQ-3)
-   - W0.2 fires once Matt approves
-   - W0.9 fires once Matt approves
-   - Followers: W0.6 + W0.7
-6. **If Matt is silent or unrelated to QD-rebuild**: continue autonomously with the 6 unblocked workstreams (W0.3 + W0.4 + W0.5 + W0.6 + W0.7 + W0.8); hold W0.2 + W0.9 + W0.1 pending Matt
-7. **If Matt directs alternative path**: update state-of-hive + decisions-log accordingly
+3. Read state-of-hive-qd-rebuild.md (reflects all gandalf clearances)
+4. Check whether any P0 dispatch has been picked up by its specialist + has a completion record appended (or partial progress)
+5. **If specialists have begun execution**: monitor for FRICTION events / Gate-1 review requests / cross-seam coordination needs. Critique-pair pattern active for substantial dispatches (W0.1 / W0.2 / W0.9 route math-before-code notes through jack-ryan Gate-1; gandalf reviews architectural alignment).
+6. **If no specialist progress yet**: author W0.6 (drift closures) + W0.7 (ablation experiments) dispatches to complete P0 dispatch authoring.
+7. **If Matt provides new direction**: update state-of-hive + decisions-log accordingly.
+8. **Track C ABSORBED**: P1 W1.11 scope is uniform-depth comprehensive enrichment per Track C verdict; no differentiated weighting; ~1-2 weeks budget saved.
+9. **At P0 completion**: knight-rider authors Matt-approved milestone tag `v0.0-constraint-removal-shipped` after all P0 workstreams complete + critique-pair reviews ship. Then opens P1 with W1.13 (skill tree node population; Matt pre-approved per gandalf § 3.2 attestation).
 
 ---
 
@@ -123,10 +124,14 @@ Per agent definition first-invocation:
 
 ## Final knight-rider note
 
-The hive's first session captured the canonical record closure of its predecessor + etched the architectural commitments of its own activation. Discipline #11.1 ratified this session immediately found utility — the W0.1 scope ambiguity was caught by applying the discipline within the first hour of its ratification. Empirical inspection over assumption is now load-bearing protocol, demonstrated in practice on the same day it codified.
+The hive's first session captured the canonical record closure of its predecessor + etched the architectural commitments of its own activation + opened P0 with 7 of 9 dispatches active.
 
-P0 OPENING reached its natural pause point at Matt-gating items + scope ambiguity. The autonomous-operation framework's restraint (don't fire dispatches with structural ambiguity; surface to Matt) preserves what would otherwise be lost cycles.
+The session traversed two distinct phases:
+1. **Pre-pause:** authored Matt-facing briefing surfacing W0.9 / W0.2 / W1.13 framing-approval gates + W0.1 scope-ambiguity; held P0 substantial-dispatch fire pending Matt's response. Discipline #11.1 (state-space conditioning of empirical signals) ratified this session caught the W0.1 ambiguity within first hour — empirical inspection over assumption demonstrated in practice on day of codification.
+2. **Post-gandalf-clearance:** gandalf returned with comprehensive attestation clearing all framing-approval blockers via Matt's prior session approvals + Track C synthesis (newly landed; absorbed into P1 W1.11 uniform-depth scope). Knight-rider authored 7 P0 dispatches (W0.1 / W0.2 / W0.3 / W0.4 / W0.5 / W0.8 / W0.9) covering all autonomous + Matt-attested workstreams.
 
-The road is open. The next session walks the next mile, as soon as Matt names the path through § 3 + § 4 of the activation briefing.
+P0 OPEN. The road is walked. Specialists may execute when launched. Critique-pair patterns active for substantial dispatches (math-before-code notes route through jack-ryan Gate-1; gandalf reviews architectural alignment).
 
-— knight-rider, QD-rebuild hive Day 1 close, 2026-05-21
+The next session monitors specialist execution, authors W0.6 + W0.7 follow-on dispatches if no specialist progress yet, and shepherds critique-pair reviews. P0 milestone tag `v0.0-constraint-removal-shipped` fires when all 9 workstreams complete.
+
+— knight-rider, QD-rebuild hive Day 1 close (P0 OPEN), 2026-05-21
