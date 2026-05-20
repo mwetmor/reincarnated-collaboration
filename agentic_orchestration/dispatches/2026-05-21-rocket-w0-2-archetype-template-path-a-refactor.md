@@ -178,3 +178,90 @@ MIGRATION.md entry per ADR-004 — see Step 5.
 - `agentic_orchestration/dispatches/2026-05-16-rocket-b6-pre-work-energy-type-aware-tiers.md` (energy-type tier-shift carry-forward question)
 - `reincarnated-engine/design/decisions/decisions-log.md` 2026-05-21 QD-rebuild activation entry (substrate-as-cohesion recommitment ratification)
 - `reincarnated-engine/design/working-agreement/engineering-disciplines.md` (especially #1, #2, #11.1, #13a, R11(b), Pattern P7)
+
+---
+
+## Completion record
+
+### Phase 1 (math-before-code) complete — Phase 2 pending Gate-1
+
+**Completed by:** rocket
+**Date:** 2026-05-21
+**Status:** PARTIAL COMPLETION — Phase 1 (Step 0 math-before-code) COMPLETE. Phase 2 (implementation) PENDING jack-ryan Gate-1 + gandalf architectural review.
+
+**Deliverables completed:**
+
+- Math note authored: `reincarnated-engine/src/reincarnated/generation/math/w0-2-archetype-removal-bc-target-composition.md`
+  - 11 sections per dispatch spec (decomposition map, unified pool spec, role-shape constraints, composition algorithm, backward compat shim, synthesized archetype_label, energy-type carry-forward, cross-seam contract, implementation phasing, W0.9+W0.1 joint-resolution, risk analysis)
+- AGENT_STATE.md updated: "W0.2 Step 0 math-before-code complete; awaiting jack-ryan Gate-1 + gandalf architectural review routing"
+
+**Key predictions in math note:**
+
+- Composition algorithm: 8-step pseudocode with weighted-random mechanic draw, infeasibility gate, role-shape post-assembly adjustment. Conflict resolution: BC-target wins in sampling; role-shape enforces hard minimum post-assembly.
+- Unified pool: stripped of substrate tags; ~150–250 mechanic entries from 23 current templates; cost_type is the primary energy-type carry-forward key.
+- Synthesized archetype_label: BC-coordinate-derived format `"{eng_bin}/{geo_bin}/{ctrl_bin}/{def_bin}/{econ_bin}_{role}_{cost_type}"`.
+- ARCHETYPE_TEMPLATES disposition: DEPRECATE IN-PLACE (not remove yet); full REMOVE at P5 W5.X cleanup.
+- Cross-seam schema: v2.15 bump recommended (new `archetype_label TEXT` column on `class_fight_loadouts` alongside existing `archetype_tag`; backward-compatible nullable).
+- Energy-type tier carry-forward: cost_type keying replaces archetype_tag keying; numbers unchanged from B6 pre-work.
+- Joint-resolution: W0.2 (generation diversity) + W0.9 (correct arena) + W0.1 (fair calibration) all required; W0.2 alone insufficient.
+- Known pool gaps: HP-economy, charge-stack, damage-taken-converts, proxy-creation all deferred/hard-infeasible; documented in deferred-evaluation routing.
+- Risk: season_orchestrator.py coupling (element_pool → archetype_tag) is a Phase 2 investigation item.
+
+**Scope items NOT completed (Phase 2 pending):**
+
+- [ ] Unified mechanic pool YAML (W0.2.1)
+- [ ] bc_target_composer.py implementation (W0.2.2)
+- [ ] archetype_composer.py deprecation in-place (W0.2.3)
+- [ ] legacy_archetype_shim.py (W0.2.4)
+- [ ] Smoke + 179/179 tests (W0.2.5)
+- [ ] MIGRATION.md entry per ADR-004 (W0.2.6)
+- [ ] Round-trip smoke per Principle 6
+- [ ] Tag: `qd-rebuild/v0.2-archetype-refactor-complete`
+
+**Gate-1 routing note:** Math note routes to jack-ryan (implementation correctness; LC-001 closure verification; R11(b) round-trip planning; Discipline #13a drift check) and gandalf (substrate-as-cohesion architecture alignment; cross-substrate hybrid handling; recompose-hive empirical alignment). Phase 2 implementation begins only after both Gate-1 reviews complete per dispatch critique-pair structure.
+
+---
+
+## Completion record — Phase 1.5 (amendment fold-in) — 2026-05-20
+
+**Agent:** rocket
+**Status:** PARTIAL COMPLETION — Phase 1 + Phase 1.5 (amendment fold-in) COMPLETE. Phase 2 (implementation) cleared to begin.
+**Tag:** `qd-rebuild/v0.2-math-note-phase-1-complete`
+
+**Phase 1.5 scope:** Both critique-pair reviews (jack-ryan + gandalf) returned convergent. 6 amendments total — 4 folded into math note now; 2 documented as W0.2.6 obligations.
+
+**Amendments folded (4):**
+
+**jack-ryan A1 — CC pool depletion fallback (§4.3):**
+Added `PoolDepletionError → DeferredEvaluation` fallback spec to §4.3. When CC pool after cost_type filtering has fewer entries than the CC-minimum count required by the role-shape, the composer raises `PoolDepletionError` — the caller wraps as `DeferredEvaluation`. No silent truncation, no log-and-continue. Rationale: preserves Phase 4 archive integrity; same principle as infeasibility handling (§4.4). Pool extension path: if depletion rate >10%, extend unified mechanic pool. Discipline #1 + Discipline #8 cited.
+
+**jack-ryan A2 — v2.15 column bump LOCKED (§8.2):**
+Changed §8.2 from "recommendation" to "DECISION." Column-repurpose path explicitly closed (Discipline #12: no silent semantic shift). New `archetype_label TEXT` column alongside existing `archetype_tag` is the ONLY acceptable path. Existing `archetype_tag` column preserved, deprecated-in-place. Star-lord joint authorship obligation noted. Discipline #12 cited.
+
+**gandalf A1 — season_orchestrator Phase 1 architectural contract (§11.5):**
+Expanded §11.5 from "Phase 2 investigation point" to an explicit Phase 1 architectural contract with three locked commitments: (1) seasonal elements feed Phase 5 cohesion-judge preference weights ONLY — not Phase 2 generation; (2) orchestrator emits BC-targets, not archetype tags, into the generation queue; (3) W0.2.2 orchestrator coupling severance is a HARD GATE before any smoke run touches the orchestrator path. Discipline #13 implicit-pillar drift prevention cited.
+
+**gandalf A2 — resolve_cost_type input-set lockdown (§4.1):**
+Locked `resolve_cost_type` to `(econ_bin, role, rng) ONLY`. No other inputs permitted. Published role-cost_type correlation table directly in the math note (not hidden in implementation): damage prefers rage > combo > focus > mana; control prefers mana > focus > stamina; support prefers mana > stamina > focus; hybrid spans mana > focus > combo > rage. Econ_bin-to-cost_type structural mapping also published. Changed pseudocode call from `resolve_cost_type(econ_bin, rng)` to `resolve_cost_type(econ_bin, role, rng)`. Discipline #13a-partition cited.
+
+**Deferred obligations documented (2) — NOT folded; captured as Phase 2 gates:**
+
+**jack-ryan A3 — shim pass/fail criterion (§5.1 obligation):**
+Documented at end of §5.1: if >20% of shim-path kits land more than 1 bin away from BC-target default on any axis (measured via Phase 3 simulation), shim defaults require recalibration before Phase 5. W0.2.6 must capture this gate with empirical result.
+
+**jack-ryan A4 — v2.15 co-migration mandatory (§8.4 new subsection):**
+Added §8.4: W0.2.6 MIGRATION.md must mandate a SINGLE ALTER TABLE script covering both W0.2's `archetype_label` column AND W0.1's `recompose_energy_calibration_applied` column. Star-lord joint authorship required. No split migrations at v2.15.
+
+**Files modified:**
+- `reincarnated-engine/src/reincarnated/generation/math/w0-2-archetype-removal-bc-target-composition.md` — 4 amendments folded; §4.1, §4.3, §5.1, §8.2, §8.4 (new), §11.5 modified
+- `reincarnated-engine/src/reincarnated/generation/AGENT_STATE.md` — updated to "W0.2 Phase 1 + Phase 1.5 complete; awaiting Phase 2 implementation kickoff"
+
+**Scope items NOT completed (Phase 2 pending — unchanged from Phase 1 record):**
+- [ ] Unified mechanic pool YAML (W0.2.1)
+- [ ] bc_target_composer.py implementation (W0.2.2) — now includes orchestrator severance audit obligation
+- [ ] archetype_composer.py deprecation in-place (W0.2.3)
+- [ ] legacy_archetype_shim.py (W0.2.4)
+- [ ] Smoke + 179/179 tests (W0.2.5) — gated on W0.2.2 orchestrator severance
+- [ ] MIGRATION.md entry per ADR-004 (W0.2.6) — must include shim pass/fail criterion + single ALTER TABLE mandate
+- [ ] Round-trip smoke per Principle 6
+- [ ] Tag: `qd-rebuild/v0.2-archetype-refactor-complete`
