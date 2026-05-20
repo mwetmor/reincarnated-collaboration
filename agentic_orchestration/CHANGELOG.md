@@ -4,6 +4,57 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-rebuild P0 W0.1 FULLY CLOSED: B14.5 V2 energy-type lever shipped + Gate-2 critique-pair complete
+
+**Event:** W0.1 Phase 2 Gate-2 critique-pair returned with both reviews. Tag `qd-rebuild/v0.1-b14-5-v2-energy-type-lever` stands (engine commit `a0889d2`). Documentation amendment folded by knight-rider per jack-ryan ADR-002 APPROVE authority (engine commit `9254980`).
+
+**gandalf architectural close-out — ARCHITECTURALLY ALIGNED:**
+*"The implementation IS the canonical exemplar of Calibration Lever Partition Principle (#13a-partition). Future calibration levers will reference W0.1 as the partition-on-mechanical-population pattern."*
+
+8 architectural-compliance findings verified:
+- #13a-partition: zero substrate-keying anywhere; lever inputs are mechanical (`energy_type`, working_modifier, floor_lock_detected, WR)
+- G3 architectural invariant: assertion + defense-in-depth (outer guard + inner assertion); lever-ownership message present in code
+- Joint-resolution triad orthogonality preserved (W0.1 calibration / W0.2 source / W0.9 arena)
+- Substrate-as-cohesion preservation: telemetry field keyed off mechanical population
+- OQ-6 handoff to W0.2 + W0.9 joint resolution honored
+- Reversibility 3-tier (sub-lever A independent flag + sub-lever B soft-disable + full removal) — architecturally SUPERIOR to monolithic Option B
+- ARPG-canon thematic: rage startup-gap closure + physical/rage calibration headroom both genre-canonical
+- gandalf A6 naming preference (`recompose_energy_calibration_applied`) adopted in implementation
+
+2 gandalf RECOMMENDED non-blocking amendments (carry forward):
+- Math note §3.2 anti-pattern foreclosure: per-energy-type magnitude scaling rejected as lever-tuning anti-pattern
+- Future engineering-disciplines.md codification of #13a-partition with W0.1 as canonical exemplar
+
+**jack-ryan Gate-2 DEV-MODE — APPROVE-WITH-AMEND** (1 documentation amendment, non-blocking):
+
+9 review focus areas all PASS/PARTIAL-PASS:
+- Sub-lever A correctness vs A1 fold-in spec: PASS (activation `energy_type==rage AND not reduce_dps AND not increase_dps AND WR<0.50` confirmed at balance_loop.py:2151-2161)
+- Sub-lever B correctness: PASS (G3 assertion fires at top; A5 probe scope isolation comment present)
+- Telemetry field always-present (key always emitted with False for non-rage): PASS
+- R11(b) round-trip smoke E.2: PASS (Q3 probe arithmetic 0.55 × 1.25 = 0.6875)
+- Test surface 56/56: CONFIRMED
+- Discipline #11.1: PARTIAL PASS — amendment for math note status block
+- Discipline #12 semantic shift: PASS
+- Discipline #1 math-before-code: PASS
+- #13a-partition compliance: PASS
+
+**Amendment 1 (folded by knight-rider per jack-ryan ADR-002 APPROVE authority):** math note status block updated to reflect Phase 2 COMPLETE + pre-B6 fallback smoke caveat (rage=0.155, stamina-as-resource=0.037 well outside 0.60-0.70 prediction band; smoke confirms MECHANISM not predictions) + full Discipline #17 verification deferred to W0.9.6 co-run.
+
+**Concern dispositions:**
+- Concern 1 (calibration co-run with W0.9.6): APPROVED scheduling
+- Concern 2 (sub-lever A dormancy pre-B6): acceptable transitional state
+- Concern 3 (stamina-as-resource 1.25× overcorrection): monitor post-B6 per Track C OQ-7
+- Concern 4 (v2.15 migration deferral): RESOLVED — star-lord shipped v2.15 migration this session (engine `0e15f61`)
+
+**W0.1 FULLY CLOSED.** Joint-resolution triad status:
+- ✅ **W0.2 source diversity** — substrate-AGNOSTIC composition LIVE
+- ✅ **W0.1 calibration fairness** — energy-type lever LIVE; canonical exemplar of #13a-partition
+- 🔄 **W0.9 arena fidelity** — Phase 2.1 done; Phase 2.2 in-flight; 2.3-2.5 queued
+
+State-of-hive § 1 W0.1 row updated to FULLY CLOSED.
+
+---
+
 ## 2026-05-21 — QD-rebuild Cross-seam: v2.15 MIGRATION SHIPPED to production DB
 
 **Event:** Star-lord shipped the v2.15 ALTER TABLE migration to production telemetry.db. Engine commits `0e15f61` (feat) + `5f1e3e4` (AGENT_STATE) + `9d41e8d` (telemetry/MIGRATION.md). Tag `star-lord/v1.18-v2-15-migration-shipped` fired.
