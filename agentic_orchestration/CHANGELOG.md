@@ -4,6 +4,40 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-20 (early morning) — RECOMPOSE-VALIDATION HIVE P2 Phase 1: empirical signal REINFORCES hive central premise (6/10 floor_lock_recompose=True at generation-time)
+
+**Event:** Rocket completed P2 Phase 1 (full-season fresh diagnostic regen; season_100005, substrate=shadow-first rotation, R8 inverted pipeline; engine `07d13f8`; tag `rocket/v1.22-p2-fresh-regen-shadow-100005`). The generation-time embedded balance-loop convergence run surfaced **a substantively positive empirical signal for the recompose-validation hive's central premise**: 6/10 classes (60%) show `floor_lock_recompose=True` — FAR ABOVE gandalf brief § 2.5's 3-8/season conservative estimate (3-8 classes per ~49-class season = 6-16% expected rate). Pre-Phase 2 canonical convergence, the structure of the masked-Pattern-B-extreme population is visible at full-season scope.
+
+**Three-tier modifier structure at generation-time** (rocket diagnostic):
+- **Tier 1 (normal, m\* ≥ 0.05; 3 classes / 30%):** class_0001 (shadow_mage 0.0719), class_0008 (physical_warrior 0.1956), class_0009 (shadow_controller 0.1338) — these are Pattern-B classes served by Option A alone
+- **Tier 2 (EXTREME_LOW converged; 5 classes / 50%):** class_0003 (water_mage 0.0332), class_0005 (wind_caster 0.0255), class_0006 (lightning_mage 0.0139), class_0007 (holy_caster 0.0139), class_0010 (experimental 0.0255)
+- **Tier 3 (EXTREME_LOW FAILED at floor; 2 classes / 20%):** class_0002 (fire_mage 0.0110), class_0004 (earth_caster 0.0110) — **these are the canonical floor-lock-recovery subjects** that Option B was designed to serve (true `m* < MODIFIER_SEARCH_FLOOR=0.01`; binary search bottomed out at floor)
+
+**Implication for the three-way P2 disposition gate** (per dispatch § 5):
+- ❌ **"Zero floor-lock candidates" path (wind-down trigger #3 at P3; premise refuted)** — RULED OUT. Clear evidence at 6/10 + 2 at-floor failures.
+- ✅ **"Multiple floor-lock candidates" path (re-enable Option B + smoke B1 against confirmed subject + retroactive milestone tag fire)** — FIRING. On gamora Phase 2 canonical confirmation, knight-rider will route gamora for **Option B re-enable** (`LEVER_FLOOR_LOCK_WORKING_MODIFIER = 0.005` literal value, removing named-constant reference per docstring re-enable path); smoke B1 re-runs against class_0002 and/or class_0004 (the canonical at-floor candidates); on BLOCKING all-PASS, fire `recompose-hive/v0.2-option-b-recompose-conditioned` hive milestone tag retrospectively.
+
+**Pattern A/B/B-extreme distribution observed in season_100005** (10 classes total):
+- 3 Pattern-B classes converge above floor (Option A alone served)
+- 5 EXTREME_LOW classes converge with floor_lock_recompose=True (Option B's served population under cold-start; would benefit from re-enable)
+- 2 Pattern-B-extreme classes failed at floor (canonical Option B re-enable verification subjects)
+
+This is consistent with gandalf's brief § 2.5 prediction structure, just at a different scale than the Phase B.2 conservative estimate suggested. The implication: **the masked-Pattern-B-extreme population is larger and more general than initially predicted**, which means Option B's mechanism is even more architecturally load-bearing than the brief framed it.
+
+**P2 status:** Phase 1 ACCEPTED by knight-rider (Gate-2-read pass on rocket's HANDOFF). Phase 2 (gamora cold-start canonical convergence with full v2.12 + v2.13 telemetry) IN FLIGHT. On gamora Phase 2 completion, star-lord Phase 3 (classification + Pattern-A/B + canonical floor-lock candidate analysis) fires; on star-lord completion, knight-rider applies the three-way disposition gate + fires P2 acceptance tag `recompose-hive/v0.3-diagnostic-regen-complete`.
+
+**Pre-existing anomalies surfaced during Phase 1 (non-blocking; pre-existing not generation defects):**
+- [R3] skill_000246 + skill_000355 range_m=None — canonical library backfill pending (elrond seam; not this hive's scope)
+- [D4] unknown archetype 'trial' in ai_strategies — known gap
+- No canonical entry for (lightning/holy/shadow, role) — correct fallback behavior under R8 inversion
+- Export pipeline: ExportMetadata.elements=null in inverted-mode manifest — engine-side artifacts intact; not a blocker for gamora Phase 2
+
+**Hive trigger watch:** ⏸ all four still unsignaled. Trigger #3 (premise refuted) is now empirically RULED OUT at Phase 1 (would require zero floor-lock candidates; observed 6/10).
+
+**Adjacent canonical work (informational; not in hive scope):** gandalf authored a follow-on commit on the QD-engine BC axes + Unity VFX directive amendment (collab `afeaa4c`). This is Matt's QD-engine vision (engine-architecture-vision-qd-profile doc) work; runs in parallel with the hive but doesn't affect routing.
+
+---
+
 ## 2026-05-19 (night) — RECOMPOSE-VALIDATION HIVE P0 ACCEPTED: Option A floor widened; P1 (Option B design brief) routed to gandalf
 
 **Event:** Gamora completed P0 in ~26 minutes (significantly faster than 4-hour estimate; pre-authored dispatch with all critique-pair amendments folded enabled verbatim execution). Knight-rider Gate-2-read disposition: ACCEPT with spirit-of-acceptance framing on the cold-start sub-0.05 demonstration (deferred to P2 fresh diagnostic regen per gamora's documented warm-start vs cold-start framing).
