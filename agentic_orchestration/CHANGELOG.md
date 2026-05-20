@@ -4,6 +4,47 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-rebuild P0 W0.1 Phase 1 + Phase 1.5 COMPLETE: B14.5 V2 energy-type lever math-before-code locked
+
+**Event:** W0.1 (gamora; B14.5 V2 energy-type lever in primary recompose loop) Phase 1 (math-before-code) + Phase 1.5 (amendment fold-in) workstreams complete. Tag `qd-rebuild/v0.1-math-note-phase-1-complete` fired (engine commit `5bbc2f4`; collab commit `351252a`).
+
+**Math note canonical version** at `reincarnated-engine/src/reincarnated/simulation/math/w0-1-b14-5-v2-energy-type-lever.md`. 8 amendments folded from jack-ryan Gate-1 (5; including 2 BLOCK) + gandalf architectural review (3):
+
+**jack-ryan amendments:**
+- A1 BLOCK: sub-lever A activation condition — GAP CONFIRMED via empirical inspection. Phase 2 spec: fire when `energy_type=="rage" AND not reduce_dps AND not increase_dps AND WR<0.50`. Stays within-lever.
+- A2 BLOCK: R11(b) schema coordination — path (b) v2.15 bump chosen (avoids W0.9 Phase 2.3 execution race risk); ALTER TABLE recompose_attempts ADD COLUMN `recompose_energy_calibration_applied INTEGER`
+- A3 WARN: epoch arithmetic reconciliation (9-class/11-term count + post-W0.1 0.78 vs 0.65-0.72 target)
+- A4 WARN: Discipline #17 smoke environment parity (gear_catalog + monster_pool production-mirror)
+- A5 INFO: probe scope isolation comment for Phase 2 implementation
+
+**gandalf amendments:**
+- A6 architectural: field naming — `recompose_energy_calibration_applied:bool` adopted (gandalf preference; describes what lever DID, not what it's named after)
+- A7 architectural: G3 floor-lock guard reframed as ARCHITECTURAL INVARIANT (assertion-at-top-of-sub-lever-B); lever-ownership principle
+- A8 architectural: **NEW NAMED PRINCIPLE** — "Calibration levers are partitioned by mechanical population (energy_type, geometry-range, etc.), never by substrate identity." Engineering-disciplines.md candidate.
+
+**Lever design (post-fold-in canonical):**
+- Sub-lever A: within-lever modification to `_lever_cooldown_energy` — fires for rage classes when WR<0.50 in fine-tune zone; targets highest-energy-cost skill for cost reduction
+- Sub-lever B: new `_lever_energy_type_calibration` (4th lever in `_primary_recompose_loop`); applies `ENERGY_TYPE_LEVER_PROBE_ADJUSTMENT = 1.25` to working_modifier for `ENERGY_TYPE_LEVER_PHYSICAL_TYPES = frozenset({"rage", "combo", "stamina-as-resource"})`
+- F3 armor mitigation excluded (B6 pre-work addresses)
+- Focus/hunter excluded provisionally (re-inclusion gate at post-B6 hunter modifier < 0.75)
+- G3 floor-lock short-circuit assertion (architectural invariant)
+- Reversibility: `ENERGY_TYPE_LEVER_PROBE_ADJUSTMENT = 1.0` soft-disable (Option B precedent)
+
+**Predicted compression (corrected post-fold-in):**
+- physical_warrior 0.38 → 0.60-0.70 (B6+W0.1 combined)
+- mean |mod-1.0| epoch 0.82 → 0.65-0.72
+- 0.50 target requires W0.9 + P1/P2 multi-dim convergence
+
+**Phase 2 implementation gates:**
+- W0.9 Phase 2.1 completion (both W0.9 + W0.1 touch balance_loop.py; sequential to avoid conflict)
+- Star-lord v2.15 schema migration (recompose_energy_calibration_applied field) — coordinate at Phase 2 fire
+
+**Gandalf closing on W0.1 math note:** substrate-as-cohesion preservation CLEAN; W0.1/W0.9 joint-resolution architecturally orthogonal; Track C calibration-uniform aligned; ARPG canon preserved.
+
+State-of-hive § 1 W0.1 row updated to Phase 1+1.5 complete.
+
+---
+
 ## 2026-05-21 — QD-rebuild P0 W0.4 rocket portion COMPLETE: LC-001 DRIFT-FROM-AUDIT (positive); W0.2 scope reframed
 
 **Event:** W0.4 rocket portion completed and merged. Engine tag `rocket/v1.23-w0-4-code-side-audit-1` fired (commit `f4554f7`).
