@@ -4,6 +4,37 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-rebuild P0 W0.2 Phase 2 COMPLETE: archetype removal implementation shipped; substrate-AGNOSTIC composition LIVE
+
+**Event:** W0.2 Phase 2 substantial implementation returned (rocket; ~54min execution). All 6 sub-tasks complete. Tag `qd-rebuild/v0.2-archetype-refactor-complete` fired (engine commits `e696b9f` + `321afa5`).
+
+**Sub-task deliverables:**
+
+- **W0.2.1 — Unified mechanic pool** (`generation/unified_mechanic_pool.yaml`): 71 entries (67 active + 4 deferred); 5 cost types; 15 CC + 5 movement + 8 gear affixes. Deferred bins (HP-economy, charge-stack, damage-taken-converts, proxy-creation) marked with reasons per LC-030. **Substrate tags stripped throughout** — pure mechanical-property pool per substrate-as-cohesion-only.
+
+- **W0.2.2 — bc_target_composer.py** + **HARD GATE: Orchestrator severance audit CONFIRMED COMPLIANT.** Full 8-step algorithm per math note §4. `resolve_cost_type(econ_bin, role, rng) ONLY` lockdown enforced (gandalf A2). Weighted-random Gumbel-max draw without replacement. Role-shape POST-assembly. PoolDepletionError → DeferredEvaluation (jack-ryan A1). HP-economy → None (hard-infeasible). Proxy bins → DeferredEvaluation. `pool_depletion_events` telemetry counter logged. **Audit finding:** `season_orchestrator._generate_classes()` does NOT emit archetype tags; archetype_tag derived inside ClassGenerator via `classify_archetype()`; seasonal elements feed coalescence/naming only. Contract 1 satisfied.
+
+- **W0.2.3 — ARCHETYPE_TEMPLATES deprecation:** banners added; dict preserved + populated for backward-compat. P5 W5.X removal gate documented.
+
+- **W0.2.4 — legacy_archetype_shim.py:** 24-row translation table (all archetype tags from math note §5.1). `compose_for_archetype_tag()` + `bc_target_for_archetype()`. ArchetypeTagNotFound raises on unknown.
+
+- **W0.2.5 — Tests:** 57 new W0.2 tests **57/57 PASS**; 204 existing generation tests **204/204 PASS**; 67 D3 archetype composer **67/67 PASS**. Pre-existing failures unchanged (bruiser gap, gear cp3 balance). BC distribution verified: physical_warrior → rage → tier 65; hunter → focus → tier 58; elemental → mana → tier 50. Pool depletion for thin CC pools (control + stamina) correctly routes to DeferredEvaluation.
+
+- **W0.2.6 — MIGRATION.md** (`generation/MIGRATION.md`): cross-seam consumer obligations + v2.15 co-migration mandate + orchestrator severance finding + shim calibration obligation. PlayerClass.archetype_label field added (nullable backward-compat). **R11(b) PARTIAL** — schema field added; recorder.py integration is star-lord seam (open Gate-2 item; v2.15 migration execution gate).
+
+**Architectural concern (Gate-2 awareness):** `resolve_cost_type()` 10% stochastic noise (90% top-pick + 10% non-top). For thin-pool cost types (stamina-as-resource: 2 mechanics, no CC), control-role compositions hitting the 10% non-top path produce DeferredEvaluation. Correct per math note spec (PoolDepletionError → DeferredEvaluation). gandalf A2 lockdown spirit satisfied (rng is explicit input). Awareness-only flag.
+
+**Cross-seam coordination tasks:**
+- Star-lord: recorder.py writes `player_class.archetype_label` → `class_fight_loadouts.archetype_label` (v2.15 co-migration execution)
+- Gamora: `CombatantState.archetype` prefers `archetype_label` when non-null; falls back to `archetype_tag`
+- Drax: `archetype_label` is BC-coordinate format (not human-friendly); placeholder or `archetype_tag` during migration
+
+**SUBSTRATE-AGNOSTIC GENERATION NOW LIVE.** Phase 5 cohesion-judge will supersede `archetype_label` with proper substrate-themed identity at P5 W5.X. Substrate-as-cohesion architectural commitment is now empirically implemented in the engine.
+
+State-of-hive § 1 W0.2 row updated. Gate-2 critique-pair review fires next (jack-ryan + gandalf parallel).
+
+---
+
 ## 2026-05-21 — QD-rebuild P0 W0.9 Phase 2.1 COMPLETE: PackProxy retired; 5-tier spatial gauntlet promoted
 
 **Event:** W0.9 Phase 2.1 (PackProxy ×8 retirement from swarm-tier convergence + R2 spatial sub-gauntlet promotion to default for all 5 tiers + 3 new arena scenarios per A8 § 9) returned successfully after ~46 minutes of substantial implementation work. Engine tag `qd-rebuild/v0.9-phase-2-1-packproxy-retired-r2-promoted` fired (commit `0041a12`).
