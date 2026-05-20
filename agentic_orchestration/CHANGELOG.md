@@ -4,6 +4,40 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-rebuild P0 W0.2 Phase 2 Gate-2 critique-pair returns: BOTH APPROVE-WITH-AMEND (no BLOCK)
+
+**Event:** Both Gate-2 reviews of W0.2 Phase 2 implementation returned per protocol § 4.2 critique-pair pattern.
+
+**gandalf architectural close-out — ARCHITECTURALLY ALIGNED:**
+*"This implementation is the cleanest engine-layer expression of substrate-as-cohesion-only that has appeared in the codebase. The W0.2 math note's commitment that 'substrate is NOT an input to mechanical generation' is honored end-to-end."*
+
+8 strong-alignment findings verified:
+- Substrate-AGNOSTIC pool VERIFIED CLEAN (substrate tags appear ONLY in section-header provenance comments, not data)
+- Composer substrate-AGNOSTIC VERIFIED (`(bc_target, role, rng, profile)` only signature)
+- archetype_label format VERIFIED (no substrate string anywhere)
+- #13a-partition compliance VERIFIED (partitions only on mechanical properties)
+- Orchestrator severance audit ACCEPT-THE-FINDING (parallel architecture transitional state correctly scoped)
+- Cohesion-judge handoff CLEAN (three-label coexistence model enabled by ComposedKit + nullable archetype_label)
+- Cross-substrate hybrid composition ENABLED (cost-filtered pool draws across previously substrate-locked mechanic pools — the load-bearing architectural unlock)
+- Joint-resolution triad decoupling CLEAN (W0.2 source diversity independent of W0.9 arena fidelity + W0.1 calibration fairness)
+
+2 advisory amendments (non-blocking):
+- gandalf A3 (P5 W5.X advisory): scrub substrate-origin section-header comments from unified_mechanic_pool.yaml at cohesion-judge ship-gate cleanup
+- gandalf A4 (Phase 3 handoff advisory): treat `pool_depletion_events` counter as pool-expansion diagnostic, NOT algorithm-tuning input
+
+**jack-ryan Gate-2 DEV-MODE — APPROVE-WITH-AMEND:**
+
+17 check areas verified; 3 amendments (all WARN/INFO; no BLOCK):
+- A1 WARN: b6_archetype_templates.py needs explicit W0.2 deprecation banner block (similar to archetype_composer.py lines 1-33); module docstring lacks the "DEPRECATED as of W0.2 / removal gate P5 W5.X" treatment
+- A2 WARN: test file paths in qa/pending submission missing (57 new W0.2 tests + 67 D3 backward-compat tests claimed passing but paths not provided; process gap not correctness gap)
+- A3 INFO: unified_mechanic_pool.yaml footer count stale (70/4/74 → should be 67/4/71)
+
+All other check areas PASS: 8-step algorithm fidelity, resolve_cost_type lockdown, role-cost_type correlation table match, Gumbel-max weighted draw, role-shape POST-assembly, PoolDepletionError→DeferredEvaluation, HP-economy/proxy/charge-stack infeasibility mapping, orchestrator severance audit empirically correct, ARCHETYPE_TEMPLATES deprecation banners, R11(b) open item correctly documented, v2.15 co-migration mandate, Discipline #11.1 BC distribution, Discipline #12 semantic shift framing, Discipline #1 math-before-code predictions verified, #13a-partition compliance.
+
+**Outcome:** W0.2 Phase 2 architecturally + correctness verified. Knight-rider fires quick Phase 2.5 cleanup dispatch to rocket for the 3 jack-ryan amendments (banner + test paths + count correction). gandalf A3 + A4 advisories carry forward to P5 / Phase 3 obligations (no immediate action).
+
+---
+
 ## 2026-05-21 — QD-rebuild P0 W0.2 Phase 2 COMPLETE: archetype removal implementation shipped; substrate-AGNOSTIC composition LIVE
 
 **Event:** W0.2 Phase 2 substantial implementation returned (rocket; ~54min execution). All 6 sub-tasks complete. Tag `qd-rebuild/v0.2-archetype-refactor-complete` fired (engine commits `e696b9f` + `321afa5`).
