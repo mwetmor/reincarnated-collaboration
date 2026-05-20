@@ -4,6 +4,25 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-rebuild P0 W0.3 COMPLETE: Foundation validator update (D5 = 7-substrate; LC-012 drift closed)
+
+**Event:** W0.3 (rocket; trivial-actionable workstream) completed and merged. Engine commit `3e428ae`; tag `qd-rebuild/v0.3-foundation-validator-7-substrate` pushed.
+
+**Change:** `foundation/foundation.py:39-65` updated from 4-rotating+1-physical hardcoded check to `CANONICAL_SUBSTRATES = frozenset({fire, water, earth, wind, lightning, holy, shadow})` membership check. Rotating elements must be in canonical-7 set; at most 1 non-rotating element; if non-rotating present must be named `physical`. Count of rotating elements no longer enforced (1-7 valid).
+
+**Test results:**
+- Foundation suite: 70/70 PASS (incl. 2 new validator acceptance tests: `test_validator_accepts_7_substrate_elements` + `test_validator_rejects_non_canonical_substrate`)
+- Core generation: 382/382 PASS
+- Full suite: 3092 collected; 2 pre-existing failures unchanged before/after (`test_all_elements_monsters` bruiser archetype gap; `test_geared_player_deals_more_damage` gear cp3 balance assertion)
+
+**Cross-seam impact:** None. Validator is generation-internal gating; no MIGRATION.md required.
+
+**Architectural note:** Per substrate-as-cohesion-only § 5.2, full substrate-AGNOSTIC validator refactor is deferred to P5 W5.X cohesion-BC work. This W0.3 closes LC-012 drift at the count-level; preserves physical-as-non-rotating pattern for backward compatibility.
+
+State-of-hive § 1 W0.3 row updated to COMPLETE. **Fifth P0 workstream milestone complete** (W0.3 + W0.5 + W0.6 + W0.8 + W0.4 star-lord portion). W0.9 at Phase 1+1.5 milestone (Phase 2 implementation pending A8 + A5 kickoff dependencies). 4 P0 workstreams remaining (W0.1 + W0.2 + W0.4 rocket/gamora portions + W0.7).
+
+---
+
 ## 2026-05-21 — QD-rebuild P0 W0.9 Phase 1 + Phase 1.5 COMPLETE: math-before-code locked
 
 **Event:** W0.9 (gauntlet architecture migration) Phase 1 (math-before-code) + Phase 1.5 (amendment fold-in) workstreams complete. Tag `qd-rebuild/v0.9-math-note-phase-1-complete` fired (engine commit `edcac29`); collab commit `1a1b3d7` (dispatch completion record).
