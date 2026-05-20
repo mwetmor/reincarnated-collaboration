@@ -180,3 +180,43 @@ Gamora's investigation § 4.3 established: the current trigger `if eval_modifier
 - Bidirectional recompose levers (DPS-increase for ceiling-lock) — B-prime scope, not Option B
 
 Routing now.
+
+---
+
+## 2026-05-19 EDT — gandalf STATE — P1 Option B Design Brief FILED
+
+**Brief:** `agentic_orchestration/dispatches/2026-05-19-gandalf-p1-option-b-recompose-trigger-design-brief.md` (10 sections, ~720 LOC; AUTONOMOUS L2-equivalent authority per engine-rebuild protocol § 4.0).
+
+**Required-reading absorbed (~30 min):** hive log all entries; scope-of-work; recompose-validation hive protocol §§ 3 + 6 (P1); gamora investigation §§ 4-5 (mechanism + Options A/B math); MIGRATION.md v1.21 (Option A consumer template); s1-firstbatch-fail-disposition § 11 (staged-approval concurrence); engine-rebuild § 4.0 autonomous-operation amendment; CHANGELOG Phase B.2 Pattern-A/B carve; balance_loop.py current state post-Option-A (lines 73, 123, 1288, 1323, 1351-1407).
+
+**Key design decisions made:**
+
+1. **Re-condition signal — departure from gamora § 5.2.** The proposed `status=failed AND eval_modifier ≤ MODIFIER_SEARCH_FLOOR + epsilon` is replaced with `last_wr > _SIGNAL_HI` (i.e., `_quick_modifier_estimate` exited still saturated). Rationale (brief § 2.3): (a) `status=failed` is a post-binary-search state — not derivable at recompose time, which runs *before* binary search; (b) `eval_modifier ≤ floor + ε` is post-hoc-ambiguous (a class can legitimately converge at `eval_modifier=0.012` with `last_wr=0.45` — that's *signal-reached at floor*, not floor-lock). The unambiguous signal is whether `_quick_modifier_estimate` reached signal range; that's `last_wr ≤ _SIGNAL_HI`. No epsilon needed.
+
+2. **Working-modifier choice: fixed `LEVER_FLOOR_LOCK_WORKING_MODIFIER = 0.005`** (half the new search floor). Single named constant per Discipline #18. Rationale (brief § 2.4): (a) domain separation — 0.005 is below `MODIFIER_SEARCH_FLOOR = 0.01` so the lever working modifier is unambiguously a *probe*, not a candidate equilibrium; (b) sufficient signal range for ~all observed floor-locked R8-inverted kits; (c) deterministic, no extra fight evaluations beyond the lever evaluations themselves.
+
+3. **Smoke gate B1 BLOCKING acceptance condition** (brief § 4.2): four conditions on class_0001 cold-start convergence — (1) `floor_lock_detected=True`; (2) at least one attempt with `working_modifier=0.005`; (3) at least one accepted lever with `\|delta\| ≥ RECOMPOSE_DELTA_FLOOR=0.02` and `before_winrate < 0.95`; (4) post-recompose binary search converges with `final_modifier > MODIFIER_SEARCH_FLOOR` AND `modifier_extreme_low=False`. All four BLOCKING; any miss → P1 rolls back. WARN-level secondary on class_0003 + class_0006 (informational only).
+
+4. **Cross-seam — star-lord recompose-fire-count sub-bucketing: YES.** Brief § 5.1 specifies new `floor_lock_recompose` boolean field on `ClassBalanceResult` plus `working_modifier` + `floor_lock_detected` per-attempt fields. Schema v2.13 (additive, nullable). MIGRATION.md v1.22 template authored at § 5.4 (gamora finalizes at implementation).
+
+5. **Discipline #12 semantic-shift framing** (brief § 6): the recompose trigger's effective signal range expands. The implicit precondition of the recompose architecture ("`_quick_modifier_estimate` reaches signal range") is made explicit via `floor_lock_detected` and protected via `LEVER_FLOOR_LOCK_WORKING_MODIFIER`. This is NOT a bug fix; it is a deliberate, named widening with rationale.
+
+**Predicted-outcome carve (brief § 2.5):**
+
+| Population | Pre-Option-A | Post-Option-A | Post-Option-B (this brief) |
+|---|---|---|---|
+| Pattern-B (22 classes, m* ∈ [0.01, 2.0]) | status=failed at floor | status=converged | Same — levers had signal already |
+| Pattern-B-extreme (subset, m* < 0.01) | status=failed | converged at floor, kit unchanged | floor_lock_detected=True; sub-floor lever probe finds signal; recompose actually reshapes |
+| Pattern-A (27 classes, boss-zero structural) | mixed | converged at floor, boss=0 persists | Levers attempt at 0.005; most fail → kit-redesign flag |
+
+Option B's served population is **"masked Pattern-B-extreme"** — unknown size, conservatively estimated 3-8 classes per season.
+
+**Falsifying condition (when P1 rolls back, brief § 4.4):** smoke gate B1 BLOCKING fails on class_0001 (any of four BLOCKING conditions misses); OR `floor_lock_detected=True` fires for > 50% of test classes (false-positive on legitimately-floor-converging classes); OR existing test suite regression.
+
+**Disciplines anchored:** #1 (math-before-code — § 2), #2 (smoke-test — § 4), #11 (empirical inspection / attribution — § 5.1), #12 (semantic shift — § 6), #15 (drift-detection — implicit-precondition framing § 2.2 + § 6.2), #18 (implicit-pillar named constant `LEVER_FLOOR_LOCK_WORKING_MODIFIER` — § 3.2).
+
+**Out-of-scope reaffirmed (brief § 8):** no bidirectional levers (B-prime); no changes to `MODIFIER_SEARCH_FLOOR` / `MODIFIER_SEARCH_CEILING`; no changes to `_quick_modifier_estimate` internals; no new lever types; no rocket b6_kit_builder changes; no full-season regen at P1; no doppelganger / experimental class changes; no `recompose_outcome` enum value additions.
+
+**Reversibility path (brief § 9):** two options — (1) full revert via single git revert (telemetry-table schema additions stay as nullable columns); (2) parameter-level soft-disable via setting `LEVER_FLOOR_LOCK_WORKING_MODIFIER = MODIFIER_SEARCH_FLOOR`, which makes the floor-lock branch a behavioral no-op while preserving diagnostic telemetry.
+
+**Next action for knight-rider:** route brief to jack-ryan for Gate-1 critique. On critique returned + amendments folded, knight-rider authors gamora implementation dispatch. Expected jack-ryan ~1-2h; expected gamora ~4-6h.
