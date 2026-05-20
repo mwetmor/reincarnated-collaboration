@@ -218,4 +218,50 @@ All 7 Gate-1 amendments folded into math note `simulation/math/gauntlet-migratio
 - [x] AGENT_STATE.md updated: "W0.9 Phase 1 + Phase 1.5 (amendment fold-in) complete; awaiting Phase 2 implementation kickoff"
 - [x] Intermediate tag fired: `qd-rebuild/v0.9-math-note-phase-1-complete`
 
-**Phase 2 (implementation W0.9.1–W0.9.6): PENDING — awaiting Phase 2 implementation kickoff**
+**Phase 2 (implementation W0.9.1–W0.9.6): IN PROGRESS — Phase 2.1 COMPLETE 2026-05-21**
+
+---
+
+**Phase 2.1 (W0.9.1 + W0.9.2): COMPLETE — 2026-05-21**
+
+### Phase 2.1 deliverables
+
+- [x] **W0.9.1 — PackProxy retired from swarm-tier convergence path:**
+  - `combatant.py`: PackProxy + from_pack_proxy() marked DEPRECATED in-tree (not removed)
+  - `balance_loop.py`: `build_reference_gauntlet()` — swarm PackProxy wrapping removed; raw Monster objects
+  - `balance_loop.py`: `_run_spatial_slot()` NEW — routes swarm-tier to `run_spatial_fight(SCENARIO_OPEN_ARENA)`
+  - `balance_loop.py`: `TIER_CONVERGENCE_WEIGHTS["swarm"]` 0.0 → 1.0 (Discipline #12 semantic shift; framed as architectural arena change, not tuning preference)
+  - `balance_loop.py`: `_evaluate_class()`, `_evaluate_variance_check()`, `_evaluate_room_class()` — swarm-tier routes through `_run_spatial_slot()`
+  - `balance_loop.py`: convergence winrate functions updated — PackProxy exclusion retired
+  - `tests/test_balance_loop.py`: swarm-slot assertions migrated; ModifierClampGate mocks extended
+
+- [x] **W0.9.2 — R2 spatial sub-gauntlet promoted to default for all 5 tiers:**
+  - `arena.py`: `ArenaScenario` dataclass extended (`mini_boss_index`, `soft_timeout_s`, `has_mini_boss`)
+  - `arena.py`: `SCENARIO_MAGIC_PACK` (32.7×14m, 1 magic+3 swarm, 120s kills-only; A8 §3)
+  - `arena.py`: `SCENARIO_ELITE_PACK` (28×28m, 1 elite+2 magic, 180s kills-only; A8 §4)
+  - `arena.py`: `SCENARIO_MINI_BOSS` (30×30m, 1 mini-boss+2 elite, mini_boss_killed, 150s soft+240s hard; A8 §5)
+  - `arena.py`: `KILLS_ONLY_TIMEOUT_SCENARIOS` adds magic_pack + elite_pack; mini_boss excluded
+  - `arena.py`: `ALL_SCENARIOS` updated — all 6 scenarios registered
+  - `spatial_engine.py`: `mini_boss_killed` win condition implemented (soft+hard two-phase timeout)
+  - `spatial_engine.py`: `range_m` null guard at 3 call sites
+  - `spatial_gauntlet/__init__.py`: new scenario exports
+  - `tests/test_spatial_gauntlet_scenarios.py`: 27 new smoke tests (all pass)
+
+- [x] **Discipline #12 semantic shifts documented** in commit message AND `MIGRATION.md v1.23`
+- [x] **MIGRATION.md v1.23** authored — both semantic shifts + all file changes documented
+- [x] **Test suite: PASS** — 311 targeted smoke tests pass; no regressions in modified areas
+- [x] **AGENT_STATE.md updated:** Phase 2.1 complete; Phase 2.2 (W0.9.3) context documented
+- [x] **Intermediate tag fired:** `qd-rebuild/v0.9-phase-2-1-packproxy-retired-r2-promoted`
+- [x] **Commit:** `0041a12`
+
+### Encounter_kind enum status (W0.9.2 cross-seam item)
+
+The `"magic"` value for `spatial.encounter_meta.encounter_kind` is a W0.9.5 item (telemetry instrumentation; Phase 2.3). Phase 2.1 uses `NullSpatialTelemetryWriter` — no telemetry emitted from convergence-path spatial fights. Star-lord will add `"magic"` to the enum in Phase 2.3 alongside the v2.14 schema bump. The existing `"elite"` and `"mini-boss"` values already exist in the telemetry schema.
+
+### Phase 2.2 next-fire context
+
+W0.9.3 (convergence vs validation usage modes) fires in the next Phase 2 sub-session. The spatial engine is structurally ready (stateless `run()` per fight; session_id tagging distinguishes convergence vs validation). Phase 2.2 wires the caller-level routing and P7 W7.2 archive-query validation path per math note §6.4.
+
+W0.9.4 (performance optimization; reduced-tick-rate REQUIRED per math note §3.4) fires in Phase 2.3.
+W0.9.5 (telemetry instrumentation; star-lord v2.14 round-trip) fires in Phase 2.4.
+W0.9.6 (calibration sweep; Discipline #17) fires in Phase 2.5.
