@@ -4,6 +4,43 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-rebuild Cross-seam: v2.15 MIGRATION SHIPPED to production DB
+
+**Event:** Star-lord shipped the v2.15 ALTER TABLE migration to production telemetry.db. Engine commits `0e15f61` (feat) + `5f1e3e4` (AGENT_STATE) + `9d41e8d` (telemetry/MIGRATION.md). Tag `star-lord/v1.18-v2-15-migration-shipped` fired.
+
+**E.1 fixture (recorder-side round-trip smoke for archetype_label):** 8/8 PASS at `tests/test_w02_archetype_label_round_trip.py`. All 9 spec assertions from v2.15 §E.1 covered. Confirms: TEXT column type; NULL backward-compat; exact key contract (`archetype_label` only — `archetype` / `archetype_tag` do NOT pollute); no WARN on null; mixed-vintage row coexistence; zero silent_drop_counters after both paths.
+
+**recorder.py integration (same commit):**
+- `archetype_label` read on `record_class_fight_loadouts`
+- `floor_lock_recompose` read on `record_class_balance_results` (v2.14 catch-up)
+- NEW `record_recompose_attempts` method (v2.14 + v2.15 P7 WARN for post-W0.9.5 missing key)
+- NEW `record_fight_events` method (v2.14)
+- NullRecorder stubs for both new methods
+- SCHEMA_VERSION bump: "2.13" → "2.15"
+
+**PRODUCTION DB MIGRATION EXECUTED** in sequence 2.12 → 2.13 → 2.14 → 2.15. Star-lord caught up v2.13 + v2.14 catch-up migrations (DB was at 2.12 pre-session; v2.13 had not been applied to production despite being in MIGRATIONS list).
+
+**Post-migration verification (all new fields/tables present):**
+- `archetype_label` in `class_fight_loadouts` ✅
+- `recompose_energy_calibration_applied` in `recompose_attempts` ✅
+- `fight_events` table (18 columns) ✅
+- `floor_lock_recompose` in `class_balance_results` ✅
+- `geometry_type_source` in `spatial_fight_results` (v2.13 catch-up) ✅
+
+**80/80 round-trip regression suite PASS** (round_trip_r3 + round_trip_r1 + round_trip_r1_kill_rate + round_trip_spatial). Stale schema assertion `SCHEMA_VERSION == "2.13"` fixed to forward-compat `>= (2, 13)`.
+
+**Cross-seam delivery contract complete:**
+- W0.2 round-trip smoke E.1 (rocket write-side stub + star-lord recorder-side) ✅ PASS
+- W0.1 round-trip smoke E.2 (gamora write-side + star-lord recorder-side) ✅ PASS (per W0.1 Phase 2 completion)
+- v2.15 ALTER TABLE migration ✅ EXECUTED against production DB per knight-rider authorization (per Matt autonomous-operation directive)
+- Both new columns + recompose_attempts table + fight_events table LIVE
+
+**No drax impact** per v2.15 §E.3 (archetype_label is telemetry-only; not exported in season JSON packet).
+
+**Major architectural milestone:** The v2.15 schema infrastructure is now production-ready. W0.1 + W0.2 cross-seam contracts fulfilled. Future workstreams (W0.9 Phase 2.4 telemetry instrumentation; W1.13 archive_entries table; P3 archive maintenance) build on this LIVE schema foundation.
+
+---
+
 ## 2026-05-21 — QD-rebuild P0 W0.2 FULLY CLOSED: Phase 2.5 cleanup amendments folded
 
 **Event:** W0.2 Phase 2.5 (rocket cleanup fold-in) completed. All 3 jack-ryan Gate-2 amendments folded. Engine commit `6d4743d`; collab commit `5387256`. Tag `qd-rebuild/v0.2-phase-2-5-cleanup` fired.
