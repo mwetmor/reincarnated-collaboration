@@ -4,6 +4,28 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-rebuild P0 W0.4 star-lord portion COMPLETE: telemetry/export-side LC verification + critical cross-seam gap surfaced
+
+**Event:** Per multi-seam W0.4 dispatch, star-lord completed the telemetry/export seam portion. Engine tag `star-lord/v1.15-w0-4-code-side-audit-1` fired (pushed). Deliverables: `agentic_orchestration/star-lord/research/qd-rebuild-w0-4-star-lord-code-side-audit.md` + shared `agentic_orchestration/jack-ryan/research/legacy-constraint-audit-2026-05-21/phase-2-code-side-verification.md` (star-lord section).
+
+**Critical finding — LC-003 DRIFT-FROM-AUDIT (cross-seam gap):** `floor_lock_recompose`, `working_modifier`, `floor_lock_detected` fields specced in gamora's `simulation/MIGRATION.md` (Option B floor-lock recovery) but **ABSENT from star-lord's `migrations.py` + `recorder.py`**. Currently dormant because Option B is soft-disabled — but if Option B is re-enabled, telemetry will silently drop these fields. **Disposition:** fold into W0.9 schema v2.14 migration scope (W0.9 already plans v2.13 → v2.14 bump for true-multi-monster sim telemetry). Cross-referenced for gamora W0.9 math-before-code + jack-ryan Gate-1 review.
+
+**Per-LC verdicts (star-lord seam):**
+- LC-006 (canonical-four LLM exposure): **RESOLVED**. Cipher migration live in `llm/naming.py`; test guard at `tests/test_no_canonical_four_in_llm_prompts.py`. (Rocket sites pending rocket W0.4 portion verification.)
+- LC-007 (humanoid gear schema in export): **VERIFIED (not yet fixed)**. `export/schemas.py:88-89` carries `slot/handedness`. Position C migration not shipped.
+- LC-003 (modifier floor-lock): **DRIFT-FROM-AUDIT** (see above; critical cross-seam gap)
+- LC-008 (STR/DEX/INT LLM visibility): **NEEDS-DOWNSTREAM-FIX**. `naming.py:323` passes raw stats to LLM prompt.
+
+**W1.13 ArchiveEntry schema (for P1):** all 7 fields require NEW `archive_entries` table (not ALTER). Export schema change not needed until P3. Star-lord owns the migration.
+
+**W0.8 schema fields (for P1 W1.1):** `bounce_count` + `spawn_count` is clean additive ALTER. ~20 LOC across 4 files; no round-trip breakage risk (Pattern P7 defensive getattr).
+
+**Schema v2.12 + v2.13:** LIVE; no drift. **No new HIGH-risk LCs** (no § 7.4 phase-halt trigger).
+
+State-of-hive § 2.2.2 added — canonical record of star-lord findings for downstream consumption. W0.4 partial complete (star-lord done; rocket + gamora portions pending).
+
+---
+
 ## 2026-05-21 — QD-rebuild P0 W0.5 COMPLETE: Mana-bug verify LC-026 — RESOLVED
 
 **Event:** Per W0.5 dispatch `agentic_orchestration/dispatches/2026-05-21-gamora-w0-5-mana-bug-verify.md`, gamora completed empirical inspection of LC-026 mana-bug. **Verdict: RESOLVED.** No follow-on fix workstream required. Engine commit `4bce461`; LC-026 addendum at `agentic_orchestration/jack-ryan/research/legacy-constraint-audit-2026-05-21/lc-026-mana-bug-verify-addendum-2026-05-21.md`.

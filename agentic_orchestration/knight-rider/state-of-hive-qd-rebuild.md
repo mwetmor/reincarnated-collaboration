@@ -22,7 +22,7 @@
 | W0.1 | **B14.5 V2 energy-type lever in primary recompose loop** (LC-004 calibration-side fix; complements B6 pre-work already shipped 2026-05-16 at `rocket/v1.3-b6-energy-type-tiers`); gandalf endorsed B14.5 V2 follow-on interpretation per matt-briefing § 4 | gamora | DISPATCH ACTIVE | `2026-05-21-gamora-w0-1-b14-5-v2-energy-type-lever.md` | `qd-rebuild/v0.1-b14-5-v2-energy-type-lever` |
 | W0.2 | Archetype template Path-a refactor (LC-001; REMOVE templates entirely under substrate-as-cohesion-only) | rocket | DISPATCH ACTIVE | `2026-05-21-rocket-w0-2-archetype-template-path-a-refactor.md` | `qd-rebuild/v0.2-archetype-refactor-complete` |
 | W0.3 | Foundation validator update (LC-012 fix; D5 = 7-substrate) | rocket | **🔄 IN-FLIGHT (background worktree; agentId a6f39f540799283a6)** | `2026-05-21-rocket-w0-3-foundation-validator-d5.md` | `qd-rebuild/v0.3-foundation-validator-7-substrate` |
-| W0.4 | Specialist code audit (12 HIGH-risk LCs verify; 18 MEDIUM-risk follow-up; INCLUDES § 2.8 W1.13 current-state verification + OQ-2 + OQ-3 per Alt A) | rocket + gamora + star-lord; jack-ryan reviews | **🔄 PARTIAL IN-FLIGHT** — star-lord portion firing (background worktree; agentId ae900e55c0b686ef2). rocket + gamora portions queued after their other workstreams return. | `2026-05-21-rocket-plus-gamora-plus-star-lord-w0-4-specialist-code-audit.md` | `qd-rebuild/v0.4-code-side-audit-complete` |
+| W0.4 | Specialist code audit (12 HIGH-risk LCs verify; 18 MEDIUM-risk follow-up; INCLUDES § 2.8 W1.13 current-state verification + OQ-2 + OQ-3 per Alt A) | rocket + gamora + star-lord; jack-ryan reviews | **🔄 PARTIAL: star-lord portion ✅ COMPLETE 2026-05-21** (engine tag `star-lord/v1.15-w0-4-code-side-audit-1`); rocket + gamora portions queued. Critical findings surfaced — see § 2.2.2 below. | `2026-05-21-rocket-plus-gamora-plus-star-lord-w0-4-specialist-code-audit.md` | `qd-rebuild/v0.4-code-side-audit-complete` (hive tag fires when all 3 seams + jack-ryan reviews) |
 | W0.5 | Mana-bug verify (LC-026 quick verify; ~2 hours) | gamora | **✅ COMPLETE 2026-05-21 — RESOLVED** — engine commit `4bce461`; tag `qd-rebuild/v0.5-mana-bug-verify-resolved` pushed. Phase 1 dimensional refactor (2026-05-08 commit `4c28ed6`) structurally resolved at pool-assignment + skill-costing layers. 152 tests PASS. Substrate-as-cohesion compatibility CONFIRMED. **Residual:** `base_stamina` column never written by `recorder.py` — flagged for star-lord W0.4 in-flight. | `2026-05-21-gamora-w0-5-mana-bug-verify.md` | `qd-rebuild/v0.5-mana-bug-verify-resolved` (FIRED) |
 | W0.6 | Drift candidate closures (LC-006, LC-007, LC-014, LC-028; LC-006 may defer per D3; LC-007 may defer to P4) | jack-ryan + specialists | DISPATCH ACTIVE (queued) | `2026-05-21-multi-seam-w0-6-drift-candidate-closures.md` | `qd-rebuild/v0.6-drift-closures-complete` |
 | W0.7 | LC-002 + LC-009 + LC-011 ablation experiments | gamora | DISPATCH ACTIVE (queued; jack-ryan Gate-1 per ablation) | `2026-05-21-gamora-w0-7-ablation-experiments.md` | `qd-rebuild/v0.7-ablation-complete` |
@@ -67,6 +67,33 @@
 | P5 | Theme Coalescence + Cohesion-BC + Visual-BC | 3-5 wk | PENDING |
 | P6 | Profile Assembly Layer | 2-3 wk | PENDING |
 | P7 | Validation Gauntlet + Production Cutover | 2-3 wk | PENDING |
+
+### 2.2.2 W0.4 star-lord portion findings (folded into downstream consumers)
+
+Per W0.4 star-lord portion completion 2026-05-21 (engine tag `star-lord/v1.15-w0-4-code-side-audit-1`; collab commit pending this push):
+
+**Per-LC verdicts (star-lord seam):**
+- **LC-006 (canonical-four LLM exposure)** — **RESOLVED**. Cipher migration is fully live in `llm/naming.py`. All 4 naming functions route through `_grouping_label()` + `_seasonal_element_line()` — no canonical-four label reaches any LLM prompt. Test guard at `tests/test_no_canonical_four_in_llm_prompts.py`. `canonical_element` fields in export schemas marked DEPRECATED (intentional backward-compat). Rocket's `element/selector.py` + `canonical/library_generator.py` sites pending rocket W0.4 portion verification.
+- **LC-007 (humanoid gear schema in export)** — **VERIFIED (not yet fixed)**. `export/schemas.py:88-89` carries `slot/handedness` humanoid values; `telemetry/migrations.py:_V1_6` persists same. Position C migration not shipped. Cross-seam fix requires coordinated rocket → star-lord → drax MIGRATION.md.
+- **🚨 LC-003 (modifier floor-lock) — DRIFT-FROM-AUDIT — CRITICAL CROSS-SEAM GAP.** `floor_lock_recompose`, `working_modifier`, `floor_lock_detected` are specced in gamora's `simulation/MIGRATION.md` (Option B floor-lock recovery fields) but **ABSENT from star-lord's `migrations.py` + `recorder.py`**. If gamora re-enables Option B (currently soft-disabled), these fields will be silently dropped at the telemetry boundary. **Disposition:** fold into W0.9 schema v2.14 migration scope (W0.9 already plans v2.13 → v2.14 bump for true-multi-monster sim telemetry; LC-003 fields ride along). Cross-reference noted for gamora W0.9 math note + jack-ryan Gate-1 review.
+- **LC-008 (STR/DEX/INT LLM visibility)** — **NEEDS-DOWNSTREAM-FIX**. `naming.py:323` passes `stats.as_dict()` directly into `name_class` user prompt; raw stat labels reach LLM. Separate fix dispatch required for per-embodiment narrative reframing.
+
+**§ 2.8 W1.13 ArchiveEntry schema extension scope (for P1):**
+- None of 7 ArchiveEntry fields (`node_subset`, `per_node_coefficients`, `scalar_modifier`, `bc_coordinate`, `per_tier_WR`, `cohesion_theme`, `visual_identity`) exist in star-lord tables
+- **NEW `archive_entries` table required** — NOT an ALTER of existing tables
+- Export schema change not needed until P3
+- Folded into P1 W1.X telemetry-extension scope; star-lord owns the migration
+
+**W0.8 `bounce_count` + `spawn_count` for P1 W1.1:**
+- `abilities` table has no `bounce_count` or `spawn_count` columns
+- Clean additive ALTER TABLE migration; 4 files (`migrations.py`, `recorder.py:_insert_skill()`, `schemas.py:ExportSkill`, `season_exporter.py:_build_skill()`); ~20 LOC
+- No round-trip breakage risk (Pattern P7 defensive getattr at recorder boundary)
+- Folded into P1 W1.1 scope; star-lord coordinates with rocket at boundary
+
+**Schema state confirmed:**
+- v2.12 + v2.13 LIVE in production DB as of 2026-05-19; no drift from AGENT_STATE records
+
+**No new HIGH-risk LCs surfaced — no § 7.4 phase-halt trigger.**
 
 ### 2.2.1 W0.8 findings (folded into downstream consumers)
 

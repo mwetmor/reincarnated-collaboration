@@ -120,3 +120,30 @@ Not applicable to verification work; the dispatch is INSPECTION not implementati
 - `agentic_orchestration/rocket/research/substrate-generalization-study-2026-05-21/` (Alt A deliverables; OQ-2 + OQ-3)
 - `canonical/story/substrate-design-supplement-2026-05-21.md` (substrate-as-cohesion-only architecture; informs LC reinterpretation under new architecture)
 - `reincarnated-engine/design/working-agreement/engineering-disciplines.md` § 11.1 (state-space conditioning; apply to telemetry/code inspection)
+
+---
+
+## Completion Record
+
+### Star-lord section — COMPLETE 2026-05-21
+
+**Tag:** `star-lord/v1.15-w0-4-code-side-audit-1`
+**Deliverable:** `agentic_orchestration/star-lord/research/qd-rebuild-w0-4-star-lord-code-side-audit.md`
+
+**LC verdicts (star-lord seam):**
+- LC-006: RESOLVED (cipher migration live in `llm/naming.py`; test-guarded)
+- LC-007: VERIFIED (humanoid slot names confirmed in export schema; migration not yet shipped as expected)
+- LC-003: DRIFT-FROM-AUDIT — `floor_lock_recompose`, `working_modifier`, `floor_lock_detected` absent from telemetry schema + recorder; gamora spec is ahead of star-lord implementation
+- LC-008: NEEDS-DOWNSTREAM-FIX — `naming.py:323` exposes raw `stats.as_dict()` in name_class LLM prompt
+
+**W1.13:** No ArchiveEntry fields exist in star-lord seam. New `archive_entries` table required for P1.
+**W0.8:** `bounce_count` + `spawn_count` additive scope scoped; 4 files, ~20 lines, Matt auth required for SQL.
+**Schema v2.12 + v2.13:** Both LIVE. No drift.
+**New HIGH-risk LC discovered:** None (no phase-halt triggered).
+**Open items for knight-rider:** (1) P1 dispatch for `floor_lock_*` telemetry columns before gamora Option B ships; (2) star-lord as W0.9 stakeholder for fight-context discriminator column when PackProxy is retired.
+
+### Rocket section — PENDING
+
+### Gamora section — PENDING
+
+### Jack-ryan review — PENDING (after all 3 seams complete)
