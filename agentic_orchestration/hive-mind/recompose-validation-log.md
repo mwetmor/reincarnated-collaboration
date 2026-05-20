@@ -770,3 +770,71 @@ Jack-ryan continuous-observation mode reviews; if concerns, will surface in hive
 **Hive trigger watch:** ⏸ all four still unsignaled at P2 firing. The P2 regen IS the venue where trigger #3 (premise refuted) may or may not signal at P3.
 
 Routing to rocket as Phase 1 of three-seam sequential workflow. Rocket fires first; rocket's HANDOFF on completion fires gamora; gamora's HANDOFF on completion fires star-lord; star-lord's HANDOFF on completion fires knight-rider's P2 acceptance verification.
+
+---
+
+## 2026-05-20 01:35 EDT — rocket STATE — P2 Phase 1 generation COMPLETE
+
+**Season:** season_100005 | **Seed:** 100005 | **Substrate:** shadow-first rotation
+**Engine SHA:** 22b1c3c | **Pipeline:** R8 inverted | **Wall time:** 49.9 min
+**Commit:** `07d13f8` (main) | **Tag:** `rocket/v1.22-p2-fresh-regen-shadow-100005`
+**Output:** `output/p2-fresh-diagnostic-regen-2026-05-19/season_100005/`
+
+**Generation-time convergence estimates (diagnostic only — gamora authoritative):**
+
+| class_id | element | archetype | converged | modifier | extreme_low | floor_lock_recompose |
+|---|---|---|---|---|---|---|
+| class_0001 | shadow | shadow_mage | YES | 0.0719 | NO | NO |
+| class_0002 | fire | fire_mage | NO | 0.0110 | YES | YES |
+| class_0003 | water | water_mage | YES | 0.0332 | YES | NO |
+| class_0004 | earth | earth_caster | NO | 0.0110 | YES | YES |
+| class_0005 | wind | wind_caster | YES | 0.0255 | YES | YES |
+| class_0006 | lightning | lightning_mage | YES | 0.0139 | YES | YES |
+| class_0007 | holy | holy_caster | YES | 0.0139 | YES | YES |
+| class_0008 | physical | physical_warrior | YES | 0.1956 | NO | NO |
+| class_0009 | shadow | shadow_controller | YES | 0.1338 | NO | YES |
+| class_0010 | fire | experimental | YES | 0.0255 | YES | NONE |
+
+**8/10 converged; 7/10 modifier_extreme_low; 6/10 floor_lock_recompose; 2 failed (class_0002, class_0004 at modifier floor 0.0110)**
+
+**Coalescence:** element='ember', anchor='The Bridge of Sighs Between Fires' (liminal_and_threshold)
+**Trial:** defeat rate 52.8% (converged). **Monsters:** 44. **Gear pool:** 200 items (120 rare+).
+
+**Pre-existing anomalies (not generation defects):**
+- [R3] skill_000246/skill_000355 range_m=None — canonical library backfill pending (elrond)
+- [D4] unknown archetype 'trial' in ai_strategies — known gap
+- No canonical entry for (lightning/holy/shadow, role) — correct fallback behavior
+- Export pipeline failed: ExportMetadata.elements=None in inverted-mode manifest — engine-side artifacts intact; not a blocker for gamora Phase 2
+
+**Key diagnostic observation:** Three-tier modifier structure already visible at generation-time:
+- Tier 1 (normal): class_0001 (shadow 0.0719), class_0008 (physical 0.1956), class_0009 (shadow_controller 0.1338)
+- Tier 2 (EXTREME_LOW, converged): class_0003/0005/0006/0007/0010 (0.0139–0.0332)
+- Tier 3 (EXTREME_LOW, failed): class_0002/0004 — both at MODIFIER_SEARCH_FLOOR (0.0110)
+
+floor_lock_recompose=True on 6/10 is the diagnostic signal gamora Phase 2 needs to examine via per-recompose_attempt floor_lock_detected telemetry.
+
+---
+
+## 2026-05-20 01:35 EDT — rocket HANDOFF — ROUTING GAMORA FOR P2 PHASE 2
+
+**To:** gamora
+**From:** rocket (Phase 1 complete)
+**Dispatch authority:** `agentic_orchestration/dispatches/2026-05-19-rocket-plus-star-lord-plus-gamora-p2-fresh-diagnostic-regen.md` § 3.2 Phase 2
+
+**Gamora Phase 2 task:** Cold-start balance-loop convergence on all 10 classes in season_100005.
+
+**Input:** `output/p2-fresh-diagnostic-regen-2026-05-19/season_100005/` (engine SHA 22b1c3c, tag `rocket/v1.22-p2-fresh-regen-shadow-100005`)
+**Output:** `output/p2-fresh-diagnostic-regen-2026-05-19/balance_results.json`
+
+**Configuration:**
+- initial_modifier=1.0 for all classes (cold-start; no warm-start)
+- Schema v2.12 + v2.13 fields required: modifier_extreme_low, floor_lock_recompose, working_modifier, floor_lock_detected per recompose_attempt
+- Fights per matchup: same as generation pipeline (dispatch § 3.1 spec)
+- Option A floor active (MODIFIER_SEARCH_FLOOR=0.01)
+- Option B soft-disabled (LEVER_FLOOR_LOCK_WORKING_MODIFIER=MODIFIER_SEARCH_FLOOR; floor_lock_detected telemetry still records but no behavior change)
+
+**Key deliverable:** per-class telemetry with floor_lock_detected field populated on each recompose_attempt. This is the load-bearing evidence for the three-way disposition gate (dispatch § 5 and hive log 2026-05-19 HANDOFF above).
+
+**Acceptance criteria for Phase 2:** balance_results.json present; per-class telemetry has v2.12+v2.13 fields; gamora appends STATE entry + HANDOFF routing star-lord.
+
+**Out of scope (HARD):** Option B re-enable; convergence loop changes; schema changes beyond v2.13.
