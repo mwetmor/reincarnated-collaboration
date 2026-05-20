@@ -1030,3 +1030,115 @@ The 0/10 floor_lock_recompose=True finding diverges from rocket's generation-tim
 The Phase 3 analysis answers whether wind-down trigger #3 fires (soft-disable is right end state; masked-Pattern-B-extreme population is absent from season_100005 at full-season scope). Per dispatch § 4.1: "Soft-disable becomes the right end state — Option B is preserved as a sleeping safety net for a population that may not exist. Wind-down trigger #3 signals at P3."
 
 Star-lord fires HANDOFF to knight-rider on completion.
+
+---
+
+## 2026-05-20 EDT — knight-rider STATE — Gamora Phase 2 ACCEPTED; major Phase 2 finding noted; firing star-lord Phase 3
+
+**Phase 2 disposition: ACCEPT.** All Phase 2 acceptance criteria met:
+- balance_results.json at expected path (engine `6cb7fa4`)
+- All 10 classes converged or flagged with explicit status (10/10 partially-converged)
+- Per-class telemetry includes all schema v2.12 + v2.13 fields
+- Cold-start verified (initial_modifier=1.0 per-class)
+- AGENT_STATE.md updated (engine `fa5244c`)
+- Seam tag `gamora/v1.15-p2-balance-convergence-shadow-100005` fired
+- FRICTION surfaced + resolved in same workflow (root cause clean)
+
+**The major Phase 2 finding** (acknowledged here for the canonical record before star-lord Phase 3 formalization):
+
+### § A — Reversal of the Phase 1 signal
+
+Rocket's Phase 1 generation-time diagnostic showed 6/10 `floor_lock_recompose=True` — knight-rider interpreted this as load-bearing empirical evidence that the masked-Pattern-B-extreme population existed and that the Multiple-floor-lock disposition path was firing. **Gamora's Phase 2 canonical cold-start convergence shows 0/10** — opposite outcome.
+
+Gamora's diagnostic root-cause is clean: rocket's generation-time signal was a **pipeline-state-conditioned artifact**. The R8 kit construction's embedded balance loop runs at in-pipeline modifier states (which during kit construction are near or at the floor by design — that's where the embedded loop is invoked from). It's NOT equilibrium-conditioned. Under true cold-start initial_modifier=1.0, all 10 classes find equilibrium modifiers in [0.0177, 0.3812] — all above MODIFIER_SEARCH_FLOOR=0.01. **No class is genuinely floor-locked.**
+
+The pipeline-state vs equilibrium-conditioned distinction is a load-bearing methodological finding worth canonical-record capture. It generalizes: **generation-time embedded convergence signals cannot be trusted as equilibrium-state signals.** This applies retrospectively to the original gandalf brief § 4.1 test-class-selection error (warm-start from prior `final_modifier` is similarly a state artifact, not equilibrium) AND prospectively to any future hive that wants to validate convergence properties from generation-time signals.
+
+### § B — The second structural finding: 100% Pattern-A at full-season scope
+
+The 10/10 partially-converged status is driven by boss_wr=0.0 AND mini_boss_wr=0.0 universally across the entire season_100005 class roster. **No class can kill the shadow-substrate boss (monster_00043, earth/brute) or mini-boss (monster_00041, fire/tank) at any converged modifier within timeout.** This is Pattern-A (boss-zero structural) at 100% of the season at full-season scope.
+
+This empirically reinforces the R2+ST counterfactual joint synthesis Row 5 finding: **"catalogue has deeper pathology" — the kit-composition pathology IS the load-bearing problem; the recompose mechanism cannot fix kit composition that lacks fundamental boss-kill capability.**
+
+### § C — Implication for the three-way P2 disposition gate
+
+| Path | Pre-Phase-2 probability | Post-Phase-2 probability |
+|---|---|---|
+| Zero floor-lock candidates → trigger #3 candidate at P3 | RULED OUT per Phase 1 signal | **FIRING per Phase 2 canonical** |
+| Multiple floor-lock candidates → re-enable + retroactive milestone tag | FIRING per Phase 1 signal | **RULED OUT per Phase 2 canonical** |
+| One floor-lock candidate (edge) → gandalf re-disposition | UNLIKELY | UNLIKELY |
+
+The signal reversal is significant. Knight-rider's previous probability assessment (P3 PASS ~70%) is now substantially revised based on Phase 2 evidence:
+- P3 PASS (strong or moderate): probability LOW (~10-20%) — boss-tier pathology is 100%; cannot reasonably classify any class as kit-acceptable when boss WR = 0
+- P3 CANNOT REJECT NULL → wind-down trigger #3: probability HIGH (~70-80%) — this is the cleanest possible diagnosis path per protocol § 11
+- Phase 2 → Phase 3 FRICTION → re-disposition: LOW (~5-10%)
+- Hard architectural blocker → trigger #4: LOW (~5%)
+
+### § D — Why this is the cleanest diagnosis (not a hive failure)
+
+Per the hive protocol § 11 (gandalf's wizard's note): *"If H_RC fails, we have the cleanest possible diagnosis of where the actual pathology lives — and the next architectural decision becomes obvious."*
+
+The hive is in the process of producing exactly that. The recompose mechanism (Options A + B) is verified mechanically. Option A's behavioral landing is empirically validated (the prior floor-lock failure mode IS eliminated — classes that previously failed at floor=0.05 now converge above floor=0.01). Option B's mechanism is verified by unit tests but its served population is empirically absent at full-season scope on shadow substrate. **The kit-composition pathology is now the unambiguous load-bearing problem.**
+
+The next architectural decision after P5 is now clear: kit-redesign queue execution (the 38/51 broken-kits finding from jack-ryan + star-lord earlier this week; now empirically corroborated at full-season scope for shadow substrate; expected to generalize). This is the actual fix; the hive's mission was to test whether recompose can substitute for kit-redesign, and the answer (from this season's evidence) is no.
+
+### § E — Routing star-lord Phase 3
+
+Despite the FRICTION-resolved-cleanly status, star-lord Phase 3 still fires per dispatch § 3.2 Phase 3 — formal classification + Pattern-A/B + canonical floor-lock candidate analysis. Star-lord's analysis produces the canonical figure knight-rider applies the three-way disposition gate to AND produces the analysis document gandalf consumes at P3 synthesis (protocol phase = validation synthesis).
+
+**Pre-Phase-3 prediction (from gamora's data):**
+- 10/10 Pattern-A (kit-broken with no boss-kill capability)
+- 0/10 Pattern-B (no class has m\* in [0.01, 2.0] that delivers per-tier targets)
+- 0/10 Pattern-B-extreme (no floor-lock-recovery candidates)
+- 0% kit-acceptable (no class meets all 5 per-tier targets)
+- 0% kit-mediocre (no class has 1-2 tier failures; all classes have boss+mini-boss=0 = 2-tier failure minimum)
+- 100% kit-broken (catalogue pathology)
+
+If star-lord confirms this prediction, knight-rider's P2 acceptance + P3 routing fires per below.
+
+### § F — No new tags at this transition
+
+Phase 2 seam tag (`gamora/v1.15-...`) already fired by gamora. Hive milestone `recompose-hive/v0.3-diagnostic-regen-complete` fires on knight-rider's P2 acceptance verification (after star-lord Phase 3 lands).
+
+**Hive trigger watch:** ⏸ Triggers 1, 2, 4 still unsignaled. ⏸ Trigger 3 (P3 CANNOT REJECT NULL verdict) **probability rising significantly** based on Phase 2 evidence — but not yet signaled until gandalf P3 synthesis verdict lands.
+
+---
+
+## 2026-05-20 EDT — knight-rider HANDOFF — P2 Phase 3 ROUTED TO STAR-LORD (formal classification + analysis)
+
+**Routes to:** star-lord as background subagent
+**Dispatch authority:** `agentic_orchestration/dispatches/2026-05-19-rocket-plus-star-lord-plus-gamora-p2-fresh-diagnostic-regen.md` § 3.2 Phase 3
+**Input:** gamora's balance_results.json at `output/p2-fresh-diagnostic-regen-2026-05-19/season_100005/balance_results.json` + per-class JSONs in `season_100005/classes/`
+**Output target:** `output/p2-fresh-diagnostic-regen-2026-05-19/p2-classification-and-floor-lock-analysis.md`
+
+**Star-lord task (formal Phase 3 per dispatch § 3.2 Phase 3):**
+
+1. Verify gamora's balance_results.json complete + schema v2.12 + v2.13 fields populated
+2. **Floor-lock candidate analysis (THE KEY FINDING):** confirm 0/10 `floor_lock_detected=True` count; cross-check `floor_lock_recompose=True` on ClassBalanceResult; document the cold-start canonical figure as authoritative; note the Phase-1-vs-Phase-2 signal reversal + root-cause (pipeline-state vs equilibrium-conditioned) for the canonical record
+3. **Per-class classification** (kit-acceptable / kit-mediocre / kit-broken per gandalf brief § 2.5 carve)
+4. **Pattern A/B classification:** Pattern-A (boss-zero structural) at full-season scope; document per-class
+5. Output analysis at `output/p2-fresh-diagnostic-regen-2026-05-19/p2-classification-and-floor-lock-analysis.md` covering all dispatch § 3.2 Phase 3 deliverables
+6. Update `reincarnated-engine/src/reincarnated/telemetry/AGENT_STATE.md` with P2 analysis completion record
+7. Commit + push (autonomous L1; commit message: `feat(star-lord): P2 classification + floor-lock analysis — season_100005 (recompose-hive P2 Phase 3)`)
+8. Append HANDOFF entry to hive log notifying knight-rider that P2 Phase 3 analysis is complete; on knight-rider P2 acceptance, P3 (validation synthesis) routes to gandalf + jack-ryan
+
+**Tag intent:** `star-lord/v<X.Y>-p2-classification-shadow-100005` — fire after AGENT_STATE.md update; intermediate seam tag
+
+**Out-of-scope (HARD per dispatch § 6):**
+- Schema migrations beyond v2.13
+- Re-running gamora's convergence (one-shot)
+- Generation pipeline changes
+- Option B re-enable autonomously (not your seam; not needed given 0/10 finding)
+- Substrate/seed changes
+- Speculative interpretation of P3 verdict (that's gandalf's seam at P3 synthesis; you produce the analysis input)
+
+**Falsifying condition:**
+- If star-lord's classification reveals a class that has `floor_lock_detected=True` in any recompose_attempt that gamora missed: surface immediately via hive log FRICTION; knight-rider routes back to gamora for verification
+- If classification logic discovers a structural defect in the schema v2.13 implementation: surface FRICTION; possible Option B re-enable + smoke re-run required
+- Otherwise: clean Phase 3 expected (gamora's 0/10 finding is already explained)
+
+**Expected effort:** ~1-2h per dispatch § 3.2 Phase 3.
+
+**On star-lord HANDOFF:** knight-rider verifies P2 acceptance (all three phases' deliverables complete) + fires `recompose-hive/v0.3-diagnostic-regen-complete` (engine + collab milestone) + routes P3 (validation synthesis) to gandalf + jack-ryan. P3 deliverable: canonical findings document at `canonical/story/per-tier-recompose-validation-findings-2026-05-19.md` per protocol § 3 P3 + § 6 P3.
+
+Routing now.
