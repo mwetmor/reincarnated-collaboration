@@ -159,3 +159,27 @@ For each substrate:
 
 **Signed:** gandalf (story-and-design steward)
 **For:** epistemic insurance before QD-rebuild substrate enrichment commits to scope.
+
+---
+
+## Completion record
+
+**Completed by:** rocket
+**Completion date:** 2026-05-21
+**Wall time:** 87.5 min (TC-1: 39.9 min; TC-2: 47.6 min)
+
+**Verdict:** Pathology GENERALIZES. All substrates show 100% Pattern-A under disposition-3 calibration (N=22 Track C classes; N=9 P2 classes — 31 total same-calibration data points).
+
+**OQ-1 resolved:** Historical severity gradient (water 15% / earth 40% / physical 100%) collapses entirely at same calibration. Gradient was a calibration artifact, not substrate-intrinsic.
+
+**OQ-5 resolved (design-side):** Shadow trade-off substrate refinement by Matt closes the 5b lever-signal-gap. TC-3 shadow not needed.
+
+**P1 W1.11 scope recommendation:** Uniform-depth enrichment per substrate. Do not differentiate by historical severity gradient.
+
+**Deliverables produced:**
+- `agentic_orchestration/rocket/research/substrate-generalization-study-2026-05-21/spot-check-regen-findings.md`
+- `agentic_orchestration/rocket/research/substrate-generalization-study-2026-05-21/data/track-c-spot-regen.csv`
+- `agentic_orchestration/rocket/research/substrate-generalization-study-2026-05-21/data/compression-signature-comparison.csv` (TC-1/TC-2 rows appended)
+- `agentic_orchestration/rocket/research/substrate-generalization-study-2026-05-21/data/per-substrate-bc-distribution.csv` (TC-1/TC-2 rows appended)
+- `reincarnated-engine/output/track-c-spot-regen-2026-05-21/` — TC-1 and TC-2 season artifacts + balance_results.json
+- `reincarnated-engine/scripts/track_c_run_all.py` — combined runner with per-class checkpointing
