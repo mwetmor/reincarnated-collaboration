@@ -4,6 +4,54 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-rebuild P0 W0.7 LC-002 ablation COMPLETE: fire bias attribution to round-robin modulo (Discipline #13b)
+
+**Event:** W0.7 LC-002 ablation (3 runs, full-regen, 15 seasons each, seeds 9001/9002/9003) returned. Engine commit `270f91a`; tag `qd-rebuild/v0.7-ablation-lc-002` FIRED. **Surface A (round-robin modulo at `season_orchestrator.py:1490`) conclusively identified as the cause of fire element bias.**
+
+**Math-before-code + critique-pair caught two surface errors before sim cycles burned:**
+
+1. **gamora's Discipline #11 empirical inspection (BEFORE math note)** caught the W0.7 dispatch's surface-attribution error. The dispatch named D1 pool weighting + ELEMENT_AFFINITY cascade as candidate surfaces — BOTH are wrong surfaces for `dominant_element` class-frequency. Actual driver: `elements[i % len(elements)]` at season_orchestrator.py:1490 with fire at index 0; n_classes=11 → 3/11 = 27.3% fire (accounting for 96% of observed 3.6pp over-representation).
+
+2. **jack-ryan Gate-1 BLOCK** caught the measurement-mode incompatibility: smoke-test mode hardcodes n_classes=5 (`season_orchestrator.py:296-297`), eliminating the mechanism under study (n_classes=5 → fire = exactly 1/5 = 20.0% no bias). All 3 ablation runs would have produced ~20.0% identical readings → false null result. Resolution: full-regen mode mandatory; smoke-test rejected per Discipline #3 trumping Discipline #2 when smoke eliminates the mechanism. 3 non-blocking amendments folded (element order corrected per config/elements.yaml; n_classes stability caveat; telemetry isolation via seeds 9001/9002/9003).
+
+**Run measurements:**
+
+| Run | Seeds | n_classes | Fire % | vs 20% |
+|-----|-------|-----------|--------|--------|
+| 1 (baseline round-robin) | 900101-900115 | 4×n=10, 11×n=11 | 25.47% | +5.47 pp |
+| 2 (rotation-offset) | 900201-900215 | 5×n=10, 10×n=11 | 18.24% | -1.76 pp |
+| 3 (seeded-random) | 900301-900315 | 4×n=10, 11×n=11 | 20.50% | +0.50 pp |
+
+**Discipline #13b attribution:**
+
+- X% (round-robin modulo contribution): 132.2%
+- Y% (ordering contribution): -41.3%
+- Residual: 9.1%
+- Sum: 100.0%
+
+**Interpretation:** X > 100% because Run 2 (rotation-offset) over-corrected to 18.24% — below 20% uniform level due to cross-seed n_classes variance artifact (seeds 900201-900215 produced 5 n=10 vs Run 1's 4 n=10). The mechanistically clean result is Run 3 (seeded-random) at 20.50% — confirming that eliminating the modulo assignment dissolves the fire bias within normal sampling variance. **Surface A is conclusively identified as the cause.**
+
+**Scope clarification — W0.7 is ATTRIBUTION-ONLY (Discipline #13b):**
+
+LC-002's fix (replacing round-robin with seeded-random or rotation-offset) is a separate downstream concern; routes to P1+ scope. W0.7's mandate per dispatch is attribution evidence only.
+
+**Production code preserved unchanged:** Run 2 + Run 3 patches were applied during execution then reverted before commit. Only math note + AGENT_STATE + ablation script persist as research artifacts.
+
+**Files:**
+- `~/Games/reincarnated-engine/src/reincarnated/simulation/math/w0-7-lc-002-ablation-design.md` § 11 attribution analysis
+- `~/Games/reincarnated-engine/scripts/w07_lc002_ablation.py` (ablation runner; reference artifact)
+- `~/Games/reincarnated-engine/src/reincarnated/simulation/AGENT_STATE.md` checkpoint
+- `~/Games/reincarnated-collaboration/agentic_orchestration/jack-ryan/qa/w0-7-lc-002-ablation-design-gate-1-2026-05-21.md` (initial BLOCK)
+- `~/Games/reincarnated-collaboration/agentic_orchestration/jack-ryan/qa/w0-7-lc-002-ablation-design-gate-1-re-review-2026-05-21.md` (APPROVE after fold-in)
+
+**Process disposition for LC-009 + LC-011 (per jack-ryan Gate-1 recommendation):** knight-rider does NOT pre-amend W0.7 dispatch for remaining LCs. Pattern adopted: **gamora-applies-Discipline-#11-per-LC** (empirical inspection BEFORE math note). Each subsequent LC's Gate-1 reviews the surface-verification table explicitly.
+
+**LC-009 dispatch IN-FLIGHT (gamora agentId `a68a7ee8afa84e20a`).** Empirical inspection first — historical 1.82 hunter modifier range vs post-W0.10.5 hunter at 0.6355 (Track C OQ-6 closure context); Path A/B/C identification before authoring math note. Then jack-ryan Gate-1. Then execution. Then LC-011 (controller/mage iteration overhead; final ablation).
+
+**Value of math-before-code + critique-pair empirically demonstrated:** without either gate, the W0.7 ablation would have shipped misattributed evidence to the canonical record. The pattern IS the value.
+
+---
+
 ## 2026-05-21 — QD-rebuild P0 W0.10 FULLY CLOSED: cumulative Gate-2 BOTH APPROVED clean; joint-resolution triad empirically discharged
 
 **Event:** W0.10 cumulative Gate-2 critique-pair returned. Both reviews APPROVED. NO amendments required. Final tag `qd-rebuild/v0.10-boss-ai-leash-reset-fixed` STANDS (commit `27011e1`).
