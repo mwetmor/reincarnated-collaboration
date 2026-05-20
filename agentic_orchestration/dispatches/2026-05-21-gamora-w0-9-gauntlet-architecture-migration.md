@@ -265,3 +265,52 @@ W0.9.3 (convergence vs validation usage modes) fires in the next Phase 2 sub-ses
 W0.9.4 (performance optimization; reduced-tick-rate REQUIRED per math note §3.4) fires in Phase 2.3.
 W0.9.5 (telemetry instrumentation; star-lord v2.14 round-trip) fires in Phase 2.4.
 W0.9.6 (calibration sweep; Discipline #17) fires in Phase 2.5.
+
+---
+
+**Phase 2.2 (W0.9.3): COMPLETE — 2026-05-20**
+
+### Phase 2.2 deliverables
+
+- [x] **W0.9.3 — Convergence vs validation usage modes implemented:**
+  - `spatial_gauntlet/gauntlet_archive.py` NEW: `GauntletArchive`, `GauntletArchiveEntry`, `PerTierWinRate`, `ArchiveQueryResult`, `TIER_WR_CONTRACT`
+  - `spatial_gauntlet/gauntlet_modes.py` NEW: `ConvergenceUsageMode`, `ValidationUsageMode`, `CertificationRequest`, `CertificationResult`, `ConvergenceFightResult`
+  - `spatial_gauntlet/__init__.py`: new W0.9.3 exports
+  - `balance_loop.py`: `_run_spatial_slot()` delegates to `ConvergenceUsageMode.run_slot()` (Discipline #12 semantic shift)
+  - `tests/test_w093_usage_modes.py` NEW: 41 tests; all pass
+
+- [x] **Discipline #12 semantic shift documented** in commit message AND MIGRATION.md v1.25
+
+- [x] **P7 W7.2 archive-query interface authored:**
+  - `ValidationUsageMode(archive).certify_batch(requests)` is the entry point
+  - ~12 dict lookups for 12-archetype roster; no gauntlet execution
+  - `CertificationResult.passed = None` (missing entry) is the certification signal
+  - Architectural violation clause: any code calling `run_spatial_fight()` in P7 path requires ADR approval
+
+- [x] **Explicit architectural separation:** `ValidationUsageMode` has no method that accepts fight parameters; source-code test verifies this
+
+- [x] **Mode-aware caller routing documented** in MIGRATION.md v1.25 + AGENT_STATE.md
+
+- [x] **Smoke: 41 W0.9.3 tests PASS; 27 W0.9.2 scenario tests PASS; 56 full balance_loop tests PASS**
+
+- [x] **MIGRATION.md v1.25** authored
+
+- [x] **AGENT_STATE.md updated:** Phase 2.2 complete; Phase 2.3 (W0.9.4) next-fire context documented
+
+- [x] **Intermediate tag fired:** `qd-rebuild/v0.9-phase-2-2-usage-modes-implemented`
+
+- [x] **Commit:** `c7ede22`
+
+### Phase 2.2 implementation notes
+
+**Archive is in-memory only in Phase 2.2.** The convergence path produces `ConvergenceFightResult` but does NOT insert entries into `GauntletArchive`. Archive population from convergence results is W0.9.5 territory. This is intentional: Phase 2.2 establishes the interface contract; the balance loop does not yet pass an archive instance.
+
+**Functional behavior unchanged.** `_run_spatial_slot()` return value is the same float; only the call-chain changes (direct `run_spatial_fight()` → `ConvergenceUsageMode.run_slot()`).
+
+### Phase 2.3 next-fire context (W0.9.4 — performance optimization)
+
+- Reduced-tick-rate evaluation is REQUIRED (not optional) per math note §3.4
+- Smoke-test mode: fast initial per-kit evaluation; full-fidelity only for smoke-pass kits
+- Parallel batches via `concurrent.futures.ProcessPoolExecutor`
+- Cell-targeted convergence: target uncertain cells first
+- Performance target: ≤5× slower than PackProxy baseline
