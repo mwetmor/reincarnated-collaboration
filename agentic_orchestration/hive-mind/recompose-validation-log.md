@@ -1423,3 +1423,60 @@ Routing now. The verdict-handoff approaches.
 **Routing recommendation:** Knight-rider routes amendments 1-2 to gandalf for inline resolution (lightweight; factual corrections to specific sentences, no re-synthesis required). On gandalf concurrence, fire `recompose-hive/v0.4-validation-verdict` + author Matt briefing per protocol § 7 trigger #3. P4 does NOT fire autonomously.
 
 **Hive trigger watch:** ⏰ Trigger 3 (CANNOT REJECT NULL verdict) CONFIRMED at this entry. The Gate-2 critique does not hold the trigger — APPROVE-WITH-AMEND clears the verdict-handoff pending amendment resolution. Triggers 1, 2, 4 remain unsignaled.
+
+---
+
+## 2026-05-20 EDT — knight-rider STATE — Gate-2 APPROVE-WITH-AMEND received; routing gandalf for inline resolution
+
+**Gate-2 disposition: APPROVE-WITH-AMEND** (collab `fe3a2c1`; 2 required + 1 recommended; all other audit dimensions clean).
+
+**Three amendments to fold:**
+
+1. **REQUIRED — Factual correction:** Replace "33 recompose_attempts on 9 canonical classes" with "35" in canonical findings doc (class_0001=3; classes 0002-0009=4 each = 35). Star-lord engine-side analysis carries "33" — flagged by jack-ryan as out-of-collab-scope; **knight-rider disposition:** defer to P5 corrective at Matt's wind-down acceptance OR include in Matt-briefing § 7 (A) execution items list; not a verdict-handoff blocker.
+2. **REQUIRED — Sub-pattern 5 operational nuance:** distinguish class_0001's "lever-signal-gap" (modifier_fallback; all 3 attempts delta=0; none accepted) from classes 0002-0009's "compression-only" (at least one lever accepted; lower-tier WR compression; boss_wr unchanged). Both classify as recompose-couldn't-recover; class_0001 signals deeper kit-architecture revision need for kit-redesign queue prioritization.
+3. **RECOMMENDED — Substrate scope parenthetical in TL;DR:** add "(on shadow substrate seed=100005 under disposition-3 calibration)" to canonical findings doc § 0 TL;DR. Matt-briefing-side coverage already satisfied (briefing § 0 carries full scope qualifier).
+
+**Knight-rider orchestration concurrence:** amendments are sound. Amendment 1 is Discipline #11 factual accuracy; Amendment 2 surfaces kit-redesign-queue-relevant disaggregation; Amendment 3 is cheap scope-clarification. Routing gandalf for inline resolution.
+
+**Tags HELD pending gandalf amendment completion:**
+- ⏸ `recompose-hive/v0.4-validation-verdict` (engine + collab) — fires post-amendments
+
+**Verdict-handoff sequence on gandalf completion (next + final orchestration cycle):**
+1. Fire `recompose-hive/v0.4-validation-verdict` (engine + collab)
+2. Finalize Matt briefing (pre-drafted at collab `b0805db`; update if Amendment 2 affects briefing § 4.3 wording)
+3. File decisions-log entry (engine) — P3 verdict + three canonical findings + disaggregation
+4. File CHANGELOG entry — team-level milestone trigger #3 signaled; hive autonomous-operation phase ENDS
+5. Final hive log STATE: "Wind-down trigger #3 signaled"
+
+**Hive trigger watch:** ⏰ Trigger 3 signals at verdict-handoff completion. ⏸ Triggers 1, 2, 4 still unsignaled.
+
+---
+
+## 2026-05-20 EDT — knight-rider HANDOFF — Gate-2 amendments ROUTED TO GANDALF
+
+**Routes to:** gandalf as background subagent (~15-20 min)
+**Authority:** gandalf AUTONOMOUS L2-equivalent (canonical-findings-doc-authorship; inline edits, not re-synthesis)
+**Brief:** apply 3 amendments to `canonical/story/per-tier-recompose-validation-findings-2026-05-19.md` per jack-ryan Gate-2 critique
+
+**Amendments to apply** (verbatim):
+
+1. **REQUIRED:** "33 recompose_attempts on 9 canonical classes" → "35 recompose_attempts on 9 canonical classes" in canonical findings doc § 4.3 (+ any other cite)
+2. **REQUIRED:** § 6 sub-pattern 5 prose + § 6.1 class_0001 note — distinguish class_0001 (modifier_fallback / delta=0 across all attempts / lever-signal-gap) from classes 0002-0009 (lever-accepted / compression-only / boss_wr unchanged); both are recompose-couldn't-recover but signal different kit-redesign-queue prioritization needs
+3. **RECOMMENDED:** add "(on shadow substrate seed=100005 under disposition-3 calibration)" parenthetical to § 0 TL;DR aggregate figure summary
+
+**Gandalf task (per dispatch convention):**
+1. Apply 3 amendments inline
+2. Bump doc-header version note ("Amended 2026-05-20 per jack-ryan Gate-2 — 2 required + 1 recommended folded")
+3. Append STATE entry to hive log (fetch-before-commit discipline)
+4. Tag intent: `gandalf/v0.4.1-p3-canonical-findings-amended` — gandalf discretion
+5. Commit + push (autonomous L2)
+6. Return concise report (~150 words): amendments applied + any design-judgment notes + commit SHA
+
+**On gandalf completion:** knight-rider fires verdict-handoff sequence (5 steps per STATE entry above). The verdict-handoff is the FINAL orchestration cycle of the hive's autonomous-operation phase.
+
+**Out-of-scope (HARD):**
+- Re-synthesis (inline edits only)
+- Engine-side star-lord analysis count correction (deferred per jack-ryan out-of-collab-scope note)
+- Verdict revision (Gate-2 explicit: verdict CLEAN; amendments are factual + clarity)
+
+Routing now.
