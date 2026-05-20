@@ -4,6 +4,34 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-19 (night) — RECOMPOSE-VALIDATION HIVE P0 ACCEPTED: Option A floor widened; P1 (Option B design brief) routed to gandalf
+
+**Event:** Gamora completed P0 in ~26 minutes (significantly faster than 4-hour estimate; pre-authored dispatch with all critique-pair amendments folded enabled verbatim execution). Knight-rider Gate-2-read disposition: ACCEPT with spirit-of-acceptance framing on the cold-start sub-0.05 demonstration (deferred to P2 fresh diagnostic regen per gamora's documented warm-start vs cold-start framing).
+
+**P0 deliverables landed (engine commits `d5a20e0` + `75cfdc4` + `a58b60f`):**
+- 4 floor sites in `balance_loop.py` updated to use `MODIFIER_SEARCH_FLOOR=0.01` + `MODIFIER_SEARCH_CEILING=4.0` named constants with full module-level docstring (Discipline #18 implicit-pillar resolved)
+- `modifier_extreme_low` bool flag added to `ClassBalanceResult` + `balance_metadata` + `convergence_report` (designer-attention surface)
+- Smoke A1 (floor-lock regression, BLOCKING): `FAILED → CONVERGED` for class_0001 season_100002. PASS.
+- Smoke A2 (test-assertion audit, BLOCKING): 44/44 `test_balance_loop.py` PASS; literal-floor assert in `tests/test_range_profile.py:1033` updated to derive from named constant in same commit. PASS.
+- Smoke A3 (telemetry-recorder range check): no modifier guard found in `recorder.py`/`spatial_recorder.py`. PASS. Star-lord no-action.
+- Stop-gap regen of 3 diagnostic seasons (099002 brine / 100001 char / 100002 ember): convergence rate 100%/100%/100% (prior failure rates 60%/73%/80%, all resolved at warm-start).
+- MIGRATION.md v1.21 entry filed with star-lord schema v2.12 obligations queued.
+- Decisions-log entry filed (engine `a58b60f`) per dispatch § 7 + Gate-2-read amendments.
+
+**Tags fired (knight-rider under standing ADR-006 amendment authority):**
+- `gamora/v1.13-balance-loop-floor-widened-option-a` (engine seam tag)
+- `recompose-hive/v0.1-option-a-floor-widened` (engine + collab hive milestone tag)
+
+**Warm-start diagnostic note:** the stop-gap regen warm-starts classes from prior `final_modifier=0.0509`; at that modifier, aggregate WR ≈ 0.49 satisfies `TOLERANCE=0.03` immediately, so the binary search does not descend below 0.05 in the stop-gap output (`modifier_extreme_low=0` across all 31 converged classes). This is expected behavior, not a defect. The mechanism is unambiguously unblocked at the code level; empirical sub-0.05 convergence demonstration is the right scope for P2 (cold-start fresh diagnostic regen), not P0's stop-gap.
+
+**Disciplines confirmed by P0 work:** #1 math-before-code (gamora investigation pre-authored); #2 smoke-test (single-class A1; test-suite A2; 3-season stop-gap only); #11 empirical inspection (warm-start finding documented, not hand-waved); #12 semantic shift (named explicitly in commit message + MIGRATION.md v1.21 header + docstring + `ClassBalanceResult` annotation); #18 implicit-pillar named constant (resolved with full docstring).
+
+**P1 (Option B) routing:** knight-rider routed Option B recompose-trigger re-conditioning design brief authoring to gandalf as background subagent. Gandalf's deliverable: design brief covering (a) trigger re-condition location in `balance_loop.py`, (b) signal-range math + epsilon choice, (c) working-modifier disposition for lever evaluation, (d) smoke gate B1 design (the falsifying experiment), (e) cross-seam impact (star-lord telemetry + MIGRATION.md v1.22), (f) Discipline #12 semantic-shift framing. Sequence after gandalf: jack-ryan Gate-1 critique → gamora implementation → smoke B1 → P1 acceptance tag → P2 phase begins. Expected ~6-10h total for P1.
+
+**Hive trigger watch:** no signals; P0 clean. ⏸ Triggers 1-4 (explicit wind-down / P5 completion / P3 CANNOT REJECT NULL / hard architectural blocker) all unsignaled.
+
+---
+
 ## 2026-05-19 (night) — THIRD HIVE ACTIVATED: recompose-validation hive (P0 Option A floor widening fired to gamora)
 
 **Event:** Fresh knight-rider session activated the **third hive-mind** per `canonical/story/hive-mind-protocol-per-tier-recompose-validation-2026-05-19.md`. Engine-rebuild knight-rider stood down by Matt; this is a clean activation, not a continuation.
