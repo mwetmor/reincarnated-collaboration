@@ -26,7 +26,7 @@
 | W0.5 | Mana-bug verify (LC-026 quick verify; ~2 hours) | gamora | **🔄 IN-FLIGHT (background worktree; agentId ac49785bb573db861)** | `2026-05-21-gamora-w0-5-mana-bug-verify.md` | `qd-rebuild/v0.5-mana-bug-verify-*` |
 | W0.6 | Drift candidate closures (LC-006, LC-007, LC-014, LC-028; LC-006 may defer per D3; LC-007 may defer to P4) | jack-ryan + specialists | DISPATCH ACTIVE (queued) | `2026-05-21-multi-seam-w0-6-drift-candidate-closures.md` | `qd-rebuild/v0.6-drift-closures-complete` |
 | W0.7 | LC-002 + LC-009 + LC-011 ablation experiments | gamora | DISPATCH ACTIVE (queued; jack-ryan Gate-1 per ablation) | `2026-05-21-gamora-w0-7-ablation-experiments.md` | `qd-rebuild/v0.7-ablation-complete` |
-| W0.8 | Axis 2 substrate completeness check (~2-3 hours; map 16-type palette to 5-bin Axis 2; identify per-bin gap to 5× rule) | rocket | **🔄 IN-FLIGHT (background worktree; agentId aefee50794d37cb3d)** | `2026-05-21-rocket-w0-8-axis-2-substrate-check.md` | `qd-rebuild/v0.8-axis-2-substrate-check` |
+| W0.8 | Axis 2 substrate completeness check (~2-3 hours; map 16-type palette to 5-bin Axis 2; identify per-bin gap to 5× rule) | rocket | **✅ COMPLETE 2026-05-21** — collab commit `d7544bf`; tag `qd-rebuild/v0.8-axis-2-substrate-check` pushed | `2026-05-21-rocket-w0-8-axis-2-substrate-check.md` | `qd-rebuild/v0.8-axis-2-substrate-check` (FIRED) |
 | **W0.9** | **Gauntlet architecture migration** (NEW per § 2.9; retire PackProxy ×8; true multi-monster positional gauntlet as default; ~1-2 weeks) — **gandalf-attested Matt-approval "Confirm § 2.9 edit"** | gamora | DISPATCH ACTIVE | `2026-05-21-gamora-w0-9-gauntlet-architecture-migration.md` | `qd-rebuild/v0.9-gauntlet-migration-complete` |
 
 ### P0 sequencing plan
@@ -67,6 +67,17 @@
 | P5 | Theme Coalescence + Cohesion-BC + Visual-BC | 3-5 wk | PENDING |
 | P6 | Profile Assembly Layer | 2-3 wk | PENDING |
 | P7 | Validation Gauntlet + Production Cutover | 2-3 wk | PENDING |
+
+### 2.2.1 W0.8 findings (folded into downstream consumers)
+
+Per W0.8 completion 2026-05-21 (collab commit `d7544bf`):
+
+- **Aggregate per-bin gap:** ~58-64 distinguishable templates vs ~125 target (49-52%). Chain ~21-22 gap (HIGH); multi-spawn ~19-20 gap (HIGH); single-target ~13 gap (MEDIUM); large-AOE ~5-7 gap (MEDIUM); small-AOE ~3-5 gap (LOW).
+- **24 enrichment seed candidates authored** (12 chain C-1..C-12 + 12 multi-spawn M-1..M-12). All substrate-AGNOSTIC. Folds into P1 W1.5 (movement-skill expansion) + P1 W1.7 (legolas Phase 2 depth pass) + P1 W1.11 (substrate-themed cohesion access).
+- **OQ-7 water DPS density disposition:** M-3 (N=8 radial burst), M-8 (meteor shower), C-4 (control chain with CC rider) recommended for water cohesion access. Substrate-AGNOSTIC at generation; cohesion-judge assigns water label post-generation per substrate-as-cohesion architecture. P1 W1.11 must ensure these templates exist in the pool.
+- **NEW schema fields recommended for P1 W1.1 (Ability schema extensions):** `bounce_count` (int; chain_lightning + ricochet_bounce) and `spawn_count` (int; multi_projectile + totem). Without these, bounce-count distinguishability cannot be measured at BC-assignment time — all chain_lightning kits would classify identically regardless of bounce depth.
+- **Total geometry inventory:** 28 VALID_GEOMETRIES entries (canonical-09 final table says 26 due to counting methodology; code is authoritative at 28). 23 damage-bearing; 5 non-damage (blink, roll, defensive_dash, teleport, self_buff).
+- **Multi-bin edge cases resolved:** leap_strike → small-AOE (landing impact); cone → small-AOE (2-3 tile depth); aura → large-AOE (4-8 tile radius); totem → multi-spawn (placed independent damage entity, not Axis 2A proxy AI). summon_combatant out of scope (Axis 2A territory; deferred per axis-lock § 5).
 
 ### 2.3 Background dispatches in flight
 

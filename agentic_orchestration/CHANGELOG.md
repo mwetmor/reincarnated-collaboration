@@ -4,6 +4,30 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-21 — QD-rebuild P0 W0.8 COMPLETE: Axis 2 (damage geometry) substrate completeness check
+
+**Event:** Per W0.8 dispatch `agentic_orchestration/dispatches/2026-05-21-rocket-w0-8-axis-2-substrate-check.md`, rocket completed the Axis 2 substrate completeness analytical workstream. Deliverable filed at `agentic_orchestration/rocket/research/qd-rebuild-w0-8-axis-2-substrate-check.md` (44KB; collab commit `d7544bf`).
+
+**Tag fired:** `qd-rebuild/v0.8-axis-2-substrate-check` (pushed to origin).
+
+**Key findings:**
+- **Aggregate gap quantified:** ~58-64 distinguishable templates across all 5 Axis 2 bins vs ~125 target (49-52% coverage at the 5× rule).
+- **Per-bin priorities:** chain HIGH (~21-22 gap); multi-spawn HIGH (~19-20 gap); single-target MEDIUM (~13 gap); large-AOE MEDIUM (~5-7 gap); small-AOE LOW (~3-5 gap).
+- **24 enrichment seed candidates authored** for HIGH-priority bins (12 chain C-1..C-12 + 12 multi-spawn M-1..M-12). All substrate-AGNOSTIC.
+- **OQ-7 water DPS density (Track C surface)** dispositioned: M-3 + M-8 + C-4 recommended for water cohesion access.
+- **NEW schema-field recommendations for P1 W1.1:** `bounce_count` + `spawn_count` (without these, bounce-count and spawn-count distinguishability cannot be measured at BC-assignment time).
+- **Total geometry inventory:** 28 VALID_GEOMETRIES (engine code authoritative); 23 damage-bearing.
+
+**Downstream consumers folded:**
+- P1 W1.1 (Ability schema extensions): NEW `bounce_count` + `spawn_count` fields
+- P1 W1.5 (movement-skill expansion): chain + multi-spawn seed candidates
+- P1 W1.7 (legolas Phase 2 depth pass): full enrichment-seed-list as scope input
+- P1 W1.11 (substrate-themed cohesion access): OQ-7 water DPS density resolution + M-3/M-8/C-4 in pool
+
+State-of-hive § 2.2.1 captures the canonical record of W0.8 findings for downstream consumption. First P0 workstream completion; 8 remaining (W0.3 + W0.5 in-flight; W0.1 + W0.2 + W0.4 + W0.6 + W0.7 + W0.9 queued).
+
+---
+
 ## 2026-05-21 — QD-ENGINE REBUILD HIVE ACTIVATED: continuous single-hive multi-phase rebuild (P0-P7; 24-37 weeks)
 
 **Event:** Per gandalf activation dispatch `agentic_orchestration/dispatches/2026-05-21-knight-rider-qd-rebuild-hive-activation.md`, the QD-engine rebuild hive activates under knight-rider's autonomous orchestration. This is the longest road the project has walked — multi-month continuous single-hive operating mode through phases P0 (constraint removal) → P7 (validation + production cutover for Profile A).
