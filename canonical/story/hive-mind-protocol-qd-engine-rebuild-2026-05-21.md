@@ -1,8 +1,9 @@
 # Hive-Mind Protocol — QD-Engine Rebuild
 
-**Status:** v1.2 (amended 2026-05-21 post-P0-close + post-coherence-review)
+**Status:** v1.3 (amended 2026-05-22 — folds 2026-05-21 evening protocol amendments + 2026-05-22 W1.13 rescope)
 **v1.0 → v1.1 changes:** D1-D6 resolutions, substrate-as-cohesion recommitment, W0.9 + W0.10 additions, W1.13 added per math note
 **v1.1 → v1.2 changes (per coherence review 2026-05-21):** P1 W1.13 explicit + Tier 1 playability + substrate quantitative target; P2 T_AXIS_SENS calibration; P3 kit_specification format; **P4 trigger interaction + Tier 4 keystone sim support (significant scope addition)**; **P5 reframed as empirical-validation phase for substrate-as-cohesion architecture (epistemic correction per Matt 2026-05-21 catch)**; P6 Profile A export format; P7 Pattern-A residual measurement + v2 trajectory documentation; § 1.3 v2 canonical-parity expansion as out-of-current-hive-scope
+**v1.2 → v1.3 changes (2026-05-22 fold-in per `agentic_orchestration/hive-mind-protocol-amendments-2026-05-21-evening.md` + critique-pair W1.13 rescope):** (a) BDI resonance formalism added as foundational mathematical structure (`canonical/story/build-defining-resonance-formula-2026-05-21.md`); 5 hypothesis tests H1-H5 added as P1+ diagnostic workstreams W1.20-W1.22; (b) Gear-as-substrate LITE path adopted — `signature_gear_archetype` lands as DERIVED TAG in V1 (not generative substrate), promoting to full substrate in v1.1/v2 post-P7; new P1 workstream W1.15-LITE + P5 W5.3-LITE; (c) Tier 4 keystone architecture defaults adopted (T4-A) — 1 signature capstone + 1-3 secondary; hand-authored catalogue v1 ~30-50; gear-anchored signature; phasing T4-A→T4-E; (d) W1.13 rescope under Scenario B dual-witness + Surface A footnote per `canonical/story/w1-13-rescope-disposition-2026-05-22.md` — FIRE-GATE closed; empirical urgency reduced; architectural urgency preserved (Track C + W0.10 + BDI + T4 mandate)
 
 **Author:** gandalf — authored overnight 2026-05-20/21 per Matt's directive
 **Author:** gandalf (story-and-design steward + theoretical mathematician + senior designer)
@@ -49,6 +50,17 @@ P0 is unblocked. Knight-rider drafts decisions-log entry on session-open; jack-r
 
 **The audits validated the architecture.** The 8-axis lock is sound; the substrate gaps were correctly anticipated; the deferred-bin mechanism is the right answer. The work ahead is execution against a clean specification.
 
+**v1.3 architectural additions (2026-05-22):**
+
+| Addition | Doc | Phase | Scope |
+|---|---|---|---|
+| **BDI resonance formalism** | `canonical/story/build-defining-resonance-formula-2026-05-21.md` | P1+ diagnostic | Build-Defining Index measuring interaction-term dominance; ω/τ field equations; rank-3 γ-triples as signature builds; Tier 4 keystones as rank-completers. 5 hypothesis tests H1-H5 against archive (W1.20-W1.22) |
+| **Gear-as-substrate LITE** | `canonical/story/gear-as-substrate-2026-05-21.md` § 0.5.6 | P1 W1.15-LITE + P5 W5.3-LITE | `signature_gear_archetype` as DERIVED TAG in V1 via deterministic rule table (15 archetypes; substrate-vector→gear-archetype); cross-repo coherence solved; full-substrate promotion deferred to v1.1/v2 post-P7 |
+| **Tier 4 architecture defaults (T4-A)** | `canonical/story/tier-4-architecture-defaults-2026-05-22.md` | T4-A pre-P3; T4-B P3-P4; T4-C P5; T4-D pre-P5 | 1 signature capstone (rank-3 completer; gear-anchored when signature_gear_archetype present) + 1-3 secondaries; hand-authored catalogue v1 ~30-50; each keystone designed as third leg of known high-β substrate-pair |
+| **W1.13 rescope (Scenario B)** | `canonical/story/w1-13-rescope-disposition-2026-05-22.md` | P1 W1.13 (still gated on substrate enrichment + Matt framing approval) | FIRE-GATE closed; dual-witness (Track C + W0.10) + Surface A footnote (LC-011 reframed; 5% boundary not 42% historical; Surface_A% = 66.67%); BDI/T4 architectural alignment preserved |
+
+The BDI formalism is the **bridge between vision-layer and operational-layer**: the substrate-architecture commitment (vision) gets a mathematical predictor (interaction-term dominance over linear terms) that the composer (operational) can optionally weight + the cohesion-judge (operational) reads through different sensors. The two layers now share a resonance-detection structure.
+
 ---
 
 ## 1. Provenance, scope, dependencies
@@ -56,6 +68,18 @@ P0 is unblocked. Knight-rider drafts decisions-log entry on session-open; jack-r
 ### 1.1 How this protocol came to be
 
 The QD-engine vision emerged from a Pattern-B theory-craft session 2026-05-19 between Matt and gandalf. The 8-axis operational spec emerged from a follow-on theory-craft 2026-05-19/20. The two audits (substrate + constraints) emerged from Matt's end-of-session directive 2026-05-20 to ensure no legacy constraints throw off rebuild testing. This protocol synthesizes all three layers (vision, axis-lock, audits) into an executable plan.
+
+**2026-05-21 evening additions (folded into v1.3 2026-05-22):**
+
+- **BDI resonance formalism** emerged from Matt + gandalf sustained design dialogue 2026-05-21 evening; captures the genre's signature-build phenomenon (Pain Attunement Witch, Frozen Orb Sorc, Smoke-Vampire) as interaction-term dominance over linear terms in WR landscape; provides empirically-testable hypothesis battery (H1-H5) that runs against the QD archive non-invasively (diagnostic, not generative)
+- **Gear-as-substrate LITE timing decision** emerged from Matt cross-repo concern (legacy archetype-locking removal in W0.2 left demo/Unity/loadout without canonical class-identity-to-gear coherence between now and P7); LITE path adopted as middle road — `signature_gear_archetype` as DERIVED TAG in V1, full-substrate promotion deferred to v1.1/v2
+- **Tier 4 architecture surfacing** emerged from gandalf math note v1.1 § 4 + legolas ARPG-canon survey + BDI § 6 rank-completer framing; surfaced four open questions (hierarchy / authorship pattern / gear-anchoring / catalogue size); resolved 2026-05-22 morning under Matt pre-authorization C as T4-A defaults
+
+**2026-05-22 morning addition (folded into v1.3):**
+
+- **W1.13 rescope under Scenario B** emerged from LC-011 ablation recovery 2026-05-22 morning under Matt's prolonged-autonomy mandate; recovery confirmed boundary-signal magnitude (5%) rather than historical floor-lock (41.8%); critique-pair (jack-ryan process + gandalf design) landed dual-witness + Surface A footnote disposition under Matt pre-authorization D (β autonomous); FIRE-GATE on W1.13 dispatch closes; implementation remains gated on P1 substrate enrichment + Matt W1.13 framing approval
+
+These four 2026-05-21-evening / 2026-05-22-morning additions do NOT change the P0-P7 critical-path structure. They add scope, sharpen architecture, and surface explicit open questions for design-call resolution.
 
 ### 1.2 Two layers, three documents, one execution path
 
@@ -128,6 +152,15 @@ Total: 68,040 cells. Profile A operational cell-space (with deferred bins exclud
 | Visual BC | galadriel | CV-similarity scoring | P5 (visual-BC integration) |
 
 The three archives feed the joint-gate (Discipline #18 candidate) which becomes the ship criterion.
+
+### 2.4 BDI as bridge between vision and operational layers (v1.3 addition)
+
+The BDI resonance formalism (`canonical/story/build-defining-resonance-formula-2026-05-21.md`) sits between vision and operational layers as a **resonance-detection structure shared by both**:
+
+- **Vision side:** the substrate-as-cohesion architecture commits that identity emerges from mechanical signature; the cohesion-judge intuits identity-patterns from kit data. BDI formalizes WHAT the judge is detecting — interaction-term dominance over linear terms; rank-2 paired-identity; rank-3 signature-build γ-triples
+- **Operational side:** the composer's substrate-vector selection can OPTIONALLY weight high-BDI vectors (post H1-H4 confirmation in W1.21); the convergence loop's Tier 4 keystone selection is a rank-completer (per BDI § 6); the cohesion-judge prompt extensions (P5 W5.3 + W5.3-LITE) feed the judge identity hints aligned with BDI rank structure
+
+The math model and the narrative model **read the same resonance through different sensors.** Hypothesis test H5 explicitly validates this bridge (BDI score correlates with cohesion-judge score). The two layers are not parallel-but-independent; they are dual sensors on the same underlying substrate-architecture phenomenon.
 
 ---
 
@@ -392,6 +425,35 @@ P0 ──┬── P1 ──┬── P2 ──┬── P3 ──┬── P4 �
 - Galadriel visual-BC work can run continuously starting P1 (asset visual style validation feeds VFX procurement)
 - Drax demo-side integration can run in P6+ (Profile A presentation surface)
 
+**v1.3 additional phase layers (parallel to P0-P7 critical-path):**
+
+| Phase layer | Scope | Critical-path timing |
+|---|---|---|
+| **G0** | Gear-as-substrate architectural commitment | DONE (2026-05-21 evening) |
+| **G1-LITE** | Gear-archetype rule-table v1 (15 archetypes; deterministic mapping) | Pre-P1 (gandalf + Matt design call; T4-A morning session 2026-05-22) |
+| **G2-LITE** | Generation-pipeline `signature_gear_archetype` computation + telemetry column + per-class persistence | **P1 (W1.15-LITE; ~3-5 days; rocket)** |
+| G3-LITE | DEFERRED — gear-instance generation constrained by archetype | v1.1/v2 (post-P7) |
+| **G4-LITE** | Cohesion-judge light prompt extension (signature_gear_archetype as identity hint) | **P5 (W5.3-LITE; ~1 day; star-lord)** |
+| **G5-LITE** | Demo + loadout app + Unity consume signature_gear_archetype | P1+ (drax + Unity team; parallel work) |
+| G6 | Spirit-swap meta-layer integration (Spirit's Core Gear) | Post-P5 (unchanged) |
+| G7-LITE | DEFERRED — 4-substrate empirical validation gate | v1.1/v2 |
+| G-PROMOTE-v1.1 | Promote rule-table to search-space (signature_gear_archetype becomes generative substrate) | v1.1/v2 (post-P7) |
+| **T4-A** | Tier 4 architecture defaults (1 signature + 1-3 secondary; hand-authored ~30-50; gear-anchored signature; phasing T4-A→T4-E) | Pre-P3 (DONE 2026-05-22; per `canonical/story/tier-4-architecture-defaults-2026-05-22.md`) |
+| **T4-B** | Tier 4 catalogue authorship (~30-50 keystones; each as rank-3 completer for known high-β substrate-pair) | **P3-P4 (gandalf + Matt design + rocket engine integration)** |
+| **T4-C** | Cohesion-judge prompt extension for signature-vs-secondary capstone distinction | **P5 (star-lord + gandalf)** |
+| T4-D | Gear-anchored signature capstone extension | Pre-P5 (parallel to G1-LITE) |
+| T4-E | Procedural/LLM-augmented Tier 4 variant generation | Deferred v2+ |
+| **BDI-A** | BDI formalism authorship | DONE (2026-05-21 evening) |
+| **BDI-B** | ω/τ tables v1 finalization (15-archetype × 7-element starting reference) | Pre-P1 (DONE 2026-05-22) |
+| **BDI-C** | Hypothesis test infrastructure (model-fit harness + ω/τ data structures) | **P1 (W1.20; ~1-2 weeks; rocket + legolas)** |
+| **BDI-D** | Hypothesis tests H1-H4 execution + result synthesis | **P1 (W1.21; ~1 week; rocket + legolas + gandalf)** |
+| **BDI-E** | BDI-E gate decision (adopt/refine/park formalism per H1-H4 results) | **P1 end (W1.22; ~0.5 day; gandalf + Matt)** |
+| BDI-F | BDI-aware composer extension (optional; if H1-H4 confirm) | P2+ |
+| BDI-G | BDI integration with cohesion-judge prompt (per H5 confirmation) | P5+ |
+| BDI-H | Rank-4+ exploration | Deferred v2+ |
+
+These layers ADD to P0-P7 without modifying the critical-path structure. G1-LITE/G2-LITE land in P1 alongside W1.1-W1.13. T4-A is done; T4-B fires in P3-P4. BDI-A/B are done; BDI-C-E run as P1 diagnostic workstreams.
+
 ---
 
 ## 6. Per-phase detail
@@ -561,6 +623,42 @@ Close substrate gaps per the legolas audit so the 5× rule holds (or is acknowle
 **W1.12 — Galadriel proactive visual style review** (galadriel)
 - Dispatch: as VFX procurement and pipeline test runs surface, galadriel runs visual-similarity scoring against locked style register; flags style drift before commitment
 - Tag: `qd-rebuild/v1.12-visual-review-N`
+
+**W1.13 — Procedural skill tree node population + multi-dim convergence** (rocket; **rescoped 2026-05-22 under Scenario B**)
+- Dispatch: `agentic_orchestration/dispatches/2026-05-21-rocket-w1-13-skill-tree-node-population.md` (FIRE-GATE closed 2026-05-22; remaining gates: P1 substrate enrichment W1.1-W1.6 + W1.11 + W0.4 gear-affix verification + Matt W1.13 framing approval)
+- Empirical mandate: dual-witness (Track C + W0.10) + Surface A footnote (LC-011 reframed; 5% boundary not 42% historical) + BDI rank-3 requirement + Tier 4 mechanic-altering requirement
+- Architectural commitment: 5-6-dim convergence (per-node SP × Tier 4 keystone discrete × trigger interaction discrete × scalar modifier × gear affix × tier-coefficients) per math note v1.1
+- Tier 1 playability invariant: each chain has ≥1 L1-playable Tier 1 node (cost ≤ class-budget; cooldown ≤ 2.0s; no prerequisite) per Matt 2026-05-21
+- Trigger interactions: 1-2 per chain (multiplicative scaling above additive) per legolas SD-3
+- See `canonical/story/w1-13-rescope-disposition-2026-05-22.md` for rescope rationale
+- Tag: `qd-rebuild/v1.13-skill-tree-multi-dim-N`
+
+**W1.15-LITE — Gear-archetype derivation function + telemetry column + per-class persistence** (rocket; G2-LITE; v1.3 addition)
+- Dispatch (pending; rocket-side): implement `signature_gear_archetype = f(dominant_element, role_orientation, range_profile, stat_distribution_signature)` per G1-LITE rule table `canonical/story/gear-archetype-rule-table-v1-2026-05-22.md`
+- 15-archetype rule mapping; deterministic; substrate-vector → gear-archetype
+- Effort: 3-5 days
+- Telemetry column: signature_gear_archetype added to class persistence + per-season telemetry
+- Sim-viability verification: each archetype in the value-set verified sim-viable before lock (per rule-table doc)
+- Tag: `qd-rebuild/v1.15-lite-gear-archetype-derived-tag`
+
+**W1.20 — BDI hypothesis-test infrastructure** (rocket + legolas; BDI-C; v1.3 addition)
+- Dispatch (pending): model-fit harness (linear + pairwise + triple-interaction) + ω/τ table data structures + archive-pull interface for H1-H5 execution
+- Effort: 1-2 weeks
+- Non-interference: read-only against archive; no impact on substrate composer or convergence loop
+- Tag: `qd-rebuild/v1.20-bdi-infrastructure`
+
+**W1.21 — BDI hypothesis tests H1-H4 execution + result synthesis** (rocket + legolas + gandalf; BDI-D; v1.3 addition)
+- Dispatch (pending): execute H1 (rank-step discontinuity) + H2 (bimodal damage on high-|τ| pairs) + H3 (ω predicts β) + H4 (rank-3 γ-dominance); synthesize results; report
+- Effort: 1 week
+- Depends on: W1.20
+- H5 (BDI-cohesion correlation) deferred to P5+ (requires cohesion-judge scores at archive scale)
+- Tag: `qd-rebuild/v1.21-bdi-tests-h1-h4`
+
+**W1.22 — BDI-E gate decision** (gandalf + Matt; BDI-E; v1.3 addition)
+- Dispatch (pending): design call resolving whether H1-H4 results justify adopting BDI-aware composer extension (BDI-F at P2+) OR refining ω/τ tables for retest OR parking formalism
+- Effort: 0.5 day
+- Depends on: W1.21
+- Tag: `qd-rebuild/v1.22-bdi-e-gate-decision`
 
 #### 6.2.3 Critique-pair structure
 
@@ -1001,6 +1099,24 @@ Implement LUCB1 best-arm-identification for theme discovery. Build the cohesion-
 - Or, instrument contaminated-baseline flag for W5.3 (parallel path)
 - Tag: `qd-rebuild/v5.7-cipher-coordination`
 
+**W5.3-LITE — Cohesion-judge prompt extension for signature_gear_archetype as identity hint** (star-lord + gandalf; G4-LITE; v1.3 addition)
+- Dispatch (pending): light prompt extension feeding cohesion-judge `signature_gear_archetype` as identity hint (NOT full 4-substrate test; the 3-substrate empirical test remains dispositive per gear-as-substrate LITE path)
+- Effort: ~1 day
+- Cross-references: `canonical/story/gear-as-substrate-2026-05-21.md` § 0.5.6 LITE path; G4-LITE phase
+- Tag: `qd-rebuild/v5.3-lite-cohesion-judge-gear-hint`
+
+**W5.3-T4-C — Cohesion-judge prompt extension for signature-vs-secondary capstone distinction** (star-lord + gandalf; T4-C; v1.3 addition)
+- Dispatch (pending): refine P5 priority 2 prompt-engineering to distinguish signature capstone (rank-3 completer; identity-defining) from secondary capstones (rank-2 modulators; identity-deepening) per T4-A architecture defaults
+- Effort: 1-2 days
+- Cross-references: `canonical/story/tier-4-architecture-defaults-2026-05-22.md` § T4-C; `canonical/story/p5-cohesion-judge-prompt-priorities-2026-05-21.md`
+- Tag: `qd-rebuild/v5.3-t4-c-signature-vs-secondary`
+
+**W5.3-BDI-G — BDI-cohesion integration (BDI-G; pending H5 confirmation; v1.3 addition)** (star-lord + gandalf)
+- Dispatch (pending; conditional on H5 success): post-H5 confirmation that BDI score correlates with cohesion-judge score, integrate BDI rank signal into cohesion-judge prompt as resonance-prior
+- Effort: 1-2 days
+- Depends on: H5 (P5+ workstream; requires cohesion-judge scores at archive scale)
+- Tag: `qd-rebuild/v5.3-bdi-g-integration`
+
 #### 6.6.3 Critique-pair structure
 
 - W5.1: jack-ryan reviews LUCB1 math correctness; gandalf reviews PAC-bound calibration
@@ -1436,6 +1552,22 @@ This document is v1.0 (initial draft 2026-05-21). Subsequent versions:
 ### 14.4 Living document conventions
 
 Each phase's per-workstream completion record appends to a `qd-rebuild/phase-N-progress.md` log. Knight-rider maintains. This protocol document remains the master spec; progress logs are working state.
+
+### 14.5 v1 / v1.1 / v2 trajectory (v1.3 addition)
+
+The v1.3 amendments introduce explicit V1 / V1.1 / V2 trajectory commitments:
+
+| Item | V1 (current hive scope; P0-P7) | V1.1 (post-P7) | V2+ (deferred) |
+|---|---|---|---|
+| **Gear-as-substrate** | LITE path — `signature_gear_archetype` as DERIVED TAG via deterministic rule table | Full-substrate promotion — rule-table → search-space; gear becomes 4th generative substrate axis | (n/a; v1.1 IS the full-substrate target) |
+| **Trait-cluster-as-substrate** | Not generative; trait architecture per `project_trait_architecture.md` (dual-source intrinsic + gear affix) | Diagnostic-only via BDI hypothesis tests | Generative trait-cluster as 5th substrate axis (post-P7) |
+| **BDI rank coverage** | rank-2 + rank-3 explicit targets | rank-3 archive coverage expansion | rank-4+ exploration (rare; structurally unstable) |
+| **Tier 4 keystone catalogue** | Hand-authored ~30-50 (T4-B; P3-P4); rank-3 completers per BDI § 6 | Expanded catalogue under post-P7 gear-substrate promotion | Procedural/LLM-augmented variant generation (T4-E) |
+| **Skill tree depth (W1.13 scope)** | 10-15 nodes / 2-4 chains (substrate-availability-driven) | (intermediate substrate growth) | 24-30 nodes / 3-5 chains canonical-parity expansion (math note § 8.3.1) |
+| **Profile A ship** | Reincarnated Phase 0 demo-ready | Full Reincarnated content depth | (n/a) |
+| **Earth Meta-Layer** | Out of scope (§ 1.3) | Out of scope | Post-rebuild Phase 8+ |
+
+The trajectory is **substrate-availability-driven**, not calendar-driven. V1.1 opens when V1 ships and substrate has grown enough to support the next-tier scope. V2+ deferrals are intentional architectural commitments, not work that "didn't fit."
 
 ---
 
