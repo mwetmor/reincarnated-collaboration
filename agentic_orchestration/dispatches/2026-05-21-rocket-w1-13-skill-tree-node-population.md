@@ -1,43 +1,56 @@
 # Dispatch — Rocket W1.13: Procedural Skill Tree Node Population + Multi-Dim Convergence
 
-**Date:** 2026-05-21 (pre-staged; knight-rider fires when P1 W1.13 opens)
-**Author:** gandalf
+**Date:** 2026-05-21 (pre-staged); FIRE-GATE closed + rescope landed 2026-05-22 by critique-pair (gandalf design + jack-ryan process) under Matt pre-authorization D
+**Author:** gandalf (original); 2026-05-22 rescope by critique-pair
 **Recipient:** rocket (engine generation seam)
-**Status:** **PRE-STAGED — DO NOT FIRE** until two conditions satisfied (see § 0.0 FIRE-GATE below)
-**Priority:** HIGH (load-bearing architectural commitment for Pattern-A fix at low-modifier band — pending empirical re-confirmation)
-**Estimated effort:** 2-4 weeks (math note v1.1 § 9 implementation; canon-validated parameters)
+**Status:** **FIRE-GATE CLOSED 2026-05-22; STILL GATED on P1 substrate enrichment + Matt W1.13 framing approval per § 9 timing.** Rescope per Scenario B (dual-witness + Surface A footnote); see `canonical/story/w1-13-rescope-disposition-2026-05-22.md` for full disposition record.
+**Priority:** HIGH (load-bearing architectural commitment under dual-witness + BDI + T4 mandate; empirical urgency reduced post-recovery; architectural urgency preserved)
+**Estimated effort:** 2-4 weeks (math note v1.1 § 9 implementation; canon-validated parameters; unchanged from pre-rescope)
 
 ---
 
-## 0.0 FIRE-GATE (added 2026-05-21 evening, post P0 close)
+## 0.0 FIRE-GATE — **CLOSED 2026-05-22**
 
-**⚠️ This dispatch MUST NOT be triggered automatically at P1 open.** Two conditions must be satisfied before fire:
+The two FIRE-GATE conditions added 2026-05-21 evening are now SATISFIED:
 
-### Condition 1 — LC-011 attribution-complete
+### Condition 1 — LC-011 attribution-complete ✅ SATISFIED
 
-The 45-season LC-011 ablation (PID 40309; expected completion ~1:00-2:00 AM EDT 2026-05-22) is producing attribution data that may **substantively reframe** W1.13's empirical mandate:
+The 45-season LC-011 ablation recovery completed 2026-05-22 morning under Matt's prolonged-autonomy mandate. Summary artifact at `~/Games/reincarnated-engine/logs/w07_lc011_ablation_recovery_summary.json`:
 
-- **If floor-lock pathology reproduces** (≥ 18-20% mage_controller failure across 45 seasons): original triple-witness mandate (Track C + W0.10 + LC-011) stands; W1.13 fires AS-PLANNED.
-- **If Option C confirms** (0 FAILED across 45 seasons → era-stratification artifact): LC-011 drops from triple-witness list → math note v1.1 § 1.2 revises to dual-witness (Track C + W0.10); W1.13 empirical mandate WEAKENS but does not necessarily deprecate. Dispatch may need scope refinement before fire.
-- **If mixed signal** (intermediate failure rate, e.g., 10-18%): W1.13 fires AS-PLANNED but with refined attribution expectations for post-fire validation.
+- Run 1 baseline (post-W0.10 stack; current calibration): 3/60 mage_controller FAILED = **5.0%** (boundary signal — NOT historical 41.8% floor-lock)
+- Run 2 observational: 2/60 = 3.3%
+- Run 3 Surface A ablation (skill_power_tier 50→42): 1/60 = **1.7%**
+- **Surface_A% = 66.67%; Residual% = 33.33%; formula well-defined; disposition `ATTRIBUTION_COMPUTED`**
 
-### Condition 2 — Math note v1.1 § 1.2 triple-witness reconciliation
+This is **Scenario B** per critique-pair dispatch `agentic_orchestration/dispatches/2026-05-22-critique-pair-post-recovery-w07-gate2-w113-rescope-p0-close.md` § 1.2 (Surface A meaningful attribution at reduced magnitude). LC-011 reframed as Surface A footnote (5% boundary signal with recovery-grade two-way attribution); historical 41.8% rate confirmed as era-stratified to a calibration regime superseded by the post-W0.10 stack.
 
-Knight-rider + gandalf must explicitly review math note v1.1 § 1.2 after attribution-complete and EITHER:
-- **Confirm** triple-witness mandate (no edit needed; LC-011 stays as witness 3); OR
-- **Revise** § 1.2 to dual-witness (LC-011 dropped to "historical-era-stratification artifact reframed"; math note amended)
+### Condition 2 — Math note v1.1 § 1.2 reconciled ✅ SATISFIED
 
-**No automatic fire authorized.** Knight-rider must affirm both conditions satisfied in a fire-authorization note before triggering this dispatch.
+Math note v1.1 § 1.2 revised 2026-05-22 from TRIPLE-WITNESS (Track C + W0.10 + LC-011) to **DUAL-WITNESS + Surface A footnote** per critique-pair dispatch § 4. LC-011 demoted from primary witness to footnote with recovery-grade attribution. Architectural mandate stands on:
+1. Track C scalar-modifier underdetermination (unchanged)
+2. W0.10 LOW-modifier band residual (unchanged)
+3. BDI formalism rank-3 substrate-richness requirement (new anchor; `canonical/story/build-defining-resonance-formula-2026-05-21.md`)
+4. Tier 4 mechanic-altering keystone framing (new anchor; math note § 3.4)
 
-### Original status condition (preserved)
+**FIRE-GATE § 0.0 closes.** Critique-pair (gandalf design + jack-ryan process) attests; β autonomous path executed under Matt pre-authorization D.
 
-Once the FIRE-GATE above is cleared, the original sequencing condition still applies: **P1 substrate enrichment (W1.1 schema extensions + W1.2-W1.6 substrate creation + W1.11 element-specific enrichment) must close Q4 substrate gap before W1.13 fires.**
+### Remaining gates (unchanged)
+
+The FIRE-GATE closure does NOT trigger immediate W1.13 implementation. The original sequencing conditions still apply per § 9 timing:
+
+- **P1 substrate enrichment must complete first** — W1.1 schema extensions + W1.2-W1.6 substrate creation + W1.11 element-specific enrichment must close Q4 substrate gap (~168+ unique skill templates per season; all 7 BC axes meeting 5× sufficiency rule)
+- **W0.4 gear-affix verification** must complete (specialist code audit; status of gear affix architecture state)
+- **Matt W1.13 framing approval** must land (per protocol § 7.1; this is a NEW scope approval gate distinct from math note v1.1 ratification which already stands)
 
 ### Cross-references
 
+- `agentic_orchestration/dispatches/2026-05-22-critique-pair-post-recovery-w07-gate2-w113-rescope-p0-close.md` — critique-pair dispatch authorizing FIRE-GATE closure + rescope
+- `canonical/story/w1-13-rescope-disposition-2026-05-22.md` — full rescope disposition record (Scenario B; BDI/T4 alignment preserved)
+- `canonical/story/multi-dim-convergence-algorithm-2026-05-21.md` v1.1 § 1.2 (2026-05-22 revision) — dual-witness reframing
+- `~/Games/reincarnated-engine/logs/w07_lc011_ablation_recovery_summary.json` — recovery summary artifact
+- `agentic_orchestration/matt-briefing-2026-05-22-lc-011-option-c-strong-confirm.md` — Matt-briefing escalation memo
 - `agentic_orchestration/p0-closure-note-2026-05-21.md` § 4.1 — fire-gated downstream conditions
-- `agentic_orchestration/gandalf/notes/2026-05-21-lc-011-reframing-disposition-w1-13-routing.md` Appendix A — classification A/B/C scope clarification
-- `canonical/story/multi-dim-convergence-algorithm-2026-05-21.md` v1.1 § 1.2 — triple-witness mandate (pending attribution reconciliation)
+- `agentic_orchestration/gandalf/notes/2026-05-21-lc-011-reframing-disposition-w1-13-routing.md` Appendix A — original LC-011 disposition framing
 
 ---
 
@@ -57,13 +70,21 @@ This is the empirically-mandated architectural fix for the Pattern-A pathology t
 
 ## 1. Why this work
 
-### 1.1 The empirical mandate
+### 1.1 The empirical mandate — DUAL-WITNESS + Surface A footnote (revised 2026-05-22)
 
 **Per Track C synthesis (`canonical/story/substrate-generalization-track-c-synthesis-2026-05-21.md`):** Pattern-A is universal at boss tier under scalar-modifier-only optimization. 100% Pattern-A across all 7 substrates at same calibration. The single-scalar tuning surface is mathematically underdetermined for 5-tier WR contract.
 
 **Per W0.10 re-sweep:** arena migration alone discharges HIGH-modifier band (physical_grappler + hunter both boss_wr 0.000→1.000). LOW-modifier kits (≤0.33) remain at 0.000. Modifier-scaling gap = multi-dim convergence territory.
 
-**The architectural fix:** procedural skill tree node population + multi-dim convergence over 5-6 dimensions instead of 1.
+**Per BDI formalism (`canonical/story/build-defining-resonance-formula-2026-05-21.md`):** rank-3 substrate-richness expression requires interaction-term dominance over linear terms. γ_{abc} > β_{ab} > α_a is structurally inexpressible in scalar-modifier-only space; multi-dim convergence is the dimensional precondition for rank-3 build-defining moments.
+
+**Per Tier 4 mechanic-altering keystone framing (math note v1.1 § 3.4):** Tier 4 keystones as qualitative regime-change require categorical-discrete selection × continuous SP × discrete trigger-interaction selection; not collapsible to scalar.
+
+**Per LC-011 reframed (Surface A footnote; recovery-grade attribution 2026-05-22):** post-W0.10 stack boundary signal is 5% (not historical 41.8%); skill_power_tier (Surface A) accounts for 66.67% of boundary-signal reduction under ablation; residual 33.33% includes era-stratification effects + other post-W0.10 stack contributions. Historical 41.8% floor-lock rate was era-stratified to a calibration regime that no longer applies. Skill_power_tier surfaces as a **causally active authorship parameter** for Tier 4 elemental keystone design (T4-B implication; not an active generation-time pathology).
+
+**The architectural fix:** procedural skill tree node population + multi-dim convergence over 5-6 dimensions instead of 1. The fix is mandated by Track C + W0.10 + BDI + Tier 4 architecture; LC-011 is the footnote-tier Surface A anchor for any future calibration work.
+
+See `canonical/story/w1-13-rescope-disposition-2026-05-22.md` for full disposition rationale of the dual-witness reframing.
 
 ### 1.2 The architectural commitment (math note v1.1 § 0)
 
@@ -242,11 +263,21 @@ Before implementation begins, math note v1.1 § 10 specifies:
 - All test kits have L1-playable Tier 1 nodes per chain
 - Convergence iteration count median <20
 
-### 5.3 Empirical validation
+### 5.3 Empirical validation — revised 2026-05-22 (Scenario B baseline)
 
-- Re-run Track C-style same-calibration ablation across all 7 substrates
-- Predict: low-modifier kits previously at 0.000 boss WR exit zero-floor via keystone-concentration + trigger interactions
-- **Pattern-A 100% (pre-W1.13) → expected 20-40% (post-W1.13 at v1) → target 5-15% (post-W1.13 at v2 future)**
+**Baseline reference revised** per Scenario B disposition: current 5% mage_controller boundary signal (Run 1 of recovery) replaces the historical 41.8% floor-lock rate as the empirical baseline. The architectural fix's value-add is **supporting BDI rank-3 expression + Tier 4 mechanic-altering authorship + closing W0.10 LOW-modifier band residual** — not "discharge a 42% pathology."
+
+**Validation criteria:**
+
+- Re-run Track C-style same-calibration ablation across all 7 substrates (UNCHANGED — Track C signal stands; scalar-modifier underdetermination is a formalism property)
+- LOW-modifier kits (≤0.33 modifier) previously at 0.000 boss WR exit zero-floor via keystone-concentration + trigger interactions (W0.10 residual closure target — UNCHANGED)
+- **Pattern-A measurement** — pre-W1.13 100% Pattern-A across substrates; post-W1.13 v1 expected 20-40%; v2 target 5-15% (UNCHANGED — measures cross-substrate convergence-time compression, not floor-lock generation failures)
+- **Mage_controller generation pass-rate** — post-W1.13 expected 0-2% boundary signal against 5% Run-1 baseline (REVISED from "≥80% against 42% baseline"; ~3 percentage-point modest improvement expected from Surface A residual + multi-dim convergence dimensionality, not a 38-point discharge)
+- **BDI hypothesis test re-run** — post-W1.13 archive should empirically materialize rank-3 γ-dominance per BDI H1, H4 success criteria (NEW; tied to BDI hypothesis tests W1.20-W1.22)
+- **Tier 4 keystone discrete-selection convergence** — categorical Tier 4 selection per chain should converge cleanly under multi-tier WR voting (NEW; tied to T4-A architecture defaults and T4-B catalogue authorship)
+- **Trigger interaction discrete-selection convergence** — 0-2 trigger interactions per chain should converge under multi-tier voting (NEW; tied to legolas SD-3)
+
+**The empirical urgency is reduced (no 42% pathology to discharge); the architectural urgency stands (Track C + W0.10 + BDI + T4 mandate all preserved).** See `canonical/story/w1-13-rescope-disposition-2026-05-22.md` § 2.3 for the full success-criteria revision rationale.
 
 ---
 
