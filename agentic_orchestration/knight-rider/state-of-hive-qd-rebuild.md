@@ -164,6 +164,9 @@ Per W0.8 completion 2026-05-21 (collab commit `d7544bf`):
 - C9 **W0.7 dispatch acceptance-criteria amendment** (Option C three-branch decision tree applied autonomously per Matt's directive). ADR-002 says architectural; surfaces to Matt at session close for ratification.
 - C10 **Optional Option B follow-up for hunter modifier distribution.** If W0.8+ work produces additional CONVERGED hunter records, validate against 0.6234 range (target n=15+). Background hygiene only.
 
+**From W0.7 LC-011 execution (Matt intervention 2026-05-20 21:53 EDT):**
+- C11 **Babysit-agent pattern is NON-VIABLE for long-running background processes** — per Matt's directive 2026-05-20 21:53: knight-rider's babysit-agent dispatch loop (re-spawning gamora repeatedly to poll PID 40309) is non-viable. Agent sessions exit prematurely (Monitor tools die with session; sleep loops not honored). The correct pattern for long-running scripts (nohup'd python ablation runs at ~5 hours wall time): **manual periodic check at ~90-min intervals + single gamora session for attribution + commit + tag when SUMMARY file appears.** Babysit dispatches consume tokens without delivering durable progress monitoring. **Surfacing to jack-ryan for engineering-disciplines.md amendment at session close.** Candidate discipline: "Long-running background processes (>1 hr wall time) must NOT be monitored via re-spawned agents; instead, the spawning agent must produce a SUMMARY artifact (file path documented in dispatch) that downstream agents read once the process completes."
+
 ### 2.4 Matt-blocking items
 
 | Item | Surfaced | Status |

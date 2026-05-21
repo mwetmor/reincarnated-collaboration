@@ -3,9 +3,43 @@
 **Date:** 2026-05-21 (pre-staged; knight-rider fires when P1 W1.13 opens)
 **Author:** gandalf
 **Recipient:** rocket (engine generation seam)
-**Status:** **PRE-STAGED — DO NOT FIRE until P1 substrate enrichment (W1.1 schema extensions + W1.2-W1.6 substrate creation + W1.11 element-specific enrichment) closes Q4 substrate gap**
-**Priority:** HIGH (load-bearing architectural commitment for Pattern-A fix at low-modifier band)
+**Status:** **PRE-STAGED — DO NOT FIRE** until two conditions satisfied (see § 0.0 FIRE-GATE below)
+**Priority:** HIGH (load-bearing architectural commitment for Pattern-A fix at low-modifier band — pending empirical re-confirmation)
 **Estimated effort:** 2-4 weeks (math note v1.1 § 9 implementation; canon-validated parameters)
+
+---
+
+## 0.0 FIRE-GATE (added 2026-05-21 evening, post P0 close)
+
+**⚠️ This dispatch MUST NOT be triggered automatically at P1 open.** Two conditions must be satisfied before fire:
+
+### Condition 1 — LC-011 attribution-complete
+
+The 45-season LC-011 ablation (PID 40309; expected completion ~1:00-2:00 AM EDT 2026-05-22) is producing attribution data that may **substantively reframe** W1.13's empirical mandate:
+
+- **If floor-lock pathology reproduces** (≥ 18-20% mage_controller failure across 45 seasons): original triple-witness mandate (Track C + W0.10 + LC-011) stands; W1.13 fires AS-PLANNED.
+- **If Option C confirms** (0 FAILED across 45 seasons → era-stratification artifact): LC-011 drops from triple-witness list → math note v1.1 § 1.2 revises to dual-witness (Track C + W0.10); W1.13 empirical mandate WEAKENS but does not necessarily deprecate. Dispatch may need scope refinement before fire.
+- **If mixed signal** (intermediate failure rate, e.g., 10-18%): W1.13 fires AS-PLANNED but with refined attribution expectations for post-fire validation.
+
+### Condition 2 — Math note v1.1 § 1.2 triple-witness reconciliation
+
+Knight-rider + gandalf must explicitly review math note v1.1 § 1.2 after attribution-complete and EITHER:
+- **Confirm** triple-witness mandate (no edit needed; LC-011 stays as witness 3); OR
+- **Revise** § 1.2 to dual-witness (LC-011 dropped to "historical-era-stratification artifact reframed"; math note amended)
+
+**No automatic fire authorized.** Knight-rider must affirm both conditions satisfied in a fire-authorization note before triggering this dispatch.
+
+### Original status condition (preserved)
+
+Once the FIRE-GATE above is cleared, the original sequencing condition still applies: **P1 substrate enrichment (W1.1 schema extensions + W1.2-W1.6 substrate creation + W1.11 element-specific enrichment) must close Q4 substrate gap before W1.13 fires.**
+
+### Cross-references
+
+- `agentic_orchestration/p0-closure-note-2026-05-21.md` § 4.1 — fire-gated downstream conditions
+- `agentic_orchestration/gandalf/notes/2026-05-21-lc-011-reframing-disposition-w1-13-routing.md` Appendix A — classification A/B/C scope clarification
+- `canonical/story/multi-dim-convergence-algorithm-2026-05-21.md` v1.1 § 1.2 — triple-witness mandate (pending attribution reconciliation)
+
+---
 
 ---
 

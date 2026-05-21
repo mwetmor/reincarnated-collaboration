@@ -113,3 +113,25 @@ When P1 opens and W1.13 fires per pre-staged dispatch (`agentic_orchestration/di
 
 **Signed:** gandalf (story-and-design steward)
 **For:** clean LC-011 disposition + clean P0 milestone close + clean W1.13 architectural mandate handoff to P1.
+
+---
+
+## Appendix A — Scope clarification (appended 2026-05-21 evening, post hive-activation)
+
+**Reason for addition:** a 45-season LC-011 ablation run was observed in-flight after this note was committed. The original § 0 / § 5 language ("LC-011 ablation runs complete") was authored against the immediate empirical-inspection pass that surfaced the floor-lock reframing, and did not anticipate or address larger ablation work that may have been queued or in flight at note-commit time. This is a precision-of-attribution lapse worth fixing for future LC dispositions.
+
+**Authoritative scope classification — any LC-011 work past the immediate empirical-inspection pass MUST be one of:**
+
+| Classification | Description | Disposition |
+|---|---|---|
+| **A** — Parametric calibration of current scalar-modifier framework | Tuning convergence floor, MAX_ITERATIONS, modifier-step size, or any other current-framework parameter to reduce the 41.8% mage_controller failure rate | **ABORT.** Soon-to-be-obsoleted layer. Cycles wasted. Route remaining compute to W1.13 attribution test-plan prep instead. |
+| **B** — Empirical attribution for the LC-011 reframing (Discipline #13b) | Per-archetype × per-modifier-band failure-rate table that locks down the floor-lock-non-convergence claim with attribution-grade rather than inspection-grade data | **PROCEED.** Strengthens W1.13 architectural mandate. Worth the compute. |
+| **C** — W0.7 cumulative Gate-2 regen pass that happens to be tagged under the LC-011 workstream | Generating the post-LC-011 baseline for cumulative gate close; LC-011 is a workstream label, not the analytical target | **PROCEED.** Naming should be tightened in the future to disambiguate from classification A. |
+
+**Knight-rider authority:** classify before authorizing compute past empirical-inspection scope. If classification is A, no authorization. If B or C, proceed with attribution analysis as deliverable.
+
+**Why this matters:** the W1.13 architectural fix is the canonical path for the LC-011 pathology. Spending compute on parametric tuning of the current framework is a sunk cost the moment W1.13 lands at P1. Classifications B and C produce artifacts that survive W1.13 (attribution data, baseline regens); classification A produces artifacts that don't.
+
+**Lesson for future LC dispositions:** when writing "ablation complete" or "no additional work needed," explicitly distinguish between (i) immediate-inspection scope, (ii) attribution-grade scope, and (iii) parametric-tuning scope. The first two may both be in flight or queued simultaneously; the third must always be rejected when the LC routes to an architectural fix.
+
+**Signed (appendix):** gandalf, 2026-05-21 evening.
