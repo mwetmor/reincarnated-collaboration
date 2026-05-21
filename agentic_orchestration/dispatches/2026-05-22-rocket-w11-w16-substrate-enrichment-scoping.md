@@ -158,3 +158,62 @@ Rocket flags cross-seam impacts in each math note's "Cross-seam impact" section.
 
 **Signed:** knight-rider (orchestrator under prolonged-autonomy mandate)
 **For:** P1 substrate enrichment scoping work-package; load-bearing precondition for W1.13 and Profile A archive depth regardless of W1.13 final disposition.
+
+---
+
+## Completion record
+
+**Completed by:** rocket
+**Date:** 2026-05-22
+**Session scope:** single session — all 6 bounded deliverables per knight-rider's pragmatic ask
+
+### Deliverables landed
+
+| Deliverable | Artifact | Commit |
+|---|---|---|
+| Read all 10 authoritative inputs | (session work) | — |
+| W1.1 math note (Gate-1 ready) | `src/reincarnated/generation/math/w1-1-schema-extensions-design.md` | `8f90afb` |
+| P1 scoping overview math note | `src/reincarnated/generation/math/p1-substrate-enrichment-scoping-overview-2026-05-22.md` | `8f90afb` |
+| Cross-seam impact list | W1.1 math note § 7 | `8f90afb` |
+| AGENT_STATE P0-closed / P1-opening | `src/reincarnated/generation/AGENT_STATE.md` | `293ad85` |
+| Next-session queue (W1.2-W1.6 + W1.11 + W1.15-LITE) | AGENT_STATE + scoping overview | `293ad85` |
+
+### Report-back to knight-rider
+
+**(a) Commit hashes:**
+- `8f90afb` — W1.1 math note + P1 scoping overview
+- `293ad85` — AGENT_STATE P0-closed / P1 opening
+
+**(b) Cross-seam impacts for MIGRATION.md:**
+- **star-lord (HIGH):** `archive_entries.signature_gear_archetype TEXT NULL` column + export pipeline update required before W1.15-LITE ships
+- **drax (MEDIUM):** new `cost_type` values (hp_cost / charge_pool / damage_converts) in ability rendering — current UI likely handles only mana/rage/combo/focus/stamina_resource
+- **gamora (MEDIUM, two items):** (1) proxy-entity lifecycle sim extension dispatch needed before W1.6 implementation; (2) charge-pool state tracking in fight engine needed before W1.4 implementation
+
+**(c) Sequencing recommendation for W1.2-W1.6 + W1.11 + W1.15-LITE:**
+1. W1.2 HP-economy (next session — most critical Axis 5 gap; 0 substrate currently)
+2. W1.4 Charge-stack (session 3 — completes Axis 5 alongside W1.2; self-contained)
+3. W1.3 Damage-takes-converts (session 4 — same cost_type Tier-A dependency; convergence-optimizer inversion concern to analyze)
+4. W1.5 Movement-skill expansion (session 5 — depends on movement_displacement Tier-A field)
+5. W1.6 Player-side proxy (session 6 — gamora sim-extension dependency; spec can precede gamora dispatch)
+6. W1.11 Element-specific enrichment (sessions 7-8 — cross-cutting; needs W1.2-W1.6 catalogues first)
+7. W1.15-LITE (parallel track — can interleave with sessions 3-6; 0.5 session effort; independent of substrate catalogues)
+
+**(d) Open questions for Matt's design call:**
+
+| OQ | Stakes |
+|---|---|
+| `stat_distribution_signature` field: is it currently on PlayerClass or derived from stat allocator? | W1.15-LITE implementation path; needs empirical inspection |
+| `no_signature` in rule-table v1: should this be forced-non-null or explicitly allowed? | Rocket recommends allowing `no_signature` as valid value before sim-viability determines which combinations need it |
+| W1.3 damage-taken-converts convergence-optimizer inversion: does the optimizer handle kits where more damage-taken = better performance? | Potential W1.13 design complexity; surface at W1.3 math note Gate-1 |
+
+**(e) Sim-viability concerns from gandalf rule-table v1:**
+
+36 of 252 combinations flagged for rocket sim-viability verification before rule-table locks. Two cluster patterns identified:
+1. **STR-dominant + INT-natural elements** (fire/lightning/shadow + STR-dom → Greatsword/Crossbow): cross-attribute stat pressure may produce insufficient spell-power for element's natural skills. Likely requires either stat-allocation adjustment or `no_signature` routing for the most divergent cases.
+2. **Support-role + melee archetype** for any element: support-role kits in melee position have mechanically thin kit compositions in solo-only Profile A. Some combinations may require `no_signature`.
+
+Rule-table § 9 already anticipates a rejection rate question (>25% rejection = redesign cross-attribute branches). Rocket's prior expectation: rejection rate likely 10-20% of the 36 flagged (3-7 combinations), primarily from STR+INT-natural melee cases. This is a Gate-2 empirical finding, not a Gate-1 blocker.
+
+**(f) W1.1 Gate-1 readiness:**
+
+YES — Gate-1 ready. Schema specification is complete across all three tiers (Tier A/B/C). Cross-seam impacts identified. Migration plan is backward-compatible. Invariant I1 (Tier 1 playability) formally specified. Open questions are bounded and deferred to W1.13 implementation stage (L1_COST_BUDGET calibration, mechanic-pool cost_type propagation relationship). No unresolved questions block architectural alignment review (gandalf) or correctness review (jack-ryan).
