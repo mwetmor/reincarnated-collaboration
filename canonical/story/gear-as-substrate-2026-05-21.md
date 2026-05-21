@@ -4,7 +4,9 @@
 **Author:** gandalf (story-and-design steward)
 **Status:** DRAFT — pending Matt review + decisions-log entry
 **Authority:** design-architectural; commits substrate-architecture extension
-**Companion to:** `canonical/story/substrate-design-supplement-2026-05-21.md`, `canonical/story/multi-dim-convergence-algorithm-2026-05-21.md` v1.1
+**Companion to:** `canonical/story/substrate-design-supplement-2026-05-21.md`, `canonical/story/multi-dim-convergence-algorithm-2026-05-21.md` v1.1, `canonical/story/build-defining-resonance-formula-2026-05-21.md`
+
+**⚠️ Timing revision (2026-05-21 evening, post BDI resonance formalism):** Phase G timing in § 11 of this doc originally targeted post-P7 (v1.1/v2 work). Per Matt 2026-05-21 evening decision: **gear-as-substrate moves into V1 pre-gauntlet scope (P1-P2 territory).** Rationale captured in § 0.5 below. Phase table in § 11 superseded by protocol amendment doc `agentic_orchestration/hive-mind-protocol-amendments-2026-05-21-evening.md`.
 
 ---
 
@@ -17,6 +19,130 @@
 **The clean landing pad:** `balance_loop.py:858` already has `_gear_loadout_cycling_hook(...)` as a named no-op stub. Matt named this hook himself, anticipating a future where gear participates in coalescence. That future is now.
 
 **v1 / v2 trajectory:** v1 ships with a starting gear-archetype catalogue (~10-15 archetypes); v2 expansion proceeds in lockstep with elemental substrate growth. Parallel growth axes.
+
+---
+
+## 0.5 Why V1 pre-gauntlet (timing revision, 2026-05-21 evening)
+
+The original phasing in this doc placed gear-as-substrate as post-P7 v1.1/v2 work, on the rationale that adding a 4th substrate to P5 cohesion-judge work would conflate two empirical tests (3-substrate validation vs 4-substrate expansion).
+
+The **build-defining resonance formalism** (`canonical/story/build-defining-resonance-formula-2026-05-21.md`) supersedes that rationale by surfacing a deeper structural argument:
+
+### 0.5.1 The combinatorial-richness argument
+
+Build-defining moments live in **interaction terms** (β-pairs and γ-triples per the BDI formalism). The genre's signature builds (rank-3 in the BDI taxonomy) require three substrate components in resonance.
+
+**Without gear-archetype as substrate:**
+- Substrate space = 7 × 4 × 4 = **112 vectors** (element × range × role)
+- Pairwise interactions ≈ 72 possible β-pairs
+- Triple interactions = 112 (each vector is trivially a single triple of its three components)
+- Signature-build rank-3 space is **shallow**: only one triple per vector; identity differentiation depends entirely on pair-level β
+
+**With gear-archetype as substrate:**
+- Substrate space = 7 × 4 × 4 × 15 = **1,680 vectors**
+- Pairwise interactions ≈ 313 possible β-pairs across substrate dimensions
+- Triple interactions = C(4,3) × per-axis-values ≈ exponentially richer
+- Signature-build rank-3 space is **deep**: multiple distinct triples per vector; identity differentiation has structural room to operate
+
+**The QD archive cannot search the rank-3 space that the BDI formalism predicts contains the genre's signature builds without gear-substrate as a 4th axis.** The substrate-as-cohesion validation probe (4.35 / 5.0) confirmed cohesion-judge recognizes resonance at 3-substrate; the BDI formalism predicts the deeper signature-build moments live at 4-substrate rank-3 resonance.
+
+### 0.5.2 The Tier 4 keystone authorship argument
+
+Tier 4 keystones are **rank-completers** (BDI § 6) — they take a kit's rank-2 resonance and promote it to rank-3 by adding the third leg.
+
+**If the substrate space is rank-2-shallow** (no gear-substrate), Tier 4 keystones have nowhere to complete TOWARD. They become flavor-altering keystones at best, not identity-anchoring rank-completers. The math note v1.1 SD-1 framing ("Tier 4 keystones are mechanic-altering") only achieves its full architectural promise when the substrate space is rank-3-deep enough to support rank-completion.
+
+**Gear-substrate in V1 is the structural precondition for Tier 4 keystones to be build-defining.**
+
+### 0.5.3 The empirical-test rebalancing
+
+The earlier "two empirical tests conflated" concern was about P5 cohesion-judge integration. That concern remains valid — but the resolution is NOT to defer gear-substrate. The resolution is to **sequence the empirical validation:**
+
+- **3-substrate cohesion-judge** validates first (probe 2026-05-21 returned 4.35; P5 confirms at production scale)
+- **4-substrate cohesion-judge** validates as **delta** on top of 3-substrate baseline — within the same P5 phase, but as a measurable scope addition (per P5 prompt-priorities 4 + 5)
+- The two tests are now **stacked, not conflated** — clean attribution preserved
+
+### 0.5.4 The architectural-stub argument
+
+`_gear_loadout_cycling_hook` (named by Matt; no-op in V1) was already an architectural stub anticipating this future. Activating it during the V1 rebuild — not deferring to post-P7 — was the original architectural intent. The earlier "post-P7" framing was conservatism, not architecture.
+
+### 0.5.5 Updated phasing summary — SUPERSEDED by 0.5.6 LITE path
+
+Phase table in § 11 of this doc is **superseded** by the LITE-path decision in § 0.5.6 below + the protocol amendments doc.
+
+### 0.5.6 LITE path adopted (2026-05-21 evening, post Matt cross-repo concern)
+
+**Decision:** the full V1 inclusion proposed in § 0.5.1-0.5.5 above is REPLACED by a "**gear-as-substrate LITE**" path that threads a middle road. Authored after Matt surfaced the cross-repo concern that legacy archetype-locking removal (W0.2) leaves demo (Pixi.js) + Unity production + loadout app (React) without canonical class-identity-to-gear coherence between now and P7.
+
+#### The LITE path — what it is
+
+**`signature_gear_archetype` becomes a DERIVED TAG in v1, not a generative substrate.**
+
+A class's signature gear-archetype is computed at class-generation time by a deterministic rule:
+
+$$\text{signature\_gear\_archetype} = f(\text{dominant\_element}, \text{role\_orientation}, \text{range\_profile}, \text{stat\_distribution\_signature})$$
+
+The function f is a rule table mapping substrate-vector → gear-archetype. Stat distribution is **already canonical and deterministic** per `element_biases.py:28` `ELEMENT_SCALING_ATTRIBUTE` (verified 2026-05-21 evening): fire/water/lightning/shadow → INT; earth/wind/holy → WIS; physical → STR. The rule table can therefore produce sensible assignments without empirical calibration.
+
+#### What the LITE path preserves
+
+| Concern | LITE path treatment |
+|---|---|
+| Engine-internal disciplined sequencing (Matt's original instinct) | ✅ Preserved — gear is NOT a generative substrate in v1; BDI tests run at 3-substrate scale + signature_gear_archetype as derived-tag context |
+| Cross-repo coherence (Matt's new concern) | ✅ Solved — demo/Unity/loadout have a canonical class-identity-to-gear contract |
+| BDI rank-3 detection in P1 | ✅ Partially recovered — tests can probe signature_gear_archetype as proxy 4th dimension without committing it as generative |
+| P5 cohesion-judge scope | ✅ Light prompt extension only — not full 4-substrate |
+| v1.1/v2 promotion path | ✅ Clean — field exists; rule-table becomes search-space; no schema retrofit |
+| The "blunderbuss must be viable in battle simulation" discipline | ✅ Preserved — sim-viability of each archetype in the rule table's value-set is verified before catalogue locks |
+
+#### What the LITE path defers
+
+- **Substrate-vector composition with gear_archetype as 4th generative input** — defers to v1.1/v2 (post-P7) when the rule-table is promoted to a search-space
+- **BC archive's gear-archetype axis as a generative dimension** — defers to v1.1/v2
+- **Full P5 cohesion-judge gear-archetype recognition (priorities 4 + 5 in full form)** — light version in P5; full version in v1.1/v2
+- **Spirit-swap meta-layer "Spirit's Core Gear" gameplay loop** — defers to post-P5 (unchanged from earlier framing)
+
+#### The two-tier semantic preservation
+
+The two-tier distinction from § 2.3 of this doc is preserved by the LITE path:
+
+| Tier | Scope | v1 LITE behavior |
+|---|---|---|
+| **Gear-archetype** (substrate identity) | "blunderbuss" / "censer" / "kanabō" | **DERIVED-TAG**: set at class generation; persistent as identity metadata; consumed by demo/Unity/loadout/cohesion-judge |
+| **Gear-instance** (per-fight roll) | The +180-DEX, scatter-burst, cold-shot blunderbuss that drops at fight 7 | UNCHANGED from current procedural pipeline |
+
+#### Updated phasing — LITE path
+
+| Phase | Scope | New timing |
+|---|---|---|
+| G0 (architectural commitment) | This doc + decisions-log entry | DONE (this conversation) |
+| **G1-LITE** | Rule-table v1 (15 archetypes; deterministic rule table mapping substrate-vector → gear-archetype) | Pre-P1 (gandalf + Matt design call; tomorrow's session) |
+| **G2-LITE** | Generation-pipeline `signature_gear_archetype` computation + telemetry column + per-class persistence | **P1** (~3-5 days; rocket) |
+| **G3-LITE** | (DEFERRED) gear-instance generation constrained by archetype | Deferred to v1.1/v2 |
+| **G4-LITE** | Cohesion-judge light prompt extension (judge receives signature_gear_archetype as identity hint) | **P5** (~1 day; star-lord) |
+| **G5-LITE** | Loadout app + demo + Unity consume signature_gear_archetype for class-identity rendering | **P1+** (drax + Unity team; parallel work) |
+| **G6** (UNCHANGED) | Spirit-swap meta-layer integration (Spirit's Core Gear) | Post-P5 (unchanged) |
+| **G7-LITE** | (DEFERRED) 4-substrate empirical validation gate | Deferred to v1.1/v2 promotion gate |
+| **G-PROMOTE-v1.1** | Promote signature_gear_archetype from derived-tag to generative substrate (rule-table → search-space) | v1.1/v2 (post-P7) |
+
+#### Cost summary — LITE vs full
+
+| Path | P1 scope cost | P5 scope cost | Cross-repo coherence | Post-P7 retrofit |
+|---|---|---|---|---|
+| Full V1 inclusion | +2-3 weeks | +1-2 weeks | Solved | None |
+| Pure deferral (original Matt instinct) | None | None | **Risk** | +3-4 weeks |
+| **LITE (adopted)** | **+3-5 days** | **+1 day** | **Solved** | **~1-2 weeks** (rule-table → search-space promotion; clean schema) |
+
+The LITE path produces ~1 week of v1 engine work + drax/Unity unblocked + ~1-2 weeks of clean v1.1/v2 promotion. Net cost across v1+v1.1 is **smaller than either pure deferral OR full V1** by ~1-2 weeks total, AND solves the cross-repo coherence concern immediately.
+
+#### Why this is the right architectural call
+
+1. **Stat distributions are already canonical** (`ELEMENT_SCALING_ATTRIBUTE` verified 2026-05-21 evening) — the rule table operates on stable foundation
+2. **Drax + Unity team can ship player-facing surfaces** on a canonical class-identity-to-gear contract without ad-hoc mapping that would conflict with eventual v1.1/v2
+3. **BDI tests can still probe rank-3 at 4-dim proxy** by using signature_gear_archetype as a derived 4th substrate axis in measurement (without commitment as generative)
+4. **The Tier 4 keystone catalogue (T4-B; P3-P4)** can be authored gear-anchored OR gear-agnostic; the gear-anchored option becomes available because signature_gear_archetype exists, but is not forced
+5. **Cohesion-judge sees the identity** as light hint (P5 priority 4 in lightweight form); P5 dispositive empirical test remains at 3-substrate
+6. **v1.1/v2 promotion is clean** — schema field already exists; promoting from rule-table to search-space is a generation-pipeline change, not a retrofit across BC archive + cohesion-judge + sim
 
 ---
 

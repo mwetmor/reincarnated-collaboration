@@ -14,7 +14,16 @@
 
 **Substrate-as-cohesion architecture validated empirically at small sample** (probe verdict 4.35 / 5.0 mean coherence). Architectural risk profile substantially reduced; P5 moves from "architectural risk" to "scheduled refinement with 5 known prompt-engineering priorities."
 
-**Major new design work landed:** gear-as-substrate canonical doc (DRAFT; post-P7 work); trait-cluster-as-substrate conversational exploration; substrate-vector terminology carving (L1/L2/L3/L4); P5 prompt-priorities note; math note v1.1 amended with probe verdict.
+**Major new design work landed:**
+- Substrate-as-cohesion empirical probe (returned 4.35)
+- Math note v1.1 § 6 amendments (probe verdict folded in)
+- P5 prompt-priorities note (5 priorities documented)
+- Gear-as-substrate canonical DRAFT — three timing positions evolved across evening: (1) initially post-P7 → (2) V1 pre-gauntlet per BDI rationale → (3) **FINAL: LITE path** — derived-tag in v1; substrate promotion in v1.1/v2 (post-P7). Drives by Matt's cross-repo coherence concern + stat-distribution verification
+- **NEW: Build-Defining Resonance Formalism (BDI)** — mathematical formalization of "build-defining" as interaction-term dominance; 5 hypothesis tests for hive-mind execution at P1+; rank-classification (rank-1 / rank-2 / rank-3); Tier 4 keystones formalized as rank-completers
+- **NEW: Protocol amendments doc** — captures BDI + gear-substrate-V1 + Tier 4 design pass; pending fold-in to protocol v1.3 tomorrow
+- Trait-cluster-as-substrate conversational exploration (still post-P7)
+- Substrate-vector terminology carving (L1/L2/L3/L4)
+- Tier 4 architecture surfaced as gap (open questions 11-14)
 
 **Major operational lesson:** babysit-agent orchestration pattern non-viable for multi-hour scripts. Engineering-disciplines candidate.
 
@@ -172,20 +181,87 @@ Four-layer vocabulary proposed:
 
 Appendix A added this evening (post hive-activation): scope clarification with classification A / B / C framework for LC-011 work past empirical-inspection scope. The 45-season run is classification B (empirical attribution per Discipline #13b) — legitimate work strengthening (or reframing) the W1.13 architectural mandate.
 
+### 3.8 Build-Defining Resonance Formalism (BDI) — NEW
+
+**File:** `canonical/story/build-defining-resonance-formula-2026-05-21.md` (NEW)
+
+Mathematical formalization of "build-defining" with mythic/wizard framing layered. Core structure:
+
+- **BDI (Build-Defining Index)** measures interaction-term dominance in WR landscape per substrate-pair (BDI_2) and substrate-triple (BDI_3)
+- **Two field equations:** ω-field (mechanical overlap; Case A — multiplicative compounding) and τ-field (thematic resonance; Case B — tension-resolution synergy)
+- **Rank classification:** rank-1 (generic) / rank-2 (paired identity) / rank-3 (signature build) / rank-4+ (rare/degenerate)
+- **Tier 4 keystones formally are rank-completers** — they take a kit's rank-2 resonance and promote it to rank-3 by adding the third leg
+- **Connection to cohesion-judge:** high-BDI kits should produce high cohesion-judge scores; math model and narrative model read the same resonance through different sensors
+- **5 hypothesis tests (H1-H5)** for hive-mind execution at P1+; diagnostic and non-blocking
+- **Empirical predictions** for ω and τ tables (proposed; calibrate empirically)
+- **Rank-3 identity predictions:** Powder Hex-Cannon, Smoke-Vampire, Inferno-Knight, Storm-Sentinel, Stoneshackle, Twilight-Judge, Steam-Wraith (canonical post-bridge identities)
+
+**Connection to other docs:**
+- Probe verdict (4.35) is small-sample empirical support for resonance-hypothesis
+- gear-as-substrate (V1 timing now justified by BDI combinatorial-richness argument)
+- Tier 4 architecture (rank-completer framing locks the design)
+- P5 prompt-priorities (sharpened by BDI § 8-9)
+
+### 3.9 Protocol amendments doc — NEW
+
+**File:** `agentic_orchestration/hive-mind-protocol-amendments-2026-05-21-evening.md` (NEW)
+
+Captures three substantive amendments for protocol v1.3 fold-in tomorrow:
+
+1. **BDI resonance formalism** added; H1-H5 hypothesis tests become P1+ diagnostic workstreams (W1.20, W1.21, W1.22)
+2. **Gear-as-substrate moves to V1 pre-gauntlet** (P1-P2 scope; was post-P7); new workstreams W1.15, W1.16, W1.17, W2.5
+3. **Tier 4 architecture design pass** (T4-A through T4-D) scheduled pre-P5; informed by BDI rank-completion framing
+
+P1 effort estimate adds 3-4 weeks (gear-substrate + BDI tests). Critical-path structure (P0-P7) unchanged.
+
+### 3.10 Gear-as-substrate timing — final LITE path (§ 0.5.6 added)
+
+**File:** `canonical/story/gear-as-substrate-2026-05-21.md` (amended)
+
+§ 0.5 added: "Why V1 pre-gauntlet (timing revision)" — captures the four arguments for moving gear-substrate from post-P7 to V1:
+- Combinatorial-richness argument (BDI rank-3 space requires 4-substrate depth)
+- Tier 4 keystone authorship argument (rank-completers need rank-3-deep space)
+- Empirical-test rebalancing (3-substrate + 4-substrate as stacked, not conflated)
+- Architectural-stub argument (`_gear_loadout_cycling_hook` was always anticipating V1 work)
+
+§ 0.5.6 added **LATER in evening, FINAL decision**: "LITE path adopted" — supersedes the full V1 inclusion case in § 0.5.1-0.5.5.
+
+**Driver:** Matt surfaced cross-repo coherence concern — legacy archetype-locking removal (W0.2) leaves demo/Unity/loadout without canonical class-identity-to-gear contract. Pure deferral to post-P7 risks ad-hoc mapping conflict with eventual v1.1/v2 taxonomy.
+
+**LITE path solution:**
+- `signature_gear_archetype` lands as DERIVED TAG in v1 (deterministic rule-table; not a generative substrate)
+- Stat-distribution check verified `ELEMENT_SCALING_ATTRIBUTE` is canonical (`element_biases.py:28`): fire/water/lightning/shadow → INT; earth/wind/holy → WIS; physical → STR. Rule-table operates on stable foundation.
+- Engine internals UNCHANGED (gear still procedural per-fight loadout sampling)
+- Demo/Unity/loadout consume signature_gear_archetype for canonical class-identity rendering
+- Cohesion-judge receives signature_gear_archetype as light identity hint in P5 (lightweight P5 priority 4)
+- v1.1/v2 promotes rule-table to search-space (signature_gear_archetype becomes generative substrate); clean schema retrofit
+
+**Cost summary:**
+- v1 LITE: +3-5 days W1.15-LITE (rocket) + 1 day W5.3-LITE (star-lord) = **~1 week total**
+- v1.1/v2 promotion: ~1-2 weeks (rule-table → search-space; schema field already exists)
+- Net cost across v1+v1.1 is LESS than either pure deferral OR full V1, AND solves cross-repo coherence immediately
+
+**Three-position evolution captured in evening conversation:**
+| Position | Driver | Status |
+|---|---|---|
+| Post-P7 (initial) | Matt's deferral instinct (engine-internal discipline) | Superseded by V1 case |
+| V1 pre-gauntlet (mid-evening) | gandalf's BDI combinatorial-richness rationale | Superseded by LITE |
+| **LITE (final)** | Matt's cross-repo concern + stat-distribution verification | **ADOPTED** |
+
 ---
 
 ## 4. Open questions queued for Matt
 
-### 4.1 Gear-as-substrate (post-P7 design pass)
+### 4.1 Gear-as-substrate LITE (tomorrow's design pass — pre-P1)
 
-Per gear-as-substrate doc § 12:
-1. Gear-archetype taxonomy v1 cut (15 archetypes per § 3 — keep / cut / reframe?)
-2. Substrate-gear in-season acquisition mechanic (guaranteed-by-progression vs RNG-weighted vs boss-drop-guaranteed?)
-3. "Partial identity" effectiveness scaling (60-75% recommendation acceptable?)
-4. Multi-slot substrate vs weapon-only (v1 keeps weapon-only — confirm?)
-5. Cross-spirit gear sharing (v1 per-spirit — confirm?)
-6. Gear-archetype × element conflict resolution (reject at composer vs creative-reframe by judge?)
-7. v1 launch with all 15 archetypes vs staged rollout?
+Per gear-as-substrate doc § 12 (open questions) + § 0.5.6 LITE path:
+1. **Rule-table v1 finalization** (15 archetypes per § 3 + the f(element, role, range, stat) deterministic mapping) — gandalf + Matt design call tomorrow
+2. Substrate-gear in-season acquisition mechanic (DEFERRED to v1.1/v2 with full substrate promotion)
+3. "Partial identity" effectiveness scaling (DEFERRED to v1.1/v2)
+4. Multi-slot vs weapon-only signature gear (v1 LITE: weapon-only — confirm?)
+5. Cross-spirit gear sharing (v1 LITE: per-spirit signature — confirm?)
+6. Gear-archetype × element conflict resolution at rule-table layer (rule-table produces deterministic mapping; conflict resolution is rule-design, not generation-time logic)
+7. v1 LITE launches with all 15 rule-table archetypes — confirm? Or smaller initial set (~10)?
 
 ### 4.2 Trait-cluster-as-substrate (post-P7; deferred)
 
@@ -219,10 +295,12 @@ Per gear-as-substrate doc § 12:
 
 | Path | Author | Status |
 |---|---|---|
-| `canonical/story/gear-as-substrate-2026-05-21.md` | gandalf | DRAFT (open questions pending) |
+| `canonical/story/gear-as-substrate-2026-05-21.md` | gandalf | DRAFT (LITE path adopted per § 0.5.6; signature_gear_archetype as derived-tag in v1; substrate promotion in v1.1/v2) |
 | `canonical/story/p5-cohesion-judge-prompt-priorities-2026-05-21.md` | gandalf | AUTHORED |
+| `canonical/story/build-defining-resonance-formula-2026-05-21.md` | gandalf | AUTHORED (BDI formalism + H1-H5 hypothesis tests) |
 | `agentic_orchestration/dispatches/2026-05-21-legolas-substrate-as-cohesion-empirical-validation-probe.md` | gandalf | COMPLETE (returned 4.35) |
 | `agentic_orchestration/p0-closure-note-2026-05-21.md` | gandalf | CLOSED |
+| `agentic_orchestration/hive-mind-protocol-amendments-2026-05-21-evening.md` | gandalf | AUTHORED (pending v1.3 fold-in) |
 | `agentic_orchestration/hive-mind-state-evening-2026-05-21.md` | gandalf | THIS DOC |
 
 ### Files amended this evening
@@ -232,6 +310,7 @@ Per gear-as-substrate doc § 12:
 | `canonical/story/multi-dim-convergence-algorithm-2026-05-21.md` | § 6 substantially expanded (6.5 probe verdict, 6.6 prompt priorities, 6.7 nuance, 6.8 discipline-pattern); § 1.2 marked pending attribution |
 | `agentic_orchestration/dispatches/2026-05-21-rocket-w1-13-skill-tree-node-population.md` | § 0.0 FIRE-GATE added (two conditions: attribution-complete + § 1.2 reconciliation) |
 | `agentic_orchestration/gandalf/notes/2026-05-21-lc-011-reframing-disposition-w1-13-routing.md` | Appendix A added (classification A/B/C scope clarification) |
+| `canonical/story/gear-as-substrate-2026-05-21.md` | § 0.5 added: "Why V1 pre-gauntlet" timing revision; § 0.5.6 added later: **LITE path adopted as FINAL decision**; companion reference to BDI doc added; phase G table superseded by protocol amendments doc |
 
 ### Files in flight (not yet landed but expected tomorrow)
 

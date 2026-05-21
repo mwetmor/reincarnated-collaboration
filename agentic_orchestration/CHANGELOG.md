@@ -4,6 +4,121 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-22 — QD-rebuild P0 CLOSED: LC-011 recovery clean (Scenario B); critique-pair β disposition autonomous; W1.13 rescoped; math note dual-witness; Discipline #19 PROPOSED; gandalf morning work-package (protocol v1.3 + BDI-B + G1-LITE + T4-A) landed; P0 milestone tag `v0.0-constraint-removal-shipped` FIRED
+
+**Event:** Under Matt's prolonged-autonomy mandate, the LC-011 ablation recovery probe completed clean and the critique-pair (jack-ryan + gandalf) dispositioned W0.7 closure + W1.13 rescope autonomously per pre-authorizations D + E. P0 milestone tag fires concurrent with this entry.
+
+**LC-011 ablation recovery — Scenario B (Surface A meaningful attribution at boundary magnitude):**
+
+| Run | Definition | mage_controller FAILED | Rate |
+|---|---|---|---|
+| Run 1 | baseline (15 seasons; complete from 2026-05-21) | 3/60 | 5.0% |
+| Run 2 | observational (combined DB + recovery; 15 seasons) | 2/60 | 3.3% |
+| Run 3 | Surface A ablation `skill_power_tier=42` (15 seasons) | 1/60 | 1.7% |
+
+**Discipline #13b two-way attribution:**
+- Surface_A% = (Run1 − Run3) / Run1 = (5.0 − 1.7) / 5.0 = **66.67%**
+- Residual% = **33.33%**
+- Formula well-defined (R_base = 5.0% > 0)
+- Disposition: `ATTRIBUTION_COMPUTED`
+
+The `skill_power_tier` parameter is mechanically real as a contributor to the mage_controller failure regime — accounting for ~2/3 of the boundary-grade signal — but at boundary scale (5.0% → 1.7%), not catastrophic scale (the 41.8% historical figure was era-stratified to pre-W0.10). LC-011 is **reframed-not-removed**: from "triple-witness" (Track C + W0.10 + LC-011) to "dual-witness + Surface A footnote" with concrete two-way attribution.
+
+**Critique-pair disposition (β path, autonomous):**
+
+Per Matt 2026-05-22 (W1.13 rescope authority: β autonomous to critique-pair; α deprecation requires Matt-briefing). β path: revise scope, retain commitment. Scenario B fit inside the autonomous envelope; no Matt-briefing escalation required (Rule #1 satisfied via corrected reading from boundary-grade Option C with partial attribution, NOT strong-confirm).
+
+**gandalf (design lead) — 5 commits, ~1,764 lines canonical authoring:**
+
+- `6131c34` — P0-blocking work-package (4 files): W1.13 dispatch revision (FIRE-GATE closed; § 1.1 triple→dual-witness; § 5.3 success criteria revised baseline 42%→5%; BDI/T4 architectural alignment preserved); math note v1.1 § 1.2 dual-witness revision with Scenario B attribution data verbatim; new rescope-disposition canonical doc `canonical/story/w1-13-rescope-disposition-2026-05-22.md`; W0.7 cumulative design close-out memo `agentic_orchestration/gandalf/notes/2026-05-22-w07-cumulative-design-closeout.md`
+- `e092fe1` — Protocol v1.3 fold-in (`canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md`; BDI formalism + gear-substrate-LITE + Tier 4 architecture amendments)
+- `3f13486` — BDI ω/τ tables v1 (`canonical/story/bdi-omega-tau-tables-v1-2026-05-22.md`; 55 ω entries + 40 τ entries; sim-viability flags)
+- `deea626` — G1-LITE gear-archetype rule-table v1 (`canonical/story/gear-archetype-rule-table-v1-2026-05-22.md`; all 252 substrate-vector combinations mapped; 36 sim-viability flags for rocket verification)
+- `1f5111d` — T4-A Tier 4 architecture defaults (`canonical/story/tier-4-architecture-defaults-2026-05-22.md`; 1 signature + 1-3 secondary hierarchy; hand-authored catalogue v1; gear-anchored signature)
+
+**jack-ryan (process lead) — 2 commits:**
+
+- `3cee4da` (engine repo) — Discipline #19 PROPOSED (`reincarnated-engine/design/working-agreement/engineering-disciplines.md`; "The Agent tool is not for waiting"; grounded in gandalf 2026-05-21 babysit-loop + knight-rider 2026-05-22 relapse + compound silent-failure mode; six practical rules; canonical recovery-script pattern documented; pending Matt ratification on return)
+- `0ebc2b8` (collaboration repo) — W0.7 cumulative Gate-2 attestation (`agentic_orchestration/jack-ryan/qa/w0-7-cumulative-gate-2-attestation-2026-05-22.md`; APPROVE on all 5 process checks: W0.7 cumulative closure, W1.13 rescope β-path, math note § 1.2 revision, cross-reference integrity, Surface A finding integrity; P0 tag fire authorized from process side)
+
+**Discipline #20 candidates surfaced (queued for Matt's review):**
+
+1. Long-running scripts must produce JSON summary artifact as final act (structured cross-session continuity contract)
+2. Log verbosity in long-running scripts must be bounded — suppress WARNING floods that contribute to OOM/disk exhaustion
+3. Script wall-time estimates must be stated in dispatch acceptance criteria; scripts projected to exceed 60 min require an explicit crash-recovery plan
+
+**Open questions surfaced (queued for Matt's next design call):**
+
+- T4-A Q-T4-A-1: hierarchy enforcement at convergence-time (uniform vs hierarchical SP allocation)
+- T4-A Q-T4-A-2: catalogue size precision (~30 vs ~50)
+- T4-A Q-T4-A-3: cross-element capstone "breakthrough moment" framing
+- T4-A Q-T4-A-4: skill_power_tier as Tier 4 authorship parameter (LC-011 Surface A finding is empirically design-relevant; T4-B catalogue authorship needs to encode this coupling)
+- BDI ω/τ § 5 (4 questions): per-dimension weighting, τ magnitude calibration, bridge-substrate definition, rank-3 γ-table v2 candidate
+- G1-LITE § 9 (4 questions): sim-viability rejection rate, no_signature introduction, archetype-coverage imbalance, cross-element archetype reuse
+
+**P0 milestone tag fired:** `v0.0-constraint-removal-shipped` in `~/Games/reincarnated-engine` per Matt pre-authorization in mission first-action sequence step 4. P0 work complete; P1 substrate-enrichment opens.
+
+**Discipline #19 mission-critical lesson:** the babysit-pattern compound failure mode (script crash + babysit agent failing to detect) is structurally non-recoverable. PROPOSED Discipline #19 inherits this fix for all future sessions. Knight-rider session 2 (this one) operated under the corrected pattern throughout: `Bash(run_in_background=true)` for the recovery (PID gone clean; JSON summary artifact landed); on-demand one-shot queries for status; subagent invocations bounded to active deliverable work with explicit return contracts. Zero babysit-loop re-entry observed.
+
+**Next phase:** P1 substrate-enrichment opens. Rocket scoping dispatch (`agentic_orchestration/dispatches/2026-05-22-rocket-w11-w16-substrate-enrichment-scoping.md`) fires next.
+
+---
+
+## 2026-05-22 — QD-rebuild P0 CLOSING: LC-011 ablation crash diagnosed + recovery probe in flight; prolonged-autonomy mode engaged; Discipline #19 candidate registered
+
+**Event:** Matt engaged knight-rider in prolonged-autonomy mode per the mission prompt 2026-05-22 morning. Knight-rider's startup behavior surfaced a critical operational finding: the LC-011 ablation script (`w07_lc011_ablation.py` PID 40309) **crashed silently** at 2026-05-22 00:14 EDT after ~3 hours of expected 5-hour runtime. The final babysit agent ALSO failed silently — no summary artifact produced, no diagnostic signal returned. **Compound silent-failure mode**: both the script and the agent intended to detect its failure died without leaving recoverable diagnostics.
+
+**Matt-interrupt session (mid-startup):** before knight-rider proceeded to spawn babysit agents on the recovery probe, Matt interrupted with the explicit framing that **the Agent tool is structurally wrong for waiting/watching/babysitting**. Knight-rider's instinct to invoke specialists to monitor long-running scripts was the same failure mode the closure-note had flagged (gandalf 2026-05-21 § 6) — but stronger than the original framing acknowledged.
+
+**Structural fix established in conversation:**
+- `Bash(run_in_background=true)` or `nohup` + `&` for long-running scripts (OS-level background; no agent dependency)
+- Direct one-shot Bash queries for status checks (`ps`, `sqlite3`, `tail`)
+- `Monitor` tool for reactive streaming if needed
+- **Never** use Agent for any prompt containing "wait," "watch," "monitor," "babysit," "poll until done"
+- Cross-session continuity is **file-based** (skill_handoff, dispatches, JSON summary artifacts), not agent-based
+
+This structural fix is being codified as **Discipline #19** (Agent tool is not for waiting) — dispatched to jack-ryan for canonical authoring (`engineering-disciplines.md`).
+
+**LC-011 ablation crash diagnosis:**
+- Cause: OS-level resource exhaustion (disk + memory) during R2 calibration WARNING flood on class_0139 (Run 2 season_700213). Not a script bug.
+- Pre-crash state: Run 1 (15 seasons; 75 classes; 3 mage_controller FAILED at 5.0%) + Run 2 partial (12 of 15 complete). Run 3 (Surface A ablation) never started.
+- Original log: 2.8 GB; compressed to 53 MB (`w07_lc011_ablation.log.gz`); disk freed.
+- Orphan DB row #152 deleted (no partial class data).
+
+**Initial framing correction:** knight-rider's matt-briefing initially claimed "Option C STRONG confirm at P ≪ 0.0001" based on the `floor_lock_recompose=0` metric. That metric is a strict floor-lock-at-FLOOR signal, NOT the script's `convergence_status='FAILED'` attribution metric. Reading the correct metric: Run 1 mage_controller FAILED = 3/60 = **5.0% — at the escalation threshold boundary, not overwhelming-grade evidence**. Briefing amended at § 0 with corrected framing; original framing preserved in § "Superseded" for audit trail. The recovery probe is now genuinely diagnostic (Surface A ablation could meaningfully attribute at 5% boundary), not just confirmatory.
+
+**Matt's delegation (in conversation):**
+- **Path γ (recovery probe) + close P0 after** — "continue the LC-011 runs before closing P0"
+- **W1.13 rescope authority: β autonomous to critique-pair; α (deprecate) requires Matt-briefing**
+- All other pre-authorizations (A-G) + escalation rules (1-6) from the original mission prompt remain in force
+
+**Recovery probe fired (PID 2301):**
+- Script: `~/Games/reincarnated-engine/scripts/w07_lc011_ablation_recovery.py` (knight-rider authored)
+- Hardening: logging level ERROR (suppresses R2 calibration WARNING flood), fresh log file, OS-level nohup background
+- Scope: Run 2 finish (seasons 700213-700215; 3 seasons) + Run 3 entirely (700301-700315; 15 seasons) = 18 seasons
+- Expected wall time: ~2-2.5 hours
+- Cross-session continuity: JSON summary artifact at `logs/w07_lc011_ablation_recovery_summary.json` on completion
+
+**Dispatches filed for autonomous pickup:**
+1. `agentic_orchestration/dispatches/2026-05-22-jack-ryan-engineering-discipline-19-agent-tool-not-for-waiting.md` — jack-ryan canonical discipline entry (pre-auth G)
+2. `agentic_orchestration/dispatches/2026-05-22-critique-pair-post-recovery-w07-gate2-w113-rescope-p0-close.md` — jack-ryan + gandalf integrated post-recovery work-package (FIRE-GATED on summary artifact landing; pre-auth D + E)
+3. `agentic_orchestration/dispatches/2026-05-22-gandalf-protocol-v13-foldin-plus-BDI-B-plus-G1-LITE-plus-T4-A.md` — gandalf 4-deliverable morning work-package (pre-auths A/B/C + protocol v1.3 fold-in per her own evening amendments doc)
+4. `agentic_orchestration/dispatches/2026-05-22-rocket-w11-w16-substrate-enrichment-scoping.md` — rocket P1 substrate enrichment scoping (load-bearing regardless of W1.13 disposition)
+
+**P0 milestone tag held:** `v0.0-constraint-removal-shipped` fires after critique-pair completes their work-package (per dispatch acceptance criteria).
+
+**Files:**
+- `agentic_orchestration/matt-briefing-2026-05-22-lc-011-option-c-strong-confirm.md` (amended § 0 with corrected framing)
+- `agentic_orchestration/skill_handoff_2026-05-22.md` (cross-session continuity per Discipline #19 file-based pattern)
+- `agentic_orchestration/dispatches/2026-05-22-*.md` (four new dispatches; see above)
+- `~/Games/reincarnated-engine/scripts/w07_lc011_ablation_recovery.py` (recovery script)
+- `~/Games/reincarnated-engine/logs/w07_lc011_recovery.log` (clean recovery log)
+- `~/Games/reincarnated-engine/logs/w07_lc011_ablation.log.gz` (compressed audit-trail original)
+
+**Operational lesson:** the babysit-pattern compound failure mode is significantly worse than the closure-note framing acknowledged. Engineering-discipline #19 ratification (jack-ryan dispatch) inherits this fix for all future sessions. Future knight-rider startup reads the canonical discipline and inherits the constraint structurally.
+
+---
+
 ## 2026-05-21 — QD-rebuild P0 W0.7 LC-002 ablation COMPLETE: fire bias attribution to round-robin modulo (Discipline #13b)
 
 **Event:** W0.7 LC-002 ablation (3 runs, full-regen, 15 seasons each, seeds 9001/9002/9003) returned. Engine commit `270f91a`; tag `qd-rebuild/v0.7-ablation-lc-002` FIRED. **Surface A (round-robin modulo at `season_orchestrator.py:1490`) conclusively identified as the cause of fire element bias.**
