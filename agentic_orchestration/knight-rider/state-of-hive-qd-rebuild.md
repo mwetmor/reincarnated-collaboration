@@ -146,6 +146,24 @@ Per W0.8 completion 2026-05-21 (collab commit `d7544bf`):
   - Knight-rider absorbed; folded into P1 W1.11 scope-finalization (no new dispatch needed)
 - **Monster thematic depth assessment** (Legolas + Galadriel + gandalf synthesis dispatch at `agentic_orchestration/dispatches/2026-05-21-monster-thematic-depth-assessment.md`) — QUEUED to fire post-P0 open.
 
+### 2.3.1 Carry-forward concerns (non-blocking; surface at session close)
+
+**From W0.10 cumulative Gate-2 (gandalf + jack-ryan):**
+- C1 Discipline #17 anomaly-count refinement — PARKED gandalf-internal until 3rd close-out evidence
+- C2 A3 encounter-configurable-leash principle lift — PARKED until second instance (P1/P2)
+- C3 Multi-tier archive insertion — on radar P1/P2
+- C4 B6+W0.1 verification re-sweep — awaits B6 generation
+- C5 Convergence-path SqliteSpatialTelemetryWriter wiring — P1 scope
+
+**From W0.7 LC-002 execution (gamora 2026-05-21):**
+- C6 **Telemetry write gap (pre-existing bug)** — during full-regen ablation, `data/telemetry.db` `classes` table received no rows from ablation seasons (only `generation_runs` `start_run` row). Silent exception in `record_class_fight_loadouts` or `record_season` path for large fight logs. Non-blocking for LC-002 (results collected in-memory). **Routes to star-lord for diagnosis + fix; surfacing at session close.**
+- C7 **Operational: `run_in_background` Bash ablation runs don't auto-terminate.** Two zombie Python processes (PIDs 30568, 30795) from earlier smoke tests accumulated 36+ min CPU during LC-002 run and competed. Future ablation dispatches require explicit process-tracking-and-cleanup discipline.
+
+**From W0.7 LC-009 Gate-1 review (jack-ryan 2026-05-21):**
+- C8 **B14.5 sidecar #2 + Matt auto-memory REINTERPRETED-BY-LC-009.** Hunter 1.82 modifier range was mixed-era artifact; post-schema CONVERGED range = 0.6234 (n=7). Hunter is NOT current-era outlier. Auto-memory update required at session close per jack-ryan Advisory 2.
+- C9 **W0.7 dispatch acceptance-criteria amendment** (Option C three-branch decision tree applied autonomously per Matt's directive). ADR-002 says architectural; surfaces to Matt at session close for ratification.
+- C10 **Optional Option B follow-up for hunter modifier distribution.** If W0.8+ work produces additional CONVERGED hunter records, validate against 0.6234 range (target n=15+). Background hygiene only.
+
 ### 2.4 Matt-blocking items
 
 | Item | Surfaced | Status |

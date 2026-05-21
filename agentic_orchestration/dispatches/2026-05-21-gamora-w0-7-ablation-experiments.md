@@ -7,6 +7,16 @@
 **Estimated effort:** ~1-2 days per ablation (3 ablations total; ~4-6 days)
 **Acceptance:** 3 ablation experiments designed + run + analyzed; per-LC attribution data documented; tag `qd-rebuild/v0.7-ablation-complete`.
 
+**AMENDMENT 2026-05-21 (knight-rider autonomous per Matt directive; surfacing to Matt at session close per ADR-002):** Per jack-ryan Gate-1 LC-009 disposition (APPROVE-OPTION-C 2026-05-21):
+> Where Discipline #11 empirical inspection refutes the precondition for ablation (signal is a data quality artifact, not a current-era structural signal), the LC may close with empirical inspection + math note + structural reinterpretation as the deliverable. This constitutes meta-attribution under Discipline #13b and satisfies the LC's closure requirement. Ablation runs are not required.
+
+Decision tree for Discipline #11 outcomes:
+- **Signal confirmed present:** design/revise ablation to attribute it (LC-002 path — runs executed)
+- **Signal shrunk but non-zero:** design ablation for actual signal (path not yet exemplified)
+- **Signal refuted as artifact:** no ablation; close with empirical note (LC-009 Option C path)
+
+All three branches are valid Discipline #11 outcomes. Filed at `agentic_orchestration/jack-ryan/qa/w0-7-lc-009-ablation-design-gate-1-2026-05-21.md` § ARP-7.
+
 ---
 
 ## Context — Discipline #13b ablation framework
