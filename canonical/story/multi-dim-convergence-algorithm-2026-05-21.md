@@ -621,11 +621,31 @@ Per Matt 2026-05-21: legendary gear is supposed to come with a skill grant; mech
 
 ---
 
-## 6. Substrate-as-cohesion preservation (architectural test)
+## 6. Substrate-as-cohesion architectural commitment + empirical-validation gate (P5)
+
+**Important epistemic distinction (per Matt 2026-05-21 catch):** substrate-as-cohesion is currently an ARCHITECTURAL COMMITMENT, not an empirically verified runtime behavior.
+
+| Layer | What we know empirically (post-P0) |
+|---|---|
+| W0.2 archetype templates removed | ✅ Verified via tests + code review |
+| Substrate-agnostic generation function exists | ✅ Verified via tests |
+| W0.1 energy-type lever active | ✅ Verified empirically (W0.10 re-sweep) |
+| v2.15 telemetry schema captures relevant data | ✅ Verified |
+| **Substrate-agnostic kits produce coherent thematic identity via cohesion-judge** | ❌ **NOT YET VERIFIED — P5 is the first empirical test** |
+| **Cohesion-judge correctly infers substrate identity from mechanical signature alone** | ❌ NOT YET VERIFIED |
+| **Mechanical / cohesion / visual separation holds at runtime** | ❌ NOT YET VERIFIED |
+
+**P5 is the empirical-validation gate for substrate-as-cohesion architecture.** Cohesion-judge integration in P5 conducts the FIRST EMPIRICAL TEST of whether substrate-agnostic generation produces kits that cohesion-judge can theme coherently.
+
+**Architectural risk:** if P5 cohesion-judge fails to produce coherent themes from substrate-agnostic kits, the architecture itself requires revision. This is a real risk that the rebuild plan must hold honestly — not understate.
+
+**Cheap intermediate test available (fired 2026-05-21):** before P5, a focused empirical probe takes 5-10 post-W0.2 substrate-agnostic kits + runs them through prototype cohesion-judge → scores thematic coherence. If 4.0+ emerges, hypothesis early-validated. If <3.0, structural risk surfaces immediately. See `agentic_orchestration/dispatches/2026-05-21-legolas-substrate-as-cohesion-empirical-validation-probe.md`.
+
+---
 
 Per `canonical/story/substrate-design-supplement-2026-05-21.md`:
 
-**Architectural test:** *"Does this design choice influence mechanical generation, or only thematic coalescence?"*
+**Architectural test (held as commitment, awaiting P5 empirical validation):** *"Does this design choice influence mechanical generation, or only thematic coalescence?"*
 
 Multi-dim convergence operates on **MECHANICAL** dimensions only:
 - Node selection (mechanical)

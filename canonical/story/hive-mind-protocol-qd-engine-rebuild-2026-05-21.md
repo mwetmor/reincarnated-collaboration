@@ -1,6 +1,10 @@
 # Hive-Mind Protocol — QD-Engine Rebuild
 
-**Status:** DRAFT v1.0 — authored overnight 2026-05-20/21 per Matt's directive
+**Status:** v1.2 (amended 2026-05-21 post-P0-close + post-coherence-review)
+**v1.0 → v1.1 changes:** D1-D6 resolutions, substrate-as-cohesion recommitment, W0.9 + W0.10 additions, W1.13 added per math note
+**v1.1 → v1.2 changes (per coherence review 2026-05-21):** P1 W1.13 explicit + Tier 1 playability + substrate quantitative target; P2 T_AXIS_SENS calibration; P3 kit_specification format; **P4 trigger interaction + Tier 4 keystone sim support (significant scope addition)**; **P5 reframed as empirical-validation phase for substrate-as-cohesion architecture (epistemic correction per Matt 2026-05-21 catch)**; P6 Profile A export format; P7 Pattern-A residual measurement + v2 trajectory documentation; § 1.3 v2 canonical-parity expansion as out-of-current-hive-scope
+
+**Author:** gandalf — authored overnight 2026-05-20/21 per Matt's directive
 **Author:** gandalf (story-and-design steward + theoretical mathematician + senior designer)
 **Companions:**
 - `canonical/story/engine-architecture-vision-qd-profile-2026-05-19.md` — vision (QD-engine + 4 profiles)
@@ -871,6 +875,18 @@ Enable currently-deferred BC bins to populate by implementing required sim mecha
 - ~3-5 days of work
 - Tag: `qd-rebuild/v4.9-charge-up-skills`
 
+**W4.11 — Trigger interaction + Tier 4 keystone variant sim support** (gamora; ~1-2 weeks added scope; v1.2 amendment 2026-05-21)
+
+Per math note v1.1 § 3.5 + § 4.5: P1 W1.13 generates trigger/conditional interaction nodes (1-2 per chain) and Tier 4 mechanic-altering keystone candidates (~3-5 per chain). These require sim mechanism support:
+
+- **Trigger condition evaluation:** sim must evaluate trigger conditions like "skill_a_cast_within_2s", "low_hp_threshold", "every_Nth_cast", "cross_chain_resonance"
+- **Trigger effect application:** sim must apply multiplicative effects to target skills with duration tracking (e.g., "Chain Reaction" → +25% damage to Skill B for 5s when Skill A casts)
+- **Tier 4 keystone effect classes:** sim must support `resource_alteration` (e.g., HP-cost-for-power), `geometry_alteration` (e.g., chain-freeze on ice spells), `temporal_alteration` (e.g., persistent vs instant), `axis_domain_alteration` (e.g., defensive becomes offensive), `synergy_alteration` (e.g., multiplicative cross-skill coupling)
+
+**Why this is its own workstream:** original P4 scope (W4.1-W4.9) focused on deferred BC bins (proxy, dodger sub-cases, charge mechanics, damage-conversion, channel). Trigger interactions + Tier 4 keystone variants are SEPARATE sim mechanism work not in original P4 scope. Added in v1.2 per coherence review 2026-05-21.
+
+Estimated effort: ~1-2 weeks added to P4 duration. P4 total revised: 4-6 weeks → 5-8 weeks.
+
 **W4.10 — Bulk-evaluation passes** (gamora; after each extension lands)
 - For each sim extension, re-evaluate the deferred-evaluation pool kits matching that bin
 - Insert qualifying kits into archive
@@ -912,9 +928,33 @@ W4.10 bulk-evaluations fire as each extension lands.
 **Prerequisites:** P3 complete; cipher migration shipped if D3 = sequenced
 **Specialists:** rocket (LLM theme coalescence), gandalf (cohesion-BC spec + judge prompts), galadriel (visual-BC spec), star-lord (LUCB1 algorithm + theme infrastructure)
 
-#### 6.6.1 Scope
+#### 6.6.1 Scope (REFRAMED in v1.2 — empirical-validation phase)
+
+**v1.2 epistemic correction (per Matt 2026-05-21 catch):** P5 is the FIRST EMPIRICAL TEST of the substrate-as-cohesion architectural commitment.
+
+Up to and through P0:
+- Substrate-as-cohesion architecturally committed (docs etched)
+- W0.2 archetype templates removed (code verified)
+- Generation function is substrate-AGNOSTIC (code verified)
+- **But: post-W0.2 substrate-agnostic kits have NEVER been subjected to cohesion-judge prompting.** No empirical evidence that the architecture works as designed.
+
+P5 conducts this empirical validation:
+- Cohesion-judge prompts substrate-agnostic kits
+- If coherent thematic identity emerges → substrate-as-cohesion EMPIRICALLY VALIDATED → rebuild's architectural confidence rises significantly
+- If coherent thematic identity fails to emerge → architectural revision required (substrate hint retained at generation, or richer mechanical-signature input, or fundamental pivot)
+
+**P5 is therefore an empirical-validation phase, not just an integration phase.** Architectural risk profile of the rebuild plan is honest about this distinction.
+
+**Pre-P5 de-risking dispatch fired 2026-05-21:** `agentic_orchestration/dispatches/2026-05-21-legolas-substrate-as-cohesion-empirical-validation-probe.md` (cheap intermediate test; surfaces architectural risk EARLIER than scheduled P5 timing if structural issues exist).
+
+**Scope (implementation):**
 
 Implement LUCB1 best-arm-identification for theme discovery. Build the cohesion-BC archive with LLM-judge measurement. Build the visual-BC archive with galadriel's CV pipeline. Integrate into the Discipline #18 joint-gate.
+
+**v1.2 expanded scope for new node types (per math note v1.1 § 3.4 + § 3.5):**
+- Cohesion-judge prompt design must accommodate **Tier 4 mechanic-altering keystones** thematically (e.g., "Vampiric Strike" → shadow/blood theme; "Glacial Cascade" → water/frost theme)
+- Cohesion-judge prompt design must accommodate **trigger/conditional interaction nodes** thematically (e.g., "Soul Burn → activates when shadow skill X cast; ignites with bleed")
+- These additions extend prompt library + scoring rubric scope beyond original P5 W5.2 framing
 
 #### 6.6.2 Workstreams
 
