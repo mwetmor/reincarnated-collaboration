@@ -81,15 +81,32 @@ Matt's explicit caveat (2026-05-21):
 
 **Post-legolas reality:** Scope D's structural shape stands (canonical-aligned); ALGORITHM gets meaningful enhancement (Tier 4 mechanic-altering + trigger interaction layer); PARAMETER VALUES validated (mostly within canon; some refinements).
 
-### 1.2 The empirical foundation — why this work matters
+### 1.2 The empirical foundation — TRIPLE-WITNESSED mandate for W1.13
 
-The recompose-hive findings (2026-05-19/20) + Track C synthesis (2026-05-21) + W0.10 re-sweep (2026-05-21) jointly establish:
+Three empirical witnesses converge on the same architectural mandate (multi-dim convergence is the load-bearing fix for the Pattern-A pathology):
 
-- **Pattern-A is universal at boss tier under scalar-modifier-only optimization** (100% Pattern-A across all 7 substrates at same calibration; Track C)
-- **The arena-side fix (W0.9 + W0.10) discharges the HIGH-modifier band** (≥0.64) — physical_grappler + hunter both boss_wr 0.000→1.000 post-fix
-- **The LOW-modifier band (≤0.33) remains at 0.000** — modifier-scaling gap requires multi-dim convergence (P1 W1.13 mandate)
+**Witness 1 — Track C synthesis (2026-05-21):**
+- Pattern-A universal at boss tier under scalar-modifier-only optimization (100% across all 7 substrates at same calibration)
+- The substrate severity gradient is calibration artifact, not substrate-intrinsic
+- Convergence-time signal: kits CAN converge to a scalar, but the converged scalar can't satisfy 5-tier WR contract
 
-This document specifies the algorithm that addresses the low-modifier residual.
+**Witness 2 — W0.10 re-sweep (2026-05-21):**
+- Arena migration (W0.9) + boss AI fix (W0.10) together discharge HIGH-modifier band (≥0.64): physical_grappler + hunter both boss_wr 0.000→1.000 post-fix
+- LOW-modifier band (≤0.33) remains at 0.000 — modifier-scaling gap unresolved by arena alone
+- Post-arena-fix signal: arena-side fix is necessary but not sufficient
+
+**Witness 3 — LC-011 reframing (2026-05-21, W0.7 ablation):**
+- B14.5 sidecar #1 "slow convergence" framing was incomplete; empirical reality is **floor-lock NON-convergence**
+- **41.8% of mage_controller generation attempts FAIL at MAX_ITERATIONS=10 with modifier ~0.053** (at MODIFIER_SEARCH_FLOOR=0.01 boundary)
+- Physical/rogue archetypes: 0% FAILED — Pattern-A pathology is concentrated in mage/controller archetypes at LOW modifier band
+- Among CONVERGED classes only, iteration spread is just 1.4× — the historical 2-3× ratio is ENTIRELY the FAILED population
+- **Generation-time signal: 42% of mage/controller kits CAN'T reach valid convergence point** in single-scalar-modifier optimization space
+
+**The same pathology is visible at three pipeline points** — generation-time failure (LC-011) + convergence-time compression (Track C) + post-arena-fix residual (W0.10) all reflect the same underlying truth: **scalar-modifier-only optimization is mathematically underdetermined for the multi-tier WR contract Reincarnated has authored.**
+
+**LC-011 reframing IMPLICATION for W1.13:** the fix is structural (multi-dim convergence per math note v1.1), NOT parametric tuning of current framework. Per discipline #11 + #13b, LC-011 ablation completed empirical confirmation of reframing; LC-011 fix routes to W1.13 (NOT additional parametric ablation in current framework).
+
+**This document specifies the algorithm that addresses the low-modifier residual + generation-time floor-lock failures simultaneously.** All three witnesses point to the same fix; W1.13 IS that fix.
 
 ### 1.3 The ARPG-canon validation (post-legolas)
 
