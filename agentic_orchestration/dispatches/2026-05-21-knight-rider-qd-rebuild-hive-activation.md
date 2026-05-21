@@ -251,6 +251,50 @@ The `node_subset + per_node_coefficients` pair IS the player-adoptable reference
 
 ---
 
+### 2.10 P1 W1.13 architectural prep — math note v1.1 + legolas ARPG canon survey COMPLETE
+
+**Added 2026-05-21 post-W0.10-close.** Math note authoring + ARPG-canon research completed during P0 closing window. Knight-rider should absorb before P1 opens (or at P1 W1.13 fire time, whichever is earlier).
+
+**Authoritative inputs for P1 W1.13:**
+
+1. **Math note v1.1** at `canonical/story/multi-dim-convergence-algorithm-2026-05-21.md` (committed `912e200`)
+   - Complete 5-6-dimensional convergence algorithm spec
+   - WR-skew gradient + multi-tier voting + soft preferences + local optima escape
+   - Scope D-refined parameters (canon-validated post-legolas)
+   - Implementation guidance for rocket at § 9
+   - Critical math-before-code gates at § 10
+
+2. **Legolas ARPG-canon survey** at `agentic_orchestration/legolas/research/arpg-skill-architecture-canon-survey-2026-05-21/` (Mode A; complete)
+   - 10-question survey across major ARPG canon (D2/D3/D4/Immortal/PoE/Last Epoch/Grim Dawn primary; PoE2/Lost Ark/Wolcen secondary)
+   - Per-game data + cross-cutting synthesis
+   - Reincarnated parameter validation (mostly canon-aligned with 4 refinements adopted in v1.1)
+
+**Eight v1.1 amendments knight-rider should be aware of:**
+
+| Amendment | Source | Impact on P1 |
+|---|---|---|
+| 1 — Tier 4 nodes are MECHANIC-ALTERING keystones (not pure-scaling) | legolas SD-1 | W1.13 generation produces ~3-5 mechanic-altering keystone candidates per chain; W1.13 convergence treats Tier 4 selection as discrete categorical |
+| 2 — Trigger/conditional interaction layer (1-2 per chain) | legolas SD-3 | W1.13 generation produces trigger interaction nodes; W1.13 convergence treats trigger selection as discrete categorical |
+| 3 — Tier 1 cost/cooldown playability constraint (L1-playable invariant) | Matt 2026-05-21 | **GENERATION INVARIANT** — tree generator MUST validate each chain has ≥1 L1-playable Tier 1 node before tree finalization |
+| 4 — Gate values 3/5/8 → 2/4/7 (canon-aligned) | legolas SD-2 | Soft-preference penalty calibration uses 2/4/7 |
+| 5 — Active slot cap 5-8 → 5-6 (mobile-first) | legolas SD-4 | W1.13 specialist + B6 UI alignment |
+| 6 — Endgame tuning surface departure acknowledged | legolas SD-5 | Documentation framing; no engineering impact |
+| 7 — Q4 substrate-availability framing | session synthesis | **W1.13 GATING** — P1 W1.1-W1.6 + W1.11 substrate enrichment must close gaps before W1.13 fires |
+| 8 — v1 → v2 canonical-parity expansion trajectory | Matt 2026-05-21 late-amendment | v1 scope 10-15 nodes / 2-4 chains; v2 target 24-30 nodes / 3-5 chains (substrate-growth-gated; post-Profile-A-ship) |
+
+**Implications for P1 workstream sequencing:**
+
+- **W1.1 Ability schema extensions** — extended scope per v1.1 § 3.6: `node_type` enum, `cost`, `cooldown_seconds`, `playable_at_level_1`, `interaction_metadata`, `keystone_effect` fields all required. Math note v1.1 § 3.6 specifies complete schema.
+- **W1.2-W1.6 substrate creation** — Tier 1 playability constraint applies (Amendment 3): generated substrate templates must include L1-playable variants per element/role
+- **W1.11 element-specific substrate enrichment** — uniform depth comprehensive per Track C verdict; quality target supports ~168+ unique skill templates per season
+- **W1.13 NEW workstream** — math note v1.1 is the authoritative algorithmic spec; ARPG-canon survey provides parameter validation; Tier 1 playability + Tier 4 mechanic-altering + trigger interactions all in scope
+
+**Pre-staged W1.13 dispatch:** see `agentic_orchestration/dispatches/2026-05-2X-rocket-w1-13-skill-tree-node-population.md` (authored 2026-05-21; knight-rider fires when P1 W1.13 opens).
+
+**Critical Q4 substrate-gating check before W1.13 fires:**
+
+Per legolas Phase 1 substrate audit + math note v1.1 § 8.3.1, current engine has substrate gaps across 4 of 7 BC axes. **W1.13 implementation cannot fire until P1 W1.1-W1.6 + W1.11 close these gaps.** Knight-rider sequencing: P1 substrate enrichment → P1 W1.13 (math note + canon survey ready as prerequisite inputs).
+
 ### 2.9 Gauntlet architecture — single implementation, single execution path; P7 certification is archive query
 
 **Matt 2026-05-21 surfaced critical architectural gap:** my prior framing implied two separate gauntlets (convergence + validation) which the recompose-hive's "fix the arena, not the synergy" principle warns against. Matt's follow-up: "*do we need the second gauntlet in that case?*" — and then "*might save engineering cycles due to redundant process elimination.*" That second catch eliminated phantom redundancy I had introduced.
