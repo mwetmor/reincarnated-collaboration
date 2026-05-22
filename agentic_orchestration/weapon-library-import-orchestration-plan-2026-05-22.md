@@ -102,11 +102,28 @@ For each row in knowledge_entry_reference_images:
 | Restricted / unclear | NO download | Flag for legal review |
 | GPL / proprietary | NO download | Incompatible |
 
-**Storage budget (initial recommendation):**
-- 50,000 entries × ~1 canonical image per entry × ~500KB average = ~25GB
-- Plus 30% supplementary images × ~500KB = ~7.5GB
-- **Total target: ~30-35GB** for full canonical + selective supplementary coverage
-- Stored in: `~/Games/reincarnated-loadout/data/weapon_reference_images/<source_library>/<weapon_id>/<image_hash>.<ext>`
+**Storage budget — REVISED (Matt 2026-05-22 latest):**
+
+The original ~30-35GB full-canonical-download estimate is too much disk pressure for a dev machine. Phased approach instead:
+
+| Phase | Approach | Disk cost | When triggered |
+|---|---|---|---|
+| **v1 default** | **URL-only**; capture metadata; fetch on-demand for any picture-use | **0 GB** | Starting state — no automatic download |
+| **v1 thumbnail cache (if needed)** | Download canonical-image thumbnails (256x256-512x512, ~50KB each × 50K = ~2.5GB); embeddings computed on thumbnails; full-res still URL | ~2.5 GB | If URL-only on-demand fetching becomes workflow bottleneck (>12hr clustering pass; designer-review latency etc.) |
+| **v1.1+ archival** | Selective full-res download of CC0/CC-BY canonical images only (~10-15GB of license-clean assets) | ~10-15 GB | Long-term substrate stability (link-rot insurance); not v1 concern |
+
+**Why URL-only is the v1 default:**
+
+- Pattern 6 axis discovery embedding extraction works on URL-fetched-then-discarded thumbnails (cheap; one-time cost per weapon)
+- Cluster post-labeling visual inspection works via gallery-thumbnail + URL click-through
+- ChatGPT image-gen prompt reference accepts URL pass-through (no local file needed)
+- Galadriel visual-similarity validation fetches on-demand at validation time
+- Engine never displays reference images (dev-time tooling only)
+
+**Engine never needs reference images locally.** Reference images are dev-time validation + Pattern-6-axis-discovery tooling. Runtime engine consumes the converged weapon-model output (3D meshes via Unity), not reference photos.
+
+**Storage path (when downloads do happen):**
+`~/Games/reincarnated-loadout/data/weapon_reference_images/<source_library>/<weapon_id>/<image_hash>.<ext>`
 
 **This download pass becomes a separate dispatch** authored when Pass 1 completes:
 
