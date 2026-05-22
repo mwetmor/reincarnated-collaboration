@@ -1,38 +1,54 @@
-# Gear-Archetype Rule-Table v1 — 252-Vector × 15-Archetype Derived-Tag Mapping for W1.15-LITE
+# Gear Substrate Rule-Table v1 — Substrate-Vector × Gear-Substrate Mapping for W1.15
 
-**Date:** 2026-05-22
+**Date:** 2026-05-22 (authored under G1-LITE framing) / amended 2026-05-22 evening (gear-heavy + archetype-drop + role_orientation-drop reframe)
 **Author:** gandalf (story-and-design steward; senior designer)
-**Status:** v1 rule-table; pre-W1.15-LITE-implementation; rocket sim-viability verification required before lock
-**Authority:** Matt 2026-05-22 — pre-authorization B (gandalf drafts rule table using `ELEMENT_SCALING_ATTRIBUTE` + role_orientation + range_profile + stat_distribution as inputs; rocket verifies sim-viability for each archetype in the value-set before locking)
+**Status:** v1 rule-table SURFACE-CLEANED for naming + scope; FULL-RESTRUCTURE PENDING in tomorrow's canonical doc session (sections 4-9 still carry 252-combination v0.9 structure; 63-combination v1 restructure pending under role_orientation drop)
+**Authority:** Matt 2026-05-22 (this session) — three canonical calls:
+- Drop "archetype" terminology engine-wide; replace with "gear substrate" / "gear" (concept) and "reference build" (for ARPG-canon descriptive labels)
+- Drop `role_orientation` from rule-table input space as vestigial pre-W0.2 categorical thinking incompatible with substrate-as-cohesion
+- Rename G1-LITE → G1 under gear-heavy promotion (gear as real mechanical substrate; LITE framing retired)
+
 **Companions:**
-- `canonical/story/gear-as-substrate-2026-05-21.md` § 0.5.6 LITE path + § 3 (15-archetype catalogue)
+- `canonical/story/gear-as-substrate-2026-05-21.md` § 3 (15-gear catalogue source — terminology pending sweep)
 - `canonical/story/bdi-omega-tau-tables-v1-2026-05-22.md` — BDI ω/τ tables (informs rule-design decisions)
 - `~/Games/reincarnated-engine/src/reincarnated/generation/element_biases.py:28` — ELEMENT_SCALING_ATTRIBUTE
-- `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` v1.3 § 6.2.2 — W1.15-LITE workstream
+- `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` v1.3 § 6.2.2 — W1.15 workstream
+- `canonical/story/role-orientation-vestigial-audit-2026-05-22.md` (pending tomorrow morning) — vestigial taxonomy cleanup canonical
+- `canonical/story/gear-heavy-promotion-2026-05-22.md` (pending tomorrow morning) — LITE→HEAVY rename + tier hierarchy + WR-bracket-under-gear sequencing
 
 ---
 
 ## 0. TL;DR
 
-The G1-LITE rule table maps the 4-dimensional substrate-vector space to the 15-archetype catalogue per the LITE-path derived-tag formulation:
+The G1 rule table maps the substrate-vector space to the 15-gear catalogue. Gear is a substrate in the post-W0.2 substrate-as-cohesion sense (emergent identity, not pre-imposed archetype).
 
-`signature_gear_archetype = f(dominant_element, role_orientation, range_profile, stat_distribution_signature)`
+`signature_gear = f(dominant_element, range_profile, stat_distribution_signature)`
 
-**Input space (252 combinations):**
+**Input space (63 combinations under post-amendment v1; sections 4-9 below still enumerate the pre-amendment 252-combination structure pending the full restructure):**
 - `dominant_element`: 7 values (fire, water, earth, wind, lightning, holy, shadow) — physical excluded from canonical-7 per D2 resolution
-- `role_orientation`: 4 values (damage, control, support, hybrid)
 - `range_profile`: 3 values (melee, medium, ranged)
 - `stat_distribution_signature`: 3 values (INT-dominant, WIS-dominant, STR-dominant)
 
-**Output:** 15 gear-archetypes per `gear-as-substrate-2026-05-21.md` § 3 + `no_signature` rare archetype-mismatch case
+**Output:** 15 gear values per `gear-as-substrate-2026-05-21.md` § 3 + `no_signature` rare mismatch case (rocket-recommended valid output per W1.1 surface)
 
-**Rule design principles (per dispatch § 3.4):**
+**Rule design principles:**
 - Canonical pairings privileged (holy + censer; shadow + veil; lightning + wand)
 - Range-axis dominance (ranged + INT → focus-orb / wand family; melee + STR → greatsword / warhammer family)
-- Role-axis tie-breakers (control + earth → chain or warhammer; damage + earth → greatsword or warhammer)
+- Cross-attribute / off-natural branches handle rare cases (e.g., a fire class that is STR-dominant via gear-and-trait pressure)
 - Surprising-but-evocative pairings allowed where genre-precedent supports (holy + blunderbuss = Holy Pirate Sniper)
+- Role flavor emerges from converged BC mechanical signature post-generation; NOT pre-imposed as rule-table input
 
-Sim-viability concerns flagged per-archetype for rocket verification.
+Sim-viability concerns flagged per-gear for rocket verification.
+
+**What this amendment changes:**
+
+The original 2026-05-22 morning authoring of this doc carried `role_orientation` as a 4th input dimension and used "gear-archetype" as both the concept-name and output-value-name. Matt's 2026-05-22 evening session retired both:
+
+1. **role_orientation drop:** vestigial pre-W0.2 categorical thinking. Generation is substrate-agnostic; role emerges from the 8 BC axes post-convergence, not from pre-imposed `damage / control / support / hybrid` tags. Diagnostic-only groupings (`mage_controller`, `physical_rogue`) remain available for legacy attribution tooling but are NOT generation inputs.
+2. **archetype terminology drop:** "gear-archetype" implies categorical pre-imposition. Replaced with "gear substrate" (concept) or "gear" (catalogue entry). The 15-gear catalogue stays; only the naming changes.
+3. **LITE→HEAVY rename:** gear-as-substrate is real in v1+ at the derived-tag-plus-tier-hierarchy level; full *generative* substrate promotion remains v1.1+ (G-PROMOTE-v1.1). LITE framing retired.
+
+**Sections 4-9 below carry the pre-amendment 252-combination structure** (since they were authored against the 4-input space). The full restructure to 63-combination v1 is queued for tomorrow's canonical doc session. The principles + catalogue + naming above are the canonical surface as of this amendment; the table structure below is reference-only-until-restructured.
 
 ---
 
@@ -52,16 +68,13 @@ Per `element_biases.py:28` ELEMENT_SCALING_ATTRIBUTE (canonical-7 lock per D2):
 | holy | WIS | judgment / blessing / sustain |
 | shadow | INT | trade-off / drain / ambush |
 
-### 1.2 role_orientation (4 values)
+### 1.2 [RETIRED — role_orientation] (was 4 values)
 
-Per `project_role_orientation_taxonomy.md` (2026-05-08 decision):
+**Retired 2026-05-22 evening per Matt canonical call.** role_orientation was a pre-W0.2 categorical surface (damage / control / support / hybrid) that survived the archetype-template cleanup as legacy scaffolding. Generation is substrate-agnostic; role emerges from the 8 BC axes (damage tempo, control density, proxy density, defensive profile, etc.) post-convergence — not from pre-imposed categorical tags.
 
-| Role | Mechanic emphasis |
-|---|---|
-| damage | direct damage output; self-sustain is damage-class flavor |
-| control | crowd-control + debuff; binding / chilling / silencing |
-| support | multi-actor buff / cleanse / heal (gated to multi-actor contexts) |
-| hybrid | balanced two-axis kit (damage+control; damage+support; control+support) |
+`project_role_orientation_taxonomy.md` (2026-05-08) is marked historical/diagnostic-only, not architectural commitment. The `mage_controller` / `physical_rogue` groupings used in W0.7 LC-attribution work remain available as **legacy diagnostic-only attribution tooling**, NOT as generation inputs.
+
+Full canonical rationale: `canonical/story/role-orientation-vestigial-audit-2026-05-22.md` (pending tomorrow's canonical authoring session).
 
 ### 1.3 range_profile (3 values)
 
@@ -92,9 +105,9 @@ A class can rarely be off-natural (e.g., a fire class that is STR-dominant via g
 
 ---
 
-## 2. 15-archetype catalogue (per gear-as-substrate § 3)
+## 2. 15-gear catalogue (per gear-as-substrate § 3)
 
-| # | Archetype | Range | Tempo | Stance | Natural element family |
+| # | Gear | Range | Tempo | Stance | Natural element family |
 |---|---|---|---|---|---|
 | 1 | Greatsword | melee | slow | knight-overwhelming | physical / fire |
 | 2 | Twin daggers | melee | fast | rogue-precision | shadow / wind |
