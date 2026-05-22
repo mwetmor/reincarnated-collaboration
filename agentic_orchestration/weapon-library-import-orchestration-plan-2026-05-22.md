@@ -9,7 +9,114 @@
 
 ---
 
-## 0. TL;DR
+---
+
+## ⚠️ MAJOR RE-PLAN — 2026-05-22 LATE EVENING (Matt correction)
+
+**The prior plan (below this re-plan section) targeted 3D MODEL libraries as primary substrate. That was wrong-target.** Matt's actual ask, clarified late evening: **deep weapon knowledge data** (text + structured properties + cultural/historical/genre context) is the primary substrate Pattern 6 axis discovery wants. 3D models become *visual reference attachments* to knowledge entries, not the primary substrate.
+
+**Knowledge sources (PRIMARY; re-planned Track A):**
+
+| Source | Format | Crawl viability | Estimated entries |
+|---|---|---|---|
+| **Wikipedia weapons categories** | REST API; structured infoboxes | Documented; crawler-friendly | ~5,000-15,000 entries |
+| **Wikidata weapon Q-items** | SPARQL endpoint; CC0 | Documented; ideal | ~2,000-5,000 entries with rich property graphs |
+| **Game wikis (Fandom-hosted)** | MediaWiki API per wiki | Crawler-friendly (verify per-wiki robots.txt) | ~2,000-10,000 across PoE/D3/D4/Last Epoch/Dark Souls/Monster Hunter/WoW/Bleach/SAO |
+| **D&D / Pathfinder SRD** | Open Game License; static | Free; documented | ~100-200 weapons with rich mechanical taxonomy |
+| **Royal Armouries / Met Museum / Smithsonian** | Various open APIs | Open data; museum-grade | ~5,000-10,000 historical weapons |
+| **TVTropes weapon tropes** | Crawler-friendly; CC-BY-SA | Verify robots.txt | Fictional-genre taxonomy enrichment |
+| **IMFDB** (Internet Movie Firearms Database) | Crawler-friendly | Verify robots.txt | Movies/TV weapon canon |
+| **Anime/manga weapon wikis** | Mostly Fandom-hosted | Crawler-friendly | Isekai-relevant substrate enrichment |
+
+**Total realistic target: ~15,000-30,000 weapon knowledge entries** with rich textual + structured property data. ~50-200MB of substrate data.
+
+**Pattern 6 axis discovery operates on knowledge features.** Discovered axes (from PCA / factor analysis on knowledge-feature vectors) will be substantive: edged-vs-blunt; one-vs-two-handed; melee-vs-projectile; cultural-lineage; historical-vs-fictional; ceremonial-vs-utility; genre-anchored. These are real substrate dimensions, not "long-vs-short" geometric artifacts.
+
+**3D model libraries (SECONDARY; original plan; reframed Track B):**
+
+Sketchfab + Kenney + OGA + Smithsonian models become VISUAL REFERENCE ATTACHMENTS to knowledge entries (many-to-many: one knowledge entry may have N model references; one model may render N knowledge entries). The original 11-dispatch plan below (D1-D11) still applies for Track B but at REDUCED PRIORITY.
+
+**Phase D Meshy generation gap-fill becomes the canonical visual pipeline** when knowledge entries lack model coverage:
+
+```
+Weapon knowledge entry (rich text + properties)
+   ↓
+ChatGPT image-gen (prompted from knowledge data; T-pose-isolated; plain background; per canonical character-image specs adapted for weapon-props)
+   ↓
+Meshy image-to-3D (mesh + PBR textures)
+   ↓
+Meshy rigging+animation (if needed; most weapons are static-attach)
+   ↓
+Unity assembly (parented to RightHand bone; VFX attached per canonical galadriel § 8 rules)
+```
+
+This is the SAME pipeline already validated for characters (Canary work earlier today); adapted for weapons.
+
+**Schema additions needed:**
+
+```sql
+-- Knowledge repository (PRIMARY substrate)
+CREATE TABLE weapon_knowledge_entries (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  canonical_name TEXT NOT NULL,                      -- "Katana", "Hammerdin Concentration Hammer", etc.
+  source_library TEXT NOT NULL,                       -- "wikipedia" / "wikidata" / "poe-wiki" / "smithsonian" / etc.
+  source_url TEXT NOT NULL,                           -- canonical entry URL
+  source_id TEXT,                                     -- library-specific ID
+  description_text TEXT,                              -- main entry text
+  structured_properties JSON,                         -- infobox/property data (period, country, length, weight, etc.)
+  cultural_lineage_tags JSON,                         -- free-text array (from structured fields where available)
+  historical_period TEXT,
+  genre_appearances JSON,                             -- array: "historical", "fantasy", "sci-fi", "anime", etc.
+  related_entries JSON,                               -- canonical_names of related/derived weapons
+  license_class TEXT,                                  -- per-source license (CC-BY-SA for Wikipedia; CC0 for Wikidata; etc.)
+  imported_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  -- Pattern 6 features (post-import pass)
+  text_embedding BLOB,                                 -- sentence-transformer / similar
+  structured_feature_vector BLOB,                      -- numeric properties as vector
+  derived_axis_loadings BLOB,                          -- post-axis-discovery
+  cluster_id INTEGER REFERENCES clusters(id)
+);
+
+-- Join table: knowledge ↔ models
+CREATE TABLE knowledge_model_attachments (
+  knowledge_entry_id INTEGER REFERENCES weapon_knowledge_entries(id),
+  weapon_id INTEGER REFERENCES weapons(id),  -- the existing weapons table (3D models)
+  attachment_confidence REAL,                 -- 0-1; how well does this model match this knowledge entry?
+  attachment_source TEXT,                     -- "manual" / "name-match" / "embedding-similarity" / "post-Meshy-gen"
+  PRIMARY KEY (knowledge_entry_id, weapon_id)
+);
+
+-- Canonical entry merging across sources
+CREATE TABLE knowledge_entry_canonical_merge (
+  canonical_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  canonical_name TEXT NOT NULL UNIQUE,
+  merged_entry_ids JSON,                       -- array of weapon_knowledge_entries.id merged into this canonical
+  merge_strategy TEXT,                          -- "name-exact-match" / "synonym-resolution" / "manual"
+  merge_confidence REAL
+);
+```
+
+**Updated overnight cascade (3 parallel tracks):**
+
+| Track | Owner | Scope | Status |
+|---|---|---|---|
+| **A — Knowledge Crawls (PRIMARY)** | knight-rider orchestrating; legolas executing | Wikipedia + Wikidata + game wikis + SRD + museum data; per-source robots.txt verification first | Authorized; fires after re-plan commit |
+| **B — 3D Model Imports (SECONDARY)** | knight-rider orchestrating; legolas executing | Sketchfab + Kenney + OGA (pending OGA robots.txt); attached to knowledge entries via name-match where possible | Authorized; fires after Track A starts |
+| **C — Canonical Doc Authoring** | gandalf sub-agent | Six vestigial-pattern audit doc + stat-derivation doc + gear-heavy-promotion doc + hive-mind-protocol elevation | Authorized; fires in parallel |
+| **D — Discipline #20 Authoring** | jack-ryan | robots.txt + Claude-agent directive respect canonical discipline | Authorized per Matt overnight fire-cascade approval |
+
+**Pre-flight check additions:**
+
+| # | Check | What |
+|---|---|---|
+| P0.8 | Per-source robots.txt verification | For EACH crawl target: fetch `robots.txt`; verify `User-agent: ClaudeBot` and `User-agent: anthropic-ai` are NOT Disallow-listed; if blocked, source routes to non-Claude implementation or skip |
+| P0.9 | Per-source TOS check | For each source: fetch ToS; verify automated-research-access compatible (Wikipedia/Wikidata are explicit OK; Fandom-hosted wikis generally OK; museum APIs are explicit OK; TVTropes worth checking; IMFDB worth checking) |
+
+**Original plan below this section remains as Track B reference (3D model import workstream); it is not deleted but it is no longer primary.**
+
+---
+
+## 0. TL;DR (ORIGINAL — SUPERSEDED BY RE-PLAN ABOVE; KEPT AS TRACK B REFERENCE)
 
 Build out the **gear-substrate** as a vast queryable weapon library populating the greenfield SQLite DB at `/Users/admin/Games/reincarnated-loadout/data/telemetry.db`. Sequence eleven dispatches across five operational phases. Final-state output: ~2,000-6,500 weapons indexed with rich metadata (mechanical properties + descriptive tags + source provenance + BDI ω-scores), clustered into emergent gear-substrate groups, semantically labeled by gandalf + Matt for player-facing thematic identity, ready for engine consumption via substrate-vector queries.
 
