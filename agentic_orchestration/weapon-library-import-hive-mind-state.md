@@ -10,10 +10,10 @@
 
 | Field | Value |
 |---|---|
-| Timestamp | 2026-05-22 — Wave-1 COMPLETE; Wave-1.5 fix + Wave-2 (H/I/J/K) firing |
-| Cycle | 5 (DISCOVERY returned; Wave-1 wikipedia false-positive caught + quarantined; Wave-1.5 + Wave-2 firing) |
+| Timestamp | 2026-05-22 06:25 EDT — Wave-3 well underway; Tracks L/M/N + Wiki-fix + Met + A3 all firing/finishing |
+| Cycle | 7 (Wave-3 mostly returned; ODIN delivered 3,998 modern military; trajectory to floor solid) |
 | Orchestrator | knight-rider (this session) |
-| State | WAVE_2_FIRING + WIKIPEDIA_FIX_FIRING |
+| State | WAVE_3_IN_FLIGHT — clean total 52,309 / 100K (52.3%) |
 
 ---
 
@@ -21,13 +21,16 @@
 
 | Table | Count | Updated |
 |---|---|---|
-| `weapon_knowledge_entries` (total all tags) | 160,723 | Cycle 5 |
-| `weapon_knowledge_entries` (clean — excluding `wikipedia-unfiltered`) | **30,389** | Cycle 5 |
-| `weapons` (3D models) | 5,162 | Cycle 5 |
-| `knowledge_entry_reference_images` | 40,689 | Cycle 5 |
-| `knowledge_model_attachments` | 0 | (not populated by Wave-1; future track) |
+| `weapon_knowledge_entries` (total all tags) | 182,228 | Cycle 7 |
+| `weapon_knowledge_entries` (clean — excluding `wikipedia-unfiltered`) | **52,309** | Cycle 7 |
+| `weapons` (3D models) | 5,162 | Cycle 7 |
+| `knowledge_entry_reference_images` | 58,047 | Cycle 7 |
+| `knowledge_model_attachments` | 0 | (not populated; future track) |
 
-**Progress vs floor (CLEAN COUNT):** **30,389 / 100,000 → 30.4%**
+**Progress vs floor (CLEAN COUNT):** **52,309 / 100,000 → 52.3%**
+
+**Top source contributors (clean):**
+- wikidata 12,371 | royal_armouries 11,840 (climbing) | nick-aschenbach-dnd-data 6,297 | wikipedia 4,600 (fix v2 climbing) | wow-classic-items 4,440 | **odin-army-tradoc 3,998 (Track N — CC0 US gov)** | **bsdata-warhammer-aos 2,183 (Track M)** | cataclysm-dda 1,599 | osrsbox-db 940 | pf2ools-pf2ools-data 688 | met-museum 613 (climbing) | diablo2-d2data 521 | path-of-exile-repoe 494 | bloqhead-demigods 320 | elden-ring-erdb 307 | fextralife-ds2 239 | fextralife-ds3 219 | gta-v-data 183 | fextralife-ds1 133 | 5e-bits-2024 110 | fextralife-elden-ring 100 | souls-api-thomaslincoln 58 | 5e-bits-2024 (orig) 37 | army-recognition 19 (climbing)
 
 **Breakdown by source_library (CLEAN — quality verified):**
 | source_library | count | quality |
@@ -81,12 +84,16 @@
 | 44095 | B1 Sketchfab | `track_b1_sketchfab_crawl.py` | wave-1 | 15-30 min |
 | 44110 | B3 OGA | `track_b3_oga_crawl.py` | wave-1 | 100-150 min |
 | 44284 | A1.3 Commons enricher | `a1_3_commons_enricher.py` | wave-1 (re-fired post URL-fix) | 5-11 hours |
-| 44776 | A3 Royal Armouries | `track_a3_royal_armouries.py` | wave-1 | ~28 hours (20-items/page cap) |
-| ~~44292~~ | ~~Track G~~ | ~~`track_g_import.py`~~ | ~~completed 2.9s~~ | DONE |
+| 44776 | A3 Royal Armouries | `track_a3_royal_armouries.py` | wave-1 (01:00 AM EDT start) | ~22 hours remaining |
+| 64952 | Wikipedia FIX v2 | `a1_2_wikipedia_dump_parser_v2.py` | wave-1.5 (06:04 AM start) | ~60 min remaining |
+| 65205 | H Met Museum API | `track_h_met_museum.py` | wave-2 (06:06 AM start) | ~30 min remaining |
+| 66320 | L Fextralife soulslike | `track_l_fextralife_soulslike.py` | wave-3 (06:19 AM start) | ~15 min remaining |
+| 66412 | M GitHub supplemental | `track_m_supplemental_bundle.py` | wave-3 (06:19 AM start) | nearly done |
+| 66987 | N Army Recognition crawl | `track_n_modern_military.py` | wave-3 (06:21 AM start) | ~5 min remaining |
 
 To kill all in-flight PIDs (graceful wind-down):
 ```bash
-kill -TERM 43941 43950 44095 44110 44284 44776
+kill -TERM 44776 64952 65205 66320 66412 66987
 ```
 
 ---
@@ -201,7 +208,24 @@ Flags Matt should be aware of (no blocking; recorded for downstream):
 
 **Discipline #11 lesson:** empirical inspection caught the Wikipedia false-positive at T+5hr post-fire instead of after committing to floor-reached wind-down. Audit-preservation pattern (rename source_library rather than DELETE) keeps the bad data inspectable.
 
-### Cycle 6 — TBD (Wave-2 returns + Wave-3 fire decision)
+### Cycle 6 — Wave-2 all returned; Wave-3 fired (2026-05-22 06:00-06:20 EDT)
+
+- Wave-2 J/K/I/H all returned cleanly. Track J 4,440 WoW; Track K 1,505 across 4 ARPG sources; Track I 1,599 Cataclysm (3 schema-iterations during fire); Track H Met Museum still firing in background (~13K target)
+- Wikipedia-fix v2 (PID 64952) delivering CLEAN weapons (T+5min spot-check 100% true positive: AK-74, Fat Man, M61 Vulcan, Gladius, Gungnir, Naginata, Uzi)
+- Authored Wave-3 dispatches L/M/N + fired sub-agents in parallel
+
+### Cycle 7 — Wave-3 strong returns; modern military gap filled (2026-05-22 06:20-06:25 EDT)
+
+- **Track N modern military:** ODIN US Army TRADOC delivered 3,998 entries (CC0 US gov public domain). Sub-agent reverse-engineered the DotCMS API via JS bundle analysis. Army Recognition continuing at 5s/request (PID 66987; AR ~50 article URLs to ingest). globalmilitary.net dispositioned RED (Cloudflare WAF blocks regardless of permissive robots). Small Arms Survey structural-skip (aggregate stats, no per-weapon rows).
+- **Track M GitHub bundle:** Pf2ools 688 + Warhammer AoS 2,183 (huge surprise yield from BSData tabletop) + 5e-2024 110 + Souls_API 58 = 3,039 rows. Exceeds acceptance 800.
+- **Track L Fextralife:** progressing nicely; DS1/DS2/DS3/Bloodborne/ER all contributing; ~880-970 forecast.
+- **Wikipedia fix:** 4,600 clean rows already (target ~6K); 100% true-positive on spot-check
+- **Met Museum:** 613 climbing (target ~13K)
+- **Royal Armouries:** 11,840 climbing (target ~67K; ~22hr to go)
+
+**Wave-3 floor-trajectory check:** at current rates, 100K floor projected to clear in next 6-12 hours (driven mostly by Royal Armouries continuing to deliver museum entries + Met API completing + Wikipedia fix completing). Ceiling 200K NOT projected on Wave-3 alone — would need a Wave-4 push to reach ceiling.
+
+### Cycle 8 — TBD (long-runners completing; possible Wave-4 if floor needs more margin)
 
 ---
 
