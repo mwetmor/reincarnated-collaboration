@@ -63,6 +63,63 @@ This is achievable through structured multi-pass crawls + targeted gap-fill, NOT
 
 **Knight-rider extension message sent** (per same conversation; knight-rider's running commission expanded to incorporate completeness mandate; tomorrow's knight-rider session takes over after first-pass completes).
 
+### Image Download — Descriptor-Gated Decision Pass (Matt 2026-05-22 latest)
+
+Per Matt 2026-05-22 latest evening: **Pass 1 captures image URLs + license metadata; an explicit downstream pass evaluates each image and decides whether to download based on descriptors.** This is storage-aware, license-aware, quality-aware procurement — not bulk-download-everything.
+
+**The decision logic per image** (post-Pass-1; runs as a separate dispatch):
+
+```
+For each row in knowledge_entry_reference_images:
+  IF license_class IN ('GPL', 'CC-BY-NC', 'restricted', 'unknown'):
+    SKIP — license incompatible with our intended use; flag for legal review
+  ELIF width_px < 256 OR height_px < 256:
+    SKIP — resolution too low for reference-image quality validation
+  ELIF descriptor_relevance_score < 0.5:
+    SKIP — image descriptor doesn't match weapon entry well enough
+  ELIF NOT is_canonical AND existing_canonical_count_for_entry >= 1:
+    SKIP — entry already has canonical; this is supplementary; defer to bandwidth pass
+  ELIF storage_used_total > storage_budget:
+    SKIP — over budget; flag for review
+  ELSE:
+    DOWNLOAD — fetch image_url with attribution credit if CC-BY*; store local_path; update row
+```
+
+**Descriptor-relevance score** computed by:
+- Image caption text similarity to weapon canonical_name (embedding-based; threshold ~0.5)
+- Image source authority weight (museum > game wiki > fan upload)
+- Image age/freshness (newer is preferred for game-canon; older is preferred for historical-authenticity)
+
+**License-tier policy:**
+
+| License | Download? | Use? |
+|---|---|---|
+| CC0 | YES | Free use including commercial; no attribution required |
+| CC-BY | YES | Free use with attribution; auto-generate attribution credit |
+| CC-BY-SA | YES (download); CONDITIONAL (use) | Download for reference; check share-alike compatibility before commercial use (per CC-BY-SA legal review carry) |
+| Public Domain | YES | Free use; museum metadata note recommended |
+| Fair-use (TVTropes-style) | NO download | Reference only; never redistribute |
+| Restricted / unclear | NO download | Flag for legal review |
+| GPL / proprietary | NO download | Incompatible |
+
+**Storage budget (initial recommendation):**
+- 50,000 entries × ~1 canonical image per entry × ~500KB average = ~25GB
+- Plus 30% supplementary images × ~500KB = ~7.5GB
+- **Total target: ~30-35GB** for full canonical + selective supplementary coverage
+- Stored in: `~/Games/reincarnated-loadout/data/weapon_reference_images/<source_library>/<weapon_id>/<image_hash>.<ext>`
+
+**This download pass becomes a separate dispatch** authored when Pass 1 completes:
+
+| Dispatch | Owner | When |
+|---|---|---|
+| **D-IMG-DOWNLOAD** | knight-rider next session (or rocket if treated as engine-side ETL) | After Pass 1 completes; reads `knowledge_entry_reference_images` table; applies descriptor-gated decision logic; downloads selectively |
+| Duration | 4-8 hours background process | Per-image fetch with rate-limit + license-attribution + checkpoint |
+| Discipline #19 | OS-level background; JSON summary artifact; resume-on-failure via downloaded-list checkpoint | Per canonical pattern |
+
+**Agents can make the decision autonomously** based on the descriptor logic above; Matt holds gate on bulk legal-review cases (CC-BY-SA commercial; restricted-unclear). Default policy is permissive on CC0/CC-BY; conservative on CC-BY-SA/fair-use.
+
+Note: the field naming above is illustrative; the actual schema column names follow what legolas already designed plus the `descriptor_relevance_score` field which may need adding.
+
 ---
 
 ## ⚠️ MAJOR RE-PLAN — 2026-05-22 LATE EVENING (Matt correction)
