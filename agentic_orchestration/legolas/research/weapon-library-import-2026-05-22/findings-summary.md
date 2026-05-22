@@ -71,10 +71,37 @@ Four-phase import plan, all $0:
 
 ## Open Carries — Knowledge Gaps Needing Matt's Call
 
-1. **Meshy.ai bulk API** — no public API documented; web scrape required for Phase B. Worth a direct Meshy outreach for partner access before Phase B dispatch.
+1. ~~**Meshy.ai bulk API** — no public API documented; web scrape required for Phase B.~~ **RESOLVED 2026-05-22 evening (Matt update):** Matt provides an authenticated Meshy API key via `MESHY_API_KEY` env var. Meshy API documentation lives at **https://docs.meshy.ai/en**. Phase B path becomes API-driven structured crawl, NOT web scrape. This materially improves: TOS compliance (unambiguous authenticated user), speed (likely hours not days for 60K), structured-metadata fidelity (typed responses; no HTML inference), rate-limit handling (documented), Discipline #19 compliance (bounded background process; structured progress; resume-on-failure feasible).
 2. **Smithsonian weapon count** — `api.data.gov` key required for precise enumeration; estimate 100–400 weapons. Resolve at Phase C dispatch.
 3. **CC-BY-SA legal status** — share-alike clause may be compatible with commercial games if assets kept separate from code; currently set `game_approved=0`. Matt/legal review recommended.
 4. **ω-analysis pass timing** — `dominant_element_affinities` column must be seeded from BDI ω-table at Phase B import time (before Phase C) for density-routing by element to function correctly.
+
+---
+
+## API Access Addendum — Operational Pattern for Phase B Import Dispatch
+
+**Authentication:**
+- Env var: `MESHY_API_KEY` (set by Matt locally; `.env` file gitignored; never hardcoded; never logged)
+- API docs: https://docs.meshy.ai/en (reference for endpoint inventory, request schemas, rate limits)
+- Pattern inheritance: same as galadriel's `OPENAI_API_KEY` handling per `~/Games/reincarnated-engine/scripts/pitch/canary_meshy_regen.py`
+
+**Pre-dispatch verification step (recommended before import script runs):**
+- Confirm key scope covers **library browse endpoints** (model enumeration), not only text-to-3D generation. If browse access not available with this tier, request scope expansion OR fall back to authenticated-scrape (key as auth header + higher rate limits).
+- Quick probe: `curl -H "Authorization: Bearer $MESHY_API_KEY" https://api.meshy.ai/...` against library-list endpoint.
+
+**Import script discipline (per Discipline #19 RATIFIED 2026-05-22):**
+- Bounded background process (`Bash(run_in_background=true)` or `nohup ... > log 2>&1 &`)
+- Rate-limit-aware batching with exponential backoff
+- Resume-on-failure via DB row checkpointing (60K is long; can't lose progress)
+- Structured progress logging at known path
+- JSON summary artifact as final-act cross-session continuity
+- Status checks via `SELECT COUNT(*) FROM weapons WHERE source_library='meshy'` direct one-shot Bash queries
+
+**Cost ledger:**
+- Track Meshy Pro credits consumed per call OR per-batch fixed costs
+- Append to existing cost-ledger pattern at `/Users/admin/Games/reincarnated-loadout/public/pitch/cost-ledger.json` (or a dedicated weapon-library-import ledger if separation cleaner)
+
+This addendum was added by gandalf 2026-05-22 evening after Matt provided the API direction. The forthcoming import dispatch (authored tomorrow morning) will operationalize these specifics into a runnable bounded commission.
 
 ---
 
