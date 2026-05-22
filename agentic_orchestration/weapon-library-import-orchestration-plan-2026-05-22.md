@@ -112,6 +112,68 @@ CREATE TABLE knowledge_entry_canonical_merge (
 | P0.8 | Per-source robots.txt verification | For EACH crawl target: fetch `robots.txt`; verify `User-agent: ClaudeBot` and `User-agent: anthropic-ai` are NOT Disallow-listed; if blocked, source routes to non-Claude implementation or skip |
 | P0.9 | Per-source TOS check | For each source: fetch ToS; verify automated-research-access compatible (Wikipedia/Wikidata are explicit OK; Fandom-hosted wikis generally OK; museum APIs are explicit OK; TVTropes worth checking; IMFDB worth checking) |
 
+### MEMO FOR LEGOLAS — prioritize sources with reference images (Matt 2026-05-22 late evening)
+
+**Why this matters:** later in the pipeline, we'll generate weapon visuals via ChatGPT image-gen → Meshy mesh-gen. We need **reference images for validation** — to check whether our generated output matches authoritative reference photos. Without these, we have no quality validation loop for the gap-fill visual pipeline.
+
+**Most knowledge sources have images already; capture them as first-class data:**
+
+| Source | Image availability | What's captured |
+|---|---|---|
+| **Wikipedia** | Almost always; Commons-licensed (CC-BY-SA / CC0 / PD) | Main infobox image; gallery images; per-section illustrations |
+| **Wikidata** | Property P18 (`image`) links to Commons | Single canonical image per weapon Q-item |
+| **Wikimedia Commons** | Direct image repository; license metadata structured | Multiple-angle photos when available |
+| **Smithsonian / Royal Armouries / Met Museum** | Museum-grade photos with structured metadata | High-quality reference photos; CC0 or public-domain in most cases |
+| **Game wikis (Fandom-hosted)** | In-game weapon renders / item icons / 3D viewer captures | Per-weapon visual identity; rendered in-game-canon style |
+| **D&D Beyond / Pathfinder SRD** | Illustration art per weapon entry | Stylized fantasy renders; CC-BY for SRD subset |
+| **TVTropes** | Example images per weapon-trope page | Mixed; usually fair-use stills |
+| **IMFDB** | Movie/TV screenshots showing weapons in context | Usage examples; fair-use stills |
+| **Anime/manga wikis** | Character holding weapons; canonical art | Genre-canonical visual references |
+
+**Schema addition required** (legolas applies in Track A schema authoring):
+
+```sql
+-- Reference image attachment per knowledge entry
+CREATE TABLE knowledge_entry_reference_images (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  knowledge_entry_id INTEGER REFERENCES weapon_knowledge_entries(id),
+  image_url TEXT NOT NULL,
+  image_source TEXT,                          -- "wikipedia-infobox" / "wikidata-p18" / "fandom-render" / "museum-photo" / etc.
+  license_class TEXT,                          -- CC0 / CC-BY-SA / PD / fair-use / etc.
+  is_canonical BOOL,                           -- 1 if this is the primary/canonical reference; 0 otherwise
+  image_caption TEXT,
+  image_local_path TEXT,                       -- post-download (NULL if remote-only)
+  width_px INTEGER,
+  height_px INTEGER,
+  imported_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_reference_image_entry ON knowledge_entry_reference_images(knowledge_entry_id);
+CREATE INDEX idx_reference_image_canonical ON knowledge_entry_reference_images(knowledge_entry_id, is_canonical);
+```
+
+**Acceptance criteria for Track A crawl (per legolas)**: ≥70% of knowledge entries with at least one reference image; ≥30% with canonical (primary) image marked; license metadata captured per image.
+
+**Downstream use case (Phase D Meshy gap-fill validation loop):**
+
+```
+Reference images for weapon knowledge entry
+    ↓ (used as visual ground truth)
+ChatGPT image-gen produces synthetic weapon image
+    ↓ (comparison: galadriel visual-similarity scoring)
+PASS → feed to Meshy image-to-3D
+FAIL → re-prompt ChatGPT with adjusted parameters; iterate
+    ↓
+Meshy 3D mesh
+    ↓ (comparison: galadriel preview-image similarity to reference)
+PASS → ready for Unity assembly
+FAIL → re-iterate or route to alternative source
+```
+
+This validation loop is the canonical answer to "how do we know Meshy generation produced the right katana?" — we compare against authoritative reference photos captured during Track A. Without reference images, we have no objective quality signal.
+
+**This memo becomes a Track A acceptance criterion.** Knowledge entries WITHOUT reference image coverage rank lower in cluster confidence and route to manual review.
+
 **Original plan below this section remains as Track B reference (3D model import workstream); it is not deleted but it is no longer primary.**
 
 ---
