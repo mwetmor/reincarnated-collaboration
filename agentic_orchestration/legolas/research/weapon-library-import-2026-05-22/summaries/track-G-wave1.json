@@ -1,0 +1,91 @@
+{
+  "track": "G",
+  "wave": 1,
+  "started_at": "2026-05-22T04:53:40.403768+00:00",
+  "completed_at": "2026-05-22T04:53:43.297136+00:00",
+  "wall_seconds": 2.893368,
+  "repos_attempted": [
+    "nick-aschenbach-dnd-data",
+    "osrsbox-db",
+    "5e-bits-5e-database",
+    "bloqhead-demigods"
+  ],
+  "per_repo_results": [
+    {
+      "repo": "nick-aschenbach-dnd-data",
+      "url": "https://github.com/nick-aschenbach/dnd-data",
+      "license": "MIT",
+      "entries_imported": 7347,
+      "images_imported": 0,
+      "failures": [],
+      "notes": "7310 weapon-class items from 15749 total; MIT license; no image URLs in source data"
+    },
+    {
+      "repo": "osrsbox-db",
+      "url": "https://github.com/osrsbox/osrsbox-db",
+      "license": "GPL3",
+      "entries_imported": 957,
+      "images_imported": 957,
+      "failures": [],
+      "notes": "957 equipable_weapon items from 24735 total; GPL-3.0 license (game_approved=0 per schema \u2014 recorded, not excluded); image URLs constructed as wiki PNG pattern (CC-BY-SA); icon field (base64 PNG) NOT stored per URL-only policy"
+    },
+    {
+      "repo": "5e-bits-5e-database",
+      "url": "https://github.com/5e-bits/5e-database",
+      "license": "MIT",
+      "entries_imported": 37,
+      "images_imported": 0,
+      "failures": [],
+      "notes": "37 SRD weapon items; MIT license; official D&D 5e SRD canonical equipment data; no image URLs"
+    },
+    {
+      "repo": "bloqhead-demigods",
+      "url": "https://github.com/bloqhead/demigods",
+      "license": "unknown",
+      "entries_imported": 320,
+      "images_imported": 0,
+      "failures": [],
+      "notes": "320 Elden Ring weapons across 28 weapon types; no LICENSE file in repo -> recorded as unknown (game_approved=0); includes DLC Shadow of the Erdtree weapons"
+    }
+  ],
+  "total_entries_imported": 8661,
+  "total_images_imported": 957,
+  "schema_gaps_observed": [],
+  "next_wave_recommendations": [
+    {
+      "repo": "5e-bits/5e-database-2024",
+      "url": "https://github.com/5e-bits/5e-database",
+      "note": "2024 edition has additional weapons beyond 2014 SRD; same MIT license; check src/2024 dir",
+      "estimated_yield": 50,
+      "license": "MIT"
+    },
+    {
+      "repo": "Pf2ools/pf2ools-data",
+      "url": "https://github.com/Pf2ools/pf2ools-data",
+      "note": "Pathfinder 2e structured data; MIT license; 11 stars; weapons included",
+      "estimated_yield": 200,
+      "license": "MIT"
+    },
+    {
+      "repo": "ThomasLincoln/Souls_API",
+      "url": "https://github.com/ThomasLincoln/Souls_API",
+      "note": "Items/weapons from Dark Souls series; no license listed; ~140KB structured data",
+      "estimated_yield": 200,
+      "license": "unknown"
+    },
+    {
+      "repo": "kaggle-dark-souls-weapons",
+      "url": "https://www.kaggle.com/datasets/ihelon/dark-souls-weapons",
+      "note": "Dark Souls III weapon dataset on Kaggle; CC BY 4.0; ~200 weapons with full stats CSV",
+      "estimated_yield": 200,
+      "license": "CC_BY"
+    },
+    {
+      "repo": "wowhead-weapon-db / wow-classic-data",
+      "url": "https://github.com/search?q=wow+weapons+json&type=repositories",
+      "note": "Multiple WoW community data repos; verify license per repo; estimated 1K+ weapons possible",
+      "estimated_yield": 500,
+      "license": "varies"
+    }
+  ]
+}

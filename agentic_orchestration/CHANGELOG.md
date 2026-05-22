@@ -4,6 +4,62 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-22 (overnight cascade event) — Weapon-library-import workstream knowledge-first schema lock + per-source robots.txt verification (~40% RED disposition) + 4 dispatches authored (3 legolas Track A/B + 1 jack-ryan Discipline #20)
+
+**Event:** Knight-rider overnight orchestration session under Matt 2026-05-22 evening explicit overnight-cascade authorization. Operationalized the gandalf-authored re-plan (knowledge-first; 3D models secondary visual reference attachments). Per-source robots.txt verification across ~25 candidate sources surfaced ~40% RED disposition (poewiki.net, OSRS wiki, warcraft.wiki.gg, Smithsonian si.edu, Met Museum, IMFDB, monsterhunter.wiki.gg, plus inferred RED). Schema amended to v1.1.0 with knowledge-first tables; executed against greenfield DB.
+
+**State changes:**
+
+- `agentic_orchestration/legolas/research/weapon-library-import-2026-05-22/schema.sql` v1.0.0 → v1.1.0 (Section 6: knowledge-first tables; Section 7: cluster tables). Six new tables added: weapon_knowledge_entries, knowledge_entry_reference_images, knowledge_model_attachments, knowledge_entry_canonical_merge, clusters, cluster_membership.
+- `/Users/admin/Games/reincarnated-loadout/data/telemetry.db`: greenfield → 17 tables present (Phase 0 schema lock executed)
+- `agentic_orchestration/logs/2026-05-22-evening-robots-verification.md` NEW — per-source disposition table; the empirical anchor for Discipline #20 PROPOSED
+- `agentic_orchestration/dispatches/2026-05-22-legolas-track-A-wikipedia-wikidata-commons-dump-consumption.md` NEW (Pattern B; READY)
+- `agentic_orchestration/dispatches/2026-05-22-legolas-track-A-museum-smithsonian-royal-armouries.md` NEW (Pattern B; PARTIAL-BLOCK — Smithsonian gated on Matt providing SMITHSONIAN_API_KEY)
+- `agentic_orchestration/dispatches/2026-05-22-legolas-track-B-3d-model-imports-sketchfab-kenney-oga.md` NEW (Pattern B; READY)
+- `agentic_orchestration/dispatches/2026-05-22-jack-ryan-engineering-discipline-20-robots-txt-claude-agent-respect.md` NEW (Pattern A intended but firing as Pattern B due to orchestrator-session tool constraints — jack-ryan picks up next-session)
+
+**Architectural consequences:**
+
+- Original orchestration plan assumed broad game-wiki + museum-crawl viability for ~15,000-30,000 knowledge entries; empirical robots verification halves that to ~5,500-17,500 (still ~30-100× the original 15-entry catalogue, still substrate-level vast)
+- Wikipedia bot policy explicitly directs substantial consumers to **dumps.wikimedia.org**, not page-by-page API crawl — Track A1 dispatch routes through bulk-dump consumption (the canonical Wikipedia path)
+- Museum site-direct crawl paths are RED (Smithsonian, Met) — API-direct paths remain GREEN (Smithsonian Open Access via api.data.gov)
+- Game-wiki content sources are substantially RED — Fextralife Dark Souls is the only major game-wiki GREEN-with-CAUTION; Fandom-hosted wikis are AMBER (Cloudflare WAF interferes with the probe path; needs Matt's alt-path verification)
+
+**Discipline #20 (PROPOSED):** *Respect robots.txt + explicit Claude-agent directives.* Empirical anchors: Meshy probe 2026-05-22 evening (block surfaced AFTER fetches executed) + tonight's verification log (P0-probe-first applied across 25 sources). Mirrors Discipline #19 ratification pattern: PROPOSED at first authoring; Matt ratifies via decisions-log entry.
+
+**What this cascade did NOT do (honest scope record):**
+
+- **NO background processes fired tonight.** The original brief envisioned `nohup python script.py &` fires across Track A and Track B, but the runnable scripts do not yet exist — they are legolas's authoring scope. Pattern-B dispatches are the cross-session continuity artifact for legolas to pick up next-session.
+- **jack-ryan was NOT invoked as a Pattern-A sub-agent.** Orchestrator-session tool constraints (no Task tool surfaced) made Pattern-A invocation impossible; Pattern-B dispatch file is the substitute path. Jack-ryan picks up at next-session startup per standard dispatches/ pickup pattern.
+- **No Phase 1.5 feature extraction, Phase 2 axis discovery, Phase 3 clustering, Phase 4 cluster naming, Phase 5 validation.** All explicitly out-of-scope per the brief.
+
+**Status check pattern (how Matt verifies overnight progress at session-return):**
+
+```bash
+# 1. Schema present?
+sqlite3 /Users/admin/Games/reincarnated-loadout/data/telemetry.db "SELECT name FROM sqlite_master WHERE type='table' ORDER BY name;"
+
+# 2. Knowledge entries imported? (will be empty until legolas fires Track A dispatch)
+sqlite3 /Users/admin/Games/reincarnated-loadout/data/telemetry.db "SELECT source_library, COUNT(*) FROM weapon_knowledge_entries GROUP BY source_library;"
+
+# 3. 3D models imported? (will be empty until legolas fires Track B dispatch)
+sqlite3 /Users/admin/Games/reincarnated-loadout/data/telemetry.db "SELECT source_library, COUNT(*) FROM weapons GROUP BY source_library;"
+
+# 4. Reference images attached?
+sqlite3 /Users/admin/Games/reincarnated-loadout/data/telemetry.db "SELECT image_source, COUNT(*) FROM knowledge_entry_reference_images GROUP BY image_source;"
+
+# 5. Robots verification log
+cat /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/logs/2026-05-22-evening-robots-verification.md | head -80
+
+# 6. Dispatches queued
+ls /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/dispatches/2026-05-22-*track*
+ls /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/dispatches/2026-05-22-jack-ryan-engineering-discipline-20-*
+```
+
+**Authority:** Matt 2026-05-22 evening explicit overnight-fire-cascade approval.
+
+---
+
 ## 2026-05-22 (Matt-return event) — Discipline #19 RATIFIED by Matt; PROPOSED → ACTIVE; decisions-log entry landed
 
 **Event:** Matt returned to the project, reviewed the autonomous run, and ratified Discipline #19 (*The Agent tool is not for waiting*) — moving it from PROPOSED status to fully active canonical engineering discipline. Decisions-log entry committed per the engineering-disciplines.md "How to extend" pattern step 5.

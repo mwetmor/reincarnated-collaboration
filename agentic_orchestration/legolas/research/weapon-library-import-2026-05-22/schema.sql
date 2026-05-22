@@ -555,8 +555,147 @@ VALUES
      'Fab Standard License; Unreal-focused; per-asset purchase');
 
 -- =============================================================================
+-- SECTION 6 (AMENDMENT 2026-05-22 evening): KNOWLEDGE-FIRST SUBSTRATE TABLES
+-- =============================================================================
+-- Authored by: knight-rider (overnight cascade per Matt 2026-05-22 evening authorization)
+-- Source: orchestration plan re-plan section + legolas memo (reference-images schema)
+-- Architectural commitment: weapon KNOWLEDGE (text + structured + cultural/historical/genre)
+--   is the primary substrate for Pattern 6 axis discovery; 3D models are SECONDARY
+--   visual reference attachments. Knowledge entries crawled via Track A dispatches.
+-- =============================================================================
+
+-- ---------------------------------------------------------------------------
+-- weapon_knowledge_entries: PRIMARY substrate table (one row per knowledge entry)
+-- One row per source-library entry (Wikipedia article, Wikidata Q-item, etc.).
+-- Multiple rows may exist for the "same" weapon across sources; canonical merge
+-- handled by knowledge_entry_canonical_merge table.
+-- ---------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS weapon_knowledge_entries (
+    id                          INTEGER PRIMARY KEY AUTOINCREMENT,
+    canonical_name              TEXT    NOT NULL,           -- "Katana", "Hammerdin Concentration Hammer", etc.
+    source_library              TEXT    NOT NULL,           -- "wikipedia" / "wikidata" / "smithsonian" / "royal_armouries" / etc.
+    source_url                  TEXT    NOT NULL,           -- canonical entry URL
+    source_id                   TEXT,                       -- library-specific ID (Wikidata Q-number, Wikipedia article-id, etc.)
+    description_text            TEXT,                       -- main entry body text
+    structured_properties       TEXT,                       -- JSON: infobox/property data (period, country, length, weight, materials, etc.)
+    cultural_lineage_tags       TEXT,                       -- JSON array: free-text tags from structured fields
+    historical_period           TEXT,                       -- normalized period string
+    genre_appearances           TEXT,                       -- JSON array: "historical" / "fantasy" / "sci-fi" / "anime" / etc.
+    related_entries             TEXT,                       -- JSON array: canonical_names of related/derived weapons
+    license_class               TEXT,                       -- per-source license (CC-BY-SA for Wikipedia; CC0 for Wikidata; etc.)
+    imported_at                 TEXT    NOT NULL DEFAULT (datetime('now')),
+    -- Pattern 6 feature columns (post-import enrichment pass)
+    text_embedding              BLOB,                       -- sentence-transformer or similar vector
+    structured_feature_vector   BLOB,                       -- numeric properties as vector
+    derived_axis_loadings       BLOB,                       -- post-axis-discovery output
+    cluster_id                  INTEGER REFERENCES clusters(id),
+    UNIQUE (source_library, source_url)
+);
+
+CREATE INDEX IF NOT EXISTS idx_knowledge_canonical_name ON weapon_knowledge_entries(canonical_name);
+CREATE INDEX IF NOT EXISTS idx_knowledge_source_library ON weapon_knowledge_entries(source_library);
+CREATE INDEX IF NOT EXISTS idx_knowledge_cluster ON weapon_knowledge_entries(cluster_id);
+
+-- ---------------------------------------------------------------------------
+-- knowledge_entry_reference_images: reference image attachments per knowledge entry
+-- Reference images are CRITICAL for the Phase D Meshy gap-fill validation loop.
+-- Per Matt 2026-05-22 late-evening memo: ≥70% of knowledge entries should have at
+-- least one reference image; ≥30% should have a canonical (primary) image marked.
+-- ---------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS knowledge_entry_reference_images (
+    id                          INTEGER PRIMARY KEY AUTOINCREMENT,
+    knowledge_entry_id          INTEGER NOT NULL REFERENCES weapon_knowledge_entries(id),
+    image_url                   TEXT    NOT NULL,
+    image_source                TEXT,                       -- "wikipedia-infobox" / "wikidata-p18" / "fandom-render" / "museum-photo" / etc.
+    license_class               TEXT,                       -- CC0 / CC-BY-SA / PD / fair-use / etc.
+    is_canonical                INTEGER NOT NULL DEFAULT 0, -- 1 if this is the primary/canonical reference; 0 otherwise
+    image_caption               TEXT,
+    image_local_path            TEXT,                       -- post-download (NULL if remote-only)
+    width_px                    INTEGER,
+    height_px                   INTEGER,
+    imported_at                 TEXT    NOT NULL DEFAULT (datetime('now'))
+);
+
+CREATE INDEX IF NOT EXISTS idx_reference_image_entry ON knowledge_entry_reference_images(knowledge_entry_id);
+CREATE INDEX IF NOT EXISTS idx_reference_image_canonical ON knowledge_entry_reference_images(knowledge_entry_id, is_canonical);
+
+-- ---------------------------------------------------------------------------
+-- knowledge_model_attachments: many-to-many join between knowledge entries and 3D models
+-- One knowledge entry may have N model references; one model may render N knowledge entries.
+-- ---------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS knowledge_model_attachments (
+    knowledge_entry_id          INTEGER NOT NULL REFERENCES weapon_knowledge_entries(id),
+    weapon_id                   INTEGER NOT NULL REFERENCES weapons(weapon_id),
+    attachment_confidence       REAL,                       -- 0.0-1.0; how well does this model match this knowledge entry?
+    attachment_source           TEXT,                       -- "manual" / "name-match" / "embedding-similarity" / "post-Meshy-gen"
+    attached_at                 TEXT    NOT NULL DEFAULT (datetime('now')),
+    PRIMARY KEY (knowledge_entry_id, weapon_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_attachments_weapon ON knowledge_model_attachments(weapon_id);
+
+-- ---------------------------------------------------------------------------
+-- knowledge_entry_canonical_merge: canonical entry merging across sources
+-- Multiple source entries (Wikipedia katana + Wikidata katana Q-item + Smithsonian
+-- katana object record) merge to one canonical katana identity.
+-- ---------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS knowledge_entry_canonical_merge (
+    canonical_id                INTEGER PRIMARY KEY AUTOINCREMENT,
+    canonical_name              TEXT    NOT NULL UNIQUE,
+    merged_entry_ids            TEXT,                       -- JSON array: weapon_knowledge_entries.id values
+    merge_strategy              TEXT,                       -- "name-exact-match" / "synonym-resolution" / "wikidata-property-match" / "manual"
+    merge_confidence            REAL,
+    merged_at                   TEXT    NOT NULL DEFAULT (datetime('now'))
+);
+
+-- =============================================================================
+-- SECTION 7 (AMENDMENT 2026-05-22 evening): CLUSTER TABLES (Pattern 5 retirement)
+-- =============================================================================
+-- The 15-entry hand-authored gear catalogue is RETIRED. Gear-form clusters
+-- emerge from the imported knowledge library via Pattern 6 axis discovery +
+-- clustering. Designers post-hoc label the discovered clusters.
+-- =============================================================================
+
+-- ---------------------------------------------------------------------------
+-- clusters: registry of emergent gear-form clusters
+-- One row per discovered cluster. Labels assigned post-hoc by gandalf + Matt.
+-- ---------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS clusters (
+    id                          INTEGER PRIMARY KEY AUTOINCREMENT,
+    label                       TEXT    NOT NULL,           -- "Eastern-curved-blade-family" / "Industrial-firearm-family" / etc.
+    dominant_axes_description   TEXT,                       -- free text per gandalf+Matt review
+    parent_cluster_id           INTEGER REFERENCES clusters(id),  -- hierarchical clustering support
+    cluster_algorithm_version   TEXT,                       -- tracks which clustering pass produced this cluster
+    cluster_seed                INTEGER,                    -- reproducibility
+    created_at                  TEXT    NOT NULL DEFAULT (datetime('now'))
+);
+
+-- ---------------------------------------------------------------------------
+-- cluster_membership: many-to-many membership (knowledge entries → clusters)
+-- Allows multi-cluster membership with confidence scoring.
+-- ---------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS cluster_membership (
+    knowledge_entry_id          INTEGER NOT NULL REFERENCES weapon_knowledge_entries(id),
+    cluster_id                  INTEGER NOT NULL REFERENCES clusters(id),
+    confidence_score            REAL,                       -- 0.0-1.0; for multi-cluster membership
+    assigned_at                 TEXT    NOT NULL DEFAULT (datetime('now')),
+    PRIMARY KEY (knowledge_entry_id, cluster_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_cluster_membership_cluster ON cluster_membership(cluster_id);
+CREATE INDEX IF NOT EXISTS idx_cluster_membership_knowledge ON cluster_membership(knowledge_entry_id);
+
+-- Note on the existing weapons table: per orchestration plan §0 "Phase 0 schema lock,"
+-- the weapons.cluster_id column would have been added via ALTER TABLE in the
+-- original plan. Since the substrate pivot demotes the weapons table to "3D model
+-- inventory" (secondary), and knowledge entries become the cluster-bearing primary,
+-- the weapons table does NOT need its own cluster_id column. Model-to-cluster
+-- relationship is inferred via knowledge_model_attachments + cluster_membership joins.
+
+-- =============================================================================
 -- END OF SCHEMA
--- Version: 1.0.0
+-- Version: 1.1.0 (knowledge-first amendment)
+-- Original version: 1.0.0 (legolas commission)
+-- Amendment: knight-rider overnight cascade 2026-05-22 (Matt explicit authorization)
 -- Next: run against /Users/admin/Games/reincarnated-loadout/data/telemetry.db
---       after Matt approval
 -- =============================================================================
