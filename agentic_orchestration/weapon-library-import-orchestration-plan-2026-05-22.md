@@ -512,6 +512,36 @@ Per source-library aggregate:
 - Per-source coverage statistic: mean field-count per entry; flag sources whose mean < 10 for re-crawl with enhanced field extraction
 - Cross-source canonical merging: when merging entries across libraries (e.g., "katana" in Wikipedia + Wikidata + Smithsonian + multiple game wikis), unify into single canonical entry with union of all captured fields. Multi-source provenance preserved.
 
+#### Off-hand items + non-weapon-combat substrate — EXPANDED SCOPE (Matt 2026-05-22 latest)
+
+**Scope expansion:** the crawls must cover **off-hand items + non-weapon-combat substrate** in addition to primary weapons. These are structurally distinct substrate categories with their own mechanical + aesthetic axes. Excluding them would leave the substrate incomplete for Pattern 6 axis discovery.
+
+**Off-hand item categories to crawl:**
+
+| Category | Source-search targets |
+|---|---|
+| **Shields** (bucklers, kite, tower, heater, targe, scutum, parma, pavise) | Wikipedia Category:Shields + Category:Medieval shields + per-culture shield categories; Wikidata `shield` Q-items + heraldry properties; game wikis shield pages (PoE/D2/D3/D4/Last Epoch all have separate shield databases); museum shield collections (Royal Armouries especially) |
+| **Off-hand weapons** (main gauche, parrying daggers, sai, kunai, hooked swords) | Game wikis "off-hand" / "dual-wield" pages; historical dueling-weapon references; anime/manga dual-wield character pages |
+| **Magical off-hand catalysts** (orbs, mojos, phylacteries, focuses, tomes, catalysts) | Game wikis caster-class pages (D3 wizard / witch-doctor; D4 necromancer; PoE caster-offhand; Last Epoch catalyst) |
+| **Quivers / ammo containers** | D3/D4 demon hunter; PoE quiver; firearm-magazine references |
+| **Off-hand armaments** (bayonets, attached blades, off-hand torches/lanterns) | Military history sources for bayonets; D&D / Pathfinder for ritual implements |
+| **Spiritual off-hands** (prayer beads, rosaries, shrunken heads, totems, fetishes) | Religious history sources; D3 witch doctor; D&D cleric/druid focuses; museum religious-artifact collections |
+| **Utility off-hands** (lockpicks, ritual implements, torches as combat-supplement) | TTRPG SRDs; game-wiki utility-item pages |
+
+**Schema implication:** the existing `weapon_knowledge_entries` table is fine — the off-hand items get imported with `category` or `equipment_class` field in `structured_properties` distinguishing them. Add a column `equipment_slot` (enum or text: `main-hand` / `off-hand` / `two-handed` / `ranged-ammo` / `head` / `body` / `accessory` / `other`) for clean filtering. Default `main-hand` for primary weapons; `off-hand` for shields/orbs/etc.
+
+**Acceptance criteria addition:**
+
+- Per-equipment-slot coverage: ≥1,000 off-hand items in the import baseline (across shields + magical catalysts + dual-wield off-hands + quivers + spiritual off-hands)
+- Cultural lineage coverage of shields specifically: ≥6 distinct cultures (European-medieval + East-Asian + South-Asian + Mesoamerican + African + Middle-Eastern + Pacific at minimum)
+- Magical-catalyst diversity: ≥4 distinct genre-canons (D&D + Diablo + PoE + isekai-anime at minimum)
+
+**Pattern 6 implication:** off-hand items introduce axes like `defensive-vs-offensive identity`, `dual-wield-asymmetry`, `spellcasting-amplifier-class`, `ammunition-capacity`, `ritual-context`, `cultural-heraldry-density`. Excluding them shrinks the substrate Pattern 6 can discover.
+
+**This is Pass-1 scope, not Pass-2.** Off-hands are first-class substrate, not edge-case enrichment. The running knight-rider's commission may or may not capture them depending on per-source query targeting; tomorrow's knight-rider session ensures coverage via the explicit shield/off-hand crawl dispatches.
+
+---
+
 #### Rationale — why this matters for Pattern 6 axis discovery
 
 PCA / factor analysis on N features per weapon produces meaningful axes ONLY if N is large enough to span the substrate space. With ~3-5 features per weapon, you discover maybe 2-3 axes. With ~30-50 features per weapon, you discover 8-15 meaningful axes that span culture × period × mechanics × genre × scale × material × use-context × tactical-role.
