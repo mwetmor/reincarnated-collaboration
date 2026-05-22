@@ -169,12 +169,69 @@ Summary: logs/meshy_import_summary.json on completion (per Discipline #19)
 
 ---
 
-### Phase 2 — BDI ω-Table Seeding Pass (D7)
+### Phase 1.5 — Feature Extraction Per Weapon (D7a; FAST)
 
-**Owner:** rocket
-**Dependencies:** Phase 1 imports complete (or substantially complete — can start when ≥80% of expected rows present)
+**Owner:** rocket (or legolas Mode A)
+**Dependencies:** Phase 1 imports complete (or substantially — ≥80%)
 **Duration:** 1-2 hours
-**Discipline:** #1 (math-before-code if any heuristic logic) + #11 (empirical inspection on sample before full run)
+**Discipline:** #1 (math-before-code on feature-extraction methodology) + #11 (empirical inspection on sample before full run)
+
+**What it does:**
+
+For each imported weapon, extract a wide feature vector. **No pre-imposed axes** — extract everything measurable:
+
+| Feature class | Examples |
+|---|---|
+| **Geometric features** | poly count, dimensions (x/y/z), bounding-box aspect ratio, curvature estimates (where computable), ornamentation density (vertex distribution variance), symmetry score |
+| **Visual features** | preview image embedding (vision-language model — e.g., CLIP-style); color palette histogram; perceptual visual-similarity vector |
+| **Semantic features** | description text embedding; tag co-occurrence vector; subcategory one-hot |
+| **Source metadata** | library origin, author, license_class, structured tags (Smithsonian `culture` field; Meshy subcategory) |
+| **Computed mechanical estimates** | range estimate from geometry (long vs short); two-handed-likely vs one-handed; weight-class estimate |
+
+Output: wide feature matrix stored as JSON blob on each `weapons` row OR in a separate `weapon_features` table.
+
+### Phase 2 — Axis Discovery + BDI ω-Table Seeding Pass (D7b + D7c)
+
+**Owner:** rocket (with legolas if statistical methodology research needed)
+**Dependencies:** Phase 1.5 complete
+**Duration:** 1-3 days (axis discovery is the variable-duration step)
+**Discipline:** #1 (math-before-code — statistical methodology spec'd before run) + #11 (empirical inspection — interpret derived axes for soundness) + Pattern 6 honored (no axis pre-imposition)
+
+**Sub-phase D7b — Statistical axis discovery (per Pattern 6; this evening's 6th vestigial retirement):**
+
+Per Matt 2026-05-22 evening canonical call: **the aesthetic axes and the geometrical/mathematical mechanical variables must be DERIVED from a statistically significant sample, NOT pre-imposed.** This is the sixth vestigial-pattern retirement of the evening (categorical pre-imposition at the AXIS level).
+
+Statistical methodology candidates:
+- **PCA (Principal Component Analysis)** — linear; produces orthogonal axes explaining variance; interpretable when top components align with intuitive meaning
+- **Factor Analysis** — identifies latent factors; more interpretable than raw PCA for semantic axes
+- **UMAP / t-SNE** — non-linear; good for visualization + cluster prep but less interpretable as canonical axes
+- **Sparse PCA / NMF** — produces sparse loadings; more interpretable axis-definitions
+- **Mixed-effects: PCA on geometric/mechanical features + Factor Analysis on semantic/visual features** — separates axis-discovery for the two substrate halves
+
+**Sample-size guidance:**
+- PCA: minimum 5-10× sample per feature; for 50 features → 250-500 weapons minimum
+- Factor analysis: minimum 200-300 for stable factor loadings
+- **Recommended sample for stable axis discovery: 1,000-2,000 weapons** (achievable from D3-D6 alone; doesn't require D2 success)
+
+**Output of D7b:**
+- Discovered aesthetic axes (e.g., 4-8 principal components from visual+semantic feature analysis)
+- Discovered mechanical axes (e.g., 4-8 principal components from geometric+source-metadata feature analysis)
+- Per-axis interpretation (gandalf + Matt review the axis loadings; assign semantic labels)
+- Replaces the pre-imposed `(tech_level / tone / cultural_lineage)` + `(range / geometry / timing / charge / accuracy / rhythm)` taxonomies with data-derived axis-sets
+
+**Sub-phase D7c — BDI ω-table seeding (was Phase 2 in original plan):**
+
+Now operates against the **derived axes** from D7b, not pre-imposed dimensions. Each weapon's ω-score per element is computed against the derived-axis basis vectors, not against the pre-imposed taxonomy.
+
+Per-weapon: identify top-3 element affinities + record best ω-magnitude. Serialized into `dominant_element_affinities` JSON column.
+
+**Why this matters now (not later):** clustering (Phase 3) uses the discovered axes as feature inputs. Without D7b, clustering operates on raw features (less interpretable) OR on pre-imposed axes (vestigial pattern survives).
+
+**Acceptance criteria (D7b + D7c combined):**
+- ≥1,000 weapons in sample (achievable from D3-D6)
+- Discovered axes have ≥80% cumulative variance explained at top-8 components
+- Axis interpretations gandalf + Matt-reviewed for soundness
+- ω-scores populated per weapon
 
 **What it does:**
 

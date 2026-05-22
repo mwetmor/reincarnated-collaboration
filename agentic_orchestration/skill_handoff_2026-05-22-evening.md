@@ -23,6 +23,7 @@ The most load-bearing carry-forward: **categorical pre-imposition is a recurring
 | 3 | Traits-carry-stats | trait pool determines stats | Stats are derived projection of (element_scaling_attribute × per-axis BC magnitudes) |
 | 4 | Pre-imposed aesthetic dimensions | `5 tech × 4 tone × 6 culture = 120 tuples` | Emergent clusters from imported weapon library |
 | 5 | 15-entry gear catalogue | `greatsword / wand / censer / ...` archetype-derived gear-form taxonomy | Gear-form clusters emerge from library; designer post-hoc labels them |
+| 6 | **Aesthetic axes + mechanical-variable axes themselves** | Pre-imposed dimensions: `tech / tone / culture` + `range / geometry / timing / charge / accuracy / rhythm` | **Axes derived from statistically significant sample (≥1,000 weapons) via PCA / factor analysis on extracted feature vectors; axes earned, not assigned** |
 
 **Systematic insight worth canonical capture (tomorrow's audit doc):** vestigial patterns survive cleanup at one layer by hiding in the next. The 15-entry catalogue was a vestigial child of archetype taxonomy. The aesthetic-tuple dimensions were a parallel vestigial overlay. The role_orientation taxonomy was vestigial categorical role-imposition. The "traits carry stats" framework was vestigial stat-assignment-by-categorical-role. The archetype concept itself was vestigial pre-W0.2 categorical generation surface.
 
