@@ -4,6 +4,21 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-22 (Matt-return event) — Discipline #19 RATIFIED by Matt; PROPOSED → ACTIVE; decisions-log entry landed
+
+**Event:** Matt returned to the project, reviewed the autonomous run, and ratified Discipline #19 (*The Agent tool is not for waiting*) — moving it from PROPOSED status to fully active canonical engineering discipline. Decisions-log entry committed per the engineering-disciplines.md "How to extend" pattern step 5.
+
+**State change:**
+- `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` § 19 header: `[PROPOSED — pending Matt ratification]` → removed (ratified)
+- `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` anatomy footer: `(#19 added 2026-05-22 PROPOSED)` → `(#19 added 2026-05-22, ratified 2026-05-22 by Matt)`
+- `~/Games/reincarnated-engine/design/decisions/decisions-log.md`: new entry `2026-05-22: Discipline #19 ratified — The Agent tool is not for waiting` filed before the "Decisions to revisit" section
+
+**What this unblocks:** specialist agents now inherit Discipline #19 as binding canon at session startup. Cross-session continuity is canonically file-based. The babysit-pattern compound-silent-failure mode is now structurally guarded against — observable in dispatches as well as in orchestrator practice. Discipline #20 candidates (JSON summary contract; log verbosity bound; wall-time + crash-recovery requirements in dispatch acceptance criteria) remain queued for future review.
+
+**Authority:** Matt 2026-05-22 (this session) — explicit ratification instruction to gandalf.
+
+---
+
 ## 2026-05-22 — QD-rebuild P0 CLOSED: LC-011 recovery clean (Scenario B); critique-pair β disposition autonomous; W1.13 rescoped; math note dual-witness; Discipline #19 PROPOSED; gandalf morning work-package (protocol v1.3 + BDI-B + G1-LITE + T4-A) landed; P0 milestone tag `v0.0-constraint-removal-shipped` FIRED
 
 **Event:** Under Matt's prolonged-autonomy mandate, the LC-011 ablation recovery probe completed clean and the critique-pair (jack-ryan + gandalf) dispositioned W0.7 closure + W1.13 rescope autonomously per pre-authorizations D + E. P0 milestone tag fires concurrent with this entry.
