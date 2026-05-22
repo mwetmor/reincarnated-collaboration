@@ -11,6 +11,60 @@
 
 ---
 
+## 🎯 COMPLETENESS MANDATE — 2026-05-22 LATEST (Matt principled directive)
+
+**"I do NOT want to leave a single weapon un-turned."**
+
+Per Matt 2026-05-22 latest evening directive: **finding all the weapons is the single gate removal that lets this engine fulfill its design principle of coherence and distinctness engine for serial content production.**
+
+The 15-30K estimate from prior re-plan is the FIRST-PASS BASELINE, not the target. The target is COMPLETENESS across all weapon-knowledge repositories — real-world historical + TTRPG mechanical + video game canon + anime/manga + movie/TV + folklore/mythology + speculative fiction.
+
+**Why this is structural, not nice-to-have:**
+
+If the imported substrate covers only English-language Wikipedia + major Fandom-hosted game wikis (the easy-to-crawl sources), the substrate is biased toward Western-fantasy-ARPG canon. Pattern 6 axis discovery on this biased subset will discover Western-fantasy-ARPG-shaped axes. Coherence + distinctness as engine output will reflect that bias permanently.
+
+Completeness across cultures + periods + genres + media types is what makes substrate-as-cohesion genuinely culture-and-genre-agnostic at the architectural level. **Pictures are optional** — knowledge entries without images can be loaded later via gap-fill or matched against the eventual ChatGPT/Meshy generation pipeline. The completeness gate is on the KNOWLEDGE coverage, not the visual coverage.
+
+**Real "every weapon" scope (realistic):**
+
+| Category | Estimated count | Source families |
+|---|---|---|
+| Real-world historical weapons | 5,000-20,000 | Wikipedia (multi-language); Wikidata; museums (Royal Armouries / Met Museum / Smithsonian / Hermitage / British Museum / Tokyo National / Cairo Museum / INAH); academic archaeology databases; specialty references (Stone's Glossary; Oakeshott typology; Asian weapon catalogues; African weapon archives; Mesoamerican atlatl databases) |
+| TTRPG mechanical weapons | 2,000-5,000 | D&D SRD (3.5e + 5e); Pathfinder; GURPS; Savage Worlds; Warhammer 40K + Fantasy; Shadowrun; Cyberpunk RED; lesser-known systems |
+| Video game weapons | 10,000-30,000 | PoE wiki; D2/D3/D4 wikis; Last Epoch; Grim Dawn; Dark Souls / Elden Ring series; Monster Hunter (all); WoW; FFXIV; ESO; Skyrim wiki; FF series wikis; Mass Effect; Borderlands; modern indie ARPGs |
+| Anime/manga weapons | 5,000-15,000 | Bleach (zanpakutō); Demon Slayer (nichirin); SAO; One Piece; Naruto; Fate series; Berserk; Vagabond; isekai-genre wikis broadly |
+| Movie/TV weapons | 2,000-5,000 | IMFDB; LOTR wikis; Star Wars wikis; Star Trek wikis; Marvel; DC; etc. |
+| Folklore + mythology | 200-500 | Wikipedia mythology categories; specific traditions (Norse, Greek, Egyptian, Hindu, Japanese, Celtic, Mesopotamian, etc.) |
+| Speculative fiction | 1,000-3,000 | Sci-fi novel weapons; fantasy novel weapons; lesser-canonical works |
+| **TOTAL realistic completeness target** | **25,000-78,000** | |
+
+This is achievable through structured multi-pass crawls + targeted gap-fill, NOT overnight in one pass.
+
+**Multi-pass strategy:**
+
+| Pass | Scope | Owner |
+|---|---|---|
+| **First-pass (running tonight)** | Big-name sources: Wikipedia (English) + Wikidata + top 8-10 game wikis + D&D 5e SRD + Smithsonian + TVTropes + IMFDB + top anime wikis. ~15-30K entries baseline. | knight-rider (running) |
+| **Second-pass (tomorrow+)** | Multi-language Wikipedia (Japanese; Chinese; Spanish; French; German — capture culture-specific weapons); additional game wikis (Final Fantasy series; ESO; Skyrim; Mass Effect; Borderlands; etc.); additional TTRPG SRDs (Pathfinder; GURPS; Warhammer); additional anime/manga wikis | knight-rider tomorrow |
+| **Third-pass (mid-week)** | Museum collections (Royal Armouries; Met Museum; Hermitage; British Museum; Tokyo National; etc. via their open data APIs); specialty academic references (Stone's Glossary; Oakeshott typology if digitized) | knight-rider |
+| **Fourth-pass (gap-fill)** | After Pattern 6 axis discovery on first 3 passes' data reveals coverage gaps (cultures/regions/genres underrepresented); targeted crawls for gap regions | gandalf + Matt + knight-rider |
+| **Manual curation pass** | Edge cases that crawls can't reach (specific folklore weapons; legendary weapons; lesser-known fiction); gandalf + Matt designer reviews + manual entries | gandalf + Matt |
+
+**Acceptance criteria for completeness:**
+
+- ≥50K weapon knowledge entries indexed (target lower bound; ideal 75K+)
+- ≥10 distinct cultural lineages represented (European; East-Asian; South-Asian; Mesoamerican; African; Middle-Eastern; Pacific; Arctic; Mesopotamian; fictional-hybrid; etc.)
+- ≥6 distinct historical periods (prehistoric; ancient; medieval; early-modern; industrial; modern; post-singularity-fictional)
+- ≥8 distinct genre-canons (historical; D&D-fantasy; ARPG-canon; isekai; sci-fi; superhero; horror; comedic)
+- Wikidata Q-item coverage: ≥80% of all weapon-tagged Q-items imported
+- Major game wikis: ≥90% of weapon-page coverage per top-10 wikis
+
+**Pictures are optional** at completeness check; knowledge coverage is the gate. Image gap-fill happens later.
+
+**Knight-rider extension message sent** (per same conversation; knight-rider's running commission expanded to incorporate completeness mandate; tomorrow's knight-rider session takes over after first-pass completes).
+
+---
+
 ## ⚠️ MAJOR RE-PLAN — 2026-05-22 LATE EVENING (Matt correction)
 
 **The prior plan (below this re-plan section) targeted 3D MODEL libraries as primary substrate. That was wrong-target.** Matt's actual ask, clarified late evening: **deep weapon knowledge data** (text + structured properties + cultural/historical/genre context) is the primary substrate Pattern 6 axis discovery wants. 3D models become *visual reference attachments* to knowledge entries, not the primary substrate.
