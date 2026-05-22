@@ -302,6 +302,222 @@ This validation loop is the canonical answer to "how do we know Meshy generation
 
 **This memo becomes a Track A acceptance criterion.** Knowledge entries WITHOUT reference image coverage rank lower in cluster confidence and route to manual review.
 
+### FIELD EXTRACTION COMPLETENESS SPEC — read by EVERY agent doing weapon-knowledge crawls (Matt 2026-05-22 latest)
+
+**META RULE:** Capture every available field per source. If a field doesn't have an explicit column in `weapon_knowledge_entries`, add it to the `structured_properties` JSON blob with the source's native field name. **Every piece of data is potential Pattern-6-axis-discovery fuel.** Bias toward MORE fields, not fewer. A 50-field entry is better than a 5-field entry. A 100-field entry is better than 50.
+
+**Anti-pattern (DO NOT DO):** "Extract canonical_name + description + image_url and move on." That's the 3-column failure mode. Pattern 6 axis discovery on 3 fields produces ~2-3 axes that won't span the substrate space meaningfully.
+
+**Correct pattern:** Extract everything the source exposes. Map known fields to schema columns where defined; dump everything else into `structured_properties` JSON. Future axis-discovery work can mine the JSON for additional features without re-crawling.
+
+---
+
+#### Per-source field-extraction checklists
+
+**Wikipedia (weapons category articles):**
+
+Infobox fields (most articles have ~15-30 of these):
+- `name`, `image_caption`, `type`, `place_of_origin`, `service_period`, `used_by`, `wars`, `designer`, `design_date`, `manufacturer`, `production_date`, `number_built`, `unit_cost`, `variants`
+- `weight`, `length`, `barrel_length`, `width`, `height`, `crew`, `caliber`, `barrels`, `action`, `rate_of_fire`, `velocity`, `effective_range`, `maximum_range`, `feed`, `sights`
+- For melee: `blade_length`, `blade_type`, `hilt_type`, `grip_type`, `pommel_type`, `crossguard_type`, `handed`, `edge_count`, `point_type`
+- For ranged: `projectile`, `propellant`, `arrow_head_type`, `bow_type`, `draw_weight`
+- Cross-references: `related_weapons`, `predecessor`, `successor`
+
+Article body text:
+- Lead paragraph (definition + dominant context)
+- History section (period + cultural context + evolution)
+- Design section (mechanical + material specifics)
+- Variants section
+- In popular culture section (genre appearances)
+- See also section (related entry links)
+- Categories (Wikipedia category tags — explicit taxonomy signals)
+- Cross-language links (per-language Wikipedia versions — culture-specific context)
+
+Section structure metadata:
+- Article length
+- Section count
+- Reference count
+- Edit count / page age (proxies for canonical-ness)
+- Languages available (proxy for cross-cultural significance)
+
+---
+
+**Wikidata (weapon Q-items):**
+
+Every available property. The high-value properties for axis discovery:
+
+- `P31` (instance of) — which weapon-class Q-items
+- `P279` (subclass of) — hierarchical taxonomy
+- `P18` (image) — Commons image URL
+- `P27` (country of origin)
+- `P176` (manufacturer)
+- `P186` (material)
+- `P571` (inception date / period start)
+- `P576` (dissolution date / period end)
+- `P5008` (on focus list of Wikimedia project) — encyclopedia-canonicity proxy
+- `P361` (part of) / `P527` (has part) — composition
+- `P138` (named after)
+- `P1535` (used by) — wielders / military units / classes
+- `P607` (conflicts) — wars / battles
+- `P2048` (height) / `P2049` (width) / `P2067` (mass) — dimensional properties
+- `P462` (color)
+- `P462` (material)
+- `P101` (field of work)
+- `P31` family — all hierarchical classifications
+- `P460` (said to be the same as) — synonym/canonical-merge candidates
+- `P937` (work location)
+- `P189` (location of discovery, for archaeological weapons)
+- `P195` (collection, for museum-held weapons)
+
+Plus: ALL labels in ALL languages (en, ja, zh, es, fr, de, ar, ru, ko, hi, pt at minimum). Cross-language label coverage is itself an axis.
+
+---
+
+**Wikimedia Commons (image metadata):**
+
+For every reference image identified:
+- File URL + dimensions + format
+- License (CC0 / CC-BY / CC-BY-SA / PD)
+- Author / uploader
+- Source description / caption
+- Categories the image is in (Commons categorization tags)
+- Date created
+- EXIF if present (camera; lens; etc. — quality signals)
+
+---
+
+**Game wikis (Fandom-hosted: PoE / D2 / D3 / D4 / Last Epoch / Dark Souls / Elden Ring / Monster Hunter / WoW / FF series / etc.):**
+
+Per-weapon stats:
+- Weapon name + canonical name in-game
+- Weapon class / type / category (game-specific taxonomy)
+- Base damage (single value OR min-max range)
+- Damage types (physical / fire / cold / lightning / poison / etc. — per-game)
+- Attack speed / cast time / cooldown
+- Crit chance / multiplier
+- Range / area-of-effect
+- Required level
+- Required stats (STR/DEX/INT/etc.)
+- Item rarity / tier
+- Sockets / mod slots
+- Implicit modifiers
+- Possible explicit modifiers
+- Unique modifiers (for unique weapons)
+- Set membership
+- Drop sources / vendors
+- Recipe / crafting requirements
+- Patch introduced / patch changes
+- Comparable weapons
+
+Per-weapon flavor/lore:
+- Flavor text / lore description
+- In-game character associations
+- Quest / story relevance
+- Visual description (color; size; ornamentation cues)
+- In-game preview image / icon URL
+
+Meta data:
+- Wiki page edit count (canonical-ness proxy)
+- Comments count (community attention proxy)
+- Cross-references to related weapons / build guides
+
+---
+
+**Anime/manga wikis (Fandom-hosted: Bleach / Demon Slayer / SAO / One Piece / Fate / Berserk / etc.):**
+
+Per-weapon entry:
+- Weapon name (original-language + romanized + translated)
+- Wielder character(s) — primary + secondary
+- First appearance (chapter/episode + arc/saga name)
+- Weapon type (zanpakutō / nichirin-blade / sacred-treasure / etc. — series-specific)
+- Power/ability description (multi-paragraph; the "ban-kai" / "true form" etc.)
+- Origin story / how-acquired
+- Special techniques / named-attacks list
+- Material / components / forging-method
+- Symbolic meaning / character-arc significance
+- Visual descriptors (color; pattern; size; ornamentation)
+- Power-tier ranking (within-series strength comparison if available)
+- Cross-references to wielder character entries
+
+---
+
+**Museum collections (Smithsonian / Royal Armouries / Met / Hermitage / British Museum / Tokyo National / Cairo / INAH):**
+
+Per-artifact:
+- Catalog ID + collection name
+- Object name (curator-assigned)
+- Culture (structured field — this is the load-bearing one)
+- Period / dating + dating method
+- Geographic origin (region + specific site if archaeological)
+- Material composition
+- Dimensions (length, width, depth, weight)
+- Provenance / acquisition history
+- Curator description (multi-paragraph contextual text)
+- Image URLs (museum-photo + multi-angle when available)
+- License (mostly CC0 for U.S. federal museums; varies for others)
+- Related-objects cross-references within the same collection
+- Bibliographic references / academic citations
+
+---
+
+**TTRPG SRDs (D&D 5e / Pathfinder / GURPS / Warhammer / etc.):**
+
+Per-weapon entry:
+- Name + category (Simple / Martial / Exotic / etc.)
+- Damage dice + damage type
+- Properties (versatile / finesse / two-handed / heavy / light / loading / reach / thrown / etc.)
+- Weight + cost (in-game currency)
+- Special rules / mechanical interactions
+- Cultural-flavor description text
+- Edition/version (3.5e / 5e / etc.)
+
+---
+
+**TVTropes weapon-tropes:**
+
+Per-trope page:
+- Trope name
+- Description text
+- Per-example weapon mentions (across media)
+- Genre tags
+- Sub-tropes / parent tropes (hierarchical)
+- Cross-references to other tropes
+
+---
+
+**IMFDB (Internet Movie Firearms Database):**
+
+Per-weapon entry:
+- Weapon name (real-world canonical)
+- Manufacturer / model details
+- Real-world specs (caliber / capacity / etc.)
+- Films/TV-shows it appears in (with character/scene references)
+- Image URLs from movie screenshots
+- Historical accuracy notes
+
+---
+
+#### Default-extraction-rule (FOR EVERY SOURCE)
+
+If you encounter a field not in the per-source checklist above, **CAPTURE IT TO `structured_properties` JSON BLOB anyway** with the source's native field name. The checklists are minimum coverage, not maximum. Source-specific fields (like Smithsonian's `creator_role` or Wikipedia's `category` lists) become valid axis-discovery features even if not enumerated above.
+
+#### Acceptance criteria for field-extraction completeness
+
+Per knowledge entry:
+- **Minimum: 15 populated fields** (description + 14 structured properties / metadata fields)
+- **Target: 30+ populated fields** for sources with rich infoboxes (Wikipedia / Wikidata / major game wikis)
+- **Aspirational: 50+ populated fields** for museum-held artifacts with full curatorial metadata
+
+Per source-library aggregate:
+- Per-source coverage statistic: mean field-count per entry; flag sources whose mean < 10 for re-crawl with enhanced field extraction
+- Cross-source canonical merging: when merging entries across libraries (e.g., "katana" in Wikipedia + Wikidata + Smithsonian + multiple game wikis), unify into single canonical entry with union of all captured fields. Multi-source provenance preserved.
+
+#### Rationale — why this matters for Pattern 6 axis discovery
+
+PCA / factor analysis on N features per weapon produces meaningful axes ONLY if N is large enough to span the substrate space. With ~3-5 features per weapon, you discover maybe 2-3 axes. With ~30-50 features per weapon, you discover 8-15 meaningful axes that span culture × period × mechanics × genre × scale × material × use-context × tactical-role.
+
+**Bias toward MORE during extraction.** Storage cost is trivial (JSON blobs are flexible). Axis-discovery cost of UNDER-extraction is permanent — you'd have to re-crawl every source to add fields later.
+
 **Original plan below this section remains as Track B reference (3D model import workstream); it is not deleted but it is no longer primary.**
 
 ---
