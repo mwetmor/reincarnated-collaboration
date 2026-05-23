@@ -344,6 +344,62 @@ At every math hotspot:
 
 **Light hotspots** (worth flagging but lower severity): P1.5 feature extraction (embedding-model choice); P5 substrate-density precomputation (density-estimation technique). Follow Discipline #1 + #11 without full design-call ceremony.
 
+### 7.3 Discipline #18 refinement — methodology-consultation timing at extension hotspots (2026-05-23 work cycle)
+
+**Source:** Q-A verdict § 12.4 + gandalf OP § 4.2 (canonical write at engineering-disciplines.md pending jack-ryan).
+
+**Refinement:** at **extension-of-existing-framework math hotspots** (where the extension builds on a baseline framework whose empirical results inform the extension's methodology choice), methodology consultation for the extension fires AFTER the baseline framework's empirical results land where possible, not before.
+
+**Hive-mind application:** when a Phase's math-hotspot consultation extends a prior Phase's framework (e.g., P1 H8/H9 extends BDI H1-H5), the legolas Mode A consultation for the extension is sequenced AFTER the baseline phase lands and surfaces effect sizes + variance + signal-to-noise data. Empirical baseline informs extension methodology choice; consultation-in-the-dark on extensions is the failure mode this refinement guards against.
+
+**The principle (methodology-before-execution) is preserved.** The operationalization (which execution; consult before WHICH fire) is clarified at extension hotspots.
+
+### 7.4 Semantic-layer rep-audit (Discipline #18 amendment candidate; 2026-05-23 work cycle)
+
+**Source:** `canonical/story/marginal-lineage-tagging-pattern-2026-05-23.md` § 2.4 + gandalf OP § 4.4 (canonical write at engineering-disciplines.md pending jack-ryan).
+
+**The discipline:**
+
+> The substrate's vote is binding **at the geometry layer** (clustering algorithm output) but NOT necessarily binding **at the semantic layer** (cultural-tradition interpretation of cluster identity). Semantic-layer use of substrate output requires rep-audit at firing.
+
+**Hive-mind application:** during cluster-as-design-surface inheritance (P4 cluster semantic labeling; downstream Phase E-3 cluster-to-aesthetic-mapping; T4-B catalogue substrate-anchoring decisions; faction-architecture work that inherits cluster identity as cultural-tradition substrate), the consuming sub-agent applies rep-audit at firing:
+
+- Pull top-5 hdbscan_native reps (or equivalent representative sample) for the candidate cluster
+- Verify reps match the semantic interpretation the downstream design surface inherits
+- If reps contradict interpretation (e.g., a cluster labeled "S. American Indigenous" at 94.4% purity has reps = Modern Argentine military firearms, NOT Pre-Columbian Andean), do NOT inherit cluster lineage tag as cultural-tradition substrate
+- Document the rep-audit finding in the receiving artifact's notes
+
+**The 4-mode tagging-vocabulary collapse pattern** (per marginal-lineage meta-record § 1.1) — Mode A intended cultural-tradition; Modes B (geographic), C (naming-allusion), D (cross-tagged metadata error) are artifacts that pass lineage-purity gates but fail cultural-coherence. Rep-audit catches Mode B/C/D content.
+
+### 7.5 Framing-audit checklist (Pattern A-deep three-question protocol; 2026-05-23 work cycle)
+
+**Source:** kernel-panic-diagnosis § 9.5 + Q-A verdict § 1.3 (first formal applied use) + gandalf OP § 4.1 (canonical write at engineering-disciplines.md pending jack-ryan).
+
+**Hive-mind application:** at every Pattern A-deep verdict authored during hive-mind state (whether by knight-rider, by gandalf, by sub-agent-gandalf via § 5.5 sub-agent verdict pattern, or by any agent at a load-bearing-framing commitment), apply the three-question checklist:
+
+| Q | Question |
+|---|---|
+| **Q1** | What load-bearing framing assumptions does this work depend on? |
+| **Q2** | What evidence currently in hand (or surfaceable in current scope) could refute these assumptions? |
+| **Q3** | If refutation evidence exists or is plausible from current scope, is the right move to refine the framing rather than execute the work as-framed? |
+
+**Pairs with cheapest-empirical-refutation testing per Discipline #19 operationalization:** Pattern-A query to seam owners; SQL counts; psutil RSS checks; schema diffs per claim type; rep-audit per § 7.4.
+
+**First canonical example (Q-A verdict § 12.1):** gamora Pattern-A query within ~120 sec surfaced empirical refutation of Q-A § 1.3 framing-audit Q2 #1 assumption. Cycle: Pattern-A query → ~120 sec surface → ~30 min addendum capture → framework intactness preserved → no Pattern-B dispatches fired against bad-assumption scope.
+
+### 7.6 Composition with Disciplines #20 + #21 (no-sleep-recommendations + timezone-agnosticism)
+
+**Source:** Matt directive 2026-05-23 + 2026-05-23 evening refinement + gandalf OP § 3.5 / 3.6 + knight-rider OP § "Out-of-scope" commit 1a7b16a (canonical writes at engineering-disciplines.md pending jack-ryan as #20/#21).
+
+**Hive-mind application:** at every status report, handoff, Wave-completion update, Phase-boundary recording, cycle wind-down, and sub-agent verdict authored within hive-mind state:
+
+- DO NOT recommend Matt sleep, rest, sit with decisions overnight, "fresh eyes tomorrow," "rest well," or any variant
+- DO NOT use "today," "tonight," "tomorrow," "this morning," "this evening," "later today," "first thing tomorrow," "EOD," "overnight," or any time-of-day-relative framing
+- DO NOT editorialize about session length, fatigue, or Matt's state
+- Use workstream-relative framing only: "next session," "after X lands," "post-baseline," "when frame-revision returns," "when the dispatch reaches me"
+
+**Composition with framing-audit (§ 7.5):** the framing-audit checklist's "refine the framing rather than execute" outcome (Q3) replaces any "sleep on it" deferral framing with explicit empirical-criterion naming. Discipline #20 forbids the deferral framing; framing-audit + recognition-validate-commit supply the substitute.
+
 ---
 
 ## 8. State-file + cross-session continuity
