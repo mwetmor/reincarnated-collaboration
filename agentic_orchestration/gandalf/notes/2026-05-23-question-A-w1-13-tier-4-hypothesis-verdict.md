@@ -548,3 +548,143 @@ Surface-level discipline — preventing scope creep:
 
 **Signed:** gandalf
 **For:** the design-side verdict on Matt's Question A (skill + Tier 4 build-defining node mathematical scoping + seam routing + hypothesis-test framework extension for synergistic multiplicity + bimodal enhancement). Authored 2026-05-23 evening per Pattern A-deep discipline. Closes the "engage both, pattern A-deep" companion-verdict pair (Question B authored 2026-05-23 11:37 EDT; Question A this verdict).
+
+---
+
+## 12. Addendum — Gamora Pattern-A query surface (2026-05-23 late evening) + framing-audit refutation + sequencing refinement
+
+> **Status:** Addendum appended 2026-05-23 (late session, post-gamora Pattern-A query by Matt). Records the empirical refutation of § 1.3 framing-audit Q2 #1 assumption, the load-bearing sequencing constraint surfaced (BDI tests run against post-W1.13 archive per rescope § 3.1 verbatim), the M2 8GB compute-feasibility layer split (engine-execution layer vs statistical-methodology layer), the methodology-consultation timing refinement (substrate-led — fires after baseline, not before), and confirmation that the verdict's core mathematical model + acceptance gates remain intact. Closes the framing-audit discipline loop for this verdict; demonstrates the framing-audit discipline working as designed.
+
+### 12.1 Framing-audit refutation — Q2 #1 assumption did not hold
+
+The verdict's § 1.3 framing-audit Q2 #1 named:
+
+> "If W1.13 H1-H5 baseline results (gamora seam; status: unknown to this verdict; needs gamora confirmation) show non-significant linear effects, signal-to-noise may be too low for higher-order interaction tests to succeed."
+
+**Empirically refuted ~120 seconds after Pattern-A query to gamora:**
+
+- **H1-H5 has NOT been run.** No p-values, no effect sizes, no signal-to-noise read available.
+- **Gamora seam is idle post-LC-011 ablation.** No in-flight gamora work blocks H1-H5 design.
+- **What blocks H1-H5 execution is upstream and non-gamora-owned.** Three hard prerequisites unmet:
+
+| Prerequisite | Owner | State |
+|---|---|---|
+| P1 substrate enrichment (W1.1-W1.11) | rocket + others | in flight, not complete |
+| W1.13 multi-dim convergence implementation | rocket | FIRE-GATE cleared procedurally per rescope § 2.2; implementation not fired; gated on P1 close + Matt framing approval |
+| W1.20 BDI hypothesis-test infrastructure (model-fit harness, ω/τ table data structures, archive-pull interface) | rocket + legolas | not dispatched |
+
+H1-H5 baseline execution (gamora Pattern-B) sits at the **end** of this chain, not at the start. The verdict's § 9 empirical-evidence criteria still hold structurally, but the prerequisite chain to those criteria is materially longer than § 1.3 Q2 #1 anticipated.
+
+**Discipline-architecture observation:** the framing-audit discipline (per kernel-panic-diagnosis addendum § 9.5) is designed to catch pre-imposed-assumption failures via cheapest-empirical-refutation tests. The Pattern-A query to gamora WAS that cheapest-empirical-refutation test. It surfaced the refutation in ~120 seconds at minimum cost. **This is the framing-audit discipline working as designed** — the FIRST CANONICAL EXAMPLE of the discipline catching a pre-imposed-assumption failure on an authored verdict before downstream work fired against the bad assumption.
+
+Future framing-audit applications cite this as canonical example: "Pattern-A query within ~120 seconds surfaced framing-assumption refutation; addendum captured; framework intactness preserved; no downstream work miscarriage."
+
+### 12.2 Sequencing constraint — BDI tests run against POST-W1.13 archive
+
+Verbatim from W1.13 rescope-disposition § 3.1 (via gamora surface):
+
+> "The BDI hypothesis tests (H1-H5) will run against the post-W1.13 archive to measure whether rank-3 γ-dominance materializes empirically."
+
+**Operational consequence:** running H1-H5 against the current pre-W1.13 archive measures the WRONG substrate surface — dimensional underdetermination is unresolved at pre-W1.13 state, so rank-3 γ-coefficient expression cannot be expected to materialize there. Running H1-H5 prematurely would generate null results that misleadingly suggest the BDI framework itself is unsound, when the actual cause is archive-state mismatch.
+
+This constraint propagates to the verdict's extended framework:
+
+- **H8 + H8.diff + H9** (this verdict's extensions) all depend on a substrate where rank-3 γ-coefficient expression materializes empirically. If H1-H5 baseline measures the wrong substrate, the verdict's framework cannot fire either.
+- **Therefore: H8/H9 execution sequence is gated on post-W1.13 archive landing AND H1-H5 baseline producing meaningful results against that archive.**
+
+This sequencing constraint adds to the verdict's § 9 empirical-evidence criteria as an upstream gate:
+
+> **Upstream gate (new):** P1 substrate enrichment + W1.13 implementation + W1.20 infrastructure complete → post-W1.13 archive available → H1-H5 baseline runs against post-W1.13 archive → results land before legolas Mode A consultation fires.
+
+### 12.3 M2 8GB compute-feasibility constraint — layer split
+
+The verdict's § 1.3 framing-audit Q2 #3 named M2 8GB feasibility as a load-bearing constraint without specifying which layer. Gamora surface clarifies the constraint **splits across two layers:**
+
+| Layer | M2 8GB feasibility | Notes |
+|---|---|---|
+| **Engine-execution layer** (gamora sim infrastructure; W1.13 + W1.20 implementation; H1-H5 baseline execution) | **Operational on M2 8GB — no blocker** | Gamora confirms sim infrastructure runs on M2 8GB host without memory pressure at current architecture scale |
+| **Statistical-methodology layer** (H8 interaction-term ANOVA; H9 Hartigan's dip + GMM; differential-effect tests at substrate-triple × T4-node cross-product scale) | **Unknown; load-bearing for 9.12-B legolas Mode A consultation** | Statistical methodologies operate on engine-produced kit_power samples; sample-size requirements + computation memory footprint depend on methodology choice + substrate × T4 cell count + per-cell sample size |
+
+**Refinement to 9.12-B legolas Mode A consultation scope:** the M2 8GB feasibility audit is at the statistical-methodology layer specifically, NOT at the engine-execution layer. Legolas Mode A consultation needs to evaluate:
+
+- Per-methodology peak memory budget on M2 8GB at the substrate × T4 cross-product cell count we'll have post-T4-B catalogue authoring
+- Sample-size scaling — if cell count is N_substrate_triples × N_T4_nodes (~30-50 × 30-50 = ~900-2500 cells) and per-cell sample size is several hundred, total memory budget for ANOVA fit is bounded; for GMM-with-many-components is potentially larger
+- Alternatives if any candidate methodology exceeds host ceiling (Bayesian model comparison; permutation tests; mixed-effects with bounded-memory variants; sample-size scaling-down)
+
+The kernel-panic-diagnosis § 9.4 lesson — "host-hardware feasibility assessment at math-hotspot routing" — applies precisely at this layer, not at the engine-execution layer that gamora already verified.
+
+### 12.4 Methodology-consultation timing refinement — substrate-led
+
+The verdict's original sequencing per § 3.3 specified:
+
+> "Legolas Mode A consultation is mandatory before gamora executes H8/H9, not optional."
+
+**Refinement:** legolas Mode A consultation fires AFTER H1-H5 baseline lands, not before — but still BEFORE gamora executes H8/H9.
+
+Refined sequencing:
+
+```
+P1 substrate enrichment → W1.13 implementation → W1.20 BDI infrastructure → 
+    H1-H5 baseline execution (gamora; against post-W1.13 archive)
+        ↓ baseline results land (effect sizes, variance, signal-to-noise)
+    9.12-B legolas Mode A methodology consultation 
+        (NOW with empirical signal-to-noise data informing sample-size 
+         requirements + methodology selection)
+        ↓
+    9.12-D critique-pair Gate-1 on methodology
+        ↓ PASS
+    H8 + H8.diff + H9 execution (gamora; against post-W1.13 archive + 
+        T4-B v1 catalogue from 9.12-C parallel track)
+        ↓
+    Critique-pair Gate-2 → G1-G4 per-entry gates → jack-ryan decisions-log
+```
+
+**Reasoning (substrate-led discipline):** consultation BEFORE empirical signal-to-noise data is available means legolas Mode A would be working in the dark on sample-size requirements + methodology choice. Once H1-H5 lands, legolas has empirical effect sizes + variance + signal-to-noise to inform methodology recommendations grounded in actual engine output rather than projected scale estimates.
+
+This refinement preserves Discipline #18's principle (methodology-before-execution) and refines the operationalization (which execution; consult before WHICH fire). At extension-of-existing-framework math hotspots, methodology consultation for the extension fires AFTER the baseline framework's results land and BEFORE the extension fires.
+
+**Discipline-candidate refinement** (for jack-ryan queue, folds into gandalf OP amendment 9.10-B.1 framing-audit checklist):
+
+> **Discipline #18 refinement (proposed):** at extension-of-existing-framework math hotspots, methodology consultation for the extension fires AFTER the baseline framework's empirical results land where possible, not before. The principle (methodology-before-execution) is preserved; the operationalization (which execution; consult before WHICH fire) is clarified. Empirical signal-to-noise data from baseline informs extension methodology choice; consultation-in-the-dark on extensions is the failure mode this refinement guards against.
+
+### 12.5 Framework intactness — confirmed
+
+The verdict's core mathematical model (§ 2.2 η interaction term), three properties (§ 2.1 P1/P2/P3), hypothesis test extensions (§§ 4-5 H8/H8.diff/H9), acceptance gates (§ 6.1 G1-G4), and seam routing (§ 3) **remain intact regardless of this addendum.**
+
+What this addendum changes:
+
+- § 1.3 framing-audit Q2 #1 assumption refuted (captured § 12.1)
+- § 9 empirical-evidence criteria gain upstream-gate prerequisite (captured § 12.2)
+- § 1.3 framing-audit Q2 #3 M2 8GB constraint clarified into engine-execution layer (no blocker) + statistical-methodology layer (load-bearing for 9.12-B; captured § 12.3)
+- § 3.3 legolas Mode A consultation timing refined to AFTER H1-H5 baseline (captured § 12.4)
+
+What this addendum does NOT change:
+
+- Mathematical model (η interaction term) — intact
+- Three properties P1/P2/P3 — intact
+- Hypothesis test extensions H8/H8.diff/H9 — intact (only sequencing refined)
+- Acceptance gates G1-G4 — intact
+- Seam routing — intact (only legolas consultation timing refined)
+- Question A + Question B intersection (§ 7.4) — intact
+- Ranked recommendation tier table (§ 8) — intact
+
+The verdict's design-spec-as-math remains load-bearing for v1 Tier 4 validation. Architectural commitments remain deferred per § 9 empirical-evidence criteria + new § 12.2 upstream gate.
+
+### 12.6 Operational consequences for the 9.12 sub-carry queue
+
+- **9.12-A (gamora H1-H5 baseline confirmation):** scope clarified — sits at the END of an upstream chain (P1 + W1.13 + W1.20), not at the start. Knight-rider tracking shape addressed via Matt's queue-absorption framing decision (Option B per orchestration call — 9.12 stays scoped to post-baseline; P1/W1.13/W1.20 tracked in existing locations as upstream prerequisites).
+- **9.12-B (legolas Mode A consultation):** timing refined to AFTER H1-H5 baseline lands (per § 12.4). Scope refined to statistical-methodology layer M2 8GB feasibility (per § 12.3).
+- **9.12-C (gandalf + Matt T4-B catalogue authoring):** parallel-track; not gated on baseline chain; can proceed when Matt + gandalf schedule allows.
+- **9.12-D (critique-pair Gate-1 on methodology):** sequence unchanged — post-9.12-B.
+
+### 12.7 What this addendum does NOT do
+
+- Does not amend § 1-11 of the verdict (those stand as authored — the record of what I knew at authoring time remains accurate at that moment).
+- Does not author the gandalf OP amendment (9.10-B.1; framing-audit checklist canonical capture); the Discipline #18 refinement candidate in § 12.4 folds INTO that amendment when it lands.
+- Does not author the discipline-candidate canonical text for jack-ryan (jack-ryan owns the engineering-disciplines.md writes).
+- Does not retroactively rewrite § 1.3 framing-audit results. § 1.3 stands as the record of what I knew at verdict-authoring time including the conditional-extension structure that ANTICIPATED this exact refutation shape (Q2 #1 hypothesized it; gamora surface refuted it; § 9 conditional-extension structure persists). The framing-audit discipline worked as designed.
+
+---
+
+**Signed (addendum):** gandalf
+**Closes:** the framing-audit discipline loop for this verdict. Demonstrates the discipline working as designed — Pattern-A query within ~120 sec surfaced refutation; addendum captured at minimum cost; verdict framework intactness preserved; no downstream work miscarriage. First canonical example of the framing-audit discipline catching a pre-imposed-assumption failure on an authored verdict.
