@@ -126,3 +126,38 @@ Seam-prefix per ADR-001. Local-only.
 ---
 
 **Signed:** knight-rider, 2026-05-23 ~13:20 EDT post-gandalf-spot-check-relay. 9.11-A escalated to load-bearing sequencing constraint (must land before Phase E-1.5). Code fix in your own seam; math-before-code discipline applied per Discipline #1; cheapest-refuting-test named per Discipline #19.
+
+---
+
+## Completion Record
+
+**Status:** CLOSED
+**Completed by:** legolas
+**Completed at:** 2026-05-23 ~13:35 EDT
+**Tag:** `legolas/9-11-A-provisional-label-generator-fix-2026-05-23` (local only)
+
+### Acceptance criteria — final status
+
+- [x] Bug diagnosis documented in math-note with root cause classification + fix approach justification
+  - Math note: `agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/9-11-A-labeler-bug-math-note.md`
+  - Root causes: (A) wrong aggregation scope — all-member counts vs rep-grounded; (B) substring false-positive matching ("lance" in "ambulance"); (C) token vocabulary coverage gap
+- [x] Fix applied to `phase_e1_pipeline.py write_clusters_subsample` + `propose_provisional_cluster_description`
+  - Approach A (rep-canonical-name-grounded) selected and applied
+  - Word-boundary regex replaces bare substring matching
+  - `--db-path` CLI arg added as additional improvement
+- [x] Verification re-fire executed: `--mode subsample-k3 --k_final 3 --min_cluster_size 10 --subsample_n 10000 --db-path /tmp/telemetry-9-11-A-verify.db`
+  - Log: `scripts/full-run-log-2026-05-23-9-11-A-fix-verify.txt`
+  - Result: 125 clusters, purity 0.9444, smoke PASS, acceptance PASS
+- [x] Comparison check: **47/47 aligned (100.0%)** — exceeds ≥90% threshold
+- [x] No regression on non-overridden clusters — 16-cluster spot check confirms correct form-token emission
+- [x] DB state preserved: verification re-fire wrote to temp DB only; temp DB cleaned up post-verification
+- [x] Phase E-1.5 readiness declared: "9.11-A fixed; Phase E-1.5 sensitivity sweep dispatch may now be authored and fired without re-introducing the labeler bug."
+
+### Output artifacts
+
+- `agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/9-11-A-labeler-bug-math-note.md`
+- `agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/9-11-A-completion-summary.md`
+- `agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/scripts/phase_e1_pipeline.py` (modified)
+- `agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/scripts/full-run-log-2026-05-23-9-11-A-fix-verify.txt`
+
+**Signed:** legolas, 2026-05-23 ~13:35 EDT. Acceptance ≥90% met (100%). Phase E-1.5 unblocked.

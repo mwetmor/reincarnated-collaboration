@@ -621,16 +621,46 @@ def propose_provisional_axis_name(axis_info, evr_val):
     return f"PROVISIONAL: {top_name.replace('_', ' ')} dominant axis"
 
 
-def propose_provisional_cluster_description(char):
-    """Heuristic provisional cluster description."""
+def propose_provisional_cluster_description(char, top_reps=None):
+    """Heuristic provisional cluster description.
+
+    9.11-A fix (2026-05-23): derive weapon-form from top_reps canonical_names using
+    word-boundary regex matching, NOT from all-member token frequency counts.
+
+    Root causes fixed:
+    (A) Wrong aggregation scope: all-member counts swamp rep signal with low-confidence
+        nearest_centroid member noise (e.g. Cluster 9 dagger/wand vs javelin reps).
+    (B) Substring false-positive matching: 'lance' in 'Ambulance' / 'Surveillance'
+        (Cluster 23). Fixed by re.search word-boundary pattern.
+    (C) Vocabulary coverage gap: if no rep matches a known token, emit 'mixed' rather
+        than picking stray full-member tokens.
+
+    top_reps: list of rep dicts (each has 'canonical_name'); if None, falls back to
+    the old all-member top_weapon_types approach (smoke/full mode compatibility shim).
+    """
     lineage = char.get("dominant_lineage", ("unknown", 0))[0]
     period = char.get("dominant_period", ("unknown", 0))[0]
     register = char.get("dominant_register", ("unknown", 0))[0]
-    top_types = char.get("top_weapon_types", [])
     kind = char.get("dominant_kind", ("unknown", 0))[0]
     count = char.get("member_count", 0)
 
-    type_str = "/".join([t[0] for t in top_types[:2]]) if top_types else "mixed"
+    if top_reps:
+        # Approach A: rep-canonical-name-grounded with word-boundary matching
+        rep_type_counts = Counter()
+        for rep in top_reps:
+            rep_name = (rep.get("canonical_name") or "").lower()
+            for token in WEAPON_TYPE_TOKENS:
+                # Word-boundary regex: eliminates 'lance' in 'ambulance', etc.
+                if re.search(r'\b' + re.escape(token) + r'\b', rep_name):
+                    rep_type_counts[token] += 1
+        if rep_type_counts:
+            type_str = "/".join([t[0] for t in rep_type_counts.most_common(2)])
+        else:
+            type_str = "mixed"
+    else:
+        # Fallback shim for smoke/full mode (top_reps not passed)
+        top_types = char.get("top_weapon_types", [])
+        type_str = "/".join([t[0] for t in top_types[:2]]) if top_types else "mixed"
 
     return (f"PROVISIONAL: {lineage} {period} {type_str} weapons "
             f"({register} register; {kind}; N={count})")
@@ -1460,9 +1490,14 @@ def write_clusters_subsample(out_dir, rows, all_labels, all_confidence, assignme
     cluster_chars = {}
     for lbl in unique_labels:
         char = characterize_cluster(rows, all_labels, lbl)
-        char["top_reps"] = get_top_representatives(rows, all_labels, all_confidence, lbl, n=3)
+        # 9.11-A fix: top_reps must be computed BEFORE propose_provisional_cluster_description
+        # so the description generator can use rep-canonical-name-grounded token matching
+        # instead of all-member token frequency counts (see 9-11-A-labeler-bug-math-note.md).
+        char["top_reps"] = get_top_representatives(rows, all_labels, all_confidence, lbl, n=5)
         char["centroid"] = projections_3[all_labels == lbl].mean(axis=0).tolist()
-        char["provisional_description"] = propose_provisional_cluster_description(char)
+        char["provisional_description"] = propose_provisional_cluster_description(
+            char, top_reps=char["top_reps"]
+        )
         cluster_chars[lbl] = char
 
     # Purity over all rows
@@ -1612,6 +1647,11 @@ def main():
                         help="Override HDBSCAN min_cluster_size (subsample-k3 default: 10)")
     parser.add_argument("--subsample_n", type=int, default=10000,
                         help="Target subsample size for subsample-k3 mode (default: 10000)")
+    # 9.11-A fix: added --db-path override to support temp-DB verification runs
+    # without requiring source edits. Defaults to the module-level DB_PATH constant.
+    parser.add_argument("--db-path", type=str, default=None,
+                        help="Override DB path (default: module-level DB_PATH constant). "
+                             "Use for verification re-fires against temp DB copies.")
     args = parser.parse_args()
     smoke_mode = (args.mode == "smoke")
     subsample_mode = (args.mode == "subsample-k3")
@@ -1643,12 +1683,17 @@ def main():
     except (ValueError, resource.error) as e:
         log(f"NOTE: Could not set RLIMIT_AS: {e} — using psutil RSS-guard instead (macOS behavior)")
 
+    # 9.11-A fix: resolve DB path (--db-path override or module-level constant)
+    effective_db_path = args.db_path if args.db_path else DB_PATH
+    if args.db_path:
+        log(f"DB path override: {effective_db_path} (--db-path flag; production DB NOT written)")
+
     log(f"=== Phase E-1 Pipeline starting (mode={args.mode}) ===")
     if subsample_mode:
         log(f"=== Frame-revision: k_final={k_final_override}, min_cluster_size={mcs_override}, "
             f"subsample_n={args.subsample_n} ===")
 
-    conn = sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect(effective_db_path)
     rows = load_data(conn, smoke_mode=smoke_mode)
     N = len(rows)
 

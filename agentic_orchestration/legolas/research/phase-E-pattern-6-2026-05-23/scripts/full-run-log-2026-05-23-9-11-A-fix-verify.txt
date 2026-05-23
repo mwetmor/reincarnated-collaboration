@@ -1,0 +1,78 @@
+[13:33:24] NOTE: Could not set RLIMIT_AS: current limit exceeds maximum limit — using psutil RSS-guard instead (macOS behavior)
+[13:33:24] DB path override: /tmp/telemetry-9-11-A-verify.db (--db-path flag; production DB NOT written)
+[13:33:24] === Phase E-1 Pipeline starting (mode=subsample-k3) ===
+[13:33:24] === Frame-revision: k_final=3, min_cluster_size=10, subsample_n=10000 ===
+[13:33:24] Loaded 48430 rows from v_category_sample 
+[13:33:24] === DELIVERABLE 1: Feature Engineering ===
+[13:33:24] F2 weight stats: min=0.2124, max=119.29, mean=1.0000
+[13:33:24] Fitting TF-IDF vectorizer...
+[13:33:29] TF-IDF matrix: (48430, 500)
+[13:33:29] Vocabulary hash: 03eeccc2b8e4f6b1
+[13:33:29] Fitting TruncatedSVD with n_components=100...
+[13:33:31] LSA output: (48430, 100), explained_variance_ratio sum=0.7640
+[13:33:31] Final feature matrix: (48430, 160)
+[13:33:31] Wrote Deliverable 1: /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-1-features.md
+[13:33:31] Deliverable 1 complete: /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-1-features.md
+[13:33:31] === DELIVERABLE 2: Axis Discovery ===
+[13:33:31] Running PCA (TruncatedSVD) on full feature matrix...
+[13:33:39] Explained variance (first 15): ['0.0789', '0.0567', '0.0459', '0.0276', '0.0260', '0.0253', '0.0243', '0.0241', '0.0228', '0.0217', '0.0211', '0.0190', '0.0193', '0.0192', '0.0186']
+[13:33:39] Cumulative EVR: ['0.0789', '0.1356', '0.1815', '0.2091', '0.2351', '0.2604', '0.2847', '0.3088', '0.3316', '0.3533', '0.3744', '0.3934', '0.4128', '0.4320', '0.4506']
+[13:33:39] k_80=36, kink_idx=4, k_from_kink=6, k_from_var=12, k_final=12
+[13:33:39] Running 10 bootstrap resamples for stability check...
+[13:34:10] Bootstrap stability (mean cosine-dist per axis): ['0.0011', '0.0118', '0.0131', '0.3917', '0.5907', '0.4736', '0.6832', '0.6263', '0.6692', '0.7982', '0.7426', '0.7340']
+[13:34:10] Wrote Deliverable 2 (MD): /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-1-axis-discovery.md
+[13:34:10] Wrote Deliverable 2 (JSON): /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-1-axis-loadings.json
+[13:34:10] Deliverable 2 complete: /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-1-axis-discovery.md
+[13:34:10] subsample-k3: D1 already computed above; X is in memory. Skipping features.md overwrite.
+[13:34:10] Regenerating top-3 PCA axes via minimal TruncatedSVD re-fire (no bootstrap)...
+[13:34:13] Axes regenerated: components shape = (3, 160)
+[13:34:13] Computing full-pool projections onto axes 1-3: X shape=(48430, 160)
+[13:34:13] Full-pool projections shape: (48430, 3)
+[13:34:13] Cached projections to /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-1-projections-k3.npz
+[13:34:13] Stratified subsample: target=10000, actual=10000, lineages=14
+[13:34:13]   fantasy_generic: 3303 (floor=20)
+[13:34:13]   east_asian: 2656 (floor=20)
+[13:34:13]   european: 2542 (floor=20)
+[13:34:13]   unknown: 411 (floor=20)
+[13:34:13]   middle_eastern: 284 (floor=20)
+[13:34:13]   cross_cultural: 194 (floor=20)
+[13:34:13]   south_asian: 182 (floor=20)
+[13:34:13]   southeast_asian: 156 (floor=20)
+[13:34:13]   african: 110 (floor=20)
+[13:34:13]   south_american_indigenous: 56 (floor=20)
+[13:34:13]   mesoamerican: 33 (floor=20)
+[13:34:13]   arctic_circumpolar: 27 (floor=20)
+[13:34:13]   oceanic: 24 (floor=20)
+[13:34:13]   north_american_indigenous: 22 (floor=20)
+[13:34:13] Subsample: 10000 rows, shape (10000, 3)
+[13:34:13] === HDBSCAN on subsample (shape=(10000, 3), mcs=10) ===
+[13:34:13] psutil not available — skipping RSS guard (not installed; pip install psutil to enable)
+[13:34:13] Running HDBSCAN (min_cluster_size=10)...
+[13:34:13] HDBSCAN fit on un-expanded projections: (10000, 3)
+[13:34:13] HDBSCAN result: 125 clusters, 427 noise points
+[13:34:13] HDBSCAN on subsample: 125 clusters, 427 noise
+[13:34:13] Assigned 427 noise points to nearest clusters (confidence < 0.5)
+[13:34:13] After within-subsample noise-assign: 125 clusters
+[13:34:13] Assigning 38430 non-subsample rows to nearest centroid (batch)...
+[13:34:13] Full-pool assignment complete: 10000 hdbscan_native, 38430 nearest_centroid
+[13:34:13] Full-pool cluster assignment: 125 clusters total, 10000 native, 38430 nearest-assigned
+[13:34:13] === DELIVERABLE 3 (subsample-k3): Clustering Output ===
+[13:34:14] Wrote Deliverable 3 (subsample-k3): /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-1-clusters.md
+[13:34:14] Deliverable 3 complete: /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-1-clusters.md
+[13:34:14] === ACCEPTANCE GATE CHECK ===
+[13:34:14] Clusters: 125 (need ≥ 50): PASS
+[13:34:14] Mean purity: 0.9444 (need ≥ 0.70): PASS
+[13:34:14] === DELIVERABLE 4: DB Population (subsample-k3) ===
+[13:34:14] Populating DB: clusters, cluster_membership (with assignment_method), weapon_knowledge_entries.cluster_id
+[13:34:14] assignment_method column already exists or schema error (continuing): duplicate column name: assignment_method
+[13:34:15] Inserted 125 rows into clusters table
+[13:34:15] Inserted 48430 rows into cluster_membership (with assignment_method)
+[13:34:15] Updated 48430 rows in weapon_knowledge_entries.cluster_id
+[13:34:15] DB verification: clusters=125, cluster_membership=48430, wke.cluster_id populated=48430
+[13:34:15]   hdbscan_native=10000, nearest_centroid=38430
+[13:34:15] Running round-trip smoke test on 100-row sample...
+[13:34:15] SMOKE TEST PASSED: 100 rows verified
+[13:34:15] Round-trip smoke: PASS
+[13:34:15] Results saved to /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-1-pipeline-results.json
+[13:34:15] === SUBSAMPLE-K3 PIPELINE COMPLETE ===
+[13:34:15]   Clusters: 125, Purity: 0.9444, Smoke: PASS, Bis: ACCEPTANCE

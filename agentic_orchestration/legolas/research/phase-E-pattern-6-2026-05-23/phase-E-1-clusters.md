@@ -42,7 +42,7 @@ PROVISIONAL — gandalf labels clusters canonically in Phase E-2
 
 ### Rank 1: Cluster 90 (N=10087)
 
-- **Provisional description:** PROVISIONAL: east_asian unknown rifle/spear weapons (historical register; category; N=10087)
+- **Provisional description:** PROVISIONAL: east_asian unknown mixed weapons (historical register; category; N=10087)
 - **Dominant lineage:** east_asian (10087 rows)
 - **Dominant period:** unknown (10086 rows)
 - **Dominant register:** historical (10087 rows)
@@ -56,12 +56,14 @@ PROVISIONAL — gandalf labels clusters canonically in Phase E-2
 | 158 | H/AKJ-16 | east_asian | unknown | 1.0000 |
 | 723 | Q132210441 | east_asian | unknown | 1.0000 |
 | 1004 | Teppô | east_asian | unknown | 1.0000 |
+| 1017 | Q132526367 | east_asian | unknown | 1.0000 |
+| 1018 | Q132526368 | east_asian | unknown | 1.0000 |
 
 ---
 
 ### Rank 2: Cluster 62 (N=4807)
 
-- **Provisional description:** PROVISIONAL: fantasy_generic fictional axe/greataxe weapons (fantasy register; named_template; N=4807)
+- **Provisional description:** PROVISIONAL: fantasy_generic fictional mixed weapons (fantasy register; named_template; N=4807)
 - **Dominant lineage:** fantasy_generic (4807 rows)
 - **Dominant period:** fictional (4806 rows)
 - **Dominant register:** fantasy (4807 rows)
@@ -75,12 +77,14 @@ PROVISIONAL — gandalf labels clusters canonically in Phase E-2
 | 13478 | Abyssal Bane Chakram (very rare variant) | fantasy_generic | fictional | 1.0000 |
 | 13513 | Abyssal Bane Knuckle Duster (rare variant) | fantasy_generic | fictional | 1.0000 |
 | 13514 | Abyssal Bane Knuckle Duster (very rare variant) | fantasy_generic | fictional | 1.0000 |
+| 13528 | Abyssal Bane Maul (rare variant) | fantasy_generic | fictional | 1.0000 |
+| 13533 | Abyssal Bane Nunchaku | fantasy_generic | fictional | 1.0000 |
 
 ---
 
 ### Rank 3: Cluster 112 (N=2062)
 
-- **Provisional description:** PROVISIONAL: european modern rifle/spear weapons (historical register; category; N=2062)
+- **Provisional description:** PROVISIONAL: european modern mixed weapons (historical register; category; N=2062)
 - **Dominant lineage:** european (2054 rows)
 - **Dominant period:** modern (1539 rows)
 - **Dominant register:** historical (2062 rows)
@@ -94,12 +98,14 @@ PROVISIONAL — gandalf labels clusters canonically in Phase E-2
 | 203 | Maltese Ring | european | modern | 1.0000 |
 | 4373 | Seax of Beagnoth | european | medieval | 1.0000 |
 | 5028 | M2 machine gun at Musee de l'Armée | european | modern | 1.0000 |
+| 22139 | Centrefire six-shot revolver | european | modern | 1.0000 |
+| 22251 | Rimfire six-shot blank-firing revolver | european | modern | 1.0000 |
 
 ---
 
 ### Rank 4: Cluster 50 (N=1907)
 
-- **Provisional description:** PROVISIONAL: european contemporary bow weapons (military_modern register; category; N=1907)
+- **Provisional description:** PROVISIONAL: european contemporary mixed weapons (military_modern register; category; N=1907)
 - **Dominant lineage:** european (1907 rows)
 - **Dominant period:** contemporary (1907 rows)
 - **Dominant register:** military_modern (1907 rows)
@@ -113,12 +119,14 @@ PROVISIONAL — gandalf labels clusters canonically in Phase E-2
 | 172751 | zweihänder | european | contemporary | 1.0000 |
 | 172752 | zweihänder | european | contemporary | 1.0000 |
 | 172810 | hardened steel kriegsmesser | european | contemporary | 1.0000 |
+| 182722 | Zhakh 15 Ukrainian Unmanned Aerial Vehicle (UAV) | european | contemporary | 1.0000 |
+| 182725 | Chuyka 3.0 Ukrainian Tri-Band Portable Drone Detec | european | contemporary | 1.0000 |
 
 ---
 
 ### Rank 5: Cluster 52 (N=1819)
 
-- **Provisional description:** PROVISIONAL: fantasy_generic classical spear/musket weapons (fantasy register; named_template; N=1819)
+- **Provisional description:** PROVISIONAL: fantasy_generic classical mixed weapons (fantasy register; named_template; N=1819)
 - **Dominant lineage:** fantasy_generic (1811 rows)
 - **Dominant period:** classical (1810 rows)
 - **Dominant register:** fantasy (1819 rows)
@@ -132,6 +140,8 @@ PROVISIONAL — gandalf labels clusters canonically in Phase E-2
 | 13771 | Arrow of Teleportation | fantasy_generic | classical | 1.0000 |
 | 13792 | Assassin's Arrow | fantasy_generic | classical | 1.0000 |
 | 14484 | Chicken Chucker (Common) | fantasy_generic | classical | 1.0000 |
+| 14485 | Chicken Chucker (Legendary) | fantasy_generic | classical | 1.0000 |
+| 16504 | Grovelthrash, Awakened | fantasy_generic | classical | 1.0000 |
 
 ---
 
