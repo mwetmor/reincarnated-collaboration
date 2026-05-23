@@ -10,10 +10,10 @@
 
 | Field | Value |
 |---|---|
-| Timestamp | 2026-05-22 late-evening — knight-rider cleaning-plan-design session |
-| Cycle | 9 — **CLEANING PHASE ACTIVE** (Matt: accept at 89.8% + pivot; gandalf dispatch fired; 130K wikipedia-unfiltered dump-then-deleted) |
+| Timestamp | 2026-05-22 late-evening — knight-rider Cycle 9 sub-step 9.2 (gandalf returned + Matt F1-F6 + Phase A dispatch authored + jack-ryan Gate 1 PASSED) |
+| Cycle | 9.2 — **CLEANING PHASE A DISPATCH READY** (Phase B policy locked + gandalf returned + jack-ryan amendments applied) |
 | Orchestrator | knight-rider |
-| State | **CLEANING PHASE B ACTIVE (POLICY DESIGN)** — clean total **89,839** (matches floor metric exactly post-DB-cleanup); no crawl PIDs running; gandalf Pattern-B dispatch in queue for next-session pickup |
+| State | **PHASE A DISPATCH FIRE-READY** — clean total **89,839**; gandalf design returned (828-line policy doc); F1-F6 Matt-locked; jack-ryan PASS-WITH-AMENDMENTS applied; Matt's call on Pattern A vs Pattern B fire mode for legolas Phase A audit |
 
 ## Cleaning-plan disposition (Matt-locked 2026-05-22 evening)
 
@@ -313,29 +313,33 @@ No-decision-yet stance: hive-mind is **IDLE / CHECKPOINTED**. Matt directs.
 **Matt locked path (a):** accept at 89.8% + pivot to canonical normalization.
 
 **5-phase cleaning plan locked:**
-- Phase A — Substrate audit (legolas; ~600-1,250 sample-row classifications across 5 dimensions)
-- Phase B — Policy design (gandalf review THIS SESSION → dispatch fired; jack-ryan Gate 1 → after gandalf return; elrond schema authoring → Phase D)
+- Phase A — Substrate audit (legolas; ~600-1,250 sample-row classifications across 5 dimensions) — **DISPATCH FIRED**
+- Phase B — Policy design (gandalf review **COMPLETE** + jack-ryan Gate 1 **PASSED-WITH-AMENDMENTS** + elrond schema authoring → Phase D)
 - Phase C — Quarantine triage (Matt-decisions after Phase A surfaces)
 - Phase D — Cleaning pipeline build (elrond Pattern-B execution)
 - Phase E — Emergent-pattern analysis (gandalf Pattern-6 axis discovery on cleaned substrate)
 
-**Executions this session:**
+**Executions this session (combined Cycle 9 sub-steps 9.1 + 9.2):**
 
-1. **130K wikipedia-unfiltered dump-then-delete.** 130,334 entries + 38,589 linked images dumped to `quarantine-archives/` (81.5 MB gzipped combined); DELETE + VACUUM freed 387 MB on DB (523 MB → 136 MB).
-2. **Gandalf Pattern-B dispatch authored** at `agentic_orchestration/dispatches/2026-05-22-gandalf-cleaning-policy-design-review.md` — 7 review items: (i) `weapon_kind` taxonomy; (ii) wieldability filter rules; (iii) museum-as-category default + named-unique edge cases; (iv) **math-anchored substrate-cleanliness bar** (load-bearing); (v) cultural-lineage canonical taxonomy; (vi) variant-of-type collapse policy framework; (vii) Pattern-6 axis discovery sequencing interaction.
-3. **Schema delta proposed (not executed; elrond's Phase D):**
-   - `wieldable_humanoid` TEXT enum
-   - `weapon_kind` TEXT enum (category / unique / named_template / unknown)
-   - `dedup_status` TEXT enum
+1. **130K wikipedia-unfiltered dump-then-delete** (9.1). 130,334 entries + 38,589 linked images dumped to `quarantine-archives/` (81.5 MB gzipped combined); DELETE + VACUUM freed 387 MB on DB (523 MB → 136 MB).
+2. **Gandalf Pattern-A subagent fired** (9.1). Returned 828-line `canonical/story/cleaning-policy-design-2026-05-22.md` addressing all 7 review items + math-anchored cleanliness bar. Tag `gandalf/cleaning-policy-design-review-2026-05-22`.
+3. **Matt F1-F6 review** (9.2). Accepted all 6 knight-rider recommendations: F1 TIERED collapse for Royal Armouries / F2 weighted inverse-frequency / F3 quarantine pf2ools / F4 ≥0.85 + corroboration / F5 PCA starting method / F6 N=20-50 default.
+4. **Schema delta REFINED per gandalf** (9.2):
+   - `weapon_kind` widened to 5-bucket (category / unique / named_template / **`ammo_or_consumable`** / unknown)
+   - `wieldable_humanoid` widened to 6-bucket (added **`shoulder_supported`** for RPG-7/M249/SMAW signature preservation)
+   - `dedup_status` unchanged
    - New view `v_category_sample` for engine-consumable filtering
-4. **Phase A audit (legolas) held pending gandalf return** — rubric refinements expected; would compromise audit if fired with potentially-wrong taxonomy
+5. **Legolas Phase A audit dispatch authored** (9.2) at `agentic_orchestration/dispatches/2026-05-22-legolas-phase-A-substrate-audit.md` — 5 classification dimensions × ~600-1,250 sample rows × 4 deliverables (per-source quality report; variant clusters; named-unique allowlist verification; cleanliness baseline).
+6. **Jack-ryan Gate 1 fired (Pattern-A subagent)** (9.2). Returned PASS-WITH-AMENDMENTS — 5 specific items: (i) math note C expansion to all sources >0.3 stdev (not just Royal Armouries); (ii) F1-F6 operational implications specificity (numeric estimates per F); (iii) explicit year-band citation for historical_period Dim 4; (iv) Pattern-B preferred / Pattern-A acceptable with strict sequencing; (v) <5-active-rows source quarantine-archive sampling permission. ALL 5 amendments applied to dispatch.
 
-**Next session sequence (after gandalf):**
-1. Knight-rider reads gandalf's `canonical/story/cleaning-policy-design-2026-05-22.md` (or wherever gandalf lands the output)
-2. Refines Phase A audit rubric per gandalf's taxonomy refinements + math-anchored cleanliness bar
-3. Authors + dispatches legolas Phase A audit
-4. Coordinates Matt-side review when Phase A surfaces in-flight decisions
-5. Authors elrond Pattern-B dispatch for Phase D after Phase A + Phase C settled
+**Phase A audit ready to fire. Execution mode is Matt's call (Pattern A in-session vs Pattern B separate-terminal).**
+
+**Next session sequence (after legolas Phase A returns):**
+1. Knight-rider reads legolas's 4 deliverables
+2. Surfaces F1-F6 operational implications to Matt (numeric estimates per amended dispatch)
+3. Surfaces variant-cluster examples to Matt + gandalf (Pattern-A subagent re-engagement for in-flight Item 6 decisions)
+4. Authors elrond Phase D Pattern-B dispatch with locked policies + Phase A empirical baselines operationalized
+5. Optional: fires legolas Mode A dirty-probe (gandalf § 7.2 Step 1) as a sidecar pre-Phase-D — surfaces axes the cleaning pipeline must preserve
 
 ---
 
