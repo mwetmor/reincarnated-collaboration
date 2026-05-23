@@ -1,0 +1,44 @@
+JSON validates: 125 clusters; db_cluster_id 1..125; all labels + types populated.
+Pre-update: clusters rows=125; PROVISIONAL labels=125
+ALTER TABLE clusters ADD COLUMN cluster_type TEXT — applied.
+UPDATE executed: 125 parameter sets submitted; sqlite rowcount=125.
+
+=== Verification queries ===
+clusters row count post-update: 125 (expected 125)
+PROVISIONAL labels remaining:   0 (expected 0)
+NULL/empty label rows:          0 (expected 0)
+NULL/empty cluster_type rows:   0 (expected 0)
+
+Spot-checks (db_cluster_id, label, cluster_type):
+  id=  1  type=mixed_cross_cultural          label=Cross-Cultural Contemporary Mixed-Form Pool
+  id= 51  type=mixed_form_pool               label=European Contemporary Two-Hand Mixed Pool (Mil-Modern + Reproduction Blade)
+  id= 63  type=named_template_family         label=Fantasy-Generic "Abyssal Bane" Named-Template Mega-Family
+  id= 87  type=rare_lineage_isolate          label=S. American Indigenous Contemporary Shotgun Cluster
+  id= 91  type=metadata_bucket               label=East Asian Uncurated-Period Metadata Pool
+
+Round-trip smoke (100 rows): PASS — all join targets carry canonical labels + cluster_type.
+First 3 joined rows:
+  wke.id=     3  'PMD series mines'  -> cluster_id=116  type=weapon_family  label='European Uncurated-Period Spear Family'
+  wke.id=     4  'Q928529'  -> cluster_id=120  type=mixed_form_pool  label='Untyped-Lineage Mixed Mythical/Fantasy/Modern Pool'
+  wke.id=     5  'Herzsprung shields'  -> cluster_id=67  type=weapon_family  label='Untyped-Lineage Ceremonial-Shield Pool'
+Last 3 joined rows:
+  wke.id=   107  'Mace-AO 2152'  -> cluster_id=90  type=weapon_family  label='Middle Eastern Contemporary Spear Family'
+  wke.id=   108  'Mace dedicated to Gigamesh-AO 3761'  -> cluster_id=114  type=weapon_family  label='Middle Eastern Uncurated-Period Spear Family'
+  wke.id=   109  'Q29130417'  -> cluster_id=120  type=mixed_form_pool  label='Untyped-Lineage Mixed Mythical/Fantasy/Modern Pool'
+
+cluster_type distribution (DB-side):
+  metadata_bucket                  1
+  mixed_cross_cultural             18
+  mixed_form_pool                  9
+  modern_military_hardware_pool    4
+  named_template_family            41
+  rare_lineage_isolate             2
+  weapon_family                    50
+
+Post-update state written to /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/elrond/research/phase-E-2-DB-2026-05-23/post-update-state-clusters.tsv
+
+=== ACCEPTANCE GATES ===
+  [PASS] All 125 labels updated; zero PROVISIONAL remain.
+  [PASS] Row count unchanged at 125.
+  [PASS] Round-trip smoke (100-row join sample).
+  [PASS] cluster_type column populated.

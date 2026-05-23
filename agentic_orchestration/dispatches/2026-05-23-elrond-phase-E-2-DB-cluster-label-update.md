@@ -131,3 +131,61 @@ Seam-prefix per ADR-001. Local-only.
 ---
 
 **Signed:** knight-rider, 2026-05-23 ~13:20 EDT post-Gate-2-PASS + gandalf spot-check relay. Pattern-A-light scope; mechanical UPDATE from reviewed JSON. Sub-dispatch authorization covers DB-write under ADR-006. Open design question on ALTER TABLE for cluster_type is yours; either decision is acceptable.
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-23 (elrond fire)
+**Tag shipped:** `elrond/phase-E-2-DB-2026-05-23` (local; not pushed per ADR-006)
+**MIGRATION.md written:** `agentic_orchestration/elrond/research/phase-E-2-DB-2026-05-23/MIGRATION.md` (new sibling; cross-references parent legolas Phase E-1 MIGRATION.md)
+**Curation script:** `agentic_orchestration/elrond/research/phase-E-2-DB-2026-05-23/scripts/phase_e2_db_update.py`
+**Run log:** `agentic_orchestration/elrond/research/phase-E-2-DB-2026-05-23/scripts/run-log-2026-05-23.txt`
+**Pre-state audit trail:** `agentic_orchestration/elrond/research/phase-E-2-DB-2026-05-23/pre-update-state-clusters.tsv`
+**Post-state audit trail:** `agentic_orchestration/elrond/research/phase-E-2-DB-2026-05-23/post-update-state-clusters.tsv`
+
+### Acceptance gates
+
+| Gate                                                                | Result |
+|---|---|
+| All 125 `clusters.label` updated; zero `PROVISIONAL:` remain         | PASS (count=0) |
+| `SELECT COUNT(*) FROM clusters` = 125 unchanged                      | PASS |
+| Spot-checks on dispatch-named clusters                              | PASS (db_ids 1/51/63/87/91 — note dispatch text used legolas `id` values 0/50/62/86/90; DB-side keys are `id + 1`) |
+| Round-trip smoke 100-row sample (`weapon_knowledge_entries` JOIN `clusters`) | PASS (0 orphans, 0 NULL labels, 0 PROVISIONAL via join, 0 NULL cluster_type) |
+| MIGRATION.md amended                                                 | PASS (new sibling) |
+| Tag cut local                                                        | PASS |
+| No DB push                                                           | PASS (local-only) |
+
+### Design decision exercised: ALTER TABLE clusters ADD COLUMN cluster_type TEXT
+
+**Decision:** YES — applied in this dispatch, single-transaction with the `label` UPDATE.
+
+**Rationale:**
+1. JSON carried `cluster_type` for all 125 rows already; deferring forces downstream consumers into dual-read (DB + sidecar JSON).
+2. Additive-only schema change; ADR-002 sub-dispatch tier (no architectural-tier trigger).
+3. Idempotent (catches `OperationalError: duplicate column name`).
+4. Precedent: legolas Phase E-1 added `cluster_membership.assignment_method` under identical logic.
+5. No `CHECK` constraint on the column — gandalf is authoritative on the open vocabulary (Discipline #14 spirit; future sensitivity-sweep labels can extend without schema migration).
+
+**Domain populated:** 7 distinct `cluster_type` values across 125 rows:
+
+| Value                            | N |
+|---|---|
+| weapon_family                    | 50 |
+| named_template_family            | 41 |
+| mixed_cross_cultural             | 18 |
+| mixed_form_pool                  | 9 |
+| modern_military_hardware_pool    | 4 |
+| rare_lineage_isolate             | 2 |
+| metadata_bucket                  | 1 |
+
+### Anomaly surfaced (NOT a Phase E-2-DB defect — logged for downstream visibility)
+
+Round-trip smoke included `weapon_knowledge_entries.id=3` "PMD series mines" assigned to `cluster_id=116` ("European Uncurated-Period Spear Family") — these are Soviet anti-personnel landmines, not spears. Substrate clustering artifact (`assignment_method=nearest_centroid`; distance-based, not density-based). Candidate diagnostic for the existing 9.11-C/D/E elrond curation-gap sub-carries or Phase E-1.5 sensitivity sweep. **No action taken in this dispatch.** Recorded in MIGRATION.md § 7 for knight-rider routing.
+
+### Notes for knight-rider
+
+- Schema change introduced (additive column `cluster_type`). Per dispatch § "What knight-rider does after your return" point 3: this MAY invoke jack-ryan Pattern-A-light schema-validation check. Schema is fully additive, idempotent, single-transaction, no CHECK constraint, no FK — minimum-surface change.
+- Dispatch's spot-check expectations (cluster 50/62/86/90 → metadata/Abyssal Bane/Shotgun/East Asian Uncurated) **all match the actual labels at db_cluster_id+1** (legolas-id indexing in the dispatch text). I have flagged the off-by-one indexing in MIGRATION.md § 6 for clarity, but the labels themselves are exact matches.
+- Parallel-fire deconfliction: I touched only `clusters.label` and `clusters.cluster_type` (new column). Legolas 9.11-A used a temp DB copy (no overlap). Gandalf 9.11-G was read-only (no overlap).
+- Sub-carry **9.11-H** NOT needed — cluster_type column added in this pass, not deferred.
