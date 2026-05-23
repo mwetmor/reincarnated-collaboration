@@ -66,6 +66,26 @@ When any of these fall away, hive-mind state has exited and routine patterns res
 | 4 | knight-rider | Create or initialize state file at known path; pre-flight checks per protocol § 3 (typically P0 in substrate cycles) |
 | 5 | knight-rider | Fire first Wave / Phase 0 dispatch |
 
+#### 2.2.1 Entry triggers — three valid paths
+
+Matt can begin a hive-mind cycle through any of three valid paths. Knight-rider recognizes hive-mind state from any of these signals + loads this skill:
+
+**Path A — Explicit invocation phrase.**
+Matt says (verbal or written): `"hive-mind <topic>"` OR `"engage hive-mind on <topic>"` OR `"fire hive-mind cycle for <topic>"`. Unambiguous trigger; knight-rider loads this skill and routes to step 1 of the entry protocol (route protocol-authoring to gandalf for substrate-shaped work; author himself for engine-rebuild-shaped work).
+
+**Path B — Explicit protocol-doc reference.**
+Matt says: `"Approve canonical/story/hive-mind-protocol-<cycle>.md for firing"` OR `"Fire the protocol at <path>"`. Direct reference to an authored protocol doc; knight-rider loads this skill and routes to step 3 of the entry protocol (Matt's authorization is implicit in the approval phrasing).
+
+**Path C — Scope-intuited entry.**
+Matt describes the work without an explicit phrase ("the substrate library import" / "the engine-rebuild" / etc.). Knight-rider intuits hive-mind shape from project scope + recognizes the pattern from precedent cycles. Loads this skill; routes to step 1 (protocol authoring) or step 3 (if protocol already authored). **Variance risk:** Path C has higher variance than A or B; knight-rider should explicitly confirm hive-mind framing with Matt before firing if scope is ambiguous.
+
+**Precedents:**
+- Substrate weapon-library cycle 2026-05-22: Path C — Matt's "tee up for knight-rider and the hive mind. This is structural work." (slightly more explicit than pure Path C; effectively a Path A variant)
+- QD-engine-rebuild cycle 2026-05-21: Path C — scope intuited from session shape
+- Future cycles: Path A or B recommended for deterministic entry; Path C acceptable when scope is clear and precedent exists
+
+**Recommendation for Matt:** when in doubt about whether to invoke hive-mind state, use Path A explicitly. Removes ambiguity at no cost. The variance reduction matters more as the team scales the number of concurrent hive-mind-capable workstreams.
+
 ### 2.3 Exit protocol
 
 | Step | Owner | Action |
