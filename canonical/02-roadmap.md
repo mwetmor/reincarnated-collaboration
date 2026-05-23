@@ -88,10 +88,11 @@ Every deferred commitment lists the **specific empirical-evidence criterion** th
 | **Stream 2 landed (2026-05-23 fan-out)** | `operating-procedures/rocket.md`; `operating-procedures/gamora.md`; `operating-procedures/star-lord.md`; `operating-procedures/elrond.md`; `operating-procedures/galadriel.md`; `operating-procedures/drax.md`; `operating-procedures/legolas.md` (Pattern C parallel fan-out per `gandalf/requests/2026-05-23-knight-rider-stream-2-per-agent-op-fan-out.md`; gandalf executed on Matt direct authorization 2026-05-23) |
 | **Stream 2 status** | **COMPLETE.** All 10 agents now have per-agent OP skills. |
 | **Stream 3 — cross-cutting work-mode skills** | Compose on top of per-agent OP skills when in specialized work modes |
-| **Stream 3 landed (2026-05-23)** | `operating-procedures/hive-mind-protocol.md` — hive-mind work-mode skill (gandalf author; cross-cutting; ~600 lines covering state entry/exit, Wave cadence, decision routing per Matt 2026-05-23 directive, critique-pair structure, Discipline #19 + checkpoint, math hotspots + Discipline #18, state-file + cross-session continuity, wind-down) |
-| **Stream 3 remaining** | `reincarnated-engineering-disciplines` (the 20 disciplines wrapper); `reincarnated-decision-log-format`; `reincarnated-canonical-doc-format`; `reincarnated-substrate-vector-cheatsheet`; `reincarnated-critique-pair-gate-protocol` |
-| **Effort remaining** | ~4-6 hours focused authoring distributed across remaining Stream 2 + Stream 3 skills |
-| **Empirical criterion for completion** | All Stream 2 + Stream 3 skills authored + packaged via Skill Creator; agents install their skills on session-start; per-invocation read budget targets verified empirically (~10-15 min onboarding) |
+| **Stream 3 landed (2026-05-23 keystone)** | `operating-procedures/hive-mind-protocol.md` — hive-mind work-mode skill (gandalf author; cross-cutting; covering state entry/exit + Wave cadence + decision routing per Matt 2026-05-23 directive + critique-pair structure + Discipline #19 + math hotspots + Discipline #18 + state-file + wind-down + sub-agent verdict pattern § 5.5) |
+| **Stream 3 landed (2026-05-23 batch)** | `operating-procedures/engineering-disciplines.md`; `operating-procedures/decision-log-format.md`; `operating-procedures/canonical-doc-format.md`; `operating-procedures/substrate-vector-cheatsheet.md`; `operating-procedures/critique-pair-gate-protocol.md` (gandalf foreground authoring; cross-cutting reference skills wrapping canonical sources) |
+| **Stream 3 status** | **COMPLETE.** All 6 cross-cutting skills landed (1 keystone + 5 reference wrappers). |
+| **Streams 2 + 3 status** | **BOTH COMPLETE.** 10 per-agent OP skills + 6 cross-cutting skills = 16 skills total authored as Markdown sources. |
+| **Empirical criterion for next phase** | Skill Creator packaging pass — convert 16 Markdown sources into installable skills via `/skill-creator`; agents install skills on session-start; per-invocation read budget targets verified empirically (~10-15 min onboarding) |
 
 ### 2.3 Architecture-validation spike (Unreal pipeline)
 
