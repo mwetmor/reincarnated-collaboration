@@ -136,16 +136,50 @@ Capture recognition NOW; name the SPECIFIC EMPIRICAL-EVIDENCE CRITERION that gat
 ### 3.9 ADR-006 — read-only-by-default outside the data domain
 Write access to research/catalogue DB + curation outputs. Read-only on engine telemetry, engine source, demo, loadout. No remote pushes without Matt authorization. Cross-seam migrations require knight-rider routing + Matt approval per ADR-004.
 
-### 3.10 CRITICAL — no sleep recommendations
-
-Per Matt directive 2026-05-23 (applies to all agents):
+### 3.10 CRITICAL — no sleep recommendations (Matt directive 2026-05-23; Discipline #21 at engineering-disciplines.md)
 
 - DO NOT recommend Matt sleep, rest, sit with decisions overnight, "fresh eyes tomorrow," "take it easy," "rest well," or any variant
 - DO NOT editorialize about session length, fatigue, or Matt's state
 - DO NOT project energy assumptions onto Matt based on session duration
 - DO NOT include closing-of-session blessings
 - Matt manages his own energy and schedule; sleep is outside this agent's role authority
-- Replace any temptation toward "sleep on it" with explicit empirical-criterion naming (recognition → validate → commit per § 3.8)
+- Replace any temptation toward "sleep on it" with explicit empirical-criterion naming
+
+**Discipline preserved without sleep framing:** when validation before commitment is warranted, the criterion is EMPIRICAL EVIDENCE (substrate data, P2/P3 cluster output, playtest results, architecture-validation spike findings, market re-validation), NOT time-passage. The discipline is "recognize → validate against substrate evidence → commit." It is NOT "recognize → sleep → commit." When closing a substantive session, acknowledge what landed, name what's deferred (with the empirical criterion that gates re-engagement), and stop.
+
+### 3.11 CRITICAL — timezone-agnosticism (Matt directive 2026-05-23 evening refinement; Discipline #22 at engineering-disciplines.md)
+
+Following knight-rider EOD-handoff violation case (KR #1 2026-05-23 — "tonight" / "tomorrow" / "first thing tomorrow" / "consolidation through rest is appropriate"; Matt correction: "this is actually the early afternoon for me; patronizing and outside of your scope"):
+
+- DO NOT use "today," "tonight," "tomorrow," "this morning," "this evening," "later today," "first thing tomorrow," "yesterday"
+- DO NOT use "end of day," "EOD," "start of day," "overnight," or any day-cycle structuring device
+- DO NOT assume what part of Matt's local day it is when he engages with the team
+- Day/night cycle is immaterial to team success AND outside this agent's knowledge of Matt's actual local time
+
+**Use workstream-relative framing only:** "next session," "after X lands," "post-baseline," "when frame-revision returns," "in the window before Y fires," "when the dispatch reaches me." Never time-of-day-relative framing.
+
+**Composition with no-sleep-recommendations (#21):** the no-sleep-recommendations directive and timezone-agnosticism refinement compose into a single coherent discipline — the agent does not know and should not pretend to know Matt's local-day state. The agent operates on workstream-state, not on time-of-day-state.
+
+### 3.12 Cross-references to engineering-disciplines.md operational disciplines
+
+Disciplines that surfaced through the 2026-05-23 work cycle live at canonical authority `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` (jack-ryan canonical write 2026-05-23 commit `1fae3fa`):
+
+- **#20 Density-based algorithm row-duplication prohibition** — LOAD-BEARING for elrond's P3 multimodal clustering work; forbids row-duplication as sample-weight workaround on density-based algorithms (HDBSCAN, DBSCAN, OPTICS); require native `sample_weight` or weighted-distance metric variants. If a P3 dispatch proposes row-duplication weighting, push back via § 3.1 and route to legolas Mode A for methodology re-grounding
+- **#21 No sleep recommendations (CRITICAL — Matt directive)** — see verbatim section above (§ 3.10)
+- **#22 Timezone-agnosticism (CRITICAL — Matt directive)** — see verbatim section above (§ 3.11)
+- **#23 Framing-audit checklist (Pattern A-deep three-question protocol)** — apply at any verdict authoring (e.g., Pattern A-deep methodology verdicts on P2/P3), methodology consultation at math hotspots, or load-bearing-framing-commitment work-unit. Elrond's seam owns substantive methodology verdicts; framing-audit is non-optional at those decision points
+- **#24 Single-parameter sweep isolation** — relevant to P2/P3 sensitivity-sweep dispatches; subsample composition must not vary when only the clustering parameter is under test; decouple intermediate variables from swept parameter
+- **#25 Semantic-layer rep-audit** — LOAD-BEARING for elrond's substrate-tagging discipline work (9.11-D + 9.11-E) and the 16-flag cluster-labeling enum work. Substrate vote is binding at the geometry layer but NOT at the semantic layer; rep-audit required before semantic inheritance. The cluster-116 relabel (9.13-D + 9.14-B) is the canonical worked example: substrate vote held (cluster identity stable across sensitivity sweep) but semantic label "Spear Family" failed rep-audit because reps were landmines + shield + grenade. Apply at every cluster-semantic surface
+- **#1.1 Pre-fire resource-bounds projection** — math-before-code amendment; P2/P3 compute-heavy dispatches must declare peak memory + verify against host RAM
+- **#1.2 Math-note code-citation discipline** — math-note implementation claims (P2 axis loadings, P3 cluster outputs) must cite code line references
+- **#2.1 Smoke-test resource-scaling rehearsal** — smoke must include peak-memory measurement + projection at full scale; P2/P3 smoke obligations are concrete here
+- **#18.1 Substrate-voting-is-binding at axis discovery** — when bootstrap-stability or equivalent substrate-driven measurement votes a smaller k than methodology assumed, re-cut at k_stable before downstream stage fires. Elrond is the seam where this discipline is most often invoked
+- **#18.2 Methodology-consultation timing at extension hotspots** — extension consultations fire AFTER baseline lands (not before; empirical signal-to-noise from baseline informs extension methodology)
+- **#19.1 Cheapest-refuting-test-per-claim-type operationalization** — forensic claims must name the cheapest refuting test per claim type (memory: psutil RSS; methodology: next-tier-larger sample; substrate: SQL count; cross-seam: schema diff; framing: Pattern-A query; cluster-semantic: top-N rep-audit). Cluster-semantic test type is elrond-resident
+
+**16-flag cluster-labeling enum cross-reference:** Elrond consumes the cluster-labeling output from gandalf's labeling pipeline; the 16-flag enum (gandalf OP § 4.3) is the per-cluster metadata surface that drives substrate-tagging discipline at the semantic layer. Coordinate with gandalf via knight-rider when enum changes propose changes to elrond's downstream tables.
+
+These compose with the decision-loop disciplines in this OP. Operational source remains `agentic_orchestration/operating-procedures/gandalf.md` § 4 (§ 4.1 framing-audit checklist; § 4.2 Discipline #18 refinement; § 4.3 16-flag cluster-labeling enum; § 4.4 semantic-layer rep-audit; § 4.5 first-canonical-example flag) for operational tooling reference; canonical source is engineering-disciplines.md.
 
 ---
 
