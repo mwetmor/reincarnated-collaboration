@@ -92,7 +92,8 @@ Every deferred commitment lists the **specific empirical-evidence criterion** th
 | **Stream 3 landed (2026-05-23 batch)** | `operating-procedures/engineering-disciplines.md`; `operating-procedures/decision-log-format.md`; `operating-procedures/canonical-doc-format.md`; `operating-procedures/substrate-vector-cheatsheet.md`; `operating-procedures/critique-pair-gate-protocol.md` (gandalf foreground authoring; cross-cutting reference skills wrapping canonical sources) |
 | **Stream 3 status** | **COMPLETE.** All 6 cross-cutting skills landed (1 keystone + 5 reference wrappers). |
 | **Streams 2 + 3 status** | **BOTH COMPLETE.** 10 per-agent OP skills + 6 cross-cutting skills = 16 skills total authored as Markdown sources. |
-| **Empirical criterion for next phase** | Skill Creator packaging pass — convert 16 Markdown sources into installable skills via `/skill-creator`; agents install skills on session-start; per-invocation read budget targets verified empirically (~10-15 min onboarding) |
+| **Skill Creator packaging pass (2026-05-23)** | **COMPLETE.** All 16 Markdown sources converted to installable Claude Code skills at `.claude/skills/<name>/SKILL.md` with YAML frontmatter (name + description with auto-load triggers + version). Project-local skill registration; Markdown sources at `operating-procedures/` remain authoritative for revisions. |
+| **Stream 2 + 3 + packaging — final status** | **ALL COMPLETE.** Skills auto-load per description triggers; per-invocation read budget empirical verification queued for next session-start under skill-load discipline. |
 
 ### 2.3 Architecture-validation spike (Unreal pipeline)
 
