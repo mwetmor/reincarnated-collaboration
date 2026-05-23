@@ -13,7 +13,7 @@
 | Timestamp | 2026-05-23 ~00:55 EDT — knight-rider Cycle 9.4 (Phase D dispatch authored; jack-ryan Gate-1 unavailable due to credit ceiling) |
 | Cycle | 9.4 — **PHASE D DISPATCH AUTHORED** (Matt G1-G5 leans accepted; gandalf variant-cluster policy returned; elrond Phase D Pattern-B dispatch authored, 367 lines) |
 | Orchestrator | knight-rider |
-| State | **PHASE D DISPATCH READY + JACK-RYAN GATE-1 QUEUED PATTERN B** — Matt chose option (b) defer Gate-1 to separate session; jack-ryan dispatch authored at `agentic_orchestration/dispatches/2026-05-23-jack-ryan-gate-1-phase-D-dispatch.md`; Matt fires `cd ~/Games/reincarnated-collaboration && claude --agent jack-ryan` when ready |
+| State | **PHASE D DISPATCH GATE-1 PASSED-WITH-AMENDMENTS / FIRE-READY** — jack-ryan Pattern-B returned PASS-WITH-AMENDMENTS (5 amendments, 1 critical); knight-rider applied all 5 to Phase D dispatch; ready for elrond Pattern-B fire `cd ~/Games/reincarnated-collaboration && claude --agent elrond` |
 
 ## Cleaning-plan disposition (Matt-locked 2026-05-22 evening)
 

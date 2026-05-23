@@ -47,7 +47,9 @@ Author at `agentic_orchestration/elrond/research/phase-D-cleaning-pipeline-2026-
 4. **Idempotency guarantees per step.** Each step must be re-runnable without corrupting state. Audit-preservation pattern (mirror Discipline #11): rename source_library / mark dedup_status / populate merged_entry_ids — never DELETE unless explicitly authorized.
 5. **Rollback plan per step.** Each step should be reversible (or its modifications well-isolated for a re-run). Backup strategy before destructive operations.
 
-The math note is jack-ryan Gate-1 reviewable at your discretion. Knight-rider recommends it.
+**Additionally (jack-ryan Gate-1 Amendment #5):** The 7 Open Questions listed in § Open Questions for you to resolve + document MUST be resolved and documented WITHIN the math note BEFORE pipeline code fires. They are NOT optional annexes — they are engineering decisions required for correct pipeline execution. Specifically Q1 (idempotency strategy per-step), Q2 (VACUUM strategy), Q3 (backup strategy), and Q5 (embedding model choice) are pre-fire blockers; Q4 (souls-api TP preservation), Q6 (anchor-test execution), Q7 (Phase D-bis hook) are documentation-required but lower urgency.
+
+The math note (including Open-Question resolutions) is jack-ryan Gate-2 reviewable at your discretion. Knight-rider recommends Gate-2 review of the math note before Step 1 fires.
 
 ## Cross-seam contract change? (Principle 6 gate)
 
@@ -225,6 +227,41 @@ WHERE wieldable_humanoid IN ('one_hand','two_hand','shoulder_supported','either'
 
 **Acceptance:** `category-vs-unique` boundary error ≤ 2.0% (per gandalf § 4.5). Verify via post-step audit-sample of `weapon_kind='category'` rows for known-named-unique slip-throughs.
 
+### Step 6.5 — Canonical taxonomy normalization (`cultural_lineage_canonical`, `historical_period_canonical`, `register_canonical`) — REQUIRED PRE-STEP-7 (jack-ryan Gate-1 Amendment #1, CRITICAL)
+
+**Why this step exists:** Step 7 blocks on `(weapon_subclass, cultural_lineage_canonical)` to reduce comparison space from 89K² to per-bucket-N². Without `cultural_lineage_canonical` populated, all rows sit in a single `'unknown'` block — blocking fails silently and Step 7 becomes computationally infeasible on 89K rows.
+
+Gandalf's § 4.38 explicitly: "Phase D's main field-coverage work is NOT raw imputation but canonical normalization — i.e., mapping the raw `cultural_lineage_tags` string vocabulary into the canonical § 5 taxonomy. That mapping work IS load-bearing."
+
+**Per gandalf § 5.1 (3-axis taxonomy) + § 5.2 (per-source mapping rules):**
+
+Apply the 24-source mapping rules to populate `cultural_lineage_canonical` from `cultural_lineage_tags`:
+- Museums (`royal_armouries`, `met-museum`): regex on description_text culture phrases per § 5.2 museum-mapping table
+- Wikidata/Wikipedia: Q-item P495 resolution + category-string regex per § 5.2
+- TRPG community (`nick-aschenbach-dnd-data`, `5e-bits*`, `pf2ools*`, `bloqhead-demigods`, `osrsbox-db`): default `fantasy_generic` + setting-specific regex
+- MMO/ARPG/Soulslike: register=`fantasy`; lineage=`fantasy_generic` with game-specific lineage hints
+- Modern military (`odin-army-tradoc`, `army-recognition`): register=`military_modern`; lineage per country-code
+- Tabletop fantasy (`bsdata-warhammer-aos`): register=`fantasy`; lineage=`fantasy_generic` with faction hints
+- Post-apocalyptic (`cataclysm-dda`): register=`military_modern`; lineage=`cross_cultural`
+
+Apply `historical_period_canonical` from `historical_period` free-text using gandalf § 5.1 year-band table:
+- `pre_classical` (pre-500-BCE) / `classical` (500-BCE-to-500-CE) / `medieval` (500-1500-CE) / `early_modern` (1500-1800) / `industrial` (1800-1914) / `modern` (1914-1989) / `contemporary` (1989-present) / `fictional` (ahistorical)
+
+Apply `register_canonical` from source-library heuristic per § 5.1:
+- museum + wikidata + wikipedia → `historical` (default; military-modern slips override)
+- odin-army + army-recognition → `military_modern`
+- TRPG / MMO / ARPG / fantasy-tabletop → `fantasy`
+- sci_fi-tagged sources → `sci_fi`
+- mythological-named-unique allowlist matches → `mythological`
+
+Set `cultural_lineage_confidence` per gandalf § 5.3:
+- 1.0 (explicit structured-tag match)
+- 0.7 (description-regex match)
+- 0.5 (source-library default)
+- 0.3 (fallback heuristic)
+
+**Acceptance:** ≥ 70% of `v_category_sample` rows have `cultural_lineage_canonical ≠ 'unknown'` (per gandalf § 4.4 field-coverage floor, applied to the canonical column not the raw tag). Equivalent acceptance for `historical_period_canonical` ≥ 60% and `register_canonical` ≥ 95% (register defaults are deterministic from source-library).
+
 ### Step 7 — F4 cross-source canonical merge
 
 **Last step because:** Cross-source merge requires the canonical taxonomy + cleaned classifications + populated allowlist from Steps 1-6 to operate correctly. Running it earlier risks merging dirty-state rows that should have been quarantined or re-classified first.
@@ -255,7 +292,7 @@ Per gandalf § 4 math-anchored cleanliness bars; verified empirically via Step-b
 | Gate | Threshold | Verification |
 |---|---|---|
 | (a) FP rate in active substrate | ≤ 3.0% hard / ≤ 1.5% target | Re-fire legolas's Phase A audit methodology (N=50 per source sample); compute new FP rate; report against thresholds |
-| (b) Within-canonical-merge duplication | ≤ 4.0% residual / ≥ 92% dedup recall | Post-Step-7 count of canonical rows vs distinct canonical_names |
+| (b) Within-canonical-merge duplication | ≤ 4.0% residual / ≥ 92% dedup recall | **Dual verification (jack-ryan Gate-1 Amendment #2):** (i) Residual duplication: count rows with `dedup_status='canonical'`; count distinct `canonical_name` across those rows; compute `(canonical_count / distinct_canonical_names) - 1`; must be ≤ 0.04. (ii) Dedup recall: raw duplicate baseline = **42,253 rows** (89,839 total − 47,586 distinct names per legolas Phase A). Post-merge count where `dedup_status='merged_into'`. Recall = `merged_rows / 42,253`; must be ≥ 0.92. |
 | (c) Field-coverage floors | Already met; verify NO DEGRADATION post-cleaning | structured ≥95% / description ≥85% / cultural ≥70% / period ≥60% — all on `v_category_sample` view |
 | (d) `weapon_kind` mis-classification | per-dim per gandalf § 4.5 (category↔unique ≤2%; category↔named_template ≤5%; category↔ammo ≤1%) | Re-sample audit on `v_category_sample` for each per-dim boundary |
 
@@ -285,7 +322,7 @@ If any gate fails post-pipeline-execution, the failed step is re-runnable per Di
 - [ ] All 4 overall acceptance gates pass empirically
 - [ ] `phase-D-flagged-clusters.md` authored (or stated empty if no flag-needed clusters)
 - [ ] Phase D completion summary authored
-- [ ] Round-trip smoke: 10-row fixture per source library passes through pipeline; all 9 new columns populated; `v_category_sample` returns expected counts
+- [ ] Round-trip smoke: 10-row fixture per source library passes through pipeline; all 9 new columns populated; `v_category_sample` returns expected counts. **Additionally include (jack-ryan Gate-1 Amendment #3):** ≥ 2 known-merge pairs (same entity across 2 source libraries; validated from legolas's named-unique verification — e.g., `Excalibur` in wikipedia vs wikidata; `Aegis` in wikidata vs wikipedia) and ≥ 2 known-non-merge pairs (brand-prefix disambiguation cases — e.g., mythological `Excalibur` sword vs `M982 Excalibur` artillery shell; `Tyrfing` legendary sword vs `Tyrfing` anti-radar missile). Step 7 must produce correct `dedup_status` on these fixture rows (merge-pairs → `merged_into`; non-merge-pairs → both rows stay `canonical`).
 - [ ] Tag: `elrond/phase-D-cleaning-pipeline-2026-05-23`
 - [ ] Append completion record to this dispatch file per `dispatches/README.md` convention
 
@@ -299,6 +336,7 @@ If any gate fails post-pipeline-execution, the failed step is re-runnable per Di
 - **DO NOT** make Matt-decisions on G1-G5 — they are LOCKED; apply them
 - **DO NOT** decide on the G2 borderline soulslike-Dagger cases yourself — surface for Matt+gandalf in-flight via `phase-D-flagged-clusters.md`
 - **DO NOT** modify the loadout web app code (drax's seam); if any drax-side reader of `weapon_knowledge_entries` exists, raise to knight-rider for MIGRATION.md cross-seam coordination
+- **DO NOT** do field enrichment (jack-ryan Gate-1 Amendment #4). Phase D is dedup + classification + normalization of existing rows only — do NOT backfill `description_text` for rows missing it, do NOT impute `cultural_lineage_tags` raw values (canonical-column population in Step 6.5 is normalization, not imputation), do NOT add new source rows, do NOT crawl for additional substrate. Per Context section and gandalf § 4.38: "Phase D's main field-coverage work is NOT raw imputation but canonical normalization."
 
 ## Open questions for you to resolve + document in math note
 

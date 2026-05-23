@@ -4,6 +4,39 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-23 (Cycle 9.5 Phase D Gate-1 PASS-WITH-AMENDMENTS) — jack-ryan Pattern-B returned 5 amendments (1 critical: Step 6.5 canonical-normalization required before Step 7 to prevent blocking-strategy failure on single 'unknown' bucket); knight-rider applied all 5; Phase D dispatch GATE-1-APPROVED + FIRE-READY for elrond Pattern-B
+
+**Event:** Matt fired jack-ryan Pattern-B in separate terminal per Cycle 9.4 option (b). Jack-ryan reviewed the 367-line Phase D dispatch across 10 stress-test angles; returned PASS-WITH-AMENDMENTS with 5 specific amendments (1 critical, 1 required, 3 minor). Knight-rider applied all 5 amendments to the Phase D dispatch.
+
+**Amendment 1 — CRITICAL (architectural):** Step 6.5 canonical-normalization required BEFORE Step 7 fires. Without `cultural_lineage_canonical` populated, Step 7's blocking strategy on `(weapon_subclass, cultural_lineage_canonical)` collapses to a single 'unknown' block — O(N²) reduction fails and 89K² merge becomes computationally infeasible. New Step 6.5 added applying gandalf § 5 per-source mapping rules to populate all 3 canonical taxonomy columns (cultural_lineage_canonical, historical_period_canonical, register_canonical) + cultural_lineage_confidence. Acceptance gate: ≥70% canonical-lineage populated post-step.
+
+**Amendment 2 — REQUIRED (verification gap):** Gate (b) dedup recall verification specified explicitly. Raw duplicate baseline = 42,253 rows (89,839 total − 47,586 distinct names per legolas Phase A). Post-merge `merged_into` row count / 42,253 must be ≥ 0.92 for recall acceptance. Previously only the residual-duplication ≤4% half of gate (b) was specified.
+
+**Amendment 3 — Minor (round-trip smoke):** Smoke fixture extended to include ≥2 known-merge pairs (Excalibur/Aegis cross-source) and ≥2 known-non-merge pairs (M982 Excalibur shell vs Excalibur sword; Tyrfing missile vs Tyrfing sword). Step 7 algorithmic correctness now verifiable on smoke data, not just column-population structure.
+
+**Amendment 4 — Minor (DO NOT explicit):** Field-enrichment prohibition added to out-of-scope list. Phase D is dedup + classification + normalization of EXISTING rows only; no backfill / no imputation / no new substrate crawl. Previously implicit from Context section; now explicit per § 4.38.
+
+**Amendment 5 — Minor (Open Questions):** Math note required-content block now explicitly references the 7 Open Questions as pre-fire blockers (Q1 idempotency, Q2 VACUUM, Q3 backup, Q5 embedding model are highest urgency; Q4/Q6/Q7 documentation-required). Previously listed as separate annex.
+
+**What passed cleanly (per jack-ryan):**
+- All 4 math-anchored cleanliness thresholds match gandalf § 4 exactly
+- All 5 G1-G5 operational hooks present and actionable
+- Pattern-B execution mode confirmed correct (Pattern A would fail per 3 specific reasons)
+- ADR-004 cross-seam contract handling adequate
+- Sequencing logic for Steps 1-6 sound
+- Acceptance criteria 9 of 10 measurable from elrond artifacts; the one gap was Gate (b) recall (now fixed via Amendment 2)
+
+**Tag-chain through Cycle 9.5:**
+- `legolas/phase-A-substrate-audit-2026-05-22` (Phase A)
+- `gandalf/cleaning-policy-design-review-2026-05-22` (Phase B)
+- `gandalf/variant-cluster-policy-2026-05-23` (Phase B-2)
+- `jack-ryan/gate-1-phase-D-2026-05-23` (Phase D Gate-1 pending tag issuance by jack-ryan; knight-rider commits jack-ryan's completion record on his behalf)
+- `knight-rider/cycle-9-5-phase-D-gate-1-passed-2026-05-23` (this cycle)
+
+**Phase D dispatch is GATE-1-APPROVED and FIRE-READY.** Matt fires elrond Pattern-B in a separate terminal: `cd ~/Games/reincarnated-collaboration && claude --agent elrond`. Elrond reads the (now-amended) dispatch; authors math note + MIGRATION.md before pipeline code fires; executes 7-step + Step-6.5 pipeline in priority order; verifies acceptance gates; tags `elrond/phase-D-cleaning-pipeline-2026-05-23` at completion.
+
+---
+
 ## 2026-05-23 (~00:55 EDT — Cycle 9.4 Phase D dispatch authored + gandalf variant-cluster policy returned + Matt G1-G5 accepted) — 367-line elrond Pattern-B dispatch operationalizing F1-F6 + G1-G5 + gandalf 26-cluster policy assignments; jack-ryan Gate-1 attempted Pattern-A but returned credit-ceiling error; Matt-decision needed on Gate-1 disposition
 
 **Event:** Matt accepted gandalf's leans on all 5 flagged items (G1-G5) from the variant-cluster policy review. Knight-rider authored the elrond Phase D cleaning-pipeline dispatch — the load-bearing execution work of the entire cleaning campaign. Jack-ryan Gate-1 attempted as Pattern-A but returned `Usage credits are required for long context requests` — credit ceiling exceeded due to accumulated session context plus 367-line dispatch.
