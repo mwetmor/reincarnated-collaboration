@@ -4,7 +4,93 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
-## 2026-05-23 (Cycle 9.12 — Phase E-2 cluster-labeling fire ACCEPTANCE → jack-ryan Gate-2 PASS + gandalf design-side spot-check relay → 3 sub-dispatches authored (Phase E-2-DB elrond, 9.11-A legolas labeler-bug-fix, 9.11-G gandalf marginal-lineage recognition records)) — 47 of 125 provisional descriptions overridden by gandalf (vs 5-15 predicted) elevates 9.11-A to load-bearing sequencing constraint before Phase E-1.5; 2 new elrond sub-carries (9.11-D substrate-tagging-artifact + 9.11-E cultural-vs-geographic-discipline) expanded scope to ~15-25 affected clusters; NEW 9.11-G marginal-lineage recognition record pass (4 records) authored to gandalf
+## 2026-05-23 (Cycle 9.12 CLOSEOUT — 3 sub-dispatches fired in parallel + ALL 3 ACCEPTED (Phase E-2-DB elrond, 9.11-A legolas labeler-fix, 9.11-G gandalf marginal-lineage records) + parallel Question A workstream filing (9.12-A/B/C/D + HM-prep arc)) — Phase E-2 substrate work substantially closed; Phase E-1.5 sensitivity sweep now UNBLOCKED; 5 recognition records (4 marginal + 1 meta) landed in canonical/story/ + ground-state oracle § 1; M2 8GB host-feasibility discipline-candidate carried as load-bearing across all future math-hotspot dispatches
+
+**Event:** Matt fired all three Cycle 9.12 sub-dispatches in parallel via knight-rider sub-agent invocation. All three returned ACCEPTANCE with notable findings. Parallel-instance knight-rider authored Question A workstream filing during the fan-out window.
+
+**Sub-agent acceptance returns:**
+
+| Dispatch | Agent | Commit | Tag | Verdict |
+|---|---|---|---|---|
+| Phase E-2-DB | elrond | `c08ceee` | `elrond/phase-E-2-DB-2026-05-23` | PASS — 125 labels UPDATED + `cluster_type` column added |
+| 9.11-A labeler bug fix | legolas | `604b9fb` | `legolas/9-11-A-provisional-label-generator-fix-2026-05-23` | PASS — 100% alignment (47/47) |
+| 9.11-G marginal-lineage records | gandalf | `b5f9dcd` | `gandalf/9-11-G-marginal-lineage-recognition-records-2026-05-23` | PASS — 4 records + 1 meta-record + cluster-distribution resolutions |
+
+**Phase E-2-DB outcomes (elrond):**
+- ALTER TABLE applied (additive `clusters.cluster_type TEXT` column; single-transaction with label UPDATE; idempotent ALTER); **sub-carry 9.11-H NOT needed**
+- All 125 labels UPDATED (0 PROVISIONAL remain); row count unchanged at 125
+- Round-trip smoke PASS on 100-row sample
+- **Anomaly surfaced (logged for downstream):** `weapon_knowledge_entries.id=3` Soviet PMD landmines → `cluster_id=116` "European Uncurated-Period Spear Family" via `nearest_centroid` distance-based assignment. Diagnostic feed for 9.11-C/D/E or Phase E-1.5; non-blocking. **NEW sub-carry 9.13-A.**
+
+**9.11-A labeler bug fix outcomes (legolas):**
+- Dual root cause diagnosed: (1) `characterize_cluster` counted weapon-type tokens across ALL cluster members including noisy nearest_centroid rows (59 "dagger" + 56 "wand" body items in Cluster 9 swamped 5 actual javelin reps); (2) bare substring matching — "lance" matched inside "Ambulance"/"Surveillance" in Cluster 23's armored-vehicle names
+- Fix: Approach A (rep-canonical-name-grounded; word-boundary regex `\b<token>\b` on top-5 hdbscan_native reps only)
+- **Alignment 100.0% (47/47)** — far above 90% threshold
+- **Phase E-1.5 readiness DECLARED**
+
+**9.11-G marginal-lineage outcomes (gandalf):**
+- 4 recognition records authored at `canonical/story/`: south_american_indigenous, arctic_circumpolar, oceanic, mesoamerican
+- 1 meta-record authored at `canonical/story/marginal-lineage-tagging-pattern-2026-05-23.md` (Open Q3 resolved — cross-cutting pattern universal across all 4)
+- All 5 registered in `canonical/00-ground-state.md` § 1
+- **Meta-record names 4-mode tagging-vocabulary collapse:** Mode A (cultural-tradition-of-origin, intended); Mode B (geographic-origin, artifact); Mode C (naming-allusion, artifact); Mode D (cross-tagged-error, artifact). N.am.indigenous is asymmetric clean-control case (Mode-A-only-or-empty because US/Canadian arms-industry items tag `european` leaving n.am uncontaminated)
+- **South_am framing revised:** spot-check relay had anchored on Cluster 115 (49.5% mixed) — gandalf execution surfaced Cluster 87 (94.4% pure isolate); recognition record corrects to genuine substrate-led rare-lineage cluster
+- **Mesoamerican (Open Q4 resolved):** Distributes across 16 clusters; top cluster at 16.5% within-cluster — far below substrate-led isolate threshold. BUT highest absolute cultural-content count (~12-15 macuahuitl x7 + obsidian bloodletters + macehead etc.) scattered due to axis-pull from modern Mexican arms-industry content (Mendoza/Cabañas/Mexican Mauser). **Identified as highest-reclamation-potential case via 9.11-E re-tag-then-re-cluster smoke**
+- Oceanic (N=39): mostly absorbed-and-scattered with three compounding failure modes (coverage gap + tagging artifact + lineage-vocab over-collapse covering 4-5 distinct Pacific cultural families)
+- **Sub-carry execution-order recommendation:** **9.11-D → 9.11-E → mesoamerican re-clustering smoke → conditional 9.10-E (Mode-A-targeting constraint)**
+- **NEW Discipline-amendment candidate:** semantic-layer rep-audit — substrate vote (Phase E-1 frame-revision) is binding at GEOMETRY layer; NOT necessarily at SEMANTIC layer. Substrate-tagging artifacts can produce geometrically-coherent-but-semantically-noisy clusters. Meta-record § 2.4. **NEW sub-carry 9.13-B (Discipline #18 amendment extension).**
+
+**Parallel-instance Question A workstream filing:**
+
+A parallel knight-rider instance (fired by Matt while Phase E-2 fan-out was running) filed two artifacts during the same window:
+
+- `agentic_orchestration/gandalf/notes/2026-05-23-question-A-w1-13-tier-4-hypothesis-verdict.md` — gandalf Pattern A-deep verdict on W1.13 + Tier 4 build-defining hypothesis testing. Names four sub-questions; proposes H8 (interaction-term ANOVA for synergistic multiplicity) + H9 (Hartigan's dip test for bimodal enhancement) hypothesis extensions; routes math-hotspots to legolas Mode A methodology consultation (Discipline #18) + gamora execution. Companion to the Question B gear/armor/legendary verdict landed earlier.
+- `agentic_orchestration/knight-rider/notes/2026-05-23-question-A-9-12-sub-carry-queue-and-hive-mind-prep-arc.md` — 9.12 sub-carry queue (9.12-A gamora H1-H5 baseline / 9.12-B legolas Mode A methodology + M2 8GB feasibility / 9.12-C T4-B catalogue / 9.12-D critique-pair Gate-1) + 7-stage HM-prep arc gating eventual P1 hive-mind fire. **M2 8GB host-feasibility carried as load-bearing not optional** per kernel-panic-diagnosis § 9.4 + tonight's framing-audit discipline lesson — first new-work-unit application of the host-hardware-feasibility discipline-candidate amendment.
+
+**HM-prep arc status (as of Cycle 9.12 closeout):**
+
+| Stage | Status |
+|---|---|
+| HM-prep 1: Phase E-2 acceptance landed (DB UPDATE) | **CLOSED** (this cycle) |
+| HM-prep 2: Phase E-1.5 sensitivity sweep | UNBLOCKED; Matt's call to fire |
+| HM-prep 3: Weapon substrate work concluded (9.11-A + 9.11-D + 9.11-E + 9.11-C) | PARTIAL — 9.11-A CLOSED; 9.11-C/D/E still queued |
+| HM-prep 4: 9.12-A gamora W1.13 H1-H5 baseline confirmation | QUEUED |
+| HM-prep 5: 9.12-B legolas Mode A + M2 8GB audit | QUEUED |
+| HM-prep 6: 9.12-C T4-B v1 catalogue | IN-FLIGHT (gandalf design-side) |
+| HM-prep 7: 9.12-D critique-pair Gate-1 on methodology | QUEUED |
+| HM-fire: P1 hive-mind cycle | GATED on HM-prep 1-7 |
+
+**Sub-carry status changes this cycle closeout:**
+
+- 9.11-A — CLOSED (100% alignment; Phase E-1.5 readiness declared)
+- 9.11-G — CLOSED (5 records landed + ground-state registered)
+- Phase E-2-DB cycle — CLOSED (DB carries canonical labels + cluster_type)
+- 9.11-H — NOT NEEDED (elrond applied ALTER TABLE in Phase E-2-DB)
+- 9.10-G — **UNBLOCKED** (Phase E-1.5 sensitivity sweep can be authored)
+- 9.10-G.1 — psutil install still preflight-required for Phase E-1.5
+- NEW 9.13-A — `weapon_knowledge_entries.id=3` Soviet PMD landmines anomaly diagnostic feed (low-priority; feeds 9.11-C/D/E or Phase E-1.5)
+- NEW 9.13-B — Discipline #18 amendment extension (semantic-layer rep-audit per gandalf meta-record § 2.4)
+- NEW 9.12-A/B/C/D — Question A workstream sub-carries (filed per parallel-instance note)
+- 9.10-B.1 — gandalf OP amendment + 15-flag-enum canonicalization — still owed; must land before Phase E-3 dispatch authoring
+- 9.11-D — substrate-tagging-artifact review (elrond) — gandalf recommends fires first in D→E→mesoamerican smoke order
+- 9.11-E — cultural-vs-geographic tagging discipline (elrond) — gandalf recommends fires second; meta-record names Mode A/B/C/D framework for the discipline doc
+- 9.11-C — east_asian period_unknown curation gap (elrond) — still queued
+
+**Commit chain through Cycle 9.12 closeout:**
+
+```
+c08ceee  elrond: Phase E-2-DB cluster-label UPDATE
+604b9fb  fix(legolas): 9.11-A provisional-label-generator bug fix
+b5f9dcd  docs(gandalf): sub-carry 9.11-G — 4 marginal-lineage recognition records + meta
+c6e171b  ops(knight-rider): Cycle 9.12 — Phase E-2 acceptance + Gate-2 PASS + 3 sub-dispatches authored
+5b8754e  gandalf: Phase E-2 cluster canonical labeling COMPLETE
+cfa1464  ops(knight-rider): Cycle 9.11 — Phase E-1 acceptance + Gate-2 + Phase E-2 dispatch authored
+080c7bf  legolas: Phase E-1 frame-revision complete
+e7cbc2f  ops(knight-rider): Cycle 9.10 — 4th kernel panic + frame-revision resize
+```
+
+---
+
+## 2026-05-23 (Cycle 9.12 — Phase E-2 cluster-labeling fire ACCEPTANCE → jack-ryan Gate-2 PASS + gandalf design-side spot-check relay → 3 sub-dispatches authored (Phase E-2-DB elrond, 9.11-A legolas labeler-bug-fix, 9.11-G gandalf marginal-lineage recognition records))
 
 **Event:** Matt fired gandalf on the Cycle 9.11 Phase E-2 cluster-labeling dispatch. Gandalf completed in ~one session (commit `5b8754e`, tag `gandalf/phase-E-2-cluster-labeling-2026-05-23`, pushed to origin). Knight-rider verified outputs, invoked jack-ryan DEV-MODE Gate-2 Pattern-A-light (returned PASS), folded jack-ryan findings into Gate-2 findings record, then received gandalf's design-side spot-check relay with material re-sequencing (1 condition withdrawn, 4 sub-carry adjustments, 1 new sub-carry). Knight-rider authored 3 follow-on dispatches per the revised cadence.
 
