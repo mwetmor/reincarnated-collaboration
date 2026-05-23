@@ -1,9 +1,9 @@
-# Mathematical Seam Naming — Layer Declaration + Math-Hotspot Annotations + Discipline #1.1
+# Mathematical Seam Naming — Layer Declaration + Math-Hotspot Annotations + Discipline #18
 
 **Date:** 2026-05-23
 **Author:** gandalf (story-and-design steward)
 **Authority:** Matt 2026-05-23 — confirmed during cleanup session following math-agent question
-**Status:** DRAFT for jack-ryan review → Matt approval → knight-rider integration
+**Status:** INTEGRATED 2026-05-23 (jack-ryan PASS-WITH-AMENDMENTS; tag `jack-ryan/gate-1-math-seam-onboarding-shrink-2026-05-23`; renumbered #1.1 → top-level #18 per amendment A1+A2; #19 right-tool citation corrected to #4)
 **Companion docs:**
 - `canonical/38-downstream-delivery-strategy-2026-05-23.md` (D1-D10 lock; references the P-phase structure)
 - `canonical/00-ground-state.md` (ground-state oracle)
@@ -18,7 +18,7 @@ Reincarnated has **bounded math hotspots** at three named phases across active P
 
 1. **Names the Mathematical Layer** as a cross-cutting layer distributed across existing seams (no new agent)
 2. **Annotates the three math hotspots** with methodology-consultation requirements
-3. **Proposes Discipline #1.1 — Methodology-before-execution** as a discipline addition guarding against the "looks-correct-but-subtly-wrong" failure mode
+3. **Proposes Discipline #18 — Methodology-before-execution** as a discipline addition guarding against the "looks-correct-but-subtly-wrong" failure mode (renumbered from draft #1.1 to top-level #18 per jack-ryan amendment A1+A2; #18 was empty in the discipline list; top-level placement preferred over sub-numbering when a slot is available)
 
 This is jack-ryan's process-side review then Matt's approval then knight-rider's integration into `AGENTS.md` + `engineering-disciplines.md`.
 
@@ -63,7 +63,7 @@ Three named hotspots across active P-series. Each requires **legolas Mode A meth
 3. Execute via elrond; report stability metrics + interpretability scores alongside the axes themselves
 
 **Annotation to add to `hive-mind-protocol-weapon-library-import-2026-05-22.md` § P2:**
-> **[MATH HOTSPOT — methodology consultation via legolas Mode A before execution; methodology lock requires gandalf + elrond + Matt design call; failure mode is "looks-correct-but-subtly-wrong" — guard via Discipline #1.1.]**
+> **[MATH HOTSPOT — methodology consultation via legolas Mode A before execution; methodology lock requires gandalf + elrond + Matt design call; failure mode is "looks-correct-but-subtly-wrong" — guard via Discipline #18.]**
 
 ### 2.2 Hotspot — P3 multimodal clustering (weapon-library-import protocol)
 
@@ -102,11 +102,11 @@ These warrant brief methodology check-ins but not full design-call ceremony:
 
 ---
 
-## 3. Discipline #1.1 — Methodology-Before-Execution (proposed amendment to `engineering-disciplines.md`)
+## 3. Discipline #18 — Methodology-Before-Execution (proposed amendment to `engineering-disciplines.md`)
 
-**Proposed text to add as Discipline #1.1 (sub-discipline of Discipline #1 math-before-code):**
+**Proposed text to add as Discipline #18 (top-level; #18 was empty in the existing discipline numbering; renumbered from draft #1.1 per jack-ryan amendment A1+A2):**
 
-> ### #1.1 — Methodology-before-execution (math-hotspot discipline)
+> ### 18. Methodology-before-execution (math-hotspot discipline)
 >
 > For statistical-methodology choices at named **math hotspots** (currently P2/P3/P5 across active protocols), the methodology decision is made BEFORE execution — not derived FROM execution. This means:
 >
@@ -118,13 +118,13 @@ These warrant brief methodology check-ins but not full design-call ceremony:
 > **Why this discipline exists:**
 > The failure mode at math hotspots is **"looks-correct-but-subtly-wrong"** — execution produces output that passes basic eyeball checks but is methodologically incorrect (wrong technique for data shape, unstable under resampling, miscalibrated at tails, variance-loaded on wrong subsets). Downstream validation cannot detect this because the methodology error is locked into the output's structure.
 >
-> Discipline #1 ("math before code") catches the case where math should exist before code exists. Discipline #1.1 ("methodology before execution") catches the case where math exists but the wrong math was chosen.
+> Discipline #1 ("math before code") catches the case where math should exist before code exists. Discipline #18 ("methodology before execution") catches the case where math exists but the wrong math was chosen.
 >
 > **Identifying math hotspots:**
 > A phase is a math hotspot if **methodology selection is non-trivial** (multiple reasonable techniques exist) AND **execution failure is silent** (output passes basic checks even when methodology is wrong). Current named hotspots are documented in `agentic_orchestration/gandalf/notes/2026-05-23-mathematical-seam-naming.md` § 2.
 >
-> **Integration with Discipline #19 (right tool for the validation question):**
-> Discipline #1.1 is the upstream methodology-choice analog to #19's tool-selection discipline. Together: pick the right methodology (#1.1), then pick the right validation tool for it (#19), then execute.
+> **Integration with Discipline #4 (right tool for the validation question):**
+> Discipline #18 is the upstream methodology-choice analog to #4's tool-selection discipline. Together: pick the right methodology (#18), then pick the right validation tool for it (#4), then execute. (Note: draft cited "#19 right tool" — corrected to #4 per jack-ryan amendment A2; #19 in the engineering-disciplines list is "The Agent tool is not for waiting.")
 
 ---
 
@@ -147,7 +147,7 @@ If any of these emerge, re-open this question:
 1. **legolas Mode A consistently fails to ground methodology decisions** — the external-literature path isn't enough, owning seams keep making methodology mistakes even with research backing
 2. **Math-hotspot volume becomes continuous** — 10+ methodology-decisions per week instead of 3 per phase
 3. **Advanced-math domain emerges that no existing seam plausibly owns** — reinforcement learning for live-balance, advanced causal inference for player-experience attribution, Bayesian-inference frameworks across multiple seams
-4. **Pattern of "subtly wrong" output making it through to player-facing surfaces** — Discipline #1.1 fails empirically; we need a math-rigor reviewer in the loop
+4. **Pattern of "subtly wrong" output making it through to player-facing surfaces** — Discipline #18 fails empirically; we need a math-rigor reviewer in the loop
 
 None of these conditions are imminent for P1-P7 work.
 
@@ -160,12 +160,12 @@ None of these conditions are imminent for P1-P7 work.
 | 1 | jack-ryan | Process-side review of this doc — check cross-references, discipline-numbering, scope-creep risk |
 | 2 | Matt | Final approval after jack-ryan review |
 | 3 | knight-rider | Append Mathematical Layer section to `agentic_orchestration/AGENTS.md` |
-| 4 | knight-rider | Append Discipline #1.1 to `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` |
+| 4 | knight-rider | Append Discipline #18 to `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` |
 | 5 | knight-rider | Add math-hotspot annotations to both hive-mind-protocol docs (weapon-library-import + QD-engine-rebuild) at the P2/P3/P5 phase entries |
 | 6 | knight-rider | Add cross-reference in `canonical/00-ground-state.md` Section 1 (CURRENT) for this doc once it lands as canonical artifact |
 | 7 | gandalf | Spot-check integration completeness; close out request |
 
-**Single-commit recommendation:** all five integration edits land in one commit titled `docs: mathematical-seam-naming + discipline #1.1 + math-hotspot annotations per gandalf 2026-05-23`. Discipline-edits-as-batch keeps the working-agreement coherent.
+**Single-commit recommendation:** all five integration edits land in one commit titled `docs: mathematical-seam-naming + discipline #18 + math-hotspot annotations per gandalf 2026-05-23`. Discipline-edits-as-batch keeps the working-agreement coherent. (Note: engine-repo Discipline #18 addition lives in a separate commit in the engine repo per ADR-004 cross-repo coordination.)
 
 ---
 
@@ -180,4 +180,4 @@ None of these conditions are imminent for P1-P7 work.
 ---
 
 **Signed:** gandalf (story-and-design steward)
-**For:** jack-ryan process-side review → Matt approval → knight-rider integration into AGENTS.md + engineering-disciplines.md + hive-mind-protocol docs. No dedicated mathematician agent; Mathematical Layer named as cross-cutting, distributed across existing seams; bounded math hotspots at P2/P3/P5 guarded by Discipline #1.1.
+**For:** jack-ryan process-side review → Matt approval → knight-rider integration into AGENTS.md + engineering-disciplines.md + hive-mind-protocol docs. No dedicated mathematician agent; Mathematical Layer named as cross-cutting, distributed across existing seams; bounded math hotspots at P2/P3/P5 guarded by Discipline #18.

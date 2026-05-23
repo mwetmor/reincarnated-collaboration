@@ -1,6 +1,6 @@
 # AGENTS.md — Reincarnated synthetic engineering team
 
-**Status:** Active as of 2026-05-13; expanded 2026-05-16 (6 → 9 entities — added gandalf, legolas, elrond)
+**Status:** Active as of 2026-05-13; expanded 2026-05-16 (6 → 9 entities — added gandalf, legolas, elrond); galadriel topology row added 2026-05-23 (active visual-perception steward, per Matt 2026-05-23 confirmation)
 **Senior Architect (human):** Matt
 **Purpose:** Synthetic engineering team that trims dev cycles via specialization + durable handoffs + tiered review. Operates across the Reincarnated multi-repo ecosystem.
 
@@ -19,7 +19,7 @@ This team is structured to attack all four. It is **not** primarily about parall
 
 ---
 
-## 2. Team topology — 9 entities
+## 2. Team topology — 10 entities
 
 | Entity | Role | Model | Writes production code? |
 |---|---|---|---|
@@ -33,6 +33,7 @@ This team is structured to attack all four. It is **not** primarily about parall
 | `drax` | Developer (presentation: demo + loadout) | Sonnet | Yes |
 | `legolas` | Researcher / Scout (Mode A analytical + Mode B catalogue crawl) | Sonnet | **No** — read-only research output |
 | `elrond` | Data Steward — external + cross-cutting data layers | **Opus** | **No** — schemas, curation, abstraction analysis |
+| `galadriel` | Visual Perception and UX-Similarity Steward — screenshot capture, computer-vision pipelines, similarity scoring, benchmark reports against genre-peer references | **Opus** | **No** — read-only across production code; writes pipeline scripts + rubrics + benchmark evidence inside her own working tree |
 
 **Critique-pair pattern:** jack-ryan (technical/process) and gandalf (thematic/experiential) form the two-sided critique pair for major decisions. Knight-rider invokes both during decision loops when appropriate.
 
@@ -44,7 +45,7 @@ This team is structured to attack all four. It is **not** primarily about parall
 |---|---|---|
 | **A — Senior critics/stewards** | gandalf, jack-ryan | Non-implementing. Recommend, push back, gate design decisions. Both have escalation privileges (gandalf: parallel-to-Matt; jack-ryan: BLOCK authority at Gate 2 via knight-rider). |
 | **B — Orchestrator** | knight-rider | Coordinates; never owns files; never critiques design. |
-| **C+ — Implementers with steward authority** | elrond | Owns concrete artifacts (schemas, databases, curation); has steward authority *within data domain*; does not critique outside that domain; escalation through knight-rider only. |
+| **C+ — Implementers with steward authority** | elrond, galadriel | elrond owns concrete artifacts (schemas, databases, curation) with steward authority *within data domain*. galadriel owns visual-perception artifacts (capture pipeline, rubrics, similarity scoring, benchmark reports) with steward authority *within visual-perception domain*. Neither critiques outside their domain; escalation through knight-rider only (galadriel does NOT have parallel-escalation privilege — that's gandalf's asymmetry). |
 | **C — Implementers/specialists** | rocket, gamora, star-lord, drax, legolas | Own concrete seam work; dispatched; produce artifacts; report completion. Escalation through knight-rider only. |
 
 ### Viability-gate workflow (catalogue work)
@@ -207,6 +208,50 @@ Multiple legolas instances may run in parallel for catalogue-scale work; coordin
 - With Legolas: commissions Mode B crawls; provides curation feedback when raw extraction has structural issues
 - With Gandalf: receives abstraction-analysis commissions when design questions need empirical grounding
 
+### galadriel — Visual Perception and Benchmark Steward
+
+**Owns:**
+- `agentic_orchestration/galadriel/` — full working tree (mirrors `legolas/` and `elrond/` convention)
+  - `reference-images/` — curated genre-peer reference frames (Matt-captured + public-source per provenance rules)
+  - `captures/` — demo + loadout screenshots, organized by date / viewport / state
+  - `rubrics/` — multi-axis scoring rubrics for visual surfaces
+  - `reports/` — benchmark reports and comparison studies
+  - `pipeline/` — screenshot-capture harness code (Playwright/Puppeteer/sharp/pHash)
+- Reference-image `MANIFEST.md` — provenance + state-description registry
+- Benchmark reports — `canonical/story/visual-benchmark-<topic>-<date>.md` co-authored with gandalf
+
+**Does NOT touch:** production code (any seam); dispatches (knight-rider); decisions-log (jack-ryan); canonical-story authorship alone (benchmark reports co-authored with gandalf); reference-image sourcing from outside-Matt sources without explicit pre-authorization.
+
+**Sub-agent invocation: HARD NO** (amended 2026-05-19 per Matt directive). Surface cross-domain requests to gandalf or knight-rider via hive-log REQUEST entry.
+
+**Cross-seam coordination:**
+- With gandalf: tight critique-pair. Galadriel produces evidence (screenshots, scores, comparisons); gandalf interprets in design-meaning terms. Co-authored benchmark reports.
+- With drax: evidence supply. Galadriel surfaces visible dissonances; drax decides whether/how to address in implementation. May consult drax on capture-pipeline hooks (debug-state URL params).
+- With knight-rider: receives dispatch-level work; surfaces capture-pipeline blockers as FRICTION.
+
+---
+
+## 3.5 Mathematical Layer (cross-cutting; no dedicated agent)
+
+Math work is **distributed by data-locality**, not owned by a single agent. Each seam handles the math native to its data + tooling:
+
+| Math work-type | Owning seam | Examples |
+|---|---|---|
+| **Design-spec-as-math** — axis meanings, formula intent, architectural defaults, design-intent expressed as algebraic structure | **gandalf** | BDI ω/τ tables, BC axes lock, T4 architecture defaults, gear-substrate rule table, build-defining resonance formula |
+| **Statistical methodology on catalogue data** — dimensionality reduction, factor analysis, clustering, embedding-space operations | **elrond** | P2 axis discovery, P3 multimodal clustering, abstraction-analysis tables |
+| **Simulation-side math** — balance loops, convergence algorithms, fight-resolution math, recompose-first arithmetic | **gamora** | B14.5 V1 primary loop, W0.10 boss-AI math, multi-dim convergence algorithm |
+| **Telemetry statistics** — distributions, aggregates, derived metrics, anomaly detection, judge calibration | **star-lord** | LC-002/009/011 attribution analysis, sidecar findings, distribution audits |
+| **Visual perception math** — image-similarity scoring, embedding-based comparison, perceptual-distance metrics | **galadriel** | Visual benchmarking vs genre-peer references, perception-test scoring |
+| **External-literature methodology research** — when methodology selection requires graduate-level stats grounding beyond the seam's native depth | **legolas Mode A** | Methodology consultations for P2/P3/P5 math hotspots |
+
+**Math hotspots** (methodology-choice moments where external-literature rigor is required before execution) are explicitly named in the P-phase protocols. Current named hotspots are P2 axis discovery, P3 multimodal clustering, and P5 cohesion-judge validation. See `agentic_orchestration/gandalf/notes/2026-05-23-mathematical-seam-naming.md` § 2 for the living list and the design-call requirements per hotspot.
+
+**Routing rule:** when math work could plausibly land in multiple seams, knight-rider dispatches per data-locality. When in doubt, gandalf advises on routing.
+
+**Discipline guard:** Discipline #18 (methodology-before-execution) governs math-hotspot execution — methodology selection is made via legolas Mode A research + design call BEFORE execution, not derived FROM execution. See `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` § 18.
+
+**Rationale for no dedicated mathematician agent:** math is cross-cutting (not seam-shaped); volume is bounded (consultation-volume, not full-time-agent volume); the failure surface is methodology selection (already addressable via gandalf + Matt + legolas Mode A); adding agents adds the documentation/scope-policing/cross-reference load already-diagnosed as a team slowdown root cause (per 2026-05-23 morning diagnosis). Re-evaluation triggers documented in the math-seam note § 4.2.
+
 ---
 
 ## 4. The seven cycle-trimming tactics
@@ -216,6 +261,13 @@ These are **mandatory practices** for every agent. The team's whole reason to ex
 ### Tactic 1 — Per-agent startup manifest (above)
 
 Every developer agent has a 3–4 file startup-read list. **Read these first, every session.** Skip the rest of the codebase tour. Saved time: ~5–10 min/session.
+
+**Universal first-read pair (added 2026-05-23 per gandalf onboarding-shrink + jack-ryan PASS-WITH-AMENDMENTS):** every agent reads these two BEFORE any role-specific reads:
+
+1. `canonical/00-ground-state.md` — ground-state oracle (current epoch, current canon, dead branches, single-source-of-truth contracts in ~1500 words). Gandalf maintains; updates on epoch shifts. See § 4 First-reads-by-role for per-agent shrunken Phase-1 read lists.
+2. `canonical/38-downstream-delivery-strategy-2026-05-23.md` — keystone delivery strategy (D1–D10 lock).
+
+After these two, role-specific reads per `canonical/00-ground-state.md` § 4. **The archive is consulted on-demand, NOT pre-loaded** — `grep` and `read` specific docs as the task requires; do not re-walk the historical archive on every invocation. Aggregate per-invocation read-budget target: 10–15 minutes (down from 60–120 min pre-shrink).
 
 ### Tactic 2 — `MIGRATION.md` for cross-seam handoff
 

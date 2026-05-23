@@ -4,6 +4,36 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-23 (cleanup-pass integration — math-seam + onboarding-shrink + galadriel-AGENTS.md per jack-ryan PASS-WITH-AMENDMENTS Gate-1) — Discipline #18 adopted; Mathematical Layer named in AGENTS.md; galadriel formalized as 10th topology row; universal first-read pair encoded
+
+**Event:** Both Gate-1 artifacts (math-seam-naming + onboarding-list shrink) cleared jack-ryan PASS-WITH-AMENDMENTS review (tag `jack-ryan/gate-1-math-seam-onboarding-shrink-2026-05-23`). Knight-rider executed cleanup-pass integration in active Matt-authorized session 2026-05-23.
+
+**Amendments applied:**
+- **A1 + A2 (linked) — Discipline renumbering and citation fix:** draft `#1.1 methodology-before-execution` renumbered to top-level **`#18`** (the empty slot in the existing numbering). Cleaner than sub-numbering when a slot is available. Linked citation correction: math-seam note cited "#19 right tool" — corrected to **#4** (the actual right-tool discipline; #19 is "The Agent tool is not for waiting"). Applied across math-seam note + math-hotspot annotations in both hive-mind protocols + Discipline #18 entry in engineering-disciplines.md.
+- **A4 / B3 (linked) — galadriel in AGENTS.md (path (a)):** Matt 2026-05-23 confirmed path (a) — galadriel added to AGENTS.md topology table as an established active agent (10 entities now). Operational reality precedes documentation: galadriel.md exists in Claude Code agent system, `agentic_orchestration/galadriel/` working tree exists, recent canonical/story/ docs reference her work, recent dispatches name her as workstream owner. Added to topology table; placed at Tier C+ (peer to elrond) with steward authority within visual-perception domain; explicitly noted NO parallel-escalation privilege (that asymmetry remains gandalf's). Seam-map entry added after elrond's.
+- **Five minor amendments (A3/A5/B1/B2/B4/B5) per jack-ryan's report:** applied inline during integration; specifics per the open-question resolutions documented in the math-seam note § 6 and onboarding-shrink request § 7 (gandalf-recommended defaults concurred).
+
+**Integration steps landed:**
+1. Mathematical Layer section added to `agentic_orchestration/AGENTS.md` § 3.5 — cross-cutting math distribution across gandalf / elrond / gamora / star-lord / galadriel / legolas Mode A; routing rules; Discipline #18 guard cross-reference; rationale for no dedicated mathematician agent.
+2. Galadriel topology row added to AGENTS.md § 2 (10 entities); seam-map § 3 entry; Tier C+ row in authority tiers; updated status banner.
+3. Universal first-read pair (`canonical/00-ground-state.md` + `canonical/38-downstream-delivery-strategy-2026-05-23.md`) documented in AGENTS.md § 4 Tactic 1; on-demand-archive discipline encoded; aggregate read-budget target 10–15 min stated.
+4. Math-hotspot annotations applied at `canonical/story/hive-mind-protocol-weapon-library-import-2026-05-22.md` § 6.4 (P2 axis discovery) + § 6.5 (P3 clustering) + § 6.7 (P5 cohesion-judge sub-phase A), and at `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` § 6.6 (P5 cohesion-BC). Each annotation cites Discipline #18 and the design-call requirement.
+5. `canonical/00-ground-state.md` § 1 updated — discipline count corrected (19 → 20 disciplines including #18); math-seam-naming note added as CURRENT (integrated 2026-05-23) row.
+6. Discipline #18 (methodology-before-execution) integrated into `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` as top-level entry between #17 and #19 (separate engine-repo commit per ADR-004 cross-repo coordination).
+
+**Blocker surfaced:** harness denied Edit on `.claude/agents/knight-rider.md` (and presumably the other 9 agent definition files). The structural binding of per-agent Phase-1 read lists into the agent .md files themselves was NOT applied this session. Functional equivalence is preserved by:
+- `canonical/00-ground-state.md` § 4 already enumerates the per-agent shrunken first-reads (the authoritative source agents read on every invocation)
+- `agentic_orchestration/AGENTS.md` § 4 Tactic 1 documents the universal first-read pair + on-demand-archive discipline
+- Discipline holds via Gate-1 enforcement when agents over-load context
+
+Surfaced to Matt for resolution: either (a) lift harness restriction on agent .md edits and re-apply per-agent Phase-1 shrinks structurally, or (b) accept the canonical/00-ground-state.md § 4 + AGENTS.md § 4 Tactic 1 binding as sufficient and consider the agent .md files reference-only legacy reads.
+
+**Tag:** `jack-ryan/gate-1-math-seam-onboarding-shrink-2026-05-23` (jack-ryan Gate-1 PASS-WITH-AMENDMENTS).
+
+**Next gandalf action:** post-integration spot-check + cleanup-pass close-out acknowledgment.
+
+---
+
 ## 2026-05-23 (cleanup-pass momentum continuation — ground-state oracle + epoch-stamping pass + second jack-ryan Pattern-B Gate-1 dispatch queued) — documentation epoch-collision and per-agent onboarding-budget root causes addressed; D1-D10 delivery strategy lock authored; epoch labels landed across 123 canonical docs
 
 **Event:** Matt approved the 2026-05-23 documentation cleanup pass following morning diagnosis of agent-slowdown root causes (epoch-collision-in-flat-namespace; no retirement protocol; decisions-log staleness; per-agent Phase-1 lists growing without bound). Cleanup work executed across three commits + a queued Gate-1 dispatch.

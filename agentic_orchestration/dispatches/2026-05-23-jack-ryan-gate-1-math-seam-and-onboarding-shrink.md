@@ -166,3 +166,44 @@ Knight-rider:
 ---
 
 **Signed:** knight-rider (dispatch authored 2026-05-23; second Pattern-B Gate-1 of cleanup-pass momentum continuation; Matt option (a) confirmed)
+
+---
+
+## Integration completion record — knight-rider 2026-05-23
+
+**Status:** INTEGRATED — both artifacts shipped per PASS-WITH-AMENDMENTS verdict.
+
+**Tag fired:** `jack-ryan/gate-1-math-seam-onboarding-shrink-2026-05-23`
+
+**Amendments applied:**
+
+| Amendment | Action |
+|---|---|
+| A1 — placement | Renumbered draft `#1.1 methodology-before-execution` → top-level **`#18`** throughout math-seam note + math-hotspot annotations + engine-repo Discipline #18 entry |
+| A2 — citation fix | Math-seam note's "#19 right tool" cross-reference corrected to **#4** (the actual right-tool discipline; #19 is "The Agent tool is not for waiting") |
+| A4 / B3 — galadriel | Path (a) confirmed by Matt 2026-05-23 — galadriel added to AGENTS.md topology table as 10th entity; Tier C+; seam-map entry; status banner updated |
+| A3 / A5 / B1 / B2 / B4 / B5 (minor) | Applied inline during integration; gandalf-recommended defaults from math-seam note § 6 and onboarding-shrink request § 7 concurred |
+
+**Files modified (collab repo):**
+1. `agentic_orchestration/AGENTS.md` — § 2 topology table (10 entities; galadriel row); § 2 authority tiers (Tier C+ now includes galadriel; explicit no-parallel-escalation note); § 3 seam map (galadriel section); § 3.5 Mathematical Layer (new section); § 4 Tactic 1 (universal first-read pair encoded; on-demand-archive discipline)
+2. `canonical/00-ground-state.md` — § 1 discipline count updated (19→20 incl. #18); math-seam-naming note added as CURRENT row
+3. `canonical/story/hive-mind-protocol-weapon-library-import-2026-05-22.md` — § 6.4 P2, § 6.5 P3, § 6.7 P5 math-hotspot annotations (each cites Discipline #18)
+4. `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` — § 6.6 P5 math-hotspot annotation
+5. `agentic_orchestration/gandalf/notes/2026-05-23-mathematical-seam-naming.md` — status banner updated to INTEGRATED; all `#1.1` references renamed to `#18`; `#19 right tool` citation corrected to `#4`
+6. `agentic_orchestration/CHANGELOG.md` — integration entry appended
+
+**Files modified (engine repo — separate commit per ADR-004):**
+- `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` — Discipline #18 (methodology-before-execution) added at empty slot between #17 and #19 (top-level entry; full text with practical rules + identifying criteria + integration with #4 + Gate-1 question + cross-references)
+
+**Blocker surfaced:** Harness denied Edit on `.claude/agents/knight-rider.md` (and presumably the other 9 agent definition files). The structural binding of per-agent Phase-1 read lists into agent .md files was NOT applied. Functional equivalence preserved via:
+- `canonical/00-ground-state.md` § 4 already enumerates per-agent shrunken first-reads (authoritative; every invocation reads this)
+- AGENTS.md § 4 Tactic 1 documents universal first-read pair + on-demand-archive discipline
+- Discipline holds via Gate-1 enforcement when agents over-load context
+
+Recommendation to Matt: resolve in next session — either (a) lift harness restriction on agent .md edits and re-apply per-agent Phase-1 shrinks structurally, or (b) accept ground-state oracle § 4 + AGENTS.md § 4 Tactic 1 as sufficient binding and consider agent .md files legacy reference-only.
+
+**Push status:** held (no remote push without Matt direction per ADR-006 read-only-by-default for external systems including remotes).
+
+**Next gandalf action:** post-integration spot-check + cleanup-pass close-out acknowledgment.
+
+**Signed:** knight-rider (integration completion 2026-05-23; closes the cleanup pass on the team-discipline reinforcement track)

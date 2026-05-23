@@ -1023,10 +1023,13 @@ W4.10 bulk-evaluations fire as each extension lands.
 
 ### 6.6 Phase P5 — Theme Coalescence + Cohesion-BC + Visual-BC
 
+> **[MATH HOTSPOT — cohesion-judge statistical validation requires methodology consultation via legolas Mode A before execution; methodology lock requires gandalf + star-lord + gamora + Matt design call; failure mode is declaring the cohesion-judge "validated" based on a small sample with overstated significance, OR with calibration accurate-on-average but miscalibrated at tails (where rare-but-important judgments live) — guard via Discipline #18. See `agentic_orchestration/gandalf/notes/2026-05-23-mathematical-seam-naming.md` § 2.3 for the methodology surface and required action sequence.]**
+
 **Duration:** 3-5 weeks (per D3 selection; 5 weeks if sequenced after cipher migration; 3 weeks if parallel-with-contaminated-baseline)
 **Tag namespace:** `qd-rebuild/v5.X-coalescence-N`
 **Prerequisites:** P3 complete; cipher migration shipped if D3 = sequenced
 **Specialists:** rocket (LLM theme coalescence), gandalf (cohesion-BC spec + judge prompts), galadriel (visual-BC spec), star-lord (LUCB1 algorithm + theme infrastructure)
+**Disciplines:** Engine-rebuild standard disciplines + **#18 (methodology-before-execution; math-hotspot guard on cohesion-judge statistical validation)**
 
 #### 6.6.1 Scope (REFRAMED in v1.2 — empirical-validation phase)
 

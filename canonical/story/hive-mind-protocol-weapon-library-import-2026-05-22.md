@@ -445,10 +445,12 @@ Background process if >1 hour; foreground if smaller. Status via row update coun
 
 ### 6.4 Phase P2 — Axis Discovery + BDI ω-Seeding (Pattern 6 operationalization)
 
+> **[MATH HOTSPOT — methodology consultation via legolas Mode A before execution; methodology lock requires gandalf + elrond (or rocket per dispatch) + Matt design call; failure mode is "looks-correct-but-subtly-wrong" — guard via Discipline #18.]**
+
 **Owner:** rocket (with legolas Mode A on statistical methodology)
 **Dependencies:** Phase 1.5 complete
 **Duration:** 1-3 days
-**Discipline:** #1 (math-before-code on statistical methodology) + #11 (empirical inspection on derived axes) + Pattern 6 honored (no axis pre-imposition)
+**Discipline:** #1 (math-before-code on statistical methodology) + #11 (empirical inspection on derived axes) + **#18 (methodology-before-execution; math-hotspot guard)** + Pattern 6 honored (no axis pre-imposition)
 
 #### 6.4.1 Scope (Pattern 6 operationalization)
 
@@ -519,10 +521,12 @@ Background process (Mode A analytical + ML can run multi-hour). Status via algor
 
 ### 6.5 Phase P3 — Clustering Analysis
 
+> **[MATH HOTSPOT — methodology consultation via legolas Mode A before execution; methodology lock requires gandalf + owning-seam + Matt design call; failure mode is "looks-correct-but-subtly-wrong" (clusters that pass cluster-validation metrics but don't carry design-meaningful weight, OR clusters that are artifacts of distance-metric design) — guard via Discipline #18.]**
+
 **Owner:** legolas (Mode A analytical) OR rocket (decide at dispatch time per ML library access)
 **Dependencies:** Phase 2 complete
 **Duration:** 1-2 days
-**Discipline:** #1 (math-before-code on clustering algorithm choice) + #11 (empirical inspection on cluster outputs before lock)
+**Discipline:** #1 (math-before-code on clustering algorithm choice) + #11 (empirical inspection on cluster outputs before lock) + **#18 (methodology-before-execution; math-hotspot guard)**
 
 #### 6.5.1 Scope
 
@@ -626,10 +630,12 @@ Foreground interactive (design call; not automatable).
 
 ### 6.7 Phase P5 — Validation + Substrate-Density Precomputation (PARALLEL)
 
+> **[MATH HOTSPOT (cohesion-judge calibration sub-phase) — methodology consultation via legolas Mode A before execution; methodology lock requires gandalf + star-lord + gamora + Matt design call; failure mode is declaring the cohesion-judge "validated" on small-sample over-stated significance, or with calibration accurate-on-average but miscalibrated at the tails — guard via Discipline #18. Substrate-density precompute (sub-phase B) is a light hotspot only (density estimation technique selection); follows Discipline #1 + #11 without full design-call ceremony.]**
+
 **Owner:** galadriel (visual validation) + rocket (density precompute)
 **Dependencies:** Phase 4 complete (cluster labels assigned)
 **Duration:** 4-8 hours parallel
-**Discipline:** #1 (math-before-code on density-aggregation) + #11 (empirical inspection on visual coherence)
+**Discipline:** #1 (math-before-code on density-aggregation) + #11 (empirical inspection on visual coherence) + **#18 (methodology-before-execution; math-hotspot guard on the cohesion-judge calibration sub-phase)**
 
 #### 6.7.1 Scope
 
