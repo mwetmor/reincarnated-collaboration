@@ -201,6 +201,52 @@ Promote as new Discipline #19. Cross-reference with Discipline #1 (math-before-c
 
 ---
 
+## Observation 7 — Single-parameter sweep isolation (Discipline #20 candidate; jack-ryan Gate-2 Finding 6 on Phase E-1.5)
+
+### Source
+
+Jack-ryan DEV-MODE Gate-2 Pattern-A-light on legolas Phase E-1.5 sensitivity sweep 2026-05-23 ~14:30 EDT. Full review at `agentic_orchestration/knight-rider/notes/2026-05-23-phase-E-1-5-output-gate-2-findings-record.md` § Finding 6.
+
+### Evidence
+
+Legolas Phase E-1.5 sensitivity sweep on `min_cluster_size` ∈ {10, 15, 20, 30} at substrate-voted k=3 axis basis used stratified-subsample floor = `min_cluster_size × 2`. This coupling caused the rare-lineage subsample composition to VARY across variants:
+
+| Lineage | Pool N | Subsample at mcs=10 (floor=20) | Subsample at mcs=15 (floor=30) | Subsample at mcs=20 (floor=40) | Subsample at mcs=30 (floor=60) |
+|---|---|---|---|---|---|
+| arctic_circumpolar | 56 | 27 | 30 | 40 | 56 (all available) |
+| north_american_indigenous | 29 | 22 | 29 (all) | 29 (all) | 29 (all) |
+| oceanic | 39 | 24 | 30 | 39 (all) | 39 (all) |
+
+The sweep was intended to test the effect of `min_cluster_size` ALONE on clustering outcomes. The floor-coupling means the test actually varied TWO parameters simultaneously: `min_cluster_size` AND `subsample_composition`. This is a confounded experiment by design.
+
+In Phase E-1.5 specifically, the confound was MILD for dominant lineages (fantasy_generic / east_asian / european have far more than max-floor available; their subsample counts varied only ~few percent). For RARE lineages, the confound was substantial — but the direction of findings (no Mode-A culturally-coherent cluster emerges at any mcs) was empirically unchanged. Jack-ryan ruled this non-blocking for the immediate sweep but flagged as methodology-correctness concern for future sweeps.
+
+### Candidate Discipline framing
+
+> **Discipline #20 (proposed) — Single-parameter sweep isolation.**
+>
+> When a sensitivity sweep varies parameter P to measure its effect on outcome O, the experiment design must isolate P from any other input that would vary as a side-effect of P-variation. Specifically:
+>
+> 1. **Subsample composition must not vary when only the clustering parameter is under test.** If subsample stratification or floor logic references the swept parameter, the swept parameter is confounded with subsample composition. Decouple by accepting subsample-floor as an INDEPENDENT parameter passed at fire time.
+> 2. **Generalize to any sweep configuration:** any internal pipeline variable derived from the swept parameter must either (a) be independently configurable at fire time, OR (b) be explicitly documented in the math-before-code section as a coupled-by-design factor, with reasoning for why decoupling is impractical.
+> 3. **Cheapest refuting test:** before firing a sweep, audit the pipeline code path between the swept parameter and the experimental output. If any intermediate stage references the swept parameter for purposes OTHER than the direct experimental measurement, decouple or document.
+>
+> Cross-references: Discipline #1 (math-before-code — the sweep design IS math-before-code work); Discipline #19 (forensic-conclusion-discipline — confounded sweeps cannot cleanly support causal claims about the swept parameter); Discipline #18 (substrate-led — the empirical signal should reflect substrate response, not artifact of confounded design).
+
+### Severity
+
+**WARN candidate.** Phase E-1.5's findings were empirically unchanged by the mild confound, but the design pattern is invalid for future sweeps where the confound is non-mild. Promoting at Gate-1 enforcement would catch the next iteration at dispatch authoring.
+
+### Suggested integration
+
+Promote as new Discipline #20. Cross-reference with Disciplines #1, #18, #19. Engineering-disciplines.md addition territory; jack-ryan's canonical write authority. Operational deployment: future sensitivity-sweep dispatches must include a "swept-parameter isolation audit" section in math-before-code.
+
+### First concrete application
+
+Future Phase E-1.5-bis (if one fires) or any sensitivity sweep on the substrate-clustering pipeline must use `--subsample_floor <int>` as an independent CLI parameter, defaulting to a fixed value (e.g., 30) decoupled from `--min_cluster_size`.
+
+---
+
 ## Pattern observation (not yet ratification-ready; surfaced for awareness)
 
 Both gaps emerged from the same root: **the engineering disciplines do not adequately handle the host-resource-bounds dimension for numerical/computational dispatches.** The disciplines were authored against the engine's simulation cadence (Discipline #1 math-before-code originated in B14.5 balance-loop work where memory was never close to host limit). The substrate-side analytical pipelines (Phase D / Phase E) operate on data scales where memory IS the binding constraint — and the disciplines have not been updated to reflect that.

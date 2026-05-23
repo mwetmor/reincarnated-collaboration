@@ -224,43 +224,83 @@ The HM-prep arc § 3 stages map onto this:
 | HM-prep 4 (was: 9.12-A H1-H5 baseline) | **Becomes a multi-step chain — see 9.12-A correction below** |
 | HM-prep 5 (9.12-B legolas Mode A + M2-8GB audit) | Now sequenced AFTER H1-H5 baseline lands (not before; legolas Mode A's methodology recommendations should be informed by empirical H1-H5 signal-to-noise read) |
 
-### 8.7 Corrected 9.12-A sub-decomposition (proposed for Matt review)
+### 8.7 9.12-A sub-decomposition — SUPERSEDED by Matt Decision 1 (Option B; § 8.10 below)
 
-9.12-A as originally filed dissolves into a chain of pre-existing W-numbered work items, each with its own ownership and prerequisite gates:
+**Originally proposed (now SUPERSEDED):** 9.12-A decomposed into 9.12-A.1-A.4 absorbing P1 / W1.13 / W1.20 / H1-H5 chain into the queue.
 
-- **9.12-A.1** — P1 substrate enrichment (W1.1-W1.11) closure — IN FLIGHT (rocket + others)
-- **9.12-A.2** — W1.13 multi-dim convergence implementation (rocket Pattern-B) — gated on 9.12-A.1; Matt framing approval pending
-- **9.12-A.3** — W1.20 BDI infrastructure (rocket + legolas Pattern-B) — gated on 9.12-A.2
-- **9.12-A.4** — H1-H5 baseline execution (gamora Pattern-B against post-W1.13 archive) — gated on 9.12-A.3
+**Matt-decision returned 2026-05-23 late session:** Option B selected. 9.12 stays scoped to "Question A extension framework execution post-baseline." P1 / W1.13 / W1.20 chain tracked in EXISTING locations as upstream prerequisites (NOT as 9.12-A.1-A.4 sub-carries). 9.12-A refactors to **"Question A baseline-landing gate"** — gates on H1-H5 results landing from the upstream chain, not on the chain itself.
 
-These items are not new work — they are pre-existing P1 / W1.13 / W1.20 scopes that the Question A verdict's H8/H9 extension framework sits downstream of. The 9.12-A decomposition simply makes explicit the dependency chain that connects them to Question A's hypothesis-test framework execution.
+Substrate-led reasoning: P1 substrate enrichment + W1.13 multi-dim convergence + W1.20 BDI infrastructure are bigger than Question A's needs — they serve engine post-W0.7-ablation foundation generally, not just BDI baseline. Absorbing them into 9.12 sub-carries would conflate independently-meaningful work-units and pre-impose 9.12 umbrella over things that aren't 9.12. The existing tracking locations vote on workstream organization; cross-references make the dependency visible.
 
-### 8.8 Updated next-action ladder
+### 8.8 Updated next-action ladder (post-Matt-decisions)
 
-Replacing § 7 forward-looking sequence:
+Replacing § 7 forward-looking sequence; corrected per Matt Decisions 1 + 3 + verdict § 12.4 refined sequencing:
 
-1. **Surface this finding to Matt** (DONE this session — gamora return relayed)
-2. **Matt-decision needed:** does the 9.12 queue absorb the existing P1 / W1.13 / W1.20 chain as 9.12-A.1-A.4 (re-framing the queue as a complete Question A pre-requisite tracker)? OR does the 9.12 queue stay scoped to "Question A extension framework execution post-baseline" with the P1 / W1.13 / W1.20 chain tracked in its existing locations?
-3. **Gandalf re-engagement (optional):** the verdict's § 1.3 framing-audit Q2 #1 conditional-extension structure was scoped on an assumption that doesn't hold; gandalf may want to amend the verdict's framing-audit section to reflect the longer prerequisite chain. NOT urgent — verdict's core math model + H8/H9/H8.diff scoping + acceptance gates per § 6.1 remain intact regardless
-4. **9.12-B scope adjustment:** legolas Mode A consultation should fire AFTER H1-H5 baseline lands (not before), so legolas has empirical signal-to-noise data to inform sample-size methodology recommendations. Update from "consult before gamora executes H8/H9" to "consult between H1-H5 baseline landing and H8/H9 execution"
-5. **9.12-C T4-B catalogue authoring** continues in flight per gandalf design-side authorship (not gated on baseline chain; can proceed parallel)
-6. **9.12-D critique-pair Gate-1** sequencing unchanged (post-9.12-B)
+1. **Surface this finding to Matt** — DONE this session (gamora return relayed)
+2. **Three Matt-decisions returned** — DONE this session (§ 8.10 below)
+3. **Verdict § 12 addendum landed** — DONE this session (gandalf re-engagement; see § 8.11)
+4. **Upstream chain progresses in existing tracking locations** (not knight-rider-owned coordination): P1 W1.1-W1.11 substrate enrichment (rocket + others; in flight) → W1.13 multi-dim convergence implementation (rocket; FIRE-GATE cleared procedurally; gated on P1 close + Matt framing approval) → W1.20 BDI hypothesis-test infrastructure (rocket + legolas; not dispatched) → H1-H5 baseline execution (gamora Pattern-B against post-W1.13 archive)
+5. **H1-H5 baseline results land** → trigger for 9.12-A gate fire and 9.12-B Pattern-B dispatch authoring (legolas Mode A methodology consultation NOW WITH empirical signal-to-noise data informing sample-size + methodology choice per verdict § 12.4)
+6. **9.12-B Pattern-B dispatch authored + fired** with scope narrowed to statistical-methodology-layer M2 8GB feasibility (per verdict § 12.3; engine-execution layer already verified by gamora as no-blocker)
+7. **9.12-B returns** → author 9.12-D Pattern-A-light critique-pair Gate-1 invocation (gandalf + jack-ryan; BLOCK authority on methodology unsoundness)
+8. **9.12-D PASS** → author gamora Pattern-B dispatch for H8 + H8.diff + H9 execution against v1 T4-B catalogue + post-W1.13 archive
+9. **9.12-C catalogue ready** (parallel track; gandalf + Matt design call; not gated on baseline chain) → jack-ryan Gate-2 catalogue review per Question A § 6.1 G1-G4 gates applied per-entry
+10. **All HM-prep 1-7 complete** → author P1 hive-mind protocol document; fire HM cycle
+
+Each step gated on its predecessor's empirical-evidence criterion. Per OP § 3.7 — deferred work names empirical-criterion, not time-passage.
 
 ### 8.9 Cycle 9.12 disposition
 
-This filing remains AUTHORITATIVE for the Question A workstream queue but with § 8 amendment as load-bearing. The queue's original framing (§ 2) preserves the prior knowledge state for traceability; § 8 captures the substrate-led correction surfaced by gamora's empirical inspection (Discipline #11). The Pattern-A query was the cheapest single unblock — it surfaced a substantial scope correction at minimum cost, exactly the design pattern the next-action ladder § 7 step 1 was meant to enable.
+This filing remains AUTHORITATIVE for the Question A workstream queue with § 8 amendment as load-bearing. The queue's original framing (§ 2) preserves the prior knowledge state for traceability; § 8 captures the substrate-led correction surfaced by gamora's empirical inspection (Discipline #11); § 8.10-8.11 below capture the three Matt-decisions + verdict § 12 addendum cross-reference. The Pattern-A query was the cheapest single unblock — surfaced a substantial scope correction at minimum cost, exactly the design pattern the next-action ladder § 7 step 1 was meant to enable.
+
+### 8.10 Three Matt-decisions returned (2026-05-23 late session)
+
+Returned via gandalf relay after § 8 amendment surface:
+
+**Decision 1 — Queue-absorption framing: Option B (CONFIRMED).** 9.12 stays scoped to "Question A extension framework execution post-baseline." P1 / W1.13 / W1.20 chain stays in existing tracking locations as upstream prerequisites. 9.12-A refactors to "Question A baseline-landing gate." Cross-references make the dependency visible without conflating independently-meaningful workstreams. *Operationalized in § 8.7-8.8 above.*
+
+**Decision 2 — Gandalf re-engagement: § 12 ADDENDUM LANDED.** Verdict updated at `agentic_orchestration/gandalf/notes/2026-05-23-question-A-w1-13-tier-4-hypothesis-verdict.md` §§ 12.1-12.7 + addendum sign-off. Records: framing-audit refutation (§ 12.1) + sequencing constraint against post-W1.13 archive (§ 12.2) + M2 8GB layer split (§ 12.3) + methodology-consultation timing refinement (§ 12.4) + framework intactness confirmed (§ 12.5) + operational consequences for 9.12 queue (§ 12.6) + scope discipline on what the addendum does NOT do (§ 12.7). *Cross-referenced in § 8.11 below.*
+
+**Decision 3 — 9.12-B scope adjustment: CONFIRMED.** Legolas Mode A consultation fires AFTER H1-H5 baseline lands, not before. Discipline #18 refinement proposed (per verdict § 12.4) folds into gandalf OP amendment 9.10-B.1 framing-audit checklist when that amendment lands; jack-ryan canonical write follows. *Operationalized in § 8.8 step 5-6 above.*
+
+### 8.11 Verdict § 12 addendum — cross-references
+
+Verdict §§ 12.1-12.7 captures the full disposition of the gamora Pattern-A surface against the verdict's framing-audit Q2 #1 assumption. Specific cross-references load-bearing for downstream readers:
+
+| Verdict § | Captures | Operational impact for 9.12 queue |
+|---|---|---|
+| § 12.1 | Framing-audit refutation — FIRST CANONICAL EXAMPLE of framing-audit discipline catching pre-imposed-assumption failure on authored verdict | Worth flagging to jack-ryan when gandalf OP amendment 9.10-B.1 lands; canonical example for framing-audit checklist documentation |
+| § 12.2 | Sequencing constraint — BDI tests run against POST-W1.13 archive per rescope § 3.1 verbatim; H8/H9 inherit | New upstream gate added to verdict § 9 empirical-evidence criteria; load-bearing for 9.12-A baseline-landing-gate definition |
+| § 12.3 | M2 8GB compute-feasibility layer split (engine-execution: no blocker; statistical-methodology: load-bearing for 9.12-B) | 9.12-B scope narrows from "M2 8GB feasibility broadly" to "statistical-methodology-layer M2 8GB feasibility specifically"; kernel-panic-diagnosis § 9.4 lesson applies at the statistical-methodology layer |
+| § 12.4 | Methodology-consultation timing refinement (substrate-led — fires AFTER baseline, not before) | 9.12-B sequencing confirmed per Decision 3; Discipline #18 refinement candidate proposed for jack-ryan queue |
+| § 12.5 | Framework intactness — core math model (η interaction term) + three properties P1/P2/P3 + H8/H8.diff/H9 extensions + G1-G4 acceptance gates + seam routing all intact; only sequencing + prerequisite-chain shape changed | Verdict remains load-bearing for v1 Tier 4 validation; no re-scoping of downstream work needed |
+| § 12.6 | Operational consequences for 9.12 sub-carry queue | All four sub-carries refined per addendum + Matt decisions; this filing's § 8.7-8.10 operationalizes per Decision 1 |
+| § 12.7 | What the addendum does NOT do | §§ 1-11 of verdict preserved as authoring-time record; gandalf OP amendment + Discipline #18 canonical text are future-author territory; § 1.3 framing-audit stands as record of conditional-extension structure that anticipated this refutation shape |
+
+### 8.12 Framing-audit discipline architectural milestone
+
+Per verdict § 12.1 + the gamora Pattern-A query itself: these constitute the **FIRST CANONICAL EXAMPLE of the framing-audit discipline catching a pre-imposed-assumption failure on an authored verdict before downstream work fired against the bad assumption.** The discipline worked as designed:
+
+- Pattern-A query within ~120 seconds surfaced refutation
+- Addendum captured at minimum cost (~30 min gandalf authoring)
+- Framework intactness preserved (core math + acceptance gates + seam routing all intact)
+- No downstream work miscarriage (no Pattern-B dispatch fired against bad-assumption scope)
+
+To flag to jack-ryan when gandalf OP amendment (9.10-B.1) lands — this becomes a canonical example for the framing-audit checklist documentation. Knight-rider tracks the flag-to-jack-ryan action as a deferred item pending the OP amendment authoring (not on this session's critical path).
 
 ---
 
 ## 9. Sign-off
 
 **Author:** knight-rider (orchestrator / communicator)
-**Authority:** queue-filing per gandalf 2026-05-23 evening request relay + § 8 amendment per Matt's 9.12-A query authorization; no architectural commitments fire from this filing (those gate on § 9 of Question A verdict)
-**Filing pattern:** knight-rider/notes/ tracking document (NOT a Pattern-B dispatch; dispatches authored as prerequisites resolve)
+**Authority:** queue-filing per gandalf 2026-05-23 evening request relay + § 8 amendment per Matt's 9.12-A query authorization + § 8.7-8.12 update per Matt's three-decisions returned via gandalf relay + verdict § 12 addendum cross-reference; no architectural commitments fire from this filing (those gate on § 9 + § 12.2 upstream gate of Question A verdict)
+**Filing pattern:** knight-rider/notes/ tracking document (NOT a Pattern-B dispatch; dispatches authored as prerequisites resolve per § 8.8 next-action ladder)
 **Parallel-instance coordination:** parallel knight-rider authored Cycle 9.12 sub-dispatches earlier this evening (Phase-E-2-DB elrond / 9.11-A legolas / 9.11-G gandalf); this filing addresses the distinct Question A workstream sub-carry queue under the same Cycle 9.12 umbrella
 
-**Next knight-rider session pickup:** read this file (full, including § 8 amendment) → Matt-decision on § 8.7 queue-absorption framing is the next concrete coordination action
+**Next knight-rider session pickup:** read this file (full, including § 8 amendment + § 8.10 Matt-decisions + § 8.11 verdict § 12 cross-references) → § 8.8 next-action ladder step 4 is the next concrete coordination action (upstream chain progress in existing tracking locations; knight-rider monitors but does not own coordination); 9.12-B Pattern-B dispatch authoring fires only when H1-H5 baseline results land
+
+**Deferred item:** flag to jack-ryan when gandalf OP amendment 9.10-B.1 lands — verdict § 12.1 + gamora Pattern-A query are FIRST CANONICAL EXAMPLE of framing-audit discipline catching pre-imposed-assumption failure on authored verdict; worth incorporating into framing-audit checklist canonical documentation (per § 8.12)
 
 ---
 
-**Signed:** knight-rider (queue filed + § 8 amendment per 9.12-A gamora surface; HM-fire gated on the revised HM-prep chain with P1/W1.13/W1.20/H1-H5 baseline as load-bearing precursors)
+**Signed:** knight-rider (queue filed + § 8 amendment per gamora surface + § 8.7-8.12 update per Matt three-decisions + verdict § 12 cross-references; HM-fire gated on upstream chain landing + revised 9.12 sequencing per Matt Decision 1 Option B + Decision 3 substrate-led timing refinement)

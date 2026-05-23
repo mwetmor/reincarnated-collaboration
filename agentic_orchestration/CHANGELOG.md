@@ -4,6 +4,79 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-23 (Cycle 9.13 — Phase E-1.5 sensitivity sweep ACCEPTED (4 mcs variants; all at acceptance tier) + jack-ryan Gate-2 CONDITIONAL PASS + parallel-instance gandalf OP amendment 9.10-B.1 CLOSED + T4-B v1 catalogue scaffolding landed (9.12-C scaffolding stage closed)) — Cluster 62 no-split CONFIRMED; rare-lineage Mode-B dominance CONFIRMED empirically reinforcing 9.11-D → 9.11-E corrective path; subsample-composition stability REFUTED surfaces Discipline #20 candidate; 9.13-A PMD landmines anomaly persists structurally surfacing cluster-116 relabel-or-defer surface to gandalf; 9.10-G + 9.10-G.1 + 9.10-B.1 CLOSED
+
+**Event:** Matt fired legolas as sub-agent on the Phase E-1.5 sensitivity sweep dispatch (commit `0059068`). Legolas completed in single session (commit `ef9707c`, tag `legolas/phase-E-1-5-sensitivity-sweep-2026-05-23` local). Knight-rider invoked jack-ryan DEV-MODE Gate-2 Pattern-A-light review (~30 min); returned CONDITIONAL PASS with 2 named conditions. During the same window, parallel-instance gandalf landed two material commits: OP amendment 9.10-B.1 (`f5f0308`) and T4-B v1 catalogue scaffolding (`9634729`).
+
+**Phase E-1.5 acceptance gates (legolas reported; jack-ryan verified including live SQLite query for DB-write-OFF compliance):**
+
+| mcs | Clusters | Purity | F6 | Noise | RSS |
+|---|---|---|---|---|---|
+| 10 | 125 | 0.9444 | 0 | 427 | 1.12 GiB |
+| 15 | 103 | 0.9412 | 0 | 550 | 1.12 GiB |
+| 20 | 85 | 0.9287 | 0 | 559 | 1.11 GiB |
+| 30 | 65 | 0.9177 | 0 | 922 | 1.14 GiB |
+
+All 4 variants at ACCEPTANCE tier (≥50 clusters; purity ≥0.70). DB writes OFF verified; production state preserved (clusters=125 + gandalf canonical labels + cluster_membership=48,430 unchanged). psutil 7.2.2 installed (9.10-G.1 CLOSED) + RSS-guard active across all 4 variants.
+
+**Key findings (hypothesis verdicts from sensitivity sweep):**
+
+- **Memory invariant: CONFIRMED** — 1.11-1.14 GiB peak across variants; well under 6 GiB ceiling
+- **Cluster count inversely correlated with mcs: CONFIRMED** — 125 → 103 → 85 → 65
+- **Cluster 62 (Abyssal Bane Mega-Family) does NOT split via mcs variation: CONFIRMED** — bundling is axis-1-dominance-driven (kind_named_template + fantasy_generic + fictional), not cluster-density-driven; mcs cannot resolve weapon-form distinctions within this cluster. Resolving requires k variation OR targeted sub-clustering pass on fantasy_generic/named_template subset (both out of E-1.5 scope; deferred)
+- **Form-bundling stability: CONFIRMED qualitatively** — 48.8% / 47.6% / 45.9% / 38.5% form-bundled cluster ratio across mcs=10/15/20/30 (stable through mcs=20; mild erosion at mcs=30); large families persist; small boutique families dissolve above mcs=15. Validates gandalf's coarse-spine acceptance decision (Cycle 9.11 Gate-2 condition 3) empirically
+- **Rare-lineage Mode-B dominance: CONFIRMED + EXTENDED** — NO Mode-A (culturally-coherent traditional) cluster emerges for any of 5 marginal lineages at any tested mcs. Home clusters that DO appear are Mode-B dominated (Russian/Swedish missile systems; Chilean military + Apache missile). **Empirically validates 9.11-G meta-record thesis that 9.11-D → 9.11-E substrate re-tag is the corrective path, not mcs variation.** Notable: at mcs=30 ALL 56 arctic_circumpolar rows are in subsample yet STILL no home cluster forms — HDBSCAN cannot find coherent density peak in Mode-B military hardware
+- **Subsample composition stability: REFUTED** — floor=mcs×2 causes varying rare-lineage subsample counts across variants; arctic_circumpolar grew from 27 (mcs=10) to 56 (mcs=30; all available). Confound was mild for dominant lineages but substantial for rare lineages; finding direction empirically unchanged. **Surfaces NEW Discipline #20 candidate.**
+- **9.13-A PMD landmines anomaly: PERSISTS STRUCTURALLY** across all 4 variants — top reps (GYATA-64 mine, Round shield, M111 grenade) identical at all mcs values. mcs-invariant. Reframes 9.13-A from "diagnostic feed for 9.11-D" to "label-fix-now OR substrate-fix-later" two-path decision
+
+**Jack-ryan Gate-2 verdict (Pattern-A-light): CONDITIONAL PASS** — 5 INFO/PASS + 2 WARNs. Full review at `knight-rider/notes/2026-05-23-phase-E-1-5-output-gate-2-findings-record.md`.
+
+Two conditions for knight-rider to fold (both non-blocking for 9.11-D dispatch authoring):
+
+1. **Discipline #20 candidate** — single-parameter sweep isolation; subsample composition must not vary when only clustering parameter is under test. Folded into `knight-rider/notes/2026-05-23-discipline-observations-for-jack-ryan.md` Observation 7.
+2. **Cluster-116 relabel-or-defer surface** — gandalf decision-point: targeted relabel now (lower-cost; ~30 min total work; fixes label accuracy in production DB immediately) vs defer to 9.11-D (zero cost now; risk relabel work being sunk if 9.11-D re-clusters). Surfaced at `gandalf/open-threads/2026-05-23-cluster-116-relabel-or-defer-surface.md`; awaits gandalf next-session decision; not blocking.
+
+**Parallel-instance work landed during the same window:**
+
+- **`f5f0308` gandalf OP amendment 9.10-B.1 CLOSED** — § 4 "Operational protocols and discipline-amendments" added to `operating-procedures/gandalf.md` + installed skill `.claude/skills/reincarnated-gandalf-operating-procedure/SKILL.md`. Six subsections: § 4.1 framing-audit checklist (Pattern A-deep three-question protocol; first formal applied use at Question A verdict); § 4.2 Discipline #18 refinement (methodology consultation timing — fires AFTER baseline empirical results, not before); § 4.3 16-flag enum from Phase E-2 (canonicalized; jack-ryan Gate-2 Cycle 9.12 Finding 7 RESOLVED); § 4.4 semantic-layer rep-audit (closes carry 9.13-B; substrate votes binding at geometry layer but NOT at semantic layer; 4-mode tagging-vocabulary collapse captured); § 4.5 first-canonical-example flagging (Question A verdict § 12.1 milestone); § 4.6 composition with § 3 disciplines. Closes KR #2 § 8.12 deferred-item flag.
+- **`9634729` gandalf T4-B v1 catalogue scaffolding** — `canonical/story/2026-05-23-t4-b-v1-catalogue-scaffolding.md`; authoring framework + 13-field entry schema + substrate-anchoring decision rubric (4 candidate sources A/B/C/D) + Q1-Q8 open questions for design call with Matt + sequencing (Phase E-1.5 acceptance → design call → ~10 exemplar entries → expand to 30-50 → catalogue lock). **Phase E-1.5 acceptance was the cluster-taxonomy stability gate; gate RELEASED by this cycle.** 9.12-C (T4-B catalogue scaffolding stage) CLOSED; catalogue-authoring stage awaits Matt + gandalf design call.
+
+**Steps executed (knight-rider this cycle):**
+
+1. Verified legolas Phase E-1.5 outputs + pushed commit `ef9707c` to origin
+2. Invoked jack-ryan DEV-MODE Gate-2 Pattern-A-light (~30 min) — returned CONDITIONAL PASS
+3. Detected parallel-instance commits `f5f0308` + `9634729` in git log; pushed them to origin alongside legolas commit
+4. Authored Gate-2 findings record at `knight-rider/notes/2026-05-23-phase-E-1-5-output-gate-2-findings-record.md`
+5. Added Observation 7 (Discipline #20 candidate — single-parameter sweep isolation) to discipline-observations queue
+6. Authored cluster-116 relabel-or-defer surface at `gandalf/open-threads/2026-05-23-cluster-116-relabel-or-defer-surface.md` (parked for gandalf next session)
+7. CHANGELOG Cycle 9.13 entry
+
+**Sub-carry status changes this cycle:**
+
+- 9.10-G CLOSED (Phase E-1.5 acceptance landed)
+- 9.10-G.1 CLOSED (psutil 7.2.2 installed + RSS-guard active)
+- 9.10-B.1 CLOSED (gandalf OP amendment landed at `f5f0308`)
+- 9.13-B operationally captured in gandalf OP § 4.4 (jack-ryan ratification into engineering-disciplines.md still queued)
+- 9.12-C scaffolding stage CLOSED (catalogue-authoring stage awaits design call)
+- NEW 9.13-C — Discipline #20 candidate (single-parameter sweep isolation; jack-ryan ratification queue; Observation 7)
+- NEW 9.13-D — Cluster-116 relabel-or-defer (gandalf open-thread; awaits next-session decision)
+- 9.13-A status update — reframed from "diagnostic feed for 9.11-D" to "label-fix-now OR substrate-fix-later" two-path decision; first path is the new 9.13-D
+- 9.11-D + 9.11-E + 9.11-C (elrond substrate-tagging-discipline + curation-gap work) — still queued; gandalf's recommended D → E → mesoamerican smoke order stands; empirically reinforced by Phase E-1.5 Mode-B dominance finding
+- HM-prep arc — HM-prep 2 (Phase E-1.5 sensitivity sweep) CLOSED; HM-prep 3 (weapon substrate work) still PARTIAL (9.11-C/D/E queued)
+
+**Commit chain through Cycle 9.13:**
+
+```
+0059068  ops(knight-rider): Phase E-1.5 sensitivity sweep dispatch authored
+ef9707c  legolas(phase-E-1-5): sensitivity sweep 4 variants complete, DB writes OFF
+9634729  gandalf: T4-B v1 catalogue scaffolding — authoring framework
+f5f0308  gandalf: OP amendment 9.10-B.1 — § 4 operational protocols + discipline-amendments
+1a7b16a  ops(knight-rider): self-correction — out-of-scope constraint on biological state / time-of-day
+0573ca2  ops(knight-rider): Cycle 9.12 CLOSEOUT — 3 parallel sub-dispatches accepted + Question A workstream
+```
+
+---
+
 ## 2026-05-23 (Cycle 9.12 CLOSEOUT — 3 sub-dispatches fired in parallel + ALL 3 ACCEPTED (Phase E-2-DB elrond, 9.11-A legolas labeler-fix, 9.11-G gandalf marginal-lineage records) + parallel Question A workstream filing (9.12-A/B/C/D + HM-prep arc)) — Phase E-2 substrate work substantially closed; Phase E-1.5 sensitivity sweep now UNBLOCKED; 5 recognition records (4 marginal + 1 meta) landed in canonical/story/ + ground-state oracle § 1; M2 8GB host-feasibility discipline-candidate carried as load-bearing across all future math-hotspot dispatches
 
 **Event:** Matt fired all three Cycle 9.12 sub-dispatches in parallel via knight-rider sub-agent invocation. All three returned ACCEPTANCE with notable findings. Parallel-instance knight-rider authored Question A workstream filing during the fan-out window.
