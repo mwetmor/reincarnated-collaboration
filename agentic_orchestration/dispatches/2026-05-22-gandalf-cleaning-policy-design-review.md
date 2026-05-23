@@ -211,3 +211,32 @@ You are not blocked on legolas; your design pass is independent. Take the time y
 ---
 
 **Signed:** knight-rider (dispatch authored 2026-05-22 evening; cleaning-policy planning phase active)
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-23 (gandalf subagent fire, Pattern-A — dispatched in-session per Matt authorization)
+**Output artifact:** `canonical/story/cleaning-policy-design-2026-05-22.md` (~1,000 lines; all 7 review items + § 4 math-anchored cleanliness bar + § 3 named-unique allowlist + § 5 canonical taxonomy + § 6 variant-collapse framework + § 8 flagged Matt-review items F1-F6)
+**Tag shipped:** `gandalf/cleaning-policy-design-review-2026-05-22` (annotated; seam-prefix per ADR-001; intermediate design artifact; not Matt-milestone)
+**Round-trip:** not applicable — design recommendations only; no inter-seam contract change
+**Schema delta proposals refined (vs dispatch):**
+- `weapon_kind` enum widened from 4-bucket to **5-bucket** (added `ammo_or_consumable` for ammunition + weapon parts + consumable munitions; ~3-5K rows in substrate based on sample-rows estimate)
+- `wieldable_humanoid` enum widened from 6-bucket (dispatch) to **6-bucket with refinement** — `shoulder_supported` separated from `two_hand` to preserve RPG-7/M249/SMAW mechanical signature distinction
+- `cultural_lineage` enum widened from 11-value (schema v1.1.0) to **13-value** (added `southeast_asian`, `arctic_circumpolar`, `sci_fi_generic`, `south_american_indigenous`; renamed `native_american` → `north_american_indigenous`)
+- New `variant_relationship` column (TEXT enum: `independent` / `sub_variant_of:<id>` / `model_line_sibling_of:<ids>`) on canonical entries to support Item 6 variant-collapse framework
+**Math-anchored cleanliness bar (Item 4) — 4 thresholds derived:**
+- (a) FP rate ≤ 3.0% hard / ≤ 1.5% target — PCA loading stability at k=8 axes
+- (b) Within-canonical-merge duplication ≤ 4.0% residual / dedup recall ≥ 92% — HDBSCAN cluster purity at min_cluster_size=50
+- (c) Field-coverage floors: structured 95% / description 85% / cultural_lineage 70% / historical_period 60% — factor-analysis power calc (all currently met empirically per DB query)
+- (d) `weapon_kind` mis-classification ≤ 2.0% category-vs-unique / ≤ 5.0% category-vs-named_template / ≤ 1.0% category-vs-ammo — Poisson sample-pool pollution math at N=20-50 draws
+**Notes for jack-ryan review:** Gate-1 review eligible after Phase A audit returns (gates on cleanliness-bar acceptance need empirical Phase-A data); design itself is internally consistent and traceable to dispatch acceptance criteria.
+**Items flagged for Matt review (knight-rider to surface):**
+- F1: Royal Armouries within-source dedup-policy (lossless vs collapse-with-specimen_count)
+- F2: Cultural-lineage axis bias — stratified sampling vs full-substrate-with-weight-correction for Phase 2
+- F3: pf2ools drift disposition (688 rows; quarantine vs accept-as-noise vs delete)
+- F4: Fuzzy cross-source name-match threshold for canonical merge
+- F5: Pattern-6 methodology confirmation (assumes PCA/factor-analysis; if autoencoder/UMAP, § 4 thresholds re-derive)
+- F6: Sample-pool size N confirmation (assumes N=20-50; if differs, § 4 (d) re-tunes)
+
+**Signed:** gandalf (story-and-design steward; design-track Phase B steward)
