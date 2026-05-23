@@ -84,8 +84,9 @@ Every deferred commitment lists the **specific empirical-evidence criterion** th
 | **Owner** | Multi-agent coordination via knight-rider; each agent authors their own per-agent OP skill; cross-cutting skills authored per ownership lineage |
 | **Trigger** | Cleanup pass continuation (1.3) + Skill_handoff reframing (2.1) land |
 | **Stream 2 — per-agent OP skills** | Thin operating-procedure skill (~500-800 words): session-start protocol; mode-selection (what kind of work is this session?); session-end protocol. Specialized work-mode skills compose on top |
-| **Stream 2 landed (2026-05-23)** | `operating-procedures/gandalf.md` (prototype); `operating-procedures/jack-ryan.md`; `operating-procedures/knight-rider.md` |
-| **Stream 2 remaining** | `rocket`, `gamora`, `star-lord`, `elrond`, `galadriel`, `drax`, `legolas` OP skills (one per remaining agent; each ~1 focused authoring session) |
+| **Stream 2 landed (2026-05-23 morning)** | `operating-procedures/gandalf.md` (prototype); `operating-procedures/jack-ryan.md`; `operating-procedures/knight-rider.md` |
+| **Stream 2 landed (2026-05-23 fan-out)** | `operating-procedures/rocket.md`; `operating-procedures/gamora.md`; `operating-procedures/star-lord.md`; `operating-procedures/elrond.md`; `operating-procedures/galadriel.md`; `operating-procedures/drax.md`; `operating-procedures/legolas.md` (Pattern C parallel fan-out per `gandalf/requests/2026-05-23-knight-rider-stream-2-per-agent-op-fan-out.md`; gandalf executed on Matt direct authorization 2026-05-23) |
+| **Stream 2 status** | **COMPLETE.** All 10 agents now have per-agent OP skills. |
 | **Stream 3 — cross-cutting work-mode skills** | Compose on top of per-agent OP skills when in specialized work modes |
 | **Stream 3 landed (2026-05-23)** | `operating-procedures/hive-mind-protocol.md` — hive-mind work-mode skill (gandalf author; cross-cutting; ~600 lines covering state entry/exit, Wave cadence, decision routing per Matt 2026-05-23 directive, critique-pair structure, Discipline #19 + checkpoint, math hotspots + Discipline #18, state-file + cross-session continuity, wind-down) |
 | **Stream 3 remaining** | `reincarnated-engineering-disciplines` (the 20 disciplines wrapper); `reincarnated-decision-log-format`; `reincarnated-canonical-doc-format`; `reincarnated-substrate-vector-cheatsheet`; `reincarnated-critique-pair-gate-protocol` |
