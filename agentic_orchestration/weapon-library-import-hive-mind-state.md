@@ -10,10 +10,10 @@
 
 | Field | Value |
 |---|---|
-| Timestamp | 2026-05-23 ~00:55 EDT — knight-rider Cycle 9.4 (Phase D dispatch authored; jack-ryan Gate-1 unavailable due to credit ceiling) |
-| Cycle | 9.4 — **PHASE D DISPATCH AUTHORED** (Matt G1-G5 leans accepted; gandalf variant-cluster policy returned; elrond Phase D Pattern-B dispatch authored, 367 lines) |
+| Timestamp | 2026-05-23 ~01:35 EDT — knight-rider Cycle 9 cleanup-pass momentum continuation (second Pattern-B Gate-1 dispatch authored; awaiting Matt direction on elrond Phase D fire) |
+| Cycle | 9 cleaning-phase-active — cleanup-pass artifacts landed (commits `13f825c` + `3812c80` + `fa8d070`); second jack-ryan Pattern-B dispatch authored + queued; Phase D dispatch FIRE-READY (tag `jack-ryan/gate-1-phase-D-2026-05-23` PASS-WITH-AMENDMENTS) but elrond fire is Matt's call |
 | Orchestrator | knight-rider |
-| State | **PHASE D DISPATCH GATE-1 PASSED-WITH-AMENDMENTS / FIRE-READY** — jack-ryan Pattern-B returned PASS-WITH-AMENDMENTS (5 amendments, 1 critical); knight-rider applied all 5 to Phase D dispatch; ready for elrond Pattern-B fire `cd ~/Games/reincarnated-collaboration && claude --agent elrond` |
+| State | **CLEANUP-PASS IN FLIGHT / PHASE D FIRE-READY-AWAITING-MATT** — (1) Phase D dispatch Gate-1 PASS-WITH-AMENDMENTS landed previous cycle; (2) ground-state oracle `canonical/00-ground-state.md` + keystone doc 38 + asset-pipeline § 3.6 image-pass-through-to-Meshy committed (`13f825c`); (3) gandalf cleanup requests + math-seam-naming note + 6 supersession stamps committed (`3812c80`); (4) epoch-stamping pass across `canonical/*.md` + `canonical/story/*.md` committed (`fa8d070`; 22 CURRENT / 98 HISTORICAL-INFORMATIVE / 3 DEAD); (5) second jack-ryan Pattern-B dispatch authored at `agentic_orchestration/dispatches/2026-05-23-jack-ryan-gate-1-math-seam-and-onboarding-shrink.md` covering math-seam-naming + onboarding-list-shrink Gate-1; (6) elrond Phase D fire is Matt's call (`cd ~/Games/reincarnated-collaboration && claude --agent elrond`); (7) jack-ryan Pattern-B fire for the new dispatch is Matt's call (`cd ~/Games/reincarnated-collaboration && claude --agent jack-ryan`) |
 
 ## Cleaning-plan disposition (Matt-locked 2026-05-22 evening)
 

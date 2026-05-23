@@ -4,6 +4,45 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-23 (cleanup-pass momentum continuation — ground-state oracle + epoch-stamping pass + second jack-ryan Pattern-B Gate-1 dispatch queued) — documentation epoch-collision and per-agent onboarding-budget root causes addressed; D1-D10 delivery strategy lock authored; epoch labels landed across 123 canonical docs
+
+**Event:** Matt approved the 2026-05-23 documentation cleanup pass following morning diagnosis of agent-slowdown root causes (epoch-collision-in-flat-namespace; no retirement protocol; decisions-log staleness; per-agent Phase-1 lists growing without bound). Cleanup work executed across three commits + a queued Gate-1 dispatch.
+
+**2026-05-23 documentation cleanup pass.** D1-D10 delivery strategy lock authored (`canonical/38-downstream-delivery-strategy-2026-05-23.md`); ground-state oracle authored (`canonical/00-ground-state.md` — names Epoch 4 Vast-Library + Variant C + D1-D10, current canon, dead branches, single-source-of-truth contracts, first-reads by role, ~10-15 min onboarding budget target vs prior 1-2 hr Phase-1 walks); asset-pipeline § 3.6 image-pass-through-to-Meshy amendment landed (substrate-resident weapons default to direct-pass-through; ~91.5% coverage on 89K substrate; ChatGPT-gen remains fallback for ~8.5% coverage gap); epoch-stamping pass across `canonical/*.md` + `canonical/story/*.md` (22 CURRENT / 98 HISTORICAL-INFORMATIVE / 3 DEAD BRANCH); 6-handoff supersession stamps on 2026-05-22 variants; math-seam-naming declaration + Discipline #1.1 proposal + onboarding-list shrink request queued for jack-ryan Pattern-B Gate-1 review.
+
+**Commits landed (origin/main + ahead-2 local):**
+- `13f825c` — gandalf canonical 00 ground-state oracle + doc 38 amendments + asset-pipeline § 3.6 (origin/main HEAD after most-recent push)
+- `3812c80` — gandalf cleanup requests (epoch-stamping + onboarding-shrink) + math-seam-naming note + 6 handoff supersession stamps (local; ahead of origin)
+- `fa8d070` — knight-rider epoch-stamping pass per gandalf request 2026-05-23 (local; ahead of origin)
+
+**Gandalf ratifications of the epoch-stamping pass (no corrective pass needed):**
+- 22 CURRENT / 98 HISTORICAL-INFORMATIVE / 3 DEAD counts confirmed within target ranges
+- `canonical/story/mobile-ux-execution-plan-2026-05-17.md` DEAD call ratified (primary framing collapses under D1 PC/console-first lock)
+- Both borderline HISTORICAL calls ratified — `mobile-feel-target-doe-2026-05-17.md` + `mobile-pc-pixel-sizing-ratios-2026-05-17.md` carry PC-anchor information useful at +6mo mobile-port; HISTORICAL-INFORMATIVE correct
+- Two date-rule CURRENT additions ratified (`cleaning-policy-design-2026-05-22.md` + `variant-cluster-policy-assignments-2026-05-23.md`)
+
+**Second jack-ryan Pattern-B Gate-1 dispatch authored:** `agentic_orchestration/dispatches/2026-05-23-jack-ryan-gate-1-math-seam-and-onboarding-shrink.md`. Two artifacts batched for Gate-1 review:
+- Math-seam-naming declaration (`agentic_orchestration/gandalf/notes/2026-05-23-mathematical-seam-naming.md`) — Mathematical Layer text for AGENTS.md + Discipline #1.1 (methodology-before-execution) + math-hotspot annotations on hive-mind-protocol-weapon-library-import-2026-05-22 § P2/P3 and hive-mind-protocol-qd-engine-rebuild-2026-05-21 + weapon-library-import P5
+- Onboarding-list shrink request (`agentic_orchestration/gandalf/requests/2026-05-23-jack-ryan-onboarding-list-shrink.md`) — per-agent Phase-1 read-list pruning anchored on ground-state oracle + doc 38 as universal first-reads; targets ~60-70% per-invocation read-budget reduction across 10 agents
+
+**Authority chain on the new dispatch:** Matt 2026-05-23 (cleanup-pass momentum continuation; option (a) confirmed in active session) → gandalf request → knight-rider dispatch → jack-ryan execution. Tag on completion: `jack-ryan/gate-1-math-seam-onboarding-shrink-2026-05-23`.
+
+**Pending Matt direction:**
+- Fire elrond Pattern-B for Phase D execution (Phase D dispatch is Gate-1-approved + FIRE-READY at tag `jack-ryan/gate-1-phase-D-2026-05-23`; fire is Matt's call): `cd ~/Games/reincarnated-collaboration && claude --agent elrond`
+- Fire jack-ryan Pattern-B for the new cleanup-pass Gate-1 dispatch: `cd ~/Games/reincarnated-collaboration && claude --agent jack-ryan`
+
+**Post-Gate-1 knight-rider integration plan (executes after jack-ryan returns PASS / PASS-WITH-AMENDMENTS on each artifact):**
+1. Math-seam-naming → AGENTS.md Mathematical Layer section + engineering-disciplines.md Discipline #1.1 (numbering per jack-ryan's amendment) + hive-mind-protocol annotations + ground-state oracle cross-reference
+2. Onboarding-list shrink → per-agent definition updates (Claude Code config) + universal first-read cross-reference in AGENTS.md
+3. Commit granularity is knight-rider's call (fold or split per working-agreement coherence signal)
+
+**Tag-chain for this cycle:**
+- `knight-rider/canonical-epoch-stamping-2026-05-23` (epoch-stamping pass commit `fa8d070`)
+- `gandalf/cleanup-pass-2026-05-23` (gandalf authoring of ground-state oracle + cleanup requests + math-seam note)
+- `knight-rider/cleanup-pass-momentum-continuation-2026-05-23` (this cycle — second Pattern-B Gate-1 dispatch authored + state file + CHANGELOG updated)
+
+---
+
 ## 2026-05-23 (Cycle 9.5 Phase D Gate-1 PASS-WITH-AMENDMENTS) — jack-ryan Pattern-B returned 5 amendments (1 critical: Step 6.5 canonical-normalization required before Step 7 to prevent blocking-strategy failure on single 'unknown' bucket); knight-rider applied all 5; Phase D dispatch GATE-1-APPROVED + FIRE-READY for elrond Pattern-B
 
 **Event:** Matt fired jack-ryan Pattern-B in separate terminal per Cycle 9.4 option (b). Jack-ryan reviewed the 367-line Phase D dispatch across 10 stress-test angles; returned PASS-WITH-AMENDMENTS with 5 specific amendments (1 critical, 1 required, 3 minor). Knight-rider applied all 5 amendments to the Phase D dispatch.
