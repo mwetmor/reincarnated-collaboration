@@ -119,3 +119,58 @@ Seam-prefix per ADR-001. Local-only.
 ---
 
 **Signed:** knight-rider, 2026-05-23 post-gandalf-relay routing item 2 of P1 hive-mind preparation arc. Canonical-write authority is yours; gandalf has authored the proposal text; knight-rider routes only. Per-agent OP propagation (item 3) fires after your canonical write lands so all 8 per-agent OPs cite engineering-disciplines.md authority.
+
+---
+
+## Completion record
+
+**Completed by:** jack-ryan
+**Date:** 2026-05-23
+**Engine-repo commit:** `1fae3fa` — `docs(jack-ryan): Engineering-disciplines canonical-write batch 2026-05-23 — 6 new disciplines (#20-#25) + 5 amendments (#1.1, #1.2, #2.1, #18.1, #18.2, #19.1)`
+**Tag:** `jack-ryan/eng-disciplines-canonical-write-2026-05-23` — LOCAL ONLY; not pushed
+
+### New disciplines added (6)
+
+| # | Name | Source |
+|---|---|---|
+| #20 | Density-based algorithms must use native sample_weight; row duplication FORBIDDEN | KR Obs 3 |
+| #21 | No sleep recommendations (CRITICAL — Matt directive) | Gandalf #1 |
+| #22 | Timezone-agnosticism (CRITICAL — Matt directive) | Gandalf #2 |
+| #23 | Framing-audit checklist — Pattern A-deep three-question protocol | Gandalf #3 |
+| #24 | Single-parameter sweep isolation | KR Obs 7 |
+| #25 | Semantic-layer rep-audit — substrate vote geometry-binding but not semantics-binding | Gandalf #5 + KR Obs 5 (distinct; see disposition notes) |
+
+### Amendments to existing disciplines (6)
+
+| Sub-discipline | Parent | Source |
+|---|---|---|
+| #1.1 Pre-fire resource-bounds projection | #1 | KR Obs 1 |
+| #1.2 Math-note implementation claims must cite code line references | #1 | KR Obs 4 |
+| #2.1 Smoke must include resource-scaling rehearsal | #2 | KR Obs 2 |
+| #18.1 Substrate-voting-is-binding at axis discovery | #18 | KR Obs 5 |
+| #18.2 Methodology-consultation timing at extension hotspots | #18 | Gandalf #4 |
+| #19.1 Cheapest-refuting-test-per-claim-type operationalization | #19 | Gandalf #6 + KR Obs 6 composed |
+
+### Overlap dispositions
+
+- **Gandalf #5 (semantic-layer rep-audit) + KR Obs 5 (substrate-voting-is-binding):** DISTINCT disciplines, NOT composed as one. KR Obs 5 addresses the geometry layer — substrate votes at axis discovery are gates not flags → became #18.1. Gandalf #5 addresses the semantic layer — geometry purity score does not guarantee semantic correctness → became #25. These address different failure modes at different layers of substrate-to-design-surface inheritance.
+
+- **Gandalf #6 (cheapest-refuting-test operationalization) + KR Obs 6 (forensic-conclusion discipline operationalization):** COMPOSED as #19.1 amendment to Discipline #19. Both supply the same operationalization layer for the same discipline. The per-claim-type table consolidates both queues' proposals.
+
+### Numbering decisions
+
+- Gandalf proposed #20/#21 for no-sleep/timezone-agnosticism. Density-algorithm prohibition (KR Obs 3) took #20 instead — it is a substrate-side methodological discipline logically adjacent to the existing #18/#19 cluster. No-sleep → #21; timezone-agnosticism → #22; framing-audit → #23; single-parameter sweep → #24; semantic-layer rep-audit → #25.
+
+### Preamble addition
+
+Scope note added to document preamble explicitly extending host-resource-bounds discipline scope to substrate-side analytical work (per KR observations pattern note).
+
+### Sub-carries closed
+
+- 9.10-C (Discipline #18 substrate-voting amendment) — CLOSED: landed as #18.1
+- 9.10-D (Discipline #19 operationalization) — CLOSED: landed as #19.1
+- 9.13-B (semantic-layer rep-audit canonical) — CLOSED: landed as #25
+- 9.13-C (Discipline #20 single-parameter sweep candidate) — CLOSED: landed as #24
+- KR Observations 1, 2, 4 — CLOSED: landed as #1.1, #2.1, #1.2
+
+**Status:** COMPLETE. Per-agent OP propagation (item 3) cleared to fire.
