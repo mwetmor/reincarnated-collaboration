@@ -10,22 +10,42 @@
 
 | Field | Value |
 |---|---|
-| Timestamp | 2026-05-22 evening — knight-rider wind-down session |
-| Cycle | 8 — **WIND-DOWN COMPLETE** (final summary written; checkpoint tagged) |
-| Orchestrator | knight-rider (wind-down session, post API outage) |
-| State | **IDLE / CHECKPOINTED** — clean total **89,839 / 100K (89.8%)**; no PIDs running; no sub-agents in flight; awaiting Matt direction on whether to push to floor (Wave-4) or pause at 89.8% |
+| Timestamp | 2026-05-22 late-evening — knight-rider cleaning-plan-design session |
+| Cycle | 9 — **CLEANING PHASE ACTIVE** (Matt: accept at 89.8% + pivot; gandalf dispatch fired; 130K wikipedia-unfiltered dump-then-deleted) |
+| Orchestrator | knight-rider |
+| State | **CLEANING PHASE B ACTIVE (POLICY DESIGN)** — clean total **89,839** (matches floor metric exactly post-DB-cleanup); no crawl PIDs running; gandalf Pattern-B dispatch in queue for next-session pickup |
+
+## Cleaning-plan disposition (Matt-locked 2026-05-22 evening)
+
+| Matt decision | Status |
+|---|---|
+| Accept at 89.8% + pivot to canonical normalization | LOCKED |
+| 130K wikipedia-unfiltered: dump-then-delete | EXECUTED THIS SESSION — DB shrank 523 MB → 136 MB; archive at `legolas/research/.../quarantine-archives/` (80.4 MB entries.jsonl.gz + 1.1 MB images.jsonl.gz) |
+| Non-weapons + non-wieldable: tag-and-keep (filter via `v_category_sample`) | POLICY LOCKED; schema delta proposed; elrond executes in Phase D |
+| Three-bucket `weapon_kind` (category / unique / named_template / unknown) | TAXONOMY LOCKED |
+| Museum-as-category-by-default unless obviously named | POLICY LOCKED |
+| Variant-of-type (Pompeii/Mainz/Fulham gladius) | DEFERRED — Phase A audit surfaces samples; Matt + gandalf decide in-flight |
+| Wieldability rule | LOCKED — "single humanoid carries + fires/wields in active use"; shoulder-support counts; handheld projectiles in; mortars/tripod-MGs/artillery/naval/turret out |
+| Substrate-cleanliness bar | GANDALF-OWNED — math-anchored to pattern-rec algorithm; in dispatch |
+| Phase A audit (legolas) | AUTHORIZED, fires after gandalf returns rubric refinements |
 
 ---
 
-## Counts (FINAL — post-A3-kill, all processes terminated)
+## Counts (FINAL — post-quarantine-cleanup; clean substrate only)
 
 | Table | Count | Notes |
 |---|---|---|
-| `weapon_knowledge_entries` (total all tags incl. quarantine) | **220,173** | includes 130,334 wikipedia-unfiltered quarantine |
-| `weapon_knowledge_entries` (clean — excluding `wikipedia-unfiltered`) | **89,839** | **floor metric** |
+| `weapon_knowledge_entries` (total) | **89,839** | wikipedia-unfiltered DELETED this session; total = floor metric exactly |
 | `weapons` (3D models) | **5,162** | Sketchfab 4,800 + Kenney 21 + OGA 341 |
-| `knowledge_entry_reference_images` | **82,191** | URL-only per policy |
+| `knowledge_entry_reference_images` | **43,602** | 38,589 linked-to-quarantine deleted this session |
 | `knowledge_model_attachments` | 0 | not populated; future cross-link pass |
+
+**DB file size:** 523 MB → 136 MB (after VACUUM; -74%)
+
+**Quarantine archive (audit-preserved per Discipline #11):**
+- `agentic_orchestration/legolas/research/weapon-library-import-2026-05-22/quarantine-archives/wikipedia-unfiltered-entries-2026-05-22.jsonl.gz` — 130,334 rows, 80.4 MB
+- `agentic_orchestration/legolas/research/weapon-library-import-2026-05-22/quarantine-archives/wikipedia-unfiltered-images-2026-05-22.jsonl.gz` — 38,589 rows, 1.1 MB
+- `…/quarantine-archives/README.md` — archive metadata + restoration notes
 
 **Progress vs floor (CLEAN COUNT):** **89,839 / 100,000 → 89.8%** (10,161 to go for floor)
 
@@ -81,10 +101,10 @@
 | 5e-bits-5e-database (G) | 37 | CLEAN |
 | kenney (B2) | 21 | CLEAN (yield-gap; fix-task #11) |
 
-**QUARANTINED (audit-preserved; not in floor count):**
-| source_library | count | issue |
+**QUARANTINED — DELETED FROM DB; PRESERVED IN COMPRESSED ARCHIVE (Discipline #11):**
+| source_library | count | disposition |
 |---|---|---|
-| wikipedia-unfiltered (A1.2 v1 output) | 130,334 | Loose full-dump keyword matcher; ~9-12% true-positive rate per spot-check. Replaced by Wikidata-anchored v2 ingest (`wikipedia` source_library, 8,579 clean rows). v1 retained for audit but excluded from floor count. |
+| wikipedia-unfiltered (A1.2 v1 output) | 130,334 + 38,589 linked images | Dump-then-deleted 2026-05-22 evening per Matt direction. Compressed JSONL archives in `quarantine-archives/`. DB DELETE + VACUUM freed 387 MB. Negative-pattern empirical anchor for future regex-design work. |
 
 ---
 
@@ -287,6 +307,35 @@ Flags Matt should be aware of (no blocking; recorded for downstream):
 - (b) **Wave-4 fire** to close the 10K gap (and potentially reach the 200K ceiling). Candidates queued: (i) re-fire A3 to completion (~22hr remaining at last rate; ~29K more rows); (ii) Met Museum retry on the 6,207 errored IDs (parameter fixup; ~6K more); (iii) Pitt Rivers Museum + Louvre metadata-only; (iv) Wave-3 deferred candidates (Lexicanum/Halopedia/Firearms Guide AMBER probe). A3 alone would clear the floor cleanly.
 
 No-decision-yet stance: hive-mind is **IDLE / CHECKPOINTED**. Matt directs.
+
+### Cycle 9 — Cleaning-plan design (2026-05-22 late-evening; same-day continuation)
+
+**Matt locked path (a):** accept at 89.8% + pivot to canonical normalization.
+
+**5-phase cleaning plan locked:**
+- Phase A — Substrate audit (legolas; ~600-1,250 sample-row classifications across 5 dimensions)
+- Phase B — Policy design (gandalf review THIS SESSION → dispatch fired; jack-ryan Gate 1 → after gandalf return; elrond schema authoring → Phase D)
+- Phase C — Quarantine triage (Matt-decisions after Phase A surfaces)
+- Phase D — Cleaning pipeline build (elrond Pattern-B execution)
+- Phase E — Emergent-pattern analysis (gandalf Pattern-6 axis discovery on cleaned substrate)
+
+**Executions this session:**
+
+1. **130K wikipedia-unfiltered dump-then-delete.** 130,334 entries + 38,589 linked images dumped to `quarantine-archives/` (81.5 MB gzipped combined); DELETE + VACUUM freed 387 MB on DB (523 MB → 136 MB).
+2. **Gandalf Pattern-B dispatch authored** at `agentic_orchestration/dispatches/2026-05-22-gandalf-cleaning-policy-design-review.md` — 7 review items: (i) `weapon_kind` taxonomy; (ii) wieldability filter rules; (iii) museum-as-category default + named-unique edge cases; (iv) **math-anchored substrate-cleanliness bar** (load-bearing); (v) cultural-lineage canonical taxonomy; (vi) variant-of-type collapse policy framework; (vii) Pattern-6 axis discovery sequencing interaction.
+3. **Schema delta proposed (not executed; elrond's Phase D):**
+   - `wieldable_humanoid` TEXT enum
+   - `weapon_kind` TEXT enum (category / unique / named_template / unknown)
+   - `dedup_status` TEXT enum
+   - New view `v_category_sample` for engine-consumable filtering
+4. **Phase A audit (legolas) held pending gandalf return** — rubric refinements expected; would compromise audit if fired with potentially-wrong taxonomy
+
+**Next session sequence (after gandalf):**
+1. Knight-rider reads gandalf's `canonical/story/cleaning-policy-design-2026-05-22.md` (or wherever gandalf lands the output)
+2. Refines Phase A audit rubric per gandalf's taxonomy refinements + math-anchored cleanliness bar
+3. Authors + dispatches legolas Phase A audit
+4. Coordinates Matt-side review when Phase A surfaces in-flight decisions
+5. Authors elrond Pattern-B dispatch for Phase D after Phase A + Phase C settled
 
 ---
 

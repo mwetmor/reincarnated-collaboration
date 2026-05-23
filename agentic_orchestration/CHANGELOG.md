@@ -4,6 +4,66 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-22 (late-evening — Cycle 9 cleaning-plan design) — Matt picks (a) accept at 89.8% + pivot; 130K wikipedia-unfiltered dump-then-deleted; 5-phase cleaning plan locked; gandalf Pattern-B dispatch fired across 7 review items including math-anchored substrate-cleanliness bar
+
+**Event:** Matt closed the (a) vs (b) decision from Cycle 8 wind-down by selecting **(a) accept at 89.8% + pivot to canonical normalization**. This session locked the 5-phase cleaning plan, executed the 130K wikipedia-unfiltered dump-then-delete, and fired the Gandalf Pattern-B dispatch for cleaning-policy design review. Phase A audit (legolas) is held pending gandalf's return so the audit rubric incorporates gandalf's taxonomy refinements + math-anchored cleanliness bar before classification fires.
+
+**Cleaning plan structure (Matt-locked):**
+
+- **Phase A — Substrate audit** (legolas): ~600-1,250 sample-row classifications across 5 dimensions per sample row (is-weapon / wieldable / weapon_kind / complete / cross-source-dupe-probe). Adaptive sample size (min 20, max 50) per source. Held until gandalf returns.
+- **Phase B — Policy design** (gandalf dispatch active; jack-ryan Gate 1 after; elrond schema authoring later)
+- **Phase C — Quarantine triage** (Matt-decisions after Phase A surfaces samples)
+- **Phase D — Cleaning pipeline build** (elrond Pattern-B; ALTER TABLE + canonical-merge population + field normalization + license-class correction + per-source quarantine actions)
+- **Phase E — Emergent-pattern analysis** (gandalf Pattern-6 axis discovery on cleaned substrate)
+
+**Matt-locked decisions this session:**
+
+| Decision | Locked value |
+|---|---|
+| Non-weapons + non-wieldable handling | Tag-and-keep (filter via column + `v_category_sample` view; NOT drop) |
+| `wikipedia-unfiltered` (130,334 rows) | Dump-then-delete (executed this session) |
+| Three-bucket `weapon_kind` taxonomy | `category` / `unique` / `named_template` / `unknown` |
+| Museum-holding default | Categorical-representation unless obviously named (Charlemagne's Broadsword pattern) |
+| Variant-of-type (Pompeii/Mainz/Fulham gladius) | Surface samples in Phase A audit; Matt + gandalf decide in-flight |
+| Wieldability rule | "Single humanoid carries + fires/wields in active use"; shoulder-support counts; handheld projectiles in; mortars/tripod-MGs/artillery/naval/turret out |
+| Substrate-cleanliness bar | Gandalf-owned (math-anchored to pattern-rec algorithm; in dispatch as load-bearing Item #4) |
+
+**Quarantine cleanup executed this session:**
+
+- 130,334 `wikipedia-unfiltered` entries dumped to `agentic_orchestration/legolas/research/weapon-library-import-2026-05-22/quarantine-archives/wikipedia-unfiltered-entries-2026-05-22.jsonl.gz` (80.4 MB gzipped)
+- 38,589 linked reference images dumped to `…/wikipedia-unfiltered-images-2026-05-22.jsonl.gz` (1.1 MB gzipped)
+- README.md authored at `…/quarantine-archives/README.md` with restoration notes + Discipline #11 audit-preservation rationale
+- DB DELETE executed on both tables; VACUUM reclaimed disk
+- **DB file size 523 MB → 136 MB (-74%, -387 MB)**
+- Post-delete counts: 89,839 entries (exactly matches floor metric) + 43,602 images; both wikipedia-unfiltered counts at 0
+
+**Schema delta proposed (not executed — elrond's Phase D job):**
+
+Three new columns on `weapon_knowledge_entries`:
+- `wieldable_humanoid` TEXT enum (`one_hand` / `two_hand` / `either` / `no` / `mount_required` / `unknown`)
+- `weapon_kind` TEXT enum (`category` / `unique` / `named_template` / `unknown`)
+- `dedup_status` TEXT enum (`canonical` / `merged_into` / `unprocessed`)
+
+Plus new view `v_category_sample` — filters to active engine-consumable substrate (wieldable AND category-or-named-template AND non-merged-duplicate).
+
+**Gandalf dispatch scope (7 review items):**
+
+1. Three-bucket `weapon_kind` taxonomy — model match check
+2. Wieldability filter rules — edge case completeness check
+3. Museum-as-category default + named-unique allowlist (Charlemagne's Broadsword pattern; ≥10 concrete examples expected)
+4. **Math-anchored substrate-cleanliness bar** — 4 numeric thresholds derived from pattern-rec algorithm requirements (FP rate / duplication rate / coverage gap / `weapon_kind` mis-classification rate)
+5. Cultural-lineage canonical taxonomy — collapse the 24 sources' divergent tagging schemes
+6. Variant-of-type collapse policy framework — option-set for in-flight Matt + gandalf decision after Phase A surfaces samples
+7. Pattern-6 axis discovery sequencing — pre-clean vs post-clean vs iterative
+
+Output expected: `canonical/story/cleaning-policy-design-2026-05-22.md` (or gandalf's chosen canonical path). Tag at completion: `gandalf/cleaning-policy-design-review-2026-05-22`.
+
+**State file updated** to Cycle 9 with full disposition narrative and Matt-locked-decisions table.
+
+**Tag this session:** `knight-rider/cleaning-plan-design-locked-2026-05-22` (intermediate seam-prefix per ADR-001).
+
+---
+
 ## 2026-05-22 (evening — wind-down) — Weapon-library-import hive-mind Cycle 8 IDLE / CHECKPOINTED at 89,839 clean substrate (89.8% of floor); Matt halted A3 mid-crawl; all PIDs terminated; pivot-vs-Wave-4 decision deferred to Matt
 
 **Event:** Knight-rider wind-down session (recovery-mode, post API outage). Reconciled state after Matt halted Royal Armouries (Track A3) mid-crawl. All OS-background crawl processes confirmed terminated. State file fully updated to reflect final Cycle 8 disposition; wind-down summary doc authored consolidating Cycles 0-8 into a single readable narrative for Matt + future-knight-rider re-entry.
