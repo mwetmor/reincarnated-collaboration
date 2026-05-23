@@ -36,6 +36,7 @@ Read these as authoritative for ongoing work.
 | `canonical/story/legacy-categorical-cleanup-audit-2026-05-22.md` | Patterns 4-5-6 retirements audit | CURRENT |
 | `canonical/story/style-register.md` | Visual style register filter (used by D10 Path A) | CURRENT |
 | `canonical/story/w1-13-rescope-disposition-2026-05-22.md` | W1.13 rescope (LC-011 disposition) | CURRENT |
+| `canonical/story/fate-genre-recognition-and-mobile-alignment-trajectory-2026-05-23.md` | Fate-genre recognition trajectory; D10 Path C alignment; mythological-named-weapons substrate layer; Reincarnation War franchise banner; faction emergence; Rift as cross-cultural merge mechanic; mobile-platform alignment; D1 reconsideration paths (logged, not resolved) | **CURRENT — recognition record (architectural commitments deferred per § 9)** |
 | `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` | 20 engineering disciplines (1-17, 18 methodology-before-execution adopted 2026-05-23, 19 Agent-tool-not-for-waiting; plus R-prescriptions and named patterns) | CURRENT |
 | `agentic_orchestration/gandalf/notes/2026-05-23-mathematical-seam-naming.md` | Mathematical Layer cross-cutting declaration + math-hotspot living list + Discipline #18 rationale | CURRENT (integrated 2026-05-23) |
 | `~/Games/reincarnated-engine/design/decisions/decisions-log.md` | Temporal decisions log | CURRENT |
