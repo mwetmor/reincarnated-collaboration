@@ -22,12 +22,58 @@
 
 The roadmap has four layers:
 
-1. **Active workstreams** (in flight RIGHT NOW): Phase D cleaning pipeline (elrond); canonical folder restructure (knight-rider); documentation cleanup continuation (gandalf).
+1. **Active workstreams** (in flight RIGHT NOW): see § 1.0 status update below for current accurate state; § 1.1-1.3 capture initial-authoring snapshot.
 2. **Queued workstreams** (immediate next, sequenced): per-agent operating-procedure skills; skill_handoff reframing; architecture-validation spike; substrate P2/P3/P4 sequence; engine P1 hypothesis tests.
 3. **Deferred architectural commitments** (gated by empirical-evidence criteria, not time): D10 Path C lock as Fate-genre; D1 mobile-platform reconsideration; MVP scope lock; faction architecture; three-tier branding; Track M1 mythological-named-weapons fire.
 4. **Out of scope** (not in current roadmap): items belonging to other canonical authorship or to specialist decisions outside the roadmap's reach.
 
 Every deferred commitment lists the **specific empirical-evidence criterion** that gates re-engagement. Per the discipline: recognition → validate against substrate evidence → commit. No commitments fire on time-passage; all commitments fire on evidence.
+
+---
+
+## 1.0 Status update — 2026-05-23 evening (active workstream state, current accurate)
+
+Living-doc update reflecting workstream evolution post-initial-authoring. Capture current accurate state; supersede § 1.1-1.3 snapshot for "what's active RIGHT NOW" reads.
+
+### Closed since initial authoring (§ 1.1-1.3 snapshot superseded)
+
+| Workstream | Closure |
+|---|---|
+| § 1.1 Phase D cleaning pipeline | CLOSED — Phase D concluded; downstream Phase E (clustering) also concluded |
+| § 1.2 Canonical folder structural restructure | CLOSED — restructure complete |
+| § 1.3 Documentation cleanup pass continuation | CLOSED — cleanup concluded |
+| Phase E-1 clustering pipeline | CLOSED — frame-revision stratified subsample k=3; 125 clusters |
+| Phase E-1.5 sensitivity sweep | CLOSED — Cycle 9.13; jack-ryan Gate-2 CONDITIONAL PASS |
+| Phase E-2 cluster labeling + DB UPDATE | CLOSED — 125 canonical labels in production DB |
+| P1 hive-mind preparation arc items 1-4 | CLOSED — T4-B scaffolding + engineering-disciplines.md canonical write (5 new disciplines #20-#25; 6 sub-discipline amendments) + per-agent OP propagation + hive-mind protocol amendment §§ 7.3-7.6 |
+
+### Active workstreams as of 2026-05-23 evening
+
+| Workstream | Owner | Status | Empirical-criterion gate |
+|---|---|---|---|
+| **9.11-C / 9.11-D / 9.11-E — Weapon substrate-tagging cleanup** | elrond | QUEUED (NOT FIRED) | Matt-decision: fire OR declare weapon-substrate-conclusion at current state |
+| **9.10-E — Substrate expansion (Mode-A targeted crawls for marginal lineages)** | legolas Mode B | DORMANT | Matt-decision (architecture-level commitment); gated on D10 Path C confirmation OR design call to authorize |
+| **Weapon-substrate-conclusion declaration** | knight-rider + Matt | PENDING | Either 9.11-D/E land OR Matt declares current state sufficient |
+| **T4-B v1 catalogue authoring** | Matt + gandalf design call | SCAFFOLDING LANDED; awaits design call session 1 | Matt scheduling territory; Phase E-1.5 acceptance has cleared substrate-anchoring gate per scaffolding § 3 |
+| **9.12-A through 9.12-D — Question A workstream** | rocket + legolas + gamora + critique-pair (upstream chain) | UPSTREAM CHAIN UNMET — H1-H5 baseline not run; P1 substrate enrichment + W1.13 implementation + W1.20 BDI infrastructure prerequisites unmet | Engine-seam in flight; gates per Q-A verdict § 12.4 + § 9 empirical-evidence criteria |
+
+### Companion artifacts
+
+- `agentic_orchestration/gandalf/notes/2026-05-23-session-end-state-capture.md` — gandalf-side session-end state capture (substantive context for next-session pickup)
+- KR session-end EOD handoff (forthcoming her territory) — orchestration-side session-end capture
+- `agentic_orchestration/gandalf/notes/2026-05-23-question-A-w1-13-tier-4-hypothesis-verdict.md` + § 12 addendum — Q-A workstream design-spec
+- `agentic_orchestration/gandalf/notes/2026-05-23-t4-b-v1-catalogue-scaffolding.md` — T4-B scaffolding
+- `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` (engine repo commit 1fae3fa) — 25 disciplines + 6 sub-discipline amendments
+
+### Next-action options for next-session opening
+
+Per gandalf session-end state capture § 0:
+
+1. **Fire 9.11-D** as lead substrate-tagging-discipline work-unit; re-engages weapon-substrate cleanup
+2. **Declare weapon-substrate-conclusion** at current state; accept 9.11-C/D/E + 9.10-E as post-P1-hive-mind work
+3. **Schedule T4-B v1 catalogue design call session 1** (Matt's calendar territory)
+
+Matt-decision territory at next-session opening.
 
 ---
 
