@@ -4,6 +4,103 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-23 (Cycle 9.14 — Jack-ryan engineering-disciplines coordinated canonical write COMPLETE (6 new + 6 amendments; 13 candidates dispositioned, 0 rejected) + parallel-instance gandalf 9.13-D Path 1 relabel decision landed + item 3 per-agent OP propagation dispatch authored) — engineering-disciplines.md canonically extended from 19 → 25 disciplines + 6 sub-amendments; semantic-vs-geometry layer separation locked (#18.1 vs #25); no-sleep + timezone-agnosticism CRITICAL directives now canonical (#21 + #22); P1 hive-mind preparation arc item 2 CLOSED; item 3 (per-agent OP propagation; 8 agents) authored as batched fan-out dispatch
+
+**Event:** Matt fired jack-ryan as sub-agent on the coordinated canonical-write dispatch (`51c5665`). Jack-ryan returned in single session having dispositioned all 13 candidates without rejection. During the same window, parallel-instance gandalf resolved 9.13-D (cluster-116 relabel-or-defer open-thread) by choosing Path 1 (targeted relabel; proposed canonical label "European Uncurated-Period Mixed Military Hardware Pool"; commit `b5e13de`).
+
+**Jack-ryan canonical-write outcomes:**
+
+| Output | Path | Commit |
+|---|---|---|
+| Engineering-disciplines.md amendment | `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` (219 insertions) | engine repo `1fae3fa` |
+| Dispatch completion record + synthesis note | `agentic_orchestration/dispatches/2026-05-23-jack-ryan-engineering-disciplines-canonical-write-coordinated.md` + `agentic_orchestration/jack-ryan/notes/2026-05-23-eng-disciplines-canonical-write-synthesis.md` | collab repo `9fb2a6e` |
+| Tag | `jack-ryan/eng-disciplines-canonical-write-2026-05-23` | engine repo local |
+
+**6 new disciplines added (final numbering):**
+
+| # | Name | Source |
+|---|---|---|
+| #20 | Density-based algorithm row-duplication prohibition | KR Obs 3 |
+| #21 | No sleep recommendations (CRITICAL — Matt directive) | Gandalf #1 |
+| #22 | Timezone-agnosticism (CRITICAL — Matt directive) | Gandalf #2 |
+| #23 | Framing-audit checklist (Pattern A-deep three-question protocol) | Gandalf #3 |
+| #24 | Single-parameter sweep isolation | KR Obs 7 |
+| #25 | Semantic-layer rep-audit | Gandalf #5 |
+
+**6 sub-discipline amendments applied:**
+
+- #1.1 Pre-fire resource-bounds projection (KR Obs 1)
+- #1.2 Math-note implementation claims must cite code line references (KR Obs 4)
+- #2.1 Smoke must include resource-scaling rehearsal (KR Obs 2)
+- #18.1 Substrate-voting-is-binding at axis discovery (KR Obs 5)
+- #18.2 Methodology-consultation timing at extension hotspots (Gandalf #4)
+- #19.1 Cheapest-refuting-test-per-claim-type operationalization (Gandalf #6 + KR Obs 6 COMPOSED)
+
+**Disposition decisions (jack-ryan's call per dispatch authority):**
+
+1. **Gandalf #5 + KR Obs 5 → DISTINCT disciplines (not composed).** KR Obs 5 addresses geometry layer (substrate vote as gate at axis discovery) → became #18.1; Gandalf #5 addresses semantic layer (rep-audit before cultural-tradition inheritance) → became #25. **Different failure modes at different layers.** Locks the semantic-vs-geometry separation as canonical.
+2. **Gandalf #6 + KR Obs 6 → COMPOSED as #19.1.** Both supply the same per-claim-type operationalization; consolidated table.
+3. **Numbering shift:** Gandalf proposed #20 for no-sleep; jack-ryan placed #20 with density-algorithm prohibition (logically contiguous with methodology cluster #18/#19); no-sleep shifted to #21, timezone to #22.
+4. **No candidates rejected or deferred.** All 13 inputs integrated.
+5. **Preamble scope note added** extending host-resource-bounds coverage to substrate-side analytical work.
+
+**Parallel-instance 9.13-D resolution (commit `b5e13de`):**
+
+Gandalf resolved the cluster-116 relabel-or-defer open-thread by choosing Path 1 (targeted relabel now). Proposed canonical label: **"European Uncurated-Period Mixed Military Hardware Pool"** (replaces "European Uncurated-Period Spear Family" which incorrectly framed a cluster containing PMD landmines + Round shield + M111 grenade + GYATA-64 mines as a spear family). Per dispatch open-thread protocol, knight-rider authors the elrond Phase-E-2-relabel-116 follow-on sub-dispatch executing the targeted DB UPDATE.
+
+**Item 3 — per-agent OP propagation dispatch authored this cycle:**
+
+Per gandalf relay's sequencing direction (canonical write first; per-agent propagation second so single-pass citations target engineering-disciplines.md authority). Path: `agentic_orchestration/dispatches/2026-05-23-knight-rider-per-agent-op-propagation-fan-out.md`. Targets 8 agents (jack-ryan + rocket + gamora + star-lord + elrond + galadriel + drax + legolas) for OP + installed-skill amendments per gandalf proposal Option A (batched sub-agent fan-out; ~10-15 min per-agent work × 8 parallel = ~10-15 min wall time).
+
+Each agent amends its own OP + installed skill at `.claude/skills/reincarnated-<agent>-operating-procedure/SKILL.md` with:
+- Verbatim no-sleep directive (Discipline #21)
+- Verbatim timezone-agnosticism directive (Discipline #22)
+- Cross-reference block to engineering-disciplines.md disciplines #20-#25 + amendments #1.1, #1.2, #2.1, #18.1, #18.2, #19.1
+
+**Steps executed (knight-rider this cycle):**
+
+1. Fired jack-ryan as sub-agent on canonical-write dispatch (Pattern-A-light invocation)
+2. Detected parallel-instance gandalf 9.13-D resolution commit during the same window
+3. Verified jack-ryan engine-repo + collab-repo commits + tag
+4. Pushed collaboration repo to origin (commits `b5e13de` + `9fb2a6e`)
+5. Authored item 3 per-agent OP propagation dispatch
+6. (Pending) Author cluster-116 elrond Phase-E-2-relabel sub-dispatch per gandalf 9.13-D Path 1 decision
+7. CHANGELOG Cycle 9.14 entry
+
+**Sub-carry status changes this cycle:**
+
+- 9.10-C CLOSED (Discipline #18 substrate-voting amendment → #18.1)
+- 9.10-D CLOSED (Discipline #19 operationalization → #19.1)
+- 9.13-B CLOSED (semantic-layer rep-audit canonical → #25)
+- 9.13-C CLOSED (single-parameter sweep isolation → #24)
+- 9.13-D CLOSED via gandalf Path 1 decision; FOLLOW-ON: elrond Phase-E-2-relabel-116 sub-dispatch (small ~15-30 min UPDATE)
+- KR Observations 1-7 all dispositioned in canonical write
+- Gandalf 6-candidate proposal all dispositioned in canonical write
+- 9.10-B.1 was CLOSED in Cycle 9.13 (gandalf OP amendment landed)
+- 9.12-C scaffolding stage was CLOSED in Cycle 9.13 (T4-B catalogue scaffolding landed)
+
+**Open carries (consolidated; status after Cycle 9.14):**
+
+- **NEW 9.14-A** — item 3 per-agent OP propagation dispatch (authored; awaits fire). Pattern A-light fan-out across 8 agents.
+- **NEW 9.14-B** — elrond Phase-E-2-relabel-116 sub-dispatch (follows from gandalf 9.13-D Path 1 decision; small UPDATE on single `clusters` row)
+- 9.11-C / 9.11-D / 9.11-E — elrond substrate-tagging-discipline + curation-gap work; still queued; gandalf D → E → mesoamerican smoke order
+- 9.12-A — gamora W1.13 H1-H5 baseline; fired by Matt; surfaced upstream chain unmet (per gandalf relay; gamora seam idle post-LC-011); 9.12-B legolas Mode A waits on H1-H5 landing
+- 9.12-C catalogue-authoring stage — Matt + gandalf design call scheduling
+- 9.12-D critique-pair Gate-1 — gated on 9.12-B completion
+- HM-prep arc — HM-prep 2 CLOSED Cycle 9.13; HM-prep 3 still PARTIAL (9.11-C/D/E queued); HM-prep 4/5/6/7 stages remain
+
+**Commit chain through Cycle 9.14:**
+
+```
+9fb2a6e  docs(jack-ryan): Dispatch completion record + synthesis note
+b5e13de  gandalf: cluster-116 relabel decision (9.13-D) — Path 1 targeted relabel
+51c5665  ops(knight-rider): jack-ryan engineering-disciplines coordinated canonical-write dispatch authored
+c7f187d  ops(knight-rider): Cycle 9.13 — Phase E-1.5 acceptance + Gate-2 + parallel-instance OP amendment
+[engine repo, separate chain] 1fae3fa  docs(jack-ryan): Engineering-disciplines canonical-write batch
+```
+
+---
+
 ## 2026-05-23 (Cycle 9.13 — Phase E-1.5 sensitivity sweep ACCEPTED (4 mcs variants; all at acceptance tier) + jack-ryan Gate-2 CONDITIONAL PASS + parallel-instance gandalf OP amendment 9.10-B.1 CLOSED + T4-B v1 catalogue scaffolding landed (9.12-C scaffolding stage closed)) — Cluster 62 no-split CONFIRMED; rare-lineage Mode-B dominance CONFIRMED empirically reinforcing 9.11-D → 9.11-E corrective path; subsample-composition stability REFUTED surfaces Discipline #20 candidate; 9.13-A PMD landmines anomaly persists structurally surfacing cluster-116 relabel-or-defer surface to gandalf; 9.10-G + 9.10-G.1 + 9.10-B.1 CLOSED
 
 **Event:** Matt fired legolas as sub-agent on the Phase E-1.5 sensitivity sweep dispatch (commit `0059068`). Legolas completed in single session (commit `ef9707c`, tag `legolas/phase-E-1-5-sensitivity-sweep-2026-05-23` local). Knight-rider invoked jack-ryan DEV-MODE Gate-2 Pattern-A-light review (~30 min); returned CONDITIONAL PASS with 2 named conditions. During the same window, parallel-instance gandalf landed two material commits: OP amendment 9.10-B.1 (`f5f0308`) and T4-B v1 catalogue scaffolding (`9634729`).
