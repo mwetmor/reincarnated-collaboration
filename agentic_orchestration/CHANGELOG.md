@@ -4,6 +4,85 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-23 (Cycle 9.12 — Phase E-2 cluster-labeling fire ACCEPTANCE → jack-ryan Gate-2 PASS + gandalf design-side spot-check relay → 3 sub-dispatches authored (Phase E-2-DB elrond, 9.11-A legolas labeler-bug-fix, 9.11-G gandalf marginal-lineage recognition records)) — 47 of 125 provisional descriptions overridden by gandalf (vs 5-15 predicted) elevates 9.11-A to load-bearing sequencing constraint before Phase E-1.5; 2 new elrond sub-carries (9.11-D substrate-tagging-artifact + 9.11-E cultural-vs-geographic-discipline) expanded scope to ~15-25 affected clusters; NEW 9.11-G marginal-lineage recognition record pass (4 records) authored to gandalf
+
+**Event:** Matt fired gandalf on the Cycle 9.11 Phase E-2 cluster-labeling dispatch. Gandalf completed in ~one session (commit `5b8754e`, tag `gandalf/phase-E-2-cluster-labeling-2026-05-23`, pushed to origin). Knight-rider verified outputs, invoked jack-ryan DEV-MODE Gate-2 Pattern-A-light (returned PASS), folded jack-ryan findings into Gate-2 findings record, then received gandalf's design-side spot-check relay with material re-sequencing (1 condition withdrawn, 4 sub-carry adjustments, 1 new sub-carry). Knight-rider authored 3 follow-on dispatches per the revised cadence.
+
+**Phase E-2 acceptance gates (gandalf return):**
+
+| Gate | Result |
+|---|---|
+| 125 clusters labeled in .md + .json | ✓ PASS |
+| hdbscan_native-only sampling verified | ✓ PASS (smallest native rep count = 12) |
+| Cluster 90 labeled honestly as metadata_bucket | ✓ PASS ("East Asian Uncurated-Period Metadata Pool") |
+| Provisional-description overrides applied | ✓ **47 overrides** (vs 5-15 predicted; 9.11-A escalates) |
+| N.am.indigenous non-canonical disposition | ✓ PASS (recognition record + ground-state § 1 registered) |
+| Framing-audit applied to each cluster | ✓ PASS (15 distinct flag values; 4 OP-amendment candidates surfaced for 9.10-B.1) |
+| JSON schema validation | ✓ PASS (all 15 dispatch § 6.B required fields on all 125) |
+| Cross-references intact | ✓ PASS |
+
+**Jack-ryan Gate-2 (Pattern-A-light) verdict: PASS** — 6 INFO/PASS + 1 WARN (Finding 7: 15 distinct flag values vs dispatch enum of 5; 9.10-B.1 OP amendment must canonicalize the flag enum before Phase E-3 dispatch authoring) + 1 micro INFO (override-count discrepancy: 47 boolean vs 46 flag-array; gandalf low-priority cleanup).
+
+**Gandalf design-side spot-check relay (post-jack-ryan-Gate-2; ~13:15 EDT):**
+
+1. **Condition WITHDRAWN:** Cultural-tradition-descriptor permission earlier contemplated for broadly-fictionalized tiers — sub-agent gandalf held strictly to substrate-descriptive labels throughout. **Operational lock confirmed:** substrate-descriptive-only for cluster labels; aesthetic-cultural-tradition handles belong downstream at Phase E-3, NOT in the label layer.
+2. **9.11-A ELEVATED + SEQUENCED:** labeler bug is NOT 5-15 edge cases — it is systemic random token-pair generation (`staff/axe` for revolver/kukri/wakizashi; `dagger/wand` for javelins; `lance/rifle` for SPH+MANPADS; `bow/hammer` for bow+glaive+halberd). Fix MUST land before Phase E-1.5 sensitivity sweep fires — otherwise the sweep wastes the labeling work.
+3. **9.11-D + 9.11-E EXPANDED:** ~15-25 of 125 clusters have variants of the substrate-tagging issue (lineage_tag_geographic_not_cultural; period_tag_likely_metadata_artifact; lineage_uncurated; mixed_form_within_cluster). Discipline-level: substrate cleaning collapses "cultural-tradition-of-origin" with "geographic-region-of-origin-or-deployment" — these are different things. Russian Cold War MANPADS are not culturally arctic_circumpolar; they are geographically northern.
+4. **NEW 9.11-G:** marginal-lineage recognition record pass parallel to n.am.indigenous precedent — 4 lineages (south_american_indigenous, arctic_circumpolar, oceanic, mesoamerican) where substrate-coverage failure + substrate-tagging-failure compound. Honest disposition prevents premature commitments at Phase E-3 / Spirit Form / faction-architecture downstream design surfaces.
+
+**Steps executed (knight-rider):**
+
+1. Pushed gandalf commit (`5b8754e`) to origin
+2. Read completion summary + JSON head + recognition record + ground-state update
+3. Invoked jack-ryan DEV-MODE Gate-2 Pattern-A-light (~30 min) — returned PASS
+4. Authored Gate-2 findings record at `knight-rider/notes/2026-05-23-phase-E-2-output-gate-2-findings-record.md`
+5. Received gandalf design-side spot-check relay via Matt; folded 4 sub-carry adjustments + 1 condition withdrawal into Gate-2 findings record § 4-§ 5
+6. Authored 3 follow-on dispatches:
+   - **`dispatches/2026-05-23-elrond-phase-E-2-DB-cluster-label-update.md`** — Pattern-A-light to elrond; UPDATE `clusters.label` from gandalf JSON; optional ALTER TABLE for cluster_type as fire-time design choice; round-trip smoke; MIGRATION.md amendment; tag.
+   - **`dispatches/2026-05-23-legolas-9-11-A-provisional-label-generator-fix.md`** — Pattern-A-light to legolas; load-bearing sequencing (must land before Phase E-1.5); diagnose + fix `write_clusters_subsample` provisional-label-generator; verify by re-fire + ≥90% alignment with gandalf overrides on 47 affected clusters.
+   - **`dispatches/2026-05-23-gandalf-9-11-G-marginal-lineage-recognition-records.md`** — Pattern-A-light to gandalf; 4 recognition records at canonical/story/ (south_american_indigenous, arctic_circumpolar, oceanic, mesoamerican); follows n.am.indigenous precedent; cluster-distribution checks for oceanic + mesoamerican.
+
+**Tag-chain through Cycle 9.12:**
+
+No knight-rider tag this session (orchestration-layer-only). State-of-team checkpoints:
+
+- `gandalf/phase-E-2-cluster-labeling-2026-05-23` — Phase E-2 labels (LANDED + pushed)
+- Pending checkpoints (after fire):
+  - `elrond/phase-E-2-DB-2026-05-23` — DB UPDATE
+  - `legolas/9-11-A-provisional-label-generator-fix-2026-05-23` — labeler bug fix
+  - `gandalf/9-11-G-marginal-lineage-recognition-records-2026-05-23` — recognition records
+
+**Open carries (consolidated; status changes marked):**
+
+- **NEW 9.11-G** — marginal-lineage recognition record pass (gandalf Pattern-A-light dispatch authored; 4 records south_american_indigenous + arctic_circumpolar + oceanic + mesoamerican)
+- 9.11-A — provisional-label-generator bug fix — **ESCALATED + SEQUENCED;** load-bearing before Phase E-1.5; dispatch authored
+- 9.11-D — substrate-tagging-artifact review (elrond) — **EXPANDED;** ~15-25 affected clusters
+- 9.11-E — geographic-origin vs cultural-lineage tagging discipline (elrond) — **EXPANDED;** discipline-level
+- 9.11-H (potential) — defer-or-now ALTER TABLE for `clusters.cluster_type` column — elrond's fire-time call in Phase E-2-DB dispatch
+- 9.10-G — Phase E-1.5 sensitivity sweep — **DEFERRED until 9.11-A lands**
+- 9.10-G.1 — psutil install preflight — folds into Phase E-1.5 dispatch when authored
+- 9.10-B.1 — gandalf OP amendment (framing-audit checklist + 15-flag-enum canonicalization) — **NEW sequencing constraint:** must land before Phase E-3 dispatch is authored
+- 9.10-C — Discipline #18 (substrate-voting-is-binding) ratification — jack-ryan queue
+- 9.10-D — Discipline #19 (forensic-conclusion-discipline) ratification — jack-ryan queue
+- 9.10-E — Alternative 2 (substrate expansion) — DORMANT (not triggered; Phase E-1 acceptance was clean)
+- 9.10-F — Cloud-bigger-HDBSCAN — DORMANT (cancelled)
+- 9.11-B — n.am.indigenous substrate expansion — DORMANT (conditional on 4 empirical triggers per recognition record)
+- 9.11-C — east_asian period_unknown curation gap (elrond) — Queued (non-blocking)
+- 9.10-A — Phase E-1 frame-revision fire — CLOSED Cycle 9.11
+- 9.10-B — gandalf kernel-panic-diagnosis addendum — CLOSED Cycle 9.10
+
+**Three dispatches now fire-ready:**
+
+| Dispatch | Target | Pattern | Fire constraint |
+|---|---|---|---|
+| Phase E-2-DB | elrond | A-light | Independent; can fire any time |
+| 9.11-A labeler fix | legolas | A-light | Load-bearing; must land BEFORE Phase E-1.5 |
+| 9.11-G marginal-lineage records | gandalf | A-light | Independent; can fire any time |
+
+All three can fire in parallel sessions. Phase E-1.5 sensitivity sweep dispatch is queued for authoring AFTER 9.11-A acceptance.
+
+---
+
 ## 2026-05-23 (Cycle 9.11 — Phase E-1 frame-revision fire ACCEPTANCE → Gate-2 critique-pair (jack-ryan PASS + gandalf CONDITIONAL PASS with 3 conditions) → Phase E-2 cluster-labeling dispatch authored) — 125 clusters at 0.9444 purity on substrate-voted k=3; framing-audit checklist (gandalf § 9.5) operationalized for first applied use in Phase E-2 labeling work; 3 sub-carries queued (provisional-label-bug, east_asian-curation-gap, n.am.indigenous substrate-expansion candidate)
 
 **Event:** Matt fired legolas on the Cycle 9.10 frame-revision dispatch. Legolas returned full acceptance in ~49 seconds (no panic, no memory pressure). Knight-rider ran Gate-2 critique-pair (jack-ryan DEV-MODE process review + gandalf Pattern-A-deep design-coherence framing-audit per his § 9.5 owed amendment first applied use). Both reviewers ratified with conditions folded into Phase E-2 dispatch.
