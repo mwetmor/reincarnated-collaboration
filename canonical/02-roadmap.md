@@ -90,8 +90,9 @@ Per Matt locked-decisions, the following move to v1.1+ post-ship substrate-refin
 | **9.11-D** | Substrate-tagging-artifact review (~15-25 affected clusters) | Post-v1-ship; elrond systematic review |
 | **9.11-E** | Geographic-origin vs cultural-lineage tagging discipline (canonical write candidate) | Post-v1-ship; elrond + jack-ryan discipline-amendment |
 | **9.10-E** (subsumes **9.11-B**) | Substrate expansion via legolas Mode B; Mode-A-targeted crawls for all 5 marginal lineages (Smithsonian Latin American + INAH Mexico + Te Papa NZ + Bishop Museum + British Museum Pacific + Sámi cultural archives) | Post-v1-ship + D10 Path C architectural commitment OR explicit Matt-architectural-call |
+| **Three design-discipline recognitions** | (1) Sampling-proportionality flagging per design surface (explicit declaration of policy at design-spec-as-math time); (2) Country-title name cleanup at substrate-curation (parse/flag geographic-encoding in canonical_name); (3) Commercial-vs-solo output differentiation per output stream (output_purpose field for engine generation). See `canonical/story/v1-1-plus-design-discipline-recognitions-2026-05-23.md` for full recognition record + empirical-evidence gates | Per recognition record § 4.2 — sampling-proportionality fires when T4-B v1 catalogue design call surfaces first explicit policy declaration; country-title cleanup folds into elrond v1.1+ work; output-purpose flag fires when multi-consumer engine scenario emerges (Profile B B2B SaaS scoping OR Reincarnated v1.1+ player-surface integration) |
 
-These compose into a single post-v1-ship substrate-refinement work-unit. Until v1 ships + downstream surfaces consume substrate per Discipline #25 rep-audit, the substrate-as-is is operationally sufficient.
+These compose into a single post-v1-ship substrate-and-design-discipline-refinement work-unit. Until v1 ships + downstream surfaces consume substrate per Discipline #25 rep-audit, the substrate-as-is is operationally sufficient. The three design-discipline recognitions are forward-looking flags for v1.1+ design surface authoring, not v1-gating constraints.
 
 ---
 
