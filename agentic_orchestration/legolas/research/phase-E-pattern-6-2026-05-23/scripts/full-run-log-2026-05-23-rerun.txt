@@ -1,0 +1,25 @@
+[11:05:02] === Phase E-1 Pipeline starting (mode=full) ===
+[11:05:03] Loaded 48430 rows from v_category_sample 
+[11:05:03] === DELIVERABLE 1: Feature Engineering ===
+[11:05:03] F2 weight stats: min=0.2124, max=119.29, mean=1.0000
+[11:05:03] Fitting TF-IDF vectorizer...
+[11:05:08] TF-IDF matrix: (48430, 500)
+[11:05:08] Vocabulary hash: 03eeccc2b8e4f6b1
+[11:05:08] Fitting TruncatedSVD with n_components=100...
+[11:05:10] LSA output: (48430, 100), explained_variance_ratio sum=0.7640
+[11:05:10] Final feature matrix: (48430, 160)
+[11:05:10] Wrote Deliverable 1: /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-1-features.md
+[11:05:10] Deliverable 1 complete: /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-1-features.md
+[11:05:10] === DELIVERABLE 2: Axis Discovery ===
+[11:05:10] Running PCA (TruncatedSVD) on full feature matrix...
+[11:05:17] Explained variance (first 15): ['0.0789', '0.0567', '0.0459', '0.0276', '0.0260', '0.0253', '0.0243', '0.0241', '0.0228', '0.0217', '0.0211', '0.0190', '0.0193', '0.0192', '0.0186']
+[11:05:17] Cumulative EVR: ['0.0789', '0.1356', '0.1815', '0.2091', '0.2351', '0.2604', '0.2847', '0.3088', '0.3316', '0.3533', '0.3744', '0.3934', '0.4128', '0.4320', '0.4506']
+[11:05:17] k_80=36, kink_idx=4, k_from_kink=6, k_from_var=12, k_final=12
+[11:05:17] Running 10 bootstrap resamples for stability check...
+[11:05:44] Bootstrap stability (mean cosine-dist per axis): ['0.0011', '0.0118', '0.0131', '0.3917', '0.5907', '0.4736', '0.6832', '0.6263', '0.6692', '0.7982', '0.7426', '0.7340']
+[11:05:44] Wrote Deliverable 2 (MD): /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-1-axis-discovery.md
+[11:05:44] Wrote Deliverable 2 (JSON): /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-1-axis-loadings.json
+[11:05:44] Deliverable 2 complete: /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-1-axis-discovery.md
+[11:05:44] === DELIVERABLE 3: Clustering ===
+[11:05:44] Running HDBSCAN (min_cluster_size=30)...
+[11:05:44] Expanded matrix for HDBSCAN fit: (71003, 12)

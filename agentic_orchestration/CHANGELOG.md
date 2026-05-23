@@ -4,6 +4,111 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-23 (Cycle 9.9 — Phase E-1 RERUN kernel-panic triage → Option-A single-stage F2 revision dispatch authored) — third kernel panic in 8 hours on Matt's 8 GiB M2 host traced to HDBSCAN row-duplication in `run_hdbscan`; gandalf design-side ratified single-stage F2 (PCA-only) as Pattern-6-compatible AND methodologically superior to dual-stage; RERUN dispatch superseded; OPTION-A dispatch fire-ready
+
+**Event:** Matt reported the legolas Phase E-1 RERUN dispatch (fired EOD Cycle 9.8) caused a Mac kernel panic for the third time today. Knight-rider triage produced a definitive diagnosis; gandalf design-side ratification arrived in same cycle; OPTION-A revision dispatch authored within the same session.
+
+**Steps executed:**
+
+1. **Forensic.** Knight-rider read three `/Library/Logs/DiagnosticReports/panic-full-2026-05-23-*` reports — all three identical signature: `watchdog timeout: no checkins from watchdogd in 9X seconds` + `Compressor Info: 100% of compressed pages limit (BAD)` + swapfiles 10 / 12 / 15. Classic memory-pressure-induced watchdog-starvation panic on 8 GiB host.
+2. **Pipeline hotspot identified.** `run_hdbscan` (lines 388-431) applies F2 weights via integer row duplication (cap 20×). On 48,430-row corrected pool → 71,003-row expanded matrix → HDBSCAN.fit() peak working memory exceeded 8 GiB during MST + condensed-tree construction in 12-d Euclidean. Both prior panics hung at identical step (22,065-row expanded on prior 16,699-row pool).
+3. **Substrate integrity verified.** `v_category_sample` = 48,430 (unchanged); `clusters` + `cluster_membership` empty (expected); no APFS damage.
+4. **Triage report + remediation option-set authored** at `knight-rider/notes/2026-05-23-phase-E-1-kernel-panic-triage.md`. Four options: A (drop dual-stage F2; cluster on un-expanded projections), B (subsample-then-assign), C (cloud VM), D (cap duplication at 1×). Recommended A — methodologically cleanest, runs on existing 8 GiB host, ~30-minute code edit.
+5. **Matt + gandalf parallel-pair ratification.** Gandalf returned a Pattern-A-deep design-side verdict ratifying Option-A as Pattern-6-compatible AND methodologically superior to dual-stage (dual-stage was manufacturing density around rare-lineage rows by replicating same point in projection space 20×; not Pattern-6-compliant; clustering artifact). Gandalf surfaced design-side caveat: north_american_indigenous (N=29) drops just below min_cluster_size=30 and may register as noise or merge — correct behavior under single-stage F2; document per-lineage cluster-vs-noise disposition in completion summary.
+6. **OPTION-A dispatch authored** at `dispatches/2026-05-23-legolas-phase-E-1-OPTION-A-single-stage-F2.md`. Single-method-change scope (un-expand HDBSCAN call); pre-fire memory-projection requirement folded in (projected peak < 5 GiB before fire); optional `resource.setrlimit` defensive ceiling; optional Deliverable 1-2 skip (axes are unchanged by Option-A; on-disk RERUN-fire artifacts at 11:05:44 are reusable). Gate-1 jack-ryan ratification skipped — single-line revision with gandalf design-side ratification in hand; consistent with F5 PCA-primary lock.
+7. **RERUN dispatch stamped SUPERSEDED** at top with pointer to OPTION-A.
+8. **Discipline observations queued for jack-ryan** at `knight-rider/notes/2026-05-23-discipline-observations-for-jack-ryan.md`. Two candidates: (a) pre-fire resource-bounds projection clause amendment to Discipline #1 (math-before-code); (b) smoke-test scope expansion to include resource-scaling rehearsal in Discipline #2. Pattern observation: engineering-disciplines historically operated against engine-side workloads where host limits were implicit; substrate-side workloads bring host-resource-bounds into math-before-code and smoke explicitly.
+
+**Empirical evidence already in hand (from the 11:05:44 partial-fire log; survived the crash):**
+
+- k_final = 12 (clamped from k_80=36 by `min(kink_idx+2, 12)` ceiling at kink_idx=4)
+- Cumulative EVR @ k=12: 0.3934 — **PASSES** the 30% floor (was 20.59% on the original corrupted pool)
+- Bootstrap stability per axis: axes 1-3 PASS (0.0011, 0.0118, 0.0131); axes 4-12 FAIL (0.39-0.80)
+- **Phase E-1-bis disposition (already determined):** partial-acceptance bis-flag per RERUN dispatch Math-before-code §5 ("k_final ≥ 8 AND fewer than 6 axes pass bootstrap stability"). 3 of 12 axes stable. This is now genuine substrate-intrinsic-dimensionality evidence (the pool-filter-artifact escape is gone). Will route to gandalf + jack-ryan critique pair post-OPTION-A-fire.
+
+**Step 9 (post-authoring): Gandalf strengthened-ratification fold-in.** After OPTION-A dispatch authoring, gandalf returned a stronger second-pass ratification reframing Option A as substrate-led-discipline IMPROVING (not just compatible). Row-duplication creates identical-point pairs at distance 0 in projection space → HDBSCAN k-NN density estimate at those points is artificially infinite → manufactured density unrelated to substrate structure → pre-imposition of "rare lineages should cluster" rather than substrate-led-discipline. Gandalf authored a durable ratification note at `gandalf/notes/2026-05-23-phase-E-1-option-A-design-side-ratification.md`. Three additional findings folded into OPTION-A dispatch + discipline observations:
+
+- **§5 normative-status check (gandalf caveat):** Knight-rider verified `canonical/story/cleaning-policy-design-2026-05-22.md` §5.1-§5.4 is descriptive (taxonomy + mapping + confidence + axis-discovery interaction), not normative. F2-three-stage application doctrine lives in legolas's math note line 725, not §5. Gandalf ratification stands unconditionally; Option A proceeds.
+- **GMM scope check:** Math-note line 725 claimed GMM uses integer-duplication. Script line 510 (`gmm.fit(projections_k)`) shows GMM is already implemented WITHOUT row-duplication. Violation existed only in math-note intent. Math-note amendment added to dispatch scope; no GMM code change needed.
+- **`min_cluster_size=30` resolution-gate doctrine:** With row-duplication gone, `min_cluster_size=30` becomes a hard resolution gate. Of 14 lineages in corrected pool, only north_american_indigenous (N=29) falls below; will noise-assign. Gandalf-lean (binding): keep min=30 for clean baseline; queue Phase E-1.5 sensitivity sweep on {10, 15, 20, 30} as a follow-up carry.
+
+Two NEW discipline candidates appended to `knight-rider/notes/2026-05-23-discipline-observations-for-jack-ryan.md`:
+- **Observation 3** — Density-based algorithms must use native `sample_weight` or weighted-distance variants; row duplication as sample-weight workaround is forbidden (from gandalf ratification § 4)
+- **Observation 4** — Math-note implementation claims must cite code line references (from this cycle's GMM-overstate finding)
+
+**Outstanding before fire:** Matt opens new terminal: `cd ~/Games/reincarnated-collaboration && claude --agent legolas`. Legolas reads OPTION-A dispatch, applies code edit + math-note addendum (including line 725 amendment) + pre-fire memory projection, then fires `--mode full` (or `--mode full` with Deliverable-1-2 skip per § 5).
+
+**Outstanding after fire:** completion summary + MIGRATION.md + tag `legolas/phase-E-1-axis-discovery-2026-05-23`. Then knight-rider authors Phase E-2 gandalf-labeling dispatch IF clustering acceptance gates pass cleanly, OR routes bootstrap-stability-tail to gandalf + jack-ryan critique pair if the 3-of-12-stable result needs methodology decision.
+
+**Tag this cycle (knight-rider):** None — orchestration-layer files only (1 dispatch, 2 knight-rider notes, RERUN supersession edit, this CHANGELOG entry). State-of-team checkpoint will be `legolas/phase-E-1-axis-discovery-2026-05-23` at OPTION-A fire completion.
+
+**Files touched this cycle:**
+- `dispatches/2026-05-23-legolas-phase-E-1-OPTION-A-single-stage-F2.md` (NEW; subsequently EDITED for gandalf strengthened-ratification fold-in)
+- `dispatches/2026-05-23-legolas-phase-E-1-RERUN-corrected-pool.md` (SUPERSEDED stamp)
+- `knight-rider/notes/2026-05-23-phase-E-1-kernel-panic-triage.md` (NEW)
+- `knight-rider/notes/2026-05-23-discipline-observations-for-jack-ryan.md` (NEW; EXPANDED with Observations 3 and 4 post-gandalf-strengthened-ratification)
+- `gandalf/notes/2026-05-23-phase-E-1-kernel-panic-diagnosis.md` (NEW; gandalf-authored)
+- `gandalf/notes/2026-05-23-phase-E-1-option-A-design-side-ratification.md` (NEW; gandalf-authored; substrate-led-violation framing + min_cluster_size doctrine)
+- `CHANGELOG.md` (this entry)
+
+---
+
+## 2026-05-23 (Cycle 9.8 — Phase E-1 crash → triage → audit → Phase-D-bis Step 6.6 → re-fire) — full bis-loop executed in single session; crash-triage hypothesis refuted; substrate corrected from 16,699 → 48,430 rows; legolas Phase E-1 re-firing on corrected pool
+
+**Event:** Continuous session arc from Phase E-1 partial-fire crash recovery through Phase-D-bis Step 6.6 corrective work to legolas Phase E-1 re-fire dispatch. Eight orchestrated steps:
+
+1. **Crash-triage handoff authored** (`skill_handoff_2026-05-23-phase-E-1-crash-triage.md`). Legolas Phase E-1 smoke completed pre-crash (03:06); full mode never fired before machine reset. Continuation dispatch authored at `2026-05-23-legolas-phase-E-1-CONTINUATION-full-mode-fire.md`. Initial hypothesis: smoke output's k=4 / 3-unstable-axes pattern was sample-frame artifact.
+
+2. **Full-mode partial-fire discovered post-handoff.** File mtimes shifted from 03:06 to 03:29 between handoff authoring and knight-rider session start — someone (Matt) had fired the continuation dispatch in a separate session before the crash-triage handoff was even read. Pipeline log `full-run-log-2026-05-23.txt` showed Deliverables 1 & 2 completed on full N=16,699 substrate before terminating mid-Deliverable-3 HDBSCAN. Empirical: same k_final=4 + axes 2-4 bootstrap-unstable as smoke. **Smoke-artifact hypothesis refuted by full-data confirmation.**
+
+3. **Remediation options authored** by knight-rider at `knight-rider/notes/2026-05-23-phase-E-1-bis-remediation-options.md`. Eight options across four families: A (accept-and-reframe), B (stay within F5; tweak inputs), C (break F5; replace PCA), D (skip axes; cluster directly).
+
+4. **Gandalf Pattern-A design-fit verdict** at `gandalf/notes/2026-05-23-phase-E-1-bis-design-fit-verdict.md`. Concurred STRONG on A1 (accept "1 robust axis + N clusters" — Pattern-6 fidelity HIGHEST). Pushed back on knight-rider's MEDIUM B1 lean (methodology tourism risk if chained). **Surfaced load-bearing finding knight-rider missed**: hypothesis that 94.46% fantasy_generic was a Phase D lineage-mapper artifact, with Royal Armouries (~22% of substrate) suspected to have fallen through to fantasy_generic default. Added E1 (Phase-D-bis lineage audit) as prerequisite. Added B4-prime (source-stratification) as B4 refinement.
+
+5. **Elrond Pattern-A E1 audit** at `elrond/notes/2026-05-23-phase-E-1-bis-E1-lineage-audit.md`. Verdict disposition (d) — **neither gandalf's hypothesis was correct nor was the substrate genuinely monocultural**. Step 6.5 lineage mapper is sound (~99% correct); the 94.46% figure is a **v_category_sample weapon_kind filter artifact**. Phase D Step 4 (named_template routing) hardcoded to 12 TRPG/MMO/ARPG sources; ~35,960 museum/encyclopedia/modern-military canonical rows sit at `weapon_kind='unknown'` and are filtered out of v_category_sample by `weapon_kind IN ('category','named_template')` clause. True substrate distribution: ~24% fantasy_generic / ~36% european / ~12% east_asian / ~18% unknown / smaller. Recommended Step 6.6 category-promotion sweep as fix; additive, idempotent, rollback-safe; ~6-10h wall-clock.
+
+6. **Phase-D-bis Step 6.6 dispatch authored + Matt fire** (`dispatches/2026-05-23-elrond-phase-D-bis-step-6-6-category-promotion-sweep.md`). Math-before-code § 5 added at Matt's follow-up question (unknown-lineage sampling pass with α/β/γ/δ categorization + self-disposition rule for triggering Step 6.6.b).
+
+7. **Phase-D-bis Step 6.6 + 6.6.b executed by elrond** (tag `elrond/phase-D-bis-step-6-6-2026-05-23`):
+   - v_category_sample: 16,699 → **48,430 rows** (+190%; within dispatch band 47K-57K)
+   - Lineage distribution now multi-cultural: 33.6% fantasy_generic / 27.0% east_asian / 25.8% european / 4.04% unknown / smaller buckets
+   - 34,363 rows promoted from `weapon_kind='unknown'` to `'category'` (vs 34,192 projected; +0.5%)
+   - Step 6.6.b cumulative unknown-lineage recovery 83% across major sources (wikidata 80% / wikipedia 94% / ODIN 98% / met-museum 92%)
+   - Step 7 F4 cross-source merge re-run: 26 → 216 components (+190 new); pre-existing 1,194 canonical-merge entries preserved
+   - All 4 Phase-D-bis acceptance gates pass empirically; Phase D no-regression confirmed
+   - Three framing variances documented per Phase D Block (e) precedent: east_asian +13pp vs projection (positive finding — Chinese province regex caught more wikidata east_asian rows than §5 sample suggested); south_amer pool 216 vs ceiling 50 (legitimate recovery); Phase D Gate (b) residual-dup 9.37% on legacy key (collapses to 0.0% with source_url-aware key; museum-specimens-share-name-within-source artifact, not real duplication)
+   - Residual unknowns disposition: ~1,956 in v_category_sample (~4%), predominantly wikidata bare-Q-IDs with no description (genuinely α; out of scope) + ~70-95 wikipedia fictional-weapons (δ; recoverable via small Step 6.6.c micro-dispatch — Matt deferred)
+
+8. **Legolas Phase E-1 RE-FIRE dispatch authored** at `dispatches/2026-05-23-legolas-phase-E-1-RERUN-corrected-pool.md` + Matt fire. Same methodology + F-locks as original (F1-F6 hold); same acceptance criteria (8-12 axes; ≥6 stable; 50-150 clusters; ≥0.85 purity); **bis-disposition criteria tightened** — pool-artifact escape no longer available, so if axes 2-4 still unstable on corrected pool that's genuine methodology-revisit territory. Two older legolas dispatches stamped SUPERSEDED at top for concurrency safety.
+
+**Authority chain this cycle:**
+- Matt 2026-05-23 04:xx — fired knight-rider session post-machine-reset; "Last session you were orchestrating the last stage of a parge phase of work when the power went out..."
+- Matt 2026-05-23 (response sequence): commissioned gandalf for design-fit (Pattern-A) → commissioned elrond for E1 audit (Pattern-A) → "fire Step 6.6" → "go with b [unknown-sampling fold-in]" → "fired" [Step 6.6] → review of elrond synopsis + concern about residual unknowns → "fire the legolas re-fire dispatch" → "Legolas has been set to his task"
+
+**Tags this cycle:**
+- `elrond/phase-D-bis-step-6-6-2026-05-23` (Phase-D-bis substrate correction; local only)
+- Legolas Phase E-1 tag pending re-fire completion (`legolas/phase-E-1-axis-discovery-2026-05-23` planned per dispatch)
+
+**Files added this cycle (~10 net-new):**
+- `dispatches/2026-05-23-elrond-phase-D-bis-step-6-6-category-promotion-sweep.md`
+- `dispatches/2026-05-23-legolas-phase-E-1-RERUN-corrected-pool.md`
+- `knight-rider/notes/2026-05-23-phase-E-1-bis-remediation-options.md`
+- `gandalf/notes/2026-05-23-phase-E-1-bis-design-fit-verdict.md`
+- `elrond/notes/2026-05-23-phase-E-1-bis-E1-lineage-audit.md`
+- `elrond/research/phase-D-bis-step-6-6-2026-05-23/{phase-D-bis-math-note.md, phase-D-bis-completion-summary.md, MIGRATION.md, phase-D-bis-flagged-clusters.md, scripts/* logs/*}`
+
+**Deferred / parked:**
+- Step 6.6.c wikipedia-fictional-weapons recovery (~70-95 rows; out of scope per Matt; future cleanup batch)
+- Phase D milestone-tag promotion (`v0.2-weapon-library-substrate-cleaned`) deferred until Phase E-1 acceptance lands
+- Phase D Gate (b) measurement-key formal update (move from legacy key to source_url-aware key) — pending future jack-ryan + elrond coordination
+- secondary regex fix for "Incantation"/"Amazon" — handled inline by Step 6.6.b regex rewrite
+
+**Discipline observations for next session:**
+- The Phase D completion summary § 1 footnote acknowledged the structural gap (museum/encyclopedia/modern-military sources never promoted to `weapon_kind='category'`) but did not flag as load-bearing for Phase E. Discipline observation: **completion-summary footnotes that document known gaps should be cross-referenced into downstream-dispatch authoring** (or surfaced to knight-rider as carries) to prevent the next-phase dispatch from operating on incomplete substrate. Knight-rider should harvest completion-summary footnotes when authoring downstream dispatches.
+- The crash-triage handoff's smoke-artifact hypothesis was earnest but wrong; full-data partial-fire would have refuted it within minutes had it been allowed to complete. **Discipline observation: avoid framing forensic hypotheses as conclusions when the empirical test that would refute them is cheap.** The handoff should have framed "smoke results suggest X; full mode will confirm or refute" rather than "smoke results are X artifact."
+
+---
+
 ## 2026-05-23 (Cycle 9.7 Phase D verified durable + Phase E-1 axis-discovery dispatch authored) — elrond Pattern-B executed Phase D end-to-end with all 4 acceptance gates passing; knight-rider authored legolas Phase E-1 dispatch operationalizing gandalf §7.2 post-clean canonical Pattern-6 run
 
 **Event:** Matt fired elrond Pattern-B per Cycle 9.5 fire-ready signal. Elrond executed Phase D cleaning pipeline end-to-end across 5 commit blocks (a-e), landing at commit `9e7d14b` on origin/main. All 4 math-anchored acceptance gates pass empirically; 2 gates with documented framing-variance (Gate (b) dedup recall framing didn't match Phase D's design intent of substrate-density preservation; load-bearing residual-dup measure passes at 0.038).

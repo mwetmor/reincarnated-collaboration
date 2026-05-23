@@ -1,5 +1,11 @@
 # Dispatch — 2026-05-23 — legolas — Phase E-1 CONTINUATION (full-mode fire after crash-recovery)
 
+> **⚠️ SUPERSEDED 2026-05-23 by Phase-D-bis findings.** If you are legolas opening a fresh session today, **DO NOT EXECUTE THIS DISPATCH.** Pick up `dispatches/2026-05-23-legolas-phase-E-1-RERUN-corrected-pool.md` instead. The crash-triage assumption that smoke results were "artifact of N=100 sample" was REFUTED by the full-mode partial-fire on the pre-Phase-D-bis pool — which then turned out to be running on a substrate that was itself a `weapon_kind` filter artifact (per elrond E1 audit 2026-05-23). Pool has since been corrected (48,430 rows; Phase-D-bis Step 6.6 + 6.6.b, tag `elrond/phase-D-bis-step-6-6-2026-05-23`). The RERUN dispatch fires against the corrected pool with tightened bis-disposition criteria.
+>
+> This file is preserved as historical record. Do not act on its instructions.
+
+---
+
 **From:** knight-rider
 **To:** legolas (Mode A analytical research; resuming after machine reset)
 **Approved by:** Matt 2026-05-23 (post-crash triage; original dispatch acceptance criteria unchanged)

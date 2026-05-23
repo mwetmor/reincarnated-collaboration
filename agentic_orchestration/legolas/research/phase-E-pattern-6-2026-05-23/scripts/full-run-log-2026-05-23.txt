@@ -1,0 +1,25 @@
+[03:28:57] === Phase E-1 Pipeline starting (mode=full) ===
+[03:28:57] Loaded 16699 rows from v_category_sample 
+[03:28:57] === DELIVERABLE 1: Feature Engineering ===
+[03:28:57] F2 weight stats: min=0.0962, max=1518.09, mean=1.0000
+[03:28:57] Fitting TF-IDF vectorizer...
+[03:28:58] TF-IDF matrix: (16699, 500)
+[03:28:58] Vocabulary hash: 4e6bb78447413919
+[03:28:58] Fitting TruncatedSVD with n_components=100...
+[03:29:00] LSA output: (16699, 100), explained_variance_ratio sum=0.9608
+[03:29:00] Final feature matrix: (16699, 160)
+[03:29:00] Wrote Deliverable 1: /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-1-features.md
+[03:29:00] Deliverable 1 complete: /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-1-features.md
+[03:29:00] === DELIVERABLE 2: Axis Discovery ===
+[03:29:00] Running PCA (TruncatedSVD) on full feature matrix...
+[03:29:06] Explained variance (first 15): ['0.0917', '0.0495', '0.0328', '0.0319', '0.0308', '0.0300', '0.0291', '0.0237', '0.0226', '0.0220', '0.0203', '0.0196', '0.0191', '0.0199', '0.0186']
+[03:29:06] Cumulative EVR: ['0.0917', '0.1412', '0.1739', '0.2059', '0.2367', '0.2667', '0.2958', '0.3195', '0.3421', '0.3641', '0.3843', '0.4039', '0.4230', '0.4429', '0.4616']
+[03:29:06] k_80=35, kink_idx=2, k_final=4
+[03:29:06] Running 10 bootstrap resamples for stability check...
+[03:29:23] Bootstrap stability (mean cosine-dist per axis): ['0.0258', '0.3513', '0.6376', '0.7331']
+[03:29:23] Wrote Deliverable 2 (MD): /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-1-axis-discovery.md
+[03:29:23] Wrote Deliverable 2 (JSON): /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-1-axis-loadings.json
+[03:29:23] Deliverable 2 complete: /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-1-axis-discovery.md
+[03:29:23] === DELIVERABLE 3: Clustering ===
+[03:29:23] Running HDBSCAN (min_cluster_size=30)...
+[03:29:23] Expanded matrix for HDBSCAN fit: (22065, 4)

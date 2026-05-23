@@ -1,5 +1,11 @@
 # Dispatch — 2026-05-23 — legolas — Phase E-1 Pattern-6 canonical axis discovery + clustering (Mode A analytical)
 
+> **⚠️ SUPERSEDED 2026-05-23 by Phase-D-bis findings.** If you are legolas opening a fresh session today, **DO NOT EXECUTE THIS DISPATCH.** Pick up `dispatches/2026-05-23-legolas-phase-E-1-RERUN-corrected-pool.md` instead. This dispatch's methodology + acceptance criteria are still authoritative AS REFERENCED BY THE RERUN — but firing this dispatch against the pre-Phase-D-bis pool (16,699 rows) would re-execute on a substrate now known to be a `weapon_kind` filter artifact (per elrond E1 audit 2026-05-23). The corrected pool is 48,430 rows; the RERUN dispatch covers the fire against it.
+>
+> This file is preserved as historical record + reference (the RERUN dispatch points at this file's scope and acceptance criteria as the methodology anchor; only the pool changes).
+
+---
+
 **From:** knight-rider
 **To:** legolas (Mode A analytical research; PCA + factor analysis + clustering)
 **Approved by:** Matt 2026-05-23 (Phase D complete + verified; Phase E authorized)
