@@ -1,5 +1,7 @@
 # Per-Season Environmental Theming — Drift-15 Framework
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical.** Authored 2026-05-19 by gandalf under autonomous-operation authority (VS2a hive-mind protocol § 4.0). F3 deliverable per dispatch `agentic_orchestration/dispatches/2026-05-19-gandalf-vs2a-drift14-15-framework.md`. Gates F6 (legolas Mode B Drift-15 catalogue sweep Track A).
 
 **Companion docs:**

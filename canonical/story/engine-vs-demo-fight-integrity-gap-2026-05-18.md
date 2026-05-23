@@ -1,5 +1,7 @@
 # Engine-vs-Demo Fight-Integrity Gap — Diagnosis (2026-05-18)
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** Canonical diagnostic document. Captures a five-axis architectural gap between the engine's balance simulation, the Pixi.js demo's runtime, and the player's expectation of an ARPG combat experience. Load-bearing for Pattern-B commercial-direction dialogue (2026-05-19 morning), for any roadmap amendment that follows, and for any future "is the engine balanced?" claim.
 
 **Authority:** Matt (playtest findings + data analysis from /encounters tab); gandalf (synthesis, code-trace verification via Explore sub-agents, genre comparator framing).

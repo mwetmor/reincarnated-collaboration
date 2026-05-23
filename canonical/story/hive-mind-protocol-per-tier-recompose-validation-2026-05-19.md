@@ -1,5 +1,7 @@
 # Hive-Mind Operating Protocol — Per-Tier Convergence + Recompose Validation (the new tuning mechanism test)
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Authority:** Matt (mhwetmore@gmail.com), 2026-05-19 late evening — directive: *"Can you please author a new hive-mind to test this hypothesis and continue through with further development towards the new gauntlet as a tuning mechanism as you have laid out, finally testing a true season in this way?"*
 
 **Author:** gandalf (story-and-design steward).

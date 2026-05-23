@@ -1,5 +1,7 @@
 # Engine Rebuild — Gauntlet Sim Gap Solutions + Hypothesis Tests + Season-as-Emergent-Output (2026-05-19)
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** Canonical design doc. Authored by gandalf during Pattern-B parking decision evening. Captures: (1) six diagnosed gaps in the engine's gauntlet simulator with proposed solutions + measurable hypothesis tests for each; (2) the season-as-emergent-output concept Matt + gandalf surfaced together and now want to test. Companion to `canonical/story/engine-vs-demo-fight-integrity-gap-2026-05-18.md` (the diagnosis). Pattern-B-independent — these workstreams proceed regardless of commercial-direction commit.
 
 **Authority:** Matt (directive); gandalf (synthesis); gamora + rocket + star-lord + elrond + drax (executors when dispatched).

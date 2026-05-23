@@ -1,5 +1,7 @@
 # Audio Register Canon — Sonic Identity Lock for Reincarnated
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical-story design lock.** Authored 2026-05-17 by gandalf per dispatch `agentic_orchestration/dispatches/2026-05-17-gandalf-audio-register-sonic-identity-canon-queued.md` (Matt L3 audio research authorization 2026-05-17 late evening). Auto-fired after gandalf D11 post-mortem completion + legolas-4 audio vendor catalogue crawl completion (both shipped 2026-05-17). Canon-authoring scope; no tag.
 
 **Predecessor inputs (binding):**

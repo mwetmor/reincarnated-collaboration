@@ -1,5 +1,7 @@
 # Mobile vs PC — Pixel Sizing & Ratio Genre Canon
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Authority:** gandalf (story-and-design steward). Pattern B research commission per knight-rider dispatch `2026-05-17-gandalf-mobile-pc-pixel-sizing-ratios-commission.md` (Matt L3 commissioned 2026-05-17 ~15:30 EDT). Maiar-grade ARPG-genre knowledge synthesis with Legolas Mode B sub-commission pre-authorized.
 **Status:** **Canonical** transformation table for future mobile UI work (VS2b territory or later — NOT VS2a-gating). Drax consumes this when the mobile dispatch fires.
 **Companion docs:**

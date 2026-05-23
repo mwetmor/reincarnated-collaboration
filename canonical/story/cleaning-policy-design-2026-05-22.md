@@ -1,5 +1,7 @@
 # Cleaning-Policy Design Review — Weapon-Library Substrate Phase B
 
+> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — see `canonical/00-ground-state.md`
+
 **Date:** 2026-05-22 (late-evening — gandalf subagent fire, Pattern-A; following knight-rider dispatch + Matt approval)
 **Author:** gandalf (story-and-design steward; senior designer; design-track Phase B steward)
 **Status:** v1 canonical lock — Phase B policy review complete; all 7 dispatch review items addressed with concrete recommendations; math-anchored substrate-cleanliness bar derived

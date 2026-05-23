@@ -1,5 +1,7 @@
 # Engine Architecture Vision — QD-Optimization + Profile-Based Deployment (2026-05-19 late evening)
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical architectural target.** This document etches into stone the architectural synthesis that emerged 2026-05-19 evening through Matt + gandalf theory-crafting. It establishes:
 
 1. The **engine's architectural target** post-recompose-validation: Quality-Diversity (QD) optimization with profile-based deployment configuration

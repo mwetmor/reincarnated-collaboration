@@ -1,5 +1,7 @@
 # Pre-LLM Substrate Inventory
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** Canonical-story design doc. Authored 2026-05-16 (Day 4). Prerequisite for `canonical/story/form-bias-cadence-strategy.md` (form-bias-cadence commission). Sibling to `canonical/story/embodiment-narrative-layer.md` and `canonical/37-form-bias-diagnosis-and-recovery.md`.
 
 **Authored by:** gandalf (story + design steward), with code-accurate inventory pass by rocket (generation seam) filed at `agentic_orchestration/gandalf/findings/2026-05-16-pre-llm-substrate-rocket-pass.md`.

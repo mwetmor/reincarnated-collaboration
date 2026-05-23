@@ -1,5 +1,7 @@
 # ARPG Map Overlay — Research & Engineering Plan
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Authority:** Joint commission. Pattern B — two parallel streams. Matt L3 commissioned 2026-05-17 (~17:00 EDT).
 **Commission:** `agentic_orchestration/dispatches/2026-05-17-gandalf-drax-arpg-map-overlay-research-commission.md`
 **Authorship:** Sections 1-7 — gandalf (genre canon + design principles). Sections 8-13 — drax (engineering plan). § 14 — both (engineering OQs + design OQs).

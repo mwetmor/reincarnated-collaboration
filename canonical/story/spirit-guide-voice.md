@@ -1,5 +1,7 @@
 # The Spirit Guide — Voice and Register
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical.** Authored 2026-05-16 by gandalf. Locks the Spirit Guide's voice register, speech patterns, silence rules, and arc across a season. The most-referenced forward-loop in the canonical-story layer — consumed by `trial-moment-ritual.md`, `passage-moment-ritual.md`, `ascension-moment-ritual.md`, and every future LLM prompt that generates Spirit Guide content.
 
 **Why it exists:** the Spirit Guide is **the player's primary in-fiction relationship.** Without locked voice canonicalization, the Guide drifts toward UI-tooltip register at every LLM call. With this lock, the Guide remains the mythic-mentor presence the cosmology requires.

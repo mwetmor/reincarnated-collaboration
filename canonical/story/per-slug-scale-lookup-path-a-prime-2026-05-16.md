@@ -1,5 +1,7 @@
 # Per-Slug Scale Lookup Table — Path A-prime (ARPG ~100–130 px chierit baseline)
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical recommendation v2.** Authored 2026-05-16 by gandalf per knight-rider dispatch (`agentic_orchestration/dispatches/2026-05-16-gandalf-per-slug-scale-lookup-path-a-prime-v2.md`), Matt-approved at Day-4 close 2026-05-16: Path A-prime locked per ARPG-vs-JRPG reframing.
 
 **Supersedes:** `canonical/story/per-slug-scale-lookup-path-a-2026-05-16.md` (v1, Path A). v1 is preserved as historical record. All per-slug scale recommendations, tier ranges, and the chierit operational scale **change** in this v2. The schema additions (`width_or_height_priority`, nearest-neighbor enforcement, `tier_coherence_violation`) carry forward unchanged with strengthened criticality (more monsters now upscale at Path A-prime).

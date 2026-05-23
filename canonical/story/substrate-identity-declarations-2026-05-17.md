@@ -1,5 +1,7 @@
 # The Seven Substrate Identity Declarations
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Authority:** gandalf (story-and-design steward).
 **Status:** **Canonical Layer-1 declarations** for the canonical-7 substrate set. Each substrate's commitment manifest per the substrate-identity-declaration-spec.
 **Companion spec:** `substrate-identity-declaration-spec-2026-05-17.md` (the shape these declarations instantiate).

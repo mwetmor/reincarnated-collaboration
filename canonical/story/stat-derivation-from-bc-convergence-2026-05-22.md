@@ -1,5 +1,7 @@
 # Stat Derivation from BC Convergence — Replacement for "Traits Carry Stats"
 
+> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — see `canonical/00-ground-state.md`
+
 **Date:** 2026-05-22 (evening session; canonical lock)
 **Author:** gandalf (story-and-design steward; senior designer)
 **Status:** v1 canonical lock — stats reframed as derived projection of substrate convergence state; "traits carry stats" framework retired

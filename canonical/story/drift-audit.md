@@ -1,5 +1,7 @@
 # Drift Audit — Load-Bearing Pillars and Structural Enforcement
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical, ongoing.** Authored 2026-05-16 by gandalf. Initial inventory + drift-instance archive. Updated as new pillars surface, as drift instances are observed, and as structural enforcement is added or refined.
 
 **Why it exists:** **Discipline #13 (implicit-pillar drift) is the project's named primary structural risk** (per `canonical/37-form-bias-diagnosis-and-recovery.md` § 9.1). The pattern: design intent that isn't structurally enforced drifts during implementation; implementers reach for default schemas; the latent intent has no representation in code or process; drift goes unobstructed because there's nothing to alarm against. The counter: explicit structural enforcement of load-bearing pillars.

@@ -1,5 +1,7 @@
 # Substrate-Generalization Study — Track C Synthesis
 
+> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — see `canonical/00-ground-state.md`
+
 **Status:** CANONICAL — gandalf synthesis of rocket Track C resumption findings
 **Date:** 2026-05-21
 **Author:** gandalf

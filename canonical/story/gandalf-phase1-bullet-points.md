@@ -1,5 +1,7 @@
 # Phase 1 — Gandalf's Bullet Points
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Author:** gandalf
 **Date:** 2026-05-15
 **Status:** Phase 1 deliverable per agent definition. Pre-Legolas research. Subject to revision in Phase 2 once knowledge gaps are filled.

@@ -1,5 +1,7 @@
 # BDI ω/τ Tables v1 — 15-Archetype × 7-Element Starting Reference for H3 Calibration
 
+> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — see `canonical/00-ground-state.md`
+
 **Date:** 2026-05-22
 **Author:** gandalf (story-and-design steward; theoretical mathematician)
 **Status:** v1 starting values; empirical calibration via H3 hypothesis test (P1+ workstream W1.21)

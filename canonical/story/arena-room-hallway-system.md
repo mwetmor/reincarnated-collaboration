@@ -1,5 +1,7 @@
 # Arena Room/Hallway System — Diablo/PoE Interior Model
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical — Matt-approved 2026-05-16.** Authored 2026-05-16 by gandalf on Matt's direct directive: *"I would like rooms that are more similar to Diablo/PoE and they should connect to one another without enemy combatant aggro prior to entering each room (roughly, or a general aggro range which fits the screen). So I think the genre's style prefer's square rooms and rectangular hallways (when not in open air areas."*
 
 **Gating:** VS2a SHIP gate. Drax's demo arena work scales from "ellipse re-dimensioning" to "room/hallway geometry system" per this doc. Engine sim semantics (B10 V2) are unaffected.

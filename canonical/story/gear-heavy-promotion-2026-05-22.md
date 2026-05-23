@@ -1,5 +1,7 @@
 # Gear-HEAVY Promotion — Real Mechanical Substrate in v1 + Vast-Library Pivot
 
+> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — see `canonical/00-ground-state.md`
+
 **Date:** 2026-05-22 (evening session; canonical lock)
 **Author:** gandalf (story-and-design steward; senior designer)
 **Status:** v1 canonical lock — LITE framing retired; gear is real mechanical substrate in v1 at the derived-tag-plus-tier-hierarchy level; vast-library substrate pivot supersedes 15-entry hand-authored catalogue; WR-bracket-under-gear sequencing locked v1 vs v1.1+

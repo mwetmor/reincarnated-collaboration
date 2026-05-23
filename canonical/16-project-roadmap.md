@@ -1,5 +1,7 @@
 # 16 — Project Roadmap (forward-looking)
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Last updated:** 2026-05-21 (gandalf — QD-engine rebuild chapter added as next-major-initiative; VS2a/VS2b superseded by rebuild plan)
 
 **Stewardship:** Forward-looking roadmap stewardship sits with **gandalf** (story + design steward) — the WHY/WHAT. **Knight-rider** feeds the IS-vs-IS-STATED drift signal as a mechanical input. Mechanical updates by gandalf directly; recommendations touching locked design positions route through Matt via decisions-log Gate-1.

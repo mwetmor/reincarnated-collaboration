@@ -1,5 +1,7 @@
 # W1.13 Rescope Disposition — Scenario B Dual-Witness + Surface A Footnote
 
+> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — see `canonical/00-ground-state.md`
+
 **Date:** 2026-05-22
 **Author:** gandalf (story-and-design steward; critique-pair design lead)
 **Status:** AUTHORED — disposition path β (revise scope, retain commitment) committed under Matt pre-authorization D + critique-pair autonomous authority

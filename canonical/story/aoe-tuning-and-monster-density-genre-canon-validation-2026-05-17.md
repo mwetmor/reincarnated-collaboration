@@ -1,5 +1,7 @@
 # AOE Tuning + Monster Density — Genre-Canon Validation Briefing
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Authority:** gandalf (story-and-design steward). Pattern B briefing per knight-rider dispatch `2026-05-17-gandalf-aoe-tuning-genre-canon-validation.md` (Matt L3 routing decision 2026-05-17 — validate son's *"more monsters and more AOE moves"* feedback against ARPG canon BEFORE gamora hardcodes parameters into the post-D10 regen).
 **Audience:** Matt (L3 review); gamora (post-D10 regen parameter consumer); knight-rider (sequencing); drax (AOE-indicator visual character downstream).
 **Companion briefing:** `dodge-plus-telegraphed-combat-l3-briefing-2026-05-17.md` (the prior gandalf L3 brief; this briefing's § 5 hooks into that briefing's § 3 windup ranges).

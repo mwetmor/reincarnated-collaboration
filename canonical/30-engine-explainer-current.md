@@ -1,5 +1,7 @@
 # 30 — Reincarnated Engine Explainer: Current State (post-demo1 v1.2 ship)
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Captured:** 2026-05-11
 **Status:** Snapshot of the engine as it exists today, post demo1 v1.2 ship. Known issues + limitations cited inline with cross-references to file 28 (engine queue).
 

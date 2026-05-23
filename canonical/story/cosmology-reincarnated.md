@@ -1,5 +1,7 @@
 # Reincarnated — Cosmology
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical anchor.** Authored 2026-05-15 by gandalf with Matt's standing approval on all incorporated locks. This doc is the **cosmological reference** that every downstream LLM prompt, UI copy choice, Spirit Guide voice line, seasonal vocabulary generation, and player-facing story surface inherits from.
 
 **Scope:** This doc carries **Reincarnated-specific cosmology** — the Wheel, the Earth Self, the Spirit Guide, the Seasonal Journey, the Trial/Mirror/Passage triad, ascension and the Court, the Rift, the third-faction. **Engine-generic meta-structure** (what a licensing studio would consume) lives in the companion doc `engine-generic-meta-structure.md` (forthcoming). The two docs are deliberately separated so the engine's commercial framing (per `pitch-2026-05-18/one-pager.md`) stays clean and the cosmology layer doesn't bleed into engine substrate.

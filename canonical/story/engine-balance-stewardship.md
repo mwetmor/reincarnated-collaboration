@@ -1,5 +1,7 @@
 # Engine-Balance Stewardship
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical.** Authored 2026-05-16 by gandalf on knight-rider's commission (dispatch `agentic_orchestration/dispatches/2026-05-16-gandalf-engine-balance-stewardship.md`). Three gates addressed: AOE-philosophy View A/B/C lean; divergence floor/ceiling operational framing; movement speed in simulation. Grounded in `season-feel-rubric.md` + `drift-audit.md` foundations + Legolas's five-pass research.
 
 **Why it exists:** two seam-owners (gamora B10.4 milestone tag; drax v0.7-encounter-analytics dispatch) are blocked on engine-balance design decisions that have player-experience load-bearing implications. The gates are dressed-as-balance but eat at design-coherence. This doc surfaces gandalf-design-track stewardship recommendations grounded in genre research + the project's locked design pillars.

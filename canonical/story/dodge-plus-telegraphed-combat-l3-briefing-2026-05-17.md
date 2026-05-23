@@ -1,5 +1,7 @@
 # L3 Design Briefing — Dodge Mechanic + Telegraphed-Combat System
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Authority:** gandalf (story-and-design steward). L3 briefing per knight-rider dispatch 2026-05-17.
 **Audience:** Matt (L3 decision: Phase-1 P1 scope extension vs Phase-2 deferral).
 **Trigger:** Focused-playtest test 6 son feedback (2026-05-17) — son captured the missing-substrate from inside the engagement loop, in a single sentence Matt could not have written from outside: *"it would be way more fun if it seemed like the monsters could move out of range of your AOE and vice versa, if you could dodge roll out of the way, or run."*

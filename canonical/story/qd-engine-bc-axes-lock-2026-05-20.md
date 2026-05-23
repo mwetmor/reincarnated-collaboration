@@ -1,5 +1,7 @@
 # QD-Engine BC Axes — Locked Operational Specification
 
+> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — see `canonical/00-ground-state.md`
+
 **Status:** CANONICAL — locked through theory-craft session with Matt 2026-05-19/20
 **Author:** gandalf (story-and-design steward)
 **Companion to:** `canonical/story/engine-architecture-vision-qd-profile-2026-05-19.md`

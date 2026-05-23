@@ -1,5 +1,7 @@
 # Canonical reference docs
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Created 2026-05-12** as a split from `../collaboration-handoff/` to separate **active reference documents** (this folder) from **historical / working-discussion archives** (`../collaboration-handoff/`).
 
 These docs are the **load-bearing references** for ongoing engine work + design decisions. Read these first; everything else is context.

@@ -1,5 +1,7 @@
 # 34 — Monster design: Phase 0 vs production carry-forward
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** Active, captured 2026-05-13
 **Author:** Drafted in dialogue with Matt (Senior Architect)
 **Audience:** Anyone planning B-series work, future production transition, or gauntlet-related changes

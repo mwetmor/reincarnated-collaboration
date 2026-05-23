@@ -1,5 +1,7 @@
 # 37 — Form-bias diagnosis and structural realignment
 
+> **STATUS:** DEAD BRANCH (primary framing superseded — substrate-as-cohesion architecture lock 2026-05-19; form-bias is no longer the engine's core problem) — do NOT consult as current truth. See `canonical/00-ground-state.md`
+
 **Status:** Working document, **draft 3**. Draft 2 incorporated jack-ryan Gate 1 findings + Matt's first round of position-locks. Draft 3 adds the catalogue-based form-bias resolution path (Matt's 2026-05-16 design decision) and notes the open questions it empirically grounds or closes.
 
 **Last updated:** 2026-05-16 (draft 3)

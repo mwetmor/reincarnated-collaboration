@@ -1,5 +1,7 @@
 # Asymmetric Perceived AOE Radius — Phase-1 P1 Design Briefing
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Authority:** gandalf (story-and-design steward). Pattern B briefing per knight-rider dispatch `2026-05-17-gandalf-asymmetric-perceived-aoe-radius-briefing.md` (Matt L3 pre-sign-off design surface; "I believe Gandalf once told me Diablo/PoE converged on this pattern" — verbatim recall, 2026-05-17).
 **Audience:** Matt (L3 ratification at his convenience; non-blocking), knight-rider (cascade sequencing onto rocket → gamora → drax), rocket (schema field consumer), gamora (sim AI consumer), drax-demo (renderer consumer).
 **Companion briefings:**

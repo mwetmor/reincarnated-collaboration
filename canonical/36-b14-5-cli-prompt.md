@@ -1,5 +1,7 @@
 # 36 — B14.5 Recompose-First Claude CLI Agent Prompt
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Captured:** 2026-05-12
 **Purpose:** Copy-paste-ready prompt for the Claude CLI agent at the start of B14.5 (recompose-first iterative tuning loop) work. Primes the agent with the architectural context, nested-loop design lock, and engineering disciplines learned during KI-B6-1 resolution.
 

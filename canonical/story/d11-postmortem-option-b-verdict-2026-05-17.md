@@ -1,5 +1,7 @@
 # D11 Post-mortem + Option B verdict — STOP
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 > *[RETIRED OUTCOME — hybrid_mage RETIRED 2026-05-18 per canonical-6 transition; this reference is historical record. See `canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md` for retire verdict and rationale. See `reincarnated-engine/design/decisions/decisions-log.md` for the RETIRE entry.]*
 
 **Authority:** Matt L3 2026-05-17 late evening — explicit early-stop grant per dispatch `2026-05-17-gandalf-d11-postmortem-option-b-veto-authority.md`.

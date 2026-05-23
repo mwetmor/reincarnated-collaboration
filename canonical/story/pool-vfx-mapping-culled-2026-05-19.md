@@ -1,5 +1,7 @@
 # Pool × VFX Mapping — Culled-Pool Summary (Track B Re-Scoring Closure)
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical.** Filed 2026-05-19 by gandalf under autonomous-operation authority (VS2a hive-mind protocol § 4.0; pre-approval-batch authority Matt 2026-05-19). F5 Track B closure deliverable.
 
 **Dispatch:** `agentic_orchestration/dispatches/2026-05-19-legolas-plus-gandalf-vs2a-F5-drift14-pool-vfx-catalogue-audit.md`

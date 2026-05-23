@@ -1,5 +1,7 @@
 # Legacy Categorical Cleanup Audit — Six Vestigial-Pattern Retirements
 
+> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — see `canonical/00-ground-state.md`
+
 **Date:** 2026-05-22 (evening session; canonical audit)
 **Author:** gandalf (story-and-design steward; senior designer)
 **Status:** v1 canonical lock — six categorical-pre-imposition retirements audited, named, replaced; per-surface cleanup checklist scoped

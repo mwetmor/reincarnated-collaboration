@@ -1,5 +1,7 @@
 # 32 — Progression System Design Discussion
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Captured:** 2026-05-11
 **Status:** Design discussion document — covers character progression layer that the engine queue (file 28) has gaps around. **B9 series built the endgame math (level=50 baseline, 120 skill points, trait floors at 1/12/25/38, max rank 4) but NOT the surrounding progression scaffold** (XP mechanism, stat allocation, enemy level scaling, multi-band sim, gear tier curves, trait acquisition UX, death penalty, per-act content scaling).
 

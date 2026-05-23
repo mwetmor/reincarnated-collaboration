@@ -1,5 +1,7 @@
 # Tier 4 Architecture Defaults — T4-A Design Pass
 
+> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — see `canonical/00-ground-state.md`
+
 **Date:** 2026-05-22
 **Author:** gandalf (story-and-design steward; senior designer)
 **Status:** v1 defaults adopted under Matt 2026-05-22 pre-authorization C; open questions surface for next design call

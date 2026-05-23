@@ -1,5 +1,7 @@
 # Embodiment-Narrative Display — Loadout-Side Spec
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** Canonical-story design spec. Authored 2026-05-16 (Day 4 close) by gandalf at Matt's authorization. Locks the visual structure, naming surface, narrative-beat conventions, and engine emission requirements for the VS2b loadout-side embodiment-narrative display. Scoped to loadout-first; demo-side surface is post-VS2b (VS2c+).
 
 **Why this spec exists.** Form-bias Stage 1 shipped today (embodiment-axis additive field on `PlayerClass`). The engine can now describe non-humanoid embodiment in schema. Display surface to make that reality visible to the player does NOT yet exist anywhere. Per P6 forward audit § VS2b embodiment-display (CRITICAL severity) and gandalf council response (Q4 today): loadout-first, narrative-beat-first, demo follows.

@@ -1,5 +1,7 @@
 # Substrate Expansion — Canonical-Four → Six Substrates
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical decision-record.** Authored 2026-05-17 by gandalf following Matt's Branch A confirmation of the substrate-expansion escalation. Captures the gate question, options surveyed, decision, substrate cosmology integration, deferred questions for Phase-1 P1 scoping, VS2a/VS2b boundary, and the standing vocab-freeze constraint.
 
 **Author authority:** gandalf canonical-story / design-direction seam.

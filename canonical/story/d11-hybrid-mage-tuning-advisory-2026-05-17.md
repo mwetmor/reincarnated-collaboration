@@ -1,5 +1,7 @@
 # D11 — Hybrid_mage tuning advisory (ARPG-balance direction)
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 > *[RETIRED OUTCOME — hybrid_mage RETIRED 2026-05-18 per canonical-6 transition; this reference is historical record. The identity-preservation argument in this advisory is retracted; the RETIRE clause in the D11.2 advisory § 6 is activated. See `canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md` for retire verdict and rationale. See `reincarnated-engine/design/decisions/decisions-log.md` for the RETIRE entry.]*
 
 **Authority:** Matt L3 2026-05-17 evening — "Invoke Gandalf for decision as to how to tune sprint towards ARPG balance."

@@ -1,5 +1,7 @@
 # Audio Strategy — Phase 0
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical — Matt-delegated 2026-05-16; gandalf-decided 2026-05-16.** Authored 2026-05-16 by gandalf to close the audio scope gap surfaced as Pattern P6.b (audio entirely unscoped) in `canonical/story/p6-forward-audit-2026-05-16.md`. Matt's delegation: *"Your call on audio. I havent thought about it. Music can be pushed back as far as possible as I have been solving for that by inserting seasonal flavor text into free AI music generators. I have no idea how to scope sound effects."*
 
 **Companion docs:**

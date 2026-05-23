@@ -1,5 +1,7 @@
 # VS2a Kit-Redesign Approach — Path Decision
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **DECIDED.** Authored 2026-05-19 by gandalf under autonomous-operation L2-equivalent authority (Matt directive 2026-05-19; protocol § 4.0; F2 dispatch).
 **Tag fires on this disposition:** `vs2a/v0.5-kit-redesign-approach-decided`.
 **Predecessors:** `r1-kit-redesign-queue-2026-05-19.md` (§ 5 path alternatives); `R1-blocker-3-disposition-2026-05-19.md` (encounter recalibration); `r8-disposition-2026-05-19.md` (Sub-case 3 / `inverted` default committed); `r2-h1-disposition-2026-05-19.md` (category-of-completion precedent).

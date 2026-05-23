@@ -1,5 +1,7 @@
 # R1 Kit-Redesign Queue — Catalogue Pathology Surfaced by R1 Disposition Sequence
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** Canonical-story doc. Authored by gandalf 2026-05-19 under autonomous-operation authority (Matt directive 2026-05-19; protocol § 4.0).
 
 **Trigger:** gamora's R1 retune sprint v2 (engine commit `2546180`) demonstrated 0/51 boss kills across the shipped class catalogue under the disposition-1 corrected (kills-only) semantic. Inspection of representative classes confirmed the failure is kit-architectural, not modifier-tuning. The disposition-3 encounter recalibration (`R1-blocker-3-disposition-2026-05-19.md`) makes the gate REACHABLE for well-designed kits; this doc captures the kit pathology pattern that disposition-3 cannot fix and frames the redesign work for VS2a/VS2b roadmap consumption.

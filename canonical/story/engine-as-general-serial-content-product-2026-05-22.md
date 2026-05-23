@@ -1,5 +1,7 @@
 # Engine as General Serial-Content Product — Strategic Reframe + Variant C Architecture
 
+> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — see `canonical/00-ground-state.md`
+
 **Date:** 2026-05-22 (evening session, post-P0-close)
 **Author:** gandalf (story-and-design steward; senior designer)
 **Authority:** Matt 2026-05-22 (this session) — explicit strategic reframe: "the engine's use cases have grown far beyond reincarnated-game, and we need to expand the capability of the engine to produce coherence and distinctness for serial content production. We can then add flags/gates to produce the reincarnated-game variant."

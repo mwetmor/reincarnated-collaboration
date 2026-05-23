@@ -1,5 +1,7 @@
 # R2 H1 Disposition — Geometry-Type WR Divergence (Instrument-Limited PASS)
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Date:** 2026-05-19
 **Author:** gandalf (story-and-design steward)
 **Authority:** AUTONOMOUS-OPERATION per protocol § 4.0 + dispatch

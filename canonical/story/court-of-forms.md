@@ -1,5 +1,7 @@
 # Court of Forms — Reincarnated's End-Game Spine
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical.** Locked 2026-05-15 by Matt in Pattern B dialogue with gandalf. Supersedes any prior "form library as gacha-roster" / "gallery" framing.
 
 **Companion docs:**

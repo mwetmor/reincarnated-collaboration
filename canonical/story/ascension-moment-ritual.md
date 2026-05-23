@@ -1,5 +1,7 @@
 # The Ascension Moment — Ritual and Presentation
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical.** Authored 2026-05-15 by gandalf. Third doc in the ritual trilogy (Trial / Passage / Ascension). Captures the presentational design intent for the once-per-season climax — the moment the form alive at season-end joins the Earth Self's Court.
 
 **Why it exists:** the ritual trilogy is the project's three load-bearing player-perception moments. Without Ascension's ritual canonicalized, the trilogy is incomplete and the season's climactic moment risks shipping as a fade-to-roster-screen rather than landing as the cosmological completion it is mechanically. Discipline #13 application at the season-climax layer.

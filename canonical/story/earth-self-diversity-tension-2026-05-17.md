@@ -1,5 +1,7 @@
 # Earth-Self Diversity Tension — Resolution: Court-as-Grace
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical decision-record.** Authored 2026-05-17 by gandalf following Matt's resolution-call on the Earth-Self diversity tension surfaced by independent convergence of (a) the diversity-architecture literature pass (Legolas Mode A, 2026-05-17, Finding 3) and (b) the contemplative-wait reflection set (gandalf, 2026-05-17, Reflection VII).
 **Decision authority:** Matt (mhwetmore@gmail.com), 2026-05-17 — selected **Court-as-grace** resolution.
 **Author authority:** gandalf canonical-story / design-direction seam.

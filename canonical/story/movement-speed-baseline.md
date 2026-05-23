@@ -1,5 +1,7 @@
 # Movement-Speed Baseline — Tier-1 ARPG Anchor for VS2a
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical — Matt-approved 2026-05-16; revised 2026-05-16 (Day 4 close).** Authored 2026-05-16 by gandalf on Matt's direct directive: *"I don't want to ship demo VS2a without this. The actual per-tile movement speed for the player should be exactly set on the Tier 1 ARPG AVG dimension. We may use different tile sizes, or not use tiles at all."* **Revised same day** per Matt verdict reversal: VS2a default rebased from mid-game (7.5 m/s) to end-game (8.0 m/s); sim consumption moved from "post-VS2a tight follow" to "VS2a-gating." See § "Verdict reversal 2026-05-16 (Day 4 close)" below — that section's operational values supersede the locked-values table for VS2a.
 
 ---

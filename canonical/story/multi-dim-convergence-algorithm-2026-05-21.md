@@ -1,5 +1,7 @@
 # Multi-Dim Convergence Algorithm — QD-Engine W1.13 Architectural Spec
 
+> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — see `canonical/00-ground-state.md`
+
 **Status:** v1.1 — amended 2026-05-21 with legolas ARPG-canon survey findings + Matt-flagged Tier 1 playability constraint + Q4 substrate-availability framing + procedural-seasonal-arc deliberate-departure framing; § 1.2 revised 2026-05-22 from TRIPLE-WITNESS → DUAL-WITNESS + Surface A footnote per LC-011 recovery (Scenario B; critique-pair disposition under Matt pre-authorization D)
 **v1 history:** v1 authored 2026-05-21; legolas commission concurrent (per `agentic_orchestration/dispatches/2026-05-21-legolas-arpg-skill-architecture-canon-survey.md`); v1.1 folds 8 amendment areas; 2026-05-22 § 1.2 revision per critique-pair dispatch `agentic_orchestration/dispatches/2026-05-22-critique-pair-post-recovery-w07-gate2-w113-rescope-p0-close.md`
 **Author:** gandalf

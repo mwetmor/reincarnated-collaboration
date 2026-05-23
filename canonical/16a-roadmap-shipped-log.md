@@ -1,5 +1,7 @@
 # 16a — Roadmap Shipped Log
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Purpose:** Historical record of what's shipped, sub-progress detail, closed/locked decisions. Companion to `16-project-roadmap.md` (forward-looking).
 
 **Stewardship:** gandalf appends to this doc when sub-items close. Append-only by convention; corrections via strike-through rather than deletion.

@@ -1,5 +1,7 @@
 # 35 — Stage A2 Claude CLI Agent Prompt
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Captured:** 2026-05-12
 **Purpose:** Copy-paste-ready prompt for the Claude CLI agent at the start of Stage A2 work. Primes the agent with the architectural context, constraints, and engineering disciplines needed to execute the ARPG-genre coordinated sprint without breaking existing systems.
 

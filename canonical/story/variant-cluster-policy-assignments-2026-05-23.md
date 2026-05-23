@@ -1,5 +1,7 @@
 # Variant-Cluster Policy Assignments — Phase A → Phase D Bridge
 
+> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — see `canonical/00-ground-state.md`
+
 **Date:** 2026-05-23
 **Author:** gandalf (in-flight Matt+gandalf review per cleaning-policy-design § 6.3)
 **Inputs:**

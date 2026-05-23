@@ -1,5 +1,7 @@
 # Mobile UX Execution Plan — 2026-05-17
 
+> **STATUS:** DEAD BRANCH (primary framing superseded — D1 PC/console-first lock 2026-05-23; mobile-port deferred to +6 months) — do NOT consult as current truth. See `canonical/00-ground-state.md`
+
 **Authority:** Drax (drax). Pattern B engineering-plan artifact. Commissioned 2026-05-17 by knight-rider per Matt L3.
 **Scope window:** VS2b territory or later — NOT VS2a-gating. This document is the plan; implementation fires via separate dispatches.
 **Commission:** `agentic_orchestration/dispatches/2026-05-17-drax-demo-mobile-ux-research-and-plan-commission.md`

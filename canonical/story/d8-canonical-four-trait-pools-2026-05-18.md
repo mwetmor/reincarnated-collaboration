@@ -1,5 +1,7 @@
 # D8 (companion) — Canonical-Four Intrinsic Trait Pools
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Authority:** gandalf (story-and-design steward; trait-identity authoring authority per scope-of-work § 1.2 D8 expansion authorized by Matt 2026-05-18 — Option I per `agentic_orchestration/hive-mind/canonical-four-trait-pool-l3-decision-2026-05-18.md`).
 
 **Status:** **Canonical design** for Phase-1 P1 Deliverable 8 expansion. Companion to `d8-trait-floor-design-phase-1-p1.md` (the three new-substrate pools); together the two docs constitute the canonical-7 substrate-symmetric intrinsic trait architecture. Companion to canonical 32 § 4 (trait architecture) + `substrate-identity-declarations-2026-05-17.md` § 1-4.

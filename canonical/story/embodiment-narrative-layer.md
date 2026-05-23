@@ -1,5 +1,7 @@
 # Embodiment Narrative Layer
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical.** Authored 2026-05-15 by gandalf. Captures the embodiment-aware narrative skinning that *three* primary consuming surfaces require: **gear-slot names per doc 37 § 4 Position C**, **Court class-role labels per `court-of-forms.md` C8**, and (added 2026-05-16) **energy-type names per the three-tier system landed by rocket's B6 pre-work**.
 
 **Why it exists:** doc 37 locked Position C (slot-as-functional-mechanic + embodiment-as-narrative-skin) — mechanical sameness across embodiments, narrative variance. court-of-forms.md C8 locked the dual-label pattern for Court class-roles — universal function tag + embodiment-flavored name. Rocket's B6 pre-work (2026-05-16) established the energy_type three-tier balance system (mana / combo-focus / rage at tiers 50 / 58 / 65). All three surfaces need a canonical reference for *what humanoid vs slime vs swarm vs etc. CALL their gear / their roles / their parts / their energy-source.* Without that reference, the locks are pattern-only; with it, they're implementable.

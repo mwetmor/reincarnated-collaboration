@@ -1,5 +1,7 @@
 # Phase-1 P1a Perception Test — Experiment Scoping
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Authority:** gandalf (story-and-design steward), per Legolas Mode A literature pass top recommendation.
 **Status:** Phase-1 P1a prerequisite experiment scoping. **Must complete before Layer-3 (mirror-match diversity gate) is coded.**
 **Companion artifacts:** `substrate-identity-declarations-2026-05-17.md` (the 7 declarations the experiment exercises); `archetype-coupling-archaeology-2026-05-17.md` (the convergence vectors the experiment validates); `agentic_orchestration/research/knowledge/diversity-architecture-literature-pass-2026-05-17.md` (Legolas Finding A + B — the motivating literature).

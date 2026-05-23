@@ -1,5 +1,7 @@
 # Substrate Identity Declaration — Specification
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Authority:** gandalf (story-and-design steward).
 **Status:** **Canonical Layer-1 specification** for the five-layer diversity architecture's foundation. Defines the data shape and authorship discipline for substrate identity declarations.
 **Companion docs:** `substrate-expansion-decision-2026-05-17.md` (the substrate set this spec instantiates against); `earth-self-diversity-tension-2026-05-17.md` (Court-as-grace resolution; introduces `court_resonance` field); `archetype-coupling-archaeology-2026-05-17.md` (the convergence vectors this spec defends against); `grouping-layer-vocabulary.md` (L2 grouping vocabulary; this spec extends it).

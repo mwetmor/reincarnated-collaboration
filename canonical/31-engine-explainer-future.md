@@ -1,5 +1,7 @@
 # 31 — Reincarnated Engine Explainer: Future State (post-file-28 engine queue)
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Captured:** 2026-05-11
 **Last updated:** 2026-05-12 (consolidated additions section below; base content below preserved but partially superseded by Section 1-12 progression locks)
 **Status:** Forward-looking projection of the engine as it will exist once file 28's engine queue is implemented. Represents the design synthesis from project conversations 2026-05-10/11/12. Treat as **target state**, not committed implementation.

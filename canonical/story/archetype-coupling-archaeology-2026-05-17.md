@@ -1,5 +1,7 @@
 # Archetype Coupling Archaeology — 2026-05-17
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Authority:** gandalf (story-and-design steward), commissioning Explore agents for systematic engine walks.
 **Status:** audit-traceable archaeology record of archetype-keyed coupling sites in the Reincarnated engine, captured at the substrate-expansion + diversity-architecture decision commitment moment.
 **Companion artifacts:** `substrate-coupling-archaeology-2026-05-17.md` (13 substrate-keyed sites) + `wide-net-coupling-archaeology-2026-05-17.md` (14 additional sites across 17 construct categories). This doc covers **archetype-keyed coupling specifically** (sites where archetype templates, dispatch logic, or per-archetype data structures are hardcoded).

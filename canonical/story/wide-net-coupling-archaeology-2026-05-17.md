@@ -1,5 +1,7 @@
 # Wide-Net Engine Coupling Archaeology — 2026-05-17
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Authority:** gandalf (story-and-design steward), commissioning an Explore agent for systematic engine walk.
 **Status:** audit-traceable archaeology record. Captures the coupling state of the engine at the time the substrate-expansion + five-layer-diversity-architecture decision was being committed.
 **Companion artifacts:** `substrate-coupling-archaeology-2026-05-17.md` (13 substrate-keyed coupling sites) and `archetype-coupling-archaeology-2026-05-17.md` (10 archetype-keyed coupling sites). This doc captures the **14 additional sites surfaced beyond those two clusters.**

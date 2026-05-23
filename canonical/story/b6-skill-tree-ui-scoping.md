@@ -1,5 +1,7 @@
 # B6 Skill-Tree UI Scoping Spec
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** Canonical-story design spec. Authored 2026-05-16 (Day 4 close) by gandalf at Matt's authorization. Locks the visual shape, node states, unlock-gate visualization, and implementation expectations for B6's player-facing skill-tree surface. Scoped to VS2a read-only ship + forward-compat hooks for Stage A3 player-controlled SP allocation.
 
 **Why this spec exists.** Per P6 forward audit § B6 (CRITICAL severity), the engine will emit tree-shaped data via B6 schema fields (`tier`, `chain_id`, `chain_position`, `parent_skill_ids`, `scaling_coefficient`) and the demo has no surface to render that data. Without this spec, drax improvises a tree shape under VS2a ship pressure; the result drifts from B6 engine semantics (Discipline #13a risk) and the playtest signal on skill-tree UI comprehensibility (Playtest Cycle 1 criterion) becomes invalid.

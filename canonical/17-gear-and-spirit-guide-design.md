@@ -1,5 +1,7 @@
 # Gear System and Spirit Guide Architecture — Design
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Last updated:** 2026-05-09 base + 2026-05-12 supersession notes (see "Updates 2026-05-11/12" section immediately below)
 
 ## Status

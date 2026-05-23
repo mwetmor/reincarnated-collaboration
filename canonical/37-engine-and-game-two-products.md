@@ -1,5 +1,7 @@
 # 37 — Engine and Game: Two Distinct but Combinable Products
 
+> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — see `canonical/00-ground-state.md`
+
 **Status:** Active, captured 2026-05-15
 **Author:** Drafted in dialogue with Matt (Senior Architect)
 **Audience:** Project team, potential industry partners, future Matt

@@ -1,5 +1,7 @@
 # The Passage Moment — Ritual and Presentation
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical.** Authored 2026-05-15 by gandalf as the companion ritual doc to `trial-moment-ritual.md`. Captures the presentational design intent for the Passage — the offered crossing at death — the harsh-moment counterpart to the Trial's dramatic-core.
 
 **Why it exists:** `trial-moment-ritual.md` canonicalized the joyful/dramatic ritualization. The Passage requires equal canonical treatment for the opposite-register moment. Without parallel design intent at both ritual surfaces, the Passage drifts toward "generic ARPG death-penalty" rather than landing as "the Wheel's harshest mechanic." Discipline #13 application at the Passage layer.

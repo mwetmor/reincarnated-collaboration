@@ -1,5 +1,7 @@
 # Sprite-Scale Math-Impossibility Rulings — VS2a CreativeKind Monster Pool
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical rulings.** Authored 2026-05-16 by gandalf per knight-rider dispatch (`agentic_orchestration/dispatches/2026-05-16-gandalf-math-impossibility-rulings.md`), Matt-approved at Day 4 close.
 
 **Purpose:** Resolve the four mathematical-impossibility cases legolas pixel-scale research (`agentic_orchestration/research/knowledge/character-monster-pixel-scale-2026-05-16.md` § 4c) surfaced, where intrinsic source-sheet pixel dimensions make the per-tier render target either impossible without unacceptable quality loss, or impossible without a tier-coherence violation.

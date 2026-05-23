@@ -1,5 +1,7 @@
 # Apex Director Debrief — Cement-Deep-Season Strategic Reframe (2026-05-18)
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** Canonical reference. Preserves the strategic reframe from Matt's 30-minute afternoon Zoom with a senior marketing executive at Apex Legends (formerly Destiny). **Not a commitment to any specific commercial direction** — captures the option space + the Director's framing in his words for future Pattern-B dialogue.
 
 **Authority:** Matt (meeting + debrief); gandalf (synthesis + strategic-options framing).

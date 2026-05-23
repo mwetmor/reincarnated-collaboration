@@ -1,5 +1,7 @@
 # Mobile feel target — Dungeon of Exile (DoE) anchor
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Authored:** 2026-05-17 by gandalf, immediately following Matt's 15-minute play session of Dungeon of Exile and gameplay screenshot capture.
 
 **Status:** Canonical reference for mobile feel; amendable as Matt plays more DoE (or other cluster titles) and reports new observations.

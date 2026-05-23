@@ -10,6 +10,8 @@
 
 # R2 + ST Counterfactual Investigation — Findings Memo
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Date:** 2026-05-19 (evening)
 **Author:** gandalf (story-and-design steward)
 **Phase:** D wrap — joint synthesis + design disposition

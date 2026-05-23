@@ -1,5 +1,7 @@
 # Gear Substrate Rule-Table v1 — Substrate-Vector × Gear-Substrate Mapping for W1.15
 
+> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — see `canonical/00-ground-state.md`
+
 **Date:** 2026-05-22 (authored under G1-LITE framing) / amended 2026-05-22 evening (gear-heavy + archetype-drop + role_orientation-drop reframe)
 **Author:** gandalf (story-and-design steward; senior designer)
 **Status:** v1 rule-table SURFACE-CLEANED for naming + scope; FULL-RESTRUCTURE PENDING in tomorrow's canonical doc session (sections 4-9 still carry 252-combination v0.9 structure; 63-combination v1 restructure pending under role_orientation drop)

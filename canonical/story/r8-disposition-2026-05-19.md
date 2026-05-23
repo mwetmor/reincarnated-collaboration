@@ -1,5 +1,7 @@
 # R8 Disposition — Coalescence-First Pipeline + Cost-Mode Decision
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Date:** 2026-05-19
 **Author:** gandalf
 **Authority:** Autonomous-operation per protocol § 4.0 + dispatch

@@ -1,5 +1,7 @@
 # Gauntlet Arena Scenarios — Magic / Elite / Mini-boss Tier Definitions
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** CANONICAL design spec — authored 2026-05-21 by gandalf (story-and-design steward)
 **Owner:** gandalf (design authority); gamora (Phase 2 implementer in `arena.py`)
 **Trigger:** Gamora math note `simulation/math/gauntlet-migration-arena-equivalence.md` § 6.3 (A8) — Phase 2 implementation cannot complete W0.9.2 without magic/elite/mini-boss scenario definitions.

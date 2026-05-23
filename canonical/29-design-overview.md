@@ -1,5 +1,7 @@
 # 29 — Reincarnated: Engine Architecture and Game Scope
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** Strategic anchor document. Adopted into project 2026-05-11 from a working draft. Captures concepts discussed; partial post-demo1 reconciliation applied. Sections marked TBD remain genuine open decisions.
 
 **Last updated:** 2026-05-12 (adopted 2026-05-11; locks through 2026-05-12: 3-act lock, Earth meta-layer framing, progression-design Section 1-12 closures via file 32 + file 33, Stage restructure A1-A7 via file 16)

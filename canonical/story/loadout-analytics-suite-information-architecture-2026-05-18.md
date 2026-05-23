@@ -1,5 +1,7 @@
 # Loadout Analytics Suite — Information Architecture (Iteration 1)
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Authority:** gandalf (story-and-design steward), per overnight sprint Track B § 2.2 deliverable 5.
 **Status:** **DRAFT-AS-AUTHORED — sufficient to unblock downstream** (star-lord, elrond, drax). Iterations 2/3 refine after first-pass impl lands.
 **Pattern:** B (Matt-approval not blocking; pre-authorization matrix § 6 row 11 covers new canonical-story docs).

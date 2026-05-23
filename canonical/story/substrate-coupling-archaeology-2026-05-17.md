@@ -1,5 +1,7 @@
 # Substrate Coupling Archaeology — 2026-05-17
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Authority:** gandalf (story-and-design steward), commissioning Explore agents for systematic engine walks.
 **Status:** audit-traceable archaeology record of substrate-keyed coupling sites in the Reincarnated engine, captured at the substrate-expansion + diversity-architecture decision commitment moment.
 **Companion artifacts:** `archetype-coupling-archaeology-2026-05-17.md` + `wide-net-coupling-archaeology-2026-05-17.md`. This doc covers **substrate-keyed coupling** specifically (sites where canonical-four element labels are hardcoded).

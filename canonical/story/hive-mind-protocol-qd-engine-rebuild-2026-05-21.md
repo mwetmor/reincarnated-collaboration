@@ -1,5 +1,7 @@
 # Hive-Mind Protocol — QD-Engine Rebuild
 
+> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — see `canonical/00-ground-state.md`
+
 **Status:** v1.3 (amended 2026-05-22 — folds 2026-05-21 evening protocol amendments + 2026-05-22 W1.13 rescope)
 **v1.0 → v1.1 changes:** D1-D6 resolutions, substrate-as-cohesion recommitment, W0.9 + W0.10 additions, W1.13 added per math note
 **v1.1 → v1.2 changes (per coherence review 2026-05-21):** P1 W1.13 explicit + Tier 1 playability + substrate quantitative target; P2 T_AXIS_SENS calibration; P3 kit_specification format; **P4 trigger interaction + Tier 4 keystone sim support (significant scope addition)**; **P5 reframed as empirical-validation phase for substrate-as-cohesion architecture (epistemic correction per Matt 2026-05-21 catch)**; P6 Profile A export format; P7 Pattern-A residual measurement + v2 trajectory documentation; § 1.3 v2 canonical-parity expansion as out-of-current-hive-scope

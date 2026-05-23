@@ -1,5 +1,7 @@
 # D11.2 Structural Redesign Advisory — hybrid_mage floor-pin escape
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 > *[RETIRE outcome triggered — RETIRE clause per § 6 of this advisory is ACTIVATED per Matt L3 verdict 2026-05-18. hybrid_mage RETIRED from canonical-7; canonical-6 transition complete. This advisory is historical record of the lever-shape work that preceded the retire verdict. See `canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md` for full context. See `reincarnated-engine/design/decisions/decisions-log.md` for the RETIRE entry.]*
 
 **Author:** gandalf (story-and-design steward).

@@ -1,5 +1,7 @@
 # Audio Scoping Framework — Sub-Axis Decomposition + Phase-1 Decision Surface
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical-story design framework.** Authored 2026-05-16 (Day 4 evening) by gandalf on Pattern-A commission from knight-rider (Matt-authorized 2026-05-16). Companions and supersedes (in framing scope) the same-day `audio-strategy-phase0.md`: that doc closed the immediate P6.b deferral question (music + SFX → Phase-1+); this doc decomposes WHAT audio is — at the sub-axis level — so Phase-1 scoping does not inherit a re-occurrence of P6 (audio-as-atomic-deferral) one milestone later.
 
 **Why both docs exist:**

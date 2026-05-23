@@ -1,5 +1,7 @@
 # 16b — Roadmap Archive: Restructures and Scope Migrations
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Purpose:** Meta-history of major roadmap restructures, scope migrations, and stage-numbering shifts. Companion to `16-project-roadmap.md` (forward-looking) and `16a-roadmap-shipped-log.md` (shipped record).
 
 **Stewardship:** gandalf appends to this doc when a structural restructure happens. Rarely consulted; preserves audit trail for "why did this stage move?"-type questions.

@@ -1,5 +1,7 @@
 # Substrate Design Supplement — Substrate-as-Cohesion-Only Architecture
 
+> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — see `canonical/00-ground-state.md`
+
 **Status:** CANONICAL — architectural recommitment 2026-05-21
 **Author:** gandalf
 **Companions:**

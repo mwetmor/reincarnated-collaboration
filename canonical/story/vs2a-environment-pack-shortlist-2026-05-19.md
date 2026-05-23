@@ -1,5 +1,7 @@
 # VS2a Environment Pack Shortlist — Drift-15 Track B
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical for VS2a M1.** Authored 2026-05-19 by gandalf under autonomous-operation authority (VS2a hive-mind protocol § 4.0; Matt pre-approval-batch 2026-05-19). Drift-15 Track B deliverable per F3 framework `canonical/story/per-season-environmental-theming-2026-05-19.md` § 3.2.
 
 **Gates closed:** Track A (legolas F6 scout) + Track B (this doc).

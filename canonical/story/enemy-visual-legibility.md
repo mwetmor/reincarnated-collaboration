@@ -1,5 +1,7 @@
 # Enemy Visual Legibility — Player-Perception Architecture
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical.** Authored 2026-05-15 by gandalf on Matt's commission after family-playtest finding surfaced. Cross-seam architectural reference for engine generation (rocket), demo rendering (drax), LLM image generation (star-lord), and design-coherence enforcement.
 
 **Triggered by:** demo1 family-playtest finding (Matt, 2026-05-15) — *enemies looked the same as player combatants, made larger.* This is a load-bearing player-experience failure; the design rejects it as canonical anti-pattern. This doc names the failure, locks the corrective architecture, and assigns the cross-seam responsibilities.

@@ -1,5 +1,7 @@
 # 00 — Ground State Oracle
 
+> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — this doc IS the oracle; see Section 1 for the current-truth table
+
 **Status:** LIVING. This is the **first read for every agent on every invocation.**
 **Last updated:** 2026-05-23 (gandalf, post D1-D10 lock)
 **Update protocol:** edited whenever epoch shifts. Authored / maintained by gandalf.

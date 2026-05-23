@@ -1,5 +1,7 @@
 # D8 — Trait-Floor Design for Three New Substrate Archetypal Classes
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Authority:** gandalf (story-and-design steward; trait-identity authoring authority per scope-of-work § 1.2 D8).
 **Status:** **Canonical design** for Phase-1 P1 Deliverable 8. Companion to canonical 32 § 4 (trait architecture) + `substrate-identity-declarations-2026-05-17.md`.
 **Companion downstream:** Deliverable 9 (gear-affix design) extends the same identity surface to gear; see `d9-gear-affix-design-phase-1-p1.md`.

@@ -1,5 +1,7 @@
 # The Naming Triad — Trial / Mirror / Passage
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical.** The triad is locked per Matt's approval 2026-05-15 in Pattern B dialogue with gandalf (originally accepted from Phase 2 proposal). This doc finalizes the triad with per-season vocabulary-variation guidance, operational rules for where the universal frame surfaces vs where seasonal flavor surfaces, and LLM prompt-construction integration with the doc 37 § 6 cipher architecture.
 
 **Supersedes** in player-facing surfaces:

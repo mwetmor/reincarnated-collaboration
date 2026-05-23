@@ -1,5 +1,7 @@
 # 33 — Progression Skeleton (immutable + decided only)
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Captured:** 2026-05-11
 **Status:** Empty skeleton tracking the **structural shape** of Reincarnated's progression system. Contains ONLY (a) immutable substrate from `foundation.md` and (b) decisions already locked. Everything still under discussion lives in **`32-progression-design.md`** — when a decision lands there, it migrates here as a filled section.
 

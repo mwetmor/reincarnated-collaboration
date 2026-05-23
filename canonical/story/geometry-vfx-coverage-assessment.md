@@ -1,5 +1,7 @@
 # Geometry × Element VFX Coverage — Gap Severity Assessment
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Author:** gandalf
 **Date:** 2026-05-16 (Day 4)
 **Commission:** `agentic_orchestration/gandalf/requests/2026-05-16-geometry-vfx-coverage-investigation-b11-gating.md` Track 4

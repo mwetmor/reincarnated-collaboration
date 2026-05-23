@@ -1,5 +1,7 @@
 # Per-Tier Recompose Validation — Canonical Findings (recompose-validation hive P3 synthesis)
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** Canonical-story doc. P3 deliverable per `canonical/story/hive-mind-protocol-per-tier-recompose-validation-2026-05-19.md` § 3 P3 + dispatch `agentic_orchestration/dispatches/2026-05-20-gandalf-plus-jack-ryan-p3-validation-synthesis.md` § 3.1.
 
 **Author:** gandalf (story-and-design steward).

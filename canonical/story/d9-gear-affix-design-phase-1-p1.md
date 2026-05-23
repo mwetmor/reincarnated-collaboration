@@ -1,5 +1,7 @@
 # D9 — Gear-Affix Design for Three New Substrates
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Authority:** gandalf (story-and-design steward; gear-affix-identity authoring authority per scope-of-work § 1.2 D9).
 **Status:** **Canonical design** for Phase-1 P1 Deliverable 9. Companion to canonical 17 (gear-and-spirit-guide-design) + D8 (trait-floor design).
 **Companion upstream:** Deliverable 8 — `d8-trait-floor-design-phase-1-p1.md`. Same substrate-identity anchors; this doc extends to gear-affix surface.

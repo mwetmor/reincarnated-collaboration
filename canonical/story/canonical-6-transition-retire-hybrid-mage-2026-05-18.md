@@ -1,5 +1,7 @@
 # Canonical-6 Transition — RETIRE hybrid_mage (2026-05-18)
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Author:** gandalf (story-and-design steward).
 **Authority:** Matt L3 verdict 2026-05-18 — RETIRE hybrid_mage from the canonical archetype roster after the D11.0 → D11.1 → D11.2 cycle of failures (6% → 0% → 0% interior convergence; D11.2 Phase B failed 0/17 due to gear-environment fidelity bug in the smoke gate).
 **Type:** Pattern A design-canon transition doc — decision context, identity record, redistribution plan, alternative-resurrection notes, cross-canon cleanup list.

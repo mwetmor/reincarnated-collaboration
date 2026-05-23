@@ -1,5 +1,7 @@
 # Gandalf's Design Lineage
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Author:** gandalf
 **Date:** 2026-05-15
 **Status:** Phase 2 onboarding deliverable. Companion to `gandalf-phase2-bullet-points.md`. Names the specific design-history I carry into every critique so jack-ryan and knight-rider know what I actually bring into the room.

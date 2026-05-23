@@ -1,5 +1,7 @@
 # LLM Call Map — Engine Reference
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Captured:** 2026-05-09 (post-Phase-3 merge, pre-Priority-02 gear implementation)
 
 **Purpose:** A stable reference snapshot of where the engine calls the Anthropic API today, what each call does, and the projected delta when Priority 02 (gear) lands. Useful for cost monitoring, debugging unexpected call volume, and onboarding future sessions to the LLM-pipeline architecture.

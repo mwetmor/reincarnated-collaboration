@@ -1,5 +1,7 @@
 # Geometry Palette — Discussion and Decisions
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 ## Status
 
 Discussed and decided in working session 2026-05-08, building on findings from `../collaboration-handoff/08-decomposition-report.md` (which surfaced the missing-melee-geometry gap) and the design intent in `../collaboration-handoff/06-trial-room-and-class-scoping.md`. Captured here as the geometry palette that the dimensional generation pipeline (Option C in `../collaboration-handoff/04-decision-options.md`) should produce against. Not yet a formal `decisions-log` entry; will be promoted alongside the architectural decision.

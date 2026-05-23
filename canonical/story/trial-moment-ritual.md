@@ -1,5 +1,7 @@
 # The Trial Moment — Ritual and Presentation
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical.** Authored 2026-05-15 by gandalf. Captures the design intent for the Trial encounter moment's ritualization — the approach, the choice, the fight, the resolution. Drax's eventual implementation target.
 
 **Why it exists:** the Trial is **the season's dramatic core** (per `cosmology-reincarnated.md`). Three times per season, the player encounters a Trial. Each is the moment the season's structural rhythm pivots on. The mechanical substrate is well-locked (file 32 § 11 + 33; cosmology-reincarnated.md; naming-triad.md). The *presentational* substrate is undefined. Without this doc, the Trial moment ships as "a fight that the player chose a path before." With this doc, the Trial moment ships as **ritual**, which is what the design intends.

@@ -1,5 +1,7 @@
 # Spatial-Data JSON Schema — Engine-Emitted Spatial / Floor / Wall / Combatant-Position Recommendation
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical-RECOMMENDATION.** Authored 2026-05-16 by gandalf on Matt-approved knight-rider dispatch (`agentic_orchestration/dispatches/2026-05-16-gandalf-spatial-data-jsonschema-recommendation.md`). Companion to `canonical/story/movement-speed-baseline.md` — that doc locked the *values* of movement speed; this doc locks the *spatial container* those values move through, and the *JSON packet shape* the engine emits to carry both.
 
 **Why this doc exists:** Matt's verbatim 2026-05-16 Day 4 directive: *"Can you commission Gandalf to let you know what the most appropriate spatial / floor / wall data to build into the JSON packet (matching to Tier 1 ARPG precedent) so that we can synthesize the movement speed of Tier 1 ARPG characters and monsters? This gameplay decision should map into JSON and I want it to be exact."* Plus the load-bearing follow-on: *"the movement speed must be added into the core of the engine once we come to a decision so that the gauntlet simulation will be balanced."* The first ask defines the schema shape; the second ask makes the implementation cascade **gauntlet-balance-load-bearing**, not Stage-A2-polish.

@@ -1,5 +1,7 @@
 # Reincarnated — Visual Style Register
 
+> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — see `canonical/00-ground-state.md`
+
 **Status:** **Canonical. Locked 2026-05-15 by Matt** in Pattern B dialogue with gandalf. Authored 2026-05-15 by gandalf with empirical grounding from `agentic_orchestration/research/knowledge/asset-catalogues/2026-05-16-pixijs-compatible-2d-vfx-libraries.md` (Legolas-filed catalogue research, Matt-contributed).
 
 This is the project's **canonical visual style register** — the load-bearing reference for catalogue work, demo2 development, LLM image generation, Court / Spirit Guide presentation, and all downstream visual-asset decisions. Pivoting the register later is possible because Elrond's catalogue is score-don't-filter (per AGENTS.md § "Score-don't-filter principle"), but pivots are operationally expensive once content has been generated against a locked register.

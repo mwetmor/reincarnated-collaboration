@@ -1,5 +1,7 @@
 # Season-Feel Rubric — What Makes a Season Distinct
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical.** Authored 2026-05-16 by gandalf. Captures the design-intent dimensions that must cohere for a Reincarnated season to feel like *its own thing* rather than as procedural variation on a generic template.
 
 **Why it exists:** the project's commercial frame depends on cross-season distinctiveness (per pitch-2026-05-18 talking-points-distillations § "The Court" — *"how many seasons has the Wheel turned with you still walking"* presupposes that walking each season is *meaningfully different*). Without explicit canonicalization of what makes a season distinct, the seasonal generation pipeline may produce content that is technically varied but experientially homogenous. Discipline #13 application at the season-feel layer.

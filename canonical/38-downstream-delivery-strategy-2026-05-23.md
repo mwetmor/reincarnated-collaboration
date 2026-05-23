@@ -1,5 +1,7 @@
 # 38 — Downstream Delivery Strategy
 
+> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — see `canonical/00-ground-state.md`
+
 **Status:** Active, captured 2026-05-23
 **Author:** gandalf (story-and-design steward; senior designer)
 **Authority:** Matt 2026-05-23 — D1-D10 confirmed in sequence during gandalf design session following Matt's external-counsel strategic-synthesis conversation 2026-05-22 evening

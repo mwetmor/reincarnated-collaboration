@@ -1,5 +1,7 @@
 # S1 First-Batch Mechanics-FAIL Disposition — season_100001
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Date:** 2026-05-19
 **Author:** gandalf (story-and-design steward)
 **Authority:** AUTONOMOUS — VS2a hive pre-approval-batch under Matt directive 2026-05-19 + protocol § 4.0 + § 4.5

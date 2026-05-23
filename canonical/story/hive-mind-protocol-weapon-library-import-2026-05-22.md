@@ -1,5 +1,7 @@
 # Hive-Mind Protocol — Weapon Library Import + Pattern-6 Axis Discovery + Emergent Clustering
 
+> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — see `canonical/00-ground-state.md`
+
 **Date:** 2026-05-22 (evening session; canonical lock — elevated from operational plan to hive-mind-protocol status)
 **Author:** gandalf (story-and-design steward; senior designer; planner — not orchestrator)
 **Status:** v1 hive-mind-protocol — operationalizes the vast-library substrate pivot (Patterns 4-5-6 of six vestigial-pattern retirements) as a multi-phase coordinated hive workstream

@@ -1,5 +1,7 @@
 # Hive-Mind Operating Protocol — Engine Rebuild (Gauntlet-Gap + Season-as-Emergent-Output)
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Authority:** Matt (mhwetmore@gmail.com), 2026-05-19 — directive: *"author the hypothesis tests and the potential solutions now ... review the hive mind protocol documents that you wrote and either update them for an engine rebuild session ... or if it is more sensible to do so, simply author a new and precise set of hive-mind protocols for this purpose."*
 
 **Author:** gandalf (story-and-design steward).

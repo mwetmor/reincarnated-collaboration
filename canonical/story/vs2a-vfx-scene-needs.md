@@ -1,5 +1,7 @@
 # VS2a VFX Scene-Needs Spec — Per-Encounter VFX Slot Enumeration
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical design spec.** Authored 2026-05-17 jointly by gandalf (sections 1, 3, 4, 5 + top-level register-fence authoring rule) and drax (section 2). Activated per `agentic_orchestration/dispatches/2026-05-16-gandalf-drax-vfx-scene-needs-spec.md` (Matt L3 2026-05-17 ~19:30 EDT). All three micro-decisions LOCKED: **(A) HYBRID a3** canonical-7 at combat-text + per-season at flavor with register-fence-per-UI-surface authoring rule; **(B) mix-mode** — humanoid + non-humanoid both supported at generation, ~75% failure rate, curation selects (feature not bug); **(C) Option II** — VS2a + VS2b forward-looking content.
 
 **Downstream consumers:** elrond (Pimen subset selection — § 3 input; VS2b attribution-pipeline schema dispatch — § 4 + § 5 input); drax (VS2a ad-hoc first-VFX integration — sections 1, 2, 4 + register-fence rule).

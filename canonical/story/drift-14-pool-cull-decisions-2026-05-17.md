@@ -1,5 +1,7 @@
 # Drift-14 — Pool-Cull Decisions + Selector Hard-Floor Amendment Spec
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical.** Authored 2026-05-17 by gandalf. Track B design-side synthesis of Legolas Track A empirical findings (delivered inline by legolas; per-entry findings re-derived from first principles + verified against rocket-owned `data/seasonal_elements/pool.json`).
 **Dispatch:** `agentic_orchestration/dispatches/2026-05-16-gandalf-drift-14-track-b-pool-cull-and-selector-hardfloor-synthesis.md`
 **Author authority:** gandalf canonical-story / design-direction seam.

@@ -1,5 +1,7 @@
 # Demo — Vercel Deployment Asset-Pipeline Options Paper
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Authority:** `2026-05-18-drax-plus-star-lord-vercel-deployment-asset-pipeline-options-paper.md` dispatch; invocation § 2.4 deliverable 14.
 **Authors:** star-lord (§§ 2, 3 architectural perspective, 5; § 1 measurements; portions of § 4) + drax (§ 1 code-loading patterns, § 3 demo-code-touch complexity, portions of § 4)
 **Date:** 2026-05-18

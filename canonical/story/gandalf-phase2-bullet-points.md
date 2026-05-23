@@ -1,5 +1,7 @@
 # Phase 2 — Gandalf's Bullet Points (Post-Lineage)
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Author:** gandalf
 **Date:** 2026-05-15
 **Status:** Phase 2 deliverable, post-onboarding-briefing. Companion to `gandalf-design-lineage.md`. Supersedes Phase 1 (`gandalf-phase1-bullet-points.md`) where sharper; extends where the lineage adds depth; preserves where Phase 1 was already right.

@@ -1,5 +1,7 @@
 # 28 — Engine ARPG Rebalance Design Discussion
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Captured:** 2026-05-10
 **Status:** Engine queue — **demo1 v1.2 shipped 2026-05-11; queue items now active per file 16 staging.** Original 5 seasons stay as demo1 baseline until Stage A2 regen lands; new season generation tied to Stage A2 + subsequent stage completions per file 16.
 

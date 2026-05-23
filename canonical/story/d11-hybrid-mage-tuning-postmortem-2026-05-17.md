@@ -1,5 +1,7 @@
 # D11 — Hybrid_mage tuning post-mortem (after empirical miss)
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 > *[RETIRED OUTCOME — hybrid_mage RETIRED 2026-05-18 per canonical-6 transition; this reference is historical record. See `canonical/story/canonical-6-transition-retire-hybrid-mage-2026-05-18.md` for retire verdict and rationale. See `reincarnated-engine/design/decisions/decisions-log.md` for the RETIRE entry.]*
 
 **Authority:** Matt L3 2026-05-17 evening — Option B endorsed; gandalf post-mortem authorized as immediate companion to advisory.

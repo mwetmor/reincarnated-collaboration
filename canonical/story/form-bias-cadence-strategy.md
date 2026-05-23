@@ -1,5 +1,7 @@
 # Form-Bias Cadence Strategy — ARPG ↔ Isekai Axis
 
+> **STATUS:** DEAD BRANCH (primary framing superseded — substrate-as-cohesion architecture lock 2026-05-19; form-bias framing retired) — do NOT consult as current truth. See `canonical/00-ground-state.md`
+
 **Status:** **Canonical-story design strategy.** Authored 2026-05-16 (Day 4) by gandalf on knight-rider's commission `agentic_orchestration/dispatches/2026-05-16-gandalf-form-bias-cadence-strategy.md` (Matt-approved Day 4). Frames Matt's verbatim Q1-Q4 against the engine's pre-LLM substrate inventory + Legolas's five-pass research base.
 
 **Predecessor work this doc consumes (NOT reproduces):**

@@ -1,5 +1,7 @@
 # Pattern-P6 Forward Audit — Scoped-Work Implicit-Axis Sweep
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical — Matt-commissioned 2026-05-16.** Authored 2026-05-16 by gandalf in response to Matt's directive *"do the forward audit now"* following Drift-11 + Pattern P6 entry in `canonical/story/drift-audit.md`.
 
 **Pattern P6 (one-line):** load-bearing dimension deferred to a later milestone (or implicit-bundled into a multi-axis scoping) becomes upstream of a near-term ship before the deferred milestone arrives.

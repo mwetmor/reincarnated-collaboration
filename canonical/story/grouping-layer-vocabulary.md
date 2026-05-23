@@ -1,5 +1,7 @@
 # Grouping-Layer Vocabulary — Abstract Pair-Structure Labels
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Authority:** gandalf (story-and-design steward).
 **Status:** **canonical-7 vocabulary** as of 2026-05-17 Phase-1 P1 Deliverable 20 extension. Original 5-slot canonical-four vocabulary locked 2026-05-16; canonical-7 extension (resonance / radiance / penumbra; pair-structure shape 2-2-2-1-1) authored 2026-05-17 by gandalf as D20 under hive-mind mode. Pending Matt approval at decisions-log derivation (D23 — substrate-expansion decisions-log entry covers).
 **Version:** `v1.2` (canonical-7 extension; was v1.1 canonical-four-only at 2026-05-16 lock).

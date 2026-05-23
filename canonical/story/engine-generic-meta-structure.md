@@ -1,5 +1,7 @@
 # Engine-Generic Meta-Structure
 
+> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+
 **Status:** **Canonical.** Authored 2026-05-15 by gandalf as the engine-substrate companion to `cosmology-reincarnated.md`. Serves dual audiences: **future licensing studios** (per `pitch-2026-05-18/one-pager.md` B2B middleware path) and **the Reincarnated team itself** (clarity on which design choices are project-specific vs which are engine substrate).
 
 **Why this doc exists:** the pitch frames Reincarnated as Engine + Game = two combinable products. The pitch's B2B claim — *"License engine to other studios. Game becomes demo, not revenue product"* — presupposes a clean separation between what the engine IS and what Reincarnated-the-game adds on top. Without that separation explicit, both the licensing pitch and the internal-project-discipline drift. This doc operationalizes the separation.
