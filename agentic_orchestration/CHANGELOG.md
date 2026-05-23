@@ -4,6 +4,50 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-23 (~00:55 EDT — Cycle 9.4 Phase D dispatch authored + gandalf variant-cluster policy returned + Matt G1-G5 accepted) — 367-line elrond Pattern-B dispatch operationalizing F1-F6 + G1-G5 + gandalf 26-cluster policy assignments; jack-ryan Gate-1 attempted Pattern-A but returned credit-ceiling error; Matt-decision needed on Gate-1 disposition
+
+**Event:** Matt accepted gandalf's leans on all 5 flagged items (G1-G5) from the variant-cluster policy review. Knight-rider authored the elrond Phase D cleaning-pipeline dispatch — the load-bearing execution work of the entire cleaning campaign. Jack-ryan Gate-1 attempted as Pattern-A but returned `Usage credits are required for long context requests` — credit ceiling exceeded due to accumulated session context plus 367-line dispatch.
+
+**Cleaning-plan cycle disposition through 9.4:**
+
+| Phase | Owner | Status | Tag |
+|---|---|---|---|
+| Phase A — Substrate audit | legolas | COMPLETE | `legolas/phase-A-substrate-audit-2026-05-22` |
+| Phase B — Policy design | gandalf | COMPLETE | `gandalf/cleaning-policy-design-review-2026-05-22` |
+| Phase B-2 — Variant-cluster policy | gandalf | COMPLETE | `gandalf/variant-cluster-policy-2026-05-23` |
+| Phase C — Matt decisions (F1-F6 + G1-G5) | Matt | COMPLETE | LOCKED |
+| Phase D — Cleaning pipeline | elrond | DISPATCH AUTHORED (jack-ryan Gate-1 unavailable) | pending |
+| Phase E — Pattern-6 axis discovery | rocket + legolas | PENDING Phase D | future |
+
+**G1-G5 Matt-accepted (all gandalf leans):**
+
+- G1 — WIKI-3 Gladius game-tier: keep per-game named_template canonical
+- G2 — SOULS-1 Dagger soulslikes: manual review per-cluster (cosine 0.80-0.85 borderline)
+- G3 — AOS-2 Skull Bludgeon + Varanspire Gladius compound: split into 2 children + retain compound
+- G4 — RA-2 grouping threshold: ≥3 specimens with matching (culture × century × broad_type)
+- G5 — WIKI-2 OSRS Excalibur: keep separate as named_template
+
+**Phase D dispatch contents:**
+
+- Schema migration: 9 new columns + 3 views on `weapon_knowledge_entries`
+- 7-step cleaning pipeline executed in priority order from legolas + gandalf
+- 4 math-anchored cleanliness acceptance gates (FP / duplication / coverage / weapon_kind misclass)
+- Cross-seam contract change YES — MIGRATION.md required per ADR-004 (loadout-repo DB)
+- Round-trip smoke required (10-row-per-source fixture)
+- 7 open questions for elrond to resolve + document in math note
+- Pattern-B execution mode (3-5 day session)
+
+**Matt-decision needed before elrond fires:**
+
+Jack-ryan Gate-1 attempted Pattern-A → credit-ceiling error. Three options for Gate-1 disposition:
+- (a) **Skip Gate-1.** F1-F6 + G1-G5 framework already gate-reviewed by gandalf (Phase B + Phase B-2). The Phase D dispatch operationalizes locked decisions; no new design space. Acceptable to skip per fast-path discipline.
+- (b) **Defer Gate-1 to Pattern-B separate session.** Matt opens new terminal: `cd ~/Games/reincarnated-collaboration && claude --agent jack-ryan`. Jack-ryan picks up the dispatch + does Gate-1 in own session.
+- (c) **Fire elrond Pattern-B now without Gate-1.** Elrond is also a senior agent; Phase D dispatch is operationally well-scoped; risk-tolerable to fire without explicit Gate-1.
+
+**Tag this cycle:** `knight-rider/cycle-9-4-phase-D-dispatch-authored-2026-05-23`.
+
+---
+
 ## 2026-05-23 (~00:35 EDT — Cycle 9.3 Phase A audit complete) — Legolas Pattern-A subagent returned 4 deliverables + math note in 18min wall; substrate empirically baselined vs gandalf projections; ammo_or_consumable boundary error far worse than projected; pf2ools 100% FP + souls-api 96.6% FP confirmed; 38 variant clusters surfaced for gandalf in-flight policy review
 
 **Event:** Matt fired Pattern A for legolas Phase A substrate audit. Legolas executed end-to-end in single subagent call (~18min wall, 69 tool calls, 5 independent commits per jack-ryan's strict-sequencing amendment). Phase A audit COMPLETE; substrate is now empirically baselined against gandalf's Phase B projections; gandalf Pattern-A subagent for 38-cluster in-flight policy review fires next as Cycle 9.3 continuation.
