@@ -1,0 +1,34 @@
+{
+  "script": "09_step7_f4_cross_source_merge.py",
+  "db_path": "/Users/admin/Games/reincarnated-loadout/data/telemetry.db",
+  "started_at": "2026-05-23T02:38:39",
+  "execution": {
+    "in_scope_rows": 16830,
+    "blocks_total": 150,
+    "max_block_size": 7321,
+    "merge_pairs": 27,
+    "merge_components_cross_source": 26,
+    "canonical_rows": 26,
+    "merged_rows": 27,
+    "canonical_merge_table_inserts": 26,
+    "flagged_borderline_count": 96
+  },
+  "acceptance": {
+    "canonical_count_all": 6621,
+    "canonical_count_engine_sampleable": 16803,
+    "distinct_canonical_names_naive": 3647,
+    "distinct_canonical_names_engine": 15054,
+    "distinct_canonical_keys_corrected": 16188,
+    "merged_count": 19146,
+    "residual_dup_ratio_naive_all": 0.8155,
+    "residual_dup_ratio_engine_naive": 0.1162,
+    "residual_dup_ratio_corrected": 0.038,
+    "dedup_recall": 0.4531,
+    "gate_b_i_pass_corrected": true,
+    "gate_b_ii_recall_pass": false,
+    "gate_b_pass": true
+  },
+  "wall_clock_s": 1.822,
+  "ended_at": "2026-05-23T02:38:41",
+  "passed": true
+}

@@ -1,0 +1,341 @@
+{
+  "script": "08_step6_5_canonical_taxonomy.py",
+  "db_path": "/Users/admin/Games/reincarnated-loadout/data/telemetry.db",
+  "started_at": "2026-05-23T02:26:35",
+  "execution": {
+    "rows_processed": 70722,
+    "updates_applied": 70722,
+    "per_source_culture_top_5": {
+      "wikidata": {
+        "unknown": 9912,
+        "east_asian": 2080,
+        "european": 163,
+        "middle_eastern": 153,
+        "south_asian": 22
+      },
+      "nick-aschenbach-dnd-data": {
+        "fantasy_generic": 5992,
+        "south_american_indigenous": 156,
+        "european": 135,
+        "east_asian": 6,
+        "arctic_circumpolar": 5
+      },
+      "osrsbox-db": {
+        "fantasy_generic": 938,
+        "european": 1,
+        "east_asian": 1
+      },
+      "5e-bits-5e-database": {
+        "european": 37
+      },
+      "bloqhead-demigods": {
+        "fantasy_generic": 320
+      },
+      "royal_armouries": {
+        "european": 17615,
+        "east_asian": 542,
+        "south_asian": 517,
+        "middle_eastern": 163,
+        "african": 77
+      },
+      "wow-classic-items": {
+        "fantasy_generic": 4438,
+        "east_asian": 1,
+        "european": 1
+      },
+      "met-museum": {
+        "european": 3117,
+        "east_asian": 2999,
+        "south_asian": 497,
+        "unknown": 329,
+        "southeast_asian": 279
+      },
+      "path-of-exile-repoe": {
+        "fantasy_generic": 494
+      },
+      "elden-ring-erdb": {
+        "fantasy_generic": 293,
+        "south_american_indigenous": 10,
+        "european": 3,
+        "east_asian": 1
+      },
+      "diablo2-d2data": {
+        "fantasy_generic": 521
+      },
+      "gta-v-data": {
+        "cross_cultural": 183
+      },
+      "cataclysm-dda": {
+        "cross_cultural": 1452,
+        "european": 67,
+        "east_asian": 50,
+        "south_asian": 10,
+        "mesoamerican": 7
+      },
+      "wikipedia": {
+        "european": 3875,
+        "unknown": 1509,
+        "east_asian": 1396,
+        "middle_eastern": 552,
+        "southeast_asian": 351
+      },
+      "pf2ools-pf2ools-data-quarantined": {
+        "fantasy_generic": 682,
+        "east_asian": 2,
+        "european": 2,
+        "south_american_indigenous": 2
+      },
+      "fextralife-ds1": {
+        "fantasy_generic": 133
+      },
+      "5e-bits-5e-database-2024": {
+        "fantasy_generic": 110
+      },
+      "bsdata-warhammer-aos": {
+        "fantasy_generic": 2184,
+        "south_american_indigenous": 1
+      },
+      "souls-api-thomaslincoln": {
+        "fantasy_generic": 2
+      },
+      "souls-api-thomaslincoln-quarantined": {
+        "fantasy_generic": 56
+      },
+      "fextralife-ds2": {
+        "fantasy_generic": 239
+      },
+      "odin-army-tradoc": {
+        "european": 1265,
+        "east_asian": 1178,
+        "unknown": 867,
+        "middle_eastern": 369,
+        "south_asian": 123
+      },
+      "fextralife-ds3": {
+        "fantasy_generic": 219
+      },
+      "army-recognition": {
+        "cross_cultural": 37,
+        "european": 20,
+        "east_asian": 5
+      },
+      "fextralife-elden-ring": {
+        "south_american_indigenous": 342,
+        "fantasy_generic": 33
+      }
+    },
+    "per_source_register": {
+      "wikidata": {
+        "mythological": 16,
+        "historical": 12355
+      },
+      "nick-aschenbach-dnd-data": {
+        "fantasy": 6297
+      },
+      "osrsbox-db": {
+        "fantasy": 940
+      },
+      "5e-bits-5e-database": {
+        "fantasy": 37
+      },
+      "bloqhead-demigods": {
+        "fantasy": 320
+      },
+      "royal_armouries": {
+        "historical": 19008
+      },
+      "wow-classic-items": {
+        "fantasy": 4440
+      },
+      "met-museum": {
+        "historical": 7559
+      },
+      "path-of-exile-repoe": {
+        "fantasy": 494
+      },
+      "elden-ring-erdb": {
+        "fantasy": 307
+      },
+      "diablo2-d2data": {
+        "fantasy": 521
+      },
+      "gta-v-data": {
+        "military_modern": 183
+      },
+      "cataclysm-dda": {
+        "military_modern": 1599
+      },
+      "wikipedia": {
+        "historical": 8565,
+        "mythological": 14
+      },
+      "pf2ools-pf2ools-data-quarantined": {
+        "fantasy": 688
+      },
+      "fextralife-ds1": {
+        "fantasy": 133
+      },
+      "5e-bits-5e-database-2024": {
+        "fantasy": 110
+      },
+      "bsdata-warhammer-aos": {
+        "fantasy": 2185
+      },
+      "souls-api-thomaslincoln": {
+        "fantasy": 2
+      },
+      "souls-api-thomaslincoln-quarantined": {
+        "fantasy": 56
+      },
+      "fextralife-ds2": {
+        "fantasy": 239
+      },
+      "odin-army-tradoc": {
+        "military_modern": 3998
+      },
+      "fextralife-ds3": {
+        "fantasy": 219
+      },
+      "army-recognition": {
+        "military_modern": 62
+      },
+      "fextralife-elden-ring": {
+        "fantasy": 375
+      }
+    },
+    "per_source_wieldable": {
+      "wikidata": {
+        "two_hand": 27,
+        "one_hand": 3,
+        "unknown": 12341
+      },
+      "nick-aschenbach-dnd-data": {
+        "two_hand": 5683,
+        "one_hand": 520,
+        "unknown": 61,
+        "no": 31,
+        "either": 1,
+        "shoulder_supported": 1
+      },
+      "osrsbox-db": {
+        "two_hand": 846,
+        "one_hand": 94
+      },
+      "5e-bits-5e-database": {
+        "two_hand": 34,
+        "one_hand": 3
+      },
+      "bloqhead-demigods": {
+        "two_hand": 303,
+        "either": 2,
+        "one_hand": 13,
+        "no": 1,
+        "shoulder_supported": 1
+      },
+      "royal_armouries": {
+        "unknown": 19008
+      },
+      "wow-classic-items": {
+        "two_hand": 4073,
+        "either": 11,
+        "one_hand": 341,
+        "no": 11,
+        "shoulder_supported": 4
+      },
+      "met-museum": {
+        "unknown": 7559
+      },
+      "path-of-exile-repoe": {
+        "two_hand": 349,
+        "one_hand": 138,
+        "unknown": 4,
+        "no": 2,
+        "either": 1
+      },
+      "elden-ring-erdb": {
+        "two_hand": 292,
+        "no": 1,
+        "one_hand": 11,
+        "shoulder_supported": 1,
+        "either": 2
+      },
+      "diablo2-d2data": {
+        "two_hand": 482,
+        "one_hand": 36,
+        "no": 2,
+        "either": 1
+      },
+      "gta-v-data": {
+        "unknown": 183
+      },
+      "cataclysm-dda": {
+        "unknown": 1598,
+        "two_hand": 1
+      },
+      "wikipedia": {
+        "unknown": 8332,
+        "two_hand": 239,
+        "one_hand": 8
+      },
+      "pf2ools-pf2ools-data-quarantined": {
+        "unknown": 688
+      },
+      "fextralife-ds1": {
+        "one_hand": 3,
+        "two_hand": 129,
+        "either": 1
+      },
+      "5e-bits-5e-database-2024": {
+        "two_hand": 88,
+        "one_hand": 22
+      },
+      "bsdata-warhammer-aos": {
+        "two_hand": 2044,
+        "one_hand": 108,
+        "no": 28,
+        "shoulder_supported": 5
+      },
+      "souls-api-thomaslincoln": {
+        "unknown": 2
+      },
+      "souls-api-thomaslincoln-quarantined": {
+        "unknown": 56
+      },
+      "fextralife-ds2": {
+        "two_hand": 228,
+        "one_hand": 9,
+        "either": 1,
+        "shoulder_supported": 1
+      },
+      "odin-army-tradoc": {
+        "unknown": 3998
+      },
+      "fextralife-ds3": {
+        "two_hand": 210,
+        "one_hand": 8,
+        "either": 1
+      },
+      "army-recognition": {
+        "unknown": 62
+      },
+      "fextralife-elden-ring": {
+        "two_hand": 356,
+        "one_hand": 16,
+        "either": 2,
+        "no": 1
+      }
+    }
+  },
+  "acceptance": {
+    "v_category_sample_count": 16702,
+    "pct_cultural_populated": 99.85,
+    "pct_period_populated": 99.58,
+    "pct_register_populated": 100.0,
+    "gate_cultural_pass": true,
+    "gate_period_pass": true,
+    "gate_register_pass": true
+  },
+  "wall_clock_s": 11.119,
+  "ended_at": "2026-05-23T02:26:46",
+  "passed": true
+}
