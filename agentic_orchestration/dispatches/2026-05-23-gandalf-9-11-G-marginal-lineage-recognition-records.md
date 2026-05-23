@@ -118,3 +118,34 @@ Seam-prefix per ADR-001. Local-only.
 ---
 
 **Signed:** knight-rider, 2026-05-23 ~13:20 EDT post-gandalf-spot-check-relay. Recognition-record territory you own; parallel structure to your n.am.indigenous precedent; honest empirical disposition prevents premature commitments at downstream design surfaces. Pattern-A-light scope (~60-90 min); can fire in parallel with Phase E-2-DB (elrond) and 9.11-A (legolas).
+
+---
+
+## Completion record
+**Completed:** 2026-05-23 (post-Gate-2 ratification + Phase E-2 cluster-labeling completion same day)
+**Tags shipped:** `gandalf/9-11-G-marginal-lineage-recognition-records-2026-05-23` (local-only per ADR-001)
+**Records authored (5 — 4 marginal + 1 meta per Open Question 3 resolution):**
+- `canonical/story/south-american-indigenous-marginal-lineage-disposition-2026-05-23.md`
+- `canonical/story/arctic-circumpolar-marginal-lineage-disposition-2026-05-23.md`
+- `canonical/story/oceanic-marginal-lineage-disposition-2026-05-23.md`
+- `canonical/story/mesoamerican-marginal-lineage-disposition-2026-05-23.md`
+- `canonical/story/marginal-lineage-tagging-pattern-2026-05-23.md` (cross-cutting meta-record)
+**Ground-state oracle § 1 registration:** 5 new rows added immediately below the n.am.indigenous record entry in `canonical/00-ground-state.md`
+**Completion summary:** `agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/9-11-G-completion-summary.md`
+**Cluster-distribution checks performed (DB read-only SELECT):**
+  - oceanic: 39 rows distribute across 10 clusters; top cluster 69 @ 21 rows (4.2% within-cluster passenger in 502-row cross_cultural mixed-munitions pool); 9-cluster long tail; ~6-8 cultural items scattered across 5 clusters
+  - mesoamerican: 83 rows distribute across 16 clusters; top cluster 112 @ 19 rows (16.5% within-cluster — NOT substrate-coherent home); ~12-15 cultural items scattered across 5 clusters; highest absolute cultural-content count of the 5 marginal cases; highest-reclamation-potential via 9.11-E re-tag
+**Open Questions resolved:**
+  1. Empirical-trigger consistency — same 5 trigger categories from n.am.indigenous apply uniformly with lineage-specific notes in trigger descriptions
+  2. Companion-docs cross-linking — full peer-to-peer network across the 6-node recognition-record subgraph
+  3. Common empirical-pattern recognition — pattern is universal across all 4 marginal lineages with asymmetric clean-control case (n.am); meta-record authored
+  4. Mesoamerican framing — empirical investigation confirms "no coherent cluster home" framing (16.5% top within-cluster percentage is passenger absorption, not substrate-led isolate); does NOT shift to "substrate-coherent but marginal pool size"
+**No methodology concerns surfaced; no Gate-2 invocation needed.** Dispatch § "What knight-rider does after your return" item 3 condition not triggered.
+**MIGRATION.md written:** No — recognition records are canonical/story/ artifacts, not cross-seam contract changes
+**Notes for knight-rider:**
+  - Sub-carry 9.11-G CLOSED
+  - 5 lineage-specific records + meta-record together establish empirical baseline + corrective-path table for sub-carries 9.11-D / 9.11-E / 9.10-E
+  - Meta-record § 2.4 surfaces Discipline #18 amendment candidate (semantic-layer rep-audit) for tracking; not commitment-tier yet
+  - Meta-record § 3 names execution-order recommendation for substrate-tagging cleanup: 9.11-D → 9.11-E → re-clustering smoke (mesoamerican) → conditional 9.10-E
+  - Meta-record § 2.3 names Mode-A-targeting constraint for sub-carry 9.10-E dispatch authoring when knight-rider eventually authors that dispatch
+  - 9.10-B.1 OP amendment + flag enum canonicalization still owed by gandalf; separate carry; non-blocking for current sub-dispatch fan-out
