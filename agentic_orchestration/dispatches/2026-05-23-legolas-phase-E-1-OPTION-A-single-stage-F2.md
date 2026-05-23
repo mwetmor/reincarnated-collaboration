@@ -1,5 +1,7 @@
 # Dispatch — 2026-05-23 — legolas — Phase E-1 Option-A re-fire (single-stage F2; bounded memory)
 
+> **⚠️ SUPERSEDED 2026-05-23 ~12:00 EDT.** This dispatch fired at 11:39 EDT and caused the **4th macOS kernel panic of the day** at 11:43:45 EDT inside `hdbscan.HDBSCAN.fit()` on the un-expanded (48,430 × 12) matrix. The memory hypothesis of this dispatch ("should comfortably fit in 8 GB") was **empirically refuted**. Replaced by `agentic_orchestration/dispatches/2026-05-23-legolas-phase-E-1-frame-revision-stratified-subsample-k3.md` — Matt + gandalf joint resize at ~12:00 EDT: stratified subsample (~10K rows with rare-lineage floors) clustered on the 3 substrate-stable axes (1-3), with assign-noise-to-nearest for full-pool coverage. Cloud fire is cancelled. **DO NOT PICK UP THIS DISPATCH.** Full forensic + reasoning in `agentic_orchestration/knight-rider/notes/2026-05-23-phase-E-1-frame-revision-note.md`.
+
 **From:** knight-rider
 **To:** legolas (Mode A analytical research; Pattern-6 canonical axis discovery + clustering — Option-A revision)
 **Approved by:** Matt 2026-05-23, with gandalf design-side ratification (table cited in § "Design intent" below)

@@ -17,6 +17,7 @@ import hashlib
 import json
 import math
 import os
+import resource
 import sqlite3
 import sys
 import re
@@ -386,25 +387,25 @@ def interpret_axes(svd_full, k, vec, n_top=20):
 
 
 def run_hdbscan(projections_k, weights, min_cluster_size=30):
-    """Run HDBSCAN on k-dim projections."""
+    """Run HDBSCAN on k-dim projections.
+
+    Option-A revision (2026-05-23): F2 weighting is applied at the PCA stage via
+    sqrt(w_i) row-multiplication. Re-applying via row duplication at the clustering
+    stage manufactures density at duplicated-row locations (k-NN dist = 0 between
+    identical points), which is a substrate-led-discipline violation per gandalf
+    2026-05-23 ratification. See dispatch:
+      agentic_orchestration/dispatches/2026-05-23-legolas-phase-E-1-OPTION-A-single-stage-F2.md
+    and design-side ratification:
+      agentic_orchestration/gandalf/notes/2026-05-23-phase-E-1-option-A-design-side-ratification.md
+
+    The `weights` parameter is retained in the signature for forward-compatibility —
+    future clustering variants that support native sample_weight (e.g. weighted k-means)
+    may consume it. Not used in this implementation.
+    """
     log(f"Running HDBSCAN (min_cluster_size={min_cluster_size})...")
 
-    # For HDBSCAN: apply F2 weighting via integer duplication
-    # Rows with normalized weight >= 2 get duplicated
-    # Map assignments back to original rows
-    int_weights = np.round(weights).astype(int)
-    int_weights = np.clip(int_weights, 1, 20)  # cap duplication at 20x
-
-    expanded = []
-    orig_idx = []
-    for i, (row, w) in enumerate(zip(projections_k, int_weights)):
-        for _ in range(w):
-            expanded.append(row)
-            orig_idx.append(i)
-    expanded = np.array(expanded)
-    orig_idx = np.array(orig_idx)
-
-    log(f"Expanded matrix for HDBSCAN fit: {expanded.shape}")
+    # Option-A: fit directly on un-expanded projections_k (no row duplication)
+    log(f"HDBSCAN fit on un-expanded projections: {projections_k.shape}")
 
     clusterer = hdbscan.HDBSCAN(
         min_cluster_size=min_cluster_size,
@@ -413,17 +414,9 @@ def run_hdbscan(projections_k, weights, min_cluster_size=30):
         cluster_selection_method='eom',
         metric='euclidean'
     )
-    clusterer.fit(expanded)
+    clusterer.fit(projections_k)
 
-    # Map labels back to original rows (vote for most common label per original row)
-    from collections import Counter
-    labels_orig = np.full(len(projections_k), -1, dtype=int)
-    for i in range(len(projections_k)):
-        mask = orig_idx == i
-        row_labels = clusterer.labels_[mask]
-        if len(row_labels) > 0:
-            cnt = Counter(row_labels)
-            labels_orig[i] = cnt.most_common(1)[0][0]
+    labels_orig = clusterer.labels_.copy()
 
     n_clusters = len(set(labels_orig)) - (1 if -1 in labels_orig else 0)
     n_noise = (labels_orig == -1).sum()
@@ -722,7 +715,7 @@ Per cultural_lineage_canonical bucket (math note §1.4):
 
     content += f"""
 **Normalization:** weights divided by mean(raw_weight) so mean normalized_weight = 1.0
-**Application:** applied as sqrt(w_i) row-multiplication on TF-IDF before SVD; as sample_weight on StandardScaler mean/std; as integer-duplication for HDBSCAN and GMM fit.
+**Application (Single-Stage F2 Doctrine — Option-A 2026-05-23):** F2 applied as sqrt(w_i) row-multiplication on TF-IDF before SVD (PCA stage); as sample_weight on StandardScaler mean/std (feature-scaling stage). NOT applied at clustering stage; clusters reflect actual projection-space density in the F2-amplified coordinate system. (Note: GMM was always implemented without row-duplication — script line 510: gmm.fit(projections_k). The original math note §1.4 claim of "integer-duplication for GMM fit" was overstated vs actual code implementation.) See design-side ratification: gandalf/notes/2026-05-23-phase-E-1-option-A-design-side-ratification.md
 
 ---
 
@@ -1127,6 +1120,16 @@ def main():
     parser.add_argument("--mode", choices=["smoke", "full"], default="full")
     args = parser.parse_args()
     smoke_mode = (args.mode == "smoke")
+
+    # Option-A defensive memory ceiling (2026-05-23): raises MemoryError instead of
+    # triggering host swap-thrash → kernel panic. 6 GiB soft limit.
+    # See dispatch: 2026-05-23-legolas-phase-E-1-OPTION-A-single-stage-F2.md §2
+    try:
+        six_gib = 6 * 1024 ** 3
+        resource.setrlimit(resource.RLIMIT_AS, (six_gib, six_gib))
+        log("Memory ceiling set: 6 GiB RLIMIT_AS (raises MemoryError before kernel panic)")
+    except (ValueError, resource.error) as e:
+        log(f"WARNING: Could not set RLIMIT_AS: {e} — proceeding without memory ceiling")
 
     log(f"=== Phase E-1 Pipeline starting (mode={args.mode}) ===")
 

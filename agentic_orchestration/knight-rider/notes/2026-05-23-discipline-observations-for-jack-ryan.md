@@ -118,6 +118,89 @@ Either amend Discipline #1 (math-before-code) to add a code-citation clause, or 
 
 ---
 
+## Observation 5 — Substrate-voting-is-binding (gandalf-flagged; Discipline #18 amendment candidate)
+
+### Source
+
+Gandalf 2026-05-23 ~12:00 EDT (during frame-revision resize after 4th kernel panic). Owned as a Pattern A-deep ratification-discipline failure on gandalf's part. Full narrative + verbatim gandalf statement in `agentic_orchestration/knight-rider/notes/2026-05-23-phase-E-1-frame-revision-note.md` § 3.
+
+### Evidence
+
+The Phase E-1 fires this cycle produced two substrate-voting signals that were treated as **flags** rather than **gates**:
+
+| Fire | Signal | Treatment | Outcome |
+|---|---|---|---|
+| Smoke 03:11 EDT | k=4 retained, 1-of-4 stable axes | Framed as sample-frame artifact; ratified re-fire at k=12 | Did not surface the methodology-frame question |
+| RERUN partial 11:05 EDT | k=12 retained heuristically; 3-of-12 stable axes | Logged as Phase E-1-bis flag; ratified continuation to clustering at k=12 | Compute-remediation focus obscured the substrate-vote |
+| OPTION-A 11:40 EDT | Same as above (bootstrap unchanged by Option A) | Same treatment | Host kernel-panicked at HDBSCAN.fit (4th panic) |
+| Matt + gandalf 12:00 EDT resize | k_stable = 3 acknowledged as the substrate's verdict | Frame-revision cuts at k_stable | Phase E-1 frame realigned to substrate vote |
+
+Gandalf verbatim: "The bootstrap-stability check IS the substrate voting. It voted k=3. I logged that vote as a flag and ratified a re-fire at k=12 anyway because compute-remediation was the visible problem."
+
+### Candidate Discipline framing
+
+> **Discipline #18 amendment (proposed) — Substrate-voting-is-binding at axis discovery.**
+>
+> When a substrate-driven measurement produces a value substantially below the methodology's chosen parameter, the chosen parameter must be cut to the substrate-driven value **before the next stage fires.** Substrate measurement is a **gate**, not a **flag.** A logged flag with continued execution at the original parameter is a substrate-led discipline violation regardless of compute-remediation framing.
+>
+> Specific application points:
+> - Bootstrap-stability at axis discovery: if `k_stable < k_chosen` by factor 2+ (e.g., k_stable=3, k_chosen=12), cut to k_stable before clustering fires
+> - Scree-kink at PCA: if kink position dominates the heuristic-chosen k by a wide margin, the heuristic loses
+> - Silhouette at clustering: if score peaks at a smaller cluster count than the configured min, re-fire at the smaller count
+>
+> The compute-remediation question ("can we make k_chosen run?") is orthogonal to the methodology question ("does the substrate support k_chosen?"). When the answer to the methodology question is no, the compute-remediation question is moot.
+
+### Severity
+
+**WARN candidate, leaning BLOCK.** This discipline gap (treated by both gandalf at design-side ratification AND knight-rider at dispatch authoring) cost 4 kernel panics and a full cycle of compute remediation that was investigating the wrong problem. Promoting to BLOCK enforcement at Gate-1 would catch the next iteration of this pattern at the right time.
+
+### Suggested integration
+
+Amend Discipline #18 (gandalf design-spec-as-math) with the substrate-voting-is-binding clause; or promote as a separate Discipline cross-referenced with #18 and #1. Gandalf has committed to authoring an addendum to `gandalf/notes/2026-05-23-phase-E-1-kernel-panic-diagnosis.md` recording this failure. Jack-ryan's ratification + disciplines-doc integration follows.
+
+---
+
+## Observation 6 — Confident framing on partial evidence at the diagnosis layer (Discipline #19 candidate; jack-ryan Gate-1 Finding 6)
+
+### Source
+
+Frame-revision note § 9 (`agentic_orchestration/knight-rider/notes/2026-05-23-phase-E-1-frame-revision-note.md`), confirmed and operationalization-extended by jack-ryan Gate-1 Pattern-A-light review 2026-05-23 ~12:30 EDT on the frame-revision dispatch. Jack-ryan verdict: structurally distinct from Observations 1-4; warrants its own candidate.
+
+### Evidence (three datapoints today)
+
+| Diagnosis call | When | Confident framing | Cheapest refuting test (unrun at framing time) | Outcome |
+|---|---|---|---|---|
+| Smoke-frame artifact (knight-rider crash-triage handoff 03:25 EDT) | post-1st panic | "k=4, 1-of-4 stable IS sample-frame artifact of N=100 monoculture" | Run full-mode pipeline on real pool (~42 sec) | Full-mode partial-fire later refuted the framing; substrate signal was real |
+| Option-A memory comfort (knight-rider kernel-panic-triage 11:15 EDT) | post-3rd panic | "Option A should comfortably fit in 8 GB" | Profile HDBSCAN at n=48K, d=12 via psutil RSS-check or equivalent before authoring the dispatch | 4th kernel panic at 11:43 EDT refuted the framing |
+| (No third instance yet but the pattern is now established for ratification) | | | | |
+
+Both calls were confident framings on partial evidence. Both cost a fire cycle to refute. Both could have been hedged at framing time with available cheaper tests.
+
+### Candidate Discipline framing (jack-ryan operationalization clause folded)
+
+> **Discipline #19 (proposed) — Forensic-conclusion discipline: assertions of cause require the cheapest refuting test to have been run.**
+>
+> When triaging a crash, failure, or unexpected result, an authored note (forensic, triage, diagnosis) that asserts a causal claim ("X caused the failure" / "X is the binding constraint" / "X is an artifact of Y") must document whether the **cheapest refuting test** for X has been run, and what its result was. If the cheapest refuting test is unrun, the claim must be framed as a **hypothesis** ("X may be the cause; the cheapest refuting test is Y") rather than a **conclusion** ("X is the cause").
+>
+> **Operationalization (jack-ryan Gate-1 fold-in):** "cheapest refuting test" must be named explicitly for the claim type:
+>
+> - **Memory hypotheses:** the cheapest refuting test is a peak-RSS measurement (via `psutil`, `mprof`, or equivalent) at the proposed scale before firing the dispatch
+> - **Methodology hypotheses (e.g., "k=4 is sample-frame artifact"):** the cheapest refuting test is the next-tier-larger sample run with the same methodology (smoke → full; or subset → full-pool)
+> - **Substrate hypotheses ("the pool is too small / wrong distribution"):** the cheapest refuting test is a simple SQL count / distribution query against the substrate
+> - **Cross-seam contract hypotheses ("the consumer / producer is reading the wrong schema"):** the cheapest refuting test is a verbatim schema diff between producer and consumer ends
+>
+> Future authoring template: any forensic note must include a § "Cheapest refuting test status" subsection stating whether the test was run, with what result, before the causal claim is accepted as load-bearing for downstream dispatches.
+
+### Severity
+
+**WARN candidate, leaning BLOCK for Gate-1 enforcement.** The two-datapoint cost in this cycle is already non-trivial (one wasted dispatch + one fired-then-kernel-panicked dispatch). Promoting to Gate-1 BLOCK enforcement (any dispatch whose math-before-code or forensic anchor contains an un-tested causal claim is blocked pending the cheapest refuting test) would catch the next iteration of the pattern at framing time.
+
+### Suggested integration
+
+Promote as new Discipline #19. Cross-reference with Discipline #1 (math-before-code; the cheapest refuting test is part of the math-before-code stage when it is a methodology hypothesis), Discipline #2 (smoke test; the cheapest refuting test is what smoke is designed to do at the plumbing level), and Discipline #18 (substrate-voting-is-binding; substrate-voting IS one of the cheapest refuting tests when applicable). The Discipline #18 + #19 pair forms a coherent "trust the substrate's empirical signal, document the test, do not over-extend the methodology" framework.
+
+---
+
 ## Pattern observation (not yet ratification-ready; surfaced for awareness)
 
 Both gaps emerged from the same root: **the engineering disciplines do not adequately handle the host-resource-bounds dimension for numerical/computational dispatches.** The disciplines were authored against the engine's simulation cadence (Discipline #1 math-before-code originated in B14.5 balance-loop work where memory was never close to host limit). The substrate-side analytical pipelines (Phase D / Phase E) operate on data scales where memory IS the binding constraint — and the disciplines have not been updated to reflect that.

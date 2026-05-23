@@ -92,7 +92,7 @@ Per cultural_lineage_canonical bucket (math note §1.4):
 | north_american_indigenous | 29 | 0.00060 | 0.034483 | 119.2857 |
 
 **Normalization:** weights divided by mean(raw_weight) so mean normalized_weight = 1.0
-**Application:** applied as sqrt(w_i) row-multiplication on TF-IDF before SVD; as sample_weight on StandardScaler mean/std; as integer-duplication for HDBSCAN and GMM fit.
+**Application (Single-Stage F2 Doctrine — Option-A 2026-05-23):** F2 applied as sqrt(w_i) row-multiplication on TF-IDF before SVD (PCA stage); as sample_weight on StandardScaler mean/std (feature-scaling stage). NOT applied at clustering stage; clusters reflect actual projection-space density in the F2-amplified coordinate system. (Note: GMM was always implemented without row-duplication — script line 510: gmm.fit(projections_k). The original math note §1.4 claim of "integer-duplication for GMM fit" was overstated vs actual code implementation.) See design-side ratification: gandalf/notes/2026-05-23-phase-E-1-option-A-design-side-ratification.md
 
 ---
 

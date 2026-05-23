@@ -4,6 +4,47 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-23 (Cycle 9.10 — Phase E-1 OPTION-A refuted by 4th kernel panic → Matt + gandalf joint frame-revision resize → stratified-subsample k=3 dispatch authored + jack-ryan Gate-1 BLOCK folded + 2 new Discipline candidates queued) — fourth kernel panic in 12 hours refutes OPTION-A's memory hypothesis; substrate's k_stable=3 verdict is re-cut as binding gate; cloud fire cancelled; Alternative 2 (substrate expansion) is the failure-path next move
+
+**Event:** OPTION-A dispatch (fired by Matt earlier this cycle per Cycle 9.9 authoring) caused the 4th macOS kernel panic of the day at 11:43:45 EDT during HDBSCAN.fit on un-expanded (48,430 × 12). Matt + gandalf jointly resized the experiment at ~12:00 EDT to a frame-revision: stratified subsample (~10K) on substrate-voted k=3 axes. Knight-rider operationalized the resize as a Pattern-B dispatch with jack-ryan Gate-1 Pattern-A-light review folded.
+
+**Steps executed:**
+
+1. **Forensic.** Knight-rider read `scripts/full-run-log-2026-05-23-option-a.txt` showing pipeline start 11:39:32, D1+D2 clean by 11:40:15, `[11:40:15] HDBSCAN fit on un-expanded projections: (48430, 12)` last log line, kernel panic at 11:43:45 (file `/Library/Logs/DiagnosticReports/panic-full-2026-05-23-114345.0002.panic`). Identical signature to panics 1-3. The `resource.setrlimit` defensive ceiling failed silently at process start: `WARNING: Could not set RLIMIT_AS: current limit exceeds maximum limit — proceeding without memory ceiling`. The math-note's "mandatory" safety net never engaged.
+2. **Hypothesis refutation.** OPTION-A dispatch's memory projection ("~2.7-4.7 GB; should comfortably fit in 8 GB ceiling") was confident framing on partial evidence. HDBSCAN.fit on 48,430 × 12 in 12-d Euclidean is empirically multi-GB-peak on this host even without row-duplication. Substrate dimensionality refutation (k_stable=3, not k_chosen=12) was orthogonal and simultaneous — both refuted within the same partial-fire log window.
+3. **Matt + gandalf joint resize ~12:00 EDT.** New experiment: stratified subsample (~10K with rare-lineage floors) on substrate-voted axes 1-3; assign-noise-to-nearest for full-pool coverage; cloud fire cancelled (Alternative 2 = substrate expansion is the failure-path move, not bigger-compute). Gandalf owned a Pattern-A-deep ratification-discipline failure: bootstrap-stability at 11:40 was substrate voting, treated as flag rather than gate.
+4. **Frame-revision note authored** at `knight-rider/notes/2026-05-23-phase-E-1-frame-revision-note.md`. Captures the resize, gandalf's verbatim owned-up statement, Matt's acceptance tree, Discipline #18 amendment candidate framing, and the "confident framing on partial evidence" recurring pattern (Discipline #19 candidate).
+5. **Frame-revision dispatch authored** at `dispatches/2026-05-23-legolas-phase-E-1-frame-revision-stratified-subsample-k3.md`. Pipeline code additions specified: new `--mode subsample-k3`, on-disk D2 axes loader, stratified subsample with rare-lineage floors, CLI overrides for `--k_final` / `--min_cluster_size` / `--subsample_n`, assign-noise-to-nearest for full-pool coverage, DB writes. Math-before-code six-section addendum requirement (peak-memory, substrate-voting-is-binding citation, stratification composition, min_cluster_size justification, optional subsample bootstrap, bis-disposition).
+6. **Jack-ryan Gate-1 Pattern-A-light review** returned CONDITIONAL PASS with 1 BLOCK (Finding 2: header acceptance-gate "meaningful clusters" undefined), 3 WARNs (Finding 1: § B.3 stratification floor deferred to legolas violates Discipline #1; Finding 3: MIGRATION.md needs native-vs-nearest-assigned split language; Finding 5: no full-pool bootstrap re-fire fence), 2 INFOs (Discipline #18 candidate ratification-ready; out-of-scope complete), 1 additional WARN (Finding 6: confident-framing-on-partial-evidence is Discipline #19 candidate distinct from Observations 1-4; needs operationalization clause).
+7. **All findings folded into dispatch** — header acceptance-gate now reads "≥50 clusters AND mean per-lineage purity ≥ 0.70" verbatim; § B.3 now requires math-note resolution BEFORE coding starts (committed floor formula + per-lineage count table + N_target); MIGRATION.md scope now requires native-vs-nearest-assigned split language with ADR-004 + Discipline #8 cite; out-of-scope adds "no full-pool bootstrap re-fire" fence.
+8. **OPTION-A dispatch stamped SUPERSEDED** at top with pointer to frame-revision dispatch. RERUN dispatch's existing SUPERSEDED stamp updated to include both supersession events. Original + CONTINUATION dispatches' SUPERSEDED chains remain valid via RERUN's updated pointer.
+9. **Discipline observations queue updated** with two new candidates: Observation 5 (substrate-voting-is-binding; Discipline #18 amendment — gandalf-flagged via Pattern-A-deep ratification-discipline failure) and Observation 6 (forensic-conclusion-discipline; new Discipline #19 — jack-ryan operationalization clause folded). Both severity-marked WARN-leaning-BLOCK for Gate-1 enforcement on future cycles.
+
+**Tag-chain through Cycle 9.10:**
+
+No knight-rider tag this session (orchestration-layer-only files per `REVIEW_PROCESS.md`; not a state-of-team checkpoint). Next state-of-team checkpoint is legolas's tag on completion of the frame-revision dispatch fire: `legolas/phase-E-1-frame-revision-subsample-k3-2026-05-23`.
+
+**Open carries (consolidated):**
+
+- 9.10-A — frame-revision dispatch fire (legolas) — Matt's call to fire
+- 9.10-B — gandalf addendum to kernel-panic-diagnosis recording Pattern-A-deep ratification-discipline failure — **CLOSED**: landed on disk at `gandalf/notes/2026-05-23-phase-E-1-kernel-panic-diagnosis.md` § 9 (addendum); records 4th-panic empirical refutation + ratification-discipline failure + framing-audit gap + corrective actions; owed gandalf OP amendment surfaced as new sub-carry 9.10-B.1 (framing-audit checklist in Pattern A-deep ratification protocol)
+- 9.10-C — Discipline #18 amendment ratification (substrate-voting-is-binding) — jack-ryan queue
+- 9.10-D — Discipline #19 candidate ratification (forensic-conclusion-discipline) — jack-ryan queue
+- 9.10-E — Alternative 2 (substrate expansion via targeted rare-lineage crawls) — DORMANT pending Alternative 1 outcome
+- 9.10-F — Cloud-bigger-HDBSCAN — DORMANT (cancelled unless Alternative 2 exhausted AND production-validation-at-scale needed)
+- 9.10-G — Phase E-1.5 sensitivity sweep on `min_cluster_size` — DORMANT pending Alternative 1 acceptance
+
+**Discipline observations record (for jack-ryan ratification queue):**
+
+Two new candidates folded this cycle (Observations 5 + 6 at `knight-rider/notes/2026-05-23-discipline-observations-for-jack-ryan.md`):
+
+1. **Observation 5 (substrate-voting-is-binding):** When `k_stable < k_chosen` by substantial margin, methodology re-cuts at `k_stable` before clustering fires. Substrate measurement is a gate, not a flag. Compute-remediation framing must not override substrate-vote.
+2. **Observation 6 (forensic-conclusion-discipline):** Forensic notes / diagnosis docs asserting causal claims must document whether the cheapest refuting test has been run; if unrun, frame as hypothesis. Jack-ryan operationalization clause names cheapest refuting tests per claim type (memory: psutil RSS-check; methodology: next-tier-larger sample; substrate: SQL count/distribution; cross-seam: schema diff).
+
+Both candidates leaning BLOCK for Gate-1 enforcement on future cycles per jack-ryan severity assessment.
+
+---
+
 ## 2026-05-23 (Cycle 9.9 — Phase E-1 RERUN kernel-panic triage → Option-A single-stage F2 revision dispatch authored) — third kernel panic in 8 hours on Matt's 8 GiB M2 host traced to HDBSCAN row-duplication in `run_hdbscan`; gandalf design-side ratified single-stage F2 (PCA-only) as Pattern-6-compatible AND methodologically superior to dual-stage; RERUN dispatch superseded; OPTION-A dispatch fire-ready
 
 **Event:** Matt reported the legolas Phase E-1 RERUN dispatch (fired EOD Cycle 9.8) caused a Mac kernel panic for the third time today. Knight-rider triage produced a definitive diagnosis; gandalf design-side ratification arrived in same cycle; OPTION-A revision dispatch authored within the same session.
