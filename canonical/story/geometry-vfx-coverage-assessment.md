@@ -1,6 +1,6 @@
 # Geometry × Element VFX Coverage — Gap Severity Assessment
 
-> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+> **STATUS:** CURRENT (re-stamped 2026-05-23 from HISTORICAL; load-bearing as galadriel first-read per `canonical/00-ground-state.md` § 4) — see `canonical/00-ground-state.md`
 
 **Author:** gandalf
 **Date:** 2026-05-16 (Day 4)

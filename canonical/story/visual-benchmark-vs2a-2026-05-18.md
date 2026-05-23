@@ -1,6 +1,6 @@
 # Visual Benchmark — Reincarnated demo vs. Dungeon of Exile (DoE)
 
-> **STATUS:** HISTORICAL-INFORMATIVE (pre-Epoch-4; consult for lineage only — not current truth) — see `canonical/00-ground-state.md` for current truth
+> **STATUS:** CURRENT (re-stamped 2026-05-23 from HISTORICAL; load-bearing as galadriel first-read per `canonical/00-ground-state.md` § 4) — see `canonical/00-ground-state.md`
 
 **Snapshot:** vs2a — reincarnated-demo SHA `59b9330` drax/v1.23 (D11.5 debug-state hook at `c039184` drax/v1.22 + R2/Vercel hybrid at v1.23).
 **Status:** **v1-DRAFT (first-pass).** Per the dispatch (`2026-05-18-galadriel-plus-gandalf-visual-benchmark-report-vs2a.md`): rubric measures only what captures actually show; absences are scoring caveats; iterate next sprint.
