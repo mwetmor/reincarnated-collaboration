@@ -24,6 +24,7 @@ Read these as authoritative for ongoing work.
 | Doc | Owns | Status |
 |---|---|---|
 | `canonical/38-downstream-delivery-strategy-2026-05-23.md` | Delivery strategy lock (D1-D10): Unreal, PC-first, variable execution, seasonal cadence, humanoid-only, isekai-provisional, ~200-220 day timeline | **CURRENT — keystone** |
+| `canonical/02-roadmap.md` | Current roadmap (workstream sequencing + dependencies + empirical-evidence-gated deferred commitments); supersedes A-series roadmap | **CURRENT — living doc** |
 | `canonical/37-engine-and-game-two-products.md` | Variant C lock: engine vs game as two products | CURRENT |
 | `canonical/story/engine-as-general-serial-content-product-2026-05-22.md` | Variant C strategic frame (story-side) | CURRENT |
 | `canonical/story/gear-heavy-promotion-2026-05-22.md` | Vast-library substrate architecture | CURRENT |
