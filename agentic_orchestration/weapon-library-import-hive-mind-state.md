@@ -10,10 +10,10 @@
 
 | Field | Value |
 |---|---|
-| Timestamp | 2026-05-22 late-evening — knight-rider Cycle 9 sub-step 9.2 (gandalf returned + Matt F1-F6 + Phase A dispatch authored + jack-ryan Gate 1 PASSED) |
-| Cycle | 9.2 — **CLEANING PHASE A DISPATCH READY** (Phase B policy locked + gandalf returned + jack-ryan amendments applied) |
+| Timestamp | 2026-05-23 ~00:35 EDT — knight-rider Cycle 9 sub-step 9.3 (legolas Phase A audit COMPLETE; gandalf in-flight cluster review queued) |
+| Cycle | 9.3 — **PHASE A AUDIT COMPLETE** (legolas returned all 4 deliverables + math note; substrate empirically baselined vs gandalf projections) |
 | Orchestrator | knight-rider |
-| State | **PHASE A DISPATCH FIRE-READY** — clean total **89,839**; gandalf design returned (828-line policy doc); F1-F6 Matt-locked; jack-ryan PASS-WITH-AMENDMENTS applied; Matt's call on Pattern A vs Pattern B fire mode for legolas Phase A audit |
+| State | **PHASE A COMPLETE / GANDALF IN-FLIGHT REVIEW NEXT** — 4 deliverables landed (per-source quality / 38 variant clusters / allowlist verification / cleanliness baseline); 5 commits + tag pushed; Matt-locked next moves: gandalf Pattern-A subagent for 38-cluster in-flight policy assignments → elrond Phase D dispatch authoring |
 
 ## Cleaning-plan disposition (Matt-locked 2026-05-22 evening)
 
@@ -340,6 +340,40 @@ No-decision-yet stance: hive-mind is **IDLE / CHECKPOINTED**. Matt directs.
 3. Surfaces variant-cluster examples to Matt + gandalf (Pattern-A subagent re-engagement for in-flight Item 6 decisions)
 4. Authors elrond Phase D Pattern-B dispatch with locked policies + Phase A empirical baselines operationalized
 5. Optional: fires legolas Mode A dirty-probe (gandalf § 7.2 Step 1) as a sidecar pre-Phase-D — surfaces axes the cleaning pipeline must preserve
+
+### Cycle 9.3 — Phase A audit complete (2026-05-23 ~00:21-00:35 EDT; same-day continuation)
+
+**Matt fired Pattern A.** Legolas executed end-to-end in single subagent call (~18 min wall, 69 tool calls). All 4 deliverables landed; jack-ryan's strict-sequencing amendment honored (5 independent commits).
+
+**Deliverables landed:**
+- `phase-A-math-note.md` (11.4 KB) — sampling strategy + OQ1-6 resolutions + coverage/duplication baselines
+- `phase-A-audit/per-source-quality.md` (37 KB) — all 24 sources; FP rates; Math note C alerts for 7 sources
+- `phase-A-audit/variant-clusters.md` (28 KB) — **38 variant clusters across 8 cluster groups**
+- `phase-A-audit/named-unique-verification.md` (18 KB) — 16/24 allowlist entries confirmed + **10 proposed additions**
+- `phase-A-audit/cleanliness-baseline.md` (21 KB) — all 4 cleanliness gates empirically measured vs gandalf projections
+
+**Key empirical findings:**
+
+| Bar | Gandalf projection | Legolas empirical | Verdict |
+|---|---|---|---|
+| Overall FP rate | ~0.7% | **~2.83%** | Above 1.5% target; below 3.0% hard ceiling — Phase D cleaning necessary |
+| Within-canonical duplication | 47% raw | **47.0% confirmed** | Dedup IS the dominant cleaning task |
+| Field coverage (4 dims) | "all met" | **88.7% / 80.7% / 69.2% / 99.6% — all met** | No enrichment passes needed |
+| `ammo_or_consumable` boundary | ~5-8% | **~17.5%** | **+9-12 pp miss — biggest cleaning surprise** |
+| `named_template` boundary | ~10-15% | ~11.4% | Confirmed in range; large classification task |
+| `unique` boundary | ~3-5% | **~0.2-0.3%** | Better than projected |
+
+**Highest-impact discoveries:**
+
+1. **Two whole-source false positives confirmed:** `souls-api-thomaslincoln` 96.6% FP (Dark Souls game items: keys, embers, consumables) + `pf2ools-pf2ools-data` 100% FP (Pathfinder 2e character backgrounds, ZERO weapons). F3 quarantine validated; souls-api needs separate quarantine action.
+2. **`ammo_or_consumable` is the dominant cleaning category-boundary error** — Royal Armouries armor/ammo + Met Museum sword-guards/scabbards/kozuka + Cataclysm ammo cluster. Phase D needs explicit ammo classification pass as priority #1.
+3. **F1 (Royal Armouries TIERED collapse) operational estimate:** 38,127 rows → ~3,500 canonicals (M/N ≈ 9.2%; 90.8% reduction). Confidence medium ±30%.
+4. **Detection rule refinement needed:** brand-prefix false positives (M982 Excalibur artillery shell ≠ Excalibur sword; Kimber Aegis pistol ≠ Aegis mythological shield; Tyrfing missile ≠ Tyrfing legendary sword). Phase D needs disambiguation logic.
+5. **Phase D priority order from legolas:** (1) ammo_or_consumable tagging → (2) F1 RA dedup → (3) F3 quarantine + souls-api → (4) named_template routing → (5) FP removal → (6) unique detection → (7) F4 cross-source merge
+
+**Tags:** `legolas/phase-A-substrate-audit-2026-05-22` shipped.
+
+**Next:** gandalf Pattern-A subagent for 38-cluster in-flight policy review (this Cycle 9.3 continuation).
 
 ---
 

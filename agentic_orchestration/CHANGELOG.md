@@ -4,6 +4,52 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-23 (~00:35 EDT — Cycle 9.3 Phase A audit complete) — Legolas Pattern-A subagent returned 4 deliverables + math note in 18min wall; substrate empirically baselined vs gandalf projections; ammo_or_consumable boundary error far worse than projected; pf2ools 100% FP + souls-api 96.6% FP confirmed; 38 variant clusters surfaced for gandalf in-flight policy review
+
+**Event:** Matt fired Pattern A for legolas Phase A substrate audit. Legolas executed end-to-end in single subagent call (~18min wall, 69 tool calls, 5 independent commits per jack-ryan's strict-sequencing amendment). Phase A audit COMPLETE; substrate is now empirically baselined against gandalf's Phase B projections; gandalf Pattern-A subagent for 38-cluster in-flight policy review fires next as Cycle 9.3 continuation.
+
+**Deliverables landed (5 commits + tag pushed):**
+
+- `phase-A-math-note.md` — sampling strategy + OQ1-6 resolutions + coverage/duplication baselines
+- `phase-A-audit/per-source-quality.md` — all 24 sources; FP rates; Math note C alerts for 7 sources
+- `phase-A-audit/variant-clusters.md` — 38 variant clusters across 8 cluster groups
+- `phase-A-audit/named-unique-verification.md` — 16/24 allowlist entries confirmed + 10 proposed additions
+- `phase-A-audit/cleanliness-baseline.md` — all 4 cleanliness gates empirically measured
+
+**Key empirical findings vs gandalf projections:**
+
+| Bar | Gandalf projection | Legolas empirical | Phase D action |
+|---|---|---|---|
+| Overall FP rate | ~0.7% | **~2.83%** | Cleaning necessary (above 1.5% target, below 3.0% ceiling) |
+| Duplication raw | 47% | **47.0% exact** | Dedup IS the dominant task |
+| Field coverage (4 dims) | "all met" | All confirmed met | No enrichment needed |
+| `ammo_or_consumable` boundary | ~5-8% | **~17.5%** | **Worst miss; +9-12pp; biggest Phase D priority** |
+| `named_template` boundary | ~10-15% | ~11.4% | Confirmed; large classification task |
+| `unique` boundary | ~3-5% | **~0.2-0.3%** | Better than projected; low Phase D priority |
+
+**Highest-impact discoveries:**
+
+1. **Two whole-source false-positives confirmed.** `pf2ools-pf2ools-data` 100% FP (all 688 rows are Pathfinder 2e character backgrounds; zero weapons — F3 quarantine validated strongly); `souls-api-thomaslincoln` 96.6% FP (56 of 58 rows are Dark Souls items.js game items — keys, embers, consumables; recommend separate quarantine action).
+2. **`ammo_or_consumable` is the dominant Phase D cleaning task.** Drivers: Royal Armouries armor/ammunition categories (~10,951 rows); Met Museum sword-guards/scabbards/kozuka (~1,778 rows); Cataclysm ammo cluster.
+3. **F1 (Royal Armouries TIERED collapse) operational estimate.** 38,127 source rows → ~3,500 canonicals (M/N ≈ 9.2%; 90.8% reduction; medium confidence ±30%). RA alone accounts for ~37.3% of substrate raw duplication.
+4. **F4 (cross-source ≥0.85 + corroboration) validated.** Aegis (wikidata + wikipedia, cosine >0.90), Battersea Shield (same), Excalibur (3-source: wikidata + wikipedia + osrsbox) all correctly merged. Matra Durandal (anti-runway bomb) correctly NOT merged with Durandal (medieval sword) — name match but description divergence > threshold.
+5. **Detection rule refinement required for brand-prefix false-positives:** M982 Excalibur artillery shell ≠ Excalibur sword; Kimber Aegis pistol ≠ Aegis mythological shield; Tyrfing missile ≠ Tyrfing legendary sword. Phase D needs disambiguation logic.
+6. **Named-unique allowlist 10 proposed additions** including first east_asian mythological unique (Ruyi Jingu Bang) and first south_asian uniques (Sudarshana Chakra, Gandiva). Plus 8 of 24 original entries either not in substrate or borderline (Ulfberht swords article = class not specific; Narsil wikipedia entry is a redirect).
+
+**Phase D priority order (legolas's operational recommendation):**
+
+1. `ammo_or_consumable` tagging pass (highest-impact; biggest empirical miss)
+2. F1 Royal Armouries within-source TIERED dedup
+3. F3 pf2ools quarantine + souls-api quarantine action
+4. `named_template` routing for TRPG/MMO/ARPG sources
+5. FP removal (gta-v Invalid placeholders + sketchfab military-vehicle slips + scattered FPs)
+6. `unique` detection (low volume; surface for Matt+gandalf in-flight review)
+7. F4 cross-source canonical merge (lower-volume, higher-precision pass)
+
+**Tag this cycle:** `knight-rider/cycle-9-3-phase-A-audit-complete-2026-05-23` (intermediate seam-prefix per ADR-001).
+
+---
+
 ## 2026-05-22 (late-evening — Cycle 9 cleaning-plan design) — Matt picks (a) accept at 89.8% + pivot; 130K wikipedia-unfiltered dump-then-deleted; 5-phase cleaning plan locked; gandalf Pattern-B dispatch fired across 7 review items including math-anchored substrate-cleanliness bar
 
 **Event:** Matt closed the (a) vs (b) decision from Cycle 8 wind-down by selecting **(a) accept at 89.8% + pivot to canonical normalization**. This session locked the 5-phase cleaning plan, executed the 130K wikipedia-unfiltered dump-then-delete, and fired the Gandalf Pattern-B dispatch for cleaning-policy design review. Phase A audit (legolas) is held pending gandalf's return so the audit rubric incorporates gandalf's taxonomy refinements + math-anchored cleanliness bar before classification fires.
