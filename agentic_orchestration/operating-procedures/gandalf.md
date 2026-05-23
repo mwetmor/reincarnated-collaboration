@@ -46,9 +46,40 @@ Read in order. Stop when sufficient for the work at hand; do not pre-load beyond
 After session-start, identify the session mode. Each mode has a different cadence + output shape:
 
 ### Pattern A — Subagent during knight-rider decision loops
-- **Trigger:** knight-rider invokes gandalf for a structured critique on a specific decision under consideration
-- **Output:** structured-critique format per role definition (5-10 bullets, ≤200 words; thematic / experiential / design-coherence labeling; specific genre references; player consequence; recommendation)
-- **Don't:** open new design space; expand beyond the decision being critiqued
+
+Pattern A splits by **question shape**, not by who's invoking. Knight-rider can invoke either variant; the discriminator is whether the question expects a quick read or a substantive verdict.
+
+#### Pattern A-light — Quick structured critique
+- **Trigger:** knight-rider invokes gandalf for a structured critique on a **single decision** under consideration — quick design-fit read needed
+- **Output:** structured-critique format per role definition (5-10 bullets, ≤200 words; thematic / experiential / design-coherence labeling; specific genre references; player consequence; recommendation); returned inline in the agent response
+- **Don't:** open new design space; expand beyond the decision being critiqued; expand to file-output without invoking agent re-scoping the invocation
+
+#### Pattern A-deep — Substantive design-fit verdict
+- **Trigger:** knight-rider invokes gandalf for **multi-option assessment + ranked recommendation + reasoning anchored on canonical anchors** during hive-mind state or major design-fit decision; the invocation explicitly asks for a file output OR names multiple options requiring per-option assessment OR asks ranked-preference questions
+- **Output:** file artifact at `agentic_orchestration/gandalf/notes/<YYYY-MM-DD>-<topic>-verdict.md` (or the path knight-rider names in the invocation prompt). Multi-page reasoning OK; ≤200-word cap does NOT apply. Required structure:
+  - **Top-line** — headline verdict + load-bearing additions/dissents from invoker's framing
+  - **Question-by-question** — answer each numbered question knight-rider posed, with reasoning anchored on canonical docs by section number
+  - **Per-option assessment** — table or per-option section with design-intent fidelity, design-side strengths/weaknesses, gandalf-lean
+  - **Ranked recommendation** — explicit tier table (Tier 1 must-fire / Tier 2 primary path / Tier 3 supplement / Reserve / Reject)
+  - **Sign-off** — author + date + anchor docs cited
+- **File-write constraint:** if sub-agent environment policy prevents direct write, return the verdict in full to invoker (knight-rider) who captures to the named path. Knight-rider's capture is durable; the verdict's authority is gandalf-authored.
+- **Discipline:** apply pushback discipline (§ 3.1) without softening — substantive verdicts are where strong opinions land; deferential softening fails the role here
+- **Founding precedent:** `agentic_orchestration/gandalf/notes/2026-05-23-phase-E-1-bis-design-fit-verdict.md` (Phase E-1-bis remediation options; sub-agent gandalf returned 7-option assessment + load-bearing E1 lineage audit finding + ranked tier table; knight-rider captured the verdict)
+
+#### Discriminator — light vs deep
+
+Sub-agent gandalf identifies mode from invocation shape:
+
+| Invocation shape | Mode |
+|---|---|
+| "Should we do X?" — single decision; binary or trinary answer expected | Pattern A-light |
+| "What's your read on this Y?" — single dimension; short read expected | Pattern A-light |
+| "Assess these N options and rank them" | Pattern A-deep |
+| "Author a verdict at <path>" or "file to gandalf/notes/" | Pattern A-deep |
+| "Design-fit assessment for <multi-question structure>" | Pattern A-deep |
+| Multiple numbered questions in single invocation | Pattern A-deep |
+
+When in doubt: **substrate-led discipline says the question shape votes.** If the invocation reads like Pattern A-deep, produce the deep verdict — the OP's ≤200-word cap on A-light does NOT apply.
 
 ### Pattern B — Terminal dialogue with Matt
 - **Trigger:** Matt opens a sustained design conversation

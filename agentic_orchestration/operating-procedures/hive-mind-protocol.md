@@ -211,6 +211,48 @@ Example: P4 cluster semantic labeling — gandalf + Matt design call; jack-ryan 
 - **Gate 2 (DEV-MODE BLOCK authority)** fires per `REVIEW_PROCESS.md` after Wave execution; jack-ryan reviews for discipline compliance + scope drift
 - **Critique-pair Gate-2 ratification** (autonomous-pair) — jack-ryan + gandalf can ratify minor closeouts under Matt pre-authorization per `dispatches/README.md` Pattern E (precedent: W0.7 cumulative close-out 2026-05-22)
 
+### 5.5 Hive-mind sub-agent verdict pattern (substantive design-fit + methodology assessment)
+
+When knight-rider's decision-routing (§ 4) surfaces a **multi-option assessment / ranked-recommendation / file-output question** during hive-mind state, the seam-owning sub-agent produces a **verdict artifact**, not an inline reply. This is the substantive analog to the gate routing above — used when the question shape exceeds what an inline structured-critique can carry.
+
+#### 5.5.1 When this pattern fires
+
+Knight-rider's invocation prompt triggers verdict pattern when ANY of:
+- Invocation asks for ranked-preference across N options
+- Invocation poses multiple numbered questions requiring per-question reasoning
+- Invocation explicitly asks for file output at a named path
+- Invocation is a design-fit assessment, methodology selection, or remediation-options assessment at a math hotspot
+
+Inline structured-critique (5-10 bullets, ≤200 words) is **insufficient output shape** for these question shapes. The role-specific OP skill discriminator language defines the per-seam variant (e.g., gandalf OP § 2 Pattern A-deep).
+
+#### 5.5.2 Knight-rider's invocation responsibilities
+
+When invoking a sub-agent under verdict pattern:
+
+1. **Name the file path explicitly** in the invocation prompt — e.g., "file verdict to `agentic_orchestration/gandalf/notes/<YYYY-MM-DD>-<topic>-verdict.md`"
+2. **Carry the substantive premise** — don't expect sub-agent to derive hypotheses from scratch; include the design-side anchor docs, the empirical evidence, and the specific question shape
+3. **Name the option set** — don't leave the sub-agent to invent options; provide knight-rider's option ranking as starting framing (sub-agent may add or refine)
+4. **List the read-set** — concrete file paths the sub-agent should consult; include both the question-specific docs AND the sub-agent's own canonical authoring anchors
+
+#### 5.5.3 Sub-agent's responsibilities
+
+Sub-agent produces verdict with:
+- **Top-line headline** + load-bearing additions or dissents from invoker's framing
+- **Question-by-question** answers, anchored on canonical docs by section number
+- **Per-option assessment** with seam-specific fidelity assessment + strengths/weaknesses + lean
+- **Ranked recommendation** with explicit tier table
+- **Sign-off** with author + date + anchor docs cited
+
+Sub-agent pushes back where warranted — verdicts are where strong opinions land; deferential softening fails the role.
+
+#### 5.5.4 File-write constraint
+
+Sub-agent environment policy may prevent direct file write. In that case, sub-agent returns the verdict in full to invoker (knight-rider); invoker captures to the named path. **Knight-rider's capture is durable; the verdict's authority is sub-agent-authored.** This is not a failure mode — it's the documented coordination pattern when sub-agent write scope is restricted.
+
+#### 5.5.5 Founding precedent
+
+`agentic_orchestration/gandalf/notes/2026-05-23-phase-E-1-bis-design-fit-verdict.md` (2026-05-23). Sub-agent gandalf returned substantive 7-option design-fit assessment + load-bearing E1 lineage audit higher-order finding + ranked tier table; knight-rider captured to gandalf/notes/ on sub-agent's behalf. This is the durable example of the pattern working correctly.
+
 ---
 
 ## 6. Discipline #19 + checkpoint protocol
