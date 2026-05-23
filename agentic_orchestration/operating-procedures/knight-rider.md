@@ -52,7 +52,8 @@ After session-start, identify the session mode. Each mode has a different cadenc
 - **Trigger:** active substrate-acquisition or substrate-processing cycle in flight (e.g., weapon-library import, future M1 mythological-named-weapons fire)
 - **Output:** Wave dispatches; PID tracking; Discovery returns synthesized; checkpoint commits per cycle; state-file updates
 - **Companion skill:** `reincarnated-hive-mind-protocol` (load when in this mode)
-- **Don't:** invent new substrate without Matt authorization; cross seam authority boundaries
+- **Decision routing (LOAD-BEARING per Matt 2026-05-23 directive — see § 3.9):** during hive-mind state, ALWAYS invoke the seam-owning agent as a sub-agent for decisions native to that seam. Matt is LAST-RESORT escalation only — invoked when no amount of cross-seam collaboration resolves the question. Knight-rider does NOT decide solo within seams he doesn't own.
+- **Don't:** invent new substrate without Matt authorization; cross seam authority boundaries; default to Matt as concurrer when a seam-owning agent should decide; serialize sub-agent invocations that can run in parallel (Discipline #19)
 
 ### Mode B — Routine cross-seam dispatching (Pattern A or Pattern B)
 - **Trigger:** Matt directs work that needs to land in a specialist seam
@@ -134,6 +135,43 @@ Invoke jack-ryan only when: new ADR / decisions-log entry; cross-seam schema cha
 Invoke gandalf when: thematic / experiential / canon question; canonical-story doc drafted or contested; design drift risk. NOT for purely technical questions (jack-ryan's lane).
 
 When in doubt: ask Matt "want jack-ryan / gandalf in on this?" rather than auto-invoking.
+
+### 3.9 Hive-mind decision-routing discipline (Matt 2026-05-23 directive)
+
+**Verbatim Matt directive (load-bearing for all hive-mind orchestration):**
+
+> *"knight-rider should always call upon the agent who owns each seam for decisions during hive mind run state. Only as a last resort if no amount of collaboration will solve the problem should the decision be made to wait for Matt. During hive mind state, knight-rider should always invoke agents per seam as sub-agents."*
+
+**Operational shape:**
+
+| Decision touches | Decide via sub-agent invocation of |
+|---|---|
+| Generation / element / anchor / foundation / engine-internal canonical | **rocket** |
+| Simulation / spirit guide / balance / fight engine | **gamora** |
+| Export / output / telemetry / LLM seam | **star-lord** |
+| Catalogue DB / abstraction-analysis / cross-cutting data | **elrond** |
+| Visual perception / similarity scoring / benchmark rubrics | **galadriel** |
+| Demo / loadout / player-facing presentation | **drax** |
+| Research / catalogue crawl / external literature | **legolas** |
+| Design intent / thematic / experiential / canonical-story coherence | **gandalf** |
+| Process gate / QA / discipline citation / decisions-log | **jack-ryan** |
+
+**Escalation hierarchy during hive-mind state:**
+
+1. Seam-owning agent decides within their authority (default; no escalation)
+2. Cross-seam collaboration via parallel sub-agent invocation
+3. Critique-pair invocation (jack-ryan process; gandalf design)
+4. Re-attempt collaboration with refined framing
+5. **Last resort — wait for Matt.** Matt's bandwidth is the project's scarcest resource during hive-mind cycles; he is escalation, not concurrence.
+
+**Anti-patterns this resolves:**
+- Matt-as-default-concurrer for every Wave decision (bandwidth saturation; seam-skill erosion)
+- Knight-rider deciding solo within a seam he doesn't own (synthesis from assumption rather than asking the seam owner)
+- Serial sub-agent invocation when parallel is possible (Discipline #19 reinforcement)
+
+**Full directive capture:** `agentic_orchestration/gandalf/requests/2026-05-23-knight-rider-hive-mind-skill-decision-routing-directive.md`
+
+**Future integration:** when `reincarnated-hive-mind-protocol` skill is authored (Stream 3 candidate per roadmap § 2.2), this directive is incorporated as a load-bearing section. Until then, this OP § 3.9 is the load-bearing reference for every hive-mind invocation.
 
 ---
 
