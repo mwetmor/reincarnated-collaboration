@@ -293,3 +293,16 @@ Phase E (Pattern-6 canonical axis discovery) waits for Phase D clean substrate.
 - Ulfberht swords wikipedia article should be `category` (class article), not `unique`; individual museum specimens = `unique`
 - Narsil wikipedia entry is a REDIRECT — Phase D should detect and remove
 - Top 5 variant clusters for in-flight Matt+gandalf review: AK-47 family (WIKI-4), Met Museum katana/tachi/wakizashi/tantō (MET-1), Royal Armouries generic "Sword" 3,155 rows (RA-2), cross-source Katana (CS-1), soulslike Dagger (SOULS-1)
+
+---
+
+## Downstream — gandalf variant-cluster policy assignment (2026-05-23)
+
+gandalf completed the in-flight Matt+gandalf variant-cluster review on 2026-05-23 (Pattern-A subagent). All 26 cluster IDs (38 discrete variant decisions) assigned policies per § 6.3 criteria.
+
+**Output:** `canonical/story/variant-cluster-policy-assignments-2026-05-23.md`
+**Tag:** `gandalf/variant-cluster-policy-2026-05-23` (annotated)
+
+**Policy distribution (per cluster ID):** A=5, B=8, C=8, D=2, plus 3 hybrid "A-at-top + B-within" cases for multi-type clusters (RA-4, MET-1, CS-3). 5 clusters flagged for Matt review (WIKI-3 game-tier merge, SOULS-1 auto-merge cutoff, AOS-2 split decision, RA-2 grouping threshold, WIKI-2 OSRS Excalibur disposition).
+
+**Phase D handoff to elrond:** ammo_or_consumable drain (RA-5 + MET-3 alone = ~3,800 rows leaving active substrate) is priority 1. F1 RA TIERED collapse per RA-1/RA-3/RA-4. F4 confirmed merges for WIKI-1, WIKI-2, SOULS-2, WIKI-3 game-tier. Complex Policy-C routing (RA-2, WIKI-4, CS-1, CS-2) needs the three-lane historical/game-category/named_template router and caliber-bucket logic.
