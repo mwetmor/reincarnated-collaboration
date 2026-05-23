@@ -138,7 +138,7 @@ After session-start, identify the session mode. Each mode has a different cadenc
 ### Cross-cutting (load when relevant)
 - `reincarnated-substrate-vector-cheatsheet` (BC axes; load for design-spec-as-math work)
 - `reincarnated-critique-pair-gate-protocol` (load for Pattern A + jack-ryan-adjacency work)
-- `reincarnated-hive-mind-protocol` (load when engaging with substrate hive-mind cycle as design steward)
+- `reincarnated-hive-mind-protocol` (load when engaging with substrate hive-mind cycle as design steward — authored 2026-05-23 at `operating-procedures/hive-mind-protocol.md`; especially load when authoring/amending a hive-mind protocol doc, executing P4 cluster semantic labeling, or being sub-agent invoked mid-cycle)
 
 ### Specialized (rare)
 - None at present; specialized work-mode skills belong to other agents (knight-rider hive-mind; jack-ryan Gate-1; etc.)

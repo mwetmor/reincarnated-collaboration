@@ -77,16 +77,20 @@ Every deferred commitment lists the **specific empirical-evidence criterion** th
 | **Empirical criterion for completion** | Next handoff lands in new format; Matt confirms it's useful for session-start; pattern adopted as working-agreement. |
 | **Effort** | Small (working-agreement edit + one handoff in new format). |
 
-### 2.2 Per-agent operating-procedure skills (Skill Creator packaging)
+### 2.2 Per-agent operating-procedure skills + cross-cutting work-mode skills (Skill Creator packaging)
 
 | Aspect | Spec |
 |---|---|
-| **Owner** | Multi-agent coordination via knight-rider; each agent authors their own |
+| **Owner** | Multi-agent coordination via knight-rider; each agent authors their own per-agent OP skill; cross-cutting skills authored per ownership lineage |
 | **Trigger** | Cleanup pass continuation (1.3) + Skill_handoff reframing (2.1) land |
-| **Scope per agent** | Thin operating-procedure skill (~500-800 words): session-start protocol; mode-selection (what kind of work is this session?); session-end protocol. Specialized work-mode skills compose on top (hive-mind for knight-rider, critique-pair-gate for jack-ryan + gandalf, design-call for gandalf, etc.) |
-| **Skill list (initial)** | `reincarnated-knight-rider-operating-procedure`; `reincarnated-jack-ryan-operating-procedure`; `reincarnated-gandalf-operating-procedure`; one per remaining agent; plus cross-cutting `reincarnated-engineering-disciplines`, `reincarnated-hive-mind-protocol`, `reincarnated-decision-log-format`, `reincarnated-canonical-doc-format`, `reincarnated-substrate-vector-cheatsheet`, `reincarnated-critique-pair-gate-protocol` |
-| **Effort** | ~5-8 hours focused authoring distributed across agents; one focused session per agent. |
-| **Empirical criterion for completion** | All thin operating-procedure skills authored + packaged via Skill Creator; cross-cutting skills authored; agents install their skills on session-start; per-invocation read budget targets verified empirically (~10-15 min onboarding). |
+| **Stream 2 — per-agent OP skills** | Thin operating-procedure skill (~500-800 words): session-start protocol; mode-selection (what kind of work is this session?); session-end protocol. Specialized work-mode skills compose on top |
+| **Stream 2 landed (2026-05-23)** | `operating-procedures/gandalf.md` (prototype); `operating-procedures/jack-ryan.md`; `operating-procedures/knight-rider.md` |
+| **Stream 2 remaining** | `rocket`, `gamora`, `star-lord`, `elrond`, `galadriel`, `drax`, `legolas` OP skills (one per remaining agent; each ~1 focused authoring session) |
+| **Stream 3 — cross-cutting work-mode skills** | Compose on top of per-agent OP skills when in specialized work modes |
+| **Stream 3 landed (2026-05-23)** | `operating-procedures/hive-mind-protocol.md` — hive-mind work-mode skill (gandalf author; cross-cutting; ~600 lines covering state entry/exit, Wave cadence, decision routing per Matt 2026-05-23 directive, critique-pair structure, Discipline #19 + checkpoint, math hotspots + Discipline #18, state-file + cross-session continuity, wind-down) |
+| **Stream 3 remaining** | `reincarnated-engineering-disciplines` (the 20 disciplines wrapper); `reincarnated-decision-log-format`; `reincarnated-canonical-doc-format`; `reincarnated-substrate-vector-cheatsheet`; `reincarnated-critique-pair-gate-protocol` |
+| **Effort remaining** | ~4-6 hours focused authoring distributed across remaining Stream 2 + Stream 3 skills |
+| **Empirical criterion for completion** | All Stream 2 + Stream 3 skills authored + packaged via Skill Creator; agents install their skills on session-start; per-invocation read budget targets verified empirically (~10-15 min onboarding) |
 
 ### 2.3 Architecture-validation spike (Unreal pipeline)
 

@@ -43,6 +43,7 @@ Read these as authoritative for ongoing work.
 | `canonical/story/geometry-vfx-coverage-assessment.md` | Geometry × element VFX coverage gap-severity assessment (galadriel first-read per § 4); re-stamped CURRENT 2026-05-23 from HISTORICAL | CURRENT (active operational reference) |
 | `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` | 20 engineering disciplines (1-17, 18 methodology-before-execution adopted 2026-05-23, 19 Agent-tool-not-for-waiting; plus R-prescriptions and named patterns) | CURRENT |
 | `agentic_orchestration/gandalf/notes/2026-05-23-mathematical-seam-naming.md` | Mathematical Layer cross-cutting declaration + math-hotspot living list + Discipline #18 rationale | CURRENT (integrated 2026-05-23) |
+| `agentic_orchestration/operating-procedures/hive-mind-protocol.md` | Work-mode skill: hive-mind state entry/exit + Wave cadence + decision routing (verbatim Matt 2026-05-23 directive) + critique-pair structure + Discipline #19 + math hotspots + state-file continuity + wind-down (Stream 3 cross-cutting; composes on top of per-agent OP skills) | CURRENT (authored 2026-05-23) |
 | `~/Games/reincarnated-engine/design/decisions/decisions-log.md` | Temporal decisions log | CURRENT |
 | `agentic_orchestration/AGENTS.md` | Team topology + scope map | CURRENT |
 | `agentic_orchestration/GOVERNANCE.md` | Founding ADRs | CURRENT |
