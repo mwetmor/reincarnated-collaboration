@@ -253,3 +253,43 @@ Phase E (Pattern-6 canonical axis discovery) waits for Phase D clean substrate.
 ---
 
 **Signed:** knight-rider (dispatch authored 2026-05-22 late-evening; cleaning Phase A audit fires next)
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-22
+**Executed by:** legolas (Pattern-A sub-agent in knight-rider session)
+**Tags shipped:** `legolas/phase-A-substrate-audit-2026-05-22`
+
+**Deliverables authored:**
+- `phase-A-math-note.md` — Math note A (sampling strategy; N_source table; OQ1-6 resolutions; field coverage baseline; raw duplication baseline)
+- `phase-A-audit/per-source-quality.md` — Deliverable 1 (all 24 sources; FP rates; Math note C alerts for 7 sources)
+- `phase-A-audit/variant-clusters.md` — Deliverable 2 (38 variant clusters across 8 cluster groups)
+- `phase-A-audit/named-unique-verification.md` — Deliverable 3 (24-entry allowlist: 16/24 confirmed; 10 proposed additions)
+- `phase-A-audit/cleanliness-baseline.md` — Deliverable 4 (all 4 gates empirically measured vs gandalf projections)
+
+**Round-trip:** not applicable — audit deliverable; no contract change.
+
+**F1-F6 operational implications recorded:**
+- F1 (Royal Armouries TIERED): M/N ratio ≈ 9.2% (38,127 rows → ~3,500 canonicals; 87.9% within-source raw duplication)
+- F2 (Cultural-lineage axis bias): European ~43% of classified rows confirmed; weighted inverse-frequency decision validated
+- F3 (pf2ools quarantine): 100% non-weapons confirmed (all 688 rows are Pathfinder 2e character backgrounds; "mostly non-weapons" understated)
+- F4 (fuzzy cross-source ≥0.85): Aegis/Aegis wikidata+wikipedia = confirmed >0.90 cosine + corroboration; Battersea Shield + Excalibur 3-source cases also confirmed
+- F5 (PCA): no evidence PCA is insufficient; discrete cluster structure expected; wieldability dimension flagged as potential non-linear monitor in Phase E
+- F6 (N=20-50): confirmed; note that v_category_sample must exclude ammo_or_consumable/non-wieldable before pool draw
+
+**Key findings for knight-rider to surface to Matt:**
+1. Substrate FP rate is ~2.83% (above 1.5% target; Phase D cleaning necessary — not optional)
+2. `ammo_or_consumable` boundary error is 17.5% (far above 1.0% ceiling); Royal Armouries armour/ammunition categories are the dominant driver (~10,951 rows)
+3. `named_template` boundary error is ~11.4% (above 5.0% threshold); TRPG/MMO/ARPG routing is the largest classification task in Phase D
+4. pf2ools is 100% character backgrounds — F3 quarantine confirmed and operationally ready
+5. souls-api is 96.6% non-weapon game items — recommend separate quarantine or ammo_or_consumable tagging
+6. Named-unique allowlist: 10 proposed additions including first east_asian (Ruyi Jingu Bang) and south_asian (Sudarshana Chakra, Gandiva) mythological uniques
+7. Phase D priority order: (1) ammo_or_consumable tagging, (2) F1 RA dedup, (3) F3 quarantine, (4) named_template routing, (5) FP removal, (6) unique detection, (7) F4 cross-source merge
+
+**Notes for gandalf/elrond:**
+- Detection rule refinement required for false-positive risk: M982 Excalibur, Kimber Aegis, Tyrfing missile (modern weapons sharing names with legendary uniques)
+- Ulfberht swords wikipedia article should be `category` (class article), not `unique`; individual museum specimens = `unique`
+- Narsil wikipedia entry is a REDIRECT — Phase D should detect and remove
+- Top 5 variant clusters for in-flight Matt+gandalf review: AK-47 family (WIKI-4), Met Museum katana/tachi/wakizashi/tantō (MET-1), Royal Armouries generic "Sword" 3,155 rows (RA-2), cross-source Katana (CS-1), soulslike Dagger (SOULS-1)
