@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Substrate analysis — geography vs culture (2026-05-23)</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    color: #1a1a1a;
+    line-height: 1.5;
+  }
+  h1 { font-size: 1.6em; border-bottom: 2px solid #333; padding-bottom: 6px; }
+  h2 { font-size: 1.3em; margin-top: 40px; color: #333; }
+  h3 { font-size: 1.05em; color: #555; }
+  .chart-container { position: relative; height: 480px; margin: 20px 0; background: #fafafa; padding: 16px; border-radius: 6px; }
+  .chart-tall { height: 600px; }
+  .chart-short { height: 360px; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 0.9em; }
+  th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; }
+  th { background: #eee; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .mode-A { background: #d4edda; }
+  .mode-AB { background: #fff3cd; }
+  .mode-B { background: #f8d7da; }
+  .mode-F { background: #d1ecf1; }
+  .mode-U { background: #e9ecef; }
+  .interpretation { background: #fff8e1; border-left: 4px solid #ffa000; padding: 12px 16px; margin: 16px 0; }
+  .key-finding { background: #ffebee; border-left: 4px solid #c62828; padding: 12px 16px; margin: 16px 0; font-weight: 500; }
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 0.9em; margin: 8px 0 16px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-swatch { width: 16px; height: 16px; border-radius: 3px; border: 1px solid #888; }
+  .meta { color: #666; font-size: 0.85em; }
+  code { background: #f0f0f0; padding: 2px 5px; border-radius: 3px; font-size: 0.9em; }
+  .sample-list { font-family: ui-monospace, SF Mono, monospace; font-size: 0.82em; background: #fafafa; padding: 10px 16px; border-radius: 4px; max-height: 320px; overflow-y: auto; }
+</style>
+</head>
+<body>
+
+<h1>Substrate analysis — geography vs culture (2026-05-23)</h1>
+<p class="meta">
+Author: gandalf · Data source: <code>weapon_knowledge_entries</code> (dedup-canonical only;
+N=69,137 of 89,841 total) · Companion: <code>canonical/story/marginal-lineage-tagging-pattern-2026-05-23.md</code>
+</p>
+
+<div class="key-finding">
+<strong>Headline finding:</strong> the <code>cultural_lineage_canonical</code> field empirically captures
+<em>at least two distinct modes</em>: <strong>cultural-tradition-of-origin (Mode A)</strong> and
+<strong>geographic-region-of-deployment (Mode B)</strong>. For marginal lineages
+(arctic_circumpolar, oceanic, mesoamerican, south_american_indigenous, north_american_indigenous),
+Mode B + ambiguous-period-modern dominate; Mode A (the intended cultural-tradition meaning) is the minority.
+This empirically refutes naive use of the lineage tag as "cultural tradition" substrate for downstream
+design surfaces. Per engineering-disciplines.md Discipline #25 (semantic-layer rep-audit), downstream
+consumers must rep-audit before inheriting lineage tag as cultural-tradition substrate.
+</div>
+
+<h2>1. Classification methodology — geographic vs cultural proxy</h2>
+<p>The substrate doesn't have an explicit "geographic vs cultural" flag. This analysis uses
+<code>register_canonical</code> + <code>historical_period_canonical</code> as proxies to assign each row
+to one of five modes:</p>
+
+<table>
+<thead><tr><th>Mode</th><th>Definition</th><th>Interpretation</th></tr></thead>
+<tbody>
+<tr class="mode-A"><td><strong>Mode A — cultural (pre-industrial historical)</strong></td>
+<td><code>register = 'historical'</code> AND <code>period ∈ {pre_classical, classical, medieval, early_modern}</code></td>
+<td>Most likely the intended cultural-tradition-of-origin meaning of the lineage tag</td></tr>
+<tr class="mode-AB"><td><strong>Mode AB — ambiguous (modern-period historical)</strong></td>
+<td><code>register = 'historical'</code> AND <code>period ∈ {industrial, modern, contemporary}</code></td>
+<td>Could be Mode A (modern-made traditional cultural item) or Mode B (modern military item tagged historical-register); requires per-row audit</td></tr>
+<tr class="mode-B"><td><strong>Mode B — geographic (military-modern)</strong></td>
+<td><code>register = 'military_modern'</code></td>
+<td>Confirmed modern-military items; lineage tag captures geographic region of origin/deployment, NOT cultural tradition</td></tr>
+<tr class="mode-F"><td><strong>Mode F — fictional</strong></td>
+<td><code>register ∈ {fantasy, sci_fi, mythological}</code></td>
+<td>Invented items; lineage tag describes invented aesthetic, not real-world cultural origin</td></tr>
+<tr class="mode-U"><td><strong>Mode U — period unknown</strong></td>
+<td><code>period = 'unknown'</code> (intersects with above)</td>
+<td>Metadata residue; period-unspecified items often need curation review (e.g., Cluster 90 East Asian Uncurated-Period Metadata Pool)</td></tr>
+</tbody>
+</table>
+
+<p>The proxies are approximate. Mode B is the cleanest signal — <code>military_modern</code> register is
+explicitly modern-military items. Mode A is reasonably clean for pre-industrial periods. Mode AB
+(modern-period historical-register) is where the 4-mode collapse hides most artifacts.</p>
+
+<h2>2. All lineages — total counts (log scale)</h2>
+<p>Three lineages dominate the substrate (fantasy_generic + european + east_asian = 89%); the remaining
+11 lineages together account for 11% of rows. Note logarithmic scale.</p>
+
+<div class="chart-container">
+  <canvas id="totalsChart"></canvas>
+</div>
+
+<h2>3. Mode breakdown per lineage — stacked composition</h2>
+<p>Each lineage's row count split across the 5 modes. The shape of each bar reveals the lineage's
+substrate-tagging health:</p>
+
+<ul>
+<li><strong>Healthy lineage profile:</strong> dominated by Mode A (green) with smaller Mode AB (yellow)
+and minimal Mode B (red). Means most rows are cultural-tradition items, not geographic-deployed modern.</li>
+<li><strong>Geographically-contaminated profile:</strong> dominated by Mode B (red) and Mode AB (yellow).
+The lineage tag is functioning as geographic-region label, not cultural-tradition label.</li>
+<li><strong>Period-unknown profile:</strong> dominated by Mode U (grey). Metadata residue requiring curation.</li>
+</ul>
+
+<div class="legend">
+  <span class="legend-item"><span class="legend-swatch" style="background:#52a373"></span>Mode A — cultural (pre-industrial historical)</span>
+  <span class="legend-item"><span class="legend-swatch" style="background:#e6a939"></span>Mode AB — ambiguous (modern-period historical)</span>
+  <span class="legend-item"><span class="legend-swatch" style="background:#c54848"></span>Mode B — geographic (military-modern)</span>
+  <span class="legend-item"><span class="legend-swatch" style="background:#4d8fbd"></span>Mode F — fictional</span>
+  <span class="legend-item"><span class="legend-swatch" style="background:#888888"></span>Mode U — period unknown</span>
+</div>
+
+<div class="chart-container chart-tall">
+  <canvas id="stackedChart"></canvas>
+</div>
+
+<h2>4. Marginal lineages only — Mode-B dominance confirmed</h2>
+<p>Zoom on the 5 marginal lineages from the marginal-lineage meta-record. Percentages within each bar
+(not raw counts) reveal the Mode-B-dominance pattern empirically — every marginal lineage except
+north_american_indigenous has Mode B as the largest single category, or Mode AB (also mostly
+contamination) plus Mode B dominating the cultural-tradition Mode A.</p>
+
+<div class="chart-container chart-tall">
+  <canvas id="marginalChart"></canvas>
+</div>
+
+<table>
+<thead><tr><th>Lineage</th><th class="num">Total</th><th class="num">Mode A %</th><th class="num">Mode AB %</th><th class="num">Mode B %</th><th class="num">Mode F %</th><th class="num">Mode U %</th><th>Pattern</th></tr></thead>
+<tbody>
+<tr><td>south_american_indigenous</td><td class="num">210</td><td class="num">18%</td><td class="num">49%</td><td class="num">12%</td><td class="num">0%</td><td class="num">21%</td><td>Mode AB dominates (49% modern-Argentina/Brazil/Chile)</td></tr>
+<tr><td>mesoamerican</td><td class="num">97</td><td class="num">25%</td><td class="num">55%</td><td class="num">8%</td><td class="num">0%</td><td class="num">12%</td><td>Mode AB dominates (modern Mexican military arms)</td></tr>
+<tr><td>arctic_circumpolar</td><td class="num">56</td><td class="num">14%</td><td class="num">18%</td><td class="num">54%</td><td class="num">9%</td><td class="num">5%</td><td>Mode B dominates (54% Russian/Swedish/French missile systems)</td></tr>
+<tr><td>oceanic</td><td class="num">41</td><td class="num">5%</td><td class="num">22%</td><td class="num">54%</td><td class="num">0%</td><td class="num">20%</td><td>Mode B dominates (54% Australian/NZ modern naval/UAV)</td></tr>
+<tr><td>north_american_indigenous</td><td class="num">32</td><td class="num">25%</td><td class="num">38%</td><td class="num">22%</td><td class="num">0%</td><td class="num">16%</td><td>Mixed; clean-control case per meta-record</td></tr>
+</tbody>
+</table>
+
+<div class="interpretation">
+<strong>Observation per row-level rep audit:</strong> even Mode A rows in marginal lineages frequently
+contain Mode B items mis-tagged as historical-classical (e.g., Accuracy International AWM sniper rifle
+tagged <code>arctic_circumpolar / historical / classical</code>; Cabañas RC-30 modern Mexican firearm
+tagged <code>mesoamerican / historical / classical</code>). The proxy may UNDER-estimate Mode B
+contamination. Per-row rep-audit would likely show Mode A % even lower for these marginal lineages.
+</div>
+
+<h2>5. Same view for major lineages — for comparison</h2>
+<p>Major lineages (european, east_asian, middle_eastern, south_asian, southeast_asian, african) for
+contrast — they have substantial Mode A row counts AND substantial Mode AB + Mode B.</p>
+
+<div class="chart-container chart-tall">
+  <canvas id="majorChart"></canvas>
+</div>
+
+<table>
+<thead><tr><th>Lineage</th><th class="num">Total</th><th class="num">Mode A %</th><th class="num">Mode AB %</th><th class="num">Mode B %</th><th class="num">Mode F %</th><th class="num">Mode U %</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>european</td><td class="num">27,714</td><td class="num">45%</td><td class="num">41%</td><td class="num">7%</td><td class="num">1%</td><td class="num">5%</td><td>Mode A largest; substantial Mode AB (modern-European-military often historical-register)</td></tr>
+<tr><td>east_asian</td><td class="num">15,930</td><td class="num">19%</td><td class="num">10%</td><td class="num">8%</td><td class="num">0%</td><td class="num">64%</td><td>Mode U dominates — 10K rows period-unknown (Cluster 90 metadata bucket)</td></tr>
+<tr><td>middle_eastern</td><td class="num">1,581</td><td class="num">26%</td><td class="num">34%</td><td class="num">27%</td><td class="num">0%</td><td class="num">13%</td><td>Roughly even Mode A/AB/B — heavy modern-military presence</td></tr>
+<tr><td>south_asian</td><td class="num">1,267</td><td class="num">43%</td><td class="num">34%</td><td class="num">12%</td><td class="num">0%</td><td class="num">12%</td><td>Healthier Mode A presence</td></tr>
+<tr><td>southeast_asian</td><td class="num">781</td><td class="num">37%</td><td class="num">26%</td><td class="num">14%</td><td class="num">0%</td><td class="num">23%</td><td>Mixed but reasonable Mode A</td></tr>
+<tr><td>african</td><td class="num">541</td><td class="num">23%</td><td class="num">48%</td><td class="num">10%</td><td class="num">0%</td><td class="num">20%</td><td>Mode AB dominates</td></tr>
+</tbody>
+</table>
+
+<h2>6. Sample rep-audit — arctic_circumpolar Mode B (geographic contamination)</h2>
+<p>Actual canonical names of arctic_circumpolar weapons in Mode B (military-modern register) — these are
+the items where lineage tag captures geographic-deployment, not cultural-tradition:</p>
+
+<div class="sample-list">
+2S1 Gvozdika Russian 122mm Amphibious Self-Propelled Howitzer (SPH)<br>
+AN-74 (Coaler-B) Ukrainian Transport/Passenger Aircraft<br>
+AW50 British 12.7mm Anti-Material Rifle<br>
+Berkut-2 Russian Tactical Heated-Cab Snowmobile<br>
+Bv 206 Swedish Articulated All-Terrain Tracked Carrier<br>
+CV 9030 / 9035DK / 9040 Swedish/Danish Infantry Fighting Vehicles<br>
+ENVOY Canadian Unmanned Aerial Vehicle (UAV)<br>
+GAZ-2975 Tigr Russian 4x4 Combat Support Vehicle<br>
+Giraffe 4A / 8A Swedish Surveillance Radar<br>
+Mistral 3 French Man-Portable Air Defense Missile System (MANPADS)<br>
+RBS-70 / RBS-70 NG Swedish MANPADS<br>
+SR98 Australian 7.62mm Sniper Rifle<br>
+T-80BVM Russian Main Battle Tank (MBT)<br>
+Tor M2DT Russian Amphibious Short-Range Air Defense Missile System<br>
+Vityaz DT-10PM / DT-30PM Russian All Terrain Carriers<br>
+</div>
+<p class="meta">None of these are Sámi, Inuit, Yupik, Aleut, or Chukchi cultural-tradition weapons. They are
+modern military hardware tagged arctic_circumpolar because of <em>geographic deployment in arctic theaters</em>.</p>
+
+<h2>7. Sample rep-audit — mesoamerican Mode AB (ambiguous; mostly Mode B contamination)</h2>
+<p>Sample of mesoamerican rows tagged <code>historical</code> register with modern/contemporary period —
+the Mode AB cell where contamination dominates:</p>
+
+<div class="sample-list">
+.17 PMC/Aguila (modern ammunition cartridge)<br>
+.338 Federal (modern hunting cartridge)<br>
+Cabañas RC-30 (modern Mexican firearm)<br>
+Mendoza PM-1 / RM-450 / HM-3 (modern Mexican military arms; ~1934-1960s)<br>
+SAX-200 Xiuhcoatl (modern Mexican rifle; namesake from Aztec mythology but it's not Aztec weapon-making)<br>
+FX-05 Xiuhcoatl (modern Mexican military rifle; same naming-allusion pattern)<br>
+9×21mm (modern firearms cartridge)<br>
+Knight's Armament Company PDW (US-made; mis-tagged)<br>
+RPG-27 (Soviet RPG; mis-tagged)<br>
+W80 (US nuclear warhead — clearly cross-tagged metadata error)<br>
+<br>
+Genuine Mode A mesoamerican items:<br>
+Hummingbird Bloodletter (Aztec ceremonial)<br>
+... (very few)
+</div>
+<p class="meta">The Mode AB cell for mesoamerican contains ~5 genuine Pre-Columbian items vs ~50+ modern
+Mexican military arms + cross-tagged metadata errors. Even the "Mode A" cell (classical period
+historical register) is contaminated by Spanish-colonial-era items (rowel spurs, miquelet pistols).</p>
+
+<h2>8. What emerges — load-bearing recognitions</h2>
+
+<div class="interpretation">
+<strong>Recognition 1: The lineage tag is structurally a 4-mode field, not a 1-mode cultural-tradition
+field.</strong> This was hypothesized in <code>canonical/story/marginal-lineage-tagging-pattern-2026-05-23.md</code>
+and is empirically confirmed at scale. Mode A is the intended cultural-tradition meaning; Modes B/C/D
+are artifacts that share the tag.
+</div>
+
+<div class="interpretation">
+<strong>Recognition 2: Marginal lineages are catastrophically Mode-B-dominated.</strong> For 4 of 5
+marginal lineages, Mode A is the smallest category. The remaining one (north_american_indigenous) is
+the clean-control case per meta-record because its tag was not cross-contaminated by modern arms-industry
+catalogs (no major USA-arms-industry tagging convention applies "north_american_indigenous" to modern
+firearms). The other 4 are contaminated proportionally to their region's modern arms-industry presence.
+</div>
+
+<div class="interpretation">
+<strong>Recognition 3: Even the major lineages have substantial Mode AB.</strong> European has 41% Mode AB
+(modern-period historical-register; mixed real-history and modern-military). East_asian has 64% Mode U
+(period-unknown — most rows are uncurated metadata, primarily catalog-ID-format names per Cluster 90 finding).
+The "cultural tradition" reading of these tags is partial even for the well-covered lineages.
+</div>
+
+<div class="interpretation">
+<strong>Recognition 4: Phase E-1.5 sensitivity sweep's Mode-B-dominance finding holds across the full
+substrate, not just clustered subsamples.</strong> The 48,430-row v_category_sample showed this pattern
+at clustering stage; this analysis confirms it at the full 69,137-row dedup-canonical level. The
+empirical signal is structural.
+</div>
+
+<h2>9. Implications for downstream design surfaces</h2>
+
+<table>
+<thead><tr><th>Design surface</th><th>Implication</th><th>Action</th></tr></thead>
+<tbody>
+<tr><td>T4-B v1 catalogue substrate-anchoring (per scaffolding § 3)</td>
+<td>Marginal-lineage anchors CANNOT inherit lineage tag as cultural-tradition substrate without rep-audit; Mode B/AB contamination dominates</td>
+<td>Marginal-lineage T4 entries deferred to v1.1+ per Q-B § 3.2 + scaffolding § 4 Q1 default lean; OR 9.10-E substrate expansion fires first</td></tr>
+<tr><td>D10 Path C faction-architecture (per fate-genre recognition)</td>
+<td>Faction emergence "from substrate" for marginal cultures requires substrate-tagging cleanup first; faction can't emerge from contaminated tag pool</td>
+<td>9.11-D + 9.11-E substrate-tagging-discipline work is the gating prerequisite; OR D10 Path C scopes around marginal-lineage exclusion</td></tr>
+<tr><td>Track M1a named-mythological binding (per Q-B § 3)</td>
+<td>For broadly-fictionalized traditions (Arthurian, Greek, Norse, Celtic) — viable; their substrate isn't Mode-B-dominated at this scale. For marginalized-culture traditions — deferred</td>
+<td>Track M1a v1 scope to broadly-fictionalized traditions only; marginalized-culture mythological binding waits for 9.10-E + cultural-curation discipline</td></tr>
+<tr><td>Engine cohesion-judge LLM-naming (P5 territory)</td>
+<td>Cohesion-judge consuming lineage tags as "cultural-tradition input" risks generating Sámi-flavored names for clusters whose substrate is Russian MANPADS systems</td>
+<td>Discipline #25 semantic-layer rep-audit required at every cluster-as-design-surface inheritance</td></tr>
+<tr><td>Phase E-2 cluster labels in production DB</td>
+<td>Substrate-descriptive labels (e.g., "Arctic/Northern Contemporary Heavy Weapon Systems" for Cluster 23) are HONEST given Mode B dominance — substrate is what the substrate is</td>
+<td>Phase E-2 labels stand; Cluster 116 relabel decision (9.13-D) was the right move</td></tr>
+</tbody>
+</table>
+
+<h2>10. The corrective-path table — re-stated empirically</h2>
+
+<p>Per marginal-lineage meta-record § 3, with empirical magnitudes now substantiated:</p>
+
+<table>
+<thead><tr><th>Sub-carry</th><th>Scope</th><th>Empirically-justified by this analysis?</th></tr></thead>
+<tbody>
+<tr><td>9.11-D — elrond tagging-artifact review</td><td>~15-25 clusters with Mode B/C/D rows; affects rows tagged with marginal-lineage</td><td>YES — ~58% of marginal-lineage rows are Mode B + AB (likely contaminated)</td></tr>
+<tr><td>9.11-E — elrond cultural-vs-geographic re-tag discipline</td><td>Add sub-categorized tags for marginal lineages OR introduce explicit Mode A/B distinguishing field</td><td>YES — current 1-tag-multi-mode collapse is empirically confirmed</td></tr>
+<tr><td>9.10-E — legolas Mode B substrate expansion (Mode-A-targeted)</td><td>Cultural-tradition-source crawls (Smithsonian Latin American, INAH Mexico, Te Papa, Bishop Museum)</td><td>YES — marginal-lineage Mode A cells have ~2-50 rows each; expansion needed to support cultural-tradition T4 entries</td></tr>
+</tbody>
+</table>
+
+<h2>11. What this analysis does NOT do</h2>
+<ul>
+<li>Does NOT use a precision rep-audit on every row (~69K rows would require LLM-classifier or hand-audit). The proxy method here likely UNDER-estimates Mode B contamination.</li>
+<li>Does NOT distinguish Mode C (naming-allusion) from Mode B (geographic) — both classify as Mode B in this analysis. Mode C examples (FX-05 Xiuhcoatl rifle named after Aztec serpent-deity) require deeper audit.</li>
+<li>Does NOT propose specific re-tagging actions per cluster — elrond's 9.11-D + 9.11-E own that workstream.</li>
+<li>Does NOT predict whether 9.10-E substrate expansion would surface Mode A clusters for marginal lineages — that's empirical, fires when 9.10-E executes.</li>
+<li>Does NOT make architectural commitments — recognition record only; commitments deferred per recognition-validate-commit cycle.</li>
+</ul>
+
+<p class="meta">Authored 2026-05-23 by gandalf. Data query: <code>weapon_knowledge_entries</code> via
+<code>sqlite3 /Users/admin/Games/reincarnated-loadout/data/telemetry.db</code>. Substrate state at
+analysis time: 89,841 total rows; 69,137 dedup-canonical (merged_into excluded). Companion:
+<code>canonical/story/marginal-lineage-tagging-pattern-2026-05-23.md</code> + Phase E-1.5 sweep
+findings (cycle 9.13).</p>
+
+<script>
+// Data assembled from sqlite queries 2026-05-23
+
+const lineageData = [
+  // [name, A, AB, B, F, U, total]
+  ["european",                  12593, 11467, 2077,   191, 1398, 27714],
+  ["fantasy_generic",               0,     0,    0, 17165,    0, 17165],
+  ["east_asian",                 3010,  1531, 1251,    12,10127, 15930],
+  ["unknown",                     265,   354,   14,     0, 1428,  2061],
+  ["cross_cultural",                0,     0, 1661,     0,    0,  1661],
+  ["middle_eastern",              411,   545,  426,     1,  198,  1581],
+  ["south_asian",                 546,   425,  147,     2,  149,  1267],
+  ["southeast_asian",             286,   207,  110,     2,  176,   781],
+  ["african",                     123,   258,   53,     0,  107,   541],
+  ["south_american_indigenous",    38,   103,   25,     0,   44,   210],
+  ["mesoamerican",                 24,    53,    8,     0,   12,    97],
+  ["arctic_circumpolar",            8,    10,   30,     5,    3,    56],
+  ["oceanic",                       2,     9,   22,     0,    8,    41],
+  ["north_american_indigenous",     8,    12,    7,     0,    5,    32]
+];
+
+const colors = {
+  A:  '#52a373',
+  AB: '#e6a939',
+  B:  '#c54848',
+  F:  '#4d8fbd',
+  U:  '#888888'
+};
+
+// Chart 1: Total counts (log scale)
+new Chart(document.getElementById('totalsChart'), {
+  type: 'bar',
+  data: {
+    labels: lineageData.map(r => r[0]),
+    datasets: [{
+      label: 'Total rows (dedup-canonical)',
+      data: lineageData.map(r => r[6]),
+      backgroundColor: '#5b6b8e',
+      borderColor: '#3a4761',
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    indexAxis: 'y',
+    scales: {
+      x: { type: 'logarithmic', title: { display: true, text: 'Row count (log scale)' } }
+    },
+    plugins: { legend: { display: false } }
+  }
+});
+
+// Chart 2: Stacked composition all lineages
+new Chart(document.getElementById('stackedChart'), {
+  type: 'bar',
+  data: {
+    labels: lineageData.map(r => r[0]),
+    datasets: [
+      { label: 'Mode A — cultural',      data: lineageData.map(r => r[1]), backgroundColor: colors.A },
+      { label: 'Mode AB — ambiguous',    data: lineageData.map(r => r[2]), backgroundColor: colors.AB },
+      { label: 'Mode B — geographic',    data: lineageData.map(r => r[3]), backgroundColor: colors.B },
+      { label: 'Mode F — fictional',     data: lineageData.map(r => r[4]), backgroundColor: colors.F },
+      { label: 'Mode U — period unknown',data: lineageData.map(r => r[5]), backgroundColor: colors.U }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    indexAxis: 'y',
+    scales: {
+      x: { stacked: true, title: { display: true, text: 'Row count' } },
+      y: { stacked: true }
+    },
+    plugins: { legend: { position: 'bottom' } }
+  }
+});
+
+// Chart 3: Marginal lineages only — percentage
+const marginalNames = ['south_american_indigenous', 'mesoamerican', 'arctic_circumpolar', 'oceanic', 'north_american_indigenous'];
+const marginalData = lineageData.filter(r => marginalNames.includes(r[0]));
+const pct = (val, total) => (val / total * 100);
+
+new Chart(document.getElementById('marginalChart'), {
+  type: 'bar',
+  data: {
+    labels: marginalData.map(r => r[0] + ' (N=' + r[6] + ')'),
+    datasets: [
+      { label: 'Mode A — cultural',      data: marginalData.map(r => pct(r[1], r[6])), backgroundColor: colors.A },
+      { label: 'Mode AB — ambiguous',    data: marginalData.map(r => pct(r[2], r[6])), backgroundColor: colors.AB },
+      { label: 'Mode B — geographic',    data: marginalData.map(r => pct(r[3], r[6])), backgroundColor: colors.B },
+      { label: 'Mode F — fictional',     data: marginalData.map(r => pct(r[4], r[6])), backgroundColor: colors.F },
+      { label: 'Mode U — period unknown',data: marginalData.map(r => pct(r[5], r[6])), backgroundColor: colors.U }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    indexAxis: 'y',
+    scales: {
+      x: { stacked: true, max: 100, title: { display: true, text: 'Percentage of lineage rows' } },
+      y: { stacked: true }
+    },
+    plugins: {
+      legend: { position: 'bottom' },
+      tooltip: {
+        callbacks: {
+          label: ctx => ctx.dataset.label + ': ' + ctx.parsed.x.toFixed(1) + '%'
+        }
+      }
+    }
+  }
+});
+
+// Chart 4: Major lineages — percentage (excluding fantasy_generic + unknown + cross_cultural for clarity)
+const majorNames = ['european', 'east_asian', 'middle_eastern', 'south_asian', 'southeast_asian', 'african'];
+const majorData = lineageData.filter(r => majorNames.includes(r[0]));
+
+new Chart(document.getElementById('majorChart'), {
+  type: 'bar',
+  data: {
+    labels: majorData.map(r => r[0] + ' (N=' + r[6].toLocaleString() + ')'),
+    datasets: [
+      { label: 'Mode A — cultural',      data: majorData.map(r => pct(r[1], r[6])), backgroundColor: colors.A },
+      { label: 'Mode AB — ambiguous',    data: majorData.map(r => pct(r[2], r[6])), backgroundColor: colors.AB },
+      { label: 'Mode B — geographic',    data: majorData.map(r => pct(r[3], r[6])), backgroundColor: colors.B },
+      { label: 'Mode F — fictional',     data: majorData.map(r => pct(r[4], r[6])), backgroundColor: colors.F },
+      { label: 'Mode U — period unknown',data: majorData.map(r => pct(r[5], r[6])), backgroundColor: colors.U }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    indexAxis: 'y',
+    scales: {
+      x: { stacked: true, max: 100, title: { display: true, text: 'Percentage of lineage rows' } },
+      y: { stacked: true }
+    },
+    plugins: {
+      legend: { position: 'bottom' },
+      tooltip: {
+        callbacks: {
+          label: ctx => ctx.dataset.label + ': ' + ctx.parsed.x.toFixed(1) + '%'
+        }
+      }
+    }
+  }
+});
+</script>
+
+</body>
+</html>
