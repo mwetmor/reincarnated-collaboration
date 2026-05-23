@@ -1,0 +1,30 @@
+{
+  "script": "07_step6_unique_detection.py",
+  "db_path": "/Users/admin/Games/reincarnated-loadout/data/telemetry.db",
+  "started_at": "2026-05-23T02:19:42",
+  "step6_result": {
+    "rows_scanned": 38622,
+    "unique_tagged": 0,
+    "named_template_overrides": 0,
+    "category_overrides": 1,
+    "per_allowlist_matches": {}
+  },
+  "acceptance": {
+    "weapon_kind_distribution": {
+      "ammo_or_consumable": 17857,
+      "category": 2587,
+      "named_template": 14192,
+      "unique": 51,
+      "unknown": 55154
+    },
+    "unique_per_source": {
+      "wikidata": 27,
+      "wikipedia": 24
+    },
+    "brand_prefix_leaked_to_unique": 0,
+    "gate_d1_pass": true
+  },
+  "wall_clock_s": 0.36,
+  "ended_at": "2026-05-23T02:19:42",
+  "passed": true
+}

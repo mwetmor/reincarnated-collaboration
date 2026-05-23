@@ -1,0 +1,60 @@
+{
+  "script": "05_step4_named_template_routing.py",
+  "db_path": "/Users/admin/Games/reincarnated-loadout/data/telemetry.db",
+  "started_at": "2026-05-23T02:14:36",
+  "step4_classification": {
+    "rows_scanned": 16550,
+    "named_template_count": 14184,
+    "category_count": 2366,
+    "per_source_named_template": {
+      "bloqhead-demigods": 259,
+      "bsdata-warhammer-aos": 1832,
+      "diablo2-d2data": 316,
+      "elden-ring-erdb": 247,
+      "fextralife-ds1": 82,
+      "fextralife-ds2": 168,
+      "fextralife-ds3": 146,
+      "fextralife-elden-ring": 262,
+      "nick-aschenbach-dnd-data": 5653,
+      "osrsbox-db": 843,
+      "path-of-exile-repoe": 454,
+      "wow-classic-items": 3922
+    },
+    "per_source_category": {
+      "5e-bits-5e-database": 37,
+      "5e-bits-5e-database-2024": 110,
+      "bloqhead-demigods": 61,
+      "bsdata-warhammer-aos": 351,
+      "diablo2-d2data": 205,
+      "elden-ring-erdb": 60,
+      "fextralife-ds1": 51,
+      "fextralife-ds2": 71,
+      "fextralife-ds3": 73,
+      "fextralife-elden-ring": 113,
+      "nick-aschenbach-dnd-data": 583,
+      "osrsbox-db": 97,
+      "path-of-exile-repoe": 36,
+      "wow-classic-items": 518
+    }
+  },
+  "aos2_split": {
+    "action": "SPLIT_APPLIED",
+    "splits": 2,
+    "compounds_processed": 1
+  },
+  "acceptance": {
+    "weapon_kind_distribution": {
+      "ammo_or_consumable": 17857,
+      "category": 2366,
+      "named_template": 14186,
+      "unknown": 55432
+    },
+    "trpg_category_total": 2219,
+    "trpg_category_leaked_to_named_template": 0,
+    "leak_pct": 0.0,
+    "gate_d2_pass": true
+  },
+  "wall_clock_s": 0.323,
+  "ended_at": "2026-05-23T02:14:36",
+  "passed": true
+}

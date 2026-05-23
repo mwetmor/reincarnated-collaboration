@@ -1,0 +1,33 @@
+{
+  "script": "06_step5_fp_removal_brand_prefix.py",
+  "db_path": "/Users/admin/Games/reincarnated-loadout/data/telemetry.db",
+  "started_at": "2026-05-23T02:16:58",
+  "step5_result": {
+    "scattered_fp_tagged": 847,
+    "fp_per_source": {
+      "royal_armouries": 658,
+      "met-museum": 694,
+      "gta-v-data": 37,
+      "wikipedia": 6
+    },
+    "brand_prefix_detected": 222,
+    "brand_prefix_forced_to_category": 222
+  },
+  "acceptance": {
+    "weapon_kind_distribution": {
+      "ammo_or_consumable": 17857,
+      "category": 2588,
+      "named_template": 14186,
+      "unknown": 55210
+    },
+    "dedup_status_distribution": {
+      "canonical": 6592,
+      "merged_into": 19119,
+      "unprocessed": 64130
+    },
+    "current_unique_count": 0
+  },
+  "wall_clock_s": 0.447,
+  "ended_at": "2026-05-23T02:16:58",
+  "passed": true
+}
