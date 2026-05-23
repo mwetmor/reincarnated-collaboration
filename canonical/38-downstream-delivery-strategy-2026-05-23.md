@@ -303,7 +303,13 @@ This doc serves the following downstream sequencing:
    - `reincarnated-substrate-vector-cheatsheet` (BC axes, range/rhythm/charge taxonomy)
 
    Then use **Skill Seekers** to convert Unreal Engine / Niagara / PCG / Meshy / Control Rig documentation into installable skills *before* architecture-validation spike begins. Goal: shrink per-invocation onboarding cost for both internal-protocol knowledge and external-engine knowledge.
-3. **Architecture-validation spike** (~1-2 weeks, post-cleanup + post-skill-packaging). Push a small slice of engine output through full pipeline (JSON → Meshy → Control Rig → Unreal import → playable form with one skill). De-risk Meshy / Control Rig / Niagara / PCG integrations before committing months.
+3. **Architecture-validation spike** (~1-2 weeks, post-cleanup + post-skill-packaging). Push a small slice of engine output through full pipeline (JSON → Meshy → Control Rig → Unreal import → playable form with one skill). De-risk Meshy / Control Rig / Niagara / PCG integrations before committing months. **Specific acceptance criteria include:**
+   - 3.1 — JSON output from engine imports cleanly into Meshy and produces a usable 3D model
+   - 3.2 — Meshy Control Rig export imports into Unreal with bones / skeleton intact and animatable
+   - 3.3 — **Image-pass-through-to-Meshy validation** (per `canonical/story/asset-pipeline-meshy-swap-2026-05-22.md` § 3.6) — test substrate-image-pass-through path against ChatGPT-gen path on 3-5 weapons from the museum-tier substrate subset. Pass criterion: direct-pass-through produces equal-or-better Meshy output (mesh quality, rigging quality, Unreal-import compatibility). If pass, lock direct-pass-through as production default for ~91.5% of weapon assets (substrate-resident with quality-suitable image); ChatGPT-gen remains fallback for substrate coverage gap (~8.5%).
+   - 3.4 — Niagara VFX consumes engine ability-spec JSON and produces visible in-engine effect
+   - 3.5 — PCG framework consumes engine geo-spatial output and produces a navigable room layout
+   - 3.6 — TAA/TSR fast-combat readability validated with rapid motion (per D1 concern)
 4. **Stage 1 cluster checkpoint preparation.** Once hive-mind Phase 4 (cluster semantic labeling) completes, evaluate D10 evidence. Three-paths decision lands here.
 5. **MVP scope lock** (post-Stage-1). Lock roster size, season count, feature list. Jack-ryan gates all subsequent work against this lock.
 
