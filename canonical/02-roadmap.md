@@ -47,15 +47,21 @@ Living-doc update reflecting workstream evolution post-initial-authoring. Captur
 | Phase E-2 cluster labeling + DB UPDATE | CLOSED — 125 canonical labels in production DB |
 | P1 hive-mind preparation arc items 1-4 | CLOSED — T4-B scaffolding + engineering-disciplines.md canonical write (5 new disciplines #20-#25; 6 sub-discipline amendments) + per-agent OP propagation + hive-mind protocol amendment §§ 7.3-7.6 |
 
-### Active workstreams as of 2026-05-23 evening
+### Active workstreams as of 2026-05-23 evening (post Matt locked-decisions)
+
+**Matt locked-decisions 2026-05-23 evening** (per gandalf geography-vs-culture substrate analysis + recommendations; routed to knight-rider for canonical conclusion-declaration authoring):
+
+1. **Weapon-substrate-conclusion DECLARED at current state.** 9.11-C/D/E substrate-tagging cleanup → v1.1+ post-ship substrate-refinement work. Discipline #25 semantic-layer rep-audit handles contamination at consumption per engineering-disciplines.md canonical.
+2. **9.10-E KEPT DORMANT.** Substrate expansion is v1.1+ work alongside 9.11-D/E. Architectural commitment to D10 Path C deferred until P4 cluster labeling validates faction structure.
+3. **9.11-B SUBSUMED into 9.10-E.** Single unified v1.1+ substrate-expansion dispatch covering all 5 marginal lineages.
 
 | Workstream | Owner | Status | Empirical-criterion gate |
 |---|---|---|---|
-| **9.11-C / 9.11-D / 9.11-E — Weapon substrate-tagging cleanup** | elrond | QUEUED (NOT FIRED) | Matt-decision: fire OR declare weapon-substrate-conclusion at current state |
-| **9.10-E — Substrate expansion (Mode-A targeted crawls for marginal lineages)** | legolas Mode B | DORMANT | Matt-decision (architecture-level commitment); gated on D10 Path C confirmation OR design call to authorize |
-| **Weapon-substrate-conclusion declaration** | knight-rider + Matt | PENDING | Either 9.11-D/E land OR Matt declares current state sufficient |
-| **T4-B v1 catalogue authoring** | Matt + gandalf design call | SCAFFOLDING LANDED; awaits design call session 1 | Matt scheduling territory; Phase E-1.5 acceptance has cleared substrate-anchoring gate per scaffolding § 3 |
-| **9.12-A through 9.12-D — Question A workstream** | rocket + legolas + gamora + critique-pair (upstream chain) | UPSTREAM CHAIN UNMET — H1-H5 baseline not run; P1 substrate enrichment + W1.13 implementation + W1.20 BDI infrastructure prerequisites unmet | Engine-seam in flight; gates per Q-A verdict § 12.4 + § 9 empirical-evidence criteria |
+| **Weapon-substrate-conclusion declaration** | knight-rider (authoring) | IN-FLIGHT per Matt routing | Canonical conclusion-declaration artifact authored + roadmap updated (this update) |
+| **T4-B v1 catalogue authoring** | Matt + gandalf design call | **NEXT ACTIVE WORKSTREAM** — scaffolding landed; gate cleared per Phase E-1.5 acceptance + weapon-substrate-conclusion | Matt scheduling territory; design call session 1 + Q1-Q8 open-questions resolution + ~10 exemplar entries authored |
+| **9.12-A through 9.12-D — Question A workstream** | rocket + legolas + gamora + critique-pair (upstream chain) | UPSTREAM CHAIN UNMET — H1-H5 baseline not run; P1 substrate enrichment + W1.13 implementation + W1.20 BDI infrastructure prerequisites unmet | Engine-seam in flight; gates per Q-A verdict § 12.4 + § 9 empirical-evidence criteria; not Matt's direct territory |
+| **9.14-A per-agent OP propagation fan-out** | knight-rider sub-agent dispatch | IN-FLIGHT (commits visible: elrond + drax + legolas + gamora + galadriel + others) | All 8 agents amend own OP + installed SKILL with verbatim #21/#22 + engineering-disciplines.md cross-references |
+| **9.14-B cluster-116 elrond relabel** | knight-rider sub-dispatch | IN-FLIGHT per Matt routing | Single-row UPDATE on clusters.id=116 → "European Uncurated-Period Mixed Military Hardware Pool" |
 
 ### Companion artifacts
 
@@ -65,15 +71,27 @@ Living-doc update reflecting workstream evolution post-initial-authoring. Captur
 - `agentic_orchestration/gandalf/notes/2026-05-23-t4-b-v1-catalogue-scaffolding.md` — T4-B scaffolding
 - `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` (engine repo commit 1fae3fa) — 25 disciplines + 6 sub-discipline amendments
 
-### Next-action options for next-session opening
+### Next-action for next-session opening (post Matt locked-decisions)
 
-Per gandalf session-end state capture § 0:
+**Decisions locked 2026-05-23 evening. Next-action sequence:**
 
-1. **Fire 9.11-D** as lead substrate-tagging-discipline work-unit; re-engages weapon-substrate cleanup
-2. **Declare weapon-substrate-conclusion** at current state; accept 9.11-C/D/E + 9.10-E as post-P1-hive-mind work
-3. **Schedule T4-B v1 catalogue design call session 1** (Matt's calendar territory)
+1. **Knight-rider authors canonical weapon-substrate-conclusion-declaration** (small artifact; cross-references session-end note + geography-vs-culture substrate analysis HTML + marginal-lineage meta-record + Phase E-1.5 acceptance + Phase E-2-DB UPDATE)
+2. **Schedule T4-B v1 catalogue design call session 1** (Matt's calendar territory) — substrate-anchoring gate cleared; design call is the next active workstream for gandalf + Matt
+3. **9.14-A + 9.14-B completion verification** (in flight at KR sub-dispatches)
+4. **Question A upstream chain monitoring** (engine seam; rocket + others; not direct Matt territory)
 
-Matt-decision territory at next-session opening.
+### v1.1+ deferred substrate-refinement queue
+
+Per Matt locked-decisions, the following move to v1.1+ post-ship substrate-refinement queue:
+
+| Sub-carry | Description | Re-engagement trigger |
+|---|---|---|
+| **9.11-C** | east_asian period_unknown curation gap (Cluster 90 ~10K rows) | Post-v1-ship; elrond Phase-D-bis-style review |
+| **9.11-D** | Substrate-tagging-artifact review (~15-25 affected clusters) | Post-v1-ship; elrond systematic review |
+| **9.11-E** | Geographic-origin vs cultural-lineage tagging discipline (canonical write candidate) | Post-v1-ship; elrond + jack-ryan discipline-amendment |
+| **9.10-E** (subsumes **9.11-B**) | Substrate expansion via legolas Mode B; Mode-A-targeted crawls for all 5 marginal lineages (Smithsonian Latin American + INAH Mexico + Te Papa NZ + Bishop Museum + British Museum Pacific + Sámi cultural archives) | Post-v1-ship + D10 Path C architectural commitment OR explicit Matt-architectural-call |
+
+These compose into a single post-v1-ship substrate-refinement work-unit. Until v1 ships + downstream surfaces consume substrate per Discipline #25 rep-audit, the substrate-as-is is operationally sufficient.
 
 ---
 
