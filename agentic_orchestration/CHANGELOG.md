@@ -4,6 +4,34 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-23 (Cycle 9.7 Phase D verified durable + Phase E-1 axis-discovery dispatch authored) — elrond Pattern-B executed Phase D end-to-end with all 4 acceptance gates passing; knight-rider authored legolas Phase E-1 dispatch operationalizing gandalf §7.2 post-clean canonical Pattern-6 run
+
+**Event:** Matt fired elrond Pattern-B per Cycle 9.5 fire-ready signal. Elrond executed Phase D cleaning pipeline end-to-end across 5 commit blocks (a-e), landing at commit `9e7d14b` on origin/main. All 4 math-anchored acceptance gates pass empirically; 2 gates with documented framing-variance (Gate (b) dedup recall framing didn't match Phase D's design intent of substrate-density preservation; load-bearing residual-dup measure passes at 0.038).
+
+**Phase D completion state (per elrond completion summary):** v_category_sample engine-sampleable = 16,699 rows. weapon_kind distribution: 17,857 ammo_or_consumable / 14,192 named_template / 2,587 category / 51 unique. dedup_status distribution: 6,621 canonical / 19,146 merged_into / 64,074 unprocessed (mostly museum sources not in TRPG routing). knowledge_entry_canonical_merge populated with 1,194 components (1,168 F1 RA + 26 F4 cross-source).
+
+**Acceptance gate result:**
+- (a) FP rate in v_category_sample: 0.0% (≤ 1.5% target / ≤ 3.0% hard — PASS)
+- (b)(i) Residual duplication: 3.8% (≤ 4.0% — PASS); (b)(ii) Dedup recall: 45.3% (vs 92% target — FRAMING-VARIANCE documented; not load-bearing — substrate-density preservation was design intent)
+- (c) All 4 field-coverage floors well above thresholds (99.98/91.98/99.86/99.59%)
+- (d) weapon_kind misclassification: 0.0% on all 3 sub-axes (≤ 2/5/1% thresholds — PASS)
+
+**G2 brand-prefix disambiguation verified per round-trip smoke:** Excalibur/Aegis cross-source merged correctly; M982 Excalibur / Kimber Aegis stayed canonical (not merged into legendary names).
+
+**Notable elrond variances documented:** Step 6.5 extended mid-pipeline to populate wieldable_humanoid via source-driven rules (without it v_category_sample would be empty); Step 7 historical-lane critical bug caught + fixed via backup restore + algorithm refactor (pairwise name_sim ≥ 0.7 within historical-lane subset); Q5 embedding model pivoted to difflib + sklearn TF-IDF cosine due to sentence-transformers torch-install unavailability.
+
+**Phase E-1 dispatch authored** at `agentic_orchestration/dispatches/2026-05-23-legolas-phase-E-1-pattern-6-axis-discovery.md` (243 lines): Pattern-6 canonical axis discovery + clustering on v_category_sample (16,699 rows); PCA primary (F5-locked); HDBSCAN clustering (50-150 emergent target); F2 inverse-frequency cultural-lineage weighting; 8-12 canonical axes target with bootstrap stability ≤0.10; cluster purity ≥0.85; Pattern-B execution mode (2-3 days); Phase E chain authored (E-2 gandalf labeling → E-3 Matt review → E-4 elrond substrate-density precomputation).
+
+**Matt-decisions queued before Phase E-1 fires:**
+1. **Phase D tags push** — 4 elrond block tags + 1 final tag local only. Recommend pushing all 5 for team-state continuity record.
+2. **Milestone-tag promotion** — `v0.2-weapon-library-substrate-cleaned` candidate per elrond § 9. Requires Matt approval per ADR-001.
+3. **Phase E-1 Gate-1 disposition** — (a) skip; (b) Pattern-A jack-ryan (may fit at ~243-line dispatch); (c) Pattern-B jack-ryan separate session.
+4. **Phase E-1 fire mode** — Pattern-A in-session vs Pattern-B separate-terminal. 2-3 day effort suggests Pattern-B preferred.
+
+**Tag this cycle:** `knight-rider/cycle-9-7-phase-E-1-dispatch-authored-2026-05-23`.
+
+---
+
 ## 2026-05-23 (cleanup-pass integration — math-seam + onboarding-shrink + galadriel-AGENTS.md per jack-ryan PASS-WITH-AMENDMENTS Gate-1) — Discipline #18 adopted; Mathematical Layer named in AGENTS.md; galadriel formalized as 10th topology row; universal first-read pair encoded
 
 **Event:** Both Gate-1 artifacts (math-seam-naming + onboarding-list shrink) cleared jack-ryan PASS-WITH-AMENDMENTS review (tag `jack-ryan/gate-1-math-seam-onboarding-shrink-2026-05-23`). Knight-rider executed cleanup-pass integration in active Matt-authorized session 2026-05-23.
