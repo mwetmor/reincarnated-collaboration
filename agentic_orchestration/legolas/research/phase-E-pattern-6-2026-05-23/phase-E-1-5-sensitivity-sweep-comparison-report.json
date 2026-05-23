@@ -1,0 +1,245 @@
+{
+  "generated_at": "2026-05-23",
+  "sweep_scope": "min_cluster_size in {10, 15, 20, 30} at k=3 substrate-voted; N=10K stratified subsample",
+  "variants": [
+    {
+      "mcs": 10,
+      "cluster_count": 125,
+      "purity": 0.9444,
+      "f6_count": 0,
+      "noise_points_pre_assign": 427,
+      "rss_at_hdbscan_gib": 1.12,
+      "cluster_62_equiv": {
+        "id": 62,
+        "n": 4807,
+        "split": false
+      },
+      "form_bundled_clusters": 61,
+      "total_clusters": 125,
+      "form_bundled_ratio": 0.488,
+      "rare_lineage_home_clusters": {
+        "oceanic": null,
+        "north_american_indigenous": null,
+        "arctic_circumpolar": {
+          "cluster_id": 23,
+          "n": 34,
+          "mode": "B",
+          "reps": [
+            "2S1 Gvozdika",
+            "RBS-70"
+          ]
+        },
+        "mesoamerican": null,
+        "south_american_indigenous": [
+          {
+            "cluster_id": 86,
+            "n": 36,
+            "mode": "B",
+            "reps": [
+              "FAMAE SAF",
+              "LAHAT"
+            ]
+          },
+          {
+            "cluster_id": 114,
+            "n": 95,
+            "mode": "B",
+            "reps": [
+              "Browning M1919",
+              "Apache missile"
+            ]
+          }
+        ]
+      },
+      "anomaly_9_13_A": {
+        "eu_unknown_cluster": 115,
+        "eu_unknown_n": 1335,
+        "top_reps": [
+          "GYATA-64 mine",
+          "Round shield",
+          "M111 grenade"
+        ],
+        "status": "PERSISTS"
+      },
+      "acceptance_gate_clusters": true,
+      "acceptance_gate_purity": true
+    },
+    {
+      "mcs": 15,
+      "cluster_count": 103,
+      "purity": 0.9412,
+      "f6_count": 0,
+      "noise_points_pre_assign": 550,
+      "rss_at_hdbscan_gib": 1.12,
+      "cluster_62_equiv": {
+        "id": 40,
+        "n": 4807,
+        "split": false
+      },
+      "form_bundled_clusters": 49,
+      "total_clusters": 103,
+      "form_bundled_ratio": 0.476,
+      "rare_lineage_home_clusters": {
+        "oceanic": null,
+        "north_american_indigenous": null,
+        "arctic_circumpolar": {
+          "cluster_id": 48,
+          "n": 34,
+          "mode": "B",
+          "reps": [
+            "2S1 Gvozdika",
+            "RBS 70 NG"
+          ]
+        },
+        "mesoamerican": null,
+        "south_american_indigenous": [
+          {
+            "cluster_id": 100,
+            "n": 66,
+            "mode": "B",
+            "reps": [
+              "Apache missile",
+              "Bouncing bomb"
+            ]
+          }
+        ]
+      },
+      "anomaly_9_13_A": {
+        "eu_unknown_cluster": 101,
+        "eu_unknown_n": 1235,
+        "top_reps": [
+          "GYATA-64 mine",
+          "Round shield",
+          "M111 grenade"
+        ],
+        "status": "PERSISTS"
+      },
+      "acceptance_gate_clusters": true,
+      "acceptance_gate_purity": true
+    },
+    {
+      "mcs": 20,
+      "cluster_count": 85,
+      "purity": 0.9287,
+      "f6_count": 0,
+      "noise_points_pre_assign": 559,
+      "rss_at_hdbscan_gib": 1.11,
+      "cluster_62_equiv": {
+        "id": 34,
+        "n": 4807,
+        "split": false
+      },
+      "form_bundled_clusters": 39,
+      "total_clusters": 85,
+      "form_bundled_ratio": 0.459,
+      "rare_lineage_home_clusters": {
+        "oceanic": null,
+        "north_american_indigenous": null,
+        "arctic_circumpolar": null,
+        "mesoamerican": null,
+        "south_american_indigenous": [
+          {
+            "cluster_id": 83,
+            "n": 106,
+            "mode": "B",
+            "reps": [
+              "Apache missile",
+              "Bouncing bomb"
+            ]
+          }
+        ]
+      },
+      "anomaly_9_13_A": {
+        "eu_unknown_cluster": 84,
+        "eu_unknown_n": 1335,
+        "top_reps": [
+          "GYATA-64 mine",
+          "Round shield",
+          "M111 grenade"
+        ],
+        "status": "PERSISTS"
+      },
+      "acceptance_gate_clusters": true,
+      "acceptance_gate_purity": true
+    },
+    {
+      "mcs": 30,
+      "cluster_count": 65,
+      "purity": 0.9177,
+      "f6_count": 0,
+      "noise_points_pre_assign": 922,
+      "rss_at_hdbscan_gib": 1.14,
+      "cluster_62_equiv": {
+        "id": 29,
+        "n": 4992,
+        "split": false,
+        "absorbed": 185
+      },
+      "form_bundled_clusters": 25,
+      "total_clusters": 65,
+      "form_bundled_ratio": 0.385,
+      "rare_lineage_home_clusters": {
+        "oceanic": null,
+        "north_american_indigenous": null,
+        "arctic_circumpolar": null,
+        "mesoamerican": null,
+        "south_american_indigenous": null
+      },
+      "anomaly_9_13_A": {
+        "eu_unknown_cluster": 56,
+        "eu_unknown_n": 1408,
+        "top_reps": [
+          "GYATA-64 mine",
+          "Round shield",
+          "M111 grenade"
+        ],
+        "status": "PERSISTS"
+      },
+      "acceptance_gate_clusters": true,
+      "acceptance_gate_purity": true
+    }
+  ],
+  "hypothesis_verdicts": {
+    "memory_invariant_across_variants": {
+      "verdict": "CONFIRMED",
+      "note": "1.11-1.14 GiB range across all variants"
+    },
+    "cluster_count_inversely_correlated_with_mcs": {
+      "verdict": "CONFIRMED",
+      "sequence": [
+        125,
+        103,
+        85,
+        65
+      ]
+    },
+    "cluster_62_does_not_split": {
+      "verdict": "CONFIRMED",
+      "note": "N=4807 at mcs=10/15/20; N=4992 at mcs=30 (grew, did not split)"
+    },
+    "form_bundling_distribution_stable": {
+      "verdict": "CONFIRMED (qualitative)",
+      "note": "Ratio ~48% at mcs=10/15/20, mild erosion to 38% at mcs=30"
+    },
+    "oceanic_n_am_below_resolution_gate_at_mcs30": {
+      "verdict": "CONFIRMED (and extended)",
+      "note": "No home cluster at ANY tested mcs for oceanic or n.am.indigenous"
+    },
+    "rare_lineage_clusters_mode_b_dominated": {
+      "verdict": "CONFIRMED",
+      "note": "All rare-lineage home clusters dominated by modern military hardware"
+    },
+    "subsample_composition_stable": {
+      "verdict": "REFUTED",
+      "note": "Floor=mcs*2 causes subsample to vary across mcs values; rare lineage counts especially affected"
+    }
+  },
+  "production_db_verification": {
+    "clusters": 125,
+    "membership": 48430,
+    "wke_with_cluster_id": 48430,
+    "id_3_cluster_id": 116,
+    "id_3_label": "European Uncurated-Period Spear Family",
+    "status": "UNCHANGED by sweep"
+  }
+}

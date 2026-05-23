@@ -1476,7 +1476,7 @@ def populate_db_with_provenance(conn, rows, all_labels, all_confidence, assignme
 
 def write_clusters_subsample(out_dir, rows, all_labels, all_confidence, assignment_method,
                               projections_3, evr_3, subsample_per_lineage, min_cluster_size,
-                              subsample_n):
+                              subsample_n, variant_tag=""):
     """Write phase-E-1-clusters.md for subsample-k3 mode.
 
     Covers all 48,430 rows (subsample HDBSCAN + nearest-assign).
@@ -1630,7 +1630,9 @@ These clusters are merge-candidates for Phase E-2 designer review (F6 lock):
         md_content += (f"| {lbl} | {char['member_count']} | {char['dominant_lineage'][0]} | "
                        f"{char['dominant_period'][0]} | {top_type} | {purity_val:.4f} |\n")
 
-    path = os.path.join(out_dir, "phase-E-1-clusters.md")
+    # Phase E-1.5: if variant_tag is set, suffix filename so sequential sweep fires produce distinct files
+    suffix = f"-{variant_tag}" if variant_tag else ""
+    path = os.path.join(out_dir, f"phase-E-1-clusters{suffix}.md")
     with open(path, 'w') as f:
         f.write(md_content)
     log(f"Wrote Deliverable 3 (subsample-k3): {path}")
@@ -1652,6 +1654,23 @@ def main():
     parser.add_argument("--db-path", type=str, default=None,
                         help="Override DB path (default: module-level DB_PATH constant). "
                              "Use for verification re-fires against temp DB copies.")
+    # Phase E-1.5 sweep additions (dispatch 2026-05-23-legolas-phase-E-1-5-sensitivity-sweep):
+    # --no-db-writes: skip all DB writes (UPDATE/INSERT/DELETE on clusters, cluster_membership,
+    #   weapon_knowledge_entries.cluster_id). Preserves production DB state (Phase E-2-DB canonical).
+    #   Default: False (preserves existing write behavior).
+    parser.add_argument("--no-db-writes", action="store_true", default=False,
+                        help="Disable all DB writes (clusters, cluster_membership, wke.cluster_id). "
+                             "Use for sensitivity sweep variants to preserve production DB state. "
+                             "Default: False (DB writes enabled).")
+    # --variant-tag: suffix per-variant output artifact filenames so 4 sequential sweep fires
+    #   produce distinct files rather than overwriting each other.
+    #   Affects: phase-E-1-clusters.md → phase-E-1-clusters-<tag>.md
+    #            phase-E-1-pipeline-results.json → phase-E-1-pipeline-results-<tag>.json
+    #   Does NOT affect: phase-E-1-features.md, phase-E-1-axis-discovery.md (shared across variants).
+    parser.add_argument("--variant-tag", type=str, default="",
+                        help="Suffix for per-variant output artifact filenames "
+                             "(e.g., 'mcs10' → phase-E-1-clusters-mcs10.md). "
+                             "Default: empty string (standard filename, existing behavior).")
     args = parser.parse_args()
     smoke_mode = (args.mode == "smoke")
     subsample_mode = (args.mode == "subsample-k3")
@@ -1689,6 +1708,10 @@ def main():
         log(f"DB path override: {effective_db_path} (--db-path flag; production DB NOT written)")
 
     log(f"=== Phase E-1 Pipeline starting (mode={args.mode}) ===")
+    if args.no_db_writes:
+        log("DB writes: DISABLED (--no-db-writes flag active). Production DB state preserved.")
+    if args.variant_tag:
+        log(f"Variant tag: '{args.variant_tag}' — output artifacts will use suffixed filenames.")
     if subsample_mode:
         log(f"=== Frame-revision: k_final={k_final_override}, min_cluster_size={mcs_override}, "
             f"subsample_n={args.subsample_n} ===")
@@ -1841,7 +1864,8 @@ def main():
         d3_path, cluster_chars_sub, primary_purity_sub, small_clusters_sub, per_cluster_purity_sub = \
             write_clusters_subsample(
                 OUT_DIR, rows, all_labels, all_confidence, all_assignment_method,
-                projections_3, evr[:k_sub], subsample_per_lineage, mcs_sub, args.subsample_n
+                projections_3, evr[:k_sub], subsample_per_lineage, mcs_sub, args.subsample_n,
+                variant_tag=args.variant_tag
             )
         log(f"Deliverable 3 complete: {d3_path}")
 
@@ -1850,31 +1874,40 @@ def main():
         log(f"Clusters: {n_final_clusters} (need ≥ 50): {'PASS' if n_final_clusters >= 50 else 'FAIL'}")
         log(f"Mean purity: {primary_purity_sub:.4f} (need ≥ 0.70): {'PASS' if primary_purity_sub >= 0.70 else 'FAIL'}")
 
-        # DB Population
-        log("=== DELIVERABLE 4: DB Population (subsample-k3) ===")
-        # Re-use axes_info from the above full D2 run (it was computed for `k` from the existing code path)
-        # but we need axes_info for just the first k_sub axes
-        axes_info_sub = axes_info[:k_sub] if axes_info else []
-        evr_sub = evr[:k_sub]
+        # DB Population — skipped when --no-db-writes is active (Phase E-1.5 sweep protocol)
+        n_clusters_db = n_membership_db = n_wke_db = native_db_count = nearest_db_count = 0
+        label_to_db_id = {}
+        smoke_pass_sub = True
+        smoke_errors_sub = []
 
-        (n_clusters_db, n_membership_db, n_wke_db, label_to_db_id,
-         native_db_count, nearest_db_count) = populate_db_with_provenance(
-            conn, rows, all_labels, all_confidence, all_assignment_method,
-            cluster_chars_sub, projections_3, axes_info_sub, evr_sub
-        )
+        if args.no_db_writes:
+            log("=== DELIVERABLE 4: DB Population SKIPPED (--no-db-writes flag active) ===")
+            log("Production DB state (Phase E-2-DB canonical labels) preserved.")
+        else:
+            log("=== DELIVERABLE 4: DB Population (subsample-k3) ===")
+            # Re-use axes_info from the above full D2 run (it was computed for `k` from the existing code path)
+            # but we need axes_info for just the first k_sub axes
+            axes_info_sub = axes_info[:k_sub] if axes_info else []
+            evr_sub = evr[:k_sub]
 
-        # Round-trip smoke
-        smoke_pass_sub, smoke_errors_sub = run_smoke_test(
-            conn, rows, all_labels, all_confidence, label_to_db_id
-        )
-        log(f"Round-trip smoke: {'PASS' if smoke_pass_sub else 'FAIL'}")
-        if smoke_errors_sub:
-            for e in smoke_errors_sub[:5]:
-                log(f"  SMOKE ERROR: {e}")
+            (n_clusters_db, n_membership_db, n_wke_db, label_to_db_id,
+             native_db_count, nearest_db_count) = populate_db_with_provenance(
+                conn, rows, all_labels, all_confidence, all_assignment_method,
+                cluster_chars_sub, projections_3, axes_info_sub, evr_sub
+            )
+
+            # Round-trip smoke (only meaningful when DB was written)
+            smoke_pass_sub, smoke_errors_sub = run_smoke_test(
+                conn, rows, all_labels, all_confidence, label_to_db_id
+            )
+            log(f"Round-trip smoke: {'PASS' if smoke_pass_sub else 'FAIL'}")
+            if smoke_errors_sub:
+                for e in smoke_errors_sub[:5]:
+                    log(f"  SMOKE ERROR: {e}")
 
         conn.close()
 
-        # Save subsample-k3 results JSON
+        # Save subsample-k3 results JSON (variant-tagged if --variant-tag set)
         bis_condition = "ACCEPTANCE" if (n_final_clusters >= 50 and primary_purity_sub >= 0.70) else \
                         "PARTIAL_ACCEPTANCE" if (50 <= n_final_clusters and primary_purity_sub >= 0.50) else \
                         "SUBSTRATE_COVERAGE_BOTTLENECK"
@@ -1882,6 +1915,8 @@ def main():
             "mode": "subsample-k3",
             "k_final": k_sub,
             "min_cluster_size": mcs_sub,
+            "variant_tag": args.variant_tag,
+            "no_db_writes": args.no_db_writes,
             "subsample_n": args.subsample_n,
             "actual_subsample_n": len(subsample_indices),
             "total_pool_n": N,
@@ -1900,16 +1935,29 @@ def main():
             "smoke_pass": smoke_pass_sub,
             "smoke_errors": smoke_errors_sub,
             "subsample_per_lineage": subsample_per_lineage,
-            "small_clusters_f6": small_clusters_sub
+            "small_clusters_f6": small_clusters_sub,
+            "cluster_characterization": {
+                str(lbl): {
+                    "member_count": char["member_count"],
+                    "dominant_lineage": char["dominant_lineage"][0],
+                    "dominant_period": char["dominant_period"][0],
+                    "dominant_register": char["dominant_register"][0],
+                    "provisional_description": char["provisional_description"],
+                    "top_reps": char["top_reps"][:3],
+                    "purity": float(per_cluster_purity_sub.get(lbl, 0))
+                }
+                for lbl, char in cluster_chars_sub.items()
+            }
         }
-        results_path = os.path.join(OUT_DIR, "phase-E-1-pipeline-results.json")
+        suffix = f"-{args.variant_tag}" if args.variant_tag else ""
+        results_path = os.path.join(OUT_DIR, f"phase-E-1-pipeline-results{suffix}.json")
         with open(results_path, 'w') as f:
             json.dump(results_sub, f, indent=2, cls=NumpyEncoder)
         log(f"Results saved to {results_path}")
         log(f"=== SUBSAMPLE-K3 PIPELINE COMPLETE ===")
         log(f"  Clusters: {n_final_clusters}, Purity: {primary_purity_sub:.4f}, "
             f"Smoke: {'PASS' if smoke_pass_sub else 'FAIL'}, "
-            f"Bis: {bis_condition}")
+            f"Bis: {bis_condition}, DB writes: {'OFF' if args.no_db_writes else 'ON'}")
         return
 
     # ── DELIVERABLE 4: DB Population ──────────────────────────────────────────

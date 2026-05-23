@@ -1,0 +1,4293 @@
+{
+  "mode": "subsample-k3",
+  "k_final": 3,
+  "min_cluster_size": 10,
+  "variant_tag": "mcs10",
+  "no_db_writes": true,
+  "subsample_n": 10000,
+  "actual_subsample_n": 10000,
+  "total_pool_n": 48430,
+  "n_clusters": 125,
+  "primary_purity": 0.9443733223208755,
+  "acceptance_gate_clusters": true,
+  "acceptance_gate_purity": true,
+  "bis_disposition": "ACCEPTANCE",
+  "n_hdbscan_native": 10000,
+  "n_nearest_centroid": 38430,
+  "db_clusters": 0,
+  "db_membership": 0,
+  "db_wke_populated": 0,
+  "db_native_count": 0,
+  "db_nearest_count": 0,
+  "smoke_pass": true,
+  "smoke_errors": [],
+  "subsample_per_lineage": {
+    "east_asian": 2656,
+    "european": 2542,
+    "middle_eastern": 284,
+    "south_american_indigenous": 56,
+    "north_american_indigenous": 22,
+    "oceanic": 24,
+    "unknown": 411,
+    "mesoamerican": 33,
+    "fantasy_generic": 3303,
+    "south_asian": 182,
+    "southeast_asian": 156,
+    "african": 110,
+    "arctic_circumpolar": 27,
+    "cross_cultural": 194
+  },
+  "small_clusters_f6": [],
+  "cluster_characterization": {
+    "0": {
+      "member_count": 46,
+      "dominant_lineage": "cross_cultural",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "provisional_description": "PROVISIONAL: cross_cultural contemporary mixed weapons (military_modern register; category; N=46)",
+      "top_reps": [
+        {
+          "id": 170460,
+          "canonical_name": "Navy Revolver",
+          "cultural_lineage_canonical": "cross_cultural",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 172674,
+          "canonical_name": "mild steel kukri",
+          "cultural_lineage_canonical": "cross_cultural",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 172737,
+          "canonical_name": "wakizashi",
+          "cultural_lineage_canonical": "east_asian",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.7391304347826086
+    },
+    "1": {
+      "member_count": 105,
+      "dominant_lineage": "cross_cultural",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "provisional_description": "PROVISIONAL: cross_cultural contemporary pistol/knife weapons (military_modern register; category; N=105)",
+      "top_reps": [
+        {
+          "id": 170326,
+          "canonical_name": "Knife",
+          "cultural_lineage_canonical": "cross_cultural",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 170332,
+          "canonical_name": "Pistol",
+          "cultural_lineage_canonical": "cross_cultural",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 170416,
+          "canonical_name": "Heavy Pistol",
+          "cultural_lineage_canonical": "cross_cultural",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9714285714285714
+    },
+    "2": {
+      "member_count": 214,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional battleaxe weapons (fantasy register; named_template; N=214)",
+      "top_reps": [
+        {
+          "id": 13474,
+          "canonical_name": "Abyssal Bane Battleaxe (rare variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 13882,
+          "canonical_name": "Battleaxe +1",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 13888,
+          "canonical_name": "Battleaxe +2",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "3": {
+      "member_count": 91,
+      "dominant_lineage": "european",
+      "dominant_period": "contemporary",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european contemporary knife/dagger weapons (historical register; category; N=91)",
+      "top_reps": [
+        {
+          "id": 2286,
+          "canonical_name": "Butterfly Knife",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 2290,
+          "canonical_name": "Gut Knife",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 2298,
+          "canonical_name": "Skeleton Knife",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.5164835164835165
+    },
+    "4": {
+      "member_count": 31,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional mixed weapons (fantasy register; category; N=31)",
+      "top_reps": [
+        {
+          "id": 17048,
+          "canonical_name": "Katar",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 17049,
+          "canonical_name": "Katar of Bloodletting",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 19325,
+          "canonical_name": "Slingshot",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9354838709677419
+    },
+    "5": {
+      "member_count": 77,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional pistol/dagger weapons (fantasy register; category; N=77)",
+      "top_reps": [
+        {
+          "id": 14862,
+          "canonical_name": "Dagger of Terror",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 17012,
+          "canonical_name": "Javelin +3",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 18169,
+          "canonical_name": "Pistol",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.935064935064935
+    },
+    "6": {
+      "member_count": 149,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional wand weapons (fantasy register; named_template; N=149)",
+      "top_reps": [
+        {
+          "id": 13961,
+          "canonical_name": "Black Bloom Wand (rare variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 18213,
+          "canonical_name": "Prospector's Wand",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 20504,
+          "canonical_name": "Wand of Relieved Burdens",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "7": {
+      "member_count": 59,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional mixed weapons (fantasy register; named_template; N=59)",
+      "top_reps": [
+        {
+          "id": 14938,
+          "canonical_name": "Dangerous Volatile Spiked Shield",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 169023,
+          "canonical_name": "Alder Spiked Shield",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 169025,
+          "canonical_name": "Mirrored Spiked Shield",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "8": {
+      "member_count": 249,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional mixed weapons (fantasy register; named_template; N=249)",
+      "top_reps": [
+        {
+          "id": 14048,
+          "canonical_name": "Bloodbone Kris",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14121,
+          "canonical_name": "Bloodshot Revolver",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14359,
+          "canonical_name": "Caster Blaster Revolver",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "9": {
+      "member_count": 155,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic classical javelin/dagger weapons (fantasy register; named_template; N=155)",
+      "top_reps": [
+        {
+          "id": 14703,
+          "canonical_name": "Corpse Slayer Javelin",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 17018,
+          "canonical_name": "Javelin of Certain Death",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 17231,
+          "canonical_name": "Lichslayer Dagger (rare variant)",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.8838709677419355
+    },
+    "10": {
+      "member_count": 80,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional javelin weapons (fantasy register; named_template; N=80)",
+      "top_reps": [
+        {
+          "id": 13510,
+          "canonical_name": "Abyssal Bane Javelin (rare variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 15059,
+          "canonical_name": "Defender Javelin",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 15262,
+          "canonical_name": "Driftwood Javelin",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "11": {
+      "member_count": 76,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional shortsword/greatsword weapons (fantasy register; category; N=76)",
+      "top_reps": [
+        {
+          "id": 16475,
+          "canonical_name": "Greatsword +3",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 19145,
+          "canonical_name": "Shortsword of Defense",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 19153,
+          "canonical_name": "Shortsword of Wounding",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9210526315789473
+    },
+    "12": {
+      "member_count": 266,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional dagger weapons (fantasy register; named_template; N=266)",
+      "top_reps": [
+        {
+          "id": 13485,
+          "canonical_name": "Abyssal Bane Dagger",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 13603,
+          "canonical_name": "Adamantine Dagger",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14448,
+          "canonical_name": "Chardalyn Dagger",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "13": {
+      "member_count": 72,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic classical wand weapons (fantasy register; named_template; N=72)",
+      "top_reps": [
+        {
+          "id": 164714,
+          "canonical_name": "Mana Channeling Wand",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 165362,
+          "canonical_name": "Bloodwood Wand",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 165364,
+          "canonical_name": "Magician's Wand",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "14": {
+      "member_count": 83,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional pistol weapons (fantasy register; named_template; N=83)",
+      "top_reps": [
+        {
+          "id": 15038,
+          "canonical_name": "Deepshot Pistol (rare variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 15579,
+          "canonical_name": "Enspelled Pistol (Level 4)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 16282,
+          "canonical_name": "Giant Slayer Pistol",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "15": {
+      "member_count": 135,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional knife weapons (fantasy register; named_template; N=135)",
+      "top_reps": [
+        {
+          "id": 14741,
+          "canonical_name": "Cosmic Starknife",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 18666,
+          "canonical_name": "Rootbound Multiweapon Starknife (very rare variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 18744,
+          "canonical_name": "Sacrificial Knife, Ceremonial",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "16": {
+      "member_count": 224,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional shortsword weapons (fantasy register; named_template; N=224)",
+      "top_reps": [
+        {
+          "id": 13663,
+          "canonical_name": "Aldrnari Blade Shortsword",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 13666,
+          "canonical_name": "Aldrnari Blade Shortsword (very rare variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 13995,
+          "canonical_name": "Blade of Prey Shortsword",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "17": {
+      "member_count": 317,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional greatsword/sword weapons (fantasy register; named_template; N=317)",
+      "top_reps": [
+        {
+          "id": 13588,
+          "canonical_name": "Acheron Greatsword",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 13711,
+          "canonical_name": "Aperture Sword Greatsword (rare variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 13998,
+          "canonical_name": "Blade of the Battle Seer Greatsword",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "18": {
+      "member_count": 239,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional longsword/sword weapons (fantasy register; named_template; N=239)",
+      "top_reps": [
+        {
+          "id": 13615,
+          "canonical_name": "Adamantine Longsword",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 13715,
+          "canonical_name": "Aperture Sword Longsword (very rare variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 13717,
+          "canonical_name": "Aperture Sword Rapier (rare variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "19": {
+      "member_count": 68,
+      "dominant_lineage": "east_asian",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: east_asian early_modern sword weapons (historical register; category; N=68)",
+      "top_reps": [
+        {
+          "id": 167847,
+          "canonical_name": "Blade and Mounting for a Short Sword (Wakizashi)",
+          "cultural_lineage_canonical": "east_asian",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 167848,
+          "canonical_name": "Blade and Mounting for a Sword (Katana)",
+          "cultural_lineage_canonical": "east_asian",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 174903,
+          "canonical_name": "Blade and Mounting for a Sword (Katana)",
+          "cultural_lineage_canonical": "east_asian",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9558823529411765
+    },
+    "20": {
+      "member_count": 66,
+      "dominant_lineage": "european",
+      "dominant_period": "industrial",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european industrial sword weapons (historical register; category; N=66)",
+      "top_reps": [
+        {
+          "id": 22899,
+          "canonical_name": "Light Cavalry sword",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 24400,
+          "canonical_name": "Sword and knot",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 24844,
+          "canonical_name": "Sacrificial sword (ram dao)",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.7121212121212122
+    },
+    "21": {
+      "member_count": 123,
+      "dominant_lineage": "cross_cultural",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "provisional_description": "PROVISIONAL: cross_cultural contemporary hammer/glaive weapons (military_modern register; category; N=123)",
+      "top_reps": [
+        {
+          "id": 172546,
+          "canonical_name": "war hammer",
+          "cultural_lineage_canonical": "cross_cultural",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 172548,
+          "canonical_name": "high steel war hammer",
+          "cultural_lineage_canonical": "cross_cultural",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 172565,
+          "canonical_name": "simple makeshift glaive",
+          "cultural_lineage_canonical": "cross_cultural",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.926829268292683
+    },
+    "22": {
+      "member_count": 1256,
+      "dominant_lineage": "east_asian",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "provisional_description": "PROVISIONAL: east_asian contemporary mixed weapons (military_modern register; category; N=1256)",
+      "top_reps": [
+        {
+          "id": 172596,
+          "canonical_name": "naginata",
+          "cultural_lineage_canonical": "east_asian",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 172616,
+          "canonical_name": "ji",
+          "cultural_lineage_canonical": "east_asian",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 172731,
+          "canonical_name": "dao",
+          "cultural_lineage_canonical": "east_asian",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9792993630573248
+    },
+    "23": {
+      "member_count": 34,
+      "dominant_lineage": "arctic_circumpolar",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "provisional_description": "PROVISIONAL: arctic_circumpolar contemporary mixed weapons (military_modern register; category; N=34)",
+      "top_reps": [
+        {
+          "id": 183299,
+          "canonical_name": "2S1 Gvozdika Russian 122mm Amphibious Self-Propelled Howitzer (SPH)",
+          "cultural_lineage_canonical": "arctic_circumpolar",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 183498,
+          "canonical_name": "RBS-70 Swedish Man-Portable Air Defense Missile System (MANPADS)",
+          "cultural_lineage_canonical": "arctic_circumpolar",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 183535,
+          "canonical_name": "Mistral 3 French Man-Portable Air Defense Missile System (MANPADS)",
+          "cultural_lineage_canonical": "arctic_circumpolar",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.8823529411764706
+    },
+    "24": {
+      "member_count": 361,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic classical mixed weapons (fantasy register; category; N=361)",
+      "top_reps": [
+        {
+          "id": 16503,
+          "canonical_name": "Grovelthrash",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 17723,
+          "canonical_name": "Mincer",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 163484,
+          "canonical_name": "Headchopper",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9196675900277008
+    },
+    "25": {
+      "member_count": 410,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional sword weapons (fantasy register; named_template; N=410)",
+      "top_reps": [
+        {
+          "id": 14996,
+          "canonical_name": "Deadly Volatile Hook Sword",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 15080,
+          "canonical_name": "Defensive Hook Sword +2",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 15150,
+          "canonical_name": "Double Sword",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9829268292682927
+    },
+    "26": {
+      "member_count": 244,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic classical staff weapons (fantasy register; named_template; N=244)",
+      "top_reps": [
+        {
+          "id": 163406,
+          "canonical_name": "Warden Staff",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 163665,
+          "canonical_name": "War Staff",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 164849,
+          "canonical_name": "Advisor's Gnarled Staff",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "27": {
+      "member_count": 1301,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional mixed weapons (fantasy register; category; N=1301)",
+      "top_reps": [
+        {
+          "id": 13593,
+          "canonical_name": "Acid",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 13848,
+          "canonical_name": "Ballista",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 13982,
+          "canonical_name": "Blade of Petals",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9884704073789393
+    },
+    "28": {
+      "member_count": 437,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional staff weapons (fantasy register; named_template; N=437)",
+      "top_reps": [
+        {
+          "id": 13539,
+          "canonical_name": "Abyssal Bane Quarterstaff",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 13541,
+          "canonical_name": "Abyssal Bane Quarterstaff (very rare variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 13869,
+          "canonical_name": "Baton of the Mindbender Staff",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "29": {
+      "member_count": 76,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic classical crossbow/scimitar weapons (fantasy register; named_template; N=76)",
+      "top_reps": [
+        {
+          "id": 17944,
+          "canonical_name": "Nine Lives Stealer Light Crossbow",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 17966,
+          "canonical_name": "Nine Lives Stealer Scimitar",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 165332,
+          "canonical_name": "Ram's Head Crossbow",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "30": {
+      "member_count": 77,
+      "dominant_lineage": "south_asian",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "provisional_description": "PROVISIONAL: south_asian contemporary mixed weapons (military_modern register; category; N=77)",
+      "top_reps": [
+        {
+          "id": 172755,
+          "canonical_name": "kirpan",
+          "cultural_lineage_canonical": "south_asian",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 173472,
+          "canonical_name": "Browning Hi-Power .40 S&W",
+          "cultural_lineage_canonical": "south_asian",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 182842,
+          "canonical_name": "Advik FPV Indian Unmanned Aerial Vehicle (UAV)",
+          "cultural_lineage_canonical": "south_asian",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.6233766233766234
+    },
+    "31": {
+      "member_count": 194,
+      "dominant_lineage": "southeast_asian",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "provisional_description": "PROVISIONAL: southeast_asian contemporary mixed weapons (military_modern register; category; N=194)",
+      "top_reps": [
+        {
+          "id": 173617,
+          "canonical_name": "DARPA flamethrower",
+          "cultural_lineage_canonical": "southeast_asian",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 183714,
+          "canonical_name": "STK 40 AGL Singaporean 40mm Automatic Grenade Launcher",
+          "cultural_lineage_canonical": "southeast_asian",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 184300,
+          "canonical_name": "MDH-10 Vietnamese Anti-Personnel Mine",
+          "cultural_lineage_canonical": "southeast_asian",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.5154639175257731
+    },
+    "32": {
+      "member_count": 121,
+      "dominant_lineage": "cross_cultural",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "provisional_description": "PROVISIONAL: cross_cultural contemporary rifle weapons (military_modern register; category; N=121)",
+      "top_reps": [
+        {
+          "id": 170417,
+          "canonical_name": "Bullpup Rifle",
+          "cultural_lineage_canonical": "cross_cultural",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 170446,
+          "canonical_name": "Marksman Rifle",
+          "cultural_lineage_canonical": "cross_cultural",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 170450,
+          "canonical_name": "Military Rifle",
+          "cultural_lineage_canonical": "cross_cultural",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9752066115702479
+    },
+    "33": {
+      "member_count": 54,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional sword/greatsword weapons (fantasy register; category; N=54)",
+      "top_reps": [
+        {
+          "id": 19939,
+          "canonical_name": "Sword of Answering",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 19942,
+          "canonical_name": "Sword of Corrosion",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 19944,
+          "canonical_name": "Sword of Kas",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9444444444444444
+    },
+    "34": {
+      "member_count": 468,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional bow weapons (fantasy register; named_template; N=468)",
+      "top_reps": [
+        {
+          "id": 14377,
+          "canonical_name": "Caustic Bow",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14473,
+          "canonical_name": "Chardalyn Shortbow",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14548,
+          "canonical_name": "Compound Bow",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "35": {
+      "member_count": 152,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional halberd weapons (fantasy register; named_template; N=152)",
+      "top_reps": [
+        {
+          "id": 13505,
+          "canonical_name": "Abyssal Bane Halberd (very rare variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14035,
+          "canonical_name": "Blood Drinker Halberd",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14585,
+          "canonical_name": "Consecrated Weapon Halberd",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "36": {
+      "member_count": 115,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional glaive weapons (fantasy register; named_template; N=115)",
+      "top_reps": [
+        {
+          "id": 14032,
+          "canonical_name": "Blood Drinker Glaive (legendary variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14414,
+          "canonical_name": "Chaos Glaive",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 15053,
+          "canonical_name": "Defender Glaive",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "37": {
+      "member_count": 133,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional staff weapons (fantasy register; category; N=133)",
+      "top_reps": [
+        {
+          "id": 13973,
+          "canonical_name": "Blackstaff",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 19464,
+          "canonical_name": "Staff",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 19494,
+          "canonical_name": "Staff of Giantkin",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "38": {
+      "member_count": 349,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional hammer weapons (fantasy register; named_template; N=349)",
+      "top_reps": [
+        {
+          "id": 13851,
+          "canonical_name": "Bane Hammer",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14462,
+          "canonical_name": "Chardalyn Light Hammer",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14480,
+          "canonical_name": "Chardalyn Warhammer",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "39": {
+      "member_count": 143,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional pike weapons (fantasy register; named_template; N=143)",
+      "top_reps": [
+        {
+          "id": 13536,
+          "canonical_name": "Abyssal Bane Pike",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 13558,
+          "canonical_name": "Abyssal Bane Spiked Cestus (rare variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 13561,
+          "canonical_name": "Abyssal Bane Spiked Knuckle Duster (rare variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "40": {
+      "member_count": 237,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional scimitar weapons (fantasy register; named_template; N=237)",
+      "top_reps": [
+        {
+          "id": 13545,
+          "canonical_name": "Abyssal Bane Scimitar",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 13622,
+          "canonical_name": "Adamantine Scimitar",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 13992,
+          "canonical_name": "Blade of Prey Scimitar",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "41": {
+      "member_count": 342,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional crossbow/bow weapons (fantasy register; named_template; N=342)",
+      "top_reps": [
+        {
+          "id": 14104,
+          "canonical_name": "Bloodseeker Crossbow Bolt",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14791,
+          "canonical_name": "Crosstacean Hand Crossbow (very rare variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14797,
+          "canonical_name": "Crosstacean Light Crossbow (very rare variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9824561403508771
+    },
+    "42": {
+      "member_count": 434,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional axe weapons (fantasy register; named_template; N=434)",
+      "top_reps": [
+        {
+          "id": 13506,
+          "canonical_name": "Abyssal Bane Handaxe",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 13611,
+          "canonical_name": "Adamantine Handaxe",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 13814,
+          "canonical_name": "Awakened Abyss Warden's Axeblade",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "43": {
+      "member_count": 114,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional lance weapons (fantasy register; named_template; N=114)",
+      "top_reps": [
+        {
+          "id": 14380,
+          "canonical_name": "Centaur Lance",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14460,
+          "canonical_name": "Chardalyn Lance",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14704,
+          "canonical_name": "Corpse Slayer Lance",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "44": {
+      "member_count": 72,
+      "dominant_lineage": "african",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "provisional_description": "PROVISIONAL: african contemporary mixed weapons (military_modern register; category; N=72)",
+      "top_reps": [
+        {
+          "id": 173608,
+          "canonical_name": "Exodii Sapra grenade launcher",
+          "cultural_lineage_canonical": "south_american_indigenous",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 183671,
+          "canonical_name": "OT 4x4 Serbian Armored Personnel Carrier (APC)",
+          "cultural_lineage_canonical": "african",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 183858,
+          "canonical_name": "9M113 Konkurs (AT-5 Spandrel) Russian Anti-Tank Guided Missile (ATGM)",
+          "cultural_lineage_canonical": "south_american_indigenous",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.6805555555555556
+    },
+    "45": {
+      "member_count": 110,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional flail weapons (fantasy register; named_template; N=110)",
+      "top_reps": [
+        {
+          "id": 15253,
+          "canonical_name": "Driftwood Flail",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 15401,
+          "canonical_name": "Enspelled Flail (Level 6)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 15907,
+          "canonical_name": "Flail +2",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "46": {
+      "member_count": 223,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional rapier weapons (fantasy register; named_template; N=223)",
+      "top_reps": [
+        {
+          "id": 13655,
+          "canonical_name": "Aldrnari Blade Rapier",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14290,
+          "canonical_name": "Broken Promise Rapier",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14471,
+          "canonical_name": "Chardalyn Rapier",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "47": {
+      "member_count": 107,
+      "dominant_lineage": "european",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: european fictional crossbow weapons (fantasy register; named_template; N=107)",
+      "top_reps": [
+        {
+          "id": 14785,
+          "canonical_name": "Crossbow bolts +1",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14786,
+          "canonical_name": "Crossbow bolts +2",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 16195,
+          "canonical_name": "Gaol Net",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "medieval",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.514018691588785
+    },
+    "48": {
+      "member_count": 68,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic classical rifle weapons (fantasy register; named_template; N=68)",
+      "top_reps": [
+        {
+          "id": 164589,
+          "canonical_name": "Burnside Rifle",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 165354,
+          "canonical_name": "Sporting Rifle",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 165850,
+          "canonical_name": "Barrel-Blade Longrifle",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9264705882352942
+    },
+    "49": {
+      "member_count": 68,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional rifle weapons (fantasy register; named_template; N=68)",
+      "top_reps": [
+        {
+          "id": 14085,
+          "canonical_name": "Bloodhound's Immobiliser Rifle",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14126,
+          "canonical_name": "Bloodshot Rifle (very rare variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14142,
+          "canonical_name": "Bloodwork Sniper Rifle",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9852941176470589
+    },
+    "50": {
+      "member_count": 1907,
+      "dominant_lineage": "european",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "provisional_description": "PROVISIONAL: european contemporary mixed weapons (military_modern register; category; N=1907)",
+      "top_reps": [
+        {
+          "id": 172751,
+          "canonical_name": "zweih\u00e4nder",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 172752,
+          "canonical_name": "zweih\u00e4nder",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 172810,
+          "canonical_name": "hardened steel kriegsmesser",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "51": {
+      "member_count": 75,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic classical mace weapons (fantasy register; named_template; N=75)",
+      "top_reps": [
+        {
+          "id": 17550,
+          "canonical_name": "Mace of the Black Crown",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 17553,
+          "canonical_name": "Mace of the Black Crown, Dormant",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 165112,
+          "canonical_name": "High Warlord's Battle Mace",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9866666666666667
+    },
+    "52": {
+      "member_count": 1819,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic classical mixed weapons (fantasy register; named_template; N=1819)",
+      "top_reps": [
+        {
+          "id": 13771,
+          "canonical_name": "Arrow of Teleportation",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 13792,
+          "canonical_name": "Assassin's Arrow",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14484,
+          "canonical_name": "Chicken Chucker (Common)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9956019791094007
+    },
+    "53": {
+      "member_count": 161,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional halberd/bow weapons (fantasy register; category; N=161)",
+      "top_reps": [
+        {
+          "id": 14262,
+          "canonical_name": "Bow of Grounding",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 16317,
+          "canonical_name": "Glaive",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 16520,
+          "canonical_name": "Halberd",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "54": {
+      "member_count": 85,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional rapier/flail weapons (fantasy register; category; N=85)",
+      "top_reps": [
+        {
+          "id": 15896,
+          "canonical_name": "Flail",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 17844,
+          "canonical_name": "Myrnaxe",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 18359,
+          "canonical_name": "Rapier of Defense",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "55": {
+      "member_count": 65,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic classical bow/halberd weapons (fantasy register; named_template; N=65)",
+      "top_reps": [
+        {
+          "id": 14547,
+          "canonical_name": "Composite Bow",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 17245,
+          "canonical_name": "Lichslayer Halberd (rare variant)",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 17262,
+          "canonical_name": "Lichslayer Longbow",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.8461538461538461
+    },
+    "56": {
+      "member_count": 117,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic classical axe/flail weapons (fantasy register; named_template; N=117)",
+      "top_reps": [
+        {
+          "id": 17922,
+          "canonical_name": "Nine Lives Stealer Flail",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 164298,
+          "canonical_name": "Angerforge's Battle Axe",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 164565,
+          "canonical_name": "Colossal Great Axe",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9829059829059829
+    },
+    "57": {
+      "member_count": 160,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional mace weapons (fantasy register; named_template; N=160)",
+      "top_reps": [
+        {
+          "id": 13525,
+          "canonical_name": "Abyssal Bane Mace (rare variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14535,
+          "canonical_name": "Cobra Mace (Common)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 15531,
+          "canonical_name": "Enspelled Mace (Level 1)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "58": {
+      "member_count": 76,
+      "dominant_lineage": "east_asian",
+      "dominant_period": "industrial",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: east_asian industrial pistol weapons (historical register; category; N=76)",
+      "top_reps": [
+        {
+          "id": 87,
+          "canonical_name": "Decorated shield",
+          "cultural_lineage_canonical": "south_asian",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 22921,
+          "canonical_name": "Centrefire self-loading military pistol",
+          "cultural_lineage_canonical": "east_asian",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 187064,
+          "canonical_name": "Type 64 pistol",
+          "cultural_lineage_canonical": "east_asian",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.5131578947368421
+    },
+    "59": {
+      "member_count": 129,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic classical hammer weapons (fantasy register; named_template; N=129)",
+      "top_reps": [
+        {
+          "id": 16554,
+          "canonical_name": "Hammer of Thunderbolts (Template)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 17946,
+          "canonical_name": "Nine Lives Stealer Light Hammer",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 164356,
+          "canonical_name": "Inlaid Thorium Hammer",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9147286821705426
+    },
+    "60": {
+      "member_count": 127,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic classical bow weapons (fantasy register; named_template; N=127)",
+      "top_reps": [
+        {
+          "id": 16974,
+          "canonical_name": "Infernal Longbow",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 17968,
+          "canonical_name": "Nine Lives Stealer Shortbow",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 164401,
+          "canonical_name": "Gryphonwing Long Bow",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "classical",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9921259842519685
+    },
+    "61": {
+      "member_count": 272,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional spear weapons (fantasy register; named_template; N=272)",
+      "top_reps": [
+        {
+          "id": 14636,
+          "canonical_name": "Consecrated Weapon Spear",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 15146,
+          "canonical_name": "Dornish Horse Spear",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 15639,
+          "canonical_name": "Enspelled Spear (Level 1)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9926470588235294
+    },
+    "62": {
+      "member_count": 4807,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional mixed weapons (fantasy register; named_template; N=4807)",
+      "top_reps": [
+        {
+          "id": 13478,
+          "canonical_name": "Abyssal Bane Chakram (very rare variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 13513,
+          "canonical_name": "Abyssal Bane Knuckle Duster (rare variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 13514,
+          "canonical_name": "Abyssal Bane Knuckle Duster (very rare variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "63": {
+      "member_count": 187,
+      "dominant_lineage": "european",
+      "dominant_period": "industrial",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european industrial mixed weapons (historical register; category; N=187)",
+      "top_reps": [
+        {
+          "id": 20,
+          "canonical_name": "Parade shield",
+          "cultural_lineage_canonical": "oceanic",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 46,
+          "canonical_name": "Shield Depicting Saint George Slaying the Dragon",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 2531,
+          "canonical_name": "Smith & Wesson 7-shot revolver of 1874",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.839572192513369
+    },
+    "64": {
+      "member_count": 59,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional musket weapons (fantasy register; named_template; N=59)",
+      "top_reps": [
+        {
+          "id": 14074,
+          "canonical_name": "Bloodhound's Immobiliser Musket (very rare variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14117,
+          "canonical_name": "Bloodshot Musket (very rare variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 15035,
+          "canonical_name": "Deepshot Musket (rare variant)",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.8813559322033898
+    },
+    "65": {
+      "member_count": 232,
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional club weapons (fantasy register; named_template; N=232)",
+      "top_reps": [
+        {
+          "id": 13497,
+          "canonical_name": "Abyssal Bane Greatclub",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14531,
+          "canonical_name": "Club of Inverted Probability",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        },
+        {
+          "id": 14564,
+          "canonical_name": "Consecrated Weapon Club",
+          "cultural_lineage_canonical": "fantasy_generic",
+          "historical_period_canonical": "fictional",
+          "register_canonical": "fantasy",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "66": {
+      "member_count": 103,
+      "dominant_lineage": "unknown",
+      "dominant_period": "unknown",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: unknown unknown mixed weapons (historical register; category; N=103)",
+      "top_reps": [
+        {
+          "id": 33,
+          "canonical_name": "Ceremonial shield with mosaic decoration.",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 37,
+          "canonical_name": "Gweagal shield",
+          "cultural_lineage_canonical": "oceanic",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 38,
+          "canonical_name": "Garibaldi shield",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.4077669902912621
+    },
+    "67": {
+      "member_count": 238,
+      "dominant_lineage": "european",
+      "dominant_period": "modern",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european modern mixed weapons (historical register; category; N=238)",
+      "top_reps": [
+        {
+          "id": 22357,
+          "canonical_name": "Bayonet",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 23746,
+          "canonical_name": "Cross-guard",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 24149,
+          "canonical_name": "Pricker",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.5966386554621849
+    },
+    "68": {
+      "member_count": 502,
+      "dominant_lineage": "cross_cultural",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "provisional_description": "PROVISIONAL: cross_cultural contemporary mixed weapons (military_modern register; category; N=502)",
+      "top_reps": [
+        {
+          "id": 170338,
+          "canonical_name": "Assault SMG",
+          "cultural_lineage_canonical": "cross_cultural",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 170361,
+          "canonical_name": "Tear Gas",
+          "cultural_lineage_canonical": "cross_cultural",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 170375,
+          "canonical_name": "Missiles",
+          "cultural_lineage_canonical": "cross_cultural",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.8784860557768924
+    },
+    "69": {
+      "member_count": 77,
+      "dominant_lineage": "european",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "provisional_description": "PROVISIONAL: european contemporary rifle weapons (military_modern register; category; N=77)",
+      "top_reps": [
+        {
+          "id": 173386,
+          "canonical_name": "SL8 civilian rifle",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 183207,
+          "canonical_name": "AK-203 Russian 7.62mm Assault Rifle",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 185324,
+          "canonical_name": "Hopak-61 Ukrainian 7.62mm Assault Rifle",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.7792207792207793
+    },
+    "70": {
+      "member_count": 77,
+      "dominant_lineage": "european",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "provisional_description": "PROVISIONAL: european contemporary spear weapons (military_modern register; category; N=77)",
+      "top_reps": [
+        {
+          "id": 172561,
+          "canonical_name": "fire-hardened wooden spear",
+          "cultural_lineage_canonical": "cross_cultural",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 172578,
+          "canonical_name": "hardened steel spear",
+          "cultural_lineage_canonical": "cross_cultural",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 172579,
+          "canonical_name": "tempered steel spear",
+          "cultural_lineage_canonical": "cross_cultural",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.5584415584415584
+    },
+    "71": {
+      "member_count": 423,
+      "dominant_lineage": "middle_eastern",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "provisional_description": "PROVISIONAL: middle_eastern contemporary mixed weapons (military_modern register; category; N=423)",
+      "top_reps": [
+        {
+          "id": 182738,
+          "canonical_name": "Shahed-238 Iranian Unmanned Aerial Vehicle (UAV)",
+          "cultural_lineage_canonical": "middle_eastern",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 182739,
+          "canonical_name": "Shahed-136 Iranian Unmanned Aerial Vehicle (UAV)",
+          "cultural_lineage_canonical": "middle_eastern",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        },
+        {
+          "id": 182740,
+          "canonical_name": "Shahed-131 Iranian Unmanned Aerial Vehicle (UAV)",
+          "cultural_lineage_canonical": "middle_eastern",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "military_modern",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9787234042553191
+    },
+    "72": {
+      "member_count": 327,
+      "dominant_lineage": "european",
+      "dominant_period": "industrial",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european industrial pistol/dagger weapons (historical register; category; N=327)",
+      "top_reps": [
+        {
+          "id": 752,
+          "canonical_name": "Dagger with Rock Crystal and Garnet  Handle (modern forgery)",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 22141,
+          "canonical_name": "Percussion pocket pistol",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 22282,
+          "canonical_name": "Percussion cavalry pistol",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.764525993883792
+    },
+    "73": {
+      "member_count": 315,
+      "dominant_lineage": "european",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european early_modern pistol weapons (historical register; category; N=315)",
+      "top_reps": [
+        {
+          "id": 3089,
+          "canonical_name": "Pair of Flintlock Pistols of Empress Catherine the Great (1729\u20131796)",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 3096,
+          "canonical_name": "Pistol of the Gendarmes de la Maison du Roi model 1750-Mus\u00e9e de l'Arm\u00e9e on display 4",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 3097,
+          "canonical_name": "Pistol of the Gendarmes de la Maison du Roi model 1763-Mus\u00e9e de l'Arm\u00e9e on display 5",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.8857142857142857
+    },
+    "74": {
+      "member_count": 115,
+      "dominant_lineage": "southeast_asian",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: southeast_asian early_modern dagger weapons (historical register; category; N=115)",
+      "top_reps": [
+        {
+          "id": 1746,
+          "canonical_name": "Flint Dagger from Denmark",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 1870,
+          "canonical_name": "Dagger",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 195671,
+          "canonical_name": "Dagger (Jambiya) with Sheath",
+          "cultural_lineage_canonical": "middle_eastern",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.30434782608695654
+    },
+    "75": {
+      "member_count": 76,
+      "dominant_lineage": "south_asian",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: south_asian early_modern dagger weapons (historical register; category; N=76)",
+      "top_reps": [
+        {
+          "id": 1689,
+          "canonical_name": "Dagger with Hilt in the Form of a Blue Bull (Nilgai)",
+          "cultural_lineage_canonical": "south_asian",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 159821,
+          "canonical_name": "Dagger (katar)",
+          "cultural_lineage_canonical": "south_asian",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 191421,
+          "canonical_name": "Dagger with Sheath",
+          "cultural_lineage_canonical": "south_asian",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.75
+    },
+    "76": {
+      "member_count": 183,
+      "dominant_lineage": "european",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european early_modern sword/knife weapons (historical register; category; N=183)",
+      "top_reps": [
+        {
+          "id": 160539,
+          "canonical_name": "Sword hilt",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 161675,
+          "canonical_name": "Sword (talwar)",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 167825,
+          "canonical_name": "Sword hanger",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.7704918032786885
+    },
+    "77": {
+      "member_count": 65,
+      "dominant_lineage": "unknown",
+      "dominant_period": "unknown",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: unknown unknown mixed weapons (historical register; category; N=65)",
+      "top_reps": [
+        {
+          "id": 27,
+          "canonical_name": "Ottoman cavalry shield",
+          "cultural_lineage_canonical": "middle_eastern",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 982,
+          "canonical_name": "Pistola de Pederneira",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 984,
+          "canonical_name": "Pistola de Pederneira Transformada em Percuss\u00e3o",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.6461538461538462
+    },
+    "78": {
+      "member_count": 311,
+      "dominant_lineage": "european",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european early_modern mixed weapons (historical register; category; N=311)",
+      "top_reps": [
+        {
+          "id": 23582,
+          "canonical_name": "Hanger",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 24183,
+          "canonical_name": "Yataghan bayonet for Martini Henry",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 24445,
+          "canonical_name": "Palstave",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9517684887459807
+    },
+    "79": {
+      "member_count": 116,
+      "dominant_lineage": "european",
+      "dominant_period": "modern",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european modern pistol weapons (historical register; category; N=116)",
+      "top_reps": [
+        {
+          "id": 22143,
+          "canonical_name": "Centrefire self-loading military pistol",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 22290,
+          "canonical_name": "Rimfire breech-loading target pistol",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 22311,
+          "canonical_name": "Rimfire breech-loading double-barrelled pistol",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9568965517241379
+    },
+    "80": {
+      "member_count": 192,
+      "dominant_lineage": "southeast_asian",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: southeast_asian early_modern knife weapons (historical register; category; N=192)",
+      "top_reps": [
+        {
+          "id": 167893,
+          "canonical_name": "Hunting Knife",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "medieval",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 196207,
+          "canonical_name": "Kris with Sheath",
+          "cultural_lineage_canonical": "southeast_asian",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 198558,
+          "canonical_name": "Shield",
+          "cultural_lineage_canonical": "southeast_asian",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.6302083333333334
+    },
+    "81": {
+      "member_count": 250,
+      "dominant_lineage": "east_asian",
+      "dominant_period": "contemporary",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: east_asian contemporary shotgun weapons (historical register; category; N=250)",
+      "top_reps": [
+        {
+          "id": 5034,
+          "canonical_name": "shotgun Lee-Enfield (Museu Militar da Madeira)",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 23411,
+          "canonical_name": "Electroshock torch",
+          "cultural_lineage_canonical": "east_asian",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 174046,
+          "canonical_name": "Al-Samoud 2",
+          "cultural_lineage_canonical": "east_asian",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.972
+    },
+    "82": {
+      "member_count": 104,
+      "dominant_lineage": "southeast_asian",
+      "dominant_period": "contemporary",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: southeast_asian contemporary mixed weapons (historical register; category; N=104)",
+      "top_reps": [
+        {
+          "id": 174302,
+          "canonical_name": "Jungle carbine",
+          "cultural_lineage_canonical": "southeast_asian",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 181324,
+          "canonical_name": "GKN Simba",
+          "cultural_lineage_canonical": "southeast_asian",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 181380,
+          "canonical_name": "F1 submachine gun",
+          "cultural_lineage_canonical": "southeast_asian",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.5288461538461539
+    },
+    "83": {
+      "member_count": 33,
+      "dominant_lineage": "south_asian",
+      "dominant_period": "contemporary",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: south_asian contemporary mixed weapons (historical register; category; N=33)",
+      "top_reps": [
+        {
+          "id": 181,
+          "canonical_name": "Mission Shakti",
+          "cultural_lineage_canonical": "south_asian",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 174197,
+          "canonical_name": "Polaris Inc.",
+          "cultural_lineage_canonical": "south_asian",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 174608,
+          "canonical_name": "FN MAG",
+          "cultural_lineage_canonical": "south_asian",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.6666666666666666
+    },
+    "84": {
+      "member_count": 734,
+      "dominant_lineage": "european",
+      "dominant_period": "contemporary",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european contemporary mixed weapons (historical register; category; N=734)",
+      "top_reps": [
+        {
+          "id": 23208,
+          "canonical_name": "Catapult",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 23256,
+          "canonical_name": "Percussion six-shot replica revolver",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 23347,
+          "canonical_name": "Belt buckle knuckle duster",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "85": {
+      "member_count": 44,
+      "dominant_lineage": "african",
+      "dominant_period": "contemporary",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: african contemporary mixed weapons (historical register; category; N=44)",
+      "top_reps": [
+        {
+          "id": 174482,
+          "canonical_name": "Mamba APC",
+          "cultural_lineage_canonical": "african",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 175095,
+          "canonical_name": "Vektor CR-21",
+          "cultural_lineage_canonical": "african",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 175152,
+          "canonical_name": "Denel NTW-20",
+          "cultural_lineage_canonical": "african",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.8863636363636364
+    },
+    "86": {
+      "member_count": 36,
+      "dominant_lineage": "south_american_indigenous",
+      "dominant_period": "contemporary",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: south_american_indigenous contemporary mixed weapons (historical register; category; N=36)",
+      "top_reps": [
+        {
+          "id": 175518,
+          "canonical_name": "FAMAE SAF",
+          "cultural_lineage_canonical": "south_american_indigenous",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 176460,
+          "canonical_name": "LAHAT",
+          "cultural_lineage_canonical": "south_american_indigenous",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 186962,
+          "canonical_name": "Taurus Millennium series",
+          "cultural_lineage_canonical": "south_american_indigenous",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9444444444444444
+    },
+    "87": {
+      "member_count": 190,
+      "dominant_lineage": "unknown",
+      "dominant_period": "contemporary",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: unknown contemporary mixed weapons (historical register; category; N=190)",
+      "top_reps": [
+        {
+          "id": 233,
+          "canonical_name": "Flushomatic",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 234,
+          "canonical_name": "Nail Gun",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 264,
+          "canonical_name": "Photon Projector",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.8105263157894737
+    },
+    "88": {
+      "member_count": 63,
+      "dominant_lineage": "european",
+      "dominant_period": "contemporary",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european contemporary rifle weapons (historical register; category; N=63)",
+      "top_reps": [
+        {
+          "id": 24250,
+          "canonical_name": "Centrefire automatic rifle",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 34619,
+          "canonical_name": "Air rifle",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 174677,
+          "canonical_name": "SEAL Recon Rifle",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9365079365079365
+    },
+    "89": {
+      "member_count": 211,
+      "dominant_lineage": "middle_eastern",
+      "dominant_period": "contemporary",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: middle_eastern contemporary mixed weapons (historical register; category; N=211)",
+      "top_reps": [
+        {
+          "id": 668,
+          "canonical_name": "Spearhead",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 680,
+          "canonical_name": "Spearhead",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 174140,
+          "canonical_name": "Qassam rocket",
+          "cultural_lineage_canonical": "middle_eastern",
+          "historical_period_canonical": "contemporary",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.8957345971563981
+    },
+    "90": {
+      "member_count": 10087,
+      "dominant_lineage": "east_asian",
+      "dominant_period": "unknown",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: east_asian unknown mixed weapons (historical register; category; N=10087)",
+      "top_reps": [
+        {
+          "id": 158,
+          "canonical_name": "H/AKJ-16",
+          "cultural_lineage_canonical": "east_asian",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 723,
+          "canonical_name": "Q132210441",
+          "cultural_lineage_canonical": "east_asian",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 1004,
+          "canonical_name": "Tepp\u00f4",
+          "cultural_lineage_canonical": "east_asian",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 1.0
+    },
+    "91": {
+      "member_count": 161,
+      "dominant_lineage": "south_asian",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: south_asian early_modern mixed weapons (historical register; category; N=161)",
+      "top_reps": [
+        {
+          "id": 5043,
+          "canonical_name": "Malik-E-Maidan",
+          "cultural_lineage_canonical": "south_asian",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 189492,
+          "canonical_name": "Mysorean rockets",
+          "cultural_lineage_canonical": "south_asian",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 197302,
+          "canonical_name": "Quiver, Belt, and Twenty Arrows",
+          "cultural_lineage_canonical": "south_asian",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.5279503105590062
+    },
+    "92": {
+      "member_count": 92,
+      "dominant_lineage": "unknown",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: unknown early_modern mixed weapons (historical register; category; N=92)",
+      "top_reps": [
+        {
+          "id": 99,
+          "canonical_name": "Ceremonial ax",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 191,
+          "canonical_name": "Early bayonet-Arm B 259",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 467,
+          "canonical_name": "Q106379646",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.5434782608695652
+    },
+    "93": {
+      "member_count": 380,
+      "dominant_lineage": "east_asian",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: east_asian early_modern musket weapons (historical register; category; N=380)",
+      "top_reps": [
+        {
+          "id": 23280,
+          "canonical_name": "Flintlock musketoon",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 23482,
+          "canonical_name": "Percussion military musket",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 54134,
+          "canonical_name": "Centrefire breech-loading military carbine",
+          "cultural_lineage_canonical": "east_asian",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.8
+    },
+    "94": {
+      "member_count": 164,
+      "dominant_lineage": "european",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european early_modern sabre weapons (historical register; category; N=164)",
+      "top_reps": [
+        {
+          "id": 3186,
+          "canonical_name": "Boarding sabre, model called \"Louvois\"",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 4643,
+          "canonical_name": "Garde nationale sabre with lion and panoply",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 4645,
+          "canonical_name": "Garde nationale sabre with lion, phrygian hat and fasces",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.6463414634146342
+    },
+    "95": {
+      "member_count": 1305,
+      "dominant_lineage": "european",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european early_modern mixed weapons (historical register; category; N=1305)",
+      "top_reps": [
+        {
+          "id": 742,
+          "canonical_name": "Weapons of Honour",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 3047,
+          "canonical_name": "Wheel-lock Petronel",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 22160,
+          "canonical_name": "Detached flintlock lock",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9984674329501916
+    },
+    "96": {
+      "member_count": 187,
+      "dominant_lineage": "european",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european early_modern halberd/bow weapons (historical register; category; N=187)",
+      "top_reps": [
+        {
+          "id": 163232,
+          "canonical_name": "Steel bow",
+          "cultural_lineage_canonical": "south_asian",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 167884,
+          "canonical_name": "Glaive of the Bodyguard of Guglielmo Gonzaga (1538\u20131587), Duke of Mantua and Monferrato",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 174928,
+          "canonical_name": "Halberd of Wolf Dietrich von Raitenau, Prince-Archbishop of Salzburg (reigned 1587\u20131612)",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.5935828877005348
+    },
+    "97": {
+      "member_count": 218,
+      "dominant_lineage": "east_asian",
+      "dominant_period": "classical",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: east_asian classical mace weapons (historical register; category; N=218)",
+      "top_reps": [
+        {
+          "id": 1252,
+          "canonical_name": "Mace Head",
+          "cultural_lineage_canonical": "south_american_indigenous",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 174370,
+          "canonical_name": "S-300 missile system",
+          "cultural_lineage_canonical": "east_asian",
+          "historical_period_canonical": "classical",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 174645,
+          "canonical_name": "AGM-122 Sidearm",
+          "cultural_lineage_canonical": "east_asian",
+          "historical_period_canonical": "classical",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9862385321100917
+    },
+    "98": {
+      "member_count": 107,
+      "dominant_lineage": "south_asian",
+      "dominant_period": "industrial",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: south_asian industrial club weapons (historical register; category; N=107)",
+      "top_reps": [
+        {
+          "id": 125,
+          "canonical_name": "Iroquois club",
+          "cultural_lineage_canonical": "north_american_indigenous",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 13385,
+          "canonical_name": "Club",
+          "cultural_lineage_canonical": "north_american_indigenous",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 158101,
+          "canonical_name": "Medal",
+          "cultural_lineage_canonical": "south_asian",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.5981308411214953
+    },
+    "99": {
+      "member_count": 82,
+      "dominant_lineage": "european",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european early_modern musket/sabre weapons (historical register; category; N=82)",
+      "top_reps": [
+        {
+          "id": 23089,
+          "canonical_name": "Flintlock muzzle-loading musket",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 158448,
+          "canonical_name": "Flintlock musket",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 158826,
+          "canonical_name": "Matchlock military musket",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "early_modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9146341463414634
+    },
+    "100": {
+      "member_count": 144,
+      "dominant_lineage": "african",
+      "dominant_period": "classical",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: african classical mixed weapons (historical register; category; N=144)",
+      "top_reps": [
+        {
+          "id": 174577,
+          "canonical_name": "Panzerj\u00e4ger I",
+          "cultural_lineage_canonical": "african",
+          "historical_period_canonical": "classical",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 174627,
+          "canonical_name": "FN 303",
+          "cultural_lineage_canonical": "south_american_indigenous",
+          "historical_period_canonical": "classical",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 174765,
+          "canonical_name": ".460 Weatherby Magnum",
+          "cultural_lineage_canonical": "african",
+          "historical_period_canonical": "classical",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.4861111111111111
+    },
+    "101": {
+      "member_count": 64,
+      "dominant_lineage": "unknown",
+      "dominant_period": "industrial",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: unknown industrial mixed weapons (historical register; category; N=64)",
+      "top_reps": [
+        {
+          "id": 128,
+          "canonical_name": "Boomerang",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 856,
+          "canonical_name": "Q29341376",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 2316,
+          "canonical_name": "Q131904965",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.515625
+    },
+    "102": {
+      "member_count": 56,
+      "dominant_lineage": "european",
+      "dominant_period": "industrial",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european industrial shotgun weapons (historical register; category; N=56)",
+      "top_reps": [
+        {
+          "id": 24729,
+          "canonical_name": "Percussion double-barrelled shotgun",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 57458,
+          "canonical_name": "Percussion shotgun",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 90291,
+          "canonical_name": "Centrefire breech-loading shotgun",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9107142857142857
+    },
+    "103": {
+      "member_count": 95,
+      "dominant_lineage": "african",
+      "dominant_period": "unknown",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: african unknown mixed weapons (historical register; category; N=95)",
+      "top_reps": [
+        {
+          "id": 891,
+          "canonical_name": "Weapon",
+          "cultural_lineage_canonical": "african",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 893,
+          "canonical_name": "Weapon 2",
+          "cultural_lineage_canonical": "african",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 173938,
+          "canonical_name": "Greek fire",
+          "cultural_lineage_canonical": "african",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9473684210526315
+    },
+    "104": {
+      "member_count": 491,
+      "dominant_lineage": "east_asian",
+      "dominant_period": "modern",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: east_asian modern mixed weapons (historical register; category; N=491)",
+      "top_reps": [
+        {
+          "id": 528,
+          "canonical_name": "Tumi",
+          "cultural_lineage_canonical": "south_american_indigenous",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 1483,
+          "canonical_name": "Catapulta salva-vidas",
+          "cultural_lineage_canonical": "south_american_indigenous",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 1645,
+          "canonical_name": "Atsu T\u014dshir\u014d",
+          "cultural_lineage_canonical": "east_asian",
+          "historical_period_canonical": "medieval",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9103869653767821
+    },
+    "105": {
+      "member_count": 218,
+      "dominant_lineage": "european",
+      "dominant_period": "classical",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european classical sword weapons (historical register; category; N=218)",
+      "top_reps": [
+        {
+          "id": 822,
+          "canonical_name": "Iron sword, National Museum in Damascus",
+          "cultural_lineage_canonical": "middle_eastern",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 2507,
+          "canonical_name": "Heaven Sword",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 2550,
+          "canonical_name": "Sword of Omens",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.30275229357798167
+    },
+    "106": {
+      "member_count": 984,
+      "dominant_lineage": "european",
+      "dominant_period": "classical",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european classical sword/pike weapons (historical register; category; N=984)",
+      "top_reps": [
+        {
+          "id": 223,
+          "canonical_name": "Light Sword",
+          "cultural_lineage_canonical": "middle_eastern",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 226,
+          "canonical_name": "Serpent Sword",
+          "cultural_lineage_canonical": "middle_eastern",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 1881,
+          "canonical_name": "pike",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9817073170731707
+    },
+    "107": {
+      "member_count": 337,
+      "dominant_lineage": "european",
+      "dominant_period": "industrial",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european industrial rifle weapons (historical register; category; N=337)",
+      "top_reps": [
+        {
+          "id": 22345,
+          "canonical_name": "Percussion military rifle",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 23073,
+          "canonical_name": "Percussion rifle",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 23529,
+          "canonical_name": "Centrefire bolt-action military rifle",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.8308605341246291
+    },
+    "108": {
+      "member_count": 112,
+      "dominant_lineage": "unknown",
+      "dominant_period": "classical",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: unknown classical mixed weapons (historical register; category; N=112)",
+      "top_reps": [
+        {
+          "id": 138,
+          "canonical_name": "Escut d'una est\u00e0tua de gladiador (MNAT-45405)",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "classical",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 373,
+          "canonical_name": "Q18425053",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "classical",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 531,
+          "canonical_name": "Hummingbird Bloodletter",
+          "cultural_lineage_canonical": "mesoamerican",
+          "historical_period_canonical": "classical",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.39285714285714285
+    },
+    "109": {
+      "member_count": 159,
+      "dominant_lineage": "middle_eastern",
+      "dominant_period": "classical",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: middle_eastern classical spear weapons (historical register; category; N=159)",
+      "top_reps": [
+        {
+          "id": 767,
+          "canonical_name": "Mount for Spear-Shaft",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "classical",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 1219,
+          "canonical_name": "Iron Spearhead socket, Yale University Art Gallery, inv. 1938.5999.1082",
+          "cultural_lineage_canonical": "middle_eastern",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 1220,
+          "canonical_name": "Iron spear head, Yale University Art Gallery, inv. 1938.5999.1308",
+          "cultural_lineage_canonical": "middle_eastern",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.710691823899371
+    },
+    "110": {
+      "member_count": 191,
+      "dominant_lineage": "east_asian",
+      "dominant_period": "industrial",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: east_asian industrial mixed weapons (historical register; category; N=191)",
+      "top_reps": [
+        {
+          "id": 161659,
+          "canonical_name": "Trident (san gu cha or bian cha)",
+          "cultural_lineage_canonical": "east_asian",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 174141,
+          "canonical_name": "Arisaka",
+          "cultural_lineage_canonical": "east_asian",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 174144,
+          "canonical_name": "Maxim gun",
+          "cultural_lineage_canonical": "east_asian",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9162303664921466
+    },
+    "111": {
+      "member_count": 115,
+      "dominant_lineage": "european",
+      "dominant_period": "modern",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european modern mixed weapons (historical register; category; N=115)",
+      "top_reps": [
+        {
+          "id": 36,
+          "canonical_name": "Escudo",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 119,
+          "canonical_name": "Canon de BirHakeim",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 468,
+          "canonical_name": "Boomerang",
+          "cultural_lineage_canonical": "oceanic",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.3565217391304348
+    },
+    "112": {
+      "member_count": 2062,
+      "dominant_lineage": "european",
+      "dominant_period": "modern",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european modern mixed weapons (historical register; category; N=2062)",
+      "top_reps": [
+        {
+          "id": 203,
+          "canonical_name": "Maltese Ring",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 4373,
+          "canonical_name": "Seax of Beagnoth",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "medieval",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 5028,
+          "canonical_name": "M2 machine gun at Musee de l'Arm\u00e9e",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9961202715809894
+    },
+    "113": {
+      "member_count": 257,
+      "dominant_lineage": "middle_eastern",
+      "dominant_period": "unknown",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: middle_eastern unknown spear/rifle weapons (historical register; category; N=257)",
+      "top_reps": [
+        {
+          "id": 607,
+          "canonical_name": "HYDRA Heavy Assault Rifle",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 696,
+          "canonical_name": "Spear head",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 699,
+          "canonical_name": "Spear head",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.6653696498054474
+    },
+    "114": {
+      "member_count": 95,
+      "dominant_lineage": "south_american_indigenous",
+      "dominant_period": "modern",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: south_american_indigenous modern mixed weapons (historical register; category; N=95)",
+      "top_reps": [
+        {
+          "id": 5112,
+          "canonical_name": "Browning M1919",
+          "cultural_lineage_canonical": "south_american_indigenous",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 174153,
+          "canonical_name": "Apache (missile)",
+          "cultural_lineage_canonical": "north_american_indigenous",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 174825,
+          "canonical_name": "Tanque Argentino Mediano",
+          "cultural_lineage_canonical": "south_american_indigenous",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.49473684210526314
+    },
+    "115": {
+      "member_count": 1335,
+      "dominant_lineage": "european",
+      "dominant_period": "unknown",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european unknown mixed weapons (historical register; category; N=1335)",
+      "top_reps": [
+        {
+          "id": 6,
+          "canonical_name": "GYATA-64 mine",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 57,
+          "canonical_name": "Round sheild",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 157,
+          "canonical_name": "M111 offensive hand grenade",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9250936329588015
+    },
+    "116": {
+      "member_count": 151,
+      "dominant_lineage": "southeast_asian",
+      "dominant_period": "unknown",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: southeast_asian unknown mixed weapons (historical register; category; N=151)",
+      "top_reps": [
+        {
+          "id": 253,
+          "canonical_name": "Pedang Diraja",
+          "cultural_lineage_canonical": "southeast_asian",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 254,
+          "canonical_name": "Sundang Diraja",
+          "cultural_lineage_canonical": "southeast_asian",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 282,
+          "canonical_name": "Areindama",
+          "cultural_lineage_canonical": "southeast_asian",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9867549668874173
+    },
+    "117": {
+      "member_count": 127,
+      "dominant_lineage": "south_asian",
+      "dominant_period": "unknown",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: south_asian unknown mixed weapons (historical register; category; N=127)",
+      "top_reps": [
+        {
+          "id": 4378,
+          "canonical_name": "Bachhawali Tope",
+          "cultural_lineage_canonical": "south_asian",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 175255,
+          "canonical_name": "Pinaka multi-barrel rocket launcher",
+          "cultural_lineage_canonical": "south_asian",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 175629,
+          "canonical_name": "OTO Melara 76 mm",
+          "cultural_lineage_canonical": "south_asian",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9291338582677166
+    },
+    "118": {
+      "member_count": 1262,
+      "dominant_lineage": "european",
+      "dominant_period": "industrial",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european industrial mixed weapons (historical register; category; N=1262)",
+      "top_reps": [
+        {
+          "id": 5154,
+          "canonical_name": "7.7 cm FK 96",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 12750,
+          "canonical_name": "75 mm Whitworth gun, Model 1873 (Cartagena)",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 22132,
+          "canonical_name": "Centrefire five-shot revolver",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9698890649762282
+    },
+    "119": {
+      "member_count": 1205,
+      "dominant_lineage": "unknown",
+      "dominant_period": "unknown",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: unknown unknown mixed weapons (historical register; category; N=1205)",
+      "top_reps": [
+        {
+          "id": 53,
+          "canonical_name": "Round sheild",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 122,
+          "canonical_name": "Ame no Makakoyumi",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 134,
+          "canonical_name": "Anjalikastra",
+          "cultural_lineage_canonical": "unknown",
+          "historical_period_canonical": "unknown",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9767634854771784
+    },
+    "120": {
+      "member_count": 115,
+      "dominant_lineage": "southeast_asian",
+      "dominant_period": "modern",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: southeast_asian modern mixed weapons (historical register; category; N=115)",
+      "top_reps": [
+        {
+          "id": 173930,
+          "canonical_name": "AGM-65 Maverick",
+          "cultural_lineage_canonical": "southeast_asian",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 174351,
+          "canonical_name": "Karambit",
+          "cultural_lineage_canonical": "southeast_asian",
+          "historical_period_canonical": "medieval",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 174637,
+          "canonical_name": "FV106 Samson",
+          "cultural_lineage_canonical": "southeast_asian",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.6956521739130435
+    },
+    "121": {
+      "member_count": 65,
+      "dominant_lineage": "african",
+      "dominant_period": "industrial",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: african industrial mixed weapons (historical register; category; N=65)",
+      "top_reps": [
+        {
+          "id": 158038,
+          "canonical_name": "Handkerchief",
+          "cultural_lineage_canonical": "african",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 176768,
+          "canonical_name": "Flyssa",
+          "cultural_lineage_canonical": "african",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 187255,
+          "canonical_name": "4 bore",
+          "cultural_lineage_canonical": "african",
+          "historical_period_canonical": "industrial",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.6461538461538462
+    },
+    "122": {
+      "member_count": 133,
+      "dominant_lineage": "european",
+      "dominant_period": "modern",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: european modern rifle weapons (historical register; category; N=133)",
+      "top_reps": [
+        {
+          "id": 22157,
+          "canonical_name": "Rimfire self-loading magazine rifle",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 23139,
+          "canonical_name": "Centrefire self-loading magazine rifle",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 23519,
+          "canonical_name": "Centrefire bolt-action target rifle",
+          "cultural_lineage_canonical": "european",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9022556390977443
+    },
+    "123": {
+      "member_count": 130,
+      "dominant_lineage": "middle_eastern",
+      "dominant_period": "modern",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: middle_eastern modern mixed weapons (historical register; category; N=130)",
+      "top_reps": [
+        {
+          "id": 150,
+          "canonical_name": "Iron Quarrel Head, Yale University Art Gallery, inv. 1938.5999.1039",
+          "cultural_lineage_canonical": "middle_eastern",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 427,
+          "canonical_name": "Iron Quarrel Head, Yale University Art Gallery, inv. 1938.5999.1045",
+          "cultural_lineage_canonical": "middle_eastern",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 429,
+          "canonical_name": "Iron Quarrel Head, Yale University Art Gallery, inv. 1938.5999.1047",
+          "cultural_lineage_canonical": "middle_eastern",
+          "historical_period_canonical": "modern",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.9692307692307692
+    },
+    "124": {
+      "member_count": 56,
+      "dominant_lineage": "middle_eastern",
+      "dominant_period": "medieval",
+      "dominant_register": "historical",
+      "provisional_description": "PROVISIONAL: middle_eastern medieval mixed weapons (historical register; category; N=56)",
+      "top_reps": [
+        {
+          "id": 175121,
+          "canonical_name": "FV432",
+          "cultural_lineage_canonical": "middle_eastern",
+          "historical_period_canonical": "medieval",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 176007,
+          "canonical_name": "APC Talha",
+          "cultural_lineage_canonical": "middle_eastern",
+          "historical_period_canonical": "medieval",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        },
+        {
+          "id": 191026,
+          "canonical_name": "Emad (missile)",
+          "cultural_lineage_canonical": "middle_eastern",
+          "historical_period_canonical": "medieval",
+          "register_canonical": "historical",
+          "confidence": 1.0
+        }
+      ],
+      "purity": 0.6785714285714286
+    }
+  }
+}

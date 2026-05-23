@@ -245,3 +245,42 @@ Seam-prefix per ADR-001. Local-only.
 ---
 
 **Signed:** knight-rider, 2026-05-23 post-Cycle-9.12-closeout. Phase E-1.5 unblocked by 9.11-A 100% alignment + 9.10-G.1 preflight folded; DB-write-OFF protocol preserves Phase E-2-DB canonical state; cheapest-refuting-test discipline applied per hypothesis.
+
+---
+
+## Completion Record
+
+**Completed by:** legolas
+**Date:** 2026-05-23
+**Status:** ALL ACCEPTANCE CRITERIA MET
+
+### Execution Results
+
+| Variant | Clusters | Purity | DB writes |
+|---|---|---|---|
+| mcs=10 | 125 | 0.9444 | OFF |
+| mcs=15 | 103 | 0.9412 | OFF |
+| mcs=20 | 85 | 0.9287 | OFF |
+| mcs=30 | 65 | 0.9177 | OFF |
+
+### Sub-carry closures
+- **9.10-G:** CLOSED — Phase E-1.5 sensitivity sweep executed + accepted
+- **9.10-G.1:** CLOSED — psutil 7.2.2 installed; RSS guard active at 1.11-1.14 GiB (< 6 GiB threshold)
+
+### Key findings
+- Cluster 62 (Abyssal Bane Mega-Family): NO SPLIT at any tested mcs. N=4,807 stable at mcs=10/15/20; grows to N=4,992 at mcs=30 (absorbs marginals). Weapon-form split requires additional PCA axes or targeted sub-clustering — out of scope for mcs variation.
+- Form-bundled/prefix-bundled ratio: stable at ~46-49% for mcs=10/15/20; mild erosion to 38% at mcs=30. Qualitatively robust.
+- Rare-lineage: no Mode-A cultural-tradition cluster emerges at any mcs. Confirms that 9.11-E re-tag (not mcs variation) is the required corrective path.
+- 9.13-A anomaly: PERSISTS across all variants. European/unknown cluster is structurally stable; top reps identical (GYATA-64 mine, Round shield, M111 grenade) at all mcs values.
+- Subsample composition anomaly: floor=mcs×2 causes subsample to vary across variants (not fully controlled). Surface for future sweep design improvement.
+- Production DB: VERIFIED UNCHANGED post-sweep (clusters=125, id=3 → cluster_id=116 intact).
+
+### Artifacts
+- Math note: `phase-E-1-5-sensitivity-sweep-math-note.md`
+- Per-variant: `phase-E-1-clusters-mcs{10,15,20,30}.md` + `phase-E-1-pipeline-results-mcs{10,15,20,30}.json`
+- Comparison report: `phase-E-1-5-sensitivity-sweep-comparison-report.md` + `.json`
+- Completion summary: `phase-E-1-5-completion-summary.md`
+- Run logs: `scripts/full-run-log-2026-05-23-phase-E-1-5-mcs{10,15,20,30}.txt`
+- Tag: `legolas/phase-E-1-5-sensitivity-sweep-2026-05-23` (local only)
+
+**Signed:** legolas, 2026-05-23
