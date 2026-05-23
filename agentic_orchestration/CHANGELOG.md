@@ -4,6 +4,55 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-22 (evening — wind-down) — Weapon-library-import hive-mind Cycle 8 IDLE / CHECKPOINTED at 89,839 clean substrate (89.8% of floor); Matt halted A3 mid-crawl; all PIDs terminated; pivot-vs-Wave-4 decision deferred to Matt
+
+**Event:** Knight-rider wind-down session (recovery-mode, post API outage). Reconciled state after Matt halted Royal Armouries (Track A3) mid-crawl. All OS-background crawl processes confirmed terminated. State file fully updated to reflect final Cycle 8 disposition; wind-down summary doc authored consolidating Cycles 0-8 into a single readable narrative for Matt + future-knight-rider re-entry.
+
+**Final substrate (clean, excluding `wikipedia-unfiltered` audit-quarantine):**
+
+- **`weapon_knowledge_entries` clean: 89,839 / 100K floor (89.8%)** across 24 source libraries
+- `weapons` (3D models): 5,162 across Sketchfab/OGA/Kenney
+- `knowledge_entry_reference_images`: 82,191 (URL-only per policy)
+- Quarantined `wikipedia-unfiltered`: 130,334 (audit-preserved; replaced by 8,579-row Wikidata-anchored v2 ingest)
+- Multiplier vs original 15-entry catalogue: **~6,000×**
+
+**Top-5 source contributors:** royal_armouries 38,127 (42.4%) — wikidata 12,371 (13.8%) — wikipedia v2 8,579 (9.5%) — met-museum 7,559 (8.4%) — nick-aschenbach-dnd-data 6,297 (7.0%). Museums alone contribute 50.9% of clean substrate.
+
+**Discipline observations logged:**
+
+- **#1 math-before-code:** validated in 4× tracks (Wikipedia v2 fix 8,579 vs 7,400-8,700 forecast; Track L 966 vs 880-970; Track N 4,060 vs 3-5K; Track M 3,039 vs ≥800). One material miss: Track H Met Museum (7,459 vs 13K forecast; 6,207 errors at 56.8% image coverage).
+- **#11 empirical inspection:** caught the Wikipedia v1 false-positive (130,334 rows at ~9-12% true-positive) at T+5hr via spot-check; audit-preservation pattern (rename `source_library` rather than DELETE) kept the bad data inspectable. v2 re-fire produced 8,579 clean rows.
+- **#19 right tool / smoke-test discipline:** the overnight cascade reframed honestly from "fire nohup processes" to "author dispatches; queue for next-session execution" — the substrate exists today because that honesty was applied.
+- **#20 robots.txt / Claude-agent respect:** the DISCOVERY scout's per-source probe was load-bearing — 40% of candidate sources were RED. Track H Met Museum succeeded only because the scout caught the `collectionapi.metmuseum.org` subdomain carve-out (different from RED `metmuseum.org` site-crawl path).
+
+**Architectural patterns surfaced:**
+
+- **Museums dominate** when API + permissive robots align. 50.9% of substrate from 2 museum APIs.
+- **GitHub data repos are essentially free** — Track G ran in 2.9 seconds for 7,594 rows via raw.githubusercontent.com CDN. Future hive-minds should fire "Track G analogues" first to grab cheap free-tier substrate before any rate-throttled source.
+- **License-class skew:** ~36K rows are CC0/CC-BY-class (commercial-derivable); ~40K rows are editorial/fan-wiki (indexable-only). Substrate is healthy for both commercial-product and emergent-pattern-analysis use cases.
+
+**Matt-decision deferred (D1):** Wave-4 vs accept-at-89.8% pivot. Knight-rider recommendation is **accept-at-89.8% and pivot to canonical normalization + abstraction analysis** (next-phase work for elrond + gandalf). Either path operationally clean. Do not fire Wave-4 without explicit Matt direction.
+
+**State changes (this session):**
+
+- `agentic_orchestration/weapon-library-import-hive-mind-state.md` — UPDATED — Cycle 8 wind-down narrative; final counts; final per-source breakdown; full PID disposition record; Matt-decision-point articulated
+- `agentic_orchestration/weapon-library-import-wind-down-summary-2026-05-22.md` — NEW — Cycles 0-8 single-document narrative
+- `agentic_orchestration/skill_handoff_2026-05-22-windown.md` — NEW — this session's handoff
+- `agentic_orchestration/CHANGELOG.md` — UPDATED — this entry
+- (file relocation) `scripts/track_j_wow_classic.py` → `agentic_orchestration/legolas/research/weapon-library-import-2026-05-22/scripts/track_j_wow_classic.py` (a Wave-2 sub-agent created at repo root by mistake)
+- (purge) `agentic_orchestration/legolas/research/weapon-library-import-2026-05-22/scripts/__pycache__/` deleted
+- (newly tracked) 8 Wave-2/3 scripts + 7 Wave-2/3 summary JSONs + 3 Wave-2/3 math notes + 2 Track-N logs + Wikidata-sitelinks v2 JSON + Track-A1 math-note v2 addendum + Track-H log
+
+**Tag (intermediate, seam-prefix per ADR-001):**
+
+```
+knight-rider/weapon-library-hive-mind-cycle-8-windown-2026-05-22
+```
+
+When Matt directs pivot or Wave-4: next knight-rider session proposes tag promotion (`v0.1-weapon-library-89k-substrate`) requiring Matt approval per ADR-001.
+
+---
+
 ## 2026-05-22 (overnight cascade event) — Weapon-library-import workstream knowledge-first schema lock + per-source robots.txt verification (~40% RED disposition) + 4 dispatches authored (3 legolas Track A/B + 1 jack-ryan Discipline #20)
 
 **Event:** Knight-rider overnight orchestration session under Matt 2026-05-22 evening explicit overnight-cascade authorization. Operationalized the gandalf-authored re-plan (knowledge-first; 3D models secondary visual reference attachments). Per-source robots.txt verification across ~25 candidate sources surfaced ~40% RED disposition (poewiki.net, OSRS wiki, warcraft.wiki.gg, Smithsonian si.edu, Met Museum, IMFDB, monsterhunter.wiki.gg, plus inferred RED). Schema amended to v1.1.0 with knowledge-first tables; executed against greenfield DB.

@@ -1,0 +1,64 @@
+{
+  "track": "M",
+  "started_at": "2026-05-22T10:19:57.575143+00:00",
+  "finished_at": "2026-05-22T10:21:35.885373+00:00",
+  "elapsed_seconds": 98.1,
+  "sources": [
+    {
+      "source_library": "pf2ools-pf2ools-data",
+      "rows_submitted": 694,
+      "db_count": 688,
+      "errors": [],
+      "license": "OGL_1_0a"
+    },
+    {
+      "source_library": "5e-bits-5e-database-2024",
+      "rows_submitted": 110,
+      "db_count": 110,
+      "errors": [],
+      "license": "MIT"
+    },
+    {
+      "source_library": "bsdata-warhammer-aos",
+      "rows_submitted": 2805,
+      "db_count": 2183,
+      "errors": [],
+      "license": "unknown",
+      "files_processed": 62,
+      "files_failed": 0
+    },
+    {
+      "source_library": "souls-api-thomaslincoln",
+      "rows_submitted": 58,
+      "db_count": 58,
+      "errors": [],
+      "license": "unknown"
+    },
+    {
+      "source_library": "kaggle-ds3-weapons",
+      "rows_submitted": 0,
+      "db_count": 0,
+      "errors": [
+        {
+          "step": "auth",
+          "error": "Kaggle API key required; skipped per dispatch instruction"
+        }
+      ],
+      "license": "unknown",
+      "skipped": true
+    }
+  ],
+  "aggregate": {
+    "total_rows_submitted": 3667,
+    "sources_contributing": 4,
+    "total_db_rows_after": 175781,
+    "distinct_source_libraries_after": 20
+  },
+  "acceptance_criteria": {
+    "C1_800_rows": true,
+    "C2_3_of_5_contribute": true,
+    "C3_licenses_captured": true
+  },
+  "kaggle_skipped": true,
+  "kaggle_reason": "Kaggle API auth required"
+}

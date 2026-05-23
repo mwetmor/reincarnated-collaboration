@@ -165,6 +165,66 @@ Remaining gap (40K–140K) to be covered by Tracks A3, B, G, E, and DISCOVERY ne
 
 ---
 
+## Fix v2 — A1.2 Corrective Re-ingestion (Wave-1.5)
+
+**Date:** 2026-05-22
+**Trigger:** v1 produced 130,334 rows with ~9-12% true-positive rate (false-positives: athletes, actors, songs, train stations, buildings, kings).
+
+### Root-cause analysis (v1 failure)
+
+The v1 `is_weapon_article()` function had a **three-signal OR gate**:
+
+1. Title in Wikidata sitelink set — correct, tight
+2. Wikitext contains weapon Infobox template — correct, tight
+3. **Any Wikipedia category matches `WEAPON_CAT_RE` regex** — **THE FAILURE**
+
+Signal 3 was the root cause. The regex included patterns like `r"combat"`, `r"martial"`, `r"medieval combat"`, `r"firearms?"`. These matched:
+- Athletes categorized under "Combat sports" (boxing, MMA)
+- Films in "Martial arts films"
+- Historical articles in "Medieval combat" or "Firearms regulations in..."
+- Buildings, places, people named with coincidental category hits
+
+Additionally, the existing `wikidata_sitelinks.json` contained only 375 entries (sparse SPARQL output from the sitelink sub-query, not the full 12,371-QID run). This meant Signal 1 barely fired — effectively 99%+ of the 130K rows came through Signal 3 alone.
+
+### v2 matcher design — strict two-signal gate
+
+Signal 1: Title appears in Wikidata sitelink set, built fresh via chunked SPARQL VALUES-clause queries over all 12,371 QIDs in the DB. Expected yield: ~60-70% of QIDs have EN sitelinks = ~7,400-8,700 titles.
+
+Signal 2: Wikitext contains one of the known weapon Infobox template prefix strings (case-insensitive prefix match against `{{infobox weapon`, `{{infobox firearm`, etc.). Fallback only for weapons not in Wikidata Q728 tree. Near-zero false-positive rate: non-weapon articles do not carry weapon-specific Infobox templates.
+
+**Signal 3 (category matching): REMOVED ENTIRELY.** Categories are extracted as metadata (stored in `cultural_lineage_tags`) but are NOT used in the inclusion gate.
+
+### Yield estimate (v2)
+
+| Signal | Source | Low | High |
+|---|---|---|---|
+| Sitelink matches | 12,371 QIDs × 60-70% EN sitelink rate | 7,400 | 8,700 |
+| Infobox-only fallback | WP articles with weapon infobox, not in Wikidata | 500 | 1,500 |
+| **Combined** | | **7,900** | **10,200** |
+
+This is well under the acceptance gate of ≤25K.
+
+### Wall time estimate (v2)
+
+| Phase | Time |
+|---|---|
+| SPARQL sitelink fetch (124 chunks × 100 QIDs, 1s delay each via POST) | ~3-5 minutes |
+| Dump re-scan (7M pages, title-set O(1) lookup, iterparse) | ~12-15 minutes |
+| DB insert (10K rows at 100-row batches) | ~30 seconds |
+| **Total** | **~15-20 minutes** |
+
+Dump is already on disk at `/tmp/enwiki-latest-pages-articles.xml.bz2` (~22 GB). No re-download.
+
+### Regression-prevention check
+
+The v2 gate cannot regress to the v1 false-positive failure mode because:
+- The category regex is not present in the codebase. No code path reaches category-based inclusion.
+- Signal 1 is anchored to Wikidata's Q728 weapon class tree — not keyword-based.
+- Signal 2 requires exact Infobox template name prefix — not a substring keyword scan over article text.
+- If `wikidata_sitelinks_v2.json` already exists with ≥5000 entries, SPARQL is skipped (resume-safe).
+
+---
+
 **Authored by:** legolas (scout)
 **Authority:** default (pre-authorized per mission brief §8)
 **No jack-ryan Gate-1 required** per mission brief §5.3

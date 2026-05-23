@@ -1,0 +1,56 @@
+{
+  "track": "N",
+  "crawl_date": "2026-05-22",
+  "pre_count": 177200,
+  "sources": {
+    "odin-army-tradoc": {
+      "total_fetched": 3998,
+      "inserted": 3998,
+      "duplicate": 0,
+      "errors": 0,
+      "images_inserted": 11141
+    },
+    "army-recognition": {
+      "total_fetched": 62,
+      "inserted": 62,
+      "duplicate": 0,
+      "errors": 0,
+      "images_inserted": 0
+    }
+  },
+  "robots_disposition": {
+    "odin-army-tradoc": "GREEN \u2014 US gov, no robots.txt, public domain API",
+    "army-recognition": "GREEN-with-CAUTION \u2014 permissive robots.txt, no Claude block, editorial content",
+    "globalmilitary-net": "RED (effective) \u2014 Cloudflare WAF managed challenge on all content pages; not crawlable",
+    "small-arms-survey-db": "STRUCTURAL SKIP \u2014 robots permissive but database is aggregate statistics (no per-weapon rows); yield=0"
+  },
+  "post_count": 184005,
+  "net_inserted": 6805,
+  "db_breakdown": {
+    "wikipedia-unfiltered": 130334,
+    "wikidata": 12371,
+    "royal_armouries": 12009,
+    "nick-aschenbach-dnd-data": 6297,
+    "wikipedia": 5400,
+    "wow-classic-items": 4440,
+    "odin-army-tradoc": 3998,
+    "bsdata-warhammer-aos": 2183,
+    "cataclysm-dda": 1599,
+    "osrsbox-db": 940,
+    "met-museum": 713,
+    "pf2ools-pf2ools-data": 688,
+    "diablo2-d2data": 521,
+    "path-of-exile-repoe": 494,
+    "fextralife-elden-ring": 350,
+    "bloqhead-demigods": 320,
+    "elden-ring-erdb": 307,
+    "fextralife-ds2": 239,
+    "fextralife-ds3": 219,
+    "gta-v-data": 183,
+    "fextralife-ds1": 133,
+    "5e-bits-5e-database-2024": 110,
+    "army-recognition": 62,
+    "souls-api-thomaslincoln": 58,
+    "5e-bits-5e-database": 37
+  }
+}
