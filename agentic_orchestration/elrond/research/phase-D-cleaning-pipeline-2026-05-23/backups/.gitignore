@@ -1,0 +1,7 @@
+# DB backup files — never commit (136-250 MB each; gitignored per loadout repo precedent)
+# Backup naming convention: telemetry.db.pre-<step>-2026-05-23
+telemetry.db*
+*.db
+*.db-shm
+*.db-wal
+*.db-journal

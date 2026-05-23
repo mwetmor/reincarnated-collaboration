@@ -1,0 +1,43 @@
+{
+  "script": "02_step1_ammo_tagging.py",
+  "db_path": "/Users/admin/Games/reincarnated-loadout/data/telemetry.db",
+  "started_at": "2026-05-23T01:59:59",
+  "pre_weapon_kind_distribution": {
+    "ammo_or_consumable": 17857,
+    "unknown": 71982
+  },
+  "classification_result": {
+    "rows_scanned": 71982,
+    "rows_tagged": 0,
+    "per_source_tagged": {}
+  },
+  "acceptance_gate": {
+    "weapon_kind_distribution": {
+      "ammo_or_consumable": 17857,
+      "unknown": 71982
+    },
+    "ammo_per_source_post_step1": {
+      "cataclysm-dda": 670,
+      "met-museum": 3715,
+      "nick-aschenbach-dnd-data": 61,
+      "path-of-exile-repoe": 4,
+      "royal_armouries": 13377,
+      "wikidata": 22,
+      "wikipedia": 8
+    },
+    "remaining_unknown_count": 71982,
+    "missed_ammo_in_unknown": 0,
+    "missed_ammo_pct_of_unknown": 0.0,
+    "step1_self_consistent": true
+  },
+  "wall_clock_s": 0.739,
+  "ended_at": "2026-05-23T01:59:59",
+  "expected_cumulative_band": [
+    10000,
+    20000
+  ],
+  "delta_tagged": 0,
+  "cumulative_ammo_count": 17857,
+  "cumulative_within_band": true,
+  "passed": true
+}

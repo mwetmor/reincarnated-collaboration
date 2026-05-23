@@ -1,0 +1,109 @@
+{
+  "script": "01_schema_migration.py",
+  "db_path": "/Users/admin/Games/reincarnated-loadout/data/telemetry.db",
+  "started_at": "2026-05-23T01:54:47",
+  "column_ops": [
+    {
+      "column": "wieldable_humanoid",
+      "action": "ADDED"
+    },
+    {
+      "column": "weapon_kind",
+      "action": "ADDED"
+    },
+    {
+      "column": "dedup_status",
+      "action": "ADDED"
+    },
+    {
+      "column": "variant_relationship",
+      "action": "ADDED"
+    },
+    {
+      "column": "cultural_lineage_canonical",
+      "action": "ADDED"
+    },
+    {
+      "column": "historical_period_canonical",
+      "action": "ADDED"
+    },
+    {
+      "column": "register_canonical",
+      "action": "ADDED"
+    },
+    {
+      "column": "cultural_lineage_confidence",
+      "action": "ADDED"
+    },
+    {
+      "column": "template_quality_score",
+      "action": "ADDED"
+    }
+  ],
+  "view_ops": [
+    {
+      "view": "v_category_sample",
+      "action": "CREATED"
+    },
+    {
+      "view": "v_category_sample_humanoid_strict",
+      "action": "CREATED"
+    },
+    {
+      "view": "v_category_sample_humanoid_permissive",
+      "action": "CREATED"
+    }
+  ],
+  "smoke_test": {
+    "column_count": 26,
+    "column_count_expected": 26,
+    "column_count_ok": true,
+    "column_names": [
+      "id",
+      "canonical_name",
+      "source_library",
+      "source_url",
+      "source_id",
+      "description_text",
+      "structured_properties",
+      "cultural_lineage_tags",
+      "historical_period",
+      "genre_appearances",
+      "related_entries",
+      "license_class",
+      "imported_at",
+      "text_embedding",
+      "structured_feature_vector",
+      "derived_axis_loadings",
+      "cluster_id",
+      "wieldable_humanoid",
+      "weapon_kind",
+      "dedup_status",
+      "variant_relationship",
+      "cultural_lineage_canonical",
+      "historical_period_canonical",
+      "register_canonical",
+      "cultural_lineage_confidence",
+      "template_quality_score"
+    ],
+    "target_views_present": true,
+    "all_views": [
+      "v_category_sample",
+      "v_category_sample_humanoid_permissive",
+      "v_category_sample_humanoid_strict",
+      "v_density_summary",
+      "v_weapons_cc0",
+      "v_weapons_ready"
+    ],
+    "weapon_kind_null_count": 0,
+    "weapon_kind_null_ok": true,
+    "v_category_sample_count": 0,
+    "v_category_sample_count_pre_classification_ok": true,
+    "total_rows": 89839,
+    "total_rows_expected": 89839,
+    "total_rows_ok": true
+  },
+  "wall_clock_s": 2.742,
+  "ended_at": "2026-05-23T01:54:50",
+  "passed": true
+}
