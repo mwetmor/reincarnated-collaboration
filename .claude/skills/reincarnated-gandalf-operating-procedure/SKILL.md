@@ -167,7 +167,113 @@ Following the knight-rider EOD-handoff violation case (KR #1 2026-05-23 evening 
 
 ---
 
-## 4. Session-end protocol
+## 4. Operational protocols and discipline-amendments
+
+Operational vocabulary, protocols, and discipline-amendment candidates that surfaced through operational use during work cycles. Future cycles add additional protocols here as they emerge. Authored 2026-05-23 to canonicalize the Phase E-1 → E-2 → Question A verdict workstream + KR #1/#2 critique-pair cycle output.
+
+### 4.1 Framing-audit checklist (Pattern A-deep three-question protocol)
+
+**Source:** `agentic_orchestration/gandalf/notes/2026-05-23-phase-E-1-kernel-panic-diagnosis.md` § 9.5 (original capture); `agentic_orchestration/gandalf/notes/2026-05-23-question-A-w1-13-tier-4-hypothesis-verdict.md` § 1.3 (first formal applied use).
+
+**When to apply:** any Pattern A-deep verdict authoring; any methodology consultation at a math hotspot; any ratification fired during sub-agent invocation; any work-unit where load-bearing framing assumptions are committed.
+
+**The three questions:**
+
+| Q | Question |
+|---|---|
+| **Q1** | What load-bearing framing assumptions does this work depend on? |
+| **Q2** | What evidence currently in hand (or surfaceable in current scope) could refute these assumptions? |
+| **Q3** | If refutation evidence exists or is plausible from current scope, is the right move to refine the framing rather than execute the work as-framed? |
+
+**Discipline architecture:** catches pre-imposed-assumption failures at minimum cost before downstream work fires against bad scope. Pairs with the cheapest-empirical-refutation pattern (Pattern-A query to seam owners; SQL counts; psutil RSS checks; schema diffs per claim type). Composes with § 3.4 recognition-validate-commit (recognition → empirical validation → commit).
+
+### 4.2 Discipline #18 refinement — methodology-consultation timing at extension hotspots
+
+**Source:** Question A verdict § 12.4 (gamora Pattern-A query surface, 2026-05-23 evening).
+
+**Original Discipline #18:** methodology consultation at math hotspots required BEFORE specialist execution.
+
+**Refinement (proposed, not yet at engineering-disciplines.md):** at extension-of-existing-framework math hotspots, methodology consultation for the extension fires AFTER the baseline framework's empirical results land where possible, not before. Empirical signal-to-noise data from baseline informs extension methodology choice. Consultation-in-the-dark on extensions is the failure mode this refinement guards against.
+
+**When to apply:** any math hotspot that extends an existing framework's hypothesis tests; any methodology consultation where baseline empirical data exists or is imminent.
+
+**Discipline #18 canonical write is jack-ryan's territory.** This OP captures the refinement for gandalf reference; jack-ryan amends engineering-disciplines.md when ready.
+
+### 4.3 Cluster-labeling special-case flag enum (Phase E-2 operational vocabulary)
+
+**Source:** sub-agent gandalf Phase E-2 cluster-labeling work, 2026-05-23 (`agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-2-cluster-labels.md` special-case-flag distribution).
+
+**When to apply:** any cluster-labeling work where these patterns recur. New flags emerge in future cycles; this enum is extensible.
+
+**The 16-flag enum:**
+
+| Flag | Use case |
+|---|---|
+| `provisional_description_overridden` | Auto-generated provisional description contradicted by top reps; design-side override applied |
+| `low_lineage_purity` | Cluster lineage purity below ~0.7 threshold; mixed-lineage absorption |
+| `mixed_form_within_cluster` | Cluster has weapon-form heterogeneity within axis-coherent space |
+| `modern_military_hardware` | Cluster contains modern military equipment (often substrate-tagging artifact) |
+| `lineage_uncurated` | Cluster's lineage tag has not been curated to distinguish cultural-tradition from geographic-origin |
+| `period_tag_likely_metadata_artifact` | Period tag conflicts with rep content (substrate-tagging issue) |
+| `absorbs_rare_lineage_rows` | Cluster absorbs rare-lineage rows as nearest-centroid assignments |
+| `lineage_tag_geographic_not_cultural` | Lineage tag captures geographic-origin rather than cultural-tradition |
+| `labeling_pipeline_bug_surfaced` | Provisional-label-generator surfaced a specific bug case |
+| `fantasy_named_template_cross_form` | Cluster bundles fantasy named-template items across weapon-forms |
+| `phase_e15_split_candidate` | Cluster flagged for Phase E-1.5 sensitivity sweep follow-on |
+| `n_am_indigenous_passenger` | North American indigenous row noise-assigned to nearest cluster |
+| `rare_lineage_substrate_isolate` | Rare-lineage cluster isolate (substrate-coverage artifact, not cultural-coherence) |
+| `metadata_bucket` | Cluster is metadata residue, not a coherent design cluster |
+| `phase_d_bis_curation_gap` | Cluster surfaces a curation gap referencable to Phase D-bis cleaning work |
+| `rare_lineage_no_home` | Rare-lineage row has no cluster home; scattered across multiple |
+
+### 4.4 Semantic-layer rep-audit discipline (Discipline #18 amendment candidate)
+
+**Source:** `canonical/story/marginal-lineage-tagging-pattern-2026-05-23.md` § 2.4 (meta-record from sub-carry 9.11-G work).
+
+**The discipline-amendment candidate** (NOT yet ratified at engineering-disciplines.md; surfaced through operational use):
+
+> The substrate's vote is binding **at the geometry layer** (clustering algorithm output) but NOT necessarily binding **at the semantic layer** (cultural-tradition interpretation of cluster identity). Semantic-layer use of substrate output requires rep-audit at firing.
+
+**When to apply:** any downstream design surface that inherits cluster identity as cultural-tradition substrate; any Fate-genre faction-architecture work; any Phase E-3 cluster-as-design-surface mapping.
+
+**Operational instance from 2026-05-23 work cycle:** a cluster labeled "S. American Indigenous Contemporary Shotgun Cluster" at 94.4% purity does NOT supply "S. American Indigenous cultural-tradition" semantics because the cluster reps are Modern Argentine/Brazilian military firearms, not Pre-Columbian Andean items. The substrate-tagging artifact passes geometry purity gate but fails semantic cultural-coherence.
+
+**The 4-mode tagging-vocabulary collapse** (per marginal-lineage meta-record § 1.1):
+- **Mode A (intended):** weapon-making cultural tradition of origin
+- **Mode B (artifact):** geographic region of origin or deployment
+- **Mode C (artifact):** naming-allusion to an indigenous people in a modern-context item
+- **Mode D (artifact):** cross-tagged metadata error
+
+Rep-audit catches Mode B/C/D content that lineage-purity score alone passes.
+
+**Discipline #18 canonical amendment is jack-ryan's territory.** This OP captures the candidate for gandalf reference.
+
+### 4.5 First-canonical-example flagging — framing-audit catching pre-imposed-assumption failure
+
+**Source:** Question A verdict § 12.1 (gamora Pattern-A query, 2026-05-23 evening); KR #2 § 8.12 tracking-doc flag.
+
+**The example:** Question A verdict § 1.3 framing-audit Q2 #1 hypothesized that W1.13 H1-H5 baseline results might be available. The cheapest-empirical-refutation test (Pattern-A query to gamora) returned in ~120 seconds with empirical refutation — H1-H5 has NOT been run; gamora seam idle post-LC-011; three upstream prerequisites unmet (P1 substrate enrichment / W1.13 implementation / W1.20 BDI infrastructure).
+
+**The cycle:** Pattern-A query → ~120 sec empirical surface → ~30 min addendum capture → framework intactness preserved → no Pattern-B dispatches fired against bad-assumption scope.
+
+**This is the FIRST CANONICAL EXAMPLE** of the framing-audit discipline catching a pre-imposed-assumption failure on an authored verdict before downstream work fired against the bad assumption.
+
+**When to cite:** future framing-audit applications cite this as the canonical operational example demonstrating sub-hour-latency discipline operation at minimum cost.
+
+### 4.6 Composition with § 3 disciplines
+
+The operational protocols in § 4 compose with the decision-loop disciplines in § 3:
+
+- **§ 4.1 framing-audit checklist** composes with **§ 3.4 recognition-validate-commit** — framing-audit catches refutation; recognition-validate-commit handles deferred architectural commitments
+- **§ 4.1 framing-audit checklist** composes with **§ 3.5 no-sleep-recommendations** — framing-audit gate replaces "sleep on it" deferral with empirical-criterion naming per § 3.4
+- **§ 4.1 framing-audit checklist** composes with **§ 3.6 timezone-agnosticism** — framing-audit operates on workstream-state, not time-of-day-state
+- **§ 4.4 semantic-layer rep-audit** composes with **§ 3.1 substrate-led discipline** — substrate votes at geometry layer; design surfaces audit at semantic layer
+
+Together (§ 3 + § 4) constitute the gandalf decision-loop + operational-tools architecture as of 2026-05-23 work cycle. Future cycles extend both sections through operational use.
+
+---
+
+## 5. Session-end protocol
 
 1. **Commit canonical artifacts** authored this session (single-commit-per-scope discipline; co-author tag per project convention)
 2. **Update 00-ground-state.md § 1** if a new CURRENT artifact landed (add as row in Current Truth table with one-line description)
@@ -178,7 +284,7 @@ Following the knight-rider EOD-handoff violation case (KR #1 2026-05-23 evening 
 
 ---
 
-## 5. Skills to install alongside this one
+## 6. Skills to install alongside this one
 
 ### Universal (every gandalf session)
 - `reincarnated-engineering-disciplines` (the 20 disciplines)
@@ -195,13 +301,14 @@ Following the knight-rider EOD-handoff violation case (KR #1 2026-05-23 evening 
 
 ---
 
-## 6. Update protocol for this skill
+## 7. Update protocol for this skill
 
 This is a thin operating-procedure skill — it should evolve when:
 - A new mode emerges that wasn't captured in § 2
 - A new discipline lands that affects gandalf's decision-loop (§ 3)
-- A new session-end pattern is observed in practice (§ 4)
-- A new universal or cross-cutting skill is authored (§ 5)
+- A new operational protocol or discipline-amendment surfaces through operational use (§ 4)
+- A new session-end pattern is observed in practice (§ 5)
+- A new universal or cross-cutting skill is authored (§ 6)
 
 Authored / maintained by **gandalf** (self-update on observed practice changes). Sub-agent invocations of gandalf may propose amendments; gandalf approves before commit.
 
