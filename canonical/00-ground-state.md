@@ -52,19 +52,19 @@ These shaped current canon. They are NOT wrong. They are NOT current. Read them 
 
 | Doc | Why it's historical | Where its work landed |
 |---|---|---|
-| `canonical/29-design-overview.md` | 2026-05-12 strategic anchor; predates Variant C | Superseded by 37 + 38 |
-| `canonical/16-project-roadmap.md` | A-series roadmap; predates QD-rebuild + vast-library pivot | Superseded by hive-mind protocol + doc 38 |
-| `canonical/28-engine-arpg-rebalance-design.md` | B-series engine queue; predates P0 closure | Mostly landed; consult for B-item context |
-| `canonical/30-engine-explainer-current.md` | demo1 v1.2 baseline | Demo1 still exists; engine has evolved past |
-| `canonical/31-engine-explainer-future.md` | Pre-Variant-C future state | Variant C reframes this |
-| `canonical/32-progression-design.md` | Progression-design 12 sections | LOCKED entries stand; framing is pre-substrate-as-cohesion |
-| `canonical/33-progression-skeleton.md` | Locked-only summary of 32 | Same |
-| `canonical/35-stage-a2-cli-prompt.md`, `canonical/36-b14-5-cli-prompt.md` | Stage-A2 + B14.5 CLI prompts | EXECUTED; outputs landed |
-| `canonical/37-form-bias-diagnosis-and-recovery.md` | Form-bias work (2026-05-14–16) | Superseded by substrate-as-cohesion architecture |
-| Most `canonical/story/*-2026-05-14.md` through `canonical/story/*-2026-05-18.md` | Form-bias + substrate-coupling epochs | Folded into current QD-rebuild + vast-library work |
-| `canonical/story/*-2026-05-19.md` through `canonical/story/*-2026-05-21.md` | QD-engine rebuild epoch | Foundation for current vast-library work |
+| `canonical/historical/29-design-overview.md` | 2026-05-12 strategic anchor; predates Variant C | Superseded by 37 + 38 |
+| `canonical/historical/16-project-roadmap.md` | A-series roadmap; predates QD-rebuild + vast-library pivot | Superseded by hive-mind protocol + doc 38 |
+| `canonical/historical/28-engine-arpg-rebalance-design.md` | B-series engine queue; predates P0 closure | Mostly landed; consult for B-item context |
+| `canonical/historical/30-engine-explainer-current.md` | demo1 v1.2 baseline | Demo1 still exists; engine has evolved past |
+| `canonical/historical/31-engine-explainer-future.md` | Pre-Variant-C future state | Variant C reframes this |
+| `canonical/historical/32-progression-design.md` | Progression-design 12 sections | LOCKED entries stand; framing is pre-substrate-as-cohesion |
+| `canonical/historical/33-progression-skeleton.md` | Locked-only summary of 32 | Same |
+| `canonical/35-stage-a2-cli-prompt.md`, `canonical/36-b14-5-cli-prompt.md` (deleted 2026-05-23 — executed transitional CLI prompts; outputs landed in engine) | Stage-A2 + B14.5 CLI prompts | EXECUTED; outputs landed |
+| `canonical/dead/37-form-bias-diagnosis-and-recovery.md` | Form-bias work (2026-05-14–16) | Superseded by substrate-as-cohesion architecture |
+| Most `canonical/story/historical/*-2026-05-14.md` through `canonical/story/historical/*-2026-05-18.md` | Form-bias + substrate-coupling epochs | Folded into current QD-rebuild + vast-library work |
+| `canonical/story/historical/*-2026-05-19.md` through `canonical/story/historical/*-2026-05-21.md` | QD-engine rebuild epoch | Foundation for current vast-library work |
 | `agentic_orchestration/skill_handoff_2026-05-13.md` through `skill_handoff_2026-05-22.md` (most) | Daily handoffs | Cumulatively folded into current state; read latest only |
-| `canonical/README.md` (this folder's own README) | 2026-05-12 README; predates everything above | Historical; this `00-ground-state.md` supersedes its "read order — first time" section |
+| `canonical/historical/README.md` (the prior canonical-folder README) | 2026-05-12 README; predates everything above | Historical; this `00-ground-state.md` supersedes its "read order — first time" section |
 
 **Default rule:** if a `canonical/story/` doc is dated before 2026-05-22 and is not on the CURRENT list (Section 1), treat it as historical. It informed; it does not direct.
 
@@ -124,7 +124,7 @@ When two docs disagree, **the latter is canonical:**
 3. `canonical/story/legacy-categorical-cleanup-audit-2026-05-22.md` overrides any Pattern 4-5-6 references in older docs.
 4. `engineering-disciplines.md` overrides any older discipline lists in older docs.
 5. `decisions-log.md` is temporal ground truth for decisions; if it disagrees with a `canonical/story/` doc, decisions-log wins.
-6. This doc (`00-ground-state.md`) overrides `canonical/README.md` for read-order and current-state questions.
+6. This doc (`00-ground-state.md`) overrides `canonical/historical/README.md` for read-order and current-state questions.
 
 ## 7. Update protocol for this doc
 

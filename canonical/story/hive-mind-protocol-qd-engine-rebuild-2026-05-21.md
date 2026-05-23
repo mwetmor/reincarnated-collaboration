@@ -5,12 +5,12 @@
 **Status:** v1.3 (amended 2026-05-22 — folds 2026-05-21 evening protocol amendments + 2026-05-22 W1.13 rescope)
 **v1.0 → v1.1 changes:** D1-D6 resolutions, substrate-as-cohesion recommitment, W0.9 + W0.10 additions, W1.13 added per math note
 **v1.1 → v1.2 changes (per coherence review 2026-05-21):** P1 W1.13 explicit + Tier 1 playability + substrate quantitative target; P2 T_AXIS_SENS calibration; P3 kit_specification format; **P4 trigger interaction + Tier 4 keystone sim support (significant scope addition)**; **P5 reframed as empirical-validation phase for substrate-as-cohesion architecture (epistemic correction per Matt 2026-05-21 catch)**; P6 Profile A export format; P7 Pattern-A residual measurement + v2 trajectory documentation; § 1.3 v2 canonical-parity expansion as out-of-current-hive-scope
-**v1.2 → v1.3 changes (2026-05-22 fold-in per `agentic_orchestration/hive-mind-protocol-amendments-2026-05-21-evening.md` + critique-pair W1.13 rescope):** (a) BDI resonance formalism added as foundational mathematical structure (`canonical/story/build-defining-resonance-formula-2026-05-21.md`); 5 hypothesis tests H1-H5 added as P1+ diagnostic workstreams W1.20-W1.22; (b) Gear-as-substrate LITE path adopted — `signature_gear_archetype` lands as DERIVED TAG in V1 (not generative substrate), promoting to full substrate in v1.1/v2 post-P7; new P1 workstream W1.15-LITE + P5 W5.3-LITE; (c) Tier 4 keystone architecture defaults adopted (T4-A) — 1 signature capstone + 1-3 secondary; hand-authored catalogue v1 ~30-50; gear-anchored signature; phasing T4-A→T4-E; (d) W1.13 rescope under Scenario B dual-witness + Surface A footnote per `canonical/story/w1-13-rescope-disposition-2026-05-22.md` — FIRE-GATE closed; empirical urgency reduced; architectural urgency preserved (Track C + W0.10 + BDI + T4 mandate)
+**v1.2 → v1.3 changes (2026-05-22 fold-in per `agentic_orchestration/hive-mind-protocol-amendments-2026-05-21-evening.md` + critique-pair W1.13 rescope):** (a) BDI resonance formalism added as foundational mathematical structure (`canonical/story/historical/build-defining-resonance-formula-2026-05-21.md`); 5 hypothesis tests H1-H5 added as P1+ diagnostic workstreams W1.20-W1.22; (b) Gear-as-substrate LITE path adopted — `signature_gear_archetype` lands as DERIVED TAG in V1 (not generative substrate), promoting to full substrate in v1.1/v2 post-P7; new P1 workstream W1.15-LITE + P5 W5.3-LITE; (c) Tier 4 keystone architecture defaults adopted (T4-A) — 1 signature capstone + 1-3 secondary; hand-authored catalogue v1 ~30-50; gear-anchored signature; phasing T4-A→T4-E; (d) W1.13 rescope under Scenario B dual-witness + Surface A footnote per `canonical/story/w1-13-rescope-disposition-2026-05-22.md` — FIRE-GATE closed; empirical urgency reduced; architectural urgency preserved (Track C + W0.10 + BDI + T4 mandate)
 
 **Author:** gandalf — authored overnight 2026-05-20/21 per Matt's directive
 **Author:** gandalf (story-and-design steward + theoretical mathematician + senior designer)
 **Companions:**
-- `canonical/story/engine-architecture-vision-qd-profile-2026-05-19.md` — vision (QD-engine + 4 profiles)
+- `canonical/story/historical/engine-architecture-vision-qd-profile-2026-05-19.md` — vision (QD-engine + 4 profiles)
 - `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` — operational spec (8 axes, 68,040 cells)
 **Audit inputs synthesized:**
 - `agentic_orchestration/legolas/research/substrate-sufficiency-audit-2026-05-20/phase-1-reconnaissance/` (legolas Phase 1)
@@ -56,8 +56,8 @@ P0 is unblocked. Knight-rider drafts decisions-log entry on session-open; jack-r
 
 | Addition | Doc | Phase | Scope |
 |---|---|---|---|
-| **BDI resonance formalism** | `canonical/story/build-defining-resonance-formula-2026-05-21.md` | P1+ diagnostic | Build-Defining Index measuring interaction-term dominance; ω/τ field equations; rank-3 γ-triples as signature builds; Tier 4 keystones as rank-completers. 5 hypothesis tests H1-H5 against archive (W1.20-W1.22) |
-| **Gear-as-substrate LITE** | `canonical/story/gear-as-substrate-2026-05-21.md` § 0.5.6 | P1 W1.15-LITE + P5 W5.3-LITE | `signature_gear_archetype` as DERIVED TAG in V1 via deterministic rule table (15 archetypes; substrate-vector→gear-archetype); cross-repo coherence solved; full-substrate promotion deferred to v1.1/v2 post-P7 |
+| **BDI resonance formalism** | `canonical/story/historical/build-defining-resonance-formula-2026-05-21.md` | P1+ diagnostic | Build-Defining Index measuring interaction-term dominance; ω/τ field equations; rank-3 γ-triples as signature builds; Tier 4 keystones as rank-completers. 5 hypothesis tests H1-H5 against archive (W1.20-W1.22) |
+| **Gear-as-substrate LITE** | `canonical/story/historical/gear-as-substrate-2026-05-21.md` § 0.5.6 | P1 W1.15-LITE + P5 W5.3-LITE | `signature_gear_archetype` as DERIVED TAG in V1 via deterministic rule table (15 archetypes; substrate-vector→gear-archetype); cross-repo coherence solved; full-substrate promotion deferred to v1.1/v2 post-P7 |
 | **Tier 4 architecture defaults (T4-A)** | `canonical/story/tier-4-architecture-defaults-2026-05-22.md` | T4-A pre-P3; T4-B P3-P4; T4-C P5; T4-D pre-P5 | 1 signature capstone (rank-3 completer; gear-anchored when signature_gear_archetype present) + 1-3 secondaries; hand-authored catalogue v1 ~30-50; each keystone designed as third leg of known high-β substrate-pair |
 | **W1.13 rescope (Scenario B)** | `canonical/story/w1-13-rescope-disposition-2026-05-22.md` | P1 W1.13 (still gated on substrate enrichment + Matt framing approval) | FIRE-GATE closed; dual-witness (Track C + W0.10) + Surface A footnote (LC-011 reframed; 5% boundary not 42% historical; Surface_A% = 66.67%); BDI/T4 architectural alignment preserved |
 
@@ -157,7 +157,7 @@ The three archives feed the joint-gate (Discipline #18 candidate) which becomes 
 
 ### 2.4 BDI as bridge between vision and operational layers (v1.3 addition)
 
-The BDI resonance formalism (`canonical/story/build-defining-resonance-formula-2026-05-21.md`) sits between vision and operational layers as a **resonance-detection structure shared by both**:
+The BDI resonance formalism (`canonical/story/historical/build-defining-resonance-formula-2026-05-21.md`) sits between vision and operational layers as a **resonance-detection structure shared by both**:
 
 - **Vision side:** the substrate-as-cohesion architecture commits that identity emerges from mechanical signature; the cohesion-judge intuits identity-patterns from kit data. BDI formalizes WHAT the judge is detecting — interaction-term dominance over linear terms; rank-2 paired-identity; rank-3 signature-build γ-triples
 - **Operational side:** the composer's substrate-vector selection can OPTIONALLY weight high-BDI vectors (post H1-H4 confirmation in W1.21); the convergence loop's Tier 4 keystone selection is a rank-completer (per BDI § 6); the cohesion-judge prompt extensions (P5 W5.3 + W5.3-LITE) feed the judge identity hints aligned with BDI rank structure
@@ -1107,13 +1107,13 @@ Implement LUCB1 best-arm-identification for theme discovery. Build the cohesion-
 **W5.3-LITE — Cohesion-judge prompt extension for signature_gear_archetype as identity hint** (star-lord + gandalf; G4-LITE; v1.3 addition)
 - Dispatch (pending): light prompt extension feeding cohesion-judge `signature_gear_archetype` as identity hint (NOT full 4-substrate test; the 3-substrate empirical test remains dispositive per gear-as-substrate LITE path)
 - Effort: ~1 day
-- Cross-references: `canonical/story/gear-as-substrate-2026-05-21.md` § 0.5.6 LITE path; G4-LITE phase
+- Cross-references: `canonical/story/historical/gear-as-substrate-2026-05-21.md` § 0.5.6 LITE path; G4-LITE phase
 - Tag: `qd-rebuild/v5.3-lite-cohesion-judge-gear-hint`
 
 **W5.3-T4-C — Cohesion-judge prompt extension for signature-vs-secondary capstone distinction** (star-lord + gandalf; T4-C; v1.3 addition)
 - Dispatch (pending): refine P5 priority 2 prompt-engineering to distinguish signature capstone (rank-3 completer; identity-defining) from secondary capstones (rank-2 modulators; identity-deepening) per T4-A architecture defaults
 - Effort: 1-2 days
-- Cross-references: `canonical/story/tier-4-architecture-defaults-2026-05-22.md` § T4-C; `canonical/story/p5-cohesion-judge-prompt-priorities-2026-05-21.md`
+- Cross-references: `canonical/story/tier-4-architecture-defaults-2026-05-22.md` § T4-C; `canonical/story/historical/p5-cohesion-judge-prompt-priorities-2026-05-21.md`
 - Tag: `qd-rebuild/v5.3-t4-c-signature-vs-secondary`
 
 **W5.3-BDI-G — BDI-cohesion integration (BDI-G; pending H5 confirmation; v1.3 addition)** (star-lord + gandalf)
@@ -1495,7 +1495,7 @@ All gates calibrated empirically per Discipline #17 in P2 W2.10 (BC measurement)
 
 ### 13.1 Architectural foundation
 
-- `canonical/story/engine-architecture-vision-qd-profile-2026-05-19.md` — vision document
+- `canonical/story/historical/engine-architecture-vision-qd-profile-2026-05-19.md` — vision document
 - `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` — operational spec
 
 ### 13.2 Audit inputs synthesized
@@ -1514,20 +1514,20 @@ All gates calibrated empirically per Discipline #17 in P2 W2.10 (BC measurement)
 
 ### 13.4 Prior hive protocols (templates)
 
-- `canonical/story/hive-mind-protocol-per-tier-recompose-validation-2026-05-19.md` (recompose-validation; firing in parallel)
-- `canonical/story/hive-mind-protocol-engine-rebuild-2026-05-19.md` (engine-rebuild gap fills; closed)
+- `canonical/story/historical/hive-mind-protocol-per-tier-recompose-validation-2026-05-19.md` (recompose-validation; firing in parallel)
+- `canonical/story/historical/hive-mind-protocol-engine-rebuild-2026-05-19.md` (engine-rebuild gap fills; closed)
 - `canonical/story/archived/hive-mind-protocol-2026-05-17.md` (archived original)
 
 ### 13.5 Canonical design docs (heritage)
 
-- `canonical/09-geometry-palette-discussion.md` — 16-type damage geometry palette
-- `canonical/17-gear-and-spirit-guide-design.md` — gear architecture
-- `canonical/28-engine-arpg-rebalance-design.md` — balance loop heritage
-- `canonical/29-design-overview.md` — strategic anchor
-- `canonical/30-engine-explainer-current.md` + `canonical/31-engine-explainer-future.md`
-- `canonical/32-progression-design.md` + `canonical/33-progression-skeleton.md` — progression
-- `canonical/34-monster-design-phase0-vs-production.md` — monsters
-- `canonical/37-form-bias-diagnosis-and-recovery.md` — form-bias / archetype constraint heritage
+- `canonical/historical/09-geometry-palette-discussion.md` — 16-type damage geometry palette
+- `canonical/historical/17-gear-and-spirit-guide-design.md` — gear architecture
+- `canonical/historical/28-engine-arpg-rebalance-design.md` — balance loop heritage
+- `canonical/historical/29-design-overview.md` — strategic anchor
+- `canonical/historical/30-engine-explainer-current.md` + `canonical/historical/31-engine-explainer-future.md`
+- `canonical/historical/32-progression-design.md` + `canonical/historical/33-progression-skeleton.md` — progression
+- `canonical/historical/34-monster-design-phase0-vs-production.md` — monsters
+- `canonical/dead/37-form-bias-diagnosis-and-recovery.md` — form-bias / archetype constraint heritage
 
 ---
 

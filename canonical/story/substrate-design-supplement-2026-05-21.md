@@ -5,7 +5,7 @@
 **Status:** CANONICAL — architectural recommitment 2026-05-21
 **Author:** gandalf
 **Companions:**
-- `canonical/story/engine-architecture-vision-qd-profile-2026-05-19.md` (vision)
+- `canonical/story/historical/engine-architecture-vision-qd-profile-2026-05-19.md` (vision)
 - `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` (8-axis operational spec)
 - `canonical/story/qd-engine-end-to-end-workflow-2026-05-21.md` (full workflow)
 - `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` (rebuild plan)
@@ -259,11 +259,11 @@ Cohesion-BC archive is the canonical home of substrate / element / theme. Every 
 
 ## 6. Cross-references
 
-- `canonical/story/engine-architecture-vision-qd-profile-2026-05-19.md` — vision (IDC meta-principle is § 5)
+- `canonical/story/historical/engine-architecture-vision-qd-profile-2026-05-19.md` — vision (IDC meta-principle is § 5)
 - `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` — 8-axis spec (substrate as cohesion-layer adjacent archive § 2.3)
 - `canonical/story/qd-engine-end-to-end-workflow-2026-05-21.md` — workflow (Phase 5 cohesion coalescence)
 - `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` — execution plan
-- `canonical/story/per-tier-recompose-validation-findings-2026-05-19.md` — recompose-hive empirical findings (kit-composition pathology load-bearing)
+- `canonical/story/historical/per-tier-recompose-validation-findings-2026-05-19.md` — recompose-hive empirical findings (kit-composition pathology load-bearing)
 - `agentic_orchestration/rocket/research/substrate-generalization-study-2026-05-21/summary.md` — Alt A findings (Pattern-A generalizes universally)
 - `agentic_orchestration/jack-ryan/research/legacy-constraint-audit-2026-05-21/constraint-inventory.md` — LC-001 archetype templates; LC-012 foundation validator
 

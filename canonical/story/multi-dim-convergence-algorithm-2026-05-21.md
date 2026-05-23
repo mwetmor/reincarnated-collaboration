@@ -8,12 +8,12 @@
 **Recipient (eventual):** rocket (P1 W1.13 implementation specialist)
 
 **Companions:**
-- `canonical/story/engine-architecture-vision-qd-profile-2026-05-19.md` — QD-engine vision
+- `canonical/story/historical/engine-architecture-vision-qd-profile-2026-05-19.md` — QD-engine vision
 - `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` — 8-axis BC operational spec
 - `canonical/story/substrate-design-supplement-2026-05-21.md` — substrate-as-cohesion architecture
 - `canonical/story/qd-engine-end-to-end-workflow-2026-05-21.md` — end-to-end workflow
-- `canonical/32-progression-design.md` — Reincarnated's UX/story-driven canonical skill tree spec
-- `canonical/story/b6-skill-tree-ui-scoping.md` — B6 UI scoping spec
+- `canonical/historical/32-progression-design.md` — Reincarnated's UX/story-driven canonical skill tree spec
+- `canonical/story/historical/b6-skill-tree-ui-scoping.md` — B6 UI scoping spec
 - `canonical/story/substrate-generalization-track-c-synthesis-2026-05-21.md` — empirical mandate for multi-dim convergence
 - `agentic_orchestration/legolas/research/arpg-skill-architecture-canon-survey-2026-05-21/` — ARPG canon survey informing v1.1 parameter choices
 
@@ -133,7 +133,7 @@ The architectural mandate for multi-dim convergence does NOT collapse with LC-01
 
 1. **Track C signal (unchanged):** scalar-modifier-only optimization is mathematically underdetermined for the 5-tier WR contract Reincarnated has authored. The dimensional underdetermination is a property of the formalism, not of any specific ablation.
 2. **W0.10 signal (unchanged):** arena-fix discharges HIGH-modifier band; LOW-modifier band residual remains; arena-side fix is necessary but not sufficient.
-3. **BDI formalism (new in 2026-05-21 evening — see `canonical/story/build-defining-resonance-formula-2026-05-21.md`):** rank-3 substrate-richness depth requires multi-dim convergence to be authored. Resonance/interaction-term dominance over linear terms cannot be expressed in a one-dimensional scalar-modifier space.
+3. **BDI formalism (new in 2026-05-21 evening — see `canonical/story/historical/build-defining-resonance-formula-2026-05-21.md`):** rank-3 substrate-richness depth requires multi-dim convergence to be authored. Resonance/interaction-term dominance over linear terms cannot be expressed in a one-dimensional scalar-modifier space.
 4. **Tier 4 mechanic-altering keystone framing (math note § 3.4):** Tier 4 keystones as qualitative regime-change require multi-dim convergence to operate — categorical Tier 4 selection × continuous SP allocation × trigger interaction selection are NOT collapsible to a scalar.
 
 **The dual-witness + footnote framing is honest about what changed and what didn't.** The empirical urgency for W1.13 is reduced (no 42% boundary-failure rate to discharge); the architectural urgency is preserved (Track C + W0.10 + BDI + Tier 4 architecture all still point at the same fix).
@@ -230,7 +230,7 @@ The 6.8× DPS spread between uniform-1.10 and tier-specific-1.25 IS the lever th
 
 ## 3. Existing canonical structure (preserved + refined)
 
-Per `canonical/32-progression-design.md` + `canonical/33-progression-skeleton.md` + Matt 2026-05-21 amendments:
+Per `canonical/historical/32-progression-design.md` + `canonical/historical/33-progression-skeleton.md` + Matt 2026-05-21 amendments:
 
 ### 3.1 Structural shape
 
@@ -713,7 +713,7 @@ Three failure modes observed; become P5 prompt-engineering work items rather tha
 2. **Capstone identity alignment** — fire-T4-teleport on lightning controller was the most dissonant signal. Capstones over-weight identity inference; prompt must give the judge explicit "what does the capstone say about ultimate identity?" instruction.
 3. **Awkward element × role pairing reframing** — silence-ring fire-element controller reads counterintuitive without active editorial reframing. Some element × role combinations have lower cohesion ceilings; prompt must include genre-precedent fallback language.
 
-Authoritative reference: `canonical/story/p5-cohesion-judge-prompt-priorities-2026-05-21.md`.
+Authoritative reference: `canonical/story/historical/p5-cohesion-judge-prompt-priorities-2026-05-21.md`.
 
 ### 6.7 Architectural nuance — probe tested TRANSITIONAL state, not P5 final state
 
@@ -737,7 +737,7 @@ The probe pattern is now adopted as a **canonical de-risking discipline** for an
 4. Fire probe immediately; do not wait for downstream gate
 5. Probe verdict updates architectural-risk profile; downstream gate scope adjusts accordingly
 
-This pattern is recommended for: P5 cohesion-judge work (done), gear-as-substrate cohesion (per `canonical/story/gear-as-substrate-2026-05-21.md`), trait-cluster substrate (if authored), and any future commitments dispositive at distant downstream gates.
+This pattern is recommended for: P5 cohesion-judge work (done), gear-as-substrate cohesion (per `canonical/story/historical/gear-as-substrate-2026-05-21.md`), trait-cluster substrate (if authored), and any future commitments dispositive at distant downstream gates.
 
 ---
 
@@ -1043,20 +1043,20 @@ Beyond ARPG canon survey (complete), Phase 2 audits substrate variety per axis �
 ## 12. Cross-references
 
 - **Empirical foundation:**
-  - `canonical/story/per-tier-recompose-validation-findings-2026-05-19.md`
+  - `canonical/story/historical/per-tier-recompose-validation-findings-2026-05-19.md`
   - `canonical/story/substrate-generalization-track-c-synthesis-2026-05-21.md`
   - `reincarnated-engine/src/reincarnated/simulation/math/w0-10-boss-ai-leash-reset-fix.md`
 
 - **Architectural foundation:**
-  - `canonical/story/engine-architecture-vision-qd-profile-2026-05-19.md`
+  - `canonical/story/historical/engine-architecture-vision-qd-profile-2026-05-19.md`
   - `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md`
   - `canonical/story/substrate-design-supplement-2026-05-21.md`
   - `canonical/story/qd-engine-end-to-end-workflow-2026-05-21.md`
 
 - **Reincarnated canonical UX/story spec:**
-  - `canonical/32-progression-design.md`
-  - `canonical/33-progression-skeleton.md`
-  - `canonical/story/b6-skill-tree-ui-scoping.md`
+  - `canonical/historical/32-progression-design.md`
+  - `canonical/historical/33-progression-skeleton.md`
+  - `canonical/story/historical/b6-skill-tree-ui-scoping.md`
 
 - **v1.1 ARPG-canon research:**
   - `agentic_orchestration/legolas/research/arpg-skill-architecture-canon-survey-2026-05-21/` (complete; 10 questions × 10+ games surveyed)

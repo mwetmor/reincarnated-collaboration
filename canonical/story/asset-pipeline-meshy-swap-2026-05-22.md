@@ -257,7 +257,7 @@ Drop "Mixamo TOS interpretation" row from the P1 ratification matrix. Replace wi
 - `agentic_orchestration/dispatches/2026-05-22-legolas-meshy-pipeline-research.md` — research commission filling § 3 + § 4
 - `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` v1.3 § 6.2.2 W1.9 + W1.10 — target of post-research amendment
 - `canonical/story/gear-archetype-rule-table-v1-2026-05-22.md` — 15-archetype catalogue (§ 3.3 consumes this)
-- `canonical/story/gear-as-substrate-2026-05-21.md` § 0.5.6 — LITE path; G2-LITE/G5-LITE Unity integration cross-reference
+- `canonical/story/historical/gear-as-substrate-2026-05-21.md` § 0.5.6 — LITE path; G2-LITE/G5-LITE Unity integration cross-reference
 - `canonical/story/style-register.md` — locked visual style (consumes pipeline output)
 - `canonical/story/tier-4-architecture-defaults-2026-05-22.md` § 5 — gear-anchored signature capstones (consumes asset pipeline output for player surfaces)
 - `agentic_orchestration/legolas/research/substrate-sufficiency-audit-2026-05-20/` — Phase 1 Asset Store landscape (Priority 2 starting point)

@@ -36,7 +36,7 @@ cd ~/Games/reincarnated-collaboration && claude --agent jack-ryan
 | Design discussion docs | `canonical/` (numbered: 09, 16, 17, 28, 29, 30, 31, 32, 33, ...) |
 | Engineering disciplines (12) | `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` |
 | Decisions log | `~/Games/reincarnated-engine/design/decisions/decisions-log.md` |
-| Current roadmap (B-series) | `canonical/16-project-roadmap.md` |
+| Current roadmap (B-series) | `canonical/historical/16-project-roadmap.md` |
 
 ## Key conventions
 

@@ -227,10 +227,10 @@ In short:
 | Surface | Action |
 |---|---|
 | `memory/project_trait_architecture.md` | Mark legacy / borderline vestigial under BC-axis-derived stats framework (per skill_handoff § 9.5) |
-| `canonical/32-progression-design.md` + `canonical/33-progression-skeleton.md` | Audit for trait-stats coupling references; flag for revision under new stat-derivation framework |
-| `canonical/story/d8-canonical-four-trait-pools-2026-05-18.md` | Mark as v1.1+ optional-identity-modulator design; not load-bearing for v1 stats |
-| `canonical/story/d8-trait-floor-design-phase-1-p1.md` | Same as above |
-| `canonical/story/d9-gear-affix-design-phase-1-p1.md` | Audit: gear affixes can still roll stat affixes (the *gear* carries marginal stat variation); but the *base* stats come from BC-axis derivation, not trait sum |
+| `canonical/historical/32-progression-design.md` + `canonical/historical/33-progression-skeleton.md` | Audit for trait-stats coupling references; flag for revision under new stat-derivation framework |
+| `canonical/story/historical/d8-canonical-four-trait-pools-2026-05-18.md` | Mark as v1.1+ optional-identity-modulator design; not load-bearing for v1 stats |
+| `canonical/story/historical/d8-trait-floor-design-phase-1-p1.md` | Same as above |
+| `canonical/story/historical/d9-gear-affix-design-phase-1-p1.md` | Audit: gear affixes can still roll stat affixes (the *gear* carries marginal stat variation); but the *base* stats come from BC-axis derivation, not trait sum |
 | Engine code: trait-to-stat application paths | Replace with BC-axis-derivation pipeline; trait paths become optional flavor layer for v1.1+ |
 | Telemetry schemas: any "trait gave stat X" attribution | Replace with "BC-axis-derived" attribution for v1; preserve historical |
 
@@ -309,7 +309,7 @@ The hypothesis test: do the empirical clusters match the 15 predicted families? 
 
 | Surface | Action |
 |---|---|
-| `canonical/story/gear-as-substrate-2026-05-21.md` § 3 | Mark as "v0 hypothesized clusters; superseded by emergent clusters from imported library"; preserve as historical reference |
+| `canonical/story/historical/gear-as-substrate-2026-05-21.md` § 3 | Mark as "v0 hypothesized clusters; superseded by emergent clusters from imported library"; preserve as historical reference |
 | `canonical/story/gear-substrate-rule-table-v1-2026-05-22.md` § 2 catalogue + § 4 rule-table | Full restructure pending; the 15-entry enumeration is demoted to hypothesis; post-clustering, the rule-table is replaced by substrate-vector → cluster_id queries |
 | Engine code: `gear_catalogue_id` enum | Replaced by foreign-key to `weapons` table (per-weapon) + `cluster_id` (for cluster identity); the enum is deprecated |
 | Telemetry schemas: `gear_catalogue_id` enum column | Migrate to `weapon_id` (FK to weapons) + `cluster_id` (FK to clusters); preserve old enum column for historical queries |
@@ -478,20 +478,20 @@ This section consolidates per-pattern cleanup actions into a master checklist or
 
 | Doc | Pattern(s) | Action |
 |---|---|---|
-| `canonical/16-project-roadmap.md` | 1, 2, 5 | Audit for archetype / role / 15-entry references; update vocabulary forward in next major edit |
-| `canonical/28-engine-arpg-rebalance-design.md` | 1, 2, 3 | Audit for archetype / role / trait-stat references; flag as legacy where load-bearing |
-| `canonical/29-design-overview.md` | 1, 2 | Audit for archetype / role framing; update vocabulary |
-| `canonical/30-engine-explainer-current.md` | 1, 2 | Audit; this is current-state explainer so describe state truthfully — archetype/role are diagnostic-only now |
-| `canonical/31-engine-explainer-future.md` | 1, 2, 3 | Audit; future-state should describe substrate-as-cohesion emergent identity |
-| `canonical/32-progression-design.md` | 3 | Audit for trait-stats coupling; flag for revision under stat-derivation framework |
-| `canonical/33-progression-skeleton.md` | 3 | Same |
-| `canonical/34-monster-design-phase0-vs-production.md` | 1 | Audit for archetype framing in monster design |
-| `canonical/story/gear-as-substrate-2026-05-21.md` | 4, 5 | § 3 catalogue marked as v0-hypothesized; preserve as historical reference |
+| `canonical/historical/16-project-roadmap.md` | 1, 2, 5 | Audit for archetype / role / 15-entry references; update vocabulary forward in next major edit |
+| `canonical/historical/28-engine-arpg-rebalance-design.md` | 1, 2, 3 | Audit for archetype / role / trait-stat references; flag as legacy where load-bearing |
+| `canonical/historical/29-design-overview.md` | 1, 2 | Audit for archetype / role framing; update vocabulary |
+| `canonical/historical/30-engine-explainer-current.md` | 1, 2 | Audit; this is current-state explainer so describe state truthfully — archetype/role are diagnostic-only now |
+| `canonical/historical/31-engine-explainer-future.md` | 1, 2, 3 | Audit; future-state should describe substrate-as-cohesion emergent identity |
+| `canonical/historical/32-progression-design.md` | 3 | Audit for trait-stats coupling; flag for revision under stat-derivation framework |
+| `canonical/historical/33-progression-skeleton.md` | 3 | Same |
+| `canonical/historical/34-monster-design-phase0-vs-production.md` | 1 | Audit for archetype framing in monster design |
+| `canonical/story/historical/gear-as-substrate-2026-05-21.md` | 4, 5 | § 3 catalogue marked as v0-hypothesized; preserve as historical reference |
 | `canonical/story/gear-substrate-rule-table-v1-2026-05-22.md` | 1, 2, 4, 5 | Full restructure pending — collapse 252 → 63 combinations under role_orientation drop; demote 15-entry catalogue to hypothesis |
 | `canonical/story/bdi-omega-tau-tables-v1-2026-05-22.md` | 1, 2 | Recalibrate ω/τ under role_orientation drop |
-| `canonical/story/d8-canonical-four-trait-pools-2026-05-18.md` | 3 | Mark as v1.1+ optional-identity-modulator design |
-| `canonical/story/d8-trait-floor-design-phase-1-p1.md` | 3 | Same |
-| `canonical/story/d9-gear-affix-design-phase-1-p1.md` | 3 | Audit gear affixes; base stats come from BC-axis derivation not trait sum |
+| `canonical/story/historical/d8-canonical-four-trait-pools-2026-05-18.md` | 3 | Mark as v1.1+ optional-identity-modulator design |
+| `canonical/story/historical/d8-trait-floor-design-phase-1-p1.md` | 3 | Same |
+| `canonical/story/historical/d9-gear-affix-design-phase-1-p1.md` | 3 | Audit gear affixes; base stats come from BC-axis derivation not trait sum |
 | `canonical/story/engine-as-general-serial-content-product-2026-05-22.md` | 4, 6 (partial) | § 3 + § 6 amendment retiring cultural_lineage_register as pre-imposed-tuple-list; optional sixth amendment per skill_handoff |
 | `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` | 6 | Post-axis-discovery: audit for survival under Tier-2 retirement |
 | `canonical/story/role-orientation-vestigial-audit-2026-05-22.md` (pending) | 2 | This doc supersedes — folded into § 3.2 here |
@@ -583,8 +583,8 @@ Designers and code paths should use the post-retirement vocabulary. Substitution
 - `~/Games/reincarnated-engine/design/decisions/decisions-log.md` — Discipline #19 entry; future entries for vestigial-pattern retirements
 
 ### 8.5 Historical references
-- `canonical/story/gear-as-substrate-2026-05-21.md` — Pattern 5's source artifact (15-entry catalogue); preserve as historical
-- `canonical/story/d8-canonical-four-trait-pools-2026-05-18.md` — Pattern 3 trait-architecture origin
+- `canonical/story/historical/gear-as-substrate-2026-05-21.md` — Pattern 5's source artifact (15-entry catalogue); preserve as historical
+- `canonical/story/historical/d8-canonical-four-trait-pools-2026-05-18.md` — Pattern 3 trait-architecture origin
 - `memory/project_role_orientation_taxonomy.md` — Pattern 2 origin
 
 ---

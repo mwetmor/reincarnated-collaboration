@@ -11,7 +11,7 @@
 - Rename G1-LITE → G1 under gear-heavy promotion (gear as real mechanical substrate; LITE framing retired)
 
 **Companions:**
-- `canonical/story/gear-as-substrate-2026-05-21.md` § 3 (15-gear catalogue source — terminology pending sweep)
+- `canonical/story/historical/gear-as-substrate-2026-05-21.md` § 3 (15-gear catalogue source — terminology pending sweep)
 - `canonical/story/bdi-omega-tau-tables-v1-2026-05-22.md` — BDI ω/τ tables (informs rule-design decisions)
 - `~/Games/reincarnated-engine/src/reincarnated/generation/element_biases.py:28` — ELEMENT_SCALING_ATTRIBUTE
 - `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` v1.3 § 6.2.2 — W1.15 workstream
@@ -552,10 +552,10 @@ These principles MUST be honored when the rule table evolves to v2 (post-W1.15-L
 
 ## 8. Cross-references
 
-- `canonical/story/gear-as-substrate-2026-05-21.md` § 0.5.6 (LITE path) + § 3 (15-archetype catalogue)
+- `canonical/story/historical/gear-as-substrate-2026-05-21.md` § 0.5.6 (LITE path) + § 3 (15-archetype catalogue)
 - `canonical/story/bdi-omega-tau-tables-v1-2026-05-22.md` — ω/τ context for rule-design decisions
 - `~/Games/reincarnated-engine/src/reincarnated/generation/element_biases.py:28` ELEMENT_SCALING_ATTRIBUTE — canonical INT/WIS/STR assignment
-- `canonical/story/build-defining-resonance-formula-2026-05-21.md` § 4 (ω/τ context) + § 5.1 (rank-3 identity examples)
+- `canonical/story/historical/build-defining-resonance-formula-2026-05-21.md` § 4 (ω/τ context) + § 5.1 (rank-3 identity examples)
 - `canonical/story/substrate-design-supplement-2026-05-21.md` — per-element identity stance definitions
 - `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` v1.3 § 6.2.2 W1.15-LITE workstream
 - `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` Axis 1 (range component definitions)

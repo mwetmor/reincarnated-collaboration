@@ -355,11 +355,11 @@ Gear-derived stat variation gives players a meaningful loot reward (Quick gloves
 
 | Doc | Status under stat-derivation framework |
 |---|---|
-| `canonical/story/d8-canonical-four-trait-pools-2026-05-18.md` | Mark as v1.1+ optional-identity-modulator design; not load-bearing for v1 stats |
-| `canonical/story/d8-trait-floor-design-phase-1-p1.md` | Same |
-| `canonical/story/d9-gear-affix-design-phase-1-p1.md` | Audit: gear affixes can still roll stat affixes; base stats come from BC-axis derivation |
+| `canonical/story/historical/d8-canonical-four-trait-pools-2026-05-18.md` | Mark as v1.1+ optional-identity-modulator design; not load-bearing for v1 stats |
+| `canonical/story/historical/d8-trait-floor-design-phase-1-p1.md` | Same |
+| `canonical/story/historical/d9-gear-affix-design-phase-1-p1.md` | Audit: gear affixes can still roll stat affixes; base stats come from BC-axis derivation |
 | `memory/project_trait_architecture.md` | Mark legacy / borderline vestigial under BC-axis-derived stats framework (per audit doc § 3.3) |
-| `canonical/32-progression-design.md` + `canonical/33-progression-skeleton.md` | Audit for trait-stats coupling; flag for revision under stat-derivation framework |
+| `canonical/historical/32-progression-design.md` + `canonical/historical/33-progression-skeleton.md` | Audit for trait-stats coupling; flag for revision under stat-derivation framework |
 
 ---
 
@@ -442,14 +442,14 @@ For example, a kit with high Axis 3A damage tempo and moderate Axis 2A proxy den
 - `canonical/story/bdi-omega-tau-tables-v1-2026-05-22.md` — BDI ω/τ tables (recalibration pending under stat-derivation framework)
 
 ### 6.3 Trait architecture (now demoted to v1.1+ optional)
-- `canonical/story/d8-canonical-four-trait-pools-2026-05-18.md` — v1.1+ optional-identity-modulator design
-- `canonical/story/d8-trait-floor-design-phase-1-p1.md` — same
-- `canonical/story/d9-gear-affix-design-phase-1-p1.md` — gear affixes can still roll stat affixes as marginal variation
+- `canonical/story/historical/d8-canonical-four-trait-pools-2026-05-18.md` — v1.1+ optional-identity-modulator design
+- `canonical/story/historical/d8-trait-floor-design-phase-1-p1.md` — same
+- `canonical/story/historical/d9-gear-affix-design-phase-1-p1.md` — gear affixes can still roll stat affixes as marginal variation
 - `memory/project_trait_architecture.md` — legacy / borderline vestigial (Matt manual update per audit § 6.3)
 
 ### 6.4 Progression docs (audit pending)
-- `canonical/32-progression-design.md` — audit for trait-stats coupling references
-- `canonical/33-progression-skeleton.md` — same
+- `canonical/historical/32-progression-design.md` — audit for trait-stats coupling references
+- `canonical/historical/33-progression-skeleton.md` — same
 
 ### 6.5 Discipline + governance
 - `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` § 1 (math-before-code applies to projection function calibration); § 11 (empirical inspection before lock)

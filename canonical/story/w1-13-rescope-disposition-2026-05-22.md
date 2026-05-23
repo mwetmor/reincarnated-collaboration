@@ -56,7 +56,7 @@ The math note's empirical-foundation section moves from TRIPLE-WITNESS (Track C 
 - **Four supporting anchors for the architectural mandate:**
   1. Track C scalar-modifier underdetermination (formalism property)
   2. W0.10 LOW-modifier residual (post-arena-fix signal)
-  3. BDI formalism rank-3 substrate-richness requirement (`canonical/story/build-defining-resonance-formula-2026-05-21.md`)
+  3. BDI formalism rank-3 substrate-richness requirement (`canonical/story/historical/build-defining-resonance-formula-2026-05-21.md`)
   4. Tier 4 mechanic-altering keystone framing requires multi-dim convergence (categorical × continuous × discrete cannot collapse to scalar)
 
 ### 2.2 W1.13 dispatch FIRE-GATE closure
@@ -89,7 +89,7 @@ The W1.13 dispatch § 2.3.1 specified generation-time success criteria. These re
 
 ## 3. BDI + T4 architectural alignment preserved
 
-A critical disposition concern: would the rescope shift in W1.13 weaken its alignment with the BDI formalism (`canonical/story/build-defining-resonance-formula-2026-05-21.md`) or the Tier 4 architecture defaults (`canonical/story/tier-4-architecture-defaults-2026-05-22.md`, T4-A this morning)?
+A critical disposition concern: would the rescope shift in W1.13 weaken its alignment with the BDI formalism (`canonical/story/historical/build-defining-resonance-formula-2026-05-21.md`) or the Tier 4 architecture defaults (`canonical/story/tier-4-architecture-defaults-2026-05-22.md`, T4-A this morning)?
 
 **Disposition: NO, alignment strengthens.**
 
@@ -172,7 +172,7 @@ This disposition lands under Matt's pre-authorization D (critique-pair LC-dispos
 - `agentic_orchestration/matt-briefing-2026-05-22-lc-011-option-c-strong-confirm.md` — Matt-briefing escalation memo
 - `canonical/story/multi-dim-convergence-algorithm-2026-05-21.md` v1.1 § 1.2 (2026-05-22 revision) — dual-witness reframing
 - `agentic_orchestration/dispatches/2026-05-21-rocket-w1-13-skill-tree-node-population.md` — W1.13 dispatch (target of rescope edits)
-- `canonical/story/build-defining-resonance-formula-2026-05-21.md` — BDI formalism (informs rank-3 alignment)
+- `canonical/story/historical/build-defining-resonance-formula-2026-05-21.md` — BDI formalism (informs rank-3 alignment)
 - `canonical/story/tier-4-architecture-defaults-2026-05-22.md` — T4-A defaults (informs Tier 4 alignment)
 - `~/Games/reincarnated-engine/logs/w07_lc011_ablation_recovery_summary.json` — recovery summary artifact
 - `agentic_orchestration/gandalf/notes/2026-05-21-lc-011-reframing-disposition-w1-13-routing.md` — original LC-011 disposition framing (pre-recovery)

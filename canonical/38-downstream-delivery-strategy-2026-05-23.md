@@ -7,7 +7,7 @@
 **Authority:** Matt 2026-05-23 — D1-D10 confirmed in sequence during gandalf design session following Matt's external-counsel strategic-synthesis conversation 2026-05-22 evening
 **Audience:** Knight-rider (orchestration), jack-ryan (process gate), specialist agents (rocket / gamora / star-lord / drax / elrond / galadriel / legolas), future Matt, future gandalf, eventual industry partners
 **Companion docs:**
-- `canonical/29-design-overview.md` — strategic anchor (predecessor)
+- `canonical/historical/29-design-overview.md` — strategic anchor (predecessor)
 - `canonical/37-engine-and-game-two-products.md` — Variant C lock; engine-vs-game distinction
 - `canonical/story/engine-as-general-serial-content-product-2026-05-22.md` — Variant C strategic lock (story-side)
 - `canonical/story/gear-heavy-promotion-2026-05-22.md` — vast-library substrate architecture
@@ -320,7 +320,7 @@ This doc serves the following downstream sequencing:
 ## 5. Cross-references
 
 ### Active project canon this doc depends on
-- `canonical/29-design-overview.md` — strategic anchor (predecessor)
+- `canonical/historical/29-design-overview.md` — strategic anchor (predecessor)
 - `canonical/37-engine-and-game-two-products.md` — Variant C lock
 - `canonical/story/engine-as-general-serial-content-product-2026-05-22.md` — Variant C (story-side)
 - `canonical/story/gear-heavy-promotion-2026-05-22.md` — vast-library architecture

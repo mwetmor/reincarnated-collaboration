@@ -1068,7 +1068,7 @@ v1 = this protocol (initial). v1.1 = post-P3 clustering results inform refinemen
 
 ### 19.2 Parent protocol
 - `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` v1.3 — parent protocol; § 6.2 P1 substrate enrichment is the workstream this protocol operationalizes
-- `canonical/story/engine-architecture-vision-qd-profile-2026-05-19.md` — vision document foundation
+- `canonical/story/historical/engine-architecture-vision-qd-profile-2026-05-19.md` — vision document foundation
 - `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` — BC axes canonical definitions
 
 ### 19.3 Source operational plan

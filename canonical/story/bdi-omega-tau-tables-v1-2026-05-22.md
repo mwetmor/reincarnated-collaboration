@@ -7,8 +7,8 @@
 **Status:** v1 starting values; empirical calibration via H3 hypothesis test (P1+ workstream W1.21)
 **Authority:** Matt 2026-05-22 — pre-authorization A (BDI table adoption as v1 starting values; rocket runs H3 correlation test against archive to empirically calibrate post-result)
 **Companions:**
-- `canonical/story/build-defining-resonance-formula-2026-05-21.md` § 4.1 + § 4.2 — BDI formalism source
-- `canonical/story/gear-as-substrate-2026-05-21.md` § 3 — 15-archetype catalogue
+- `canonical/story/historical/build-defining-resonance-formula-2026-05-21.md` § 4.1 + § 4.2 — BDI formalism source
+- `canonical/story/historical/gear-as-substrate-2026-05-21.md` § 3 — 15-archetype catalogue
 - `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` v1.3 — W1.20-W1.22 workstreams
 - `~/Games/reincarnated-engine/src/reincarnated/generation/element_biases.py:28` — ELEMENT_SCALING_ATTRIBUTE
 
@@ -34,7 +34,7 @@ Per BDI § 7, H3 (ω-field predicts β-magnitude) requires the ω table to predi
 
 Per BDI § 4.1, ω(s_a, s_b) ∈ [0, 1] measures how much two substrate components share **mechanical signals** across five dimensions:
 
-1. **Geometry signature overlap** — scatter / line / arc / sweep / area / beam / point (per `canonical/09-geometry-palette-discussion.md` 16-type palette)
+1. **Geometry signature overlap** — scatter / line / arc / sweep / area / beam / point (per `canonical/historical/09-geometry-palette-discussion.md` 16-type palette)
 2. **Tempo signature overlap** — slow / measured / fast / burst / channeled
 3. **Range signature overlap** — melee / medium / ranged
 4. **Resource signature overlap** — stamina / mana / wisdom-cast / strength-cast / mixed
@@ -84,7 +84,7 @@ For any substrate-pair (s_a, s_b) not in these tables:
 
 ## 2. ω-field table v1 — gear-archetype × element pairings
 
-15 gear-archetypes (per `canonical/story/gear-as-substrate-2026-05-21.md` § 3) × element pairings. For each archetype, 3+ canonical element matchups; coverage of all 7 canonical elements + physical.
+15 gear-archetypes (per `canonical/story/historical/gear-as-substrate-2026-05-21.md` § 3) × element pairings. For each archetype, 3+ canonical element matchups; coverage of all 7 canonical elements + physical.
 
 Element scaling-attribute coupling per `element_biases.py:28`: fire/water/lightning/shadow=INT; earth/wind/holy=WIS; physical=STR.
 
@@ -295,12 +295,12 @@ Rocket sim-viability verification is required before locking these pair entries 
 
 ### 4.6 Cross-references
 
-- `canonical/story/build-defining-resonance-formula-2026-05-21.md` — BDI formalism source (§ 4 field equations; § 7 hypothesis tests; § 10 BDI-E gate)
-- `canonical/story/gear-as-substrate-2026-05-21.md` § 3 — 15-archetype catalogue
+- `canonical/story/historical/build-defining-resonance-formula-2026-05-21.md` — BDI formalism source (§ 4 field equations; § 7 hypothesis tests; § 10 BDI-E gate)
+- `canonical/story/historical/gear-as-substrate-2026-05-21.md` § 3 — 15-archetype catalogue
 - `canonical/story/substrate-design-supplement-2026-05-21.md` — substrate-identity stance definitions
 - `~/Games/reincarnated-engine/src/reincarnated/generation/element_biases.py:28` — ELEMENT_SCALING_ATTRIBUTE canonical assignment
 - `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` v1.3 § 6.2.2 — W1.20-W1.22 workstreams
-- `canonical/09-geometry-palette-discussion.md` — 16-type damage geometry palette (geometry-dimension overlap analysis)
+- `canonical/historical/09-geometry-palette-discussion.md` — 16-type damage geometry palette (geometry-dimension overlap analysis)
 
 ---
 

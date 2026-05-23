@@ -4,7 +4,7 @@
 
 **Status:** CANONICAL — locked through theory-craft session with Matt 2026-05-19/20
 **Author:** gandalf (story-and-design steward)
-**Companion to:** `canonical/story/engine-architecture-vision-qd-profile-2026-05-19.md`
+**Companion to:** `canonical/story/historical/engine-architecture-vision-qd-profile-2026-05-19.md`
 **Last revised:** 2026-05-20
 
 ---
@@ -699,10 +699,10 @@ That's the *Profile A operational archive*. Reincarnated Phase 0 ships from this
 
 ## 11. Cross-references
 
-- `canonical/story/engine-architecture-vision-qd-profile-2026-05-19.md` — the architectural target this doc operationalizes; § 2 BC axes (now superseded by this doc); § 5 math gates; § 6 dependency chain
-- `canonical/story/hive-mind-protocol-per-tier-recompose-validation-2026-05-19.md` — currently-firing hive; ships before rebuild starts
-- `canonical/09-geometry-palette-discussion.md` — 16-type palette feeding Axis 2 substrate
-- `canonical/17-gear-and-spirit-guide-design.md` — gear architecture relevant to Axes 3, 4, 5
+- `canonical/story/historical/engine-architecture-vision-qd-profile-2026-05-19.md` — the architectural target this doc operationalizes; § 2 BC axes (now superseded by this doc); § 5 math gates; § 6 dependency chain
+- `canonical/story/historical/hive-mind-protocol-per-tier-recompose-validation-2026-05-19.md` — currently-firing hive; ships before rebuild starts
+- `canonical/historical/09-geometry-palette-discussion.md` — 16-type palette feeding Axis 2 substrate
+- `canonical/historical/17-gear-and-spirit-guide-design.md` — gear architecture relevant to Axes 3, 4, 5
 - `agentic_orchestration/dispatches/2026-05-20-legolas-substrate-sufficiency-audit.md` — substrate audit dispatch (will be updated to reflect 8-axis lock)
 - `reincarnated-engine/design/working-agreement/engineering-disciplines.md` — Disciplines #1, #2, #13a, #13b, #17, #18 referenced
 

@@ -5,7 +5,7 @@
 **Status:** CANONICAL — architectural workflow post substrate-as-cohesion-only recommitment 2026-05-21
 **Author:** gandalf
 **Companions:**
-- `canonical/story/engine-architecture-vision-qd-profile-2026-05-19.md` (vision)
+- `canonical/story/historical/engine-architecture-vision-qd-profile-2026-05-19.md` (vision)
 - `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` (operational 8-axis spec)
 - `canonical/story/substrate-design-supplement-2026-05-21.md` (substrate-as-cohesion architecture)
 - `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` (execution plan)
@@ -799,7 +799,7 @@ The 8 workflow phases map to the QD-rebuild's 8 execution phases (P0-P7) per pro
 
 ## 7. Cross-references
 
-- `canonical/story/engine-architecture-vision-qd-profile-2026-05-19.md` — § 5 math gates; § 6 dependency chain; § 8 engineering roadmap
+- `canonical/story/historical/engine-architecture-vision-qd-profile-2026-05-19.md` — § 5 math gates; § 6 dependency chain; § 8 engineering roadmap
 - `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` — 8-axis spec; § 5 sim deferral matrix
 - `canonical/story/substrate-design-supplement-2026-05-21.md` — substrate-as-cohesion architecture rationale + ARPG canon grounding
 - `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` — phase-by-phase rebuild execution

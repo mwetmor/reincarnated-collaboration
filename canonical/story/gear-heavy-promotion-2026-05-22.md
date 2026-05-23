@@ -590,7 +590,7 @@ The v2 canary test (2026-05-22) hit (1) cleanly but failed (3) catastrophically.
 - `agentic_orchestration/legolas/research/unity-catalogue-armor-meshy-2026-05-22/` — Unity catalogue + Meshy armor capability research
 
 ### 9.4 Historical / superseded references
-- `canonical/story/gear-as-substrate-2026-05-21.md` — 15-entry catalogue origin; § 3 demoted to clustering hypothesis
+- `canonical/story/historical/gear-as-substrate-2026-05-21.md` — 15-entry catalogue origin; § 3 demoted to clustering hypothesis
 - `canonical/story/gear-substrate-rule-table-v1-2026-05-22.md` — surface-cleaned; full restructure pending (rule-table → cluster queries)
 - `canonical/story/bdi-omega-tau-tables-v1-2026-05-22.md` — BDI ω/τ formalism (recalibration pending under role_orientation drop + cluster substrate)
 

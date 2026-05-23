@@ -7,10 +7,10 @@
 **Status:** v1 defaults adopted under Matt 2026-05-22 pre-authorization C; open questions surface for next design call
 **Authority:** Matt 2026-05-22 — pre-authorization C (gandalf adopts the BDI § 6 proposed default architecture)
 **Companions:**
-- `canonical/story/build-defining-resonance-formula-2026-05-21.md` § 6 — Tier 4 as rank-completer (theoretical foundation)
+- `canonical/story/historical/build-defining-resonance-formula-2026-05-21.md` § 6 — Tier 4 as rank-completer (theoretical foundation)
 - `canonical/story/multi-dim-convergence-algorithm-2026-05-21.md` v1.1 § 3.4 — Tier 4 mechanic-altering semantics
-- `canonical/story/p5-cohesion-judge-prompt-priorities-2026-05-21.md` § 2 — capstone identity alignment context
-- `canonical/story/gear-as-substrate-2026-05-21.md` § 0.5.6 — LITE path (gear-anchored capstone enabled)
+- `canonical/story/historical/p5-cohesion-judge-prompt-priorities-2026-05-21.md` § 2 — capstone identity alignment context
+- `canonical/story/historical/gear-as-substrate-2026-05-21.md` § 0.5.6 — LITE path (gear-anchored capstone enabled)
 - `canonical/story/gear-archetype-rule-table-v1-2026-05-22.md` — G1-LITE rule table (signature_gear_archetype derived-tag)
 - `canonical/story/bdi-omega-tau-tables-v1-2026-05-22.md` — BDI ω/τ tables (high-β substrate-pairs for rank-completion)
 - `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` v1.3 § 5 — phase architecture (T4-A through T4-E)
@@ -39,7 +39,7 @@ These defaults DO NOT resolve the open questions autonomously — they LOCK the 
 
 ### 1.1 Theoretical foundation — Tier 4 as rank-completer
 
-Per BDI § 6 (`canonical/story/build-defining-resonance-formula-2026-05-21.md`):
+Per BDI § 6 (`canonical/story/historical/build-defining-resonance-formula-2026-05-21.md`):
 
 > A Tier 4 keystone is structurally a *rank-completer*. It takes a kit's rank-2 resonance and promotes it to rank-3 by adding the third leg.
 >
@@ -64,7 +64,7 @@ Per math note v1.1 § 3.4 (`canonical/story/multi-dim-convergence-algorithm-2026
 
 ### 1.3 P5 cohesion-judge prompt priorities — capstone identity alignment
 
-Per p5-prompt-priorities § 2 (`canonical/story/p5-cohesion-judge-prompt-priorities-2026-05-21.md`):
+Per p5-prompt-priorities § 2 (`canonical/story/historical/p5-cohesion-judge-prompt-priorities-2026-05-21.md`):
 
 - Priority 2 — capstone identity alignment (the cohesion-judge prompt extensions need to distinguish between signature capstone identity and secondary capstone identity; the prompt must carry the BDI rank structure to align judge naming with kit's resonance)
 - Future "breakthrough moment" framing for cross-element capstones (e.g., a fire kit's signature capstone might be a fire-water cross-element keystone like Steam-Wraith bridging the polar pair via volatility trait) — DEFERRED to T4-B authorship pass
@@ -211,7 +211,7 @@ Per Q13 partial resolution (adopting gear-anchored signature when signature_gear
 
 ### 5.2 Mechanism
 
-The gear-as-substrate LITE path (`canonical/story/gear-as-substrate-2026-05-21.md` § 0.5.6) lands `signature_gear_archetype` as a DERIVED TAG in V1. This derived tag is computed at class generation via the G1-LITE rule table (`canonical/story/gear-archetype-rule-table-v1-2026-05-22.md`).
+The gear-as-substrate LITE path (`canonical/story/historical/gear-as-substrate-2026-05-21.md` § 0.5.6) lands `signature_gear_archetype` as a DERIVED TAG in V1. This derived tag is computed at class generation via the G1-LITE rule table (`canonical/story/gear-archetype-rule-table-v1-2026-05-22.md`).
 
 When a kit has a signature_gear_archetype set, the signature capstone Tier 4 keystone is **gear-anchored**:
 
@@ -320,10 +320,10 @@ Several Tier 4 commitments are NOT modified by T4-A (preserved per math note v1.
 
 ## 9. Cross-references
 
-- `canonical/story/build-defining-resonance-formula-2026-05-21.md` § 6 (Tier 4 as rank-completer) + § 5.1 (rank-3 identity examples)
+- `canonical/story/historical/build-defining-resonance-formula-2026-05-21.md` § 6 (Tier 4 as rank-completer) + § 5.1 (rank-3 identity examples)
 - `canonical/story/multi-dim-convergence-algorithm-2026-05-21.md` v1.1 § 3.4 (Tier 4 mechanic-altering semantics) + § 5 (categorical-discrete convergence)
-- `canonical/story/p5-cohesion-judge-prompt-priorities-2026-05-21.md` § 2 (capstone identity alignment)
-- `canonical/story/gear-as-substrate-2026-05-21.md` § 0.5.6 (LITE path)
+- `canonical/story/historical/p5-cohesion-judge-prompt-priorities-2026-05-21.md` § 2 (capstone identity alignment)
+- `canonical/story/historical/gear-as-substrate-2026-05-21.md` § 0.5.6 (LITE path)
 - `canonical/story/gear-archetype-rule-table-v1-2026-05-22.md` (G1-LITE rule table; signature_gear_archetype derivation)
 - `canonical/story/bdi-omega-tau-tables-v1-2026-05-22.md` (BDI ω/τ tables; high-β substrate-pair reference)
 - `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` v1.3 § 5 (T4-A through T4-E phase architecture)

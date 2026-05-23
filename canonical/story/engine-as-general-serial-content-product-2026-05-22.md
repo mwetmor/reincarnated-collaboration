@@ -377,7 +377,7 @@ Per phase, the effort estimate grows ~30-50% over the pre-reframe baseline. Tota
 
 ### 11.1 Canonical foundation
 - `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` v1.3 — protocol; § 6.7 profiles A/B/C/D; § 6.6.1 P5 empirical-validation framing
-- `canonical/story/engine-architecture-vision-qd-profile-2026-05-19.md` § 4 — profile architecture original commitment
+- `canonical/story/historical/engine-architecture-vision-qd-profile-2026-05-19.md` § 4 — profile architecture original commitment
 - `canonical/story/qd-engine-end-to-end-workflow-2026-05-21.md` — touchpoint architecture across phases
 - `canonical/story/substrate-design-supplement-2026-05-21.md` — substrate-as-cohesion architectural commitment
 

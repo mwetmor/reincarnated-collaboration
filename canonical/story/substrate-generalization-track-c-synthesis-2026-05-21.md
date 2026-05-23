@@ -149,9 +149,9 @@ Reference roster (12 archetypes preserved from canceled kit-redesign dispatch) b
 - `agentic_orchestration/dispatches/2026-05-21-alt-a-substrate-generalization-study.md` — Alt A dispatch (with rocket completion record appended)
 - `agentic_orchestration/dispatches/2026-05-21-knight-rider-qd-rebuild-hive-activation.md` § 2.8 + § 2.9 — multi-dim convergence + gauntlet migration commitments
 - `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` § 6.2 W1.11 — substrate enrichment workstream (now confirmed uniform-depth)
-- `canonical/story/per-tier-recompose-validation-findings-2026-05-19.md` — recompose-hive canonical findings (Pattern-A pathology load-bearing)
+- `canonical/story/historical/per-tier-recompose-validation-findings-2026-05-19.md` — recompose-hive canonical findings (Pattern-A pathology load-bearing)
 - `canonical/story/qd-engine-end-to-end-workflow-2026-05-21.md` — Phase 6 W6.X gauntlet usage
-- `canonical/16-project-roadmap.md` — QD-rebuild chapter (updated 2026-05-21)
+- `canonical/historical/16-project-roadmap.md` — QD-rebuild chapter (updated 2026-05-21)
 
 ---
 
