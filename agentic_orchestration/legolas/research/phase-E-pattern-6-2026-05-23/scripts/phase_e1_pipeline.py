@@ -8,8 +8,12 @@ Strict sequence per dispatch:
   D1 → D2 → D3 → D4 → D5
 
 Usage:
-  python phase_e1_pipeline.py --mode smoke   # 100-row smoke test
-  python phase_e1_pipeline.py --mode full    # full 16,699-row run
+  python phase_e1_pipeline.py --mode smoke        # 100-row smoke test
+  python phase_e1_pipeline.py --mode full         # full N=48,430 run (WARNING: triggers kernel panic at HDBSCAN step — do not use)
+  python phase_e1_pipeline.py --mode subsample-k3 --k_final 3 --min_cluster_size 10 --subsample_n 10000
+    # Frame-revision dispatch (2026-05-23): stratified subsample k=3 substrate-voted axes
+    # See: dispatches/2026-05-23-legolas-phase-E-1-frame-revision-stratified-subsample-k3.md
+    # Math note: phase-E-1-math-note-frame-revision-addendum.md
 """
 
 import argparse
@@ -21,6 +25,7 @@ import resource
 import sqlite3
 import sys
 import re
+from collections import Counter, defaultdict
 from datetime import datetime
 
 import numpy as np
@@ -30,6 +35,12 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder
 import hdbscan
 from sklearn.mixture import GaussianMixture
 from sklearn.cluster import KMeans
+
+try:
+    import psutil
+    _PSUTIL_AVAILABLE = True
+except ImportError:
+    _PSUTIL_AVAILABLE = False
 
 DB_PATH = "/Users/admin/Games/reincarnated-loadout/data/telemetry.db"
 OUT_DIR = "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23"
@@ -1115,23 +1126,527 @@ def run_smoke_test(conn, rows, labels, confidence_scores, label_to_db_id):
 n_bootstrap = 10  # global so write_deliverable_2 can reference it
 
 
+# ─────────────────────────────────────────────────────────────────────────────
+# Frame-revision (subsample-k3) helpers
+# Dispatch: 2026-05-23-legolas-phase-E-1-frame-revision-stratified-subsample-k3.md
+# Math note: phase-E-1-math-note-frame-revision-addendum.md
+# ─────────────────────────────────────────────────────────────────────────────
+
+def regen_axes_k(X, weights, k=3):
+    """Regenerate top-k PCA axes via minimal TruncatedSVD re-fire.
+
+    The on-disk phase-E-1-axis-loadings.json stores only top-20 feature loadings
+    (not full (160,) components). Cannot reconstruct axes_1_to_k from JSON.
+    Re-fire TruncatedSVD(k) on full X_weighted with RANDOM_STATE=42 → bit-for-bit
+    identical to the original D2 axes 1-k.
+
+    Per dispatch locked-decision: D2 axes 1-3 are authoritative; do NOT re-fire
+    bootstrap on full pool. This function fires PCA only (no bootstrap).
+    """
+    log(f"Regenerating top-{k} PCA axes via minimal TruncatedSVD re-fire (no bootstrap)...")
+    sqrt_w = np.sqrt(weights).reshape(-1, 1)
+    X_weighted = X * sqrt_w
+    svd_k = TruncatedSVD(n_components=k, n_iter=10, random_state=RANDOM_STATE)
+    svd_k.fit(X_weighted)
+    log(f"Axes regenerated: components shape = {svd_k.components_.shape}")
+    return svd_k.components_  # shape (k, p)
+
+
+def build_stratified_subsample(rows, subsample_n, min_cluster_size, random_state=42):
+    """Build stratified subsample indices with per-lineage floors.
+
+    Math note §3 committed decisions:
+    - Floor = min(available, min_cluster_size × 2)
+    - N_target = subsample_n (default 10000)
+    - Remaining budget filled proportionally by lineage share
+    - random_state = 42
+
+    Returns:
+        subsample_indices: np.ndarray of shape (subsample_n,) — row indices into `rows`
+        per_lineage_counts: dict of {lineage: count} for documentation
+    """
+    floor = min_cluster_size * 2
+    rng = np.random.RandomState(random_state)
+
+    # Group all row indices by lineage
+    lineage_indices = defaultdict(list)
+    for i, row in enumerate(rows):
+        lineage = row[5] or "unknown"
+        lineage_indices[lineage].append(i)
+
+    # Phase 1: Floor sampling per lineage
+    selected = []
+    selected_set = set()
+    floor_counts = {}
+    for lineage, indices in lineage_indices.items():
+        available = len(indices)
+        take_floor = min(available, floor)
+        chosen = rng.choice(indices, size=take_floor, replace=False).tolist()
+        selected.extend(chosen)
+        selected_set.update(chosen)
+        floor_counts[lineage] = take_floor
+
+    floor_total = len(selected)
+    remaining_budget = subsample_n - floor_total
+
+    # Phase 2: Proportional allocation of remaining budget
+    if remaining_budget > 0:
+        # Build remaining-available pool per lineage
+        lineage_remaining = defaultdict(list)
+        for lineage, indices in lineage_indices.items():
+            for i in indices:
+                if i not in selected_set:
+                    lineage_remaining[lineage].append(i)
+
+        total_remaining_pool = sum(len(v) for v in lineage_remaining.values())
+
+        if total_remaining_pool > 0:
+            prop_selected = []
+            prop_counts = defaultdict(int)
+            for lineage, indices in lineage_remaining.items():
+                available_remaining = len(indices)
+                n_take = round(remaining_budget * available_remaining / total_remaining_pool)
+                n_take = min(n_take, available_remaining)
+                if n_take > 0:
+                    chosen = rng.choice(indices, size=n_take, replace=False).tolist()
+                    prop_selected.extend(chosen)
+                    prop_counts[lineage] += n_take
+            selected.extend(prop_selected)
+            selected_set.update(prop_selected)
+
+    # Adjust to exactly subsample_n (rounding may cause off-by-one)
+    selected_arr = np.array(list(selected_set))
+    if len(selected_arr) > subsample_n:
+        selected_arr = rng.choice(selected_arr, size=subsample_n, replace=False)
+    elif len(selected_arr) < subsample_n:
+        # Fill from remaining pool
+        all_indices = set(range(len(rows)))
+        unselected = list(all_indices - selected_set)
+        if unselected:
+            deficit = subsample_n - len(selected_arr)
+            extra = rng.choice(unselected, size=min(deficit, len(unselected)), replace=False)
+            selected_arr = np.concatenate([selected_arr, extra])
+
+    # Build per-lineage final count table
+    per_lineage_final = Counter()
+    for i in selected_arr:
+        lineage = rows[i][5] or "unknown"
+        per_lineage_final[lineage] += 1
+
+    log(f"Stratified subsample: target={subsample_n}, actual={len(selected_arr)}, "
+        f"lineages={len(per_lineage_final)}")
+    for lineage, cnt in sorted(per_lineage_final.items(), key=lambda x: -x[1]):
+        log(f"  {lineage}: {cnt} (floor={floor_counts.get(lineage, 0)})")
+
+    return selected_arr, dict(per_lineage_final)
+
+
+def check_rss_guard(threshold_gib=6.0):
+    """Check current process RSS; log and raise if above threshold_gib GiB."""
+    if not _PSUTIL_AVAILABLE:
+        log("psutil not available — skipping RSS guard (not installed; pip install psutil to enable)")
+        return
+    rss_bytes = psutil.Process().memory_info().rss
+    rss_gib = rss_bytes / (1024 ** 3)
+    log(f"psutil RSS guard: current RSS = {rss_gib:.2f} GiB (threshold = {threshold_gib:.1f} GiB)")
+    if rss_gib > threshold_gib:
+        raise MemoryError(
+            f"RSS guard triggered: {rss_gib:.2f} GiB > {threshold_gib:.1f} GiB ceiling. "
+            "Halting before OOM kernel panic. Surface to knight-rider for Alternative 2."
+        )
+
+
+def assign_full_pool_to_clusters(all_projections_3, subsample_indices, hdbscan_labels_full_subsample,
+                                  confidence_scores_subsample, n_all):
+    """Assign all N rows to clusters.
+
+    - Subsample rows: get their HDBSCAN-derived labels (after noise-assign within subsample)
+    - Non-subsample rows: assigned to nearest cluster centroid in (N, 3) projection space
+
+    Returns:
+        all_labels: np.ndarray (n_all,) — cluster label for every row
+        all_confidence: np.ndarray (n_all,) — confidence score (1.0 for hdbscan_native; < 1.0 for nearest-centroid)
+        assignment_method: list of str (n_all,) — 'hdbscan_native' or 'nearest_centroid'
+        n_native: int — rows in subsample with hdbscan-derived labels
+        n_nearest: int — rows assigned by nearest centroid
+    """
+    all_labels = np.full(n_all, -1, dtype=np.int64)
+    all_confidence = np.zeros(n_all, dtype=np.float64)
+    assignment_method = [''] * n_all
+
+    # Step 1: Copy subsample assignments
+    subsample_set = set(subsample_indices.tolist())
+    for local_idx, global_idx in enumerate(subsample_indices):
+        all_labels[global_idx] = hdbscan_labels_full_subsample[local_idx]
+        all_confidence[global_idx] = confidence_scores_subsample[local_idx]
+        assignment_method[global_idx] = 'hdbscan_native'
+
+    # Step 2: Compute cluster centroids from subsample assignments
+    unique_labels = sorted(set(hdbscan_labels_full_subsample.tolist()))
+    if not unique_labels:
+        log("ERROR: No cluster labels — cannot assign non-subsample rows.")
+        return all_labels, all_confidence, assignment_method, len(subsample_indices), n_all - len(subsample_indices)
+
+    centroids = {}
+    for lbl in unique_labels:
+        mask = hdbscan_labels_full_subsample == lbl
+        centroid_pts = all_projections_3[subsample_indices[mask]]
+        centroids[lbl] = centroid_pts.mean(axis=0)
+
+    centroid_labels = sorted(centroids.keys())
+    centroid_matrix = np.array([centroids[l] for l in centroid_labels])  # (n_clusters, 3)
+
+    # Mean within-cluster distance for confidence calibration
+    all_within_dists = []
+    for lbl in centroid_labels:
+        mask = hdbscan_labels_full_subsample == lbl
+        pts = all_projections_3[subsample_indices[mask]]
+        c = centroids[lbl]
+        dists = np.sqrt(((pts - c) ** 2).sum(axis=1))
+        all_within_dists.extend(dists.tolist())
+    mean_within_dist = np.mean(all_within_dists) if all_within_dists else 1.0
+
+    # Step 3: Assign non-subsample rows to nearest centroid
+    non_subsample_indices = np.array([i for i in range(n_all) if i not in subsample_set])
+    n_nearest = len(non_subsample_indices)
+
+    if n_nearest > 0:
+        log(f"Assigning {n_nearest} non-subsample rows to nearest centroid (batch)...")
+        batch_size = 5000
+        for batch_start in range(0, n_nearest, batch_size):
+            batch_idx = non_subsample_indices[batch_start:batch_start + batch_size]
+            batch_pts = all_projections_3[batch_idx]  # (batch, 3)
+            # Distance from each batch point to each centroid: (batch, n_clusters)
+            diffs = batch_pts[:, None, :] - centroid_matrix[None, :, :]  # (batch, n_clusters, 3)
+            dists = np.sqrt((diffs ** 2).sum(axis=2))  # (batch, n_clusters)
+            nearest_idx = np.argmin(dists, axis=1)
+            min_dists = dists[np.arange(len(batch_idx)), nearest_idx]
+
+            for local_b, global_i in enumerate(batch_idx):
+                lbl = centroid_labels[nearest_idx[local_b]]
+                all_labels[global_i] = lbl
+                d = min_dists[local_b]
+                conf = min(0.499, 0.5 / (1.0 + d / (mean_within_dist + 1e-12)))
+                all_confidence[global_i] = conf
+                assignment_method[global_i] = 'nearest_centroid'
+
+    log(f"Full-pool assignment complete: "
+        f"{len(subsample_indices)} hdbscan_native, {n_nearest} nearest_centroid")
+    return all_labels, all_confidence, assignment_method, len(subsample_indices), n_nearest
+
+
+def populate_db_with_provenance(conn, rows, all_labels, all_confidence, assignment_method,
+                                 cluster_chars, projections_3, axes_info, evr,
+                                 algorithm_version="phase-E-1-subsample-k3-2026-05-23"):
+    """Populate clusters + cluster_membership (with assignment_method) + weapon_knowledge_entries.cluster_id.
+
+    Adds assignment_method column to cluster_membership if not present.
+    Per MIGRATION.md requirement: native-vs-nearest-assigned split is documented and persisted.
+    """
+    log("Populating DB: clusters, cluster_membership (with assignment_method), weapon_knowledge_entries.cluster_id")
+
+    # Ensure assignment_method column exists on cluster_membership
+    try:
+        conn.execute("ALTER TABLE cluster_membership ADD COLUMN assignment_method TEXT")
+        conn.commit()
+        log("Added assignment_method column to cluster_membership")
+    except Exception as e:
+        log(f"assignment_method column already exists or schema error (continuing): {e}")
+
+    unique_labels = sorted(set(all_labels.tolist()))
+
+    # Clear existing rows (idempotent)
+    conn.execute("DELETE FROM cluster_membership")
+    conn.execute("DELETE FROM clusters")
+    conn.execute("UPDATE weapon_knowledge_entries SET cluster_id = NULL WHERE cluster_id IS NOT NULL")
+    conn.commit()
+
+    label_to_db_id = {}
+
+    for lbl in unique_labels:
+        char = cluster_chars[lbl]
+        centroid = np.array(char["centroid"])
+        k = len(centroid)
+
+        top_axes_idx = np.argsort(np.abs(centroid[:k]))[::-1][:3]
+        dominant_axes_desc = json.dumps([
+            {"axis": int(i + 1), "loading": float(centroid[i])}
+            for i in top_axes_idx
+        ], cls=NumpyEncoder)
+
+        char_features_json = json.dumps({
+            "dominant_lineage": char["dominant_lineage"][0],
+            "dominant_period": char["dominant_period"][0],
+            "dominant_register": char["dominant_register"][0],
+            "top_weapon_types": [t[0] for t in char["top_weapon_types"][:3]],
+            "member_count": char["member_count"],
+            "provisional_description": char["provisional_description"]
+        }, cls=NumpyEncoder)
+
+        conn.execute("""
+            INSERT INTO clusters (label, dominant_axes_description, cluster_algorithm_version, cluster_seed)
+            VALUES (?, ?, ?, ?)
+        """, (
+            char["provisional_description"][:500],
+            dominant_axes_desc,
+            algorithm_version,
+            RANDOM_STATE
+        ))
+        db_id = conn.execute("SELECT last_insert_rowid()").fetchone()[0]
+        label_to_db_id[lbl] = db_id
+
+    conn.commit()
+    log(f"Inserted {len(unique_labels)} rows into clusters table")
+
+    # Insert cluster_membership + update weapon_knowledge_entries.cluster_id
+    membership_rows = []
+    wke_updates = []
+
+    for i, row in enumerate(rows):
+        entry_id = row[0]
+        lbl = int(all_labels[i])
+        db_cluster_id = label_to_db_id[lbl]
+        conf = float(all_confidence[i])
+        method = assignment_method[i]
+        membership_rows.append((entry_id, db_cluster_id, conf, method))
+        wke_updates.append((db_cluster_id, entry_id))
+
+    conn.executemany("""
+        INSERT INTO cluster_membership (knowledge_entry_id, cluster_id, confidence_score, assignment_method)
+        VALUES (?, ?, ?, ?)
+    """, membership_rows)
+
+    conn.executemany("""
+        UPDATE weapon_knowledge_entries SET cluster_id = ? WHERE id = ?
+    """, wke_updates)
+
+    conn.commit()
+    log(f"Inserted {len(membership_rows)} rows into cluster_membership (with assignment_method)")
+    log(f"Updated {len(wke_updates)} rows in weapon_knowledge_entries.cluster_id")
+
+    # Verify
+    n_clusters_db = conn.execute("SELECT COUNT(*) FROM clusters").fetchone()[0]
+    n_membership_db = conn.execute("SELECT COUNT(*) FROM cluster_membership").fetchone()[0]
+    n_wke_with_cluster = conn.execute(
+        "SELECT COUNT(*) FROM weapon_knowledge_entries WHERE cluster_id IS NOT NULL"
+    ).fetchone()[0]
+    native_count = conn.execute(
+        "SELECT COUNT(*) FROM cluster_membership WHERE assignment_method = 'hdbscan_native'"
+    ).fetchone()[0]
+    nearest_count = conn.execute(
+        "SELECT COUNT(*) FROM cluster_membership WHERE assignment_method = 'nearest_centroid'"
+    ).fetchone()[0]
+
+    log(f"DB verification: clusters={n_clusters_db}, cluster_membership={n_membership_db}, "
+        f"wke.cluster_id populated={n_wke_with_cluster}")
+    log(f"  hdbscan_native={native_count}, nearest_centroid={nearest_count}")
+
+    return n_clusters_db, n_membership_db, n_wke_with_cluster, label_to_db_id, native_count, nearest_count
+
+
+def write_clusters_subsample(out_dir, rows, all_labels, all_confidence, assignment_method,
+                              projections_3, evr_3, subsample_per_lineage, min_cluster_size,
+                              subsample_n):
+    """Write phase-E-1-clusters.md for subsample-k3 mode.
+
+    Covers all 48,430 rows (subsample HDBSCAN + nearest-assign).
+    Documents per-lineage cluster disposition and provenance split.
+    """
+    N = len(rows)
+    unique_labels = sorted(set(all_labels.tolist()))
+    n_clusters = len(unique_labels)
+
+    # Characterize clusters over all rows
+    cluster_chars = {}
+    for lbl in unique_labels:
+        char = characterize_cluster(rows, all_labels, lbl)
+        char["top_reps"] = get_top_representatives(rows, all_labels, all_confidence, lbl, n=3)
+        char["centroid"] = projections_3[all_labels == lbl].mean(axis=0).tolist()
+        char["provisional_description"] = propose_provisional_cluster_description(char)
+        cluster_chars[lbl] = char
+
+    # Purity over all rows
+    primary_purity, per_cluster_purity = compute_purity(all_labels, rows)
+
+    # F6 flag: clusters < 20 members
+    small_clusters = [lbl for lbl in unique_labels if cluster_chars[lbl]["member_count"] < 20]
+
+    # Per-lineage cluster disposition
+    lineage_to_clusters = defaultdict(set)
+    for i, row in enumerate(rows):
+        lineage = row[5] or "unknown"
+        lineage_to_clusters[lineage].add(all_labels[i])
+
+    # Provenance split
+    n_native = sum(1 for m in assignment_method if m == 'hdbscan_native')
+    n_nearest = sum(1 for m in assignment_method if m == 'nearest_centroid')
+
+    top5 = sorted(unique_labels, key=lambda l: cluster_chars[l]["member_count"], reverse=True)[:5]
+
+    # GMM and k-means baselines (on subsample projections for speed; limited comparator)
+    # Skip baselines in subsample mode to avoid OOM; note in report
+    gmm_n_clusters = "N/A (skipped in subsample-k3 mode)"
+    km_n_clusters = "N/A (skipped in subsample-k3 mode)"
+
+    md_content = f"""# Phase E-1 — Deliverable 3: Clustering Output (subsample-k3 frame revision)
+
+PROVISIONAL — gandalf labels clusters canonically in Phase E-2
+**Author:** legolas
+**Date:** 2026-05-23
+**Mode:** subsample-k3 (frame-revision dispatch 2026-05-23)
+**Status:** Complete
+
+---
+
+## Summary
+
+| Metric | Value |
+|---|---|
+| Total rows assigned (full pool) | {N} |
+| HDBSCAN clusters (final) | {n_clusters} |
+| HDBSCAN min_cluster_size | {min_cluster_size} |
+| HDBSCAN training subsample N | {subsample_n} |
+| Subsample rows (hdbscan_native) | {n_native} |
+| Non-subsample rows (nearest_centroid) | {n_nearest} |
+| Originally-noise rows within subsample (confidence < 0.5) | {(all_confidence[:n_native + 1] < 0.5).sum() if n_native > 0 else 'N/A'} |
+| F6 flag: clusters < 20 members | {len(small_clusters)} |
+| Mean cluster purity (cultural_lineage, all rows) | {primary_purity:.4f} ({primary_purity*100:.2f}%) |
+| Purity PASS (≥ 0.70) | {'YES' if primary_purity >= 0.70 else 'FAIL (< 0.70)'} |
+| Purity PASS (≥ 0.85, original threshold) | {'YES' if primary_purity >= 0.85 else 'FAIL'} |
+| k axes used | 3 (substrate-voted) |
+| F2 inverse-frequency weighting applied | Yes (at PCA + StandardScaler stages) |
+| GMM baseline | {gmm_n_clusters} |
+| k-means baseline | {km_n_clusters} |
+
+**Acceptance gate status:**
+- ≥ 50 clusters: {'**PASS** ✓' if n_clusters >= 50 else f'**FAIL** ✗ ({n_clusters} clusters)'}
+- Mean purity ≥ 0.70: {'**PASS** ✓' if primary_purity >= 0.70 else f'**FAIL** ✗ ({primary_purity:.4f})'}
+
+**Assignment provenance (MIGRATION.md §4 requirement):**
+- `hdbscan_native`: rows in the ~{subsample_n}-row stratified subsample; cluster_id assigned by HDBSCAN density-based clustering on the 3-axis projection subspace.
+- `nearest_centroid`: remaining ~{n_nearest} rows; cluster_id assigned by nearest-centroid distance in the 3-axis projection space. These rows have lower clustering confidence (confidence_score < 0.5 range). Phase E-2 label-quality work MUST NOT assume equal density-based confidence across all rows.
+
+---
+
+## Top 5 Clusters by Member Count
+
+"""
+    for rank, lbl in enumerate(top5, 1):
+        char = cluster_chars[lbl]
+        md_content += f"""### Rank {rank}: Cluster {lbl} (N={char['member_count']})
+
+- **Provisional description:** {char['provisional_description']}
+- **Dominant lineage:** {char['dominant_lineage'][0]} ({char['dominant_lineage'][1]} rows)
+- **Dominant period:** {char['dominant_period'][0]} ({char['dominant_period'][1]} rows)
+- **Dominant register:** {char['dominant_register'][0]} ({char['dominant_register'][1]} rows)
+- **Top weapon types:** {', '.join(f"{t[0]}({t[1]})" for t in char['top_weapon_types'][:3]) or 'none detected'}
+- **Purity (cultural_lineage):** {per_cluster_purity.get(lbl, 0):.4f}
+
+**Top-3 representative rows:**
+
+| id | canonical_name | lineage | period | confidence |
+|---|---|---|---|---|
+"""
+        for rep in char['top_reps']:
+            md_content += f"| {rep['id']} | {rep['canonical_name'][:50]} | {rep['cultural_lineage_canonical']} | {rep['historical_period_canonical']} | {rep['confidence']:.4f} |\n"
+        md_content += "\n---\n\n"
+
+    md_content += f"""## Per-Lineage Cluster Disposition
+
+| Lineage | Rows in pool | Rows in subsample | Clusters containing this lineage | Dominant cluster (if any) |
+|---|---|---|---|---|
+"""
+    all_lineages = Counter(row[5] or "unknown" for row in rows)
+    for lineage, pool_count in sorted(all_lineages.items(), key=lambda x: -x[1]):
+        sub_count = subsample_per_lineage.get(lineage, 0)
+        clusters_for_lineage = lineage_to_clusters[lineage]
+        # Find cluster where this lineage is most represented
+        lineage_in_clusters = Counter()
+        for i, row in enumerate(rows):
+            if (row[5] or "unknown") == lineage:
+                lineage_in_clusters[all_labels[i]] += 1
+        dom_cluster = lineage_in_clusters.most_common(1)[0] if lineage_in_clusters else ("none", 0)
+        md_content += (f"| {lineage} | {pool_count} | {sub_count} | "
+                       f"{len(clusters_for_lineage)} | Cluster {dom_cluster[0]} ({dom_cluster[1]} rows) |\n")
+
+    md_content += f"""
+## F6 Flags: Clusters with < 20 Members
+
+These clusters are merge-candidates for Phase E-2 designer review (F6 lock):
+
+"""
+    if small_clusters:
+        for lbl in small_clusters:
+            char = cluster_chars[lbl]
+            md_content += f"- Cluster {lbl}: N={char['member_count']} — {char['provisional_description']}\n"
+    else:
+        md_content += "- None. All clusters have ≥ 20 members.\n"
+
+    md_content += f"""
+## Full Cluster Roster
+
+| Cluster ID | Member Count | Dominant Lineage | Dominant Period | Top Weapon Type | Purity |
+|---|---|---|---|---|---|
+"""
+    for lbl in unique_labels:
+        char = cluster_chars[lbl]
+        top_type = char['top_weapon_types'][0][0] if char['top_weapon_types'] else "mixed"
+        purity_val = per_cluster_purity.get(lbl, 0)
+        md_content += (f"| {lbl} | {char['member_count']} | {char['dominant_lineage'][0]} | "
+                       f"{char['dominant_period'][0]} | {top_type} | {purity_val:.4f} |\n")
+
+    path = os.path.join(out_dir, "phase-E-1-clusters.md")
+    with open(path, 'w') as f:
+        f.write(md_content)
+    log(f"Wrote Deliverable 3 (subsample-k3): {path}")
+    return path, cluster_chars, primary_purity, small_clusters, per_cluster_purity
+
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--mode", choices=["smoke", "full"], default="full")
+    parser.add_argument("--mode", choices=["smoke", "full", "subsample-k3"], default="full")
+    # Frame-revision CLI overrides (subsample-k3 mode)
+    parser.add_argument("--k_final", type=int, default=None,
+                        help="Override k_final axes (subsample-k3 mode requires --k_final 3)")
+    parser.add_argument("--min_cluster_size", type=int, default=None,
+                        help="Override HDBSCAN min_cluster_size (subsample-k3 default: 10)")
+    parser.add_argument("--subsample_n", type=int, default=10000,
+                        help="Target subsample size for subsample-k3 mode (default: 10000)")
     args = parser.parse_args()
     smoke_mode = (args.mode == "smoke")
+    subsample_mode = (args.mode == "subsample-k3")
+
+    # Resolve k_final for subsample-k3 mode
+    k_final_override = args.k_final
+    if subsample_mode and k_final_override is None:
+        k_final_override = 3
+        log("subsample-k3 mode: defaulting --k_final 3 (substrate-voted per frame-revision dispatch)")
+    elif subsample_mode and k_final_override != 3:
+        log(f"WARNING: subsample-k3 mode with --k_final {k_final_override} (not 3) — "
+            "dispatch says substrate-voted k=3 is binding; proceeding with override but document rationale")
+
+    # Resolve min_cluster_size for subsample-k3 mode
+    mcs_override = args.min_cluster_size
+    if subsample_mode and mcs_override is None:
+        mcs_override = 10
+        log("subsample-k3 mode: defaulting --min_cluster_size 10 (conservative-density-leaning per math note §4)")
 
     # Option-A defensive memory ceiling (2026-05-23): raises MemoryError instead of
     # triggering host swap-thrash → kernel panic. 6 GiB soft limit.
+    # Note: failed silently on macOS for all 4 panics (current limit exceeds maximum limit).
+    # Retained for non-macOS environments. psutil RSS-guard added for macOS.
     # See dispatch: 2026-05-23-legolas-phase-E-1-OPTION-A-single-stage-F2.md §2
     try:
         six_gib = 6 * 1024 ** 3
         resource.setrlimit(resource.RLIMIT_AS, (six_gib, six_gib))
         log("Memory ceiling set: 6 GiB RLIMIT_AS (raises MemoryError before kernel panic)")
     except (ValueError, resource.error) as e:
-        log(f"WARNING: Could not set RLIMIT_AS: {e} — proceeding without memory ceiling")
+        log(f"NOTE: Could not set RLIMIT_AS: {e} — using psutil RSS-guard instead (macOS behavior)")
 
     log(f"=== Phase E-1 Pipeline starting (mode={args.mode}) ===")
+    if subsample_mode:
+        log(f"=== Frame-revision: k_final={k_final_override}, min_cluster_size={mcs_override}, "
+            f"subsample_n={args.subsample_n} ===")
 
     conn = sqlite3.connect(DB_PATH)
     rows = load_data(conn, smoke_mode=smoke_mode)
@@ -1159,44 +1674,56 @@ def main():
     log(f"Deliverable 2 complete: {d2_md}")
 
     # ── DELIVERABLE 3: Clustering ──────────────────────────────────────────────
-    log("=== DELIVERABLE 3: Clustering ===")
-    min_cs = 5 if smoke_mode else 30
-    labels_raw, clusterer, n_clusters = run_hdbscan(projections_k, weights, min_cluster_size=min_cs)
-    labels = labels_raw.copy()
-    confidence_scores = np.ones(N)
-    labels, confidence_scores = assign_noise_to_nearest(labels, projections_k)
+    # GUARDED: skipped in subsample-k3 mode — full-pool HDBSCAN on k=12 exhausts 8 GiB (4 panics)
+    # subsample-k3 mode takes a different D3 path below
+    labels = None
+    confidence_scores = None
+    n_final_clusters = 0
+    cluster_chars = {}
+    primary_purity = 0.0
+    small_clusters = []
+    gmm_labels = gmm_conf = gmm_model = None
+    km_labels = km_conf = km_model = None
 
-    n_final_clusters = len(set(labels))
-    log(f"Final cluster count after noise assignment: {n_final_clusters}")
+    if not subsample_mode:
+        log("=== DELIVERABLE 3: Clustering ===")
+        min_cs = 5 if smoke_mode else 30
+        labels_raw, clusterer, n_clusters = run_hdbscan(projections_k, weights, min_cluster_size=min_cs)
+        labels = labels_raw.copy()
+        confidence_scores = np.ones(N)
+        labels, confidence_scores = assign_noise_to_nearest(labels, projections_k)
 
-    # Parameter sweep if out of bounds (skip for smoke)
-    if not smoke_mode:
-        if n_final_clusters < 50:
-            log("< 50 clusters; retrying with min_cluster_size=20...")
-            labels_raw, clusterer, n_clusters = run_hdbscan(projections_k, weights, min_cluster_size=20)
-            labels = labels_raw.copy()
-            confidence_scores = np.ones(N)
-            labels, confidence_scores = assign_noise_to_nearest(labels, projections_k)
-            n_final_clusters = len(set(labels))
-            log(f"After retry: {n_final_clusters} clusters")
-        elif n_final_clusters > 150:
-            log("> 150 clusters; retrying with min_cluster_size=50...")
-            labels_raw, clusterer, n_clusters = run_hdbscan(projections_k, weights, min_cluster_size=50)
-            labels = labels_raw.copy()
-            confidence_scores = np.ones(N)
-            labels, confidence_scores = assign_noise_to_nearest(labels, projections_k)
-            n_final_clusters = len(set(labels))
-            log(f"After retry: {n_final_clusters} clusters")
+        n_final_clusters = len(set(labels))
+        log(f"Final cluster count after noise assignment: {n_final_clusters}")
 
-    # Baselines
-    gmm_labels, gmm_conf, gmm_model = run_gmm_baseline(projections_k, n_final_clusters)
-    km_labels, km_conf, km_model = run_kmeans_baseline(projections_k, n_final_clusters)
+        # Parameter sweep if out of bounds (skip for smoke)
+        if not smoke_mode:
+            if n_final_clusters < 50:
+                log("< 50 clusters; retrying with min_cluster_size=20...")
+                labels_raw, clusterer, n_clusters = run_hdbscan(projections_k, weights, min_cluster_size=20)
+                labels = labels_raw.copy()
+                confidence_scores = np.ones(N)
+                labels, confidence_scores = assign_noise_to_nearest(labels, projections_k)
+                n_final_clusters = len(set(labels))
+                log(f"After retry: {n_final_clusters} clusters")
+            elif n_final_clusters > 150:
+                log("> 150 clusters; retrying with min_cluster_size=50...")
+                labels_raw, clusterer, n_clusters = run_hdbscan(projections_k, weights, min_cluster_size=50)
+                labels = labels_raw.copy()
+                confidence_scores = np.ones(N)
+                labels, confidence_scores = assign_noise_to_nearest(labels, projections_k)
+                n_final_clusters = len(set(labels))
+                log(f"After retry: {n_final_clusters} clusters")
 
-    d3_path, cluster_chars, primary_purity, small_clusters = write_deliverable_3(
-        OUT_DIR, rows, labels, confidence_scores, projections_k, evr, k,
-        gmm_labels, gmm_conf, km_labels, km_conf, mean_cos_dist
-    )
-    log(f"Deliverable 3 complete: {d3_path}")
+        # Baselines
+        gmm_labels, gmm_conf, gmm_model = run_gmm_baseline(projections_k, n_final_clusters)
+        km_labels, km_conf, km_model = run_kmeans_baseline(projections_k, n_final_clusters)
+
+        d3_path, cluster_chars, primary_purity, small_clusters = write_deliverable_3(
+            OUT_DIR, rows, labels, confidence_scores, projections_k, evr, k,
+            gmm_labels, gmm_conf, km_labels, km_conf, mean_cos_dist
+        )
+        log(f"Deliverable 3 complete: {d3_path}")
 
     # ── ROUND-TRIP SMOKE (before full DB write) ───────────────────────────────
     # Do smoke verification in-memory first for smoke mode
@@ -1204,6 +1731,140 @@ def main():
         log("SMOKE MODE: skipping DB write; pipeline structurally verified.")
         log(f"Smoke results: k={k}, clusters={n_final_clusters}, purity={primary_purity:.4f}")
         conn.close()
+        return
+
+    # ── SUBSAMPLE-K3 MODE: frame-revision stratified subsample path ───────────
+    # D1+D2 already computed above; D3 (full HDBSCAN) was intentionally skipped.
+    # This branch handles the subsample-specific D3 → D4 pipeline.
+    if subsample_mode:
+        k_sub = k_final_override  # 3 per dispatch
+        mcs_sub = mcs_override    # 10 per math note §4
+
+        # D1 re-fire in-memory (need X for projection; skip overwriting features.md)
+        # Math note §3.1: "Re-fire D1 in-memory; skip overwriting features.md"
+        log("subsample-k3: D1 already computed above; X is in memory. Skipping features.md overwrite.")
+
+        # D2 minimal PCA re-fire → get axes 1-k_sub
+        axes_components = regen_axes_k(X, weights, k=k_sub)  # shape (k_sub, 160)
+
+        # Full-pool projection onto axes 1-k_sub
+        log(f"Computing full-pool projections onto axes 1-{k_sub}: X shape={X.shape}")
+        projections_3 = X @ axes_components.T  # (N, k_sub)
+        log(f"Full-pool projections shape: {projections_3.shape}")
+
+        # Cache projections to disk
+        proj_cache_path = os.path.join(OUT_DIR, "phase-E-1-projections-k3.npz")
+        np.savez_compressed(proj_cache_path, projections=projections_3,
+                            k=np.array([k_sub]), axes_components=axes_components)
+        log(f"Cached projections to {proj_cache_path}")
+
+        # Build stratified subsample
+        subsample_indices, subsample_per_lineage = build_stratified_subsample(
+            rows, subsample_n=args.subsample_n, min_cluster_size=mcs_sub, random_state=RANDOM_STATE
+        )
+        subsample_projections = projections_3[subsample_indices]  # (~10K, k_sub)
+        subsample_rows = [rows[i] for i in subsample_indices]
+        log(f"Subsample: {len(subsample_indices)} rows, shape {subsample_projections.shape}")
+
+        # HDBSCAN on subsample projections
+        log(f"=== HDBSCAN on subsample (shape={subsample_projections.shape}, mcs={mcs_sub}) ===")
+        check_rss_guard(threshold_gib=6.0)  # psutil RSS guard pre-HDBSCAN
+        labels_sub_raw, clusterer_sub, n_clusters_sub = run_hdbscan(
+            subsample_projections, weights[subsample_indices], min_cluster_size=mcs_sub
+        )
+        log(f"HDBSCAN on subsample: {n_clusters_sub} clusters, {(labels_sub_raw == -1).sum()} noise")
+
+        # Assign noise within subsample to nearest cluster centroid
+        labels_sub = labels_sub_raw.copy()
+        confidence_sub = np.ones(len(subsample_indices))
+        labels_sub, confidence_sub = assign_noise_to_nearest(labels_sub, subsample_projections)
+        n_final_sub_clusters = len(set(labels_sub.tolist()))
+        log(f"After within-subsample noise-assign: {n_final_sub_clusters} clusters")
+
+        # Assign ALL rows (full pool) to clusters
+        all_labels, all_confidence, all_assignment_method, n_native, n_nearest = \
+            assign_full_pool_to_clusters(
+                projections_3, subsample_indices, labels_sub, confidence_sub, N
+            )
+        n_final_clusters = len(set(all_labels.tolist()))
+        log(f"Full-pool cluster assignment: {n_final_clusters} clusters total, "
+            f"{n_native} native, {n_nearest} nearest-assigned")
+
+        # Write Deliverable 3 (subsample-k3 variant)
+        log("=== DELIVERABLE 3 (subsample-k3): Clustering Output ===")
+        # Build cluster characterization over all rows
+        d3_path, cluster_chars_sub, primary_purity_sub, small_clusters_sub, per_cluster_purity_sub = \
+            write_clusters_subsample(
+                OUT_DIR, rows, all_labels, all_confidence, all_assignment_method,
+                projections_3, evr[:k_sub], subsample_per_lineage, mcs_sub, args.subsample_n
+            )
+        log(f"Deliverable 3 complete: {d3_path}")
+
+        # Report acceptance gate status
+        log(f"=== ACCEPTANCE GATE CHECK ===")
+        log(f"Clusters: {n_final_clusters} (need ≥ 50): {'PASS' if n_final_clusters >= 50 else 'FAIL'}")
+        log(f"Mean purity: {primary_purity_sub:.4f} (need ≥ 0.70): {'PASS' if primary_purity_sub >= 0.70 else 'FAIL'}")
+
+        # DB Population
+        log("=== DELIVERABLE 4: DB Population (subsample-k3) ===")
+        # Re-use axes_info from the above full D2 run (it was computed for `k` from the existing code path)
+        # but we need axes_info for just the first k_sub axes
+        axes_info_sub = axes_info[:k_sub] if axes_info else []
+        evr_sub = evr[:k_sub]
+
+        (n_clusters_db, n_membership_db, n_wke_db, label_to_db_id,
+         native_db_count, nearest_db_count) = populate_db_with_provenance(
+            conn, rows, all_labels, all_confidence, all_assignment_method,
+            cluster_chars_sub, projections_3, axes_info_sub, evr_sub
+        )
+
+        # Round-trip smoke
+        smoke_pass_sub, smoke_errors_sub = run_smoke_test(
+            conn, rows, all_labels, all_confidence, label_to_db_id
+        )
+        log(f"Round-trip smoke: {'PASS' if smoke_pass_sub else 'FAIL'}")
+        if smoke_errors_sub:
+            for e in smoke_errors_sub[:5]:
+                log(f"  SMOKE ERROR: {e}")
+
+        conn.close()
+
+        # Save subsample-k3 results JSON
+        bis_condition = "ACCEPTANCE" if (n_final_clusters >= 50 and primary_purity_sub >= 0.70) else \
+                        "PARTIAL_ACCEPTANCE" if (50 <= n_final_clusters and primary_purity_sub >= 0.50) else \
+                        "SUBSTRATE_COVERAGE_BOTTLENECK"
+        results_sub = {
+            "mode": "subsample-k3",
+            "k_final": k_sub,
+            "min_cluster_size": mcs_sub,
+            "subsample_n": args.subsample_n,
+            "actual_subsample_n": len(subsample_indices),
+            "total_pool_n": N,
+            "n_clusters": n_final_clusters,
+            "primary_purity": float(primary_purity_sub),
+            "acceptance_gate_clusters": n_final_clusters >= 50,
+            "acceptance_gate_purity": primary_purity_sub >= 0.70,
+            "bis_disposition": bis_condition,
+            "n_hdbscan_native": n_native,
+            "n_nearest_centroid": n_nearest,
+            "db_clusters": n_clusters_db,
+            "db_membership": n_membership_db,
+            "db_wke_populated": n_wke_db,
+            "db_native_count": native_db_count,
+            "db_nearest_count": nearest_db_count,
+            "smoke_pass": smoke_pass_sub,
+            "smoke_errors": smoke_errors_sub,
+            "subsample_per_lineage": subsample_per_lineage,
+            "small_clusters_f6": small_clusters_sub
+        }
+        results_path = os.path.join(OUT_DIR, "phase-E-1-pipeline-results.json")
+        with open(results_path, 'w') as f:
+            json.dump(results_sub, f, indent=2, cls=NumpyEncoder)
+        log(f"Results saved to {results_path}")
+        log(f"=== SUBSAMPLE-K3 PIPELINE COMPLETE ===")
+        log(f"  Clusters: {n_final_clusters}, Purity: {primary_purity_sub:.4f}, "
+            f"Smoke: {'PASS' if smoke_pass_sub else 'FAIL'}, "
+            f"Bis: {bis_condition}")
         return
 
     # ── DELIVERABLE 4: DB Population ──────────────────────────────────────────

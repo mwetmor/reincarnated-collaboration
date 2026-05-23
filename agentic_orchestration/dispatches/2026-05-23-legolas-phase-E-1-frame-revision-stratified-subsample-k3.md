@@ -244,3 +244,51 @@ Seam-prefix per ADR-001. Local-only. Distinct tag name from the SUPERSEDED dispa
 ---
 
 **Signed:** knight-rider, 2026-05-23 post-Matt+gandalf frame-revision resize ~12:00 EDT. Gate-1 jack-ryan ratification of this dispatch is run by knight-rider after authoring (Pattern-A-light, DESIGN-MODE); findings will be folded as edits before legolas fires. Matt + gandalf design-side approval already in hand for the resize itself.
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-23 12:27 EDT
+**Tags shipped:** `legolas/phase-E-1-frame-revision-subsample-k3-2026-05-23`
+**Run log:** `agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/scripts/full-run-log-2026-05-23-frame-revision.txt`
+**Pipeline runtime:** ~49 seconds (12:26:48–12:27:37 EDT)
+
+### Acceptance gate results
+
+| Gate | Criterion | Result | Status |
+|---|---|---|---|
+| Cluster count | ≥ 50 clusters | **125** | ✓ PASS |
+| Mean purity | ≥ 0.70 | **0.9444** | ✓ PASS |
+| Full-pool coverage | All 48,430 rows | **48,430 / 48,430** | ✓ PASS |
+| F6 small clusters | Documented | **0 (none)** | ✓ PASS |
+| DB round-trip smoke | PASS | **PASS** | ✓ PASS |
+
+### Bis-disposition
+**ACCEPTANCE.** Phase E-2 cluster labeling proceeds. The prior OPTION-A partial-fire bis-flag (3-of-12 axes stable) is superseded by the frame-revision: clustering on the 3 substrate-voted axes at k=3 yields 125 clusters at 94.44% purity — well above both acceptance thresholds.
+
+### MIGRATION.md written
+Yes — `agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/MIGRATION.md`
+- DB writes: clusters (125), cluster_membership (48,430), weapon_knowledge_entries.cluster_id (48,430)
+- Native-vs-nearest-assigned split documented: hdbscan_native=10,000; nearest_centroid=38,430
+- `assignment_method` column added to cluster_membership
+- ADR-004 + Discipline #8 cited
+
+### Completion summary written
+`agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-1-completion-summary.md`
+
+### Math-before-code addendum written
+`agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-1-math-note-frame-revision-addendum.md`
+- All 6 required sections complete
+- All open questions resolved and committed before code was written
+
+### Crash-triage audit trail acknowledged
+This execution acknowledges `skill_handoff_2026-05-23-phase-E-1-crash-triage.md` and the frame-revision resize note. 4 kernel panics (panics 1-4) arose from full-pool HDBSCAN. Frame-revision resolved by using stratified subsample (~10K) on substrate-voted k=3 axes — no kernel panic.
+
+### Notes for knight-rider / next-session review
+1. Phase E-2 gandalf-labeling dispatch can now be authored. 125 clusters with provisional descriptions in `phase-E-1-clusters.md`.
+2. Assignment provenance (`assignment_method` in `cluster_membership`) is load-bearing — Phase E-2 label-quality work should weight `hdbscan_native` rows more heavily.
+3. Phase E-1.5 sensitivity sweep (min_cluster_size ∈ {10, 15, 20, 30}) queued as optional carry post-E-2.
+4. Discipline #18 amendment candidate (substrate-voting-is-binding) and Discipline #19 candidate (forensic-conclusion-discipline) remain in jack-ryan queue for ratification.
+
+**Signed:** legolas, 2026-05-23 12:27 EDT — Frame-revision dispatch COMPLETE, all acceptance gates PASSED.
