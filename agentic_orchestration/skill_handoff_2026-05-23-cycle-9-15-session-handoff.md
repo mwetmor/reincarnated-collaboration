@@ -1,6 +1,8 @@
-# Session Handoff — 2026-05-23 (Cycle 9.15 — P1 hive-mind preparation arc items 2 + 3 CLOSED; substrate-side work cycle substantially complete)
+# Session Handoff — 2026-05-23 (Cycle 9.15 + 9.16 closeout — P1 hive-mind preparation arc items 2 + 3 CLOSED + weapon-substrate v1.0 CONCLUSION DECLARED per Matt 2026-05-23 three-decision relay)
 
-> **STATUS:** AUTHORITATIVE handoff for next-session knight-rider. **Supersedes** `skill_handoff_2026-05-23-cycle-9-12-eod.md` (which itself superseded earlier handoffs from the same session). Authored per Matt directive to write durable session handoff before pause.
+> **STATUS:** AUTHORITATIVE handoff for next-session knight-rider. **Supersedes** `skill_handoff_2026-05-23-cycle-9-12-eod.md` (which itself superseded earlier handoffs from the same session). Authored per Matt directive to write durable session handoff; amended post-three-decision relay to capture conclusion-of-cycle declaration + v1.1+ deferral.
+>
+> **UPDATE (Cycle 9.16 closeout):** Matt relayed three decisions via gandalf following the original handoff authoring. Weapon-substrate v1.0 cycle is now DECLARED CONCLUDED per `canonical/story/2026-05-23-weapon-substrate-conclusion-declaration.md`. Sub-carries 9.11-C/D/E + 9.10-E (subsuming 9.11-B) deferred to v1.1+ post-ship refinement queue per 02-roadmap § 3.8. Discipline #25 handles contamination at consumption.
 >
 > Note: this file uses workstream-relative framing per Discipline #22 (timezone-agnosticism). No day-cycle structuring devices.
 
@@ -80,7 +82,7 @@ b5e13de  gandalf: cluster-116 relabel decision (9.13-D) Path 1                [p
 
 ### Still queued (workstream-relative trigger for re-engagement named where applicable)
 
-- **9.11-C / 9.11-D / 9.11-E** — elrond substrate-tagging-discipline + curation-gap work. Gandalf-recommended execution order: 9.11-D (substrate-tagging-artifact review on ~15-25 affected clusters) → 9.11-E (cultural-vs-geographic tagging discipline; Mode A/B/C/D framework from meta-record) → mesoamerican re-tag-then-re-cluster smoke. Trigger for re-engagement: at Matt's call; non-blocking for any currently-active work; eventual gate for HM-prep 3 closure.
+- **9.11-C / 9.11-D / 9.11-E + 9.10-E (subsuming 9.11-B)** — **MOVED to v1.1+ deferred queue per Matt 2026-05-23 decision relayed via gandalf.** See `canonical/story/2026-05-23-weapon-substrate-conclusion-declaration.md` + 02-roadmap § 3.8 for the four empirical-evidence triggers that would fire re-engagement: (1) P4 cluster semantic labeling surfaces Mode B/C/D contamination as design-quality blocker → 9.11-D + 9.11-E; (2) D10 Path C architectural commitment + substrate-coverage gaps surface as faction-architecture blockers → 9.10-E; (3) engine consumption work surfaces Mode B/C/D contamination that Discipline #25 rep-audit cannot handle at consumption → targeted relabel sub-dispatches; (4) post-ship player-facing feedback indicates substrate-quality issues → prioritized refinement queue. **Until any trigger fires, Discipline #25 (semantic-layer rep-audit) handles substrate contamination at consumption.** No proactive substrate work; downstream consumers apply rep-audit at semantic-inheritance decisions.
 - **9.12-A** — gamora W1.13 H1-H5 baseline confirmation. Fired by Matt; surfaced "upstream chain unmet" per gandalf relay (H1-H5 not run; gamora seam idle post-LC-011; three upstream prerequisites unmet per Q-A verdict § 12.4). Re-engagement: when the three upstream prerequisites are resolved.
 - **9.12-B** — legolas Mode A methodology consultation + M2 8GB compute-feasibility audit. Re-engagement: AFTER 9.12-A H1-H5 baseline lands (per Discipline #18.2 methodology-consultation-timing-at-extension-hotspots).
 - **9.12-C catalogue-authoring stage** — T4-B v1 catalogue ~30-50 entries. Re-engagement: Matt + gandalf design call scheduling (Matt's territory). Phase E-1.5 acceptance has released the cluster-taxonomy stability gate per T4-B scaffolding § 3.
@@ -146,15 +148,14 @@ The `agentic_orchestration/knight-rider/notes/2026-05-23-discipline-observations
 8. `agentic_orchestration/gandalf/open-threads/` — any new gandalf-parked dialogue threads
 9. AGENT_STATE.md files where present + decisions-log latest entries per standard first-invocation protocol
 
-**Next-action surface for Matt to direct:**
+**Next-action surface for Matt to direct (updated post-three-decision relay):**
 
-- 9.11-D substrate-tagging-artifact review (elrond Pattern-A-light/B)
-- 9.11-C east_asian period_unknown curation gap (elrond)
-- T4-B catalogue-authoring design call scheduling
-- Item 4 hive-mind protocol amendment (gandalf-owned)
-- Other workstream-relative work Matt may surface
+- **T4-B v1 catalogue design call session 1 scheduling** — substrate-anchoring stability gate cleared by Phase E-1.5 acceptance + conclusion-declaration. Matt + gandalf scheduling territory; this is the next ACTIVE workstream.
+- **Item 4 hive-mind protocol amendment** — gandalf-owned future; not blocking
+- **Question A upstream chain monitoring** — KR tracks for HM-prep; not direct execution. Currently 9.12-A surfaced upstream chain unmet (H1-H5 baseline not run; gamora seam idle post-LC-011).
+- **v1.1+ refinement queue (9.11-C/D/E + 9.10-E)** — DORMANT per Matt decision; fires only on empirical triggers per 02-roadmap § 3.8.
 
-No knight-rider-side surface as imminent fire-ready; the substrate-side work cycle is at a clean checkpoint.
+No knight-rider-side surface as imminent fire-ready; the substrate-side work cycle is at a clean conclusion-state. Active workstream is T4-B catalogue design call (Matt + gandalf scheduling).
 
 ---
 

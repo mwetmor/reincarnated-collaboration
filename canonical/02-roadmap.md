@@ -290,6 +290,17 @@ These compose into a single post-v1-ship substrate-refinement work-unit. Until v
 | **Decision authority** | Matt |
 | **Downstream consequence** | Monetization integration architected into game systems before MVP scope freeze |
 
+### 3.8 Weapon-substrate v1.1+ refinement queue (post-ship substrate-refinement; deferred per Matt 2026-05-23)
+
+| Aspect | Spec |
+|---|---|
+| **Decision deferred** | Substrate-tagging-discipline refinement work + targeted rare-lineage substrate expansion. Originally surfaced as Cycle 9.10-9.14 sub-carries (**9.11-C** east_asian period_unknown curation; **9.11-D** substrate-tagging-artifact review across ~15-25 affected clusters; **9.11-E** cultural-vs-geographic tagging discipline canonicalization; **9.10-E** substrate expansion via targeted marginal-lineage crawls; **9.11-B SUBSUMED into 9.10-E** per Matt decision 3 — single unified v1.1+ dispatch covers all 5 marginal lineages). All deferred to v1.1+ post-ship queue per Matt 2026-05-23 three-decision relay. |
+| **Empirical-evidence criterion** | One of: (1) P4 cluster semantic labeling (§ 2.6) completes + faction-coherence assessment surfaces Mode B/C/D contamination as downstream design-quality blocker → fire 9.11-D + 9.11-E; (2) D10 Path C architectural commitment is made (per § 3.1) AND substrate-coverage gaps surface as faction-architecture blockers → fire 9.10-E (substrate expansion subsumes 9.11-B); (3) Engine consumption work (cohesion judge; spirit-guide narrative) surfaces specific Mode B/C/D contamination cases that Discipline #25 rep-audit cannot handle at consumption → fire targeted relabel sub-dispatches; (4) Post-ship player-facing feedback indicates substrate-quality issues affecting player experience → fire prioritized refinement queue |
+| **Decision authority** | Matt (substrate-cleaning scope re-engagement); gandalf (semantic-layer cultural-tradition-vs-geographic-origin discipline canonicalization); jack-ryan (Discipline #25 ratification refinements if needed) |
+| **Downstream consequence (if any path fires)** | 9.11-D → 9.11-E → mesoamerican re-tag-then-re-cluster smoke order per gandalf 9.11-G meta-record recommendation. Substrate-tagging cleaning policy refinement may surface as new working-agreement amendments. Post-cleaning re-cluster may emit new Phase E-1.x outputs requiring follow-on P4 labeling pass. |
+| **Until trigger fires** | Discipline #25 (semantic-layer rep-audit) handles substrate contamination at consumption per engineering-disciplines.md canonical (jack-ryan canonical write commit `1fae3fa` engine repo). Downstream design surfaces (gandalf at T4-B substrate-anchoring; P4 cluster semantic labeling; cohesion judge; spirit-guide narrative output) apply rep-audit at every semantic-inheritance decision. Substrate contamination from Modes B/C/D (geographic-origin / naming-allusion / cross-tagged-error per marginal-lineage meta-record) does NOT block downstream work. |
+| **Authoritative conclusion-declaration** | `canonical/story/2026-05-23-weapon-substrate-conclusion-declaration.md` (knight-rider authored per Matt decision relayed via gandalf 2026-05-23) |
+
 ---
 
 ## 4. Roadmap sequence (dependency view)

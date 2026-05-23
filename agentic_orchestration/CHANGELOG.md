@@ -4,6 +4,57 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-23 (Cycle 9.16 — Matt three-decision relay via gandalf → weapon-substrate v1.0 CONCLUSION DECLARED + 9.11-C/D/E + 9.10-E (subsuming 9.11-B) deferred to v1.1+ post-ship refinement queue + roadmap § 3.8 added + ground-state oracle § 1 updated) — substrate-side weapon-knowledge work cycle CONCLUDED; T4-B v1 catalogue design call is next active workstream; Discipline #25 handles contamination at consumption per engineering-disciplines.md canonical
+
+**Event:** Matt relayed three decisions via gandalf following Cycle 9.15 closeout:
+
+1. **DECLARE WEAPON-SUBSTRATE-CONCLUSION at current state.** 9.11-C/D/E becomes v1.1+ post-ship substrate-refinement work. Discipline #25 semantic-layer rep-audit handles contamination at consumption per engineering-disciplines.md canonical.
+2. **KEEP 9.10-E DORMANT.** Substrate expansion is v1.1+ work alongside 9.11-D/E. Architectural commitment to D10 Path C deferred until P4 cluster labeling validates faction structure.
+3. **SUBSUME 9.11-B into 9.10-E.** Single unified v1.1+ substrate-expansion dispatch covering all 5 marginal lineages.
+
+Knight-rider operationalized the three decisions per gandalf's recommended next-actions:
+
+**Steps executed (knight-rider this cycle):**
+
+1. Located referenced anchors (gandalf session-end state capture + geography-vs-culture substrate analysis HTML) — both on disk
+2. Located roadmap § 3 structure (7 existing deferred-architectural-commitment entries; § 3.8 slot vacant)
+3. Authored canonical conclusion-declaration artifact at `canonical/story/2026-05-23-weapon-substrate-conclusion-declaration.md` — cross-references all relevant Cycle 9.10-9.15 work + names the v1.1+ deferred carry + names Discipline #25 as the consumption-side handler
+4. Updated `canonical/02-roadmap.md` adding new § 3.8 entry "Weapon-substrate v1.1+ refinement queue (post-ship substrate-refinement; deferred per Matt 2026-05-23)" with the four empirical-evidence triggers
+5. Updated `canonical/00-ground-state.md` § 1 registering the conclusion-declaration as CURRENT
+6. Updated session handoff at `skill_handoff_2026-05-23-cycle-9-15-session-handoff.md` to reflect three decisions + revised next-action surface (T4-B catalogue design call becomes next active workstream)
+7. CHANGELOG Cycle 9.16 entry (this entry)
+
+**What the conclusion-declaration locks:**
+
+- v1.0 substrate scope = current state (125 clusters at 0.9444 purity; canonical labels in production DB; cluster-116 Path 1 relabel landed; Phase E-1.5 sensitivity sweep confirms k=3 robustness)
+- Sub-carries 9.11-C / 9.11-D / 9.11-E / 9.10-E (subsuming 9.11-B) = v1.1+ deferred queue per Matt three-decision relay
+- 02-roadmap § 3.8 captures the v1.1+ deferred substrate-refinement work-unit with empirical-evidence triggers
+- Discipline #25 is the consumption-side discipline; ALL downstream design surfaces inheriting cluster identity as substrate apply rep-audit at the inheritance point
+
+**Sub-carry status changes this cycle:**
+
+- 9.11-C — DEFERRED to v1.1+ (was queued for elrond)
+- 9.11-D — DEFERRED to v1.1+ (was queued for elrond; gandalf-recommended order: D → E → mesoamerican smoke; preserved as v1.1+ execution sequence)
+- 9.11-E — DEFERRED to v1.1+ (was queued for elrond)
+- 9.10-E — DEFERRED to v1.1+ (was DORMANT; now formally moved to v1.1+ queue; subsumes 9.11-B)
+- 9.11-B — SUBSUMED into 9.10-E per Matt decision 3 (single unified v1.1+ dispatch covers all 5 marginal lineages)
+- 9.10-F — remains DORMANT (cloud HDBSCAN; cancelled unless 9.10-E exhausts AND production-validation-at-scale needed)
+
+**Active workstream-state after Cycle 9.16:**
+
+- **T4-B v1 catalogue design call session 1** — UNBLOCKED; Matt + gandalf scheduling territory; next active workstream
+- **Question A upstream chain monitoring** — KR tracks for HM-prep; 9.12-A surfaced upstream chain unmet (H1-H5 baseline not run)
+- **Item 4 hive-mind protocol amendment** — gandalf-owned future; non-blocking
+
+**Commit chain through Cycle 9.16:**
+
+```
+[next: this CHANGELOG + conclusion-declaration + roadmap § 3.8 + ground-state § 1 update + session-handoff status update]
+8789d06  ops(knight-rider): Cycle 9.15 closeout — 8-agent OP propagation + cluster-116 relabel CLOSED
+```
+
+---
+
 ## 2026-05-23 (Cycle 9.15 — Per-agent OP propagation fan-out CLOSED (8 sub-agents in parallel; all OPs + installed skills canonical-verbatim compliant) + cluster-116 elrond relabel CLOSED via combined sub-agent invocation + knight-rider OP self-amended to canonical verbatim form + session handoff authored) — P1 hive-mind preparation arc items 2 + 3 (KR-driven) both CLOSED; substrate-side weapon-knowledge work cycle substantially complete pending 9.11-C/D/E elrond follow-on at Matt's call
 
 **Event:** Matt fired 8 sub-agents in parallel via knight-rider Agent tool fan-out — 7 OP propagation invocations (jack-ryan + rocket + gamora + star-lord + galadriel + drax + legolas) plus 1 combined elrond invocation (OP propagation + cluster-116 relabel sequenced within single session to avoid parallel-elrond-session git race). All 8 returned with successful amendments + cluster-116 relabel landed cleanly in production DB.
