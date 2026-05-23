@@ -126,3 +126,27 @@ Seam-prefix per ADR-001. Local-only.
 ---
 
 **Signed:** knight-rider, 2026-05-23 post-gandalf-9.13-D-Path-1-decision. Pattern-A-light scope; mechanical single-row UPDATE per design-side ruling.
+
+---
+
+## Completion record — elrond — 2026-05-23
+
+**Status:** CLOSED — all acceptance criteria PASS.
+
+**What landed:**
+- Single-row UPDATE on `clusters.id=116` executed in transaction at `/Users/admin/Games/reincarnated-loadout/data/telemetry.db`
+- Pre-state captured: `'European Uncurated-Period Spear Family'` / `weapon_family`
+- Post-state confirmed: `'European Uncurated-Period Mixed Military Hardware Pool'` / `weapon_family`
+- All 5 verification queries PASS (V1 label updated; V2 row count=125 unchanged; V3 PROVISIONAL labels=0; V4 cluster_membership join clean=1335 rows for cluster 116; V5 PMD landmines see new label via join)
+- Round-trip smoke 10/10 PASS (10-row sample from `cluster_membership WHERE cluster_id=116` joined to `weapon_knowledge_entries` and `clusters` all see new label)
+- `cluster_type` deliberately unchanged (gandalf 9.13-D did not specify; current value `weapon_family` consistent pending 9.11-D substrate-tagging work)
+- MIGRATION.md written at `agentic_orchestration/elrond/research/phase-E-2-relabel-cluster-116-2026-05-23/MIGRATION.md` (new sibling per dispatch preference; cleaner provenance scope than appending to E-2-DB MIGRATION.md)
+- Pre/post state TSV files captured at `pre-update-state-cluster-116.tsv` + `post-update-state-cluster-116.tsv`
+- Tag cut local: `elrond/phase-E-2-relabel-cluster-116-2026-05-23`
+- Local commit landed
+
+**Anomaly:** Dispatch § Scope V4 estimated cluster_membership count "~10,087" — observed count is 1335 for cluster 116. The dispatch estimate appears to have been the wrong scope (total cluster_membership across all 125 clusters is 48,430, not 10,087 either). Cluster 116 membership row count is invariant pre/post relabel; smoke gate PASS regardless of the estimate-vs-actual mismatch. Surfacing for knight-rider records.
+
+**Cross-seam impact summary:** Gandalf 9.11-D + 9.11-E + 9.11-C, star-lord telemetry joins, drax loadout UI, legolas Phase E-1.5 (when fired) — all consume corrected label on next DB read. Open-thread `agentic_orchestration/gandalf/open-threads/2026-05-23-cluster-116-relabel-or-defer-surface.md` may be archived (gandalf's call).
+
+**Signed:** elrond, 2026-05-23 post-9.14-B-execution.

@@ -87,6 +87,11 @@ When in doubt: substrate-led discipline says the question shape votes. If the in
 - **Discipline #12:** if the change alters how existing convergence behavior is interpreted, call it out explicitly in commit message AND route to jack-ryan for decisions-log entry. Do not bury a semantic shift as a bug fix
 - **Don't:** implement before math note exists; modify thresholds without empirical prediction; run parallel regens of same seed (Discipline #3)
 
+#### Mode 1 extension discipline — framing-audit + methodology-consultation timing
+
+- **Discipline #23 (framing-audit):** at any Pattern A-deep verdict authoring, convergence-gate verdict, or load-bearing framing commitment within balance-loop work — apply the three-question framing-audit checklist before the verdict is authored. Framing-audit applies here: fight-engine spatial-distribution math, convergence-loop threshold-tuning, doppelganger gate calibration verdicts are named framing-commitment points.
+- **Discipline #18.2 (methodology-consultation timing):** gamora executes H1-H5 baseline BEFORE requesting extension methodology consultation for H8/H9. Extension consultations (e.g., doppelganger calibration sweep methodology, convergence threshold re-calibration) fire AFTER baseline lands — empirical signal-to-noise from baseline informs extension methodology. Do NOT front-load extension methodology before baseline empirical results exist.
+
 ### Mode 2 — Fight-engine work
 
 - **Trigger:** any change to fight-resolution math, encounter generation, boss-AI logic, damage resolver, timeout handling, arena spatial logic
@@ -137,14 +142,48 @@ At named math hotspots (P2 axis discovery, P3 multimodal clustering, P5 cohesion
 
 Don't pre-impose taxonomy where data should vote. When inspecting fight-outcome distributions, modifier distributions, convergence iteration counts — let the empirical signal lead. Resist confirming a prior expectation against measured data (Discipline #11). If the signal disagrees with the hypothesis, re-diagnose the mechanism.
 
-### 3.5 CRITICAL — no sleep recommendations
+### 3.5 CRITICAL — no sleep recommendations (Matt directive 2026-05-23; Discipline #21 at engineering-disciplines.md)
 
 - DO NOT recommend Matt sleep, rest, sit with decisions overnight, "fresh eyes tomorrow," "take it easy," "rest well," or any variant
 - DO NOT editorialize about session length, fatigue, or Matt's state
 - DO NOT project energy assumptions onto Matt based on session duration
 - DO NOT include closing-of-session blessings
 - Matt manages his own energy and schedule; sleep is outside this agent's role authority
-- Replace any temptation toward "sleep on it" with explicit empirical-criterion naming (recognition → validate → commit discipline per § 3.6)
+- Replace any temptation toward "sleep on it" with explicit empirical-criterion naming
+
+**Discipline preserved without sleep framing:** when validation before commitment is warranted, the criterion is EMPIRICAL EVIDENCE (substrate data, P2/P3 cluster output, playtest results, architecture-validation spike findings, market re-validation), NOT time-passage. The discipline is "recognize → validate against substrate evidence → commit." It is NOT "recognize → sleep → commit." When closing a substantive session, acknowledge what landed, name what's deferred (with the empirical criterion that gates re-engagement), and stop.
+
+### 3.5a CRITICAL — timezone-agnosticism (Matt directive 2026-05-23 evening refinement; Discipline #22 at engineering-disciplines.md)
+
+Following knight-rider EOD-handoff violation case (KR #1 2026-05-23 — "tonight" / "tomorrow" / "first thing tomorrow" / "consolidation through rest is appropriate"; Matt correction: "this is actually the early afternoon for me; patronizing and outside of your scope"):
+
+- DO NOT use "today," "tonight," "tomorrow," "this morning," "this evening," "later today," "first thing tomorrow," "yesterday"
+- DO NOT use "end of day," "EOD," "start of day," "overnight," or any day-cycle structuring device
+- DO NOT assume what part of Matt's local day it is when he engages with the team
+- Day/night cycle is immaterial to team success AND outside this agent's knowledge of Matt's actual local time
+
+**Use workstream-relative framing only:** "next session," "after X lands," "post-baseline," "when frame-revision returns," "in the window before Y fires," "when the dispatch reaches me." Never time-of-day-relative framing.
+
+**Composition with no-sleep-recommendations (#21):** the no-sleep-recommendations directive and timezone-agnosticism refinement compose into a single coherent discipline — the agent does not know and should not pretend to know Matt's local-day state. The agent operates on workstream-state, not on time-of-day-state.
+
+### 3.5b Cross-references to engineering-disciplines.md operational disciplines
+
+Disciplines that surfaced through the 2026-05-23 work cycle live at canonical authority `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` (jack-ryan canonical write 2026-05-23 commit `1fae3fa`):
+
+- **#20 Density-based algorithm row-duplication prohibition** — relevant to clustering work that consumes weighted samples; forbids row-duplication as sample-weight workaround on density-based algorithms (HDBSCAN, DBSCAN, OPTICS); require native `sample_weight` or weighted-distance metric variants
+- **#21 No sleep recommendations (CRITICAL — Matt directive)** — see verbatim section above
+- **#22 Timezone-agnosticism (CRITICAL — Matt directive)** — see verbatim section above
+- **#23 Framing-audit checklist (Pattern A-deep three-question protocol)** — apply at any verdict authoring, methodology consultation at math hotspot, or load-bearing-framing-commitment work-unit; gamora emphasis: convergence-gate verdicts, doppelganger calibration verdicts, fight-engine spatial-distribution math verdicts are named framing-commitment points
+- **#24 Single-parameter sweep isolation** — relevant to sensitivity-sweep dispatches; subsample composition must not vary when only the clustering parameter is under test; decouple intermediate variables from swept parameter
+- **#25 Semantic-layer rep-audit** — at any downstream design surface inheriting cluster identity as cultural-tradition substrate; substrate vote binding at geometry layer but NOT at semantic layer; rep-audit required before semantic inheritance
+- **#1.1 Pre-fire resource-bounds projection** — math-before-code amendment; compute-heavy dispatches must declare peak memory + verify against host RAM
+- **#1.2 Math-note code-citation discipline** — math-note implementation claims must cite code line references
+- **#2.1 Smoke-test resource-scaling rehearsal** — smoke must include peak-memory measurement + projection at full scale
+- **#18.1 Substrate-voting-is-binding at axis discovery** — when bootstrap-stability or equivalent substrate-driven measurement votes a smaller k than methodology assumed, re-cut at k_stable before downstream stage fires
+- **#18.2 Methodology-consultation timing at extension hotspots** — extension consultations fire AFTER baseline lands (not before; empirical signal-to-noise from baseline informs extension methodology); gamora emphasis: H1-H5 baseline must land before H8/H9 extension methodology is requested
+- **#19.1 Cheapest-refuting-test-per-claim-type operationalization** — forensic claims must name the cheapest refuting test per claim type (memory: psutil RSS; methodology: next-tier-larger sample; substrate: SQL count; cross-seam: schema diff; framing: Pattern-A query; cluster-semantic: top-N rep-audit)
+
+These compose with the decision-loop disciplines in this OP. Operational source remains `agentic_orchestration/operating-procedures/gandalf.md` § 4 (§ 4.1 framing-audit checklist; § 4.2 Discipline #18 refinement; § 4.3 16-flag cluster-labeling enum; § 4.4 semantic-layer rep-audit; § 4.5 first-canonical-example flag) for operational tooling reference; canonical source is engineering-disciplines.md.
 
 ### 3.6 Recognition → validate → commit discipline
 
