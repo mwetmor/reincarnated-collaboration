@@ -1,0 +1,87 @@
+{
+  "script": "09b_step6_6b_unknown_lineage_recovery.py",
+  "db_path": "/Users/admin/Games/reincarnated-loadout/data/telemetry.db",
+  "started_at": "2026-05-23T10:36:21",
+  "recovery_execution": {
+    "candidates": 8175,
+    "lineage_recoveries_applied": 6054,
+    "per_source_recovery_rate": {
+      "wikidata": {
+        "total_unknown_at_start": 8040,
+        "recovered": 6053,
+        "recovery_rate_pct": 75.29
+      },
+      "wikipedia": {
+        "total_unknown_at_start": 95,
+        "recovered": 0,
+        "recovery_rate_pct": 0.0
+      },
+      "odin-army-tradoc": {
+        "total_unknown_at_start": 14,
+        "recovered": 0,
+        "recovery_rate_pct": 0.0
+      },
+      "met-museum": {
+        "total_unknown_at_start": 26,
+        "recovered": 1,
+        "recovery_rate_pct": 3.85
+      }
+    },
+    "recovered_to_lineage_top_by_source": {
+      "wikidata": {
+        "east_asian": 6053
+      },
+      "met-museum": {
+        "east_asian": 1
+      }
+    }
+  },
+  "fp_fix_execution": {
+    "south_amer_fps_corrected": 0,
+    "south_amer_legit_preserved": 0,
+    "south_amer_per_source_fixed": {}
+  },
+  "acceptance": {
+    "major_source_recovery_audit": {
+      "wikidata": {
+        "recovery_rate_pct": 75.29,
+        "passes_50_floor": true
+      },
+      "wikipedia": {
+        "recovery_rate_pct": 0.0,
+        "passes_50_floor": false
+      },
+      "odin-army-tradoc": {
+        "recovery_rate_pct": 0.0,
+        "passes_50_floor": false
+      },
+      "met-museum": {
+        "recovery_rate_pct": 3.85,
+        "passes_50_floor": false
+      }
+    },
+    "south_amer_remaining_count": 216,
+    "south_amer_fps_corrected_in_this_run": 0,
+    "lineage_distribution_post_step_6_6_b": {
+      "european": 28575,
+      "fantasy_generic": 17165,
+      "east_asian": 16100,
+      "unknown": 2121,
+      "cross_cultural": 1672,
+      "middle_eastern": 1649,
+      "south_asian": 1536,
+      "southeast_asian": 872,
+      "african": 563,
+      "south_american_indigenous": 216,
+      "mesoamerican": 97,
+      "arctic_circumpolar": 56,
+      "oceanic": 41,
+      "north_american_indigenous": 32
+    },
+    "gate_recovery_pass": false,
+    "gate_south_amer_pass": false
+  },
+  "wall_clock_s": 0.439,
+  "ended_at": "2026-05-23T10:36:22",
+  "passed": false
+}

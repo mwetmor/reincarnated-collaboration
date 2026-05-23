@@ -1,0 +1,41 @@
+{
+  "script": "10_step7_f4_rerun.py",
+  "db_path": "/Users/admin/Games/reincarnated-loadout/data/telemetry.db",
+  "started_at": "2026-05-23T10:37:05",
+  "baseline": {
+    "canonical_merge_total_pre": 1194,
+    "f4_merges_pre": 26,
+    "canonical_count_pre": 35463,
+    "merged_into_count_pre": 19146,
+    "v_category_sample_count_pre": 49973
+  },
+  "step7_execution": {
+    "in_scope_rows": 51166,
+    "blocks_total": 440,
+    "max_block_size": 11364,
+    "merge_pairs": 8963,
+    "merge_components_cross_source": 192,
+    "canonical_rows": 192,
+    "merged_rows": 1558,
+    "canonical_merge_table_inserts": 190,
+    "flagged_borderline_count": 78
+  },
+  "post": {
+    "canonical_merge_total_post": 1384,
+    "f4_merges_post": 216,
+    "canonical_count_post": 33905,
+    "merged_into_count_post": 20704,
+    "v_category_sample_count_post": 48430,
+    "delta_canonical_merge_entries": 190,
+    "delta_f4_merges": 190
+  },
+  "wall_clock_s": 12.998,
+  "ended_at": "2026-05-23T10:37:18",
+  "acceptance": {
+    "gate_c_canonical_merge_preserved": true,
+    "gate_c_additive_only": true,
+    "vcs_shrinkage_pct_from_pre_step7": 3.09,
+    "vcs_stable_within_5pct_shrinkage": true
+  },
+  "passed": true
+}

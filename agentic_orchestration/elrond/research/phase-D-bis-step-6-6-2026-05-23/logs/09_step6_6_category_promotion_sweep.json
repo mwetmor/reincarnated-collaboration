@@ -1,0 +1,128 @@
+{
+  "script": "09_step6_6_category_promotion_sweep.py",
+  "db_path": "/Users/admin/Games/reincarnated-loadout/data/telemetry.db",
+  "started_at": "2026-05-23T10:36:47",
+  "promotion_execution": {
+    "candidates": 35291,
+    "promoted": 34363,
+    "excluded_fp": 928,
+    "excluded_fp_per_source": {
+      "cataclysm-dda": 82,
+      "gta-v-data": 37,
+      "met-museum": 694,
+      "royal_armouries": 110,
+      "wikipedia": 5
+    },
+    "per_source_promoted": {
+      "army-recognition": 62,
+      "cataclysm-dda": 846,
+      "gta-v-data": 146,
+      "met-museum": 3150,
+      "odin-army-tradoc": 3998,
+      "royal_armouries": 5521,
+      "souls-api-thomaslincoln": 2,
+      "wikidata": 12319,
+      "wikipedia": 8319
+    },
+    "per_source_wieldable_distribution": {
+      "army-recognition": {
+        "two_hand": 57,
+        "one_hand": 5
+      },
+      "cataclysm-dda": {
+        "two_hand": 711,
+        "one_hand": 127,
+        "no": 8
+      },
+      "gta-v-data": {
+        "one_hand": 22,
+        "two_hand": 119,
+        "no": 5
+      },
+      "met-museum": {
+        "one_hand": 1462,
+        "two_hand": 1688
+      },
+      "odin-army-tradoc": {
+        "two_hand": 3998
+      },
+      "royal_armouries": {
+        "two_hand": 3543,
+        "one_hand": 1327,
+        "no": 629,
+        "unknown": 22
+      },
+      "souls-api-thomaslincoln": {
+        "two_hand": 2
+      },
+      "wikidata": {
+        "two_hand": 11922,
+        "one_hand": 289,
+        "no": 106,
+        "either": 1,
+        "shoulder_supported": 1
+      },
+      "wikipedia": {
+        "two_hand": 7778,
+        "no": 319,
+        "one_hand": 214,
+        "shoulder_supported": 8
+      }
+    }
+  },
+  "acceptance": {
+    "v_category_sample_count_post_6_6": 49973,
+    "v_category_sample_per_source": {
+      "wikidata": 12216,
+      "wikipedia": 8220,
+      "nick-aschenbach-dnd-data": 6205,
+      "royal_armouries": 4870,
+      "wow-classic-items": 4429,
+      "odin-army-tradoc": 3998,
+      "met-museum": 3150,
+      "bsdata-warhammer-aos": 2157,
+      "osrsbox-db": 940,
+      "cataclysm-dda": 839,
+      "diablo2-d2data": 519,
+      "path-of-exile-repoe": 488,
+      "fextralife-elden-ring": 374,
+      "bloqhead-demigods": 319,
+      "elden-ring-erdb": 306,
+      "fextralife-ds2": 239,
+      "fextralife-ds3": 219,
+      "gta-v-data": 141,
+      "fextralife-ds1": 133,
+      "5e-bits-5e-database-2024": 110,
+      "army-recognition": 62,
+      "5e-bits-5e-database": 37,
+      "souls-api-thomaslincoln": 2
+    },
+    "v_category_sample_per_lineage": {
+      "fantasy_generic": 16284,
+      "european": 13372,
+      "east_asian": 13250,
+      "unknown": 2016,
+      "middle_eastern": 1395,
+      "south_asian": 1082,
+      "cross_cultural": 894,
+      "southeast_asian": 783,
+      "african": 487,
+      "south_american_indigenous": 203,
+      "mesoamerican": 83,
+      "arctic_circumpolar": 56,
+      "oceanic": 39,
+      "north_american_indigenous": 29
+    },
+    "weapon_kind_distribution_overall": {
+      "ammo_or_consumable": 17857,
+      "category": 36950,
+      "named_template": 14192,
+      "unique": 51,
+      "unknown": 20791
+    },
+    "gate_d_rowcount_in_band": true
+  },
+  "wall_clock_s": 0.887,
+  "ended_at": "2026-05-23T10:36:48",
+  "passed": true
+}
