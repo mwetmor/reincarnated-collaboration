@@ -4,6 +4,60 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-23 (Cycle 9.11 — Phase E-1 frame-revision fire ACCEPTANCE → Gate-2 critique-pair (jack-ryan PASS + gandalf CONDITIONAL PASS with 3 conditions) → Phase E-2 cluster-labeling dispatch authored) — 125 clusters at 0.9444 purity on substrate-voted k=3; framing-audit checklist (gandalf § 9.5) operationalized for first applied use in Phase E-2 labeling work; 3 sub-carries queued (provisional-label-bug, east_asian-curation-gap, n.am.indigenous substrate-expansion candidate)
+
+**Event:** Matt fired legolas on the Cycle 9.10 frame-revision dispatch. Legolas returned full acceptance in ~49 seconds (no panic, no memory pressure). Knight-rider ran Gate-2 critique-pair (jack-ryan DEV-MODE process review + gandalf Pattern-A-deep design-coherence framing-audit per his § 9.5 owed amendment first applied use). Both reviewers ratified with conditions folded into Phase E-2 dispatch.
+
+**Phase E-1 frame-revision acceptance gates:**
+
+| Gate | Criterion | Result |
+|---|---|---|
+| Cluster count | ≥ 50 emergent clusters | **125** ✓ |
+| Mean purity | ≥ 0.70 per-lineage purity | **0.9444** ✓ |
+| Full-pool coverage | All 48,430 rows assigned | **48,430 / 48,430** ✓ |
+| F6 flag | Clusters < 20 members | **0 small clusters** ✓ |
+| DB verification | Round-trip smoke + counts | **PASS** ✓ |
+| k = 3 | Substrate-voted axes 1-3 | **k=3 confirmed** ✓ |
+| Stratification | 14/14 lineages above mcs | **All present** ✓ |
+
+Pipeline fire: 12:26:48-12:27:37 EDT (~49 sec). Tag: `legolas/phase-E-1-frame-revision-subsample-k3-2026-05-23`. Commit `080c7bf` on main; pushed to origin.
+
+**Steps executed (knight-rider):**
+
+1. **Verified legolas output state.** Working tree clean (only `__pycache__/` untracked); tag cut correctly; 10 artifacts present per completion summary; legolas commit pushed to origin.
+2. **Read completion summary + MIGRATION.md.** All Gate-1 BLOCK/WARN fold-ins from Cycle 9.10 verified honored: acceptance gate verbatim, math-before-code stratification table committed pre-code, MIGRATION.md § 4 native-vs-nearest split with ADR-004 + Discipline #8 cite + downstream consumer guidance.
+3. **Gate-2 critique-pair in parallel (~Pattern-A-light each).**
+   - **Jack-ryan DEV-MODE Pattern-A-light** returned **PASS unconditional**. 1 WARN (psutil absent at runtime — non-blocking; queued as sub-carry 9.10-G.1 for Phase E-1.5 preflight). 1 INFO (D1 features.md log-vs-artifacts cosmetic tension).
+   - **Gandalf Pattern-A-deep framing-audit (first applied use of § 9.5 checklist)** returned **CONDITIONAL PASS** with 3 named conditions: (1) Cluster 90 (N=10,087 east_asian/unknown-period) labeled honestly as metadata-bucket cluster, NOT retro-fitted as weapon-design family; (2) cluster representatives sampled from `hdbscan_native` rows only per MIGRATION § 4; (3) Phase E-1.5 sensitivity sweep queued as IMMEDIATE follow-on (not indefinitely deferred). Additional findings surfaced: Cluster 50 provisional-description bug (top-reps `zweihänder` contradict `bow` provisional); n.am.indigenous has no coherent home cluster (29 rows / 15 cluster scatter; substrate-honest at mcs=10; should NOT be canonicalized via cluster).
+4. **Gate-2 findings record authored** at `knight-rider/notes/2026-05-23-phase-E-2-gate-2-findings-record.md` (both reviewer returns verbatim + synthesis table).
+5. **Phase E-2 dispatch authored** at `dispatches/2026-05-23-gandalf-phase-E-2-cluster-labeling.md`. Target: gandalf Pattern-B (~2-4 hours). All 3 gandalf conditions folded; provisional-description override protocol (§ 3); n.am.indigenous non-canonical disposition with canonical/story/ recognition-record requirement (§ 4); framing-audit checklist operationalization (§ 5; first applied use); output format MD + JSON (§ 6). Gate-1 SKIPPED (no new methodology choices; just operationalizes Gate-2 conditions verbatim).
+6. **DB write boundary preserved.** Phase E-2 produces structured artifacts (cluster-labels.md + .json); DB UPDATE on `clusters.label` is deferred to Phase E-2-DB sub-dispatch (elrond Pattern-A-light or legolas with explicit DB-write authorization). Seam ownership (gandalf authors canonical; elrond owns DB curation) preserved per ADR-006.
+
+**Tag-chain through Cycle 9.11:**
+
+No knight-rider tag this session (orchestration-layer-only). Next state-of-team checkpoint is gandalf's tag at end of Phase E-2 labeling: `gandalf/phase-E-2-cluster-labeling-2026-05-23`. Knight-rider may cut a milestone tag if substrate hive-mind progress warrants (post-Phase-E-2 review).
+
+**Open carries (consolidated; new sub-carries marked NEW):**
+
+- **NEW 9.11-A** — provisional-label-generator bug fix (Cluster 50 + estimated 5-15 similar); fix in `phase_e1_pipeline.py::write_clusters_subsample` auto-description heuristic; legolas or rocket cleanup; low-priority; non-blocking for Phase E-2 (gandalf overrides at label-authoring time)
+- **NEW 9.11-B** — n.am.indigenous substrate expansion candidate (if/when Alternative 2 carry 9.10-E fires); until then, non-canonical disposition stands per Phase E-2 § 4 recognition record
+- **NEW 9.11-C** — elrond review of east_asian unknown-period rows (~10K) for Phase-D-bis-style curation gap; surfaced by Cluster 90 metadata-bucket diagnosis; non-blocking for Phase E-2 (gandalf labels Cluster 90 honestly as metadata-bucket)
+- 9.10-A — frame-revision dispatch fire (legolas) — **CLOSED** (executed + accepted)
+- 9.10-B — gandalf addendum to kernel-panic-diagnosis — **CLOSED** (landed on disk Cycle 9.10)
+- 9.10-B.1 — gandalf OP amendment (framing-audit checklist at operating-procedures/gandalf.md + installed skill) — DEFERRED per Matt's direction; gandalf captures operational observations during Phase E-2 work for the OP write
+- 9.10-C — Discipline #18 amendment ratification (substrate-voting-is-binding) — jack-ryan queue
+- 9.10-D — Discipline #19 candidate ratification (forensic-conclusion-discipline) — jack-ryan queue
+- 9.10-E — Alternative 2 (substrate expansion via targeted rare-lineage crawls) — DORMANT (Phase E-1 acceptance means immediate fire not needed; remains the move IF Phase E-1.5 sensitivity sweep surfaces a substrate-coverage bottleneck OR future Phase consumer needs rare-lineage representation that the current substrate can't supply)
+- 9.10-F — Cloud-bigger-HDBSCAN — DORMANT
+- 9.10-G — Phase E-1.5 sensitivity sweep on `min_cluster_size` — **QUEUED for IMMEDIATE follow-on after Phase E-2** per gandalf Gate-2 condition 3; psutil install (sub-carry 9.10-G.1) is the preflight
+- 9.10-G.1 — psutil install as Phase E-1.5 preflight — NEW from jack-ryan Gate-2 WARN
+
+**Discipline observations status:**
+
+Observations 5 + 6 from Cycle 9.10 unchanged. Phase E-2 work generates additional empirical observations on the framing-audit checklist's operational behavior — these feed the gandalf OP amendment write (9.10-B.1) and may surface a Discipline #20 candidate (framing-audit-at-label-authoring) if the pattern emerges as discipline-worthy.
+
+---
+
 ## 2026-05-23 (Cycle 9.10 — Phase E-1 OPTION-A refuted by 4th kernel panic → Matt + gandalf joint frame-revision resize → stratified-subsample k=3 dispatch authored + jack-ryan Gate-1 BLOCK folded + 2 new Discipline candidates queued) — fourth kernel panic in 12 hours refutes OPTION-A's memory hypothesis; substrate's k_stable=3 verdict is re-cut as binding gate; cloud fire cancelled; Alternative 2 (substrate expansion) is the failure-path next move
 
 **Event:** OPTION-A dispatch (fired by Matt earlier this cycle per Cycle 9.9 authoring) caused the 4th macOS kernel panic of the day at 11:43:45 EDT during HDBSCAN.fit on un-expanded (48,430 × 12). Matt + gandalf jointly resized the experiment at ~12:00 EDT to a frame-revision: stratified subsample (~10K) on substrate-voted k=3 axes. Knight-rider operationalized the resize as a Pattern-B dispatch with jack-ryan Gate-1 Pattern-A-light review folded.
