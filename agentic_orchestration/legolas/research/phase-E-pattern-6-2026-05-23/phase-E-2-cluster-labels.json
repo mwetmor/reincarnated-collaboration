@@ -1,0 +1,4309 @@
+{
+  "cluster_algorithm_version": "phase-E-1-subsample-k3-2026-05-23",
+  "labeled_at": "2026-05-23T17:01:45Z",
+  "labeled_by": "gandalf",
+  "framing_audit_applied": true,
+  "non_canonical_lineages": [
+    "north_american_indigenous"
+  ],
+  "indexing_note": "id = legolas cluster_id (0-124, matches clusters.md + axis-discovery + dispatch text); db_cluster_id = sqlite clusters.id (1-125, for Phase E-2-DB UPDATE clause)",
+  "label_authority": "coarse_spine_canonical (Phase E-2; weapon-form-resolution-final deferred to Phase E-1.5 sensitivity sweep + follow-on re-labeling pass per gandalf Gate-2 condition 3)",
+  "clusters": [
+    {
+      "id": 0,
+      "db_cluster_id": 1,
+      "canonical_label": "Cross-Cultural Contemporary Mixed-Form Pool",
+      "cluster_type": "mixed_cross_cultural",
+      "dominant_lineage": "cross_cultural",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "dominant_kind": "category",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 0.7391,
+      "pool_count": 46,
+      "hdbscan_native_count": 12,
+      "top_3_reps": [
+        "Navy Revolver",
+        "mild steel kukri",
+        "wakizashi"
+      ],
+      "top_5_reps": [
+        "Navy Revolver",
+        "mild steel kukri",
+        "wakizashi",
+        "mild steel wakizashi",
+        "medium steel wakizashi"
+      ],
+      "provisional_description": "PROVISIONAL: cross_cultural contemporary staff/axe weapons (military_modern register; category; N=46)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: cross_cultural contemporary staff/axe weapons (military_modern register; category; N=46)",
+      "override_reason": "Provisional 'staff/axe' weapon-type tokenization is wrong; top hdbscan_native reps are navy revolver + mild steel kukri + wakizashi \u2014 a cross-cultural contemporary mixed-form pool, not a staff/axe cluster.",
+      "framing_audit_notes": "Load-bearing assumption: provisional 'staff/axe' label denotes weapon-form coherence. Reps refute (revolver/kukri/wakizashi span pistol/knife/sword forms). Refinement: label as cross-cultural mixed-form rather than naming a specific form. Substrate is axis-coherent (cross-cultural + contemporary + military_modern + category + two-hand) but weapon-form-heterogeneous at coarse k=3.",
+      "special_case_flags": [
+        "provisional_description_overridden",
+        "mixed_form_within_cluster"
+      ],
+      "phase_e3_e4_handoff_notes": "Phase E-1.5 sensitivity sweep at higher k may split this cluster along weapon-form lines; defer form-resolution to that pass."
+    },
+    {
+      "id": 1,
+      "db_cluster_id": 2,
+      "canonical_label": "Cross-Cultural Contemporary Pistol Pool",
+      "cluster_type": "mixed_cross_cultural",
+      "dominant_lineage": "cross_cultural",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "dominant_kind": "category",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 0.9714,
+      "pool_count": 105,
+      "hdbscan_native_count": 27,
+      "top_3_reps": [
+        "Knife",
+        "Pistol",
+        "Heavy Pistol"
+      ],
+      "top_5_reps": [
+        "Knife",
+        "Pistol",
+        "Heavy Pistol",
+        "WM 29 Pistol",
+        "Antique Cavalry Dagger"
+      ],
+      "provisional_description": "PROVISIONAL: cross_cultural contemporary pistol/knife weapons (military_modern register; category; N=105)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest cross-cultural contemporary pistol cluster (purity 0.9714).",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 2,
+      "db_cluster_id": 3,
+      "canonical_label": "Fantasy-Generic Fictional Battleaxe Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 214,
+      "hdbscan_native_count": 40,
+      "top_3_reps": [
+        "Abyssal Bane Battleaxe (rare variant)",
+        "Battleaxe +1",
+        "Battleaxe +2"
+      ],
+      "top_5_reps": [
+        "Abyssal Bane Battleaxe (rare variant)",
+        "Battleaxe +1",
+        "Battleaxe +2",
+        "Battleaxe of Agonizing Paralysis",
+        "Battleaxe of Bloodletting"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional axe/greataxe weapons (fantasy register; named_template; N=214)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 5/5 top hdbscan_native reps contain 'battleaxe' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 3,
+      "db_cluster_id": 4,
+      "canonical_label": "European-Tagged Contemporary Knife Pool (Mixed)",
+      "cluster_type": "mixed_cross_cultural",
+      "dominant_lineage": "european",
+      "dominant_period": "contemporary",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 0.5165,
+      "pool_count": 91,
+      "hdbscan_native_count": 16,
+      "top_3_reps": [
+        "Butterfly Knife",
+        "Gut Knife",
+        "Skeleton Knife"
+      ],
+      "top_5_reps": [
+        "Butterfly Knife",
+        "Gut Knife",
+        "Skeleton Knife",
+        "Cursed dagger",
+        "Centrefire target pistol"
+      ],
+      "provisional_description": "PROVISIONAL: european contemporary pistol/knife weapons (historical register; category; N=91)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Low lineage purity 0.5165 \u2014 cluster has substantial secondary lineage content. Coarse-spine label retains dominant tagging with mixed flag.",
+      "special_case_flags": [
+        "low_lineage_purity"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 4,
+      "db_cluster_id": 5,
+      "canonical_label": "Fantasy-Generic Fictional Club Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "category",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 0.9355,
+      "pool_count": 31,
+      "hdbscan_native_count": 15,
+      "top_3_reps": [
+        "Katar",
+        "Katar of Bloodletting",
+        "Slingshot"
+      ],
+      "top_5_reps": [
+        "Katar",
+        "Katar of Bloodletting",
+        "Slingshot",
+        "Katar",
+        "Wakizashi"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional club/hammer weapons (fantasy register; category; N=31)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: fantasy_generic fictional club/hammer weapons (fantasy register; category; N=31)",
+      "override_reason": "Provisional weapon-form 'club/hammer' refined from rep evidence; dominant rep-form is 'wakizashi' (1/5).",
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.9355); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint. Provisional weapon-form 'club/hammer' not present in top-3 hdbscan_native reps.",
+      "special_case_flags": [
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 5,
+      "db_cluster_id": 6,
+      "canonical_label": "Fantasy-Generic Fictional Dagger Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "category",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 0.9351,
+      "pool_count": 77,
+      "hdbscan_native_count": 18,
+      "top_3_reps": [
+        "Dagger of Terror",
+        "Javelin +3",
+        "Pistol"
+      ],
+      "top_5_reps": [
+        "Dagger of Terror",
+        "Javelin +3",
+        "Pistol",
+        "Pistol +1",
+        "Wand of Tides"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional dagger/wand weapons (fantasy register; category; N=77)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.9351); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 6,
+      "db_cluster_id": 7,
+      "canonical_label": "Fantasy-Generic Fictional Wand Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 149,
+      "hdbscan_native_count": 26,
+      "top_3_reps": [
+        "Black Bloom Wand (rare variant)",
+        "Prospector's Wand",
+        "Wand of Relieved Burdens"
+      ],
+      "top_5_reps": [
+        "Black Bloom Wand (rare variant)",
+        "Prospector's Wand",
+        "Wand of Relieved Burdens",
+        "Wand of Whooping Explosions",
+        "White Oak Wand"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional wand/axe weapons (fantasy register; named_template; N=149)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 5/5 top hdbscan_native reps contain 'wand' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 7,
+      "db_cluster_id": 8,
+      "canonical_label": "Fantasy-Generic Fictional Shield Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 59,
+      "hdbscan_native_count": 15,
+      "top_3_reps": [
+        "Dangerous Volatile Spiked Shield",
+        "Alder Spiked Shield",
+        "Mirrored Spiked Shield"
+      ],
+      "top_5_reps": [
+        "Dangerous Volatile Spiked Shield",
+        "Alder Spiked Shield",
+        "Mirrored Spiked Shield",
+        "Supreme Spiked Shield",
+        "Driftwood Spiked Shield"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional pike/sword weapons (fantasy register; named_template; N=59)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 5/5 top hdbscan_native reps contain 'shield' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 8,
+      "db_cluster_id": 9,
+      "canonical_label": "Fantasy-Generic Fictional Revolver Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 249,
+      "hdbscan_native_count": 44,
+      "top_3_reps": [
+        "Bloodbone Kris",
+        "Bloodshot Revolver",
+        "Caster Blaster Revolver"
+      ],
+      "top_5_reps": [
+        "Bloodbone Kris",
+        "Bloodshot Revolver",
+        "Caster Blaster Revolver",
+        "Deepshot Revolver (rare variant)",
+        "Dragon Slayer Sling"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional axe/spear weapons (fantasy register; named_template; N=249)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: fantasy_generic fictional axe/spear weapons (fantasy register; named_template; N=249)",
+      "override_reason": "Provisional weapon-form 'axe/spear' refined from rep evidence; dominant rep-form is 'revolver' (3/5).",
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 3/5 top hdbscan_native reps contain 'revolver' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space. Provisional weapon-form tokens (axe/spear) did not match dominant rep-form (revolver); refined from rep evidence.",
+      "special_case_flags": [
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 9,
+      "db_cluster_id": 10,
+      "canonical_label": "Fantasy-Generic Fictional Javelin Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 0.8839,
+      "pool_count": 155,
+      "hdbscan_native_count": 35,
+      "top_3_reps": [
+        "Corpse Slayer Javelin",
+        "Javelin of Certain Death",
+        "Lichslayer Dagger (rare variant)"
+      ],
+      "top_5_reps": [
+        "Corpse Slayer Javelin",
+        "Javelin of Certain Death",
+        "Lichslayer Dagger (rare variant)",
+        "Lichslayer Javelin (rare variant)",
+        "Wand of Bristles"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic classical dagger/wand weapons (fantasy register; named_template; N=155)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 3/5 top hdbscan_native reps contain 'javelin' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 10,
+      "db_cluster_id": 11,
+      "canonical_label": "Fantasy-Generic Fictional Javelin Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 80,
+      "hdbscan_native_count": 20,
+      "top_3_reps": [
+        "Abyssal Bane Javelin (rare variant)",
+        "Defender Javelin",
+        "Driftwood Javelin"
+      ],
+      "top_5_reps": [
+        "Abyssal Bane Javelin (rare variant)",
+        "Defender Javelin",
+        "Driftwood Javelin",
+        "Enspelled Javelin (Level 2)",
+        "Enspelled Javelin (Level 5)"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional javelin weapons (fantasy register; named_template; N=80)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 5/5 top hdbscan_native reps contain 'javelin' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 11,
+      "db_cluster_id": 12,
+      "canonical_label": "Fantasy-Generic Fictional Shortsword Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9211,
+      "pool_count": 76,
+      "hdbscan_native_count": 16,
+      "top_3_reps": [
+        "Greatsword +3",
+        "Shortsword of Defense",
+        "Shortsword of Wounding"
+      ],
+      "top_5_reps": [
+        "Greatsword +3",
+        "Shortsword of Defense",
+        "Shortsword of Wounding",
+        "Greatsword",
+        "Shortsword of Vengeance"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional sword/greatsword weapons (fantasy register; category; N=76)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest weapon-family cluster (purity 0.9211); 3/5 reps confirm 'shortsword' form.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 12,
+      "db_cluster_id": 13,
+      "canonical_label": "Fantasy-Generic Fictional Dagger Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 266,
+      "hdbscan_native_count": 50,
+      "top_3_reps": [
+        "Abyssal Bane Dagger",
+        "Adamantine Dagger",
+        "Chardalyn Dagger"
+      ],
+      "top_5_reps": [
+        "Abyssal Bane Dagger",
+        "Adamantine Dagger",
+        "Chardalyn Dagger",
+        "Consecrated Weapon Dagger (uncommon variant)",
+        "Corecut Dagger"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional dagger/sword weapons (fantasy register; named_template; N=266)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 5/5 top hdbscan_native reps contain 'dagger' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 13,
+      "db_cluster_id": 14,
+      "canonical_label": "Fantasy-Generic Fictional Wand Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 72,
+      "hdbscan_native_count": 11,
+      "top_3_reps": [
+        "Mana Channeling Wand",
+        "Bloodwood Wand",
+        "Magician's Wand"
+      ],
+      "top_5_reps": [
+        "Mana Channeling Wand",
+        "Bloodwood Wand",
+        "Magician's Wand",
+        "Eredar Wand of Obliteration",
+        "Wand of Prismatic Focus"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic classical wand weapons (fantasy register; named_template; N=72)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 5/5 top hdbscan_native reps contain 'wand' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 14,
+      "db_cluster_id": 15,
+      "canonical_label": "Fantasy-Generic Fictional Pistol Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 83,
+      "hdbscan_native_count": 12,
+      "top_3_reps": [
+        "Deepshot Pistol (rare variant)",
+        "Enspelled Pistol (Level 4)",
+        "Giant Slayer Pistol"
+      ],
+      "top_5_reps": [
+        "Deepshot Pistol (rare variant)",
+        "Enspelled Pistol (Level 4)",
+        "Giant Slayer Pistol",
+        "Holy Avenger Pistol",
+        "Piecemaker Mk.3 Pistol"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional pistol/lance weapons (fantasy register; named_template; N=83)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 5/5 top hdbscan_native reps contain 'pistol' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 15,
+      "db_cluster_id": 16,
+      "canonical_label": "Fantasy-Generic Fictional Starknife Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 135,
+      "hdbscan_native_count": 32,
+      "top_3_reps": [
+        "Cosmic Starknife",
+        "Rootbound Multiweapon Starknife (very rare variant)",
+        "Sacrificial Knife, Ceremonial"
+      ],
+      "top_5_reps": [
+        "Cosmic Starknife",
+        "Rootbound Multiweapon Starknife (very rare variant)",
+        "Sacrificial Knife, Ceremonial",
+        "Seashell Weapon Starknife",
+        "Starforged Weapon Starknife"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional knife weapons (fantasy register; named_template; N=135)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 4/5 top hdbscan_native reps contain 'starknife' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 16,
+      "db_cluster_id": 17,
+      "canonical_label": "Fantasy-Generic Fictional Shortsword Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 224,
+      "hdbscan_native_count": 53,
+      "top_3_reps": [
+        "Aldrnari Blade Shortsword",
+        "Aldrnari Blade Shortsword (very rare variant)",
+        "Blade of Prey Shortsword"
+      ],
+      "top_5_reps": [
+        "Aldrnari Blade Shortsword",
+        "Aldrnari Blade Shortsword (very rare variant)",
+        "Blade of Prey Shortsword",
+        "Bleeding Edge Shortsword (rare variant)",
+        "Buzzkill Shortsword"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional sword/shortsword weapons (fantasy register; named_template; N=224)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 5/5 top hdbscan_native reps contain 'shortsword' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 17,
+      "db_cluster_id": 18,
+      "canonical_label": "Fantasy-Generic Fictional Greatsword Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 317,
+      "hdbscan_native_count": 61,
+      "top_3_reps": [
+        "Acheron Greatsword",
+        "Aperture Sword Greatsword (rare variant)",
+        "Blade of the Battle Seer Greatsword"
+      ],
+      "top_5_reps": [
+        "Acheron Greatsword",
+        "Aperture Sword Greatsword (rare variant)",
+        "Blade of the Battle Seer Greatsword",
+        "Bleeding Edge Greatsword (rare variant)",
+        "Bleeding Edge Greatsword (uncommon variant)"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional sword/greatsword weapons (fantasy register; named_template; N=317)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 5/5 top hdbscan_native reps contain 'greatsword' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 18,
+      "db_cluster_id": 19,
+      "canonical_label": "Fantasy-Generic Fictional Longsword Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 239,
+      "hdbscan_native_count": 46,
+      "top_3_reps": [
+        "Adamantine Longsword",
+        "Aperture Sword Longsword (very rare variant)",
+        "Aperture Sword Rapier (rare variant)"
+      ],
+      "top_5_reps": [
+        "Adamantine Longsword",
+        "Aperture Sword Longsword (very rare variant)",
+        "Aperture Sword Rapier (rare variant)",
+        "Bloodshed Longsword",
+        "Ceremonial Macuahuitl Longsword"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional sword/longsword weapons (fantasy register; named_template; N=239)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 4/5 top hdbscan_native reps contain 'longsword' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 19,
+      "db_cluster_id": 20,
+      "canonical_label": "East Asian Early-Modern Wakizashi Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "east_asian",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 0.9559,
+      "pool_count": 68,
+      "hdbscan_native_count": 12,
+      "top_3_reps": [
+        "Blade and Mounting for a Short Sword (Wakizashi)",
+        "Blade and Mounting for a Sword (Katana)",
+        "Blade and Mounting for a Sword (Katana)"
+      ],
+      "top_5_reps": [
+        "Blade and Mounting for a Short Sword (Wakizashi)",
+        "Blade and Mounting for a Sword (Katana)",
+        "Blade and Mounting for a Sword (Katana)",
+        "Blade and Mounting for a Short Sword (Wakizashi)",
+        "Blade and Mounting for a Short Sword (Wakizashi)"
+      ],
+      "provisional_description": "PROVISIONAL: east_asian early_modern sword/dagger weapons (historical register; category; N=68)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest weapon-family cluster (purity 0.9559); 3/5 reps confirm 'wakizashi' form.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 20,
+      "db_cluster_id": 21,
+      "canonical_label": "European Industrial Sword Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "european",
+      "dominant_period": "industrial",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 0.7121,
+      "pool_count": 66,
+      "hdbscan_native_count": 14,
+      "top_3_reps": [
+        "Light Cavalry sword",
+        "Sword and knot",
+        "Sacrificial sword (ram dao)"
+      ],
+      "top_5_reps": [
+        "Light Cavalry sword",
+        "Sword and knot",
+        "Sacrificial sword (ram dao)",
+        "Sword stick",
+        "Sword-knot"
+      ],
+      "provisional_description": "PROVISIONAL: european industrial sword/axe weapons (historical register; category; N=66)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest weapon-family cluster (purity 0.7121); 5/5 reps confirm 'sword' form.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 21,
+      "db_cluster_id": 22,
+      "canonical_label": "Cross-Cultural Contemporary Hafted/Edged Pool",
+      "cluster_type": "mixed_cross_cultural",
+      "dominant_lineage": "cross_cultural",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9268,
+      "pool_count": 123,
+      "hdbscan_native_count": 23,
+      "top_3_reps": [
+        "war hammer",
+        "high steel war hammer",
+        "simple makeshift glaive"
+      ],
+      "top_5_reps": [
+        "war hammer",
+        "high steel war hammer",
+        "simple makeshift glaive",
+        "homemade halfpike",
+        "basic pipe pike"
+      ],
+      "provisional_description": "PROVISIONAL: cross_cultural contemporary sword/bow weapons (military_modern register; category; N=123)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: cross_cultural contemporary sword/bow weapons (military_modern register; category; N=123)",
+      "override_reason": "Provisional 'sword/bow' label contradicts reps (war hammer + high steel war hammer + simple makeshift glaive). Cluster groups cross-cultural contemporary hafted+edged melee weapons.",
+      "framing_audit_notes": "Substrate-honest cross-cultural mixed-form cluster; reps fall in hafted/edged contemporary melee category rather than sword/bow.",
+      "special_case_flags": [
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 22,
+      "db_cluster_id": 23,
+      "canonical_label": "East Asian Traditional Polearm/Blade Pool",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "east_asian",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9793,
+      "pool_count": 1256,
+      "hdbscan_native_count": 274,
+      "top_3_reps": [
+        "naginata",
+        "ji",
+        "dao"
+      ],
+      "top_5_reps": [
+        "naginata",
+        "ji",
+        "dao",
+        "mild steel nodachi",
+        "high steel nodachi"
+      ],
+      "provisional_description": "PROVISIONAL: east_asian contemporary rifle/lance weapons (military_modern register; category; N=1256)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: east_asian contemporary rifle/lance weapons (military_modern register; category; N=1256)",
+      "override_reason": "Provisional 'rifle/lance' contradicted by reps (naginata + ji + dao \u2014 all classical East Asian polearms/blades). Despite period='contemporary' tag dominating, the represented forms are traditional east-asian polearm/sword forms.",
+      "framing_audit_notes": "Cluster reflects East Asian traditional weapon forms (polearm/blade). Period='contemporary' tag is likely a substrate-tagging artifact (catalogue entries describing classical forms under contemporary collection metadata). Coarse-spine label honors weapon-form signal.",
+      "special_case_flags": [
+        "provisional_description_overridden",
+        "period_tag_likely_metadata_artifact"
+      ],
+      "phase_e3_e4_handoff_notes": "elrond Phase-D-bis follow-on: east_asian contemporary-tagged historical polearm entries may warrant period re-curation."
+    },
+    {
+      "id": 23,
+      "db_cluster_id": 24,
+      "canonical_label": "Arctic/Northern Contemporary Heavy Weapon Systems",
+      "cluster_type": "modern_military_hardware_pool",
+      "dominant_lineage": "arctic_circumpolar",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.8824,
+      "pool_count": 34,
+      "hdbscan_native_count": 14,
+      "top_3_reps": [
+        "2S1 Gvozdika Russian 122mm Amphibious Self-Propelled Howitzer (SPH)",
+        "RBS-70 Swedish Man-Portable Air Defense Missile System (MANPADS)",
+        "Mistral 3 French Man-Portable Air Defense Missile System (MANPADS)"
+      ],
+      "top_5_reps": [
+        "2S1 Gvozdika Russian 122mm Amphibious Self-Propelled Howitzer (SPH)",
+        "RBS-70 Swedish Man-Portable Air Defense Missile System (MANPADS)",
+        "Mistral 3 French Man-Portable Air Defense Missile System (MANPADS)",
+        "Nimr Hafeet Emirati 6x6 Armored Ambulance",
+        "CV 9030 Swedish Infantry Fighting Vehicle (IFV)"
+      ],
+      "provisional_description": "PROVISIONAL: arctic_circumpolar contemporary lance/rifle weapons (military_modern register; category; N=34)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: arctic_circumpolar contemporary lance/rifle weapons (military_modern register; category; N=34)",
+      "override_reason": "Provisional 'lance/rifle' weapon-form contradicted by reps (2S1 Gvozdika SPH + RBS-70 MANPADS + Mistral 3 MANPADS). Cluster is contemporary military hardware (self-propelled howitzers, man-portable air-defense systems), not lance.",
+      "framing_audit_notes": "Provisional label retained 'arctic_circumpolar' lineage but reps reveal cluster is dominated by Russian/Swedish/French missile + artillery systems whose lineage tagging reflects geographic-origin metadata, not arctic-circumpolar cultural lineage. Substrate-honest arctic_circumpolar coherent weapons cluster does NOT exist at this k.",
+      "special_case_flags": [
+        "provisional_description_overridden",
+        "modern_military_hardware",
+        "lineage_tag_geographic_not_cultural"
+      ],
+      "phase_e3_e4_handoff_notes": "Sub-carry: arctic_circumpolar substrate may need lineage-tagging re-curation distinguishing geographic-origin from cultural-lineage."
+    },
+    {
+      "id": 24,
+      "db_cluster_id": 25,
+      "canonical_label": "Fantasy-Generic Classical Pike Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9197,
+      "pool_count": 361,
+      "hdbscan_native_count": 63,
+      "top_3_reps": [
+        "Grovelthrash",
+        "Mincer",
+        "Headchopper"
+      ],
+      "top_5_reps": [
+        "Grovelthrash",
+        "Mincer",
+        "Headchopper",
+        "Gutrender",
+        "Vibroblade"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic classical pike/bow weapons (fantasy register; category; N=361)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: fantasy_generic classical pike/bow weapons (fantasy register; category; N=361)",
+      "override_reason": "Provisional weapon-form 'pike/bow' not supported by top hdbscan_native reps.",
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.9197); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint. Provisional weapon-form 'pike/bow' not present in top-3 hdbscan_native reps.",
+      "special_case_flags": [
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 25,
+      "db_cluster_id": 26,
+      "canonical_label": "Fantasy-Generic Fictional Hook-Sword Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9829,
+      "pool_count": 410,
+      "hdbscan_native_count": 79,
+      "top_3_reps": [
+        "Deadly Volatile Hook Sword",
+        "Defensive Hook Sword +2",
+        "Double Sword"
+      ],
+      "top_5_reps": [
+        "Deadly Volatile Hook Sword",
+        "Defensive Hook Sword +2",
+        "Double Sword",
+        "Ember Sword",
+        "Hook Sword of Climbing"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional sword/greatsword weapons (fantasy register; named_template; N=410)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 3/5 top hdbscan_native reps contain 'hook sword' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 26,
+      "db_cluster_id": 27,
+      "canonical_label": "Fantasy-Generic Fictional Staff Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 244,
+      "hdbscan_native_count": 38,
+      "top_3_reps": [
+        "Warden Staff",
+        "War Staff",
+        "Advisor's Gnarled Staff"
+      ],
+      "top_5_reps": [
+        "Warden Staff",
+        "War Staff",
+        "Advisor's Gnarled Staff",
+        "Blessed Qiraji Augur Staff",
+        "Brimstone Staff"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic classical staff weapons (fantasy register; named_template; N=244)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 5/5 top hdbscan_native reps contain 'staff' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 27,
+      "db_cluster_id": 28,
+      "canonical_label": "Fantasy-Generic Fictional Spear Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9885,
+      "pool_count": 1301,
+      "hdbscan_native_count": 247,
+      "top_3_reps": [
+        "Acid",
+        "Ballista",
+        "Blade of Petals"
+      ],
+      "top_5_reps": [
+        "Acid",
+        "Ballista",
+        "Blade of Petals",
+        "Blade of the Dervish",
+        "Bonecleaver"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional spear/mace weapons (fantasy register; category; N=1301)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: fantasy_generic fictional spear/mace weapons (fantasy register; category; N=1301)",
+      "override_reason": "Provisional weapon-form 'spear/mace' not supported by top hdbscan_native reps.",
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.9885); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint. Provisional weapon-form 'spear/mace' not present in top-3 hdbscan_native reps.",
+      "special_case_flags": [
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 28,
+      "db_cluster_id": 29,
+      "canonical_label": "Fantasy-Generic Fictional Staff Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 437,
+      "hdbscan_native_count": 89,
+      "top_3_reps": [
+        "Abyssal Bane Quarterstaff",
+        "Abyssal Bane Quarterstaff (very rare variant)",
+        "Baton of the Mindbender Staff"
+      ],
+      "top_5_reps": [
+        "Abyssal Bane Quarterstaff",
+        "Abyssal Bane Quarterstaff (very rare variant)",
+        "Baton of the Mindbender Staff",
+        "Black Bloom Staff",
+        "Bo Staff of Bloodletting"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional staff/spear weapons (fantasy register; named_template; N=437)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 3/5 top hdbscan_native reps contain 'staff' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 29,
+      "db_cluster_id": 30,
+      "canonical_label": "Fantasy-Generic Fictional Crossbow Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 76,
+      "hdbscan_native_count": 12,
+      "top_3_reps": [
+        "Nine Lives Stealer Light Crossbow",
+        "Nine Lives Stealer Scimitar",
+        "Ram's Head Crossbow"
+      ],
+      "top_5_reps": [
+        "Nine Lives Stealer Light Crossbow",
+        "Nine Lives Stealer Scimitar",
+        "Ram's Head Crossbow",
+        "Citadel Crossbow",
+        "Assassins' Silent Crossbow"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic classical bow/crossbow weapons (fantasy register; named_template; N=76)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 4/5 top hdbscan_native reps contain 'crossbow' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 30,
+      "db_cluster_id": 31,
+      "canonical_label": "South Asian Contemporary Mixed-Form Pool",
+      "cluster_type": "mixed_cross_cultural",
+      "dominant_lineage": "south_asian",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.6234,
+      "pool_count": 77,
+      "hdbscan_native_count": 41,
+      "top_3_reps": [
+        "kirpan",
+        "Browning Hi-Power .40 S&W",
+        "Advik FPV Indian Unmanned Aerial Vehicle (UAV)"
+      ],
+      "top_5_reps": [
+        "kirpan",
+        "Browning Hi-Power .40 S&W",
+        "Advik FPV Indian Unmanned Aerial Vehicle (UAV)",
+        "KAB-500L Russian Laser-Guided Bomb",
+        "Switch Indian Unmanned Aerial Vehicle (UAV)"
+      ],
+      "provisional_description": "PROVISIONAL: south_asian contemporary pistol/sword weapons (military_modern register; category; N=77)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: south_asian contemporary pistol/sword weapons (military_modern register; category; N=77)",
+      "override_reason": "Provisional 'pistol/sword' contradicted by reps spanning kirpan (Sikh dagger) + Browning Hi-Power pistol + Advik Indian UAV. Cluster mixes religious knives, modern pistols, and Indian drone systems.",
+      "framing_audit_notes": "Lineage purity 0.6234 \u2014 cluster has secondary lineage contribution. Coarse-spine label reflects mixed-form nature; weapon-form distinctions impossible at k=3.",
+      "special_case_flags": [
+        "provisional_description_overridden",
+        "modern_military_hardware",
+        "low_lineage_purity"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 31,
+      "db_cluster_id": 32,
+      "canonical_label": "Southeast Asian Contemporary Heavy Munitions Pool",
+      "cluster_type": "modern_military_hardware_pool",
+      "dominant_lineage": "southeast_asian",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.5155,
+      "pool_count": 194,
+      "hdbscan_native_count": 30,
+      "top_3_reps": [
+        "DARPA flamethrower",
+        "STK 40 AGL Singaporean 40mm Automatic Grenade Launcher",
+        "MDH-10 Vietnamese Anti-Personnel Mine"
+      ],
+      "top_5_reps": [
+        "DARPA flamethrower",
+        "STK 40 AGL Singaporean 40mm Automatic Grenade Launcher",
+        "MDH-10 Vietnamese Anti-Personnel Mine",
+        "Min Vietnamese Anti-Personnel Mine",
+        "MDH-10K Vietnamese Anti-Personnel Mine"
+      ],
+      "provisional_description": "PROVISIONAL: southeast_asian contemporary rifle weapons (military_modern register; category; N=194)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: southeast_asian contemporary rifle weapons (military_modern register; category; N=194)",
+      "override_reason": "Provisional 'rifle' contradicted by reps (DARPA flamethrower + STK 40 AGL Singaporean grenade launcher + MDH-10 Vietnamese anti-personnel mine). Cluster is contemporary heavy munitions, not rifles.",
+      "framing_audit_notes": "Lineage purity 0.5155 \u2014 secondary contributions present. Cluster substrate-honest at axis level (contemporary + military_modern + southeast asia adjacency) but populated with grenade/mine/flamethrower forms.",
+      "special_case_flags": [
+        "provisional_description_overridden",
+        "modern_military_hardware",
+        "low_lineage_purity"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 32,
+      "db_cluster_id": 33,
+      "canonical_label": "Cross-Cultural Contemporary Rifle Pool",
+      "cluster_type": "mixed_cross_cultural",
+      "dominant_lineage": "cross_cultural",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9752,
+      "pool_count": 121,
+      "hdbscan_native_count": 31,
+      "top_3_reps": [
+        "Bullpup Rifle",
+        "Marksman Rifle",
+        "Military Rifle"
+      ],
+      "top_5_reps": [
+        "Bullpup Rifle",
+        "Marksman Rifle",
+        "Military Rifle",
+        "small game rifle",
+        "varmint rifle"
+      ],
+      "provisional_description": "PROVISIONAL: cross_cultural contemporary rifle/shotgun weapons (military_modern register; category; N=121)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest cross-cultural contemporary rifle cluster (purity 0.9752).",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 33,
+      "db_cluster_id": 34,
+      "canonical_label": "Fantasy-Generic Fictional Sword Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9444,
+      "pool_count": 54,
+      "hdbscan_native_count": 16,
+      "top_3_reps": [
+        "Sword of Answering",
+        "Sword of Corrosion",
+        "Sword of Kas"
+      ],
+      "top_5_reps": [
+        "Sword of Answering",
+        "Sword of Corrosion",
+        "Sword of Kas",
+        "Sword of Sharpness",
+        "Greatsword of the Sin'dorei"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional sword/greatsword weapons (fantasy register; category; N=54)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest weapon-family cluster (purity 0.9444); 4/5 reps confirm 'sword' form.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 34,
+      "db_cluster_id": 35,
+      "canonical_label": "Fantasy-Generic Fictional Mixed Named-Item Pool",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 468,
+      "hdbscan_native_count": 94,
+      "top_3_reps": [
+        "Caustic Bow",
+        "Chardalyn Shortbow",
+        "Compound Bow"
+      ],
+      "top_5_reps": [
+        "Caustic Bow",
+        "Chardalyn Shortbow",
+        "Compound Bow",
+        "Deadly Volatile Shortbow",
+        "Dragon Wing Bow"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional bow/club weapons (fantasy register; named_template; N=468)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Mixed named-template cluster; neither weapon-form nor name-prefix dominates top-5 reps. Coarse-spine label.",
+      "special_case_flags": [
+        "mixed_form_within_cluster"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 35,
+      "db_cluster_id": 36,
+      "canonical_label": "Fantasy-Generic Fictional Halberd Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 152,
+      "hdbscan_native_count": 38,
+      "top_3_reps": [
+        "Abyssal Bane Halberd (very rare variant)",
+        "Blood Drinker Halberd",
+        "Consecrated Weapon Halberd"
+      ],
+      "top_5_reps": [
+        "Abyssal Bane Halberd (very rare variant)",
+        "Blood Drinker Halberd",
+        "Consecrated Weapon Halberd",
+        "Enspelled Halberd (Cantrip)",
+        "Enspelled Halberd (Level 3)"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional halberd weapons (fantasy register; named_template; N=152)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 5/5 top hdbscan_native reps contain 'halberd' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 36,
+      "db_cluster_id": 37,
+      "canonical_label": "Fantasy-Generic Fictional Glaive Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 115,
+      "hdbscan_native_count": 34,
+      "top_3_reps": [
+        "Blood Drinker Glaive (legendary variant)",
+        "Chaos Glaive",
+        "Defender Glaive"
+      ],
+      "top_5_reps": [
+        "Blood Drinker Glaive (legendary variant)",
+        "Chaos Glaive",
+        "Defender Glaive",
+        "Driftwood Glaive",
+        "Enspelled Glaive (Cantrip)"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional glaive weapons (fantasy register; named_template; N=115)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 5/5 top hdbscan_native reps contain 'glaive' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 37,
+      "db_cluster_id": 38,
+      "canonical_label": "Fantasy-Generic Fictional Staff Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 133,
+      "hdbscan_native_count": 23,
+      "top_3_reps": [
+        "Blackstaff",
+        "Staff",
+        "Staff of Giantkin"
+      ],
+      "top_5_reps": [
+        "Blackstaff",
+        "Staff",
+        "Staff of Giantkin",
+        "Staff of Power",
+        "Staff of the Aspirant"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional staff/axe weapons (fantasy register; category; N=133)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest weapon-family cluster (purity 1.0); 4/5 reps confirm 'staff' form.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 38,
+      "db_cluster_id": 39,
+      "canonical_label": "Fantasy-Generic Fictional Mixed Named-Item Pool",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 349,
+      "hdbscan_native_count": 67,
+      "top_3_reps": [
+        "Bane Hammer",
+        "Chardalyn Light Hammer",
+        "Chardalyn Warhammer"
+      ],
+      "top_5_reps": [
+        "Bane Hammer",
+        "Chardalyn Light Hammer",
+        "Chardalyn Warhammer",
+        "Coral Crusher Light Hammer",
+        "Coral Crusher Warhammer (rare variant)"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional hammer/pike weapons (fantasy register; named_template; N=349)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Mixed named-template cluster; neither weapon-form nor name-prefix dominates top-5 reps. Coarse-spine label.",
+      "special_case_flags": [
+        "mixed_form_within_cluster"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 39,
+      "db_cluster_id": 40,
+      "canonical_label": "Fantasy-Generic Fictional Mixed Named-Item Pool",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 143,
+      "hdbscan_native_count": 34,
+      "top_3_reps": [
+        "Abyssal Bane Pike",
+        "Abyssal Bane Spiked Cestus (rare variant)",
+        "Abyssal Bane Spiked Knuckle Duster (rare variant)"
+      ],
+      "top_5_reps": [
+        "Abyssal Bane Pike",
+        "Abyssal Bane Spiked Cestus (rare variant)",
+        "Abyssal Bane Spiked Knuckle Duster (rare variant)",
+        "Consecrated Weapon Pike",
+        "Consecrated Weapon Spiked Cestus (uncommon variant)"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional pike/lance weapons (fantasy register; named_template; N=143)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Mixed named-template cluster; neither weapon-form nor name-prefix dominates top-5 reps. Coarse-spine label.",
+      "special_case_flags": [
+        "mixed_form_within_cluster"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 40,
+      "db_cluster_id": 41,
+      "canonical_label": "Fantasy-Generic Fictional Scimitar Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 237,
+      "hdbscan_native_count": 49,
+      "top_3_reps": [
+        "Abyssal Bane Scimitar",
+        "Adamantine Scimitar",
+        "Blade of Prey Scimitar"
+      ],
+      "top_5_reps": [
+        "Abyssal Bane Scimitar",
+        "Adamantine Scimitar",
+        "Blade of Prey Scimitar",
+        "Bleeding Edge Scimitar (rare variant)",
+        "Bloodshed Scimitar"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional scimitar/axe weapons (fantasy register; named_template; N=237)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 5/5 top hdbscan_native reps contain 'scimitar' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 41,
+      "db_cluster_id": 42,
+      "canonical_label": "Fantasy-Generic Fictional Crossbow Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9825,
+      "pool_count": 342,
+      "hdbscan_native_count": 57,
+      "top_3_reps": [
+        "Bloodseeker Crossbow Bolt",
+        "Crosstacean Hand Crossbow (very rare variant)",
+        "Crosstacean Light Crossbow (very rare variant)"
+      ],
+      "top_5_reps": [
+        "Bloodseeker Crossbow Bolt",
+        "Crosstacean Hand Crossbow (very rare variant)",
+        "Crosstacean Light Crossbow (very rare variant)",
+        "Deadly Volatile Hand Crossbow",
+        "Demonic Siege Bow Hand Crossbow"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional bow/crossbow weapons (fantasy register; named_template; N=342)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 5/5 top hdbscan_native reps contain 'crossbow' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 42,
+      "db_cluster_id": 43,
+      "canonical_label": "Fantasy-Generic Fictional Handaxe Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 434,
+      "hdbscan_native_count": 89,
+      "top_3_reps": [
+        "Abyssal Bane Handaxe",
+        "Adamantine Handaxe",
+        "Awakened Abyss Warden's Axeblade"
+      ],
+      "top_5_reps": [
+        "Abyssal Bane Handaxe",
+        "Adamantine Handaxe",
+        "Awakened Abyss Warden's Axeblade",
+        "Axe of the Cretan Bull Handaxe",
+        "Axe of the Cretan Bull Handaxe (very rare variant)"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional axe/flail weapons (fantasy register; named_template; N=434)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 4/5 top hdbscan_native reps contain 'handaxe' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 43,
+      "db_cluster_id": 44,
+      "canonical_label": "Fantasy-Generic Fictional Lance Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 114,
+      "hdbscan_native_count": 24,
+      "top_3_reps": [
+        "Centaur Lance",
+        "Chardalyn Lance",
+        "Corpse Slayer Lance"
+      ],
+      "top_5_reps": [
+        "Centaur Lance",
+        "Chardalyn Lance",
+        "Corpse Slayer Lance",
+        "Enspelled Lance (Level 4)",
+        "Faerie Moon Lance"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional lance/shotgun weapons (fantasy register; named_template; N=114)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 5/5 top hdbscan_native reps contain 'lance' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 44,
+      "db_cluster_id": 45,
+      "canonical_label": "African Contemporary Military Vehicles + Munitions Pool",
+      "cluster_type": "modern_military_hardware_pool",
+      "dominant_lineage": "african",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.6806,
+      "pool_count": 72,
+      "hdbscan_native_count": 15,
+      "top_3_reps": [
+        "Exodii Sapra grenade launcher",
+        "OT 4x4 Serbian Armored Personnel Carrier (APC)",
+        "9M113 Konkurs (AT-5 Spandrel) Russian Anti-Tank Guided Missile (ATGM)"
+      ],
+      "top_5_reps": [
+        "Exodii Sapra grenade launcher",
+        "OT 4x4 Serbian Armored Personnel Carrier (APC)",
+        "9M113 Konkurs (AT-5 Spandrel) Russian Anti-Tank Guided Missile (ATGM)",
+        "Mbombe 6 South African 6x6 Mine Resistant Ambush Protected (MRAP)",
+        "VBTP-MR Guarani Brazilian 6x6 Amphibious Armored Personnel Carrier (APC)"
+      ],
+      "provisional_description": "PROVISIONAL: african contemporary pike/rifle weapons (military_modern register; category; N=72)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: african contemporary pike/rifle weapons (military_modern register; category; N=72)",
+      "override_reason": "Provisional 'pike/rifle' contradicted by reps (Exodii Sapra grenade launcher + OT 4x4 Serbian APC + 9M113 Konkurs ATGM). Cluster is contemporary armored vehicles + anti-tank missiles, not pike forms.",
+      "framing_audit_notes": "Lineage purity 0.6806; cluster identity is contemporary military hardware with African geographic-origin tagging.",
+      "special_case_flags": [
+        "provisional_description_overridden",
+        "modern_military_hardware",
+        "low_lineage_purity"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 45,
+      "db_cluster_id": 46,
+      "canonical_label": "Fantasy-Generic Fictional Flail Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 110,
+      "hdbscan_native_count": 18,
+      "top_3_reps": [
+        "Driftwood Flail",
+        "Enspelled Flail (Level 6)",
+        "Flail +2"
+      ],
+      "top_5_reps": [
+        "Driftwood Flail",
+        "Enspelled Flail (Level 6)",
+        "Flail +2",
+        "Fragmenting Flail (Common)",
+        "Furnace Flail"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional flail weapons (fantasy register; named_template; N=110)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 5/5 top hdbscan_native reps contain 'flail' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 46,
+      "db_cluster_id": 47,
+      "canonical_label": "Fantasy-Generic Fictional Rapier Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 223,
+      "hdbscan_native_count": 52,
+      "top_3_reps": [
+        "Aldrnari Blade Rapier",
+        "Broken Promise Rapier",
+        "Chardalyn Rapier"
+      ],
+      "top_5_reps": [
+        "Aldrnari Blade Rapier",
+        "Broken Promise Rapier",
+        "Chardalyn Rapier",
+        "Coward's Bane Rapier (uncommon variant)",
+        "Dancing Rapier"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional rapier/axe weapons (fantasy register; named_template; N=223)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 5/5 top hdbscan_native reps contain 'rapier' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 47,
+      "db_cluster_id": 48,
+      "canonical_label": "European-Tagged Fictional Scimitar Pool (Mixed)",
+      "cluster_type": "mixed_cross_cultural",
+      "dominant_lineage": "european",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.514,
+      "pool_count": 107,
+      "hdbscan_native_count": 31,
+      "top_3_reps": [
+        "Crossbow bolts +1",
+        "Crossbow bolts +2",
+        "Gaol Net"
+      ],
+      "top_5_reps": [
+        "Crossbow bolts +1",
+        "Crossbow bolts +2",
+        "Gaol Net",
+        "Humming-Bulb Arrows",
+        "Lichslayer Blowgun"
+      ],
+      "provisional_description": "PROVISIONAL: european fictional scimitar/bow weapons (fantasy register; named_template; N=107)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Low lineage purity 0.5140 \u2014 secondary lineage absorption. Substrate-honest fictional european scimitar cluster but with significant cross-lineage drift.",
+      "special_case_flags": [
+        "low_lineage_purity"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 48,
+      "db_cluster_id": 49,
+      "canonical_label": "Fantasy-Generic Fictional Rifle Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9265,
+      "pool_count": 68,
+      "hdbscan_native_count": 16,
+      "top_3_reps": [
+        "Burnside Rifle",
+        "Sporting Rifle",
+        "Barrel-Blade Longrifle"
+      ],
+      "top_5_reps": [
+        "Burnside Rifle",
+        "Sporting Rifle",
+        "Barrel-Blade Longrifle",
+        "Bloodwarder's Rifle",
+        "Rifle of the Stoic Guardian"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic classical rifle/shotgun weapons (fantasy register; named_template; N=68)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 4/5 top hdbscan_native reps contain 'rifle' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 49,
+      "db_cluster_id": 50,
+      "canonical_label": "Fantasy-Generic Fictional Rifle Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9853,
+      "pool_count": 68,
+      "hdbscan_native_count": 14,
+      "top_3_reps": [
+        "Bloodhound's Immobiliser Rifle",
+        "Bloodshot Rifle (very rare variant)",
+        "Bloodwork Sniper Rifle"
+      ],
+      "top_5_reps": [
+        "Bloodhound's Immobiliser Rifle",
+        "Bloodshot Rifle (very rare variant)",
+        "Bloodwork Sniper Rifle",
+        "Caster Blaster Rifle (rare variant)",
+        "Caster Blaster Rifle (very rare variant)"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional rifle/axe weapons (fantasy register; named_template; N=68)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 4/5 top hdbscan_native reps contain 'rifle' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 50,
+      "db_cluster_id": 51,
+      "canonical_label": "European Contemporary Two-Hand Mixed Pool (Mil-Modern + Reproduction Blade)",
+      "cluster_type": "mixed_form_pool",
+      "dominant_lineage": "european",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 1907,
+      "hdbscan_native_count": 413,
+      "top_3_reps": [
+        "zweih\u00e4nder",
+        "zweih\u00e4nder",
+        "hardened steel kriegsmesser"
+      ],
+      "top_5_reps": [
+        "zweih\u00e4nder",
+        "zweih\u00e4nder",
+        "hardened steel kriegsmesser",
+        "Zhakh 15 Ukrainian Unmanned Aerial Vehicle (UAV)",
+        "Chuyka 3.0 Ukrainian Tri-Band Portable Drone Detector"
+      ],
+      "provisional_description": "PROVISIONAL: european contemporary bow weapons (military_modern register; category; N=1907)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: european contemporary bow weapons (military_modern register; category; N=1907)",
+      "override_reason": "Provisional 'bow' contradicted by top hdbscan_native reps: zweih\u00e4nder \u00d72 + hardened steel kriegsmesser + Zhakh-15 Ukrainian UAV + Chuyka 3.0 drone detector. Cluster mixes contemporary military_modern hardware (Ukrainian drones/detectors) with category-tagged reproduction two-handed swords (zweih\u00e4nder/kriegsmesser tagged 'contemporary military_modern'). Provisional-description weapon-type generator likely fired on a sparse weapon_type field.",
+      "framing_audit_notes": "Substrate-honest axis-coherent (European + contemporary + military_modern + two-hand) but weapon-form-heterogeneous. The zweih\u00e4nder + kriegsmesser rows are tagged as contemporary military_modern apparently because they were imported from a modern reproduction catalogue; this is a substrate-tagging artifact that the cluster faithfully captures.",
+      "special_case_flags": [
+        "provisional_description_overridden",
+        "mixed_form_within_cluster",
+        "modern_military_hardware",
+        "labeling_pipeline_bug_surfaced"
+      ],
+      "phase_e3_e4_handoff_notes": "Cluster surfaced by Gate-2 Question A.2 as the canonical example of labeling-pipeline bug. Phase E-1.5 sensitivity sweep should split reproduction-blade rows from drone/UAV rows. elrond review of zweih\u00e4nder/kriegsmesser period+register tagging warranted."
+    },
+    {
+      "id": 51,
+      "db_cluster_id": 52,
+      "canonical_label": "Fantasy-Generic Fictional Mace Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9867,
+      "pool_count": 75,
+      "hdbscan_native_count": 16,
+      "top_3_reps": [
+        "Mace of the Black Crown",
+        "Mace of the Black Crown, Dormant",
+        "High Warlord's Battle Mace"
+      ],
+      "top_5_reps": [
+        "Mace of the Black Crown",
+        "Mace of the Black Crown, Dormant",
+        "High Warlord's Battle Mace",
+        "Silvermoon War-Mace",
+        "Earthcaller's Mace"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic classical mace/club weapons (fantasy register; named_template; N=75)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 5/5 top hdbscan_native reps contain 'mace' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 52,
+      "db_cluster_id": 53,
+      "canonical_label": "Fantasy-Generic \"Chicken Chucker / Arrow\" Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9956,
+      "pool_count": 1819,
+      "hdbscan_native_count": 365,
+      "top_3_reps": [
+        "Arrow of Teleportation",
+        "Assassin's Arrow",
+        "Chicken Chucker (Common)"
+      ],
+      "top_5_reps": [
+        "Arrow of Teleportation",
+        "Assassin's Arrow",
+        "Chicken Chucker (Common)",
+        "Chicken Chucker (Legendary)",
+        "Grovelthrash, Awakened"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic classical spear/musket weapons (fantasy register; named_template; N=1819)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: fantasy_generic classical spear/musket weapons (fantasy register; named_template; N=1819)",
+      "override_reason": "Provisional 'spear/musket' contradicted by reps (Arrow of Teleportation + Assassin's Arrow + Chicken Chucker \u2014 fantasy-named arrows/thrown items with classical-period tagging).",
+      "framing_audit_notes": "Large named-template cluster (N=1819) bundling classical-period fantasy named projectiles/thrown items. Mixed signature between arrows and chicken-chucker variants.",
+      "special_case_flags": [
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 53,
+      "db_cluster_id": 54,
+      "canonical_label": "Fantasy-Generic Fictional Bow Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 161,
+      "hdbscan_native_count": 32,
+      "top_3_reps": [
+        "Bow of Grounding",
+        "Glaive",
+        "Halberd"
+      ],
+      "top_5_reps": [
+        "Bow of Grounding",
+        "Glaive",
+        "Halberd",
+        "Halberd +1",
+        "Hammer of Thunderbolts"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional bow/hammer weapons (fantasy register; category; N=161)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest cluster (purity 1.0); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 54,
+      "db_cluster_id": 55,
+      "canonical_label": "Fantasy-Generic Fictional Axe Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 85,
+      "hdbscan_native_count": 19,
+      "top_3_reps": [
+        "Flail",
+        "Myrnaxe",
+        "Rapier of Defense"
+      ],
+      "top_5_reps": [
+        "Flail",
+        "Myrnaxe",
+        "Rapier of Defense",
+        "Rapier of Smelting",
+        "3rd age axe"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional axe/rapier weapons (fantasy register; category; N=85)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest cluster (purity 1.0); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 55,
+      "db_cluster_id": 56,
+      "canonical_label": "Fantasy-Generic Fictional Mixed Named-Item Pool",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.8462,
+      "pool_count": 65,
+      "hdbscan_native_count": 19,
+      "top_3_reps": [
+        "Composite Bow",
+        "Lichslayer Halberd (rare variant)",
+        "Lichslayer Longbow"
+      ],
+      "top_5_reps": [
+        "Composite Bow",
+        "Lichslayer Halberd (rare variant)",
+        "Lichslayer Longbow",
+        "Lichslayer Longbow (rare variant)",
+        "Chromatic Sword"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic classical sword/bow weapons (fantasy register; named_template; N=65)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Mixed named-template cluster; neither weapon-form nor name-prefix dominates top-5 reps. Coarse-spine label.",
+      "special_case_flags": [
+        "mixed_form_within_cluster"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 56,
+      "db_cluster_id": 57,
+      "canonical_label": "Fantasy-Generic Fictional Axe Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9829,
+      "pool_count": 117,
+      "hdbscan_native_count": 21,
+      "top_3_reps": [
+        "Nine Lives Stealer Flail",
+        "Angerforge's Battle Axe",
+        "Colossal Great Axe"
+      ],
+      "top_5_reps": [
+        "Nine Lives Stealer Flail",
+        "Angerforge's Battle Axe",
+        "Colossal Great Axe",
+        "Malicious Axe",
+        "Karaborian Battle Axe"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic classical axe/rapier weapons (fantasy register; named_template; N=117)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 4/5 top hdbscan_native reps contain 'axe' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 57,
+      "db_cluster_id": 58,
+      "canonical_label": "Fantasy-Generic Fictional Mace Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 160,
+      "hdbscan_native_count": 29,
+      "top_3_reps": [
+        "Abyssal Bane Mace (rare variant)",
+        "Cobra Mace (Common)",
+        "Enspelled Mace (Level 1)"
+      ],
+      "top_5_reps": [
+        "Abyssal Bane Mace (rare variant)",
+        "Cobra Mace (Common)",
+        "Enspelled Mace (Level 1)",
+        "Enspelled Mace (Level 2)",
+        "Enspelled Mace (Level 4)"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional mace/staff weapons (fantasy register; named_template; N=160)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 5/5 top hdbscan_native reps contain 'mace' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 58,
+      "db_cluster_id": 59,
+      "canonical_label": "East Asian-Tagged Industrial Pistol Pool (Mixed)",
+      "cluster_type": "mixed_cross_cultural",
+      "dominant_lineage": "east_asian",
+      "dominant_period": "industrial",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 0.5132,
+      "pool_count": 76,
+      "hdbscan_native_count": 14,
+      "top_3_reps": [
+        "Decorated shield",
+        "Centrefire self-loading military pistol",
+        "Type 64 pistol"
+      ],
+      "top_5_reps": [
+        "Decorated shield",
+        "Centrefire self-loading military pistol",
+        "Type 64 pistol",
+        "Centerfire self loading police pistol",
+        "Fork"
+      ],
+      "provisional_description": "PROVISIONAL: east_asian industrial pistol/knife weapons (historical register; category; N=76)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Low lineage purity 0.5132 \u2014 cluster has substantial secondary lineage content. Coarse-spine label retains dominant tagging with mixed flag.",
+      "special_case_flags": [
+        "low_lineage_purity"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 59,
+      "db_cluster_id": 60,
+      "canonical_label": "Fantasy-Generic Fictional Mixed Named-Item Pool",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9147,
+      "pool_count": 129,
+      "hdbscan_native_count": 26,
+      "top_3_reps": [
+        "Hammer of Thunderbolts (Template)",
+        "Nine Lives Stealer Light Hammer",
+        "Inlaid Thorium Hammer"
+      ],
+      "top_5_reps": [
+        "Hammer of Thunderbolts (Template)",
+        "Nine Lives Stealer Light Hammer",
+        "Inlaid Thorium Hammer",
+        "Masterwork Stormhammer",
+        "Volcanic Hammer"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic classical hammer/pike weapons (fantasy register; named_template; N=129)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Mixed named-template cluster; neither weapon-form nor name-prefix dominates top-5 reps. Coarse-spine label.",
+      "special_case_flags": [
+        "mixed_form_within_cluster"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 60,
+      "db_cluster_id": 61,
+      "canonical_label": "Fantasy-Generic Fictional Longbow Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "classical",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9921,
+      "pool_count": 127,
+      "hdbscan_native_count": 20,
+      "top_3_reps": [
+        "Infernal Longbow",
+        "Nine Lives Stealer Shortbow",
+        "Gryphonwing Long Bow"
+      ],
+      "top_5_reps": [
+        "Infernal Longbow",
+        "Nine Lives Stealer Shortbow",
+        "Gryphonwing Long Bow",
+        "Rhok'delar, Longbow of the Ancient Keepers",
+        "Ashenvale Longbow"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic classical bow/glaive weapons (fantasy register; named_template; N=127)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 3/5 top hdbscan_native reps contain 'longbow' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 61,
+      "db_cluster_id": 62,
+      "canonical_label": "Fantasy-Generic Fictional Spear Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9926,
+      "pool_count": 272,
+      "hdbscan_native_count": 52,
+      "top_3_reps": [
+        "Consecrated Weapon Spear",
+        "Dornish Horse Spear",
+        "Enspelled Spear (Level 1)"
+      ],
+      "top_5_reps": [
+        "Consecrated Weapon Spear",
+        "Dornish Horse Spear",
+        "Enspelled Spear (Level 1)",
+        "Fell-hunter's Spear",
+        "Nemean Spear"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional spear/scimitar weapons (fantasy register; named_template; N=272)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 5/5 top hdbscan_native reps contain 'spear' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 62,
+      "db_cluster_id": 63,
+      "canonical_label": "Fantasy-Generic \"Abyssal Bane\" Named-Template Mega-Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 4807,
+      "hdbscan_native_count": 1017,
+      "top_3_reps": [
+        "Abyssal Bane Chakram (very rare variant)",
+        "Abyssal Bane Knuckle Duster (rare variant)",
+        "Abyssal Bane Knuckle Duster (very rare variant)"
+      ],
+      "top_5_reps": [
+        "Abyssal Bane Chakram (very rare variant)",
+        "Abyssal Bane Knuckle Duster (rare variant)",
+        "Abyssal Bane Knuckle Duster (very rare variant)",
+        "Abyssal Bane Maul (rare variant)",
+        "Abyssal Bane Nunchaku"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional axe/greataxe weapons (fantasy register; named_template; N=4807)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: fantasy_generic fictional axe/greataxe weapons (fantasy register; named_template; N=4807)",
+      "override_reason": "Provisional 'axe/greataxe' contradicted by reps \u2014 the entire 'Abyssal Bane' fantasy item-template family bundles across weapon-forms (chakram, knuckle-duster, maul, nunchaku, etc.) into one cluster because axis-1 (kind_named_template + fantasy_generic + register_fantasy + period_fictional) dominates over weapon-shape signal at k=3.",
+      "framing_audit_notes": "Gate-2 Question B canonical example: largest fantasy_generic cluster (N=4807) bundles the Abyssal Bane named-item family across weapon-forms. Substrate-honest at k=3 axes but weapon-form-resolution-deferred to Phase E-1.5 sensitivity sweep.",
+      "special_case_flags": [
+        "provisional_description_overridden",
+        "fantasy_named_template_cross_form",
+        "phase_e15_split_candidate"
+      ],
+      "phase_e3_e4_handoff_notes": "Phase E-1.5 sensitivity sweep at higher k should split this mega-family along weapon-form lines; Phase E-2-DB label is the coarse-spine canonical reference."
+    },
+    {
+      "id": 63,
+      "db_cluster_id": 64,
+      "canonical_label": "European Industrial Decorative/Mixed-Form Pool",
+      "cluster_type": "mixed_form_pool",
+      "dominant_lineage": "european",
+      "dominant_period": "industrial",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 0.8396,
+      "pool_count": 187,
+      "hdbscan_native_count": 40,
+      "top_3_reps": [
+        "Parade shield",
+        "Shield Depicting Saint George Slaying the Dragon",
+        "Smith & Wesson 7-shot revolver of 1874"
+      ],
+      "top_5_reps": [
+        "Parade shield",
+        "Shield Depicting Saint George Slaying the Dragon",
+        "Smith & Wesson 7-shot revolver of 1874",
+        "1874 Smith & Wesson 7-shot revolver",
+        "Mid locket"
+      ],
+      "provisional_description": "PROVISIONAL: european industrial sword/mace weapons (historical register; category; N=187)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: european industrial sword/mace weapons (historical register; category; N=187)",
+      "override_reason": "Provisional 'sword/mace' contradicted by reps (parade shield + Saint George shield + Smith & Wesson revolver). Cluster mixes ceremonial shields + industrial-period revolvers under axis-coherent industrial+european positioning.",
+      "framing_audit_notes": "Substrate-honest but weapon-form-heterogeneous; the cluster includes decorated shields + pistols that share axis-position despite not sharing form. Coarse-spine label.",
+      "special_case_flags": [
+        "provisional_description_overridden",
+        "mixed_form_within_cluster"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 64,
+      "db_cluster_id": 65,
+      "canonical_label": "Fantasy-Generic Fictional Musket Named-Item Family",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.8814,
+      "pool_count": 59,
+      "hdbscan_native_count": 11,
+      "top_3_reps": [
+        "Bloodhound's Immobiliser Musket (very rare variant)",
+        "Bloodshot Musket (very rare variant)",
+        "Deepshot Musket (rare variant)"
+      ],
+      "top_5_reps": [
+        "Bloodhound's Immobiliser Musket (very rare variant)",
+        "Bloodshot Musket (very rare variant)",
+        "Deepshot Musket (rare variant)",
+        "Enspelled Musket (Cantrip)",
+        "Enspelled Musket (Level 1)"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional musket/bow weapons (fantasy register; named_template; N=59)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Form-bundled named-template cluster \u2014 5/5 top hdbscan_native reps contain 'musket' as weapon-form signal. Cluster identity is weapon-form within fantasy named-template space.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 65,
+      "db_cluster_id": 66,
+      "canonical_label": "Fantasy-Generic Fictional Mixed Named-Item Pool",
+      "cluster_type": "named_template_family",
+      "dominant_lineage": "fantasy_generic",
+      "dominant_period": "fictional",
+      "dominant_register": "fantasy",
+      "dominant_kind": "named_template",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 232,
+      "hdbscan_native_count": 47,
+      "top_3_reps": [
+        "Abyssal Bane Greatclub",
+        "Club of Inverted Probability",
+        "Consecrated Weapon Club"
+      ],
+      "top_5_reps": [
+        "Abyssal Bane Greatclub",
+        "Club of Inverted Probability",
+        "Consecrated Weapon Club",
+        "Consecrated Weapon Greatclub (uncommon variant)",
+        "Consecrated Weapon Greatclub (very rare variant)"
+      ],
+      "provisional_description": "PROVISIONAL: fantasy_generic fictional club weapons (fantasy register; named_template; N=232)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Mixed named-template cluster; neither weapon-form nor name-prefix dominates top-5 reps. Coarse-spine label.",
+      "special_case_flags": [
+        "mixed_form_within_cluster"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 66,
+      "db_cluster_id": 67,
+      "canonical_label": "Untyped-Lineage Ceremonial-Shield Pool",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "unknown",
+      "dominant_period": "unknown",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 0.4078,
+      "pool_count": 103,
+      "hdbscan_native_count": 20,
+      "top_3_reps": [
+        "Ceremonial shield with mosaic decoration.",
+        "Gweagal shield",
+        "Garibaldi shield"
+      ],
+      "top_5_reps": [
+        "Ceremonial shield with mosaic decoration.",
+        "Gweagal shield",
+        "Garibaldi shield",
+        "Hylian Shield",
+        "Shield with Hunting and Landscape Vignettes"
+      ],
+      "provisional_description": "PROVISIONAL: unknown unknown pistol/sword weapons (historical register; category; N=103)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: unknown unknown pistol/sword weapons (historical register; category; N=103)",
+      "override_reason": "Provisional 'pistol/sword' contradicted by reps (ceremonial shield + Gweagal shield (Aboriginal) + Garibaldi shield (Italian) + Hylian shield (fantasy) + hunting-vignette shield). Cluster is a cross-cultural ceremonial-shield pool whose lineage is untyped in substrate metadata.",
+      "framing_audit_notes": "Substrate-honest cluster identity is 'ceremonial / decorated shield' across uncurated lineage tagging. Coarse-spine label honors form (shield) and acknowledges lineage gap.",
+      "special_case_flags": [
+        "provisional_description_overridden",
+        "lineage_uncurated"
+      ],
+      "phase_e3_e4_handoff_notes": "elrond: lineage_unknown shield entries warrant lineage curation pass."
+    },
+    {
+      "id": 67,
+      "db_cluster_id": 68,
+      "canonical_label": "European Modern Sword-Adjacent Component Pool",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "european",
+      "dominant_period": "modern",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 0.5966,
+      "pool_count": 238,
+      "hdbscan_native_count": 39,
+      "top_3_reps": [
+        "Bayonet",
+        "Cross-guard",
+        "Pricker"
+      ],
+      "top_5_reps": [
+        "Bayonet",
+        "Cross-guard",
+        "Pricker",
+        "Creaser",
+        "Mount or pommel"
+      ],
+      "provisional_description": "PROVISIONAL: european modern sword/dagger weapons (historical register; category; N=238)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: european modern sword/dagger weapons (historical register; category; N=238)",
+      "override_reason": "Provisional 'sword/dagger' partially-correct but reps reveal cluster is sword-adjacent components/auxiliaries: bayonet, cross-guard (a sword part), pricker (small awl-like tool). The cluster is sword-adjacent rather than swords-proper.",
+      "framing_audit_notes": "Lineage purity 0.5966 \u2014 secondary lineage contribution. Reps surface a substrate-tagging issue where sword components are tagged 'sword' weapon_type.",
+      "special_case_flags": [
+        "provisional_description_overridden",
+        "low_lineage_purity"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 68,
+      "db_cluster_id": 69,
+      "canonical_label": "Cross-Cultural Contemporary Mixed-Munitions Pool",
+      "cluster_type": "mixed_cross_cultural",
+      "dominant_lineage": "cross_cultural",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.8785,
+      "pool_count": 502,
+      "hdbscan_native_count": 118,
+      "top_3_reps": [
+        "Assault SMG",
+        "Tear Gas",
+        "Missiles"
+      ],
+      "top_5_reps": [
+        "Assault SMG",
+        "Tear Gas",
+        "Missiles",
+        "Machine Gun",
+        "Special Carbine"
+      ],
+      "provisional_description": "PROVISIONAL: cross_cultural contemporary shotgun/rifle weapons (military_modern register; category; N=502)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: cross_cultural contemporary shotgun/rifle weapons (military_modern register; category; N=502)",
+      "override_reason": "Provisional 'shotgun/rifle' contradicted by reps (assault SMG + tear gas + missiles). Cluster is a contemporary mixed-munitions pool with cross-cultural lineage.",
+      "framing_audit_notes": "Largest cross-cultural cluster (N=502). Includes oceanic absorption per Gate-2 Question C. Coarse-spine label reflects mixed-munitions identity.",
+      "special_case_flags": [
+        "provisional_description_overridden",
+        "absorbs_rare_lineage_rows",
+        "modern_military_hardware"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 69,
+      "db_cluster_id": 70,
+      "canonical_label": "European Contemporary Assault-Rifle Pool",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "european",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.7792,
+      "pool_count": 77,
+      "hdbscan_native_count": 22,
+      "top_3_reps": [
+        "SL8 civilian rifle",
+        "AK-203 Russian 7.62mm Assault Rifle",
+        "Hopak-61 Ukrainian 7.62mm Assault Rifle"
+      ],
+      "top_5_reps": [
+        "SL8 civilian rifle",
+        "AK-203 Russian 7.62mm Assault Rifle",
+        "Hopak-61 Ukrainian 7.62mm Assault Rifle",
+        "Colt CM901 American 7.62mm Assault Rifle",
+        "Beretta ARX-160 Italian 5.56 mm Assault Rifle"
+      ],
+      "provisional_description": "PROVISIONAL: european contemporary rifle/musket weapons (military_modern register; category; N=77)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Provisional 'rifle/musket' matches reps (SL8 + AK-203 + Hopak-61 + Colt CM901 + Beretta ARX-160). 7 n.am.indigenous rows ride along (Gate-2 Question C); these are non-canonical lineage absorption \u2014 see canonical/story/n-am-indigenous-no-cluster-disposition-2026-05-23.md. The 'european contemporary rifle' label is honest about the dominant cluster identity; n.am.indigenous rows are not canonically labeled here.",
+      "special_case_flags": [
+        "absorbs_rare_lineage_rows",
+        "n_am_indigenous_passenger"
+      ],
+      "phase_e3_e4_handoff_notes": "Cross-reference recognition record: 7 n.am.indigenous rows in this cluster do NOT canonically label this as n.am.indigenous."
+    },
+    {
+      "id": 70,
+      "db_cluster_id": 71,
+      "canonical_label": "European-Tagged Contemporary Spear Pool (Mixed)",
+      "cluster_type": "mixed_cross_cultural",
+      "dominant_lineage": "european",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.5584,
+      "pool_count": 77,
+      "hdbscan_native_count": 16,
+      "top_3_reps": [
+        "fire-hardened wooden spear",
+        "hardened steel spear",
+        "tempered steel spear"
+      ],
+      "top_5_reps": [
+        "fire-hardened wooden spear",
+        "hardened steel spear",
+        "tempered steel spear",
+        "pneumatic speargun",
+        "48Ya6-K1 Podlet K1 Russian Mobile Long-Range High-Altitude Surveillance Radar"
+      ],
+      "provisional_description": "PROVISIONAL: european contemporary lance/spear weapons (military_modern register; category; N=77)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Low lineage purity 0.5584 \u2014 cluster has substantial secondary lineage content. Coarse-spine label retains dominant tagging with mixed flag.",
+      "special_case_flags": [
+        "low_lineage_purity"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 71,
+      "db_cluster_id": 72,
+      "canonical_label": "Middle Eastern Contemporary UAV/Drone Pool",
+      "cluster_type": "modern_military_hardware_pool",
+      "dominant_lineage": "middle_eastern",
+      "dominant_period": "contemporary",
+      "dominant_register": "military_modern",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9787,
+      "pool_count": 423,
+      "hdbscan_native_count": 93,
+      "top_3_reps": [
+        "Shahed-238 Iranian Unmanned Aerial Vehicle (UAV)",
+        "Shahed-136 Iranian Unmanned Aerial Vehicle (UAV)",
+        "Shahed-131 Iranian Unmanned Aerial Vehicle (UAV)"
+      ],
+      "top_5_reps": [
+        "Shahed-238 Iranian Unmanned Aerial Vehicle (UAV)",
+        "Shahed-136 Iranian Unmanned Aerial Vehicle (UAV)",
+        "Shahed-131 Iranian Unmanned Aerial Vehicle (UAV)",
+        "ALPAGU-B Turkish Unmanned Aerial Vehicle (UAV)",
+        "KARGU Turkish Unmanned Aerial Vehicle (UAV)"
+      ],
+      "provisional_description": "PROVISIONAL: middle_eastern contemporary club/spear weapons (military_modern register; category; N=423)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: middle_eastern contemporary club/spear weapons (military_modern register; category; N=423)",
+      "override_reason": "Provisional 'club/spear' contradicted by reps (Shahed-238 + Shahed-136 + Shahed-131 \u2014 all Iranian UAVs). Cluster is contemporary Iranian-origin UAV systems.",
+      "framing_audit_notes": "Substrate-coherent middle_eastern contemporary cluster; weapon-form is UAV/drone rather than club/spear. Lineage tagging via geographic origin (Iran).",
+      "special_case_flags": [
+        "provisional_description_overridden",
+        "modern_military_hardware"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 72,
+      "db_cluster_id": 73,
+      "canonical_label": "European Industrial Pistol Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "european",
+      "dominant_period": "industrial",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 0.7645,
+      "pool_count": 327,
+      "hdbscan_native_count": 56,
+      "top_3_reps": [
+        "Dagger with Rock Crystal and Garnet  Handle (modern forgery)",
+        "Percussion pocket pistol",
+        "Percussion cavalry pistol"
+      ],
+      "top_5_reps": [
+        "Dagger with Rock Crystal and Garnet  Handle (modern forgery)",
+        "Percussion pocket pistol",
+        "Percussion cavalry pistol",
+        "Rimfire target pistol",
+        "Rimfire breech-loading pocket pistol"
+      ],
+      "provisional_description": "PROVISIONAL: european industrial pistol/dagger weapons (historical register; category; N=327)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest weapon-family cluster (purity 0.7645); 4/5 reps confirm 'pistol' form.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 73,
+      "db_cluster_id": 74,
+      "canonical_label": "European Early-Modern Pistol Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "european",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 0.8857,
+      "pool_count": 315,
+      "hdbscan_native_count": 72,
+      "top_3_reps": [
+        "Pair of Flintlock Pistols of Empress Catherine the Great (1729\u20131796)",
+        "Pistol of the Gendarmes de la Maison du Roi model 1750-Mus\u00e9e de l'Arm\u00e9e on display 4",
+        "Pistol of the Gendarmes de la Maison du Roi model 1763-Mus\u00e9e de l'Arm\u00e9e on display 5"
+      ],
+      "top_5_reps": [
+        "Pair of Flintlock Pistols of Empress Catherine the Great (1729\u20131796)",
+        "Pistol of the Gendarmes de la Maison du Roi model 1750-Mus\u00e9e de l'Arm\u00e9e on display 4",
+        "Pistol of the Gendarmes de la Maison du Roi model 1763-Mus\u00e9e de l'Arm\u00e9e on display 5",
+        "Flintlock pocket pistol",
+        "Flintlock military pistol"
+      ],
+      "provisional_description": "PROVISIONAL: european early_modern pistol/knife weapons (historical register; category; N=315)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest weapon-family cluster (purity 0.8857); 4/5 reps confirm 'pistol' form.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 74,
+      "db_cluster_id": 75,
+      "canonical_label": "Southeast Asian Early-Modern Dagger Pool (Mixed)",
+      "cluster_type": "mixed_cross_cultural",
+      "dominant_lineage": "southeast_asian",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 0.3043,
+      "pool_count": 115,
+      "hdbscan_native_count": 23,
+      "top_3_reps": [
+        "Flint Dagger from Denmark",
+        "Dagger",
+        "Dagger (Jambiya) with Sheath"
+      ],
+      "top_5_reps": [
+        "Flint Dagger from Denmark",
+        "Dagger",
+        "Dagger (Jambiya) with Sheath",
+        "Parrying Dagger",
+        "Parrying Dagger"
+      ],
+      "provisional_description": "PROVISIONAL: southeast_asian early_modern dagger/knife weapons (historical register; category; N=115)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Very low lineage purity 0.3043 \u2014 cluster is substrate-mixed across lineages. Coarse-spine label retains dominant tagging but flags low-purity.",
+      "special_case_flags": [
+        "low_lineage_purity"
+      ],
+      "phase_e3_e4_handoff_notes": "Cluster purity below the 0.70 acceptance gate at per-cluster level; reviewable in Phase E-1.5."
+    },
+    {
+      "id": 75,
+      "db_cluster_id": 76,
+      "canonical_label": "South Asian Early-Modern Dagger Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "south_asian",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 0.75,
+      "pool_count": 76,
+      "hdbscan_native_count": 16,
+      "top_3_reps": [
+        "Dagger with Hilt in the Form of a Blue Bull (Nilgai)",
+        "Dagger (katar)",
+        "Dagger with Sheath"
+      ],
+      "top_5_reps": [
+        "Dagger with Hilt in the Form of a Blue Bull (Nilgai)",
+        "Dagger (katar)",
+        "Dagger with Sheath",
+        "Dagger (Dha) with Sheath",
+        "Dagger (Katar) with Sheath and Blade"
+      ],
+      "provisional_description": "PROVISIONAL: south_asian early_modern dagger/knife weapons (historical register; category; N=76)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest weapon-family cluster (purity 0.75); 5/5 reps confirm 'dagger' form.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 76,
+      "db_cluster_id": 77,
+      "canonical_label": "European Early-Modern Sword Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "european",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 0.7705,
+      "pool_count": 183,
+      "hdbscan_native_count": 47,
+      "top_3_reps": [
+        "Sword hilt",
+        "Sword (talwar)",
+        "Sword hanger"
+      ],
+      "top_5_reps": [
+        "Sword hilt",
+        "Sword (talwar)",
+        "Sword hanger",
+        "Basket-Hilted Sword",
+        "Bowie knife"
+      ],
+      "provisional_description": "PROVISIONAL: european early_modern sword/rapier weapons (historical register; category; N=183)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest weapon-family cluster (purity 0.7705); 4/5 reps confirm 'sword' form.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 77,
+      "db_cluster_id": 78,
+      "canonical_label": "Untyped-Lineage Early-Firearm/Shield Mixed Pool",
+      "cluster_type": "mixed_form_pool",
+      "dominant_lineage": "unknown",
+      "dominant_period": "unknown",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 0.6462,
+      "pool_count": 65,
+      "hdbscan_native_count": 20,
+      "top_3_reps": [
+        "Ottoman cavalry shield",
+        "Pistola de Pederneira",
+        "Pistola de Pederneira Transformada em Percuss\u00e3o"
+      ],
+      "top_5_reps": [
+        "Ottoman cavalry shield",
+        "Pistola de Pederneira",
+        "Pistola de Pederneira Transformada em Percuss\u00e3o",
+        "Pistola de Percuss\u00e3o de 2 Canos",
+        "Pistola de Percuss\u00e3o de Retrocarga"
+      ],
+      "provisional_description": "PROVISIONAL: unknown unknown pistol/knife weapons (historical register; category; N=65)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: unknown unknown pistol/knife weapons (historical register; category; N=65)",
+      "override_reason": "Provisional 'pistol/sword' partially-correct but reps reveal cluster mixes Ottoman cavalry shield + Portuguese pistola de pederneira (flintlock) + flintlock-to-percussion conversions.",
+      "framing_audit_notes": "Untyped-lineage cluster bundling early firearms + shield forms.",
+      "special_case_flags": [
+        "provisional_description_overridden",
+        "lineage_uncurated"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 78,
+      "db_cluster_id": 79,
+      "canonical_label": "European Early-Modern Mixed Edged/Hafted Pool",
+      "cluster_type": "mixed_form_pool",
+      "dominant_lineage": "european",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 0.9518,
+      "pool_count": 311,
+      "hdbscan_native_count": 59,
+      "top_3_reps": [
+        "Hanger",
+        "Yataghan bayonet for Martini Henry",
+        "Palstave"
+      ],
+      "top_5_reps": [
+        "Hanger",
+        "Yataghan bayonet for Martini Henry",
+        "Palstave",
+        "Mid-Locket",
+        "Suspension loop"
+      ],
+      "provisional_description": "PROVISIONAL: european early_modern pistol/knife weapons (historical register; category; N=311)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: european early_modern pistol/knife weapons (historical register; category; N=311)",
+      "override_reason": "Provisional 'pistol/knife' contradicted by reps (hanger + yataghan bayonet for Martini Henry + palstave (a bronze-age axe)). The palstave inclusion is a period-tagging artifact; cluster mixes early-modern edged + hafted forms with a bronze-age intruder.",
+      "framing_audit_notes": "Cluster substrate-coherent at axis-level but includes palstave (bronze-age) \u2014 likely a period-canonicalization gap where pre_classical items received early_modern tagging.",
+      "special_case_flags": [
+        "provisional_description_overridden",
+        "period_tag_likely_metadata_artifact"
+      ],
+      "phase_e3_e4_handoff_notes": "elrond: palstave-style pre-classical items mis-tagged early_modern warrant period-canonicalization review."
+    },
+    {
+      "id": 79,
+      "db_cluster_id": 80,
+      "canonical_label": "European Modern Pistol Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "european",
+      "dominant_period": "modern",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 0.9569,
+      "pool_count": 116,
+      "hdbscan_native_count": 23,
+      "top_3_reps": [
+        "Centrefire self-loading military pistol",
+        "Rimfire breech-loading target pistol",
+        "Rimfire breech-loading double-barrelled pistol"
+      ],
+      "top_5_reps": [
+        "Centrefire self-loading military pistol",
+        "Rimfire breech-loading target pistol",
+        "Rimfire breech-loading double-barrelled pistol",
+        "Centrefire shot pistol",
+        "Percussion pistol"
+      ],
+      "provisional_description": "PROVISIONAL: european modern pistol/dagger weapons (historical register; category; N=116)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest weapon-family cluster (purity 0.9569); 5/5 reps confirm 'pistol' form.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 80,
+      "db_cluster_id": 81,
+      "canonical_label": "Southeast Asian Early-Modern Knife Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "southeast_asian",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "one_hand",
+      "lineage_purity": 0.6302,
+      "pool_count": 192,
+      "hdbscan_native_count": 38,
+      "top_3_reps": [
+        "Hunting Knife",
+        "Kris with Sheath",
+        "Shield"
+      ],
+      "top_5_reps": [
+        "Hunting Knife",
+        "Kris with Sheath",
+        "Shield",
+        "Saber",
+        "Kris (Kris Cherita) with Sheath"
+      ],
+      "provisional_description": "PROVISIONAL: southeast_asian early_modern knife/dagger weapons (historical register; category; N=192)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.6302); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 81,
+      "db_cluster_id": 82,
+      "canonical_label": "East Asian Contemporary Rifle Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "east_asian",
+      "dominant_period": "contemporary",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.972,
+      "pool_count": 250,
+      "hdbscan_native_count": 57,
+      "top_3_reps": [
+        "shotgun Lee-Enfield (Museu Militar da Madeira)",
+        "Electroshock torch",
+        "Al-Samoud 2"
+      ],
+      "top_5_reps": [
+        "shotgun Lee-Enfield (Museu Militar da Madeira)",
+        "Electroshock torch",
+        "Al-Samoud 2",
+        "Daewoo Precision Industries K5",
+        "Taepodong-1"
+      ],
+      "provisional_description": "PROVISIONAL: east_asian contemporary rifle/shotgun weapons (historical register; category; N=250)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.972); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 82,
+      "db_cluster_id": 83,
+      "canonical_label": "Southeast Asian-Tagged Contemporary Mixed-Form Pool",
+      "cluster_type": "mixed_cross_cultural",
+      "dominant_lineage": "southeast_asian",
+      "dominant_period": "contemporary",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.5288,
+      "pool_count": 104,
+      "hdbscan_native_count": 13,
+      "top_3_reps": [
+        "Jungle carbine",
+        "GKN Simba",
+        "F1 submachine gun"
+      ],
+      "top_5_reps": [
+        "Jungle carbine",
+        "GKN Simba",
+        "F1 submachine gun",
+        "AMZ Tur",
+        "RPG-30"
+      ],
+      "provisional_description": "PROVISIONAL: southeast_asian contemporary rifle weapons (historical register; category; N=104)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: southeast_asian contemporary rifle weapons (historical register; category; N=104)",
+      "override_reason": "Provisional weapon-form 'rifle' refined from rep evidence; dominant rep-form is 'carbine' (1/5).",
+      "framing_audit_notes": "Low lineage purity 0.5288 \u2014 cluster has substantial secondary lineage content. Coarse-spine label retains dominant tagging with mixed flag. Provisional weapon-form 'rifle' not present in top-3 hdbscan_native reps.",
+      "special_case_flags": [
+        "mixed_form_within_cluster",
+        "low_lineage_purity",
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 83,
+      "db_cluster_id": 84,
+      "canonical_label": "South Asian Contemporary Sword Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "south_asian",
+      "dominant_period": "contemporary",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.6667,
+      "pool_count": 33,
+      "hdbscan_native_count": 19,
+      "top_3_reps": [
+        "Mission Shakti",
+        "Polaris Inc.",
+        "FN MAG"
+      ],
+      "top_5_reps": [
+        "Mission Shakti",
+        "Polaris Inc.",
+        "FN MAG",
+        "SPYDER",
+        "Shaheen-III"
+      ],
+      "provisional_description": "PROVISIONAL: south_asian contemporary sword/rapier weapons (historical register; category; N=33)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: south_asian contemporary sword/rapier weapons (historical register; category; N=33)",
+      "override_reason": "Provisional weapon-form 'sword/rapier' not supported by top hdbscan_native reps.",
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.6667); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint. Provisional weapon-form 'sword/rapier' not present in top-3 hdbscan_native reps.",
+      "special_case_flags": [
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 84,
+      "db_cluster_id": 85,
+      "canonical_label": "European Contemporary Spear Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "european",
+      "dominant_period": "contemporary",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 734,
+      "hdbscan_native_count": 151,
+      "top_3_reps": [
+        "Catapult",
+        "Percussion six-shot replica revolver",
+        "Belt buckle knuckle duster"
+      ],
+      "top_5_reps": [
+        "Catapult",
+        "Percussion six-shot replica revolver",
+        "Belt buckle knuckle duster",
+        "Centrefire eight-shot revolver",
+        "Rimfire pen gun"
+      ],
+      "provisional_description": "PROVISIONAL: european contemporary spear/hammer weapons (historical register; category; N=734)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: european contemporary spear/hammer weapons (historical register; category; N=734)",
+      "override_reason": "Provisional weapon-form 'spear/hammer' refined from rep evidence; dominant rep-form is 'revolver' (2/5).",
+      "framing_audit_notes": "Substrate-honest cluster (purity 1.0); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint. Provisional weapon-form 'spear/hammer' not present in top-3 hdbscan_native reps.",
+      "special_case_flags": [
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 85,
+      "db_cluster_id": 86,
+      "canonical_label": "African Contemporary Musket Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "african",
+      "dominant_period": "contemporary",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.8864,
+      "pool_count": 44,
+      "hdbscan_native_count": 11,
+      "top_3_reps": [
+        "Mamba APC",
+        "Vektor CR-21",
+        "Denel NTW-20"
+      ],
+      "top_5_reps": [
+        "Mamba APC",
+        "Vektor CR-21",
+        "Denel NTW-20",
+        "9.3\u00d774mmR",
+        "Maverick (armoured vehicle)"
+      ],
+      "provisional_description": "PROVISIONAL: african contemporary musket/lance weapons (historical register; category; N=44)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: african contemporary musket/lance weapons (historical register; category; N=44)",
+      "override_reason": "Provisional weapon-form 'musket/lance' refined from rep evidence; dominant rep-form is 'apc' (1/5).",
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.8864); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint. Provisional weapon-form 'musket/lance' not present in top-3 hdbscan_native reps.",
+      "special_case_flags": [
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 86,
+      "db_cluster_id": 87,
+      "canonical_label": "S. American Indigenous Contemporary Shotgun Cluster",
+      "cluster_type": "rare_lineage_isolate",
+      "dominant_lineage": "south_american_indigenous",
+      "dominant_period": "contemporary",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9444,
+      "pool_count": 36,
+      "hdbscan_native_count": 15,
+      "top_3_reps": [
+        "FAMAE SAF",
+        "LAHAT",
+        "Taurus Millennium series"
+      ],
+      "top_5_reps": [
+        "FAMAE SAF",
+        "LAHAT",
+        "Taurus Millennium series",
+        "IMBEL MD97",
+        "VBTP-MR Guarani"
+      ],
+      "provisional_description": "PROVISIONAL: south_american_indigenous contemporary shotgun/rifle weapons (historical register; category; N=36)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Rare-lineage substrate-led cluster (purity 0.9444, N=36); genuine S. American Indigenous contemporary firearms isolate. Substrate-honest rare-lineage representation per Gate-2 Question C.",
+      "special_case_flags": [
+        "rare_lineage_substrate_isolate"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 87,
+      "db_cluster_id": 88,
+      "canonical_label": "Untyped-Lineage Fantasy/Modern Improvised Pool",
+      "cluster_type": "mixed_form_pool",
+      "dominant_lineage": "unknown",
+      "dominant_period": "contemporary",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.8105,
+      "pool_count": 190,
+      "hdbscan_native_count": 41,
+      "top_3_reps": [
+        "Flushomatic",
+        "Nail Gun",
+        "Photon Projector"
+      ],
+      "top_5_reps": [
+        "Flushomatic",
+        "Nail Gun",
+        "Photon Projector",
+        "I.C.E.R.",
+        "Bad Rabbit"
+      ],
+      "provisional_description": "PROVISIONAL: unknown contemporary shotgun/rifle weapons (historical register; category; N=190)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: unknown contemporary shotgun/rifle weapons (historical register; category; N=190)",
+      "override_reason": "Provisional 'shotgun' contradicted by reps (flushomatic, nail gun, photon projector, ICER, bad rabbit). Cluster mixes improvised weapons + sci-fi tools + named gadgets under untyped lineage.",
+      "framing_audit_notes": "Substrate-honest untyped-lineage contemporary cluster; reps show improvised/named gadget pool. Coarse-spine label.",
+      "special_case_flags": [
+        "provisional_description_overridden",
+        "lineage_uncurated"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 88,
+      "db_cluster_id": 89,
+      "canonical_label": "European Contemporary Rifle Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "european",
+      "dominant_period": "contemporary",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9365,
+      "pool_count": 63,
+      "hdbscan_native_count": 13,
+      "top_3_reps": [
+        "Centrefire automatic rifle",
+        "Air rifle",
+        "SEAL Recon Rifle"
+      ],
+      "top_5_reps": [
+        "Centrefire automatic rifle",
+        "Air rifle",
+        "SEAL Recon Rifle",
+        "Schultz & Larsen M52 target rifle",
+        "AO-35 assault rifle"
+      ],
+      "provisional_description": "PROVISIONAL: european contemporary rifle weapons (historical register; category; N=63)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest weapon-family cluster (purity 0.9365); 5/5 reps confirm 'rifle' form.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 89,
+      "db_cluster_id": 90,
+      "canonical_label": "Middle Eastern Contemporary Spear Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "middle_eastern",
+      "dominant_period": "contemporary",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.8957,
+      "pool_count": 211,
+      "hdbscan_native_count": 44,
+      "top_3_reps": [
+        "Spearhead",
+        "Spearhead",
+        "Qassam rocket"
+      ],
+      "top_5_reps": [
+        "Spearhead",
+        "Spearhead",
+        "Qassam rocket",
+        "IWI Negev",
+        "IWI Tavor"
+      ],
+      "provisional_description": "PROVISIONAL: middle_eastern contemporary spear/mace weapons (historical register; category; N=211)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.8957); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 90,
+      "db_cluster_id": 91,
+      "canonical_label": "East Asian Uncurated-Period Metadata Pool",
+      "cluster_type": "metadata_bucket",
+      "dominant_lineage": "east_asian",
+      "dominant_period": "unknown",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 1.0,
+      "pool_count": 10087,
+      "hdbscan_native_count": 2040,
+      "top_3_reps": [
+        "H/AKJ-16",
+        "Q132210441",
+        "Tepp\u00f4"
+      ],
+      "top_5_reps": [
+        "H/AKJ-16",
+        "Q132210441",
+        "Tepp\u00f4",
+        "Q132526367",
+        "Q132526368"
+      ],
+      "provisional_description": "PROVISIONAL: east_asian unknown rifle/spear weapons (historical register; category; N=10087)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: east_asian unknown rifle/spear weapons (historical register; category; N=10087)",
+      "override_reason": "Provisional 'rifle/spear' contradicted by reps (alphanumeric catalog IDs: H/AKJ-16, Q132210441, Q132526367, Q132526368; plus romaji 'Tepp\u00f4'). 10,087 rows (77% of east_asian pool) collapsed into single uncurated-period bucket. Per Gate-2 Question A.1, this is NOT a coherent weapon family \u2014 it is the Phase-D-bis east_asian period_unknown metadata residue.",
+      "framing_audit_notes": "Canonical metadata-bucket cluster (Gate-2 Question A.1, dispatch \u00a7 2). Do NOT retro-fit weapon-design narrative onto this cluster. Cluster reflects uncurated metadata, not weapon coherence.",
+      "special_case_flags": [
+        "metadata_bucket",
+        "phase_d_bis_curation_gap"
+      ],
+      "phase_e3_e4_handoff_notes": "Sub-carry 9.11-C: elrond Phase-D-bis Step 6.6.c-adjacent review of east_asian period_unknown rows (~10K) for additional curation. Non-blocking for Phase E-2."
+    },
+    {
+      "id": 91,
+      "db_cluster_id": 92,
+      "canonical_label": "South Asian-Tagged Early-Modern Mixed-Form Pool",
+      "cluster_type": "mixed_cross_cultural",
+      "dominant_lineage": "south_asian",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.528,
+      "pool_count": 161,
+      "hdbscan_native_count": 25,
+      "top_3_reps": [
+        "Malik-E-Maidan",
+        "Mysorean rockets",
+        "Quiver, Belt, and Twenty Arrows"
+      ],
+      "top_5_reps": [
+        "Malik-E-Maidan",
+        "Mysorean rockets",
+        "Quiver, Belt, and Twenty Arrows",
+        "Thumb ring",
+        "Swivel Cannon (Lantaka)"
+      ],
+      "provisional_description": "PROVISIONAL: south_asian early_modern sword/spear weapons (historical register; category; N=161)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: south_asian early_modern sword/spear weapons (historical register; category; N=161)",
+      "override_reason": "Provisional weapon-form 'sword/spear' not supported by top hdbscan_native reps.",
+      "framing_audit_notes": "Low lineage purity 0.528 \u2014 cluster has substantial secondary lineage content. Coarse-spine label retains dominant tagging with mixed flag. Provisional weapon-form 'sword/spear' not present in top-3 hdbscan_native reps.",
+      "special_case_flags": [
+        "mixed_form_within_cluster",
+        "low_lineage_purity",
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 92,
+      "db_cluster_id": 93,
+      "canonical_label": "Untyped-Lineage Early-Modern Mixed Pool",
+      "cluster_type": "mixed_form_pool",
+      "dominant_lineage": "unknown",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.5435,
+      "pool_count": 92,
+      "hdbscan_native_count": 13,
+      "top_3_reps": [
+        "Ceremonial ax",
+        "Early bayonet-Arm B 259",
+        "Q106379646"
+      ],
+      "top_5_reps": [
+        "Ceremonial ax",
+        "Early bayonet-Arm B 259",
+        "Q106379646",
+        "Firebomb",
+        "Chatan Nakiri"
+      ],
+      "provisional_description": "PROVISIONAL: unknown early_modern lance/shotgun weapons (historical register; category; N=92)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: unknown early_modern lance/shotgun weapons (historical register; category; N=92)",
+      "override_reason": "Provisional 'lance' contradicted by reps (ceremonial ax + early bayonet-arm + Q-number + firebomb + chatan nakiri \u2014 Okinawan knife). Cluster mixes mostly-unidentified early-modern items.",
+      "framing_audit_notes": "Lineage purity 0.5435; substrate-honest untyped-lineage early-modern cluster with heterogeneous reps including raw Q-numbers (Wikidata IDs that lack canonical-name curation).",
+      "special_case_flags": [
+        "provisional_description_overridden",
+        "lineage_uncurated",
+        "low_lineage_purity"
+      ],
+      "phase_e3_e4_handoff_notes": "elrond: raw Wikidata Q-number canonical_names indicate name-curation gap."
+    },
+    {
+      "id": 93,
+      "db_cluster_id": 94,
+      "canonical_label": "East Asian Early-Modern Musket Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "east_asian",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.8,
+      "pool_count": 380,
+      "hdbscan_native_count": 69,
+      "top_3_reps": [
+        "Flintlock musketoon",
+        "Percussion military musket",
+        "Centrefire breech-loading military carbine"
+      ],
+      "top_5_reps": [
+        "Flintlock musketoon",
+        "Percussion military musket",
+        "Centrefire breech-loading military carbine",
+        "Flintlock and percussion combination lock military musket",
+        "Model Service Dress Cap"
+      ],
+      "provisional_description": "PROVISIONAL: east_asian early_modern musket/sword weapons (historical register; category; N=380)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.8); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 94,
+      "db_cluster_id": 95,
+      "canonical_label": "European Early-Modern Sabre Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "european",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.6463,
+      "pool_count": 164,
+      "hdbscan_native_count": 33,
+      "top_3_reps": [
+        "Boarding sabre, model called \"Louvois\"",
+        "Garde nationale sabre with lion and panoply",
+        "Garde nationale sabre with lion, phrygian hat and fasces"
+      ],
+      "top_5_reps": [
+        "Boarding sabre, model called \"Louvois\"",
+        "Garde nationale sabre with lion and panoply",
+        "Garde nationale sabre with lion, phrygian hat and fasces",
+        "Lafayette's sabre as general of the Garde nationale",
+        "Garde nationale sabre with lion and grenade"
+      ],
+      "provisional_description": "PROVISIONAL: european early_modern rifle/sabre weapons (historical register; category; N=164)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest weapon-family cluster (purity 0.6463); 5/5 reps confirm 'sabre' form.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 95,
+      "db_cluster_id": 96,
+      "canonical_label": "European Early-Modern Spear Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "european",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9985,
+      "pool_count": 1305,
+      "hdbscan_native_count": 236,
+      "top_3_reps": [
+        "Weapons of Honour",
+        "Wheel-lock Petronel",
+        "Detached flintlock lock"
+      ],
+      "top_5_reps": [
+        "Weapons of Honour",
+        "Wheel-lock Petronel",
+        "Detached flintlock lock",
+        "Bridle",
+        "Barrel band"
+      ],
+      "provisional_description": "PROVISIONAL: european early_modern spear/rifle weapons (historical register; category; N=1305)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: european early_modern spear/rifle weapons (historical register; category; N=1305)",
+      "override_reason": "Provisional weapon-form 'spear/rifle' not supported by top hdbscan_native reps.",
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.9985); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint. Provisional weapon-form 'spear/rifle' not present in top-3 hdbscan_native reps.",
+      "special_case_flags": [
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 96,
+      "db_cluster_id": 97,
+      "canonical_label": "European-Tagged Early-Modern Halberd Pool (Mixed)",
+      "cluster_type": "mixed_cross_cultural",
+      "dominant_lineage": "european",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.5936,
+      "pool_count": 187,
+      "hdbscan_native_count": 37,
+      "top_3_reps": [
+        "Steel bow",
+        "Glaive of the Bodyguard of Guglielmo Gonzaga (1538\u20131587), Duke of Mantua and Monferrato",
+        "Halberd of Wolf Dietrich von Raitenau, Prince-Archbishop of Salzburg (reigned 1587\u20131612)"
+      ],
+      "top_5_reps": [
+        "Steel bow",
+        "Glaive of the Bodyguard of Guglielmo Gonzaga (1538\u20131587), Duke of Mantua and Monferrato",
+        "Halberd of Wolf Dietrich von Raitenau, Prince-Archbishop of Salzburg (reigned 1587\u20131612)",
+        "Halberd of Johann Georg I of Saxony (1585\u20131656) as administrator of the bishopric of Meresburg",
+        "Halberd of Christian I (reigned 1586\u201391) or Christian II of Saxony (reigned 1601\u201311)"
+      ],
+      "provisional_description": "PROVISIONAL: european early_modern bow/crossbow weapons (historical register; category; N=187)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Low lineage purity 0.5936 \u2014 cluster has substantial secondary lineage content. Coarse-spine label retains dominant tagging with mixed flag.",
+      "special_case_flags": [
+        "low_lineage_purity"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 97,
+      "db_cluster_id": 98,
+      "canonical_label": "East Asian Classical Sword Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "east_asian",
+      "dominant_period": "classical",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9862,
+      "pool_count": 218,
+      "hdbscan_native_count": 35,
+      "top_3_reps": [
+        "Mace Head",
+        "S-300 missile system",
+        "AGM-122 Sidearm"
+      ],
+      "top_5_reps": [
+        "Mace Head",
+        "S-300 missile system",
+        "AGM-122 Sidearm",
+        "Taurus KEPD 350",
+        "MG 131 machine gun"
+      ],
+      "provisional_description": "PROVISIONAL: east_asian classical sword/bow weapons (historical register; category; N=218)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: east_asian classical sword/bow weapons (historical register; category; N=218)",
+      "override_reason": "Provisional weapon-form 'sword/bow' refined from rep evidence; dominant rep-form is 'mace' (1/5).",
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.9862); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint. Provisional weapon-form 'sword/bow' not present in top-3 hdbscan_native reps.",
+      "special_case_flags": [
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 98,
+      "db_cluster_id": 99,
+      "canonical_label": "South Asian-Tagged Industrial Mixed-Form Pool",
+      "cluster_type": "mixed_cross_cultural",
+      "dominant_lineage": "south_asian",
+      "dominant_period": "industrial",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.5981,
+      "pool_count": 107,
+      "hdbscan_native_count": 24,
+      "top_3_reps": [
+        "Iroquois club",
+        "Club",
+        "Medal"
+      ],
+      "top_5_reps": [
+        "Iroquois club",
+        "Club",
+        "Medal",
+        "Percussion police carbine",
+        "Howdah"
+      ],
+      "provisional_description": "PROVISIONAL: south_asian industrial spear/musket weapons (historical register; category; N=107)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: south_asian industrial spear/musket weapons (historical register; category; N=107)",
+      "override_reason": "Provisional weapon-form 'spear/musket' refined from rep evidence; dominant rep-form is 'club' (2/5).",
+      "framing_audit_notes": "Low lineage purity 0.5981 \u2014 cluster has substantial secondary lineage content. Coarse-spine label retains dominant tagging with mixed flag. Provisional weapon-form 'spear/musket' not present in top-3 hdbscan_native reps.",
+      "special_case_flags": [
+        "mixed_form_within_cluster",
+        "low_lineage_purity",
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 99,
+      "db_cluster_id": 100,
+      "canonical_label": "European Early-Modern Musket Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "european",
+      "dominant_period": "early_modern",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9146,
+      "pool_count": 82,
+      "hdbscan_native_count": 16,
+      "top_3_reps": [
+        "Flintlock muzzle-loading musket",
+        "Flintlock musket",
+        "Matchlock military musket"
+      ],
+      "top_5_reps": [
+        "Flintlock muzzle-loading musket",
+        "Flintlock musket",
+        "Matchlock military musket",
+        "Flintlock military musket",
+        "Swiss sabre"
+      ],
+      "provisional_description": "PROVISIONAL: european early_modern musket/sabre weapons (historical register; category; N=82)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest weapon-family cluster (purity 0.9146); 4/5 reps confirm 'musket' form.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 100,
+      "db_cluster_id": 101,
+      "canonical_label": "African-Tagged Classical Bow Pool (Mixed)",
+      "cluster_type": "mixed_cross_cultural",
+      "dominant_lineage": "african",
+      "dominant_period": "classical",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.4861,
+      "pool_count": 144,
+      "hdbscan_native_count": 29,
+      "top_3_reps": [
+        "Panzerj\u00e4ger I",
+        "FN 303",
+        ".460 Weatherby Magnum"
+      ],
+      "top_5_reps": [
+        "Panzerj\u00e4ger I",
+        "FN 303",
+        ".460 Weatherby Magnum",
+        "Buk missile system",
+        "SIG Pro"
+      ],
+      "provisional_description": "PROVISIONAL: african classical bow/halberd weapons (historical register; category; N=144)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Low lineage purity 0.4861. Coarse-spine.",
+      "special_case_flags": [
+        "low_lineage_purity"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 101,
+      "db_cluster_id": 102,
+      "canonical_label": "Untyped-Lineage Industrial Catalog-Residue Pool",
+      "cluster_type": "mixed_form_pool",
+      "dominant_lineage": "unknown",
+      "dominant_period": "industrial",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.5156,
+      "pool_count": 64,
+      "hdbscan_native_count": 17,
+      "top_3_reps": [
+        "Boomerang",
+        "Q29341376",
+        "Q131904965"
+      ],
+      "top_5_reps": [
+        "Boomerang",
+        "Q29341376",
+        "Q131904965",
+        "Canon de l'arm\u00e9e russe",
+        "Lantaka 1 (Museu Militar da Madeira)"
+      ],
+      "provisional_description": "PROVISIONAL: unknown industrial lance/rifle weapons (historical register; category; N=64)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: unknown industrial lance/rifle weapons (historical register; category; N=64)",
+      "override_reason": "Provisional 'lance' contradicted by reps (boomerang + Q29341376 + Q131904965 + 'Canon de l'arm\u00e9e russe' + Lantaka 1). Cluster bundles industrial-tagged items with significant raw Wikidata-ID residue.",
+      "framing_audit_notes": "Lineage purity 0.5156. Reps surface canonical-name gap (raw Q-numbers) and form-heterogeneity (boomerang + cannon + lantaka).",
+      "special_case_flags": [
+        "provisional_description_overridden",
+        "lineage_uncurated",
+        "low_lineage_purity"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 102,
+      "db_cluster_id": 103,
+      "canonical_label": "European Industrial Shotgun Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "european",
+      "dominant_period": "industrial",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9107,
+      "pool_count": 56,
+      "hdbscan_native_count": 15,
+      "top_3_reps": [
+        "Percussion double-barrelled shotgun",
+        "Percussion shotgun",
+        "Centrefire breech-loading shotgun"
+      ],
+      "top_5_reps": [
+        "Percussion double-barrelled shotgun",
+        "Percussion shotgun",
+        "Centrefire breech-loading shotgun",
+        "Pinfire breech-loading double-barrelled shotgun",
+        "Centrefire breech-loading double-barrelled shotgun"
+      ],
+      "provisional_description": "PROVISIONAL: european industrial shotgun/rifle weapons (historical register; category; N=56)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest weapon-family cluster (purity 0.9107); 5/5 reps confirm 'shotgun' form.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 103,
+      "db_cluster_id": 104,
+      "canonical_label": "African Uncurated-Period Mace Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "african",
+      "dominant_period": "unknown",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9474,
+      "pool_count": 95,
+      "hdbscan_native_count": 22,
+      "top_3_reps": [
+        "Weapon",
+        "Weapon 2",
+        "Greek fire"
+      ],
+      "top_5_reps": [
+        "Weapon",
+        "Weapon 2",
+        "Greek fire",
+        "Claymore mine",
+        "Panzerschreck"
+      ],
+      "provisional_description": "PROVISIONAL: african unknown mace weapons (historical register; category; N=95)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: african unknown mace weapons (historical register; category; N=95)",
+      "override_reason": "Provisional weapon-form 'mace' refined from rep evidence; dominant rep-form is 'mine' (1/5).",
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.9474); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint. Provisional weapon-form 'mace' not present in top-3 hdbscan_native reps.",
+      "special_case_flags": [
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 104,
+      "db_cluster_id": 105,
+      "canonical_label": "East Asian Modern Rifle Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "east_asian",
+      "dominant_period": "modern",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9104,
+      "pool_count": 491,
+      "hdbscan_native_count": 96,
+      "top_3_reps": [
+        "Tumi",
+        "Catapulta salva-vidas",
+        "Atsu T\u014dshir\u014d"
+      ],
+      "top_5_reps": [
+        "Tumi",
+        "Catapulta salva-vidas",
+        "Atsu T\u014dshir\u014d",
+        "7.5 cm leichtes Infanteriegesch\u00fctz 18",
+        "Mauser C96"
+      ],
+      "provisional_description": "PROVISIONAL: east_asian modern rifle/spear weapons (historical register; category; N=491)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: east_asian modern rifle/spear weapons (historical register; category; N=491)",
+      "override_reason": "Provisional weapon-form 'rifle/spear' not supported by top hdbscan_native reps.",
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.9104); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint. Provisional weapon-form 'rifle/spear' not present in top-3 hdbscan_native reps.",
+      "special_case_flags": [
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 105,
+      "db_cluster_id": 106,
+      "canonical_label": "European-Tagged Classical Sword Pool (Mixed)",
+      "cluster_type": "mixed_cross_cultural",
+      "dominant_lineage": "european",
+      "dominant_period": "classical",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.3028,
+      "pool_count": 218,
+      "hdbscan_native_count": 47,
+      "top_3_reps": [
+        "Iron sword, National Museum in Damascus",
+        "Heaven Sword",
+        "Sword of Omens"
+      ],
+      "top_5_reps": [
+        "Iron sword, National Museum in Damascus",
+        "Heaven Sword",
+        "Sword of Omens",
+        "Bone Sword Guard, Yale University Art Gallery, inv. 1938.707",
+        "Two Iron Sword Butts, Yale University Art Gallery, inv. 1933.700a-b"
+      ],
+      "provisional_description": "PROVISIONAL: european classical sword/hammer weapons (historical register; category; N=218)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Very low lineage purity 0.3028 \u2014 cluster has substantial secondary lineage content.",
+      "special_case_flags": [
+        "low_lineage_purity"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 106,
+      "db_cluster_id": 107,
+      "canonical_label": "European Classical Sword Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "european",
+      "dominant_period": "classical",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9817,
+      "pool_count": 984,
+      "hdbscan_native_count": 216,
+      "top_3_reps": [
+        "Light Sword",
+        "Serpent Sword",
+        "pike"
+      ],
+      "top_5_reps": [
+        "Light Sword",
+        "Serpent Sword",
+        "pike",
+        "Lion Sword",
+        "Spider Sword"
+      ],
+      "provisional_description": "PROVISIONAL: european classical bow/sword weapons (historical register; category; N=984)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest weapon-family cluster (purity 0.9817); 4/5 reps confirm 'sword' form.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 107,
+      "db_cluster_id": 108,
+      "canonical_label": "European Industrial Rifle Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "european",
+      "dominant_period": "industrial",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.8309,
+      "pool_count": 337,
+      "hdbscan_native_count": 80,
+      "top_3_reps": [
+        "Percussion military rifle",
+        "Percussion rifle",
+        "Centrefire bolt-action military rifle"
+      ],
+      "top_5_reps": [
+        "Percussion military rifle",
+        "Percussion rifle",
+        "Centrefire bolt-action military rifle",
+        "Centrefire breech-loading military carbine",
+        "Centrefire bolt-action magazine rifle"
+      ],
+      "provisional_description": "PROVISIONAL: european industrial rifle/musket weapons (historical register; category; N=337)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest weapon-family cluster (purity 0.8309); 4/5 reps confirm 'rifle' form.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 108,
+      "db_cluster_id": 109,
+      "canonical_label": "Untyped-Lineage Classical Catalog-Residue Pool",
+      "cluster_type": "mixed_form_pool",
+      "dominant_lineage": "unknown",
+      "dominant_period": "classical",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.3929,
+      "pool_count": 112,
+      "hdbscan_native_count": 31,
+      "top_3_reps": [
+        "Escut d'una est\u00e0tua de gladiador (MNAT-45405)",
+        "Q18425053",
+        "Hummingbird Bloodletter"
+      ],
+      "top_5_reps": [
+        "Escut d'una est\u00e0tua de gladiador (MNAT-45405)",
+        "Q18425053",
+        "Hummingbird Bloodletter",
+        "Boomerang",
+        "XM1111 Mid-Range Munition"
+      ],
+      "provisional_description": "PROVISIONAL: unknown classical lance/hammer weapons (historical register; category; N=112)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: unknown classical lance/hammer weapons (historical register; category; N=112)",
+      "override_reason": "Provisional 'lance' contradicted by reps (gladiator-statue shield + Q18425053 + hummingbird bloodletter + boomerang + XM1111 mid-range missile). Cluster is heterogeneous mostly-uncurated classical items.",
+      "framing_audit_notes": "Lineage purity 0.3929 (one of the lowest in the pool). Substrate-honest catalogue-residue cluster.",
+      "special_case_flags": [
+        "provisional_description_overridden",
+        "lineage_uncurated",
+        "low_lineage_purity"
+      ],
+      "phase_e3_e4_handoff_notes": "elrond: this cluster's <40% purity flags lineage-canonicalization gap on classical-tagged uncurated entries."
+    },
+    {
+      "id": 109,
+      "db_cluster_id": 110,
+      "canonical_label": "Middle Eastern Classical Halberd Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "middle_eastern",
+      "dominant_period": "classical",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.7107,
+      "pool_count": 159,
+      "hdbscan_native_count": 40,
+      "top_3_reps": [
+        "Mount for Spear-Shaft",
+        "Iron Spearhead socket, Yale University Art Gallery, inv. 1938.5999.1082",
+        "Iron spear head, Yale University Art Gallery, inv. 1938.5999.1308"
+      ],
+      "top_5_reps": [
+        "Mount for Spear-Shaft",
+        "Iron Spearhead socket, Yale University Art Gallery, inv. 1938.5999.1082",
+        "Iron spear head, Yale University Art Gallery, inv. 1938.5999.1308",
+        "M60 tank",
+        "BTR-94"
+      ],
+      "provisional_description": "PROVISIONAL: middle_eastern classical halberd/spear weapons (historical register; category; N=159)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.7107); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 110,
+      "db_cluster_id": 111,
+      "canonical_label": "East Asian Industrial Spear Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "east_asian",
+      "dominant_period": "industrial",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9162,
+      "pool_count": 191,
+      "hdbscan_native_count": 43,
+      "top_3_reps": [
+        "Trident (san gu cha or bian cha)",
+        "Arisaka",
+        "Maxim gun"
+      ],
+      "top_5_reps": [
+        "Trident (san gu cha or bian cha)",
+        "Arisaka",
+        "Maxim gun",
+        "Seventeen Arrows",
+        "Ame-no-Nuboko"
+      ],
+      "provisional_description": "PROVISIONAL: east_asian industrial spear/sword weapons (historical register; category; N=191)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: east_asian industrial spear/sword weapons (historical register; category; N=191)",
+      "override_reason": "Provisional weapon-form 'spear/sword' refined from rep evidence; dominant rep-form is 'trident' (1/5).",
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.9162); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint. Provisional weapon-form 'spear/sword' not present in top-3 hdbscan_native reps.",
+      "special_case_flags": [
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 111,
+      "db_cluster_id": 112,
+      "canonical_label": "European-Tagged Modern Shotgun Pool (Mixed)",
+      "cluster_type": "mixed_cross_cultural",
+      "dominant_lineage": "european",
+      "dominant_period": "modern",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.3565,
+      "pool_count": 115,
+      "hdbscan_native_count": 26,
+      "top_3_reps": [
+        "Escudo",
+        "Canon de BirHakeim",
+        "Boomerang"
+      ],
+      "top_5_reps": [
+        "Escudo",
+        "Canon de BirHakeim",
+        "Boomerang",
+        "Boomerang",
+        "Saber"
+      ],
+      "provisional_description": "PROVISIONAL: european modern shotgun/rifle weapons (historical register; category; N=115)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Low lineage purity 0.3565 \u2014 cluster has substantial secondary lineage content. Coarse-spine.",
+      "special_case_flags": [
+        "low_lineage_purity"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 112,
+      "db_cluster_id": 113,
+      "canonical_label": "European Modern Rifle Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "european",
+      "dominant_period": "modern",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9961,
+      "pool_count": 2062,
+      "hdbscan_native_count": 447,
+      "top_3_reps": [
+        "Maltese Ring",
+        "Seax of Beagnoth",
+        "M2 machine gun at Musee de l'Arm\u00e9e"
+      ],
+      "top_5_reps": [
+        "Maltese Ring",
+        "Seax of Beagnoth",
+        "M2 machine gun at Musee de l'Arm\u00e9e",
+        "Centrefire six-shot revolver",
+        "Rimfire six-shot blank-firing revolver"
+      ],
+      "provisional_description": "PROVISIONAL: european modern rifle/spear weapons (historical register; category; N=2062)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: european modern rifle/spear weapons (historical register; category; N=2062)",
+      "override_reason": "Provisional weapon-form 'rifle/spear' refined from rep evidence; dominant rep-form is 'revolver' (2/5).",
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.9961); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint. Provisional weapon-form 'rifle/spear' not present in top-3 hdbscan_native reps.",
+      "special_case_flags": [
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 113,
+      "db_cluster_id": 114,
+      "canonical_label": "Middle Eastern Uncurated-Period Spear Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "middle_eastern",
+      "dominant_period": "unknown",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.6654,
+      "pool_count": 257,
+      "hdbscan_native_count": 55,
+      "top_3_reps": [
+        "HYDRA Heavy Assault Rifle",
+        "Spear head",
+        "Spear head"
+      ],
+      "top_5_reps": [
+        "HYDRA Heavy Assault Rifle",
+        "Spear head",
+        "Spear head",
+        "Spear head",
+        "Gabbro mace head"
+      ],
+      "provisional_description": "PROVISIONAL: middle_eastern unknown spear/rifle weapons (historical register; category; N=257)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest weapon-family cluster (purity 0.6654); 3/5 reps confirm 'spear' form.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 114,
+      "db_cluster_id": 115,
+      "canonical_label": "S. American Indigenous Modern Pool (Mixed)",
+      "cluster_type": "rare_lineage_isolate",
+      "dominant_lineage": "south_american_indigenous",
+      "dominant_period": "modern",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.4947,
+      "pool_count": 95,
+      "hdbscan_native_count": 22,
+      "top_3_reps": [
+        "Browning M1919",
+        "Apache (missile)",
+        "Tanque Argentino Mediano"
+      ],
+      "top_5_reps": [
+        "Browning M1919",
+        "Apache (missile)",
+        "Tanque Argentino Mediano",
+        "Darne machine gun",
+        "Gun Carrier Mark I"
+      ],
+      "provisional_description": "PROVISIONAL: south_american_indigenous modern rifle/sabre weapons (historical register; category; N=95)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Rare-lineage isolate; lineage purity 0.4947 indicates secondary lineage absorption. Coarse-spine label.",
+      "special_case_flags": [
+        "low_lineage_purity",
+        "rare_lineage_no_home"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 115,
+      "db_cluster_id": 116,
+      "canonical_label": "European Uncurated-Period Spear Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "european",
+      "dominant_period": "unknown",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9251,
+      "pool_count": 1335,
+      "hdbscan_native_count": 258,
+      "top_3_reps": [
+        "GYATA-64 mine",
+        "Round sheild",
+        "M111 offensive hand grenade"
+      ],
+      "top_5_reps": [
+        "GYATA-64 mine",
+        "Round sheild",
+        "M111 offensive hand grenade",
+        "7.62\u00d738mm SP-3",
+        "Die Glocke"
+      ],
+      "provisional_description": "PROVISIONAL: european unknown spear weapons (historical register; category; N=1335)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: european unknown spear weapons (historical register; category; N=1335)",
+      "override_reason": "Provisional weapon-form 'spear' refined from rep evidence; dominant rep-form is 'mine' (1/5).",
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.9251); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint. Provisional weapon-form 'spear' not present in top-3 hdbscan_native reps.",
+      "special_case_flags": [
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 116,
+      "db_cluster_id": 117,
+      "canonical_label": "Southeast Asian Uncurated-Period Sabre Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "southeast_asian",
+      "dominant_period": "unknown",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9868,
+      "pool_count": 151,
+      "hdbscan_native_count": 33,
+      "top_3_reps": [
+        "Pedang Diraja",
+        "Sundang Diraja",
+        "Areindama"
+      ],
+      "top_5_reps": [
+        "Pedang Diraja",
+        "Sundang Diraja",
+        "Areindama",
+        "mandau",
+        "Q118799330"
+      ],
+      "provisional_description": "PROVISIONAL: southeast_asian unknown sabre/musket weapons (historical register; category; N=151)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: southeast_asian unknown sabre/musket weapons (historical register; category; N=151)",
+      "override_reason": "Provisional weapon-form 'sabre/musket' not supported by top hdbscan_native reps.",
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.9868); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint. Provisional weapon-form 'sabre/musket' not present in top-3 hdbscan_native reps.",
+      "special_case_flags": [
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 117,
+      "db_cluster_id": 118,
+      "canonical_label": "South Asian Uncurated-Period Musket Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "south_asian",
+      "dominant_period": "unknown",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9291,
+      "pool_count": 127,
+      "hdbscan_native_count": 24,
+      "top_3_reps": [
+        "Bachhawali Tope",
+        "Pinaka multi-barrel rocket launcher",
+        "OTO Melara 76 mm"
+      ],
+      "top_5_reps": [
+        "Bachhawali Tope",
+        "Pinaka multi-barrel rocket launcher",
+        "OTO Melara 76 mm",
+        "Varunastra",
+        "SR 88"
+      ],
+      "provisional_description": "PROVISIONAL: south_asian unknown musket weapons (historical register; category; N=127)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: south_asian unknown musket weapons (historical register; category; N=127)",
+      "override_reason": "Provisional weapon-form 'musket' not supported by top hdbscan_native reps.",
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.9291); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint. Provisional weapon-form 'musket' not present in top-3 hdbscan_native reps.",
+      "special_case_flags": [
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 118,
+      "db_cluster_id": 119,
+      "canonical_label": "European Industrial Spear Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "european",
+      "dominant_period": "industrial",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9699,
+      "pool_count": 1262,
+      "hdbscan_native_count": 254,
+      "top_3_reps": [
+        "7.7 cm FK 96",
+        "75 mm Whitworth gun, Model 1873 (Cartagena)",
+        "Centrefire five-shot revolver"
+      ],
+      "top_5_reps": [
+        "7.7 cm FK 96",
+        "75 mm Whitworth gun, Model 1873 (Cartagena)",
+        "Centrefire five-shot revolver",
+        "Percussion six-shot revolver",
+        "Centrefire six-shot pepperbox"
+      ],
+      "provisional_description": "PROVISIONAL: european industrial spear/rifle weapons (historical register; category; N=1262)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: european industrial spear/rifle weapons (historical register; category; N=1262)",
+      "override_reason": "Provisional weapon-form 'spear/rifle' refined from rep evidence; dominant rep-form is 'revolver' (2/5).",
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.9699); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint. Provisional weapon-form 'spear/rifle' not present in top-3 hdbscan_native reps.",
+      "special_case_flags": [
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 119,
+      "db_cluster_id": 120,
+      "canonical_label": "Untyped-Lineage Mixed Mythical/Fantasy/Modern Pool",
+      "cluster_type": "mixed_form_pool",
+      "dominant_lineage": "unknown",
+      "dominant_period": "unknown",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9768,
+      "pool_count": 1205,
+      "hdbscan_native_count": 257,
+      "top_3_reps": [
+        "Round sheild",
+        "Ame no Makakoyumi",
+        "Anjalikastra"
+      ],
+      "top_5_reps": [
+        "Round sheild",
+        "Ame no Makakoyumi",
+        "Anjalikastra",
+        "Serious Bomb",
+        "Ultimate Nullifier"
+      ],
+      "provisional_description": "PROVISIONAL: unknown unknown rifle/lance weapons (historical register; category; N=1205)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: unknown unknown rifle/lance weapons (historical register; category; N=1205)",
+      "override_reason": "Provisional 'rifle' contradicted by reps (round shield + Ame no Makakoyumi (Shinto mythological bow) + Anjalikastra (Hindu mythic weapon) + Serious Bomb + Ultimate Nullifier). Cluster spans mythological, fantasy, and modern items under untyped lineage+period.",
+      "framing_audit_notes": "Second-largest 'unknown lineage' cluster (N=1205); coarse-spine label reflects its catch-all mythical/fantasy/modern nature.",
+      "special_case_flags": [
+        "provisional_description_overridden",
+        "lineage_uncurated",
+        "mixed_form_within_cluster"
+      ],
+      "phase_e3_e4_handoff_notes": "Phase E-1.5 sensitivity sweep should split mythological from fantasy from modern subgroups."
+    },
+    {
+      "id": 120,
+      "db_cluster_id": 121,
+      "canonical_label": "Southeast Asian Modern Musket Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "southeast_asian",
+      "dominant_period": "modern",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.6957,
+      "pool_count": 115,
+      "hdbscan_native_count": 21,
+      "top_3_reps": [
+        "AGM-65 Maverick",
+        "Karambit",
+        "FV106 Samson"
+      ],
+      "top_5_reps": [
+        "AGM-65 Maverick",
+        "Karambit",
+        "FV106 Samson",
+        "Ordnance, RCL, 3.45 in",
+        "Agent Purple"
+      ],
+      "provisional_description": "PROVISIONAL: southeast_asian modern musket/rifle weapons (historical register; category; N=115)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: southeast_asian modern musket/rifle weapons (historical register; category; N=115)",
+      "override_reason": "Provisional weapon-form 'musket/rifle' not supported by top hdbscan_native reps.",
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.6957); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint. Provisional weapon-form 'musket/rifle' not present in top-3 hdbscan_native reps.",
+      "special_case_flags": [
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 121,
+      "db_cluster_id": 122,
+      "canonical_label": "African Industrial Sword Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "african",
+      "dominant_period": "industrial",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.6462,
+      "pool_count": 65,
+      "hdbscan_native_count": 16,
+      "top_3_reps": [
+        "Handkerchief",
+        "Flyssa",
+        "4 bore"
+      ],
+      "top_5_reps": [
+        "Handkerchief",
+        "Flyssa",
+        "4 bore",
+        "RML 9-pounder 8 and 6 cwt guns",
+        "Mannlicher M1890 carbine"
+      ],
+      "provisional_description": "PROVISIONAL: african industrial sword/spear weapons (historical register; category; N=65)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: african industrial sword/spear weapons (historical register; category; N=65)",
+      "override_reason": "Provisional weapon-form 'sword/spear' refined from rep evidence; dominant rep-form is 'carbine' (1/5).",
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.6462); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint. Provisional weapon-form 'sword/spear' not present in top-3 hdbscan_native reps.",
+      "special_case_flags": [
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 122,
+      "db_cluster_id": 123,
+      "canonical_label": "European Modern Rifle Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "european",
+      "dominant_period": "modern",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9023,
+      "pool_count": 133,
+      "hdbscan_native_count": 32,
+      "top_3_reps": [
+        "Rimfire self-loading magazine rifle",
+        "Centrefire self-loading magazine rifle",
+        "Centrefire bolt-action target rifle"
+      ],
+      "top_5_reps": [
+        "Rimfire self-loading magazine rifle",
+        "Centrefire self-loading magazine rifle",
+        "Centrefire bolt-action target rifle",
+        "Centrefire bolt-action anti-tank rifle",
+        "Air rifle"
+      ],
+      "provisional_description": "PROVISIONAL: european modern rifle/sabre weapons (historical register; category; N=133)",
+      "provisional_description_overridden": false,
+      "original_provisional": null,
+      "override_reason": null,
+      "framing_audit_notes": "Substrate-honest weapon-family cluster (purity 0.9023); 5/5 reps confirm 'rifle' form.",
+      "special_case_flags": [],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 123,
+      "db_cluster_id": 124,
+      "canonical_label": "Middle Eastern Modern Spear Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "middle_eastern",
+      "dominant_period": "modern",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.9692,
+      "pool_count": 130,
+      "hdbscan_native_count": 26,
+      "top_3_reps": [
+        "Iron Quarrel Head, Yale University Art Gallery, inv. 1938.5999.1039",
+        "Iron Quarrel Head, Yale University Art Gallery, inv. 1938.5999.1045",
+        "Iron Quarrel Head, Yale University Art Gallery, inv. 1938.5999.1047"
+      ],
+      "top_5_reps": [
+        "Iron Quarrel Head, Yale University Art Gallery, inv. 1938.5999.1039",
+        "Iron Quarrel Head, Yale University Art Gallery, inv. 1938.5999.1045",
+        "Iron Quarrel Head, Yale University Art Gallery, inv. 1938.5999.1047",
+        "Iron Quarrel Head, Yale University Art Gallery, inv. 1938.5999.1052",
+        "Small Catapult Ball, Yale University Art Gallery, inv. 1982.28.115"
+      ],
+      "provisional_description": "PROVISIONAL: middle_eastern modern spear/lance weapons (historical register; category; N=130)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: middle_eastern modern spear/lance weapons (historical register; category; N=130)",
+      "override_reason": "Provisional weapon-form 'spear/lance' not supported by top hdbscan_native reps.",
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.9692); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint. Provisional weapon-form 'spear/lance' not present in top-3 hdbscan_native reps.",
+      "special_case_flags": [
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    },
+    {
+      "id": 124,
+      "db_cluster_id": 125,
+      "canonical_label": "Middle Eastern Medieval Rifle Family",
+      "cluster_type": "weapon_family",
+      "dominant_lineage": "middle_eastern",
+      "dominant_period": "medieval",
+      "dominant_register": "historical",
+      "dominant_kind": "category",
+      "dominant_wield": "two_hand",
+      "lineage_purity": 0.6786,
+      "pool_count": 56,
+      "hdbscan_native_count": 11,
+      "top_3_reps": [
+        "FV432",
+        "APC Talha",
+        "Emad (missile)"
+      ],
+      "top_5_reps": [
+        "FV432",
+        "APC Talha",
+        "Emad (missile)",
+        "Kale KCR",
+        "Smith & Wesson 1000 Series"
+      ],
+      "provisional_description": "PROVISIONAL: middle_eastern medieval rifle/lance weapons (historical register; category; N=56)",
+      "provisional_description_overridden": true,
+      "original_provisional": "PROVISIONAL: middle_eastern medieval rifle/lance weapons (historical register; category; N=56)",
+      "override_reason": "Provisional weapon-form 'rifle/lance' refined from rep evidence; dominant rep-form is 'apc' (1/5).",
+      "framing_audit_notes": "Substrate-honest cluster (purity 0.6786); reps do not surface single dominant form-token at top-5. Provisional weapon-form retained as coarse-spine hint. Provisional weapon-form 'rifle/lance' not present in top-3 hdbscan_native reps.",
+      "special_case_flags": [
+        "provisional_description_overridden"
+      ],
+      "phase_e3_e4_handoff_notes": null
+    }
+  ]
+}

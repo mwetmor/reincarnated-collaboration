@@ -262,3 +262,49 @@ Seam-prefix per ADR-001. Local-only. Distinct tag name from the Phase E-1 frame-
 ---
 
 **Signed:** knight-rider, 2026-05-23 post-Gate-2-synthesis ~12:40 EDT. Both reviewer findings folded; Gate-1 skipped (no new methodology choices). Gandalf has full design-coherence authority on label authoring; jack-ryan returns at Gate-2 for schema validation + process review. Phase E-2-DB sub-dispatch (DB UPDATE on `clusters.label` from your JSON output) is queued for elrond or legolas after your return.
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-23 (single-session execution; ~2.5 hours Pattern-B)
+**Agent:** gandalf (story-and-design steward)
+**Tags proposed:** `gandalf/phase-E-2-cluster-labeling-2026-05-23` (seam-prefix per ADR-001; local only)
+
+**Artifacts delivered:**
+
+| Artifact | Path | Status |
+|---|---|---|
+| Cluster canonical labels (human-readable) | `agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-2-cluster-labels.md` | ✓ 125 clusters |
+| Cluster canonical labels (machine-readable) | `agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-2-cluster-labels.json` | ✓ JSON-valid; 125 clusters |
+| N.am.indigenous recognition record | `canonical/story/n-am-indigenous-no-cluster-disposition-2026-05-23.md` | ✓ CURRENT — registered in 00-ground-state.md § 1 |
+| Phase E-2 completion summary | `agentic_orchestration/legolas/research/phase-E-pattern-6-2026-05-23/phase-E-2-completion-summary.md` | ✓ |
+| Ground-state oracle update | `canonical/00-ground-state.md` § 1 — new CURRENT row | ✓ |
+
+**Acceptance gates:** ALL PASS — see completion summary § Acceptance-Gate Verification.
+
+**Override count:** 47 of 125 clusters (well above predicted 5-15). The systematic provisional-label-generator drift makes sub-carry 9.11-A higher priority than initially scoped. Detail in completion summary § Operational Observations.
+
+**Sub-carries queued for knight-rider:**
+
+- **9.11-A** (legolas/rocket): provisional-label-generator code fix in `phase_e1_pipeline.py write_clusters_subsample`
+- **9.11-B** (legolas Mode B; dormant): n.am.indigenous substrate expansion — fires per recognition-record § 4 empirical triggers
+- **9.11-C** (elrond): east_asian period_unknown curation gap (Cluster 90 ~10K rows)
+- **9.11-D** (elrond): substrate-tagging-artifact review (Clusters 22, 78, 50 period/register tagging drift)
+- **9.11-E** (elrond): geographic-origin vs cultural-lineage tagging discipline (Cluster 23 finding)
+- **9.10-B.1** (gandalf, owed): OP-amendment write — framing-audit checklist updates per completion summary § Recommendation
+
+**Notes for jack-ryan Gate-2 review (per dispatch step "What knight-rider does after your return"):**
+
+- JSON schema all required fields per § 6.B template — verified locally
+- hdbscan_native-only sampling — verified by extract script
+- Special-case flag distribution — see completion summary § Special-Case Flag Distribution; sensible distribution
+- Cross-references intact — bidirectional cross-refs between Phase E-2 labels artifact + recognition record + dispatch
+- One judgment-call: the form-bundled-vs-prefix-bundled threshold (3-of-5 reps) for fantasy named-template clusters — handled by auto-labeler V2; boundary cases (Clusters 15, 42, 55, 60) flagged for Phase E-1.5 sensitivity sweep priority
+- No DB UPDATE attempted from this gandalf dispatch (per § Out of scope — DB writes deferred to Phase E-2-DB sub-dispatch)
+
+**Phase E-1.5 sensitivity sweep input ready:** Cluster 62 (Abyssal Bane mega-family) flagged `phase_e15_split_candidate`. The 4 modern-military-hardware clusters + 9 mixed-form-pool clusters are secondary split candidates. Cluster-type distribution + special-case flag distribution provide the priority ordering input for Phase E-1.5 dispatch authoring.
+
+**MIGRATION.md written:** No — Phase E-2 did not modify the substrate schema. The downstream Phase E-2-DB sub-dispatch will write a MIGRATION.md addendum (or new file) when it executes the `UPDATE clusters SET label = ?` pass. Optional `ALTER TABLE clusters ADD COLUMN cluster_type TEXT` flagged in completion summary as a question for the next sub-dispatch.
+
+**Signed (completion):** gandalf — 2026-05-23 post-execution. Awaiting jack-ryan Gate-2 Pattern-A-light ratification.
