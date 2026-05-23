@@ -4,6 +4,93 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-23 (Cycle 9.15 — Per-agent OP propagation fan-out CLOSED (8 sub-agents in parallel; all OPs + installed skills canonical-verbatim compliant) + cluster-116 elrond relabel CLOSED via combined sub-agent invocation + knight-rider OP self-amended to canonical verbatim form + session handoff authored) — P1 hive-mind preparation arc items 2 + 3 (KR-driven) both CLOSED; substrate-side weapon-knowledge work cycle substantially complete pending 9.11-C/D/E elrond follow-on at Matt's call
+
+**Event:** Matt fired 8 sub-agents in parallel via knight-rider Agent tool fan-out — 7 OP propagation invocations (jack-ryan + rocket + gamora + star-lord + galadriel + drax + legolas) plus 1 combined elrond invocation (OP propagation + cluster-116 relabel sequenced within single session to avoid parallel-elrond-session git race). All 8 returned with successful amendments + cluster-116 relabel landed cleanly in production DB.
+
+**Per-agent OP propagation outcomes (8 commits; commit hashes per gandalf proposal verification approach):**
+
+| Agent | Commit | Insertion point | Notes |
+|---|---|---|---|
+| jack-ryan | `c8f33bf` | § 3 decision-loop discipline — replaced prior thin §3.8 | Process-side critique-pair gate work emphasis (#23 + #18.1/#18.2 + #19.1 WARN authority) |
+| rocket | `f802ea4` | After § 3.4 math-hotspot routing | Replaced partial non-verbatim §3.7; emphasis on #18.2 gandalf-handoff timing |
+| gamora | `c1eaf35` | After Mode 1 B14.5 V1 primary loop closing bullet | **ANOMALY: elrond cluster-116 files (3) rode into this commit due to parallel-commit race** (work intact; cosmetic attribution mislabel) |
+| star-lord | `d1246bc` | After § 3.2 Mode B / P5 cohesion-judge | Replaced thin §3.5 no-sleep stub; #23 framing-audit + #18.2 P5-extension timing emphasis |
+| elrond (OP) | `5d7cec0` | After P3 multimodal clustering | #25 semantic-layer rep-audit LOAD-BEARING (cluster-116 cited as worked example); #20 density-based row-duplication LOAD-BEARING for P3; 16-flag enum cross-reference |
+| galadriel | `2d49443` | Parallel to existing § 3.8 no-sub-agent-invocation HARD NO | HARD NO discipline preserved (docs-only propagation); #23 + #18.2 emphasis at P5 visual-coherence verdict authoring |
+| drax | `adcce46` | After mode-selection (Mode L / Mode D / Mode A-I) | Replaced thin §3.7; #23 framing-audit scoped to Vercel deploys + demo-vs-loadout decisions |
+| legolas | `f2d70d9` | After Mode A/B sections | #18.2 baseline-before-methodology timing emphasis (legolas IS methodology-consultation source for math hotspots) |
+
+**Cluster-116 elrond relabel outcome (commit `c1eaf35`; tag `elrond/phase-E-2-relabel-cluster-116-2026-05-23` anchored at this commit due to parallel-commit race):**
+
+- DB UPDATE: `clusters.id=116` `label` transitioned `'European Uncurated-Period Spear Family'` → `'European Uncurated-Period Mixed Military Hardware Pool'` (gandalf 9.13-D Path 1 decision)
+- Verified via SQLite query post-fan-out: `116|European Uncurated-Period Mixed Military Hardware Pool` ✓
+- Round-trip smoke: 10/10 PASS — sample contains landmines + Round shields + "coats of arms and flags of Andorra"; all see new label via join
+- Row count unchanged at 125; 0 PROVISIONAL labels; Phase E-2-DB acceptance invariant preserved
+- MIGRATION.md authored at `agentic_orchestration/elrond/research/phase-E-2-relabel-cluster-116-2026-05-23/MIGRATION.md`
+
+**Grep verification per dispatch § Acceptance criteria (knight-rider executed post-fan-out):**
+
+```bash
+$ grep -l "no sleep recommendations" agentic_orchestration/operating-procedures/*.md | wc -l
+10
+$ grep -l "timezone-agnosticism" agentic_orchestration/operating-procedures/*.md | wc -l
+10
+$ grep -l "engineering-disciplines.md" agentic_orchestration/operating-procedures/*.md | wc -l
+12
+```
+
+All 10 OP files (8 newly amended + gandalf + knight-rider) carry the verbatim canonical text. Bonus 2 in engineering-disciplines.md grep are likely hive-mind-protocol.md + AGENTS.md (cross-referencing the canonical authority). PASS on all acceptance gates.
+
+**Knight-rider OP self-amendment (this commit):**
+
+Knight-rider OP at `.claude/agents/knight-rider.md` carried a self-correction section "Out-of-scope: Matt's biological state, time-of-day, fatigue, rest" (commit `1a7b16a`) but did NOT use the verbatim "timezone-agnosticism" canonical phrase. Per the propagation dispatch acceptance criterion ("All 10 OP files contain verbatim timezone-agnosticism directive"), knight-rider self-amended to the canonical verbatim form — preserving the spirit of the prior self-correction while adopting the canonical text matching engineering-disciplines.md #22. Post-amendment grep PASS verified.
+
+**Anomalies surfaced (work intact; cosmetic + carry-forward):**
+
+1. **Parallel-commit-race in fan-out** — elrond's cluster-116 files swept into gamora's commit `c1eaf35` due to two simultaneous sub-agent commits racing on git operations. Tag `elrond/phase-E-2-relabel-cluster-116-2026-05-23` is anchored at `c1eaf35` to preserve cluster-116 provenance. **Work is intact** (DB UPDATE verified; smoke PASS); only commit-author attribution is mislabeled. **Lesson for future fan-outs:** when knight-rider invokes ≥2 sub-agents in parallel that both commit to the same repo, races can occur. Mitigation options noted in session handoff § 3.
+2. **Dispatch estimate error** — cluster-116 dispatch estimated `cluster_membership WHERE cluster_id=116` "~10,087" (cross-scope confusion with Cluster 90 metadata-bucket). Actual count is 1,335. Substrate-invariant; smoke PASS regardless. Knight-rider dispatch authoring discipline: cite rep counts more carefully cross-scope.
+
+**Steps executed (knight-rider this cycle):**
+
+1. Fired 8 sub-agents in parallel via Agent tool — 7 single-purpose OP propagation invocations + 1 combined elrond invocation (OP propagation + cluster-116 relabel sequenced within single session)
+2. All 8 returned with successful amendments + cluster-116 relabel
+3. Verified git state + tag chain + production DB cluster-116 label
+4. Ran grep verification per dispatch § Acceptance criteria — all gates PASS
+5. Self-amended knight-rider OP to canonical verbatim form (closes the verbatim-phrase compliance gap; preserves prior self-correction spirit)
+6. CHANGELOG Cycle 9.15 entry (this entry)
+7. Session handoff authored at `agentic_orchestration/skill_handoff_2026-05-23-cycle-9-15-session-handoff.md`
+
+**Sub-carry status changes this cycle:**
+
+- 9.14-A — CLOSED (per-agent OP propagation fan-out; 8 commits + grep PASS)
+- 9.14-B — CLOSED (cluster-116 relabel + tag anchored at `c1eaf35`)
+- HM-prep arc items 2 + 3 — both CLOSED
+- HM-prep arc item 4 — gandalf-owned future
+- 9.11-C / 9.11-D / 9.11-E — still queued; gandalf D → E → mesoamerican smoke order; non-blocking for currently-active work
+
+**Commit chain through Cycle 9.15:**
+
+```
+[next: this CHANGELOG + KR OP self-amendment + session handoff in single commit]
+5d7cec0  docs(elrond): OP + skill amendment
+adcce46  docs(drax): OP + skill amendment
+f2d70d9  docs(legolas): OP + skill amendment
+c1eaf35  docs(gamora): OP + skill amendment ← contains elrond cluster-116 files; tag anchor
+2d49443  docs(galadriel): OP + skill amendment
+d1246bc  docs(star-lord): OP + skill amendment
+f802ea4  docs(rocket): OP + skill amendment
+c8f33bf  docs(jack-ryan): OP + skill amendment
+3d22857  ops(knight-rider): Cycle 9.14 closeout
+[engine repo, separate chain] 1fae3fa  docs(jack-ryan): Engineering-disciplines canonical-write batch
+```
+
+**Substrate-side work cycle state:**
+
+The 2026-05-23 substrate-side work cycle is at a clean checkpoint. P1 hive-mind preparation arc items 2 + 3 (KR-driven; canonical-write + per-agent propagation) are CLOSED. Substrate-side weapon-knowledge work is substantially complete pending 9.11-C/D/E elrond follow-on at Matt's call. HM-fire remains gated on HM-prep 1-7 + item 4 all closing — items still queued: HM-prep 3 (9.11-C/D/E partial), HM-prep 4-7 (Question A chain), item 4 (gandalf hive-mind protocol amendment).
+
+---
+
 ## 2026-05-23 (Cycle 9.14 — Jack-ryan engineering-disciplines coordinated canonical write COMPLETE (6 new + 6 amendments; 13 candidates dispositioned, 0 rejected) + parallel-instance gandalf 9.13-D Path 1 relabel decision landed + item 3 per-agent OP propagation dispatch authored) — engineering-disciplines.md canonically extended from 19 → 25 disciplines + 6 sub-amendments; semantic-vs-geometry layer separation locked (#18.1 vs #25); no-sleep + timezone-agnosticism CRITICAL directives now canonical (#21 + #22); P1 hive-mind preparation arc item 2 CLOSED; item 3 (per-agent OP propagation; 8 agents) authored as batched fan-out dispatch
 
 **Event:** Matt fired jack-ryan as sub-agent on the coordinated canonical-write dispatch (`51c5665`). Jack-ryan returned in single session having dispositioned all 13 candidates without rejection. During the same window, parallel-instance gandalf resolved 9.13-D (cluster-116 relabel-or-defer open-thread) by choosing Path 1 (targeted relabel; proposed canonical label "European Uncurated-Period Mixed Military Hardware Pool"; commit `b5e13de`).
