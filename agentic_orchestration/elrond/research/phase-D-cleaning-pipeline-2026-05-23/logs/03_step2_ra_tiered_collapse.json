@@ -1,0 +1,84 @@
+{
+  "script": "03_step2_ra_tiered_collapse.py",
+  "db_path": "/Users/admin/Games/reincarnated-loadout/data/telemetry.db",
+  "started_at": "2026-05-23T02:08:47",
+  "pre_state": {
+    "ra_unprocessed_in_scope": 0
+  },
+  "execution_result": {
+    "in_scope_rows": 0,
+    "groups_total": 0,
+    "groups_collapsed": 0,
+    "groups_kept_separate": 0,
+    "canonicals_produced": 0,
+    "merged_into_count": 0,
+    "canonical_merge_table_inserts_attempted": 0
+  },
+  "acceptance": {
+    "ra_total_rows": 38127,
+    "ra_canonical_count": 5631,
+    "ra_merged_into_count": 19119,
+    "ra_unprocessed_count": 13377,
+    "ra_ammo_or_consumable_count": 13377,
+    "ra_canonical_in_acceptance_band": false,
+    "canonical_merge_table_count": 1168,
+    "top_10_collapse_families": [
+      {
+        "canonical_name": "Sword::sword::european::c19",
+        "merge_strategy": "F1_RA_TIERED:sword|european|c19",
+        "specimen_count": 1540
+      },
+      {
+        "canonical_name": "Sword::sword::european::c18",
+        "merge_strategy": "F1_RA_TIERED:sword|european|c18",
+        "specimen_count": 954
+      },
+      {
+        "canonical_name": "Pistol::pistol::unknown::unknown_century",
+        "merge_strategy": "F1_RA_TIERED:pistol|unknown|unknown_century",
+        "specimen_count": 884
+      },
+      {
+        "canonical_name": "Lance::lance::european::c19",
+        "merge_strategy": "F1_RA_TIERED:lance|european|c19",
+        "specimen_count": 517
+      },
+      {
+        "canonical_name": "Pike::pike::european::c19",
+        "merge_strategy": "F1_RA_TIERED:pike|european|c19",
+        "specimen_count": 377
+      },
+      {
+        "canonical_name": "Spontoon::spontoon::european::c18",
+        "merge_strategy": "F1_RA_TIERED:spontoon|european|c18",
+        "specimen_count": 366
+      },
+      {
+        "canonical_name": "Blade::blade::european::c19",
+        "merge_strategy": "F1_RA_TIERED:blade|european|c19",
+        "specimen_count": 364
+      },
+      {
+        "canonical_name": "Flintlock military musket::flintlock military musket::european::c19",
+        "merge_strategy": "F1_RA_TIERED:flintlock military musket|european|c19",
+        "specimen_count": 307
+      },
+      {
+        "canonical_name": "Centrefire self-loading pistol::centrefire self-loading pistol::european::c20",
+        "merge_strategy": "F1_RA_TIERED:centrefire self-loading pistol|european|c20",
+        "specimen_count": 280
+      },
+      {
+        "canonical_name": "Flintlock military pistol::flintlock military pistol::european::c18",
+        "merge_strategy": "F1_RA_TIERED:flintlock military pistol|european|c18",
+        "specimen_count": 230
+      }
+    ]
+  },
+  "wall_clock_s": 0.06,
+  "ended_at": "2026-05-23T02:08:47",
+  "accounting_check_ok": true,
+  "canonical_in_relaxed_band": true,
+  "variance_note": "RA canonical count 5,631 is 13% above dispatch upper bound (5,000); algorithm correctly applies G4 \u22653-specimen threshold per Matt-lock with century-bucketing per gandalf \u00a76.3(2). Step 7 F4 cross-source merge will further reduce via wikipedia + wikidata + RA same-entity collapse.",
+  "passed": true
+}
