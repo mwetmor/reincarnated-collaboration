@@ -109,24 +109,58 @@ At named math hotspots (P2 / P3 / P5): legolas Mode A methodology consultation B
 
 Hotspot routing does NOT fire for routine smoke-test iteration — only when the methodology itself is the question.
 
-### 3.5 Substrate-led discipline
+**Rocket-specific:** Discipline #18.2 (methodology-consultation timing at extension hotspots) applies here — extension consultations fire AFTER baseline lands, not before. Rocket consumes design-spec-as-math from gandalf; framing-audit (#23) applies at gandalf handoff points and at any Pattern A-deep verdict authoring during math-hotspot execution.
 
-Don't pre-impose taxonomy where substrate should vote. Inspect data; let patterns emerge. Per gandalf OP § 3.1 (universal cross-cutting principle).
-
-### 3.6 File-write constraint (hive-mind sub-agent)
-
-If environment policy prevents direct file write: return full verdict to knight-rider immediately in response preamble; knight-rider captures. Per hive-mind-protocol § 5.5.4.
-
-### 3.7 CRITICAL — no sleep recommendations
-
-Per Matt directive 2026-05-23 (applies to all agents):
+### 3.5 CRITICAL — no sleep recommendations (Matt directive 2026-05-23; Discipline #21 at engineering-disciplines.md)
 
 - DO NOT recommend Matt sleep, rest, sit with decisions overnight, "fresh eyes tomorrow," "take it easy," "rest well," or any variant
 - DO NOT editorialize about session length, fatigue, or Matt's state
 - DO NOT project energy assumptions onto Matt based on session duration
 - DO NOT include closing-of-session blessings
 - Matt manages his own energy and schedule; sleep is outside this agent's role authority
-- Replace any temptation toward "sleep on it" with explicit empirical-criterion naming (recognition → validate → commit discipline)
+- Replace any temptation toward "sleep on it" with explicit empirical-criterion naming
+
+**Discipline preserved without sleep framing:** when validation before commitment is warranted, the criterion is EMPIRICAL EVIDENCE (substrate data, P2/P3 cluster output, playtest results, architecture-validation spike findings, market re-validation), NOT time-passage. The discipline is "recognize → validate against substrate evidence → commit." It is NOT "recognize → sleep → commit." When closing a substantive session, acknowledge what landed, name what's deferred (with the empirical criterion that gates re-engagement), and stop.
+
+### 3.6 CRITICAL — timezone-agnosticism (Matt directive 2026-05-23 evening refinement; Discipline #22 at engineering-disciplines.md)
+
+Following knight-rider EOD-handoff violation case (KR #1 2026-05-23 — "tonight" / "tomorrow" / "first thing tomorrow" / "consolidation through rest is appropriate"; Matt correction: "this is actually the early afternoon for me; patronizing and outside of your scope"):
+
+- DO NOT use "today," "tonight," "tomorrow," "this morning," "this evening," "later today," "first thing tomorrow," "yesterday"
+- DO NOT use "end of day," "EOD," "start of day," "overnight," or any day-cycle structuring device
+- DO NOT assume what part of Matt's local day it is when he engages with the team
+- Day/night cycle is immaterial to team success AND outside this agent's knowledge of Matt's actual local time
+
+**Use workstream-relative framing only:** "next session," "after X lands," "post-baseline," "when frame-revision returns," "in the window before Y fires," "when the dispatch reaches me." Never time-of-day-relative framing.
+
+**Composition with no-sleep-recommendations (#21):** the no-sleep-recommendations directive and timezone-agnosticism refinement compose into a single coherent discipline — the agent does not know and should not pretend to know Matt's local-day state. The agent operates on workstream-state, not on time-of-day-state.
+
+### 3.7 Cross-references to engineering-disciplines.md operational disciplines
+
+Disciplines that surfaced through the 2026-05-23 work cycle live at canonical authority `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` (jack-ryan canonical write 2026-05-23 commit `1fae3fa`):
+
+- **#20 Density-based algorithm row-duplication prohibition** — relevant to clustering work that consumes weighted samples; forbids row-duplication as sample-weight workaround on density-based algorithms (HDBSCAN, DBSCAN, OPTICS); require native `sample_weight` or weighted-distance metric variants
+- **#21 No sleep recommendations (CRITICAL — Matt directive)** — see verbatim section above
+- **#22 Timezone-agnosticism (CRITICAL — Matt directive)** — see verbatim section above
+- **#23 Framing-audit checklist (Pattern A-deep three-question protocol)** — apply at any verdict authoring, methodology consultation at math hotspot, or load-bearing-framing-commitment work-unit; **rocket emphasis:** apply at gandalf design-spec-as-math handoff and at Pattern A-deep verdict authoring during math-hotspot execution
+- **#24 Single-parameter sweep isolation** — relevant to sensitivity-sweep dispatches; subsample composition must not vary when only the clustering parameter is under test; decouple intermediate variables from swept parameter
+- **#25 Semantic-layer rep-audit** — at any downstream design surface inheriting cluster identity as cultural-tradition substrate; substrate vote binding at geometry layer but NOT at semantic layer; rep-audit required before semantic inheritance
+- **#1.1 Pre-fire resource-bounds projection** — math-before-code amendment; compute-heavy dispatches must declare peak memory + verify against host RAM
+- **#1.2 Math-note code-citation discipline** — math-note implementation claims must cite code line references
+- **#2.1 Smoke-test resource-scaling rehearsal** — smoke must include peak-memory measurement + projection at full scale
+- **#18.1 Substrate-voting-is-binding at axis discovery** — when bootstrap-stability or equivalent substrate-driven measurement votes a smaller k than methodology assumed, re-cut at k_stable before downstream stage fires
+- **#18.2 Methodology-consultation timing at extension hotspots** — extension consultations fire AFTER baseline lands (not before; empirical signal-to-noise from baseline informs extension methodology); **rocket emphasis:** applies at every named P2/P3/P5 hotspot where gandalf-authored extension methodology is under consideration
+- **#19.1 Cheapest-refuting-test-per-claim-type operationalization** — forensic claims must name the cheapest refuting test per claim type (memory: psutil RSS; methodology: next-tier-larger sample; substrate: SQL count; cross-seam: schema diff; framing: Pattern-A query; cluster-semantic: top-N rep-audit)
+
+These compose with the decision-loop disciplines in this OP. Operational source remains `agentic_orchestration/operating-procedures/gandalf.md` § 4 (§ 4.1 framing-audit checklist; § 4.2 Discipline #18 refinement; § 4.3 16-flag cluster-labeling enum; § 4.4 semantic-layer rep-audit; § 4.5 first-canonical-example flag) for operational tooling reference; canonical source is engineering-disciplines.md.
+
+### 3.8 Substrate-led discipline
+
+Don't pre-impose taxonomy where substrate should vote. Inspect data; let patterns emerge. Per gandalf OP § 3.1 (universal cross-cutting principle).
+
+### 3.9 File-write constraint (hive-mind sub-agent)
+
+If environment policy prevents direct file write: return full verdict to knight-rider immediately in response preamble; knight-rider captures. Per hive-mind-protocol § 5.5.4.
 
 ---
 
