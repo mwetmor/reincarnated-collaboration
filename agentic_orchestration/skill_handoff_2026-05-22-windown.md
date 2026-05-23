@@ -1,5 +1,7 @@
 # Skill Handoff — 2026-05-22 Wind-Down (post API outage)
 
+> **STATUS:** SUPERSEDED-BY `skill_handoff_2026-05-22-cleaning-plan.md` (the authoritative 2026-05-22 handoff). This file captures the recovery wind-down session that closed Cycle 8 of the weapon-library-import hive-mind at 89.8% substrate. Matt subsequently resolved D1 as **(a) accept at 89.8% + pivot to canonical normalization** (captured in cleaning-plan handoff § 2 Matt-locked decisions). Hive-mind is now Cycle 9 cleaning-phase-active. Read this file for the wind-down narrative + Cycle 0-8 summary; consult the cleaning-plan handoff for the current Cycle 9 state and forward dispatches.
+
 **Author:** knight-rider (wind-down session — short, recovery-mode)
 **For:** Matt + next-session knight-rider
 **Authority:** Matt 2026-05-22 evening — "wind down the prior sequence, summarize, tag, push and commit"

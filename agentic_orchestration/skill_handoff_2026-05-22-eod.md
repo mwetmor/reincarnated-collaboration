@@ -1,5 +1,7 @@
 # Skill Handoff — 2026-05-22 EOD — P0 CLOSED; P1 OPENED; prolonged-autonomy session 2 complete
 
+> **STATUS:** SUPERSEDED-BY `skill_handoff_2026-05-22-cleaning-plan.md` (the authoritative 2026-05-22 handoff). This file is an early-day EOD snapshot covering P0 closure and P1 opening. Its content is folded into the cleaning-plan handoff. Read for historical lineage only — specifically the P0 closure details if needed. For current state, read the cleaning-plan handoff. See `canonical/00-ground-state.md` for the broader epoch context.
+
 **Author:** knight-rider (session 2; prolonged-autonomy mandate)
 **Status:** Session-end clean; all 7 fire-sequence tasks closed; no escalations pending
 **For Matt's return:** state-of-hive snapshot at § 1 (read first); detailed continuity at § 2+

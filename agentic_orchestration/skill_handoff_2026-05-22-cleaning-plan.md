@@ -1,5 +1,7 @@
 # Skill Handoff — 2026-05-22 Cleaning-Plan-Design Session
 
+> **STATUS:** AUTHORITATIVE 2026-05-22 handoff (latest timestamp 23:47). Supersedes the five intra-day 2026-05-22 handoff variants (`skill_handoff_2026-05-22.md`, `-eod.md`, `-evening.md`, `-overnight.md`, `-windown.md`) which are now stamped SUPERSEDED-BY this file. For broader epoch context (current canon vs historical vs dead branches) see `canonical/00-ground-state.md`. For the keystone delivery strategy see `canonical/38-downstream-delivery-strategy-2026-05-23.md`. This handoff is the live continuity record for 2026-05-22 work feeding into 2026-05-23 sessions.
+
 **Author:** knight-rider (Cycle 9 cleaning-plan session; same-day continuation of wind-down session)
 **For:** Matt + next-session knight-rider + gandalf (incoming dispatch pickup)
 **Authority:** Matt 2026-05-22 evening — "(a) accept at 89.8% + pivot to canonical normalization. But we need to think through a plan to clean the data before processing it"

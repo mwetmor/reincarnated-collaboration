@@ -1,5 +1,7 @@
 # Skill Handoff — 2026-05-22 Evening — Strategic Reframe + Five Vestigial-Pattern Retirements + Vast-Library Pivot
 
+> **STATUS:** SUPERSEDED-BY `skill_handoff_2026-05-22-cleaning-plan.md` (the authoritative 2026-05-22 handoff). This file captures the gandalf evening session that committed the five vestigial-pattern retirements + vast-library pivot + Variant C lock — those architectural commitments ARE current canon (see `canonical/00-ground-state.md` § 1) and live in their own canonical docs (`gear-heavy-promotion-2026-05-22.md`, `legacy-categorical-cleanup-audit-2026-05-22.md`, `engine-as-general-serial-content-product-2026-05-22.md`). The handoff itself, however, is superseded by the cleaning-plan handoff as the canonical 2026-05-22 continuity record. Read this file for historical lineage of the evening session's specific framing; consult the canonical docs for current truth.
+
 **Author:** gandalf (story-and-design steward; capturing extensive evening-session architectural work)
 **Status:** Session-end handoff; tomorrow morning fresh session picks up from here
 **For Matt's return:** § 1 state-of-architecture snapshot first; § 2-§ 6 detail per workstream; § 7 open operational items; § 8 tomorrow's canonical doc plan

@@ -1,5 +1,7 @@
 # Skill Handoff — 2026-05-22 — Prolonged-Autonomy Mode Engaged; LC-011 Recovery In Flight
 
+> **STATUS:** SUPERSEDED-BY `skill_handoff_2026-05-22-cleaning-plan.md` (the authoritative 2026-05-22 handoff). This file is an early intra-day snapshot from session 1 of 2026-05-22. Read for historical lineage only. For current state, read the cleaning-plan handoff. See `canonical/00-ground-state.md` for the broader epoch context.
+
 **Author:** knight-rider (session active; may end before recovery completes)
 **Purpose:** cross-session continuity for next knight-rider invocation under Matt's prolonged-autonomy mandate
 **Status:** authored mid-session; recovery firing in background; dispatches filed for autonomous pickup

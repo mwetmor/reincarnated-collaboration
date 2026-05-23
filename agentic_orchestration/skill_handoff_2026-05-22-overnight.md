@@ -1,5 +1,7 @@
 # Skill Handoff — 2026-05-22 Overnight Cascade — Weapon-Library-Import Schema Lock + Per-Source Robots Verification + Dispatches Queued
 
+> **STATUS:** SUPERSEDED-BY `skill_handoff_2026-05-22-cleaning-plan.md` (the authoritative 2026-05-22 handoff). This file captures the overnight cascade that fired the weapon-library-import hive-mind. The operational outcomes (89,839 substrate + 82,191 image URLs + license-tier classification) are now live state per `agentic_orchestration/weapon-library-import-wind-down-summary-2026-05-22.md` and the protocol per `canonical/story/hive-mind-protocol-weapon-library-import-2026-05-22.md`. Read this file for historical lineage of the overnight execution; consult the wind-down summary + cleaning-plan for current state.
+
 **Author:** knight-rider (overnight orchestrator session)
 **Status:** Session-end handoff
 **For Matt's return:** § 1 first; § 2-§ 4 detail; § 5 next-session pickup sequence
