@@ -30,6 +30,8 @@ Read these as authoritative for ongoing work.
 | `canonical/story/gear-heavy-promotion-2026-05-22.md` | Vast-library substrate architecture | CURRENT |
 | `canonical/story/hive-mind-protocol-weapon-library-import-2026-05-22.md` | Substrate-acquisition hive-mind protocol | CURRENT |
 | `canonical/story/multi-dim-convergence-algorithm-2026-05-21.md` | Substrate-vector axes (BC convergence) | CURRENT |
+| `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` | **8 BC axes lock — operational truth for engine measurement coordinate system; 68,040 cells; bin definitions per axis (engagement / damage geometry / proxy density / control density / damage tempo / damage amplitude variance / defensive profile / resource economy); load-bearing for ALL substrate, balance, and kit-to-weapon-mapping work** | **CURRENT — foundational engine architecture** |
+| `canonical/story/qd-engine-end-to-end-workflow-2026-05-21.md` | **QD-engine 8-phase workflow (Archive Inspection → BC-Target Generation → Convergence/Measurement → Insertion → Cohesion Coalescence → Visual Coalescence → Joint-Gate → Profile Assembly); load-bearing for understanding how kits flow through the engine** | **CURRENT — foundational engine architecture** |
 | `canonical/story/gear-substrate-rule-table-v1-2026-05-22.md` | Gear substrate rule table | CURRENT |
 | `canonical/story/tier-4-architecture-defaults-2026-05-22.md` | T4 architecture defaults | CURRENT |
 | `canonical/story/stat-derivation-from-bc-convergence-2026-05-22.md` | Stat derivation from BC | CURRENT |
@@ -117,7 +119,7 @@ Replaces the per-agent multi-doc Phase-1 reading list with a focused short list.
 |---|---|
 | **knight-rider** | doc 38; latest `agentic_orchestration/skill_handoff_*.md`; current hive-mind state file; engineering-disciplines |
 | **jack-ryan** | doc 38; engineering-disciplines; decisions-log; latest critique-pair dispatch |
-| **gandalf** | doc 38; own latest 3 notes (`agentic_orchestration/gandalf/notes/`); style-register; legacy-categorical-cleanup-audit |
+| **gandalf** | doc 38; **qd-engine-bc-axes-lock-2026-05-20.md (8-axis operational truth)**; **qd-engine-end-to-end-workflow-2026-05-21.md (8-phase pipeline)**; own latest 3 notes (`agentic_orchestration/gandalf/notes/`); style-register; legacy-categorical-cleanup-audit |
 | **rocket** | doc 38; substrate-vector axes; gear-substrate rule table; tier-4 architecture defaults; engineering-disciplines |
 | **gamora** | doc 38; multi-dim-convergence-algorithm; w1-13-rescope-disposition; engineering-disciplines |
 | **star-lord** | doc 38; asset-pipeline-meshy-swap; loadout-analytics-suite info-arch; engineering-disciplines |
