@@ -67,6 +67,7 @@ This dispatch is the integration of those 13 dialogue turns into a routable spec
 | Stage | Description | Owner | Cost | Dependencies | Kind |
 |---|---|---|---|---|---|
 | **Sidecar A** | Image-pass-through-vs-LLM-description Meshy comparison — pulled forward from architecture-validation spike per Matt 2026-05-23 dispatch-authoring addition; 3-5 representative weapons via both paths; PASS verdict locks production default for ~91.5% of weapons | star-lord + gandalf + jack-ryan Gate-2 | ~half-day | Independent (fires in parallel) | Specialist execution (parallel sidecar) |
+| **Sidecar B** | **Off-hand items substrate inclusion** — added per Matt 2026-05-24 Stage 0 design dialogue (Custer-with-Art-of-War scenario surfacing); extends substrate scope to include shields + tomes + banners + focuses + horns + talismans via Approach B (extend `weapon_knowledge_entries.weapon_kind` enum); enables shield-and-sword tanks + caster-with-focus + dual-wield + signature off-hand-item forms | elrond + legolas (Mode B for crawl) + gandalf | ~1-2 days | Independent (fires in parallel); composes with Stages 1 + 1.5 + 4 scope | Specialist execution (parallel sidecar with main-sequence integration) |
 | **0** | Form-distribution intent sketch — Reincarnated's own form/class taxonomy (NOT Servant taxonomy); intended seasonal-form distribution per kit-shape archetype; anchors mechanical-cell targets | Matt + gandalf | Pattern B design call | None (gates dispatch) | Design call |
 | **1** | Cheap proxy mechanical fingerprint per row (name-token + weapon_kind + wieldable_humanoid heuristic) | elrond + rocket | ~4-6 hrs | Stage 0 | Specialist execution |
 | **1.5** | Per-source structured-field extractor — concentrate on 6-8 rich-source libraries; extract named-bearer attribution + materials + provenance + dimensions into queryable columns | elrond + gandalf | ~1-2 days | Stage 0 | Specialist execution (parallel with 1) |
@@ -126,6 +127,82 @@ This dispatch is the integration of those 13 dialogue turns into a routable spec
 **Implication if FAIL:** Asset-pipeline doc § 3.6 hypothesis refuted; ChatGPT-gen stays primary; substrate reference images become secondary input for cohesion-judge calibration but not Meshy submission. Adjusted Variant C cost-model accordingly.
 
 **Implication if MIXED:** Per-weapon-type routing logic; asset-pipeline doc amendment captures the conditional pattern.
+
+---
+
+### Sidecar B — Off-hand items substrate inclusion (elrond + legolas + gandalf)
+
+**Purpose:** Extend Cycle 10 substrate-curation scope to include off-hand items (shields + tomes + banners + focuses + horns + talismans) so v1 pipeline supports shield-and-sword tanks + caster-with-focus + dual-wield + signature off-hand-item forms. Pulled forward per Matt 2026-05-24 Stage 0 design dialogue (Custer-with-Art-of-War scenario surfaced the gap; cost-once principle applies — easier to include in active Cycle 10 than retrofit later).
+
+**Inputs:**
+- Existing `weapon_knowledge_entries` table (69,137 active rows; ~50% rich-source-tagged)
+- Per-source schema mapping (royal_armouries; Met Museum; Wikipedia; Wikidata; tactical-treatise sources)
+- Mode-A-targeted crawl list for off-hand sub-categories where substrate-coverage is thin
+
+**Schema extension (Approach B — recommended; single-table):**
+
+```sql
+ALTER TABLE weapon_knowledge_entries
+DROP CONSTRAINT IF EXISTS check_weapon_kind;
+ALTER TABLE weapon_knowledge_entries
+ADD CONSTRAINT check_weapon_kind CHECK (
+  weapon_kind IN (
+    'category', 'unique', 'named_template', 'ammo_or_consumable',
+    'shield', 'tome', 'banner', 'focus', 'horn', 'talisman',
+    'unknown'
+  )
+);
+```
+
+**Outputs:**
+- Schema extension landed (elrond)
+- Off-hand item substrate rows tagged per category (~1,300-5,000 estimated rows from existing-source mining + targeted crawl)
+- Per-row mechanical fingerprint extended to cover off-hand-specific axes (buff-geometry / aura-tempo / defensive-stance / focus-element-affinity)
+- v1_scope inclusion: off-hand items pass Stage 3 constrained-sampling alongside weapons; subject to same composition policy + tier-protection
+
+**Method notes:**
+- **Existing-source mining first:** royal_armouries + Met Museum + Wikipedia + Wikidata likely contain ~50-70% of needed off-hand-item substrate (shields especially); elrond reclassifies via `weapon_kind` enum extension; ~half-day work
+- **Targeted Mode B crawl for gaps:** if existing-source mining doesn't cover tactical-treatise tomes or named-mythological-focus items adequately, legolas Mode B crawl supplements; ~1 day work
+- **Per-category substrate-coverage estimate:**
+
+| Category | Estimated rows | Source |
+|---|---|---|
+| Shields | 500-2,000 | Royal Armouries + Met Museum + Wikipedia |
+| Tomes / books (tactical/magical/sacred) | 500-1,500 | Wikipedia + Wikidata + targeted crawl |
+| Banners / standards | 100-500 | Military museums + heraldry sources |
+| Focuses / orbs / talismans | 200-1,000 | Ritual-object substrate + targeted crawl |
+| Horns / signaling-implements | 100-500 | Military + ceremonial substrate |
+| **TOTAL** | **~1,400-5,500** | Mixed sources |
+
+**Empirical criterion for completion:** Schema extension landed; off-hand item rows tagged per category; rich-source mining covers ≥50% of categories; targeted Mode B crawl supplements gaps; Stage 3 constrained-sampling includes off-hand items per composition policy; spot-check pass (gandalf 30-row review across categories).
+
+**Methodology hotspot flag:** Mechanical-axis profile for off-hand items differs from weapons (buff-geometry vs damage-geometry; aura-tempo vs damage-tempo). Discipline #18 consult fires at Stage 4 mechanical-tagging for off-hand-axis methodology — legolas Mode A ~30-60 min consult on off-hand-mechanical-profile patterns.
+
+**Cohesion-coalescence implication (skill-system doc amendment territory):**
+- Phase 5 cohesion-coalescence extends to handle TWO-ITEM forms (main weapon + off-hand)
+- Discipline already established (3-tier named-bearer + Matt's bi-modal revision); extends to two-item alignment scoring:
+  - Score primary weapon cultural-tradition alignment
+  - Score off-hand item cultural-tradition alignment
+  - Score CROSS-ITEM coherence (do both cultural-traditions co-occur in genre canon?)
+  - Apply graduated naming per alignment scores per existing discipline
+- Cross-cultural bifurcation accepted as feature when historically/genre-coherent (Custer + Sun Tzu Art of War; Caesar + Greek philosophy); rejected as bug when nonsensical (cohesion judge drops to engine-named-original per bi-modal pattern)
+- Skill-system doc § 12.3 named-bearer attribution discipline will be amended post-Cycle-10 to formalize the two-item extension
+
+**Cross-references:**
+- `canonical/story/skill-system-2026-05-24.md` § 12.3 (named-bearer attribution discipline — extends to two-item case)
+- `canonical/story/attribute-system-2026-05-24.md` (off-hand items respect attribute-element coupling)
+- Matt 2026-05-24 Stage 0 design dialogue (Custer-with-Art-of-War + Moctezuma-with-Quetzalcoatl scenarios surfaced this scope addition)
+
+**Risks + mitigations:**
+
+| Risk | Mitigation |
+|---|---|
+| Sim-balance complexity per two-item form | jack-ryan Gate-2 at Stage 4; balance-loop B14.5 V1 absorbs variance |
+| Cohesion-judge complexity (two-item alignment) | Extends existing discipline naturally; ~30 min spec extension when cohesion-judge spec authored |
+| Spirit-guide template extensions for two-item context | ~12-15 new templates; gandalf ~2 hr work post-Cycle-10 |
+| Cross-cultural bifurcation producing nonsensical forms | Cohesion judge alignment scoring catches; drops to engine-named-original per bi-modal pattern |
+
+**Sequencing:** Sidecar B fires in parallel with main sequence + Sidecar A. Independent of Stage 0. Composes with Stage 1 + 1.5 (proxy mechanical fingerprint + structured-field extractor extend scope) and Stage 4 (mechanical-tagging includes off-hand-axes).
 
 ---
 
@@ -392,6 +469,8 @@ Stages 1 + 1.5 fire in parallel after Stage 0. Stages 2 + 2.5 fire after both 1 
 
 **Sidecar A fires independently** — can start any time during the cycle; recommend firing early so verdict informs Stage 3.5 gap-fill asset-generation pattern. Sidecar A is parallel from start to its own completion; does NOT gate main sequence stages.
 
+**Sidecar B fires independently** — added 2026-05-24 per Matt Stage 0 design dialogue; parallel to main sequence + Sidecar A; composes with Stage 1 + 1.5 (proxy mechanical fingerprint + structured-field extractor scope extension) and Stage 4 (mechanical-tagging includes off-hand axes); does NOT gate main sequence stages. Recommend firing early so off-hand substrate is tagged in time for Stage 3 constrained-sampling to include in v1_scope decision.
+
 ### 4.2 Wall-time estimate
 
 - Stage 0 design call: 1 session (Matt scheduling)
@@ -513,8 +592,9 @@ All of:
 9. ✅ Stage 3.6 research-replacement notes landed + aggregate memo authored
 10. ✅ Stage 4 accurate mechanical-tagging on all v1_scope rows + schema gap (damage_amplitude) closed + jack-ryan Gate-2 PASS
 11. ✅ Sidecar A comparison artifact rendered; PASS/FAIL/MIXED verdict declared; asset-pipeline doc § 3.6 updated per verdict; if PASS, production-default lock captured canonically
-12. ✅ Roadmap § 1.0 + § 3.8 updated per § 7 above
-13. ✅ Recognition 1 (sampling-proportionality) status migrated from v1.1+ flag → v1 LOCKED
+12. ✅ **Sidecar B schema extension landed; off-hand items tagged per category; v1_scope inclusion covers off-hand items per composition policy; Phase 5 cohesion-coalescence two-item extension noted for skill-system doc post-Cycle-10 amendment** (added 2026-05-24)
+13. ✅ Roadmap § 1.0 + § 3.8 updated per § 7 above
+14. ✅ Recognition 1 (sampling-proportionality) status migrated from v1.1+ flag → v1 LOCKED
 
 ---
 
