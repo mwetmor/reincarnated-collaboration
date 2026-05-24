@@ -373,7 +373,74 @@ Phase 5 cohesion coalescence consumes this output:
 | **Methodology hotspot** | Discipline #18 fires — legolas Mode A consult on algorithmic-keystone-generation literature BEFORE implementation (estimated ~1-2 hr) |
 | **LLM cost** | Algorithm runs without LLM at decision layer; LLM call ONLY at Phase 5 cohesion naming per D7 |
 
-### 8.6 Risks + mitigations
+### 8.6 Faction-generated proxies (extension per Matt 2026-05-24 design dialogue)
+
+For proxy-density-heavy kits (proxy=light or proxy=heavy per attribute-system 5-tuple BC-target subspace), the algorithm's output includes a **proxy-spawn-template** that draws from FACTION-COHERENT unit pool — proxies aren't generic skeletons; they're faction-anchored units that respect the form's cultural-tradition + period identity.
+
+#### 8.6.1 Proxy-spawn-template structure
+
+```
+algorithm_output_for_proxy_heavy_kit:
+  alteration_type: "multi-actor / proxy-spawn"
+  alteration_specific: {
+    proxy_count_baseline: int (per heavy-proxy cell ~4-7; per light-proxy ~1-3),
+    proxy_template: drawn from faction-anchor unit pool,
+    proxy_axis_profile: (each proxy has range/tempo/amplitude/geometry/attribute per its own BC-axis profile),
+    proxy_behavior: "ai_directed" | "player_directed" | "autonomous_aggro" | "stationary"
+  },
+  faction_anchor: derived from substrate-resident weapon's cultural-tradition + period
+  faction_unit_pool: enumerated per faction
+```
+
+#### 8.6.2 Faction-anchor derivation
+
+The proxy faction-anchor comes from the kit's substrate-resident weapon's cultural-tradition + period at Phase 2 generation:
+
+| Form example | Substrate weapon (cultural-tradition + period) | Derived faction-anchor | Proxy unit pool |
+|---|---|---|---|
+| Custer (per Matt 2026-05-24 vision) | American museum saber (european + industrial period) | American Cavalry (1860-1880) | Cavalry soldiers; mounted dragoons; scouts |
+| Moctezuma (per Matt 2026-05-24 vision) | Mesoamerican obsidian-edged macuahuitl | Aztec military (pre-Columbian) | Eagle Warriors (Cuauhocelotl); Jaguar Knights (Ocelotl); Quetzalcoatl (nested mythological summon per § 12.4) |
+| D2-Necromancer-style summoner | European medieval scythe + bone-spell-focus | European medieval undead | Skeletons; revenants; ghasts |
+| Druid Beastmaster | Celtic carved-wood staff + horn | Celtic spirit-fauna | Wolves; ravens; spirit-bears |
+| Trap Assassin | Japanese folklore claws + flash-bombs | Japanese ninja-tradition | (proxies = traps themselves; not actor-proxies) |
+| Witch Doctor Petmaster | Sub-Saharan African fetish-mask + ritual-talisman | African pantheon-warriors | Shadow-spirits; ancestral guardians |
+
+#### 8.6.3 Implementation implications
+
+| Aspect | Note |
+|---|---|
+| **Faction-unit substrate** | Track M1-equivalent for named-mythological-CREATURES substrate becomes load-bearing for proxy-heavy named-bearer forms; current weapon-only substrate doesn't carry proxy-unit definitions |
+| **Faction-anchor lookup table** | Per cultural-tradition × period, list of viable proxy-unit-types (drawn from historical military / mythological canon / cultural-coherent folklore) |
+| **Sim-balance** | Heavy-proxy kits have larger sim-state-space (form-actor + N-proxy-actors); B14.5 V1 balance-loop architecture handles this; jack-ryan Gate-2 reviews |
+| **Cohesion-judge integration** | Phase 5 cohesion-judge verifies proxy-unit-pool aligns with form's cultural-tradition; rejects + re-coalesces when mismatch (per Matt 2026-05-24 cohesion-discipline) |
+| **LLM naming integration** | Proxy units named via templated D7 patterns per faction-anchor; "Custer's cavalry" doesn't need per-soldier-naming; faction-anchor implies the unit-name |
+
+#### 8.6.4 Cross-reference to bi-modal form library
+
+Proxy-spawn-templates compose with bi-modal form library (per § 12.3 named-bearer discipline):
+- Named-personage forms (Tier 1 + Tier 2 soft-attribution) get faction-coherent proxies matching their named-bearer's historical faction
+- Engine-named-original forms get faction-coherent proxies matching their kit's substrate-cultural-tradition (which may or may not be a recognizable real faction)
+- Cross-cultural / Pan-Fantasy hybrid forms may get cross-cultural proxy mixes (e.g., a pirate-samurai-style form might have mixed crew of east-asian + caribbean-european units)
+
+#### 8.6.5 Algorithm input expansion
+
+The algorithm now considers, at Phase 2:
+- Cell BC-target profile (per skill-system base structure)
+- Substrate-resident main weapon (Cycle 10 v1_scope)
+- Substrate-resident off-hand item (per off-hand-items doc Sidecar B)
+- Faction-anchor derivation (from substrate cultural-tradition + period)
+- Proxy-unit-pool enumeration (per faction-anchor lookup)
+- Proxy-spawn-template generation (per cell proxy-density bin)
+
+Output bundle (per § 8.4) extends to include:
+- `proxy_spawn_template` (if proxy-density > none)
+- `faction_anchor` (per substrate-cultural-tradition derivation)
+- `proxy_unit_pool` (enumerated faction-coherent units)
+- `proxy_behavior_pattern` (ai-directed / player-directed / autonomous / stationary)
+
+---
+
+### 8.7 Risks + mitigations
 
 | Risk | Mitigation |
 |---|---|
@@ -497,6 +564,63 @@ Phase 5 cohesion coalescence:
 ```
 
 Bi-modal form-library (~20-30% named-personage / ~70-80% engine-named-original) emerges from this discipline.
+
+### 12.4 Nested mythology naming pattern — Tier-2 invokes Tier-1 (per Matt 2026-05-24)
+
+**Pattern:** a Tier-2 (real-historical-person) named form invokes Tier-1 (broadly-fictionalized mythological-deity) entities as proxies/summons/buffs. The named form and the named proxy are independently tier-assessed; the form-level discipline doesn't constrain proxy-level discipline.
+
+#### 12.4.1 Operational example (per Matt 2026-05-24 vision)
+
+Moctezuma (Tier-2 real-historical-person Aztec emperor) summoning Quetzalcoatl (Tier-1 broadly-fictionalized Mesoamerican deity) as proxy/avatar/summon:
+
+| Layer | Named entity | Tier | Discipline applied |
+|---|---|---|---|
+| Form name | Moctezuma | Tier 2 real-historical-person | Soft-attribution per § 12.3 — archetype language ("The Eagle-Crowned Tlatoani"); cultural-tradition (Aztec) acknowledged; named-person implied not surfaced |
+| Proxy summon | Quetzalcoatl | Tier 1 broadly-fictionalized mythological | Explicit naming OK — "Calls forth Quetzalcoatl, the Feathered Serpent" |
+
+The form's player-facing name follows Tier 2 soft-attribution discipline. The proxy/summon's player-facing name follows Tier 1 explicit naming. Composition of disciplines works because each named entity passes its own tier-test independently.
+
+#### 12.4.2 Genre canon precedent
+
+| Source | Pattern |
+|---|---|
+| Fate Apocrypha | Vlad III (Tier 2 real-historical Wallachian voivode) summons various draconic and undead constructs (Tier 1 mythological) |
+| Fate Grand Order | Solomon (Tier 2 historical-religious figure; careful application of soft-attribution) summons 72 demons of Lemegeton (Tier 1 mythological-grimoire entities) |
+| Fate Grand Order | Karna (Tier 1 Hindu mythological figure) wielding Vasavi Shakti (Tier 1 named-mythological weapon from Indra) — both Tier 1; nested-mythology within single tradition |
+| Many isekai works | Reincarnated protagonist (engine-named-original Tier 1) summons named mythological constructs (Tier 1 explicit) — nested across tier-categories |
+
+#### 12.4.3 Composition rule
+
+**Form-level discipline does NOT constrain proxy/summon-level discipline.** Each named entity independently passes its own tier-test:
+
+```
+Phase 5 cohesion coalescence with nested-mythology:
+1. Resolve form-level named-bearer per § 12.3 alignment scoring (Tier 1 / 2 / 3 / engine-named-original)
+2. SEPARATELY resolve any proxy/summon/buff named-entities at their own tier:
+   - Algorithm § 8 proxy-spawn-template provides faction-anchor + proxy-unit-pool
+   - If proxy-unit is a Tier 1 mythological entity (Quetzalcoatl; Gjallarhorn-blast-spirit;
+     Aegis-shield-aura-spirit), apply Tier 1 explicit naming discipline
+   - If proxy-unit is a generic faction-cultural unit (cavalry soldier; eagle warrior),
+     no tier-naming applies; faction-anchor provides identity
+   - If proxy-unit is a Tier 2 real-historical-person ("Lieutenant Smith calling
+     reinforcements") — apply Tier 2 soft-attribution at proxy level
+3. Compose form-name + proxy-name(s) per their independent tier-disciplines
+4. Spirit-guide explainer pattern (per § 9) may reference proxy-named-entities
+   ("Your spirit calls forth Quetzalcoatl, the Feathered Serpent...")
+```
+
+#### 12.4.4 Implementation implications
+
+| Aspect | Note |
+|---|---|
+| **Proxy-named-entity substrate** | Track M1-equivalent for named-mythological-CREATURES substrate (per § 8.6.3) populates proxy-named-entity Tier 1 pool |
+| **Cohesion-judge integration** | Phase 5 verifies form-tier + proxy-tier independently; rejects mismatch (Tier 3 proxy summoned by any form gets re-coalesced) |
+| **LLM naming templates** | Per-tier templates apply per named-entity; nested-mythology produces composite output (form-name + proxy-named-entity reference) |
+| **Spirit-guide explainer integration** | Templates accommodate proxy-named-entity reference; "Your spirit's [proxy-named-entity]..." pattern |
+
+#### 12.4.5 Cross-reference
+
+This pattern extends per § 8.6 faction-generated-proxies (algorithm-derived proxy-spawn-templates) — when a faction-anchor's proxy-unit-pool includes named-mythological entities (Quetzalcoatl for Aztec; Gjallarhorn-spirit for Norse Heimdall-associated; etc.), nested-mythology naming applies per this section. The two extensions compose: algorithm produces faction-coherent proxy template; cohesion-judge applies per-tier naming discipline; spirit-guide explainer references named entities at the appropriate tier.
 
 ---
 
