@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cycle 10 Stage 2 — Cross-Tab + Thin-Cell Surfacing (2026-05-24)</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    max-width: 1280px;
+    margin: 20px auto;
+    padding: 20px;
+    color: #1a1a1a;
+    line-height: 1.5;
+  }
+  h1 { font-size: 1.6em; border-bottom: 2px solid #333; padding-bottom: 6px; }
+  h2 { font-size: 1.3em; margin-top: 40px; color: #333; }
+  h3 { font-size: 1.05em; color: #555; }
+  .chart-container { position: relative; height: 480px; margin: 20px 0; background: #fafafa; padding: 16px; border-radius: 6px; }
+  .chart-tall { height: 640px; }
+  .chart-short { height: 360px; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 0.88em; }
+  th, td { border: 1px solid #ccc; padding: 5px 8px; text-align: left; vertical-align: top; }
+  th { background: #eee; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .status-CRITICAL { background: #f8d7da; font-weight: 600; }
+  .status-THIN { background: #ffecb3; font-weight: 600; }
+  .status-UNDER-FLOOR { background: #ffe0b2; }
+  .status-UNDER-FLOOR-HIGHCONF { background: #fff9c4; }
+  .status-MODE-A-THIN { background: #e1bee7; }
+  .status-COVERED { background: #c8e6c9; }
+  .interpretation { background: #fff8e1; border-left: 4px solid #ffa000; padding: 12px 16px; margin: 16px 0; }
+  .key-finding { background: #ffebee; border-left: 4px solid #c62828; padding: 12px 16px; margin: 16px 0; font-weight: 500; }
+  .note { background: #e3f2fd; border-left: 4px solid #1976d2; padding: 12px 16px; margin: 16px 0; }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 0.86em; margin: 8px 0 16px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-swatch { width: 16px; height: 16px; border-radius: 3px; border: 1px solid #888; }
+  .meta { color: #666; font-size: 0.85em; }
+  code { background: #f0f0f0; padding: 2px 5px; border-radius: 3px; font-size: 0.9em; }
+  .filter-row { display: flex; gap: 10px; margin: 10px 0; font-size: 0.9em; align-items: center; }
+  .filter-row select, .filter-row button { padding: 4px 8px; }
+</style>
+</head>
+<body>
+
+<h1>Cycle 10 Stage 2 — Cross-Tab + Thin-Cell Surfacing</h1>
+<p class="meta">
+Author: elrond (data steward) ·
+Date: 2026-05-24 ·
+Data source: <code>weapon_knowledge_entries</code> (N=89,841 substrate; 22,033 typed by v1.1 proxy fingerprint) ·
+Companion docs: <code>thin-cell-list.md</code> · <code>thin-tradition-list.md</code> · <code>critical-fill-targets.md</code> ·
+Dispatch: <code>agentic_orchestration/dispatches/2026-05-24-elrond-cycle-10-stage-2-cross-tab-thin-cell-surfacing.md</code>
+</p>
+
+<div class="key-finding">
+<strong>Headline findings (for Stage 3 design call):</strong>
+<ol>
+<li><strong>9 of 25 Stage 0 cells are CRITICAL</strong> (substrate row-count &lt; 10) — concentrated in the WIS-attribute family (5 of 7 WIS cells) and INT-attribute deep cells (3 of 7 INT cells; Pyromantic Caster + Red Mage + Necromancer all have 0 substrate matches). The Pan-Fantasy / fantasy_generic bucket absorbs most of the INT/WIS form mass — but for any cell where authentic-cultural-tradition representation is desired, substrate is insufficient.</li>
+<li><strong>1 cell (Ritual Mage/Oracle) is THIN</strong> (50 ≤ rows &lt; 100 floor) with 51 typed rows against 60-100 floor.</li>
+<li><strong>Stage 0 5-tuple collapses to substrate 3-tuple.</strong> Substrate carries <code>(range, tempo, attribute)</code> but NOT <code>amplitude</code> or <code>proxy_density</code>. 5 pairs of Stage 0 cells collapse to the same substrate 3-tuple; routing depends on Stage 4 mechanical-tagging or Stage 1.5 named-bearer joining. Stage 3 design call must decide composition policy under this collapse.</li>
+<li><strong>All 30 mythological-register rows are NULL-typed by proxy fingerprint v1.1.</strong> Excalibur / Mjölnir / Gungnir / Gandiva / Caladbolg / etc. won't be reachable by naive (range, tempo, attribute) sampling — they're proper-noun named items the fingerprinter doesn't recognize. Sketch F Tier-1 mythological-named-bearer protection requires either Stage 1.5 named-bearer joining OR Stage 4 mechanical-tagging.</li>
+<li><strong>Sketch F 4-zero anchors confirmed:</strong> Hattori Hanzō (1 fantasy-coinage row), Lu Bu (0), Moctezuma (0), Gilgamesh (0). Substrate-honest gap; routes to Stage 3 design call decision: substrate-search via Sidecar B / Stage 3.5 engine-authored gap-fills / cell descope.</li>
+</ol>
+</div>
+
+<h2>1. Methodology</h2>
+<p>This aggregation reads the <code>weapon_knowledge_entries</code> table joining the v1.1 proxy fingerprint columns (<code>proxy_range_class</code>, <code>proxy_tempo_class</code>, <code>proxy_attribute_class</code>, <code>proxy_geometry_class</code>, <code>proxy_fingerprint_confidence</code>) with the existing canonical tagging columns (<code>register_canonical</code>, <code>historical_period_canonical</code>, <code>cultural_lineage_canonical</code>) and the Stage 1.5 extracted fields (<code>extracted_named_bearer</code>) to surface the joint distribution of axes against the Stage 0 Sketch A cell-targeting intent.</p>
+
+<div class="note">
+<strong>Sketch A 5-tuple vs substrate 3-tuple:</strong> Sketch A defines cells over
+<code>(range × tempo × amplitude × attribute × proxy_density)</code> = 324 cells.
+Substrate proxy-fingerprint v1.1 only types <code>(range, tempo, attribute)</code>; amplitude and
+proxy_density columns do not exist on <code>weapon_knowledge_entries</code>. Geometry exists as
+<code>proxy_geometry_class</code> but is orthogonal to Sketch A. This cross-tab therefore evaluates each
+Stage 0 cell against the substrate-available 3-tuple, marking 5 Stage 0 cell-pairs that collapse to
+the same substrate 3-tuple as <strong>routing-ambiguous</strong>:
+<ul>
+<li><code>melee|low|STR</code> — Heavy Barbarian (cell 1, proxy=none) + Ancestor-Warrior (cell 5, proxy=light)</li>
+<li><code>ranged|high|DEX</code> — Archer (cell 7, proxy=none) + Falconer/Pet-Archer (cell 10, proxy=light)</li>
+<li><code>ranged|medium|INT</code> — Standard Wizard (cell 12, proxy=none) + Arcane-Familiar Mage (cell 16, proxy=light)</li>
+<li><code>mid|low|INT</code> — Pyromantic Caster (cell 14, proxy=none) + Necromancer Summoner (cell 17, proxy=heavy)</li>
+<li><code>mid|medium|WIS</code> — Channeling Cleric (cell 19, proxy=none) + Witch Doctor Petmaster (cell 25, proxy=heavy)</li>
+</ul>
+For each collapsed pair, the substrate count is shared; Stage 3 must decide how to allocate the pool across the two forms.
+</div>
+
+<h2>2. Stage 0 cell × substrate row count</h2>
+
+<table>
+<thead><tr><th>Status</th><th>Definition</th></tr></thead>
+<tbody>
+<tr><td class="status-CRITICAL">CRITICAL</td><td>Typed substrate &lt; 10 rows. Cell will not populate without external action.</td></tr>
+<tr><td class="status-THIN">THIN</td><td>10 ≤ typed substrate &lt; 50 rows. Below dispatch THIN threshold.</td></tr>
+<tr><td class="status-UNDER-FLOOR">UNDER-FLOOR</td><td>Typed substrate &lt; Sketch B floor (genre-aligned), but ≥ 50 rows.</td></tr>
+<tr><td class="status-UNDER-FLOOR-HIGHCONF">UNDER-FLOOR (high-conf)</td><td>Typed total ≥ floor, but high-confidence (≥0.65) subset below floor — heuristic-fragile cell.</td></tr>
+<tr><td class="status-MODE-A-THIN">MODE-A-THIN</td><td>Substrate ≥ floor but Mode-A clean (cultural-tradition pre-industrial) subset &lt; 10. Authenticity-thin.</td></tr>
+<tr><td class="status-COVERED">COVERED</td><td>Typed substrate ≥ Sketch B floor; high-confidence ≥ floor; Mode-A clean ≥ 10 (for non-INT cells).</td></tr>
+</tbody>
+</table>
+
+<div class="legend">
+  <span class="legend-item"><span class="legend-swatch" style="background:#c8e6c9"></span>COVERED</span>
+  <span class="legend-item"><span class="legend-swatch" style="background:#fff9c4"></span>UNDER-FLOOR (high-conf)</span>
+  <span class="legend-item"><span class="legend-swatch" style="background:#ffe0b2"></span>UNDER-FLOOR</span>
+  <span class="legend-item"><span class="legend-swatch" style="background:#e1bee7"></span>MODE-A-THIN</span>
+  <span class="legend-item"><span class="legend-swatch" style="background:#ffecb3"></span>THIN</span>
+  <span class="legend-item"><span class="legend-swatch" style="background:#f8d7da"></span>CRITICAL</span>
+</div>
+
+<div class="chart-container chart-tall">
+  <canvas id="cellChart"></canvas>
+</div>
+
+<h3>2.1 Per-cell breakdown</h3>
+<table id="cellsTable">
+<thead><tr>
+<th>#</th><th>range</th><th>tempo</th><th>attr</th><th>proxy</th>
+<th>Archetype (forms)</th>
+<th class="num">Typed</th><th class="num">High-conf</th><th class="num">Mode-A clean</th>
+<th class="num">Museum</th><th class="num">Community</th>
+<th class="num">Floor</th>
+<th>Status</th>
+</tr></thead>
+<tbody id="cellsTbody"></tbody>
+</table>
+
+<h2>3. Cultural-tradition substrate vs Sketch D 4.3 target</h2>
+<p>Sketch D § 4.3 declared target shares per cultural-tradition for the v1_scope subset (NOT for the full substrate). The substrate-share-vs-target gap below is read as: <em>how much of the substrate is currently flagged as this tradition?</em> A negative gap (substrate share &lt; target share) signals Sidecar B substrate-enrichment candidacy; a positive gap signals substrate over-representation (Stage 3 composition policy can trim during v1_scope sampling).</p>
+
+<div class="chart-container">
+  <canvas id="traditionChart"></canvas>
+</div>
+
+<table id="traditionTable">
+<thead><tr><th>Tradition</th><th>Lineage / tag key</th><th class="num">Substrate rows</th><th class="num">Mode-A eligible</th><th class="num">Substrate %</th><th class="num">Sketch D target %</th><th class="num">Gap %</th></tr></thead>
+<tbody id="traditionTbody"></tbody>
+</table>
+
+<h3>3.1 Sub-tradition tag probes (Egyptian / Sumerian / Vedic-Hindu / Mesoamerican / Slavic / Norse / Greek / Celtic)</h3>
+<p>These sub-traditions are not direct values of <code>cultural_lineage_canonical</code>; they show up via <code>cultural_lineage_tags</code> JSON. Tag-substring probes give a lower-bound count (only rows whose tags literally contain the substring).</p>
+
+<table id="subTraditionTable">
+<thead><tr><th>Sub-tradition</th><th>Tag patterns</th><th class="num">Substrate rows</th><th class="num">Substrate %</th><th class="num">Sketch D target %</th><th class="num">Gap %</th></tr></thead>
+<tbody id="subTraditionTbody"></tbody>
+</table>
+
+<h2>4. Sketch F 4-zero anchor presence</h2>
+<p>The Stage 1.5 per-source-coverage record surfaced 4 zero-substrate-presence Tier-2 / Tier-1 anchors. Re-check here against three columns (<code>extracted_named_bearer</code> from Stage 1.5, <code>canonical_name</code> direct substring, and <code>description_text</code> mention) so Stage 3 design call has the full lay of the land.</p>
+
+<table id="anchorTable">
+<thead><tr><th>Anchor</th><th>Patterns</th><th>Target cell</th><th class="num">Bearer matches</th><th class="num">Canonical_name</th><th class="num">Description mentions</th></tr></thead>
+<tbody id="anchorTbody"></tbody>
+</table>
+
+<h2>5. Source-class lean per cell (museum-curated vs community-game)</h2>
+<p>Per Stage 1 cheapest-refuting-test finding, museum-curated sources are structurally null-flagged on armor/non-weapon items while community-game-data sources type freely. Cells leaning community-game inherit fantasy-coinage substrate-quality concerns (per Stage 1 v1.1 § 5 finding); cells leaning museum-curated inherit Mode-A authenticity but smaller pool.</p>
+
+<div class="chart-container chart-tall">
+  <canvas id="sourceClassChart"></canvas>
+</div>
+
+<h2>6. Stage 3 design-call routing summary</h2>
+
+<div class="interpretation">
+<strong>What this cross-tab tells Stage 3:</strong>
+<ol>
+<li><strong>Composition policy under 5-tuple → 3-tuple collapse.</strong> Decide: do we keep all 25 Stage 0 cell-archetypes and use Stage 1.5 named-bearer joining + Stage 4 mechanical-tagging to disambiguate? Or do we collapse the routing-ambiguous pairs into a single substrate-side cell and let Phase 5 cohesion-coalescence handle form-routing at generation time?</li>
+<li><strong>9 CRITICAL cells need substrate-or-not decisions.</strong> Pyromantic Caster (cell 14), Red Mage/Spellsword (cell 15), Necromancer Summoner (cell 17), Channeling Cleric (cell 19), Storm Caller/Druid (cell 22), Monk-archetype (cell 23), Druid Beastmaster (cell 24), Witch Doctor Petmaster (cell 25), Artillery Mage (cell 13). All are INT/WIS-attribute. Three routing options per cell: (a) Sidecar B substrate enrichment, (b) Stage 3.5 engine-authored gap-fill, (c) descope from v1.</li>
+<li><strong>1 THIN cell (Ritual Mage/Oracle, cell 21).</strong> 51 typed rows; 49 high-conf. Borderline. Recommended: Sidecar B enrichment OR accept low floor.</li>
+<li><strong>2 UNDER-FLOOR-HIGHCONF (Light Fighter, Twin-Blade Fencer).</strong> Light Fighter has 476 typed but only 3 high-conf — fantasy-coinage saturation. Twin-Blade Fencer has 215 typed but only 5 Mode-A clean.</li>
+<li><strong>Mythological-register pool (Excalibur et al.) is invisible to current fingerprint.</strong> If Sketch F Tier-1 mythological named-bearer protection is load-bearing for v1, Stage 1.5 named-bearer join is the path (and is already wired); Stage 4 mechanical-tagging can fill the gap for non-named mythological weapons.</li>
+<li><strong>Sketch D tradition gaps for v1_scope sourcing.</strong> Mesoamerican (-3.89% gap), Egyptian (-3.99%), Sumerian/Mesopotamian (-3.00%), Vedic/Hindu (-3.98%) — Sidecar B substrate-enrichment crawl targets all confirmed at substantial gap. Slavic-via-tag shows 0.17% (gap -2.83%), but most Slavic substrate is encoded under <code>european</code> lineage.</li>
+</ol>
+</div>
+
+<h2>7. NULL-typed substrate pool — what's invisible</h2>
+<p>Of 89,841 substrate rows, 67,808 (75.5%) are NULL-typed by proxy fingerprint v1.1 — most are Royal Armouries armor entries (38,127 rows, NULL by intent per Stage 1 cheapest-refuting-test), Wikidata-tagged rows with no canonical_name verb (12,371 rows), and fantasy-coinage named templates the fingerprint can't reach (Plaguereaper-style names — Stage 4 / cohesion-judge territory per Stage 1 v1.1 § 5). These NULL rows are NOT zero-value — they're potential v1.1+ enrichment candidates and Sidecar B raw material.</p>
+
+<table>
+<thead><tr><th>Pool</th><th class="num">Rows</th><th>Disposition</th></tr></thead>
+<tbody>
+<tr><td>Typed by v1.1 fingerprint (≥0.45 confidence)</td><td class="num">22,033</td><td>Cross-tab pool (this analysis)</td></tr>
+<tr><td>NULL-typed — Royal Armouries armor</td><td class="num">38,127</td><td>Structurally null per Stage 1 (armor mixed with weapons; out of scope)</td></tr>
+<tr><td>NULL-typed — Wikidata no-verb rows</td><td class="num">~12,000</td><td>Wikipedia-derived weapon entries; some are mythological / named (Excalibur et al.); Stage 1.5 named-bearer join recovers some</td></tr>
+<tr><td>NULL-typed — fantasy-coinage named templates</td><td class="num">~17,000</td><td>WoW-classic-items, D&D, Warhammer-AOS; Stage 4 mechanical-tagging or cohesion-judge can reach these</td></tr>
+<tr><td><strong>Total NULL-typed</strong></td><td class="num"><strong>67,808</strong></td><td>v1.1+ enrichment substrate</td></tr>
+<tr><td><strong>Substrate total</strong></td><td class="num"><strong>89,841</strong></td><td></td></tr>
+</tbody>
+</table>
+
+<h2>8. Composition-collision-table (5 routing-ambiguous Stage 0 pairs)</h2>
+<table>
+<thead><tr><th>Substrate 3-tuple</th><th>Stage 0 cell A</th><th>Stage 0 cell B</th><th class="num">Shared typed pool</th><th>Routing</th></tr></thead>
+<tbody>
+<tr><td><code>melee|low|STR</code></td><td>#1 Heavy Barbarian (proxy=none)</td><td>#5 Ancestor-Warrior (proxy=light)</td><td class="num">960</td><td>Stage 4 mechanical-tagging on proxy-summon affordance</td></tr>
+<tr><td><code>ranged|high|DEX</code></td><td>#7 Archer (proxy=none)</td><td>#10 Falconer/Pet-Archer (proxy=light)</td><td class="num">1,705</td><td>Stage 4 mechanical-tagging on familiar-companion affordance</td></tr>
+<tr><td><code>ranged|medium|INT</code></td><td>#12 Standard Wizard (proxy=none)</td><td>#16 Arcane-Familiar Mage (proxy=light)</td><td class="num">269</td><td>Stage 4 mechanical-tagging on familiar affordance</td></tr>
+<tr><td><code>mid|low|INT</code></td><td>#14 Pyromantic Caster (proxy=none)</td><td>#17 Necromancer Summoner (proxy=heavy)</td><td class="num">0</td><td><strong>BOTH cells CRITICAL</strong>; substrate-search OR engine-author</td></tr>
+<tr><td><code>mid|medium|WIS</code></td><td>#19 Channeling Cleric (proxy=none)</td><td>#25 Witch Doctor Petmaster (proxy=heavy)</td><td class="num">3</td><td><strong>BOTH cells CRITICAL</strong>; substrate-search OR engine-author</td></tr>
+</tbody>
+</table>
+
+<h2>9. Cross-references</h2>
+<ul>
+<li>Dispatch: <code>agentic_orchestration/dispatches/2026-05-24-elrond-cycle-10-stage-2-cross-tab-thin-cell-surfacing.md</code></li>
+<li>Stage 0 transcription: <code>canonical/story/v1-bc-target-intent-2026-05-24.md</code></li>
+<li>Stage 1 v1.1 outputs: <code>agentic_orchestration/elrond/research/cycle-10-stage-1-2026-05-24/confidence-distribution-v1-1.md</code></li>
+<li>Stage 1.5 outputs: <code>agentic_orchestration/elrond/research/cycle-10-stage-1-5-2026-05-24/per-source-coverage.md</code></li>
+<li>Stage 0 5-tuple cells: Sketch A § 1.1</li>
+<li>Per-cell floors: Sketch B § 2.1</li>
+<li>Cultural-tradition shares: Sketch D § 4.1 / § 4.3</li>
+<li>4-zero anchors: Sketch F § 6.1 + per-source-coverage § 4</li>
+<li>Engineering disciplines: <code>~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md</code> (#2, #2.1, #11, #19, #19.1, #21, #22, #25)</li>
+</ul>
+
+<h2>10. Sign-off</h2>
+<p class="meta">
+Author: elrond ·
+Tag intent: <code>elrond/v0.0-cycle-10-stage-2-cross-tab</code> ·
+Compute cost: $0.00 (SQL aggregation only); &lt;1 min execution time ·
+Empirical criterion: cross-tab rendered with Chart.js + thin-cell list + critical-fill targets + thin-tradition list enumerated; ready for Stage 3 design call consumption.
+</p>
+
+<script>
+// Data injected from cross-tab-data.json
+const DATA = {"summary": {"stage0_cell_rows": 25, "substrate_total": 89841, "typed_rows_sum_across_cells": 18865, "critical": 9, "thin": 0, "under_floor": 2, "mode_a_thin": 1, "covered": 13}, "cells": [{"cell_id": 1, "range": "melee", "tempo": "low", "attribute": "STR", "proxy": "none", "archetype": "Heavy Barbarian", "form_count": 3, "typed": 960, "high_conf": 942, "mode_a_clean": 52, "museum": 94, "community": 866, "floor_min": 80, "floor_max": 120, "status": "COVERED"}, {"cell_id": 2, "range": "melee", "tempo": "high", "attribute": "STR", "proxy": "none", "archetype": "Light Fighter", "form_count": 2, "typed": 476, "high_conf": 3, "mode_a_clean": 341, "museum": 416, "community": 60, "floor_min": 80, "floor_max": 120, "status": "UNDER-FLOOR-HIGHCONF"}, {"cell_id": 3, "range": "melee", "tempo": "medium", "attribute": "STR", "proxy": "none", "archetype": "Polearm Soldier", "form_count": 1, "typed": 4068, "high_conf": 2112, "mode_a_clean": 489, "museum": 1224, "community": 2844, "floor_min": 80, "floor_max": 120, "status": "COVERED"}, {"cell_id": 4, "range": "ranged", "tempo": "low", "attribute": "STR", "proxy": "none", "archetype": "Thrown-Heavy/Atlatl", "form_count": 1, "typed": 956, "high_conf": 827, "mode_a_clean": 271, "museum": 867, "community": 89, "floor_min": 60, "floor_max": 100, "status": "COVERED"}, {"cell_id": 5, "range": "melee", "tempo": "low", "attribute": "STR", "proxy": "light", "archetype": "Ancestor-Warrior", "form_count": 2, "typed": 960, "high_conf": 942, "mode_a_clean": 52, "museum": 94, "community": 866, "floor_min": 40, "floor_max": 60, "status": "COVERED"}, {"cell_id": 6, "range": "melee", "tempo": "high", "attribute": "DEX", "proxy": "none", "archetype": "Dagger Assassin", "form_count": 3, "typed": 2730, "high_conf": 2479, "mode_a_clean": 553, "museum": 885, "community": 1845, "floor_min": 80, "floor_max": 120, "status": "COVERED"}, {"cell_id": 7, "range": "ranged", "tempo": "high", "attribute": "DEX", "proxy": "none", "archetype": "Archer", "form_count": 2, "typed": 1705, "high_conf": 1622, "mode_a_clean": 131, "museum": 1258, "community": 447, "floor_min": 60, "floor_max": 100, "status": "COVERED"}, {"cell_id": 8, "range": "ranged", "tempo": "low", "attribute": "DEX", "proxy": "none", "archetype": "Crossbow Sniper", "form_count": 2, "typed": 2706, "high_conf": 2460, "mode_a_clean": 714, "museum": 2019, "community": 687, "floor_min": 60, "floor_max": 100, "status": "COVERED"}, {"cell_id": 9, "range": "mid", "tempo": "high", "attribute": "DEX", "proxy": "none", "archetype": "Twin-Blade Fencer", "form_count": 1, "typed": 215, "high_conf": 213, "mode_a_clean": 5, "museum": 10, "community": 205, "floor_min": 60, "floor_max": 100, "status": "MODE-A-THIN"}, {"cell_id": 10, "range": "ranged", "tempo": "high", "attribute": "DEX", "proxy": "light", "archetype": "Falconer/Pet-Archer", "form_count": 1, "typed": 1705, "high_conf": 1622, "mode_a_clean": 131, "museum": 1258, "community": 447, "floor_min": 40, "floor_max": 60, "status": "COVERED"}, {"cell_id": 11, "range": "mid", "tempo": "low", "attribute": "DEX", "proxy": "heavy", "archetype": "Trap Assassin/Mine-Merc", "form_count": 2, "typed": 737, "high_conf": 687, "mode_a_clean": 49, "museum": 623, "community": 114, "floor_min": 30, "floor_max": 50, "status": "COVERED"}, {"cell_id": 12, "range": "ranged", "tempo": "medium", "attribute": "INT", "proxy": "none", "archetype": "Standard Wizard", "form_count": 2, "typed": 269, "high_conf": 177, "mode_a_clean": 3, "museum": 11, "community": 258, "floor_min": 60, "floor_max": 100, "status": "COVERED"}, {"cell_id": 13, "range": "ranged", "tempo": "low", "attribute": "INT", "proxy": "none", "archetype": "Artillery Mage", "form_count": 2, "typed": 3, "high_conf": 3, "mode_a_clean": 0, "museum": 2, "community": 1, "floor_min": 60, "floor_max": 100, "status": "CRITICAL"}, {"cell_id": 14, "range": "mid", "tempo": "low", "attribute": "INT", "proxy": "none", "archetype": "Pyromantic Caster", "form_count": 1, "typed": 0, "high_conf": 0, "mode_a_clean": 0, "museum": 0, "community": 0, "floor_min": 60, "floor_max": 100, "status": "CRITICAL"}, {"cell_id": 15, "range": "melee", "tempo": "high", "attribute": "INT", "proxy": "none", "archetype": "Red Mage/Spellsword", "form_count": 1, "typed": 0, "high_conf": 0, "mode_a_clean": 0, "museum": 0, "community": 0, "floor_min": 80, "floor_max": 120, "status": "CRITICAL"}, {"cell_id": 16, "range": "ranged", "tempo": "medium", "attribute": "INT", "proxy": "light", "archetype": "Arcane-Familiar Mage", "form_count": 1, "typed": 269, "high_conf": 177, "mode_a_clean": 3, "museum": 11, "community": 258, "floor_min": 40, "floor_max": 60, "status": "COVERED"}, {"cell_id": 17, "range": "mid", "tempo": "low", "attribute": "INT", "proxy": "heavy", "archetype": "Necromancer Summoner", "form_count": 2, "typed": 0, "high_conf": 0, "mode_a_clean": 0, "museum": 0, "community": 0, "floor_min": 30, "floor_max": 50, "status": "CRITICAL"}, {"cell_id": 18, "range": "mid", "tempo": "medium", "attribute": "INT", "proxy": "heavy", "archetype": "Totem Hierophant (INT)", "form_count": 1, "typed": 712, "high_conf": 712, "mode_a_clean": 12, "museum": 30, "community": 682, "floor_min": 30, "floor_max": 50, "status": "COVERED"}, {"cell_id": 19, "range": "mid", "tempo": "medium", "attribute": "WIS", "proxy": "none", "archetype": "Channeling Cleric", "form_count": 1, "typed": 3, "high_conf": 3, "mode_a_clean": 0, "museum": 0, "community": 3, "floor_min": 60, "floor_max": 100, "status": "CRITICAL"}, {"cell_id": 20, "range": "melee", "tempo": "medium", "attribute": "WIS", "proxy": "none", "archetype": "Holy Knight/Paladin", "form_count": 2, "typed": 327, "high_conf": 327, "mode_a_clean": 29, "museum": 73, "community": 254, "floor_min": 80, "floor_max": 120, "status": "COVERED"}, {"cell_id": 21, "range": "ranged", "tempo": "low", "attribute": "WIS", "proxy": "none", "archetype": "Ritual Mage/Oracle", "form_count": 1, "typed": 51, "high_conf": 49, "mode_a_clean": 6, "museum": 15, "community": 36, "floor_min": 60, "floor_max": 100, "status": "UNDER-FLOOR"}, {"cell_id": 22, "range": "ranged", "tempo": "medium", "attribute": "WIS", "proxy": "none", "archetype": "Storm Caller/Druid", "form_count": 1, "typed": 2, "high_conf": 2, "mode_a_clean": 0, "museum": 0, "community": 2, "floor_min": 60, "floor_max": 100, "status": "CRITICAL"}, {"cell_id": 23, "range": "melee", "tempo": "high", "attribute": "WIS", "proxy": "none", "archetype": "Monk-archetype", "form_count": 2, "typed": 0, "high_conf": 0, "mode_a_clean": 0, "museum": 0, "community": 0, "floor_min": 80, "floor_max": 120, "status": "CRITICAL"}, {"cell_id": 24, "range": "mid", "tempo": "low", "attribute": "WIS", "proxy": "heavy", "archetype": "Druid Beastmaster", "form_count": 2, "typed": 8, "high_conf": 8, "mode_a_clean": 5, "museum": 5, "community": 3, "floor_min": 30, "floor_max": 50, "status": "CRITICAL"}, {"cell_id": 25, "range": "mid", "tempo": "medium", "attribute": "WIS", "proxy": "heavy", "archetype": "Witch Doctor Petmaster", "form_count": 1, "typed": 3, "high_conf": 3, "mode_a_clean": 0, "museum": 0, "community": 3, "floor_min": 30, "floor_max": 50, "status": "CRITICAL"}], "traditions_top": [{"tradition": "European medieval (broad)", "lineage_key": "european", "n_total": 28595, "n_mode_a_eligible": 13239, "current_pct": 31.83, "target_pct": 35, "gap_pct": 3.1700000000000017}, {"tradition": "East Asian", "lineage_key": "east_asian", "n_total": 16102, "n_mode_a_eligible": 3088, "current_pct": 17.92, "target_pct": 21, "gap_pct": 3.0799999999999983}, {"tradition": "Pan-Fantasy / fantasy_generic", "lineage_key": "fantasy_generic", "n_total": 17165, "n_mode_a_eligible": 0, "current_pct": 19.11, "target_pct": 16, "gap_pct": -3.1099999999999994}, {"tradition": "Middle Eastern (canonical lineage)", "lineage_key": "middle_eastern", "n_total": 1650, "n_mode_a_eligible": 448, "current_pct": 1.84, "target_pct": 6, "gap_pct": 4.16}, {"tradition": "South Asian (canonical lineage)", "lineage_key": "south_asian", "n_total": 1538, "n_mode_a_eligible": 737, "current_pct": 1.71, "target_pct": 5, "gap_pct": 3.29}, {"tradition": "Mesoamerican", "lineage_key": "mesoamerican", "n_total": 97, "n_mode_a_eligible": 24, "current_pct": 0.11, "target_pct": 4, "gap_pct": 3.89}, {"tradition": "African (canonical lineage)", "lineage_key": "african", "n_total": 563, "n_mode_a_eligible": 125, "current_pct": 0.63, "target_pct": null, "gap_pct": null}, {"tradition": "Southeast Asian (canonical lineage)", "lineage_key": "southeast_asian", "n_total": 872, "n_mode_a_eligible": 354, "current_pct": 0.97, "target_pct": null, "gap_pct": null}], "subtraditions": [{"tradition": "Egyptian (tag)", "tags": ["egyptian"], "n_total": 9, "current_pct": 0.01, "target_pct": 4, "gap_pct": 3.99}, {"tradition": "Sumerian/Mesopotamian (tag)", "tags": ["sumerian", "mesopotamian"], "n_total": 0, "current_pct": 0.0, "target_pct": 3, "gap_pct": 3.0}, {"tradition": "Vedic/Hindu (tag)", "tags": ["vedic", "hindu"], "n_total": 17, "current_pct": 0.019, "target_pct": 4, "gap_pct": 3.981}, {"tradition": "Slavic (tag)", "tags": ["slavic", "russian", "polish"], "n_total": 149, "current_pct": 0.166, "target_pct": 3, "gap_pct": 2.834}, {"tradition": "Norse (tag)", "tags": ["norse", "viking"], "n_total": 25, "current_pct": 0.028, "target_pct": 10, "gap_pct": 9.972}, {"tradition": "Greek (tag)", "tags": ["greek", "hellenic"], "n_total": 16, "current_pct": 0.018, "target_pct": 8, "gap_pct": 7.982}, {"tradition": "Celtic (tag)", "tags": ["celtic", "gaelic", "irish"], "n_total": 14, "current_pct": 0.016, "target_pct": 6, "gap_pct": 5.984}], "anchors_4zero": [{"anchor": "Hattori Hanz\u014d / Hanzo", "patterns": ["Hanzo", "Hattori"], "target_cell": "ranged|low|DEX or melee|high|DEX", "named_bearer_matches": 0, "canonical_name_matches": 1, "description_text_matches": 2}, {"anchor": "Lu Bu", "patterns": ["Lu Bu"], "target_cell": "melee|medium|STR (halberd)", "named_bearer_matches": 0, "canonical_name_matches": 0, "description_text_matches": 0}, {"anchor": "Moctezuma \u2192 Quetzalcoatl", "patterns": ["Moctezuma", "Montezuma", "Quetzalcoatl"], "target_cell": "mid|low|INT,heavy (summoner)", "named_bearer_matches": 1, "canonical_name_matches": 0, "description_text_matches": 1}, {"anchor": "Gilgamesh", "patterns": ["Gilgamesh"], "target_cell": "melee|medium|STR (axe/sword)", "named_bearer_matches": 0, "canonical_name_matches": 0, "description_text_matches": 0}]};
+
+// Status -> color
+const STATUS_COLOR = {
+  "CRITICAL": "#c54848",
+  "THIN": "#e6a939",
+  "UNDER-FLOOR": "#e69939",
+  "UNDER-FLOOR-HIGHCONF": "#dac547",
+  "MODE-A-THIN": "#9c27b0",
+  "COVERED": "#52a373",
+};
+
+// 2. Stage 0 cell chart (horizontal bar)
+const cells = DATA.cells.slice().sort((a,b) => b.typed - a.typed);
+new Chart(document.getElementById('cellChart').getContext('2d'), {
+  type: 'bar',
+  data: {
+    labels: cells.map(c => `#${c.cell_id} ${c.archetype} (${c.range}/${c.tempo}/${c.attribute}${c.proxy !== 'none' ? '/' + c.proxy : ''})`),
+    datasets: [{
+      label: 'Typed rows',
+      data: cells.map(c => c.typed),
+      backgroundColor: cells.map(c => STATUS_COLOR[c.status] || '#888'),
+      borderColor: '#333', borderWidth: 1,
+    },{
+      label: 'Floor (min)',
+      type: 'line',
+      data: cells.map(c => c.floor_min),
+      borderColor: '#000', backgroundColor: 'transparent',
+      pointRadius: 3, pointBackgroundColor: '#000', borderDash: [4,4], showLine: false,
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true, maintainAspectRatio: false,
+    plugins: { title: { display: true, text: 'Stage 0 cell × substrate-typed row count (color = status; black dot = floor_min)' }, legend: { display: true } },
+    scales: { x: { type: 'logarithmic', title: { display: true, text: 'Typed rows (log scale)' }, min: 0.5 } }
+  }
+});
+
+// 2.1 cells table
+const cellsTbody = document.getElementById('cellsTbody');
+DATA.cells.forEach(c => {
+  const tr = document.createElement('tr');
+  tr.className = `status-${c.status}`;
+  tr.innerHTML = `<td>${c.cell_id}</td><td>${c.range}</td><td>${c.tempo}</td><td>${c.attribute}</td><td>${c.proxy}</td>` +
+    `<td>${c.archetype} (${c.form_count})</td>` +
+    `<td class="num">${c.typed.toLocaleString()}</td><td class="num">${c.high_conf.toLocaleString()}</td><td class="num">${c.mode_a_clean.toLocaleString()}</td>` +
+    `<td class="num">${c.museum.toLocaleString()}</td><td class="num">${c.community.toLocaleString()}</td>` +
+    `<td class="num">${c.floor_min}-${c.floor_max}</td>` +
+    `<td>${c.status}</td>`;
+  cellsTbody.appendChild(tr);
+});
+
+// 3. Tradition chart
+const trads = DATA.traditions_top.filter(t => t.target_pct !== null);
+new Chart(document.getElementById('traditionChart').getContext('2d'), {
+  type: 'bar',
+  data: {
+    labels: trads.map(t => t.tradition),
+    datasets: [{
+      label: 'Current substrate %',
+      data: trads.map(t => t.current_pct),
+      backgroundColor: '#4d8fbd', borderColor: '#1976d2', borderWidth: 1,
+    },{
+      label: 'Sketch D target %',
+      data: trads.map(t => t.target_pct),
+      backgroundColor: '#52a373', borderColor: '#2e7d32', borderWidth: 1,
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { title: { display: true, text: 'Cultural-tradition substrate share vs Sketch D 4.3 target' } },
+    scales: { y: { title: { display: true, text: '% of substrate / target v1_scope' } } }
+  }
+});
+
+// 3 tradition table
+const trTbody = document.getElementById('traditionTbody');
+DATA.traditions_top.forEach(t => {
+  const tr = document.createElement('tr');
+  const gap = t.gap_pct === null ? '—' : (t.gap_pct > 0 ? '+' : '') + t.gap_pct.toFixed(2);
+  const gapClass = t.gap_pct === null ? '' : (t.gap_pct > 0 ? 'status-COVERED' : 'status-UNDER-FLOOR');
+  tr.innerHTML = `<td>${t.tradition}</td><td><code>${t.lineage_key}</code></td>` +
+    `<td class="num">${t.n_total.toLocaleString()}</td>` +
+    `<td class="num">${t.n_mode_a_eligible.toLocaleString()}</td>` +
+    `<td class="num">${t.current_pct.toFixed(2)}%</td>` +
+    `<td class="num">${t.target_pct === null ? '—' : t.target_pct + '%'}</td>` +
+    `<td class="num ${gapClass}">${gap}${t.gap_pct === null ? '' : '%'}</td>`;
+  trTbody.appendChild(tr);
+});
+
+// 3.1 sub-tradition table
+const subTbody = document.getElementById('subTraditionTbody');
+DATA.subtraditions.forEach(t => {
+  const tr = document.createElement('tr');
+  const gap = t.gap_pct.toFixed(2);
+  const gapClass = t.gap_pct > 0 ? 'status-CRITICAL' : 'status-COVERED';
+  tr.innerHTML = `<td>${t.tradition}</td><td><code>${t.tags.join(', ')}</code></td>` +
+    `<td class="num">${t.n_total.toLocaleString()}</td>` +
+    `<td class="num">${t.current_pct.toFixed(2)}%</td>` +
+    `<td class="num">${t.target_pct}%</td>` +
+    `<td class="num ${gapClass}">${t.gap_pct > 0 ? '-' : '+'}${Math.abs(gap)}%</td>`;
+  subTbody.appendChild(tr);
+});
+
+// 4. anchors table
+const anchorTbody = document.getElementById('anchorTbody');
+DATA.anchors_4zero.forEach(a => {
+  const tr = document.createElement('tr');
+  const totalMatches = a.named_bearer_matches + a.canonical_name_matches + a.description_text_matches;
+  tr.className = totalMatches === 0 ? 'status-CRITICAL' : (totalMatches < 5 ? 'status-THIN' : '');
+  tr.innerHTML = `<td>${a.anchor}</td><td><code>${a.patterns.join(', ')}</code></td><td><code>${a.target_cell}</code></td>` +
+    `<td class="num">${a.named_bearer_matches}</td>` +
+    `<td class="num">${a.canonical_name_matches}</td>` +
+    `<td class="num">${a.description_text_matches}</td>`;
+  anchorTbody.appendChild(tr);
+});
+
+// 5. Source class chart
+const cellsSorted = DATA.cells.slice().sort((a,b) => (b.typed) - (a.typed));
+new Chart(document.getElementById('sourceClassChart').getContext('2d'), {
+  type: 'bar',
+  data: {
+    labels: cellsSorted.map(c => `#${c.cell_id} ${c.archetype}`),
+    datasets: [{
+      label: 'Museum-curated',
+      data: cellsSorted.map(c => c.museum),
+      backgroundColor: '#52a373', borderColor: '#2e7d32', borderWidth: 1,
+    },{
+      label: 'Community-game-data',
+      data: cellsSorted.map(c => c.community),
+      backgroundColor: '#e6a939', borderColor: '#ef6c00', borderWidth: 1,
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true, maintainAspectRatio: false,
+    plugins: { title: { display: true, text: 'Per-cell source-class lean (stacked)' } },
+    scales: { x: { stacked: true, title: { display: true, text: 'Typed rows' } }, y: { stacked: true } }
+  }
+});
+
+</script>
+</body>
+</html>

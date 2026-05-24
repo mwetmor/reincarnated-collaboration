@@ -415,6 +415,223 @@ Knight-rider lean: **Option II** (two tags) — separate stages, separate owners
 
 Knight-rider drafting Stage 2 + Stage 2.5 dispatches in parallel with Matt commit+tag action. Drafts land fire-ready post-tag. Stage 2.5 surfaces gandalf-prep dependency (source-library reputation tier lookup) which fires during Stage 2 execution window so doesn't gate Stage 2.5 launch separately.
 
+## Wave 2 — COMMIT + TAG + PUSH LANDED 2026-05-24
+
+**Commit:** `23db403` — `ops(knight-rider): Cycle 10 Wave 1 + Wave 2 closeout — Sidecar A MIXED verdict + Stage 1 + Stage 1.5 + v1.1 lookup-fix` (76 files; 27,948 insertions)
+
+**Tags (Option II — two tags at same commit):**
+- `elrond/v0.0-cycle-10-stage-1-proxy-fingerprint` (annotated)
+- `elrond/v0.0-cycle-10-stage-1-5-structured-field-extraction` (annotated)
+
+**Push:** origin/main + both tags → GitHub. Branch in sync; working tree clean.
+
+**Pre-commit hygiene:**
+- Top-level `.gitignore` extended: `__pycache__/` + `*.pyc` + `*.pyo`
+- `agentic_orchestration/elrond/research/cycle-10-stage-1-5-2026-05-24/backups/.gitignore` (155 MB telemetry.db.pre-stage-1-5 excluded; matches phase-D-cleaning-pipeline precedent)
+- `agentic_orchestration/star-lord/research/image-pass-through-vs-llm-gen-meshy-comparison-2026-05-23/.gitignore` (~264 MB of Meshy .glb/.obj model outputs excluded; reproducible via Meshy queue if needed)
+
+## Wave 3 — FIRING 2026-05-24 (autonomous per Matt hive-mind directive)
+
+Per Matt 2026-05-23 hive-mind decision-routing + 2026-05-24 directive ("continue hive mind state as if I wasn't here"): knight-rider proceeds autonomously; seam-owners decide; Matt is LAST-resort escalation.
+
+**Sub-agent invocations:**
+
+18. **elrond sub-agent — Stage 2 cross-tab + thin-cell surfacing**
+    - **STATUS: COMPLETE 2026-05-24 ✓**
+    - Output: HTML/Chart.js cross-tab + 4 supporting MD artifacts; 25 Stage 0 cell-archetypes against 22,033 typed substrate rows; 4 charts + 5 tables
+    - **Thin-cell counts:** 9 CRITICAL (< 10) / 1 THIN (10-49) / 2 UNDER-FLOOR / 1 MODE-A-THIN / 13 COVERED
+    - **Top 3 thin traditions by Sketch D gap:** Egyptian (-3.99%), Vedic/Hindu (-3.98%), Mesoamerican (-3.89%) — all Sidecar B targeted-crawl candidates per Sketch D § 4.3
+    - **Top 3 critical-fill form-archetypes:** (a) Necromancer Summoner — 2 iconic D-series forms, 0 substrate; (b) Red Mage/Spellsword — 0 substrate, contested cell; (c) Monk-archetype — 1-2 forms, 0 substrate, WIS-attribute starvation
+    - **Smoke checks PASS** per dispatch § 8 (Heavy Barbarian melee/low/STR returns 960 typed — above 80-120 floor; COVERED)
+    - **Aggregate critical-fill scope:** ~800-1,000 net new weapon-rows in v1_scope needed; ~13,500 raw Sidecar-B substrate rows desired across 5 sub-traditions (~15% growth on 89,841 baseline)
+    - Artifacts: `cross-tab.html` (34.7 KB Chart.js) + `cross-tab-data.json` (14.2 KB backing) + `thin-cell-list.md` (13.0 KB) + `thin-tradition-list.md` (12.4 KB) + `critical-fill-targets.md` (14.8 KB)
+    - **Tag intent:** `elrond/v0.0-cycle-10-stage-2-cross-tab` queued for Wave 3 close-out commit + tag
+
+**3 Stage-3-design-call-BLOCKING findings surfaced by Stage 2 (require Matt + gandalf composition policy decisions at Wave 4):**
+
+- **Finding (i) — 5-tuple → 3-tuple collapse:** Sketch A cell space `(range × tempo × amplitude × attribute × proxy_density)` collapses to substrate 3-tuple `(range × tempo × attribute)` because (a) amplitude is correctly DEFERRED to Stage 4 (mechanical-tagging on v1_scope rows), and (b) proxy_density is FORM-level not weapon-level (Necromancer = heavy-proxy is build-shape, not weapon-shape). **5 Stage 0 cell-pairs are routing-ambiguous** — composition policy must decide how to map weapon-cells into form-cells (sample weapons proportionally across implied form-density variants? OR explicit per-form assignment?)
+
+- **Finding (ii) — 30 mythological-register rows NULL-typed by proxy fingerprint:** Excalibur / Mjölnir / Gungnir / Karna's Gandiva / etc. are NULL-typed because canonical_name is the proper-noun (e.g., "Excalibur") not the weapon-token ("sword"). **Sketch F Tier-1 mythological named-bearer protection requires Stage 1.5 named-bearer join (Stage 2.5 named_mythological_match path handles this) OR Stage 4 mechanical-tagging path.** Routing question: do these rows get Tier S via bearer-match path AND mechanical-tagging via Stage 4 explicit pass, OR is there a Stage 2.x re-fingerprint refinement step? — Stage 3 design call decides
+
+- **Finding (iii) — Sketch F 4-zero anchors confirmed by empirical cross-tab:** Hattori Hanzō (1 fantasy-only match — not historical-bearer substrate), Lu Bu (0), Moctezuma (0), Gilgamesh (0). Composes with earlier Stage 1.5 finding. Three resolution paths per Stage 3 design call (Track M1 future crawl / Stage 3.5 engine-author gap-fill / Sketch F target adjustment ~12 → ~8).
+
+19. **gandalf sub-agent — Stage 2.5 prep authoring (lookup tables)**
+    - **STATUS: COMPLETE 2026-05-24 ✓** — both files land at named paths; YAML structured-data blocks parseable; coverage complete
+    - **Source-library reputation tier:** 25 sources enumerated; **Tier A 2 sources / 50.9%** (met-museum, royal_armouries) / **Tier B 5 sources / 7.8%** (odin-army-tradoc, 5e-bits, pf2ools, bsdata-warhammer-aos) / **Tier C 3 sources / 23.4%** (wikipedia, wikidata, army-recognition) / **Tier D 15 sources / 17.9%** (game-data-dump tier: WoW, Cataclysm DDA, OSRSbox, Diablo 2, PoE, fextralife variants, Elden Ring, GTA V, etc.)
+    - **Cultural-tradition weight:** 14 lineages enumerated; **Tier 1 weight 1.0 (3)** european / east_asian / fantasy_generic / **Tier 1 weight 0.7 (3)** cross_cultural / middle_eastern / south_asian / **weight 0.5 (1)** southeast_asian / **weight 0.4 unknown passthrough (1)** / **Tier 3 EXCLUDED weight 0.0 (6)** north_american_indigenous + arctic_circumpolar + oceanic + mesoamerican + south_american_indigenous + african — DUAL-GATE: weight=0.0 AND `excluded_from_tier_s: true`
+    - **Tier 3 row total:** 1,005 (1.12% of substrate); Mode-B contamination empirically confirmed at register-split (arctic_circumpolar 54% military_modern; oceanic 54% military_modern; south_american_indigenous mixes 19th-20th-C Latin American historical military)
+    - **Discipline-aware curation decisions:**
+      - Royal Armouries kept Tier A (institutional editorial-pipeline trust, NOT field-density; structural-thinness penalty handled separately via description-richness + provenance-richness signals to avoid double-discount)
+      - odin-army-tradoc kept Tier B with Mode-C contamination handled at consumption via Discipline #25 (NOT via tier demotion — would double-penalize)
+    - **Two rep-audit edge-case concerns flagged for Stage 3 design-call awareness:**
+      1. `african` (563 rows; 510 historical / 53 military_modern — better Mode-A signal than 5 indigenous lineages) — close-call Tier 3 boundary; kept excluded per Sketch F § 6.3 sub-Saharan African cultural-sensitivity; **flagged for Stage 3 possible re-examination**
+      2. `unknown` lineage at 21,242 rows / 23.6% substrate — overwhelmingly TTRPG data-dump (19,119 of 21,242 have register='unknown' too); weight 0.4 passthrough lets composite's other signals sort; flagged for 100-row spot-check empirical-distribution awareness
+    - **Stage 2.5 elrond sub-agent unblocked** — reputation_tier + cultural-tradition signals available; sub-agent #20 polling filesystem-existence per Discipline #19 will auto-pick-up
+
+**Stage 3 design-call surface accumulation (logged for Wave 4):**
+- 4 zero-substrate-presence Sketch F anchors (Hattori Hanzō / Lu Bu / Moctezuma / Gilgamesh) — Track M1 vs Stage 3.5 gap-fills vs Sketch F target adjustment
+- `african` close-call Tier 3 boundary (gandalf prep edge case 1) — possible re-examination
+- `unknown` lineage 23.6% of substrate at weight 0.4 (gandalf prep edge case 2) — empirical distribution awareness
+
+20. **elrond sub-agent — Stage 2.5 quality + tier scoring**
+    - **STATUS: COMPLETE 2026-05-24 ✓** — gandalf 100-row spot-check pending
+    - **Tier distribution (all within target):**
+      - **Tier S: 1,126 (1.25%)** — 452 via named-mythological-match seed-list path + 674 via top-1% composite
+      - **Tier A: 7,943 (8.84%)**
+      - **Tier B: 58,315 (64.91%)**
+      - **Tier C: 22,457 (25.00%)**
+      - Total 89,841 rows; all populated
+    - **Composite score range:** 0.10-0.73 (rough Gaussian; median 0.43; p25 0.36 / p75 0.49); source-library + cultural-tradition signals show bimodal distribution (museum/east_asian/european clusters vs game-data-dump)
+    - **Mode-C contamination filter (Gate 2):** 71/72 Stage-1.5-flagged rows blocked from named-mythological-match path (1 had no seed match) ✓
+    - **Cultural-sensitivity gate (Gate 3):** 19 Tier-3-lineage rows blocked from named-match path; 0 Tier-3 contamination in Tier S ✓ (one south_am_indigenous Tier S via top-1% composite — MSS 1.2 Brazilian ATGM — correct per gandalf cultural-weight doc § 2.1 composite-quality independent of cultural-sensitivity)
+    - **Gandalf-prep-dependent signals:** BOTH LANDED IN TIME (no placeholder used)
+    - **Cost:** $0.00; 1.7 sec execution
+    - **Tag intent:** `elrond/v0.0-cycle-10-stage-2-5-quality-tier-scoring`
+
+**Tier S sample preview (10 random):**
+
+| # | Entry | Source | Notes |
+|---|---|---|---|
+| 1 | Halberd of Christian I | Met Museum | named-bearer (Tier-2 historical) |
+| 2 | Flintlock Sporting Gun of Empress Margarita Teresa | Met Museum | named-bearer |
+| 3 | **Codpiece for Henry VIII** | Royal Armouries | **ARMOR — not weapon (high composite via Henry VIII + Royal Armouries)** |
+| 4 | **Powder Flask of Jacques de Silly** | Met Museum | **ACCESSORY — not weapon** |
+| 5 | Halberd of Archduke Ferdinand II | Met Museum | proper weapon (Sidecar A weapon) |
+| 6 | Tizona → El Cid | Wikidata | named-mythological-match |
+| 7 | Green Dragon Crescent Blade → Guan Yu | Wikidata | named-mythological-match |
+| 8 | **Banner with Shaft → Saint George** | Met Museum | **ACCESSORY (banner) — not weapon** |
+| 9 | **Crinet for Henry VIII** | Royal Armouries | **ARMOR (horse barding) — not weapon** |
+| 10 | **Pair of Sword-Grip Ornaments — menuki** | Met Museum | **ACCESSORY (sword fittings) — not weapon** |
+
+**NEW Stage-3-design-call-BLOCKING finding (#iv) — Tier S accessory/armor contamination:**
+
+~40% of Tier S sample is accessories/armor (codpiece / powder flask / banner / crinet / menuki) — not weapons. Root cause: composite scoring rewards source-richness + named-bearer + Met Museum reputation regardless of `weapon_kind`. Stage 1 NULL-typed these correctly (proxy fingerprint failed because they're not weapons) but Stage 2.5 doesn't filter on Stage 1 NULL state. Stage 3 composition policy must decide:
+- (a) Filter Tier S by `proxy_fingerprint_confidence > threshold` OR by explicit weapon_kind != 'ammo_or_consumable' AND not accessory-typed
+- (b) Accept Tier S noise; downstream design surfaces filter at v1_scope inclusion
+- (c) Retroactive Tier S re-assignment with weapon-kind gate added
+
+Knight-rider lean: **(a) — Stage 3 composition policy filters Tier S by weapon-kind gate.** Cleaner than letting accessories pre-commit into v1_scope.
+
+**NEW Mode-C SECOND-WAVE finding (elrond proposed 3 dispositions; knight-rider lean A + C):**
+
+~32 wikipedia-sourced military_modern rows have legitimate seed-list bearer matches via naming-allusion (Hyunmoo-3 → Heracles, M982 Excalibur → Arthur, Surya missile → Surya, etc.) — these are Pass B modern-weapon-pattern Mode-C patterns NOT in Stage 1.5's original 72-flag set. Elrond dispositions:
+- A: accept-with-flag for v1.0 (already-flagged at consumption via Discipline #25; pattern composes with marginal-lineage record)
+- B: retroactive-strip from Tier S
+- C: v1.1+ refinement extends Pass B modern-weapon-pattern Mode-C overlay (already in v1.1+ queue per Stage 1.5 spot-check)
+
+**Knight-rider ratification (within orchestrator scope per hive-mind directive): A + C.** No retroactive-strip (B); Discipline #25 working as designed at consumption; v1.1+ extension already queued. gandalf 100-row spot-check may contest if substantive concern surfaces.
+
+21. **gandalf sub-agent — Stage 2.5 100-row spot-check**
+    - **STATUS: COMPLETE 2026-05-24 — WARN (PASS-with-flag); tag fires** ✓
+    - **Per-tier reasonable-assignment counts:**
+      - Tier S: **38/40 at scoring-layer-consistency** — ONLY **18/40 are proper handheld weapons** (45%)
+      - Tier A: 18/20
+      - Tier B: 20/20
+      - Tier C: 20/20
+    - **Scoring math is honest;** issue is downstream-pre-commit-suitability, not Stage 2.5 defect — Tier-S preserves composite signal in DB; v1_scope inclusion filters at Stage 3 gate
+    - **Finding #iv empirical scope CONFIRMED at 35% accessory+armor / 55% total non-handheld-weapon** (knight-rider's 40% observation validated as lower bound)
+    - **Disposition (a) with refinement:** weapon-kind gate at Stage 3 composition policy lock for Tier-S → v1_scope auto-promote; NOT retroactive Stage 2.5 rescore
+    - **Mode-C disposition: RATIFY A+C** (concur with elrond + knight-rider lean). Decline B (over-engineered; risks suppressing legitimate naming-allusion like M982 Excalibur). Mode-C second-wave is **taxonomic-extension to marginal-lineage-tagging-pattern record**, NOT bearer-misattribution
+    - **Tier 3 gate confirmed clean:** 0 contamination via named-match path; 19 would-be-matches blocked correctly
+    - **Per-signal sparseness ratified:** workhorse + sparse-by-design split correct
+    - **Tag recommendation: RATIFY `elrond/v0.0-cycle-10-stage-2-5-quality-tier-scoring`** — no remediation at Stage 2.5 layer
+    - **Refutation-routing recommendation (Discipline #19.1):** Stage 3 design-call should FIRE full-1,126-Tier-S weapon-kind classifier as FIRST step before composition policy lock — refines 40-sample projection to full-substrate diagnostic
+
+**5 NEW v1.1+ items surfaced by Stage 2.5 spot-check:**
+1. Weapon-kind gate at Tier-S → v1_scope auto-promote (Stage 3 spec)
+2. Stage 1.5 v1.2 Mode-C extension covering wikipedia + military_modern + Tier-1-mythological-name pattern
+3. Substrate-evidence-of-modern-naming-allusion as Sketch F § 6 narrative-framing material (deferred, not v1.0)
+4. Tier-S semantic-load LOCK at Stage 3 (HARD-COMMIT vs SOFT-SUGGEST — recommend "pre-committed exceptional, subject to weapon-kind gate")
+5. Royal Armouries auxiliary-collection v1_scope filter (Ship model / Ball drawer / Box / Gauge non-weapon catalogue entries)
+
+## Wave 3 — CLOSED on critique-pair gate-pass
+
+All Wave 3 stages green:
+- Stage 2 cross-tab + thin-cell: COMPLETE
+- Stage 2.5 prep (gandalf reputation + cultural-tradition lookups): COMPLETE
+- Stage 2.5 quality + tier scoring: COMPLETE
+- Stage 2.5 100-row spot-check: WARN/PASS-with-flag — tag ratified
+
+**Wave 3 commit/tag/push: GATED on Matt return + explicit authorization** (per CLAUDE.md commit discipline; Matt previously authorized Wave 2 commit explicitly). Artifacts ready for combined commit covering:
+- Stage 2 artifacts at `cycle-10-stage-2-2026-05-24/`
+- Stage 2.5 artifacts at `cycle-10-stage-2-5-2026-05-24/` (DB backup `telemetry.pre-stage-2-5.db.bak` 167 MB — same .gitignore pattern needed in backups/)
+- gandalf prep docs (reputation-tier + cultural-tradition-weight)
+- State file
+- 2 tags per Option II pattern: `elrond/v0.0-cycle-10-stage-2-cross-tab` + `elrond/v0.0-cycle-10-stage-2-5-quality-tier-scoring`
+
+## Pre-Stage-3 refutation-routing — FIRING
+
+Per gandalf Stage 2.5 spot-check § "Refutation routing (Discipline #19.1)" recommendation: Stage 3 design-call should FIRE full-1,126-Tier-S weapon-kind classifier as FIRST step. Knight-rider proactively fires this as a pre-Stage-3 task during the wait for Matt return — productively uses background time + gives Matt + gandalf full empirical evidence for Stage 3 composition policy lock.
+
+22. **elrond sub-agent — Pre-Stage-3 Tier-S weapon-kind classifier**
+    - **STATUS: COMPLETE 2026-05-24 ✓**
+    - **All 1,126 Tier-S rows classified.** Distribution:
+      - **handheld_weapon: 449 (39.88%)** ← v1_scope auto-promote candidates
+      - siege_vehicle: 316 (28.06%)
+      - accessory: 130 (11.55%)
+      - armor: 125 (11.10%)
+      - art_object: 52 (4.62%)
+      - other: 31 (2.75%)
+      - ammo_consumable: 23 (2.04%)
+      - **Non-handheld total: 677 (60.12%)** — gandalf's 55% projection validated as LOWER BOUND (+5pp worse)
+    - **Per-source variance (the actionable structural signal):**
+      - wikidata 92.86% handheld (cleanest)
+      - royal_armouries 61.81%
+      - wikipedia 28.95%
+      - met-museum 28.04%
+      - **odin-army-tradoc 9.14%** (effectively a siege/vehicle catalogue at Tier-S — most rows are military siege/vehicle systems)
+    - **Threshold recommendation R1 for Stage 3:** `category = 'handheld_weapon'` → **449 rows pass v1_scope auto-promote.** Tier-S non-handheld rows preserved in DB for downstream consumers (off-hand items / siege-warfare design / mood-board reference) without contaminating v1_scope.
+    - **Register filter alone INSUFFICIENT:** wikipedia siege/vehicle Tier-S rows (154 of 175 cases) tagged register='historical'; Stage 3 must use category filter R1, NOT register filter R2-alone.
+    - **Cost:** $0.00 (100% heuristic classification; zero LLM-judge fired; well below $5 ceiling)
+    - **Artifacts:** `tier-s-weapon-kind-classification.md` + `tier-s-classification.json` + `classify_tier_s_weapon_kind.py` + `classify_log.out` at `cycle-10-stage-2-5-2026-05-24/`
+
+**Pre-Stage-3 classifier UNEXPECTED FINDINGS (Stage 3 design-call evidence):**
+
+- **Finding A (NEW v1.1+ recognition candidate):** Stage-1 substrate `weapon_kind='ammo_or_consumable'` enum was MIS-APPLIED to armor pieces (gauntlets, helms, half-armor) at curation time. v1.1+ refinement: substrate schema needs distinct `armor` + `accessory` kinds added to `weapon_kind` enum. Recognition-record candidate — knight-rider proposes addition to v1.1+ recognitions doc (or composing into existing recognitions queue per Cycle 10 wind-down).
+
+- **Finding B (NEW v1.1+ taxonomic extension to marginal-lineage-tagging-pattern record):** Named-match path delivers WORSE handheld-purity (32.52%) than composite-top-1% (44.81%) — the seed list pulls in modern military hardware via mythological naming. Of named-match rows: 7.08% Mode-C contamination (confirms gandalf's 32-row estimate) PLUS additional 149 historical-register siege/vehicle (Warwolf / Katyusha / etc.) — proposes **Mode-E "historical-bearer-of-siege/vehicle"** taxonomic extension to `canonical/story/marginal-lineage-tagging-pattern-2026-05-23.md`. Composes with existing Mode A/B/C/D framework. Knight-rider logs for gandalf attention at Cycle 10 wind-down (canonical-doc-amendment territory).
+
+## Stage 3 design-call empirical-evidence package (FULL — ready for Matt + gandalf)
+
+When Matt returns + Stage 3 design call fires, the following empirical evidence is ready:
+
+| Evidence artifact | Purpose | Location |
+|---|---|---|
+| Cross-tab + Chart.js | Joint distribution of axes; thin-cell + critical-fill targets | `cycle-10-stage-2-2026-05-24/cross-tab.html` |
+| Thin-cell list | THIN + CRITICAL cells | `cycle-10-stage-2-2026-05-24/thin-cell-list.md` |
+| Thin-tradition list | Sidecar B targeted-crawl scope | `cycle-10-stage-2-2026-05-24/thin-tradition-list.md` |
+| Critical-fill targets | Per-form-archetype substrate coverage | `cycle-10-stage-2-2026-05-24/critical-fill-targets.md` |
+| Tier distribution + composite stats | Stage 2.5 quality scoring outputs | `cycle-10-stage-2-5-2026-05-24/per-tier-counts.md` |
+| Tier-S weapon-kind classification | R1 threshold + per-source variance | `cycle-10-stage-2-5-2026-05-24/tier-s-weapon-kind-classification.md` |
+| Gandalf prep lookups | Reputation tier + cultural-tradition weight | `gandalf/notes/2026-05-24-source-library-reputation-tier.md` + `2026-05-24-cultural-tradition-weight-lookup.md` |
+| Spot-check verdicts (3) | Stage 1 + 1.5 + 2.5 critique-pair outcomes | Per-stage `spot-check-gandalf-request.md` files |
+| Stage-3-surface-roster | 7 BLOCKING/edge items consolidated | This state file (above) |
+
+## Cycle 10 status — fully ready for Stage 3 design call
+
+- **Wave 1 (Sidecar A): CLOSED ✓** (committed + tagged + pushed)
+- **Wave 2 (Stages 1 + 1.5 + v1.1 fix): CLOSED ✓** (committed + tagged + pushed)
+- **Wave 3 (Stages 2 + 2.5): CLOSED ✓** (commit + tag + push GATED on Matt return + explicit authorization per CLAUDE.md commit discipline)
+- **Pre-Stage-3 refutation-routing classifier: COMPLETE ✓** (artifacts ready)
+- **Stage 0 transcription: COMPLETE ✓** (committed in prior session as `b93f76c`)
+- **Wave 4 (Stage 3 design call): GATED on Matt return** — Matt + gandalf scheduling
+
+**v1.1+ queue carry-forward count: 15 items + Mode-E taxonomic extension + Stage-1 weapon_kind enum refinement** (full list in state file body above).
+
+**Nothing further fire-able autonomously.** All productive background work in Stage 3 service has been completed. Awaiting Matt return for: (a) Wave 3 commit/tag/push authorization; (b) Stage 3 design-call scheduling.
+
+## Stage-3-design-call surface roster (consolidated for Wave 4)
+
+| # | Finding | Status |
+|---|---|---|
+| (i) | 5-tuple → 3-tuple cell-collapse; 5 routing-ambiguous cell-pairs | Stage 3 decides composition policy |
+| (ii) | 30 mythological-register rows NULL-typed by proxy fingerprint | Stage 3 decides Stage 1.5-bearer-join OR Stage 4 path |
+| (iii) | 4 zero-substrate-presence Sketch F anchors (Hattori Hanzō / Lu Bu / Moctezuma / Gilgamesh) | Stage 3 decides Track M1 vs gap-fills vs Sketch F adjustment |
+| (iv) | Tier S accessory/armor contamination (35%+ in spot-check; full classification firing — sub-agent #22) | Stage 3 weapon-kind gate at Tier-S → v1_scope auto-promote |
+| edge-1 | `african` Tier-3 close-call (gandalf prep) | Possible re-examination at Stage 3 |
+| edge-2 | `unknown` lineage 23.6% of substrate (gandalf prep) | Empirical distribution awareness |
+| disp-1 | Mode-C second-wave disposition (~32 wikipedia military_modern rows) | A+C ratified (accept-with-flag + v1.1+ refinement) — LOCKED |
+
 **Cycle 10 wind-down carries (logged for gandalf):**
 - Ground-state oracle § 1 amendment-date surfacing for the 3 Stage 0 docs (not yet in § 1)
 - Roadmap § 1.0 inline-note on Odin/military Mode-B tagging pattern signal (Sidecar A finding strengthens Recognition 2 empirical basis)

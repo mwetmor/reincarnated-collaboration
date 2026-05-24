@@ -1,0 +1,28 @@
+[09:57:23] Loading inputs...
+  seed list entries (incl. aliases): 1059
+  Mode-C flagged IDs: 72
+  gandalf reputation tier: LANDED (25 entries)
+  gandalf cultural weight: LANDED (14 entries)
+  Tier-3-excluded lineages (no Tier S auto-include): 6
+[09:57:23] Pre-loading cluster_membership...
+  cluster_membership rows: 48430
+[09:57:23] Pre-loading image counts...
+  rows with images: 19236
+  max images per entry: 172
+[09:57:23] Streaming rows + computing composite scores...
+  scored 89841 rows in 1.1s
+  named-mythological-match (all gates cleared): 452
+  Mode-C contamination blocked from Tier S match path: 71
+  Tier-3-lineage blocked from Tier S match path: 19
+[09:57:24] Computing empirical tier thresholds...
+  threshold S (top 1%): 0.5712
+  threshold A (top 10%): 0.4790
+  threshold C (bottom 25%): 0.3303
+  Tier S total: 1126  (named-match: 452, top-1%: 674)
+  Tier A: 7943
+  Tier B: 58315
+  Tier C: 22457
+[09:57:24] Writing scores + tiers to DB...
+  wrote 89841 rows
+[09:57:25] DONE in 1.7s total
+Wrote summary -> /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/elrond/research/cycle-10-stage-2-5-2026-05-24/scoring-summary.json

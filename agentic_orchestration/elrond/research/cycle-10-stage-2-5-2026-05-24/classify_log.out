@@ -1,0 +1,166 @@
+======================================================================
+TIER-S WEAPON-KIND CLASSIFICATION — Cycle 10 Stage 2.5 Refutation-Routing
+======================================================================
+
+Total Tier-S rows classified: 1126
+
+--- Category Distribution ---
+  handheld_weapon        449  (39.88%)
+  accessory              130  (11.55%)
+  armor                  125  (11.10%)
+  ammo_consumable         23  ( 2.04%)
+  siege_vehicle          316  (28.06%)
+  art_object              52  ( 4.62%)
+  other                   31  ( 2.75%)
+
+--- Method Attribution (top-level) ---
+  ra                               363
+  met                              283
+  wp                               185
+  odin                             155
+  name                              34
+  wieldable                         33
+  manual                            26
+  name-ext                          26
+  wd                                17
+  register                           4
+
+--- Per-Source Breakdown ---
+
+  royal_armouries (n=364):
+    handheld_weapon        225  (61.81%)
+    accessory               16  ( 4.40%)
+    armor                   64  (17.58%)
+    ammo_consumable         21  ( 5.77%)
+    siege_vehicle            2  ( 0.55%)
+    art_object              15  ( 4.12%)
+    other                   21  ( 5.77%)
+
+  met-museum (n=296):
+    handheld_weapon         83  (28.04%)
+    accessory              114  (38.51%)
+    armor                   55  (18.58%)
+    art_object              35  (11.82%)
+    other                    9  ( 3.04%)
+
+  wikipedia (n=228):
+    handheld_weapon         66  (28.95%)
+    armor                    3  ( 1.32%)
+    ammo_consumable          2  ( 0.88%)
+    siege_vehicle          154  (67.54%)
+    art_object               2  ( 0.88%)
+    other                    1  ( 0.44%)
+
+  odin-army-tradoc (n=175):
+    handheld_weapon         16  ( 9.14%)
+    siege_vehicle          159  (90.86%)
+
+  wikidata (n=56):
+    handheld_weapon         52  (92.86%)
+    armor                    3  ( 5.36%)
+    siege_vehicle            1  ( 1.79%)
+
+  nick-aschenbach-dnd-data (n=3):
+    handheld_weapon          3  (100.00%)
+
+  osrsbox-db (n=1):
+    handheld_weapon          1  (100.00%)
+
+  fextralife-ds1 (n=1):
+    handheld_weapon          1  (100.00%)
+
+  bsdata-warhammer-aos (n=1):
+    handheld_weapon          1  (100.00%)
+
+  fextralife-elden-ring (n=1):
+    handheld_weapon          1  (100.00%)
+
+--- Examples per Category (top 10) ---
+
+  handheld_weapon:
+    [107] Mace-AO 2152 (src=wikidata; method=name:tok=mace)
+    [131] Indraastra (src=wikidata; method=wieldable=two_hand)
+    [134] Anjalikastra (src=wikidata; method=wieldable=two_hand)
+    [209] Failnaught (src=wikidata; method=wieldable=two_hand)
+    [366] Vijaya (src=wikidata; method=wd:weapon_type=bow)
+    [379] Mjölnir (src=wikidata; method=register=mythological)
+    [385] vajra (src=wikidata; method=wieldable=two_hand)
+    [387] Gungnir (src=wikidata; method=wd:weapon_type=spear)
+    [388] Ruyi Jingu Bang (src=wikidata; method=register=mythological)
+    [482] Gandiva (src=wikidata; method=wd:weapon_type=bow)
+
+  accessory:
+    [187506] Two Ear Guards from a Shaffron (Horse's Head Defense) of Emperor Charles V (1500 (src=met-museum; method=met:classification=Equestrian Equipment-Shaffrons)
+    [192725] Pair of Straw Hemp Sandals (src=met-museum; method=met:classification=Costumes)
+    [195229] Sword guard (<i>Tsuba</i>) Depicting Skanda (韋駄天図鐔) (src=met-museum; method=met:classification=Sword Furniture-Tsuba)
+    [195230] Sword guard (<i>Tsuba</i>) Depicting God of Longevity Jurōjin (寿老人図鐔) (src=met-museum; method=met:classification=Sword Furniture-Tsuba)
+    [196085] Pair of Ear Guards from a Shaffron (Horse's Head Defense) (src=met-museum; method=met:classification=Equestrian Equipment-Shaffrons)
+    [196635] Sword Guard (<i>Tsuba</i>) With the Motif of Autumnal Vegetation (秋草透鐔) (src=met-museum; method=met:classification=Sword Furniture-Tsuba)
+    [196651] Sword Guard (<i>Tsuba</i>) With the Motif of Sunrise Over the Ocean (日の出に波濤図鐔) (src=met-museum; method=met:classification=Sword Furniture-Tsuba)
+    [197351] Pair of Rowel Spurs (src=met-museum; method=met:classification=Equestrian Equipment-Spurs)
+    [197598] Pair of Sword-Grip Ornaments (Menuki) (src=met-museum; method=met:classification=Sword Furniture-Menuki)
+    [198214] Shaffron (Horse's Head Defense) Belonging to an Armor for Field and Tournament M (src=met-museum; method=met:classification=Equestrian Equipment-Shaffrons)
+
+  armor:
+    [11] shield of Achilles (src=wikidata; method=wd:weapon_type=shield)
+    [46] Shield Depicting Saint George Slaying the Dragon (src=wikidata; method=wd:weapon_type=shield)
+    [77] Q88199410 (src=wikidata; method=wd:weapon_type=shield)
+    [24024] Tilting visor (src=royal_armouries; method=ra:cv=helmets)
+    [27932] Left cuisse and poleyn (src=royal_armouries; method=ra:cv=armour pieces)
+    [167927] Half Armor attributed to Don Gonzalo Fernández de Córdoba y Fernández de Córdoba (src=met-museum; method=met:classification=Armor for Man-1/2 Armor)
+    [167928] Foot-Combat Helm of Sir Giles Capel (1485–1556) (src=met-museum; method=met:classification=Helmets)
+    [174333] Battersea Shield (src=wikipedia; method=name:tok=shield)
+    [174863] Pair of Shoulder Guards (Sodē) (src=met-museum; method=met:classification=Armor Parts-Arms & Shoulders)
+    [174882] Mask (Tengu-bo) of Mountain God Face with Gorget (src=met-museum; method=met:classification=Armor Parts-Masks)
+
+  ammo_consumable:
+    [23743] Centrefire six-shot self-cocking revolver (src=royal_armouries; method=ra:cv=firearms & related objects+name:shot )
+    [23983] Rimfire single-shot police target pistol (src=royal_armouries; method=ra:cv=firearms & related objects+name:shot )
+    [24194] Percussion six-shot revolver (src=royal_armouries; method=ra:cv=firearms & related objects+name:shot )
+    [24249] Centrefire five-shot blank-firing revolver (src=royal_armouries; method=ra:cv=firearms & related objects+name:shot )
+    [182011] Centrefire six-shot revolver (src=royal_armouries; method=ra:cv=firearms & related objects+name:shot )
+    [182085] 5.6×39mm (src=wikipedia; method=name-ext:ammo=mm-caliber)
+    [192588] 6mm ARC (src=wikipedia; method=name-ext:ammo=mm-caliber)
+    [194421] Centrefire six-shot military revolver (src=royal_armouries; method=ra:cv=firearms & related objects+name:shot )
+    [200559] Centrefire seven-shot military revolver (src=royal_armouries; method=ra:cv=firearms & related objects+name:shot )
+    [201312] Rimfire combination nine-shot revolver and shotgun (src=royal_armouries; method=ra:cv=firearms & related objects+name:shot )
+
+  siege_vehicle:
+    [606] Asgardian Cannon (src=wikidata; method=name:tok=cannon)
+    [173933] CIM-10 Bomarc (src=wikipedia; method=wp:type=surface-to-air missile (tok=missile))
+    [173945] Katyusha rocket launcher (src=wikipedia; method=wp:type=multiple rocket launcher (tok=rocket))
+    [173949] UGM-27 Polaris (src=wikipedia; method=wp:type=submarine-launched ballistic missile (tok=missile))
+    [173950] UGM-73 Poseidon (src=wikipedia; method=wp:type=strategic slbm (tok=slbm))
+    [173952] Trident (missile) (src=wikipedia; method=name:tok=missile)
+    [173979] MIM-104 Patriot (src=wikipedia; method=wp:type=mobile surface-to-air missile/anti-ballistic missile)
+    [174014] M142 HIMARS (src=wikipedia; method=manual:M142 HIMARS=rocket-launcher truck)
+    [174056] GBU-43/B MOAB (src=wikipedia; method=manual:GBU-43/B MOAB=large-yield bomb)
+    [174194] M3 Lee (src=wikipedia; method=wp:type=medium tank (tok=tank))
+
+  art_object:
+    [161803] Wall Chart (src=royal_armouries; method=ra:cv=art)
+    [187570] <i>Musterblätter enthaltend die anwendbarsten Jagdstücke u. Arabesken für Büchse (src=met-museum; method=met:classification=Works on Paper-Prints)
+    [189518] Golden Weapon for Bravery (src=wikipedia; method=name-ext:art=for bravery)
+    [192340] Honorary Revolutionary Weapon (src=wikipedia; method=name-ext:art=honorary revolutionary)
+    [192743] Various Designs for the Chiseller (Chōkō Shitae Shinajina) (src=met-museum; method=name-ext:art=various designs)
+    [194571] Coin (Denier) of Henry I of Cyprus (1218–1253) (src=met-museum; method=name:tok=coin)
+    [195652] Design for the Pommel Plate of a Saddle from a Garniture of Alessandro Farnese ( (src=met-museum; method=met:classification=Works on Paper-Drawings)
+    [196088] Set of Four Designs for Smallswords (src=met-museum; method=met:classification=Works on Paper-Drawings)
+    [196211] Chess Piece in the Form of a Knight (src=met-museum; method=met:classification=Sculpture)
+    [196428] Print of  Der Rittersaal zu Erbach (Interior of Gothic Revival armory of Erbach  (src=met-museum; method=met:classification=Works on Paper-Prints)
+
+  other:
+    [24554] Visor (src=royal_armouries; method=ra:cv=fakes & reproductions)
+    [180646] Robert Keyes (src=wikipedia; method=manual:Robert Keyes=person, not a weapon)
+    [196880] Helm (src=royal_armouries; method=ra:cv=fakes & reproductions)
+    [197738] Pollaxe (src=royal_armouries; method=ra:cv=loans in)
+    [197878] Presentation Coin of Maximilian I (src=met-museum; method=met:classification=Miscellaneous-Coins and Medals)
+    [200035] Execution scaffold fragment (src=royal_armouries; method=ra:cv=relics & miscellaneous)
+    [200705] Token (src=royal_armouries; method=ra:cv=relics & miscellaneous)
+    [202375] Mannequin (src=royal_armouries; method=ra:cv=tower of london memorabilia)
+    [202586] Coin Noble Edward III (src=met-museum; method=met:classification=Miscellaneous-Coins and Medals)
+    [202592] Medal of British Colonization Showing Charles II and Catherine (src=met-museum; method=met:classification=Miscellaneous-Coins and Medals)
+
+--- Output ---
+  JSON: /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/elrond/research/cycle-10-stage-2-5-2026-05-24/tier-s-classification.json
+  Cost: $0.00 (heuristic-only; no LLM-judge invoked)
