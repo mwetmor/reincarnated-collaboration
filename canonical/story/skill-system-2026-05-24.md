@@ -364,14 +364,19 @@ Phase 5 cohesion coalescence consumes this output:
 
 ### 8.5 Algorithm implementation scope
 
+> **AMENDMENT 2026-05-24 — ALGORITHM IS V1 T4 DELIVERABLE.** Original framing treated algorithm as v1.1+ work with hand-authored T4-B catalogue as v1 bootstrap. Matt 2026-05-24 design dialogue corrected: hand-authoring T4s in the abstract is meaningless (T4s are per-kit/per-substrate-anchor); algorithm IS the v1 T4 deliverable; T4-B catalogue authoring reframes to post-mortem evaluation of algorithm output (per `agentic_orchestration/gandalf/notes/2026-05-23-t4-b-v1-catalogue-scaffolding.md` amendment header).
+
 | Aspect | Notes |
 |---|---|
 | **Implementing seam** | rocket (engine generation/skill composition) |
-| **When implemented** | Post-Cycle-10 (substrate-curation feeds the algorithm with v1_scope mechanical tags); Stage 4 mechanical-tagging on v1_scope is prerequisite |
+| **When implemented** | **Post-Cycle-10 — V1 DELIVERABLE** (not v1.1+ as originally framed); substrate-curation feeds the algorithm with v1_scope mechanical tags; Stage 4 mechanical-tagging on v1_scope is prerequisite |
 | **Sim-viability check** | jack-ryan Gate-2 at output stage; algorithm output must pass sim-viability per T4-A § 3.3 step 5 |
 | **Cohesion validation** | Phase 5 cohesion judge gate per QD-engine workflow |
 | **Methodology hotspot** | Discipline #18 fires — legolas Mode A consult on algorithmic-keystone-generation literature BEFORE implementation (estimated ~1-2 hr) |
 | **LLM cost** | Algorithm runs without LLM at decision layer; LLM call ONLY at Phase 5 cohesion naming per D7 |
+| **Post-mortem validation** | After algorithm produces T4s for v1 forms, Matt + gandalf hand-author T4 alternatives for ~5-10 forms via loadout app interface; comparison validates algorithm + provides feedback for v1.1+ algorithm improvement |
+| **Estimated wall-time** | ~1-2 weeks rocket implementation (parallel with W1.13 + W1.20 BDI gamora work post-Cycle-10) |
+| **Critical-path dependency** | Loadout app (`reincarnated-loadout/`) must consume engine-generated forms + display skill trees for post-mortem authoring — drax + star-lord coordination |
 
 ### 8.6 Faction-generated proxies (extension per Matt 2026-05-24 design dialogue)
 

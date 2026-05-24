@@ -1,5 +1,13 @@
 # T4-B v1 Catalogue Authoring Scaffolding
 
+> **AMENDMENT 2026-05-24 — REFRAMED AS POST-MORTEM EVALUATION FRAMEWORK.** Per Matt 2026-05-24 design dialogue: original scaffolding framed T4-B as hand-authored pre-spec (~30 entries via ~3-6 design call sessions), but skill-system § 8 (locked 2026-05-24) commits to algorithmic mechanic-alteration as architectural advance. The two were inconsistent. Matt's correction: hand-authoring T4 entries in the abstract is meaningless — T4 build-defining skills are always per-kit / per-substrate-anchor / per-BC-target-cell; without forms, hand-authoring is creating-into-the-void. **Revised approach:**
+> - **Algorithm IS the v1 T4 deliverable** (rocket seam post-Cycle-10; per skill-system § 8.5)
+> - **T4-B catalogue authoring becomes POST-MORTEM EVALUATION** — after engine generates ~30-40 v1 forms with algorithm-produced T4s, Matt + gandalf review form-output via loadout app; for ~5-10 forms, hand-author T4 alternatives; compare to algorithm; lock whichever is better; algorithm gets validation feedback for v1.1+ improvement
+> - **Sessions reduce from ~3-6 pre-spec to ~1-2 post-mortem** (post-engine-generation; post-W1.13/H1-H5-baseline territory; ~3-5 weeks from now wall-clock)
+> - **Critical-path dependency surfaced:** loadout app integration (drax + star-lord export) must be ready to consume engine-generated forms + display skill trees for hand-authoring interface
+> - Sections § 1-9 below remain INFORMATIVE (entry schema, substrate-anchoring decision framework, acceptance gates) but are consumed at POST-MORTEM time, not pre-spec time
+
+
 > **STATUS:** CURRENT — scaffolding for upcoming Matt + gandalf design-call sessions to author the ~30-50 entry T4-B v1 catalogue. NOT the catalogue itself; the authoring framework + schema + open questions that the design call(s) resolve into actual entries.
 
 **Author:** gandalf
