@@ -1,10 +1,12 @@
 # v1.1+ Design-Discipline Recognitions — 2026-05-23
 
-> **STATUS:** CURRENT — recognition record capturing three forward-looking design-discipline recognitions surfaced at session-end. Architectural commitments deferred per § 4 empirical-evidence criteria. All three move to v1.1+ post-ship substrate-and-design-discipline-refinement queue alongside 9.11-C/D/E + 9.10-E (per 02-roadmap.md § 1.0 v1.1+ deferred queue).
+> **STATUS:** CURRENT — recognition record capturing six forward-looking design-discipline recognitions surfaced 2026-05-23. Architectural commitments deferred per § 7 empirical-evidence criteria. All six move to v1.1+ post-ship substrate-and-design-discipline-refinement queue alongside 9.11-C/D/E + 9.10-E (per 02-roadmap.md § 1.0 v1.1+ deferred queue).
+>
+> **2026-05-23 amendment (Sidecar A close-out):** Recognitions 5 + 6 added per Sidecar A image-pass-through-vs-LLM-description Meshy comparison (`agentic_orchestration/star-lord/research/image-pass-through-vs-llm-gen-meshy-comparison-2026-05-23/comparison.md`). Both ride on the same Halberd N=1 empirical case. Target canonical doc: `canonical/story/asset-pipeline-meshy-swap-2026-05-22.md` § 3.6 (refinements landed in companion amendment).
 
 **Author:** gandalf (story-and-design steward)
 **Authority:** Matt 2026-05-23 — direct invocation ("flag for later")
-**Status:** Recognition Record — architectural commitments deferred per § 4
+**Status:** Recognition Record — architectural commitments deferred per § 7
 **Companion docs:**
 - `canonical/00-ground-state.md` § 1 (current-truth oracle)
 - `canonical/02-roadmap.md` § 1.0 v1.1+ deferred substrate-refinement queue
@@ -18,12 +20,15 @@
 
 ## 0. TL;DR
 
-Four forward-looking design-discipline recognitions surfaced 2026-05-23. None gate v1 ship; all affect v1.1+ substrate-refinement + design-discipline work AND downstream consumer surfaces. Captured as recognition record so they're not lost between sessions:
+Seven forward-looking design-discipline recognitions surfaced 2026-05-23 and 2026-05-24. None gate v1 ship; all affect v1.1+ substrate-refinement + design-discipline work AND downstream consumer surfaces. Captured as recognition record so they're not lost between sessions:
 
 1. **Sampling-proportionality flagging** — per design surface; explicit declaration of sampling policy at design-spec-as-math time
 2. **Country-title name cleanup** — substrate-curation; remove geographic-encoding from canonical_name strings
 3. **Commercial-vs-solo output differentiation** — per output stream; metadata flag distinguishing player-ship vs Matt-solo-development vs engine-internal-validation purposes
 4. **Sci-fi / future register substrate gap** — substrate-coverage; `sci_fi` register has 0 populated rows and no `future` period exists in the period taxonomy; structural gap noted for v1.1+ enrichment when D10 Path C OR non-Reincarnated commercial profile triggers fire
+5. **Polearm aspect-ratio / weapon-pixel-density gate** (Sidecar A close-out) — asset-pipeline § 3.6.5 quality-score function needs a weapon-pixel-density check for long-shaft weapons; threshold methodology (bbox-occupancy percentage) is a Discipline #18 methodology hotspot pending legolas Mode A consult
+6. **Meshy polygon-count delta as Path-1-quality diagnostic** (Sidecar A close-out) — post-submission triangle-count signal could enable reroute-to-Path-2 retry; cost-trade-off vs pre-submission gating is unresolved
+7. **Cohesion-judge naming reputation-risk discipline** (sub-agent gandalf seed-list close-out 2026-05-24) — even substrate-context-confirmed Tier 1 named bearers can carry modern-association reputation risk (e.g., Isis = Egyptian deity authentically, but player-facing "Isis-Wielder" naming runs into terror-group association; Sin = Sumerian moon-god, but player-facing reads as English-noun confusion; Apollo / Diana / Hermes ambiguous with brand-names). Cohesion-judge LLM-naming layer at Phase 5 may need a second-layer discipline: "for context-confirmed Tier 1 named bearers, certain names get soft-attribution (e.g., 'Egyptian goddess of mystery' instead of 'Isis') per modern-association reputation-risk lookup table." Distinct from Discipline #25 semantic-layer rep-audit (which handles substrate-contamination at consumption); this is naming-surface-modern-association risk at the cohesion-judge LLM-call layer.
 
 Each recognition is load-bearing for v1.1+ work AND for design discipline going forward. None requires immediate v1 action.
 
@@ -194,15 +199,86 @@ Composes with Variant C (engine-as-general-serial-content-product) — the subst
 
 ---
 
-## 5. Empirical-evidence criteria for re-engagement (architectural commitment gates)
+## 5. Recognition 5 — Polearm aspect-ratio / weapon-pixel-density gate (asset-pipeline § 3.6.5 quality-score function)
+
+### 5.1 The recognition
+
+The asset-pipeline image-pass-through hypothesis (`canonical/story/asset-pipeline-meshy-swap-2026-05-22.md` § 3.6) treated Tier-1 museum-studio high-resolution sources as the unconditional Path-1 default. Sidecar A empirically refuted this for **long-shaft weapons in portrait-format museum photographs**: Halberd of Archduke Ferdinand II (entry_id 167849) at 2250×4000 px museum-quality input produced a Path-1 over-triangulated 295,242-tri mesh with shape-accuracy score=3 vs Path-2's clean 48,284-tri mesh with shape-accuracy score=5.
+
+Attribution: NOT a failure of direct-pass-through in general. A failure of weapon-pixel-density — the polearm occupies a narrow vertical stripe in a tall portrait frame, so most pixels are background. Meshy over-triangulates to fill geometric uncertainty.
+
+**Empirical basis:** Halberd N=1 case (Sidecar A 2026-05-23) + per-regime delta analysis (§ 3 of comparison artifact) confirms aspect-ratio is a second-order effect within Tier-1 museum-studio regime beyond resolution alone.
+
+### 5.2 The discipline gap currently
+
+§ 3.6.5 implementation hook 1 names a "quality-score function" with inputs: image resolution, source-tier classification, license-tier classification, format suitability. **Weapon-pixel-density was not in the input list.** The Halberd case shows it must be — and that long-shaft weapon-form classes (polearm, staff, lance, spear) trigger a different routing decision than short-shaft single-object weapons regardless of source resolution.
+
+**Interim policy applied 2026-05-23:** weapon_form ∈ {polearm, staff, lance, spear} routes to Path-2 unconditionally. This is conservative — it eliminates the Path-1 cost-savings for the entire long-shaft category until threshold methodology lands.
+
+### 5.3 Methodology-hotspot framing (Discipline #18)
+
+The refined gate would use a weapon-bbox-occupancy percentage threshold (e.g., "if weapon-bbox area < 30% of total image area, route to Path-2"). The threshold choice (30%? 20%? other%?) is **methodology selection where execution cannot self-validate.** Per Discipline #18 (methodology-consultation timing at extension hotspots), this fires AFTER baseline empirical confirmation that the issue exists — Sidecar A confirmed the baseline — and routes to legolas Mode A consult for methodology recommendation.
+
+Threshold methodology must answer:
+- What percentage of weapon-bbox-occupancy correlates with Path-1 success vs over-triangulation?
+- Does the threshold vary by weapon_form subclass (halberd vs spear vs staff)?
+- Does total resolution interact with the threshold (e.g., at very high resolution, a smaller bbox occupancy may still succeed)?
+- Is the gate strict (any polearm below threshold → Path-2) or graduated (threshold + retry-on-over-triangulation)?
+
+### 5.4 Cross-references
+
+- **Target canonical doc:** `canonical/story/asset-pipeline-meshy-swap-2026-05-22.md` § 3.6.5 (interim policy currently routes long-shaft to Path-2 unconditionally) + § 3.6.4 weapon-pixel-density concern row
+- **Empirical artifact:** `agentic_orchestration/star-lord/research/image-pass-through-vs-llm-gen-meshy-comparison-2026-05-23/comparison.md` § 2 Weapon 2 (Halberd) + § 3 aspect-ratio second-order finding
+- **Discipline composition:** `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` Discipline #18 methodology-consultation timing at extension hotspots
+
+---
+
+## 6. Recognition 6 — Meshy polygon-count delta as Path-1-quality diagnostic signal
+
+### 6.1 The recognition
+
+Sidecar A empirical observation across 5 weapons × 2 paths: when Path-1 produces a significantly higher triangle count than Path-2 on the same weapon, this correlates with Path-1 visual-quality failure. Empirical case: Halberd Path-1 at 295,242 tris (shape=3, detail=3) vs Path-2 at 48,284 tris (shape=5, detail=5). Yellow Quartz Longsword (game-render input) showed the same pattern at smaller magnitude: Path-1 at 176K tris (shape=2, detail=2) vs Path-2 at 38K tris (shape=5, detail=5).
+
+**Pattern:** over-triangulation is Meshy's "uncertainty tax" — when the input doesn't provide clean geometric cues (low weapon-pixel-density, low resolution, stylized non-photographic input), Meshy generates extra geometry to fill the gap. Triangle count above expected target_polycount becomes a leading indicator of input-quality problems.
+
+**Empirical basis:** same Halberd N=1 case as Recognition 5; pattern observed across both the polearm-portrait subcase (Halberd) and the sub-100px game-render subcase (Yellow Quartz Longsword) within the Sidecar A 5-weapon sample.
+
+### 6.2 The discipline candidate
+
+Use Path-1 polygon-count as a **post-submission diagnostic** that enables reroute-to-Path-2 retry. Specifically:
+- After Meshy returns Path-1 output, measure triangle count
+- If triangles > 3× target_polycount (e.g., > 90K when 30K requested), flag as quality-degraded
+- Route the weapon to Path-2 for retry
+
+This composes with Recognition 5 — the polearm-aspect gate is **pre-submission** (route based on weapon_form metadata before paying Meshy credits); the polygon-count diagnostic is **post-submission** (retry after observing Meshy uncertainty signal). Both gates compose: pre-submission for known-bad subcases (polearm-portrait), post-submission for subcases the pre-submission gate misses (e.g., a non-polearm at marginal resolution).
+
+### 6.3 The cost-trade-off complexity (unresolved)
+
+The post-submission reroute requires a **second Meshy credit** (30 credits per submission per Sidecar A § 8) — effectively doubling the per-weapon cost when the diagnostic fires. The cost-benefit analysis is:
+
+- Pre-submission gating (Recognition 5 polearm-class-based routing): zero extra credit cost, but routes some Path-1-capable polearms to Path-2 unnecessarily (false positives at the gate)
+- Post-submission diagnostic + reroute: pays 2x credits when the signal fires, but catches subcases the pre-submission gate misses
+- Combined: pre-submission catches the known-bad polearm-portrait subcase; post-submission catches unanticipated subcases
+
+Open question: does the polygon-count signal correlate reliably with visual-quality failure across more cases than the N=2 within the Sidecar A sample? Sidecar A.2 should evaluate signal reliability (false-positive + false-negative rates) before committing to the post-submission diagnostic.
+
+### 6.4 Cross-references
+
+- **Target canonical doc:** `canonical/story/asset-pipeline-meshy-swap-2026-05-22.md` § 3.6.4 "Meshy over-triangulation as Path-1-quality diagnostic" concern row
+- **Empirical artifact:** `agentic_orchestration/star-lord/research/image-pass-through-vs-llm-gen-meshy-comparison-2026-05-23/comparison.md` § 2 (per-weapon polygon-count notes) + Appendix B item 4 (Meshy over-triangulation as uncertainty signal — flagged for Sidecar A.2 evaluation)
+- **Paired with Recognition 5** — same Halberd empirical basis; Recognition 5 is pre-submission gating; Recognition 6 is post-submission diagnostic; compose as defense-in-depth
+
+---
+
+## 7. Empirical-evidence criteria for re-engagement (architectural commitment gates)
 
 Per gandalf OP § 3.4 recognition-validate-commit cycle:
 
-### 5.1 Recognition (this doc)
+### 7.1 Recognition (this doc)
 
-All four recognitions captured 2026-05-23 (1-3 at session-end; 4 added during composition-policy dialogue with Matt).
+All six recognitions captured 2026-05-23 (1-3 at session-end; 4 added during composition-policy dialogue with Matt; 5-6 added during Sidecar A close-out — both ride on Halberd N=1 empirical basis from `agentic_orchestration/star-lord/research/image-pass-through-vs-llm-gen-meshy-comparison-2026-05-23/comparison.md`).
 
-### 5.2 Validate before architectural commitment
+### 7.2 Validate before architectural commitment
 
 | Recognition | Validation criterion |
 |---|---|
@@ -210,8 +286,10 @@ All four recognitions captured 2026-05-23 (1-3 at session-end; 4 added during co
 | 2. Country-title name cleanup | Elrond v1.1+ substrate-tagging-discipline work (9.11-D/E) execution surfaces whether name-pattern artifacts compound with tag-level artifacts; empirical scope sizing for cleanup work |
 | 3. Commercial-vs-solo output differentiation | First multi-consumer scenario (post-v1-ship; Profile B B2B SaaS scoping OR Reincarnated player-surface integration) surfaces whether implicit output-purpose-passing breaks; empirically validates need for explicit flag |
 | 4. Sci-fi / future register substrate gap | D10 Path C confirmation OR Variant C non-Reincarnated commercial profile scoping OR Reincarnated v1.1+ scope expansion to sci-fi-aesthetic forms — any one fires the validation that the gap is load-bearing for the named surface |
+| 5. Polearm aspect-ratio / weapon-pixel-density gate | Sidecar A.2 with 3-5 long-shaft weapons (polearm, staff, lance, spear) at varied resolutions (museum high-res, mid-res, low-res) **AND** legolas Mode A returns threshold methodology recommendation (bbox-occupancy percentage; subclass-conditional thresholds; resolution-interaction). Empirically validates Tier-1 boundary refinement OR confirms polearms permanently route to Path-2 as the policy. |
+| 6. Meshy polygon-count delta as Path-1-quality diagnostic | Sidecar A.2 evaluates polygon-count signal correlation with visual-quality failure across additional cases beyond Halberd + Yellow Quartz N=2; characterizes false-positive + false-negative rates; cost-benefit analysis of post-submission reroute (2x Meshy credits when signal fires) vs pre-submission gating (Recognition 5 path) reaches break-even threshold. |
 
-### 5.3 Commit (architectural lock fires when)
+### 7.3 Commit (architectural lock fires when)
 
 | Recognition | Commit trigger |
 |---|---|
@@ -219,43 +297,49 @@ All four recognitions captured 2026-05-23 (1-3 at session-end; 4 added during co
 | 2. Country-title name cleanup | When elrond v1.1+ substrate-tagging work fires; cleanup folds into Phase D-bis-style pass + LLM-curated review |
 | 3. Commercial-vs-solo output differentiation | When Variant C engine adds multi-consumer support OR Reincarnated v1.1+ integration scoped; output_purpose field added to engine generation schema |
 | 4. Sci-fi / future register substrate gap | When any § 4.3 trigger fires: schema extension (add `near_future`/`far_future` to period enum) + Track M-sci substrate import hive-mind cycle + composition-policy amendment |
+| 5. Polearm aspect-ratio / weapon-pixel-density gate | Sidecar A.2 + legolas Mode A returns — update `canonical/story/asset-pipeline-meshy-swap-2026-05-22.md` § 3.6.5 quality-score-function input list to include weapon-bbox-occupancy + per-weapon-form-subclass thresholds; OR confirm Path-2 unconditional routing as the canonical policy; star-lord implementation hook |
+| 6. Meshy polygon-count delta as Path-1-quality diagnostic | Sidecar A.2 signal-reliability + cost-benefit analysis complete → if signal proves reliable AND cost-benefit favorable, add post-submission diagnostic + reroute logic to asset-pipeline § 3.6.5 implementation hooks; star-lord implementation. If signal proves unreliable OR cost-benefit unfavorable, lock pre-submission gating (Recognition 5) as the sole defense and close Recognition 6 as not-load-bearing. |
 
 ---
 
-## 6. What this recognition record is NOT
+## 8. What this recognition record is NOT
 
-- NOT pre-committing to any of the three architectural commitments (all deferred per § 4)
+- NOT pre-committing to any of the six architectural commitments (all deferred per § 7)
 - NOT a discipline-amendment candidate canonical write — that's jack-ryan's territory if/when recognitions validate
 - NOT a substrate-cleanup dispatch — that's elrond's territory in v1.1+ work
 - NOT engine-architecture canonical doc — that's rocket + Matt territory when output_purpose field gets scoped
-- NOT v1-gating — none of the three blocks v1 ship; all are v1.1+ refinement work
+- NOT an asset-pipeline canonical doc — that's `canonical/story/asset-pipeline-meshy-swap-2026-05-22.md` itself; Recognitions 5-6 propose v1.1+ refinements to § 3.6 that doc; the canonical asset-pipeline doc has been amended in companion edit pass to capture the interim policy (Path-2 unconditional for long-shaft polearms) pending the Recognition 5 empirical validation gate
+- NOT v1-gating — none of the six blocks v1 ship; all are v1.1+ refinement work
 - NOT a roadmap edit (separate small entry will be added to 02-roadmap.md § 1.0 v1.1+ deferred queue cross-referencing this doc)
 
 ---
 
-## 7. Cross-references
+## 9. Cross-references
 
-### Adjacent recognitions
-- `canonical/story/marginal-lineage-tagging-pattern-2026-05-23.md` — 4-mode tagging-vocabulary collapse; predecessor pattern that this recognition extends with three forward-looking flags
+### Adjacent recognitions + canonical anchors
+- `canonical/story/marginal-lineage-tagging-pattern-2026-05-23.md` — 4-mode tagging-vocabulary collapse; predecessor pattern that this recognition extends with forward-looking flags
 - `canonical/story/n-am-indigenous-no-cluster-disposition-2026-05-23.md` + 4 sister marginal-lineage records — empirical grounding for sampling-proportionality recognition
 - `canonical/story/fate-genre-recognition-and-mobile-alignment-trajectory-2026-05-23.md` — Variant C + Track M1a; downstream of commercial-vs-solo differentiation
+- **`canonical/story/asset-pipeline-meshy-swap-2026-05-22.md` § 3.6** — target canonical doc for Recognitions 5 + 6; § 3.6.4 + § 3.6.5 amended with interim Path-2 unconditional policy + over-triangulation diagnostic concern row pending empirical validation gate per § 7.2 above
 
-### Empirical companion artifact
-- `agentic_orchestration/gandalf/notes/2026-05-23-geography-vs-culture-substrate-analysis.html` — Chart.js visualization of 4-mode tagging-vocabulary collapse; empirical grounding for recognition 1 + 2
+### Empirical companion artifacts
+- `agentic_orchestration/gandalf/notes/2026-05-23-geography-vs-culture-substrate-analysis.html` — Chart.js visualization of 4-mode tagging-vocabulary collapse; empirical grounding for Recognitions 1 + 2
+- **`agentic_orchestration/star-lord/research/image-pass-through-vs-llm-gen-meshy-comparison-2026-05-23/comparison.md`** — Sidecar A empirical artifact (MIXED verdict, 5 weapons × 2 paths); empirical grounding for Recognitions 5 + 6 (Halberd N=1 case + cross-case polygon-count pattern observation)
+- **`agentic_orchestration/gandalf/notes/2026-05-23-sidecar-A-weapon-nomination-verdict.md`** — gandalf weapon-nomination verdict; risk-flag 2 (input-quality vs pipeline attribution discipline) precedes Recognition 5 attribution analysis
 
 ### v1.1+ deferred-queue residence
 - `canonical/02-roadmap.md` § 1.0 v1.1+ deferred substrate-refinement queue — adjacent to 9.11-C/D/E + 9.10-E (subsumes 9.11-B)
 
 ---
 
-## 8. Sign-off
+## 10. Sign-off
 
 **Author:** gandalf (story-and-design steward)
-**Authority:** Matt 2026-05-23 — direct invocation ("flag for later") + composition-policy dialogue addition for Recognition 4
-**Status:** Recognition Record — architectural commitments deferred per § 5 empirical-evidence criteria.
-**Re-engagement gate:** Per § 5.2 validation criteria; recognitions move from "captured" to "validated → commit" when respective empirical triggers fire.
+**Authority:** Matt 2026-05-23 — direct invocation ("flag for later") + composition-policy dialogue addition for Recognition 4 + knight-rider Cycle 10 hive-mind Sidecar A close-out for Recognitions 5 + 6
+**Status:** Recognition Record — architectural commitments deferred per § 7 empirical-evidence criteria.
+**Re-engagement gate:** Per § 7.2 validation criteria; recognitions move from "captured" to "validated → commit" when respective empirical triggers fire.
 
 ---
 
 **Signed:** gandalf
-**For:** capturing four forward-looking design-discipline recognitions (sampling-proportionality flagging; country-title name cleanup; commercial-vs-solo output differentiation; sci-fi / future register substrate gap) so they're not lost between sessions and v1.1+ work has explicit canonical reference.
+**For:** capturing six forward-looking design-discipline recognitions (1 sampling-proportionality flagging; 2 country-title name cleanup; 3 commercial-vs-solo output differentiation; 4 sci-fi / future register substrate gap; 5 polearm aspect-ratio / weapon-pixel-density gate; 6 Meshy polygon-count delta as Path-1-quality diagnostic) so they're not lost between sessions and v1.1+ work has explicit canonical reference. Recognitions 5 + 6 captured during knight-rider Cycle 10 hive-mind Sidecar A close-out; both ride on the Halberd N=1 empirical basis with cross-case polygon-count pattern confirmation; target canonical doc `canonical/story/asset-pipeline-meshy-swap-2026-05-22.md` § 3.6 amended in companion edit pass.
