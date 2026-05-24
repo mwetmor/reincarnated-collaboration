@@ -132,9 +132,11 @@ Replaces the per-agent multi-doc Phase-1 reading list with a focused short list.
 
 | Workstream | Status | Owner(s) |
 |---|---|---|
+| **Cycle 10 — Substrate Curation Multi-Stage Dispatch** | **ACTIVE — knight-rider invoked 2026-05-23 evening; hive-mind framing; dispatch at `agentic_orchestration/gandalf/requests/2026-05-23-knight-rider-substrate-curation-multi-stage-dispatch.md`; Sidecar A (Meshy comparison) + Stage 0 design call fire Wave 1; v1_scope subset is the deliverable; gates T4-B v1 catalogue authoring** | knight-rider orchestrator; multi-agent execution per dispatch § 2 + § 4.1 |
+| T4-B v1 catalogue authoring | GATED on Cycle 10 completion (was NEXT ACTIVE; revised 2026-05-23 evening per composition-policy dialogue) | Matt + gandalf design call |
 | Documentation cleanup (this pass) | ACTIVE — `00-ground-state.md` just landed; epoch-stamping next; onboarding-list shrink after | gandalf (oracle); knight-rider (epoch-stamp dispatch); jack-ryan (onboarding-list review) |
-| Skill packaging (Skill Creator + Skill Seekers) | QUEUED — post-cleanup, pre-architecture-validation | gandalf design; knight-rider orchestrate |
-| Architecture-validation spike (Unreal pipeline) | QUEUED — ~2 weeks out | Matt + knight-rider scope; specialists per integration |
+| Skill packaging (Skill Creator + Skill Seekers) | ✅ CLOSED — 16 skills landed 2026-05-23 | (closed) |
+| Architecture-validation spike (Unreal pipeline) | PARTIAL — Sidecar A pulls forward acceptance criterion 3.3 (image-pass-through-vs-LLM-gen Meshy); remaining criteria 3.1/3.2/3.4/3.5/3.6 QUEUED | Matt + knight-rider scope; specialists per integration |
 | Weapon-library substrate Phase 2 (axis discovery) | QUEUED — pending Matt direction on D1 (accept 89.8% or fire Wave-4) | knight-rider dispatch; rocket + legolas execute |
 | Stage 1 cluster checkpoint (D10) | DEFERRED — fires after Phase 4 of hive-mind protocol | Matt + gandalf |
 | MVP scope lock | DEFERRED — fires after Stage 1 | Matt + gandalf + jack-ryan |

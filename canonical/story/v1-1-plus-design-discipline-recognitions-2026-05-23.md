@@ -18,11 +18,12 @@
 
 ## 0. TL;DR
 
-Three forward-looking design-discipline recognitions surfaced at session-end 2026-05-23. None gate v1 ship; all affect v1.1+ substrate-refinement + design-discipline work AND downstream consumer surfaces. Captured as recognition record so they're not lost between sessions:
+Four forward-looking design-discipline recognitions surfaced 2026-05-23. None gate v1 ship; all affect v1.1+ substrate-refinement + design-discipline work AND downstream consumer surfaces. Captured as recognition record so they're not lost between sessions:
 
 1. **Sampling-proportionality flagging** — per design surface; explicit declaration of sampling policy at design-spec-as-math time
 2. **Country-title name cleanup** — substrate-curation; remove geographic-encoding from canonical_name strings
 3. **Commercial-vs-solo output differentiation** — per output stream; metadata flag distinguishing player-ship vs Matt-solo-development vs engine-internal-validation purposes
+4. **Sci-fi / future register substrate gap** — substrate-coverage; `sci_fi` register has 0 populated rows and no `future` period exists in the period taxonomy; structural gap noted for v1.1+ enrichment when D10 Path C OR non-Reincarnated commercial profile triggers fire
 
 Each recognition is load-bearing for v1.1+ work AND for design discipline going forward. None requires immediate v1 action.
 
@@ -151,33 +152,77 @@ Composes with Variant C — engine knows what profile it's serving; outputs carr
 
 ---
 
-## 4. Empirical-evidence criteria for re-engagement (architectural commitment gates)
+## 4. Recognition 4 — Sci-fi / future register substrate gap
+
+### 4.1 The recognition
+
+The substrate carries 0 rows tagged `register_canonical='sci_fi'` despite the schema explicitly allowing the register. The period taxonomy `historical_period_canonical` stops at `contemporary` with `fictional` as the catch-all for non-historical content — no `near_future`, `far_future`, or `post_contemporary` bucket exists. Empirically: no sci-fi / futuristic / alien weapon substrate is represented at any meaningful scale. Token-search for "plasma / laser / railgun / blaster / photon / fusion" returns ~1,447 hits but inspection-by-source shows these are overwhelmingly historical false-positives (e.g., "laser-sighted historical firearm" in royal_armouries metallurgy descriptions); genuine sci-fi content is essentially the 33 rows from cataclysm-dda (post-apoc / sci-fi crossover).
+
+### 4.2 Empirical state at recognition time
+
+| Bucket | Count | Status |
+|---|---|---|
+| `register_canonical='sci_fi'` | 0 | Schema-allowed; structurally empty |
+| `historical_period_canonical='future'` (or equiv) | N/A | Not in schema enum |
+| `fictional` period catch-all | 13,985 (20.2%) | Bundles fantasy + (any) sci-fi without distinction |
+| Known sci-fi-leaning content | ~33 (cataclysm-dda) | Post-apoc / sci-fi crossover only |
+
+### 4.3 Where this becomes load-bearing
+
+The gap is **not v1-blocking** if Reincarnated v1 ships in Fate-genre framing per the current trajectory (`canonical/story/fate-genre-recognition-and-mobile-alignment-trajectory-2026-05-23.md`; D10 Path C provisional alignment pending P4 cluster validation) which is broadly-mythological-fantasy + historical-heroic in register. Sci-fi-coded Servants exist in Fate-genre canon (Fate/Extra, Fate/Grand Order various) but are not the dominant register. Triggers that escalate the gap to load-bearing:
+
+| Trigger | Consequence |
+|---|---|
+| D10 Path C confirms (soul-traveler / multiversal-reincarnation / cross-genre framing) | Sci-fi substrate becomes load-bearing for any sci-fi-register seasonal forms |
+| Variant C opens a non-Reincarnated commercial profile in sci-fi space (cyberpunk-ARPG customer, space-ARPG customer, etc.) | Sci-fi substrate becomes commercially load-bearing |
+| Reincarnated v1.1+ scope expands to include sci-fi-aesthetic forms | Sci-fi substrate becomes player-facing-load-bearing |
+
+### 4.4 Corrective path when trigger fires
+
+| Step | Description | Owner |
+|---|---|---|
+| Schema extension | Add `near_future` / `far_future` (or single `futuristic`) period values to `historical_period_canonical` enum; small ALTER TABLE | elrond |
+| Track M-sci substrate import | Hive-mind cycle (parallel pattern to Track M1 mythological): legolas Mode B crawl against Star Wars Wookieepedia + Halopedia + Cyberpunk Red SRD + Warhammer 40K Lexicanum + Mass Effect wiki + Destinypedia | knight-rider dispatch; legolas execution |
+| Cluster integration | Re-run Phase E clustering (or incremental cluster-assignment) so new sci-fi substrate gets cluster identities | elrond |
+| Composition policy amendment | Update v1.1+ composition policy to include sci-fi weight per the design surface that requires it | gandalf + Matt |
+
+Estimated effort: ~1-2 day hive-mind cycle for ~500-2000 entries (mirrors Track M1 sizing per 02-roadmap § 3.6).
+
+### 4.5 Discipline framing
+
+Composes with Variant C (engine-as-general-serial-content-product) — the substrate gap captures a registered product-axis (sci-fi register) that the engine schema anticipates but that hasn't been populated because no commercial trigger has fired. Discipline: substrate gaps that the schema names should be tracked as v1.1+ enrichment candidates with explicit firing triggers; "schema allows it" is empirical evidence that the gap is recognized as legitimate but deferred-by-priority.
+
+---
+
+## 5. Empirical-evidence criteria for re-engagement (architectural commitment gates)
 
 Per gandalf OP § 3.4 recognition-validate-commit cycle:
 
-### 4.1 Recognition (this doc)
+### 5.1 Recognition (this doc)
 
-All three recognitions captured at session-end 2026-05-23.
+All four recognitions captured 2026-05-23 (1-3 at session-end; 4 added during composition-policy dialogue with Matt).
 
-### 4.2 Validate before architectural commitment
+### 5.2 Validate before architectural commitment
 
 | Recognition | Validation criterion |
 |---|---|
 | 1. Sampling-proportionality flagging | T4-B v1 catalogue design call surfaces first explicit sampling-policy declaration; empirically validates whether the discipline is operational at v1 OR needs explicit canonical capture |
 | 2. Country-title name cleanup | Elrond v1.1+ substrate-tagging-discipline work (9.11-D/E) execution surfaces whether name-pattern artifacts compound with tag-level artifacts; empirical scope sizing for cleanup work |
 | 3. Commercial-vs-solo output differentiation | First multi-consumer scenario (post-v1-ship; Profile B B2B SaaS scoping OR Reincarnated player-surface integration) surfaces whether implicit output-purpose-passing breaks; empirically validates need for explicit flag |
+| 4. Sci-fi / future register substrate gap | D10 Path C confirmation OR Variant C non-Reincarnated commercial profile scoping OR Reincarnated v1.1+ scope expansion to sci-fi-aesthetic forms — any one fires the validation that the gap is load-bearing for the named surface |
 
-### 4.3 Commit (architectural lock fires when)
+### 5.3 Commit (architectural lock fires when)
 
 | Recognition | Commit trigger |
 |---|---|
 | 1. Sampling-proportionality flagging | If T4-B v1 design call requires explicit policy → discipline candidate proposed to jack-ryan for canonical write at engineering-disciplines.md (probable #26 or sub-discipline of #25) |
 | 2. Country-title name cleanup | When elrond v1.1+ substrate-tagging work fires; cleanup folds into Phase D-bis-style pass + LLM-curated review |
 | 3. Commercial-vs-solo output differentiation | When Variant C engine adds multi-consumer support OR Reincarnated v1.1+ integration scoped; output_purpose field added to engine generation schema |
+| 4. Sci-fi / future register substrate gap | When any § 4.3 trigger fires: schema extension (add `near_future`/`far_future` to period enum) + Track M-sci substrate import hive-mind cycle + composition-policy amendment |
 
 ---
 
-## 5. What this recognition record is NOT
+## 6. What this recognition record is NOT
 
 - NOT pre-committing to any of the three architectural commitments (all deferred per § 4)
 - NOT a discipline-amendment candidate canonical write — that's jack-ryan's territory if/when recognitions validate
@@ -188,7 +233,7 @@ All three recognitions captured at session-end 2026-05-23.
 
 ---
 
-## 6. Cross-references
+## 7. Cross-references
 
 ### Adjacent recognitions
 - `canonical/story/marginal-lineage-tagging-pattern-2026-05-23.md` — 4-mode tagging-vocabulary collapse; predecessor pattern that this recognition extends with three forward-looking flags
@@ -203,14 +248,14 @@ All three recognitions captured at session-end 2026-05-23.
 
 ---
 
-## 7. Sign-off
+## 8. Sign-off
 
 **Author:** gandalf (story-and-design steward)
-**Authority:** Matt 2026-05-23 — direct invocation ("flag for later")
-**Status:** Recognition Record — architectural commitments deferred per § 4 empirical-evidence criteria.
-**Re-engagement gate:** Per § 4.2 validation criteria; recognitions move from "captured" to "validated → commit" when respective empirical triggers fire.
+**Authority:** Matt 2026-05-23 — direct invocation ("flag for later") + composition-policy dialogue addition for Recognition 4
+**Status:** Recognition Record — architectural commitments deferred per § 5 empirical-evidence criteria.
+**Re-engagement gate:** Per § 5.2 validation criteria; recognitions move from "captured" to "validated → commit" when respective empirical triggers fire.
 
 ---
 
 **Signed:** gandalf
-**For:** capturing three forward-looking design-discipline recognitions (sampling-proportionality flagging; country-title name cleanup; commercial-vs-solo output differentiation) at session-end 2026-05-23 so they're not lost between sessions and v1.1+ work has explicit canonical reference.
+**For:** capturing four forward-looking design-discipline recognitions (sampling-proportionality flagging; country-title name cleanup; commercial-vs-solo output differentiation; sci-fi / future register substrate gap) so they're not lost between sessions and v1.1+ work has explicit canonical reference.

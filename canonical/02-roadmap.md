@@ -57,11 +57,12 @@ Living-doc update reflecting workstream evolution post-initial-authoring. Captur
 
 | Workstream | Owner | Status | Empirical-criterion gate |
 |---|---|---|---|
-| **Weapon-substrate-conclusion declaration** | knight-rider (authoring) | IN-FLIGHT per Matt routing | Canonical conclusion-declaration artifact authored + roadmap updated (this update) |
-| **T4-B v1 catalogue authoring** | Matt + gandalf design call | **NEXT ACTIVE WORKSTREAM** — scaffolding landed; gate cleared per Phase E-1.5 acceptance + weapon-substrate-conclusion | Matt scheduling territory; design call session 1 + Q1-Q8 open-questions resolution + ~10 exemplar entries authored |
+| **Cycle 10 — Substrate Curation Multi-Stage Dispatch** | knight-rider (hive-mind orchestrator); Sidecar A: star-lord + gandalf + jack-ryan; Stages 1-4: elrond + rocket + gandalf + gamora + legolas + jack-ryan; Stage 0 + 3 design calls: Matt + gandalf | **NEW — IN-FLIGHT (knight-rider invoked 2026-05-23 evening per Matt)** — dispatch artifact at `agentic_orchestration/gandalf/requests/2026-05-23-knight-rider-substrate-curation-multi-stage-dispatch.md`; hive-mind framing per dispatch § 4.3 | Sidecar A: PASS/FAIL/MIXED verdict on image-pass-through-vs-LLM-gen Meshy comparison + asset-pipeline doc § 3.6 update. Main sequence: v1_scope subset materialized + composition policy doc landed + accurate mechanical-tagging on v1_scope + Discipline #18 methodology consults at Stages 3 + 4 + jack-ryan Gate-2 PASS. Per dispatch § 8 12-criterion checklist. |
+| **T4-B v1 catalogue authoring** | Matt + gandalf design call | **GATED on Cycle 10 substrate-curation completion** — was NEXT ACTIVE; gating revised per Matt 2026-05-23 evening composition-policy dialogue (T4-B substrate-anchoring draws from v1_scope subset, not raw 69K substrate; scaffolding § 3.1 Q1 + § 3.3 cluster-taxonomy gate fold into Cycle 10 outputs) | Cycle 10 main sequence completion (esp. Stages 3 + 4 outputs) + Matt scheduling session 1 + Q1-Q8 open-questions resolution + ~10 exemplar entries authored |
 | **9.12-A through 9.12-D — Question A workstream** | rocket + legolas + gamora + critique-pair (upstream chain) | UPSTREAM CHAIN UNMET — H1-H5 baseline not run; P1 substrate enrichment + W1.13 implementation + W1.20 BDI infrastructure prerequisites unmet | Engine-seam in flight; gates per Q-A verdict § 12.4 + § 9 empirical-evidence criteria; not Matt's direct territory |
-| **9.14-A per-agent OP propagation fan-out** | knight-rider sub-agent dispatch | IN-FLIGHT (commits visible: elrond + drax + legolas + gamora + galadriel + others) | All 8 agents amend own OP + installed SKILL with verbatim #21/#22 + engineering-disciplines.md cross-references |
-| **9.14-B cluster-116 elrond relabel** | knight-rider sub-dispatch | IN-FLIGHT per Matt routing | Single-row UPDATE on clusters.id=116 → "European Uncurated-Period Mixed Military Hardware Pool" |
+| ~~**Weapon-substrate-conclusion declaration**~~ | knight-rider | ✅ CLOSED Cycle 9.16 | Conclusion-declaration artifact landed at `canonical/story/2026-05-23-weapon-substrate-conclusion-declaration.md` + roadmap § 3.8 added |
+| ~~**9.14-A per-agent OP propagation fan-out**~~ | knight-rider sub-agent dispatch | ✅ CLOSED Cycle 9.15 | All 8 agents amended OP + installed SKILL with verbatim #21/#22 + engineering-disciplines.md cross-references |
+| ~~**9.14-B cluster-116 elrond relabel**~~ | knight-rider sub-dispatch | ✅ CLOSED Cycle 9.15 | Single-row UPDATE on clusters.id=116 landed |
 
 ### Companion artifacts
 
@@ -71,14 +72,15 @@ Living-doc update reflecting workstream evolution post-initial-authoring. Captur
 - `agentic_orchestration/gandalf/notes/2026-05-23-t4-b-v1-catalogue-scaffolding.md` — T4-B scaffolding
 - `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` (engine repo commit 1fae3fa) — 25 disciplines + 6 sub-discipline amendments
 
-### Next-action for next-session opening (post Matt locked-decisions)
+### Next-action sequence (post Cycle 10 kick-off)
 
-**Decisions locked 2026-05-23 evening. Next-action sequence:**
+**Cycle 10 substrate-curation dispatch INVOKED 2026-05-23 evening. Hive-mind protocol engaged. Next-action sequence:**
 
-1. **Knight-rider authors canonical weapon-substrate-conclusion-declaration** (small artifact; cross-references session-end note + geography-vs-culture substrate analysis HTML + marginal-lineage meta-record + Phase E-1.5 acceptance + Phase E-2-DB UPDATE)
-2. **Schedule T4-B v1 catalogue design call session 1** (Matt's calendar territory) — substrate-anchoring gate cleared; design call is the next active workstream for gandalf + Matt
-3. **9.14-A + 9.14-B completion verification** (in flight at KR sub-dispatches)
-4. **Question A upstream chain monitoring** (engine seam; rocket + others; not direct Matt territory)
+1. **Knight-rider orchestrates Cycle 10 Wave 1**: Sidecar A invocation (star-lord + gandalf weapon nomination + jack-ryan Gate-2) fires immediately; Stage 0 design call (Matt + gandalf) schedules in parallel
+2. **Stage 0 design call** (Matt scheduling territory): form-distribution intent sketch using Reincarnated's own form/class taxonomy (NOT Servant taxonomy per dispatch § 1 turn 10); output transcribed to dispatch addendum; gates Wave 2 (Stages 1 + 1.5)
+3. **Cycle 10 Waves 2-5** execute per dispatch § 4.1 dependency graph; ~3-4 calendar days post-Stage-0; produces v1_scope subset + composition policy doc + accurate mechanical-tagging
+4. **T4-B v1 catalogue authoring** unblocked at Cycle 10 closeout; design call session 1 schedules (Matt's calendar territory)
+5. **Question A upstream chain monitoring** (engine seam; rocket + others; not direct Matt territory; not gated on Cycle 10)
 
 ### v1.1+ deferred substrate-refinement queue
 
