@@ -10,7 +10,7 @@
 - `canonical/story/attribute-system-2026-05-24.md` (4-attribute system; off-hand items respect attribute coupling)
 - `canonical/story/skill-system-2026-05-24.md` (Phase 2 skill composition; § 12.3 named-bearer discipline extends to two-item case per § 6 below)
 - `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` (BC axes; off-hand items have distinct mechanical-axis profile from weapons)
-- `canonical/story/qd-engine-end-to-end-workflow-2026-05-21.md` (Phase 2 generation pulls off-hand items alongside weapons; Phase 5 cohesion handles two-item alignment)
+- `canonical/story/qd-engine-end-to-end-workflow-2026-05-21.md` (Phase 2 DEFINES off-hand SLOT mechanical profile substrate-blind; Phase 5 cohesion-coalescence selects specific substrate-resident off-hand item filling the slot per cultural-tradition + named-bearer alignment — corrected 2026-05-24 per Matt's catch on Phase 2 substrate-AGNOSTIC architecture)
 - `canonical/story/v1-bc-target-intent-2026-05-24.md` (Stage 0 transcription; cells using off-hand items identified)
 - `agentic_orchestration/gandalf/requests/2026-05-23-knight-rider-substrate-curation-multi-stage-dispatch.md` § Sidecar B (Cycle 10 substrate-curation execution territory)
 - `~/Games/reincarnated-loadout/data/telemetry.db` (`weapon_knowledge_entries` schema extension target)

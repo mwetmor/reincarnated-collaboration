@@ -631,13 +631,15 @@ This pattern extends per § 8.6 faction-generated-proxies (algorithm-derived pro
 
 ## 13. Phase 2 generation flow (where skills get composed)
 
+> **AMENDMENT 2026-05-24** — Per `canonical/story/qd-engine-end-to-end-workflow-2026-05-21.md` Phase 2: "candidate kit composition (substrate-blind)" and Phase 5 cohesion-coalescence handles substrate identity attachment. Phase 2 is SUBSTRATE-AGNOSTIC; weapon-SLOT mechanical-profile is defined at Phase 2 but specific substrate-resident weapon is selected at Phase 5 by cohesion-judge. Original step 7 wording was inconsistent and is corrected below.
+
 Per QD-engine end-to-end-workflow Phase 2:
 
 ```
-INPUT: BC-target cell (range × tempo × amplitude × attribute)
+INPUT: BC-target cell (range × tempo × amplitude × attribute × proxy-density)
        per Cycle 10 Stage 0 v1 cell-targeting intent
 
-ACTION:
+ACTION (SUBSTRATE-AGNOSTIC mechanic pool per canonical doc):
 1. Select skill-pool matching BC-target attribute coupling
 2. Compose tier-1 (rotation) skills matching target tempo + geometry
 3. Compose tier-2 (β-pair signature) actives + mechanic-altering passives
@@ -646,14 +648,36 @@ ACTION:
    producing tier-3 active OR rank-3 passive
 5. Apply ω-field check (skills are mechanically compatible)
 6. Apply τ-field check (skills are thematically compatible)
-7. Select weapon from substrate matching kit's mechanical needs
-8. Compose trait constellation
-9. Output: complete mechanical kit + (if applicable) algorithm-output bundle per § 8.4
+7. DEFINE WEAPON-SLOT MECHANICAL PROFILE per cell:
+   - For MARTIAL cells (STR/DEX primary, physical-element): slot requires specific
+     5-tuple mechanical fingerprint match (weapon-attack IS combat delivery)
+   - For CASTER cells (INT/WIS primary, non-physical-element): slot requires
+     ATTRIBUTE-LEVEL match only (skills deliver kit BC-target; weapon scales)
+   - For HYBRID cells (cross-attribute): per Option C ω-penalty applies;
+     weapon-slot profile blends primary + secondary attribute scaling
+8. DEFINE OFF-HAND / SECONDARY SLOT MECHANICAL PROFILE (per off-hand-items doc + Sidecar B):
+   - Slot may be shield / tome / banner / focus / horn / talisman / dual-wield-weapon
+     / weapon-integrated-accessory per Main/Secondary architecture
+9. Compose trait constellation
+10. Output: candidate kit composition (SUBSTRATE-BLIND) +
+    (if applicable) algorithm-output bundle per § 8.4
 
 OUTPUT: kit ready for Phase 3 sim measurement
+        (no specific substrate weapon attached yet; Phase 5 handles)
 ```
 
-Phase 2 is **mechanical composition only**. Element IS part of mechanical composition. Theme / cultural-tradition / narrative attaches at Phase 5.
+Phase 2 is **mechanical composition only — SUBSTRATE-BLIND**. Element IS part of mechanical composition. Theme / cultural-tradition / narrative / specific-substrate-weapon-attachment ALL attach at Phase 5 cohesion-coalescence.
+
+**Phase 5 cohesion-coalescence substrate-attachment:**
+1. Cohesion-judge analyzes accepted kit's mechanical signature (BC profile)
+2. Infers substrate-thematic fit (cultural-tradition + register + period)
+3. Selects specific substrate-resident weapon from v1_scope matching:
+   - Weapon-slot mechanical profile (per cell type — strict 5-tuple for martial; attribute-level for caster)
+   - Cultural-tradition coherence
+   - Named-bearer attribution per Sketch F lock (~32% named-personage forms get bias toward named-mythological substrate)
+4. Assigns element-canonical-pair flavor at LLM-runtime (per Matt 2026-05-24 lock)
+5. Commits archetypal player-facing form name per universal naming discipline
+6. Spirit-guide explainer triggers if algorithmic mechanic-alteration novel-to-this-kit per § 9
 
 ---
 
