@@ -1,0 +1,99 @@
+{
+  "started_at": "2026-05-24T02:49:23",
+  "args": {
+    "limit": 50,
+    "source": "met-museum",
+    "dry_run": true
+  },
+  "rows_scanned": 50,
+  "rows_written": 0,
+  "per_source": {
+    "met-museum": {
+      "scanned": 50,
+      "length_pop": 38,
+      "weight_pop": 27,
+      "materials_pop": 50,
+      "historical_use_pop": 50,
+      "provenance_richness_avg": 0.83,
+      "length_coverage_pct": 76.0,
+      "weight_coverage_pct": 54.0,
+      "materials_coverage_pct": 100.0,
+      "historical_use_coverage_pct": 100.0
+    }
+  },
+  "errors": [],
+  "first_5_examples": [
+    {
+      "id": 167842,
+      "canonical_name": "Blade and Mounting for a Short Sword (Wakizashi)",
+      "source_library": "met-museum",
+      "extracted": {
+        "length_value": 54.5,
+        "length_unit": "cm",
+        "weight_value": null,
+        "weight_unit": null,
+        "materials": "Steel, wood, lacquer, gold, silver, copper-silver allowy (shibuichi)",
+        "provenance_richness": 0.833,
+        "historical_use": "mounting, 19th century; Gift of Brayton Ives and W. T. Walters, 1891"
+      }
+    },
+    {
+      "id": 167843,
+      "canonical_name": "Blade and Mounting for a Short Sword (Wakizashi)",
+      "source_library": "met-museum",
+      "extracted": {
+        "length_value": 55.9,
+        "length_unit": "cm",
+        "weight_value": null,
+        "weight_unit": null,
+        "materials": "Steel, wood, rayskin (sam\u00e9), lacquer, thread, copper-gold alloy (shakud\u014d), silver, copper-silver alloy (shibuichi)",
+        "provenance_richness": 0.833,
+        "historical_use": "blade, (1852); mounting, 19th century; Gift of Brayton Ives and W. T. Walters, 1891"
+      }
+    },
+    {
+      "id": 167844,
+      "canonical_name": "Blade and Mounting for a Dagger (Tant\u014d)",
+      "source_library": "met-museum",
+      "extracted": {
+        "length_value": 56.8,
+        "length_unit": "cm",
+        "weight_value": null,
+        "weight_unit": null,
+        "materials": "Steel, wood,ray skin (sam\u00e9), paper, laquer, copper-gold alloy (shakud\u014d), silver",
+        "provenance_richness": 0.833,
+        "historical_use": "blade, 16th century; mounting, early\u2013mid 19th century; Gift of Brayton Ives and W. T. Walters, 1891"
+      }
+    },
+    {
+      "id": 167845,
+      "canonical_name": "Blade and Mounting for a Short Sword (Wakizashi)",
+      "source_library": "met-museum",
+      "extracted": {
+        "length_value": 67.9,
+        "length_unit": "cm",
+        "weight_value": null,
+        "weight_unit": null,
+        "materials": "Steel, wood, lacquer, rayskin (sam\u00e9), thread, iron, copper-silver alloy (shibuichi), gold,  silver",
+        "provenance_richness": 0.833,
+        "historical_use": "blade, dated 1839; mounting, early\u2013mid 19th century; Gift of Brayton Ives and W. T. Walters, 1891"
+      }
+    },
+    {
+      "id": 167846,
+      "canonical_name": "Blade and Mounting for a Short Sword (Wakizashi)",
+      "source_library": "met-museum",
+      "extracted": {
+        "length_value": 62.7,
+        "length_unit": "cm",
+        "weight_value": null,
+        "weight_unit": null,
+        "materials": "Steel, wood, lacquer, silver, mother-of-pearl",
+        "provenance_richness": 0.833,
+        "historical_use": "blade, late 17th century; mounting, mid\u2013late 19th century; Gift of Brayton Ives and W. T. Walters, 1891"
+      }
+    }
+  ],
+  "elapsed_sec": 0.0,
+  "status": "ok"
+}

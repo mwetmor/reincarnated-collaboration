@@ -1,0 +1,99 @@
+{
+  "started_at": "2026-05-24T02:49:59",
+  "args": {
+    "limit": 2000,
+    "source": "wikipedia",
+    "dry_run": true
+  },
+  "rows_scanned": 2000,
+  "rows_written": 0,
+  "per_source": {
+    "wikipedia": {
+      "scanned": 2000,
+      "length_pop": 275,
+      "weight_pop": 247,
+      "materials_pop": 0,
+      "historical_use_pop": 908,
+      "provenance_richness_avg": 0.698,
+      "length_coverage_pct": 13.8,
+      "weight_coverage_pct": 12.3,
+      "materials_coverage_pct": 0.0,
+      "historical_use_coverage_pct": 45.4
+    }
+  },
+  "errors": [],
+  "first_5_examples": [
+    {
+      "id": 173946,
+      "canonical_name": "Krag\u2013J\u00f8rgensen",
+      "source_library": "wikipedia",
+      "extracted": {
+        "length_value": 98.6,
+        "length_unit": "mm",
+        "weight_value": 3375.0,
+        "weight_unit": "kg",
+        "materials": null,
+        "provenance_richness": 0.5,
+        "historical_use": null
+      }
+    },
+    {
+      "id": 173952,
+      "canonical_name": "Trident (missile)",
+      "source_library": "wikipedia",
+      "extracted": {
+        "length_value": 1341.0,
+        "length_unit": "m",
+        "weight_value": null,
+        "weight_unit": null,
+        "materials": null,
+        "provenance_richness": 0.25,
+        "historical_use": null
+      }
+    },
+    {
+      "id": 173963,
+      "canonical_name": "M198 howitzer",
+      "source_library": "wikipedia",
+      "extracted": {
+        "length_value": 1100.0,
+        "length_unit": "m",
+        "weight_value": 154000.0,
+        "weight_unit": "kg",
+        "materials": null,
+        "provenance_richness": 1.0,
+        "historical_use": "Lebanese Civil War Gulf War Somali Civil War War in Afghanistan (2001\u20132021) Iraq War War in Iraq (2013-2017) Syrian Civil War  2025 Cambodia\u2012Thailand conflict"
+      }
+    },
+    {
+      "id": 173965,
+      "canonical_name": "M109 howitzer",
+      "source_library": "wikipedia",
+      "extracted": {
+        "length_value": 618.74,
+        "length_unit": "ft",
+        "weight_value": 0.0,
+        "weight_unit": "lbs",
+        "materials": null,
+        "provenance_richness": 1.0,
+        "historical_use": "Vietnam War   Cambodian Civil War   Yom Kippur War   Western Sahara War   Iran\u2013Iraq War    1982 Lebanon war   South Lebanon conflict (1985\u20132000)   Persian Gulf War   Iraq War Gaza War   2014 Israel\u2013Gaza conflict   War in Iraq (2013-2017)    Yemeni Civil War (2014\u2013present),   Saudi Arabian-led intervention in Yemen   Syrian Civil War   Russian invasion of Ukraine   Gaza war 2025 Cambodian\u2013Thai clashes"
+      }
+    },
+    {
+      "id": 173986,
+      "canonical_name": "M4 Sherman",
+      "source_library": "wikipedia",
+      "extracted": {
+        "length_value": 579.12,
+        "length_unit": "ft",
+        "weight_value": 0.0,
+        "weight_unit": "lb",
+        "materials": null,
+        "provenance_richness": 0.75,
+        "historical_use": ""
+      }
+    }
+  ],
+  "elapsed_sec": 0.02,
+  "status": "ok"
+}

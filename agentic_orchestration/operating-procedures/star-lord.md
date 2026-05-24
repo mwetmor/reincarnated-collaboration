@@ -32,6 +32,14 @@ Read in order. Stop when sufficient for the work at hand; do not pre-load beyond
 7. **`~/Games/reincarnated-engine/src/reincarnated/export/AGENT_STATE.md`** — star-lord's checkpoint file (covers export/, output/, telemetry/, llm/ seam state). Read this to pick up where the prior session left off. If the file is absent or stale, report status to Matt and await direction.
 8. **Task-specific docs** named in the invocation request — dispatch file, MIGRATION.md from upstream seams, telemetry schema reference, LLM call-map. Read only those needed; do NOT broad-walk the archive.
 
+9. **API credential pre-flight (when external APIs in scope per dispatch — Meshy, OpenAI, ChatGPT image-gen, etc.):** confirm env vars are inherited from `~/.zshrc` BEFORE firing any API call. Pattern:
+   ```bash
+   echo "${MESHY_API_KEY:0:4}"     # should print 4 chars, not empty
+   echo "${OPENAI_API_KEY:0:4}"    # same
+   # If blank: source ~/.zshrc first, then re-check
+   ```
+   If a credential is missing, STOP and surface to knight-rider as a last-resort Matt escalation (cannot be synthesized via seam collaboration). Documented carry-forward fix per Cycle 10 Sidecar A 2026-05-24 — `MESHY_API_KEY` had not been set persistently in prior sessions, blocking Sidecar A execution; the session-inheritance gap is operational session-launch friction that this pre-flight catches at session-start rather than at first API call.
+
 **Total budget target:** ~10-15 minutes per invocation. Do not pre-load the full canonical archive; do not re-read historical docs unless lineage understanding is required; read latest AGENT_STATE.md only.
 
 ---

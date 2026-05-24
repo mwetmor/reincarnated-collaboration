@@ -1,0 +1,70 @@
+{
+  "_meta": {
+    "version": "1.1",
+    "supersedes": "1.0",
+    "authored_by": "elrond (Cycle 10 Stage 1 v1.1 micro-fix)",
+    "date": "2026-05-24",
+    "v1_1_changes": [
+      "Item 1: Added shortspear / longspear / boar-spear / ranseur + variant-spelling weapon tokens per gandalf Stage 1 spot-check verdict § 6.3 REQUIRED #1.",
+      "Item 2: Added compound_suffix_tokens block (script-level rule) — suffix-match pattern fires `blade`/`sword`/`axe`/`hammer` tokens within compound words (e.g., spiritblade, lightblade, doomaxe, warhammer*). Implementation lives in populate_proxy_fingerprint_v1_1.py find_compound_suffix_match(). UPDATE-only-on-improve discipline guards existing high-conf rows.",
+      "Plural compound forms (blades/swords/axes/hammers) also covered by suffix-match pattern.",
+      "ranseur was already present in v1.0 (mid/single/low/STR) — preserved unchanged; redundant entry in v1_1_changes for clarity."
+    ],
+    "bin_vocabulary": {
+      "proxy_range_class": ["melee", "mid", "ranged"],
+      "proxy_geometry_class": ["single", "multi-hit", "cleave", "AoE", "scatter", "cone"],
+      "proxy_tempo_class": ["low", "medium", "high"],
+      "proxy_attribute_class": ["STR", "INT", "WIS", "DEX", null]
+    },
+    "matching_rules": [
+      "Token matched on canonical_name lowercased; whole-word boundary preferred over substring.",
+      "Tokens defined as longest-match-wins; multi-word tokens (e.g., 'war hammer') beat single-word tokens (e.g., 'hammer').",
+      "If multiple tokens match, the highest-specificity token wins (specificity tier in entry).",
+      "Confidence tier per token reflects how cleanly the token implies the 4-tuple; ambiguous tokens carry lower base confidence.",
+      "v1.1: compound_suffix_tokens (`blade`/`sword`/`axe`/`hammer`) also fire as suffix-pattern matches within compound words (spiritblade → blade-low-spec) when no whole-word weapon token already matches; preserves UPDATE-only-on-improve."
+    ],
+    "compound_suffix_tokens": {
+      "_doc": "Suffix-pattern tokens. Fire when the canonical_name contains a word ending in (but longer than) the suffix. Single-word match (e.g., bare 'blade') already covered by existing whole-word matcher; this rule only adds the compound case.",
+      "suffixes": [
+        {"suffix": "blade", "attribute_prefix_str_hint": ["great", "broad", "war", "doom", "iron", "steel", "stone", "rune", "doom", "blood"], "attribute_prefix_dex_hint": ["spirit", "light", "shadow", "frost", "ghost", "soul", "shade", "wind", "razor", "ether"], "specificity": "low", "range": "melee", "geometry": "cleave", "tempo": "medium", "attribute_fallback": "STR"},
+        {"suffix": "sword", "attribute_prefix_str_hint": ["great", "broad", "war", "doom", "iron", "steel", "blood", "god"], "attribute_prefix_dex_hint": ["light", "shadow", "frost", "ghost", "soul", "shade", "wind", "spirit"], "specificity": "low", "range": "melee", "geometry": "cleave", "tempo": "medium", "attribute_fallback": "STR"},
+        {"suffix": "axe", "attribute_prefix_str_hint": ["great", "battle", "war", "broad", "hand"], "attribute_prefix_dex_hint": [], "specificity": "low", "range": "melee", "geometry": "cleave", "tempo": "medium", "attribute_fallback": "STR"},
+        {"suffix": "hammer", "attribute_prefix_str_hint": ["war", "great", "sledge", "ham", "stone", "iron"], "attribute_prefix_dex_hint": [], "specificity": "low", "range": "melee", "geometry": "single", "tempo": "medium", "attribute_fallback": "STR"}
+      ],
+      "plural_handling": "Strip trailing 's' from compound suffix before match (Blades → blade; Swords → sword; Hammers → hammer; Axes → axe). Plurality has no semantic impact on fingerprint.",
+      "fingerprint_assignment": "When suffix matches a compound word: use suffix-token base fingerprint (range/geometry/tempo) AND apply attribute disambiguation by prefix hint (DEX if any dex_hint prefix substring; STR fallback otherwise). Specificity = 'low' → confidence base 0.45 per v1.0 confidence_tiers. UPDATE-only-on-improve: written only if currently-NULL or current confidence < 0.30."
+    },
+    "confidence_tiers": {
+      "high_specificity": 0.85,
+      "medium_specificity": 0.65,
+      "low_specificity": 0.45,
+      "ambiguous_token": 0.30,
+      "no_match_fallback": 0.10
+    }
+  },
+  "v1_1_added_tokens": [
+    {"token": "shortspear", "specificity": "high", "range": "melee", "geometry": "single", "tempo": "medium", "attribute": "STR"},
+    {"token": "short spear", "specificity": "high", "range": "melee", "geometry": "single", "tempo": "medium", "attribute": "STR"},
+    {"token": "longspear", "specificity": "high", "range": "mid", "geometry": "single", "tempo": "medium", "attribute": "STR"},
+    {"token": "long spear", "specificity": "high", "range": "mid", "geometry": "single", "tempo": "medium", "attribute": "STR"},
+    {"token": "long-spear", "specificity": "high", "range": "mid", "geometry": "single", "tempo": "medium", "attribute": "STR"},
+    {"token": "boar spear", "specificity": "high", "range": "melee", "geometry": "single", "tempo": "medium", "attribute": "STR"},
+    {"token": "boar-spear", "specificity": "high", "range": "melee", "geometry": "single", "tempo": "medium", "attribute": "STR"},
+    {"token": "boarspear", "specificity": "high", "range": "melee", "geometry": "single", "tempo": "medium", "attribute": "STR"},
+    {"token": "bore-spear", "specificity": "high", "range": "melee", "geometry": "single", "tempo": "medium", "attribute": "STR"},
+    {"token": "winged spear", "specificity": "high", "range": "melee", "geometry": "single", "tempo": "medium", "attribute": "STR"},
+    {"token": "_note_ranseur", "_doc": "ranseur (mid/single/low/STR) already present in v1.0 tokens block; no duplicate entry. Stage 0 alignment per dispatch: ranseur is a polearm variant; same bins as boar-spear were considered but v1.0 'mid/low' is preserved as the more accurate polearm-tier shape."}
+  ],
+  "v1_0_tokens_unchanged": "All 277 v1.0 tokens preserved verbatim from weapon_form_token_lookup.json. The v1.1 script (populate_proxy_fingerprint_v1_1.py) loads BOTH this file's v1_1_added_tokens AND the v1.0 tokens via a combined-load step. compound_suffix_tokens (script-level rule) supplements the whole-word matcher without replacing it.",
+  "length_heuristics_cm": {
+    "_doc": "Unchanged from v1.0; copied here for self-contained reference.",
+    "melee_max_cm": 180,
+    "mid_max_cm": 300,
+    "ranged_unconditional_tokens": ["bow", "crossbow", "rifle", "pistol", "cannon", "gun", "musket", "artillery", "wand", "staff", "orb", "tome"]
+  },
+  "weight_heuristics_kg": {
+    "_doc": "Unchanged from v1.0; copied here for self-contained reference.",
+    "str_threshold_kg": 2.0,
+    "dex_threshold_kg": 0.8
+  }
+}

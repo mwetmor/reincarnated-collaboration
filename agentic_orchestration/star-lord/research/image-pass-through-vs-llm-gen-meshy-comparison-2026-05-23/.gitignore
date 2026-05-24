@@ -1,0 +1,8 @@
+# Meshy 3D model outputs — never commit (~264 MB total; ~10-50 MB per file)
+# These are reproducible API outputs from Meshy submissions; recoverable via Meshy queue if needed
+# Per-weapon Meshy outputs (.glb + .obj) under models_p1/ (Path 1) and models_p2/ (Path 2)
+models_p1/
+models_p2/
+
+# macOS noise (in case .DS_Store sneaks into this subtree)
+.DS_Store

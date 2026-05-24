@@ -1,0 +1,99 @@
+{
+  "started_at": "2026-05-24T02:49:29",
+  "args": {
+    "limit": 100,
+    "source": "odin-army-tradoc",
+    "dry_run": true
+  },
+  "rows_scanned": 100,
+  "rows_written": 0,
+  "per_source": {
+    "odin-army-tradoc": {
+      "scanned": 100,
+      "length_pop": 58,
+      "weight_pop": 37,
+      "materials_pop": 0,
+      "historical_use_pop": 8,
+      "provenance_richness_avg": 0.62,
+      "length_coverage_pct": 58.0,
+      "weight_coverage_pct": 37.0,
+      "materials_coverage_pct": 0.0,
+      "historical_use_coverage_pct": 8.0
+    }
+  },
+  "errors": [],
+  "first_5_examples": [
+    {
+      "id": 182723,
+      "canonical_name": "Bandura Ukrainian 4x4 Unmanned Ground Vehicle (UGV)",
+      "source_library": "odin-army-tradoc",
+      "extracted": {
+        "length_value": 6.0,
+        "length_unit": "mm",
+        "weight_value": null,
+        "weight_unit": null,
+        "materials": null,
+        "provenance_richness": 0.5,
+        "historical_use": null
+      }
+    },
+    {
+      "id": 182725,
+      "canonical_name": "Chuyka 3.0 Ukrainian Tri-Band Portable Drone Detector",
+      "source_library": "odin-army-tradoc",
+      "extracted": {
+        "length_value": 15.8,
+        "length_unit": "mm",
+        "weight_value": null,
+        "weight_unit": null,
+        "materials": null,
+        "provenance_richness": 0.5,
+        "historical_use": null
+      }
+    },
+    {
+      "id": 182726,
+      "canonical_name": "DroneHunter F700 Ukrainian Unmanned Aerial Vehicle (UAV)",
+      "source_library": "odin-army-tradoc",
+      "extracted": {
+        "length_value": 60.8,
+        "length_unit": "mm",
+        "weight_value": 18000.0,
+        "weight_unit": "kg",
+        "materials": null,
+        "provenance_richness": 0.75,
+        "historical_use": null
+      }
+    },
+    {
+      "id": 182733,
+      "canonical_name": "RS-28 Sarmat (SS-X-30) Russian Intercontinental Ballistic Missile (ICBM)",
+      "source_library": "odin-army-tradoc",
+      "extracted": {
+        "length_value": 3530.0,
+        "length_unit": "m",
+        "weight_value": null,
+        "weight_unit": null,
+        "materials": null,
+        "provenance_richness": 0.25,
+        "historical_use": null
+      }
+    },
+    {
+      "id": 182734,
+      "canonical_name": "SGT STOUT American 8x8 Maneuver Short\u2011Range Air Defense (M\u2011SHORAD)",
+      "source_library": "odin-army-tradoc",
+      "extracted": {
+        "length_value": 720.0,
+        "length_unit": "m",
+        "weight_value": null,
+        "weight_unit": null,
+        "materials": null,
+        "provenance_richness": 0.5,
+        "historical_use": null
+      }
+    }
+  ],
+  "elapsed_sec": 0.0,
+  "status": "ok"
+}

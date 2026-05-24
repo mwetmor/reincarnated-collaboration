@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-05-24T03:28:59",
+  "args": {
+    "limit": null,
+    "source": null,
+    "dry_run": false
+  },
+  "seed_stats": {
+    "total_entries": 680,
+    "by_priority": {
+      "high": 521,
+      "medium": 111,
+      "low": 48
+    },
+    "by_tradition": {
+      "european_medieval": 127,
+      "norse": 92,
+      "greek": 93,
+      "east_asian": 108,
+      "celtic": 52,
+      "vedic_hindu": 53,
+      "mesoamerican": 34,
+      "egyptian": 51,
+      "slavic": 35,
+      "mesopotamian": 35
+    }
+  },
+  "seed_patterns_compiled": 1071,
+  "rows_scanned": 89841,
+  "rows_with_match": 1051,
+  "rows_written": 89841,
+  "pass_a_matches": 438,
+  "pass_b_matches": 818,
+  "rejected_context_mismatch": 630,
+  "context_weak_flagged": 209,
+  "anchor_match_counts": {
+    "Arthur": 24,
+    "Roland": 6,
+    "Hattori Hanz\u014d": 0,
+    "Hattori Hanzo": 0,
+    "Lu Bu": 0,
+    "Thor": 40,
+    "Achilles": 10,
+    "C\u00fa Chulainn": 6,
+    "Cu Chulainn": 0,
+    "Cuchulainn": 1,
+    "Moctezuma": 0,
+    "Quetzalcoatl": 2,
+    "Cleopatra": 2,
+    "Karna": 12,
+    "Baba Yaga": 12,
+    "Gilgamesh": 0
+  },
+  "per_tradition_match_counts": {
+    "greek": 168,
+    "european_medieval": 259,
+    "mesopotamian": 15,
+    "vedic_hindu": 120,
+    "norse": 119,
+    "east_asian": 56,
+    "egyptian": 35,
+    "slavic": 17,
+    "mesoamerican": 3,
+    "celtic": 26
+  },
+  "errors": [],
+  "mode_c_naming_allusion_flagged": 72,
+  "pass_a_suppressed_fantasy": 289,
+  "elapsed_sec": 345.87,
+  "status": "ok"
+}
