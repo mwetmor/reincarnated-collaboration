@@ -154,6 +154,20 @@ Layer 2 ✅ COMPLETE; both pre-Layer-4 gates fired in parallel per Discipline #1
 
 Layer 4 jack-ryan Gate-2 fires immediately on landing per scope-doc § 1 in-scope autonomous Gate-2 orchestration.
 
+| jack-ryan Gate-2 on Layer 4 | `2026-05-25-jack-ryan-cycle-12-gate-2-rocket-layer-4.md` | ✅ **PASS** (zero BLOCK; zero WARN; 2 INFO). All primary scrutiny targets PASS: **Discipline #1.2 math-note code-line citations FIRST LAYER to satisfy at first authoring** (Gate-2 on L3 INFO-B + Gate-2 on L2 WARN-A precedent fixed forward); 9 § 10 calibration parameter sweeps documented; Phase 1 all-nodes SP voting (NOT coordinate descent) + Phase 2 all-chains T4 keystone one-pass + Phase 3 trigger interaction combinatorial; max_iterations + resume_convergence + best-found-so-far cap behavior; bc_axis_contribution 8-key consumption; ConvergenceResult LOCKED contract; MIGRATION.md field-name match (no WARN-B recurrence); round-trip smoke (converged + cap-hit) PASS; pre-implementation gauntlet gap resolved within-seam. Independent test re-run: 43/43 Layer 4 tests PASS in 0.30s; 175/175 combined L3+L4 PASS. Tag `jack-ryan/cycle-12-gate-2-rocket-layer-4-2026-05-25` pushed |
+
+**Gate-2 on Layer 4 — 2 INFO findings (rocket batch with next-commit amendments; do NOT hold Layer 6 for them):**
+- **INFO-A** (Discipline #1 naming drift): math note Math 5 § Parameter 1 names `penalty_scale` + describes scaling stagnation comparison; code uses `MAX_SP_STEP_PER_ITERATION` constant (different calibration constant) with `STAGNATION_EPSILON = 0.001` for stagnation directly. penalty_scale = 1.0 (no-op) means functional equivalence holds; param-number-to-name mapping conflicts across note and code. Rocket amends math note (batch with L2 WARN-B + WARN-C + L4 INFO-B)
+- **INFO-B** (Discipline #17 sweep range): dispatch specifies VOTE_THRESHOLD sweep [0.1, 0.5]; math note's actual sweep [0.01, 0.05, 0.10, 0.20, 0.50] — widened downward; chosen value 0.05 below dispatch floor but passes accept-pass criterion. Rocket notes range expansion (batch with above)
+
+**Sequencing implication:** Layer 4 COMPOSABLE for Layer 6 sequencing. Next sequence per Gate-2 verdict: KR coordinates rocket addressing 4-item amendment batch:
+- L2 WARN-B (MIGRATION.md § v1.4-layer-2 field-name reconciliation: stat_distribution → stat_allocation; substrate_triple → mechanical_substrate_triple; remove phantom fields) — PRE-LAYER-6 priority
+- L2 WARN-C (dead option_c_cells cleanup in BcTargetCell.matching_policy) — PRE-LAYER-6 priority
+- L4 INFO-A (math note Math 5 § Param 1 naming reconciliation with code) — batch-with-next-commit
+- L4 INFO-B (math note VOTE_THRESHOLD sweep range expansion note) — batch-with-next-commit
+
+After rocket amendment lands: KR authors Layer 6 dispatch (§ 8 algorithm wire-up + L9 opportunity-scan refactor + cross-seam SC-3 obligations per Gate-2 on L3 INFO-D: star-lord off_hand_contract export field + gamora sim combatant consumption + drax Spirit Guide panel).
+
 **Rocket Layer 2 amendment queue (non-blocking for Layer 4 fire; rocket addresses at next commit opportunity):**
 - **WARN-A**: math note uses "22 cells" throughout; reconcile to 25 per gandalf verdict (may batch with Gate-2-on-L3 INFO-B math-note code-line citations per Discipline #1.2)
 - **WARN-B [PRE-LAYER-6 PRIORITY]**: `export/MIGRATION.md` § v1.4-layer-2 PlayerClassV2 schema pseudocode field names don't match implementation (`stat_distribution` vs `stat_allocation`; `substrate_triple` vs `mechanical_substrate_triple`; plus phantom fields) — downstream consumer hazard for star-lord/gamora/drax cross-seam consumers; **MUST amend before Layer 6 dispatch authoring**
