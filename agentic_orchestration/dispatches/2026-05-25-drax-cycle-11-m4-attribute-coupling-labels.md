@@ -77,3 +77,48 @@ Round-trip: not applicable — no cross-seam contract change in this dispatch (d
 - Drax loadout scoping memo: `agentic_orchestration/drax/notes/2026-05-25-loadout-app-readiness-scoping.md`
 - Cycle 11 scope-doc: `agentic_orchestration/cycles/cycle-11-hive-mind-scope.md` § 1
 - Drax memo Q1-Q5 RATIFIED: Q1 (v1_scope flag internal; provenance badge visible); Q2 (T4 comparison toggle); Q3 (T4 post-mortem main-weapon only); Q4 (`/the-work` post-T4); Q5 (Vercel preview-only)
+
+---
+
+## Completion record
+
+**Executed by:** drax
+**Date:** 2026-05-25
+**Result:** ESCALATION — `attribute_coupling` field NOT PRESENT in class JSON
+
+### Pre-implementation verification
+
+Per dispatch § "Cross-seam contract change? (Principle 6 gate)" and § "Open questions": drax confirmed `attribute_coupling` field presence BEFORE any implementation.
+
+**Verification steps:**
+1. Searched `attribute_coupling` across all 11 seasons in `reincarnated-loadout/data/` — ZERO matches
+2. Searched across `reincarnated-engine/` source — ZERO matches
+3. Inspected `src/data/types.ts` `ClassData` interface — no `attribute_coupling` field
+4. Sampled class JSON keys from seasons 001001, 001005, 002015, 002328 — field absent in all seasons
+
+**Class JSON top-level keys (current):** `id`, `name`, `title_completion`, `flavor_text`, `archetype_tag`, `energy_type`, `role_orientation`, `range_profile`, `dominant_element`, `color_palette`, `stat_distribution`, `skills`, `balance_metadata`, `convergence_report` (plus per-season additive fields such as `seasonal_dominant_element`, `is_act_boss`, `carried_gear`, `movement_speed`, `post_process_d10`).
+
+No `attribute_coupling` field in any season, any class, or any engine source path.
+
+### Conclusion
+
+Drax memo § 4.3 claim that M4 has "no schema change needed" and "data already present" was incorrect. The `attribute_coupling` field does not exist in the current class JSON schema.
+
+M4 is NOT zero-dependency. It requires a star-lord schema extension to emit an `attribute_coupling` field (or equivalent) from the engine's class JSON export. The display-layer work is trivially small once the field exists; the blocker is schema extension.
+
+### Action taken
+
+Per dispatch protocol: "If field is NOT present, this becomes a star-lord schema extension item and merges into the separate star-lord-schema-extensions dispatch. Drax flags to KR if found."
+
+- NO implementation fired
+- NO code changes committed
+- NO tag cut
+- `reincarnated-loadout/AGENT_STATE.md` updated with escalation record
+
+### Routing recommendation
+
+M4 merges into the star-lord schema extensions dispatch. Suggested field: `attribute_coupling: string[]` on `ClassData` — an array of stat names indicating which primary stats scale skills for this class (e.g., `["intelligence", "wisdom"]`). Once star-lord emits this field, drax M4 implementation is approximately 1-2 hours (display-only, no schema design work needed on drax side).
+
+**Tag cut:** none (escalation; no implementation)
+**Commit:** AGENT_STATE.md update + this completion record (auto-commit per CLAUDE.md addendum)
+**Smoke:** not applicable (no implementation fired)
