@@ -662,6 +662,95 @@ When Matt returns + Stage 3 design call fires, the following empirical evidence 
 
 Dispatch is published at `agentic_orchestration/dispatches/2026-05-24-elrond-cycle-10-stage-3-v1-scope-materialization.md`. Per dispatch protocol, elrond reads `agentic_orchestration/dispatches/` at session start and picks up. No further knight-rider action gates the fire.
 
+## Wave 5 — Stage 3 execution MID-FLIGHT 2026-05-25 (hive-mind-scope-discipline first-test session)
+
+**Session context:** Fresh knight-rider session per gandalf kicker `agentic_orchestration/gandalf/requests/2026-05-25-knight-rider-cycle-10-fresh-session-kicker.md` + Cycle 10 scope-doc RATIFIED at `agentic_orchestration/cycles/cycle-10-hive-mind-scope.md` (push-per-wave authorized; skip-confirmation fire-forward authorized).
+
+**Sub-agent invocations (parallel fan-out per Discipline #19):**
+
+29. **elrond sub-agent — Wave 5 Phase 0a Tier-S accessory+armor subcategory classifier**
+    - **STATUS: COMPLETE 2026-05-25 ✓ commit `6f3c288`** — pushed to origin
+    - Artifact: `agentic_orchestration/elrond/research/cycle-10-stage-3-2026-05-25/accessory-armor-subcategory-classification.{md,json}`
+    - All 255 accessory + armor rows subdivided; `weapon_kind_classified_subtype` column populated
+    - Empirical D1b: **95 rows** (armor_shield 10 + accessory_handheld 8 + accessory_weapon_integrated 77) vs composition policy § 1.1 estimate ~100-160 → flagged for Phase 3 distribution report; envelope ~1,700-3,100 unaffected
+    - Substrate gaps surfaced: no Tier-S East Asian shield; no Tier-S mythological armor beyond shield of Achilles → Phase 3 / Sidecar B candidate input
+    - Cross-seam consumer grep PASS: zero hits; MIGRATION.md additive-pattern unblocked per Phase D precedent
+    - State-finding (transparency): column did not exist at Phase 0a session start; three-step ALTER + populate-1126 + subdivide-255 executed; documented in MIGRATION.md § 2
+
+30. **gandalf sub-agent — Wave 5 Phase 0b accessory_weapon_integrated parent-family lookup**
+    - **STATUS: COMPLETE 2026-05-25 ✓ commit `9e2a89d`** — pushed to origin
+    - Artifact: `agentic_orchestration/gandalf/notes/2026-05-25-accessory-weapon-integrated-parent-compatibility.md`
+    - 39-entry YAML/JSON parent-family lookup; 80 distinct parent families; covers ~50% direct match + 50% broad-presence default
+    - Japanese-sword sub-family handling explicit (tsuba/menuki → katana/wakizashi/tanto); firearm furniture (powder horns, bayonet sheath) handled separately
+    - Legendary canonical-pair seeding explicit (e.g., Avalon scabbard, St. Maurice pommel → legendary-sword parent binding)
+    - Gate-2 spot-check guidance authored (4 SQL assertion patterns)
+
+31. **legolas sub-agent — Wave 5 Phase 1 Mode A constrained-knapsack methodology consult**
+    - **STATUS: COMPLETE 2026-05-25 ✓ commit `c5ad777`** — pushed to origin
+    - Artifact: `agentic_orchestration/legolas/research/cycle-10-stage-3-methodology-consult-2026-05-25/methodology-recommendation.md`
+    - **Baseline algorithm:** greedy-with-swap-repair (no external dependencies); LP fallback per F1/F2/F3 failure-mode signals
+    - **F1 (LP trigger):** ≥3 non-thin cells under floor post-swap (known-thin cells 13/14/15/17/19/22/23/24/25 EXCLUDED from F1)
+    - **F2 (LP trigger):** per-axis deviation >10pp
+    - **F3:** subset size out of bounds → investigate filter first
+    - **Parameters:** swap-repair iteration cap 200 / budget 50 / convergence 1-row-minimum-progress; military_modern double-enforcement (per-row 80% trim AT initial scoring + per-axis 5-8% at sampling layer per dispatch § 4.2 Gate-1 amendment 5)
+    - **Cheapest-refuting-test (PCFS):** ≥85% non-thin cells at-or-above floor; <5 sec post-population
+    - **Resource bounds:** greedy ~1.5 min + 18-36 MB; LP fallback ~2-3 min + 150-200 MB peak — within dispatch § 8 envelope
+    - **LOAD-BEARING flag for Phase 2:** 68% NULL-typed rows cannot satisfy Option α 5-tuple matching → treat as Option β / undifferentiated floor-fill at Phase 2 with composition_trace `matching_policy = 'option_beta_undifferentiated_floor_fill'`
+
+32. **star-lord sub-agent — Sidecar A re-invocation (refused)**
+    - **STATUS: NO ACTION — already complete in prior session ✓**
+    - Today's invocation was a stale prompt; star-lord correctly refused re-execution
+    - Sidecar A Meshy comparison was executed + closed 2026-05-23/24 with MIXED verdict; jack-ryan Gate-2 PASS w/ WARN+INFO remediated; gandalf Pattern A-deep NEEDS-REVISION integrated; asset-pipeline doc § 3.6 amended; Recognitions 5 + 6 added
+    - Costs already spent: 300 Meshy credits + ~$0.31 OpenAI
+    - Terminology gap surfaced: cycle-10-hive-mind-scope.md § 0 in-flight reference to "Sidecar A — substrate-genre-flagging unified-architecture amendments" is a DIFFERENT item, largely landed via Stage 3 design call Architecture B lock 2026-05-24 → flagged for wind-down summary
+
+33. **elrond sub-agent — Wave 5 Phase 2 constrained-sampling execution**
+    - **STATUS: IN-FLIGHT 2026-05-25** — fired with Phase 0a/0b/1 outputs integrated + legolas NULL-typed Option β handling flag baked in
+    - Expected output: v1_scope subset materialized (~1,700-3,100 items); per-axis distribution; PCFS pass; LP fallback rationale if F1/F2 triggers fire
+    - Phase 3 distribution report fires as separate elrond invocation post-Phase-2 return
+
+34. **legolas sub-agent — Sidecar B Mode B targeted off-hand-items catalogue crawl**
+    - **STATUS: IN-FLIGHT 2026-05-25** — fired in parallel with Wave 5 Phase 1 (separate session; non-overlapping work-product per parallel-instance discipline 9.10-B.1)
+    - Working directory: `agentic_orchestration/legolas/research/cycle-10-sidecar-b-off-hand-crawl-2026-05-25/`
+    - Path A LOCKED: off-hand items ONLY; no broad weapon-library crawl
+    - 5 categories targeted: tomes / banners / focuses / talismans / horns (shields handled by elrond mining primarily); per-category 50-300 target
+    - Discipline #19 background-process pattern; Discipline #20 robots.txt compliance per source
+
+**Dispatch authoring complete (FIRE-READY pending phase returns):**
+
+35. **knight-rider — Wave 6 Stage 3.5 engine-authored gap-fill dispatch**
+    - Path: `agentic_orchestration/dispatches/2026-05-25-rocket-cycle-10-stage-3-5-engine-authored-gap-fill.md`
+    - Owners: rocket lead + gandalf curation + star-lord LLM infra + jack-ryan Gate-2
+    - ~25-50 entries: Hattori Hanzō / Lu Bu / Moctezuma / Gilgamesh Sketch F anchors + Cell 14 Pyromantic Caster
+    - D7 AI-tell discipline LOAD-BEARING; per-entry gandalf curation; Stage 3.6 research-replacement aggregate memo
+    - **FIRE-READY** pending Wave 5 Phase 3 distribution report → gap-cell list authoritative source
+
+36. **knight-rider — Wave 7 Stage 4 mechanical-tagging dispatch**
+    - Path: `agentic_orchestration/dispatches/2026-05-25-rocket-cycle-10-stage-4-mechanical-tagging.md`
+    - Owners: rocket lead + gamora sim-viability + jack-ryan Gate-2 + legolas Mode A Phase 1 consult prereq per Discipline #18
+    - v1_scope UNION (main pool + Stage 3.5 gap-fills + mythological-NULL rescue ~30 rows)
+    - Schema extension: `damage_amplitude_min/max REAL` (closes Stage 4 dispatch parent gap)
+    - **Round-trip smoke LOAD-BEARING** per Principle 6 (schema change on cross-seam fixture `weapon_sim_props`)
+    - **FIRE-READY** pending Wave 5 Phase 3 + Wave 6 landing
+
+37. **knight-rider — Sidecar B dispatch (combined elrond mining + legolas Mode B crawl)**
+    - Path: `agentic_orchestration/dispatches/2026-05-25-elrond-cycle-10-sidecar-b-off-hand-substrate.md`
+    - Owners: elrond mining lead + legolas Mode B crawl + gandalf curation review
+    - Schema extension Approach B (extend `weapon_knowledge_entries.weapon_kind` enum to shield/tome/banner/focus/horn/talisman)
+    - legolas Mode B crawl FIRED (in-flight); elrond mining SEQUENCED post-Phase-2 to avoid elrond-on-elrond git race per Cycle 9.15 parallel-commit-race lesson
+
+**Post-cycle continuation dispatches AUTHORED (FIRE post-wind-down per skip-confirmation directive):**
+
+38. **knight-rider — 5 post-cycle continuation dispatches**
+    - `2026-05-25-gamora-w1-13-hypothesis-testing.md` — Mode B routine; jack-ryan Gate-2 validates
+    - `2026-05-25-legolas-algorithm-section-8-methodology-consult.md` — LOAD-BEARING per Discipline #18 before any rocket § 8 implementation; Matt scope-lock gates on consult return
+    - `2026-05-25-drax-and-star-lord-loadout-app-readiness-scoping.md` — scoping output for Matt scope-lock; no implementation
+    - `2026-05-25-star-lord-g1-infrastructure-measurement.md` — SQLite contention + Mac M2 RAM pressure measurement per Pi recognition record § 8 G1; pure measurement
+    - `2026-05-25-star-lord-g12-llm-cache-hit-rate-measurement.md` — LLM-call repeat-rate per Pi recognition record § 8 G12; pure measurement; parallel with G1
+    - All 5 dispatches FIRE-READY; fire immediately after Cycle 10 wind-down filing per Matt 2026-05-25 skip-confirmation fire-forward directive
+
+**Knight-rider integration commit:** `a274159` — 8 dispatch files + pushed to origin per push-per-wave authorization
+
 ## Parallel work — Loadout-readiness scoping for T4-B post-mortem (CLOSED 2026-05-24)
 
 Per gandalf request `agentic_orchestration/gandalf/requests/2026-05-24-knight-rider-t4-reframing-and-loadout-readiness.md` § 2: knight-rider fired parallel Pattern A sub-agents (drax + star-lord) during Stage 3 dispatch authoring window.
