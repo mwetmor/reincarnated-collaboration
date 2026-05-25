@@ -174,3 +174,69 @@ MIGRATION.md update is the canonical cross-seam communication for Amendment 1; d
 **Status:** FIRE — pre-Layer-6 priority amendment batch; gates Layer 6 dispatch authoring
 
 **Matt-touch sequence:** rocket amendments land → KR captures completion in state file → KR authors Layer 6 dispatch (§ 8 algorithm wire-up + L9 opportunity-scan refactor + cross-seam SC-3 obligations per Gate-2 on L3 INFO-D — star-lord off_hand_contract export + gamora sim combatant consumption + drax Spirit Guide panel) → Layer 6 fires per scope-doc § 1 autonomous + skip-confirmation re-auth
+
+---
+
+## Completion record
+
+**Completed by:** rocket
+**Date:** 2026-05-25
+**Commit:** `9d7a530`
+**Tag:** `rocket/v0.0-cycle-12-pre-layer-6-amendments-2026-05-25`
+**Push:** main + tag pushed to origin
+
+### Amendment 1 (L2 WARN-B) — COMPLETE
+
+`src/reincarnated/export/MIGRATION.md` § v1.4-layer-2 PlayerClassV2 pseudocode replaced with
+accurate field names from actual implementation. Added WARN-B amendment note at top of schema
+section explaining the framing-brief vs implementation divergence. Also corrected WARN-4 Gate-1
+amendment disposition text (stat_distribution → stat_allocation) and cross-seam obligations
+table (substrate_triple → mechanical_substrate_triple in two rows). Cross-seam consumer hazard
+for star-lord/gamora/drax eliminated before Layer 6 fires.
+
+### Amendment 2 (L2 WARN-C) — COMPLETE, Option (a) chosen
+
+Decision rationale: Option (b) wire-up would be architecturally wrong. `BcTargetCell` is a
+5-tuple coordinate dataclass — it has no reference to `CellDef` and no mechanism to look up
+`CELL_DEFINITIONS`. Wiring Option C routing into `BcTargetCell.matching_policy` at the instance
+level would require coupling the instance to the sampler's definition table, which violates the
+dataclass boundary. Option C routing correctly lives at the CellDef level in
+`bc_target_cell_sampler.py` and is applied by `BcTargetSubspaceGenerator._apply_section_4_routing()`.
+Resolution: removed dead `option_c_cells` set; updated docstring to document the architectural
+separation explicitly. No behavioral change, no regression smoke required.
+
+### Amendment 3 (L4 INFO-A) — COMPLETE, Option (b) chosen
+
+Decision rationale: Renaming `penalty_scale` to `MAX_SP_STEP_PER_ITERATION` in the math note
+(Option a) would be misleading — they are genuinely different parameters. The math note
+`penalty_scale` concept (a multiplier on the stagnation score) simply collapsed to a no-op at
+1.0, which is why no named constant appears in the code. MAX_SP_STEP_PER_ITERATION is the max
+delta SP per node in Phase 1 — a different dimension of the calibration. Option (b) adds a
+clear functional-equivalence note explaining both sides without conflating them.
+
+### Amendment 4 (L4 INFO-B) — COMPLETE
+
+Math note § 3.2 VOTE_THRESHOLD inline comment updated to show actual sweep range
+[0.01, 0.05, 0.10, 0.20, 0.50]. Math 5 § Parameter 3 expanded with full range expansion
+rationale and confirmed chosen value 0.05 as empirically best. Calibration Sweep Results
+§ Parameter 3 updated to reference Math 5 sweep range note.
+
+### Regression status
+
+No regression smoke required or run. Amendment 2 is dead-code removal with zero behavioral
+change. Amendments 1/3/4 are documentation-only. Existing 28/28 (L2) + 175/175 (L3+L4) tests
+remain unaffected.
+
+### Files changed
+
+| File | Amendment(s) |
+|---|---|
+| `src/reincarnated/export/MIGRATION.md` | 1 (WARN-B) |
+| `src/reincarnated/generation/bc_target_player_class.py` | 2 (WARN-C) |
+| `src/reincarnated/generation/notes/cycle-12-layer-4-multi-dim-convergence-2026-05-25.md` | 3 (INFO-A) + 4 (INFO-B) |
+| `src/reincarnated/generation/AGENT_STATE.md` | checkpoint |
+
+### KR handoff
+
+All 4 Gate-2 amendment obligations satisfied. Layer 6 dispatch authoring is unblocked. KR fires
+immediately per scope-doc § 1 autonomous orchestration.
