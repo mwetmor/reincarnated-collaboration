@@ -82,14 +82,17 @@
 
 ### Wave 7 — Stage 4 mechanical-tagging
 
-**Status:** [TBD-WAVE-7-RESULT]
-- Dispatch: `agentic_orchestration/dispatches/2026-05-25-rocket-cycle-10-stage-4-mechanical-tagging.md` (FIRE-READY)
-- v1_scope UNION (main pool + Stage 3.5 gap-fills + mythological-NULL rescue ~30 rows)
-- Schema extension: `damage_amplitude_min/max REAL`
-- Round-trip smoke LOAD-BEARING per Principle 6 (schema change on cross-seam fixture `weapon_sim_props`)
-- Owners: rocket + gamora + jack-ryan + legolas Mode A Phase 1 consult
-- Gate: Wave 5 Phase 3 + Wave 6 landing
-- Tag intent: `rocket/cycle-10-stage-4-mechanical-tagging-2026-05-25`
+**Status:** ROCKET IN-FLIGHT (fired 2026-05-25 post-Stage-3-milestone-tag)
+- Dispatch (Phase 1 consult integrated): `agentic_orchestration/dispatches/2026-05-25-rocket-cycle-10-stage-4-mechanical-tagging.md` (commit `f11fcfa`)
+- v1_scope UNION input: ~2,323 rows (2,251 cleaned v1_scope post-Wave-5.5 + 42 Wave 6 v1_scope=1 + ~30 mythological-NULL rescue)
+- Schema migration (CRITICAL per Phase 1 consult Signal 4): `damage_amplitude_min/max REAL` + DEX added to `primary_stat` CHECK constraint (or ~49% of typed v1_scope rows fail insertion)
+- 3-pass layered methodology (heuristic 1,890 + structured-property 47 + LLM-judge 937)
+- Resource bounds: ~950 LLM calls × ~$0.001 = ~$0.95; ~25 min automated execution
+- Cheapest-refuting-test gate: **INT+WIS combined ≥ 12% post-tagging** (if <10% methodology revision required pre-commit)
+- Pre-screen 168 odin-army-tradoc + royal_armouries component-parts → sim_viable=0
+- Round-trip smoke LOAD-BEARING per Principle 6 (rocket → gamora → star-lord boundary; KR routes post-rocket-return)
+- Owners: rocket lead + gamora (sim-viability + balance-loop sanity-check) + jack-ryan (Gate-2 methodology + round-trip + cross-seam) + legolas Mode A ✓ Phase 1 consult complete
+- Tag intent: `rocket/cycle-10-stage-4-mechanical-tagging-2026-05-25` after jack-ryan Gate-2 PASS + round-trip smoke PASS
 
 ### Sidecar B — Off-hand substrate inclusion
 
@@ -197,15 +200,23 @@
 
 ## 4. Final-tag PROPOSAL
 
-**Proposed tag:** `v1.0-weapon-substrate-cycle-10-shipped` (Matt-approved milestone prefix per ADR-001)
+**Proposed cycle-level final tag:** `v1.0-weapon-substrate-cycle-10-shipped` (Matt-approved milestone prefix per ADR-001 + scope-doc § 5)
 
-**Justification:** [TBD; pending all wave outcomes]
-- Closes substrate-curation cycle that produced v1_scope subset for Reincarnated v1
-- Composes Architecture B lock + composition policy v1 + Stage 3 execution + Stage 3.5/4/Sidecar B
-- Unblocks T4-B post-mortem + algorithm § 8 implementation per 02-roadmap § 1 active workstream
-- Recognition 1 (sampling-proportionality) migrates from v1.1+ flag → v1 LOCKED via composition policy v1
+**Intermediate Stage 3 milestone tag** ✓ ALREADY CUT 2026-05-25: `elrond/v0.0-cycle-10-stage-3-v1-scope-materialization` (anchored `77ad567`; pushed) — closes Stage 3 v1_scope materialization per gandalf sign-off § 4 tag-sequencing recommendation. Per CLAUDE.md project conventions, this is the intermediate seam-prefixed tag; cycle-level tag is Matt-ratified separately.
 
-**Do NOT cut yet** — Matt cuts on log-back-confirm per skip-confirmation directive.
+**Justification (for cycle-level tag):**
+- Closes Cycle 10 substrate-curation workstream that produced v1_scope subset for Reincarnated v1
+- Composes Architecture B lock (2026-05-24) + composition policy v1 + Stage 3 execution + Stage 3.5 gap-fill + Stage 4 mechanical-tagging + Sidecar B off-hand
+- v1_scope = 2,294 + Stage 4 mechanical-tagging on UNION (post-Wave-7 completion)
+- Unblocks T4-B post-mortem (~3-5 weeks from now) + algorithm § 8 implementation (post-legolas consult + Matt scope-lock)
+- Recognition 1 (sampling-proportionality) MIGRATES from v1.1+ flag → v1 LOCKED via composition policy v1 + Wave 5.5 + gandalf composition compliance Path A verdict
+- 3 canonical Pattern A-deep applications this cycle (Q-A gamora idle / SO-3 Roland+Karna / Wave 5.5 composition verdict)
+- 2 canonical Discipline #25 substrate-curation applications this cycle (SO-3 Karna Tank EX / Wave 5.5 Mode-C eviction)
+- First test of hive-mind-scope-discipline pattern (founding retroactive example via scope-doc)
+
+**Do NOT cut yet** — Matt cuts on log-back-confirm per skip-confirmation directive 2026-05-25.
+
+**Pre-condition for cycle-level tag:** Wave 7 rocket Stage 4 mechanical-tagging COMPLETE + jack-ryan Gate-2 PASS + round-trip smoke PASS + gamora sim-viability PASS.
 
 ---
 
