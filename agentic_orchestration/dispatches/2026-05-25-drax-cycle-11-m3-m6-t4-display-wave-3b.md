@@ -153,3 +153,47 @@ Round-trip: not applicable — drax is the consumer side of star-lord's Wave 1 r
 **Status:** FIRE — Wave 3b unblocked per Tier 2; runs in parallel with Cycle 12 Day-1 open (no specialist contention)
 
 **Matt-touch sequence:** dispatch completes → jack-ryan Gate-2 validates → KR drafts Cycle 11 wind-down summary → Matt log-back ratifies (or skip-confirmation re-authorized) → Cycle 11 final tag cut (proposal: `v1.0-t4-intent-metadata-ready` or KR judgment)
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-25
+**Agent:** drax
+**Commit:** `b948d3d` (M3+M6 implementation) + `0ece86f` (AGENT_STATE.md update)
+**Tag (intermediate):** `drax/v0.0-cycle-11-m3-t4-alteration-display-2026-05-25` @ `b948d3d`
+**Tag (final):** `drax/v0.1-cycle-11-m3-m6-t4-display-wave-3b-2026-05-25` @ `b948d3d`
+**Push status:** PUSHED — main + both tags to `origin` (github.com/mwetmor/reincarnated-loadout)
+**Preview URL:** https://reincarnated-loadout-bc7s9pqpu-matthew-wetmore-s-projects.vercel.app (Q5 RATIFIED: preview-only; not promoted to production)
+
+### Acceptance criteria checkmarks
+
+- [x] M3 T4 alteration output visible in SkillTree.tsx for classes with `t4_alteration_output` populated (RESOURCE_CONVERSION smoke path via class_0001 sample fixture)
+- [x] Spirit-guide narration surface present (woven into M3 panel; ◈ icon; uses `thematic_rationale` from class JSON when present; § 9 template voice fallback)
+- [x] M6 T4 comparison panel visible via TOGGLE per Q2 ratification; closed by default; mobile-friendly text toggle with ▶ chevron
+- [x] Null-safe: all 11 real seasons (no `t4_alteration_output`) — both panels hidden, no broken UI
+- [x] Visual styling clean + consistent with existing patterns (WeaponSlot / ProvenanceBadge / StatsPanel register)
+- [x] No regression in existing loadout views (M1/M2/M4/M5 + base SkillTree verified via clean build)
+- [x] Tier 2 framing honored: "Build Identity" badge on M3; "Intent Metadata" label in M6; M6 footer cites Cycle 12 Layer 6 for wire-up
+- [x] Vercel preview deployment succeeds (Q5 — preview-only; NOT promoted to production)
+
+### Smoke results
+
+- `npm run build`: 773 modules, 0 TypeScript errors — PASS
+- Cycle-11+ path (sample-season class_0001): RESOURCE_CONVERSION alteration renders M3 panel + M6 toggle + spirit-guide narration with `thematic_rationale` from class JSON
+- Null-case path: all 11 real seasons → both panels hidden cleanly (TypeScript null-guard enforced at type level)
+- M6 toggle: collapsed by default; expands to show current strategy (violet "selected" badge) + 4 static alternative rows + footer note
+
+### Decisions made
+
+- M3 position: BELOW tree/detail-panel row (not inside the grid) — class-level identity, not per-skill
+- Spirit-guide narration: WOVEN INTO M3 panel (not a separate affordance) — single visual register
+- M6 toggle trigger: text button + ▶ chevron (rotate-90 on open) — mobile tap target per Q2 framing
+- M6 comparison: current-only with static alternative descriptions — multi-candidate deferred to v1.1 per dispatch
+- T4StrategyType: typed union of 5 known strategies + `string` forward-compat
+- `thematic_rationale`: primary narration source when present; § 9 template voice as fallback
+
+### Outstanding TODOs (tracked in AGENT_STATE.md)
+
+- TODO(drax): remove sample-season `t4_alteration_output` fixture from `class_0001.json` when rocket §8 regen ships
+- TODO(drax): review M3 panel position if Matt wants it as a separate named section in Loadout.tsx (currently inside SkillTree.tsx return)
