@@ -607,18 +607,94 @@ When Matt returns + Stage 3 design call fires, the following empirical evidence 
 | Spot-check verdicts (3) | Stage 1 + 1.5 + 2.5 critique-pair outcomes | Per-stage `spot-check-gandalf-request.md` files |
 | Stage-3-surface-roster | 7 BLOCKING/edge items consolidated | This state file (above) |
 
-## Cycle 10 status — fully ready for Stage 3 design call
+## Cycle 10 status — Wave 4 CLOSED + Wave 5 dispatch FIRE-READY
 
 - **Wave 1 (Sidecar A): CLOSED ✓** (committed + tagged + pushed)
 - **Wave 2 (Stages 1 + 1.5 + v1.1 fix): CLOSED ✓** (committed + tagged + pushed)
-- **Wave 3 (Stages 2 + 2.5): CLOSED ✓** (commit + tag + push GATED on Matt return + explicit authorization per CLAUDE.md commit discipline)
-- **Pre-Stage-3 refutation-routing classifier: COMPLETE ✓** (artifacts ready)
-- **Stage 0 transcription: COMPLETE ✓** (committed in prior session as `b93f76c`)
-- **Wave 4 (Stage 3 design call): GATED on Matt return** — Matt + gandalf scheduling
+- **Wave 3 (Stages 2 + 2.5 + pre-Stage-3 weapon-kind classifier): CLOSED ✓** (committed `2e30735` + tagged `elrond/v0.0-cycle-10-stage-2-cross-tab` + `elrond/v0.0-cycle-10-stage-2-5-quality-tier-scoring` + pushed to origin)
+- **Wave 4 (Stage 3 design call): CLOSED ✓ 2026-05-24** — D1-D7 all locked; composition policy v1 canonical doc landed (`canonical/story/weapon-substrate-composition-policy-v1-2026-05-24.md`); Architecture B LOCKED as production canonical engine architecture (per Matt 2026-05-24 reversal during call); 4 post-call commits pushed to origin (composition policy + Architecture B + state capture + skill-system § 13)
+- **Wave 5 (Stage 3 execution dispatch authoring + Gate-1 critique pair): CLOSED ✓ 2026-05-24** — see § Wave 5 below
+- **Wave 5 (Stage 3 execution at elrond): FIRE-READY** — dispatch picked up at next elrond-session start
 
 **v1.1+ queue carry-forward count: 15 items + Mode-E taxonomic extension + Stage-1 weapon_kind enum refinement** (full list in state file body above).
 
-**Nothing further fire-able autonomously.** All productive background work in Stage 3 service has been completed. Awaiting Matt return for: (a) Wave 3 commit/tag/push authorization; (b) Stage 3 design-call scheduling.
+## Wave 4 — CLOSED 2026-05-24
+
+- Stage 3 design call: D1-D7 all locked
+- Composition policy v1 canonical doc landed: `canonical/story/weapon-substrate-composition-policy-v1-2026-05-24.md` (~520 lines; consolidates D1-D7 + Architecture B + Option α/β/C + universal archetypal naming + bi-modal form library + element canonical-pair flavor + legendary canonical-pair set-bonuses + Sketch D + Sketch F + Sidecar B + Stage 3.5 gap-fills + Stage 4 mythological-NULL rescue + Pattern 6 alignment + substrate-genre-flagging)
+- Architecture B locked as production canonical engine architecture (per Matt 2026-05-24 reversal)
+- Ground-state oracle § 1 updated with composition policy doc + Architecture B doc registration
+- 4 post-call commits committed + pushed to origin/main
+
+## Wave 5 — Stage 3 execution dispatch authoring + Gate-1 critique pair (CLOSED 2026-05-24)
+
+**Sub-agent invocations:**
+
+23. **knight-rider dispatch authoring — Stage 3 execution → v1_scope materialization**
+    - **STATUS: FIRE-READY 2026-05-24 ✓**
+    - Path: `agentic_orchestration/dispatches/2026-05-24-elrond-cycle-10-stage-3-v1-scope-materialization.md`
+    - Owners: elrond (lead — Phases 0a + 2 + 3) + legolas Mode A (Phase 1 methodology consult prerequisite per Discipline #18) + gandalf (Phase 0b substrate-fit lookup + 25-row Phase 0a spot-check + 50-row Phase 2 spot-check + Gate-2 design-side + sign-off on distribution report)
+    - 5-phase architecture: Phase 0a accessory+armor subcategory classifier (255 rows; elrond ~30 min) + Phase 0b substrate-fit lookup (gandalf ~30 min) + Phase 1 legolas Mode A consult on constrained-knapsack-with-must-include (~30-60 min) + Phase 2 constrained-sampling execution (elrond ~1-3 hr) + Phase 3 per-axis distribution report (elrond ~30 min)
+    - Output: 3 new columns on `weapon_knowledge_entries` (`v1_scope BOOLEAN`, `v1_scope_composition_trace TEXT` JSON, `v1_scope_genre_filter TEXT`); 1 UPDATE-in-place on `weapon_kind_classified_subtype` enum extension for 255 accessory+armor rows
+    - Empirical criterion: v1_scope subset ~1,700-3,100 items; per-axis + per-tier + per-cell coverage report → Matt + gandalf sign-off per composition policy § 7.4
+
+24. **gandalf sub-agent — Gate-1 design-side critique on Stage 3 dispatch**
+    - **STATUS: COMPLETE 2026-05-24 — PASS-WITH-AMENDMENTS × 5 (0 BLOCK)** ✓
+    - Verdict: `agentic_orchestration/gandalf/notes/2026-05-24-gate-1-design-verdict-cycle-10-stage-3-dispatch.md` (Pattern A-deep)
+    - **5 amendments:** (1) Tier-S row-count reconciliation 1,065 → 1,126 binding for Phase 2 denominator; (2) D1c-excluded rows JSON trace enum value added; (3) Sketch F substrate-missing distinct flag value + named-bearer gap-list subsection requirement; (4) Option C per-cell architectural fact tightening (not per-row evaluation); (5) military_modern trim per-row weight vs per-axis target composition clarification
+    - What landed well: JSON schema covers Phase 5 cohesion needs + Phase 0b gandalf scope sized correctly + Sidecar B/Stage 3.5/Stage 4 correctly deferred + 5-tuple cell-pair sharing matches policy verbatim + Architecture B substrate-genre-flagging extensible column shape + legendary canonical-pair set-bonuses deferred to downstream loot architecture
+    - Decision-routing: within design-side critique-pair authority; no Matt escalation
+
+25. **jack-ryan sub-agent — Gate-1 process-side critique on Stage 3 dispatch**
+    - **STATUS: COMPLETE 2026-05-24 — PASS-WITH-AMENDMENTS × 2 WARN (0 BLOCK)** ✓
+    - Finding: `agentic_orchestration/qa/findings/2026-05-24-gate1-stage-3-dispatch.md`
+    - **WARN-1:** Missing formal `## Acceptance criteria` section with Principle 6 round-trip clause (substantively present in § 5 but format-required per dispatches/README.md template; Gate-2 risk if not formalized)
+    - **WARN-2:** Discipline #25 rep-audit check is pass-through assertion only; needs explicit post-population SQL count check (`SELECT COUNT(*) WHERE v1_scope = 1 AND mode_c_flag = 1` must return 0)
+    - All other principles PASS: Principle 1 math-before-code (composition policy + Phase 1 consult adequate) / Principle 2 smoke-gate (phased structure correct) / Principle 3 cross-seam (additive-only correct) / Principle 4 decisions-log truth (no entry needed for Stage 3 design-call closure — canonical doc landed; Architecture B captured in git + state capture) / Principle 6 substance (round-trip not-applicable justified) / Discipline #18 + #18.2 ordering correct / Discipline #1.1 resource-bounds adequate / Discipline #19 + #19.1 correct
+
+26. **knight-rider amendment integration**
+    - **STATUS: COMPLETE 2026-05-24 ✓**
+    - All 7 amendments folded into dispatch (G-1 through G-5 + J-WARN-1 + J-WARN-2)
+    - Dispatch status: DRAFT → FIRE-READY
+    - Amendment record captured in dispatch § 14 sign-off section
+
+## Wave 5 — Stage 3 execution at elrond — GATED ON ELROND SESSION PICKUP
+
+Dispatch is published at `agentic_orchestration/dispatches/2026-05-24-elrond-cycle-10-stage-3-v1-scope-materialization.md`. Per dispatch protocol, elrond reads `agentic_orchestration/dispatches/` at session start and picks up. No further knight-rider action gates the fire.
+
+## Parallel work — Loadout-readiness scoping for T4-B post-mortem (CLOSED 2026-05-24)
+
+Per gandalf request `agentic_orchestration/gandalf/requests/2026-05-24-knight-rider-t4-reframing-and-loadout-readiness.md` § 2: knight-rider fired parallel Pattern A sub-agents (drax + star-lord) during Stage 3 dispatch authoring window.
+
+27. **drax sub-agent — loadout app readiness scoping for T4-B post-mortem**
+    - **STATUS: COMPLETE 2026-05-24 ✓**
+    - **Form-rendering EXISTS today** — `useSeasonData.ts` build-time auto-discovery; new season folders drop into `data/` and render automatically
+    - **Skill-tree viewer EXISTS** — `SkillTree.tsx` + `SkillNode.tsx` + `SkillDetailPanel.tsx` + `unlockRules.ts` + `useSkillBuild.ts` (interactive 4-chain × 4-tier grid with SP invest/divest)
+    - **T4 hand-authoring interface: net-new** — no write path exists anywhere in loadout app today
+    - **Form-format STABLE** — `SeasonManifest` + `ClassData` + `Skill` contract has absorbed multiple engine schema changes via additive optional fields
+    - **Must-have lift: ~4-6 days** (ingest 0.5 day + types.ts extension 0.5 day + T4 node display 1 day + annotation layer 2-3 days + hand-authored T4 entry 1-2 days)
+    - **Nice-to-have lift: ~3-5 days additional** (side-by-side diff + export annotations + η-coefficient display + filter/search)
+    - **Blocker flagged:** algorithm output schema not yet defined (star-lord parallel Pattern A is the dependency); drax cannot finalize types.ts until star-lord confirms exact JSON shape rocket emits
+    - **Decision point flagged:** annotation storage architecture (localStorage vs static-JSON-file in public/data/) — affects exportability back to engine seam
+
+28. **star-lord sub-agent — engine-form-export readiness scoping**
+    - **STATUS: COMPLETE 2026-05-24 ✓**
+    - **Export pipeline OPERATIONAL** — `export/season_exporter.py` + `export/schemas.py`; 8 seasons exported; latest `season_001010`
+    - **Schema gap identified:** `ExportSkill` DTO MISSING 9 fields (`tier`, `chain_id`, `chain_position`, `parent_skill_ids`, `scaling_coefficient`, `effect_category`, `color_value`) — narrowed deliberately for demo, not loadout
+    - **Loadout consumes DIRECT intermediate path, NOT export packet:** loadout `data/*/classes/*.json` are copied from engine's `seasons/<id>/classes/`, not from export. ZERO star-lord work needed for T4 post-mortem; recommended path is continue intermediate-copy pattern (0 hours star-lord + ~0.5 hr drax)
+    - **v1_scope column pull:** NOT needed on star-lord side; substrate DB read-direct by loadout (or elrond) bypasses export
+    - **Block flag:** ZERO blocks; critical-path lift for T4 post-mortem is on drax, not star-lord
+    - **Nice-to-have:** fill `ExportSkill` schema gap (~2-3 hrs + MIGRATION.md) to make export packet a complete loadout-consumable artifact regardless of T4 post-mortem path
+
+**Knight-rider synthesis (within orchestrator scope per hive-mind directive):**
+
+- Critical-path is drax (~4-6 days must-have); star-lord seam is clean
+- Drax's blocker (algorithm output schema) resolves naturally once rocket T4 algorithm dispatch fires post-Cycle-10 (~1-2 weeks); drax build-out can start once algorithm spec firms up
+- Annotation storage architecture decision (localStorage vs static-JSON-file) is a Matt + gandalf mini-decision; surfaces at drax dispatch authoring time, not now
+- **Sequencing decision (within scope):** PARK drax build-out dispatch until post-rocket-algorithm spec lands. Reason: types.ts extension is speculative without algorithm schema; building against unconfirmed shape risks rework
+- Drax + star-lord readiness reports inform Cycle 10 wind-down planning + post-Cycle-10 sequencing per T4-reframing-and-loadout-readiness request § 3 sequencing summary
+
+**Nothing further fire-able autonomously in this session.** Wave 5 (Stage 3 execution at elrond) gates on elrond session pickup; drax + star-lord readiness reports surface for Cycle 10 wind-down.
 
 ## Stage-3-design-call surface roster (consolidated for Wave 4)
 
