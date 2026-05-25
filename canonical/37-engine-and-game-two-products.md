@@ -1,11 +1,13 @@
 # 37 — Engine and Game: Two Distinct but Combinable Products
 
-> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — see `canonical/00-ground-state.md`
+> **STATUS:** CURRENT (load-bearing as of 2026-05-24) — see `canonical/00-ground-state.md`
+>
+> **AMENDMENT 2026-05-24 (Architecture B + substrate-genre-flagging STRENGTHENS Variant C):** Per Matt 2026-05-24 design call architectural reversal during Cycle 10 Stage 3, Architecture B locked as production canonical engine architecture (`canonical/story/qd-engine-end-to-end-workflow-2026-05-24.md`). Critically, Architecture B uses **substrate-genre-flagging unified-architecture** which STRENGTHENS Variant C's engine-as-general-product premise: a single engine architecture serves all commercial profiles via genre-tagged substrate library partitioning (Reincarnated v1 = fantasy-tagged subset; future sci-fi cyberpunk = sci-fi-tagged subset; future Profile B B2B SaaS = client-provided genre-tagged substrate). Substrate library expansion + genre-flagging discipline enables single-engine commercial reach across multiple genres without requiring dual engine architectures. Architecture A (substrate-AGNOSTIC) retained as developer-tool / R&D reference for substrate-acquisition prioritization + mechanical-design-space exploration; NOT commercial-product variant. Variant C two-products framing fundamentally STANDS; architectural cleanup makes engine-as-product more commercially flexible than originally framed.
 
-**Status:** Active, captured 2026-05-15
+**Status:** Active, captured 2026-05-15; amended 2026-05-24
 **Author:** Drafted in dialogue with Matt (Senior Architect)
 **Audience:** Project team, potential industry partners, future Matt
-**Related:** 16-project-roadmap.md, 28-engine-arpg-rebalance-design.md, 29-design-overview.md, 30-engine-explainer-current.md, 31-engine-explainer-future.md, 34-monster-design-phase0-vs-production.md
+**Related:** 16-project-roadmap.md, 28-engine-arpg-rebalance-design.md, 29-design-overview.md, 30-engine-explainer-current.md, 31-engine-explainer-future.md, 34-monster-design-phase0-vs-production.md, `canonical/story/qd-engine-end-to-end-workflow-2026-05-24.md` (Architecture B production canonical)
 
 ---
 

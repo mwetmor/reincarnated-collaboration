@@ -1,8 +1,25 @@
 # 38 — Downstream Delivery Strategy
 
-> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — see `canonical/00-ground-state.md`
+> **STATUS:** CURRENT (load-bearing as of 2026-05-24) — see `canonical/00-ground-state.md`
+>
+> **AMENDMENT 2026-05-24 (Cycle 10 Stage 3 closure + Architecture B + composition policy v1 implications for D1-D10):**
+>
+> Cycle 10 substrate-curation work substantially complete on design-decision surface (Stage 3 design call CLOSED 2026-05-24 with D1-D7 all locked; composition policy v1 landed at `canonical/story/weapon-substrate-composition-policy-v1-2026-05-24.md`). Architecture B locked as production canonical engine architecture (`canonical/story/qd-engine-end-to-end-workflow-2026-05-24.md`). Implications per D-item:
+>
+> - **D1 (Unreal + PC-first + mobile +6mo):** unchanged; architecture-validation spike scope partial-pull-forward via Sidecar A Meshy comparison (MIXED verdict per Sidecar A; v1.1+ Recognitions 5+6 capture refinement)
+> - **D2 (variable execution by build):** unchanged; substrate-axis-driven; Architecture B substrate-binding at Phase 2 preserves substrate-led variance
+> - **D3 (seasonal cadence with weekly beats):** unchanged
+> - **D4 (Earth Self / form library / spirit guide / pet continuity):** unchanged; spirit-guide explainer pattern (skill-system § 9) operationalizes the spirit-guide architecture
+> - **D5 (timeline floor ~200-220 effective dev-days):** unchanged; T4-B reframed to post-mortem doesn't change timeline; algorithm § 8 implementation as v1 critical path is ~1-2 weeks rocket parallel with W1.13/W1.20 gamora work
+> - **D6 (this doc as canonical capture):** preserved
+> - **D7 (AI-tell line; no raw LLM player-facing):** strengthened by Phase 5 cohesion-coalescence discipline + universal archetypal player-facing naming + naming-space partitioning per engine-anchor + 3-tier named-bearer cultural-sensitivity (engine-internal anchor; player-facing UNIFORM archetypal); v1.1+ Recognition 7 (cohesion-judge naming reputation-risk discipline) adds modern-association lookup layer
+> - **D8 (mobile-friendly design from day one):** unchanged
+> - **D9 (humanoid-only playable forms):** unchanged; D1 horse-furniture exclusion at Stage 3 D1c reinforces (no mounted combat scope-creep)
+> - **D10 (isekai-framing checkpoint — substrate-evidence gate):** Stage 1 cluster checkpoint per § 2 unchanged; Path C (Fate-genre alignment) trajectory progresses per substrate evidence; Cycle 10 substrate-curation produces v1_scope informing eventual D10 lock; Fate-genre recognition record (`canonical/story/fate-genre-recognition-and-mobile-alignment-trajectory-2026-05-23.md`) progresses
+>
+> **Net effect:** D1-D10 fundamentally STAND. Cycle 10 + Architecture B + composition policy compose with D1-D10 cleanly; do not invalidate the delivery strategy. Sub-element terminology disambiguation (per Matt 2026-05-24) is operational refinement (renamed from "element canonical-pair flavor" to disambiguate from retired seasonal-realm-mapping concept AND from legendary canonical-pair set-bonuses); does not change D-decisions.
 
-**Status:** Active, captured 2026-05-23
+**Status:** Active, captured 2026-05-23; amended 2026-05-24
 **Author:** gandalf (story-and-design steward; senior designer)
 **Authority:** Matt 2026-05-23 — D1-D10 confirmed in sequence during gandalf design session following Matt's external-counsel strategic-synthesis conversation 2026-05-22 evening
 **Audience:** Knight-rider (orchestration), jack-ryan (process gate), specialist agents (rocket / gamora / star-lord / drax / elrond / galadriel / legolas), future Matt, future gandalf, eventual industry partners
