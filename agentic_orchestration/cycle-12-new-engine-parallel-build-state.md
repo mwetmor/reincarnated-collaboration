@@ -123,6 +123,16 @@ Per jack-ryan Gate-1 finding (CLEAR-WITH-AMENDMENTS verdict; no BLOCK; no Matt e
 
 Layer 3 jack-ryan Gate-2 fires immediately on landing per scope-doc § 1 in-scope autonomous Gate-2 orchestration.
 
+| jack-ryan Gate-2 on Layer 3 | `2026-05-25-jack-ryan-cycle-12-gate-2-rocket-layer-3.md` | ✅ **PASS** (zero BLOCK; zero WARN; 4 INFO). All 4 Gate-1 amendments (WARN-1 + WARN-3 + WARN-5 + INFO-3) VERIFIED RESOLVED with evidence (module docstrings; `__post_init__` enforcement; `_CANDIDATE_ALLOCATION` matching math note; `signature_chain_id` field). Math note ↔ implementation parity verified (5 sections map to 5 modules). Round-trip + Layer 4 walkability simulated in Gate-6 test. Layer 3 COMPOSABLE for Layer 4 sequencing once Layer 2 lands. Tag `jack-ryan/cycle-12-gate-2-rocket-layer-3-2026-05-25` pushed |
+
+**Gate-2 on Layer 3 — 4 INFO findings captured for downstream dispatch authoring:**
+- **INFO-A** (Discipline #9 magic numbers in Gate-3 family count assertions): redundancy acceptable; no action
+- **INFO-B** (Discipline #1.2 math-note code-line citations): KR integrates at Layer 4 + Layer 6 dispatch authoring — math notes should cite specific code line ranges per discipline
+- **INFO-C** (`validate_invariants()` runtime vocabulary check for external SkillTree construction): KR integrates at Layer 6 dispatch authoring — runtime node_type vocabulary check recommended
+- **INFO-D** (KR Layer 6 dispatch MUST enumerate cross-seam SC-3 obligations): star-lord `off_hand_contract` export field; gamora sim combatant construction; drax Spirit Guide panel — KR L6 dispatch acceptance criteria
+
+**Sequencing implication post-Layer-3 Gate-2 PASS:** Layer 3 awaits (1) Layer 2 Gate-2 PASS when L2 lands; (2) MC-3 methodology consult at Layer 4 start. No rocket amends required on Layer 3.
+
 ### Wave 0.5 — Pre-Layer-2 prep fires (surfaced by MC-1/MC-2 returns)
 
 MC-1 + MC-2 both COMPLETE with prereq-artifact requirements for rocket Layer 2 dispatch authoring. Per hive-mind decision-routing § 4.3 + scope-doc § 6, KR routes seam-owner sub-agents for the four prereqs:
