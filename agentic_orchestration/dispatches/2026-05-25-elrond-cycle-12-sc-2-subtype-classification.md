@@ -138,3 +138,146 @@ Round-trip: not applicable — substrate-classification backfill is a data updat
 **Status:** FIRE — Day-1 sidecar; fires in parallel with legolas MC-1+MC-2 + jack-ryan Gate-1 + elrond SC-1 + Cycle 11 close drax Wave 3b
 
 **Matt-touch sequence:** elrond + rocket complete → KR captures completion in state file → if subtype-enum-extension OR fantasy-naming-design surfaces emerge, KR routes Pattern A-light to gandalf; otherwise auto-close
+
+---
+
+## Completion record — Phase 1 enumeration HALT-FOR-SCOPE (elrond 2026-05-25)
+
+**Status:** Phase 1 enumeration COMPLETE. Execution HALTED before Phase 2 per dispatch directive ("If your enumerated count is >>100, flag to KR for scope decision before backfilling"). Enumerated count is **20,770 — ~200× the dispatch estimate of 50-100.** Returning to knight-rider for scope decision before proceeding.
+
+### Database / location
+
+- **DB:** `/Users/admin/Games/reincarnated-loadout/data/telemetry.db` (the substrate DB — `weapon_knowledge_entries` table is here, not in `agentic_orchestration/research/curated/catalogue.db`; the dispatch's "catalogue DB" framing is consistent with hive-mind P-phase nomenclature)
+- **Table:** `weapon_knowledge_entries`
+- **PRAGMA busy_timeout = 30000ms** applied per concurrency-mitigation guidance (SC-1 running in parallel against `cultural_lineage_canonical` + `historical_period_canonical` on a different row subset)
+
+### Phase 1 enumeration — Discipline #11 empirical inspection of catalogue rows BEFORE any update
+
+**Total `weapon_kind_classified_subtype IS NULL AND register_canonical IN ('fantasy','military_modern')`:** 20,770 rows
+
+#### Per-register breakdown
+
+| register_canonical | NULL-subtype count |
+|---|---|
+| fantasy | 17,361 |
+| military_modern | 3,409 |
+
+#### Per-parent `weapon_kind` × register breakdown
+
+| weapon_kind | register | count |
+|---|---|---|
+| named_template | fantasy | 14,144 |
+| category | military_modern | 2,619 |
+| category | fantasy | 2,345 |
+| unknown | fantasy | 743 |
+| ammo_or_consumable | military_modern | 670 |
+| unknown | military_modern | 119 |
+| ammo_or_consumable | fantasy | 65 |
+| banner | fantasy | 33 |
+| tome | fantasy | 20 |
+| talisman | fantasy | 11 |
+| named_template | military_modern | 1 |
+
+#### Per-`quality_tier` breakdown
+
+| quality_tier | register | count |
+|---|---|---|
+| B | fantasy | 8,755 |
+| C | fantasy | 8,586 |
+| C | military_modern | 1,776 |
+| B | military_modern | 1,633 |
+| NULL_tier | fantasy | 20 |
+
+(Confirms: 0 rows are Tier-S or Tier-A in this NULL-subtype population — Cycle 10 Stage 0a's Tier-S Phase 0a coverage and Wave 5.5 Phase 0c Tier-A coverage are complete. All 20,770 NULL rows are Tier-B + Tier-C + a tiny NULL-tier residual.)
+
+#### `v1_scope` partition (CRITICAL)
+
+| v1_scope | register | count |
+|---|---|---|
+| 0 (out-of-scope) | fantasy | 16,355 |
+| 0 (out-of-scope) | military_modern | 3,394 |
+| 1 (IN v1 scope) | fantasy | 1,006 |
+| 1 (IN v1 scope) | military_modern | 15 |
+
+**Only 1,021 of the 20,770 NULL-subtype rows are in v1_scope. The remaining 19,749 are v1_scope=0 — out-of-scope substrate.**
+
+#### Per-parent × register breakdown for **v1_scope=1 only** (the consequential subset)
+
+| weapon_kind | register | v1_scope=1 count |
+|---|---|---|
+| named_template | fantasy | 917 |
+| category | fantasy | 77 |
+| category | military_modern | 15 |
+| talisman | fantasy | 11 |
+| unknown | fantasy | 1 |
+
+#### Existing `weapon_kind_classified_subtype` enum coverage (post Cycle 10 Stage 0a + Wave 5.5)
+
+| subtype value | populated rows |
+|---|---|
+| handheld_weapon | 3,571 |
+| siege_vehicle | 2,402 |
+| armor_body_or_head | 818 |
+| ammo_consumable | 766 |
+| other | 548 |
+| accessory_weapon_integrated | 405 |
+| accessory_horse_or_equipment | 225 |
+| art_object | 207 |
+| armor_shield | 138 |
+| accessory_handheld | 32 |
+
+10 enum values present; no fantasy-specific subtype values (no need for enum extension for fantasy items — all are handheld_weapon or talisman/banner/tome which match the existing accessory subdivisions).
+
+### Spot-sample rows (Discipline #11)
+
+**v1_scope=1 fantasy named_template (sample 20 of 917):** "Vyrkos Barrow-blade", "Cursed Broadsword", "Femur-Shafted Mace", "Rod of the Ogre Magi", "Goat's Horn", "Mace of Tiamat - Common", "Massive Club", "Nadirite Spear", "Incantor's Staff", "Ranger Axe", "Ritual Dagger", "Hand Ballista", "Rod of Dire Shadows", "Marauder Javelin (Missile)", "Assassin's Throwing Axe", "Velvet Sword of St Trina", "Hellscape Chatterbane Quarterstaff (rare variant)", "Pokin' Lance", "Gargantuan Club", "Corpse Slayer Javelin". **All 20 are unambiguously `handheld_weapon`.**
+
+**v1_scope=1 fantasy category (sample 10 of 77):** "Sword of Light", "Greatsword of The Forlorn", "Staff of Enlightenment", "Greataxe", "Sword of Teclis", "Flail", "dagger", "Whip", "Mace of Disruption", "Javelin +3". **All 10 are unambiguously `handheld_weapon`.**
+
+**v1_scope=1 military_modern (all 15):** 14 are `siege_vehicle` (155mm self-propelled howitzers, FROG-7 artillery rocket system, FGM-148F Javelin ATGM, PARM 2 off-route mine, etc.) and 1 anomaly: id=172596 "naginata" mis-tagged as `register_canonical='military_modern'` (should be `fantasy` or `historical`; flagging for separate substrate-curation cleanup, not subtype-classification). DARPA flamethrower (id=173617) is `handheld_weapon` (per recent doctrine; man-portable). PCL-181 / 2S19M2 / AMX-10 PAC 90 / 1V15 / KBA.48M / 2S22 / M110A1 / ATMOS 2000 / 9K52 Luna-M / PL-96 / FGM-148F / PARM 2 / 2S35-1 are all `siege_vehicle`.
+
+**v1_scope=1 fantasy talisman (all 11):** "Talisman", "Canvas Talisman", "Thorolund Talisman", "Ivory Talisman", "Sunlight Talisman", "Darkmoon Talisman", "Talisman" (dup), "Sunlight Talisman" (dup), "Canvas Talisman" (dup), "White Hair Talisman", "Sunless Talisman". **All 11 are `accessory_handheld` per existing enum convention (Cycle 10 doctrine: Tier-S talismans → `accessory_handheld`).**
+
+### Decisions surfaced for KR
+
+The enumerated count (20,770) is so far from the dispatch estimate (50-100; ~200× over) that proceeding without scope re-confirmation would violate the dispatch's explicit halt directive. Three plausible scopes for SC-2:
+
+**Option A — v1_scope=1 only (RECOMMENDED).** Backfill the 1,021 in-scope rows. All are mechanically obvious from sample inspection (917 named_template + 77 category + 15 military_modern + 11 talisman + 1 unknown). Bulk-classifiable in a single pass: fantasy named_template + fantasy category → `handheld_weapon`; military_modern category (mostly artillery) → `siege_vehicle` mostly; talisman → `accessory_handheld`. Effort: ~30 minutes elrond, no rocket consultation needed (no ambiguous items in the v1_scope=1 sample). 1 anomaly surfaces for separate cleanup (id=172596 naginata register mis-tag).
+
+**Option B — v1_scope=0/1 fantasy bulk (Tier-B/C named_templates + categories).** Backfill all 17,361 fantasy NULL rows. Substrate-cleanup hygiene wider than v1 needs; useful for v1.1+ substrate re-cuts where v1_scope membership may shift. All bulk-classifiable as `handheld_weapon` for named_template + category (per sample). Effort: ~1-2 hours elrond, no rocket consultation; SQL is the work. Note: this exceeds the dispatch's "fantasy + military_modern subset" framing in volume — Matt may not have anticipated this scale.
+
+**Option C — Full enumerated 20,770.** Includes 3,409 military_modern items (mostly siege_vehicle artillery + 670 ammo_or_consumable). The 670 ammo_or_consumable parent already telegraphs `ammo_consumable` subtype obvious-mapping; the 2,619 military_modern category and 119 military_modern unknown rows would need sample inspection but are likely siege_vehicle / handheld_weapon dominant. Effort: ~2-3 hours elrond. Genuinely cleans the entire NULL-subtype population for these two registers.
+
+**Defer-and-narrow.** Cycle 10 wave 5.5 dispatch (Phase 0c) explicitly scoped 940 Tier-A NULL-subtype rows. Phase 0a + Wave 5.5 covered Tier-S + Tier-A. **Tier-B + Tier-C never had a classification pass.** The "~50-100 items" estimate likely reflects an assumption that Cycle 10 covered everything, or an estimate of v1_scope=1 NULL items specifically. If the latter, 1,021 v1_scope=1 is the right cardinality bucket — still 10× the estimate but recoverable via Option A.
+
+### Recommended scope decision (elrond seam-owner judgment per § 3.1 push-back)
+
+**Option A (v1_scope=1 only; 1,021 items).** Reasoning:
+1. Aligns with Cycle 12 framing brief § 2 SC-2 intent (substrate cleanup unblocking Cycle 12 v1 layers; v1_scope=1 IS the v1 scope)
+2. Closest-fit cardinality to dispatch estimate (1,021 vs 50-100; still ~10× over but within scope-doc § 1 KR autonomous orchestration tolerance)
+3. All v1_scope=1 NULL items are mechanically obvious from sample (no rocket consultation needed; no enum extension needed; no gandalf Pattern A-light needed)
+4. Tier-B + Tier-C v1_scope=0 substrate cleanup is a v1.1+ hygiene task, not Cycle 12 v1-unblocking work
+5. Discipline #25 satisfied: subtype identifies mechanical sub-category (handheld_weapon = mechanical), not semantic overlay; sample inspection confirms
+
+### Concurrency note
+
+SC-1 is firing in parallel against `cultural_lineage_canonical` + `historical_period_canonical` on Tier-S named-mythological rows (different subset). PRAGMA busy_timeout = 30000ms applied. No SQLite lock-busy contention observed during Phase 1 read-only enumeration. If Phase 4 bulk UPDATE is authorized, will re-apply busy_timeout + retry-with-backoff at the UPDATE step.
+
+### Disciplines satisfied at halt-point
+
+- **#11 (empirical inspection):** direct-inspected catalogue rows via 7 distinct queries (totals + per-register + per-parent × register + per-quality_tier + per-v1_scope + per-v1_scope subset + sample row spot-checks of 56 rows across 4 sub-populations) BEFORE any update fires
+- **#25 (semantic-layer rep-audit):** confirmed `weapon_kind_classified_subtype` mechanically identifies sub-category (handheld_weapon vs siege_vehicle vs accessory_handheld) per existing 10-value enum; sample-row spot-check confirms no semantic-overlay drift (cultural_lineage / period are separate columns; subtype is mechanical only)
+- **#1 (math-before-code):** no math; data-cleanup operation correctly characterized
+- **§ 3.1 (push back hard when warranted within data domain):** halting at Phase 1 per dispatch's own >>100 escalation gate; not silently expanding scope by 200×
+- **§ 3.5 (Discipline #11 every Phase D step):** non-negotiable for go/no-go; halt is the right call
+
+### Awaiting KR scope decision
+
+Phases 2-5 unfired. Will resume on KR/Matt scope ratification (Option A vs B vs C vs defer). Estimated resumption effort:
+- Option A: ~30 min execution + audit (no rocket consultation; no MIGRATION.md cross-seam cost beyond existing composition policy)
+- Option B: ~1-2 hr execution + audit (no rocket consultation expected)
+- Option C: ~2-3 hr execution + audit (light rocket consultation for any ambiguous military_modern category items at sample inspection)
+
+No commit fired (no UPDATE landed; Phase 1 read-only enumeration only). No tag cut. Scope-decision halt is the work-product.
+
+**Elrond seam-owner recommendation:** Option A. KR/Matt to ratify.
