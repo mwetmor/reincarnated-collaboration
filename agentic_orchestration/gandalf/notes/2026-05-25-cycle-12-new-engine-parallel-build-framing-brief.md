@@ -1,6 +1,6 @@
 # Cycle 12 — Full New Engine Parallel-Build (Option γ) Framing Brief
 
-> **STATUS:** DRAFT 2026-05-25 — Pattern-B framing brief for Matt ratification. Supersedes `2026-05-25-w1-13-w1-20-framing-brief.md` per Matt dialogue 2026-05-25 surfacing that BDI testing requires the new BC-target subspace generator + new skill content layer to land FIRST. Once ratified, becomes canonical authority basis for Cycle 12 hive-mind scope-doc + KR kicker authoring.
+> **STATUS:** RATIFIED 2026-05-25 — Matt bulk-approved all gandalf recommendations + contract as-drafted ("Let's move ahead with it"). Supersedes `2026-05-25-w1-13-w1-20-framing-brief.md`. Now canonical authority basis for Cycle 12 hive-mind scope-doc + KR kicker.
 
 **Author:** gandalf (story-and-design steward)
 **Authority basis:** Matt 2026-05-25 dialogue sequence:
@@ -497,10 +497,10 @@ Once Matt ratifies:
 ## 8. Sign-off
 
 **Author:** gandalf 2026-05-25 (Pattern-B framing brief authored same-session as Matt log-back + Option γ confirmation + L9 substrate split endorsement)
-**Status:** DRAFT — awaiting Matt ratification
-**Authority basis:** Matt 2026-05-25 dialogue sequence (Tier 2 + L9 + new-engine-requirement + Option γ + strict-4-tuple confirmation)
-**Downstream consumers:** Cycle 12 scope-doc + Cycle 12 KR kicker (to be authored once this brief is ratified)
-**Ratification ask:** "Approve all gandalf recommendations + contract as-drafted" for bulk; OR specific amendments per item; OR defer for additional design dialogue on any sub-question
+**Status:** RATIFIED 2026-05-25 (bulk-approval per Matt "Let's move ahead with it")
+**Authority basis:** Matt 2026-05-25 dialogue sequence (Tier 2 + L9 + new-engine-requirement + Option γ + strict-4-tuple confirmation + bulk-ratification)
+**Downstream consumers:** Cycle 12 scope-doc + Cycle 12 KR kicker (authored same-session post-ratification)
+**Ratification:** RATIFIED with all gandalf recommendations + interface contract per § 4 as-drafted
 
 ---
 
