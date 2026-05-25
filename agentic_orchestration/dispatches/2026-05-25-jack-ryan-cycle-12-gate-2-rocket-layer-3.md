@@ -190,3 +190,31 @@ If jack-ryan surfaces BLOCK on Layer 3, KR routes back to rocket for amendment p
 **Status:** FIRE — Layer 3 ✅; Gate-2 fires immediately; Layer 2 still IN-FLIGHT (Gate-2 on L2 fires separately when L2 lands)
 
 **Matt-touch sequence:** Gate-2 verdict → if PASS, Layer 3 marked composable for Layer 4 sequencing (waits for Layer 2 + MC-3 methodology consult); if BLOCK, rocket amends per scope-doc § 5
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-25
+**Reviewer:** jack-ryan
+**Finding file:** `agentic_orchestration/qa/findings/2026-05-25-gate2-cycle-12-wave-1-rocket-layer-3.md`
+
+### Verdict: PASS
+
+Layer 3 is **composable for Layer 4 sequencing** once Layer 2 lands.
+
+**Zero BLOCK findings. Zero WARN findings. Four INFO observations (no action required before Layer 4).**
+
+### Gate-1 amendment disposition: ALL RESOLVED
+- WARN-1 (off_hand_type cites SC-3): VERIFIED RESOLVED in `off_hand_contract.py`
+- WARN-3 (bc_axis_contribution dict[str, float] __post_init__): VERIFIED RESOLVED — strict 8-key enforcement (missing + extra both caught)
+- WARN-5 (T4_CANDIDATES_MAX=6 + _CANDIDATE_ALLOCATION): VERIFIED RESOLVED — math note derivation matches code
+- INFO-3 (signature_chain_id Optional[str] = None): VERIFIED RESOLVED — Layer 6 sets; Layer 3 leaves None
+
+### INFO findings for Layer 4+ authoring
+- INFO-B: rocket should include code line citations in Layer 4 + Layer 6 math notes per Discipline #1.2
+- INFO-C: `validate_invariants()` substrate-agnostic check is behavioral-only; recommend adding runtime node_type check at Layer 6
+- INFO-D: KR Layer 6 dispatch must enumerate star-lord + gamora + drax SC-3 obligations as acceptance criteria
+
+### KR sequencing: READY
+Layer 3 COMPOSABLE. KR waits for Layer 2 Gate-2 PASS (L2 still IN-FLIGHT) and MC-3 methodology consult before authoring Layer 4 dispatch. No rocket amends required.
