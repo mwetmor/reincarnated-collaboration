@@ -150,7 +150,9 @@ Layer 2 ✅ COMPLETE; both pre-Layer-4 gates fired in parallel per Discipline #1
 
 | Sub-agent | Dispatch | Status |
 |---|---|---|
-| rocket Layer 4 — W1.13 multi-dim convergence | `2026-05-25-rocket-cycle-12-layer-4-multi-dim-convergence.md` | IN-FLIGHT (background) — integrates MC-3 custom impl + 9 § 10 calibration params + Discipline #17 sweep plan + Gate-2-on-L3 INFO-B math-note code-line citations per Discipline #1.2 + framing brief § 4 ConvergenceResult contract |
+| rocket Layer 4 — W1.13 multi-dim convergence | `2026-05-25-rocket-cycle-12-layer-4-multi-dim-convergence.md` | ✅ **COMPLETE in ~25 min wall-clock** — 270/270 tests PASS (+ 2 skipped); MC-3 custom impl per math note v1.1 § 4.3 implemented; 9 § 10 calibration parameters settled per Discipline #17 sweep plan; ConvergenceResult dataclass per framing brief § 4 contract (LOCKED); pre-implementation gauntlet interface verification cleared (no gamora consultation needed). Engine commit `9857610`; tag `rocket/v0.1-cycle-12-layer-4-multi-dim-convergence-2026-05-25` pushed. Collab dispatch completion record commit `529726d` pushed per push-per-wave authorization. Awaiting jack-ryan Gate-2 on L4 |
+
+Layer 4 jack-ryan Gate-2 fires immediately on landing per scope-doc § 1 in-scope autonomous Gate-2 orchestration.
 
 **Rocket Layer 2 amendment queue (non-blocking for Layer 4 fire; rocket addresses at next commit opportunity):**
 - **WARN-A**: math note uses "22 cells" throughout; reconcile to 25 per gandalf verdict (may batch with Gate-2-on-L3 INFO-B math-note code-line citations per Discipline #1.2)
