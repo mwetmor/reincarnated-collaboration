@@ -141,7 +141,35 @@ Fired diagnostic triple in parallel:
 | gandalf | Design-fit critique (Pattern A-deep): is the test design aligned with § 8 design intent; is "BC-shift on predicted axis" the right success measurement; is FAIL evidence of architectural problem OR test misalignment |
 | legolas | Methodology-test-design re-review (Pattern A-deep): are 80%/60% thresholds appropriate; is the test set composition representative; is the cheapest-refuting-test correctly framed; are there confounders in the sweep design |
 
-**Matt-escalation pending synthesis of all 3 returns.** State file will be updated with synthesis + recommended decision-options once returns are aggregated.
+**Diagnostic triple synthesis (all 3 returned 2026-05-25):**
+
+**UNANIMOUS CONVERGENCE:** BC-shift sweep FAIL is NOT an architectural problem. It is a test-design + missing-wire-up issue. § 8 architecture is SOUND.
+
+| Agent | Artifact | Commit | Verdict |
+|---|---|---|---|
+| rocket calibration analysis | `~/Games/reincarnated-engine/src/reincarnated/generation/notes/algorithm-section-8-bc-shift-fail-diagnostic-2026-05-25.md` | `70061a7` | Test-fixable Pattern A + implementation-gap Pattern B; registry correct; weights correct |
+| gandalf design-fit critique (Pattern A-deep) | `agentic_orchestration/gandalf/notes/2026-05-25-algorithm-section-8-bc-shift-fail-design-fit-critique.md` | `af13cba` | Option (a) — architecture sound; test misaligned. Discipline #23 framing-audit second canonical operational example |
+| legolas methodology re-review (Pattern A-deep) | `agentic_orchestration/legolas/research/algorithm-section-8-methodology-consult-2026-05-25/methodology-re-review-post-bc-shift-fail-2026-05-25.md` | (pushed) | Sweep is NOT a valid test of § 8 claim; both patterns trace to test infrastructure problems |
+
+**Pattern A (strategy-selection mismatch 7/12) root cause — convergent:**
+The sweep's `expected_strategy` labels were assigned by test-author intuition ("fire_mage_hp_econ_1" → "should be" RESOURCE_CONVERSION). But the kit params flow through `_bc_view_from_generation_params()` producing DIFFERENT BC-view axis values than the labels imagined. η-scoring is selecting CORRECTLY for the inputs it actually receives. Examples confirmed by rocket + legolas η-trace: `fire+mana` → `resource_economy="overflow"` (not HP-economy); `physical_warrior+rage` → `defensive_profile="tank"` (rage hard-assigns; dodger unreachable); `water+mana` → `fire_resonance=0.10` (below ELEMENT_CONVERSION floor).
+
+**Pattern B (near-zero magnitude 12/12) root cause — convergent:**
+The `t4_alteration_output` struct is stored on PlayerClass but **Phase 3 convergence does NOT read it anywhere** (confirmed by all three sub-agents via source inspection). Alterations are intent metadata; the "loadout-resolution layer" implied by methodology § 3 was assumed-existing but never implemented. Sweep measured `final_modifier delta when an unread struct is set vs not set` — a null test by construction. Gandalf additional framing: even if wire-up existed, balance-loop renormalization against alteration would return `final_modifier` to baseline by design — `final_modifier` is the wrong measurement instrument for BC-shift regardless.
+
+**Three options surfaced — Matt-decision required:**
+
+| Tier | Path | Effort | T4 milestone | Recommended by |
+|---|---|---|---|---|
+| **Tier 1** | Fix test: redesign sweep fixtures (explicit BcTargetView) + wire alteration params into combat arithmetic (gamora-adjacent seam) + re-fire | rocket ~1-2 days + possible gamora wire-up | Preserved | gandalf primary; rocket Option 1; legolas Option 1 |
+| **Tier 2** | Drop sweep gate: use Wave-1 static η-calibration smoke (already 6/6 PASS) as v1 selection-logic validation; defer magnitude validation to v1.1 alongside wire-up | ~0 (re-frame v1 deliverable) | Preserved (best) | gandalf Tier 2; rocket Option 2; legolas implicit |
+| **Tier 3** | § 8 architectural re-design | ~1-2 weeks | At risk | REJECTED by all three sub-agents |
+
+**KR recommendation (synthesis):**
+- If Matt wants EMPIRICAL CONFIDENCE in § 8 selection logic before v1 ship: **Tier 1**. Rocket fires the cheap follow-up tests legolas enumerated (BC-view derivation audit ~5 min + TRADE_OFF wiring proof-of-concept ~2 hr) FIRST as decision-information; full sweep redesign + re-fire follows only if cheap tests confirm the diagnosis holds.
+- If Matt wants FASTEST T4 milestone: **Tier 2**. Ship v1 with `t4_alteration_output` as intent metadata; loadout displays + spirit-guide explains; wire-up to combat arithmetic + magnitude validation = v1.1 explicit deferred.
+
+**Wave 3b status:** REMAINS BLOCKED until Matt-decision. Wave 3b dispatch (drax M3/M6) NOT authored. After Matt-decision: if Tier 1, dispatch authoring fires post-cheap-test-PASS; if Tier 2, dispatch authoring fires immediately (M3 = T4 alteration display consuming current `t4_alteration_output` intent-metadata; M6 = T4 comparison panel).
 
 ---
 
