@@ -1,0 +1,792 @@
+{
+  "cycle": "10",
+  "sidecar": "B",
+  "date": "2026-05-25",
+  "owner": "elrond",
+  "dispatch": "agentic_orchestration/dispatches/2026-05-25-elrond-cycle-10-sidecar-b-off-hand-substrate.md",
+  "schema_extension_applied": true,
+  "pre_state": {
+    "active_rows": 69137,
+    "per_category": {
+      "shield": 0,
+      "tome": 0,
+      "banner": 0,
+      "focus": 0,
+      "horn": 0,
+      "talisman": 0,
+      "_off_hand_total": 0
+    }
+  },
+  "mining_log": [
+    {
+      "step": "shields_royal_armouries",
+      "rows_affected": 20
+    },
+    {
+      "step": "shields_met_museum",
+      "rows_affected": 88
+    },
+    {
+      "step": "shields_wikidata",
+      "rows_affected": 79
+    },
+    {
+      "step": "shields_wikipedia_name",
+      "rows_affected": 6
+    },
+    {
+      "step": "tomes_met_museum",
+      "rows_affected": 16
+    },
+    {
+      "step": "tomes_wp_wd_name",
+      "rows_affected": 0
+    },
+    {
+      "step": "banners_met_museum",
+      "rows_affected": 37
+    },
+    {
+      "step": "banners_osrsbox",
+      "rows_affected": 33
+    },
+    {
+      "step": "banners_wp_wd_name",
+      "rows_affected": 0
+    },
+    {
+      "step": "horns_met_museum",
+      "rows_affected": 2
+    },
+    {
+      "step": "horns_royal_armouries",
+      "rows_affected": 4
+    },
+    {
+      "step": "horns_wp_wd_name",
+      "rows_affected": 1
+    },
+    {
+      "step": "talismans_fextralife",
+      "rows_affected": 11
+    },
+    {
+      "step": "focuses_wp_wd_name",
+      "rows_affected": 0
+    },
+    {
+      "step": "legolas_mode_b_insert",
+      "rows_inserted": 130,
+      "dedup_skipped": 2,
+      "living_traditions_flagged": 8
+    }
+  ],
+  "reclassification_totals": {
+    "shield": 193,
+    "tome": 16,
+    "banner": 70,
+    "horn": 7,
+    "talisman": 11,
+    "focus": 0,
+    "_existing_source_reclassified_total": 297
+  },
+  "legolas_mode_b_insert": {
+    "rows_inserted": 130,
+    "dedup_pairs_dropped": 2,
+    "living_tradition_flagged": 8,
+    "living_tradition_asset_ids": [
+      "focus-008",
+      "focus-012",
+      "focus-018",
+      "focus-026",
+      "horn-003",
+      "horn-006",
+      "horn-018",
+      "tome-045"
+    ],
+    "dedup_dropped_asset_ids": [
+      "banner-021",
+      "banner-033"
+    ]
+  },
+  "post_state": {
+    "active_rows": 69267,
+    "per_category": {
+      "shield": 193,
+      "tome": 64,
+      "banner": 102,
+      "focus": 14,
+      "horn": 27,
+      "talisman": 27,
+      "_off_hand_total": 427
+    }
+  },
+  "tier_quality_intersection": {
+    "banner": 70,
+    "horn": 7,
+    "shield": 193,
+    "talisman": 11,
+    "tome": 16
+  },
+  "v1_scope_intersection": {
+    "banner": 7,
+    "horn": 2,
+    "shield": 19,
+    "talisman": 11,
+    "tome": 3
+  },
+  "samples_per_category": {
+    "shield": [
+      {
+        "id": 31,
+        "canonical_name": "Ceremonial shield from the Tombs of Vergina",
+        "source_library": "wikidata",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "unknown",
+        "historical_period_canonical": "unknown",
+        "proxy_geometry_class": "shield_blocker",
+        "proxy_fingerprint_confidence": 0.1
+      },
+      {
+        "id": 204476,
+        "canonical_name": "Shield",
+        "source_library": "met-museum",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "middle_eastern",
+        "historical_period_canonical": "early_modern",
+        "proxy_geometry_class": "shield_blocker",
+        "proxy_fingerprint_confidence": 0.1
+      },
+      {
+        "id": 196448,
+        "canonical_name": "Rondache in Late 16th Century Milanese Style",
+        "source_library": "met-museum",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "european",
+        "historical_period_canonical": "early_modern",
+        "proxy_geometry_class": "shield_blocker",
+        "proxy_fingerprint_confidence": 0.05
+      },
+      {
+        "id": 205550,
+        "canonical_name": "Rondache",
+        "source_library": "royal_armouries",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "european",
+        "historical_period_canonical": "early_modern",
+        "proxy_geometry_class": "shield_blocker",
+        "proxy_fingerprint_confidence": 0.05
+      },
+      {
+        "id": 204410,
+        "canonical_name": "Shield",
+        "source_library": "met-museum",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "southeast_asian",
+        "historical_period_canonical": "early_modern",
+        "proxy_geometry_class": "shield_blocker",
+        "proxy_fingerprint_confidence": 0.1
+      },
+      {
+        "id": 204404,
+        "canonical_name": "Shield",
+        "source_library": "met-museum",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "southeast_asian",
+        "historical_period_canonical": "early_modern",
+        "proxy_geometry_class": "shield_blocker",
+        "proxy_fingerprint_confidence": 0.1
+      },
+      {
+        "id": 204259,
+        "canonical_name": "Shield",
+        "source_library": "met-museum",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "south_asian",
+        "historical_period_canonical": "early_modern",
+        "proxy_geometry_class": "shield_blocker",
+        "proxy_fingerprint_confidence": 0.1
+      },
+      {
+        "id": 20,
+        "canonical_name": "Parade shield",
+        "source_library": "wikidata",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "oceanic",
+        "historical_period_canonical": "industrial",
+        "proxy_geometry_class": "shield_blocker",
+        "proxy_fingerprint_confidence": 0.1
+      },
+      {
+        "id": 204391,
+        "canonical_name": "Shield (Dh\u00e0l)",
+        "source_library": "met-museum",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "south_asian",
+        "historical_period_canonical": "industrial",
+        "proxy_geometry_class": "shield_blocker",
+        "proxy_fingerprint_confidence": 0.1
+      },
+      {
+        "id": 204262,
+        "canonical_name": "Shield (Dh\u00e0l)",
+        "source_library": "met-museum",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "south_asian",
+        "historical_period_canonical": "industrial",
+        "proxy_geometry_class": "shield_blocker",
+        "proxy_fingerprint_confidence": 0.1
+      }
+    ],
+    "tome": [
+      {
+        "id": 225728,
+        "canonical_name": "Hagakure",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "east_asian",
+        "historical_period_canonical": "early_modern",
+        "proxy_geometry_class": "tome_buff_aura",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 196140,
+        "canonical_name": "Das Privilrgium des Voritts (Pamphlet Containing Laws Regulating the Show of Arms)",
+        "source_library": "met-museum",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "european",
+        "historical_period_canonical": "early_modern",
+        "proxy_geometry_class": "tome_buff_aura",
+        "proxy_fingerprint_confidence": 0.05
+      },
+      {
+        "id": 208396,
+        "canonical_name": "Arte dell'Armi di Achille Marozzo Bolognese (The Art of Arms, by Achille Marozzo of Bologna)",
+        "source_library": "met-museum",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "european",
+        "historical_period_canonical": "early_modern",
+        "proxy_geometry_class": "tome_buff_aura",
+        "proxy_fingerprint_confidence": 0.05
+      },
+      {
+        "id": 225733,
+        "canonical_name": "Sworn Book of Honorius",
+        "source_library": "wikipedia",
+        "register_canonical": "fantasy",
+        "cultural_lineage_canonical": "european",
+        "historical_period_canonical": "medieval",
+        "proxy_geometry_class": "tome_buff_aura",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 225727,
+        "canonical_name": "The Art of War (Jomini)",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "unknown",
+        "historical_period_canonical": "modern",
+        "proxy_geometry_class": "tome_buff_aura",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 225718,
+        "canonical_name": "De Re Militari",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "european",
+        "historical_period_canonical": "classical",
+        "proxy_geometry_class": "tome_buff_aura",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 208395,
+        "canonical_name": "An Illustrated Catalogue of Weapons and Detached Specimens of Armour, from the Collection of William Meyrick, Esq.",
+        "source_library": "met-museum",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "european",
+        "historical_period_canonical": "industrial",
+        "proxy_geometry_class": "tome_buff_aura",
+        "proxy_fingerprint_confidence": 0.1
+      },
+      {
+        "id": 225720,
+        "canonical_name": "Tactica of Leo VI",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "european",
+        "historical_period_canonical": "medieval",
+        "proxy_geometry_class": "tome_buff_aura",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 225710,
+        "canonical_name": "Arthashastra",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "south_asian",
+        "historical_period_canonical": "classical",
+        "proxy_geometry_class": "tome_buff_aura",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 225749,
+        "canonical_name": "Meditations",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "european",
+        "historical_period_canonical": "classical",
+        "proxy_geometry_class": "tome_buff_aura",
+        "proxy_fingerprint_confidence": 0.55
+      }
+    ],
+    "banner": [
+      {
+        "id": 198732,
+        "canonical_name": "Banner of Louis XIV, King of France (r. 1643\u20131715)",
+        "source_library": "met-museum",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "european",
+        "historical_period_canonical": "early_modern",
+        "proxy_geometry_class": "banner_rally_aura",
+        "proxy_fingerprint_confidence": 0.05
+      },
+      {
+        "id": 225778,
+        "canonical_name": "Sashimono (Japanese soldier banner)",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "east_asian",
+        "historical_period_canonical": "early_modern",
+        "proxy_geometry_class": "banner_rally_aura",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 21497,
+        "canonical_name": "Lovakengj banner",
+        "source_library": "osrsbox-db",
+        "register_canonical": "fantasy",
+        "cultural_lineage_canonical": "fantasy_generic",
+        "historical_period_canonical": "fictional",
+        "proxy_geometry_class": "banner_rally_aura",
+        "proxy_fingerprint_confidence": 0.05
+      },
+      {
+        "id": 225776,
+        "canonical_name": "Black Tugh of the Mongols",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "east_asian",
+        "historical_period_canonical": "medieval",
+        "proxy_geometry_class": "banner_rally_aura",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 21255,
+        "canonical_name": "Banner",
+        "source_library": "osrsbox-db",
+        "register_canonical": "fantasy",
+        "cultural_lineage_canonical": "fantasy_generic",
+        "historical_period_canonical": "fictional",
+        "proxy_geometry_class": "banner_rally_aura",
+        "proxy_fingerprint_confidence": 0.05
+      },
+      {
+        "id": 21246,
+        "canonical_name": "Banner",
+        "source_library": "osrsbox-db",
+        "register_canonical": "fantasy",
+        "cultural_lineage_canonical": "fantasy_generic",
+        "historical_period_canonical": "fictional",
+        "proxy_geometry_class": "banner_rally_aura",
+        "proxy_fingerprint_confidence": 0.05
+      },
+      {
+        "id": 198727,
+        "canonical_name": "Corporation Banner of Crossbow Guild",
+        "source_library": "met-museum",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "european",
+        "historical_period_canonical": "early_modern",
+        "proxy_geometry_class": "single",
+        "proxy_fingerprint_confidence": 0.95
+      },
+      {
+        "id": 21476,
+        "canonical_name": "Green banner",
+        "source_library": "osrsbox-db",
+        "register_canonical": "fantasy",
+        "cultural_lineage_canonical": "fantasy_generic",
+        "historical_period_canonical": "fictional",
+        "proxy_geometry_class": "banner_rally_aura",
+        "proxy_fingerprint_confidence": 0.05
+      },
+      {
+        "id": 188951,
+        "canonical_name": "Standard (<i>Alem</i>)",
+        "source_library": "met-museum",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "middle_eastern",
+        "historical_period_canonical": "early_modern",
+        "proxy_geometry_class": "banner_rally_aura",
+        "proxy_fingerprint_confidence": 0.05
+      },
+      {
+        "id": 21464,
+        "canonical_name": "Western banner 2",
+        "source_library": "osrsbox-db",
+        "register_canonical": "fantasy",
+        "cultural_lineage_canonical": "fantasy_generic",
+        "historical_period_canonical": "fictional",
+        "proxy_geometry_class": "banner_rally_aura",
+        "proxy_fingerprint_confidence": 0.05
+      }
+    ],
+    "focus": [
+      {
+        "id": 225814,
+        "canonical_name": "Prayer Wheel (Tibetan Buddhist)",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "unknown",
+        "historical_period_canonical": "unknown",
+        "proxy_geometry_class": "focus_channel_amp",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 225816,
+        "canonical_name": "Skofnung Stone",
+        "source_library": "wikipedia",
+        "register_canonical": "mythological",
+        "cultural_lineage_canonical": "european",
+        "historical_period_canonical": "unknown",
+        "proxy_geometry_class": "focus_channel_amp",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 225793,
+        "canonical_name": "Nostradamus's Magic Mirror",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "european",
+        "historical_period_canonical": "early_modern",
+        "proxy_geometry_class": "focus_channel_amp",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 225809,
+        "canonical_name": "Urim and Thummim",
+        "source_library": "wikipedia",
+        "register_canonical": "mythological",
+        "cultural_lineage_canonical": "unknown",
+        "historical_period_canonical": "unknown",
+        "proxy_geometry_class": "focus_channel_amp",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 225810,
+        "canonical_name": "Magatama (general class)",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "east_asian",
+        "historical_period_canonical": "classical",
+        "proxy_geometry_class": "focus_channel_amp",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 225808,
+        "canonical_name": "Aphrodite's Cestus",
+        "source_library": "wikipedia",
+        "register_canonical": "mythological",
+        "cultural_lineage_canonical": "european",
+        "historical_period_canonical": "fictional",
+        "proxy_geometry_class": "focus_channel_amp",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 225790,
+        "canonical_name": "Childeric I's Crystal Ball",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "european",
+        "historical_period_canonical": "classical",
+        "proxy_geometry_class": "focus_channel_amp",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 225792,
+        "canonical_name": "Cup of Jamshid",
+        "source_library": "wikipedia",
+        "register_canonical": "mythological",
+        "cultural_lineage_canonical": "middle_eastern",
+        "historical_period_canonical": "fictional",
+        "proxy_geometry_class": "focus_channel_amp",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 225789,
+        "canonical_name": "John Dee's Crystal Ball",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "european",
+        "historical_period_canonical": "early_modern",
+        "proxy_geometry_class": "focus_channel_amp",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 225796,
+        "canonical_name": "Yasakani no Magatama",
+        "source_library": "wikipedia",
+        "register_canonical": "mythological",
+        "cultural_lineage_canonical": "east_asian",
+        "historical_period_canonical": "unknown",
+        "proxy_geometry_class": "focus_channel_amp",
+        "proxy_fingerprint_confidence": 0.55
+      }
+    ],
+    "horn": [
+      {
+        "id": 225836,
+        "canonical_name": "Shanka (Hindu Conch Horn)",
+        "source_library": "web-search",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "south_asian",
+        "historical_period_canonical": "unknown",
+        "proxy_geometry_class": "horn_signal_pulse",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 197619,
+        "canonical_name": "Ritual Horn (Sna Ru)",
+        "source_library": "met-museum",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "east_asian",
+        "historical_period_canonical": "early_modern",
+        "proxy_geometry_class": "AoE",
+        "proxy_fingerprint_confidence": 0.7
+      },
+      {
+        "id": 225838,
+        "canonical_name": "Lituus (Etruscan predecessor)",
+        "source_library": "web-search",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "unknown",
+        "historical_period_canonical": "classical",
+        "proxy_geometry_class": "horn_signal_pulse",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 162298,
+        "canonical_name": "Hunting horn",
+        "source_library": "royal_armouries",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "european",
+        "historical_period_canonical": "early_modern",
+        "proxy_geometry_class": "AoE",
+        "proxy_fingerprint_confidence": 0.65
+      },
+      {
+        "id": 225822,
+        "canonical_name": "Chazozra (Hebrew Trumpet)",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "middle_eastern",
+        "historical_period_canonical": "unknown",
+        "proxy_geometry_class": "horn_signal_pulse",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 225835,
+        "canonical_name": "Golden Horns of Gallehus",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "unknown",
+        "historical_period_canonical": "unknown",
+        "proxy_geometry_class": "horn_signal_pulse",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 132727,
+        "canonical_name": "Ivory horn",
+        "source_library": "royal_armouries",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "european",
+        "historical_period_canonical": "industrial",
+        "proxy_geometry_class": "AoE",
+        "proxy_fingerprint_confidence": 0.65
+      },
+      {
+        "id": 225823,
+        "canonical_name": "Pututu",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "unknown",
+        "historical_period_canonical": "unknown",
+        "proxy_geometry_class": "horn_signal_pulse",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 225832,
+        "canonical_name": "Salpinx",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "european",
+        "historical_period_canonical": "classical",
+        "proxy_geometry_class": "horn_signal_pulse",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 225826,
+        "canonical_name": "Carnyx",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "european",
+        "historical_period_canonical": "classical",
+        "proxy_geometry_class": "horn_signal_pulse",
+        "proxy_fingerprint_confidence": 0.55
+      }
+    ],
+    "talisman": [
+      {
+        "id": 225801,
+        "canonical_name": "Hamsa (Hand of Miriam / Hand of Fatima)",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "middle_eastern",
+        "historical_period_canonical": "unknown",
+        "proxy_geometry_class": "talisman_ward_amp",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 225813,
+        "canonical_name": "Silver Scroll Amulet (Jerusalem)",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "middle_eastern",
+        "historical_period_canonical": "classical",
+        "proxy_geometry_class": "talisman_ward_amp",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 225798,
+        "canonical_name": "Ankh",
+        "source_library": "wikipedia",
+        "register_canonical": "mythological",
+        "cultural_lineage_canonical": "middle_eastern",
+        "historical_period_canonical": "classical",
+        "proxy_geometry_class": "talisman_ward_amp",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 225807,
+        "canonical_name": "Nazar (Evil Eye Amulet)",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "unknown",
+        "historical_period_canonical": "unknown",
+        "proxy_geometry_class": "talisman_ward_amp",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 225818,
+        "canonical_name": "Takrut Scroll Spell",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "unknown",
+        "historical_period_canonical": "unknown",
+        "proxy_geometry_class": "talisman_ward_amp",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 181236,
+        "canonical_name": "Talisman",
+        "source_library": "fextralife-ds1",
+        "register_canonical": "fantasy",
+        "cultural_lineage_canonical": "fantasy_generic",
+        "historical_period_canonical": "fictional",
+        "proxy_geometry_class": "AoE",
+        "proxy_fingerprint_confidence": 0.65
+      },
+      {
+        "id": 187586,
+        "canonical_name": "Sunless Talisman",
+        "source_library": "fextralife-ds3",
+        "register_canonical": "fantasy",
+        "cultural_lineage_canonical": "fantasy_generic",
+        "historical_period_canonical": "fictional",
+        "proxy_geometry_class": "AoE",
+        "proxy_fingerprint_confidence": 0.65
+      },
+      {
+        "id": 225805,
+        "canonical_name": "Fulu (Taoist Talisman)",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "east_asian",
+        "historical_period_canonical": "unknown",
+        "proxy_geometry_class": "talisman_ward_amp",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 225815,
+        "canonical_name": "Seal of Solomon (Talisman variant)",
+        "source_library": "wikipedia",
+        "register_canonical": "historical",
+        "cultural_lineage_canonical": "middle_eastern",
+        "historical_period_canonical": "medieval",
+        "proxy_geometry_class": "talisman_ward_amp",
+        "proxy_fingerprint_confidence": 0.55
+      },
+      {
+        "id": 181241,
+        "canonical_name": "Darkmoon Talisman",
+        "source_library": "fextralife-ds1",
+        "register_canonical": "fantasy",
+        "cultural_lineage_canonical": "fantasy_generic",
+        "historical_period_canonical": "fictional",
+        "proxy_geometry_class": "AoE",
+        "proxy_fingerprint_confidence": 0.65
+      }
+    ]
+  },
+  "proxy_profiles_applied": {
+    "shield": {
+      "proxy_range_class": "melee_close_or_grapple",
+      "proxy_geometry_class": "shield_blocker",
+      "proxy_tempo_class": "reactive_block_tempo",
+      "proxy_attribute_class": "STR_or_DEX"
+    },
+    "tome": {
+      "proxy_range_class": "off_hand_passive",
+      "proxy_geometry_class": "tome_buff_aura",
+      "proxy_tempo_class": "passive_or_cast_tempo",
+      "proxy_attribute_class": "INT_or_WIS"
+    },
+    "banner": {
+      "proxy_range_class": "off_hand_aura",
+      "proxy_geometry_class": "banner_rally_aura",
+      "proxy_tempo_class": "aura_pulse_tempo",
+      "proxy_attribute_class": "STR_or_WIS"
+    },
+    "focus": {
+      "proxy_range_class": "off_hand_passive",
+      "proxy_geometry_class": "focus_channel_amp",
+      "proxy_tempo_class": "cast_amp_tempo",
+      "proxy_attribute_class": "INT_or_WIS"
+    },
+    "horn": {
+      "proxy_range_class": "off_hand_aura",
+      "proxy_geometry_class": "horn_signal_pulse",
+      "proxy_tempo_class": "aura_pulse_tempo",
+      "proxy_attribute_class": "STR_or_WIS"
+    },
+    "talisman": {
+      "proxy_range_class": "off_hand_passive",
+      "proxy_geometry_class": "talisman_ward_amp",
+      "proxy_tempo_class": "passive_or_cast_tempo",
+      "proxy_attribute_class": "WIS_or_INT"
+    }
+  },
+  "proxy_fingerprint_confidence_applied": 0.55,
+  "stage_4_consult_note": "Proxy fingerprints for off-hand items use weapon-aligned heuristics (damage-geometry \u2192 buff-geometry; damage-tempo \u2192 aura-tempo) per dispatch \u00a7 4.5. Stage 4 dispatch (Wave 7) will refine via legolas Mode A consult on off-hand mechanical-axis design."
+}
