@@ -71,8 +71,8 @@ Drive to **T4 post-mortem readiness milestone** (~3-5 weeks wall-clock) via full
 | Sub-agent | Dispatch | Purpose | Status |
 |---|---|---|---|
 | **drax (Cycle 11 close, Wave 3b)** | `2026-05-25-drax-cycle-11-m3-m6-t4-display-wave-3b.md` | M3 T4 alteration display in SkillTree + M6 T4 comparison panel (TOGGLE per Q2) per Tier 2 ratification | ✅ COMPLETE — M3 T4AlterationPanel + M6 T4ComparisonPanel + spirit-guide narration shipped; Tier 2 "Build Identity"/"Intent Metadata" framing honored; 773 modules/0 TS errors; Vercel preview READY (Q5 honored); tags `drax/v0.0-cycle-11-m3-t4-alteration-display-2026-05-25` + `drax/v0.1-cycle-11-m3-m6-t4-display-wave-3b-2026-05-25` @ loadout commit `b948d3d`; smoke fixture `class_0001.json` patched (TODO(drax) for removal at rocket §8 regen) |
-| legolas MC-1 | `2026-05-25-legolas-cycle-12-mc-1-bc-target-cell-sampling-methodology.md` | BC-target cell sampling methodology consult | IN-FLIGHT |
-| legolas MC-2 | `2026-05-25-legolas-cycle-12-mc-2-substrate-binding-heuristics.md` | Substrate-binding heuristics consult | IN-FLIGHT |
+| legolas MC-1 | `2026-05-25-legolas-cycle-12-mc-1-bc-target-cell-sampling-methodology.md` | BC-target cell sampling methodology consult | ✅ COMPLETE — **Hybrid H3** recommended (deterministic per-cell-fired-once enumeration with substrate pre-filter + composition-policy-weighted ordering; per-cell-fired-once base; multi-fire extension for N_kits > 22). 3 surprises surfaced: (1) level-of-analysis gap → needs elrond per-cell register breakdown; (2) cells 14/15/17/23 BLOCKED under L11 strict (Layer 2 must consume comp-policy § 4.1 routing table); (3) minor MC-1↔MC-2 coupling within-cell draw procedure. None require gandalf+jack-ryan critique-pair (within pre-resolved known-unknowns envelope per § 6). Tag `legolas/cycle-12-mc-1-bc-target-cell-sampling-methodology-2026-05-25` |
+| legolas MC-2 | `2026-05-25-legolas-cycle-12-mc-2-substrate-binding-heuristics.md` | Substrate-binding heuristics consult | ✅ COMPLETE — **Hybrid filter-then-sample with soft coherence weighting** recommended (score = 0.40·tier + 0.35·cell_match + 0.15·element_weapon_kind_coherence + 0.10·novelty; filter top-k = max(3, N_candidates // 5); sample within band). Thin-cell-fallback cascade: trigger <5 candidates; relax weapon_mechanical_profile sub-dims first; element last. L11 strict → thin-cell-fallback (not skip, not silent NULL). Discipline #25 rep-audit CLEAN. Cheapest-refuting-test 50-kit spot-check (≥90% coherence + ≥25% diversity + ≤10% deep-relaxation). 3 flags routed to KR: (1) MC-1↔MC-2 coupling minor; (2) comp policy § 4 only 12 of 22 CRITICAL cells have locked routing — **route to gandalf Pattern A-light**; (3) `element_weapon_kind_coherence_matrix` required Layer 2 input artifact — **elrond produces from Tier S/A frequency**. Tag `legolas/cycle-12-mc-2-substrate-binding-heuristics-2026-05-25` |
 | jack-ryan Gate-1 | `2026-05-25-jack-ryan-cycle-12-gate-1-interface-contract.md` | Critique-pair Gate-1 on framing brief § 4 interface contract | ✅ COMPLETE — **CLEAR-WITH-AMENDMENTS** (7 WARN + 3 INFO; zero BLOCK) — tag `jack-ryan/cycle-12-gate-1-interface-contract-2026-05-25` @ commit `b4e5be7`; finding at `agentic_orchestration/qa/findings/2026-05-25-gate1-cycle-12-interface-contract.md`; no gandalf design-fit route; no Matt escalation |
 | elrond SC-1 | `2026-05-25-elrond-cycle-12-sc-1-substrate-tagging-cleanup.md` | Backfill cultural_lineage_canonical + historical_period_canonical for Tier-S named-mythological items | IN-FLIGHT |
 | elrond + rocket SC-2 | `2026-05-25-elrond-cycle-12-sc-2-subtype-classification.md` | Backfill weapon_kind_classified_subtype for ~50-100 unset items (fantasy + military_modern subset) | ⚠️ Phase 1 HALT-FOR-SCOPE → KR-DIRECTIVE Option A approved (1,021 v1_scope=1 rows; Options B+C v1.1+ deferred per scope-doc § 0); Phase 1 commit `dac63fb`; Phases 2-5 RE-FIRE IN-FLIGHT |
@@ -105,7 +105,29 @@ Per jack-ryan Gate-1 finding (CLEAR-WITH-AMENDMENTS verdict; no BLOCK; no Matt e
 - L11 strict 4-tuple matching enforcement — implicit at generator level (acceptable; not a per-instance property)
 - ConvergenceResult.per_dim_adjustments open-schema — acceptable; legolas MC-3 gates L4 implementation
 
-**Sequencing implication:** rocket L2 + L3 dispatch authoring is GATED on (a) jack-ryan Gate-1 = CLEAR ✅, (b) legolas MC-1 land (BC-target cell sampling methodology), (c) legolas MC-2 land (substrate-binding heuristics). When MC-1 + MC-2 both return, KR authors rocket L2 + L3 dispatches integrating the WARN amendments above + MC-1/MC-2 methodology recommendations. Rocket L2 + L3 fire in PARALLEL per Q4 Option B sequencing.
+**Sequencing implication (UPDATED post-MC-1/MC-2 returns):** rocket L2 + L3 dispatch authoring is GATED on:
+- (a) jack-ryan Gate-1 = CLEAR ✅
+- (b) legolas MC-1 ✅ (Hybrid H3 sampling methodology)
+- (c) legolas MC-2 ✅ (hybrid filter-then-sample substrate-binding)
+- (d) **NEW:** elrond pre-Layer-2 prep (per-cell register breakdown + element_weapon_kind_coherence_matrix) — IN-FLIGHT
+- (e) **NEW:** gandalf Pattern A-light comp-policy § 4 coverage gap confirmation — IN-FLIGHT
+
+When (d) + (e) return, KR authors rocket L2 + L3 dispatches integrating: Gate-1 7 WARN + INFO-4 amendments + MC-1 Hybrid H3 recommendation + MC-1 cells 14/15/17/23 BLOCKED handling per comp-policy § 4.1 + MC-2 hybrid filter-then-sample scoring (0.40 tier + 0.35 cell_match + 0.15 coherence + 0.10 novelty) + MC-2 thin-cell-fallback cascade + elrond per-cell register breakdown weights + elrond coherence matrix as Layer 2 input + gandalf comp-policy § 4 confirmation. Rocket L2 + L3 fire in PARALLEL per Q4 Option B.
+
+### Wave 0.5 — Pre-Layer-2 prep fires (surfaced by MC-1/MC-2 returns)
+
+MC-1 + MC-2 both COMPLETE with prereq-artifact requirements for rocket Layer 2 dispatch authoring. Per hive-mind decision-routing § 4.3 + scope-doc § 6, KR routes seam-owner sub-agents for the four prereqs:
+
+| Prereq | Owner | Source | Status |
+|---|---|---|---|
+| Per-cell register breakdown (MC-1 surprise 1 — level-of-analysis gap) | elrond | MC-1 § "Surprise 1" | IN-FLIGHT (combined with coherence matrix in single dispatch) |
+| `element_weapon_kind_coherence_matrix` from Tier S/A frequency (MC-2 flag 3 — required Layer 2 input) | elrond | MC-2 § "Flag 3" | IN-FLIGHT (combined with register breakdown in single dispatch) |
+| Composition policy v1 § 4 coverage gap confirmation (only 12 of 22 cells locked) | gandalf Pattern A-light | MC-2 § "Flag 2" | IN-FLIGHT |
+| Cells 14/15/17/23 BLOCKED-status awareness in Layer 2 dispatch (MC-1 surprise 2) | KR authoring | MC-1 § "Surprise 2" | KR integrates at L2 dispatch authoring (no new sub-agent needed — composition policy § 4.1 routing table is consumed by L2 dispatch text + by L2 generator runtime) |
+
+Fired:
+- **elrond pre-Layer-2 prep dispatch** `2026-05-25-elrond-cycle-12-pre-layer-2-prep.md` — combines per-cell register breakdown + coherence matrix into single sub-agent invocation (~30-60 min combined)
+- **gandalf Pattern A-light** invocation — composition policy § 4 coverage gap confirmation (no heavy dispatch file; ~30 min A-light consult)
 
 ### Cycle 11 close — Wave 3b Gate-2 fire (drax M3+M6 output validation)
 
