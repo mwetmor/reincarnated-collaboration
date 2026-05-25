@@ -99,3 +99,38 @@ Document the derivation logic in math-note alongside the existing § 8 math-note
 - Star-lord schema extensions (Wave 1 PASS): `agentic_orchestration/dispatches/2026-05-25-star-lord-cycle-11-schema-extensions.md` § Completion record + `~/Games/reincarnated-engine/src/reincarnated/export/MIGRATION.md` § v1.3
 - Cycle 11 scope-doc: `agentic_orchestration/cycles/cycle-11-hive-mind-scope.md` § 1 (KR autonomous-scope authority for in-scope follow-on dispatches)
 - Scope-discipline § 5.3 (ambiguity defaults in-scope): `agentic_orchestration/operating-procedures/hive-mind-scope-discipline.md`
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-25
+**Tag shipped:** `rocket/v0.0-cycle-11-attribute-coupling-field-2026-05-25`
+**Commit:** `eef66b1`
+
+**Derivation chosen:** Path A — `_derive_attribute_coupling()` extracts top-2 stats by allocated value from `StatDistribution`. Ties broken by canonical stat order `[strength, dexterity, intelligence, wisdom, vitality]`. Always emits exactly 2 stat name strings. Never null, never empty list.
+
+**Round-trip smoke:** 5/5 PASS (Discipline #11 empirical inspection)
+- `class_generator.generate()` → `PlayerClass.attribute_coupling` = 2-element `list[str]` confirmed
+- `_class_to_dict()` → field present in output dict confirmed
+- `_validate_class_export()` boundary check PASS (field in `_REQUIRED_CLASS_KEYS`)
+- Disk JSON write + `json.load()` roundtrip → field present, correct shape, valid stat names confirmed
+- Archetypes tested: fire_mage (seed 42), water_controller (99), fire_mage/rage (7), wind_caster (13), earth_controller (200)
+
+**Regression tests:** 48/48 PASS (test_cycle11_schema_extensions_round_trip.py 40/40 + test_w02_archetype_label_round_trip.py 8/8)
+
+**MIGRATION.md written:** Yes — `src/reincarnated/generation/MIGRATION.md` § [2026-05-25]
+
+**Math note updated:** Yes — `src/reincarnated/generation/math/algorithm-section-8-v1-implementation-2026-05-25.md` § A1 appended (Path A derivation formula, edge cases, code citations per Discipline #1.2)
+
+**Files changed:**
+- `src/reincarnated/generation/class_schema.py` — `attribute_coupling: list[str] = []` field added to `PlayerClass`
+- `src/reincarnated/generation/class_generator.py` — `_STAT_TIEBREAK_ORDER` + `_derive_attribute_coupling()` added; wired into `generate()`
+- `src/reincarnated/output/season_writer.py` — field emitted in `_class_to_dict()`; added to `_REQUIRED_CLASS_KEYS`
+
+**Notes for drax M4 refire:**
+- Field is now present in all newly-generated class JSON as `"attribute_coupling": ["stat_a", "stat_b"]`
+- Always 2 elements, always valid stat name strings from `{strength, dexterity, intelligence, wisdom, vitality}`
+- Legacy class JSON (pre-Cycle-11 seasons) will NOT have this key — drax should guard with `cls.attribute_coupling ?? []`
+- No star-lord ExportClass action required for M4 — field flows through season_writer path; drax reads class JSON directly
+- BC-shift validation sweep (Wave 1 background, PID 79520) is independent — untouched per out-of-scope clause
