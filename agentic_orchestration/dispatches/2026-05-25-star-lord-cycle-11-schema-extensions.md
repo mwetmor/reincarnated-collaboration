@@ -111,3 +111,46 @@ No mathematical computation. Schema design judgment:
 - Sidecar B off-hand substrate: `agentic_orchestration/dispatches/2026-05-25-elrond-cycle-10-sidecar-b-off-hand-substrate.md`
 - Cycle 11 scope-doc: `agentic_orchestration/cycles/cycle-11-hive-mind-scope.md` § 1
 - ADR-004 (MIGRATION.md cross-seam): `agentic_orchestration/GOVERNANCE.md`
+
+---
+
+## Completion record
+
+**Completed by:** star-lord
+**Date:** 2026-05-25
+**Tag:** `star-lord/v0.1-cycle-11-schema-extensions-2026-05-25`
+**Commit:** `dcfa846`
+**Push:** pushed to origin (`main` + tag)
+
+### Scope items completed
+
+- [x] Add `t4_alteration_output` field to class JSON export (struct per coordination with rocket sub-agent)
+- [x] Add `main_weapon` field to class JSON export (substrate-row weapon descriptor passthrough)
+- [x] Add `secondary_item` field to class JSON export (Sidecar B off-hand passthrough; nullable)
+- [x] Add `source_library` field to class JSON export (substrate `source` column passthrough)
+- [x] Update season_writer.py emission logic (season_exporter.py + schemas.py)
+- [x] Round-trip smoke (production-path → loadout-consumption fixture → field-presence check)
+- [x] MIGRATION.md authored per ADR-004
+- [x] AGENT_STATE.md updated at session end
+- [x] Tag: `star-lord/v0.1-cycle-11-schema-extensions-2026-05-25` FIRED
+
+### Acceptance criteria results
+
+- [x] All 4 fields present in season_writer.py class JSON output for a smoke class — PASS
+- [x] `secondary_item: null` case smoke passes (class without off-hand) — PASS
+- [x] `t4_alteration_output` shape verified against rocket § 8 implementation — CONFIRMED (struct aligned with rocket dispatch lines 59-67; `eta_score` ASCII key established as JSON transport convention)
+- [x] **Round-trip smoke:** production-path class JSON written → loadout-consumption fixture parses → all 4 new fields present with correct shape OR null-case handled — 79/79 PASS (39 existing + 40 new tests)
+- [x] MIGRATION.md authored documenting additive schema extensions + consumer compat notes — at `/Users/admin/Games/reincarnated-engine/src/reincarnated/export/MIGRATION.md` § v1.3
+- [x] No regression in existing class JSON consumers — 39/39 pre-existing tests PASS
+
+### Files changed
+
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/export/schemas.py` — `ExportAlterationOutput` + `ExportWeaponDescriptor` model classes; 4 nullable fields on `ExportClass`
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/export/season_exporter.py` — `_build_alteration_output()` + `_build_weapon_descriptor()` builders; wired into `ExportClass` constructor; Stage B validator extended with Cycle 11 shape checks
+- `/Users/admin/Games/reincarnated-engine/tests/test_cycle11_schema_extensions_round_trip.py` — 40 round-trip smoke tests (NEW)
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/export/MIGRATION.md` — § v1.3 appended
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/export/AGENT_STATE.md` — updated with Cycle 11 session record
+
+### Forward-compat note for rocket
+
+Rocket § 8 implementation MUST serialize `AlterationOutput.η_score` to JSON as `eta_score` (ASCII transport key). Star-lord's `_build_alteration_output()` reads `eta_score`. If rocket uses a different key, file a cross-seam contract clarification via knight-rider before merging rocket § 8. All other struct fields (`strategy_type`, `strategy_params`, `applied_axis_targets`, `thematic_rationale`) match the dispatch verbatim.
