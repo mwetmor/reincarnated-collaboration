@@ -218,3 +218,26 @@ If jack-ryan surfaces BLOCK on Layer 2, KR routes back to rocket for amendment p
 **Status:** FIRE — Layer 2 ✅; Gate-2 fires immediately; parallel with MC-3 methodology consult
 
 **Matt-touch sequence:** Gate-2 verdict → if PASS, Layer 2 marked composable for Layer 4 sequencing (waits for MC-3 return); if BLOCK, rocket amends per scope-doc § 5 OR escalate to gandalf (25-vs-22 cell-roster routing) per case-by-case
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-25
+**Reviewer:** jack-ryan
+**Finding file:** `agentic_orchestration/qa/findings/2026-05-25-gate2-cycle-12-wave-1-rocket-layer-2.md`
+
+**VERDICT: PASS-WITH-AMENDMENTS**
+
+Zero BLOCK findings. Three WARN. Two INFO.
+
+**25-vs-22 cell count discrepancy:** RESOLVED as INFO-A. Rocket's 25-cell implementation is CORRECT per gandalf comp-policy verdict § 1.1 (25 cell-rows in Stage 0 roster; "22-cell" was informal undercount). No canonical amendment required. No gandalf routing required.
+
+**All five Gate-1 amendments verified disposed:** WARN-2 (MechanicalSubstrateTriple dataclass) + WARN-4 (StatDistributionV2 + Optional) + WARN-6 (JSON-primitive constraint) + WARN-7 (generation_seed required) + INFO-4 (engine_version="v2.0") — all CONFIRMED in source.
+
+**Three WARN observations for rocket (non-blocking for Layer 4):**
+- WARN-A: Math note uses "22 cells" throughout; should note reconciliation to 25 per gandalf verdict
+- WARN-B: export/MIGRATION.md § v1.4-layer-2 PlayerClassV2 schema pseudocode uses divergent field names from implementation — must amend before Layer 6 dispatch authoring
+- WARN-C: Dead `option_c_cells` set in `BcTargetCell.matching_policy` property — should clean up before Layer 6 wire-up
+
+**Layer 2 composable for Layer 4 sequencing:** YES — Layer 4 fires after MC-3 methodology consult returns (parallel gate; both must clear).
