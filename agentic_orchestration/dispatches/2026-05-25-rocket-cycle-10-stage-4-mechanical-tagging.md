@@ -1,0 +1,297 @@
+# Dispatch — 2026-05-25 — Cycle 10 Wave 7 — Stage 4 Accurate Mechanical-Tagging on v1_scope (Including Mythological-NULL Rescue)
+
+**Cycle:** 10 — Substrate Curation Multi-Stage Dispatch
+**Wave:** 7 (Stage 4 accurate mechanical-tagging on v1_scope rows + mythological-NULL rescue)
+**Lead owner:** rocket (engine-side mechanical-tagging + weapon_sim_props schema)
+**Co-owners:** gamora (sim-viability + balance-loop validation) + jack-ryan (Gate-2 methodology ratification + cross-seam round-trip review) + legolas Mode A (Phase 1 methodology consult prerequisite per Discipline #18; ~1-2 hr consult)
+**From:** knight-rider (orchestrator)
+**Date:** 2026-05-25
+**Authority:** Cycle 10 multi-stage dispatch parent (gandalf request 2026-05-23) § 3 Stage 4 + composition policy v1 § 1.4 (Stage 4 mythological-NULL rescue scope) + Cycle 10 scope-doc § 1 in-scope autonomous dispatch authoring
+**Status:** FIRE-READY pending Wave 5 Phase 3 distribution report + Wave 6 Stage 3.5 gap-fill landing (Stage 4 mechanical-tagging fires on UNION of v1_scope main pool + Stage 3.5 engine-authored entries)
+
+---
+
+## 0. TL;DR
+
+Populate accurate per-row mechanical-substrate values (range_min/max, base_attack_speed, charge_time, hits_per_attack, aoe_radius, damage_amplitude_min/max, primary_stat) on ALL v1_scope rows including:
+
+1. **Main v1_scope pool** (~1,700-3,100 items per composition policy estimate; Wave 5 Phase 3 output)
+2. **Stage 3.5 engine-authored gap-fills** (~25-50 entries; Wave 6 output)
+3. **Mythological-NULL rescue subset** (~30 mythological-register rows currently NULL-typed by Stage 1 proxy fingerprint; per composition policy § 1.4)
+
+Schema gap closure: `damage_amplitude_min REAL` + `damage_amplitude_max REAL` (or equivalent variance coefficient per legolas methodology consult).
+
+**Phase 1 legolas Mode A consult prerequisite** (Discipline #18; ~1-2 hr) on:
+- Heuristic-derivation thresholds for range / geometry / tempo bin assignment from Stage 1.5 extracted_length / extracted_weight
+- Damage-amplitude rubric design (the genuinely-hard axis per Stage 4 dispatch parent § 3 Stage 4 method notes)
+- Per-cell-type-matching policy operationalization (Option α/β/C from composition policy § 3)
+- LLM-judge calibration for ambiguous cases
+
+---
+
+## 1. Required reading
+
+1. `canonical/00-ground-state.md` § 1 (current truth)
+2. **`canonical/story/weapon-substrate-composition-policy-v1-2026-05-24.md` § 1.4 (mythological-NULL rescue) + § 3 (Option α/β/C cell-type matching policies)**
+3. **`canonical/story/qd-engine-bc-axes-lock-2026-05-20.md`** — 8 BC axes operational truth (bin definitions per axis); load-bearing for mechanical-tagging vocabulary
+4. **`canonical/story/qd-engine-end-to-end-workflow-2026-05-24.md` § 5.2 (Architecture B substrate-binding at Phase 2; Option α/β/C)**
+5. `canonical/story/v1-bc-target-intent-2026-05-24.md` (cell-targeting intent; per-cell mechanical profile)
+6. `canonical/story/attribute-system-2026-05-24.md` (STR/INT/WIS/DEX cell-type categories)
+7. `canonical/story/multi-dim-convergence-algorithm-2026-05-21.md` (BC convergence algorithm; mechanical-substrate consumes BC measurement)
+8. `canonical/story/tier-4-architecture-defaults-2026-05-22.md` (T4-A architecture; downstream consumer)
+9. **Wave 5 Phase 3 distribution report** at `agentic_orchestration/elrond/research/cycle-10-stage-3-2026-05-25/v1-scope-distribution-report.md` (v1_scope row set authoritative source)
+10. **Wave 6 Stage 3.5 entries** at `agentic_orchestration/rocket/research/cycle-10-stage-3-5-gap-fill-2026-05-25/entries/` (engine-authored entries to mechanical-tag)
+11. `agentic_orchestration/cycles/cycle-10-hive-mind-scope.md` (Cycle 10 in-scope autonomous; Stage 4 fires within scope)
+12. `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` (#1 math-before-code; #11 empirical inspection; #18 + #18.2 methodology-before-execution; #19.1 cheapest-refuting-test)
+13. `agentic_orchestration/legolas/research/cycle-10-stage-4-methodology-consult-2026-05-25/methodology-recommendation.md` (Phase 1 output; consume before mechanical-tagging fires)
+
+---
+
+## 2. Inputs
+
+- v1_scope row set from Wave 5 Phase 3 output (~1,700-3,100 items)
+- Stage 3.5 engine-authored gap-fill rows from Wave 6 (~25-50 entries)
+- Mythological-register NULL-typed rows currently in substrate (~30 rows; SELECT WHERE register_canonical = 'mythological' AND proxy_fingerprint_confidence IS NULL OR proxy_range_class IS NULL)
+- Stage 1 proxy fingerprint columns (initialization values for tagged rows)
+- Stage 1.5 extracted columns (extracted_length_value/unit, extracted_weight_value/unit, extracted_materials) for refinement values
+- 8 BC axes vocabulary (bin definitions per axis per BC-axes lock)
+- Phase 1 legolas Mode A methodology recommendation (consult fires at Phase 0 of this dispatch)
+- Substrate DB: `/Users/admin/Games/reincarnated-loadout/data/telemetry.db`
+
+---
+
+## 3. Outputs
+
+### 3.1 Schema extension
+
+```sql
+-- Close damage_amplitude schema gap per Stage 4 dispatch parent § 3 Stage 4
+ALTER TABLE weapon_sim_props ADD COLUMN damage_amplitude_min REAL;
+ALTER TABLE weapon_sim_props ADD COLUMN damage_amplitude_max REAL;
+-- OR equivalent variance coefficient column per Phase 1 legolas methodology consult
+```
+
+MIGRATION.md required per ADR-004; gamora + star-lord consume `weapon_sim_props`; grep-verify expected consumers; document migration path.
+
+### 3.2 Populated `weapon_sim_props` rows for ALL v1_scope entries
+
+Per Stage 4 dispatch parent § 3 Stage 4 outputs; ALL v1_scope entries get a `weapon_sim_props` row populated:
+- range_min, range_max (per range_class bin from Stage 1.5 extraction or LLM-judge for ambiguous)
+- base_attack_speed (per tempo_class bin)
+- charge_time (per tempo_class + cell-type policy)
+- hits_per_attack (per geometry_class)
+- aoe_radius (per geometry_class)
+- damage_amplitude_min, damage_amplitude_max (per damage-amplitude rubric from Phase 1 consult)
+- primary_stat (per proxy_attribute_class)
+
+### 3.3 Mythological-NULL rescue output (per composition policy § 1.4)
+
+~30 mythological-register rows rescued from Stage 1 proxy NULL state:
+- Stage 1 proxy fingerprint columns populated retroactively (range_class / geometry_class / tempo_class / attribute_class)
+- Per-row classification rationale recorded in artifact (LLM-judge OR design-judged per row)
+- `weapon_sim_props` row populated alongside main pool tagging
+- Rescued rows enter v1_scope at legendary-tier per Architecture B substrate-as-base-type-templates + tiered-instance-loot
+- `v1_scope_composition_trace` updated from `'stage_4_mythological_rescue_pending'` to `'stage_4_mythological_rescue_complete'`
+
+### 3.4 Per-row sim-viability flag check
+
+Per Stage 4 dispatch parent + T4-A § 3.3 step 5 sim-viability discipline:
+- Each v1_scope row's mechanical profile validated against engine BC envelope
+- Out-of-envelope rows flagged for design review; default disposition = demote to v1.1+ pending engine extension OR adjust mechanical profile to within-envelope
+
+### 3.5 Artifacts
+
+- Methodology consult artifact at `agentic_orchestration/legolas/research/cycle-10-stage-4-methodology-consult-2026-05-25/methodology-recommendation.md` (Phase 1)
+- Population script at `agentic_orchestration/rocket/research/cycle-10-stage-4-2026-05-25/populate_weapon_sim_props.py` (background execution per Discipline #19)
+- Mechanical-tagging report at `agentic_orchestration/rocket/research/cycle-10-stage-4-2026-05-25/mechanical-tagging-report.md` (per-axis distribution + per-cell-type counts + ambiguous-case log)
+- Mythological-NULL rescue artifact at `agentic_orchestration/rocket/research/cycle-10-stage-4-2026-05-25/mythological-null-rescue.md` (~30 rows with per-row rationale)
+- jack-ryan Gate-2 review at `agentic_orchestration/qa/findings/2026-05-25-gate2-stage-4-mechanical-tagging.md`
+- gamora sim-viability assessment at `agentic_orchestration/gamora/notes/2026-05-25-stage-4-sim-viability-assessment.md`
+
+---
+
+## 4. Method notes
+
+### 4.1 Phase 1 — legolas Mode A methodology consult (Discipline #18 hotspot; LOAD-BEARING gate)
+
+Per Discipline #18.2 (consultation-after-baseline at extension hotspots): Wave 5 Phase 2/3 baseline outputs land BEFORE this consult fires; consult-informed-by-baseline is cheaper than consult-in-the-dark.
+
+**Consult scope (~1-2 hr legolas Mode A budget):**
+- Heuristic-derivation thresholds for range / geometry / tempo bin assignment from Stage 1.5 extracted_length / extracted_weight (e.g., range_class = 'melee' when length < X cm; 'ranged' when length > Y cm AND weapon_kind in projectile-types; etc.)
+- Damage-amplitude rubric design — this is the genuinely-hard axis per dispatch parent § 3 Stage 4. Options: variance coefficient, min/max amplitude, statistical distribution model
+- Per-cell-type-matching policy operationalization (Option α 5-tuple match for martial; Option β attribute-level for caster; Option C cross-attribute ω-penalty)
+- LLM-judge calibration for ambiguous cases (when heuristics conflict or undetermined)
+- Cheapest-refuting-test per Discipline #19.1: per-axis sanity-distribution check post-tagging; ambiguous-case re-review threshold
+
+**Output artifact:** `agentic_orchestration/legolas/research/cycle-10-stage-4-methodology-consult-2026-05-25/methodology-recommendation.md`
+
+### 4.2 Phase 2 — mechanical-tagging execution (rocket)
+
+Per Phase 1 consult recommendations:
+- 3 of 4 weapon-intrinsic axes (range / geometry / tempo) largely derivable from Stage 1 + 1.5 inputs via heuristic; spot-check + LLM-judge ambiguous cases only
+- 1 of 4 axes (damage amplitude / spread) design-judged or LLM-judged with calibration per rubric
+- Tier S/A entries get extra gandalf curation pass (named-bearer canon-respecting; e.g., Gáe Bolg = guaranteed-pierce thrown-spear with curse-causality stays canonical)
+- Mythological-NULL rescue: ~30 rows tagged per Phase 1 rubric + per-row design judgment by rocket + gandalf consult on cultural-tradition fit
+
+### 4.3 Phase 3 — gamora sim-viability + jack-ryan Gate-2
+
+- gamora consumes `weapon_sim_props` populated rows; sim-viability flag check per T4-A § 3.3 step 5
+- gamora runs a small-scale balance-loop sanity-check on a stratified sample (1 row per cell-type) to verify sim engine consumes the schema correctly
+- jack-ryan Gate-2 methodology review: was Phase 1 consult followed? Are per-cell-type policies (Option α/β/C) consistently applied? Are mythological-NULL rescue rationales sensible?
+- Cross-seam round-trip per Principle 6: gamora + star-lord consume `weapon_sim_props`; round-trip smoke required (see § 5.5 below)
+
+### 4.4 Discipline #11 empirical inspection
+
+Per-axis distribution post-tagging is empirical-inspection artifact. Surface any anomalies (e.g., 70% of v1_scope ends up in single range_class bin → suggests heuristic misapplication) to knight-rider + gandalf at Gate-2.
+
+### 4.5 Per-cell-type matching policy operationalization (Option α/β/C)
+
+Per composition policy § 3:
+- **Option α (martial cells; STR/DEX primary):** 5-tuple mechanical-fingerprint match required at Phase 2 substrate-binding; weapon's range/geometry/tempo/amplitude/attribute must match cell BC-target directly
+- **Option β (caster cells; INT/WIS primary):** attribute-level match only at Phase 2; weapon's mechanical profile is secondary (skills deliver kit BC-target; weapon scales)
+- **Option C (cross-attribute hybrid cells — Red Mage/Monk-archetype/Holy Knight):** substrate pulled from primary-attribute-of-physical-vector pool; ω-penalty flag set on ALL rows by construction (per-cell architectural fact, not per-row decision)
+
+### 4.6 Semantic-layer rep-audit per Discipline #25
+
+Apply at mythological-NULL rescue boundary: do the ~30 mythological-register NULL-typed rows actually contain mythological content, or have they been mis-tagged via Mode B/C contamination? Per-row semantic check; demote if contamination surfaces.
+
+---
+
+## 5. Cross-seam impact
+
+- **Schema change on `weapon_sim_props`:** ADD COLUMN damage_amplitude_min/max (or variance coefficient per consult)
+- **MIGRATION.md REQUIRED** per ADR-004 — gamora + star-lord consume `weapon_sim_props`; round-trip smoke required (see § 5.5)
+- **Round-trip Principle 6 LOAD-BEARING:** `weapon_sim_props` is a cross-seam fixture consumed by gamora (sim) and star-lord (telemetry); round-trip smoke MUST exercise:
+  - rocket writes weapon_sim_props row
+  - gamora sim consumes the row + produces fight_log
+  - star-lord telemetry consumes fight_log + produces export packet
+  - field-presence check at each boundary
+- **NO engine code changes for new mechanics** — Stage 4 is data tagging; existing engine consumes existing columns + new damage_amplitude columns (gamora needs to consume new columns at sim entry per migration)
+- **Loadout app reads weapons but does NOT directly consume `weapon_sim_props` in player-facing surface** (verified Phase D precedent); update if v1.0+ adds player-facing weapon-sim-display
+
+---
+
+## 5.5 Acceptance criteria (formal per dispatches/README.md § Acceptance criteria + Principle 6)
+
+- [ ] Phase 1 legolas Mode A consult artifact landed at `agentic_orchestration/legolas/research/cycle-10-stage-4-methodology-consult-2026-05-25/methodology-recommendation.md` per Discipline #18
+- [ ] Phase 1 consult includes: heuristic-derivation thresholds + damage-amplitude rubric + Option α/β/C operationalization + LLM-judge calibration + cheapest-refuting-test design
+- [ ] Schema extension landed (`damage_amplitude_min REAL`, `damage_amplitude_max REAL` or equivalent per consult); MIGRATION.md drafted
+- [ ] Population script executes successfully against UNION of (v1_scope main pool + Stage 3.5 gap-fills + mythological-NULL rescue)
+- [ ] ALL v1_scope rows have populated `weapon_sim_props` row; ZERO regressions on prior-stage columns
+- [ ] Per-axis distribution histogram landed in mechanical-tagging report; ambiguous-case log surfaces any per-axis anomaly
+- [ ] Mythological-NULL rescue: ~30 rows tagged + per-row rationale captured; rep-audit Mode B/C/D contamination check applied
+- [ ] gamora sim-viability assessment landed; out-of-envelope rows flagged (with default disposition = demote to v1.1+ pending engine extension)
+- [ ] gamora small-scale sim-loop sanity-check passes on stratified sample (1 row per cell-type)
+- [ ] jack-ryan Gate-2 PASS at `agentic_orchestration/qa/findings/2026-05-25-gate2-stage-4-mechanical-tagging.md`
+- [ ] **Round-trip smoke: rocket writes weapon_sim_props row + gamora sim consumes the row + produces fight_log + star-lord telemetry consumes fight_log + produces export packet; field-presence check at each boundary; CROSS-SEAM CONTRACT CHANGE per Principle 6 trigger (schema field add on cross-seam fixture)** — required artifact at `agentic_orchestration/qa/findings/2026-05-25-stage-4-round-trip-smoke.md`
+- [ ] Pre-population DB backup at `cycle-10-stage-4-2026-05-25/backups/telemetry.db.pre-stage-4` (gitignored)
+- [ ] AGENT_STATE.md updated at session end (rocket + gamora seams if maintained)
+- [ ] Tag: `rocket/cycle-10-stage-4-mechanical-tagging-2026-05-25` after jack-ryan Gate-2 PASS + round-trip smoke PASS
+- [ ] Auto-commit + auto-push per push-per-wave authorization
+
+---
+
+## 6. Out of scope (explicit)
+
+- NOT Stage 4 mechanical-tagging on NON-v1_scope rows — they retain Stage 1 proxy values; v1.1+ work reaches them per Variant C substrate optionality
+- NOT engine code changes for new mechanics — Stage 4 is data tagging within existing BC envelope
+- NOT skill-system canonical doc amendment — gandalf authors post-Cycle-10
+- NOT Phase 5 cohesion-judge calibration spec — gandalf authors post-Cycle-10
+- NOT damage-amplitude implementation in fight engine — variance coefficient is data tagging; gamora sim consumes existing damage-roll machinery (extension if needed is gamora seam follow-on)
+- NOT loadout app weapon-sim-display work — drax seam separate workstream
+- NOT mythological-register substrate expansion beyond ~30 NULL-typed rescue — Track M1 deferred per 02-roadmap § 3.6
+
+---
+
+## 7. Tag intent
+
+`rocket/cycle-10-stage-4-mechanical-tagging-2026-05-25` after:
+1. Phase 1 legolas Mode A consult lands
+2. Schema extension + MIGRATION.md
+3. Population script executes successfully
+4. Mythological-NULL rescue complete
+5. gamora sim-viability assessment landed
+6. jack-ryan Gate-2 PASS
+7. Round-trip smoke PASS
+
+Intermediate tag (seam-prefixed) per project convention. NO Matt-approved milestone prefix.
+
+---
+
+## 8. Smoke-test expectation
+
+### Phase 1 consult smoke
+- Methodology recommendation includes: chosen damage-amplitude representation + rationale grounded in engine BC envelope + cheapest-refuting-test pass/fail threshold
+
+### Schema migration smoke
+- ALTER TABLE; ROLLBACK; verify column addition; re-apply
+- grep-verify gamora + star-lord existing consumption code patterns; if reads exist without column-presence-check, dispatch fails fast
+
+### Per-axis distribution smoke
+- Post-population: per-axis bin distribution histogram; flag any axis where actual distribution is >2σ from expected (suggests heuristic misapplication)
+- Mythological-NULL rescue distribution check: ~30 rows split across cell-types (not all clumped into one cell)
+
+### Round-trip smoke (CRITICAL — load-bearing for Principle 6)
+- rocket writes weapon_sim_props row for 1 representative v1_scope weapon
+- gamora sim consumes the row in fight engine (running on stratified sample of 1 row per cell-type)
+- star-lord telemetry consumes fight_log + produces export packet for the fight
+- Field-presence assertion at each boundary; export packet contains damage_amplitude_min/max field-values (not NULL)
+- Document at `agentic_orchestration/qa/findings/2026-05-25-stage-4-round-trip-smoke.md`
+
+Per Discipline #1.1 resource-bounds: ~3,200 rows × per-row tagging compute ~1 sec = ~1 hr foreground OR background; ~3,200 DB writes ~3 min; resource envelope bounded
+
+### Discipline #19 background processes
+- Mechanical-tagging execution runs background; rocket monitors via PID + log capture
+- No foreground polling
+
+---
+
+## 9. Discipline checklist
+
+- [x] **#1 + #1.1 math-before-code + resource-bounds:** Phase 1 consult IS the math; rocket population script bounded
+- [x] **#1.2 math-note code-citation:** populate_weapon_sim_props.py cites Phase 1 methodology recommendation + composition policy § 3 + BC-axes lock
+- [x] **#2 + #2.1 smoke + resource-scaling rehearsal:** § 8 above
+- [x] **#11 empirical inspection:** per-axis distribution post-tagging is empirical-inspection artifact
+- [x] **#18 + #18.2 methodology-before-execution:** Phase 1 consult LOAD-BEARING gate; baseline-informed
+- [x] **#19 + #19.1 background processes + cheapest-refuting-test:** mechanical-tagging background; per-axis distribution check is cheapest-refuting-test
+- [x] **#23 framing-audit checklist:** Phase 1 consult is framing-audit-applicable transition (locks methodology BEFORE execution)
+- [x] **#25 semantic-layer rep-audit:** mythological-NULL rescue rep-audit per § 4.6
+
+---
+
+## 10. Open questions for the agent to resolve
+
+- Phase 1 consult: damage-amplitude representation choice — variance coefficient vs min/max vs statistical distribution model — legolas + rocket decide post-consult
+- Heuristic threshold parameters (range_class boundaries by length cm; etc.) — Phase 1 consult finalizes per substrate empirical distribution
+- LLM-judge calibration sample size for ambiguous cases — rocket + legolas decide per cost-vs-coverage trade-off
+- Mythological-NULL rescue per-row rationale source — LLM-judge OR design-judged or hybrid — rocket + gandalf decide per row
+- Stage 4 tagging sequence (parallel per cell-type vs sequential per cell-type) — rocket decides per resource bounds
+- Whether to fold Stage 3.5 gap-fill rows into Stage 4 batch vs sequence them post-main-pool — fold into batch (UNION) for sampling consistency; rocket confirms
+
+---
+
+## 11. References
+
+- Stage 4 parent: `agentic_orchestration/gandalf/requests/2026-05-23-knight-rider-substrate-curation-multi-stage-dispatch.md` § 3 Stage 4
+- Composition policy v1 § 1.4 + § 3: `canonical/story/weapon-substrate-composition-policy-v1-2026-05-24.md`
+- BC-axes lock: `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md`
+- Architecture B: `canonical/story/qd-engine-end-to-end-workflow-2026-05-24.md`
+- T4-A architecture defaults: `canonical/story/tier-4-architecture-defaults-2026-05-22.md`
+- Multi-dim convergence algorithm: `canonical/story/multi-dim-convergence-algorithm-2026-05-21.md`
+- Marginal-lineage pattern: `canonical/story/marginal-lineage-tagging-pattern-2026-05-23.md`
+- Cycle 10 scope-doc: `agentic_orchestration/cycles/cycle-10-hive-mind-scope.md`
+- Wave 5 Phase 3 distribution report: `agentic_orchestration/elrond/research/cycle-10-stage-3-2026-05-25/v1-scope-distribution-report.md`
+- Wave 6 Stage 3.5 entries: `agentic_orchestration/rocket/research/cycle-10-stage-3-5-gap-fill-2026-05-25/entries/`
+
+---
+
+## 12. Sign-off
+
+**Author:** knight-rider (orchestrator)
+**Date:** 2026-05-25
+**Authority:** Cycle 10 scope-doc § 1 in-scope autonomous dispatch authoring + composition policy v1 § 1.4 + § 3 locked spec + Stage 4 parent dispatch § 3
+**Status:** **FIRE-READY pending Wave 5 Phase 3 + Wave 6 Stage 3.5 completion** — Stage 4 mechanical-tagging fires on UNION of v1_scope main pool + Stage 3.5 engine-authored entries + mythological-NULL rescue subset
+
+**Gate-1 critique-pair posture:** Wave 7 fires within Cycle 10 in-scope autonomous dispatch authoring per scope-doc § 1. Composition policy v1 § 1.4 + § 3 + BC-axes lock together constitute the locked design substrate. Phase 1 legolas Mode A consult LOAD-BEARING per Discipline #18; consult-as-Gate-1-replacement for methodology choice. jack-ryan Gate-2 PASS + round-trip smoke PASS gate tag.
+
+**Owners:** rocket (lead — mechanical-tagging + schema + script + artifact) + gamora (sim-viability + balance-loop sanity-check) + jack-ryan (Gate-2 methodology + round-trip + cross-seam) + legolas Mode A (Phase 1 methodology consult prerequisite)
