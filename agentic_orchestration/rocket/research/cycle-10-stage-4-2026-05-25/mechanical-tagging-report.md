@@ -128,7 +128,7 @@
 
 ## Anomaly log
 
-1. **Ruyi Jingu Bang wikidata (id=388):** weapon_type='gun' in wikidata structured properties → classified as DEX/ranged by Pass 2 weapon_type lookup. This is a Wikidata data error (the Wikidata entry incorrectly uses "gun" as weapon_type for Sun Wukong's magical staff). The wikipedia entry (id=174314) correctly classified as STR/mid by LLM judge. Both are v1_scope=1. Flagged for gandalf Tier-S curation pass.
+1. **Ruyi Jingu Bang wikidata (id=388):** weapon_type='gun' in wikidata structured properties → classified as DEX/ranged by Pass 2 weapon_type lookup. This is a Wikidata data error (the Wikidata entry incorrectly uses "gun" as weapon_type for Sun Wukong's magical staff). The wikipedia entry (id=174314) correctly classified as STR/mid by LLM judge. Both are v1_scope=1. **RESOLVED 2026-05-25 wave_7_amendment:** weapon_sim_props row corrected to STR/mid-range staff profile aligned with id=174314 (see dispatch completion record § Wave 7 amendment 2026-05-25). CRT gates all PASS post-amendment.
 
 2. **Sudarshana Chakra wikipedia (id=176479):** LLM classified as WIS/AoE/ranged/high (divine weapon framing → WIS). Methodology consult expected DEX/scatter (chakram). Difference is defensible (Sudarshana Chakra is a divine disc with magical properties → WIS framing has merit). wikidata entry (id=409) correctly tagged as chakram but is not v1_scope. Flagged for gandalf Tier-S curation.
 
@@ -142,10 +142,10 @@
 
 | CRT | Description | Result |
 |---|---|---|
-| CRT-1 | INT+WIS combined ≥ 12% | PASS (14.3%) |
+| CRT-1 | INT+WIS combined ≥ 12% | PASS (14.3% initial; 14.26% post wave_7_amendment — both PASS) |
 | CRT-1 range | melee/mid/ranged within ±8pp of prior | PASS |
-| CRT-1 attribute ceiling | No attribute > 65% | PASS (DEX 46.9%) |
-| CRT-2 | No amplitude bin > 60% | PASS (variable at 54.3%) |
+| CRT-1 attribute ceiling | No attribute > 65% | PASS (DEX 46.9% initial; 46.88% post wave_7_amendment) |
+| CRT-2 | No amplitude bin > 60% | PASS (variable 54.3% initial; 55.39% post wave_7_amendment — single row shift spiky→variable) |
 | CRT-2 note | variable bin above Sketch A target | NOTE — expected from lookup-table method |
 | CRT-3 | Schema columns non-NULL on sample row | PASS |
 | CRT-4 | damage_amplitude_min/max non-NULL on all rows | PASS (0 NULLs) |
@@ -168,7 +168,7 @@ All 42 engine_authored_gap_fill_v1 rows have weapon_sim_props populated:
 2. Check `hits_per_attack = 3` for multi-hit entries matches engine multi-hit implementation
 3. Validate `damage_amplitude_min/max` scaling in engine damage formula (values are normalized 0.3-2.5 range; confirm engine expectation)
 4. royal_armouries entries with sim_viable=1 but low classification confidence (~90 rows): recommend spot-check 10 rows at Phase 2 substrate-binding
-5. Ruyi Jingu Bang (id=388) DEX/ranged anomaly: override recommended before gamora pass
+5. Ruyi Jingu Bang (id=388) DEX/ranged anomaly: RESOLVED wave_7_amendment_2026_05_25 — corrected to STR/mid per wikipedia counterpart id=174314; no gamora action required for this entry
 
 ---
 

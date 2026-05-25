@@ -348,3 +348,56 @@ Per Discipline #1.1 resource-bounds: ~3,200 rows × per-row tagging compute ~1 s
 - LLM cost: ~$0.37 (under $0.95 estimate)
 - Wall time: ~14 min (under 1 hr envelope per Discipline #1.1)
 - DB backup: `backups/telemetry.db.pre-stage-4` (gitignored; 204 MB)
+
+---
+
+## Wave 7 amendment 2026-05-25 — Ruyi Jingu Bang id=388 wikidata override
+
+**Amendment date:** 2026-05-25
+**Authority:** Cycle 10 scope-doc § 1 in-scope autonomous (substrate-data-error correction within rocket seam); jack-ryan Gate-2 Flag 1 WARN
+**DB target:** `weapon_sim_props` WHERE `weapon_id = 388` (reincarnated-loadout/data/telemetry.db)
+
+### Root cause
+
+Wikidata entry Q834090 (id=388, Ruyi Jingu Bang) has `weapon_type='gun'` in its structured properties — a wikidata data error. Pass 2 weapon_type key lookup fired on this value and assigned DEX/ranged profile. The Wikipedia counterpart entry (id=174314, "Ruyi Jingu Bang") was correctly classified STR/mid by LLM judge in mythological-NULL rescue (per its canonical description as Sun Wukong's magical extending staff). Both entries are v1_scope=1.
+
+### Values changed
+
+| Column | Before (wikidata data error) | After (corrected, aligned to id=174314) |
+|---|---|---|
+| `primary_stat` | DEX | STR |
+| `range_min_units` | 5.0 | 2.5 |
+| `range_max_units` | 18.0 | 7.0 |
+| `base_attack_speed` | 0.7 | 1.5 |
+| `charge_time_s` | 0.5 | 0.0 |
+| `damage_amplitude_min` | 0.3 | 0.7 |
+| `damage_amplitude_max` | 2.5 | 1.6 |
+| `sim_viability_notes` | (null) | wave_7_amendment_2026_05_25_wikidata_data_error_override: wikidata weapon_type=gun is data error; corrected to STR/mid-range staff per wikipedia counterpart id=174314 |
+
+Columns unchanged: `hits_per_attack=1`, `aoe_radius_units=0.0`, `secondary_stat=none`, `sim_viable=1`.
+
+### Post-amendment SQL verification
+
+```
+SELECT primary_stat, range_min_units, range_max_units, base_attack_speed, charge_time_s,
+       hits_per_attack, aoe_radius_units, damage_amplitude_min, damage_amplitude_max
+FROM weapon_sim_props WHERE weapon_id = 388;
+-- Result: STR|2.5|7.0|1.5|0.0|1|0.0|0.7|1.6
+-- Matches id=174314 wikipedia counterpart exactly.
+```
+
+### CRT gate re-run post-amendment
+
+| CRT | Description | Pre-amendment | Post-amendment | Status |
+|---|---|---|---|---|
+| CRT-1 INT+WIS >= 12% | Attribute floor | 14.3% | 14.26% | PASS |
+| CRT-1 ceiling <= 65% | DEX ceiling | 46.9% | 46.88% | PASS |
+| CRT-2 no bin > 60% | Amplitude bin ceiling | variable 54.3% | variable 55.39% | PASS |
+| CRT-3 schema non-NULL | Key column NULL check | 0 NULLs | 0 NULLs | PASS |
+| CRT-4 amplitude non-NULL | Amplitude NULL check | 0 NULLs | 0 NULLs | PASS |
+
+Note on CRT-2 delta: id=388 original amplitude was 0.3/2.5 = 8.3x ratio (spiky bin >4.5x); corrected amplitude is 0.7/1.6 = 2.3x ratio (variable bin). One row shifted from spiky to variable. Variable bin moved from 54.3% to 55.39%, spiky from 22.8% to 21.85%. Both remain within bounds.
+
+### Anomaly log update
+
+Completion record anomaly #1 (Ruyi Jingu Bang DEX/ranged) resolved. Override applied. No gamora re-flagging required for this entry.
