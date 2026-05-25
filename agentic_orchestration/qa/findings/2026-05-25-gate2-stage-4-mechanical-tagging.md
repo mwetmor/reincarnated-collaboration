@@ -134,6 +134,61 @@ The round-trip smoke portion of Principle 6 review DEFERS to re-engagement after
 
 ---
 
+## Round-trip Principle 6 final ratification — 2026-05-25 (jack-ryan re-engagement)
+
+> **NOTE:** Knight-rider-captured artifact filing jack-ryan re-engagement verdict on round-trip Principle 6 ratification per file-write-constraint pattern. Substance is jack-ryan's verbatim verdict.
+
+**Reviewer:** jack-ryan (re-engagement)
+**Captured by:** knight-rider (file-write-constraint pattern)
+**Severity:** INFO (round-trip portion — no new WARNs; existing WARNs from prior verdict unchanged)
+**Gate:** Gate 2 re-engagement — Principle 6 round-trip ratification only
+
+### Evidence reviewed
+
+- **Substrate-write boundary (rocket):** 2,293 rows in weapon_sim_props; damage_amplitude_min/max non-null + DEX constraint fix + FK correction. PASS.
+- **Fight_log-construction boundary (gamora first leg):** weapon_id=209667 Basket hilt sword; damage_amplitude_min=0.7 + damage_amplitude_max=1.6 non-null in fight_log; field_presence_verification.result: PASS. Fight class_0001 wins seed=42 duration 1.2s. Discipline #11 satisfied at fight_log boundary.
+- **Export pipeline boundary (star-lord second leg):** Export pipeline ran clean; Stage B validators PASS; no regression. damage_amplitude_min/max absent from export packet — correctly classified as structural gap (separate DB; no ExportWeaponSimProps schema; no cross-DB plumbing). Star-lord's § 5 structural analysis matches Variant C architecture in canonical/37.
+
+### Principle 6 trigger-type framework applied
+
+| Boundary | Verified? | Result |
+|---|---|---|
+| Substrate-write (weapon_sim_props table, loadout DB) | Yes — rocket Stage 4 + gamora schema validation | PASS |
+| Fight_log-construction (gamora reads weapon_sim_props at fight time) | Yes — gamora first leg | PASS |
+| Export pipeline (season_exporter.py runs without regression) | Yes — star-lord second leg | PASS |
+| Export packet field-presence (consumer downstream of Phase 2) | No — structural gap, Phase 2 work item | DOCUMENTED NOT-YET |
+
+Export packet field-presence gap does NOT constitute Principle 6 failure for two reasons:
+
+**Reason 1 — Scope-doc § 5 + § 6:** Stage 4 is substrate-only. Wave 7 dispatch § 6 explicit "NOT damage-amplitude implementation in fight engine." Requiring export packet field-presence before Wave 7 tag would be scope expansion into Phase 2 binding implementation in Cycle 10. Per scope-doc § 6 known-unknown forward-motion: document gap, classify as Phase 2 work item, proceed.
+
+**Reason 2 — Variant C architecture (canonical/37):** Loadout substrate DB and engine telemetry DB are distinct systems. Export pipeline reads from `reincarnated-engine/telemetry.db` + `seasons/` JSON — not from `reincarnated-loadout/data/telemetry.db`. Absence of weapon_sim_props from export packet is architecturally expected at this stage. Export packet schema is forward-compat: `ExportGearItem.weapon_sim_props: ExportWeaponSimProps | None = None` additive with no breaking changes.
+
+**No new WARN items.** Existing WARNs from prior verdict (Ruyi Jingu Bang id=388 override; engine damage formula unit scaling Knowledge Gap #2) remain open from that verdict.
+
+### Verdict
+
+**PASS** on round-trip Principle 6.
+
+The round-trip smoke is structurally complete within the scope-clarified boundary (fight_log-construction level per KR reframe + scope-doc § 6). All three verification boundaries that Stage 4 has authority over — substrate-write, fight_log-construction, export-pipeline-no-regression — pass empirical inspection. The export packet field-presence gap is correctly classified as a known structural gap, not a regression, with a documented forward-compat additive path (v1.1+) and a clear Phase 2 binding work item.
+
+### Final Wave 7 Gate-2 verdict (integrated)
+
+| Principle | Prior verdict | Round-trip update | Final |
+|---|---|---|---|
+| 1 — Math-before-code | PASS | No change | PASS |
+| 2 — Smoke-gate | PASS | No change | PASS |
+| 3 — Cross-seam impact | WARN (id=388 + round-trip scope) | Round-trip scope resolved → PASS; id=388 was applied via rocket commit `5716235` → RESOLVED | PASS |
+| 4 — Decisions-log as truth | PASS | No change | PASS |
+| 5 — Severity | PASS | No change | PASS |
+| 6 — Round-trip smoke | DEFERRED | First leg PASS + second leg PASS (structural gap documented) | PASS |
+
+**Overall Wave 7 Gate-2 verdict: PASS** (id=388 override applied via `5716235`; round-trip portion ratified PASS; all WARNs resolved).
+
+**Hand-back to knight-rider:** All Wave 7 gates clear; tag `rocket/cycle-10-stage-4-mechanical-tagging-2026-05-25` cleared to fire.
+
+---
+
 ## Knight-rider integration note (post-jack-ryan-return)
 
 Per scope-doc § 6 known-unknowns forward-motion: jack-ryan + gamora (in-flight) both converge on consumer-code-gap finding. Per Wave 7 dispatch § 6 explicit "NOT damage-amplitude implementation in fight engine" + scope-doc § 5 "NOT engine code changes — substrate-only stage", the round-trip smoke acceptance criterion as written conflated substrate-write boundary (DONE) with consumer-read boundary (Phase 2 binding implementation; downstream post-Cycle-10 work item per gandalf SO-4 amendment + roadmap § 1.0 active workstreams).
