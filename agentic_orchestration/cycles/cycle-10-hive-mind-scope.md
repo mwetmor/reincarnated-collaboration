@@ -1,6 +1,6 @@
 # cycle-10-hive-mind-scope
 
-> **STATUS:** DRAFT 2026-05-25 — awaiting Matt ratification
+> **STATUS:** RATIFIED 2026-05-25 — Matt ratification per session dialogue
 > **Cycle:** 10
 > **Cycle subject:** v1 weapon-library substrate-curation + composition (Stages 0 → 3 → 3.5 → 4 + Sidecars A/B)
 > **Canonical protocol doc:** none — Cycle 10 operates as a multi-stage non-hive-mind sprint per gandalf's 2026-05-23 multi-stage dispatch authoring (see `agentic_orchestration/gandalf/requests/2026-05-23-knight-rider-substrate-curation-multi-stage-dispatch.md`)
@@ -115,7 +115,7 @@ Scope-doc applicability ENDS (triggers re-scoping) when:
 ## 8. Sign-off
 
 **Drafted by:** gandalf (story-and-design steward) 2026-05-25
-**Ratified by:** Matt — _pending_
+**Ratified by:** Matt 2026-05-25 — session dialogue ("1 = ratify; 2 = default is right; 3 = yes, back-port it")
 **Authority basis:**
 - `agentic_orchestration/operating-procedures/hive-mind-scope-discipline.md` (the discipline this doc instantiates)
 - `agentic_orchestration/gandalf/requests/2026-05-23-knight-rider-substrate-curation-multi-stage-dispatch.md` (Cycle 10 multi-stage scope)

@@ -27,7 +27,8 @@ Read in order. Stop when sufficient for the work at hand; do not pre-load beyond
 2. **`canonical/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10). Always second.
 3. **`canonical/02-roadmap.md`** — current workstream sequencing + empirical-evidence-gated deferred commitments. Cross-check what's active / queued / deferred.
 4. **Latest `agentic_orchestration/skill_handoff_<YYYY-MM-DD>.md`** — Matt-facing daily-state handoff from prior session (per § 3.1 reframing); pending decisions queue, awaiting-Matt blockers, recent decisions.
-5. **Current hive-mind state file** (if a substrate cycle is in flight): `agentic_orchestration/weapon-library-import-hive-mind-state.md` or successor.
+5. **Current hive-mind state file** (if a substrate cycle is in flight): `agentic_orchestration/weapon-library-import-hive-mind-state.md` or successor (e.g., `weapon-substrate-curation-cycle-10-state.md`).
+5a. **Current cycle scope-doc (MANDATORY if active KR-orchestrated cycle exists):** `agentic_orchestration/cycles/cycle-<N>-hive-mind-scope.md` — **authority-of-record for KR's autonomous-scope this cycle.** Per `operating-procedures/hive-mind-scope-discipline.md`. Read at session-start; consult during cycle execution on any "is this in my scope?" question. Ambiguity defaults to in-scope per scope-discipline § 5.3 — do NOT fall back to ask-safety.
 6. **`agentic_orchestration/dispatches/`** — scan for PENDING dispatches from prior session that haven't been picked up; scan for completion records since last session.
 7. **`agentic_orchestration/qa/pending/`** — anything awaiting jack-ryan Gate-2 review.
 8. **`agentic_orchestration/gandalf/open-threads/`** — open Pattern-B dialogue threads gandalf has parked for re-engagement.
@@ -137,6 +138,10 @@ Knight-rider does not write to databases or modify external state without Matt a
 - Sequencing decisions for parallel sub-agent work
 
 Authority: Matt 2026-05-25 directive resolving recurring over-asking behavioral pattern. See `CLAUDE.md` § "Team commit + push discipline" for full team-level addendum.
+
+**Cycle-specific authority refinement (2026-05-25 architectural fix):** the team-level defaults above are REFINED per active cycle by the cycle scope-doc at `agentic_orchestration/cycles/cycle-<N>-hive-mind-scope.md`. The scope-doc enumerates in-scope autonomous decisions / executions / commits + push posture + out-of-scope + pre-resolved known-unknowns for the cycle. Knight-rider consumes the scope-doc as authority-of-record per `operating-procedures/hive-mind-scope-discipline.md` § 5. Ambiguity defaults to in-scope (NOT ask-safety) per scope-discipline § 5.3 anti-pattern guard.
+
+**Cycle 10 specific (RATIFIED Matt 2026-05-25):** push posture is `push-per-wave` for Cycle 10 — auto-push after each Wave completion AND after each major artifact authoring. See `agentic_orchestration/cycles/cycle-10-hive-mind-scope.md` for full enumeration. This overrides the team-level `push-ask` default for Cycle 10 work-products.
 
 ### 3.6 CRITICAL — no sleep recommendations / no editorializing about Matt's state
 

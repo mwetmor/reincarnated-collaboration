@@ -13,6 +13,8 @@
 - `agentic_orchestration/hive-mind-protocol-amendments-2026-05-21-evening.md` — amendments
 - `agentic_orchestration/gandalf/requests/2026-05-23-knight-rider-hive-mind-skill-decision-routing-directive.md` — Matt's verbatim decision-routing directive (LOCKED; embedded in § 4 below)
 - `agentic_orchestration/operating-procedures/knight-rider.md` § 2 Mode A + § 3.9 — immediate load-bearing application of decision-routing pattern
+- `agentic_orchestration/operating-procedures/hive-mind-scope-discipline.md` — per-cycle scope-of-autonomy enumeration discipline (entry-protocol step 1.5; consumed at step 4)
+- `agentic_orchestration/cycles/` — per-cycle scope-doc artifact directory
 - `agentic_orchestration/dispatches/README.md` — dispatch authoring template
 - `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` — disciplines #11, #18, #19, #20 (all load-bearing in hive-mind state)
 
@@ -61,9 +63,10 @@ When any of these fall away, hive-mind state has exited and routine patterns res
 | Step | Owner | Action |
 |---|---|---|
 | 1 | gandalf (or knight-rider for engine-rebuild cycles) | Author canonical hive-mind protocol doc with vision + operational layers, phase architecture, decision gates, risk register, discipline compliance matrix |
+| **1.5** | **gandalf (default; or matt; or knight-rider self-author)** | **Author cycle scope-doc at `agentic_orchestration/cycles/cycle-<N>-hive-mind-scope.md` per `operating-procedures/hive-mind-scope-discipline.md` — enumerating in-scope autonomous decisions / executions / commits + push posture + out-of-scope + pre-resolved known-unknowns. Required before step 3 (Matt authorization includes scope-doc ratification).** |
 | 2 | jack-ryan | Gate-1 review of the protocol (or its first Wave dispatch) |
-| 3 | Matt | Authorize firing — verbal or written; recorded in protocol § 0 |
-| 4 | knight-rider | Create or initialize state file at known path; pre-flight checks per protocol § 3 (typically P0 in substrate cycles) |
+| 3 | Matt | Authorize firing — verbal or written; recorded in protocol § 0. **Ratifies cycle scope-doc concurrently.** |
+| 4 | knight-rider | Create or initialize state file at known path; pre-flight checks per protocol § 3 (typically P0 in substrate cycles). **Read ratified cycle scope-doc as authority-of-record per scope-discipline § 5.** |
 | 5 | knight-rider | Fire first Wave / Phase 0 dispatch |
 
 #### 2.2.1 Entry triggers — three valid paths
