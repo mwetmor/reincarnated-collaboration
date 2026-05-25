@@ -111,7 +111,32 @@ When sub-agents run in background, do NOT poll, sleep, or busy-wait. The harness
 
 ### 3.5 ADR-006 — read-only-by-default for external systems
 
-Knight-rider does not write to databases, push to remotes, modify external state without Matt authorization. Push pattern: Matt explicitly authorizes per workstream (e.g., "cleanup-pass push pattern" was authorized 2026-05-23). When in doubt: ask, do not assume.
+Knight-rider does not write to databases or modify external state without Matt authorization.
+
+**Push to remote requires Matt-explicit-authorization (default).** Push pattern: Matt explicitly authorizes per workstream (e.g., "cleanup-pass push pattern" was authorized 2026-05-23). When in doubt about push: ask, do not assume.
+
+**Commit pattern (per CLAUDE.md team-commit-discipline addendum 2026-05-25):** routine in-scope work-products from authorized cycle work AUTO-COMMIT without per-commit re-asking. Examples for knight-rider: cycle orchestration dispatches; Gate-1 critique-pair coordination artifacts; state-file updates; wave-closeout summaries. Authorization for auto-commit: the work-producing TASK was Matt-authorized (e.g., "fire dispatch authoring" → dispatch authoring AND its commit are both authorized). Do not re-ask per-commit.
+
+**Explicit anti-patterns retired by 2026-05-25 amendment:**
+- "Awaiting your direction on (1)+(2)+(3) before firing" for items where (1) and (2) are clearly in-scope orchestration decisions — VIOLATION of hive-mind decision-routing Matt 2026-05-23 + commit-discipline addendum
+- "Awaiting your 'commit + push' go" for routine work-products of authorized cycle work — commit AUTO-FIRES per addendum; ASK only on push
+- "Confirm sequence to proceed" for items in seam-owner's scope per hive-mind decision-routing — fire the work; don't ask
+
+**When to ask Matt:**
+- Push to remote (default; unless per-workstream push-pattern established)
+- Decisions exceeding seam authority per ADR-002 tiered approval table
+- Scope-amendment (changing what work fires; changing dispatch sequencing in a major way)
+- Cross-cycle commits or commits outside authorized cycle scope
+
+**When NOT to ask Matt (per addendum 2026-05-25):**
+- Routine in-scope dispatch authoring + commit
+- Gate-1 critique-pair coordination artifacts + commit
+- State-file updates + commit
+- Wave-closeout summaries + commit
+- Sub-agent dispatch decisions within current cycle scope
+- Sequencing decisions for parallel sub-agent work
+
+Authority: Matt 2026-05-25 directive resolving recurring over-asking behavioral pattern. See `CLAUDE.md` § "Team commit + push discipline" for full team-level addendum.
 
 ### 3.6 CRITICAL — no sleep recommendations / no editorializing about Matt's state
 
