@@ -1,0 +1,1916 @@
+{
+  "started_at": "2026-05-25T21:24:03.948070",
+  "finished_at": "2026-05-25T21:24:03.992009",
+  "db_path": "/Users/admin/Games/reincarnated-loadout/data/telemetry.db",
+  "subset_a_target_count": 33,
+  "subset_b_target_count": 23,
+  "subset_c_deferred_count": 94,
+  "subset_a_rows_touched": 1,
+  "subset_a_field_updates": 1,
+  "subset_b_rows_touched": 3,
+  "subset_b_field_updates": 3,
+  "audit": {
+    "audited_ids_count": 56,
+    "still_unknown_cultural_lineage": [],
+    "still_unknown_historical_period": [],
+    "clean_count": 56,
+    "counts": {
+      "tier_S_named_myth_unknown_remaining": 94
+    }
+  },
+  "before_after_sample_10": [
+    {
+      "id": 11,
+      "subset": "A",
+      "canonical_name": "shield of Achilles",
+      "named_mythological_match": "Achilles (greek, tier_1)",
+      "comment": "Iliad-described; Greek classical",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "classical",
+          "after": "classical",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 660,
+      "subset": "A",
+      "canonical_name": "trident of Poseidon",
+      "named_mythological_match": "Poseidon (greek, tier_1)",
+      "comment": "Olympian-attributed; Greek classical",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "classical",
+          "after": "classical",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 131,
+      "subset": "A",
+      "canonical_name": "Indraastra",
+      "named_mythological_match": "Indra (vedic_hindu, tier_1)",
+      "comment": "Vedic celestial weapon of Indra",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "south_asian",
+          "after": "south_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "pre_classical",
+          "after": "pre_classical",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 134,
+      "subset": "A",
+      "canonical_name": "Anjalikastra",
+      "named_mythological_match": "Indra (vedic_hindu, tier_1)",
+      "comment": "Vedic celestial weapon",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "south_asian",
+          "after": "south_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "pre_classical",
+          "after": "pre_classical",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 366,
+      "subset": "A",
+      "canonical_name": "Vijaya",
+      "named_mythological_match": "Indra (vedic_hindu, tier_1)",
+      "comment": "Vedic celestial bow (Indra-attributed)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "south_asian",
+          "after": "south_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "pre_classical",
+          "after": "pre_classical",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 2463,
+      "subset": "B",
+      "canonical_name": "Tizona",
+      "named_mythological_match": "El Cid (european_medieval, tier_2)",
+      "comment": "El Cid's sword (already european)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 2477,
+      "subset": "B",
+      "canonical_name": "Colada",
+      "named_mythological_match": "El Cid (european_medieval, tier_2)",
+      "comment": "El Cid's second sword (already european)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 181836,
+      "subset": "B",
+      "canonical_name": "Colada",
+      "named_mythological_match": "El Cid (european_medieval, tier_2)",
+      "comment": "El Cid's sword wikipedia article (already european)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 1647,
+      "subset": "B",
+      "canonical_name": "Hy\u016bga Masamune",
+      "named_mythological_match": "Masamune (east_asian, tier_2)",
+      "comment": "Masamune blade (already east_asian)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "east_asian",
+          "after": "east_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "early_modern",
+          "after": "early_modern",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 1728,
+      "subset": "B",
+      "canonical_name": "H\u014dch\u014d Masamune",
+      "named_mythological_match": "Masamune (east_asian, tier_2)",
+      "comment": "Masamune blade (already east_asian)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "east_asian",
+          "after": "east_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "early_modern",
+          "after": "early_modern",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    }
+  ],
+  "subset_a_full_log": [
+    {
+      "id": 11,
+      "subset": "A",
+      "canonical_name": "shield of Achilles",
+      "named_mythological_match": "Achilles (greek, tier_1)",
+      "comment": "Iliad-described; Greek classical",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "classical",
+          "after": "classical",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 660,
+      "subset": "A",
+      "canonical_name": "trident of Poseidon",
+      "named_mythological_match": "Poseidon (greek, tier_1)",
+      "comment": "Olympian-attributed; Greek classical",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "classical",
+          "after": "classical",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 131,
+      "subset": "A",
+      "canonical_name": "Indraastra",
+      "named_mythological_match": "Indra (vedic_hindu, tier_1)",
+      "comment": "Vedic celestial weapon of Indra",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "south_asian",
+          "after": "south_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "pre_classical",
+          "after": "pre_classical",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 134,
+      "subset": "A",
+      "canonical_name": "Anjalikastra",
+      "named_mythological_match": "Indra (vedic_hindu, tier_1)",
+      "comment": "Vedic celestial weapon",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "south_asian",
+          "after": "south_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "pre_classical",
+          "after": "pre_classical",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 366,
+      "subset": "A",
+      "canonical_name": "Vijaya",
+      "named_mythological_match": "Indra (vedic_hindu, tier_1)",
+      "comment": "Vedic celestial bow (Indra-attributed)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "south_asian",
+          "after": "south_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "pre_classical",
+          "after": "pre_classical",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 385,
+      "subset": "A",
+      "canonical_name": "vajra",
+      "named_mythological_match": "Indra (vedic_hindu, tier_1)",
+      "comment": "Vedic ritual weapon; already south_asian, period unknown",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "south_asian",
+          "after": "south_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "pre_classical",
+          "after": "pre_classical",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 482,
+      "subset": "A",
+      "canonical_name": "Gandiva",
+      "named_mythological_match": "Arjuna (vedic_hindu, tier_1)",
+      "comment": "Mahabharata celestial bow of Arjuna",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "south_asian",
+          "after": "south_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "pre_classical",
+          "after": "pre_classical",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 174145,
+      "subset": "A",
+      "canonical_name": "Vajra",
+      "named_mythological_match": "Indra (vedic_hindu, tier_1)",
+      "comment": "Vajra Wikipedia article (variant; already south_asian)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "south_asian",
+          "after": "south_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "pre_classical",
+          "after": "pre_classical",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 176853,
+      "subset": "A",
+      "canonical_name": "Vel",
+      "named_mythological_match": "Skanda (vedic_hindu, tier_1)",
+      "comment": "Divine spear of Murugan",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "south_asian",
+          "after": "south_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "pre_classical",
+          "after": "pre_classical",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 379,
+      "subset": "A",
+      "canonical_name": "Mj\u00f6lnir",
+      "named_mythological_match": "Thor (norse, tier_1)",
+      "comment": "Thor's hammer; Norse mythological (already european)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 387,
+      "subset": "A",
+      "canonical_name": "Gungnir",
+      "named_mythological_match": "Odin (norse, tier_1)",
+      "comment": "Odin's spear; Norse mythological (already european)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 4996,
+      "subset": "A",
+      "canonical_name": "Sword of Freyr",
+      "named_mythological_match": "Freyr (norse, tier_1)",
+      "comment": "Freyr's sword; Norse mythological (already european)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 191620,
+      "subset": "A",
+      "canonical_name": "Sword of Freyr",
+      "named_mythological_match": "Freyr (norse, tier_1)",
+      "comment": "Freyr's sword wikipedia article variant (already european)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "unknown",
+          "after": "medieval"
+        },
+        "cultural_lineage_confidence": {
+          "before": 0.7,
+          "after": 0.9
+        }
+      },
+      "status": "updated"
+    },
+    {
+      "id": 5131,
+      "subset": "A",
+      "canonical_name": "Hrunting",
+      "named_mythological_match": "Beowulf (norse, tier_1)",
+      "comment": "Beowulf's sword (already european)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 5135,
+      "subset": "A",
+      "canonical_name": "N\u00e6gling",
+      "named_mythological_match": "Beowulf (norse, tier_1)",
+      "comment": "Beowulf's sword (wikidata variant)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 5144,
+      "subset": "A",
+      "canonical_name": "H\u01ebfu\u00f0",
+      "named_mythological_match": "Heimdall (norse, tier_1)",
+      "comment": "Sword of Heimdall in Norse myth",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 180679,
+      "subset": "A",
+      "canonical_name": "Mistilteinn",
+      "named_mythological_match": "Baldr (norse, tier_1)",
+      "comment": "Mistletoe-arrow that slew Baldr; Norse (already european)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 176855,
+      "subset": "A",
+      "canonical_name": "N\u00e6gling",
+      "named_mythological_match": "Beowulf (norse, tier_1)",
+      "comment": "Beowulf's sword (wikipedia variant; already european)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 497,
+      "subset": "A",
+      "canonical_name": "Carnwennan",
+      "named_mythological_match": "Arthur (european_medieval, tier_1)",
+      "comment": "Arthurian dagger (already european)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 5108,
+      "subset": "A",
+      "canonical_name": "Excalibur",
+      "named_mythological_match": "Arthur (european_medieval, tier_1)",
+      "comment": "Arthur's legendary sword (already european)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 5097,
+      "subset": "A",
+      "canonical_name": "Galatine",
+      "named_mythological_match": "Gawain (european_medieval, tier_1)",
+      "comment": "Gawain's Arthurian sword",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 5165,
+      "subset": "A",
+      "canonical_name": "Aroundight",
+      "named_mythological_match": "Lancelot (european_medieval, tier_1)",
+      "comment": "Lancelot's romance sword",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 5105,
+      "subset": "A",
+      "canonical_name": "Ascalon",
+      "named_mythological_match": "Saint George (european_medieval, tier_2)",
+      "comment": "Saint George's legendary sword",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 5137,
+      "subset": "A",
+      "canonical_name": "Hauteclere",
+      "named_mythological_match": "Charlemagne (european_medieval, tier_2)",
+      "comment": "Oliver's sword in Charlemagne legend",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 209,
+      "subset": "A",
+      "canonical_name": "Failnaught",
+      "named_mythological_match": "Tristan (european_medieval, tier_1)",
+      "comment": "Tristan's bow (Arthurian romance)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 4391,
+      "subset": "A",
+      "canonical_name": "Saber of Charlemagne",
+      "named_mythological_match": "Charlemagne (european_medieval, tier_2)",
+      "comment": "Carolingian-era saber (already european)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 175580,
+      "subset": "A",
+      "canonical_name": "Joyeuse",
+      "named_mythological_match": "Charlemagne (european_medieval, tier_2)",
+      "comment": "Charlemagne's legendary sword (already european)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 190415,
+      "subset": "A",
+      "canonical_name": "Sabre of Charlemagne",
+      "named_mythological_match": "Charlemagne (european_medieval, tier_2)",
+      "comment": "Carolingian saber wikipedia article (already european)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 175173,
+      "subset": "A",
+      "canonical_name": "Curtana",
+      "named_mythological_match": "Tristan (european_medieval, tier_1)",
+      "comment": "Sword of Mercy; English coronation regalia (already european)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 388,
+      "subset": "A",
+      "canonical_name": "Ruyi Jingu Bang",
+      "named_mythological_match": "Sun Wukong (east_asian, tier_1)",
+      "comment": "Sun Wukong's magical staff; Journey-to-the-West Tang-era folklore (already east_asian)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "east_asian",
+          "after": "east_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "pre_classical",
+          "after": "pre_classical",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 924,
+      "subset": "A",
+      "canonical_name": "Green Dragon Crescent Blade",
+      "named_mythological_match": "Guan Yu (east_asian, tier_2)",
+      "comment": "Guan Yu's polearm; Three Kingdoms era (already east_asian)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "east_asian",
+          "after": "east_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "classical",
+          "after": "classical",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 194198,
+      "subset": "A",
+      "canonical_name": "Tai'e",
+      "named_mythological_match": "Qin Shi Huang (east_asian, tier_2)",
+      "comment": "Legendary ancient Chinese sword",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "east_asian",
+          "after": "east_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "classical",
+          "after": "classical",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 174017,
+      "subset": "A",
+      "canonical_name": "Naginata",
+      "named_mythological_match": "Tomoe Gozen (east_asian, tier_1)",
+      "comment": "Japanese polearm (Tomoe Gozen-attributed; already east_asian)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "east_asian",
+          "after": "east_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    }
+  ],
+  "subset_b_full_log": [
+    {
+      "id": 2463,
+      "subset": "B",
+      "canonical_name": "Tizona",
+      "named_mythological_match": "El Cid (european_medieval, tier_2)",
+      "comment": "El Cid's sword (already european)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 2477,
+      "subset": "B",
+      "canonical_name": "Colada",
+      "named_mythological_match": "El Cid (european_medieval, tier_2)",
+      "comment": "El Cid's second sword (already european)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 181836,
+      "subset": "B",
+      "canonical_name": "Colada",
+      "named_mythological_match": "El Cid (european_medieval, tier_2)",
+      "comment": "El Cid's sword wikipedia article (already european)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "european",
+          "after": "european",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "medieval",
+          "after": "medieval",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 1647,
+      "subset": "B",
+      "canonical_name": "Hy\u016bga Masamune",
+      "named_mythological_match": "Masamune (east_asian, tier_2)",
+      "comment": "Masamune blade (already east_asian)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "east_asian",
+          "after": "east_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "early_modern",
+          "after": "early_modern",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 1728,
+      "subset": "B",
+      "canonical_name": "H\u014dch\u014d Masamune",
+      "named_mythological_match": "Masamune (east_asian, tier_2)",
+      "comment": "Masamune blade (already east_asian)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "east_asian",
+          "after": "east_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "early_modern",
+          "after": "early_modern",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 1734,
+      "subset": "B",
+      "canonical_name": "H\u014dch\u014d Masamune",
+      "named_mythological_match": "Masamune (east_asian, tier_2)",
+      "comment": "Masamune blade (already east_asian)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "east_asian",
+          "after": "east_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "early_modern",
+          "after": "early_modern",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 1736,
+      "subset": "B",
+      "canonical_name": "H\u014dch\u014d Masamune",
+      "named_mythological_match": "Masamune (east_asian, tier_2)",
+      "comment": "Masamune blade (already east_asian)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "east_asian",
+          "after": "east_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "early_modern",
+          "after": "early_modern",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 1738,
+      "subset": "B",
+      "canonical_name": "Kuki Masamune",
+      "named_mythological_match": "Masamune (east_asian, tier_2)",
+      "comment": "Masamune blade (already east_asian)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "east_asian",
+          "after": "east_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "early_modern",
+          "after": "early_modern",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 3149,
+      "subset": "B",
+      "canonical_name": "Ishida Masamune",
+      "named_mythological_match": "Masamune (east_asian, tier_2)",
+      "comment": "Masamune blade",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "east_asian",
+          "after": "east_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "early_modern",
+          "after": "early_modern",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 4254,
+      "subset": "B",
+      "canonical_name": "Tsugaru Masamune",
+      "named_mythological_match": "Masamune (east_asian, tier_2)",
+      "comment": "Masamune blade (already east_asian)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "east_asian",
+          "after": "east_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "early_modern",
+          "after": "early_modern",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 4255,
+      "subset": "B",
+      "canonical_name": "Nakatsukasa Masamune",
+      "named_mythological_match": "Masamune (east_asian, tier_2)",
+      "comment": "Masamune blade (already east_asian)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "east_asian",
+          "after": "east_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "early_modern",
+          "after": "early_modern",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 4256,
+      "subset": "B",
+      "canonical_name": "Kanze Masamune",
+      "named_mythological_match": "Masamune (east_asian, tier_2)",
+      "comment": "Masamune blade (already east_asian)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "east_asian",
+          "after": "east_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "early_modern",
+          "after": "early_modern",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 4257,
+      "subset": "B",
+      "canonical_name": "Tarosaku Masamune",
+      "named_mythological_match": "Masamune (east_asian, tier_2)",
+      "comment": "Masamune blade (already east_asian)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "east_asian",
+          "after": "east_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "early_modern",
+          "after": "early_modern",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 1729,
+      "subset": "B",
+      "canonical_name": "Terasawa Sadamune",
+      "named_mythological_match": "Sadamune (east_asian, tier_2)",
+      "comment": "Sadamune blade (already east_asian)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "east_asian",
+          "after": "east_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "early_modern",
+          "after": "early_modern",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 1730,
+      "subset": "B",
+      "canonical_name": "Tokuzen-in Sadamune",
+      "named_mythological_match": "Sadamune (east_asian, tier_2)",
+      "comment": "Sadamune blade (already east_asian)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "east_asian",
+          "after": "east_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "early_modern",
+          "after": "early_modern",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 1737,
+      "subset": "B",
+      "canonical_name": "Fushimi Sadamune",
+      "named_mythological_match": "Sadamune (east_asian, tier_2)",
+      "comment": "Sadamune blade (already east_asian)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "east_asian",
+          "after": "east_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "early_modern",
+          "after": "early_modern",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 3224,
+      "subset": "B",
+      "canonical_name": "Hakusan Yoshimitsu",
+      "named_mythological_match": "Yoshimitsu (east_asian, tier_2)",
+      "comment": "Yoshimitsu blade (already east_asian)",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "east_asian",
+          "after": "east_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "early_modern",
+          "after": "early_modern",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 4288,
+      "subset": "B",
+      "canonical_name": "Nagasone Kotetsu",
+      "named_mythological_match": "Kotetsu (east_asian, tier_2)",
+      "comment": "Kotetsu blade",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "east_asian",
+          "after": "east_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "early_modern",
+          "after": "early_modern",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 3164,
+      "subset": "B",
+      "canonical_name": "Wakisashi by Norimitsu",
+      "named_mythological_match": "Norimitsu (east_asian, tier_2)",
+      "comment": "Norimitsu wakizashi; period already early_modern",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "east_asian",
+          "after": "east_asian",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "early_modern",
+          "after": "early_modern",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 1676,
+      "subset": "B",
+      "canonical_name": "Tutankhamun's meteoric iron dagger blade",
+      "named_mythological_match": "Tutankhamun (egyptian, tier_2)",
+      "comment": "18th Dynasty (~1336-1327 BCE) tomb artifact; overrides 'medieval' regex misfire",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "middle_eastern",
+          "after": "middle_eastern",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "pre_classical",
+          "after": "pre_classical",
+          "override_reason": "regex_misfire_corrected"
+        }
+      },
+      "status": "updated"
+    },
+    {
+      "id": 13367,
+      "subset": "B",
+      "canonical_name": "Narmer Macehead",
+      "named_mythological_match": "Narmer (egyptian, tier_2)",
+      "comment": "Early Dynastic Egyptian (~3100 BCE) decorative mace head",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "middle_eastern",
+          "after": "middle_eastern",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "pre_classical",
+          "after": "pre_classical",
+          "preserved": true
+        }
+      },
+      "status": "no-op-already-clean"
+    },
+    {
+      "id": 107,
+      "subset": "B",
+      "canonical_name": "Mace-AO 2152",
+      "named_mythological_match": "Ninurta (mesopotamian, tier_1)",
+      "comment": "Mace of Tukulti-Ninurta I (1243-1207 BCE); overrides 'contemporary' regex misfire",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "middle_eastern",
+          "after": "middle_eastern",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "pre_classical",
+          "after": "pre_classical",
+          "override_reason": "regex_misfire_corrected"
+        }
+      },
+      "status": "updated"
+    },
+    {
+      "id": 634,
+      "subset": "B",
+      "canonical_name": "mace",
+      "named_mythological_match": "Shulgi (mesopotamian, tier_2)",
+      "comment": "Shulgi (~2094-2046 BCE) dedicatory mace; overrides 'contemporary' regex misfire",
+      "changes": {
+        "cultural_lineage_canonical": {
+          "before": "middle_eastern",
+          "after": "middle_eastern",
+          "preserved": true
+        },
+        "historical_period_canonical": {
+          "before": "pre_classical",
+          "after": "pre_classical",
+          "override_reason": "regex_misfire_corrected"
+        }
+      },
+      "status": "updated"
+    }
+  ],
+  "subset_c_deferred_list": [
+    {
+      "id": 176575,
+      "canonical_name": "Agni-II",
+      "source_library": "wikipedia",
+      "comment": "Modern Indian ballistic missile; named-after Vedic Agni; NOT Sketch F target"
+    },
+    {
+      "id": 181810,
+      "canonical_name": "Agni-IV",
+      "source_library": "wikipedia",
+      "comment": "Modern Indian missile"
+    },
+    {
+      "id": 187688,
+      "canonical_name": "Agni-V",
+      "source_library": "wikipedia",
+      "comment": "Modern Indian missile"
+    },
+    {
+      "id": 189522,
+      "canonical_name": "Agni-VI",
+      "source_library": "wikipedia",
+      "comment": "Modern Indian missile"
+    },
+    {
+      "id": 192956,
+      "canonical_name": "Agni-P",
+      "source_library": "wikipedia",
+      "comment": "Modern Indian missile"
+    },
+    {
+      "id": 174029,
+      "canonical_name": "Kukri",
+      "source_library": "wikipedia",
+      "comment": "Nepalese knife; named-bearer match to Alexander the Great is spurious"
+    },
+    {
+      "id": 175087,
+      "canonical_name": "Operation Aphrodite",
+      "source_library": "wikipedia",
+      "comment": "WWII USAAF operation codename; named-bearer attribution"
+    },
+    {
+      "id": 176135,
+      "canonical_name": "M982 Excalibur",
+      "source_library": "wikipedia",
+      "comment": "Modern guided artillery shell named-after Arthurian Excalibur"
+    },
+    {
+      "id": 181325,
+      "canonical_name": "Migration Period sword",
+      "source_library": "wikipedia",
+      "comment": "Generic typology; Beowulf-tagged via mention"
+    },
+    {
+      "id": 189708,
+      "canonical_name": "ShAK-12",
+      "source_library": "wikipedia",
+      "comment": "Russian carbine; Beowulf-tagged spuriously"
+    },
+    {
+      "id": 173959,
+      "canonical_name": "War hammer",
+      "source_library": "wikipedia",
+      "comment": "Generic typology; Charles Martel-tagged via etymology mention"
+    },
+    {
+      "id": 191289,
+      "canonical_name": "21 cm SK L/40",
+      "source_library": "wikipedia",
+      "comment": "WWI German naval gun; Freyja-tagged spuriously"
+    },
+    {
+      "id": 192601,
+      "canonical_name": "Bharat-52",
+      "source_library": "wikipedia",
+      "comment": "Modern Indian howitzer; Garuda-tagged"
+    },
+    {
+      "id": 192830,
+      "canonical_name": "Pindad Maung",
+      "source_library": "wikipedia",
+      "comment": "Modern Indonesian vehicle; Garuda-tagged"
+    },
+    {
+      "id": 192784,
+      "canonical_name": "Zastava M19",
+      "source_library": "wikipedia",
+      "comment": "Modern Serbian rifle; 6.5 Grendel cartridge-tagged"
+    },
+    {
+      "id": 181848,
+      "canonical_name": "Imperial Sword",
+      "source_library": "wikipedia",
+      "comment": "HRE Imperial regalia; Henry-the-Fowler-tagged"
+    },
+    {
+      "id": 174014,
+      "canonical_name": "M142 HIMARS",
+      "source_library": "wikipedia",
+      "comment": "Modern rocket launcher; Hercules-aircraft-mention"
+    },
+    {
+      "id": 174207,
+      "canonical_name": "Nike Hercules",
+      "source_library": "wikipedia",
+      "comment": "Cold-War missile"
+    },
+    {
+      "id": 174383,
+      "canonical_name": "Bloodhound (missile)",
+      "source_library": "wikipedia",
+      "comment": "1950s British missile"
+    },
+    {
+      "id": 175339,
+      "canonical_name": "NASAMS",
+      "source_library": "wikipedia",
+      "comment": "Modern SAM system"
+    },
+    {
+      "id": 175441,
+      "canonical_name": "FNSS ACV-19",
+      "source_library": "wikipedia",
+      "comment": "Modern Turkish IFV"
+    },
+    {
+      "id": 176150,
+      "canonical_name": "MGM-134 Midgetman",
+      "source_library": "wikipedia",
+      "comment": "Cold-War ICBM"
+    },
+    {
+      "id": 176276,
+      "canonical_name": "Coventry armoured car",
+      "source_library": "wikipedia",
+      "comment": "WWII British armoured car"
+    },
+    {
+      "id": 176975,
+      "canonical_name": "M88 recovery vehicle",
+      "source_library": "wikipedia",
+      "comment": "Modern ARV"
+    },
+    {
+      "id": 181492,
+      "canonical_name": "Hyunmoo-3",
+      "source_library": "wikipedia",
+      "comment": "Modern South Korean cruise missile"
+    },
+    {
+      "id": 187818,
+      "canonical_name": "High Velocity Aircraft Rocket",
+      "source_library": "wikipedia",
+      "comment": "WWII rocket"
+    },
+    {
+      "id": 188637,
+      "canonical_name": "Chenowth Advanced Light Strike Vehicle",
+      "source_library": "wikipedia",
+      "comment": "Modern vehicle"
+    },
+    {
+      "id": 190235,
+      "canonical_name": "Nike Zeus",
+      "source_library": "wikipedia",
+      "comment": "Cold-War ABM"
+    },
+    {
+      "id": 190334,
+      "canonical_name": "General Dynamics Flyer",
+      "source_library": "wikipedia",
+      "comment": "Modern vehicle"
+    },
+    {
+      "id": 182497,
+      "canonical_name": "21 cm M\u00f6rser 10",
+      "source_library": "wikipedia",
+      "comment": "WWI German howitzer; Isis-tagged spuriously"
+    },
+    {
+      "id": 189505,
+      "canonical_name": "Type 73 light machine gun",
+      "source_library": "wikipedia",
+      "comment": "Modern NK LMG; Isis-tagged spuriously"
+    },
+    {
+      "id": 193457,
+      "canonical_name": "Tumbok lada",
+      "source_library": "wikipedia",
+      "comment": "Malay dagger; Lada-tagged via name homonymy"
+    },
+    {
+      "id": 176295,
+      "canonical_name": "ELVO Kentaurus",
+      "source_library": "wikipedia",
+      "comment": "Modern Greek IFV; Leonidas-tagged spuriously"
+    },
+    {
+      "id": 174611,
+      "canonical_name": "Grand Slam (bomb)",
+      "source_library": "wikipedia",
+      "comment": "WWII RAF earthquake bomb; Merlin-engine-mention"
+    },
+    {
+      "id": 189638,
+      "canonical_name": "MGD PM-9",
+      "source_library": "wikipedia",
+      "comment": "1950s SMG; Merlin-tagged spuriously"
+    },
+    {
+      "id": 175736,
+      "canonical_name": "46 cm/45 Type 94 naval gun",
+      "source_library": "wikipedia",
+      "comment": "WWII Japanese naval gun; Musashi-tagged"
+    },
+    {
+      "id": 174194,
+      "canonical_name": "M3 Lee",
+      "source_library": "wikipedia",
+      "comment": "WWII US tank; Odysseus-tagged spuriously"
+    },
+    {
+      "id": 174108,
+      "canonical_name": "Cutlass",
+      "source_library": "wikipedia",
+      "comment": "Generic typology; Ois\u00edn-tagged spuriously"
+    },
+    {
+      "id": 173952,
+      "canonical_name": "Trident (missile)",
+      "source_library": "wikipedia",
+      "comment": "Modern SLBM; Poseidon-tagged"
+    },
+    {
+      "id": 176461,
+      "canonical_name": "W68",
+      "source_library": "wikipedia",
+      "comment": "Cold-War warhead; Poseidon-tagged"
+    },
+    {
+      "id": 188301,
+      "canonical_name": "Harpoon (missile)",
+      "source_library": "wikipedia",
+      "comment": "Modern anti-ship missile; Poseidon-tagged"
+    },
+    {
+      "id": 174631,
+      "canonical_name": "Combat Vehicle Reconnaissance (Tracked)",
+      "source_library": "wikipedia",
+      "comment": "Modern AFV; Saladin-tagged"
+    },
+    {
+      "id": 174104,
+      "canonical_name": "Katar",
+      "source_library": "wikipedia",
+      "comment": "Indian dagger typology; Shivaji-tagged"
+    },
+    {
+      "id": 182089,
+      "canonical_name": "Bichuwa",
+      "source_library": "wikipedia",
+      "comment": "Indian dagger typology; Shivaji-tagged"
+    },
+    {
+      "id": 182653,
+      "canonical_name": "Surya missile",
+      "source_library": "wikipedia",
+      "comment": "Speculated Indian ICBM; Surya-tagged"
+    },
+    {
+      "id": 173945,
+      "canonical_name": "Katyusha rocket launcher",
+      "source_library": "wikipedia",
+      "comment": "WWII Soviet rocket artillery; Suvorov-tagged"
+    },
+    {
+      "id": 192182,
+      "canonical_name": "THeMIS",
+      "source_library": "wikipedia",
+      "comment": "Modern UGV; Themis-tagged"
+    },
+    {
+      "id": 192856,
+      "canonical_name": "Integrated Unmanned Ground System",
+      "source_library": "wikipedia",
+      "comment": "Modern UGS; Themis-tagged"
+    },
+    {
+      "id": 176834,
+      "canonical_name": "Otomat",
+      "source_library": "wikipedia",
+      "comment": "Modern anti-ship missile; Theseus-tagged"
+    },
+    {
+      "id": 175456,
+      "canonical_name": "Mjolnir (comics)",
+      "source_library": "wikipedia",
+      "comment": "Marvel Comics fictional weapon"
+    },
+    {
+      "id": 175890,
+      "canonical_name": "Mark 7 nuclear bomb",
+      "source_library": "wikipedia",
+      "comment": "Cold-War nuclear bomb (Thor-codename)"
+    },
+    {
+      "id": 174117,
+      "canonical_name": "Sten",
+      "source_library": "wikipedia",
+      "comment": "WWII British SMG; Turpin-tagged"
+    },
+    {
+      "id": 191035,
+      "canonical_name": "Varunastra (torpedo)",
+      "source_library": "wikipedia",
+      "comment": "Modern Indian torpedo; Varuna-tagged"
+    },
+    {
+      "id": 532,
+      "canonical_name": "Hammer of Thor",
+      "source_library": "wikidata",
+      "comment": "Fictional 1987 TMNT weapon"
+    },
+    {
+      "id": 603,
+      "canonical_name": "Dark Elf Particle Rifle",
+      "source_library": "wikidata",
+      "comment": "Marvel Thor: Dark World fictional"
+    },
+    {
+      "id": 606,
+      "canonical_name": "Asgardian Cannon",
+      "source_library": "wikidata",
+      "comment": "Marvel Thor: Dark World fictional"
+    },
+    {
+      "id": 77,
+      "canonical_name": "Q88199410",
+      "source_library": "wikidata",
+      "comment": "Mus\u00e9e Saint-Raymond item; Raymond-of-Toulouse via museum name"
+    },
+    {
+      "id": 1006,
+      "canonical_name": "Mus\u00e9e Saint-Raymond, D 78 6 6",
+      "source_library": "wikidata",
+      "comment": "Museum cataloguing item"
+    },
+    {
+      "id": 1530,
+      "canonical_name": "Mus\u00e9e Saint-Raymond, Niel 2463 n\u00b06",
+      "source_library": "wikidata",
+      "comment": "Museum cataloguing item"
+    },
+    {
+      "id": 46,
+      "canonical_name": "Shield Depicting Saint George Slaying the Dragon",
+      "source_library": "wikidata",
+      "comment": "19th-century depictive shield; named-bearer is depiction-content"
+    },
+    {
+      "id": 204133,
+      "canonical_name": "Painting",
+      "source_library": "royal_armouries",
+      "comment": "Augustus-depicting painting"
+    },
+    {
+      "id": 219614,
+      "canonical_name": "Partizan",
+      "source_library": "royal_armouries",
+      "comment": "Augustus-era partizan"
+    },
+    {
+      "id": 196880,
+      "canonical_name": "Helm",
+      "source_library": "royal_armouries",
+      "comment": "Black-Prince-attributed helm"
+    },
+    {
+      "id": 208781,
+      "canonical_name": "Wooden head",
+      "source_library": "royal_armouries",
+      "comment": "Edward III curatorial object"
+    },
+    {
+      "id": 209612,
+      "canonical_name": "Print",
+      "source_library": "royal_armouries",
+      "comment": "Edward III print"
+    },
+    {
+      "id": 206662,
+      "canonical_name": "Sword",
+      "source_library": "royal_armouries",
+      "comment": "Elizabeth I sword"
+    },
+    {
+      "id": 211611,
+      "canonical_name": "Print",
+      "source_library": "royal_armouries",
+      "comment": "Elizabeth I print"
+    },
+    {
+      "id": 204323,
+      "canonical_name": "Print",
+      "source_library": "royal_armouries",
+      "comment": "Francis Drake print"
+    },
+    {
+      "id": 207299,
+      "canonical_name": "Print",
+      "source_library": "royal_armouries",
+      "comment": "Gaston de Foix print"
+    },
+    {
+      "id": 209511,
+      "canonical_name": "Print",
+      "source_library": "royal_armouries",
+      "comment": "Gaston de Foix print"
+    },
+    {
+      "id": 204318,
+      "canonical_name": "Print",
+      "source_library": "royal_armouries",
+      "comment": "Henry Bolingbroke print"
+    },
+    {
+      "id": 159244,
+      "canonical_name": "Pike",
+      "source_library": "royal_armouries",
+      "comment": "Henry VIII pike"
+    },
+    {
+      "id": 159288,
+      "canonical_name": "Pike",
+      "source_library": "royal_armouries",
+      "comment": "Henry VIII pike"
+    },
+    {
+      "id": 159291,
+      "canonical_name": "Pike",
+      "source_library": "royal_armouries",
+      "comment": "Henry VIII pike"
+    },
+    {
+      "id": 197738,
+      "canonical_name": "Pollaxe",
+      "source_library": "royal_armouries",
+      "comment": "Henry VIII pollaxe"
+    },
+    {
+      "id": 198374,
+      "canonical_name": "Pike",
+      "source_library": "royal_armouries",
+      "comment": "Henry VIII pike"
+    },
+    {
+      "id": 199788,
+      "canonical_name": "Print",
+      "source_library": "royal_armouries",
+      "comment": "Henry VIII print"
+    },
+    {
+      "id": 203288,
+      "canonical_name": "Gun",
+      "source_library": "royal_armouries",
+      "comment": "Henry VIII gun"
+    },
+    {
+      "id": 204135,
+      "canonical_name": "Painting",
+      "source_library": "royal_armouries",
+      "comment": "Henry VIII painting"
+    },
+    {
+      "id": 204298,
+      "canonical_name": "Print",
+      "source_library": "royal_armouries",
+      "comment": "Henry VIII print"
+    },
+    {
+      "id": 204696,
+      "canonical_name": "Equestrian mannequin",
+      "source_library": "royal_armouries",
+      "comment": "Henry VIII equestrian"
+    },
+    {
+      "id": 208015,
+      "canonical_name": "Print",
+      "source_library": "royal_armouries",
+      "comment": "Henry VIII print"
+    },
+    {
+      "id": 208289,
+      "canonical_name": "Partizan",
+      "source_library": "royal_armouries",
+      "comment": "Henry VIII partizan"
+    },
+    {
+      "id": 209783,
+      "canonical_name": "Wooden head",
+      "source_library": "royal_armouries",
+      "comment": "Henry VIII curatorial"
+    },
+    {
+      "id": 218476,
+      "canonical_name": "Pike",
+      "source_library": "royal_armouries",
+      "comment": "Henry VIII pike"
+    },
+    {
+      "id": 218478,
+      "canonical_name": "Pike",
+      "source_library": "royal_armouries",
+      "comment": "Henry VIII pike"
+    },
+    {
+      "id": 218481,
+      "canonical_name": "Pike",
+      "source_library": "royal_armouries",
+      "comment": "Henry VIII pike"
+    },
+    {
+      "id": 207287,
+      "canonical_name": "Print",
+      "source_library": "royal_armouries",
+      "comment": "John Hawkwood print"
+    },
+    {
+      "id": 204328,
+      "canonical_name": "Wooden head",
+      "source_library": "royal_armouries",
+      "comment": "John of Gaunt curatorial"
+    },
+    {
+      "id": 209510,
+      "canonical_name": "Print",
+      "source_library": "royal_armouries",
+      "comment": "Maximilian I print"
+    },
+    {
+      "id": 201336,
+      "canonical_name": "Sword",
+      "source_library": "royal_armouries",
+      "comment": "Paris of Troy depictive sword"
+    },
+    {
+      "id": 210962,
+      "canonical_name": "Sword",
+      "source_library": "royal_armouries",
+      "comment": "Saladin depictive sword"
+    },
+    {
+      "id": 204314,
+      "canonical_name": "Print",
+      "source_library": "royal_armouries",
+      "comment": "Walter Raleigh print"
+    },
+    {
+      "id": 210888,
+      "canonical_name": "Wooden head",
+      "source_library": "royal_armouries",
+      "comment": "William the Conqueror curatorial"
+    }
+  ]
+}
