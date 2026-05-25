@@ -135,7 +135,11 @@ Drax Wave 3b ✅ COMPLETE. Per Cycle 11 close kicker sequence step 3, jack-ryan 
 
 Fired in parallel with elrond SC-2 Option A continuation:
 - **jack-ryan Gate-2 dispatch** `2026-05-25-jack-ryan-cycle-11-gate-2-drax-wave-3b.md` — DEV-MODE review of M3/M6 + spirit-guide narration against acceptance criteria + 5 principles + Tier 2 framing compliance (primary scrutiny target)
-- Verdict path: PASS → KR drafts Cycle 11 wind-down → Matt log-back ratifies → final tag cut (proposal `v1.0-t4-intent-metadata-ready` or KR judgment). PASS-WITH-AMENDMENTS → drax amends minor items then PASS. BLOCK → drax must fix before close.
+- **Verdict: ✅ PASS-WITH-AMENDMENTS** — 3 INFO findings (F1 commit message omits M6 [hygiene]; F2 smoke fixture TODO acceptable as deferred [tracked in AGENT_STATE]; F3 DEFENSIVE_TRADEOFF 6th strategy not in named label/description tables — forward-compat arm handles gracefully [add when rocket §8 regen ships]); zero WARN; zero BLOCK
+- **Tier 2 framing compliance: COMPLIANT throughout** — strategy descriptions reviewed line-by-line; "amplified" in GEOMETRY_COLLAPSE walks the line but reads as trade-off framing in context (acceptable); η-score positioned as candidacy signal not combat modifier ("predicted to shift" language correctly used)
+- **Schema round-trip: PASS** — exact field-name alignment + type alignment between Python AlterationOutput (mechanic_alteration.py lines 75-101) ↔ TypeScript T4AlterationOutput (types.ts); optionality asymmetry intentional + correct
+- **Cycle 11 final tag may cut** — KR drafts wind-down summary; Matt log-back ratifies; final tag proposal `v1.0-t4-intent-metadata-ready`
+- Tag `jack-ryan/cycle-11-gate-2-drax-wave-3b-2026-05-25` pushed
 
 ---
 
