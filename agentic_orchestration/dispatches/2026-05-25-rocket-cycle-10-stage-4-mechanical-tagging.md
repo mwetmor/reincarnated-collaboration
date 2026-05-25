@@ -311,3 +311,40 @@ Per Discipline #1.1 resource-bounds: ~3,200 rows × per-row tagging compute ~1 s
 **Gate-1 critique-pair posture:** Wave 7 fires within Cycle 10 in-scope autonomous dispatch authoring per scope-doc § 1. Composition policy v1 § 1.4 + § 3 + BC-axes lock together constitute the locked design substrate. Phase 1 legolas Mode A consult LOAD-BEARING per Discipline #18; consult-as-Gate-1-replacement for methodology choice. jack-ryan Gate-2 PASS + round-trip smoke PASS gate tag.
 
 **Owners:** rocket (lead — mechanical-tagging + schema + script + artifact) + gamora (sim-viability + balance-loop sanity-check) + jack-ryan (Gate-2 methodology + round-trip + cross-seam) + legolas Mode A (Phase 1 methodology consult prerequisite)
+
+---
+
+## Completion record
+
+**Completed by:** rocket
+**Completion date:** 2026-05-25
+**Commit:** `9ad416e` (collaboration repo) + `ff699f5` (engine repo AGENT_STATE.md)
+
+### Acceptance criteria status
+
+- [x] Phase 1 legolas Mode A consult artifact landed — already complete pre-session
+- [x] Schema extension landed: `damage_amplitude_min REAL` + `damage_amplitude_max REAL` + DEX added to primary_stat CHECK constraint. Also: FK reference corrected from legacy `weapons(weapon_id)` to `weapon_knowledge_entries(id)` (load-bearing fix; 49 of 2,293 v1_scope entries had matching weapons rows — remainder would have been un-insertable without FK correction). MIGRATION.md at `agentic_orchestration/rocket/research/cycle-10-stage-4-2026-05-25/MIGRATION.md`.
+- [x] Population script executes successfully against UNION of (v1_scope main pool + Stage 3.5 gap-fills + mythological-NULL rescue). Script at `populate_weapon_sim_props.py`. 3-pass methodology; ~$0.37 LLM cost (under $0.95 estimate).
+- [x] ALL 2,293 v1_scope rows have populated `weapon_sim_props` row; ZERO regressions on prior-stage columns; ZERO errors.
+- [x] Per-axis distribution histogram landed in `mechanical-tagging-report.md`; ambiguous-case log in `ambiguous-cases.jsonl` (137 low-confidence rows; 130 royal_armouries accessories; WARN signal assessed as expected/acceptable)
+- [x] **CRT-1 PASS: INT+WIS combined 14.3% >= 12%** (DEX 46.9%, STR 38.8%, WIS 7.3%, INT 7.0%)
+- [x] Mythological-NULL rescue: 14 rows tagged (21 pre-existing mythological-register entries; per dispatch count of ~30 includes Stage 3.5 engine-authored mythological entries that were already typed). Per-row rationale in `mythological-null-rescue.md`. Rep-audit Mode B/C contamination check: CLEAN.
+- [ ] gamora sim-viability assessment — pending knight-rider gamora invocation
+- [ ] gamora small-scale sim-loop sanity-check — pending
+- [ ] jack-ryan Gate-2 PASS — pending knight-rider routing
+- [ ] **Round-trip smoke** (rocket → gamora → star-lord) — pending knight-rider coordination
+- [ ] Tag: `rocket/cycle-10-stage-4-mechanical-tagging-2026-05-25` — pending Gate-2 + round-trip smoke PASS
+
+### Key anomalies flagged for gamora/jack-ryan
+
+1. **Ruyi Jingu Bang wikidata (id=388):** DEX/ranged assigned due to wikidata `weapon_type='gun'` data error. Wikipedia entry (id=174314) correctly STR/mid. Recommend override at gamora pass.
+2. **Signal 2 WARN:** LLM low-confidence rate 37% (137/371 rows) exceeds 20% threshold. Assessment: 130 of 137 are royal_armouries accessories (Holster, Detached lock, Cocking lever, etc.) — expected high ambiguity for component-part vocabulary. 40 already sim_viable=0. Remaining ~90 with sim_viable=1 warrant gamora Phase 2 spot-check.
+3. **Amplitude variable bin at 54.3%:** above Sketch A target (~35%). Expected artifact of per-bin lookup table; validate against sim telemetry after first simulation run.
+4. **Tier-S items flagged for gandalf curation pass:** Gáe Bulg (multi-hit/low lore accuracy), Mjölnir (tempo=high vs consult's low), Sudarshana Chakra (WIS/AoE vs consult's DEX/scatter).
+
+### Resource actuals
+
+- LLM calls: ~371 (Pass 3 only)
+- LLM cost: ~$0.37 (under $0.95 estimate)
+- Wall time: ~14 min (under 1 hr envelope per Discipline #1.1)
+- DB backup: `backups/telemetry.db.pre-stage-4` (gitignored; 204 MB)
