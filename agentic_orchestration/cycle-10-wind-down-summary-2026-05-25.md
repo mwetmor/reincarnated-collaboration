@@ -81,13 +81,25 @@
 
 ### Sidecar B — Off-hand substrate inclusion
 
-**Status:** [TBD-SIDECAR-B-RESULT]
+**Status:** SUBSTRATE COMPLETE — gandalf curation review IN-FLIGHT
 - Dispatch: `agentic_orchestration/dispatches/2026-05-25-elrond-cycle-10-sidecar-b-off-hand-substrate.md`
-- legolas Mode B crawl: [TBD-IN-FLIGHT/COMPLETE]
-- elrond mining + schema extension: [TBD-IN-FLIGHT/COMPLETE]
-- gandalf 30-row cross-category curation review: [TBD]
-- Path A LOCKED: off-hand items only; no broad weapon-library crawl
-- Tag intent: `legolas/cycle-10-sidecar-b-off-hand-crawl-2026-05-25` + `elrond/cycle-10-sidecar-b-off-hand-mining-2026-05-25`
+- legolas Mode B crawl ✓ commit `6b0bb4d` — 132 rows (48 tomes + 34 banners + 30 focuses/talismans + 20 horns); strong cross-cultural; 2 dedup pairs + 8 living-religious-tradition flags documented
+- elrond mining + schema extension ✓ commit `6efd730` — 287 reclassifications + 130 INSERTed (after dedup) = 417 off-hand active rows total (shield 193 + tome 64 + banner 102 + focus 14 + horn 27 + talisman 27); Discipline #25 rep-audit PASS 10/10 across all 6 categories
+- gandalf 30-row cross-category curation review IN-FLIGHT (single-batch policy; combined legolas Mode B + elrond mining)
+- Total active substrate post-Sidecar-B: 69,267 rows (+130 from legolas Mode B INSERT)
+- Off-hand items in v1_scope: 42 (inherited from Phase 2 sampling on the 89,841-row pool; pre-existing 'unknown' weapon_kind candidates absorbed)
+- Path A LOCKED RESPECTED: off-hand items only; no broad weapon-library crawl
+- Tag intent: `legolas/cycle-10-sidecar-b-off-hand-crawl-2026-05-25` ✓ pushed (legolas seam tag landed); `elrond/cycle-10-sidecar-b-off-hand-mining-2026-05-25` — fires post gandalf 30-row PASS ≥ 24/30
+
+### Wave 5.5 — Phase 0c Tier-A NULL-subtype classifier extension + Mode-C-by-semantics eviction (NEW; gandalf-proposed remediation)
+
+**Status:** IN-FLIGHT
+- Dispatch: `agentic_orchestration/dispatches/2026-05-25-elrond-cycle-10-wave-5-5-phase-0c-and-mode-c-eviction.md` (commit `4c516f8`)
+- Authority: gandalf SO-4 RATIFY-WITH-AMENDMENT + sign-off § 3 Condition 1 + Condition 3 (per `f40b714`)
+- 50-row spot-check FAIL (29/50 = 58% vs ≥80% threshold) — structured failure profile: 8/21 Tier-A NULL-subtype escape + 7/21 Mode-C-by-semantics contamination
+- Phase 0c scope: 940 Tier-A NULL-subtype rows classifier extension
+- Mode-C eviction scope: ~50-100 row eviction estimate per gandalf SQL signature (modern-period + named-mythological-match overlap + sci-fi description signatures)
+- Tag intent: `elrond/cycle-10-wave-5-5-phase-0c-and-mode-c-eviction-2026-05-25` after closeout + gandalf 10-row eviction audit PASS
 
 ---
 
