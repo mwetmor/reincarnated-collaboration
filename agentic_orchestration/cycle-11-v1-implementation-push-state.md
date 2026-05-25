@@ -46,41 +46,51 @@ Drive to **T4 post-mortem readiness milestone** (~3 weeks wall-clock) via parall
 
 ## 2. Wave log
 
-### Wave 1 — 2026-05-25 (CYCLE ENTRY; Day-1 parallel-fire)
+### Wave 1 — 2026-05-25 (CYCLE ENTRY; Day-1 parallel-fire) — CLOSED
 
-**Fired:**
-- State file authored (this doc)
-- Dispatch authoring batch (Day-1 parallel fires per scope-doc § 8 sequencing):
-  1. `dispatches/2026-05-25-star-lord-cycle-11-pre-migration-mitigation.md`
-  2. `dispatches/2026-05-25-jack-ryan-cycle-11-decisions-log-batch.md`
-  3. `dispatches/2026-05-25-drax-cycle-11-m4-attribute-coupling-labels.md`
-  4. `dispatches/2026-05-25-star-lord-cycle-11-schema-extensions.md`
-  5. `dispatches/2026-05-25-rocket-cycle-11-algorithm-section-8-implementation.md`
+**Fired:** 5 sub-agents in parallel via Agent tool per Mode A orchestration pattern (Matt 2026-05-25 directive — "you ARE the orchestrator").
 
-**Day-1 fire post-conditions:**
-- 5 dispatches authored + committed
-- Push-per-wave fires after Wave 1 dispatch authoring close
-- PIDs N/A at authoring stage (specialist sessions fire on pickup)
-- Sub-agent invocation for legolas 6th-strategy clarification embedded in rocket § 8 dispatch authoring step (resolved before dispatch finalization)
+**Returns:**
 
-**Discipline checks at Wave 1 authoring:**
-- Discipline #18 (methodology-before-execution): legolas Mode A consult ALREADY RETURNED 2026-05-25; rocket § 8 dispatch references methodology-recommendation.md § 3 directly
-- Discipline #19.1 (cheapest-refuting-test): BC-shift validation sweep MANDATORY prereq written into rocket § 8 dispatch acceptance criterion
-- Discipline #19 (Agent-tool-not-for-waiting): dispatches authored locally; specialist sessions fire on Matt's pickup; no polling
-- ADR-006 + push-per-wave: auto-push after Wave 1 authoring close per scope-doc § 4
-- Discipline #11 (empirical inspection): tag `v1.0-weapon-substrate-cycle-10-shipped` verified via git tag list before Wave 1 authoring
+| Sub-agent | Status | Tag (engine unless noted) | Engine commits |
+|---|---|---|---|
+| star-lord pre-migration mitigation | ✅ COMPLETE — 234/234 tests PASS | `star-lord/v0.0-cycle-11-pre-migration-mitigation-2026-05-25` | `8ad669b`, `ba74b19` |
+| star-lord schema extensions (4 fields) | ✅ COMPLETE — 79/79 round-trip PASS | `star-lord/v0.1-cycle-11-schema-extensions-2026-05-25` | `dcfa846`, `6a90a97` |
+| jack-ryan decisions-log batch | ✅ COMPLETE — Option 1 (co-location) + accept-document | `jack-ryan/v0.0-cycle-11-decisions-log-batch-2026-05-25` | `84a20c7` (engine), `3775266` (collab) |
+| drax M4 attribute coupling labels | ⚠️ ESCALATION — `attribute_coupling` field NOT PRESENT | (no tag cut) | `c30c08b` (collab dispatch record), `bf749cf` (loadout AGENT_STATE) |
+| rocket § 8 implementation | ✅ Implementation COMPLETE; BC-shift sweep IN-FLIGHT | `rocket/v0.1-cycle-11-algorithm-section-8-v1-implementation-2026-05-25` | `d6bca67`, `f9bcc7c`, `7ffd1fb` |
+
+**Key Wave-1 closeout findings:**
+1. **Cross-seam serialization key ALIGNED** — rocket's `AlterationOutput.eta_score` (ASCII python attr) matches star-lord's JSON transport key `eta_score`. Star-lord MIGRATION.md § v1.3 forward-compat note is moot. No fix needed.
+2. **Drax M4 escalation = star-lord schema deficiency.** `attribute_coupling` field doesn't exist anywhere (ZERO matches across 11 seasons + engine source + types.ts). Drax memo § 4.3 "data already present" claim was incorrect. M4 routes back as a generation-seam follow-on (rocket emits derived `attribute_coupling: list[str]` from existing class attributes).
+3. **6th strategy verdict from legolas — captured in rocket completion record** (verdict embedded in `mechanic_alteration.py` strategy enum; KR to extract from rocket commit message + dispatch completion record at next state-file update; mechanic_alteration.py inspection confirmed `eta_score` alignment).
+
+**Discipline checks PASSED at Wave 1:**
+- Discipline #18 (methodology-before-execution): rocket invoked legolas sub-agent for 6th-strategy clarification before implementation
+- Discipline #19.1 (cheapest-refuting-test): static η-calibration smoke 6/6 PASS BEFORE BC-shift validation sweep fired
+- Discipline #19 (Agent-tool-not-for-waiting): BC-shift sweep is nohup background; KR does not poll
+- Discipline #11 (empirical inspection): KR direct-inspected `mechanic_alteration.py` to verify `eta_score` alignment rather than assuming sub-agent reports
+- Discipline #1 (math-before-code): rocket math-note authored at `generation/math/algorithm-section-8-v1-implementation-2026-05-25.md`
+- ADR-004 (MIGRATION.md cross-seam): authored on both star-lord schema extensions + rocket § 8
+
+### Wave 2 — 2026-05-25 (parallel fire on Wave 1 close)
+
+**Trigger:** Wave 1 closed cleanly for 3 of 4 implementing seams; M4 escalation surfaced new generation-seam follow-on; BC-shift sweep backgrounded.
+
+**Fired:** 2 sub-agents in parallel.
+
+| Dispatch | Specialist | Purpose |
+|---|---|---|
+| `2026-05-25-rocket-cycle-11-attribute-coupling-field-addition.md` | rocket | Add `attribute_coupling: list[str]` field to PlayerClass schema + class_generator emission (derived from existing class attributes); star-lord serialization auto-picks-up; unblocks drax M4 refire |
+| `2026-05-25-drax-cycle-11-m1-m2-m5-loadout-display.md` | drax | M1 (main weapon WeaponSlot) + M2 (off-hand OffHandSlot) + M5 (provenance badge) per Matt P2c + Q1/Q3 ratified; consumes star-lord Wave 1 schema extensions |
 
 ---
 
-## 3. PID tracking (Wave 1 fires)
+## 3. PID tracking
 
-| Dispatch | Specialist | Status | PID/log |
-|---|---|---|---|
-| Pre-migration mitigation | star-lord | PENDING (awaits Matt fires specialist session) | N/A — file-edit dispatch, no background process |
-| Decisions-log batch | jack-ryan | PENDING (awaits Matt fires specialist session) | N/A — canonical-write dispatch |
-| Drax M4 | drax | PENDING (awaits Matt fires specialist session) | N/A — UI code change |
-| Star-lord schema extensions | star-lord | PENDING (awaits Matt fires specialist session) | N/A — engine code change |
-| Rocket § 8 implementation | rocket | PENDING (awaits Matt fires specialist session) | BC-shift sweep ~200-300 min compute when fires |
+| Process | Status | PID / artifact |
+|---|---|---|
+| BC-shift validation sweep (rocket Wave 1) | RUNNING | PID 79520; log `/Users/admin/Games/reincarnated-engine/logs/bc_shift_sweep_20260525_105145.log`; results `logs/bc_shift_sweep_results.json` on completion; ~200-300 min total |
 
 ---
 
