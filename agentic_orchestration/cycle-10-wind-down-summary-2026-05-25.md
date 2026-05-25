@@ -234,13 +234,13 @@
 
 5 post-cycle continuation dispatches AUTHORED + FIRE-READY. Fire IMMEDIATELY after this wind-down filing per Matt 2026-05-25 skip-confirmation directive:
 
-| # | Dispatch | Owner | Expected return window | Independence verified |
+| # | Dispatch | Owner | Status | Verdict / Return |
 |---|---|---|---|---|
-| 1 | `2026-05-25-gamora-w1-13-hypothesis-testing.md` | gamora + jack-ryan Gate-2 | depends on upstream chain state | ✓ independent of substrate finality |
-| 2 | `2026-05-25-legolas-algorithm-section-8-methodology-consult.md` | legolas Mode A | ~1-2 days | ✓ independent of substrate finality; LOAD-BEARING per Discipline #18 before rocket § 8 |
-| 3 | `2026-05-25-drax-and-star-lord-loadout-app-readiness-scoping.md` | drax + star-lord | ~half-day | ✓ independent of substrate finality |
-| 4 | `2026-05-25-star-lord-g1-infrastructure-measurement.md` | star-lord | ~1-2 hours | ✓ independent; informs Pi recognition record § 8 G1 |
-| 5 | `2026-05-25-star-lord-g12-llm-cache-hit-rate-measurement.md` | star-lord (parallel with G1) | ~1-2 hours | ✓ independent; informs Pi recognition record § 8 G12 |
+| 1 | `2026-05-25-gamora-w1-13-hypothesis-testing.md` | gamora + jack-ryan Gate-2 | ✓ RETURNED `d4155bc` (pushed) | **UPSTREAM CHAIN UNMET** — clean blocked-flag; 4 specific blockers in dependency order (W1.1 Gate-1 routing / P1 W1.2-W1.11 dispatch / Matt W1.13 framing approval / W1.20 dispatch authoring); re-engagement criterion: post-W1.13 archive + W1.20 infrastructure + execution dispatch |
+| 2 | `2026-05-25-legolas-algorithm-section-8-methodology-consult.md` | legolas Mode A | ✓ RETURNED `f9762a8` (local; awaiting Matt log-back push authorization) tag `legolas/algorithm-section-8-methodology-consult-2026-05-25` | **Scored-candidate strategy registry recommendation.** ARPG genre provides NO precedent for algorithmically-derived per-kit keystones (PoE 1/2, D3/4, Last Epoch, Grim Dawn all hand-author); § 8 is genuinely novel territory. 10 strategy types proposed (resource-conversion / resource-buffer / mechanic-replacement / trade-off / element-conversion / defensive-conversion / geometry-collapse / zone-control / conditional-modifier / proxy-spawn); each exposes opportunity_scan() + generate_alteration() interface; highest-η candidate above floor commits as § 8.4 output bundle with **zero LLM involvement at selection time**. Cheapest refuting test: BC-shift validation sweep on 10-15 kits (~200-300 min compute). **Key scoping signal for Matt scope-lock:** 6 of 10 strategy types require ZERO sim extension (loadout-resolution layer only) → natural v1 subset for rocket implementation; 4 need sim hooks; proxy-spawn already v1.1+. Rocket can ship meaningful v1 § 8 against 6 sim-extension-free strategies while remaining 4 wait. |
+| 3 | `2026-05-25-drax-and-star-lord-loadout-app-readiness-scoping.md` | drax + star-lord | ✓ RETURNED `ebb3ae8` + `ed8fc82` (local; ADR-006-default deferred push) tag `drax/loadout-readiness-scoping-2026-05-25` | **6 MUST-HAVE items M1-M6** (main weapon display + off-hand item display + T4 alteration rendering + attribute coupling labels + provenance badge + T4 comparison panel); ~6 drax-days + ~2-3.5 star-lord-days + ~1-2 weeks rocket algorithm = ~3 weeks wall-clock; v1.0 stays static-JSON-bundled; **5 open Matt scope-lock questions**; 13 v1.1+ deferred items |
+| 4 | `2026-05-25-star-lord-g1-infrastructure-measurement.md` | star-lord | ✓ RETURNED `7302626` (pushed) tag `star-lord/g1-infrastructure-measurement-2026-05-25` | **G1 TRIGGERED ON BOTH BRANCHES.** Branch 1 (SQLite contention): 0.79% per-window below 5% numerically; BUT per-day on contention-active day (May 16, 9 runs) **11.1% EXCEEDS 5%** + structural `busy_timeout=0` makes failure deterministic. Branch 2 (RAM pressure → kernel panic): **4 kernel panics 2026-05-23 OOM watchdog-timeout** from legolas Phase E-1 HDBSCAN.fit (resource.setrlimit safety net silently failed); RAM direct proximate cause unambiguously. **Tier 1 (Pi-Postgres) commit triggered per § 8 G1**; D1 infrastructure decision empirically-gated for Matt log-back. |
+| 5 | `2026-05-25-star-lord-g12-llm-cache-hit-rate-measurement.md` | star-lord (parallel with G1) | ✓ RETURNED `c1e224c` (local; ADR-006-default deferred push) tag `star-lord/g12-llm-cache-hit-rate-measurement-2026-05-25` | **G12 NOT TRIGGERED** — 0.13% repeat rate (4/3,001 in 2-week window) vs 20% threshold; zero cross-season prompt-signature collisions (structural per season-embedded prompt content); existing DiskCache handles all 7 intra-session repeats at $0.00; **D9 LLM response cache remains DEFERRED**; cost savings if deployed: <$0.01/season |
 
 **Out-of-scope (NOT fired this cycle):**
 - Algorithm § 8 rocket implementation (gated on #2 legolas consult + Matt scope-lock)
@@ -258,12 +258,16 @@
 2. **v1_scope output stats** confirmed substrate-led-faithful per gandalf Path A composition verdict (historical 52.5% WITHIN band; military_modern 1.4% better D10-Path-C-deferred-aligned; fantasy 45.2% Pan-Fantasy HEFTY composition consequence; mythological 0.9% Stage 4 rescue applied).
 3. **Substrate-quality observations:** 5 Sidecar B design-side observations + 6 v1.1+ Recognition 1 refinement work-items documented in respective gandalf notes.
 
-### Priority 2 (POST-CYCLE DISPATCHES FIRED PER SKIP-CONFIRMATION; await returns + scope-lock decisions)
+### Priority 2 (ALL POST-CYCLE DISPATCHES RETURNED; scope-lock decisions ready for Matt log-back)
 
-1. **Algorithm § 8 implementation scope-lock** — gated on legolas Mode A consult return (dispatch FIRED; in-flight)
-2. **Loadout app implementation scope-lock** — gated on drax + star-lord scoping return (dispatch FIRED; in-flight)
-3. **D1 infrastructure decision** — gated on G1 measurement return + G4 Vercel reachability scoping (G1 dispatch FIRED; G4 surfaces in loadout-readiness scoping)
-4. **D9 LLM cache decision** — gated on G12 measurement return (dispatch FIRED in parallel with G1)
+1. **Algorithm § 8 implementation scope-lock** — legolas consult ✓ landed: scored-candidate strategy registry; 6 sim-extension-free v1 subset + 4 sim-extension-required + proxy-spawn v1.1+. **Matt scope-lock decision:** authorize rocket § 8 implementation against the 6 sim-extension-free strategies as v1 subset? Cheapest-refuting-test: BC-shift validation sweep ~200-300 min compute.
+2. **Loadout app implementation scope-lock** — drax scoping ✓ landed: 6 M-items M1-M6 + 5 open scope-lock questions in drax memo. ~3 weeks wall-clock to T4-post-mortem readiness (algorithm critical path). v1.0 stays static-JSON-bundled.
+3. **D1 infrastructure decision** — G1 ✓ landed **TRIGGERED ON BOTH BRANCHES** (per-day 11.1% SQLite contention + 4 kernel panics from RAM pressure 2026-05-23). Pi-Postgres commit triggered per § 8 G1. **Matt scope-lock decision:** Pi-Postgres vs hosted-Postgres vs status-quo per Pi recognition record § 7. G4 Vercel reachability constraint surfaces in drax scoping (loadout DB location). G11 Tailscale install (~15-min independent of D1).
+4. **D9 LLM cache decision** — G12 ✓ landed **NOT TRIGGERED** (0.13% repeat rate vs 20%; structural cross-season zero collisions). **D9 remains DEFERRED** per Pi recognition record § 7. Cost savings if cache deployed: <$0.01/season.
+
+### Priority 2.5 — Star-lord flagged pre-migration mitigation (NEW; KR-route-pending)
+
+Per G1 finding: short-term mitigation flagged by star-lord — `PRAGMA busy_timeout = 30000` in `telemetry/db.py` line 29 converts lock-busy failures to wait-and-retry; does not fix multi-writer architectural problem but eliminates immediate-failure symptom while Postgres migration is in flight. Star-lord flagged for KR dispatch routing (not auto-executed per flagged-but-not-dispatched seam rule). Matt log-back decides: authorize KR dispatch OR defer.
 
 ### Priority 3 (TERMINOLOGY / HOUSEKEEPING)
 
