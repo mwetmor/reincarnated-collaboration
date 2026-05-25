@@ -7,7 +7,7 @@
 **From:** knight-rider (orchestrator)
 **Date:** 2026-05-25
 **Authority:** Cycle 10 multi-stage dispatch parent (gandalf request 2026-05-23) § 3 Stage 4 + composition policy v1 § 1.4 (Stage 4 mythological-NULL rescue scope) + Cycle 10 scope-doc § 1 in-scope autonomous dispatch authoring
-**Status:** FIRE-READY pending Wave 5 Phase 3 distribution report + Wave 6 Stage 3.5 gap-fill landing (Stage 4 mechanical-tagging fires on UNION of v1_scope main pool + Stage 3.5 engine-authored entries)
+**Status:** FIRE-READY pending Wave 5 Phase 3 distribution report ✓ COMPLETE (`8c485ac`) + Wave 6 Stage 3.5 gap-fill landing (Stage 4 mechanical-tagging fires on UNION of v1_scope main pool + Stage 3.5 engine-authored entries). Phase 1 legolas Mode A methodology consult ✓ COMPLETE (`legolas/cycle-10-stage-4-methodology-consult-2026-05-25` tag pushed). Dispatch amended 2026-05-25 with consult findings (see § 4 + § 5.5 below).
 
 ---
 
@@ -62,16 +62,24 @@ Schema gap closure: `damage_amplitude_min REAL` + `damage_amplitude_max REAL` (o
 
 ## 3. Outputs
 
-### 3.1 Schema extension
+### 3.1 Schema extension (AMENDED 2026-05-25 per Phase 1 consult finding Signal 4)
 
 ```sql
--- Close damage_amplitude schema gap per Stage 4 dispatch parent § 3 Stage 4
+-- Close damage_amplitude schema gap per Stage 4 dispatch parent § 3 Stage 4 + Phase 1 consult Section c
 ALTER TABLE weapon_sim_props ADD COLUMN damage_amplitude_min REAL;
 ALTER TABLE weapon_sim_props ADD COLUMN damage_amplitude_max REAL;
--- OR equivalent variance coefficient column per Phase 1 legolas methodology consult
+
+-- CRITICAL — Phase 1 consult Signal 4: existing primary_stat CHECK constraint omits DEX.
+-- This MUST be fixed in the same migration or population fails on ~49% of typed v1_scope rows.
+ALTER TABLE weapon_sim_props DROP CONSTRAINT IF EXISTS check_primary_stat;
+ALTER TABLE weapon_sim_props ADD CONSTRAINT check_primary_stat CHECK (
+  primary_stat IN ('STR', 'INT', 'WIS', 'DEX')
+);
 ```
 
-MIGRATION.md required per ADR-004; gamora + star-lord consume `weapon_sim_props`; grep-verify expected consumers; document migration path.
+**Phase 1 consult locked damage_amplitude representation:** scalar pair `damage_amplitude_min REAL` + `damage_amplitude_max REAL` (NOT variance coefficient). CV derivable at sim time from the ratio. Per-(geometry × tempo) bin lookup table in consult § c. Amplitude ratio boundaries: flat <1.9×, variable 1.9-4.5×, spiky >4.5× (aligns to BC Axis 3B CV thresholds under uniform distribution assumption).
+
+MIGRATION.md required per ADR-004; gamora + star-lord consume `weapon_sim_props`; grep-verify expected consumers; document migration path. DEX-constraint amendment must be captured in MIGRATION.md as load-bearing for v1_scope DEX-tagged rows (per Phase 2 distribution: DEX is the largest single-attribute share among typed rows).
 
 ### 3.2 Populated `weapon_sim_props` rows for ALL v1_scope entries
 
@@ -112,18 +120,25 @@ Per Stage 4 dispatch parent + T4-A § 3.3 step 5 sim-viability discipline:
 
 ## 4. Method notes
 
-### 4.1 Phase 1 — legolas Mode A methodology consult (Discipline #18 hotspot; LOAD-BEARING gate)
+### 4.1 Phase 1 — legolas Mode A methodology consult (Discipline #18 hotspot; LOAD-BEARING gate) — ✓ COMPLETE 2026-05-25
 
-Per Discipline #18.2 (consultation-after-baseline at extension hotspots): Wave 5 Phase 2/3 baseline outputs land BEFORE this consult fires; consult-informed-by-baseline is cheaper than consult-in-the-dark.
+Per Discipline #18.2 (consultation-after-baseline at extension hotspots): Wave 5 Phase 2/3 baseline outputs landed BEFORE this consult fired; consult-informed-by-baseline is cheaper than consult-in-the-dark.
 
-**Consult scope (~1-2 hr legolas Mode A budget):**
-- Heuristic-derivation thresholds for range / geometry / tempo bin assignment from Stage 1.5 extracted_length / extracted_weight (e.g., range_class = 'melee' when length < X cm; 'ranged' when length > Y cm AND weapon_kind in projectile-types; etc.)
-- Damage-amplitude rubric design — this is the genuinely-hard axis per dispatch parent § 3 Stage 4. Options: variance coefficient, min/max amplitude, statistical distribution model
-- Per-cell-type-matching policy operationalization (Option α 5-tuple match for martial; Option β attribute-level for caster; Option C cross-attribute ω-penalty)
-- LLM-judge calibration for ambiguous cases (when heuristics conflict or undetermined)
-- Cheapest-refuting-test per Discipline #19.1: per-axis sanity-distribution check post-tagging; ambiguous-case re-review threshold
+**Output artifact (CONSUMED BY ROCKET BEFORE EXECUTION):** `agentic_orchestration/legolas/research/cycle-10-stage-4-methodology-consult-2026-05-25/methodology-recommendation.md`
 
-**Output artifact:** `agentic_orchestration/legolas/research/cycle-10-stage-4-methodology-consult-2026-05-25/methodology-recommendation.md`
+**Locked methodology (per consult; rocket consumes this before Phase 2 execution):**
+
+- **3-pass layered approach:**
+  - Pass 1 = heuristic from existing proxy columns (1,890 typed rows; zero LLM calls)
+  - Pass 2 = structured-property `weapon_type` key lookup (47 rows; zero LLM calls; covers most of mythological-NULL rescue subset directly)
+  - Pass 3 = LLM-judge on canonical_name + cultural_lineage_canonical for remaining 937 NULL-typed rows
+- **Damage amplitude:** scalar pair (`damage_amplitude_min REAL` + `damage_amplitude_max REAL`); per-(geometry × tempo) bin lookup table per consult § c; amplitude ratio boundaries flat <1.9× / variable 1.9-4.5× / spiky >4.5×
+- **DEX primary_stat constraint blocker:** schema migration MUST add DEX to `weapon_sim_props.primary_stat` CHECK constraint (see § 3.1 above)
+- **NULL-typed treatment for known-default pools:**
+  - 168 odin-army-tradoc rows (modern military vehicles/UAVs): pre-screen + apply default tag + `sim_viable = 0` BEFORE LLM pass
+  - royal_armouries component-parts (lockplates, detached jaws, etc.): low-confidence LLM-judge expected → likely `sim_viable = 0` defaults
+- **Resource bounds:** ~950 LLM calls × ~$0.001 = ~$0.95 total cost; ~25 min total automated execution; within Wave 7 ~1 hr envelope
+- **Cheapest-refuting-test:** per-axis bin distribution check post-tagging; **KEY GATE: INT+WIS combined ≥ 12% of populated rows** (if <10%, methodology systematically under-assigning caster attributes → revise before commit)
 
 ### 4.2 Phase 2 — mechanical-tagging execution (rocket)
 
@@ -173,12 +188,13 @@ Apply at mythological-NULL rescue boundary: do the ~30 mythological-register NUL
 
 ## 5.5 Acceptance criteria (formal per dispatches/README.md § Acceptance criteria + Principle 6)
 
-- [ ] Phase 1 legolas Mode A consult artifact landed at `agentic_orchestration/legolas/research/cycle-10-stage-4-methodology-consult-2026-05-25/methodology-recommendation.md` per Discipline #18
-- [ ] Phase 1 consult includes: heuristic-derivation thresholds + damage-amplitude rubric + Option α/β/C operationalization + LLM-judge calibration + cheapest-refuting-test design
-- [ ] Schema extension landed (`damage_amplitude_min REAL`, `damage_amplitude_max REAL` or equivalent per consult); MIGRATION.md drafted
+- [x] Phase 1 legolas Mode A consult artifact landed at `agentic_orchestration/legolas/research/cycle-10-stage-4-methodology-consult-2026-05-25/methodology-recommendation.md` per Discipline #18 — ✓ COMPLETE 2026-05-25; tag `legolas/cycle-10-stage-4-methodology-consult-2026-05-25` pushed
+- [x] Phase 1 consult includes: 3-pass layered methodology + damage-amplitude min/max representation + per-(geometry × tempo) bin lookup + DEX primary_stat constraint blocker + NULL-typed treatment for odin-army-tradoc + royal_armouries component-parts + cheapest-refuting-test INT+WIS ≥12%
+- [ ] Schema extension landed: `damage_amplitude_min REAL` + `damage_amplitude_max REAL` + DEX added to primary_stat CHECK constraint per § 3.1; MIGRATION.md drafted with DEX-constraint amendment captured as load-bearing
 - [ ] Population script executes successfully against UNION of (v1_scope main pool + Stage 3.5 gap-fills + mythological-NULL rescue)
 - [ ] ALL v1_scope rows have populated `weapon_sim_props` row; ZERO regressions on prior-stage columns
 - [ ] Per-axis distribution histogram landed in mechanical-tagging report; ambiguous-case log surfaces any per-axis anomaly
+- [ ] **Cheapest-refuting-test gate per Phase 1 consult § d: INT+WIS combined ≥ 12% of populated rows; if <10%, METHODOLOGY REVISION REQUIRED BEFORE COMMIT** (systematically under-assigning caster attributes signal)
 - [ ] Mythological-NULL rescue: ~30 rows tagged + per-row rationale captured; rep-audit Mode B/C/D contamination check applied
 - [ ] gamora sim-viability assessment landed; out-of-envelope rows flagged (with default disposition = demote to v1.1+ pending engine extension)
 - [ ] gamora small-scale sim-loop sanity-check passes on stratified sample (1 row per cell-type)
