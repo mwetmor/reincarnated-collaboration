@@ -61,12 +61,24 @@
 
 ### Wave 6 — Stage 3.5 engine-authored gap-fill
 
-**Status:** [TBD-WAVE-6-RESULT]
-- Dispatch: `agentic_orchestration/dispatches/2026-05-25-rocket-cycle-10-stage-3-5-engine-authored-gap-fill.md` (FIRE-READY)
-- ~25-50 engine-authored entries: 4 Sketch F anchors × ~5-10 each + Cell 14 Pyromantic × ~5-10
-- Owners: rocket + gandalf curation + star-lord LLM infra + jack-ryan Gate-2
-- Gate: Wave 5 Phase 3 distribution report → gap-cell list authoritative source
-- Tag intent: `rocket/cycle-10-stage-3-5-engine-authored-gap-fill-2026-05-25`
+**Status:** ROCKET COMPLETE + jack-ryan Gate-2 PASS-WITH-AMENDMENTS — pending rocket kavacha amendment + gandalf Stage 3.6 memo
+- Dispatch (amended Path 2): `agentic_orchestration/dispatches/2026-05-25-rocket-cycle-10-stage-3-5-engine-authored-gap-fill.md`
+- **43 engine-authored entries** inserted across 7 anchors:
+  - Cell 14 Pyromantic: 5 (Tier A; Pan-Fantasy; 5 geometry variants)
+  - Hattori Hanzō: 7 (Tier S; DEX mid/melee/ranged; 5 geometries)
+  - Lu Bu: 7 (Tier S; dismounted-polearm per D1c; **crossbow targets GC-1 PCFS gap**)
+  - Moctezuma: 8 (Tier S; 2 nested-mythology Quetzalcoatl + Tlaloc; INT/WIS hybrid Option C)
+  - Gilgamesh: 7 (Tier S; Uruk/Enkidu/Humbaba/Ishtar/Utnapishtim naming-space)
+  - GF-5* Roland: 4 (Tier S; Durandal + Olifant **legendary-pair candidate**)
+  - GF-6* Karna: 5 (Tier S; Vijaya + Vasavi-Shakti + kavacha; **Discipline #25 Path 2 bypass documented**)
+- jack-ryan Gate-2 verdict captured at `agentic_orchestration/qa/findings/2026-05-25-gate2-stage-3-5-gap-fill.md` — PASS-WITH-AMENDMENTS
+  - All 3 SQL smoke assertions PASS
+  - Principles 1-5 satisfied
+  - Flag 1 (Karna kavacha_armor subtype) WARN — recommended Option A: reclassify to `armor_body_or_head` + v1_scope=0 (Sidecar B / v1.1+ rescue per Roland Durendal precedent); rocket amendment pending
+  - Flag 2 (Gilgamesh `middle_eastern` enum) INFO — v1.1+ schema extension candidate
+  - Flag 3 (Moctezuma nested-mythology proxy deity) PASS — correctly implements § 12.4
+- gandalf Stage 3.6 research-replacement memo + 43-entry curation spot-check IN-FLIGHT
+- Tag intent: `rocket/cycle-10-stage-3-5-engine-authored-gap-fill-2026-05-25` — fires after rocket kavacha amendment + gandalf curation spot-check PASS
 
 ### Wave 7 — Stage 4 mechanical-tagging
 
@@ -101,13 +113,24 @@
 
 ### Wave 5.5 — Phase 0c Tier-A NULL-subtype classifier extension + Mode-C-by-semantics eviction (NEW; gandalf-proposed remediation)
 
-**Status:** IN-FLIGHT
-- Dispatch: `agentic_orchestration/dispatches/2026-05-25-elrond-cycle-10-wave-5-5-phase-0c-and-mode-c-eviction.md` (commit `4c516f8`)
+**Status:** ✓ COMPLETE — elrond commit `a7a3d3d`; tag `elrond/cycle-10-wave-5-5-phase-0c-and-mode-c-eviction-2026-05-25` pushed
 - Authority: gandalf SO-4 RATIFY-WITH-AMENDMENT + sign-off § 3 Condition 1 + Condition 3 (per `f40b714`)
-- 50-row spot-check FAIL (29/50 = 58% vs ≥80% threshold) — structured failure profile: 8/21 Tier-A NULL-subtype escape + 7/21 Mode-C-by-semantics contamination
-- Phase 0c scope: 940 Tier-A NULL-subtype rows classifier extension
-- Mode-C eviction scope: ~50-100 row eviction estimate per gandalf SQL signature (modern-period + named-mythological-match overlap + sci-fi description signatures)
-- Tag intent: `elrond/cycle-10-wave-5-5-phase-0c-and-mode-c-eviction-2026-05-25` after closeout + gandalf 10-row eviction audit PASS
+- 50-row spot-check FAIL (29/50 = 58%) remediated via Wave 5.5 + Wave 6 amendment (additive gate-extension at semantic-layer boundary)
+- **Outcome:** v1_scope 3,042 → **2,251** (net -791; 761 Tier-A D1c-downgrade + 30 Mode-C eviction)
+- Phase 0c empirical scope: **7,943 rows** (dispatch said "940" — terminology gap; "940" was a different metric for Tier-A v1_scope=1 NULL-PROXY subset; transparent documentation in closeout § 4.4)
+- Mode-C eviction: 30 rows (below ~50-100 dispatch estimate; Phase 0c front-ran the Mode-C-by-period contamination via D1c subtype downgrade)
+- **Per-axis shifts (LOAD-BEARING for gandalf composition compliance verdict; PENDING):**
+  - historical: 57.5% → 52.5% (WITHIN 50-55% band ✓)
+  - military_modern: 8.0% → 1.4% (OUT -3.6pp below 5-8% band; arguably MORE aligned with Sketch D D10-Path-C-deferred trim intent)
+  - fantasy: 33.8% → 45.2% (OUT +10.2pp above 30-35% band; composition consequence of D1c downgrades; **routing to gandalf for design-fit verdict**)
+  - mythological: 0.9% (unchanged; Stage 4 rescue still needed)
+- Per-tier: S 532→502 / A 1,431→670 / B 1,056 / C 23
+- NULL-typed in v1_scope: 37.9% → 19.6% (substantial improvement)
+- Sketch F anchor retention: Arthur 5, Charlemagne 6, Achilles 3, Saint George 4; Roland 0 + Karna 0 (covered by Wave 6 SO-3 amendment via GF-5*/GF-6*)
+- Second canonical production-Cycle-10 application of Discipline #25 at substrate-curation layer
+- gandalf 10-row eviction audit sample pre-staged (deterministic seed 20260525; elrond self-audit 9/10 clean + 1 borderline Claíomh Solais id=175669)
+- gandalf 50-row spot-check re-run pack pre-staged (mirrors pre-Wave-5.5 stratification for direct comparability with 29/50 = 58% baseline)
+- **Pending knight-rider routing:** combined gandalf invocation for sub-tasks 2/3 (eviction audit + 50-row re-run) + composition compliance verdict on per-axis fantasy +10.2pp deviation
 
 ---
 
