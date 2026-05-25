@@ -4,6 +4,44 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-25 (Cycle 10 Wave 5 mid-flight — hive-mind-scope-discipline FIRST-TEST session + Phase 0a/0b/1 parallel fan-out CLOSED + Phase 2 in-flight + Sidecar B Mode B crawl in-flight + Wave 6/7 dispatches FIRE-READY + post-cycle continuation x5 FIRE-READY pending wind-down filing per Matt skip-confirmation fire-forward directive)
+
+**Event:** Fresh knight-rider session per gandalf kicker `agentic_orchestration/gandalf/requests/2026-05-25-knight-rider-cycle-10-fresh-session-kicker.md`. This session is the FIRST TEST of the hive-mind-scope-discipline pattern (`agentic_orchestration/operating-procedures/hive-mind-scope-discipline.md`; founding retroactive instance at `agentic_orchestration/cycles/cycle-10-hive-mind-scope.md` RATIFIED 2026-05-25). Behavioral bug being resolved: prior KR over-asking on in-scope items.
+
+**Scope-doc authority active:**
+- push-per-wave LIVE
+- Auto-commit cycle work-products
+- Skip-confirmation fire-forward (wind-down summary at known path; Matt cuts final tag on log-back)
+- 5 post-cycle continuation dispatches authorized to fire immediately post-wind-down
+
+**Wave 5 Phase 0a/0b/1 parallel fan-out (all returned CLOSED):**
+- Phase 0a elrond accessory+armor subcategory classifier ✓ commit `6f3c288` — 255 rows subdivided; D1b empirical 95 (vs ~100-160 estimate); cross-seam grep PASS
+- Phase 0b gandalf accessory_weapon_integrated parent-family lookup ✓ commit `9e2a89d` — 39-entry YAML lookup; Japanese-sword sub-family + legendary canonical-pair seeding explicit
+- Phase 1 legolas Mode A constrained-knapsack methodology consult ✓ commit `c5ad777` — greedy-with-swap-repair baseline; F1/F2/F3 LP-fallback triggers; PCFS ≥85% cheapest-refuting-test; 68% NULL-typed Option β handling flag
+
+**Sidecar A: refused re-execution** — already complete in prior session (2026-05-24); star-lord correctly identified stale invocation. Terminology gap in scope-doc § 0 in-flight reference flagged for wind-down summary.
+
+**In-flight (background sub-agents):**
+- Wave 5 Phase 2 elrond constrained-sampling — v1_scope materialization
+- Sidecar B legolas Mode B crawl — off-hand items targeted catalogue crawl (Path A LOCKED; off-hand only)
+
+**Dispatches authored this session (8 total; commit `a274159` + `4967c5d`):**
+- Cycle 10: Sidecar B off-hand substrate + Wave 6 Stage 3.5 engine-authored gap-fill + Wave 7 Stage 4 mechanical-tagging
+- Post-cycle continuation: gamora W1.13 + legolas Algorithm § 8 Mode A consult + drax+star-lord loadout readiness scoping + star-lord G1 SQLite/RAM measurement + star-lord G12 LLM cache-hit-rate measurement
+
+**Pattern significance:** discipline-test session validates affirmative-scope-enumeration replaces ask-safety inference for in-flight cycle work. Composability with hive-mind decision-routing (Matt 2026-05-23) verified; CLAUDE.md commit/push addendum (2026-05-25) verified in operation.
+
+**Commit chain through Cycle 10 mid-flight (this session):**
+```
+4967c5d  ops(knight-rider): Cycle 10 Wave 5 mid-flight state-file update
+a274159  ops(knight-rider): Cycle 10 Wave 5 mid-flight + Wave 6/7 dispatch authoring + post-cycle continuation x5
+6f3c288  elrond: Wave 5 Phase 0a accessory+armor subcategory classifier
+9e2a89d  gandalf: Wave 5 Phase 0b accessory_weapon_integrated parent-family lookup
+c5ad777  legolas: Wave 5 Phase 1 Mode A constrained-knapsack methodology consult
+```
+
+---
+
 ## 2026-05-23 (Cycle 9.16 — Matt three-decision relay via gandalf → weapon-substrate v1.0 CONCLUSION DECLARED + 9.11-C/D/E + 9.10-E (subsuming 9.11-B) deferred to v1.1+ post-ship refinement queue + roadmap § 3.8 added + ground-state oracle § 1 updated) — substrate-side weapon-knowledge work cycle CONCLUDED; T4-B v1 catalogue design call is next active workstream; Discipline #25 handles contamination at consumption per engineering-disciplines.md canonical
 
 **Event:** Matt relayed three decisions via gandalf following Cycle 9.15 closeout:
