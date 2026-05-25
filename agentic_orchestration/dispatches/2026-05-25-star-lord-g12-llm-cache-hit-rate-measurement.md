@@ -108,3 +108,45 @@ Round-trip: not applicable — pure measurement; no production code changes; no 
 **Author:** knight-rider (orchestrator)
 **Authority:** Cycle 10 fresh-session kicker post-cycle continuation Optional #5 + Pi recognition record § 8 G12 gate + Matt 2026-05-25 skip-confirmation fire-forward authorization
 **Status:** FIRE (parallel with G1) — pure measurement; informs D9 LLM response cache decision but does not commit cache architecture
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-25
+**Executor:** star-lord
+
+### G12 Verdict: NOT TRIGGERED
+
+Measured repeat rate: **0.13%** (4 repeats / 3,001 calls in 2-week window). Full corpus: **0.14%** (7 / 4,992). Threshold: 20%. Delta: -19.87pp.
+
+**D9 (LLM response cache) remains DEFERRED.** Empirical gate G12 did not trigger.
+
+### Key findings
+
+1. **Zero cross-season prompt-signature collisions** across all 4,992 calls and 16 seasons. The prompt architecture (season-specific + entity-specific content embedded in every prompt) makes cross-session cache hits structurally impossible. This is by design.
+
+2. **All 7 repeats in full corpus are within-session same-season reruns** — already handled by the existing DiskCache at $0.00 cost. season_100002 was generated twice within 2 minutes; season_001005 had 27 generation_runs.
+
+3. **Active surfaces enumerated (8):** skill_naming (57% of calls), gear_unique_naming (28%), monster_naming (10%), class_naming, element_selection, theme_coalescence, cosmological_vocabulary, trial_naming.
+
+4. **3 expected surfaces absent from telemetry:** cohesion_judge (Phase 5, not yet implemented), spirit_guide_voice (instrumented but gated on earth_self_name — not passed in standard runs), llm_judge for mechanical tagging (not an LLM call site; rule-based).
+
+5. **Cost savings if cache deployed: <$0.01/season.** DiskCache already captures all actual repeats. DB-level cache adds operational complexity for negligible gain.
+
+### Data artifacts
+
+Companion CSV files at `agentic_orchestration/star-lord/research/g12-llm-cache-hit-rate-measurement-2026-05-25/`:
+- `llm_calls_window_2wk.csv` — full 3,001-row extract with key columns
+- `per_surface_breakdown.csv` — per-purpose aggregated stats
+- `repeated_prompt_signatures.csv` — all 7 repeated cache_key entries
+
+### Acceptance criteria
+
+- [x] LLM-call repeat rate measured over last 2 weeks; normalization protocol documented
+- [x] Per-surface breakdown (all 8 active surfaces; 3 absent surfaces explained)
+- [x] G12 verdict: NOT TRIGGERED
+- [x] Cost savings estimate: <$0.01/season; negligible
+- [x] Companion data CSV files at named research path
+- [x] Auto-commit fires post-completion-record write
+- [ ] Tag: `star-lord/g12-llm-cache-hit-rate-measurement-2026-05-25` (post-commit)
