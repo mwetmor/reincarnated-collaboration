@@ -114,6 +114,15 @@ Per jack-ryan Gate-1 finding (CLEAR-WITH-AMENDMENTS verdict; no BLOCK; no Matt e
 
 **Rocket L2 + L3 dispatch authoring fires NOW** per Q4 Option B parallel sequencing. KR integrates ALL 5 prereqs + KR direct DB verification finding (v1_scope = 2,293 actual vs 3,042 dispatch-quoted; Tier-A drift) into both dispatches. Cells 11/22/24 routing follows gandalf Option B default heuristic + thin-cell-fallback per MC-2 § 5.2 (queue v1.1+ § 4.1 amendment alongside Cell 20).
 
+### Wave 1 — Rocket Layers 2 + 3 (CRITICAL-PATH) — IN FLIGHT / Layer 3 ✅ COMPLETE
+
+| Sub-agent | Dispatch | Status |
+|---|---|---|
+| rocket Layer 2 — BC-target subspace generator (kit identity) | `2026-05-25-rocket-cycle-12-layer-2-bc-target-subspace-generator.md` | IN-FLIGHT (background) |
+| **rocket Layer 3** — skill content + SC-3 off-hand mechanical contract | `2026-05-25-rocket-cycle-12-layer-3-skill-content-and-sc-3.md` | **✅ COMPLETE in ~17 min wall-clock** — 132/132 smoke PASS in 0.23s across 6 gate classes; all Gate-1 amendments (WARN-1 + WARN-3 + WARN-5 + INFO-3) resolved; SkillTree + SkillChain + Skill + T4Slot + T4Candidate + T4Alteration dataclasses shipped; 25-archetype template registry + validate_invariants(); **146 substrate templates** across 6 families (W1.2 HP economy + W1.3 damage-taken-converts + W1.4 charge/stack + W1.5 movement + W1.6 player-side proxy + W1.11 element-specific); SC-3 off-hand mechanical contract (banner/focus/talisman/tome/horn + factory + round-trip); MIGRATION.md § v1.4 entry. Engine commit `5ec6ecc`; tag `rocket/v0.1-cycle-12-layer-3-skill-content-and-sc-3-2026-05-25`. **Cross-seam obligations raised for Layer 6 (queued):** star-lord `off_hand_contract` export field; gamora sim combatant consumption; drax Spirit Guide panel display |
+
+Layer 3 jack-ryan Gate-2 fires immediately on landing per scope-doc § 1 in-scope autonomous Gate-2 orchestration.
+
 ### Wave 0.5 — Pre-Layer-2 prep fires (surfaced by MC-1/MC-2 returns)
 
 MC-1 + MC-2 both COMPLETE with prereq-artifact requirements for rocket Layer 2 dispatch authoring. Per hive-mind decision-routing § 4.3 + scope-doc § 6, KR routes seam-owner sub-agents for the four prereqs:
