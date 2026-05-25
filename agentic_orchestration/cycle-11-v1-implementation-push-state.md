@@ -73,16 +73,36 @@ Drive to **T4 post-mortem readiness milestone** (~3 weeks wall-clock) via parall
 - Discipline #1 (math-before-code): rocket math-note authored at `generation/math/algorithm-section-8-v1-implementation-2026-05-25.md`
 - ADR-004 (MIGRATION.md cross-seam): authored on both star-lord schema extensions + rocket § 8
 
-### Wave 2 — 2026-05-25 (parallel fire on Wave 1 close)
+### Wave 2 — 2026-05-25 (parallel fire on Wave 1 close) — CLOSED
 
 **Trigger:** Wave 1 closed cleanly for 3 of 4 implementing seams; M4 escalation surfaced new generation-seam follow-on; BC-shift sweep backgrounded.
 
-**Fired:** 2 sub-agents in parallel.
+**Returns:**
+
+| Sub-agent | Status | Tag | Commits |
+|---|---|---|---|
+| rocket attribute_coupling field addition | ✅ COMPLETE — Path A (top-2 stats); 5/5 round-trip PASS; 48/48 regression PASS | `rocket/v0.0-cycle-11-attribute-coupling-field-2026-05-25` | `eef66b1` (engine), `4e52c37` (collab) |
+| drax M1+M2+M5 loadout display | ✅ COMPLETE — 4 tags; 771 modules / 0 TS errors; 114 real-season classes zero regressions; Vercel preview READY | `drax/v0.1-cycle-11-m1-m2-m5-loadout-display-2026-05-25` + per-item M1/M2/M5 | `2823dc1` + `e402f7b` + `f22a61f` + `338d90a` (collab) |
+
+**Key Wave-2 closeout findings:**
+1. **attribute_coupling derivation = Path A** (stat_distribution top-2; ties broken by canonical order `[strength, dexterity, intelligence, wisdom, vitality]`). Always emits exactly 2 strings; never null/empty. Drax M4 refire guards legacy seasons with `cls.attribute_coupling ?? []` (absent key, not null, on pre-Cycle-11 seasons).
+2. **M2 Q3 UI-staging resolved** — `SHOW_OFF_HAND_SLOT = false` constant in `OffHandSlot.tsx`; component built + null-safe; v1.0 production launch = flip to `true`. Annotated `TODO(drax)` + tracked in loadout AGENT_STATE.
+3. **Vercel preview LIVE** at `https://reincarnated-loadout-gtt7t8o07-matthew-wetmore-s-projects.vercel.app` (Q5 preview-only honored).
+4. **Side effect resolved** — `.vercelignore` excludes 481MB portrait generation working directories (`_reroll_all`, `_preflight`, `_reroll_brine`, `_reroll_canary`, `_meshy_test`); per-season portraits preserved for `/pitch` page.
+
+### Wave 3a — 2026-05-25 (M4 refire post-attribute_coupling-land)
+
+**Trigger:** Wave 2a closed; `attribute_coupling` field live in class JSON.
+
+**Fired:** 1 sub-agent (drax M4 refire).
 
 | Dispatch | Specialist | Purpose |
 |---|---|---|
-| `2026-05-25-rocket-cycle-11-attribute-coupling-field-addition.md` | rocket | Add `attribute_coupling: list[str]` field to PlayerClass schema + class_generator emission (derived from existing class attributes); star-lord serialization auto-picks-up; unblocks drax M4 refire |
-| `2026-05-25-drax-cycle-11-m1-m2-m5-loadout-display.md` | drax | M1 (main weapon WeaponSlot) + M2 (off-hand OffHandSlot) + M5 (provenance badge) per Matt P2c + Q1/Q3 ratified; consumes star-lord Wave 1 schema extensions |
+| `2026-05-25-drax-cycle-11-m4-attribute-coupling-labels-refire.md` | drax | Render attribute_coupling labels in StatsDisplay; ~1-2 hours pure display work; guard legacy with `?? []` |
+
+### Wave 3b — 2026-05-25 (DEFERRED pending BC-shift sweep PASS)
+
+**Trigger gate:** rocket BC-shift validation sweep PASS (PID 79520 in-flight; ~200-300 min total; ~10% complete at last check). If sweep PASSES, fire drax M3/M6 dispatch authoring + sub-agent. If sweep FAILS, escape-hatch escalation to Matt per scope-doc § 5 narrow-escape-hatches BEFORE broader § 8 commitment fires.
 
 ---
 
@@ -90,7 +110,7 @@ Drive to **T4 post-mortem readiness milestone** (~3 weeks wall-clock) via parall
 
 | Process | Status | PID / artifact |
 |---|---|---|
-| BC-shift validation sweep (rocket Wave 1) | RUNNING | PID 79520; log `/Users/admin/Games/reincarnated-engine/logs/bc_shift_sweep_20260525_105145.log`; results `logs/bc_shift_sweep_results.json` on completion; ~200-300 min total |
+| BC-shift validation sweep (rocket Wave 1) | RUNNING (~19.5 min elapsed at Wave 2 close; ~10% of estimated ~200-300 min total) | PID 79520; log `/Users/admin/Games/reincarnated-engine/logs/bc_shift_sweep_20260525_105145.log`; results `logs/bc_shift_sweep_results.json` on completion |
 
 ---
 
