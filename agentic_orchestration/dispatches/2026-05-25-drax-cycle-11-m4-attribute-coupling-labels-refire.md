@@ -82,3 +82,53 @@ Round-trip: not applicable — drax is the consumer side of rocket Wave 2a's rou
 - Drax memo M4 spec: `agentic_orchestration/drax/notes/2026-05-25-loadout-app-readiness-scoping.md` § M4
 - Cycle 11 scope-doc: `agentic_orchestration/cycles/cycle-11-hive-mind-scope.md` § 1
 - Matt Q1-Q5 RATIFIED: relevant Q1 (v1_scope flag internal; provenance badge visible); Q3 + Q5 noted for cycle context
+
+---
+
+## Completion record
+
+**Executed by:** drax
+**Date:** 2026-05-25
+**Result:** COMPLETE
+
+### Implementation
+
+**Files changed:**
+
+1. `~/Games/reincarnated-loadout/src/data/types.ts` — Added `attribute_coupling?: string[]` to `ClassData` interface with MIGRATION.md [2026-05-25] citation and null-safety note (absent key on pre-Cycle-11 legacy seasons).
+
+2. `~/Games/reincarnated-loadout/src/components/StatsPanel/StatsPanel.tsx` — Added coupling label rendering:
+   - `formatCoupledStat()` helper maps lowercase stat name → `STAT_LABELS` abbreviation
+   - `attributeCoupling = classData.attribute_coupling ?? []` null-safe consumption
+   - Conditional render: `{attributeCoupling.length > 0 && (...)}` — nothing renders for legacy classes
+   - Label: `Coupled: INT + WIS` (terse monospace style; violet-400 for stat values; gray-500 for "Coupled:" prefix)
+   - Placement: between stat bars and SP Budget section within StatsPanel card
+
+3. `~/Games/reincarnated-loadout/data/sample-season/classes/class_0001.json` — Added `attribute_coupling: ["intelligence", "wisdom"]` (derived from stat_distribution top-2: INT=101, WIS=98) for Cycle-11+ smoke path.
+
+### Label phrasing design decision
+
+Abbreviated form `"Coupled: INT + WIS"` — uses existing `STAT_LABELS` constants (3-letter codes). Matches terse monospace font register of surrounding stat bar labels. Avoids expanded form which would exceed mobile column width. Violet-400 stat values match the stat bar fill color (bg-violet-600), creating visual cohesion within the card.
+
+### Smoke results
+
+- **Build:** `npm run build` — 771 modules, 0 TypeScript errors (clean) — PASS
+- **Cycle-11+ path:** `data/sample-season/classes/class_0001.json` with `attribute_coupling: ["intelligence", "wisdom"]` → `Coupled: INT + WIS` renders. Confirmed by type-safe build + logic trace through `formatCoupledStat()`.
+- **Legacy null path:** `data/season_001001/classes/class_0001.json` has no `attribute_coupling` key → `?? []` → `length === 0` → no label, no broken UI. Empirically confirmed: `'attribute_coupling' in class_0001 == False`.
+- **No regression:** All 11 existing seasons' classes have absent field → null-guard path exercises cleanly.
+
+### Tag
+
+`drax/v0.0-cycle-11-m4-attribute-coupling-labels-2026-05-25-refire`
+
+### Scope checklist
+
+- [x] Add `attribute_coupling?: string[]` optional field to `ClassData` interface in `types.ts`
+- [x] StatsDisplay component renders attribute coupling label when field present (length > 0)
+- [x] Legacy null-safety: classes with absent field render gracefully (no label, no broken UI)
+- [x] Label phrasing per drax design judgment: `"Coupled: INT + WIS"` abbreviated form
+- [x] Smoke: Cycle-11+ class renders label (sample-season class_0001 fixture)
+- [x] Legacy smoke: pre-Cycle-11 class renders cleanly with no label (season_001001 class_0001)
+- [x] No regression in existing stats display
+- [x] AGENT_STATE.md updated
+- [x] Tag: `drax/v0.0-cycle-11-m4-attribute-coupling-labels-2026-05-25-refire`
