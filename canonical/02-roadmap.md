@@ -22,16 +22,108 @@
 
 The roadmap has four layers:
 
-1. **Active workstreams** (in flight RIGHT NOW): see § 1.0 status update below for current accurate state; § 1.1-1.3 capture initial-authoring snapshot.
-2. **Queued workstreams** (immediate next, sequenced): per-agent operating-procedure skills; skill_handoff reframing; architecture-validation spike; substrate P2/P3/P4 sequence; engine P1 hypothesis tests.
-3. **Deferred architectural commitments** (gated by empirical-evidence criteria, not time): D10 Path C lock as Fate-genre; D1 mobile-platform reconsideration; MVP scope lock; faction architecture; three-tier branding; Track M1 mythological-named-weapons fire.
+1. **Active workstreams** (in flight RIGHT NOW): see § 1.0 status update for current accurate state (2026-05-25 entry is canonical; 2026-05-23 entry preserved as historical).
+2. **Queued workstreams** (immediate next, sequenced): T4-B post-mortem evaluation (post-Cycle-12 close); engine P1 hypothesis tests / Layer 7 BDI test framework (DEFERRED v1.1 per Option γ); substrate P2/P3/P4 sequence; per-agent operating-procedure skill packaging.
+3. **Deferred architectural commitments** (gated by empirical-evidence criteria, not time): D10 Path C lock as Fate-genre; D1 mobile-platform reconsideration; MVP scope lock; faction architecture; three-tier branding; Track M1 mythological-named-weapons fire; Pi infrastructure execution; Layer 7 BDI test framework; broader weapon-equip flexibility.
 4. **Out of scope** (not in current roadmap): items belonging to other canonical authorship or to specialist decisions outside the roadmap's reach.
 
 Every deferred commitment lists the **specific empirical-evidence criterion** that gates re-engagement. Per the discipline: recognition → validate against substrate evidence → commit. No commitments fire on time-passage; all commitments fire on evidence.
 
+**Three different P-series in current use — disambiguation:**
+
+| P-series | Range | Purpose | Source |
+|---|---|---|---|
+| **Substrate P-series** | P0-P5 | Substrate processing pipeline (acquisition → cleaning → axis discovery → clustering → labeling → cohesion-judge validation) | This roadmap § 2.4-2.8 |
+| **Engine P-series** | P0, P1 | Engine itself (P0 = constraint-removal CLOSED 2026-05-22; P1 = BDI hypothesis tests Layer 7 DEFERRED v1.1) | This roadmap § 2.7 |
+| **QD-engine workflow Phases** | Phase 1-8 | Engine's runtime generation pipeline | `canonical/story/qd-engine-end-to-end-workflow-2026-05-24.md` |
+
+See § 4.0 (QD-engine 8-phase workflow mapping to Cycle 12 Layers) for the v1-engine-scope clarification.
+
 ---
 
-## 1.0 Status update — 2026-05-23 evening (active workstream state, current accurate)
+## 1.0 Status update — 2026-05-25 (active workstream state, current accurate)
+
+Living-doc update reflecting workstream evolution post 2026-05-23 evening. Captures Cycle 10 closure + Cycle 11 closure + Cycle 12 open (Option γ full new engine parallel-build) + Tier 2 ratification + L9 substrate split + L11 strict 4-tuple gauntlet matching + Pi recognition record + hive-mind-scope-discipline 3 applications.
+
+### Closed since 2026-05-23 evening status
+
+| Workstream | Closure |
+|---|---|
+| **Cycle 10 — Substrate Curation Multi-Stage Dispatch** | ✅ FULLY CLOSED 2026-05-25 — tag `v1.0-weapon-substrate-cycle-10-shipped` cut + pushed at commit `75a1891`; v1_scope = 2,293 items LOCKED (Tier S=539 / A=675 / B=1,056 / C=23); all 7 Waves + 2 Sidecars + Wave 5.5 add-on CLOSED; jack-ryan Gate-2 PASS throughout; Recognition 1 (sampling-proportionality) MIGRATED v1.1+ → v1 LOCKED via composition policy v1 + Wave 5.5 + gandalf Path A verdict |
+| **Cycle 11 — v1 implementation push (post-Cycle-10)** | ✅ FULLY CLOSED 2026-05-25 — tags `v1.0-t4-intent-metadata-ready` cut + pushed on engine (commit `70061a7`) + loadout (commit `b948d3d`); § 8 BC-shift sweep FAILED → diagnostic triple-fire → unanimous "architecture sound; test misaligned" → Matt Tier 2 ratification → drax Wave 3b M3/M6 shipped intent-metadata-display path + spirit-guide narration + Vercel preview; 5 post-cycle dispatches RETURNED (W1.13 blocked-flag; Algorithm § 8 consult; loadout scoping; G1 SQLite contention TRIGGERED; G12 NOT TRIGGERED); discipline-test outcome: escape-hatch fired correctly; KR escalated via diagnostic triple-fire pattern; Matt re-engagement at Tier 2 ratification |
+| **Post-Cycle-10 canonical authoring queue (PARTIAL)** | Pi recognition record landed; matt-log-back-decisions captured; Cycle 12 framing brief RATIFIED with L1-L11 + interface contract § 4; remaining items (Phase 4 simplified archive math spec + Phase 5 cohesion-judge calibration spec + loot architecture + sub-element architecture + naming-space partitioning) DEFERRED to Cycle 12 wind-down or v1.1 |
+| **Algorithm § 8 implementation v1** | ⚠️ SHIPS AS INTENT METADATA (Tier 2 path) — § 8 algorithm implemented (commit `3430269`); BC-shift validation sweep FAILED (test design + missing wire-up; architecture SOUND per unanimous diagnostic triple-fire); Tier 2 ratified — ships as intent metadata + spirit-guide narration + loadout display; Layer 6 wire-up (alterations reach combat arithmetic) DEFERRED to Cycle 12 via new engine layers; BDI mathematical validation DEFERRED to v1.1 (Cycle 13+) |
+| **Loadout app readiness scoping** | ✅ COMPLETE — drax + star-lord scoping memo at `agentic_orchestration/drax/notes/2026-05-25-loadout-app-readiness-scoping.md`; 6 M-items M1-M6 + 5 Q1-Q5 ratified per Matt P2c "Approved"; drax M4 ✅ (Cycle 11); M3 + M6 ✅ (Cycle 11 Wave 3b); M1 + M2 + M5 pending star-lord schema extensions (likely absorbed into Cycle 12 Layer 2 work) |
+
+### Active workstreams as of 2026-05-25 (post Cycle 12 open + Wave 2 in-flight)
+
+**Matt locked-decisions 2026-05-25** (per gandalf log-back session covering Tier 2 + L9 + Option γ + L11 + Pi recognition + Cycle 12 framing brief bulk ratification):
+
+1. **Tier 2 ratified** for Cycle 11 § 8 BC-shift FAIL response — ships § 8 as intent metadata + spirit-guide narration + loadout display; Layer 6 wire-up + BDI validation DEFERRED.
+2. **L9 substrate split locked** (mechanical vs semantic) — cultural_tradition / lineage / period are SEMANTIC OVERLAY, NOT in BDI math model. Q-A verdict 2026-05-23 § 2.2 mathematical model REFINED per L9 (substrate_triple constituents = mechanical only). Q-A verdict addendum 2 added (SECOND canonical example of framing-audit on authored verdict). § 8 algorithm opportunity-scan triggers REFACTOR per L9 in Cycle 12 Layer 6 work.
+3. **Option γ confirmed** for Cycle 12 (full new engine parallel-build — Layers 2+3+4+6; skip Layer 7 BDI test framework which DEFERS to v1.1 / Cycle 13+).
+4. **L11 strict 4-tuple BC-target matching for gauntlet sim** locked (Cycle 12 scope); broader weapon-equip flexibility = v1.1+ deferred design concept (player-facing experience question separable from gauntlet sim's strict-match requirement).
+5. **D1 Pi-Postgres infrastructure path RATIFIED** with Matt "right moment" execution deferral — Pi-Postgres for engine-internal DBs (telemetry + catalogue); D4 hosted-Postgres for loadout AMENDED to DEFERRED CONDITIONAL (only fires IF concrete YES-scenario surfaces; for v1 + foreseeable use cases, loadout stays static-JSON-bundled); D8 Tailscale install authorized for Matt 15-min window; D9 LLM cache DEFERRED (G12 NOT TRIGGERED — 0.13% repeat rate vs 20% threshold; structural cross-session zero collisions).
+6. **Cycle 12 framing brief BULK RATIFIED** (8 Q-items Q1-Q8 + interface contract § 4 as-drafted) at `agentic_orchestration/gandalf/notes/2026-05-25-cycle-12-new-engine-parallel-build-framing-brief.md`.
+7. **Skip-confirmation fire-forward re-authorized** for Cycle 12 wind-down (per Cycle 10 pattern precedent).
+
+| Workstream | Owner | Status | Empirical-criterion gate |
+|---|---|---|---|
+| **Cycle 12 — v1 full new engine parallel-build (Option γ)** | knight-rider (hive-mind orchestrator); rocket L2 + L3 + L4 + L6; legolas Mode A MC-1 + MC-2 + MC-3; elrond SC-1 + SC-2 sidecars; jack-ryan Gate-1 + Gate-2 throughout | **WAVE 2 IN-FLIGHT 2026-05-25** — Wave 0/0.5 ✅ COMPLETE (prereq clearance: jack-ryan Gate-1 CLEAR-WITH-AMENDMENTS + legolas MC-1 Hybrid H3 + MC-2 hybrid filter-then-sample + gandalf comp-policy § 4 Option B + elrond pre-Layer-2 prep + SC-1 + SC-2); Wave 1 ✅ COMPLETE (rocket L2 46-min wall-clock + L3 17-min wall-clock; both jack-ryan Gate-2 PASS; CRITICAL VELOCITY ANOMALY — both layers landed in ~1 hour vs ~4-6 weeks estimated); Wave 2 ⏳ IN-FLIGHT (Gate-2 on L2 + MC-3 parallel); Waves 3-5 QUEUED (Layer 4 + Layer 6 + integration smoke + auto-close per skip-confirmation re-auth) | T4 post-mortem readiness milestone (new engine functional + § 8 wire-up reaches combat arithmetic via new engine layers + integration smoke + jack-ryan Gate-2 on full new engine PASS) |
+| **T4-B post-mortem evaluation framework** | Matt + gandalf post-mortem session (post-Cycle-12 close) | **POST-CYCLE-12 — gated on T4 post-mortem readiness milestone** — per Matt 2026-05-24 algorithm-as-v1-deliverable lock; Cycle 12 closes engine generation track; T4-B becomes ~1-2 post-mortem sessions evaluating Layer 6 output via loadout app + hand-authoring ~5-10 alternative T4 entries for comparison | Cycle 12 closes + engine generates ~30-40 v1 forms with algorithm-produced T4s via new engine + forms upload into loadout app + Matt + gandalf post-mortem review session 1 |
+| **Pi infrastructure execution** | star-lord (Postgres + migration); gandalf design-fit (recognition record reference); Matt schedule for "right moment" | **DEFERRED to Matt "right moment"** — D1 RATIFIED for Pi-Postgres engine-internal (telemetry + catalogue); G1 TRIGGERED with 4 kernel panics empirically confirmed; status-quo continues with PRAGMA busy_timeout mitigation (P2.5 landed Cycle 11); execution NOT in Cycle 12 scope per Matt P2a verbatim | Matt schedules Pi build (NVMe HAT + Ubuntu Server + Postgres install) + Tailscale install (D8; 15-min independent task) |
+| **Hive-mind-scope-discipline (3 applications)** | gandalf authors + maintains; knight-rider consumes; jack-ryan reviews process-side | ✅ LANDED 2026-05-25 + 3 prospective applications | Cycle 10 founding retroactive ✅ PROVEN EFFECTIVE; Cycle 11 first prospective ✅ HOLDING UNDER ESCAPE-HATCH FIRE; Cycle 12 second prospective ⏳ IN-FLIGHT (Wave 2; holding through 8 dispatches + zero BLOCKs) |
+| **W1.13 H1-H5 baseline + W1.20 BDI infrastructure (Layer 7 deferred)** | rocket + legolas + gamora + critique-pair (upstream chain) | **DEFERRED to v1.1 / Cycle 13+** — Layer 7 (BDI test framework) explicitly DEFERRED per Option γ confirmation 2026-05-25; framework + acceptance gates (H1-H5 + H8/H8.diff/H9 + G1-G4) retained as canonical for Cycle 13+ work via Q-A verdict 2026-05-23 + L9 addendum 2 | Cycle 12 close → engine functional → empirical observation surfaces whether statistical validation is warranted; if surfaces concerns OR by-design follow-on, Cycle 13 opens W1.20 + BDI test framework build |
+
+### Companion artifacts 2026-05-25
+
+- `agentic_orchestration/gandalf/notes/2026-05-25-cycle-12-new-engine-parallel-build-framing-brief.md` — Cycle 12 RATIFIED framing brief with L1-L11 + interface contract § 4
+- `agentic_orchestration/cycles/cycle-12-hive-mind-scope.md` — Cycle 12 RATIFIED scope-doc
+- `agentic_orchestration/gandalf/requests/2026-05-25-knight-rider-cycle-12-kicker.md` — Cycle 12 KR kicker (bundled with Cycle 11 close)
+- `agentic_orchestration/cycle-11-wind-down-summary-2026-05-25.md` — Cycle 11 wind-down summary (RATIFIED)
+- `agentic_orchestration/cycle-12-new-engine-parallel-build-state.md` — Cycle 12 live state file
+- `canonical/story/infrastructure-raspberry-pi-postgres-and-closed-loop-pipeline-2026-05-25.md` — Pi infrastructure recognition record (D1-D10 enumerated; G1-G13 empirical gates; D1/D4/D8/D9 RATIFIED/AMENDED 2026-05-25)
+- `agentic_orchestration/matt-log-back-decisions-2026-05-25.md` — Matt 7-decision log-back capture
+- `agentic_orchestration/gandalf/notes/2026-05-25-w1-13-w1-20-framing-brief.md` — SUPERSEDED (preserved as historical for Cycle 13+ BDI work)
+- `agentic_orchestration/operating-procedures/hive-mind-scope-discipline.md` — new discipline doc backported into hive-mind-protocol.md § 2.2 + KR OP § 1 / § 3.5
+
+### Next-action sequence (post Cycle 12 Wave 2 in-flight 2026-05-25)
+
+**Cycle 12 critical path** (5 Waves; Wave 2 in-flight; ~days to T4 post-mortem readiness given velocity pattern):
+
+1. **Wave 2 completes** (current): jack-ryan Gate-2 on rocket L2 + legolas MC-3 (multi-dim convergence implementation libraries) — both gate Layer 4
+2. **Wave 3 fires**: rocket Layer 4 (W1.13 multi-dim convergence) dispatch integrating Gate-2-on-L2 verdict + MC-3 recommendation + L9 substrate split + WARN-3 dict shape consumption + jack-ryan Gate-2 on L4
+3. **Wave 4 fires**: rocket Layer 6 (§ 8 wire-up + L9 opportunity-scan refactor) dispatch + jack-ryan Gate-2 on L6
+4. **Wave 5 fires**: integration smoke + jack-ryan Gate-2 on full new engine + KR auto-closes Cycle 12 wind-down per skip-confirmation re-auth → T4 post-mortem readiness milestone
+5. **Post-Cycle-12**: T4 post-mortem session(s) (Matt + gandalf; ~1-2 sessions of 1-2 hours each); evaluates Layer 6 output via loadout app; hand-authors ~5-10 alternative T4 entries for comparison
+6. **Post-T4-post-mortem**: v1 ship surface decision (narrow engine v1 vs broad game v1 vs wide playable v1) gates next workstream sequencing
+
+**Next Matt-required touchpoint**: T4 post-mortem session 1 (~days to weeks from now; gated on Cycle 12 wind-down). Mid-Cycle-12 escape-hatch touchpoints: 25-cell vs 22-cell discrepancy if Gate-2 on L2 routes to gandalf design-fit; any L4/L6 layer-integration FAIL.
+
+### v1.1+ deferred queue additions 2026-05-25
+
+| Sub-carry | Description | Re-engagement trigger |
+|---|---|---|
+| **Layer 7 — BDI test framework** | W1.20 + H1-H5 + H8/H8.diff/H9 + G1-G4 acceptance gates per Q-A verdict 2026-05-23 + L9 addendum 2 | Cycle 12 closes + engine functional + empirical observation surfaces statistical-validation need (or by-design follow-on); Cycle 13+ opens |
+| **Broader weapon-equip flexibility** (L11 deferred concept) | Player-game design question: should characters be allowed broader weapon equip flexibility (range/melee + period/culture loose-match) beyond their kit's strict 4-tuple BC-target match? | Future Pattern-B design call (gandalf + Matt); v1.1+ player-game design surface; separable from gauntlet sim's strict-match requirement |
+| **Pi infrastructure execution** | Pi build (NVMe HAT + Ubuntu Server + Postgres install) + Tailscale install (D8) | Matt schedules "right moment" |
+| **Hosted-Postgres for loadout DB (D4 CONDITIONAL)** | Only fires IF concrete YES-scenario surfaces in roadmap (player-saved loadouts / accounts / Earth Self server-side / `/the-work` live aggregation needs DB-backing / real-time refresh) | YES-scenario actually lands in roadmap; until then loadout stays static-JSON-bundled |
+| **§ 8 algorithm 4 sim-extension-required strategies + proxy-spawn** | Resource-buffer + leech-replacement + zone-control + conditional-modifier (sim-extension-required); proxy-spawn (v1.1+ per BC-axes-lock) | Sim seam refactor lands; rocket fires v1.1 § 8 implementation against 4 strategies |
+| **v1_scope row-count reconciliation** | KR direct-verified v1_scope = 2,293 (Tier-A 675) vs Cycle 10 close Tier-A = 1,431; 756-row drift since Cycle 10 close — cause unknown (possibly Cycle 10 Stage 4 mechanical-tagging or subsequent curation) | v1.1+ elrond reconciliation pass; flagged from Cycle 12 elrond pre-Layer-2 prep |
+| **Substrate `element` column schema evolution** | No first-class `element` field on substrate; keyword inference works but fragile (rocket Layer 2 uses `infer_element_from_name`) | v1.1+ elrond schema evolution |
+| **pf2ools-quarantined corpus pollution cleanup** | id=177340 surfaced PF2e character BACKGROUND tagged as weapon; suggests broader pf2ools-quarantined corpus may have analogous pollution | v1.1+ elrond Tier-B/Tier-C grep cleanup |
+| **Wind / lightning critically thin substrate** (8 / 5 rows) | Substrate enrichment never reached comprehensive depth; thin-cell-fallback fires routinely for wind/lightning kits → kit variety will be repetitive | v1.1+ element-specific substrate enrichment continuation |
+| **Cell 20 Holy Knight + Cells 11 Red Mage + 22 Monk + 24 Artillery Mage § 4.1 amendments** | Composition policy v1 § 4.1 one-line amendments per gandalf comp-policy § 4 Pattern A-light verdict | Post-Cycle-12 canonical-amendment pass |
+| **SC-1 Subset C 94-row disposition** | Tier-S spurious-attribution items deferred from Cycle 12 SC-1 substrate-tagging cleanup | gandalf Pattern A-light (sequenced post-Cycle-12 close OR mid-cycle natural seam) |
+| **SC-1 Tier-A/B/C activation for Brahmastra / Sudarshana Chakra / Aegis** | Framing brief examples were Tier-B/C (out of Cycle 12 SC-1 scope) | gandalf judgment + elrond execution |
+| **Greek / Norse mythological period conventions** | Substrate-tagging convention discipline; gandalf judgment needed | gandalf judgment + elrond curation |
+| **Discipline #26 candidate — diagnostic triple-fire pattern operationalization** | Discipline candidate surfaced from Cycle 11 BC-shift FAIL response (triple-fire of rocket calibration + gandalf design-fit + legolas methodology re-review converged on unanimous verdict) | jack-ryan engineering-disciplines.md amendment cycle (post-stability) |
+
+---
+
+## 1.0 Status update — 2026-05-23 evening (active workstream state, current accurate AT THAT TIME)
+
+> **Note 2026-05-25:** this status update preserved as historical record. Current state at § 1.0 entry ABOVE (2026-05-25).
 
 Living-doc update reflecting workstream evolution post-initial-authoring. Capture current accurate state; supersede § 1.1-1.3 snapshot for "what's active RIGHT NOW" reads.
 
@@ -216,15 +308,18 @@ These compose into a single post-v1-ship substrate-and-design-discipline-refinem
 | **Empirical criterion for completion** | ≥80% cluster naming with confidence; cluster taxonomy ready for cohesion-judge consumption. |
 | **Unblocks** | D10 Stage 1 checkpoint (3.1); cohesion-judge validation (P5); faction architecture (3.4). |
 
-### 2.7 Engine P1 hypothesis tests (W1.20-W1.22)
+### 2.7 Engine P1 hypothesis tests (W1.20-W1.22) — Layer 7 BDI test framework
+
+> **2026-05-25 UPDATE:** explicitly DEFERRED to v1.1 / Cycle 13+ per Option γ confirmation. Cycle 12 builds the engine (Layers 2-3-4-6) WITHOUT the BDI test framework (Layer 7). Validation at v1 ship is via design judgment + playtest; statistical hypothesis testing framework + acceptance gates fire in Cycle 13+ if/when warranted.
 
 | Aspect | Spec |
 |---|---|
-| **Owner** | Gamora + jack-ryan |
-| **Trigger** | P0 closed 2026-05-22; W1.13 rescope landed; W1.20-22 are diagnostic tests against archive data |
-| **Scope** | BDI H1-H5 hypothesis tests against historical telemetry. Diagnostic, not generative. |
-| **Effort** | Per gamora + jack-ryan scoping |
-| **Empirical criterion for completion** | All H1-H5 hypotheses resolved (confirmed / refuted / reframed); diagnostic findings inform subsequent engine work. |
+| **Owner** | Gamora + jack-ryan + legolas Mode A (methodology at math hotspots) |
+| **Trigger** | Cycle 12 closes + engine functional + empirical observation surfaces statistical-validation need (or by-design follow-on) |
+| **Scope** | BDI H1-H5 hypothesis tests against engine-output kit_power samples + W1.20 model-fit harness + ω/τ table data structures + archive-pull interface + H8/H8.diff/H9 (per Q-A verdict + L9 addendum 2 refinement) + G1-G4 per-entry acceptance gates per T4 catalogue entry. Operates on mechanical_substrate only per L9 (cultural_tradition/lineage/period are semantic overlay; not in BDI math). |
+| **Effort** | ~2-3 weeks rocket (W1.20 + W1.1-W1.11 P1 enrichment + W1.13 multi-dim convergence implementation as separate dispatches) + ~1-2 days gamora execution; plus legolas Mode A consultation BEFORE statistical methodology fires |
+| **Empirical criterion for completion** | All H1-H5 hypotheses resolved (confirmed / refuted / reframed); H8/H8.diff/H9 + G1-G4 gates measured per T4 catalogue entry; diagnostic findings inform v1.1+ engine refinement work |
+| **Companion docs** | `agentic_orchestration/gandalf/notes/2026-05-23-question-A-w1-13-tier-4-hypothesis-verdict.md` (mathematical framework + § 12 addendum sequencing + § 13 addendum 2 L9 substrate split refinement); `agentic_orchestration/gandalf/notes/2026-05-25-w1-13-w1-20-framing-brief.md` (SUPERSEDED but preserved as historical for this work) |
 
 ### 2.8 Substrate P5 — cohesion-judge validation
 
@@ -316,6 +411,36 @@ These compose into a single post-v1-ship substrate-and-design-discipline-refinem
 | **Downstream consequence (if any path fires)** | 9.11-D → 9.11-E → mesoamerican re-tag-then-re-cluster smoke order per gandalf 9.11-G meta-record recommendation. Substrate-tagging cleaning policy refinement may surface as new working-agreement amendments. Post-cleaning re-cluster may emit new Phase E-1.x outputs requiring follow-on P4 labeling pass. |
 | **Until trigger fires** | Discipline #25 (semantic-layer rep-audit) handles substrate contamination at consumption per engineering-disciplines.md canonical (jack-ryan canonical write commit `1fae3fa` engine repo). Downstream design surfaces (gandalf at T4-B substrate-anchoring; P4 cluster semantic labeling; cohesion judge; spirit-guide narrative output) apply rep-audit at every semantic-inheritance decision. Substrate contamination from Modes B/C/D (geographic-origin / naming-allusion / cross-tagged-error per marginal-lineage meta-record) does NOT block downstream work. |
 | **Authoritative conclusion-declaration** | `canonical/story/2026-05-23-weapon-substrate-conclusion-declaration.md` (knight-rider authored per Matt decision relayed via gandalf 2026-05-23) |
+
+---
+
+## 4.0 QD-engine 8-phase workflow mapping (v1-engine-scope clarification — added 2026-05-25)
+
+Per `canonical/story/qd-engine-end-to-end-workflow-2026-05-24.md`, the QD-engine runtime pipeline has 8 phases. This table maps each phase to its v1-scope status + Cycle 12 Layer coverage + downstream work:
+
+| QD-engine Phase | Description | v1 status | Coverage |
+|---|---|---|---|
+| **Phase 1 — Archive Inspection** | Substrate query layer (v1_scope flag + composition policy substrate-pool selection) | ✅ EXISTS in legacy + DB infrastructure | Cycle 10 closed substrate; queryable now |
+| **Phase 2 — BC-Target Generation** | Kit identity production (BC-target cell sampler + Architecture B substrate-binding + skill content assembly) | ⏳ **Cycle 12 Layer 2 + Layer 3** | Wave 1 COMPLETE 2026-05-25; tests PASS |
+| **Phase 3 — Convergence / Measurement** | W1.13 multi-dim convergence (per math note v1.1; 5-6 dimensions) | ⏳ **Cycle 12 Layer 4** | Wave 3 queued; fires after Wave 2 (Gate-2-on-L2 + MC-3) lands |
+| **Phase 4 — Insertion** | Post-generation insertion into archive | ✅ EXISTS in legacy; may need minor amendment per new engine layer integration | Phase 4 simplified archive math spec QUEUED for gandalf canonical authoring (~30-45 min) |
+| **Phase 5 — Cohesion Coalescence** | LLM-runtime naming + sub-element manifestation per substrate-tradition (cohesion-judge naming discipline) | ⚠️ EXISTS in legacy; calibration spec QUEUED | Phase 5 cohesion-judge calibration spec QUEUED for gandalf canonical authoring (~1 hr); legolas Mode A consult required first per Discipline #18 |
+| **Phase 6 — Visual Coalescence** | Image generation (Meshy integration + image-pass-through vs LLM-description path per Cycle 10 Sidecar A finding) | ✅ EXISTS-PARTIAL | Sidecar A verdict landed Cycle 10; Phase 6 production wire-up pending |
+| **Phase 7 — Joint-Gate** | Final per-form acceptance gate (Phase 5 + Phase 6 outputs jointly evaluated) | ⚠️ MAY EXIST in legacy; specifics need verification | Status unclear — possibly fires implicitly via existing acceptance criteria; explicit Phase 7 spec authoring may be needed for new engine |
+| **Phase 8 — Profile Assembly** | Final kit assembly into shipped form (kit + name + visual + skill tree + T4 keystone alteration via Cycle 12 Layer 6 wire-up) | ⏳ **Cycle 12 Layer 6 adds T4 wire-up** | Wave 4 queued; alterations reach combat arithmetic via new engine layers per L9 opportunity-scan refactor |
+
+**v1-engine-scope summary:**
+- **Cycle 12 covers:** Phase 2 (Layers 2+3) + Phase 3 (Layer 4) + Phase 8 partial (Layer 6 T4 wire-up). Approximately 50% of the 8-phase pipeline.
+- **Already exists (legacy):** Phase 1 (Archive Inspection), Phase 4 (Insertion), Phase 5 (Cohesion Coalescence — calibration spec pending), Phase 6 (Visual Coalescence partial via Sidecar A).
+- **Status unclear (Phase 7 Joint-Gate):** may exist implicitly; explicit spec authoring may be needed.
+- **Engine-side post-Cycle-12 to v1 ship:** Phase 4 archive math spec (gandalf ~30-45 min) + Phase 5 cohesion-judge calibration spec (gandalf ~1 hr + legolas Mode A consult) + Phase 7 verification (assess vs author) + T4 post-mortem session(s) (Matt + gandalf ~1-2 sessions of 1-2 hours each) + loadout app M1/M2/M5 finishing (drax + star-lord ~2-3 days; may be absorbed into Cycle 12 work).
+
+**"v1 ship" depends on scope definition** (per gandalf 2026-05-25 dialogue):
+- **Narrow (engine v1):** Cycle 12 closes + Phase 4/5/7 spec gaps closed + T4 post-mortem + loadout finishing = **~1-2 weeks post-Cycle-12**
+- **Broad (game v1 with playable demo):** Narrow + MVP scope lock + trial-boss-gallery + vertical-slice playable demo = **~2-3 months post-Cycle-12**
+- **Wide (Reincarnated game playable for son):** Broad + Earth meta-layer + actual play loops + season-as-life-narrative + balance polish = **~6-12 months post-Cycle-12**
+
+The narrow/broad/wide scope question is itself a deferred decision (MVP scope lock per § 3.3) that fires post-Cycle-12 close.
 
 ---
 
