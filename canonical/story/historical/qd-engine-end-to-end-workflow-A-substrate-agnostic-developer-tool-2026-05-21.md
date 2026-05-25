@@ -1,6 +1,15 @@
-# QD-Engine End-to-End Workflow
+# QD-Engine End-to-End Workflow (Architecture A — Substrate-Agnostic; HISTORICAL-INFORMATIVE / DEVELOPER-TOOL REFERENCE)
 
-> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — see `canonical/00-ground-state.md`
+> **STATUS:** HISTORICAL-INFORMATIVE (superseded 2026-05-24 by Architecture B — substrate-bound at Phase 2 per Matt 2026-05-24 architectural reversal during Cycle 10 Stage 3 design call) — see `canonical/story/qd-engine-end-to-end-workflow-2026-05-24.md` for current production architecture
+>
+> **RESIDUAL VALUE — DEVELOPER-TOOL / R&D REFERENCE:** Architecture A's substrate-AGNOSTIC Phase 2 generation retains value as a developer-tool pattern (NOT production architecture):
+> - **Substrate-acquisition prioritization** — engine in A-mode generates kits for BC-cells with NO substrate support; surfaces "what mechanical forms could exist but have no substrate to realize them" → drives substrate-acquisition priorities (Sidecar B / Track M1 / v1.1+ scope)
+> - **Mechanical-design space exploration** — R&D can run A-mode to map out the full mechanical-design space independent of substrate availability
+> - **Substrate-coverage gap analysis** — A-mode runs identify which BC-cells need substrate work before production B-mode can serve them
+>
+> Production engine uses **Architecture B with substrate-genre-flagging** per Matt 2026-05-24 unified-architecture refinement. A-mode is engine-tooling for development; not commercial-product variant.
+>
+> **Original status header (preserved for archival reference):** CURRENT (load-bearing as of 2026-05-23)
 
 **Status:** CANONICAL — architectural workflow post substrate-as-cohesion-only recommitment 2026-05-21
 **Author:** gandalf

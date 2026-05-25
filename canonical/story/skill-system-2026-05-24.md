@@ -631,53 +631,60 @@ This pattern extends per § 8.6 faction-generated-proxies (algorithm-derived pro
 
 ## 13. Phase 2 generation flow (where skills get composed)
 
-> **AMENDMENT 2026-05-24** — Per `canonical/story/qd-engine-end-to-end-workflow-2026-05-21.md` Phase 2: "candidate kit composition (substrate-blind)" and Phase 5 cohesion-coalescence handles substrate identity attachment. Phase 2 is SUBSTRATE-AGNOSTIC; weapon-SLOT mechanical-profile is defined at Phase 2 but specific substrate-resident weapon is selected at Phase 5 by cohesion-judge. Original step 7 wording was inconsistent and is corrected below.
+> **AMENDMENT 2026-05-24 (REVISED — Architecture B lock)** — Per Matt 2026-05-24 architectural reversal during Cycle 10 Stage 3 design call: Architecture B (substrate-BOUND at Phase 2 + substrate-genre-flagging unified-architecture pattern) selected as production canonical, superseding Architecture A (substrate-AGNOSTIC Phase 2 — now archived as developer-tool / R&D reference). See `canonical/story/qd-engine-end-to-end-workflow-2026-05-24.md` for current canonical engine architecture. Phase 2 generation pulls specific substrate weapon + secondary item at generation time per Option α (martial 5-tuple) / Option β (caster attribute-level) / Option C (cross-attribute ω-penalty) policies; substrate's cultural-tradition + period + named-bearer + element-flavor signals are IMMEDIATELY AVAILABLE at Phase 2 for algorithm § 8 + § 8.6 + cohesion-coalescence at Phase 5. Hypothesis: substrate-context-weight improves clustering + algorithmic outcomes. Empirical-trigger discipline locks at end-to-end-workflow § 4.
 
-Per QD-engine end-to-end-workflow Phase 2:
+Per QD-engine end-to-end-workflow Architecture B (`canonical/story/qd-engine-end-to-end-workflow-2026-05-24.md`):
 
 ```
 INPUT: BC-target cell (range × tempo × amplitude × attribute × proxy-density)
        per Cycle 10 Stage 0 v1 cell-targeting intent
+       + genre filter per product configuration (Reincarnated = fantasy)
 
-ACTION (SUBSTRATE-AGNOSTIC mechanic pool per canonical doc):
+ACTION (SUBSTRATE-BOUND per Architecture B):
 1. Select skill-pool matching BC-target attribute coupling
 2. Compose tier-1 (rotation) skills matching target tempo + geometry
 3. Compose tier-2 (β-pair signature) actives + mechanic-altering passives
    ADJACENT in skill tree, designed for ω-field overlap per § 5
 4. IF target cell calls for T4: invoke ALGORITHMIC mechanic-alteration per § 8
    producing tier-3 active OR rank-3 passive
+   (substrate context AVAILABLE: cultural-tradition + period + named-bearer signals
+   inform regime-change generation per Architecture B)
 5. Apply ω-field check (skills are mechanically compatible)
 6. Apply τ-field check (skills are thematically compatible)
-7. DEFINE WEAPON-SLOT MECHANICAL PROFILE per cell:
-   - For MARTIAL cells (STR/DEX primary, physical-element): slot requires specific
-     5-tuple mechanical fingerprint match (weapon-attack IS combat delivery)
-   - For CASTER cells (INT/WIS primary, non-physical-element): slot requires
+7. PULL specific substrate weapon from genre-filtered v1_scope per cell-type policy:
+   - For MARTIAL cells (STR/DEX primary, physical-element): Option α — 5-tuple
+     mechanical-fingerprint match required (weapon-attack IS combat delivery)
+   - For CASTER cells (INT/WIS primary, non-physical-element): Option β —
      ATTRIBUTE-LEVEL match only (skills deliver kit BC-target; weapon scales)
-   - For HYBRID cells (cross-attribute): per Option C ω-penalty applies;
-     weapon-slot profile blends primary + secondary attribute scaling
-8. DEFINE OFF-HAND / SECONDARY SLOT MECHANICAL PROFILE (per off-hand-items doc + Sidecar B):
-   - Slot may be shield / tome / banner / focus / horn / talisman / dual-wield-weapon
-     / weapon-integrated-accessory per Main/Secondary architecture
+   - For HYBRID cells (cross-attribute): Option C — cross-attribute wielding
+     permitted with ω-penalty per BDI ω-field resource-dimension
+8. PULL specific substrate secondary item (per off-hand-items doc + Sidecar B):
+   - Categories: shield / tome / banner / focus / horn / talisman / weapon-integrated-
+     accessory / dual-wield-secondary-weapon
+   - Per Main/Secondary slot architecture
+   - Substrate-fit per parent-weapon compatibility
 9. Compose trait constellation
-10. Output: candidate kit composition (SUBSTRATE-BLIND) +
-    (if applicable) algorithm-output bundle per § 8.4
+10. Generate faction-proxy spawn-template per algorithm § 8.6
+    (faction-anchor derived IMMEDIATELY from bound substrate weapon's cultural-
+    tradition + period — Architecture B key benefit)
+11. Output: complete kit + BOUND substrate weapon + bound secondary item +
+    proxy-spawn-template + algorithm output bundle
 
 OUTPUT: kit ready for Phase 3 sim measurement
-        (no specific substrate weapon attached yet; Phase 5 handles)
+        (substrate IS bound; cultural-tradition + period + named-bearer signals
+        AVAILABLE for downstream Phase 3-5 work)
 ```
 
-Phase 2 is **mechanical composition only — SUBSTRATE-BLIND**. Element IS part of mechanical composition. Theme / cultural-tradition / narrative / specific-substrate-weapon-attachment ALL attach at Phase 5 cohesion-coalescence.
+Phase 2 is **substrate-bound mechanical composition** per Architecture B. Element IS part of mechanical composition. Substrate weapon + secondary BOUND at Phase 2; cultural-tradition + period + named-bearer signals carried through to Phase 5 cohesion-coalescence. Theme / element-flavor / archetypal naming attaches at Phase 5.
 
-**Phase 5 cohesion-coalescence substrate-attachment:**
-1. Cohesion-judge analyzes accepted kit's mechanical signature (BC profile)
-2. Infers substrate-thematic fit (cultural-tradition + register + period)
-3. Selects specific substrate-resident weapon from v1_scope matching:
-   - Weapon-slot mechanical profile (per cell type — strict 5-tuple for martial; attribute-level for caster)
-   - Cultural-tradition coherence
-   - Named-bearer attribution per Sketch F lock (~32% named-personage forms get bias toward named-mythological substrate)
-4. Assigns element-canonical-pair flavor at LLM-runtime (per Matt 2026-05-24 lock)
-5. Commits archetypal player-facing form name per universal naming discipline
+**Phase 5 cohesion-coalescence (substrate ALREADY bound from Phase 2):**
+1. Cohesion-judge CONFIRMS substrate-thematic fit (cultural-tradition coherence between bound substrate and kit composition)
+2. If alignment HIGH: name explicitly (Tier 1) or soft-attribution (Tier 2) per Matt 2026-05-24 bi-modal lock + universal-archetypal-naming discipline
+3. If alignment LOW: drop named-bearer attribution per Matt 2026-05-24 graduated-alignment discipline; engine-name original form per archetypal naming
+4. Assigns element-canonical-pair flavor at LLM-runtime per bound substrate's cultural-tradition (e.g., earth + Mexica engine-anchor → "Obsidian-Edge Cascade" flavor; earth + necromancer engine-anchor → "Bone Spear" flavor)
+5. Commits archetypal player-facing form name per universal naming discipline + naming-space partitioning
 6. Spirit-guide explainer triggers if algorithmic mechanic-alteration novel-to-this-kit per § 9
+7. Loot-tier assignment per bound substrate's Tier S/A/B/C composite quality scoring (per Architecture B substrate-as-base-type-templates + tiered-instance-loot)
 
 ---
 
