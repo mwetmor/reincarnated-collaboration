@@ -1,0 +1,190 @@
+{
+  "fight_id": "wave7-round-trip-smoke-weapon-209667",
+  "gamora_sub_task": "round_trip_smoke_first_leg",
+  "weapon_id": 209667,
+  "weapon_canonical_name": "Basket hilt sword",
+  "weapon_register": "historical",
+  "weapon_quality_tier": "A",
+  "weapon_sim_props": {
+    "weapon_id": 209667,
+    "primary_stat": "STR",
+    "range_min_units": 0.5,
+    "range_max_units": 2.5,
+    "base_attack_speed": 1.5,
+    "hits_per_attack": 1,
+    "aoe_radius_units": 0.0,
+    "damage_amplitude_min": 0.7,
+    "damage_amplitude_max": 1.6,
+    "sim_viable": 1,
+    "sim_viability_notes": ""
+  },
+  "damage_amplitude_bin": "variable",
+  "damage_amplitude_ratio": 2.2857,
+  "player": {
+    "entity_id": "class_0001",
+    "archetype_tag": "hybrid_mage",
+    "dominant_element": "fire",
+    "energy_type": "mana",
+    "range_profile": "medium",
+    "balance_modifier": 0.05000000000000085,
+    "movement_speed": 8.0,
+    "stats": {
+      "strength": 15,
+      "dexterity": 6,
+      "intelligence": 101,
+      "wisdom": 98,
+      "vitality": 50
+    },
+    "n_skills": 10,
+    "max_hp": 14050.0,
+    "max_mana": 250.0
+  },
+  "monster": {
+    "entity_id": "monster_00021",
+    "archetype_tag": "swarmer",
+    "threat_tier": "trash",
+    "dominant_element": "fire",
+    "range_profile": "close",
+    "max_hp": 10984.0,
+    "movement_speed": 7.5
+  },
+  "fight_result": {
+    "winner_id": "class_0001",
+    "loser_id": "monster_00021",
+    "duration_seconds": 1.2,
+    "termination_reason": "b_dead",
+    "a_id": "class_0001",
+    "b_id": "monster_00021",
+    "a_final_hp": 14050.0,
+    "b_final_hp": 0.0,
+    "a_damage_dealt": 11262.32,
+    "b_damage_dealt": 0.0,
+    "a_actions_taken": 12,
+    "b_actions_taken": 1,
+    "a_heals_received": 0.0,
+    "a_potions_used": 0
+  },
+  "action_trace_sample": [
+    {
+      "t": 0.0,
+      "actor_id": "class_0001",
+      "energy_type": "mana",
+      "skill_role": "primary_attack",
+      "mana_before": 250.0,
+      "mana_after": 242.8
+    },
+    {
+      "t": 0.0,
+      "actor_id": "monster_00021",
+      "energy_type": "mana",
+      "skill_role": "mobility",
+      "mana_before": 100.0,
+      "mana_after": 85.8
+    },
+    {
+      "t": 0.1,
+      "actor_id": "class_0001",
+      "energy_type": "mana",
+      "skill_role": "burst_damage",
+      "mana_before": 243.4,
+      "mana_after": 207.2
+    },
+    {
+      "t": 0.2,
+      "actor_id": "class_0001",
+      "energy_type": "mana",
+      "skill_role": "burst_damage",
+      "mana_before": 207.8,
+      "mana_after": 178.0
+    },
+    {
+      "t": 0.3,
+      "actor_id": "class_0001",
+      "energy_type": "mana",
+      "skill_role": "area_damage",
+      "mana_before": 178.6,
+      "mana_after": 163.5
+    },
+    {
+      "t": 0.4,
+      "actor_id": "class_0001",
+      "energy_type": "mana",
+      "skill_role": "burst_damage",
+      "mana_before": 164.1,
+      "mana_after": 132.5
+    },
+    {
+      "t": 0.5,
+      "actor_id": "class_0001",
+      "energy_type": "mana",
+      "skill_role": "utility",
+      "mana_before": 133.1,
+      "mana_after": 118.9
+    },
+    {
+      "t": 0.6,
+      "actor_id": "class_0001",
+      "energy_type": "mana",
+      "skill_role": "defensive",
+      "mana_before": 119.6,
+      "mana_after": 100.8
+    },
+    {
+      "t": 0.7,
+      "actor_id": "class_0001",
+      "energy_type": "mana",
+      "skill_role": "mobility",
+      "mana_before": 101.5,
+      "mana_after": 85.2
+    },
+    {
+      "t": 0.8,
+      "actor_id": "class_0001",
+      "energy_type": "mana",
+      "skill_role": "damage_over_time",
+      "mana_before": 85.8,
+      "mana_after": 65.7
+    },
+    {
+      "t": 0.9,
+      "actor_id": "class_0001",
+      "energy_type": "mana",
+      "skill_role": "mobility",
+      "mana_before": 191.4,
+      "mana_after": 174.7
+    },
+    {
+      "t": 1.0,
+      "actor_id": "class_0001",
+      "energy_type": "mana",
+      "skill_role": "primary_attack",
+      "mana_before": 175.4,
+      "mana_after": 168.2
+    }
+  ],
+  "action_trace_total_entries": 12,
+  "field_presence_verification": {
+    "damage_amplitude_min_present": true,
+    "damage_amplitude_max_present": true,
+    "damage_amplitude_min_value": 0.7,
+    "damage_amplitude_max_value": 1.6,
+    "primary_stat_in_str_int_wis_dex": true,
+    "sim_viable_flag": true,
+    "all_required_columns_non_null": true,
+    "result": "PASS"
+  },
+  "gamora_sign_off": {
+    "sub_task": "round_trip_smoke_first_leg",
+    "wave": 7,
+    "weapon_id": 209667,
+    "weapon_name": "Basket hilt sword",
+    "schema_consumed": "weapon_sim_props post-Stage-4 (damage_amplitude_min/max + DEX constraint fix)",
+    "new_columns_verified": [
+      "damage_amplitude_min",
+      "damage_amplitude_max"
+    ],
+    "fight_engine_status": "sim_consumable",
+    "fight_success": true,
+    "note": "weapon_sim_props row accessed correctly; damage_amplitude_min/max columns present and non-null; field-presence at fight_log boundary VERIFIED. Fight engine currently consumes weapon substrate through class/gear generation pipeline, not direct weapon_sim_props lookup at fight time (Phase 2 substrate-binding is future work per dispatch \u00a7 6 out-of-scope). Round-trip smoke first leg COMPLETE; fight_log ready for star-lord round-trip second leg."
+  }
+}
