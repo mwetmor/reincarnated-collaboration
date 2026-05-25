@@ -4,6 +4,57 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-25 — Cycle 11 CLOSED + Cycle 12 critical-path Wave 1 commenced + skip-confirmation re-auth for Cycle 12 wind-down (Matt log-back session 2 — same date)
+
+**Event:** Cycle 11 final ratification + tag-cut + Cycle 12 critical-path commencement in single hive-mind session.
+
+**Cycle 11 CLOSED:**
+- Matt bulk-ratified all 3 asks at `agentic_orchestration/cycle-11-wind-down-summary-2026-05-25.md` § 7 (verbatim: "I have reviewed the logs/docs. Ratify all 3 as-drafted. I will be away again starting now, so please continue in hive-mind state.")
+- Final tag `v1.0-t4-intent-metadata-ready` cut + pushed on:
+  - engine repo at commit `70061a7` (rocket BC-shift diagnostic — last Cycle-11 engine commit)
+  - loadout repo at commit `b948d3d` (drax M3/M6 Wave 3b commit)
+- Cycle 11 OFFICIALLY CLOSED at git-tag level
+- Cycle 11 shipped: § 8 algorithm v1 as INTENT METADATA + spirit-guide narration + loadout display per Tier 2 ratification (per BC-shift sweep FAIL diagnostic triple-fire → unanimous "architecture sound; test misaligned" → Matt Tier 2)
+- Combat-arithmetic wire-up + magnitude validation explicitly DEFERRED to Cycle 12 Layer 6 + v1.1 (Layer 7 BDI test framework)
+
+**Cycle 12 skip-confirmation re-authorization:**
+- Matt re-authorized skip-confirmation fire-forward pattern for Cycle 12 wind-down (per Cycle 10 pattern precedent)
+- KR auto-closes Cycle 12 at completion without per-Wave Matt-touch
+- `agentic_orchestration/cycles/cycle-12-hive-mind-scope.md` § 5 amended with explicit re-authorization
+- Per Matt directive "continue in hive-mind state" — KR proceeds autonomously per Cycle 12 scope-doc § 1 authorities for the duration of Matt's away period
+
+**Cycle 12 critical-path Wave 1 commencement (in parallel with Cycle 11 close, same session):**
+- All 5 pre-Layer-2/3 prereqs CLEARED:
+  - jack-ryan Gate-1 (interface contract) ✅ CLEAR-WITH-AMENDMENTS — 7 WARN + INFO-4 amendment queue
+  - legolas MC-1 (BC-target cell sampling methodology) ✅ Hybrid H3 recommendation
+  - legolas MC-2 (substrate-binding heuristics) ✅ hybrid filter-then-sample with soft coherence
+  - gandalf comp-policy § 4 coverage gap (Pattern A-light) ✅ Option B (12-cell overrides + default heuristic; Cell 20 v1.1+ flag)
+  - elrond pre-Layer-2 prep (per-cell register + element_weapon_kind_coherence_matrix) ✅ 3 matrix variants delivered; 4 substrate gaps surfaced
+- Rocket Layer 3 (skill content + SC-3 off-hand mechanical contract) ✅ COMPLETE in ~17 min wall-clock; 132/132 smoke PASS; all 4 Gate-1 amendments resolved; 146 substrate templates across 6 families; SkillTree + SkillChain + Skill + T4Slot + T4Candidate + T4Alteration dataclasses; 25-archetype template registry; SC-3 banner/focus/talisman/tome/horn contract; MIGRATION.md § v1.4
+- Jack-ryan Gate-2 on Layer 3 ✅ PASS (zero BLOCK; zero WARN; 4 INFO captured for L4/L6 dispatch authoring)
+- Rocket Layer 2 (BC-target subspace generator) IN-FLIGHT
+- Sub-agent dispatch cadence observation worth capturing for future cycle planning: dispatch-bounded not human-day-bounded; Layer 3 completed in 17 min vs ~2-3 week framing-brief estimate
+
+**Sidecar closeouts:**
+- Elrond SC-1 (Tier-S named-mythological substrate-tagging cleanup) ✅ — 56 backfilled (Subsets A + B); 94 Subset C deferred for gandalf Wave 1 Pattern A-light
+- Elrond SC-2 (subtype classification Option A scope = 1,021 v1_scope=1 rows) ✅ — backfilled with 73 edge-case exceptions handled; 19,749 v1_scope=0 deferred per Option A; 2 v1.1+ anomalies surfaced (id=172596 register-mistag + id=177340 "Crystal Healer" pf2ools-quarantined substrate pollution → broader-corpus cleanup queued)
+- Drax Wave 3b (Cycle 11 close M3 + M6 + spirit-guide narration) ✅ — Tier 2 framing compliance COMPLIANT throughout per jack-ryan Gate-2
+
+**v1.1+ queue surfaced this session (8+ items; captured for v1.1 cycle authoring):**
+- SC-1 Subset C 94-row disposition (gandalf Pattern A-light Wave 1)
+- SC-1 Tier-A/B/C activation for Brahmastra/Sudarshana Chakra/Aegis (gandalf judgment)
+- Greek/Norse mythological period convention disambiguation (gandalf judgment)
+- Cells 11 Red Mage + 20 Holy Knight + 22 Monk + 24 Artillery Mage § 4.1 canonical amendments (gandalf canonical authoring)
+- v1_scope row-count reconciliation (Tier-A 756-row drift since Cycle 10) (elrond)
+- substrate `element` column schema evolution (elrond)
+- pf2ools-quarantined corpus pollution cleanup (elrond Tier-B/Tier-C grep)
+- Discipline #26 candidate: diagnostic triple-fire pattern operationalization (KR flag per Cycle 11 wind-down § 5; jack-ryan engineering-disciplines authoring queue)
+- Layer 4 + Layer 6 INFOs from Gate-2-on-L3 (math-note code-line citations per Discipline #1.2; validate_invariants runtime vocabulary check; cross-seam SC-3 obligations enumeration)
+
+**Hive-mind state: CONTINUES.** KR proceeds autonomously per Matt explicit directive. Next-touch sequence: rocket Layer 2 return → Gate-2 on L2 → MC-3 methodology consult → Layer 4 → Layer 6 → integration tests → Cycle 12 wind-down auto-close per skip-confirmation re-auth → T4 post-mortem readiness milestone.
+
+---
+
 ## 2026-05-25 — Cycle 10 CLOSED + Cycle 11 IN-FLIGHT Tier 2 + Cycle 12 OPENED Option γ + L9 substrate split + Pi recognition record + hive-mind-scope-discipline 3 applications (post-KR-Cycle-10-close + Matt log-back session)
 
 **Event:** Substantive design+ session producing 3 cycle transitions + 2 architectural recognitions + 1 discipline refinement.
