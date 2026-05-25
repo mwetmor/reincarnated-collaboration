@@ -362,3 +362,52 @@ Intermediate tag (seam-prefixed) per project convention. NO Matt-approved milest
 - Per-entry artifacts: `agentic_orchestration/rocket/research/cycle-10-stage-3-5-gap-fill-2026-05-25/entries/` (43 .md files)
 - Population script: `agentic_orchestration/rocket/research/cycle-10-stage-3-5-gap-fill-2026-05-25/populate_gap_fills.py`
 - DB backup: `agentic_orchestration/rocket/research/cycle-10-stage-3-5-gap-fill-2026-05-25/backups/telemetry.db.pre-stage-3-5` (gitignored)
+
+---
+
+## Wave 6 amendment record — 2026-05-25 (kavacha subtype reclassification)
+
+**Authority:** jack-ryan Gate-2 PASS-WITH-AMENDMENTS verdict Flag 1 WARN (`agentic_orchestration/qa/findings/2026-05-25-gate2-stage-3-5-gap-fill.md`)
+**Applied by:** rocket
+**Amendment date:** 2026-05-25
+
+### What changed
+
+Single DB row update on `weapon_knowledge_entries` id=225879 (`karna_kavacha_armor`):
+
+| Field | Before | After |
+|---|---|---|
+| `weapon_kind_classified_subtype` | `accessory_handheld` | `armor_body_or_head` |
+| `v1_scope` | `1` | `0` |
+| `v1_scope_composition_trace.rule` | `stage_3_5_gap_fill_authored` | `d1c_excluded_scope_deferred_karna_kavacha_named_bearer_rescue_candidate` |
+
+### Rationale
+
+The original `accessory_handheld` classification was a workaround to keep the entry in v1_scope via D1b. jack-ryan Gate-2 ruled this not defensible: kavacha is wearable body armor per the Mahabharata (born-wearing; Fate Grand Order Noble Phantasm defense layer), not a hand-carriable focus/talisman per off-hand-items doc § 1.4. The D1c exclusion of `armor_body_or_head` is correct. Reclassification to `armor_body_or_head` + `v1_scope=0` is Option A per jack-ryan recommendation; does not require Matt escalation (Options B/C would).
+
+### Post-amendment Karna profile
+
+4 entries at v1_scope=1 (vijaya_bow, vasavi_shakti_spear, surya_sun_sword, mahabharata_chariot_lance) + 1 entry at v1_scope=0 (kavacha_armor, flagged as Sidecar B / v1.1+ named-bearer rescue candidate per Roland Durendal precedent).
+
+### Post-amendment smoke assertions (all PASS)
+
+| Assertion | Expected | Actual | Result |
+|---|---|---|---|
+| `COUNT(*) WHERE source_library = 'engine_authored_gap_fill_v1'` | 43 | 43 | PASS |
+| `COUNT(*) WHERE source_library = 'engine_authored_gap_fill_v1' AND v1_scope = 1 AND quality_tier IN ('S', 'A')` | 42 | 42 | PASS |
+| `COUNT(*) WHERE source_library = 'engine_authored_gap_fill_v1' AND cultural_lineage_canonical IS NULL` | 0 | 0 | PASS |
+
+Note: assertion 2 changes from 43 to 42 post-amendment (kavacha now v1_scope=0). This is the expected delta per jack-ryan Gate-2 verdict.
+
+### Per-entry artifact
+
+`agentic_orchestration/rocket/research/cycle-10-stage-3-5-gap-fill-2026-05-25/entries/karna_kavacha_armor.md` — `## Wave 6 amendment 2026-05-25` section appended with full rationale + rescue-candidate flag.
+
+### Gate-2 acceptance criteria resolution
+
+- [x] DB UPDATE landed; SQL verification PASS (id=225879 confirmed armor_body_or_head / v1_scope=0)
+- [x] Per-entry artifact updated (amendment section appended)
+- [x] All 3 Wave 6 smoke assertions still PASS (with updated count: assertion 2 now 42)
+- [x] This amendment record appended to dispatch completion record
+- [ ] Auto-commit + auto-push (firing now)
+- [ ] Tag `rocket/cycle-10-stage-3-5-engine-authored-gap-fill-2026-05-25` fires after commit+push (per jack-ryan Gate-2 verdict)

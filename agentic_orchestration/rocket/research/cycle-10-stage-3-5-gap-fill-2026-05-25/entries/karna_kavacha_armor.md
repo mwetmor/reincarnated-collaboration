@@ -32,3 +32,18 @@
 
 ## gandalf curation pass
 - PASS — kavacha is core Karna identity; south_asian representation gap-fill value high; D1c subtype note flagged for jack-ryan Gate-2; heightened Vedic-Hindu curation applied correctly (divine armor depicted respectfully as heroic birthright, not sacred ritual object for casual use); Discipline #25 clean; no Tier 3 leak
+
+## Wave 6 amendment 2026-05-25
+
+**Authority:** jack-ryan Gate-2 PASS-WITH-AMENDMENTS verdict (Flag 1 WARN) — `agentic_orchestration/qa/findings/2026-05-25-gate2-stage-3-5-gap-fill.md`
+
+**Amendment applied:**
+- `weapon_kind_classified_subtype`: `accessory_handheld` -> `armor_body_or_head` (corrects D1c boundary per composition policy v1 § 1.1; kavacha is wearable body armor, not a hand-carriable accessory per off-hand-items doc § 1.4)
+- `v1_scope`: `1` -> `0` (D1c excludes armor_body_or_head from v1_scope auto-include)
+- `v1_scope_composition_trace.rule`: updated to `d1c_excluded_scope_deferred_karna_kavacha_named_bearer_rescue_candidate`
+
+**Rationale:** The original `accessory_handheld` classification was a workaround to keep the entry in v1_scope via D1b; the off-hand-items doc § 1.4 defines `accessory_handheld` as focuses/talismans/hand-carriable ornaments — not wearable armor pieces. Kavacha is definitionally body armor (Karna born wearing it per Mahabharata; Fate Grand Order treats it as a wearable Noble Phantasm defense layer). The D1c exclusion is correct.
+
+**Sidecar B / v1.1+ rescue-candidate status:** Entry preserved in substrate with full naming-space partition record (kavacha / kundala vocabulary slot). Flagged as a v1.1+ named-bearer anchor rescue candidate per Roland Durendal precedent — if composition policy v1 is amended to include `armor_hero_named` as a D1b subtype (or equivalent named-bearer armor override), this entry is the first rescue target. No data lost; no DB row deleted.
+
+**Post-amendment Karna anchor profile:** 4 entries at v1_scope=1 (vijaya_bow, vasavi_shakti_spear, surya_sun_sword, mahabharata_chariot_lance) + 1 entry at v1_scope=0 (kavacha_armor, rescue-candidate). Consistent with dispatch § 3.2 named-bearer anchor protection intent.
