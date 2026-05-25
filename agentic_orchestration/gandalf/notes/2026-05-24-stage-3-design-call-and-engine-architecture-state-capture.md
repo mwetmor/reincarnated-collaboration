@@ -19,13 +19,27 @@
 
 ## 0. TL;DR
 
-**Stage 3 Design Call (D1-D7 decision chain):** D1, D2, D3 LOCKED in this session. D4 PROPOSED (D4a — Stage 4 mythological-NULL rescue) awaiting Matt confirmation. D5/D6/D7 PENDING.
+**STATE-CAPTURE UPDATED 2026-05-24 evening — Stage 3 design call FULLY CLOSED + Architecture B LOCKED + composition policy landed.**
 
-**Engine Architecture (A/B/C discussion):** Matt caught two architectural issues in this session.
-1. ✅ FIXED: substrate-AGNOSTIC Phase 2 + substrate-coalesces Phase 5 inconsistency (my skill-system § 13 step 7 had substrate-pulled-at-Phase-2; corrected to match canonical end-to-end-workflow doc; commit `8446854`)
-2. ⏸️ PENDING: Pattern-6-style role-shape constraint flaw in canonical end-to-end-workflow doc — "role-shape constraints (damage/control/support/hybrid)" survived in Phase 2 box from pre-Pattern-6-retirement era; needs removal per substrate-led discipline; amendment proposed but pending Matt confirmation
+**Stage 3 Design Call (D1-D7 decision chain) — FULLY CLOSED:**
+- D1 LOCKED with Main/Secondary semantic + accessory/armor subdivisions (commit `8446854`)
+- D2 LOCKED via smoke-test validation + Option β + Option C cross-attribute permission (commit `8446854`)
+- D3 LOCKED (Option A — 4-tuple substrate routing; proxy-density at form-generation per algorithm § 8.6)
+- D4 LOCKED (D4a — Stage 4 mythological-NULL rescue)
+- D5 LOCKED (all 4 Sketch F anchors → Stage 3.5 gap-fills per Matt amendment)
+- D6 LOCKED (composition policy synthesis structure validated)
+- D7 LOCKED (Stage 3.5 budget ~25-50 entries; per-entry discipline)
+- **Composition policy canonical doc landed at `canonical/story/weapon-substrate-composition-policy-v1-2026-05-24.md`**
 
-Both threads need clean resumption at next-session pickup.
+**Engine Architecture (A/B/C discussion) — Architecture B LOCKED as production canonical:**
+- ✅ Substrate-AGNOSTIC Phase 2 alignment correction landed (commit `8446854`)
+- ✅ Role-shape constraint removed (per Pattern 6 retirement)
+- ✅ **Architecture B LOCKED as production canonical via Matt 2026-05-24 reversal** (commit `d761fa5`)
+- ✅ Substrate-genre-flagging unified-architecture (per Matt refinement; serves all commercial profiles)
+- ✅ Architecture A retained as developer-tool / R&D reference (archived to historical/)
+- ✅ Empirical-trigger discipline § 4 of new canonical doc
+
+**Both threads CLOSED. Next-session pickup: Stage 3 execution dispatch routing (knight-rider) → Wave 5 execution → Cycle 10 wind-down → post-Cycle-10 canonical authoring queue (Phase 4/5 amendments + loot architecture + element canonical-pair flavor + naming-space partitioning).**
 
 ---
 
