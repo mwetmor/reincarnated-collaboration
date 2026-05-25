@@ -20,6 +20,24 @@
 
 ---
 
+## Session-open entry-protocol actions (per hive-mind-protocol.md § 2.2)
+
+Cycle 11 enters hive-mind state on this session-open. Per entry protocol:
+
+**Step 4 — Create live state file** (REQUIRED at session-open before firing first Wave):
+- Path: `agentic_orchestration/cycle-11-v1-implementation-push-state.md` (or KR's naming judgment using the Cycle-10 precedent pattern `<cycle>-<subject>-state.md`)
+- Initial content: cycle metadata header (cycle # / subject / owner / authority / authoring agent / routing source / scope-doc path / entry path) per Cycle 10 state file precedent at `agentic_orchestration/weapon-substrate-curation-cycle-10-state.md` § 0
+- Plus: Wave 0 placeholder + Day-1 parallel-fire intent + post-fire PID tracking template
+- Auto-commit + push per scope-doc § 4 push-per-wave authorization
+
+**Step 4.5 — Load hive-mind-protocol skill** alongside your OP per § 0 layering pattern (`agentic_orchestration/operating-procedures/hive-mind-protocol.md`).
+
+**Step 5 — Fire Day-1 parallel dispatches per § "Cycle 11 work to fire" below.**
+
+Distributed-protocol pattern note: Cycle 11 does NOT have a single monolithic `canonical/story/hive-mind-protocol-cycle-11.md` doc (the way Cycle 8 substrate-acquisition + QD-engine-rebuild had). Instead, the operational content is distributed across: this kicker (operational index) + scope-doc (autonomous-scope authority) + matt-log-back-decisions-2026-05-25.md (decision capture) + canonical reference docs (legolas methodology recommendation + drax scoping memo + skill-system § 8 + composition policy v1). Per hive-mind-protocol.md § 2.1 requirement (1), this distributed-protocol pattern satisfies the "canonical protocol doc" requirement in substance; future cycles may benefit from a thin "protocol stub" amendment to canonicalize the pattern.
+
+---
+
 ## Cycle 11 work to fire
 
 Per scope-doc § 1 + § 8 sequencing recommendation, fire the following in parallel where dependencies allow:
