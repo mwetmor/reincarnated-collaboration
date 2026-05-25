@@ -205,9 +205,9 @@ Cycle 12 (full new engine parallel-build per Option γ) opened 2026-05-25 in par
 | elrond SC-1 (Tier-S named-mythological substrate-tagging cleanup) | ✅ COMPLETE — 150 enumerated; 56 backfilled (Subset A 33 mythological proper + Subset B 23 historical-attribution); Subset C 94 spurious-attribution DEFERRED for gandalf Wave 1 Pattern A-light; 3 Phase-D YEAR_RE regex-misfires corrected |
 | elrond SC-2 (subtype classification ~50-100 items) | ⚠️ Phase 1 HALT-FOR-SCOPE → Option A (1,021 v1_scope=1 rows) approved; Phases 2-5 RE-FIRE IN-FLIGHT |
 | elrond pre-Layer-2 prep (per-cell register + coherence matrix) | IN-FLIGHT (surfaced by MC-1/MC-2 returns) |
-| gandalf Pattern A-light (comp-policy § 4 coverage gap) | IN-FLIGHT (surfaced by MC-2 flag 2) |
+| gandalf Pattern A-light (comp-policy § 4 coverage gap) | ✅ COMPLETE — Option B (Layer 2 default heuristic for un-routed cells + 12-cell explicit override list per verdict memo § 3); cells 14/15/17/23 already in LOCKED 12 (thin-cell-fallback is safety net only); Cell 20 Holy Knight = sole true gap, v1.1+ amendment queued |
 
-**Rocket L2/L3 dispatch authoring gate:** Gate-1 ✅ + MC-1 ✅ + MC-2 ✅ + pre-Layer-2 prep ⏳ + gandalf comp-policy § 4 ⏳. When prep + gandalf return, KR authors rocket L2 + L3 dispatches integrating: Gate-1 7 WARN + INFO-4 amendments + MC-1 Hybrid H3 + cells 14/15/17/23 routing + MC-2 hybrid filter-then-sample + thin-cell cascade + elrond per-cell register weights + elrond coherence matrix as input + gandalf comp-policy § 4 confirmation. Rocket L2 + L3 fire in PARALLEL per Q4 Option B.
+**Rocket L2/L3 dispatch authoring gate:** Gate-1 ✅ + MC-1 ✅ + MC-2 ✅ + gandalf comp-policy § 4 ✅ + elrond pre-Layer-2 prep ⏳ (sole remaining blocker). When prep returns, KR authors rocket L2 + L3 dispatches integrating all 5 inputs. Rocket L2 + L3 fire in PARALLEL per Q4 Option B.
 
 **Cycle 12 wall-clock projection:** ~3-5 weeks to T4 post-mortem readiness milestone (new engine functional + § 8 wire-up reaches combat arithmetic via Layer 6).
 
