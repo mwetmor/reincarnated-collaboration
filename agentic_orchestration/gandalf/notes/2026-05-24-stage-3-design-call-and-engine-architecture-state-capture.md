@@ -39,7 +39,7 @@
 - ✅ Architecture A retained as developer-tool / R&D reference (archived to historical/)
 - ✅ Empirical-trigger discipline § 4 of new canonical doc
 
-**Both threads CLOSED. Next-session pickup: Stage 3 execution dispatch routing (knight-rider) → Wave 5 execution → Cycle 10 wind-down → post-Cycle-10 canonical authoring queue (Phase 4/5 amendments + loot architecture + element canonical-pair flavor + naming-space partitioning).**
+**Both threads CLOSED. Next-session pickup: Stage 3 execution dispatch routing (knight-rider) → Wave 5 execution → Cycle 10 wind-down → post-Cycle-10 canonical authoring queue (Phase 4/5 amendments + loot architecture + sub-element architecture [renamed 2026-05-24 from "element canonical-pair flavor" to disambiguate from retired seasonal-realm-mapping concept AND from legendary canonical-pair set-bonuses] + naming-space partitioning).**
 
 ---
 
@@ -70,7 +70,7 @@ Stage 3 design call locks the **composition policy** for Cycle 10 substrate-cura
 
 | Cell | Archetype | Action |
 |---|---|---|
-| 13 | Artillery Mage `(ranged, low, spiky, INT)` | **FOLD into Cell 12 Standard Wizard via T4 algorithmic alteration** — Cataclysm-tier T4 manifests as Artillery variant per element-canonical-pair flavor (paired "cataclysmic") |
+| 13 | Artillery Mage `(ranged, low, spiky, INT)` | **FOLD into Cell 12 Standard Wizard via T4 algorithmic alteration** — Cataclysm-tier T4 manifests as Artillery variant per sub-element flavor (cataclysmic sub-element of fire/lightning) |
 | 14 | Pyromantic Caster `(mid, low, spiky, INT)` | **Stage 3.5 engine-author gap-fill (~5-10 entries)** — contested cell; engine-authored Pan-Fantasy slot |
 | 15 | Red Mage/Spellsword `(melee, high, flat, INT)` | **Phase 5 cohesion-judge composes over STR-melee substrate + INT-flavored kit** — no separate gap-fill needed (Option C + Option β) |
 | 17 | Necromancer Summoner `(mid, low, spiky, INT, heavy)` | **Sidecar B fantasy-coinage Necro enrichment + algorithm § 8.6 proxy-spawn** |
@@ -155,7 +155,7 @@ Composes:
 - Sketch D distribution (substrate-led skew accepted; Pan-Fantasy 20% hefty)
 - Architecture B (substrate as base-type templates + tiered instance loot)
 - Option α / β / C cell-type matching policies
-- Element canonical-pair flavor + named-bearer attribution discipline
+- Sub-element flavor + named-bearer attribution discipline
 - Universal archetypal naming + naming-space partitioning
 
 Becomes canonical doc consumed by Stage 3 execution.
@@ -206,7 +206,7 @@ Architecture A is the right engine flow for Reincarnated. Reasons:
 | Mechanical-design space exploration unconstrained | Engine can explore mechanical kits that have NO substrate support yet — surfaces enrichment needs without breaking |
 | Substrate-led discipline preserved | Substrate VOTES at Phase 5 cohesion-coalescence; doesn't DICTATE at Phase 2 |
 | Pareto optimization is mechanically pure | Phase 4 archive insertion optimizes mechanical-novelty + diversity without substrate-coverage confounding |
-| Element canonical-pair flavor + universal archetypal naming compose | Phase 5 LLM-runtime handles flavor + naming with ALL signals available |
+| Sub-element flavor + universal archetypal naming compose | Phase 5 LLM-runtime handles flavor + naming with ALL signals available |
 | Replay variety per season | Same mechanical kit re-flavored across seasons |
 
 ### 2.3 First fix landed — substrate-AGNOSTIC Phase 2 alignment ✅
@@ -286,7 +286,7 @@ The canonical doc was authored 2026-05-21. This session has locked substantial a
 | Architecture B substrate-as-base-type-templates + tiered-instance-loot | Phase 5 cohesion-coalescence selects from tiered loot pool; potential new Phase 6 for loot-drop mechanics |
 | Universal archetypal player-facing naming | Phase 5 LLM cohesion-judge applies universal archetypal-naming discipline |
 | Bi-modal form library (engine-layer discipline) | Phase 5 cohesion-judge handles named-personage vs engine-named-original assignment |
-| Element canonical-pair flavor at LLM-runtime | Phase 5 LLM cohesion-judge maps core element to per-form flavor manifestation |
+| Sub-element flavor at LLM-runtime (renamed 2026-05-24 from "element canonical-pair flavor") | Phase 5 LLM cohesion-judge maps core element to per-form sub-element manifestation |
 | Legendary canonical-pair set-bonuses | Phase 6 (or Phase 5 sub-step): loot-drop mechanics; canonical-pair recognition at equip-time |
 | Option α (martial 5-tuple) / Option β (caster attribute-level) / Option C (cross-attribute ω-penalty) | Phase 5 substrate-attachment per cell-type matching policy |
 | Faction-generated proxies algorithm | Phase 2 algorithm § 8 output extension; proxy-spawn-template per kit's substrate-derived faction-anchor (attaches at Phase 5) |
@@ -313,7 +313,7 @@ For state-completeness, full list of architectural locks from this entire sessio
 7. **Architecture B substrate-as-base-type-templates + tiered-instance-loot** (Layer 1 base types + Layer 2 common + Layer 3 magic/rare + Layer 4 legendary)
 8. **Universal archetypal player-facing naming** (engine-internal named-personage attribution; player layer uniform archetypal)
 9. **Bi-modal form library as engine-layer discipline** (~32% named-personage / ~68% engine-named-original at engine layer; player experience uniform)
-10. **Element canonical-pair flavor at LLM-runtime** (core element stable; per-form paired-element-flavor manifestation at Phase 5 cohesion-judge)
+10. **Sub-element flavor at LLM-runtime** (renamed 2026-05-24 from "element canonical-pair flavor" — core element stable; per-form sub-element manifestation at Phase 5 cohesion-judge per substrate's cultural-tradition)
 11. **Legendary canonical-pair set-bonuses** (Excalibur + Avalon scabbard pattern; player-choice equip-both triggers set-bonus regime-change)
 12. **Option α (martial 5-tuple) / Option β (caster attribute-level) / Option C (cross-attribute ω-penalty)** per cell-type matching policy at Phase 5 substrate-attachment
 13. **Caster kit definition** (primary_attribute INT/WIS + skills primary damage source + skills deal non-physical element + weapon scales)
@@ -349,7 +349,7 @@ Per this session's architectural locks, the following canonical writes queue up 
 
 1. **Composition policy canonical doc** (post-D6 synthesis) — `canonical/story/weapon-substrate-composition-policy-v1-2026-05-XX.md`
 2. **Loot architecture canonical doc** (per Implication 1 of Architecture B discussion) — `canonical/story/loot-architecture-v1-2026-05-XX.md`
-3. **Element canonical-pair flavor architecture canonical doc** (per Matt 2026-05-24 element-flavor lock) — `canonical/story/element-canonical-pair-flavor-architecture-2026-05-XX.md`
+3. **Sub-element architecture canonical doc** (renamed from "element canonical-pair flavor architecture" per Matt 2026-05-24 disambiguation; sub-elements are flavor manifestations of core elements per substrate-tradition; DISTINCT concept from legendary canonical-pair set-bonuses) — `canonical/story/sub-element-architecture-2026-05-XX.md`
 4. **Naming-space partitioning canonical doc** (per per-engine-anchor reserved-naming patterns) — `canonical/story/naming-space-partitioning-2026-05-XX.md`
 5. **End-to-end-workflow doc amendment** (incorporating all this session's enhancements per § 2.5) — amend in place + commit
 6. **Off-hand items doc full Main/Secondary rename** — amend in place + commit

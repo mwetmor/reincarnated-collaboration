@@ -282,7 +282,7 @@ Reincarnated v1 filter: `genre IN ('fantasy', 'mythological', 'historical')`. En
 
 Substrate already bound at Phase 2 (per Architecture B); Phase 5 cohesion-judge:
 1. Confirms substrate-thematic fit
-2. Maps element-canonical-pair flavor at LLM-runtime per substrate's cultural-tradition
+2. Maps sub-element flavor at LLM-runtime per substrate's cultural-tradition (renamed 2026-05-24 from "element canonical-pair flavor" to disambiguate from retired seasonal-realm-mapping concept AND from legendary canonical-pair set-bonuses)
 3. Bi-modal form-library assignment per § 5
 4. Naming-space partitioning per engine-anchor
 5. Nested mythology naming per skill-system § 12.4
@@ -293,9 +293,9 @@ Substrate already bound at Phase 2 (per Architecture B); Phase 5 cohesion-judge:
 
 Per Matt 2026-05-24 legendary-pair lock: canonical-pair substrate items (Excalibur + Avalon scabbard; Mjolnir + Megingjörð belt; etc.) tagged at substrate-curation; player-equip-both triggers set-bonus regime-change at gameplay layer (post-Phase-5; loot-architecture territory per future canonical doc).
 
-### 6.5 Element canonical-pair flavor
+### 6.5 Sub-element flavor
 
-Per Matt 2026-05-24 element-canonical-pair lock: core element set stable (8 elements); per-form paired-element-flavor manifestation at LLM-runtime per substrate's cultural-tradition. Phase 5 cohesion-judge maps element → flavor.
+Per Matt 2026-05-24 sub-element lock (renamed from "element canonical-pair flavor" to disambiguate from retired seasonal-realm-mapping concept AND from legendary canonical-pair set-bonuses): core element set stable (8 elements); per-form sub-element manifestation at LLM-runtime per substrate's cultural-tradition. Phase 5 cohesion-judge maps element → sub-element flavor. Sub-elements are flavor variants of core elements (e.g., earth has sub-elements bone / obsidian / stone / crystal / sand / mud / ash / iron; shadow has darkness / vampiric / umbral / abyss / night-jaguar; etc.).
 
 ---
 
@@ -433,7 +433,7 @@ Cycle 10 wind-down (gandalf + knight-rider):
     │   ├─ Phase 4 simplified archive math spec (per session ULTRA-think)
     │   ├─ Phase 5 cohesion-judge calibration spec (per session ULTRA-think)
     │   ├─ Loot architecture canonical doc (per Architecture B Implication 1)
-    │   ├─ Element canonical-pair flavor architecture canonical doc
+    │   ├─ Sub-element architecture canonical doc (renamed from "element canonical-pair flavor")
     │   └─ Naming-space partitioning canonical doc
     └─ Recognition 1 (sampling-proportionality) v1.1+ flag → v1 LOCKED via this composition policy doc
 ```
@@ -502,7 +502,7 @@ Cycle 10 wind-down (gandalf + knight-rider):
 - Stage 3 execution dispatch (knight-rider authors next)
 - v1_scope subset materialized at Stage 3 execution
 - Wave 5 Stage 3.5 + Stage 4 work
-- Post-Stage-3 canonical authoring queue (Phase 4/5 amendments + loot architecture + element canonical-pair flavor + naming-space partitioning)
+- Post-Stage-3 canonical authoring queue (Phase 4/5 amendments + loot architecture + sub-element architecture [renamed from "element canonical-pair flavor"] + naming-space partitioning)
 - T4-B post-mortem (post-engine-form-generation; ~3-5 weeks from now)
 
 ---
@@ -517,4 +517,4 @@ Cycle 10 wind-down (gandalf + knight-rider):
 ---
 
 **Signed:** gandalf
-**For:** the canonical composition policy v1 driving Stage 3 execution (elrond constrained-sampling) → v1_scope membership for Reincarnated v1 ship; consolidates D1-D7 locks + all session architectural commitments (Architecture B + Option α/β/C + universal archetypal naming + bi-modal form library + element canonical-pair flavor + legendary canonical-pair set-bonuses + Sketch D + Sketch F + Sidecar B + Stage 3.5 gap-fills + Stage 4 mythological-NULL rescue + Pattern 6 alignment + substrate-genre-flagging).
+**For:** the canonical composition policy v1 driving Stage 3 execution (elrond constrained-sampling) → v1_scope membership for Reincarnated v1 ship; consolidates D1-D7 locks + all session architectural commitments (Architecture B + Option α/β/C + universal archetypal naming + bi-modal form library + sub-element flavor [renamed 2026-05-24 from "element canonical-pair flavor"] + legendary canonical-pair set-bonuses [DISTINCT concept for paired legendary items] + Sketch D + Sketch F + Sidecar B + Stage 3.5 gap-fills + Stage 4 mythological-NULL rescue + Pattern 6 alignment + substrate-genre-flagging).
