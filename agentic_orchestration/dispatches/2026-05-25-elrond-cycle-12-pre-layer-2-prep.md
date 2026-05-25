@@ -143,3 +143,68 @@ Round-trip: not applicable — read-only SQL queries against existing substrate;
 **Status:** FIRE — pre-Layer-2 prep; fires in parallel with jack-ryan Gate-2 on drax Wave 3b + elrond SC-2 Option A re-fire + gandalf Pattern A-light on comp-policy § 4 coverage gap
 
 **Matt-touch sequence:** elrond completes both artifacts → KR captures in state file → KR integrates into rocket L2 dispatch authoring alongside MC-1/MC-2 methodology + Gate-1 amendments + gandalf comp-policy confirmation → rocket L2 dispatch fires
+
+---
+
+## COMPLETION RECORD — 2026-05-25 elrond pre-Layer-2 prep
+
+**Status:** COMPLETE
+**Executor:** elrond
+**Tag:** `elrond/cycle-12-pre-layer-2-prep-2026-05-25`
+
+### Artifacts produced
+
+| # | Artifact | Path |
+|---|---|---|
+| 1 | per-cell register breakdown | `agentic_orchestration/elrond/cycle-12-pre-layer-2/per-cell-register-breakdown-2026-05-25.md` |
+| 2 | element_weapon_kind_coherence_matrix | `agentic_orchestration/elrond/cycle-12-pre-layer-2/element-weapon-kind-coherence-matrix-2026-05-25.md` |
+
+### Row counts surfaced
+
+- **v1_scope total:** 2,293 rows (NOT 3,042 quoted in dispatch — see Artifact 1 § 6.1 for substrate-bookkeeping gap)
+- **v1_scope × tier:** S=539 / A=675 / B=1,056 / C=23
+- **v1_scope × register (aggregate):** historical=1,202 (52.4%) / fantasy=1,022 (44.6%) / military_modern=32 (1.4%) / mythological=37 (1.6%)
+- **v1_scope × mechanical_cell:** 18 named cells + `untyped` (466 rows) + `__null_trace__` Stage 3.5 gap-fill (42 rows) + `int_other` orphan (1 row) = 21 distinct cell-labels (intent doc lists 22 cells; 4 intent-doc cells have zero direct cell-id coverage and route per § 4.1)
+- **Element-typed (S+A+B keyword-inference):** fire=13 / water=22 / earth=67 / wind=8 / lightning=5 / holy=25 / shadow=82 / physical=~2,058 (96.2% of total — element column does NOT exist; inference is keyword-based)
+
+### Empirical inspection evidence (Discipline #11)
+
+Artifact 1 § 5: 12 random rows sampled across mechanical_cell × register; spot-check validates correct cell+register assignment (e.g., `Smallsword` → `dex_dagger_assassin` historical S-tier; `pyromantic_ember_staff` → `__null_trace__` fantasy A-tier).
+
+Artifact 2 § 4: 13 sample rows across 7 elements; spot-check validates word-boundary refined keyword-matching correctly excludes prior false-positives (e.g., `Centrefire revolver` not matched to fire; `Pair of Sword-Grip Ornaments` not matched to wind via "air").
+
+### Consumer notes for rocket Layer 2
+
+**Artifact 1 (per-cell register):**
+- **DO NOT** apply composition policy § 1 aggregate register-share targets (historical 50-55% / fantasy 30-35%) as per-cell generation weights — per-cell registers are bimodal.
+- Five cells have ≥85% single-register dominance; `dex_twin_blade_fencer_thin` is 100% fantasy.
+- Cell-pair sharing per composition policy § 4.2 is visible in the data (substrate honors the 4-tuple-shared pools).
+- 4 intent-doc cells (11 Red Mage, 17 Channeling Cleric, 22 Monk, 24 Artillery Mage) have ZERO direct cell-id coverage → MC-1 surprise 2 BLOCKED-cell routing per § 4.1 applies.
+
+**Artifact 2 (element × weapon_kind coherence):**
+- Use Matrix 2.C (row-normalized within element) as the lookup form for MC-2's `w_coherence × element_weapon_kind_coherence_score`.
+- Substrate has weak DIRECT element signal — 96.2% of S+A+B rows default to `physical` (no element keyword). Per MC-2 § 6.1, `physical` IS the universal base element; this is expected.
+- Wind (8 rows) and lightning (5 rows) are critically thin across all weapon_kinds — thin-cell-fallback cascade will fire routinely for wind/lightning kits per MC-2 § 5.2.
+- Per MC-2 § 6.1, do NOT hard-zero matrix cells; apply epsilon (~0.01) for zero (element, weapon_kind) pairs.
+
+### Substrate gaps surfaced for KR
+
+1. **v1_scope row-count discrepancy** (dispatch 3,042 vs. actual 2,293 — see Artifact 1 § 6.1). May reflect sibling elrond SC-1 / SC-2 in-flight UPDATEs or pre-Stage-4 staleness in dispatch ref.
+2. **No `element` column on `weapon_knowledge_entries` or populated on `weapons.dominant_element_affinities`.** Inference is keyword-based on `canonical_name`. v1.1+ schema evolution candidate.
+3. **`tome` / `focus` weapon_kinds defined in CHECK constraint but zero-populated** — caster kits requesting these weapon_kinds substrate-bind from `category` rows.
+4. **2 intent-doc cells (Monk, Red Mage) have zero substrate coverage and zero routing in composition policy § 4.1** — Layer 2 should escalate to gandalf if these archetypes are in rocket L2 dispatch scope.
+
+### Per Discipline #25 L9 semantic-layer rep-audit
+
+Both artifacts confirmed: use mechanical fields only (mechanical_cell, register_canonical, element, weapon_kind, quality_tier). No cultural_tradition / lineage / period / proxy_density fields included per MC-2 § 1 + composition policy § 3.
+
+### Per ADR-004 cross-seam coordination
+
+NO MIGRATION.md required. Both artifacts are read-side products consumed by rocket Layer 2 dispatch authoring. No schema changes. No engine telemetry writes. No fixture-dict shape changes.
+
+### Concurrency hygiene
+
+- READ-ONLY queries against `weapon_knowledge_entries` (no UPDATE / no schema change)
+- No contention observed with sibling SC-1 / SC-2 elrond instances (which do UPDATEs against `cultural_lineage_canonical` / `historical_period_canonical` / `weapon_kind_classified_subtype` columns — disjoint from this dispatch's read columns)
+- PRAGMA busy_timeout=30000ms was not invoked (no write contention occurred); SELECT queries completed in <1s each
+
