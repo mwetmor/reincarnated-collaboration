@@ -100,9 +100,48 @@ Drive to **T4 post-mortem readiness milestone** (~3 weeks wall-clock) via parall
 |---|---|---|
 | `2026-05-25-drax-cycle-11-m4-attribute-coupling-labels-refire.md` | drax | Render attribute_coupling labels in StatsDisplay; ~1-2 hours pure display work; guard legacy with `?? []` |
 
-### Wave 3b — 2026-05-25 (DEFERRED pending BC-shift sweep PASS)
+### Wave 3a return — drax M4 refire — CLOSED
 
-**Trigger gate:** rocket BC-shift validation sweep PASS (PID 79520 in-flight; ~200-300 min total; ~10% complete at last check). If sweep PASSES, fire drax M3/M6 dispatch authoring + sub-agent. If sweep FAILS, escape-hatch escalation to Matt per scope-doc § 5 narrow-escape-hatches BEFORE broader § 8 commitment fires.
+| Sub-agent | Status | Tag | Commits |
+|---|---|---|---|
+| drax M4 refire | ✅ COMPLETE — abbreviated label `"Coupled: INT + WIS"`; both Cycle-11+ + legacy null-cases PASS; 771 modules / 0 TS errors | `drax/v0.0-cycle-11-m4-attribute-coupling-labels-2026-05-25-refire` | `cff0a52` (loadout) |
+
+### Wave 3b — BC-shift validation sweep FAILED → ESCAPE-HATCH FIRED (2026-05-25)
+
+**BC-shift sweep completed at 2026-05-25T11:15:36** (ran ~25 min — faster than methodology § 5.2 estimate; smaller convergence pass than projected).
+
+**Sweep result: FAIL on both gates.**
+
+| Metric | Threshold (per methodology § 5.2) | Sweep result | Status |
+|---|---|---|---|
+| Direction-correct rate | ≥ 80% (8/10) | 41.67% (5/12) | ❌ FAIL |
+| Magnitude-meaningful rate | ≥ 60% (6/10) | 0.00% (0/12) | ❌ FAIL |
+| Overall pass | — | FALSE | ❌ FAIL |
+
+**Two failure patterns identified by KR direct-inspection of results JSON:**
+
+**Pattern A — Strategy-selection mismatch (7/12 kits):** `opportunity_scan` + η-scoring selected a different strategy than expected for the test BC-target. The Wave-1 static η-calibration smoke 6/6 PASSED, but smoke didn't cover the strategy-competition edge cases. Examples:
+- `fire_mage_hp_econ_1`: expected RESOURCE_CONVERSION → got GEOMETRY_COLLAPSE
+- `warrior_dodger_1/2`: expected DEFENSIVE_CONVERSION → both got TRADE_OFF
+- `water_fire_tradition_1` + `earth_fire_tradition_2`: expected ELEMENT_CONVERSION → got TRADE_OFF / GEOMETRY_COLLAPSE
+
+**Pattern B — Near-zero BC-shift magnitude (12/12 kits):** Even when strategy selection was correct (5/12), `bc_shift` was 0.0 or near-zero. In 11 of 12 cases `baseline_modifier == altered_modifier` — alterations produce NO measurable shift on the predicted axis. Per methodology § 5.2 this is "Direction correct, magnitude near-zero" fail condition.
+
+**Cross-cutting:** both patterns surface simultaneously — not a single-parameter-tuneable issue. Deeper diagnostic required across multiple seam owners.
+
+**KR orchestration response — diagnostic triple-fire BEFORE Matt-escalation (per hive-mind decision-routing § 4 escalation hierarchy steps 2-4):**
+
+Wave 3b IMPLEMENTATION (drax M3/M6) **BLOCKED** pending Matt re-engagement. Wave 3b dispatch NOT authored.
+
+Fired diagnostic triple in parallel:
+
+| Sub-agent | Diagnostic focus |
+|---|---|
+| rocket | Calibration analysis: why opportunity_scan selects wrong strategy; why alterations produce no BC shift; what parameter / logic surface is closest to a refuting-test-driven refinement |
+| gandalf | Design-fit critique (Pattern A-deep): is the test design aligned with § 8 design intent; is "BC-shift on predicted axis" the right success measurement; is FAIL evidence of architectural problem OR test misalignment |
+| legolas | Methodology-test-design re-review (Pattern A-deep): are 80%/60% thresholds appropriate; is the test set composition representative; is the cheapest-refuting-test correctly framed; are there confounders in the sweep design |
+
+**Matt-escalation pending synthesis of all 3 returns.** State file will be updated with synthesis + recommended decision-options once returns are aggregated.
 
 ---
 
@@ -110,7 +149,8 @@ Drive to **T4 post-mortem readiness milestone** (~3 weeks wall-clock) via parall
 
 | Process | Status | PID / artifact |
 |---|---|---|
-| BC-shift validation sweep (rocket Wave 1) | RUNNING (~19.5 min elapsed at Wave 2 close; ~10% of estimated ~200-300 min total) | PID 79520; log `/Users/admin/Games/reincarnated-engine/logs/bc_shift_sweep_20260525_105145.log`; results `logs/bc_shift_sweep_results.json` on completion |
+| BC-shift validation sweep (rocket Wave 1) | ✅ COMPLETE 2026-05-25T11:15:36 — **FAIL on both gates** (direction 41.67% / magnitude 0.00%) | results: `/Users/admin/Games/reincarnated-engine/logs/bc_shift_sweep_results.json`; log: `bc_shift_sweep_20260525_105145.log` |
+| Diagnostic triple-fire (rocket / gandalf / legolas) | IN-FLIGHT — fired post-sweep-FAIL synthesis | sub-agent invocations via Agent tool; aggregation pending |
 
 ---
 
