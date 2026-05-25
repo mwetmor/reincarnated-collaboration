@@ -1,0 +1,115 @@
+{
+  "measurement_window": "2026-05-11 to 2026-05-25 (rolling 2 weeks)",
+  "telemetry_db_path": "~/Games/reincarnated-engine/data/telemetry.db",
+  "telemetry_db_journal_mode": "WAL",
+  "telemetry_db_busy_timeout_ms": 0,
+  "telemetry_db_synchronous": "NORMAL",
+  "total_generation_runs_in_window": 126,
+  "confirmed_failed_runs_status": 1,
+  "runs_with_null_completion": 10,
+  "sqlite_lock_incidents": [
+    {
+      "incident_id": "SLK-001",
+      "date": "2026-05-16",
+      "log_file": "regen-001008-post-emission-gap-fix-2026-05-16.log",
+      "error_type": "database_is_locked",
+      "failure_mode": "write_lock_block",
+      "errors": [
+        "Telemetry start_run failed: database is locked",
+        "Telemetry record_class_monster_win_rates failed: database is locked",
+        "Telemetry record_class_fight_loadouts failed: database is locked"
+      ],
+      "cascade_errors": [
+        "Telemetry _insert_step_start failed: NOT NULL constraint failed: generation_steps.run_id (x5, caused by start_run failure)"
+      ],
+      "concurrent_context": "season_001008 two ghost runs opened concurrently (run IDs both incomplete at 23:26 and 23:38 UTC); season_001005 ghost run still open since 18:25 UTC",
+      "write_lock_acquired_by": "unknown (prior open connection)",
+      "busy_timeout_configured_ms": 0,
+      "notes": "WAL mode was configured; synchronous=NORMAL. busy_timeout=0 means no retry on lock \u2014 first contention = immediate failure."
+    }
+  ],
+  "ram_pressure_incidents": [
+    {
+      "incident_id": "KP-001",
+      "timestamp": "2026-05-23T03:11:11-04:00",
+      "panic_file": "panic-full-2026-05-23-031111.0002.panic",
+      "panic_type": "watchdog_timeout",
+      "panic_string_summary": "watchdog timeout: no checkins from watchdogd in 92 seconds",
+      "compressor_state": "100% of compressed pages limit (BAD)",
+      "swap_files": 12,
+      "triggering_process": "phase_e1_pipeline.py HDBSCAN.fit (inferred from run-log sequence)",
+      "script_stage": "HDBSCAN.fit on expanded matrix (~22,065 rows x 4 dims, inferred)",
+      "notes": "First panic; crash-triage handoff misdiagnosed as exogenous reset"
+    },
+    {
+      "incident_id": "KP-002",
+      "timestamp": "2026-05-23T03:32:14-04:00",
+      "panic_file": "panic-full-2026-05-23-033214.0002.panic",
+      "panic_type": "watchdog_timeout",
+      "panic_string_summary": "watchdog timeout: no checkins from watchdogd in 92 seconds",
+      "compressor_state": "100% of compressed pages limit (BAD)",
+      "swap_files": 10,
+      "triggering_process": "phase_e1_pipeline.py HDBSCAN.fit",
+      "script_stage": "HDBSCAN.fit on expanded matrix (22,065 x 4, confirmed in run-log: 'Expanded matrix for HDBSCAN fit: (22065, 4)')",
+      "notes": "Continuation dispatch re-fired same script without memory pre-check"
+    },
+    {
+      "incident_id": "KP-003",
+      "timestamp": "2026-05-23T11:09:13-04:00",
+      "panic_file": "panic-full-2026-05-23-110913.0002.panic",
+      "panic_type": "watchdog_timeout",
+      "panic_string_summary": "watchdog timeout: no checkins from watchdogd in 92 seconds",
+      "compressor_state": "100% of compressed pages limit (BAD)",
+      "swap_files": 15,
+      "triggering_process": "phase_e1_pipeline.py HDBSCAN.fit",
+      "script_stage": "HDBSCAN.fit on expanded matrix (71,003 x 12, post-Step-6.6 substrate; confirmed in run-log: 'Expanded matrix for HDBSCAN fit: (71003, 12)')",
+      "notes": "71,003 rows x 12 dimensions; setrlimit safety net silently failed (current limit exceeds maximum limit)"
+    },
+    {
+      "incident_id": "KP-004",
+      "timestamp": "2026-05-23T11:43:45-04:00",
+      "panic_file": "panic-full-2026-05-23-114345.0002.panic",
+      "panic_type": "watchdog_timeout",
+      "panic_string_summary": "watchdog timeout: no checkins from watchdogd in 92 seconds",
+      "compressor_state": "100% of compressed pages limit (BAD)",
+      "swap_files": 9,
+      "triggering_process": "phase_e1_pipeline.py HDBSCAN.fit (Option-A: un-expanded 48,430 x 12)",
+      "script_stage": "HDBSCAN.fit on un-expanded (48,430 x 12); D1+D2 completed at 11:40:15; panic at 11:43:45",
+      "notes": "Fourth panic; empirically refuted Option-A memory projection (~2.7-4.7 GB with setrlimit). setrlimit silently failed again. Triggered Cycle 9.10 frame-revision."
+    }
+  ],
+  "concurrent_run_windows": [
+    {
+      "date": "2026-05-12",
+      "description": "Multiple season_001005 recompose-validation runs overlapping; ~5 pairs confirmed concurrent",
+      "locked_errors": 0,
+      "notes": "No lock errors logged; suggests WAL mode was sufficient for these specific write patterns"
+    },
+    {
+      "date": "2026-05-13",
+      "description": "season_001006 + season_001007 + season_001005 all started simultaneously (within milliseconds) \u2014 3-way concurrent start",
+      "locked_errors": 0,
+      "notes": "No lock errors logged"
+    },
+    {
+      "date": "2026-05-16",
+      "description": "season_001008 opened concurrent connections at 23:26 and 23:38 UTC, with season_001005 ghost run open since 18:25; season_001006 also had a ghost run",
+      "locked_errors": 5,
+      "contention_confirmed": true,
+      "notes": "5 'database is locked' errors in regen-001008-post-emission-gap-fix log; cascade into NOT NULL constraint failures on run_id"
+    },
+    {
+      "date": "2026-05-19",
+      "description": "season_099001 + 099002 + 099003 three-way concurrent runs; recompose-validation hive-mind cycles",
+      "locked_errors": 0,
+      "notes": "No lock errors logged in available data for these runs"
+    },
+    {
+      "date": "2026-05-21",
+      "description": "900-series runs (season_900102-900105, ~90-min each) concurrent with 700-series runs (season_700101-700315, ~5-8 min each, sequential among themselves) \u2014 hive-mind cycle with parallel balance + generation",
+      "locked_errors": 0,
+      "notes": "No lock errors logged; may be explained by 700-series being sequential to each other, only concurrent with 900-series"
+    }
+  ],
+  "notes": "busy_timeout=0 is critical: any contention immediately produces OperationalError without retry. WAL mode purchased concurrent-read-with-write but NOT concurrent-writes."
+}

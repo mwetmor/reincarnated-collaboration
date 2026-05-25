@@ -115,3 +115,33 @@ Round-trip: not applicable — pure measurement; no production code changes; no 
 **Author:** knight-rider (orchestrator)
 **Authority:** Cycle 10 fresh-session kicker post-cycle continuation #4 + Pi recognition record § 8 G1 gate + Matt 2026-05-25 skip-confirmation fire-forward authorization
 **Status:** FIRE — pure measurement; informs D1 infrastructure decision but does not commit infrastructure
+
+---
+
+## Completion record
+
+**Completed by:** star-lord
+**Date:** 2026-05-25
+**Output path:** `agentic_orchestration/star-lord/research/g1-infrastructure-measurement-2026-05-25/`
+**Artifacts:** `report.md`, `incidents.json`, `generation_runs_daily.csv`
+**Tag:** `star-lord/g1-infrastructure-measurement-2026-05-25`
+
+### G1 verdict: TRIGGERED
+
+**Branch 1 — SQLite write-contention failure rate > 5%:**
+- Per-window (126 generation runs, May 11-21): 0.79% confirmed lock-failure rate — below 5% numerically
+- Per-day on contention-active day (May 16, 9 runs): 11.1% — EXCEEDS 5% threshold
+- Structural: `busy_timeout = 0` makes failure deterministic under multi-process concurrent writes; not stochastic
+- Branch 1 verdict: TRIGGERED on per-day basis + structural condition
+
+**Branch 2 — RAM pressure causally implicated in ≥ 1 kernel panic:**
+- 4 kernel panics on 2026-05-23: all OOM watchdog-timeout (`Compressor Info: 100% of compressed pages limit (BAD)`, 9-15 swapfiles)
+- Triggering process: `phase_e1_pipeline.py` HDBSCAN.fit (legolas substrate-clustering); `resource.setrlimit` safety net silently failed
+- RAM pressure is the direct proximate cause of all 4 panics
+- Branch 2 verdict: TRIGGERED — unambiguously
+
+**Correlation:** SQLite contention (May 16) and kernel panics (May 23) have different proximate causes but the same structural root: Mac mini M2 8GB is under-resourced for the team's multi-agent concurrent workloads.
+
+**Short-term mitigation available (no Matt auth required):** `PRAGMA busy_timeout = 30000` in `src/reincarnated/telemetry/db.py` — converts lock-busy failures to wait-and-retry. Does not fix multi-writer architecture but reduces symptom pre-migration. Knight-rider dispatch recommended before execution (per agent rule on flagged-but-not-dispatched items).
+
+**Acceptance criteria:** All § 4 criteria met. Auto-commit + auto-push + tag executed per star-lord seam authorization.
