@@ -168,3 +168,33 @@ Round-trip: not applicable — Mode A research only; no DB writes; no cross-seam
 **Status:** FIRE — Wave 2 parallel-fire with jack-ryan Gate-2 on Layer 2; gates rocket Layer 4 dispatch authoring
 
 **Matt-touch sequence:** consult returns → KR integrates into rocket Layer 4 dispatch authoring (parallel with Gate-2 on L2 clearance); rocket Layer 4 fires autonomously per scope-doc § 1 + skip-confirmation re-auth
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-25
+**Status:** COMPLETE
+**Output artifact:** `agentic_orchestration/legolas/research/cycle-12-mc-3-multi-dim-convergence-libraries-2026-05-25/methodology-recommendation.md`
+
+**Recommendation summary:**
+- **Primary method:** Custom implementation per math note v1.1 § 4.2-4.3 exactly. No scipy primary dependency.
+- **Per-dim ordering:** three-phase blocked grouped update (Phase 1: SP voting; Phase 2: Tier 4 keystone selection; Phase 3: trigger interaction selection).
+- **max_iterations=5 posture:** configurable; default 5; bump path to 10 via `resume_convergence`; return best-found-so-far on cap hit.
+- **scipy use:** optional secondary only — `minimize_scalar` bounded for Dimension 5 if smoke reveals scalar bottleneck; `differential_evolution` as last-resort structural-non-convergence fallback only.
+- **MC-3 ↔ Gate-2-on-L2 dependency:** NONE. Recommendation is independent of PlayerClassV2 shape. Rocket Layer 4 should verify gauntlet call interface as pre-implementation step.
+- **Surprises:** T_AXIS_SENS calibration parameters (9 total per math note v1.1 § 10) are all pending Discipline #17 sweeps — rocket Layer 4 dispatch must include parametrized initial values + sweep plan in its math-before-code section.
+
+**Cheapest-refuting-test:** 30-kit smoke; ≥80% convergence rate within max_iterations=5; ~15-22 min wall time at v1 scale.
+
+**Acceptance criteria check:**
+- [x] Mode A literature scan completed (scipy / differential_evolution / custom / hybrid compared in § 2)
+- [x] Per-library/implementation analysis (§ 2 + § 2.5 summary table)
+- [x] Per-method numerical + computational + reproducibility analysis (§ 2.1-2.4 + § 8.2 envelope table)
+- [x] Mixed-type support analysis (§ 6)
+- [x] Algorithmic refinement analysis (§ 3 coordinate descent vs full gradient; § 4 voting integration; § 5 max_iterations cap handling)
+- [x] Cheapest-refuting-test design with concrete pass/fail thresholds (§ 7)
+- [x] Resource-bounds projection (§ 8)
+- [x] Methodology recommendation with implementation-shape sketch (§ 9)
+- [x] Discipline #23 framing-audit checklist (§ 11)
+- [x] Output artifact at correct path
