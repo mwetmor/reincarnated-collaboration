@@ -112,8 +112,8 @@ KR escalates the following:
 - **Scope amendments to Cycle 12** — adding Layer 7 BDI tests mid-cycle; firing Pi infrastructure execution before Matt "right moment"; expanding to v1.1 weapon-equip flexibility design
 - **Cross-cycle commits** — anything outside Cycle 12 scope (W1.13 dispatch original-FIRE; Pi infrastructure; hosted-Postgres setup; T4-B catalogue authoring)
 - **ADR-002 tier-2/3 decisions** — anything per `GOVERNANCE.md` ADR-002 requiring Matt
-- **Final Cycle 12 tag** (`v1.0-new-engine-ready` or KR's judgment) — Matt ratifies before final tag is cut (UNLESS skip-confirmation directive re-authorized at wind-down)
-- **Cycle 12 wind-down summary author + close** — KR drafts; Matt reviews + ratifies (UNLESS skip-confirmation re-authorized)
+- **Final Cycle 12 tag** (`v1.0-new-engine-ready` or KR's judgment) — Matt ratifies before final tag is cut (UNLESS skip-confirmation directive re-authorized at wind-down) — **✅ SKIP-CONFIRMATION RE-AUTHORIZED 2026-05-25 (Matt bulk-ratify of Cycle 11 wind-down ask #3); KR cuts Cycle 12 final tag at wind-down without per-Wave Matt-touch**
+- **Cycle 12 wind-down summary author + close** — KR drafts; Matt reviews + ratifies (UNLESS skip-confirmation re-authorized) — **✅ SKIP-CONFIRMATION RE-AUTHORIZED 2026-05-25; KR auto-closes Cycle 12 at wind-down per Cycle 10 pattern precedent**
 - **Interface contract amendments** — if rocket implementation surfaces that contract per framing brief § 4 needs material change, route to gandalf sub-agent for design-fit; if amendment required, escalate to Matt for ratification
 - **Layer integration FAIL** — if L2/L3 outputs don't compose cleanly; if L4 convergence doesn't converge; if L6 wire-up surfaces sim-seam boundary issues — apply hive-mind-protocol.md § 3.2 Wave-internal failure handling; if cross-seam collaboration can't resolve, escalate
 - **L9 opportunity-scan refactor concerns** — if § 8 opportunity-scan triggers can't cleanly map from cultural_tradition heuristics to mechanical_substrate signals, route to gandalf for design refactor; escalate to Matt only if architectural amendment required

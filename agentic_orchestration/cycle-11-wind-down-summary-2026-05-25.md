@@ -1,8 +1,9 @@
 # Cycle 11 Wind-Down Summary — 2026-05-25
 
-> **STATUS:** DRAFT — Matt-facing log-back read surface per knight-rider kicker sequence step 5 (per `agentic_orchestration/gandalf/requests/2026-05-25-knight-rider-cycle-12-kicker.md` § "Work to fire — Cycle 11 close"). Matt reads → confirms + cuts final tag OR triages. Cycle 12 Wave 0/0.5 fires continue in parallel; Cycle 11 close does not gate Cycle 12 work.
+> **STATUS:** ✅ RATIFIED 2026-05-25 — Matt bulk-ratified all 3 asks at § 7 ("Ratify all 3 as-drafted"). Final tag `v1.0-t4-intent-metadata-ready` cut + pushed on engine repo (commit `70061a7`) + loadout repo (commit `b948d3d`). Skip-confirmation fire-forward pattern re-authorized for Cycle 12 wind-down (KR auto-closes Cycle 12 at completion). Cycle 12 critical-path Wave 1 (rocket Layer 2 + Layer 3) commenced in parallel; Layer 3 + Gate-2 on L3 already COMPLETE in same session.
 >
 > **Authored:** 2026-05-25
+> **Ratified:** 2026-05-25 (Matt "Ratify all 3 as-drafted")
 > **Author:** knight-rider (orchestrator)
 > **Cycle:** 11 — v1 Implementation Push (Algorithm § 8 + Loadout M1-M6 + Cycle-10 housekeeping)
 > **Cycle scope-doc:** `agentic_orchestration/cycles/cycle-11-hive-mind-scope.md` (RATIFIED 2026-05-25)
@@ -217,15 +218,23 @@ Cycle 12 (full new engine parallel-build per Option γ) opened 2026-05-25 in par
 
 Per scope-doc § 5 (Matt explicit authority for cycle-level final tag + cycle wind-down) + scope-doc § 6 (skip-confirmation pattern available if re-authorized):
 
-| # | Ask | Recommendation | Your decision |
+| # | Ask | Recommendation | Matt decision |
 |---|---|---|---|
-| 1 | Ratify Cycle 11 wind-down (this doc) | RATIFY as-drafted | ___ |
-| 2 | Authorize final tag cut: `v1.0-t4-intent-metadata-ready` | RATIFY (or specify alternative) | ___ |
-| 3 | Re-authorize skip-confirmation fire-forward pattern for Cycle 12 wind-down (KR auto-closes Cycle 12 at completion without per-Wave Matt-touch; per Cycle 10 pattern precedent) | OPTIONAL — RECOMMEND ratify (Cycle 10 pattern worked cleanly; Cycle 12 wind-down ~3-5 weeks out gives Matt long-lead notice) | ___ |
+| 1 | Ratify Cycle 11 wind-down (this doc) | RATIFY as-drafted | ✅ RATIFIED 2026-05-25 |
+| 2 | Authorize final tag cut: `v1.0-t4-intent-metadata-ready` | RATIFY (or specify alternative) | ✅ RATIFIED 2026-05-25 — tag cut + pushed on engine `70061a7` + loadout `b948d3d` |
+| 3 | Re-authorize skip-confirmation fire-forward pattern for Cycle 12 wind-down (KR auto-closes Cycle 12 at completion without per-Wave Matt-touch; per Cycle 10 pattern precedent) | OPTIONAL — RECOMMEND ratify (Cycle 10 pattern worked cleanly; Cycle 12 wind-down ~3-5 weeks out gives Matt long-lead notice) | ✅ RATIFIED 2026-05-25 — KR auto-closes Cycle 12 at wind-down per scope-doc § 5 amendment |
 
-**Bulk ratification path:** "Ratify all 3" — KR cuts final tag immediately + Cycle 12 wind-down auto-closes per Cycle 10 pattern.
+**Matt verbatim (2026-05-25):** "I have reviewed the logs/docs. Ratify all 3 as-drafted. I will be away again starting now, so please continue in hive-mind state."
 
-**Iteration path:** triage specific items; KR amends; ratification iterates.
+**KR actions on ratification (executed 2026-05-25):**
+1. Tag `v1.0-t4-intent-metadata-ready` cut on engine repo at commit `70061a7` (last Cycle-11 engine commit; rocket BC-shift diagnostic note from Wave 3b close) + pushed to origin
+2. Tag `v1.0-t4-intent-metadata-ready` cut on loadout repo at commit `b948d3d` (drax M3/M6 Wave 3b commit) + pushed to origin
+3. Cycle 12 scope-doc § 5 amended (skip-confirmation re-auth captured; KR auto-closes Cycle 12 wind-down at completion milestone)
+4. Cycle 12 state file Decisions section captures Matt ratification
+5. CHANGELOG.md entry authored (team-level event: Cycle 11 CLOSED + Cycle 12 critical-path commencement)
+6. Hive-mind state CONTINUES — KR coordinates rocket Layer 2 return + future MC-3 + Layer 4 + Layer 6 cascade + Wave 1 gandalf consultation per scope-doc § 1 autonomous authorities
+
+**Cycle 11 OFFICIALLY CLOSED at git-tag level 2026-05-25.** Cycle 12 critical-path Wave 1 (rocket Layer 2 IN-FLIGHT; Layer 3 + Gate-2 on L3 already COMPLETE) commenced in parallel during same session.
 
 ---
 
@@ -249,4 +258,4 @@ Per scope-doc § 5 (Matt explicit authority for cycle-level final tag + cycle wi
 ---
 
 **Signed:** knight-rider (Cycle 11 wind-down 2026-05-25)
-**Status:** DRAFT — awaiting Matt log-back ratification per § 7 asks
+**Status:** ✅ RATIFIED 2026-05-25 — Matt bulk-ratified all 3 asks; final tag cut + pushed on engine + loadout repos; Cycle 12 skip-confirmation re-auth applied; hive-mind state CONTINUES under Matt explicit directive ("please continue in hive-mind state")
