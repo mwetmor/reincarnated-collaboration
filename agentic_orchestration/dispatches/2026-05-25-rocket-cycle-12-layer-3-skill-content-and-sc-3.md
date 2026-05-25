@@ -265,3 +265,47 @@ Author math-note at `~/Games/reincarnated-engine/src/reincarnated/generation/not
 **Status:** FIRE — all 5 pre-Layer-2/3 prereqs cleared; fires in parallel with Layer 2 dispatch
 
 **Matt-touch sequence:** rocket Layer 3 implementation lands (~2-3 weeks; parallel with L2) → jack-ryan Gate-2 validates → KR captures in state file; integrates with Layer 2 output for Layer 4 multi-dim convergence sequencing (MC-3 methodology consult fires at Layer 4 start; Layer 4 fires after L2+L3 lock)
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-25
+**Agent:** rocket
+**Commit:** 5ec6ecc (reincarnated-engine main)
+**Tag:** `rocket/v0.1-cycle-12-layer-3-skill-content-and-sc-3-2026-05-25`
+
+### Acceptance criteria disposition
+
+| Criterion | Status |
+|---|---|
+| Math note authored before implementation (Discipline #1) | PASS — `notes/cycle-12-layer-3-skill-content-and-sc-3-2026-05-25.md` |
+| SkillTree + Skill + SkillChain + T4Slot + T4Candidate + T4Alteration dataclasses | PASS — `skill_tree.py` |
+| WARN-1: off_hand_item comment cites SC-3 (Cycle 12) | PASS |
+| WARN-3: bc_axis_contribution is dict[str, float] keyed by 8 axis IDs | PASS — `__post_init__` enforces |
+| WARN-5: t4_candidates max arity ≤ 5-6 | PASS — `T4_CANDIDATES_MAX=6`; `validate_invariants()` enforces |
+| INFO-3: signature_chain_id Optional[str] = None at Layer 3 | PASS |
+| W1.13 § 3.1 invariants enforced | PASS — T1 playability, substrate-agnostic, DAG topology |
+| 146 substrate templates (6 families: W1.2/W1.3/W1.4/W1.5/W1.6/W1.11) | PASS — `substrate_templates.py` (target ≥130) |
+| SC-3 off-hand contracts (banner/focus/talisman/tome/horn) | PASS — `off_hand_contract.py` |
+| 25 per-archetype templates (2-4 chains + cross_chain_rule) | PASS — `_ARCHETYPE_TEMPLATES` in `skill_tree.py` |
+| T4 candidate slot generator (1 sig + 1-3 secondary; ≤6 per kit) | PASS |
+| Smoke gates 1-6 | PASS — 132/132 in 0.23s |
+| MIGRATION.md extended (§ v1.4) | PASS — `export/MIGRATION.md` |
+| AGENT_STATE.md updated | PASS |
+
+### Open question resolutions
+
+| Question | Resolution |
+|---|---|
+| weapon_sim_props schema extension for SC-3? | Rocket-internal for v1; star-lord extension deferred to Layer 6 wire-up |
+| Per-archetype templates exhaustive or subset? | 25 archetypes shipped (all named archetypes + experimental fallback); v1.1 expansion path open |
+| SC-3 differentiate Sketch F substrate-missing items? | Treat uniformly per L11 strict 4-tuple (no differentiation at v1) |
+
+### Cross-seam obligations raised
+
+| Seam | Obligation | Priority |
+|---|---|---|
+| star-lord | `off_hand_contract` field in season export schema | Layer 6 wire-up |
+| gamora | Consume off-hand contract in sim combatant construction | Layer 6 wire-up |
+| drax | Display off-hand contract bonuses in Spirit Guide panel | Layer 6 wire-up |
