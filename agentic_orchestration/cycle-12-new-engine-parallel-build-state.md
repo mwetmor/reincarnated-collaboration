@@ -1,0 +1,141 @@
+# Cycle 12 New Engine Parallel-Build (Option γ) — Hive-Mind State File
+
+> **STATUS:** LIVE — Cycle 12 hive-mind state, active as of 2026-05-25 (session-open)
+
+**Cycle:** 12 — v1 full new engine parallel-build (Option γ) — Layers 2+3+4+6 (kit identity + skill content + W1.13 multi-dim convergence + § 8 wire-up); Layer 7 BDI test framework DEFERRED to v1.1
+**Owner:** knight-rider (orchestrator)
+**Authority:** Matt 2026-05-25 bulk-ratification — "Let's move ahead with it" on Cycle 12 framing brief (all 8 Q-items + interface contract § 4 LOCKED as-drafted)
+**Authoring agent:** gandalf (story-and-design steward; Pattern-B Matt dialogue → framing brief + scope-doc + kicker)
+**Routing source:** `agentic_orchestration/gandalf/requests/2026-05-25-knight-rider-cycle-12-kicker.md` (RATIFIED 2026-05-25)
+**Scope-doc:** `agentic_orchestration/cycles/cycle-12-hive-mind-scope.md` (RATIFIED 2026-05-25)
+**Framing brief (authority basis):** `agentic_orchestration/gandalf/notes/2026-05-25-cycle-12-new-engine-parallel-build-framing-brief.md` (RATIFIED 2026-05-25; interface contract § 4 LOCKED)
+**Hive-mind protocol:** `agentic_orchestration/operating-procedures/hive-mind-protocol.md`
+**Entry path:** Path B (scope-doc ratification + kicker briefing) — Cycle 12 is THIRD application of hive-mind-scope-discipline (Cycle 10 founding retroactive PROVEN EFFECTIVE; Cycle 11 first prospective DISCIPLINE EFFECTIVE under escape-hatch fire; Cycle 12 second prospective)
+**Parallel cycle:** Cycle 11 close runs concurrently (drax Wave 3b — no specialist contention)
+
+---
+
+## 0. Cycle objective + empirical criterion
+
+Drive to **T4 post-mortem readiness milestone** (~3-5 weeks wall-clock) via full new engine parallel-build:
+
+1. **Layer 2 — Kit identity (BC-target subspace generator)** — produces PlayerClass kits with mechanical_substrate metadata per Architecture B Phase 2 substrate-binding + composition policy v1 § 3 Option α/β/C matching + L11 strict 4-tuple matching + Q3 Option B AUGMENT pattern (legacy ClassGenerator preserved as fallback) — rocket ~2-3 weeks
+2. **Layer 3 — Skill content (trees + nodes + T4 slots + off-hand mechanical contract per SC-3)** — produces skill tree topology + node anatomy + T4 candidate slot generator + per-archetype templates per W1.13 dispatch § 3.1 invariants + ~130 substrate templates per L8 P1 enrichment items + off-hand mechanical contract design (buff/aura/proxy effects for banner/focus/talisman/tome/horn) — rocket ~2-3 weeks (parallel with Layer 2)
+3. **Layer 4 — W1.13 multi-dim convergence** — multi-dim convergence algorithm per math note v1.1 (5-6 dimensions; per-node SP × Tier 4 keystone discrete × trigger interaction discrete × scalar modifier × gear affix vector × tier-specific coefficient) — rocket ~1-2 weeks (after L2+L3 lock)
+4. **Layer 6 — § 8 algorithm wire-up + L9 opportunity-scan refactor** — alterations reach combat arithmetic via new engine layers + opportunity-scan triggers refactored from cultural_tradition heuristics to mechanical_substrate signals per L9 — rocket ~1 week (after L4 lands)
+5. **Methodology consultations (Discipline #18 LOAD-BEARING)** — MC-1 + MC-2 at Cycle 12 open; MC-3 at Layer 4 start
+6. **Substrate-curation sidecars** — SC-1 (Tier-S named-mythological substrate-tagging cleanup) + SC-2 (subtype classification pass ~50-100 items)
+7. **Jack-ryan Gate-1 on interface contract** (~1 day; gates parallel L2 + L3 rocket fires)
+8. **Layer-integration smoke tests + jack-ryan Gate-2 on full new engine** (post-L6)
+
+**Cycle completion criterion:** T4 post-mortem readiness — new engine functional + § 8 wire-up reaches combat arithmetic + L2+L3+L4+L6 layers compose cleanly + integration smoke tests PASS + jack-ryan Gate-2 PASS on full pipeline.
+
+**NOT in Cycle 12 (deferred per scope-doc § 0):**
+- Layer 7 BDI test framework (W1.20 + H1-H5 + H8/H8.diff/H9 + G1-G4 gates) — DEFERS to v1.1 / Cycle 13+
+- Pi infrastructure execution — Matt P2a "right moment"
+- Hosted-Postgres for loadout — deferred CONDITIONAL per D4 amendment
+- Tailscale install G11 — Matt 15-min window; independent of Cycle 12
+- Algorithm § 8 v1.1 strategies (4 sim-extension-required + proxy-spawn)
+- T4-B v1 catalogue contents (~30-50 entries) — parallel-track gandalf + Matt design call
+- W1.13 dispatch's original § 0.0 FIRE-GATE specifics — L4 fires per Cycle 12 scope, not via the original dispatch directly
+- Broader weapon-equip flexibility (L11 deferred concept) — v1.1+ Pattern-B design concept
+- Cross-cycle scope amendments
+
+---
+
+## 1. Workstream roster + dependencies
+
+| # | Workstream | Owner | Effort | Dependencies | Wave/Day |
+|---|---|---|---|---|---|
+| MC-1 | BC-target cell sampling methodology (legolas Mode A) | legolas | ~1-2 days | None | Day 1 (parallel) |
+| MC-2 | Substrate-binding heuristics (legolas Mode A) | legolas | ~1-2 days | None | Day 1 (parallel with MC-1) |
+| G1 | Jack-ryan Gate-1 on interface contract (framing brief § 4) | jack-ryan | ~1 day | None (framing brief LOCKED) | Day 1 (parallel) |
+| SC-1 | Substrate-tagging cleanup (Tier-S named-mythological items) | elrond | ~1-2 hrs | None | Day 1 sidecar (any time) |
+| SC-2 | Subtype classification pass (~50-100 items) | elrond + rocket | ~1-2 hrs | None | Day 1 sidecar (any time) |
+| L2 | Kit identity — BC-target subspace generator | rocket | ~2-3 weeks | MC-1 + MC-2 land; G1 clears | Day 2-3 onward |
+| L3 | Skill content — trees + nodes + T4 slots + off-hand mechanical contract (SC-3 absorbed) | rocket | ~2-3 weeks | G1 clears | Day 2-3 onward (parallel with L2) |
+| MC-3 | Multi-dim convergence implementation libraries (legolas Mode A) | legolas | ~1 day | L2 + L3 substantially advanced | Day 14-21 |
+| L4 | W1.13 multi-dim convergence | rocket | ~1-2 weeks | L2 + L3 land; MC-3 lands | Day 14-21 onward |
+| L6 | § 8 algorithm wire-up + L9 opportunity-scan refactor | rocket | ~1 week | L4 lands | Day 21-28 onward |
+| G2 | Layer-integration smoke tests + jack-ryan Gate-2 | jack-ryan | ~3-5 days | L6 lands | Day 21-28 onward |
+| T4 | T4 post-mortem readiness milestone tag | KR drafts; Matt ratifies | <15 min ratify | All layers + G2 PASS | Wind-down |
+
+---
+
+## 2. Wave log
+
+### Wave 0 — 2026-05-25 (CYCLE ENTRY; Day-1 parallel-fire) — IN FLIGHT
+
+**Fired:** 6 sub-agents in parallel via Agent tool per Mode A orchestration pattern (Cycle 11 demonstrated effective; Matt-directive autonomous-fire authority confirmed). Plus Cycle 11 close Wave 3b drax dispatch fires in parallel (no specialist contention).
+
+| Sub-agent | Dispatch | Purpose | Status |
+|---|---|---|---|
+| **drax (Cycle 11 close, Wave 3b)** | `2026-05-25-drax-cycle-11-m3-m6-t4-display-wave-3b.md` | M3 T4 alteration display in SkillTree + M6 T4 comparison panel (TOGGLE per Q2) per Tier 2 ratification | IN-FLIGHT |
+| legolas MC-1 | `2026-05-25-legolas-cycle-12-mc-1-bc-target-cell-sampling-methodology.md` | BC-target cell sampling methodology consult | IN-FLIGHT |
+| legolas MC-2 | `2026-05-25-legolas-cycle-12-mc-2-substrate-binding-heuristics.md` | Substrate-binding heuristics consult | IN-FLIGHT |
+| jack-ryan Gate-1 | `2026-05-25-jack-ryan-cycle-12-gate-1-interface-contract.md` | Critique-pair Gate-1 on framing brief § 4 interface contract | IN-FLIGHT |
+| elrond SC-1 | `2026-05-25-elrond-cycle-12-sc-1-substrate-tagging-cleanup.md` | Backfill cultural_lineage_canonical + historical_period_canonical for Tier-S named-mythological items | IN-FLIGHT |
+| elrond + rocket SC-2 | `2026-05-25-elrond-cycle-12-sc-2-subtype-classification.md` | Backfill weapon_kind_classified_subtype for ~50-100 unset items (fantasy + military_modern subset) | IN-FLIGHT |
+
+**Wave 0 closeout will populate after sub-agent returns.**
+
+---
+
+## 3. PID tracking
+
+| Process | Status | PID / artifact |
+|---|---|---|
+| (none yet — sub-agent invocations are foreground via Agent tool; no nohup background processes at Day 1) | — | — |
+
+(Background processes may be required mid-Layer 2/3/4 for long rocket compute or legolas crawl; PID-track them here per Discipline #19.)
+
+---
+
+## 4. Decisions captured during cycle execution
+
+(empty at cycle entry — populated as KR makes in-scope autonomous decisions per scope-doc § 1)
+
+---
+
+## 5. Escape-hatch triggers (per scope-doc § 5)
+
+| Trigger | If observed | KR response |
+|---|---|---|
+| Interface contract per framing brief § 4 needs material amendment (rocket implementation surfaces contract gap) | L2/L3 dispatch returns flag contract field/shape requires change | Route to gandalf sub-agent for design-fit critique; if amendment required, escalate Matt for ratification |
+| Layer integration FAIL (L2/L3 don't compose; L4 doesn't converge; L6 wire-up has sim-seam boundary surprise) | Smoke tests fail at layer-boundary | Apply hive-mind-protocol.md § 3.2 Wave-internal failure handling; if cross-seam collaboration can't resolve, escalate Matt |
+| L9 opportunity-scan refactor can't cleanly map § 8 triggers to mechanical_substrate signals | Architectural amendment required (cultural_tradition signal genuinely load-bearing) | Route to gandalf for design refactor; escalate Matt only if architectural amendment required |
+| L11 strict-4-tuple matching surfaces edge cases requiring matching-strategy amendment | Generation surfaces unmatchable kits / thin-cell behavior outside composition policy § 4 fallback | Route to gandalf design-fit critique; escalate only if matching strategy needs amendment |
+| Mac mini kernel panic recurs during sustained Cycle 12 workload | PRAGMA busy_timeout mitigation insufficient | Star-lord triages first; if Postgres migration needed, escalate Matt "right moment" trigger |
+| Catastrophic specialist failure cross-seam can't resolve | (case-by-case) | Apply hive-mind-protocol.md § 3.2; escalate Matt if unrecoverable |
+
+---
+
+## 6. Cycle-completion log
+
+(empty at cycle entry — populated at wind-down)
+
+---
+
+## 7. Companion docs
+
+- **Scope-doc:** `agentic_orchestration/cycles/cycle-12-hive-mind-scope.md`
+- **Framing brief (authority basis; interface contract § 4 LOCKED):** `agentic_orchestration/gandalf/notes/2026-05-25-cycle-12-new-engine-parallel-build-framing-brief.md`
+- **KR kicker:** `agentic_orchestration/gandalf/requests/2026-05-25-knight-rider-cycle-12-kicker.md`
+- **Cycle 11 close (parallel cycle):** `agentic_orchestration/cycle-11-v1-implementation-push-state.md`
+- **Matt log-back decisions 2026-05-25:** `agentic_orchestration/matt-log-back-decisions-2026-05-25.md`
+- **Architecture B end-to-end workflow:** `canonical/story/qd-engine-end-to-end-workflow-2026-05-24.md`
+- **Composition policy v1:** `canonical/story/weapon-substrate-composition-policy-v1-2026-05-24.md` (§ 3 Option α/β/C matching; § 4 thin-cell fallback)
+- **Skill-system § 8:** `canonical/story/skill-system-2026-05-24.md` § 8 (Algorithm § 8 architecture) + § 9 (spirit-guide explainer)
+- **Multi-dim convergence algorithm v1.1:** `canonical/story/multi-dim-convergence-algorithm-2026-05-21.md`
+- **T4-A architecture defaults:** `canonical/story/tier-4-architecture-defaults-2026-05-22.md`
+- **W1.13 dispatch (P1 substrate enrichment + invariants reference):** `agentic_orchestration/dispatches/2026-05-21-rocket-w1-13-skill-tree-node-population.md`
+- **W1.13 rescope:** `canonical/story/w1-13-rescope-disposition-2026-05-22.md`
+- **Pi recognition record:** `canonical/story/infrastructure-raspberry-pi-postgres-and-closed-loop-pipeline-2026-05-25.md`
+- **Hive-mind protocol:** `agentic_orchestration/operating-procedures/hive-mind-protocol.md`
+- **Hive-mind scope discipline:** `agentic_orchestration/operating-procedures/hive-mind-scope-discipline.md`
+- **CLAUDE.md team commit + push discipline addendum:** `~/Games/reincarnated-collaboration/CLAUDE.md` § "Team commit + push discipline"
+
+---
+
+**Signed:** knight-rider (Cycle 12 session-open 2026-05-25)
+**Status:** Cycle 12 LIVE; Wave 0 Day-1 parallel-fire batch in flight (6 sub-agents + parallel Cycle 11 close drax Wave 3b); push-per-wave authorized
