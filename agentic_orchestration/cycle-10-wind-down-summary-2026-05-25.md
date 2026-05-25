@@ -81,15 +81,23 @@
 
 ### Sidecar B — Off-hand substrate inclusion
 
-**Status:** SUBSTRATE COMPLETE — gandalf curation review IN-FLIGHT
+**Status:** ✓ FULLY CLOSED
 - Dispatch: `agentic_orchestration/dispatches/2026-05-25-elrond-cycle-10-sidecar-b-off-hand-substrate.md`
-- legolas Mode B crawl ✓ commit `6b0bb4d` — 132 rows (48 tomes + 34 banners + 30 focuses/talismans + 20 horns); strong cross-cultural; 2 dedup pairs + 8 living-religious-tradition flags documented
-- elrond mining + schema extension ✓ commit `6efd730` — 287 reclassifications + 130 INSERTed (after dedup) = 417 off-hand active rows total (shield 193 + tome 64 + banner 102 + focus 14 + horn 27 + talisman 27); Discipline #25 rep-audit PASS 10/10 across all 6 categories
-- gandalf 30-row cross-category curation review IN-FLIGHT (single-batch policy; combined legolas Mode B + elrond mining)
+- legolas Mode B crawl ✓ commit `6b0bb4d` — tag `legolas/cycle-10-sidecar-b-off-hand-crawl-2026-05-25` — 132 rows (48 tomes + 34 banners + 30 focuses/talismans + 20 horns)
+- elrond mining + INSERT ✓ commit `6efd730` — tag `elrond/cycle-10-sidecar-b-off-hand-mining-2026-05-25` — 287 reclassifications + 130 INSERTed (after dedup) = 417 off-hand active rows (shield 193 / tome 64 / banner 102 / focus 14 / horn 27 / talisman 27)
+- gandalf 30-row cross-category curation review ✓ commit `31e5426` — **PASS 30/30** (cleanest cross-section in any Cycle 9/10 surface; zero Mode B/C/D contamination; Q-B § 3.2 living-tradition handling confirmed)
 - Total active substrate post-Sidecar-B: 69,267 rows (+130 from legolas Mode B INSERT)
-- Off-hand items in v1_scope: 42 (inherited from Phase 2 sampling on the 89,841-row pool; pre-existing 'unknown' weapon_kind candidates absorbed)
+- Off-hand items in v1_scope: 42 (inherited from Phase 2 sampling; pre-existing 'unknown' weapon_kind candidates absorbed)
 - Path A LOCKED RESPECTED: off-hand items only; no broad weapon-library crawl
-- Tag intent: `legolas/cycle-10-sidecar-b-off-hand-crawl-2026-05-25` ✓ pushed (legolas seam tag landed); `elrond/cycle-10-sidecar-b-off-hand-mining-2026-05-25` — fires post gandalf 30-row PASS ≥ 24/30
+- 5 design-side observations logged (downstream-relevant; not failures): multi-tradition simplification (Seal of Solomon 5-way); Fulu living-tradition annotation candidate; Mahabharata banner cluster as high-density named-bearer pool; period-vocabulary canonical enum; focus+talisman unified cohesion-consumption pool
+
+### Phase 2 re-sample for comprehensive off-hand v1_scope inclusion (DEFERRED post-Cycle-10 OR v1.1+)
+
+**Status:** DEFERRED per scope-doc autonomous decision authority
+- Currently 42 off-hand items inherited in v1_scope (Phase 2 sampling on 89,841-row pool absorbed pre-existing 'unknown' candidates)
+- Comprehensive off-hand v1_scope inclusion per composition policy § 8 + Sidecar B dispatch § 3.4 anticipated re-sample
+- Decision: deferred to post-Cycle-10 follow-on dispatch OR v1.1+ per Matt log-back call
+- Rationale: 42 inherited off-hand-in-v1_scope is non-zero; Wave 7 can tag them; deferring preserves Cycle 10 scope-tightness; comprehensive inclusion can fire as targeted post-cycle dispatch when Matt scope-locks per his log-back review
 
 ### Wave 5.5 — Phase 0c Tier-A NULL-subtype classifier extension + Mode-C-by-semantics eviction (NEW; gandalf-proposed remediation)
 
