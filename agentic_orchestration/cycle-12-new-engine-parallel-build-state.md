@@ -73,11 +73,39 @@ Drive to **T4 post-mortem readiness milestone** (~3-5 weeks wall-clock) via full
 | **drax (Cycle 11 close, Wave 3b)** | `2026-05-25-drax-cycle-11-m3-m6-t4-display-wave-3b.md` | M3 T4 alteration display in SkillTree + M6 T4 comparison panel (TOGGLE per Q2) per Tier 2 ratification | IN-FLIGHT |
 | legolas MC-1 | `2026-05-25-legolas-cycle-12-mc-1-bc-target-cell-sampling-methodology.md` | BC-target cell sampling methodology consult | IN-FLIGHT |
 | legolas MC-2 | `2026-05-25-legolas-cycle-12-mc-2-substrate-binding-heuristics.md` | Substrate-binding heuristics consult | IN-FLIGHT |
-| jack-ryan Gate-1 | `2026-05-25-jack-ryan-cycle-12-gate-1-interface-contract.md` | Critique-pair Gate-1 on framing brief § 4 interface contract | IN-FLIGHT |
+| jack-ryan Gate-1 | `2026-05-25-jack-ryan-cycle-12-gate-1-interface-contract.md` | Critique-pair Gate-1 on framing brief § 4 interface contract | ✅ COMPLETE — **CLEAR-WITH-AMENDMENTS** (7 WARN + 3 INFO; zero BLOCK) — tag `jack-ryan/cycle-12-gate-1-interface-contract-2026-05-25` @ commit `b4e5be7`; finding at `agentic_orchestration/qa/findings/2026-05-25-gate1-cycle-12-interface-contract.md`; no gandalf design-fit route; no Matt escalation |
 | elrond SC-1 | `2026-05-25-elrond-cycle-12-sc-1-substrate-tagging-cleanup.md` | Backfill cultural_lineage_canonical + historical_period_canonical for Tier-S named-mythological items | IN-FLIGHT |
 | elrond + rocket SC-2 | `2026-05-25-elrond-cycle-12-sc-2-subtype-classification.md` | Backfill weapon_kind_classified_subtype for ~50-100 unset items (fantasy + military_modern subset) | IN-FLIGHT |
 
 **Wave 0 closeout will populate after sub-agent returns.**
+
+#### Gate-1 amendment queue (integrate at rocket L2/L3 dispatch authoring time)
+
+Per jack-ryan Gate-1 finding (CLEAR-WITH-AMENDMENTS verdict; no BLOCK; no Matt escalation), KR integrates the 7 WARN + 1 INFO amendments at downstream rocket dispatch authoring time:
+
+**At rocket Layer 2 dispatch authoring (BC-target subspace generator):**
+- **WARN-2** — Specify `mechanical_substrate_triple` third member vocabulary: `tuple[element_str, weapon_kind_subtype_str, weapon_mechanical_profile_label_str]` where third element matches `weapon_kind_classified_subtype` patterns (NOT freeform string) OR promote to structured dataclass (KR judgment)
+- **WARN-4** — Define `StatDistribution` type explicitly (or alias `dict[str, float]` keyed by STR/INT/WIS/DEX per attribute system); mark Layer-4-populated fields (`stat_allocation`, `attribute_coupling`, `converged_modifier`) as `Optional[...]` pre-Layer-4 so L2 can emit stub for L3 parallel-compose
+- **WARN-6** — Constrain `generation_params` values to JSON-primitives (str / int / float / bool / None / list / dict of same); enforce via Discipline #8 schema validation at export boundary (Pydantic `model_validator` or `json.dumps` round-trip smoke)
+- **WARN-7** — Make `generation_seed: int` REQUIRED-not-nullable per Disciplines #1 + #10 (deterministic reproducibility load-bearing for algorithm validation)
+- **INFO-4 (recommended adopt)** — Add `engine_version: str` REQUIRED field to `PlayerClass` (value: `"v2.0"` for new engine path); prevents Cycle 10 Sidecar A telemetry-gap pattern recurrence per Discipline #7
+
+**At rocket Layer 3 dispatch authoring (skill content):**
+- **WARN-1** — Amend `off_hand_item` field comment to read "if applicable; mechanical contract per SC-3 (Cycle 12); substrate per off-hand-items-2026-05-24.md" (correct sidecar reference; current "Sidecar B" is the closed Cycle 10 substrate-curation doc, not Cycle 12 SC-3 mechanical contract)
+- **WARN-3** — Change `bc_axis_contribution` type from `list[float]` to `dict[str, float]` keyed by axis ID per math note v1.1 § 3.6 vocabulary (8 keys: axis_1_engagement, axis_2_geometry, axis_2A_proxy, axis_2B_control, axis_3A_tempo, axis_3B_variance, axis_4_defensive, axis_5_economy)
+- **WARN-5** — Specify `t4_candidates` max arity ≤ 5-6 (derivable from T4-A § 2: chain_count × 1 signature + up to 3 secondary across 2-4 chains); enforce per-chain slot structure
+- **WARN-1/3 cross-cut SC-3 readability:** verify SC-3 mechanical fields (off_hand_buff_geometry, off_hand_aura_tempo, etc., per off-hand-items § 2.3) surface on or alongside `WeaponKnowledgeEntry`
+
+**At rocket Layer 6 dispatch authoring (deferred — fires after L4 lands):**
+- **INFO-3** — Add cross-chain T4 signature-election mechanism to `SkillTree` (e.g., `signature_chain_id: Optional[str]`) so Layer 6 wire-up knows which `T4Alteration` is build-defining for L9 opportunity-scan refactor
+- Per Gate-1 INFO-2: rocket should read Layer 6 wire-up docstring "L7 refactor" as L9 (the substrate split; L7 is the deferred BDI test framework)
+
+**Cross-cutting clarifications (not new amendments; recorded for the record):**
+- Q3 AUGMENT compatibility — SOUND (both generators emit same PlayerClass shape; source_library discriminates)
+- L11 strict 4-tuple matching enforcement — implicit at generator level (acceptable; not a per-instance property)
+- ConvergenceResult.per_dim_adjustments open-schema — acceptable; legolas MC-3 gates L4 implementation
+
+**Sequencing implication:** rocket L2 + L3 dispatch authoring is GATED on (a) jack-ryan Gate-1 = CLEAR ✅, (b) legolas MC-1 land (BC-target cell sampling methodology), (c) legolas MC-2 land (substrate-binding heuristics). When MC-1 + MC-2 both return, KR authors rocket L2 + L3 dispatches integrating the WARN amendments above + MC-1/MC-2 methodology recommendations. Rocket L2 + L3 fire in PARALLEL per Q4 Option B sequencing.
 
 ---
 
@@ -93,7 +121,7 @@ Drive to **T4 post-mortem readiness milestone** (~3-5 weeks wall-clock) via full
 
 ## 4. Decisions captured during cycle execution
 
-(empty at cycle entry — populated as KR makes in-scope autonomous decisions per scope-doc § 1)
+- **2026-05-25 Gate-1 amendments integration plan locked** — jack-ryan returned CLEAR-WITH-AMENDMENTS on framing brief § 4 interface contract. KR autonomous in-scope decision per scope-doc § 1: integrate all 7 WARNs + INFO-4 (recommended) at rocket L2/L3 dispatch authoring per § 2 Wave 0 closeout amendment queue. No gandalf design-fit route + no Matt escalation needed per Gate-1 verdict.
 
 ---
 
