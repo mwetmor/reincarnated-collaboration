@@ -214,3 +214,44 @@ If jack-ryan surfaces BLOCK on Layer 4, KR routes back to rocket for amendment p
 **Status:** FIRE — Layer 4 ✅; Gate-2 fires immediately
 
 **Matt-touch sequence:** Gate-2 verdict → if PASS, Layer 4 composable for Layer 6 sequencing; KR coordinates rocket addressing pre-Layer-6 amendments (WARN-B + WARN-C from Gate-2 on L2) → KR authors Layer 6 dispatch + L9 opportunity-scan refactor + cross-seam SC-3 obligations (star-lord + gamora + drax per Gate-2-on-L3 INFO-D). If BLOCK, rocket amends per scope-doc § 5
+
+---
+
+## Completion record
+
+**Status:** COMPLETE
+**Completed by:** jack-ryan
+**Date:** 2026-05-25
+**Finding file:** `agentic_orchestration/qa/findings/2026-05-25-gate2-cycle-12-wave-3-rocket-layer-4.md`
+**Tag:** `jack-ryan/cycle-12-gate-2-rocket-layer-4-2026-05-25`
+
+### Verdict
+
+**PASS.** Layer 4 composes with L2 + L3 for Layer 6 sequencing.
+
+Zero BLOCK findings. Zero WARN findings. Two INFO findings.
+
+| Finding | Severity | Description |
+|---|---|---|
+| INFO-A | INFO | param 1 naming drift: math note calls it "penalty_scale"; code labels MAX_SP_STEP_PER_ITERATION as `# param 1`; penalty_scale=1.0 collapses to STAGNATION_EPSILON without scaling multiplier. Functional equivalence confirmed. Documentation clarification only. |
+| INFO-B | INFO | VOTE_THRESHOLD sweep range [0.01-0.50] widened below dispatch spec floor [0.1, 0.5]; chosen value 0.05 falls below dispatch floor but passes accept-pass criterion. Batch amendment with INFO-A. |
+
+### Key Gate-2 results
+
+| Check | Result |
+|---|---|
+| Discipline #1.2 math-note code-line citations | FIRST LAYER TO PASS AT FIRST AUTHORING |
+| 9 § 10 calibration parameters all documented + disposed | PASS |
+| Custom 3-phase blocked grouped update (all-nodes Phase 1; all-chains Phase 2; power-set Phase 3) | PASS |
+| max_iterations configurable + resume_convergence + best-found-so-far cap | PASS |
+| bc_axis_contribution 8-key vocabulary consumed across all 3 phases | PASS |
+| ConvergenceResult LOCKED contract match | PASS |
+| 43/43 gate tests (independent re-run) | PASS |
+| 175/175 combined L3+L4 (independent re-run) | PASS |
+| Round-trip smoke (converged + cap-hit cases) | PASS |
+| MIGRATION.md field-name match (no WARN-B recurrence) | PASS |
+| Pre-implementation gauntlet interface gap resolved within-seam | CONFIRMED |
+
+### Next in sequence (per dispatch)
+
+KR coordinates rocket addressing pre-Layer-6 amendments (WARN-B + WARN-C from Gate-2 on L2) → author Layer 6 dispatch (§ 8 algorithm wire-up + L9 opportunity-scan refactor + cross-seam SC-3 obligations: star-lord off_hand_contract export + gamora sim combatant consumption + drax Spirit Guide panel per Gate-2 on L3 INFO-D). Rocket INFO-A + INFO-B math note amendments batch with first next-commit opportunity (non-blocking; do not hold Layer 6 for these).
