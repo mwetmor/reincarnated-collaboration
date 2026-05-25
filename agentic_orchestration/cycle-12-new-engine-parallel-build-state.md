@@ -118,7 +118,7 @@ Per jack-ryan Gate-1 finding (CLEAR-WITH-AMENDMENTS verdict; no BLOCK; no Matt e
 
 | Sub-agent | Dispatch | Status |
 |---|---|---|
-| rocket Layer 2 — BC-target subspace generator (kit identity) | `2026-05-25-rocket-cycle-12-layer-2-bc-target-subspace-generator.md` | IN-FLIGHT (background) |
+| rocket Layer 2 — BC-target subspace generator (kit identity) | `2026-05-25-rocket-cycle-12-layer-2-bc-target-subspace-generator.md` | ✅ **COMPLETE in ~46 min wall-clock** — PlayerClassV2 + MechanicalSubstrateTriple + BcTargetCell + WeaponKnowledgeEntry + SubstrateBindingResult dataclasses; SubstrateBindingEngine + infer_element_from_name + ELEMENT_WEAPON_KIND_COHERENCE (Matrix 2.C); BcTargetCellSampler + CELL_DEFINITIONS (**25 cells — note: framing brief consistently says 22-cell BC roster; Gate-2 should inspect this discrepancy as potential INFO/WARN**); BcTargetSubspaceGenerator (ENGINE_VERSION="v2.0", SOURCE_LIBRARY="generator_v2"). 28/28 Layer 2 tests PASS; 374/374 regression PASS (7 pre-existing unrelated test files with `GROUPING_VOCAB_DOC_PATH` env-var issue documented; not Layer 2 fault). Math note per Discipline #1. MIGRATION.md § v1.4-layer-2 (engine export) + generation/MIGRATION.md entry + AGENT_STATE.md updated. Engine commit `9597084`; tag `rocket/v0.1-cycle-12-layer-2-bc-target-subspace-generator-2026-05-25` pushed. **v1.1+ queue items surfaced (already known):** row-count reconciliation (2,293 vs 3,042), element column on substrate schema, Cells 11/20/22/24 § 4.1 explicit routing |
 | **rocket Layer 3** — skill content + SC-3 off-hand mechanical contract | `2026-05-25-rocket-cycle-12-layer-3-skill-content-and-sc-3.md` | **✅ COMPLETE in ~17 min wall-clock** — 132/132 smoke PASS in 0.23s across 6 gate classes; all Gate-1 amendments (WARN-1 + WARN-3 + WARN-5 + INFO-3) resolved; SkillTree + SkillChain + Skill + T4Slot + T4Candidate + T4Alteration dataclasses shipped; 25-archetype template registry + validate_invariants(); **146 substrate templates** across 6 families (W1.2 HP economy + W1.3 damage-taken-converts + W1.4 charge/stack + W1.5 movement + W1.6 player-side proxy + W1.11 element-specific); SC-3 off-hand mechanical contract (banner/focus/talisman/tome/horn + factory + round-trip); MIGRATION.md § v1.4 entry. Engine commit `5ec6ecc`; tag `rocket/v0.1-cycle-12-layer-3-skill-content-and-sc-3-2026-05-25`. **Cross-seam obligations raised for Layer 6 (queued):** star-lord `off_hand_contract` export field; gamora sim combatant consumption; drax Spirit Guide panel display |
 
 Layer 3 jack-ryan Gate-2 fires immediately on landing per scope-doc § 1 in-scope autonomous Gate-2 orchestration.
@@ -132,6 +132,14 @@ Layer 3 jack-ryan Gate-2 fires immediately on landing per scope-doc § 1 in-scop
 - **INFO-D** (KR Layer 6 dispatch MUST enumerate cross-seam SC-3 obligations): star-lord `off_hand_contract` export field; gamora sim combatant construction; drax Spirit Guide panel — KR L6 dispatch acceptance criteria
 
 **Sequencing implication post-Layer-3 Gate-2 PASS:** Layer 3 awaits (1) Layer 2 Gate-2 PASS when L2 lands; (2) MC-3 methodology consult at Layer 4 start. No rocket amends required on Layer 3.
+
+### Wave 2 — Gate-2 on Layer 2 + MC-3 methodology consult (parallel fire) — IN FLIGHT
+
+Layer 2 ✅ COMPLETE; both pre-Layer-4 gates fire in parallel per Discipline #19:
+- **jack-ryan Gate-2 on Layer 2** dispatch `2026-05-25-jack-ryan-cycle-12-gate-2-rocket-layer-2.md` — DEV-MODE review against acceptance criteria + 5 principles + Gate-1 amendment integration verification (WARN-2/4/6/7 + INFO-4) + 25-cell vs 22-cell roster discrepancy investigation
+- **legolas MC-3 methodology consult** dispatch `2026-05-25-legolas-cycle-12-mc-3-multi-dim-convergence-libraries.md` — Mode A consult on multi-dim convergence implementation libraries (scipy vs custom for 5-6-dimensional optimization per math note v1.1 § 5) per Discipline #18 LOAD-BEARING gate on Layer 4
+
+When both return: KR authors Layer 4 (W1.13 multi-dim convergence) dispatch integrating Gate-2-on-L2 verdict + MC-3 recommendation + Gate-2-on-L3 INFO-B math-note code-line citations per Discipline #1.2. Layer 4 fires as autonomous per scope-doc § 1 + skip-confirmation re-auth.
 
 ### Wave 0.5 — Pre-Layer-2 prep fires (surfaced by MC-1/MC-2 returns)
 
