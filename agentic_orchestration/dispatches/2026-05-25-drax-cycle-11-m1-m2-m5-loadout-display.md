@@ -108,3 +108,43 @@ Round-trip: not applicable — drax is the consumer side of star-lord's Wave 1 r
 - Star-lord Wave 1 schema PASS: `agentic_orchestration/dispatches/2026-05-25-star-lord-cycle-11-schema-extensions.md`
 - Cycle 11 scope-doc: `agentic_orchestration/cycles/cycle-11-hive-mind-scope.md` § 1
 - Drax memo Q1-Q5 RATIFIED: Q1 (provenance badge visible; v1_scope internal); Q3 (T4 main-weapon-only; off-hand for production launch); Q5 (Vercel preview-only)
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-25
+**Agent:** drax
+**Tag:** `drax/v0.1-cycle-11-m1-m2-m5-loadout-display-2026-05-25` @ commit `f22a61f`
+
+**Intermediate tags:**
+- `drax/v0.0-cycle-11-m5-provenance-badge-2026-05-25` @ `2823dc1`
+- `drax/v0.0-cycle-11-m1-weapon-slot-2026-05-25` @ `e402f7b`
+- `drax/v0.0-cycle-11-m2-off-hand-slot-2026-05-25` @ `e402f7b`
+- AGENT_STATE.md commit: `ac64505`
+
+**All scope items completed:**
+- [x] M1: `WeaponSlot` component + `main_weapon` consumption
+- [x] M2: `OffHandSlot` component + `secondary_item` consumption (null-safe; Q3 UI-staged)
+- [x] M5: `ProvenanceBadge` component + `source_library` consumption + distinct amber styling for `engine_authored_gap_fill_v1`
+- [x] Smoke: build clean (771 modules, 0 TS errors); dev server starts 197ms; smoke fixtures in sample-season
+- [x] Null-case smoke: class_0001 has null secondary_item — renders gracefully (section renders main weapon only)
+- [x] No regression: all pre-Cycle-11 classes untouched; optional typing handles absent fields
+- [x] AGENT_STATE.md updated
+- [x] Tag cut
+
+**Smoke results:**
+- `npm run build`: 771 modules, 0 TypeScript errors — PASS
+- Dev server: launches in 197ms, no errors — PASS
+- class_0001 (sample-season): met_museum main weapon renders (polearm, feudal, east_asian_japanese); null secondary_item = graceful no-render; neutral gray provenance badge
+- class_0002 (sample-season): engine_authored_gap_fill_v1 main weapon + off-hand both render their distinct amber badges on weapon cards; class-level amber provenance badge in archetype tag row
+- All ~114 classes in 11 real seasons: no regression (fields absent → optional types → null paths)
+
+**M2 Q3 UI-staging design decision:**
+Off-hand implemented as a boolean staging gate (`SHOW_OFF_HAND_SLOT = false` constant in `OffHandSlot.tsx`). The component is fully built and null-safe. No toggle, no feature-flag service, no config file — a single exported constant is the gate. At v1.0 production launch, flip to `true` and remove the TODO comment. Rationale: toggle UI would surface the feature during T4 post-mortem (counter to Q3 RATIFIED intent); a server-side feature flag is disproportionate for a local-first Phase-1 P1 app; the constant is the simplest auditable gate. If off-hand data becomes populated in re-exported seasons before v1.0 launch, the gate still suppresses display until the flag flips.
+
+**Out of scope (confirmed not fired):**
+- M3 / M6: not fired (gated on rocket §8 + sweep PASS)
+- M4: not fired (gated on rocket attribute_coupling field)
+- Production Vercel deploy: not fired (Q5 RATIFIED preview-only)
+- v1_scope visibility change: not fired (Q1 RATIFIED internal)
