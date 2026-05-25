@@ -155,3 +155,27 @@ Round-trip: not applicable — Mode A research only; no DB writes; no cross-seam
 **Status:** FIRE — Day-1 parallel-fire with MC-1 + jack-ryan Gate-1 + elrond SC-1/SC-2 + Cycle 11 close drax Wave 3b
 
 **Matt-touch sequence:** consult returns → KR integrates into rocket Layer 2 dispatch authoring (parallel with MC-1 + Gate-1 clearance); if methodology surfaces surprises beyond framing brief assumptions OR if MC-1/MC-2 dependency emerges, KR routes to gandalf + jack-ryan critique-pair before forward-fire (per Cycle 12 scope-doc § 6)
+
+---
+
+## Completion record
+
+**Status:** COMPLETE — 2026-05-25
+**Output artifact:** `agentic_orchestration/legolas/research/cycle-12-mc-2-substrate-binding-heuristics-2026-05-25/methodology-recommendation.md`
+**Acceptance criteria met:**
+- [x] Mode A literature scan completed; sources cited (§ 2 — QD/MAP-Elites archive-seeded generation; ARPG item binding; constraint-relaxation PCG literature)
+- [x] Per-methodology analysis for four heuristic baselines (§ 3.1-3.4: deterministic top-rank / probabilistic weighted-sample / hybrid filter-then-sample / coherence-constrained)
+- [x] Thin-cell-fallback algorithmic shape analysis (§ 4: trigger THIN_CELL_THRESHOLD=5; substitution cascade weapon_mechanical_profile → tempo → range → energy_type → element; graceful-fail as UNGENERABLE)
+- [x] L11 strict 4-tuple matching interaction analysis (§ 5: zero-match → thin-cell-fallback, not cell-skip; gauntlet-sim vs player-game distinction; no architectural conflict)
+- [x] Cohesion constraint analysis (§ 6: element × weapon_kind soft coherence table; energy_type × element soft matrix; coherence-as-feature recommendation)
+- [x] Composition policy v1 alignment analysis (§ 7: v1_scope materialization handles register-share targets; Option α/β/C routing at Layer 2)
+- [x] Cheapest-refuting-test design: 50-kit spot-check; ≥90% coherence gate; ≥25% diversity gate; ≤10% deep-relaxation gate (§ 8)
+- [x] Resource-bounds projection: all methods < 1 sec per 1,000 kits substrate-binding; Phase 3 dominates; no resource bottleneck (§ 9)
+- [x] Methodology recommendation: hybrid filter-then-sample with soft coherence weighting; single unified heuristic; implementation-shape sketch (§ 10)
+- [x] Framing-audit checklist per Discipline #23 (§ 11: four load-bearing assumptions; Phase 5 gap noted and mitigated via cheapest-refuting-test proxy)
+- [x] Discipline #25 semantic-layer rep-audit: CLEAN — cultural_tradition / lineage / period NOT in Phase 2 binding criteria (§ 12)
+
+**Flags for KR routing:**
+1. **MC-1/MC-2 coupling (minor):** if MC-1 recommends substrate-coverage-aware cell sampling, shared data dependency at per-cell candidate count level. Coupling is data-input level, not algorithm level. Does NOT require sequencing; can inform same Layer 2 dispatch independently. (§ 13)
+2. **Composition policy v1 § 4 potential gap:** policy locks routing for 12 CRITICAL thin cells; may not cover all 22 cells for runtime thin-cell-fallback graceful-fail scenarios. Route to gandalf for coverage review before Layer 2 dispatch authoring. (§ 14)
+3. **element_weapon_kind_coherence_matrix data dependency:** rocket Layer 2 needs this table as an input artifact. Route to elrond for Tier S/A element × weapon_kind frequency query against v1_scope. (§ 15, gap 1)
