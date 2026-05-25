@@ -1,4 +1,4 @@
-# Migration Log — Cycle 10 Stage 3 Phase 0a
+# Migration Log — Cycle 10 Stage 3 (Phase 0a + Phase 2)
 
 **Date:** 2026-05-25
 **Owner:** elrond (data steward)
@@ -87,3 +87,89 @@ ALTER TABLE weapon_knowledge_entries DROP COLUMN weapon_kind_classified_subtype;
 **Owner:** elrond (Phase 0a)
 **Authority:** Cycle 10 Stage 3 dispatch FIRE-READY (Gate-1 cleared) + Cycle 10 scope-doc § 1 autonomous decisions on additive schema choice
 **Tag intent:** combined with Stage 3 final tag `elrond/v0.0-cycle-10-stage-3-v1-scope-materialization` per dispatch § 7 (single tag at Stage 3 completion; not per-phase)
+
+---
+
+# Phase 2 — v1_scope materialization (this run; 2026-05-25)
+
+## §7 Phase 2 schema changes applied
+
+```sql
+ALTER TABLE weapon_knowledge_entries ADD COLUMN v1_scope BOOLEAN DEFAULT 0;
+ALTER TABLE weapon_knowledge_entries ADD COLUMN v1_scope_composition_trace TEXT;
+ALTER TABLE weapon_knowledge_entries ADD COLUMN v1_scope_genre_filter TEXT;
+```
+
+Three columns added (additive; idempotent ALTER skipped if columns exist). Schema column count: 43 → 46.
+
+All 89,841 active rows have `v1_scope` populated (0 or 1); `v1_scope_composition_trace` is non-NULL for all rows (per dispatch § 3.1 Gate-1 G-2 amendment: every row gets a trace including v1_scope=0 rows); `v1_scope_genre_filter` carries the register name or NULL.
+
+Post-population counts:
+- `v1_scope=1`: **3,042** rows (envelope 1,700-3,100 — within)
+- Tier S/A/B/C within v1_scope: 532 / 1,431 / 1,056 / 23
+- Genre filter: historical 47,487 / NULL 19,119 / fantasy 17,363 / military_modern 5,842 / mythological 30
+
+---
+
+## §8 Phase 2 cross-seam consumer grep verification (per dispatch § 5)
+
+Empirical grep at Phase 2 launch (2026-05-25 ~02:00 PT):
+
+```bash
+# All three repos searched:
+grep -rn "weapon_knowledge_entries" /Users/admin/Games/reincarnated-loadout/ | grep -v "\.db\|\.bak" → 0 hits
+grep -rn "weapon_knowledge_entries" /Users/admin/Games/reincarnated-engine/ | grep -v "\.db\|\.bak" → 0 hits
+grep -rn "weapon_knowledge_entries" /Users/admin/Games/reincarnated-demo/ | grep -v "\.db" → 0 hits
+grep -rn "v1_scope" /Users/admin/Games/reincarnated-loadout/ /Users/admin/Games/reincarnated-engine/ /Users/admin/Games/reincarnated-demo/ | grep -v "\.db\|\.bak" → 0 hits
+```
+
+**Conclusion:** ZERO cross-seam consumers across all three repos. Phase D + Phase 0a finding holds. **No parallel MIGRATION.md filings required in other repos** per ADR-004 § 2 additive-column-pattern.
+
+---
+
+## §9 Phase 2 composition_trace rule enum populated
+
+Per dispatch § 3.4 schema. Rule distribution this run:
+
+| Rule | Count | Phase |
+|---|---:|---|
+| `genre_filter_excluded` | 19,119 | Pass 1 filter |
+| `not_selected_below_threshold` | 66,698 | Pass 1 + 2 (in-genre, not chosen) |
+| `d1c_excluded_scope_deferred` | 560 | Pass 1 D1c |
+| `tier_s_auto_promote_handheld` | 437 | Pass 1 D1a |
+| `tier_s_auto_promote_secondary` | 95 | Pass 1 D1b |
+| `tier_a_preferred` | 1,431 | Sub-phase A + swap-repair retains |
+| `tier_b_constrained_sample` | 1,056 | Sub-phases B + C + swap-repair |
+| `tier_c_floor_fill` | 23 | Sub-phases B + C + swap-repair |
+| `evicted_military_modern_share_cap` | 0 (final) | Swap-repair (no evictions needed in final state) |
+
+(Sentinel rows for `sketch_f_anchor_substrate_resident` + `sketch_f_anchor_substrate_missing_stage_3_5_target` are added at **Phase 3** distribution report, not Phase 2.)
+
+---
+
+## §10 Phase 2 rollback procedure
+
+Pre-Phase-2 backup: `backups/telemetry.db.pre-phase-2` (~162 MB; gitignored per `backups/.gitignore`)
+
+Restore command:
+```bash
+cp /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/elrond/research/cycle-10-stage-3-2026-05-25/backups/telemetry.db.pre-phase-2 \
+   /Users/admin/Games/reincarnated-loadout/data/telemetry.db
+```
+
+Or drop columns (SQLite 3.35+):
+```sql
+ALTER TABLE weapon_knowledge_entries DROP COLUMN v1_scope;
+ALTER TABLE weapon_knowledge_entries DROP COLUMN v1_scope_composition_trace;
+ALTER TABLE weapon_knowledge_entries DROP COLUMN v1_scope_genre_filter;
+```
+
+---
+
+## §11 Phase 2 sign-off
+
+**Owner:** elrond (Phase 2)
+**Date:** 2026-05-25
+**Authority:** Cycle 10 Stage 3 dispatch FIRE-READY (Gate-1 cleared; commit `04509ad`) + Cycle 10 scope-doc § 1 autonomous decisions on parameter choices + NULL-typed handling + Mode-C operational substitute + substrate-led PCFS gate level + zero cross-seam consumers grep-verified.
+**Phase 2 acceptance criteria:** see `sampling-algorithm-rationale.md` § 5 (PCFS FAIL but policy/substrate-trade-off-bounded, not local-optima — LP fallback NOT triggered; routes to Sidecar B / Stage 3.5 per composition policy § 4.1 spirit; surfaces for Phase 3 sign-off).
+**Tag intent:** intermediate seam-prefixed tag `elrond/v0.0-cycle-10-stage-3-phase-2-v1-scope-2026-05-25` per dispatch acceptance criterion 10; final Stage 3 tag `elrond/v0.0-cycle-10-stage-3-v1-scope-materialization` fires post-Matt+gandalf sign-off on Phase 3 distribution report.

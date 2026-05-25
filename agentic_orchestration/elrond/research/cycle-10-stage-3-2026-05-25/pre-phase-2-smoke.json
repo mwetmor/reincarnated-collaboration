@@ -1,0 +1,16 @@
+{
+  "passes": 10,
+  "fails": 0,
+  "notes": [
+    "  - tier_s_handheld_sword_european: PASS (expected=True, actual=True) \u2014 D1a Tier-S handheld + historical \u2192 AUTO-INCLUDE",
+    "  - tier_s_handheld_japanese: PASS (expected=True, actual=True) \u2014 D1a Tier-S handheld east_asian \u2192 AUTO-INCLUDE",
+    "  - tier_s_siege_vehicle: PASS (expected=False, actual=False) \u2014 D1c siege_vehicle \u2192 EXCLUDE",
+    "  - tier_s_armor_body_or_head: PASS (expected=False, actual=False) \u2014 D1c armor_body_or_head \u2192 EXCLUDE",
+    "  - tier_s_armor_shield: PASS (expected=True, actual=True) \u2014 D1b Tier-S armor_shield \u2192 AUTO-INCLUDE",
+    "  - tier_a_typed_historical_str_melee: PASS (expected=True, actual=True) \u2014 Tier-A historical STR melee \u2192 very likely v1 (preferred-include)",
+    "  - tier_b_unknown_register: PASS (expected=False, actual=False) \u2014 Tier-B unknown-register NULL-typed \u2192 EXCLUDE (genre-filter fails)",
+    "  - tier_c_historical_typed: PASS (expected=False, actual=False) \u2014 Tier-C historical \u2192 EXCLUDE by default (only floor-fill admits Tier C)",
+    "  - tier_a_military_modern_modern_firearm: PASS (expected=False, actual=False) \u2014 Tier-A military_modern \u2192 mostly EXCLUDE (80% trim; floor at 5-8%)",
+    "  - tier_s_handheld_military_modern: PASS (expected=True, actual=True) \u2014 D1a Tier-S handheld military_modern \u2192 AUTO-INCLUDE (tier protection wins over register trim)"
+  ]
+}

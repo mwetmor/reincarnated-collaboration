@@ -1,0 +1,57 @@
+[populate_v1_scope] ======================================================================
+[populate_v1_scope] Cycle 10 Stage 3 Phase 2 — populate v1_scope
+[populate_v1_scope] DB: /Users/admin/Games/reincarnated-loadout/data/telemetry.db
+[populate_v1_scope] ======================================================================
+[populate_v1_scope] Schema: 89,841 rows; columns added this run: ['v1_scope', 'v1_scope_composition_trace', 'v1_scope_genre_filter']
+[populate_v1_scope] Loading rows from substrate (column-selective; 12 columns)…
+[populate_v1_scope] Loaded 89,841 rows.
+[populate_v1_scope] Sampling pipeline starting…
+[populate_v1_scope]   Pass 1: genre filter + D1c + D1a + D1b auto-includes
+[populate_v1_scope]   Pass 1 done: 437 D1a + 95 D1b + 560 D1c-excluded + 19119 out-of-genre
+[populate_v1_scope]   Pass 2: structured selection sub-phases A/B/C
+[populate_v1_scope]   Greedy budget: 2568 rows (target_total=3100 - 532 D1 auto-includes)
+[populate_v1_scope]     Sub-phase A: Tier A preferred-include
+[populate_v1_scope]       Tier-A selected: 1451 (mm_trim_skip=1830, reg_cap_skip=3866, cell_cap_skip=311)
+[populate_v1_scope]     Sub-phase B: Tier B archetype-floor-fill
+[populate_v1_scope]       Observed archetypes with floor: 18
+[populate_v1_scope]       Tier-B archetype-floor-fill selected: 779 (iterations: 95)
+[populate_v1_scope]     Sub-phase C: Tier B remaining budget (register-target-driven)
+[populate_v1_scope]       Tier-B register-target selected: 279
+[populate_v1_scope]   Pass 2 done: 2509 total greedy-selected
+[populate_v1_scope]   Selected total before swap-repair: 3,041
+[populate_v1_scope]   Pass 3: swap-repair (military_modern + per-cell floor) — bounded outer loop
+[populate_v1_scope]   Swap-repair done after 3 passes.
+[populate_v1_scope]   Selected total after swap-repair: 3,042
+[populate_v1_scope] Sampling complete in 2.2s
+[populate_v1_scope] Running pre-population smoke (10 hand-graded predictions)…
+[populate_v1_scope] Pre-population smoke: 10 PASS / 0 FAIL
+[populate_v1_scope]   - tier_s_handheld_sword_european: PASS (expected=True, actual=True) — D1a Tier-S handheld + historical → AUTO-INCLUDE
+[populate_v1_scope]   - tier_s_handheld_japanese: PASS (expected=True, actual=True) — D1a Tier-S handheld east_asian → AUTO-INCLUDE
+[populate_v1_scope]   - tier_s_siege_vehicle: PASS (expected=False, actual=False) — D1c siege_vehicle → EXCLUDE
+[populate_v1_scope]   - tier_s_armor_body_or_head: PASS (expected=False, actual=False) — D1c armor_body_or_head → EXCLUDE
+[populate_v1_scope]   - tier_s_armor_shield: PASS (expected=True, actual=True) — D1b Tier-S armor_shield → AUTO-INCLUDE
+[populate_v1_scope]   - tier_a_typed_historical_str_melee: PASS (expected=True, actual=True) — Tier-A historical STR melee → very likely v1 (preferred-include)
+[populate_v1_scope]   - tier_b_unknown_register: PASS (expected=False, actual=False) — Tier-B unknown-register NULL-typed → EXCLUDE (genre-filter fails)
+[populate_v1_scope]   - tier_c_historical_typed: PASS (expected=False, actual=False) — Tier-C historical → EXCLUDE by default (only floor-fill admits Tier C)
+[populate_v1_scope]   - tier_a_military_modern_modern_firearm: PASS (expected=False, actual=False) — Tier-A military_modern → mostly EXCLUDE (80% trim; floor at 5-8%)
+[populate_v1_scope]   - tier_s_handheld_military_modern: PASS (expected=True, actual=True) — D1a Tier-S handheld military_modern → AUTO-INCLUDE (tier protection wins over register trim)
+[populate_v1_scope] Writing decisions for 89,841 rows…
+[populate_v1_scope] Write complete.
+[populate_v1_scope] Write complete in 0.7s
+[populate_v1_scope] Running post-population smoke assertions…
+[populate_v1_scope]   PCFS (archetype gate; substrate-bounded excluded): 12/17 archetypes at-or-above floor = 70.6% (FAIL)
+[populate_v1_scope]   Substrate-bounded archetypes (excluded from gate): 1
+[populate_v1_scope]     ('ranged', 'low', 'WIS'): count=43 floor=60 substrate_supply=51 (SUBSTRATE_BOUNDED — route to Sidecar B)
+[populate_v1_scope]   PCFS (substrate-cell reference): 8/40 = 20.0%
+[populate_v1_scope]   D1c leak check: 0 (expected 0) — PASS
+[populate_v1_scope]   Mode-C-equivalent leak check: 0 (expected 0) — PASS
+[populate_v1_scope]   Register distribution within ±5pp: True
+[populate_v1_scope]     historical: actual 1749 (57.5%) vs target 52.5% — delta +5.0pp
+[populate_v1_scope]     fantasy: actual 1028 (33.8%) vs target 32.5% — delta +1.3pp
+[populate_v1_scope]     military_modern: actual 243 (8.0%) vs target 6.5% — delta +1.5pp
+[populate_v1_scope]     mythological: actual 22 (0.7%) vs target 1.5% — delta -0.8pp
+[populate_v1_scope]   Tier distribution: S=532 A=1431 B=1056 C=23
+[populate_v1_scope]   v1_scope size: 3042 (envelope 1700-3100; within: True)
+[populate_v1_scope] Wrote post-phase-2-smoke.json
+[populate_v1_scope] Wrote pre-phase-2-smoke.json
+[populate_v1_scope] DONE in 5.9s total
