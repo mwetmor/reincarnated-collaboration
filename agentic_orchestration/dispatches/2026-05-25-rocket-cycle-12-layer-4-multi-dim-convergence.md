@@ -277,3 +277,72 @@ This is a Discipline #11 empirical-inspection step — direct-test before writin
 **Status:** FIRE — all pre-Layer-4 gates ✅ cleared; rocket Layer 4 fires immediately per Q4 Option B sequencing
 
 **Matt-touch sequence:** rocket Layer 4 implementation lands → jack-ryan Gate-2 validates → KR captures in state file; if PASS, KR coordinates rocket WARN-B + WARN-C amendments (PRE-LAYER-6 priority) → author Layer 6 dispatch + L9 opportunity-scan refactor + cross-seam SC-3 obligations (star-lord + gamora + drax) per Gate-2-on-L3 INFO-D; if convergence FAIL at max_iter=5 pattern emerges, route to gamora + rocket collaboration per scope-doc § 6 escape-hatch
+
+---
+
+## Completion record
+
+**Status:** COMPLETE
+**Completed by:** rocket
+**Date:** 2026-05-25
+**Commit:** `9857610`
+**Tag:** `rocket/v0.1-cycle-12-layer-4-multi-dim-convergence-2026-05-25`
+
+### Deliverables
+
+| Deliverable | Path | Status |
+|---|---|---|
+| Math note (Discipline #1 + #1.2 code-line citations) | `src/reincarnated/generation/notes/cycle-12-layer-4-multi-dim-convergence-2026-05-25.md` | COMPLETE |
+| `converge.py` — ConvergenceResult + MultiTierGauntletRunner + converge_kit + resume_convergence + 3 phases | `src/reincarnated/generation/converge.py` | COMPLETE |
+| Smoke tests — 7 gate classes, 43 tests | `tests/test_cycle12_layer4_convergence.py` | COMPLETE |
+| export/MIGRATION.md extended (§ v1.4-layer-4) | `src/reincarnated/export/MIGRATION.md` | COMPLETE |
+| generation/MIGRATION.md entry appended | `src/reincarnated/generation/MIGRATION.md` | COMPLETE |
+| AGENT_STATE.md updated | `src/reincarnated/generation/AGENT_STATE.md` | COMPLETE |
+
+### Acceptance criteria disposition
+
+| Criterion | Result |
+|---|---|
+| Pre-implementation gate (run_spatial_gauntlet callable with PlayerClassV2) | CLEARED — built MultiTierGauntletRunner adapter; no gamora seam amendment needed |
+| Math note per Discipline #1 + #1.2 (code-line citations) | PASS |
+| All 9 § 10 calibration parameters documented + 6 swept + 3 static-derived/resolved | PASS |
+| Custom 3-phase blocked grouped update per math note v1.1 § 4.3 | PASS |
+| ConvergenceResult dataclass per framing brief § 4 contract | PASS |
+| max_iterations configurable + resume_convergence + return best-found + ESCAPE_THRESHOLD | PASS |
+| PlayerClassV2 + SkillTree bc_axis_contribution consumption | PASS |
+| Cheapest-refuting-test (30-kit stub smoke ≥80% convergence + tier contract + determinism + mage_controller ≥3/5) | PASS — 43/43 tests; 30-kit ≥80%; 5/5 determinism; 5/5 mage_controller |
+| Round-trip smoke (ConvergenceResult → JSON → from_dict) | PASS — converged + cap-hit cases both PASS |
+| No regression | PASS — 175/175 combined (Layer 2 + Layer 3 + Layer 4) |
+| MIGRATION.md per ADR-004 | PASS (export + generation both updated) |
+| AGENT_STATE.md updated | PASS |
+| Tag applied | PASS — `rocket/v0.1-cycle-12-layer-4-multi-dim-convergence-2026-05-25` |
+
+### Pre-implementation gate finding (detailed)
+
+Finding: No `run_spatial_gauntlet(kit: PlayerClass)` returning 5-tier WR exists.
+`balance_loop._run_spatial_slot()` is swarm-tier only + uses legacy `PlayerClass.model_dump()`.
+Layer 4 built `MultiTierGauntletRunner` (internal to `converge.py`) that:
+1. Calls `ConvergenceUsageMode.run_slot()` per tier (takes `class_dict: dict`)
+2. Uses `PlayerClassV2.to_dict()` as `class_dict` — fully compatible
+3. Falls back to stub WR when gauntlet scenarios not wired (v1 approximation)
+
+KR escalation: NOT REQUIRED. Interface gap is buildable within rocket seam.
+Gamora cross-seam amendment: NOT REQUIRED at v1 scope.
+Full multi-tier scenario wiring (magic_pack/elite_pack/mini_boss/boss_with_adds):
+gamora seam work (W0.9.6+ territory); noted in export/MIGRATION.md for gamora.
+
+### Open questions resolved
+
+| Question | Resolution |
+|---|---|
+| Calibration sweep during implementation vs after? | During (per Discipline #17 default); all 9 params settled |
+| resume_convergence in JSON export? | Rocket-internal only (bump-iterations is implementation detail) |
+| per_dim_adjustments typed vs open-schema? | Typed schema with documented key vocabulary (better downstream clarity) |
+| scipy.minimize_scalar for Dim 5? | Deferred — 5% nudge rule adequate at v1; smoke PASS |
+| Non-convergence escalation? | return best-found-so-far at cap; escalate to KR only if structural pattern emerges |
+
+### Next in sequence (per dispatch)
+
+- jack-ryan Gate-2 on Layer 4 → KR captures in state file
+- If PASS: KR coordinates rocket WARN-B + WARN-C amendments (pre-Layer-6 priority)
+- Then: Layer 6 dispatch (§ 8 algorithm wire-up) + L9 opportunity-scan refactor + cross-seam SC-3 obligations
