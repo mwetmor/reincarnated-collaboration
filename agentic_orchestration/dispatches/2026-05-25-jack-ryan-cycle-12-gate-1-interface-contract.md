@@ -164,3 +164,29 @@ If jack-ryan surfaces contract amendment, that's escape-hatch territory (per sco
 **Status:** FIRE — Day-1 parallel-fire with legolas MC-1 + MC-2 + elrond SC-1/SC-2 + Cycle 11 close drax Wave 3b; gates rocket L2 + L3 dispatch authoring
 
 **Matt-touch sequence:** Gate-1 findings → if CLEAR (or CLEAR-WITH-AMENDMENTS), KR integrates + authors rocket L2 + L3 dispatches when MC-1+MC-2 also land; if BLOCK surfaced, KR routes to gandalf sub-agent for design-fit + escalates Matt for contract amendment per scope-doc § 5
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-25
+**Verdict:** CLEAR-WITH-AMENDMENTS
+**Finding file:** `agentic_orchestration/qa/findings/2026-05-25-gate1-cycle-12-interface-contract.md`
+**Severity summary:** 7 WARN, 4 INFO, 0 BLOCK
+
+**WARN amendments for KR to integrate at rocket L2 + L3 dispatch authoring:**
+1. WARN-1: Amend `off_hand_item` comment to cite SC-3 (not Sidecar B) at rocket L3 dispatch
+2. WARN-2: Specify `mechanical_substrate_triple` third member vocabulary at rocket L2 dispatch (or promote to structured dataclass)
+3. WARN-3: Change `bc_axis_contribution` from `list[float]` to `dict[str, float]` per math note v1.1 § 3.6 axis-id keys at rocket L3 dispatch
+4. WARN-4: Define `StatDistribution` type; mark Layer-4-populated fields `Optional[...]` on `PlayerClass` at rocket L2 dispatch
+5. WARN-5: Specify `t4_candidates` max arity ≤ 5-6 per T4-A § 2 chain hierarchy at rocket L3 dispatch
+6. WARN-6: Constrain `generation_params` to JSON-primitives + Discipline #8 export validation at rocket L2 dispatch
+7. WARN-7: Make `generation_seed: int` required-not-nullable per Disciplines #1 + #10 at rocket L2 dispatch
+
+**INFO (recommended, not required before fire):**
+- INFO-4: Add `engine_version: str` required field to `PlayerClass`
+- INFO-3: Note at rocket L6 dispatch: add cross-chain T4 signature-election mechanism to `SkillTree`
+
+**Downstream gate status:** Rocket L2 + L3 dispatches may fire after KR integrates WARN amendments. No gandalf design-fit route required. No Matt escalation required.
+
+**Tag:** `jack-ryan/cycle-12-gate-1-interface-contract-2026-05-25`
