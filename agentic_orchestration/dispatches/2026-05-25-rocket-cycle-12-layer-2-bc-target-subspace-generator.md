@@ -256,3 +256,48 @@ Per jack-ryan Gate-1 finding (CLEAR-WITH-AMENDMENTS 7 WARN + INFO-4 recommended)
 **Status:** FIRE — all 5 pre-Layer-2 prereqs cleared; fires in parallel with Layer 3 dispatch
 
 **Matt-touch sequence:** rocket Layer 2 implementation lands (~2-3 weeks) → jack-ryan Gate-2 validates → KR captures in state file; integrates into Layer 4 + Layer 6 sequencing (Layer 4 fires after L2+L3 lock + MC-3 methodology consult); if rocket surfaces contract gap requiring framing brief § 4 amendment, KR routes to gandalf via § 5 escape-hatch
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-25
+**Rocket session:** Cycle 12 Wave 1 Layer 2 execution
+**Commit:** `9597084` — `feat(rocket/cycle-12-layer-2): BC-target subspace generator — PlayerClassV2 + MC-1 H3 + MC-2 hybrid filter-then-sample`
+**Tag:** `rocket/v0.1-cycle-12-layer-2-bc-target-subspace-generator-2026-05-25` (pushed)
+
+### Acceptance criteria status
+
+- [x] Math-note authored before implementation (Discipline #1) — `src/reincarnated/generation/notes/cycle-12-layer-2-bc-target-subspace-generator-2026-05-25.md`
+- [x] `BcTargetSubspaceGenerator` implemented per MC-1 H3 + MC-2 hybrid filter-then-sample + Gandalf Option B + Gate-1 amendments
+- [x] `PlayerClassV2` dataclass per § 4 contract + all 5 Gate-1 amendments (WARN-2/4/6/7 + INFO-4)
+- [x] AUGMENT pattern: legacy `ClassGenerator` preserved unchanged; new generator default; `source_library` discriminator ("generator_v2" vs "legacy_classgenerator")
+- [x] L11 strict 4-tuple matching enforced at generator level (Option α/β/C per cell)
+- [x] 12 LOCKED cells routed per comp-policy § 4.1; un-routed cells (incl. 11/20/22/24) → default heuristic v1.1 (Cell 20 flagged with `amendment_queued` provenance)
+- [x] Substrate state aligned to 2,293 v1_scope=1 rows (actual KR-verified count); documented in MIGRATION.md
+- [x] Smoke gates 1-4 PASS — 28/28 PASS `tests/test_bc_target_subspace_generator.py`
+- [x] Round-trip smoke PASS — `TestSmokeGate3` round-trip (PlayerClassV2 → to_dict() → back PASS)
+- [x] MIGRATION.md authored — `src/reincarnated/export/MIGRATION.md` § v1.4-layer-2 + `src/reincarnated/generation/MIGRATION.md` [2026-05-25] entry
+- [x] Cheapest-refuting-test PASS — `TestSmokeGate2` 50-kit spot-check (coherence ≥90%, diversity ≥25%, deep-relaxation ≤10%)
+- [x] No regression — 374/374 PASS targeted regression (test_d3_archetype_composer, test_export, test_cycle11_schema_extensions_round_trip, test_cycle12_layer3_skill_tree, test_class_generation, test_element_selector, test_canonical)
+- [x] AGENT_STATE.md updated — Cycle 12 Layer 2 STATE block appended
+- [x] Tag applied and pushed — `rocket/v0.1-cycle-12-layer-2-bc-target-subspace-generator-2026-05-25`
+
+### Open questions resolved
+
+| Question | Resolution |
+|---|---|
+| MechanicalSubstrateTriple: tuple vs dataclass | Promoted to typed frozen dataclass (WARN-2 alignment; better type safety) |
+| MC-2 tier weights | S=1.0/A=0.75/B=0.50/C=0.25 adopted as-is; reasonable starting point per math note |
+| Thin-cell floor threshold | THIN_CELL_FLOOR=5 (MC-2 default); empirically correct for 2,293-row substrate |
+| Wind/lightning critical-thin | Thin-cell cascade sufficient; no element-weight floor added; wind/lightning cells will cascade to amplitude/tempo relaxation |
+| Elrond v1.1+ reconciliation pre-fire | Proceed against 2,293-row substrate; reconciliation queued as v1.1+ item |
+| Per-cell register breakdown consumption | Consumed artifact (not re-running SQL); reproducibility per Discipline #10 |
+| Feature-flag vs source_library discriminator | source_library discriminator alone sufficient for this layer; no env var feature flag needed |
+
+### v1.1+ queue items (for elrond + gandalf follow-on)
+
+- elrond: v1_scope row-count reconciliation (2,293 vs 3,042 framing-brief quote; Tier-A drift 675 vs 1,431)
+- elrond: element column on substrate schema (vs current keyword inference from canonical_name)
+- gandalf: Cells 11/20/22/24 § 4.1 explicit routing amendment (currently default heuristic)
+- rocket: StatDistributionV2 population (Layer 4 subspace generator scope)
