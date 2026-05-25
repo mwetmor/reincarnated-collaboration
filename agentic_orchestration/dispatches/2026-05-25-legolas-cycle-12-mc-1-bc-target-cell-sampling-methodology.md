@@ -134,3 +134,32 @@ Round-trip: not applicable — Mode A research only; no DB writes; no cross-seam
 **Status:** FIRE — Day-1 parallel-fire with MC-2 + jack-ryan Gate-1 + elrond SC-1/SC-2 + Cycle 11 close drax Wave 3b
 
 **Matt-touch sequence:** consult returns → KR integrates into rocket Layer 2 dispatch authoring (parallel with MC-2 + Gate-1 clearance); if methodology surfaces surprises beyond framing brief assumptions, KR routes to gandalf + jack-ryan critique-pair before forward-fire (per Cycle 12 scope-doc § 6 pre-resolved known-unknowns)
+
+---
+
+## Completion record
+
+**Status:** COMPLETE
+**Completed:** 2026-05-25
+**Output artifact:** `agentic_orchestration/legolas/research/cycle-12-mc-1-bc-target-cell-sampling-methodology-2026-05-25/methodology-recommendation.md`
+
+**Acceptance criteria checklist:**
+- [x] Mode A literature scan completed; sources cited (§ 2 + § 15: MAP-Elites/QD, ARPG kit generation, PCG theory, constrained knapsack)
+- [x] Per-methodology analysis for the three baselines (§ 3: uniform / composition-policy-weighted / substrate-coverage-aware — pros/cons, sampling distribution shape, compute envelope)
+- [x] Hybrid options analysis (§ 4: H1 uniform-with-policy-bias; H2 substrate-coverage-with-renormalization; H3 deterministic-enumeration-with-pre-filter — recommended)
+- [x] L11 strict 4-tuple matching interaction analysis (§ 5: BLOCKED / THIN / READY cell classification; shared 4-tuple pair coordination; failure mode A/B)
+- [x] Composition policy v1 alignment analysis (§ 6: level-of-analysis distinction substrate curation vs kit generation; Option α/β/C draw procedures; thin-cell fallback routing)
+- [x] Cheapest-refuting-test design with concrete pass/fail threshold (§ 8: 100-kit register-share audit; ±10pp threshold; PASS/FAIL criteria; static pre-filter SQL alternative)
+- [x] Resource-bounds projection (§ 9: per-100-kits and per-1000-kits; all methods compute-equivalent on sampling overhead; Phase 3 dominates)
+- [x] Methodology recommendation with rationale + implementation-shape sketch (§ 13 summary + § 12 implementation shape)
+- [x] Framing-audit checklist application per Discipline #23 (§ 10: Q1/Q2/Q3 applied; two pre-code refinement recommendations surfaced)
+
+**Surprises surfaced beyond framing brief assumptions:**
+
+1. **Level-of-analysis gap (§ 6.1):** Composition policy v1 § 1 register-share targets were designed for substrate CURATION, not kit GENERATION. Applying them directly as per-cell generation weights creates a potential mismatch — the register distribution of generated kits depends on per-cell substrate composition, not just on cell weights. This is surfaceable empirically (§ 8 cheapest-refuting-test; or via a pre-code SQL audit per § 8.3 and § 10 Q3). This is a framing-refinement flag, not an architectural incompatibility. Recommend KR route to elrond for a per-cell register breakdown query before Layer 2 dispatch finalizes cell-weight parameters.
+
+2. **BLOCKED cells under current v1_scope (§ 5.1):** Four cells (14 Pyromantic Caster, 15 Red Mage, 17 Necromancer Summoner, 23 Monk-archetype) are currently at zero typed substrate under L11 strict matching. The generator must not attempt these cells before Sidecar B + Stage 3.5 gap-fills land. This is already captured in composition policy v1 § 4.1 as CRITICAL cells with named fallback actions — the generator must CONSUME those named actions, not invent ad-hoc fallback. Surfaced here because the Layer 2 dispatch must explicitly specify that the substrate pre-filter consumes § 4.1 routing table rather than treating BLOCKED cells as generation errors.
+
+3. **MC-1 ↔ MC-2 partial dependency (§ 11):** H3's implementation shape leaves the within-cell substrate draw procedure (§ 12 step 6a) specified only at tier-priority level. MC-2 substrate-binding heuristics will refine this. KR should review both MC-1 and MC-2 returns before Layer 2 dispatch authoring to resolve any conflict between tier-priority ordering (MC-1) and MC-2's within-cell draw recommendation. No blocking dependency — both consults complete independently; synthesis happens at dispatch authoring.
+
+**KR routing recommendation:** no scope amendment required; surprises are within framing brief pre-resolved known-unknowns (§ 6 of cycle-12-hive-mind-scope.md). Route the level-of-analysis gap flag to elrond for a pre-code SQL audit (per-cell register breakdown); integrate MC-2 return with MC-1 H3 implementation shape before Layer 2 dispatch authoring.
