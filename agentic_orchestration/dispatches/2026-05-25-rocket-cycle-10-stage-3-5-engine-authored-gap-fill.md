@@ -7,13 +7,13 @@
 **From:** knight-rider (orchestrator)
 **Date:** 2026-05-25
 **Authority:** Cycle 10 multi-stage dispatch parent (gandalf request 2026-05-23) § 3 Stage 3.5 + composition policy v1 § 9 (Stage 3.5 scope LOCKED at D5 + D7) + Cycle 10 scope-doc § 1 in-scope autonomous dispatch authoring
-**Status:** FIRE-READY pending Wave 5 Phase 3 distribution report → gap-cell list confirms which Sketch F anchors are substrate-missing (per composition policy § 5.2: Hattori Hanzō + Lu Bu + Moctezuma + Gilgamesh substrate-missing; ~4 anchors × ~5-10 entries each + Cell 14 Pyromantic ~5-10 entries = ~25-50 total entries)
+**Status:** FIRE-READY 2026-05-25 — Wave 5 Phase 3 distribution report ✓ COMPLETE `8c485ac`; gandalf SO-3 Pattern A-deep Path 2 verdict ✓ LOCKED (`f40b714`); Wave 6 scope amended to ~30-60 entries (4 Sketch F substrate-missing anchors + Cell 14 + 2 defensive additions GF-5* Roland + GF-6* Karna).
 
 ---
 
 ## 0. TL;DR
 
-Author ~25-50 engine-authored substrate entries to fill mechanical-cell coverage gaps where substrate is genuinely empty after Stage 3 constrained-sampling. Per composition policy § 9 Stage 3.5 budget:
+Author ~30-60 engine-authored substrate entries (AMENDED 2026-05-25 per gandalf SO-3 Pattern A-deep verdict Path 2; +GF-5* Roland + GF-6* Karna defensive additions) to fill mechanical-cell coverage gaps where substrate is genuinely empty after Stage 3 constrained-sampling. Per composition policy § 9 Stage 3.5 budget + gandalf 2026-05-25 amendment:
 
 | Source | Entries | Cultural-tradition | Tier discipline |
 |---|---|---|---|
@@ -22,7 +22,11 @@ Author ~25-50 engine-authored substrate entries to fill mechanical-cell coverage
 | Lu Bu anchor form (per D5) | ~5-10 | Chinese Three Kingdoms | Tier S; Tier 2 soft-attribution |
 | Moctezuma anchor form (per D5) | ~5-10 | Mesoamerican | Tier S; Tier 2 soft-attribution; nested Quetzalcoatl per skill-system § 12.4 |
 | Gilgamesh anchor form (per D5) | ~5-10 | Sumerian / Mesopotamian | Tier S; Tier 1 broadly-fictionalized |
-| **Total Stage 3.5 budget** | **~25-50 engine-authored entries** | | |
+| **GF-5\* Roland (NEW per gandalf SO-3 Path 2)** | **~3-5** | **European Carolingian** | **Tier S; Tier 1 broadly-fictionalized** (covers compound-bearer fragility "Charlemagne; Roland") |
+| **GF-6\* Karna (NEW per gandalf SO-3 Path 2)** | **~3-5** | **Vedic / Hindu** | **Tier S; Tier 1 broadly-fictionalized + heightened curation awareness** (covers compound-bearer "Karna; Arjuna; Bhishma; ..." + south_asian under-representation + rep-audit artifact "Tank EX" Indian MBT) |
+| **Total Stage 3.5 budget (AMENDED)** | **~30-60 engine-authored entries** | | |
+
+**Rationale for Path 2 over Path 1 (substrate-protection re-run):** gandalf Discipline #25 rep-audit empirically refuted Path 1 framing — Karna substrate-resident row "Tank EX" (id=177014) is Indian main battle tank Mode-C naming-allusion artifact, NOT the Mahabharata anchor; Quetzalcoatl substrate-resident "AIM-68 Big Q" is Cold War American missile Mode-C artifact. Path 1 substrate-protection would AMPLIFY artifacts; Path 2 engine-authoring BYPASSES them entirely. **First canonical production-Cycle-10 application of Discipline #25 semantic-layer rep-audit at design-substrate boundary.**
 
 **D7 AI-tell discipline LOAD-BEARING:** templated LLM with narrow blanks; gandalf-curated per entry; NOT raw LLM dialogue generation. Provenance flag `source_library = 'engine_authored_gap_fill_v1'` enables v1.1+ Track M-targeted research-replacement per Stage 3.6.
 
@@ -54,6 +58,8 @@ Author ~25-50 engine-authored substrate entries to fill mechanical-cell coverage
   - **Lu Bu** — Chinese Three Kingdoms; Tier 2 soft-attribution; (warlord-archetype; STR primary; halberd/cavalry-lance/mounted-combat mechanical profile — but mounted-combat excluded per D1c; redirect to dismounted-polearm)
   - **Moctezuma** — Mesoamerican; Tier 2 soft-attribution + nested Quetzalcoatl per § 12.4; (priest-king-archetype; INT/WIS hybrid; macuahuitl + ritual-implement + serpent-staff mechanical profile)
   - **Gilgamesh** — Sumerian / Mesopotamian; Tier 1 broadly-fictionalized; (king-hero-archetype; STR primary; bronze-sword + lion-skin + named-weapons-of-Uruk mechanical profile)
+  - **GF-5\* Roland (NEW per gandalf SO-3 Path 2 amendment 2026-05-25)** — European Carolingian; Tier 1 broadly-fictionalized; (paladin-archetype; STR primary; Durandal sword + Olifant horn + named-companion-of-Charlemagne mechanical profile); per gandalf verdict Roland Tier-1 routine cultural-sensitivity
+  - **GF-6\* Karna (NEW per gandalf SO-3 Path 2 amendment 2026-05-25)** — Vedic / Hindu; Tier 1 broadly-fictionalized + **heightened curation awareness for Vedic-Hindu lineage** (no conflation with active religious practice; respectful kavacha-kundala iconography; per skill-system § 12.3 universal naming archetypal player-facing); (sun-hero-archetype; STR/DEX hybrid; Vijaya bow + kavacha armor + Vasavi-Shakti spear mechanical profile)
 - Substrate DB: `/Users/admin/Games/reincarnated-loadout/data/telemetry.db`; table `weapon_knowledge_entries`
 
 ---
@@ -131,6 +137,8 @@ Per anchor, reserved patterns to avoid aggregate-signal-convergence:
 - Moctezuma patterns: tenochtitlan / aztec / quetzalcoatl-nested / serpent / jade / obsidian / macuahuitl / xiuhcoatl
 - Gilgamesh patterns: uruk / enkidu / lion / cedar-forest / humbaba / ishtar / utnapishtim
 - Cell 14 Pyromantic patterns: pyromancy / pyromantic / flame-conjuring / ember-channeler / fire-affinity / pan-fantasy generics
+- GF-5\* Roland patterns: paladin / durandal / olifant / charlemagne / carolingian / roncevaux / aude
+- GF-6\* Karna patterns: kavacha / kundala / vijaya / vasavi-shakti / sun-hero / suryaputra / radheya
 
 Cohesion-judge at Phase 5 respects these partitions to keep per-anchor identity distinct. Naming-space partitioning canonical doc is gandalf's post-Cycle-10 authoring queue item (per ground-state § 5 active workstream); this dispatch operates per current draft partitions above.
 
