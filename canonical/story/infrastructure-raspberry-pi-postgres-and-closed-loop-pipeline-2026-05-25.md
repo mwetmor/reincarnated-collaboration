@@ -256,18 +256,70 @@ The Pi-Postgres + NVMe + Tailscale + backup stack is real ops work that demands 
 
 ## 7. Decisions enumerated (DEFERRED per § 8 empirical gates)
 
+> **AMENDED 2026-05-25 (post-Matt-log-back + clarification dialogue):** D1, D4, D9 status updated. D4 framing clarified per Matt 2026-05-25 dialogue exposing prior framing imprecision (telemetry.db vs hypothetical loadout app DB conflation). See § 7.1 amendment note below + § 7.2 framing-imprecision capture.
+
 | # | Decision | Status | Gating criterion (§ 8) |
 |---|---|---|---|
-| D1 | Tier 1 — Pi-Postgres host (NVMe HAT mandatory) vs hosted-Postgres vs status-quo | DEFERRED | G1 |
-| D2 | Tier 1 timing — fire in window between Cycle 10 close and Algorithm § 8 implementation, OR defer to post-§-8 | DEFERRED | G1 + G2 |
-| D3 | Catalogue DB unification (Phase 2 with telemetry/loadout, or separate later) | DEFERRED | G3 |
-| D4 | Loadout DB location (Pi-Postgres with Tailscale-to-Vercel, OR hosted-Postgres, OR keep SQLite) | DEFERRED | G4 |
+| D1 | Tier 1 — Pi-Postgres host (NVMe HAT mandatory) vs hosted-Postgres vs status-quo | **RATIFIED 2026-05-25 — Pi-Postgres for engine-internal DBs (telemetry + catalogue) at Matt "right moment"; status-quo continues until then with PRAGMA busy_timeout mitigation (P2.5)** | G1 ✓ TRIGGERED both branches |
+| D2 | Tier 1 timing — fire in window between Cycle 10 close and Algorithm § 8 implementation, OR defer to post-§-8 | **DEFERRED to Matt "right moment"** (Matt P2a verbatim 2026-05-25) — execution NOT in Cycle 11 scope | G1 ✓ + Matt scheduling |
+| D3 | Catalogue DB unification (Phase 2 with telemetry, or separate later) | DEFERRED | G3 |
+| D4 | Loadout DB location — **(amended) hypothetical loadout app DB, distinct from telemetry.db** | **AMENDED to DEFERRED CONDITIONAL**: hosted-Postgres recommended ONLY IF a concrete YES-scenario (per § 7.2 below) surfaces in roadmap; for v1.0 + foreseeable use cases, loadout stays static-JSON-bundled and no loadout app DB is needed. Pi-Postgres handles telemetry.db (engine-internal). | G4 + YES-scenario surfacing (new sub-gate) |
 | D5 | Tier 2 — Pi as autonomous pipeline runner | DEFERRED | G5 |
 | D6 | Tier 3 Phase A — telemetry sink build | DEFERRED | D1 + G6 |
 | D7 | Tier 3 Phases B-E — demo instrumentation + analysis + containerized sim + closed-loop | DEFERRED | Sequential; D6 → G7 → G8 → G9 → G10 |
-| D8 | Tier 4 — Tailscale (rec STRONG; near-free; can fire independently) | DEFERRED but LOW-COST | G11 (mostly a "when Matt has 15 min" gate) |
-| D9 | Tier 4 — LLM response cache | DEFERRED | G12 |
+| D8 | Tier 4 — Tailscale (rec STRONG; near-free; can fire independently) | **DEFERRED to Matt 15-min window** (Matt P2a authorized; not in Cycle 11) | G11 (Matt schedule) |
+| D9 | Tier 4 — LLM response cache | **DEFERRED — G12 NOT TRIGGERED 2026-05-25** (0.13% repeat rate vs 20% threshold; structural cross-season zero collisions) | G12 ✓ NOT TRIGGERED; re-measure if LLM architecture shifts |
 | D10 | Tier 4 — Dashboard / monitoring | DEFERRED | G13 |
+
+### 7.1 Amendment note — D1 / D4 / D9 status update (2026-05-25)
+
+Per Matt 2026-05-25 log-back dialogue + 7-decision capture at `agentic_orchestration/matt-log-back-decisions-2026-05-25.md`:
+
+- **D1 RATIFIED** as Pi-Postgres for engine-internal DBs (telemetry + catalogue) — empirically forced by G1 TRIGGERED on both branches (per-day 11.1% SQLite contention exceeds 5% threshold + 4 kernel panics 2026-05-23 from RAM pressure). Execution timing DEFERRED to Matt "right moment"; status-quo continues with PRAGMA busy_timeout mitigation (P2.5).
+- **D4 AMENDED to DEFERRED CONDITIONAL** — see § 7.2 below for full framing-imprecision capture + revised reasoning.
+- **D9 status confirmed DEFERRED** — G12 NOT TRIGGERED empirically (0.13% repeat rate vs 20% threshold).
+- **D8 status confirmed DEFERRED to Matt 15-min window** — Tailscale install authorized per Matt P2a; can fire independently of D1 execution timing.
+
+### 7.2 D4 framing-imprecision capture (Matt 2026-05-25 surface)
+
+**The conflation that surfaced:** original framing treated "loadout DB" as a single concept. Matt's clarifying question 2026-05-25 ("what is the reason we need the cloud hosted DB for the loadout btw?") exposed that two distinct databases were being conflated:
+
+| DB | Where it lives | Who writes | Who reads | Why it exists | Actual D1 / D4 mapping |
+|---|---|---|---|---|---|
+| **`telemetry.db`** | `~/Games/reincarnated-loadout/data/telemetry.db` | ENGINE (generation runs, LLM-call logging, balance-loop) | star-lord analysis | Engine-internal telemetry; happens to live in loadout repo path historically | **D1 territory** (engine-internal; Pi-Postgres) |
+| **Hypothetical loadout app DB** | Would be server-side, Vercel-reachable | Loadout app (writes) + maybe engine push | Loadout app (reads) | Player-facing live state; does NOT exist yet | **D4 territory** (loadout-facing; hosted IF needed) |
+
+**The original framing** treated D4 as "if Pi-Postgres path → need Tailscale-to-Vercel for loadout" or "if hosted-Postgres path → done." But this assumes the loadout NEEDS a live DB at all — which it currently doesn't (v1.0 is static-JSON-bundled per drax memo § 2.3 + § 2.7).
+
+**The amended framing** treats D4 as a CONDITIONAL decision: hosted-Postgres is needed ONLY IF a concrete YES-scenario surfaces requiring server-side loadout state. Until then, loadout stays static-JSON-bundled and D4 is moot.
+
+**YES-scenarios that would trigger D4 commitment:**
+
+| Scenario | DB needed? | Likelihood at current roadmap shape |
+|---|---|---|
+| Player-saved loadouts / sharing / comments | YES | LOW — conflicts with established "solo game" design direction |
+| Authenticated user accounts + multi-device sync | YES | LOW — out of scope per solo-game framing |
+| Earth Self persistence server-side (gacha form library) | YES | DEFERRED far-future per Earth meta-layer scope |
+| `/the-work` analytics suite with live aggregation across many seasons | MAYBE | MEDIUM — bundled JSON may suffice depending on aggregation scope |
+| Real-time engine→loadout data refresh without rebuild | YES | LOW — deploy-cadence problem isn't acute |
+
+**NO-scenarios (current + foreseeable v1):**
+
+| Scenario | DB needed? |
+|---|---|
+| Solo player browsing class / build / form data | NO — static JSON suffices |
+| Read-only T4 post-mortem display | NO — published comparison data; no writes |
+| Static class roster + skill tree display | NO — engine bundles at build |
+
+**Revised D4 recommendation:** stay static-JSON-bundled for loadout indefinitely. Re-engage D4 only when a concrete YES-scenario actually lands in the roadmap. **Do NOT pre-build hosted-Postgres for loadout.**
+
+**Operational simplification this unlocks:**
+- ONE database system (Pi-Postgres for engine-internal) instead of two (Pi-Postgres + hosted-Postgres)
+- ZERO Vercel reachability problem to solve (because loadout doesn't need a DB)
+- ZERO vendor risk / data-leaves-machine concern
+- Loadout deploy cadence stays simple (JSON rebuild → Vercel preview/production)
+
+**Implication for Matt's P2a verbatim** (*"We will find the right moment and then build the new raspberry pi server and postgres DB later on to solve. We can get the hosted version later on for the loadout also."*): the second sentence is now CONDITIONAL — hosted-Postgres for loadout fires only if a YES-scenario surfaces. Matt's P2a decision is still good; the framing for the loadout half is just clarified as "if-when-needed" rather than "planned."
 
 ---
 
