@@ -24,7 +24,7 @@
 - Wave 5 — Stage 3 execution dispatch FIRE (elrond)
 - Wave 6 — Stage 3.5 engine-authored gap-fill dispatch authoring + FIRE
 - Wave 7 — Stage 4 mythological-NULL rescue dispatch authoring + FIRE
-- Sidecar A — substrate-genre-flagging unified-architecture amendments
+- Sidecar A — substrate-genre-flagging unified-architecture amendments *(terminology note: "Sidecar A" at scope-doc authoring time labeled a substrate-genre-flagging pass; in practice the Sidecar A workstream executed as a 5-weapon image-pass-through-vs-LLM-description Meshy pipeline comparison per gandalf weapon-nomination verdict 2026-05-23 at `agentic_orchestration/gandalf/notes/2026-05-23-sidecar-A-weapon-nomination-verdict.md`. Both framings are consistent: the Meshy comparison is the empirical instrument that gates the image-pass-through decision, which is itself substrate-genre-pipeline-adjacent work. Accept-document per jack-ryan judgment 2026-05-25 — founding-instance artifact preserved as-is with this clarifying note.)*
 - Sidecar B — substrate-enrichment (off-hand items + thin-cell + thin-tradition)
 - Cycle wind-down + final tag
 

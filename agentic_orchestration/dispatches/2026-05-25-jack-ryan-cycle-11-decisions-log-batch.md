@@ -111,3 +111,25 @@ Round-trip: not applicable — no cross-seam contract change in this dispatch.
 - Decisions-log format skill: `reincarnated-decision-log-format`
 - Canonical-doc format skill: `reincarnated-canonical-doc-format`
 - Cycle 11 scope-doc: `agentic_orchestration/cycles/cycle-11-hive-mind-scope.md` § 0 + § 1
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-25
+**Agent:** jack-ryan
+**Tag:** `jack-ryan/v0.0-cycle-11-decisions-log-batch-2026-05-25`
+
+**Judgment calls resolved:**
+
+1. **Discipline #25 operational-examples placement:** Option 1 (co-location in engineering-disciplines.md § Discipline #25). Rationale: `reincarnated-canonical-doc-format` cross-reference protocol favors co-location; one-hop findability from the discipline statement is more practical than a two-hop decisions-log-only pattern for dispatch authors citing the discipline at Gate-1/Gate-2.
+
+2. **Sidecar A terminology resolution:** Accept-document. Added clarifying inline note to `agentic_orchestration/cycles/cycle-10-hive-mind-scope.md` § 0 explaining that "Sidecar A" in the scope-doc referred to what became the 5-weapon Meshy image-pass-through pipeline comparison (gandalf weapon-nomination verdict 2026-05-23). Founding-instance artifact preserved as-is with the clarifying note appended.
+
+**Acceptance criteria status:**
+
+- [x] Decisions-log entry 1 ("Stage 3.5 GF-5*/GF-6* defensive amendment") — landed in `~/Games/reincarnated-engine/design/decisions/decisions-log.md` with full Decision/Reasoning/Alternatives/Status/Related sections
+- [x] Decisions-log entry 2 ("Discipline #25 operational examples: Karna Tank EX + Quetzalcoatl AIM-68") — landed with full sections
+- [x] Discipline #25 operationalization — operational-examples subsection appended to § Discipline #25 in `engineering-disciplines.md` (Option 1)
+- [x] "Sidecar A" terminology resolution — accept-document note committed to cycle-10-hive-mind-scope.md § 0
+- [x] Round-trip: not applicable — no cross-seam contract change (confirmed)
