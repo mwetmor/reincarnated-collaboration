@@ -1,0 +1,120 @@
+{
+  "phase": "cycle-10-wave-5-5-part-b-mode-c-eviction",
+  "date": "2026-05-25",
+  "audit_purpose": "gandalf small-batch audit on 10 random evicted rows — verify ≥ 8/10 are genuine Mode-C-by-semantics contamination per dispatch § 8 smoke",
+  "random_seed": 20260525,
+  "total_eviction_candidates": 30,
+  "sample_size": 10,
+  "sample": [
+    {
+      "id": 107,
+      "canonical_name": "Mace-AO 2152",
+      "register_canonical": "historical",
+      "historical_period_canonical": "contemporary",
+      "cultural_lineage_canonical": "unknown",
+      "named_mythological_match": "Ninurta (mesopotamian, tier_1)",
+      "quality_tier": "S",
+      "weapon_kind_classified_subtype": "handheld_weapon",
+      "v1_scope_composition_trace_pre": "{\"rule\":\"tier_s_auto_promote_handheld\",\"tier\":\"S\",\"axis_contributions\":{\"register\":\"historical\",\"cultural_tradition\":\"unknown\",\"period\":\"contemporary\",\"mechanical_cell\":\"wis_holy_knight_paladin\",\"proxy_density\":\"none\"},\"matching_policy\":\"option_beta_caster_attribute_level\",\"weapon_kind_classified_subtype\":\"handheld_weapon\",\"filter_passes\":[\"genre_pass\",\"weapon_kind_gate\",\"tier_s_protection\"]}"
+    },
+    {
+      "id": 46,
+      "canonical_name": "Shield Depicting Saint George Slaying the Dragon",
+      "register_canonical": "historical",
+      "historical_period_canonical": "industrial",
+      "cultural_lineage_canonical": "unknown",
+      "named_mythological_match": "Saint George (european_medieval, tier_2)",
+      "quality_tier": "S",
+      "weapon_kind_classified_subtype": "armor_shield",
+      "v1_scope_composition_trace_pre": "{\"rule\":\"tier_s_auto_promote_secondary\",\"tier\":\"S\",\"axis_contributions\":{\"register\":\"historical\",\"cultural_tradition\":\"unknown\",\"period\":\"industrial\",\"mechanical_cell\":\"untyped\",\"proxy_density\":\"none\"},\"matching_policy\":\"option_beta_undifferentiated_floor_fill\",\"weapon_kind_classified_subtype\":\"armor_shield\",\"filter_passes\":[\"genre_pass\",\"weapon_kind_gate\",\"tier_s_protection\"]}"
+    },
+    {
+      "id": 175669,
+      "canonical_name": "Claíomh Solais",
+      "register_canonical": "historical",
+      "historical_period_canonical": "modern",
+      "cultural_lineage_canonical": "european",
+      "named_mythological_match": "Lugh (celtic, tier_1)",
+      "quality_tier": "S",
+      "weapon_kind_classified_subtype": "handheld_weapon",
+      "v1_scope_composition_trace_pre": "{\"rule\":\"tier_s_auto_promote_handheld\",\"tier\":\"S\",\"axis_contributions\":{\"register\":\"historical\",\"cultural_tradition\":\"european_medieval\",\"period\":\"modern\",\"mechanical_cell\":\"untyped\",\"proxy_density\":\"none\"},\"matching_policy\":\"option_beta_undifferentiated_floor_fill\",\"weapon_kind_classified_subtype\":\"handheld_weapon\",\"filter_passes\":[\"genre_pass\",\"weapon_kind_gate\",\"tier_s_protection\"]}"
+    },
+    {
+      "id": 181777,
+      "canonical_name": "ČZ 2000",
+      "register_canonical": "historical",
+      "historical_period_canonical": "contemporary",
+      "cultural_lineage_canonical": "european",
+      "named_mythological_match": "Lada (slavic, tier_1)",
+      "quality_tier": "S",
+      "weapon_kind_classified_subtype": "handheld_weapon",
+      "v1_scope_composition_trace_pre": "{\"rule\":\"tier_s_auto_promote_handheld\",\"tier\":\"S\",\"axis_contributions\":{\"register\":\"historical\",\"cultural_tradition\":\"european_medieval\",\"period\":\"contemporary\",\"mechanical_cell\":\"untyped\",\"proxy_density\":\"none\"},\"matching_policy\":\"option_beta_undifferentiated_floor_fill\",\"weapon_kind_classified_subtype\":\"handheld_weapon\",\"filter_passes\":[\"genre_pass\",\"weapon_kind_gate\",\"tier_s_protection\"]}"
+    },
+    {
+      "id": 208183,
+      "canonical_name": "Sword blade (katana)",
+      "register_canonical": "historical",
+      "historical_period_canonical": "industrial",
+      "cultural_lineage_canonical": "east_asian",
+      "named_mythological_match": "Sadamune (east_asian, tier_2)",
+      "quality_tier": "S",
+      "weapon_kind_classified_subtype": "handheld_weapon",
+      "v1_scope_composition_trace_pre": "{\"rule\":\"tier_s_auto_promote_handheld\",\"tier\":\"S\",\"axis_contributions\":{\"register\":\"historical\",\"cultural_tradition\":\"east_asian\",\"period\":\"industrial\",\"mechanical_cell\":\"str_polearm_soldier\",\"proxy_density\":\"none\"},\"matching_policy\":\"option_alpha_martial_5tuple\",\"weapon_kind_classified_subtype\":\"handheld_weapon\",\"filter_passes\":[\"genre_pass\",\"weapon_kind_gate\",\"tier_s_protection\"]}"
+    },
+    {
+      "id": 189505,
+      "canonical_name": "Type 73 light machine gun",
+      "register_canonical": "historical",
+      "historical_period_canonical": "unknown",
+      "cultural_lineage_canonical": "east_asian",
+      "named_mythological_match": "Isis (egyptian, tier_1)",
+      "quality_tier": "S",
+      "weapon_kind_classified_subtype": "handheld_weapon",
+      "v1_scope_composition_trace_pre": "{\"rule\":\"tier_s_auto_promote_handheld\",\"tier\":\"S\",\"axis_contributions\":{\"register\":\"historical\",\"cultural_tradition\":\"east_asian\",\"period\":\"unknown\",\"mechanical_cell\":\"dex_archer_falconer_pair\",\"proxy_density\":\"none\"},\"matching_policy\":\"option_alpha_martial_5tuple\",\"weapon_kind_classified_subtype\":\"handheld_weapon\",\"filter_passes\":[\"genre_pass\",\"weapon_kind_gate\",\"tier_s_protection\"]}"
+    },
+    {
+      "id": 215455,
+      "canonical_name": "Flintlock muzzle-loading musket",
+      "register_canonical": "historical",
+      "historical_period_canonical": "industrial",
+      "cultural_lineage_canonical": "european",
+      "named_mythological_match": "Suvorov (slavic, tier_2)",
+      "quality_tier": "S",
+      "weapon_kind_classified_subtype": "handheld_weapon",
+      "v1_scope_composition_trace_pre": "{\"rule\":\"tier_s_auto_promote_handheld\",\"tier\":\"S\",\"axis_contributions\":{\"register\":\"historical\",\"cultural_tradition\":\"european_medieval\",\"period\":\"industrial\",\"mechanical_cell\":\"dex_crossbow_sniper\",\"proxy_density\":\"none\"},\"matching_policy\":\"option_alpha_martial_5tuple\",\"weapon_kind_classified_subtype\":\"handheld_weapon\",\"filter_passes\":[\"genre_pass\",\"weapon_kind_gate\",\"tier_s_protection\"]}"
+    },
+    {
+      "id": 190567,
+      "canonical_name": "H-S Precision Pro Series 2000 HTR",
+      "register_canonical": "historical",
+      "historical_period_canonical": "contemporary",
+      "cultural_lineage_canonical": "european",
+      "named_mythological_match": "Horus (egyptian, tier_1)",
+      "quality_tier": "S",
+      "weapon_kind_classified_subtype": "handheld_weapon",
+      "v1_scope_composition_trace_pre": "{\"rule\":\"tier_s_auto_promote_handheld\",\"tier\":\"S\",\"axis_contributions\":{\"register\":\"historical\",\"cultural_tradition\":\"european_medieval\",\"period\":\"contemporary\",\"mechanical_cell\":\"untyped\",\"proxy_density\":\"none\"},\"matching_policy\":\"option_beta_undifferentiated_floor_fill\",\"weapon_kind_classified_subtype\":\"handheld_weapon\",\"filter_passes\":[\"genre_pass\",\"weapon_kind_gate\",\"tier_s_protection\"]}"
+    },
+    {
+      "id": 187044,
+      "canonical_name": ".475 Nitro Express",
+      "register_canonical": "historical",
+      "historical_period_canonical": "modern",
+      "cultural_lineage_canonical": "south_asian",
+      "named_mythological_match": "Wayland the Smith (european_medieval, tier_1)",
+      "quality_tier": "S",
+      "weapon_kind_classified_subtype": "handheld_weapon",
+      "v1_scope_composition_trace_pre": "{\"rule\":\"tier_s_auto_promote_handheld\",\"tier\":\"S\",\"axis_contributions\":{\"register\":\"historical\",\"cultural_tradition\":\"vedic_hindu\",\"period\":\"modern\",\"mechanical_cell\":\"untyped\",\"proxy_density\":\"none\"},\"matching_policy\":\"option_beta_undifferentiated_floor_fill\",\"weapon_kind_classified_subtype\":\"handheld_weapon\",\"filter_passes\":[\"genre_pass\",\"weapon_kind_gate\",\"tier_s_protection\"]}"
+    },
+    {
+      "id": 202673,
+      "canonical_name": "Belt",
+      "register_canonical": "historical",
+      "historical_period_canonical": "contemporary",
+      "cultural_lineage_canonical": "european",
+      "named_mythological_match": "Robin Hood (european_medieval, tier_1)",
+      "quality_tier": "S",
+      "weapon_kind_classified_subtype": "handheld_weapon",
+      "v1_scope_composition_trace_pre": "{\"rule\":\"tier_s_auto_promote_handheld\",\"tier\":\"S\",\"axis_contributions\":{\"register\":\"historical\",\"cultural_tradition\":\"european_medieval\",\"period\":\"contemporary\",\"mechanical_cell\":\"untyped\",\"proxy_density\":\"none\"},\"matching_policy\":\"option_beta_undifferentiated_floor_fill\",\"weapon_kind_classified_subtype\":\"handheld_weapon\",\"filter_passes\":[\"genre_pass\",\"weapon_kind_gate\",\"tier_s_protection\"]}"
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "phase": "cycle-10-wave-5-5-closeout-distribution",
+  "date": "2026-05-25",
+  "v1_scope_total_post_wave_5_5": 2251,
+  "per_tier": {
+    "B": 1056,
+    "A": 670,
+    "S": 502,
+    "C": 23
+  },
+  "per_register": {
+    "historical": 1181,
+    "fantasy": 1017,
+    "military_modern": 32,
+    "mythological": 21
+  },
+  "per_register_policy_check": {
+    "historical": {
+      "count": 1181,
+      "pct": 52.46557085739671,
+      "target": [
+        0.5,
+        0.6
+      ],
+      "verdict": "WITHIN ±5pp of target [50–60%]"
+    },
+    "fantasy": {
+      "count": 1017,
+      "pct": 45.17992003553976,
+      "target": null,
+      "verdict": "(no target)"
+    },
+    "military_modern": {
+      "count": 32,
+      "pct": 1.4215904042647711,
+      "target": [
+        0.05,
+        0.1
+      ],
+      "verdict": "WITHIN ±5pp of target [5–10%]"
+    },
+    "mythological": {
+      "count": 21,
+      "pct": 0.9329187027987561,
+      "target": [
+        0.2,
+        0.3
+      ],
+      "verdict": "OUT of ±5pp tolerance vs target [20–30%]"
+    }
+  },
+  "per_cultural_tradition": {
+    "fantasy_generic": 1010,
+    "european": 910,
+    "east_asian": 203,
+    "south_asian": 55,
+    "middle_eastern": 26,
+    "southeast_asian": 23,
+    "unknown": 20,
+    "african": 2,
+    "south_american_indigenous": 1,
+    "mesoamerican": 1
+  },
+  "per_cultural_tradition_policy_check": {
+    "fantasy_generic": {
+      "count": 1010,
+      "pct": 44.86894713460684,
+      "target": [
+        0.1,
+        0.18
+      ],
+      "verdict": "OUT of ±5pp tolerance vs target [10–18%]"
+    },
+    "european": {
+      "count": 910,
+      "pct": 40.42647712127943,
+      "target": [
+        0.3,
+        0.35
+      ],
+      "verdict": "OUT of ±5pp tolerance vs target [30–35%]"
+    },
+    "east_asian": {
+      "count": 203,
+      "pct": 9.018214127054643,
+      "target": [
+        0.15,
+        0.2
+      ],
+      "verdict": "OUT of ±5pp tolerance vs target [15–20%]"
+    },
+    "south_asian": {
+      "count": 55,
+      "pct": 2.4433585073300756,
+      "target": [
+        0.05,
+        0.1
+      ],
+      "verdict": "WITHIN ±5pp"
+    },
+    "middle_eastern": {
+      "count": 26,
+      "pct": 1.1550422034651266,
+      "target": null,
+      "verdict": "(no target)"
+    },
+    "southeast_asian": {
+      "count": 23,
+      "pct": 1.0217681030653043,
+      "target": [
+        0.02,
+        0.05
+      ],
+      "verdict": "WITHIN ±5pp"
+    },
+    "unknown": {
+      "count": 20,
+      "pct": 0.888494002665482,
+      "target": null,
+      "verdict": "(no target)"
+    },
+    "african": {
+      "count": 2,
+      "pct": 0.0888494002665482,
+      "target": [
+        0.02,
+        0.05
+      ],
+      "verdict": "WITHIN ±5pp"
+    },
+    "south_american_indigenous": {
+      "count": 1,
+      "pct": 0.0444247001332741,
+      "target": null,
+      "verdict": "(no target)"
+    },
+    "mesoamerican": {
+      "count": 1,
+      "pct": 0.0444247001332741,
+      "target": [
+        0.02,
+        0.05
+      ],
+      "verdict": "WITHIN ±5pp"
+    }
+  },
+  "per_period": {
+    "fictional": 922,
+    "early_modern": 499,
+    "industrial": 371,
+    "modern": 140,
+    "classical": 114,
+    "unknown": 77,
+    "contemporary": 75,
+    "medieval": 53
+  },
+  "per_axis": {
+    "geometry": {
+      "single": 1003,
+      "cleave": 544,
+      "NULL": 442,
+      "AoE": 152,
+      "multi-hit": 50,
+      "scatter": 33,
+      "shield_blocker": 17,
+      "banner_rally_aura": 7,
+      "cone": 3
+    },
+    "range": {
+      "melee": 809,
+      "ranged": 586,
+      "NULL": 442,
+      "mid": 390,
+      "melee_close_or_grapple": 17,
+      "off_hand_aura": 7
+    },
+    "tempo": {
+      "medium": 902,
+      "low": 454,
+      "NULL": 442,
+      "high": 429,
+      "reactive_block_tempo": 17,
+      "aura_pulse_tempo": 7
+    },
+    "attribute": {
+      "DEX": 849,
+      "STR": 649,
+      "NULL": 442,
+      "WIS": 146,
+      "INT": 141,
+      "STR_or_DEX": 17,
+      "STR_or_WIS": 7
+    }
+  },
+  "per_subtype": {
+    "NULL": 1079,
+    "handheld_weapon": 961,
+    "accessory_weapon_integrated": 164,
+    "armor_shield": 34,
+    "accessory_handheld": 13
+  }
+}

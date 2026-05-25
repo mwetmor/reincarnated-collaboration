@@ -1,0 +1,29 @@
+Pre-eviction v1_scope=1 total: 2281
+Eviction candidates identified by gandalf SQL signature: 30
+(Dispatch § 2 estimate: ~50-100 rows)
+
+Per-period breakdown:
+  contemporary: 14
+  industrial: 7
+  modern: 7
+  unknown: 2
+
+Per-tier breakdown:
+  S: 30
+
+Per-cultural-lineage breakdown (top 10):
+  european: 16
+  east_asian: 7
+  unknown: 5
+  southeast_asian: 1
+  south_asian: 1
+
+Pre-eviction list saved: /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/elrond/research/cycle-10-wave-5-5-2026-05-25/eviction-candidates-pre.json
+Gandalf audit sample (10 rows) saved: /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/elrond/research/cycle-10-wave-5-5-2026-05-25/gandalf-eviction-audit-sample.json
+
+Post-eviction v1_scope=1 total: 2251
+Net Wave 5.5 Part B reduction: 30 (matches eviction count: 30)
+Smoke assertion: evicted rows still in v1_scope = 0 (must be 0)
+Evicted rows with mode_c trace marker: 30 (expected 30)
+
+Mode-C-by-semantics eviction COMPLETE.

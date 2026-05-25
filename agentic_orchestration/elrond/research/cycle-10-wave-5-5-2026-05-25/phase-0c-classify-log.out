@@ -1,0 +1,81 @@
+Pre-Wave-5.5: Tier-A NULL-subtype = 7943; of which v1_scope=1 = 1431
+Loaded 7943 Tier-A NULL-subtype rows for classification
+
+Per-subtype classification counts:
+  handheld_weapon                      D1A 3085
+  siege_vehicle                        D1C-EXCL 2086
+  ammo_consumable                      D1C-EXCL 743
+  armor_body_or_head                   D1C-EXCL 702
+  other                                D1C-EXCL 517
+  accessory_weapon_integrated          D1B 328
+  accessory_horse_or_equipment         D1C-EXCL 180
+  art_object                           D1C-EXCL 155
+  armor_shield                         D1B 126
+  accessory_handheld                   D1B 21
+
+Per-source × subtype counts:
+  -- met-museum (total 642) --
+    handheld_weapon                     365
+    armor_body_or_head                  66
+    other                               62
+    accessory_horse_or_equipment        52
+    art_object                          38
+    accessory_handheld                  21
+    armor_shield                        20
+    accessory_weapon_integrated         14
+    ammo_consumable                     4
+  -- nick-aschenbach-dnd-data (total 5) --
+    handheld_weapon                     3
+    other                               2
+  -- odin-army-tradoc (total 2258) --
+    siege_vehicle                       1814
+    ammo_consumable                     408
+    handheld_weapon                     36
+  -- pf2ools-pf2ools-data-quarantined (total 1) --
+    other                               1
+  -- royal_armouries (total 4531) --
+    handheld_weapon                     2513
+    armor_body_or_head                  629
+    other                               318
+    accessory_weapon_integrated         312
+    ammo_consumable                     290
+    accessory_horse_or_equipment        128
+    siege_vehicle                       119
+    art_object                          117
+    armor_shield                        105
+  -- wikidata (total 2) --
+    handheld_weapon                     1
+    ammo_consumable                     1
+  -- wikipedia (total 495) --
+    handheld_weapon                     166
+    siege_vehicle                       153
+    other                               126
+    ammo_consumable                     40
+    armor_body_or_head                  7
+    accessory_weapon_integrated         2
+    armor_shield                        1
+  -- wow-classic-items (total 9) --
+    other                               8
+    handheld_weapon                     1
+
+v1_scope downgrade candidates (Tier-A v1_scope=1 classifying to D1c-excluded): 761
+  armor_body_or_head                  242
+  siege_vehicle                       197
+  other                               120
+  accessory_horse_or_equipment        78
+  ammo_consumable                     70
+  art_object                          54
+
+Post-UPDATE Tier-A non-NULL subtype: 7943 (expected ~7943)
+
+Post-Wave-5.5 Phase 0c:
+  Tier-A NULL-subtype: 0 (expected 0; pre-state was 7943)
+  Tier-A v1_scope=1 NULL-subtype: 0 (expected 0; pre-state was 1431)
+  v1_scope total: 2281 (expected 2281 = 2281)
+  Per-tier v1_scope=1 distribution:
+    B: 1056
+    A: 670
+    S: 532
+    C: 23
+
+Wrote /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/elrond/research/cycle-10-wave-5-5-2026-05-25/phase-0c-tier-a-subtype-classification.json
