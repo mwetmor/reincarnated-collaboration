@@ -137,7 +137,20 @@ Layer 3 jack-ryan Gate-2 fires immediately on landing per scope-doc § 1 in-scop
 
 Layer 2 ✅ COMPLETE; both pre-Layer-4 gates fired in parallel per Discipline #19:
 - **jack-ryan Gate-2 on Layer 2** ✅ **PASS-WITH-AMENDMENTS** (zero BLOCK; 3 WARN; 2 INFO) — tag `jack-ryan/cycle-12-gate-2-rocket-layer-2-2026-05-25`; finding at `agentic_orchestration/qa/findings/2026-05-25-gate2-cycle-12-wave-1-rocket-layer-2.md`. **Critical resolution: 25-vs-22 cell discrepancy = INFO-A RESOLVED canonically** per gandalf comp-policy verdict § 1.1 ("25 cell-rows in Stage 0 roster — the '~22 distinct cells' was informal undercount due to row collapsing in aggregation"); rocket's 25-cell implementation is canonically correct. All 5 Gate-1 amendments verified disposed (WARN-2 MechanicalSubstrateTriple frozen dataclass + validate(); WARN-4 StatDistributionV2 alias + all 3 Layer-4 fields Optional + None default; WARN-6 json.dumps round-trip validate_generation_params + generator-level strip fallback; WARN-7 generation_seed always stamped; INFO-4 ENGINE_VERSION="v2.0"). Smoke gates 1-4 all PASS per 28/28 completion record. **Layer 2 COMPOSABLE for Layer 4 sequencing.**
-- **legolas MC-3 methodology consult** IN-FLIGHT (sole remaining gate for Layer 4 launch)
+- **legolas MC-3 methodology consult** ✅ COMPLETE — **CUSTOM implementation per math note v1.1 § 4.3 (NOT scipy)**. Reasoning: multi-tier voting update rule already fully specified by domain knowledge (wr_delta × bc_axis_contribution dotted against T_AXIS_SENS) — not a gradient-discovery problem; scipy 10-100× more expensive in gauntlet calls (expensive primitive); custom loop 1 gauntlet call per iteration × 22 kits × 5 iter ≈ 11-17 min. 3-phase blocked grouped update (Phase 1 SP voting + Phase 2 T4 keystone + Phase 3 trigger interaction; NOT coordinate descent or full gradient). max_iterations=5 configurable; `resume_convergence(prior_result, additional_iterations)` for bump; return best-found-so-far on cap; ESCAPE_THRESHOLD=2 at max_iter=5 / 4 at max_iter=10. scipy.minimize_scalar bounded for Dim 5 (scalar modifier) is optional post-smoke refinement only. MC-3 ↔ Gate-2-on-L2 dependency: NONE. **Critical surprise**: math note v1.1 § 10 lists 9 calibration parameters that "must be settled before W1.13 implementation fires"; only #6 (MAX_ITER) resolved by MC-3 — Layer 4 dispatch MUST include math-before-code section with initial values + Discipline #17 sweep plan for all 9 (penalty_scale, T_AXIS_SENS values, VOTE_THRESHOLD, ESCAPE_THRESHOLD, initial kit state bias, MAX_ITER, Tier 1 playability bounds, T4 candidate set size, trigger interaction effect multiplier range). Cheapest-refuting-test: 30-kit smoke; ≥80% convergence rate within max_iterations=5; per-kit WR within all 5 tier contract bounds; determinism on 5 re-runs; mage_controller regression ≥3/5; ~15-22 min wall time. Pre-implementation step: rocket verifies `run_spatial_gauntlet(kit: PlayerClass)` callable with new PlayerClassV2 shape BEFORE convergence loop written. Tag `legolas/cycle-12-mc-3-multi-dim-convergence-libraries-2026-05-25` pushed
+
+**ALL pre-Layer-4 gates CLEARED:**
+- ✅ Layer 3 + Gate-2 on L3 PASS (L4 walkability simulated)
+- ✅ Layer 2 + Gate-2 on L2 PASS-WITH-AMENDMENTS (25-vs-22 cell discrepancy resolved canonically)
+- ✅ MC-3 methodology recommendation (custom impl per § 4.3)
+
+**Layer 4 dispatch authored + firing immediately per scope-doc § 1 autonomous + skip-confirmation re-auth.**
+
+### Wave 3 — Layer 4 multi-dim convergence (CRITICAL-PATH) — IN FLIGHT
+
+| Sub-agent | Dispatch | Status |
+|---|---|---|
+| rocket Layer 4 — W1.13 multi-dim convergence | `2026-05-25-rocket-cycle-12-layer-4-multi-dim-convergence.md` | IN-FLIGHT (background) — integrates MC-3 custom impl + 9 § 10 calibration params + Discipline #17 sweep plan + Gate-2-on-L3 INFO-B math-note code-line citations per Discipline #1.2 + framing brief § 4 ConvergenceResult contract |
 
 **Rocket Layer 2 amendment queue (non-blocking for Layer 4 fire; rocket addresses at next commit opportunity):**
 - **WARN-A**: math note uses "22 cells" throughout; reconcile to 25 per gandalf verdict (may batch with Gate-2-on-L3 INFO-B math-note code-line citations per Discipline #1.2)
