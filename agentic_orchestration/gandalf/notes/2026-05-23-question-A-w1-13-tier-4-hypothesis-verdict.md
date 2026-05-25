@@ -688,3 +688,82 @@ The verdict's design-spec-as-math remains load-bearing for v1 Tier 4 validation.
 
 **Signed (addendum):** gandalf
 **Closes:** the framing-audit discipline loop for this verdict. Demonstrates the discipline working as designed — Pattern-A query within ~120 sec surfaced refutation; addendum captured at minimum cost; verdict framework intactness preserved; no downstream work miscarriage. First canonical example of the framing-audit discipline catching a pre-imposed-assumption failure on an authored verdict.
+
+---
+
+## 13. Addendum 2 — L9 substrate-split refinement (Matt 2026-05-25 framing-audit)
+
+> **Status:** Addendum 2 appended 2026-05-25 evening. Records Matt's framing-audit on this verdict's § 2.2 mathematical model. Captures the substrate-split refinement (mechanical vs semantic) that emerged from Matt's question "What value will substrates add mathematically? cultural tradition, lineage, period — I think these only serve to restrict the pool of weapons (and hidden named personages) as well as add flavor text. If there is no mathematical purpose, why add them to these mathematical algorithms/tests?"
+
+### 13.1 The framing-audit Matt surfaced
+
+The verdict's § 2.2 mathematical model treated `substrate_triple` constituents as an undifferentiated set. Matt's framing-audit on this verdict (during Cycle 11 close + Cycle 12 framing brief authoring 2026-05-25) revealed that substrate dimensions split into TWO categories:
+
+| Mechanically active (legitimately enter BDI math) | Semantically active only (NOT in BDI math) |
+|---|---|
+| element | cultural_tradition |
+| weapon_kind | lineage |
+| weapon_mechanical_profile (range, tempo, amplitude, AoE, primary_stat, hits_per_attack) | period |
+| energy_type | |
+| BC-target cell attributes (range × tempo × amplitude × attribute × proxy-density) | |
+
+**Cultural_tradition / lineage / period** don't have INDEPENDENT mathematical content. They are LABELS that correlate with mechanically-distinctive kit shapes but don't cause them. Statistically: they would be multicollinear with the mechanical dimensions; including them adds noise without independent signal.
+
+### 13.2 Refined mathematical model (L9)
+
+```
+kit_power = α·(class)
+          + β·Σ(mechanical_substrate_pairs)
+          + γ·mechanical_substrate_triple
+          + δ·T4_node
+          + η·(T4_node × mechanical_substrate_triple)
+          + ε
+```
+
+Where `mechanical_substrate = {element, weapon_kind, weapon_mechanical_profile, energy_type, range_profile, BC-target cell attributes}`.
+
+Cultural_tradition / lineage / period become **semantic overlay** that:
+- Restricts which mechanical_substrate values are available (weapon pool restriction via v1_scope)
+- Names + narrates the kit (cohesion-judge + spirit-guide explainer per skill-system § 9)
+- Feeds composition-policy proportionality targets (Sketch D heuristics)
+- **Does NOT enter the BDI math model directly**
+
+### 13.3 Implication for § 8 algorithm opportunity-scan triggers
+
+The legolas methodology recommendation 2026-05-25 (Algorithm § 8 v1 implementation) had opportunity-scan triggers using cultural_tradition heuristics:
+- **ELEMENT_CONVERSION:** "substrate cultural-tradition has strong fire resonance" (e.g., Zoroastrian fire-cult, Aztec obsidian-fire)
+- **DEFENSIVE_CONVERSION:** "substrate cultural-tradition is heavy-armor-associated" (e.g., Medieval European plate, Japanese do-maru)
+
+**Per L9 refinement:** these triggers should be refactored to use mechanical_substrate signals (e.g., "kit has element-resonance to fire" measured via element + weapon_mechanical_profile + skill-binding properties, NOT via cultural_tradition tag).
+
+**This refactor is part of Cycle 12 Layer 6 § 8 wire-up work** per `agentic_orchestration/gandalf/notes/2026-05-25-cycle-12-new-engine-parallel-build-framing-brief.md` L9 + Layer 6 scope.
+
+### 13.4 Framework intactness — confirmed
+
+The verdict's core mathematical model SHAPE (α/β/γ/δ/η coefficients; rank-ladder hypothesis; interaction term for build-defining-ness; § 4-5 H8/H8.diff/H9 hypothesis tests; § 6.1 G1-G4 acceptance gates) **remains intact regardless of this addendum.**
+
+What this addendum changes:
+- § 2.2 substrate_triple constituents clarified: mechanical only, not full union
+- § 8 opportunity-scan trigger design (downstream of this verdict) gets L9 refactor
+
+What this addendum does NOT change:
+- α/β/γ/δ/η rank-ladder mathematical model — intact (just with refined substrate scope)
+- H8/H8.diff/H9 hypothesis tests — intact (operate against mechanical_substrate per L9)
+- G1-G4 acceptance gates — intact
+- Sequencing per § 12 — intact (Layer 7 BDI tests still gated on Layer 2-6 lands per Option γ Cycle 12)
+
+### 13.5 Discipline architecture observation — SECOND canonical example of framing-audit on authored verdict
+
+Per § 12.1 / OP § 4.5: this verdict's first canonical example of framing-audit was the gamora Pattern-A query 2026-05-23 (P1 + W1.13 + W1.20 chain UNMET).
+
+**Addendum 2 is the SECOND canonical example.** Matt's question 2026-05-25 surfaced a load-bearing framing assumption (substrate dimensions as undifferentiated mathematical variables) and refuted it via design reasoning. The refutation triggered:
+- L9 substrate split lock (mechanical vs semantic)
+- Layer 6 § 8 wire-up scope refinement (opportunity-scan refactor)
+- Framing-brief update (R1 of W1.13+W1.20 → R2 of Cycle 12 Option γ; old brief SUPERSEDED preserving L1-L8 as canonical for future Cycle 13+)
+
+**Pattern:** framing-audit catches pre-imposed-assumption failures via design-reasoning question; refutation triggers downstream refinement at minimum cost; framework SHAPE preserved; downstream scope refined to align with refined framing.
+
+---
+
+**Signed (addendum 2):** gandalf 2026-05-25 (evening)
+**Closes:** the L9 substrate-split refinement loop for this verdict. Second canonical example of framing-audit discipline working on an authored verdict; downstream scope refinements (Layer 6 § 8 wire-up; Cycle 12 framing brief authoring) absorb the L9 refinement cleanly.

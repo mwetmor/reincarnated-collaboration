@@ -4,7 +4,53 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
-## 2026-05-25 (Cycle 10 substrate-curation workstream FULLY CLOSED pending Matt cycle-level final tag ratification — hive-mind-scope-discipline FIRST-TEST session VERDICT: PROVEN EFFECTIVE + all 7 Waves + 2 Sidecars CLOSED with 10 seam-prefixed tags pushed + 5 post-cycle continuation dispatches FIRED in parallel per skip-confirmation directive)
+## 2026-05-25 — Cycle 10 CLOSED + Cycle 11 IN-FLIGHT Tier 2 + Cycle 12 OPENED Option γ + L9 substrate split + Pi recognition record + hive-mind-scope-discipline 3 applications (post-KR-Cycle-10-close + Matt log-back session)
+
+**Event:** Substantive design+ session producing 3 cycle transitions + 2 architectural recognitions + 1 discipline refinement.
+
+**Cycles state:**
+- **Cycle 10:** ✅ FULLY CLOSED with tag `v1.0-weapon-substrate-cycle-10-shipped` cut + pushed at commit `75a1891` (per prior 2026-05-25 entry in this CHANGELOG; KR autonomous-run session)
+- **Cycle 11 (v1 implementation push):** ✅ OPENED 2026-05-25; § 8 BC-shift sweep escape-hatch fired → diagnostic triple-fire → unanimous "architecture sound; test misaligned" verdict → Matt Tier 2 ratification → Wave 3b drax M3/M6 firing → close target ~3-5 days
+- **Cycle 12 (v1 full new engine parallel-build Option γ):** ✅ OPENED 2026-05-25; framing brief RATIFIED with L1-L11 + interface contract § 4; scope-doc + KR kicker authored; Layers 2+3+4+6 parallel-build over ~3-5 weeks to T4 post-mortem readiness milestone
+
+**Architectural recognitions:**
+- **L9 substrate split (mechanical vs semantic):** Matt 2026-05-25 framing-audit on Q-A verdict 2026-05-23 § 2.2 surfaced that cultural_tradition/lineage/period are SEMANTIC OVERLAY (NOT in BDI math model). Q-A verdict back-amended with addendum 2 (SECOND canonical example of framing-audit on authored verdict). § 8 algorithm opportunity-scan triggers will refactor per L9 in Cycle 12 Layer 6 work.
+- **Pi infrastructure recognition record:** authored `canonical/story/infrastructure-raspberry-pi-postgres-and-closed-loop-pipeline-2026-05-25.md` with 13 decisions (D1-D10) + 13 empirical gates (G1-G13); Matt P2a ratified D1 (Pi-Postgres engine-internal + hosted-Postgres loadout CONDITIONAL per D4 amendment); G1 SQLite contention TRIGGERED with 4 kernel panics confirmed; G12 LLM cache NOT TRIGGERED; execution DEFERRED to Matt "right moment".
+
+**Discipline applications (hive-mind-scope-discipline 3rd cycle):**
+- Cycle 10 founding retroactive — DISCIPLINE PROVEN EFFECTIVE (per below morning entry)
+- Cycle 11 first prospective — discipline-test outcome: escape-hatch fired correctly on BC-shift FAIL; KR escalated via diagnostic triple-fire pattern; Matt re-engagement at Tier 2 ratification (per scope-doc § 5 explicit out-of-scope item — architectural design call); pattern HOLDS UNDER ESCAPE-HATCH FIRE
+- Cycle 12 second prospective — opens with bundled Cycle 11 close + Cycle 12 open KR prompt (different specialists; no contention)
+
+**Discipline refinements added 2026-05-25:**
+- L11 strict 4-tuple BC-target matching for gauntlet sim (Cycle 12 scope); broader weapon-equip flexibility = v1.1+ design concept (captured for future Pattern-B design call)
+- Skip-confirmation fire-forward pattern PROVEN under Cycle 10 close; available for future cycles via Matt re-authorization
+- Bundled cycle-transition KR prompt pattern (Cycle 11 close + Cycle 12 open in one prompt) PROVEN viable
+
+**Commit tags this evening (gandalf canonical work):**
+- (no new git tags; substantive content lands as commits + canonical docs)
+- Commits: `345dfbd` / `4a49ef1` / `af6606b` / `b67f12e` / `9fda174` / `2ce16fd` / `b38b567` / `e20dc88` / `ae5cd97` / `46e67fa` / `849217c` / `d05630a` / `acbb302` (gandalf design+ + KR orchestration over the session arc)
+
+**Matt-side decisions ratified this evening:**
+- Tier 2 for § 8 BC-shift FAIL response
+- L9 substrate split (mechanical vs semantic)
+- New engine architecture requirement (build new BC-target subspace generator before BDI tests)
+- Option γ (full new engine; defer Layer 7 BDI tests to v1.1)
+- L11 strict 4-tuple gauntlet matching (broader equip-flexibility = v1.1+ deferred concept)
+- D1 Pi-Postgres infrastructure path RATIFIED with Matt "right moment" execution deferral
+- D4 hosted-Postgres for loadout AMENDED to DEFERRED CONDITIONAL
+- D8 Tailscale install authorized for Matt 15-min window
+- D9 LLM cache DEFERRED (G12 NOT TRIGGERED)
+- Cycle 12 framing brief BULK RATIFIED (8 Q-items + interface contract)
+
+**Active workstreams transitioned (per ground-state § 5):**
+- Cycle 10 → CLOSED
+- Cycle 11 → IN-FLIGHT (Tier 2 / Wave 3b)
+- Cycle 12 → OPENING (Option γ parallel-build)
+
+---
+
+## 2026-05-25 — Cycle 10 substrate-curation workstream FULLY CLOSED pending Matt cycle-level final tag ratification — hive-mind-scope-discipline FIRST-TEST session VERDICT: PROVEN EFFECTIVE + all 7 Waves + 2 Sidecars CLOSED with 10 seam-prefixed tags pushed + 5 post-cycle continuation dispatches FIRED in parallel per skip-confirmation directive (KR autonomous-run session)
 
 **Event:** Cycle 10 substrate-curation workstream FULLY COMPLETE. Final v1_scope = 2,293 (within ~1,700-3,100 envelope); all jack-ryan Gate-2 PASSes recorded; all gandalf curation verdicts PASS; round-trip Principle 6 PASS at 3 of 4 boundaries with 4th classified as Variant C structural per Phase 2 substrate-binding work item.
 
