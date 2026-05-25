@@ -37,19 +37,47 @@ Per scope-doc:
 
 ---
 
-## Cycle 10 wind-down — COMPOSITE RATIFICATION PROTOCOL
+## Cycle 10 wind-down — SKIP-CONFIRMATION FIRE-FORWARD PROTOCOL (Matt 2026-05-25 directive)
 
-Instead of stopping at wind-down and waiting separately for post-cycle authorization, draft these THREE artifacts together and surface them in ONE ratification ask to Matt:
+**Matt has authorized skipping the end-of-Cycle-10 confirmation gate.** Instead of pausing at wind-down for ~15 min Matt ratification, KR:
 
-  (a) **Cycle 10 wind-down summary + final-tag proposal** (per hive-mind-protocol.md § 9.2 cycle wind-down pattern; recommend tag `v1.0-weapon-substrate-cycle-10-shipped` or your judgment)
-  (b) **Post-cycle continuation dispatch list** (see below)
-  (c) **Brief assessment of any Cycle-10 empirical findings that shift post-cycle priorities** (e.g., substrate-tagging issues from Sidecar B; thin-cell patterns that warrant Path C follow-on substrate-refinement crawl per the path discussion 2026-05-25)
+1. **Drafts THREE artifacts at known paths:**
+   - (a) **Cycle 10 wind-down summary** at `agentic_orchestration/cycle-10-wind-down-summary-<YYYY-MM-DD>.md` (per hive-mind-protocol.md § 9.2 cycle wind-down pattern)
+   - (b) **Final-tag PROPOSAL** in (a) above (recommend tag `v1.0-weapon-substrate-cycle-10-shipped` or your judgment) — but DO NOT cut the tag yet; Matt cuts on log-back-confirm
+   - (c) **Brief assessment of any Cycle-10 empirical findings that shift post-cycle priorities** (e.g., substrate-tagging issues from Sidecar B; thin-cell patterns that warrant Path C follow-on substrate-refinement crawl per the path discussion 2026-05-25) — included in (a) above as a § "Cycle-10 empirical findings"
 
-**Matt ratifies all three in one short interaction (~15 min target).** This compresses the wind-down ratification + post-cycle authorization into a single touch.
+2. **Fires post-cycle continuation dispatches immediately** (see "Post-cycle continuation" section below) without waiting for Matt ratification — Matt will confirm or dive into triage when he logs back on
+
+3. **Matt's deferred-confirmation protocol** (on his log-back):
+   - **Path 1 (confirm):** Matt reads wind-down summary; if clean, cuts final tag `v1.0-weapon-substrate-cycle-10-shipped`; post-cycle work continues autonomously per dispatches already fired
+   - **Path 2 (triage):** Matt identifies issue in wind-down artifact or in post-cycle dispatch output; instructs KR on adjustment; KR pauses affected post-cycle work and remediates per instruction
+
+### Why fire-forward without confirmation gate is safe here
+
+NONE of the post-cycle continuation dispatches (1-5 below) depend on substrate v1.0 LOCK being final:
+- W1.13 → engine balance work (independent of substrate finality)
+- Algorithm § 8 consult → methodology research (independent)
+- Loadout readiness scoping → scoping work (independent)
+- G1 / G12 measurements → telemetry analysis (independent)
+
+If Matt's log-back triage surfaces a substrate amendment requirement, none of the in-flight post-cycle work is blocked or wasted — they all proceed in parallel with substrate amendments if needed.
+
+### Composite wind-down filing requirements
+
+The wind-down summary at the known path MUST include:
+- Per-Wave outcome summary (Wave 5 / 6 / 7 / Sidecars A + B)
+- v1_scope output stats (total count; per-axis distribution; per-tier counts; cell coverage analysis)
+- Substrate-quality observations (any thin-cell patterns or Sidecar B substrate-tagging artifacts surfaced)
+- Final-tag PROPOSAL (don't cut)
+- Post-cycle dispatch summary (which dispatches fired; PIDs/IDs; expected return windows)
+- Open items for Matt log-back attention (sorted by priority)
+- Triage decision tree (if Matt finds X, instruction is Y; if Z, instruction is W) — minimize Matt's load on log-back
+
+This is now the FIRST canonical example of the **fire-forward-with-deferred-confirmation** pattern. If it works, it propagates to future cycle wind-downs.
 
 ---
 
-## Post-cycle continuation (fires after Matt composite ratification)
+## Post-cycle continuation (fires IMMEDIATELY after Cycle 10 wind-down filing — no Matt confirmation gate)
 
 KR autonomously dispatches the following in parallel where dependencies allow:
 
@@ -98,12 +126,15 @@ KR autonomously dispatches the following in parallel where dependencies allow:
 
 ## Next Matt-call expectations
 
-In sequence:
-1. **First:** composite wind-down ratification (~15 min target)
-2. **Then:** Algorithm § 8 scope-lock after legolas consult returns (~1-3 days post-ratification depending on consult turnaround)
-3. **Then:** loadout readiness scope-lock when drax + star-lord output returns
-4. **Then:** D1 infrastructure decision when G1 data returns
+Per skip-confirmation directive 2026-05-25, the wind-down ratification gate is deferred to Matt's log-back. Sequence becomes:
+
+1. **First (Matt log-back):** read wind-down summary → confirm or triage → cut `v1.0-weapon-substrate-cycle-10-shipped` tag IF clean
+2. **Then:** Algorithm § 8 scope-lock after legolas consult returns (~1-3 days from dispatch fire; may be in-flight or returned by Matt log-back)
+3. **Then:** loadout readiness scope-lock when drax + star-lord output returns (may be in-flight or returned by Matt log-back)
+4. **Then:** D1 infrastructure decision when G1 data returns (likely returned by Matt log-back — small dispatch)
 5. **In parallel:** W1.13 gamora work proceeds autonomously through jack-ryan Gate-2; surfaces Matt-touch only if it generates substantive findings requiring decision
+
+If multiple post-cycle dispatches have returned by Matt's log-back, KR composites them into the wind-down filing OR a separate "post-cycle status snapshot" doc so Matt has a single read-surface.
 
 ---
 
@@ -119,9 +150,11 @@ This session is the **first test** of the hive-mind-scope-discipline pattern (la
 - Architectural amendments to canonical docs
 - Scope amendments to Cycle 10 OR to the post-cycle continuation dispatch list above
 - Cross-cycle commits beyond post-cycle continuation enumerated above
-- Final cycle tag (composite-ratified per protocol above)
 - ADR-002 tier-2/3 decisions
 - Genuine specialist deadlock that gandalf + relevant seam cross-collaboration can't resolve
+- **Catastrophic Cycle 10 outcome** that contraindicates firing post-cycle dispatches (e.g., substrate corruption; v1_scope output dramatically off from ~1,700-3,100 target; jack-ryan BLOCK requiring architectural amendment) — in this narrow case, surface for Matt log-back BEFORE firing post-cycle dispatches; otherwise fire-forward per skip-confirmation directive
+
+**Final cycle tag is NOT in the ask-Matt list anymore for the wind-down-fire-forward path** — KR drafts wind-down summary at known path; Matt cuts the tag on log-back-confirm.
 
 **When NOT to ask Matt (this session):**
 - Anything in scope-doc § 1-3 (dispatches, sub-agent sequencing, Wave-handling, intermediate tags, state-file updates, Gate-1 coordination, routine commits, per-wave pushes)
@@ -164,13 +197,20 @@ Per ground-state.md § 5 + KR commit `04509ad`:
 
 ## Closing
 
-The discipline is live. The scope-doc is ratified. Push posture is `push-per-wave`. Composite wind-down ratification protocol authorized. Post-cycle continuation dispatches (1-5) authorized.
+The discipline is live. The scope-doc is ratified. Push posture is `push-per-wave`. Skip-confirmation fire-forward protocol authorized. Post-cycle continuation dispatches (1-5) authorized to fire immediately after wind-down filing — no Matt confirmation gate.
 
 Fire forward. If this session demonstrates the discipline holds (no ask-safety pauses on in-scope items), the pattern propagates to all future hive-mind cycles via the amended entry protocol.
 
-**Confirm understanding** (brief acknowledgment that scope-doc + post-cycle continuation list is read), **then operate.**
+**Confirm understanding** (brief acknowledgment that scope-doc + skip-confirmation directive + post-cycle continuation list is read), **then operate.**
+
+When Matt logs back on, his read-surface is:
+1. The wind-down summary at `agentic_orchestration/cycle-10-wind-down-summary-<YYYY-MM-DD>.md`
+2. Any post-cycle dispatch returns that landed before he logged back
+3. Whatever post-cycle status snapshot you composed if multiple dispatches returned
+
+His action surface is: confirm and cut the tag, OR triage. Make the read fast.
 
 ---
 
-**Drafted by:** gandalf 2026-05-25 (updated same-day to include composite wind-down + post-cycle extension)
-**For Matt to relay** to knight-rider session-open. Knight-rider's response shape: read scope-doc + discipline + kicker → confirm understanding → fire Wave 5 → drive forward through Cycle 10 → draft composite wind-down ratification → surface for Matt → continue into post-cycle dispatches.
+**Drafted by:** gandalf 2026-05-25 (updated same-day to include: composite wind-down → post-cycle extension → skip-confirmation fire-forward directive per Matt 2026-05-25)
+**For Matt to relay** to knight-rider session-open. Knight-rider's response shape: read scope-doc + discipline + kicker → confirm understanding → fire Wave 5 → drive forward through Cycle 10 → draft wind-down summary at known path → fire post-cycle dispatches immediately → continue executing until natural seam-pause or post-cycle returns warrant compositing for Matt log-back.
