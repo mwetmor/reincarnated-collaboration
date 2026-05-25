@@ -105,14 +105,14 @@ Per jack-ryan Gate-1 finding (CLEAR-WITH-AMENDMENTS verdict; no BLOCK; no Matt e
 - L11 strict 4-tuple matching enforcement — implicit at generator level (acceptable; not a per-instance property)
 - ConvergenceResult.per_dim_adjustments open-schema — acceptable; legolas MC-3 gates L4 implementation
 
-**Sequencing implication (UPDATED post-gandalf comp-policy return):** rocket L2 + L3 dispatch authoring is GATED on:
-- (a) jack-ryan Gate-1 = CLEAR ✅
-- (b) legolas MC-1 ✅ (Hybrid H3 sampling methodology)
-- (c) legolas MC-2 ✅ (hybrid filter-then-sample substrate-binding)
-- (d) gandalf comp-policy § 4 coverage gap ✅ (Option B — 12-cell explicit overrides + default heuristic; Cell 20 v1.1+ amendment flag)
-- (e) elrond pre-Layer-2 prep (per-cell register breakdown + element_weapon_kind_coherence_matrix) — **SOLE REMAINING BLOCKER** IN-FLIGHT
+**Sequencing implication — ALL 5 PREREQS CLEARED ✅:**
+- (a) jack-ryan Gate-1 ✅ — CLEAR-WITH-AMENDMENTS (7 WARN + INFO-4 queued for L2/L3 integration)
+- (b) legolas MC-1 ✅ — Hybrid H3 sampling methodology
+- (c) legolas MC-2 ✅ — hybrid filter-then-sample substrate-binding
+- (d) gandalf comp-policy § 4 ✅ — Option B (12-cell overrides + default heuristic; Cell 20 v1.1+ flag)
+- (e) elrond pre-Layer-2 prep ✅ — per-cell register breakdown + coherence matrix variant 2.C + 4 substrate gaps captured
 
-When (e) returns, KR authors rocket L2 + L3 dispatches integrating: Gate-1 7 WARN + INFO-4 amendments + MC-1 Hybrid H3 recommendation + MC-1 cells 14/15/17/23 routing (all in LOCKED 12; thin-cell-fallback is runtime safety net only) + MC-2 hybrid filter-then-sample scoring (0.40·tier + 0.35·cell_match + 0.15·coherence + 0.10·novelty) + MC-2 thin-cell-fallback cascade + elrond per-cell register breakdown weights + elrond coherence matrix as Layer 2 input + gandalf comp-policy § 4 Option B (12-cell explicit override list per verdict memo § 3 + default hybrid heuristic for un-routed cells + Cell 20 Holy Knight Option C cross-attribute routing + v1.1+ § 4.1 one-line amendment queued). Rocket L2 + L3 fire in PARALLEL per Q4 Option B.
+**Rocket L2 + L3 dispatch authoring fires NOW** per Q4 Option B parallel sequencing. KR integrates ALL 5 prereqs + KR direct DB verification finding (v1_scope = 2,293 actual vs 3,042 dispatch-quoted; Tier-A drift) into both dispatches. Cells 11/22/24 routing follows gandalf Option B default heuristic + thin-cell-fallback per MC-2 § 5.2 (queue v1.1+ § 4.1 amendment alongside Cell 20).
 
 ### Wave 0.5 — Pre-Layer-2 prep fires (surfaced by MC-1/MC-2 returns)
 
@@ -121,7 +121,7 @@ MC-1 + MC-2 both COMPLETE with prereq-artifact requirements for rocket Layer 2 d
 | Prereq | Owner | Source | Status |
 |---|---|---|---|
 | Per-cell register breakdown (MC-1 surprise 1 — level-of-analysis gap) | elrond | MC-1 § "Surprise 1" | IN-FLIGHT (combined with coherence matrix in single dispatch) |
-| `element_weapon_kind_coherence_matrix` from Tier S/A frequency (MC-2 flag 3 — required Layer 2 input) | elrond | MC-2 § "Flag 3" | IN-FLIGHT (combined with register breakdown in single dispatch) |
+| `element_weapon_kind_coherence_matrix` from Tier S/A frequency (MC-2 flag 3 — required Layer 2 input) | elrond | MC-2 § "Flag 3" | ✅ COMPLETE (combined w/ register breakdown — tag `elrond/cycle-12-pre-layer-2-prep-2026-05-25` @ commit `42f69dc`); 3 matrix variants delivered (2.A S+A strict per MC-2 spec too sparse 46/1,214 element-typed; 2.B S+A+B richer per elrond judgment; **2.C row-normalized = recommended direct-consumption form for MC-2 scoring**). 4 substrate gaps surfaced: (1) v1_scope row-count discrepancy 3,042 dispatch-quoted vs **2,293 actual** (KR direct-verified via SQL: H 1,202 + F 1,022 + Myth 37 + MM 32; per-tier S=539, A=675, B=1,056, C=23; Tier-A lost 756 rows since Cycle 10 wind-down — likely Cycle 10 Stage 4 mechanical-tagging or subsequent curation; capture v1.1+ reconciliation queue); (2) no `element` column on substrate — keyword-inference matrix used; v1.1+ schema-evolution; (3) `tome`/`focus` defined but zero-populated — rocket L2 uses category-row fallback; (4) Cells 11 (Red Mage) + 22 (Monk) + 24 (Artillery Mage) un-routed per § 4.1 — per gandalf Option B verdict: default hybrid heuristic + thin-cell-fallback; capture v1.1+ § 4.1 amendment alongside Cell 20 Holy Knight. Wind (8 rows) + lightning (5 rows) in S+A+B critically thin — thin-cell-fallback fires routinely for wind/lightning kits |
 | Composition policy v1 § 4 coverage gap confirmation (only 12 of 22 cells locked) | gandalf Pattern A-light | MC-2 § "Flag 2" | ✅ COMPLETE — **CONFIRMED gap**: § 4.1 locks 12 cells; ~13 cells un-routed. **Recommendation: Option B** — Layer 2 fires with default hybrid filter-then-sample heuristic per MC-2 § 3.3 for un-routed cells; locked § 4.1 routing overrides default for 12 explicit cells; capture gap for v1.1+ canonical authoring. **MC-1 surprise 2 cells (14/15/17/23) ALL in LOCKED 12** — thin-cell-fallback is runtime safety net only. **One true gap: Cell 20 Holy Knight** (Option C hybrid candidate; one-line § 4.1 amendment in post-Cycle-12 canonical-amendment pass; non-blocking, no Pattern B needed). Verdict memo § 3 contains specific dispatch text for L2 integration. Tag `gandalf/cycle-12-comp-policy-section-4-coverage-gap-confirmation-2026-05-25` |
 | Cells 14/15/17/23 BLOCKED-status awareness in Layer 2 dispatch (MC-1 surprise 2) | KR authoring | MC-1 § "Surprise 2" | KR integrates at L2 dispatch authoring (no new sub-agent needed — composition policy § 4.1 routing table is consumed by L2 dispatch text + by L2 generator runtime) |
 
