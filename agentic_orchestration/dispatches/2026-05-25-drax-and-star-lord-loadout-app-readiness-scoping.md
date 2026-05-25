@@ -122,3 +122,25 @@ Round-trip: not applicable — scoping work; no production code changes; no sche
 **Status:** FIRE — scoping work only; Matt scope-locks before any implementation fires
 
 **Matt-touch sequence:** scoping memo lands → Matt reads → Matt scope-locks for implementation OR triages → knight-rider routes implementation dispatch if scope-locked
+
+---
+
+## Completion record
+
+**Completed by:** drax
+**Date:** 2026-05-25
+**Commit:** `ebb3ae8`
+**Tag:** `drax/loadout-readiness-scoping-2026-05-25`
+
+**Acceptance criteria check:**
+- [x] Scoping memo authored at `agentic_orchestration/drax/notes/2026-05-25-loadout-app-readiness-scoping.md`
+- [x] Memo covers data plumbing surface (star-lord cross-reference) + player-facing surface (drax lead) + cross-cutting
+- [x] v1.0 MUST-HAVE list explicit (M1-M6)
+- [x] v1.1+ deferred list explicit (D1-D13)
+- [x] Resource-bounds projection per surface area (~6 drax days + ~2-3.5 star-lord days + ~1-2 weeks rocket algorithm)
+- [x] Cross-references to Pi recognition record (G4 Vercel reachability) + Variant C implications
+- [x] Memo returns for Matt scope-lock before any implementation work fires
+- [x] Auto-commit under drax seam
+- [x] Tag: `drax/loadout-readiness-scoping-2026-05-25`
+
+**Push:** awaiting Matt push authorization per ADR-006
