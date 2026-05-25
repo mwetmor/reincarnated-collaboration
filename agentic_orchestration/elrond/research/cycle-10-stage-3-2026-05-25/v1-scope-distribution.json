@@ -1,0 +1,329 @@
+{
+  "schema_version": "1.0",
+  "report_kind": "phase_3_v1_scope_distribution",
+  "cycle": 10,
+  "stage": 3,
+  "phase": 3,
+  "date": "2026-05-25",
+  "owner": "elrond",
+  "dispatch": "agentic_orchestration/dispatches/2026-05-24-elrond-cycle-10-stage-3-v1-scope-materialization.md",
+  "phase_2_commit": "f80b72a",
+  "phase_2_tag": "elrond/v0.0-cycle-10-stage-3-phase-2-v1-scope-2026-05-25",
+  "substrate_db": "/Users/admin/Games/reincarnated-loadout/data/telemetry.db",
+  "composition_policy_doc": "canonical/story/weapon-substrate-composition-policy-v1-2026-05-24.md",
+  "sketch_doc": "canonical/story/v1-bc-target-intent-2026-05-24.md",
+
+  "v1_scope_total": 3042,
+  "substrate_total": 89841,
+  "envelope": {"lower": 1700, "upper": 3100, "actual": 3042, "within": true},
+
+  "per_tier_counts": {
+    "S": {"v1_scope": 532, "substrate_total": 1126, "inclusion_rate_pct": 47.2,
+          "subdivision": {"handheld_weapon_d1a": 437, "armor_shield_d1b": 10, "accessory_handheld_d1b": 8, "accessory_weapon_integrated_d1b": 77, "d1c_excluded_total": 560}},
+    "A": {"v1_scope": 1431, "substrate_total": 7943, "inclusion_rate_pct": 18.0,
+          "sub_phase_a_metrics": {"selected": 1451, "mm_trim_skip": 1830, "reg_cap_skip": 3866, "cell_cap_skip": 311}},
+    "B": {"v1_scope": 1056, "substrate_total": 58315, "inclusion_rate_pct": 1.8,
+          "sub_phase_metrics": {"sub_phase_b_archetype_floor_fill": 779, "sub_phase_c_register_target": 279, "swap_repair_net_add": 8}},
+    "C": {"v1_scope": 23, "substrate_total": 22457, "inclusion_rate_pct": 0.1, "note": "fantasy_generic concentrated (21 of 23)"}
+  },
+
+  "per_axis_distribution": {
+    "register": {
+      "gate": "within_5pp",
+      "result": "PASS",
+      "flag_for_sign_off": "historical at +5.0pp edge",
+      "actuals": {"historical": 1749, "fantasy": 1028, "military_modern": 243, "mythological": 22},
+      "actual_shares_pct": {"historical": 57.5, "fantasy": 33.8, "military_modern": 8.0, "mythological": 0.7},
+      "target_shares_pct": {"historical": 52.5, "fantasy": 32.5, "military_modern": 6.5, "mythological": 1.5},
+      "delta_pp": {"historical": 5.0, "fantasy": 1.3, "military_modern": 1.5, "mythological": -0.8}
+    },
+    "cultural_tradition": {
+      "result": "FLAG_FOR_SIGN_OFF",
+      "key_finding": "european+fantasy_generic = 83.1% combined; +30-38pp over composition policy targets; thin-tradition Sidecar B priority signal",
+      "actuals": {
+        "european": {"v1_scope": 1505, "share_pct": 49.5, "target_form_pct": 18.0, "target_substrate_pct_band": [30, 35], "delta_vs_substrate_upper_pp": 14.5},
+        "fantasy_generic": {"v1_scope": 1021, "share_pct": 33.6, "target_form_pct": 20.0, "target_substrate_pct_band": [15, 18], "delta_vs_substrate_upper_pp": 15.6, "note": "HEFTY per Matt; spirit-aligned"},
+        "east_asian": {"v1_scope": 323, "share_pct": 10.6, "target_form_pct": 15.0, "target_substrate_pct_band": [17, 20], "delta_vs_substrate_lower_pp": -6.4, "note": "under-represented; lifted by GF-1 Hattori Hanzō + GF-2 Lu Bu"},
+        "south_asian": {"v1_scope": 78, "share_pct": 2.6, "target_form_pct": 4.0, "target_substrate_pct_band": [3, 4], "delta_vs_substrate_lower_pp": -0.4, "note": "Karna substrate-resident-but-zero finding compounds"},
+        "middle_eastern": {"v1_scope": 44, "share_pct": 1.4},
+        "southeast_asian": {"v1_scope": 28, "share_pct": 0.9},
+        "unknown": {"v1_scope": 25, "share_pct": 0.8, "note": "Sidecar B revisit candidate"},
+        "mesoamerican": {"v1_scope": 8, "share_pct": 0.3, "target_form_pct": 4.0, "delta_vs_target_pp": -2.7, "note": "lifted by GF-3 Moctezuma + Sidecar B"},
+        "african": {"v1_scope": 7, "share_pct": 0.2, "note": "Sidecar B Sub-Saharan-African target"},
+        "south_american_indigenous": {"v1_scope": 2, "share_pct": 0.07},
+        "oceanic": {"v1_scope": 1, "share_pct": 0.03}
+      }
+    },
+    "period": {
+      "result": "SUBSTRATE_LED_PASS",
+      "key_finding": "medieval+classical = 8.7% combined; under composition policy guidance of 10-15% by 1.3-6.3pp; Stage 3.5 + Sidecar B medieval lift expected",
+      "actuals": {
+        "fictional": {"v1_scope": 923, "share_pct": 30.3, "substrate_share_pct": 20.2},
+        "early_modern": {"v1_scope": 771, "share_pct": 25.4, "substrate_share_pct": 19.7},
+        "industrial": {"v1_scope": 479, "share_pct": 15.8, "substrate_share_pct": 10.0},
+        "contemporary": {"v1_scope": 317, "share_pct": 10.4, "substrate_share_pct": 11.2},
+        "modern": {"v1_scope": 200, "share_pct": 6.6, "substrate_share_pct": 8.8},
+        "medieval": {"v1_scope": 134, "share_pct": 4.4, "substrate_share_pct": 2.7, "target_band_pct": [10, 15], "note": "under-target; Stage 3.5 + Sidecar B lift expected"},
+        "classical": {"v1_scope": 132, "share_pct": 4.3, "substrate_share_pct": 7.6, "target_band_pct": [10, 15], "note": "trim — under composition policy guidance"},
+        "unknown": {"v1_scope": 85, "share_pct": 2.8, "substrate_share_pct": 19.8},
+        "pre_classical": {"v1_scope": 1, "share_pct": 0.03}
+      }
+    },
+    "mechanical_cell_proxy_attribute_class": {
+      "result": "FLAG_FOR_SIGN_OFF",
+      "key_finding": "typed-only DEX/STR-skewed +33pp combined; INT/WIS-thin -35pp combined; Architecture B Option β/C absorbs caster forms by design; Stage 4 mechanical-tagging priority to surface NULL-typed INT/WIS",
+      "typed_total": 1890,
+      "untyped_total": 1152,
+      "typed_share_pct": 62.1,
+      "actuals_typed_only": {
+        "DEX": {"v1_scope": 926, "share_of_typed_pct": 49.0, "target_form_pct": 27.0, "delta_pp": 22.0},
+        "STR": {"v1_scope": 673, "share_of_typed_pct": 35.6, "target_form_pct": 24.0, "delta_pp": 11.6},
+        "WIS": {"v1_scope": 149, "share_of_typed_pct": 7.9, "target_form_pct": 24.0, "delta_pp": -16.1},
+        "INT": {"v1_scope": 142, "share_of_typed_pct": 7.5, "target_form_pct": 27.0, "delta_pp": -19.5}
+      }
+    },
+    "mechanical_cell_proxy_range_class_typed_only": {
+      "melee": 821, "ranged": 664, "mid": 405
+    },
+    "mechanical_cell_proxy_tempo_class_typed_only": {
+      "medium": 932, "low": 512, "high": 446
+    },
+    "proxy_density": {
+      "note": "not yet materialized as substrate column; discriminated at form-generation per D3 Option A 5-tuple cell-pair sharing"
+    },
+    "military_modern_layered_composition_verification": {
+      "per_row_sampling_weight_trim_pct": 80,
+      "per_axis_target_band_pct": [5, 8],
+      "final_share_pct": 8.0,
+      "mm_trim_skip": 1830,
+      "naive_composition_concern_addressed": "per Gate-1 amendment 5: layered constraint-satisfaction enforced per-axis target over per-row weight; final 8.0% within band"
+    }
+  },
+
+  "per_cell_coverage": {
+    "archetype_pcfs": {
+      "load_bearing_gate": true,
+      "denominator": 17,
+      "numerator_at_or_above_floor": 12,
+      "pass_pct": 70.6,
+      "threshold_pct": 85.0,
+      "result": "FAIL",
+      "fail_kind": "policy_substrate_trade_off_bounded",
+      "lp_fallback_fired": false,
+      "lp_fallback_decision_rationale": "5 failing archetypes are policy/substrate-trade-off-bounded, not local-optima; LP would not improve within current composition policy register-share constraints; routed to Sidecar B / Stage 3.5 enrichment per composition policy § 4.1 spirit",
+      "archetypes": [
+        {"key": ["melee", "medium", "WIS"], "count": 100, "floor": 100, "status": "PASS", "substrate_supply": 327},
+        {"key": ["melee", "medium", "STR"], "count": 234, "floor": 100, "status": "PASS", "substrate_supply": 4068},
+        {"key": ["ranged", "medium", "DEX"], "count": 145, "floor": 80, "status": "PASS", "substrate_supply": 3653},
+        {"key": ["ranged", "low", "STR"], "count": 76, "floor": 80, "status": "FAIL", "substrate_supply": 956, "diagnosis": "policy_trade_off_bounded", "note": "substrate ~96% historical; historical at +5.0pp cap"},
+        {"key": ["melee", "medium", "DEX"], "count": 168, "floor": 100, "status": "PASS", "substrate_supply": 1231},
+        {"key": ["melee", "high", "DEX"], "count": 122, "floor": 100, "status": "PASS", "substrate_supply": 2730},
+        {"key": ["ranged", "high", "DEX"], "count": 152, "floor": 80, "status": "PASS", "substrate_supply": 1705},
+        {"key": ["ranged", "low", "WIS"], "count": 43, "floor": 60, "status": "SUBSTRATE_BOUNDED", "substrate_supply": 51, "diagnosis": "substrate_supply_below_floor", "excluded_from_pcfs_denominator": true},
+        {"key": ["ranged", "low", "DEX"], "count": 165, "floor": 80, "status": "PASS", "substrate_supply": 2706},
+        {"key": ["mid", "low", "STR"], "count": 86, "floor": 80, "status": "PASS", "substrate_supply": 538},
+        {"key": ["mid", "medium", "STR"], "count": 80, "floor": 80, "status": "PASS", "substrate_supply": 248},
+        {"key": ["mid", "medium", "DEX"], "count": 64, "floor": 80, "status": "FAIL", "substrate_supply": 148, "diagnosis": "substrate_near_bounded"},
+        {"key": ["mid", "low", "DEX"], "count": 36, "floor": 80, "status": "FAIL", "substrate_supply": 737, "diagnosis": "policy_bounded", "note": "substrate 50% military_modern; 80% mm-trim applies"},
+        {"key": ["melee", "high", "STR"], "count": 97, "floor": 100, "status": "FAIL", "substrate_supply": 476, "diagnosis": "policy_trade_off_bounded", "note": "substrate 96% historical; historical at cap"},
+        {"key": ["melee", "low", "STR"], "count": 100, "floor": 100, "status": "PASS", "substrate_supply": 960},
+        {"key": ["ranged", "medium", "INT"], "count": 80, "floor": 80, "status": "PASS", "substrate_supply": 269},
+        {"key": ["mid", "medium", "INT"], "count": 60, "floor": 40, "status": "PASS", "substrate_supply": 712},
+        {"key": ["mid", "high", "DEX"], "count": 74, "floor": 80, "status": "FAIL", "substrate_supply": 215, "diagnosis": "substrate_near_bounded"}
+      ]
+    },
+    "substrate_cell_pcfs": {
+      "reporting_only": true,
+      "denominator": 40,
+      "numerator_at_or_above_floor": 8,
+      "pass_pct": 20.0,
+      "note": "Substrate vocabulary (proxy_geometry_class) differs from Sketch A amplitude vocabulary; lower satisfaction reflects geometry-vocabulary fragmentation; not load-bearing gate"
+    },
+    "per_tradition_per_tier_cross": {
+      "european":               {"S": 346, "A": 1113, "B": 46,  "C": 0,  "total": 1505},
+      "fantasy_generic":        {"S": 6,   "A": 15,   "B": 979, "C": 21, "total": 1021},
+      "east_asian":             {"S": 128, "A": 176,  "B": 18,  "C": 1,  "total": 323},
+      "south_asian":            {"S": 18,  "A": 53,   "B": 7,   "C": 0,  "total": 78},
+      "middle_eastern":         {"S": 6,   "A": 34,   "B": 4,   "C": 0,  "total": 44},
+      "southeast_asian":        {"S": 3,   "A": 23,   "B": 1,   "C": 1,  "total": 28},
+      "unknown":                {"S": 25,  "A": 0,    "B": 0,   "C": 0,  "total": 25},
+      "mesoamerican":           {"S": 0,   "A": 8,    "B": 0,   "C": 0,  "total": 8},
+      "african":                {"S": 0,   "A": 7,    "B": 0,   "C": 0,  "total": 7},
+      "south_american_indigenous": {"S": 0, "A": 1, "B": 1, "C": 0, "total": 2},
+      "oceanic":                {"S": 0,   "A": 1,    "B": 0,   "C": 0,  "total": 1}
+    }
+  },
+
+  "gap_cell_list": {
+    "purpose": "Wave 6 Sidecar B + Stage 3.5 routing per archetype rationale",
+    "pcfs_failing_archetypes": [
+      {"id": "GC-1", "archetype": ["ranged", "low", "STR"], "v1_count": 76, "floor": 80, "substrate_supply": 956,
+       "routing": "Sidecar B", "rationale": "Policy-trade-off-bounded: substrate ~96% historical; lifting to floor would violate +5.0pp register cap. Substrate plentiful but cap binding. Sidecar B fantasy-coinage STR-ranged enrichment unblocks."},
+      {"id": "GC-2", "archetype": ["mid", "medium", "DEX"], "v1_count": 64, "floor": 80, "substrate_supply": 148,
+       "routing": "Sidecar B", "rationale": "Substrate-near-bounded: small pool. Lifting 16 rows requires evicting Tier-A from over-filled archetypes. Cleaner unblock via substrate enrichment."},
+      {"id": "GC-3", "archetype": ["mid", "low", "DEX"], "v1_count": 36, "floor": 80, "substrate_supply": 737,
+       "routing": "Sidecar B", "rationale": "Policy-bounded: substrate 50% military_modern grenades; 80% mm-trim correctly excludes most. Sidecar B fantasy + classical/medieval DEX-mid-low enrichment unblocks."},
+      {"id": "GC-4", "archetype": ["melee", "high", "STR"], "v1_count": 97, "floor": 100, "substrate_supply": 476,
+       "routing": "Sidecar B", "rationale": "Policy-trade-off-bounded: substrate 96% historical; historical at register cap. Compound priority signal with GC-1."},
+      {"id": "GC-5", "archetype": ["mid", "high", "DEX"], "v1_count": 74, "floor": 80, "substrate_supply": 215,
+       "routing": "Sidecar B", "rationale": "Substrate-near-bounded: small pool. Compound signal with GC-2 for Sidecar B DEX-mid enrichment."}
+    ],
+    "substrate_bounded_archetype": [
+      {"id": "GC-6", "archetype": ["ranged", "low", "WIS"], "v1_count": 43, "floor": 60, "substrate_supply": 51,
+       "routing": "Sidecar B WIS-broad enrichment", "rationale": "Substrate supply (51) < floor (60); excluded from PCFS denominator per Discipline #11 substrate-led principle. Per composition policy § 4.1 routing."}
+    ],
+    "composition_policy_section_4_1_thin_cell_routing": [
+      {"cell_id": 14, "archetype": "Pyromantic Caster (mid, low, spiky, INT)", "status": "CRITICAL (0 typed)", "routing": "Stage 3.5 engine-author gap-fill (~5-10 entries)"},
+      {"cell_id": 17, "archetype": "Necromancer Summoner (mid, low, spiky, INT, heavy)", "status": "CRITICAL (0 typed)", "routing": "Sidecar B fantasy-coinage Necro enrichment + algorithm proxy-spawn"},
+      {"cell_id": 19, "archetype": "Channeling Cleric (mid, medium, variable, WIS)", "status": "CRITICAL (3 typed)", "routing": "Sidecar B WIS-broad enrichment"},
+      {"cell_id": 22, "archetype": "Storm Caller/Druid (ranged, medium, variable, WIS)", "status": "CRITICAL (2 typed)", "routing": "Sidecar B Celtic/Druidic enrichment"},
+      {"cell_id": 23, "archetype": "Monk-archetype (melee, high, variable, WIS)", "status": "CRITICAL (0 typed)", "routing": "Sidecar B East-Asian fist-and-staff + Stage 4 mistagged-rescue"},
+      {"cell_id": 24, "archetype": "Druid Beastmaster (mid, low, variable, WIS, heavy)", "status": "CRITICAL (8 typed)", "routing": "Sidecar B Celtic/Pacific enrichment + algorithm proxy-spawn"},
+      {"cell_id": 25, "archetype": "Witch Doctor Petmaster (mid, medium, variable, WIS, heavy)", "status": "CRITICAL (3 typed)", "routing": "Sidecar B Sub-Saharan-African enrichment"},
+      {"cell_id": 13, "archetype": "Artillery Mage (ranged, low, spiky, INT)", "status": "CRITICAL (3 typed)", "routing": "FOLD into Cell 12 Standard Wizard via Stage 4 algorithmic alteration"},
+      {"cell_id": 15, "archetype": "Red Mage/Spellsword (melee, high, flat, INT)", "status": "CRITICAL (0 typed)", "routing": "Phase 5 cohesion-judge composes over STR-melee base + INT-flavored kit (Option C)"}
+    ]
+  },
+
+  "sketch_f_anchor_coverage": {
+    "expected_substrate_resident_count": 8,
+    "expected_substrate_missing_count": 4,
+    "phase_3_substrate_resident_v1_present_count": 6,
+    "phase_3_substrate_resident_v1_zero_count": 2,
+    "phase_3_substrate_missing_count": 4,
+    "anchors": [
+      {"id": 1, "anchor": "Arthur", "tradition": "European Arthurian", "substrate_count": 8, "v1_scope_count": 6, "status": "substrate_resident_v1_present", "expectation": "NO gap-fill", "expectation_met": true},
+      {"id": 2, "anchor": "Roland", "tradition": "European Carolingian", "substrate_count": 3, "v1_scope_count": 0, "status": "substrate_resident_v1_ZERO", "expectation": "NO gap-fill", "expectation_met": false, "phase_3_new_finding": true, "diagnosis": "compound bearer field (e.g. 'Charlemagne; Roland'); NULL-typed Tier-B historical rows; lost to register-cap competition"},
+      {"id": 3, "anchor": "Thor", "tradition": "Norse", "substrate_count": 20, "v1_scope_count": 6, "status": "substrate_resident_v1_present", "expectation": "NO gap-fill", "expectation_met": true},
+      {"id": 4, "anchor": "Achilles", "tradition": "Greek", "substrate_count": 5, "v1_scope_count": 3, "status": "substrate_resident_v1_present", "expectation": "NO gap-fill", "expectation_met": true},
+      {"id": 5, "anchor": "Cú Chulainn", "tradition": "Celtic", "substrate_count": 2, "v1_scope_count": 2, "status": "substrate_resident_v1_present", "expectation": "NO gap-fill", "expectation_met": true},
+      {"id": 6, "anchor": "Cleopatra", "tradition": "Egyptian", "substrate_count": 1, "v1_scope_count": 1, "status": "substrate_resident_v1_present", "expectation": "NO gap-fill", "expectation_met": true},
+      {"id": 7, "anchor": "Karna", "tradition": "Vedic", "substrate_count": 6, "v1_scope_count": 0, "status": "substrate_resident_v1_ZERO", "expectation": "NO gap-fill", "expectation_met": false, "phase_3_new_finding": true, "diagnosis": "compound bearer field (e.g. 'Karna; Arjuna; Bhishma; ...'); NULL-typed Tier-A/B historical rows; lost to register-cap competition; also: 1 Tier-S row was D1c siege_vehicle excluded"},
+      {"id": 8, "anchor": "Baba Yaga", "tradition": "Slavic", "substrate_count": 6, "v1_scope_count": 3, "status": "substrate_resident_v1_present", "expectation": "NO gap-fill", "expectation_met": true},
+      {"id": 9, "anchor": "Hattori Hanzō", "tradition": "East Asian Japanese", "substrate_count": 0, "v1_scope_count": 0, "status": "substrate_MISSING", "expectation": "YES Stage 3.5 gap-fill", "gap_fill_id": "GF-1"},
+      {"id": 10, "anchor": "Lu Bu", "tradition": "East Asian Chinese", "substrate_count": 0, "v1_scope_count": 0, "status": "substrate_MISSING", "expectation": "YES Stage 3.5 gap-fill", "gap_fill_id": "GF-2"},
+      {"id": 11, "anchor": "Moctezuma", "tradition": "Mesoamerican", "substrate_count": 0, "v1_scope_count": 0, "status": "substrate_MISSING", "expectation": "YES Stage 3.5 gap-fill", "gap_fill_id": "GF-3", "nested_mythology_anchor": "Quetzalcoatl (1 substrate / 1 v1_scope)"},
+      {"id": 12, "anchor": "Gilgamesh", "tradition": "Sumerian / Mesopotamian", "substrate_count": 0, "v1_scope_count": 0, "status": "substrate_MISSING", "expectation": "YES Stage 3.5 gap-fill", "gap_fill_id": "GF-4"}
+    ]
+  },
+
+  "named_bearer_gap_list_for_wave_6_stage_3_5_dispatch": {
+    "purpose": "Per Gate-1 amendment 3 — required subsection enumerating 4 substrate-missing Sketch F anchors as Stage 3.5 author-and-insert targets. Flows DIRECTLY into Wave 6 Stage 3.5 dispatch authoring (knight-rider → rocket + gandalf + star-lord + jack-ryan Gate-2) without re-derivation.",
+    "primary_targets": [
+      {"id": "GF-1", "anchor": "Hattori Hanzō", "tradition": "east_asian", "entry_count_target": [5, 10], "tier": "Tier 2 soft-attribution",
+       "design_constraints": "ninja-art / kenjutsu / wakizashi / kunai (Japanese folklore vocabulary); cohesion-judge naming-space partitioning required at Phase 5 to avoid aggregate-signal-convergence with Lu Bu",
+       "cultural_tradition_compound_signal": "east_asian under-represented at 10.6% vs target 15-20%; compounds with Sidecar B East-Asian fist-and-staff enrichment per Cell 23"},
+      {"id": "GF-2", "anchor": "Lu Bu", "tradition": "east_asian", "entry_count_target": [5, 10], "tier": "Tier 2 soft-attribution",
+       "design_constraints": "halberd / ji / Chinese cavalry-arms (Three-Kingdoms vocabulary); player-facing naming must avoid politically-charged Tier-3 risk per skill-system § 12.3",
+       "cultural_tradition_compound_signal": "compounds with GF-1 to lift East-Asian umbrella; substrate has Three-Kingdoms-era weaponry but NOT named-anchored to Lu Bu"},
+      {"id": "GF-3", "anchor": "Moctezuma", "tradition": "mesoamerican", "entry_count_target": [5, 10], "tier": "Tier 2 soft-attribution + nested Tier 1 (Quetzalcoatl)",
+       "design_constraints": "macuahuitl / atlatl / obsidian-edged weapons (Mesoamerican vocabulary); nested-mythology naming (Tier-2 Moctezuma invokes Tier-1 Quetzalcoatl) per composition policy § 5.3 step 4",
+       "cultural_tradition_compound_signal": "mesoamerican at 0.3% vs target 3-5%; Moctezuma is load-bearing lift; compounds with Sidecar B Mesoamerican enrichment per Cell 25"},
+      {"id": "GF-4", "anchor": "Gilgamesh", "tradition": "sumerian", "entry_count_target": [5, 10], "tier": "Tier 1 broadly-fictionalized",
+       "design_constraints": "bronze-age mace / cylinder-axe / Epic-of-Gilgamesh vocabulary; Tier-1 broadly-fictionalized so naming partitioning lighter than Tier-2 anchors",
+       "cultural_tradition_compound_signal": "sumerian/mesopotamian umbrella has 44 middle_eastern v1_scope rows + 0 explicit sumerian; Stage 3.5 Gilgamesh is the only Sumerian-anchored signal"}
+    ],
+    "total_primary_budget_entries": [20, 40],
+    "plus_cell_14_pyromantic_caster_entries": [5, 10],
+    "full_stage_3_5_budget_entries": [25, 50],
+    "optional_addendum_per_phase_3_new_finding_sign_off_path_2": {
+      "conditional_on": "Matt + gandalf sign-off path 2 (defensive Roland/Karna covering compound-bearer fragility + south_asian under-representation)",
+      "entries": [
+        {"id": "GF-5*", "anchor": "Roland", "tradition": "european_medieval (Carolingian)", "entry_count_target": [3, 5], "tier": "Tier 1 broadly-fictionalized",
+         "rationale": "Phase 3 finding: substrate-resident-but-v1_scope-zero (3 substrate; 0 v1_scope). Defensive engine-author covers compound-bearer fragility."},
+        {"id": "GF-6*", "anchor": "Karna", "tradition": "south_asian (Vedic)", "entry_count_target": [3, 5], "tier": "Tier 1 broadly-fictionalized",
+         "rationale": "Phase 3 finding: substrate-resident-but-v1_scope-zero (6 substrate; 0 v1_scope). Addresses south_asian under-representation (2.6% vs target 3-4%) compound priority."}
+      ]
+    }
+  },
+
+  "findings_for_v1_1_plus_queue": [
+    {
+      "id": "F-1",
+      "title": "Substrate vocabulary mismatch (Sketch A amplitude vs substrate proxy_geometry_class)",
+      "phase_surfaced": "phase_2",
+      "surface": "Sketch A 4-tuple cells use amplitude (Axis 3B: flat/variable/spiky); substrate uses proxy_geometry_class (Axis 2: single/AoE/cleave/multi-hit/cone/scatter); different axes; substrate has no amplitude column",
+      "operational_consequence": "PCFS substrate-cell level 20.0% pass vs archetype-level 70.6% — geometry-vocabulary fragmentation not accounted for in Sketch B floors",
+      "resolution_applied_phase_2": "archetype-level PCFS as load-bearing gate per Discipline #11; substrate-cell PCFS reported for transparency",
+      "v1_1_plus_options": [
+        "materialize proxy_amplitude_class as column via Stage 4-extension extraction (joint amplitude + geometry)",
+        "retire amplitude from Sketch A in favor of geometry vocabulary",
+        "joint amplitude/geometry extraction via Phase 4-extension methodology consult (Discipline #18)"
+      ],
+      "decision_log_proposal": "sampling-algorithm-rationale.md § 11; awaits jack-ryan canonical write"
+    },
+    {
+      "id": "F-2",
+      "title": "Mode-C contamination column not materialized in substrate DB",
+      "phase_surfaced": "phase_2",
+      "surface": "dispatch + Phase 1 PCFS spec reference rep_audit_mode_c_naming_allusion_suspected = 1; column does not exist; flag was Stage 1.5 semantic concept in extraction JSON only",
+      "operational_substitute": "Mode-C signature = register_canonical='military_modern' AND named_mythological_match IS NOT NULL; Stage 2.5 Gate-2 filters this overlap; Phase 2 verifies 0 leak",
+      "v1_1_plus_options": [
+        "ALTER TABLE + UPDATE from extraction JSON to materialize rep_audit_mode_c_naming_allusion_suspected as substrate column; low cost; enables clean Discipline #25 semantic-layer rep-audit query surface"
+      ]
+    },
+    {
+      "id": "F-3",
+      "title": "PCFS-vs-register-share tension (Discipline #18 substrate-led trade-off)",
+      "phase_surfaced": "phase_2",
+      "surface": "3 of 5 PCFS failures are policy-trade-off-bounded: lifting v1_scope to floor would require register-share constraint violation (historical or military_modern exceeding cap); LP fallback would not improve",
+      "operational_consequence": "PCFS ≥85% gate in tension with register-share targets historical 50-55% / military_modern 5-8%; both cannot be simultaneously satisfied with current substrate composition",
+      "architectural_response_options": [
+        "accept substrate-led skew + report PCFS at archetype level without ≥85% gate (current Phase 2 posture; surfaces failing archetypes to Sidecar B / Stage 3.5)",
+        "rebalance target_total downward to ~2,700 to relieve historical-share pressure",
+        "relax register-share caps (e.g., historical 55-60%) to permit STR-heavy archetype floor satisfaction"
+      ],
+      "current_routing": "Sidecar B / Stage 3.5 per autonomous in-scope decision per Cycle 10 scope-doc § 1"
+    },
+    {
+      "id": "F-4",
+      "title": "1,152 NULL-typed rows in v1_scope (37.9%) — Stage 4 mechanical-tagging dependency",
+      "phase_surfaced": "phase_3_new_finding",
+      "surface": "v1_scope contains 1,890 typed (62.1%) + 1,152 untyped (37.9%); Sub-phase A (Tier A preferred-include) admitted 940 untyped Tier-A rows without typed-filtering; Tier-S handheld untyped 172 of 437 D1a; Tier A military_modern untyped 167",
+      "operational_consequence": "37.9% of v1_scope rows have no proxy_attribute_class/range/tempo/geometry signal; at Phase 2 form-generation under Architecture B they route via Option β attribute-level match or are blocked from Option α 5-tuple substrate-binding; Stage 4 mechanical-tagging is the unblock",
+      "risk_if_not_addressed": "form-generation at Phase 2 falls back to Option β/C composition for ~38% of v1_scope; cohesion-judge at Phase 5 carries more weight in substrate-row-to-form binding; acceptable under Architecture B + Option β/C but a Stage 4 priority signal",
+      "decision_call_surfaces": [
+        "ratify substrate-led Phase 2 behavior (tier-protection trumps typed-filtering at Sub-phase A); flag Stage 4 as priority — elrond recommendation",
+        "re-run Sub-phase A with typed-filter and additional Tier B typed-row fallback"
+      ]
+    },
+    {
+      "id": "F-5",
+      "title": "Sketch F substrate-resident-but-v1_scope-zero anchor fragility (Roland + Karna)",
+      "phase_surfaced": "phase_3_new_finding",
+      "surface": "Roland (3 substrate / 0 v1_scope) + Karna (6 substrate / 0 v1_scope) — substrate-resident Sketch F anchors that did NOT land in v1_scope. Both fail-mode: compound bearer field (e.g., 'Charlemagne; Roland', 'Karna; Arjuna; Bhishma; ...'); NULL-typed Tier-A/B historical rows; lost to register-cap + cell-cap competition; sampler did not protect named-bearer anchor presence",
+      "sign_off_paths": [
+        {"path": 1, "label": "re-run Phase 2 with named-bearer anchor protection (auto-include LIKE-pattern match on 12 Sketch F anchors)", "cost": "incremental ~9 additional rows; v1_scope grows to ~3,051 (within envelope)"},
+        {"path": 2, "label": "add GF-5* + GF-6* to Stage 3.5 amendment", "cost": "~6-10 additional engine-author entries; defensive coverage of compound-bearer fragility + south_asian under-representation"},
+        {"path": 3, "label": "accept and defer to v1.1+ re-sample post-Sidecar-B", "cost": "named-bearer protection layer added next cycle"}
+      ],
+      "elrond_recommendation": "path 2 (defensive) if Stage 3.5 budget can absorb; otherwise path 1"
+    }
+  ],
+
+  "sign_off_asks": [
+    {"id": "SO-1", "topic": "historical register at +5.0pp edge", "elrond_recommendation": "ratify substrate-led acceptance per Sketch D"},
+    {"id": "SO-2", "topic": "PCFS 12/17 FAIL routing to Sidecar B + Stage 3.5", "elrond_recommendation": "accept routing; surface PCFS-vs-register-share tension as architectural-decision queue"},
+    {"id": "SO-3", "topic": "Roland + Karna substrate-resident-but-v1-zero (Phase 3 NEW finding)", "elrond_recommendation": "path 2 (defensive Stage 3.5 amendment GF-5* + GF-6*) if budget absorbs; else path 1"},
+    {"id": "SO-4", "topic": "1,152 NULL-typed rows in v1_scope (37.9%) — Finding 4", "elrond_recommendation": "ratify; Stage 4 priority signal"}
+  ],
+
+  "leak_checks": {
+    "d1c_leak": {"count": 0, "expected": 0, "result": "PASS"},
+    "mode_c_equivalent_leak": {"count": 0, "expected": 0, "result": "PASS",
+      "operational_definition": "register_canonical='military_modern' AND named_mythological_match IS NOT NULL (per sampling-rationale § 4)"}
+  },
+
+  "envelope_and_cycle_compliance": {
+    "envelope_v1_scope_lower": 1700,
+    "envelope_v1_scope_upper": 3100,
+    "actual": 3042,
+    "within_envelope": true,
+    "cycle_10_scope_doc_section_6_known_unknown_triggered": false,
+    "cycle_10_pause_for_matt_threshold": 1700,
+    "forward_motion_per_scope_doc": true
+  },
+
+  "tag_intent": "elrond/v0.0-cycle-10-stage-3-phase-3-distribution-report-2026-05-25",
+  "stage_3_milestone_tag_intent": "elrond/v0.0-cycle-10-stage-3-v1-scope-materialization (fires after Matt + gandalf sign-off on this report + gandalf 50-row spot-check PASS)"
+}
