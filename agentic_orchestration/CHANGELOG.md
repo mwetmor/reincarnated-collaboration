@@ -4,6 +4,41 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-25 (Cycle 10 substrate-curation workstream FULLY CLOSED pending Matt cycle-level final tag ratification — hive-mind-scope-discipline FIRST-TEST session VERDICT: PROVEN EFFECTIVE + all 7 Waves + 2 Sidecars CLOSED with 10 seam-prefixed tags pushed + 5 post-cycle continuation dispatches FIRED in parallel per skip-confirmation directive)
+
+**Event:** Cycle 10 substrate-curation workstream FULLY COMPLETE. Final v1_scope = 2,293 (within ~1,700-3,100 envelope); all jack-ryan Gate-2 PASSes recorded; all gandalf curation verdicts PASS; round-trip Principle 6 PASS at 3 of 4 boundaries with 4th classified as Variant C structural per Phase 2 substrate-binding work item.
+
+**Tags pushed this session (10):**
+- `elrond/v0.0-cycle-10-stage-3-phase-2-v1-scope-2026-05-25`
+- `elrond/v0.0-cycle-10-stage-3-phase-3-distribution-report-2026-05-25`
+- `elrond/cycle-10-wave-5-5-phase-0c-and-mode-c-eviction-2026-05-25`
+- `elrond/v0.0-cycle-10-stage-3-v1-scope-materialization` (Stage 3 milestone)
+- `elrond/cycle-10-sidecar-b-off-hand-mining-2026-05-25`
+- `legolas/cycle-10-sidecar-b-off-hand-crawl-2026-05-25`
+- `legolas/cycle-10-stage-4-methodology-consult-2026-05-25`
+- `rocket/cycle-10-stage-3-5-engine-authored-gap-fill-2026-05-25`
+- `rocket/cycle-10-stage-4-mechanical-tagging-2026-05-25`
+- (cycle-level final tag `v1.0-weapon-substrate-cycle-10-shipped` Matt-ratifies on log-back per skip-confirmation directive)
+
+**Discipline architecture established this cycle:**
+- 3 canonical Pattern A-deep applications (Discipline #23 framing-audit)
+- 2 canonical Discipline #25 substrate-curation applications
+- First canonical fire-forward-with-deferred-confirmation pattern application (skip-confirmation directive 2026-05-25)
+- DISCIPLINE PROVEN EFFECTIVE — recommended for propagation to all future hive-mind cycles
+
+**Post-cycle continuation dispatches FIRED (skip-confirmation; in-flight at session-end):**
+1. gamora W1.13 hypothesis testing → returned UPSTREAM CHAIN UNMET (in-scope blocked-flag per scope-doc § 6)
+2. legolas Mode A Algorithm § 8 methodology consult (LOAD-BEARING per Discipline #18 before any rocket § 8 implementation)
+3. drax + star-lord loadout app readiness scoping
+4. star-lord G1 SQLite contention + Mac M2 RAM pressure measurement (per Pi recognition record § 8 G1)
+5. star-lord G12 LLM-call cache-hit-rate measurement (parallel with G1; per § 8 G12)
+
+**Awaiting Matt log-back:** cycle-level final tag ratification + 4 post-cycle scope-locks (Algorithm § 8 / Loadout / D1 infrastructure / D9 cache).
+
+**Key commits chain:** `c574acb` skill_handoff → `cb99702` wind-down finalization → `9ef6bdb` jack-ryan round-trip ratification PASS → `73c1279` star-lord round-trip second-leg → `b3ded15` gamora sim-viability + round-trip first-leg → `5716235` Ruyi amendment → `9ad416e` Wave 7 rocket execution → `77ad567` gandalf Wave 5.5 PATH A verdict → `5ff0cde` Wave 6 kavacha amendment → `9aad3e9` gandalf Wave 6 closure → `c3a83bf` Wave 6 rocket execution → `94b5e4c` jack-ryan Wave 6 Gate-2 → `a7a3d3d` Wave 5.5 elrond → `4c516f8` Wave 6 Path 2 + Wave 5.5 dispatch authoring → `31e5426` gandalf Sidecar B 30/30 → `6efd730` elrond Sidecar B mining → `f40b714` gandalf 50-row + SO-1..SO-4 → `6b0bb4d` legolas Sidecar B Mode B crawl → `8c485ac` Phase 3 distribution → `f80b72a` Phase 2 elrond v1_scope materialization → `a274159` 8 dispatches authored → `6f3c288` / `9e2a89d` / `c5ad777` Phase 0a/0b/1 parallel fan-out.
+
+---
+
 ## 2026-05-25 (Cycle 10 Wave 5 mid-flight — hive-mind-scope-discipline FIRST-TEST session + Phase 0a/0b/1 parallel fan-out CLOSED + Phase 2 in-flight + Sidecar B Mode B crawl in-flight + Wave 6/7 dispatches FIRE-READY + post-cycle continuation x5 FIRE-READY pending wind-down filing per Matt skip-confirmation fire-forward directive)
 
 **Event:** Fresh knight-rider session per gandalf kicker `agentic_orchestration/gandalf/requests/2026-05-25-knight-rider-cycle-10-fresh-session-kicker.md`. This session is the FIRST TEST of the hive-mind-scope-discipline pattern (`agentic_orchestration/operating-procedures/hive-mind-scope-discipline.md`; founding retroactive instance at `agentic_orchestration/cycles/cycle-10-hive-mind-scope.md` RATIFIED 2026-05-25). Behavioral bug being resolved: prior KR over-asking on in-scope items.
