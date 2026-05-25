@@ -110,14 +110,14 @@ For each finding, classify as:
 
 ## Acceptance criteria
 
-- [ ] Gate-2 findings file authored at `agentic_orchestration/qa/findings/2026-05-25-gate2-cycle-11-wave-3b-drax-m3-m6.md`
-- [ ] Per-principle review (5 principles + cross-cutting) covered
-- [ ] Each finding classified INFO / WARN / BLOCK per REVIEW_PROCESS.md severity rubric
-- [ ] Final verdict: PASS (Cycle 11 final tag can be cut) / PASS-WITH-AMENDMENTS (drax amends minor issues; tag cut after) / BLOCK (drax must fix before Cycle 11 close)
-- [ ] Cross-references to canonical sources + dispatch scope + Matt Q1-Q5 ratifications
-- [ ] Discipline citations explicit for each finding
-- [ ] Auto-commit + auto-push per jack-ryan seam authorization
-- [ ] Tag: `jack-ryan/cycle-11-gate-2-drax-wave-3b-2026-05-25`
+- [x] Gate-2 findings file authored at `agentic_orchestration/qa/findings/2026-05-25-gate2-cycle-11-wave-3b-drax-m3-m6.md`
+- [x] Per-principle review (5 principles + cross-cutting) covered
+- [x] Each finding classified INFO / WARN / BLOCK per REVIEW_PROCESS.md severity rubric
+- [x] Final verdict: PASS-WITH-AMENDMENTS (3x INFO; no WARN; no BLOCK — Cycle 11 final tag may proceed)
+- [x] Cross-references to canonical sources + dispatch scope + Matt Q1-Q5 ratifications
+- [x] Discipline citations explicit for each finding
+- [x] Auto-commit + auto-push per jack-ryan seam authorization
+- [x] Tag: `jack-ryan/cycle-11-gate-2-drax-wave-3b-2026-05-25`
 
 ---
 
@@ -155,3 +155,33 @@ Round-trip: not applicable — Gate-2 critique-only; no production code; no sche
 **Status:** FIRE — gates Cycle 11 wind-down summary draft + final tag cut
 
 **Matt-touch sequence:** Gate-2 verdict → if PASS, KR drafts Cycle 11 wind-down summary at `agentic_orchestration/cycle-11-wind-down-summary-2026-05-25.md` → surface for Matt log-back ratification (may compose with Cycle 12 mid-Wave-0 status snapshot) → Cycle 11 final tag cut per Matt
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-25
+**Agent:** jack-ryan
+**Verdict:** PASS-WITH-AMENDMENTS
+**Severity:** 3x INFO — no WARN, no BLOCK
+**Finding file:** `agentic_orchestration/qa/findings/2026-05-25-gate2-cycle-11-wave-3b-drax-m3-m6.md`
+**Tag:** `jack-ryan/cycle-11-gate-2-drax-wave-3b-2026-05-25`
+
+### Summary of findings
+
+| ID | Severity | Description |
+|---|---|---|
+| F1 | INFO | Commit title (`b948d3d`) names M3 only; M6 files are present but not mentioned in title — hygiene gap, no rework needed |
+| F2 | INFO | Smoke fixture TODO (`class_0001.json` patched with RESOURCE_CONVERSION) — correctly scoped as deferred; tracked in AGENT_STATE.md; remove when rocket §8 regen ships |
+| F3 | INFO | DEFENSIVE_TRADEOFF (6th strategy, confirmed in `mechanic_alteration.py`) absent from `STRATEGY_LABELS`, `STRATEGY_DESCRIPTIONS`, and `ALL_STRATEGIES`; forward-compat `| string` arm handles gracefully; add when rocket §8 produces live DEFENSIVE_TRADEOFF classes |
+
+### Open questions resolved
+
+- Smoke fixture TODO: **INFO** (not WARN) — correctly scoped deferred work
+- T4ComparisonPanel static descriptions with v1.1 placeholder: **acceptable for v1** — current-only-with-placeholder correctly per dispatch open-question resolution
+- Spirit-guide narration fallback template: **correctly positioned** per §9 explainer pattern — in-fiction register, not mechanical claim
+- Tier 2 framing language: **COMPLIANT throughout** — "Build Identity" badge, "Intent Metadata" label, and all copy reviewed; one edge case noted (GEOMETRY_COLLAPSE "amplified" language) accepted as trade-off framing in context
+
+### KR sequencing unblocked
+
+Gate-2 PASS-WITH-AMENDMENTS: **Cycle 11 final tag cut may proceed.** KR drafts Cycle 11 wind-down summary; Matt ratifies; final tag cut per Matt-authorized sequence.
