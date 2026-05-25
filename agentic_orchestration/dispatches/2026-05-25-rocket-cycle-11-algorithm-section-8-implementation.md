@@ -169,3 +169,55 @@ Per methodology § 5 cheapest-refuting-test:
 - Discipline #19.1 (cheapest-refuting-test-per-claim-type)
 - Discipline #1.2 (math-note code-citation discipline)
 - Star-lord coordination: `agentic_orchestration/dispatches/2026-05-25-star-lord-cycle-11-schema-extensions.md`
+
+---
+
+## Completion record
+
+**Completed by:** rocket
+**Session:** Cycle 11 Wave 1 (2026-05-25)
+**Commit:** d6bca67 (feat) + f9bcc7c (fix sweep attrs) + 7ffd1fb (AGENT_STATE) — engine repo main
+**Tag applied:** `rocket/v0.1-cycle-11-algorithm-section-8-v1-implementation-2026-05-25`
+**Pushed:** yes (f9bcc7c HEAD)
+
+### Scope resolution
+
+**6th strategy:** Defensive-tradeoff (Chaos Inoculation class) — confirmed. Legolas methodology doc § 1.2 explicit table + § 3.4 "trade-off variants" language is conclusive. No legolas sub-agent invocation required — the methodology-source-author artifact itself supplies the answer. Verdict documented in math note § 1.
+
+### Implementation summary
+
+| Acceptance criterion | Status |
+|---|---|
+| 6 v1 strategies implemented (scored-candidate registry) | PASS |
+| AlterationOutput struct shape aligned with star-lord t4_alteration_output | PASS — 28 round-trip tests pass |
+| Static η-calibration smoke (6 cases, 5 required) | PASS — 6/6 |
+| BC-shift validation sweep | IN-FLIGHT — PID 79520, log: `reincarnated-engine/logs/bc_shift_sweep_20260525_105145.log` |
+| Round-trip smoke (rocket → export → loadout fixture) | PASS — test_cycle11_schema_extensions_round_trip.py 28/28 |
+| MIGRATION.md authored | PASS — engine repo MIGRATION.md updated |
+| Math-note authored (Discipline #1.2) | PASS — `generation/math/algorithm-section-8-v1-implementation-2026-05-25.md` |
+| No regression in Phase 2 generation pipeline | PASS — 99 regression tests pass |
+| AGENT_STATE.md updated | PASS |
+
+### η weighting + ETA_FLOOR rationale
+
+- w_1=0.50 (axis_match), w_2=0.30 (thematic_coherence), w_3=0.20 (sim_viability) — axis primacy per methodology § 3.1
+- ETA_FLOOR_THRESHOLD=0.35 — permissive enough that any strategy with genuine axis alignment clears; strict enough that generic fits don't fire
+
+### AlterationOutput struct
+
+```python
+@dataclasses.dataclass
+class AlterationOutput:
+    strategy_type: str          # e.g., RESOURCE_CONVERSION
+    strategy_params: dict       # e.g., {"cost_resource": "HP"}
+    applied_axis_targets: list  # BC axes predicted to shift
+    eta_score: float            # winning η-coefficient
+    thematic_rationale: str     # spirit-guide explainer input
+    manifestation: str          # e.g., "rank2_passive"
+```
+
+### BC-shift sweep status
+
+Sweep is running as background process (PID 79520). Two attribute-name bugs fixed before successful launch (actual_win_rate → actual_winrate; balance_modifier → final_modifier). Sweep covers 12 KitSpecs across all 6 strategy types (2 per type). Pass thresholds: ≥80% direction-correct + ≥60% magnitude-meaningful (≥0.1 BC-units). Results written to `logs/bc_shift_sweep_results.json` on completion.
+
+**Dispatch is COMPLETE for all implementation criteria. Sweep result appended to AGENT_STATE when it lands. If sweep FAILS, rocket escalates to Matt via KR per dispatch § escape-hatch triggers.**
