@@ -70,12 +70,12 @@ Drive to **T4 post-mortem readiness milestone** (~3-5 weeks wall-clock) via full
 
 | Sub-agent | Dispatch | Purpose | Status |
 |---|---|---|---|
-| **drax (Cycle 11 close, Wave 3b)** | `2026-05-25-drax-cycle-11-m3-m6-t4-display-wave-3b.md` | M3 T4 alteration display in SkillTree + M6 T4 comparison panel (TOGGLE per Q2) per Tier 2 ratification | IN-FLIGHT |
+| **drax (Cycle 11 close, Wave 3b)** | `2026-05-25-drax-cycle-11-m3-m6-t4-display-wave-3b.md` | M3 T4 alteration display in SkillTree + M6 T4 comparison panel (TOGGLE per Q2) per Tier 2 ratification | ✅ COMPLETE — M3 T4AlterationPanel + M6 T4ComparisonPanel + spirit-guide narration shipped; Tier 2 "Build Identity"/"Intent Metadata" framing honored; 773 modules/0 TS errors; Vercel preview READY (Q5 honored); tags `drax/v0.0-cycle-11-m3-t4-alteration-display-2026-05-25` + `drax/v0.1-cycle-11-m3-m6-t4-display-wave-3b-2026-05-25` @ loadout commit `b948d3d`; smoke fixture `class_0001.json` patched (TODO(drax) for removal at rocket §8 regen) |
 | legolas MC-1 | `2026-05-25-legolas-cycle-12-mc-1-bc-target-cell-sampling-methodology.md` | BC-target cell sampling methodology consult | IN-FLIGHT |
 | legolas MC-2 | `2026-05-25-legolas-cycle-12-mc-2-substrate-binding-heuristics.md` | Substrate-binding heuristics consult | IN-FLIGHT |
 | jack-ryan Gate-1 | `2026-05-25-jack-ryan-cycle-12-gate-1-interface-contract.md` | Critique-pair Gate-1 on framing brief § 4 interface contract | ✅ COMPLETE — **CLEAR-WITH-AMENDMENTS** (7 WARN + 3 INFO; zero BLOCK) — tag `jack-ryan/cycle-12-gate-1-interface-contract-2026-05-25` @ commit `b4e5be7`; finding at `agentic_orchestration/qa/findings/2026-05-25-gate1-cycle-12-interface-contract.md`; no gandalf design-fit route; no Matt escalation |
 | elrond SC-1 | `2026-05-25-elrond-cycle-12-sc-1-substrate-tagging-cleanup.md` | Backfill cultural_lineage_canonical + historical_period_canonical for Tier-S named-mythological items | IN-FLIGHT |
-| elrond + rocket SC-2 | `2026-05-25-elrond-cycle-12-sc-2-subtype-classification.md` | Backfill weapon_kind_classified_subtype for ~50-100 unset items (fantasy + military_modern subset) | IN-FLIGHT |
+| elrond + rocket SC-2 | `2026-05-25-elrond-cycle-12-sc-2-subtype-classification.md` | Backfill weapon_kind_classified_subtype for ~50-100 unset items (fantasy + military_modern subset) | ⚠️ Phase 1 HALT-FOR-SCOPE → KR-DIRECTIVE Option A approved (1,021 v1_scope=1 rows; Options B+C v1.1+ deferred per scope-doc § 0); Phase 1 commit `dac63fb`; Phases 2-5 RE-FIRE IN-FLIGHT |
 
 **Wave 0 closeout will populate after sub-agent returns.**
 
@@ -107,6 +107,14 @@ Per jack-ryan Gate-1 finding (CLEAR-WITH-AMENDMENTS verdict; no BLOCK; no Matt e
 
 **Sequencing implication:** rocket L2 + L3 dispatch authoring is GATED on (a) jack-ryan Gate-1 = CLEAR ✅, (b) legolas MC-1 land (BC-target cell sampling methodology), (c) legolas MC-2 land (substrate-binding heuristics). When MC-1 + MC-2 both return, KR authors rocket L2 + L3 dispatches integrating the WARN amendments above + MC-1/MC-2 methodology recommendations. Rocket L2 + L3 fire in PARALLEL per Q4 Option B sequencing.
 
+### Cycle 11 close — Wave 3b Gate-2 fire (drax M3+M6 output validation)
+
+Drax Wave 3b ✅ COMPLETE. Per Cycle 11 close kicker sequence step 3, jack-ryan Gate-2 validates drax output before Cycle 11 wind-down summary draft + final tag cut.
+
+Fired in parallel with elrond SC-2 Option A continuation:
+- **jack-ryan Gate-2 dispatch** `2026-05-25-jack-ryan-cycle-11-gate-2-drax-wave-3b.md` — DEV-MODE review of M3/M6 + spirit-guide narration against acceptance criteria + 5 principles + Tier 2 framing compliance (primary scrutiny target)
+- Verdict path: PASS → KR drafts Cycle 11 wind-down → Matt log-back ratifies → final tag cut (proposal `v1.0-t4-intent-metadata-ready` or KR judgment). PASS-WITH-AMENDMENTS → drax amends minor items then PASS. BLOCK → drax must fix before close.
+
 ---
 
 ## 3. PID tracking
@@ -122,6 +130,7 @@ Per jack-ryan Gate-1 finding (CLEAR-WITH-AMENDMENTS verdict; no BLOCK; no Matt e
 ## 4. Decisions captured during cycle execution
 
 - **2026-05-25 Gate-1 amendments integration plan locked** — jack-ryan returned CLEAR-WITH-AMENDMENTS on framing brief § 4 interface contract. KR autonomous in-scope decision per scope-doc § 1: integrate all 7 WARNs + INFO-4 (recommended) at rocket L2/L3 dispatch authoring per § 2 Wave 0 closeout amendment queue. No gandalf design-fit route + no Matt escalation needed per Gate-1 verdict.
+- **2026-05-25 SC-2 Option A scope-confirmation** — elrond Phase 1 enumeration returned 20,770 rows vs ~50-100 dispatch estimate (200× mismatch); elrond correctly HALTED at dispatch own ">>100 → flag KR" gate; elrond recommended Option A (v1_scope=1 = 1,021 rows; Options B+C are v1.1+ Tier-B/C substrate hygiene per scope-doc § 0). KR autonomous in-scope decision per scope-doc § 1 + § 6 + hive-mind decision-routing § 4.3 seam-owner concurrence: **Option A approved**. NOT scope amendment per § 5 — dispatch-estimate clarification + seam-owner concurrence within original framing brief § 2 SC-2 intent. KR-DIRECTIVE captured in elrond SC-2 dispatch as amendment section; Phases 2-5 re-fired against Option A scope. Tier-B + Tier-C v1_scope=0 substrate (19,749 rows) DEFERRED to v1.1+ per scope-doc § 0. Register-mistag anomaly (id=172596 "naginata" tagged military_modern) surfaced separately — captured for v1.1+ queue, NOT in SC-2 scope.
 
 ---
 

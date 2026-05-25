@@ -141,6 +141,34 @@ Round-trip: not applicable — substrate-classification backfill is a data updat
 
 ---
 
+## KR-DIRECTIVE — 2026-05-25 — Option A scope approved per Phase 1 halt-point
+
+**Context:** Elrond Phase 1 enumeration returned 20,770 rows vs dispatch estimate ~50-100 — 200× scope mismatch. Per dispatch own ">>100 → flag to KR for scope decision" gate, elrond correctly HALTED at Phase 1 + surfaced three scope options (A v1_scope=1 only = 1,021 rows; B fantasy bulk = 17,361; C full = 20,770) with Option A recommendation per seam-owner judgment. Halt commit: `dac63fb`.
+
+**KR decision (autonomous in-scope per scope-doc § 1 + § 6):** **Option A** — v1_scope=1 only, 1,021 rows.
+
+**Rationale:**
+- Option A is closest to dispatch + framing brief § 2 SC-2 intent. The "~50-100" estimate was an undercount of the v1_scope=1 surface; Option A targets exactly the substrate Cycle 12 Layer 2/3 will consume per framing brief § 4 PlayerClass contract substrate-binding spec.
+- Options B + C (Tier-B + Tier-C v1_scope=0 substrate) are v1.1+ substrate hygiene work — explicitly OUT of Cycle 12 scope per scope-doc § 0 deferred items list.
+- Elrond Phase 1 spot-sample evidence (56 rows; Discipline #11) confirms v1_scope=1 path is mechanically obvious from existing 10-value subtype enum — no enum extension, no rocket consultation, no fantasy-naming Pattern A-light needed.
+- Hive-mind decision-routing § 4.3: seam-owner (elrond) recommended; KR concurs; Matt-escalation reserved for last-resort (CLAUDE.md no-over-asking addendum).
+- This is NOT scope amendment escalation per scope-doc § 5 — it's dispatch-estimate clarification + seam-owner recommendation concurrence within original intent.
+
+**Elrond directive (Phases 2-5 against Option A scope):**
+- Phase 2: classify 1,021 v1_scope=1 items directly using existing canonical subtype enum (Phase 1 spot-sample confirmed all 56 sampled are mechanically obvious; no enum extension)
+- Phase 3: rocket consultation likely SKIPS per Phase 1 spot-sample evidence (no ambiguous items in v1_scope=1 surface). If any ambiguous item surfaces in the remaining 965 unsampled rows, elrond flags to KR rather than fires rocket sub-agent autonomously
+- Phase 4: bulk backfill + post-update audit per dispatch acceptance criteria
+- Phase 5: MIGRATION.md if cross-seam consumer impact per ADR-004
+- Estimated continuation effort: ~30 min per elrond Phase 1 projection
+- Separate register-mistag anomaly (id=172596 "naginata" tagged military_modern) surfaced in Phase 1 is OUT of SC-2 scope; capture in completion record for v1.1+ queue, do NOT correct here
+- Tier-B + Tier-C v1_scope=0 substrate (the other 19,749 rows) DEFERRED to v1.1+ per scope-doc § 0; capture deferral in completion record
+
+**Status:** RESUME — Phases 2-5 against Option A scope authorized.
+
+**Authority:** knight-rider 2026-05-25 (autonomous in-scope decision per Cycle 12 scope-doc § 1 + § 6 + hive-mind decision-routing § 4.3 seam-owner concurrence)
+
+---
+
 ## Completion record — Phase 1 enumeration HALT-FOR-SCOPE (elrond 2026-05-25)
 
 **Status:** Phase 1 enumeration COMPLETE. Execution HALTED before Phase 2 per dispatch directive ("If your enumerated count is >>100, flag to KR for scope decision before backfilling"). Enumerated count is **20,770 — ~200× the dispatch estimate of 50-100.** Returning to knight-rider for scope decision before proceeding.
