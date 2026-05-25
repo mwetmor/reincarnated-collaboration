@@ -1,0 +1,7 @@
+# DB backup files — never commit (~162 MB each; gitignored per phase-D-cleaning-pipeline + cycle-10-stage-1-5 + 2-5 precedent)
+# Backup naming convention: telemetry.db.pre-<phase>
+telemetry.db*
+*.db
+*.db-shm
+*.db-wal
+*.db-journal

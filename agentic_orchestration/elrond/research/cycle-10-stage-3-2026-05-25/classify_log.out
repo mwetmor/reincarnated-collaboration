@@ -1,0 +1,49 @@
+Stage 2.5 JSON loaded — parent counts:
+  handheld_weapon: 449
+  siege_vehicle: 316
+  accessory: 130
+  armor: 125
+  art_object: 52
+  other: 31
+  ammo_consumable: 23
+
+Phase 0a subcategory counts:
+  accessory_handheld: 8
+  accessory_weapon_integrated: 77
+  accessory_horse_or_equipment: 45
+  armor_shield: 10
+  armor_body_or_head: 115
+  TOTAL: 255
+
+Final column-value distribution (all 1,126 Tier-S rows):
+  handheld_weapon: 449
+  siege_vehicle: 316
+  armor_body_or_head: 115
+  accessory_weapon_integrated: 77
+  art_object: 52
+  accessory_horse_or_equipment: 45
+  other: 31
+  ammo_consumable: 23
+  armor_shield: 10
+  accessory_handheld: 8
+
+Adding column weapon_kind_classified_subtype (TEXT, nullable, no CHECK)...
+Updating 1126 Tier-S rows...
+
+Verification — DB Tier-S rows by weapon_kind_classified_subtype:
+  handheld_weapon: 449
+  siege_vehicle: 316
+  armor_body_or_head: 115
+  accessory_weapon_integrated: 77
+  art_object: 52
+  accessory_horse_or_equipment: 45
+  other: 31
+  ammo_consumable: 23
+  armor_shield: 10
+  accessory_handheld: 8
+
+Non-Tier-S rows: 88715 (expected 88715 = 88715)
+Non-Tier-S rows with populated weapon_kind_classified_subtype: 0 (must be 0)
+
+Wrote /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/elrond/research/cycle-10-stage-3-2026-05-25/accessory-armor-subcategory-classification.json
+Ambiguous/flagged rows: 4
