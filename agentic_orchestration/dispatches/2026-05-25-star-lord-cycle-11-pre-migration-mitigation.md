@@ -73,3 +73,14 @@ Round-trip: not applicable — no cross-seam contract change in this dispatch.
 - G1 completion record: `agentic_orchestration/dispatches/2026-05-25-star-lord-g1-infrastructure-measurement.md`
 - Cycle 11 scope-doc: `agentic_orchestration/cycles/cycle-11-hive-mind-scope.md` § 0 + § 1
 - Pi recognition record: `canonical/story/infrastructure-raspberry-pi-postgres-and-closed-loop-pipeline-2026-05-25.md`
+
+---
+
+## Completion record
+**Completed:** 2026-05-25
+**Tags shipped:** `star-lord/v0.0-cycle-11-pre-migration-mitigation-2026-05-25`
+**Commits:** `8ad669b` (db.py change), `ba74b19` (AGENT_STATE.md checkpoint)
+**Smoke results:** PASS — `PRAGMA busy_timeout;` returns 30000 on fresh connection via `initialize_telemetry_db()`; `journal_mode=WAL` intact; 234/234 telemetry-path tests pass (6 pre-existing env failures in test_cp9 unrelated — missing grouping-layer-vocabulary.md)
+**MIGRATION.md written:** No — PRAGMA busy_timeout is connection-level only; no schema change; no cross-seam contract change
+**Implementation note:** PRAGMA placed at line 31 in `initialize_telemetry_db()` in `telemetry/db.py`, after `PRAGMA temp_store = MEMORY`, before `apply_schema_migrations()`. Connection factory pattern confirmed — single centralized location; fires on every new connection.
+**Notes for jack-ryan review:** None required — no schema change, no cross-seam field addition. PRAGMA is connection-level configuration only.
