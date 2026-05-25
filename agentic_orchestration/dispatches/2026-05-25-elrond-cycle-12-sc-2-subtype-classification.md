@@ -169,6 +169,83 @@ Round-trip: not applicable — substrate-classification backfill is a data updat
 
 ---
 
+## Completion record — Phases 2-5 COMPLETE per KR-DIRECTIVE Option A (elrond 2026-05-25)
+
+**Status:** SC-2 COMPLETE. All 5 phases executed against Option A scope (v1_scope=1 only, 1,021 rows). Phases 2-5 resumed after KR Option A ratification per directive at file bottom. Phase 1 halt-completion record preserved below for full audit trail.
+
+### Execution summary
+
+| Phase | Status | Notes |
+|---|---|---|
+| Phase 1 — enumeration | COMPLETE (prior halt; see record below) | 1,021 v1_scope=1 NULL rows enumerated; per-parent + per-register + per-quality_tier breakdowns captured; 56 rows spot-sampled |
+| Phase 2 — elrond direct classification | COMPLETE | All 1,021 v1_scope=1 items classified directly via existing 10-value canonical subtype enum; no enum extension needed |
+| Phase 3 — rocket consultation | SKIPPED | Phase 1 + Phase 2 edge-case sweeps confirmed all v1_scope=1 items are mechanically obvious; no ambiguous items required rocket consultation per KR-DIRECTIVE |
+| Phase 4 — bulk backfill + post-update audit | COMPLETE | Single-transaction backfill in `/Users/admin/Games/reincarnated-loadout/data/telemetry.db`; 1,021 rows updated; 0 NULL remaining in scope; 16-row before/after audit captured |
+| Phase 5 — MIGRATION.md | COMPLETE | `agentic_orchestration/elrond/research/cycle-12-sc-2-2026-05-25/MIGRATION.md` authored |
+
+### Classification distribution
+
+| subtype | rows updated this run | distribution rationale |
+|---|---|---|
+| handheld_weapon | 948 | Bulk default — fantasy named_template + fantasy category + military_modern category for handheld weapons (swords, axes, polearms, staves, rods, daggers, whips, flails, maces, bows, crossbows, handheld magical implements, DARPA flamethrower) |
+| siege_vehicle | 38 | 25 fantasy mounted artillery (Warhammer war machines + standalone Ballista/Brutal Ballista + Warhammer "Weapon: Ammo" compound profiles) + 13 modern self-propelled howitzers / ATGMs / mortars / off-route mines |
+| ammo_consumable | 13 | 10 D&D 5e Grenade-class thrown consumables + 3 Warhammer standalone ammo profiles (Cannon Ball / Cannon Shell / Mortar Shell) |
+| other | 11 | 9 knuckle dusters + Baba Yaga's Mortar and Pestle (wondrous-item transport) + Crystal Healer (PF2e BACKGROUND substrate-pollution) per Cycle 10 catch-all precedent |
+| accessory_handheld | 11 | Fantasy talismans per Cycle 10 Tier-S doctrine |
+| **Total updated** | **1,021** | |
+
+### Anomalies captured for v1.1+ queue (NOT corrected in SC-2 scope per KR-DIRECTIVE)
+
+1. **id=172596 "naginata"** — `register_canonical='military_modern'` is incorrect (naginata is feudal Japanese polearm; should be `historical` or `fantasy`). Subtype assignment `handheld_weapon` is correct regardless. Queue for v1.1+ register-tagging cleanup.
+2. **id=177340 "Crystal Healer"** — substrate pollution from `pf2ools-pf2ools-data-quarantined` source. Description is a PF2e *character background*, not a weapon. Tagged `other` as catch-all; flag for v1.1+ substrate-curation removal review. Note: v1_scope filter did not screen this non-weapon entry — surface as v1_scope hygiene question.
+3. **Possible additional pf2ools-quarantined background/feat pollution** — the `pf2ools-pf2ools-data-quarantined` source suggests further non-weapon entries may exist in broader corpus. v1.1+ Tier-B/Tier-C cleanup should grep for analogous patterns.
+
+### Deferred substrate per Option A scope (per KR-DIRECTIVE)
+
+| register | v1_scope=0 NULL count | status |
+|---|---|---|
+| fantasy | 16,355 | DEFERRED to v1.1+ |
+| military_modern | 3,394 | DEFERRED to v1.1+ |
+| **Total deferred** | **19,749** | per Cycle 12 scope-doc § 0 deferred items list |
+
+### Concurrency note
+
+Throughout Phase 4 backfill (single-transaction UPDATE), `PRAGMA busy_timeout=30000` applied. **No SQLite lock-busy contention observed.** SC-1 in flight at separate elrond sub-agent instance touches different columns (`cultural_lineage_canonical` + `historical_period_canonical` on Tier-S named-mythological subset); no row-level contention with SC-2's `weapon_kind_classified_subtype` column writes.
+
+### Cross-seam impact assessment
+
+**Grep results:** no production code consumers of `weapon_kind_classified_subtype` in `reincarnated-engine/src/`, `reincarnated-loadout/src/`, `reincarnated-demo/` as of 2026-05-25. Column is consumed only by documentation references in `agentic_orchestration/`. Forward-looking consumers per framing brief § 4: Cycle 12 Layer 2/3 substrate-binding (planned, not yet implemented) + composition policy v1 per-cell register-share (already authored against subtype column shape).
+
+**MIGRATION.md scope:** authored as forward-flag for Cycle 12 Layer 2/3 implementers (rocket + star-lord) to design substrate-binding against the now-complete v1_scope=1 subtype population. No coordinated change required from other seams now.
+
+### Discipline satisfaction
+
+- **#1 math-before-code:** no math; data-cleanup correctly characterized
+- **#11 empirical inspection:** direct-inspected catalogue rows BEFORE updating across 8+ queries spanning totals, per-register, per-parent × register, per-quality_tier, per-v1_scope, per-v1_scope subset, 56-row spot-checks, and edge-case enumerations on bomb/grenade/cannon/knuckle-duster/talisman/non-weapon patterns. Verified Cycle 10 precedent for 4 enum buckets before classification (bomb→ammo_consumable, knuckle-duster→other, mounted-cannon→siege_vehicle, Hand-X→handheld_weapon).
+- **#25 semantic-layer rep-audit:** confirmed `weapon_kind_classified_subtype` mechanically identifies sub-category (handheld_weapon vs siege_vehicle vs ammo_consumable vs accessory_handheld vs other); independent of `cultural_lineage_canonical` and `historical_period_canonical` semantic-overlay columns; no semantic drift introduced; existing 10-value enum coverage adequate for v1_scope=1 surface (no extension needed).
+- **§ 3.1 push back within data domain:** Phase 1 halted-for-scope when enumerated count diverged 200× from dispatch estimate; Phase 2 sub-population edge-case sweep (bombs/grenades/cannons/knuckle-dusters/talismans/non-weapons) prevented bulk-default over-application that would have mis-classified ~73 rows.
+- **ADR-004 cross-seam:** MIGRATION.md authored at `agentic_orchestration/elrond/research/cycle-12-sc-2-2026-05-25/MIGRATION.md` per Phase 5.
+
+### Reproducibility artifacts
+
+- Backfill SQL: `agentic_orchestration/elrond/research/cycle-12-sc-2-2026-05-25/sc2_backfill.sql` (single-transaction; idempotent; all UPDATEs guarded by `weapon_kind_classified_subtype IS NULL AND v1_scope = 1 AND register_canonical IN (...)`)
+- Backfill log JSON: `agentic_orchestration/elrond/research/cycle-12-sc-2-2026-05-25/sc2_backfill_log.json` (run metadata + per-bucket counts + anomalies + discipline satisfaction)
+- MIGRATION: `agentic_orchestration/elrond/research/cycle-12-sc-2-2026-05-25/MIGRATION.md`
+
+### Acceptance criteria — all met
+
+- [x] Phase 1 enumeration query authored + run; total count + per-parent-weapon-kind breakdown + per-register breakdown captured (see Phase 1 halt record below)
+- [x] Phase 2 elrond direct classifications applied; per-classified-item rationale captured (in MIGRATION.md per-exception tables)
+- [x] Phase 3 rocket consultation — SKIPPED per KR-DIRECTIVE (no ambiguous items in v1_scope=1 surface)
+- [x] Phase 4 backfill audit: all 1,021 enumerated v1_scope=1 items now have non-NULL `weapon_kind_classified_subtype`; 0 NULL remaining in scope
+- [x] Per-item before/after sample in completion record (16 rows in MIGRATION.md audit section)
+- [x] MIGRATION.md authored — cross-seam consumer impact captured as forward-flag for Cycle 12 Layer 2/3
+- [x] Discipline #11 empirical inspection: direct-inspected catalogue DB rows BEFORE updating + edge-case enumeration sweeps
+- [x] Discipline #25 semantic-layer rep-audit: confirmed `weapon_kind_classified_subtype` correctly classifies mechanical sub-category, not semantic overlay
+- [x] Tag: `elrond/cycle-12-sc-2-subtype-classification-2026-05-25` (cut at Phase 4 completion per cycle-completion artifact convention; auto-commit + auto-push per elrond seam authorization per CLAUDE.md addendum)
+
+---
+
 ## Completion record — Phase 1 enumeration HALT-FOR-SCOPE (elrond 2026-05-25)
 
 **Status:** Phase 1 enumeration COMPLETE. Execution HALTED before Phase 2 per dispatch directive ("If your enumerated count is >>100, flag to KR for scope decision before backfilling"). Enumerated count is **20,770 — ~200× the dispatch estimate of 50-100.** Returning to knight-rider for scope decision before proceeding.
