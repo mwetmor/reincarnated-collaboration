@@ -207,4 +207,29 @@ If jack-ryan surfaces BLOCK at full-engine level, KR routes back to specific lay
 **Authority:** KR autonomously orchestrates Gate-2 per Cycle 12 scope-doc § 1 + skip-confirmation re-auth 2026-05-25
 **Status:** FIRE — FINAL Cycle 12 Gate-2; gates wind-down + final tag cut + T4 post-mortem readiness milestone
 
+---
+
+## Completion record — jack-ryan 2026-05-25
+
+**Status:** COMPLETE — Gate-2 PASS
+**Reviewer:** jack-ryan
+**Completed:** 2026-05-25
+**Finding file:** `agentic_orchestration/qa/findings/2026-05-25-gate2-cycle-12-wave-5-full-new-engine.md`
+**Tag:** `jack-ryan/cycle-12-gate-2-full-new-engine-2026-05-25`
+
+**Verdict: PASS**
+
+Zero BLOCK findings. Zero WARN findings. Four INFO observations (all batch-amendable; none gate Cycle 12 close).
+
+**Cycle 12 completion criteria — ALL VERIFIED:**
+1. New engine functional (L2+L3+L4+L6 all per-layer Gate-2 PASS) ✅
+2. § 8 wire-up reaches combat arithmetic (gamora 52/52 integration tests; all 6 strategies in CombatantState) ✅
+3. L2+L3+L4+L6 compose cleanly (211/211 combined PASS; live import composition smoke PASS) ✅
+4. Integration smoke tests PASS (373/373 all Cycle 12 tests; jack-ryan independent verification) ✅
+5. jack-ryan Gate-2 PASS on full pipeline ✅ (THIS DOCUMENT)
+
+**KR proceeds:** Cycle 12 wind-down + final tag cut per skip-confirmation re-auth → T4 post-mortem readiness milestone → Cycle 12 OFFICIALLY CLOSED.
+
+**v1.1+ queue acknowledged:** Layer 7 BDI + § 8 v1.1 strategies + 4 canonical amendments + substrate hygiene items + Wave 1 gandalf consultation + Discipline #26 candidate — all captured for Cycle 13+ scope-doc authoring at wind-down.
+
 **Matt-touch sequence:** Gate-2 verdict → if PASS, KR drafts + auto-closes Cycle 12 wind-down per skip-confirmation re-auth (Cycle 11 close pattern precedent — wind-down summary + final tag cut + CHANGELOG entry); **T4 post-mortem readiness milestone reached → Cycle 12 OFFICIALLY CLOSED**. If BLOCK, route to specific layer/seam per scope-doc § 5 amendment + re-Gate
