@@ -156,3 +156,49 @@ If gamora sim integration surfaces strategy that doesn't apply correctly via Alt
 **Status:** FIRE — Wave 5 parallel-fire with star-lord + drax cross-seam consumers; **CRITICAL CONSUMER** for T4 post-mortem readiness (without gamora integration, AlteredFightEngineContext doesn't actually affect fights)
 
 **Matt-touch sequence:** gamora completes → KR captures in state file → integration smoke + jack-ryan Gate-2 on full new engine fires when all 3 cross-seam consumers land
+
+---
+
+## Completion record
+
+**Completed by:** gamora
+**Date:** 2026-05-25
+**Commit:** `e421800` — `feat(gamora): Cycle 12 Wave 5 — AlteredFightEngineContext sim combatant integration`
+**Tag:** `gamora/cycle-12-wave-5-sim-combatant-integration-2026-05-25`
+**Push:** main + tag pushed to origin (Cycle 12 push-per-wave authorization)
+
+### Acceptance criteria disposition
+
+- [x] Math note authored per Discipline #1 + #1.2 (code-line citations): `simulation/math/cycle-12-wave-5-sim-combatant-integration-2026-05-25.md`
+- [x] All 6 v1 strategies integrated per Math 2 (RESOURCE_CONVERSION, TRADE_OFF, ELEMENT_CONVERSION, DEFENSIVE_CONVERSION, GEOMETRY_COLLAPSE, DEFENSIVE_TRADEOFF)
+- [x] Integration smoke PASS: 52/52 (6 strategy construction tests + fight completion + end-to-end 6×5 fights + regression baseline + multi-strategy combination)
+- [x] No regression on existing gauntlet sim baselines: 115/115 PASS (test_combat_simulator + test_cycle12_layer6 + test_balance_loop)
+- [x] MIGRATION.md authored (simulation/MIGRATION.md § v1.28 — fight_log t4_alteration_type new key; star-lord follow-on required)
+- [x] AGENT_STATE.md updated with Cycle 12 Wave 5 checkpoint
+- [x] Tag applied: `gamora/cycle-12-wave-5-sim-combatant-integration-2026-05-25`
+
+### Implementation summary
+
+Three engine files modified; one new test file:
+
+**`simulation/combatant.py`**
+- `CombatantState`: 3 new T4 fields (`t4_cost_resource`, `t4_chaos_immune`, `t4_alteration_type`)
+- `EVASION_ARMOR_CONVERSION_FACTOR = 200.0` calibration constant
+- `from_player_class()`: `alteration_fields: dict | None = None` parameter; all 6 strategy overrides applied at construction (Pydantic `model_copy()` for immutable skill overrides)
+
+**`simulation/fight_engine.py`**
+- `_take_action()`: HP cost deduction branch (`t4_cost_resource == "HP"` → `hp -= cost`, bounded ≥ 1.0)
+- Same branch in disengage-sustain path (second mana deduction site)
+
+**`simulation/damage_resolver.py`**
+- `resolve_skill()`: `t4_chaos_immune` guard — shadow-element damage nullified for immune defenders (emits `"on_chaos_immune"` event)
+
+### Open question resolutions (per dispatch § "Open questions")
+
+1. **fight_log "alteration_applied" provenance**: YES — implemented as `t4_alteration_type` field on CombatantState. Balance loop will carry this into fight_log for downstream telemetry/audit. Star-lord follow-on required to persist the column.
+2. **Integration smoke uses synthetic OR existing season kits**: synthetic (cheapest-refuting per Discipline #19.1) for strategy tests; existing gauntlet baselines for regression check.
+3. **Regression check N-fight statistical OR single-fight smoke**: single-fight smoke per strategy (fight completion assert) + 5-fight parametrized batch for end-to-end; 10-fight batch for glass cannon direction test.
+
+### Star-lord follow-on obligation (per MIGRATION.md § v1.28)
+
+Add `t4_alteration_type` column (TEXT NULL) to `class_fight_loadouts` table. Source: `fight_log["t4_alteration_type"]`. Recorder: `entry.get("t4_alteration_type")` → NULL if absent. Additive change; pre-W5 rows unaffected.
