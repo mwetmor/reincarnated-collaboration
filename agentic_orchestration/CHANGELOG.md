@@ -4,6 +4,55 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-26 — Phase 5 EMPIRICALLY COMPLETE — `v2.1-phase-5-t4-narration-complete` milestone tag + T4 PM1 READY
+
+**Event:** Post-fast-follow milestone tag fired (engine `v2.1-phase-5-t4-narration-complete` @ `69970aa`; pushed to origin/main 2026-05-26) capturing the substantively-complete v2_narrow_phase_5 production deploy after a multi-session fast-follow chain that resolved 6 empirical conditions across engine + loadout surfaces.
+
+**Two-tier milestone hierarchy on engine repo:**
+- `v2.0-phase-5-skill-node-naming` @ `860707b` (2026-05-25) — original Gate-2 WARN-remediation milestone (skill-node naming calibration)
+- `v2.1-phase-5-t4-narration-complete` @ `69970aa` (2026-05-26) — full production state with T4 narration + Fix 1 + Fix 2 + full 35-form regen
+
+**6 empirical conditions satisfied at v2.1:**
+- 0/289 placeholders (Phase 5 calibration preserved from v2.0)
+- 91.3% first-attempt PASS / 0.838 mean cohesion (preserved from v2.0)
+- T4 keystone narration visible (Fix 1: gandalf 2026-05-26 amendment + rocket implementation + bug fix at `t4_wireup.py:1053`)
+- Main weapon rendering on Sample page (Fix 2: drax schema relaxation + weapon-display misplacement fix)
+- T4AlterationPanel renders narrated label + manifestation prose + thematic rationale (drax `68e6c76`)
+- Mechanical details visible under design-mode toggle across Loadout + Sample navigation (drax `a204310` + `7c93209` + `15fff74`)
+
+**Critique-pair chain (full chain documented across multiple commits this session):**
+- rocket Fix 1 implementation + T4 amendment + bug fix (`5820feb`)
+- jack-ryan Gate-2 PASS-with-INFO on Fix 1 + Fix 2 implementation
+- drax Fix 2 schema relaxation + WeaponSlot reconciliation
+- rocket full 35-form regen with both fixes (`69970aa`)
+- jack-ryan post-regen Gate-2 PASS-with-WARN on emission (`8460eff`)
+- gandalf design-fit Pass 1 RESOLVED across 5 findings + 1 new finding resolved via drax T4AlterationPanel amendment (`fed212d`)
+- 4 additional drax loadout-side fast-follow fixes for visual surfaces (T4AlterationPanel rendering + weapon-display + design-mode toggle + Sample.tsx wiring + T4 placeholder for pre-§8 seasons)
+
+**T4 PM1 readiness signal: READY** — ~90-120 min Pattern-B dialogue scheduled at Matt discretion across 4 blocks (Phase 5 calibration validation / hand-authored T4 alternative comparison / Cycle 13 architecture decision incl Insight A/A+/B/C + Standard Bearer + A/B/C generation-vs-sim / Cycle 13 scope-doc inputs + close-out).
+
+**Cycle 13 captured insights (per Matt 2026-05-26 design call; T4 PM1 prep doc § 6 Category 2 + Block 3 + Category 3):**
+- Insight A — Active/passive mix per kit
+- **Insight A+** — Per-kit MAIN vs OFF-HAND weapon routing discipline (Matt 2026-05-26 finding: 13/35 main_weapon mis-categorization)
+- Insight B — T4 as chain capstone (thematic continuity T1→T4)
+- Insight C — T4 cycling during multi-dim convergence + skill-investment unlock
+- A/B/C generation-vs-sim partitioning (Block 3 decision)
+- Standard Bearer archetype design call (banner-as-primary valid OR hybrid required)
+
+**Cycle 13 deferred queue:**
+- AlterationOutput threading gap (engine T4 mechanical field population — strategy_params={} / applied_axis_targets=[] / eta_score=0.0)
+- Phase 5 amendment § 7 re-roll threshold annotation
+- Within-run T4 label uniqueness gate
+- Non-weapon substrate cleanup (elrond; pf2ools-quarantined queue)
+- Sub-element investigation (Model A structured vs Model B embedded)
+- Gandalf OP § 4 framing-audit amendment (Discipline #23; operationally validated 3 times this cycle)
+
+**Discipline observations surfaced this cycle:**
+- Discipline #23 inherited-findings refutation-evidence audit validated 3x: gandalf 2026-05-25 special-case-summary Finding 2 framing-refutation; gandalf 2026-05-26 design-fit Pass 1 Finding 6 surface (T4AlterationPanel consumption gap refuted "drax requires no work" amendment optimism); KR pre-investigation hypothesis on missing-fields herring (the actual crash was final_modifier.toFixed null-deref, not the 5 missing fields)
+- UI null-safety + explicit design-mode disclosure for engine-emission-schema-evolution emerges as Cycle 13 v1.1+ design-discipline candidate (cross-season schema-drift pattern between engineered Phase 5 seasons + historical seasons creates UI null-paths)
+
+---
+
 ## 2026-05-25 — Phase 5 skill-node-level cohesion-judge calibration milestone — `v2.0-phase-5-skill-node-naming` (post-Cycle-12 fast-follow)
 
 **Event:** Post-Cycle-12 fast-follow milestone resolves the placeholder issue gandalf surfaced in 2026-05-25 design-fit pass (289/289 skill nodes were placeholders pre-fast-follow). 35-form regen now has REAL skill names + flavor + effect descriptions per gandalf design-spec-as-math. Single-session chain executed autonomously per Matt 2026-05-25 pre-authorization: rocket regen → jack-ryan Gate-2 → gandalf design-fit pass → rocket WARN remediation (parallel) → milestone tag.
