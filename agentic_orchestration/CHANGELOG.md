@@ -4,6 +4,42 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-25 — Phase 5 skill-node-level cohesion-judge calibration milestone — `v2.0-phase-5-skill-node-naming` (post-Cycle-12 fast-follow)
+
+**Event:** Post-Cycle-12 fast-follow milestone resolves the placeholder issue gandalf surfaced in 2026-05-25 design-fit pass (289/289 skill nodes were placeholders pre-fast-follow). 35-form regen now has REAL skill names + flavor + effect descriptions per gandalf design-spec-as-math. Single-session chain executed autonomously per Matt 2026-05-25 pre-authorization: rocket regen → jack-ryan Gate-2 → gandalf design-fit pass → rocket WARN remediation (parallel) → milestone tag.
+
+**Milestone tag:** `v2.0-phase-5-skill-node-naming` at engine commit `860707b` (Matt-ratified 2026-05-25).
+
+**Critique-pair chain outcomes:**
+- **rocket implementation** (`phase5_skill_naming.py` + `v2_narrow_phase_5_generation_run_2026_05_25.py`): 35 forms × 289 nodes; 0 placeholders; 91.3% first-attempt PASS; mean cohesion 0.838; cost $0.7392
+- **jack-ryan Gate-2 verdict:** PASS-with-WARN (2 WARNs: within-form gate timing + uniqueness metric scope mismatch; cross-form-only 95.85% PASSES spec § 6 literal criterion)
+- **rocket WARN remediation:** within-form gate exhausted-duplicate path now emits placeholder rather than fall-through (deeper bug than jack-ryan's timing observation); re-smoke 5 forms (incl form-015 + form-032) verified gate ACTIVE; 0 within-form duplicates across all 35 forms post-fix; MIGRATION.md clarifying note authored
+- **gandalf design-fit pass verdict:** Finding 1 (placeholder) RESOLVED substantively (9-form sample reads as coherent kit identities; cohesion-judge programmatic scoring agrees with subjective design-fit read); **Finding 2 (all-0.5 win-rate) FRAMING REFUTED** — cited fields don't exist in v2 engine schema; were legacy season_001001 fields; gandalf prior § 3.7 inherited loadout app TypeScript `BalanceMetadata` mental model and projected onto v2 output without re-verifying (attribution error in prior pass; self-corrected here)
+
+**Deferred to T4 post-mortem session 1 dialogue (Pattern-B; substantive; not snap decision):**
+- Cycle 13 architecture decision: v2 engine generation-vs-sim partitioning
+  - Option A: v2 stays generation-only; sim is separate downstream cycle
+  - Option B: v2 integrates sim (legacy season_001001 pattern); schema extends to carry sim outputs
+  - Option C: hybrid `--with-sim` flag opt-in
+
+**v1.1+ queued (per gandalf verdict Tier 3):**
+- Within-kit lexical-variety check (form-022 Crimson Leaf X pattern)
+- Form-layer uniqueness gate (form-002 + form-027 duplicate Menuki Bladedancer)
+
+**Discipline candidate surfaced (gandalf OP § 4 amendment queue):**
+- Inherited findings deserve fresh Q2 (refutation-evidence) audit treatment; treat as new assumptions, not established facts. Gandalf canonical authoring next OP touch fires.
+
+**Key artifacts:**
+- Phase 5 spec: `canonical/story/phase-5-cohesion-judge-calibration-spec-2026-05-25.md`
+- Dispatch: `agentic_orchestration/dispatches/2026-05-25-rocket-phase-5-cohesion-judge-calibration.md`
+- Gate-2 findings: `agentic_orchestration/qa/findings/2026-05-25-phase5-skill-node-naming-gate2-findings.md`
+- Design-fit pass verdict: `agentic_orchestration/gandalf/notes/2026-05-25-phase-5-regen-design-fit-pass.md`
+- Regen output: `~/Games/reincarnated-engine/exports/v2_narrow_phase_5/classes.json`
+
+**T4 post-mortem session 1 status:** UNBLOCKED. Matt + gandalf schedule when ready.
+
+---
+
 ## 2026-05-25 — Cycle 12 OFFICIALLY CLOSED + T4 post-mortem readiness milestone REACHED + auto-closed per skip-confirmation re-auth (autonomous hive-mind session)
 
 **Event:** Cycle 12 (v1 Full New Engine Parallel-Build per Option γ) closes in single hive-mind session per Matt 2026-05-25 "continue in hive-mind state" directive. All 4 critical-path layers (L2+L3+L4+L6) + all 3 cross-seam consumers (star-lord export + gamora sim + drax loadout) + small telemetry follow-on + 6 Gate-2 verdicts (5 per-layer + 1 full-engine) shipped autonomously.
