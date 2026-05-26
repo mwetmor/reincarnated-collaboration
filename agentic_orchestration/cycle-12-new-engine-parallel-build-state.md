@@ -191,7 +191,17 @@ Layer 6 jack-ryan Gate-2 fires immediately on landing per scope-doc § 1 in-scop
 
 | Sub-agent | Dispatch | Status |
 |---|---|---|
-| jack-ryan Gate-2 on Layer 6 | `2026-05-25-jack-ryan-cycle-12-gate-2-rocket-layer-6.md` | IN-FLIGHT (background) — DEV-MODE review per 5 principles + L9 refactor verification (Discipline #25 zero cultural_tradition reads) + cross-seam emission contract verification + signature_chain_id election + validate_invariants vocabulary check + integration smoke evidence verification (211/211 L3+L4+L6) |
+| jack-ryan Gate-2 on Layer 6 | `2026-05-25-jack-ryan-cycle-12-gate-2-rocket-layer-6.md` | ✅ **PASS** (zero BLOCK; zero WARN; 3 INFO). All 7 buckets PASS: § 8 wire-up correct for all 6 strategies + **sim-seam boundary CLEAR (sim_prerequisite=None — no escape-hatch trigger per scope-doc § 6)** + L9 refactor Discipline #25 PASS (empirical grep ZERO cultural_tradition reads in L6 code path) + signature_chain_id max-η rule with deterministic tie-break + VALID_NODE_TYPES frozenset + cross-seam emission shapes match MIGRATION.md § v1.4-layer-6 exactly (no WARN-B drift recurrence) + **211/211 L3+L4+L6 independently verified in 0.38s** + Discipline #1.2 code-line citations substantially satisfied. 3 INFO batch-amendable: INFO-A citation map drift (same as L4 INFO-A pattern); INFO-B active_t4_by_chain parameter path not test-exercised (Cycle 13+ BDI scope); INFO-C redundant `(is_chaos_element or element == "shadow")` one-line simplification. Tag `jack-ryan/cycle-12-gate-2-rocket-layer-6-2026-05-25` @ commit `9355795` pushed |
+
+**Wave 5 fan-out fires:** 3 cross-seam follow-on dispatches in parallel + Wave 5 closure work:
+
+| Sub-agent | Dispatch | Purpose |
+|---|---|---|
+| star-lord cross-seam consumer | `2026-05-25-star-lord-cycle-12-wave-5-off-hand-contract-export.md` | Extend class JSON export schema for off_hand_contract field per L6 emission shape (MIGRATION.md § v1.4-layer-6); round-trip smoke |
+| gamora cross-seam consumer | `2026-05-25-gamora-cycle-12-wave-5-sim-combatant-integration.md` | Sim combatant integration consuming AlteredFightEngineContext from L6 wire-up (REQUIRED for gauntlet sim to actually use new engine for T4 post-mortem) |
+| drax cross-seam consumer | `2026-05-25-drax-cycle-12-wave-5-spirit-guide-narration-update.md` | Spirit Guide panel update consuming L6 narration_metadata (enhancement on Cycle 11 v1.0 M3 T4AlterationPanel which already displays Tier 2 intent metadata) |
+
+Wave 5 closeout sequence post 3-cross-seam landing: KR authors integration smoke + jack-ryan Gate-2 on full new engine (verifies L2+L3+L4+L6 + star-lord/gamora/drax consumers end-to-end) → on PASS: KR drafts + auto-closes Cycle 12 wind-down per skip-confirmation re-auth → **T4 post-mortem readiness milestone → Cycle 12 OFFICIALLY CLOSED**.
 
 **Rocket Layer 2 amendment queue (non-blocking for Layer 4 fire; rocket addresses at next commit opportunity):**
 - **WARN-A**: math note uses "22 cells" throughout; reconcile to 25 per gandalf verdict (may batch with Gate-2-on-L3 INFO-B math-note code-line citations per Discipline #1.2)
