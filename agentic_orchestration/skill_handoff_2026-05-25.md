@@ -40,11 +40,12 @@ Jack-ryan recommends: **Cycle 13 dispatch for rocket include mandatory post-scri
 
 ### Priority 4 — CYCLE 13 SCOPE-DOC AUTHORING (deferred per Matt directive)
 
-**Action:** gandalf authors AFTER T4 post-mortem session 1 outcomes inform scope. Summary § 5.3 surfaces **4 Cycle 13 sub-cycle proposals**:
+**Action:** gandalf authors AFTER T4 post-mortem session 1 outcomes inform scope. Summary § 5.3 surfaces **4 Cycle 13 sub-cycle proposals** + **1 added per Matt 2026-05-25 directive**:
 - Algorithm refinement (L9 archetype-veto layer + § 8 substrate-binding scope including `kit.main_weapon.category` derivation table per rocket's `classify_weapon()` reference)
 - Substrate enrichment (element-classification pass + named-personage substrate audit)
 - Phase 5 calibration (skill-layer Phase 5 + name calibration spec)
 - Sampling + reportage (anchor-priority-sampling + Discipline #11 instrumentation audit — now strengthened by jack-ryan WARN-pattern observation)
+- **NEW — Engine v2_narrow gear-pool emission (Matt 2026-05-25 Option D selection):** engine generates real `gear_pool.json` from substrate for v2_narrow (and future seasons). Full coverage: all 5 tiers × 7 slots; substrate-bound entries; consumes existing v1_scope per substrate-curation pipeline. Rationale: v2_narrow currently shows empty GearGrid; M1 WeaponSlot renders correctly (engine-emitted main_weapon) but GearGrid is empty because no engine-side gear_pool emission exists yet. Matt selected Option D (proper engine-side emission) over Option A (Yomi fallback), Option B (placeholder pool), or Option C (hide GearGrid for v2_narrow). Empirical-evidence criterion for re-engagement: Cycle 13 rocket dispatch (after T4 post-mortem scope-doc lands).
 
 ---
 
@@ -115,7 +116,7 @@ Jack-ryan recommends: **Cycle 13 dispatch for rocket include mandatory post-scri
 | Phase 5 skill-layer calibration | Cycle 13 Phase 5 calibration spec authoring (gandalf canonical) |
 | L9 archetype-veto layer | Cycle 13 algorithm refinement (rocket) |
 | Engine substrate-binding category-field fix | Cycle 13 (rocket; classify_weapon() reference at `engine/scripts/v2_narrow_weapon_category_correction_2026_05_25.py`) |
-| Engine v2_narrow gear-pool emission | Cycle 13 generator scope (rocket; drax TODOs flagged) |
+| Engine v2_narrow gear-pool emission | **Matt 2026-05-25 Option D LOCKED** — Cycle 13 rocket dispatch (post-T4-post-mortem scope-doc); real engine-side emission from substrate, full coverage 5 tiers × 7 slots. Drax TODOs at `useSeasonData.ts` + Loadout.tsx + Sample.tsx flagged for cleanup when engine ships pools. |
 | Rocket reportage instrumentation audit | Cycle 13 retrospective OR Matt-directive correction dispatch |
 | v2_elemental forward-compat in `isEngineV2Season` | Cycle 13 loadout session (drax) |
 | Production telemetry DB migration v2.16 | Matt-explicit ADR-006 authorization |
