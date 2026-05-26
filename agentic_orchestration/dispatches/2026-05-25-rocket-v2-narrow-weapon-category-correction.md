@@ -113,3 +113,54 @@ Alternative path (simpler if substrate signals don't cleanly map): use form `arc
 **Status:** FIRE — transform-side correction for v2_narrow main_weapon.category; engine-side substrate-binding bug deferred to Cycle 13
 
 ---
+
+## Completion record
+
+**Completed by:** rocket
+**Timestamp:** 2026-05-25
+**Duration:** ~25 min
+
+### Work executed
+
+- Inspected all 35 v2_narrow class files to confirm bug pattern: `main_weapon.category = "category"` (literal string) present on 24 forms; 4 `banner` forms correct; remainder had non-standard wkind values (`ammo_or_consumable`, `named_template`, `unique`) also requiring correction
+- Confirmed all 35 `secondary_item` fields are null — no secondary fix needed
+- Authored derivation script at `/Users/admin/Games/reincarnated-engine/scripts/v2_narrow_weapon_category_correction_2026_05_25.py`
+- Applied three-signal derivation: `weapon_mechanical_profile` (primary) + `bc_target_cell.range` (secondary) + `archetype_tag` + weapon name keywords (tiebreaks for firearm vs. ranged vs. focus vs. tome)
+- Re-emitted all 35 `/Users/admin/Games/reincarnated-loadout/data/v2_narrow/classes/class_*.json` with corrected `main_weapon.category`
+- Also patched `mechanical_substrate_triple.weapon_kind` on all forms where it was the literal `"category"` placeholder (set to `weapon_mechanical_profile` value)
+- Updated engine-side export at `/Users/admin/Games/reincarnated-engine/exports/v2_narrow/classes.json` for historical fidelity (using `range_profile` field on engine schema vs. `bc_target_cell.range` on loadout schema)
+- Build clean: `npm run build` — 0 TS errors, 813 modules transformed
+
+### Result distribution (35 forms)
+
+| category | count |
+|---|---|
+| melee | 18 |
+| focus | 7 |
+| firearm | 5 |
+| banner | 4 |
+| ranged | 3 |
+| shield | 1 |
+| tome | 1 |
+
+### Acceptance criteria — all met
+
+- [x] All 35 v2_narrow class files: `main_weapon.category` in valid set (zero literal "category" strings)
+- [x] Spot-checked 6 forms: shield, firearm, focus (atlatl), focus (rod), banner, tome — all render correct label
+- [x] `secondary_item.category` — N/A (all null)
+- [x] Build clean (0 TS errors)
+- [x] Loadout commit pushed (`cd36e42`) → Vercel auto-deploy fired
+- [x] Engine-side bug logged for Cycle 13 (see below + script docstring)
+
+### Engine-side substrate-binding bug (Cycle 13 scope surface)
+
+**Bug:** substrate-binding layer emits `weapon_kind = "category"` (literal string) as placeholder for all non-banner kit profiles. Only `banner` was correctly populated. `weapon_mechanical_profile` carried the correct substrate type all along.
+
+**Root cause conjecture:** field-name-as-value typo OR uninitialized default that was only replaced for banner-category processing. The `weapon_mechanical_profile → WeaponDescriptor.category` mapping was never wired.
+
+**Fix location (Cycle 13):** `reincarnated-engine/src/reincarnated/generation/` substrate-binding layer — wherever `kit.main_weapon.category` is assigned. Needs a mapping table from `weapon_mechanical_profile` + range signal + `archetype_tag` to `WeaponDescriptor.category`. The correction script's `classify_weapon()` function documents the full derivation logic and can be adapted as the authoritative reference.
+
+### Commits
+
+- Loadout: `cd36e42` — `data/v2_narrow/classes/` (35 files) — pushed → Vercel auto-deploy
+- Engine: `d25d6f0` — `exports/v2_narrow/classes.json` + `scripts/v2_narrow_weapon_category_correction_2026_05_25.py`
