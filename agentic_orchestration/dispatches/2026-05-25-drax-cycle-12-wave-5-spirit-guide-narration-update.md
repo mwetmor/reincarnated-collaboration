@@ -132,3 +132,41 @@ If drax extends loadout consumer code with new behavior, that's drax-seam-only (
 **Status:** FIRE — Wave 5 parallel-fire with star-lord + gamora cross-seam consumers; **ENHANCEMENT on Cycle 11 v1.0 baseline** (Cycle 11 implementation provides Tier 2 intent metadata floor; L6 narration_metadata enriches)
 
 **Matt-touch sequence:** drax completes → KR captures in state file → integration smoke + jack-ryan Gate-2 on full new engine fires when all 3 cross-seam consumers land
+
+---
+
+## Completion record
+
+**Completed by:** drax
+**Completed:** 2026-05-25
+**Tag:** `drax/cycle-12-wave-5-spirit-guide-narration-update-2026-05-25` @ commit `7699690`
+**Preview:** https://reincarnated-loadout-bxdfu3igb-matthew-wetmore-s-projects.vercel.app
+**Push:** main + tag pushed to origin (c06bed1 = AGENT_STATE follow-on)
+
+### Acceptance criteria verdict
+
+- [x] T4AlterationOutput interface extended with `spirit_guide_narration_metadata?: NarrationMetadata | null` (null-safe) — `NarrationMetadata` interface added per MIGRATION.md § v1.4-layer-6 shape
+- [x] T4AlterationPanel consumes narration_metadata with fallback chain (L6 `narration_metadata.thematic_rationale` → Cycle 11 `thematic_rationale` → § 9 template voice)
+- [x] Build smoke PASS — 773 modules, 0 TS errors (parity with Cycle 11 baseline)
+- [x] Null-case smoke PASS — all 11 real seasons (no `t4_alteration_output`) degrade cleanly; T4AlterationPanel returns null; no broken UI
+- [x] Populated-case smoke PASS — `class_0001.json` (sample-season) with `spirit_guide_narration_metadata` renders L6 narration path (richer prose), explainer template label, narrative hook chips
+- [x] Vercel preview deploy READY — https://reincarnated-loadout-bxdfu3igb-matthew-wetmore-s-projects.vercel.app (Q5 preview-only; production NOT promoted)
+- [x] No regression on Cycle 11 v1.0 M3/M6 baseline — M1/M2/M4/M5/M6 all unaffected; T4ComparisonPanel untouched
+- [x] Tier 2 framing compliance maintained — "Build Identity" badge + "Intent Metadata" label preserved; no over-promising language introduced
+- [x] AGENT_STATE.md updated with Cycle 12 Wave 5 checkpoint
+- [x] Tag: `drax/cycle-12-wave-5-spirit-guide-narration-update-2026-05-25`
+- [x] Auto-commit + auto-push per drax seam authorization
+
+### Open question resolutions (from dispatch § Open questions)
+
+1. **narration_metadata shape** — Confirmed dict (not a simple string). Shape from `_build_spirit_guide_narration()` in t4_wireup.py: `{has_mechanic_alteration, alteration_type, thematic_rationale, manifestation, spirit_guide_explainer_template, narrative_hooks, secondary_alteration_types}`. `NarrationMetadata` interface captures full shape.
+
+2. **Enhanced narration replaces vs layers** — L6 `thematic_rationale` **replaces** Cycle 11 `thematic_rationale` in the Spirit Guide quote box (richer prose wins). L6 explainer template + narrative hooks **layer on top** as supplementary UI elements (micro-label + context chips). No duplication.
+
+3. **signature_chain_id for enhanced display** — DEFERRED to v1.0 production launch per dispatch scope. Not consumed in this Wave 5 enhancement. Would require additional UI surface (e.g., highlight which chain is build-defining) — noted as a follow-on option.
+
+### Shape observation for KR
+
+The L6 emission shape nests `spirit_guide_narration_metadata` as a subfield inside `t4_alteration_output`. Star-lord's FOLLOW-ON dispatch must wire this field into the season export schema for real seasons to carry it. Pre-ship classes (sample-season fixture) carry it manually. When star-lord ships export schema amendment, the TODO(drax) fixture annotation should be removed.
+
+**Status:** COMPLETE — returning to KR for integration smoke + Gate-2 aggregation.
