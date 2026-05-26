@@ -153,3 +153,61 @@ No knight-rider intermediation needed between rocket completion and gandalf fire
 **Status:** FIRE — v1 narrow milestone first-use of new engine; execution-only dispatch; autonomous gandalf design-fit pass triggers on completion
 
 ---
+
+## Completion record
+
+**Completed by:** rocket
+**Completed:** 2026-05-25
+**Tag:** `rocket/v0.1-engine-generation-run-v1-narrow-2026-05-25`
+
+### Execution summary
+
+- Script: `scripts/v1_narrow_generation_run_2026_05_25.py` (standalone L2→L3→L4→L6 pipeline; not season_orchestrator)
+- Seed: 20250525 / N=35 forms / Duration: 76.7s
+- Phase 5 LLM naming: ENABLED — 35/35 kits named via `LLMClient.complete_json`
+
+### Coverage achieved
+
+| Dimension | Target | Result |
+|---|---|---|
+| Total forms | 30-40 | 35 |
+| BC-target cells | 25 (accept gap) | 25 |
+| § 8 strategies | 6 | 6 (DEFENSIVE_CONVERSION, DEFENSIVE_TRADEOFF, ELEMENT_CONVERSION, GEOMETRY_COLLAPSE, RESOURCE_CONVERSION, TRADE_OFF) |
+| Attributes | 4 | 4 (DEX, INT, STR, WIS) |
+| Sketch F anchors | 4 (accept gap) | 1 (Moctezuma) |
+| Elements | 8 (accept gap) | 1 (physical — known v1 substrate limitation) |
+| engine_version="v2.0" | required | ALL 35 |
+| mechanical_substrate_triple | required | ALL 35 |
+
+### Quality gates
+
+- engine_version="v2.0": PASS
+- source_library="generator_v2": PASS
+- mechanical_substrate_triple populated: PASS
+- § 8 keystones reaching combat arithmetic (gamora_combatant_fields): PASS — all 35 kits
+- Schema validation (PlayerClassV2.validate()): 0 errors across 35 kits
+
+### Known v1 gaps (framing brief § 1.2 accepted)
+
+- element="physical" for all 35 kits: substrate keyword inference returns "physical" for historical weapon names (Sword of Attila, Kukri, etc.). Known v1 architectural limitation; v1.1+ scope per existing code comment.
+- Sketch F anchors 3/4 missing: Gilgamesh, Hattori Hanzo, Lu Bu not sampled in this cell-order / seed. Moctezuma confirmed (Standard Wizard / Thrown-Heavy/Atlatl cells). Named-bearer rows exist in substrate for remaining anchors; will appear at higher N or seed variation.
+- strategy_type in raw emission is None (Cycle 11 AlterationOutput not wired to new-engine kits). Resolved to actual strategy from T4Alteration in export dict. gamora_combatant_fields IS populated.
+
+### Script bugs fixed during execution (2 non-scope bugs, execution only)
+
+1. `_skill_tree_to_export_skills()`: assumed old-engine `Skill` attributes (`.name`, `.energy_cost`, `.damage_multiplier`, `.effects`). New-engine `Skill` uses `skill_id`, `cost`, `scaling_coefficient`, `keystone_effect`. Fixed via `_skill_node_to_dict()` helper.
+2. `apply_llm_naming()`: `LLMClient.complete()` takes `(system, user, ...)` not `(prompt=...)`. Fixed to `complete_json(system=..., user=...)`.
+
+### Deliverables
+
+- `reincarnated-engine/exports/v2_narrow/classes.json` (358 KB, 35 classes)
+- `reincarnated-engine/exports/v2_narrow/metadata.json` (coverage + audit)
+- `reincarnated-loadout/public/seasons/v2_narrow/classes.json` (deployed)
+- `reincarnated-loadout/public/seasons/v2_narrow/metadata.json` (deployed)
+- `agentic_orchestration/gandalf/notes/2026-05-25-engine-generation-run-provenance-manifest.md` (151 lines, 35-form index)
+
+### Handoff
+
+Gandalf: perform § 2.1 design-fit pass on provenance manifest. Forms are substrate-mechanical only (no elemental theming, no seasonal flavor). LLM-named class names are mythological-fantasy but archetype-generic. Matt: T4 post-mortem session 1 is ready to trigger.
+
+---
