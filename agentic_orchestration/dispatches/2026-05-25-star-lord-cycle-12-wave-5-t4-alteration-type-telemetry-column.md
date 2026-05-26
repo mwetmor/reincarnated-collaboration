@@ -91,3 +91,36 @@ Round-trip: REQUIRED per Principle 6 — telemetry round-trip + downstream consu
 **Status:** FIRE — small follow-on amendment; fires in parallel with jack-ryan Gate-2 on full new engine
 
 **Matt-touch sequence:** star-lord completes → KR captures in state file → on Gate-2 on full new engine PASS → KR drafts + auto-closes Cycle 12 wind-down per skip-confirmation re-auth → T4 post-mortem readiness milestone
+
+---
+
+## Completion record
+
+**Completed by:** star-lord
+**Date:** 2026-05-25
+**Tag:** `star-lord/cycle-12-wave-5-t4-alteration-type-telemetry-column-2026-05-25`
+
+### Acceptance criteria — all PASS
+
+- [x] `t4_alteration_type` column (TEXT NULL) present in `class_fight_loadouts` schema — migration `_V2_16` in `migrations.py`
+- [x] Telemetry write path populates column from fight_log when present — `entry.get("t4_alteration_type")` in `record_class_fight_loadouts()`
+- [x] Backward-compat NULL handling verified — key absent → NULL, all 304 pre-existing tests pass
+- [x] Round-trip smoke populated PASS — `"DEFENSIVE_TRADEOFF"` round-trip clean
+- [x] Round-trip smoke null PASS — entry without key → NULL round-trip clean
+- [x] No regression on existing telemetry tests — 304/304 PASS
+- [x] MIGRATION.md updated per ADR-004 — `export/MIGRATION.md §v2.16` appended
+- [x] AGENT_STATE.md updated — session record appended
+- [x] Tag applied — `star-lord/cycle-12-wave-5-t4-alteration-type-telemetry-column-2026-05-25`
+- [x] Auto-commit + auto-push fired per CLAUDE.md addendum + Cycle 12 push-per-wave
+
+### Files changed
+
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/telemetry/migrations.py` — `_V2_16` SQL string + MIGRATIONS entry `("2.16", ...)`
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/telemetry/recorder.py` — `SCHEMA_VERSION` `"2.15"` → `"2.16"`; `record_class_fight_loadouts()` docstring, row tuple (+1 element), INSERT (+1 column, 35 → 36 placeholders)
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/export/MIGRATION.md` — `§v2.16` section appended
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/export/AGENT_STATE.md` — session record appended
+- `agentic_orchestration/dispatches/2026-05-25-star-lord-cycle-12-wave-5-t4-alteration-type-telemetry-column.md` — this completion record
+
+### Production DB note
+
+Migration v2.16 on `telemetry/telemetry.db` is PENDING Matt-explicit authorization per ADR-006 (telemetry DB write). Pre-existing rows unaffected (new column → NULL for all rows).
