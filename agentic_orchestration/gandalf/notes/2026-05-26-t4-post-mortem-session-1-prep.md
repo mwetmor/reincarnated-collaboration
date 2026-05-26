@@ -24,15 +24,22 @@
 
 ✅ **Phase 5 calibration spec landed cleanly** — 0/289 placeholders; 91.3% first-attempt PASS; mean cohesion 0.838; strong cross-form differentiation
 
-✅ **Loadout app shows real Phase 5 content** — skill names + flavor + effect descriptions + T4 narrative integration visible at Vercel preview URL
+✅ **Loadout app shows real Phase 5 content** — skill names + flavor + effect descriptions + T4 narrative integration visible at Vercel preview URL (post Fix 1 + Fix 2 regen)
 
 ✅ **All-0.5 win-rate "issue" framing-refuted** — was a schema attribution error on my (gandalf, prior session) part; v2 engine is generation-only by current architecture; sim integration is a Cycle 13 architecture decision, NOT a Phase 5 fix
 
-✅ **T4 post-mortem session 1 substantively unblocked** — Matt can evaluate skill-tree feel + T4 keystone narrative integration + cross-form patterns NOW; doesn't need sim integration to surface design-fit signals
+✅ **T4 post-mortem session 1 substantively unblocked AT NARROW SCOPE** per Matt 2026-05-26 design call — Pass 1 evaluates architectural-gap-surfacing + Phase 5 calibration + T4 keystone narration; Pass 2 (post-Cycle-13-sim) evaluates battle behavior + full kit-feel
+
+**Matt 2026-05-26 three architectural insights — drive Cycle 13 scope** (per § 6 Category 2 amendment below):
+1. **Active/passive mix per kit** — current emission is all-actives; certain kits need passives
+2. **T4 as chain capstone** — currently orphan field; should be thematically continuous with chain T1-T3
+3. **T4 cycling during multi-dim convergence + skill-investment unlock** — T4 should be passive keystone unlocked by chain investment; convergence should cycle T4 OPTIONS
+
+These are SUBSTANTIAL — drive Cycle 13 scope-doc Layer 3 + Layer 4 + Layer 6 + UI + game loop amendments.
 
 ⚠️ **3 Matt-decisions outstanding** (KR's pending queue):
 1. Fire `v2.0-phase-5-skill-node-naming` milestone tag (recommend YES)
-2. Cycle 13 architecture decision: A/B/C generation-vs-sim partitioning (recommend DEFER to T4 PM1 dialogue)
+2. Cycle 13 architecture decision: A/B/C generation-vs-sim partitioning + Matt's 3 architectural insights (recommend DEFER to T4 PM1 Block 3 dialogue)
 3. Cycle 12 close re-confirmation (was already closed yesterday via `v1.0-new-engine-ready` tag; clarify with KR)
 
 ---
@@ -67,9 +74,37 @@ Per `agentic_orchestration/gandalf/notes/2026-05-25-phase-5-regen-design-fit-pas
 
 ---
 
+## 2.0 Pass 1 vs Pass 2 framing — narrow-now + battle-anchored-post-Cycle-13
+
+Per Matt 2026-05-26 design call surfacing that skills aren't tuned for battle yet ("they all feel way too theme-driven and they don't look like they will work well in battle/gameplay"), T4 PM1 honest scope = narrowly evaluate what IS evaluable + capture architectural gaps for Cycle 13.
+
+**Pass 1 — T4 PM1 (NOW; post Fix 1 + Fix 2 + regen):**
+- ✅ Phase 5 calibration validation (skill names + flavor + cohesion)
+- ✅ T4 keystone descriptive narration evaluation (Fix 1 landed)
+- ✅ Cross-form thematic coherence
+- ✅ Algorithm-vs-hand-authored T4 KEYSTONE comparison (not full skill-tree comparison)
+- ✅ Sketch F anchor design-fit
+- ✅ Substantive architectural-gap surfacing → Cycle 13 scope-doc inputs
+- ❌ SKIP: skill-tree-feel evaluation (premature; sim-gated)
+- ❌ SKIP: battle-behavior evaluation (sim-gated)
+- ❌ SKIP: full kit-feel evaluation (sim + passives + T4 chain integration gated)
+
+**Pass 2 — T4 PM2 (POST-CYCLE-13 with battle sim integrated):**
+- Battle behavior validation
+- Full kit-feel evaluation with active/passive mix + T4 chain integration + skill-investment progression (per Matt's 3 architectural insights)
+- Algorithm-vs-hand-authored T4 deeper comparison (skill-tree + T4 combined)
+- Phase 5 cohesion re-validation against refined architecture
+- Sub-element manifestation evaluation (if implemented in Cycle 13)
+
+**Two-pass pattern is substrate-led-discipline aligned.** Don't audit what isn't evaluable. T4 PM1 narrowly-scoped + Cycle 13 fires architectural amendments + T4 PM2 fires when battle sim + new architecture provides full evaluation surface.
+
+**Discipline #23 amendment note:** when Pass 2 fires, Pass 2 should apply inherited-findings refutation-evidence audit to Pass 1 findings — DON'T inherit Pass 1 findings uncritically (per the discipline amendment candidate from prior session's all-0.5 attribution catch).
+
+---
+
 ## 2. T4 post-mortem session 1 agenda (~90-120 min)
 
-Recommended 4-block structure adapted from gandalf sub-agent's verdict § 5.1 framework:
+**Re-scoped per § 2.0 Pass 1 framing** — focuses on architectural-gap-surfacing + Phase 5 / T4 evaluation; skips skill-tree-feel + battle behavior (Pass 2 territory).
 
 ### Block 1 — Phase 5 calibration validation (~20-30 min)
 
@@ -221,11 +256,88 @@ Per roadmap § 1.0 (2026-05-25) explicit deferral: "Cycle 13 scope-doc authoring
 - If Option B: schema extension + sim integration in Cycle 13
 - If Option C: hybrid flag implementation + opt-in sim infrastructure
 
-### Category 2 — Algorithm refinement sub-cycle
+### Category 2 — Algorithm refinement sub-cycle (EXPANDED per Matt 2026-05-26 architectural insights)
 
+**Pre-existing items (from Cycle 12 + earlier):**
 - DEFENSIVE_TRADEOFF type-union completion (drax flagged Wave 5; jack-ryan amendment candidate)
 - L9 archetype-veto layer for opportunity-scan (per gandalf sub-agent flag if verdict surfaces it; ties to GEOMETRY_COLLAPSE-on-wind-controller-style misfits)
 - § 8 algorithm calibration sweep if T4 PM1 surfaces misfit patterns
+
+**NEW — Matt 2026-05-26 three architectural insights (LOAD-BEARING Cycle 13 drivers):**
+
+#### Insight A — Active/passive mix per kit
+
+**Empirical state:** all 35 v2_narrow_phase_5 forms have only actives (energy_cost + cooldown_seconds + damage_multiplier on all skills). Per skill-system § 8 architecture: "mechanic-altering-only passives (no filler)." T4 keystone is the only passive currently (separate field, not in skills array).
+
+**Matt design call:** "we need passives in certain kits which will have too many active nodes." Per-kit active/passive RATIO should respond to kit identity. Examples (inferred; Matt amends at T4 PM1):
+- High-tempo combo kits → mostly actives (rotation-heavy)
+- Defensive tank kits → 50-70% passives (damage reduction, regen, etc.)
+- Caster kits → mix (sustained passives + burst actives)
+- Berserker/rage kits → mostly actives
+- Hybrid attribute kits → mix (passive support for off-attribute mechanics)
+
+**Architectural amendment scope:**
+- Layer 3 skill content generator — determine per-kit active/passive ratio from BC-target cell + kit identity signals
+- Schema extension — mark nodes as active/passive
+- Cohesion check — passive choices align with kit identity (cohesion-judge extension)
+
+**Cycle 13 owner:** rocket (Layer 3 generator amendment) + gandalf (design-spec-as-math for active/passive ratio per kit) + jack-ryan Gate-2
+
+#### Insight B — T4 as chain capstone (thematically continuous with chain T1-T3)
+
+**Empirical state:** T4 lives in `t4_alteration_output` field (separate from `skills` array; orphan from any chain). T4 has `strategy_type` (DEFENSIVE_CONVERSION etc.) — no chain attribution.
+
+**Matt design call:** "T4 skill needs to be part of the chain, related to the rest of the chain's nodes thematically." T4 = chain CAPSTONE, narrative + mechanical continuity with chain T1-T3.
+
+**T4-A architecture defaults already SUPPORT this** (per `canonical/story/tier-4-architecture-defaults-2026-05-22.md`): 1 signature + 1-3 secondary capstones. What's missing:
+- Implementation that ASSIGNS T4 to specific chain in skill_tree structure (signature_chain_id field per Gate-1 INFO-3 from Cycle 12 framing brief)
+- Phase 5 cohesion-judge validates chain T1→T4 thematic continuity
+- Loadout amendment — T4 display in chain context (not orphan field)
+
+**Architectural amendment scope:**
+- Layer 3 + Layer 6 wire-up amendment — T4 lives within a designated chain (signature_chain_id field)
+- Phase 5 cohesion check extension — chain T1→T4 thematic continuity validation
+- Loadout amendment — T4 display in chain context
+
+**Cycle 13 owner:** rocket (Layer 3 + Layer 6 amendment) + gandalf (Phase 5 cohesion-judge spec extension) + drax (loadout chain-capstone rendering) + jack-ryan Gate-2
+
+#### Insight C — T4 cycling during multi-dim convergence + skill-investment unlock
+
+**Empirical state:** Each kit has ONE `t4_alteration_output` — Layer 4 convergence selects ONE T4, doesn't cycle options. No skill-rank progression in schema → no investment gating mechanic. T4 is decoupled from player progression.
+
+**Matt design call:** "T4 needs the capability to cycle T4 passive skills until the character converges with the number of skill nodes spent as necessary to unlock the T4 as the pinnacle of the build."
+
+**Per W1.13 multi-dim convergence math note v1.1:** "per-node SP × Tier 4 keystone discrete × trigger interaction discrete × scalar modifier × gear affix vector × tier-specific coefficient" — "Tier 4 keystone discrete" IS a convergence dimension. Math supports cycling. Implementation may not be cycling — may be one-shot selecting.
+
+**Architectural amendment scope (MULTI-LAYER):**
+
+| Layer | Amendment needed |
+|---|---|
+| **Layer 3 skill content** | Schema for skill-rank progression (multi-rank per node); investment-gating mechanic for T4 unlock |
+| **Layer 4 W1.13 multi-dim convergence** | Verify T4 keystone discrete IS cycling per math note; if not, amend to cycle T4 options during convergence |
+| **Layer 6 § 8 wire-up** | Generate T4 keystone CANDIDATES per chain (~3-5 per chain per T4-A); not just one selected T4 |
+| **Player progression UI** | Loadout skill tree shows investment + T4 unlock at threshold |
+| **Game design loop** | Skill-point earning + spending mechanic; chain investment progression |
+
+**The game design loop item is genuinely v1.0 game-shipping territory** — not just engine work. It's the player-facing "spend skill points to build your character" loop that the engine needs to support. Substantial scope.
+
+**Cycle 13 owner:** rocket (Layer 3 + 4 + 6 amendment) + gandalf (multi-dim convergence spec extension; T4 candidate generation spec; investment-gating design-spec) + drax (loadout progression UI) + Matt + gandalf design call (game loop architecture) + jack-ryan Gate-2
+
+#### Cycle 13 scope-shape implication
+
+**Matt's 3 insights together describe SUBSTANTIAL Cycle 13 scope.** Combined with the A/B/C generation-vs-sim partitioning decision (Category 1), Cycle 13 is shaping up as a multi-layer architectural refinement cycle:
+
+| Cycle 13 candidate scope | Effort estimate |
+|---|---|
+| Active/passive mix amendment (Layer 3) | ~3-5 days rocket + ~half-day gandalf design-spec |
+| T4 chain-anchoring (Layer 3 + 6) | ~3-5 days rocket + ~half-day gandalf cohesion-spec extension |
+| T4 cycling + skill-investment unlock (Layer 3 + 4 + 6 + UI + game loop) | ~1-2 weeks rocket + ~1-2 days gandalf spec authoring + ~3-5 days drax UI + Matt + gandalf design call on game loop |
+| A/B/C generation-vs-sim partitioning (depends on choice) | A: 0 days Cycle 13 / B: ~1-2 weeks Cycle 13 integration / C: ~3-5 days Cycle 13 infrastructure |
+| **TOTAL Cycle 13 estimate** | **~3-5 weeks IF Option A; ~5-8 weeks IF Option B; ~4-6 weeks IF Option C** |
+
+Per Cycle 12 velocity patterns, actual wall-clock may be shorter than estimates.
+
+**T4 PM1 Block 3 (Cycle 13 architecture decision)** becomes substantive — Matt picks A/B/C AND ratifies architectural amendment scope (active/passive + T4 chain + T4 cycling + investment-unlock).
 
 ### Category 3 — Substrate enrichment sub-cycle (v1.1+ from prior queue)
 
