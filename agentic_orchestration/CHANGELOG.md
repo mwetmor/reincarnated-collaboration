@@ -4,6 +4,75 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-25 — Cycle 12 OFFICIALLY CLOSED + T4 post-mortem readiness milestone REACHED + auto-closed per skip-confirmation re-auth (autonomous hive-mind session)
+
+**Event:** Cycle 12 (v1 Full New Engine Parallel-Build per Option γ) closes in single hive-mind session per Matt 2026-05-25 "continue in hive-mind state" directive. All 4 critical-path layers (L2+L3+L4+L6) + all 3 cross-seam consumers (star-lord export + gamora sim + drax loadout) + small telemetry follow-on + 6 Gate-2 verdicts (5 per-layer + 1 full-engine) shipped autonomously.
+
+**Cycle 12 OFFICIALLY CLOSED at git-tag level:**
+- Final tag `v1.0-new-engine-ready` cut + pushed on engine repo at commit `7cff770` (star-lord telemetry column v2.16 — most recent Cycle 12 engine commit)
+- Final tag `v1.0-new-engine-ready` cut + pushed on loadout repo at commit `c06bed1` (drax Wave 5 Spirit Guide narration AGENT_STATE checkpoint)
+- T4 post-mortem readiness milestone REACHED — alterations actually affect fights at sim time (Tier 2 framing gap from Cycle 11 NOW CLOSED)
+
+**Cycle 12 v1 acceptance surface shipped (per Option γ scope):**
+
+Engine (rocket + gamora + star-lord seams):
+- Layer 2 BC-target subspace generator (PlayerClassV2 + 25 CELL_DEFINITIONS + AUGMENT pattern)
+- Layer 3 skill content + 146 substrate templates + SC-3 off-hand mechanical contract
+- Layer 4 W1.13 multi-dim convergence (custom 3-phase per math note v1.1 § 4.3; 9 § 10 calibration parameters settled)
+- Layer 6 § 8 algorithm wire-up + L9 opportunity-scan refactor (Discipline #25 verified zero cultural_tradition reads)
+- Simulation seam: CombatantState 3 T4 fields + 6 v1 strategies applied to combat arithmetic
+- Export seam: 4 nested L6 emission subfields + migration v2.16 telemetry column
+
+Loadout (drax seam):
+- NarrationMetadata interface + T4AlterationPanel fallback chain (L6 enrichment of Cycle 11 v1.0 baseline)
+- Vercel preview READY (Q5 preview-only honored)
+
+Substrate cleanup (elrond seam):
+- SC-1 56 Tier-S named-mythological backfill + SC-2 1,021 v1_scope=1 subtype classification
+
+**Sub-agent throughput (Cycle 12 hive-mind cycle wall-clock):**
+- 11 sub-agent fires shipped in ~180 minutes wall-clock vs framing-brief ~3-5 weeks estimate
+- Layer 2 ~46 min + Layer 3 ~17 min + Layer 4 ~25 min + Layer 6 ~17 min + pre-Layer-6 amendments ~5 min + drax Wave 5 ~5 min + star-lord Wave 5 ~8 min + gamora Wave 5 ~27 min + star-lord telemetry follow-on ~6 min + 6 Gate-2 reviews ~5-15 min each
+- Synthetic-agent cadence is dispatch-bounded, not human-day-bounded
+- Pattern reinforces Discipline #26 candidate (Cycle 11 wind-down § 5 flag + Cycle 12 cycle-bounded vs week-bounded cadence evidence)
+
+**Test/smoke evidence cumulative:**
+- 373/373 aggregate verified by jack-ryan Gate-2 on full new engine PASS (28 L2 + 211 L3+L4+L6 combined + 52 gamora integration + 42 star-lord Wave 5 + 40 star-lord Cycle 11 baseline)
+- Zero regressions across all integration points
+- 304/304 telemetry tests PASS post-v2.16 migration
+
+**Discipline-test verdict (hive-mind-scope-discipline THIRD prospective application):**
+- DISCIPLINE EFFECTIVE; SKIP-CONFIRMATION RE-AUTH HONORED
+- Entire cycle closed without Matt-touch after Matt 2026-05-25 bulk-ratification + skip-confirmation re-auth
+- All escape-hatch triggers handled per § 1 + § 6 authority (SC-2 200×-scope-mismatch resolved autonomously as Option A; v1_scope row-count discrepancy KR-direct-verified per Discipline #11; all per-layer Gate-2 verdicts processed autonomously)
+- Cross-seam coordination handled at cycle (rocket L6 → star-lord/gamora/drax cross-seam fan-out + telemetry follow-on) without architectural amendments
+
+**v1.1+ queue handed off (20 items captured for Cycle 13+ scope-doc authoring):**
+- Engine + algorithm: Layer 7 BDI framework; § 8 v1.1 strategies; Cell 20 Holy Knight § 4.1 amendment; Cells 11/22/24 § 4.1 amendments; v1_scope row-count reconciliation; substrate element column schema evolution; Layer 4 active_t4_by_chain integration test coverage
+- Substrate hygiene: pf2ools-quarantined corpus pollution cleanup; SC-1 Subset C 94-row disposition; Tier-A/B/C activation for Brahmastra/Sudarshana Chakra/Aegis; Greek + Norse mythological period convention disambiguation
+- Process + discipline: Discipline #26 candidate (jack-ryan engineering-disciplines authoring); rocket math-note amendment batch; Wave 1 gandalf consultation (SC-1 follow-ons + period conventions)
+- Infrastructure (Matt-authorized): Pi-Postgres engine-internal; hosted-Postgres loadout; Tailscale install G11; production telemetry DB migration v2.16 ALTER TABLE
+- Player-experience design: broader weapon-equip flexibility (L11 deferred concept); T4-B v1 catalogue contents (~30-50 entries)
+
+**Matt-touch items at log-back (5 operational items per wind-down § 7; not Cycle 12 close gates):**
+1. Acknowledge Cycle 12 close + tag name (recommendation: as-cut)
+2. Authorize production telemetry DB migration v2.16 ALTER TABLE per ADR-006
+3. Re-authorize skip-confirmation pattern for Cycle 13 (per Cycle 10/11/12 precedent)
+4. Acknowledge v1.1+ queue handoff (20 items)
+5. Direct gandalf Cycle 13 scope-doc authoring OR defer
+
+**Hive-mind state for Cycle 12 ends.** KR parks awaiting next Matt-direction.
+
+**Cycle 13 considerations** (not authored; gandalf-direction needed):
+- v1.1+ queue triage + scope-doc authoring
+- Layer 7 BDI test framework activation (was DEFERRED to v1.1 per Cycle 12 Option γ scope)
+- Pi infrastructure execution (Matt "right moment")
+- Hosted-Postgres + Tailscale operational items (Matt-authorized)
+- Algorithm § 8 v1.1 strategies (4 sim-extension-required + proxy-spawn per Cycle 11 P2b)
+- T4-B v1 catalogue contents (parallel-track gandalf+Matt design)
+
+---
+
 ## 2026-05-25 — Cycle 11 CLOSED + Cycle 12 critical-path Wave 1 commenced + skip-confirmation re-auth for Cycle 12 wind-down (Matt log-back session 2 — same date)
 
 **Event:** Cycle 11 final ratification + tag-cut + Cycle 12 critical-path commencement in single hive-mind session.

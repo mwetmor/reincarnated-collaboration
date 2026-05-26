@@ -1,6 +1,6 @@
 # Cycle 12 New Engine Parallel-Build (Option γ) — Hive-Mind State File
 
-> **STATUS:** LIVE — Cycle 12 hive-mind state, active as of 2026-05-25 (session-open)
+> **STATUS:** ✅ CLOSED 2026-05-25 — Cycle 12 OFFICIALLY CLOSED at git-tag level. Final tag `v1.0-new-engine-ready` cut + pushed on engine (`7cff770`) + loadout (`c06bed1`) repos. T4 post-mortem readiness milestone REACHED. Auto-closed per Matt skip-confirmation re-authorization (Matt 2026-05-25 verbatim "Ratify all 3 as-drafted... please continue in hive-mind state"). Wind-down summary at `agentic_orchestration/cycle-12-wind-down-summary-2026-05-25.md` (Matt-facing log-back read surface). Hive-mind state for Cycle 12 ENDS.
 
 **Cycle:** 12 — v1 full new engine parallel-build (Option γ) — Layers 2+3+4+6 (kit identity + skill content + W1.13 multi-dim convergence + § 8 wire-up); Layer 7 BDI test framework DEFERRED to v1.1
 **Owner:** knight-rider (orchestrator)
@@ -312,5 +312,5 @@ Fired in parallel with elrond SC-2 Option A continuation:
 
 ---
 
-**Signed:** knight-rider (Cycle 12 session-open 2026-05-25)
-**Status:** Cycle 12 LIVE; Wave 0 Day-1 parallel-fire batch in flight (6 sub-agents + parallel Cycle 11 close drax Wave 3b); push-per-wave authorized
+**Signed:** knight-rider (Cycle 12 session-open 2026-05-25 → auto-closed 2026-05-25 per skip-confirmation re-auth)
+**Status:** ✅ CYCLE 12 OFFICIALLY CLOSED at git-tag level (`v1.0-new-engine-ready` on engine `7cff770` + loadout `c06bed1`). T4 post-mortem readiness milestone REACHED. Wind-down summary authored at `agentic_orchestration/cycle-12-wind-down-summary-2026-05-25.md`. CHANGELOG.md team-level entry for Cycle 12 close authored. v1.1+ queue (20 items) captured for Cycle 13+ scope-doc authoring when gandalf+Matt next-engage. Hive-mind state for Cycle 12 ends; KR parks awaiting next Matt-direction (Cycle 13 scope-doc authoring OR specific Matt-engagement on v1.1+ queue items OR operational follow-on per § 7 wind-down ask items)
