@@ -312,4 +312,39 @@ If Layer 6 surfaces sim-seam boundary touch requirement for any v1 strategy: esc
 **Authority:** Matt 2026-05-25 Cycle 12 framing brief bulk-ratification (Q1 Option γ Layers 2+3+4+6) + skip-confirmation re-auth 2026-05-25 + KR autonomously orchestrates per scope-doc § 1
 **Status:** FIRE — FINAL critical-path layer per Option γ; pre-Layer-6 amendments ✅ cleared; Layer 6 fires immediately
 
+---
+
+## Completion record
+
+**Completed by:** rocket
+**Date:** 2026-05-25
+**Commit:** `cb659d7` — `feat(generation/layer-6): Cycle 12 Layer 6 — § 8 wire-up + L9 substrate refactor COMPLETE`
+**Tag:** `rocket/v0.1-cycle-12-layer-6-section-8-wireup-and-l9-refactor-2026-05-25`
+**Pushed:** `origin/main` @ `cb659d7`; tag pushed to remote
+
+### Bucket completion summary
+
+**Bucket 1 — § 8 algorithm wire-up:** `apply_t4_alteration_to_combat()` implemented in `t4_wireup.py`. `AlteredFightEngineContext` typed container carries `effective_skills`, `effective_stats`, `effective_geometry`, `spirit_guide_narration_metadata`, `gamora_combatant_fields`. All 6 v1 strategies wired with correct combat-arithmetic mutations.
+
+**Bucket 2 — L9 opportunity-scan refactor:** `MechanicalKitContext` replaces `KitSubstrate` at all L6 call sites. 6 `opportunity_scan_mechanical_*()` free functions added in `t4_wireup.py`. Zero `cultural_tradition` reads in any L6 call site. Original `opportunity_scan()` methods on strategy classes preserved for Cycle 11 backward compatibility.
+
+**Bucket 3 — signature_chain_id population:** `elect_signature_chain_id()` implements max-η rule + chain-index deterministic tie-break. `wire_up_kit_layer6()` sets `skill_tree.signature_chain_id` from election result. INFO-3 closed.
+
+**Bucket 4 — validate_invariants() vocabulary check:** `VALID_NODE_TYPES: frozenset[str]` added to `skill_tree.py`. Runtime node_type check added inside `validate_invariants()`. INFO-C closed.
+
+**Bucket 5 — cross-seam SC-3 obligations:** `emit_cross_seam_fields()` emits `spirit_guide_narration_metadata` (spirit_guide_template, strategy_name, is_signature, chain_id, alteration_details) + `gamora_combatant_fields` (JSON-serializable, strategy-keyed) + `off_hand_contract` (typed dict). Consumer work (star-lord schema extension, gamora sim-combatant integration, drax Spirit Guide panel) documented in `export/MIGRATION.md § v1.4-layer-6` as FOLLOW-ON. INFO-D closed.
+
+**Bucket 6 — smoke + acceptance:** 36/36 L6 tests PASS (Gate 1-5); L3 + L4 + L6 combined 211/211 PASS; no regression. Round-trip JSON smoke PASS (uses `_ensure_json_serializable` from `converge.py` matching star-lord pipeline path).
+
+**Bucket 7 — provenance:** Math note at `src/reincarnated/generation/notes/cycle-12-layer-6-section-8-wireup-and-l9-refactor-2026-05-25.md` (Math 1-7 with code-line citations per Discipline #1.2). `generation/MIGRATION.md` entry added. `export/MIGRATION.md § v1.4-layer-6` entry added. `AGENT_STATE.md` updated to Layer 6 COMPLETE.
+
+### Sim-seam boundary assessment
+All 6 v1 strategies are loadout-resolution-only (`sim_prerequisite = None` from Cycle 11). `gamora_combatant_fields` is a read-only dict gamora reads at sim initialization. Boundary CLEAR — gamora sub-agent consultation not required. L9 mapping was clean for all 6 strategies — gandalf escalation not required.
+
+### Follow-on actions (NOT rocket scope)
+- star-lord: extend season export schema with `off_hand_contract` + `spirit_guide_narration_metadata` + `gamora_combatant_fields` fields per `export/MIGRATION.md § v1.4-layer-6`
+- gamora: consume `gamora_combatant_fields` in sim combatant construction at initialization
+- drax: Spirit Guide panel display of `spirit_guide_narration_metadata`
+- jack-ryan: Gate-2 on Layer 6 (route from KR post-tag + push)
+
 **Matt-touch sequence:** rocket Layer 6 implementation lands → jack-ryan Gate-2 validates → if PASS, KR coordinates: (1) Wave 5 integration smoke (L2 + L3 + L4 + L6 end-to-end through gauntlet); (2) jack-ryan Gate-2 on full new engine; (3) cross-seam follow-on dispatches per consumer seam (star-lord + gamora + drax) — these can fire in parallel as Wave 5 sidecars; (4) KR auto-closes Cycle 12 wind-down per skip-confirmation re-auth → T4 post-mortem readiness milestone. If Layer 6 surfaces sim-seam boundary requirement for any v1 strategy OR L9 refactor mapping non-obvious, route to escape-hatch per scope-doc § 5/§ 6
