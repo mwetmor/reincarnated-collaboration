@@ -166,6 +166,15 @@ Per verdict § 3.5 + my prior recommendation:
 
 **Output:** Matt's A/B/C decision → informs Cycle 13 scope-doc authoring + ADR-002 entry routing to jack-ryan
 
+**Additional Block 3 discussion item (per Matt 2026-05-26 hands-on inspection finding — Insight A+ companion):**
+
+**Standard Bearer archetype design question** — is **banner-as-primary-weapon** a valid archetype OR does Standard Bearer require **hybrid (banner + secondary martial weapon)** treatment? Empirical context: v2_narrow_phase_5 has 4 forms with banner as main_weapon (currently mis-routed per Insight A+ root cause #2 — Layer 2 doesn't filter by off-hand category). Two design paths:
+
+- **Banner-as-primary valid:** Standard Bearer is its own archetype; banner IS the primary weapon (think 7th-century Carolingian draco-bearers, samurai sashimono, etc.); off-hand routing logic legitimately allows banner→main_weapon for this archetype only
+- **Hybrid required:** Standard Bearer needs a paired martial weapon (sword/spear) for actual combat; banner is a thematic/buffing OFF-HAND item; main_weapon must be a melee/polearm/ranged
+
+Matt's design call determines whether Insight A+ per-kit MAIN vs OFF-HAND routing discipline includes a Standard Bearer archetype exception (path 1) OR rejects banner-as-primary entirely (path 2). Affects rocket Layer 2 amendment scope + gandalf design-spec authoring.
+
 ### Block 4 — Cycle 13 scope-doc input + close-out (~15-20 min)
 
 **Goal:** capture T4 PM1 outcomes for Cycle 13 scope-doc authoring.
@@ -283,6 +292,24 @@ Per roadmap § 1.0 (2026-05-25) explicit deferral: "Cycle 13 scope-doc authoring
 
 **Cycle 13 owner:** rocket (Layer 3 generator amendment) + gandalf (design-spec-as-math for active/passive ratio per kit) + jack-ryan Gate-2
 
+#### Insight A+ — Per-kit MAIN vs OFF-HAND weapon routing discipline (expansion of Insight A)
+
+**Empirical state (Matt 2026-05-26 hands-on inspection of v2_narrow_phase_5 production deploy):** 13 of 35 forms have **off-hand-category items as `main_weapon`** (7 focus + 4 banner + 1 shield + 1 tome). `secondary_item` is NULL on 35/35 forms. Off-hand-category items are mis-routed to the primary weapon slot.
+
+**Three compound root causes (Matt design call):**
+
+1. **Substrate curation pollution** — items like "Gunner's rule", "Powder tester", "Academician's Habit", "Gunner's dividers", "Manuscript" are tagged as `weapon` substrate but aren't actually weapons. Folds into the pf2ools-quarantined corpus cleanup queue (Category 3).
+2. **Layer 2 substrate-binding doesn't filter by category** before main_weapon assignment — substrate-binding layer treats any weapon-tagged substrate as eligible for primary slot regardless of off-hand-vs-main-hand designation.
+3. **`secondary_item` routing not firing** — the off-hand routing logic isn't producing secondary_item assignments (NULL 35/35); off-hand items default-route to main_weapon slot instead.
+
+**Architectural amendment scope:**
+- Layer 2 substrate-binding amendment — filter main_weapon candidates by category (exclude off-hand categories: focus / banner / shield / tome / horn / talisman) before main_weapon assignment
+- secondary_item routing logic — when an off-hand-category item is selected (or when kit identity requires it), route to secondary_item slot
+- Per-kit MAIN vs OFF-HAND routing discipline — kit identity (caster vs warrior vs banner-bearer) should drive WHICH off-hand-category items can route to main_weapon (e.g., banner-bearer archetype legitimately uses banner-as-primary; but Standard Bearer is its own archetype design question — see Block 3)
+- Substrate cleanup — non-weapon items mis-tagged as weapons (Gunner's rule etc.) need elrond corpus cleanup (Category 3)
+
+**Cycle 13 owner:** rocket (Layer 2 amendment + secondary_item routing logic) + elrond (substrate cleanup — non-weapon items mis-tagged; folds into pf2ools-quarantined queue per Category 3) + gandalf (per-kit MAIN vs OFF-HAND routing discipline design-spec; Standard Bearer archetype design call per Block 3) + jack-ryan Gate-2
+
 #### Insight B — T4 as chain capstone (thematically continuous with chain T1-T3)
 
 **Empirical state:** T4 lives in `t4_alteration_output` field (separate from `skills` array; orphan from any chain). T4 has `strategy_type` (DEFENSIVE_CONVERSION etc.) — no chain attribution.
@@ -344,6 +371,7 @@ Per Cycle 12 velocity patterns, actual wall-clock may be shorter than estimates.
 - Wind / lightning critically thin substrate continuation (8 / 5 rows currently)
 - v1_scope row-count reconciliation (Tier-A 756-row drift since Cycle 10)
 - pf2ools-quarantined corpus pollution cleanup (Tier-B/Tier-C grep)
+- **Non-weapon substrate cleanup (Matt 2026-05-26 finding — Insight A+ root cause #1):** items mis-tagged as `weapon` substrate that aren't actually weapons — "Gunner's rule", "Powder tester", "Academician's Habit", "Gunner's dividers", "Manuscript" etc. Surfaced via v2_narrow_phase_5 main_weapon mis-categorization (13/35 forms). Tier-B/Tier-C grep cleanup folds into pf2ools-quarantined corpus pollution queue. **Owner:** elrond
 - Substrate `element` column schema evolution (currently keyword-inferred)
 - Substrate-tagging cleanup remainders (Subset C 94-row disposition; Greek/Norse period conventions)
 
