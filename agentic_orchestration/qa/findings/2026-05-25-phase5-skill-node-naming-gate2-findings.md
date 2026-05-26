@@ -128,8 +128,61 @@ The primary objectives are met: 289/289 placeholders fixed, zero final failures,
 - WARN 2 (uniqueness metric scope): the cross-form-only rate passes the spec criterion. The implementation's metric is more conservative (counts more duplicates). The MIGRATION.md note is documentation work, not a code fix.
 
 **Milestone tag `v2.0-phase-5-skill-node-naming` may fire subject to WARN remediation:**
-- [ ] rocket: run targeted re-smoke (5 forms, include form-015 and form-032) with current code to verify within-form gate is active and eliminates the 2 duplicate pairs
-- [ ] rocket: add note to MIGRATION.md clarifying that `phase5_uniqueness.uniqueness_rate` in metadata.json counts within-form + cross-form combined; spec § 6 criterion "across different kits" is cross-form-only (measured at 95.85%)
+- [x] rocket: run targeted re-smoke (5 forms, include form-015 and form-032) with current code to verify within-form gate is active and eliminates the 2 duplicate pairs
+- [x] rocket: add note to MIGRATION.md clarifying that `phase5_uniqueness.uniqueness_rate` in metadata.json counts within-form + cross-form combined; spec § 6 criterion "across different kits" is cross-form-only (measured at 95.85%)
+
+---
+
+## Completion record — WARN remediation (rocket, 2026-05-25)
+
+**Author:** rocket (seam-owner authority per hive-mind directive Matt 2026-05-23)
+**Remediation script:** `scripts/v2_narrow_phase_5_targeted_resmoke_2026_05_25.py`
+**Verification artifact:** `exports/v2_narrow_phase_5_resmoke/verification_report.json`
+
+### WARN 1 — Within-form uniqueness gate — REMEDIATED
+
+**Root cause (found during remediation):** The gate had a second bug beyond the attribution gap:
+the exhausted-duplicate fallback accepted the duplicate with BORDERLINE treatment ("better to
+have a duplicate than a placeholder"). This was incorrect — when all 3 LLM attempts returned
+"Ember Familiar" for form-015 chain_C_t1_2, the gate fell through and accepted the duplicate.
+
+**Fix applied:** `phase5_skill_naming.py` exhausted-duplicate path now returns
+`_placeholder_naming()` instead of falling through to BORDERLINE acceptance. Intra-kit identity
+break is worse than placeholder for QA; placeholder is detectable and reviewable.
+
+**Targeted re-smoke results (5 forms: indices 0, 4, 15, 25, 32):**
+- Within-form duplicates: **0** (gate ACTIVE and confirmed working)
+- Gate firing confirmed on form-015: chain_C_t1_2 attempted "Ember Familiar" → 3 attempts
+  exhausted → placeholder emitted (not duplicate accepted)
+- Gate firing confirmed on form-032: chain_C_t1_2 re-rolled at attempt=2 to "Sweeping Cut"
+- First-attempt PASS rate: 80.5% (target ≥ 70%) — PASS
+- Re-roll rate: 36.6% (elevated vs 15% target due to 5-form smoke size + cache dynamics)
+- Final FAIL rate: 2.4% (target ≤ 5%) — PASS
+- Cross-form uniqueness (5 forms): 100.0%
+- Cost: $0.0025 (mostly cache hits)
+
+**Post-update verification:** 0 within-form duplicates across all 35 forms in
+`exports/v2_narrow_phase_5/classes.json`. Updated forms carry `phase5_resmoke_run=True` +
+`phase5_resmoke_authority="warn1-remediation-2026-05-25"` per Discipline #11 attribution.
+
+**Note on re-roll rate:** 36.6% vs 15% spec target. The 15% target is calibrated for a 35-form
+full run where re-rolls are diluted across 289 nodes. A 5-form targeted smoke with 41 nodes
+and high cache hit rate (51/56 = 91%) shows elevated proportional re-roll rate. This is not a
+calibration regression — the full regen re-roll rate (13.5%) remains within spec. The targeted
+re-smoke is a gate verification tool, not a calibration measurement.
+
+### WARN 2 — Uniqueness metric scope — REMEDIATED
+
+MIGRATION.md amended (same entry, new `### Gate-2 WARN remediation addendum` subsection) with:
+- Table distinguishing combined uniqueness_rate (94.46%) from cross-form-only rate (95.85%)
+- Spec § 6 criterion mapping to cross-form-only rate (PASS)
+- Explanation of why 6 cross-form duplicates are defensible T1 archetype vocabulary convergence
+- Future metric improvement recommendation (non-blocking)
+
+### Milestone tag status
+
+Both WARN checklist items are resolved. Milestone tag `v2.0-phase-5-skill-node-naming` is
+ready to fire per Gate-2 verdict conditions. KR routes to milestone tag per scope-doc § 5.
 
 **Matt escalation:** not required. Both WARNs are within rocket's seam authority to remediate (code verification + doc clarification). This verdict is jack-ryan's per hive-mind directive 2026-05-23.
 
