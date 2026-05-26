@@ -266,6 +266,52 @@ Cohesion-judge at Phase 5 uses cultural-tradition substrate signal to bias form-
 3. Naming-space partitioning per engine-anchor (cohesion-judge respects per-anchor reserved patterns; avoid aggregate-signal-convergence)
 4. Nested mythology naming per skill-system § 12.4: Tier-2 invokes Tier-1 OK at proxy-named-entity level
 
+### 5.4 Per-season anchor sampling discipline — PROBABILISTIC, not enforced (Matt 2026-05-25 lock)
+
+**Matt 2026-05-25 design lock (verbatim):** *"I would like to avoid forcing the engine to choose personages as it may diminish the uniqueness across seasons."*
+
+Per-season anchor representation is **PROBABILISTIC, NOT enforced.** The substrate INCLUDES Sketch F anchors per § 5.2 + § 1.5 (Stage 3.5 gap-fills); sampling per generation run is probabilistic per BcTargetCellSampler enumeration.
+
+**Per-season variability is the DESIRED pattern:**
+- Some seasons may surface 0 Sketch F anchors (engine-original forms predominate)
+- Some seasons may surface 1-2 Sketch F anchors (mixed bi-modal output)
+- Some seasons may surface 3-4 Sketch F anchors (anchor-heavy season)
+- Empirical evidence from v2_narrow 2026-05-25 generation run: Moctezuma sampled 2x; Hattori Hanzō / Lu Bu / Gilgamesh 0x — NATURAL variability working correctly
+
+**Cross-season uniqueness preserved by:**
+- NOT enforcing same 4 anchors every season (would dilute "Hattori Hanzō appears in season 47 as a recognizable character" → reduced to "Hattori Hanzō appears every season")
+- NOT firing anchor-priority sampling (REJECTED per Matt 2026-05-25 design call)
+- Substrate INCLUDES anchors at all times (so probability > 0 per season); sampling order determines which surface
+
+**What this REJECTS (do NOT implement):**
+
+| Anti-pattern | Why rejected |
+|---|---|
+| Anchor-priority sampling (BcTargetCellSampler ensures all 4 Sketch F anchors get represented in any run of N ≥ 4) | Forces same 4 anchors every season; dilutes cross-season uniqueness |
+| Round-robin anchor coverage across seasons | Same dilution risk; turns substrate-led discipline into deterministic-coverage discipline |
+| Minimum-coverage-per-season floor | Same dilution; substrate intends probabilistic + cross-season variation |
+
+**What this ENABLES (Path B — post-generation form clustering; v1.1+):**
+
+Form clustering (post-generation pass; Cycle 13+ candidate) RECOGNIZES emergent variants without FORCING anchor selection:
+- Cluster forms in latent space (mechanical_substrate + skill features + element)
+- Identify forms aligned with Sketch F anchors as labeled variants (e.g., a form that mechanically clusters near Hattori Hanzō becomes labeled as a Hanzō-variant; doesn't force Hanzō to appear, but if substrate-binding naturally produced a Hanzō-adjacent kit, clustering math gives it a name)
+- Identify strong clusters NOT in Sketch F as candidate-new-anchors (vast library grows naturally from form-output patterns)
+- Preserves cross-season variability (probabilistic sampling unchanged) + adds within-form-distribution intelligence
+
+**Implication for special case summary findings:**
+
+The "Sketch F sub-sampling (1/4)" finding from gandalf design-fit pass 2026-05-25 is NOT a coverage gap — it is natural per-season variability working correctly per this lock. Per-season anchor-representation should NEVER be flagged as a coverage gap unless aggregate-cross-season-distribution surfaces statistical anomaly (e.g., same anchor sampled in 30 consecutive seasons would warrant investigation; single-season miss is expected).
+
+**Empirical-evidence criteria for re-engagement (per gandalf OP § 3.4):**
+
+If future cross-season aggregate data surfaces:
+- Same anchor consistently over-sampled (e.g., Moctezuma in 80% of seasons) → investigate BcTargetCellSampler bias
+- Same anchor never sampled (e.g., Gilgamesh in 0/50 seasons) → investigate substrate substrate-binding fit (e.g., Sumerian substrate may be operationally invisible to sampler)
+- Inter-season anchor-distribution variance OUTSIDE expected probabilistic bounds → investigate sampler determinism
+
+Until these criteria surface, per-season anchor variability operates as designed.
+
 ---
 
 ## 6. Architecture B integration (per `canonical/story/qd-engine-end-to-end-workflow-2026-05-24.md`)

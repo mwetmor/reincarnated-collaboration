@@ -187,7 +187,11 @@ The 35-form run uses an enumeration order that prioritized cell-id sweep + multi
 - (a) Sampling-policy gap: the engine doesn't prioritize Sketch F anchors via "ensure at least one form per named anchor" enumeration constraint. If anchors are load-bearing (per composition policy v1 § 5.2), the engine should sample-priority them.
 - (b) Substrate-coverage gap: Hattori Hanzō's substrate rows exist BUT only bind to cells the enumeration didn't reach (e.g., maybe a Twin-Blade Fencer East-Asian variant that sampling didn't visit). The cells sampled twice (Heavy Barbarian, Polearm Soldier, Light Fighter, Dagger Assassin, Archer, Thrown-Heavy, Crossbow Sniper, Twin-Blade, Standard Wizard, Ancestor-Warrior) account for 20/35 forms — and Lu Bu (East Asian polearm/halberd) WAS a candidate for Polearm Soldier or Twin-Blade, yet didn't appear.
 
-**T4 post-mortem item:** add anchor-priority enumeration as v1.1+ engine amendment. **Empirical-evidence criterion for re-engagement on anchor sampling:** next regeneration at N≥60 OR explicit anchor-priority-sampling fix; if anchors still don't surface at N=60, the substrate-binding lookup logic has a deeper gap than sampling order.
+**AMENDED 2026-05-25 evening per Matt design lock:** anchor-priority sampling is **REJECTED** per Matt verbatim "*I would like to avoid forcing the engine to choose personages as it may diminish the uniqueness across seasons.*" Per composition policy v1 § 5.4 (added 2026-05-25), per-season anchor sampling is **PROBABILISTIC, NOT enforced.** Per-season variability is the DESIRED pattern — Moctezuma 2x / others 0x in this run is natural per-season variability working correctly, NOT a coverage gap.
+
+**Revised T4 post-mortem item:** anchor coverage is NOT a v1 narrow concern. The "vast library" / "maximal unique characters" design intent is preserved via probabilistic sampling + post-generation form clustering (Cycle 13+ candidate per composition policy v1 § 5.4) which RECOGNIZES emergent variants without FORCING anchor selection.
+
+**Revised empirical-evidence criteria** (per composition policy v1 § 5.4): re-engagement fires ONLY if cross-season aggregate data surfaces statistical anomaly — e.g., same anchor over-sampled in 80%+ of seasons (sampler bias) OR same anchor never-sampled in 50+ consecutive seasons (substrate-binding fit gap). Single-season miss is expected and acceptable.
 
 ### 2.2 One representative form per § 8 signature strategy (4 strategies elected)
 
@@ -442,6 +446,42 @@ The naming/flavor pipeline has a **scope-of-LLM-coalescence-pass gap**: Phase 5 
 ### 3.6 New finding — element uniformity (1/8)
 
 All 35 forms `dominant_element: physical`. This deserves a dedicated subsection (§ 4.3 below).
+
+### 3.7 Win-rate distribution — DEGENERATE 0.5 across all 35 forms (ADDED 2026-05-25 evening per Matt query)
+
+**Finding:** all 35 forms have identical `balance_metadata`:
+```
+final_modifier: 1.0
+convergence_iterations: 1
+converged: true
+actual_winrate: 0.5
+target_winrate: 0.5
+```
+
+Win-rate distribution stats:
+- min = max = mean = 0.500 (35/35 forms identical)
+- In target band (0.45-0.55): 35 / 35
+- Convergence iterations: min = max = mean = 1
+- Converged flag: True on all 35
+
+**This is NOT real fight simulation differentiation.** 35 different forms with 35 different keystones converging to identical 0.5 win-rate in 1 iteration is a degenerate signal.
+
+**Most likely explanation (ties to finding #2):** all forms have placeholder skills (289/289 skill nodes are placeholders per § 4.2 finding) → fights have no meaningful inputs → balance loop sees all kits as mechanically equivalent → trivially "converges" at 0.5 in 1 iteration.
+
+**Caveat to Cycle 12 close claim:** "alterations actually affect fights at sim time" per gamora cross-seam consumer (Cycle 12 Wave 5) is TRUE at the wire-up layer (alterations REACH combat arithmetic via L6 wire-up). BUT with placeholder skills, kits can't meaningfully differentiate → no observable fight-behavior variance. **Layer 6 wire-up is functional; Layer 6 OBSERVABILITY is gated on Phase 5 calibration (skill names + real effect descriptions enabling real mechanical differentiation in sim).**
+
+**Per-fight-type telemetry (swarmer / boss / etc.) does NOT exist** in current schema — only aggregate `actual_winrate`. Would require additional star-lord/gamora telemetry instrumentation (~1-2 days work; v1.1+ Cycle 13 candidate; not blocking T4 post-mortem session 1).
+
+**Implication for T4 post-mortem session 1:** Matt CANNOT meaningfully evaluate algorithm-vs-hand-authored fight outcomes against the v2_narrow output. Fight-behavior evaluation requires Phase 5 calibration spec landing → rocket regen producing real skills → real fight differentiation. **This raises Phase 5 calibration spec authoring + regen to BLOCKING priority for T4 post-mortem session 1.**
+
+**Resolution path** (per Matt 2026-05-25 authorization):
+1. Gandalf authors Phase 5 cohesion-judge calibration spec (DONE 2026-05-25; `canonical/story/phase-5-cohesion-judge-calibration-spec-2026-05-25.md`)
+2. Rocket regen with Phase 5 calibration spec applied → produces 35 forms with REAL skill names + REAL effect descriptions
+3. Real skill differentiation → meaningful win-rate variation
+4. Re-do design-fit pass on regen output → new special case summary with REAL fight signal
+5. T4 post-mortem session 1 with substantive fight-behavior data
+
+**Empirical-evidence criterion for re-engagement:** post-regen check — if regen with real Phase 5 calibration STILL produces all-0.5 win-rates / 1-iteration convergence across N≥35 forms, the issue is deeper than skill placeholders (likely Phase 3 convergence short-circuit OR gauntlet sim returning placeholder). Investigate gamora sim integration if surfaced.
 
 ---
 
