@@ -105,3 +105,53 @@ Round-trip: REQUIRED per Principle 6 — star-lord emits class JSON consumed by 
 **Status:** FIRE — Wave 5 parallel-fire with gamora + drax cross-seam consumers; no specialist contention
 
 **Matt-touch sequence:** star-lord completes → KR captures in state file → integration smoke + jack-ryan Gate-2 on full new engine fires when all 3 cross-seam consumers land
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-25
+**Executor:** star-lord
+**Commit:** `c0be301` — feat(star-lord): Cycle 12 Wave 5 — off_hand_contract export schema extension
+**Tag:** `star-lord/cycle-12-wave-5-off-hand-contract-export-2026-05-25` FIRED + PUSHED
+
+### Scope executed
+
+- [x] Inspected MIGRATION.md § v1.4-layer-6 for off_hand_contract emission shape
+- [x] Inspected rocket `emit_cross_seam_fields()` at `t4_wireup.py` lines 993-1056 for actual emission keys + values
+- [x] Extended `ExportAlterationOutput` in `schemas.py` with 4 additive nullable fields:
+  - `manifestation: str | None = None`
+  - `off_hand_contract: dict[str, Any] | None = None`
+  - `spirit_guide_narration_metadata: dict[str, Any] | None = None`
+  - `gamora_combatant_fields: dict[str, Any] | None = None`
+- [x] Updated `_build_alteration_output()` in `season_exporter.py` to pass through 4 new fields via defensive `.get()` (None for pre-L6 emission dicts)
+- [x] Extended `_validate_stage_b_classes()` with SC-3 off_hand_contract shape checks:
+  - dict type guard (non-dict → ValueError)
+  - `off_hand_type` discriminator presence check
+  - vocabulary check: `{"banner", "focus", "talisman", "tome", "horn"}` — shield/weapon types rejected
+- [x] Round-trip smoke PASS (populated case): L6 emission with focus contract → export_season() → JSON → off_hand_contract shape verified
+- [x] Round-trip smoke PASS (null case): null off_hand_contract → serializes as null → consumer null-safe
+- [x] No regression: 79/79 PASS (40 Cycle 11 + 39 test_export)
+- [x] MIGRATION.md § v1.5-cycle-12-wave-5-off-hand-contract-export appended per ADR-004
+
+### Test results
+
+- New tests: 42 PASS (`tests/test_cycle12_wave5_off_hand_contract_export_round_trip.py`)
+- Baseline regression: 79/79 PASS (no regression)
+- Combined: 121/121 PASS
+
+### Key design decisions
+
+1. `off_hand_contract` is an opaque dict pass-through at v1 per SC-3 v1 judgment (off_hand_contract.py docstring: "Star-lord serializes as opaque JSON blob at v1"). No field-level structural validation beyond type discriminator + vocabulary check at Stage B boundary.
+2. Pydantic is first-line guard for invalid `off_hand_contract` type (ValidationError → Pattern P7 → None drop). Stage B validator is second-line guard for non-null contract shape.
+3. All 4 new fields use `.get()` with no default → None for pre-L6 dicts. No Pattern P7 WARN emitted for absent keys (these are additive fields, not required fields).
+4. The 4 new fields are sub-fields of `t4_alteration_output` — they extend `ExportAlterationOutput`, not `ExportClass`. This is the correct placement per MIGRATION.md § v1.4-layer-6 emission contract (which shows them as top-level keys in the `PlayerClassV2.t4_alteration_output` dict).
+
+### Cross-seam surface for KR
+
+- `off_hand_contract` sub-field now present in `classes.json` → drax Wave 5 can consume
+- `spirit_guide_narration_metadata` sub-field now present in `classes.json` → drax Spirit Guide panel can consume
+- `gamora_combatant_fields` sub-field now present in `classes.json` → gamora Wave 5 can consume
+- Backward compat: all 4 null for pre-L6 seasons → no drax breakage on existing season data
+
+**Status:** COMPLETE — ready for KR aggregation with gamora + drax Wave 5 returns then integration smoke + Gate-2.
