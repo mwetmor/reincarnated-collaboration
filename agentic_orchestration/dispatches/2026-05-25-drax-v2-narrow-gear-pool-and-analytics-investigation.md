@@ -143,3 +143,56 @@ Drax investigates + decides root cause + appropriate fix.
 **Status:** FIRE — parallel-track with rocket weapon-category correction; no contention
 
 ---
+
+## Completion record
+
+**Completed by:** drax
+**Date:** 2026-05-25
+**Commit:** `352436c` — drax(v2_narrow): per-season gear-pool consumption + analytics visibility
+**Push:** `main` pushed to origin → Vercel auto-deploy fires
+
+### Item 1 — Gear-pool fix
+
+**Approach chosen:** A (per-season dynamic glob)
+
+**Root cause confirmed:** `Loadout.tsx` + `Sample.tsx` both hardcoded `import gearPoolRaw from '../../data/season_002328/gear_pool.json'` as a static import. v2_narrow has no `gear_pool.json`, so all gear displays always showed Yomi gear regardless of selected season.
+
+**Fix:**
+- `src/hooks/useSeasonData.ts`: added `gearPoolModules` glob (`../../data/*/gear_pool.json`, eager); `resolveGearPool(folderKey)` returns per-season pool or empty array when absent
+- `src/data/types.ts`: `SeasonData` extended with `gearPool: GearPoolEntry[]`
+- `src/pages/Loadout.tsx`: hardcoded Yomi import removed; `const gearPool = season?.gearPool ?? [];`
+- `src/pages/Sample.tsx`: same removal; banner text updated to not reference Yomi explicitly
+- `src/components/GearGrid/GearGrid.tsx`: hardcoded "Yomi Season" subtitle removed from Gear Slots header
+- `TODO(drax)` annotations added in useSeasonData + both pages for cleanup when engine ships gear pools
+
+**Rationale for A over B:** Approach B only patches v2_narrow. Approach A fixes the root cause for all future seasons. Empty-array fallback for poolless seasons is the correct behavior (GearGrid renders empty slots — accurate, not misleading). No placeholder data needed.
+
+**v2_narrow behavior:** `season.gearPool = []` → GearGrid shows empty gear slots. Correct — v2_narrow is a narrow milestone with no gear pool generated.
+
+**Yomi behavior:** Unchanged. Yomi's `gear_pool.json` still resolves via the glob; `gearPool` populated as before.
+
+### Item 2 — Analytics investigation + fix
+
+**Root cause confirmed:** v2_narrow WAS being collected by `useSeasonData` and processed by `useAnalytics`. Data shape fully valid: `dominant_element: "physical"` on all classes, `anchor.name: "Moctezuma"`, `validation_passed: true`, `convergence_failures: 0`. NOT a data-shape problem.
+
+v2_narrow fell into `historicalCards` (not `isCanonical7`, not `season_002328`) but the section header was "Historical (canonical-4)" — misleading — and `seasonLabel()` returned raw `"v2_narrow"` (no mapping).
+
+**Fix chosen:** (b) filter logic amendment + (c) dedicated section (combined):
+- `src/hooks/useAnalytics.ts`: `seasonLabel('v2_narrow')` => `'Narrow v1.0'`
+- `src/components/analytics/SeasonSummaryCards.tsx`: `isEngineV2Season(id)` predicate (`id === 'v2_narrow'`); excluded from historicalCards; new amber-styled "Engine v2 — Narrow Milestone" section with annotation "pre-elemental · physical-only · new engine architecture"
+- `src/components/ui/ClassIcon.tsx`: `'v2_narrow': 'season-v2-narrow'` entry (onError hides gracefully if SVG absent)
+
+**Why NOT Cycle 13 deferral (option d):** Data is fully valid and already processed. Issue was presentation only. 5-line fix, no data amendments needed.
+
+### Smoke results
+
+- `npm run build`: 813 modules, 0 TypeScript errors — PASS (two runs: initial + GearGrid edit)
+- Yomi gear pool: resolves via glob unchanged — PASS
+- v2_narrow loadout: gearPool = [] → GearGrid empty slots — PASS (correct behavior)
+- Analytics page: v2_narrow in "Engine v2 — Narrow Milestone" section, label "Narrow v1.0", anchor "Moctezuma", validation PASS — PASS
+- 11 historical seasons: analyticsSeasons count +1 (v2_narrow now visible) — no regression
+- No TypeScript errors, no new console errors expected
+
+### Production
+
+Main branch pushed → Vercel auto-deploy to `https://reincarnated-loadout.vercel.app` (established session pattern; no `vercel --prod` invoked by drax).
