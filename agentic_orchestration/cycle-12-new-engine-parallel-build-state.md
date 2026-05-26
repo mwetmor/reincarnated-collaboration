@@ -173,7 +173,25 @@ After rocket amendment lands: KR authors Layer 6 dispatch (§ 8 algorithm wire-u
 | Sub-agent | Dispatch | Status |
 |---|---|---|
 | rocket pre-Layer-6 amendments batch (4 items: L2 WARN-B + L2 WARN-C + L4 INFO-A + L4 INFO-B) | `2026-05-25-rocket-cycle-12-pre-layer-6-amendments.md` | ✅ **COMPLETE in ~5 min wall-clock**. Amendment 1 (L2 WARN-B): MIGRATION.md § v1.4-layer-2 PlayerClassV2 pseudocode reconciled (stat_allocation, mechanical_substrate_triple, bc_target_cell, main_weapon, off_hand_item, cell_routing_source); WARN-4 Gate-1 disposition + cross-seam obligations table corrected. Amendment 2 (L2 WARN-C): **Option (a) chosen** — dead option_c_cells removed; comment documents Option C routing authority is at CellDef level in CELL_DEFINITIONS (5-tuple BcTargetCell has no CellDef reference; wiring would be wrong boundary); no behavioral change. Amendment 3 (L4 INFO-A): **Option (b) chosen** — functional-equivalence note added; penalty_scale concept name retained; explains penalty_scale=1.0 collapsed into STAGNATION_EPSILON without multiplier; param 1 annotation in converge.py:163 refers to MAX_SP_STEP_PER_ITERATION (genuinely different parameter). Amendment 4 (L4 INFO-B): VOTE_THRESHOLD sweep range [0.01, 0.05, 0.10, 0.20, 0.50] documented; 0.05 confirmed empirically best. Engine commit `9d7a530`; tag `rocket/v0.0-cycle-12-pre-layer-6-amendments-2026-05-25` pushed |
-| rocket Layer 6 — § 8 algorithm wire-up + L9 opportunity-scan refactor + cross-seam SC-3 obligations | `2026-05-25-rocket-cycle-12-layer-6-section-8-wireup-and-l9-refactor.md` | IN-FLIGHT (background) — integrates § 8 wire-up to combat arithmetic + L9 opportunity-scan refactor (cultural_tradition → mechanical_substrate signals) + cross-seam SC-3 obligations enumeration per Gate-2 on L3 INFO-D + INFO-3 deferred (signature_chain_id population per cross-chain T4 election) + INFO-C deferred (validate_invariants runtime vocabulary check for external SkillTree construction at L6 wire-up sites) |
+| rocket Layer 6 — § 8 algorithm wire-up + L9 opportunity-scan refactor + cross-seam SC-3 obligations | `2026-05-25-rocket-cycle-12-layer-6-section-8-wireup-and-l9-refactor.md` | ✅ **COMPLETE in ~17 min wall-clock** — FINAL critical-path layer per Option γ. `t4_wireup.py` shipped with MechanicalKitContext + FightEngineContext + AlteredFightEngineContext + `apply_t4_alteration_to_combat()` + `elect_signature_chain_id()` + `emit_cross_seam_fields()` + `wire_up_kit_layer6()` + 6 strategy application functions + 6 `opportunity_scan_mechanical_*()` free functions. Math note per Discipline #1 + #1.2 (code-line citations — 2nd layer to satisfy at first authoring after L4). 36 tests / 5 gate classes; 36/36 L6 PASS; **211/211 L3+L4+L6 combined PASS; no regression**. `skill_tree.py` modified: VALID_NODE_TYPES frozenset + runtime validate_invariants vocabulary check (Gate-2-on-L3 INFO-C ✅ resolved). MIGRATION.md entries (generation + export § v1.4-layer-6 cross-seam emission contract). AGENT_STATE.md updated. Engine commit `cb659d7`; tag `rocket/v0.1-cycle-12-layer-6-section-8-wireup-and-l9-refactor-2026-05-25` pushed |
+
+Layer 6 jack-ryan Gate-2 fires immediately on landing per scope-doc § 1 in-scope autonomous Gate-2 orchestration.
+
+### Wave 5 — Gate-2 on Layer 6 + cross-seam follow-on fan-out + integration smoke + Cycle 12 wind-down (FINAL WAVE)
+
+**Sequencing:**
+1. jack-ryan Gate-2 on Layer 6 fires NOW (autonomous; gates cross-seam follow-on fan-out + integration smoke)
+2. On Gate-2 on L6 PASS: KR authors 3 cross-seam follow-on dispatches in parallel:
+   - **star-lord** consumer dispatch — extend class JSON export schema for off_hand_contract field per L6 emission shape (MIGRATION.md § v1.4-layer-6)
+   - **gamora** consumer dispatch — sim combatant integration consuming AlteredFightEngineContext from L6 wire-up (required for gauntlet sim to actually use new engine for T4 post-mortem)
+   - **drax** consumer dispatch — Spirit Guide panel update consuming L6 Spirit Guide narration metadata (enhancement; not Cycle 12 close gate per Cycle 11 v1.0 drax M3/M6 already displays Tier 2 intent metadata)
+3. Cross-seam dispatches fire in parallel (3 different seams; no contention)
+4. On all 3 cross-seam returns: KR authors integration smoke dispatch + jack-ryan Gate-2 on full new engine
+5. On Gate-2 on full engine PASS: KR drafts + auto-closes Cycle 12 wind-down per skip-confirmation re-auth → **T4 post-mortem readiness milestone** → Cycle 12 OFFICIALLY CLOSED
+
+| Sub-agent | Dispatch | Status |
+|---|---|---|
+| jack-ryan Gate-2 on Layer 6 | `2026-05-25-jack-ryan-cycle-12-gate-2-rocket-layer-6.md` | IN-FLIGHT (background) — DEV-MODE review per 5 principles + L9 refactor verification (Discipline #25 zero cultural_tradition reads) + cross-seam emission contract verification + signature_chain_id election + validate_invariants vocabulary check + integration smoke evidence verification (211/211 L3+L4+L6) |
 
 **Rocket Layer 2 amendment queue (non-blocking for Layer 4 fire; rocket addresses at next commit opportunity):**
 - **WARN-A**: math note uses "22 cells" throughout; reconcile to 25 per gandalf verdict (may batch with Gate-2-on-L3 INFO-B math-note code-line citations per Discipline #1.2)
