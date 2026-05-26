@@ -298,6 +298,7 @@ Rocket implementation passes Gate-2 when:
 - **Per-form sim re-run after Phase 5 names land** — implementation decision; if names don't affect mechanics, sim is independent
 - **Phase 5 calibration for cross-season cohesion** — single-season scope here; cross-season patterns are v1.1+ design
 - **T4 keystone narration distinction from spirit-guide narration_metadata (drax Cycle 12 Wave 5)** — spirit-guide narration_metadata covers T4 strategy at form level; skill-node naming per § 2.1 covers per-node skill content; they compose
+  - **AMENDMENT 2026-05-26** (`canonical/story/phase-5-t4-narration-amendment-2026-05-26.md`): empirical regen review surfaced that T4 descriptive fields (`manifestation` + `thematic_rationale`) are NULL/empty in v2_narrow_phase_5 output → drax T4AlterationPanel falls through to § 9 template voice. Amendment re-scopes IN: form-level T4 keystone narration LLM pass (1 call per form; ~35 calls/run; ~$0.05-$0.20 added cost; 2-dimension cohesion-validation rubric); fires AFTER parent-spec skill-node naming within Phase 5 sequence. Rocket implements per amendment; jack-ryan Gate-2 validates parent-spec § 6 + amendment § 7 in one pass.
 
 ---
 
