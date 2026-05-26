@@ -1,48 +1,43 @@
-# Session Handoff — 2026-05-25 (Cycle 10 substrate-curation workstream FULLY CLOSED; awaiting Matt log-back ratification)
+# Session Handoff — 2026-05-25 (Cycle 12 CLOSED + engine generation run FIRED; v1 narrow milestone first-use in flight)
 
-> **STATUS:** Matt-facing handoff per KR OP § 3.1 reframing. **Primary Matt-facing read surface is the wind-down summary at `agentic_orchestration/cycle-10-wind-down-summary-2026-05-25.md`.** This handoff points there + names what's deferred + what's awaiting Matt.
+> **STATUS:** Matt-facing handoff per KR OP § 3.1 reframing. Supersedes prior 2026-05-25 Cycle 10 closeout handoff (Cycle 10 ratified via subsequent same-session action; Cycles 11 + 12 closed same-session as burst commits).
 >
-> **Discipline-test framing:** this session was the FIRST TEST of the hive-mind-scope-discipline pattern (founding retroactive scope-doc instance at `agentic_orchestration/cycles/cycle-10-hive-mind-scope.md`). Post-mortem verdict: **DISCIPLINE PROVEN EFFECTIVE**. Pattern recommended for propagation. Detail in wind-down § 8.
+> **Primary Matt-facing read surfaces:**
+> - `agentic_orchestration/cycle-12-wind-down-summary-2026-05-25.md` (Cycle 12 closure record)
+> - `agentic_orchestration/gandalf/notes/2026-05-25-engine-generation-run-framing-brief.md` (RATIFIED framing brief — load-bearing for what's firing now)
+> - `agentic_orchestration/dispatches/2026-05-25-rocket-engine-generation-run-v1-narrow.md` (FIRED dispatch — execution in flight)
 
-**Author:** knight-rider (Cycle 10 closeout session 2026-05-25)
-**For:** Matt log-back ratification + next-session KR pickup
+**Author:** knight-rider (orchestrator)
+**For:** Matt session pickup after rocket generation run completes + gandalf autonomous design-fit pass lands
 
 ---
 
-## 1. Pending Matt-decisions queue (priority-sorted; SINGLE action if clean = cut cycle-level final tag)
+## 1. Pending Matt-decisions queue (priority-sorted)
 
-### Priority 1 — CYCLE-LEVEL FINAL TAG RATIFICATION
+### Priority 1 — REVIEW SPECIAL CASE SUMMARY (autonomous-arrival; ~2-4 hours post-generation completion)
 
-**Action:** read wind-down summary § 1-7; if clean, cut tag `v1.0-weapon-substrate-cycle-10-shipped`; if anomalies, triage per § 7 decision tree (5 scenarios).
+**Action:** when gandalf autonomous design-fit pass completes (triggers when rocket generation run lands forms in loadout + provenance manifest authored), Matt reads `agentic_orchestration/gandalf/notes/2026-05-25-engine-generation-special-case-summary.md`.
 
-**Pre-ratification state:**
-- All 7 Waves + 2 Sidecars CLOSED with tags pushed
-- v1_scope = 2,293 (within ~1,700-3,100 envelope; above 1,700 forward-motion threshold)
-- All jack-ryan Gate-2 PASSes recorded + gandalf curation verdicts PASS
-- All 4 CRT gates PASS on Wave 7 mechanical-tagging
-- Round-trip Principle 6 PASS at 3 of 4 boundaries; 4th (export packet field-presence) classified as structural per Variant C; v1.1+ additive forward-compat path
+**What summary contains (per framing brief § 2):**
+- Per-form notes on all 4 Sketch F named-personage anchors (Hattori Hanzō / Lu Bu / Moctezuma / Gilgamesh) + one per § 8 strategy + all engine-authored gap-fills + all mythological-NULL rescues + edge cases
+- Cross-form patterns: substrate-binding integrity, § 8 strategy distribution, calibration parameter behavior, L9 opportunity-scan outcomes, Phase 5 naming quality, sub-element manifestation
+- Design-fit flags for T4 post-mortem: surprising-but-valid choices, misfits, coverage gaps, calibration-tuning candidates, Phase 5/6/7 gap consequences
 
-### Priority 2 — POST-CYCLE DISPATCH SCOPE-LOCKS (awaiting their returns)
+### Priority 2 — SIGNAL PARKED LOADOUT AMENDMENTS FIRE (post-summary-review)
 
-When the 5 post-cycle dispatches return:
-1. **Algorithm § 8 implementation scope-lock** — gated on legolas Mode A consult #2 return; LOAD-BEARING per Discipline #18 before any rocket § 8 implementation fires; ~1-2 day legolas consult budget
-2. **Loadout app implementation scope-lock** — gated on drax + star-lord scoping #3 return; ~half-day budget; scope-lock determines drax build-out path
-3. **D1 infrastructure decision** (Pi-Postgres vs hosted-Postgres vs status-quo) — gated on G1 measurement #4 return; ~1-2 hr star-lord budget; informs Pi recognition record § 7 D1
-4. **D9 LLM cache decision** — gated on G12 measurement #5 return; ~1-2 hr parallel with G1; informs Pi recognition record § 7 D9
+**Action:** post-summary-review, Matt signals parked loadout amendments per `agentic_orchestration/gandalf/notes/2026-05-25-parked-loadout-amendments-post-v1-narrow.md` (design-mode toggle + cultural/period/quality-tier badges; ~0.5-0.75 day drax work). Lands as fast-follow to support T4 post-mortem session 1 review with engine-layer field visibility.
 
-### Priority 3 — DECISIONS-LOG ENTRIES PROPOSED (jack-ryan territory; KR-routed)
+KR routes drax dispatch on Matt signal.
 
-- "Stage 3.5 GF-5*/GF-6* defensive amendment per substrate-tagging-artifact rep-audit" (per gandalf SO-3 verdict 2026-05-25)
-- "Discipline #25 operational examples: Karna Tank EX + Quetzalcoatl AIM-68" (per gandalf SO-3 § 8.2 + jack-ryan Wave 6 Gate-2 INFO Flag 2)
+### Priority 3 — SCHEDULE T4 POST-MORTEM SESSION 1 (Matt + gandalf design call ~1-2 hours)
 
-KR routes a single jack-ryan canonical-write batch dispatch post-cycle-close if Matt confirms.
+**Action:** Matt schedules T4 post-mortem session 1 with gandalf. Substantive review of generation output + algorithm-vs-hand-authored comparison authoring (~5-10 alternative T4 entries per T4-B reframe).
 
-### Priority 4 — CANONICAL DOC AMENDMENTS (gandalf territory; outside KR scope)
+**Outcomes inform:** Cycle 13 scope-doc authoring direction (gandalf authors AFTER session 1 outcomes inform scope — Layer 7 BDI test framework + § 8 v1.1 strategies + Pi infrastructure + T4-B v1 catalogue authoring are candidate items; ordering depends on post-mortem).
 
-Gandalf authors post-Cycle-10:
-- Ground-state oracle § 1 + § 5 updates (Cycle 10 closure; new tags landed; workstream state shift)
-- Roadmap § 1.0 + § 3.8 updates (Cycle 10 closed; Recognition 1 sampling-proportionality v1.1+ flag → v1 LOCKED; post-cycle workstreams active)
-- Phase 4 simplified archive math spec + Phase 5 cohesion-judge calibration spec + Loot architecture canonical + Sub-element architecture canonical + Naming-space partitioning canonical (gandalf canonical authoring queue per ground-state § 5 active workstream)
+### Priority 4 — CYCLE 13 SCOPE-DOC AUTHORING (deferred per Matt directive)
+
+**Action:** gandalf authors Cycle 13 scope doc AFTER T4 post-mortem session 1 outcomes inform scope. KR routes gandalf dispatch when Matt signals.
 
 ---
 
@@ -50,128 +45,83 @@ Gandalf authors post-Cycle-10:
 
 | Workstream | Status |
 |---|---|
-| Cycle 10 substrate-curation (Waves 1-7 + Sidecars A/B + Wave 5.5 + Wave 6 amendment + Wave 7 amendment + final Stage 3 + Wave 7 tags) | ✓ FULLY CLOSED pending Matt cycle-level final tag |
-| Post-cycle continuation x5 (gamora W1.13 / legolas § 8 consult / drax loadout scoping / star-lord G1 + G12) | IN-FLIGHT 2026-05-25; KR routes returns to Matt scope-lock |
-| Algorithm § 8 implementation | GATED on legolas consult return + Matt scope-lock |
-| Loadout app implementation | GATED on scoping return + Matt scope-lock |
-| Pi infrastructure execution | GATED on D1 + D4 ratification per Pi recognition record § 7 + § 8 |
-| LLM response cache implementation | GATED on D9 ratification + D1 Postgres decision |
-| gandalf canonical authoring queue (Phase 4/5 specs + loot + sub-element + naming-space) | QUEUED post-Cycle-10 (gandalf scheduling) |
-| jack-ryan engineering-disciplines.md amendment (Discipline #25 operational examples) | QUEUED post-Cycle-10 (per gandalf SO-3 § 8.2) |
+| Cycle 12 — new engine parallel build (L1-L11 + interface contract § 4 LOCKED) | ✅ CLOSED — `v1.0-new-engine-ready` tag on engine `7cff770` + loadout `c06bed1` (commit `0cdc500`) |
+| jack-ryan FINAL Gate-2 on full new engine | ✅ PASS (commit `e3756bc`) |
+| gandalf engine generation run framing brief | ✅ RATIFIED (commit `35618ef`) |
+| Engine generation run v1 narrow milestone first-use | 🔥 **IN FLIGHT** — rocket dispatch fired (commit `e703639`); ~30-60 min wall-clock; produces ~30-40 forms |
+| Gandalf design-fit pass + special case summary | QUEUED — fires AUTONOMOUSLY when rocket lands forms + provenance manifest (~2-4 hr gandalf budget post-completion) |
+| Parked loadout amendments (drax) | QUEUED — gated on Matt signal post-summary-review |
+| T4 post-mortem session 1 (Matt + gandalf design call) | QUEUED — gated on Matt schedule post-summary-review + post-parked-amendments-land |
+| Cycle 13 scope-doc authoring (gandalf) | DEFERRED — gated on T4 post-mortem session 1 outcomes per Matt directive |
+| v1.1+ queue handoff (20 items captured) | ACKNOWLEDGED for Cycle 13+ scope-doc authoring |
 
 ---
 
 ## 3. Awaiting-Matt blockers
 
-- **Cycle-level final tag** `v1.0-weapon-substrate-cycle-10-shipped` Matt-ratifies on log-back
-- **Algorithm § 8 implementation** scope-lock (post-consult-return)
-- **Loadout app implementation** scope-lock (post-scoping-return)
-- **D1 Pi-Postgres vs hosted-Postgres vs status-quo decision** (post-G1-return)
-- **D9 LLM cache decision** (post-G12-return)
-- **D11 Tailscale install** (low-cost; Matt's 15-min window per Pi recognition record G11)
+**None active right now.** The flow from this point is autonomous through gandalf design-fit pass; Matt's next required touch is **review of the special case summary** when gandalf autonomous pass lands.
 
-NO mid-cycle blockers; all in-flight work is post-cycle by design.
+**Skip-confirmation re-authorized for Cycle 13** per Matt 2026-05-25 (per Cycle 10/11/12 precedent). KR fires Cycle 13 dispatches without per-dispatch gate once scope is locked post-T4-post-mortem.
+
+**Production telemetry DB migration v2.16 ALTER TABLE per ADR-006** — acknowledged Matt-touch item per cycle-12-wind-down-summary; standard ADR-006 procedure (Matt-explicit-authorization for external system write). Not blocking generation run.
 
 ---
 
 ## 4. Recent Matt-decisions (this session)
 
-- Skip-confirmation fire-forward directive 2026-05-25 — KR drafted wind-down + fired post-cycle dispatches without Matt gate
-- Path A LOCKED 2026-05-25 — engine-authored gap-fill for main weapons; targeted crawl only for off-hand via Sidecar B; no broad weapon-library crawl
-- Push-per-wave authorization LIVE for Cycle 10
-- Hive-mind-scope-discipline pattern ratified (founding retroactive Cycle 10 scope-doc)
+- **Cycle 12 close ratified** — engine `7cff770` + loadout `c06bed1` + `v1.0-new-engine-ready` tag acknowledged
+- **Engine generation run AUTHORIZED to fire** per RATIFIED framing brief 35618ef
+- **Skip-confirmation fire-forward pattern RE-AUTHORIZED for Cycle 13** (per Cycle 10/11/12 precedent)
+- **Cycle 13 scope-doc authoring DEFERRED** until AFTER T4 post-mortem session 1 outcomes inform scope (T4 post-mortem may surface scope-affecting findings)
+- **v1.1+ queue handoff** (20 items captured) ACKNOWLEDGED for Cycle 13+ scope-doc authoring
+- **Routing decision (KR per hive-mind § 3.9):** single rocket dispatch as primary owner; star-lord LLM + export seams flow through existing pipeline interfaces (no fresh star-lord dispatch — both seams LIVE per Wave 5 completion)
 
 ---
 
 ## 5. Next-session pickup
 
-### If Matt has cut cycle-level final tag
+**First action on next KR session:** check rocket dispatch completion record at `agentic_orchestration/dispatches/2026-05-25-rocket-engine-generation-run-v1-narrow.md`.
 
-Knight-rider next-session focus:
-- Verify cycle-level final tag landed cleanly
-- Coordinate gandalf canonical updates (ground-state § 1/§ 5; roadmap § 1.0/§ 3.8)
-- Coordinate jack-ryan engineering-disciplines.md amendment
-- Monitor post-cycle dispatch returns + route Matt scope-lock requests
+**Possible states:**
 
-### If post-cycle dispatches have returned
-
-Knight-rider routes:
-- legolas § 8 consult return → Matt scope-lock for rocket § 8 implementation
-- drax + star-lord scoping return → Matt scope-lock for loadout implementation
-- G1 + G12 returns → Matt D1 + D9 infrastructure decision
-
-### If Matt triages cycle close
-
-Knight-rider routes per wind-down § 7 decision tree (5 scenarios; covers v1_scope-off / per-axis-deviation / Sidecar-B-design-fit / Sketch-F-curation / Wave-7-round-trip-FAIL).
-
----
-
-## 6. Session commit chain summary (this session)
-
-```
-cb99702  wind-down finalization (Wave 7 closed; discipline-test post-mortem)
-9ef6bdb  jack-ryan round-trip Principle 6 ratification PASS
-73c1279  star-lord round-trip second-leg + export pipeline verification
-b3ded15  gamora sim-viability + round-trip first-leg PASS
-f691bf2  engine: gamora AGENT_STATE update
-5716235  rocket Ruyi Jingu Bang id=388 wikidata override amendment
-1aeb3fd  jack-ryan Gate-2 Wave 7 filing (KR captured) + round-trip reframe
-e481f2d  rocket Wave 7 Stage 4 dispatch completion record
-9ad416e  rocket Wave 7 Stage 4 execution (2,293 weapon_sim_props rows)
-ff699f5  engine: AGENT_STATE Wave 7
-621840b  wind-down update (Stage 3 milestone tag + Path A verdict)
-77ad567  gandalf Wave 5.5 closeout PATH A verdict
-[Stage 3 milestone tag elrond/v0.0-cycle-10-stage-3-v1-scope-materialization]
-[Wave 7 tag rocket/cycle-10-stage-4-mechanical-tagging-2026-05-25]
-5ff0cde  rocket Wave 6 kavacha amendment + Wave 6 tag
-9aad3e9  gandalf Wave 6 Stage 3.6 memo + curation 43/43 PASS
-[Wave 6 tag rocket/cycle-10-stage-3-5-engine-authored-gap-fill-2026-05-25]
-c3a83bf  rocket Wave 6 Stage 3.5 execution (43 entries)
-94b5e4c  jack-ryan Gate-2 Wave 6 filing (KR captured)
-a7a3d3d  elrond Wave 5.5 Phase 0c + Mode-C eviction (v1_scope 3,042→2,251)
-[Wave 5.5 tag elrond/cycle-10-wave-5-5-phase-0c-and-mode-c-eviction-2026-05-25]
-[Stage 3 Phase 3 tag elrond/v0.0-cycle-10-stage-3-phase-3-distribution-report-2026-05-25]
-6ee803f  wind-down update (Sidecar B closed)
-84887d0  wind-down update (Sidecar B substrate complete)
-4c516f8  Wave 6 amendment Path 2 + Wave 5.5 dispatch authoring
-[Sidecar B mining tag elrond/cycle-10-sidecar-b-off-hand-mining-2026-05-25]
-31e5426  gandalf Sidecar B 30/30 PASS
-6efd730  elrond Sidecar B mining (417 off-hand active rows)
-f40b714  gandalf 50-row + SO-1..SO-4 verdicts (Pattern A-deep)
-[Sidecar B crawl tag legolas/cycle-10-sidecar-b-off-hand-crawl-2026-05-25]
-6b0bb4d  legolas Sidecar B Mode B crawl (132 rows)
-f11fcfa  Wave 7 dispatch amendment (Phase 1 consult integration)
-[Wave 7 prereq tag legolas/cycle-10-stage-4-methodology-consult-2026-05-25]
-3f2109e  legolas Wave 7 prereq Mode A consult
-8c485ac  elrond Phase 3 distribution report
-7135f34  wind-down draft initial
-[Stage 3 Phase 2 tag elrond/v0.0-cycle-10-stage-3-phase-2-v1-scope-2026-05-25]
-f80b72a  elrond Phase 2 v1_scope = 3,042
-005ce66  CHANGELOG entry (Cycle 10 mid-flight)
-4967c5d  state file Wave 5 mid-flight
-a274159  8 dispatches authored (Sidecar B + Wave 6 + Wave 7 + 5 post-cycle)
-6f3c288  elrond Phase 0a accessory+armor subcategory classifier
-9e2a89d  gandalf Phase 0b accessory_weapon_integrated parent-family lookup
-c5ad777  legolas Phase 1 Mode A constrained-knapsack methodology consult
-```
-
-**Tags pushed this session (10):** elrond Phase 0a / Phase 2 / Phase 3 / Wave 5.5 / Stage 3 milestone / Sidecar B mining / Sidecar B crawl (legolas) / Wave 7 prereq consult (legolas) / Wave 6 (rocket) / Wave 7 (rocket).
-
----
-
-## 7. Empirical-evidence criteria gating deferred work
-
-| Deferred item | Empirical-evidence criterion that gates re-engagement |
+| State | What to do |
 |---|---|
-| Phase 2 re-sample for comprehensive off-hand v1_scope inclusion | Matt log-back decision: accept 42 inherited OR fire post-cycle Phase 2 micro-sample OR defer to v1.1+ |
-| Engine damage formula unit scaling (legolas Knowledge Gap #2) | Gamora dispatch when Phase 2 substrate-binding fires (post-Cycle-10) |
-| Variable bin calibration (54.3% vs Sketch A ~35%) | Post-Phase-2 fight telemetry showing actual per-event CV distribution |
-| ExportWeaponSimProps schema additive bridge | Phase 2 substrate-binding implementation dispatch (post-Cycle-10 active workstream) |
-| Sudarshana Chakra cell-roster question | Gandalf Tier-S curation pass post-Cycle-10 |
-| v1.1+ queue (15 prior + 6 new from Wave 5.5 + 4 from Wave 7 + Mode-E + weapon_kind enum refinement) | v1 ship-complete + post-ship player-facing feedback OR Phase 2 consumption surfaces blocker |
-| W0.7 LC-011 ablation completion (per gamora flag) | Run logs review when gamora seam re-engages |
+| Rocket dispatch IN FLIGHT (no completion record yet) | Wait — no KR action needed; check gandalf autonomous trigger criteria when rocket completes |
+| Rocket COMPLETE + gandalf design-fit pass IN FLIGHT (no special case summary yet) | Wait — gandalf autonomous; check special case summary file existence |
+| Rocket COMPLETE + special case summary LANDED | Matt-facing handoff: confirm summary is ready for Matt review; await Matt signal on parked loadout amendments fire |
+| Rocket dispatch BLOCKED (e.g., resource-bounds projection exceeded budget; LLM client failure; unexpected cross-seam failure) | Triage per dispatch completion record + escalation note; route to Matt with proposed resolution |
+| Forms landed in loadout but coverage gap noted in provenance manifest | Acknowledge gap (substrate-binding integrity trumps coverage exhaustiveness per composition policy v1); pass through to gandalf design-fit pass |
+
+**Empirical-evidence criteria gating re-engagement:**
+
+| Deferred item | Empirical-evidence criterion |
+|---|---|
+| Cycle 13 scope-doc authoring | T4 post-mortem session 1 outcomes (Matt + gandalf design call findings) |
+| Phase 5 cohesion-judge calibration tuning | Gandalf design-fit pass identification of mis-calibrated forms across N=30-40 sample |
+| Phase 6 visual production wire-up | T4 post-mortem outcomes + Cycle 13 scope priority |
+| Phase 7 joint-gate amendment | T4 post-mortem observation of joint-gate behavior in generated forms |
+| Parked loadout amendments fire | Matt signal post-special-case-summary-review |
+| T4-B v1 catalogue authoring (parallel-track) | T4 post-mortem session 1 outcomes (gated on hand-authored comparison forms 5-10 entries) |
+| Layer 7 BDI test framework | Cycle 13 scope-doc authoring |
+| Pi infrastructure execution | Cycle 13 scope-doc authoring + D1 ratification + D11 Tailscale install (Matt 15-min window) |
+| v1.1+ queue 20 items | Post-v1-ship player-facing feedback OR Cycle 13 scope-doc surface as priority |
 
 ---
 
-**Signed:** knight-rider (Cycle 10 closeout session 2026-05-25)
-**Status:** Cycle 10 substrate-curation workstream COMPLETE pending Matt cycle-level final tag ratification. 5 post-cycle dispatches FIRED in parallel per skip-confirmation directive. Discipline-test verdict: **PROVEN EFFECTIVE**.
+## 6. Recent dispatch + commit landmarks (this session)
+
+```
+e703639  ops(knight-rider): engine generation run dispatch FIRED — v1 narrow milestone first-use
+35618ef  gandalf: engine generation run framing brief — first-use of new engine post-Cycle-12 close
+0cdc500  ops(knight-rider): Cycle 12 OFFICIALLY CLOSED — auto-closed per Matt skip-confirmation re-auth; v1.0-new-engine-ready tag
+e3756bc  jack-ryan(cycle-12): FINAL Gate-2 on full new engine — PASS
+89a15c6  ops(knight-rider): Cycle 12 Wave 5 — star-lord telemetry column COMPLETE
+3944f7c  ops(star-lord): cycle-12-wave-5 t4_alteration_type dispatch completion record
+```
+
+**Cycle 12 close milestone tags:** `v1.0-new-engine-ready` on engine + loadout (Matt-approved milestone-level tag per project convention).
+
+---
+
+**Signed:** knight-rider (post-Cycle-12-close + engine generation run firing 2026-05-25)
+**Status:** Cycle 12 OFFICIALLY CLOSED. Engine generation run v1 narrow milestone first-use IN FLIGHT. Gandalf autonomous design-fit pass triggers on rocket completion. Discipline holds; skip-confirmation re-authorized for Cycle 13 per Matt directive.
