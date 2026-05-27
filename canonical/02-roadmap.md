@@ -76,10 +76,10 @@ Quick status check at a glance. Detail per phase in § 3.
 
 | Cycle | Phases addressed | Output milestone |
 |---|---|---|
-| **Cycle 13** | Phase 1 + Phase 2 (all sub-phases) + Phase 3 + Phase 4 (archive insertion auto on sim PASS) | **Mechanical validation complete: gauntlet sim PASS against full new architecture + initial mechanical season generation (kits + T4 + gear + sim-validated; no cohesion / no visuals / no export)** |
-| Cycle 14+ (TBD partitioning) | Phase 5 Cohesion Coalescence (P5 calibration + spirit-guide data-oracle + T4-attuned gear cohesion + acquisition curve calibration) | Cohesion layer complete; content has narrative identity + naming + spirit-guide projections |
-| Cycle 15+ (TBD partitioning) | Phase 6 Visual Coalescence (CV pipeline + Meshy + Control Rig / Niagara / PCG) | Visual layer complete; content has assets |
-| Cycle 16+ (TBD partitioning) | Phase 7 Joint-Gate Evaluation + Phase 8 Profile Assembly + Export | Full pipeline; engine ships content |
+| **Cycle 13** | Phase 1 + Phase 2 (all sub-phases) + Phase 3 + Phase 4 (archive insertion auto on sim PASS) | **Mechanical validation complete: gauntlet sim PASS against full new architecture + initial mechanical season generation (kits + T4 + gear + sim-validated; no cohesion / no visuals / no export). All characters produced within WR bracket per Matt 2026-05-26 Q10 amendment.** |
+| **Cycle 14** (LOCKED Pattern A per Matt 2026-05-26) | Phase 5 Cohesion Coalescence (P5 calibration + spirit-guide data-oracle + T4-attuned gear cohesion + acquisition curve calibration) | Cohesion layer complete; content has narrative identity + naming + spirit-guide projections |
+| **Cycle 15** (LOCKED Pattern A) | Phase 6 Visual Coalescence (CV pipeline + Meshy + Control Rig / Niagara / PCG) | Visual layer complete; content has assets |
+| **Cycle 16** (LOCKED Pattern A) | Phase 7 Joint-Gate Evaluation + Phase 8 Profile Assembly + Export | Full pipeline; engine ships content |
 | **Engine build COMPLETE** | All Phases 1-8 = ✅ | **REINCARNATED-GAME UNLOCK** milestone fires |
 
 Cycle 13 produces **mechanically-validated content** but NOT **game-ready content**. Reincarnated-game unlock requires the full pipeline (phases 5-8) to land in subsequent cycles.
@@ -430,12 +430,10 @@ If a commit introduces new architectural content (new canonical doc; new phase; 
 - Full pipeline Phase 1-8 generates game-ready content end-to-end
 - → **REINCARNATED-GAME UNLOCK** milestone fires → player-facing surface work / demo / loadout / playtest cycle opens
 
-**Pending Matt decision:** Cycle 14+ partitioning — how to break phases 5-8 across cycles. Three plausible patterns:
-- **Pattern A (3 cycles):** Cycle 14 = Phase 5 cohesion; Cycle 15 = Phase 6 visual; Cycle 16 = Phase 7+8 gate + export
-- **Pattern B (2 cycles):** Cycle 14 = Phase 5+7 cohesion + gate; Cycle 15 = Phase 6+8 visual + export
-- **Pattern C (1 cycle):** Single big cycle covers Phases 5+6+7+8 as integrated game-ready pipeline build
-
-This decision can be deferred until Cycle 13 nears close; surfaces at Cycle 13 wind-down.
+**Cycle 14+ partitioning LOCKED to Pattern A (3 cycles) per Matt 2026-05-26 amendment:**
+- **Cycle 14** = Phase 5 cohesion coalescence (P5 cohesion-judge calibration + spirit-guide data-oracle integration + T4-attuned gear cohesion + acquisition curve calibration)
+- **Cycle 15** = Phase 6 visual coalescence (CV pipeline + Meshy + Control Rig / Niagara / PCG)
+- **Cycle 16** = Phase 7 joint-gate evaluation + Phase 8 profile assembly + export → engine build COMPLETE → **REINCARNATED-GAME UNLOCK**
 
 ---
 

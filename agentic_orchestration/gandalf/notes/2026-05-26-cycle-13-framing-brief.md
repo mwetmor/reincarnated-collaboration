@@ -117,16 +117,21 @@ Primary game retains conventional execution mechanics. Auto-combat is mobile-var
 
 ## 2. T4 PM1 output dependencies — what Cycle 13 needs from T4 PM1 before launching
 
-T4 PM1 (post-Cycle-12 design call; Matt + gandalf, ~1-2 hrs) is the GATE for Cycle 13 launch. T4 PM1 must produce:
+T4 PM1 (post-Cycle-12 design call; Matt + gandalf, **~2-4 hrs given expanded scope per Matt 2026-05-26 Q7 amendment**) is the GATE for Cycle 13 launch. T4 PM1 must produce:
 
-| T4 PM1 Output | Cycle 13 dependency |
-|---|---|
-| Specific skill tree architecture choice (LE-style mini-trees vs chain-based investment vs hybrid; D69) | Phase 2a kit composition (chain structure) |
-| Specific T4 count per class (D70/D83 — uniform 3? variable 2-3? class-specific?) | Phase 2b T4 algorithm + class architecture |
-| Skill point economy + investment mechanic (D71) | Phase 2a skill tree budget design |
-| Respec rules within Servant (D73) | Phase 2 implementation (composes with D65 respec mechanism for Cycle 14+) |
-| T4-attuned gear architectural specifics (D38 — attunement bonus magnitudes; cross-rarity attunement distribution; set bonus structure; binary vs graduated attunement) | Phase 2d spec-driven gear gen |
-| First-pass class chain architecture (which classes have which chains; how supporting chains work per D83) | Phase 2a class design + Phase 2b T4 generation per class |
+| # | T4 PM1 Output | Cycle 13 dependency |
+|---|---|---|
+| 1 | Specific skill tree architecture choice (LE-style mini-trees vs chain-based investment vs hybrid; D69) | Phase 2a kit composition (chain structure) |
+| 2 | Specific T4 count per class (D70/D83 — uniform 3? variable 2-3? class-specific?) | Phase 2b T4 algorithm + class architecture |
+| 3 | Skill point economy + investment mechanic (D71) | Phase 2a skill tree budget design |
+| 4 | Respec rules within Servant (D73) | Phase 2 implementation (composes with D65 respec mechanism for Cycle 14+) |
+| 5 | T4-attuned gear architectural specifics (D38 — attunement bonus magnitudes; cross-rarity attunement distribution; set bonus structure; binary vs graduated attunement) | Phase 2d spec-driven gear gen |
+| 6 | First-pass class chain architecture (which classes have which chains; how supporting chains work per D83) | Phase 2a class design + Phase 2b T4 generation per class |
+| 7 | **Full gear details — all rarities × all slots** (per Matt 2026-05-26 Q7 amendment): per-rarity per-slot specifications including item categories, base stats, modifier surface availability, capability toolkit applicability, T4-attunement gate per rarity tier | Phase 2d spec-driven gear gen + Wave 1 partition cycle implementation |
+| 8 | **Character sheet stats — full enumeration** (per Matt 2026-05-26 Q7 amendment): the complete modifier surface (damage modifiers + defense modifiers + resource modifiers + crit modifiers + speed modifiers + resistance modifiers + on-trigger modifiers + etc.) that the character stat sheet supports | Wave 1 stat-sheet partition design — modifier enumeration item 1 |
+| 9 | **Per-gear-slot fill rules** (per Matt 2026-05-26 Q7 amendment): how character sheet stats populate per gear slot — which slots roll which modifier types; probability + magnitude rules per slot per modifier type; tier-restricted modifier availability | Wave 1 stat-sheet partition design — per-slot partition + probability distribution items 2 + 3 |
+
+**T4 PM1 expanded scope (per Matt 2026-05-26 Q7 amendment):** T4 PM1 now produces design INTENT for gear details + character sheet stats + per-slot fill rules in addition to T4-architecture decisions. Wave 1 partition cycle then operationalizes + validates + implements these intents (gamora methodology consultation + rocket implementation + jack-ryan critique + legolas Mode A research outputs). T4 PM1 = creative design + intent locking; Wave 1 = methodology + implementation + validation.
 
 Without these outputs, Cycle 13 scope-doc authoring is blocked. With these outputs, Cycle 13 launches.
 
@@ -367,21 +372,21 @@ Cycle 13 close = gauntlet sim PASS + initial mechanical season gen + jack-ryan G
 
 ### Q9. Cycle 14+ partitioning (Pattern A/B/C per roadmap § 6.6)
 
-Three plausible patterns:
-- **Pattern A (3 cycles):** Cycle 14 = Phase 5 cohesion; Cycle 15 = Phase 6 visual; Cycle 16 = Phase 7+8 gate + export
-- **Pattern B (2 cycles):** Cycle 14 = Phase 5+7; Cycle 15 = Phase 6+8
-- **Pattern C (1 cycle):** Single big cycle covers Phases 5+6+7+8
-
-**Defer decision until Cycle 13 wind-down OR decide now.** My lean: defer; surface at wind-down.
+**LOCKED to Pattern A (3 cycles) per Matt 2026-05-26 amendment:**
+- **Cycle 14** = Phase 5 cohesion coalescence (P5 cohesion-judge calibration + spirit-guide data-oracle integration + T4-attuned gear cohesion + acquisition curve calibration)
+- **Cycle 15** = Phase 6 visual coalescence (CV pipeline + Meshy + Control Rig / Niagara / PCG)
+- **Cycle 16** = Phase 7 joint-gate evaluation + Phase 8 profile assembly + export → engine build COMPLETE → REINCARNATED-GAME UNLOCK
 
 ### Q10. Initial mechanical season generation — what counts as "a season"?
 
-For Cycle 13 close, "initial mechanical season generation" needs a concrete definition:
-- (a) N kits × M gear configurations × content tier coverage
-- (b) "Enough content for one month of play" via some heuristic
-- (c) Specific N (e.g., 30-40 kits with full T4 architecture + gear)
+**LOCKED per Matt 2026-05-26 amendment: all characters which are produced within WR bracket.** No pre-imposed N; substrate-led — the engine generates against the spec; whatever passes WR-bracket (within-rate / within-band) validation IS the season's content. "Let's see what comes out."
 
-**Confirm definition OR defer to gandalf scope-doc to land specific N.**
+Implications:
+- Generation produces all candidate kits + gear configurations across the BC-target subspace
+- WR-bracket validation (per playability gate D61 + balance bands per multi-node calibration D27) determines which fall in-band
+- Cycle 13 close criterion = the set of all WR-bracket-validated characters PRODUCED is the season's content
+- Substrate-led discipline preserved: N is not pre-imposed; substrate + spec + validation determines what's shipped
+- Aligned with balance-as-property principle (D1) — content is what the spec produces; no curation-of-N drift
 
 ### Q11. Skip-confirmation fire-forward authorization
 
@@ -446,17 +451,17 @@ Subject to velocity anomaly adjustments. Cycle 12's actual velocity may inform C
 **Status:** **RATIFIED 2026-05-26 — Matt ratified Q1-Q11 in full (no amendments)**
 **Ratification effect:** brief becomes canonical authority basis for Cycle 13 scope-doc authoring (post-T4-PM1) + KR kicker. KR has full autonomous scope per § 4.1 to orchestrate Cycle 13 through 5 waves. Matt re-engagement limited to items per § 4.2.
 
-**Locked outcomes from ratification:**
+**Locked outcomes from ratification (incl. Matt 2026-05-26 amendments on Q7 + Q9 + Q10):**
 - Q1: Cycle 13 scope = Phases 1-3 + Phase 4 + initial mechanical season gen; drax + galadriel no active work in Cycle 13 ✅
 - Q2: Wave structure (Wave 0 scope-doc → Wave 1 partition cycle → Wave 2 T4 Phases 1-2 → Wave 3 T4 Phase 3 → Wave 4 gear gen + Phase 4 sim → Wave 5 gauntlet sim + season gen + close) ✅
 - Q3: Scope-of-autonomy boundaries per § 4.1 + § 4.2 ✅
 - Q4: 5 sidecars (SC-1 main_weapon routing cleanup; SC-2 discipline ratification; SC-3 Discipline #23 amendment; SC-4 legolas Mode A research; SC-5 Pi exec) ✅
 - Q5: KR autonomous on critique-pair scheduling ✅
 - Q6: gamora consultation gates Wave 4; KR autonomous on D84 sub-options A/B/hybrid ✅
-- Q7: T4 PM1 6 named outputs ✅
+- **Q7 (AMENDED 2026-05-26):** T4 PM1 outputs EXPANDED from 6 → 9, adding (7) full gear details all rarities × all slots, (8) character sheet stats full enumeration, (9) per-gear-slot fill rules. T4 PM1 scope expands ~2-4 hrs given creative-design + intent-locking work on gear + stat-sheet alongside T4 architecture. Wave 1 partition cycle operationalizes + validates + implements T4 PM1's intent outputs ✅
 - Q8: Cycle close criterion = gauntlet sim PASS + initial mechanical season gen + jack-ryan Gate-2 PASS ✅
-- Q9: Cycle 14+ partitioning DEFERRED to Cycle 13 wind-down ✅
-- Q10: gandalf scope-doc lands specific N for "initial mechanical season generation" ✅
+- **Q9 (AMENDED 2026-05-26):** Cycle 14+ partitioning LOCKED to Pattern A (3 cycles): Cycle 14 = Phase 5 cohesion; Cycle 15 = Phase 6 visual; Cycle 16 = Phase 7+8 gate + export → engine build COMPLETE → REINCARNATED-GAME UNLOCK ✅
+- **Q10 (AMENDED 2026-05-26):** "Initial mechanical season generation" = all characters produced within WR bracket. No pre-imposed N; substrate-led — engine generates against spec; whatever passes WR-bracket validation IS the season's content ✅
 - Q11: Skip-confirmation fire-forward authorization carried from Cycle 12 ✅
 
 **Composition:** with `agentic_orchestration/gandalf/notes/2026-05-26-t4-post-mortem-session-1-prep.md` (T4 PM1 prep) + `canonical/02-roadmap.md` § 4.3 (Cycle 13 entry — now updated to reference ratified brief)
