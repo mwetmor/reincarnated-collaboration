@@ -511,6 +511,28 @@ What's in flight RIGHT NOW + what fires next.
 | Initial mechanical season generation | ❌ | **Cycle 13 final demonstration**; produces sim-validated mechanical content for one season's worth of kits + gear |
 | (DEFERRED) Drax integration | 🔒 | Deferred to post-Cycle-13 cycle that handles Phase 5+ (UX needs cohesion outputs to consume) |
 
+### 4.4 Cycle 14 — Phase 5 Cohesion Coalescence + Track D content gap + Concentration Architecture
+
+**Scope (per Cycle 14 framing brief RATIFIED 2026-05-27):** 7-wave structure addressing Phase 5 cohesion coalescence (Q9 Pattern A original scope) + doc 46 concentration architecture 9 layers + Track D content gap closure (Wave 0.5 LOAD-BEARING NEW). See full detail at `agentic_orchestration/cycles/cycle-14-cohesion-coalescence-scope.md` + live state at `agentic_orchestration/cycle-14-hive-mind-state.md`.
+
+| Wave | Status | Detail |
+|---|---|---|
+| Wave 0 — scope-doc + sidecars | ✅ CLOSED 2026-05-27 | SC-1 jack-ryan disciplines #33-#39 RATIFIED (`d148808`); SC-2 gandalf doc 40 amendments (`f56ce8b`); SC-3/SC-4/SC-5 legolas research filed; SC-6 elrond substrate audit (NARROW) landed |
+| Wave 0.5 — Track D content gap closure (LOAD-BEARING) | ✅ CLOSED 2026-05-27 | rocket (`b2e9a86`) + gamora (`cafd6e4`) + elrond SC-6b (`3c95883`); jack-ryan Gate-2 PASS-with-WARN (`f053281`); **synthetic_mode RETIRED ABSOLUTELY** (Discipline #39 empirical grep ZERO); Path A substrate architecture decisions-log entry; OMEGA_PENALTY Q-W05-G1 RESOLVED (`b3f4db5`) |
+| Wave 0.5 follow-on — pipeline wiring + LUT alignment | ✅ COMPLETE 2026-05-27 (`685dafa`) | Pipeline wiring (per_skill_emitter + substrate_weapon_binding → season_generation_pipeline.py); 5-family LUT alignment to elrond Pass-2 |
+| Wave 1 — concentration architecture Layers 1-4+7 | ✅ COMPLETE 2026-05-27 (`98b68aa`; tag `rocket/v1.5-wave-1-concentration-architecture-layers-1-4-7`) | **Cycle 13 capability-soup REMEDIATED EMPIRICALLY** — avg 4.2 triggered_passives/kit (Discipline #34 ≤6 TARGET MET; down from Cycle 13's ~22); 61 SC-4 conditions × 11 families; 5 CRITICAL AI-tell triggers; 5 dedup pattern_id clusters; 29 new tests + 232/232 PASS; jack-ryan Gate-2 pending |
+| ⚠ **Wave 1.5 — Skill-Tree Architecture** (scaffold-drift Dispatch 2; NEW INSERTED) | 🚦 PENDING-MATT-GATE | Inserted BEFORE Wave 2 per scaffold-drift consolidated package § 3 + kicker § 2 Dispatch 2. **Gates on Matt class-roster sub-decision (consolidated doc § 3.5 Option A/B/C; gandalf-recommends Option C)**. Per-class chain count + T4 count rule + supporting chain + branching + active T4 runtime marker + season cardinality (n_kits=40) bundled. ~1 week anchor. |
+| ⚠ **Substrate sidecar** (scaffold-drift Dispatch 1; NEW PARALLEL) | ⏳ Dispatched 2026-05-27 | `agentic_orchestration/dispatches/2026-05-27-substrate-weapon-family-balance-sidecar.md`. Fix A hygiene filter (rocket; ~1 hr) + Fix B STR family rebalancing math-note (rocket; impl Wave 2) + Fix C caster weapon_kind audit (elrond; non-gating). |
+| ⚠ **Discipline #40 ratification** (scaffold-drift Dispatch 3; NEW PARALLEL) | ⏳ Dispatched 2026-05-27 | `agentic_orchestration/dispatches/2026-05-27-jack-ryan-discipline-40-scaffold-values-canonical.md`. Scaffold-values-require-canonical-decision discipline; jack-ryan canonical-write at engineering-disciplines.md; cross-references #11/#13/#18/#39. |
+| Wave 2 — concentration architecture Layers 5+8+9 | ⏳ QUEUED (pushed back by Wave 1.5 insertion) | Gates: Wave 1 ✅ + SC-1 partial ratification ✅ + Wave 1.5 close |
+| Wave 3 — Phase 5 cohesion-judge LLM architecture | ⏳ QUEUED | Gates: Wave 0.5 ✅ + SC-3 ✅ (CAN fire parallel with Wave 1.5; rocket secondary owner) |
+| Wave 4 — T4-attuned gear cohesion + acquisition curve | ⏳ QUEUED | Gates: Wave 2 + Wave 3 |
+| Wave 5 — production gauntlet sim + cohesion validation + FRESH ROSTER | ⏳ QUEUED | **Pre-fire checklist (per scaffold-drift § 5.3):** Fix A landed ✅ pending / Fix B landed ✅ pending / Wave 1.5 landed ✅ pending / Season cardinality ratified ✅ pending / Discipline #40 canonical-write landed ✅ pending. Cycle 14 close criterion = gauntlet PASS with REAL content + cohesion validation + jack-ryan Gate-2 PASS per Q8. |
+
+**Scaffold-drift corrective package authority:** `agentic_orchestration/gandalf/notes/2026-05-27-scaffold-drift-recognition-and-corrective-package.md` (consolidated) + `agentic_orchestration/gandalf/notes/2026-05-27-scaffold-drift-kr-kicker.md` (KR routing).
+
+**Externally-gated items per Cycle 14 scope-doc § 4.2:** class-roster sub-decision (Wave 1.5 Option A/B/C); any synthetic_mode retention proposal (Matt explicit re-engagement; KR NOT autonomous per Q4 emphatic lock).
+
 ---
 
 ## 5. Deferred commitments + empirical-evidence gates
