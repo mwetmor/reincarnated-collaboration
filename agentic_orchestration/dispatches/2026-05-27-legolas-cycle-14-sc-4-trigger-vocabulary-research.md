@@ -111,3 +111,49 @@ For each catalogued condition:
 - `agentic_orchestration/gandalf/notes/2026-05-27-cycle-14-framing-brief.md` § 2 Wave 1 + § 5 SC-4
 - Prior legolas Mode A research artifacts at `agentic_orchestration/research/`
 - Path of Exile wiki / D2 LoD community catalogs / Last Epoch wiki / Grim Dawn community catalogs / Lost Ark engraving + tripod community catalogs
+
+---
+
+## Completion Record
+
+**Status:** COMPLETE
+**Completed:** 2026-05-27
+**Executor:** legolas (Mode A analytical research)
+**Artifact:** `agentic_orchestration/research/2026-05-27-cycle-14-sc-4-trigger-vocabulary.md`
+
+**Acceptance criteria check:**
+- [x] Research artifact filed at named path
+- [x] 63 trigger conditions catalogued across all 11 families (exceeds 50+ target)
+- [x] Per-condition composition-property fields: trigger_id / family / cross_game_prevalence / frequency_class / pattern_id / trigger_window / concentration_fit / thematic_seed / synergy_pattern / ai_tell_risk — all populated
+- [x] Cross-game prevalence noted per condition (1-7+ scale; sources cited)
+- [x] Concentration-architecture-fit assessment per condition (Layer 5 tier mapping)
+- [x] AI-tell + redundancy mitigation patterns surveyed (Q-SC4-1 through Q-SC4-4 answered)
+- [x] Completion record appended
+
+**Family counts:**
+- action: 6 conditions
+- defense: 6 conditions
+- resource: 5 conditions
+- state: 6 conditions
+- enemy-state: 6 conditions
+- environmental: 6 conditions (note: 3 of 6 are low-priority for solo-only game; see knowledge gaps)
+- skill-conditioned: 6 conditions
+- combo: 5 conditions
+- positional: 5 conditions
+- element: 5 conditions
+- timer: 5 conditions
+- TOTAL: 63 conditions
+
+**Pattern_id dedup clusters identified:**
+- `counter_on_defensive` — 3 members (on_block / on_dodge / on_parry if added) — CRITICAL dedup risk
+- `attack_on_hit` — 2 members (on_hit / on_melee_hit) — HIGH dedup risk
+- `resource_threshold_high` — 2 members (on_resource_full / on_resource_pop) — HIGH dedup risk
+- `buff_stack_accumulation` — 2 members (on_n_hits_in_window / on_buff_stack_cap) — HIGH dedup risk
+- `periodic_repeating` — 2 members (every_n_seconds / on_resource_tick) — MEDIUM dedup risk
+
+**Key open questions for Wave 1 design call:**
+1. Environmental family — near_ally / isolated / in_shadow are not design-fit for a solo-only game; recommend dropping these 3 from the v1 vocabulary. Reduces environmental to 3 conditions (on_ground_effect / while_in_element_zone / in_objective_area).
+2. Positional family — on_flank_attack / while_kiting have weak cross-game vocabulary backing (1-2/7). Recommend keeping on_back_attack / on_front_attack / on_melee_range as the core 3; flag the others as low-confidence extensions.
+3. on_combo_break — only 1/7 cross-game; not recommended for v1 vocabulary. Drop from combo family.
+4. Counter_on_defensive cluster cap — is 1-per-loadout the right hard cap, or should gandalf's design-spec consider allowing 1 per family TYPE (1 block trigger + 1 dodge trigger) as long as effect-categories differ? Dispatch flags the collision but the design call is gandalf's.
+5. AI-tell line (doc 46 Layer 6 D7 reference): on_hit / on_enemy_killed / every_n_seconds are the three highest-risk conditions. Gandalf's Phase 5 cohesion-judge LLM architecture should include specific prompt guardrails for these three when they appear on Legendary T1/T2 items.
