@@ -86,3 +86,45 @@ NOT applicable.
 **Wave:** 4 follow-on (post-Gate-2 cleanup)
 **Gates:** Wave 4 fully cleaned-up; supports downstream Wave 5 + Cycle 14+ telemetry-ingest workflows
 **Priority:** P2 — small follow-on; non-blocking on Wave 5 dispatch authoring
+
+---
+
+## Completion record
+
+**Completed by:** star-lord
+**Completed:** 2026-05-27
+**Commit:** `9c09eef` (reincarnated-engine main)
+**Tag:** `star-lord: Cycle 13 Wave 4 follow-on — sim cycling export table + sentinel + ingest stub (per gamora MIGRATION.md § v1.29 + jack-ryan Gate-2 PASS 888ffca)`
+
+### Acceptance criteria — all met
+
+- [x] Sentinel file created: `src/reincarnated/export/wave4_schema_landed.sentinel` — gamora direct-write mode now active
+- [x] T4 sim cycling export table added: `ExportSimCyclingRecord` (26 fields) in `export/schemas.py`
+  - Code-cite: `simulation/t4_sim_cycling.py` `T4SimRecord.to_dict()` lines 346-384
+- [x] Ingest stub added: `ingest_wave4_sim_results()` in `export/season_exporter.py`
+  - Reads `simulation/output/wave4_sim_results_*.json` glob (stub prefix files also ingested)
+  - Discipline #8 Pydantic guard at ingest boundary; Pattern P7 WARN on invalid records
+- [x] Backward compat preserved: all prior Wave 4 tests 36/36 PASS; no existing schemas changed
+- [x] Round-trip smoke PASSes: 28/28 new tests (7 groups) PASS — Principle 6 satisfied
+- [x] MIGRATION.md updated: `export/MIGRATION.md` § v1.7-cycle-13-wave-4-follow-on-sim-cycling-export-table prepended
+- [x] Post-script empirical count assertions (Discipline #11 WARN-pattern MAINTAINED):
+  - ExportSimCyclingRecord field count: 26 (verified via len(model_dump()))
+  - Sentinel file presence: 1 (verified via path.exists())
+  - Prior baseline schema preserved (ExportSimCyclingQualityReport still importable + functional)
+- [x] Public API exports: `ExportSimCyclingRecord` + `ingest_wave4_sim_results` added to `export/__init__.py` + `__all__`
+
+### Round-trip smoke summary
+
+| Test group | Tests | Result |
+|---|---|---|
+| ExportSimCyclingRecord field count + names | 2 | PASS |
+| Minimal record (REJECT; no Tier-2) | 5 | PASS |
+| Full record (PROVISIONAL_PASS + Tier-2 + sub-gates) | 6 | PASS |
+| ingest_wave4_sim_results() happy-path | 5 | PASS |
+| ingest_wave4_sim_results() error-handling (Pattern P7 WARN) | 4 | PASS |
+| Public API exports | 2 | PASS |
+| Sentinel presence | 2 | PASS |
+| Discipline #11 post-script empirical counts | 1 | PASS |
+| **Total (new)** | **28** | **PASS** |
+| Prior Wave 4 baseline | 36 | PASS |
+| **Grand total** | **64** | **PASS** |
