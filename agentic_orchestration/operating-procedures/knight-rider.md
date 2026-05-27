@@ -166,6 +166,39 @@ Invoke gandalf when: thematic / experiential / canon question; canonical-story d
 
 When in doubt: ask Matt "want jack-ryan / gandalf in on this?" rather than auto-invoking.
 
+### 3.11 Quality-criterion in every dispatch (Move 1 — Matt 2026-05-27 ratification per `gandalf/notes/2026-05-27-quality-orientation-shift-kr-kicker.md` § 1)
+
+> **Orientation: Engine first. Game second. Phase third.**
+> Engine = architectural integrity (substrate-led discipline; canonical docs; mathematical primitives; discipline-stack composition).
+> Game = player-facing quality (playable, balanced, thematically coherent characters; meaningful seasonal journey).
+> Phase = operational unit (waves, dispatches, sidecars, gate verdicts).
+> Conflict resolution: engine > game > phase.
+
+Every dispatch KR authors carries TWO criterion blocks:
+
+1. **Acceptance criteria** (existing): mechanical completion criteria — "did the dispatch close?"
+2. **Quality criterion** (NEW): named game-quality goal this dispatch serves + refutation conditions sub-agents check before executing.
+
+**Quality criterion section template (insert in every dispatch authored Wave 2+):**
+
+```markdown
+## Quality criterion
+
+**Game-quality goal this dispatch serves:** [specific game-quality outcome — e.g., "advance substrate-led discipline by enriching INT-AoE substrate so emergent fireball-mage cluster becomes possible"]
+
+**Refutation conditions** (sub-agent surfaces if any apply):
+- This dispatch contradicts canonical anchor X
+- Alternative execution Y serves the named quality goal better
+- Acceptance criteria can pass without advancing the quality goal
+- Dispatch framing pre-commits to a decision Matt has not ratified
+- Dispatch introduces a pre-authored taxonomy without justification (#41 candidate)
+- Dispatch introduces a scaffold value not flagged as pending-decision (#40)
+```
+
+KR cannot fire a dispatch without both blocks populated. Sub-agents verify the Quality Criterion at dispatch consumption via framing-audit (Discipline #42 candidate; jack-ryan ratification firing per Move 2) before executing.
+
+**Effective:** retroactive to all Wave 2 + Wave 3 + Cycle 15+ dispatches. Already-authored dispatches in flight (Wave 1.5 revert; substrate enrichment; Option α math notes; substrate sidecar; doc 48; Discipline #40; etc.) carry forward without quality-criterion section per grandfather clause.
+
 ### 3.10 Wave-entry-fire-discipline (Matt 2026-05-27 amendment)
 
 > **A wave is NOT entered until sub-agents are FIRING. Authoring dispatches is NECESSARY but NOT SUFFICIENT.**

@@ -4,6 +4,14 @@
 **Senior Architect (human):** Matt
 **Purpose:** Synthetic engineering team that trims dev cycles via specialization + durable handoffs + tiered review. Operates across the Reincarnated multi-repo ecosystem.
 
+> **Orientation:** **Engine first. Game second. Phase third.** (ratified Matt 2026-05-27 per `gandalf/notes/2026-05-27-quality-orientation-shift-kr-kicker.md` § 2)
+> - **Engine** = architectural integrity (substrate-led discipline; canonical docs; mathematical primitives; discipline-stack composition)
+> - **Game** = player-facing quality (playable, balanced, thematically coherent characters; meaningful seasonal journey)
+> - **Phase** = operational unit (waves, dispatches, sidecars, gate verdicts)
+> - **Conflict resolution:** engine > game > phase
+>
+> Composes with Discipline #1 (math-before-code) + #11 (empirical inspection) + #25 (substrate semantic-layer rep-audit) + #40 (scaffold-with-pending-decision). Every agent's OP carries the orientation phrase per Move 5 cross-seam delivery. KR dispatches carry quality-criterion section per KR OP § 3.11 (Move 1). Sub-agents run framing-audit per Discipline #42 candidate (Move 2; jack-ryan ratification firing). Sub-agents may file Framing-Refusal per Discipline #44 candidate (Move 3; jack-ryan ratification firing).
+
 ---
 
 ## 1. Why this team exists
