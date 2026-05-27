@@ -187,3 +187,74 @@ Cycle 14 substrate state at Stage 2 firing time:
 - Wave 1.5 Stage 1 ✅ (`06a3b7f`)
 - Stage 2 ← THIS DISPATCH
 - Wave 1.5 Stage 3 + Wave 2 + Wave 3 + Wave 4 + Wave 5 queued
+
+---
+
+## Completion record (gandalf — 2026-05-27)
+
+**Status:** COMPLETE — Stage 2 design call closed; rocket Stage 3 implementation unblocked.
+
+**Deliverables landed:**
+
+- [x] **doc 48 authored** at `canonical/48-cycle-14-class-roster-2026-05-27.md` — canonical class roster lock (10 classes); STATUS CURRENT; ~750 lines; Discipline #40 option (a) canonical lock applied (NOT scaffold-with-pending-decision)
+- [x] **doc 41 § 4.6 amendment authored** in-place at `canonical/41-progression-framework-2026-05-27.md` — season cardinality canonical decision (Option 2 multi-fire extension; n_kits=40 default); STATUS roll-forward + amendment record appended
+- [x] **canonical/00-ground-state.md § 1 registration updated** — doc 48 added as new CURRENT entry; doc 41 entry amended to reflect § 4.6 amendment
+- [x] **All 14 Stage 1 questions resolved** (Q-S2-1 through Q-S2-14) per doc 48 § 8.1 — substrate-led discipline applied throughout
+- [x] **All 3 dispatch open questions resolved** (Q-S2-15 / Q-S2-16 / Q-S2-17) per doc 48 § 8.2
+- [x] **Substrate-enrichment commissions surfaced** (Q-S2-12 INT-AoE / Q-S2-13 lineage re-tagging / Q-S2-14 hybrid-attribute) — all queued for Cycle 15 with explicit empirical-evidence triggers; NOT Cycle 14 v1 gating
+- [x] **Active T4 mechanism design-spec complete** (D66 + D65) — runtime `active_t4_chain` marker; switching mechanism via legendary-trigger respec; validation rules locked
+- [x] **BC-cell coverage finalized** — 8/8 engagement bins; 4/5 damage-geometry bins (multi-spawn DEFERRED per pet-system); 3/3 tempo bins; all 4 attributes; defensive variety covered
+- [x] **Class roster ratifies caster-faith HYBRID verdict composition** — Crusader inherits Wave 2 within-caster-shape sampling adjustment; awaiting Matt sign-off on HYBRID verdict does NOT block Stage 2 close
+
+**Output handoff to KR:**
+
+- **Class count + names (10 classes; substrate-led):**
+  1. Barbarian (STR; 3-chain) — folds STR-melee 5-seed over-saturation
+  2. Hoplite (STR; 3-chain) — polearm/lance/spear mid-range distinct
+  3. Siege-Master (STR; 3-chain) — fills Cycle 13 STR-ranged gap
+  4. Assassin (DEX; 3-chain) — single-target high-tempo stealth
+  5. Duelist (DEX; 3-chain) — mid-tempo precision-fencer; lineage-diverse
+  6. Wildhunter (DEX; 3-chain) — multi-hit feral; shield off-hand absorption
+  7. Gunslinger (DEX; **4-chain**) — substrate's largest cluster (288 firearm rows); substrate-warranted versatility
+  8. Skirmisher (DEX; 3-chain) — shield-main-identity; cleanest DEFENSIVE_CONVERSION fit
+  9. Magus (INT; 3-chain) — arcane single-target; INT-AoE gap honored (DEFERRED to v1.1)
+  10. Crusader (WIS; **4-chain**) — holy-warrior + rally-leader + channel-aura; composes with caster-faith HYBRID
+
+- **Chain-count distribution:** 8 × 3-chain + 2 × 4-chain (Gunslinger DEX-ranged + Crusader WIS-faith — the 2 substrate-richest classes); aggregate 22 T4 capstones + 10 supporting chains + 38 total chains; matches substrate's ~65% 3-chain natural vote with 4-chain reserved for substrate-richest cells
+
+- **Substrate-enrichment commissions for KR routing** (Cycle 15 queue; NOT Cycle 14 gating):
+  1. **Q-S2-12 INT-AoE enrichment** — ~30-50 row substrate enrichment for AoE-INT spell-implement forms; gates on Wave 5 cohesion-judge confirming Magus single-target alone is design-pressure; elrond Mode B route; ~3-5 hours
+  2. **Q-S2-13 named-pool lineage re-tagging** — DEFERRED; gates on Wave 5 cohesion-judge lineage-collapse identification
+  3. **Q-S2-14 hybrid-attribute substrate** — DEFERRED; composes with Q-S2-11 cross-attribute deferral + caster-faith HYBRID Cycle 15 Path A queue; legolas Mode B + elrond curation route
+
+- **Doc 48 path:** `canonical/48-cycle-14-class-roster-2026-05-27.md`
+- **Doc 41 § 4.6 amendment:** in-place at `canonical/41-progression-framework-2026-05-27.md` § 4.6
+
+- **14 Q-resolutions overview:** see doc 48 § 8.1 — substrate-led discipline applied throughout; folds preserve substrate evidence at class-internal variance level; substrate-empty cells deferred to v1.1 with empirical-evidence triggers (NOT manufactured)
+
+- **3 dispatch open Q-resolutions:** see doc 48 § 8.2 — Q-S2-15 N/A for v1 (no hybrid classes); Q-S2-16 human-readable genre-canonical naming; Q-S2-17 substrate-suggested with player flexibility
+
+- **Open items for Matt (none Stage-2-blocking; surfaced for awareness):**
+  1. caster-faith HYBRID verdict (commit `38d0d73`) — Matt sign-off enables Crusader Wave 2 substrate-sampling support; if rejected, Crusader falls back to substrate-natural 62% mace-dominance for Wave 5 and Cycle 15 Path A reclassification fires
+  2. Doc 48 design-call cardinality choice (10 classes) — substrate supports 6-18 per fold-distinct decisions; 10 is gandalf design-call territory per Discipline #25 (semantic-layer); Matt may amend if Wave 5 empirical evidence reveals different cardinality target
+
+- **Stage 3 rocket implementation input ready:** doc 48 § 7 (per-class implementation summary + cross-seam contract changes + active T4 mechanism implementation atoms). Rocket Stage 3 dispatch authorable now.
+
+**Cross-seam impact (Stage 3 MIGRATION.md scope per consolidated doc § 3.6):**
+- Character JSON schema adds `active_t4_chain: str \| None` + `supporting_chain: str` + `class_archetype: str`
+- gamora damage_resolver consumes `active_t4_chain` for T4 damage routing per doc 47 § 4.1
+- star-lord telemetry captures T4 swap events for cross-season learning loop (D25)
+- drax loadout-app schema-extension consumes class_archetype + active_t4_chain for character UI
+
+**Discipline composition:**
+- Discipline #40 LOAD-BEARING — canonical-lock option (a) applied; class roster is RATIFIED-AS-CANONICAL
+- Discipline #25 (semantic-layer rep-audit) — rep-audit obligations queued for Wave 5 + Phase 5 per doc 48 § 9.2
+- Discipline #18 (methodology-before-execution) — this design call IS the methodology output; rocket Stage 3 fires post Gate-1 + Matt sign-off
+- Framing-audit checklist (gandalf OP § 4.1) applied at doc 48 § 10
+
+**Commit + push:** auto-fire per Matt 2026-05-27 per-cycle push pattern + CLAUDE.md addendum (auto-commit for in-scope work-products). KR to push per established cycle pattern.
+
+**Signed:** gandalf (story-and-design steward)
+**Date:** 2026-05-27
+**Pattern:** Pattern A-deep substantive verdict per gandalf OP § 2; canonical class-roster doc authoring per OP § 2 canonical doc authoring mode
+**Stage 3 unblocked:** KR consumes doc 48 + 17 Q-resolutions + cross-seam contract changes → authors rocket Wave 1.5 Stage 3 implementation dispatch

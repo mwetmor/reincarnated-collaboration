@@ -12,8 +12,13 @@
 - `canonical/38-downstream-delivery-strategy-2026-05-23.md` — D1-D10 delivery strategy keystone
 - `canonical/39-qd-engine-end-to-end-workflow-2026-05-24.md` — engine workflow architecture
 - `canonical/40-gear-balance-guide-architecture-2026-05-26.md` — Cycle 13 architectural foundation (D1-D86)
+- `canonical/48-cycle-14-class-roster-2026-05-27.md` — class roster + § 4.6 season cardinality amendment authority (Wave 1.5 Stage 2)
 - `agentic_orchestration/gandalf/notes/2026-05-27-cycle-13-pre-launch-design-session-closeout.md` — session closeout (source of lock § 6.1)
 - `agentic_orchestration/gandalf/notes/2026-05-27-block-c-calibration-scaffolding.md` — Block C calibration scaffolding (uses node identities from this doc)
+- `agentic_orchestration/gandalf/notes/2026-05-27-scaffold-drift-recognition-and-corrective-package.md` — scaffold-drift package § 3.4 (source of § 4.6 amendment)
+
+**Amendment record:**
+- **2026-05-27 (Wave 1.5 Stage 2 close):** § 4.6 NEW — Season cardinality canonical decision (Option 2 multi-fire extension; n_kits=40 default) ratified per `canonical/48-cycle-14-class-roster-2026-05-27.md` § 6 + scaffold-drift consolidated package § 3.4. Authored by gandalf; ratified by Matt 2026-05-27 Option C path authorization.
 
 ---
 
@@ -112,6 +117,31 @@ The 4 progression nodes (D27) now have explicit level-band identities under L50 
 | 3 | **Acquisition curve calibration sharpening** (D21 Option A specifics; calibrated against L50 hybrid engagement window) | Deferred — gates on #1 + per-cohort empirical engagement data | Post-scaling-formulas + telemetry-based per-cohort engagement data |
 | 4 | **Pre-L50 mechanical content generation** | Cycle 13 v1 constrained to endgame-reference-encounter only; multi-node mechanical content fires Cycle 14+ | Per-level scaling formulas (#1) + scaling implementation in engine |
 | 5 | **Endgame post-cap content scaling** (how content difficulty scales beyond L50 cap via gear-tier interaction) | Implicit in tier mapping (D50) but specific math deferred | Cycle 13 telemetry + Cycle 14+ acquisition curve calibration |
+
+### 4.6 Season cardinality canonical decision (CYCLE 14 RATIFICATION 2026-05-27)
+
+**Per** `agentic_orchestration/gandalf/notes/2026-05-27-scaffold-drift-recognition-and-corrective-package.md` § 3.4 + `canonical/48-cycle-14-class-roster-2026-05-27.md` § 6 (Wave 1.5 Stage 2 deliverable).
+
+**Decision:** Reincarnated v1 Cycle 14 production season ships **Option 2 — Multi-fire extension to 30-50 base kits**.
+
+- **Default `n_kits=40`** (within `bc_target_subspace_generator.py` multi-fire extension cap 50)
+- **Class distribution:** 40 base kits across 10 classes (per doc 48) = **average ~4 kits per class** with within-class variance via T4 + supporting-chain composition + lineage flavor (substrate-natural)
+- **Gauntlet PASS rate target:** ~70-80% pass-through (40 base → ~28-32 surviving characters per season)
+- **Composition with L50 hybrid framework (§ 1-3 of this doc):** ~28-32 characters per ~30-day season aligns with Matt's stated season-quality target "maximal quantity of characters who are unique/playable/balanced/thematically coherent to faction and season"
+- **Composition with doc 46 Layer 6 cohesion architecture:** cohesion-judge layered architecture operates against ~28-32 surviving characters per season; LLM cohesion-narrative generation budget aligned per star-lord pipeline planning
+- **Composition with doc 47 § 3.1 weapon profile + class roster doc 48 distribution:** Wave 5 production season generates kits with substrate-bound weapons per attribute profile + chain-aligned mechanical content per per-class architecture
+
+**Why Option 2 (not Option 1 22-base; not Option 3 open-ended faction-driven):**
+
+| Option | Cardinality | Why rejected (Cycle 14 v1) |
+|---|---|---|
+| Option 1 — Match BC-cell base enumeration | 22 base, ~16-22 surviving | Too narrow for "maximal quantity" intent; one-per-cell coverage lacks within-cell variety |
+| Option 2 — Multi-fire extension (ADOPTED) | 30-50 base, ~25-40 surviving | Surfaces within-cell variety + gives gauntlet meaningful filter (~70-80% pass-through is genre-meaningful) |
+| Option 3 — Open-ended (faction-driven) | N per faction × M factions | Production-scale but depends on faction-architecture decisions DEFERRED per `canonical/story/fate-genre-recognition-and-mobile-alignment-trajectory-2026-05-23.md` |
+
+**Rocket Stage 3 implementation:** `bc_target_subspace_generator.py` L173 default changes from `n_kits=22` to `n_kits=40`. Multi-fire extension cap 50 preserved. Per consolidated doc § 3.3 implementation scope.
+
+**Empirical trigger for v1.1+ re-engagement:** Wave 5 telemetry data + cross-season learning loop (D25) feedback per § 5.3 below. If gauntlet PASS rate drifts outside ~70-80% target, n_kits default tunes upward or downward per empirical evidence. Faction-architecture work (Option 3 candidate) gated on `canonical/story/fate-genre-recognition-and-mobile-alignment-trajectory-2026-05-23.md` § 9 empirical triggers.
 
 ---
 
