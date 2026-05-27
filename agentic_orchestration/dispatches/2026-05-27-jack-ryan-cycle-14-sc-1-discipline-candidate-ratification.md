@@ -95,3 +95,42 @@ Not applicable directly — discipline ratification is canonical-write work, not
 - `.claude/skills/reincarnated-engineering-disciplines` — composition wrapper
 - `.claude/skills/reincarnated-jack-ryan-operating-procedure` — discipline ratification mode
 - Cycle 13 SC-2 jack-ryan discipline ratification dispatch precedent at `agentic_orchestration/dispatches/`
+
+---
+
+## Completion record — 2026-05-27 — jack-ryan
+
+**Completed by:** jack-ryan
+**Date:** 2026-05-27
+**Canonical write committed to:** `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`
+
+### All 7 candidates RATIFIED
+
+| # | Candidate | Verdict | Gate | Notes |
+|---|---|---|---|---|
+| **#39** | No-synthetic-stub-as-permanent-fallback | **RATIFIED** | Wave 0.5 + Wave 5 close | **HIGHEST PRIORITY.** Matt Q4 verbatim "extremely confirm.. retire it" — emphatic lock. Top-level discipline, not sub-discipline of #11. #11 governs "inspect before designing"; #39 governs "retire stopgaps that bypass validation gates." Distinct concern, distinct number. |
+| **#38** | Damage-scaling-path | **RATIFIED** | Wave 0.5 close | Net-new discipline (not merely a clarification). Cycle 13 production code violated it via `_SyntheticPlayerClass` magnitude=3000 stub. Provides Gate-1 BLOCK trigger; multiple agents need to cite by number. Surfaces what was implicit in skill-system canonical. |
+| **#33** | Stat-range bounds | **RATIFIED** | Wave 1 close | Layer 1 prerequisite for all concentration architecture. Cap table from doc 46 § 2.2 embedded verbatim. Enforced at generation time AND runtime (two layers). |
+| **#34** | Concentration discipline | **RATIFIED** | Wave 1 close | One discipline covering the mechanic-alteration density target. Layer 5 concentration probability table + XOR enforcement + set-piece-replaces-individual pattern + gauntlet-sim representative-loadout amendment (§ 6.5) all embedded. Layer 7 synergy scan (doc 46 Layer 7) is NOT a new top-level discipline — it is an amendment to existing #32 (first-do-no-harm). Layer 7 encourages thematic seeds while #34 governs the probability gate. Layers 1 and 8 are separate disciplines #33 and #36 respectively. |
+| **#36** | Substrate-as-keying-source | **RATIFIED** | Wave 2 close | Sets keyed to T4 strategy × element clusters; per-character bespoke set pattern RETIRED. Cross-character shareability is the load-bearing architectural property. |
+| **#37** | Class-agnostic drop | **RATIFIED** | Wave 2 close | Drops spec-driven against substrate; smart-loot hidden mechanics rejected per D21 Option A lock. Three failure modes of smart-loot named explicitly. |
+| **#35** | Layered cohesion | **RATIFIED** | Wave 3 close | One composite discipline with three named sub-tests (identity-without-gear / T4-choice-independence / endgame-nod-additivity). Sub-tests are operationalizations of one principle (chain composition is identity source, not gear). Single discipline with sub-test naming — same canonical structure as #31. |
+
+### Open questions resolved
+
+| Q | Resolution |
+|---|---|
+| **Q-SC1-1** (#39 new vs sub-discipline of #11) | New top-level discipline. #11 = "inspect before designing"; #39 = "retire bypass stopgaps." Separate concern. |
+| **Q-SC1-2** (#34 scope) | One discipline (concentration probability / capability density). Layer 7 synergy = amendment to #32. Layers 1 and 8 = separate disciplines #33 and #36. |
+| **Q-SC1-3** (#35 one vs three) | One composite discipline with three testable sub-disciplines named. |
+| **Q-SC1-4** (#38 net-new vs clarification) | Net-new. Cycle 13 production code violated it; Gate-1 BLOCK trigger required; multi-agent citation needed. |
+
+### Scope checkbox completion
+
+- [x] All 7 candidates have verdicts (all RATIFIED)
+- [x] Canonical writes landed at `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`
+- [x] Engineering-disciplines.md updates cross-reference doc 46 / doc 47 / framing brief per discipline source
+- [x] No NEEDS-REVISION verdicts — no routing to gandalf required
+- [x] #39 ratification has highest-priority emphasis — landed first with Matt Q4 emphatic lock
+- [x] Scope note updated in engineering-disciplines.md header
+- [ ] Commit + push (auto-fire per CLAUDE.md addendum — fires after this completion record)
