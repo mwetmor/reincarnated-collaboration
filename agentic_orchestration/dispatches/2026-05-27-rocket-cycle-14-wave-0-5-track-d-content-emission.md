@@ -174,3 +174,66 @@ Per Matt 2026-05-23 directive (hive-mind protocol § 4) + scope-doc § 4.1: rock
 - `agentic_orchestration/cycles/cycle-14-cohesion-coalescence-scope.md` § 2 + § 5
 - Engineering disciplines #11 + #18 + #19 + #33 + #38 + #39
 - Hive-mind protocol § 4 (decision-routing) + § 7 (math hotspots)
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-27
+**Agent:** rocket
+**Status:** ALL 3 ITEMS COMPLETE
+
+### Item 1 — Elements expansion
+
+`config/elements.yaml` amended with 3 new rotating elements: lightning (shock, intelligence),
+holy (consecrate, wisdom), shadow (drain, intelligence). Foundation LC-012 fix pre-existing;
+no other code changes required. Smoke: 7-element Foundation instantiates; `_get_valid_slots()`
+returns 7 slots. PASS.
+
+Math note: `generation/math/wave-0-5-elements-expansion-math-2026-05-27.md`
+
+### Item 2 — Per-skill mechanical content emission
+
+`generation/skill_schema.py`: 4 new nullable fields added (`damage_scaling_type`, `tier_coefficient`,
+`hybrid_pattern`, `hybrid_balance_factor`).
+
+`generation/per_skill_emitter.py` (NEW): `emit_skills_for_kit()` emits 12 skills per kit
+(3 chains × 4 tiers). All Discipline #38 compliant (non-null `damage_scaling_type`). All Discipline
+#39 compliant (no synthetic stubs). Smoke: 3 kits × 12 skills. PASS.
+
+Q-W05-R4 resolution: `hybrid_pattern` + `hybrid_balance_factor` deferred to v1.1. Option C
+cross-attribute kits not emitted in Wave 0.5. Fields present on schema (nullable); populated
+when Option C lands.
+
+Math note: `generation/math/wave-0-5-per-skill-emission-math-2026-05-27.md`
+
+### Item 3 — Substrate weapon binding output
+
+`generation/substrate_weapon_binding.py` (NEW): `select_and_bind_substrate_weapon()` reads
+`weapon_knowledge_entries JOIN weapon_sim_props`. All 8 substrate weapon fields populated.
+SC-6b live for `base_physical_damage_l50` + `weapon_type_family`. Scaffold fallback for
+`element_affinity_modifiers` (NULL in substrate). Smoke: 4 BC attrs × 8 fields × stat-range
+bounds (Discipline #33). PASS.
+
+Q-W05-R1 resolution: Path A confirmed — absolute L50 baseline from substrate SC-6b column.
+Q-W05-R2 resolution: element_affinity fallback regex in place for scaffold transition.
+Q-W05-R3 resolution: per-rarity `to_skill_level_modifier` roll formula implemented.
+
+Math note: `element/math/wave-0-5-substrate-binding-math-2026-05-27.md`
+
+### MIGRATION.md
+
+`generation/MIGRATION.md § Wave 0.5` appended per ADR-004. All 8 substrate weapon fields
+explicitly enumerated. Cross-seam round-trip contract documented.
+
+### Tag
+
+`rocket/v1.5-wave-0-5-track-d-content-emission` — cut after commit.
+
+### Pending downstream
+
+- gamora SC-7: damage_resolver calibration against `damage_scaling_type` (parallel dispatch)
+- star-lord Track C: 8 substrate weapon fields consumption (field names stable)
+- Cycle 14 pipeline wiring: standalone modules; pipeline integration is separate dispatch
+
+**Signed:** rocket
