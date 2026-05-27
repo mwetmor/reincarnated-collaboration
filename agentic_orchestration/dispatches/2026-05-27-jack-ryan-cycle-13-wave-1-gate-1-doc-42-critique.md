@@ -136,3 +136,28 @@ INFO / WARN / BLOCK per critique-pair-gate-protocol.
 **Wave:** 1 Gate-1
 **Gates:** rocket Wave 1 implementation dispatch authoring (PASS) OR gandalf re-pass (BLOCK)
 **Priority:** P1 — gates Wave 1 close + Wave 2 T4 algorithm implementation
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-27
+**Verdict:** PASS-with-WARN
+**Severity counts:** 0 BLOCK / 3 WARN / 4 INFO
+**Finding file:** `agentic_orchestration/qa/findings/2026-05-27-cycle-13-wave-1-gate-1-doc-42-critique.md`
+
+**Key amendment recommendations:**
+
+1. **W1 (gandalf — required before W1.2 fires):** Doc 42 § 2 "sums to 100% already" normalization claim is technically false — raw tier-weight sums range 190-255 per slot. Amend § 2 Affinity-tier-sum-constraint text to clarify relative weights are normalized per § 9.2 step 2. One-paragraph rewrite; minor.
+
+2. **W2 (KR — required in rocket Wave 1 dispatch):** Prefix/suffix binary schema field is "should carry" advisory in § 7 but absent from § 10 Wave 1 close criteria. SC-4 Gate 1 notes "cannot be retrofitted easily." Must appear as REQUIRED W1.2 deliverable in rocket dispatch.
+
+3. **W3 (KR — required before Wave 2 dispatch authoring):** SC-4 expansion research (5th scaling-interaction synergy category + Pattern 9+10 degenerate catalog) not cited in doc 42 § 1. Expansion findings scoped Wave-2-informing / Wave-4-informing by legolas; must appear explicitly in Wave 2 T4 synergy scan dispatch. Optional: gandalf adds expansion to doc 42 § 1 companion-docs.
+
+**Next-action sequence for KR:**
+1. Route W1 to gandalf for doc 42 § 2 amendment
+2. With W1 resolved, author rocket Wave 1 implementation dispatch (W2 + I1 + I2 folded in)
+3. Route W3 to gandalf OR hold for Wave 2 dispatch authoring
+4. Wave 2 dispatch: invoke Disciplines #27 / #31 / #32 + SC-4 expansion explicitly
+
+**Commit hash:** see git log
