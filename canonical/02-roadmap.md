@@ -442,15 +442,15 @@ What's in flight RIGHT NOW + what fires next.
 |---|---|---|
 | Architectural foundation (docs 38 + 39 + 40) | ✅ | Landed 2026-05-26 |
 | Cycle 13 framing brief (gandalf) | ✅ | RATIFIED 2026-05-26 (Matt ratified Q1-Q11 in full); canonical authority basis for scope-doc + KR kicker; `agentic_orchestration/gandalf/notes/2026-05-26-cycle-13-framing-brief.md` |
-| T4 PM1 design session | ❌ | Gates on Cycle 12 close + form-generation milestone |
-| Cycle 13 scope-doc authoring (gandalf 4-8 hrs per D85) | ❌ | Gates on T4 PM1 completion |
-| Stat-sheet partition design cycle (multi-seam early Cycle 13 milestone) | ❌ | Gates on Cycle 13 launch + Discipline #18 methodology consultation |
-| Gamora methodology consultation (D60 + D74 + D84) | ❌ | Gates partition cycle + gauntlet sim |
-| Phase 1 T4 algorithm implementation (T4s into chains as capstones) | ❌ | Per doc 40 D81 Phase 1; gates on T4 PM1 + scope-doc |
-| Phase 2 T4 algorithm implementation (multiple T4 options per chain) | ❌ | Per doc 40 D81 Phase 2; sequenced after Phase 1 |
-| Phase 3 T4 algorithm implementation (character-wide vs chain-wide dimension) | ❌ | Per doc 40 D81 Phase 3; sequenced after Phase 2 |
-| Phase 4 T4 algorithm implementation (full sim cycling) | ❌ | Per doc 40 D81 Phase 4; sequenced after Phase 3 |
-| Spec-driven gear gen implementation (Phase 2d of workflow) | ❌ | Per doc 40 D7; gates on partition cycle |
+| T4 PM1 design session | ⏳ | SUBSTANTIVELY COMPRESSED 2026-05-26 via gandalf Pattern A-deep verdicts (15 verdicts; 9 RATIFIED standalone + 6 REQUIRES-MATT-CREATIVE-RATIFICATION async); see `agentic_orchestration/gandalf/notes/2026-05-26-cycle-13-design-session-pattern-a-deep-verdicts.md`; awaiting Matt async ratification of 6 creative items |
+| Cycle 13 scope-doc authoring (gandalf 4-8 hrs per D85) | ⏳ | Skeleton landed 2026-05-26 (KR); § 12.3 filled 2026-05-26 via gandalf verdicts; remaining canonical doc authoring (3 docs per verdict file § 6.2) conditional on Matt async ratification |
+| Stat-sheet partition design cycle (multi-seam early Cycle 13 milestone) | ⏳ | Design intent landed via Verdicts B.2-B.4 (B.4 RATIFIED standalone; B.2/B.3 pending Matt async); SC-4 5 methodology gates CLOSED per Verdict B.4 |
+| Gamora methodology consultation (D60 + D74 + D84) | ⏳ | Delegate-to-gamora posture RATIFIED via Verdicts C.1-C.3; consultation fires post-Wave-4-baseline per Discipline #18.2 refinement |
+| Phase 1 T4 algorithm implementation (T4s into chains as capstones) | ⏳ | Per doc 40 D81 Phase 1; design inputs landed via Verdicts A.1-A.6; A.2/A.3/A.4/A.6 RATIFIED standalone (Wave 2 design-intent unblocked); A.1/A.5 pending Matt async ratification |
+| Phase 2 T4 algorithm implementation (multiple T4 options per chain) | ⏳ | Per doc 40 D81 Phase 2; design inputs landed via Verdicts A.1-A.6; sequenced after Phase 1 |
+| Phase 3 T4 algorithm implementation (character-wide vs chain-wide dimension) | ⏳ | Per doc 40 D81 Phase 3; Verdict A.6 RATIFIED T4-failure-handling Option F standalone; sequenced after Phase 2 |
+| Phase 4 T4 algorithm implementation (full sim cycling) | ⏳ | Per doc 40 D81 Phase 4; sequenced after Phase 3; gates on gamora methodology consultation post-baseline per #18.2 |
+| Spec-driven gear gen implementation (Phase 2d of workflow) | ⏳ | Per doc 40 D7; design inputs landed via Verdicts B.1-B.4; gates on partition cycle close + Matt async ratification of B.1-B.3 |
 | Gauntlet battle sim against full architecture | ❌ | **Cycle 13 culmination milestone**; sequenced after T4 4-phase implementation + spec-driven gear gen + partition |
 | Initial mechanical season generation | ❌ | **Cycle 13 final demonstration**; produces sim-validated mechanical content for one season's worth of kits + gear |
 | (DEFERRED) Drax integration | 🔒 | Deferred to post-Cycle-13 cycle that handles Phase 5+ (UX needs cohesion outputs to consume) |

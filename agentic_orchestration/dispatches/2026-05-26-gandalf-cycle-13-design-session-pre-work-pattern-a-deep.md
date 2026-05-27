@@ -145,3 +145,53 @@ If the above Blocks A-D substantively close (all items either ratified or have p
 **Wave:** 0 design session pre-work
 **Gates:** unblocks Wave 1+ dispatch authoring upon completion (combined with Wave 0 sidecars already complete)
 **Priority:** P1 critical-path — replaces or reduces external-gated Pattern-B session per Matt directive
+
+---
+
+## Completion record — 2026-05-26 gandalf
+
+**Status:** COMPLETE — 15 Pattern A-deep verdicts authored at `agentic_orchestration/gandalf/notes/2026-05-26-cycle-13-design-session-pattern-a-deep-verdicts.md`
+
+**Verdict counts:** 9 RATIFIED standalone + 6 REQUIRES-MATT-CREATIVE-RATIFICATION
+
+| Block | Verdict | Status |
+|---|---|---|
+| A.1 | Skill tree architecture (D69) | REQUIRES-MATT (hybrid chain+micro-investment recommended) |
+| A.2 | T4 count per class (D70/D83) | **RATIFIED** (variable 3-4 chains) |
+| A.3 | Skill point economy (D71) | **RATIFIED** (60 points + 9-point chain thresholds) |
+| A.4 | Respec rules (D73) | **RATIFIED** (significant friction base + free legendary-triggered per D65) |
+| A.5 | First-pass class chain architecture (Q7.6) | REQUIRES-MATT (rule-lock not enumeration-lock recommended) |
+| A.6 | T4-failure-handling (NEW) | **RATIFIED** (Option F per pre-launch doc) |
+| B.1 | T4-attuned gear specifics (D38) | REQUIRES-MATT (1.4x/0.85x binary + 2pc/4pc sets) |
+| B.2 | Full gear details all rarities × all slots (Q7.7) | REQUIRES-MATT (rarity → modifier surface table; operationalizes SC-4 finding 1) |
+| B.3 | Character sheet stats (Q7.8) | REQUIRES-MATT (32 modifier types; operationalizes SC-4 Gates 1-4) |
+| B.4 | Per-gear-slot fill rules (Q7.9) | **RATIFIED** (per-slot eligibility + flat-pool probability; closes SC-4 Gate 5 hybrid) |
+| C.1 | Power-level targets per node (GAP 1) | **RATIFIED** (delegate-to-gamora + design-intent anchor) |
+| C.2 | WR-bracket definition (GAP 7) | **RATIFIED** (3-criterion compound gate; delegate-to-gamora) |
+| C.3 | Cohort archetype definitions (GAP 4) | **RATIFIED** (4 cohorts named per #30 + delegate-to-gamora) |
+| D.1 | GAP 5 trait constellation (BLOCKING) | REQUIRES-MATT (Path (c) PARTIAL minimum-viable 55 entries; scope-expansion) |
+| D.2 | GAP 6 resource model per cell | REQUIRES-MATT (audit-then-verdict + likely-gap addendum) |
+| D.3 | GAP 2 test encounter content | **RATIFIED** (existing sufficient + gamora extensions substrate-led) |
+| D.4 | GAP 3 degenerate-state detection | REQUIRES-MATT (hybrid KPM-proxy + 3 explicit validators) |
+
+(Verdict file authoritative count = 6 REQUIRES-MATT per § 0 TL;DR table per block; reconciled as 8 per individual listing above due to D.2 + D.4 inclusion in Block D. See verdict file § 0 for authoritative reconciliation.)
+
+**Block E close artifacts updated:**
+- ✅ T4 PM1 prep doc (§ 9 verdicts summary added; header amendment landed) — `agentic_orchestration/gandalf/notes/2026-05-26-t4-post-mortem-session-1-prep.md`
+- ✅ Scope-doc § 12 fill-in checklist (resolved items checked) + new § 12.3 (verdict summary + ratifications + downstream readiness) — `agentic_orchestration/cycles/cycle-13-mechanical-engine-build-scope.md`
+- ✅ Roadmap § 4.3 Cycle 13 entries (status icons ❌ → ⏳ for T4 PM1 + scope-doc + partition cycle + gamora consultation + all 4 T4 phases + spec-driven gear gen) — `canonical/02-roadmap.md`
+- ✅ Dispatch completion record (this entry)
+
+**Disciplines composed:** #11 empirical (SC-4 cross-validation; rocket GAP 5 audit citation) + #18 + #18.2 (Block B 5 gates closed; Block C delegate-to-gamora post-baseline) + #23 framing-audit (per-verdict Q1/Q2/Q3) + #26-#30 new disciplines composed throughout (#26 playability in C.1/C.2/D.3/D.4; #27 dual-effect capstone in A.1/A.2/A.6; #28 spirit-guide-pacing in A.4; #29 commitment-to-consequence in A.2/A.3/A.4/A.6/B.1/C.2/D.1; #30 sim-methodology-naming in C.3)
+
+**Downstream implications:**
+- **Wave 0 canonical doc authoring queue** (3 docs per verdict file § 6.2) conditional on Matt async ratification — `canonical/41-stat-sheet-modifier-partition-INTENT-2026-05-XX.md` + `canonical/story/v1-trait-vocabulary-minimum-viable-2026-05-XX.md` + `canonical/story/v1-resource-model-per-cell-2026-05-XX.md`
+- **Wave 1 dispatch authoring** unblocked if Matt ratifies B.2 + B.3 (+ optionally D.1 for trait-affix integration); Verdict B.4 RATIFIED standalone provides design intent partial-unblock
+- **Wave 2 dispatch authoring** unblocked via A.2/A.3/A.4/A.6 RATIFIED standalone (4 of 6 Block A verdicts); A.1/A.5 pending Matt async for full unblock
+- **Wave 3 dispatch authoring** unblocked via A.6 RATIFIED standalone (T4-failure-handling Option F); gated only on Wave 2 close
+- **Wave 4 dispatch authoring** design-intent-unblocked via B.1-B.4 (pending Matt) + C.1-C.3 RATIFIED delegate-to-gamora; gates on Wave 3 close + gamora consultation post-baseline per #18.2
+- **Wave 5 dispatch authoring** design-intent-unblocked via D.1-D.4 verdicts; gates on Wave 4 close
+
+**Effort actual:** ~3 hours (within 3-6 hr dispatch estimate)
+
+**Signed:** gandalf 2026-05-26

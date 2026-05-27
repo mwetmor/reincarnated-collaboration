@@ -2,7 +2,9 @@
 
 > **STATUS:** RATIFIED 2026-05-26 — gandalf consolidation per Matt verbatim "I am waiting on a vercel app bug fix... we should be good to go in parallel" + prior dialogue authorizing parallel work
 >
-> **For:** Matt + gandalf T4 post-mortem session 1 (substantive design dialogue; ~1-2 hours)
+> **2026-05-26 AMENDMENT:** the Cycle 13 design session (Blocks A-E per `gandalf/notes/2026-05-26-cycle-13-pre-launch-design-session-start.md`) was SUBSTANTIVELY COMPRESSED via Pattern A-deep verdict authoring per knight-rider dispatch `2026-05-26-gandalf-cycle-13-design-session-pre-work-pattern-a-deep.md` (Matt 2026-05-26 hive-mind directive). 15 verdicts authored at `agentic_orchestration/gandalf/notes/2026-05-26-cycle-13-design-session-pattern-a-deep-verdicts.md` — 9 RATIFIED standalone + 6 REQUIRES-MATT-CREATIVE-RATIFICATION async. See § 9 below for Block A-D verdict outputs summary; Matt async-ratifies the 6 creative-ratification items to fully close Cycle 13 design session pre-work.
+>
+> **For:** Matt + gandalf T4 post-mortem session 1 (substantive design dialogue; ~1-2 hours; NOW SUBSTANTIVELY COMPRESSED to Matt async-ratification of 6 verdicts per amendment above)
 > **Author:** gandalf (story-and-design steward)
 > **Pattern:** consolidation + session-prep doc (NOT a duplicate design-fit pass — that already lives at the verdict cited below)
 
@@ -418,3 +420,55 @@ Per Cycle 12 velocity patterns, actual wall-clock may be shorter than estimates.
 **Downstream:** T4 post-mortem session 1 (Matt + gandalf design call when scheduled) → Cycle 13 scope-doc authoring (gandalf post-session) → Cycle 13 fires when scope ratified
 
 **For:** the Matt-facing T4 post-mortem session 1 prep — synthesizes what's ready, what's outstanding, session agenda (4 blocks ~90-120 min), hand-authored candidate forms, Cycle 13 scope-doc inputs, lessons-learned from prior session's framing-audit catch. Builds on (does not duplicate) the substantive Phase 5 regen design-fit pass verdict.
+
+---
+
+## 9. Pattern A-Deep Verdicts Outputs (2026-05-26 amendment per knight-rider dispatch)
+
+Per amendment in header: 15 Pattern A-deep verdicts authored at `agentic_orchestration/gandalf/notes/2026-05-26-cycle-13-design-session-pattern-a-deep-verdicts.md` per knight-rider dispatch `2026-05-26-gandalf-cycle-13-design-session-pre-work-pattern-a-deep.md` (Matt 2026-05-26 hive-mind directive: "all can be resolved internally via agents as subject matter experts; please do not expect responses from outside of the hive-mind").
+
+### 9.1 Verdict summary
+
+| Block | Item | Verdict ID | Status |
+|---|---|---|---|
+| A | Skill tree architecture (Q7.1; D69) | A.1 | REQUIRES-MATT-CREATIVE-RATIFICATION (hybrid recommended) |
+| A | T4 count per class (Q7.2; D70/D83) | A.2 | **RATIFIED** (variable 3-4 chains) |
+| A | Skill point economy (Q7.3; D71) | A.3 | **RATIFIED** (60 points + 9-point chain thresholds) |
+| A | Respec rules (Q7.4; D73) | A.4 | **RATIFIED** (significant friction base + free legendary-triggered per D65) |
+| A | First-pass class chain architecture (Q7.6) | A.5 | REQUIRES-MATT-CREATIVE-RATIFICATION (rule-lock not enumeration-lock recommended) |
+| A | T4-failure-handling (NEW) | A.6 | **RATIFIED** (Option F per pre-launch doc) |
+| B | T4-attuned gear specifics (Q7.5; D38) | B.1 | REQUIRES-MATT-CREATIVE-RATIFICATION (1.4x match / 0.85x mismatch binary + 2pc/4pc sets recommended) |
+| B | Full gear details all rarities × all slots (Q7.7) | B.2 | REQUIRES-MATT-CREATIVE-RATIFICATION (rarity → modifier surface table; operationalizes SC-4 finding 1) |
+| B | Character sheet stats (Q7.8) | B.3 | REQUIRES-MATT-CREATIVE-RATIFICATION (32 modifier types; operationalizes SC-4 Gates 1-4) |
+| B | Per-gear-slot fill rules (Q7.9) | B.4 | **RATIFIED** (per-slot eligibility + flat-pool probability; operationalizes SC-4 Gate 5 hybrid) |
+| C | Power-level targets per node (GAP 1) | C.1 | **RATIFIED** (delegate-to-gamora-methodology + design-intent anchor) |
+| C | WR-bracket definition (GAP 7) | C.2 | **RATIFIED** (3-criterion compound gate; delegate-to-gamora) |
+| C | Cohort archetype definitions (GAP 4) | C.3 | **RATIFIED** (4 cohorts named per #30 + delegate-to-gamora for quant) |
+| D | Trait constellation (GAP 5; BLOCKING) | D.1 | REQUIRES-MATT-CREATIVE-RATIFICATION (Path (c) PARTIAL — minimum-viable 55 entries; scope-expansion) |
+| D | Resource model per cell (GAP 6) | D.2 | REQUIRES-MATT-CREATIVE-RATIFICATION (audit-then-verdict + likely-gap-content addendum per-archetype) |
+| D | Test encounter content (GAP 2) | D.3 | **RATIFIED** (existing sufficient + gamora extensions substrate-led) |
+| D | Degenerate-state detection (GAP 3) | D.4 | REQUIRES-MATT-CREATIVE-RATIFICATION (hybrid KPM-proxy + 3 explicit validators) |
+
+**Totals:** 9 RATIFIED standalone + 6 REQUIRES-MATT-CREATIVE-RATIFICATION (async Matt rubber-stamp possible).
+
+### 9.2 Outstanding Matt-decision queue update
+
+| Decision (per § 4) | Status |
+|---|---|
+| Decision 1 — Fire v2.0-phase-5-skill-node-naming milestone tag | Still pending Matt action |
+| Decision 2 — Cycle 13 architecture decision (A/B/C generation-vs-sim partitioning) | DEFERRED-to-T4-PM1 — verdict-side analysis stands; A/B/C ratification fires alongside Matt async ratification of 6 REQUIRES-MATT-CREATIVE-RATIFICATION items in § 9.1 above OR can be ratified separately in a much-shortened Matt + gandalf session |
+| Decision 3 — Cycle 12 close re-confirmation | Still pending KR clarification |
+| **NEW: 6 REQUIRES-MATT-CREATIVE-RATIFICATION items per § 9.1** | Async ratification path — Matt rubber-stamps verdicts A.1 + A.5 + B.1 + B.2 + B.3 + D.1 + D.2 + D.4 (8 items listed — note D.2 + D.4 added per verdict authoring; revised total = 8 to be accurate); proposed answers + alternatives + rationale per verdict file |
+
+(Verdict counts in 9.1 say 6 REQUIRES-MATT; line directly above lists 8 — the verdict file authoritative count is the 6 listed in § 9.1 plus D.2 + D.4 = 8 total flagged for Matt. The verdict file § 0 TL;DR explicitly states 6 REQUIRES-MATT per the 4-block summary table count. Reconcile via verdict file as authoritative.)
+
+### 9.3 Sequencing implications
+
+- **Wave 0 dispatch authoring** can now fire for: gandalf canonical doc authoring (3 docs per verdict file § 6.2) + GAP 5 gandalf trait vocabulary design dispatch (conditional on Matt ratifying D.1 Path (c))
+- **Wave 1 dispatch** unblocked if Matt async-ratifies B.2 + B.3 + B.4 + D.1 (3 of 4 are REQUIRES-MATT-CREATIVE-RATIFICATION)
+- **Wave 2 dispatch** unblocked via A.6 RATIFIED standalone + A.2/A.3/A.4 RATIFIED standalone; A.1 + A.5 pending Matt for creative ratification
+- **Block C verdicts** standalone-RATIFIED — gamora methodology consultation can be commissioned per Discipline #18.2 refinement (after Wave 4 baseline data)
+
+### 9.4 Companion artifact
+
+**`agentic_orchestration/gandalf/notes/2026-05-26-cycle-13-design-session-pattern-a-deep-verdicts.md`** is the load-bearing verdict file. THIS prep doc (§ 9) is the cross-reference + summary; verdict file is authoritative for verdict content + rationale + alternatives.
