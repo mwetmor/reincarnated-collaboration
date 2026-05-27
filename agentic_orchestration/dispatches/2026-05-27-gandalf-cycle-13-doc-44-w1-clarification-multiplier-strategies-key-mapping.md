@@ -74,3 +74,50 @@ NOT applicable.
 **Wave:** 3 amendment (small W1; pre-rocket-fire required)
 **Gates:** unblocks rocket Wave 3 W3.1 implementation
 **Priority:** P2 — small precision correction; gates rocket Wave 3 dispatch authoring
+
+---
+
+## Completion record — gandalf 2026-05-27
+
+**Status:** COMPLETE. Doc 44 § 8.3 amended; § 3.2 cross-reference added; commit pending.
+
+**Empirical findings from `reincarnated-engine/src/reincarnated/generation/t4_category_schema.py`:**
+
+`ALL_T4_STRATEGIES` (lines 50-58) enumerates exactly 7 strategies. No `STRATEGY_MULTIPLIER` constant exists. "Multiplier strategies" in doc 44 § 3.2 row 3 + doc 43 § 2.2 is a conceptual grouping mapping to skill-specific `STRATEGY_TRADE_OFF` in Category B context (parameter-shape distinction within TRADE_OFF, NOT a separate strategy string).
+
+| Strategy | Category mapping | character-wide eligibility |
+|---|---|---|
+| RESOURCE_CONVERSION | A (fixed character-wide) | False (Category A gated by Step 1 applicability bound) |
+| TRADE_OFF | A (class-wide) OR B (skill-specific) via `is_class_wide_trade_off` flag | True (covers Category B skill-specific incl. "multiplier" params; Category A gated by Step 1) |
+| ELEMENT_CONVERSION | C | True |
+| DEFENSIVE_CONVERSION | A (fixed) | False |
+| GEOMETRY_COLLAPSE | B | False (structurally per-skill) |
+| DEFENSIVE_TRADEOFF | A (fixed) | False |
+| DUAL_ELEMENT_ADDITION | C | True |
+
+**True-count = 3** (TRADE_OFF + ELEMENT_CONVERSION + DUAL_ELEMENT_ADDITION). Jack-ryan's W1 analysis is empirically confirmed. The original "= 4" assertion double-counted TRADE_OFF as "multiplier" + "skill-specific TRADE_OFF" when both map to the same single `STRATEGY_TRADE_OFF` key.
+
+**Amendment applied:**
+
+1. **§ 8.3 line 351:** corrected `STRATEGY_CHARACTER_WIDE_ELIGIBILITY` true-count from 4 → 3 with full per-key breakdown (all 7 keys, eligibility value per key, rationale for each). Added implementation note for rocket W3.1 clarifying the dict is a Category-B/C-context scope-eligibility filter consulted ONLY after Step 1 applicability bound routes Category A out of scope selection. Added second module-load assert: `assert sum(STRATEGY_CHARACTER_WIDE_ELIGIBILITY.values()) == 3` (companion to existing `assert len(...) == 7`).
+
+2. **§ 3.2 row 3 (Multiplier strategies):** amended row to explicitly state "= skill-specific TRADE_OFF in multiplier-class params context; NOT a distinct `STRATEGY_MULTIPLIER` constant — see § 8.3 note." Added implementation-clarification sentence stating this row and the skill-specific TRADE_OFF row above share the same `STRATEGY_TRADE_OFF` string key in `ALL_T4_STRATEGIES`; "multiplier" is a parameter-shape distinction within TRADE_OFF. Eligibility dict has one True for TRADE_OFF (covers both).
+
+**Implementation-actionable for rocket W3.1:** YES. Rocket can construct `STRATEGY_CHARACTER_WIDE_ELIGIBILITY` directly from § 8.3 spec (7 keys, 3 True, 4 False with named per-key values and rationale). Module-load asserts are arithmetically grounded against `t4_category_schema.py` and self-consistent (no key-mapping ambiguity remaining; no context-dependent flag conflict).
+
+**Adjacent inconsistencies flagged (NOT amended; out of scope per dispatch):**
+- None surfaced. The "multiplier" references at lines 26 / 73 / 87 / 116 / 196 / 235 / 266 / 425 / 502 are all conceptual prose references (e.g., "character-wide multiplier on all chains' skills"), NOT claims about a `STRATEGY_MULTIPLIER` constant. They are coherent with the § 8.3 + § 3.2 amended framing where "multiplier" describes the parameter-shape behavior of skill-specific TRADE_OFF promoted to character-wide scope.
+- § 4.5 line 196 ("Multiplier strategies: downscale magnitude by factor of `1 / sqrt(class_chain_count)`") composes correctly with the amended interpretation — "multiplier strategies" here means the skill-specific-TRADE_OFF-as-multiplier instance, and the downscaling formula applies.
+
+**Acceptance criteria satisfied:**
+- [x] Doc 44 § 8.3 corrected per empirical t4_category_schema.py state
+- [x] True-count assertion arithmetically grounded (= 3, with per-key derivation)
+- [x] Implementation-actionable for rocket W3.1 (no re-clarification needed)
+- [x] No regression in surrounding context (§ 3.2 cross-reference added; § 4.5 + § 5.2 + § 11 R2 prose references remain coherent under the amended interpretation)
+- [x] Tag intent applied at commit
+
+**WARN-pattern REMEDIATED milestone preservation:** the corrected § 8.3 now correctly anchors all 10 post-script empirical count assertions against `len()`-verifiable module-level constants in `t4_category_schema.py`. The previous "= 4" assertion would have failed Wave 3 Gate-2 empirical inspection (Discipline #11) when rocket ran the actual `sum(STRATEGY_CHARACTER_WIDE_ELIGIBILITY.values())` at write-time. This pre-fire correction preserves the Wave 2 REMEDIATED milestone forward to Wave 3.
+
+**Commit:** see tag.
+
+**Signed:** gandalf (story-and-design steward) — Cycle 13 doc 44 W1 surgical clarification
