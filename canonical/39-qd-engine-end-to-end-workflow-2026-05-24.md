@@ -105,7 +105,9 @@ Per doc 40 § 8.5 + § 9 Cycle 13 scope mapping, Cycle 13 work touches all 6 lif
 
 ---
 
-## 1. The full workflow — visual flow (Architecture B)
+## 1. The full workflow — visual flow (Architecture B + doc 40 + Cycle 13 integrated)
+
+> **2026-05-26 update:** § 1 visual flow now integrates doc 40 (gear/balance/guide/multi-T4 architecture) + Cycle 13 architectural foundation commitments inline. Phase 2 expanded with multi-T4 algorithm (all 4 phases per doc 40 D81) + spec-driven gear gen (D7) + tier structure (D50-D52) + capability toolkit (D9, D54-D56) + T4-attunement annotation (D33, D51). Phase 3 expanded with combat sim node-population methodology (D84) + playability criterion (D61). Phase 5 expanded with spirit-guide data-oracle integration (D28-D32) + T4-attuned gear cohesion. Per § 0.5 dependency chain — all expansions preserve one-way generation flow with NO circular dependency.
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
@@ -123,41 +125,122 @@ Per doc 40 § 8.5 + § 9 Cycle 13 scope mapping, Cycle 13 work touches all 6 lif
 │  Input:  current mechanical-BC archive state + substrate-coverage status  │
 │  Action: identify sparse cells; compute novelty + diversity needs;        │
 │          check substrate-coverage at 4-tuple level per cell                │
+│          + check 4 progression-node coverage (doc 40 D27): early game /   │
+│          mid game / endgame start / endgame [85% target]                  │
 │  Output: BC-target queue (cells to fill, ranked by priority + substrate-  │
-│          coverage feasibility)                                            │
+│          coverage feasibility + progression-node coverage)                │
 └────────────────────────────────┬─────────────────────────────────────────┘
                                  ▼
 ┌──────────────────────────────────────────────────────────────────────────┐
-│ PHASE 2: GENERATION (BC-TARGET-DRIVEN + SUBSTRATE-BOUND) (rocket)         │
+│ PHASE 2: GENERATION (BC-TARGET-DRIVEN + SUBSTRATE-BOUND + DOC-40         │
+│         MULTI-T4 + SPEC-DRIVEN GEAR) (rocket)                             │
+│                                                                            │
 │  Input:  BC-target coordinate [5-tuple: range × tempo × amplitude ×       │
 │          attribute × proxy-density] + genre filter (per product)          │
-│  Action:                                                                  │
-│    1. Compose skill kit matching cell (skills + algorithm § 8 T4 if any) │
-│    2. PULL specific substrate weapon from genre-filtered v1_scope where:  │
-│       - Martial cell (Option α): 5-tuple mechanical-fingerprint match     │
-│       - Caster cell (Option β): attribute-level match only                │
-│       - Hybrid cell (Option C): cross-attribute with ω-penalty            │
-│    3. PULL specific substrate secondary item (shield / tome / banner /    │
-│       focus / horn / talisman / weapon-integrated accessory / dual-       │
-│       wield-secondary) per off-hand-items canonical doc                   │
-│    4. Compose trait constellation                                         │
-│    5. Apply ω-field + τ-field mechanical-coherence constraints            │
-│    6. Generate faction-proxy spawn-template per algorithm § 8.6           │
-│       (faction-anchor derived from substrate-resident weapon's cultural-  │
-│       tradition + period — IMMEDIATELY AVAILABLE at Phase 2)              │
-│  Output: complete mechanical kit + bound substrate weapon + bound         │
-│          secondary item + proxy-spawn-template + algorithm output bundle  │
+│          + class chain count (doc 40 D83: T4 count = chain count - 1)    │
+│          + progression-node target (doc 40 D27)                          │
 │                                                                            │
-│  NO pre-imposed role-shape constraints (per Pattern 6 retirement).        │
-│  Roles EMERGE from BC-coordinates implicitly.                             │
+│  Action:                                                                  │
+│    ┌─────────── 2a. KIT COMPOSITION ───────────────────────────────────┐ │
+│    │ 1. Compose skill kit matching cell                                  │ │
+│    │    - 10-15 node skill tree budget (skill-system § 1)                │ │
+│    │    - Element coupling per attribute (element_biases.py)             │ │
+│    │    - Mechanic-altering passives only (no filler)                    │ │
+│    │    - Tier-1 rotation + tier-2 β-pair + tier-3 build-defining        │ │
+│    │    - Max 8 active skills (doc 40 D82; flat budget)                  │ │
+│    │    - Chains organized for class chain count (doc 40 D63-D64)        │ │
+│    │      • 3-chain class: 2 chains with T4 + 1 supporting T3 chain      │ │
+│    │      • 4-chain class: 3 chains with T4 + 1 supporting T3 chain      │ │
+│    │      • Supporting chains enable hybrid/multi-element builds         │ │
+│    └─────────────────────────────────────────────────────────────────────┘ │
+│    ┌─────────── 2b. T4 ALGORITHM (Algorithm § 8) ─────────────────────┐ │
+│    │ 2. Generate T4 nodes per class chain count (doc 40 D81 phased):    │ │
+│    │    - All 4 phases of T4 algorithm wrap into Cycle 13:               │ │
+│    │      • Phase 1: T4s into chains as capstones                        │ │
+│    │      • Phase 2: Multiple T4 options per chain                       │ │
+│    │      • Phase 3: Character-wide vs chain-wide scope dimension        │ │
+│    │      • Phase 4: Full sim cycling through all T4 configurations      │ │
+│    │    - Scored-candidate strategy registry (6 v1 strategies):          │ │
+│    │      RESOURCE_CONVERSION / TRADE_OFF / ELEMENT_CONVERSION /         │ │
+│    │      DEFENSIVE_CONVERSION / GEOMETRY_COLLAPSE / DEFENSIVE_TRADEOFF  │ │
+│    │    - DUAL mechanical impact per T4 (doc 40 D76):                    │ │
+│    │      • Character-wide effect (kit-wide play feel shift)             │ │
+│    │      • Within-chain (or parallel-chain) effect                      │ │
+│    │    - INDEPENDENT of gear/legendaries (per § 0.5 dependency chain)   │ │
+│    └─────────────────────────────────────────────────────────────────────┘ │
+│    ┌─────────── 2c. SUBSTRATE BINDING ────────────────────────────────┐ │
+│    │ 3. PULL specific substrate weapon from genre-filtered v1_scope:    │ │
+│    │    - Martial cell (Option α): 5-tuple mechanical-fingerprint match │ │
+│    │    - Caster cell (Option β): attribute-level match only            │ │
+│    │    - Hybrid cell (Option C): cross-attribute with ω-penalty        │ │
+│    │ 4. PULL specific substrate secondary item per off-hand-items doc:  │ │
+│    │    (shield / tome / banner / focus / horn / talisman /              │ │
+│    │     weapon-integrated accessory / dual-wield secondary weapon)     │ │
+│    └─────────────────────────────────────────────────────────────────────┘ │
+│    ┌─────────── 2d. SPEC-DRIVEN GEAR GEN (doc 40 D7) ─────────────────┐ │
+│    │ 5. Derive gear specifications from kit + T4 selection:              │ │
+│    │    - Per-slot specification (which modifier types; what magnitudes) │ │
+│    │    - Stat-sheet partition design applies (doc 40 D13-D14 + § 3.6   │ │
+│    │      7-item scope: modifier enum + per-slot partition + per-slot    │ │
+│    │      probability + node-count interaction + weapon damage specs +   │ │
+│    │      non-weapon baseline + main_weapon routing cleanup)             │ │
+│    │ 6. Generate gear instances at all rarity tiers (doc 40 D8):         │ │
+│    │    - Common / Uncommon / Rare / Epic baseline (kit-attuned;         │ │
+│    │      chain-aware; spec-driven)                                      │ │
+│    │    - Legendary instances at 4 tiers (doc 40 D50; tier 0/0.5/1/2):  │ │
+│    │      ┌─ Capability TOOLKIT at all tiers (doc 40 D9 + D54):         │ │
+│    │      │  multiplicative / mechanic-adjusting / spatial-adjusting /  │ │
+│    │      │  axis-adjusting / added-skill                                │ │
+│    │      ├─ HIGH PROBABILITY triggered-passive on weapons (doc 40 D55): │ │
+│    │      │  (e.g., "spawns tornadoes on wind hit"; "shrapnel on phys") │ │
+│    │      │  - True actives EXTREMELY RARE + additive (weapons only)    │ │
+│    │      ├─ Modifier-surface expansion over scalar (doc 40 D56):       │ │
+│    │      │  legendaries unlock NEW stat types Epic cannot roll         │ │
+│    │      └─ T4-ATTUNEMENT annotation gate (doc 40 D33 + D51):           │ │
+│    │         ONLY tier 1+2 legendaries carry T4-attunement;              │ │
+│    │         tier 0+0.5 carry capability toolkit but no T4-attunement;  │ │
+│    │         attunement = multiplicative + mechanic-alteration on        │ │
+│    │         matching T4 path                                            │ │
+│    │    - Unique instances at 4 tiers (doc 40 D49)                       │ │
+│    │    - Set instances at 2 tiers (doc 40 D48; endgame-only;            │ │
+│    │      always T4-attuned per D35)                                     │ │
+│    │ 7. Drop pool restriction by content-tier (doc 40 D50):              │ │
+│    │    - Tier 0 content: tier 0 legendaries only                        │ │
+│    │    - Tier 0.5 content: tier 0 + 0.5 legendaries                     │ │
+│    │    - Tier 1+2 content (endgame): all 4 tiers of legendaries         │ │
+│    └─────────────────────────────────────────────────────────────────────┘ │
+│    ┌─────────── 2e. COHERENCE + FACTION ──────────────────────────────┐ │
+│    │ 8. Compose trait constellation                                      │ │
+│    │ 9. Apply ω-field + τ-field mechanical-coherence constraints         │ │
+│    │ 10. Generate faction-proxy spawn-template per algorithm § 8.6       │ │
+│    │     (faction-anchor derived from substrate weapon's cultural-       │ │
+│    │      tradition + period — IMMEDIATELY AVAILABLE at Phase 2)         │ │
+│    └─────────────────────────────────────────────────────────────────────┘ │
+│                                                                            │
+│  Output: complete mechanical kit + multi-T4 capstones + skill tree         │
+│          structure + bound substrate weapon + bound secondary item +       │
+│          gear specifications + gear instances at all rarities (incl.       │
+│          T4-attuned tier 1+2 legendaries + sets) + proxy-spawn-template +  │
+│          algorithm output bundle                                          │
+│                                                                            │
+│  Disciplines:                                                              │
+│  - NO pre-imposed role-shape constraints (per Pattern 6 retirement)       │
+│  - Roles EMERGE from BC-coordinates implicitly                             │
+│  - One-way dependency chain (per § 0.5): T4 nodes INDEPENDENT of gear      │
+│  - Balance as PROPERTY not PROCESS (per doc 40 D1)                         │
+│  - Spec-driven generation; sim validates at generation time                │
 └────────────────────────────────┬─────────────────────────────────────────┘
                                  ▼
 ┌──────────────────────────────────────────────────────────────────────────┐
 │ PHASE 3: CONVERGENCE + MECHANICAL MEASUREMENT (gamora)                    │
-│  Input:  complete kit + bound substrate weapon                            │
-│  Action: run simulation with SPECIFIC bound weapon's mechanical           │
-│          signature (specific damage range, attack speed, geometry,        │
-│          etc.); converge modifier; measure 8 BC axes                      │
+│         + MULTI-T4 SIM METHODOLOGY (per doc 40 D84) + PLAYABILITY GATE   │
+│                                                                            │
+│  Input:  complete kit + multi-T4 capstones + bound substrate +            │
+│          gear instances at all rarities                                   │
+│                                                                            │
+│  Action: run simulation with SPECIFIC bound weapon's mechanical            │
+│          signature (specific damage range, attack speed, geometry, etc.); │
+│          converge modifier; measure 8 BC axes per kit                     │
 │          ┌─ Axis 1 — Engagement profile (range × mobility)                │
 │          ├─ Axis 2 — Damage geometry (single/AOE/chain/multi-spawn)       │
 │          ├─ Axis 2A — Proxy density                                       │
@@ -166,8 +249,40 @@ Per doc 40 § 8.5 + § 9 Cycle 13 scope mapping, Cycle 13 work touches all 6 lif
 │          ├─ Axis 3B — Damage amplitude variance                           │
 │          ├─ Axis 4 — Defensive profile                                    │
 │          └─ Axis 5 — Resource economy                                     │
-│  Output: kit + bound substrate + 8-axis BC coordinate + per-tier WR +     │
-│          convergence data                                                  │
+│                                                                            │
+│  Multi-T4 sim methodology (doc 40 D84 — hybrid cohort + edge-case):       │
+│    - Cycle each tier-2 legendary/set weapon                               │
+│    - Determine cohort archetypes that would equip it                      │
+│      (DPS-min-maxer / balanced / defensive / hybrid)                      │
+│    - Map appropriate node configurations for cohort × weapon              │
+│      (Sub-option A: per-weapon cohort coverage — primary)                 │
+│      (Sub-option B: per-legendary cohort selection — compute fallback)    │
+│      (Hybrid-within-hybrid: A for ambiguous; B for cohort-clear)          │
+│    - Sample PRE-EXISTING nodes (per § 0.5 — sim CONSUMES, doesn't gen)    │
+│    - Validate each attuned-T4 configuration independently per node        │
+│                                                                            │
+│  Multi-node calibration (doc 40 D27):                                     │
+│    - Validate against power-band appropriate for kit's progression node   │
+│    - early game / mid game / endgame start / endgame [85% target]         │
+│                                                                            │
+│  Playability gate (doc 40 D61 — load-bearing validation criterion):       │
+│    - KPM in target band for progression node                              │
+│    - Coherent skill rotation (not degenerate; not chaotic)                │
+│    - Resource flow functional (mana/energy/cooldowns sustained-but-       │
+│      non-trivial)                                                          │
+│    - Defensive uptime adequate                                            │
+│    - No degenerate states (stunlock / zero-damage void / mandatory locks) │
+│    - Visual/cognitive load manageable                                     │
+│    - PLAYABLE-AND-IN-BAND is the validation criterion                     │
+│                                                                            │
+│  Compute discipline (doc 40 D62):                                         │
+│    - Low-compute-yet-meaningful sim cycle is constraint                   │
+│    - Stratified sampling / tiered validation / quick-estimate hybrid /    │
+│      caching per gamora methodology consultation (Discipline #18)          │
+│                                                                            │
+│  Output: kit + multi-T4 capstones + bound substrate + 8-axis BC           │
+│          coordinate per attuned-T4 configuration + per-tier WR +          │
+│          convergence data + playability gate disposition per cohort       │
 └────────────────────────────────┬─────────────────────────────────────────┘
                                  ▼
 ┌──────────────────────────────────────────────────────────────────────────┐
@@ -184,33 +299,62 @@ Per doc 40 § 8.5 + § 9 Cycle 13 scope mapping, Cycle 13 work touches all 6 lif
                                  │ (if ACCEPTED)
                                  ▼
 ┌──────────────────────────────────────────────────────────────────────────┐
-│ PHASE 5: COHESION COALESCENCE (gandalf cohesion + rocket LLM call)        │
-│  Input:  accepted kit + bound substrate + mechanical-BC coordinate        │
+│ PHASE 5: COHESION COALESCENCE (gandalf cohesion + rocket LLM call) +     │
+│         SPIRIT-GUIDE DATA-ORACLE INTEGRATION (doc 40 D28-D32) +          │
+│         T4-ATTUNED GEAR COHESION (doc 40 D33-D39)                        │
+│                                                                            │
+│  Input:  accepted kit + multi-T4 capstones + gear instances at all       │
+│          rarities + bound substrate + mechanical-BC coordinate            │
+│                                                                            │
 │  Action: LLM cohesion-judge confirms identity-narrative coherence +       │
 │          assigns flavor + naming (substrate identity ALREADY BOUND from   │
 │          Phase 2; cohesion-judge confirms + enriches):                    │
 │          ┌─ confirm substrate-thematic fit (cultural-tradition coherence) │
 │          ├─ sub-element flavor mapping per element + bound substrate's   │
-│          │  cultural-tradition (renamed from "element canonical-pair      │
-│          │  flavor" 2026-05-24; sub-elements are per-form flavor          │
-│          │  manifestations of core elements)                              │
-│          │  substrate's cultural-tradition (Bone Spear for Necromancer +  │
-│          │  earth; Obsidian-Edge Cascade for Mexica + earth; etc.)        │
+│          │  cultural-tradition                                            │
 │          ├─ bi-modal form-library assignment (per Sketch F + Matt 2026-   │
 │          │  05-24 lock — engine-internal named-personage substrate-       │
 │          │  anchor; player-facing layer UNIFORM archetypal naming)        │
-│          ├─ naming-space partitioning per engine-anchor (no aggregate-    │
-│          │  signal-convergence to named-bearer canon)                     │
+│          ├─ naming-space partitioning per engine-anchor                   │
 │          ├─ nested mythology naming (Tier-2 invokes Tier-1 per skill-     │
-│          │  system § 12.4; e.g., engine-internal Moctezuma-anchor form   │
-│          │  summons Quetzalcoatl as Tier-1 named proxy)                   │
-│          ├─ archetypal form name + skill names + spirit-guide explainer   │
-│          │  dialogue per D7 AI-tell discipline                            │
-│          └─ commit theme + flavor (name, description, lore) per loot-     │
-│             architecture tier (legendary instance for Tier-S substrate;   │
-│             rare for Tier A; magic for Tier B; common for Tier C)         │
-│  Output: kit + bound substrate + coalesced identity + archetypal naming   │
-│          + spirit-guide template + flavor + element-pair mapping          │
+│          │  system § 12.4)                                                │
+│          ├─ archetypal form name + skill names per D7 AI-tell discipline  │
+│          └─ commit theme + flavor per loot-architecture tier              │
+│                                                                            │
+│  Spirit-guide data-oracle integration (doc 40 D28-D32):                   │
+│    - Generate spirit-guide projection templates for kit+gear:             │
+│      • Per-T4 projection: "T4-A projects KPM X at progression node Y"    │
+│      • Per-content-tier projection: "tier-1 content yields KPM, gear-    │
+│        pwr, set-prob tradeoffs"                                           │
+│      • Per-legendary projection: "legendary L advocates T4-Z; projected  │
+│        KPM if attuned is X (currently X')"                                │
+│    - Voice: NEUTRAL OBSERVATION (data oracle), not evaluative counselor  │
+│    - Language: "projected to / typically / estimated" (D31 honesty)       │
+│    - Throne-resident framing per existing spirit-guide canon (D30)        │
+│                                                                            │
+│  T4-attuned gear cohesion (doc 40 D33-D39):                              │
+│    - Tier-1+2 legendary/set: confirm T4-attunement aligns with kit's     │
+│      T4 paths (multiplicative + mechanic-alteration per matching T4)     │
+│    - Heroic Spirit narrative cohesion: T4 paths = aspects of Spirit;     │
+│      T4-attuned gear = evidence of latent aspects                         │
+│    - Sets: confirm set-level T4 attunement; multi-piece commitment        │
+│      for full bonuses                                                     │
+│    - Persuasion-to-experiment surface: spirit guide will use these        │
+│      cohesion outputs to present respec opportunities to players          │
+│      (per doc 40 D65 respec-with-legendary-trigger mechanism)             │
+│                                                                            │
+│  Acquisition curve calibration (doc 40 D21):                              │
+│    - Generate Option A calibrated drop rates per content tier             │
+│    - Drop rate = f(expected KPM × engagement distribution × target       │
+│      saturation curve per 85th-percentile cumulative target D18)         │
+│    - Pure RNG with calibrated rate (no smart-loot pity per D21)          │
+│    - Gap-filling discipline applies (D80) — drop calibration considers   │
+│      stat-sheet gap-filling probability per player accumulated loadout   │
+│                                                                            │
+│  Output: kit + multi-T4 capstones + bound substrate + coalesced identity  │
+│          + archetypal naming + spirit-guide projection templates + T4-    │
+│          attuned gear cohesion + acquisition curve calibration + flavor   │
+│          + element-pair mapping                                           │
 └────────────────────────────────┬─────────────────────────────────────────┘
                                  ▼
 ┌──────────────────────────────────────────────────────────────────────────┐
@@ -370,70 +514,152 @@ Without empirical-trigger fire, Architecture B stays locked. v1 ships under Arch
 - Phase 1 doesn't queue cells where substrate-coverage is empty (Architecture B specific: if cell has no substrate to bind, engine can't generate — surface as enrichment-need feedback to substrate-curation)
 - Architecture A's "explore mechanical-design space unconstrained" benefit is partially preserved here: Phase 1 outputs "BC-cells with mechanical-design feasibility but substrate-shortage" as separate signal for substrate-acquisition prioritization
 
-### 5.2 Phase 2 — Generation (Substrate-Bound)
+### 5.2 Phase 2 — Generation (Substrate-Bound + Multi-T4 + Spec-Driven Gear)
 
-**Owner:** rocket (with gandalf design-spec for cell-targeting + algorithm § 8 implementation)
+**Owner:** rocket (with gandalf design-spec for cell-targeting + algorithm § 8 implementation + doc 40 gear/balance/guide commitments)
 
 **Input:**
 - BC-target coordinate [5-tuple: range × tempo × amplitude × attribute × proxy-density]
 - Genre filter (per product configuration)
 - v1_scope substrate (filtered by genre tag)
+- Class chain count (doc 40 D83: T4 count = chain count - 1)
+- Progression-node target (doc 40 D27 — early game / mid game / endgame start / endgame [85% target])
 
-**Action:**
+**Action (5 sub-phases per § 1 visual flow):**
+
+#### 2a. Kit composition
 
 1. **Compose skill kit matching cell**
    - Element coupling per attribute (per element_biases.py)
-   - 10-15 node skill tree budget
+   - 10-15 node skill tree budget (skill-system § 1)
    - Mechanic-altering passives only (no filler)
-   - Tier-1 rotation + tier-2 β-pair + tier-3 T4-build-defining-if-cell-calls-for-it
-   - Algorithm § 8 mechanic-alteration if T4 cell (per skill-system § 8)
+   - Tier-1 rotation + tier-2 β-pair + tier-3 build-defining
+   - **Max 8 active skills** (doc 40 D82 — flat budget)
+   - **Chains organized for class chain count** (doc 40 D63-D64):
+     - 3-chain class: 2 chains with T4 + 1 supporting T3 chain
+     - 4-chain class: 3 chains with T4 + 1 supporting T3 chain
+     - Supporting chains enable hybrid/multi-element builds per doc 40 D83
 
-2. **PULL specific substrate weapon from genre-filtered v1_scope** per cell-type matching policy:
+#### 2b. T4 algorithm (Algorithm § 8 — INDEPENDENT of gear per § 0.5 dependency chain)
+
+2. **Generate T4 nodes per class chain count** (doc 40 D81 phased — all 4 phases wrap into Cycle 13):
+   - **Phase 1:** T4s into chains as capstones; single T4 per chain initially
+   - **Phase 2:** Multiple T4 options per chain with selection mechanic
+   - **Phase 3:** Character-wide vs chain-wide scope dimension (biggest design risk)
+   - **Phase 4:** Full simulation cycling through all T4 configurations during convergence
+   - **Scored-candidate strategy registry (6 v1 strategies):** RESOURCE_CONVERSION / TRADE_OFF / ELEMENT_CONVERSION / DEFENSIVE_CONVERSION / GEOMETRY_COLLAPSE / DEFENSIVE_TRADEOFF
+   - **DUAL mechanical impact per T4** (doc 40 D76):
+     - Character-wide effect (kit-wide play feel shift)
+     - Within-chain (or parallel-chain) effect
+   - **INDEPENDENT of gear/legendaries** (per § 0.5 — algorithm operates on kit mechanics; gear is not an input)
+
+#### 2c. Substrate binding (substrate weapon + secondary item)
+
+3. **PULL specific substrate weapon from genre-filtered v1_scope** per cell-type matching policy:
    - **Option α (Martial cells — STR/DEX primary, physical-element):** 5-tuple mechanical-fingerprint match required; weapon-attack IS combat delivery
    - **Option β (Caster cells — INT/WIS primary, non-physical-element):** attribute-level match only; skills deliver kit BC-target; weapon scales
-   - **Option C (Cross-attribute hybrid cells — Red Mage / Monk / Holy Knight):** cross-attribute wielding permitted with ω-penalty per BDI ω-field resource-dimension (0.0 cross vs 1.0 same-attribute)
+   - **Option C (Cross-attribute hybrid cells — Red Mage / Monk / Holy Knight):** cross-attribute wielding permitted with ω-penalty per BDI ω-field resource-dimension
 
-3. **PULL specific substrate secondary item** (per off-hand-items canonical doc):
+4. **PULL specific substrate secondary item** (per off-hand-items canonical doc):
    - Categories: shield / tome / banner / focus / horn / talisman / weapon-integrated accessory / dual-wield secondary weapon
    - Per Main/Secondary slot architecture
    - Substrate-fit per parent-weapon compatibility (e.g., tsuba goes with katana)
 
-4. **Compose trait constellation**
+#### 2d. Spec-driven gear generation (doc 40 D7 — depends on kit + T4 from 2a + 2b)
 
-5. **Apply ω-field + τ-field mechanical-coherence constraints** (per BDI ω/τ tables; skill-system § 11)
+5. **Derive gear specifications from kit + T4 selection:**
+   - Per-slot specification (which modifier types; what magnitudes)
+   - Stat-sheet partition design applies (doc 40 D13-D14 + § 3.6 7-item scope per Matt 2026-05-26 amendment):
+     1. Modifier surface enumeration
+     2. Per-slot partition design
+     3. Probability distribution per slot per modifier (gap-filling per D80)
+     4. Node-count + chain-distribution interaction math
+     5. Weapon damage spec completeness check (main + off-hand)
+     6. Non-weapon gear baseline stats for common variants
+     7. Main_weapon routing cleanup (substrate curation pollution)
 
-6. **Generate faction-proxy spawn-template per algorithm § 8.6**
-   - Faction-anchor derived IMMEDIATELY from bound substrate weapon's cultural-tradition + period
-   - Proxy-unit-pool enumerated per faction-anchor lookup
-   - Available at Phase 2 because substrate is bound (key Architecture B benefit)
+6. **Generate gear instances at all rarity tiers** (doc 40 D8 — rarity IS power escalation):
+   - **Common / Uncommon / Rare / Epic baseline** (kit-attuned; chain-aware; spec-driven; no T4-attunement)
+   - **Legendary instances at 4 tiers** (doc 40 D50; tier 0 / 0.5 / 1 / 2):
+     - Capability TOOLKIT at all tiers (doc 40 D9 + D54): multiplicative / mechanic-adjusting / spatial-adjusting / axis-adjusting / added-skill
+     - HIGH PROBABILITY triggered-passive on weapons (doc 40 D55): "spawns tornadoes on wind hit", "shrapnel on physical hit", etc.
+     - True actives EXTREMELY RARE + additive (weapons only)
+     - Modifier-surface expansion over scalar (doc 40 D56): legendaries unlock NEW stat types Epic cannot roll
+     - **T4-ATTUNEMENT annotation gate** (doc 40 D33 + D51): ONLY tier 1+2 legendaries carry T4-attunement; tier 0+0.5 carry capability toolkit but no T4-attunement
+     - T4-attunement = multiplicative + mechanic-alteration on matching T4 path
+   - **Unique instances at 4 tiers** (doc 40 D49)
+   - **Set instances at 2 tiers** (doc 40 D48; endgame-only; always T4-attuned per D35)
 
-**Output:** complete mechanical kit + bound substrate weapon + bound secondary item + proxy-spawn-template + algorithm output bundle
+7. **Apply drop pool restriction by content-tier** (doc 40 D50):
+   - Tier 0 content: tier 0 legendaries only
+   - Tier 0.5 content: tier 0 + 0.5 legendaries
+   - Tier 1+2 content (endgame): all 4 tiers of legendaries
 
-**Discipline:**
+#### 2e. Coherence + faction
+
+8. **Compose trait constellation**
+9. **Apply ω-field + τ-field mechanical-coherence constraints** (per BDI ω/τ tables; skill-system § 11)
+10. **Generate faction-proxy spawn-template per algorithm § 8.6**
+    - Faction-anchor derived IMMEDIATELY from bound substrate weapon's cultural-tradition + period
+    - Proxy-unit-pool enumerated per faction-anchor lookup
+    - Available at Phase 2 because substrate is bound (key Architecture B benefit)
+
+**Output:** complete mechanical kit + multi-T4 capstones + skill tree structure + bound substrate weapon + bound secondary item + gear specifications + gear instances at all rarities (incl. T4-attuned tier 1+2 legendaries + sets) + proxy-spawn-template + algorithm output bundle
+
+**Disciplines:**
 - **NO pre-imposed role-shape constraints** (per Pattern 6 retirement; per § 3 above)
-- Substrate-agnostic mechanic pool at COMPOSITION level (skills + traits drawn from universal mechanical pool); substrate-binding at WEAPON+SECONDARY level (specific substrate rows pulled)
+- Substrate-agnostic mechanic pool at COMPOSITION level (skills + traits drawn from universal mechanical pool); substrate-binding at WEAPON+SECONDARY level
 - Genre filter per product configuration; engine works for any genre-tagged substrate library
+- **One-way dependency chain** (per § 0.5): T4 nodes INDEPENDENT of gear; gear depends on T4; legendaries depend on gear specs
+- **Balance as PROPERTY not PROCESS** (per doc 40 D1): spec-driven generation; sim validates at generation time
 
-### 5.3 Phase 3 — Convergence + Mechanical Measurement
+### 5.3 Phase 3 — Convergence + Mechanical Measurement + Multi-T4 Sim Methodology + Playability Gate
 
-**Owner:** gamora
+**Owner:** gamora (with methodology consultation per Discipline #18; consultation fires BEFORE sim runs at scale)
 
-**Input:** complete kit + bound substrate weapon + bound secondary item
+**Input:** complete kit + multi-T4 capstones + bound substrate weapon + bound secondary item + gear instances at all rarities
 
 **Action:** run simulation with SPECIFIC bound weapon's mechanical signature:
-- Specific damage range
-- Specific attack speed
-- Specific geometry (substrate weapon's intrinsic geometry)
-- Specific amplitude variance
-- Specific resource cost
+- Specific damage range / attack speed / geometry / amplitude variance / resource cost
 - Converge modifier
 - Measure 8 BC axes per BC-axes-lock doc
 
-**Output:** kit + bound substrate + 8-axis BC coordinate + per-tier WR + convergence data
+**Multi-T4 sim methodology** (doc 40 D84 — hybrid cohort + edge-case sampling with per-legendary anchoring):
+
+1. Cycle each tier-2 legendary/set weapon
+2. Determine cohort archetypes that would equip it (DPS-min-maxer / balanced / defensive / hybrid)
+3. Map appropriate node configurations for cohort × weapon combinations:
+   - **Sub-option A (per-weapon cohort coverage):** validate each legendary across all plausible cohorts. Higher compute, higher fidelity, lower bias risk. **Primary methodology.**
+   - **Sub-option B (per-legendary cohort selection):** for each legendary, infer most-likely cohort from mechanics/stats; validate against that cohort only. Lower compute, higher bias risk. Fallback for compute-constrained scenarios.
+   - **Hybrid-within-hybrid:** Sub-option A for ambiguous legendaries; Sub-option B for cohort-clear legendaries. Recommended starting point.
+4. Sample PRE-EXISTING nodes (per § 0.5 — sim CONSUMES nodes; doesn't generate them)
+5. Validate each attuned-T4 configuration independently per progression node
+
+**Multi-node calibration** (doc 40 D27 — applies per kit's progression node target):
+- Validate against power-band appropriate for kit's progression node
+- Early game / mid game / endgame start / endgame [85% target]
+- Multi-node WORK is post-Cycle-13 engine extension; Cycle 13 lays the foundations + validates per-node
+
+**Playability gate** (doc 40 D61 — load-bearing validation criterion):
+- KPM in target band for progression node
+- Coherent skill rotation (not degenerate; not chaotic)
+- Resource flow functional (mana/energy/cooldowns sustained-but-non-trivial)
+- Defensive uptime adequate
+- No degenerate states (stunlock / zero-damage void / mandatory-skill-locks)
+- Visual/cognitive load manageable
+- **PLAYABLE-AND-IN-BAND is the validation criterion** (not just numerical balance)
+
+**Compute discipline** (doc 40 D62):
+- Low-compute-yet-meaningful sim cycle is real constraint
+- Stratified sampling / tiered validation / quick-estimate hybrid (per B14.5 V1 pattern) / caching
+- Per gamora methodology consultation (Discipline #18 + OP § 4.2 refinement)
+
+**Output:** kit + multi-T4 capstones + bound substrate + 8-axis BC coordinate per attuned-T4 configuration + per-tier WR + convergence data + playability gate disposition per cohort
 
 **Discipline:**
 - Sim realism = HIGHER than Architecture A (specific weapon vs abstract slot)
 - Convergence per B14.5 V1 primary loop pattern
+- Sim is CONSUMER per § 0.5 dependency chain (consumes pre-existing nodes + legendaries; does NOT generate them)
 
 ### 5.4 Phase 4 — Mechanical Archive Insertion
 
@@ -494,7 +720,33 @@ Without empirical-trigger fire, Architecture B stays locked. v1 ships under Arch
    - Tier-B → magic-tier
    - Tier-C → common-tier
 
-**Output:** kit + bound substrate + coalesced identity + archetypal naming + spirit-guide template + flavor + element-pair mapping
+**Spirit-guide data-oracle integration** (doc 40 D28-D32 — additive to existing spirit-guide canon):
+
+8. **Generate spirit-guide projection templates for kit+gear:**
+   - **Per-T4 projection:** "T4-A projects KPM X at progression node Y"
+   - **Per-content-tier projection:** "tier-1 content yields KPM, gear-power, set-probability tradeoffs"
+   - **Per-legendary projection:** "legendary L advocates T4-Z; projected KPM if attuned is X (currently X')"
+   - **Voice:** NEUTRAL OBSERVATION (data-oracle voice per D28), NOT evaluative counselor
+   - **Language:** "projected to / typically / estimated" (D31 — projection honesty)
+   - **Throne-resident framing** (D30) — composes with existing Heroic Spirit / spirit-guide canon
+   - **Universal pattern across decision spaces** (D29) — content selection / T4 selection / gear loadout / etc. all use same data-presentation interface
+
+**T4-attuned gear cohesion** (doc 40 D33-D39):
+
+9. **Tier-1+2 legendary/set T4-attunement confirmation:**
+   - Confirm T4-attunement aligns with kit's T4 paths (multiplicative + mechanic-alteration per matching T4)
+   - Heroic Spirit narrative cohesion (D36): T4 paths = aspects of Spirit; T4-attuned gear = evidence of latent aspects
+   - Sets: confirm set-level T4 attunement; multi-piece commitment for full bonuses (D35)
+   - Persuasion-to-experiment surface (D34): spirit guide will use these cohesion outputs to present respec opportunities to players per doc 40 D65 mechanism
+
+**Acquisition curve calibration** (doc 40 D21 — Option A):
+
+10. **Generate calibrated drop rates per content tier:**
+    - Drop rate = f(expected KPM × engagement distribution × target saturation curve per 85th-percentile cumulative target D18)
+    - Pure RNG with calibrated rate (no smart-loot pity per D21)
+    - Gap-filling discipline applies (D80) — drop calibration considers stat-sheet gap-filling probability per player accumulated loadout
+
+**Output:** kit + multi-T4 capstones + bound substrate + coalesced identity + archetypal naming + spirit-guide projection templates + T4-attuned gear cohesion + acquisition curve calibration + flavor + element-pair mapping
 
 ### 5.6 Phase 6 — Visual Coalescence
 
@@ -556,6 +808,14 @@ This architecture composes with all 18 architectural locks from the Cycle 10 Sta
 | Spirit-guide explainer pattern (skill-system § 9) | Phase 5 templated LLM call for algorithmic mechanic-alteration explainer |
 | Naming-space partitioning per engine-anchor | Phase 5 cohesion-judge constraint at archetypal-naming layer |
 | Substrate-genre-flagging | Phase 2 genre filter per product configuration (unified-architecture pattern per Matt 2026-05-24 refinement) |
+| **Doc 40 — Balance as property (D1-D6)** | **Cross-cutting; Phase 2 spec-driven generation; Phase 3 validation-at-generation-time; balance-as-property principle propagates to every seam** |
+| **Doc 40 — Spec-driven gear gen + rarity escalation + capability toolkit + tier structure (D7-D17, D48-D57)** | **Phase 2d (spec-driven gear generation sub-phase); gear specs derived from kit+T4; capability toolkit at all 4 legendary tiers; T4-attunement annotation gate on tier 1+2** |
+| **Doc 40 — 85th-percentile cumulative target + Option A acquisition + multi-node calibration (D18-D27)** | **Phase 3 multi-node validation per kit's progression-node target; Phase 5 acquisition curve calibration** |
+| **Doc 40 — Spirit guide as data-oracle (D28-D32)** | **Phase 5 spirit-guide projection template generation; universal data-presentation pattern across decision spaces** |
+| **Doc 40 — T4-attuned gear intent (D33-D39)** | **Phase 2d T4-attunement annotation; Phase 5 T4-attuned gear cohesion; persuasion-to-experiment surface for spirit guide** |
+| **Doc 40 — Peak-moment community layer (D40-D43)** | **Architectural intent; implementation phasing post-launch (NOT in Cycle 13 work scope)** |
+| **Doc 40 — Auto-combat attribution correction (D44-D47)** | **Cross-cutting canonical correction; auto-combat NOT canonical for primary game; reserved as mobile-variant deferred option** |
+| **Doc 40 — Multi-T4 architecture + T4 algorithm canonical form (D63-D86)** | **Phase 2a chain composition (3-chain class: 2+1 supporting; 4-chain class: 3+1 supporting per D83); Phase 2b T4 algorithm (all 4 phases in Cycle 13 per D81); Phase 3 multi-T4 sim methodology per D84; D65 respec-with-legendary-trigger mechanism integrates at Phase 5 cohesion → gameplay layer** |
 
 ---
 
