@@ -636,6 +636,56 @@ Per Wave 1 Gate-1 I2 routing + Block C scaffolding companion doc:
 - BC-axis coverage: 22 BC-target cells per `v1-bc-target-intent-2026-05-24.md` Sketch G
 - Validation criterion per W2.8 gate: T4s produce playable kits per playability sub-gates; no cohort structurally locked out of T4 acquisition; partial-T4 rate within bounds
 
+### 11.9 Discipline #23 framing-audit (three-question protocol)
+
+Per Discipline #23 (framing-audit checklist): at any Pattern A-deep verdict authoring, methodology consultation at a math hotspot, or work-unit committing load-bearing framing assumptions, apply the three-question protocol before execution proceeds. Doc 43 is a load-bearing design-intent doc for the Wave 2 T4 algorithm and operationalizes the 3-category taxonomy from doc 40 § 8.4 + closeout § 1.3; the protocol applies at structural layer. Doc 42 § 11 carried framing-audit as an in-table cell row; doc 43 receives a dedicated subsection per jack-ryan Wave 2 Gate-1 W1 (the doc is larger and more architecturally load-bearing than doc 42 — pattern regression risk if absent).
+
+**Load-bearing framing assumption (Q0 — what's being audited):** the **3-category T4 taxonomy** (Category A character-wide + exactly one of Category B chain-specific-effect-shape OR Category C chain-specific-effect-mechanic) IS the correct structural framing for Wave 2 implementation, AND the 6-strategy registry (extended to 7 per DUAL_ELEMENT_ADDITION) properly nests under the 3-category as algorithm-implementation detail with 3-category as player-facing-and-design-spec primary unit.
+
+#### Q1 — What evidence would refute the 3-category taxonomy shape?
+
+The 3-category shape (always A + exactly one of B XOR C) means every T4 has a character-wide effect AND a chain-specific effect, but never both chain-specific effect-shapes simultaneously. Refutation evidence would surface as one of:
+
+- **(R1) Required-both-B-and-C design space.** Rocket implementation, gandalf design-side audit of v1 pattern library entries (§ 5.2 / § 5.3), OR gamora SC-7 baseline measurement surfaces a meaningful T4 design intent that genuinely requires Category A + BOTH Category B AND Category C simultaneously (not "could be split into two T4s"; genuinely irreducible single-T4 intent). One example would prompt revisit; a pattern across multiple intents would refute B-XOR-C as the right rule.
+- **(R2) Systematically thin design space under B-XOR-C constraint.** W2.9 round-trip smoke output reveals >20% of generated T4 kits trigger Phase 3 minimum-threshold fallback (§ 6.4) because the B-XOR-C constraint forces degenerate fallback when neither Category B nor Category C produces viable scoring under the synergy scan. Threshold rationale: 20% retry-to-fallback is consistent with B14.5 V1 primary loop rejection-rate band (production-tier loops sustain ~10-15%; 20% signals architectural friction, not tunable variance).
+- **(R3) Genre precedent refutation.** Discovery during Wave 3 or beyond that PoE keystones / GD masteries / LE skill trees / D4 paragon do NOT follow a "primary alteration + secondary alteration" two-part structure (SC-4 expansion currently asserts they do). Genre precedent is the load-bearing anchor for the two-part shape per SC-4 expansion Topic 1; counter-evidence would invalidate the anchor.
+- **(R4) Player-facing comprehension failure.** Player-facing vocabulary mapping (§ 2.3) tested against synthetic playtest or spirit-guide projection surface (§ 8.4) reveals the 3-category framing produces systematic player-mental-model confusion that the 6-strategy framing would not produce. This is downstream of Wave 4+ (player surface); not Wave 2 refutation evidence in itself but worth registering for forward visibility.
+
+**Current evidence stance:** SC-4 expansion Topic 1 + doc 40 § 8.4 + closeout § 1.3 lock all triangulate on the 3-category shape as well-grounded. No refutation evidence surfaced at intent-authoring time. Wave 2 implementation + W2.9 round-trip smoke is the cheapest empirical test (see Q2).
+
+#### Q2 — How cheaply can rocket implementation falsify?
+
+The cheapest refuting test is **drawn from W2.9 round-trip smoke output, not a separate dispatch.** Rocket generates T4 candidates for 22 BC-target cells × 2 cohort archetypes (50% coverage spot-check; full 4-cohort × 22-cell sweep is W2.8 cross-cohesion validation scope but adds cost for a question already answerable at half coverage). Count:
+
+- **N_kits = 22 × 2 = 44 generated kits** at W2.9 smoke fire.
+- **Per-kit metric:** did this kit reach Phase 3 minimum-threshold fallback (§ 6.4) due to B-XOR-C constraint specifically (not due to other failure modes — unavailable strategies, magnitude-band rejection, etc.)?
+- **Refutation threshold:** >20% of kits (>9 of 44) reach Phase 3 due to B-XOR-C constraint → taxonomy shape signals architectural friction → gandalf escalates as Wave 3 framing review item per recognition-validate-commit (§ 3.4 of gandalf OP).
+- **Cost:** zero additional dispatch; refutation signal piggybacks on W2.9 round-trip smoke output. Detection logic is a single boolean per kit at Phase 3 fallback point (§ 6.4 telemetry already emits per § 6.5 quality metric tracking; add a B-XOR-C-attributed flag to the existing fallback-reason field). Net additional implementation cost: ~5-10 lines in the Phase 3 fallback path.
+
+**Refutation cycle:** W2.9 smoke fires → fallback-attribution telemetry surfaces → >20% threshold check → if breached, gandalf Pattern A-deep verdict revisits 3-category vs alternative shapes (single-category-with-both-effect-types; 4-category; etc.) before Wave 3 dispatch authoring. If under threshold, taxonomy shape is empirically validated by Wave 2 baseline AND framework intactness is preserved for Wave 3.
+
+#### Q3 — Alternative framing — "3-category as primary" vs "6-strategy as primary + 3-category as player-facing"
+
+**Resolution: alternative framing was resolved by closeout 2026-05-27 § 1.3 lock.**
+
+The Wave 1 dispatch surfaced this exact question as an open framing concern; the Matt + gandalf Pattern-B session on 2026-05-27 closeout § 1.3 locked the answer: **6-strategy registry is algorithm-implementation detail; 3-category taxonomy is player-facing AND design-spec primary unit.** Doc 40 § 8.4 amendment carried "SUPERSEDES the 6-strategy registry as the player-facing taxonomy + design-spec" language to reflect the lock.
+
+This doc 43 operationalizes the locked framing:
+
+- §§ 2.1-2.2 carry the 3-category taxonomy as the primary spec surface
+- § 2.3 documents the player-facing vocabulary mapping (3-category → player-facing labels)
+- § 11.5 LLM raw-reasoning constraint correctly draws the line between naming (LLM-allowed; consumes 3-category surface) and scoring (LLM-prohibited; operates on 6-strategy + 5-category synergy taxonomy at algorithm layer)
+
+**No re-litigation in Wave 2.** Q3 is resolved-not-pending. If R1-R4 refutation evidence (per Q1) surfaces during Wave 2 or beyond, the Wave 3+ framing review revisits BOTH the 3-category shape AND the 3-category-as-primary framing as a paired question (the alternatives are linked — refuting one cascades into the other).
+
+#### Framing-audit verdict
+
+The three questions are addressable at intent-authoring time and do **not** surface a BLOCK condition. The 3-category taxonomy framing is empirically well-grounded per SC-4 expansion + genre precedent + closeout lock; refutation evidence (R1-R4) is cheaply surfaceable via W2.9 round-trip smoke piggyback (per Q2 cycle); Q3 alternative framing is resolved per closeout 2026-05-27 § 1.3 lock.
+
+**Composition with § 3.4 recognition-validate-commit:** the >20% Phase 3 fallback threshold (Q2) is the empirical-evidence criterion that gates re-engagement on the 3-category framing question. If breached, recognition (refutation evidence surfaced) → validate (Pattern A-deep verdict reviews shape) → commit (Wave 3 amendment if warranted). If under threshold, the framing is empirically validated by baseline; commit holds.
+
+**First-canonical-example anchor:** this framing-audit follows the doc 42 § 11 pattern (in-table cell) extended to subsection format per jack-ryan Wave 2 Gate-1 W1 (larger doc; load-bearing intent doc → dedicated subsection). The Discipline #23 founding example (Q-A verdict § 12.1 gamora Pattern-A query, 2026-05-23) operationalizes the discipline at the methodology-consultation level; this doc 43 application operationalizes it at the design-INTENT load-bearing level. Both layers count for future readers as canonical applications of the protocol.
+
 ---
 
 ## 12. Wave 2 close criterion
