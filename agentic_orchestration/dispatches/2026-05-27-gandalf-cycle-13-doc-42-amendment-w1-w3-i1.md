@@ -90,3 +90,37 @@ NOT applicable.
 **Wave:** 1 amendment (post-Gate-1 PASS-with-WARN)
 **Gates:** rocket Wave 1 implementation dispatch authoring (KR fires post-amendment with W2 + I1 + I2 amendments folded into rocket dispatch)
 **Priority:** P1 — small amendment; gates Wave 1 rocket implementation
+
+---
+
+## Completion record — gandalf 2026-05-27
+
+**Status:** COMPLETE — all 3 amendments landed.
+
+**Amendments executed:**
+
+- **W1 (REQUIRED) — § 2 normalization claim corrected (2 locations):**
+  - § 2 "Affinity tier weights are RELATIVE, not absolute percentages" paragraph replaces prior "sum of all 9 categories' affinity weights = 100%" claim. New text states 50/30/15/5 are RELATIVE weights to be normalized per § 9.2 step 2; raw per-slot sums range ~190-255; normalization step is what produces probability distribution summing to 1.0.
+  - § 9.2 step 2 rewritten with explicit procedural pseudocode: `raw_weight(S, C) → raw_sum(S) → normalized_weight(S, C) = raw_weight / raw_sum`. Removed the false parenthetical "(the matrix per § 2.1 sums to 100% per slot already)". Implementation guidance now unambiguous: rocket reads § 9.2 step 2 and gets correct algorithm without § 2 contradiction.
+
+- **W3 (KR-elected) — § 1 SC-4 expansion citation added:** companion-docs list now includes `2026-05-27-arpg-sc-4-expansion-9-category-synergy-degenerate-patterns.md` with three timing classifications spelled out (Wave-1-informing: 9-cat verification + 3 ARPG divergences documented as non-amending; Wave-2-informing: 5th Scaling-interaction synergy candidate + Discipline #32 first-do-no-harm methodology; Wave-4-informing: Pattern 9 + Pattern 10 degenerate-state catalog).
+
+- **I1 — § 9 W1.6 sub-wave table — D9 reference removed:** W1.6 row now reads "Trait integration (D8 ONLY)" with explicit text "D9 (element/mechanic-gating on gear-affix trait surface) is Wave 4 scope per § 8 sequencing text — NOT included in W1.6." Aligns table with § 8 sequencing text.
+
+**Optional W1.7 + W1.8 spot-check findings:**
+
+- W1.7 + W1.8 sub-wave table entries cross-checked against § 9.5 + § 10 — no table/text inconsistencies surfaced. Both rows defer correctly to § 9.5 (W1.7) and § 10 (W1.8).
+- **One additional inconsistency surfaced but NOT amended** (out of explicit dispatch scope): § 10 Wave 1 close criterion bullet 6 mentions "+ D9 element/mechanic-gating operational per § 8" in the Wave 1 close list — same underlying inconsistency as the W1.6 table (D9 is § 8-deferred to Wave 4). Flagging for KR / jack-ryan attention; would warrant a small follow-on amendment (one bullet rewrite) to fully align all three locations (W1.6 table + § 8 text + § 10 close criterion) on D9 → Wave 4. Did NOT amend per dispatch out-of-scope discipline ("do not amend beyond W1/W3/I1 scope").
+
+**Acceptance criteria status:**
+
+- [x] All 3 amendments (W1 + W3 + I1) landed in doc 42
+- [x] No regression in other doc 42 sections (W1 fix is additive clarification; W3 is companion-docs addition; I1 is single-row table edit + cross-reference text)
+- [x] Tagged commit per gandalf convention (see commit hash below)
+- [x] Round-trip: not applicable — no cross-seam contract change
+
+**Commit:** see git log post-completion (tag intent: `gandalf: Cycle 13 doc 42 amendment — W1 § 2 normalization clarity + W3 § 1 SC-4 expansion citation + I1 § 9 W1.6 D9 clarification (per jack-ryan Gate-1 verdict 54bf1b8)`).
+
+**Next:** KR proceeds to authoring rocket Wave 1 implementation dispatch incorporating W2 (prefix/suffix binary schema field as REQUIRED W1.2 deliverable per jack-ryan W2) + I2 (Block C scaffolding reference for gamora W1.7) per jack-ryan critique § Action and § Next-action sequence. Optional: KR or gandalf address the § 10 close-criterion D9 mention in a small follow-on amendment if cleaner canonical state desired.
+
+**Signed:** gandalf (story-and-design steward)

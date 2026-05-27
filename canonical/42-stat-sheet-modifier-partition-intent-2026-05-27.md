@@ -16,6 +16,7 @@
 - `agentic_orchestration/gandalf/notes/2026-05-27-cycle-13-pre-launch-design-session-closeout.md` — Matt + gandalf Pattern-B session closeout (Block B substantive content)
 - `agentic_orchestration/gandalf/notes/2026-05-26-cycle-13-design-session-pattern-a-deep-verdicts.md` — Verdicts B.2/B.3/B.4 (load-bearing for partition intent)
 - `agentic_orchestration/research/cycle-13/2026-05-27-arpg-modifier-partitioning-landscape.md` — legolas SC-4 (5 methodology gates closure substrate)
+- `agentic_orchestration/research/cycle-13/2026-05-27-arpg-sc-4-expansion-9-category-synergy-degenerate-patterns.md` — legolas SC-4 expansion; **Wave-1-informing:** 9-category architectural verification (confirms 9-cat × 11-slot is "architecturally sound and non-standard by design"; documents 3 specific cross-ARPG divergences — Crit split, Build-identity unique, Resistance-Penetration combined direction — none requiring amendment); **Wave-2-informing:** 5th Scaling-interaction synergy category candidate + Pass 1/Pass 2 empirical validation methodology for Discipline #32 first-do-no-harm; **Wave-4-informing:** Pattern 9 + Pattern 10 degenerate-state catalog candidates for sim detection methodology
 - `canonical/story/off-hand-items-2026-05-24.md` — off-hand items operational definition (6 categories)
 - `canonical/story/skill-system-2026-05-24.md` — skill composition pattern
 - `canonical/story/attribute-system-2026-05-24.md` — 4-attribute system (STR / INT / WIS / DEX)
@@ -60,7 +61,7 @@ Per principle 1 (graduated affinity, not binary): **every slot CAN roll any cate
 | **Tertiary** | ~15% (slot rolls this occasionally) |
 | **Off-affinity** | ~5% (slot rolls this rarely; preserves gap-filling capability) |
 
-**Affinity tier sum constraint:** per slot, sum of all 9 categories' affinity weights = 100%. The specific distribution of categories across the 4 tiers varies per slot per affinity-matrix entry.
+**Affinity tier weights are RELATIVE, not absolute percentages.** The 50/30/15/5 values above are RELATIVE per-tier weights to be NORMALIZED per slot during implementation per § 9.2 step 2 normalization procedure. The raw per-slot tier-weight sum is NOT 100% before normalization — because multiple categories share the same tier label (e.g., a slot may have 3 Primary categories at weight 50 each), raw sums range ~190-255 per slot across the matrix. Implementation MUST apply the per-slot normalization in § 9.2 step 2 (sum of normalized weights per slot = 1.0) before sampling. The specific distribution of categories across the 4 tiers varies per slot per affinity-matrix entry; the normalization step is what produces the per-slot probability distribution that sums to 1.0.
 
 ### 2.1 Full affinity matrix (9 categories × 11 slots)
 
@@ -421,10 +422,11 @@ Per § 2.1 affinity matrix + principle 1 graduated affinity.
 
 **Implementation pattern for rocket:**
 1. **Schema:** add per-slot per-category affinity-tier field (primary / secondary / tertiary / off-affinity) per § 2.1 matrix
-2. **Sampling:** when rolling modifier for slot S, sample category C with probability per affinity tier:
-   - For each category C in 9-category surface, weight = affinity_tier_weight(S, C)
-   - Where affinity_tier_weight returns: primary → 0.50, secondary → 0.30, tertiary → 0.15, off-affinity → 0.05 (per-tier weights normalized across categories per slot)
-   - **Normalization:** sum of (affinity_tier_weight(S, C) for C in 9 categories) per slot = 1.0 (the matrix per § 2.1 sums to 100% per slot already)
+2. **Sampling (with per-slot normalization):** when rolling modifier for slot S, sample category C with probability per affinity tier:
+   - For each category C in 9-category surface, compute raw weight: `raw_weight(S, C) = tier_value(S, C)` where `tier_value` returns 50 / 30 / 15 / 5 for primary / secondary / tertiary / off-affinity respectively (per § 2.1 matrix lookup)
+   - **Compute per-slot raw sum:** `raw_sum(S) = sum(raw_weight(S, C) for C in 9 categories)`. Empirically this varies per slot (range ~190-255 across the matrix in § 2.1) because multiple categories share tier labels per slot
+   - **Normalize:** `normalized_weight(S, C) = raw_weight(S, C) / raw_sum(S)`. Per-slot `sum(normalized_weight(S, C) for C in 9 categories) = 1.0` by construction
+   - **Sample:** draw category C from the normalized distribution; the 50/30/15/5 tier values are therefore RELATIVE weights, not absolute per-category probabilities (a primary-tier category in a slot with many primaries gets a smaller absolute probability than a primary-tier category in a slot with only one primary — this is the intended graduated-affinity behavior)
 3. **Per-modifier sampling within category:** once category C selected for slot S, sample specific modifier type from C's pool eligible for S per tier-restriction rules (per § 4)
 4. **Magnitude sampling:** per modifier tier (per § 3 grid + per gear rarity), sample numeric magnitude within band (magnitude bands DEFERRED to gamora sim calibration per § 9.4 below)
 
@@ -469,7 +471,7 @@ Recommended sub-wave structure for Wave 1 partition cycle:
 | **W1.3 — Affinity matrix implementation** | Per § 2.1 matrix; per-slot per-category sampling per § 9.2 pattern | rocket | jack-ryan Gate-2 PASS on sampling distribution |
 | **W1.4 — Tier-restriction enforcement** | Per § 9.3 filter pattern; capability toolkit branching | rocket | jack-ryan Gate-2 PASS on tier-restriction discipline |
 | **W1.5 — Magnitude bands (starting estimates)** | Per § 9.4 starting estimates per Verdict B.4 | rocket | jack-ryan Gate-2 PASS on magnitude band schema |
-| **W1.6 — Trait integration (D8 + D9)** | D8: per-class intrinsic trait pool integration into supporting chain; D9: element/mechanic-gating on gear-affix trait surface | rocket | jack-ryan Gate-2 PASS on trait integration |
+| **W1.6 — Trait integration (D8 ONLY)** | D8: per-class intrinsic trait pool integration into supporting chain (minimum-viable per Verdict D.1 Path (c) PARTIAL). **D9 (element/mechanic-gating on gear-affix trait surface) is Wave 4 scope per § 8 sequencing text — NOT included in W1.6.** | rocket | jack-ryan Gate-2 PASS on D8 trait integration |
 | **W1.7 — Cross-cohesion validation (principle 6)** | gamora spot-check sim per § 9.5 | gamora + jack-ryan | jack-ryan Gate-2 PASS on validation criteria |
 | **W1.8 — Wave 1 close** | Aggregate Wave 1 close criterion per § 10 | jack-ryan | Wave 1 close decision |
 
