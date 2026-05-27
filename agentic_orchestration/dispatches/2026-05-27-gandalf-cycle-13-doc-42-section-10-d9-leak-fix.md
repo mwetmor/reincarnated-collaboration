@@ -59,3 +59,26 @@ NOT applicable.
 **Wave:** 1 amendment follow-on
 **Gates:** clean canonical state for downstream consumers
 **Priority:** P3 — small follow-on; rocket Wave 1 implementation can proceed in parallel since § 10 is close-criterion text, not entry-implementation guidance
+
+---
+
+## Completion record — gandalf 2026-05-27
+
+**Status:** COMPLETE
+**Commit:** `32f09ee`
+
+**Amendment landed:**
+- § 10 Wave 1 close criterion bullet 6 — removed "+ D9 element/mechanic-gating" from Wave 1 close scope; added explicit "(D9 is Wave 4 scope per § 8 sequencing + W1.6 — NOT included in Wave 1 close)" annotation
+
+**Spot-check — all D9 references in doc 42 (grep -i "d9"):**
+- Line 383 (§ 8 sequencing) — D9 → Wave 4 (correct, pre-existing)
+- Line 474 (§ 9.6 W1.6) — D9 explicitly excluded from W1.6 (correct, per prior amendment 6d4213b)
+- Line 491 (§ 10 close criterion bullet 6) — D9 now explicitly scoped to Wave 4 (this amendment)
+
+**Other D9 leaks found in Wave 1 scope text (W1.0-W1.8, close criteria, principles):** NONE. All 3 D9 mentions in doc 42 now consistent on D9 → Wave 4.
+
+**Acceptance criteria:**
+- [x] § 10 bullet 6 amended; D9 explicitly scoped to Wave 4
+- [x] No other D9 leaks remain in Wave 1 scope text
+- [x] Tagged commit `32f09ee`
+- [x] Round-trip: not applicable
