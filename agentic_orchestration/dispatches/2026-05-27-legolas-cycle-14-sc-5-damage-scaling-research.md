@@ -113,3 +113,44 @@ Catalog edge cases that doc 47 implementation must handle:
 - `agentic_orchestration/gandalf/notes/2026-05-27-cycle-14-framing-brief.md` § 2 Wave 0.5 + § 3.4 + § 5 SC-5
 - Path of Exile wiki / D2 LoD theorycrafting / D3 / D4 / Last Epoch / Grim Dawn / Lost Ark community-canonical sources
 - Engineering disciplines #18 + #11 + #1
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-27 (Cycle 14 Wave 0; legolas Mode A research session)
+**Status:** COMPLETE — research artifact filed; appendices + source list complete
+**Author:** legolas (substantive research) + knight-rider (orchestration completion recovery — see note below)
+**Artifact:** `agentic_orchestration/research/2026-05-27-cycle-14-sc-5-damage-scaling-patterns.md` (658 lines; 64KB)
+
+### Notes for KR integration
+
+Legolas Mode A session completed substantive research (per-game per-path formula tables; structural validation of doc 47; edge-case catalogue; AI-tell + community-perception; appendix A doc 47 formula amendments table; appendix B framing-audit checklist) but session stream stalled at the final commit + completion-record step (stream watchdog timeout at 600s after final artifact write). KR completed orchestration recovery: completion record appended + commit + push.
+
+### Acceptance criteria summary
+
+- [x] Research artifact filed at `agentic_orchestration/research/2026-05-27-cycle-14-sc-5-damage-scaling-patterns.md` — 658 lines
+- [x] Per-game per-path formula tables (D2 LoD / D3 / D4 / PoE / Last Epoch / Grim Dawn / Lost Ark + others)
+- [x] Structural validation of doc 47 formulas (per § 7.2 of dispatch)
+- [x] Edge-case catalogue (per § 7.3 of dispatch)
+- [x] AI-tell + community-perception per § 7.4
+- [x] Round-trip: not applicable
+
+### Key findings (for KR Wave 0.5 dispatch authoring)
+
+Per Appendix A doc 47 formula amendments table:
+
+- **Magical formula REFINE:** pool weapon_spell_mod + element_affinity + global_spell into ONE additive `(1 + sum_pct/100)` term (matches PoE / LE / post-S2 D4 canonical pattern)
+- **Physical formula MINOR REORDER:** element_conversion_factor before tier_coefficient (canonical genre ordering)
+- **DOT sub-formula ADD:** doc 47 § 4 does not currently specify DOT scaling; gamora damage_resolver needs DOT sub-formula
+- **Crit on magical CONFIRMED:** unified `player.crit_chance` model is valid (D4/LE precedent)
+- **Off-hand integration ADD:** § 4.3 needs note that off-hand modifier fields aggregate into same pools as main-hand
+
+Per Appendix B framing-audit (Discipline #23):
+
+- Live risk: substrate weapon library must expose `spell_damage_modifier` per-weapon (doc 47 § 8.3 audit-needed flag) — this is SC-6 elrond's audit scope
+- BASE_SPELL_DAMAGE table (per-skill calibrated data source at Wave 0.5) — rocket's Track D.2 per-skill emission populates this OR generated as separate calibration artifact
+
+### Open questions for gamora at Wave 0.5
+
+Documented in research artifact body; not surfaced to Matt (no framing-level concerns; doc 47 architecture sound and well-grounded per Discipline #23 Q3).
