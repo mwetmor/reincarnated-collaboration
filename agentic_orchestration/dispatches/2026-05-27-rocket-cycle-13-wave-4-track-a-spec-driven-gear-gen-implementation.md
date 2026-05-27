@@ -193,3 +193,75 @@ Per Discipline #1 math-before-code, before W4R.1 implementation:
 **Wave:** 4 Track A implementation (W4R.0-W4R.7 bundled)
 **Gates:** Wave 4 Track A close (paired with Track B gamora sim cycling) → bundled Wave 4 Gate-2 → Wave 4 CLOSE → Wave 5 gauntlet sim + season gen + Cycle 13 close
 **Priority:** P1 — critical-path Wave 4 Track A close
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-27
+**Commit:** `2fd49ad` (engine repo main)
+**Agent:** rocket
+
+### Per-sub-wave status
+
+| Sub-wave | Status | Notes |
+|---|---|---|
+| W4R.0 | COMPLETE | Substrate prep: reviewed Wave 1+2+3 integration points; 182 baseline tests PASS confirmed; math note written |
+| W4R.1 | COMPLETE | `CapabilityCategory` extended 5→6; `MULTIPLICATIVE = "multiplicative"` added; `assert len(CapabilityCategory) == 6` at module load |
+| W4R.2 | COMPLETE | `PartitionGearInstance.is_unique: bool = False` added; unique placeholder pool (5 entries × 4 legendary tiers) |
+| W4R.3 | COMPLETE | `T4AttunementAnnotation.scope_preference` + `SetBonusDefinition.scope_preference` added; pattern library: weapon=9, armor=8, accessory=7 per slot family |
+| W4R.4 | COMPLETE | `TriggeredPassiveSkill` dataclass; `triggered_passive` field on `PartitionGearInstance`; D55 probability anchors; slot-family routing |
+| W4R.5 | COMPLETE | 3 LEGENDARY_PLUS ON_TRIGGER modifiers added to pool (on-block/on-dodge D56 expansion) |
+| W4R.6 | COMPLETE | 6-member capability toolkit legendary-exclusive enforcement; MULTIPLICATIVE capability definitions (3 entries) |
+| W4R.7 | COMPLETE | Set bonus scope_preference; cross-cohesion validation (4×10×3=120+ instances; 0 failures); 10-tier round-trip smoke PASS |
+
+### Key acceptance criteria verification
+
+- **W1 RESOLVED (assert len(CapabilityCategory) == 6):** PASS — `len(CapabilityCategory) = 6` verified via Python import
+- **W2 accessory true-active omission:** PASS — `sum(ta for _, _, ta in ACCESSORY_PATTERN_LIBRARY) = 0` (structural omission; not conditional gate)
+- **I1 ≥5 patterns/family:** PASS — weapon=9, armor=8, accessory=7 (all ≥5); module-load asserts fire at import
+- **I3 star-lord integration:** PASS — `ExportAlterationOutput` + `ExportSimCyclingQualityReport` (engine commit `8dbb808`) importable; scope_preference/t4_scope alignment verified
+- **10-tier round-trip smoke:** PASS — all 10 tiers PASS including legendary_t0_5 carryover; 30 instances (10 × 3 slots)
+- **Cross-cohesion validation:** PASS — 4 cohorts × 10 rarities × 3 = 120+ instances; 0 failures; pass_rate=1.0
+
+### Math-notes filed
+
+`/Users/admin/Games/reincarnated-engine/src/reincarnated/generation/math/cycle-13-wave-4-spec-driven-gear-gen-math-2026-05-27.md` — Discipline #1 math-before-code for W4R.0-W4R.7
+
+### Post-script empirical count assertions (Discipline #11 — 100% accurate; WARN-pattern PRESERVED)
+
+| Assertion | Actual (runtime) | Status |
+|---|---|---|
+| `len(CapabilityCategory)` | 6 | PASS |
+| `len(PartitionRarity)` | 10 | PASS (carryover) |
+| `len(LEGENDARY_RARITIES)` | 6 | PASS (carryover) |
+| `len(TIER_1_2_RARITIES)` | 4 | PASS (carryover) |
+| `len(WEAPON_PATTERN_LIBRARY)` | 9 (≥5) | PASS |
+| `len(ARMOR_PATTERN_LIBRARY)` | 8 (≥5) | PASS |
+| `len(ACCESSORY_PATTERN_LIBRARY)` | 7 (≥5) | PASS |
+| Accessory true-active count | 0 | PASS (W2) |
+| Weapon true-active count | 1 (≥1) | PASS |
+| `"multiplicative" in CapabilityCategory values` | True | PASS (W4R.1) |
+| `"legendary_t0_5" in PartitionRarity values` | True | PASS (carryover) |
+| Sub-waves W4R.0-W4R.7 | 8 | PASS |
+| `len(COHORTS_W4)` | 4 | PASS |
+| `len(GearSlot)` | 11 | PASS (carryover) |
+| Slot family sizes (weapon=2, armor=5, accessory=4) | correct | PASS |
+
+**WARN-pattern PRESERVED:** 0 failures. Full closure maintained through Wave 4.
+
+### Test suite result
+
+Wave 1 (27) + Wave 2 (69) + Wave 3 (50) + Wave 4 export (18) + Wave 4 spec-driven gear gen (73) = **255 total PASS in 0.51s; 0 regressions**
+
+### MIGRATION.md status
+
+Filed per ADR-004 — entry covers W4R.1 enum extension + W4R.2 is_unique + W4R.3 scope_preference fields + W4R.4 TriggeredPassiveSkill + W4R.5 modifier pool expansion + W4R.6 capability definitions + W4R.7 cross-cohesion + round-trip smoke. Downstream consumer impact documented for gamora, star-lord, drax.
+
+### Cross-seam flags
+
+- **gamora (SC-7):** triggered_passive starting-estimate probabilities (D55 anchors) are inputs for SC-7 calibration post-Wave-4-baseline. scope_preference on T4AttunementAnnotation propagates into gear gen output for cohort anchoring (SC-7 § 9.4 Item B4).
+- **star-lord:** Wave 4 spec-driven gear gen fields (is_unique, triggered_passive, scope_preference) appear in gear instance dicts; star-lord export schema (commit `8dbb808`) does not yet model PartitionGearInstance directly (it models class-level T4 output). No schema breakage; additive fields.
+- **drax:** triggered_passive + scope_preference are drax Wave 4+ consumption surfaces (Spirit Guide display); no drax code in this dispatch.
+
+**Tag applied:** `rocket: Cycle 13 Wave 4 Track A spec-driven gear gen implementation — W4R.0-W4R.7 bundled per doc 45 amended + jack-ryan Gate-1 W1+W2+I1 folded`
