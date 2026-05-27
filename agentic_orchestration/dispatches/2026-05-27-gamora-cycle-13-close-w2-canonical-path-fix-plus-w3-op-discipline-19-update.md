@@ -130,3 +130,63 @@ KR will pick up + close W2 + W3 tasks. After all 4 WARNs are remediated (W2, W3,
 ---
 
 **Authority:** knight-rider per Matt Option A authorization + jack-ryan verdict `482801c` + ratified framing brief § 4.1 autonomous scope + Matt per-cycle-push authorization.
+
+---
+
+## Completion record
+
+**Status:** COMPLETE
+**Completed:** 2026-05-27
+**Completed by:** gamora
+
+### W2 verification
+
+Canonical path `cycle-13-gauntlet-sim-results-2026-05-27.json` now contains the full 16-kit / 27,360-fight empirical-run truth. Discipline #11 spot-check results:
+
+```
+total_kits_validated: 16        (was 5 in smoke data)
+kits_season_emit: 16            (was 0)
+season_emit_rate: 1.0           (was 0.0)
+total_fights_run: 27360         (was 1500)
+mean_encounters_passed_per_kit: 14.25  (was 2.5)
+kit_results count: 16           (was 5)
+encounter_results count: 912    (was 50)
+file size: 620,907 bytes        (was 35,771 bytes)
+```
+
+All 7 acceptance criteria from dispatch § 2 Step 1 verified.
+
+### Atomic-rename adoption
+
+**YES** — adopted as W2 companion structural fix in `gauntlet_sim.py`.
+
+Two changes landed:
+1. **Smoke-guard:** canonical path NOT written when `smoke=True` (new parameter on `w5g2_pass_verification_and_result_authoring`; threaded from `run_gauntlet_sim`). Log message explicitly states "canonical path NOT overwritten" on smoke runs.
+2. **Atomic-rename:** canonical write on full runs (`smoke=False`) uses temp file + `Path.replace()` — POSIX-atomic; prevents partial-write corruption.
+
+Test `test_smoke_output_json_valid` updated to assert canonical path ABSENT on smoke run and validate timestamped output instead.
+
+### W3 amendment
+
+**Path:** `reincarnated-engine/src/reincarnated/simulation/AGENT_STATE.md` § "Behavioral Discipline Notes" — "Pytest-serialization (Discipline #19 reinforcement)" section.
+
+Added rule: serialize pytest runs; wait for one to complete before firing next; single-invocation per verification step; `pytest -n auto` for parallel partitions within a single shell.
+
+Operating-procedure skill (`reincarnated-gamora-operating-procedure/SKILL.md`) targeted for § 3.5c amendment but blocked by file-write permission policy on meta-repo skill files. AGENT_STATE.md capture is the seam-internal fallback per OP § 3.7 file-write constraint pattern.
+
+Flag to KR: if project-wide Discipline #19 sub-operationalization (pytest-specific) is desired in engineering-disciplines.md, route a jack-ryan dispatch — gamora does not write engineering-disciplines.md directly.
+
+### MIGRATION.md version
+
+**§ v1.32** — W2 canonical-path smoke-guard + atomic-rename + W3 Discipline #19 OP amendment cross-reference.
+
+### Test spot-check result
+
+190 passed, 0 failed — single serial invocation (Discipline #19 self-applied):
+- `tests/test_cycle13_wave5_gauntlet_sim.py` (includes updated smoke-guard test)
+- `tests/test_cycle13_wave4_sim_cycling.py`
+- `tests/test_cycle12_wave5_sim_combatant_integration.py`
+
+### Commit SHA
+
+`37f6fff` — pushed to `main` at `reincarnated-engine`.
