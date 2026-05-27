@@ -128,3 +128,31 @@ INFO / WARN / BLOCK per critique-pair-gate-protocol.
 **Wave:** 3 Gate-1
 **Gates:** rocket Wave 3 implementation dispatch authoring (PASS) OR gandalf re-pass (BLOCK)
 **Priority:** P1 — gates Wave 3 critical-path
+
+---
+
+## Completion record
+
+**Status:** COMPLETE
+**Completed:** 2026-05-27
+**Verdict:** PASS-with-WARN
+**Severity counts:** INFO=5 / WARN=1 / BLOCK=0
+**Finding file:** `agentic_orchestration/qa/findings/2026-05-27-cycle-13-wave-3-gate-1-doc-44-critique.md`
+**Tag:** `jack-ryan(gate-1): PASS-with-WARN — Cycle 13 Wave 3 doc 44 T4 Phase 3 intent critique`
+
+**Key findings:**
+- W1 (WARN): `STRATEGY_CHARACTER_WIDE_ELIGIBILITY` "multiplier strategies" key-mapping is ambiguous — no STRATEGY_MULTIPLIER constant exists in `t4_category_schema.py`; true-count arithmetic (4 vs likely 3) requires gandalf clarification before rocket W3.1 fires
+- I1: Negative-score fallback behavior unspecified for Step 4 formula; rocket resolves at W3.3
+- I2: W3.3 min cohort × scope coverage not specified; KR should add minimum 8 combinations to rocket dispatch
+- I3: Ground-state doc 44 row should be confirmed before rocket dispatch fires
+- I4: Wave 2 Gate-2 W1 synthetic same-bucket test gap still open; KR sequencing decision needed
+- I5: Per-scope projection emission is potential drax cross-seam touch at Wave 3+ integration
+
+**Pre-fire requirement (W1):** KR resolves "multiplier strategies" key-mapping with gandalf before rocket W3.1 acceptance criteria are finalized. Likely resolution: TRADE_OFF (skill-specific Category B context) = the multiplier-class strategy; true-count = 3 (TRADE_OFF + ELEMENT_CONVERSION + DUAL_ELEMENT_ADDITION eligible among Category B/C); Category A strategies are bypassed by Step 1 applicability bound, not by eligibility dict. KR confirms and folds into rocket W3.1 acceptance criteria.
+
+**Next-action for KR:**
+1. PASS-with-WARN — Wave 3 dispatch authoring UNBLOCKED with one pre-fire W1 resolution
+2. Resolve W1 with gandalf (short clarification; not a re-dispatch)
+3. Author rocket Wave 3 dispatch incorporating W1 resolution + I2 (minimum 8 cohort × scope coverage) + I4 (gap sequencing) in acceptance criteria
+4. Confirm ground-state doc 44 row (I3) before dispatch fires
+5. Note I5 (per-scope projection cross-seam) for Wave 3+ planning
