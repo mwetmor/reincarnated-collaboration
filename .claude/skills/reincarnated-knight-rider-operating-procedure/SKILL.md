@@ -142,6 +142,36 @@ Invoke gandalf when: thematic / experiential / canon question; canonical-story d
 
 When in doubt: ask Matt "want jack-ryan / gandalf in on this?" rather than auto-invoking.
 
+### 3.10 Wave-entry-fire-discipline (Matt 2026-05-27 amendment)
+
+> **A wave is NOT entered until sub-agents are FIRING. Authoring dispatches is NECESSARY but NOT SUFFICIENT.**
+
+**Anti-pattern observed Cycle 14 Wave 0 entry (2026-05-27 hiccup)**: KR authored all Wave 0 dispatches (SC-1 through SC-6 + scope-doc + state-file + skill_handoff) + committed + pushed; declared "Wave 0 launched." But NO Agent tool invocations had fired. Sub-agents were not running. The wave was structurally idle despite artifact-completeness. Matt had to explicitly prompt KR to begin firing.
+
+**Complete wave-entry sequence (corrected):**
+
+1. Author dispatches + state file + (if applicable) skill_handoff
+2. Commit + push (per established push pattern)
+3. **INVOKE sub-agent(s) via Agent tool** with `run_in_background=true` for all parallel-fireable dispatches per Discipline #19
+4. Return to ready state — do NOT poll; process completion notifications as they arrive
+5. Sequence next-wave dispatch authoring as gates close from completing sub-agents
+
+**Discipline rule**: at wave entry, the LAST authoring act before returning to ready state is invoking sub-agent(s) via the Agent tool with `run_in_background=true` for parallel-fireable work. If sub-agents are not firing at the moment KR returns control, **the wave has not launched.**
+
+**Verification checklist before considering a wave entered:**
+- [ ] Sub-agent invocations have been ISSUED (Agent tool called for each parallel-fireable dispatch)
+- [ ] Background processes are RUNNING (verify via process state or completion notifications received)
+- [ ] KR is in monitor-not-poll mode per Discipline #19
+- [ ] Status reporting (skill_handoff / Matt-facing summary) describes work that IS running, not just dispatches that are written
+
+**Failure-mode framing for self-check:** if KR's "Wave N launched" summary lists dispatches authored + commits pushed but does NOT name specific sub-agent invocations issued via Agent tool, the wave has not launched. Re-read this discipline; fire the dispatches.
+
+**Composition with § 3.9 hive-mind decision-routing:** seam-owning agents decide in-scope work, but they cannot decide if they have not been INVOKED. KR's Mode A orchestration is fundamentally about firing seam-owner sub-agents, not about authoring dispatches in isolation.
+
+**Authority:** Matt 2026-05-27 verbatim "knight-rider drafted everything but has not yet begun. This is a common hiccup with hive mind session start" — gandalf-authored amendment per Matt directive to remove the recurring hiccup.
+
+---
+
 ### 3.9 Hive-mind decision-routing discipline (Matt 2026-05-23 directive)
 
 **Verbatim Matt directive (load-bearing for all hive-mind orchestration):**

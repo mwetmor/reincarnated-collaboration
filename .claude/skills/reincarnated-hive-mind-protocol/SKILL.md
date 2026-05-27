@@ -92,6 +92,27 @@ Matt describes the work without an explicit phrase ("the substrate library impor
 
 **Recommendation for Matt:** when in doubt about whether to invoke hive-mind state, use Path A explicitly. Removes ambiguity at no cost. The variance reduction matters more as the team scales the number of concurrent hive-mind-capable workstreams.
 
+### 2.2.2 Wave-entry-fire-discipline (Matt 2026-05-27 amendment)
+
+> **A wave entry is NOT complete until sub-agents are FIRING.**
+
+The entry protocol § 2.2 step 5 ("knight-rider | Fire first Wave / Phase 0 dispatch") is more specific than artifact authoring. "Fire" means **INVOKE sub-agent via Agent tool with `run_in_background=true`**, NOT "write the dispatch file."
+
+Same applies to subsequent wave entries within the cycle. Each wave entry requires:
+
+1. Author dispatch + state-file + (optionally) skill_handoff
+2. Commit + push per established pattern
+3. **INVOKE sub-agent(s) via Agent tool** with `run_in_background=true` for parallel-fireable work
+4. Monitor via completion notifications per Discipline #19; NOT via polling
+
+**Anti-pattern observed Cycle 14 Wave 0 entry (2026-05-27)**: KR authored all Wave 0 dispatches (SC-1 through SC-6 + scope-doc + state-file + skill_handoff) + committed + pushed; declared "Wave 0 launched." But no Agent tool invocations had fired. Sub-agents were not running. The wave was structurally idle despite artifact-completeness. Matt had to explicitly prompt KR to begin firing.
+
+**Per Matt 2026-05-27 directive**: hive entry is INCOMPLETE until sub-agents are firing. KR OP § 3.10 captures the full discipline with verification checklist. This § 2.2.2 references it as the cross-cutting hive-mind-protocol-level statement.
+
+**Discipline rule for all hive-mind-participating agents (not just KR)**: when a step in this protocol says "fire" (e.g., "fire first Wave dispatch" / "fire SC-X dispatch" / "fire Wave N+1"), the action requires Agent tool invocation, NOT just dispatch file authoring. Status reporting must describe work that IS running, not just dispatches that are written.
+
+---
+
 ### 2.3 Exit protocol
 
 | Step | Owner | Action |
