@@ -204,3 +204,117 @@ KR will pick up + close Cycle 13 Track C REVISED. After this completes, the cycl
 **Authority:** knight-rider per Matt Track C REVISED directive + per-cycle-push authorization.
 
 **Push pattern:** per Matt authorization, commit + push as work-products land.
+
+---
+
+## Completion record
+
+**Status:** COMPLETE
+**Completed:** 2026-05-27
+**Agent:** drax
+
+### Hook-discovery confirmed
+
+Yes — AUTOMATIC. `useSeasonData.ts` glob `'../../data/*/manifest.json'` discovers
+`data/cycle-13-mechanical-season-001/manifest.json` with NO hook code changes.
+`selectableSeasons` includes `cycle-13-mechanical-season-001` on all 4 pages automatically.
+`manifest_version: "1.9"`, `placeholder_skill_content: true`, `cycle_14_refresh_pending: true` confirmed.
+
+### Per-page verification (3 chars × 4 pages smoke)
+
+Characters tested: STR `S1_endgame_str_01_heavy_barbarian`, INT `S1_endgame_int_03_pyromantic_caster`, WIS `S1_endgame_wis_02_holy_knight` (1 per attribute branch).
+
+| Page | Result | Notes |
+|---|---|---|
+| **Loadout.tsx** | PASS | 16 classes selectable; placeholder indicator visible; skill tree renders placeholder skill names; gear renders empty (no gear_pool.json — correct) |
+| **Sample.tsx** | PASS | Gap-fill tab retired; cycle-13 accessible via normal season picker; placeholder indicator visible |
+| **Analytics.tsx** | PASS | Cycle-13 appears in all aggregate charts (16 classes added); `actual_winrate: null` gracefully skipped in WR histogram (null-guard already present) |
+| **Encounters.tsx** | PASS | No change expected or required — Encounters uses separate `useEncounterAnalytics` hook reading `encounter_analytics_*.json`; cycle-13 does not affect this page until gauntlet-sim ingest lands |
+
+### Placeholder-indicator placement
+
+Season-picker level — amber banner (`border-amber-800/60 bg-amber-950/30`) rendered above
+Engine Baseline Banner / ClassHeader on both Loadout.tsx and Sample.tsx.
+
+Copy: "Skills pending Cycle 14 Phase 5 cohesion coalescence" + inline explanation
+(mechanical skeleton validated via 27,360-fight gauntlet; win rates real; skill names are placeholders).
+
+Detection: `manifest.placeholder_skill_content === true` (primary) OR
+`skills[0].phase5_is_placeholder === true` (fallback). Both paths confirmed for all 16 classes.
+
+`data-testid="placeholder-season-indicator"` marker present on banner div (regression-tested).
+
+### Gap-fill retirement summary
+
+**Removed from `Sample.tsx`:**
+- `Cycle13SampleSection` import (`import { Cycle13SampleSection } from '../components/Cycle13/Cycle13SampleSection'`)
+- `SampleView` type alias (`type SampleView = 'archive' | 'cycle13'`)
+- `sampleView` state variable (`useState<SampleView>('archive')`)
+- View toggle UI (2 tab buttons: "Season Archive" / "Cycle 13 Characters")
+- Conditional render block `{sampleView === 'cycle13' && <Cycle13SampleSection />}`
+- Archive-view conditional wrappers (`{sampleView === 'archive' && ...}`)
+
+**Kept (deferred cleanup):**
+- `src/components/Cycle13/` — 4 components (`Cycle13SampleSection`, `Cycle13CharacterHeader`, `Cycle13SkillTree`, `Cycle13GearDisplay`) — may be reusable for gauntlet-sim visualization
+- `src/hooks/useCycle13Data.ts` — empirical-data rendering utilities; defer until pattern settles
+- `scripts/export_cycle13_json.py` — SQLite bridge; reusable for future DB seasons
+- `public/data/cycle13/` — 33 static JSON files; defer cleanup post-Cycle-14
+- `data/cycle13_characters.db` — star-lord may still consume; post-Cycle-14 cleanup
+
+Cleanup trigger: post-Cycle-14 OR when gauntlet-sim visualization pattern is settled.
+
+### Optional gauntlet-sim-data consumption
+
+**DEFERRED.** Rationale: `cycle-13-gauntlet-sim-results-2026-05-27.json` schema
+(`kit_results`, `encounter_results` — 912 rows) is structurally different from the existing
+`encounter_analytics_*.json` format consumed by `useEncounterAnalytics`. Wiring requires a
+star-lord ingest transform (or new hook) — not a cheap addition.
+
+**Flag for star-lord follow-on dispatch:** convert gauntlet results to `encounter_analytics`-compatible
+format (or new format), copy to `data/encounter_analytics_cycle13.json`, coordinate with drax
+for Encounters page wiring. Separate dispatch post-Cycle-14.
+
+### MIGRATION § v2.3 path
+
+`/Users/admin/Games/reincarnated-loadout/MIGRATION.md` — § v2.3-cycle-13-normal-season-consumer
+(inserted as first entry; cross-refs § v2.2 per ADR-004).
+
+### Tests added
+
+**31 new tests** in `src/__tests__/cycle13-normal-season.test.ts`:
+
+- `Cycle 13 normal season — hook discovery verification (data contract)` — 5 tests
+- `Cycle 13 normal season — 16-class data contract` — 6 tests
+- `Cycle 13 normal season — placeholder flag detection` — 6 tests
+- `Gap-fill tab retirement — Sample.tsx regression guard` — 4 tests
+- `Placeholder indicator UX — Loadout.tsx and Sample.tsx surface` — 6 tests
+- `Cycle 13 manifest — seasonal_elements present (cipher-no-warn path)` — 4 tests
+
+**Pre-existing fix:** `cipher-no-leak.test.ts` — 2 tests updated `jest.spyOn` → `vi.spyOn`
+(enabled by vitest landing; no test logic changed).
+
+**Total suite:** 81/81 passing (23 cipher-no-leak + 27 cycle13-db + 31 cycle13-normal).
+
+### Build result
+
+- `tsc -b`: 0 TS errors, 0 warnings
+- `vite build`: clean (866 modules; chunk size warning is pre-existing, not introduced here)
+- `vitest run`: 81/81 tests passing
+
+### Commit SHAs
+
+- `f824fc5` — drax: Cycle 13 Track C REVISED Step 2 — normal season consumer + gap-fill tab retirement
+- Pushed to `origin/main` (reincarnated-loadout) per per-cycle-push authorization
+
+### WARN-pattern preservation chain status
+
+MAINTAINED. Existing `[drax cipher] WARN` patterns in `types.ts` (`resolveElementDisplay`,
+`assertManifestSeasonalFields`) unchanged. `useCycle13Characters` + `useCycle13Gear` WARN-patterns
+in `useCycle13Data.ts` unchanged (retained infrastructure). `cipher-no-leak.test.ts` WARN tests
+now execute correctly with `vi.spyOn` (previously blocked by `jest is not defined`).
+
+---
+
+**KR pickup:** Close Cycle 13 Track C REVISED. Update wind-down summary to reflect corrective
+architectural pass: gap-fill retired, cycle-13 integrated as normal season via hook auto-discovery,
+placeholder indicator UX shipped, gauntlet-sim wiring flagged for star-lord follow-on.
