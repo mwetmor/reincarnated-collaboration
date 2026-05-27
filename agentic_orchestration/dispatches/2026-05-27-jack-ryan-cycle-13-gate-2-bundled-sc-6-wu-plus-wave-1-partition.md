@@ -163,3 +163,48 @@ Per skill_handoff_2026-05-26 § 1 Priority 2 + jack-ryan's two prior consecutive
 **Wave:** 1 close-gate + Wave 5 prep close
 **Gates:** Wave 1 CLOSED (PASS) → Wave 2 T4 algorithm Phases 1-2 dispatch authoring; Wave 5 prep CLOSED → Wave 5 gauntlet sim execution (post-Wave-4-close)
 **Priority:** P1 — critical-path; bundled Gate-2 efficient
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-27
+**Author:** jack-ryan
+**Commit:** (see tag below)
+
+### SC-6 WU implementation — Gate-2 verdict: PASS
+
+**Finding file:** `agentic_orchestration/qa/findings/2026-05-27-cycle-13-sc-6-wu-gate-2.md`
+**Severity counts:** INFO=1 / WARN=0 / BLOCK=0
+**All 8 critique dimensions:** PASS
+**Gate-1 amendments W1/W2/W3:** all honored
+**Round-trip smoke:** PASS (5 profiles + 18 encounters + cohort coverage confirmed empirically)
+**Discipline #11 assertions (SC-6):** 5/5 PASS (no failures; assertions accurate)
+
+### Wave 1 partition implementation — Gate-2 verdict: PASS-with-WARN
+
+**Finding file:** `agentic_orchestration/qa/findings/2026-05-27-cycle-13-wave-1-partition-gate-2.md`
+**Severity counts:** INFO=2 / WARN=1 / BLOCK=0
+**All 12 critique dimensions:** PASS or PASS-with-qualifier
+**Gate-1 amendments W1/W2/I1:** all honored
+**Round-trip smoke:** PASS (27/27 tests; 9 rarity tiers)
+**WARN:** modifier count assertion — rocket claimed ~60; empirical = 67; implementation is correct (over-delivery); assertion was wrong
+
+### Discipline #11 WARN-pattern remediation status: PARTIALLY REMEDIATED
+
+SC-6 WU: 5/5 assertions PASS (no failures).
+Wave 1: 7/8 assertions PASS; 1 fail (modifier count 60 vs actual 67 — benign over-delivery).
+
+Progress across 3 Gate-2 reviews: pattern materially improved. Not yet fully closed.
+Full closure criterion: next Gate-2 produces 0 empirical assertion failures.
+Flag for KR scope-doc and skill_handoff: "WARN-pattern partially remediated; full closure targeted at Wave 2 Gate-2."
+
+### Next-action sequence for KR
+
+1. SC-6 WU: Wave 5 prep CLOSED — Wave 5 gauntlet sim execution unblocked (post-Wave-4-close; gamora seam)
+2. Wave 1: CLOSED — Wave 2 T4 algorithm Phases 1-2 dispatch authoring UNBLOCKED
+3. Wave 2 dispatch must invoke Disciplines #27 / #31 / #32 + SC-4 expansion explicitly (Gate-1 I3 routing)
+4. Include `legendary_t0_5` in Wave 2 round-trip smoke test coverage (Wave 1 Gate-2 I1)
+5. WARN-pattern: partial remediation status in next skill_handoff
+
+**Tag intent:** `jack-ryan(gate-2): bundled — SC-6 WU implementation PASS + Wave 1 partition implementation PASS-with-WARN`
