@@ -122,3 +122,32 @@ Does this dispatch add, modify, rename, or remove any field on:
 - `agentic_orchestration/cycles/cycle-14-cohesion-coalescence-scope.md` § 2 Wave 0.5 substrate weapon binding output
 - `agentic_orchestration/GOVERNANCE.md` ADR-004 (cross-repo coordination + MIGRATION.md requirement)
 - Engineering disciplines #11 + #18 + cross-seam interface discipline
+
+---
+
+## Completion record (SC-6 NARROW — audit-report only)
+
+**Completed:** 2026-05-27 (Cycle 14 Wave 0, third invocation under KR-narrowed scope)
+**Author:** elrond (data steward — catalogue DB + abstraction-analysis seam)
+**Output:** `agentic_orchestration/elrond/notes/2026-05-27-cycle-14-sc-6-substrate-weapon-audit.md`
+
+**Scope delivered:**
+- Audit report filed (6 sections per dispatch § 7)
+- Substrate library state confirmed: `weapon_knowledge_entries` + `weapon_sim_props` is the authoritative v1_scope pair (2,293 rows, 0 nulls on critical existing columns); `weapons` table 98.2% miss-rate on v1_scope, deprecated for SC-6 purposes; `catalogue.db` does not exist (dead-end confirmed)
+- Per-field dispositions validated: 5 of 6 confirm KR's pre-staged dispositions; 1 (`base_physical_damage`) amended with explicit Path A recommendation
+- `weapon_type_family` algorithmic mapping rule sampled (top-20 patterns; 96.5% coverage; ~81 edge-case rows flagged for SC-6b manual review)
+- Enrichment effort estimate: ~14–22 hours total SC-6b
+- Cross-seam impact summary: rocket Wave 0.5 contract change (5 new substrate columns); gamora downstream-of-rocket (no direct dependency); galadriel / star-lord / drax not impacted
+- SC-6b enrichment dispatch scope recommended for KR authorship
+
+**Scope NOT delivered (per re-fire narrowing):**
+- No schema changes (DB read-only inspection only — no CREATE/ALTER/INSERT/UPDATE)
+- No MIGRATION.md (SC-6b scope)
+- No data backfill (SC-6b scope)
+- No cross-seam coordination with rocket (deferred to SC-6b kickoff Pattern-A query)
+
+**Key architectural finding:** `damage_amplitude_min/max` is a 0.3–3.0 ratio, not absolute damage. Substrate library carries variance shape but not L50 absolute baseline. SC-6b's load-bearing decision: Path A (substrate-side `base_physical_damage_l50` column — elrond recommends) vs Path B (engine-side calibration constants). Path A vote rests on architectural-cleanliness + Discipline #11 auditability + tunable-surface single-source.
+
+**Wave 0.5 unblock:** this audit alone unblocks Wave 0.5 dispatch authoring + jack-ryan Gate-1 per framing brief § 2. SC-6b enrichment can fire IN Wave 0.5 parallel with rocket per-skill emission.
+
+**Next step:** KR authors SC-6b dispatch per § 5 recommended scope; routes rocket Pattern-A query at SC-6b kickoff to surface family-baseline LUT calibration.
