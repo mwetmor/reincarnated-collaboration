@@ -88,3 +88,97 @@ For each of 2 sites:
 - `agentic_orchestration/gandalf/notes/2026-05-27-discipline-46-db-streaming-candidate.md` § 1 (7 patterns) + § 2.1 (LOW-MEDIUM substrate sites)
 - `agentic_orchestration/gandalf/notes/2026-05-27-path-1-kr-scope-expansion-kicker.md` § 3.1
 - Engineering disciplines #1 + #11 + #46 (candidate; firing in parallel via Dispatch 1A)
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-27
+**Agent:** rocket
+**Outcome:** Both sites RATIFIED-AS-BOUNDED (INFO-close). No code logic changes. Discipline #46 ratify-as-bounded comments added to both fetchall() calls.
+
+### Per-site outcome
+
+#### Site 1 — `substrate_weapon_binding.py:332`
+
+**Decision:** RATIFY-AS-BOUNDED per Q-Sub-Refactor-1
+
+**Rationale:**
+- Three-layer filter: `v1_scope=1 AND weapon_kind IN ('category','named_template','unique') AND primary_stat=?`
+- Empirical row counts (2026-05-27): DEX=1,044 / STR=803 / INT=255 / WIS=212
+- Worst case 1,044 rows — well below Discipline #46 § 1 Pattern 4 10k threshold
+- Full materialization structurally required: caller uses `random.Random(seed).choice(row_dicts)` over all rows; streaming/fetchmany would still collect all rows before the uniform random draw
+- Per-seed determinism: fully preserved (no logic change; comment only)
+
+**EXPLAIN QUERY PLAN:**
+```
+QUERY PLAN
+|--SEARCH wke USING INDEX idx_knowledge_v1_scope (v1_scope=?)
+`--SEARCH wsp USING INTEGER PRIMARY KEY (rowid=?)
+```
+Index `idx_knowledge_v1_scope` confirmed present and used as filter entry point. No full scan.
+
+**Action:** Added Discipline #46 ratify-as-bounded comment immediately preceding `rows = cur.fetchall()` at line 332 (post-edit ~340).
+
+---
+
+#### Site 2 — `bc_target_substrate_engine.py:342`
+
+**Decision:** RATIFY-AS-BOUNDED per Q-Sub-Refactor-1
+
+**Rationale:**
+- Base filter `v1_scope=1` (2,499 rows total) plus optional attribute/range/tempo/source/cell_label refinements
+- Worst case (option_beta, DEX attribute-only, no other filters): 1,097 rows; typical option_alpha strict-match returns far fewer
+- Worst case well below Discipline #46 § 1 Pattern 4 10k threshold
+- Full materialization structurally required: `_filter_and_sample()` scores ALL candidates (0.40×tier + 0.35×cell_match + 0.15×coherence + 0.10×novelty), sorts by score, then `rng.choices()` with weights — streaming would still collect all rows before scoring pass
+- Per-seed determinism: fully preserved (no logic change; comment only)
+
+**EXPLAIN QUERY PLAN (option_alpha, STR+melee+high):**
+```
+QUERY PLAN
+|--SEARCH weapon_knowledge_entries USING INDEX idx_knowledge_v1_scope (v1_scope=?)
+`--USE TEMP B-TREE FOR ORDER BY
+```
+
+**EXPLAIN QUERY PLAN (option_beta worst case, DEX only):**
+```
+QUERY PLAN
+|--SEARCH weapon_knowledge_entries USING INDEX idx_knowledge_v1_scope (v1_scope=?)
+`--USE TEMP B-TREE FOR ORDER BY
+```
+Index `idx_knowledge_v1_scope` confirmed present and used as filter entry point in both query shapes. No full scan.
+
+**Action:** Added Discipline #46 ratify-as-bounded comment immediately preceding `rows = cursor.fetchall()` at line 342 (post-edit ~351).
+
+---
+
+### v1_scope index status
+
+`idx_knowledge_v1_scope` already exists on `weapon_knowledge_entries(v1_scope)` — elrond Dispatch 1B parallel work either already landed or the index was present. Both queries hit it per EXPLAIN QUERY PLAN above.
+
+### Grep audit
+
+```
+$ grep -n "\.fetchall()" src/reincarnated/generation/substrate_weapon_binding.py src/reincarnated/generation/bc_target_substrate_engine.py
+src/reincarnated/generation/substrate_weapon_binding.py:340:        rows = cur.fetchall()
+src/reincarnated/generation/bc_target_substrate_engine.py:351:            rows = cursor.fetchall()
+```
+
+Both calls present. Both immediately preceded by explicit Discipline #46 ratify-as-bounded comments. Audit clean.
+
+### Test results
+
+- `tests/test_w02_bc_target_composer.py` + `tests/test_bc_target_subspace_generator.py`: **85 passed, 0 failed**
+- `tests/test_cycle14_wave1_concentration.py` + `tests/test_class_generation.py` + `tests/test_gear_generation.py`: **100 passed, 1 failed, 1 skipped**
+  - Pre-existing failure: `test_cycle13_regression_full_smoke` row-count boundary assertion (`2314 outside [2058,2158]`) — substrate grew since test range was set; predates this dispatch
+  - Pre-existing failures in `test_d2_substrate_coupling.py` + `test_substrate_identity_loader.py`: element-count assertions expecting canonical-four that predate shadow/lightning/holy additions to foundation
+  - None of these failures are caused by or related to comment-only additions in this dispatch
+
+### Acceptance criteria status
+
+- [x] Both substrate fetchall sites refactored OR documented as already-bounded (with rationale) — **RATIFIED-AS-BOUNDED both sites**
+- [x] Per-site EXPLAIN QUERY PLAN captured — **idx_knowledge_v1_scope hit confirmed both sites**
+- [x] No semantic regression (existing generation tests PASS; per-seed determinism preserved) — **PASS; pre-existing failures unrelated**
+- [x] Grep audit shows no unbounded fetchall in these 2 sites — **CLEAN (both have ratify-as-bounded comments)**
+- [x] AGENT_STATE.md updated
+- [x] Completion record appended; commit + push per Matt 2026-05-27 per-cycle push pattern
