@@ -88,12 +88,12 @@ Three drift cases per consolidated doc § 1.2 + the meta-corrective sequencing p
 
 ## Acceptance criteria
 
-- [ ] Discipline #40 entry authored at `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` with § Statement + § Why + § Operational hooks + § Cross-references
-- [ ] Cross-references to #11, #13, #18, #39 explicit + reciprocal where appropriate (e.g., if #13 should reference #40 as its mechanical-value analog, amend #13's entry accordingly)
-- [ ] Three anchored example cases per consolidated doc § 1.2 cited with specific commit/line provenance per Discipline #1.2 code-citation discipline
-- [ ] Engineering-disciplines.md commit + push per Matt 2026-05-27 per-cycle push pattern (auto-fire per CLAUDE.md addendum)
-- [ ] Completion record appended to this dispatch file
-- [ ] Round-trip: not applicable (no inter-seam fixture dict change)
+- [x] Discipline #40 entry authored at `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` with § Statement + § Why + § Operational hooks + § Cross-references
+- [x] Cross-references to #11, #13, #18, #39 explicit + reciprocal where appropriate (e.g., if #13 should reference #40 as its mechanical-value analog, amend #13's entry accordingly)
+- [x] Three anchored example cases per consolidated doc § 1.2 cited with specific commit/line provenance per Discipline #1.2 code-citation discipline
+- [x] Engineering-disciplines.md commit + push per Matt 2026-05-27 per-cycle push pattern (auto-fire per CLAUDE.md addendum)
+- [x] Completion record appended to this dispatch file
+- [x] Round-trip: not applicable (no inter-seam fixture dict change)
 
 ## Out of scope (explicit non-goals)
 
@@ -118,3 +118,40 @@ Three drift cases per consolidated doc § 1.2 + the meta-corrective sequencing p
 - Engineering disciplines #11 + #13 + #18 + #39 (cross-reference targets)
 - Hive-mind protocol § 4 (decision-routing) + § 2.2.2 (wave-entry-fire-discipline)
 - `agentic_orchestration/cycles/cycle-14-cohesion-coalescence-scope.md` § 5 (load-bearing disciplines)
+
+---
+
+## Completion Record
+
+**Completed:** 2026-05-27
+**Agent:** jack-ryan
+**Commit:** `b282966` (reincarnated-engine main)
+**Pushed:** YES — per Matt 2026-05-27 per-cycle push pattern
+
+### What landed
+
+**Discipline #40 — Scaffold-values-require-canonical-decision** authored at:
+`~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`
+
+Entry includes:
+- § Statement (verbatim per consolidated doc § 4.1)
+- § Why this discipline is needed with three anchored instances (code-line provenance per Discipline #1.2):
+  - Instance 1: `substrate_weapon_binding.py:L238-269` (uniform sampling scaffold)
+  - Instance 2: `bc_target_subspace_generator.py:L173` (n_kits default; 16-char cohort drift)
+  - Instance 3: `per_skill_emitter.py:L130-152` (3-chain 4-tier grid scaffold)
+- § Operational hooks (dispatch authoring / Gate-2 checklist / wave-close MIGRATION.md status / roadmap visual flag)
+- § Cross-references to #11, #13a, #18, #39 with explicit composition rationale per each
+- § Composition with #39 (broader generalization)
+- § Triggerable Gate-1 and Gate-2 questions
+
+Reciprocal cross-reference added to Discipline #13a entry pointing to #40 as its mechanical-value analog.
+
+Scope note + anatomy table at top of engineering-disciplines.md updated to reflect #40 landing.
+
+### Open question resolutions
+
+- **Q-DISC40-1: STATUS = LOAD-BEARING.** Rationale: pre-Wave-5 gating criterion (Wave 5 MIGRATION.md depends on this discipline per consolidated doc § 5.3); same authority class as #39 which was Matt Q4 emphatic lock. A discipline required as a pre-condition for the production gauntlet wave is by definition load-bearing.
+
+- **Q-DISC40-2: Reciprocal cross-reference YES.** Amended #13a's cross-references section to add pointer to #40 as its mechanical-value analog. Rationale: #13a and #40 guard the same failure mode (implementation-vs-intent drift) at different observable surfaces — #13a at code-vs-doc comparison; #40 at wave-to-wave MIGRATION.md audit. Bidirectional citation makes both findable from either entry point and clarifies the relationship explicitly. The amendment is within jack-ryan's direct-approval authority (within-seam refinement of an existing entry; no API change to consumers).
+
+- **Q-DISC40-3: Three concrete instances sufficient.** The three 2026-05-27 instances are empirically specific, code-cited, temporally current, and cover the three distinct scaffold types (sampling distribution / cardinality default / architecture scaffold). Adding historical examples from prior cycles would be padding — the discipline is grounded on fresh evidence and the "how to extend" protocol specifies to keep disciplines load-bearing and durable, not encyclopedic.
