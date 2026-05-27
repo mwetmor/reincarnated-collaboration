@@ -133,3 +133,13 @@ For PoE2 + Last Epoch + Diablo 4 + Grim Dawn:
 **Wave:** 0 / Sidecar EXPANSION
 **Gates:** feeds Wave 1 doc 42 verification + Wave 2 T4 synergy scan implementation + Wave 4 sim degenerate-state detection methodology
 **Priority:** P2 — fire parallel with Wave 1 dispatch + SC-2 expansion + SC-6 audit
+
+---
+
+## Completion record
+
+**Status:** COMPLETE
+**Completed:** 2026-05-27
+**Output:** `agentic_orchestration/research/cycle-13/2026-05-27-arpg-sc-4-expansion-9-category-synergy-degenerate-patterns.md`
+**robots.txt compliance:** verified — pathofexile.com, lastepoch.com, grimdawn.com all PERMITTED; game wikis accessed via WebSearch aggregate only (consistent with base SC-4 discipline)
+**Discipline #18 timing classification:** Topic 1 = Wave-1-informing (doc 42); Topic 2 synergy framework = Wave-2-informing (rocket); Topic 3 degenerate-state methodology = Wave-4-informing (gamora SC-7)
