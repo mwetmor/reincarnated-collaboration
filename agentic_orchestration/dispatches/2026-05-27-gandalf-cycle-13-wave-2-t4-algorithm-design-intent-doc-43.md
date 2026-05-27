@@ -174,3 +174,75 @@ Doc 43 must explicitly compose:
 **Wave:** 2 design intent
 **Gates:** jack-ryan Wave 2 Gate-1 critique on doc 43 → rocket Wave 2 implementation dispatch authoring (post-Gate-1 PASS) → Wave 2 close (post-rocket-implementation Gate-2)
 **Priority:** P1 — critical-path Wave 2 start
+
+---
+
+## Completion record — 2026-05-27 — gandalf
+
+**Author:** gandalf
+**Status:** COMPLETE
+
+### What I delivered
+
+NEW canonical doc 43 at `/Users/admin/Games/reincarnated-collaboration/canonical/43-t4-algorithm-wave-2-intent-2026-05-27.md` — Wave 2 T4 algorithm design INTENT canonical for Cycle 13 multi-T4 architecture cycle. 14 sections per dispatch § Required sections. Mirrors doc 42 precedent structure.
+
+### Acceptance criteria status
+
+- [x] NEW canonical doc 43 authored at `canonical/43-t4-algorithm-wave-2-intent-2026-05-27.md`
+- [x] All 14 sections complete per § Required sections itemization (§ 0 TL;DR + § 1 architectural foundation + § 2 3-category taxonomy + § 3 DUAL_ELEMENT_ADDITION + § 4 parallel-chain reach + § 5 compositional synergy scan + § 6 T4-failure-handling Option F + § 7 Pattern 9+10 + § 8 one-T4-at-a-time + § 9 variable 3-or-4 chains + § 10 W2.0-W2.9 sub-waves + § 11 implementation guidance + § 12 close criterion + § 13 composition + § 14 sign-off)
+- [x] 3-category T4 taxonomy operationalized + DUAL_ELEMENT_ADDITION + parallel-chain reach + compositional synergy scan + T4-failure-handling Option F + Pattern 9+10 + one-T4-at-a-time + variable 3-or-4 chains all specified
+- [x] Sub-wave structure W2.0-W2.9 (10 sub-waves) implementation-ready for rocket
+- [x] All relevant disciplines (#1 / #1.2 / #11 / #18 / #18.2 / #26 / #27 / #29 / #30 / #31 / #32) cited + composed in respective sections (§ 13 composition table + § 11 implementation guidance subsections)
+- [x] Cross-validated against doc 40 § 8 amended (no contradiction; doc 43 operationalizes doc 40 § 8.4 + § 8.4.1 + § 8.4.2 + § 8.4.3 + § 8.2 T4-failure-handling for Wave 2)
+- [x] Tag intent: `gandalf: Cycle 13 Wave 2 T4 algorithm design intent canonical (doc 43)`
+- [x] Round-trip: not applicable — no cross-seam contract change in this dispatch (Wave 2 rocket implementation downstream WILL introduce cross-seam contracts)
+- [x] Ground-state § 1 doc 43 row added; gandalf first-reads row updated to include doc 43
+
+### Open-question resolutions
+
+1. **Doc numbering:** 43 (next available; 42 = partition; 41 = progression framework). ADOPTED.
+2. **Sub-wave granularity:** W2.0-W2.9 (10 sub-waves; matches dispatch suggestion). ADOPTED.
+3. **Pattern 9 + Pattern 10 spec depth:** **design-intent-with-generation-time-detection-spec** + starting-estimate thresholds + composition with #32 Pass 2 preserve. Full detection-algorithm calibration (threshold tuning + sim integration + telemetry instrumentation) DELEGATED to gamora SC-7 post-Wave-3-baseline per Discipline #18.2 (consultation at extension hotspots fires AFTER baseline empirical data). Per § 7.1 + § 7.2 specs starting estimates: Pattern 9 = <1 active skill per 10 sec; Pattern 10 = >5× expected DPS at max DoT stack.
+4. **DUAL_ELEMENT_ADDITION magnitude calibration:** **ANCHOR** magnitude band starting estimates (mirrors doc 42 § 9.4 Verdict-B.4-pattern). Per § 3.4: Low 15-25% / Medium 25-40% / High 40-55%. Rocket ships starting estimates in Wave 2; gamora SC-7 iterates post-Wave-2-baseline per #18.2.
+5. **Variable 3-or-4 chain architecture:** **design-intent abstract** (architecture supports both 3 and 4 chain configurations; algorithm receives `class_chain_count` parameter; generates `T4_count = chain_count - 1` per D83). Per-class roster DEFERRED per Block A2b deferred-commitment per § 9.3. Empirical-evidence criterion for re-engagement = Wave 1 BC-target review substrate vote.
+
+### Critical fold-ins from Wave 1 Gate-1 + Gate-2 routing — all addressed
+
+- **I2 (#27 + #31 + #32 composition):** explicitly invoked + composed throughout — § 2.4 #31 separability + § 5.7 #32 founding instance + § 11.7 explicit invocation requirement + § 13 composition table
+- **W3 (SC-4 expansion 5th Scaling-interaction + Pattern 9+10):** § 5.4 5-category synergy taxonomy includes Scaling-interaction as 5th + § 7 Pattern 9 + Pattern 10 design-intent specs surfaced
+- **I1 (`legendary_t0_5` round-trip):** explicitly listed as W2.9 round-trip CRITICAL gap closure requirement + § 12 close criterion
+- **WARN-pattern partial remediation status:** § 11.3 + § 12 CRITICAL full closure target = Wave 2 Gate-2 = 0 empirical assertion failures
+
+### 5-category synergy framework verification
+
+- 4 original categories (per closeout § 2.5 + doc 40 § 8.4.3): tension-resolution + theme-compound + cross-chain composition + element-gap fill
+- NEW 5th category per SC-4 expansion Topic 2 verdict: Scaling-interaction (true multiplicative-across-buckets is high-value form; additive-within-same-bucket is trap form per D4/GD evidence; algorithm MUST distinguish via bucket-identity check per § 5.4)
+
+### Sub-wave count: 10 (W2.0-W2.9)
+
+- W2.0 substrate prep + repo-scaffold
+- W2.1 3-category T4 taxonomy schema
+- W2.2 DUAL_ELEMENT_ADDITION strategy implementation
+- W2.3 parallel-chain reach implementation
+- W2.4 compositional synergy scan implementation (two-pass + 5-category)
+- W2.5 T4-failure-handling Option F 4-phase implementation
+- W2.6 Pattern 9 + Pattern 10 generation-time detection (starting estimates; gamora SC-7 calibrates)
+- W2.7 one-T4-at-a-time gating + variable 3-or-4 chain support
+- W2.8 cross-cohesion validation per #26 + Block C (gamora spot-check sim across 4 cohorts)
+- W2.9 round-trip smoke per Principle 6 (CRITICAL: 10 rarities incl. legendary_t0_5; full WARN-pattern closure)
+
+### Discipline compose-check (all in scope)
+
+#1 math-before-code (W2.1 gate + § 11.2) + #1.2 code-citation (§ 3.3 + § 11) + #11 empirical inspection (§ 11.3 CRITICAL full WARN-pattern closure) + #18 methodology-before-execution (T4 algorithm is math hotspot) + #18.2 consultation timing (gamora SC-7 fires AFTER Wave-3-baseline; magnitude bands + Pattern 9/10 thresholds delegated) + #26 playability (W2.8 cross-cohesion gate) + #27 dual-effect capstone (§ 2.1 IS the implementation) + #29 commitment-to-consequence (§ 6.3 partial-T4 ship; not free reversibility) + #30 sim methodology naming (composes with gamora SC-7) + #31 dual-effect separability (§ 2.4 Pass 2 separability check) + #32 first-do-no-harm (§ 5.7 two-pass synergy scan IS the implementation) — ALL composed
+
+### Commit
+
+Tagged: `gandalf: Cycle 13 Wave 2 T4 algorithm design intent canonical (doc 43)`
+
+### Next gates per § 14
+
+- jack-ryan Wave 2 Gate-1 critique on this doc (post-authoring; separate dispatch fires)
+- Rocket Wave 2 implementation per § 10 sub-wave structure + § 11 guidance (post-Gate-1 close; separate dispatch fires)
+- Gamora SC-7 methodology consultation post-Wave-3-baseline per Discipline #18.2 (separate dispatch; Wave 2 magnitude band + Pattern 9 + Pattern 10 detection calibration are SC-7 territory)
+
+**Signed:** gandalf (story-and-design steward)
