@@ -8,6 +8,7 @@
 **Authority:** Matt 2026-05-24 — Architecture B selected as primary production canonical; Matt 2026-05-26 — promotion to numbered canonical + § 0.5 expansion to capture full end-to-end content lifecycle including T4-and-gear dependency chain (one-way; NO circular dependency)
 **Companion docs:**
 - `canonical/40-gear-balance-guide-architecture-2026-05-26.md` (Cycle 13 architectural foundation; gear/balance/guide/multi-T4 architecture composes with this engine workflow at Phase 2 + Phase 5; § 0.5 of this doc captures the content lifecycle dependency chain that doc 40 architecture operates within)
+- `canonical/41-progression-framework-2026-05-27.md` (**NEW** — L50 hybrid progression framework + ~30-day seasonal duration; foundational architectural commitment composing with this workflow at Phase 1 progression-node coverage + Phase 2 skill point economy + Phase 3 multi-node calibration)
 - `canonical/story/historical/qd-engine-end-to-end-workflow-A-substrate-agnostic-developer-tool-2026-05-21.md` (Architecture A; now developer-tool reference per Matt 2026-05-24 unified-architecture refinement)
 - `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` (operational 8-axis BC spec)
 - `canonical/story/skill-system-2026-05-24.md` (Phase 2 skill composition; algorithmic mechanic-alteration; spirit-guide explainer; nested mythology naming; faction-generated proxies)
@@ -17,6 +18,8 @@
 - `canonical/story/legacy-categorical-cleanup-audit-2026-05-22.md` (Pattern 6 retirement — role-shape constraint removed per this discipline)
 - `canonical/story/fate-genre-recognition-and-mobile-alignment-trajectory-2026-05-23.md` (genre context)
 - `canonical/00-ground-state.md` (current truth oracle)
+- `agentic_orchestration/gandalf/notes/2026-05-27-cycle-13-pre-launch-design-session-closeout.md` (**NEW** — Matt + gandalf Pattern-B session 2026-05-27 closeout; T4 algorithm taxonomy refinement + content-compositional attunement + 9-category char sheet surface lock relevant to Phase 2b/2d/Step-2-Step-4-Step-5)
+- `agentic_orchestration/gandalf/notes/2026-05-27-block-c-calibration-scaffolding.md` (**NEW** — Block C calibration scaffolding for gamora handoff per Discipline #18; design-spec-as-math input for Step 6 sim validation)
 
 ---
 

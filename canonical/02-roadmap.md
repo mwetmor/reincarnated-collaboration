@@ -12,7 +12,10 @@
 - `canonical/00-ground-state.md` — ground-state oracle; first read for every agent
 - `canonical/39-qd-engine-end-to-end-workflow-2026-05-24.md` — authoritative source for workflow architecture; this doc tracks EXECUTION against it
 - `canonical/40-gear-balance-guide-architecture-2026-05-26.md` — Cycle 13 architectural foundation; provides per-phase commitments tracked here
+- `canonical/41-progression-framework-2026-05-27.md` — **NEW**: L50 hybrid progression framework + ~30-day seasonal duration; foundational architectural commitment
 - `canonical/38-downstream-delivery-strategy-2026-05-23.md` — D1-D10 delivery strategy keystone
+- `agentic_orchestration/gandalf/notes/2026-05-27-cycle-13-pre-launch-design-session-closeout.md` — **NEW**: Matt + gandalf Pattern-B session 2026-05-27 closeout (load-bearing handoff)
+- `agentic_orchestration/gandalf/notes/2026-05-27-block-c-calibration-scaffolding.md` — **NEW**: Block C calibration scaffolding for gamora handoff per Discipline #18
 - `canonical/historical/02-roadmap-workstream-tracker-2026-05-23.md` — predecessor (workstream-tracking layer; HISTORICAL — superseded by this doc)
 
 ---
@@ -442,7 +445,10 @@ What's in flight RIGHT NOW + what fires next.
 |---|---|---|
 | Architectural foundation (docs 38 + 39 + 40) | ✅ | Landed 2026-05-26 |
 | Cycle 13 framing brief (gandalf) | ✅ | RATIFIED 2026-05-26 (Matt ratified Q1-Q11 in full); canonical authority basis for scope-doc + KR kicker; `agentic_orchestration/gandalf/notes/2026-05-26-cycle-13-framing-brief.md` |
-| T4 PM1 design session | ⏳ | SUBSTANTIVELY COMPRESSED 2026-05-26 via gandalf Pattern A-deep verdicts (15 verdicts; 9 RATIFIED standalone + 6 REQUIRES-MATT-CREATIVE-RATIFICATION async); see `agentic_orchestration/gandalf/notes/2026-05-26-cycle-13-design-session-pattern-a-deep-verdicts.md`; awaiting Matt async ratification of 6 creative items |
+| T4 PM1 design session | ✅ 2026-05-27 | **PASS-1 COMPLETE** — Matt + gandalf Pattern-B sustained design session 2026-05-27 (~4 hours) covering Blocks A-E in full. All 6 REQUIRES-MATT-CREATIVE-RATIFICATION items ratified via live dialogue + additional architectural locks (L50 hybrid progression framework lock; T4 algorithm 3-category taxonomy + DUAL_ELEMENT_ADDITION + parallel-chain reach + compositional synergy scan; content-compositional attunement supersedes binary/graduated; 9-category char sheet surface; 11-slot taxonomy; per-slot affinity matrix; 8-pattern degenerate-state catalog; Block C calibration scaffolding for gamora handoff). 7 engineering-discipline candidates flagged to jack-ryan. Outputs durably captured at `agentic_orchestration/gandalf/notes/2026-05-27-cycle-13-pre-launch-design-session-closeout.md`. Pass-2 (POST-CYCLE-13 with battle sim integrated) queued. |
+| L50 hybrid progression framework lock (NEW canon — doc 41) | ✅ 2026-05-27 | Substantial latent canon made explicit; foundational architectural commitment for Reincarnated v1; `canonical/41-progression-framework-2026-05-27.md` |
+| Block C calibration scaffolding for gamora handoff | ✅ 2026-05-27 | Design-spec-as-math handoff per Discipline #18; 5-dimensional P_node vector + C_archetype + W(cell, node, cohort) function + Steps 1-8 calibration loop; `agentic_orchestration/gandalf/notes/2026-05-27-block-c-calibration-scaffolding.md` |
+| Doc 40 amendments (Wave 0 queued) | ❌ | gandalf authors when Cycle 13 launches: T4 algorithm 3-category taxonomy (D81); DUAL_ELEMENT_ADDITION strategy (§ 3.2 + § 8.4); parallel-chain reach (§ 6 + § 8); compositional synergy scan (§ 8); content-compositional attunement (D33+D38+D51); 9-category char sheet surface (§ 3.6); class-intrinsic supporting chain (§ 6); dual-effect separability + first-do-no-harm (§ 12.1 candidates #6 + #7) |
 | Cycle 13 scope-doc authoring (gandalf 4-8 hrs per D85) | ⏳ | Skeleton landed 2026-05-26 (KR); § 12.3 filled 2026-05-26 via gandalf verdicts; remaining canonical doc authoring (3 docs per verdict file § 6.2) conditional on Matt async ratification |
 | Stat-sheet partition design cycle (multi-seam early Cycle 13 milestone) | ⏳ | Design intent landed via Verdicts B.2-B.4 (B.4 RATIFIED standalone; B.2/B.3 pending Matt async); SC-4 5 methodology gates CLOSED per Verdict B.4 |
 | Gamora methodology consultation (D60 + D74 + D84) | ⏳ | Delegate-to-gamora posture RATIFIED via Verdicts C.1-C.3; consultation fires post-Wave-4-baseline per Discipline #18.2 refinement |
@@ -477,6 +483,15 @@ Architectural commitments locked but execution DEFERRED. Each lists the empirica
 | Architecture B → A or C switch | Doc 39 § 4 empirical-trigger discipline | Faction clustering quality / algorithm cultural-fit / player-experience signal / substrate-enrichment cost / Phase 5 LLM cost |
 | Faction architecture / three-tier branding / Track M1 mythological-named-weapons fire | Recognition record `fate-genre-recognition-and-mobile-alignment-trajectory-2026-05-23.md` | Per § 9 empirical triggers in recognition record |
 | MVP scope lock | (pending) | Post-Stage-1-cluster-checkpoint |
+| **Per-level scaling formulas** (player stat scaling; monster stat scaling; XP curve; encounter difficulty multipliers per level) | Doc 41 § 4 #1 (deferred 2026-05-27) | Cycle 13 mechanical season gen telemetry OR scaling-implementation cycle scheduled (Cycle 14+ candidate) |
+| **First-pass class roster** (specific class lineup; chain count + composition per class) | Block A2b deferred 2026-05-27 | Wave 1 BC-target review + substrate evidence on chain composition viability |
+| **Full respec cost calibration** | Block A4b deferred 2026-05-27 | Gear/currency infrastructure landed (Cycle 14+) |
+| **Multi-node calibration WORK across all 4 progression nodes** (Block C Scaffolds 1+3 per-node numerical calibration) | Doc 41 § 4 #2 deferred 2026-05-27 | Per-level scaling formulas land (post #1 above) |
+| **Acquisition curve calibration sharpening** (D21 Option A specifics under L50 hybrid engagement window) | Doc 41 § 4 #3 deferred 2026-05-27 | Per-level scaling formulas + telemetry-based per-cohort engagement data |
+| **Position-as-resource (9th resource model)** | Block A.5b deferred v1.1+ 2026-05-27 | P2/P3 substrate clustering surfaces artillery/cannoneer/siege cluster (~50+ rows) whose mechanical natural fit is none-of-current-8-models |
+| **Faith/Souls/Karma + Crafted-resource (10th+ resource models)** | Block A.5b deferred v1.1+ 2026-05-27 | Substrate vote OR design call for archetypal kits requiring them |
+| **Chain-level respec** (between T4-only and full respec) | Block A4a deferred v1.1+ 2026-05-27 | Substrate-evidence shows binary T4-only / full respec is too rigid |
+| **Graduated attunement** (alternative to content-compositional) | Block B1a deferred v1.1+ 2026-05-27 | Substrate-evidence shows content-compositional too rigid |
 
 ### Engineering-discipline candidates (jack-ryan ratification queue)
 
@@ -488,6 +503,8 @@ Architectural commitments locked but execution DEFERRED. Each lists the empirica
 | Commitment-to-consequence discipline (D79) → **#29** | Doc 40 § 8.9 | ✅ 2026-05-26 — jack-ryan SC-2 canonical landed |
 | Sim methodology naming discipline (D84) → **#30** | Doc 40 § 8.11 | ✅ 2026-05-26 — jack-ryan SC-2 canonical landed |
 | Discipline #23 amendment — 3rd operational instance reference | Doc 40 § 1.4 | ✅ 2026-05-26 — jack-ryan SC-3 amendment landed (1st + 2nd instances also made explicit inline) |
+| **Dual-effect separability discipline (D76 amendment) → #31** | Block A.5 2026-05-27 session — corrected Blood Magic example | ❌ — jack-ryan ratification queued; founding instance captured in closeout doc § 7 |
+| **First-do-no-harm discipline for algorithmically-generated T4 keystones → #32** | Block A.5 2026-05-27 session button-up | ❌ — jack-ryan ratification queued; two-pass synergy scan (resolve + preserve); founding instance captured in closeout doc § 7 |
 
 ---
 
