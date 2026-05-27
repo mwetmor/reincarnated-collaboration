@@ -305,7 +305,7 @@ USER (output JSON):
 **Operational sequence within Phase 5 (amendment to parent spec § 4 calibration approach):**
 
 ```
-1. Form-level naming (form_name, form_kit_summary, sub-element flavoring) — parent spec § 1.1
+1. Form-level naming (form_name, form_kit_summary, flavor element flavoring) — parent spec § 1.1
 2. Skill-node naming (per-node LLM calls; ~8-10 nodes per form; cohesion-judge) — parent spec § 2
 3. T4 keystone narration (THIS AMENDMENT; 1 LLM call per form; cohesion-judge per § 3) ← NEW
 4. Spirit-guide narration metadata propagation (existing t4_wireup machinery, now sourcing from #3 output)
@@ -406,7 +406,7 @@ Following parent spec Discipline #17 + #1 + #18 pattern, additional parameters n
 
 ## 6. Out-of-scope (per task brief 2026-05-26)
 
-- Sub-element investigation (deferred to Cycle 13 v1.1+; captured in T4 PM1 prep doc § 6 Category 4)
+- Flavor element investigation (deferred to Cycle 13 v1.1+; captured in T4 PM1 prep doc § 6 Category 4)
 - WeaponSlot fix (drax in parallel via separate sub-agent; Fix 2 per task brief)
 - Engine architectural amendments beyond the new T4 narration fields (the schema fields already exist; this amendment only specs the LLM fill)
 

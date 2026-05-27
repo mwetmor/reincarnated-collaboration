@@ -34,7 +34,7 @@ Architecture B is the production engine flow for Reincarnated v1 and all commerc
    - **Option α — Martial cells (STR/DEX primary, physical-element):** weapon-slot requires 5-tuple mechanical-fingerprint match
    - **Option β — Caster cells (INT/WIS primary, non-physical-element):** weapon-slot requires ATTRIBUTE-LEVEL match only
    - **Option C — Cross-attribute hybrid cells (Red Mage / Monk / Holy Knight):** weapon-slot permits cross-attribute wielding with ω-penalty per BDI ω-field resource-dimension
-5. **Phase 5 cohesion-coalescence handles flavor + naming** — sub-element flavor mapping (renamed 2026-05-24 from "element canonical-pair flavor" to disambiguate from retired seasonal-realm-mapping concept AND from legendary canonical-pair set-bonuses); archetypal player-facing naming per universal naming discipline; spirit-guide explainer integration; bi-modal form library + nested mythology naming + faction-generated-proxy templates
+5. **Phase 5 cohesion-coalescence handles flavor + naming** — flavor element flavor mapping (renamed 2026-05-24 from "element canonical-pair flavor" to disambiguate from retired seasonal-realm-mapping concept AND from legendary canonical-pair set-bonuses); archetypal player-facing naming per universal naming discipline; spirit-guide explainer integration; bi-modal form library + nested mythology naming + faction-generated-proxy templates
 6. **Empirical-trigger discipline** — explicit triggers for potential switch to Architecture A (developer-tool) or Architecture C (mid-bind hybrid) if Architecture B's hypothesized benefits don't materialize
 
 ---
@@ -313,7 +313,7 @@ Per doc 40 § 8.5 + § 9 Cycle 13 scope mapping, Cycle 13 work touches all 6 lif
 │          assigns flavor + naming (substrate identity ALREADY BOUND from   │
 │          Phase 2; cohesion-judge confirms + enriches):                    │
 │          ┌─ confirm substrate-thematic fit (cultural-tradition coherence) │
-│          ├─ sub-element flavor mapping per element + bound substrate's   │
+│          ├─ flavor element flavor mapping per element + bound substrate's   │
 │          │  cultural-tradition                                            │
 │          ├─ bi-modal form-library assignment (per Sketch F + Matt 2026-   │
 │          │  05-24 lock — engine-internal named-personage substrate-       │
@@ -398,7 +398,7 @@ Per Matt 2026-05-24 design dialogue, Architecture B is selected with the followi
 
 | Signal | What it enables at Phase 2 |
 |---|---|
-| **Bound weapon's cultural-tradition** | Algorithm § 8 mechanic-alteration informed by cultural canon (Mexica-anchored kit gets "Obsidian-Edge Cascade" regime-change, not generic mid-INT-spike); algorithm § 8.6 faction-spawn-template derives faction-anchor immediately; sub-element flavor mapping has cultural signal |
+| **Bound weapon's cultural-tradition** | Algorithm § 8 mechanic-alteration informed by cultural canon (Mexica-anchored kit gets "Obsidian-Edge Cascade" regime-change, not generic mid-INT-spike); algorithm § 8.6 faction-spawn-template derives faction-anchor immediately; flavor element flavor mapping has cultural signal |
 | **Bound weapon's historical period** | Engine generation period-coheres at kit-spawn (medieval-european forms get medieval-period weapons + skills); avoids anachronistic mix |
 | **Bound weapon's named-bearer attribution** | Bi-modal form-library engine-anchor assigned at Phase 2 (per Sketch F ~32% named-personage); per skill-system § 12.4 nested mythology naming triggers in Phase 5 |
 | **Bound weapon's mechanical signature** | Phase 3 sim runs with REAL combat fidelity (specific damage range / attack speed / etc.) |
@@ -693,10 +693,10 @@ Without empirical-trigger fire, Architecture B stays locked. v1 ships under Arch
 
 1. **Confirm substrate-thematic fit** — cultural-tradition coherence between bound substrate and kit composition (mechanical signature + skill kit + traits should fit substrate's cultural-tradition; if mismatch, cohesion-judge can re-coalesce per Matt 2026-05-24 graduated-alignment discipline — drop named-bearer attribution if low alignment; engine-name original form)
 
-2. **Sub-element flavor mapping** per Matt 2026-05-24 sub-element lock (renamed from "element canonical-pair" to disambiguate from retired seasonal-realm-mapping concept AND from legendary canonical-pair set-bonuses):
+2. **Flavor element flavor mapping** per Matt 2026-05-24 flavor element lock (renamed from "element canonical-pair" to disambiguate from retired seasonal-realm-mapping concept AND from legendary canonical-pair set-bonuses):
    - Core element stays stable (8 elements: physical / fire / water / earth / wind / lightning / holy / shadow)
-   - Per-form sub-element manifestation at LLM-runtime per bound substrate's cultural-tradition
-   - Examples: earth-element + necromancer engine-anchor → "Bone Spear / Bone Wall" (bone sub-element of earth); earth + Mexica engine-anchor → "Obsidian-Edge Cascade" (obsidian sub-element of earth); shadow + vampire engine-anchor → "Bat-Form Strike / Vampiric Drain" (vampiric sub-element of shadow)
+   - Per-form flavor element manifestation at LLM-runtime per bound substrate's cultural-tradition
+   - Examples: earth-element + necromancer engine-anchor → "Bone Spear / Bone Wall" (bone flavor element of earth); earth + Mexica engine-anchor → "Obsidian-Edge Cascade" (obsidian flavor element of earth); shadow + vampire engine-anchor → "Bat-Form Strike / Vampiric Drain" (vampiric flavor element of shadow)
 
 3. **Bi-modal form-library assignment** per Sketch F + Matt 2026-05-24 universal-archetypal-naming lock:
    - Engine-internal named-personage substrate-anchor assigned at Phase 2 (per substrate's named-bearer attribution if applicable; ~32% named-personage / ~68% engine-named-original per bi-modal lock)
@@ -798,12 +798,12 @@ This architecture composes with all 18 architectural locks from the Cycle 10 Sta
 | 10-15 node skill tree | Phase 2 skill composition |
 | Mechanic-altering passives only | Phase 2 passive composition |
 | Algorithmic mechanic-alteration (skill-system § 8) | Phase 2 T4-build-defining-if-applicable |
-| 8 core elements | Phase 2 element coupling + Phase 5 sub-element flavor |
+| 8 core elements | Phase 2 element coupling + Phase 5 flavor element flavor |
 | Architecture B substrate-as-base-type-templates + tiered-instance-loot | Phase 5 loot-architecture tier assignment per bound substrate's Tier S/A/B/C |
 | Universal archetypal player-facing naming | Phase 5 cohesion-judge archetypal-naming discipline |
 | Bi-modal form library (engine-layer discipline) | Phase 5 engine-internal vs player-facing layer separation |
-| Sub-element flavor at LLM-runtime (renamed from "element canonical-pair flavor" 2026-05-24) | Phase 5 sub-element flavor mapping per substrate cultural-tradition |
-| Legendary canonical-pair set-bonuses (DISTINCT concept from sub-element flavor; legitimate "canonical pair" usage for paired legendary items per Matt 2026-05-24 lock) | Phase 5 + loot-architecture (player-choice equip-both triggers set-bonus regime-change at gameplay) |
+| Flavor element flavor at LLM-runtime (renamed from "element canonical-pair flavor" 2026-05-24) | Phase 5 flavor element flavor mapping per substrate cultural-tradition |
+| Legendary canonical-pair set-bonuses (DISTINCT concept from flavor element flavor; legitimate "canonical pair" usage for paired legendary items per Matt 2026-05-24 lock) | Phase 5 + loot-architecture (player-choice equip-both triggers set-bonus regime-change at gameplay) |
 | Option α / Option β / Option C per cell-type matching | Phase 2 substrate-binding policy |
 | Caster kit definition | Phase 2 Option β attribute-level match |
 | Faction-generated proxies (skill-system § 8.6) | Phase 2 proxy-spawn-template (substrate's cultural-tradition + period immediately available) |
@@ -861,7 +861,7 @@ This architecture composes with all 18 architectural locks from the Cycle 10 Sta
 ### Downstream artifacts this doc anchors
 - Composition policy canonical doc (post-D6 Stage 3 lock) — substrate-bound v1_scope per Architecture B
 - Loot architecture canonical doc (post-Cycle-10 authoring) — Architecture B + loot-tier composition per § 5.5
-- Sub-element architecture canonical doc (post-Cycle-10 authoring; renamed from "element canonical-pair flavor architecture") — Phase 5 sub-element flavor mapping per § 5.5
+- Flavor element architecture canonical doc (post-Cycle-10 authoring; renamed from "element canonical-pair flavor architecture") — Phase 5 flavor element flavor mapping per § 5.5
 - Naming-space partitioning canonical doc (post-Cycle-10 authoring) — Phase 5 cohesion-judge constraint
 - Algorithm § 8 implementation dispatch (post-Cycle-10 rocket seam) — substrate-bound at Phase 2
 - Phase 5 cohesion-judge calibration spec (P5 territory) — per § 5.5

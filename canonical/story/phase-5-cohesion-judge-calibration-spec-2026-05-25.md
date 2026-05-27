@@ -21,7 +21,7 @@
 
 ## 0. TL;DR
 
-Phase 5 currently fires at form-layer only (form name + sub-element flavoring). It does NOT fire at skill-node level → 289/289 skill nodes in v2_narrow are placeholders ("Chain A T1 0" etc.). This spec defines:
+Phase 5 currently fires at form-layer only (form name + flavor element flavoring). It does NOT fire at skill-node level → 289/289 skill nodes in v2_narrow are placeholders ("Chain A T1 0" etc.). This spec defines:
 
 1. **What skill-node-level Phase 5 produces** — name + flavor text + thematic alignment per node
 2. **LLM prompting structure** — input context, output schema, prompt template per node-tier × node-type
@@ -39,7 +39,7 @@ Rocket implements per spec. jack-ryan Gate-2 validates per acceptance criteria �
 ### 1.1 What Phase 5 currently DOES (per legacy engine + Cycle 12 sample-season output)
 
 - **Form-level naming**: produces form name per kit identity (e.g., "Jade Warlord" from Aztec war-club + Moctezuma anchor + RESOURCE_CONVERSION)
-- **Sub-element flavoring**: produces sub-element manifestation per substrate-tradition (per skill-system sub-element architecture)
+- **Flavor element flavoring**: produces flavor element manifestation per substrate-tradition (per skill-system flavor element architecture)
 - **Spirit-guide narration metadata**: per L6 narration_metadata schema (drax Cycle 12 Wave 5 LIVE-supported)
 
 ### 1.2 What Phase 5 currently DOES NOT do (the gap)
@@ -258,15 +258,15 @@ Per math-before-code + Discipline #17, the following parameters require empirica
 
 ---
 
-## 5. Sub-element flavoring at skill-node level
+## 5. Flavor element flavoring at skill-node level
 
-Per skill-system sub-element architecture:
-- Phase 5 produces sub-element manifestation per substrate-tradition at form level
-- Should this extend to skill-node level? (e.g., per-node sub-element flavor variation within form)
+Per skill-system flavor element architecture:
+- Phase 5 produces flavor element manifestation per substrate-tradition at form level
+- Should this extend to skill-node level? (e.g., per-node flavor element flavor variation within form)
 
-**Recommendation (initial):** sub-element flavoring at form level only; skill-node naming inherits form's sub-element. Re-evaluate post-implementation if observed forms feel "over-uniformized."
+**Recommendation (initial):** flavor element flavoring at form level only; skill-node naming inherits form's flavor element. Re-evaluate post-implementation if observed forms feel "over-uniformized."
 
-**Reasoning:** sub-element-per-skill-node would explode LLM call complexity + risk over-fragmenting form identity. Form-level sub-element + skill-level cultural-tradition + element references should suffice for coherent narration.
+**Reasoning:** flavor element-per-skill-node would explode LLM call complexity + risk over-fragmenting form identity. Form-level flavor element + skill-level cultural-tradition + element references should suffice for coherent narration.
 
 ---
 

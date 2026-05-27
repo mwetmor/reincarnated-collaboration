@@ -109,6 +109,16 @@ These shaped current canon. They are NOT wrong. They are NOT current. Read them 
 
 **Default rule:** if a `canonical/story/` doc is dated before 2026-05-22 and is not on the CURRENT list (Section 1), treat it as historical. It informed; it does not direct.
 
+## 2.5 Canonical vocabulary — locked terminology
+
+Authoritative terms locked by Matt directive to prevent recurring agent confusion. New work uses these terms; historical artifacts retain their original terms as records of past usage.
+
+| Locked term | Definition | Retired terms |
+|---|---|---|
+| **flavor element** | Thematic flavor variant of a primary canonical_element. Pure flavor / naming / visual layer. Does NOT change damage_scaling_type, element_affinity, resistance routing, or any mechanical property. Example: earth's flavor elements include `bone / obsidian / stone / crystal / sand / mud / ash / iron / spike / magma`; shadow's include `darkness / vampiric / umbral / abyss / night-jaguar`. Phase 5 cohesion-judge LLM assigns at LLM-runtime per substrate cultural-tradition + chain composition. Phase 6 visual coalescence consumes for per-skill visual asset selection. | `sub-element` (renamed 2026-05-27 per Matt vocabulary discipline — "sub-" prefix incorrectly implied mechanical sub-category; "flavor element" makes flavor-layer-only nature explicit); `element canonical-pair flavor` (renamed 2026-05-24 — disambiguated from retired seasonal-realm-mapping concept AND from legendary canonical-pair set-bonuses) |
+
+---
+
 ## 3. What is DEAD — do NOT consult as current truth
 
 | Pattern | What's dead | Why |
@@ -157,7 +167,7 @@ Replaces the per-agent multi-doc Phase-1 reading list with a focused short list.
 | **Algorithm § 8 implementation (v1 T4 deliverable)** | ⚠️ **Cycle 11 v1 SHIPS AS INTENT METADATA (Tier 2)** — § 8 algorithm implemented (commit `3430269`); BC-shift validation sweep FAILED (test design + missing wire-up; architecture SOUND per unanimous diagnostic triple-fire); Tier 2 ratified — ships § 8 as intent metadata + spirit-guide narration + loadout display; Layer 6 wire-up (alterations reach combat arithmetic) DEFERRED to Cycle 12 via new engine layers; BDI mathematical validation DEFERRED to v1.1 (Cycle 13+) | rocket (§ 8 done); drax (M3/M6 firing); future Cycle 12 Layer 6 wire-up |
 | **Loadout app readiness scoping** | ✅ COMPLETE 2026-05-25 — drax + star-lord scoping memo at `agentic_orchestration/drax/notes/2026-05-25-loadout-app-readiness-scoping.md`; 6 M-items M1-M6 + 5 Q1-Q5 ratified per Matt P2c "Approved"; drax M4 COMPLETE (Cycle 11); M3/M6 firing in Cycle 11 Wave 3b; M1/M2/M5 firing post-Cycle-12 schema extensions | drax + star-lord (scoping done); drax (M-items implementation) |
 | **Pi infrastructure (Postgres + closed-loop pipeline)** | RECOGNITION RECORD 2026-05-25; D1 RATIFIED (Pi-Postgres for engine-internal; hosted-Postgres for loadout CONDITIONAL per D4 amendment); D9 LLM cache DEFERRED (G12 NOT TRIGGERED); execution DEFERRED to Matt "right moment"; G1 SQLite contention TRIGGERED with 4 kernel panics confirmed | gandalf recognition record; star-lord G1+G12 measurements done; execution gated on Matt schedule |
-| **Post-Cycle-10 canonical authoring queue** | QUEUED for Cycle 10 wind-down; ~6-8 hours gandalf foreground: Phase 4 simplified archive math spec + Phase 5 cohesion-judge calibration spec + loot architecture canonical doc + sub-element architecture canonical doc + naming-space partitioning canonical doc + optional knight-rider OP amendment | gandalf |
+| **Post-Cycle-10 canonical authoring queue** | QUEUED for Cycle 10 wind-down; ~6-8 hours gandalf foreground: Phase 4 simplified archive math spec + Phase 5 cohesion-judge calibration spec + loot architecture canonical doc + flavor element architecture canonical doc + naming-space partitioning canonical doc + optional knight-rider OP amendment | gandalf |
 | **Hive-mind scope-doc discipline** | ✅ LANDED 2026-05-25 — per-cycle scope-of-autonomy enumeration discipline at `agentic_orchestration/operating-procedures/hive-mind-scope-discipline.md`; backported into hive-mind-protocol.md § 2.2 entry-protocol step 1.5 + KR OP § 1 mandatory session-start read 5a + KR OP § 3.5 cycle-specific authority-refinement; founding instance = Cycle 10 retroactive scope-doc | gandalf authors (default); Matt ratifies; knight-rider consumes |
 | Documentation cleanup (this pass) | ACTIVE — `00-ground-state.md` just landed; epoch-stamping next; onboarding-list shrink after | gandalf (oracle); knight-rider (epoch-stamp dispatch); jack-ryan (onboarding-list review) |
 | Skill packaging (Skill Creator + Skill Seekers) | ✅ CLOSED — 16 skills landed 2026-05-23 | (closed) |

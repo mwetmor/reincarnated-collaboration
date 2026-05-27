@@ -361,7 +361,7 @@ The complete QD-engine workflow per doc 39 § 1, with status icons inline at eac
 │                                                                                              │
 │  Action: LLM cohesion-judge confirms identity-narrative coherence + flavor + naming          │
 │    ⏳            - confirm substrate-thematic fit (cultural-tradition coherence)             │
-│    ⏳            - sub-element flavor mapping per element + bound substrate                  │
+│    ⏳            - flavor element flavor mapping per element + bound substrate                  │
 │    ✅ 2026-05-24 - bi-modal form-library assignment (Sketch F + universal-archetypal)        │
 │    ⏳            - naming-space partitioning per engine-anchor                               │
 │    ⏳            - nested mythology naming (Tier-2 invokes Tier-1; skill-system § 12.4)      │
