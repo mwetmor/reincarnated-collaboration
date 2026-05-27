@@ -531,17 +531,19 @@ Architectural specifics depend on downstream work:
 
 Multi-T4 + attunement + sets + stat-sheet partition + acquisition mechanics is a lot of decisions for casual audiences. Spirit guide (§ 5) is primary mitigation — surfaces relevant decisions contextually; lets casual players engage with depth at their pace. Progressive concept introduction via play encounter.
 
-### 6.6.1 Class-intrinsic supporting chain absorbs trait architecture (LOCKED 2026-05-27 — closeout § 2.1, Option C)
+### 6.6.1 Per-kit supporting chain absorbs trait architecture (RE-AMENDED 2026-05-27 evening — no-class architectural recommitment)
 
-**May 12 trait architecture (per `project_trait_architecture.md` memory) is SUPERSEDED by current chain + stat-sheet + legendary-passives architecture.** ~90% of trait architecture absorbs automatically; the remaining "per-class intrinsic baseline passive" surface lands in:
+> **REDACTION NOTE 2026-05-27 evening:** Matt no-classes architectural recommitment retires "class-intrinsic" framing. Supporting chain is per-kit (emerges from substrate-cluster-shared-theme at the kit's BC cell), NOT class-intrinsic. See `agentic_orchestration/gandalf/notes/2026-05-27-no-classes-architectural-recommitment.md`. Original section title "Class-intrinsic supporting chain" → "Per-kit supporting chain"; original term "class identity" → "kit identity emerging from substrate-cluster theme" throughout body text below.
 
-**Option C — Supporting chain absorbs class identity.** The T3-only supporting chain (every class has one per D83) serves as the "class-intrinsic passives" location. Supporting chain represents class identity; T4 chains represent build specialization.
+**May 12 trait architecture (per `project_trait_architecture.md` memory) is SUPERSEDED by current chain + stat-sheet + legendary-passives architecture.** ~90% of trait architecture absorbs automatically; the remaining "per-kit intrinsic baseline passive" surface lands in:
+
+**Option C — Supporting chain absorbs kit identity.** The T3-only supporting chain (every kit has one per D83 per § 8.3) serves as the "per-kit intrinsic passives" location. Supporting chain represents kit identity (emerging from substrate-cluster theme); T4 chains represent build specialization.
 
 - **No separate "trait modifier" axis** on character sheet (the 9-category surface § 3.6 does not include a trait column)
-- **Player chooses investment level** in class-identity (supporting chain) vs build-specialization (T4 chains) — real opportunity cost
-- **Composes with depth-vs-breadth lever** (variable 3-or-4 chains; supporting chain present in both architectures per § 8.3)
+- **Player chooses investment level** in kit-identity (supporting chain) vs build-specialization (T4 chains) — real opportunity cost
+- **Composes with depth-vs-breadth lever** (variable 3-or-4 chains; supporting chain present in both per § 8.3)
 - **Substrate-led**: uses existing architectural surface rather than adding new layer
-- **Minimum viable trait integration** (per Verdict D.1; deferred Matt async — see doc 42 § 8 for Wave 1 implementation guidance): 55-entry trait pool (5 per archetype × 11 archetypes) lands in Wave 1 as bounded scope; per-class 5-10 + L12/L25/L38 floors DEFERRED to Cycle 14+
+- **Minimum viable trait integration** (per Verdict D.1; deferred Matt async — see doc 42 § 8 for Wave 1 implementation guidance): 55-entry trait pool (5 per archetype × 11 archetypes) lands in Wave 1 as bounded scope; per-archetype 5-10 + L12/L25/L38 floors DEFERRED to Cycle 14+ — note "archetype" here references **substrate-cluster archetype-shapes**, not pre-authored classes
 
 ### 6.7 Decision points
 
@@ -632,31 +634,40 @@ Source conversation Stage 1-6 (KPM detection → personal bests → shareable ar
 
 Composes with D1 (balance-as-property — failures are honest), D67 (independent gauntlet sim validation), D65 (respec mechanism), D62 (compute budget).
 
-### 8.3 Class chain structure (Interpretation A confirmed; AMENDED 2026-05-27 with variable 3-or-4 chains per closeout § 1.4)
+### 8.3 Per-kit chain structure (RE-AMENDED 2026-05-27 evening — no-class architectural recommitment)
 
-**T4 count per class = chain count - 1.**
+> **REDACTION NOTE 2026-05-27 evening:** Matt no-classes architectural recommitment retires "class" as a unit of architecture. Per-kit chain structure emerges from substrate clustering at the kit's BC cell, NOT from pre-authored class metadata. See `agentic_orchestration/gandalf/notes/2026-05-27-no-classes-architectural-recommitment.md`. The original "class chain structure" framing (PRESERVED IN PLACE BELOW with terminology redacted) reflected vestigial class-as-unit-of-architecture thinking now retired.
+>
+> _Earlier framing history (now retracted):_
+> - **Interpretation A confirmed** 2026-05-26 (uniform 3-chain per class)
+> - **AMENDED 2026-05-27 morning** (variable 3-or-4 chains per class per closeout § 1.4)
+> - **RE-AMENDED 2026-05-27 evening** (per-kit chain count from substrate clustering; class concept retired)
 
-**AMENDED 2026-05-27 (closeout § 1.4):** Variable 3-or-4 chains per class (depth-vs-breadth lever). NOT uniform 3. First-pass class roster DEFERRED — substrate-evidence follow-on (Wave 1 BC-target review surfaces substrate vote).
+**T4 capstone count per kit = chain count − 1.** Chain count per kit (3 or 4) emerges from substrate clustering at the kit's BC cell — denser substrate cells with greater BC-axis coverage vote 4-chain; sparser substrate cells vote 3-chain default. NO pre-authored per-class chain count.
 
-| Class chain count | T4 count | Architecture |
+**Per-kit chain structure** (substrate-emergent):
+
+| Kit's emergent chain count | T4 capstones | Architecture |
 |---|---|---|
 | 3 chains | 2 T4 capstones | 2 T4 chains × ~5 nodes (branching-eligible per § 8.3.1) + 1 supporting chain × ~3 nodes |
 | 4 chains | 3 T4 capstones | 3 T4 chains × ~3-4 nodes (linear) + 1 supporting chain × ~3 nodes |
 
-Some chains are **supporting / utility chains WITHOUT T4 capstones.** Architecture first-class supports hybrid/multi-element builds: primary-element chains can have T4 capstones (defining build identity); secondary-element chains can be T3-only (supporting damage/utility without capstone).
+Per-kit supporting chain (T3-cap; no T4 capstone) emerges from substrate-cluster-shared-theme at the kit's BC cell. Architecture first-class supports hybrid/multi-element kits: primary-element chains can have T4 capstones (defining kit identity); secondary-element chains can be T3-only (supporting damage/utility without capstone).
 
-Example: a fire-primary, lightning-secondary class might have:
+Example: a fire-primary, lightning-secondary kit's emergent chain structure might be:
 - 2 fire chains (each with T4 capstone) — primary build identity choices
 - 1 lightning chain (T3, no capstone) — supporting secondary damage
 - Total: 3 chains, 2 T4 capstones
 
-### 8.3.1 Branching refinement (LOCKED 2026-05-27 — closeout § 1.2)
+**No "first-pass class roster" exists. Substrate clustering at kit-generation-time produces per-kit chain structures. doc 48 (PRESERVED as VESTIGIAL) is the historical curated-archetype reference baseline, NOT a class roster the engine consumes.**
 
-**Branching gated by chain depth ≥4 nodes**, not class chain count.
+### 8.3.1 Branching refinement (LOCKED 2026-05-27 — closeout § 1.2; preserved under no-class recommitment)
+
+**Branching gated by chain depth ≥4 nodes**, not by any class concept.
 
 - Chains ≥4 nodes eligible for 1 branch point: 1 → 2 → {3a OR 3b} → 4 → T4-capstone
 - Chains ≤3 nodes linear only
-- Substrate-led: chain depth votes on branching eligibility
+- Substrate-led: chain depth (emergent per kit) votes on branching eligibility
 - Supporting chains stay linear (shallow by construction)
 
 ### 8.4 T4 algorithm 3-category taxonomy (LOCKED 2026-05-27 — closeout § 2.4)
