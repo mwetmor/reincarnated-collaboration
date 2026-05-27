@@ -86,179 +86,319 @@ Cycle 13 produces **mechanically-validated content** but NOT **game-ready conten
 
 ---
 
-## 3. Full visual flow with per-sub-phase status
+## 3. Full visual flow with per-line status (ASCII visual format per Matt 2026-05-26 directive)
 
-The complete workflow per doc 39 § 1, with status icons inline. **Update rule:** when a sub-phase status changes, update BOTH this section AND the top-line summary in § 2.
+The complete QD-engine workflow per doc 39 § 1, with status icons inline at each line + completion dates on green checks where known. **Update rule:** find the line, replace the icon, add date if ✅. When sub-phase status aggregates change, update § 2 top-line summary also.
 
-### Substrate Library — Status: ✅
+```
+┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+│ ✅ 2026-05-25  SUBSTRATE LIBRARY (multi-genre via genre-flagging)                            │
+│  ✅ 2026-05-22  - weapon_knowledge_entries (89,839 rows) + off-hand items (Sidecar B)        │
+│  ✅            - genre tag per row (fantasy / sci-fi / cyberpunk / post-apoc / etc.)         │
+│  ✅            - cultural_lineage_canonical + historical_period_canonical                    │
+│  ✅            - named-bearer attribution (Track M1 / sub-agent gandalf seed list)           │
+│  ✅            - Tier S/A/B/C composite quality scoring                                      │
+│  ✅ 2026-05-25  - v1_scope = 2,293 items LOCKED (tag v1.0-weapon-substrate-cycle-10-shipped) │
+└────────────────────────────────────┬─────────────────────────────────────────────────────────┘
+                                     │ (CONSUMED at Phase 2; substrate-bound generation)
+                                     ▼
+┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+│ ⏳  PHASE 1: ARCHIVE STATE INSPECTION (gamora)                                               │
+│  Input:                                                                                      │
+│    ✅            - current mechanical-BC archive state                                       │
+│    ✅            - substrate-coverage status                                                 │
+│  Action:                                                                                     │
+│    ✅            - identify sparse cells                                                     │
+│    ✅            - compute novelty + diversity needs                                         │
+│    ✅            - check substrate-coverage at 4-tuple level per cell                        │
+│    ❌            - check 4 progression-node coverage (doc 40 D27): early game / mid game /   │
+│                    endgame start / endgame [85% target]                              [NEW]   │
+│  Output:                                                                                     │
+│    ⏳            - BC-target queue (cells to fill, ranked by priority + substrate-coverage   │
+│                    feasibility + progression-node coverage)                                  │
+└────────────────────────────────────┬─────────────────────────────────────────────────────────┘
+                                     ▼
+┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+│ ⏳  PHASE 2: GENERATION (BC-TARGET-DRIVEN + SUBSTRATE-BOUND + DOC-40 MULTI-T4 +              │
+│           SPEC-DRIVEN GEAR) (rocket)                                                         │
+│                                                                                              │
+│  Input:                                                                                      │
+│    ✅            - BC-target coordinate [5-tuple: range × tempo × amplitude × attribute ×    │
+│                    proxy-density]                                                            │
+│    ✅            - Genre filter (per product)                                                │
+│    ❌            - Class chain count (doc 40 D83: T4 count = chain count - 1)        [NEW]   │
+│    ❌            - Progression-node target (doc 40 D27)                              [NEW]   │
+│                                                                                              │
+│  ┌─────────────────── ⏳  2a. KIT COMPOSITION ────────────────────────────────────────────┐ │
+│  │ 1. Compose skill kit matching cell                                                       │ │
+│  │    ✅            - 10-15 node skill tree budget (skill-system § 1)                       │ │
+│  │    ✅            - Element coupling per attribute (element_biases.py)                    │ │
+│  │    ✅            - Mechanic-altering passives only (no filler)                           │ │
+│  │    ⏳            - Tier-1 rotation + tier-2 β-pair + tier-3 build-defining               │ │
+│  │    ❌            - Max 8 active skills (doc 40 D82; flat budget)               [NEW]    │ │
+│  │    ❌            - Chains organized for class chain count (doc 40 D63-D64)     [NEW]    │ │
+│  │                    • 3-chain class: 2 chains with T4 + 1 supporting T3 chain             │ │
+│  │                    • 4-chain class: 3 chains with T4 + 1 supporting T3 chain             │ │
+│  │                    • Supporting chains enable hybrid/multi-element builds (D83)          │ │
+│  └─────────────────────────────────────────────────────────────────────────────────────────┘ │
+│  ┌─────────────────── ⚠️  2b. T4 ALGORITHM (Algorithm § 8) ─────────────────────────────────┐ │
+│  │ 2. Generate T4 nodes per class chain count (doc 40 D81 phased):                          │ │
+│  │    ✅ 2026-05-25 - Algorithm § 8 scored-candidate strategy registry (commit 3430269)     │ │
+│  │    ✅            - 6 v1 strategies: RESOURCE_CONVERSION / TRADE_OFF /                    │ │
+│  │                    ELEMENT_CONVERSION / DEFENSIVE_CONVERSION / GEOMETRY_COLLAPSE /       │ │
+│  │                    DEFENSIVE_TRADEOFF                                                    │ │
+│  │    ⚠️            - BC-shift validation sweep FAILED Cycle 11; Tier 2 ratified            │ │
+│  │                    (ships as intent metadata + spirit-guide narration + loadout display) │ │
+│  │    ❌            - Layer 6 wire-up (alterations → combat arithmetic; Cycle 12 Wave 4)    │ │
+│  │    All 4 phases of T4 algorithm wrap into Cycle 13 (doc 40 D81 + D85):                  │ │
+│  │    ❌            • Phase 1: T4s into chains as capstones (single T4/chain)     [NEW]    │ │
+│  │    ❌            • Phase 2: Multiple T4 options per chain with selection      [NEW]    │ │
+│  │    ❌            • Phase 3: Character-wide vs chain-wide scope dimension       [NEW]    │ │
+│  │    ❌            • Phase 4: Full sim cycling through all T4 configurations    [NEW]    │ │
+│  │    ❌            - DUAL mechanical impact per T4 (doc 40 D76):                 [NEW]    │ │
+│  │                    • Character-wide effect (kit-wide play feel shift)                    │ │
+│  │                    • Within-chain (or parallel-chain) effect                             │ │
+│  │    ✅ 2026-05-26 - INDEPENDENT of gear/legendaries (per doc 39 § 0.5 dependency chain)   │ │
+│  └─────────────────────────────────────────────────────────────────────────────────────────┘ │
+│  ┌─────────────────── ⏳  2c. SUBSTRATE BINDING ─────────────────────────────────────────────┐ │
+│  │ 3. PULL specific substrate weapon from genre-filtered v1_scope:                          │ │
+│  │    ✅ 2026-05-24 - Option α (Martial cell): 5-tuple mechanical-fingerprint match         │ │
+│  │    ✅ 2026-05-24 - Option β (Caster cell): attribute-level match only                    │ │
+│  │    ✅ 2026-05-24 - Option C (Hybrid cell): cross-attribute with ω-penalty                │ │
+│  │    ⏳            - Substrate weapon PULL operational (Cycle 12 Layer 2 in-flight)        │ │
+│  │ 4. PULL specific substrate secondary item per off-hand-items canonical doc:              │ │
+│  │    ⏳            - Substrate secondary-item PULL (Cycle 12 Layer 2 in-flight)            │ │
+│  │                    (shield / tome / banner / focus / horn / talisman /                   │ │
+│  │                     weapon-integrated accessory / dual-wield secondary weapon)           │ │
+│  └─────────────────────────────────────────────────────────────────────────────────────────┘ │
+│  ┌─────────────────── ❌  2d. SPEC-DRIVEN GEAR GEN (doc 40 D7) — ALL NEW ────────────────────┐ │
+│  │ 5. Derive gear specifications from kit + T4 selection:                                   │ │
+│  │    ❌            - Per-slot specification (which modifier types; what magnitudes)        │ │
+│  │    Stat-sheet partition design (doc 40 D13-D14 + § 3.6 7-item scope):                   │ │
+│  │    ❌            - 1. Modifier surface enumeration                                       │ │
+│  │    ❌            - 2. Per-slot partition design                                          │ │
+│  │    ❌            - 3. Per-slot probability distribution (gap-filling per D80)            │ │
+│  │    ❌            - 4. Node-count + chain-distribution interaction math                   │ │
+│  │    ❌            - 5. Weapon damage spec completeness (main + off-hand)                  │ │
+│  │    ❌            - 6. Non-weapon gear baseline stats for common variants                 │ │
+│  │    ❌            - 7. Main_weapon routing cleanup (substrate curation pollution)         │ │
+│  │ 6. Generate gear instances at all rarity tiers (doc 40 D8):                              │ │
+│  │    ❌            - Common / Uncommon / Rare / Epic baseline (kit-attuned; chain-aware)   │ │
+│  │    ❌            - Legendary instances at 4 tiers (doc 40 D50; tier 0/0.5/1/2):          │ │
+│  │                    ┌─ ❌ Capability TOOLKIT at all tiers (doc 40 D9 + D54):              │ │
+│  │                    │    multiplicative / mechanic-adjusting / spatial-adjusting /        │ │
+│  │                    │    axis-adjusting / added-skill                                     │ │
+│  │                    ├─ ❌ HIGH PROBABILITY triggered-passive on weapons (doc 40 D55):     │ │
+│  │                    │    (e.g., "spawns tornadoes on wind hit"; "shrapnel on phys")       │ │
+│  │                    │    - True actives EXTREMELY RARE + additive (weapons only)          │ │
+│  │                    ├─ ❌ Modifier-surface expansion over scalar (doc 40 D56):            │ │
+│  │                    │    legendaries unlock NEW stat types Epic cannot roll               │ │
+│  │                    └─ ❌ T4-ATTUNEMENT annotation gate (doc 40 D33 + D51):               │ │
+│  │                         ONLY tier 1+2 legendaries carry T4-attunement;                   │ │
+│  │                         tier 0+0.5 carry capability toolkit but no T4-attunement;        │ │
+│  │                         attunement = multiplicative + mechanic-alteration on             │ │
+│  │                         matching T4 path                                                 │ │
+│  │    ❌            - Unique instances at 4 tiers (doc 40 D49)                              │ │
+│  │    ❌            - Set instances at 2 tiers (doc 40 D48; endgame-only; T4-attuned D35)   │ │
+│  │ 7. Drop pool restriction by content-tier (doc 40 D50):                                   │ │
+│  │    ❌            - Tier 0 content: tier 0 legendaries only                               │ │
+│  │    ❌            - Tier 0.5 content: tier 0 + 0.5 legendaries                            │ │
+│  │    ❌            - Tier 1+2 content (endgame): all 4 tiers of legendaries                │ │
+│  └─────────────────────────────────────────────────────────────────────────────────────────┘ │
+│  ┌─────────────────── ⏳  2e. COHERENCE + FACTION ───────────────────────────────────────────┐ │
+│  │ 8.  ⏳            Compose trait constellation (Cycle 12 integration pending)             │ │
+│  │ 9.  ✅            Apply ω-field + τ-field mechanical-coherence constraints               │ │
+│  │ 10. ⏳            Generate faction-proxy spawn-template per algorithm § 8.6              │ │
+│  │     ✅            (faction-anchor derived from substrate weapon's cultural-tradition +   │ │
+│  │                    period — IMMEDIATELY AVAILABLE at Phase 2 per Architecture B)         │ │
+│  └─────────────────────────────────────────────────────────────────────────────────────────┘ │
+│                                                                                              │
+│  Output: complete mechanical kit + multi-T4 capstones + skill tree structure +               │
+│          bound substrate weapon + bound secondary item + gear specifications +               │
+│          gear instances at all rarities (incl. T4-attuned tier 1+2 legendaries +             │
+│          sets) + proxy-spawn-template + algorithm output bundle                              │
+│                                                                                              │
+│  Disciplines:                                                                                │
+│    ✅            - NO pre-imposed role-shape constraints (per Pattern 6 retirement)          │
+│    ✅            - Roles EMERGE from BC-coordinates implicitly                               │
+│    ✅ 2026-05-26 - One-way dependency chain (per doc 39 § 0.5): T4 nodes INDEPENDENT of gear │
+│    ✅ 2026-05-26 - Balance as PROPERTY not PROCESS (per doc 40 D1)                           │
+│    ✅ 2026-05-26 - Spec-driven generation; sim validates at generation time (D7 + D1)        │
+└────────────────────────────────────┬─────────────────────────────────────────────────────────┘
+                                     ▼
+┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+│ ⏳  PHASE 3: CONVERGENCE + MECHANICAL MEASUREMENT (gamora) + MULTI-T4 SIM METHODOLOGY        │
+│           (per doc 40 D84) + PLAYABILITY GATE                                                │
+│                                                                                              │
+│  Input:                                                                                      │
+│    ✅            - complete kit + multi-T4 capstones + bound substrate                       │
+│    ⏳            - gear instances at all rarities (gates on Phase 2d completion)             │
+│                                                                                              │
+│  Action: run simulation with SPECIFIC bound weapon's mechanical signature                    │
+│                                                                                              │
+│    ✅ 2026-05-20 - 8 BC axes measurement (per qd-engine-bc-axes-lock-2026-05-20.md):         │
+│                    ┌─ Axis 1 — Engagement profile (range × mobility)                         │
+│                    ├─ Axis 2 — Damage geometry (single/AOE/chain/multi-spawn)                │
+│                    ├─ Axis 2A — Proxy density                                                │
+│                    ├─ Axis 2B — Control density                                              │
+│                    ├─ Axis 3A — Damage tempo                                                 │
+│                    ├─ Axis 3B — Damage amplitude variance                                    │
+│                    ├─ Axis 4 — Defensive profile                                             │
+│                    └─ Axis 5 — Resource economy                                              │
+│    ✅            - Convergence per B14.5 V1 primary loop pattern                             │
+│    🔒            - W1.13 H1-H5 baseline (DEFERRED v1.1/Cycle 13+ per Option γ confirmation)  │
+│                                                                                              │
+│  Multi-T4 sim methodology (doc 40 D84 — hybrid cohort + edge-case):                          │
+│    ❌            - Cycle each tier-2 legendary/set weapon                          [NEW]    │
+│    ❌            - Determine cohort archetypes that would equip it                 [NEW]    │
+│                    (DPS-min-maxer / balanced / defensive / hybrid)                           │
+│    ❌            - Map node configurations for cohort × weapon                     [NEW]    │
+│                    • Sub-option A: per-weapon cohort coverage (primary)                      │
+│                    • Sub-option B: per-legendary cohort selection (compute fallback)         │
+│                    • Hybrid-within-hybrid: A for ambiguous; B for cohort-clear               │
+│    ❌            - Sample PRE-EXISTING nodes (doc 39 § 0.5 — sim CONSUMES, doesn't gen)      │
+│    ❌            - Validate each attuned-T4 configuration independently per node             │
+│                                                                                              │
+│  Multi-node calibration (doc 40 D27):                                                        │
+│    ❌            - Validate against power-band appropriate for kit's progression node        │
+│                    (early game / mid game / endgame start / endgame [85% target])            │
+│                                                                                              │
+│  Playability gate (doc 40 D61 — load-bearing validation criterion):                          │
+│    ❌            - KPM in target band for progression node                          [NEW]   │
+│    ❌            - Coherent skill rotation (not degenerate; not chaotic)            [NEW]   │
+│    ❌            - Resource flow functional (mana/energy/cooldowns)                 [NEW]   │
+│    ❌            - Defensive uptime adequate                                        [NEW]   │
+│    ❌            - No degenerate states (stunlock / zero-damage / mandatory locks)  [NEW]   │
+│    ❌            - Visual/cognitive load manageable                                 [NEW]   │
+│    ❌            - PLAYABLE-AND-IN-BAND is the validation criterion                 [NEW]   │
+│                                                                                              │
+│  Compute discipline (doc 40 D62):                                                            │
+│    ❌            - Stratified sampling / tiered validation / quick-estimate hybrid /         │
+│                    caching per gamora methodology consultation (Discipline #18)              │
+│                                                                                              │
+│  Output: kit + multi-T4 capstones + bound substrate + 8-axis BC coordinate per               │
+│          attuned-T4 configuration + per-tier WR + convergence data + playability             │
+│          gate disposition per cohort                                                         │
+└────────────────────────────────────┬─────────────────────────────────────────────────────────┘
+                                     ▼
+┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+│ ⏳  PHASE 4: MECHANICAL ARCHIVE INSERTION (gamora)                                           │
+│  Input:                                                                                      │
+│    ✅            - kit + bound substrate + 8-axis BC coordinate                              │
+│  Action: math gates determine archive disposition                                            │
+│    ✅            - Pareto dominance check (kit+substrate as unit)                            │
+│    ✅            - Crowding distance / hypervolume contribution                              │
+│    ✅            - Mahalanobis distance (duplicate detection)                                │
+│    ✅            - Information gain (KL) for novelty score                                   │
+│    ✅            - Eviction rules if cell at capacity                                        │
+│    ✅            - Archive entries include bound substrate (per Architecture B)              │
+│    ❌            - Multi-T4 archive entries (per attuned-T4 configuration)        [NEW]    │
+│  Output:                                                                                     │
+│    ⏳            - kit+substrate ACCEPTED (in archive) or REJECTED                           │
+└────────────────────────────────────┬─────────────────────────────────────────────────────────┘
+                                     │ (if ACCEPTED)
+                                     ▼
+┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+│ ❌  PHASE 5: COHESION COALESCENCE (gandalf cohesion + rocket LLM call) +                     │
+│          SPIRIT-GUIDE DATA-ORACLE INTEGRATION (doc 40 D28-D32) +                            │
+│          T4-ATTUNED GEAR COHESION (doc 40 D33-D39)        [CYCLE 14]                        │
+│                                                                                              │
+│  Input:                                                                                      │
+│    ❌            - accepted kit + multi-T4 capstones + gear instances at all rarities        │
+│                    + bound substrate + mechanical-BC coordinate                              │
+│                                                                                              │
+│  Action: LLM cohesion-judge confirms identity-narrative coherence + flavor + naming          │
+│    ⏳            - confirm substrate-thematic fit (cultural-tradition coherence)             │
+│    ⏳            - sub-element flavor mapping per element + bound substrate                  │
+│    ✅ 2026-05-24 - bi-modal form-library assignment (Sketch F + universal-archetypal)        │
+│    ⏳            - naming-space partitioning per engine-anchor                               │
+│    ⏳            - nested mythology naming (Tier-2 invokes Tier-1; skill-system § 12.4)      │
+│    ⏳            - archetypal form name + skill names per D7 AI-tell discipline              │
+│    ⏳            - commit theme + flavor per loot-architecture tier                          │
+│    ❌            - P5 cohesion-judge calibration spec (QUEUED post-Cycle-10 authoring)       │
+│                                                                                              │
+│  Spirit-guide data-oracle integration (doc 40 D28-D32):                                      │
+│    ❌            - Generate spirit-guide projection templates for kit+gear:        [NEW]    │
+│                    • Per-T4 projection: "T4-A projects KPM X at node Y"                      │
+│                    • Per-content-tier projection: "tier-1 yields KPM, gear-pwr, set-prob"    │
+│                    • Per-legendary projection: "legendary L advocates T4-Z; KPM X if attuned"│
+│    ❌            - Voice: NEUTRAL OBSERVATION (data oracle, NOT counselor) (D28)   [NEW]    │
+│    ❌            - Language: "projected to / typically / estimated" (D31 honesty)  [NEW]    │
+│    ❌            - Throne-resident framing per existing spirit-guide canon (D30)   [NEW]    │
+│    ❌            - Universal pattern across decision spaces (D29)                  [NEW]    │
+│                                                                                              │
+│  T4-attuned gear cohesion (doc 40 D33-D39):                                                  │
+│    ❌            - Tier-1+2 legendary/set T4-attunement alignment confirmation     [NEW]    │
+│    ❌            - Heroic Spirit narrative cohesion (T4 paths = aspects of Spirit) [NEW]    │
+│    ❌            - Sets: set-level T4 attunement confirmation                      [NEW]    │
+│    ❌            - Persuasion-to-experiment surface for spirit guide               [NEW]    │
+│                                                                                              │
+│  Acquisition curve calibration (doc 40 D21):                                                 │
+│    ❌            - Option A calibrated drop rates per content tier                 [NEW]    │
+│    ❌            - Drop rate = f(KPM × engagement distribution × 85th-percentile)  [NEW]    │
+│    ❌            - Pure RNG with calibrated rate (no smart-loot pity per D21)      [NEW]    │
+│    ❌            - Gap-filling discipline (D80) — drop calibration accounts for gaps[NEW]   │
+│                                                                                              │
+│  Output: kit + multi-T4 capstones + bound substrate + coalesced identity + archetypal        │
+│          naming + spirit-guide projection templates + T4-attuned gear cohesion +             │
+│          acquisition curve calibration + flavor + element-pair mapping                       │
+└────────────────────────────────────┬─────────────────────────────────────────────────────────┘
+                                     ▼
+┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+│ ⏳  PHASE 6: VISUAL COALESCENCE (galadriel)        [CYCLE 15]                                │
+│  Input:                                                                                      │
+│    ❌            - fully-coalesced kit                                                       │
+│  Action: CV-pipeline visual identity assignment                                              │
+│    ✅            - image-pass-through-to-Meshy primary (asset-pipeline § 3.6 verdict)        │
+│    ⏳            - ChatGPT-gen-to-Meshy fallback (substrate coverage gaps)                   │
+│    🔒            - Polearm aspect-ratio gate (DEFERRED v1.1+ Recognition 5)                  │
+│    🔒            - Meshy polygon-count delta diagnostic (DEFERRED v1.1+ Recognition 6)       │
+│    ⏳            - Control Rig / Niagara / PCG asset generation                              │
+│                    (per architecture-validation spike acceptance criteria 3.1/3.2/3.4/       │
+│                     3.5/3.6 — queued)                                                        │
+│  Output:                                                                                     │
+│    ⏳            - kit + visual assets                                                       │
+└────────────────────────────────────┬─────────────────────────────────────────────────────────┘
+                                     ▼
+┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+│ 🔄  PHASE 7: JOINT-GATE EVALUATION (gandalf + jack-ryan + Matt)   [CYCLE 16]                 │
+│  Input:                                                                                      │
+│    ⏳            - fully-coalesced + visualized kit                                          │
+│  Action:                                                                                     │
+│    🔄            - Discipline #18 mechanical AND cohesion AND visual pass                    │
+│    🔄            - Per-cycle Gate-2 critique-pair throughput (operating)                     │
+│  Output:                                                                                     │
+│    🔄            - kit APPROVED for production or returned to specific phase                 │
+└────────────────────────────────────┬─────────────────────────────────────────────────────────┘
+                                     ▼
+┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+│ ⏳  PHASE 8: PROFILE ASSEMBLY + EXPORT (rocket + star-lord)   [CYCLE 16]                     │
+│  Input:                                                                                      │
+│    ⏳            - approved kit                                                              │
+│  Action:                                                                                     │
+│    ⏳            - filter by profile config (Reincarnated v1 vs future commercial profile)   │
+│    ✅ 2026-05-25 - Loadout app M3 (loadout display) shipped Cycle 11 Wave 3b                 │
+│    ✅ 2026-05-25 - Loadout app M4 (T4 narration) shipped Cycle 11                            │
+│    ✅ 2026-05-25 - Loadout app M6 (spirit-guide narration) shipped Cycle 11 Wave 3b          │
+│    ❌            - Loadout app M1 (schema extension consumer; Cycle 12 Layer 2 gates)        │
+│    ❌            - Loadout app M2 (schema extension consumer; Cycle 12 Layer 2 gates)        │
+│    ❌            - Loadout app M5 (schema extension consumer; Cycle 12 Layer 2 gates)        │
+│    ⏳            - Format + ship pipeline (per-product profile filtering operational)        │
+│  Output:                                                                                     │
+│    ⏳            - shipped content                                                           │
+└──────────────────────────────────────────────────────────────────────────────────────────────┘
 
-| Item | Status | Detail |
-|---|---|---|
-| weapon_knowledge_entries (89,839 rows) | ✅ | Acquisition Cycle 8 closed 2026-05-22 |
-| Off-hand items (Sidecar B integrated) | ✅ | Per `off-hand-items-2026-05-24.md` |
-| Genre-flagging per row | ✅ | fantasy / sci-fi / cyberpunk / post-apoc / etc. |
-| cultural_lineage_canonical + historical_period_canonical | ✅ | Per Cycle 10 substrate curation |
-| Named-bearer attribution | ✅ | Track M1 / sub-agent gandalf seed list |
-| Tier S/A/B/C composite quality scoring | ✅ | Cycle 10 lock |
-| v1_scope = 2,293 items | ✅ | LOCKED 2026-05-25 (tag `v1.0-weapon-substrate-cycle-10-shipped`) |
+                                          ▼
+                              ╔══════════════════════════╗
+                              ║  ❌  ENGINE BUILD        ║
+                              ║      COMPLETE            ║
+                              ║                          ║
+                              ║   →  REINCARNATED-GAME   ║
+                              ║      UNLOCK milestone    ║
+                              ╚══════════════════════════╝
+```
 
-### Phase 1 — Archive State Inspection (gamora) — Status: ⏳
-
-| Item | Status | Detail |
-|---|---|---|
-| Mechanical-BC archive state inspection | ✅ | Existing infrastructure operational |
-| Substrate-coverage check at 4-tuple level per cell | ✅ | Per Cycle 10 workflow |
-| Sparse cell identification | ✅ | Existing |
-| Novelty + diversity needs computation | ✅ | Existing |
-| **4 progression-node coverage check (doc 40 D27)** | ❌ | NEW per doc 40 — early game / mid game / endgame start / endgame [85% target] coverage check not yet added |
-
-### Phase 2 — Generation (5 sub-phases; rocket) — Status: ⏳
-
-#### Phase 2a — Kit Composition
-
-| Item | Status | Detail |
-|---|---|---|
-| Cell-matching kit composition | ⏳ | Existing; Cycle 12 Layer 2 enriching |
-| Element coupling per attribute (element_biases.py) | ✅ | Existing infrastructure |
-| 10-15 node skill tree budget (skill-system § 1) | ✅ | Per skill-system canonical |
-| Mechanic-altering passives only | ✅ | Per skill-system canonical |
-| Tier-1 rotation + tier-2 β-pair + tier-3 build-defining | ⏳ | Partial implementation |
-| **Max 8 active skills (doc 40 D82 — flat budget)** | ❌ | NEW per doc 40 — chain budget enforcement not yet implemented |
-| **Chains organized for class chain count (doc 40 D63-D64)** | ❌ | NEW per doc 40 — 3-chain (2 T4 + 1 supporting) vs 4-chain (3 T4 + 1 supporting) chain architecture not yet implemented |
-| **Supporting chains for hybrid/multi-element builds (doc 40 D83)** | ❌ | NEW per doc 40 |
-
-#### Phase 2b — T4 Algorithm (Algorithm § 8) — Status: ⚠️
-
-| Item | Status | Detail |
-|---|---|---|
-| Algorithm § 8 scored-candidate strategy registry | ✅ | Implemented Cycle 11 (commit `3430269`) |
-| 6 v1 strategies (RESOURCE_CONVERSION etc.) | ✅ | Implemented |
-| BC-shift validation sweep | ⚠️ | FAILED Cycle 11; Tier 2 ratified → ships § 8 as intent metadata + spirit-guide narration + loadout display; Layer 6 wire-up deferred to Cycle 12 |
-| Layer 6 wire-up (alterations reach combat arithmetic) | ❌ | Cycle 12 Wave 4 (queued) |
-| **Phase 1 of doc 40 D81 — T4s into chains as capstones (single T4/chain)** | ❌ | NEW per doc 40 — Cycle 13 |
-| **Phase 2 of doc 40 D81 — Multiple T4 options per chain with selection mechanic** | ❌ | NEW per doc 40 — Cycle 13 |
-| **Phase 3 of doc 40 D81 — Character-wide vs chain-wide scope dimension (dual-effect per D76)** | ❌ | NEW per doc 40 — Cycle 13 |
-| **Phase 4 of doc 40 D81 — Full sim cycling through all T4 configurations** | ❌ | NEW per doc 40 — Cycle 13 |
-| **All 4 phases wrap into Cycle 13 (per Matt 2026-05-26 D85)** | ❌ | NEW — scope expansion locked |
-
-#### Phase 2c — Substrate Binding
-
-| Item | Status | Detail |
-|---|---|---|
-| Option α (Martial cells): 5-tuple mechanical-fingerprint match | ✅ | Per Architecture B lock 2026-05-24 |
-| Option β (Caster cells): attribute-level match only | ✅ | Per Architecture B lock |
-| Option C (Hybrid cells): cross-attribute with ω-penalty | ✅ | Per Architecture B lock |
-| Substrate weapon PULL from genre-filtered v1_scope | ⏳ | Cycle 12 Layer 2 in-flight |
-| Substrate secondary-item PULL per off-hand-items doc | ⏳ | Cycle 12 Layer 2 in-flight |
-
-#### Phase 2d — Spec-Driven Gear Generation (doc 40 § 3 — ALL NEW per doc 40) — Status: ❌
-
-| Item | Status | Detail |
-|---|---|---|
-| **Gear specifications derived from kit + T4 (doc 40 D7)** | ❌ | NEW per doc 40 — Cycle 13 |
-| **Stat-sheet partition design — modifier surface enumeration (D13 + § 3.6 item 1)** | ❌ | NEW per doc 40 — early Cycle 13 milestone |
-| **Stat-sheet partition design — per-slot partition (§ 3.6 item 2)** | ❌ | NEW |
-| **Stat-sheet partition design — per-slot probability distribution (§ 3.6 item 3)** | ❌ | NEW |
-| **Stat-sheet partition design — node-count + chain-distribution math (§ 3.6 item 4)** | ❌ | NEW |
-| **Weapon damage spec completeness check (main + off-hand) (§ 3.6 item 5)** | ❌ | NEW per Matt 2026-05-26 scope expansion |
-| **Non-weapon gear baseline stats for common variants (§ 3.6 item 6)** | ❌ | NEW per Matt 2026-05-26 scope expansion |
-| **Main_weapon vs secondary_weapon routing cleanup (§ 3.6 item 7)** | ❌ | NEW per Matt 2026-05-26 scope expansion; substrate curation pollution per prior Cycle 12 capture |
-| **Gear instances at all rarity tiers — Common/Uncommon/Rare/Epic (doc 40 D8)** | ❌ | NEW per doc 40 — Cycle 13 |
-| **Legendary instances at 4 tiers — capability toolkit at all tiers (D9 + D54)** | ❌ | NEW per doc 40 |
-| **High-probability triggered-passive on weapons (D55)** | ❌ | NEW per doc 40 |
-| **Modifier-surface expansion over scalar (D56)** | ❌ | NEW per doc 40 |
-| **T4-attunement annotation gate on tier 1+2 only (D33 + D51)** | ❌ | NEW per doc 40 |
-| **Unique instances at 4 tiers (D49)** | ❌ | NEW per doc 40 |
-| **Set instances at 2 tiers (D48 — endgame-only, always T4-attuned per D35)** | ❌ | NEW per doc 40 |
-| **Drop pool restriction by content-tier (D50)** | ❌ | NEW per doc 40 |
-
-#### Phase 2e — Coherence + Faction
-
-| Item | Status | Detail |
-|---|---|---|
-| Trait constellation composition | ⏳ | Existing; Cycle 12 integration pending |
-| ω-field + τ-field mechanical-coherence constraints (BDI ω/τ tables) | ✅ | Per skill-system § 11 |
-| Faction-proxy spawn-template (Algorithm § 8.6) | ⏳ | Cycle 12 Layer 4 (W1.13 multi-dim convergence) gates this |
-| Faction-anchor from substrate cultural-tradition + period | ✅ | Per Architecture B Phase-2 immediate availability |
-
-### Phase 3 — Convergence + Mechanical Measurement + Multi-T4 Sim + Playability Gate (gamora) — Status: ⏳
-
-| Item | Status | Detail |
-|---|---|---|
-| Simulation with specific bound weapon's mechanical signature | ✅ | Existing infrastructure |
-| 8 BC axes measurement | ✅ | Per qd-engine-bc-axes-lock-2026-05-20.md |
-| W1.13 H1-H5 baseline | 🔒 | DEFERRED to v1.1/Cycle 13+ per Option γ confirmation 2026-05-25 |
-| Convergence per B14.5 V1 primary loop pattern | ✅ | Existing |
-| **Multi-T4 sim methodology — hybrid cohort + edge-case sampling (doc 40 D84)** | ❌ | NEW per doc 40 — Cycle 13; gamora methodology consultation per Discipline #18 |
-| **Per-legendary cohort anchoring (D84 Sub-option A primary)** | ❌ | NEW per doc 40 |
-| **Multi-node calibration — validation per kit's progression node (D27)** | ❌ | NEW per doc 40 — Cycle 13 lays foundations |
-| **Playability gate — KPM in band + coherent rotation + resource flow + uptime + non-degenerate + cognitive load (D61)** | ❌ | NEW per doc 40 — engineering-discipline candidate |
-| **Compute discipline — stratified sampling / tiered validation / hybrid (D62)** | ❌ | NEW per doc 40 — methodology consultation territory |
-
-### Phase 4 — Mechanical Archive Insertion (gamora) — Status: ⏳
-
-| Item | Status | Detail |
-|---|---|---|
-| Pareto dominance check | ✅ | Existing math gate |
-| Crowding distance / hypervolume contribution | ✅ | Existing |
-| Mahalanobis distance (duplicate detection) | ✅ | Existing |
-| Information gain (KL) for novelty score | ✅ | Existing |
-| Eviction rules at cell capacity | ✅ | Existing |
-| Archive entries include bound substrate (not just mechanical signature) | ✅ | Per Architecture B |
-| Multi-T4 archive entries — per attuned-T4 configuration | ❌ | NEW per doc 40 — Cycle 13 |
-
-### Phase 5 — Cohesion Coalescence (gandalf + rocket + star-lord) — Status: ❌
-
-| Item | Status | Detail |
-|---|---|---|
-| Substrate-thematic fit confirmation | ⏳ | Existing cohesion-judge pattern |
-| Sub-element flavor mapping | ⏳ | Per Matt 2026-05-24 sub-element lock |
-| Bi-modal form-library assignment | ✅ | Per Sketch F + Matt 2026-05-24 universal-archetypal-naming lock |
-| Naming-space partitioning per engine-anchor | ⏳ | Discipline locked; implementation pending |
-| Nested mythology naming (skill-system § 12.4) | ⏳ | Discipline locked; implementation pending |
-| Archetypal form name + skill names + spirit-guide explainer (D7 AI-tell) | ⏳ | Templated LLM pattern locked; calibration pending |
-| Theme + flavor commit per loot-architecture tier | ⏳ | Per substrate Tier S/A/B/C |
-| **P5 cohesion-judge calibration spec** | ❌ | QUEUED post-Cycle-10 canonical authoring queue |
-| **Spirit-guide data-oracle integration — projection templates per kit+gear (D28-D32)** | ❌ | NEW per doc 40 — Cycle 13 |
-| **Spirit-guide voice: NEUTRAL OBSERVATION (data-oracle, NOT counselor) (D28)** | ❌ | NEW per doc 40 |
-| **Spirit-guide projection language honesty: "projected to / typically / estimated" (D31)** | ❌ | NEW per doc 40 |
-| **Universal pattern across decision spaces (D29)** | ❌ | NEW per doc 40 |
-| **T4-attuned gear cohesion — tier-1+2 legendary/set attunement confirmation (D33-D39)** | ❌ | NEW per doc 40 — Cycle 13 |
-| **Heroic Spirit narrative cohesion — T4 paths = aspects of Spirit (D36)** | ❌ | NEW per doc 40 |
-| **Persuasion-to-experiment surface for spirit guide (D34)** | ❌ | NEW per doc 40 |
-| **Acquisition curve calibration — Option A calibrated drop rates per content tier (D21)** | ❌ | NEW per doc 40 — Cycle 13 |
-| **Gap-filling discipline application (D80)** | ❌ | NEW per doc 40 |
-
-### Phase 6 — Visual Coalescence (galadriel) — Status: ⏳
-
-| Item | Status | Detail |
-|---|---|---|
-| CV-pipeline visual identity assignment | ⏳ | Partial implementation |
-| Image-pass-through-to-Meshy primary (asset-pipeline § 3.6 verdict) | ✅ | Sidecar A verdict landed |
-| ChatGPT-gen-to-Meshy fallback | ⏳ | For substrate coverage gaps |
-| Polearm aspect-ratio gate (v1.1+ Recognition 5) | 🔒 | DEFERRED v1.1+ |
-| Meshy polygon-count delta diagnostic (v1.1+ Recognition 6) | 🔒 | DEFERRED v1.1+ |
-| Control Rig / Niagara / PCG asset generation | ⏳ | Per architecture-validation spike acceptance criteria 3.1/3.2/3.4/3.5/3.6 (queued) |
-
-### Phase 7 — Joint-Gate Evaluation (gandalf + jack-ryan + Matt) — Status: 🔄
-
-| Item | Status | Detail |
-|---|---|---|
-| Discipline #18 mechanical AND cohesion AND visual pass | 🔄 | Ongoing per cycle; iterative pattern established |
-| Per-cycle Gate-2 critique-pair throughput | 🔄 | Operating; Cycle 13 will require 6+ critique-pair cycles per doc 40 D85+D86 |
-
-### Phase 8 — Profile Assembly + Export (rocket + star-lord) — Status: ⏳
-
-| Item | Status | Detail |
-|---|---|---|
-| Profile config filter (Reincarnated v1 vs future commercial profile) | ⏳ | Variant C architecture lock landed |
-| Loadout app M3 (loadout display) | ✅ | Cycle 11 Wave 3b shipped |
-| Loadout app M4 (T4 narration) | ✅ | Cycle 11 |
-| Loadout app M6 (spirit-guide narration) | ✅ | Cycle 11 Wave 3b shipped |
-| Loadout app M1 (schema extension consumer) | ❌ | Pending star-lord schema extensions Cycle 12 Layer 2 |
-| Loadout app M2 (schema extension consumer) | ❌ | Pending star-lord schema extensions Cycle 12 Layer 2 |
-| Loadout app M5 (schema extension consumer) | ❌ | Pending star-lord schema extensions Cycle 12 Layer 2 |
-| Format + ship pipeline | ⏳ | Operating; per-product profile filtering operational |
+**Cycle attribution:** [CYCLE 13] = Phases 1-3 + Phase 4. [CYCLE 14] = Phase 5. [CYCLE 15] = Phase 6. [CYCLE 16] = Phase 7+8 → engine build COMPLETE → REINCARNATED-GAME UNLOCK milestone.
 
 ---
 
@@ -353,9 +493,16 @@ Architectural commitments locked but execution DEFERRED. Each lists the empirica
 
 ## 6. Update protocol (for knight-rider)
 
-### 6.1 Update cadence
+### 6.1 Update cadence + format
 
 **knight-rider updates this doc at every commit during cycle execution.** When a commit lands that changes a phase or sub-phase status, this doc gets updated in the same commit OR in an immediate follow-on commit.
+
+**Find-and-replace pattern (ASCII visual format per § 3):**
+- Locate the relevant line by phase header (e.g., "PHASE 2b") and item description
+- Replace the leading icon (❌ / ⏳ / ⚠️ / etc.) with the new state icon
+- When transitioning to ✅, **add the completion date** in YYYY-MM-DD format immediately after the icon: `✅ 2026-05-26`
+- When aggregating sub-phase status changes a parent phase's status, update both lines + top-line § 2 entry
+- Preserve ASCII box-drawing alignment (line endings, vertical bars)
 
 ### 6.2 Status transition rules
 
