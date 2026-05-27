@@ -27,7 +27,27 @@ The substrate library lives in catalogue DB (elrond's seam). The cross-seam boun
 - `agentic_orchestration/gandalf/notes/2026-05-27-cycle-14-framing-brief.md` § 3.3 (substrate weapon binding output spec) + § 5 SC-6
 - `agentic_orchestration/cycles/cycle-14-cohesion-coalescence-scope.md` § 2 Wave 0.5
 - `.claude/skills/reincarnated-elrond-operating-procedure` — Mode + procedure
-- Substrate library DB schema (current state) — elrond inspects directly via DB query
+
+## Substrate library location (CONFIRMED via KR diagnostic 2026-05-27)
+
+**Primary DB path:** `~/Games/reincarnated-loadout/data/telemetry.db`
+
+**Relevant tables (already exist):**
+
+| Table | Rows | Role |
+|---|---|---|
+| `weapon_knowledge_entries` | 90,014 | Broad weapon-knowledge corpus (Wikipedia / Wikidata / Smithsonian / Royal Armouries imports); enriched columns include cultural_lineage_canonical, register_canonical, weapon_kind, proxy_range_class, proxy_geometry_class, proxy_tempo_class, proxy_attribute_class, extracted_length/weight/materials, quality_composite_score, quality_tier, v1_scope, named_mythological_match |
+| `weapons` | 5,162 | Sim-props-matched usable substrate subset; columns include weapon_subclass, range_class, geometry_class, tempo_class, charge_class, accuracy_class, rhythm_class, stat_affinity, tech_level, tone, cultural_lineage, style_register, gear_catalogue_id, dominant_element_affinities |
+| `weapon_sim_props` | (links to weapon_knowledge_entries.id) | Sim-property numerics: range_min_units, range_max_units, base_attack_speed, charge_time_s, hits_per_attack, aoe_radius_units, primary_stat, secondary_stat, damage_amplitude_min, damage_amplitude_max, sim_viable, sim_viability_notes |
+| `weapon_aesthetic` | — | Aesthetic tuple |
+| `weapon_sources` | — | Source attribution |
+| `weapon_tags` | — | Tag taxonomy linkage |
+
+**NOT the substrate library:**
+- `~/Games/reincarnated-loadout/data/cycle13_characters.db` — Cycle 13 character ingest output (NOT weapon substrate)
+- `~/Games/reincarnated-engine/data/research.db` — research DB (separate purpose)
+- `~/Games/reincarnated-engine/data/telemetry.db` — engine telemetry (separate purpose)
+- Any `catalogue.db` — does not exist; prior session investigated this dead-end
 
 ## Math-before-code
 
@@ -48,17 +68,21 @@ Does this dispatch add, modify, rename, or remove any field on:
 
 ## Scope
 
-- [ ] Audit substrate weapon library DB schema for current stat exposure
-- [ ] Map current schema fields against doc 47 § 3 required stats:
-  - [ ] `base_physical_damage` (numeric; per-weapon)
-  - [ ] `spell_damage_modifier` (pct; per-weapon; varies by weapon_type_family)
-  - [ ] `element_affinity_modifiers` (dict of element → pct; per-weapon)
-  - [ ] `to_skill_level_modifiers` (count; per-weapon; varies by weapon_type_family)
-  - [ ] `attribute_requirement` (enum: STR / DEX / INT / WIS; per-weapon)
-  - [ ] `weapon_type_family` (enum: martial-heavy / martial-light / ranged / caster-arcane / caster-faith / hybrid)
-- [ ] For each missing field, design enrichment approach (default value rules / per-weapon-type computed rules / per-row manual annotation / source-data-extraction)
-- [ ] Apply enrichment to substrate library (additive schema extension; preserves existing data)
-- [ ] Write MIGRATION.md per ADR-004 if schema extended
+- [ ] Audit `~/Games/reincarnated-loadout/data/telemetry.db` schema for current stat exposure (NOT catalogue.db — that dead-end has been investigated)
+- [ ] Map current schema fields against doc 47 § 3 required stats — preliminary KR mapping for elrond to validate + extend:
+
+| Doc 47 field | Current substrate exposure | Gap assessment |
+|---|---|---|
+| `base_physical_damage` | `weapon_sim_props.damage_amplitude_min/max` (numeric range; not "physical-specific") | LIKELY MAP — confirm semantic equivalence OR add `base_physical_damage` column |
+| `spell_damage_modifier` | NONE | GAP — needs new column (pct; per-weapon; varies by weapon_type_family) |
+| `element_affinity_modifiers` | `weapons.dominant_element_affinities` (comma-separated element list; NOT per-element pct) | PARTIAL — needs per-element pct dict OR derive from BDI ω-table |
+| `to_skill_level_modifiers` | NONE | GAP — needs new column or per-rarity-tier roll at gear gen time (rocket coordination per Q-SC6-3) |
+| `attribute_requirement` | `weapons.stat_affinity` + `weapon_sim_props.primary_stat` (both exist; possibly redundant or scoped differently) | LIKELY MAP — resolve which is authoritative; ensure enum matches doc 47 (STR/DEX/INT/WIS) |
+| `weapon_type_family` | `weapons.weapon_subclass` (free-text) + `weapon_knowledge_entries.weapon_kind` (broader enum: category/unique/named_template/...) | GAP — needs mapping to doc 47 6-family enum (martial-heavy / martial-light / ranged / caster-arcane / caster-faith / hybrid) |
+
+- [ ] For each GAP / PARTIAL, design enrichment approach (default value rules / per-weapon-type computed rules / derive from existing column / source-data re-extraction)
+- [ ] Apply enrichment to substrate library (additive schema extension; preserves existing 90K weapon_knowledge_entries + 5K weapons)
+- [ ] Write MIGRATION.md per ADR-004 if schema extended (cross-seam: substrate library → rocket Phase 2c at Wave 0.5; → fight engine damage_resolver at Wave 0.5)
 - [ ] File audit + enrichment report at `agentic_orchestration/elrond/notes/2026-05-27-cycle-14-sc-6-substrate-weapon-audit.md` per § 7 below
 - [ ] Append completion record to this dispatch file
 - [ ] Commit + push per Matt 2026-05-27 per-cycle push pattern (auto-fire per CLAUDE.md addendum)

@@ -69,15 +69,17 @@ Per scope-doc § 2 Wave 0:
 
 ### 2.2 Wave 0 dispatch fire record
 
+Sub-agent invocations fired in parallel in background 2026-05-27 (single message; 6 Agent tool calls; `run_in_background=true`) per hive-mind protocol § 4.3 + Discipline #19. KR does NOT poll; awaits completion notifications.
+
 | Dispatch | Owner | Path | Status |
 |---|---|---|---|
 | **Scope-doc** | KR | `agentic_orchestration/cycles/cycle-14-cohesion-coalescence-scope.md` | ✅ AUTHORED 2026-05-27 |
-| **SC-1** | jack-ryan | `agentic_orchestration/dispatches/2026-05-27-jack-ryan-cycle-14-sc-1-discipline-candidate-ratification.md` | 🟡 PENDING jack-ryan pickup |
-| **SC-2** | gandalf | `agentic_orchestration/dispatches/2026-05-27-gandalf-cycle-14-sc-2-doc-40-amendments.md` | 🟡 PENDING gandalf pickup |
-| **SC-3** | legolas | `agentic_orchestration/dispatches/2026-05-27-legolas-cycle-14-sc-3-cohesion-judge-llm-research.md` | 🟡 PENDING legolas pickup |
-| **SC-4** | legolas | `agentic_orchestration/dispatches/2026-05-27-legolas-cycle-14-sc-4-trigger-vocabulary-research.md` | 🟡 PENDING legolas pickup |
-| **SC-5** | legolas | `agentic_orchestration/dispatches/2026-05-27-legolas-cycle-14-sc-5-damage-scaling-research.md` | 🟡 PENDING legolas pickup |
-| **SC-6** | elrond | `agentic_orchestration/dispatches/2026-05-27-elrond-cycle-14-sc-6-substrate-weapon-stat-audit.md` | 🟡 PENDING elrond pickup |
+| **SC-1** | jack-ryan | `agentic_orchestration/dispatches/2026-05-27-jack-ryan-cycle-14-sc-1-discipline-candidate-ratification.md` | ✅ COMPLETE 2026-05-27 — all 7 disciplines #33-#39 RATIFIED; canonical writes landed at engineering-disciplines.md commit `d148808`; dispatch completion record `efca91f`; both pushed; ZERO NEEDS-REVISION |
+| **SC-2** | gandalf | `agentic_orchestration/dispatches/2026-05-27-gandalf-cycle-14-sc-2-doc-40-amendments.md` | ✅ COMPLETE 2026-05-27 — doc 40 amendments per doc 46 § 13 + doc 47 § 5 landed; all acceptance criteria met |
+| **SC-3** | legolas | `agentic_orchestration/dispatches/2026-05-27-legolas-cycle-14-sc-3-cohesion-judge-llm-research.md` | ✅ COMPLETE 2026-05-27 — research artifact filed at `agentic_orchestration/research/2026-05-27-cycle-14-sc-3-cohesion-judge-llm-architecture.md`; commit `0ee773c`; pushed; top-3 recs PRIMARY Pattern B Structured Output with Layer Tags / SUPPLEMENTARY Pattern A Two-Call / DETECTION Cross-Character Diversity Audit; 5 AI-tell mitigations; 3 open questions for Wave 3 design call |
+| **SC-4** | legolas | `agentic_orchestration/dispatches/2026-05-27-legolas-cycle-14-sc-4-trigger-vocabulary-research.md` | 🟢 FIRING (sub-agent invoked 2026-05-27; background; separate legolas session from SC-3/SC-5) |
+| **SC-5** | legolas | `agentic_orchestration/dispatches/2026-05-27-legolas-cycle-14-sc-5-damage-scaling-research.md` | 🟢 FIRING (sub-agent invoked 2026-05-27; background; separate legolas session from SC-3/SC-4) |
+| **SC-6** | elrond | `agentic_orchestration/dispatches/2026-05-27-elrond-cycle-14-sc-6-substrate-weapon-stat-audit.md` | 🟢 RE-FIRING (initial invocation 2026-05-27 STALLED at 600s investigating catalogue.db dead-end; KR diagnosed substrate library at `~/Games/reincarnated-loadout/data/telemetry.db` weapon_knowledge_entries / weapons / weapon_sim_props tables; dispatch amended with location + GAP analysis; re-fire invoked 2026-05-27 background) |
 | **SC-7** | drax | (NOT FIRED; deferred per Q9 disposition until Wave 5 fresh roster materializes) | ⏸️ DEFERRED |
 | **State file** | KR | `agentic_orchestration/cycle-14-hive-mind-state.md` | ✅ AUTHORED 2026-05-27 (this doc) |
 
@@ -97,12 +99,12 @@ KR autonomous on Wave 0.5 dispatch authoring + Gate-1 routing per scope-doc § 4
 
 | SC | Owner | Gates which wave | Status | Completion criteria |
 |---|---|---|---|---|
-| **SC-1** | jack-ryan | Wave 0.5 (#38, #39) → 1 (#33, #34) → 2 (#36, #37) → 3 (#35) | 🟡 PENDING | All 7 candidates verdicted; canonical writes landed at engineering-disciplines.md for RATIFIED + RATIFIED-WITH-REVISIONS |
-| **SC-2** | gandalf | Wave 0 close (downstream waves consume amended doc 40) | 🟡 PENDING | Doc 40 D-entries amended per doc 46 § 13 + doc 47 § 5; bidirectional cross-references |
-| **SC-3** | legolas Mode A | Wave 3 (Phase 5 cohesion-judge LLM) | 🟡 PENDING | Research artifact filed; methodology recommendations per § 7.2 of dispatch |
-| **SC-4** | legolas Mode A | Wave 1 (trigger vocabulary expansion) | 🟡 PENDING | ~50+ trigger conditions across 11 families catalogued; composition properties + AI-tell mitigations |
-| **SC-5** | legolas Mode A | Wave 0.5 (damage scaling routing) | 🟡 PENDING | Per-game per-path formula tables; structural validation of doc 47; edge cases catalogued |
-| **SC-6** | elrond | Wave 0.5 (substrate weapon binding output) | 🟡 PENDING | 6 doc-47-required fields audited + enriched; MIGRATION.md if schema extended; audit report filed |
+| **SC-1** | jack-ryan | Wave 0.5 (#38, #39) → 1 (#33, #34) → 2 (#36, #37) → 3 (#35) | ✅ COMPLETE | All 7 candidates RATIFIED; engineering-disciplines.md canonical writes landed; ZERO NEEDS-REVISION |
+| **SC-2** | gandalf | Wave 0 close (downstream waves consume amended doc 40) | ✅ COMPLETE | Doc 40 D-entries amended per doc 46 § 13 + doc 47 § 5 |
+| **SC-3** | legolas Mode A | Wave 3 (Phase 5 cohesion-judge LLM) | ✅ COMPLETE | Pattern B (Structured Output with Layer Tags) recommended PRIMARY; Pattern A two-call SUPPLEMENTARY; Cross-Character Diversity Audit DETECTION |
+| **SC-4** | legolas Mode A | Wave 1 (trigger vocabulary expansion) | 🟢 FIRING | ~50+ trigger conditions across 11 families catalogued; composition properties + AI-tell mitigations |
+| **SC-5** | legolas Mode A | Wave 0.5 (damage scaling routing) | 🟢 FIRING | Per-game per-path formula tables; structural validation of doc 47; edge cases catalogued |
+| **SC-6** | elrond | Wave 0.5 (substrate weapon binding output) | 🟢 RE-FIRING | 6 doc-47-required fields audited + enriched against `~/Games/reincarnated-loadout/data/telemetry.db`; MIGRATION.md if schema extended; audit report filed |
 | **SC-7** | drax | Post Wave 5 (Cycle 14 roster materializes) | ⏸️ DEFERRED | NOT FIRED in Wave 0; Track C transform refresh awaits fresh Cycle 14 roster |
 
 ---
