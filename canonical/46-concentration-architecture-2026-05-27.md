@@ -292,6 +292,23 @@ For a typical endgame player with mixed gear acquisition:
 
 When a player commits to a 4-piece set (per doc 40 § 3.5 + Block B1d): the 4 set slots have **NO individual capability/triggered_passive** — those are REPLACED by the 2pc + 4pc set bonuses. This is the genre-canonical "set replaces individual legendary powers" pattern (Diablo 3 lineage).
 
+### 6.5 Gauntlet sim representative loadout discipline (Matt 2026-05-27)
+
+> **The gauntlet sim's representative loadout should reflect a top-15% endgame-engaged player (per doc 40 D18 + § 4.1 85th-percentile target). That player has acquired full T1 legendary baseline AND has committed to set pieces where their T4-strategy-aligned set exists.**
+
+The current Cycle 13 `gear_representative` pattern equips full T1 legendary across all 11 slots. This is the BASELINE — but it doesn't exercise the set bonus mechanic that's central to endgame build identity (per Layer 8 set keying to T4 strategy clusters).
+
+**Amendment**: `gear_representative` composes as:
+1. **Baseline**: Legendary T1 across all 11 slots
+2. **Set replacement**: where a 4-piece set exists matching the character's T4-strategy × element cluster (per Layer 8), the matching 4 slots are REPLACED with set_t1 pieces — preserving the set bonus mechanic + 4pc T4-strategy amplification
+3. **Result**: typical representative = 4 set pieces + 7 T1 legendaries
+
+This produces a more realistic endgame representative for gauntlet sim validation. The set bonus mechanic gets empirical exercise. The remaining 7 T1 slots carry capability/triggered_passive per the concentration probability table (§ 6.2). Mechanical surface remains within genre canon (~5-8 effects: 1 set bonus + 4-6 individual capability/triggered).
+
+**Implementation discipline**: gauntlet sim `representative_loadout_construction` in `season_generation_pipeline.py` (Cycle 14 Wave 1 amendment) reads the character's T4 strategy tuple, identifies matching set per Layer 8 keying, replaces T1 in those 4 slots with set_t1 pieces. Math note must capture this composition shift.
+
+**Composition with Layer 9 (class-agnostic drops)**: drops still emit class-agnostically per Layer 9; this discipline only affects the BASELINE REPRESENTATIVE loadout for gauntlet sim validation (which represents an idealized 85th-percentile player). Actual player play involves variable drop acquisition; gauntlet sim represents the convergence point.
+
 ### 6.5 Implementation discipline
 
 Algorithm amendment in `gear_instance_generator.py`:
