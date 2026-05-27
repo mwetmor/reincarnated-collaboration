@@ -171,3 +171,62 @@ Per Discipline #1 math-before-code, before W1.2 schema-implementation:
 **Wave:** 1 implementation (W1.0-W1.8 bundled)
 **Gates:** Wave 1 close = jack-ryan Gate-2 PASS on this implementation + Cycle 13 Wave 2 T4 algorithm Phases 1-2 dispatch authoring unblocked
 **Priority:** P1 — critical-path Wave 1 close-gate
+
+---
+
+## Completion record
+
+**Completed by:** rocket
+**Date:** 2026-05-27
+**Commit:** `2aa6813` — `rocket: Cycle 13 Wave 1 partition implementation — W1.0-W1.8 bundled per doc 42 amended + jack-ryan Gate-1 W2 folded`
+**Smoke:** 27/27 tests PASS; 0 fail; < 1s
+
+### Sub-wave completion status
+
+| Sub-wave | Status | Notes |
+|---|---|---|
+| W1.0 Substrate prep + repo-scaffold | COMPLETE | Reviewed existing gear_schema.py (L1-L311), gear_generation.py, gear_roller.py, trait_schema.py (L1-L298), class_schema.py (L1-L140). No pre-existing partition schema found. Scaffolded 4 new modules. |
+| W1.1 Schema design | COMPLETE | Math note filed at `generation/math/cycle-13-wave-1-partition-math-2026-05-27.md` per Discipline #1 (math-before-code). Documents normalization formula, per-rarity grid, tier-restriction table, prefix/suffix mapping, capability probability, trait pool schema, cohort validation design, acceptance criteria. |
+| W1.2 Schema implementation | COMPLETE | `partition_schema.py` — AffinityMatrix with per-slot normalization; unit test PASS (normalization sum = 1.0 per all 11 slots; tolerance 1e-9). W2 prefix/suffix polarity field present on PartitionModifier + RolledPartitionModifier. |
+| W1.3 Per-category implementations | COMPLETE | `partition_modifier_pool.py` — ~60 modifier definitions across all 9 categories; 4 slot families; all carry modifier_polarity. |
+| W1.4 Capability toolkit T0-T2 | COMPLETE | `partition_roller._roll_capability_modifiers()` — legendary-exclusive enforcement; true-active weapon-only at T1/T2 (0.5%/1.5%); dual-capability T2 (10% chase). 9 capability definitions. |
+| W1.5 Set bonus structure | COMPLETE | `partition_roller.make_set_bonus()` — 2pc always-active + 4pc T4-attuned; `set_bonus_rank` field on PartitionGearInstance. |
+| W1.6 Trait integration (D8 ONLY) | COMPLETE | `config/traits/minimum_viable_pool.yaml` (55 entries; 11 archetypes × 5 traits); `trait_pool_loader.py` (load + validate + per-archetype accessor). D9 (gear-affix element/mechanic-gating) skipped per amended § 9 W1.6 + § 10 amended — Wave 4 scope. |
+| W1.7 Cross-cohesion validation | COMPLETE | 4 cohort archetypes (DPS-min-maxer / Balanced / Defensive / Hybrid) × 15 gear instances each; non-degenerate distribution (no category > 70%); off-affinity + secondary surface confirmed functional; all assertions PASS. |
+| W1.8 Round-trip smoke + tag-commit | COMPLETE | 9 rarity tiers (common through set_t2) round-trip PASS; field-presence + type-consistency + modifier_polarity verified; MIGRATION.md updated; AGENT_STATE.md updated; tag committed. |
+
+### Acceptance criteria status
+
+| Criterion | Status |
+|---|---|
+| All 8 sub-waves W1.0-W1.8 land | PASS |
+| Per-slot affinity normalization sums to 1.0 per slot (unit test) | PASS — 11/11 slots; tolerance 1e-9 |
+| Prefix/suffix binary field (W2 amendment) present in schema | PASS — `modifier_polarity: Literal["prefix", "suffix"]` on PartitionModifier + RolledPartitionModifier |
+| Capability toolkit legendary-exclusive enforcement | PASS — confirmed via test; non-legendary returns []; legendary returns ≥1 |
+| Minimum-viable trait pool (D8 ONLY) implemented | PASS — 55 entries; 11 archetypes × 5; composition validated |
+| Cross-cohesion validation (Discipline #26) non-degenerate | PASS — 4 cohorts × 15 gear; no category > 70%; off-affinity functional |
+| Round-trip smoke (Principle 6) | PASS — 9 rarity tiers; field-presence + type-consistency + polarity verified |
+| MIGRATION.md updated (ADR-004) | PASS — new section at top of MIGRATION.md documenting all new files + schema contracts |
+| Post-script empirical count assertions (Discipline #11) | PASS — 99 matrix entries (11×9); 60 modifiers; 55 traits; 10 rarities; 6 legendary rarities; 5+ capabilities; 11 slots; 9 categories |
+| Tagged commit | PASS — commit `2aa6813` |
+
+### Math notes filed (Discipline #1)
+
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/generation/math/cycle-13-wave-1-partition-math-2026-05-27.md`
+
+### Cross-seam impact
+
+- NON-BREAKING: Wave 1 partition layer COMPOSES with existing GearInstance via `gear_instance_id` reference. Existing gear pipeline (gamora sim, star-lord export, drax loadout) untouched.
+- D9 (element/mechanic-gating gear-affix trait surface): Wave 4 scope; documented in MIGRATION.md.
+- Wave 2 (T4 algorithm) can now consume PartitionGearInstance as substrate — T4-attunement annotation is present on Tier-1+2 gear; capability toolkit content is wired.
+
+### Deferred (out of scope, Wave 4)
+
+- D9 gear-affix element/mechanic-gating trait surface
+- Wave 2-5 work
+- Gamora SC-7 magnitude calibration (post-Wave-1 per Discipline #18.2)
+- Production telemetry DB migration v2.16
+
+### Gate 2 ready
+
+Jack-ryan Gate-2 can fire against commit `2aa6813`. Acceptance criteria enumerate above are the Gate-2 verification targets.
