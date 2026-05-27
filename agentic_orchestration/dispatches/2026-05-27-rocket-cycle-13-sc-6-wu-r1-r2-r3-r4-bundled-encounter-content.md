@@ -134,3 +134,80 @@ Per Discipline #1 math-before-code, before implementing WU-R1 mob stat profile:
 **Wave:** 0 / Sidecar SC-6 implementation
 **Gates:** Wave 5 gauntlet sim execution preparation
 **Priority:** P1 — Wave 5 prep critical-path; can fire in parallel with Wave 1 Gate-1 critique on doc 42
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-27
+**Author:** rocket
+
+### WU-R1 — Implementation form chosen: Option C
+
+New per-tier stat profile at `src/reincarnated/generation/endgame_mob_stat_profile.py`.
+
+**Code citation (Gate-1 W2 amendment satisfied):**
+- `MOB_HP_DIFFICULTY_MULTIPLIER = 1.5` at `src/reincarnated/simulation/spatial_gauntlet/arena.py:49`
+  — calibrated for R2 geometry recalibration; NOT L45-50+ endgame node. PRESERVED; not modified.
+- `CLASS_HP_REFERENCE = 20_000` at `src/reincarnated/generation/monster_generator.py:20`
+  — anchor for all HP factor computation; mirrored in endgame_mob_stat_profile.py.
+
+**Option C rationale:** cleanest separation; bakes L45-50+ durability into per-tier stat spec rather than runtime multiplier. Composable with future per-level scaling formulas (doc 41 § 4 #1 deferred). Does not affect existing convergence path.
+
+**Mob stat profile summary (HP anchor on CLASS_HP_REFERENCE=20,000):**
+
+| Tier | HP range | Armor fraction | Intent |
+|---|---|---|---|
+| swarm | 3,000-4,000 | 0.005-0.015 | 8-mob packs; 2-3 hits per mob at full rotation |
+| magic | 7,000-10,000 | 0.012-0.030 | Caster durability; ranged time-on-target |
+| elite | 40,000-55,000 | 0.050-0.090 | Anchor threat; 5-8s sustained focus |
+| mini-boss | 100,000-160,000 | 0.090-0.140 | Full rotation depth; 15-25s engagement |
+| boss | 180,000-280,000 | 0.130-0.200 | Extended multi-phase; 30s+ at full output |
+
+### WU-R2 — Encounter-key chosen: 18-cell non-deferred 4-tuple
+
+**Gate-1 W1 amendment satisfied:** cell identity keyed on `(range, tempo, amplitude, attribute)` 4-tuple with `proxy_density` as deferral discriminator. 7 proxy-deferred cells excluded; 1 proxy-light non-deferred included.
+
+**18 encounter count verification:** `len(ENDGAME_ENCOUNTER_CATALOG) == 18` verified by Python Counter scan via `_validate_catalog()` at module load (RuntimeError if count != 18). Output: STR=4, DEX=4, INT=5, WIS=5 = 18.
+
+18 encounters authored at `src/reincarnated/generation/endgame_encounter_catalog.py`.
+
+### WU-R3 — Archetype coverage
+
+| Cohort | Viable encounters | Threshold | Status |
+|---|---|---|---|
+| DPS-min-maxer | 15 | ≥6 | PASS |
+| Balanced | 18 | ≥6 | PASS |
+| Defensive | 6 | ≥6 | PASS (exactly at threshold) |
+| Hybrid | 18 | ≥6 | PASS |
+
+**Gap count: 0 WARNs.** Defensive cohort at threshold (INFO — no gap requiring action).
+
+### WU-R4 — Roadmap update
+
+Proxy-deferred 7-cell scope record added to `canonical/02-roadmap.md` § 5 deferred-commitments.
+7 cells named explicitly: Ancestor-Warrior / Falconer-Pet-Archer / Trap-Assassin-Mine-Mercenary /
+Necromancer-Summoner / Totem-Hierophant-INT / Druid-Beastmaster / Witch-Doctor-Petmaster.
+Empirical trigger: sim capability extension for proxy-density encounters.
+
+### Round-trip smoke result: PASS
+
+```
+WU-R1 SMOKE: 5 endgame profiles loaded; CLASS_HP_REFERENCE=20000; module-load validation PASS
+WU-R2 SMOKE: 18 encounters loaded; all IDs unique; all scenario_shell_ids valid;
+             all mob tiers in ENDGAME_MOB_PROFILES; all 6 #26 sub-gates on first encounter PASS
+ROUND-TRIP SMOKE: PASS
+```
+
+### Tagged commits
+
+Committed to `reincarnated-engine` and `reincarnated-collaboration` repositories.
+Tag: `rocket: Cycle 13 SC-6 WU-R1+R2+R3+R4 — endgame reference encounter content`
+
+### Post-script empirical count assertions (WARN-pattern remediation — Discipline #11)
+
+- WU-R1: I cite 5 endgame mob stat profiles. Verified: `len(ENDGAME_MOB_PROFILES) == 5` confirmed by module load validation.
+- WU-R2: I cite 18 encounter definitions. Verified: `len(ENDGAME_ENCOUNTER_CATALOG) == 18` confirmed by `_validate_catalog()` at module load (Python Counter scan returns 18 entries). Attribute breakdown: STR=4, DEX=4, INT=5, WIS=5 = 18.
+- WU-R3: I cite 0 cohort coverage gaps (all ≥6 threshold met). Verified by `get_encounters_for_cohort()` returning: DPS=15, Balanced=18, Defensive=6, Hybrid=18.
+- WU-R4: I cite 7 proxy-deferred cells added to roadmap § 5. Verified by grep of added row in canonical/02-roadmap.md.
+- Proxy-deferred cells: I cite 7. Verified: STR-light(1) + DEX-light(1) + DEX-heavy(1) + INT-heavy(2) + WIS-heavy(2) = 7.
