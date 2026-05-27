@@ -115,3 +115,59 @@ Per-family L50 baseline LUT is the load-bearing calibration math. Recommend auth
 - `agentic_orchestration/GOVERNANCE.md` ADR-004 (MIGRATION.md cross-seam coordination)
 - Engineering disciplines #11 + #18 + #19 + #38 (damage-scaling-path; doc 47 § 6 canonical write via SC-1)
 - Hive-mind protocol § 4 (seam decision-routing) + § 10.2 (mid-phase specialist recovery)
+
+---
+
+## Completion record — 2026-05-27 (elrond)
+
+**Status:** LANDED — substrate-side enrichment complete; substrate round-trip readiness CONFIRMED; rocket Phase 2c Wave 0.5 round-trip smoke pending rocket consumption.
+
+**Outputs:**
+- `agentic_orchestration/elrond/research/sc-6b-substrate-enrichment-2026-05-27/sc-6b-baseline-lut-math-2026-05-27.md` — LUT math-note (2 correction passes per Discipline #11 + #18)
+- `agentic_orchestration/elrond/research/sc-6b-substrate-enrichment-2026-05-27/sc-6b-weapon-family-baselines-2026-05-27.json` — Pass 2 LUT JSON (consumed by backfill SQL)
+- `agentic_orchestration/elrond/research/sc-6b-substrate-enrichment-2026-05-27/MIGRATION.md` — ADR-004 cross-seam coordination record
+- `agentic_orchestration/elrond/notes/2026-05-27-cycle-14-sc-6b-substrate-enrichment-implementation.md` — implementation report (per-field outcomes, sanity checks, sample rows)
+- DB backup: `~/Games/reincarnated-loadout/data/telemetry.db.pre-sc6b-2026-05-27.bak` (pre-migration snapshot for rollback per MIGRATION.md § 4)
+- Schema extension applied to `weapon_sim_props`: 5 new columns (`base_physical_damage_l50`, `spell_damage_modifier_pct`, `element_affinity_modifiers_json`, `to_skill_level_modifier_static`, `weapon_type_family`)
+
+**Backfill counts (final):**
+| Column | Coverage | NULL policy |
+|---|---|---|
+| `base_physical_damage_l50` | 2,293 / 2,293 (100%) | Banner rows (7) land 0 by design (non-damaging) |
+| `spell_damage_modifier_pct` | 2,293 / 2,293 (100%) | per-stat range respects doc 47 § 3.1 |
+| `element_affinity_modifiers_json` | 2,293 / 2,293 (100%) | martial = `{}`; caster 288 = `{}`; caster 39 = element-tagged |
+| `to_skill_level_modifier_static` | 0 / 2,293 (0%; NULL by design) | LLM-curation deferred per anti-stall # 3 + Q-SC6b-3 |
+| `weapon_type_family` | 2,293 / 2,293 (100%) | 6-enum; `hybrid` = 0 rows currently (Option C cells not yet in v1_scope) |
+
+**Cross-seam round-trip readiness:**
+- Substrate-side: VERIFIED via per-family sample SELECT showing 8 substrate fields rocket consumes
+- Rocket-side: PENDING Wave 0.5 Phase 2c emission; round-trip clause in MIGRATION.md § 3.2
+
+**Open questions resolved:**
+- Q-SC6b-1 (Path A vs Path B): Path A applied per dispatch authorization. Pattern-A query content for rocket recorded in math-note § 5 + MIGRATION.md § 5; single-column rollback if rocket amends
+- Q-SC6b-2 (element_affinity approach): substrate-side regex-derived; LLM-disambiguation deferred for 288 caster `{}` rows
+- Q-SC6b-3 (to_skill_level_modifier curation): deferred; ~1,154 non-category rows recorded for follow-on LLM-curation dispatch
+- Q-SC6b-4 (~81 edge cases for weapon_type_family): RESOLVED — algorithmic fall-through ordering handled all 2,293 rows; no manual review needed
+
+**Disciplines exercised (load-bearing):**
+- #11 empirical inspection — TWO correction passes on LUT surfaced at backfill execution (per-family amp_mean skew uncovered; first-draft LUT mis-anchored; corrected before consumer reads)
+- #18 methodology-before-execution — math-note authored + locked BEFORE backfill SQL ran
+- #19 Agent-tool-not-for-waiting — direct Bash + DB queries throughout
+- #33 stat-range bounds — per-stat `spell_damage_modifier_pct` ranges within doc 46 Layer 1 caps
+- #38 damage-scaling-path — substrate-side prerequisite for doc 47 § 4 formulas; 6 stat-formula fields ready for rocket consumption
+
+**Anti-stall compliance:**
+- Per-field batching: each backfill phase completed + report section appended + verified before moving to next
+- Incremental artifact dumping: math-note + JSON + MIGRATION.md skeleton + implementation report skeleton landed before backfill execution
+- Scope-expansion check: TWO LUT correction passes were within-scope (single-column updates per MIGRATION.md § 4.1; not scope expansion); proceeded without KR escalation
+- LLM-coordination deferred: `to_skill_level_modifier_static` LLM-curation deferred to follow-on dispatch per anti-stall # 3
+
+**Follow-on (for KR sequencing):**
+- Rocket Pattern-A query at Wave 0.5 kickoff (content in math-note § 5 + MIGRATION.md § 5) — IF rocket amends LUT values, elrond runs single-column UPDATE per MIGRATION.md § 4.1
+- LLM-curation dispatch for `to_skill_level_modifier_static` on 42 `unique` + 100 high-quality `named_template` rows
+- LLM-disambiguation dispatch for 288 `{}` caster rows on `element_affinity_modifiers_json`
+- jack-ryan Gate-2 review of SC-6b artifacts
+- Decisions-log entry proposed (MIGRATION.md § 6) for Path A architectural commitment — jack-ryan writes; elrond proposes content
+
+**Signed:** elrond (data steward — catalogue DB + abstraction-analysis seam)
+**Date:** 2026-05-27 (Cycle 14 Wave 0.5)

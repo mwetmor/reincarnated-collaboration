@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "authored": "2026-05-27",
+  "author": "elrond",
+  "cycle": "Cycle 14 Wave 0.5 SC-6b",
+  "authority": "Matt 2026-05-27 framing brief Q5; SC-6 audit § 1.6 Path A",
+  "purpose": "Per-family L50 baseline anchors for weapon_sim_props.base_physical_damage_l50 backfill",
+  "math_note": "agentic_orchestration/elrond/research/sc-6b-substrate-enrichment-2026-05-27/sc-6b-baseline-lut-math-2026-05-27.md",
+  "family_baselines_l50_hp": {
+    "martial-heavy": 177,
+    "martial-light": 99,
+    "ranged": 91,
+    "caster-arcane": 31,
+    "caster-faith": 31,
+    "hybrid": 99
+  },
+  "correction_log": "2026-05-27 backfill execution: TWO correction passes per Discipline #11. Pass 1 (rejected): initial draft used 250/150/120 based on audit § 1.6 amplitude_min cluster 0.3-0.8 misread as full amplitude range. Pass 1.5 (rejected): used 200/105/105/50/50/105 assuming global amp_mean ≈ 1.0; empirical inspection surfaced family-specific amp_mean skew (caster ~1.6 vs martial ~1.1). Pass 2 (LOCKED): derived family_baseline = doc_47_mid / family_avg_amp_mean. martial-heavy=200/1.13=177; martial-light=105/1.06=99; ranged=105/1.16=91; caster-arcane=50/1.64=31; caster-faith=50/1.59=31; hybrid=99 (martial-light default). Path A architecture HOLDS; only the per-family numbers updated. Single-column rollback per MIGRATION.md § 4.1 if rocket Pattern-A query amends.",
+  "backfill_formula": "base_physical_damage_l50 = family_baselines_l50_hp[weapon_type_family] * (damage_amplitude_min + damage_amplitude_max) / 2.0",
+  "doc_47_ranges_per_family": {
+    "martial-heavy": [100, 300],
+    "martial-light": [60, 150],
+    "ranged": [60, 150],
+    "caster-arcane": [20, 80],
+    "caster-faith": [20, 80],
+    "hybrid": "per-skill design (default martial-light)"
+  },
+  "stat_modifier_lut_pct": {
+    "INT": {"min": 30, "max": 150},
+    "WIS": {"min": 30, "max": 120},
+    "STR": {"min": 0, "max": 10},
+    "DEX": {"min": 0, "max": 10}
+  }
+}
