@@ -215,7 +215,7 @@ Rocket combined invocation landed cleanly:
 | Dispatch | Status |
 |---|---|
 | **Substrate sidecar (Dispatch 1)** | ✅ COMPLETE 2026-05-27 — rocket Fix A `dac5f9e` (2,108 eligible rows verified) + Fix B math-note authored + elrond Fix C `8a1029d` (caster-arcane DIVERSE INFO close; **caster-faith REMEDIATION NEEDED** 62% mace-dominated D&D cleric-trope; routes gandalf Path A vs B design call) |
-| **Wave 1.5 Skill-Tree Architecture (Dispatch 2)** | ✅ FULLY CLOSED 2026-05-27 — Stage 1 (`06a3b7f`) + Stage 2 (`6a28e39`) + Stage 3 (`0a5a4f2`; tag `rocket/v1.5-wave-1-5-skill-tree-architecture`); 3 math-notes + 5 implementation items + cross-seam round-trip smoke + MIGRATION § Wave 1.5; 232/232 regression PASS; 40-kit × 10-class smoke verified all 3 new fields populated; D83 chain_count − 1 enforced at construction; Discipline #40 LOAD-BEARING canonical-lock from doc 48 honored; **Gate-2 PASS-with-WARN** (0 BLOCK / 2 WARN / 3 INFO); WARN-1 + WARN-2 documentation-arithmetic non-gating (fix-in-place Wave 2 window) |
+| **Wave 1.5 Skill-Tree Architecture (Dispatch 2)** | 🔄 PIVOT 2026-05-27 — Stage 1 (`06a3b7f`) + Stage 2 (`6a28e39`) + Stage 3 (`0a5a4f2`) shipped + Gate-2 PASS-with-WARN; **THEN REVERTED at engine `c9fcb1d` 2026-05-27** per Matt verbatim "option 1. Math before code" architectural pivot to Option α (substrate-clustered emergent classes; no pre-authored fixed class taxonomy). Doc 48 retained as PRESERVED-FOR-COMPARISON A/B reference baseline. Engine state returned to post-Wave-1 commit `98b68aa` (Wave 1 concentration architecture preserved; Stage 3 fully undone). Re-implementation pending 5 math-notes ratification per math-before-code Discipline #1 LOAD-BEARING. Collab Wave 1.5 closure commits (`a230b71`, `182511b`, `3db7991`, `688cddc`, `440a725`) STAY as audit trail; revert-superseded notation captured in this state record. Pre-Wave-5 prereq Wave 1.5 reverts from ✅ to ⏳ pending math-notes + revert validation + re-implementation. Successor: `gandalf/notes/2026-05-27-option-alpha-pivot-and-math-note-inventory.md`. |
 | **Discipline #40 ratification (Dispatch 3)** | ✅ COMPLETE — engine `b282966` (canonical-write at engineering-disciplines.md § 40; STATUS LOAD-BEARING per jack-ryan judgment; pre-Wave-5 prerequisite CLOSED); collab `fbd7b75` (dispatch completion record); reciprocal cross-reference at #13a; 3 anchored examples with code:line provenance |
 
 **Pre-Wave-5 prerequisite checklist (per scaffold-drift consolidated doc § 5.3):**
@@ -224,8 +224,8 @@ Rocket combined invocation landed cleanly:
 |---|---|
 | Fix A hygiene filter landed | ✅ COMPLETE 2026-05-27 (engine `dac5f9e`) |
 | Fix B STR family rebalancing landed (Wave 2 impl per consolidated doc § 5.1) | ✅ math-note AUTHORED 2026-05-27; impl gates Wave 2 dispatch (Layer 8 set keying alongside) |
-| Wave 1.5 skill-tree architecture landed | ✅ COMPLETE 2026-05-27 (Stages 1+2+3; tag `rocket/v1.5-wave-1-5-skill-tree-architecture` at `0a5a4f2`; Gate-2 firing) |
-| Season cardinality canonical decision (n_kits=40 default) | ✅ COMPLETE 2026-05-27 (doc 41 § 4.6 amendment via gandalf Stage 2 `6a28e39`; rocket implemented in Stage 3) |
+| Wave 1.5 skill-tree architecture landed | 🔄 REVERTED 2026-05-27 (engine `c9fcb1d` undoes `0a5a4f2`); Option α re-implementation pending math-notes ratification + Matt-gate |
+| Season cardinality canonical decision (n_kits=40 default) | 🟡 PARTIAL — doc 41 § 4.6 canonical amendment ✅ landed (gandalf Stage 2 `6a28e39`); engine impl reverted with `c9fcb1d` (n_kits 40→22); Option α Stage 3 re-impl restores n_kits=40 per doc 41 § 4.6 |
 | Discipline #40 canonical-write landed | ✅ COMPLETE 2026-05-27 (engine `b282966`) |
 
 **Open follow-on items at Wave 0.5 CLOSED (status post-Gate-2):**
