@@ -130,3 +130,27 @@ INFO / WARN / BLOCK per critique-pair-gate-protocol.
 **Wave:** 2 Gate-1
 **Gates:** rocket Wave 2 implementation dispatch authoring (PASS) OR gandalf re-pass (BLOCK)
 **Priority:** P1 — gates Wave 2 critical-path
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-27
+**Reviewer:** jack-ryan
+**Verdict:** PASS-with-WARN
+**Severity counts:** INFO=5 / WARN=2 / BLOCK=0
+**Finding file:** `agentic_orchestration/qa/findings/2026-05-27-cycle-13-wave-2-gate-1-doc-43-critique.md`
+
+**Key amendment recommendations:**
+- W1 (WARN): Gandalf amend doc 43 with § 11.9 framing-audit subsection (Discipline #23 three-question protocol; pattern regression vs doc 42 precedent; does not block rocket fire)
+- W2 (WARN): KR clarify W2.6 acceptance criteria in rocket dispatch — Pattern 9+10 are design-intent stubs; catalog inclusion (v1 vs v1.1) is gamora SC-7 decision; passing W2.6 does NOT constitute v1 catalog membership
+- I1: KR specify 13 starter pattern-library entries (5 Pass-1 + 8 Pass-2) as W2.4 cross-validation scope minimum
+- I2: KR surface elrond statistical-priors input as W2.4 concurrent dependency
+- I3: KR confirm LLM T4 naming scope allocation (Wave 2 vs Wave 3+)
+
+**Next-action sequence for KR:**
+1. Wave 2 implementation dispatch authoring UNBLOCKED
+2. Route W1 to gandalf (minor; one subsection; non-blocking on rocket fire)
+3. Fold W2 + I1 + I2 + I3 into rocket Wave 2 dispatch authoring
+4. Flag I4 (dual-consumer cross-seam dependency) in Cycle 13 scope-doc
+5. Queue SC-2 (#31 + #32 ratification) before Wave 3
