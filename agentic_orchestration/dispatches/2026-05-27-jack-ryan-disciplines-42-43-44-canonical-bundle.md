@@ -158,3 +158,49 @@ Per Matt 2026-05-23 directive (hive-mind protocol § 4) + scope-doc § 4.1: jack
 - `agentic_orchestration/AGENTS.md` (Move 5 orientation phrase landed)
 - `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` (canonical target)
 - Hive-mind protocol § 4 + § 7
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-27
+**Completed by:** jack-ryan (discipline ratification mode)
+**Authority:** Matt 2026-05-27 verbatim "commit to all 5 moves; sequence per your recommendation"
+
+### Verdicts
+
+| Discipline | Verdict | STATUS |
+|---|---|---|
+| #41 (pre-authored taxonomy interrogation) | RATIFIED | LOAD-BEARING — surfaces from Option α pivot; written as coherent foundation for #42-#44 composition |
+| #42 (framing-audit at dispatch consumption) | RATIFIED | LOAD-BEARING — Move 2; operationalizes gandalf OP § 4.1 to ALL sub-agents at every dispatch |
+| #43 (design-quality audit at wave-close) | RATIFIED | LOAD-BEARING — Move 4; ratifies gandalf OP § 4.6 already operational; wave-close temporal complement to #42 |
+| #44 (framing-refusal authority for sub-agents) | RATIFIED | LOAD-BEARING — Move 3 (deepest structural shift); refusal IS NOT failure; per-agent refusal directories created |
+| #40 amendment — case (c) canonical-lock retraction | RATIFIED | Amendment added inline as third case alongside (a) + (b); sub-discipline numbering rejected (procedural completeness, not independent standing) |
+
+### Open questions resolved (jack-ryan judgment)
+
+- **Q-Disc-Bundle-1 (sequencing):** Executed all 4 in single session in kicker order: #42 → #43 → #44 → #40(c). Discipline #41 added as coherent foundation (surfaced from Option α pivot record; serves as Q1-check anchor for #42 framing-audit). No bandwidth constraint required spread across days.
+- **Q-Disc-Bundle-2 (refusal directory structure):** Per-agent `agentic_orchestration/<agent>/refusals/` — matches established per-agent directory convention (notes/, findings/ pattern). NOT singular `agentic_orchestration/refusals/<agent>/`. Ten .gitkeep files created with descriptive content.
+- **Q-Disc-Bundle-3 (#40 amendment):** Sub-case (c) in main #40 text — NOT sub-discipline #40.1. (a)/(b)/(c) are three procedural cases in the same register within the existing discipline. Sub-discipline numbering would imply independent standing; this is procedural completeness.
+- **Q-Disc-Bundle-4 (reciprocal cross-references):** One-way new-→-existing in primary discipline text, PLUS surgical bidirectional additions to Disciplines #11 and #25 only — where the composition is load-bearing (#11 operationalized by #42; #25 pre-condition for #43 audit A4). Skipped full bidirectional on #13/#18 (components of #42 but don't require back-references to preserve function). Did not add back-references to #40 (already has forward-reference to #42 in amendment text).
+
+### Canonical writes executed
+
+- `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`:
+  - Discipline #40: case (c) canonical-lock retraction procedure (6-step; doc 48 retraction as anchored example; note added to #40's cross-references)
+  - Discipline #41: pre-authored taxonomy interrogation (new; coherent foundation for #42-#44)
+  - Discipline #42: framing-audit at dispatch consumption (RATIFIED; Move 2)
+  - Discipline #43: design-quality audit at wave-close (RATIFIED; Move 4)
+  - Discipline #44: framing-refusal authority for sub-agents (RATIFIED; Move 3)
+  - Scope note at top: updated to document Quality-Orientation Shift bundle
+  - Anatomy section: updated to reflect #41-#44 + #40 amendment
+  - Discipline #11 cross-references: added forward-references to #42 + #43
+  - Discipline #25 cross-references: added forward-reference to #43 (A4 pre-condition)
+
+### Refusal-directory structure created
+
+`agentic_orchestration/<agent>/refusals/.gitkeep` for all 10 agents: gandalf, knight-rider, rocket, gamora, star-lord, elrond, drax, legolas, jack-ryan, galadriel.
+
+### Next: KR routes per-agent OP amendments (10 files) as follow-on bundle after this landing
+
+Per dispatch out-of-scope: per-agent OP amendments are KR's follow-on routing responsibility after this discipline bundle lands. KR authors one bundled OP-amendment dispatch OR per-agent dispatches — KR's call. Standard amendment text per gandalf candidate doc § 6.
