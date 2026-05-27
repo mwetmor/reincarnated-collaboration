@@ -142,3 +142,33 @@ KR will pick up + close W4. After all 4 WARNs (W1-W4) are remediated, KR updates
 ---
 
 **Authority:** knight-rider per jack-ryan PASS-with-WARN verdict `482801c` + Matt Option A authorization + ratified framing brief § 4.1 autonomous scope + Matt per-cycle-push authorization.
+
+---
+
+## Completion record
+
+**Status:** COMPLETE
+**Completed:** 2026-05-27
+**Agent:** rocket
+
+**Disposition chosen:** (b) REMAIN in rocket's seam (`generation/season_generation_pipeline.py`)
+
+**Rationale:** `_SyntheticPlayerClass` wraps `KitCandidate` (rocket's dataclass) and encodes
+generation-domain knowledge (per-bc_attribute stat budgets, synthetic skill parameters). Moving to
+gamora would invert the established `generation/ → simulation/` import direction; `gauntlet_sim.py`
+already handles the cross-direction reference via lazy import guard precisely because generation/ is
+the upstream module. No circular-import-safe path exists for disposition (a). Option (c) shared seam
+is over-engineering for a single adapter class with no other shared-module candidates.
+
+**MIGRATION.md path + section:**
+`reincarnated-engine/src/reincarnated/generation/MIGRATION.md`
+§ `v-cycle-13-w4-synthetic-player-class-cross-seam-touch-acknowledgment`
+Cross-references gamora `simulation/MIGRATION.md` § v1.31.
+
+**AGENT_STATE.md updated:** yes — checkpoint at end of file with commit SHA
+
+**Migration dispatch needed?** No — disposition (b) REMAIN; no file movement required.
+
+**Commit SHAs:**
+- `d3f46f0` — generation/MIGRATION.md §v-cycle-13-w4 + AGENT_STATE.md checkpoint (engine repo)
+- `158d245` — AGENT_STATE.md SHA update (engine repo)
