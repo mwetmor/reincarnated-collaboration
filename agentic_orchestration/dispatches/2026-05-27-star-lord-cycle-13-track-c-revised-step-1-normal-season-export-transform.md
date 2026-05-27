@@ -2,7 +2,7 @@
 
 **Date authored:** 2026-05-27
 **Authored by:** knight-rider (per Matt directive 2026-05-27 — Cycle 13 Track C REVISED)
-**Status:** PENDING
+**Status:** COMPLETE
 **Cycle:** 13 (post-close additive scope per Matt directive)
 **Track:** C REVISED Step 1 (drax Step 2 fires after this completes)
 **Authorization:** Matt 2026-05-27 verbatim "continue per-cycle pushes per Matt 2026-05-27 verbatim authorization" + Track C REVISED authorization
@@ -236,3 +236,71 @@ KR will pick up + fire drax Step 2 dispatch.
 **Authority:** knight-rider per Matt 2026-05-27 Track C REVISED directive + per-cycle-push authorization.
 
 **Push pattern:** per Matt authorization, commit + push as work-products land.
+
+---
+
+## Completion record
+
+**Status:** COMPLETE
+**Completed:** 2026-05-27
+**Agent:** star-lord
+
+### Convention chosen: DUAL-WRITE
+
+Written to BOTH:
+- `reincarnated-loadout/public/seasons/cycle-13-mechanical-season-001/` — per Matt's spec (flat `classes.json` + `metadata.json`; matches v2_narrow_phase_5 precedent)
+- `reincarnated-loadout/data/cycle-13-mechanical-season-001/` — per hook convention (`manifest.json` + `classes/<char_id>.json`); cycle-13 discovered automatically by `useSeasonData.ts` in `selectableSeasons` with NO hook code changes
+
+Rationale: `useSeasonData.ts` reads from `data/*/manifest.json + data/*/classes/*.json` (older convention). `public/seasons/` is the v2_narrow_phase_5 flat precedent. Single-path to `public/seasons/` only would leave cycle-13 invisible to the hook. Dual-write is the correct transitional pattern. Drax Step 2 consolidates if desired.
+
+### metadata.json
+
+- Path: `/Users/admin/Games/reincarnated-loadout/public/seasons/cycle-13-mechanical-season-001/metadata.json`
+- `season_id`: `cycle-13-mechanical-season-001`
+- `n_kits`: 16, `manifest_version`: "1.9"
+- `placeholder_skill_content`: true, `cycle_14_refresh_pending`: true
+- `seasonal_elements` present (all 4 canonical slots, identity mapping)
+- `validation_passed`: true, `gauntlet_sim_pass`: true
+
+### classes.json
+
+- Path: `/Users/admin/Games/reincarnated-loadout/public/seasons/cycle-13-mechanical-season-001/classes.json`
+- Count: 16 classes
+- Skills per class: 20 (7 + 7 + 6 across 3 chains)
+- Total skills: 320
+- Schema drift guard: all v2_narrow_phase_5 per-class + per-skill fields present (53 tests confirm)
+
+### Per-class JSONs (data/ convention)
+
+- Path: `/Users/admin/Games/reincarnated-loadout/data/cycle-13-mechanical-season-001/classes/`
+- 16 files, named by canonical `char_id` (e.g., `S1_endgame_str_01_heavy_barbarian.json`)
+
+### gear_pool.json decision: OMITTED
+
+`useSeasonData.ts` TODO comment confirms Yomi-only pattern. Cycle-13 gear is in `cycle13_characters.db`. No current consumer beyond gap-fill tab. Drax Step 2 can opt-in.
+
+### Sentinel
+
+- Path: `/Users/admin/Games/reincarnated-engine/src/reincarnated/export/cycle13_normal_season_export_landed.sentinel`
+- Content: `class_count=16`, `drax_step_2_readiness=yes`, `gear_pool_decision=omitted`
+
+### MIGRATION entries
+
+- Engine: `/Users/admin/Games/reincarnated-engine/src/reincarnated/export/MIGRATION.md` § v1.9-cycle-13-normal-season-export
+- Loadout: `/Users/admin/Games/reincarnated-loadout/MIGRATION.md` § v2.2-cycle-13-normal-season-export
+- Both cross-reference each other per ADR-004.
+
+### Test result
+
+- New tests: 53 (all PASS) — `tests/test_cycle13_normal_season_export.py`
+- Cycle-13 tests combined: 215 PASS (no regressions)
+- Pre-existing collection errors (9, grouping-layer-vocabulary.md env var): unchanged
+
+### Drax Step 2 readiness signal: YES
+
+Sentinel confirmed. `useSeasonData.ts` will discover cycle-13 in `selectableSeasons` automatically. Drax Step 2 can retire gap-fill tab, wire placeholder indicator, and verify all 4 pages flow naturally. No hook code changes required for discovery.
+
+### Commit SHAs
+
+- engine: `2b32b61` (reincarnated-engine main — transform pipeline + sentinel + MIGRATION + tests)
+- loadout: `ef7b974` (reincarnated-loadout main — data/ + public/seasons/ files + MIGRATION)
