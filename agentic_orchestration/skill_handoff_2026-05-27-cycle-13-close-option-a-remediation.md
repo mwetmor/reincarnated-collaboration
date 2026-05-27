@@ -84,7 +84,10 @@ Non-blocking on Cycle 14 launch; can fire in parallel post-W2.
 | W2 — canonical-path-overwrite fix + structural smoke-guard/atomic-rename (gamora amendment) | ✅ COMPLETE (`37f6fff`) |
 | W3 — Discipline #19 OP amendment (gamora; bundled with W2) | ✅ COMPLETE (in `simulation/AGENT_STATE.md`) |
 | W4 — `_SyntheticPlayerClass` cross-seam ADR (rocket follow-on; disposition b REMAIN) | ✅ COMPLETE (`d3f46f0`) |
+| **Cycle 13 Track C REVISED Step 1 — star-lord normal-season export (dual-write)** | ✅ COMPLETE (`2b32b61` engine + `ef7b974` loadout) |
+| **Cycle 13 Track C REVISED Step 2 — drax consume normal season + retire gap-fill tab** | ✅ COMPLETE (`f824fc5` loadout; 31 new tests; 81/81 passing) |
 | Cycle 14 framing brief authoring (gandalf) | ⏸️ AWAITING Matt authorization |
+| Star-lord gauntlet-sim-results ingest follow-on (deferred per drax Track C Step 2; non-blocking) | ⏸️ DEFERRABLE post-Cycle-14 |
 | Star-lord Wave 5 follow-on (gauntlet schema + ingest pipeline) | ⏸️ DEFERRABLE; non-blocking |
 
 ---
@@ -94,8 +97,9 @@ Non-blocking on Cycle 14 launch; can fire in parallel post-W2.
 | Decision | Where landed |
 |---|---|
 | Option A remediation authorization (vs Option B BLOCK / other) | KR routing 2026-05-27; 3 parallel dispatches fired (gamora + star-lord + drax) |
-| Per-cycle push authorization continuing | All commits + pushes through `1593487` per cycle as work-products landed |
+| Per-cycle push authorization continuing | All commits + pushes through `0a22999` per cycle as work-products landed |
 | No further creative-ratification gates on Cycle 13 progression | Ratified framing brief § 4.1 autonomous scope; hive operated end-to-end without Matt-touch through the remediation |
+| **Cycle 13 Track C REVISED authorization** — corrective architectural pass: integrate cycle-13 as normal season + retire gap-fill tab | star-lord Step 1 (dual-write) + drax Step 2 (consume + retire) both COMPLETE autonomously |
 
 ---
 
@@ -105,7 +109,8 @@ Non-blocking on Cycle 14 launch; can fire in parallel post-W2.
 - **Engine implementation:** 9 commit chain across Waves 0-5 (rocket + gamora + star-lord seams) + 2 commits across Option A remediation (gamora b90b371 + 7452f26)
 - **Content output:** 16-character mechanically-validated season at `output/cycle-13-mechanical-season-001/` (immutable substrate) + 1,760 gear instances ingested into loadout DB
 - **Empirical sim execution (post-remediation):** 27,360 fights / 912 encounters / 16 kits / `GAUNTLET_SIM_PASS=True` / wall-clock 12.5s
-- **Test surface:** 488+ engine cycle13+gauntlet tests PASS (jack-ryan verified) + 48 star-lord ingest tests + 28 drax vitest = 564+ total Cycle 13 tests passing
+- **Test surface:** 488+ engine cycle13+gauntlet tests PASS (jack-ryan verified) + 48 star-lord ingest tests + 28 drax vitest (gap-fill, retired) + 53 star-lord Track C export tests + 31 drax Track C normal-season tests = 648+ total Cycle 13 tests passing
+- **Loadout integration (post Track C REVISED):** cycle-13-mechanical-season-001 flows through ALL 4 loadout pages (Loadout / Sample / Analytics / Encounters) via `useSeasonData` hook + placeholder-skill-content indicator visible on Loadout + Sample pages (amber banner). Gap-fill tab retired from Sample.tsx. Detection: `manifest.placeholder_skill_content === true` OR `skills[0].phase5_is_placeholder === true`.
 - **Discipline composition:** #1.2, #11, #12, #19, #21, #22, #23, #26-#32 all composed throughout
 - **WARN-pattern preservation chain:** maintained across 8 critique-pair cycles total (Waves 1-5 + Option A remediation Gate-2), zero regressions
 - **Cross-seam handoffs:** 1 documented exception (gamora → rocket `_SyntheticPlayerClass`); W4 ADR follow-on in flight
@@ -171,11 +176,15 @@ Other auto-actions on this or next KR session (no Matt-touch required):
 ## 11. Open follow-ups (post-ratification; non-blocking)
 
 - **Engineering-disciplines.md #19 sub-operationalization for pytest:** gamora's W3 OP amendment landed in `simulation/AGENT_STATE.md` (seam-internal scope). If Matt wants pytest-serialization codified as an engine-wide discipline visible to ALL agents (rocket, star-lord, drax, elrond, etc.), a separate jack-ryan dispatch is required (jack-ryan owns `engineering-disciplines.md`). KR queue ready; awaits Matt direction.
+- **Star-lord gauntlet-sim-results ingest follow-on** (NEW; deferred per drax Track C Step 2): gauntlet results schema (`kit_results`, `encounter_results` from `cycle-13-gauntlet-sim-results-2026-05-27.json`) differs from existing `encounter_analytics_*.json` format. Star-lord ingest transform required to wire 27,360-fight / 912-encounter empirical data into Analytics/Encounters pages. Defer post-Cycle-14 OR Matt-direct-authorization.
 - **Star-lord Wave 5 follow-on:** previously deferred per gamora `simulation/MIGRATION § v1.30`; the canonical JSON now has full-run truth post-W2, so the ingest pipeline can land cleanly when authorized. Non-blocking on Cycle 14.
+- **Gap-fill infrastructure cleanup** (drax kept for reusability): `useCycle13Data` hook + `Cycle13*` components + `scripts/export_cycle13_json.py` + `public/data/cycle13/` + `cycle13_characters.db` retained for potential gauntlet-sim-visualization reuse. Deferred cleanup pass post-Cycle-14 OR when empirical-data rendering pattern is settled.
 
 ## 12. Sign-off
 
-Hive at Matt-touch checkpoint. **CYCLE 13 CLOSE v2 PASS-with-WARN — all 4 WARNs REMEDIATED — ready for ratification.** Cycle 14 launch readiness READY pending Matt authorization.
+Hive at Matt-touch checkpoint. **CYCLE 13 CLOSE v2 PASS-with-WARN — all 4 WARNs REMEDIATED + Track C REVISED corrective architectural pass COMPLETE — ready for ratification.** Cycle 14 launch readiness READY pending Matt authorization.
+
+**Cycle 13 final state:** mechanical-engine-build COMPLETE + empirically gauntlet-validated (27,360 fights) + dual-tracked into loadout app (DB infrastructure for analytics + normal-season integration for player surfaces) + 4 WARN remediations + corrective architectural pass = all autonomous flight.
 
 Ratification is a milestone marker, not a blocker — Matt may authorize Cycle 14 directly without explicit Cycle 13 ratification, and the hive will treat that as composite-ratification.
 
