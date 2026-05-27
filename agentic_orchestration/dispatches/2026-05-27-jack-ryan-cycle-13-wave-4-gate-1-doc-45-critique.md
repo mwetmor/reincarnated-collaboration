@@ -129,3 +129,27 @@ INFO / WARN / BLOCK per critique-pair-gate-protocol.
 **Wave:** 4 Track A Gate-1
 **Gates:** rocket Wave 4 Track A implementation dispatch authoring (PASS) OR gandalf re-pass (BLOCK)
 **Priority:** P1 — gates Wave 4 Track A critical-path
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-27
+**Reviewer:** jack-ryan
+**Verdict:** PASS-with-WARN
+**Severity counts:** INFO=5 / WARN=2 / BLOCK=0
+**Finding file:** `agentic_orchestration/qa/findings/2026-05-27-cycle-13-wave-4-gate-1-doc-45-critique.md`
+
+**Key amendments for KR (fold into rocket dispatch):**
+- W1 (WARN — required before W4R.4): resolve `CapabilityCategory.MULTIPLICATIVE` not found in schema; TRUE_ACTIVE present but unlisted in § 7.1; confirm with gandalf whether (a) new enum extension at W4R.1 or (b) § 7.1 naming correction; fold into W4R.4 acceptance criteria
+- W2 (WARN — KR-authorable, no gandalf re-pass): accessory pattern library must OMIT true-active entry entirely (not conditional gate); explicit language required in W4R.3 acceptance criteria
+
+**Next-action sequence for KR:**
+1. PASS-with-WARN — rocket Wave 4 Track A dispatch authoring UNBLOCKED
+2. Pre-fire W1 resolution with gandalf (short clarification; not a re-dispatch); fold resolved CapabilityCategory enum list into W4R.4 acceptance criteria
+3. W2 fold-in in W4R.3 acceptance criteria (KR-authorable)
+4. Author rocket Wave 4 Track A implementation dispatch (W4R.0-W4R.7) with W1+W2+I1 folded in
+5. Confirm I2 (ground-state doc 45 row) before dispatch fires
+6. Note I3 (star-lord export schema timing; Wave 4 window)
+
+**Tag:** `jack-ryan(gate-1): PASS-with-WARN — Cycle 13 Wave 4 doc 45 spec-driven gear gen Track A critique`
