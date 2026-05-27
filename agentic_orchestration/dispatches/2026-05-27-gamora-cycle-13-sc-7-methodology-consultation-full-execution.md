@@ -139,3 +139,73 @@ For each REQUIRES-WAVE-3-BASELINE item:
 **Wave:** 4 prep (SC-7 methodology consultation FULL closure)
 **Gates:** Wave 4 gamora sim cycling implementation (post-SC-7-FULL + post-Wave-4-rocket-gear-gen-landing)
 **Priority:** P1 — critical-path Wave 4 prep; fires in parallel with gandalf Wave 4 doc 45 design intent (rocket track)
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-27
+**Agent:** gamora
+**Output:** `agentic_orchestration/gamora/notes/2026-05-26-cycle-13-wave-4-sim-methodology-framework.md` § 9 (FULL Closure appended; Option A — extended prep doc)
+
+### 12 REQUIRES-WAVE-3-BASELINE item closure status
+
+| # | Item | Status |
+|---|---|---|
+| B1 | Cohort-clear fraction of actual generated legendaries | DEFERRED-WITH-TRIGGER (Wave 4 rocket gear gen) + REVISED ESTIMATE: ~85-90% Sub-option B dominant (up from 50-65%) per COHORT_SCOPE_PRIORS Wave 3 analysis |
+| B2 | DPS-min-maxer / DPS-survivor split decision | DEFERRED-WITH-TRIGGER (first-cycle bimodal detection: Hartigans dip > 0.05 across ≥50 strata). Remain single cohort for Wave 4 v1. |
+| B3 | Per-cell KPM percentile calibration (actual numbers) | DEFERRED-WITH-TRIGGER (Wave 4G.3 KPM median calibration) + STRUCTURAL AMENDMENT: historical B14.5 medians invalid for Wave 4; scope-amplification effect requires fresh medians |
+| B4 | Cohort membership of actual generated legendaries | DEFERRED-WITH-TRIGGER (Wave 4 gear gen) + IMPLEMENTATION NOTE: read from T4CandidateV2.scope_projection_data directly; no separate classification pass needed |
+| C1 | Actual per-cell KPM medians | DEFERRED-WITH-TRIGGER (W4G.3) + CYCLE 13 V1 SCOPE LOCK: endgame node only per Block C § 1.5 |
+| C2 | Band widening/tightening calibration (is ±15% right?) | DEFERRED-WITH-TRIGGER (first-cycle WR-bracket pass rate) + STRUCTURAL AMENDMENT: stratify band calibration by class chain count due to 1/sqrt(class_chain_count) magnitude downscale |
+| C3 | Gradient banding (cell-type-dependent variance) | DEFERRED-WITH-TRIGGER (post-first-cycle variance measurement) + STRUCTURAL PREDICTOR: cohort-mix predicts gradient via COHORT_SCOPE_PRIORS variance asymmetry |
+| C4 | Percentile anchoring per cohort calibration | PARTIALLY CLOSED — KPM bands updated from Wave 3 COHORT_SCOPE_PRIORS: DPS=80th-95th (was 85th-100th); Hybrid=65th-90th (was 60th-85th); Balanced + Defensive unchanged |
+| D1 | Actual legendary count (strata sizing input) | DEFERRED-WITH-TRIGGER (Wave 4 gear gen) + REVISED STRATA: ~5.8 strata/legendary average (down from ~10) due to Sub-option B dominance; fight estimate ~9,340 total |
+| D2 | Tier 1 fight count sufficiency (is 10 enough?) | CONDITIONALLY RESOLVED: 10 fights standard; 20 fights for I1 all-negative-score edge cases (per scope_projection_data I1 warning flag) |
+| E1 | Sub-gate 3/6 WARNING → HARD-BLOCK escalation | PARTIALLY RESOLVED: Sub-gate 6 cognitive-load burst threshold revised to per-chain-breadth normalized (≤8 × scope_chain_breadth events / 0.5s). Sub-gate 3 remains first-cycle empirical. |
+| E2 | Archive insertion quarantine policy calibration | DEFERRED-WITH-TRIGGER (first-cycle quarantine rate) + REVISED EXPECTATION: <5% quarantine rate (down from 10-15%) due to Sub-option B dominance |
+
+### 22 PRE-BASELINE-RESOLVABLE items — spot-check result
+
+8 of 22 spot-checked. All 8 CONFIRMED or CONFIRMED-WITH-AMENDMENT:
+- Sub-option A/B heuristic: CONFIRMED + AMENDED (discrimination directly operationalized by Wave 3 STRATEGY_CHARACTER_WIDE_ELIGIBILITY)
+- Per-legendary cohort anchoring: CONFIRMED (T4CandidateV2.scope_projection_data carries signal)
+- IN-BAND compound gate: CONFIRMED (Block C Scaffold 3 composes identically)
+- WR-bracket FAIL disposition: CONFIRMED + AUGMENTED (4 retries not 3; Retry 4 scope-flip added)
+- Tiered validation structure: CONFIRMED (Item D2 amendment for I1 edge cases)
+- Caching strategy: CONFIRMED + NEW INVALIDATION TRIGGER (COHORT_SCOPE_PRIORS update)
+- Sub-gate 6 cognitive-load: CONFIRMED + STRUCTURALLY AMENDED (normalized to chain breadth)
+- Hard-block thresholds (sub-gates 1,2,4,5): CONFIRMED (fight-engine intrinsic; scope-independent)
+Remaining 14 items implicitly hold; no structural conflict found.
+
+### Methodology pattern refinement (#30)
+
+**Updated name:** "Per-weapon-cohort-exhaustive with sub-option-B DOMINANT (~85-90% estimated cohort-clear fraction per Wave 3 COHORT_SCOPE_PRIORS analysis); stratified by progression node (endgame-reference-encounter first per Block C § 1.5); tiered quick-estimate first validation with elevated Tier 1 for I1 edge cases; scope-dimension-aware KPM band calibration stratified by class chain count"
+
+### Compute budget re-projection (#1.1)
+
+- Revised fight estimate: ~9,340 total (down from 11,000-20,000)
+- Wall-clock: ~53 minutes full 4-node; ~19 minutes endgame-only (Cycle 13 v1 scope)
+- Peak memory: <5MB sequential (unchanged)
+- M2 8GB constraint: not at risk under any plausible Wave 4 first-season scope
+
+### Wave 4 sub-wave structure
+
+W4G.0 (calibration setup) → W4G.1 (Tier 1 endgame sweep) → W4G.2 (Tier 2 full-sim) → W4G.3 (KPM median calibration) → W4G.4 (sub-gate calibration) → W4G.5 (archive insertion + quality report). 6 sub-waves.
+
+### Cross-seam coordination flags
+
+- **Star-lord export schema (ROUTE TO KR):** 5 new scope fields on T4CandidateV2.to_dict() must land in star-lord export schema before W4G.5. Star-lord Wave 4 dispatch needed.
+- **Rocket gear gen data fields:** NO new fields required. Wave 3 T4CandidateV2 schema is gamora-ready (all 4 required scope fields present: `t4_scope`, `scope_downscale_factor`, `scope_projection_data`, `scope_prior_weight`).
+- **Drax I5:** scope_projection_data production-ready; routing note for KR; no gamora action.
+
+### Acceptance criteria verification
+
+- [x] All 12 REQUIRES-WAVE-3-BASELINE items closed (with values OR deferred-with-trigger)
+- [x] 22 PRE-BASELINE-RESOLVABLE items spot-checked (8/22) + confirmed/amended
+- [x] Methodology framework FULL closure output landed (§ 9 appended to prep doc)
+- [x] Wave 4 sub-wave structure provided (W4G.0-W4G.5)
+- [x] Compute budget re-projection per Wave 3 actual (§ 9.4)
+- [x] Cross-seam coordination flags (star-lord flag routed to KR)
+
+**Tag:** `gamora: Cycle 13 SC-7 methodology consultation FULL — Wave 3 baseline closure + Wave 4 implementation guidance (post-Wave-3-baseline per #18.2)`

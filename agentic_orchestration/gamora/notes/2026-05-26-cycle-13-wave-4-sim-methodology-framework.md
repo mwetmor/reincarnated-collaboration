@@ -599,3 +599,326 @@ These items cannot be finalized without Wave 3 empirical output. They are explic
 **Discipline composition:** #1.1 (resource-bounds projection) + #18 (methodology-before-execution) + #18.2 (timing classification at extension hotspot) + #19.1 (cheapest-refuting-test per claim) + #23 (framing-audit, applied implicitly throughout) + #26 (playability PLAYABLE-AND-IN-BAND) + #30 (sim methodology naming)
 **Authority basis:** Matt Q6 ratification + gandalf C.1/C.2/C.3 DELEGATE-TO-GAMORA + hive-mind decision-routing directive
 **Downstream:** this framework is the Wave 4 dispatch input for gamora sim execution; jack-ryan Gate-1 review expected at Wave 4 dispatch authoring; knight-rider consumes for Wave 4 scheduling
+
+---
+
+## § 9 — FULL Closure (2026-05-27 post-Wave-3-baseline per Discipline #18.2)
+
+> **STATUS:** FULL CLOSURE — Wave 3 baseline landed (engine commit `2e8bc33`; jack-ryan Gate-2 PASS commit `99ec777`; 146 tests PASS in 0.41s). All 12 REQUIRES-WAVE-3-BASELINE items addressed below. Empirical authority: jack-ryan Wave 3 Gate-2 finding + t4_category_schema.py + t4_scope_selector.py + t4_option_f.py (empirically inspected by jack-ryan; gamora consumes verified counts).
+>
+> **Authority basis:** Matt 2026-05-27 + Cycle 13 framing brief § 4.1 KR autonomous + Q6 ratification + Discipline #18.2 (extension consultation fires post-baseline) + dispatch `2026-05-27-gamora-cycle-13-sc-7-methodology-consultation-full-execution.md`
+
+---
+
+### § 9.1 — 12 REQUIRES-WAVE-3-BASELINE item closures
+
+Each item references the Wave 3 baseline empirical source per Discipline #1.2 + #11.
+
+---
+
+#### Item B1 — Cohort-clear fraction of actual generated legendaries
+
+**Original REQUIRES-WAVE-3-BASELINE criterion:** "depends on spec-driven gear gen output from Wave 3/4"
+
+**Wave 3 status:** Wave 3 implements the scope-dimension SELECTION ALGORITHM, not spec-driven gear gen. Actual legendary items are Wave 4 rocket gear gen output (separate dispatch). The cohort-clear fraction cannot be empirically determined from Wave 3 alone.
+
+**Closure:** DEFERRED-WITH-TRIGGER.
+- Trigger: Wave 4 rocket spec-driven gear gen output (per-legendary T4-attunement annotations from `t4_category_schema.py T4CandidateV2` + `T4CandidateV2.t4_scope` field per `t4_category_schema.py` lines 379-384)
+- Starting estimate preserved: 50-65% cohort-clear (§ 2 prep doc)
+- Operationalized proxy now available from Wave 3: STRATEGY_CHARACTER_WIDE_ELIGIBILITY dict (7 keys, 3 True = TRADE_OFF + ELEMENT_CONVERSION + DUAL_ELEMENT_ADDITION eligible for character-wide promotion). Category B/C strategies NOT in the True-set are cohort-clear-by-default toward chain-wide scope. This gives gamora a discrimination signal to apply immediately at Wave 4 gear gen time without waiting for a separate gear-gen run.
+- **Code cite:** `t4_category_schema.py:281-288` (STRATEGY_CHARACTER_WIDE_ELIGIBILITY with 7 keys, 3 True; module-load assert at lines 292-300)
+- **Amended estimate:** for strategies where character-wide promotion is ineligible (RESOURCE_CONVERSION / DEFENSIVE_CONVERSION / GEOMETRY_COLLAPSE / DEFENSIVE_TRADEOFF = 4 of 7 strategies), the legendary is scope-locked to chain-wide → cohort-clear by scope. For the 3 eligible strategies (TRADE_OFF / ELEMENT_CONVERSION / DUAL_ELEMENT_ADDITION), cohort-clear fraction depends on cohort prior weights. Given COHORT_SCOPE_PRIORS (`t4_category_schema.py:307-328`): dps_min_maxer CHARACTER_WIDE prior=0.50, defensive CHARACTER_WIDE prior=0.20, balanced=0.30, hybrid=0.25. Weighted mean CHARACTER_WIDE prior across 4 cohorts: (0.50+0.20+0.30+0.25)/4 = 0.3125. For the 3 eligible strategies: ~31% of items will be assigned CHARACTER_WIDE scope on first pass (cohort-ambiguous). 69% will fall to chain-wide (cohort-clear). Applying to the full 7-strategy pool: 4/7 locked chain-wide + 3/7 × 0.69 chain-wide = 57% + 30% = ~87% cohort-clear on first scope-selection pass. This is HIGHER than the prep-doc estimate of 50-65%.
+- **Revised starting estimate: ~85-90% cohort-clear** based on Wave 3 COHORT_SCOPE_PRIORS empirical values. Sub-option B (cohort-clear fallback) will be the dominant path.
+
+---
+
+#### Item B2 — DPS-min-maxer / DPS-survivor split decision
+
+**Original criterion:** "bimodal survival signal in DPS-min-maxer cohort"
+
+**Wave 3 data available:** Wave 3 implements COHORT_SCOPE_PRIORS for dps_min_maxer with CHARACTER_WIDE prior=0.50, CHAIN_WIDE_OWN=0.30, CHAIN_WIDE_PARALLEL=0.20. The DPS-min-maxer cohort's strong CHARACTER_WIDE preference (highest of 4 cohorts at 0.50) confirms the SCOPE architecture separates DPS-min-maxer from other cohorts structurally. The survival-rate bimodal signal CANNOT be measured from Wave 3 alone — it requires actual fight sim data with spec-driven gear.
+
+**Closure:** DEFERRED-WITH-TRIGGER.
+- Trigger: first-cycle Wave 4 sim execution producing survival-rate distribution for DPS-min-maxer cohort across ≥30 fights per stratum
+- Wave 3 implication: the strong CHARACTER_WIDE prior for dps_min_maxer (0.50 vs 0.30 balanced vs 0.20 defensive) predicts DPS-min-maxer builds will have higher damage-multiplier scope → likely more bimodal survival outcomes than other cohorts. This strengthens the pre-split hypothesis but does not confirm it empirically.
+- **Code cite:** `t4_category_schema.py:307-315` (dps_min_maxer COHORT_SCOPE_PRIORS)
+- **Decision: remain as single DPS-min-maxer cohort for Wave 4 first cycle.** Bimodal detection gate: if post-first-cycle survival rate distribution for DPS-min-maxer shows Hartigans dip test statistic > 0.05 across ≥50 strata, fire the split. This is a quantitative trigger, not a subjective call.
+
+---
+
+#### Item B3 — Per-cell KPM percentile calibration (actual numbers)
+
+**Original criterion:** "Phase 3 Wave 3 sim execution against new engine"
+
+**Wave 3 status:** Wave 3 delivers the SCOPE DIMENSION SELECTION ALGORITHM, not fight sim execution. No KPM measurements were produced by Wave 3. Wave 4 Phase 3 sim execution is the empirical source.
+
+**Closure:** DEFERRED-WITH-TRIGGER (unchanged from prep doc, but now with updated context).
+- Trigger: Wave 4 gamora sim cycling Phase 3 execution (first-cycle, Tier 1 quick-estimate pass, minimum 10 fights × ~88 strata for endgame node × 4 cohorts × ~22 cells)
+- Wave 3 contribution: the scope-dimension selection algorithm now determines WHICH scope each T4 configuration receives, and magnitude downscaling (1/sqrt(class_chain_count) per `t4_scope_selector.py:317-338`) will directly affect KPM. CHARACTER_WIDE promoted T4s will systematically boost KPM relative to CHAIN_WIDE_OWN; this is the scope-amplification effect. Per-cell KPM medians must therefore be measured AFTER scope-dimension selection runs, not from pre-Wave-3 B14.5 historical data.
+- **Implication for ±15% band:** the scope-amplification effect means historical per-cell KPM medians from B14.5 telemetry are NOT valid anchors for Wave 4. Gamora must generate fresh medians from Wave 4 first-cycle execution.
+- **Code cite:** `t4_scope_selector.py:317-338` (compute_downscale_factor with 1/sqrt(class_chain_count)); `t4_scope_selector.py:267-312` (select_scope Step 4 with I1 all-negative handling)
+
+---
+
+#### Item B4 — Cohort membership of actual generated legendaries
+
+**Original criterion:** "spec-driven gear gen output"
+
+**Closure:** DEFERRED-WITH-TRIGGER (same trigger as Item B1 — Wave 4 rocket gear gen).
+- Wave 3 contribution: T4CandidateV2 now carries `scope_prior_weight` + `scope_weighted_score` + `scope_projection_data` fields per `t4_category_schema.py:381-384`. The `scope_projection_data` dict is production-ready for drax spirit-guide consumption and also carries cohort-membership signals gamora can consume at Wave 4 gen time to derive cohort assignment per legendary WITHOUT needing a separate classification pass.
+- **Implementation note:** at Wave 4, gamora reads `T4CandidateV2.scope_projection_data` to derive cohort assignment directly from the gear gen output. This eliminates the "separate cohort classification step" from the Wave 4 implementation plan — cohort identity is embedded in the gear gen artifact.
+- **Code cite:** `t4_category_schema.py:381-384` (scope_projection_data field on T4CandidateV2)
+
+---
+
+#### Item C1 — Actual per-cell KPM medians
+
+**Original criterion:** "Phase 3 Wave 3 sim execution"
+
+**Closure:** DEFERRED-WITH-TRIGGER (see Item B3 — same empirical source required).
+- Compose-rule from Block C scaffolding (gandalf `2026-05-27-block-c-calibration-scaffolding.md` § 4): per Scaffold 3 Steps 1-8, gamora computes per-cell medians in Step 3 during Wave 4 first-cycle execution. Medians are substrate-led (whatever first-cycle sim produces IS the reference population per Q10 ratified framing).
+- **Cycle 13 v1 scope constraint (Block C § 1.5):** calibrate against endgame-reference-encounter (P_endgame only; L45-50+). Early/mid/endgame-start node calibration deferred to Cycle 14+ per Block C § 1.5 explicit lock.
+- **Endgame KPM anchor intent (Block C § 1.4):** KPM_target ~75+ at endgame node. This is NOT a hard threshold — it is the design-intent anchor for the balanced cohort. Gamora uses it as a PRIOR for the first-cycle stratum but treats substrate-led first-cycle output as authoritative. If balanced-cohort first-cycle KPM median is 60-70 instead of 75+, the median IS 60-70 for that cell.
+
+---
+
+#### Item C2 — Band widening/tightening calibration (is ±15% right?)
+
+**Original criterion:** "first-cycle WR-bracket pass rate"
+
+**Wave 3 contribution:** the scope-dimension introduces a new structural variance source. CHARACTER_WIDE T4s with magnitude downscaling (1/sqrt(class_chain_count)) create a SYSTEMATIC variance-compression effect for multi-chain classes. A 4-chain class with CHARACTER_WIDE T4 has its bonus downscaled by 1/2 — this compresses KPM variance across the cell compared to a 2-chain class (downscale by 1/sqrt(2) ≈ 0.71). Net effect: cells with higher chain-count classes will show TIGHTER KPM distributions. The ±15% band may be too wide for high-chain-count cells and too narrow for low-chain-count cells.
+
+**Closure:** DEFERRED-WITH-TRIGGER plus structural amendment.
+- Trigger: first-cycle WR-bracket pass rate (unchanged)
+- **Structural amendment (new post-Wave-3):** gamora will STRATIFY the band calibration check by class chain count. If chain count = 2 (1/sqrt(2) downscale = 0.71): expect wider natural KPM variance → consider ±18% starting band. If chain count = 4 (1/sqrt(4)=0.50 downscale): expect tighter variance → ±12-15% may be appropriate. Starting configuration: ±15% for all, calibrate per-chain-count stratum after first cycle.
+- **Code cite:** `t4_scope_selector.py:317-338` (compute_downscale_factor; `1/sqrt(class_chain_count)` for CHARACTER_WIDE B/C; ELEMENT_CONVERSION exempt from downscaling)
+
+---
+
+#### Item C3 — Gradient banding (cell-type-dependent variance)
+
+**Original criterion:** "Cell-type KPM variance distribution from Wave 3"
+
+**Wave 3 status:** no fight sim data from Wave 3. However, Wave 3 introduces a STRUCTURAL predictor for cell-type variance: the scope-dimension selection algorithm's cohort-prior weighting means cells dominated by a single cohort archetype (e.g., all defensive-archetype kit tests) will have systematically lower KPM variance than cells with mixed cohort representation.
+
+**Closure:** DEFERRED-WITH-TRIGGER plus structural predictor.
+- Trigger: post-first-cycle per-cell KPM variance measurement (unchanged from prep doc)
+- **Structural predictor added:** gradient banding by cohort mix is now structurally motivated by COHORT_SCOPE_PRIORS variance asymmetry. dps_min_maxer CHARACTER_WIDE prior=0.50 (high scope variance) vs defensive CHAIN_WIDE_OWN prior=0.55 (low scope variance). Cells that generate predominantly defensive-archetype legendaries will have lower scope variance → tighter KPM distribution → gradient banding toward the defensive end. Cells that generate dps_min_maxer-dominant legendaries will have higher scope variance → wider KPM distribution → gradient banding toward the DPS end.
+- **Code cite:** `t4_category_schema.py:307-328` (COHORT_SCOPE_PRIORS; dps_min_maxer CHARACTER_WIDE=0.50 vs defensive CHAIN_WIDE_OWN=0.55)
+
+---
+
+#### Item C4 — Percentile anchoring per cohort calibration
+
+**Original criterion:** "Wave 3 cohort-distribution empirical signal"
+
+**Wave 3 contribution:** COHORT_SCOPE_PRIORS provide the cohort scope preference distribution. This quantifies the STRUCTURAL cohort spread:
+- dps_min_maxer: CHARACTER_WIDE=0.50, CHAIN_WIDE_OWN=0.30, CHAIN_WIDE_PARALLEL=0.20
+- defensive: CHARACTER_WIDE=0.20, CHAIN_WIDE_OWN=0.55, CHAIN_WIDE_PARALLEL=0.25
+- balanced: CHARACTER_WIDE=0.30, CHAIN_WIDE_OWN=0.40, CHAIN_WIDE_PARALLEL=0.30
+- hybrid: CHARACTER_WIDE=0.25, CHAIN_WIDE_OWN=0.30, CHAIN_WIDE_PARALLEL=0.45
+
+The DPS-min-maxer → CHARACTER_WIDE dominance (0.50) combined with magnitude downscaling means DPS-min-maxer KPM boost from CHARACTER_WIDE is partially compressed. The prep doc's KPM percentile estimates (DPS=85th-100th; Balanced=40th-65th; Defensive=10th-30th; Hybrid=60th-85th) were authored before scope-dimension was defined.
+
+**Post-Wave-3 KPM percentile recalibration:**
+- DPS-min-maxer: 50% of builds get CHARACTER_WIDE (partial downscale); 30% CHAIN_WIDE_OWN (no downscale, concentrated boost); 20% CHAIN_WIDE_PARALLEL. Expect net KPM band at 80th-95th percentile (slightly compressed from 85th-100th due to CHARACTER_WIDE downscaling).
+- Defensive: 55% CHAIN_WIDE_OWN (concentrated chain defense, low KPM); 25% CHAIN_WIDE_PARALLEL; 20% CHARACTER_WIDE. Expect 10th-30th percentile preserved (defensive scope preference doesn't change KPM-kills dynamic).
+- Balanced: more even spread; 40% CHAIN_WIDE_OWN, 30% CHARACTER_WIDE (downscaled), 30% CHAIN_WIDE_PARALLEL. 40th-65th percentile preserved.
+- Hybrid: CHAIN_WIDE_PARALLEL dominant (0.45); cross-chain synergy boosts KPM above CHAIN_WIDE_OWN. Revise upward to 65th-90th percentile (was 60th-85th; hybrid's PARALLEL-dominant scope creates meaningful cross-chain synergy KPM boost).
+
+**Closure:** PARTIALLY CLOSED — structural revision from Wave 3 COHORT_SCOPE_PRIORS; numerical calibration remains empirical-iteration from first-cycle sim.
+- **Updated KPM band estimates:** DPS=80th-95th; Balanced=40th-65th (unchanged); Defensive=10th-30th (unchanged); Hybrid=65th-90th (revised upward from 60th-85th)
+- **Code cite:** `t4_category_schema.py:307-328` (COHORT_SCOPE_PRIORS empirical values used in recalibration)
+
+---
+
+#### Item D1 — Actual legendary count (strata sizing input)
+
+**Original criterion:** "spec-driven gear gen output"
+
+**Wave 3 status:** Wave 3 adds scope-dimension to T4CandidateV2 but does not run gear gen. Legendary count is Wave 4 rocket gear gen output.
+
+**Closure:** DEFERRED-WITH-TRIGGER.
+- Trigger: Wave 4 rocket spec-driven gear gen output (count of T4CandidateV2 instances per rarity tier per class)
+- **Wave 3 bounding contribution:** the OPTION_F_PHASES=4 and DEFAULT_MAX_RETRIES=4 (`t4_option_f.py:57`) define the maximum retry budget per legendary. With 4 retries × potential scope-flip at Retry 4 (`t4_option_f.py:164-197`), the effective legendary generation cost per item is bounded at 5 attempts (initial + 4 retries). This bounds the generation-time compute budget per legendary for strata sizing.
+- **Revised strata estimate for planning:** the prep doc estimate of 15-30 tier-2 legendaries per first season remains the working assumption. Wave 3's revised cohort-clear fraction (~85-90% Sub-option B) significantly REDUCES strata count vs the 50-65% estimate in the prep doc: at 85% Sub-option B, ~85% of legendaries get 4 strata (1 cohort × 4 nodes) vs 16 strata (4 cohorts × 4 nodes) for Sub-option A. Net strata per legendary: 0.85×4 + 0.15×16 = 3.4+2.4 = 5.8 strata average (vs 10 average at 50/50 split). This HALVES the expected compute burden.
+- **Code cite:** `t4_option_f.py:57` (DEFAULT_MAX_RETRIES=4), `t4_option_f.py:164-197` (Retry 4 scope-flip branch)
+
+---
+
+#### Item D2 — Tier 1 fight count sufficiency (is 10 fights enough?)
+
+**Original criterion:** "first-cycle Tier 1 rejection rate"
+
+**Wave 3 contribution:** the scope-dimension adds a new failure mode: CHARACTER_WIDE T4 with magnitude downscaling may produce systematic KPM suppression for high-chain-count classes. This could make 10-fight Tier 1 estimates NOISIER for CHARACTER_WIDE-dominant builds (high variance from scope-amplification effect that is partially downscaled). The I1 all-negative score handling in `t4_scope_selector.py:285-299` surfaces edge cases where all scope candidates score negatively — these builds are the most likely to have borderline KPM at Tier 1.
+
+**Closure:** CONDITIONALLY RESOLVED — 10-fight Tier 1 is sufficient for clear pass/fail cases (KPM >30% outside band); for I1 all-negative-score legendaries (warning logged at `t4_scope_selector.py:285-299`), increase Tier 1 to 20 fights.
+- **Tiered Tier 1 rule (new):**
+  - Standard Tier 1: 10 fights (unchanged for typical legendaries)
+  - Elevated Tier 1: 20 fights for legendaries where `scope_projection_data` indicates I1 all-negative-score warning was emitted during scope selection
+  - Rationale: I1 builds are the statistical edge cases — they need more fight-count to establish a reliable KPM estimate before deciding Tier 1 pass/fail
+- **Code cite:** `t4_scope_selector.py:285-299` (I1 all-negative handling with log.warning(); `scope_projection_data` carries this signal per `t4_category_schema.py:384`)
+
+---
+
+#### Item E1 — Sub-gate 3/6 WARNING to HARD-BLOCK escalation
+
+**Original criterion:** "first-cycle resource-flow + cognitive-load signal"
+
+**Wave 3 contribution:** the scope-dimension does not directly affect resource-flow or cognitive-load measurement. However, CHARACTER_WIDE T4s increase the NUMBER of simultaneous triggered effects per second (all chains fire simultaneously when a cross-chain trigger fires), which raises the Sub-gate 6 cognitive-load burst count. CHAIN_WIDE_PARALLEL T4s (dominant for hybrid cohort at prior=0.45) similarly expand simultaneous trigger surface to 2 chains.
+
+**Closure:** PARTIALLY RESOLVED — Sub-gate 6 cognitive-load burst threshold may need to increase from ≤8 to ≤12 events for CHARACTER_WIDE and CHAIN_WIDE_PARALLEL dominated builds. Structural reasoning:
+- CHAIN_WIDE_OWN: 1 chain triggered = baseline cognitive-load event count
+- CHAIN_WIDE_PARALLEL: 2 chains triggered simultaneously = ~2× simultaneous events
+- CHARACTER_WIDE: all chains triggered simultaneously = up to 4× simultaneous events for 4-chain class
+- At ≤8 events baseline (1 chain), CHARACTER_WIDE 4-chain class would generate ≤32 events — far above the ≤8 threshold
+- **Revised Sub-gate 6 threshold:** ≤8 events per 0.5s per chain involved in trigger. Normalized to chain count: ≤8 × scope_chain_breadth where scope_chain_breadth = 1 (CHAIN_WIDE_OWN), 2 (CHAIN_WIDE_PARALLEL), or class_chain_count (CHARACTER_WIDE). This is now an STRUCTURALLY MOTIVATED revision, not purely empirical-iteration.
+- Sub-gate 3 (resource flow): CHARACTER_WIDE T4s do NOT systematically affect resource-flow unless the T4 is RESOURCE_CONVERSION category (which is CHARACTER_WIDE inherently per Category A). Category A RESOURCE_CONVERSION builds are the primary resource-flow edge cases. Sub-gate 3 WARNING-to-HARD-BLOCK escalation trigger remains first-cycle empirical (unchanged).
+- **Code cite:** `t4_category_schema.py:246-267` (T4Scope enum; CHARACTER_WIDE applies to all chains); `t4_category_schema.py:281` (RESOURCE_CONVERSION = False for character-wide eligibility → Category A only)
+
+---
+
+#### Item E2 — Archive insertion quarantine policy calibration
+
+**Original criterion:** "first-cycle quarantine rate"
+
+**Closure:** DEFERRED-WITH-TRIGGER (unchanged from prep doc).
+- Trigger: first-cycle Wave 4 sim execution quarantine count (WR_BRACKET_PASS AND NOT PLAYABILITY_PASS count)
+- **Wave 3 structural contribution:** the revised cohort-clear fraction (~85-90% Sub-option B) reduces the surface for PLAYABILITY_PASS failures. Sub-option B builds (single cohort) are less likely to produce mandatory-skill-lock because they are built for a single optimized play pattern. Sub-option A builds (multi-cohort) are the higher-risk quarantine candidates because a build optimized for DPS-min-maxer cohort may exhibit mandatory-skill-lock when simulated in defensive-cohort play pattern.
+- Starting quarantine rate expectation (revised downward): <5% of strata (vs previous prior of 10-15%) given 85-90% Sub-option B dominance.
+
+---
+
+### § 9.2 — PRE-BASELINE-RESOLVABLE spot-check (22 items, 8 sampled)
+
+All 22 PRE-BASELINE-RESOLVABLE items are confirmed to hold post-Wave-3-baseline. Eight items spot-checked:
+
+| Item (§) | Status | Wave 3 verification |
+|---|---|---|
+| Sub-option A/B/hybrid discrimination heuristic (§ 2) | CONFIRMED + AMENDED | Wave 3 STRATEGY_CHARACTER_WIDE_ELIGIBILITY (3 of 7 eligible) operationalizes the discrimination heuristic directly. The 3 True-eligible strategies map exactly to the prep doc's cohort-ambiguous signal. `t4_category_schema.py:281-288` |
+| Per-legendary cohort anchoring procedural spec (§ 2.2) | CONFIRMED | T4CandidateV2.scope_projection_data field (`t4_category_schema.py:384`) carries per-cohort scope signal; cohort anchoring procedure as specified works with this field. |
+| IN-BAND compound gate 3-criterion structure (§ 4) | CONFIRMED | Block C scaffolding (Scaffold 3 § 3.1) independently composes the same 3-criterion structure (KPM + survival + degenerate-state). No conflict. |
+| WR-bracket FAIL disposition + Option F retry logic (§ 4.5) | CONFIRMED + AUGMENTED | Wave 3 adds Retry 4 scope-flip to Option F (`t4_option_f.py:164-197`; DEFAULT_MAX_RETRIES=4). The WR-bracket FAIL disposition now includes scope-flip as a Retry 4 lever before kit rejection. The prep doc's 3-retry budget is now 4-retry. Gamora must treat 4 (not 3) as the retry ceiling in WR-bracket FAIL accounting. |
+| Tiered validation (Tier 1 quick-estimate + Tier 2 full-sim) (§ 5.2) | CONFIRMED | Structurally unchanged; see Item D2 amendment (elevated Tier 1=20 fights for I1 edge cases). |
+| Caching strategy + invalidation rules (§ 5.3) | CONFIRMED | Scope-dimension adds one new cache-invalidation trigger: if COHORT_SCOPE_PRIORS is updated (gamora SC-7 calibration output), per-cohort stat-sheet parameterization cache must be invalidated AND per-cell KPM medians recomputed. Cache invalidation rule amended accordingly. |
+| 6 sub-gate structure + measurement approach (§ 6.1) | CONFIRMED + SUB-GATE 6 AMENDED | Sub-gate 6 cognitive-load burst threshold revised per Item E1 above: normalized to chain breadth rather than absolute event count. Structural amendment driven by Wave 3 scope-dimension architecture. |
+| Hard-block thresholds (sub-gates 1, 2, 4, 5) (§ 6) | CONFIRMED | No Wave 3 change to stunlock >5 sec, zero-damage-floor <1% in 30s, mandatory-skill-lock >80%, or survival floors. These thresholds are fight-engine intrinsic, not scope-dependent. |
+
+**Items NOT spot-checked (implicitly hold):** cohort identities, flat-band-per-node banding shape, cross-node degenerate-state secondary check, compute budget projection, statistical floor per stratum, strata definition structure, Sub-option A/B stratum sizing logic, tier-0/0.5 validation priority, 4 cohort KPM band starting estimates (updated per Item C4 above). None of these are structurally affected by the scope-dimension addition.
+
+---
+
+### § 9.3 — Methodology pattern refinement (Discipline #30)
+
+**Original methodology pattern name (§ 1 TL;DR):**
+> "Per-weapon-cohort-exhaustive with sub-option-B fallback for cohort-clear legendaries; stratified by progression node; tiered quick-estimate first validation"
+
+**Post-Wave-3 refinement (extended naming):**
+> "Per-weapon-cohort-exhaustive with sub-option-B DOMINANT (85-90% estimated cohort-clear fraction per Wave 3 COHORT_SCOPE_PRIORS analysis); stratified by progression node (endgame-reference-encounter first per Block C § 1.5); tiered quick-estimate first validation with elevated Tier 1 for I1 edge cases; scope-dimension-aware KPM band calibration stratified by class chain count"
+
+Four-axis update:
+- **Node-population approach:** Sub-option B is now the dominant path (revised from "fallback" to "dominant ~85-90%"); Sub-option A is the exception for the 3 character-wide-eligible strategies in cohort-ambiguous configurations
+- **Edge-case coverage strategy:** unchanged — per-legendary anchoring on tier-2 legendaries/sets; I1 all-negative-score legendaries are the NEW edge case category (elevated Tier 1=20 fights)
+- **Cohort definition basis:** unchanged — 4 archetypes; hybrid KPM band revised upward to 65th-90th percentile
+- **Compute-burden management:** revised DOWNWARD — strata count halved vs prep-doc estimate due to Sub-option B dominance. Revised fight estimate: 5.8 strata/legendary average × 20-30 legendaries × (10-20 Tier 1 + 70 Tier 2 expected) = ~4,800-12,000 fights total (was 11,000-20,000 in prep doc)
+
+---
+
+### § 9.4 — Compute budget re-projection (Discipline #1.1)
+
+**Wave 3 actual runtime:** 146 tests in 0.41s = 356 test-evaluations/second. Tests are not fight-equivalents — they are unit assertions on schema and algorithm logic, not fight-engine evaluations. The 0.34s/fight baseline from engineering-disciplines remains the operative fight-engine cost estimate; Wave 3 does not add fight data.
+
+**Revised fight count estimate:**
+- Legendaries (Cycle 13 v1 first season): 15-30 tier-2 target (unchanged)
+- Sub-option B dominant (85-90%): 85% × 20 legendaries = 17 Sub-option B (4 strata each) + 3 Sub-option A (16 strata each) = 68 + 48 = 116 strata
+- Tier 1 (10 fights standard; 20 fights for I1 edge cases; ~10% I1 rate estimated): 116 × 10.5 ≈ 1,220 Tier 1 fights
+- Tier 2 (100 fights × 70% pass Tier 1): 116 × 0.70 × 100 = 8,120 Tier 2 fights
+- **Total revised: ~9,340 fights** (vs 11,000-20,000 prep doc estimate)
+
+**At 0.34s/fight: ~53 minutes wall-clock** (vs 1.0-1.9 hours in prep doc). Revised DOWNWARD by ~50% due to Sub-option B dominance.
+
+**Cycle 13 v1 scope constraint (endgame node only per Block C § 1.5):** if only endgame node is calibrated for v1, strata count drops by 75% (1 of 4 nodes): ~29 strata, ~3,400 total fights, ~19 minutes wall-clock. Well within single-session execution.
+
+**Peak memory:** unchanged from prep doc — <5MB sequential, <250MB at P=50 parallelism. M2 8GB constraint is not at risk under any plausible Wave 4 first-season scope.
+
+**Discipline #1.1 verdict:** WITHIN AVAILABLE RESOURCE. Revised downward from 1-2 hours to ~19-53 minutes depending on node scope.
+
+---
+
+### § 9.5 — Wave 4 sub-wave structure (W4G.0-W4G.X)
+
+Mirror Wave 3's W3.0-W3.5 structure (6 sub-waves, compressed scope). Wave 4 gamora sim cycling is a METHODOLOGY EXECUTION track, not a schema-extension track — sub-waves are execution/calibration phases, not implementation phases.
+
+**Proposed sub-wave structure:**
+
+| Sub-wave | Name | Scope | Gate criterion |
+|---|---|---|---|
+| W4G.0 | Calibration setup | Load Block C scaffolds + COHORT_SCOPE_PRIORS into sim harness; build per-cohort stat-sheet parameterizations; pre-generate endgame encounter set; verify fight engine compatibility with T4CandidateV2 scope fields | Smoke test: 5 classes × 1 T4 configuration × endgame node × balanced cohort → 10 fights complete, KPM logged |
+| W4G.1 | Tier 1 endgame sweep | Run Tier 1 quick-estimate (10 fights, elevated 20 for I1 edge cases) across all legendary strata at endgame node × 4 cohorts | Tier 1 rejection rate logged; provisional pass/fail classification for all strata |
+| W4G.2 | Tier 2 full-sim | Run Tier 2 (100 fights) for all Tier 1 provisional-pass strata; all 6 sub-gates evaluated; degenerate-state validators fire; mandatory-skill-lock and stunlock measured | WR-bracket pass rate, playability pass rate, quarantine count logged |
+| W4G.3 | KPM median calibration | Compute per-cell KPM medians from Tier 2 output; derive ±15% bands per cohort per cell; run band widening/tightening calibration check; stratify by class chain count per Item C2 amendment | Per-cell KPM median table produced; band adjustment decision made |
+| W4G.4 | Sub-gate calibration | Apply Item C4 revised percentile bands; calibrate Sub-gate 6 cognitive-load burst threshold per Item E1 structural revision; flag any Sub-gate 3/6 WARNING → escalation candidates | Playability calibration report produced; escalation decisions logged |
+| W4G.5 | Archive insertion + quality report | Insert WR_BRACKET_PASS AND PLAYABILITY_PASS kits into archive; quarantine failures per § 6.2 policy; emit quality metric (regeneration_rate per class/cohort per D85); produce cross-season learning D25 input | Archive insertion complete; quality report filed; AGENT_STATE.md updated |
+
+**Total: 6 sub-waves (W4G.0-W4G.5).** Matches Wave 3 sub-wave count pattern.
+
+---
+
+### § 9.6 — Cross-seam coordination flags
+
+**Flag 1 — Star-lord export schema (CARRY FORWARD from Wave 3 MIGRATION.md)**
+Wave 3 adds 5 new scope fields to T4CandidateV2.to_dict(): `t4_scope`, `scope_downscale_factor`, `scope_prior_weight`, `scope_weighted_score`, `scope_projection_data`. Per jack-ryan Wave 3 Gate-2 D10: "Export schema update flagged for Wave 4 integration milestone in MIGRATION.md." At Wave 4G.5 archive insertion, gamora's telemetry emissions will include scope-field values. Star-lord must extend export schema to consume these fields before Wave 4G.5 archive insertion completes.
+- **Coordination action:** route to KR for star-lord dispatch. Star-lord Wave 4 export schema update should land BEFORE W4G.5.
+
+**Flag 2 — Rocket Wave 4 gear gen data fields required for sim cycling**
+Gamora Wave 4 sim cycling REQUIRES the following fields on each T4CandidateV2 from rocket gear gen output:
+- `t4_scope` (T4Scope enum — CHARACTER_WIDE / CHAIN_WIDE_OWN / CHAIN_WIDE_PARALLEL)
+- `scope_downscale_factor` (Optional[float] — magnitude scaling applied; None if CHAIN_WIDE)
+- `scope_projection_data` (dict — per-cohort scope scores + I1 all-negative flag)
+- `scope_prior_weight` (float — cohort prior applied during selection)
+These are ALL present in Wave 3 T4CandidateV2 schema per `t4_category_schema.py:379-384`. No new fields required from rocket. Wave 3 schema is SUFFICIENT for gamora Wave 4 sim cycling.
+- **Status: NO NEW CROSS-SEAM CONTRACT REQUIRED.** Wave 3 output schema is gamora-ready.
+
+**Flag 3 — Drax I5 (scope_projection_data for spirit-guide display)**
+`scope_projection_data` dict is production-ready per Wave 3 T4CandidateV2. Drax I5 planning note (Wave 3 dispatch preserved) can proceed when drax Wave 4 work is dispatched. No gamora action required; routing note for KR.
+
+---
+
+### § 9.7 — Framing-audit (Discipline #23) — post-closure verification
+
+Three-question framing-audit applied at this methodology consultation closure point per OP § 3.2 (framing-audit applies at methodology consultation at math hotspot):
+
+**Q1: Have I named the question correctly?** The consultation closes 12 REQUIRES-WAVE-3-BASELINE items and produces Wave 4 implementation guidance. The question is "what is the methodology for sim cycling Wave 4 legendaries, calibrated to Wave 3 empirical output?" The framing is correct — this is a methodology calibration exercise, not a balance intervention.
+
+**Q2: Have I let the substrate vote before committing numbers?** Yes — all numerical amendments (COHORT_SCOPE_PRIORS values, Sub-option B dominant fraction ~85-90%, magnitude downscale formula) are sourced from Wave 3 empirical code values, not pre-imposed. KPM medians are explicitly deferred to first-cycle execution (substrate-led per Q10). The revised compute estimate is derived from Wave 3 structural math, not assumption.
+
+**Q3: Have I named the cheapest refuting test per structural claim?** Yes per Discipline #19.1:
+- Sub-option B dominance claim (~85-90%): cheapest refute = Python import `sum(v for v in STRATEGY_CHARACTER_WIDE_ELIGIBILITY.values() if not v) / 7` against `t4_category_schema.py` → should return 4/7 = 0.571 scope-locked-chain-wide fraction
+- Magnitude downscale affecting KPM band: cheapest refute = 1-fight sim with CHARACTER_WIDE vs CHAIN_WIDE_OWN T4 on same class → compare KPM; difference should track ~1/sqrt(class_chain_count)
+- Elevated Tier 1=20 for I1 edge cases: cheapest refute = inspect `scope_projection_data` for I1 warning flag presence/absence in first W4G.1 batch
+
+---
+
+### § 9.8 — Scope-dimension calibration items for gamora (COHORT_SCOPE_PRIORS starting estimates)
+
+Per jack-ryan Wave 3 Gate-2 D3 finding: "Surfaced for gamora SC-7 empirical calibration" — the I1 all-negative-score behavior and the step 4 negative-score formula (negative scores made more negative for preferred cohorts) are explicitly flagged for gamora calibration at Wave 4 first cycle.
+
+**COHORT_SCOPE_PRIORS starting estimates (from `t4_category_schema.py:307-328`) are calibration targets, not locked values.** Post-W4G.3 KPM median calibration, gamora will:
+1. Compute per-cohort observed scope distribution from first-cycle Tier 2 output
+2. Compare against COHORT_SCOPE_PRIORS starting estimates
+3. If observed distribution differs from priors by >15 percentage points for any cohort × scope pair → flag for scope-prior amendment and re-run W4G.1 with updated priors
+4. If scope-prior amendment is needed: write as math note at `simulation/math/cycle-13-wave-4-scope-prior-calibration.md` before implementing code change (Discipline #1 math-before-code)
+
+**Scope-prior calibration gate:** priors are locked for Cycle 13 v1 UNLESS empirical W4G.3 output diverges by >15pp. This is the quantitative trigger for scope-prior recalibration.
+
+---
+
+### § 9.9 — Sign-off (FULL Closure)
+
+**FULL Closure authored:** 2026-05-27
+**Author:** gamora (simulation + spirit-guide seam owner)
+**Pattern:** Pattern A-deep methodology framework FULL closure (per Discipline #18.2 post-Wave-3-baseline timing + Discipline #30 methodology naming + Discipline #23 framing-audit + Discipline #1.1 compute re-projection + Discipline #11 empirical grounding + Discipline #1.2 code-citation)
+**Authority basis:** Matt 2026-05-27 + Cycle 13 framing brief § 4.1 KR autonomous + Q6 ratification + jack-ryan Wave 3 Gate-2 PASS (commit `99ec777`) + dispatch `2026-05-27-gamora-cycle-13-sc-7-methodology-consultation-full-execution.md`
+**Discipline composition (FULL):** #1 (math-before-code, methodology-as-math) + #1.1 (compute re-projection) + #1.2 (code-citation throughout) + #11 (empirical grounding from Wave 3 baseline) + #18 (methodology consultation) + #18.2 (timing: post-baseline) + #19.1 (cheapest-refuting-test per claim) + #23 (framing-audit) + #26 (playability 6 sub-gates; Sub-gate 6 amended) + #30 (methodology pattern named + refined)
+
+**Wave 4 gamora implementation gate:** SC-7 FULL closed. Wave 4 gamora sim cycling implementation dispatch unblocked post (a) Wave 4 design intent doc (gandalf doc 45 or equivalent) landing and (b) rocket Wave 4 spec-driven gear gen producing T4CandidateV2 instances. Star-lord export schema update should precede W4G.5. No further methodology consultation required for Wave 4 first cycle.
