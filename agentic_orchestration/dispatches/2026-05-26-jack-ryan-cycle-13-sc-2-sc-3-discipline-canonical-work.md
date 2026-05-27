@@ -92,3 +92,45 @@ For each, author canonical entry per existing format (summary + when-to-cite + n
 **Wave:** 0 / Sidecar
 **Gates:** none (async / non-blocking)
 **Priority:** P2 — fire parallel with SC-4
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-26
+**Agent:** jack-ryan
+**Commit:** see tag `jack-ryan: engineering-disciplines amendment — Cycle 13 SC-2 + SC-3 candidates landed`
+
+### Disciplines landed
+
+**SC-2 — 5 new disciplines (#26-#30):**
+- **#26 — Playability discipline (D61):** PLAYABLE-AND-IN-BAND as the sim validation criterion; 6-gate checklist (KPM + rotation coherence + resource flow + defensive uptime + no-degenerate-states + cognitive-load); composes with Discipline #18 at Phase 3/4 gamora consultation
+- **#27 — Dual-effect capstone discipline (D76):** T4 capstones MUST produce dual mechanical impact (character-wide effect AND within-chain or parallel-chain effect); BLOCK trigger at Gate-1 for any single-effect capstone definition
+- **#28 — Spirit-guide-pacing discipline (D78):** NEUTRAL OBSERVATION / data-oracle voice pattern with three required language markers (projected to / typically / estimated); WARN trigger for counselor-voice violations; composes with D65 respec-offer pacing mechanism
+- **#29 — Commitment-to-consequence discipline (D79):** no free reversibility on commitment-class decisions; escape valves (standard revert cost) permitted but free reversibility prohibited; WARN trigger for free-revert implementations; composes with #28
+- **#30 — Sim methodology naming discipline (D84):** methodology patterns must be named explicitly at math hotspots (four-axis naming: node-population + edge-case + cohort + compute-burden); composes with #18; WARN trigger for structurally-described-but-unnamed methodology
+
+**SC-3 — Discipline #23 amendment:**
+- Added **3rd operational instance:** auto-combat framing inherited from `skills_and_gear_discussion` source conversation; Matt corrected at line 2420; framing-audit caught DURING canonization of doc 40 § 1 (not post-hoc); lesson: framing-audit applies to canonical-doc authoring from external-conversation source material
+- Added **2nd operational instance** inline (previously only cited in first-canonical-example note; now explicit as numbered instance): drax "requires no work" understatement caught during SO-3 Pattern A-deep verdict authoring 2026-05-25
+- Added **1st operational instance** inline (previously described in main discipline statement; now explicit as numbered instance): Phase E-1 kernel-panic / gandalf ratification failure (Pattern-A query refuted H1-H5 availability assumption in ~120 sec)
+- Extended "when to cite" to include: "canonical-doc authoring that inherits framing from external-conversation source material"
+
+### Cross-updates made
+
+- `agentic_orchestration/operating-procedures/engineering-disciplines.md` wrapper skill: updated IS-statement from 20 to 30 disciplines; updated § 1 table from 20 to 30 rows (new rows #20-#30 with correct names — prior table showed 20 but was missing #21-#25 which had been added 2026-05-23)
+- `canonical/00-ground-state.md` § 1 row for engineering-disciplines.md: count updated 25 → 30; #26-#30 names listed; #23 3rd-instance amendment noted; CURRENT status updated with commit reference placeholder
+
+### Numbering confirmation
+
+No collision found. #26-#30 were unoccupied. Assignment order matches dispatch spec: D61→#26, D76→#27, D78→#28, D79→#29, D84→#30.
+
+### R-prescription check
+
+No new R-prescriptions authored in this dispatch. Disciplines #26-#30 carry Gate-1 trigger questions but operate within the existing R-prescription framework (R11(b) cross-seam round-trip covers any schema changes these disciplines would flag).
+
+### Key citations
+
+- Source: `canonical/40-gear-balance-guide-architecture-2026-05-26.md` § 8.8/#8.10 (D61 → #26), § 8.9 (D76 → #27, D78 → #28, D79 → #29), § 8.11 (D84 → #30), § 1.4 (D47 → #23 3rd instance)
+- Authority: Matt 2026-05-26 (via doc 40 session + Cycle 13 framing brief Q4 ratification)
+- Acceptance criteria: all 5 checked; #23 amendment checked; wrapper skill updated; ground-state row updated

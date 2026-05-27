@@ -14,13 +14,13 @@
 
 ## 0. What this skill IS and IS NOT
 
-**IS:** the universal reference wrapper for the 20 engineering disciplines. Names each discipline with a one-line summary; provides when-to-cite triggers; cross-references to the authoritative source. Loaded on every session that touches code, dispatches, gates, methodology selection, or discipline citation.
+**IS:** the universal reference wrapper for the 30 engineering disciplines (25 original + 5 new Cycle 13 SC-2 additions). Names each discipline with a one-line summary; provides when-to-cite triggers; cross-references to the authoritative source. Loaded on every session that touches code, dispatches, gates, methodology selection, or discipline citation.
 
 **IS NOT:** the authoritative source (that's `engineering-disciplines.md` in engine repo; ALWAYS the single source of truth when discipline text disagrees). NOT a substitute for jack-ryan's Gate-1 / Gate-2 review (jack-ryan applies disciplines; this skill helps agents cite them correctly upfront). NOT the full named-pattern reference (B14.5 V1 primary loop pattern + R-prescriptions live in the engineering-disciplines source).
 
 ---
 
-## 1. The 20 disciplines (one-line each)
+## 1. The 30 disciplines (one-line each)
 
 | # | Discipline | When it bites |
 |---|---|---|
@@ -44,7 +44,17 @@
 | 17 | **Empirical-calibration smoke gate** | Before full-regen / full-salvage with a new lever |
 | 18 | **Methodology-before-execution (math-hotspot discipline)** | P2/P3/P5 statistical methodology selection; legolas Mode A consult required |
 | 19 | **Agent tool is not for waiting** | All long-running phases as background processes; no Agent-tool polling |
-| 20 | **robots.txt + Claude-agent directive respect** | Any crawl-based source; per-source verification pre-fire |
+| 20 | **Density-based algorithms must use native sample_weight; never emulate via row duplication** | Any clustering/density dispatch applying sample weights |
+| 21 | **No sleep recommendations (CRITICAL — Matt directive)** | Every session-end; every "validate before commit" moment |
+| 22 | **Timezone-agnosticism (CRITICAL — Matt directive)** | Every status report; handoff; scheduling recommendation |
+| 23 | **Framing-audit checklist — Pattern A-deep three-question protocol (amended 2026-05-26: 3rd instance)** | Pattern A-deep verdicts; math-hotspot consultations; canonical-doc authoring from external-source material |
+| 24 | **Single-parameter sweep isolation** | Any sensitivity sweep or parametric sweep at a math hotspot |
+| 25 | **Semantic-layer rep-audit — substrate vote is geometry-binding but not semantics-binding** | Any downstream design surface inheriting cluster identity as cultural-tradition substrate |
+| 26 | **Playability discipline — PLAYABLE-AND-IN-BAND as sim validation criterion** | Any gamora sim/gauntlet dispatch validating T4 configurations or class builds; Cycle 13 Phases 2-4 |
+| 27 | **Dual-effect capstone discipline — T4 capstones MUST produce dual mechanical impact** | Any dispatch authoring or modifying T4 node definitions; Cycle 13 T4 Phase 1-3 implementation |
+| 28 | **Spirit-guide-pacing discipline — NEUTRAL OBSERVATION / data-oracle voice** | Any dispatch producing spirit-guide text, projection language, or advisory output |
+| 29 | **Commitment-to-consequence discipline — no free reversibility on commitment-class decisions** | Any dispatch implementing high-stakes commitment mechanics; respec, gear destruction, skill investment |
+| 30 | **Sim methodology naming discipline — name methodology patterns explicitly at math hotspots** | Any gamora methodology consultation; any multi-T4 / multi-cohort / multi-node sim dispatch |
 
 ---
 
