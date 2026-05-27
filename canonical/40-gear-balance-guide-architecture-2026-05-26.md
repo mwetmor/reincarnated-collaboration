@@ -1,16 +1,18 @@
 # 40 — Gear, Balance, Guide, and Multi-T4 Architecture (Cycle 13 Foundation)
 
-> **STATUS:** CURRENT (load-bearing as of 2026-05-26) — see `canonical/00-ground-state.md`
+> **STATUS:** CURRENT (load-bearing as of 2026-05-27 — amendment-pass-record per § 0.1) — see `canonical/00-ground-state.md`
 
-**Date:** 2026-05-26
+**Date:** 2026-05-26 (initial authoring); 2026-05-27 (Cycle 14 SC-2 amendment pass — doc 46 + doc 47 inheritance; see § 0.1)
 **Author:** gandalf (story-and-design steward)
-**Status:** v1 canonical lock — Cycle 13 architectural foundation; 86 locked decisions across 5 design blocks; specific implementation items deferred to T4 PM1 + stat-sheet partition cycle + gamora methodology consultation + drax player surface work with explicit ownership markers
-**Authority:** Matt 2026-05-26 — full session greenlight after iterative refinement across 5 design blocks
+**Status:** v1 canonical lock + 2026-05-27 amendment pass — Cycle 13 architectural foundation; 86 locked decisions across 5 design blocks; doc 46 (concentration architecture, 9 layers) + doc 47 (damage scaling architecture) amendments to specific D-entries landed in-place per § 0.1 amendment-pass-record; specific implementation items still deferred to T4 PM1 + stat-sheet partition cycle (now landed as doc 42) + gamora methodology consultation + drax player surface work with explicit ownership markers
+**Authority:** Matt 2026-05-26 — full session greenlight after iterative refinement across 5 design blocks; Matt 2026-05-27 — Cycle 14 framing brief Q5 ratification authorizes SC-2 doc 40 amendment pass (doc 46 + doc 47 inheritance work)
 **Companion docs:**
 - `agentic_orchestration/gandalf/matt_conversations/skills_and_gear_discussion` — source conversation (substantive design insights; auto-combat framing throughout source does NOT propagate per § 1)
 - `canonical/00-ground-state.md` — ground-state oracle (this doc registers as new CURRENT entry)
 - `canonical/02-roadmap.md` — roadmap (Cycle 13 scope-doc gates on this doc + T4 PM1)
 - `canonical/38-downstream-delivery-strategy-2026-05-23.md` — D1-D10 delivery strategy keystone; "balance as property" composes with D10 Path A pitch material per § 2
+- **`canonical/46-concentration-architecture-2026-05-27.md` — concentration architecture, 9 layers (Cycle 14 sidecar foundation); § 13 lists D-entries amended per Cycle 14 SC-2 inheritance pass (D9 / D33 / D38 / D49 / D50 / D51 / D52 / D54 / D55 / D56); see § 0.1 amendment-pass-record (NEW 2026-05-27)**
+- **`canonical/47-damage-scaling-architecture-2026-05-27.md` — damage scaling architecture (physical / magical / hybrid routing); § 5.5 lists D-entries composing with the scaling-path dimension (D7 / D9 / D55 / D63-D86); see § 0.1 amendment-pass-record (NEW 2026-05-27)**
 - `canonical/story/qd-engine-end-to-end-workflow-2026-05-24.md` — Architecture B substrate-bound at Phase 2; spec-driven gear gen sharpens toward Architecture B per § 3
 - `canonical/story/tier-4-architecture-defaults-2026-05-22.md` — T4 architecture defaults (1 signature + 1-3 secondary capstones); § 8 of this doc extends with full algorithm canonical form
 - `canonical/story/weapon-substrate-composition-policy-v1-2026-05-24.md` — substrate composition policy; § 5.4 per-season anchor variability lock composes with multi-T4 architecture per § 8
@@ -31,6 +33,68 @@ This doc captures the architectural foundation for Cycle 13, derived from Matt's
 **CRITICAL framing correction (§ 1 — PROMINENT):** the source conversation extensively framed the design as "strategic auto-combat ARPG." Matt corrected this at the end of source conversation: auto-combat is reserved as deferred mobile-game-variant option, NOT primary-game direction. All architectural commitments in this doc apply to conventional-execution ARPG and do NOT depend on auto-combat premise.
 
 **Cycle 13 scope expansion (§ 8 + § 9):** all 4 phases of T4 algorithm wrap into Cycle 13 (NOT phased across multiple cycles) because T4-and-gear interaction is architecturally inseparable. This expands Cycle 13 substantially and elevates multi-seam coordination + gamora methodology consultation + jack-ryan Gate-1 throughput as load-bearing constraints.
+
+---
+
+## 0.1 Amendment-pass-record — Cycle 14 SC-2 (2026-05-27)
+
+> **STATUS:** This doc has received an in-place amendment pass on 2026-05-27 per Cycle 14 SC-2 dispatch authorized by Matt's Cycle 14 framing brief Q5 ratification (`agentic_orchestration/gandalf/notes/2026-05-27-cycle-14-framing-brief.md` § 12). The original D-entries are preserved in body; amendments are inline-annotated **AMENDED 2026-05-27 (doc 46 § N / doc 47 § N)** with cross-references to superseding canonical content. This anchor § 0.1 is the index. STATUS remains CURRENT — amendments extend the architecture; they do not demote it.
+
+### 0.1.1 Why this amendment pass fires
+
+Doc 40 is the Cycle 13 architectural foundation (86 locked decisions). Two Cycle 14 canonical docs landed 2026-05-27 that refine or supersede specific doc 40 D-entries:
+
+- **`canonical/46-concentration-architecture-2026-05-27.md`** — concentration architecture, 9 layers (stat-range bounds + affix migration + capability scope reduction + trigger vocabulary + concentration probability table + cohesion layering + synergy scan refinement + set keying + class-agnostic drops). § 13 lists doc 40 D-entries requiring amendment. The architectural through-line: identity = chain composition + T4 + 4-6 build-defining items + stat-affix support. Gear amplifies; gear does not constitute. Remediates the "capability soup" pattern empirically surfaced by Cycle 13 mechanical season.
+- **`canonical/47-damage-scaling-architecture-2026-05-27.md`** — physical / magical / hybrid damage scaling routing per skill `damage_scaling_type`. § 5.5 lists doc 40 D-entries that COMPOSE with the scaling-path dimension (not supersession; composition). The architectural through-line: weapon is damage source for physical skills; skill is damage source for magical skills; weapon's role differs by attribute.
+
+Without this amendment pass, downstream readers (rocket Wave 0.5 + Waves 1-2; gamora Wave 5 re-calibration; jack-ryan Gate-1 reviewers; future agents) would consume the unamended D-entries as canonical truth — a Discipline #1 (math-before-code) violation if rocket implements against unamended D-entries.
+
+### 0.1.2 Amendment index — doc 46 § 13 inheritance (supersession + refinement)
+
+| D-entry | Doc 40 anchor | Doc 46 superseding section | Amendment type | Synopsis |
+|---|---|---|---|---|
+| **D9** | § 3.7 | Doc 46 § 4 (Layer 3 capability scope reduction) + § 6 (Layer 5 concentration probability table) | REFINED | Capability scope LOCAL per Layer 3; tier-density per Layer 5 concentration probability table (not flat-across-tiers). Single-capability-per-legendary preserved. |
+| **D33** | § 6.7 | Doc 46 § 4 + § 9 (Layer 8 set keying to T4 strategy × element clusters) | REFINED (composes with prior 2026-05-27 morning amendment) | T4-attunement is metadata (per Block B1 content-compositional framing locked morning 2026-05-27); sets ALSO carry T4-strategy-cluster keying per Layer 8. |
+| **D38** | § 6.7 | Doc 46 § 9 (Layer 8 set keying) + § 10 (Layer 9 class-agnostic per-drop generation) | RESOLVED (composes with prior 2026-05-27 morning amendment) | Content-compositional attunement (morning lock) + set keying to strategy clusters (Layer 8) + class-agnostic per-drop generation (Layer 9) collectively close the prior "T4-attuned gear specifics deferred" framing. |
+| **D49** | § 3.7 | Doc 46 § 6 (Layer 5 concentration probability table) | PRESERVED + ADDITIVE | 4-tier legendary + drop pool restriction structure preserved; Layer 5 adds tier-density probability table calibrating capability count per tier. |
+| **D50** | § 3.7 | Doc 46 § 6 (Layer 5) | PRESERVED + ADDITIVE | Drop pool restriction preserved; Layer 5 adds tier-density probability calibration. |
+| **D51** | § 3.7 + § 6.7 amendment | Doc 46 § 9 (Layer 8 set keying) | REFINED (composes with prior 2026-05-27 morning amendment) | Tier 1+2 legendaries + ALL sets carry T4-strategy-cluster keying; non-attuned content retains base value (consistent with content-compositional model). The annotation IS metadata; capability scope is keyed to substrate strategy clusters. |
+| **D52** | § 3.7 | Doc 46 § 6 (Layer 5) | PRESERVED + ADDITIVE | Power-escalation-within-categories preserved; Layer 5 adds tier-density calibration to power-escalation logic. |
+| **D54** | § 3.7 | Doc 46 § 4 (Layer 3 capability scope reduction) + § 6 (Layer 5 concentration probability table; § 6.4 set-pieces-replace-individual) | AMENDED — capability density scales with tier | Capability density scales with tier per Layer 5 concentration probability table (NOT flat across all 4 tiers). Set pieces replace individual capability per Layer 5.4. Original "toolkit at all 4 tiers" preserved as upper-bound presence; Layer 5 calibrates density per tier within that envelope. |
+| **D55** | § 3.7 | Doc 46 § 4 (Layer 3) + § 6 (Layer 5) | PRESERVED + WEAPONS-ONLY ENFORCEMENT ADDED | Triggered-passive-high-prob preserved; tier-density per Layer 5; **weapons-only enforcement for `true_active_secondary_skill`** ADDED per Cycle 13 empirical inspection (substrate generation produced true_active_secondary_skill rolls on off-hand slots — violation of D55 weapons-only intent; Layer 5 enforcement plus generation-side fix required). |
+| **D56** | § 3.7 | Doc 46 § 4 (Layer 3 capability scope reduction) | PRESERVED + SCOPE CLARIFIED | Modifier-surface expansion preserved as legendary primary differentiator; clarified: scope of mechanic-altering content is LOCAL per Layer 3 (not character-wide). New stat-type rolls operate within local capability scope. |
+
+### 0.1.3 Amendment index — doc 47 § 5.5 composition (scaling-path dimension; not supersession)
+
+Doc 47 introduces the damage scaling-path dimension that was implicit in `skill-system-2026-05-24.md` composition pattern. These D-entries COMPOSE with the doc 47 scaling-path architecture; the original D-entry claims are PRESERVED. The amendment is annotative — downstream implementers (rocket Track D.2 per-skill emission; gamora Track D.4 fight engine routing) MUST consume both the original D-entry AND the doc 47 routing logic.
+
+| D-entry | Doc 40 anchor | Doc 47 composition section | Amendment type | Synopsis |
+|---|---|---|---|---|
+| **D7** | § 3.7 | Doc 47 § 5.5 + § 7.1 (Track D.2 per-skill emission) | COMPOSITION ADDED | Spec-driven gear gen routes gear modifiers to physical or spell pools per gear type. Gear modifier surface partitions by damage scaling path (physical_damage_pct / spell_damage_pct / element_damage_pct / weapon_spell_modifier). Composes with doc 42 stat-sheet modifier partition (Category 1 Damage sub-divisions). |
+| **D9** | § 3.7 | Doc 47 § 5.5 | COMPOSITION ADDED (in addition to doc 46 amendment above) | Legendary/set capabilities operate ON the scaling path; capability semantics declared per damage_scaling_type alignment. A weapon-bound capability inherits the weapon's damage_scaling_type alignment. |
+| **D55** | § 3.7 | Doc 47 § 5.5 | COMPOSITION ADDED (in addition to doc 46 amendment above) | Weapons-only true-active rule — true-active skills declared on weapons inherit weapon's damage_scaling_type alignment. Physical weapon → true-active skill is physical-scaled; caster weapon → true-active skill is magical-scaled (unless skill explicitly declares otherwise). |
+| **D63-D86 (Block 5 T4 architecture en bloc)** | § 8.9 | Doc 47 § 5.5 + § 4.2 / § 4.3 / § 4.4 (fight engine damage calculation) | COMPOSITION ADDED | Multi-T4 architecture composes with damage scaling routing: Category A T4 effects (character-wide) apply on top of routed damage calculation per damage_scaling_type; Category B effects apply chain-multiplicatively within the routed path; Category C effects (element conversion / dual element addition) apply at the element resolution step within the appropriate path. The 4-phase T4 algorithm canonical form is NOT amended by doc 47; the integration point is at fight engine routing (Track D.4 gamora scope). |
+
+### 0.1.4 Sub-entry amendment companions (Q-SC2-1 resolution)
+
+The dispatch open question Q-SC2-1 asked whether subordinate D-entries (e.g., D54.1 / D55.1) warrant companion amendments. Resolution: doc 40 D-entries are flat (no subordinate D-entries in the original schema). Doc 46 amendments operate at the parent D-entry level. The "single capability per legendary" provision within D9, the "weapons-only true-active" provision within D55, and the "tier 2 > tier 1 > tier 0.5 > tier 0" provision within D52 are all preserved as sub-clauses of their parent entries — not promoted to separate sub-entries.
+
+### 0.1.5 STATUS line disposition (Q-SC2-3 resolution)
+
+The dispatch open question Q-SC2-3 asked whether this amendment pass demotes doc 40 to "CURRENT-with-amendments" or preserves "CURRENT". Resolution: doc 40 remains **CURRENT**. The amendment pass extends the architecture (concentration discipline + scaling-path routing) — it does not invalidate the foundational architecture. Prior 2026-05-27 morning amendments (Block B1 content-compositional, D33/D35/D38/D51 inline + § 3.6 9-category × 11-slot lock + § 3.2 3-category T4 taxonomy + § 8.3 / § 8.3.1 / § 8.4 sharpening + § 6.6.1 trait absorption + various § 8 D-entry sharpenings) already exist as in-place amendments without demoting STATUS. This pass follows the same pattern. The STATUS line "load-bearing as of" date is rolled forward to 2026-05-27 to reflect the latest amendment pass; the § 0.1 anchor is the discriminator pointing downstream readers to the amendment-pass-record.
+
+### 0.1.6 What is OUT OF SCOPE for this amendment pass
+
+- Doc 40 D-entries NOT listed in doc 46 § 13 or doc 47 § 5.5 are NOT amended (per dispatch out-of-scope clause)
+- No D-entries are deleted or moved to historical/ (amendment preserves originals with supersession markers in-place)
+- Doc 41 / doc 42 / doc 43 / doc 44 / doc 45 (Cycle 13 design-intent canonical docs) are NOT amended in this pass (separate amendment cycle if needed)
+- The gauntlet sim representative loadout discipline (§ 6.5 amendment) is Wave 2 work, NOT SC-2 scope
+- Discipline canonical writes (#33-#37 from doc 46 + #38 from doc 47) are jack-ryan SC-1 scope, NOT SC-2 scope
+- Cycle 13 mechanical season empirical references in doc 40 body are NOT updated per Cycle 14 framing brief Q9 (Cycle 13 season DISREGARDED for Cycle 14 reference; doc 40 retains its Cycle-13-authoring-date empirical context as historical record)
+
+### 0.1.7 Bidirectional cross-reference
+
+Doc 46 § 13 + doc 47 § 5.5 cross-reference forward to the amended D-entries; this § 0.1 cross-references backward to doc 46 § 13 + doc 47 § 5.5. Per canonical doc format § 4 bidirectional cross-reference protocol.
 
 ---
 
@@ -262,9 +326,9 @@ Specific partition design is **stat-sheet partition cycle work — early Cycle 1
 
 ### 3.7 Decision points
 
-- **D7** — Spec-driven gear gen as architectural pattern (scored-candidate strategy registry mirroring T4 Algorithm § 8); all rarities are spec-driven
+- **D7** — Spec-driven gear gen as architectural pattern (scored-candidate strategy registry mirroring T4 Algorithm § 8); all rarities are spec-driven. **AMENDED 2026-05-27 (doc 47 § 5.5 + § 7.1; composition added):** spec-driven gear gen routes gear modifiers to physical or spell pools per gear type and per damage_scaling_type path. Gear modifier surface partitions by damage scaling path (physical_damage_pct / spell_damage_pct / element_damage_pct / weapon_spell_modifier). Composes with doc 42 stat-sheet modifier partition (Category 1 Damage sub-divisions). See § 0.1 amendment-pass-record.
 - **D8** — Rarity IS power escalation (traditional ARPG model retained); Common → Legendary in raw power
-- **D9** — Legendary/set tier carries TOOLKIT of mechanic-alteration capabilities (toolkit at all 4 tiers per D54); single capability per legendary, not all simultaneously
+- **D9** — Legendary/set tier carries TOOLKIT of mechanic-alteration capabilities (toolkit at all 4 tiers per D54); single capability per legendary, not all simultaneously. **AMENDED 2026-05-27 (doc 46 § 4 Layer 3 + § 6 Layer 5; refined):** capability scope LOCAL per Layer 3 (mechanic-altering content operates within the local capability scope, not character-wide); tier-density per Layer 5 concentration probability table (not flat-across-tiers). Single-capability-per-legendary preserved. **AMENDED 2026-05-27 (doc 47 § 5.5; composition added):** legendary/set capabilities operate ON the scaling path; capability semantics declared per damage_scaling_type alignment (weapon-bound capability inherits weapon's damage_scaling_type alignment). See § 0.1 amendment-pass-record.
 - **D10** — Build identity multi-layered (kit + chain + T4-attunement); decision space scales with progression
 - **D11** — Epic→Legendary discontinuity LOAD-BEARING for endgame parity (tier 1+2 legendary saturation required for endgame target power); composes with § 4 Option A acquisition calibration
 - **D12** — Strategy registry: single registry + T4-attunement annotation gate at legendary/set tier
@@ -274,14 +338,14 @@ Specific partition design is **stat-sheet partition cycle work — early Cycle 1
 - **D16** — Compute-improvement claim from source conversation (~100x vs validation-cycling): qualitative direction canonized; specific magnitude deferred to empirical measurement
 - **D17** — Active-skill-budget question RESOLVED by D55+D57 (triggered-passive-dominant flavor + rare-active additivity)
 - **D48** — Sets: 2 tiers, endgame-only (tier 1 + tier 2); always T4-attuned
-- **D49** — Uniques: 4 tiers, full progression arc; distinct sub-category from generic legendaries
-- **D50** — Legendaries: 4 tiers, cross-tier drop pool restrictions (early-game play → tier 0 only; mid-game → tier 0+0.5; endgame → all 4 tiers)
-- **D51** — T4-attunement RESERVED for tier 1+2 of legendaries and all sets; tier 0+0.5 legendaries follow chain-alignment only
-- **D52** — Power escalation within categories: tier 2 > tier 1 > tier 0.5 > tier 0
+- **D49** — Uniques: 4 tiers, full progression arc; distinct sub-category from generic legendaries. **AMENDED 2026-05-27 (doc 46 § 6 Layer 5; preserved + additive):** 4-tier structure preserved; Layer 5 concentration probability table adds tier-density calibration on top (capability count per tier scaled per Layer 5). See § 0.1 amendment-pass-record.
+- **D50** — Legendaries: 4 tiers, cross-tier drop pool restrictions (early-game play → tier 0 only; mid-game → tier 0+0.5; endgame → all 4 tiers). **AMENDED 2026-05-27 (doc 46 § 6 Layer 5; preserved + additive):** drop pool restriction preserved; Layer 5 adds tier-density probability calibration. See § 0.1 amendment-pass-record.
+- **D51** — T4-attunement RESERVED for tier 1+2 of legendaries and all sets; tier 0+0.5 legendaries follow chain-alignment only. **(prior morning 2026-05-27 amendment captured below at line for D51 AMENDMENT 2026-05-27 closeout § 3.4; afternoon 2026-05-27 SC-2 inheritance work adds:) AMENDED 2026-05-27 (doc 46 § 9 Layer 8; refined):** tier 1+2 legendaries + ALL sets carry T4-strategy-cluster keying per Layer 8 (sets keyed to T4 strategy × element clusters); non-attuned content retains base value (consistent with content-compositional model). Annotation IS metadata; capability scope is keyed to substrate strategy clusters. See § 0.1 amendment-pass-record.
+- **D52** — Power escalation within categories: tier 2 > tier 1 > tier 0.5 > tier 0. **AMENDED 2026-05-27 (doc 46 § 6 Layer 5; preserved + additive):** power-escalation-within-categories preserved as ordering; Layer 5 concentration probability table adds tier-density calibration (capability density scales monotonically with tier). See § 0.1 amendment-pass-record.
 - **D53** — Legendary/unique/set as distinct sub-categories at legendary rarity tier (NOT escalating rarity tiers above legendary)
-- **D54** — Capability toolkit applies at ALL 4 tiers of legendaries; T4-attunement is the EXTRA layer reserved for top 2 tiers
-- **D55** — High probability of triggered-passive added skill on weapons (active-like triggered effects); truly active skills extremely rare AND additive to base skill budget when they roll (weapon-only)
-- **D56** — Legendary differentiation primarily via modifier-surface expansion (new stat types Epic cannot roll); slight scalar increase supplementary
+- **D54** — Capability toolkit applies at ALL 4 tiers of legendaries; T4-attunement is the EXTRA layer reserved for top 2 tiers. **AMENDED 2026-05-27 (doc 46 § 4 Layer 3 + § 6 Layer 5 + § 6.4):** capability density scales with tier per Layer 5 concentration probability table — NOT flat across all 4 tiers. Original "toolkit at all 4 tiers" preserved as upper-bound presence envelope (all tiers MAY carry capabilities); Layer 5 calibrates DENSITY per tier within that envelope (tier 2 high density; tier 0 low density). Set pieces replace individual capability per Layer 5.4 (sets concentrate via multi-piece commitment, not via flat-additive capability stacking). Capability scope LOCAL per Layer 3. See § 0.1 amendment-pass-record.
+- **D55** — High probability of triggered-passive added skill on weapons (active-like triggered effects); truly active skills extremely rare AND additive to base skill budget when they roll (weapon-only). **AMENDED 2026-05-27 (doc 46 § 4 Layer 3 + § 6 Layer 5; preserved + weapons-only enforcement added):** triggered-passive-high-prob preserved; tier-density per Layer 5; **weapons-only enforcement for `true_active_secondary_skill` ADDED** per Cycle 13 empirical inspection — substrate generation produced true_active_secondary_skill rolls on off-hand slots in violation of D55 weapons-only intent. Layer 5 enforcement plus generation-side fix required (rocket Wave 1 scope). **AMENDED 2026-05-27 (doc 47 § 5.5; composition added):** true-active skills declared on weapons inherit weapon's damage_scaling_type alignment — physical weapon → true-active is physical-scaled; caster weapon → true-active is magical-scaled (unless skill explicitly declares otherwise). See § 0.1 amendment-pass-record.
+- **D56** — Legendary differentiation primarily via modifier-surface expansion (new stat types Epic cannot roll); slight scalar increase supplementary. **AMENDED 2026-05-27 (doc 46 § 4 Layer 3; preserved + scope clarified):** modifier-surface expansion preserved as legendary primary differentiator; clarified: scope of mechanic-altering content is LOCAL per Layer 3 (not character-wide). New stat-type rolls operate within local capability scope. See § 0.1 amendment-pass-record.
 - **D57** — D17 active-skill-budget question resolved by D55 (triggered passives don't compete; rare actives additive)
 
 ### 3.8 Gap-filling discipline
@@ -481,12 +545,12 @@ Multi-T4 + attunement + sets + stat-sheet partition + acquisition mechanics is a
 
 ### 6.7 Decision points
 
-- **D33** — Legendary/set (tier 1+2) carry T4-attunement; lesser rarities/tiers do not. **AMENDED 2026-05-27 (closeout § 3.4):** content-compositional attunement supersedes binary/graduated framing. Per D33 + D51: Tier 1+2 legendary/unique have chain+T4 ANNOTATION (metadata); all sets have chain+T4 annotation (endgame-only); Tier 0+0.5 have chain-alignment annotation only. The annotation IS metadata recording generation-time alignment intent; it does NOT toggle anything ON/OFF at consumption time. Gear's CONTENT (passives, weapon specs) IS the attunement; magnitude IS content quality.
+- **D33** — Legendary/set (tier 1+2) carry T4-attunement; lesser rarities/tiers do not. **AMENDED 2026-05-27 (closeout § 3.4):** content-compositional attunement supersedes binary/graduated framing. Per D33 + D51: Tier 1+2 legendary/unique have chain+T4 ANNOTATION (metadata); all sets have chain+T4 annotation (endgame-only); Tier 0+0.5 have chain-alignment annotation only. The annotation IS metadata recording generation-time alignment intent; it does NOT toggle anything ON/OFF at consumption time. Gear's CONTENT (passives, weapon specs) IS the attunement; magnitude IS content quality. **AMENDED 2026-05-27 afternoon SC-2 (doc 46 § 4 Layer 3 + § 9 Layer 8; refined):** T4-attunement is metadata (per Block B1 content-compositional framing locked morning 2026-05-27); sets ALSO carry T4-strategy-cluster keying per Layer 8 (set bonuses are keyed to T4 strategy × element clusters, not to character-specific identifiers). Capability scope LOCAL per Layer 3. See § 0.1 amendment-pass-record.
 - **D34** — Acquired-but-non-matching attunement creates persuasion-to-experiment opportunity; spirit guide surfaces via data-oracle voice; spirit-guide synergy-score projection ("playing T4-A: projected KPM 75. Switching to T4-B: projected KPM 62. Net synergy score: T4-A composes 23% better with this gear") per closeout § 3.4
 - **D35** — Sets are set-level T4 attuned; multi-piece commitment for full bonuses; **AMENDED 2026-05-27 (closeout § 3.4):** 4-piece sets standard; 2pc minor bonus (always-active) + 4pc full bonus (content composed with chain + T4)
 - **D36** — Heroic Spirit narrative cohesion: T4 paths = aspects of Spirit; T4-attuned gear = latent aspect evidence
 - **D37** — Replay value within single Servant arc via multi-T4 + attunement + set completions
-- **D38** — **AMENDED 2026-05-27 (closeout § 3.4):** Content-compositional attunement model LOCKED. Gear's content (passives, weapon specs) IS the attunement; annotation field exists as metadata recording generation-time alignment intent; drives drop pool restriction (D50), spirit-guide projection (D34), algorithm-side optimization. Annotation does NOT toggle anything ON/OFF at consumption time — gear passives always fire; synergy value varies by build. NO separate multiplier; gear content design is sim-calibrated to produce playability-AND-in-band synergy with target chain+T4. Magnitude IS the content quality. Binary vs graduated attunement REJECTED; content-compositional supersedes. Per closeout § 8 #10: graduated attunement DEFERRED to v1.1+ if substrate-evidence shows content-compositional too rigid.
+- **D38** — **AMENDED 2026-05-27 (closeout § 3.4):** Content-compositional attunement model LOCKED. Gear's content (passives, weapon specs) IS the attunement; annotation field exists as metadata recording generation-time alignment intent; drives drop pool restriction (D50), spirit-guide projection (D34), algorithm-side optimization. Annotation does NOT toggle anything ON/OFF at consumption time — gear passives always fire; synergy value varies by build. NO separate multiplier; gear content design is sim-calibrated to produce playability-AND-in-band synergy with target chain+T4. Magnitude IS the content quality. Binary vs graduated attunement REJECTED; content-compositional supersedes. Per closeout § 8 #10: graduated attunement DEFERRED to v1.1+ if substrate-evidence shows content-compositional too rigid. **RESOLVED 2026-05-27 afternoon SC-2 (doc 46 § 9 Layer 8 + § 10 Layer 9):** the prior "T4-attuned gear specifics deferred" framing (the original D38 deferral) is collectively CLOSED by — (a) content-compositional attunement (morning lock); (b) set keying to T4 strategy × element clusters (Layer 8); (c) class-agnostic per-drop generation (Layer 9). No specifics remain deferred at the architectural level; downstream is implementation (rocket Wave 4 Track A amendment + new `set_generator.py` module). See § 0.1 amendment-pass-record.
 - **D39** — Casual complexity acknowledged; spirit guide primary mitigation
 - **D51 AMENDMENT 2026-05-27 (closeout § 3.4):** T4-attunement annotation = METADATA (recording generation-time alignment intent), NOT a toggle mechanism. The annotation drives drop-pool restriction (D50), spirit-guide projection (D34), algorithm-side optimization at generation time. At consumption time, gear passives always fire; the attunement does NOT gate any mechanic ON/OFF.
 
@@ -734,6 +798,8 @@ The sim's validation criterion is not just "numerically in-band against content 
 
 ### 8.9 Decision points
 
+> **EN-BLOC AMENDMENT 2026-05-27 (doc 47 § 5.5 + § 4.2 / § 4.3 / § 4.4; composition added — applies to D63-D86):** the Multi-T4 architecture decision block (D63-D86) composes with doc 47 damage scaling routing. Integration points: Category A T4 effects (character-wide) apply on top of routed damage calculation per damage_scaling_type; Category B effects apply chain-multiplicatively within the routed path; Category C effects (element conversion / dual element addition) apply at the element resolution step within the appropriate path. The 4-phase T4 algorithm canonical form (D81) is NOT amended by doc 47; the integration point is at fight engine routing (Track D.4 gamora scope). Per-skill `damage_scaling_type` declaration (Track D.2 rocket scope per doc 47 § 7.1) is the upstream emission that the fight engine routes against. See § 0.1 amendment-pass-record.
+
 - **D63** — Skill tree SUPPORTS 2-3 T4 capstones per class
 - **D64** — All class T4 capstones REACHABLE; no exclusivity-gate locks between T4 paths
 - **D65** — Multi-T4 viability via respec-driven attunement with legendary-triggered free-respec opportunities; full mechanism specification per § 8.5
@@ -884,6 +950,8 @@ Doc-40 is operationally complete as Cycle 13 architectural foundation. Cycle 13 
 - `canonical/02-roadmap.md` — add doc 40 to companion docs; add Cycle 13 architectural foundation entry to roadmap § 1.0 active workstreams (when Cycle 13 opens); add stat-sheet partition cycle as named early-Cycle-13 milestone
 - `canonical/38-downstream-delivery-strategy-2026-05-23.md` — cross-reference balance-as-property § 2 from D10 Path A pitch material
 - `canonical/37-engine-and-game-two-products.md` — composes with engine-as-product pitch (D10 Path A); balance-as-property strengthens engine commercial pitch
+- **`canonical/46-concentration-architecture-2026-05-27.md` — concentration architecture, 9 layers; § 13 inheritance amendments LANDED at doc 40 per § 0.1.2 amendment-pass-record (Cycle 14 SC-2; 2026-05-27)**
+- **`canonical/47-damage-scaling-architecture-2026-05-27.md` — damage scaling architecture (physical / magical / hybrid); § 5.5 composition amendments LANDED at doc 40 per § 0.1.3 amendment-pass-record (Cycle 14 SC-2; 2026-05-27)**
 - `canonical/story/qd-engine-end-to-end-workflow-2026-05-24.md` — Architecture B substrate-bound at Phase 2; spec-driven gear gen (§ 3) sharpens toward this; D15 explicit
 - `canonical/story/tier-4-architecture-defaults-2026-05-22.md` — T4 architecture defaults predecessor; § 8 of this doc extends with full algorithm canonical form (D81 + 4-phase implementation)
 - `canonical/story/weapon-substrate-composition-policy-v1-2026-05-24.md` — per-season anchor variability lock composes with multi-T4 architecture

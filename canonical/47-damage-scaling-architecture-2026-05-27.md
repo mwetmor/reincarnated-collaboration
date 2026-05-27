@@ -315,10 +315,12 @@ Per-level attribute scaling math is deferred per doc 41 § 4 #1 (Cycle 14+ desig
 ### 5.5 Doc 40 architectural foundation
 
 Composes with:
-- D7 spec-driven gear gen (Phase 2d) — gear modifiers route to physical or spell pools per gear type
-- D9 capability toolkit (legendary tier) — capabilities operate on the scaling path
-- D55 weapons-only true-active rule — true-active skills declared on weapons inherit weapon's damage_scaling_type alignment
-- D63-D86 multi-T4 architecture — T4 effects route per damage_scaling_type (Category A character-wide; Category B chain-multiplicative; Category C element-conversion/addition)
+- **D7 spec-driven gear gen (Phase 2d)** — gear modifiers route to physical or spell pools per gear type; gear modifier surface partitions by damage scaling path (physical_damage_pct / spell_damage_pct / element_damage_pct / weapon_spell_modifier). Composes with doc 42 stat-sheet modifier partition (Category 1 Damage sub-divisions).
+- **D9 capability toolkit (legendary tier)** — capabilities operate on the scaling path; capability semantics declared per damage_scaling_type alignment (weapon-bound capability inherits weapon's damage_scaling_type alignment).
+- **D55 weapons-only true-active rule** — true-active skills declared on weapons inherit weapon's damage_scaling_type alignment (physical weapon → physical-scaled true-active; caster weapon → magical-scaled true-active, unless skill explicitly declares otherwise).
+- **D63-D86 multi-T4 architecture** — T4 effects route per damage_scaling_type (Category A character-wide; Category B chain-multiplicative within routed path; Category C element-conversion/addition at element resolution step within appropriate path). 4-phase T4 algorithm canonical form (D81) is NOT amended; integration point is at fight engine routing (Track D.4 gamora scope).
+
+**✅ LANDED 2026-05-27 (Cycle 14 SC-2):** composition-amendments above filed in-place at doc 40 per § 0.1 amendment-pass-record. Bidirectional cross-references operational. See `canonical/40-gear-balance-guide-architecture-2026-05-26.md` § 0.1.3 for the doc 47 composition amendment index + § 0.1.2 for the parallel doc 46 inheritance amendment index. The D7 / D9 / D55 / D63-D86 entries are amended in-place at doc 40 § 3.7 and § 8.9 with cross-references back to this section.
 
 ---
 

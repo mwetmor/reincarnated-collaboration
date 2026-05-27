@@ -589,18 +589,20 @@ Cycle 14 = Phase 5 cohesion coalescence per Q9 Pattern A. This doc's 9 layers in
 
 This doc requires amendments to doc 40 (Cycle 13 architectural foundation) to keep canon coherent:
 
-| Doc 40 decision | Amendment |
-|---|---|
-| **D9** (capability toolkit: single capability per legendary, not all simultaneously) | Refined: capability scope LOCAL per Layer 3; tier-density per Layer 5 |
-| **D33** (Tier 1+2 legendaries carry T4-attunement) | Refined: T4-attunement is metadata (per Block B1 content-compositional); sets ALSO carry T4-strategy-cluster keying per Layer 8 |
-| **D38** (T4-attuned gear specifics deferred) | RESOLVED: content-compositional attunement (morning 2026-05-27 lock) + set keying to strategy clusters (this doc Layer 8) + class-agnostic per-drop generation (Layer 9) |
-| **D49 + D50 + D52** (4-tier legendary + drop pool restriction) | Preserved; this doc adds tier-density probability table per Layer 5 |
-| **D51** (T4-attunement reserved tier 1+2) | Refined: tier 1+2 legendaries + ALL sets carry T4-strategy-cluster keying; non-attuned content retains base value (consistent with content-compositional) |
-| **D54** (capability toolkit at all 4 tiers) | Amended: capability density scales with tier per Layer 5 (not flat across all 4 tiers); set pieces replace individual capability per Layer 5.4 |
-| **D55** (triggered-passive high prob on weapons; true-actives weapons-only) | Preserved; tier-density per Layer 5; D55 weapons-only enforcement added per the violation surfaced in Cycle 13 empirical inspection (true_active_secondary_skill on off-hand slots) |
-| **D56** (legendary modifier-surface expansion) | Preserved; clarified: scope of mechanic-altering content is LOCAL (Layer 3) |
+| Doc 40 decision | Amendment | In-doc-40 anchor |
+|---|---|---|
+| **D9** (capability toolkit: single capability per legendary, not all simultaneously) | Refined: capability scope LOCAL per Layer 3; tier-density per Layer 5 | doc 40 § 3.7 D9 inline amendment |
+| **D33** (Tier 1+2 legendaries carry T4-attunement) | Refined: T4-attunement is metadata (per Block B1 content-compositional); sets ALSO carry T4-strategy-cluster keying per Layer 8 | doc 40 § 6.7 D33 inline amendment (composes with morning closeout § 3.4 amendment) |
+| **D38** (T4-attuned gear specifics deferred) | RESOLVED: content-compositional attunement (morning 2026-05-27 lock) + set keying to strategy clusters (this doc Layer 8) + class-agnostic per-drop generation (Layer 9) | doc 40 § 6.7 D38 inline amendment (composes with morning closeout § 3.4 amendment) |
+| **D49 + D50 + D52** (4-tier legendary + drop pool restriction) | Preserved; this doc adds tier-density probability table per Layer 5 | doc 40 § 3.7 D49 / D50 / D52 inline amendments |
+| **D51** (T4-attunement reserved tier 1+2) | Refined: tier 1+2 legendaries + ALL sets carry T4-strategy-cluster keying; non-attuned content retains base value (consistent with content-compositional) | doc 40 § 3.7 D51 inline amendment (composes with morning closeout § 3.4 D51 AMENDMENT line in § 6.7) |
+| **D54** (capability toolkit at all 4 tiers) | Amended: capability density scales with tier per Layer 5 (not flat across all 4 tiers); set pieces replace individual capability per Layer 5.4 | doc 40 § 3.7 D54 inline amendment |
+| **D55** (triggered-passive high prob on weapons; true-actives weapons-only) | Preserved; tier-density per Layer 5; D55 weapons-only enforcement added per the violation surfaced in Cycle 13 empirical inspection (true_active_secondary_skill on off-hand slots) | doc 40 § 3.7 D55 inline amendment |
+| **D56** (legendary modifier-surface expansion) | Preserved; clarified: scope of mechanic-altering content is LOCAL (Layer 3) | doc 40 § 3.7 D56 inline amendment |
 
 Doc 40 amendment authoring is **Cycle 14 Wave 0 / Wave 1 gandalf canonical work**.
+
+**✅ LANDED 2026-05-27 (Cycle 14 SC-2):** all amendments above were filed in-place at doc 40 per § 0.1 amendment-pass-record. Bidirectional cross-references are operational. See `canonical/40-gear-balance-guide-architecture-2026-05-26.md` § 0.1.2 for the doc 46 inheritance amendment index.
 
 ---
 
