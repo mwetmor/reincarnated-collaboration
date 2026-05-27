@@ -109,3 +109,19 @@ For each ARPG:
 **Wave:** 0 / Sidecar
 **Gates:** Wave 1 partition cycle (must land before Wave 1 design lock)
 **Priority:** P1 — fire first
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-27
+**Output:** `agentic_orchestration/research/cycle-13/2026-05-27-arpg-modifier-partitioning-landscape.md`
+**robots.txt compliance (Discipline #20):** All four game wikis (poewiki.net, lastepoch.wiki.gg, diablo4.wiki.gg, grimdawn.wiki.gg) block ClaudeBot. Research routed to official game sites (pathofexile.com, lastepoch.com, grimdawn.com — all permitted) and secondary sources verified individually.
+**Round-trip:** Not applicable — research note only; no cross-seam contract change.
+**Notes for Wave 1 partition design:**
+- All 4 ARPGs covered across all 10 per-ARPG dimensions.
+- Synthesis section covers all 6 cross-ARPG dimensions.
+- Discipline #18 compliance section explicitly flags 5 MUST-DECIDE gates + MAY-DEFER items.
+- Key finding: mechanic-adjusting, spatial-adjusting, and axis-adjusting modifiers are exclusively legendary/unique surfaces in ALL 4 reference ARPGs — never in the random rare pool. This directly grounds doc 40 capability-toolkit placement decisions.
+- Key finding: prefix/suffix binary is load-bearing schema decision that must precede individual modifier assignments.
+- Key finding: proc/trigger routing decision (gear pool vs separate system vs support gem) is the highest-leverage partition gate — determines whether gear slot pools are simple or complex.
