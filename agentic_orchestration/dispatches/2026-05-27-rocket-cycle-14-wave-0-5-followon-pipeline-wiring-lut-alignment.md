@@ -108,3 +108,46 @@ Not applicable directly — this is wiring + constant alignment, not algorithmic
 - `~/Games/reincarnated-engine/design/decisions/decisions-log.md` (Path A architectural commitment + LUT divergence cross-reference; engine `f053281`)
 - Engineering disciplines #10 + #11 + #38
 - Hive-mind protocol § 4 (decision-routing) + § 10 (emergency / follow-on protocols)
+
+## Completion record
+
+**Completed:** 2026-05-27
+**Agent:** rocket
+
+### Item 1 — Pipeline wiring: COMPLETE
+
+- `per_skill_emitter.py` + `substrate_weapon_binding.py` wired into `season_generation_pipeline.py`
+- New imports: `SkillEmissionConfig`, `emit_skills_for_kit`, `select_and_bind_substrate_weapon`
+- Two new KitCandidate fields: `skills: list`, `substrate_weapon_binding: dict`
+- Two new pipeline nodes in `w5r1_generate_kit_candidates()` (Phase 2a/2c, AFTER gear_set + T4):
+  - Node A: `emit_skills_for_kit()` → `kit.skills` (12 skills per kit, 3 chains × 4 tiers)
+  - Node B: `select_and_bind_substrate_weapon()` → `kit.substrate_weapon_binding` (8 fields; seed offset +700)
+- `to_character_dict()` serializes `skills` + injects substrate binding into `gear_representative.main_weapon.substrate_binding`
+- Principle 6 round-trip smoke updated with integration assertions (`skills` in required_fields; all skills non-null `damage_scaling_type`; 8 binding fields)
+- Q-W05-FO-1 resolved: new nodes wired as new pipeline nodes AFTER Phase 2a/b (gear_set + T4); not reusing existing handoff location (which doesn't exist as a named point in the pipeline)
+
+### Item 2 — LUT alignment: COMPLETE (Gate-2 Finding 2 WARN REMEDIATED)
+
+- `WEAPON_FAMILY_L50_BASELINE` in `substrate_weapon_binding.py` updated to elrond Pass-2 LUT for ALL 5 families + hybrid
+- Updated values: martial-heavy=177.0, martial-light=99.0, ranged=91.0, caster-arcane=31.0, caster-faith=31.0, hybrid=99.0
+- Module-load assertions updated to verify all 5 family values
+- Code comments cite canonical source per Discipline #10: `sc-6b-weapon-family-baselines-2026-05-27.json` + `sc-6b-baseline-lut-math-2026-05-27.md § 3`
+- Q-W05-FO-2 resolved: all 5 families + hybrid checked; ALL 6 values diverged from Pass-2 (not just the 2 named in Gate-2 Finding 2; per Gate-1 FO-2 amendment, all aligned)
+- Note: elrond math note § 6 "LUT JSON dump" shows stale Pass-1 values — JSON file is authoritative; rocket aligned to JSON per Discipline #10
+
+### Smoke results
+
+- LUT alignment: `python3 -c "from reincarnated.generation.substrate_weapon_binding import WEAPON_FAMILY_L50_BASELINE"` — all 5 family assertions PASS at module load
+- Integration smoke: 3 kits × 12 skills (all non-null `damage_scaling_type`); all 8 substrate binding fields present — PASS
+- Regression: no regression on existing season gen (same seed_base=9000 produces same kit count with new fields populated)
+
+### Closure checklist
+
+- [x] `season_generation_pipeline.py` wires per_skill_emitter + substrate_weapon_binding — DONE
+- [x] Integration smoke: 3-kit subset (12 skills + 8-field binding on all) — PASS
+- [x] Rocket fallback LUT values match elrond Pass-2 LUT for ALL 5+ families — DONE
+- [x] Code comment cites elrond LUT math-note per Discipline #10 — DONE
+- [x] generation/MIGRATION.md § Wave 0.5 follow-on filed — DONE
+- [x] AGENT_STATE.md updated — DONE
+- [x] Completion record appended — DONE (this record)
+- [ ] Commit + push — pending (auto-fire per CLAUDE.md addendum)
