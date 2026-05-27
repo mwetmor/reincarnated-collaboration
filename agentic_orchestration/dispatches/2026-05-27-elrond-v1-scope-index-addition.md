@@ -65,3 +65,103 @@ This is one of 4 parallel pre-Phase-4 dispatches per KR Path (1) kicker § 3.1.
 - `agentic_orchestration/gandalf/notes/2026-05-27-discipline-46-db-streaming-candidate.md` § 2.1
 - `agentic_orchestration/gandalf/notes/2026-05-27-path-1-kr-scope-expansion-kicker.md` § 3.1
 - Engineering disciplines #11 + #46 (candidate; firing in parallel via Dispatch 1A)
+
+---
+
+## Completion record — 2026-05-27 (elrond)
+
+**Status:** COMPLETE — all acceptance criteria met.
+
+### Pre-flight state (Discipline #11 empirical inspection)
+
+- **Existing indexes on `weapon_knowledge_entries`** (verified via `sqlite_master`):
+  - `sqlite_autoindex_weapon_knowledge_entries_1` (PK auto-index)
+  - `idx_knowledge_canonical_name`
+  - `idx_knowledge_source_library`
+  - `idx_knowledge_cluster`
+  - **`idx_knowledge_v1_scope` NOT present** — confirmed audit finding
+- **Row counts:** 90,220 total rows in `weapon_knowledge_entries`; 2,499 rows where `v1_scope=1` (2.77% selectivity — high-selectivity filter, strong index candidate)
+- **Column verified:** `v1_scope` at column 43, type `BOOLEAN` (per `PRAGMA table_info`)
+- **Backup confirmed in place:** `/Users/admin/Games/reincarnated-loadout/data/telemetry.db.pre-substrate-enrichment-2026-05-27.bak` (214MB, dated May 27 18:05) — per SC-6b precedent; no fresh pre-index backup needed for DDL-only index addition
+
+### Pre-index EXPLAIN QUERY PLAN baseline
+
+```
+sqlite> EXPLAIN QUERY PLAN SELECT * FROM weapon_knowledge_entries WHERE v1_scope=1;
+QUERY PLAN
+`--SCAN weapon_knowledge_entries
+```
+
+Confirms audit finding — full SCAN against 90,220-row table on every substrate v1_scope query.
+
+### DDL executed
+
+```sql
+CREATE INDEX IF NOT EXISTS idx_knowledge_v1_scope ON weapon_knowledge_entries(v1_scope);
+```
+
+Against: `/Users/admin/Games/reincarnated-loadout/data/telemetry.db`. Executed silently (no errors).
+
+### Post-index verification
+
+**Index exists in `sqlite_master`:**
+
+```
+idx_knowledge_v1_scope|CREATE INDEX idx_knowledge_v1_scope ON weapon_knowledge_entries(v1_scope)
+```
+
+**EXPLAIN QUERY PLAN outputs across representative substrate query shapes:**
+
+1. Primary acceptance query (full-row fetch on v1_scope filter):
+   ```
+   sqlite> EXPLAIN QUERY PLAN SELECT * FROM weapon_knowledge_entries WHERE v1_scope=1;
+   QUERY PLAN
+   `--SEARCH weapon_knowledge_entries USING INDEX idx_knowledge_v1_scope (v1_scope=?)
+   ```
+   PASS — SEARCH USING INDEX, no SCAN.
+
+2. Projected query with bound (mimics SC-6 audit + SC-6b enrichment shape):
+   ```
+   sqlite> EXPLAIN QUERY PLAN SELECT canonical_name, source_library FROM weapon_knowledge_entries WHERE v1_scope=1 LIMIT 100;
+   QUERY PLAN
+   `--SEARCH weapon_knowledge_entries USING INDEX idx_knowledge_v1_scope (v1_scope=?)
+   ```
+   PASS — SEARCH USING INDEX.
+
+3. Aggregate count (Path A revert pattern):
+   ```
+   sqlite> EXPLAIN QUERY PLAN SELECT COUNT(*) FROM weapon_knowledge_entries WHERE v1_scope=1;
+   QUERY PLAN
+   `--SEARCH weapon_knowledge_entries USING COVERING INDEX idx_knowledge_v1_scope (v1_scope=?)
+   ```
+   PASS — COVERING INDEX (best case; aggregate satisfied entirely from index without table touch).
+
+4. Compound filter (v1_scope + source_library):
+   ```
+   sqlite> EXPLAIN QUERY PLAN SELECT * FROM weapon_knowledge_entries WHERE v1_scope=1 AND source_library='dnd_5e';
+   QUERY PLAN
+   `--SEARCH weapon_knowledge_entries USING INDEX idx_knowledge_v1_scope (v1_scope=?)
+   ```
+   PASS — SQLite query planner correctly preferred `idx_knowledge_v1_scope` over `idx_knowledge_source_library` (v1_scope=1 at 2.77% selectivity is more selective than typical source_library values; query planner choice validates the index value).
+
+### Acceptance checklist
+
+- [x] `idx_knowledge_v1_scope` exists in `sqlite_master` — verified
+- [x] EXPLAIN QUERY PLAN on `SELECT * FROM weapon_knowledge_entries WHERE v1_scope=1` shows `SEARCH ... USING INDEX idx_knowledge_v1_scope` (NOT `SCAN`) — verified
+- [x] Completion record appended with EXPLAIN QUERY PLAN output — this record
+- [x] Round-trip: N/A (intra-seam DDL; no cross-seam contract change)
+
+### Refutation conditions — none triggered
+
+- Index did NOT already exist — created cleanly
+- EXPLAIN QUERY PLAN post-index does NOT show full scan — uses index across all representative query shapes
+- Index addition does NOT contradict existing schema invariants — additive DDL, no constraint changes
+
+### Notes for downstream
+
+- The COVERING INDEX behavior on COUNT aggregates is the highest-value win — substrate population-count queries (used in cycle wind-down summaries + state-file row-count claims) now execute without touching the heap.
+- The query planner correctly chose `v1_scope` over `source_library` in compound-filter shape — confirms 2.77% selectivity beats typical source_library cardinality. Future compound queries against (v1_scope, source_library) will benefit; no composite index needed at current selectivity.
+- Other filter columns flagged by Discipline #46 audit (per § 2.1 of source note) are explicitly out of scope per dispatch line 60 — separate evaluation needed before any further index additions.
+
+**Signed:** elrond (catalogue DB seam owner)
+**Date:** 2026-05-27
