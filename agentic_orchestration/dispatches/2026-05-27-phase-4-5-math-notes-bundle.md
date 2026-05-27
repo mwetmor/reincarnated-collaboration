@@ -141,6 +141,51 @@ Each math note follows:
 - [ ] Completion record appended; commit + push
 - [ ] Round-trip: not applicable at math-note authoring (Phase 4 + 5 implementation dispatches handle round-trip)
 
+## Completion record (gamora — Phase 4 portion)
+
+**Completed by:** gamora
+**Date:** 2026-05-27
+**Commits (reincarnated-engine main):**
+- `bacc38d` — gamora: Phase 4 MG-1 Pareto Dominance math note
+- `24e1001` — gamora: Phase 4 MG-2 Crowding/Hypervolume math note
+- `aa507c3` — gamora: Phase 4 MG-3 Mahalanobis Distance math note
+- `dfb1562` — gamora: Phase 4 MG-4 KL Information Gain math note
+- `211c128` — gamora: Phase 4 MG-5 Eviction Rules math note
+
+**5 Phase 4 math notes authored at specified paths:**
+- `~/Games/reincarnated-engine/src/reincarnated/simulation/math/phase-4-mg-1-pareto-dominance-math-2026-05-27.md`
+- `~/Games/reincarnated-engine/src/reincarnated/simulation/math/phase-4-mg-2-crowding-hypervolume-math-2026-05-27.md`
+- `~/Games/reincarnated-engine/src/reincarnated/simulation/math/phase-4-mg-3-mahalanobis-distance-math-2026-05-27.md`
+- `~/Games/reincarnated-engine/src/reincarnated/simulation/math/phase-4-mg-4-kl-information-gain-math-2026-05-27.md`
+- `~/Games/reincarnated-engine/src/reincarnated/simulation/math/phase-4-mg-5-eviction-rules-math-2026-05-27.md`
+
+**Per-cell bounding (Discipline #46 § 7):** EXPLICIT in all 5 notes. All algorithms operate WITHIN BC cells (≤ 100 kits/cell). Global O(n²) cross-cell comparison explicitly forbidden. Cross-cell prohibition restated in MG-5 § 6 as implementation guard.
+
+**Framing-audit (Discipline #42):** Q1/Q2/Q3 complete in every note.
+
+**Pattern-A queries documented (NOT fired inline — fire at Gate-1 ratification routing per Discipline #18):**
+- MG-1 (§ 7): elrond consultation — Pareto front computation alternatives (ε-dominance; MAP-Elites literature; 5D frontier collapse risk)
+- MG-2 (§ 6): elrond consultation — multi-objective optimization methodology (crowding distance variants; HVC tractability at k ≤ 100, d = 5)
+- MG-3 (§ 6): elrond consultation — **LOAD-BEARING** (Discipline #18; methodology before implementation): Gaussian covariance vs density-based distance (Q-Bundle-2); covariance regularization; threshold derivation from chi-squared; Welford drift; alternative duplicate detection
+- MG-4 (§ 7): elrond consultation — KL numerical stability and smoothing (KL vs JSD vs other; discrete grid vs Monte Carlo; KDE bandwidth; smoothing approaches)
+- MG-5: no Pattern-A query; pure composition note
+
+**Compositional integration MG-1 → MG-5:**
+- MG-5 explicitly documents the complete input bundle from MG-1/2/3/4 (§ 2) and the full Phase 4 pipeline (§ 8): 1 bounded DB read shared across all gates + 1 write transaction per insertion.
+- Two-trigger eviction structure: duplicate replacement (MG-3 driven; quality-based; capacity-agnostic) vs capacity-based eviction (admission score vs eviction score; Pareto Rank 0 protected).
+- All 5 quality objectives [WR, KPM, resource sustainability, defensive robustness, skill coherence] flow through MG-1 quality vector → MG-2 crowding → MG-3 duplicate detection → MG-4 novelty → MG-5 eviction decision.
+
+**Scaffold parameters named per Discipline #40 (all named; none hardcoded):**
+CELL_CAPACITY_MAX (default 50), DUPLICATE_THRESHOLD (default 1.5), MIN_COV_POPULATION (default 7), MIN_KL_POPULATION (default 5), NOVELTY_CLAMP (default 2.0), KL/JSD switch threshold (default 20), MIN_POPULATION_FOR_DIVERSITY (default 6), EUCLIDEAN_DUPLICATE_THRESHOLD (default 0.15), eviction weights (α1=0.5, α2=0.35, α3=0.15), admission weights (β1=0.45, β2=0.35, β3=0.20), RECENCY_WINDOW (default 1000), Q_scalar weights (default [0.3, 0.25, 0.2, 0.15, 0.1]).
+
+**LOAD-BEARING constraint flagged:** MG-3 elrond consultation (Gaussian covariance vs density-based distance; Q-Bundle-2 dispatch question) is Discipline #18 LOAD-BEARING — MG-3 implementation awaits consultation outcome. Gate-1 PASS does not unblock MG-3 implementation without this consultation.
+
+**Status:** Phase 4 gamora portion COMPLETE. Awaiting:
+1. gandalf Phase 5 PM-1 + PM-2 completion (parallel; gandalf primary)
+2. KR routing to jack-ryan Gate-1 DESIGN-MODE bundled review (all 7 notes)
+3. Elrond Pattern-A methodology consultations (MG-1 through MG-4; fire at Gate-1 ratification per Discipline #18)
+4. Single Matt-gate ratification per Discipline #18
+
 ## Out of scope
 
 - Do NOT implement code (Phase 4 impl gamora Dispatch 3A; Phase 5 impl Dispatch 3B post Matt-gate)
