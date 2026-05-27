@@ -47,7 +47,7 @@
 | Wave | Status | Owners | Gates on | Wall-clock target |
 |---|---|---|---|---|
 | **Wave 0** | ✅ COMPLETE 2026-05-27 | KR + gandalf + jack-ryan + legolas + elrond | (entry) | landed in single-session sweep |
-| **Wave 0.5** | ✅ SUB-AGENTS COMPLETE; GATE-2 PENDING | rocket + gamora + elrond (SC-6b) + jack-ryan Gate-2 | 3 sub-agents landed 2026-05-27 (SC-6b `3c95883` + rocket `b2e9a86` + gamora `cafd6e4`); KR routes Gate-2 next | landed in single-session sweep |
+| **Wave 0.5** | ✅ CLOSED 2026-05-27 | rocket + gamora + elrond (SC-6b) + jack-ryan Gate-2 PASS-with-WARN | 3 sub-agents landed (`3c95883` + `b2e9a86` + `cafd6e4`); Gate-2 PASS-with-WARN (0 BLOCK / 1 WARN / 4 INFO); Discipline #39 EMPIRICAL grep ZERO; Path A decisions-log entry landed at engine `f053281`; 1 WARN tracked as pre-Wave-5 follow-on | landed in single-session sweep |
 | **Wave 1** | ⏳ QUEUED | rocket + gandalf + jack-ryan Gate-2 | Wave 0.5 + SC-4 closure | ~1 week |
 | **Wave 2** | ⏳ QUEUED | rocket + gandalf + jack-ryan Gate-2 | Wave 1 + SC-1 partial ratification (#36 + #37) | ~3-5 days |
 | **Wave 3** | ⏳ QUEUED | gandalf + star-lord + rocket | Wave 0.5 real content + SC-3 closure | ~1 week |
@@ -182,22 +182,24 @@ All 6 sidecars landed (SC-1 jack-ryan / SC-2 gandalf / SC-3 legolas / SC-4 legol
 | Criterion | Status |
 |---|---|
 | Damage scaling routing per doc 47 § 4 + SC-5 Appendix A | ✅ landed (gamora) |
-| `synthetic_mode` RETIRED ABSOLUTELY (Discipline #39 LOAD-BEARING) | ✅ EMPIRICAL grep verification ZERO functional code |
+| `synthetic_mode` RETIRED ABSOLUTELY (Discipline #39 LOAD-BEARING) | ✅ EMPIRICAL grep verification ZERO functional code (verified independently by jack-ryan Gate-2) |
 | Substrate weapon binding output (all 8 fields) | ✅ landed (rocket; consumes SC-6b enriched columns) |
 | Per-skill mechanical content emission (damage_scaling_type populated) | ✅ landed (rocket) |
 | Elements expansion 4→7 | ✅ landed (rocket) |
-| Cross-seam round-trip smoke | ⏳ PARTIAL (4/4 gamora assertions PASS; full validation gates on Gate-2 review + smoke re-run now that all 3 dependencies landed) |
-| jack-ryan Gate-2 PASS | ⏳ PENDING — KR to route Gate-2 review across 3-seam closure |
+| Cross-seam round-trip smoke | ⏳ PARTIAL per-spec (Wave 5 prerequisite per framing brief Q8; Gate-2 INFO Finding 4) |
+| jack-ryan Gate-2 PASS | ✅ PASS-with-WARN (0 BLOCK / 1 WARN / 4 INFO) |
+| Path A architectural decisions-log entry | ✅ AUTHORED by jack-ryan at engine `f053281` |
 
-**Open follow-on items surfaced at Wave 0.5 closure:**
+**Open follow-on items at Wave 0.5 CLOSED (status post-Gate-2):**
 
-1. **`_SCALING_ATTR_NORMALIZE` cross-seam contract (CRITICAL — gamora surfaced)** — gamora's damage_resolver.resolve_skill() includes a normalization map for uppercase short-form ("INT") ↔ lowercase full-form ("intelligence") attribute keys. If rocket later changes `_BC_ATTRIBUTE_TO_SCALING_ATTR` to emit lowercase, gamora's map must update in lock-step. **Gate-2 should review this cross-seam contract concern; decisions-log entry or canonical write may resolve.**
-2. **`OMEGA_PENALTY=0.80` confirmation (Q-W05-G1 deferred)** — gamora used provisional value for hybrid scaling cross-attribute ω-penalty. **Route Pattern-A query to gandalf** before Wave 5 fresh roster gauntlet sim runs at scale.
-3. **Cycle 14 pipeline wiring sidecar (NEW; rocket surfaced)** — `per_skill_emitter.py` + `substrate_weapon_binding.py` are standalone modules; wiring into `season_generation_pipeline.py` is a separate dispatch. **Wave 5 prerequisite**; KR authors wiring dispatch post Gate-2 PASS.
-4. **Full cross-seam round-trip smoke** — gamora Item 3 was PARTIAL pending rocket + elrond completion (both now landed); KR coordinates full smoke re-run as Gate-2 input OR follow-on dispatch.
-5. **LLM-curation follow-on for SC-6b** — `to_skill_level_modifier_static` on 42 unique + 100 high-quality named_template rows + element_affinity disambiguation for 288 caster `{}` rows. Deferred quality enhancement.
-6. **Path A architectural decisions-log entry** — elrond proposes content via MIGRATION.md § 6; jack-ryan writes after Gate-2 review.
-7. **Hybrid pattern fields** (rocket Q-W05-R4) — deferred to v1.1 per Q11 resolution; nullable in skill_schema.py.
+1. **LUT alignment WARN (Gate-2 Finding 2; pre-Wave-5-gauntlet prerequisite)** — elrond SC-6b Pass-2 LUT values (martial-heavy=177, ranged=91) diverge from rocket fallback (martial-heavy=200, ranged=150). Benign at Wave 0.5 (live SC-6b values win for all 2,293 v1_scope rows; rocket fallback only fires for non-v1_scope edge cases). Track per Discipline #10 attribution clarity; **KR queues remediation dispatch BEFORE Wave 5 fresh-roster gauntlet sim fires**.
+2. **`OMEGA_PENALTY=0.80` resolution (Q-W05-G1)** — gandalf verdict CONFIRMED 0.80 at `da16652` with three load-bearing additions (rename `OMEGA_CROSS_ATTRIBUTE_PENALTY` + scope-lock Patterns B+C + Wave 4 empirical-evidence gate). Gamora Pattern-A update FIRING in background to apply rename + scope-lock + MIGRATION § Q-W05-G1 RESOLVED.
+3. **`_SCALING_ATTR_NORMALIZE` cross-seam contract** — Gate-2 INFO Finding 3: MIGRATION.md § v1.33 addendum is sufficient; contract is additive-safe even if rocket changes to lowercase emission; no decisions-log entry needed. **RESOLVED**.
+4. **Cycle 14 pipeline wiring sidecar (NEW; rocket surfaced)** — `per_skill_emitter.py` + `substrate_weapon_binding.py` are standalone modules; wiring into `season_generation_pipeline.py` is a separate dispatch. **Wave 5 prerequisite**; KR authors wiring dispatch next.
+5. **Full cross-seam round-trip smoke** — per-spec PARTIAL at Wave 0.5; Wave 5 prerequisite per framing brief Q8 (Gate-2 INFO Finding 4 confirms correct sequencing).
+6. **LLM-curation follow-on for SC-6b** — `to_skill_level_modifier_static` on 42 unique + 100 high-quality named_template rows + element_affinity disambiguation for 288 caster `{}` rows. Deferred post-Wave-5 quality enhancement.
+7. **Path A architectural decisions-log entry** — ✅ AUTHORED by jack-ryan at engine `f053281` (Gate-2 deliverable); captures LUT divergence cross-reference to Finding 2 WARN.
+8. **Hybrid pattern fields** (rocket Q-W05-R4) — deferred to v1.1 per Q11 resolution; nullable in skill_schema.py.
 
 ---
 
