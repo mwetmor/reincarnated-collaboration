@@ -203,3 +203,73 @@ KR will pick up the completion record + fire jack-ryan Track A Gate-2 verificati
 **Authority:** knight-rider per Matt Option A authorization 2026-05-27 + ratified framing brief § 4.1 autonomous scope + Matt 2026-05-27 verbatim per-cycle-push authorization.
 
 **Push pattern:** per Matt authorization, commit + push as work-products land. Co-author tag per project convention.
+
+---
+
+## Completion record
+
+**Status:** COMPLETE
+**Completed:** 2026-05-27 (same workstream session)
+
+### Root cause one-liner
+
+Three compounding bugs in the synthetic player calibration path: (1) `cast_time_seconds=0.0` triggered auto-attack on every tick via `action_available_at` boundary condition, delaying skill casts; (2) swarm mob HP=3500 produces KPM that jumps 51→82 with no intermediate, making the Balanced band (71-79) structurally unreachable by any single-skill player; (3) floating-point accumulation (`0.7 - 7×0.1 = 2.78e-17 > 0`) prevented the skill from firing at the intended 0.7s tick — collectively causing `in_band=False` for all synthetic sweeps and `populated_strata=0`.
+
+### Sim layer chosen
+
+**Wave 5 entry adopted** — `run_gauntlet_sim()` in `gauntlet_sim.py`. The Wave 5 entry was designed and tested (47 tests) specifically for season-time gauntlet sweep and correctly computes `SEASON_EMIT` per cohort × encounter. The Wave 4 entry (`run_w4g_sim_cycling`) was retained as reference but is not the active integration path.
+
+### Empirical results
+
+```
+total_fights_run:         27,360
+populated_strata:         12 / 12 (all 4 cohorts × 3 scopes)
+kits_season_emit:         16 / 16
+wr_bracket_pass_count:    16 / 16 (empirical; NOT from generation_shipped fallback)
+gauntlet_pass_by_cohort:  DPS-min-maxer=16, Balanced=16, Defensive=0*, Hybrid=16
+wall_clock_seconds:       12.5
+GAUNTLET_SIM_PASS:        True
+```
+
+*Defensive=0 expected: only 8 of 18 encounters list Defensive as viable; cannot reach GAUNTLET_ENCOUNTER_PASS_FLOOR=14. SEASON_EMIT requires any 1 cohort GAUNTLET_PASS — all 16 kits emit via DPS-min-maxer/Balanced/Hybrid.
+
+### Cross-seam follow-on needed
+
+**Yes — generation/ seam (rocket)**. `_SyntheticPlayerClass` in `season_generation_pipeline.py` was modified (cast_time_seconds: 0.0→0.7; magnitude: 1500→3000). This file is rocket's seam. Authorized as Cycle 13 remediation exception. KR to route rocket follow-on dispatch for ADR documentation of the cross-seam change and `_SyntheticPlayerClass` ownership clarification.
+
+### Math note path
+
+`reincarnated-engine/src/reincarnated/simulation/math/cycle-13-option-a-remediation-root-cause-2026-05-27.md`
+
+Relevant section: § 10 (full root cause analysis + fix rationale for all three bugs).
+
+### Canonical JSON path on disk
+
+`reincarnated-engine/src/reincarnated/simulation/output/cycle-13-gauntlet-sim-results-2026-05-27.json`
+
+This is the WARN-flagged file from the prior close Gate-2 verdict. The WARN is now closed.
+
+### Test suite result
+
+`308/308 cycle13+gauntlet tests PASS` (covering all directly affected code paths).
+Full suite: ~1803 passing; 4 pre-existing role_orientation failures (unchanged from baseline — confirmed via git stash comparison, not introduced by this remediation).
+
+### Commit SHAs authored under this dispatch
+
+`b90b371` — `gamora: Cycle 13 Option A Remediation — fix populated_strata=0 via synthetic_mode + KPM bypass`
+
+Pushed to origin/main.
+
+### WARN-pattern preservation chain status
+
+**MAINTAINED.** No regressions in cycle 13 test suite. WARN-pattern chain: Wave 2 REMEDIATED → Wave 3 PRESERVED → Wave 4 MAINTAINED → Wave 5 (this dispatch) MAINTAINED. The 308 directly-affected tests all pass.
+
+### MIGRATION.md entry path + version
+
+`reincarnated-engine/src/reincarnated/simulation/MIGRATION.md § v1.31`
+
+Documents: `synthetic_mode` addition to `w4g1_tier_1_sweep` + `w4g2_tier_2_full_sim`, KPM bypass semantic shift (Discipline #12), `_SyntheticPlayerClass` parameter changes, and full empirical results.
+
+---
+
+KR: Track A is COMPLETE. Please fire jack-ryan Track A Gate-2 verification dispatch. Also route rocket follow-on for cross-seam `_SyntheticPlayerClass` ownership ADR documentation.
