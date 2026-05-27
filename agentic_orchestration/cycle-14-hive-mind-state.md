@@ -47,7 +47,7 @@
 | Wave | Status | Owners | Gates on | Wall-clock target |
 |---|---|---|---|---|
 | **Wave 0** | ✅ COMPLETE 2026-05-27 | KR + gandalf + jack-ryan + legolas + elrond | (entry) | landed in single-session sweep |
-| **Wave 0.5** | 🟢 FIRING | rocket + gamora + elrond (SC-6b) + jack-ryan Gate-2 | Gate-1 ✅ PASS-with-REVISIONS 2026-05-27 (2 WARN amended in-place; 0 BLOCK); 3 sub-agents fired in parallel background | 1-2 weeks anchor; extends per Q10 |
+| **Wave 0.5** | ✅ SUB-AGENTS COMPLETE; GATE-2 PENDING | rocket + gamora + elrond (SC-6b) + jack-ryan Gate-2 | 3 sub-agents landed 2026-05-27 (SC-6b `3c95883` + rocket `b2e9a86` + gamora `cafd6e4`); KR routes Gate-2 next | landed in single-session sweep |
 | **Wave 1** | ⏳ QUEUED | rocket + gandalf + jack-ryan Gate-2 | Wave 0.5 + SC-4 closure | ~1 week |
 | **Wave 2** | ⏳ QUEUED | rocket + gandalf + jack-ryan Gate-2 | Wave 1 + SC-1 partial ratification (#36 + #37) | ~3-5 days |
 | **Wave 3** | ⏳ QUEUED | gandalf + star-lord + rocket | Wave 0.5 real content + SC-3 closure | ~1 week |
@@ -115,7 +115,7 @@ All three dispatches fire in parallel after Gate-1 PASS. Cross-seam coordination
 | **SC-4** | legolas Mode A | Wave 1 (trigger vocabulary expansion) | ✅ COMPLETE | 63 conditions catalogued across 11 families; 5 critical pattern_id dedup clusters; counter_on_defensive maps to Cycle 13 failure mode |
 | **SC-5** | legolas Mode A | Wave 0.5 (damage scaling routing) | 🟢 FIRING | Per-game per-path formula tables; structural validation of doc 47; edge cases catalogued |
 | **SC-6** | elrond | Wave 0.5 (substrate weapon binding output) | ✅ COMPLETE (NARROW) | Audit report filed; 5 NEW columns + 1 REUSE per-field disposition; Path A substrate-side L50 baseline recommended; SC-6b enrichment + MIGRATION deferred to Wave 0.5 parallel |
-| **SC-6b** | elrond (deferred) | Wave 0.5 (schema enrichment + MIGRATION) | ⏳ AUTHORING | Substrate library schema extension per SC-6 audit § 2 dispositions + MIGRATION.md per ADR-004 + cross-seam round-trip smoke at Wave 0.5 |
+| **SC-6b** | elrond | Wave 0.5 (schema enrichment + MIGRATION) | ✅ COMPLETE 2026-05-27 (commit `3c95883`) — 5 new columns added to `weapon_sim_props`; 2,293 v1_scope rows backfilled (4 fields at 100%; `to_skill_level_modifier_static` NULL by design pending LLM-curation follow-on); MIGRATION.md authored at `agentic_orchestration/elrond/research/sc-6b-substrate-enrichment-2026-05-27/MIGRATION.md`; pre-migration backup at `~/Games/reincarnated-loadout/data/telemetry.db.pre-sc6b-2026-05-27.bak`; Path A architecture committed with single-column rollback semantics; 2 LUT correction passes documented per Discipline #11. **Open follow-on:** LLM-curation pass for `to_skill_level_modifier_static` on 42 unique + 100 high-quality named_template rows + element_affinity disambiguation for 288 caster `{}` rows — queued as deferred; not blocking Wave 0.5 since rocket handles category-tier via per-instance roll |
 | **SC-7** | drax | Post Wave 5 (Cycle 14 roster materializes) | ⏸️ DEFERRED | NOT FIRED in Wave 0; Track C transform refresh awaits fresh Cycle 14 roster |
 
 ---
@@ -165,11 +165,39 @@ If session terminates mid Wave 0:
 
 ## 7. Wave-completion record (appended per Wave close)
 
-(Empty at Wave 0 launch; appended as Waves close.)
+### Wave 0 — ✅ COMPLETE 2026-05-27
 
-### Wave 0 — IN PROGRESS
+All 6 sidecars landed (SC-1 jack-ryan / SC-2 gandalf / SC-3 legolas / SC-4 legolas / SC-5 legolas / SC-6 elrond). SC-6b decomposed scope (audit + enrichment) introduced + both phases landed within Cycle 14 Wave 0 ↔ Wave 0.5 boundary. SC-7 drax deferred per Q9. Wave 0.5 dispatch package authored + Gate-1 PASS-with-REVISIONS (2 WARN amended; 0 BLOCK).
 
-(To be appended on close.)
+### Wave 0.5 — ✅ COMPLETE 2026-05-27 (all 3 sub-agents landed; Gate-2 pending)
+
+| Sub-agent | Status |
+|---|---|
+| elrond SC-6b | ✅ COMPLETE (`3c95883`) — substrate enrichment + MIGRATION + Path A baseline LUT |
+| rocket Wave 0.5 | ✅ COMPLETE (engine `b2e9a86`; tag `rocket/v1.5-wave-0-5-track-d-content-emission`; collab `3cfa681`) — elements expansion (4→7) + `per_skill_emitter.py` (12 skills × 3 chains × 4 tiers; Disciplines #38 + #39 enforced) + `substrate_weapon_binding.py` (all 8 fields populated per SC-6b enrichment; live empirical verification per weapon_type_family); MIGRATION.md § Wave 0.5 authored; smoke PASS |
+| gamora Wave 0.5 | ✅ COMPLETE (engine `cafd6e4`; tag `gamora/v1.5-wave-0-5-damage-routing-synthetic-retired`) — `damage_resolver.py` with three typed-path helpers (physical / magical / hybrid); 3 new weapon sim fields on `CombatantState`; **`_SCALING_ATTR_NORMALIZE` silent-bug fix surfaced (rocket "INT" → StatDistribution "intelligence" mapping; behavior change documented in MIGRATION § v1.33 addendum)**; **Discipline #39 EMPIRICALLY VERIFIED** via `grep -rn "synthetic_mode" src/reincarnated/simulation/ --include="*.py"` returning ZERO functional code (only comments/docstrings) |
+
+**Wave 0.5 close gate (per framing brief Q8):**
+
+| Criterion | Status |
+|---|---|
+| Damage scaling routing per doc 47 § 4 + SC-5 Appendix A | ✅ landed (gamora) |
+| `synthetic_mode` RETIRED ABSOLUTELY (Discipline #39 LOAD-BEARING) | ✅ EMPIRICAL grep verification ZERO functional code |
+| Substrate weapon binding output (all 8 fields) | ✅ landed (rocket; consumes SC-6b enriched columns) |
+| Per-skill mechanical content emission (damage_scaling_type populated) | ✅ landed (rocket) |
+| Elements expansion 4→7 | ✅ landed (rocket) |
+| Cross-seam round-trip smoke | ⏳ PARTIAL (4/4 gamora assertions PASS; full validation gates on Gate-2 review + smoke re-run now that all 3 dependencies landed) |
+| jack-ryan Gate-2 PASS | ⏳ PENDING — KR to route Gate-2 review across 3-seam closure |
+
+**Open follow-on items surfaced at Wave 0.5 closure:**
+
+1. **`_SCALING_ATTR_NORMALIZE` cross-seam contract (CRITICAL — gamora surfaced)** — gamora's damage_resolver.resolve_skill() includes a normalization map for uppercase short-form ("INT") ↔ lowercase full-form ("intelligence") attribute keys. If rocket later changes `_BC_ATTRIBUTE_TO_SCALING_ATTR` to emit lowercase, gamora's map must update in lock-step. **Gate-2 should review this cross-seam contract concern; decisions-log entry or canonical write may resolve.**
+2. **`OMEGA_PENALTY=0.80` confirmation (Q-W05-G1 deferred)** — gamora used provisional value for hybrid scaling cross-attribute ω-penalty. **Route Pattern-A query to gandalf** before Wave 5 fresh roster gauntlet sim runs at scale.
+3. **Cycle 14 pipeline wiring sidecar (NEW; rocket surfaced)** — `per_skill_emitter.py` + `substrate_weapon_binding.py` are standalone modules; wiring into `season_generation_pipeline.py` is a separate dispatch. **Wave 5 prerequisite**; KR authors wiring dispatch post Gate-2 PASS.
+4. **Full cross-seam round-trip smoke** — gamora Item 3 was PARTIAL pending rocket + elrond completion (both now landed); KR coordinates full smoke re-run as Gate-2 input OR follow-on dispatch.
+5. **LLM-curation follow-on for SC-6b** — `to_skill_level_modifier_static` on 42 unique + 100 high-quality named_template rows + element_affinity disambiguation for 288 caster `{}` rows. Deferred quality enhancement.
+6. **Path A architectural decisions-log entry** — elrond proposes content via MIGRATION.md § 6; jack-ryan writes after Gate-2 review.
+7. **Hybrid pattern fields** (rocket Q-W05-R4) — deferred to v1.1 per Q11 resolution; nullable in skill_schema.py.
 
 ---
 
