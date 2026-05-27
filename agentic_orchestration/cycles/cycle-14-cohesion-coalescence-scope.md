@@ -306,6 +306,47 @@ All 32 existing disciplines apply throughout Cycle 14. 7 candidates queued via S
 
 ---
 
+## 7.5 Path (1) Cycle 14 Scope Expansion (NEW 2026-05-27)
+
+Matt 2026-05-27 ratified Path (1) per `agentic_orchestration/gandalf/notes/2026-05-27-path-1-kr-scope-expansion-kicker.md` + `agentic_orchestration/gandalf/notes/2026-05-27-path-1-phase-4-5-7-cycle-14-scope-expansion.md`. Cycle 14 expands to implement doc 39 Phases 4 + 5 + 7 (2-layer). Phases 6 (visual) + 8 (multi-profile export) deferred Cycle 15+. Total Cycle 14 estimate ~10-15 weeks under quality > timeline (Q10).
+
+### 7.5.1 NEW Phase 4 — Mechanical Archive Math Gates (gamora primary; ~3-4 weeks impl)
+
+Per doc 39 § Phase 4 + Path 1 recognition record § 3.1. 5 math notes (MG-1 Pareto Dominance + MG-2 Crowding-Hypervolume + MG-3 Mahalanobis + MG-4 KL Information Gain + MG-5 Eviction Rules). gamora primary + elrond methodology consultation + jack-ryan Gate-1 + Gate-2. **Per-cell bounding REQUIRED per Discipline #46 § 7** (math gates operate WITHIN BC cells, NOT across global archive; prevents O(n²) kernel-panic class explosions).
+
+### 7.5.2 NEW Phase 5 Multimodal Extension (gandalf + star-lord + rocket; ~2-3 weeks; parallel with Phase 4)
+
+Wave 3 (Phase 5 cohesion-judge LLM) scope expands per `canonical/story/engine-as-general-serial-content-product-2026-05-22.md` § 2.2. 2 math notes (PM-1 Multimodal Clustering Algorithm + PM-2 Faction-Label Assignment Policy). Composes with SC-3 Pattern B PRIMARY (cohesion-judge LLM architecture).
+
+### 7.5.3 NEW Phase 7 — 2-Layer Joint-Gate Evaluation (gandalf + jack-ryan; ~1 week post Phase 4 + 5 close)
+
+Per doc 39 § Phase 7 + Discipline #18 + composition spec. 2-layer = mechanical + cohesion (visual deferred Cycle 15+ alongside Phase 6). gandalf authors 2-layer composition spec; jack-ryan canonical-write Discipline-#18 compliance rule.
+
+### 7.5.4 NEW Pre-Phase-4 Remediation (parallel; fires NOW per kicker § 3.1)
+
+4 parallel dispatches:
+- **1A Discipline #46 ratification** (jack-ryan; ~1-2 days) — canonical-write at engineering-disciplines.md § Discipline #46; 7 patterns including per-cell-bounding-for-math-gates LOAD-BEARING for Phase 4
+- **1B v1_scope index addition** (elrond; ~1 hour) — `CREATE INDEX IF NOT EXISTS idx_knowledge_v1_scope ON weapon_knowledge_entries(v1_scope);` + EXPLAIN QUERY PLAN verification
+- **1C Telemetry fetchall refactor sweep** (star-lord; ~3-5 hours) — refactor 5 sites (`telemetry/db.py:77` + `recorder.py:65/80/93/114`) to cursor iteration OR `fetchmany(1000)` patterns; add LIMIT clauses; push aggregation to SQL
+- **1D Substrate fetchall refactor** (rocket; ~2-3 hours) — refactor 2 sites (`substrate_weapon_binding.py:332` + `bc_target_substrate_engine.py:342`); same patterns
+
+### 7.5.5 Composition with no-classes architectural recommitment
+
+Path (1) work composes with `agentic_orchestration/gandalf/notes/2026-05-27-no-classes-architectural-recommitment.md` — Phase 4 math gates operate cross-kit (substrate-led emergence), not cross-class. Phase 5 multimodal clustering produces faction emergence (Form/Spirit identity post-hoc; NOT class taxonomy). Phase 7 2-layer joint-gate filters SHIPPED-WORTHY kits (not classes).
+
+### 7.5.6 Pre-Wave-5 prereq update under Path (1)
+
+Wave 5 (production gauntlet) pre-fire checklist expanded:
+- Fix A ✅ + Fix B math-note ✅ + season cardinality ✅ + Discipline #40 ✅
+- Wave 1.5 Stage 3 re-impl (Option α redacted no-class vocabulary) ⏳
+- **Phase 4 math gates ⏳ (Path (1))**
+- **Phase 5 multimodal clustering + faction-coalescence ⏳ (Path (1))**
+- **Phase 7 2-layer joint-gate ⏳ (Path (1))**
+- **Discipline #46 ✅ pre-Phase-4 (LOAD-BEARING)**
+- **Pre-Phase-4 remediation ⏳ (4-dispatch bundle 1A/1B/1C/1D)**
+
+Cycle 14 close criterion (under Path (1)): gauntlet PASS with REAL content + 2-layer joint-gate PASS (mechanical + cohesion) + jack-ryan Gate-2 PASS. Visual joint-gate Cycle 15+.
+
 ## 8. Sign-off
 
 **Author:** knight-rider (orchestrator)
