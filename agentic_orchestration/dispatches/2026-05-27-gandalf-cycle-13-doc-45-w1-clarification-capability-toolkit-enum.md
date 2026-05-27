@@ -85,3 +85,33 @@ NOT applicable.
 **Wave:** 4 Track A amendment (small W1; pre-rocket-fire required for W4R.4)
 **Gates:** unblocks rocket Wave 4 Track A W4R.4 implementation
 **Priority:** P2 — small precision correction; gates rocket Wave 4 Track A dispatch authoring on W4R.4 acceptance criteria
+
+---
+
+## Completion record — gandalf 2026-05-27
+
+**Resolution: Option A — `MULTIPLICATIVE` is a Wave 4 `CapabilityCategory` enum extension added at W4R.1.**
+
+**Rationale (Pattern A-deep framing-audit per gandalf OP § 4.1):**
+
+- **Q1 (load-bearing framing):** doc 40 § 3.3 canonical capability toolkit taxonomy enumerates 6 distinct categories (Multiplicative + Mechanic-adjusting + Spatial-adjusting + Axis-adjusting + Added-skill-passive-triggered + Added-skill-true-active). `partition_schema.py:376-381` at Wave 1 close implements 5 (omits MULTIPLICATIVE). Doc 45 § 7.1 + § 10.3 narrative incorrectly listed MULTIPLICATIVE as a Wave 1 member while omitting TRUE_ACTIVE — naming mismatch surfacing the implementation gap, not a counting error.
+- **Q2 (refutation evidence considered):** Option B (collapse MULTIPLICATIVE → TRUE_ACTIVE semantically) fails. Doc 40 § 3.3 explicitly distinguishes them: MULTIPLICATIVE = auto-applied passive scalar on matching T4 path; TRUE_ACTIVE = player-activated skill on skill-bar consuming additive base-skill-budget slot. Categorically different mechanisms; conflation would corrupt the doc 40 taxonomy and break the content-compositional attunement model in closeout § 3.4 (which depends on multiplicative-on-T4-path as a foundational mechanism). Option C (5-member enum + cross-reference) leaves the multiplicative-bonus capability with no implementation home — exactly the kind of taxonomy-collapse failure the substrate-led discipline guards against.
+- **Q3 (proceed or refine):** proceed with Option A — extend enum to 6 members at W4R.1; preserves doc 40 canonical taxonomy at implementation; additive non-breaking schema change per ADR-004; module-load `assert len(CapabilityCategory) == 6` at W4R.4 close maintains WARN-pattern PRESERVED milestone.
+
+**Doc 45 amendments (3 surgical edits; W1 scope only — no architectural change):**
+
+1. **§ 7.1** — rewritten to explicitly enumerate (a) Wave 1 empirical state (5 members; correct list with TRUE_ACTIVE; MULTIPLICATIVE absent), (b) Wave 4 W4R.1 extension (add MULTIPLICATIVE → 6 total), (c) post-W4R.1 target enum (6 members mapped 1:1 to doc 40 § 3.3 rows + effect + legendary-exclusive flag + slot constraint). Added binding semantic-distinction note (MULTIPLICATIVE vs TRUE_ACTIVE MUST NOT be conflated). Added W4R.1 implementation requirements block (enum add + assertion + MIGRATION.md + math note).
+2. **§ 9 W4R.1 sub-wave row** — extended scope description to include the enum extension as W4R.1 work (`CapabilityCategory` extends 5 → 6 by adding `MULTIPLICATIVE`); module-load assertion + MIGRATION.md filing requirements explicit; gate criteria amended to include enum-extension verification.
+3. **§ 10.3 empirical-assertion list** — `CapabilityCategory` length updated from 5 to **6 post-W4R.1** with full ordered member list (MECHANIC_ADJUSTING + SPATIAL_ADJUSTING + AXIS_ADJUSTING + TRIGGERED_PASSIVE + TRUE_ACTIVE + MULTIPLICATIVE); explicit framing as Wave 4 extension closing doc 40 § 3.3 gap; module-load `assert len(CapabilityCategory) == 6` at W4R.4 close.
+
+**Implementation-actionable for rocket W4R.4:** YES. Rocket reads § 7.1 + W4R.1 sub-wave row + § 10.3 and knows (a) Wave 1 has 5 members listed by name; (b) W4R.1 adds `MULTIPLICATIVE = "multiplicative"` as 6th member; (c) `assert len(CapabilityCategory) == 6` enforced at module load; (d) MIGRATION.md filed per ADR-004 (additive non-breaking); (e) per-slot-family capability weighting in § 7.3 (weapons / armor / accessories) consumes the 6-member enum unchanged in shape — MULTIPLICATIVE already named in § 7.3 weapons + accessories dominant categories from Wave 1 authoring, now matching the implementation enum 1:1.
+
+**Out-of-scope items NOT touched per dispatch:** W2 accessory true-active pattern library omission language (KR-authorable at W4R.3); doc 40/41/42/43/44 modifications; doc 45 architectural re-litigation; production code (rocket W4R.1 implements the enum extension; this amendment specs the requirement only).
+
+**Cross-seam impact:** the enum extension is additive non-breaking per ADR-004 (existing 5 members + their string values preserved verbatim; MULTIPLICATIVE appended as 6th). No cross-seam round-trip required for this canonical amendment (the round-trip fires at W4R.7 per § 9 sub-wave gate).
+
+**Tag:** `gandalf: Cycle 13 doc 45 W1 clarification — § 7.1 CapabilityCategory enum reconciled per empirical partition_schema.py + doc 40 § 3.3 (per jack-ryan Wave 4 Gate-1 verdict a149001)`
+
+**Signed:** gandalf (story-and-design steward)
+**Date:** 2026-05-27
+**Authority:** Matt 2026-05-27 + jack-ryan Wave 4 Track A Gate-1 PASS-with-WARN verdict (commit `a149001`) W1 amendment request

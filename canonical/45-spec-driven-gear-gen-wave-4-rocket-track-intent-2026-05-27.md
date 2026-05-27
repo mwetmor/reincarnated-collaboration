@@ -284,17 +284,45 @@ Per Wave 1 doc 42 § 7 SC-4 Gate 5 LOCKED HYBRID + doc 40 § 3.3 + D54.
 
 ### 7.1 Capability-toolkit-legendary-exclusive lock
 
-Per SC-4 cross-ARPG consensus (Diablo 4 + Path of Exile + Last Epoch + Grim Dawn — all 4 reference ARPGs): capability-toolkit modifiers are LEGENDARY-EXCLUSIVE. The 5 capability categories per `CapabilityCategory` enum (partition_schema.py:376):
+Per SC-4 cross-ARPG consensus (Diablo 4 + Path of Exile + Last Epoch + Grim Dawn — all 4 reference ARPGs): capability-toolkit modifiers are LEGENDARY-EXCLUSIVE. The capability category taxonomy per doc 40 § 3.3 enumerates **6 categories** spanning the toolkit surface. Wave 1 `CapabilityCategory` enum (partition_schema.py:376-381) implemented **5 of the 6 categories**; Wave 4 extends the enum to **6 members** by adding `MULTIPLICATIVE` at W4R.1 (additive, non-breaking schema change per ADR-004) so the implementation enum matches the doc 40 canonical taxonomy 1:1 before capability toolkit generation fires at W4R.4.
 
-| Category | Effect | Legendary-exclusive? |
+**Empirical state (partition_schema.py:376-381 at Wave 3 close — 5 members):**
+
+| # | Enum member | Status |
 |---|---|---|
-| **MULTIPLICATIVE** | Numerical multiplier on matching T4 path (Tier 1+2 only per doc 40 § 3.3) | YES |
-| **MECHANIC_ADJUSTING** | Changes HOW a mechanic works (e.g., bleeds also slow) | YES |
-| **SPATIAL_ADJUSTING** | Changes geometry / range / area (cone→circle; ranged→melee) | YES |
-| **AXIS_ADJUSTING** | Changes damage type or resource axis (fire→ice; mana→HP) | YES |
-| **TRIGGERED_PASSIVE** | Added-skill triggered-passive (per § 5 above) | YES |
+| 1 | `MECHANIC_ADJUSTING` | Present (Wave 1) |
+| 2 | `SPATIAL_ADJUSTING` | Present (Wave 1) |
+| 3 | `AXIS_ADJUSTING` | Present (Wave 1) |
+| 4 | `TRIGGERED_PASSIVE` | Present (Wave 1) |
+| 5 | `TRUE_ACTIVE` | Present (Wave 1) |
 
-Wave 4 gear gen enforcement: `can_roll_capability_toolkit(rarity)` (partition_schema.py:384) returns True ONLY for legendary rarities (`LEGENDARY_RARITIES` frozenset partition_schema.py:89). Epic and below MAY NOT roll capability toolkit.
+**Wave 4 W4R.1 extension (add 1 member → 6 total):**
+
+| # | Enum member | Status |
+|---|---|---|
+| 6 | `MULTIPLICATIVE` | **ADD at W4R.1** (Wave 4 extension; closes the doc 40 § 3.3 taxonomy gap) |
+
+**Post-W4R.1 enum (target — 6 members per doc 40 § 3.3 canonical taxonomy):**
+
+| Enum member | Doc 40 § 3.3 row | Effect | Legendary-exclusive? | Slot constraint |
+|---|---|---|---|---|
+| `MULTIPLICATIVE` | Multiplicative | Numerical multiplier on matching T4 path (Tier 1+2 only per doc 40 § 3.3) | YES | All legendary/set slots |
+| `MECHANIC_ADJUSTING` | Mechanic-adjusting | Changes HOW a mechanic works (e.g., bleeds also slow) | YES | All legendary/set slots |
+| `SPATIAL_ADJUSTING` | Spatial-adjusting | Changes geometry / range / area (cone→circle; ranged→melee) | YES | All legendary/set slots |
+| `AXIS_ADJUSTING` | Axis-adjusting | Changes damage type or resource axis (fire→ice; mana→HP) | YES | All legendary/set slots |
+| `TRIGGERED_PASSIVE` | Added skill — passive (triggered-effect-dominant) | Auto-triggered added-skill passive (per § 5 above) | YES | All slots |
+| `TRUE_ACTIVE` | Added skill — true active | Player-activated added-skill on skill-bar (per § 5.3); EXTREMELY RARE | YES | **Weapons only** (per D55 + § 5.3) |
+
+**Semantic distinction (binding):** `MULTIPLICATIVE` and `TRUE_ACTIVE` are categorically distinct mechanisms and MUST NOT be conflated. `MULTIPLICATIVE` is an auto-applied numerical multiplier on a matching T4 path (passive scalar; no player input); `TRUE_ACTIVE` is a player-activated skill on the skill-bar consuming an additive base-skill-budget slot. Conflation would corrupt the doc 40 § 3.3 taxonomy and break the content-compositional attunement model (closeout § 3.4) which depends on multiplicative-on-T4-path as a foundational mechanism.
+
+**W4R.1 implementation requirements for the enum extension:**
+
+- Add `MULTIPLICATIVE = "multiplicative"` as the 6th member of `CapabilityCategory` (partition_schema.py:376-381 extends to 376-382)
+- Update module-load assertion: `assert len(CapabilityCategory) == 6` (Wave 1 implicit count of 5 → Wave 4 explicit count of 6)
+- MIGRATION.md filing per ADR-004 (additive enum extension; no breaking change to Wave 1/2/3 consumers — existing enum members + values preserved verbatim; new member appended)
+- Math note per Discipline #1 BEFORE W4R.1 implementation (covers per-rarity grid + capability toolkit composition; capability category enumeration is consumed by per-slot-family weighting in § 7.3)
+
+**Wave 4 gear gen enforcement (post-W4R.1):** `can_roll_capability_toolkit(rarity)` (partition_schema.py:384) returns True ONLY for legendary rarities (`LEGENDARY_RARITIES` frozenset partition_schema.py:89). Epic and below MAY NOT roll capability toolkit. All 6 enum members are legendary-exclusive uniformly; per-category-per-slot-family weighting per § 7.3 applies only within the legendary-exclusive gate.
 
 ### 7.2 Per-legendary capability slot allocation
 
@@ -367,7 +395,7 @@ Mirrors Wave 1 W1.0-W1.8 + Wave 2 W2.0-W2.9 + Wave 3 W3.0-W3.5 implementation-at
 | Sub-wave | Work-unit | Owner | Gate |
 |---|---|---|---|
 | **W4R.0 — Substrate prep + repo-scaffold** | Review Wave 1 partition output (`partition_schema.py` + `partition_modifier_pool.py` + `partition_roller.py`); Wave 2+3 T4 algorithm output (`t4_category_schema.py` + `t4_scope_selector.py` + `t4_synergy_scan.py` + `t4_option_f.py` + `t4_algorithm_wave2.py`); identify consumption points (PartitionGearInstance generation entry-point; T4CandidateV2 consumption for annotation; capability toolkit selection); spot-check existing schema coherence to confirm field-addition pattern viable | rocket | Substrate prep audit committed; ready for W4R.1 |
-| **W4R.1 — Per-rarity gear instance generation algorithm** | Implement gear generation algorithm per § 3 per-rarity grid for all 10 rarity tiers (Common through Set T2); algorithm samples from partition pool per per-slot affinity matrix; tier-restriction enforcement per `modifier_passes_tier_check()`; resource-model gating per principle 3; gap-filling per D80; module-load `assert len(PartitionRarity) == 10` enforcement; math note per Discipline #1 BEFORE algorithm implementation | rocket | jack-ryan Gate-1 critique; math note PASS per #1; per-rarity generation produces valid PartitionGearInstance for all 10 rarities |
+| **W4R.1 — Per-rarity gear instance generation algorithm + `CapabilityCategory` enum extension (`MULTIPLICATIVE` add)** | Implement gear generation algorithm per § 3 per-rarity grid for all 10 rarity tiers (Common through Set T2); algorithm samples from partition pool per per-slot affinity matrix; tier-restriction enforcement per `modifier_passes_tier_check()`; resource-model gating per principle 3; gap-filling per D80; module-load `assert len(PartitionRarity) == 10` enforcement. **PLUS: Extend `CapabilityCategory` enum per § 7.1 — add `MULTIPLICATIVE = "multiplicative"` as 6th member (Wave 1 implemented 5; doc 40 § 3.3 canonical taxonomy specifies 6; W4R.1 closes the gap before capability toolkit generation fires at W4R.4); module-load `assert len(CapabilityCategory) == 6` enforcement; MIGRATION.md filing per ADR-004 (additive non-breaking; existing 5 members + values preserved verbatim).** Math note per Discipline #1 BEFORE algorithm implementation (covers per-rarity grid + capability category enumeration consumed by § 7.3 per-slot-family weighting) | rocket | jack-ryan Gate-1 critique; math note PASS per #1; per-rarity generation produces valid PartitionGearInstance for all 10 rarities; `CapabilityCategory` extended to 6 members with `MULTIPLICATIVE` present + `len()` assertion at module load |
 | **W4R.2 — T4-attunement annotation per content-compositional model** | Implement T4-attunement annotation population per § 4: Tier 1+2 legendary + all sets get annotation; T4 target selected from kit's T4 candidate pool (Wave 2+3 substrate); scope-preference hint populated when available per § 4.3 (proposed `T4AttunementAnnotation.scope_preference: T4Scope \| None` field addition); annotation does NOT toggle ON/OFF (preserved per § 4.1) | rocket | jack-ryan Gate-1 critique; annotation correctly absent for COMMON-EPIC + LEGENDARY T0/T0.5; correctly present + populated for LEGENDARY T1/T2 + SET T1/T2; scope hint optional per § 4.3 |
 | **W4R.3 — Triggered-passive added-skill generation per D55** | Implement per-slot-family triggered-passive pattern library per § 5.1; probability anchors per § 5.2; rare true-active weapon-only per § 5.3; composition with capability toolkit per § 5.4; per-slot routing distinguishes weapon-only vs accessory-allowed patterns; LLM raw-reasoning constraint per § 5.5 preserved (gandalf-curated patterns + tabular probabilities; LLM permitted only for player-facing naming) | rocket | jack-ryan Gate-1 critique; per-slot-family triggered-passive correctly routed; weapon-only true-active enforcement verified; probability anchors empirically match § 5.2 starting estimates |
 | **W4R.4 — Modifier-surface expansion per D56 + capability toolkit at legendary** | Implement modifier-surface expansion per § 6: legendary gear MUST include at least one Legendary+ exclusive modifier (D56 anti-pattern enforcement); capability-toolkit-legendary-exclusive enforcement per § 7 via `can_roll_capability_toolkit()`; per-slot-family capability category weighting per § 7.3; dual-capability roll at LEGENDARY_T2 per `DUAL_CAPABILITY_PROBABILITY` | rocket | jack-ryan Gate-1 critique; modifier-surface expansion verified; capability-toolkit-legendary-exclusive enforced; dual-capability rolls observed at expected rate |
@@ -429,7 +457,7 @@ Per Wave 1+2+3 Gate-2 WARN-pattern PRESERVED milestone (full closure through Wav
 - `PartitionRarity` length = 10 (preserved from Wave 1; CRITICAL — gear gen iterates all 10)
 - `LEGENDARY_RARITIES` length = 6 (LEGENDARY_T0 + LEGENDARY_T0_5 + LEGENDARY_T1 + LEGENDARY_T2 + SET_T1 + SET_T2)
 - `TIER_1_2_RARITIES` length = 4 (LEGENDARY_T1 + LEGENDARY_T2 + SET_T1 + SET_T2)
-- `CapabilityCategory` length = 5 (MULTIPLICATIVE + MECHANIC_ADJUSTING + SPATIAL_ADJUSTING + AXIS_ADJUSTING + TRIGGERED_PASSIVE)
+- `CapabilityCategory` length = **6** post-W4R.1 (extends Wave 1's 5 members by adding `MULTIPLICATIVE` per § 7.1; final ordered members: MECHANIC_ADJUSTING + SPATIAL_ADJUSTING + AXIS_ADJUSTING + TRIGGERED_PASSIVE + TRUE_ACTIVE + MULTIPLICATIVE — Wave 4 extension; closes the doc 40 § 3.3 canonical taxonomy gap; module-load `assert len(CapabilityCategory) == 6` at W4R.4 close; W4R.1 math note covers the extension)
 - Per-slot-family triggered-passive pattern library counts (rocket determines per § 5.1 enumeration extension)
 - Sub-wave count = 8 (W4R.0-W4R.7)
 - Round-trip smoke rarity coverage = 10 (preserved from Wave 1+2+3; including `legendary_t0_5`)
