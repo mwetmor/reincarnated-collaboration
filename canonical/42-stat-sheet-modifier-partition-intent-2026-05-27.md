@@ -488,7 +488,7 @@ Wave 1 closes when:
 - [ ] Affinity matrix implementation operational per § 2.1 + § 9.2; gear generation produces modifiers per affinity-tier weighted probability
 - [ ] Tier-restriction enforcement operational per § 4 + § 9.3; Common/Uncommon/Rare/Epic NEVER roll legendary-exclusive modifier types
 - [ ] Magnitude bands (starting estimates) operational per § 9.4 + Verdict B.4 per-tier bands
-- [ ] Minimum-viable trait integration (55-entry pool + D8 supporting-chain integration + D9 element/mechanic-gating) operational per § 8
+- [ ] Minimum-viable trait integration (55-entry pool + D8 supporting-chain integration) operational per § 8 (D9 element/mechanic-gating is Wave 4 scope per § 8 sequencing + W1.6 — NOT included in Wave 1 close)
 - [ ] Cross-cohesion validation per principle 6 + § 9.5; gamora spot-check sim PASS across 4 cohort archetypes; build-diversity emerges; no cohort structurally locked out
 - [ ] jack-ryan Gate-2 PASS on aggregate Wave 1 close
 - [ ] Wave 1 close unlocks Wave 2 (T4 algorithm Phases 1-2 implementation) — rocket fires Wave 2 against stat-sheet partition as substrate
