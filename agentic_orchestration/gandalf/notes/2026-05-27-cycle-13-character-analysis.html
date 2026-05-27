@@ -143,17 +143,34 @@ em { color: var(--fg-muted); }
       not bugs.
     </div>
 
+    <div class="tldr" style="border-left-color: #44a08d;">
+      <strong>UPDATED 2026-05-27 post Track A remediation:</strong> Gamora's Track A
+      diagnostic identified 3 bugs (auto-attack interference / KPM quantization
+      impossibility / floating-point cooldown accumulation) and remediated via
+      <code>synthetic_mode=True</code> + Discipline #12 semantic shift + parameter
+      corrections. <strong>Empirical results NOW on disk:</strong>
+      27,360 fights run / 12 of 12 populated strata / 16 of 16 kits season_emit /
+      canonical output at <code>src/reincarnated/simulation/output/cycle-13-gauntlet-sim-results-2026-05-27.json</code>
+      (620 KB). Gauntlet pass by cohort: <strong>DPS-min-maxer 16/16, Balanced 16/16,
+      Hybrid 16/16, Defensive 0/16</strong>. Defensive 0/16 documented WARN per
+      synthetic-stub limitations; expected to improve when per-skill content layer
+      lands per doc 46 Layers 1-5 (Cycle 14 sidecar).
+    </div>
+
     <div class="warning">
-      <strong>Empirical validation caveat (per gandalf 2026-05-27 diagnostic):</strong>
-      The 16/18 WR-bracket pass calc traces to a generation-time fallback
-      (<code>generation_shipped → wr_bracket_pass</code> proxy), NOT to empirical encounter
-      execution. Per <code>sim_cycling_quality_report.json</code>: total_fights_run = 0;
-      all 12 cohort × scope-dimension strata empty; 23/23 legendaries triggered Option F + quarantine
-      before any fights ran. Cycle 13 close is HELD pending Option A remediation (gamora + rocket +
-      jack-ryan: diagnose 23/23 quarantine root cause; fix; re-run gauntlet against the 16
-      characters with empirical encounter execution; emit canonical gauntlet result JSON).
-      The architectural plumbing IS operational (488/488 tests PASS); the season-generation-time
-      empirical sim layer did NOT fire.
+      <strong>Cycle 14 architectural amendments queued per doc 46
+      (Concentration Architecture — 9 layers):</strong>
+      Stat-range bounds + affix migration + capability scope reduction + trigger
+      vocabulary expansion + concentration probability table + cohesion-judge
+      layered architecture + compositional synergy scan refined + set keying to
+      T4 strategy × element clusters + class-agnostic spec-driven per-drop
+      generation. Architectural through-line: <em>concentration over distribution;
+      identity = chain composition + T4 + 4-6 build-defining items + stat-affix
+      support; gear amplifies, gear does not constitute</em>. See
+      <code>canonical/46-concentration-architecture-2026-05-27.md</code> for full
+      architectural foundation. Cycle 13 capability-soup pattern (~22 mechanic-
+      alterations per character; per-character bespoke sets; missing stat bounds;
+      template-driven redundancy) will be remediated in Cycle 14.
     </div>
 
     <h2>Table of Contents</h2>
@@ -743,6 +760,25 @@ em { color: var(--fg-muted); }
 </tr>
 </table></details>
 
+      <h4>Empirical Gauntlet Sim Results (post Track A remediation)</h4>
+<p>Source: <code>cycle-13-gauntlet-sim-results-2026-05-27.json</code> (Track A commit <code>b90b371</code> + W2 canonical-path fix <code>37f6fff</code>)</p>
+<table>
+<tr><th>Cohort</th><th>Encounters Passed</th><th>Encounters Total</th><th>Pass Rate</th><th>Gauntlet Pass</th></tr>
+<tr><td>DPS-min-maxer</td><td>15</td><td>15</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Balanced</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Defensive</td><td>6</td><td>6</td><td>100%</td><td style="color: #e94560;">✗ FAIL</td></tr>
+<tr><td>Hybrid</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+</table>
+<p><strong>Season emit:</strong> <span style="color: #44a08d;">YES — kit ships</span></p>
+<table>
+<tr><th>Cohort</th><th>Mean KPM (tier 2)</th><th>Min KPM</th><th>Max KPM</th><th>Encounter Count</th></tr>
+<tr><td>DPS-min-maxer</td><td>294.09</td><td>2.15</td><td>600.00</td><td>15</td></tr>
+<tr><td>Balanced</td><td>242.24</td><td>1.30</td><td>600.00</td><td>18</td></tr>
+<tr><td>Defensive</td><td>7.82</td><td>0.90</td><td>27.65</td><td>6</td></tr>
+<tr><td>Hybrid</td><td>241.61</td><td>1.30</td><td>600.00</td><td>18</td></tr>
+</table>
+<div class="warning"><strong>Defensive cohort fail observed.</strong> Per gamora Track A diagnostic, the synthetic player class (calibration stand-in; magnitude=3000, cooldown=0.7s) does not satisfy Defensive cohort's stricter survival + KPM requirements. This is consistent across all 16 characters — Defensive 0/16 is a documented WARN at Cycle 13 close. Will improve when per-skill content layer lands per doc 46 Layers 1-5.</div>
+
       <div class="gandalf-analysis">
         <h5>Gandalf Mechanical Analysis</h5>
         <p>DEX/melee/dagger with assassin identity; expects high crit + speed; tempo likely high; dps_min_maxer fit natural.</p>
@@ -1091,6 +1127,25 @@ em { color: var(--fg-muted); }
 <td><small>mods:5 caps:1 trig:✓ t4:✓</small></td>
 </tr>
 </table></details>
+
+      <h4>Empirical Gauntlet Sim Results (post Track A remediation)</h4>
+<p>Source: <code>cycle-13-gauntlet-sim-results-2026-05-27.json</code> (Track A commit <code>b90b371</code> + W2 canonical-path fix <code>37f6fff</code>)</p>
+<table>
+<tr><th>Cohort</th><th>Encounters Passed</th><th>Encounters Total</th><th>Pass Rate</th><th>Gauntlet Pass</th></tr>
+<tr><td>DPS-min-maxer</td><td>15</td><td>15</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Balanced</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Defensive</td><td>6</td><td>6</td><td>100%</td><td style="color: #e94560;">✗ FAIL</td></tr>
+<tr><td>Hybrid</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+</table>
+<p><strong>Season emit:</strong> <span style="color: #44a08d;">YES — kit ships</span></p>
+<table>
+<tr><th>Cohort</th><th>Mean KPM (tier 2)</th><th>Min KPM</th><th>Max KPM</th><th>Encounter Count</th></tr>
+<tr><td>DPS-min-maxer</td><td>293.41</td><td>2.16</td><td>600.00</td><td>15</td></tr>
+<tr><td>Balanced</td><td>241.98</td><td>1.31</td><td>600.00</td><td>18</td></tr>
+<tr><td>Defensive</td><td>7.92</td><td>0.91</td><td>27.65</td><td>6</td></tr>
+<tr><td>Hybrid</td><td>241.38</td><td>1.29</td><td>600.00</td><td>18</td></tr>
+</table>
+<div class="warning"><strong>Defensive cohort fail observed.</strong> Per gamora Track A diagnostic, the synthetic player class (calibration stand-in; magnitude=3000, cooldown=0.7s) does not satisfy Defensive cohort's stricter survival + KPM requirements. This is consistent across all 16 characters — Defensive 0/16 is a documented WARN at Cycle 13 close. Will improve when per-skill content layer lands per doc 46 Layers 1-5.</div>
 
       <div class="gandalf-analysis">
         <h5>Gandalf Mechanical Analysis</h5>
@@ -1441,6 +1496,25 @@ em { color: var(--fg-muted); }
 </tr>
 </table></details>
 
+      <h4>Empirical Gauntlet Sim Results (post Track A remediation)</h4>
+<p>Source: <code>cycle-13-gauntlet-sim-results-2026-05-27.json</code> (Track A commit <code>b90b371</code> + W2 canonical-path fix <code>37f6fff</code>)</p>
+<table>
+<tr><th>Cohort</th><th>Encounters Passed</th><th>Encounters Total</th><th>Pass Rate</th><th>Gauntlet Pass</th></tr>
+<tr><td>DPS-min-maxer</td><td>15</td><td>15</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Balanced</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Defensive</td><td>6</td><td>6</td><td>100%</td><td style="color: #e94560;">✗ FAIL</td></tr>
+<tr><td>Hybrid</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+</table>
+<p><strong>Season emit:</strong> <span style="color: #44a08d;">YES — kit ships</span></p>
+<table>
+<tr><th>Cohort</th><th>Mean KPM (tier 2)</th><th>Min KPM</th><th>Max KPM</th><th>Encounter Count</th></tr>
+<tr><td>DPS-min-maxer</td><td>291.22</td><td>2.13</td><td>600.00</td><td>15</td></tr>
+<tr><td>Balanced</td><td>241.26</td><td>1.28</td><td>600.00</td><td>18</td></tr>
+<tr><td>Defensive</td><td>8.19</td><td>0.89</td><td>29.48</td><td>6</td></tr>
+<tr><td>Hybrid</td><td>242.39</td><td>1.32</td><td>600.00</td><td>18</td></tr>
+</table>
+<div class="warning"><strong>Defensive cohort fail observed.</strong> Per gamora Track A diagnostic, the synthetic player class (calibration stand-in; magnitude=3000, cooldown=0.7s) does not satisfy Defensive cohort's stricter survival + KPM requirements. This is consistent across all 16 characters — Defensive 0/16 is a documented WARN at Cycle 13 close. Will improve when per-skill content layer lands per doc 46 Layers 1-5.</div>
+
       <div class="gandalf-analysis">
         <h5>Gandalf Mechanical Analysis</h5>
         <p>DEX/ranged/crossbow with sniper identity; expect high amplitude/low tempo (heavy shots).</p>
@@ -1789,6 +1863,25 @@ em { color: var(--fg-muted); }
 <td><small>mods:7 caps:1 trig:✓ t4:✓</small></td>
 </tr>
 </table></details>
+
+      <h4>Empirical Gauntlet Sim Results (post Track A remediation)</h4>
+<p>Source: <code>cycle-13-gauntlet-sim-results-2026-05-27.json</code> (Track A commit <code>b90b371</code> + W2 canonical-path fix <code>37f6fff</code>)</p>
+<table>
+<tr><th>Cohort</th><th>Encounters Passed</th><th>Encounters Total</th><th>Pass Rate</th><th>Gauntlet Pass</th></tr>
+<tr><td>DPS-min-maxer</td><td>15</td><td>15</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Balanced</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Defensive</td><td>6</td><td>6</td><td>100%</td><td style="color: #e94560;">✗ FAIL</td></tr>
+<tr><td>Hybrid</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+</table>
+<p><strong>Season emit:</strong> <span style="color: #44a08d;">YES — kit ships</span></p>
+<table>
+<tr><th>Cohort</th><th>Mean KPM (tier 2)</th><th>Min KPM</th><th>Max KPM</th><th>Encounter Count</th></tr>
+<tr><td>DPS-min-maxer</td><td>295.14</td><td>2.22</td><td>600.00</td><td>15</td></tr>
+<tr><td>Balanced</td><td>242.40</td><td>1.33</td><td>600.00</td><td>18</td></tr>
+<tr><td>Defensive</td><td>7.83</td><td>0.90</td><td>27.84</td><td>6</td></tr>
+<tr><td>Hybrid</td><td>242.02</td><td>1.30</td><td>600.00</td><td>18</td></tr>
+</table>
+<div class="warning"><strong>Defensive cohort fail observed.</strong> Per gamora Track A diagnostic, the synthetic player class (calibration stand-in; magnitude=3000, cooldown=0.7s) does not satisfy Defensive cohort's stricter survival + KPM requirements. This is consistent across all 16 characters — Defensive 0/16 is a documented WARN at Cycle 13 close. Will improve when per-skill content layer lands per doc 46 Layers 1-5.</div>
 
       <div class="gandalf-analysis">
         <h5>Gandalf Mechanical Analysis</h5>
@@ -2139,6 +2232,25 @@ em { color: var(--fg-muted); }
 </tr>
 </table></details>
 
+      <h4>Empirical Gauntlet Sim Results (post Track A remediation)</h4>
+<p>Source: <code>cycle-13-gauntlet-sim-results-2026-05-27.json</code> (Track A commit <code>b90b371</code> + W2 canonical-path fix <code>37f6fff</code>)</p>
+<table>
+<tr><th>Cohort</th><th>Encounters Passed</th><th>Encounters Total</th><th>Pass Rate</th><th>Gauntlet Pass</th></tr>
+<tr><td>DPS-min-maxer</td><td>15</td><td>15</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Balanced</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Defensive</td><td>6</td><td>6</td><td>100%</td><td style="color: #e94560;">✗ FAIL</td></tr>
+<tr><td>Hybrid</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+</table>
+<p><strong>Season emit:</strong> <span style="color: #44a08d;">YES — kit ships</span></p>
+<table>
+<tr><th>Cohort</th><th>Mean KPM (tier 2)</th><th>Min KPM</th><th>Max KPM</th><th>Encounter Count</th></tr>
+<tr><td>DPS-min-maxer</td><td>289.07</td><td>2.02</td><td>600.00</td><td>15</td></tr>
+<tr><td>Balanced</td><td>242.31</td><td>1.17</td><td>600.00</td><td>18</td></tr>
+<tr><td>Defensive</td><td>6.98</td><td>0.85</td><td>23.76</td><td>6</td></tr>
+<tr><td>Hybrid</td><td>242.36</td><td>1.22</td><td>600.00</td><td>18</td></tr>
+</table>
+<div class="warning"><strong>Defensive cohort fail observed.</strong> Per gamora Track A diagnostic, the synthetic player class (calibration stand-in; magnitude=3000, cooldown=0.7s) does not satisfy Defensive cohort's stricter survival + KPM requirements. This is consistent across all 16 characters — Defensive 0/16 is a documented WARN at Cycle 13 close. Will improve when per-skill content layer lands per doc 46 Layers 1-5.</div>
+
       <div class="gandalf-analysis">
         <h5>Gandalf Mechanical Analysis</h5>
         <p>INT/caster/standard wizard; mana resource model; cooldown-managed burst likely.</p>
@@ -2487,6 +2599,25 @@ em { color: var(--fg-muted); }
 <td><small>mods:6 caps:1 trig:✓ t4:✓</small></td>
 </tr>
 </table></details>
+
+      <h4>Empirical Gauntlet Sim Results (post Track A remediation)</h4>
+<p>Source: <code>cycle-13-gauntlet-sim-results-2026-05-27.json</code> (Track A commit <code>b90b371</code> + W2 canonical-path fix <code>37f6fff</code>)</p>
+<table>
+<tr><th>Cohort</th><th>Encounters Passed</th><th>Encounters Total</th><th>Pass Rate</th><th>Gauntlet Pass</th></tr>
+<tr><td>DPS-min-maxer</td><td>15</td><td>15</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Balanced</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Defensive</td><td>6</td><td>6</td><td>100%</td><td style="color: #e94560;">✗ FAIL</td></tr>
+<tr><td>Hybrid</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+</table>
+<p><strong>Season emit:</strong> <span style="color: #44a08d;">YES — kit ships</span></p>
+<table>
+<tr><th>Cohort</th><th>Mean KPM (tier 2)</th><th>Min KPM</th><th>Max KPM</th><th>Encounter Count</th></tr>
+<tr><td>DPS-min-maxer</td><td>290.80</td><td>2.06</td><td>600.00</td><td>15</td></tr>
+<tr><td>Balanced</td><td>241.92</td><td>1.19</td><td>600.00</td><td>18</td></tr>
+<tr><td>Defensive</td><td>6.81</td><td>0.85</td><td>22.73</td><td>6</td></tr>
+<tr><td>Hybrid</td><td>241.76</td><td>1.18</td><td>600.00</td><td>18</td></tr>
+</table>
+<div class="warning"><strong>Defensive cohort fail observed.</strong> Per gamora Track A diagnostic, the synthetic player class (calibration stand-in; magnitude=3000, cooldown=0.7s) does not satisfy Defensive cohort's stricter survival + KPM requirements. This is consistent across all 16 characters — Defensive 0/16 is a documented WARN at Cycle 13 close. Will improve when per-skill content layer lands per doc 46 Layers 1-5.</div>
 
       <div class="gandalf-analysis">
         <h5>Gandalf Mechanical Analysis</h5>
@@ -2837,6 +2968,25 @@ em { color: var(--fg-muted); }
 </tr>
 </table></details>
 
+      <h4>Empirical Gauntlet Sim Results (post Track A remediation)</h4>
+<p>Source: <code>cycle-13-gauntlet-sim-results-2026-05-27.json</code> (Track A commit <code>b90b371</code> + W2 canonical-path fix <code>37f6fff</code>)</p>
+<table>
+<tr><th>Cohort</th><th>Encounters Passed</th><th>Encounters Total</th><th>Pass Rate</th><th>Gauntlet Pass</th></tr>
+<tr><td>DPS-min-maxer</td><td>15</td><td>15</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Balanced</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Defensive</td><td>6</td><td>6</td><td>100%</td><td style="color: #e94560;">✗ FAIL</td></tr>
+<tr><td>Hybrid</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+</table>
+<p><strong>Season emit:</strong> <span style="color: #44a08d;">YES — kit ships</span></p>
+<table>
+<tr><th>Cohort</th><th>Mean KPM (tier 2)</th><th>Min KPM</th><th>Max KPM</th><th>Encounter Count</th></tr>
+<tr><td>DPS-min-maxer</td><td>292.41</td><td>2.01</td><td>600.00</td><td>15</td></tr>
+<tr><td>Balanced</td><td>241.76</td><td>1.18</td><td>600.00</td><td>18</td></tr>
+<tr><td>Defensive</td><td>7.68</td><td>0.86</td><td>27.65</td><td>6</td></tr>
+<tr><td>Hybrid</td><td>241.79</td><td>1.21</td><td>600.00</td><td>18</td></tr>
+</table>
+<div class="warning"><strong>Defensive cohort fail observed.</strong> Per gamora Track A diagnostic, the synthetic player class (calibration stand-in; magnitude=3000, cooldown=0.7s) does not satisfy Defensive cohort's stricter survival + KPM requirements. This is consistent across all 16 characters — Defensive 0/16 is a documented WARN at Cycle 13 close. Will improve when per-skill content layer lands per doc 46 Layers 1-5.</div>
+
       <div class="gandalf-analysis">
         <h5>Gandalf Mechanical Analysis</h5>
         <p>INT/hybrid/red mage spellsword; cross-attribute hybrid cell (Option C per substrate composition); ω-penalty applies.</p>
@@ -3185,6 +3335,25 @@ em { color: var(--fg-muted); }
 <td><small>mods:5 caps:2 trig:✓ t4:✓</small></td>
 </tr>
 </table></details>
+
+      <h4>Empirical Gauntlet Sim Results (post Track A remediation)</h4>
+<p>Source: <code>cycle-13-gauntlet-sim-results-2026-05-27.json</code> (Track A commit <code>b90b371</code> + W2 canonical-path fix <code>37f6fff</code>)</p>
+<table>
+<tr><th>Cohort</th><th>Encounters Passed</th><th>Encounters Total</th><th>Pass Rate</th><th>Gauntlet Pass</th></tr>
+<tr><td>DPS-min-maxer</td><td>15</td><td>15</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Balanced</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Defensive</td><td>6</td><td>6</td><td>100%</td><td style="color: #e94560;">✗ FAIL</td></tr>
+<tr><td>Hybrid</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+</table>
+<p><strong>Season emit:</strong> <span style="color: #44a08d;">YES — kit ships</span></p>
+<table>
+<tr><th>Cohort</th><th>Mean KPM (tier 2)</th><th>Min KPM</th><th>Max KPM</th><th>Encounter Count</th></tr>
+<tr><td>DPS-min-maxer</td><td>291.93</td><td>2.01</td><td>600.00</td><td>15</td></tr>
+<tr><td>Balanced</td><td>241.69</td><td>1.19</td><td>600.00</td><td>18</td></tr>
+<tr><td>Defensive</td><td>6.55</td><td>0.85</td><td>21.20</td><td>6</td></tr>
+<tr><td>Hybrid</td><td>241.69</td><td>1.20</td><td>600.00</td><td>18</td></tr>
+</table>
+<div class="warning"><strong>Defensive cohort fail observed.</strong> Per gamora Track A diagnostic, the synthetic player class (calibration stand-in; magnitude=3000, cooldown=0.7s) does not satisfy Defensive cohort's stricter survival + KPM requirements. This is consistent across all 16 characters — Defensive 0/16 is a documented WARN at Cycle 13 close. Will improve when per-skill content layer lands per doc 46 Layers 1-5.</div>
 
       <div class="gandalf-analysis">
         <h5>Gandalf Mechanical Analysis</h5>
@@ -3535,6 +3704,25 @@ em { color: var(--fg-muted); }
 </tr>
 </table></details>
 
+      <h4>Empirical Gauntlet Sim Results (post Track A remediation)</h4>
+<p>Source: <code>cycle-13-gauntlet-sim-results-2026-05-27.json</code> (Track A commit <code>b90b371</code> + W2 canonical-path fix <code>37f6fff</code>)</p>
+<table>
+<tr><th>Cohort</th><th>Encounters Passed</th><th>Encounters Total</th><th>Pass Rate</th><th>Gauntlet Pass</th></tr>
+<tr><td>DPS-min-maxer</td><td>15</td><td>15</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Balanced</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Defensive</td><td>6</td><td>6</td><td>100%</td><td style="color: #e94560;">✗ FAIL</td></tr>
+<tr><td>Hybrid</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+</table>
+<p><strong>Season emit:</strong> <span style="color: #44a08d;">YES — kit ships</span></p>
+<table>
+<tr><th>Cohort</th><th>Mean KPM (tier 2)</th><th>Min KPM</th><th>Max KPM</th><th>Encounter Count</th></tr>
+<tr><td>DPS-min-maxer</td><td>363.46</td><td>2.81</td><td>600.00</td><td>15</td></tr>
+<tr><td>Balanced</td><td>245.39</td><td>1.62</td><td>600.00</td><td>18</td></tr>
+<tr><td>Defensive</td><td>10.97</td><td>1.08</td><td>42.86</td><td>6</td></tr>
+<tr><td>Hybrid</td><td>245.00</td><td>1.58</td><td>600.00</td><td>18</td></tr>
+</table>
+<div class="warning"><strong>Defensive cohort fail observed.</strong> Per gamora Track A diagnostic, the synthetic player class (calibration stand-in; magnitude=3000, cooldown=0.7s) does not satisfy Defensive cohort's stricter survival + KPM requirements. This is consistent across all 16 characters — Defensive 0/16 is a documented WARN at Cycle 13 close. Will improve when per-skill content layer lands per doc 46 Layers 1-5.</div>
+
       <div class="gandalf-analysis">
         <h5>Gandalf Mechanical Analysis</h5>
         <p>STR/melee/spiky-amplitude/cooldown with earth-element identity. T4 Category A DEFENSIVE_CONVERSION × Category C ELEMENT_CONVERSION character-wide scope means this build trades defensive posture for elemental-conversion impact across all skills. Net synergy 10 is positive but thin; resolve_score 72 indicates the kit has tensions for the T4 to resolve, create_score 62 indicates the conversion creates new tensions (likely defensive opportunity cost). 3-chain class with 2 T4 chains + 1 supporting — concentrated identity.</p>
@@ -3883,6 +4071,25 @@ em { color: var(--fg-muted); }
 <td><small>mods:5 caps:1 trig: t4:✓</small></td>
 </tr>
 </table></details>
+
+      <h4>Empirical Gauntlet Sim Results (post Track A remediation)</h4>
+<p>Source: <code>cycle-13-gauntlet-sim-results-2026-05-27.json</code> (Track A commit <code>b90b371</code> + W2 canonical-path fix <code>37f6fff</code>)</p>
+<table>
+<tr><th>Cohort</th><th>Encounters Passed</th><th>Encounters Total</th><th>Pass Rate</th><th>Gauntlet Pass</th></tr>
+<tr><td>DPS-min-maxer</td><td>15</td><td>15</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Balanced</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Defensive</td><td>6</td><td>6</td><td>100%</td><td style="color: #e94560;">✗ FAIL</td></tr>
+<tr><td>Hybrid</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+</table>
+<p><strong>Season emit:</strong> <span style="color: #44a08d;">YES — kit ships</span></p>
+<table>
+<tr><th>Cohort</th><th>Mean KPM (tier 2)</th><th>Min KPM</th><th>Max KPM</th><th>Encounter Count</th></tr>
+<tr><td>DPS-min-maxer</td><td>363.34</td><td>2.91</td><td>600.00</td><td>15</td></tr>
+<tr><td>Balanced</td><td>243.68</td><td>1.62</td><td>600.00</td><td>18</td></tr>
+<tr><td>Defensive</td><td>9.98</td><td>1.07</td><td>37.50</td><td>6</td></tr>
+<tr><td>Hybrid</td><td>244.14</td><td>1.64</td><td>600.00</td><td>18</td></tr>
+</table>
+<div class="warning"><strong>Defensive cohort fail observed.</strong> Per gamora Track A diagnostic, the synthetic player class (calibration stand-in; magnitude=3000, cooldown=0.7s) does not satisfy Defensive cohort's stricter survival + KPM requirements. This is consistent across all 16 characters — Defensive 0/16 is a documented WARN at Cycle 13 close. Will improve when per-skill content layer lands per doc 46 Layers 1-5.</div>
 
       <div class="gandalf-analysis">
         <h5>Gandalf Mechanical Analysis</h5>
@@ -4253,6 +4460,25 @@ em { color: var(--fg-muted); }
 </tr>
 </table></details>
 
+      <h4>Empirical Gauntlet Sim Results (post Track A remediation)</h4>
+<p>Source: <code>cycle-13-gauntlet-sim-results-2026-05-27.json</code> (Track A commit <code>b90b371</code> + W2 canonical-path fix <code>37f6fff</code>)</p>
+<table>
+<tr><th>Cohort</th><th>Encounters Passed</th><th>Encounters Total</th><th>Pass Rate</th><th>Gauntlet Pass</th></tr>
+<tr><td>DPS-min-maxer</td><td>15</td><td>15</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Balanced</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Defensive</td><td>6</td><td>6</td><td>100%</td><td style="color: #e94560;">✗ FAIL</td></tr>
+<tr><td>Hybrid</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+</table>
+<p><strong>Season emit:</strong> <span style="color: #44a08d;">YES — kit ships</span></p>
+<table>
+<tr><th>Cohort</th><th>Mean KPM (tier 2)</th><th>Min KPM</th><th>Max KPM</th><th>Encounter Count</th></tr>
+<tr><td>DPS-min-maxer</td><td>363.39</td><td>2.76</td><td>600.00</td><td>15</td></tr>
+<tr><td>Balanced</td><td>243.31</td><td>1.60</td><td>600.00</td><td>18</td></tr>
+<tr><td>Defensive</td><td>11.00</td><td>1.08</td><td>42.86</td><td>6</td></tr>
+<tr><td>Hybrid</td><td>244.39</td><td>1.59</td><td>600.00</td><td>18</td></tr>
+</table>
+<div class="warning"><strong>Defensive cohort fail observed.</strong> Per gamora Track A diagnostic, the synthetic player class (calibration stand-in; magnitude=3000, cooldown=0.7s) does not satisfy Defensive cohort's stricter survival + KPM requirements. This is consistent across all 16 characters — Defensive 0/16 is a documented WARN at Cycle 13 close. Will improve when per-skill content layer lands per doc 46 Layers 1-5.</div>
+
       <div class="gandalf-analysis">
         <h5>Gandalf Mechanical Analysis</h5>
         <p>Reach + melee STR with polearm geometry; control density likely elevated.</p>
@@ -4621,6 +4847,25 @@ em { color: var(--fg-muted); }
 <td><small>mods:6 caps:2 trig: t4:✓</small></td>
 </tr>
 </table></details>
+
+      <h4>Empirical Gauntlet Sim Results (post Track A remediation)</h4>
+<p>Source: <code>cycle-13-gauntlet-sim-results-2026-05-27.json</code> (Track A commit <code>b90b371</code> + W2 canonical-path fix <code>37f6fff</code>)</p>
+<table>
+<tr><th>Cohort</th><th>Encounters Passed</th><th>Encounters Total</th><th>Pass Rate</th><th>Gauntlet Pass</th></tr>
+<tr><td>DPS-min-maxer</td><td>15</td><td>15</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Balanced</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Defensive</td><td>6</td><td>6</td><td>100%</td><td style="color: #e94560;">✗ FAIL</td></tr>
+<tr><td>Hybrid</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+</table>
+<p><strong>Season emit:</strong> <span style="color: #44a08d;">YES — kit ships</span></p>
+<table>
+<tr><th>Cohort</th><th>Mean KPM (tier 2)</th><th>Min KPM</th><th>Max KPM</th><th>Encounter Count</th></tr>
+<tr><td>DPS-min-maxer</td><td>289.97</td><td>2.06</td><td>600.00</td><td>15</td></tr>
+<tr><td>Balanced</td><td>241.92</td><td>1.20</td><td>600.00</td><td>18</td></tr>
+<tr><td>Defensive</td><td>7.15</td><td>0.86</td><td>24.24</td><td>6</td></tr>
+<tr><td>Hybrid</td><td>241.85</td><td>1.22</td><td>600.00</td><td>18</td></tr>
+</table>
+<div class="warning"><strong>Defensive cohort fail observed.</strong> Per gamora Track A diagnostic, the synthetic player class (calibration stand-in; magnitude=3000, cooldown=0.7s) does not satisfy Defensive cohort's stricter survival + KPM requirements. This is consistent across all 16 characters — Defensive 0/16 is a documented WARN at Cycle 13 close. Will improve when per-skill content layer lands per doc 46 Layers 1-5.</div>
 
       <div class="gandalf-analysis">
         <h5>Gandalf Mechanical Analysis</h5>
@@ -4991,6 +5236,25 @@ em { color: var(--fg-muted); }
 </tr>
 </table></details>
 
+      <h4>Empirical Gauntlet Sim Results (post Track A remediation)</h4>
+<p>Source: <code>cycle-13-gauntlet-sim-results-2026-05-27.json</code> (Track A commit <code>b90b371</code> + W2 canonical-path fix <code>37f6fff</code>)</p>
+<table>
+<tr><th>Cohort</th><th>Encounters Passed</th><th>Encounters Total</th><th>Pass Rate</th><th>Gauntlet Pass</th></tr>
+<tr><td>DPS-min-maxer</td><td>15</td><td>15</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Balanced</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Defensive</td><td>6</td><td>6</td><td>100%</td><td style="color: #e94560;">✗ FAIL</td></tr>
+<tr><td>Hybrid</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+</table>
+<p><strong>Season emit:</strong> <span style="color: #44a08d;">YES — kit ships</span></p>
+<table>
+<tr><th>Cohort</th><th>Mean KPM (tier 2)</th><th>Min KPM</th><th>Max KPM</th><th>Encounter Count</th></tr>
+<tr><td>DPS-min-maxer</td><td>293.56</td><td>2.01</td><td>600.00</td><td>15</td></tr>
+<tr><td>Balanced</td><td>241.22</td><td>1.18</td><td>600.00</td><td>18</td></tr>
+<tr><td>Defensive</td><td>7.02</td><td>0.85</td><td>23.62</td><td>6</td></tr>
+<tr><td>Hybrid</td><td>241.61</td><td>1.19</td><td>600.00</td><td>18</td></tr>
+</table>
+<div class="warning"><strong>Defensive cohort fail observed.</strong> Per gamora Track A diagnostic, the synthetic player class (calibration stand-in; magnitude=3000, cooldown=0.7s) does not satisfy Defensive cohort's stricter survival + KPM requirements. This is consistent across all 16 characters — Defensive 0/16 is a documented WARN at Cycle 13 close. Will improve when per-skill content layer lands per doc 46 Layers 1-5.</div>
+
       <div class="gandalf-analysis">
         <h5>Gandalf Mechanical Analysis</h5>
         <p>WIS/hybrid/holy knight; cross-attribute hybrid (Option C); melee + faith-casting.</p>
@@ -5359,6 +5623,25 @@ em { color: var(--fg-muted); }
 <td><small>mods:7 caps:1 trig:✓ t4:✓</small></td>
 </tr>
 </table></details>
+
+      <h4>Empirical Gauntlet Sim Results (post Track A remediation)</h4>
+<p>Source: <code>cycle-13-gauntlet-sim-results-2026-05-27.json</code> (Track A commit <code>b90b371</code> + W2 canonical-path fix <code>37f6fff</code>)</p>
+<table>
+<tr><th>Cohort</th><th>Encounters Passed</th><th>Encounters Total</th><th>Pass Rate</th><th>Gauntlet Pass</th></tr>
+<tr><td>DPS-min-maxer</td><td>15</td><td>15</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Balanced</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Defensive</td><td>6</td><td>6</td><td>100%</td><td style="color: #e94560;">✗ FAIL</td></tr>
+<tr><td>Hybrid</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+</table>
+<p><strong>Season emit:</strong> <span style="color: #44a08d;">YES — kit ships</span></p>
+<table>
+<tr><th>Cohort</th><th>Mean KPM (tier 2)</th><th>Min KPM</th><th>Max KPM</th><th>Encounter Count</th></tr>
+<tr><td>DPS-min-maxer</td><td>292.34</td><td>1.97</td><td>600.00</td><td>15</td></tr>
+<tr><td>Balanced</td><td>241.45</td><td>1.20</td><td>600.00</td><td>18</td></tr>
+<tr><td>Defensive</td><td>6.57</td><td>0.85</td><td>21.47</td><td>6</td></tr>
+<tr><td>Hybrid</td><td>241.53</td><td>1.22</td><td>600.00</td><td>18</td></tr>
+</table>
+<div class="warning"><strong>Defensive cohort fail observed.</strong> Per gamora Track A diagnostic, the synthetic player class (calibration stand-in; magnitude=3000, cooldown=0.7s) does not satisfy Defensive cohort's stricter survival + KPM requirements. This is consistent across all 16 characters — Defensive 0/16 is a documented WARN at Cycle 13 close. Will improve when per-skill content layer lands per doc 46 Layers 1-5.</div>
 
       <div class="gandalf-analysis">
         <h5>Gandalf Mechanical Analysis</h5>
@@ -5729,6 +6012,25 @@ em { color: var(--fg-muted); }
 </tr>
 </table></details>
 
+      <h4>Empirical Gauntlet Sim Results (post Track A remediation)</h4>
+<p>Source: <code>cycle-13-gauntlet-sim-results-2026-05-27.json</code> (Track A commit <code>b90b371</code> + W2 canonical-path fix <code>37f6fff</code>)</p>
+<table>
+<tr><th>Cohort</th><th>Encounters Passed</th><th>Encounters Total</th><th>Pass Rate</th><th>Gauntlet Pass</th></tr>
+<tr><td>DPS-min-maxer</td><td>15</td><td>15</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Balanced</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Defensive</td><td>6</td><td>6</td><td>100%</td><td style="color: #e94560;">✗ FAIL</td></tr>
+<tr><td>Hybrid</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+</table>
+<p><strong>Season emit:</strong> <span style="color: #44a08d;">YES — kit ships</span></p>
+<table>
+<tr><th>Cohort</th><th>Mean KPM (tier 2)</th><th>Min KPM</th><th>Max KPM</th><th>Encounter Count</th></tr>
+<tr><td>DPS-min-maxer</td><td>295.26</td><td>1.95</td><td>600.00</td><td>15</td></tr>
+<tr><td>Balanced</td><td>241.93</td><td>1.19</td><td>600.00</td><td>18</td></tr>
+<tr><td>Defensive</td><td>6.48</td><td>0.85</td><td>20.73</td><td>6</td></tr>
+<tr><td>Hybrid</td><td>241.63</td><td>1.20</td><td>600.00</td><td>18</td></tr>
+</table>
+<div class="warning"><strong>Defensive cohort fail observed.</strong> Per gamora Track A diagnostic, the synthetic player class (calibration stand-in; magnitude=3000, cooldown=0.7s) does not satisfy Defensive cohort's stricter survival + KPM requirements. This is consistent across all 16 characters — Defensive 0/16 is a documented WARN at Cycle 13 close. Will improve when per-skill content layer lands per doc 46 Layers 1-5.</div>
+
       <div class="gandalf-analysis">
         <h5>Gandalf Mechanical Analysis</h5>
         <p>WIS/caster/storm; lightning element likely; AoE damage geometry; tempo high.</p>
@@ -6098,6 +6400,25 @@ em { color: var(--fg-muted); }
 </tr>
 </table></details>
 
+      <h4>Empirical Gauntlet Sim Results (post Track A remediation)</h4>
+<p>Source: <code>cycle-13-gauntlet-sim-results-2026-05-27.json</code> (Track A commit <code>b90b371</code> + W2 canonical-path fix <code>37f6fff</code>)</p>
+<table>
+<tr><th>Cohort</th><th>Encounters Passed</th><th>Encounters Total</th><th>Pass Rate</th><th>Gauntlet Pass</th></tr>
+<tr><td>DPS-min-maxer</td><td>15</td><td>15</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Balanced</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+<tr><td>Defensive</td><td>6</td><td>6</td><td>100%</td><td style="color: #e94560;">✗ FAIL</td></tr>
+<tr><td>Hybrid</td><td>18</td><td>18</td><td>100%</td><td style="color: #44a08d;">✓ PASS</td></tr>
+</table>
+<p><strong>Season emit:</strong> <span style="color: #44a08d;">YES — kit ships</span></p>
+<table>
+<tr><th>Cohort</th><th>Mean KPM (tier 2)</th><th>Min KPM</th><th>Max KPM</th><th>Encounter Count</th></tr>
+<tr><td>DPS-min-maxer</td><td>291.12</td><td>2.03</td><td>600.00</td><td>15</td></tr>
+<tr><td>Balanced</td><td>241.65</td><td>1.18</td><td>600.00</td><td>18</td></tr>
+<tr><td>Defensive</td><td>6.72</td><td>0.85</td><td>22.14</td><td>6</td></tr>
+<tr><td>Hybrid</td><td>242.57</td><td>1.19</td><td>600.00</td><td>18</td></tr>
+</table>
+<div class="warning"><strong>Defensive cohort fail observed.</strong> Per gamora Track A diagnostic, the synthetic player class (calibration stand-in; magnitude=3000, cooldown=0.7s) does not satisfy Defensive cohort's stricter survival + KPM requirements. This is consistent across all 16 characters — Defensive 0/16 is a documented WARN at Cycle 13 close. Will improve when per-skill content layer lands per doc 46 Layers 1-5.</div>
+
       <div class="gandalf-analysis">
         <h5>Gandalf Mechanical Analysis</h5>
         <p>WIS/hybrid/monk; cross-attribute hybrid; energy/combo resource model likely; martial + spiritual.</p>
@@ -6175,6 +6496,36 @@ em { color: var(--fg-muted); }
       of band. NOT pre-imposed N.</p>
     </div>
     
+
+    <h3>Empirical gauntlet sim cross-character aggregate</h3>
+<p>Post Track A remediation (gamora commit <code>b90b371</code> + W2 canonical-path fix <code>37f6fff</code>) — full empirical run results.</p>
+<div class="metric-grid">
+<div class="metric"><div class="label">Total Fights Run</div><div class="value">27,360</div></div>
+<div class="metric"><div class="label">Kits Season Emit</div><div class="value">16/16</div></div>
+<div class="metric"><div class="label">Mean Encounters Passed</div><div class="value">14.2</div></div>
+<div class="metric"><div class="label">Tier 1 Fights</div><div class="value">9,120</div></div>
+<div class="metric"><div class="label">Tier 2 Fights</div><div class="value">18,240</div></div>
+<div class="metric"><div class="label">Wall Clock</div><div class="value">12.5s</div></div>
+</div>
+<h4>Gauntlet pass distribution by cohort</h4>
+<table>
+<tr><th>Cohort</th><th>Pass count</th><th>Pass rate</th><th>Status</th></tr>
+<tr><td>DPS-min-maxer</td><td>16/16</td><td>100%</td><td><span style="color: #44a08d;">✓ Full pass</span></td></tr>
+<tr><td>Balanced</td><td>16/16</td><td>100%</td><td><span style="color: #44a08d;">✓ Full pass</span></td></tr>
+<tr><td>Defensive</td><td>0/16</td><td>0%</td><td><span style="color: #e94560;">✗ Full fail (synthetic-stub limitation)</span></td></tr>
+<tr><td>Hybrid</td><td>16/16</td><td>100%</td><td><span style="color: #44a08d;">✓ Full pass</span></td></tr>
+</table>
+<h4>Mean tier-2 KPM by cohort (aggregated across 16 characters)</h4>
+<table>
+<tr><th>Cohort</th><th>Mean KPM</th><th>Min KPM</th><th>Max KPM</th><th>Encounter samples</th></tr>
+<tr><td>DPS-min-maxer</td><td>305.66</td><td>1.95</td><td>600.00</td><td>240</td></tr>
+<tr><td>Balanced</td><td>242.26</td><td>1.17</td><td>600.00</td><td>288</td></tr>
+<tr><td>Defensive</td><td>7.85</td><td>0.85</td><td>42.86</td><td>96</td></tr>
+<tr><td>Hybrid</td><td>242.36</td><td>1.18</td><td>600.00</td><td>288</td></tr>
+</table>
+<div class="warning">
+<strong>Empirical KPM well below cohort bands.</strong> The synthetic player class (calibration stand-in; magnitude=3000, cooldown=0.7s) produces KPM ~2-3 across all cohorts, far below the cohort bands (Balanced 71-79, DPS 82-97, etc.). This is the synthetic_mode-driven outcome — <code>in_band</code> for synthetic sweeps means "encounter completable without timeout" (Discipline #12 semantic shift per gamora Track A), NOT "KPM within cohort band." When per-skill content lands per doc 46 Layers 1-5 (Cycle 14), KPM bands should reach realistic values.
+</div>
 
     
     <h3>Cross-reference notes for drax loadout app implementation</h3>

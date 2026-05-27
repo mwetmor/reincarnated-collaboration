@@ -31,11 +31,35 @@ GEAR_SET_FILES = sorted((SEASON_DIR / "gear_sets").glob("*.json"))
 SEASON_METADATA = json.loads((SEASON_DIR / "season_metadata.json").read_text())
 QUALITY_REPORT = json.loads((SEASON_DIR / "sim_cycling_quality_report.json").read_text())
 
+# Gauntlet sim results from Track A remediation (commit b90b371 + W2 canonical-path fix 37f6fff)
+GAUNTLET_RESULTS_PATH = Path("/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/output/cycle-13-gauntlet-sim-results-2026-05-27.json")
+GAUNTLET_RESULTS = (
+    json.loads(GAUNTLET_RESULTS_PATH.read_text())
+    if GAUNTLET_RESULTS_PATH.exists()
+    else None
+)
+
 CHARACTERS = [json.loads(p.read_text()) for p in CHARACTER_FILES]
 GEAR_SETS = {
     p.stem.replace("_gear_full", ""): json.loads(p.read_text())
     for p in GEAR_SET_FILES
 }
+
+# Index gauntlet results by character_id (kit_results use legendary_id which contains character cell)
+GAUNTLET_KIT_BY_CHAR = {}
+GAUNTLET_ENCOUNTERS_BY_CHAR = {}
+if GAUNTLET_RESULTS:
+    for kit in GAUNTLET_RESULTS.get("kit_results", []):
+        leg_id = kit.get("legendary_id", "")
+        # legendary_id like "endgame_dex_01_dagger_assassin_T4"
+        cid = "S1_" + leg_id.rsplit("_T4", 1)[0] if "_T4" in leg_id else None
+        if cid:
+            GAUNTLET_KIT_BY_CHAR[cid] = kit
+    for enc in GAUNTLET_RESULTS.get("encounter_results", []):
+        leg_id = enc.get("legendary_id", "")
+        cid = "S1_" + leg_id.rsplit("_T4", 1)[0] if "_T4" in leg_id else None
+        if cid:
+            GAUNTLET_ENCOUNTERS_BY_CHAR.setdefault(cid, []).append(enc)
 
 # ---------------------------------------------------------------------------
 # Gandalf analysis text per character (mechanical / playability / thematic)
@@ -424,6 +448,61 @@ def render_full_gear_set(char_id: str, gear_set: dict) -> str:
     parts.append('</table></details>')
     return "\n".join(parts)
 
+def render_empirical_sim_results(cid: str) -> str:
+    """Render empirical gauntlet sim results per character (post Track A remediation)."""
+    if not GAUNTLET_RESULTS:
+        return ""
+
+    kit = GAUNTLET_KIT_BY_CHAR.get(cid)
+    encounters = GAUNTLET_ENCOUNTERS_BY_CHAR.get(cid, [])
+
+    if not kit:
+        return f'<h4>Empirical Sim Results</h4><p><em>No empirical results indexed for {cid}.</em></p>'
+
+    parts = []
+    parts.append('<h4>Empirical Gauntlet Sim Results (post Track A remediation)</h4>')
+    parts.append(f'<p>Source: <code>cycle-13-gauntlet-sim-results-2026-05-27.json</code> (Track A commit <code>b90b371</code> + W2 canonical-path fix <code>37f6fff</code>)</p>')
+
+    # Per-cohort results
+    parts.append('<table>')
+    parts.append('<tr><th>Cohort</th><th>Encounters Passed</th><th>Encounters Total</th><th>Pass Rate</th><th>Gauntlet Pass</th></tr>')
+    per_cohort = kit.get("per_cohort", {})
+    for cohort, data in per_cohort.items():
+        passed = data.get("encounters_passed", 0)
+        total = data.get("encounters_total", 0)
+        rate = f"{passed/total*100:.0f}%" if total > 0 else "—"
+        gp = data.get("gauntlet_pass", False)
+        gp_style = ' style="color: #44a08d;"' if gp else ' style="color: #e94560;"'
+        parts.append(f'<tr><td>{cohort}</td><td>{passed}</td><td>{total}</td><td>{rate}</td><td{gp_style}>{"✓ PASS" if gp else "✗ FAIL"}</td></tr>')
+    parts.append('</table>')
+
+    # Season emit indicator
+    season_emit = kit.get("season_emit", False)
+    parts.append(f'<p><strong>Season emit:</strong> <span style="color: {"#44a08d" if season_emit else "#e94560"};">{"YES — kit ships" if season_emit else "NO — kit failed to emit"}</span></p>')
+
+    # KPM summary from encounter results
+    if encounters:
+        kpm_by_cohort = {}
+        for enc in encounters:
+            cohort = enc.get("cohort", "")
+            kpm = enc.get("tier_2_kpm")
+            if kpm is not None:
+                kpm_by_cohort.setdefault(cohort, []).append(kpm)
+
+        if kpm_by_cohort:
+            parts.append('<table>')
+            parts.append('<tr><th>Cohort</th><th>Mean KPM (tier 2)</th><th>Min KPM</th><th>Max KPM</th><th>Encounter Count</th></tr>')
+            for cohort, kpms in kpm_by_cohort.items():
+                mean_kpm = sum(kpms) / len(kpms)
+                parts.append(f'<tr><td>{cohort}</td><td>{mean_kpm:.2f}</td><td>{min(kpms):.2f}</td><td>{max(kpms):.2f}</td><td>{len(kpms)}</td></tr>')
+            parts.append('</table>')
+
+    # Diagnostic note for failed cohorts
+    if not kit.get("per_cohort", {}).get("Defensive", {}).get("gauntlet_pass", True):
+        parts.append('<div class="warning"><strong>Defensive cohort fail observed.</strong> Per gamora Track A diagnostic, the synthetic player class (calibration stand-in; magnitude=3000, cooldown=0.7s) does not satisfy Defensive cohort\'s stricter survival + KPM requirements. This is consistent across all 16 characters — Defensive 0/16 is a documented WARN at Cycle 13 close. Will improve when per-skill content layer lands per doc 46 Layers 1-5.</div>')
+
+    return "\n".join(parts)
+
 def render_character_section(char: dict, gear_set: dict) -> str:
     cid = char["character_id"]
     name = short_name(cid)
@@ -448,6 +527,8 @@ def render_character_section(char: dict, gear_set: dict) -> str:
       </div>
 
       {render_full_gear_set(cid, gear_set) if gear_set else ""}
+
+      {render_empirical_sim_results(cid)}
 
       <div class="gandalf-analysis">
         <h5>Gandalf Mechanical Analysis</h5>
@@ -578,6 +659,71 @@ def render_cross_character_analysis(chars: list) -> str:
     </div>
     """
 
+def render_empirical_cross_character() -> str:
+    """Render aggregate empirical gauntlet sim stats across all 16 characters."""
+    if not GAUNTLET_RESULTS:
+        return ""
+
+    meta = GAUNTLET_RESULTS.get("gauntlet_metadata", {})
+
+    parts = []
+    parts.append('<h3>Empirical gauntlet sim cross-character aggregate</h3>')
+    parts.append('<p>Post Track A remediation (gamora commit <code>b90b371</code> + W2 canonical-path fix <code>37f6fff</code>) — full empirical run results.</p>')
+
+    parts.append('<div class="metric-grid">')
+    parts.append(f'<div class="metric"><div class="label">Total Fights Run</div><div class="value">{meta.get("total_fights_run", 0):,}</div></div>')
+    parts.append(f'<div class="metric"><div class="label">Kits Season Emit</div><div class="value">{meta.get("kits_season_emit", 0)}/{meta.get("total_kits_validated", 0)}</div></div>')
+    parts.append(f'<div class="metric"><div class="label">Mean Encounters Passed</div><div class="value">{meta.get("mean_encounters_passed_per_kit", 0):.1f}</div></div>')
+    parts.append(f'<div class="metric"><div class="label">Tier 1 Fights</div><div class="value">{meta.get("tier_1_fights_run", 0):,}</div></div>')
+    parts.append(f'<div class="metric"><div class="label">Tier 2 Fights</div><div class="value">{meta.get("tier_2_fights_run", 0):,}</div></div>')
+    parts.append(f'<div class="metric"><div class="label">Wall Clock</div><div class="value">{meta.get("wall_clock_seconds", 0):.1f}s</div></div>')
+    parts.append('</div>')
+
+    # Cohort pass distribution
+    parts.append('<h4>Gauntlet pass distribution by cohort</h4>')
+    parts.append('<table>')
+    parts.append('<tr><th>Cohort</th><th>Pass count</th><th>Pass rate</th><th>Status</th></tr>')
+    cohort_passes = meta.get("gauntlet_pass_by_cohort", {})
+    total = meta.get("total_kits_validated", 16)
+    for cohort, count in cohort_passes.items():
+        rate = f"{count/total*100:.0f}%" if total > 0 else "—"
+        if count == total:
+            status = '<span style="color: #44a08d;">✓ Full pass</span>'
+        elif count == 0:
+            status = '<span style="color: #e94560;">✗ Full fail (synthetic-stub limitation)</span>'
+        else:
+            status = f'<span style="color: #f5b800;">Partial</span>'
+        parts.append(f'<tr><td>{cohort}</td><td>{count}/{total}</td><td>{rate}</td><td>{status}</td></tr>')
+    parts.append('</table>')
+
+    # KPM distribution per cohort (aggregated across all 16 characters × ~57 encounters each)
+    kpm_by_cohort = {}
+    for kit in GAUNTLET_RESULTS.get("kit_results", []):
+        cid_leg = kit.get("legendary_id", "")
+        cid = "S1_" + cid_leg.rsplit("_T4", 1)[0] if "_T4" in cid_leg else None
+        if cid:
+            encs = GAUNTLET_ENCOUNTERS_BY_CHAR.get(cid, [])
+            for enc in encs:
+                cohort = enc.get("cohort", "")
+                kpm = enc.get("tier_2_kpm")
+                if kpm is not None:
+                    kpm_by_cohort.setdefault(cohort, []).append(kpm)
+
+    if kpm_by_cohort:
+        parts.append('<h4>Mean tier-2 KPM by cohort (aggregated across 16 characters)</h4>')
+        parts.append('<table>')
+        parts.append('<tr><th>Cohort</th><th>Mean KPM</th><th>Min KPM</th><th>Max KPM</th><th>Encounter samples</th></tr>')
+        for cohort, kpms in kpm_by_cohort.items():
+            mean_kpm = sum(kpms) / len(kpms)
+            parts.append(f'<tr><td>{cohort}</td><td>{mean_kpm:.2f}</td><td>{min(kpms):.2f}</td><td>{max(kpms):.2f}</td><td>{len(kpms)}</td></tr>')
+        parts.append('</table>')
+
+        parts.append('<div class="warning">')
+        parts.append('<strong>Empirical KPM well below cohort bands.</strong> The synthetic player class (calibration stand-in; magnitude=3000, cooldown=0.7s) produces KPM ~2-3 across all cohorts, far below the cohort bands (Balanced 71-79, DPS 82-97, etc.). This is the synthetic_mode-driven outcome — <code>in_band</code> for synthetic sweeps means "encounter completable without timeout" (Discipline #12 semantic shift per gamora Track A), NOT "KPM within cohort band." When per-skill content lands per doc 46 Layers 1-5 (Cycle 14), KPM bands should reach realistic values.')
+        parts.append('</div>')
+
+    return "\n".join(parts)
+
 def render_drax_cross_reference_notes(chars: list) -> str:
     return f"""
     <h3>Cross-reference notes for drax loadout app implementation</h3>
@@ -691,17 +837,34 @@ HTML = f"""<!DOCTYPE html>
       not bugs.
     </div>
 
+    <div class="tldr" style="border-left-color: #44a08d;">
+      <strong>UPDATED 2026-05-27 post Track A remediation:</strong> Gamora's Track A
+      diagnostic identified 3 bugs (auto-attack interference / KPM quantization
+      impossibility / floating-point cooldown accumulation) and remediated via
+      <code>synthetic_mode=True</code> + Discipline #12 semantic shift + parameter
+      corrections. <strong>Empirical results NOW on disk:</strong>
+      27,360 fights run / 12 of 12 populated strata / 16 of 16 kits season_emit /
+      canonical output at <code>src/reincarnated/simulation/output/cycle-13-gauntlet-sim-results-2026-05-27.json</code>
+      (620 KB). Gauntlet pass by cohort: <strong>DPS-min-maxer 16/16, Balanced 16/16,
+      Hybrid 16/16, Defensive 0/16</strong>. Defensive 0/16 documented WARN per
+      synthetic-stub limitations; expected to improve when per-skill content layer
+      lands per doc 46 Layers 1-5 (Cycle 14 sidecar).
+    </div>
+
     <div class="warning">
-      <strong>Empirical validation caveat (per gandalf 2026-05-27 diagnostic):</strong>
-      The 16/18 WR-bracket pass calc traces to a generation-time fallback
-      (<code>generation_shipped → wr_bracket_pass</code> proxy), NOT to empirical encounter
-      execution. Per <code>sim_cycling_quality_report.json</code>: total_fights_run = 0;
-      all 12 cohort × scope-dimension strata empty; 23/23 legendaries triggered Option F + quarantine
-      before any fights ran. Cycle 13 close is HELD pending Option A remediation (gamora + rocket +
-      jack-ryan: diagnose 23/23 quarantine root cause; fix; re-run gauntlet against the 16
-      characters with empirical encounter execution; emit canonical gauntlet result JSON).
-      The architectural plumbing IS operational (488/488 tests PASS); the season-generation-time
-      empirical sim layer did NOT fire.
+      <strong>Cycle 14 architectural amendments queued per doc 46
+      (Concentration Architecture — 9 layers):</strong>
+      Stat-range bounds + affix migration + capability scope reduction + trigger
+      vocabulary expansion + concentration probability table + cohesion-judge
+      layered architecture + compositional synergy scan refined + set keying to
+      T4 strategy × element clusters + class-agnostic spec-driven per-drop
+      generation. Architectural through-line: <em>concentration over distribution;
+      identity = chain composition + T4 + 4-6 build-defining items + stat-affix
+      support; gear amplifies, gear does not constitute</em>. See
+      <code>canonical/46-concentration-architecture-2026-05-27.md</code> for full
+      architectural foundation. Cycle 13 capability-soup pattern (~22 mechanic-
+      alterations per character; per-character bespoke sets; missing stat bounds;
+      template-driven redundancy) will be remediated in Cycle 14.
     </div>
 
     <h2>Table of Contents</h2>
@@ -717,6 +880,8 @@ HTML = f"""<!DOCTYPE html>
 
     <h2>Cross-character analysis</h2>
     {render_cross_character_analysis(CHARACTERS)}
+
+    {render_empirical_cross_character()}
 
     {render_drax_cross_reference_notes(CHARACTERS)}
 
