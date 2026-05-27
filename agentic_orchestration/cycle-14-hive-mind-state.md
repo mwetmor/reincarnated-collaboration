@@ -1,0 +1,183 @@
+# Cycle 14 — Phase 5 Cohesion Coalescence + Track D Content Gap Closure + Concentration Architecture — Hive-Mind State File
+
+> **STATUS:** LIVE — Cycle 14 entered hive-mind state 2026-05-27 per Matt Q1-Q11 framing brief ratification + KR launch.
+>
+> **Cycle final tag (anticipated):** `v14.0-cohesion-coalescence-ready`
+>
+> **Authority:** Matt 2026-05-27 verbatim Q1-Q11 ratification (`agentic_orchestration/gandalf/notes/2026-05-27-cycle-14-framing-brief.md` § 12 ratification record).
+
+**Authored:** 2026-05-27
+**Author:** knight-rider (orchestrator)
+**Live state file for cross-session continuity per hive-mind protocol § 8.1.**
+
+**Canonical authority:**
+- `agentic_orchestration/cycles/cycle-14-cohesion-coalescence-scope.md` (scope-of-autonomy doc)
+- `agentic_orchestration/gandalf/notes/2026-05-27-cycle-14-framing-brief.md` (RATIFIED framing brief)
+- `agentic_orchestration/gandalf/notes/2026-05-27-cycle-14-kr-kicker.md` (orchestration signal)
+
+**Companion docs (foundation):**
+- `canonical/46-concentration-architecture-2026-05-27.md` (9 architectural layers)
+- `canonical/47-damage-scaling-architecture-2026-05-27.md` (physical/magical/hybrid routing)
+- `canonical/40-gear-balance-guide-architecture-2026-05-26.md` (Cycle 13 foundation; SC-2 amendments queued)
+- `canonical/41-progression-framework-2026-05-27.md` (L50 hybrid; per-level scaling deferred)
+
+---
+
+## 0. Cycle entry record
+
+| Field | Value |
+|---|---|
+| **Cycle name** | Cycle 14 — Phase 5 Cohesion Coalescence + Track D + Concentration Architecture |
+| **Entry path** | Path B — Matt's verbatim Q1-Q11 ratification + KR launch authorization 2026-05-27 |
+| **Entry timestamp** | 2026-05-27 (single-session continuation post Cycle 13 close ratification) |
+| **Cycle scope reference** | `agentic_orchestration/cycles/cycle-14-cohesion-coalescence-scope.md` |
+| **Framing brief reference** | `agentic_orchestration/gandalf/notes/2026-05-27-cycle-14-framing-brief.md` |
+| **Wave structure** | Wave 0 → 0.5 → 1 → 2 → 3 → 4 → 5 |
+| **Close criterion** | gauntlet PASS with REAL content + cohesion validation PASS + jack-ryan Gate-2 PASS (per Q8 ratified) |
+| **Quality > timeline** | RATIFIED (Q10 verbatim "extend timeline as needed for Wave 0.5 and all waves") |
+| **synthetic_mode disposition** | RETIRED ABSOLUTELY at Wave 0.5 close (Q4 verbatim "extremely confirm.. retire it"); Discipline candidate #39 load-bearing |
+| **Cycle 13 season disposition** | DISREGARDED (Q9 verbatim "not relevant; made to fit synthetic gauntlet"); Cycle 14 generates FRESH roster |
+| **Skip-confirmation fire-forward** | AUTHORIZED (Q11 ratified; carried from Cycle 13 precedent) |
+| **Push pattern** | per-cycle pushes per Matt 2026-05-27 verbatim |
+
+---
+
+## 1. Wave status table
+
+| Wave | Status | Owners | Gates on | Wall-clock target |
+|---|---|---|---|---|
+| **Wave 0** | 🟢 IN PROGRESS | KR + gandalf + jack-ryan Gate-1 | (entry) | ~1 week (already in progress) |
+| **Wave 0.5** | ⏳ QUEUED | rocket + gamora + elrond + jack-ryan Gate-2 | Wave 0 + SC-5 + SC-6 closure + jack-ryan Gate-1 PASS | 1-2 weeks anchor; extends per Q10 |
+| **Wave 1** | ⏳ QUEUED | rocket + gandalf + jack-ryan Gate-2 | Wave 0.5 + SC-4 closure | ~1 week |
+| **Wave 2** | ⏳ QUEUED | rocket + gandalf + jack-ryan Gate-2 | Wave 1 + SC-1 partial ratification (#36 + #37) | ~3-5 days |
+| **Wave 3** | ⏳ QUEUED | gandalf + star-lord + rocket | Wave 0.5 real content + SC-3 closure | ~1 week |
+| **Wave 4** | ⏳ QUEUED | gandalf + rocket + gamora | Wave 2 + Wave 3 | ~3-5 days |
+| **Wave 5** | ⏳ QUEUED | gamora + gandalf + rocket + jack-ryan close Gate-2 | All prior waves closed + synthetic_mode RETIRED verified | ~3-5 days; extends per Q10 |
+
+---
+
+## 2. Wave 0 — current wave
+
+### 2.1 Wave 0 scope
+
+Per scope-doc § 2 Wave 0:
+- Cycle 14 scope-doc (this state file's authority)
+- Cycle 14 hive-mind state file (this doc)
+- Sidecar dispatches authored: SC-1 / SC-2 / SC-3 / SC-4 / SC-5 / SC-6
+- Doc 40 amendments via SC-2 (gandalf canonical write)
+- jack-ryan Gate-1 review of Wave 0.5 dispatch (gates Wave 0.5 fire)
+
+### 2.2 Wave 0 dispatch fire record
+
+| Dispatch | Owner | Path | Status |
+|---|---|---|---|
+| **Scope-doc** | KR | `agentic_orchestration/cycles/cycle-14-cohesion-coalescence-scope.md` | ✅ AUTHORED 2026-05-27 |
+| **SC-1** | jack-ryan | `agentic_orchestration/dispatches/2026-05-27-jack-ryan-cycle-14-sc-1-discipline-candidate-ratification.md` | 🟡 PENDING jack-ryan pickup |
+| **SC-2** | gandalf | `agentic_orchestration/dispatches/2026-05-27-gandalf-cycle-14-sc-2-doc-40-amendments.md` | 🟡 PENDING gandalf pickup |
+| **SC-3** | legolas | `agentic_orchestration/dispatches/2026-05-27-legolas-cycle-14-sc-3-cohesion-judge-llm-research.md` | 🟡 PENDING legolas pickup |
+| **SC-4** | legolas | `agentic_orchestration/dispatches/2026-05-27-legolas-cycle-14-sc-4-trigger-vocabulary-research.md` | 🟡 PENDING legolas pickup |
+| **SC-5** | legolas | `agentic_orchestration/dispatches/2026-05-27-legolas-cycle-14-sc-5-damage-scaling-research.md` | 🟡 PENDING legolas pickup |
+| **SC-6** | elrond | `agentic_orchestration/dispatches/2026-05-27-elrond-cycle-14-sc-6-substrate-weapon-stat-audit.md` | 🟡 PENDING elrond pickup |
+| **SC-7** | drax | (NOT FIRED; deferred per Q9 disposition until Wave 5 fresh roster materializes) | ⏸️ DEFERRED |
+| **State file** | KR | `agentic_orchestration/cycle-14-hive-mind-state.md` | ✅ AUTHORED 2026-05-27 (this doc) |
+
+### 2.3 Wave 0 gate
+
+Wave 0.5 fires when:
+- SC-5 closure (legolas damage scaling research artifact filed)
+- SC-6 closure (elrond substrate weapon stat audit + enrichment complete; MIGRATION.md authored if schema extended)
+- Wave 0.5 dispatch authored by KR (consumes SC-5 + SC-6 outputs to scope rocket + gamora work)
+- jack-ryan Gate-1 PASS on Wave 0.5 dispatch (DESIGN-MODE pre-fire critique)
+
+KR autonomous on Wave 0.5 dispatch authoring + Gate-1 routing per scope-doc § 4.1.
+
+---
+
+## 3. Sidecar dispatch status
+
+| SC | Owner | Gates which wave | Status | Completion criteria |
+|---|---|---|---|---|
+| **SC-1** | jack-ryan | Wave 0.5 (#38, #39) → 1 (#33, #34) → 2 (#36, #37) → 3 (#35) | 🟡 PENDING | All 7 candidates verdicted; canonical writes landed at engineering-disciplines.md for RATIFIED + RATIFIED-WITH-REVISIONS |
+| **SC-2** | gandalf | Wave 0 close (downstream waves consume amended doc 40) | 🟡 PENDING | Doc 40 D-entries amended per doc 46 § 13 + doc 47 § 5; bidirectional cross-references |
+| **SC-3** | legolas Mode A | Wave 3 (Phase 5 cohesion-judge LLM) | 🟡 PENDING | Research artifact filed; methodology recommendations per § 7.2 of dispatch |
+| **SC-4** | legolas Mode A | Wave 1 (trigger vocabulary expansion) | 🟡 PENDING | ~50+ trigger conditions across 11 families catalogued; composition properties + AI-tell mitigations |
+| **SC-5** | legolas Mode A | Wave 0.5 (damage scaling routing) | 🟡 PENDING | Per-game per-path formula tables; structural validation of doc 47; edge cases catalogued |
+| **SC-6** | elrond | Wave 0.5 (substrate weapon binding output) | 🟡 PENDING | 6 doc-47-required fields audited + enriched; MIGRATION.md if schema extended; audit report filed |
+| **SC-7** | drax | Post Wave 5 (Cycle 14 roster materializes) | ⏸️ DEFERRED | NOT FIRED in Wave 0; Track C transform refresh awaits fresh Cycle 14 roster |
+
+---
+
+## 4. Discipline candidate ratification status (via SC-1)
+
+| # | Discipline | Source | Gates Wave | Status |
+|---|---|---|---|---|
+| **#33** | Stat-range bounds | doc 46 Layer 1 | Wave 1 close | 🟡 PENDING jack-ryan ratification |
+| **#34** | Concentration | doc 46 Layer 5 | Wave 1 close | 🟡 PENDING jack-ryan ratification |
+| **#35** | Layered cohesion | doc 46 Layer 6 | Wave 3 close | 🟡 PENDING jack-ryan ratification |
+| **#36** | Substrate-as-keying-source | doc 46 Layer 8 | Wave 2 close | 🟡 PENDING jack-ryan ratification |
+| **#37** | Class-agnostic drop | doc 46 Layer 9 | Wave 2 close | 🟡 PENDING jack-ryan ratification |
+| **#38** | Damage-scaling-path | doc 47 § 6 | Wave 0.5 close | 🟡 PENDING jack-ryan ratification |
+| **#39** | No-synthetic-stub-as-permanent-fallback | framing brief § 6 | Wave 0.5 close | 🟡 PENDING jack-ryan ratification (Matt Q4 emphatic lock; load-bearing) |
+
+Recommended cadence: #38 + #39 first (Wave 0.5 gate); then #33 + #34 (Wave 1); then #36 + #37 (Wave 2); then #35 (Wave 3).
+
+---
+
+## 5. Load-bearing disciplines (Cycle 14 compliance matrix)
+
+Per scope-doc § 5:
+
+- **#11 empirical inspection** — applies throughout; Wave 5 close empirically verifies real-content gauntlet via `grep "synthetic_mode" src/reincarnated/simulation/` returning ZERO
+- **#18 methodology-before-execution** — applies at math hotspots: Wave 0.5 damage scaling (SC-5 gates), Wave 3 cohesion-judge LLM (SC-3 gates), Wave 4 acquisition curve calibration
+- **#19 Agent-tool-not-for-waiting** — applies to all multi-day work; KR uses dispatches as durable handoff, not Agent-tool polling
+- **#20-#21 no-sleep-recommendations + timezone-agnosticism** — apply to all KR communications throughout Cycle 14
+- **#39 (candidate, load-bearing) no-synthetic-stub-as-permanent-fallback** — applies at Wave 0.5 close gate; KR not autonomous on retention
+
+---
+
+## 6. Cross-session pickup signal (for next KR session)
+
+If session terminates mid Wave 0:
+
+1. **Read this state file first** for current Wave + dispatch status
+2. **Read scope-doc** (`agentic_orchestration/cycles/cycle-14-cohesion-coalescence-scope.md`) for autonomy boundaries
+3. **Read framing brief ratification record** (`agentic_orchestration/gandalf/notes/2026-05-27-cycle-14-framing-brief.md` § 12)
+4. **Scan dispatches directory** for any completion records appended to Wave 0 dispatches by specialists
+5. **If SC-5 + SC-6 closed**: author Wave 0.5 dispatch + invoke jack-ryan Gate-1 + fire Wave 0.5
+6. **If SC-2 closed**: confirm doc 40 amendments landed; cross-reference back to scope-doc + state file
+7. **If SC-3 + SC-4 closed**: artifacts consumed at respective wave dispatch authoring (Wave 3 / Wave 1)
+8. **If SC-1 partial ratification**: track #38 + #39 specifically as Wave 0.5 close gate criterion
+
+---
+
+## 7. Wave-completion record (appended per Wave close)
+
+(Empty at Wave 0 launch; appended as Waves close.)
+
+### Wave 0 — IN PROGRESS
+
+(To be appended on close.)
+
+---
+
+## 8. Cycle 14 close target
+
+Per framing brief Q8 ratified + scope-doc § 6:
+
+**Close criterion = gauntlet PASS with REAL content + cohesion validation PASS + jack-ryan Gate-2 PASS.**
+
+Anticipated final tag: `v14.0-cohesion-coalescence-ready`
+
+Wind-down summary path (when reached): `agentic_orchestration/cycle-14-wind-down-summary-<YYYY-MM-DD>.md`
+
+State file archival path (when reached): rename to `agentic_orchestration/cycle-14-hive-mind-state-completed-<YYYY-MM-DD>.md` OR move to `agentic_orchestration/historical/`.
+
+---
+
+## 9. Sign-off (LIVE)
+
+**State file owner:** knight-rider (orchestrator)
+**State file status:** LIVE — Cycle 14 in flight; Wave 0 in progress; Wave 0.5 + downstream queued
+**Last updated:** 2026-05-27 (Wave 0 launch + dispatch fire-sequence complete)
+
+**For:** cross-session continuity per hive-mind protocol § 8.1. Captures Wave + sidecar dispatch state for Cycle 14 lifecycle. Updated at each Wave boundary + dispatch completion. Archives on Cycle 14 close.
