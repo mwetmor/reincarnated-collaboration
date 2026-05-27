@@ -368,6 +368,33 @@ The pre-launch design session-start doc lists 3 additional Block D items rocket'
 
 These can fire as additional Wave 0 audit dispatches if Matt + gandalf judge them needed pre-design-session, OR can be resolved inline during design session itself.
 
+### 12.2 SC-4 legolas ARPG modifier-partitioning research — LANDED 2026-05-27
+
+**Source:** `agentic_orchestration/research/cycle-13/2026-05-27-arpg-modifier-partitioning-landscape.md` (77KB; 4 reference ARPGs × 10 dimensions + 6 cross-ARPG synthesis dimensions + Discipline #18 compliance section)
+
+**robots.txt compliance:** All 4 reference game wikis (poewiki.net, lastepoch.wiki.gg, diablo4.wiki.gg, grimdawn.wiki.gg) block ClaudeBot per Discipline #20. Research routed entirely to permitted sources (official game sites pathofexile.com / lastepoch.com / grimdawn.com + verified secondary sources).
+
+**3 headline findings for Wave 1 partition design:**
+
+1. **Capability-toolkit categories are EXCLUSIVELY legendary/unique surfaces across all 4 reference ARPGs.** Mechanic-adjusting + spatial-adjusting + axis-adjusting modifiers NEVER appear in random rare affix pools. This is a consistent design principle (not a convention). Directly grounds doc 40 § 3.3 capability-toolkit placement.
+
+2. **Last Epoch's affix-shard system is the closest architectural precedent for spec-driven gear gen.** Affixes are discrete units (shards) — fully materialized modifier alphabet. Maps cleanly to doc 40 scored-candidate strategy registry: modifiers should be enumerable discrete units that can be matched to kit+T4 specifications.
+
+3. **Five methodology-choice gates MUST be decided BEFORE Wave 1 partition lock** (these are schema decisions, NOT magnitude calibration which can iterate empirically):
+   - **Gate 1 — Prefix/suffix binary adoption:** offensive (prefix) vs defensive/utility (suffix) partition is load-bearing across all 4 ARPGs; load-bearing schema decision
+   - **Gate 2 — Tag taxonomy for spawn weighting:** PoE2's mod-tag system requires upfront tag schema; can't be deferred
+   - **Gate 3 — Item-type domain assignment per modifier:** which modifier types are domain-locked to which item types (weapons vs armor vs accessories vs off-hand)
+   - **Gate 4 — Skill-level affix slot restriction:** rules for where +N-to-skills affixes can roll
+   - **Gate 5 — Proc/trigger routing decision (HIGHEST LEVERAGE):** integrate triggered effects into gear affixes (GD approach — complex gear pools) vs route to separate item system (LE idol approach — simpler gear pools) vs route to support gem system (PoE2 approach — gear pool minimal). Determines gear-slot design complexity at architectural scale.
+
+**Implication for Wave 1 partition cycle authoring:**
+
+These 5 gates are Wave 1 design lock prerequisites. Gandalf design intent at Wave 1 must close on all 5 with input from gamora methodology consultation + jack-ryan critique. SC-4 research provides the design-space landscape; does NOT make the decisions. Per Discipline #18 — methodology choice at the math hotspot fires BEFORE specialist execution; this is operationalization-ready.
+
+**Cross-reference to doc 40 capability toolkit:** Finding 1 (capability-toolkit = legendary-exclusive across all 4 ARPGs) cross-validates doc 40 D9 + D54 placement of capability toolkit at legendary/unique tier. The 4-ARPG consensus pattern reinforces the architectural commitment.
+
+**KR posture:** SC-4 GATES are now MET per Discipline #18. Wave 1 partition cycle is design-lock-ready PENDING Matt + gandalf Block B (gear architecture lock) output + GAP 5 BLOCKING decision per § 12.1. Wave 1 dispatch authoring proceeds when both prerequisites land.
+
 ---
 
 ## 13. Sign-off
