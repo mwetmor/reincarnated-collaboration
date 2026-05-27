@@ -48,7 +48,8 @@
 |---|---|---|---|---|
 | **Wave 0** | ✅ COMPLETE 2026-05-27 | KR + gandalf + jack-ryan + legolas + elrond | (entry) | landed in single-session sweep |
 | **Wave 0.5** | ✅ CLOSED 2026-05-27 | rocket + gamora + elrond (SC-6b) + jack-ryan Gate-2 PASS-with-WARN | 3 sub-agents landed (`3c95883` + `b2e9a86` + `cafd6e4`); Gate-2 PASS-with-WARN (0 BLOCK / 1 WARN / 4 INFO); Discipline #39 EMPIRICAL grep ZERO; Path A decisions-log entry landed at engine `f053281`; 1 WARN tracked as pre-Wave-5 follow-on | landed in single-session sweep |
-| **Wave 1** | 🟢 GATE-1 PENDING | rocket + gandalf design-spec + jack-ryan Gate-2 | Dispatch authored 2026-05-27 at `agentic_orchestration/dispatches/2026-05-27-rocket-cycle-14-wave-1-concentration-architecture.md` (Layers 1-4+7); rocket follow-on (pipeline wiring + LUT alignment) authored at `agentic_orchestration/dispatches/2026-05-27-rocket-cycle-14-wave-0-5-followon-pipeline-wiring-lut-alignment.md`; Gate-1 routing next | ~1 week post Gate-1 PASS |
+| **Wave 1** | ✅ SUB-AGENT COMPLETE 2026-05-27; GATE-2 PENDING | rocket + gandalf design-spec + jack-ryan Gate-2 | Three sequenced commits: follow-on `685dafa` → 4 math-notes `0541105` → Wave 1 impl `98b68aa`; tag `rocket/v1.5-wave-1-concentration-architecture-layers-1-4-7`; 29 new tests + 232/232 PASS; **Cycle 13 capability-soup REMEDIATED — avg 4.2 triggered_passives/kit (Discipline #34 ≤6 TARGET MET; down from Cycle 13's ~22)**; 61 SC-4 conditions × 11 families; 5 CRITICAL AI-tell triggers; 5 dedup pattern_id clusters; LegendaryCapabilityScope enum (5 local scopes; no character_wide/chain_wide); MIGRATION.md § Wave 1; Gate-1 PASS-with-WARN amendments applied | landed in single-session sweep |
+| **Wave 0.5 follow-on** | ✅ COMPLETE 2026-05-27 (`685dafa`) | rocket + jack-ryan Gate-2 | Pipeline wiring (per_skill_emitter + substrate_weapon_binding → season_generation_pipeline.py) + 5-family LUT alignment per Gate-1 Finding FO-2 amendment | folded into rocket Wave 1 session |
 | **Wave 2** | ⏳ QUEUED | rocket + gandalf + jack-ryan Gate-2 | Wave 1 + SC-1 partial ratification (#36 + #37) | ~3-5 days |
 | **Wave 3** | ⏳ QUEUED | gandalf + star-lord + rocket | Wave 0.5 real content + SC-3 closure | ~1 week |
 | **Wave 4** | ⏳ QUEUED | gandalf + rocket + gamora | Wave 2 + Wave 3 | ~3-5 days |
@@ -169,7 +170,26 @@ If session terminates mid Wave 0:
 
 All 6 sidecars landed (SC-1 jack-ryan / SC-2 gandalf / SC-3 legolas / SC-4 legolas / SC-5 legolas / SC-6 elrond). SC-6b decomposed scope (audit + enrichment) introduced + both phases landed within Cycle 14 Wave 0 ↔ Wave 0.5 boundary. SC-7 drax deferred per Q9. Wave 0.5 dispatch package authored + Gate-1 PASS-with-REVISIONS (2 WARN amended; 0 BLOCK).
 
-### Wave 0.5 — ✅ COMPLETE 2026-05-27 (all 3 sub-agents landed; Gate-2 pending)
+### Wave 1 — ✅ SUB-AGENT COMPLETE 2026-05-27 (GATE-2 PENDING)
+
+Rocket combined invocation landed cleanly:
+
+| Item | Commit | Outcome |
+|---|---|---|
+| Wave 0.5 follow-on | engine `685dafa` | Pipeline wiring + 5-family LUT alignment to elrond Pass-2 (martial-heavy=177 / martial-light=99 / ranged=91 / caster-arcane=31 / caster-faith=31); per Gate-1 Finding FO-2 amendment |
+| Wave 1 math-notes | engine `0541105` | 4 math-notes per Discipline #1 + #18 (Layer 1 / Layer 2 / Layer 3+4 / Layer 7) |
+| Wave 1 implementation | engine `98b68aa`; tag `rocket/v1.5-wave-1-concentration-architecture-layers-1-4-7` | All 5 layers implemented (Layer 1 STAT_CAP_TABLE 16 stats + two-layer enforcement; Layer 2 7 general_passive_* migrated; Layer 3 LegendaryCapabilityScope enum 5 local scopes; Layer 4 61 SC-4 conditions × 11 families + 5 CRITICAL AI-tell triggers + 5 dedup pattern_id clusters; Layer 7 synergy_scan_layer7.py wired into w5r1_generate_kit_candidates with retry + graceful degradation) |
+| Tests | (within `98b68aa`) | 29 new tests (test_cycle14_wave1_concentration.py) + 232 total PASS |
+| Cycle 13 regression | empirically verified | **NO counter_on_defensive>1; NO general_passive_* pattern_ids; avg 4.2 triggered_passives/kit (Discipline #34 ≤6 TARGET MET; down from Cycle 13's ~22)** |
+| MIGRATION.md | `generation/MIGRATION.md § Wave 1` | Layer-by-layer + Wave 0.5 follow-on records both REMEDIATED |
+| Cross-seam contract | additive | `triggered_passive` dict carries 2 new optional fields: `trigger_id` (str\|None) + `legendary_scope` (str\|None); default None for legacy items |
+
+**Downstream consumer flags for Gate-2 review:**
+- Cycle 14+ output: `general_passive_*` pattern_ids will NOT appear
+- Cycle 14+ output: accessory `triggered_passive` always null
+- `trigger_id` + `legendary_scope` fields additive on `triggered_passive` dict; backwards-compatible
+
+### Wave 0.5 — ✅ COMPLETE 2026-05-27 (all 3 sub-agents landed; Gate-2 PASS-with-WARN)
 
 | Sub-agent | Status |
 |---|---|
