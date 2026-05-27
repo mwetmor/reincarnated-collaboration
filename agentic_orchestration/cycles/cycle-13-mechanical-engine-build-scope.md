@@ -317,7 +317,7 @@ Per framing brief Q8 ratification:
 When pre-launch design session (Blocks A-E) lands outputs, KR (or gandalf) fills:
 
 - [ ] § 1 lock items L? to ratified post-session amendments (if any)
-- [ ] § 2.1 in-scope specifics tightened per Block A (T4 architecture lock) + Block B (gear architecture lock) + Block C (Phase 3 calibration anchors) + Block D (audit findings) + T4-failure-handling decision (Option F recommended)
+- [ ] § 2.1 in-scope specifics tightened per Block A (T4 architecture lock) + Block B (gear architecture lock) + Block C (Phase 3 calibration anchors) + Block D (audit findings — see § 12.1 below) + T4-failure-handling decision (Option F recommended)
 - [ ] § 3 Wave 1 detailed sub-task breakdown per Block B + SC-4 outputs
 - [ ] § 3 Wave 2 detailed sub-task breakdown per Block A + T4 architecture lock specifics
 - [ ] § 3 Wave 3 detailed sub-task breakdown per Block A + T4-failure-handling Option F
@@ -326,6 +326,47 @@ When pre-launch design session (Blocks A-E) lands outputs, KR (or gandalf) fills
 - [ ] § 4 scope-of-autonomy refinements (if Matt amends any boundary)
 - [ ] § 7 compute budget concrete numbers per Block C + gamora methodology output
 - [ ] Block D audit findings landed (trait constellation completeness + resource model verification + test encounter content + degenerate-state detection mechanics) as Cycle 13 work-unit additions or explicit out-of-scope statements
+
+### 12.1 Block D pre-session audit findings — landed as Wave 0 sidecars
+
+KR fired Block D feed-in audits as Wave 0 parallel-work-units. Results that have landed pre-design-session:
+
+#### GAP 5 — Trait constellation completeness (rocket audit; landed 2026-05-26)
+
+**Source:** `agentic_orchestration/rocket/notes/2026-05-26-trait-constellation-audit-gap-5.md`
+
+**Severity: BLOCKING for first season** (rocket recommendation: expand-in-Cycle-13).
+
+**Empirical state (per rocket's post-script count assertions):**
+- Per-class intrinsic trait pool (B9a) **DOES NOT EXIST** in code. No `config/traits/` directory. No per-class pool definitions, loader, or generation integration. Class schema carries no trait pool field. Class generator has zero trait references.
+- Zero floors implemented at L1 / L12 / L25 / L38 / L50 convergence for any of 11 archetypes.
+- Zero traits emitted across **35 v2_narrow forms + 5 v2_narrow_phase_5_resmoke forms + 7 historical seasons × 200 gear items each (1,400 items)**.
+- Gear-affix trait surface is partially defined in `trait_schema.py` + `gear_generation.py` (`_STAT_TRAIT_POOL` = 7 entries across 3 slots; `_ABILITY_MODIFIER_POOL` = 7 entries) but emits zero traits in production output (limited to STAT category on rare/epic/legendary; ABILITY + GRANTED categories explicitly deferred to CP5 per code comments).
+- `bc_target_composer.py` lines 788-791 explicitly defer trait composition to W0.2+.
+- `balance_loop.py` `_trait_fill_cycling_hook()` lines 3445-3465 is an explicit no-op documenting B9a as not shipped.
+
+**rocket-recommended work units (per AGENT_STATE.md lines 2037-2039):**
+- **D8** — intrinsic pool implementation (awaiting gandalf trait vocabulary design dispatch)
+- **D9** — gear-affix element/mechanic gating (depends on D8)
+
+**rocket-recommended sequencing:** D8 + D9 fire BEFORE Wave 1 stat-sheet partition cycle (doc 40 D14) to avoid partition rework risk. Per rocket: "Cycle 13 Wave 2 kit composition work directly depends on knowing the trait surface per class. Without it, the T4 algorithm's chain-level trait interactions cannot be specified."
+
+**Decision authority:** Matt + gandalf at pre-launch design session Block D. Options surfaced:
+- (a) Accept rocket recommendation → expand Cycle 13 scope to include D8 + D9 BEFORE Wave 1 fires; gandalf authors trait vocabulary design dispatch; sequencing becomes Wave 0 → D8/D9 → Wave 1 → ...
+- (b) Defer D8/D9 to Cycle 14 → Wave 1 partition designs in trait-empty state; trait integration retrofits at Cycle 14; risk = partition rework
+- (c) Partial — implement D8 with a minimum viable trait pool (3-5 per class) to unblock Wave 1; full per-class 5-10 + floor implementation deferred
+- (d) Other (Matt + gandalf surface alternative)
+
+**KR posture:** awaiting Matt + gandalf Block D decision; will NOT pre-empt by independently expanding scope. Wave 1 dispatch authoring blocked on this decision.
+
+#### GAP 5 (residual sub-items) — not audited this pass
+
+The pre-launch design session-start doc lists 3 additional Block D items rocket's dispatch did not cover (out of scope per dispatch):
+- GAP 2: Test encounter content for gauntlet sim audit (gates Wave 5)
+- GAP 3: Degenerate-state detection mechanics decision (gates Phase 3 playability gate operationalization)
+- GAP 6: Resource model verification per cell type (gates Wave 2 kit composition)
+
+These can fire as additional Wave 0 audit dispatches if Matt + gandalf judge them needed pre-design-session, OR can be resolved inline during design session itself.
 
 ---
 
