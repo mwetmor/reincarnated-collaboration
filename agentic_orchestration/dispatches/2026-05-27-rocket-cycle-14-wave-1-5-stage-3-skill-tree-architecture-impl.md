@@ -219,3 +219,67 @@ Cycle 14 substrate state at Stage 3 firing time:
 - Wave 2 + Wave 3 + Wave 4 + Wave 5 queued
 
 Pre-Wave-5 checklist post Stage 3 close: 4 of 5 closed (Fix A ✅ / Fix B math-note ✅ / Wave 1.5 ✅ / Discipline #40 ✅); season cardinality landed via doc 48 § 6 (bundled into Stage 2 close).
+
+---
+
+## Completion record
+
+**Completed by:** rocket
+**Date:** 2026-05-27
+**Duration:** Single session
+
+### Status: COMPLETE
+
+### Items completed
+
+- [x] 3 math notes authored (class-chain-architecture + branching + active-t4-runtime)
+- [x] Item 1 — Class-roster registry (`class_roster.py` new module; 10 entries per doc 48 § 1 CANONICAL LOCK)
+- [x] Item 2 — Per-class chain count + T4 count rule + supporting chain (`emit_skills_for_class()` in `per_skill_emitter.py`)
+- [x] Item 3 — Depth-≥4 branching (D69; Assassin Shadow-Strike T2 branch as v1 demonstration)
+- [x] Item 4 — Active T4 runtime marker (`active_t4_chain` + `supporting_chain` + `class_archetype` fields on `PlayerClassV2`)
+- [x] Item 5 — Season cardinality n_kits=40 (`bc_target_subspace_generator.py` L173 amended)
+- [x] `generation/MIGRATION.md` § Wave 1.5 authored per ADR-004
+- [x] `generation/AGENT_STATE.md` updated
+- [x] Cross-seam round-trip smoke: 40-kit test season, all 3 new fields populated, 22 T4 capstones + 10 supporting chains correct
+- [x] 232/232 regression tests PASS
+
+### Aggregate counts (doc 48 § 2.1 canonical lock; all verified)
+
+| Metric | Expected | Actual |
+|---|---|---|
+| Classes | 10 | 10 |
+| 3-chain classes | 8 | 8 |
+| 4-chain classes | 2 (Gunslinger + Crusader) | 2 |
+| T4 capstones | 22 | 22 |
+| Supporting chains | 10 | 10 |
+| n_kits default | 40 | 40 |
+
+### Open questions resolved
+
+- Q-W15-S3-1: default `active_t4_chain` = None (pre-T4 unlock); first t4_chain_ids[0] after unlock — resolved in math note + code
+- Q-W15-S3-2: Assassin Shadow-Strike T2 branch as v1 demonstration — resolved
+- Q-W15-S3-3: stub-level respec interface (Wave 4+ full implementation) — resolved
+- Q-W15-S3-4: class_roster.py new module per seam convention — resolved
+
+### Cross-seam Pattern-A queries
+
+Both Q-W15-S3-1 and Q-W15-S3-2 resolved by rocket from dispatch guidance + doc 48 content without requiring gandalf Pattern-A query. No open Pattern-A queries outstanding.
+
+### Files created/modified
+
+- NEW: `~/Games/reincarnated-engine/src/reincarnated/generation/class_roster.py`
+- NEW: `~/Games/reincarnated-engine/src/reincarnated/generation/math/wave-1-5-class-chain-architecture-math.md`
+- NEW: `~/Games/reincarnated-engine/src/reincarnated/generation/math/wave-1-5-branching-math.md`
+- NEW: `~/Games/reincarnated-engine/src/reincarnated/generation/math/wave-1-5-active-t4-runtime-math.md`
+- AMENDED: `~/Games/reincarnated-engine/src/reincarnated/generation/per_skill_emitter.py` (emit_skills_for_class + helpers)
+- AMENDED: `~/Games/reincarnated-engine/src/reincarnated/generation/bc_target_player_class.py` (3 new fields)
+- AMENDED: `~/Games/reincarnated-engine/src/reincarnated/generation/bc_target_subspace_generator.py` (n_kits=40)
+- AMENDED: `~/Games/reincarnated-engine/src/reincarnated/generation/MIGRATION.md` (§ Wave 1.5)
+- AMENDED: `~/Games/reincarnated-engine/src/reincarnated/generation/AGENT_STATE.md`
+
+### For Wave 2 dispatch authoring
+
+- Fix B implementation (WITHIN_ATTRIBUTE_FAMILY_WEIGHT + two-step sampling): math note ready at `math/within-attribute-family-weight-math.md`
+- Fix B-prime (caster-faith mace dial-back): Crusader class_archetype + Wave 2 sampling fix compose naturally
+- gamora null-safe note: `active_t4_chain = None` is valid pre-T4 state; gamora must handle null gracefully (no crash; T4 capstone not applied)
+- Branching skeleton in place; Wave 4+ investment routing can build on branch node emission structure
