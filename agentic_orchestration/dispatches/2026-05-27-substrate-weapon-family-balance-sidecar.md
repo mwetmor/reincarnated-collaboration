@@ -126,3 +126,63 @@ Math-note is Gate-1 input for Wave 2 implementation.
 - `~/Games/reincarnated-engine/src/reincarnated/generation/substrate_weapon_binding.py` L238-269
 - Engineering disciplines #1 + #11 + #18 + #38 + #40 (candidate)
 - Hive-mind protocol § 4 (decision-routing) + § 2.2.2 (wave-entry-fire-discipline)
+
+---
+
+## Completion record
+
+### Fix A — rocket — COMPLETE (2026-05-27)
+
+**Commit:** `dac5f9e` (engine `main`)
+
+**What landed:**
+
+`substrate_weapon_binding.py:_query_substrate_weapon` amended with weapon_kind hygiene filter:
+- `AND wke.weapon_kind IN ('category', 'named_template', 'unique')` added to WHERE clause
+- Eliminates 185 contamination rows: ammo_or_consumable(148) + shield(17) + talisman(11) + banner(7) + unknown(1) + horn(1)
+- Post-filter eligible pool: **2,108 rows exact** (empirically verified — category:1139 + named_template:927 + unique:42)
+
+Module-load assertion `_assert_eligible_row_count()` added:
+- Fires at import time via module-level call
+- Expects 2,108 ±50; warns+skips if DB absent; raises AssertionError if count outside tolerance
+- `_EXPECTED_ELIGIBLE_ROW_COUNT = 2108`, `_ELIGIBLE_ROW_COUNT_TOLERANCE = 50`
+
+**Smoke results:**
+- Module-load assertion: PASS (2108 rows; exact match)
+- Filtered pool contamination: PASS (0 contamination-kind rows)
+- Live selection (4 attrs × 6 seeds = 24 weapons): 0 contamination-kind weapons selected
+- "Horn Bow" false-positive confirmed benign (weapon_kind=category, not the horn kind)
+- Regression: test_cycle14_wave1_concentration.py 29/29 PASS
+
+**MIGRATION.md:** § Wave 1 Closure Follow-on — Fix A entry filed per ADR-004.
+
+**Q-SIDE-1 resolution:** No divergence from gandalf design-call ratified-inline values (70/30 STR + 60/40 DEX). Math note authored exactly as specified; no Pattern-A to gandalf required.
+
+**Gate-2 routing:** Fix A folds into Wave 1 closure Gate-2 (jack-ryan) per dispatch acceptance criteria.
+
+---
+
+### Fix B — rocket — Math Note COMPLETE; Implementation DEFERRED to Wave 2 (2026-05-27)
+
+**Commit:** `dac5f9e` (same commit as Fix A; both in rocket seam)
+
+**Math note path:**
+`~/Games/reincarnated-engine/src/reincarnated/generation/math/within-attribute-family-weight-math.md`
+
+**Content authored:**
+- 70/30 STR martial-heavy/ranged derivation: reduces all-heavy-melee-cohort probability 65.6% → 24.0%; yields E[ranged]=1.2 per 4-STR cohort (from 0.4); binomial σ=0.92 for heavy-melee count in 4-STR cohort; comparison table across 90/10/80/20/70/30/60/40/50/50 options with rationale for 70/30 selection
+- 60/40 DEX ranged/martial-light derivation: mild rebalance from substrate raw 67.2/32.8; doc 47 "light melee + ranged" co-equal framing alignment; E[martial-light]=1.6 per 4-DEX cohort
+- Variance implications on N-character cohort: 4-STR cohort binomial distribution fully worked; 95% CI [1,4] practical range; 20-trial acceptance criteria for Wave 2 smoke
+- WITHIN_ATTRIBUTE_FAMILY_WEIGHT table specification per consolidated doc § 2.3 (exact Python constant spec at § 5.1)
+- Two-step sampling implementation spec with fallback logic at § 5.2 (cites `substrate_weapon_binding.py` post-Fix-A line references per Discipline #1.2)
+- Composition with doc 47 § 3 per-attribute weapon profile + SC-6b enriched substrate at § 6
+- Wave 2 MIGRATION.md required notes at § 7
+
+**Wave 2 implementation queue note:**
+Fix B implementation is Wave 2 scope (alongside Layer 8 set keying). Dispatch to be authored by KR. Gate-1 DESIGN-MODE (jack-ryan) required before implementation fires — math note is the input document. No code change in this session per dispatch out-of-scope clause.
+
+---
+
+### Fix C — elrond seam — NOT rocket scope (firing in parallel)
+
+Fix C (caster weapon_kind variety audit) is elrond's seam. Rocket makes no record here; elrond appends their own completion record when audit completes.
