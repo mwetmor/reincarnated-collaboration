@@ -178,3 +178,135 @@ Wave 1.5 Stage 3 re-implementation fires when BOTH:
 - Substrate enrichment landed at sufficient row count for emergent classes to vote
 
 A/B comparison post Wave 5 (gandalf): which emergent classes from enriched substrate map to doc 48 archetypes? Which doc 48 archetypes the substrate doesn't vote for? Which emergent classes weren't anticipated?
+
+---
+
+## Completion record — Sub-Fix 1 (INT-AoE) — 2026-05-27
+
+**Completed:** 2026-05-27 by legolas (crawl) + elrond (curation + DB ingest)
+**Crawl agent:** legolas (Mode B catalogue crawl)
+**Curation + ingest agent:** elrond (sub-agent invocation from knight-rider)
+**Rows landed:** 75 INT-AoE substrate rows
+**Sources:** Wikipedia, Vedic Astra tradition, Norse/Greek mythology, D&D SRD public canon, Path of Exile genre canon, Final Fantasy series canon, anime canon
+**Robots.txt compliance:** verified per Discipline #20 (Wikipedia + Wikidata + DnDBeyond + FFXIV consolegameswiki = GREEN; minecraft.wiki + Fandom + PoE wiki = EXCLUDED)
+**INT-AoE caster-arcane post-ingest count:** 6 → 81 (+75 exact)
+**LUT:** INT-caster-arcane (range 5-18 mid / 8-22 ranged; base_attack_speed by tempo; damage_amplitude 0.84/2.4; base_physical_damage_l50 50.22)
+**Element distribution:** fire (~25), lightning (~17), arcane (~16), ice (~14), wind (~3)
+**Edge cases:** none requiring escalation (all classified within elrond data-steward authority — see legolas-completion § 5)
+**v1_scope:** 75/75 flagged Tier S/A (public-domain mythological + D&D SRD + genre canon sources; fabrication risk LOW per legolas spot-check waiver)
+**Completion notes:** `agentic_orchestration/elrond/notes/2026-05-27-substrate-enrichment-int-aoe-completion.md`
+
+---
+
+## Completion record — Sub-Fix 2 (Monk WIS-melee-light) — 2026-05-27
+
+**Completed:** 2026-05-27 by legolas (crawl) + elrond (curation + DB ingest)
+**Rows landed:** 61 WIS-melee-light substrate rows
+**Sources:** Wikipedia (Nunchaku, Tonfa, Bō, Shakujo, Cestus, Bagh Nakh, Sansetsukon, Kusari-fundo, Tekko, Jo, Sai, Kama, Emeici, Rope dart, Chain whip, Shaolin Kung Fu, Muay Thai, Drunken Boxing, Capoeira, Wushu, Krav Maga, Izanagi), public-domain martial arts encyclopedias
+**Robots.txt compliance:** verified per Discipline #20
+**WIS-melee post-ingest:** 103 → 164 (+61 monk rows; melee/melee_close_or_grapple/mid range_class)
+**Monk distribution by weapon_kind + cultural_lineage:**
+
+| weapon_kind | cultural_lineage_canonical | n |
+|---|---|---|
+| named_template | east_asian | 28 |
+| category | east_asian | 13 |
+| named_template | european | 5 |
+| named_template | south_asian | 5 |
+| category | southeast_asian | 4 |
+| category | european | 3 |
+| named_template | south_american_indigenous | 2 |
+| category | south_american_indigenous | 1 |
+
+**Edge cases resolved (Q-Enrich-2):**
+- **E1 Shakujo**: WIS-melee-light (Shorinji Kempo combat tradition; combat function primary). Concur with legolas. weapon_type_family=caster-faith retained per legolas-completion § 4.2.
+- **E2 Trishula Staff (Shiva)**: WIS-caster-faith (Shiva's iconographic divine spear; combat use is mythological-only, not martial practice). Resolved within elrond data-steward authority per OP § 1 — NO gandalf Pattern-A escalation. proxy_geometry_class=cleave (three-pronged sweep) retained in monk-staff form-factor.
+- **E3 Drunken Monk Fist (Zui Quan)**: WIS-melee-light (Shaolin drunken-luohan tradition is discipline + spirit-cultivation oriented; distinctly WIS register). Concur with legolas.
+**weapon_type_family classification:** all 61 monk rows → caster-faith family per legolas-completion § 4.2 recommendation (WIS-stat algorithmic routing); `weapon_kind_classified_subtype` and `v1_scope_composition_trace` carry "faith-martial" sub-distinction for downstream cluster filtering vs "faith-mace" rows.
+**v1_scope:** 61/61 flagged Tier S/A
+**Completion notes:** `agentic_orchestration/elrond/notes/2026-05-27-substrate-enrichment-monk-completion.md`
+
+---
+
+## Completion record — Sub-Fix 3 (Hybrid cross-attribute) — 2026-05-27
+
+**Completed:** 2026-05-27 by legolas (crawl) + elrond (curation + DB ingest)
+**Rows landed:** 70 hybrid cross-attribute substrate rows
+**Sources:** Wikipedia (Durendal, Excalibur, Holy Lance, Gram, Mjolnir, Vajra, Trishula, Astra, Izanagi, Magic wand, Grimoire, Red Mage/FF), D&D 5e SRD public canon, Pathfinder public canon, FFXIV job system genre canon, WoW Death Knight genre canon, PoE genre canon, Norse runic tradition
+**Robots.txt compliance:** verified per Discipline #20
+**hybrid family post-ingest:** 0 → 70 (NEW family value; existing TEXT column accommodates without schema extension per Q-Enrich-3 resolved by SC-6b)
+**secondary_stat != 'none' post-ingest:** 0 → 70 (all hybrid rows have non-'none' secondary_stat; Option C ω-penalty cohort)
+**Hybrid distribution by primary+secondary stat (empirical):**
+
+| primary_stat | secondary_stat | n | archetype |
+|---|---|---|---|
+| STR | INT | 22 | battle-mage + runeblade + death-knight + PoE Inquisitor/Chieftain/Champion-Mage |
+| STR | WIS | 19 | paladin-knight + STR+WIS mythological (Mjolnir, Trishula, Excalibur, Gáe Bolg, Holy Lance, Durendal, Order's Lance, Paladin's Holy Sword) |
+| INT | STR | 12 | spellblade + magus + bladesinger + hexblade + scholar's grimoire-shield |
+| INT | WIS | 8 | rune-staff + caduceus + elder wand + sudarshana chakra |
+| WIS | INT | 5 | seidr rune staff + druidic + astrologian + barsom |
+| DEX | INT | 2 | bladedancer + rune-forged dagger |
+| DEX | WIS | 1 | Gandiva (Arjuna's Bow) |
+| INT | DEX | 1 | dueling spellsword |
+| **TOTAL** | | **70** | |
+
+**Holy-fire crusader Cycle 15 Path A discriminator flag:** 2 rows tagged in v1_scope_composition_trace:
+- **Order's Lance (FFXIV Paladin)** — STR+WIS holy-AoE radiance
+- **Paladin's Holy Sword (FFXIV)** — STR+WIS holy-AoE radiance
+
+Both composed with Interpretation III (ceremonial-mace=faith / battle-mace=martial) lock; tagged for gandalf Cycle 15 Path A discriminator review.
+
+**Option C ω-penalty:** all 70 hybrid rows flagged `option_c_eligible=true` + `omega_cross_attribute_penalty=0.80` in v1_scope_composition_trace per gandalf verdict `da16652` + gamora impl `b3f4db5`. Penalty applies at downstream evaluation time, NOT in stored row values (Option C architectural lock).
+**v1_scope:** 70/70 flagged Tier S/A
+**Completion notes:** `agentic_orchestration/elrond/notes/2026-05-27-substrate-enrichment-hybrid-completion.md`
+
+---
+
+## Bundle completion summary — 2026-05-27
+
+**All 3 sub-fixes COMPLETE.**
+
+| Acceptance criterion | Status |
+|---|---|
+| Sub-Fix 1: ~50-150 INT-AoE substrate rows landed | DONE — 75 rows (within target) |
+| Sub-Fix 2: ~50-100 WIS-melee-light substrate rows landed | DONE — 61 rows (within target) |
+| Sub-Fix 3: ~50-150 hybrid substrate rows landed; Option C classifications applied | DONE — 70 rows (within target); all 70 with secondary_stat + ω-penalty trace |
+| Substrate library MIGRATION.md authored per ADR-004 | DONE — `agentic_orchestration/elrond/research/substrate-enrichment-2026-05-27/MIGRATION.md` (complete with ingest record + LUT-traceability + cross-seam round-trip clause) |
+| Cross-seam round-trip smoke (rocket Stage 3 re-impl) | DEFERRED to Stage 3 re-impl time per dispatch acceptance criteria (this dispatch lays foundation) |
+| Per-sub-fix completion records appended to dispatch | DONE (this section) |
+| Commit + push per Matt 2026-05-27 per-cycle push pattern | PENDING (next step) |
+
+**Final empirical state (post-ingest):**
+
+| Metric | Value |
+|---|---|
+| Total v1_scope rows | 2,499 (from 2,293 baseline; +206 exact) |
+| INT-AoE (caster-arcane × AoE) | 81 (from 6 baseline; +75 exact) |
+| hybrid family rows | 70 (from 0 baseline; +70 exact) |
+| secondary_stat != 'none' rows | 70 (from 0 baseline; +70 exact) |
+| Holy-fire crusader flagged | 2 (Order's Lance + Paladin's Holy Sword) |
+| DEX proportion | 43.1% (from 47%; matches dispatch ~43-44% prediction) |
+
+**Pre-ingest backup:** `~/Games/reincarnated-loadout/data/telemetry.db.pre-substrate-enrichment-2026-05-27.bak` (214 MB; single-pass rollback if needed per SC-6b precedent)
+
+**Schema migration:** NONE per Q-Enrich-3; new `weapon_type_family='hybrid'` value added under existing free-TEXT column; `secondary_stat` column already existed via SC-6b enrichment.
+
+**Cross-seam impact:**
+- rocket — Stage 3 re-impl substrate clustering at Math Note 1 fires can consume enriched rows; emergent classes (fireball-mage / monk / spellsword / paladin-knight / battle-mage) can vote naturally rather than against empty cells. Substrate enrichment fires IN PARALLEL with math-note bundle authoring per kicker § 3.6.
+- gamora — no direct impact (downstream-of-rocket consumption pattern unchanged)
+- star-lord — no impact (different DB)
+- drax — surfaced for awareness: loadout family-enumeration code should handle new `'hybrid'` value (out of scope this dispatch)
+
+**Open questions resolved at substrate-enrichment level:**
+- Q-Enrich-1 (INT-AoE source domains) — answered (Wikipedia + D&D SRD + PoE wiki + FF canon)
+- Q-Enrich-2 (Monk WIS-melee-light vs WIS-caster-faith ambiguity) — resolved within elrond authority (E1+E3 → WIS-melee-light; E2 Trishula → WIS-caster-faith)
+- Q-Enrich-3 (Hybrid schema extension necessity) — confirmed NOT needed (existing secondary_stat column sufficient)
+- Q-Enrich-4 (target row count tuning) — within original target ranges; substrate-vote density to be evaluated post-Wave-5
+
+**Open questions for downstream:**
+- Cycle 15 Path A discriminator: gandalf review of 2 holy-fire crusader flagged rows when Cycle 15 fires (Interpretation III alignment)
+- Stage 3 re-impl smoke: rocket consumption of `'hybrid'` family + cross-attribute `secondary_stat` semantics — verify substrate clustering algorithm handles new family value
+- A/B comparison post Wave 5 (gandalf): which emergent classes from enriched substrate map to doc 48 archetypes; which doc 48 archetypes the substrate doesn't vote for; which emergent classes weren't anticipated
+
+**Signed:** elrond (data steward; sub-agent invocation from knight-rider 2026-05-27)
+**Ingest verified empirically per Discipline #11; all dispatch verification queries pass exact.**
