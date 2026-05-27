@@ -207,3 +207,71 @@ Per Discipline #1 math-before-code, before W2.1 schema-implementation:
 **Wave:** 2 implementation (W2.0-W2.9 bundled)
 **Gates:** Wave 2 close = jack-ryan Gate-2 PASS on this implementation + WARN-pattern full-closure verification; unblocks Wave 3 T4 algorithm Phase 3 (character-wide vs chain-wide dimension)
 **Priority:** P1 — critical-path Wave 2 close
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-27
+**Commit:** `2445bad`
+**Tag intent:** `rocket: Cycle 13 Wave 2 T4 algorithm implementation — W2.0-W2.9 bundled per doc 43 + jack-ryan Gate-1 W2+I1+I3 folded`
+
+### Per-sub-wave status
+
+| Sub-wave | Status | Notes |
+|---|---|---|
+| W2.0 | COMPLETE | Substrate prep: reviewed t4_wireup.py, mechanic_alteration.py, skill_tree.py, partition_schema.py; identified integration points |
+| W2.1 | COMPLETE | 3-category taxonomy schema: T4Category enum (A/B/C), ALL_T4_STRATEGIES (7), strategy-to-category mapping, category frozensets; math note § 1 |
+| W2.2 | COMPLETE | DUAL_ELEMENT_ADDITION strategy: DualElementMagnitudeTier (LOW/MEDIUM/HIGH; 15-25/25-40/40-55%); select_magnitude_tier(); select_secondary_element(); secondary_elements compatibility check per class_schema.py:46-47 |
+| W2.3 | COMPLETE | Parallel-chain reach: ParallelChainTarget (OWN_CHAIN/PARALLEL); algorithm-fixed at generation; all Category B/C support parallel-chain; tie-break own-chain default within ±5 points |
+| W2.4 | COMPLETE | Compositional synergy scan: PASS_1_CATALOG (5 entries), PASS_2_CATALOG (8 entries), 5-category synergy taxonomy (Scaling-interaction per SC-4 expansion). Elrond I2 stub-priors Pattern B (load-from-file). NOT LLM raw-reasoning. Dual-consumer (T4 gen + Wave 4 legendary added-skill). Pattern 9/10 in Pass 2. |
+| W2.5 | COMPLETE | Option F: OptionFRetryState (3-attempt: BC-alt → A-alt → parallel-flip), OptionFResult (in_band/partial_ship), T4QualityMetric (Phase 4), check_minimum_threshold(), run_option_f() |
+| W2.6 | COMPLETE | Pattern 9 + Pattern 10 design-intent stubs: WARN-flag (not BLOCK) per W2 amendment. 2 detection patterns. Catalog inclusion = gamora SC-7 post-Wave-3-baseline. Passing W2.6 DOES NOT constitute v1 catalog membership. |
+| W2.7 | COMPLETE | One-T4-active gating (T4ActiveGateResult; D66) + variable 3-or-4 chain architecture (T4ClassChainConfig; t4_count = chain_count - 1 per D83). generate_t4_candidates_for_class() orchestrates all sub-waves. |
+| W2.8 | COMPLETE | Cross-cohesion validation (validate_cross_cohesion_w28()): 4 cohorts × 6 sub-gates per Discipline #26 + Block C. All 4 cohorts pass gate_1 (no lockout). |
+| W2.9 | COMPLETE | Round-trip smoke: 68/68 PASS; all 10 rarity tiers including legendary_t0_5; synthetic Option F failure verified; quality metric telemetry verified; JSON round-trip verified. MIGRATION.md updated. |
+
+### Discipline #11 post-script empirical count assertions (100% accurate — WARN-pattern full closure)
+
+All counts drawn from `len()` at Python execution time. Verification mechanism cited per row.
+
+| Dimension | Asserted | Verified value | Verification |
+|---|---|---|---|
+| Strategies | 7 | 7 | `len(ALL_T4_STRATEGIES)` |
+| Categories | 3 | 3 | `len(list(T4Category))` |
+| Synergy taxonomy categories | 5 | 5 | `len(SYNERGY_CATEGORIES)` |
+| Pass-1 catalog entries | 5 | 5 | `len(PASS_1_CATALOG)` |
+| Pass-2 catalog entries | 8 | 8 | `len(PASS_2_CATALOG)` |
+| Degenerate detection patterns (P9+P10 stubs) | 2 | 2 | `len(DEGENERATE_DETECTION_PATTERNS)` |
+| Option F phases | 4 | 4 | `len(OPTION_F_PHASES)` |
+| Rarity tiers (incl. legendary_t0_5) | 10 | 10 | `len(list(PartitionRarity))` |
+| Sub-waves W2.0-W2.9 | 10 | 10 | by enumeration |
+
+**Discipline #11 WARN-pattern status: FULL CLOSURE (0 failures). Wave 2 Gate-2 = 0 empirical assertion failures.**
+
+### Gate-1 amendments honored
+
+- **W2 amendment (WARN):** W2.6 explicitly states Pattern 9+10 are design-intent stubs at starting-estimate thresholds; WARN-flag not BLOCK; v1 vs v1.1 catalog inclusion is gamora SC-7 decision post-Wave-3-baseline; passing W2.6 DOES NOT constitute v1 catalog membership. Implemented in `t4_synergy_scan.py` + `t4_option_f.py` + test coverage on both WARN and no-WARN synthetic cases.
+- **I1 (INFO):** 13-entry starter pattern library (5 Pass-1 + 8 Pass-2) fully integrated per gandalf-curated catalogs. `PASS_1_CATALOG` has exactly 5 entries; `PASS_2_CATALOG` has exactly 8 entries; len() asserts in tests.
+- **I2 (INFO) elrond priors:** Pattern B (load-from-file stub) implemented. `_load_elrond_priors()` in `t4_synergy_scan.py` loads `config/t4_synergy_priors/elrond_priors.json` when present; stub defaults (15.0 prior weight) when absent. No code change needed when elrond_priors.json lands. Integration handoff flagged in module docstring + MIGRATION.md.
+- **I3 (INFO):** LLM T4 naming explicitly deferred. Wave 2 produces T4 STRUCTURE only (Category A/B/C + DUAL_ELEMENT_ADDITION + parallel-chain reach + synergy scan output). T4 NAMING = Phase 5 cohesion coalescence / Cycle 14+ scope. No LLM naming code in Wave 2.
+
+### legendary_t0_5 round-trip smoke result
+
+`test_legendary_t0_5_rarity_coverage` PASS. `test_t4_generation_round_trip_per_rarity[legendary_t0_5]` PASS. Wave 1 Gate-2 I1 carryover: CLOSED.
+
+### I2 elrond priors integration pattern
+
+Pattern B (load-from-file stub). File path: `config/t4_synergy_priors/elrond_priors.json`. When elrond_priors.json lands: auto-loaded by `_load_elrond_priors()` on first scan_synergy() call. No code change required. JSON schema expected: `{"mechanic_tag_a:mechanic_tag_b": prior_weight_float}`.
+
+### MIGRATION.md status
+
+MIGRATION.md updated: new Wave 2 section added documenting all 4 new files + elrond integration handoff + Wave 3 consumer note + Wave 4 dual-consumer note + Discipline #11 empirical count table + key math cross-references per Discipline #1.2. NON-BREAKING: Wave 2 output composes alongside existing AlterationOutput/T4Alteration. ADR-004 compliant.
+
+### Cross-seam flags
+
+- **Gamora (SC-7):** Pattern 9 + Pattern 10 detection stubs active (WARN-flag). Calibration dispatch fires post-Wave-3-baseline per Discipline #18.2. Quality metric telemetry emitted (T4_regeneration_rate per class/cohort) for SC-7 input.
+- **Elrond:** Integration handoff documented in MIGRATION.md + module docstring. Drop `config/t4_synergy_priors/elrond_priors.json` to activate statistical co-occurrence priors.
+- **Wave 3 (T4 Phase 3 character-wide vs chain-wide):** `T4CandidateV2` carries all fields Wave 3 needs (category_a_strategy, category_bc_strategy, t4_category_bc, net_synergy_score, magnitude_tier, parallel_chain_mode). Ready to consume.
+
+**Signed:** rocket
