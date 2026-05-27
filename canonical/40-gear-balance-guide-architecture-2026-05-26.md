@@ -134,7 +134,15 @@ Validation happens AT GENERATION TIME via simulation. Post-deployment "rebalanci
 
 ### 3.2 Strategy registry pattern
 
-T4 algorithm (Algorithm § 8) uses scored-candidate strategy registry with 6 v1 strategies: RESOURCE_CONVERSION, TRADE_OFF, ELEMENT_CONVERSION, DEFENSIVE_CONVERSION, GEOMETRY_COLLAPSE, DEFENSIVE_TRADEOFF.
+> **AMENDED 2026-05-27 per Matt + gandalf Pattern-B session 2026-05-27 (closeout § 2.4):** the 3-category T4 taxonomy (A class-mechanical/energy alteration + B chain multiplicative event + C chain element conversion/addition) SUPERSEDES the 6-strategy registry as the player-facing taxonomy + design-spec. The existing 6 strategies are RETAINED as algorithm implementation detail under the 3-category umbrella. See § 8.4 for full taxonomy + § 8 new sub-section for DUAL_ELEMENT_ADDITION strategy.
+
+T4 algorithm (Algorithm § 8) uses scored-candidate strategy registry. The **design-spec taxonomy** (player-facing, design-intent) is the **3-category structure** locked at § 8.4 (post-amendment):
+
+| Category | Role | Implementation strategies (under umbrella) |
+|---|---|---|
+| **A — Class mechanical/energy alteration** | Character-wide effect (always present) | RESOURCE_CONVERSION, DEFENSIVE_CONVERSION, DEFENSIVE_TRADEOFF, class-wide TRADE_OFF |
+| **B — Chain multiplicative event** | Chain-specific (exactly one of B or C per T4) | Skill-specific TRADE_OFF, GEOMETRY_COLLAPSE, multiplier strategies |
+| **C — Chain element conversion / addition** | Chain-specific (exactly one of B or C per T4) | ELEMENT_CONVERSION, **NEW: DUAL_ELEMENT_ADDITION** (per § 8 new sub-section) |
 
 Gear generation gets an analogous registry. The specific gear strategies are implementation territory (deferred to stat-sheet partition cycle per § 3.6 D14), but the pattern locks: **scored-candidate strategy registry; kit+T4 produces spec; strategies produce candidates; sim validates; selected candidate ships.**
 
@@ -188,23 +196,69 @@ Three distinct sub-categories AT the legendary rarity tier (not escalating rarit
 
 **T4-attunement restriction:** Tier 0 and tier 0.5 legendaries are NOT T4-attuned — they follow standard chain-alignment only. Tier 1 and tier 2 legendaries carry T4-attunement (composes with § 6 T4-attuned gear intent).
 
-### 3.6 Stat-sheet modifier partition (principle locked; specifics deferred)
+### 3.6 Stat-sheet modifier partition (principle locked; 9-category × 11-slot architectural surface AMENDED 2026-05-27; affinity matrix + 6 principles LOCKED)
 
-> **Character stat sheet has a defined, enumerated modifier surface. Gear slots are partitioned such that each slot rolls a constrained spread of modifier types. The partition is designed to (a) produce build diversity through stat composition across loadouts, and (b) make skill-node-count and chain-distribution decisions matter as differentiated mathematical impact.**
+> **AMENDED 2026-05-27 per Matt + gandalf Pattern-B session 2026-05-27 (closeout § 3.1 + § 3.2 + § 3.3):** the 9-category character sheet surface (Damage / Defense / Resource / Crit / Speed / Resistance-Penetration / On-trigger / Build-identity / Utility-Meta-progression) + 11-slot taxonomy (1 main-hand + 1 off-hand + 5 armor + 4 accessory) + per-slot affinity matrix (graduated affinity, not binary) + 6 principles are LOCKED architectural surface. Specific modifier enumerations + weighted probabilities per slot per category land in Wave 1 partition cycle (NEW canonical doc 42 — `canonical/42-stat-sheet-modifier-partition-intent-2026-05-27.md`).
 
-Specific partition design is **stat-sheet partition cycle work — early Cycle 13 milestone**, landing BEFORE gauntlet battle sim (so sim validates against real stat surface, not placeholder). Multi-seam: gandalf intent + gamora simulation methodology + rocket implementation + jack-ryan critique + legolas Mode A research. Discipline #18 methodology consultation fires before partition lock.
+> **Character stat sheet has a defined, enumerated 9-category modifier surface. The 11-slot taxonomy is partitioned via a per-slot affinity matrix such that each slot rolls modifiers with graduated affinity (primary ~50% / secondary ~30% / tertiary ~15% / off-affinity ~5%) per slot per category. The partition is designed to (a) produce build diversity through stat composition across loadouts, and (b) make skill-node-count and chain-distribution decisions matter as differentiated mathematical impact.**
+
+**9-CATEGORY CHAR SHEET SURFACE (LOCKED 2026-05-27 — per ultra-think pass against Diablo 1-4 + Immortal + PoE 1-2 + LE + Grim Dawn + Lost Ark; revised from 8 to 9 categories adding Utility/Meta-progression):**
+
+| # | Category | Sub-divisions |
+|---|---|---|
+| 1 | **Damage** | base / by-element / by-mechanic / by-condition / weapon-scaling |
+| 2 | **Defense** | armor / DR% / dodge / block / +HP / +HP-regen / element-resists / status-resists |
+| 3 | **Resource** (8-model-dependent per § 6 + closeout § 2.2) | per-model specific stats (mana max/regen/cost-reduction; cooldown reduction; stamina max/regen; rage gen/decay/cap; energy gen/max; channel efficiency/duration; combo retention/cap; HP-cost efficiency) |
+| 4 | **Crit** | crit chance / crit multiplier / crit-on-condition / crit-on-element |
+| 5 | **Speed** | attack-speed / cast-speed / cooldown-reduction / movement-speed |
+| 6 | **Resistance / Penetration** | element penetration / armor penetration / status duration / status resistance |
+| 7 | **On-trigger** | on-hit / on-crit / on-kill / on-block / on-dodge / on-element-cast (toolkit-only at legendary tier per D54) |
+| 8 | **Build-identity** | T4-attunement annotation / set-bonus rank / class-intrinsic supporting-chain investment |
+| 9 | **Utility / Meta-progression** (NEW) | magic find / currency drop rate / experience boost / rare-find chance |
+
+**11-SLOT TAXONOMY (LOCKED 2026-05-27):**
+
+| Slot family | Slots | T4-attunement eligible (Tier 1+2) |
+|---|---|---|
+| Weapon | Main-hand (main_weapon) | Yes |
+| Off-hand | Secondary-item (shield / tome / banner / focus / horn / talisman / dual-wield-secondary per `canonical/story/off-hand-items-2026-05-24.md`) | Yes |
+| Armor | Head / chest / hands / feet / legs (5 slots) | Yes |
+| Accessory | Amulet / ring × 2 / belt (4 slots) | Yes |
+| **Total** | **11 slots** | All eligible at upper tiers |
+
+**PER-SLOT AFFINITY MATRIX (architectural lock 2026-05-27; specific weights operationalized in doc 42):**
+
+Affinity matrix: 9 categories × 11 slots, with **primary (~50%) / secondary (~30%) / tertiary (~15%) / off-affinity (~5%)** weighted probability per slot per category.
+
+Sample affinity entries (full matrix in doc 42 § 2):
+- Main-hand weapon: Damage primary / On-trigger primary / Crit secondary / Speed secondary / Resource tertiary
+- Chest: Defense primary / Resource primary / On-trigger (on-being-hit per D55) secondary / Build-identity secondary
+- Feet: Speed (movement) primary / Defense (dodge) primary / Resource (stamina/energy regen) secondary
+
+**6 LOCKED PRINCIPLES (LOCKED 2026-05-27):**
+
+1. **Graduated affinity, not binary** — every slot CAN roll any category but with weighted probability per affinity tier (primary/secondary/tertiary/off-affinity)
+2. **Tier-restricted modifiers** — ~10-20% of modifier types are tier-restricted (Epic+ / Legendary+ / Tier-1+2) regardless of slot affinity
+3. **Resource-model-gated** — resource modifiers map by class resource model (per 8-model catalog § 6 + closeout § 2.2); cross-resource rolls DO NOT APPEAR
+4. **Gap-filling discipline (D80)** — spirit guide surfaces gap-fill opportunities; stat-sheet partition + acquisition curve calibration incorporate gap-filling discipline
+5. **No-skill-modifier rule** — gear NEVER modifies existing chain-node skills (no +levels-to-Fireball); capability toolkit ADDS new triggered-passives + rare true-actives only per D54/D55
+6. **Cross-cohesion validation** — Wave 1 partition cycle MUST validate affinity matrix supports build-diversity via spot-check simulation across cohort archetypes (per D61 + D84 + Discipline #26)
+
+Specific partition design is **stat-sheet partition cycle work — early Cycle 13 milestone (Wave 1)**, landing BEFORE gauntlet battle sim (so sim validates against real stat surface, not placeholder). Multi-seam: gandalf intent + gamora simulation methodology + rocket implementation + jack-ryan critique + legolas Mode A research. Discipline #18 methodology consultation fires before partition lock (per #18.2 refinement: at extension hotspots fires AFTER baseline empirical data lands; SC-7 gamora consultation fires post-Wave-1).
 
 **Partition cycle scope explicitly includes (per Matt 2026-05-26 amendment):**
 
-1. **Modifier surface enumeration** (which stat types exist on the character stat sheet)
-2. **Per-slot partition design** (which slots roll which modifier types)
-3. **Probability distribution per slot per modifier** (gap-filling discipline per D80)
+1. **Modifier surface enumeration** (which stat types exist on the character stat sheet — per 9-category surface above)
+2. **Per-slot partition design** (which slots roll which modifier types — per affinity matrix above)
+3. **Probability distribution per slot per modifier** (gap-filling discipline per D80; weighted probability per affinity tier per principle 1)
 4. **Node-count + chain-distribution interaction math** (D13 differentiation requirement)
 5. **Weapon damage spec completeness check** for main + off-hand/secondary weapons (BC-axis coverage per `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` 8-axis spec; off-hand items per `canonical/story/off-hand-items-2026-05-24.md` 6+ categories — shield/tome/banner/focus/horn/talisman/dual-wield; ensure damage geometry/timing/amplitude/etc. fully specified for all weapon types eligible for either slot)
 6. **Non-weapon gear baseline stats** for common variants without added stats (the "plain chest piece with X HP and Y defense" baseline — foundational stat sheet work for armor + jewelry + accessory slots; baseline for legendary additive stats per D56 modifier-surface expansion to layer on top of)
 7. **Main_weapon vs secondary_weapon routing cleanup** (substrate curation pollution per prior Cycle 12 capture: 13 of 35 forms had off-hand-category items as main_weapon; three compound root causes — substrate curation pollution + Layer 2 substrate-binding not filtering by category + secondary_item routing not firing; partition cycle includes this cleanup work as substrate-side input to clean partition design)
 
 **Gap-filling acquisition discipline:** stat-sheet partition + acquisition curve calibration should incorporate gap-filling discipline — gear acquisition over time should fill gaps in the player's accumulated stat sheet, not just produce items that duplicate already-strong stats. Spirit guide can surface gap-filling opportunities.
+
+**Cross-reference:** full per-rarity × per-slot grid + tier-restricted modifier surface enumeration + sample modifier enumerations per category + Wave 1 implementation guidance for rocket land in `canonical/42-stat-sheet-modifier-partition-intent-2026-05-27.md` (Wave 1 partition design intent canonical).
 
 ### 3.7 Decision points
 
@@ -413,15 +467,28 @@ Architectural specifics depend on downstream work:
 
 Multi-T4 + attunement + sets + stat-sheet partition + acquisition mechanics is a lot of decisions for casual audiences. Spirit guide (§ 5) is primary mitigation — surfaces relevant decisions contextually; lets casual players engage with depth at their pace. Progressive concept introduction via play encounter.
 
+### 6.6.1 Class-intrinsic supporting chain absorbs trait architecture (LOCKED 2026-05-27 — closeout § 2.1, Option C)
+
+**May 12 trait architecture (per `project_trait_architecture.md` memory) is SUPERSEDED by current chain + stat-sheet + legendary-passives architecture.** ~90% of trait architecture absorbs automatically; the remaining "per-class intrinsic baseline passive" surface lands in:
+
+**Option C — Supporting chain absorbs class identity.** The T3-only supporting chain (every class has one per D83) serves as the "class-intrinsic passives" location. Supporting chain represents class identity; T4 chains represent build specialization.
+
+- **No separate "trait modifier" axis** on character sheet (the 9-category surface § 3.6 does not include a trait column)
+- **Player chooses investment level** in class-identity (supporting chain) vs build-specialization (T4 chains) — real opportunity cost
+- **Composes with depth-vs-breadth lever** (variable 3-or-4 chains; supporting chain present in both architectures per § 8.3)
+- **Substrate-led**: uses existing architectural surface rather than adding new layer
+- **Minimum viable trait integration** (per Verdict D.1; deferred Matt async — see doc 42 § 8 for Wave 1 implementation guidance): 55-entry trait pool (5 per archetype × 11 archetypes) lands in Wave 1 as bounded scope; per-class 5-10 + L12/L25/L38 floors DEFERRED to Cycle 14+
+
 ### 6.7 Decision points
 
-- **D33** — Legendary/set (tier 1+2) carry T4-attunement; lesser rarities/tiers do not
-- **D34** — Acquired-but-non-matching attunement creates persuasion-to-experiment opportunity; spirit guide surfaces via data-oracle voice
-- **D35** — Sets are set-level T4 attuned; multi-piece commitment for full bonuses
+- **D33** — Legendary/set (tier 1+2) carry T4-attunement; lesser rarities/tiers do not. **AMENDED 2026-05-27 (closeout § 3.4):** content-compositional attunement supersedes binary/graduated framing. Per D33 + D51: Tier 1+2 legendary/unique have chain+T4 ANNOTATION (metadata); all sets have chain+T4 annotation (endgame-only); Tier 0+0.5 have chain-alignment annotation only. The annotation IS metadata recording generation-time alignment intent; it does NOT toggle anything ON/OFF at consumption time. Gear's CONTENT (passives, weapon specs) IS the attunement; magnitude IS content quality.
+- **D34** — Acquired-but-non-matching attunement creates persuasion-to-experiment opportunity; spirit guide surfaces via data-oracle voice; spirit-guide synergy-score projection ("playing T4-A: projected KPM 75. Switching to T4-B: projected KPM 62. Net synergy score: T4-A composes 23% better with this gear") per closeout § 3.4
+- **D35** — Sets are set-level T4 attuned; multi-piece commitment for full bonuses; **AMENDED 2026-05-27 (closeout § 3.4):** 4-piece sets standard; 2pc minor bonus (always-active) + 4pc full bonus (content composed with chain + T4)
 - **D36** — Heroic Spirit narrative cohesion: T4 paths = aspects of Spirit; T4-attuned gear = latent aspect evidence
 - **D37** — Replay value within single Servant arc via multi-T4 + attunement + set completions
-- **D38** — Implementation specifics deferred to T4 PM1 + stat-sheet partition cycle
+- **D38** — **AMENDED 2026-05-27 (closeout § 3.4):** Content-compositional attunement model LOCKED. Gear's content (passives, weapon specs) IS the attunement; annotation field exists as metadata recording generation-time alignment intent; drives drop pool restriction (D50), spirit-guide projection (D34), algorithm-side optimization. Annotation does NOT toggle anything ON/OFF at consumption time — gear passives always fire; synergy value varies by build. NO separate multiplier; gear content design is sim-calibrated to produce playability-AND-in-band synergy with target chain+T4. Magnitude IS the content quality. Binary vs graduated attunement REJECTED; content-compositional supersedes. Per closeout § 8 #10: graduated attunement DEFERRED to v1.1+ if substrate-evidence shows content-compositional too rigid.
 - **D39** — Casual complexity acknowledged; spirit guide primary mitigation
+- **D51 AMENDMENT 2026-05-27 (closeout § 3.4):** T4-attunement annotation = METADATA (recording generation-time alignment intent), NOT a toggle mechanism. The annotation drives drop-pool restriction (D50), spirit-guide projection (D34), algorithm-side optimization at generation time. At consumption time, gear passives always fire; the attunement does NOT gate any mechanic ON/OFF.
 
 ---
 
@@ -469,9 +536,17 @@ Source conversation Stage 1-6 (KPM detection → personal bests → shareable ar
 
 ## 8. Block 5 — Multi-T4 architecture + T4 algorithm canonical form + respec-with-legendary-trigger mechanism
 
-### 8.1 T4 algorithm canonical form (per Matt 2026-05-26)
+> **AMENDED 2026-05-27 per Matt + gandalf Pattern-B session 2026-05-27 (closeout § 1.3 + § 2.4 + § 2.5):**
+> - **D66 SHARPENED (one-T4-at-a-time)**: Only ONE T4 capstone unlocked at a given time. Sharpens D66 from passive description to active identity discipline. Composes with D65 respec-with-legendary-trigger as swap mechanism + D76 dual-effect architecture (concentrated identity, not diluted).
+> - **3-category T4 taxonomy** SUPERSEDES 6-strategy registry as design-spec + player-facing vocabulary; existing 6 strategies retained as algorithm implementation detail (see § 8.4 for full taxonomy).
+> - **NEW algorithm strategy: DUAL_ELEMENT_ADDITION** (see § 8.4.1) — chain skills retain primary element AND add a secondary element; substantively expands T4 design space.
+> - **Parallel-chain reach** (see § 8.4.2) — chain-specific effect can target the T4's OWN chain OR a PARALLEL chain; algorithm-fixed at generation time (not player-chosen).
+> - **Compositional synergy scan** (see § 8.4.3) — two-pass synergy detection (resolve + preserve); algorithmic composition (pattern library + statistical priors); NOT LLM raw-reasoning per D7 AI-tell discipline.
+> - **Class-intrinsic supporting chain absorbs class identity** (see § 6 amendment for trait architecture absorption per Option C).
 
-> **T4 skills are CAPSTONES at the top of skill tree chains. 2-3 T4 capstones per class (per § 8.3 formula). Only ONE T4 selected at a time (composes with respec mechanism per § 8.5). Dual mechanical impact: character-wide AND within-chain (or parallel-chain). Implementation phased across 4 phases — all 4 wrap into Cycle 13 because T4-and-gear interaction is architecturally inseparable.**
+### 8.1 T4 algorithm canonical form (per Matt 2026-05-26 + 2026-05-27 amendments)
+
+> **T4 skills are CAPSTONES at the top of skill tree chains. 2-3 T4 capstones per class (per § 8.3 formula). Only ONE T4 unlocked at a time (per D66 sharpening 2026-05-27 — active identity discipline, not passive description; composes with respec mechanism per § 8.5). Dual mechanical impact: character-wide AND within-chain (or parallel-chain per § 8.4.2). Implementation phased across 4 phases — all 4 wrap into Cycle 13 because T4-and-gear interaction is architecturally inseparable.**
 
 ### 8.2 Phased implementation (all 4 phases in Cycle 13)
 
@@ -484,14 +559,25 @@ Source conversation Stage 1-6 (KPM detection → personal bests → shareable ar
 
 **ALL FOUR PHASES WRAP INTO CYCLE 13.** Shipping Phase 1 alone produces architectural debt because the gear-attunement layer (§ 6) requires Phases 2-4 to be meaningful. Multi-T4 viability + spirit-guide-driven respec opportunities + endgame replay value all depend on full architecture landing together.
 
-### 8.3 Class chain structure (Interpretation A confirmed)
+**T4-failure-handling — Option F (Hybrid) LOCKED 2026-05-27 (closeout § 1.7):**
+
+1. Algorithm regenerates failing T4 with alternate strategies from registry (3 attempts; configurable per D62 compute budget)
+2. If all regeneration attempts fail, ship character with partial T4 (in-band subset; chain keeps T1-T3 nodes but no functional capstone)
+3. Minimum threshold = ≥1 T4 in-band for character to ship at all
+4. Track regeneration rate as quality metric
+
+Composes with D1 (balance-as-property — failures are honest), D67 (independent gauntlet sim validation), D65 (respec mechanism), D62 (compute budget).
+
+### 8.3 Class chain structure (Interpretation A confirmed; AMENDED 2026-05-27 with variable 3-or-4 chains per closeout § 1.4)
 
 **T4 count per class = chain count - 1.**
 
+**AMENDED 2026-05-27 (closeout § 1.4):** Variable 3-or-4 chains per class (depth-vs-breadth lever). NOT uniform 3. First-pass class roster DEFERRED — substrate-evidence follow-on (Wave 1 BC-target review surfaces substrate vote).
+
 | Class chain count | T4 count | Architecture |
 |---|---|---|
-| 3 chains | 2 T4 capstones | 2 T4-bearing chains + 1 supporting T3 chain |
-| 4 chains | 3 T4 capstones | 3 T4-bearing chains + 1 supporting T3 chain |
+| 3 chains | 2 T4 capstones | 2 T4 chains × ~5 nodes (branching-eligible per § 8.3.1) + 1 supporting chain × ~3 nodes |
+| 4 chains | 3 T4 capstones | 3 T4 chains × ~3-4 nodes (linear) + 1 supporting chain × ~3 nodes |
 
 Some chains are **supporting / utility chains WITHOUT T4 capstones.** Architecture first-class supports hybrid/multi-element builds: primary-element chains can have T4 capstones (defining build identity); secondary-element chains can be T3-only (supporting damage/utility without capstone).
 
@@ -500,7 +586,73 @@ Example: a fire-primary, lightning-secondary class might have:
 - 1 lightning chain (T3, no capstone) — supporting secondary damage
 - Total: 3 chains, 2 T4 capstones
 
-### 8.4 Active skill budget
+### 8.3.1 Branching refinement (LOCKED 2026-05-27 — closeout § 1.2)
+
+**Branching gated by chain depth ≥4 nodes**, not class chain count.
+
+- Chains ≥4 nodes eligible for 1 branch point: 1 → 2 → {3a OR 3b} → 4 → T4-capstone
+- Chains ≤3 nodes linear only
+- Substrate-led: chain depth votes on branching eligibility
+- Supporting chains stay linear (shallow by construction)
+
+### 8.4 T4 algorithm 3-category taxonomy (LOCKED 2026-05-27 — closeout § 2.4)
+
+> **The 3-category taxonomy SUPERSEDES the 6-strategy registry (§ 3.2) as design-spec + player-facing vocabulary. The existing 6 strategies are RETAINED as algorithm implementation detail under the 3-category umbrella.**
+
+**3-category T4 taxonomy** (composes with D76 dual-effect):
+
+| Category | Role | D76 dual-effect part | Algorithm strategies mapping |
+|---|---|---|---|
+| **A — Class mechanical/energy alteration** | Character-wide effect (always present) | Character-wide effect | RESOURCE_CONVERSION, DEFENSIVE_CONVERSION, DEFENSIVE_TRADEOFF, class-wide TRADE_OFF |
+| **B — Chain multiplicative event** | Chain-specific (exactly one of B or C per T4) | Chain-specific effect | Skill-specific TRADE_OFF, GEOMETRY_COLLAPSE, multiplier strategies |
+| **C — Chain element conversion / addition** | Chain-specific (exactly one of B or C per T4) | Chain-specific effect | ELEMENT_CONVERSION, **NEW: DUAL_ELEMENT_ADDITION** (per § 8.4.1) |
+
+**Dual-effect separability discipline (D76 amendment; engineering-discipline candidate #31 per § 12.1):** Category A (character-wide) and Category B/C (chain-specific) effects MUST be INDEPENDENTLY COHERENT — removing one should leave the other as a genuine standalone mechanic. Failure mode: T4s where chain effect is just "consequences of character-wide effect spelled out in chain terms." Founding instance: corrected Blood Magic example 2026-05-27.
+
+#### 8.4.1 DUAL_ELEMENT_ADDITION strategy (NEW LOCKED 2026-05-27)
+
+**Chain skills retain primary element AND add a secondary element.**
+
+- **Genre precedent:** PoE's "X% physical as fire"; D4's "all skills deal X% as cold"
+- **Substantively expands T4 design space** beyond pure conversion (ELEMENT_CONVERSION replaces; DUAL_ELEMENT_ADDITION composes)
+- **Algorithm category:** C (chain element conversion/addition)
+- **Implementation:** rocket extends the 6-strategy registry to 7 strategies under Category C; gamora validates dual-element interactions don't produce degenerate cases (per Discipline #26 playability + Discipline #31 first-do-no-harm per § 8.4.3)
+
+#### 8.4.2 Parallel-chain reach (LOCKED 2026-05-27 — closeout § 2.4)
+
+**Chain-specific effect can target the T4's OWN chain OR a PARALLEL chain.**
+
+- **Algorithm-fixed at generation time** (not player-chosen) — per generation cycle, the algorithm selects own-chain vs parallel-chain target as part of T4 scoring
+- **Composes with depth-vs-breadth lever** — variable chain count + branching gated by depth means parallel-chain reach has variable target space per class
+- **Enables cross-chain composition** — e.g., a fire-primary chain T4 could amplify a wind-secondary chain's mechanic, producing build-craft opportunities the player discovers via spirit-guide projections
+
+#### 8.4.3 Compositional synergy scan (LOCKED 2026-05-27 — closeout § 2.5; Cycle 13 algorithm extension, NOT v1.1+)
+
+**Two-pass synergy scan** (Matt 2026-05-27 button-up; required for parallel-chain reach to function as design):
+
+| Pass | Description |
+|---|---|
+| **Pass 1 (resolve)** | Does candidate resolve existing kit tensions? (e.g., HP-cost-without-regen → life-steal-from-bleed) |
+| **Pass 2 (preserve)** | Does candidate CREATE new tensions not resolved elsewhere? (e.g., life-steal-from-bleed against bleed-immune bosses → mechanism has no fuel) |
+
+**Net synergy score = resolve-score − create-score.** Candidates that resolve more than they create get the boost. Cohesion-judge validates BOTH directions.
+
+**Synergy opportunity patterns (v1 catalog):**
+
+| Pattern | Description |
+|---|---|
+| **Tension-resolution** | Kit has a mechanic creating a problem the T4 could solve |
+| **Theme-compound** | Kit has a passive theme the T4 could amplify |
+| **Cross-chain composition** | Parallel chains have elements/mechanics that could combine |
+| **Element-gap fill** | Kit has element coverage gap a T4 could fill |
+
+**Honor AI-tell line (D7):** pattern library (gandalf-curated) + statistical co-occurrence priors (elrond) + algorithmic composition. **NOT LLM raw-reasoning** for core synergy detection.
+
+**Engineering-discipline candidate #32 (per § 12.1):** First-do-no-harm discipline for algorithmically-generated T4 keystones — T4 synergy detection MUST include downstream-tension-creation check (Pass 2 preserve), not just upstream-tension-resolution (Pass 1 resolve). Failure mode: T4s that solve a stated problem by introducing an equally-bad new problem. Founding instance: two-pass synergy scan 2026-05-27.
+
+**Compositional synergy scan serves BOTH** T4 generation AND legendary added-skill generation at consumption time. Same engine; two consumers.
+
+### 8.4.4 Active skill budget
 
 **Maximum 8 active skills.** Flat 8. Replaces prior chain-scaling formula proposal (simpler).
 
@@ -554,24 +706,45 @@ The sim's validation criterion is not just "numerically in-band against content 
 - Skill rotation feels coherent (not degenerate; not chaotic)
 - Resource flow works (mana/energy/cooldowns produce sustained-but-non-trivial play)
 - Defensive uptime adequate
-- No degenerate states (infinite stunlock, zero-damage void, mandatory-skill-locks)
+- No degenerate states (per § 8.8.1 8-pattern v1 catalog — explicit checks for known patterns FIRST + KPM-out-of-band as second-pass proxy)
 - Visual/cognitive load manageable
 
-**Playable-AND-in-band is the validation criterion.** Engineering-discipline candidate.
+**Playable-AND-in-band is the validation criterion.** Engineering-discipline candidate (now ratified as Discipline #26 per jack-ryan SC-2 2026-05-26).
+
+#### 8.8.1 Degenerate-state detection — 8-pattern v1 catalog (LOCKED 2026-05-27 — closeout § 5.2)
+
+**D61 AMENDMENT 2026-05-27:** Explicit degenerate-state detection COMPOSES with KPM-band gate. Hybrid approach (Approach C): explicit checks for known patterns FIRST + KPM-out-of-band as second-pass proxy.
+
+**8-pattern v1 catalog:**
+
+| # | Pattern | Detection rule |
+|---|---|---|
+| 1 | **Infinite stunlock** | time-in-CC > 60% encounter duration |
+| 2 | **Zero-damage void** | player damage dealt < 1% expected OR taken < 1% expected |
+| 3 | **Mandatory-skill-lock** | only 1 viable rotation (cohesion-judge metric) |
+| 4 | **Permanent-CC** | movement-blocked > 70% encounter |
+| 5 | **Resource-starvation** | resource < skill cost > 50% encounter |
+| 6 | **Degenerate-tank** | defensive_uptime > 99%; pure DPS check (offensive-floor failed) |
+| 7 | **Bounce-CC** | skill-cancellation rate > 50% attempted casts |
+| 8 | **Resource-overflow** | resource at max > 80% encounter (paradoxical — unused capacity) |
+
+**Substrate-led extension via Cycle 13 telemetry:** as new degenerate patterns surface empirically, the catalog extends. v1 catalog ships with these 8; future cycles add per pattern recognition.
+
+**Methodology consultation per Discipline #18 fires:** gamora + legolas Mode A + star-lord (per closeout § 5.2; consultation timing per #18.2 — fires post-baseline empirical data, not before).
 
 ### 8.9 Decision points
 
 - **D63** — Skill tree SUPPORTS 2-3 T4 capstones per class
 - **D64** — All class T4 capstones REACHABLE; no exclusivity-gate locks between T4 paths
 - **D65** — Multi-T4 viability via respec-driven attunement with legendary-triggered free-respec opportunities; full mechanism specification per § 8.5
-- **D66** — Non-attuned T4 chains NOT mechanically active (only current-invested T4 chain accessible until respec)
+- **D66** — Non-attuned T4 chains NOT mechanically active (only current-invested T4 chain accessible until respec). **SHARPENED 2026-05-27 (closeout § 1.3):** ONE T4 unlocked at a time — sharpens from passive description to ACTIVE IDENTITY DISCIPLINE. Composes with D65 respec-with-legendary-trigger as swap mechanism + D76 dual-effect architecture (concentrated identity, not diluted).
 - **D67** — Balance validated via independent gauntlet sim per attuned-T4 configuration per progression node
 - **D68** — Retired/replaced by D76 (dual-effect T4 architecture provides natural differentiation; play-feel discipline redundant)
-- **D69** — Specific skill tree architecture deferred to T4 PM1
+- **D69** — Specific skill tree architecture deferred to T4 PM1. **AMENDED 2026-05-27 (closeout § 1.1, Q7 item 1):** LOCKED — chain-based investment + LINEAR default within chain + SHARED skill point pool across chains + T4 unlocked by chain-investment threshold. Branching gated by chain depth ≥4 (per § 8.3.1). Closest genre analog: Grim Dawn mastery trees with PoE-2-tight node count + algorithmic mechanic-alteration as per-node payload. 9-16 total nodes per kit matches `canonical/story/skill-system-2026-05-24.md` 10-15 budget. Per-skill mini-trees (LE-style) rejected; PoE mega-tree rejected.
 - **D70** — Specific T4 count per class formula locked at D83
-- **D71** — Skill point economy + investment mechanic deferred to T4 PM1
+- **D71** — Skill point economy + investment mechanic deferred to T4 PM1. **AMENDED 2026-05-27 (closeout § 1.5):** LOCKED with graduated per-node investment caps — Per-node max Passive = **5 points**; Active T1-T3 = **15 points**; T4 capstone = **1/1 binary** (0/1 if another T4 selected per D66 sharpening); Endgame total budget = **~70 points** (anchor; tunable); T4-unlock threshold = **70% of chain max** (per-chain calc; chain max varies by composition); Earn rate = **Per-level (L1→L50 = 50 points) + per-content-completion bonuses (~20)**; Branched-chain T4-unlock = all UNIQUE prerequisites along one path; other branch optional pay-extra. Composes with L50 hybrid framework (`canonical/41-progression-framework-2026-05-27.md`) — 50 raw + ~20 bonus = 70-point endgame anchor.
 - **D72** — Closed by D82 (flat 8 active skills)
-- **D73** — Respec rules within Servant deferred to T4 PM1
+- **D73** — Respec rules within Servant deferred to T4 PM1. **AMENDED 2026-05-27 (closeout § 1.6):** LOCKED two-option respec — (1) **T4-respec** IF player has multiple chains above T4-unlock-threshold (swap which T4 is active); (2) **Full respec** always available. Spirit Guide offers to auto-allocate points during full respec if desired. Full respec cost = DEFERRED to Cycle 14+ (gear/currency infrastructure needed). Player-facing trigger = **Spirit Guide initiated OR player asks Spirit Guide**. D75 T4-swap UX resolves to Spirit-Guide-as-surface. Chain-level respec (between T4-only and full) DEFERRED to v1.1+ if substrate-evidence shows binary too rigid.
 - **D74** — Multi-T4 sim methodology refined by D84
 - **D75** — T4 swap UX + spirit-guide-presented respec offer presentation deferred to drax player-surface work; revert use-case rejected per D79 (drax can deprioritize save/load if no other use-case)
 - **D76** — Dual-effect T4 architecture: each T4 mechanically alters BOTH character as a whole AND within-chain (or parallel-chain); differentiation emerges by construction
@@ -737,13 +910,18 @@ Cycle 13 launch + scope-doc landing will produce decisions-log entries for the a
 
 Five new engineering-discipline candidates emerge from this session for jack-ryan to ratify alongside ongoing engineering-disciplines work:
 
-1. **Playability discipline (D61):** combat sim validation criterion beyond raw numerical balance; "playable-AND-in-band" is the gate
-2. **Dual-effect capstone discipline (D76):** multi-capstone systems should architect capstones to have dual-effect structure (character-wide + chain-specific) to ensure natural differentiation
-3. **Spirit-guide-pacing discipline (D78):** offer-triggering mechanisms must avoid training players to defer commitment indefinitely
-4. **Commitment-to-consequence discipline (D79):** decision-mechanisms that require commitment-to-consequence produce more meaningful engagement; reversibility degrades engagement AND advisory-system trust
-5. **Sim methodology naming discipline (D84):** combat sim methodology must explicitly name its node-population sampling approach + cohort coverage + edge-case handling
+1. **Playability discipline (D61):** combat sim validation criterion beyond raw numerical balance; "playable-AND-in-band" is the gate — ✅ RATIFIED 2026-05-26 as Discipline #26
+2. **Dual-effect capstone discipline (D76):** multi-capstone systems should architect capstones to have dual-effect structure (character-wide + chain-specific) to ensure natural differentiation — ✅ RATIFIED 2026-05-26 as Discipline #27
+3. **Spirit-guide-pacing discipline (D78):** offer-triggering mechanisms must avoid training players to defer commitment indefinitely — ✅ RATIFIED 2026-05-26 as Discipline #28
+4. **Commitment-to-consequence discipline (D79):** decision-mechanisms that require commitment-to-consequence produce more meaningful engagement; reversibility degrades engagement AND advisory-system trust — ✅ RATIFIED 2026-05-26 as Discipline #29
+5. **Sim methodology naming discipline (D84):** combat sim methodology must explicitly name its node-population sampling approach + cohort coverage + edge-case handling — ✅ RATIFIED 2026-05-26 as Discipline #30
 
-Plus operational note: **Discipline #23 3rd operational instance** captured here (§ 1.4) — caught DURING canonization. Worth referencing in Discipline #23 amendment write-up.
+**NEW candidates from Matt + gandalf Pattern-B session 2026-05-27 (closeout § 7):**
+
+6. **Dual-effect separability discipline (D76 amendment) → #31:** Category A (character-wide) and Category B/C (chain-specific) effects MUST be INDEPENDENTLY COHERENT — removing one should leave the other as a genuine standalone mechanic. Failure mode: T4s where chain effect is just "consequences of character-wide effect spelled out in chain terms." [Founding instance: corrected Blood Magic example 2026-05-27.] — ❌ awaiting jack-ryan SC-2 expansion ratification
+7. **First-do-no-harm discipline for algorithmically-generated T4 keystones → #32:** Synergy detection MUST include downstream-tension-creation check (Pass 2 preserve), not just upstream-tension-resolution (Pass 1 resolve). Net synergy score balances both passes. Failure mode: T4s that solve a stated problem by introducing an equally-bad new problem. [Founding instance: two-pass synergy scan 2026-05-27 per § 8.4.3.] — ❌ awaiting jack-ryan SC-2 expansion ratification
+
+Plus operational note: **Discipline #23 3rd operational instance** captured here (§ 1.4) — caught DURING canonization. Worth referencing in Discipline #23 amendment write-up. (Now ratified inline at engineering-disciplines.md as of 2026-05-26.)
 
 ### 12.2 To gamora (methodology consultation gate)
 

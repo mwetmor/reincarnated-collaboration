@@ -162,3 +162,88 @@ Per closeout § 9 #6 (gandalf OR knight-rider per Q7 ratification):
 **Wave:** 0 follow-on + Wave 1 intent
 **Gates:** unblocks Wave 1 rocket implementation dispatch + Wave 1 jack-ryan Gate-1 critique dispatch + Wave 2 T4 dispatch authoring upon completion
 **Priority:** P1 — critical-path
+
+---
+
+## Completion record — 2026-05-27
+
+**Author:** gandalf (story-and-design steward)
+**Status:** COMPLETE — all Parts A.1 + A.2 + A.3 + B landed; Part C (KR scope-doc fill) deferred to KR per dispatch § 4 option
+
+**Part A.1 — Doc 40 amendments: 11 itemized amendments landed**
+
+1. ✅ § 3.2 amendment — 3-category T4 taxonomy SUPERSEDES 6-strategy registry as design-spec + player-facing vocabulary; existing 6 strategies retained as algorithm implementation detail; cross-references § 8.4
+2. ✅ § 3.6 amendment — 9-category char sheet surface + 11-slot taxonomy + per-slot affinity matrix architectural lock + 6 principles (with cross-reference to doc 42 for full operationalization)
+3. ✅ D33 + D38 + D51 amendments — content-compositional attunement reframe (annotation as metadata, NOT toggle mechanism; gear content IS the attunement; magnitude IS content quality)
+4. ✅ § 6.6.1 amendment — class-intrinsic supporting chain absorbs May 12 trait architecture (Option C per closeout § 2.1)
+5. ✅ § 8 amendment header — D66 sharpened + 3-category taxonomy + DUAL_ELEMENT_ADDITION + parallel-chain reach + compositional synergy scan + class-intrinsic supporting chain absorption
+6. ✅ § 8.2 amendment — T4-failure-handling Option F (Hybrid) LOCKED per closeout § 1.7
+7. ✅ § 8.3 + § 8.3.1 amendments — variable 3-or-4 chains per class (Q7 item 2 + Matt 2026-05-27); branching gated by chain depth ≥4 (Matt 2026-05-27)
+8. ✅ § 8.4 + § 8.4.1 + § 8.4.2 + § 8.4.3 NEW sub-sections — 3-category taxonomy + DUAL_ELEMENT_ADDITION strategy + parallel-chain reach + compositional synergy scan with two-pass resolve + preserve; existing § 8.4 active-skill-budget renumbered to § 8.4.4
+9. ✅ § 8.8 + § 8.8.1 amendments — D61 amendment with 8-pattern v1 degenerate-state catalog (infinite stunlock / zero-damage void / mandatory-skill-lock / permanent-CC / resource-starvation / degenerate-tank / bounce-CC / resource-overflow)
+10. ✅ § 8.9 D66 + D69 + D71 + D73 amendments — one-T4-at-a-time sharpening; chain-based + linear default + branching gated by depth ≥4; graduated investment caps (5/15/1) + 70-point endgame anchor + earn rate; two-option respec (T4-respec + full respec) with Spirit Guide initiated/asked
+11. ✅ § 12.1 candidates additions — #31 dual-effect separability discipline (D76 amendment; corrected Blood Magic example founding instance) + #32 first-do-no-harm discipline for algorithmically-generated T4 keystones (two-pass synergy scan founding instance); pre-existing #1-#5 marked as RATIFIED 2026-05-26 (now Disciplines #26-#30)
+
+**Part A.2 — Ground-state § 1 update**
+
+- ✅ Doc 41 row already present per prior session (no action needed)
+- ✅ Doc 42 row added with full operational summary
+- ✅ Engineering-disciplines row already updated by prior session (32 disciplines now reflecting #31 + #32; no action needed — entries were already present per ground-state line 61)
+- ✅ Gandalf first-reads row in § 4 updated to include doc 41 + doc 42
+
+**Part A.3 — Roadmap 02 selective updates**
+
+- ✅ § 0 companion docs — doc 42 added
+- ✅ § 3 visual flow updates:
+  - Phase 2a Kit Composition: chain architecture (D63-D64, D83) ⏳ → ✅ 2026-05-27 for "design intent landed" line (with sub-bullets capturing variable 3-or-4 chains + branching gated by depth ≥4 + Option C supporting chain absorption)
+  - Phase 2b T4 Algorithm: NEW ❌ sub-items for 3-category taxonomy + DUAL_ELEMENT_ADDITION + parallel-chain reach + compositional synergy scan + T4-failure-handling Option F (tracks Wave 2 implementation)
+  - Phase 2e Coherence + Faction: NEW ❌ item 11 for class-intrinsic supporting chain absorbs trait architecture (Option C) (tracks Wave 2 implementation)
+  - Phase 3 Convergence + Sim + Playability: NEW ❌ item for 8-pattern v1 degenerate-state catalog (tracks Wave 4 implementation)
+- ✅ § 4.3 Cycle 13 — Doc 40 amendments status ❌ → ✅ 2026-05-27 with full itemization; doc 42 row added at ✅ 2026-05-27; partition cycle implementation row at ❌ pending rocket Wave 1
+- ✅ § 5 deferred-commitments — added per-node bracket numerical calibration row from Block C scaffolding § 3
+- ✅ § 5 engineering-discipline candidates — #31 + #32 rows updated with cross-references to doc 40 § 8.4 + § 12.1
+
+**Part B — Doc 42 authored**
+
+- ✅ `canonical/42-stat-sheet-modifier-partition-intent-2026-05-27.md` authored with all 12 sections complete:
+  - § 0 TL;DR
+  - § 1 Architectural foundation cross-references
+  - § 2 9-category × 11-slot affinity matrix (operationalized with full matrix table + off-hand sub-table + resource model gating)
+  - § 3 Per-rarity × per-slot grid
+  - § 4 Tier-restricted modifier surface enumeration (Epic+ / Legendary+ / Tier-1+2 with tier-restricted modifier ratio audit)
+  - § 5 Sample modifier enumerations per category per slot family (5-10 examples per category × slot-family cell across all 9 categories × 4 slot families)
+  - § 6 Six locked principles with cross-cutting discipline composition notes
+  - § 7 SC-4 5 methodology gates closure
+  - § 8 Minimum-viable trait integration (per Verdict D.1 Path c)
+  - § 9 Wave 1 implementation guidance for rocket (SC-1 routing cleanup + affinity matrix calibration + tier-restriction enforcement + magnitude band calibration + cross-cohesion validation + sub-wave structure W1.0-W1.8)
+  - § 10 Wave 1 close criterion
+  - § 11 Composition with locked architecture
+  - § 12 Sign-off
+
+**Part C — KR scope-doc § 12.x further fill: DEFERRED to KR per dispatch § 4 option** (non-blocking)
+
+**Deferred items / out-of-scope confirmations:**
+- Jack-ryan Gate-1 critique on doc 42 — separate dispatch fires post-this-cycle
+- Rocket Wave 1 implementation against doc 42 intent — separate dispatch fires post-Gate-1 close
+- Gamora SC-7 methodology consultation post-Wave-1 — separate dispatch per #18.2 timing
+- Legolas SC-4 expansion research — firing in parallel as separate dispatch
+- Jack-ryan SC-2 expansion ratification (#31 + #32) — firing in parallel as separate dispatch
+- Gamora SC-6 GAP 2 audit — firing in parallel as separate dispatch
+- Wave 2-5 dispatch authoring — post-Wave-1-close sequencing per KR
+
+**Disciplines applied:**
+- #11 empirical inspection — doc 40 amendments cross-validated against closeout substantive content + SC-4 cross-ARPG patterns
+- #18 + #18.2 — methodology consultation routing (gamora SC-7 fires post-Wave-1 per #18.2 extension-hotspot timing)
+- #23 framing-audit — applied at structural layer in doc 42 § 11 composition table
+- #29 commitment-to-consequence — applied to per-rarity grid + affinity matrix as v1 commitment (iteration per-cycle, not per-session reversibility)
+- #31 dual-effect separability — captured as candidate in doc 40 § 12.1 + § 8.4 (founding instance: corrected Blood Magic example)
+- #32 first-do-no-harm — captured as candidate in doc 40 § 12.1 + § 8.4.3 (founding instance: two-pass synergy scan)
+
+**Cross-seam contract change:** not applicable — no schema / fixture / boundary mutation (canonical + design-intent artifacts only)
+
+**Round-trip:** not applicable per dispatch § "Cross-seam contract change" gate
+
+**Tag intent:** `gandalf: Cycle 13 Wave 0 follow-on (doc 40 amendments + ground-state + roadmap) + Wave 1 partition intent canonical (doc 42)`
+
+**Signed:** gandalf (story-and-design steward)
+**Date:** 2026-05-27

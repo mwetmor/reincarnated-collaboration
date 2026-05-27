@@ -13,6 +13,7 @@
 - `canonical/39-qd-engine-end-to-end-workflow-2026-05-24.md` — authoritative source for workflow architecture; this doc tracks EXECUTION against it
 - `canonical/40-gear-balance-guide-architecture-2026-05-26.md` — Cycle 13 architectural foundation; provides per-phase commitments tracked here
 - `canonical/41-progression-framework-2026-05-27.md` — **NEW**: L50 hybrid progression framework + ~30-day seasonal duration; foundational architectural commitment
+- `canonical/42-stat-sheet-modifier-partition-intent-2026-05-27.md` — **NEW**: Wave 1 partition design intent canonical; 9-cat × 11-slot affinity matrix + per-rarity grid + 6 principles + SC-4 closure
 - `canonical/38-downstream-delivery-strategy-2026-05-23.md` — D1-D10 delivery strategy keystone
 - `agentic_orchestration/gandalf/notes/2026-05-27-cycle-13-pre-launch-design-session-closeout.md` — **NEW**: Matt + gandalf Pattern-B session 2026-05-27 closeout (load-bearing handoff)
 - `agentic_orchestration/gandalf/notes/2026-05-27-block-c-calibration-scaffolding.md` — **NEW**: Block C calibration scaffolding for gamora handoff per Discipline #18
@@ -139,10 +140,16 @@ The complete QD-engine workflow per doc 39 § 1, with status icons inline at eac
 │  │    ✅            - Mechanic-altering passives only (no filler)                           │ │
 │  │    ⏳            - Tier-1 rotation + tier-2 β-pair + tier-3 build-defining               │ │
 │  │    ❌            - Max 8 active skills (doc 40 D82; flat budget)               [NEW]    │ │
-│  │    ❌            - Chains organized for class chain count (doc 40 D63-D64)     [NEW]    │ │
-│  │                    • 3-chain class: 2 chains with T4 + 1 supporting T3 chain             │ │
-│  │                    • 4-chain class: 3 chains with T4 + 1 supporting T3 chain             │ │
-│  │                    • Supporting chains enable hybrid/multi-element builds (D83)          │ │
+│  │    ✅ 2026-05-27 - Chains organized for class chain count (doc 40 D63-D64, D83)          │ │
+│  │                    DESIGN INTENT LANDED per closeout § 1.4 + variable 3-or-4 chains lock │ │
+│  │                    • 3-chain class: 2 T4 chains × ~5 nodes (branching-eligible) +        │ │
+│  │                      1 supporting chain × ~3 nodes                                       │ │
+│  │                    • 4-chain class: 3 T4 chains × ~3-4 nodes (linear) +                  │ │
+│  │                      1 supporting chain × ~3 nodes                                       │ │
+│  │                    • Branching gated by chain depth ≥4 (§ 8.3.1 LOCKED 2026-05-27)       │ │
+│  │                    • Supporting chains absorb class-intrinsic trait architecture         │ │
+│  │                      (Option C per closeout § 2.1)                                       │ │
+│  │    ❌            - Implementation of chain architecture (rocket Wave 2 work)             │ │
 │  └─────────────────────────────────────────────────────────────────────────────────────────┘ │
 │  ┌─────────────────── ⚠️  2b. T4 ALGORITHM (Algorithm § 8) ─────────────────────────────────┐ │
 │  │ 2. Generate T4 nodes per class chain count (doc 40 D81 phased):                          │ │
@@ -161,6 +168,25 @@ The complete QD-engine workflow per doc 39 § 1, with status icons inline at eac
 │  │    ❌            - DUAL mechanical impact per T4 (doc 40 D76):                 [NEW]    │ │
 │  │                    • Character-wide effect (kit-wide play feel shift)                    │ │
 │  │                    • Within-chain (or parallel-chain) effect                             │ │
+│  │    ❌            - 3-category T4 taxonomy (doc 40 § 8.4 LOCKED 2026-05-27):    [NEW]    │ │
+│  │                    • Category A: class mechanical/energy alteration (char-wide)          │ │
+│  │                    • Category B: chain multiplicative event (chain-specific)             │ │
+│  │                    • Category C: chain element conversion/addition (chain-specific)      │ │
+│  │                    • Exactly one of B or C per T4; A always present per D76 dual-effect  │ │
+│  │    ❌            - DUAL_ELEMENT_ADDITION strategy (doc 40 § 8.4.1 NEW):        [NEW]    │ │
+│  │                    Chain skills retain primary element AND add secondary element         │ │
+│  │                    (PoE "X% physical as fire"; D4 "all skills deal X% as cold")          │ │
+│  │    ❌            - Parallel-chain reach (doc 40 § 8.4.2):                      [NEW]    │ │
+│  │                    Chain-specific effect can target OWN chain OR PARALLEL chain;         │ │
+│  │                    algorithm-fixed at generation time (not player-chosen)                │ │
+│  │    ❌            - Compositional synergy scan (doc 40 § 8.4.3):                [NEW]    │ │
+│  │                    Two-pass scan: Pass 1 resolve + Pass 2 preserve;                      │ │
+│  │                    Net synergy score = resolve − create; D7 AI-tell line preserved       │ │
+│  │                    (pattern library + statistical priors + algorithmic composition;      │ │
+│  │                    NOT LLM raw-reasoning)                                                │ │
+│  │    ❌            - T4-failure-handling Option F (doc 40 § 8.2 LOCKED 2026-05-27):[NEW]   │ │
+│  │                    (1) Regenerate 3 attempts → (2) ship partial T4 → (3) ≥1 T4 in-band   │ │
+│  │                    minimum → (4) track regeneration rate as quality metric               │ │
 │  │    ✅ 2026-05-26 - INDEPENDENT of gear/legendaries (per doc 39 § 0.5 dependency chain)   │ │
 │  └─────────────────────────────────────────────────────────────────────────────────────────┘ │
 │  ┌─────────────────── ⏳  2c. SUBSTRATE BINDING ─────────────────────────────────────────────┐ │
@@ -214,6 +240,14 @@ The complete QD-engine workflow per doc 39 § 1, with status icons inline at eac
 │  │ 10. ⏳            Generate faction-proxy spawn-template per algorithm § 8.6              │ │
 │  │     ✅            (faction-anchor derived from substrate weapon's cultural-tradition +   │ │
 │  │                    period — IMMEDIATELY AVAILABLE at Phase 2 per Architecture B)         │ │
+│  │ 11. ❌ Class-intrinsic supporting chain absorbs trait architecture       [NEW 2026-05-27]│ │
+│  │     (doc 40 § 6.6.1; Option C per closeout § 2.1):                                       │ │
+│  │     • Supporting chain (T3-only; every class per D83) = class-intrinsic passives surface │ │
+│  │     • NO separate trait modifier axis on character sheet (9-cat surface § 3.6)           │ │
+│  │     • Player investment level in class-identity vs build-specialization = opportunity    │ │
+│  │       cost; composes with depth-vs-breadth lever                                         │ │
+│  │     • Minimum viable trait integration: 55-entry pool (5 per archetype × 11 archetypes)  │ │
+│  │       lands in Wave 1; per-class 5-10 + L12/L25/L38 floors DEFERRED to Cycle 14+         │ │
 │  └─────────────────────────────────────────────────────────────────────────────────────────┘ │
 │                                                                                              │
 │  Output: complete mechanical kit + multi-T4 capstones + skill tree structure +               │
@@ -272,6 +306,19 @@ The complete QD-engine workflow per doc 39 § 1, with status icons inline at eac
 │    ❌            - Resource flow functional (mana/energy/cooldowns)                 [NEW]   │
 │    ❌            - Defensive uptime adequate                                        [NEW]   │
 │    ❌            - No degenerate states (stunlock / zero-damage / mandatory locks)  [NEW]   │
+│    ❌            - 8-pattern v1 degenerate-state catalog (doc 40 § 8.8.1 LOCKED     [NEW]   │
+│                    2026-05-27 per closeout § 5.2 — D61 amendment):                           │
+│                    1. Infinite stunlock (time-in-CC > 60%)                                   │
+│                    2. Zero-damage void (damage < 1% expected)                                │
+│                    3. Mandatory-skill-lock (only 1 viable rotation)                          │
+│                    4. Permanent-CC (movement-blocked > 70%)                                  │
+│                    5. Resource-starvation (resource < skill cost > 50%)                      │
+│                    6. Degenerate-tank (defensive_uptime > 99%; pure DPS check)               │
+│                    7. Bounce-CC (skill-cancellation > 50% attempted casts)                   │
+│                    8. Resource-overflow (resource at max > 80%; paradoxical)                 │
+│                    Substrate-led extension via Cycle 13 telemetry; methodology               │
+│                    consultation #18+#18.2 fires post-baseline (gamora + legolas +            │
+│                    star-lord)                                                                │
 │    ❌            - Visual/cognitive load manageable                                 [NEW]   │
 │    ❌            - PLAYABLE-AND-IN-BAND is the validation criterion                 [NEW]   │
 │                                                                                              │
@@ -448,9 +495,10 @@ What's in flight RIGHT NOW + what fires next.
 | T4 PM1 design session | ✅ 2026-05-27 | **PASS-1 COMPLETE** — Matt + gandalf Pattern-B sustained design session 2026-05-27 (~4 hours) covering Blocks A-E in full. All 6 REQUIRES-MATT-CREATIVE-RATIFICATION items ratified via live dialogue + additional architectural locks (L50 hybrid progression framework lock; T4 algorithm 3-category taxonomy + DUAL_ELEMENT_ADDITION + parallel-chain reach + compositional synergy scan; content-compositional attunement supersedes binary/graduated; 9-category char sheet surface; 11-slot taxonomy; per-slot affinity matrix; 8-pattern degenerate-state catalog; Block C calibration scaffolding for gamora handoff). 7 engineering-discipline candidates flagged to jack-ryan. Outputs durably captured at `agentic_orchestration/gandalf/notes/2026-05-27-cycle-13-pre-launch-design-session-closeout.md`. Pass-2 (POST-CYCLE-13 with battle sim integrated) queued. |
 | L50 hybrid progression framework lock (NEW canon — doc 41) | ✅ 2026-05-27 | Substantial latent canon made explicit; foundational architectural commitment for Reincarnated v1; `canonical/41-progression-framework-2026-05-27.md` |
 | Block C calibration scaffolding for gamora handoff | ✅ 2026-05-27 | Design-spec-as-math handoff per Discipline #18; 5-dimensional P_node vector + C_archetype + W(cell, node, cohort) function + Steps 1-8 calibration loop; `agentic_orchestration/gandalf/notes/2026-05-27-block-c-calibration-scaffolding.md` |
-| Doc 40 amendments (Wave 0 queued) | ❌ | gandalf authors when Cycle 13 launches: T4 algorithm 3-category taxonomy (D81); DUAL_ELEMENT_ADDITION strategy (§ 3.2 + § 8.4); parallel-chain reach (§ 6 + § 8); compositional synergy scan (§ 8); content-compositional attunement (D33+D38+D51); 9-category char sheet surface (§ 3.6); class-intrinsic supporting chain (§ 6); dual-effect separability + first-do-no-harm (§ 12.1 candidates #6 + #7) |
+| Doc 40 amendments (Wave 0) | ✅ 2026-05-27 | gandalf landed 11-item amendment pass per closeout § 9 #2: T4 algorithm 3-category taxonomy + DUAL_ELEMENT_ADDITION + parallel-chain reach + compositional synergy scan (§ 8.4 + sub-sections); content-compositional attunement (D33+D38+D51); 9-category char sheet surface (§ 3.6) + 11-slot taxonomy + per-slot affinity matrix + 6 principles; class-intrinsic supporting chain (§ 6.6.1 Option C); dual-effect separability + first-do-no-harm (§ 12.1 candidates #6 + #7); D61 8-pattern degenerate-state catalog; D66 one-T4-at-a-time sharpened; D69 chain-based + linear default + branching gated by depth ≥4; D71 graduated investment caps + 70-point endgame anchor; D73 two-option respec |
 | Cycle 13 scope-doc authoring (gandalf 4-8 hrs per D85) | ⏳ | Skeleton landed 2026-05-26 (KR); § 12.3 filled 2026-05-26 via gandalf verdicts; remaining canonical doc authoring (3 docs per verdict file § 6.2) conditional on Matt async ratification |
-| Stat-sheet partition design cycle (multi-seam early Cycle 13 milestone) | ⏳ | Design intent landed via Verdicts B.2-B.4 (B.4 RATIFIED standalone; B.2/B.3 pending Matt async); SC-4 5 methodology gates CLOSED per Verdict B.4 |
+| Stat-sheet partition design INTENT canonical (doc 42) | ✅ 2026-05-27 | gandalf authored `canonical/42-stat-sheet-modifier-partition-intent-2026-05-27.md` per closeout § 3 + Verdicts B.2/B.3/B.4 + framing brief § 3 Wave 1; 9-cat × 11-slot affinity matrix operationalized; per-rarity × per-slot grid; tier-restricted modifier surface enumeration; sample modifier enumerations per category per slot family; 6 principles; SC-4 5 methodology gates CLOSED; minimum-viable trait integration (55-entry pool per Option C); Wave 1 implementation guidance for rocket |
+| Stat-sheet partition design cycle (Wave 1 implementation) | ❌ | rocket Wave 1 implementation against doc 42 intent; gates on jack-ryan Gate-1 critique on doc 42; sub-wave structure W1.0-W1.8 per doc 42 § 9.6 |
 | Gamora methodology consultation (D60 + D74 + D84) | ⏳ | Delegate-to-gamora posture RATIFIED via Verdicts C.1-C.3; consultation fires post-Wave-4-baseline per Discipline #18.2 refinement |
 | Phase 1 T4 algorithm implementation (T4s into chains as capstones) | ⏳ | Per doc 40 D81 Phase 1; design inputs landed via Verdicts A.1-A.6; A.2/A.3/A.4/A.6 RATIFIED standalone (Wave 2 design-intent unblocked); A.1/A.5 pending Matt async ratification |
 | Phase 2 T4 algorithm implementation (multiple T4 options per chain) | ⏳ | Per doc 40 D81 Phase 2; design inputs landed via Verdicts A.1-A.6; sequenced after Phase 1 |
@@ -492,6 +540,7 @@ Architectural commitments locked but execution DEFERRED. Each lists the empirica
 | **Faith/Souls/Karma + Crafted-resource (10th+ resource models)** | Block A.5b deferred v1.1+ 2026-05-27 | Substrate vote OR design call for archetypal kits requiring them |
 | **Chain-level respec** (between T4-only and full respec) | Block A4a deferred v1.1+ 2026-05-27 | Substrate-evidence shows binary T4-only / full respec is too rigid |
 | **Graduated attunement** (alternative to content-compositional) | Block B1a deferred v1.1+ 2026-05-27 | Substrate-evidence shows content-compositional too rigid |
+| **Per-node bracket numerical calibration** (Block C Scaffold 3 W(cell, node, cohort) per-bracket numerics) | Block C scaffolding § 3 deferred 2026-05-27 | Per-level scaling formulas land (gates on first row of this table) |
 
 ### Engineering-discipline candidates (jack-ryan ratification queue)
 
@@ -503,8 +552,8 @@ Architectural commitments locked but execution DEFERRED. Each lists the empirica
 | Commitment-to-consequence discipline (D79) → **#29** | Doc 40 § 8.9 | ✅ 2026-05-26 — jack-ryan SC-2 canonical landed |
 | Sim methodology naming discipline (D84) → **#30** | Doc 40 § 8.11 | ✅ 2026-05-26 — jack-ryan SC-2 canonical landed |
 | Discipline #23 amendment — 3rd operational instance reference | Doc 40 § 1.4 | ✅ 2026-05-26 — jack-ryan SC-3 amendment landed (1st + 2nd instances also made explicit inline) |
-| **Dual-effect separability discipline (D76 amendment) → #31** | Block A.5 2026-05-27 session — corrected Blood Magic example | ❌ — jack-ryan ratification queued; founding instance captured in closeout doc § 7 |
-| **First-do-no-harm discipline for algorithmically-generated T4 keystones → #32** | Block A.5 2026-05-27 session button-up | ❌ — jack-ryan ratification queued; two-pass synergy scan (resolve + preserve); founding instance captured in closeout doc § 7 |
+| **Dual-effect separability discipline (D76 amendment) → #31** | Block A.5 2026-05-27 session — corrected Blood Magic example; doc 40 § 8.4 + § 12.1 #6 | ❌ — jack-ryan SC-2 expansion ratification queued; founding instance captured in closeout doc § 7 + doc 40 § 8.4 |
+| **First-do-no-harm discipline for algorithmically-generated T4 keystones → #32** | Block A.5 2026-05-27 session button-up; doc 40 § 8.4.3 + § 12.1 #7 | ❌ — jack-ryan SC-2 expansion ratification queued; two-pass synergy scan (resolve + preserve); founding instance captured in closeout doc § 7 + doc 40 § 8.4.3 |
 
 ---
 
