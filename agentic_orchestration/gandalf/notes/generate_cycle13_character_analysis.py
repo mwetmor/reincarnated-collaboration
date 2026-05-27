@@ -62,6 +62,35 @@ if GAUNTLET_RESULTS:
             GAUNTLET_ENCOUNTERS_BY_CHAR.setdefault(cid, []).append(enc)
 
 # ---------------------------------------------------------------------------
+# Canonical element catalog (per engine foundation.py)
+# ---------------------------------------------------------------------------
+# Engine canonical element catalog per src/reincarnated/foundation/foundation.py:46
+# "fire", "water", "earth", "wind", "lightning", "holy", "shadow" — 7 rotating substrates
+CANONICAL_ELEMENTS = ["fire", "water", "earth", "wind", "lightning", "holy", "shadow"]
+
+# ---------------------------------------------------------------------------
+# Base attribute stat distribution per BC attribute
+# Source: engine season_generation_pipeline.py _BC_ATTRIBUTE_TO_STATS
+# Each row sums to 270 (STAT_BUDGET)
+# ---------------------------------------------------------------------------
+BC_ATTRIBUTE_STATS = {
+    "STR": {"strength": 80, "dexterity": 40, "intelligence": 20, "wisdom": 20, "vitality": 110},
+    "DEX": {"strength": 30, "dexterity": 90, "intelligence": 30, "wisdom": 30, "vitality": 90},
+    "INT": {"strength": 20, "dexterity": 30, "intelligence": 90, "wisdom": 90, "vitality": 40},
+    "WIS": {"strength": 20, "dexterity": 30, "intelligence": 60, "wisdom": 110, "vitality": 50},
+}
+
+# Synthetic player class baseline values (per _SyntheticPlayerClass post Track A remediation)
+SYNTHETIC_BASE = {
+    "base_hp": 85_000,             # endgame baseline HP per Block C § 1.4 node
+    "base_damage": 2_800,          # endgame baseline damage per KPM ~75+ target
+    "base_defense_frac": 0.12,     # endgame baseline armor fraction
+    "synthetic_skill_magnitude": 3000.0,  # synthetic primary_attack (Track A remediation)
+    "synthetic_skill_cooldown_seconds": 0.7,
+    "synthetic_skill_energy_cost": 0.0,
+}
+
+# ---------------------------------------------------------------------------
 # Gandalf analysis text per character (mechanical / playability / thematic)
 # ---------------------------------------------------------------------------
 
@@ -448,6 +477,230 @@ def render_full_gear_set(char_id: str, gear_set: dict) -> str:
     parts.append('</table></details>')
     return "\n".join(parts)
 
+def compute_character_stat_sheet(char: dict, gauntlet_kit: dict | None = None) -> dict:
+    """
+    Compute aggregated character stat sheet from gear partition_modifiers + base stats.
+
+    Returns a dict with:
+      - base: HP, damage, defense, attributes (from synthetic player class)
+      - gear_aggregates: per-category sums across 11 slots (damage, defense, resource, crit, speed, resistance, utility, build_identity)
+      - capability_inventory: per capability_category counts
+      - triggered_passive_inventory: list of unique pattern_ids
+      - active_t4: the T4 actually selected during sim (from gauntlet_kit) or None
+    """
+    bc_attr = char['bc_tuple']['attribute']
+    attributes = BC_ATTRIBUTE_STATS.get(bc_attr, {"strength": 54, "dexterity": 54, "intelligence": 54, "wisdom": 54, "vitality": 54})
+
+    gear_rep = char.get('gear_representative', {})
+
+    # Aggregate gear partition_modifier magnitudes per category
+    cat_sums = {}
+    cat_counts = {}
+    for slot, gear in gear_rep.items():
+        for mod in gear.get('partition_modifiers', []):
+            cat = mod.get('category', 'unknown')
+            mag = mod.get('magnitude', 0.0)
+            cat_sums[cat] = cat_sums.get(cat, 0.0) + mag
+            cat_counts[cat] = cat_counts.get(cat, 0) + 1
+
+    # Capability inventory
+    cap_inv = {}
+    for slot, gear in gear_rep.items():
+        for cap in gear.get('capability_modifiers', []):
+            ccat = cap.get('capability_category', 'unknown')
+            cap_inv[ccat] = cap_inv.get(ccat, 0) + 1
+
+    # Triggered passive inventory (unique pattern_ids)
+    tp_patterns = []
+    tp_seen = set()
+    for slot, gear in gear_rep.items():
+        tp = gear.get('triggered_passive')
+        if tp:
+            pid = tp.get('pattern_id', '')
+            if pid and pid not in tp_seen:
+                tp_seen.add(pid)
+                tp_patterns.append(pid)
+
+    # Determine active T4 from sim kit_result if available
+    active_t4 = None
+    if gauntlet_kit:
+        active_t4 = {
+            'legendary_id': gauntlet_kit.get('legendary_id', ''),
+            't4_config_key': gauntlet_kit.get('t4_config_key', ''),
+            'scope': gauntlet_kit.get('scope', ''),
+        }
+    # Fallback: first candidate marked is_active
+    if not active_t4 and char.get('t4_candidates'):
+        for t4c in char['t4_candidates']:
+            if t4c.get('is_active'):
+                active_t4 = {
+                    'candidate_id': t4c.get('candidate_id', ''),
+                    'category_a_strategy': t4c.get('category_a_strategy', ''),
+                    'category_bc_strategy': t4c.get('category_bc_strategy', ''),
+                    't4_scope': t4c.get('t4_scope', ''),
+                    'resolve_score': t4c.get('resolve_score', 0),
+                    'create_score': t4c.get('create_score', 0),
+                    'net_synergy_score': t4c.get('net_synergy_score', 0),
+                }
+                break
+
+    return {
+        'base': {
+            'hp': SYNTHETIC_BASE['base_hp'],
+            'damage': SYNTHETIC_BASE['base_damage'],
+            'defense_frac': SYNTHETIC_BASE['base_defense_frac'],
+            'synthetic_skill_magnitude': SYNTHETIC_BASE['synthetic_skill_magnitude'],
+            'synthetic_skill_cooldown': SYNTHETIC_BASE['synthetic_skill_cooldown_seconds'],
+        },
+        'attributes': attributes,
+        'gear_aggregates': cat_sums,
+        'gear_counts': cat_counts,
+        'capability_inventory': cap_inv,
+        'triggered_passive_inventory': tp_patterns,
+        'active_t4': active_t4,
+        'resource_model': char.get('resource_model', '?'),
+        'element': char.get('element', '?'),
+        'cohort': char.get('cohort_archetype', '?'),
+    }
+
+
+def render_character_stat_sheet(char: dict, stat_sheet: dict) -> str:
+    """Render the computed character stat sheet as TOP-LEVEL SUMMARY HTML."""
+    parts = []
+    parts.append('<h4>📋 Character Stat Sheet (post-sim state — "the character that left the gauntlet")</h4>')
+    parts.append('<div class="warning" style="border-left-color: #f5b800;">')
+    parts.append('<strong>Reading note:</strong> the values below are computed from gear partition_modifier magnitudes + '
+                 '<code>_SyntheticPlayerClass</code> baseline + active-T4-from-sim. The "real" character stat sheet '
+                 '(with chain-investment-scaled HP / mana / damage; per-skill rotation; gear-skill-modifier interaction) '
+                 'requires per-skill content + chain investment system from Cycle 14 Phase 5 cohesion coalescence + per doc 46 Layer 1-5 implementation. '
+                 'Current state is the BEST AVAILABLE approximation of "the character that was and is" given the synthetic-stub gauntlet sim.')
+    parts.append('</div>')
+
+    # CORE STATS
+    parts.append('<h5>Core (baseline + synthetic-stub from Track A)</h5>')
+    parts.append('<div class="metric-grid">')
+    parts.append(f'<div class="metric"><div class="label">HP (baseline)</div><div class="value">{stat_sheet["base"]["hp"]:,}</div></div>')
+    parts.append(f'<div class="metric"><div class="label">Base damage</div><div class="value">{stat_sheet["base"]["damage"]:,}</div></div>')
+    parts.append(f'<div class="metric"><div class="label">Defense frac</div><div class="value">{stat_sheet["base"]["defense_frac"]*100:.0f}%</div></div>')
+    parts.append(f'<div class="metric"><div class="label">Synth skill mag</div><div class="value">{int(stat_sheet["base"]["synthetic_skill_magnitude"]):,}</div></div>')
+    parts.append(f'<div class="metric"><div class="label">Synth cooldown</div><div class="value">{stat_sheet["base"]["synthetic_skill_cooldown"]:.1f}s</div></div>')
+    parts.append(f'<div class="metric"><div class="label">Resource model</div><div class="value" style="font-size: 1.1em;">{stat_sheet["resource_model"]}</div></div>')
+    parts.append('</div>')
+
+    # ATTRIBUTES (per BC attribute baseline; 270-budget)
+    parts.append('<h5>Attributes (BC-attribute baseline; 270-stat-budget)</h5>')
+    parts.append('<div class="metric-grid">')
+    for attr_name, val in stat_sheet['attributes'].items():
+        parts.append(f'<div class="metric"><div class="label">{attr_name.upper()}</div><div class="value">{val}</div></div>')
+    parts.append('</div>')
+
+    # GEAR AGGREGATE STATS
+    parts.append('<h5>Gear modifier sums (aggregated across 11 equipped legendary T1 slots)</h5>')
+    parts.append('<table>')
+    parts.append('<tr><th>Category</th><th>Modifier count</th><th>Sum of magnitudes</th><th>Mean per modifier</th></tr>')
+    for cat in sorted(stat_sheet['gear_aggregates'].keys()):
+        s = stat_sheet['gear_aggregates'][cat]
+        c = stat_sheet['gear_counts'][cat]
+        mean = s / c if c > 0 else 0.0
+        parts.append(f'<tr><td><strong>{cat}</strong></td><td>{c}</td><td>{s:.3f}</td><td>{mean:.3f}</td></tr>')
+    parts.append('</table>')
+
+    # CAPABILITY INVENTORY
+    parts.append('<h5>Capability inventory (across 11 legendary slots)</h5>')
+    if stat_sheet['capability_inventory']:
+        parts.append('<ul>')
+        for ccat, count in sorted(stat_sheet['capability_inventory'].items(), key=lambda x: -x[1]):
+            parts.append(f'<li><strong>{ccat}</strong>: {count}</li>')
+        parts.append('</ul>')
+    else:
+        parts.append('<p><em>No capabilities.</em></p>')
+
+    # TRIGGERED PASSIVE INVENTORY
+    parts.append('<h5>Triggered passive inventory (unique pattern_ids)</h5>')
+    if stat_sheet['triggered_passive_inventory']:
+        parts.append('<ul style="columns: 2;">')
+        for pid in stat_sheet['triggered_passive_inventory']:
+            parts.append(f'<li><code>{escape(pid)}</code></li>')
+        parts.append('</ul>')
+    else:
+        parts.append('<p><em>No triggered passives.</em></p>')
+
+    # ACTIVE T4 FROM SIM
+    parts.append('<h5>Active T4 (the one selected during gauntlet sim)</h5>')
+    if stat_sheet['active_t4']:
+        t4 = stat_sheet['active_t4']
+        parts.append('<ul>')
+        for k, v in t4.items():
+            parts.append(f'<li><strong>{k}</strong>: <code>{escape(str(v))}</code></li>')
+        parts.append('</ul>')
+    else:
+        parts.append('<p><em>No active T4 indexed.</em></p>')
+
+    return "\n".join(parts)
+
+
+def render_skill_chain_structure(char: dict) -> str:
+    """
+    Render placeholder skill chain structure per doc 41 Block A3 + doc 46 architectural locks.
+
+    Cycle 13 mechanical season does NOT emit per-skill content; Cycle 14 Phase 5 cohesion
+    coalescence will. Until then, we visualize the chain SHAPE with placeholder node names.
+    """
+    parts = []
+    parts.append('<h4>🌳 Skill Chain Structure (placeholder — per-skill content pending Cycle 14 Phase 5)</h4>')
+    parts.append('<div class="warning" style="border-left-color: #f5b800;">')
+    parts.append('<strong>Reading note:</strong> the chain composition COUNT is in the data ('
+                 f'<code>t4_chains: {char["chain_composition"]["t4_chains"]}</code>, '
+                 f'<code>supporting_chains: {char["chain_composition"]["supporting_chains"]}</code>, '
+                 f'<code>total_chains: {char["chain_composition"]["total_chains"]}</code>), but per-skill content '
+                 '(names / damage_multiplier / cooldown_seconds / energy_cost / geometry / bc_axis_contribution) is NOT yet '
+                 'generated. Cycle 14 Phase 5 cohesion coalescence will produce the actual skill content. Below is the '
+                 'PLACEHOLDER chain structure per locked architecture (doc 41 Block A3: passive 5-max / active 15-max / T4 binary 1).')
+    parts.append('</div>')
+
+    elem = char.get('element', '?')
+    chain_count = char['chain_composition']['total_chains']
+    t4_chains_count = char['chain_composition']['t4_chains']
+    supporting_chains_count = char['chain_composition']['supporting_chains']
+
+    parts.append('<div class="chain-grid">')
+    # T4-bearing chains
+    for chain_idx in range(1, t4_chains_count + 1):
+        parts.append('<div class="chain t4-chain">')
+        parts.append(f'<h5>{elem.capitalize()} Chain {chain_idx} (T4-bearing)</h5>')
+        parts.append('<ul style="list-style: none; padding-left: 8px;">')
+        # ~4 nodes per chain (placeholder)
+        parts.append(f'<li>📍 <strong>T1 Active 1</strong> — max 15 pts (placeholder; Phase 5 emits)</li>')
+        parts.append(f'<li>📍 <strong>T1 Passive 1</strong> — max 5 pts (placeholder)</li>')
+        parts.append(f'<li>📍 <strong>T2 Active 1</strong> — max 15 pts (placeholder)</li>')
+        parts.append(f'<li>📍 <strong>T3 Active 1</strong> — max 15 pts (placeholder)</li>')
+        parts.append(f'<li>⭐ <strong>T4 Capstone</strong> — binary 1; unlocked at chain investment ≥ 70% of chain max</li>')
+        parts.append('</ul>')
+        parts.append('</div>')
+    # Supporting chains (no T4)
+    for chain_idx in range(1, supporting_chains_count + 1):
+        parts.append('<div class="chain supporting">')
+        parts.append(f'<h5>Supporting Chain {chain_idx} (no T4; class-intrinsic identity per Block A.5)</h5>')
+        parts.append('<ul style="list-style: none; padding-left: 8px;">')
+        parts.append(f'<li>📍 <strong>T1 Passive 1</strong> — max 5 pts (class-intrinsic; placeholder)</li>')
+        parts.append(f'<li>📍 <strong>T2 Passive 1</strong> — max 5 pts (placeholder)</li>')
+        parts.append(f'<li>📍 <strong>T3 Passive 1</strong> — max 5 pts (placeholder)</li>')
+        parts.append('</ul>')
+        parts.append('</div>')
+    parts.append('</div>')
+
+    parts.append('<p><strong>Architectural lock per doc 41 Block A3 + doc 46 Layer 1:</strong></p>')
+    parts.append('<ul>')
+    parts.append('<li>Per-node max: passive 5 / active 15 / T4 binary 1</li>')
+    parts.append('<li>Total endgame budget: ~70 points (50 from leveling + 20 from content-completion)</li>')
+    parts.append('<li>T4-unlock threshold: 70% of chain max</li>')
+    parts.append('<li>One-T4-unlocked-at-a-time (Matt 2026-05-27 lock)</li>')
+    parts.append('<li>Branching gated by chain depth ≥4</li>')
+    parts.append('</ul>')
+
+    return "\n".join(parts)
+
+
 def render_empirical_sim_results(cid: str) -> str:
     """Render empirical gauntlet sim results per character (post Track A remediation)."""
     if not GAUNTLET_RESULTS:
@@ -512,12 +765,20 @@ def render_character_section(char: dict, gear_set: dict) -> str:
     slot_order = ["main_weapon", "secondary_item", "head", "chest", "hands", "feet", "legs", "amulet", "ring_1", "ring_2", "belt"]
     gear_slots_html = "\n".join(render_gear_slot(s, gear_rep[s]) for s in slot_order if s in gear_rep)
 
+    # Compute character stat sheet
+    gauntlet_kit = GAUNTLET_KIT_BY_CHAR.get(cid)
+    stat_sheet = compute_character_stat_sheet(char, gauntlet_kit)
+
     return f"""
     <section class="character-section" id="char-{cid}">
       <h3>{name}</h3>
       {render_id_card(char)}
 
-      <h4>T4 Algorithm Output</h4>
+      {render_character_stat_sheet(char, stat_sheet)}
+
+      {render_skill_chain_structure(char)}
+
+      <h4>T4 Algorithm Output (all candidates generated; the active one is selected during sim)</h4>
       {render_t4_section(char)}
 
       <h4>Equipped Loadout (gear_representative — legendary T1 standard)</h4>
@@ -849,6 +1110,20 @@ HTML = f"""<!DOCTYPE html>
       Hybrid 16/16, Defensive 0/16</strong>. Defensive 0/16 documented WARN per
       synthetic-stub limitations; expected to improve when per-skill content layer
       lands per doc 46 Layers 1-5 (Cycle 14 sidecar).
+    </div>
+
+    <div class="warning">
+      <strong>Element pool gap (substrate-led observation per Q10 amendment):</strong>
+      The engine's canonical element catalog per <code>foundation.py:46</code> is
+      <strong>7 elements</strong>: <code>fire / water / earth / wind / lightning / holy / shadow</code>.
+      Cycle 13 emitted characters in only <strong>4 elements</strong> (<code>fire / water / earth / wind</code>) —
+      the "canonical-four" subset per the legacy <code>VALID_SLOTS</code> tuple in <code>element/selector.py</code>.
+      <code>lightning / holy / shadow</code> are substrate-native elements declared in foundation but
+      not selected at Cycle 13 seasonal-element-selection time. Same substrate-led pattern as the
+      cohort distribution (Defensive 0 / Hybrid 0): substrate generates against the spec; spec
+      narrowed via current engine state; pre-endgame nodes + non-canonical-four elements unlock as
+      substrate expands. Future seasons should exercise lightning / holy / shadow as substrate
+      coverage allows.
     </div>
 
     <div class="warning">
