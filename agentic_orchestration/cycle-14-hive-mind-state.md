@@ -47,7 +47,7 @@
 | Wave | Status | Owners | Gates on | Wall-clock target |
 |---|---|---|---|---|
 | **Wave 0** | ✅ COMPLETE 2026-05-27 | KR + gandalf + jack-ryan + legolas + elrond | (entry) | landed in single-session sweep |
-| **Wave 0.5** | 🟢 AUTHORING DISPATCH | rocket + gamora + elrond (SC-6b) + jack-ryan Gate-1+Gate-2 | Wave 0 ✅ + jack-ryan Gate-1 PASS | 1-2 weeks anchor; extends per Q10 |
+| **Wave 0.5** | 🟢 FIRING | rocket + gamora + elrond (SC-6b) + jack-ryan Gate-2 | Gate-1 ✅ PASS-with-REVISIONS 2026-05-27 (2 WARN amended in-place; 0 BLOCK); 3 sub-agents fired in parallel background | 1-2 weeks anchor; extends per Q10 |
 | **Wave 1** | ⏳ QUEUED | rocket + gandalf + jack-ryan Gate-2 | Wave 0.5 + SC-4 closure | ~1 week |
 | **Wave 2** | ⏳ QUEUED | rocket + gandalf + jack-ryan Gate-2 | Wave 1 + SC-1 partial ratification (#36 + #37) | ~3-5 days |
 | **Wave 3** | ⏳ QUEUED | gandalf + star-lord + rocket | Wave 0.5 real content + SC-3 closure | ~1 week |

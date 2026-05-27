@@ -76,7 +76,7 @@ Per-family L50 baseline LUT is the load-bearing calibration math. Recommend auth
 - [ ] 5 new columns added to `weapon_sim_props` with appropriate types + CHECK constraints
 - [ ] All 2,293 v1_scope rows backfilled (or explicit NULL disposition for `element_affinity_modifiers_json` martial / `to_skill_level_modifier_static` category — documented in MIGRATION.md)
 - [ ] MIGRATION.md authored + cross-references doc 47 + SC-6 audit + this dispatch
-- [ ] Round-trip smoke: rocket Phase 2c at Wave 0.5 produces character JSON with all 6 doc-47-required fields populated (or explicit-null with rationale)
+- [ ] Round-trip smoke: rocket Phase 2c at Wave 0.5 produces character JSON `gear_representative.main_weapon` with all 8 substrate weapon fields populated — 6 stat-formula fields (doc 47 § 3.2: `base_physical_damage` + `spell_damage_modifier` + `element_affinity_modifiers` + `to_skill_level_modifiers` + `attribute_requirement` + `weapon_type_family`) AND 2 identity fields (`substrate_weapon_id` + `substrate_canonical_name`) expected non-null — or explicit-null with rationale per MIGRATION.md null-policy. *Amended 2026-05-27 per jack-ryan Gate-1 finding #2 (WARN) — clarifies stat-formula vs identity field count to prevent elrond/rocket counting mismatch at round-trip smoke coordination.*
 - [ ] SC-6b implementation report filed
 - [ ] Completion record appended; commit + push
 

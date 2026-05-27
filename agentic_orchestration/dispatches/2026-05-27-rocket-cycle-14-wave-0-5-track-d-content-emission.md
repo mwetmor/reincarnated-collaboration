@@ -75,7 +75,9 @@ Math-notes are jack-ryan Gate-1 inputs.
 
 **MIGRATION.md REQUIRED** per ADR-004 — author at `~/Games/reincarnated-engine/src/reincarnated/generation/MIGRATION.md § Wave 0.5` (or rocket-OP-preferred location) capturing:
 - New character JSON fields + schema rationale + downstream consumer expectations (gamora damage_resolver consuming `damage_scaling_type` + `scaling_attribute`; star-lord Track C transform consuming substrate weapon binding fields at Wave 5)
-- Round-trip clause: "rocket Phase 2c substrate query → character JSON `gear_representative.main_weapon` contains all 8 substrate weapon fields; gamora damage_resolver routes per skill's `damage_scaling_type`; star-lord Track C transform consumes new fields per loadout-app season schema."
+- Round-trip clause: "rocket Phase 2c substrate query → character JSON `gear_representative.main_weapon` contains all 8 substrate weapon fields (`substrate_weapon_id` + `substrate_canonical_name` + `base_physical_damage` + `spell_damage_modifier` + `element_affinity_modifiers` + `to_skill_level_modifiers` + `attribute_requirement` + `weapon_type_family`); gamora damage_resolver routes per skill's `damage_scaling_type`; star-lord Track C transform consumes new fields per loadout-app season schema."
+
+*Amended 2026-05-27 per jack-ryan Gate-1 finding #1 (WARN) — round-trip clause now explicitly enumerates all 8 substrate weapon fields including the 2 identity fields (substrate_weapon_id + substrate_canonical_name) to prevent MIGRATION.md authoring gap.*
 
 ## Scope
 
