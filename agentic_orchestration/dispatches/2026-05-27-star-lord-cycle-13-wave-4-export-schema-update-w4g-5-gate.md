@@ -111,3 +111,52 @@ NOT applicable — schema update only.
 **Wave:** 4 export schema update (gates gamora W4G.5)
 **Gates:** gamora W4G.5 archive insertion + quality report
 **Priority:** P1 — concurrent with gamora Wave 4 implementation; gates final W4G.5 sub-wave
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-27
+**Author:** star-lord
+**Commit:** `8dbb808` — `feat(star-lord): Cycle 13 Wave 4 export schema update for gamora W4G.5 sim cycling outputs (per SC-7 FULL closure 6ebf6c8)`
+
+### Schema fields added: 6 (ExportAlterationOutput +5 scope; ExportSimCyclingQualityReport NEW)
+
+**ExportAlterationOutput** — 5 additive nullable scope-dimension fields (code-cite: `t4_category_schema.py:379-384` + `T4CandidateV2.to_dict()` lines 458-462):
+- `t4_scope` (str|None) — T4Scope enum value; Stage B vocabulary guard added
+- `scope_downscale_factor` (float|None) — 1/sqrt(class_chain_count) for CHARACTER_WIDE B/C
+- `scope_prior_weight` (float|None) — cohort prior from COHORT_SCOPE_PRIORS selection
+- `scope_weighted_score` (float|None) — net_synergy_score × (1 + prior_weight)
+- `scope_projection_data` (dict|None) — per-cohort scores + I1 all-negative flag
+
+**ExportSimCyclingQualityReport** — NEW model (21 fields; 14 required + 7 optional). Written to `exports/<season_id>/sim_cycling_quality_report.json` at W4G.5 by `write_sim_cycling_quality_report()`. Loaded by `load_sim_cycling_quality_report()`.
+
+### Backward compatibility: PRESERVED
+
+All 5 scope fields default `None`. Pre-Wave-3 class JSON omitting scope keys reads back with all 5 as `None` — no Pattern P7 WARN. Prior export round-trip baseline: 82/82 PASS (42 Cycle 12 Wave 5 + 40 Cycle 11). No existing schema fields renamed or removed.
+
+### Round-trip smoke (Principle 6): 36/36 PASS (new) + 82/82 PASS (prior) = 118/118 total PASS
+
+Groups: (A) scope field pass-through (5) + (B) backward compat (5) + (C) model_dump() round-trip (4) + (D) Stage B validator type guards (6) + (E) ExportSimCyclingQualityReport write/load (11) + (F) empirical count assertions (5).
+
+Test file: `tests/test_cycle13_wave4_export_schema_round_trip.py` (36 tests)
+
+### MIGRATION.md: UPDATED — § v1.6-cycle-13-wave-4-scope-dimension-export prepended
+
+`/Users/admin/Games/reincarnated-engine/src/reincarnated/export/MIGRATION.md`
+
+### Gamora W4G.5 gate status: UNBLOCKED
+
+Gamora Wave 4 implementation can integrate at W4G.5 using `write_sim_cycling_quality_report()` + `load_sim_cycling_quality_report()` from `reincarnated.export`. The `ExportSimCyclingQualityReport` model is importable from `reincarnated.export`.
+
+### Discipline compose-check
+
+- [x] #1.2 code-citation — cited `t4_category_schema.py:379-384`, `T4CandidateV2.to_dict()` lines 458-462, `t4_scope_selector.py:285-299`, `t4_scope_selector.py:317-338` throughout
+- [x] #11 empirical inspection — post-script empirical count assertions 100% accurate (ExportAlterationOutput field count = 14; ENDGAME_ENCOUNTER_CATALOG count = 18); WARN-pattern PRESERVED
+- [x] Principle 6 round-trip — Wave 4 sample data round-trip smoke 36/36 PASS; prior baseline 82/82 PASS
+
+### Open flags for KR routing
+
+- Telemetry DB v2.16 migration: out of scope per dispatch; gamora's t4_alteration_type column (commit `7cfff770`) is already in prod. No new migration required for this export schema update.
+- Drax quality badge display: `t4_regeneration_rate` + `quarantine_rate` + `archive_insertion_count` from `sim_cycling_quality_report.json` — separate drax Wave 4+ dispatch when gamora W4G.5 first cycle produces data.
+- D25 cross-season learning: `kpm_medians_per_cell` + `cohort_scope_distribution_observed` fields are Cycle 14 retrospective inputs — routing note for knight-rider.
