@@ -13,6 +13,7 @@
 - `canonical/39-qd-engine-end-to-end-workflow-2026-05-24.md` — authoritative source for workflow architecture; this doc tracks EXECUTION against it
 - `canonical/40-gear-balance-guide-architecture-2026-05-26.md` — Cycle 13 architectural foundation; provides per-phase commitments tracked here
 - `canonical/41-progression-framework-2026-05-27.md` — **NEW**: L50 hybrid progression framework + ~30-day seasonal duration; foundational architectural commitment
+- `canonical/46-concentration-architecture-2026-05-27.md` — **NEW**: Concentration architecture 9-layer Cycle 14 sidecar foundation (stat-range bounds + affix migration + capability scope reduction + trigger vocabulary + concentration probability + cohesion layering + synergy scan refined + set keying to T4 strategy clusters + class-agnostic drops)
 - `canonical/42-stat-sheet-modifier-partition-intent-2026-05-27.md` — **NEW**: Wave 1 partition design intent canonical; 9-cat × 11-slot affinity matrix + per-rarity grid + 6 principles + SC-4 closure
 - `canonical/38-downstream-delivery-strategy-2026-05-23.md` — D1-D10 delivery strategy keystone
 - `agentic_orchestration/gandalf/notes/2026-05-27-cycle-13-pre-launch-design-session-closeout.md` — **NEW**: Matt + gandalf Pattern-B session 2026-05-27 closeout (load-bearing handoff)
