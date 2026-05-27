@@ -1,0 +1,191 @@
+# Dispatch — 2026-05-27 — Phase 4 + Phase 5 math-notes bundle (Dispatch 2; 7 notes; single Matt-gate)
+
+**From:** knight-rider
+**To:** gamora (primary on 5 Phase 4 notes); gandalf (primary on 2 Phase 5 notes); elrond (Pattern-A methodology co-owner); star-lord (Pattern-A LLM integration co-owner on Phase 5 PM-2)
+**Approved by:** Matt 2026-05-27 verbatim "I confirm Path (1) + Discipline #46 + the operational moves above"
+**Estimated effort:** ~3-5 days authoring + ~1-2 days jack-ryan Gate-1 + Matt-gate = ~5-7 days bundled
+**Acceptance:** 7 math notes authored at specified paths; jack-ryan Gate-1 DESIGN-MODE bundled review PASS; **single Matt-gate** per Discipline #18 math-hotspot ratifies bundled; notes become input to Phase 4 + Phase 5 implementation dispatches (3A gamora + 3B gandalf/star-lord/rocket per kicker § 3.3)
+
+## Quality criterion
+
+**Game-quality goal this dispatch serves:** specify the mathematical primitives — 5 Phase 4 mechanical archive math gates (Pareto + Crowding + Mahalanobis + KL + Eviction) + 2 Phase 5 multimodal extension (Clustering Algorithm + Faction-Label Assignment) — BEFORE implementation code fires. Composes Engine-first orientation: Phase 4 math gates are engine-layer infrastructure filtering SHIPPED-WORTHY kits; Phase 5 multimodal extension produces faction emergence (Form/Spirit identity post-hoc per no-classes recommitment). Per-cell bounding enforces Discipline #46 § 7 protection against O(n²) kernel-panic class explosions.
+
+**Refutation conditions** (sub-agents surface if any apply):
+- Math gate specification pre-commits to global O(n²) comparison instead of per-cell bounding (Discipline #46 violation)
+- Phase 5 multimodal clustering algorithm choice pre-committed without methodology consultation (Discipline #18 violation)
+- Faction-label assignment policy uses class-as-fixed-taxonomy framing (no-classes recommitment violation; Discipline #41 trigger)
+- Math notes specify implementation code (Discipline #1 — math-before-code violation; notes should specify math + alternatives + decision criteria)
+- Acceptance criteria pass without Phase 4 gates filtering meaningful candidates (mechanical archive math gates produce false-positive SHIPPED-WORTHY verdicts)
+
+## Discipline #46 compliance (this dispatch authors math notes specifying DB-touching algorithms)
+
+- [x] All math note algorithms follow stream / push-to-SQL / index / bound / no-cartesian patterns (Phase 4 gates operate per-cell per Pattern 7; substrate clustering at Phase 5 PM-1 operates against bounded v1_scope substrate ~2,499 rows)
+- [x] **Per-cell bounding REQUIRED for math gates (Discipline #46 Pattern 7)** — each math note explicitly specifies cell-level operation scope; global O(n²) comparison explicitly forbidden per gandalf candidate § 1 + Path 1 recognition § 3.1
+- [ ] EXPLAIN QUERY PLAN required at jack-ryan Gate-1 review for any new DB query patterns proposed
+- [ ] Grep audit at Gate-2 (downstream implementation dispatches 3A + 3B): no unbounded `fetchall()` in math gate implementation; no JOIN without ON
+
+## Context
+
+Per `agentic_orchestration/gandalf/notes/2026-05-27-path-1-kr-scope-expansion-kicker.md` § 3.2 + Path 1 recognition record § 3.1. Pre-Phase-4 remediation closed clean (engine commits `70965dd` + `6b758cd` + `fb86a3a`; Discipline #46 LOAD-BEARING at engineering-disciplines.md). Substrate enriched at v1_scope 2,499 rows (engine `a0c0253`).
+
+**Math-before-code Discipline #1 LOAD-BEARING per Matt verbatim.** 7 math notes specify algorithms + decision criteria BEFORE implementation dispatches (3A gamora + 3B gandalf/star-lord/rocket) fire.
+
+**Composition with no-classes architectural recommitment:** Phase 4 math gates filter cross-kit (substrate-led emergence), NOT cross-class. Phase 5 multimodal clustering produces FACTION-LABEL identity (post-hoc Form/Spirit naming), NOT class taxonomy. Discipline #41 (pre-authored taxonomy interrogation) applied retroactively.
+
+## Required reading
+
+- `canonical/00-ground-state.md` — ground-state oracle (post Path (1) intake)
+- `agentic_orchestration/gandalf/notes/2026-05-27-path-1-phase-4-5-7-cycle-14-scope-expansion.md` — **PRIMARY SUBSTANTIVE INPUT** (Path 1 recognition record; § 3.1 Phase 4 math gates spec; § 3.2 Phase 5 multimodal extension spec)
+- `agentic_orchestration/gandalf/notes/2026-05-27-path-1-kr-scope-expansion-kicker.md` § 3.2 (this dispatch's routing source; 7-note bundle scope)
+- `agentic_orchestration/gandalf/notes/2026-05-27-discipline-46-db-streaming-candidate.md` § 7 (per-cell bounding for math gates LOAD-BEARING)
+- `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` — Discipline #46 LOAD-BEARING + #1 + #18 + #42 + #43 + #44
+- `canonical/39-qd-engine-end-to-end-workflow-2026-05-24.md` § Phase 4 + § Phase 5 (architectural foundation)
+- `canonical/story/engine-as-general-serial-content-product-2026-05-22.md` § 2.2 (Phase 5 multimodal extension scope)
+- `agentic_orchestration/gandalf/notes/2026-05-27-no-classes-architectural-recommitment.md` (Discipline #41 retroactive application)
+- `agentic_orchestration/research/2026-05-27-cycle-14-sc-3-cohesion-judge-llm-architecture.md` (SC-3 Pattern B PRIMARY; composes with Phase 5 PM-2 LLM integration)
+- `agentic_orchestration/elrond/notes/2026-05-27-cycle-14-sc-6b-substrate-enrichment-implementation.md` + substrate enrichment ingest record (v1_scope 2,499 rows; INPUT to Phase 4 + 5)
+- `.claude/skills/reincarnated-gamora-operating-procedure` (gamora primary on Phase 4)
+- `.claude/skills/reincarnated-gandalf-operating-procedure` (gandalf primary on Phase 5)
+- `.claude/skills/reincarnated-elrond-operating-procedure` (methodology consultation Pattern-A)
+- `.claude/skills/reincarnated-star-lord-operating-procedure` (LLM integration on Phase 5 PM-2)
+- `.claude/skills/reincarnated-hive-mind-protocol`
+- `.claude/skills/reincarnated-engineering-disciplines` (45 disciplines)
+
+## Scope
+
+### Phase 4 Math Notes (5 notes; gamora primary + elrond methodology Pattern-A)
+
+#### MG-1 — Pareto Dominance
+
+- **Path:** `~/Games/reincarnated-engine/src/reincarnated/simulation/math/phase-4-mg-1-pareto-dominance-math-2026-05-27.md`
+- **Owner:** gamora primary + elrond Pattern-A
+- **Scope:** specify Pareto dominance check algorithm operating PER BC CELL (Discipline #46 § 7); decision criteria for "kit A dominates kit B" across mechanical objectives; integration with archive eviction (MG-5)
+- **Discipline #46 compliance:** per-cell operation explicit; no global cross-cell comparison; bounded by cell capacity (~10-100 kits per cell)
+- **Acceptance:** algorithm specification + per-cell-bounding rationale + integration with MG-5 eviction
+
+#### MG-2 — Crowding-Hypervolume
+
+- **Path:** `~/Games/reincarnated-engine/src/reincarnated/simulation/math/phase-4-mg-2-crowding-hypervolume-math-2026-05-27.md`
+- **Owner:** gamora primary + elrond Pattern-A (multi-objective optimization methodology)
+- **Scope:** crowding distance + hypervolume contribution algorithms PER BC CELL; diversity metric for archive selection
+- **Discipline #46 compliance:** per-cell scope; bounded
+- **Acceptance:** algorithm spec + diversity-vs-quality trade-off decision criteria
+
+#### MG-3 — Mahalanobis Distance
+
+- **Path:** `~/Games/reincarnated-engine/src/reincarnated/simulation/math/phase-4-mg-3-mahalanobis-distance-math-2026-05-27.md`
+- **Owner:** gamora primary + elrond Pattern-A (multivariate statistics methodology)
+- **Scope:** Mahalanobis distance for duplicate-detection PER BC CELL; covariance estimation; threshold for "kit A duplicates kit B" verdict
+- **Discipline #46 compliance:** per-cell covariance; bounded by cell capacity
+- **Acceptance:** algorithm spec + covariance methodology + duplicate-threshold derivation
+
+#### MG-4 — KL Information Gain
+
+- **Path:** `~/Games/reincarnated-engine/src/reincarnated/simulation/math/phase-4-mg-4-kl-information-gain-math-2026-05-27.md`
+- **Owner:** gamora primary + elrond Pattern-A (information-theoretic methodology)
+- **Scope:** Kullback-Leibler divergence as novelty score for kit candidates vs existing archive PER BC CELL
+- **Discipline #46 compliance:** per-cell KL computation; bounded
+- **Acceptance:** algorithm spec + novelty-threshold derivation + integration with eviction
+
+#### MG-5 — Eviction Rules
+
+- **Path:** `~/Games/reincarnated-engine/src/reincarnated/simulation/math/phase-4-mg-5-eviction-rules-math-2026-05-27.md`
+- **Owner:** gamora primary
+- **Scope:** archive eviction policy when cell capacity reached; composes Pareto (MG-1) + Crowding (MG-2) + Mahalanobis (MG-3) + KL (MG-4) into eviction decision; per-cell capacity bound (~10-100 kits)
+- **Discipline #46 compliance:** per-cell eviction; no global archive rebalance
+- **Acceptance:** eviction policy spec + capacity-bound derivation + composition with MG-1/2/3/4
+
+### Phase 5 Math Notes (2 notes; gandalf primary + star-lord LLM + elrond methodology Pattern-A)
+
+#### PM-1 — Multimodal Clustering Algorithm
+
+- **Path:** `~/Games/reincarnated-engine/src/reincarnated/generation/math/phase-5-pm-1-multimodal-clustering-math-2026-05-27.md`
+- **Owner:** gandalf primary + elrond Pattern-A (HDBSCAN / k-means / spectral / etc. methodology consultation; elrond P3 multimodal clustering math-hotspot per substrate-vector-cheatsheet)
+- **Scope:** multimodal clustering algorithm for substrate × kit-emergence + faction-coalescence per `engine-as-general-serial-content-product` § 2.2; composes with Option α Note 1 substrate clustering (Wave 1.5 Stage 3 re-impl) WITHOUT pre-authored taxonomy per no-classes recommitment
+- **Discipline #46 compliance:** clustering operates against v1_scope substrate ~2,499 rows (bounded)
+- **Acceptance:** algorithm spec + methodology rationale + integration with Option α Note 1
+
+#### PM-2 — Faction-Label Assignment Policy
+
+- **Path:** `~/Games/reincarnated-engine/src/reincarnated/generation/math/phase-5-pm-2-faction-label-assignment-math-2026-05-27.md`
+- **Owner:** gandalf primary + star-lord Pattern-A (Phase 5 LLM integration; composes with SC-3 Pattern B PRIMARY)
+- **Scope:** faction-label assignment policy POST emergent clustering (PM-1 output → faction names per FORM/SPIRIT identity post-hoc per no-classes recommitment); composes with Option α Note 4 class-naming policy (renamed to kit-naming per no-classes redaction); Phase 5 cohesion-judge LLM produces faction labels
+- **Discipline #46 compliance:** N/A direct (algorithmic policy + LLM call; LLM call infrastructure separate)
+- **Acceptance:** policy spec + composition with SC-3 + composition with Option α Note 4 + no-classes vocabulary clean
+
+### Ratification flow per note
+
+Each math note follows:
+1. Author note (per § Scope owner)
+2. jack-ryan Gate-1 DESIGN-MODE bundled review per Discipline #1 + #18 + #46 + #42 framing-audit
+3. **Single Matt-gate** per Discipline #18 math-hotspot ratification (per kicker § 3.2 bundled)
+4. Math notes become input to Phase 4 + Phase 5 implementation dispatches (3A + 3B per kicker § 3.3)
+
+### Closure
+
+- [ ] All 7 math notes authored at specified paths
+- [ ] Pattern-A coordination queries fired (gamora → elrond on MG-1 through MG-5; gandalf → elrond on PM-1; gandalf → star-lord on PM-2)
+- [ ] Cross-references between notes documented (MG-1 ↔ MG-5 integration; PM-1 composes with Option α Note 1; PM-2 composes with SC-3 + Option α Note 4)
+- [ ] **Single jack-ryan Gate-1 DESIGN-MODE bundled review** routed by KR after notes authored
+- [ ] **Single Matt-gate** per Discipline #18 math-hotspot ratification (post Gate-1 PASS)
+- [ ] Per-note framing-audit (Discipline #42) Q1/Q2/Q3 documented within each math note
+- [ ] Append completion record to this dispatch
+- [ ] Commit + push per Matt 2026-05-27 per-cycle push pattern (auto-fire per CLAUDE.md addendum)
+
+## Acceptance criteria
+
+- [ ] 5 Phase 4 math notes (MG-1 + MG-2 + MG-3 + MG-4 + MG-5) authored with per-cell bounding explicit + algorithm spec + decision criteria
+- [ ] 2 Phase 5 math notes (PM-1 + PM-2) authored with multimodal clustering algorithm spec + faction-label assignment policy
+- [ ] All 7 notes pass jack-ryan Gate-1 DESIGN-MODE bundled review
+- [ ] Single Matt-gate ratifies bundled per Discipline #18
+- [ ] Completion record appended; commit + push
+- [ ] Round-trip: not applicable at math-note authoring (Phase 4 + 5 implementation dispatches handle round-trip)
+
+## Out of scope
+
+- Do NOT implement code (Phase 4 impl gamora Dispatch 3A; Phase 5 impl Dispatch 3B post Matt-gate)
+- Do NOT touch substrate library DB (elrond seam; SC-6b enrichment + substrate enrichment already landed)
+- Do NOT touch character JSON output schema (Wave 1.5 Stage 3 re-impl scope after no-classes redaction completes + Phase 4/5 lands)
+- Do NOT amend canonical docs beyond math notes (gandalf/jack-ryan canonical seam)
+- Do NOT enter Pattern B sustained dialogue with Matt (Pattern A-deep design-spec-as-math; Matt-gate fires only after Gate-1 PASS)
+- Do NOT pre-commit clustering algorithm choice at PM-1 (Discipline #18 methodology consultation; jack-ryan Gate-1 evaluates against alternatives)
+- Do NOT use class-as-fixed-taxonomy framing at PM-2 (no-classes recommitment; faction-label assignment IS the post-hoc identity layer)
+
+## Open questions for sub-agents
+
+- **Q-Bundle-1 (gamora MG-1 through MG-5):** sequencing — author MG-5 last since it composes MG-1/2/3/4 OR author in parallel?
+- **Q-Bundle-2 (elrond methodology Pattern-A):** clustering methodology consultation for MG-3 Mahalanobis covariance estimation — HDBSCAN-style density vs Gaussian assumption?
+- **Q-Bundle-3 (gandalf PM-1):** multimodal clustering algorithm selection — composes with Option α Note 1 substrate clustering? Same algorithm OR distinct?
+- **Q-Bundle-4 (star-lord PM-2):** Phase 5 LLM integration cost projection for faction-label assignment — fits within SC-3 Pattern B PRIMARY cost envelope?
+- **Q-Bundle-5 (cross-bundle):** faction-label vocabulary — does PM-2 need a curated faction-name pool OR open-ended substrate-derived? Composes with no-classes vocabulary lock + Option α Note 4 kit-naming policy.
+
+## Hive-mind decision-routing
+
+Per Matt 2026-05-23 directive (hive-mind protocol § 4) + scope-doc § 4.1: gamora/gandalf primary per their math notes; elrond Pattern-A on methodology; star-lord Pattern-A on LLM integration. Cross-seam questions route via Pattern-A sub-agent query. Matt is LAST-resort escalation; Matt-gate fires post Gate-1 PASS per Discipline #18.
+
+## Anti-stall discipline
+
+1. Per-note batching — author one math note before moving to next; commit per note authored (~7 natural commit points)
+2. If Pattern-A query lands substantive consultation (e.g., elrond surfaces clustering choice debate), STOP and document inside the note; do NOT pre-commit
+3. If scope expansion beyond 7 notes OR cross-bundle architectural surfaces, STOP and surface to KR
+
+## References
+
+- `agentic_orchestration/gandalf/notes/2026-05-27-path-1-phase-4-5-7-cycle-14-scope-expansion.md` (Path 1 recognition record; substantive Phase 4 + 5 spec)
+- `agentic_orchestration/gandalf/notes/2026-05-27-path-1-kr-scope-expansion-kicker.md` § 3.2
+- `agentic_orchestration/gandalf/notes/2026-05-27-discipline-46-db-streaming-candidate.md` § 7 (per-cell bounding LOAD-BEARING)
+- `canonical/39-qd-engine-end-to-end-workflow-2026-05-24.md` § Phase 4 + § Phase 5
+- `canonical/story/engine-as-general-serial-content-product-2026-05-22.md` § 2.2
+- `agentic_orchestration/gandalf/notes/2026-05-27-no-classes-architectural-recommitment.md`
+- `agentic_orchestration/research/2026-05-27-cycle-14-sc-3-cohesion-judge-llm-architecture.md` (SC-3 Pattern B PRIMARY)
+- `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` (45 disciplines including #46 LOAD-BEARING)
+- Hive-mind protocol § 4 + § 7
+
+## Sequencing note
+
+Post this dispatch ratifies (single Matt-gate per Discipline #18), KR authors:
+
+- **Dispatch 3A** — Phase 4 math gates implementation (gamora primary; ~3-4 weeks; consumes ratified MG-1 through MG-5)
+- **Dispatch 3B** — Phase 5 multimodal clustering + faction-coalescence (gandalf + star-lord + rocket; ~2-3 weeks; parallel with 3A; consumes ratified PM-1 + PM-2 + SC-3 Pattern B PRIMARY + Option α Note 4 kit-naming policy)
+
+Dispatches 3A + 3B fire parallel where dependencies allow. Post Phase 4 + 5 close → Dispatch 4 Phase 7 2-layer joint-gate (gandalf + jack-ryan; ~1 week).
