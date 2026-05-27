@@ -46,8 +46,8 @@
 
 | Wave | Status | Owners | Gates on | Wall-clock target |
 |---|---|---|---|---|
-| **Wave 0** | 🟢 IN PROGRESS | KR + gandalf + jack-ryan Gate-1 | (entry) | ~1 week (already in progress) |
-| **Wave 0.5** | ⏳ QUEUED | rocket + gamora + elrond + jack-ryan Gate-2 | Wave 0 + SC-5 + SC-6 closure + jack-ryan Gate-1 PASS | 1-2 weeks anchor; extends per Q10 |
+| **Wave 0** | ✅ COMPLETE 2026-05-27 | KR + gandalf + jack-ryan + legolas + elrond | (entry) | landed in single-session sweep |
+| **Wave 0.5** | 🟢 AUTHORING DISPATCH | rocket + gamora + elrond (SC-6b) + jack-ryan Gate-1+Gate-2 | Wave 0 ✅ + jack-ryan Gate-1 PASS | 1-2 weeks anchor; extends per Q10 |
 | **Wave 1** | ⏳ QUEUED | rocket + gandalf + jack-ryan Gate-2 | Wave 0.5 + SC-4 closure | ~1 week |
 | **Wave 2** | ⏳ QUEUED | rocket + gandalf + jack-ryan Gate-2 | Wave 1 + SC-1 partial ratification (#36 + #37) | ~3-5 days |
 | **Wave 3** | ⏳ QUEUED | gandalf + star-lord + rocket | Wave 0.5 real content + SC-3 closure | ~1 week |
@@ -79,19 +79,29 @@ Sub-agent invocations fired in parallel in background 2026-05-27 (single message
 | **SC-3** | legolas | `agentic_orchestration/dispatches/2026-05-27-legolas-cycle-14-sc-3-cohesion-judge-llm-research.md` | ✅ COMPLETE 2026-05-27 — research artifact filed at `agentic_orchestration/research/2026-05-27-cycle-14-sc-3-cohesion-judge-llm-architecture.md`; commit `0ee773c`; pushed; top-3 recs PRIMARY Pattern B Structured Output with Layer Tags / SUPPLEMENTARY Pattern A Two-Call / DETECTION Cross-Character Diversity Audit; 5 AI-tell mitigations; 3 open questions for Wave 3 design call |
 | **SC-4** | legolas | `agentic_orchestration/dispatches/2026-05-27-legolas-cycle-14-sc-4-trigger-vocabulary-research.md` | ✅ COMPLETE 2026-05-27 — 63 trigger conditions across 11 families catalogued; commit `5b718de`; pushed; 5 critical pattern_id dedup clusters (counter_on_defensive direct Cycle 13 failure-mode match; attack_on_hit; resource_threshold_high; buff_stack_accumulation; periodic_repeating); Layer 2 migration confirmed for speed_boost_on_dodge / defense_aura / on_kill_regen; 3 highest AI-tell risk conditions flagged (on_hit / on_enemy_killed / every_n_seconds); 5 open questions for Wave 1 design call |
 | **SC-5** | legolas | `agentic_orchestration/dispatches/2026-05-27-legolas-cycle-14-sc-5-damage-scaling-research.md` | 🟢 FIRING (sub-agent invoked 2026-05-27; background; separate legolas session from SC-3/SC-4) |
-| **SC-6** | elrond | `agentic_orchestration/dispatches/2026-05-27-elrond-cycle-14-sc-6-substrate-weapon-stat-audit.md` | 🟢 RE-FIRING (initial invocation 2026-05-27 STALLED at 600s investigating catalogue.db dead-end; KR diagnosed substrate library at `~/Games/reincarnated-loadout/data/telemetry.db` weapon_knowledge_entries / weapons / weapon_sim_props tables; dispatch amended with location + GAP analysis; re-fire invoked 2026-05-27 background) |
+| **SC-6** | elrond | `agentic_orchestration/dispatches/2026-05-27-elrond-cycle-14-sc-6-substrate-weapon-stat-audit.md` | ✅ COMPLETE 2026-05-27 (NARROW scope; third invocation closed cleanly) — audit report at `agentic_orchestration/elrond/notes/2026-05-27-cycle-14-sc-6-substrate-weapon-audit.md`; SC-6b enrichment deferred to Wave 0.5 parallel; 6 fields validated: 5 NEW columns + REUSE primary_stat; load-bearing finding `damage_amplitude is RATIO 0.3-3.0 not absolute damage` → Path A `base_physical_damage_l50` substrate column recommended; weapon_type_family algorithmic from (primary_stat, proxy_range_class, weapon_kind_classified_subtype); estimated SC-6b ~14-22 hrs |
 | **SC-7** | drax | (NOT FIRED; deferred per Q9 disposition until Wave 5 fresh roster materializes) | ⏸️ DEFERRED |
 | **State file** | KR | `agentic_orchestration/cycle-14-hive-mind-state.md` | ✅ AUTHORED 2026-05-27 (this doc) |
 
 ### 2.3 Wave 0 gate
 
 Wave 0.5 fires when:
-- SC-5 closure (legolas damage scaling research artifact filed)
-- SC-6 closure (elrond substrate weapon stat audit + enrichment complete; MIGRATION.md authored if schema extended)
-- Wave 0.5 dispatch authored by KR (consumes SC-5 + SC-6 outputs to scope rocket + gamora work)
-- jack-ryan Gate-1 PASS on Wave 0.5 dispatch (DESIGN-MODE pre-fire critique)
+- SC-5 closure ✅ (legolas damage scaling research filed)
+- SC-6 closure ✅ (elrond audit-report NARROW; SC-6b enrichment deferred to Wave 0.5 parallel)
+- Wave 0.5 dispatch package authored by KR ✅ (3 dispatches: rocket + gamora + elrond SC-6b)
+- jack-ryan Gate-1 PASS on Wave 0.5 dispatch package (DESIGN-MODE pre-fire critique) — ⏳ PENDING
 
-KR autonomous on Wave 0.5 dispatch authoring + Gate-1 routing per scope-doc § 4.1.
+Wave 0 closed 2026-05-27; Wave 0.5 dispatch package ready for Gate-1.
+
+### 2.4 Wave 0.5 dispatch package (authored 2026-05-27)
+
+| Dispatch | Path | Seam scope |
+|---|---|---|
+| **Wave 0.5 rocket** | `agentic_orchestration/dispatches/2026-05-27-rocket-cycle-14-wave-0-5-track-d-content-emission.md` | Elements expansion (4→7) + per-skill mechanical content emission + substrate weapon binding output |
+| **Wave 0.5 gamora** | `agentic_orchestration/dispatches/2026-05-27-gamora-cycle-14-wave-0-5-damage-routing-synthetic-retirement.md` | Damage scaling routing per doc 47 § 4 + SC-5 Appendix A refinements + **synthetic_mode RETIREMENT ABSOLUTELY** (Discipline #39 LOAD-BEARING; Q4 emphatic lock; grep verification at Gate-2) |
+| **SC-6b elrond** | `agentic_orchestration/dispatches/2026-05-27-elrond-cycle-14-sc-6b-substrate-enrichment.md` | Substrate library schema extension per SC-6 audit § 2 + Path A `base_physical_damage_l50` baseline + 5 new columns on `weapon_sim_props` + MIGRATION.md per ADR-004 |
+
+All three dispatches fire in parallel after Gate-1 PASS. Cross-seam coordination via MIGRATION.md + Pattern-A sub-agent queries at kickoff.
 
 ---
 
@@ -104,7 +114,8 @@ KR autonomous on Wave 0.5 dispatch authoring + Gate-1 routing per scope-doc § 4
 | **SC-3** | legolas Mode A | Wave 3 (Phase 5 cohesion-judge LLM) | ✅ COMPLETE | Pattern B (Structured Output with Layer Tags) recommended PRIMARY; Pattern A two-call SUPPLEMENTARY; Cross-Character Diversity Audit DETECTION |
 | **SC-4** | legolas Mode A | Wave 1 (trigger vocabulary expansion) | ✅ COMPLETE | 63 conditions catalogued across 11 families; 5 critical pattern_id dedup clusters; counter_on_defensive maps to Cycle 13 failure mode |
 | **SC-5** | legolas Mode A | Wave 0.5 (damage scaling routing) | 🟢 FIRING | Per-game per-path formula tables; structural validation of doc 47; edge cases catalogued |
-| **SC-6** | elrond | Wave 0.5 (substrate weapon binding output) | 🟢 RE-FIRING | 6 doc-47-required fields audited + enriched against `~/Games/reincarnated-loadout/data/telemetry.db`; MIGRATION.md if schema extended; audit report filed |
+| **SC-6** | elrond | Wave 0.5 (substrate weapon binding output) | ✅ COMPLETE (NARROW) | Audit report filed; 5 NEW columns + 1 REUSE per-field disposition; Path A substrate-side L50 baseline recommended; SC-6b enrichment + MIGRATION deferred to Wave 0.5 parallel |
+| **SC-6b** | elrond (deferred) | Wave 0.5 (schema enrichment + MIGRATION) | ⏳ AUTHORING | Substrate library schema extension per SC-6 audit § 2 dispositions + MIGRATION.md per ADR-004 + cross-seam round-trip smoke at Wave 0.5 |
 | **SC-7** | drax | Post Wave 5 (Cycle 14 roster materializes) | ⏸️ DEFERRED | NOT FIRED in Wave 0; Track C transform refresh awaits fresh Cycle 14 roster |
 
 ---
