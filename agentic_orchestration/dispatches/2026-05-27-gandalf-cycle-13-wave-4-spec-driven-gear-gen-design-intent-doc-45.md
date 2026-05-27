@@ -145,3 +145,45 @@ Mirror doc 43+44 structure; ~12-14 sections; ~250-450 lines:
 **Wave:** 4 design intent (rocket track)
 **Gates:** jack-ryan Wave 4 Gate-1 critique on doc 45 → rocket Wave 4 implementation dispatch authoring (post-Gate-1 PASS) → Wave 4 close (post-rocket-implementation Gate-2 coordinated with gamora SC-7 + Track B implementation)
 **Priority:** P1 — critical-path Wave 4 start (rocket track; fires in parallel with gamora SC-7)
+
+---
+
+## Completion record (gandalf — 2026-05-27)
+
+**Status:** COMPLETE per acceptance criteria.
+
+**Artifact:** `canonical/45-spec-driven-gear-gen-wave-4-rocket-track-intent-2026-05-27.md` authored.
+
+**Section count:** 15 sections (§ 0 TL;DR through § 14 Sign-off) — verified empirically via `grep -c "^## "`. Matches dispatch proposed 14-section structure + numbered § 0 TL;DR (per Wave 2/3 precedent).
+
+**Sub-wave count:** 8 sub-waves W4R.0-W4R.7 (between Wave 1's 9 sub-waves and Wave 3's 6 sub-waves; matches dispatch proposed 8 sub-waves).
+
+| Sub-wave | Work-unit | Owner |
+|---|---|---|
+| W4R.0 | Substrate prep + repo-scaffold | rocket |
+| W4R.1 | Per-rarity gear instance generation algorithm | rocket |
+| W4R.2 | T4-attunement annotation per content-compositional model | rocket |
+| W4R.3 | Triggered-passive added-skill generation per D55 | rocket |
+| W4R.4 | Modifier-surface expansion per D56 + capability toolkit at legendary | rocket |
+| W4R.5 | Set bonus structure (Set T1-T2) | rocket |
+| W4R.6 | Cross-cohesion validation per #26 + Block C | gamora + jack-ryan |
+| W4R.7 | Round-trip smoke per Principle 6 (maintain WARN-pattern PRESERVED) | rocket + jack-ryan |
+
+**§ 12 framing-audit verification:** § 12 Discipline #23 framing-audit INCLUDED FROM START per doc 44 § 11 precedent. Three-question protocol applied: Q0 (load-bearing assumption: spec-driven gear gen scored-candidate registry mirroring T4 algorithm at gear-instance layer + per-rarity grid + content-compositional annotation + capability-toolkit-legendary-exclusive + 4-piece set structure); Q1 (refutation evidence — 3 candidate vectors: pattern-surface-fit gap, substrate-already-suffices gap, gear-vs-T4 layer mismatch); Q2 (current evidence: doc 40 D7 explicit + closeout § 3.4 explicit + Wave 1 substrate landed + Wave 2+3 T4CandidateV2 landed + 10-tier `PartitionRarity` structural fact + 4-ARPG cross-consensus); Q3 (verdict: proceed as-framed + 2 refinement notes for rocket — algorithm-shape discretion at W4R.1 + content-compositional load-bearing failure-mode surface to gandalf if observed at W4R.1-W4R.5).
+
+**Per-rarity grid completeness (10 tiers verified):** § 3.1 table enumerates all 10 PartitionRarity values from partition_schema.py:67-77 (COMMON / UNCOMMON / RARE / EPIC / LEGENDARY_T0 / LEGENDARY_T0_5 / LEGENDARY_T1 / LEGENDARY_T2 / SET_T1 / SET_T2). § 10.3 asserts module-load `assert len(PartitionRarity) == 10` enforcement preserved from Wave 1. Uniques routed per § 3.2 as sub-category metadata flag on legendary tiers (not separate PartitionRarity entries; proposed `PartitionGearInstance.is_unique: bool` field addition).
+
+**Cross-seam composition with SC-7 Track B note:** § 11 explicitly scopes doc 45 to Track A (rocket gear gen ONLY); Track B (gamora SC-7 sim cycling) is separate seam firing concurrently. § 11.1 cross-track data-flow table flags 6 Wave 4 Track A output surfaces consumed by Track B (PartitionGearInstance instances + T4-attunement annotation + capability toolkit selections + scope-preference hints + set bonus structure + Pattern 9+10 gear-effective WARN-flags). § 11.2 coordinated close criterion: Wave 4 = BOTH Track A AND Track B closed. § 11.3 explicit data-field implications flagged for SC-7 consumption. § 11.4 explicit non-overlap: doc 45 does NOT specify SC-7 methodology (gamora seam ownership preserved).
+
+**Discipline composition verified:** #1 + #1.2 + #11 + #18 + #18.2 + #23 + #26 + #27 + #29 + #30 + #31 + #32 — all cited throughout (cross-references in §§ 4.5 / 5.5 / 10.2 / 10.3 / 10.4 / 10.5 / 10.6 / 10.7 + § 12 framing-audit + § 13 close criterion). WARN-pattern PRESERVED milestone status flagged as Wave 4 expectation per § 10.3 + § 13.
+
+**Cross-seam touch flags surfaced:**
+- drax cross-seam touch (§ 4.3 + § 10.5) — `scope_projection_data` dict on T4CandidateV2 (Wave 3 W3.5 carryover) consumed by Wave 4 gear gen for spirit-guide projection messaging; downstream drax integration dispatch separate from rocket Wave 4 implementation
+- gamora SC-7 Track B cross-track flag (§ 11) — Wave 4 = BOTH tracks closed
+
+**Ground-state oracle § 1 updated:** doc 45 registered as new CURRENT entry above doc 44 row (most recent CURRENT canonical entry at top of Cycle 13 sequence).
+
+**Out-of-scope items respected:** Track B gamora SC-7 sim cycling design (gamora seam); rocket Wave 4 implementation (separate dispatch post-Gate-1); jack-ryan Gate-1 on doc 45 (separate dispatch post-authoring); Wave 5; Phase 5 cohesion; canonical doc modifications (40/41/42/43/44); production code; decisions-log entries — NONE attempted in this session.
+
+**Commit hash:** [populated post-commit]
+**Tag intent:** `gandalf: Cycle 13 Wave 4 spec-driven gear gen design intent canonical (doc 45; rocket track)`
