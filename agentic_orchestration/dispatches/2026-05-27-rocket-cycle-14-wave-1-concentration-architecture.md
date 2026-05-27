@@ -199,3 +199,47 @@ Math-notes are jack-ryan Gate-1 inputs.
 - `~/Games/reincarnated-engine/design/decisions/decisions-log.md` (Path A architectural commitment at `f053281`)
 - Engineering disciplines #1 + #10 + #11 + #18 + #33 + #34
 - Hive-mind protocol § 4 (decision-routing) + § 7 (math hotspots)
+
+---
+
+## Completion record
+
+**Completed by:** rocket
+**Date:** 2026-05-27
+**Commit:** `98b68aa` (reincarnated-engine main)
+**Tag:** `rocket/v1.5-wave-1-concentration-architecture-layers-1-4-7`
+
+### Scope items completed
+
+- [x] Layer 1 — stat-range bounds: `STAT_CAP_TABLE` (16 stats), `assert_stat_range_bounds()`, gen-time clamp (`_clamp_stat_to_bounds()`), Step 6 in `generate_gear_instance()`. Violation-injection test AC-2 PASS (Discipline #11). Two-layer enforcement: Layer A gen-time clamp + Layer B runtime assertion (Discipline #33).
+- [x] Layer 2 — affix migration: 7 `general_passive_*` entries removed from `_ACCESSORY_PATTERNS` (library now empty=0); `speed_boost_on_dodge` + `element_resist_on_hit` removed from `_ARMOR_PATTERNS`; 9 new `PartitionModifier` entries in `partition_modifier_pool.py`; accessory `_TRIGGERED_PASSIVE_PROBABILITY` all-zeros; `generate_triggered_passive()` returns None for accessory slots.
+- [x] Layer 3 — capability scope: `LegendaryCapabilityScope` enum (5 values) in `partition_schema.py`; `CapabilityModifier.legendary_scope` + `TriggeredPassiveSkill.legendary_scope` fields added; all 3 `MULTIPLICATIVE_CAPABILITY_DEFINITIONS` assigned ITEM_FAMILY or TRIGGER_BOUND.
+- [x] Layer 4 — trigger vocabulary: new `trigger_condition_library.py` (61 conditions × 11 families); `CRITICAL_AI_TELL_TRIGGERS` frozenset (5; on_hit + on_enemy_killed + every_n_seconds + on_cast + on_being_hit); `DEDUP_PATTERN_ID_CLUSTERS` dict (5 clusters); `generate_triggered_passive()` populates `trigger_id`; `smoke_round_trip_w4()` serializes `trigger_id` + `legendary_scope`.
+- [x] Layer 7 — synergy scan: new `synergy_scan_layer7.py` (`pass1_thematic_seed_score()`, `pass2_redundancy_check()`, `update_synergy_state()`); `LoadoutSynergyState` dataclass in `partition_schema.py`; wired into `w5r1_generate_kit_candidates()` with retry loop (MAX_RETRIES_PER_SLOT=3) + graceful degradation.
+- [x] 4 math-notes authored pre-implementation (Discipline #1): wave-1-layer-1/2/3-4/7-*-math-2026-05-27.md
+- [x] Tests: `tests/test_cycle14_wave1_concentration.py` — 29 tests, 29 PASS; 232 total PASS across all relevant test suites
+- [x] Cycle 13 regression: ALL PASS (no counter_on_defensive>1, no general_passive_*, avg 4.2 TP/kit — Discipline #34 ≤6 target met)
+- [x] MIGRATION.md § Wave 1 filed per ADR-004 (downstream consumer impact documented for gamora + star-lord)
+- [x] AGENT_STATE.md updated
+- [x] Dispatch: `tests/test_cycle13_wave4_spec_driven_gear_gen.py` 2 tests amended for Layer 2 design change
+
+### Q-resolutions from dispatch
+
+- **Q-W1-R1 (resolved):** SC-4 recommended caps (1 per pattern_id for 5 clusters; 2 ACTION+DEFENSE family instant-window) are the right starting point. Conservative enough to prevent soup.
+- **Q-W1-R2 (resolved):** Existing MULTIPLICATIVE capabilities map cleanly to local scopes (ITEM_FAMILY + TRIGGER_BOUND × 2). No character_wide/chain_wide capability remained.
+- **Q-W1-R3 (resolved):** 5 HIGH-risk triggers identified (on_hit + on_enemy_killed + every_n_seconds + on_cast + on_being_hit); gen-time cap ≤1 per loadout; Wave 3 LLM flag as carry-along.
+- **Q-W1-R4 (resolved):** Clean excision — migrated entries lose triggered_passive provenance. No hybrid entries. Discipline #10 attribution satisfied.
+
+### SC-4 count correction
+
+SC-4 research summary claimed "63 conditions" but per-family tables sum to 61 (6+6+5+6+6+6+6+5+5+5+5). Library assertion set to 61 (per-family tables are authoritative). Noted in `trigger_condition_library.py` assertion comment.
+
+### Deferred
+
+- Wave 2 scope (Layers 5, 6, 8, 9) per subsequent dispatch — not this dispatch's scope
+- Pass 1 thematic seed bonus tuning: CROSS_ELEMENT_BONUS=0.15, CROSS_MECHANIC_BONUS=0.20, T4_ALIGNMENT_BONUS=0.10, ELEMENT_REACTION_BONUS=0.25 are starting estimates; gamora SC-7 iterates post-baseline
+- Wave 3 LLM AI-tell flagging (on HIGH-risk triggers in generated content narratives)
+
+### Gate-2 routing
+
+This dispatch is ready for jack-ryan Gate-2 review. Key MIGRATION.md downstream consumer note: `triggered_passive` dict now has 2 new optional fields (`trigger_id`, `legendary_scope`); `general_passive_*` pattern_ids no longer appear in Cycle 14+ output; accessory `triggered_passive` is always null.
