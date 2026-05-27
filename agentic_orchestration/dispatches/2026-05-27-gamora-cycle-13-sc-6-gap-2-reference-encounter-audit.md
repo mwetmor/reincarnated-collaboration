@@ -119,3 +119,32 @@ NOT applicable — audit + reporting only. No engine modifications. No sim runs.
 **Wave:** 0 / Sidecar SC-6 (multi-seam: gamora lead + rocket consultation flagged + jack-ryan Gate-1 post-audit)
 **Gates:** feeds Wave 5 gauntlet sim execution preparation
 **Priority:** P2 — fire parallel with Wave 1 + SC-4 expansion + SC-2 expansion
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-27
+**Author:** gamora
+**Commit:** (pending below)
+
+**Encounter count inventoried:** 0 endgame-reference-encounters (no encounter catalog exists in current codebase). 6 arena scenarios confirmed as geometry shells only (`arena.py` lines 283, 347, 402, 486, 568, 643).
+
+**Cell coverage map summary:**
+- WELL-COVERED: 0 cells
+- THIN-COVERAGE: 0 cells
+- NO-COVERAGE: ~22-25 cells (all) — 18 non-deferred + 7 proxy-deferred (Cycle 14+)
+
+**Recommended additions:** 18 encounters (1 per non-deferred cell) targeting all ~18 non-deferred v1 BC cells; 3 optional additional for contested-cell coverage improvement (total 21 at optimal range).
+
+**Rocket consultation flags:** 4 work-unit specs flagged:
+- WU-R1: L45-50+ mob stat profile (blocks all 18 additions)
+- WU-R2: Per-cell mob composition specs (18 encounter definitions)
+- WU-R3: Archetype coverage for WR contract alignment
+- WU-R4: Proxy-deferred 7 cells for Cycle 14+ authoring
+
+**Key finding:** GAP 2 is a pre-existence gap, not a partial coverage gap. The 6 arena scenarios are the geometry delivery mechanism; the endgame-reference-encounter catalog concept does not yet exist. Full scope authoring required.
+
+**Output artifact:** `agentic_orchestration/gamora/notes/2026-05-27-sc-6-reference-encounter-audit.md`
+
+**Acceptance criteria status:** All met. 5 audit dimensions covered with empirical citations; Discipline #1.2 file+line citations included; coverage map exhaustive over ~22-25 v1 cells; quality assessment per #26 6 sub-gates (against arena scenario structural capacity); recommendation explicit + actionable (18 specific encounter additions with cell targeting, scenario shell mapping, WR alignment, and rocket work-unit specs); post-script empirical count assertions per WARN-pattern discipline.
