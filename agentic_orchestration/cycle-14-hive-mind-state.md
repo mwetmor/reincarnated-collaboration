@@ -215,7 +215,7 @@ Rocket combined invocation landed cleanly:
 | Dispatch | Status |
 |---|---|
 | **Substrate sidecar (Dispatch 1)** | ✅ COMPLETE 2026-05-27 — rocket Fix A `dac5f9e` (2,108 eligible rows verified) + Fix B math-note authored + elrond Fix C `8a1029d` (caster-arcane DIVERSE INFO close; **caster-faith REMEDIATION NEEDED** 62% mace-dominated D&D cleric-trope; routes gandalf Path A vs B design call) |
-| **Wave 1.5 Skill-Tree Architecture (Dispatch 2)** | 🟢 Stage 1 ✅ (`06a3b7f`) + Stage 2 ✅ (`6a28e39`) + **Stage 3 authored 2026-05-27** at `agentic_orchestration/dispatches/2026-05-27-rocket-cycle-14-wave-1-5-stage-3-skill-tree-architecture-impl.md`; doc 48 (10-class canonical roster) + doc 41 § 4.6 (n_kits=40) landed; Stage 3 firing next per wave-entry-fire-discipline |
+| **Wave 1.5 Skill-Tree Architecture (Dispatch 2)** | ✅ FULLY CLOSED 2026-05-27 — Stage 1 (`06a3b7f`) + Stage 2 (`6a28e39`) + Stage 3 (`0a5a4f2`; tag `rocket/v1.5-wave-1-5-skill-tree-architecture`); 3 math-notes + 5 implementation items + cross-seam round-trip smoke + MIGRATION § Wave 1.5; 232/232 regression PASS; 40-kit × 10-class smoke verified all 3 new fields populated; D83 chain_count − 1 enforced at construction; Discipline #40 LOAD-BEARING canonical-lock from doc 48 honored; Gate-2 pending |
 | **Discipline #40 ratification (Dispatch 3)** | ✅ COMPLETE — engine `b282966` (canonical-write at engineering-disciplines.md § 40; STATUS LOAD-BEARING per jack-ryan judgment; pre-Wave-5 prerequisite CLOSED); collab `fbd7b75` (dispatch completion record); reciprocal cross-reference at #13a; 3 anchored examples with code:line provenance |
 
 **Pre-Wave-5 prerequisite checklist (per scaffold-drift consolidated doc § 5.3):**
@@ -224,8 +224,8 @@ Rocket combined invocation landed cleanly:
 |---|---|
 | Fix A hygiene filter landed | ✅ COMPLETE 2026-05-27 (engine `dac5f9e`) |
 | Fix B STR family rebalancing landed (Wave 2 impl per consolidated doc § 5.1) | ✅ math-note AUTHORED 2026-05-27; impl gates Wave 2 dispatch (Layer 8 set keying alongside) |
-| Wave 1.5 skill-tree architecture landed | 🚦 PENDING-MATT-GATE |
-| Season cardinality canonical decision (n_kits=40 default) | bundled into Wave 1.5 close |
+| Wave 1.5 skill-tree architecture landed | ✅ COMPLETE 2026-05-27 (Stages 1+2+3; tag `rocket/v1.5-wave-1-5-skill-tree-architecture` at `0a5a4f2`; Gate-2 firing) |
+| Season cardinality canonical decision (n_kits=40 default) | ✅ COMPLETE 2026-05-27 (doc 41 § 4.6 amendment via gandalf Stage 2 `6a28e39`; rocket implemented in Stage 3) |
 | Discipline #40 canonical-write landed | ✅ COMPLETE 2026-05-27 (engine `b282966`) |
 
 **Open follow-on items at Wave 0.5 CLOSED (status post-Gate-2):**
