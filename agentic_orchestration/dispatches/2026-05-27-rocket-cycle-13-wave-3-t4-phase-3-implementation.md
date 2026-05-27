@@ -179,3 +179,62 @@ Per Discipline #1 math-before-code, before W3.1 schema-implementation:
 **Wave:** 3 implementation (W3.0-W3.5 bundled)
 **Gates:** Wave 3 close = jack-ryan Gate-2 PASS on this implementation; unblocks Wave 4 spec-driven gear gen + T4 Phase 4 sim cycling + gamora SC-7 methodology consultation FULL per #18.2
 **Priority:** P1 — critical-path Wave 3 close
+
+---
+
+## Completion record
+
+**Completed by:** rocket
+**Date:** 2026-05-27
+**Commit:** `2e8bc33` — `rocket: Cycle 13 Wave 3 T4 algorithm Phase 3 implementation — W3.0-W3.5 bundled per doc 44 amended + jack-ryan Gate-1 W1+I1+I2 folded`
+**Smoke result:** 146/146 PASS (Wave 1: 27, Wave 2: 69, Wave 3: 50); 0 regressions; 0.41s
+
+### Per-sub-wave status
+
+- W3.0 COMPLETE: Substrate prep — reviewed Wave 2 integration points; identified scope-dimension extension targets
+- W3.1 COMPLETE: T4Scope enum (3 values), STRATEGY_CHARACTER_WIDE_ELIGIBILITY (7 keys, 3 True: TRADE_OFF + ELEMENT_CONVERSION + DUAL_ELEMENT_ADDITION), COHORT_SCOPE_PRIORS (4 cohorts), T4CandidateV2 scope fields (5 new: t4_scope, scope_downscale_factor, scope_prior_weight, scope_weighted_score, scope_projection_data), __post_init__ coherence rule, backward-compat from_dict()
+- W3.2 COMPLETE: Per-category applicability (Category A fixed CHARACTER_WIDE; B/C per eligibility + has_parallel_chains)
+- W3.3 COMPLETE: New module t4_scope_selector.py — 6-step algorithm; PASS_1_CATALOG 5→6; PASS_2_CATALOG 8→10
+- W3.4 COMPLETE: validate_cross_cohesion_w34() + Option F Retry 4 scope-flip (DEFAULT_MAX_RETRIES 3→4; OPTION_F_PHASES PRESERVED at 4)
+- W3.5 COMPLETE: Round-trip smoke PASS (all 10 rarities incl. legendary_t0_5); MIGRATION.md updated; AGENT_STATE.md updated
+
+### W1 RESOLVED
+
+STRATEGY_CHARACTER_WIDE_ELIGIBILITY true-count = 3 per gandalf clarification (375af07): TRADE_OFF + ELEMENT_CONVERSION + DUAL_ELEMENT_ADDITION. Module-load assert `sum(...values()) == 3` PASSES. BC alternation note: GEOMETRY_COLLAPSE alternates to TRADE_OFF at Retry 1 (via _BC_ALTERNATION); at Retry 4, current_bc_strategy is TRADE_OFF (eligible), so scope correctly flips to CHARACTER_WIDE for that retry path.
+
+### I1 resolution
+
+All-negative scope score handling: select least-negative candidate AND log at WARNING level; fall through to Retry 4 scope-flip if no improvement after retry. Implemented in `t4_scope_selector.py:select_scope()`. The Step 4 formula `score × (1 + prior_weight)` makes negative scores more negative for preferred cohorts — unintuitive effect flagged in log; gamora SC-7 surfaces empirically post-Wave-3-baseline.
+
+### I2 8-combination verification
+
+ACHIEVED via `TestI28CombinationCoverage.test_i2_8_combination_coverage_across_4_cohorts`: calls `select_scope_dimension` directly for all 4 cohorts × CHARACTER_WIDE-eligible scenario (TRADE_OFF strategy) + CHAIN_WIDE scenario (GEOMETRY_COLLAPSE ineligible strategy) = 8 distinct (cohort, scope) combinations. Also: `test_i2_cohort_scope_combinations_all_eligible_strategies` exercises 16 combinations (4 cohorts × 2 strategies × 2 scores). Design note: per-run generation with strong cohort priors correctly produces 1 dominant scope per cohort; the I2 8-combo requirement is test-suite coverage (per dispatch "verify rocket implementation generates ≥8 distinct cohort × scope test cases"), not per-run diversity.
+
+### legendary_t0_5 round-trip result
+
+CONFIRMED: `TestW35RoundTripSmoke.test_w35_legendary_t0_5_rarity_present` PASSES. All 10 rarity tiers exercised in round-trip smoke (Wave 1 Gate-2 I1 carryover preserved).
+
+### POST-SCRIPT EMPIRICAL COUNT ASSERTIONS (100% accurate — WARN-pattern REMEDIATED status maintained)
+
+| Assertion | Value | Verification |
+|---|---|---|
+| T4Scope values | 3 | `len(list(T4Scope))` |
+| CHARACTER_WIDE eligible strategies | 3 | `sum(STRATEGY_CHARACTER_WIDE_ELIGIBILITY.values())` |
+| STRATEGY_CHARACTER_WIDE_ELIGIBILITY keys | 7 | `len(STRATEGY_CHARACTER_WIDE_ELIGIBILITY)` |
+| Cohort priors | 4 | `len(COHORT_SCOPE_PRIORS)` |
+| Strategy count | 7 | `len(ALL_T4_STRATEGIES)` |
+| Category count | 3 | `len(list(T4Category))` |
+| Synergy taxonomy categories | 5 | `len(SYNERGY_CATEGORIES)` |
+| Pass-1 catalog entries | 6 | `len(PASS_1_CATALOG)` |
+| Pass-2 catalog entries | 10 | `len(PASS_2_CATALOG)` |
+| Degenerate detection patterns | 2 | `len(DEGENERATE_DETECTION_PATTERNS)` |
+| Option F phases | 4 | `len(OPTION_F_PHASES)` |
+| DEFAULT_MAX_RETRIES | 4 | `DEFAULT_MAX_RETRIES` |
+| Rarity tiers (incl. legendary_t0_5) | 10 | `len(list(PartitionRarity))` |
+| Wave 3 sub-waves (W3.0-W3.5) | 6 | by enumeration |
+
+### Cross-seam flags for knight-rider
+
+- gamora SC-7 fires post-Wave-3-CLOSE per Discipline #18.2 — scope-dimension is extension hotspot; methodology consultation after baseline lands
+- drax scope_projection_data consumption is Wave 3+ integration (I5 planning note); data structure ready in T4CandidateV2
+- star-lord T4CandidateV2.to_dict() carries 5 new scope fields; backward-compatible additive; export schema update needed at Wave 4 integration milestone
