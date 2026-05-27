@@ -194,3 +194,97 @@ After this dispatch lands (5 math-notes ratified by Matt-gate per Discipline #18
 A/B comparison post Wave 5: gandalf authors comparison record (which doc 48 archetypes emerged? which didn't? which emergent classes weren't anticipated?). KR routes the comparison as input to potential Discipline #41 candidate (pre-authored-taxonomy interrogation; see pivot record § 5).
 
 Substrate enrichment dispatches (INT-AoE + monk + hybrid) fire IN PARALLEL per kicker § 3.6 — separate dispatch; neither blocks the other.
+
+---
+
+## Completion record (gandalf 2026-05-27)
+
+**Status:** ALL 5 MATH-NOTES AUTHORED — DRAFT STATE. Pending jack-ryan Gate-1 DESIGN-MODE review per note + Matt-gate per Discipline #18 math-hotspot ratification per note.
+
+### Math notes authored (5 of 5)
+
+| # | Path (engine repo) | Commit | Status | Pattern-A co-owner |
+|---|---|---|---|---|
+| 1 | `src/reincarnated/generation/math/wave-1-5-option-alpha-substrate-clustering-math-2026-05-27.md` | `c679681` | DRAFT | elrond (clustering methodology) |
+| 2 | `src/reincarnated/generation/math/wave-1-5-option-alpha-supporting-chain-emergence-math-2026-05-27.md` | `79c71e9` | DRAFT | — (gandalf primary) |
+| 3 | `src/reincarnated/generation/math/wave-1-5-option-alpha-t4-emergence-math-2026-05-27.md` | `14c534a` | DRAFT | elrond (sub-cluster methodology; bundled w/ Note 1 query) |
+| 4 | `src/reincarnated/generation/math/wave-1-5-option-alpha-class-naming-policy-math-2026-05-27.md` | `200e1cb` | DRAFT | star-lord (Phase 5 LLM integration) |
+| 5 | `src/reincarnated/generation/math/wave-1-5-option-alpha-cross-season-persistence-math-2026-05-27.md` | `fa33dbc` | DRAFT | — (gandalf primary; Earth Meta-Layer composition) |
+
+All commits sit on top of engine revert `c9fcb1d` (Option α Path A revert of `0a5a4f2`). Linear history; no rebasing required.
+
+### Cross-reference composition (note inter-dependencies)
+
+```
+Math Note 1 (clustering)
+   ↓ produces partition of S(K)
+Math Note 2 (supporting chain = LEAST-substrate-rich)  ←──┐
+   ↓ ThemeDescriptor_SC                                    │ symmetric
+Math Note 3 (T4 capstones = MOST-substrate-rich)  ←───────┘
+   ↓ capstone sub-themes + signature inputs
+Math Note 4 (D3 hybrid: Phase 2 placeholder + Phase 5 LLM canonical)
+   ↓ class_name_placeholder + class_name_canonical
+Math Note 5 (E2 canonical-shape persistence; Court-of-Forms LOAD-BEARING)
+   ↓ archetype signature + cross-season register
+```
+
+Math Notes 1 + 3 bundle ONE Pattern-A query to elrond (clustering algorithm + sub-cluster algorithm; consultation covers both scales). Math Note 4 fires ONE Pattern-A query to star-lord (Phase 5 LLM integration). All other notes are gandalf-primary design-spec.
+
+### Pattern-A query outcomes
+
+**elrond Pattern-A query (Math Notes 1 + 3 bundled):** NOT FIRED IN THIS DISPATCH. The math notes specify the algorithmic frames + alternative options + decision criteria for elrond's consultation. KR routes the Pattern-A query at math-note ratification time per dispatch § 3.3 (Ratification flow) + Discipline #18 extension-hotspot refinement (gandalf OP § 4.2). elrond's methodology stance becomes input to Stage 3 re-implementation, NOT to Math Note 1/3 authoring (which specifies design intent).
+
+**star-lord Pattern-A query (Math Note 4):** NOT FIRED IN THIS DISPATCH. Math Note 4 specifies the D3 hybrid design intent + composition with SC-3 Pattern B PRIMARY recommendation + the question set for star-lord. KR routes the Pattern-A query at math-note ratification time. star-lord's integration architecture (cost + latency + regeneration policy + Court-of-Forms LLM-call scoping) becomes input to Wave 3 dispatch authoring.
+
+**Pattern-A query timing rationale (per Discipline #18 extension-hotspot refinement):** the math notes establish DESIGN INTENT + ALTERNATIVES + DECISION CRITERIA. The Pattern-A consultations on methodology fire at ratification time — this avoids consultation-in-the-dark on methodology before the design-intent frame is locked + reviewed. Gate-1 + Matt-gate confirm the design intent; Pattern-A fires under that ratified frame; methodology choice composes with ratified intent.
+
+### Open questions for Matt-gate
+
+Three questions surface for Matt-gate consideration (composed across the 5 math notes):
+
+1. **(Composed across Notes 1+2+3) — Substrate fallback at sparse cells:** Math Note 1 § 5 specifies sparsity branches (chain_count=3 default at `|S(K)| < 8`); Math Note 3 § 8.2 specifies BC-cell-derived capstone fallback. Composition reads acceptably; verify Matt agrees with sparsity defaults vs alternative "reject kit + resample BC cell."
+
+2. **(Math Note 4) — D3 hybrid vs pure D2 LLM at all layers:** Math Note 4 recommends D3 hybrid (placeholder + canonical). The alternative D2 (pure Phase 5 LLM at all surfaces) is mechanically simpler but loses Phase 2 engine-internal reproducibility. Verify Matt agrees D3's reproducibility benefit justifies maintaining two name fields per kit JSON.
+
+3. **(Math Note 5) — E2 canonical-shape persistence at first-emergence-LLM-name-persists semantics:** Math Note 5 recommends E2 over E1 (season-scoped fresh) and E3 (hybrid). Per dispatch § Q-OptionAlpha-3, gandalf design-call resolution from Earth Meta-Layer canonical commitments is sufficient at v1 scope; Pattern B sustained dialogue NOT REQUIRED. Verify Matt agrees with E2 commitment at v1 OR opens Pattern B dialogue if E1 / E3 preferred.
+
+### Architectural surprises
+
+**None at the math-note authoring layer.** The 5 notes composed cleanly with prior canonical anchors (doc 40 § 8.3 / § 6.6.1 / D65 / D66 / D69 / D75 / D83 mechanisms PRESERVED; doc 41 § 4.6 n_kits=40 PRESERVED; doc 46 § 7 layered narrative PRESERVED; doc 47 per-attribute weapon profile PRESERVED) + with SC-3 Pattern B PRIMARY recommendation + with elrond Stage 1 audit substrate evidence + with `project_earth_meta_layer` memory.
+
+**One architectural elegance surfaced:** Math Notes 2 + 3 are symmetric — supporting chain = LEAST-substrate-rich (concentrated baseline); capstones = MOST-substrate-rich (expressive variants). Same substrate-richness metric; opposite ends of the same scale. The `w_specialization` weight inverts sign between the two notes. This symmetry was not obvious before authoring; emerged naturally from the substrate-led discipline.
+
+**One Cycle 15+ design surface surfaced:** Spirit-Echo accumulation (per-canonical-archetype emergence count → unlocks a fancier ascended form at threshold). Math Note 5 § 4.3 captures as downstream composition opportunity; NOT v1 commitment.
+
+**One gandalf cross-cutting deliverable surfaced** (NOT in scope for this dispatch): THEMATIC_REGISTRY authoring per element (~8 element groups × ~20-30 terms = ~160-240 entries; ~half-day effort; required input to star-lord's LLM call infrastructure per Math Note 4 § 5.2). KR queues as separate cross-cutting design-call post Math Note 4 ratification.
+
+### Closure checklist
+
+- [x] All 5 math-notes authored at specified paths
+- [x] Pattern-A coordination queries DOCUMENTED (Math Note 1 § 7 + Math Note 3 § 5 elrond; Math Note 4 § 4 star-lord) — invocations fire at KR ratification routing per dispatch § 3.3
+- [x] Cross-references between notes documented (Math Notes 2 + 3 compose symmetrically; Math Note 4 composes with SC-3 Pattern B; Math Note 5 composes with Math Note 4 + Earth Meta-Layer)
+- [x] Per-note commits landed (one commit per note; 5 commits total on engine repo; linear history above revert `c9fcb1d`)
+- [x] Completion record appended (this section)
+- [ ] **PENDING — KR coordinates Gate-1 routing per note OR bundle review** (KR's call per dispatch § 3.3)
+- [ ] **PENDING — Push per Matt 2026-05-27 per-cycle push pattern** (KR/Matt directive; auto-push per CLAUDE.md addendum if push pattern established)
+
+### Anti-stall discipline compliance
+
+- Incremental commits per note (5 natural commit points) — DONE
+- No scope expansion beyond inventory § 2 — DONE
+- No cross-seam coordination demanded substantial new design work — DONE (Pattern-A queries documented for KR routing; not fired inline)
+- Did NOT enter Pattern B sustained dialogue with Matt — DONE (Pattern A-deep substantive design-spec-as-math mode honored)
+- Did NOT pre-commit to clustering algorithm winners (elrond's territory per Discipline #18) — DONE
+- Did NOT implement code (Stage 3 re-impl waits for math-note ratification) — DONE
+
+### Composition with parallel substrate enrichment
+
+Per dispatch § Out of scope + § Sequencing note: substrate enrichment dispatches (INT-AoE + monk + hybrid) fire in PARALLEL with math-note authoring. Math notes specify algorithms that operate on whichever substrate population exists at fire-time (Math Note 1 § 2.2 captures this composition). Neither track blocks the other.
+
+### Signed-off
+
+**Author:** gandalf (story-and-design steward; Pattern A-deep substantive design-spec-as-math primary)
+**Status:** 5 math-notes DRAFT; READY for jack-ryan Gate-1 DESIGN-MODE review per Discipline #1 + #18; READY for Matt-gate per Discipline #18 math-hotspot ratification post Gate-1 PASS
+**For:** the math-before-code Discipline #1 LOAD-BEARING deliverable bundle ratifying Option α architectural pivot. Wave 1.5 Stage 3 re-implementation gates on Matt-gate ratification per note.
+
+**Signed:** gandalf (story-and-design steward)
