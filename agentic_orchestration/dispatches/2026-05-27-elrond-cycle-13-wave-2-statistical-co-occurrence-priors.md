@@ -105,3 +105,52 @@ From existing substrate corpus, extract statistical co-occurrence frequencies ac
 **Wave:** 2 concurrent dependency (W2.4 input)
 **Gates:** rocket W2.4 compositional synergy scan implementation
 **Priority:** P2 — concurrent with rocket Wave 2; preferred to land during rocket W2.0-W2.3 phase
+
+---
+
+## Completion record — 2026-05-27 (elrond)
+
+**Integration pattern landed:** Pattern A (priors land during rocket W2.0-W2.3; rocket reads at W2.4).
+
+**Substrate corpus used:** engine telemetry mechanic substrate at `reincarnated-engine/data/telemetry.db` — 94 seasons, 631 class-rows, 7,066 class-abilities, 17,533 total abilities. The dispatch-referenced 2,293-item v1_scope weapon catalogue (Cycle 10) is a VISUAL/FORM-FACTOR corpus carrying no ARPG-mechanic semantics; NOT used for these priors. Seam-owner call per Discipline #18 + dispatch open-question 1.
+
+**5-dimension extraction summary + sample sizes:**
+
+| # | Dimension | Unique pairs | Sample kits | Top pair (raw / normalized) |
+|---|---|---|---|---|
+| 1 | T4-strategy-pair | 14 | 489 | `GEOMETRY_COLLAPSE\|MULTIPLIER_STRATEGY` 379 / 0.2063 |
+| 2 | Kit-mechanic-pair | 128 | 692 | `damage\|shield` 642 / 0.0475 |
+| 3 | Element-pair | 12 | 436 multi-element | `water\|wind` 135 / 0.1753 |
+| 4 | Scaling-axis-pair | 36 | 692 | All 10,660 instances are multiplicative_across_buckets; ZERO additive_within_bucket (substrate-led finding) |
+| 5 | Chain-position cross-pair | 120 directed | 167 (cd ≥ 15s heuristic; substrate ceiling 19.9s) | T4 capstone dominated by `buff_damage` 0.3368 + `silence` 0.2737 + `buff_mana_regen` 0.1553 |
+
+**Post-script empirical assertions (Discipline #11 — all 13 PASS):**
+
+```
+[PASS] substrate.season_count == 94
+[PASS] substrate.class_rows == 631
+[PASS] substrate.class_abilities == 7066
+[PASS] d1.normalized_freq_sums_to_1.0   | sum = 1.000000
+[PASS] d1.raw_total >= sample_size_kits | pair_sum=1837; kits=489
+[PASS] d2.normalized_freq_sums_to_1.0   | sum = 0.999996
+[PASS] d2.kits_with_mechanics <= total_kit_count
+[PASS] d3.normalized_freq_sums_to_1.0   | sum = 1.000000
+[PASS] d3.multi_element_kits_matches_sql_count | python=436 sql=436
+[PASS] d4.multiplicative_plus_additive_equals_raw_total | mult=10660 add=0
+[PASS] d4.normalized_freq_sums_to_1.0   | sum = 1.000002
+[PASS] d5.t4_capstone_dist_normalized_sums_to_1 | sum = 1.000002
+[PASS] d5.normalized_freq_sums_to_1.0   | sum = 0.999993
+```
+
+**Round-trip per Principle 6:** PASS — JSON re-loadable + re-parseable; schema_version "v1.0"; 5 dimensions present.
+
+**AI-tell line D7:** PRESERVED — zero LLM calls; zero LLM raw-reasoning; pure `collections.Counter` frequency extraction.
+
+**Substrate-led finding flagged to gandalf via knight-rider:** D4 has zero additive-within-bucket pairs because the engine's effect-name → scaling-axis mapping is currently 1-to-1. The Pass 2 trap-detector for scaling-interaction degeneration cannot calibrate against substrate-native same-bucket examples. **Recommendation:** rocket W2.4 test coverage should inject synthetic same-bucket pairs to validate trap-detection path.
+
+**Artifacts:**
+- `reincarnated-engine/data/synergy_priors/v1_co_occurrence_priors.json` (~95 KB; rocket-consumer-ready)
+- `agentic_orchestration/elrond/notes/2026-05-27-wave-2-synergy-priors-methodology.md` (methodology + extraction provenance + 5 recommended follow-ups)
+- `agentic_orchestration/research/scripts/extract_synergy_co_occurrence_priors_2026_05_27.py` (reproducible extraction; idempotent re-run)
+
+**Status:** COMPLETE.
