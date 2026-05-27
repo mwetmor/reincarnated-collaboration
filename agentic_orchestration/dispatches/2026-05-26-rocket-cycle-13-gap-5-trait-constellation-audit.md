@@ -100,3 +100,25 @@ NOT applicable — audit + reporting only. No engine modifications. No regen.
 **Wave:** 0 / Block D feed-in
 **Gates:** Block D verification in pre-launch design session
 **Priority:** P5 — fire parallel; quick turnaround
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-26
+**Agent:** rocket
+**Output:** `agentic_orchestration/rocket/notes/2026-05-26-trait-constellation-audit-gap-5.md`
+
+**Gap count:** 3 gaps (G1, G2 BLOCKING; G3 non-blocking)
+
+**Severity:** BLOCKING for first season — per-class intrinsic trait pool (B9a) does not exist; gear-affix element/mechanic gating does not exist; 0 traits emitted in any generated output across 35 v2_narrow forms, 7 season exports (1,400 gear items), all 11 archetypes.
+
+**Recommendation:** expand-in-Cycle-13. Two specific work units: D8 (intrinsic pool implementation, awaiting gandalf trait vocabulary design dispatch) and D9 (gear-affix gating, depends on D8). Sequence before stat-sheet partition cycle (doc 40 D14) to avoid partition rework risk.
+
+**Post-script empirical count assertions (Discipline #11 / WARN-pattern):**
+- "I cite 35 classes in v2_narrow across 11 archetypes" — verified by Python Counter scan returning 35 total, 11 unique archetype_tag values.
+- "I cite 0 classes with gear traits across 7 seasons" — verified by scanning 7 × 200 = 1,400 gear_pool.json items; all return `has_traits=False`.
+- "I cite 11 VALID_STAT_KEYS and 6 VALID_ABILITY_MODIFIER_KEYS" — verified by `len()` calls on imported frozensets from trait_schema.py.
+- "I cite 7 stat trait pool entries across 3 slots" — verified by counting _STAT_TRAIT_POOL entries: weapon=2, armor=2, accessory=3.
+- "I cite 0 classes with non-empty skill trait_slots" — verified by scanning all 35 classes' skills; trait_slots is always `[]`.
+- "I cite 5 forms in v2_narrow_phase_5_resmoke" — verified by `len()` on resmoke_forms.json.

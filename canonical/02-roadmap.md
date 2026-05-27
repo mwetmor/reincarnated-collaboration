@@ -482,12 +482,12 @@ Architectural commitments locked but execution DEFERRED. Each lists the empirica
 
 | Candidate | Source | Status |
 |---|---|---|
-| Playability discipline (D61) | Doc 40 § 8.10 | ❌ Pending jack-ryan ratification |
-| Dual-effect capstone discipline (D76) | Doc 40 § 8.9 | ❌ Pending |
-| Spirit-guide-pacing discipline (D78) | Doc 40 § 8.9 | ❌ Pending |
-| Commitment-to-consequence discipline (D79) | Doc 40 § 8.9 | ❌ Pending |
-| Sim methodology naming discipline (D84) | Doc 40 § 8.11 | ❌ Pending |
-| Discipline #23 amendment — 3rd operational instance reference | Doc 40 § 1.4 | ❌ Pending jack-ryan amendment write-up |
+| Playability discipline (D61) → **#26** | Doc 40 § 8.10 | ✅ 2026-05-26 — jack-ryan SC-2 canonical landed (engine commit `9705469`) |
+| Dual-effect capstone discipline (D76) → **#27** | Doc 40 § 8.9 | ✅ 2026-05-26 — jack-ryan SC-2 canonical landed |
+| Spirit-guide-pacing discipline (D78) → **#28** | Doc 40 § 8.9 | ✅ 2026-05-26 — jack-ryan SC-2 canonical landed |
+| Commitment-to-consequence discipline (D79) → **#29** | Doc 40 § 8.9 | ✅ 2026-05-26 — jack-ryan SC-2 canonical landed |
+| Sim methodology naming discipline (D84) → **#30** | Doc 40 § 8.11 | ✅ 2026-05-26 — jack-ryan SC-2 canonical landed |
+| Discipline #23 amendment — 3rd operational instance reference | Doc 40 § 1.4 | ✅ 2026-05-26 — jack-ryan SC-3 amendment landed (1st + 2nd instances also made explicit inline) |
 
 ---
 
