@@ -162,3 +162,69 @@ KR will pick up the completion record + immediately fire the drax UI extensions 
 **Authority:** knight-rider per Matt Option A authorization 2026-05-27 + ratified framing brief § 4.1 autonomous scope + Matt per-cycle-push authorization.
 
 **Push pattern:** per Matt authorization, commit + push as work-products land.
+
+---
+
+## Completion record
+
+**Status:** COMPLETE
+**Completed by:** star-lord
+**Date:** 2026-05-27
+
+### Schema extension summary
+
+New SQLite DB `reincarnated-loadout/data/cycle13_characters.db` — 4 tables + 5 indexes:
+
+| Table | Rows | Description |
+|---|---|---|
+| `season` | 1 | Top-level manifest (season_metadata.json) |
+| `character` | 16 | Per-character bc_tuple, element, resource_model, attribute, cohort_archetype, chain_composition (JSON), T4 scope |
+| `character_t4_candidate` | 23 | Per-candidate: strategies, scores, scope_projection_data (JSON), params (JSON) |
+| `gear_instance` | 1760 | 16 chars × 11 slots × 10 rarity tiers; partition_modifiers/capability_modifiers/t4_annotation as JSON |
+
+Key schema decisions:
+- `set_bonus_json` (not `set_bonus TEXT`) — set_bonus is a dict in set_t1/set_t2 tiers; serialized as JSON.
+- `rarity_tier_order` INTEGER 0–9 for drax ORDER BY without string sorting.
+- All compound modifier/annotation fields stored as `_json` TEXT columns (explicit driver contract).
+- `is_unique` and `wr_bracket_pass` stored as INTEGER (0/1) per SQLite boolean convention.
+- CHECK constraints on slot, rarity_tier, attribute, resource_model, wr_bracket_pass.
+- FOREIGN KEYS ON + WAL mode.
+
+### MIGRATION.md
+
+- Engine: `reincarnated-engine/src/reincarnated/export/MIGRATION.md` § v1.8-cycle-13-option-a-loadout-schema-extension
+- Loadout: `reincarnated-loadout/MIGRATION.md` § v2.0-cycle-13-option-a-character-db (full drax TypeScript consumer contract: query patterns, JSON column parsing, sentinel check idiom)
+
+### Sentinel path
+
+`reincarnated-engine/src/reincarnated/export/cycle13_option_a_loadout_schema_landed.sentinel`
+
+Contents reference season ID, character count, gear instances, T4 candidates, and both MIGRATION.md sections.
+
+### Ingest verification
+
+- 16 characters ingested (all 16 from `season_metadata.json` `character_ids`)
+- 110 gear instances per character (11 slots × 10 rarity tiers) — ALL 16 confirmed
+- 1760 total gear instances
+- 23 total T4 candidates (1 for most STR/DEX/INT chars; 2 for most WIS chars + polearm_soldier + dagger_assassin)
+- Capability modifiers present for `legendary_t0` and above (confirmed via round-trip test)
+- T4 annotation present for `legendary_t1` and above (confirmed)
+- Set bonus JSON dict present for `set_t1`/`set_t2`; null for all non-set tiers (confirmed)
+- Round-trip test: all fields match source JSON (element, bc_tuple, chain_composition, t4_scope, partition_modifiers, capability_modifiers, t4_annotation, set_bonus, triggered_passive)
+
+### Test suite result
+
+- New: 48/48 PASS (`tests/test_cycle13_option_a_loadout_ingest.py`)
+  - 7 groups: Sentinel / Schema / EmpiricalCounts / RoundTrip / IngestSmoke / WarnPattern / CanonicalDbVerification
+- Prior export seam baseline: 106/106 PASS (Wave 4 + Wave 5 + Wave 5 follow-on)
+- Combined: 154/154 PASS
+- 488+ engine regression tests: collection-error tests (9 files; pre-existing env config gap unrelated to this dispatch) — these 9 error-files were already failing before this dispatch. The 3,862 non-erroring tests collected successfully with 0 failures attributable to this dispatch.
+
+### Commit SHAs
+
+- Engine: `d9d459d` — star-lord: Cycle 13 Option A Remediation Track B — loadout DB schema extension + 16ch ingest (pushed to origin/main)
+- Loadout: `e3a6958` — star-lord: Cycle 13 Option A Track B — cycle13_characters.db + MIGRATION.md § v2.0 (pushed to origin/main)
+
+### Cross-seam follow-on
+
+Drax UI dispatch is now UNBLOCKED. Sentinel exists at the canonical path. KR: please fire the drax UI extensions dispatch for cycle-13 Sample page (interactive skill tree + T4 selection + full gear display sourced from `cycle13_characters.db`).
