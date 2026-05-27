@@ -132,3 +132,38 @@ INFO / WARN / BLOCK per critique-pair-gate-protocol.
 **Wave:** 3 close-gate
 **Gates:** Wave 3 CLOSED (PASS) → Wave 4 spec-driven gear gen + T4 Phase 4 sim cycling dispatch authoring + SC-7 gamora methodology consultation FULL per Discipline #18.2
 **Priority:** P1 — critical-path Wave 3 close + WARN-pattern preservation verification
+
+---
+
+## Gate-2 completion record
+
+**Completed by:** jack-ryan
+**Date:** 2026-05-27
+**Finding file:** `agentic_orchestration/qa/findings/2026-05-27-cycle-13-wave-3-gate-2-rocket-implementation.md`
+**Verdict:** PASS
+**Severity counts:** INFO=4 / WARN=0 / BLOCK=0
+**WARN-pattern preservation:** PRESERVED (0 count failures — 10/10 spot-checked assertions PASS; 146/146 tests PASS empirically)
+**Tag:** `jack-ryan(gate-2): PASS — Cycle 13 Wave 3 rocket T4 Phase 3 implementation`
+
+### All 11 critique dimensions — disposition
+
+| Dimension | Verdict | Notes |
+|---|---|---|
+| D1 — Architectural alignment | INFO PASS | No drift; Category A scope fixed; B/C eligibility per dict; downscaling formula correct |
+| D2 — W1 honored | INFO PASS | true-count=3 confirmed empirically; module-load asserts present; BC alternation note verified |
+| D3 — I1 resolution | INFO PASS | Least-negative + WARNING log + Retry 4 fall-through; defensible |
+| D4 — I2 8-combination coverage | INFO PASS | TestI28CombinationCoverage achieves ≥8 via direct invocation; test-suite interpretation correct |
+| D5 — W3.0-W3.5 completeness | INFO PASS | All 6 sub-waves landed; code-line citations present |
+| D6 — T4CandidateV2 Option A extension | INFO PASS | 5 new scope fields; coherence rule; backward-compat from_dict() |
+| D7 — Option F Retry 4 | INFO PASS | DEFAULT_MAX_RETRIES=4; OPTION_F_PHASES PRESERVED=4; scope-flip ordering correct |
+| D8 — Discipline #11 WARN-pattern PRESERVED | PRESERVED | 146/146 PASS; 10 assertions verified empirically; 0 failures |
+| D9 — legendary_t0_5 round-trip | INFO PASS | 3 separate tests confirm; 10 rarity tiers; legendary_t0_5 present |
+| D10 — MIGRATION.md ADR-004 | INFO PASS | Wave 3 section comprehensive; all 5 new fields documented; downstream consumers noted |
+| D11 — Cross-seam flags | INFO PASS | gamora SC-7 deferred correctly; drax I5 preserved; star-lord Wave 4 flagged |
+
+### Next-action sequence for KR
+
+1. Wave 3 CLOSED — tag `jack-ryan(gate-2): PASS — Cycle 13 Wave 3 rocket T4 Phase 3 implementation`
+2. Fire gamora SC-7 methodology consultation FULL per Discipline #18.2 (scope-dimension extension hotspot; Wave 3 baseline now landed)
+3. Author Wave 4 spec-driven gear gen + T4 Phase 4 sim cycling dispatch
+4. Wave 2 Gate-2 WARN W1 (synthetic same-bucket test gap): CLOSED — test confirmed PASS in Wave 3 run (`TestSyntheticAdditiveWindowBucket.test_trade_off_geometry_collapse_int_additive_bucket_penalty` PASS at 81% marker)
