@@ -204,3 +204,92 @@ KR will pick up the completion record + fire the CYCLE 13 CLOSE GATE-2 RE-VERIFI
 **Authority:** knight-rider per Matt Option A authorization 2026-05-27 + ratified framing brief § 4.1 autonomous scope + Matt per-cycle-push authorization.
 
 **Push pattern:** per Matt authorization, commit + push as work-products land. Co-author tag per project convention.
+
+---
+
+## Completion record
+
+**Status:** COMPLETE
+**Completed:** 2026-05-27
+**Agent:** drax
+
+### Sample page route(s) extended
+
+- `/sample` — existing route; tab toggle added at top of page:
+  - `Season Archive` tab — existing content (unchanged; no regressions)
+  - `Cycle 13 Characters` tab — new Cycle13SampleSection
+
+### Components added / extended
+
+**Extended:**
+- `src/pages/Sample.tsx` — top-level view toggle (SampleView type: 'archive' | 'cycle13'); Cycle13SampleSection import + render
+
+**New:**
+- `src/data/cycle13Types.ts` — TypeScript types for all 4 DB tables (post-JSON-parse)
+- `src/hooks/useCycle13Data.ts` — hooks + helpers (useCycle13Characters, useCycle13Gear, useCycle13T4, buildInitialChainState, countUnlockedT4Chains, hasSelectedT4, constants PASSIVE_MAX/ACTIVE_MAX/CHAIN_INVESTMENT_MAX/T4_UNLOCK_THRESHOLD_POINTS)
+- `src/components/Cycle13/Cycle13CharacterHeader.tsx` — attribute/element/resource_model/bc_tuple/WR-pass header
+- `src/components/Cycle13/Cycle13SkillTree.tsx` — interactive chain tree (InvestmentControl slider, T4ThresholdBar at 70%, T4CandidatePanel, ChainPanel, Cycle13SkillTree)
+- `src/components/Cycle13/Cycle13GearDisplay.tsx` — 11 slots × 10 rarity tiers (SlotPanel with rarity tabs, RarityTierPanel with partition_modifiers/capability_modifiers/t4_annotation/set_bonus/triggered_passive)
+- `src/components/Cycle13/Cycle13SampleSection.tsx` — top-level section (CharacterSelector grouped by STR/DEX/INT/WIS, skill-tree/gear tab bar)
+- `scripts/export_cycle13_json.py` — SQLite → static JSON export bridge
+- `public/data/cycle13/characters.json` + 16 gear + 16 t4 static JSONs
+
+### Tests added
+
+**Count:** 28 tests across 7 `describe` blocks
+**File:** `src/__tests__/cycle13-db-integration.test.ts`
+**Status:** vitest-ready (same pattern as cipher-no-leak.test.ts; vitest not yet in devDeps)
+
+**Test names:**
+- `Cycle 13 DB schema constants` (5 tests: PASSIVE_MAX=5, ACTIVE_MAX=15, CHAIN_INVESTMENT_MAX=20, T4_UNLOCK_THRESHOLD_POINTS=14, SLOT_ORDER=11, RARITY_ORDER=10)
+- `buildInitialChainState — chain state initialization` (5 tests: 3-chain count, T4/support assignment, chainIds, initial-zero, 1+2 variant)
+- `countUnlockedT4Chains — T4 unlock threshold (Block A3: 70% of chain max)` (5 tests: below/at/above threshold, both T4s unlocked, supporting chains excluded)
+- `hasSelectedT4 — one-T4-at-a-time constraint (Block A4)` (3 tests: none selected, one selected, multiple-selected invariant documented)
+- `Node investment constraints (Block A3)` (3 tests: passive max clamp, active max clamp, T4 binary boolean)
+- `deriveCharacterDisplayName — ID to human label` (5 tests: 5 character IDs → display names)
+
+### Dev-server smoke verification
+
+Dev server: `http://localhost:5174/` — ran during implementation
+
+**Characters smoke-tested:**
+1. `S1_endgame_str_01_heavy_barbarian` (STR/earth/cooldown/dps_min_maxer) — 11 legendary_t1 rows confirmed; caps=1, t4_ann=True per slot; 11 set_t2 rows; set_bonus dict verified; 1 T4 candidate
+2. `S1_endgame_int_03_pyromantic_caster` (INT/fire/cooldown/dps_min_maxer) — 1 T4 candidate (RESOURCE_CONVERSION, character_wide, is_active=1); gear 110 rows
+3. `S1_endgame_wis_02_holy_knight` (WIS/water/energy/balanced) — 2 T4 candidates (both chain_wide_parallel, one is_active=1/one is_active=0); 22 set gear rows (2 per slot × 11 slots); set_bonus dict `{set_id, bonus_2pc, bonus_4pc, scope_preference}` verified
+
+### DB integration verified
+
+- **Sentinel:** `reincarnated-engine/src/reincarnated/export/cycle13_option_a_loadout_schema_landed.sentinel` — CONFIRMED PRESENT (verified via `ls` before building consumer)
+- **Row counts:**
+  - `character`: 16 / 16 expected — MATCH
+  - `gear_instance`: 1760 / 1760 expected — MATCH
+  - `character_t4_candidate`: 23 / 23 expected — MATCH
+  - `season`: 1 / 1 expected — MATCH
+- **JSON parsing:** all `_json` TEXT columns pre-parsed in export script; types enforced in cycle13Types.ts
+- **set_bonus_json:** parsed as dict `SetBonus` type (NOT string) — per star-lord design decision; verified on 22 set gear rows for holy_knight
+
+### Loadout MIGRATION.md entry
+
+- **Path:** `reincarnated-loadout/MIGRATION.md`
+- **Section:** `§v2.1-cycle-13-sample-page-consumer` (2026-05-27)
+- Cross-references `§v2.0-cycle-13-option-a-character-db` (upstream star-lord contract)
+
+### Commit SHAs
+
+- `4cf8312` — feat(drax): Cycle 13 Sample page — 16-char DB view + interactive skill tree + gear display
+- Pushed to `origin/main` (`e3a6958..4cf8312`)
+
+### WARN-pattern preservation chain status
+
+- `useCycle13Characters`: emits `WARN [useCycle13Characters]` on unexpected character count
+- `useCycle13Gear`: emits `WARN [useCycle13Gear]` on unexpected gear row count
+- Existing cipher-no-leak WARN patterns unchanged (cipher-no-leak.test.ts untouched)
+- Chain is intact
+
+### Cross-seam follow-on needed?
+
+**No.** Read-only DB consumption. Star-lord ingest pipeline closed (sentinel confirmed). No engine-side changes needed. Gandalf HTML analysis doc (`agentic_orchestration/gandalf/notes/2026-05-27-cycle-13-character-analysis.html`) sources from the same DB → Matt can compare both views at `/sample` → "Cycle 13 Characters" tab against gandalf's HTML.
+
+**TODO(drax): Cycle 14 integration** — when Cycle 14 characters are generated, re-run `python3 scripts/export_cycle13_json.py` from `reincarnated-loadout/` to regenerate static JSON. No schema changes required per star-lord design decision.
+
+KR: Cycle 13 Track B Step 2 complete. Sample page `/sample` → "Cycle 13 Characters" tab is live. Gate-2 re-verification dispatch can fire when Track A jack-ryan Gate-2 is also complete.
