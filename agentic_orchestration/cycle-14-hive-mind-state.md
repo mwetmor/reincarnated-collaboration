@@ -210,7 +210,22 @@ Rocket combined invocation landed cleanly:
 | jack-ryan Gate-2 PASS | ✅ PASS-with-WARN (0 BLOCK / 1 WARN / 4 INFO) |
 | Path A architectural decisions-log entry | ✅ AUTHORED by jack-ryan at engine `f053281` |
 
-**Scaffold-drift package intake 2026-05-27 (post Wave 1 close):**
+**Option α pivot package status (post Wave 1.5 Path A revert 2026-05-27):**
+
+| Track | Status |
+|---|---|
+| Path A revert (engine `c9fcb1d`) | ✅ COMPLETE — jack-ryan Gate-2 PASS (0 BLOCK / 0 WARN / 2 INFO) |
+| Option α math notes (5; gandalf primary) | ✅ DRAFT COMPLETE 2026-05-27 — engine commits `c679681` + `79c71e9` + `14c534a` + `200e1cb` + `fa33dbc`; collab dispatch completion `e891e9d`. Pattern-A queries DOCUMENTED in notes; methodology consultations fire at Matt-gate ratification routing. 3 Matt-gate questions surfaced (substrate fallback at sparse cells; D3 hybrid naming; E2 canonical-shape persistence). **Next:** jack-ryan Gate-1 DESIGN-MODE review (bundled) → Matt-gate per Discipline #18 math-hotspot |
+| Substrate enrichment (legolas crawl) | ✅ COMPLETE 2026-05-27 — `d936623` (206 rows: 75 INT-AoE + 61 Monk + 70 Hybrid) |
+| Substrate enrichment (elrond curation + DB ingest) | 🟢 FIRING — consuming legolas 206 candidates; resolving 3 monk edge cases (E1/E2/E3) + 2 holy-fire crusader rows (Cycle 15 Path A discriminator); pre-ingest backup; v1_scope total → ~2,499 |
+| Disciplines #40 (c)+#41+#42+#43+#44 (jack-ryan bundle) | ✅ COMPLETE 2026-05-27 — engine `e93d9ad` (4 ratified + bonus #41 ratified = 44 disciplines live); collab `147f378` (refusal-directory structure 10 .gitkeep files) |
+| Move 1 KR OP quality-criterion template | ✅ COMPLETE (KR OP § 3.11 + skill mirror) |
+| Move 5 (KR portion) AGENTS.md orientation phrase | ✅ COMPLETE |
+| Move 5 CLAUDE.md edit | 🚦 Matt-action queued |
+| Per-agent OP amendments (10 files; cross-seam Move 2+3+5 delivery) | ⏳ KR follow-on queued post jack-ryan disciplines landing (✅; now fire-able) |
+| Cycle 15+ surfaced items (gandalf math-note byproducts) | ⏳ DEFERRED: Spirit-Echo accumulation (Math Note 5 § 4.3); per-element THEMATIC_REGISTRY authoring (~8 elements × 20-30 terms; ~half-day gandalf cross-cutting; input to star-lord LLM Math Note 4 § 5.2) |
+
+**Substrate sidecar (Dispatch 1; PRIOR to Option α pivot):**
 
 | Dispatch | Status |
 |---|---|
@@ -242,7 +257,15 @@ Rocket combined invocation landed cleanly:
 10. **Wave 2 gate condition (per jack-ryan Gate-2 closure)** — gamora baseline measurement BEFORE Layer 5 probability tables authored. Investigate at Wave 2 dispatch authoring time (jack-ryan reference to "gamora SC-7" likely means damage-balance baseline measurement; cross-check doc 46 Layer 5 + scope-doc).
 11. **caster-faith remediation (post elrond Fix C audit)** — ✅ HYBRID APPROVED by Matt 2026-05-27 (gandalf verdict `38d0d73`) + **Interpretation III LOCKED** by Matt 2026-05-27 verbatim "Both — ceremonial maces are faith, battle maces are martial" (gandalf-lean ratified; Cycle 15 design call question pre-resolved).
 
-12. **Wave 1.5 Stage 3 Gate-2 WARNs (non-gating; queue for Wave 2 fix-in-place)** — WARN-1: `_EXPECTED_TOTAL_CHAINS = 38` in class_roster.py L561-578 should be 32 (8×3 + 2×4); doc 48 § 2.1 has typographic error (shows 30 (3×8) when correct is 24 (3×8)); rocket reproduced the doc 48 number — **route to gandalf for doc 48 § 2.1 typographic correction + rocket fix-in-place Wave 2 cleanup**. WARN-2: `_total_supporting` assertion at L599 is vacuously true (counts classes not supporting chains; functional invariant holds via __post_init__) — rocket Wave 2 cleanup. INFO carry-forwards: stale synthetic_mode=True comment text (Discipline #39 retirement functional; comment cleanup); bc_target_subspace_generator.py L190 docstring still says default 22 (now 40); Discipline #25 rep-audit carry-forward to Wave 5 dispatch (doc 48 § 2.2 already named). HYBRID approach:
+12. **Wave 1.5 Stage 3 Gate-2 WARNs** — ALL ELIDED via Path A revert at engine `c9fcb1d` (Stage 3 work fully undone; WARN-1 + WARN-2 + INFO carry-forwards no longer relevant since the implementation they referenced no longer exists). Doc 48 § 2.1 typographic error preserved in PRESERVED-FOR-COMPARISON state; no remediation needed since doc 48 is no longer canonical input.
+
+13. **Disciplines #40-#44 ratified Cycle 14 2026-05-27** (engineering-disciplines.md canonical-writes; 44 disciplines now live):
+    - **#40 ratified** via SC-1 jack-ryan `d148808` (no-synthetic-stub-as-permanent-fallback; LOAD-BEARING); + **amendment case (c) canonical-lock RETRACTION** at jack-ryan `e93d9ad` (6-step procedure + doc 48 retraction anchored example)
+    - **#41 ratified** at jack-ryan `e93d9ad` (pre-authored taxonomy interrogation; LOAD-BEARING; serves as Q1-check anchor for #42; surfaced from Option α pivot as coherent foundation)
+    - **#42 ratified** at jack-ryan `e93d9ad` (framing-audit at sub-agent dispatch consumption; LOAD-BEARING; Q1/Q2/Q3 three-question protocol; Move 2 deliverable)
+    - **#43 ratified** at jack-ryan `e93d9ad` (design-quality audit at wave-close; LOAD-BEARING; A1-A5 audit questions; PASS / PASS-with-design-concerns / DRIFT-DETECTED; fires after Gate-2 PASS before KR commits closure record; Move 4 deliverable)
+    - **#44 ratified** at jack-ryan `e93d9ad` (framing-refusal authority for sub-agents; LOAD-BEARING; refusal IS NOT failure; 4 templates; per-agent path `agentic_orchestration/<agent>/refusals/`; 10 .gitkeep files created; Move 3 deliverable)
+    - **Per-agent OP amendments (10 files) queued for KR follow-on** — standard amendment text in gandalf candidate doc § 6. HYBRID approach:
     - **Wave 2 ships Path B** (interpretation-agnostic `WITHIN_CASTER_SHAPE_WEIGHT` table; mace 62% → 25%; per-sub-shape weights mace_hammer 0.25 / sacred_symbol 0.25 / incense_ritual 0.25 / staff_scepter_rod 0.15 / other 0.10): **Wave 2 dispatch authoring queued** — compose Fix B + Fix B-prime as ONE rocket dispatch (Discipline #40 obligation: MIGRATION.md SCAFFOLD-WITH-PENDING-DECISION + Cycle 15 roadmap flag at commit)
     - **Cycle 15 ships Path A** (classifier rule amendment with ceremonial/battle discriminator per Interpretation III; elrond execution) + **Path C** (legolas Mode B Sidecar B targeted enrichment for ceremonial/battle mace discrimination boundary) + gandalf canonical doc amendment reconciling attribute-system § 1.3 / § 3 + doc 47 § 3.1 to lock Interpretation III canonically + gamora BC measurement refresh + star-lord telemetry refresh. Gated on Wave 5 gauntlet + Phase 5 cohesion-judge output (NOT Matt design call — Matt pre-resolved 2026-05-27).
 
