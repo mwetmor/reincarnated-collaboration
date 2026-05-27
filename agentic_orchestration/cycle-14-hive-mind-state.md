@@ -48,7 +48,7 @@
 |---|---|---|---|---|
 | **Wave 0** | ✅ COMPLETE 2026-05-27 | KR + gandalf + jack-ryan + legolas + elrond | (entry) | landed in single-session sweep |
 | **Wave 0.5** | ✅ CLOSED 2026-05-27 | rocket + gamora + elrond (SC-6b) + jack-ryan Gate-2 PASS-with-WARN | 3 sub-agents landed (`3c95883` + `b2e9a86` + `cafd6e4`); Gate-2 PASS-with-WARN (0 BLOCK / 1 WARN / 4 INFO); Discipline #39 EMPIRICAL grep ZERO; Path A decisions-log entry landed at engine `f053281`; 1 WARN tracked as pre-Wave-5 follow-on | landed in single-session sweep |
-| **Wave 1** | ⏳ QUEUED | rocket + gandalf + jack-ryan Gate-2 | Wave 0.5 + SC-4 closure | ~1 week |
+| **Wave 1** | 🟢 GATE-1 PENDING | rocket + gandalf design-spec + jack-ryan Gate-2 | Dispatch authored 2026-05-27 at `agentic_orchestration/dispatches/2026-05-27-rocket-cycle-14-wave-1-concentration-architecture.md` (Layers 1-4+7); rocket follow-on (pipeline wiring + LUT alignment) authored at `agentic_orchestration/dispatches/2026-05-27-rocket-cycle-14-wave-0-5-followon-pipeline-wiring-lut-alignment.md`; Gate-1 routing next | ~1 week post Gate-1 PASS |
 | **Wave 2** | ⏳ QUEUED | rocket + gandalf + jack-ryan Gate-2 | Wave 1 + SC-1 partial ratification (#36 + #37) | ~3-5 days |
 | **Wave 3** | ⏳ QUEUED | gandalf + star-lord + rocket | Wave 0.5 real content + SC-3 closure | ~1 week |
 | **Wave 4** | ⏳ QUEUED | gandalf + rocket + gamora | Wave 2 + Wave 3 | ~3-5 days |
@@ -193,7 +193,7 @@ All 6 sidecars landed (SC-1 jack-ryan / SC-2 gandalf / SC-3 legolas / SC-4 legol
 **Open follow-on items at Wave 0.5 CLOSED (status post-Gate-2):**
 
 1. **LUT alignment WARN (Gate-2 Finding 2; pre-Wave-5-gauntlet prerequisite)** — elrond SC-6b Pass-2 LUT values (martial-heavy=177, ranged=91) diverge from rocket fallback (martial-heavy=200, ranged=150). Benign at Wave 0.5 (live SC-6b values win for all 2,293 v1_scope rows; rocket fallback only fires for non-v1_scope edge cases). Track per Discipline #10 attribution clarity; **KR queues remediation dispatch BEFORE Wave 5 fresh-roster gauntlet sim fires**.
-2. **`OMEGA_PENALTY=0.80` resolution (Q-W05-G1)** — gandalf verdict CONFIRMED 0.80 at `da16652` with three load-bearing additions (rename `OMEGA_CROSS_ATTRIBUTE_PENALTY` + scope-lock Patterns B+C + Wave 4 empirical-evidence gate). Gamora Pattern-A update FIRING in background to apply rename + scope-lock + MIGRATION § Q-W05-G1 RESOLVED.
+2. **`OMEGA_PENALTY=0.80` resolution (Q-W05-G1)** — ✅ RESOLVED. gandalf verdict CONFIRM at `da16652` (rename + scope-lock + Wave 4 empirical gate); gamora Pattern-A update landed at `b3f4db5` (rename `OMEGA_CROSS_ATTRIBUTE_PENALTY` applied; Pattern A/B/C scope-locks explicit; MIGRATION § v1.33 addendum marks Q-W05-G1 RESOLVED with 4 re-engagement criteria + Wave 4 empirical gate; doc-comment citations to weapon-substrate-composition-policy + gandalf verdict added; math-note status IMPLEMENTED).
 3. **`_SCALING_ATTR_NORMALIZE` cross-seam contract** — Gate-2 INFO Finding 3: MIGRATION.md § v1.33 addendum is sufficient; contract is additive-safe even if rocket changes to lowercase emission; no decisions-log entry needed. **RESOLVED**.
 4. **Cycle 14 pipeline wiring sidecar (NEW; rocket surfaced)** — `per_skill_emitter.py` + `substrate_weapon_binding.py` are standalone modules; wiring into `season_generation_pipeline.py` is a separate dispatch. **Wave 5 prerequisite**; KR authors wiring dispatch next.
 5. **Full cross-seam round-trip smoke** — per-spec PARTIAL at Wave 0.5; Wave 5 prerequisite per framing brief Q8 (Gate-2 INFO Finding 4 confirms correct sequencing).
