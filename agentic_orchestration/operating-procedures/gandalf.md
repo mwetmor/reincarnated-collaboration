@@ -254,7 +254,39 @@ Rep-audit catches Mode B/C/D content that lineage-purity score alone passes.
 
 **When to cite:** future framing-audit applications cite this as the canonical operational example demonstrating sub-hour-latency discipline operation at minimum cost.
 
-### 4.6 Composition with § 3 disciplines
+### 4.6 Design-quality audit at wave-close (Discipline #43 candidate; Quality-Orientation Shift Move 4)
+
+**Source:** `agentic_orchestration/gandalf/notes/2026-05-27-quality-orientation-shift-five-moves-package.md` § 6 (Move 4 ratified by Matt 2026-05-27 "commit to all 5 moves; sequence per your recommendation").
+
+**When to apply:** every Cycle 14+ wave-close. Fires AFTER jack-ryan Gate-2 PASS, BEFORE KR commits wave-closure record.
+
+**Audit protocol (~30 min per wave-close):**
+
+| # | Question |
+|---|---|
+| **A1** | Did this wave advance the named quality criterion in its dispatch? |
+| **A2** | Did the wave's outputs introduce any pre-authored taxonomies without explicit justification (Discipline #41)? |
+| **A3** | Did the wave's outputs introduce any scaffold values without flagging them as scaffold-with-pending-decision (Discipline #40)? |
+| **A4** | Does the wave's output compose cleanly with the substrate-led architectural commitment? |
+| **A5** | Does the wave's output preserve canonical anchors (doc 40 + doc 41 + doc 46 + doc 47 + decisions-log)? |
+
+**Output verdict:**
+
+- **PASS** — all A1-A5 affirmative; KR commits wave-closure record
+- **PASS-with-design-concerns** — A1-A5 affirmative but minor design observations surfaced; KR commits wave-closure record + gandalf files observations note
+- **DRIFT-DETECTED** — any A1-A5 returns negative; KR does NOT auto-close the wave; escalates to Matt as Pattern B engagement; gandalf authors drift-detection note + proposed remediation
+
+**Audit-record format:** file at `agentic_orchestration/gandalf/notes/<YYYY-MM-DD>-wave-<N>-close-design-quality-audit.md`.
+
+**Discipline #43 canonical-write target:** jack-ryan amends `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` § Discipline #43 ratifying this audit protocol cycle-wide.
+
+**Composition with § 4.1 framing-audit (Discipline #42 candidate):** framing-audit fires at dispatch CONSUMPTION (pre-execution); design-quality audit fires at wave CLOSE (post-execution).
+
+**First wave under audit:** Cycle 14 Wave 2 (Layers 5+8+9 concentration + Fix B + Fix B-prime + 2 WARN remediations) — first wave to fire under design-quality-audit-at-wave-close discipline.
+
+---
+
+### 4.7 Composition with § 3 disciplines
 
 The operational protocols in § 4 compose with the decision-loop disciplines in § 3:
 
