@@ -14,13 +14,13 @@
 
 ## 0. What this skill IS and IS NOT
 
-**IS:** the universal reference wrapper for the 30 engineering disciplines (25 original + 5 new Cycle 13 SC-2 additions). Names each discipline with a one-line summary; provides when-to-cite triggers; cross-references to the authoritative source. Loaded on every session that touches code, dispatches, gates, methodology selection, or discipline citation.
+**IS:** the universal reference wrapper for the 32 engineering disciplines (25 original + 5 Cycle 13 SC-2 additions + 2 Cycle 13 SC-2 expansion additions). Names each discipline with a one-line summary; provides when-to-cite triggers; cross-references to the authoritative source. Loaded on every session that touches code, dispatches, gates, methodology selection, or discipline citation.
 
 **IS NOT:** the authoritative source (that's `engineering-disciplines.md` in engine repo; ALWAYS the single source of truth when discipline text disagrees). NOT a substitute for jack-ryan's Gate-1 / Gate-2 review (jack-ryan applies disciplines; this skill helps agents cite them correctly upfront). NOT the full named-pattern reference (B14.5 V1 primary loop pattern + R-prescriptions live in the engineering-disciplines source).
 
 ---
 
-## 1. The 30 disciplines (one-line each)
+## 1. The 32 disciplines (one-line each)
 
 | # | Discipline | When it bites |
 |---|---|---|
@@ -55,6 +55,8 @@
 | 28 | **Spirit-guide-pacing discipline — NEUTRAL OBSERVATION / data-oracle voice** | Any dispatch producing spirit-guide text, projection language, or advisory output |
 | 29 | **Commitment-to-consequence discipline — no free reversibility on commitment-class decisions** | Any dispatch implementing high-stakes commitment mechanics; respec, gear destruction, skill investment |
 | 30 | **Sim methodology naming discipline — name methodology patterns explicitly at math hotspots** | Any gamora methodology consultation; any multi-T4 / multi-cohort / multi-node sim dispatch |
+| 31 | **Dual-effect separability discipline — each dual-effect layer MUST be independently coherent (D76 amendment; composes with #27)** | Any T4 effect-pair definition (Category A + B/C); Cycle 13 T4 algorithm Phase 1-3; jack-ryan Gate-1 on T4 design specs; separability test: each layer must survive removal of the other |
+| 32 | **First-do-no-harm discipline for algorithmically-generated T4 keystones — two-pass synergy scan required; net = resolve − create** | Wave 2 T4 algorithm compositional synergy scan implementation; legendary added-skill generation at consumption time; any algorithmic synergy detection; cohesion-judge Phase 5 validation |
 
 ---
 

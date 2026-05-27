@@ -97,3 +97,28 @@ NOT applicable.
 **Wave:** 0 / Sidecar (async / non-blocking)
 **Gates:** none directly; ratification unblocks downstream citation of #31 + #32 in Wave 2 T4 algorithm implementation
 **Priority:** P2 — fire parallel with Wave 1 + SC-4 expansion + SC-6 audit
+
+---
+
+## Completion record — 2026-05-27
+
+**Completed by:** jack-ryan
+**Status:** DONE — both disciplines landed; cross-updates applied
+
+### Disciplines landed
+
+- **#31 (standalone, not #27.1)** — Dual-effect separability discipline; D76 amendment composing with #27 as quality criterion. Numbering rationale: #27 tests presence (dual-effect exists); #31 tests coherence (each layer survives removal of the other). Orthogonal checks; standalone is cleaner. Founding instance: corrected Blood Magic Blood Magic example with two-gate separability test table.
+- **#32** — First-do-no-harm discipline for algorithmically-generated T4 keystones; two-pass synergy scan (Pass 1 resolve + Pass 2 preserve); net = resolve − create. Founding instance: life-steal-from-bleed against bleed-immune bosses case.
+
+### Cross-updates applied
+
+| File | Change |
+|---|---|
+| `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` | Scope note updated (30 → 32); #31 + #32 entries inserted before R-prescriptions; Anatomy section updated |
+| `agentic_orchestration/operating-procedures/engineering-disciplines.md` | IS statement updated (30 → 32); table header updated; #31 + #32 rows added |
+| `canonical/00-ground-state.md` § 1 engineering-disciplines row | Updated count 30 → 32; #31 + #32 names and sources added; 2026-05-27 SC-2 expansion noted |
+| `.claude/skills/reincarnated-engineering-disciplines/SKILL.md` | NOT updated — write permission denied for `.claude/skills/`; that file is a packaging artifact under Stream 3 (gandalf) authority; operating-procedures version is authoritative; flag to gandalf for next skill-sync pass |
+
+### Commit
+
+See tagged commit: `jack-ryan: engineering-disciplines amendment — Cycle 13 SC-2 expansion (#31 + #32 from 2026-05-27 Pattern-B session)`
