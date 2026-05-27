@@ -140,3 +140,43 @@ After this dispatch lands, KR authors:
 - **Stage 3 dispatch (rocket Wave 1.5 implementation)** consuming Stage 2 design-spec + math-notes; implements per consolidated doc § 3.3 items 1-5 (chain count + T4 count rule + supporting chain + branching + active T4 marker)
 
 Stage 1 → Stage 2 → Stage 3 sequential per Option C path.
+
+---
+
+## Completion record — 2026-05-27 — elrond
+
+**Status:** COMPLETE — audit deliverable filed at `agentic_orchestration/elrond/notes/2026-05-27-cycle-14-wave-1-5-class-roster-substrate-audit.md`.
+
+**Effort actual:** ~3 hours (within dispatch ~4-8 hour estimate; tighter side due to per Q-W15-S1-1 elrond decision to surface 34 seeds rather than pad to 50)
+
+**Deliverable summary (all 5 dispatch-required sections present):**
+
+- § 1 Substrate evidence overview — row counts, distributions, lineage/register signal, BC-axis proxy signal per primary_stat
+- § 2 ~30-50 candidate archetype seeds — **34 surfaced** with substrate-evidence anchoring per archetype (per Q-W15-S1-1 elrond call: substrate-natural clustering ~30; padding to 50 would manufacture without substrate vote)
+- § 3 BC-axis coverage cross-reference — coverage matrix per seed × BC axis + § 3.2 substrate-empty cells + § 3.3 over-saturated cells + § 3.4 INFORMATIONAL Cycle 13 cohort substrate-fit
+- § 4 Chain-count + supporting-chain candidate evidence per archetype — substrate vote on 3 vs 4 chain (~65% 3-chain) + substrate-evidenced supporting-chain themes
+- § 5 Recommended Stage 2 design-call agenda — 14 questions for gandalf across 4 categories (roster selection / chain-count + supporting-chain / BC-cell coverage / substrate-enrichment commission)
+
+**Q-W15-S1-1 (candidate count):** 34 seeds (tighter side of 30-50 range per substrate evidence)
+**Q-W15-S1-2 (BC-axis prioritization):** comprehensive coverage with Cycle 13 cohort substrate-fit informationally documented in § 3.4
+**Q-W15-S1-3 (lineage filtering):** substrate-natural distribution (named pool is 95% fantasy_generic; lineage-balanced filtering not feasible against named substrate — lineage signal lives in category rows instead; surfaced as Q-S2-4 for gandalf)
+**Q-W15-S1-4 (named vs category):** BOTH — named primary for form-vocabulary identity; category supporting for lineage signal + form-coverage validation
+
+**Anti-stall discipline observed:** stayed within ~30-50 seed pool (landed at 34); did not expand scope; surfaced substrate-enrichment commission candidates as Stage 2 questions (§ 5.4) rather than firing them now
+
+**Out-of-scope adherence:** confirmed in audit § 6 sign-off; did NOT select final roster, lock chain counts, identify final supporting chains, amend canonical docs, touch DB, or reproduce Cycle 13 archetype list as candidate pool
+
+**No Pattern-A queries fired:** elrond resolved Q-W15-S1-2 and Q-W15-S1-3 per substrate evidence without gandalf consultation (substrate vote was clear)
+
+**Return summary to KR:**
+
+- **Candidate archetype count:** 34 seeds
+- **Clusters per primary_stat:** STR-martial-heavy 10 seeds (over-saturated) + STR-ranged 3 seeds; DEX-martial-light 7 seeds + DEX-ranged 5 seeds (rich form-vocabulary); INT-caster-arcane 4 seeds; WIS-caster-faith 4 seeds (with strong AoE-support evidence); plus § 2.7 supporting-archetype substrate (shield/banner/talisman/horn — 184 rows; supports Option C supporting-chain identity per doc 40 § 6.6.1)
+- **BC-axis coverage gaps:** INT-AoE empirically near-empty (6 thin rows); INT-high-tempo + WIS-high-tempo at 0 rows; WIS-melee-light at 0; STR-thrown-ranged at 0; DEX-AoE thin
+- **BC-axis over-saturation:** STR-melee-cleave-medium-tempo (5 candidate seeds); DEX-ranged-single-medium (4 seeds); INT-mid-ranged-single-medium (3 seeds)
+- **Chain-count substrate vote overview:** ~65% 3-chain / 15% 4-chain / 12% ambiguous / 9% thin-fold-candidate
+- **Stage 2 design-call agenda recommendations:** 14 questions for gandalf across 4 categories — see audit § 5
+
+**Closure:** audit complete; KR can now author Stage 2 (gandalf class-roster design call) + Stage 3 (rocket Wave 1.5 implementation) dispatches per dispatch § Sequencing note.
+
+**Signed:** elrond (data steward — catalogue DB + abstraction-analysis seam)
