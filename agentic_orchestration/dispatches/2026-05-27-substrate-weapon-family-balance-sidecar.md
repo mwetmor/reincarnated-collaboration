@@ -186,3 +186,38 @@ Fix B implementation is Wave 2 scope (alongside Layer 8 set keying). Dispatch to
 ### Fix C — elrond seam — NOT rocket scope (firing in parallel)
 
 Fix C (caster weapon_kind variety audit) is elrond's seam. Rocket makes no record here; elrond appends their own completion record when audit completes.
+
+---
+
+### Fix C — elrond — AUDIT COMPLETE (2026-05-27)
+
+**Findings file:** `agentic_orchestration/elrond/notes/2026-05-27-caster-weapon-kind-audit.md`
+
+**Verdict shape:** mixed — INFO close on caster-arcane; REMEDIATION NEEDED on caster-faith.
+
+**Empirical findings (post-Fix-A footprint):**
+
+- **caster-arcane (159 rows):** GENUINELY DIVERSE on the within-caster identity beat. Staff 40% (64), rod 30% (47), wand/scepter/tome/orb/focus collectively ~7% (12), plus ~23% mis-categorized source-noise (Crystal-prefixed melee weapons mis-tagged caster, museum-piece Smithsonian noise, moctezuma_atlatl etc.). The substrate's caster-arcane diversity hypothesis HOLDS. No remediation needed; optional non-gating curation pass queued for the 36-row miscategorization tail.
+
+- **caster-faith (146 rows):** **MACE-DOMINATED at 62% (90/146).** D&D "cleric carries a mace" trope bleeding into the substrate's family classifier. Genuine faith-flavor instruments (censers, holy-water sprinklers, crucifixes, vajra, rosaries, thuribles) total ~25 rows (~17%). Staff-shape faith instruments essentially absent (5 rows, 3%). Within-family identity beat structurally broken — sampling uniformly produces a mace 62% of the time.
+
+**Architectural finding (out-of-scope but flagged):** `weapon_kind` enum is a row-role classifier (template/unique/contamination), NOT a sub-shape classifier. Sub-shape lives ONLY in `canonical_name` free-text. `weapon_kind_classified_subtype` is too coarse (handheld_weapon / accessory_handheld / armor_shield / NULL). No native sub-shape granularity exists. Future Cycle-15 substrate-architecture candidate: add `weapon_sub_shape` enum column.
+
+**Remediation recommendation:** **gandalf design call** to pick between two pre-Wave-5-feasible paths:
+
+- **Path A (elrond Tier 1 recommendation):** substrate-classifier reclassification — move mace-family rows from `weapon_type_family = 'caster-faith'` to `martial-heavy`/`martial-light`. Caster-faith shrinks 146→~56 rows dominated by genuine faith-instrument shapes. Addresses root cause; aligns vocabulary with mechanics. Cross-seam impact: rocket main_weapon binding volume change, gandalf design-intent on faith-caster identity, gamora BC measurement refresh.
+
+- **Path B (Tier 2):** runtime within-family sampling adjustment — `WITHIN_CASTER_SHAPE_WEIGHT` table in `substrate_weapon_binding.py`; under-weight mace-keyword rows when sampling caster-faith. Non-destructive; reversible; ships Wave 2 alongside Fix B. Cross-seam impact: rocket-only; gandalf scopes acceptance ratios.
+
+- **Path C (queued for later, NOT pre-Wave-5):** substrate library enrichment — commission legolas Mode B re-crawl with sub-shape targeting (prayer-staff, censer, orb-of-faith, tome-of-scripture, crozier, scepter, focus, relic, monstrance) to add ~80-120 non-mace faith-instrument rows. Highest cost; best long-term; queue for Cycle 15.
+
+**Q-SIDE-2 answer:** caster `weapon_kind` is NOT heavily skewed in the spec's sense (named_template dominates over category) — but the deeper sub-shape question reveals caster-faith IS heavily skewed at the canonical_name-derived sub-shape layer (62% mace). Recommended remediation path: gandalf design call selecting between Path A (preferred) and Path B (fallback); Path C queued as future substrate work.
+
+**Routing to KR:**
+- Route gandalf design call for Path A vs Path B decision (pre-Wave-5; small scope)
+- Queue caster-arcane miscategorization cleanup pass (non-gating; future elrond curation dispatch)
+- Queue Cycle-15 substrate-architecture candidate (`weapon_sub_shape` enum column; deferred design call)
+
+**Anti-stall discipline observed:** stopped after audit + recommendation per dispatch § Out of scope. No substrate library modification fired. No remediation implementation in this session. No touch to Fix A / Fix B (rocket's seam).
+
+**Authority basis:** dispatch 2026-05-27 substrate-weapon-family-balance-sidecar.md Fix C; Matt 2026-05-27 ratified three-fix substrate recommendation inline; elrond OP § 2 Pattern A-light mode (small focused empirical audit) + § 3.2 substrate-led discipline (substrate's vote on family classification surfaced; semantic interpretation deferred to gandalf design call).
