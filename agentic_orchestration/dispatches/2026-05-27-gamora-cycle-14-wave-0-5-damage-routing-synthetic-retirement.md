@@ -170,3 +170,70 @@ Per Matt 2026-05-23 directive + scope-doc § 4.1: gamora is autonomous within si
 - `agentic_orchestration/dispatches/2026-05-27-rocket-cycle-13-close-w4-synthetic-player-class-cross-seam-adr.md` (Cycle 13 W4 ADR; OBSOLETE for production paths at Wave 0.5)
 - Engineering disciplines #11 + #12 + #18 + #19 + #38 + #39
 - Hive-mind protocol § 4 + § 7 + § 10.2
+
+## Completion record
+
+**Completed by:** gamora
+**Session date:** 2026-05-27
+**Commit:** pending (auto-fire per CLAUDE.md addendum)
+**Tag:** `gamora/v1.5-wave-0-5-damage-routing-synthetic-retired` (pending)
+
+### Items completed
+
+**Item 1 — Damage Scaling Routing: COMPLETE**
+
+Three typed damage path helpers implemented in `damage_resolver.py`:
+- `_calc_physical_damage_raw(skill, attacker)` — weapon-seeded base (scaffold sentinel: 0.0 → legacy fallback)
+- `_calc_magical_damage_raw(skill, attacker, effect_params)` — spell-seeded base; SC-5 R1 additive spell_pct_pool
+- `_calc_hybrid_damage_raw(skill, attacker, effect_params)` — three patterns; ω-penalty for cross-attribute
+
+`CombatantState` extended with three weapon sim fields (`weapon_base_physical_damage`, `weapon_spell_damage_modifier`, `weapon_element_affinity_modifiers`); populated from `carried_gear["weapon"]` in `from_player_class()`.
+
+**Cross-seam key normalization fix (Discipline #12 behavior change — called out explicitly):**
+`resolve_skill()` now normalizes `skill.scaling_attribute` uppercase short-forms ("INT", "WIS", "STR", "DEX") to `attribute_values` lowercase full-form keys ("intelligence", "wisdom", "strength", "dexterity"). Fixes silent `scaling_stat=0` undercount that was silently bypassing all attribute scaling. Documented in MIGRATION.md § v1.33 addendum as a behavior change (higher damage values for typed-path skills), not a silent bug fix.
+
+**Item 2 — synthetic_mode RETIREMENT: COMPLETE**
+
+Structural removal from all three production paths confirmed. Empirical Gate-2 criterion verified:
+```
+grep -rn "synthetic_mode" src/reincarnated/simulation/ --include="*.py"
+```
+Returns ONLY comment/docstring references — zero functional production code.
+
+Discipline #12 `in_band` semantic restored: `in_band = sg_result.overall != SUBGATE_BLOCK` (KPM within cohort band).
+
+**Item 3 — Cross-seam round-trip smoke: PARTIAL**
+
+Four-test manual smoke suite all PASS:
+1. Magical T1 fire INT=80 spell_mod=50% fire_affinity=10%: got 537.60, exp 537.60 PASS
+2. Magical T4 water WIS=100 zero mods: got 7200.00, exp 7200.00 PASS
+3. Physical scaffold (weapon_base=0.0): dmg=0.00, scaffold fallback as expected PASS
+4. Magical T1 fire INT=50 fire_res=20%: got 240.00, exp 240.00 PASS
+
+Full cross-seam validation (real rocket Track D character JSON → gauntlet_sim routing) deferred pending:
+- Rocket Track D pipeline integration (background agent a1fbc1fb04c185676)
+- Elrond SC-6b completion (background agent add4557985230f52b)
+
+### Deferred items
+
+- Q-W05-G1 (ω-penalty confirmation): `OMEGA_PENALTY=0.80` provisional; gate = gandalf Pattern-A confirmation
+- Q-W05-G2 (DoT sub-formula): not implemented in v1; deferred per out-of-scope note
+- Q-W05-G3 (_SyntheticPlayerClass test disposition): class remains in generation/ (rocket seam); test fixtures may use it; no action needed from gamora
+- Q-W05-G4 (secondary item damage routing): deferred; no ammo/shield/talisman classes in v1 kit
+
+### Pre-existing test failures (not introduced by Wave 0.5)
+
+All confirmed via `git stash` baseline verification:
+- `test_different_seeds_vary`: pre-existing (100% class win rate with damage_modifier=0.30)
+- `test_range_profile` 11 failures: pre-existing (generation schema change)
+- `test_gear_cp3` 1 failure, `test_gear_cp6` 3 failures: pre-existing
+- `test_wind_controller_dps_floor` 4 failures: pre-existing
+
+Wave 0.5 baseline: 22 total failures; pre-Wave-0.5 baseline: 24 total failures (Wave 0.5 reduced 2 pre-existing failures through incidental code path improvements).
+
+### MIGRATION.md status
+
+MIGRATION.md § v1.33 authored and filed, covering:
+- Item 1: new CombatantState fields, new constants, new helpers, formula convention, SC-5 Appendix A refinements, cross-seam contract (rocket → gamora), scaffold state, round-trip clause
+- Item 2: Discipline #12 semantic restoration, three production paths modified, `_SyntheticPlayerClass` disposition, empirical grep criterion, downstream consumer impact (star-lord: NO schema impact)
+- Addendum: scaling_attribute key normalization — cross-seam contract clarification; behavior change documented explicitly per Discipline #12
