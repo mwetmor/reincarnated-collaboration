@@ -23,6 +23,32 @@
 
 ---
 
+## 0.1 Amendment-pass-record (cumulative)
+
+This § tracks substantive amendments to doc 39 since initial authoring. Each entry names the date, scope, and load-bearing implication. Most recent first.
+
+### Amendment 2026-05-27 evening — Path (1) Cycle 14 scope expansion + Discipline #46 protection
+
+**Author:** gandalf (story-and-design steward)
+**Authority:** Matt 2026-05-27 verbatim "I confirm Path (1) + Discipline #46 + the operational moves above"
+
+**Scope of amendment:**
+- **§ 5.6 Phase 6** — DEFERRED to Cycle 15+ note added; Cycle 14 v1 ships Wave 5 without visual coalescence; empirical-evidence trigger named for Cycle 15 implementation
+- **§ 5.7 Phase 7** — 2-LAYER for Cycle 14 v1 (mechanical + cohesion); 3-LAYER when Phase 6 lands Cycle 15+; Discipline #46 composition added
+- **§ 5.8 Phase 8** — Reincarnated v1 export only via existing star-lord Track C; multi-profile export deferred Cycle 15+
+
+**Load-bearing implication:** Cycle 14 implements canonical Phase 4 + Phase 5 (full, with multimodal clustering + faction-coalescence) + Phase 7 (2-layer) per architectural commitment that was preserved through historical archival but never implemented. Path (1) brings implementation under quality > timeline (Q10) directive. Estimated Cycle 14 total timeline ~10-15 weeks.
+
+**Pre-Phase-4 protection:** Discipline #46 candidate authored as load-bearing pre-Phase-4 work — DB anti-materialization + stream discipline; per-cell bounding for math gates prevents O(n²) kernel-panic-class failures as kit archive grows across seasons.
+
+**Companion docs (load-bearing for this amendment):**
+- `agentic_orchestration/gandalf/notes/2026-05-27-path-1-phase-4-5-7-cycle-14-scope-expansion.md` (Path 1 recognition record; refined scope + 11-discipline composition)
+- `agentic_orchestration/gandalf/notes/2026-05-27-discipline-46-db-streaming-candidate.md` (Discipline #46 candidate; routes to jack-ryan)
+- `agentic_orchestration/gandalf/notes/2026-05-27-path-1-kr-scope-expansion-kicker.md` (KR routing; sequencing per § 3)
+- `agentic_orchestration/gandalf/notes/2026-05-27-no-classes-architectural-recommitment.md` (composes — Phase 4 + 5 substrate-led at cross-kit level)
+
+---
+
 ## 0. TL;DR
 
 Architecture B is the production engine flow for Reincarnated v1 and all commercial profiles via substrate-genre-flagging unified-architecture pattern. Key locks:
@@ -753,6 +779,8 @@ Without empirical-trigger fire, Architecture B stays locked. v1 ships under Arch
 
 ### 5.6 Phase 6 — Visual Coalescence
 
+> **AMENDED 2026-05-27 evening (Path 1 ratification):** DEFERRED to Cycle 15+ — galadriel CV pipeline not ready for production output at Cycle 14 close. Empirical-evidence trigger for Cycle 15 implementation: Wave 5 production season ships (Reincarnated v1) via Phase 7 2-LAYER joint-gate (mechanical + cohesion only) WITHOUT visual coalescence; player-feedback + visual-quality-bar evidence informs Cycle 15+ Phase 6 implementation scope. See `agentic_orchestration/gandalf/notes/2026-05-27-path-1-phase-4-5-7-cycle-14-scope-expansion.md` § 3.4.
+
 **Owner:** galadriel
 
 **Input:** fully-coalesced kit (mechanical + bound substrate + element-flavor + naming)
@@ -767,23 +795,31 @@ Without empirical-trigger fire, Architecture B stays locked. v1 ships under Arch
 
 ### 5.7 Phase 7 — Joint-Gate Evaluation
 
-**Owner:** gandalf + jack-ryan + Matt
+> **AMENDED 2026-05-27 evening (Path 1 ratification):** 2-LAYER for Cycle 14 v1 (mechanical + cohesion); 3-LAYER (add visual) when Phase 6 implementation lands Cycle 15+. Composes with Discipline #18 + Discipline #46 (per-cell bounding for math-gate composition). See `agentic_orchestration/gandalf/notes/2026-05-27-path-1-phase-4-5-7-cycle-14-scope-expansion.md` § 3.3.
 
-**Input:** fully-coalesced + visualized kit
+**Owner:** gandalf (composition spec) + jack-ryan (Discipline #18 + #46 canonical-write) + Matt (joint-gate threshold ratification at calibration time)
 
-**Action:** Discipline #18 mechanical AND cohesion AND visual pass
+**Input:** fully-coalesced kit (mechanical Phase 4 ACCEPTED + cohesion Phase 5 PASS) + (Cycle 15+: visualized kit from Phase 6)
 
-**Output:** kit APPROVED for production or returned to specific phase for refinement
+**Action:**
+- **Cycle 14 v1 — 2-layer gate:** mechanical (per-tier WR within contract + Phase 4 archive ACCEPTED) AND cohesion (Phase 5 cohesion-judge threshold + faction-coalescence cluster membership coherent) AND profile-specific (Reincarnated v1 config compliance)
+- **Cycle 15+ — 3-layer gate (full):** add visual (style register compliance ≥ threshold) when Phase 6 lands
+
+**Output:** kit SHIPPED-WORTHY or HELD (with reason: mechanical-fail / cohesion-fail / both); HELD kits may return to specific phase for refinement OR be rejected per Phase 4 + Phase 5 design call E (reject handling policy; see Path 1 in-advance-design-calls record)
 
 ### 5.8 Phase 8 — Profile Assembly + Export
 
+> **AMENDED 2026-05-27 evening (Path 1 ratification):** Cycle 14 ships **Reincarnated v1 export only** via existing star-lord Track C transform pipeline. Multi-profile export (Profile B B2B SaaS + Profile C mod-pack + Profile D solo-dev) DEFERRED to Cycle 15+ commercial work. See `agentic_orchestration/gandalf/notes/2026-05-27-path-1-phase-4-5-7-cycle-14-scope-expansion.md` § 3.5.
+
 **Owner:** rocket (export pipeline) + star-lord (output / telemetry / LLM)
 
-**Input:** approved kit
+**Input:** approved kit (SHIPPED-WORTHY per Phase 7 2-layer joint-gate)
 
-**Action:** filter by profile config (Reincarnated v1 vs future commercial profile per Variant C); format and ship
+**Action:**
+- **Cycle 14 v1:** Reincarnated v1 export via existing star-lord Track C transform; existing pipeline preserved
+- **Cycle 15+ (deferred):** filter by profile config (Profile A Reincarnated + Profile B B2B SaaS + Profile C mod-pack + Profile D solo-dev per Variant C engine architecture); format and ship per profile
 
-**Output:** shipped content (Reincarnated v1 player content; or future commercial profile content)
+**Output:** shipped content (Cycle 14: Reincarnated v1 player content via Track C; Cycle 15+: multi-profile shipped content)
 
 ---
 
