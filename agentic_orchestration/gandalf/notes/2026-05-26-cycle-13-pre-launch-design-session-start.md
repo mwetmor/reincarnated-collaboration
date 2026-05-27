@@ -50,9 +50,9 @@ Optional deeper reads if specific gap surfaces:
 
 ## 2. Session agenda (proposed structure; ~2-4 hrs)
 
-### Block A — T4 + skill tree architecture lock (~45-60 min)
+### Block A — T4 + skill tree architecture lock (~45-75 min)
 
-Resolves Q7 items 1-4 + 6 (from Cycle 13 framing brief):
+Resolves Q7 items 1-4 + 6 (from Cycle 13 framing brief) + NEW T4-failure-handling decision (Matt 2026-05-26 surfaced):
 
 | Decision | Options to consider |
 |---|---|
@@ -61,6 +61,7 @@ Resolves Q7 items 1-4 + 6 (from Cycle 13 framing brief):
 | **Skill point economy** (Q7 item 3; D71) | Per-point allocation vs per-chain unlock vs hybrid; total budget per character |
 | **Respec rules** (Q7 item 4; D73) | Composes with D65 respec-with-legendary-trigger mechanism; specifics of base respec cost / time / opportunity cost |
 | **First-pass class chain architecture** (Q7 item 6) | Which classes have which chains; hybrid/multi-element design (e.g., fire-primary + lightning-secondary class chain structure per D83) |
+| **T4-failure-handling** (NEW — Matt 2026-05-26): when expected T4 count fails WR-bracket validation, what happens? | **Recommended Option F (hybrid):** (1) algorithm regenerates failing T4 with alternate strategies from registry (3 attempts, configurable per D62 compute budget); (2) if all regeneration attempts fail, ship character with partial T4 (in-band subset; chain keeps T1-T3 nodes but no functional capstone); (3) minimum threshold = ≥1 T4 in-band for character to ship at all; (4) track regeneration rate as quality metric. Alternatives: Option A (downgrade class to fewer chains), Option B (scrap whole character), Option C (ship with partial T4 without retry), Option D (retry only), Option E (substitute T4 across chains). Architectural fit reasoning per gandalf 2026-05-26 analysis: composes with D1 + D67 + D65 + Q10 + D62. |
 
 **Session output:** lock decisions; capture in updated T4 PM1 prep doc
 

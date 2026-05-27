@@ -153,13 +153,31 @@ proposed first action.
 
 1. **Restart Mac first** (your stated next step) — this prompt assumes fresh context. Knight-rider session-start protocol will load ground-state + doc 38 + doc 39 + doc 40 + new roadmap automatically.
 
-2. **Pre-launch design session timing** — the KR prompt assumes the Matt + gandalf design session per `2026-05-26-cycle-13-pre-launch-design-session-start.md` happens BEFORE KR fires Wave 0 dispatches. KR will detect whether session has fired and pause if not. You can run the design session before invoking KR, OR invoke KR first and have KR monitor for session completion.
+2. **Parallel sequencing RECOMMENDED (Matt 2026-05-26 clarification):** invoke KR right after Mac restart AND run gandalf design session in parallel. KR has substantial prep work that doesn't depend on design session outputs.
 
-3. **My recommendation: design session first.** It produces inputs KR needs; without it, KR can only do prep work (read context, verify Cycle 12 state, queue Wave 0 dispatch authoring). With session outputs, KR can immediately fire Wave 0 → Cycle 13 launches in earnest.
+   **KR parallel work (safe to fire immediately):**
+   - Verify Cycle 12 state + monitor close
+   - Fire SC-4 legolas Mode A research dispatch (gates Wave 1; takes time)
+   - Fire SC-2 jack-ryan engineering-discipline ratification (async)
+   - Fire SC-3 jack-ryan Discipline #23 amendment write-up (async)
+   - Fire GAP 5 trait constellation audit dispatch (rocket; feeds Block D)
+   - Author scope-doc DRAFT STRUCTURE (framework + skeleton; substantive content fills post-session)
+   - Roadmap updates as Cycle 12 work lands
 
-4. **If you want a tighter focused session:** the design session-start doc breaks into 5 blocks (A-E). You can split into 2-3 sub-sessions if you prefer (each ~60-90 min). Block A (T4 + skill tree) + Block B (gear architecture) are the highest-priority inputs for Wave 1; Block C (Phase 3 calibration) feeds Wave 4; Block D (audit) catches gaps but is non-blocking.
+   **KR blocked on design session outputs:**
+   - Wave 1 partition cycle dispatch (gates on Block B gear architecture)
+   - Wave 2 T4 implementation dispatches (gates on Block A T4 + skill tree)
+   - Wave 4 sim cycling dispatch (gates on Block C Phase 3 calibration)
 
-5. **Push status:** all 9 commits from this session are pushed to remote (commit `185017a` latest). Branch `main` is at parity.
+   When design session produces outputs, KR detects them and fires Wave 1+ dispatches. Maximum throughput; no wasted time.
+
+3. **If you prefer serial:** run design session first, then invoke KR. Slower overall but simpler mental model.
+
+4. **5-block design session structure:** Block A (T4 + skill tree, ~45-75 min — INCLUDES new T4-failure-handling decision per Matt 2026-05-26) + Block B (gear architecture, ~45-60 min) + Block C (Phase 3 calibration, ~45-60 min) + Block D (audit, ~30-45 min) + Block E (close + handoff, ~15-30 min). Can be done as single session or split into 2-3 sub-sessions.
+
+5. **NEW Block A decision:** T4-failure-handling when expected T4 count fails WR-bracket validation. Recommended Option F (hybrid retry + partial-T4 ship + ≥1-T4 minimum threshold) per gandalf 2026-05-26 architectural analysis. See design session-start doc Block A for full options analysis.
+
+6. **Push status:** all 10 commits from this session are pushed to remote (commit `f276fa1` latest before this addition). Branch `main` is at parity.
 
 ---
 
