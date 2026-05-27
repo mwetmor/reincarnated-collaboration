@@ -154,3 +154,36 @@ INFO / WARN / BLOCK per critique-pair-gate-protocol.
 **Wave:** 4 close-gate (bundled)
 **Gates:** Wave 4 CLOSED (both tracks PASS) → Wave 5 gauntlet sim PASS + initial mechanical season generation dispatch authoring → Cycle 13 CLOSE
 **Priority:** P1 — critical-path Wave 4 close + WARN-pattern preservation verification
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-27
+**Reviewer:** jack-ryan
+**Commit:** pending (filed with this completion record)
+
+### Per-track verdict
+
+| Track | Verdict | Severity counts | WARN-pattern |
+|---|---|---|---|
+| Track A (rocket spec-driven gear gen) | PASS | INFO=4 / WARN=0 / BLOCK=0 | PRESERVED (255/255 PASS; 15/15 count assertions) |
+| Track B (gamora sim cycling) | PASS | INFO=5 / WARN=0 / BLOCK=0 | PRESERVED (193/193 PASS; 5/5 module-level assertions) |
+
+**Bundled WARN-pattern status: MAINTAINED** — both tracks 0 count failures; 346 total PASS in 0.60s empirical run.
+
+### Wave 4 close status
+
+**Wave 4 CLOSED.** Both tracks PASS. Track C (star-lord export schema) verified via Track A + Track B integration round-trip per dispatch context.
+
+### Next-action sequence for KR
+
+1. **Tag:** `jack-ryan(gate-2): bundled — Track A spec-driven gear gen PASS + Track B sim cycling PASS`
+2. **Star-lord follow-on dispatch (REQUIRED):** small dispatch per gamora MIGRATION.md § v1.29 flag — create `export/wave4_schema_landed.sentinel` + add T4 sim cycling export table + ingest `simulation/output/wave4_sim_results_stub_*.json`
+3. **Wave 5 dispatch authoring:** gauntlet sim PASS + initial mechanical season generation; include sub-gate 6 action_trace instrumentation scope
+4. **Cycle 13 CLOSE** gated on Wave 5 gauntlet sim PASS
+
+### Finding files
+
+- `agentic_orchestration/qa/findings/2026-05-27-cycle-13-wave-4-gate-2-track-a-rocket.md`
+- `agentic_orchestration/qa/findings/2026-05-27-cycle-13-wave-4-gate-2-track-b-gamora.md`
