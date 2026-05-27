@@ -124,3 +124,27 @@ For each finding, classify per critique-pair-gate-protocol:
 **Wave:** 0 / Sidecar SC-6 critique-pair Gate-1
 **Gates:** rocket WU-R1/R2/R3 implementation dispatch authoring (PASS) OR gamora re-pass (BLOCK)
 **Priority:** P2 — fire parallel with gandalf bundled + legolas SC-4 expansion in flight
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-27
+**Reviewer:** jack-ryan
+**Verdict:** PASS-with-WARN
+**Severity counts:** INFO: 4 / WARN: 3 / BLOCK: 0
+**Finding file:** `agentic_orchestration/qa/findings/2026-05-27-cycle-13-sc-6-gate-1-critique.md`
+**Commit:** TBD (jack-ryan auto-commit post-finding file creation)
+**Tag:** `jack-ryan(gate-1): PASS-with-WARN — Cycle 13 SC-6 reference encounter audit critique`
+
+**Key amendment recommendations for KR (3 WARNs to fold into downstream dispatches):**
+- W1 → WU-R2 dispatch: resolve 22 vs 25 cell-count delta; state explicitly whether encounter definitions are keyed on 25-row 5-tuple or 18-cell non-deferred 4-tuple
+- W2 → WU-R1 dispatch: cite specific arena.py / balance_loop.py line for `MOB_HP_DIFFICULTY_MULTIPLIER = 1.5`; specify implementation form (new multiplier / new constant / new per-tier profile)
+- W3 → WU-R1 + WU-R2 dispatches: compose W1 + W2 into acceptance criteria before rocket fires; WU-R3 and WU-R4 ready without amendment
+
+**Next-action sequence for KR:**
+1. Author WU-R1 dispatch (rocket): L45-50+ mob stat profile authoring — include W2 code-citation amendment in acceptance criteria
+2. Author WU-R2 dispatch (rocket): per-cell mob composition specs for 18 non-deferred cells — include W1 cell-key resolution in acceptance criteria
+3. Author WU-R3 dispatch (rocket): archetype coverage verification — ready as-is
+4. Author WU-R4 record (scope record): proxy-deferred 7-cell Cycle 14+ scope — ready as-is
+5. gamora re-pass: NOT required; audit is sound
