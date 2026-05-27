@@ -150,3 +150,67 @@ Per Discipline #1 math-before-code, before Wave 5 season generation:
 **Wave:** 5 Track B (rocket initial mechanical season generation; Cycle 13 close milestone)
 **Gates:** gandalf validation + jack-ryan Cycle 13 close Gate-2 → CYCLE 13 CLOSE
 **Priority:** P1 — CRITICAL-PATH FINAL CYCLE 13 WAVE
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-27
+**Commit:** `c1cd771`
+**Status:** DONE
+
+### Acceptance criteria resolution
+
+- [x] Season content generation pipeline executes against Wave 4 architecture — PASS
+- [x] Gauntlet sim integration (gamora coordination) produces WR-bracket-validated kits — PASS
+- [x] Season content authored per W5R.3 — PASS (output/cycle-13-mechanical-season-001/)
+- [x] Per Q10 amendment: substrate-led emission — PASS (16/18 kits pass; no pre-imposed N)
+- [x] Quality report cross-reference (gamora SC-7) — PASS (sim_cycling_quality_report.json written)
+- [x] Round-trip smoke per Principle 6 PASSes — PASS
+- [x] MIGRATION.md cross-seam contract change documented — PASS (Wave 5 entry appended)
+- [x] POST-SCRIPT EMPIRICAL COUNT ASSERTIONS 100% ACCURATE — PASS (15/15; Discipline #11)
+- [x] Tagged commit per rocket convention — PASS (commit c1cd771)
+
+### Generation result
+
+- Kit candidates: 18 (substrate-led from ENDGAME_ENCOUNTER_CATALOG; 7 proxy-deferred cells excluded)
+- WR-bracket PASS: 16 / 18 (88.9%)
+- WR-bracket FAIL: 2 / 18 (11.1%)
+- Season characters authored: 16
+- Cohort distribution (season content): {dps_min_maxer: 4, balanced: 12, defensive: 0, hybrid: 0}
+- Cohort distribution (substrate-led note): defensive/hybrid = 0 because no BC cells in ENDGAME_ENCOUNTER_CATALOG have bc_proxy_density=dense or bc_tempo=low + bc_amplitude in {flat, sustained} — substrate result per Q10; not a pre-imposed failure
+
+### Test suite (WARN-pattern MAINTAINED)
+
+- Wave 5 season gen tests: 67/67 PASS
+- Cycle 13 full regression (Wave 1-5): 488/488 PASS
+- Post-script empirical count assertions: 15/15 PASS (Discipline #11)
+- WARN-pattern chain: Wave 2 REMEDIATED → Wave 3 PRESERVED → Wave 4 MAINTAINED → Wave 5 MAINTAINED
+
+### Discipline compose-check
+
+- [x] #1 math-before-code: math note at `generation/math/cycle-13-wave-5-season-generation-math-2026-05-27.md`
+- [x] #1.2 code-citation: gear_instance_generator.py:generate_gear_instance() + t4_sim_cycling.py:run_w4g_sim_cycling() cited
+- [x] #11 empirical inspection: 15/15 post-script count assertions PASS; WARN-pattern MAINTAINED
+- [x] #18 + #18.2: Wave 4 architecture consumed per established baseline
+- [x] #26 playability: WR-bracket validation per SC-7 + Block C
+- [x] #27 + #31 + #32: T4 architecture preserved per Wave 2+3
+- [x] #29 commitment-to-consequence: substrate-led emission; 2 fail kits not shipped
+- [x] #30 sim methodology naming: SC-7 pattern applied per gamora coordination
+- [x] Principle 6 round-trip: PASS
+
+### Output artifacts
+
+- `reincarnated-engine/output/cycle-13-mechanical-season-001/season_metadata.json`
+- `reincarnated-engine/output/cycle-13-mechanical-season-001/sim_cycling_quality_report.json`
+- `reincarnated-engine/output/cycle-13-mechanical-season-001/characters/` (16 files)
+- `reincarnated-engine/output/cycle-13-mechanical-season-001/gear_sets/` (16 files)
+- `reincarnated-engine/src/reincarnated/generation/season_generation_pipeline.py` (new)
+- `reincarnated-engine/src/reincarnated/generation/math/cycle-13-wave-5-season-generation-math-2026-05-27.md` (new)
+- `reincarnated-engine/tests/test_cycle13_wave5_season_generation.py` (new; 67 tests)
+- `reincarnated-engine/src/reincarnated/generation/MIGRATION.md` (Wave 5 entry appended)
+- `reincarnated-engine/src/reincarnated/generation/AGENT_STATE.md` (updated)
+
+### Handoff to knight-rider
+
+Wave 5 Track B complete. Season content ready for gandalf validation + jack-ryan Cycle 13 close Gate-2. MIGRATION.md documents cross-seam consumer obligations (gandalf, jack-ryan, drax, star-lord).
