@@ -137,3 +137,54 @@ Mirror doc 43 structure but smaller scope (Wave 3 is single Phase 3 not multi-ph
 **Wave:** 3 design intent
 **Gates:** jack-ryan Wave 3 Gate-1 critique on doc 44 → rocket Wave 3 implementation dispatch authoring (post-Gate-1 PASS) → Wave 3 close (post-rocket-implementation Gate-2) → unlocks Wave 4 spec-driven gear gen + T4 Phase 4 sim cycling + gamora SC-7 methodology consultation FULL per #18.2
 **Priority:** P1 — critical-path Wave 3 start
+
+---
+
+## Completion record — 2026-05-27
+
+**Completed by:** gandalf (story-and-design steward)
+**Status:** COMPLETE
+**Output:** `canonical/44-t4-algorithm-wave-3-phase-3-intent-2026-05-27.md` (557 lines; 13 § headings § 0-12 inclusive)
+
+### Acceptance verification
+
+- [x] NEW canonical doc 44 authored at `canonical/44-t4-algorithm-wave-3-phase-3-intent-2026-05-27.md`
+- [x] 13 sections complete (§ 0 TL;DR + § 1 architectural foundation + § 2 scope dimension operationalization + § 3 per-category applicability + § 4 selection algorithm + § 5 biggest-design-risk handling + § 6 composition with Wave 2 + § 7 sub-wave structure W3.0-W3.5 + § 8 implementation guidance + § 9 close criterion + § 10 composition with locked architecture + § 11 framing-audit + § 12 sign-off) — adjusted from dispatch's proposed 12 to 13 (added § 0 TL;DR as standalone section per Wave 2 doc 43 precedent)
+- [x] **§ 11 Discipline #23 framing-audit INCLUDED FROM START** (no W1 amendment pattern; doc 44 establishes the from-start expectation as Wave 3+ baseline per § 11 first-canonical-example anchor)
+- [x] Cross-validated against doc 43 amended (no contradiction; doc 44 builds on Wave 2 outputs via § 6 composition table + § 8.1 substrate consumption + § 8.5 schema-coherence guidance)
+- [x] Tag intent: `gandalf: Cycle 13 Wave 3 T4 algorithm Phase 3 design intent canonical (doc 44)`
+- [x] Round-trip: not applicable — no cross-seam contract change in canonical authoring; Wave 3 rocket implementation downstream WILL introduce additive cross-seam contracts (acknowledged in doc 44 § 8.4)
+- [x] Ground-state oracle § 1 updated with new CURRENT entry for doc 44
+
+### Empirical count verification (Discipline #11; maintain WARN-pattern REMEDIATED milestone)
+
+| Asserted item | Asserted | Empirical (verified via `grep -cE` / `grep -E ... | wc -l`) | Status |
+|---|---|---|---|
+| § headings (§ 0-12) | 13 | `grep -cE "^## "` = 13 | PASS |
+| Sub-waves (W3.0-W3.5) | 6 | `grep -E "^\| \*\*W3\." \| wc -l` = 6 | PASS |
+| Total line count | (informational) | `wc -l` = 557 | PASS |
+
+### Open-questions resolution (dispatch § Open questions)
+
+| Question | Resolution |
+|---|---|
+| Doc numbering | Doc 44 (next available; confirmed) |
+| Section count | 13 (dispatch proposed 12; gandalf adjusted to 13 by treating § 0 TL;DR as standalone section per Wave 2 doc 43 14-section precedent of § 0 + § 1-13) |
+| Sub-wave structure granularity | W3.0-W3.5 (6 sub-waves; matches dispatch proposal; smaller than Wave 2 W2.0-W2.9 10-sub-wave per smaller Phase 3 scope) |
+| **Biggest-design-risk handling spec depth** | **FULL design-intent + 4-mitigation bundle (architectural bounding + Pattern 9+10 scope-amplification detection extension + one-T4-active gating composition + gamora SC-7 calibration delegation per #18.2).** Threshold tuning delegated to gamora SC-7 post-baseline per #18.2; Wave 3 ships starting estimates. Rationale: Wave 3 IS Phase 3 ("biggest design risk" per D81); half-spec'd would defeat the purpose AND would push design-intent decisions out of gandalf scope onto rocket implementation where they don't belong |
+| **Scope-dimension selection algorithm spec depth** | **FULL 6-step algorithm spec (§ 4: applicability bound + cohort prior + per-scope synergy scan + cohort-weighted score selection + magnitude downscaling + Option F Retry 4 scope-flip).** Calibration parameters (cohort priors numerics + magnitude downscaling formula + Pattern 9+10 thresholds + tie-breaker tolerance) ANCHORED with starting estimates per Verdict-B.4-pattern; gamora SC-7 iterates post-baseline per #18.2 |
+| T4CandidateV2 vs T4CandidateV3 extension | **Field addition to V2** (per § 2.4 + § 8.5; mirrors Wave 2 W2.3 `parallel_chain_mode` precedent; preserves Wave 2 contracts; schema-coherence guidance per § 8.5 Option A vs Option B with Option A recommended) |
+
+### Discipline composition verification
+
+- #1 + #1.2 + #11 + #18 + #18.2 + #23 + #26 + #27 + #29 + #30 + #31 + #32 — all composed throughout (per § 10 composition table)
+- #23 framing-audit INCLUDED FROM START per § 11 (NO W1 amendment pattern repeat)
+- WARN-pattern REMEDIATED milestone PRESERVATION expectation embedded in § 8.3 + § 9 close criterion (Wave 3 implementation: 100% accurate post-script empirical count assertions; module-load `assert len(X) == N` pattern preserved from Wave 2 rocket discipline)
+
+### Hand-off
+
+- **jack-ryan Wave 3 Gate-1 critique on doc 44** is the next gate (separate dispatch fires from knight-rider)
+- After Gate-1 PASS: rocket Wave 3 implementation dispatch authoring (per § 7 sub-wave structure + § 8 implementation guidance)
+- After Wave 3 close: Wave 4 spec-driven gear gen + T4 Phase 4 sim cycling + gamora SC-7 methodology consultation FULL per #18.2
+
+**Commit:** see `gandalf: Cycle 13 Wave 3 T4 algorithm Phase 3 design intent canonical (doc 44)` per tag intent
