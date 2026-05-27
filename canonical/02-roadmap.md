@@ -72,6 +72,18 @@ Quick status check at a glance. Detail per phase in § 3.
 
 **Overall engine completion status (2026-05-26):** Cycle 12 in-flight (Wave 2). Cycle 13 architectural foundation locked (docs 39 + 40). T4 PM1 gated on Cycle 12 close. Cycle 13 execution gated on T4 PM1.
 
+**CYCLE-TO-PHASE MAPPING (per Matt 2026-05-26 clarification):**
+
+| Cycle | Phases addressed | Output milestone |
+|---|---|---|
+| **Cycle 13** | Phase 1 + Phase 2 (all sub-phases) + Phase 3 + Phase 4 (archive insertion auto on sim PASS) | **Mechanical validation complete: gauntlet sim PASS against full new architecture + initial mechanical season generation (kits + T4 + gear + sim-validated; no cohesion / no visuals / no export)** |
+| Cycle 14+ (TBD partitioning) | Phase 5 Cohesion Coalescence (P5 calibration + spirit-guide data-oracle + T4-attuned gear cohesion + acquisition curve calibration) | Cohesion layer complete; content has narrative identity + naming + spirit-guide projections |
+| Cycle 15+ (TBD partitioning) | Phase 6 Visual Coalescence (CV pipeline + Meshy + Control Rig / Niagara / PCG) | Visual layer complete; content has assets |
+| Cycle 16+ (TBD partitioning) | Phase 7 Joint-Gate Evaluation + Phase 8 Profile Assembly + Export | Full pipeline; engine ships content |
+| **Engine build COMPLETE** | All Phases 1-8 = ✅ | **REINCARNATED-GAME UNLOCK** milestone fires |
+
+Cycle 13 produces **mechanically-validated content** but NOT **game-ready content**. Reincarnated-game unlock requires the full pipeline (phases 5-8) to land in subsequent cycles.
+
 ---
 
 ## 3. Full visual flow with per-sub-phase status
@@ -276,20 +288,32 @@ What's in flight RIGHT NOW + what fires next.
 | Session execution | ❌ | Gates on Cycle 12 close + form-generation milestone |
 | Output → Cycle 13 scope-doc inputs | ❌ | Post-T4-PM1 |
 
-### 4.3 Cycle 13 — Engine build for T4 + gear/balance/guide architecture (per doc 40 + doc 39)
+### 4.3 Cycle 13 — Mechanical Engine Build (Phases 1-3 of QD-engine workflow)
+
+**Scope (per Matt 2026-05-26 clarification):** Cycle 13 addresses Phases 1, 2, 3 of the QD-engine workflow (per doc 39) culminating in gauntlet battle sim PASS + initial mechanical season generation. Phases 5-8 (cohesion + visual + gate + export) are SUBSEQUENT cycles. Phase 4 (mechanical archive insertion) completes automatically on sim PASS within Cycle 13.
+
+**Out of scope for Cycle 13** (explicit; for subsequent cycles):
+- Phase 5 cohesion coalescence (P5 cohesion-judge calibration + spirit-guide data-oracle integration + T4-attuned gear cohesion + acquisition curve calibration)
+- Phase 6 visual coalescence
+- Phase 7 joint-gate evaluation refinement
+- Phase 8 profile assembly + export to game-ready format
 
 | Item | Status | Detail |
 |---|---|---|
 | Architectural foundation (docs 38 + 39 + 40) | ✅ | Landed 2026-05-26 |
+| Cycle 13 framing brief (gandalf, ~2-4 hrs) | ⏳ | Pre-T4-PM1 anchor; locked decisions + open questions for Matt ratification |
+| T4 PM1 design session | ❌ | Gates on Cycle 12 close + form-generation milestone |
 | Cycle 13 scope-doc authoring (gandalf 4-8 hrs per D85) | ❌ | Gates on T4 PM1 completion |
 | Stat-sheet partition design cycle (multi-seam early Cycle 13 milestone) | ❌ | Gates on Cycle 13 launch + Discipline #18 methodology consultation |
 | Gamora methodology consultation (D60 + D74 + D84) | ❌ | Gates partition cycle + gauntlet sim |
-| Phase 1 T4 implementation (T4s into chains as capstones) | ❌ | Gates on T4 PM1 + scope-doc |
-| Phase 2 T4 implementation (multiple T4 options per chain) | ❌ | Sequenced after Phase 1 |
-| Phase 3 T4 implementation (character-wide vs chain-wide dimension) | ❌ | Sequenced after Phase 2 |
-| Phase 4 T4 implementation (full sim cycling) | ❌ | Sequenced after Phase 3 |
-| Gauntlet battle sim against full architecture | ❌ | Sequenced after partition cycle + Phase 4 |
-| Drax integration (T4 swap UX + legendary triggers + spirit-guide offers) | ❌ | Sequenced after architecture lands |
+| Phase 1 T4 algorithm implementation (T4s into chains as capstones) | ❌ | Per doc 40 D81 Phase 1; gates on T4 PM1 + scope-doc |
+| Phase 2 T4 algorithm implementation (multiple T4 options per chain) | ❌ | Per doc 40 D81 Phase 2; sequenced after Phase 1 |
+| Phase 3 T4 algorithm implementation (character-wide vs chain-wide dimension) | ❌ | Per doc 40 D81 Phase 3; sequenced after Phase 2 |
+| Phase 4 T4 algorithm implementation (full sim cycling) | ❌ | Per doc 40 D81 Phase 4; sequenced after Phase 3 |
+| Spec-driven gear gen implementation (Phase 2d of workflow) | ❌ | Per doc 40 D7; gates on partition cycle |
+| Gauntlet battle sim against full architecture | ❌ | **Cycle 13 culmination milestone**; sequenced after T4 4-phase implementation + spec-driven gear gen + partition |
+| Initial mechanical season generation | ❌ | **Cycle 13 final demonstration**; produces sim-validated mechanical content for one season's worth of kits + gear |
+| (DEFERRED) Drax integration | 🔒 | Deferred to post-Cycle-13 cycle that handles Phase 5+ (UX needs cohesion outputs to consume) |
 
 ---
 
@@ -381,17 +405,37 @@ If a commit introduces new architectural content (new canonical doc; new phase; 
 - **Detail (§ 3):** every sub-phase status change updates the relevant § 3 sub-section
 - **Top-line (§ 2):** updated when overall phase status shifts (e.g., a phase moves from ⏳ to ✅ when all its sub-phases satisfy completion criteria)
 
-### 6.6 Completion criterion for engine build
+### 6.6 Completion criterion — separating Cycle 13 close from engine build complete
 
-Engine build is COMPLETE when ALL of the following are true:
+**Cycle 13 completion criterion (per Matt 2026-05-26 clarification — mechanical layer only):**
+- Phase 1 status = ✅ (incl. 4-progression-node coverage check landed)
+- Phase 2 all sub-phases (2a kit composition + 2b T4 algorithm all 4 phases + 2c substrate binding + 2d spec-driven gear gen + 2e coherence + faction) status = ✅
+- Phase 3 status = ✅ (incl. multi-T4 sim methodology + multi-node calibration + playability gate)
+- Phase 4 status = ✅ (auto on sim PASS — math gates accept/reject kit+substrate)
+- Gauntlet battle sim PASS against full new architecture
+- Initial mechanical season generation produces sim-validated content for one season's worth of kits + gear
+- jack-ryan Gate-2 PASS on Cycle 13 close
 
+**Cycle 13 close does NOT mean engine build complete.** Cycle 13 produces mechanically-validated content but NOT game-ready content (no cohesion, no visuals, no export).
+
+**Engine build COMPLETE criterion (post-Cycle-13; spans Cycle 14+ partitioning TBD):**
 - All Phase 1-8 status = ✅ (or 🔒 for explicitly deferred items per § 5)
-- All "NEW per doc 40" items have landed
+- All "NEW per doc 40" items have landed across all cycles
 - All "NEW per Matt 2026-05-26 scope expansion" items have landed
-- Cycle 13 successfully concludes (per its scope-doc completion criteria)
+- All post-Cycle-13 cycles (14+) successfully conclude
 - jack-ryan Gate-2 PASS on full engine build verification
 
-Upon engine build completion → **REINCARNATED-GAME UNLOCK** milestone fires → next-phase planning (player-facing surface work; demo / loadout / playtest cycle) opens.
+**Reincarnated-game unlock criterion:**
+- Engine build COMPLETE (above)
+- Full pipeline Phase 1-8 generates game-ready content end-to-end
+- → **REINCARNATED-GAME UNLOCK** milestone fires → player-facing surface work / demo / loadout / playtest cycle opens
+
+**Pending Matt decision:** Cycle 14+ partitioning — how to break phases 5-8 across cycles. Three plausible patterns:
+- **Pattern A (3 cycles):** Cycle 14 = Phase 5 cohesion; Cycle 15 = Phase 6 visual; Cycle 16 = Phase 7+8 gate + export
+- **Pattern B (2 cycles):** Cycle 14 = Phase 5+7 cohesion + gate; Cycle 15 = Phase 6+8 visual + export
+- **Pattern C (1 cycle):** Single big cycle covers Phases 5+6+7+8 as integrated game-ready pipeline build
+
+This decision can be deferred until Cycle 13 nears close; surfaces at Cycle 13 wind-down.
 
 ---
 
