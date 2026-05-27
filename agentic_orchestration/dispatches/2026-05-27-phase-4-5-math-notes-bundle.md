@@ -186,6 +186,74 @@ CELL_CAPACITY_MAX (default 50), DUPLICATE_THRESHOLD (default 1.5), MIN_COV_POPUL
 3. Elrond Pattern-A methodology consultations (MG-1 through MG-4; fire at Gate-1 ratification per Discipline #18)
 4. Single Matt-gate ratification per Discipline #18
 
+## Completion record (gandalf — Phase 5 portion)
+
+**Completed by:** gandalf
+**Date:** 2026-05-27
+**Commits (reincarnated-engine main):**
+- `071de8d` — gandalf: Phase 5 PM-1 multimodal clustering math note authored
+- `90092d6` — gandalf: Phase 5 PM-2 faction-label assignment math note authored
+
+**2 Phase 5 math notes authored at specified paths:**
+- `~/Games/reincarnated-engine/src/reincarnated/generation/math/phase-5-pm-1-multimodal-clustering-math-2026-05-27.md`
+- `~/Games/reincarnated-engine/src/reincarnated/generation/math/phase-5-pm-2-faction-label-assignment-math-2026-05-27.md`
+
+**PM-1 — Multimodal Clustering Algorithm:**
+- Multimodal feature vector composition (§ 3): mechanical + substrate-theme + aesthetic-tuple + element-attr modalities (~17-29 dims); gandalf design-intent lean is aesthetic-heavy weighting
+- Five candidate algorithms (§ 4) for elrond Pattern-A evaluation: A1 k-means adaptive / A2 HDBSCAN / A3 Spectral / A4 GMM / A5 UMAP+HDBSCAN with per-alternative recommendation matrix (§ 4.3)
+- gandalf design-intent lean: A1 (k-means adaptive) or A4 (GMM) at ~30-kit population scale
+- Sparsity branches (§ 5) per surviving kit count: 24/16/8 thresholds; degrades faction_count_target_per_season gracefully
+- Composition with Option α Note 1 (§ 6): gandalf lean is **Option β — distinct algorithm classes per scale** (per-kit substrate clustering and per-season kit-population clustering are structurally different problems)
+- Smoke-test acceptance (§ 8): silhouette ≥ 0.3 + Jaccard cluster stability ≥ 0.7 across 5 seeds + bootstrap stability + semantic readability spot-check
+- Discipline #46: bounded by Phase 4 eviction (~30 kits; trivial compute; no kernel-panic risk)
+
+**PM-2 — Faction-Label Assignment Policy:**
+- Recommended policy: **D-Hybrid + D-Separate** (§ 3.3)
+  - D-Hybrid: deterministic placeholder at Phase 4 archive insertion + LLM canonical at Phase 5 via SC-3 Pattern B (parallels Option α Note 4 D3 hybrid at cluster scale)
+  - D-Separate: one Pattern B call per cluster (3-5 calls per season; adds ~$0.15-$0.25 to SC-3 envelope; cluster-level coherence built in)
+- Deterministic placeholder algorithm (§ 3.4): `{modal_lineage}-{modal_tech_level}-{modal_tone}-{dominant_element}` with element-purity threshold
+- LLM canonical via SC-3 Pattern B (§ 3.5): CLUSTER_LAYER + KIT_REPS_LAYER + SUBSTRATE_CONTEXT + THEMATIC_REGISTRY input fields → `faction_name` + `faction_identity_narrative` + `faction_thematic_tags` output schema
+- Faction-label vocabulary (Q-Bundle-5; § 4): **open-ended substrate-derived > curated pool** per Discipline #41 (curated pool = pre-authored taxonomy at label layer) + Variant C generality
+- D7 AI-tell line LOAD-BEARING (§ 5): substrate-grounded provenance + negative-example vocabulary (§ 4.4 anti-patterns: no "Order of X" / "House of Y" generic templates) + cross-faction diversity check + human-curated THEMATIC_REGISTRY
+- Discipline #46: N/A direct; bounded by 3-5 LLM calls per season
+
+**Per-cell bounding (Discipline #46):** PM-1 explicitly bounded by per-season ~28-32 kit population (Phase 4 eviction); PM-2 bounded by 3-5 emergent clusters per season; both notes document compliance.
+
+**Framing-audit (Discipline #42):** Q1/Q2/Q3 complete in both notes; verdict PROCEED on both (all refutation paths empirically gated by downstream work — PM-1 smoke test / star-lord Pattern-A response / Phase 4 implementation evidence / Wave 5 gauntlet output).
+
+**Pattern-A queries DOCUMENTED (NOT fired inline — fire at KR ratification routing per Discipline #18 extension-hotspot refinement):**
+- PM-1 (§ 7): elrond consultation — Q-Bundle-3 multimodal clustering algorithm selection (A1/A2/A3/A4/A5); composition with Option α Note 1 (same algorithm OR distinct); feature normalization + weighting; stability protocol; sparsity threshold confirmation; cross-cutting feedback into Phase 4 MG-5 eviction calibration
+- PM-2 (§ 7): star-lord consultation — Q-Bundle-4 Phase 5 LLM integration cost projection within SC-3 Pattern B envelope; LLM call architecture composition (per-kit + per-cluster sequencing); `faction_visibility = invisible` short-circuit policy; cross-faction diversity check + regeneration policy; latency + concurrency; Court-of-Forms future scope
+
+**Composition with prior canonical/math work:**
+- PM-1 composes with **Option α Note 1** (substrate clustering for per-kit chain_count emergence) — gandalf lean: distinct algorithm classes per scale (Option β)
+- PM-2 composes with **SC-3 Pattern B PRIMARY** (Structured Output with Layer Tags) — directly inherits architecture; extends to cluster-scale via D-Separate
+- PM-2 composes with **Option α Note 4 kit-naming policy** (D3 hybrid) — D-Hybrid + D-Separate parallels D3 hybrid at cluster scale
+- Both notes compose with **engine-as-general-serial-content-product § 2.2** (Variant C faction-coalescence canonical commitment)
+
+**No-classes vocabulary clean verification:**
+- Verified throughout both notes: faction labels referenced as "post-hoc emergent cluster identities" or "emergent post-hoc identity layer"; NO class-as-fixed-taxonomy framing
+- PM-2 § 2.6 resolves "faction label" vs "canonical archetype-shape" vocabulary collision: SAME thing at different referential frames (per-season vs cross-season); no conflict
+- PM-2 § 4.2 rejects curated faction-name pool per Discipline #41 (would be pre-authored taxonomy at label layer)
+- Composes with `no-classes-architectural-recommitment` § 2 vocabulary lock + § 5.3 Discipline #45 candidate (substrate-anchored architectural vocabulary)
+
+**Architectural surprises surfaced for KR awareness:**
+
+PM-1 (§ 12):
+- Per-season vs cross-season faction identity — PM-1 fires per-season; Math Note 5 territory for cross-season; FINE for Cycle 14 scope
+- PM-1 factions span BC cells (not confined per-cell) — consistent with engine-as-general-serial-content-product § 2.2 natural-groupings framing; design intent confirms
+
+PM-2 (§ 12):
+- Faction-label vs canonical-archetype-shape vocabulary: SAME thing at different referential frames (resolution in § 2.6); no vocabulary conflict
+- D-Within vs D-Separate orthogonal to Option α Note 4 D1/D2/D3 — pipeline-stage choice (Hybrid) vs LLM-call-structure choice (Separate); composition surfaces at recommendation D-Hybrid + D-Separate
+- THEMATIC_REGISTRY scope is gandalf cross-cutting deliverable (~2-3 days; surfaces between Matt-gate ratification and Dispatch 3B implementation); NOT in PM-2 scope but timing affects sequencing
+
+**Status:** Phase 5 gandalf portion COMPLETE. Both notes draft-stamped; framing-audit complete; Pattern-A queries documented; no-classes vocabulary clean. Awaiting:
+1. KR routing to jack-ryan Gate-1 DESIGN-MODE bundled review (all 7 notes: MG-1 through MG-5 + PM-1 + PM-2)
+2. Elrond Pattern-A methodology consultation (PM-1 Q-Bundle-3 + MG-1 through MG-4)
+3. Star-lord Pattern-A consultation (PM-2 Q-Bundle-4)
+4. Single Matt-gate ratification per Discipline #18
+
 ## Out of scope
 
 - Do NOT implement code (Phase 4 impl gamora Dispatch 3A; Phase 5 impl Dispatch 3B post Matt-gate)
