@@ -154,3 +154,35 @@ For each item A-F:
 **Wave:** 0 / Methodology consultation prep
 **Gates:** Wave 4 sim cycling (full methodology execution post-Wave-3-baseline per #18.2)
 **Priority:** P1 — last Wave 0 KR-autonomous parallel work-unit
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-26
+**Author:** gamora
+**Commit:** `115f2a6`
+
+**Methodology pattern name (Discipline #30 — four-axis):**
+> "Per-weapon-cohort-exhaustive with sub-option-B fallback for cohort-clear legendaries; stratified by progression node; tiered quick-estimate first validation"
+
+Four axes: (1) node-population = per-weapon cohort coverage (Sub-option A primary) with per-legendary cohort selection (Sub-option B fallback for cohort-clear); (2) edge-case = per-legendary anchoring on tier-2 legendaries/sets + adversarial hybrid cohort inclusion; (3) cohort definition = 4 archetypes (DPS-min-maxer / balanced / defensive / hybrid) by investment-pattern + gear-preference + KPM-expectation-band; (4) compute-burden = quick-estimate filter first, full-sim on passers only, stratified sampling with statistical floor, intermediate caching.
+
+**D84 sub-option choice:** Hybrid-within-hybrid. Sub-option A for legendaries where cohort attunement is mechanically ambiguous (generic damage modifier + triggered passive). Sub-option B for cohort-clear legendaries (T4-attunement strategy archetype forces single dominant cohort, OR modifier surface is exclusively single-cohort, OR capability toolkit is self-contained for one archetype). Discrimination heuristic designed as PRE-BASELINE-RESOLVABLE.
+
+**Compute budget projection (Discipline #1.1):**
+- Estimated tier-2 legendaries first season: 15-30
+- Fights per kit: ~48-100 (quick-estimate pass filter + full-sim stratum)
+- Total fight range: ~11,000-20,000
+- Wall-clock at 0.34s/fight sequential: ~1-2 hours
+- Peak memory: <5MB (fight-result accumulation only; no large in-memory matrices)
+- Host RAM check: M2 8GB host; 5.0GB threshold per Discipline #1.1 (62.5%); <5MB WELL WITHIN threshold
+- Status: WITHIN AVAILABLE RESOURCE — no scope reduction required
+
+**Classification counts:**
+- PRE-BASELINE-RESOLVABLE: 22 items (discrimination heuristic, cohort definitions, compute discipline structure, playability sub-gates 1/2/4/5, degenerate-state validators, WR bracket math structure, tiered validation approach, caching strategy)
+- REQUIRES-WAVE-3-BASELINE: 12 items (numerical WR band thresholds, DPS-min-maxer bimodal split decision, power-level calibration anchors, playability sub-gates 3+6 hard thresholds, cross-cohort collapse candidates)
+
+**Output artifact:** `agentic_orchestration/gamora/notes/2026-05-26-cycle-13-wave-4-sim-methodology-framework.md`
+
+**Acceptance criteria status:** All met. Methodology framework complete; all 6 sections A-F addressed; G classification applied; Discipline #18.2 constraint honored (full closure deferred to post-Wave-3-baseline).
