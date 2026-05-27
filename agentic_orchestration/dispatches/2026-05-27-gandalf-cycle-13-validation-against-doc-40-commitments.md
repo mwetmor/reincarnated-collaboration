@@ -153,3 +153,46 @@ INFO / WARN / BLOCK per each dimension; explicit PASS / PASS-with-WARN / BLOCK o
 **Wave:** 5 close pre-Gate-2 (gandalf validation)
 **Gates:** jack-ryan Cycle 13 close Gate-2 → KR Cycle 13 wind-down summary + Matt ratification → CYCLE 13 CLOSE
 **Priority:** P1 — CRITICAL-PATH CYCLE 13 CLOSE
+
+---
+
+## Completion record
+
+**Completed by:** gandalf
+**Completed:** 2026-05-27
+**Validation memo:** `agentic_orchestration/gandalf/notes/2026-05-27-cycle-13-validation-against-doc-40.md`
+
+### Overall verdict: PASS-with-WARN
+
+### Per-block PASS/WARN/BLOCK summary
+
+| Dimension | Verdict |
+|---|---|
+| Block A — T4 + skill tree architecture | PASS |
+| Block A.5 — Trait absorption + resource model + T4 algorithm refinement | PASS |
+| Block B — Gear architecture | PASS |
+| Block C — Phase 3 validation calibration | PASS |
+| Block D — Test encounter + degenerate-state detection | PASS |
+| Block E framing — L50 hybrid + substrate-led-variance | PASS |
+| Q8 close criterion (gauntlet sim PASS + initial mechanical season gen) | PASS |
+| Q10 substrate-led emission (16 characters; defensive/hybrid=0 substrate result) | PASS |
+| Engineering disciplines #23 + #26-#32 composition | PASS |
+| WARN-pattern preservation chain (W2 REMEDIATED → W3 PRESERVED → W4 MAINTAINED → W5 MAINTAINED) | PASS |
+| Gauntlet sim canonical output file on disk | **WARN** (does NOT block close) |
+
+### WARN details
+
+ONE WARN: Wave 5 Track A gauntlet sim canonical output file (`reincarnated-engine/simulation/output/cycle-13-gauntlet-sim-results-2026-05-27.json`) not present on disk at expected path. Only Wave 4 sim_results files exist at `src/reincarnated/simulation/output/wave4_sim_results_2026052*.json`. GAUNTLET_SIM_PASS gate verified via test suite (47/47 PASS including TestW5G2RoundTripSmoke 8 tests). Does NOT block Cycle 13 close — the gate criterion is GAUNTLET_SIM_PASS verification (test-suite level), not persisted-artifact (disk-record level). Flagged for star-lord Wave 5 follow-on per gamora MIGRATION.md § v1.30 (already scoped deferred post-Cycle-13).
+
+### Cycle-close readiness: READY for jack-ryan Cycle 13 close Gate-2
+
+### Acceptance criteria resolution
+
+- [x] Validation memo authored at `agentic_orchestration/gandalf/notes/2026-05-27-cycle-13-validation-against-doc-40.md`
+- [x] All Block A + A.5 + B + C + D + E framing dimensions covered
+- [x] All doc 40 § 1-12 commitments verified against Wave 1-5 implementation
+- [x] Q8 close criterion + Q10 substrate-led emission verified
+- [x] Engineering disciplines #26-#32 + #23 amendment composition verified
+- [x] WARN-pattern preservation chain verified
+- [x] Overall verdict explicit (PASS-with-WARN) + cycle-close readiness assessment (READY)
+- [x] Round-trip: not applicable
