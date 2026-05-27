@@ -91,3 +91,39 @@ Top 2-3 recommendations with detailed integration sketch (which LLM model class;
 - `agentic_orchestration/gandalf/notes/2026-05-23-mathematical-seam-naming.md` § 2 (P5 hotspot)
 - Engineering disciplines #18 + #19 + #11
 - Prior legolas Mode A research artifacts at `agentic_orchestration/research/` for tone + format reference
+
+---
+
+## Completion Record
+
+**Completed:** 2026-05-27
+**By:** legolas (research + catalogue-crawl seam)
+**Output artifact:** `agentic_orchestration/research/2026-05-27-cycle-14-sc-3-cohesion-judge-llm-architecture.md`
+
+**Acceptance criteria checklist:**
+- [x] Research artifact filed at `agentic_orchestration/research/2026-05-27-cycle-14-sc-3-cohesion-judge-llm-architecture.md` with sections per § 7.1 + § 7.2 + § 7.3
+- [x] Each methodology recommendation grounded in literature citation + applicability rationale to Reincarnated Phase 5 architecture (doc 46 Layer 6)
+- [x] AI-tell mitigation patterns surveyed (formulaic-sounding-content / pattern-detection / homogeneous-flavor) with concrete countermeasures
+- [x] Completion record appended
+
+**Top-3 architecture pattern recommendations (summary for KR):**
+
+1. **PRIMARY — Pattern B (Structured Output with Layer Tags):** Single LLM call per character; structured input fields (CORE_LAYER for T1-T3 chain content, ENDGAME_LAYER for T4/gear as optional additive, SUBSTRATE_CONTEXT, THEMATIC_REGISTRY); structured JSON output with character_name + core_identity_narrative + nullable endgame_nod_narrative. Aligns directly with doc 46 § 7.4 as-designed. Implementation complexity: Low. Mitigation: per-character substrate diversity injection + min-p sampling (0.05–0.1) at temperature 0.7–0.9 + post-generation cross-character semantic similarity check.
+
+2. **SUPPLEMENTARY — Pattern A (Two-Call Hierarchical Decomposition):** For characters with strongly variant T4 endgame identity, a two-call approach (Call 1: CORE only; Call 2: ENDGAME nod with frozen CORE anchor) provides stronger physical separation. Adds ~32–48 additional calls per season (negligible cost). Recommended for T4-variant endgame nods where endgame divergence from CORE is large.
+
+3. **DETECTION — Cross-Character Diversity Audit:** Post-generation quality gate after all 16 character identities emit: pairwise semantic embedding distance check (flag cosine > 0.85), name collision detection (Levenshtein < 3), per-element archetype distinctiveness check, self-BLEU on skill names (flag > 0.35). Not a call architecture — a season-emit verification layer.
+
+**AI-tell mitigation summary (5 concrete countermeasures):**
+1. Per-character SUBSTRATE_CONTEXT + per-element THEMATIC_REGISTRY slices (addresses templated-structure output collapse)
+2. Multi-candidate generation (3 per character, select highest cross-character distinctiveness) (addresses echoed archetypes)
+3. Negative vocabulary list in system prompt (addresses generic dark-fantasy phrasing)
+4. Endgame_nod_narrative length cap + anti-pattern guard (addresses gear-constitutes-identity inversion)
+5. Season-emit diversity audit via embedding cosine distance + self-BLEU (detection layer for all failure modes)
+
+**Three open questions for Wave 3 design call (require gandalf + star-lord + gamora + Matt):**
+- **OQ-1:** Pattern B vs Pattern A (single-call vs two-call) for the standard case — does Pattern B's field weighting suffice or does Pattern A's physical CORE/ENDGAME separation warrant the added complexity?
+- **OQ-2:** Rubric criteria for the three core discipline test fixtures (identity-without-gear / T4-choice-independence / endgame-nod-additivity) — gandalf's seam to lock in Wave 3 design-spec authoring
+- **OQ-3:** Calibration validation sample size for the three test fixtures — gamora's methodology consultation item (per Discipline #18.2, fires after baseline empirical signal from initial Pattern B runs)
+
+**Commit + push:** per Matt 2026-05-27 per-cycle push pattern (auto-fire per CLAUDE.md addendum)
