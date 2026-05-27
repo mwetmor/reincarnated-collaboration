@@ -210,6 +210,24 @@ Rocket combined invocation landed cleanly:
 | jack-ryan Gate-2 PASS | ✅ PASS-with-WARN (0 BLOCK / 1 WARN / 4 INFO) |
 | Path A architectural decisions-log entry | ✅ AUTHORED by jack-ryan at engine `f053281` |
 
+**Scaffold-drift package intake 2026-05-27 (post Wave 1 close):**
+
+| Dispatch | Status |
+|---|---|
+| **Substrate sidecar (Dispatch 1)** | ✅ COMPLETE 2026-05-27 — rocket Fix A `dac5f9e` (2,108 eligible rows verified) + Fix B math-note authored + elrond Fix C `8a1029d` (caster-arcane DIVERSE INFO close; **caster-faith REMEDIATION NEEDED** 62% mace-dominated D&D cleric-trope; routes gandalf Path A vs B design call) |
+| **Wave 1.5 Skill-Tree Architecture (Dispatch 2)** | ✅ Matt-gate RESOLVED 2026-05-27 (Option C ratified: substrate-evidence audit → gandalf design call); 3-stage sequence authored Stage 1 elrond substrate class-roster audit dispatched at `agentic_orchestration/dispatches/2026-05-27-elrond-cycle-14-wave-1-5-stage-1-class-roster-substrate-audit.md`; Stages 2/3 authored after Stage 1 lands |
+| **Discipline #40 ratification (Dispatch 3)** | ✅ COMPLETE — engine `b282966` (canonical-write at engineering-disciplines.md § 40; STATUS LOAD-BEARING per jack-ryan judgment; pre-Wave-5 prerequisite CLOSED); collab `fbd7b75` (dispatch completion record); reciprocal cross-reference at #13a; 3 anchored examples with code:line provenance |
+
+**Pre-Wave-5 prerequisite checklist (per scaffold-drift consolidated doc § 5.3):**
+
+| Item | Status |
+|---|---|
+| Fix A hygiene filter landed | ✅ COMPLETE 2026-05-27 (engine `dac5f9e`) |
+| Fix B STR family rebalancing landed (Wave 2 impl per consolidated doc § 5.1) | ✅ math-note AUTHORED 2026-05-27; impl gates Wave 2 dispatch (Layer 8 set keying alongside) |
+| Wave 1.5 skill-tree architecture landed | 🚦 PENDING-MATT-GATE |
+| Season cardinality canonical decision (n_kits=40 default) | bundled into Wave 1.5 close |
+| Discipline #40 canonical-write landed | ✅ COMPLETE 2026-05-27 (engine `b282966`) |
+
 **Open follow-on items at Wave 0.5 CLOSED (status post-Gate-2):**
 
 1. **LUT alignment WARN (Gate-2 Finding 2; pre-Wave-5-gauntlet prerequisite)** — elrond SC-6b Pass-2 LUT values (martial-heavy=177, ranged=91) diverge from rocket fallback (martial-heavy=200, ranged=150). Benign at Wave 0.5 (live SC-6b values win for all 2,293 v1_scope rows; rocket fallback only fires for non-v1_scope edge cases). Track per Discipline #10 attribution clarity; **KR queues remediation dispatch BEFORE Wave 5 fresh-roster gauntlet sim fires**.
