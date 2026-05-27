@@ -108,3 +108,33 @@ NOT applicable — existing Wave 2 math note (`generation/math/cycle-13-wave-2-t
 **Wave:** 2 follow-on amendments (small)
 **Gates:** clean canonical state + closed Wave 2 follow-on items
 **Priority:** P2 — small amendments; non-blocking on Wave 3 dispatch authoring (gandalf doc 44 firing in parallel)
+
+---
+
+## Completion record
+
+**Completed by:** rocket
+**Commit hash:** `7287b43`
+**Engine commit tag:** `rocket: Cycle 13 Wave 2 amendments — path reconciliation + W1 synthetic-bucket test (per jack-ryan Wave 2 Gate-2 verdict 0783860)`
+
+### Item 1 — Path reconciliation: DONE
+
+`_ELROND_PRIORS_PATH` in `t4_synergy_scan.py` updated from `config/t4_synergy_priors/elrond_priors.json` to `data/synergy_priors/v1_co_occurrence_priors.json` (elrond's seam-canonical path). Module docstring updated to reflect single-path integration status. MIGRATION.md lines 120 and 156 updated: placeholder path language replaced with single-path integration language citing jack-ryan Gate-2 verdict.
+
+Code-line citations (#1.2): `t4_synergy_scan.py` `_ELROND_PRIORS_PATH` constant (~line 281) + `_load_elrond_priors()` docstring (~line 296).
+
+### Item 2 — W1 synthetic-bucket test: DONE
+
+`TestSyntheticAdditiveWindowBucket::test_trade_off_geometry_collapse_int_additive_bucket_penalty` added to `tests/test_cycle13_wave2_t4_algorithm.py`. Injects TRADE_OFF (A) + GEOMETRY_COLLAPSE (BC) with `bc_attribute="INT"` to force `_validate_separate_buckets()` False path. Asserts `scaling_interaction_additive_bucket_penalty == 20.0` in `pass_2_breakdown`. Jack-ryan Gate-2 WARN W1 CLOSED.
+
+MIGRATION.md test count updated from 68 to 69.
+
+### Empirical count assertion
+
+**69 tests PASS verified by pytest re-run returning '69 passed'.**
+
+Full output: `69 passed in 0.20s`
+
+### WARN-pattern status
+
+REMEDIATED status maintained. All prior 68 tests continue PASS. New test (#69) PASS. Zero failures.
