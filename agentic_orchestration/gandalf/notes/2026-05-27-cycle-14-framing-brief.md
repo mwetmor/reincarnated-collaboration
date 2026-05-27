@@ -1,6 +1,11 @@
 # Cycle 14 — Phase 5 Cohesion Coalescence + Track D Content Gap Closure + Concentration Architecture (9 layers) Framing Brief
 
-> **STATUS:** **PENDING-MATT-RATIFICATION 2026-05-27.** Canonical authority basis for Cycle 14 hive-mind scope-doc + KR kicker.
+> **STATUS:** **RATIFIED 2026-05-27** — Matt ratified Q1-Q11 in full. Canonical authority basis for Cycle 14 hive-mind scope-doc + KR kicker.
+>
+> **Q4 + Q9 + Q10 carry Matt sharpening clarifications worth highlighting** (see § 12 ratification record):
+> - **Q4 "extremely confirm.. retire it"** — discipline #39 (no-synthetic-stub-as-permanent-fallback) is load-bearing; emphatic lock
+> - **Q9 disposition shift** — Cycle 13 season cycle-13-mechanical-season-001 DISREGARDED ("not relevant; made to fit synthetic gauntlet"); Cycle 14 generates fresh roster end-to-end (not regenerate-Cycle-13)
+> - **Q10 quality > timeline** — Matt verbatim "extend timeline as needed for Wave 0.5 and all waves. The goal is not to ship something but to ship a game (playable characters that run the gauntlet in band)" — Cycle 14 NOT timeline-gated; "in band" means actual cohort-band KPM, not synthetic_mode override
 
 **Author:** gandalf (story-and-design steward)
 **Authority basis:** Matt 2026-05-27 directives:
@@ -561,7 +566,30 @@ Carried from Cycle 13 precedent: KR can auto-close Cycle 14 wind-down per skip-c
 ## 12. Sign-off + ratification
 
 **Author:** gandalf (story-and-design steward)
-**Status:** PENDING-MATT-RATIFICATION 2026-05-27
+**Status:** **RATIFIED 2026-05-27 — Matt ratified Q1-Q11 in full**
+
+**Ratification record per Matt 2026-05-27:**
+
+| Q | Topic | Ratification + notes |
+|---|---|---|
+| **Q1** | Cycle 14 scope confirmation | ✅ RATIFIED |
+| **Q2** | Wave structure (Wave 0 → 0.5 → 1 → 2 → 3 → 4 → 5) | ✅ RATIFIED |
+| **Q3** | Scope-of-autonomy boundaries (§ 4) | ✅ RATIFIED |
+| **Q4** | Synthetic_mode RETIREMENT discipline lock (§ 6) | ✅ **"extremely confirm.. retire it"** — discipline #39 load-bearing; emphatic lock |
+| **Q5** | Sidecar work (SC-1 through SC-7) | ✅ RATIFIED |
+| **Q6** | Critique-pair throughput planning | ✅ RATIFIED — KR manages scheduling autonomously |
+| **Q7** | Compute budget tolerance | ✅ RATIFIED — "we need converged characters to pass the gauntlet" — converged ≠ synthetic; real-content convergence required |
+| **Q8** | Cycle 14 close criterion | ✅ RATIFIED — gauntlet sim PASS with REAL content + cohesion validation + jack-ryan Gate-2 PASS |
+| **Q9** | Cycle 13 season regeneration vs new Cycle 14 season | ✅ **DISREGARD Cycle 13 season** — verbatim "It is not relevant. These characters were made to fit the synthetic gauntlet. Generate and converge a new cycle 14 roster of characters." |
+| **Q10** | Wave 0.5 timeline tolerance | ✅ **EXTEND TIMELINE AS NEEDED** — verbatim "extend timeline as needed for Wave 0.5 and all waves. The goal is not to ship something but to ship a game (playable characters that run the gauntlet in band)" |
+| **Q11** | Skip-confirmation fire-forward authorization | ✅ RATIFIED — KR can auto-close per Cycle 13 precedent |
+
+**Locked outcomes from Matt 2026-05-27 ratification (incl. Q4 + Q9 + Q10 clarifications):**
+
+- **Cycle 14 quality > timeline lock** (Q10): the cycle ships when characters genuinely pass the gauntlet in-band per real-content combat. NOT timeline-gated. Wave extension is the expected path if quality isn't met.
+- **Cycle 13 season disregarded** (Q9): cycle-13-mechanical-season-001 is treated as a synthetic-stub artifact, not a baseline for Cycle 14 work. Cycle 14 Wave 5 generates a FRESH Cycle 14 roster (`cycle-14-cohesion-season-001` or equivalent) using real per-skill content + real substrate weapon binding + real damage scaling routing + real cohesion-judge LLM thematic identities. Drax Track C transform integration awaits the new roster; Track C dispatch from prior conversation becomes obsolete (pending fresh dispatch when Cycle 14 roster materializes).
+- **Synthetic_mode retired ABSOLUTELY** (Q4): discipline #39 load-bearing; emphatic; not even partial retention.
+- **"In band" means real cohort-band KPM** (Q7 + Q10 composition): not synthetic_mode override. Defensive cohort must validate empirically per real defensive kits at real cohort-band KPM ranges.
 **Ratification effect**: once ratified, brief becomes canonical authority basis for Cycle 14 scope-doc authoring + KR kicker. KR has full autonomous scope per § 4.1 to orchestrate Cycle 14 through 7 waves. Matt re-engagement limited to items per § 4.2.
 
 **Locked outcomes after ratification (anticipated)**:
