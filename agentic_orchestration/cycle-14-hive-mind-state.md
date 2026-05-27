@@ -215,7 +215,7 @@ Rocket combined invocation landed cleanly:
 | Dispatch | Status |
 |---|---|
 | **Substrate sidecar (Dispatch 1)** | ✅ COMPLETE 2026-05-27 — rocket Fix A `dac5f9e` (2,108 eligible rows verified) + Fix B math-note authored + elrond Fix C `8a1029d` (caster-arcane DIVERSE INFO close; **caster-faith REMEDIATION NEEDED** 62% mace-dominated D&D cleric-trope; routes gandalf Path A vs B design call) |
-| **Wave 1.5 Skill-Tree Architecture (Dispatch 2)** | ✅ Matt-gate RESOLVED 2026-05-27 (Option C ratified: substrate-evidence audit → gandalf design call); 3-stage sequence authored Stage 1 elrond substrate class-roster audit dispatched at `agentic_orchestration/dispatches/2026-05-27-elrond-cycle-14-wave-1-5-stage-1-class-roster-substrate-audit.md`; Stages 2/3 authored after Stage 1 lands |
+| **Wave 1.5 Skill-Tree Architecture (Dispatch 2)** | 🟢 Stage 1 ✅ COMPLETE (`06a3b7f`; 34 archetype seeds + 14 questions); **Stage 2 authored 2026-05-27** at `agentic_orchestration/dispatches/2026-05-27-gandalf-cycle-14-wave-1-5-stage-2-class-roster-design-call.md` (gandalf class roster curation + per-class chain count + supporting-chain identity + active T4 mechanism design-spec + doc 41 § 4 season cardinality amendment bundled); routing Gate-1 next; Stage 3 authored after Stage 2 lands |
 | **Discipline #40 ratification (Dispatch 3)** | ✅ COMPLETE — engine `b282966` (canonical-write at engineering-disciplines.md § 40; STATUS LOAD-BEARING per jack-ryan judgment; pre-Wave-5 prerequisite CLOSED); collab `fbd7b75` (dispatch completion record); reciprocal cross-reference at #13a; 3 anchored examples with code:line provenance |
 
 **Pre-Wave-5 prerequisite checklist (per scaffold-drift consolidated doc § 5.3):**
