@@ -79,3 +79,49 @@ N/A — this dispatch is canonical-write only; no DB queries introduced. The dis
 - `agentic_orchestration/gandalf/notes/2026-05-27-path-1-kr-scope-expansion-kicker.md` § 3.1
 - `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` (canonical target)
 - Hive-mind protocol § 4 (decision-routing) + § 7 (math hotspots)
+
+---
+
+## Completion record
+
+**Completed by:** jack-ryan
+**Date:** 2026-05-27
+**Status:** DONE — Discipline #46 canonical-write COMPLETE
+
+### Scope checklist — all items closed
+
+- [x] Read gandalf candidate at `2026-05-27-discipline-46-db-streaming-candidate.md` in full
+- [x] Canonical-write at `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` § Discipline #46 per 7 patterns (stream + push-to-SQL + index + bound + audit-cartesian + WAL + per-cell-bounding-for-math-gates)
+- [x] STATUS: LOAD-BEARING (pre-Phase-4 protection)
+- [x] Cross-references to Disciplines #1 (math-before-code) + #11 (empirical inspection) + #18 (math-hotspot) + #34 (concentration) — cited in Discipline #46 "Composes with" section
+- [x] Reciprocal cross-references added: #1 (pre-fire projection cross-ref to #46); #11 (EXPLAIN QUERY PLAN cross-ref to #46); #18 (Phase 4 hotspot cross-ref to #46); #34 (per-cell bounding as concentration cross-ref to #46)
+- [x] Gate-1 checklist amended: 3 additions at Discipline #46 § "Operational hooks — Gate-1 review (jack-ryan)"
+- [x] Gate-2 checklist amended: mechanical grep audit 3-command pattern at Discipline #46 § "Operational hooks — Gate-2 review (jack-ryan)"
+- [x] Anchored examples: 5 HIGH-risk telemetry sites + 2 LOW-MEDIUM substrate sites + v1_scope missing index + Phase 4 HIGHEST-without-discipline — all present in § "Audit findings 2026-05-27"
+- [x] Dispatch authoring compliance template added: § "Operational hooks — Dispatch authoring (KR)" ready for KR consumption
+- [x] Scope note appended to engineering-disciplines.md top-level header
+- [x] Anatomy section updated (Discipline #45 slot reserved; Discipline #46 registered)
+- [x] Cross-references section updated (Discipline #46 source docs added)
+
+### Q-Disc46-1 resolution
+
+**Question:** Pattern 7 per-cell-bounding for math gates — separate sub-discipline #46.1 OR Pattern 7 of main #46?
+
+**Resolution: Pattern 7 of main #46.** Per-cell bounding is a specific application of the stream-not-materialize + bound-every-query principles already in Patterns 1 and 4, specialized to cross-kit comparison algorithms. The failure mode is the same kernel-panic-class O(n²) materialization; the distinction is the scope (archive-wide vs per-cell). Sub-discipline numbering is warranted when a sub-discipline has its own distinct operational trigger not covered by the parent (precedent: #18.1 substrate-voting-is-binding; #11.1 state-space conditioning — both have distinct failure modes from parent). Pattern 7 does not clear that bar. Stays as Pattern 7 within main #46.
+
+### Q-Disc46-2 resolution
+
+**Question:** Should existing Disciplines #1/#11/#18/#34 forward-reference #46?
+
+**Resolution: YES — surgical bidirectional cross-references applied.** Per precedent from #42/#43/#44 bundle. Applied four forward-references:
+- **#1** → #46: at §1.1 pre-fire resource-bounds projection — DB result-set materialization path must be included in memory projection for Phase 4 / telemetry dispatches
+- **#11** → #46: at §11.1 cross-references — `EXPLAIN QUERY PLAN` is Discipline #11 applied at DB query cost surface; #46 Pattern 3 operationalizes it
+- **#18** → #46: at §18 triggerable Gate-1 question extension — Phase 4 math hotspot methodology lock must include DB query pattern selection, not only algorithm choice
+- **#34** → #46: at §34 cross-references — per-cell bounding is concentration applied at archive comparison scope; same architectural principle as mechanic-alteration concentration
+
+### Framing-audit record (Discipline #42 compliance)
+
+- Framing-audit fired: YES
+- Q1 load-bearing assumptions identified: (1) gandalf candidate 7 patterns are internally consistent and non-contradicting; (2) Pattern 7 per-cell bounding fits as a named application rather than a distinct sub-discipline; (3) reciprocal cross-references to #1/#11/#18/#34 are warranted by the bidirectional precedent from #42/#43/#44 bundle
+- Q2 refutation evidence: checked dispatch refutation conditions — no composition contradictions found; stream + push-to-SQL are complementary not conflicting; per-cell bounding is explicitly a Pattern 4 (bound-every-query) application, not a contradiction
+- Q3 outcome: PROCEED — framing sound; no Q3=YES trigger surfaced
