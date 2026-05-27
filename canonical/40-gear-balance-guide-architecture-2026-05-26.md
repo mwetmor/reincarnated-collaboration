@@ -194,6 +194,16 @@ Three distinct sub-categories AT the legendary rarity tier (not escalating rarit
 
 Specific partition design is **stat-sheet partition cycle work — early Cycle 13 milestone**, landing BEFORE gauntlet battle sim (so sim validates against real stat surface, not placeholder). Multi-seam: gandalf intent + gamora simulation methodology + rocket implementation + jack-ryan critique + legolas Mode A research. Discipline #18 methodology consultation fires before partition lock.
 
+**Partition cycle scope explicitly includes (per Matt 2026-05-26 amendment):**
+
+1. **Modifier surface enumeration** (which stat types exist on the character stat sheet)
+2. **Per-slot partition design** (which slots roll which modifier types)
+3. **Probability distribution per slot per modifier** (gap-filling discipline per D80)
+4. **Node-count + chain-distribution interaction math** (D13 differentiation requirement)
+5. **Weapon damage spec completeness check** for main + off-hand/secondary weapons (BC-axis coverage per `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` 8-axis spec; off-hand items per `canonical/story/off-hand-items-2026-05-24.md` 6+ categories — shield/tome/banner/focus/horn/talisman/dual-wield; ensure damage geometry/timing/amplitude/etc. fully specified for all weapon types eligible for either slot)
+6. **Non-weapon gear baseline stats** for common variants without added stats (the "plain chest piece with X HP and Y defense" baseline — foundational stat sheet work for armor + jewelry + accessory slots; baseline for legendary additive stats per D56 modifier-surface expansion to layer on top of)
+7. **Main_weapon vs secondary_weapon routing cleanup** (substrate curation pollution per prior Cycle 12 capture: 13 of 35 forms had off-hand-category items as main_weapon; three compound root causes — substrate curation pollution + Layer 2 substrate-binding not filtering by category + secondary_item routing not firing; partition cycle includes this cleanup work as substrate-side input to clean partition design)
+
 **Gap-filling acquisition discipline:** stat-sheet partition + acquisition curve calibration should incorporate gap-filling discipline — gear acquisition over time should fill gaps in the player's accumulated stat sheet, not just produce items that duplicate already-strong stats. Spirit guide can surface gap-filling opportunities.
 
 ### 3.7 Decision points
@@ -205,7 +215,7 @@ Specific partition design is **stat-sheet partition cycle work — early Cycle 1
 - **D11** — Epic→Legendary discontinuity LOAD-BEARING for endgame parity (tier 1+2 legendary saturation required for endgame target power); composes with § 4 Option A acquisition calibration
 - **D12** — Strategy registry: single registry + T4-attunement annotation gate at legendary/set tier
 - **D13** — Stat-sheet partition PRINCIPLE locked: defined modifier surface; slot-partitioned; designed for build diversity + node-count/chain-distribution differentiation
-- **D14** — Stat-sheet partition design is named early-Cycle-13 milestone landing BEFORE gauntlet sim; multi-seam work cycle; Discipline #18 methodology consultation before partition lock; output: canonical/41-style doc
+- **D14** — Stat-sheet partition design is named early-Cycle-13 milestone landing BEFORE gauntlet sim; multi-seam work cycle; Discipline #18 methodology consultation before partition lock; output: canonical/41-style doc; **scope per § 3.6 includes 7 enumerated items including weapon damage spec completeness + non-weapon gear baseline stats + main_weapon routing cleanup (Matt 2026-05-26 scope expansion amendment)**
 - **D15** — Cycle 13 A/B/C decision sharpened toward Architecture B (substrate-bound at Phase 2) — spec-driven gear gen + tier structure strongly indicate this
 - **D16** — Compute-improvement claim from source conversation (~100x vs validation-cycling): qualitative direction canonized; specific magnitude deferred to empirical measurement
 - **D17** — Active-skill-budget question RESOLVED by D55+D57 (triggered-passive-dominant flavor + rare-active additivity)

@@ -1,12 +1,13 @@
-# QD-Engine End-to-End Workflow (Architecture B — Substrate-Bound at Phase 2; Production Canonical)
+# 39 — QD-Engine End-to-End Workflow (Architecture B — Substrate-Bound at Phase 2 + Content Lifecycle; Production Canonical)
 
-> **STATUS:** CURRENT (load-bearing as of 2026-05-24) — supersedes `canonical/story/historical/qd-engine-end-to-end-workflow-A-substrate-agnostic-developer-tool-2026-05-21.md` (Architecture A; now developer-tool reference)
+> **STATUS:** CURRENT (load-bearing as of 2026-05-24; promoted to numbered canonical + expanded with end-to-end content lifecycle 2026-05-26) — supersedes `canonical/story/historical/qd-engine-end-to-end-workflow-A-substrate-agnostic-developer-tool-2026-05-21.md` (Architecture A; now developer-tool reference)
 
-**Date:** 2026-05-24
+**Date:** 2026-05-24 (initial authoring); 2026-05-26 (promotion to numbered canonical + § 0.5 end-to-end content lifecycle expansion)
 **Author:** gandalf (story-and-design steward)
-**Status:** ACTIVE — production canonical engine architecture; locks Architecture B (substrate-bound at Phase 2) + substrate-genre-flagging unified-architecture pattern per Matt 2026-05-24 design dialogue during Cycle 10 Stage 3
-**Authority:** Matt 2026-05-24 — Architecture B selected as primary production canonical with explicit hypothesis: substrate-context (period/culture/named-personage) at engine level brings weight to clustering + algorithmic outcomes; also fits genre canon (D2/D3/D4/PoE/LE/GD all substrate-bind at generation)
+**Status:** ACTIVE — production canonical engine architecture; locks Architecture B (substrate-bound at Phase 2) + substrate-genre-flagging unified-architecture pattern per Matt 2026-05-24 design dialogue during Cycle 10 Stage 3; promoted from `canonical/story/` to numbered canonical (doc 39) per Matt 2026-05-26 directive following doc 40 authoring (gear/balance/guide architecture composes with this workflow at Phase 2 substrate-binding + Phase 5 cohesion + § 0.5 content lifecycle)
+**Authority:** Matt 2026-05-24 — Architecture B selected as primary production canonical; Matt 2026-05-26 — promotion to numbered canonical + § 0.5 expansion to capture full end-to-end content lifecycle including T4-and-gear dependency chain (one-way; NO circular dependency)
 **Companion docs:**
+- `canonical/40-gear-balance-guide-architecture-2026-05-26.md` (Cycle 13 architectural foundation; gear/balance/guide/multi-T4 architecture composes with this engine workflow at Phase 2 + Phase 5; § 0.5 of this doc captures the content lifecycle dependency chain that doc 40 architecture operates within)
 - `canonical/story/historical/qd-engine-end-to-end-workflow-A-substrate-agnostic-developer-tool-2026-05-21.md` (Architecture A; now developer-tool reference per Matt 2026-05-24 unified-architecture refinement)
 - `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` (operational 8-axis BC spec)
 - `canonical/story/skill-system-2026-05-24.md` (Phase 2 skill composition; algorithmic mechanic-alteration; spirit-guide explainer; nested mythology naming; faction-generated proxies)
@@ -32,6 +33,75 @@ Architecture B is the production engine flow for Reincarnated v1 and all commerc
    - **Option C — Cross-attribute hybrid cells (Red Mage / Monk / Holy Knight):** weapon-slot permits cross-attribute wielding with ω-penalty per BDI ω-field resource-dimension
 5. **Phase 5 cohesion-coalescence handles flavor + naming** — sub-element flavor mapping (renamed 2026-05-24 from "element canonical-pair flavor" to disambiguate from retired seasonal-realm-mapping concept AND from legendary canonical-pair set-bonuses); archetypal player-facing naming per universal naming discipline; spirit-guide explainer integration; bi-modal form library + nested mythology naming + faction-generated-proxy templates
 6. **Empirical-trigger discipline** — explicit triggers for potential switch to Architecture A (developer-tool) or Architecture C (mid-bind hybrid) if Architecture B's hypothesized benefits don't materialize
+
+---
+
+## 0.5 End-to-end content lifecycle (dependency chain — one-way; NO circular dependency)
+
+The 8-phase workflow (§ 1) describes a SINGLE KIT's journey through generation → sim → archive → cohesion → visual → gate → export. This § 0.5 describes the BIG-PICTURE CONTENT LIFECYCLE — how kits + T4 nodes + skill trees + gear specifications + legendary instances + sim validation interrelate across the engine's full content generation activity.
+
+**The dependency chain is strictly one-way. No artifact downstream regenerates an artifact upstream. Sim validation CONSUMES kits + T4 nodes + legendaries; it does NOT generate any of them.**
+
+### 0.5.1 The six-step content lifecycle
+
+| Step | Artifact | Generated from | Depends on | Generation algorithm / source |
+|---|---|---|---|---|
+| **1** | **Kits** | Class architecture + BC-target subspace + substrate (per § 1 Phase 1 + Phase 2 cell-targeting) | Nothing in this chain | Phase 1 BC-target queue + Phase 2 cell-composition |
+| **2** | **T4 nodes** (skill capstones) | **Algorithm § 8 scored-candidate strategy registry** (RESOURCE_CONVERSION, TRADE_OFF, ELEMENT_CONVERSION, DEFENSIVE_CONVERSION, GEOMETRY_COLLAPSE, DEFENSIVE_TRADEOFF) operating on **kit mechanics** | Kits only (Step 1) | Algorithm § 8 strategies; INDEPENDENT of gear and legendaries; per doc 40 § 8.1 |
+| **3** | **Skill tree structure** (chains organized around T4 capstones) | Chain architecture per class chain count - 1 formula (doc 40 D83) | Kits + T4 nodes (Steps 1-2) | Per-class chain composition; supporting chains may exist without T4 capstones (hybrid/multi-element builds) |
+| **4** | **Gear specifications** (per slot per cell) | **Spec-driven gear gen** (doc 40 D7): kit + T4 selection produces gear spec; scored-candidate strategy registry produces candidates | Kits + T4 nodes (Steps 1-2) | Mirrors Algorithm § 8 pattern but operates on gear-stat surface; spec defined by kit+T4; candidates generated to fit |
+| **5** | **Legendary instances** (and other rarity instances) | Strategy registry generates candidates to fit gear specs; legendary tier carries capability toolkit (doc 40 D9 + D54) | Kits + T4 nodes + gear specs (Steps 1-4) | T4-attunement on tier 1+2 legendaries (doc 40 D33 + D51); rarity escalation across Common→Legendary (doc 40 D8) |
+| **6** | **Sim validation** | Hybrid cohort + edge-case sampling with per-legendary cohort anchoring (doc 40 D84) | All upstream artifacts (Steps 1-5) | Cycles tier-2 legendaries × cohort archetypes × **pre-existing node configurations**; CONSUMES upstream artifacts; does NOT generate any of them |
+
+### 0.5.2 Why this is unambiguous (no circular dependency)
+
+The apparent loop risk would be: legendaries → T4 nodes → legendaries. But the actual flow is:
+
+- **T4 nodes are generated by Algorithm § 8 (Step 2) from kit mechanics — INDEPENDENT of legendaries.** Algorithm § 8 strategies operate on the kit's mechanical signature; gear is not an input.
+- **Gear specifications (Step 4) depend on T4 nodes (Step 2)** — gear is generated to fit pre-existing T4 nodes, not the other way around.
+- **Legendary instances (Step 5) depend on gear specs (Step 4)** — legendaries are downstream from gear specifications.
+- **Sim validation (Step 6) CONSUMES nodes + legendaries** — it samples pre-existing nodes that cohort+weapon configurations would invest in; it does NOT generate new nodes from legendaries.
+
+The phrase in doc 40 § 8.7 sim methodology "Map appropriate node configurations for cohort × weapon combinations" means: **sample from pre-existing nodes** (generated at Step 2) for cohort × weapon scenarios. Sim is a CONSUMER of nodes; not a generator.
+
+### 0.5.3 How this composes with the 8-phase per-kit workflow
+
+The 8-phase workflow (§ 1) operates within Step 2 + Step 4 + Step 6 of the content lifecycle:
+
+| Lifecycle step | Per-kit workflow phase | Note |
+|---|---|---|
+| Step 1 (Kits) | Phase 1 + Phase 2 cell-composition | Per-kit composition; substrate-bound at Phase 2 |
+| Step 2 (T4 nodes) | Phase 2 skill composition (algorithm § 8 if T4 cell) | Per-kit T4 generation; one T4 set per kit; per doc 40 D81 phasing all 4 phases of T4 algorithm wrap into Cycle 13 |
+| Step 3 (Skill tree) | Phase 2 skill composition output | Per-kit skill tree; chains organized around T4 capstones; supporting chains per doc 40 D83 |
+| Step 4 (Gear specs) | Phase 2 substrate-binding output produces gear-spec inputs; gear specifications derived per doc 40 D7 | Specs flow from per-kit composition |
+| Step 5 (Legendary instances) | Cross-kit generation step; legendaries generated against gear specs per doc 40 D7 + D9 + D54 | Legendaries reference T4 nodes via T4-attunement (doc 40 D33 + D51) |
+| Step 6 (Sim validation) | Phase 3 convergence + measurement + Phase 4 archive insertion | Sim validates kit + bound substrate; multi-T4 sim methodology per doc 40 D84 cycles legendaries against cohort-mapped node configurations |
+| (Other phases) | Phase 5 cohesion + Phase 6 visual + Phase 7 gate + Phase 8 export | Downstream from sim validation; cohesion enriches; visual + gate + export complete pipeline |
+
+### 0.5.4 What this enables for Cycle 13 stat-sheet partition design
+
+The stat-sheet partition cycle (doc 40 D14 — early-Cycle-13 milestone) operates at Step 4 (gear specifications). The partition design determines:
+
+- Which modifier types exist on the character stat sheet (Step 4 surface)
+- Which slots roll which modifier types (Step 4 spec structure)
+- Probability distribution per slot per modifier (Step 4 spec instantiation)
+- Tier-restricted modifier availability (Step 4 + Step 5 — some modifiers only on legendaries; some only at endgame tiers per doc 40 D51 + D54)
+- Node-count + chain-distribution interaction math (Step 4 ↔ Step 3 interaction)
+
+**The partition design lands BEFORE Step 5 (legendary instances) generation runs at scale, and BEFORE Step 6 (sim validation) executes against the full architecture.** Partition design is upstream foundation; legendaries + sim are downstream consumers.
+
+### 0.5.5 Cycle 13 work-cycle scope per content lifecycle
+
+Per doc 40 § 8.5 + § 9 Cycle 13 scope mapping, Cycle 13 work touches all 6 lifecycle steps:
+
+| Step | Cycle 13 work-cycle owner(s) |
+|---|---|
+| Step 1 (Kits) | rocket (composition) + gandalf (cell-targeting design) |
+| Step 2 (T4 nodes — all 4 phases per doc 40 D81) | rocket (Algorithm § 8 + 4-phase T4 implementation) + gandalf (design support) + jack-ryan (Gate-1 per phase) |
+| Step 3 (Skill tree) | rocket (implementation) + gandalf (chain architecture design per doc 40 D83) + T4 PM1 outputs |
+| Step 4 (Gear specs — stat-sheet partition design) | **Multi-seam early-Cycle-13 milestone:** gandalf intent + gamora methodology (Discipline #18) + rocket implementation + jack-ryan critique + legolas Mode A research |
+| Step 5 (Legendary instances) | rocket (generation against gear specs); also includes weapon damage spec completeness check + non-weapon gear baseline stats per doc 40 § 3.6 D14 scope expansion |
+| Step 6 (Sim validation) | gamora (gauntlet sim against full architecture per doc 40 D84 hybrid cohort + edge-case + per-legendary anchoring methodology) |
 
 ---
 
