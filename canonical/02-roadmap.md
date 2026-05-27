@@ -531,7 +531,15 @@ What's in flight RIGHT NOW + what fires next.
 
 **Scaffold-drift corrective package authority:** `agentic_orchestration/gandalf/notes/2026-05-27-scaffold-drift-recognition-and-corrective-package.md` (consolidated) + `agentic_orchestration/gandalf/notes/2026-05-27-scaffold-drift-kr-kicker.md` (KR routing).
 
-**Externally-gated items per Cycle 14 scope-doc § 4.2:** class-roster sub-decision (Wave 1.5 Option A/B/C); any synthetic_mode retention proposal (Matt explicit re-engagement; KR NOT autonomous per Q4 emphatic lock).
+**Externally-gated items per Cycle 14 scope-doc § 4.2:** class-roster sub-decision (Wave 1.5 Option A/B/C — ✅ Option C ratified 2026-05-27); any synthetic_mode retention proposal (Matt explicit re-engagement; KR NOT autonomous per Q4 emphatic lock); HYBRID caster-faith remediation Cycle 15 deferral commitment (✅ APPROVED 2026-05-27; Interpretation III LOCKED 2026-05-27 — ceremonial mace = faith, battle mace = martial).
+
+**Cycle 15 deferred commitments locked 2026-05-27 (per HYBRID approval + Interpretation III):**
+- elrond classifier rule amendment with ceremonial/battle mace discriminator
+- legolas Mode B Sidecar B WIS-broad enrichment for ceremonial/battle discrimination boundary
+- gandalf canonical doc amendment reconciling attribute-system § 1.3 / § 3 + doc 47 § 3.1 to lock Interpretation III canonically
+- gamora BC measurement refresh on caster-faith subset
+- star-lord telemetry refresh
+- Gated on Wave 5 gauntlet output + Phase 5 cohesion-judge output (NOT Matt design call — Matt pre-resolved 2026-05-27)
 
 ---
 
