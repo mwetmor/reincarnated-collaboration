@@ -1,6 +1,6 @@
 # Cycle 13 — Mechanical Engine Build (Phases 1-3 + Gauntlet Sim + Mechanical Season Gen) Framing Brief
 
-> **STATUS:** DRAFT — pending Matt ratification. Once ratified, becomes canonical authority basis for Cycle 13 hive-mind scope-doc + KR kicker (post-T4-PM1).
+> **STATUS:** **RATIFIED 2026-05-26** — Matt ratified Q1-Q11 in full (no amendments). Canonical authority basis for Cycle 13 hive-mind scope-doc + KR kicker (post-T4-PM1).
 
 **Author:** gandalf (story-and-design steward)
 **Authority basis:** Matt 2026-05-26 directives:
@@ -443,9 +443,23 @@ Subject to velocity anomaly adjustments. Cycle 12's actual velocity may inform C
 ## 12. Sign-off + ratification
 
 **Author:** gandalf (story-and-design steward)
-**Status:** DRAFT — pending Matt ratification
-**Ratification request to Matt:** ratify Q1-Q11 (or amend) → gandalf updates this brief to RATIFIED status → becomes canonical authority basis for Cycle 13 scope-doc authoring (post-T4-PM1) + KR kicker
-**Composition:** with `agentic_orchestration/gandalf/notes/2026-05-26-t4-post-mortem-session-1-prep.md` (T4 PM1 prep) + `canonical/02-roadmap.md` § 4.3 (Cycle 13 entry)
+**Status:** **RATIFIED 2026-05-26 — Matt ratified Q1-Q11 in full (no amendments)**
+**Ratification effect:** brief becomes canonical authority basis for Cycle 13 scope-doc authoring (post-T4-PM1) + KR kicker. KR has full autonomous scope per § 4.1 to orchestrate Cycle 13 through 5 waves. Matt re-engagement limited to items per § 4.2.
+
+**Locked outcomes from ratification:**
+- Q1: Cycle 13 scope = Phases 1-3 + Phase 4 + initial mechanical season gen; drax + galadriel no active work in Cycle 13 ✅
+- Q2: Wave structure (Wave 0 scope-doc → Wave 1 partition cycle → Wave 2 T4 Phases 1-2 → Wave 3 T4 Phase 3 → Wave 4 gear gen + Phase 4 sim → Wave 5 gauntlet sim + season gen + close) ✅
+- Q3: Scope-of-autonomy boundaries per § 4.1 + § 4.2 ✅
+- Q4: 5 sidecars (SC-1 main_weapon routing cleanup; SC-2 discipline ratification; SC-3 Discipline #23 amendment; SC-4 legolas Mode A research; SC-5 Pi exec) ✅
+- Q5: KR autonomous on critique-pair scheduling ✅
+- Q6: gamora consultation gates Wave 4; KR autonomous on D84 sub-options A/B/hybrid ✅
+- Q7: T4 PM1 6 named outputs ✅
+- Q8: Cycle close criterion = gauntlet sim PASS + initial mechanical season gen + jack-ryan Gate-2 PASS ✅
+- Q9: Cycle 14+ partitioning DEFERRED to Cycle 13 wind-down ✅
+- Q10: gandalf scope-doc lands specific N for "initial mechanical season generation" ✅
+- Q11: Skip-confirmation fire-forward authorization carried from Cycle 12 ✅
+
+**Composition:** with `agentic_orchestration/gandalf/notes/2026-05-26-t4-post-mortem-session-1-prep.md` (T4 PM1 prep) + `canonical/02-roadmap.md` § 4.3 (Cycle 13 entry — now updated to reference ratified brief)
 
 ---
 

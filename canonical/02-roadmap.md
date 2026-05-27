@@ -301,7 +301,7 @@ What's in flight RIGHT NOW + what fires next.
 | Item | Status | Detail |
 |---|---|---|
 | Architectural foundation (docs 38 + 39 + 40) | ✅ | Landed 2026-05-26 |
-| Cycle 13 framing brief (gandalf, ~2-4 hrs) | ⏳ | Pre-T4-PM1 anchor; locked decisions + open questions for Matt ratification |
+| Cycle 13 framing brief (gandalf) | ✅ | RATIFIED 2026-05-26 (Matt ratified Q1-Q11 in full); canonical authority basis for scope-doc + KR kicker; `agentic_orchestration/gandalf/notes/2026-05-26-cycle-13-framing-brief.md` |
 | T4 PM1 design session | ❌ | Gates on Cycle 12 close + form-generation milestone |
 | Cycle 13 scope-doc authoring (gandalf 4-8 hrs per D85) | ❌ | Gates on T4 PM1 completion |
 | Stat-sheet partition design cycle (multi-seam early Cycle 13 milestone) | ❌ | Gates on Cycle 13 launch + Discipline #18 methodology consultation |
