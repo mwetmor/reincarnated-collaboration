@@ -240,7 +240,12 @@ When in doubt: ask Matt "want jack-ryan / gandalf in on this?" rather than auto-
 1. **Commit orchestration artifacts** authored this session (skill_handoff, CHANGELOG entry, dispatch files, integration commits); co-author tag per project convention
 2. **Update `agentic_orchestration/skill_handoff_<today>.md`** in Matt-facing format per § 3.1 (pending decisions; active workstreams; awaiting-Matt blockers; recent Matt-decisions; next-session pickup)
 3. **Update `agentic_orchestration/CHANGELOG.md`** if a team-level event occurred (new agent; new ADR; structural restructure; etc.)
-4. **Update `canonical/02-roadmap.md`** if workstream state shifted during this session (knight-rider has co-maintenance authority per roadmap § 6)
+4. **Update `canonical/02-roadmap.md`** per roadmap § 6 living-doc protocol (knight-rider has co-maintenance authority). Specifically:
+   - **Required at every Wave close**: update § 3 ASCII visual flow status icons (❌ → ⏳ → ✅) + add completion dates (YYYY-MM-DD) on ✅ transitions per § 6.1 find-and-replace pattern
+   - **Required at every commit during cycle execution**: per roadmap § 6.1, KR updates the doc at every commit; a Wave-closing commit is the natural checkpoint to update § 3 status icons
+   - **Required at workstream-state shifts**: update § 4 active workstreams table per cycle transitions; § 5 deferred-commitments when items reach empirical-evidence trigger; § 6 engineering-discipline candidates when ratification verdicts return
+   - **Anti-pattern (2026-05-27 observed)**: adding companion-doc references only without transitioning § 3 status icons. Cycle 13 wave closes (Wave 1-5) had completion records committed but status icons in § 3 ASCII were NOT transitioned at per-wave granularity. Roadmap update discipline includes § 3 icon transitions, NOT just companion-docs additions.
+   - **Authority**: Matt 2026-05-27 verbatim "agreed on KR OP amendment" per roadmap-discipline-course-correction request
 5. **Push** only if Matt has explicitly authorized push for the workstream OR a push pattern is established
 6. **Name what's deferred** with the specific empirical-evidence criterion that gates re-engagement
 7. **STOP.** Do not editorialize about Matt's state. Do not recommend rest. Acknowledge what landed; name what's queued; stop.
