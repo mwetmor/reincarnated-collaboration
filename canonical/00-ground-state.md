@@ -24,6 +24,7 @@ Read these as authoritative for ongoing work.
 | Doc | Owns | Status |
 |---|---|---|
 | `canonical/38-downstream-delivery-strategy-2026-05-23.md` | Delivery strategy lock (D1-D10): Unreal, PC-first, variable execution, seasonal cadence, humanoid-only, isekai-provisional, ~200-220 day timeline | **CURRENT — keystone** |
+| `canonical/40-gear-balance-guide-architecture-2026-05-26.md` | **Cycle 13 architectural foundation (D1-D86 across 5 design blocks): balance-as-property + spec-driven gear gen + rarity escalation + capability toolkit + 4-tier legendary/unique + 2-tier set + 85th-percentile cumulative acquisition + Option A drop calibration + multi-node calibration (4 progression nodes) + spirit-guide as data-oracle + T4-attuned gear intent + peak-moment community layer + auto-combat attribution correction + multi-T4 architecture with respec-with-legendary-trigger mechanism + T4 algorithm canonical form (4 phases all wrapped into Cycle 13) + flat 8 active skills + T4 count = chain count - 1 + hybrid cohort + edge-case sim sampling + 5 engineering-discipline candidates flagged to jack-ryan; explicit Cycle 13 scope mapping + orphan check** | **CURRENT — Cycle 13 architectural foundation** |
 | `canonical/02-roadmap.md` | Current roadmap (workstream sequencing + dependencies + empirical-evidence-gated deferred commitments); supersedes A-series roadmap | **CURRENT — living doc** |
 | `canonical/37-engine-and-game-two-products.md` | Variant C lock: engine vs game as two products | CURRENT |
 | `canonical/story/engine-as-general-serial-content-product-2026-05-22.md` | Variant C strategic frame (story-side) | CURRENT |
@@ -108,7 +109,7 @@ These shaped current canon. They are NOT wrong. They are NOT current. Read them 
 | **15-entry gear catalogue** (Pattern 5) | RETIRED 2026-05-22 | Replaced by vast-library substrate (~89K rows + growing) |
 | **Pre-imposed axes** (Pattern 6) | RETIRED 2026-05-22 | Replaced by discovered axes from PCA / factor analysis on substrate |
 | **Form-bias diagnosis framing** | Superseded 2026-05-19 | Substrate-as-cohesion architecture absorbs the form-bias concerns |
-| **Pure-auto-combat consideration** | REJECTED 2026-05-23 (D2) | Variable execution by build (substrate-axis-driven) is the lock |
+| **Pure-auto-combat consideration** | REJECTED 2026-05-23 (D2); RE-AFFIRMED 2026-05-26 per doc 40 § 1 | Variable execution by build (substrate-axis-driven) is the lock; auto-combat reserved as deferred mobile-game-variant option only (Matt 2026-05-26) |
 | **Mobile-first framing** | REJECTED 2026-05-23 (D1) | PC/console-first + mobile-port at +6 months |
 | **Non-humanoid playable forms** | REJECTED 2026-05-23 (D9) | Humanoid-only playable; non-humanoids as bosses/pets/fauna |
 | **W0.7-framework ablation cycle** | CLOSED 2026-05-22 | LC-002, LC-009, LC-011 disposed of; no further W0.7 sweeps warranted |
@@ -124,7 +125,7 @@ Replaces the per-agent multi-doc Phase-1 reading list with a focused short list.
 |---|---|
 | **knight-rider** | doc 38; latest `agentic_orchestration/skill_handoff_*.md`; current hive-mind state file; engineering-disciplines |
 | **jack-ryan** | doc 38; engineering-disciplines; decisions-log; latest critique-pair dispatch |
-| **gandalf** | doc 38; **qd-engine-bc-axes-lock-2026-05-20.md (8-axis operational truth)**; **qd-engine-end-to-end-workflow-2026-05-21.md (8-phase pipeline)**; own latest 3 notes (`agentic_orchestration/gandalf/notes/`); style-register; legacy-categorical-cleanup-audit |
+| **gandalf** | doc 38; **doc 40 (Cycle 13 architectural foundation)**; **qd-engine-bc-axes-lock-2026-05-20.md (8-axis operational truth)**; **qd-engine-end-to-end-workflow-2026-05-21.md (8-phase pipeline)**; own latest 3 notes (`agentic_orchestration/gandalf/notes/`); style-register; legacy-categorical-cleanup-audit |
 | **rocket** | doc 38; substrate-vector axes; gear-substrate rule table; tier-4 architecture defaults; engineering-disciplines |
 | **gamora** | doc 38; multi-dim-convergence-algorithm; w1-13-rescope-disposition; engineering-disciplines |
 | **star-lord** | doc 38; asset-pipeline-meshy-swap; loadout-analytics-suite info-arch; engineering-disciplines |
