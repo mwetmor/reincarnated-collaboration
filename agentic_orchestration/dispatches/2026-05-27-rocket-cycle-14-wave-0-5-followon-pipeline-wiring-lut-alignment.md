@@ -56,12 +56,17 @@ Not applicable directly — this is wiring + constant alignment, not algorithmic
 
 - [ ] Identify rocket fallback LUT constants in `substrate_weapon_binding.py` (or wherever the family baseline values are hardcoded)
 - [ ] Update rocket fallback values to match elrond Pass-2 LUT per `sc-6b-weapon-family-baselines-2026-05-27.json` + `sc-6b-baseline-lut-math-2026-05-27.md`
-- [ ] Specifically (per Gate-2 Finding 2):
-  - `martial-heavy`: 200 → 177
-  - `ranged`: 150 → 91
-  - (And any other family values that diverge — sync to elrond's Pass-2 LUT canonical source)
+- [ ] **Align ALL 5 family values to elrond Pass-2 LUT** (per Gate-1 Finding FO-2 WARN amendment — Gate-2 Finding 2 named only martial-heavy + ranged; jack-ryan Gate-1 surfaced full divergence across all 5 families):
+  - `martial-heavy`: 200 → **177**
+  - `martial-light`: → **99**
+  - `ranged`: 150 → **91**
+  - `caster-arcane`: → **31**
+  - `caster-faith`: → **31**
+  - Cross-check against canonical source `agentic_orchestration/elrond/research/sc-6b-substrate-enrichment-2026-05-27/sc-6b-weapon-family-baselines-2026-05-27.json` for any additional families requiring alignment (e.g., hybrid family if instantiated)
 - [ ] Add code comment citing `sc-6b-baseline-lut-math-2026-05-27.md` as the authoritative source per Discipline #10 attribution clarity
-- [ ] Smoke: verify post-update fallback values match elrond LUT (spot-check via assert OR test)
+- [ ] Smoke: verify post-update fallback values match elrond LUT for all 5+ families (spot-check via assert OR test; canonical verification source = sc-6b-weapon-family-baselines-2026-05-27.json)
+
+*Amended 2026-05-27 per jack-ryan Gate-1 Finding FO-2 WARN — original criteria named only martial-heavy + ranged from Gate-2 Finding 2; full Pass-2 LUT divergence is across all 5 families per elrond canonical source.*
 
 ### Closure
 
@@ -75,7 +80,7 @@ Not applicable directly — this is wiring + constant alignment, not algorithmic
 
 - [ ] `season_generation_pipeline.py` wires per_skill_emitter + substrate_weapon_binding cleanly; no regression on existing smoke
 - [ ] Integration smoke: 16-character test season produces per-skill content + 8-field substrate binding on all characters
-- [ ] Rocket fallback LUT values match elrond Pass-2 LUT (specifically martial-heavy=177 and ranged=91 per Gate-2 Finding 2)
+- [ ] Rocket fallback LUT values match elrond Pass-2 LUT **for ALL 5+ families** (martial-heavy=177 / martial-light=99 / ranged=91 / caster-arcane=31 / caster-faith=31 per `sc-6b-weapon-family-baselines-2026-05-27.json` canonical source — per Gate-1 Finding FO-2 WARN amendment)
 - [ ] Code comment cites elrond LUT math-note per Discipline #10 attribution clarity
 - [ ] generation/MIGRATION.md § Wave 0.5 follow-on records both items as REMEDIATED
 - [ ] AGENT_STATE.md updated

@@ -178,8 +178,14 @@ Math-notes are jack-ryan Gate-1 inputs.
 
 - **Q-W1-R1**: Layer 7 Pass 2 cap thresholds — are SC-4 recommended caps (1 per pattern_id; 2 ACTION-family + 2 DEFENSE-family instant-window) the right starting point? Pattern-A query to gandalf if uncertain.
 - **Q-W1-R2**: Layer 3 capability scope migration — any existing `character_wide` / `chain_wide` entries that warrant T4 promotion (route to gandalf design call) vs retirement? Inspect via DB + decide.
-- **Q-W1-R3**: Layer 4 AI-tell guardrails — what's the exact mitigation pattern for on_hit / on_enemy_killed / every_n_seconds? Cohesion-judge LLM (Wave 3) is the primary AI-tell mitigation surface; Layer 4 may flag these conditions for Wave 3 LLM-prompt guardrails OR limit their gen-time emit-rate. Decide + record.
+- **Q-W1-R3**: Layer 4 AI-tell guardrails — what's the exact mitigation pattern for on_hit / on_enemy_killed / every_n_seconds **plus on_cast** (per jack-ryan Gate-1 INFO — on_cast is the 4th CRITICAL-risk AI-tell condition per SC-4, ranked just below the 3 originally named)? Cohesion-judge LLM (Wave 3) is the primary AI-tell mitigation surface; Layer 4 may flag these 4 conditions for Wave 3 LLM-prompt guardrails OR limit their gen-time emit-rate. Decide + record.
 - **Q-W1-R4**: Layer 2 affix migration backwards-compat — do migrated entries lose their old capability_modifier provenance, or carry forward as a hybrid? Rocket decides per Discipline #10 attribution clarity + Discipline #11 empirical inspection of existing data.
+
+## Carry-along guidance (per jack-ryan Gate-1 INFO findings 2026-05-27)
+
+- **Math-note authoring discipline (Discipline #1.2 code-citation):** when authoring the four math-notes per § Math-before-code, cite `file.py:NNN` for any "X applied at stage Y" claims (e.g., when describing "stat clamp at gen-time", cite the exact `gear_instance_generator.py:NNN` line where clamping happens). This anchors math-notes to the code surface they constrain.
+- **Layer 1 runtime-assertion smoke (Discipline #11 operationalization):** smoke test uses explicit violation-injection — craft an above-cap value that bypasses gen-time clamp; confirm runtime assertion fires AND names the violated stat. Not just "no violations observed" passive check.
+- **Layer 4 AI-tell — on_cast inclusion:** treat the 4-condition cluster (on_hit / on_enemy_killed / every_n_seconds / on_cast) as the AI-tell guardrail target per SC-4 risk ranking. Q-W1-R3 design call should consider all 4.
 
 ## References
 
