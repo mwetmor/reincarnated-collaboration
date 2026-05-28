@@ -450,9 +450,24 @@ Gamora SC-7 ✅ COMPLETE at engine `e7af7db` + tag `gamora/v1.8-sc-7-base-spell-
 - D3 RATIFIED: Engine KPM ceiling 600.0 = simulation artifact (probable fight-duration discretization). Cycle 14 bypass; Cycle 15 investigate concurrent with D2 Phase 2.
 - Additional recognition: Phase 7 KPM-uniform-band is formally Discipline #39 scaffold-with-pending-decision. 6th Cycle 14 scaffold-drift case caught. **Discipline framework operating exactly as architected — 6 scaffolds caught single cycle via sub-agent empirical execution.**
 
-**Currently firing (parallel):**
-- gamora Option F Phase 1 (~0.5d; stratified floor + ceiling bypass + ≥12/18 emit acceptance)
-- jack-ryan Phase 7 canonical re-write per Discipline #40 case (c) 6-step retraction (~0.25d)
+**Option F Phase 1 closure update 2026-05-28:**
+- ✅ Gamora Option F Phase 1 Parts 1-3 COMPLETE at engine `80a4417` + `de86e9b` + meta `d2838d4` (stratified floor + KPM=600.0 bypass + MIGRATION v1.37); 132/132 tests PASS
+- ✅ Jack-ryan Phase 7 canonical re-write COMPLETE at engine `ec7f6c1` + meta `e6be04d` (Discipline #40 case (c) 6-step retraction; § 3.4-3.7 amendments)
+- 🚨 **Part 4 smoke FAILED ≥12/18 acceptance (3/18 emit) — Discipline #44 framing-refusal exercised**
+
+**SEVENTH Cycle 14 scaffold-drift case surfaced 2026-05-28 (per Matt D7 anticipated cascade):**
+- Cross-class DPS variance (60-150 KPM per class at boss tier) vs SC-7 single-reference-class-calibrated KPM band ±0.25
+- 85% T1 REJECT on eligible boss encounters (10/216 in-band = 4.6%)
+- KPM=600.0 bypass correctly implemented but fires 0 times on real Phase 3 kits (ceiling was SC-7 reference-class artifact only)
+- Stratified floor correctly isolates measurement signal but cannot fix cross-class DPS variance
+- Gamora surfaced 4 candidates (per-class bands / wider band / damage-HP% metric / class DPS normalization)
+- Tag `gamora/v1.9-option-f-phase-1-stratified-floor-1` HELD pending re-routing
+- **Jack-ryan Gate-4 disposition 🔥 FIRING** (~half-day to 1 day; 6-option package for Matt Pattern-B; SC7-F1 Gate-3 precedent)
+
+**Discipline #39 design pattern continues operating exactly as architected:** each scaffold retirement surfaces next-deeper architectural truth via empirical sub-agent execution.
+
+**Currently firing:**
+- 🔥 jack-ryan Gate-4 7th scaffold-drift architectural disposition (cross-class DPS variance)
 
 **Cycle 14 v1 close trajectory at Matt D1 ratification:** ~0.75d unblock → Wave 5 cascade resumes via rocket's `run_phase3_from_staged_phase2()` with Option F Phase 1 gate → ~3-5d drax player-surface close parallel (Dispatches F + C + Sidecar G-2 + H) → end-to-end **~4-7 days from this ratification**.
 
