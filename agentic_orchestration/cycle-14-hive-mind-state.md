@@ -2120,6 +2120,42 @@ Gamora calibrates final A + C values empirically within Matt's ranges during Pha
 
 ---
 
+### ROCKET TWO-LAYER T4 ARCHITECTURE v1.13 COMPLETE 2026-05-28 EVENING LATE
+
+**Engine `1ac272f` + tag `rocket/v1.13-two-layer-t4-architecture-1`** (~32min fire). **296/296 T4-related tests PASS** (241 prior + 55 new).
+
+**All 7 active T4 strategies implemented per gandalf v1.17 canonical:**
+
+1. **DIRECT_DAMAGE_AMPLIFICATION** (Primary T4): `DIRECT_DAMAGE_AMPLIFICATION_MULTIPLIER = 1.75`. Applied in `resolve_skill()` AFTER geo_mult when `t4_alteration_type == "DIRECT_DAMAGE_AMPLIFICATION"` AND `t4_preferred_encounter_type == t4_current_encounter_type`. Discipline #39 scaffold (Cycle 15 retirement). 1.75 ∈ [1.5, 2.0] → doc 50 § 4.4 Target 4 universal guarantee.
+
+2. **ELEMENT_CONVERSION v1.2 magnitudes (Discipline #12 epoch break):** A=1.50 (was 1.125); B=1.25 (new named constant; was identity 1.0); C=0.25 additive (was 0.35); `ELEMENT_CONVERSION_VARIANT_C_AILMENT_ENABLED = False` (deferred Cycle 15). Both physical + magical formula branches updated.
+
+3. **TRADE_OFF_FRENZY (Matt-locked):** `HIT_REDUCTION = 0.30`, `CRIT_BOOST = 0.30`. Applied at combatant init via `from_player_class()` `trade_off_reversed_frenzy` alteration_fields handler. Additive: accuracy -= 0.30 (clamped ≥0), crit_chance += 0.30 (clamped ≤0.95).
+
+4. **DEFENSIVE_TRADEOFF RETIRED** from `REGIME_CHANGE_STRATEGIES_V1_13_LAYER2` per Matt D3. Preserved in `combatant.py` for backward-compat.
+
+5. **GEOMETRY_COLLAPSE + RESOURCE_CONVERSION:** Both verified pre-existing in v1 registry; appear in `REGIME_CHANGE_STRATEGIES_V1_13_LAYER2`. `_gamora_fields_from_t4_candidate()` dispatches correctly.
+
+6. **T4 SLOT FIELDS on KitCandidate:** `primary_t4`, `secondary_t4`, `tertiary_t4`, `preferred_encounter_type` (all Optional). Primary T4 EXEMPT from strip-and-ship per doc 51 § 10.8.9.
+
+7. **`_gamora_fields_from_t4_candidate()` ALL-STRATEGY DISPATCH:** 7-strategy table (Phase 3e ELEMENT_CONVERSION-only scope replaced). DEFENSIVE_TRADEOFF → empty dict (identity path).
+
+---
+
+### 🚨 CRITICAL COORDINATION SIGNAL FOR PHASE 4 RE-RUN-3 (rocket verbatim)
+
+> *"GAMORA HARNESS ACTION REQUIRED: Before each fight where DDA is active, set `combatant.t4_current_encounter_type = scenario_shell_id`. Without this injection, DDA is a silent no-op. `t4_preferred_encounter_type` is set at generation time via `from_player_class()`. `t4_current_encounter_type` is fight-context — gamora seam injects it."*
+
+**KR injects this into Phase 4 RE-RUN-3 dispatch.** Without explicit injection, Target 4 silently fails despite all infrastructure being correct.
+
+**Discipline #12 epoch break documented:** ECF v1.2 epoch — pre-v1.53 Phase 4 RE-RUN telemetry NOT comparable to Phase 4 RE-RUN-3 output for kits with ELEMENT_CONVERSION active. DDA epoch: new `t4_preferred_encounter_type` / `t4_current_encounter_type` fields available as nullable strings for telemetry attribution.
+
+**MIGRATION.md § v1.53 filed.** Files changed: damage_resolver / combatant / mechanic_alteration / season_generation_pipeline / MIGRATION / test_two_layer_t4_architecture (NEW 55 tests) / test_phase3e_element_conversion_factor (updated for v1.2 shift) / math note.
+
+**Cycle 14 v1 close trajectory locked at ~5-7d from rocket close.**
+
+---
+
 ### MATT STRATEGIC DELIBERATION DIRECTIVE 2026-05-28 EVENING LATE — HALT CASCADE POST PHASE 4 RE-RUN
 
 **Matt verbatim:**
