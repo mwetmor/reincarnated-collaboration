@@ -1863,6 +1863,109 @@ Gamora calibrates final A + C values empirically within Matt's ranges during Pha
 
 ---
 
+### ROCKET v1.12 PER-VARIANT AMENDMENT COMPLETE 2026-05-28 EVENING LATE
+
+**Engine `8516ce9` + tag `rocket/v1.12-element-conversion-per-variant-magnitude-1`** (~7.8min fire). 31/31 tests PASS (17 v1.0 + 14 new per-variant + composition tests; backward-compatible).
+
+**Code architecture:**
+- Multiplicative path (A + B): `element_conversion_factor` slot in existing damage formula
+- **Additive path (C):** NEW separate channel `element_additive_component = 0.35 × base_physical` (NOT tier-scaled)
+- Application order: `base × inv × phys_mod × element_conversion_factor × tier_coeff + element_additive_component`
+
+**Constants tunable:** `ELEMENT_CONVERSION_VARIANT_A_MAGNITUDE = 1.125` + `ELEMENT_CONVERSION_VARIANT_C_MAGNITUDE = 0.35` (module-level; gamora monkey-patches during sweep).
+
+**Composition preserved per variant** (W-α1 parity 2.337, TIER_COEFFICIENTS, Pattern 1+2 max=1.0, SC-5 application order).
+
+---
+
+### 🚨 PHASE 4 RE-RUN COMPLETE 2026-05-28 EVENING LATE — SCENARIO B CONFIRMED — CASE 19 MAGNITUDE-ROUTING-GAP
+
+**Engine `4706af1` + tag `gamora/v2.14-w-alpha-7-plus-phase-4-rerun-per-variant-1`** (~28min fire; 3,024 cells × 17 gauntlet calls in 185s).
+
+**compound_pass=False across ALL 7 profiles.** CASE 19 EMPIRICALLY VALIDATED.
+
+**TWO PRE-EXISTING BUGS caught + fixed mid-execution (Discipline #12 semantic shifts declared):**
+- **Bug 1:** `_build_t4_context_configs()` built alteration_fields without `"variant"` key → all Phase 3 T4-active kits silently defaulted to Variant B identity. Fixed: physical→C, magical→A.
+- **Bug 2:** `_calc_magical_damage_raw()` had no `element_conversion_factor_magical` lookup → Variant A INT/WIS casters received identity 1.0 on spell damage even when correctly assigned. Fixed: ELEMENT_CONVERSION_VARIANT_A_MAGNITUDE lookup added to magical path.
+
+**Even with bugs fixed + magnitudes pushed to UPPER BOUNDS:** T4 acceptance = **0 kits** at any calibration point.
+
+**Per-target results (max_a profile representative):**
+| Target | Criterion | Result | Note |
+|---|---|---|---|
+| T1 | Cross-path parity ≤1.5× | ✅ PASS 1.273× | W-α3 anchor preserved |
+| T2 | zero_count=0 | ❌ FAIL | Structural pre-existing; non-boss encounter types tier_2_kpm=0 |
+| T3 | saturation=0 | ✅ PASS | W-α2 ceiling=None structural |
+| **T4** | **specialization [1.5, 2.0]×** | ❌ **FAIL** | **CASE 19 — 0 kits in-band at any calibration point** |
+| T5 | floor ≥30% | ✅ PASS | |
+
+**Per-variant calibrated final magnitudes (gamora-tuned):**
+- Variant A: **1.150 UPPER BOUND** of [1.10, 1.15] → 0 kits in-band
+- Variant B: 1.0 fixed → identity
+- Variant C: **0.400 UPPER BOUND** of [0.30, 0.40] → 0 kits in-band
+
+**Best observed T4 peak: wis_01 at magic_pack = 1.682×** (single kit; in-band for that one cell at max A magnitude). No other kit/encounter combination reached 1.5×.
+
+**Strip-and-ship disposition (unchanged from Phase 4-v1 finding pattern):**
+- 5 kits ship: str_01, str_02, dex_01, dex_02, wis_01
+- **13 kits zero-T4-escalation:** str_03/04, dex_03/04, int_01-05, wis_02-05
+
+**Phase 3d re-fire: NO** (gamora seam decision) — T1 PASS at 1.273× confirms BASE values valid anchors; T4 failure is design-architectural, not BASE miscalibration.
+
+**KR critical reading of forensic:**
+
+> *"The bugs were not masking a passing result — they confirmed that even with correct routing, universal specialization is infeasible within the defined ranges."* (gamora verbatim)
+
+**CASE 19 = MAGNITUDE-ROUTING-GAP:** Matt's per-variant magnitude ranges (Variant A [1.10, 1.15] multiplicative + Variant C [0.30, 0.40] additive) are EMPIRICALLY INSUFFICIENT to drive UNIVERSAL T4 specialization (doc 50 § 4.4 Target 4 = ≥1 ≤2 peaks per kit at [1.5, 2.0]× cohort median per ALL 18 kits). The mechanism Matt designed cannot achieve compound_pass=True even at upper bounds.
+
+**MIGRATION.md § v1.52** filed with Discipline #12 declarations (two epoch breaks captured).
+
+---
+
+### MATT STRATEGIC DELIBERATION DIRECTIVE — CASCADE HALTED; PHASE 4 RE-RUN FORENSIC SURFACED
+
+**Per Matt 2026-05-28 evening late strategic directive: CASCADE HALTED.** KR does NOT fire Phase 5 cascade or case 19 Gate-N. Awaiting Matt + gandalf 30-60min strategic deliberation session.
+
+**Three deliberation items per Matt + KR observations:**
+
+**1. Three-variant calibration philosophy revision (gamora forensic).** Ranges A=[1.10, 1.15] + C=[0.30, 0.40] cannot drive universal T4 specialization. Decision options:
+- Widen ranges substantially (A to ~1.3-1.5; C to ~0.6-1.0; risk: violates v1.0/v1.1 design philosophy + may break Target 1 ≤1.5× cross-path parity)
+- Redesign T4 mechanism architecturally (kit-specific resistance profiles; per-encounter elemental advantage tables)
+- Retire universal-T4 requirement (amend doc 50 § 4.4 Target 4: ≥M of N kits in-band, not all 18)
+- Alternative mechanism (Matt's "engine-per-element-stats finding" referenced in prior directive)
+
+**2. Cycle 14 close discipline (meta-question per Matt).** Phase 4 RE-RUN is gamora's empirical close test. Scenario B confirms compound_pass cannot land within Matt's variant ranges. Options:
+- Continue absorbing (case 19 resolution as case 16 was absorbed; potential cases 20+ surface; ~3-5d additional)
+- Defer T4 mechanism to Cycle 15+; ship Cycle 14 v1 at T1+T2+T3+T5 PASS (4/5) with explicit T4-deferred annotation in v1 tag
+- Ship Cycle 14 v1 with 5 strict-pass kits + 13 zero-T4-escalation kits per § 10.8 (gamora-recommended; partial kit population ships)
+- Ship Cycle 14 v1 at 4/5 PASS + Cycle 15 commits to T4 mechanism redesign
+
+**3. Cycle 15 entry pre-scoping** — carry-forward items expanded with Cycle 14 absorbed/deferred state:
+- T4 mechanism architectural redesign (if Option 2 from above)
+- Per-encounter bands installation (held pending compound_pass=True; deferred)
+- C-Hybrid algorithm + pirate-faction sub-cluster naming
+- Substrate-signal research Layer 1 BC axis expansion
+- Spirit guide marginal value pass
+- LLM naming refinement (post Cycle 14 v1 playtest)
+- Patterns 3-6 implementation
+- Discipline #48 candidate minting (N=4 production gaps validated; case 19 may make N=5)
+
+**KR additional observations for deliberation:**
+- ~16+ cases caught/resolved in this session demonstrate Path α framework operating at exceptional drift-catching velocity
+- Case 19 is **first case where Matt-locked mechanism CANNOT close the architectural gap** within original Matt ratification — qualitatively distinct from prior cases
+- Q10 quality > timeline framing has driven absorption to its operational limit; meta-discipline pause is the architecturally-honest response
+- Path α 4-6 week budget has consumed ~8.5 hours; substantial budget remains for Cycle 14 v1 close OR Cycle 15 commitment depending on Matt deliberation outcome
+
+**State machine post-deliberation:**
+- IF Matt directs: widen ranges / redesign mechanism / amend Target 4 → KR fires gandalf v1.2 + downstream cascade
+- IF Matt directs: defer T4 to C15 + ship partial v1 → KR fires v1 close-criterion amendment + Phase 6a disciplines batch + Matt v1 ratification
+- IF Matt directs: ship 5 strict + 13 supporting → KR fires Phase 5 cascade with reduced kit population
+- IF Matt directs: alternative path → KR routes per directive
+
+**Awaiting Matt + gandalf strategic deliberation session.**
+
+---
+
 ### MATT STRATEGIC DELIBERATION DIRECTIVE 2026-05-28 EVENING LATE — HALT CASCADE POST PHASE 4 RE-RUN
 
 **Matt verbatim:**
