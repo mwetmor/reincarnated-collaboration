@@ -280,4 +280,29 @@ If the OP file doesn't yet exist for any agent, create it per the gandalf OP pro
 
 ### galadriel
 
-(pending)
+**Status:** COMPLETE 2026-05-27
+
+**Amendment applied to:** `agentic_orchestration/operating-procedures/galadriel.md`
+
+**Placement choices (per dispatch § Scope step "Choose placement"):**
+- **Move 5 (orientation phrase):** TOP preamble — new `> **Orientation: Engine first. Game second. Phase third.**` block immediately after title, with galadriel-contextualized Engine/Game/Phase expansions (Engine = reference-image provenance + rubric falsifiability; Game = visual coherence + style-register fidelity; Phase = benchmark cycles + PD Meshy gap-fill + P5 calibration sweeps + Pattern A dispatches). Preserved existing § 0 STATUS block immediately after; added 2026-05-27 amendment note to STATUS line per provenance discipline.
+- **Move 3 (framing-refusal authority Discipline #44):** in § 2 mode-selection at end (after "Capture-pipeline tooling") as new "Framing-refusal authority (Discipline #44 — Move 3)" subsection. Galadriel-contextualized all 4 refusal patterns: R-1 (mis-routed authority — gandalf for design-meaning / drax for render-architecture); R-2 (seam-discipline violation — scoring-vs-findings, survey-mode, falsifiability, manifest-provenance); R-3 (pre-authored taxonomy under no-classes — composes with § 3.6 substrate-led + #41); R-4 (methodology depth exceeds transcription — composes with § 3.2 + § 3.8 surface-back). Explicit composition note: Pattern R-4 IS galadriel's seam-native refusal pattern (generalizes § 3.8 HARD NO from "no sub-agents" to "no carrying mis-framed methodology depth").
+- **Move 2 (framing-audit Discipline #42):** in § 3 decision-loop discipline as new § 3.0 (entry-discipline) — composes ahead of every other § 3 sub-discipline; galadriel-contextualized Q1/Q2/Q3 surfaces with seam-specific examples (manifest-row state-matched references, calibration-sweep prior-fire check, surface-in-question reference existence). Apply-points include sub-agent entry, math hotspot ratification (P5), Pattern A-deep verdict authoring, cross-seam routing, benchmark report § 5 + § 6 authoring. Explicit composition note with § 3.11 #23 Pattern A-deep three-question protocol: #42 ratifies the same three-question shape as canonical AND widens applicability from Pattern A-deep specifically to ALL sub-agent dispatch consumption entries.
+
+**Framing-audit Q1/Q2/Q3 at amendment entry (Discipline #42 self-application):**
+- **Q1 load-bearing assumptions:** (a) templates compose cleanly with existing OP structure; (b) Move 2 composes with existing § 3.11 #23 (Pattern A-deep three-question protocol — same Q1/Q2/Q3 shape); (c) Move 3 composes with existing § 3.8 no-sub-agent-invocation HARD NO (the surface-back-to-KR pattern IS Pattern R-4); (d) Move 5 at preamble doesn't displace § 0 STATUS block.
+- **Q2 refutation evidence:** verified — OP § 3.11 already cross-references #23 precursor; § 3.8 already encodes surface-back-to-KR-or-gandalf as galadriel's seam-native methodology-consultation pattern; refusals dir exists (.gitkeep present at `agentic_orchestration/galadriel/refusals/`). KR OP precedent (commit `8a1ee9a`) placed orientation in § 3.11 not at preamble; galadriel chose preamble placement per dispatch § Scope "at OP top preamble OR § 0 introduction" — both are sanctioned; preamble chosen because the orientation is composition-with not replacement-of seam-discipline AND galadriel's OP doesn't have a § 3.11-equivalent dispatch-authoring-template section where orientation would naturally sit (KR's § 3.11 is dispatch-authoring; galadriel doesn't author dispatches).
+- **Q3 outcome trigger:** NO contradiction surfaced. Template composes. No #44 refusal required. Amendment proceeded as authored above.
+
+**Open questions resolved (per dispatch § Open questions):**
+- **Q-OP-galadriel-1 (placement adaptation):** standard template placement worked with per-agent context adaptation (orientation block expanded to name galadriel-specific Engine/Game/Phase semantics; refusal patterns contextualized to galadriel's 4 mis-routing patterns; framing-audit Q1/Q2 surfaces galadriel-specific empirical examples). Adaptation is composition-with not modification-of canonical template.
+- **Q-OP-galadriel-2 (pre-existing per-agent discipline composition):** § 3.11 #23 Pattern A-deep three-question protocol is the precursor to Move 2 Discipline #42 (same Q1/Q2/Q3 shape). Composition explicit in new § 3.0: #42 supersedes/canonicalizes #23 AND widens applicability from Pattern A-deep to ALL sub-agent dispatch consumption. § 3.8 no-sub-agent-invocation HARD NO is the precursor to Move 3 Pattern R-4 (surface-back to KR/gandalf rather than self-spawn). Composition explicit in new Framing-refusal authority subsection.
+
+**Acceptance criteria check:**
+- [x] OP file amended with Move 2 + Move 3 + Move 5 sections
+- [x] No conflict with existing OP structure (composition documented per § 3.0 #23-cross-reference + Framing-refusal § Pattern R-4 + § 3.8 composition + preamble + § 0 STATUS preservation)
+- [x] Per-agent completion record appended (this entry)
+- [ ] Commit + push per agent (firing next)
+
+**Files amended:**
+- `agentic_orchestration/operating-procedures/galadriel.md`
