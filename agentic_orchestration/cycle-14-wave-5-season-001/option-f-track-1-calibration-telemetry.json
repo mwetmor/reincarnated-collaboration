@@ -1,0 +1,229 @@
+{
+  "run_at": "2026-05-28T11:09:36.188273+00:00",
+  "dispatch": "agentic_orchestration/dispatches/2026-05-28-gamora-option-f-track-1-per-damage-path-kpm-bands.md",
+  "math_note": "simulation/math/option-f-track-1-per-damage-path-kpm-bands-2026-05-28.md",
+  "authority": "Matt D1 ratification 2026-05-28; jack-ryan Gate-4 ce65b22",
+  "archetype_sweep": {
+    "str_physical": {
+      "kit_count": 4,
+      "kit_ids": [
+        "S1_endgame_str_01_heavy_barbarian",
+        "S1_endgame_str_02_light_fighter",
+        "S1_endgame_str_03_polearm_soldier",
+        "S1_endgame_str_04_thrown_heavy"
+      ],
+      "boss_kpm_observations": [],
+      "boss_kpm_median_balanced": 0.0,
+      "cohort_band_table": {
+        "DPS-min-maxer": {
+          "lo": 82.0,
+          "hi": 97.0,
+          "midpoint": 89.5
+        },
+        "Balanced": {
+          "lo": 71.0,
+          "hi": 79.0,
+          "midpoint": 75.0
+        },
+        "Defensive": {
+          "lo": 52.0,
+          "hi": 64.0,
+          "midpoint": 58.0
+        },
+        "Hybrid": {
+          "lo": 64.0,
+          "hi": 82.0,
+          "midpoint": 73.0
+        }
+      }
+    },
+    "dex_physical": {
+      "kit_count": 4,
+      "kit_ids": [
+        "S1_endgame_dex_01_dagger_assassin",
+        "S1_endgame_dex_02_archer",
+        "S1_endgame_dex_03_crossbow_sniper",
+        "S1_endgame_dex_04_twin_blade_fencer"
+      ],
+      "boss_kpm_observations": [],
+      "boss_kpm_median_balanced": 0.0,
+      "cohort_band_table": {
+        "DPS-min-maxer": {
+          "lo": 82.0,
+          "hi": 97.0,
+          "midpoint": 89.5
+        },
+        "Balanced": {
+          "lo": 71.0,
+          "hi": 79.0,
+          "midpoint": 75.0
+        },
+        "Defensive": {
+          "lo": 52.0,
+          "hi": 64.0,
+          "midpoint": 58.0
+        },
+        "Hybrid": {
+          "lo": 64.0,
+          "hi": 82.0,
+          "midpoint": 73.0
+        }
+      }
+    },
+    "int_magical": {
+      "kit_count": 5,
+      "kit_ids": [
+        "S1_endgame_int_01_standard_wizard",
+        "S1_endgame_int_02_artillery_mage",
+        "S1_endgame_int_03_pyromantic_caster",
+        "S1_endgame_int_04_red_mage_spellsword",
+        "S1_endgame_int_05_arcane_familiar_mage"
+      ],
+      "boss_kpm_observations": [
+        73.171,
+        82.192,
+        82.192
+      ],
+      "boss_kpm_median_balanced": 82.192,
+      "cohort_band_table": {
+        "DPS-min-maxer": {
+          "lo": 73.562,
+          "hi": 122.603,
+          "midpoint": 98.082
+        },
+        "Balanced": {
+          "lo": 61.644,
+          "hi": 102.74,
+          "midpoint": 82.192
+        },
+        "Defensive": {
+          "lo": 47.671,
+          "hi": 79.452,
+          "midpoint": 63.562
+        },
+        "Hybrid": {
+          "lo": 60.0,
+          "hi": 100.0,
+          "midpoint": 80.0
+        }
+      }
+    },
+    "wis_faith": {
+      "kit_count": 5,
+      "kit_ids": [
+        "S1_endgame_wis_01_channeling_cleric",
+        "S1_endgame_wis_02_holy_knight",
+        "S1_endgame_wis_03_ritual_mage",
+        "S1_endgame_wis_04_storm_caller",
+        "S1_endgame_wis_05_monk"
+      ],
+      "boss_kpm_observations": [
+        63.83,
+        68.182,
+        65.934,
+        82.192,
+        78.947,
+        75.949,
+        98.361
+      ],
+      "boss_kpm_median_balanced": 75.949,
+      "cohort_band_table": {
+        "DPS-min-maxer": {
+          "lo": 67.975,
+          "hi": 113.291,
+          "midpoint": 90.633
+        },
+        "Balanced": {
+          "lo": 56.962,
+          "hi": 94.937,
+          "midpoint": 75.949
+        },
+        "Defensive": {
+          "lo": 44.051,
+          "hi": 73.418,
+          "midpoint": 58.734
+        },
+        "Hybrid": {
+          "lo": 55.443,
+          "hi": 92.405,
+          "midpoint": 73.924
+        }
+      }
+    }
+  },
+  "archetype_cohort_kpm_band": {
+    "str_physical": {
+      "DPS-min-maxer": [
+        82.0,
+        97.0
+      ],
+      "Balanced": [
+        71.0,
+        79.0
+      ],
+      "Defensive": [
+        52.0,
+        64.0
+      ],
+      "Hybrid": [
+        64.0,
+        82.0
+      ]
+    },
+    "dex_physical": {
+      "DPS-min-maxer": [
+        82.0,
+        97.0
+      ],
+      "Balanced": [
+        71.0,
+        79.0
+      ],
+      "Defensive": [
+        52.0,
+        64.0
+      ],
+      "Hybrid": [
+        64.0,
+        82.0
+      ]
+    },
+    "int_magical": {
+      "DPS-min-maxer": [
+        73.562,
+        122.603
+      ],
+      "Balanced": [
+        61.644,
+        102.74
+      ],
+      "Defensive": [
+        47.671,
+        79.452
+      ],
+      "Hybrid": [
+        60.0,
+        100.0
+      ]
+    },
+    "wis_faith": {
+      "DPS-min-maxer": [
+        67.975,
+        113.291
+      ],
+      "Balanced": [
+        56.962,
+        94.937
+      ],
+      "Defensive": [
+        44.051,
+        73.418
+      ],
+      "Hybrid": [
+        55.443,
+        92.405
+      ]
+    }
+  },
+  "discipline_45_vocab_audit": "PASS \u2014 damage_scaling_path vocabulary used; no 'class' labels"
+}

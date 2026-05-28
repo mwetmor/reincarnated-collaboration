@@ -151,3 +151,51 @@
 **Critical pending action (gamora):** when Track 1 sweep completes and `option-f-track-1-calibration-telemetry.json` is filed, populate the 16 `BAND[archetype][cohort]` placeholder cells in § 3.9 with numeric `(midpoint, ±0.25)` values. The canonical architecture is locked; the numeric values are the only missing element. File a follow-on amendment to the canonical doc with the numeric values + a co-completion record pointer back to this dispatch.
 
 **Jack-ryan dispatch completion record location:** `agentic_orchestration/dispatches/2026-05-28-jack-ryan-phase-7-track-1-canonical-re-write.md` § Completion record
+
+---
+
+### Gamora Track 1 completion record
+
+**Recorded:** 2026-05-28
+**By:** gamora (simulation seam owner; Track 1 empirical sweep executor)
+**Math note:** `reincarnated-engine/src/reincarnated/simulation/math/option-f-track-1-per-damage-path-kpm-bands-2026-05-28.md`
+
+**Scope completion:**
+
+- [x] Part 1 — 18-kit archetype partition: STR=4, DEX=4, INT=5, WIS=5 — balanced, no zero-kit archetype. Attribution via `kit.bc_attribute` flat field (Q-T1-1 resolved)
+- [x] Part 2 — Per-archetype calibration sweep: `run_track1_archetype_sweep()` in `sc7_calibration_loop.py` executed; telemetry filed at `cycle-14-wave-5-season-001/option-f-track-1-calibration-telemetry.json`
+- [x] Part 3 — Gauntlet sim integration: `_ARCHETYPE_COHORT_KPM_BAND` global registry + `set_archetype_cohort_kpm_band()` + `get_archetype_cohort_kpm_band()` + `load_archetype_kpm_band_from_telemetry()` in `gauntlet_sim.py`; `w5g1_gauntlet_execution()` updated to per-archetype in-band check
+- [x] Discipline #45 vocab audit: PASS — `damage_scaling_path` vocabulary used throughout; no 'class' labels
+- [x] MIGRATION.md § v1.38 prepended
+- [x] AGENT_STATE.md updated
+- [x] `season_generation_pipeline.py` updated — `damage_scaling_path` injected into config dicts
+- [x] Canonical doc § 3.9 populated with numeric band values (jack-ryan Track 1 canonical re-write co-record landing)
+- [x] Tag retired: `gamora/v1.9-option-f-phase-1-stratified-floor-1` (superseded)
+
+**Acceptance criterion result: FAIL — season_emit=3 < 12 (D1 acceptance criterion NOT MET)**
+
+**16-value band table (from telemetry):**
+
+| Archetype | DPS-min-maxer | Balanced | Defensive | Hybrid |
+|---|---|---|---|---|
+| `str_physical` | (82.0, 97.0) FALLBACK | (71.0, 79.0) FALLBACK | (52.0, 64.0) FALLBACK | (64.0, 82.0) FALLBACK |
+| `dex_physical` | (82.0, 97.0) FALLBACK | (71.0, 79.0) FALLBACK | (52.0, 64.0) FALLBACK | (64.0, 82.0) FALLBACK |
+| `int_magical` | (73.562, 122.603) | (61.644, 102.74) | (47.671, 79.452) | (60.0, 100.0) |
+| `wis_faith` | (67.975, 113.291) | (56.962, 94.937) | (44.051, 73.418) | (55.443, 92.405) |
+
+**Q-T1 resolutions:**
+- **Q-T1-1 (attribution method):** `kit.bc_attribute` flat field is canonical on KitCandidate objects loaded via `_kit_candidate_from_dict`. No derivation required. `ATTRIBUTE_TO_DAMAGE_SCALING_PATH` mapping: STR→str_physical, DEX→dex_physical, INT→int_magical, WIS→wis_faith.
+- **Q-T1-2 (aggregation level):** Full 16-cell granularity (4 archetypes × 4 cohorts). Cohort ratio scaling from Balanced median for non-Balanced cohorts (DPS ratio=1.193, Balanced=1.0, Defensive=0.773, Hybrid=0.973).
+- **Q-T1-3 (distribution):** STR=4, DEX=4, INT=5, WIS=5 — balanced emergence. No zero-kit archetype.
+
+**8th scaffold-drift case (Discipline #44 framing-refusal invoked):**
+
+STR-physical kits (4) and DEX-physical kits (4) produce boss KPM = 0.0 at every eligible encounter. Root cause: `base_physical_damage_l50` (SC-6b substrate values) are uncalibrated against endgame boss HP pool. All STR/DEX kits T1-REJECT (kpm_delta > 0.30). Per-archetype KPM bands cannot gate what cannot be measured. INT/WIS magical archetypes produce meaningful observations (7 boss KPM observations across WIS-faith; 3 across INT-magical) but only 3/18 kits achieve season_emit=True. The 8th scaffold-drift case is structural, not a calibration-parameter issue. Track 2 per-kit damage calibration (D3 deferred Cycle 15) is the resolution path.
+
+**Disposition:** Discipline #44 framing-refusal invoked. Route to KR + jack-ryan + Matt for Pattern-B disposition. Acceptance criterion failure is expected given the D3 deferral of per-kit physical damage calibration.
+
+**Engine commit:** see `reincarnated-engine` — files: `sc7_calibration_loop.py`, `gauntlet_sim.py`, `generation/season_generation_pipeline.py`, `simulation/math/option-f-track-1-per-damage-path-kpm-bands-2026-05-28.md`, `simulation/MIGRATION.md`, `simulation/AGENT_STATE.md`, `design/math/phase-7-2-layer-joint-gate-thresholds-2026-05-27.md`
+
+**Tag:** `gamora/v2.0-option-f-track-1-per-damage-path-bands-1` cut at engine commit
+
+**Re-fire criterion (Discipline #36 forward-link):** Track 1 re-evaluation fires when Track 2 per-kit physical damage calibration (D3 Cycle 15) produces calibrated `base_physical_damage_l50` values for STR/DEX kits. At that point, re-run `run_track1_archetype_sweep()` and replace FALLBACK bands for `str_physical` / `dex_physical` with empirical values.
