@@ -787,6 +787,49 @@ Once W-α1 lands, W-α3 Phase 2 fires:
 2. `REFERENCE_TARGET_IS_PLACEHOLDER = False`
 3. Calibration pass runs against full post-Path-α engine state
 4. Bundle Gate-2 trigger: `run_bounded_viability_validation_harness(smoke=False)` → `compound_pass=True` = Path α close signal
+
+---
+
+### W-α1 ROCKET DAMAGE FORMULA REFACTOR COMPLETE 2026-05-28 (Direction A — Unified Formula)
+
+**Engine `d221fdd` + tag `rocket/v1.8-w-alpha-1-damage-formula-refactor-1` + meta `f715f50`** (~22-min fire). **STRUCTURAL ROOT CAUSE OF 365× CROSS-PATH IMBALANCE CLOSED.**
+
+**Root cause identified (rocket):** Physical weapon base (177 HP) vs magical base (28,144 HP × 1.90 spell_mod) = **816× per-cast divergence**. Gauntlet fight dynamics compress to measured 79× population-median + 365× elite_pack per-encounter-type. Doc 50 § 4.1 Target 1: ≤1.5×.
+
+**Decision: Direction A — Unified damage formula (with attribute-coefficient parity):**
+- `BASE_PHYSICAL_DAMAGE_L50`: `{T1:65800, T2:98700, T3:142500, T4:263100}`
+- Parity factor 2.337 = `spell_mod(1.90) / armor_factor(0.813)`
+- STR/DEX physical paths now calibrated to magical-path parity at the formula layer
+- doc 47 § 3 partition preserved via attribute-coefficient scaling on common base
+
+**Implementation:**
+- `per_skill_emitter.py`: STR/DEX skills emit `base_physical_damage_l50` in `effect_params`; module-load parity assertions enforce 0.85-1.15 ratio
+- `damage_resolver.py`: `_calc_physical_damage_raw()` seeds from calibrated table; weapon sentinel removed; optional `effect_params` parameter added
+- Math note at `generation/math/path-alpha-damage-formula-refactor-2026-05-28.md` (Discipline #1 + cross-stream coherence § identifying Option α most-compatible with Direction A per jack-ryan Gate-1 amendment)
+- `generation/MIGRATION.md` entry filed
+
+**Target 1 verification (W-α1 isolated acceptance):**
+- T3 primary DPS ratio: **0.9995×** (physical vs magical; effectively 1.0×)
+- All-path max/min: **1.086×** (target ≤1.5× — PASS with significant margin)
+- Direct fight test: STR kit kills 231,000 HP boss in 0.4s; `termination_reason=b_dead`
+
+**Pre-W-α3 harness state (rocket-documented expected behavior; not defect):**
+- Physical KPM ≈150 vs COHORT_KPM_BAND (82-97 DPS-min-maxer) → TIER_1_REJECT
+- All 108 BVV cells 0 KPM as result
+- Same pattern INT/WIS kits showed before SC-7 calibration
+- **W-α3 Phase 2 unified calibration recalibrates both BASE tables to land all paths in target band**
+
+---
+
+### W-α3 PHASE 2 UNLOCK — ALL SIGNALS RECEIVED
+
+W-α1 ✅ `d221fdd` + W-α2 ✅ `6983759` (ceiling=None). W-α3 Phase 2 can fire:
+1. Reference target lock per Option α derivation (post-W-α1 formula architecture × W-α2 uncapped empirical signal)
+2. `REFERENCE_TARGET_IS_PLACEHOLDER = False`
+3. Unified calibration pass: binary search over scale_factor against doc 50 § 4 5 targets
+4. Bundle Gate-2 harness validation: `run_bounded_viability_validation_harness(smoke=False)` → expected `compound_pass=True` post-Phase-2
+
+KR fires W-α3 Phase 2 sub-agent next.
 - ✅ **W-α5 jack-ryan canonical retirements COMPLETE** at meta `deadd26` + tag `jack-ryan/v1.7-w-alpha-5-canonical-retirements-1` (bundled; ~11-min fire). All 3 sub-streams landed:
   - **W-α5a — 5 decisions-log entries:** Path α RATIFICATION (LOCKED) + Path β-narrow REJECTION + Path β-FULL Option 6 REJECTION + Cycle 15 D2 Option 6 RETRACTION (Discipline #40 case (c) FOURTH iteration declared) + Discipline #39 framework maturation (two modes defined — Mode A scaffold-drift catches cases 1-7; Mode B canonical scaffold resolutions case 8+; founding case `ee15c96` ANCHOR INTENTS; 3-element annotation requirement: scaffold declaration + named resolution party + named resolution gate; adjacent architectural truth pattern)
   - **W-α5b — Phase 7 doc § 3.14 + lifecycle:** Full Discipline #40 case (c) FOURTH iteration 6-step procedure executed. Phase 7 doc STATUS shifted LOAD-BEARING → HISTORICAL. D2 RATIFICATION marked RETRACTED in authority header. Doc 50 added as successor. Implementer historical-note added.
