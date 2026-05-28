@@ -97,4 +97,37 @@
 
 ## Completion record
 
-(append on completion)
+**Completed:** 2026-05-27
+**Agent:** jack-ryan
+**Status:** DONE
+
+**Framing-audit (Discipline #42) applied at entry:**
+- Q1: (1) Discipline #45 composes with #41 + #44 without redundancy; (2) vocabulary scope covers engine impl + canonical math notes but NOT canonical/story/ narrative vocabulary; (3) F-6 failure-modes register is the proper anchoring trigger; (4) exemption for `proxy_geometry_class` etc. substrate field names per gandalf Stage 2 disposition
+- Q2: refutation evidence sought — read no-classes recommitment (§ 2 vocabulary lock table); verified proxy_geometry_class active in `src/reincarnated/generation/` (confirmed in bc_target_player_class.py, bc_target_substrate_engine.py, supporting_chain_emergence.py, substrate_kit_clustering.py); verified doc 48 STATUS VESTIGIAL is the anchored example; confirmed #41 and #45 operate at different surfaces (decision gate vs vocabulary constraint) — not hierarchical; confirmed narrative vocabulary exemption does not create an architectural loophole
+- Q3: no contradiction surfaced. All framing holds. Proceeding.
+
+**Open question resolutions:**
+
+- **Q-D45-1 (parallel vs sub-discipline):** PARALLEL discipline (#45 standalone). Rationale: #41 is a decision gate (when may a taxonomy be introduced?); #45 is a vocabulary constraint (what words are forbidden in generative architecture?). Even when #41 permits a pre-authored taxonomy via explicit rationale, #45's prohibited list still constrains vocabulary. Sub-discipline framing would make #45 defeatable by passing #41's interrogation — which would leave the vocabulary question open in exempt cases. Independent standing required.
+
+- **Q-D45-2 (scope boundary):** Engine source code + math notes + dispatch acceptance criteria + numbered canonical docs + decisions-log = IN SCOPE (vocabulary prohibited). `canonical/story/` narrative vocabulary = EXEMPTED (player-facing narrative may use "class" in natural-language sense; does not feed generative output decisions). `proxy_geometry_class` and sibling proxy substrate field names = EXEMPTED (substrate infrastructure; renaming carries migration risk outweighing vocabulary benefit). Python language keyword `class` for class definitions = NOT a violation.
+
+- **Q-D45-3 (reciprocal cross-references):** Surgical bidirectional per #42/#43/#44 bundle precedent. Added one cross-reference line at #41 cross-references section; added one cross-reference line at #44 cross-references section. Anatomy section updated to replace placeholder with ratified description.
+
+**Scope checklist:**
+- [x] Discipline #45 canonical text written at engineering-disciplines.md § 45 (STATUS: LOAD-BEARING)
+- [x] Hard-prohibited vocabulary list defined (class / per-class / class roster / class taxonomy / class-intrinsic / class-naming policy / archetype-as-generative-input / role-as-generative-taxonomy)
+- [x] Exemption scope defined (proxy_*_class substrate field names; canonical/story/ narrative; Python language keyword; historical artifact preservation; verbatim quotes)
+- [x] Composition with #41 (parallel discipline; decision gate vs vocabulary constraint)
+- [x] Composition with #44 R-3 (Pattern R-3 is the direct #45 Framing-Refusal trigger; vocabulary violations in acceptance criteria are Q3=YES triggers)
+- [x] Gate-1 checklist item added (inside #45 Operational hooks: "Does the dispatch use class/role/archetype as generative-unit vocabulary?")
+- [x] Gate-2 checklist item added (mechanical grep audit command specified inside #45 Operational hooks)
+- [x] Anchored examples: doc 48 retraction (primary); Stage 2 mid-session vocabulary corrections (smith-monk/assassin); 5 OP amendments Move 3 R-3 composition
+- [x] Reciprocal cross-reference at #41 cross-references section (one surgical line)
+- [x] Reciprocal cross-reference at #44 cross-references section (one surgical line)
+- [x] Anatomy section updated (placeholder line replaced with ratified description)
+- [x] Completion record appended
+
+**Files modified:**
+- `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` — Discipline #45 canonical text + reciprocal cross-references at #41 + #44 + anatomy section update
+- `agentic_orchestration/dispatches/2026-05-27-jack-ryan-discipline-45-canonical-write.md` — this completion record
