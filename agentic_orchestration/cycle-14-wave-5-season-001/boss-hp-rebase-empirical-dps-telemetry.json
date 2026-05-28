@@ -1,0 +1,201 @@
+{
+  "run_at": "2026-05-28T12:09:22.968207+00:00",
+  "dispatch": "agentic_orchestration/dispatches/2026-05-28-gamora-boss-hp-rebase-case-8-resolution.md",
+  "math_note": "simulation/math/boss-hp-rebase-case-8-resolution-2026-05-28.md",
+  "authority": "Matt 2026-05-28 Gate-5 D1 RATIFIED; ANCHOR INTENTS handoff ee15c96",
+  "track1_int_wis_obs_baseline": {
+    "observations": [
+      63.83,
+      65.934,
+      68.182,
+      73.171,
+      75.949,
+      78.947,
+      82.192,
+      82.192,
+      82.192,
+      98.361
+    ],
+    "median_kpm_balanced": 77.448,
+    "p25_kpm": 68.182,
+    "p75_kpm": 82.192,
+    "current_boss_hp_mid": 230000.0
+  },
+  "physical_signal_first_detected_at": null,
+  "population_median_dps_balanced": 296884.0,
+  "recommended_boss_hp_factor_range": [
+    10.45,
+    12.6
+  ],
+  "amendment_b_lo_factor": 10.455,
+  "amendment_b_hi_factor": 12.603,
+  "mini_boss_decision": "PRESERVED (5.00, 8.00) \u2014 Amendment A: insufficient per-tier telemetry",
+  "sweep_levels": [
+    {
+      "boss_hp_factor_lo": 0.5,
+      "boss_hp_factor_hi": 1.0,
+      "boss_hp_mid": 15000.0,
+      "per_archetype_kpm_observations": {
+        "str_physical": [],
+        "dex_physical": [],
+        "int_magical": [],
+        "wis_faith": []
+      },
+      "per_archetype_kpm_median": {
+        "str_physical": 0.0,
+        "dex_physical": 0.0,
+        "int_magical": 0.0,
+        "wis_faith": 0.0
+      },
+      "population_kpm_median_all": 0.0,
+      "physical_signal_present": false,
+      "physical_total_observations": 0
+    },
+    {
+      "boss_hp_factor_lo": 1.0,
+      "boss_hp_factor_hi": 2.0,
+      "boss_hp_mid": 30000.0,
+      "per_archetype_kpm_observations": {
+        "str_physical": [],
+        "dex_physical": [],
+        "int_magical": [],
+        "wis_faith": []
+      },
+      "per_archetype_kpm_median": {
+        "str_physical": 0.0,
+        "dex_physical": 0.0,
+        "int_magical": 0.0,
+        "wis_faith": 0.0
+      },
+      "population_kpm_median_all": 0.0,
+      "physical_signal_present": false,
+      "physical_total_observations": 0
+    },
+    {
+      "boss_hp_factor_lo": 2.0,
+      "boss_hp_factor_hi": 4.0,
+      "boss_hp_mid": 60000.0,
+      "per_archetype_kpm_observations": {
+        "str_physical": [],
+        "dex_physical": [],
+        "int_magical": [],
+        "wis_faith": []
+      },
+      "per_archetype_kpm_median": {
+        "str_physical": 0.0,
+        "dex_physical": 0.0,
+        "int_magical": 0.0,
+        "wis_faith": 0.0
+      },
+      "population_kpm_median_all": 0.0,
+      "physical_signal_present": false,
+      "physical_total_observations": 0
+    },
+    {
+      "boss_hp_factor_lo": 3.0,
+      "boss_hp_factor_hi": 5.0,
+      "boss_hp_mid": 80000.0,
+      "per_archetype_kpm_observations": {
+        "str_physical": [],
+        "dex_physical": [],
+        "int_magical": [],
+        "wis_faith": []
+      },
+      "per_archetype_kpm_median": {
+        "str_physical": 0.0,
+        "dex_physical": 0.0,
+        "int_magical": 0.0,
+        "wis_faith": 0.0
+      },
+      "population_kpm_median_all": 0.0,
+      "physical_signal_present": false,
+      "physical_total_observations": 0
+    },
+    {
+      "boss_hp_factor_lo": 4.0,
+      "boss_hp_factor_hi": 7.0,
+      "boss_hp_mid": 110000.0,
+      "per_archetype_kpm_observations": {
+        "str_physical": [],
+        "dex_physical": [],
+        "int_magical": [],
+        "wis_faith": []
+      },
+      "per_archetype_kpm_median": {
+        "str_physical": 0.0,
+        "dex_physical": 0.0,
+        "int_magical": 0.0,
+        "wis_faith": 0.0
+      },
+      "population_kpm_median_all": 0.0,
+      "physical_signal_present": false,
+      "physical_total_observations": 0
+    },
+    {
+      "boss_hp_factor_lo": 5.0,
+      "boss_hp_factor_hi": 9.0,
+      "boss_hp_mid": 140000.0,
+      "per_archetype_kpm_observations": {
+        "str_physical": [],
+        "dex_physical": [],
+        "int_magical": [],
+        "wis_faith": []
+      },
+      "per_archetype_kpm_median": {
+        "str_physical": 0.0,
+        "dex_physical": 0.0,
+        "int_magical": 0.0,
+        "wis_faith": 0.0
+      },
+      "population_kpm_median_all": 0.0,
+      "physical_signal_present": false,
+      "physical_total_observations": 0
+    },
+    {
+      "boss_hp_factor_lo": 7.0,
+      "boss_hp_factor_hi": 11.0,
+      "boss_hp_mid": 180000.0,
+      "per_archetype_kpm_observations": {
+        "str_physical": [],
+        "dex_physical": [],
+        "int_magical": [],
+        "wis_faith": []
+      },
+      "per_archetype_kpm_median": {
+        "str_physical": 0.0,
+        "dex_physical": 0.0,
+        "int_magical": 0.0,
+        "wis_faith": 0.0
+      },
+      "population_kpm_median_all": 0.0,
+      "physical_signal_present": false,
+      "physical_total_observations": 0
+    },
+    {
+      "boss_hp_factor_lo": 9.0,
+      "boss_hp_factor_hi": 14.0,
+      "boss_hp_mid": 230000.0,
+      "per_archetype_kpm_observations": {
+        "str_physical": [],
+        "dex_physical": [],
+        "int_magical": [
+          73.171
+        ],
+        "wis_faith": [
+          63.83,
+          82.192,
+          98.361
+        ]
+      },
+      "per_archetype_kpm_median": {
+        "str_physical": 0.0,
+        "dex_physical": 0.0,
+        "int_magical": 73.171,
+        "wis_faith": 82.192
+      },
+      "population_kpm_median_all": 77.681,
+      "physical_signal_present": false,
+      "physical_total_observations": 0
+    }
+  ]
+}

@@ -165,3 +165,47 @@ Fire ASAP on jack-ryan Gate-1 PASS.
 ---
 
 **KR signature:** authored per Matt 2026-05-28 Gate-5 D1+D3 ratification + jack-ryan Gate-5 § 4 Option 1 + ANCHOR INTENTS source-annotation handoff at `ee15c96` Cycle 13 SC-6. Case 8 = first canonical scaffold resolution per Matt's case-register reframing. Discipline #18.1 + #1 + #11 + #40 case (c) coordination + #45 vocabulary lock all load-bearing.
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-28
+**Completed by:** gamora
+
+### Deliverable status
+
+| # | Artifact | Status | Notes |
+|---|---|---|---|
+| 1 | Empirical population-DPS sweep telemetry | COMPLETE | `cycle-14-wave-5-season-001/boss-hp-rebase-empirical-dps-telemetry.json` |
+| 2 | Math note (Discipline #1) | COMPLETE | `simulation/math/boss-hp-rebase-case-8-resolution-2026-05-28.md` incl. § 11 empirical addendum |
+| 3 | Updated `endgame_mob_stat_profile.py` boss HP factor range | COMPLETE | (10.50, 12.60) applied; ANCHOR INTENTS annotation closed; provenance comment added |
+| 4 | MIGRATION.md § v1.39 | COMPLETE | Cross-seam touch, Amendment A deferral, structural DPS gap, 3/18 emit documented |
+| 5 | Track 1 re-run telemetry post-rebase | COMPLETE | `cycle-14-wave-5-season-001/option-f-track-1-post-rebase-telemetry.json` |
+| 6 | Canonical doc § 3.9 16-cell band table | COMPLETE | POST-REBASE state; STR/DEX FALLBACK retained with Case 8 structural finding notation |
+| 7 | Smoke production season | COMPLETE — acceptance NOT met | 3/18 emit (same as pre-rebase; structural root cause confirmed) |
+| 8 | AGENT_STATE.md updated | COMPLETE | Case 8 section added; KR and jack-ryan forward links documented |
+| 9 | Tag `gamora/v2.1-boss-hp-rebase-1` | COMPLETE | Applied post-commit |
+
+### Acceptance criterion
+
+**≥12/18 production season emit: NOT MET (3/18)**
+
+Root cause confirmed structural — 79x DPS gap between STR/DEX physical path (~3,750 HP/s, governed by SC-6b substrate not yet calibrated) and INT/WIS magical path (~297,000 HP/s, governed by SC-7 calibrated values). No boss HP adjustment can bridge this gap. Boss HP=3,000 needed for physical KPM=75; Boss HP=237,500 needed for magical KPM=75 — structurally incompatible.
+
+This is the expected outcome per Gate-5 § 2.2 deeper framing. The rebase IS the scaffold closure (ANCHOR INTENTS deferred calibration executed), but the acceptance criterion requires Cycle 15 SC-6b physical path calibration before ≥12/18 can be achieved.
+
+### Amendment decisions
+
+**Amendment A (mini-boss):** PRESERVED at (5.00, 8.00). Track 1 telemetry does not isolate ≥6 mini-boss-specific observations across ≥2 cohorts (aggregates boss + mini-boss in single list). Forward-linked to "Cycle 15 per-tier calibration sweep" in MIGRATION.md § v1.39.
+
+**Amendment B (cross-cohort variance):** APPLIED. Balanced cohort = primary calibration anchor. Range width (10.50, 12.60) derived from 25th/75th percentile KPM spread across INT/WIS Track 1 observations: lo_factor=10.454 → 10.50; hi_factor=12.603 → 12.60.
+
+### Critical structural finding
+
+**79x DPS gap (documented in math note § 11 and MIGRATION.md § v1.39):** Physical path STR/DEX DPS ~3,750 HP/s vs magical path INT/WIS DPS ~297,000 HP/s. No single boss HP produces KPM≈75 for both paths. This is a Discipline #12 semantic-shift finding — the boss HP rebase closes the ANCHOR INTENTS scaffold for the INT/WIS population, but physical path improvement is a distinct calibration problem requiring Cycle 15 SC-6b work.
+
+### Forward links for KR and jack-ryan
+
+- **KR**: Wave 5 cascade NOT authorized post-rebase — acceptance criterion NOT met; Cycle 15 SC-6b physical path calibration is the prerequisite for ≥12/18
+- **Jack-ryan**: §§ 3.12-3.13 Phase 7 canonical doc retraction record can proceed post-commit; gamora's Track 1 post-rebase telemetry at `option-f-track-1-post-rebase-telemetry.json` is the empirical anchor for the retraction record
