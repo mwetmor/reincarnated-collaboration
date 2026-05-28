@@ -139,3 +139,54 @@ Effort estimate per Matt D3: ~1.5-2d projected; ~half-day under Discipline #1.1 
 ---
 
 **KR signature:** authored per Matt 2026-05-28 evening late D1+D2+D3 RATIFICATION (Option A) + case 16 forensic + gamora Phase 4 hand-back + § 10.8.5 escalation routing absorbed into engine fix. v1 close-criterion 5/5 PASS unchanged; T4 specialization (doc 50 § 4.4 Target 4) restored via this implementation.
+
+---
+
+## Completion record
+
+**Status:** PARTIAL — dispatch guard clause § 1.1 fired; implementation BLOCKED pending gandalf design lock.
+
+**Date:** 2026-05-28
+**Agent:** rocket
+
+### What was completed
+
+**Discipline #1 math note:** authored at `simulation/math/w-alpha-7-phase-3e-element-conversion-factor-implementation-2026-05-28.md`
+
+Key analytical findings:
+1. `element_conversion_factor` numeric value is NOT canonically locked in doc 47, doc 50, doc 51, mechanic_alteration.py, t4_wireup.py, or combatant.py. Guard clause triggered.
+2. Flat-factor cancellation proof: a flat per-path element_conversion_factor F cannot produce Target 4 specialization peaks. Within each damage_scaling_path cohort (str_physical / dex_physical / int_magical / wis_faith), ALL kits in season 001 share the same source element (str=earth, dex=wind, int=fire, wis=water). F scales kit_KPM and cohort_median proportionally → ratio unchanged → Target 4 cannot fire from factor alone.
+3. Two-part root cause identified:
+   - Part 1 (rocket seam): damage_resolver.py:618 TODO stub — must be replaced with wired logic
+   - Part 2 (gamora seam): `_build_real_player_class()` in season_generation_pipeline.py does NOT pass `alteration_fields` to combatant construction → T4 ELEMENT_CONVERSION element-tag override never applied during Phase 4 gauntlet runs → even with Part 1 fixed, Phase 4 RE-RUN sees no T4 differentiation
+4. Phase 3d calibration was T4-naive (T4 alteration not wired into gauntlet combatants during Phase 3d BASE re-derivation)
+
+**Gandalf consultation request filed:** `agentic_orchestration/gandalf/requests/2026-05-28-rocket-element-conversion-factor-design-lock-request.md`
+
+**AGENT_STATE.md updated:** Phase 3e blocking state captured.
+
+### What is blocked
+
+- damage_resolver.py:618 implementation
+- Unit tests (test_element_conversion_factor_*)
+- Integration smoke fight with T4 variant differentiation
+- MIGRATION.md § v1.48
+- Tag rocket/v1.11-element-conversion-factor-1
+
+### Unblocking path
+
+Gandalf design lock on:
+- Q1 (PRIMARY): What is the numeric value of element_conversion_factor for ELEMENT_CONVERSION T4?
+- Q2: Is this the specialization mechanism, or does specialization emerge from Phase 3d base_at_max?
+- Q3: Does PoE Avatar of Fire analogy include numeric fire-bonus?
+
+Post-gandalf-lock: rocket Part 1 estimated 1-2 hours. Phase 4 RE-RUN dispatch must include gamora Part 2 wiring (T4 alteration fields into gauntlet combatants).
+
+### Scope note for Phase 4 RE-RUN dispatch
+
+Phase 4 RE-RUN dispatch (gamora, post-Phase-3e-close) must include:
+- Wire T4 alteration fields into `_build_real_player_class(kit, t4_variant)` via `alteration_fields` parameter
+- Run Phase 4 sweep once per profile × T4 variant (currently skips T4 variants — comment at unified_calibration_loop.py:2408)
+- Re-derive BASE values under T4 context if element-affinity shift changes effective damage (depends on gandalf Q2)
+
+This is a gamora-seam scope addition that was missed in the original Phase 4 implementation. Case 16 cannot be resolved by rocket alone.
