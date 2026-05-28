@@ -185,3 +185,46 @@ Fire ASAP.
 ---
 
 **KR signature:** authored per Matt 2026-05-28 evening late D1-D6 RATIFICATION + Frenzy TRADE_OFF lock + tag intent confirmation + sub-agent gandalf canonical amendments at `eb5bd1b`. Cycle 14 v1 close criterion (5/5 BVV PASS) achievable via Primary T4 universal-guarantee + Layer 2 strip-and-ship + Cycle 15+ DIRECT_DAMAGE_AMP retirement via natural mechanics. Discipline #39 Mode B scaffold pattern at design-dialog layer.
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-28 (continued session — context resumed)
+**Agent:** rocket (Sonnet 4.6)
+**Commit:** `1ac272f` on `main`
+**Tag:** `rocket/v1.13-two-layer-t4-architecture-1` (pushed)
+
+### Deliverables
+
+1. **Math note (Discipline #1):** `src/reincarnated/generation/math/w-alpha-7-plus-two-layer-t4-architecture-implementation-2026-05-28.md` — §§ 1–8 covering all 6 scope items; DDA mechanism, v1.2 magnitudes, Frenzy, DEFENSIVE_TRADEOFF retirement, GEOMETRY_COLLAPSE/RESOURCE_CONVERSION, T4 slot schema, composition preservation.
+
+2. **DIRECT_DAMAGE_AMPLIFICATION (Primary T4):** `damage_resolver.py` — `DIRECT_DAMAGE_AMPLIFICATION_MULTIPLIER = 1.75` constant + DDA block in `resolve_skill()` (after geo_mult). `combatant.py` — 2 new fields (`t4_preferred_encounter_type`, `t4_current_encounter_type`) + `direct_damage_amplification` handler in `from_player_class()`. `mechanic_alteration.py` — `DirectDamageAmplificationStrategy` + `PRIMARY_T4_STRATEGY` singleton + `select_primary_t4()`.
+
+3. **ELEMENT_CONVERSION v1.2:** `damage_resolver.py` — `ELEMENT_CONVERSION_VARIANT_A_MAGNITUDE = 1.50`, `ELEMENT_CONVERSION_VARIANT_B_MAGNITUDE = 1.25` (NEW named constant), `ELEMENT_CONVERSION_VARIANT_C_MAGNITUDE = 0.25`, `ELEMENT_CONVERSION_VARIANT_C_AILMENT_ENABLED = False`. Physical + magical formula branches updated.
+
+4. **TRADE_OFF_REVERSED_FRENZY:** `damage_resolver.py` — `TRADE_OFF_FRENZY_HIT_REDUCTION = 0.30`, `TRADE_OFF_FRENZY_CRIT_BOOST = 0.30`. `combatant.py` — `trade_off_reversed_frenzy` handler applying additive hit/crit modification at combatant init. `mechanic_alteration.py` — `TradeOffReversedFrenzyStrategy` in `REGIME_CHANGE_STRATEGIES_V1_13_LAYER2`.
+
+5. **DEFENSIVE_TRADEOFF retirement:** Removed from `REGIME_CHANGE_STRATEGIES_V1_13_LAYER2` per Matt D3. Preserved in `combatant.py` from_player_class() for backward-compat. Constant `STRATEGY_DEFENSIVE_TRADEOFF` preserved.
+
+6. **GEOMETRY_COLLAPSE + RESOURCE_CONVERSION:** Verified already implemented (v1 registry). `_gamora_fields_from_t4_candidate()` extended to dispatch both strategies.
+
+7. **T4 slot schema:** `season_generation_pipeline.py` — 4 new nullable `KitCandidate` fields: `primary_t4`, `secondary_t4`, `tertiary_t4`, `preferred_encounter_type`. `_gamora_fields_from_t4_candidate()` expanded from EC-only to all-7-strategy dispatch (Discipline #12 semantic shift).
+
+8. **Tests:** `tests/test_two_layer_t4_architecture.py` — 55 new tests (DDA, ECF v1.2, Frenzy, GEOMETRY_COLLAPSE/RESOURCE_CONVERSION, T4 slot, composition preservation, gamora dispatch, integration smoke). `tests/test_phase3e_element_conversion_factor.py` — updated for v1.2 (Variant B non-identity, ratio corrections). 296/296 T4-related tests PASS.
+
+9. **MIGRATION.md § v1.53:** `simulation/MIGRATION.md` — 7 change categories documented; DDA gamora harness action required; epoch break documentation; downstream consumer notes.
+
+10. **AGENT_STATE.md:** Updated checkpoint with v1.13 completion record.
+
+### Gamora Phase 4 RE-RUN-3 handoff requirements
+
+**Critical:** Gamora harness must inject `combatant.t4_current_encounter_type = scenario_shell_id` at fight setup before each fight where DDA is active. Without this, DDA is a silent no-op (preferred None != current None → no match). See MIGRATION.md § v1.53 for details.
+
+**v1.2 ECF epoch break:** Any Phase 4 RE-RUN telemetry with ELEMENT_CONVERSION T4 active used v1.1 magnitudes (A=1.125, B=1.0 identity, C=0.350). Post-v1.53 Phase 4 RE-RUN-3 uses v1.2 (A=1.50, B=1.25, C=0.25). Results are NOT comparable across this boundary.
+
+### Out-of-scope items not touched
+
+- `simulation/` harness (`t4_current_encounter_type` injection) — gamora seam
+- `_build_t4_context_configs()` gamora internal — gamora seam (doc 47 § 1.6)
+- Per-element ailment infrastructure — Cycle 15 candidate per `ELEMENT_CONVERSION_VARIANT_C_AILMENT_ENABLED = False`
