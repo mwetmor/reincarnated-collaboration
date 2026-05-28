@@ -228,7 +228,30 @@ If the OP file doesn't yet exist for any agent, create it per the gandalf OP pro
 
 ### elrond
 
-(pending)
+**Status:** COMPLETE 2026-05-27
+
+**OP file amended:** `agentic_orchestration/operating-procedures/elrond.md`
+
+**Placement decisions:**
+
+- **Move 5 (orientation phrase):** prepended above existing STATUS block as blockquote preamble; elrond-specific context added — "engine first" includes substrate-layer integrity (catalogue DB schema soundness, Phase D cleaning gates a/b/c/d, source-anchored reversibility) — substrate IS the data-steward seam's engine-layer; cross-references AGENTS.md Move 5 block as canonical authority
+- **Move 2 (Discipline #42 framing-audit):** inserted as new § 3.13 after existing § 3.12 cross-references block; composes with § 3.3 Pattern A-deep adoption, § 3.4 math-hotspot routing, § 3.5 Discipline #11, § 3.6 Discipline #20; elrond-specific entry points enumerated (P2/P3 ratification, Pattern A-deep verdict authoring, Discipline #25 cross-seam routing, Phase D gate go/no-go calls, cross-source canonical merge schema decisions); composition note added for the bundled-methodology-consultation pattern (precedent commit `f8eb1a4` — Cycle 14 Path (1) 5-sub-query consultation) — framing-audit runs ONCE on the bundle's framing rather than per sub-query
+- **Move 3 (Discipline #44 framing-refusal authority):** inserted as new § 3.14 after § 3.13; cross-references refusals directory at `agentic_orchestration/elrond/refusals/`; all 4 refusal patterns (R-1/R-2/R-3/R-4) instantiated with elrond-specific examples — R-1 (engine telemetry schema, design-meaning of cluster output, ADR-004 routing); R-2 (schema without source-anchoring, P2/P3 without methodology consultation, crawl-derived substrate without robots.txt verification per Discipline #20, density-based algorithm row-duplication per #20 second sense, silent value transformation); R-3 (pre-authored taxonomy where substrate should vote — Pattern 4-5-6 retirement spirit); R-4 (methodology depth requiring legolas Mode A consultation); composition note with § 3.1 pushback-within-data-domain — pushback ("fix and re-fire") vs refusal ("framing needs re-authoring") boundary clarified
+
+**Discipline #42 framing-audit (this dispatch):**
+
+- **Q1 load-bearing assumptions:** (a) standardized template composes cleanly with existing § 2 mode-selection and § 3 decision-loop structure; (b) Move 5 preamble doesn't conflict with existing § 0 STATUS header; (c) Move 2 composes with existing Pattern A-deep + bundled-methodology-consultation pattern rather than replacing; (d) Move 3 is genuinely new authority — § 3.1 covers pushback but not formal refusal
+- **Q2 refutation evidence sought:** inspected existing OP (§ 3.3 Pattern A-deep adoption; § 3.12 cross-references to #25 + #18.1/2; § 3.1 data-domain pushback); inspected refusals directory (`.gitkeep` present); inspected engineering-disciplines.md (#42 + #43 + #44 ratified at jack-ryan canonical-write 2026-05-27); inspected bundled-methodology-consultation precedent (`f8eb1a4`). All inspections confirm template ADDS dispatch-consumption-time framing-audit + formal refusal authority; does NOT contradict
+- **Q3 outcome:** no contradiction with seam-owned authority. Template applies with placement judgment. No Discipline #44 framing-refusal warranted; proceed with amendment
+
+**Open questions surfaced:**
+
+- **Q-OP-elrond-1:** standard template placement worked with elrond-specific adaptation — Move 5 preamble extended with substrate-as-engine-layer context (load-bearing because elrond's "engine layer" is the substrate, not the runtime engine seam); Move 2 § 3.13 composes with bundled-methodology-consultation pattern (composition note added; not contradiction); Move 3 § 3.14 instantiates all 4 R-patterns with elrond-resident examples (instantiation, not template-deviation). No structural conflict; no Move 4 KR surface required
+- **Q-OP-elrond-2:** pre-existing per-agent discipline composes-with template — § 3.3 Pattern A-deep adoption (gandalf OP § 2 discriminator inheritance) extends naturally to § 3.13 Pattern A-deep verdict-authoring framing-audit entry point; § 3.1 pushback-within-data-domain composes-with § 3.14 framing-refusal authority (boundary clarified — pushback at content level; refusal at framing level)
+
+**Files amended:**
+
+- `agentic_orchestration/operating-procedures/elrond.md`
 
 ### legolas
 

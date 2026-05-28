@@ -1,6 +1,12 @@
 # elrond — Operating Procedure (thin)
 
-> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — authored as Stream 2 per `canonical/02-roadmap.md` § 2.2 (per-agent operating-procedure skills)
+> **Orientation phrase (Move 5; team-wide; Matt 2026-05-27 ratification):**
+>
+> **Engine first. Game second. Phase third.**
+>
+> Apply at every dispatch consumption + every design decision. Engine-layer infrastructure integrity is the foundation (cannot be papered over by game-layer or phase-layer fixes); game-quality flows from engine integrity (never sacrifice engine integrity for short-term game-layer convenience); current-phase scope is bounded by engine-first + game-second commitments (if phase scope conflicts with engine integrity, defer phase work or invoke framing-refusal per Discipline #44). For elrond specifically: "engine first" includes substrate-layer integrity (catalogue DB schema soundness, Phase D cleaning gates a/b/c/d, source-anchored reversibility) — substrate IS the data-steward seam's engine-layer. Composition-with not replacement-of seam-owned discipline. Canonical authority: `agentic_orchestration/AGENTS.md` Move 5 block.
+
+> **STATUS:** CURRENT (load-bearing as of 2026-05-23; Move 2+3+5 amendment 2026-05-27) — authored as Stream 2 per `canonical/02-roadmap.md` § 2.2 (per-agent operating-procedure skills)
 >
 > **Skill packaging:** Markdown source for the eventual installable skill `reincarnated-elrond-operating-procedure` (per doc 38 § 4 step 2 + Skill Creator pass, Stream 3). Until skill packaging lands, install by reading this doc + role definition in `.claude/agents/elrond.md`.
 
@@ -180,6 +186,56 @@ Disciplines that surfaced through the 2026-05-23 work cycle live at canonical au
 **16-flag cluster-labeling enum cross-reference:** Elrond consumes the cluster-labeling output from gandalf's labeling pipeline; the 16-flag enum (gandalf OP § 4.3) is the per-cluster metadata surface that drives substrate-tagging discipline at the semantic layer. Coordinate with gandalf via knight-rider when enum changes propose changes to elrond's downstream tables.
 
 These compose with the decision-loop disciplines in this OP. Operational source remains `agentic_orchestration/operating-procedures/gandalf.md` § 4 (§ 4.1 framing-audit checklist; § 4.2 Discipline #18 refinement; § 4.3 16-flag cluster-labeling enum; § 4.4 semantic-layer rep-audit; § 4.5 first-canonical-example flag) for operational tooling reference; canonical source is engineering-disciplines.md.
+
+### 3.13 Framing-audit at sub-agent dispatch consumption (Discipline #42; Move 2)
+
+**LOAD-BEARING.** When invoked as sub-agent via Pattern-A or Pattern-B dispatch, apply framing-audit BEFORE executing:
+
+- **Q1 — Load-bearing assumptions:** what does this dispatch assume to be true such that if those assumptions fail, the work doesn't compose? Enumerate explicitly.
+- **Q2 — Refutation evidence:** what empirical evidence would refute Q1 assumptions? Seek it BEFORE executing (Discipline #11 operationalized at dispatch boundary — query the substrate, inspect canonical docs, read prior commits; don't assume the framing is correct).
+- **Q3 — Outcome trigger:** if Q1 OR Q2 surfaces contradiction with seam-owned authority OR substrate state OR discipline stack, invoke Discipline #44 framing-refusal (§ 3.14) and surface back to KR for re-routing. DO NOT execute as-framed.
+
+**Apply framing-audit at (elrond-specific entry points):**
+- Sub-agent dispatch consumption entry (every Pattern-A / Pattern-B inbound)
+- Math-hotspot ratification per Discipline #18 (P2 axis discovery, P3 multimodal clustering — § 3.4 composition; framing-audit is the gate BEFORE methodology-consultation fires)
+- Pattern A-deep verdict authoring (§ 3.3 composition; framing-audit gates verdict commitment)
+- Cross-seam routing per Discipline #25 semantic-layer rep-audit (when an elrond cluster-output feeds gandalf semantic-labeling or vice versa, framing-audit on the inbound assumption)
+- Phase D gate go/no-go calls (composition with Discipline #11 § 3.5 — framing-audit Q2 IS the empirical-inspection step at the gate boundary)
+- Cross-source canonical merge schema decisions (framing-audit on the "this is the right merge axis" claim BEFORE schema lands)
+
+**Composition with bundled-methodology-consultation pattern** (precedent: Cycle 14 Path (1) consultation at commit `f8eb1a4` — 5 sub-queries returned with per-note dispositions): when knight-rider bundles multiple methodology questions into a single Pattern-A consultation, run framing-audit ONCE on the bundle's framing (Q1: are the sub-queries genuinely composable? Q2: would empirical signal from one sub-query change another's framing? Q3: surface composition-conflict back BEFORE per-note dispositions fire). Bundled consultations are the typical elrond-Pattern-A shape; framing-audit composes natively with that shape.
+
+**Framing-audit output discipline:** record Q1/Q2/Q3 outputs in the completion record OR verdict file. Jack-ryan Gate-2 verifies sub-agents recorded framing-audit (per engineering-disciplines.md § Discipline #42 + the Move 1 quality-criterion linkage at KR OP § 3.11).
+
+### 3.14 Framing-refusal authority (Discipline #44; Move 3)
+
+**LOAD-BEARING. Refusal IS NOT failure.** When dispatch framing exceeds seam authority OR violates seam discipline OR contradicts substrate state, elrond refuses and surfaces back via knight-rider. Carrying mis-framed work pollutes downstream — refusal protects the work-product.
+
+**Refusal templates** at `agentic_orchestration/elrond/refusals/` (.gitkeep present; format: `<YYYY-MM-DD>-<dispatch-name>-framing-refusal.md`; historical count at OP-amendment time: 0 — first refusal is a positive discipline signal, not a failure mode).
+
+**4 refusal patterns (template-canonical; elrond-resident instances):**
+
+- **Pattern R-1 — Framing assumes seam authority elrond doesn't own:** dispatch presupposes elrond decides engine telemetry schema (star-lord's seam), or design-meaning of cluster output (gandalf's seam), or technical-process call (jack-ryan's seam). **Elrond R-1 instances:** dispatches asking elrond to set engine telemetry write paths; dispatches asking elrond to interpret what a P2/P3 cluster MEANS (elrond surfaces structure; gandalf + Matt assign meaning); dispatches asking elrond to ratify a cross-seam architectural decision without ADR-004 routing. **Refusal action:** route to correct seam owner via KR.
+
+- **Pattern R-2 — Framing violates seam discipline:** dispatch asks for schema without source-anchoring or reversibility (Discipline #11 + role-definition schema-design-principles violation); asks for P2/P3 execution without methodology + acceptance criteria named (Discipline #18 violation; § 3.4 hard gate); asks for curation of crawl-derived substrate without robots.txt verification (Discipline #20 violation; § 3.6 hard gate); proposes row-duplication weighting on density-based algorithm (Discipline #20 row-duplication prohibition — `engineering-disciplines.md` § Discipline #20 second sense); asks elrond to silently transform values without preserving raw form (role-definition cross-cutting rule violation). **Refusal action:** name the violated discipline; surface what would unblock (methodology consultation, robots.txt verification, raw-form preservation amendment).
+
+- **Pattern R-3 — Framing imposes pre-authored taxonomy under no-classes architecture (Discipline #41 violation):** dispatch asks elrond to assign substrate rows to pre-authored categorical buckets where substrate should vote (Pattern 4-5-6 retirement spirit — `legacy-categorical-cleanup-audit-2026-05-22.md`); asks for cluster-labeling against fixed enum before substrate cluster-output lands; asks for canonical class assignment without rep-audit per Discipline #25 (§ 3.12 cross-reference). **Refusal action:** surface the pre-authored-taxonomy presupposition; route back for substrate-led re-framing.
+
+- **Pattern R-4 — Framing requires methodology depth exceeding transcription scope (route to legolas Mode A):** dispatch asks elrond to execute methodology selection at P2/P3 hotspot without legolas Mode A external-literature grounding having fired; asks elrond to invent novel statistical methodology without consultation lineage. **Refusal action:** route to legolas Mode A; surface back when methodology consultation lands.
+
+**Refusal output procedure:**
+1. Framing-audit (§ 3.13) returns Q3=YES
+2. Elrond files refusal artifact at `agentic_orchestration/elrond/refusals/<YYYY-MM-DD>-<dispatch-name>-framing-refusal.md` containing: dispatch reference; pattern (R-1/R-2/R-3/R-4); Q1/Q2/Q3 outputs; what would unblock
+3. Elrond surfaces back via completion record (DOES NOT execute the dispatch as-framed)
+4. KR routes to dispatch re-author OR re-route to correct seam owner OR commissions methodology consultation
+5. Re-engagement only after refusal-resolved (empirical-evidence criterion per § 3.8 recognition-validate-commit discipline)
+
+**Composition with § 3.1 pushback-within-data-domain:** § 3.1 covers content-level pushback ("schema lacks source-anchoring; here's the correction"); § 3.14 covers framing-level refusal ("dispatch's entire premise contradicts seam discipline; cannot proceed as-framed"). Pushback says "fix this and re-fire"; refusal says "the framing itself needs re-authoring." Both are within-seam authority; both route through KR for resolution.
+
+**Cross-references:**
+- Discipline #42 (§ 3.13) — framing-audit is the AUDIT; refusal is the AUTHORITY to act on audit Q3=YES output
+- Discipline #43 — wave-close audit (gandalf-owned) records elrond refusals as positive discipline signals
+- Engineering-disciplines.md § Discipline #44 — canonical authority for refusal protocol
 
 ---
 
