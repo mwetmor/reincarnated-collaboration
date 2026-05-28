@@ -1287,14 +1287,34 @@ Both rocket sub-streams CLOSED. Phase 3d gates on 3c close per jack-ryan Gate-1 
 
 **KR INTERVENTION:**
 - 🛑 Phase 3d gamora sub-agent STOPPED via TaskStop (clean halt; only file reads completed; no commits)
-- 🔥 Gandalf doc 51 § 9 + § 10 amendment dispatch authoring (this turn)
-- 🔥 Fire gandalf as sub-agent (~30-45min)
-- ⏳ Re-fire Phase 3d with explicit Option A/B + distribution rules coordination signal post-gandalf-amendment-lock
-- ⏳ Phase 4 firing post-Phase-3d with § 10.2 multi-profile distribution rules signal injection
+- ✅ Gandalf doc 51 § 9 + § 10 amendment v1.1 SECOND ITERATION complete at engine `c2829b0` + tag `gandalf/v1.15-doc-51-scope-completeness-amendment-batch-1` (~12.5min fire; +500/-36 lines)
+- ✅ **Doc 51 v1.2 THIRD ITERATION** added out-of-band by main-gandalf per Matt 2026-05-28 evening late design call at engine `da94732` + tag `gandalf/v1.16-doc-51-t4-identity-cycling-and-strip-and-ship-additions-1`:
+  - **§ 10.7 Per-kit T4 identity cycling** (Phase 4 sweep dimension; ~768 → ~1500-2300 cells)
+  - **§ 10.8 T4 strip-and-ship rule** (≥1 in-band T4 ships kit; out-of-band T4s removed; failed-T4 chains as supporting; edge case zero-in-band → gandalf design escalation)
+- ✅ **C-Hybrid canonical doc** committed at `canonical/story/c-hybrid-cell-and-curation-architecture-2026-05-28.md` (3-Layer + Cosmetic Surface architecture; ~13 design-dialog refinements; Cycle 14 v1 MVP scope + Cycle 15+ deferred items) — KR reads at next-session pickup; not gating current Phase 3d/4
+- 🔥 **Re-fire Phase 3d** with explicit § 10.1 Option A (all-skills-max; gandalf recommendation; Matt-locked) coordination signal (THIS TURN)
+- ⏳ Phase 4 firing post Phase 3d with EXPANDED coordination signal: § 10.2 multi-profile rules + § 10.3 allocation algorithm + **§ 10.7 T4 identity cycling per kit (§ 10.7.7 spec)** + **§ 10.8 strip-and-ship disposition (§ 10.8.8 spec)** + ship criterion ≥1 in-band T4 variant + failed-T4 chains preserved as supporting chains in kit output schema
 
-**Cycle 14 case register revised — case 13 surfaced:**
-- Case 13: Mode A scope-completeness gap (doc 51 § 10 investment distribution rules absent at Phase 2 lock) — Matt manual audit caught; gandalf amendment resolves
-- Validates Discipline #48 candidate at N=2 production instances per Matt
+**Gandalf § 10.1 RECOMMENDATION (Matt-anchored design recommendation; gamora seam discretion to override per Matt D2):**
+
+> **Option A — All-skills-max** (every active=15; every passive=5; algorithm-chosen T4 unlocked). 5 rationale points (verbatim):
+> 1. Structural cleanness wins at calibration anchor — Pattern 1 multiplier=1.0 uniform; Phase 3d 4-axis (path × kit × tier × encounter) not 5-axis
+> 2. Specialization-as-emergent-property is doc 50's load-bearing principle — Option A keeps specialization emergent from base_at_max distribution; Option B bakes specialization into anchor (defeats principle)
+> 3. Genre precedent: calibration ≠ play (PoE "every gem level 20 + 23% quality"; Last Epoch per-skill scaling tested at max-rank independently; D2 LoD synergies balanced against theoretical max)
+> 4. Phase 4 multi-profile sweep needs Option A as reference baseline (single canonical construction; otherwise per-cell variance has TWO sources)
+> 5. Player-consequence framing — Option A is the "ideal build" the player aspires toward; cohort_median IS the kit's full-power signature
+
+**Option B's merit absorbed into § 10.2.3 max-profile Mode B** (specialization-aware variance check at Phase 4 sweep) — calibration ANCHOR remains Option A.
+
+**Cycle 14 case register revised — cases 13+14+15 surfaced:**
+- Case 13: Mode A scope-completeness gap (doc 51 § 10 distribution rules absent at Phase 2 lock) — v1.1 amendment resolves
+- **Case 14: Mode A scope-completeness gap** (doc 51 § 10.7 per-kit T4 identity cycling at Phase 4 sweep dimension absent) — v1.2 third iteration resolves
+- **Case 15: Mode A scope-completeness gap** (doc 51 § 10.8 T4 strip-and-ship rule for out-of-band T4 disposition absent) — v1.2 third iteration resolves
+
+**Discipline #48 candidate VALIDATION STRENGTHENED to N=4** per Matt:
+- All 4 production scope-completeness gaps caught by Matt manual scope-completeness audit
+- Was N=2 (cases 11 + 13); now N=4 (cases 11 + 13 + 14 + 15)
+- Minting still deferred to Phase 6a disciplines batch per jack-ryan; N=4 evidence base strongly validates architectural value
 
 ---
 
