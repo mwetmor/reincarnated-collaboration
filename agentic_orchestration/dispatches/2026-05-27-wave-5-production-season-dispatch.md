@@ -150,39 +150,50 @@
 
 ### Seam 1 — gamora
 
-**Status: BLOCKED — pre-execution substrate assertion failure; KR routing required**
+**Status: BLOCKED (2nd blocker) — _SyntheticPlayerClass KPM calibration stale post synthetic_mode retirement; KR Pattern B escalation required**
 
-**Completed (pre-execution artifacts):**
-- Math note authored (Discipline #1): `simulation/math/cycle-14-wave-5-season-001-orchestrator-math-2026-05-27.md`
-  - q1-q5 quality vector derivation defined (from GauntletEncounterResult fields)
-  - PM-1 feature vector BC-axis mapping defined
-  - Phase 4 DB connection strategy + output file structure documented
-  - Incremental-write checkpoint table included
-  - Acceptance criteria + degeneracy triggers documented
-- Orchestrator authored: `simulation/wave5_season_orchestrator.py`
-  - Full Phase 2-7 pipeline (BC discovery → gauntlet + PM-1 → mechanical archive → cohesion-judge → joint-gate)
-  - SEASON_ID=cycle-14-wave-5-season-001; SEED_BASE=14001; EVALUATION_ATTEMPT=0 (D-1 fresh)
-  - faction_visibility=invisible (Wave A skipped; placeholder mode)
-  - D-2B empirical calibration (cohort_midpoints=None)
-  - Incremental-write: per-phase JSON to staging dir before next phase fires
-  - Bug fix during authoring: Phase 5 `build_export_faction_clusters()` call corrected (wrong keyword args → correct positional args per phase5_orchestrator.py:2001)
-- Committed: gamora `fadf488`
+**Session 1 artifacts (previously committed):**
+- Math note: `simulation/math/cycle-14-wave-5-season-001-orchestrator-math-2026-05-27.md` (Discipline #1)
+- Orchestrator: `simulation/wave5_season_orchestrator.py` — committed `fadf488`
 
-**BLOCKER — route to rocket:**
-`substrate_weapon_binding.py:123` `_EXPECTED_ELIGIBLE_ROW_COUNT = 2108` (calibrated at `dac5f9e` 2026-05-27 16:30, Fix A hygiene filter landing).
-Actual eligible row count at smoke-test time: **2314** (+206 above calibration point).
-Root cause: sc-6b substrate enrichment landed post-calibration and added ~206 eligible weapon entries to `weapon_knowledge_entries` JOIN `weapon_sim_props` filter. The Fix A filter itself is correct (no regression). The constant is stale.
-AssertionError re-raised explicitly at module load (line 184-185); cannot be bypassed by smoke.
-**Required fix (rocket seam):** update `_EXPECTED_ELIGIBLE_ROW_COUNT` to 2314 and recalibrate tolerance (or widen to ±150 to accommodate future enrichment headroom).
-Gamora cannot proceed with Phase 2 until this constant is updated and committed.
+**Session 2 progress (2026-05-28):**
+- Blocker 1 RESOLVED: `substrate_weapon_binding.py` constant fix landed by rocket at `962d795` (2108→2314 ±150)
+- Phase 2 serialization fix: `default=str` added to `phase2_kit_candidates.json` write for `AbilityEffect`/`AbilityTiming` non-JSON-serializable objects — committed `497fd98`, pushed
+- Smoke test (Discipline #2) PASS: Phase 2-7 pipeline ran end-to-end on 3 kits in 3.2s. Phase 2 PASS (3 kits), Phase 3 PASS (3/3 WR-bracket by construction in smoke), Phase 4 PASS (3/3 ACCEPTED), Phase 5 PASS (placeholder mode), Phase 7 pipeline RAN (0 shipped-worthy expected in smoke/placeholder mode)
+- 9/9 Phase 7 bridge regression PASS
 
-**Queued after blocker resolves:**
-- Smoke test pass (Discipline #2) → commit math note + orchestrator (already committed; smoke validation pending)
-- Phase 2 BC discovery → commit: `gamora(wave-5-season-001): Phase 2 BC discovery complete`
-- Phase 3 gauntlet + clustering → commit: `gamora(wave-5-season-001): Phase 3 clustering complete`
-- Phase 4 mechanical archive → commit: `gamora(wave-5-season-001): Phase 4 mechanical archive complete (kit_archive populated)`
-- Phase 5 cohesion-judge → commit: `gamora(wave-5-season-001): Phase 5 cohesion-judge LLM complete (ExportFactionCluster + ExportFactionRelationship populated)`
-- Phase 7 joint-gate → commit: `gamora(wave-5-season-001): Phase 7 2-layer joint-gate complete (verdict logs populated; output staged at cycle-14-wave-5-season-001/)`
+**Production run result: DEGENERACY HALT at Phase 3 (0/18 kits pass WR-bracket)**
+
+**Root cause diagnosis (gamora empirical, 2026-05-28):**
+
+`_SyntheticPlayerClass` in `generation/season_generation_pipeline.py` uses `magnitude=3000` synthetic skill (calibrated for `synthetic_mode=True`). Synthetic_mode was RETIRED in Cycle 14 Wave 0.5 (Discipline #39, commit `eca0aa5` via MIGRATION.md § v1.32). Without synthetic_mode, the gauntlet runs full KPM routing:
+
+- `TIER_1_REJECT_THRESHOLD = 0.30` (kpm_delta > 30% outside band → REJECT)
+- Endgame encounter mob HP spans 3,500–230,000 (65× range across 18 encounters)
+- At mob_hp=3,500: effective_damage=(3000+1600)×1.4=6440 → one-shot in 0.1s → KPM=600 (band ceiling: 97) → REJECT
+- At mob_hp=230,000: DPS=6440/0.7=9200 → KPM=2.4 (band floor: 52) → REJECT
+- ALL 22 legendary configs rejected at Tier 1 → 0 of 18 kits pass WR-bracket → degeneracy halt
+
+Note: The Cycle 13 canonical gauntlet run (16/16 kits season_emit=True) was produced under synthetic_mode=True which bypassed KPM routing. In_band=True was a synthetic_mode override. The Wave 5 orchestrator's production run is the first execution under full-variance post-synthetic_mode-retirement conditions.
+
+**Structural constraint for rocket fix:**
+
+No single static `magnitude` value can produce in-band KPM across the full 3,500–230,000 HP range simultaneously:
+- For mob_hp=3,500 to hit Defensive band midpoint (KPM=58): magnitude ≈ 28 per hit (after gear bonus)
+- For mob_hp=230,000 to hit Defensive band midpoint (KPM=58): magnitude ≈ 109,567 per hit
+
+These are incompatible by 4,000×. Options for rocket:
+1. Per-encounter dynamic magnitude calibration in `_SyntheticPlayerClass` (reads mob HP from `ENDGAME_ENCOUNTER_CATALOG`; sets magnitude per encounter dynamically) — requires changing how `_SyntheticPlayerClass.skills` is built (single static skill → per-encounter skill)
+2. Recalibrate `ENDGAME_ENCOUNTER_CATALOG` mob HP values to a narrower range (e.g., all mobs 50,000–120,000 HP), AND set magnitude to hit the target band at the midpoint
+3. Alternative: remove per-encounter WR-bracket requirement; use per-season aggregate KPM distribution instead
+4. Alternative: accept the 0/18 pass rate and reconsider whether WR-bracket at gauntlet level is the right gate for the Phase 2 generation step (the phase 4 mechanical archive + phase 7 joint-gate are the real quality gates)
+
+**Route to rocket** for fix design + implementation. Gamora's seam is NOT modified mid-Wave-5 (dispatch out-of-scope constraint). After rocket fix lands, gamora will re-fire Phase 3 from staging (Phase 2 kits are valid and staged at `agentic_orchestration/cycle-14-wave-5-season-001/phase2_kit_candidates.json`).
+
+**Staged artifacts (partial, pre-Phase-3-PASS):**
+- `agentic_orchestration/cycle-14-wave-5-season-001/phase2_kit_candidates.json` — 18 kits generated, valid
+- `agentic_orchestration/cycle-14-wave-5-season-001/cycle-13-gauntlet-sim-results-2026-05-27.json` — gauntlet ran, all 22 configs REJECT (diagnostic data)
+- `agentic_orchestration/cycle-14-wave-5-season-001/season_summary.json` — shows degeneracy_triggered=True, reason="Phase 3: 0 passing kits"
 
 ### Seam 2 — gandalf
 (pending)
