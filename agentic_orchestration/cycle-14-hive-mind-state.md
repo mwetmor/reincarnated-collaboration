@@ -1809,6 +1809,58 @@ TIER_COEFFICIENTS {1.00, 1.50, 2.17, 4.00} PRESERVED unchanged. Per-tier ratio 1
 
 **KR fires gandalf amendment THIS TURN.**
 
+---
+
+### GANDALF DOC 47 § 4.5 v1.1 AMENDMENT COMPLETE 2026-05-28 EVENING LATE
+
+**Engine `ab4f822` + tag `gandalf/v1.16-doc-47-4-5-per-variant-magnitude-amendment-1`** (~7min fire; +112/-18 lines).
+
+**Per-variant Q1 magnitudes locked:**
+
+| Variant | Magnitude | Composition slot | Initial sweep midpoint |
+|---|---|---|---|
+| **A — Mono-caster Replace_Plus_Mult** | ∈ [1.10, 1.15] MULTIPLICATIVE | `element_conversion_factor` slot | **A=1.125** |
+| **B — Hybrid-caster Dual_Add** | 1.0 identity MULTIPLICATIVE (v1.0 preserved) | `element_conversion_factor` slot | 1.0 fixed |
+| **C — Physical Hybrid** | ∈ [0.30, 0.40] ADDITIVE elemental magnitude | **NEW separate additive-component channel** | **C=0.35** |
+
+Gamora calibrates final A + C values empirically within Matt's ranges during Phase 4 RE-RUN sweep.
+
+**Per-variant Q2 specialization mechanisms:**
+- **A:** explicit multiplier COMPOSES MULTIPLICATIVELY with element-chain multiplicatives downstream (tops off the chain)
+- **B:** dual-element coverage breadth + dual multiplicative chain stacking ACROSS BOTH element chains; per-encounter dual-resistance-routing variance produces peaks
+- **C:** additive elemental magnitude compensates for physical kit's lack of multi-element multiplicative chain scaffolding; per-encounter elemental resistance variance on additive component produces peaks
+
+**Per-variant Q3 genre precedent:**
+- **A:** PoE chain-multiplicative compounding (Ascendancy +40% downstream of conversion + upstream of fire-affinity chain); Reincarnated ~1.10-1.15× tighter than PoE's +40% per L50-bounded ceiling + tier_coefficient + Pattern 1+2 max-construction + doc 50 [1.5, 2.0] gate
+- **B:** pure-unification PoE pattern (v1.0 preserved unchanged)
+- **C:** PoE "Added Fire/Cold Damage" supports + crafted physical-weapon modifiers precedent
+
+**Composition verification (gandalf):**
+- ✅ Phase 3d RE-RUN BASE values PRESERVED under Variant B reference assumption
+- ✅ Doc 50 § 4.4 Target 4 preserved
+- ✅ Doc 51 § 7.2 max-investment construction preserved (Pattern 1+2 multipliers at max=1.0 unchanged; per-variant magnitudes T4-specific)
+- ✅ Doc 51 § 10.7 T4 cycling consumes per-variant magnitudes (NO new sweep dimensions; variant assignment already determined per-kit by existing ElementConversionStrategy)
+
+**Discipline #45 vocabulary grep PASS** (zero non-exempt occurrences in v1.1 amendment regions).
+
+**Phase 3d re-fire recommendation: NO** (defer to gamora seam discretion). Architectural reasoning: per-variant magnitudes operate at conversion-factor layer, OUTSIDE Phase 3d BASE calibration domain. Variant B preserves v1.0 identity → BASE values still valid as canonical anchor. Re-fire necessary IFF Phase 4 RE-RUN surfaces BASE shift > threshold (e.g., Variant A multiplier consistently pushes above W-α3 ceiling; Variant C additive breaks Target 1 ≤1.5× variance).
+
+**Initial recommendation:** proceed with Phase 4 RE-RUN against existing Phase 3d BASE values + per-variant magnitudes; gamora evaluates re-fire need based on Phase 4 empirical output.
+
+---
+
+### KR ROUTING — ROCKET AMENDMENT FIRING POST GANDALF v1.1
+
+**Rocket scope:**
+- Consume gandalf § 4.5.4 amended pseudocode + § 4.5.1.A per-variant Q1 magnitudes + § 4.5.6 Discipline #12 + #1 declarations
+- Amend `damage_resolver.py:618` per-variant lookup:
+  - Multiplicative path: support Variants A (initial 1.125; gamora-tunable) + B (1.0 fixed)
+  - **Additive path: NEW separate additive-component channel for Variant C (initial 0.35 additive elemental magnitude)**
+- Unit + integration tests covering all 3 variants
+- Math note + MIGRATION update
+- Tag `rocket/v1.12-element-conversion-per-variant-magnitude-1`
+- Effort: ~1-2hr (possibly faster under #1.1 compression; existing Part 1 framework can be extended)
+
 **Cycle 14 v1 close trajectory: ~14-22d from this evening ratification.** Path α 4-6 week budget intact (~42 calendar days; current ~Day 0; v1 lands ~Day 14-22 leaving ~20-28 days margin).
 
 ---
