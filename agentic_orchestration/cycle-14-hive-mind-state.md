@@ -1198,6 +1198,34 @@ Per master scoping § 1 Phase 3 + jack-ryan Gate-1 Amendment 1 (Phase 3d sequent
 
 **Doc 51 LOAD-BEARING canonical input for all Phase 3 sub-streams.**
 
+---
+
+### PHASE 3a ROCKET PATTERN 1 ACTIVE SCALING COMPLETE 2026-05-28 EVENING
+
+**Engine `a57ed89` + tag `rocket/v1.9-w-alpha-7-plus-pattern-1-1`** (~7.8min fire).
+
+**Application order chosen:** `base × damage_modifier × investment_scaling_multiplier × (1 + gear_pct) × element_conversion × tier_coeff`. Investment is final per-skill multiplier before tier_coefficient + crit. Preserves W-α3 calibration semantics ("I invested in this skill; NOW my skill is stronger" per gandalf design intent doc 51 § 3.3).
+
+**Implementation:**
+- `per_skill_emitter.py`: `NODE_MAX_ACTIVE=15`, `PATTERN_1_DECAY=0.65`, `PATTERN_1_FLOOR=0.35`; `compute_investment_multiplier_p1(points, base_at_max=1.0)` exported public function
+- `damage_resolver.py`: `_calc_physical_damage_raw()` + `_calc_magical_damage_raw()` import + apply Pattern 1 multiplier between `damage_modifier` and `tier_coeff`
+- `skill_schema.py`: `investment_points: int = 0` field added (Pattern 1 field); Phase 3b prep fields linter-added
+
+**Doc 51 § 7 max-investment=1.0 construction property VERIFIED:**
+- Algebraic proof: `(1 - decay) + decay × (15/15) = 1.0` for all `decay ∈ (0,1)`
+- Holds for Phase 2 lock 0.65 AND Phase 4 adjustment range [0.55, 0.75]
+- Integration test confirms: points=0 → 0.350, points=7 → 0.653, points=15 → 1.000
+
+**Smoke fight verification:**
+- Physical (STR T1): pts=0 → 17131.69; pts=15 → 48947.70; ratio 2.857143 (=1/0.35) PASS
+- Magical (INT T1): same ratio PASS
+
+**🚨 CRITICAL COORDINATION SIGNAL FOR PHASE 3d gamora (verbatim rocket hand-back):**
+
+> *"`skill.investment_points` must be set to `15` at fight-setup time for the max-investment-anchored calibration profile. The gauntlet harness at default `investment_points=0` will observe KPM at ~35% of max-investment KPM — this is expected and correct. Phase 3d re-calibrates `BASE_DAMAGE_L50` at points=15 to restore the calibrated KPM band."*
+
+KR will inject this signal into the Phase 3d dispatch when firing post 3c close.
+
 **Cycle 14 v1 close trajectory: ~14-22d from this evening ratification.** Path α 4-6 week budget intact (~42 calendar days; current ~Day 0; v1 lands ~Day 14-22 leaving ~20-28 days margin).
 
 ---
