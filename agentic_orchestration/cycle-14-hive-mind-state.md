@@ -378,7 +378,16 @@ State file archival path (when reached): rename to `agentic_orchestration/cycle-
 - gamora OP amendment at meta `68d5cb9` (Move 3 R-4 expanded with HDBSCAN § 4.6 + fight-engine spatial-distribution math + doppelganger sweep methodology hotspots)
 - star-lord OP amendment at meta `d2c1539` (Move 3 R-2 expanded with synthetic-stub-as-permanent-fallback for content-generation call-sites LOAD-BEARING)
 
-**Per-agent OP amendments milestone: 9 of 10 complete.** Only gandalf OP remains.
+**Per-agent OP amendments milestone: ✅ 10 of 10 COMPLETE (gandalf `6135810` closed milestone).** Move 2+3+5 fully propagated across 10-agent roster.
+
+**Matt Wave 5 amendment 2026-05-27 — Position B replaces Position A (3-smoke + 1 PRD):**
+- Single iterative generation with explicit audit gate before canonical commitment
+- Generate `cycle-14-wave-5-season-001` → audit-gate (gandalf #43 + jack-ryan Gate-2) → PASS commits CANONICAL `cycle-14-production-season-001` / FAIL retries up to 3 attempts → Pattern B Matt escalation if 3 fail
+- NO Court of Forms persistence + NO `canonical_archetype_register` registration until audit PASS
+- LLM cost ~$0.65-$5.30 (vs Position A $2.60-$21.20)
+- Pre-Wave-5 calibration via 12-discipline stack (Phase 7 thresholds + Gate-2 + design-quality audits every wave-close)
+- Cycle 14 close criterion (Q8) unchanged — measured against PRODUCTION season output
+- Wave 5 dispatch amended accordingly
 
 **Firing now (gandalf sequential):**
 - gandalf PM-2 § X.7 amendment (Path III G-B math spec; ~30 min mechanical copy-paste from kicker § 3)

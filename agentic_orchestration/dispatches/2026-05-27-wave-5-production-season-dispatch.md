@@ -17,13 +17,18 @@
 
 ## Context
 
-**Matt pre-ratification #4 (Wave 5 production season parameters; LOCKED):**
+**Matt pre-ratification #4 (Wave 5 production season parameters; AMENDED 2026-05-27 to Position B; LOCKED):**
 
-- **3 smoke seasons pre-production**, each through full Phase 2-7 pipeline
-- **Smoke acceptance:** ≥2 of 3 PASS all 2-layer joint-gate + Discipline #43 design-quality audit PASS
-- **Production fires after smoke acceptance**; fresh roster per Q9 + Q10 ratification
-- **Output directory:** KR convention (e.g., `cycle-14-production-season-001`)
-- **Guardrails against algorithm degeneracy** (empty seasons / over-saturated / throwaway / LLM blowup / per-cell blowup)
+> **AMENDMENT 2026-05-27** — Matt replaced 3-smoke + 1 PRD pattern with Position B: single iterative generation with explicit audit gate before canonical commitment. Original 3-smoke retired.
+
+- **Generation:** `cycle-14-wave-5-season-001` — full Phase 2-7 pipeline; ALL gates fire
+- **Audit gate BEFORE canonical commitment:** gandalf design-quality audit (Discipline #43) + jack-ryan Gate-2 review on output; **NO Court of Forms persistence + NO `canonical_archetype_register` registration until audit PASS**
+- **If audit PASS:** commit as `cycle-14-production-season-001` (Cycle 14 Wave 5 CANONICAL; Spirits enter Court; first-emergence registration locks)
+- **If audit FAIL:** audit feedback informs recalibration (Phase 7 thresholds / parameters / prompts); regenerate as `cycle-14-wave-5-season-002`; retry up to **3 attempts max**; escalate to Matt Pattern B if 3 attempts fail
+- **LLM cost per Cycle 14 close:** ~$0.65-$5.30 (vs $1.30-$10.60 under Position C; vs $2.60-$21.20 under Position A 3-smoke)
+- **Pre-Wave-5 calibration discipline preserved** via Phase 7 threshold calibration + Gate-2 reviews + design-quality audits at every wave-close (12-discipline stack)
+- **Fresh roster** per Q9 + Q10 ratification
+- **Guardrails against algorithm degeneracy** (empty seasons / over-saturated / throwaway / LLM blowup / per-cell blowup) STILL fire — guardrails are degeneracy detection, not retry mechanism; degeneracy triggers Pattern B Matt escalation, not silent retry
 
 **Trigger B operationalization** (per gamora Dispatch 3A hand-back item 5): actionable when first 3 production wave-closes PASS under jack-ryan Discipline #43 authority — confirms pre-ratification + sequences post-Wave-5
 
@@ -50,17 +55,19 @@
 - **Q2:** verify all upstream impl seams completed; verify smoke acceptance threshold; verify guardrail trigger points pre-Wave-5
 - **Q3:** if smoke acceptance produces <2 PASS or guardrail triggers, invoke #44 + route to seam-owner for remediation; Wave 5 production fire HALTS pending fix
 
-## Scope (three seams; sequential within Wave 5)
+## Scope (three seams; sequential within Wave 5 per Position B amendment)
 
-### Seam 1 — gamora: 3 smoke seasons + production season(s) gauntlet sim execution
+### Seam 1 — gamora: iterative-attempt gauntlet sim execution (Position B amendment)
 
-- [ ] Execute 3 smoke seasons through full Phase 2-7 pipeline
-- [ ] Per-season: Phase 2 BC discovery → Phase 3 clustering → Phase 4 mechanical archive → Phase 5 cohesion-judge LLM → Phase 7 2-layer joint-gate
+- [ ] **Attempt 1:** generate `cycle-14-wave-5-season-001` through full Phase 2-7 pipeline (all gates fire)
+- [ ] Per-attempt: Phase 2 BC discovery → Phase 3 clustering → Phase 4 mechanical archive → Phase 5 cohesion-judge LLM → Phase 7 2-layer joint-gate
 - [ ] Empirical capture: G-MG1-1 through G-PM1-4 + Phase 7 joint-gate outcomes + ai_tell_compliance + cohesion_judge_confidence
-- [ ] Algorithm-degeneracy guardrail monitoring (empty seasons / over-saturated / throwaway proliferation / LLM blowup / per-cell blowup)
-- [ ] Smoke acceptance ≥2 of 3 PASS verification
-- [ ] Production season(s) fire post-smoke-acceptance; fresh roster per Q9+Q10
-- [ ] Output at KR convention `agentic_orchestration/cycle-14-production-season-NNN/`
+- [ ] Algorithm-degeneracy guardrail monitoring (empty seasons / over-saturated / throwaway proliferation / LLM blowup / per-cell blowup) — degeneracy triggers Pattern B Matt escalation, NOT silent retry
+- [ ] **Audit-gate WAIT** — DO NOT commit to canonical Court of Forms; DO NOT register in `canonical_archetype_register`; output staged for gandalf + jack-ryan audit
+- [ ] **If audit PASS:** commit as `cycle-14-production-season-001` (CANONICAL); Spirits enter Court; first-emergence registration locks
+- [ ] **If audit FAIL:** consume audit feedback; recalibrate Phase 7 thresholds / parameters / prompts; regenerate as `cycle-14-wave-5-season-002` (up to season-003 = 3 attempts max); escalate Pattern B Matt if 3 attempts fail
+- [ ] Fresh roster per Q9+Q10 ratification at each attempt
+- [ ] Output staging at `agentic_orchestration/cycle-14-wave-5-season-NNN/` pre-audit; promoted to `cycle-14-production-season-001` ONLY on audit PASS
 
 ### Seam 2 — gandalf: Phase 5 cohesion-judge LLM operation + design-quality audit input
 
@@ -71,13 +78,15 @@
 - [ ] Design-quality audit input prep: per-season qualitative observations + HELD verdict log capture
 - [ ] Surface concerns to jack-ryan + KR if substrate-led discipline drifts at any seam under load
 
-### Seam 3 — jack-ryan: Gate-2 PASS + Discipline #43 design-quality audit + Trigger B verdict
+### Seam 3 — jack-ryan: Gate-2 PASS + Discipline #43 design-quality audit + Trigger B verdict (Position B amendment)
 
-- [ ] Gate-2 review per smoke season (PASS / PASS-with-WARN / BLOCK)
-- [ ] Discipline #43 design-quality audit at each Wave-close (A1-A5 questions; PASS / PASS-with-design-concerns / DRIFT-DETECTED verdict)
-- [ ] Trigger B verdict authority: "engine production-stable" determination at first 3 production wave-closes (T-B-α primary + T-B-γ override)
-- [ ] If first 3 production wave-closes PASS → Trigger B fires; MG-5 switches to E1 discard semantics; KR confirms cycle close
-- [ ] Cycle 14 close verdict authored
+- [ ] **Audit-gate Gate-2 review** per `cycle-14-wave-5-season-NNN` attempt (PASS / PASS-with-WARN / BLOCK)
+- [ ] **Discipline #43 design-quality audit** per attempt (A1-A5 questions; PASS / PASS-with-design-concerns / DRIFT-DETECTED verdict)
+- [ ] Per-attempt verdict gates canonical commitment: PASS → promote to `cycle-14-production-season-001` (CANONICAL); FAIL → audit feedback + recalibrate + next attempt
+- [ ] If 3 attempts fail (season-003 audit FAIL): escalate Pattern B Matt for design re-routing
+- [ ] **Trigger B verdict authority:** "engine production-stable" determination at production season post-canonical-commit + subsequent production wave-closes (T-B-α primary + T-B-γ override; canonical commit signals production-readiness candidate)
+- [ ] Trigger B fires when first 3 production wave-closes PASS Gate-2 + #43 → MG-5 switches to E1 discard semantics; KR confirms cycle close
+- [ ] Cycle 14 close verdict authored post canonical commit + Trigger B activation
 
 ### Cross-cutting
 
@@ -86,20 +95,21 @@
 - [ ] Anticipated final tag: `v14.0-cohesion-coalescence-ready`
 - [ ] Wind-down summary at `agentic_orchestration/cycle-14-wind-down-summary-<YYYY-MM-DD>.md`
 
-## Acceptance criteria
+## Acceptance criteria (Position B amendment)
 
-- [ ] 3 smoke seasons executed; ≥2 of 3 PASS 2-layer joint-gate + Discipline #43
-- [ ] Production season(s) fire post smoke-acceptance; fresh roster Q9+Q10
-- [ ] All G-named smoke gates PASS at production
-- [ ] No guardrail triggers OR triggered + remediated
-- [ ] Trigger B verdict at first 3 production wave-closes; T-B-α primary fires
-- [ ] A/B comparison protocol executed; 6 dimensions measured
+- [ ] At least 1 of up to 3 attempts (`cycle-14-wave-5-season-001` / -002 / -003) PASSES audit-gate (Discipline #43 + Gate-2)
+- [ ] Passing attempt promoted to `cycle-14-production-season-001` (CANONICAL); Spirits enter Court; first-emergence registration locks
+- [ ] All G-named smoke gates PASS at canonical-promoted season
+- [ ] No guardrail triggers OR triggered + remediated via Pattern B escalation
+- [ ] Trigger B verdict at production season post-canonical-commit; T-B-α primary fires; MG-5 → E1 discard semantics
+- [ ] A/B comparison protocol executed against canonical-promoted production season; 6 dimensions measured
 - [ ] jack-ryan Gate-2 PASS for Cycle 14
 - [ ] Cycle 14 close verdict authored
-- [ ] v14.0-cohesion-coalescence-ready tag cut
+- [ ] `v14.0-cohesion-coalescence-ready` tag cut
 - [ ] Wind-down summary authored
 - [ ] CHANGELOG entry filed
 - [ ] State file archived
+- [ ] LLM cost within ~$0.65-$5.30 envelope per Position B estimate
 
 ## Out of scope
 
