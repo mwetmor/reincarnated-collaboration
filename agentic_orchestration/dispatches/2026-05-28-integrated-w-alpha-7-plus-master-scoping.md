@@ -456,3 +456,118 @@ kits do not uniformly have high-resistance native elements against the anchor bo
 KR fires Phase 4 RE-RUN gamora dispatch on receipt of this completion record.
 Phase 4 RE-RUN re-runs multi-dim calibration sweep with T4-context BASE values (20532.2 / 48012.6)
 replacing Phase 4's Phase-3d-v1-derived BASE values (20726.5 / 48467.0).
+
+---
+
+## Completion record — Phase 4 RE-RUN (gamora)
+
+**Status:** COMPLETE — Scenario B (compound_pass=False; CASE 19 MAGNITUDE-ROUTING-GAP)
+**Date:** 2026-05-28
+**Commit:** `4706af1`
+**Tag:** `gamora/v2.14-w-alpha-7-plus-phase-4-rerun-per-variant-1`
+**Push:** main + tag pushed to origin
+
+### 1. Engine commit hash + tag + push
+
+- Commit: `4706af1` — gamora(v2.14): Phase 4 RE-RUN — multi-dim calibration sweep with per-variant magnitude tuning — Scenario B (CASE 19)
+- Tag: `gamora/v2.14-w-alpha-7-plus-phase-4-rerun-per-variant-1`
+- Push: COMPLETE (main + tag)
+
+### 2. Sweep cell count + wall-time
+
+- Cells: 3,024 (18 kits × 6 encounter_types × 4 cohorts × 7 profiles)
+- Total gauntlet calls: 17 (10 calibration + 7 profile sweeps)
+- Wall time: ~185 seconds (Discipline #1.1 actual; no budget exceeded)
+
+### 3. BVV compound_pass verdict
+
+**Scenario B — compound_pass=False across all 7 profiles.**
+
+CASE 19: MAGNITUDE-ROUTING-GAP. Universal T4 specialization via resistance routing is architecturally infeasible within Variant A=[1.10,1.15] and Variant C=[0.30,0.40]. Both calibration sweeps exhausted upper bounds with 0 kits accepted. Best observed in-band ratio: wis_01 at magic_pack=1.682× — but T4 requires ALL 18 kits to have in-band peaks.
+
+**Two critical bugs fixed during execution (both are semantic shifts per Discipline #12):**
+
+Bug 1 — Missing `variant` key in alteration_fields: `_build_t4_context_configs()` in unified_calibration_loop.py built alteration_fields without a `"variant"` key. `CombatantState.from_player_class()` defaults to "B" when key absent → ALL kits used Variant B identity (Phase 3 runs had zero Variant A or C KPM differentiation). Fixed: physical kits → "C"; magical kits → "A".
+
+Bug 2 — Variant A magical path missing element_conversion_factor: `_calc_magical_damage_raw()` had no `element_conversion_factor_magical` in formula. Variant A INT/WIS casters received identity 1.0 on spell damage even when correctly assigned Variant A. Fixed by adding ELEMENT_CONVERSION_VARIANT_A_MAGNITUDE lookup (~1.125×) to magical path.
+
+Both bugs were latent from Phase 3e Part 2 wiring commit (gamora/v2.12). Phase 4 RE-RUN is the first execution that revealed them empirically.
+
+### 4. Per-target results (T1–T5 per profile — max_a representative)
+
+| Target | Criterion | Result at max_a | Notes |
+|---|---|---|---|
+| T1 | Cross-path parity ≤1.5× | PASS | 1.273× |
+| T2 | zero_count=0 | FAIL | Structural — tier_2_kpm=0 at non-boss encounter types (pre-existing BVV harness design issue) |
+| T3 | saturation=0 | PASS | |
+| T4 | specialization [1.5,2.0]× | FAIL | CASE 19 — 0 kits in-band at any calibration point |
+| T5 | floor ≥30% | PASS | |
+
+All 7 profiles (min_a, mid_a, max_a, min_c, mid_c, max_c, baseline) show compound_pass=False. T4 and T2 are the failing targets. T2 is pre-existing structural; T4 is the design-architectural finding.
+
+### 5. Per-variant calibrated final magnitudes
+
+| Variant | Calibrated | Range | Channel | Acceptance |
+|---|---|---|---|---|
+| A | **1.150** (upper bound) | [1.10, 1.15] | Multiplicative element_conversion_factor on spell damage | 0 kits accepted |
+| B | **1.0 FIXED** (identity) | N/A | None (identity per Q1 lock) | N/A |
+| C | **0.400** (upper bound) | [0.30, 0.40] | Additive channel (NOT tier-scaled) | 0 kits accepted |
+
+### 6. Target 4 specialization peak observations per variant + per encounter type
+
+**Variant A sweep (10 steps total across calibration + profiles):** No encounter type produced consistent in-band T4 peaks. wis_01 at magic_pack reached 1.682× at max magnitude — the only individual kit/encounter observation within [1.5,2.0]. Remaining 17 kits failed T4 at all magnitudes. INT/WIS cohort drift issue: wis_01-05 are all-A; resistance routing at magic_pack creates fire-weak mob packs that amplify KPM — but only for the single most-specialized kit.
+
+**Variant C sweep:** No encounter type produced in-band T4 peaks. ~8.75% additive uplift (0.35 × base_physical) is insufficient to push physical kits to 1.5× cohort_median specialization. The additive channel amount falls short of the multiplicative-resistance spread required.
+
+**Structural constraint (CASE 19):** T4 requires ALL 18 kits to have in-band peaks. The encounter type distribution (6 types, varied resistance profiles) combined with the cross-path composition (physical vs magical vs hybrid) means no single magnitude within Matt's ranges produces universal specialization. This is a design-architectural finding, not a calibration tuning failure.
+
+### 7. Phase 3d re-fire decision
+
+**NO re-fire needed.** T1 cross-path parity at 1.273× is well within ≤1.5× bound even at upper-bound magnitudes. T4 failure is design-architectural (CASE 19), not BASE value miscalibration. BASE_SPELL=20532.2 and BASE_PHYSICAL=48012.6 remain valid calibration anchors.
+
+### 8. § 10.8 strip-and-ship disposition
+
+**5 kits shipped** (have ≥1 T4 candidate in phase2_kit_candidates.json):
+- str_01, str_02 — 1 T4 candidate each (physical/Variant C)
+- dex_01, dex_02 — 2 T4 candidates each (physical/Variant C)
+- wis_01 — 2 T4 candidates (magical/Variant A); best T4 ratio observed
+
+**13 kits zero-T4-escalation** (0 T4 candidates):
+- str_03, str_04 (physical; no T4 candidate from Phase 2)
+- dex_03, dex_04 (physical; no T4 candidate)
+- int_01, int_02, int_03, int_04, int_05 (magical; no T4 candidate)
+- wis_02, wis_03, wis_04, wis_05 (magical; no T4 candidate)
+
+kits_shipped=5, kits_not_shipped=13, zero_t4_escalations=13 (confirmed in telemetry JSON: `w-alpha-7-plus-phase-4-rerun-multi-dim-sweep-telemetry.json`).
+
+### 9. Updated per-encounter bands
+
+Phase 4 RE-RUN max_a profile produces the following T1 cross-path observations (from telemetry; authoritative values for future band calibration, subject to Cycle 15+ installation after T4 routing resolution):
+
+| Encounter type | Physical KPM (median est.) | Magical KPM (median est.) | Ratio | Note |
+|---|---|---|---|---|
+| open_arena | — | — | ~1.27× | T1 PASS at max_a |
+| chokepoint_corridor | — | — | ~1.27× | T1 PASS at max_a |
+| magic_pack | — | — | ~1.27× | wis_01 T4 ratio 1.682× outlier |
+| elite_pack | — | — | ~1.27× | |
+| mini_boss | — | — | ~1.27× | |
+| boss_with_adds | — | — | ~1.27× | |
+
+Note: Per-encounter band installation in gauntlet_sim.py is a Cycle 15+ action item (post T4 routing fix; compound_pass must pass before bands are authoritative). Phase 4 RE-RUN Scenario B result means bands are informational only at this stage.
+
+### 10. Math note + MIGRATION § v1.52 references
+
+- Math note: `simulation/math/w-alpha-7-plus-phase-4-rerun-multi-dim-2026-05-28.md` — § 11–16 (pre-implementation amendments + actuals)
+- MIGRATION § v1.52: `simulation/MIGRATION.md` — authored at commit `4706af1`
+
+### Matt deliberation queue (CRITICAL — Phase 5 cascade HALTED)
+
+Per Matt Strategic Deliberation Directive — Phase 5 cascade HALTED regardless of compound_pass outcome. KR surfaces to Matt:
+
+1. **Three-variant calibration philosophy revision:** CASE 19 finding suggests the current per-variant magnitude ranges (A=[1.10,1.15], C=[0.30,0.40]) are insufficient to drive universal T4 specialization across all 18 kits via resistance routing. Matt decision needed: widen ranges? redesign T4 criterion? retire universal-T4 requirement? new mechanism?
+
+2. **Cycle 14 close meta:** Phase 4 RE-RUN is the final gamora execution in Cycle 14 scope. Scenario B outcome means compound_pass never landed in Cycle 14. Deliberation: what constitutes Cycle 14 close given this outcome?
+
+3. **Cycle 15 pre-scoping:** what is the correct first move in Cycle 15 given CASE 19 MAGNITUDE-ROUTING-GAP? Options include: (a) range widening + Phase 4 RE-RUN-2, (b) T4 criterion redesign, (c) alternative T4 mechanism (e.g., kit-specific resistance profiles instead of uniform fire override), (d) defer T4 to later cycle and ship with zero-T4-escalation kits only.
+
+**Gamora deferred** on Phase 5 until Matt direction received via KR dispatch.
