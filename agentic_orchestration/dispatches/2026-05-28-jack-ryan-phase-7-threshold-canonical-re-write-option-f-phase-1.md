@@ -125,4 +125,50 @@ Amend `~/Games/reincarnated-engine/design/math/phase-7-2-layer-joint-gate-thresh
 
 ## Completion record
 
-(append on completion)
+**Completed:** 2026-05-28
+**Completed by:** jack-ryan
+**Canonical target amended:** `~/Games/reincarnated-engine/design/math/phase-7-2-layer-joint-gate-thresholds-2026-05-27.md`
+
+### Discipline #42 framing-audit output (required per discipline)
+
+- **Q1 load-bearing assumptions:** (1) Discipline #40 case (c) 6-step procedure applies to math note retraction (confirmed — case (c) applies to any previously-ratified canonical lock regardless of artifact type); (2) cohort midpoint median estimator composes with stratified boss-only floor (confirmed — methodology unchanged; denominator pool narrows to boss-type encounters but estimator math identical); (3) Cycle 15 Option A forward-link is non-committal (confirmed — Matt D2 framing is "Cycle 15 scope" not "Cycle 15 commitment").
+- **Q2 refutation evidence:** all three assumptions hold. No additional retraction requirements surfaced beyond Option F Phase 1 scope.
+- **Q3 outcome:** NO — execution proceeded. Framing-refusal (Discipline #44) NOT triggered.
+
+### Acceptance criteria checklist
+
+- [x] Phase 7 canonical doc amended per Discipline #40 case (c) 6-step retraction procedure
+  - Step 1: GAUNTLET_ENCOUNTER_PASS_FLOOR=14 uniform application named + struck through (§ 3.4)
+  - Step 2: SC-7 8-iteration calibration telemetry cited (§ 3.4); 2-3/18 empirical ceiling documented
+  - Step 3: Matt D1 + D3 ratifications cited verbatim by reference (§ 3.4)
+  - Step 4: New canonical text at § 3.5 + § 3.6
+  - Step 5: Cycle 15 Option A forward-link at § 3.7
+  - Step 6: Pre-retraction commit `3d4eda5` preserved; audit trail pointers in § 3.4
+- [x] Stratified per-encounter-type floor canonical authority established (§ 3.5)
+  - boss + mini_boss ELIGIBLE; swarm + magic_pack + elite_pack BYPASSED Cycle 14 v1
+  - Per-cohort pass criterion: >= 2 of 3 boss encounters in-band
+  - Season emit acceptance: >= 12/18 kits achieve GAUNTLET_PASS
+- [x] KPM=600.0 ceiling-artifact bypass canonical authority established (§ 3.6)
+  - Bypass rule documented; SCAFFOLD-WITH-PENDING-DECISION declared; Cycle 15 gate named
+  - Telemetry obligation for `bypassed_encounter_count_by_type` per cohort canonicalized
+- [x] Cycle 15 Option A forward-link documented (§ 3.7) — non-committal; "Cycle 15+ architectural target"; Discipline #1 pre-conditions enumerated without pre-committing values
+- [x] Median estimator methodology composition preserved (§ 3.5 gap bridge section)
+  - Boss-only denominator filter clarified; `gauntlet_pass_rate` raw column preserved unchanged
+- [x] Discipline #43 audit A5 compliance documented (§ 3.4 Step 2 note + § 3.5 declaration)
+  - EXPLICIT retraction declared; silent relaxation contrast stated
+- [x] STATUS line updated: "LOAD-BEARING (Matt 2026-05-28 D1 ratification post SC7-F1 empirical retraction)"
+- [x] Purpose section updated with 2026-05-28 amendment entries (§ 3.4-3.7)
+- [x] § 1 threshold register Gauntlet PASS floor row updated to reference stratified application
+
+### Q-JR1 open question resolutions
+
+- **Q-JR1-1 (section placement):** § 3.4-3.7 placed between existing § 3 (q1/gauntlet_pass_rate disambiguation) and § 4 (DDL). Rationale: mechanical pass architecture belongs co-located with column semantics that feed it; § 4 DDL is unchanged and remains downstream. New sub-sections are numbered to preserve existing section numbering.
+- **Q-JR1-2 (archival format):** Inline strike-through on retired floor text within § 3.4 Step 1, with "RETIRED 2026-05-28 PER MATT D1 RATIFICATION" annotation. Audit trail preserved in-document without cross-file archaeology.
+- **Q-JR1-3 (forward-link phrasing):** "Cycle 15+ architectural target (non-committal; pending Matt D2 Option A per-encounter-type KPM bands)" — does not pre-commit band values, methodology, or timeline.
+
+### Cross-seam co-completion note
+
+This dispatch completes concurrently with gamora Option F Phase 1 dispatch (`2026-05-28-gamora-option-f-phase-1-stratified-floor.md`). Canonical authority is now established for gamora's implementation. Gamora's MIGRATION.md v1.37 is the seam-side retraction record; this math note amendment is the canonical-authority side. Both are required for full Discipline #40 case (c) closure.
+
+**Commit:** pending (auto-commit per CLAUDE.md multi-agent addendum — authorized cycle work)
+**Push:** per Matt per-cycle push pattern

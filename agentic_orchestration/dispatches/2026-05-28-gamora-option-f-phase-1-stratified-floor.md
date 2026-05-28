@@ -124,4 +124,32 @@
 
 ## Completion record
 
-(append on completion)
+### Cross-seam co-completion record — jack-ryan canonical authority (2026-05-28)
+
+**jack-ryan canonical re-write COMPLETE.** Canonical authority for gamora Option F Phase 1 implementation is now established.
+
+**Canonical target:** `~/Games/reincarnated-engine/design/math/phase-7-2-layer-joint-gate-thresholds-2026-05-27.md`
+
+**What was established for gamora's implementation:**
+
+1. **§ 3.4** — Discipline #40 case (c) retraction record: GAUNTLET_ENCOUNTER_PASS_FLOOR=14 uniform application RETIRED 2026-05-28 per Matt D1. Inline strike-through + audit trail. Pre-retraction state at engine `3d4eda5`.
+
+2. **§ 3.5** — Stratified floor canonical (LOAD-BEARING; Matt D1):
+   - `boss` + `mini_boss`: ELIGIBLE (KPM band quality gate applies)
+   - `swarm` + `magic_pack` + `elite_pack`: BYPASSED Cycle 14 v1
+   - Per-cohort PASS criterion: >= 2 of 3 boss encounters in-band per cohort midpoint ±0.25
+   - Season emit acceptance: >= 12/18 Phase 2 kits achieve GAUNTLET_PASS
+   - Median estimator composition: boss-only denominator filter; `gauntlet_pass_rate` raw column unchanged
+
+3. **§ 3.6** — KPM=600.0 ceiling-artifact bypass canonical (LOAD-BEARING; Matt D3):
+   - Bypass rule: KPM==600.0 → excluded from both in-band AND out-of-band tally
+   - SCAFFOLD-WITH-PENDING-DECISION: Cycle 15 investigation gate
+   - Telemetry obligation: `bypassed_encounter_count_by_type` per cohort (Cycle 15 input)
+
+4. **§ 3.7** — Cycle 15 Option A forward-link (non-committal architectural roadmap; Matt D2)
+
+**Gamora implementation authority:** gamora may implement Parts 1-4 of the Option F Phase 1 dispatch against this canonical authority. The stratified floor logic in `gauntlet_sim.py` + bypass rule are now canonical-backed. MIGRATION.md v1.37 at gamora seam is the seam-side counterpart.
+
+**Discipline #43 audit A5 compliance:** EXPLICIT retraction documented. Not silent relaxation.
+
+**jack-ryan dispatch:** `2026-05-28-jack-ryan-phase-7-threshold-canonical-re-write-option-f-phase-1.md` (completion record appended)
