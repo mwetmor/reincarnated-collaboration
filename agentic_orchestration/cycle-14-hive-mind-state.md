@@ -392,13 +392,22 @@ State file archival path (when reached): rename to `agentic_orchestration/cycle-
 **Firing now (gandalf sequential):**
 - gandalf PM-2 § X.7 amendment (Path III G-B math spec; ~30 min mechanical copy-paste from kicker § 3)
 
-**Queued sequential post PM-2 § X.7 landing:**
-- Gandalf OP amendment
-- Rocket Dispatch 3B Seam 1 PM-1 + G-B impl (~5-7 days; consumes PM-2 § X.7)
-- Phase 7 dispatch firing (gandalf Seam 1 composition spec ~3-4 days; jack-ryan Seam 2 ~2-3 days)
-- Wave 3 dispatch firing (gandalf Seam 1 LLM prompts + star-lord Seam 2 ExportFactionRelationship parallel ~2 weeks)
-- A/B comparison protocol firing (gandalf ~2-3 days; fires at Wave 5 close)
-- Wave 5 production season dispatch (gamora + gandalf + jack-ryan; fires at end of cycle; Cycle 14 close criterion execution)
+**Sequential cascade landings:**
+- ✅ gandalf PM-2 § 13 G-B amendment (engine `768a68d` + meta `6d1d5c0`)
+- ✅ gandalf OP amendment (meta `6135810`; closes 10/10 OP milestone)
+- ✅ rocket Dispatch 3B Seam 1 PM-1+G-B impl (engine `a466eb1` + meta `2756dda` + tag `rocket/v1.6-dispatch-3b-seam-1-pm-1-g-b-1`; 50+111=161 tests PASS; 10-season smoke tie-break 0%)
+
+**Firing now:**
+- 🔥 gandalf Phase 7 Seam 1 composition spec (multi-day)
+- 🔥 jack-ryan LIGHT re-Gate-1 on Path III amendments (~15-30 min)
+- 🔥 star-lord PM1Cluster→ExportFactionCluster wiring (small adapter)
+
+**Queued post current firings:**
+- jack-ryan Phase 7 Seam 2 canonical-write (fires post gandalf Phase 7 Seam 1)
+- gandalf Wave 3 Seam 1 LLM prompts (consumes PM-1 cluster + G-B primary_faction_pair from rocket `a466eb1`)
+- star-lord Wave 3 Seam 2 ExportFactionRelationship + per-pair LLM (consumes gandalf Wave 3 Seam 1 prompts)
+- A/B comparison protocol (gandalf; fires at Wave 5 close)
+- Wave 5 production season (Position B amended; fires at end of cycle)
 
 **Cycle 14 timeline:** Path III adds +1-2 weeks → ~11-17 weeks total under Q10 quality > timeline. Single-day implementation cascade likely makes the original estimate conservative.
 
