@@ -1355,11 +1355,60 @@ Both rocket sub-streams CLOSED. Phase 3d gates on 3c close per jack-ryan Gate-1 
 
 ### PHASE 3 ALL SUB-STREAMS CLOSED — PHASE 3d FIRING
 
-**Phase 3 status:**
+**Phase 3 status (POST-INTERVENTION + RE-FIRE):**
 - ✅ 3a rocket Pattern 1 (`a57ed89` + tag `rocket/v1.9`; 7.8min)
 - ✅ 3b rocket Pattern 2 (`dad651f` + tag `rocket/v1.10`; 11min)
 - ✅ 3c gamora encounter HP rebalancing (`7767fc4` + tag `gamora/v2.9`; 12.8min)
-- 🔥 3d gamora BASE_DAMAGE_L50 re-derivation (firing; ~1-2d est)
+- ✅ **3d gamora BASE_DAMAGE_L50 re-derivation COMPLETE** (`978a39e` + tag `gamora/v2.10-w-alpha-7-plus-phase-3-base-rederivation-1`; ~19min post Option A re-fire)
+
+---
+
+### PHASE 3d COMPLETE — TWO DISCIPLINE #12 ARCHITECTURAL CORRECTIONS
+
+**Calibration anchor honored: Option A (all-skills-max) per doc 51 § 10.1** — gandalf recommendation accepted; no seam-discretion override.
+
+**Discipline #12 SEMANTIC SHIFTING declared — TWO architectural corrections caught during re-derivation:**
+
+**Correction 1 — TIER_COEFFICIENTS spec corrected.** Root cause: W-α3 had embedded 1:1.5:2.17:4.0 tier ratio DIRECTLY in per-tier BASE values, THEN old pre-doc-51 `TIER_COEFFICIENTS = {1.00, 1.15, 1.35, 2.00}` stacked on top → **T4/T1 = 8.0×** (vs doc 51 § 5.1 spec **4.0×**). Correction: TIER_COEFFICIENTS updated to `{1.00, 1.50, 2.17, 4.00}` as exclusive outer-layer carrier in both `per_skill_emitter.py` AND mirror `damage_resolver.py`.
+
+**Correction 2 — BASE values uniform across all 4 tiers.** Old W-α3 per-tier values replaced:
+- `BASE_SPELL_DAMAGE_L50 = 20726.5` (uniform across T1/T2/T3/T4)
+- `BASE_PHYSICAL_DAMAGE_L50 = 48467.0` (uniform across T1/T2/T3/T4)
+- Cross-path ratio preserved at **2.338×** (W-α1 anchor was 2.337× parity_factor)
+
+**Composition verified at Option A max-investment:**
+- Pattern 1 multiplier × Pattern 2 magnitude × BASE × TIER_COEFFICIENT
+- multipliers=1.0 → tier ratio reflects ONLY `BASE × TIER_COEFFICIENT(tier)`
+- T1:T2:T3:T4 = 1.00 : 1.50 : 2.17 : 4.00 EXACT match doc 51 § 5.1
+- **Per-tier ratio preservation: TRIVIAL** (TIER_COEFFICIENTS alone carries the ratio after orthogonalization)
+- Calibration: scale=1.1090; KPM=73.17; delta=2.44% within 5% tolerance ✅
+
+**KR observation — Discipline #39 framework insight (LOAD-BEARING):**
+
+> **Scaffolds can be NUMERICALLY VALID (sweep converged at 1.24× cross-path parity) yet ARCHITECTURALLY DRIFTED (double-tier-application producing T4/T1=8.0× vs spec 4.0×).** Mode A pattern at composition seam. The W-α3 calibration succeeded empirically but masked a latent composition bug; only the doc-51-spec-aware Phase 3d re-derivation surfaced the drift. **This is structurally significant for future calibration work:** numerical convergence ≠ architectural correctness. Phase 6a disciplines batch should consider extending Discipline #39 framework with "composition-seam scaffolds" subcategory.
+
+**Implementation:**
+- `per_skill_emitter.py` + `damage_resolver.py`: TIER_COEFFICIENTS + BASE values corrected
+- `unified_calibration_loop.py`: `_patch_kits_option_a()` installed in binary search loop (every active=15 + every passive=5 per § 10.1)
+- Math note (Discipline #1 + Discipline #12 semantic shift declared)
+- MIGRATION.md § v1.46 (cross-seam: per_skill_emitter generation + damage_resolver simulation; star-lord NO action)
+
+---
+
+### PHASE 4 FIRING — MULTI-DIM CALIBRATION WITH EXPANDED v1.2 COORDINATION SIGNAL
+
+Per master scoping § 1 Phase 4 + doc 51 v1.2 § 10.7 + § 10.8 expansion:
+
+- **Multi-dim calibration target:** paths × cohorts × encounter_types × investment_levels × **T4_variants** (per § 10.7)
+- Base estimate: ~384 cells (4 × 4 × 6 × ~4)
+- **v1.2 § 10.7 expansion:** + T4 variant cycling per kit → **~768-2300 cells** depending on T4 variant count per kit
+- **v1.2 § 10.8 strip-and-ship post-sweep disposition:** ≥1 in-band T4 variant ships kit; out-of-band T4s REMOVED; failed-T4 chains preserved as SUPPORTING chains in kit output schema; edge case zero-in-band → gandalf design escalation
+- Binary search across expanded space (reuse W-α3 Phase 1 `unified_calibration_loop.py` architecture)
+- Verify cross-path parity ≤1.5× at multiple investment profiles per doc 50 § 4.1 Target 1
+- Per-encounter bands populated under multi-profile (replaces W-α6 stale band table per case 13 resolution)
+- Tag: `gamora/v2.11-w-alpha-7-plus-phase-4-multi-dim-calibration-1`
+
+KR fires Phase 4 sub-agent with explicit § 10.7 + § 10.8 coordination signal injection (per Matt D4 — gamora doesn't guess).
 
 **Cycle 14 v1 close trajectory: ~14-22d from this evening ratification.** Path α 4-6 week budget intact (~42 calendar days; current ~Day 0; v1 lands ~Day 14-22 leaving ~20-28 days margin).
 
