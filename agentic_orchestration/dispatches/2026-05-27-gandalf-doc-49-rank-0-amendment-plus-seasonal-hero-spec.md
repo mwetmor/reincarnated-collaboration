@@ -107,4 +107,53 @@
 
 ## Completion record
 
-(append on completion)
+### 2026-05-27 — gandalf — BOTH PARTS LANDED
+
+**Part 1 — doc 49 § 1.1.1 rank-0 amendment — LANDED at commit `35c2800`** (committed + pushed at incremental-write boundary per dispatch directive).
+
+Amendment summary:
+- Inserted explicit "rank 0 (zero points per node); NOT rank 1 default" specification in § 1.1 Loadout functional spec bullet list
+- Added new § 1.1.1 dedicated amendment block citing Matt 2026-05-27 verbatim design call #3
+- Three composing rationales: Matt verbatim "empty" mismatch under rank-1 default; ~70-point endgame budget infeasibility under rank-1 default; theorycraft semantics break (rank-1 default removes first-allocation choice)
+- PoE Path of Building genre precedent (empty passive tree at session start)
+- Composition with substrate-emergent identity (kit shape carries identity per Path (1) Wave 1.5 Stage 3 Option α; rank-0 empty preserves identity intact)
+- Drax-side derivation pattern (engine emits kit_committed_state.skill_investment as gauntlet-passed map; drax zeros to rank-0 for Loadout empty starting state)
+- Cross-reference to Discipline #41 + #45
+
+**Part 2 — seasonal_hero spec — LANDED at `canonical/story/seasonal-hero-h-5-hybrid-spec-2026-05-27.md`** (this commit).
+
+Spec summary:
+- **Q-Bundle-1 (algorithm) resolved:** composite substrate metric — w_quality·Q_norm + w_distinct·D_mahalanobis_norm + w_anchor·anchor_signal — initial weights (0.5, 0.3, 0.2); Cycle 14 calibration; revision per Discipline #18 substrate-led empirical justification
+- **Q-Bundle-2 (canonical path) resolved:** companion spec at `canonical/story/` (rationale: seasonal_hero is cross-cutting Phase 4 → 5 → drax surface concept; better as companion spec doc 49 cross-references than further inflating doc 49 Loadout/Sample architecture scope)
+- **Q-Bundle-3 (workflow) resolved:** gandalf-autonomous selection within Discipline #43 audit authority is default; Pattern-B Matt design-call escalation reserved for 4 specific triggers (near-tied scores; #41 substrate-led check fails; cross-season continuity concern; primary_faction_pair narrative conflict)
+- **Phase 4 emission spec** (§ 4.1): new `seasonal_hero_candidates` table; gamora seam
+- **Phase 5 PM-2 amendment** (§ 4.2): new `ExportSeasonHeroCandidates` Pydantic schema; star-lord seam
+- **Wave 5 close emission** (§ 4.3): new `ExportSeasonHero` Pydantic schema; gandalf curation output
+- **Drax surfacing** (§ 6): Summary tab seasonal hero card; D-Sharpened invariance preserved; Discipline #45 vocabulary lock at player surface
+- **Star-lord telemetry** (§ 6.4): cross-season aggregation + drift watch
+- **Discipline #41 LOAD-BEARING verified** (§ 3.3 + § 3.4 + § 7.1): all 3 composite signals substrate-emergent; no pre-authored taxonomy
+- **Risks + Watch Items** (§ 8): D-2 faction-taxonomy creep watch; D-4 LLM-as-oracle creep watch; narrative-coherence vs substrate-emergence tension; weight revision implicit-pillar drift watch
+
+**Framing-audit (Discipline #42) — PASS:**
+- Q1: dispatch presupposes no pre-authored taxonomy; substrate metric is substrate-emergent
+- Q2: substrate-led discipline implies substrate produces top-3; gandalf curates within constraint
+- Q3: no framing-refusal triggered
+
+**Downstream unblocked:**
+- Dispatch B drax Loadout Phase A impl (rank-0 empty-state semantics from doc 49 § 1.1.1)
+- Phase 4 emission impl dispatch (gamora; seasonal_hero_scorer module + table DDL per § 4.1)
+- Phase 5 PM-2 amendment dispatch (star-lord; ExportSeasonHeroCandidates schema per § 4.2)
+- Dispatch C drax Summary tab redesign (seasonal hero card + composition with Path III F-C surfaces per § 6.1 + § 6.2)
+- Wave 5 close gandalf OP § 4 amendment (selection workflow + audit-log entry template; queued)
+- Ground-state oracle § 1 amendment (queued — knight-rider routing per canonical-doc-format skill)
+
+**Acceptance criteria — all checked:**
+- [x] doc 49 § 1.1 (a) rank-0 clarification landed
+- [x] seasonal_hero_candidates design spec authored at canonical path (`canonical/story/seasonal-hero-h-5-hybrid-spec-2026-05-27.md`)
+- [x] Phase 4 emission spec + Phase 5 amendment + gandalf design-call workflow + drax surfacing semantics specified
+- [x] Discipline #41 substrate-led verified at H-5 hybrid top-3 selection (§ 3.3 + § 3.4 + § 7.1)
+- [x] D-Sharpened invariance preserved at seasonal hero surface (§ 4.3 + § 6.1)
+- [x] Risks + Watch Items embedded (§ 8)
+- [x] Completion record + commit + push (2 commits / 2 pushes per incremental-write discipline)
+
+**Signal to KR:** doc 49 § 1.1.1 amendment LANDED + seasonal_hero_candidates H-5 hybrid spec READY for downstream Phase 4 emission impl + Phase 5 PM-2 amendment + drax Dispatch C surface impl.
