@@ -1,0 +1,750 @@
+{
+  "run_at": "2026-05-28T10:38:32+00:00",
+  "implementation": "option-f-phase-1-stratified-floor",
+  "dispatch": "agentic_orchestration/dispatches/2026-05-28-gamora-option-f-phase-1-stratified-floor.md",
+  "math_note": "simulation/math/option-f-phase-1-stratified-floor-math-2026-05-28.md",
+  "acceptance_threshold": {
+    "required": ">=12 of 18 kits season_emit=True",
+    "status": "FAIL"
+  },
+  "gauntlet_summary": {
+    "total_kits_validated": 18,
+    "kits_season_emit": 3,
+    "season_emit_rate": 0.167,
+    "eligible_pass_floor_c14v1": 2,
+    "eligible_encounter_types": [
+      "boss_with_adds",
+      "mini_boss"
+    ],
+    "bypassed_ceiling_artifact_total": 0,
+    "bypassed_per_cohort": {
+      "DPS-min-maxer": 0,
+      "Balanced": 0,
+      "Defensive": 0,
+      "Hybrid": 0
+    },
+    "eligible_encounters_total": 216,
+    "eligible_encounters_in_band": 10,
+    "total_fights": 12900,
+    "wall_clock_s": 12.7,
+    "principle_6_round_trip": true,
+    "round_trip_fields_checked": 14,
+    "stratified_floor_mode": "cycle_14_v1",
+    "gauntlet_pass_by_cohort": {
+      "DPS-min-maxer": 0,
+      "Balanced": 1,
+      "Defensive": 0,
+      "Hybrid": 2
+    }
+  },
+  "per_kit_emit": {
+    "endgame_str_01_heavy_barbarian_t4_null": {
+      "season_emit": false,
+      "per_cohort": {
+        "DPS-min-maxer": {
+          "encounters_passed": 0,
+          "encounters_total": 15,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Balanced": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Defensive": {
+          "encounters_passed": 0,
+          "encounters_total": 6,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Hybrid": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        }
+      }
+    },
+    "endgame_str_02_light_fighter_t4_null": {
+      "season_emit": false,
+      "per_cohort": {
+        "DPS-min-maxer": {
+          "encounters_passed": 1,
+          "encounters_total": 15,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Balanced": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Defensive": {
+          "encounters_passed": 0,
+          "encounters_total": 6,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Hybrid": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        }
+      }
+    },
+    "endgame_str_03_polearm_soldier_t4_null": {
+      "season_emit": false,
+      "per_cohort": {
+        "DPS-min-maxer": {
+          "encounters_passed": 2,
+          "encounters_total": 15,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Balanced": {
+          "encounters_passed": 3,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Defensive": {
+          "encounters_passed": 0,
+          "encounters_total": 6,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Hybrid": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        }
+      }
+    },
+    "endgame_str_04_thrown_heavy_t4_null": {
+      "season_emit": false,
+      "per_cohort": {
+        "DPS-min-maxer": {
+          "encounters_passed": 2,
+          "encounters_total": 15,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Balanced": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Defensive": {
+          "encounters_passed": 0,
+          "encounters_total": 6,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Hybrid": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        }
+      }
+    },
+    "endgame_dex_01_dagger_assassin_t4_null": {
+      "season_emit": false,
+      "per_cohort": {
+        "DPS-min-maxer": {
+          "encounters_passed": 0,
+          "encounters_total": 15,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Balanced": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Defensive": {
+          "encounters_passed": 0,
+          "encounters_total": 6,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Hybrid": {
+          "encounters_passed": 2,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        }
+      }
+    },
+    "endgame_dex_02_archer_t4_null": {
+      "season_emit": false,
+      "per_cohort": {
+        "DPS-min-maxer": {
+          "encounters_passed": 1,
+          "encounters_total": 15,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Balanced": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Defensive": {
+          "encounters_passed": 0,
+          "encounters_total": 6,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Hybrid": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        }
+      }
+    },
+    "endgame_dex_03_crossbow_sniper_t4_null": {
+      "season_emit": false,
+      "per_cohort": {
+        "DPS-min-maxer": {
+          "encounters_passed": 2,
+          "encounters_total": 15,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Balanced": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Defensive": {
+          "encounters_passed": 0,
+          "encounters_total": 6,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Hybrid": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        }
+      }
+    },
+    "endgame_dex_04_twin_blade_fencer_t4_null": {
+      "season_emit": false,
+      "per_cohort": {
+        "DPS-min-maxer": {
+          "encounters_passed": 1,
+          "encounters_total": 15,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Balanced": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Defensive": {
+          "encounters_passed": 0,
+          "encounters_total": 6,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Hybrid": {
+          "encounters_passed": 4,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        }
+      }
+    },
+    "endgame_int_01_standard_wizard_t4_null": {
+      "season_emit": false,
+      "per_cohort": {
+        "DPS-min-maxer": {
+          "encounters_passed": 0,
+          "encounters_total": 15,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Balanced": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Defensive": {
+          "encounters_passed": 0,
+          "encounters_total": 6,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Hybrid": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        }
+      }
+    },
+    "endgame_int_02_artillery_mage_t4_null": {
+      "season_emit": true,
+      "per_cohort": {
+        "DPS-min-maxer": {
+          "encounters_passed": 0,
+          "encounters_total": 15,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Balanced": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Defensive": {
+          "encounters_passed": 0,
+          "encounters_total": 6,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Hybrid": {
+          "encounters_passed": 3,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 3,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": true
+        }
+      }
+    },
+    "endgame_int_03_pyromantic_caster_t4_null": {
+      "season_emit": false,
+      "per_cohort": {
+        "DPS-min-maxer": {
+          "encounters_passed": 0,
+          "encounters_total": 15,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Balanced": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Defensive": {
+          "encounters_passed": 0,
+          "encounters_total": 6,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Hybrid": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        }
+      }
+    },
+    "endgame_int_04_red_mage_spellsword_t4_null": {
+      "season_emit": false,
+      "per_cohort": {
+        "DPS-min-maxer": {
+          "encounters_passed": 0,
+          "encounters_total": 15,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Balanced": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Defensive": {
+          "encounters_passed": 0,
+          "encounters_total": 6,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Hybrid": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        }
+      }
+    },
+    "endgame_int_05_arcane_familiar_mage_t4_null": {
+      "season_emit": false,
+      "per_cohort": {
+        "DPS-min-maxer": {
+          "encounters_passed": 0,
+          "encounters_total": 15,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Balanced": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Defensive": {
+          "encounters_passed": 0,
+          "encounters_total": 6,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Hybrid": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        }
+      }
+    },
+    "endgame_wis_01_channeling_cleric_t4_null": {
+      "season_emit": false,
+      "per_cohort": {
+        "DPS-min-maxer": {
+          "encounters_passed": 0,
+          "encounters_total": 15,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Balanced": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Defensive": {
+          "encounters_passed": 0,
+          "encounters_total": 6,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Hybrid": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        }
+      }
+    },
+    "endgame_wis_02_holy_knight_t4_null": {
+      "season_emit": true,
+      "per_cohort": {
+        "DPS-min-maxer": {
+          "encounters_passed": 1,
+          "encounters_total": 15,
+          "eligible_encounters_passed": 1,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Balanced": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Defensive": {
+          "encounters_passed": 1,
+          "encounters_total": 6,
+          "eligible_encounters_passed": 1,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Hybrid": {
+          "encounters_passed": 2,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 2,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": true
+        }
+      }
+    },
+    "endgame_wis_03_ritual_mage_t4_null": {
+      "season_emit": true,
+      "per_cohort": {
+        "DPS-min-maxer": {
+          "encounters_passed": 0,
+          "encounters_total": 15,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Balanced": {
+          "encounters_passed": 2,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 2,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": true
+        },
+        "Defensive": {
+          "encounters_passed": 0,
+          "encounters_total": 6,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Hybrid": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        }
+      }
+    },
+    "endgame_wis_04_storm_caller_t4_null": {
+      "season_emit": false,
+      "per_cohort": {
+        "DPS-min-maxer": {
+          "encounters_passed": 0,
+          "encounters_total": 15,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Balanced": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Defensive": {
+          "encounters_passed": 0,
+          "encounters_total": 6,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Hybrid": {
+          "encounters_passed": 1,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 1,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        }
+      }
+    },
+    "endgame_wis_05_monk_t4_null": {
+      "season_emit": false,
+      "per_cohort": {
+        "DPS-min-maxer": {
+          "encounters_passed": 0,
+          "encounters_total": 15,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Balanced": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Defensive": {
+          "encounters_passed": 0,
+          "encounters_total": 6,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 2,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        },
+        "Hybrid": {
+          "encounters_passed": 0,
+          "encounters_total": 18,
+          "eligible_encounters_passed": 0,
+          "eligible_encounters_total": 4,
+          "bypassed_encounters": 0,
+          "gauntlet_pass": false
+        }
+      }
+    }
+  },
+  "eligible_encounter_stats_by_cohort": {
+    "DPS-min-maxer": {
+      "total": 36,
+      "in_band": 1,
+      "t1_rejected": 29,
+      "t2_kpm_min": 89.55223880597015,
+      "t2_kpm_max": 150.0,
+      "t2_kpm_sample_count": 7
+    },
+    "Balanced": {
+      "total": 72,
+      "in_band": 2,
+      "t1_rejected": 61,
+      "t2_kpm_min": 60.0,
+      "t2_kpm_max": 98.36065573770492,
+      "t2_kpm_sample_count": 11
+    },
+    "Defensive": {
+      "total": 36,
+      "in_band": 1,
+      "t1_rejected": 32,
+      "t2_kpm_min": 60.0,
+      "t2_kpm_max": 70.58823529411765,
+      "t2_kpm_sample_count": 4
+    },
+    "Hybrid": {
+      "total": 72,
+      "in_band": 6,
+      "t1_rejected": 62,
+      "t2_kpm_min": 61.85567010309279,
+      "t2_kpm_max": 109.0909090909091,
+      "t2_kpm_sample_count": 10
+    }
+  },
+  "discipline_44_framing_refusal": {
+    "trigger": "kits_season_emit=3 < acceptance_threshold=12",
+    "root_cause": "T1 REJECT rate overwhelms eligible encounter pool. Of 216 eligible encounter evaluations, 184 were T1_REJECT (85%). Only 10/216 eligible encounters were in-band (4.6%). The SC-7 calibration established BASE_SPELL_DAMAGE_L50 for a REFERENCE class; the 18 Phase 2 kits have class-specific DPS that differs widely. Most class DPS levels are outside the Balanced band (71-79 KPM) for boss encounters. The stratified floor requires >=2 of 4 eligible encounters in-band; with ~85% T1 REJECT rate, almost no kit achieves this.",
+    "architectural_finding": "Option F Phase 1 stratified floor implementation is CORRECT per math note. The gate architecture change works as designed. The acceptance threshold (>=12/18) is not achievable because the per-class DPS variance across 18 Phase 2 kits exceeds the KPM band tolerance. This is a deeper SC7-F1 root cause not captured in the dispatch: the 65x HP variance finding from calibration does not capture the cross-class DPS variance that prevents most kits from achieving in-band KPM for boss encounters.",
+    "what_works": "KPM=600.0 bypass: correct implementation, 0 bypasses observed (real kits produce boss KPM 60-150, not the 600.0 ceiling of the calibration run). Stratified floor logic: correct \u2014 eligible_encounters_passed counts only boss_with_adds and mini_boss; gauntlet_pass requires >=2 in-band. Principle 6 round-trip: PASS. 14 required fields verified.",
+    "cycle_15_implication": "Option A (per-type KPM bands) calibrated PER CLASS OR PER CLASS ARCHETYPE would address both HP variance and DPS variance. Alternatively, the KPM band width needs to expand to accommodate cross-class variance.",
+    "routing": "KR re-routing required per Discipline #44. Do not tag Cycle 14 v1."
+  }
+}

@@ -153,3 +153,41 @@
 **Discipline #43 audit A5 compliance:** EXPLICIT retraction documented. Not silent relaxation.
 
 **jack-ryan dispatch:** `2026-05-28-jack-ryan-phase-7-threshold-canonical-re-write-option-f-phase-1.md` (completion record appended)
+
+---
+
+### Gamora implementation completion record (2026-05-28)
+
+**Status: IMPLEMENTATION COMPLETE — DISCIPLINE #44 FRAMING-REFUSAL INVOKED**
+
+**Parts 1-3 status: COMPLETE**
+
+- **Part 1 — Stratified per-encounter-type floor:** IMPLEMENTED in `gauntlet_sim.py`. New constants: `GAUNTLET_ELIGIBLE_ENCOUNTER_TYPES_C14V1 = frozenset({"boss_with_adds", "mini_boss"})`, `GAUNTLET_ELIGIBLE_PASS_FLOOR_C14V1 = 2`. Old `GAUNTLET_ENCOUNTER_PASS_FLOOR=14` retained as retracted constant with RETRACTED comment per Discipline #40 case (c). New methods: `eligible_encounters_passed()`, `eligible_encounters_total()`, `bypassed_encounters()` on `GauntletKitResult`. `gauntlet_pass()` semantics changed from 18-encounter uniform floor to boss-type-only 2/4 floor — Discipline #12 semantic shift explicitly framed in MIGRATION.md v1.37.
+- **Part 2 — KPM=600.0 ceiling-artifact bypass:** IMPLEMENTED. `KPM_CEILING_ARTIFACT_VALUE = 600.0` constant added. Bypass logic in `w5g1_gauntlet_execution()` fires after Tier 2 result: `KPM ≡ 600.0 → bypassed_ceiling_artifact=True, in_band=False, excluded from tally`. New telemetry fields: `bypassed_ceiling_artifact_total`, `bypassed_per_cohort`. `GAUNTLET_REQUIRED_FIELDS` count 13→14 (`bypassed_ceiling_artifact` added to `GauntletEncounterResult.to_dict()`). Principle 6 round-trip count updated.
+- **Part 3 — MIGRATION.md v1.37:** FILED at `~/Games/reincarnated-engine/src/reincarnated/simulation/MIGRATION.md`. Full Discipline #40 case (c) retraction documentation. SC7-F1 root cause. Changed constants table. Discipline #12 semantic shift framing. Downstream impact (Phase 4 LOCKED, Phase 7 LOCKED, star-lord no schema changes needed). Cycle 15 forward-link. All cross-references: jack-ryan Gate-3 `044f4ea`, Matt D1+D2+D3, SC-7 calibration tag `e7af7db`.
+- **Tests:** 132/132 PASS after updating `test_cycle13_wave5_gauntlet_sim.py` to reflect new semantics. New test class `TestStratifiedFloor`. Old 14/18 floor tests replaced with stratified floor pass/fail/count tests.
+- **Math note:** `simulation/math/option-f-phase-1-stratified-floor-math-2026-05-28.md` authored BEFORE implementation per Discipline #1.
+
+**Part 4 status: SMOKE FAIL — DISCIPLINE #44 INVOKED**
+
+- **Acceptance threshold:** ≥12/18 kits season_emit=True
+- **Smoke result:** 3/18 kits season_emit=True (season_emit_rate=0.167)
+- **KPM=600.0 bypass fires:** 0 times (real Phase 3 boss KPM is 60-150; the 600.0 ceiling was specific to calibration loop at boosted reference-class DPS — bypass correctly implemented but not operative on real kits)
+- **Root cause (deeper than dispatch prediction):** SC-7 calibration proved ONE reference class achieves boss KPM in-band at mult=93.81×. The 18 Phase 2 kits have class-specific DPS that varies widely. 85% T1 REJECT rate on eligible (boss_with_adds/mini_boss) encounters across all cohorts (e.g., Balanced: 61/72 T1 rejected). Only 10/216 eligible encounter evaluations were in-band (4.6%). The dispatch prediction of 12-15 kits passing was based on an incorrect assumption that all 18 classes produce boss KPM near-band. Cross-class DPS variance is the deeper SC7-F1 root cause, not resolved by stratified floor alone.
+- **Per-cohort emit:** DPS-min-maxer=0, Balanced=1, Defensive=0, Hybrid=2, [remaining cohorts]=0
+- **Discipline #44 trigger:** "<12/18 emit OR ceiling bypass side-effects surface → invoke #44 framing-refusal + surface to KR for re-routing" — invoked.
+- **Framing-refusal meaning:** gate architecture change is correct and canonical-backed; acceptance threshold is not achievable with current gate structure given cross-class DPS variance; KR re-routing required for re-disposition.
+
+**Empirical telemetry artifact:** `agentic_orchestration/cycle-14-wave-5-season-001/option-f-phase-1-smoke-telemetry.json`
+
+**Tag decision:** `gamora/v1.9-option-f-phase-1-stratified-floor-1` NOT applied — Discipline #44 invocation holds tag pending re-routing disposition.
+
+**Commit:** implementation committed (Parts 1-3 complete, Part 4 smoke FAIL documented); see engine commit.
+
+**KR re-routing signal:** The cross-class DPS variance finding changes the diagnosis. Option F Phase 1 stratified floor addresses the HP variance problem correctly. The remaining block is that each class produces KPM at a different rate — most classes fall outside the boss-encounter KPM band that ONE reference class sits in. Resolution paths for KR/Matt disposition:
+1. Per-class KPM bands (generalization of Matt D2 per-type bands) — each class has its own expected KPM range at boss tier
+2. Wider band (increase COHORT_KPM_BAND from ±0.25 to something wider — but this loses discrimination)
+3. Different quality metric entirely for Phase 3 gate (e.g., damage output relative to boss HP %, not time-based KPM)
+4. Normalize class DPS to reference class before applying KPM gate
+
+**Signed:** gamora 2026-05-28 — Discipline #44 invoked; implementation delivered per 4-part scope; smoke FAIL; KR re-routing required
