@@ -126,3 +126,30 @@ Fire ASAP on jack-ryan Gate-1 PASS.
 ---
 
 **KR signature:** authored per Matt 2026-05-28 Path α RATIFICATION directive verbatim + master scoping § 2.2 W-α2 specifications + Amendment 1 micro-dependency on W-α3. Gamora seam authority on Option A/B choice; auto-commit + auto-push.
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-28
+**Completed by:** gamora
+**Tag:** `gamora/v2.5-w-alpha-2-kpm-ceiling-1`
+**Option chosen:** B — Remove ceiling entirely
+
+### Summary
+
+**Math note:** `simulation/math/w-alpha-2-kpm-ceiling-raise-remove-2026-05-28.md`
+**MIGRATION.md:** § v1.41
+**Smoke:** 147/147 PASS (test_cycle13_wave5_gauntlet_sim.py + test_cycle13_wave4_sim_cycling.py)
+
+**Option B rationale (math note § 2):** The 600.0 ceiling is a fight-duration discretization artifact, not a hardcoded simulation cap. A single ceiling value is incoherent across 6-encounter-type HP range (2,000 HP swarm → 231,000 HP boss). The "no strict dominance" design directive (doc 50 § 4.3) is more accurately operationalized post-refactor by Target 4 (≤2 peaks ≤2.0× cohort median) + Target 5 (≥30% floor). Option A was rejected because any ceiling high enough to avoid swarm saturation at calibrated L50 DPS is non-diagnostic for boss encounters; any ceiling tight enough for bosses will be saturated by swarm.
+
+**Semantic shift (Discipline #12):** KPM=600.0 observations move from "excluded artifact" to "valid signal." Committed as semantic shift in gauntlet quality measurement.
+
+**gauntlet_sim.py:** Bypass logic removed from W5G.1. `KPM_CEILING_ARTIFACT_VALUE` retained as historical constant. `bypassed_ceiling_artifact` field retained (always False, backward compat).
+
+**bounded_viability_validation.py:** `KPM_CEILING_VALUE = None`. Target 3 structural PASS when ceiling=None. Headroom-ratio regression sentinel added (`HEADROOM_RATIO_BOSS_KPM_FLOOR=5.0`; advisory WARNING, not blocking gate).
+
+**W-α3 ceiling signal:** `kpm_ceiling=None` — ceiling removed; uncapped empirical KPM signal available for W-α3 reference target derivation. W-α3 Phase 2 lock unblocked.
+
+**Target 3 framing (for W-α4 + downstream):** Target 3 is STRUCTURAL PASS when `harness_parameters["ceiling_removed"] = True`. Real "no strict dominance" gates post-W-α2 are Target 4 + Target 5. Downstream readers: check `ceiling_removed` flag in harness output JSON to distinguish structural vs measured Target 3 PASS.
