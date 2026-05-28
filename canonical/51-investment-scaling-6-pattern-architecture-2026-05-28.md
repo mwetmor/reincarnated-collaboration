@@ -1,10 +1,10 @@
 # 51 — Investment Scaling 6-Pattern Architecture
 
-> **STATUS:** CURRENT (LOAD-BEARING as of 2026-05-28) — SECOND ITERATION 2026-05-28 evening (§§ 9 + 10 scope-completeness amendment batch per Matt D1+D2+D3+D4 RATIFICATION + Discipline #40 case (c) extension protocol). Phase 2 of integrated W-α7+ master scoping; canonical authority on the structural intent of skill-tree per-node investment scaling. Patterns 1+2 detailed for Cycle 14 v1 Phase 3 implementation; Patterns 3-6 canonical-locked stubs for Cycle 15+ work. § 9 captures KNOWN-GAP cross-node prerequisite unlocks (T4_UNLOCK_THRESHOLD = 0.70 acknowledgment + Cycle 15+ deferral). § 10 captures investment-profile distribution rules (calibration anchor profile decision + multi-profile distribution rules + per-profile point allocation algorithm). Gates W-α7+ Phase 3d gamora BASE re-derivation + Phase 4 multi-profile sweep. See `canonical/00-ground-state.md` § 1.
+> **STATUS:** CURRENT (LOAD-BEARING as of 2026-05-28) — THIRD ITERATION 2026-05-28 evening late (§§ 10.7 + 10.8 T4 identity cycling + strip-and-ship additions per Matt design call + Discipline #40 case (c) extension protocol). SECOND ITERATION 2026-05-28 evening (§§ 9 + 10 scope-completeness amendment batch per Matt D1+D2+D3+D4 RATIFICATION). Phase 2 of integrated W-α7+ master scoping; canonical authority on the structural intent of skill-tree per-node investment scaling. Patterns 1+2 detailed for Cycle 14 v1 Phase 3 implementation; Patterns 3-6 canonical-locked stubs for Cycle 15+ work. § 9 captures KNOWN-GAP cross-node prerequisite unlocks (T4_UNLOCK_THRESHOLD = 0.70 acknowledgment + Cycle 15+ deferral). § 10 captures investment-profile distribution rules (calibration anchor profile decision + multi-profile distribution rules + per-profile point allocation algorithm). § 10.7 captures per-kit T4 identity cycling as Phase 4 sweep dimension. § 10.8 captures T4 strip-and-ship rule (out-of-band T4 removed; ≥1 in-band ships kit). Gates W-α7+ Phase 3d gamora BASE re-derivation + Phase 4 multi-profile sweep + Phase 4 post-sweep T4 disposition. See `canonical/00-ground-state.md` § 1.
 
 **Date:** 2026-05-28 (Phase 2 lock); 2026-05-28 evening (scope-completeness amendment batch §§ 9 + 10)
 **Author:** gandalf (story-and-design steward)
-**Status:** v1.1 canonical lock SECOND ITERATION — Patterns 1+2 formula structures specified + calibration anchor decision (max-investment) + per-tier ratio preservation (1:1.5:2.17:4.0) + profile semantic definitions + per-encounter-type band design integrated + Patterns 3-6 canonical-locked stubs + NEW § 9 KNOWN-GAP T4_UNLOCK_THRESHOLD = 0.70 acknowledgment + NEW § 10 investment-profile distribution rules (calibration anchor + multi-profile distribution + per-profile allocation algorithm)
+**Status:** v1.2 canonical lock THIRD ITERATION — Patterns 1+2 formula structures specified + calibration anchor decision (max-investment) + per-tier ratio preservation (1:1.5:2.17:4.0) + profile semantic definitions + per-encounter-type band design integrated + Patterns 3-6 canonical-locked stubs + § 9 KNOWN-GAP T4_UNLOCK_THRESHOLD = 0.70 acknowledgment + § 10 investment-profile distribution rules (calibration anchor + multi-profile distribution + per-profile allocation algorithm) + NEW § 10.7 per-kit T4 identity cycling (Phase 4 sweep dimension) + NEW § 10.8 T4 strip-and-ship rule (out-of-band T4 disposition; ≥1 in-band ships kit; failed-T4 chain remains as supporting chain)
 **Authority:**
 - **First iteration (commit `ba1c4e7`):** Matt 2026-05-28 evening RATIFICATION AMENDMENT — integrated W-α7+ scope absorbs case 9 + case 10 + case 11 + case 12; Phase 2 fires in PARALLEL with jack-ryan Gate-1 review of master scoping per Matt explicit authorization. Master scoping dispatch `agentic_orchestration/dispatches/2026-05-28-integrated-w-alpha-7-plus-master-scoping.md` § 1 Phase 2 carries verbatim scope.
 - **Second iteration (§§ 9 + 10 amendment batch):** Matt 2026-05-28 evening D1+D2+D3+D4 RATIFICATION — Phase 3d gamora HALTED via TaskStop (Matt finding: rocket Phase 3a coordination signal `skill.investment_points must be set to 15` is vague on WHICH skills; Phase 4 multi-profile sweep needs distribution rules locked); KR dispatch `agentic_orchestration/dispatches/2026-05-28-gandalf-doc-51-scope-completeness-amendment-batch.md` carries verbatim scope. Discipline #40 case (c) extension protocol (NOT retraction; scope-completeness fold-in to LOAD-BEARING canonical). Case 13 surfaced; Discipline #48 candidate VALIDATED at N=2 (case 11 investment scaling gap + case 13 this § 10 distribution rules gap; Phase 6a disciplines batch territory per jack-ryan).
@@ -939,6 +939,241 @@ At sub-max profiles, some chains have chain_progress < T4_UNLOCK_THRESHOLD = 0.7
 
 For Phase 4 telemetry, the sweep records per-profile chain_progress per chain and the implied T4-unlocked-state under § 9.2 enforcement, BUT the KPM evaluation includes T4 contribution at every profile (calibration is the upper-bound reference). Cycle 15+ Pattern 3 implementation later overlays the gate at runtime; the calibrated `base_at_max` values from Phase 3d + 4 stand.
 
+### 10.7 Per-kit T4 identity cycling — Phase 4 sweep dimension
+
+> **Status:** v1.2 third iteration — closes case 14 scope-completeness gap surfaced by Matt 2026-05-28 evening design call: "we will need to balance each class across its T4 identities separately." Adds T4-variant cycling as an explicit Phase 4 sweep dimension distinct from the (paths × cohorts × encounter types × profiles × mixed variants) framework of § 10.4.
+
+#### 10.7.1 Architectural distinction — calibration anchor vs gauntlet sim cycling vs T4 identity balance
+
+Three concerns previously conflated; locked separately here:
+
+| Concern | Profile used | Purpose |
+|---|---|---|
+| **Damage scaling calibration** | All-skills-max (Mode A per § 10.2.3) | Sets BASE_DAMAGE_L50[tier] magnitude anchor per § 3.5 + § 4.5 |
+| **Gauntlet sim execution** | Cycling chain/node selection (realistic-play distributions per § 10.2.1-10.2.4 + § 10.3) | Verifies bounded-viability across the actual play space, not the hypothetical anchor |
+| **T4 identity balance** | Per-T4-variant cycling per kit (this § 10.7) | Each kit's bounded-viability verified separately for each T4 selection; kit can have multiple T4 capstones; ONE active at a time; each produces different play identity |
+
+The damage scaling calibration (Phase 3d Mode A) sets the magnitude REFERENCE. The gauntlet sim (Phase 4) verifies viability at realistic play profiles. The T4 identity balance (this section) verifies bounded-viability ACROSS the kit's T4 variant set — recognizing that a kit's bounded-viability is a property that must hold for every T4 selection the player might activate.
+
+#### 10.7.2 T4 variant set per kit
+
+Per `canonical/40-gear-balance-guide-architecture-2026-05-26.md` D63-D86 architectural foundation + § 3.1: each kit has T4 capstone nodes equal to `chain_count - 1`. Typical kit composition:
+
+- 3-chain kit: 2 T4 capstone nodes → 2 T4 variants
+- 4-chain kit: 3 T4 capstone nodes → 3 T4 variants
+
+**Player rule:** ONE T4 active at a time (per memory `project_progression_concept.md` + doc 41). Player selects which T4 to activate as part of build.
+
+**Balance implication:** each T4 selection produces a different mechanical play identity for the kit. The bounded-viability-with-specialization directive (doc 50) must hold for EACH T4 identity, not just one. A kit that's bounded-viability-PASS at T4 variant 1 but FAIL at T4 variant 2 ships with an architecturally broken alternative-build path — player who chose T4 variant 2 experiences a kit that doesn't meet design directive.
+
+#### 10.7.3 Phase 4 sweep dimension expansion
+
+The § 10.4 sweep dimension structure expands to include T4 variant:
+
+**Without T4 cycling (prior framing):**
+`4 paths × 4 cohorts × 6 encounter types × 4 profile bins × mixed-variant expansion ≈ 768 cells`
+
+**With T4 cycling (this § 10.7):**
+`4 paths × 4 cohorts × 6 encounter types × 4 profile bins × mixed-variant expansion × 2-3 T4 variants per kit ≈ 1500-2300 cells`
+
+Each T4 variant of each kit gets the full multi-profile × multi-encounter sweep. Bounded-viability verification per (kit × T4 variant × profile × encounter type × cohort × path) tuple.
+
+#### 10.7.4 T4 variant per-cell evaluation
+
+For each (kit, T4 variant) tuple, Phase 4 sweep:
+
+1. Set `kit.active_t4_capstone = T4_variant` (selects which T4 is active)
+2. Apply per-profile distribution per § 10.3 algorithm
+3. Run gauntlet sim against the encounter catalog
+4. Compute per-encounter-type KPM per cohort per path
+5. Verify Discipline #47 bounded-viability targets per doc 50 § 4
+
+If any (kit × T4 variant × ...) cell fails bounded-viability, the cell surfaces as a balance gap. Resolution paths (gamora seam discretion):
+- Per-T4 calibration adjustment (BASE_DAMAGE_L50 or per-T4 multiplier tuning)
+- T4 variant design amendment (if a specific T4 variant is structurally broken)
+- Phase 6 jack-ryan Gate-2 disposition if cross-T4 variance exceeds design tolerance
+
+#### 10.7.5 Composition with Mode A + Mode B at max-profile
+
+At max-profile, Mode A (all-skills-max calibration anchor) and Mode B (realistic-endgame specialization-aware) both fire per § 10.2.3. T4 variant cycling composes with BOTH modes:
+
+- Mode A × T4 variant N: hypothetical fully-maxed kit with T4 variant N active; calibration reference
+- Mode B × T4 variant N: realistic-endgame specialization-aware build with T4 variant N active; player-experience verification
+
+The cross-product produces per-T4-variant calibration coverage. If Mode A and Mode B diverge significantly per T4 variant, that's a per-T4 architectural gap warranting design dialog.
+
+#### 10.7.6 Player-experience semantic
+
+The architectural commitment: **the player who selects ANY of the kit's T4 variants experiences a kit that meets the bounded-viability-with-specialization design directive.** No T4 variant should be "the trap option that doesn't work." All T4 selections produce viable kits within the bounded design space.
+
+Per Matt 2026-05-28 evening design call: "we will need to balance each class across its T4 identities separately." T4 variant cycling in Phase 4 is the operational mechanism that verifies this commitment.
+
+#### 10.7.7 Coordination signal addition at Phase 4 firing
+
+KR Phase 4 coordination signal expands per § 10.4 + this § 10.7:
+
+```
+PHASE 4 COORDINATION SIGNAL (per § 10.4 + § 10.7):
+
+- Reference: doc 51 § 10.2 multi-profile distribution rules
+- Reference: doc 51 § 10.3 per-profile point allocation algorithm
+- Reference: doc 51 § 10.1 max-profile Mode A as calibration anchor
+- Reference: doc 51 § 10.7 T4 identity cycling per kit
+
+Sweep dimensions:
+- 4 paths (STR-physical, DEX-physical, INT-magical, WIS-faith)
+- 4 cohorts (Support, Control, Defensive, Damage, Hybrid per doc 50 § 3)
+- 6 encounter types (per W-α6 ENCOUNTER_COHORT_KPM_BAND)
+- 4 profile bins (low / mid / max / mixed; mixed expands to 3 variants)
+- Mode A + Mode B at max-profile (calibration anchor + realistic-endgame)
+- 2-3 T4 variants per kit (kit-specific; chain_count - 1)
+
+Total ~1500-2300 cells. Per Discipline #1.1 actual-vs-projected pattern:
+calibration runs much faster than worst-case projection (~28s precedent
+from W-α3 Phase 2). Expanded sweep tractable.
+
+Per-T4-variant bounded-viability verification per (kit × T4 variant ×
+profile × encounter type × cohort × path) tuple. Each T4 selection is
+balance-verified independently.
+```
+
+### 10.8 T4 strip-and-ship rule — out-of-band T4 disposition
+
+> **Status:** v1.2 third iteration — closes case 15 scope-completeness gap surfaced by Matt 2026-05-28 evening design call: "if a kit only passes 1 or 2 of its T4 nodes in band, the out-of-band T4 nodes should simply be removed. As long as a kit has 1+ T4 in band, it ships." Defines the post-Phase 4 disposition rule for T4 variants that fail bounded-viability per § 10.7 verification.
+
+#### 10.8.1 The rule
+
+When Phase 4 sweep evaluates each T4 variant of a kit (per § 10.7), some T4 variants may PASS bounded-viability (in-band per doc 50 § 4 targets) and others may FAIL (out-of-band).
+
+**Disposition rule (Matt 2026-05-28 evening ratification):**
+
+1. **In-band T4 variants are retained** — these become the kit's shipped T4 capstone options
+2. **Out-of-band T4 variants are REMOVED** — stripped from the kit's T4 capstone set; not retried, not re-calibrated, simply removed
+3. **Kit ship criterion:** kit ships if and only if **≥1 T4 variant is in-band**
+4. **Failed-T4 chain disposition:** the chain that lost its T4 capstone REMAINS in the kit as a "supporting chain" — T1+T2+T3 active skills + passive nodes preserved; only the T4 capstone slot is empty
+5. **No re-balance loop:** the rule explicitly avoids calibration-cycle expansion to make every T4 work; strip-and-ship is the design-intent failure mode
+
+#### 10.8.2 Why strip-and-ship (and not rebalance-every-T4)
+
+The genre-traditional alternative (re-balance every T4 until all pass) creates calibration-cycle complexity that grows with T4 variant count. Strip-and-ship has architectural advantages:
+
+| Property | Strip-and-ship (this rule) | Rebalance-every-T4 (rejected) |
+|---|---|---|
+| Calibration cycle complexity | Bounded; failed T4s exit the calibration loop | Grows with T4 variant count; multi-T4 calibration may not converge |
+| Kit ship integrity | Preserved by ≥1 in-band requirement | Preserved but at higher calibration cost |
+| Player-experience semantic | "Some kits have 1 T4 option; some have 2; some have 3 — all functional" | "Every kit has full T4 menu — all calibrated to be viable" |
+| Design honesty | Failed T4 variants are honestly removed | Failed T4 variants may pass calibration via cohort-adjustment that obscures specialization signal |
+| Cycle 14 v1 close trajectory | Bounded sweep + clean disposition | Cycle 14 v1 close blocked on convergence of every T4 |
+| Future cycle T4 design space | New T4 variants can be added without re-calibration of existing | New T4 additions require re-calibration of full set |
+
+Strip-and-ship reflects Matt's design intent: a kit's bounded-viability is a property of the kit AS-SHIPPED, not a property of the kit's full design surface. If a T4 variant doesn't make the bar, it simply doesn't ship. The kit ships with its remaining in-band T4 variants.
+
+#### 10.8.3 Failed-T4 chain remains as supporting chain
+
+When a T4 variant is stripped, the chain containing that T4 node does NOT lose its T1+T2+T3 active skills or its passive nodes. The chain remains in the kit as a "supporting chain":
+
+- T1 + T2 + T3 active skills: playable, scale per Pattern 1 with their respective points-invested
+- Passive nodes on the chain: playable, scale per Pattern 2
+- T4 capstone slot: empty (was stripped)
+- Player can still invest in the chain (up to T3-active-15 and passive-5 caps) for build expression
+- Chain contributes to autonomy × focus + gear-orientation matrix positioning (per `canonical/story/c-hybrid-cell-and-curation-architecture-2026-05-28.md` § 3) — supporting chains are part of the kit's experiential identity
+
+The chain becomes a **non-capstone chain** in the player's build. Player builds that emphasize the supporting chain are still viable; the chain just lacks a T4 capstone payoff.
+
+#### 10.8.4 Kit ship criterion: ≥1 T4 variant in-band
+
+The Cycle 14 v1 close criterion for kit shippability extends doc 50 § 4 targets with this rule:
+
+- **All bounded-viability targets per doc 50 § 4** verified at ≥1 T4 variant of the kit (per § 10.7 verification)
+- **Kit fails to ship** if zero T4 variants are in-band (rare; surfaces as design escalation per § 10.8.5)
+- **Kit ships** with whatever T4 variant set passed (could be 1 of 2, 2 of 2, 2 of 3, 3 of 3, etc.)
+
+The Phase 4 sweep output per kit becomes a list:
+```
+kit.shipped_t4_variants = [t4_variant_id for t4_variant_id in kit.t4_variants
+                           if bounded_viability_pass(kit, t4_variant_id)]
+
+ship_kit(kit) IFF len(kit.shipped_t4_variants) >= 1
+```
+
+#### 10.8.5 Edge case — zero T4 variants pass bounded-viability
+
+If a kit produces ZERO in-band T4 variants, the kit does NOT ship. This is an architectural escalation:
+
+- **Surfaces as design dialog** (gandalf seam): kit's BC coordinate + Layer 2-base composition is structurally unable to produce viable T4 capstone
+- **Resolution paths:**
+  - Kit BC coordinate retirement (substrate vote indicates the cell is too narrow for T4 viability)
+  - Kit composition redesign (per-chain selection adjusted; T4 candidates regenerated)
+  - Per-cell T4 design intervention (gandalf authors new T4 variants for the cell)
+- **NOT a Cycle 14 v1 close blocker** at kit level — affected kits simply don't ship in the current season; Phase 5 cluster faction may need rebalancing to absorb the gap
+- **Cycle 15+ scope** if architectural pattern emerges (multiple kits hitting zero-T4-in-band → systemic issue warranting Pattern 3 or T4 alteration architecture amendment)
+
+#### 10.8.6 Composition with § 10.7 T4 identity cycling
+
+§ 10.7 verifies each T4 variant per kit; § 10.8 disposes of variants that fail verification. Together:
+
+```
+PHASE 4 SWEEP + STRIP-AND-SHIP PIPELINE (per § 10.7 + § 10.8):
+
+For each kit K:
+  K.shipped_t4_variants = []
+  For each T4 variant V in K.t4_variants:
+    For each (profile, encounter_type, cohort, path) cell:
+      Apply per-profile distribution per § 10.3
+      Set K.active_t4_capstone = V
+      Run gauntlet sim
+      Verify Discipline #47 bounded-viability per doc 50 § 4
+
+    IF bounded_viability_pass(K, V):
+      K.shipped_t4_variants.append(V)
+    ELSE:
+      log "kit K T4 variant V stripped per § 10.8 strip-and-ship rule"
+
+  IF len(K.shipped_t4_variants) >= 1:
+    ship_kit(K)
+  ELSE:
+    surface to gandalf design escalation per § 10.8.5
+
+For each chain C in K with stripped T4:
+  preserve C as supporting chain per § 10.8.3
+  K.supporting_chains.append(C)
+```
+
+#### 10.8.7 Player-experience semantic
+
+The architectural commitment: **the kit ships with its in-band T4 variants visible to the player; stripped T4 variants don't appear in the player's UI as available options.** The player sees a kit with N T4 capstone choices where N is the count of in-band variants (1 ≤ N ≤ chain_count - 1).
+
+Player UI implication for drax loadout app:
+- Kit display shows T4 capstone slots equal to in-band variant count
+- Supporting chains (failed-T4-stripped) appear in the kit but without T4 slot
+- Player can still invest in supporting chains for T1+T2+T3 actives + passives
+- No "trap option" T4s exist — every T4 the player sees is verified in-band
+
+Per Matt 2026-05-28 evening design call: "Chains which had a T4 node but had it stripped away can remain as failed T4 node supporting chains, but still viable for freedom of play expression." Strip-and-ship preserves chain functionality without preserving failed T4 capstones.
+
+#### 10.8.8 Coordination signal addition at Phase 4 firing
+
+KR Phase 4 coordination signal extends per § 10.7.7 with § 10.8 disposition rule:
+
+```
+PHASE 4 COORDINATION SIGNAL ADDITION (per § 10.8):
+
+Post-sweep disposition per § 10.8 strip-and-ship rule:
+- In-band T4 variants per kit: retained as shipped T4 capstone options
+- Out-of-band T4 variants per kit: stripped from kit's T4 set
+- Kit ship criterion: ≥1 in-band T4 variant required
+- Failed-T4 chain disposition: chain remains as supporting chain
+  (T1+T2+T3 actives + passives preserved; T4 slot empty)
+- Edge case (zero in-band T4): surface to gandalf design escalation
+  per § 10.8.5
+
+Phase 4 output schema additions per § 10.8.6 pipeline:
+- kit.shipped_t4_variants: list of in-band T4 variant IDs
+- kit.stripped_t4_variants: list of out-of-band T4 variant IDs (log)
+- kit.supporting_chains: list of chains whose T4 was stripped
+- kit.ships: bool (True IFF len(shipped_t4_variants) >= 1)
+```
+
 ---
 
 ## 11. Cross-references updated
@@ -1127,18 +1362,32 @@ Per KR dispatch `agentic_orchestration/dispatches/2026-05-28-gandalf-doc-51-scop
 - [x] **Discipline #40 case (c) extension framing** — captured in header authority block; this is scope-completeness fold-in to LOAD-BEARING canonical, NOT retraction (no retraction-procedure 6-step sequence required)
 - [x] **Discipline #48 candidate validation at N=2** — referenced in header authority block + commit message (case 11 investment scaling gap + case 13 this § 10 distribution rules gap); minting deferred to Phase 6a disciplines batch per jack-ryan
 
+### 14.3 Third iteration acceptance (§§ 10.7 + 10.8 T4 identity cycling + strip-and-ship rule additions; 2026-05-28 evening late)
+
+Per Matt 2026-05-28 evening design call ("we will need to balance each class across its T4 identities separately" + "if a kit only passes 1 or 2 of its T4 nodes in band, the out-of-band T4 nodes should simply be removed. As long as a kit has 1+ T4 in band, it ships") + Matt explicit authorization "go ahead and fire it":
+
+- [x] **§ 10.7 T4 identity cycling per kit authored** — three-concern architectural distinction table (damage scaling calibration vs gauntlet sim execution vs T4 identity balance) per § 10.7.1; T4 variant set per kit per chain_count-1 formula per § 10.7.2; Phase 4 sweep dimension expansion (~768 → ~1500-2300 cells) per § 10.7.3; per-T4-variant per-cell evaluation algorithm per § 10.7.4; composition with Mode A + Mode B at max-profile per § 10.7.5; player-experience semantic per § 10.7.6; expanded Phase 4 coordination signal per § 10.7.7
+- [x] **§ 10.8 T4 strip-and-ship rule authored** — disposition rule (in-band retain; out-of-band remove; ≥1 in-band ships kit) per § 10.8.1; strip-and-ship vs rebalance-every-T4 architectural trade-off table per § 10.8.2; failed-T4 chain remains as supporting chain per § 10.8.3; kit ship criterion per § 10.8.4; zero-T4-in-band edge case + design escalation path per § 10.8.5; composition with § 10.7 sweep pipeline per § 10.8.6; player-experience semantic per § 10.8.7; coordination signal addition per § 10.8.8
+- [x] **Discipline #45 vocabulary grep audit on §§ 10.7 + 10.8** — PASS; T4 variant cycling + strip-and-ship vocabulary is mechanical-architecture (NOT class taxonomy); chain_count formula references doc 40 architectural foundation; "supporting chain" vocabulary matches existing supporting-chain framing in doc 40 + no-classes recommitment
+- [x] **Discipline #48 candidate validation extended to N=4** — case 14 T4 identity cycling gap + case 15 T4 strip-and-ship rule gap both caught at doc 51 v1.2 third iteration via Matt manual scope-completeness audit; Discipline #48 candidate now has N=4 production-gap-cases (case 11 investment scaling + case 13 § 10 distribution rules + case 14 T4 identity cycling + case 15 T4 strip-and-ship); minting still deferred to Phase 6a disciplines batch per jack-ryan but architectural value validation strongly strengthening
+- [x] **Header updated** — STATUS notice references third iteration; `**Status**` field updated to "v1.2 canonical lock THIRD ITERATION"; `**Authority**` field extended
+- [x] **Cross-references** — § 10.4 + § 10.5 + § 10.6 unchanged; § 10.7 + § 10.8 reference doc 40 D63-D86 (chain_count formula) + doc 41 (T4 ONE-active-at-a-time rule) + doc 50 § 4 (bounded-viability targets) + doc 47 § 3 (damage scaling architecture); doc 11 cross-reference table will require pending knight-rider state-file maintenance for ground-state refresh
+- [x] **Discipline #40 case (c) extension framing preserved** — third iteration is scope-completeness fold-in (NOT retraction); LOAD-BEARING canonical extension under same protocol as second iteration; no retraction-procedure 6-step sequence required
+- [x] **Tag cut** — `gandalf/v1.16-doc-51-t4-identity-cycling-and-strip-and-ship-additions-1` (seam discretion)
+
 ---
 
 ## Sign-off
 
 **Author:** gandalf (story-and-design steward)
-**Date:** 2026-05-28 (first iteration); 2026-05-28 evening (second iteration §§ 9 + 10 amendment batch)
-**Status:** v1.1 canonical lock SECOND ITERATION; LOAD-BEARING per integrated W-α7+ Phase 2 + Matt 2026-05-28 evening D1+D2+D3+D4 RATIFICATION; gates Phase 3d gamora BASE re-derivation + Phase 4 multi-profile sweep + Phase 5+6 work-streams; Cycle 14 v1 close trajectory ~14-22d from Matt 2026-05-28 evening RATIFICATION AMENDMENT
+**Date:** 2026-05-28 (first iteration); 2026-05-28 evening (second iteration §§ 9 + 10 amendment batch); 2026-05-28 evening late (third iteration §§ 10.7 + 10.8 T4 identity cycling + strip-and-ship additions)
+**Status:** v1.2 canonical lock THIRD ITERATION; LOAD-BEARING per integrated W-α7+ Phase 2 + Matt 2026-05-28 evening D1+D2+D3+D4 RATIFICATION + Matt 2026-05-28 evening late additional design call (T4 identity cycling + strip-and-ship rule); gates Phase 3d gamora BASE re-derivation + Phase 4 multi-profile sweep + Phase 5+6 work-streams; Cycle 14 v1 close trajectory ~14-22d from Matt 2026-05-28 evening RATIFICATION AMENDMENT
 **Authority — first iteration:** Matt 2026-05-28 evening RATIFICATION AMENDMENT (integrated W-α7+ replaces separate Option B + W-α7) + Phase 2 firing PARALLEL with jack-ryan Gate-1 review per Matt explicit authorization
 **Authority — second iteration:** Matt 2026-05-28 evening D1+D2+D3+D4 RATIFICATION (scope-completeness amendment batch §§ 9 + 10) per KR dispatch `agentic_orchestration/dispatches/2026-05-28-gandalf-doc-51-scope-completeness-amendment-batch.md`; Discipline #40 case (c) extension protocol (NOT retraction; scope-completeness fold-in to LOAD-BEARING canonical); Phase 3d gamora HALTED via TaskStop pending § 10.1 calibration anchor profile decision lock
+**Authority — third iteration:** Matt 2026-05-28 evening late design call (T4 identity cycling = "balance each class across its T4 identities separately"; strip-and-ship = "if a kit only passes 1 or 2 of its T4 nodes in band, the out-of-band T4 nodes should simply be removed. As long as a kit has 1+ T4 in band, it ships") + Matt explicit authorization "go ahead and fire it"; Discipline #40 case (c) extension protocol preserved (NOT retraction; scope-completeness fold-in to LOAD-BEARING canonical); Phase 3d gamora remains HALTED pending KR coordination signal injection with full § 10.1 + § 10.7 + § 10.8 framing
 **Discipline #45 vocabulary audit:** PASS per § 13 — zero non-exempt prohibited-vocabulary usage (first iteration per § 13.1 + second iteration §§ 9 + 10 per § 13.2; composite verdict per § 13.3)
 **Discipline #47 verification:** § 7 specifies peak-KPM-ratio framework; max-investment multiplier=1.0 by construction; specialization peaks emerge from `base_at_max` distribution (Phase 3d gamora seam); within [1.5, 2.0] × cohort_median target preserved; § 10.3 construction property preservation extends verification to per-profile distribution algorithm
-**Discipline #48 candidate validation status:** N=2 production gaps confirmed (case 11 investment scaling gap → first iteration scope; case 13 § 10 distribution rules gap → second iteration scope); both caught by Matt manual scope-completeness audit; minting deferred to Phase 6a disciplines batch per jack-ryan
+**Discipline #48 candidate validation status:** N=4 production gaps confirmed (case 11 investment scaling gap → first iteration scope; case 13 § 10 distribution rules gap → second iteration scope; case 14 T4 identity cycling gap → third iteration § 10.7 scope; case 15 T4 strip-and-ship rule gap → third iteration § 10.8 scope); all four caught by Matt manual scope-completeness audit; minting deferred to Phase 6a disciplines batch per jack-ryan; architectural value validation strongly strengthening through this iteration cadence
 **Discipline #1 (math-before-code) target:** Phase 3a + 3b + 3c + 3d math notes required at `~/Games/reincarnated-engine/src/reincarnated/{generation,simulation}/math/` per master scoping § Phase 3 sub-streams; each math note cites this doc § 3 / § 4 / § 5 / § 7 / § 10 by section number as the design-spec-as-math handoff
 **Cross-references:** doc 00 (ground-state oracle — registration first iteration; second iteration entry refresh pending knight-rider state-file maintenance); doc 02 (roadmap — Cycle 14 trajectory + Patterns 3-6 Cycle 15+ surface); doc 47 § 3 (mechanical substrate; forward-link unchanged at second iteration per § 11); doc 50 (composition with bounded-viability constraints; cross-reference unchanged at second iteration per § 11); master scoping dispatch (parent first iteration); scope-completeness amendment dispatch (second iteration parent); W-α6 math note (Phase 1 input absorbed); NODE_MAX source `reincarnated-loadout/src/data/cycle13Types.ts:255`; engineering-disciplines.md § 45 (vocabulary lock audit anchor) + § 47 (bounded-viability framework discipline) + § 40 case (c) (extension protocol for LOAD-BEARING canonical amendment); prior gandalf+Matt design exchange records `2026-05-27-cycle-13-pre-launch-design-session-closeout.md` § 1.5 D71 + `2026-05-26-cycle-13-design-session-pattern-a-deep-verdicts.md` § "Chain-prerequisite gates" (§ 9 KNOWN-GAP T4_UNLOCK_THRESHOLD provenance)
 
