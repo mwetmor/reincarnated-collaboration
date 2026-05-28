@@ -118,16 +118,17 @@ Each surfaced case follows Gate-N → Matt cadence per established pattern. Matt
 - **MIGRATION.md:** § v1.40 or next available capturing SC-6b + SC-7 retirement / supersession
 - **Tag:** `gamora/v2.3-path-alpha-unified-calibration-1`
 - **Coordination dependency:** W-α1 damage formula architectural commit lands; W-α3 calibrates against new formulas
+- **Reference-target micro-dependency on W-α2 (jack-ryan Gate-1 Amendment 1):** Reference target lock requires W-α2 ceiling signal (W-α3 harness authors in parallel; reference target value does not commit until W-α2 empirical ceiling output lands). Discipline #1 math-before-code: reference target derivation must be grounded in uncapped empirical signal, not artifact-capped data.
 
-**Sequential micro-dependency:** within the parallel post-W-α4 fan-out, W-α1 → W-α3 chains (W-α3 calibrates W-α1 output); W-α2 fires independently in parallel.
+**Sequential micro-dependency:** within the parallel post-W-α4 fan-out, W-α1 → W-α3 chains (W-α3 calibrates W-α1 output); W-α2 fires independently in parallel (but W-α3 reference target lock awaits W-α2 ceiling signal per Amendment 1).
 
 ### 2.3 W-α5 fires PARALLEL throughout
 
 **Owner:** jack-ryan (canonical-write seam)
 **Sub-streams:**
-- **W-α5a (canonical retirements; ~0.25d):** decisions-log entries for Path α RATIFICATION + Path β rejection rationale (β-narrow + β-FULL Option 6); Cycle 15 D2 Option 6 retraction
-- **W-α5b (Phase 7 doc lifecycle; ~0.25d):** Phase 7 canonical doc LOAD-BEARING → HISTORICAL transition; § 3.13 cross-reference back to Path α successor doc (W-α4-gandalf canonical write)
-- **W-α5c (engineering-disciplines.md amendments; optional ~0.25d):** Discipline #39 framework maturation: "case-register distinction between scaffold-drift catches and canonical scaffold resolutions" + "documented scaffolds may expose adjacent architectural truths at their resolution gates"; Discipline #46 candidate (bounded-viability-with-specialization framework)
+- **W-α5a (canonical retirements; ~0.25d):** decisions-log entries for Path α RATIFICATION + Path β rejection rationale (β-narrow + β-FULL Option 6); **Cycle 15 D2 Option 6 retraction per Discipline #40 case (c) — FOURTH ITERATION** of canonical-lock retraction on Phase 7 doc (per jack-ryan Gate-1 Amendment 2). Prior iterations: 1st `ec7f6c1` § 3.4-3.7 (Option F Phase 1); 2nd `8c7b67b` §§ 3.8-3.10 (Option F Track 1); 3rd `a4fba64` §§ 3.11-3.13 (case 8 canonical scaffold resolution); 4th THIS DISPATCH (Cycle 15 D2 Option 6 forward-link retraction at § 3.13). 6-step procedure compliance required including cross-reference audit obligation. Cite Discipline #40 case (c) explicitly in commit message + procedure record.
+- **W-α5b (Phase 7 doc lifecycle; ~0.25d):** Phase 7 canonical doc LOAD-BEARING → HISTORICAL transition; § 3.13 cross-reference back to Path α successor doc (W-α4-gandalf canonical write). Per Amendment 2: this is the §§ 3.11-3.13 closure completion of the 4th iteration retraction loop.
+- **W-α5c (engineering-disciplines.md amendments; optional ~0.25d):** Discipline #39 framework maturation: "case-register distinction between scaffold-drift catches and canonical scaffold resolutions" + "documented scaffolds may expose adjacent architectural truths at their resolution gates"; new bounded-viability-with-specialization framework discipline candidate. **NOTE per Gate-1 INFO:** Discipline #46 already exists (DB anti-materialization, landed 2026-05-27); jack-ryan confirms next available discipline number at authoring time before committing number (likely #47).
 
 **Coordination:** jack-ryan parallel to W-α1/W-α2/W-α3 execution; W-α5b can begin only after W-α4-gandalf canonical write lands (cross-reference target exists)
 
