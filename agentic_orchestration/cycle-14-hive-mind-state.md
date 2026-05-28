@@ -2060,6 +2060,66 @@ Gamora calibrates final A + C values empirically within Matt's ranges during Pha
 
 ---
 
+### SUB-AGENT GANDALF CANONICAL AMENDMENTS COMPLETE 2026-05-28 EVENING LATE — DOC 47 v1.2 + § 4.6 NEW + DOC 51 § 10.7.8 + § 10.8.9 + DOC 50 § 4.7 UPDATE
+
+**Engine `eb5bd1b` + tag `gandalf/v1.17-doc-47-4-6-two-layer-t4-architecture-1`** (~13min fire; 5 files / 434 insertions).
+
+**Doc 47 § 4.5 v1.2 third iteration magnitude UPDATE (NEW § 4.5.1.B):**
+- **Variant A:** [1.10, 1.15] → **1.50 (Single +50%)** multiplicative
+- **Variant B:** 1.0 identity → **1.25 (Hybrid +25%)** multiplicative
+- **Variant C:** [0.30, 0.40] → **0.25 additive + ailment if engine supports** (per-element ailment-support flag)
+- v1.1 magnitudes DEMOTED to HISTORICAL per case 19 empirical falsification
+- Operational constants LOCKED: ELEMENT_CONVERSION_VARIANT_A_MAGNITUDE / B / C / C_AILMENT_ENABLED
+
+**Doc 47 § 4.6 NEW two-layer T4 catalog spec:**
+- 7-active T4 catalog: 1 Primary + 6 Layer 2 (3 ELEMENT_CONVERSION variants + TRADE_OFF REVERSED + GEOMETRY_COLLAPSE + RESOURCE_CONVERSION)
+- **Primary T4: DIRECT_DAMAGE_AMP 1.75× preferred-encounter; 1.0× elsewhere**
+- Universal Target-4-satisfaction PROOF at § 4.6.4 (1.75× lands squarely in [1.5, 2.0] band)
+- **DEFENSIVE_TRADEOFF REMOVED** per Matt D3
+- preferred_encounter_type assignment: gandalf seam discretion
+
+**Doc 51 § 10.7.8 + § 10.8.9 extensions:**
+- Primary T4 slot fixed (universal DIRECT_DAMAGE_AMP; NO cycling)
+- Secondary + Tertiary slots cycle through 6 Layer 2 strategies per opportunity_scan
+- **Strip-and-ship § 10.8 exercises ONLY on Layer 2 slots** (Primary EXEMPT)
+- Kit ships UNIVERSALLY under two-layer architecture (no kit fails to ship)
+- § 10.8.5 edge case (zero in-band) absorbed by Primary T4 universal-guarantee
+- Phase 4 output schema additions: kit.primary_t4 universal; kit.shipped_layer2_t4_strategies; kit.stripped_layer2_t4_strategies; kit.ships=True universally
+
+**Doc 50 § 4.7 cross-reference:** Target 4 criterion at § 4.4 UNCHANGED; satisfaction MECHANISM revised — Primary T4 universal-guarantee per doc 47 § 4.6.4 + Layer 2 strip-and-ship per doc 51 § 10.8.9. Replaces case-19-falsified v1.1 single-layer per-variant ELEMENT_CONVERSION framing.
+
+**Discipline #39 Mode B scaffold annotation (3-element format at doc 47 § 4.6.3):**
+- **Scaffold declaration:** 1.75× damage multiplier vs preferred encounter type; universal placeholder Primary T4
+- **Named resolution party:** Cycle 15+ rocket seam
+- **Named resolution gate:** Cycle 15 P0 architectural commit (per-element +% damage stats + kit-specific resistance profiles OR per-encounter elemental advantage tables)
+
+**Cross-references updated:** 00-ground-state § 1; 02-roadmap § 4.4 + NEW C15 P0 row; doc 47 STATUS v1.2; doc 50 STATUS + § 4.7; doc 51 § 10.7+§ 10.8 status headers + NEW § 10.7.8 + § 10.8.9.
+
+**Discipline #45 vocabulary grep PASS** (zero non-exempt occurrences; T4 strategy names exempt as operational-mechanic vocabulary; slot-architecture vocabulary exempt).
+
+**TRADE_OFF REVERSED resolution: gandalf adopted option (b)** — PLACEHOLDER with Cycle 15 deferral OPTIONAL annotation. Rationale: gandalf does NOT have design conviction on specific mechanic at v1.2 authoring; locking without conviction would repeat case 19 pattern (scope-completeness gap). Discipline #39 Mode B framework applied. **Operational consequence for Phase 4 RE-RUN-3: TRADE_OFF slot 5 PLACEHOLDER DOES NOT FIRE** (gamora skips slot 5 in catalog enumeration). 6 of 7 catalog strategies evaluated empirically.
+
+**KR routing:** fire rocket implementation per gandalf v1.2 + § 4.6 spec; TRADE_OFF SKIP per gandalf placeholder (Matt's lock back-fills async per gandalf option (c) parallel-surface protocol already-in-flight).
+
+---
+
+### MATT TRADE_OFF REVERSE LOCK 2026-05-28 EVENING LATE — FRENZY (option B) RATIFIED
+
+**Matt verbatim:** *"I agree with Frenzy."*
+
+**TRADE_OFF REVERSED mechanic LOCKED at FRENZY (gandalf option B recommendation):**
+- **hit -30% + crit +30%**
+- Genre precedent: PoE Frenzy ("wild swing"); generative for Berserker / Brunhilda / Cu Chulainn / Lu Bu archetypes
+- Architecturally simple (existing engine fields hit_pct + crit_pct)
+- Distinct from Primary T4 DIRECT_DAMAGE_AMP (regime-change tradeoff vs guaranteed multiplier)
+- Composes with DEX-physical natural specialization
+
+**Cascade impact:** TRADE_OFF REVERSED slot 5 in doc 47 § 4.6 catalog NO LONGER PLACEHOLDER — rocket implements Frenzy mechanic; gamora EVALUATES slot 5 at Phase 4 RE-RUN-3 (full 7-of-7 catalog strategies empirically tested).
+
+**KR back-fill complete:** rocket implementation dispatch includes TRADE_OFF REVERSED = Frenzy (hit -30% + crit +30%) as Layer 2 catalog entry. Sub-agent gandalf v1.2.1 follow-on amendment (post Phase 4 RE-RUN-3 close OR as Phase 6a disciplines batch item) replaces PLACEHOLDER with Frenzy specification.
+
+---
+
 ### MATT STRATEGIC DELIBERATION DIRECTIVE 2026-05-28 EVENING LATE — HALT CASCADE POST PHASE 4 RE-RUN
 
 **Matt verbatim:**
