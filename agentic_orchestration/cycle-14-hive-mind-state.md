@@ -382,6 +382,19 @@ State file archival path (when reached): rename to `agentic_orchestration/cycle-
 
 **Design call #1 (H-5 hybrid seasonal hero):** gandalf bundle ✅ COMPLETE at meta `35c2800` (doc 49 § 1.1.1 rank-0 amendment) + `574624a` (seasonal_hero H-5 hybrid spec ~660 lines). Q-Bundle-1 composite metric (w_quality·Q_norm + w_distinct·D_mahalanobis_norm + w_anchor·anchor_signal; weights 0.5/0.3/0.2 initial; #18 revision after 3 seasons); Q-Bundle-2 companion spec at canonical/story/; Q-Bundle-3 gandalf-autonomous within #43 authority DEFAULT + Pattern-B Matt escalation for 4 triggers.
 
+**Matt 2026-05-27 sequencing directives (KR open questions resolved):**
+
+1. **Loadout push HOLD** — bundle Dispatch B (`af155be` + `20e9288`) + Dispatch G commit into single Vercel deploy per ADR-006. Reduces Court-tab-regression visibility window for players; coherent improvements land together. Push fires when Dispatch G commits + local builds pass.
+2. **Dispatch F Option β HOLD-FOR-WAVE-5** — drax fires Dispatch G first; WAITS for Wave 5 generation cascade (gamora step 1 → gandalf audit → jack-ryan Gate-2 → commit/recalibrate per Position B); fires Dispatch F as single session post Wave 5 covering Part 1 Analytics + Part 2 Encounters against FULL data.
+
+**Drax sequencing LOCKED:**
+- Dispatch G 🔥 FIRING (Court tab + mobile blank column + mobile design button; ~half-day)
+- WAIT for Wave 5 generation cascade complete
+- Dispatch F (Analytics + Encounters Cycle 14 wiring; ~1 week single session post Wave 5)
+- PUSH bundle: Dispatch B + Dispatch G per ADR-006 authorization
+
+**Vercel deployment composition:** Dispatch G (Court restore + mobile fixes) + Dispatch B (rank-0 + reset + persistence per doc 49 § 1.1.1) land together as coherent player-facing UX update.
+
 **Wave 5 Option C orchestration adopted 2026-05-27** per Matt orchestration concern + gandalf Option C recommendation:
 - Step 1 🔥 FIRING: gamora Wave 5 GENERATION (Phase 2-7; incremental-write per-phase commits; staging only — NO canonical commit)
 - Step 2 ⏳ POST step 1: KR fires gandalf #43 design-quality audit + A/B comparison + personage convergence
