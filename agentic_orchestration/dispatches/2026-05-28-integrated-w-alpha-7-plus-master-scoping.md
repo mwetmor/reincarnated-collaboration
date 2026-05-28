@@ -269,3 +269,42 @@ This master scoping is the integrated successor to two prior dispatches (W-α6 +
 ---
 
 **KR signature:** authored per Matt 2026-05-28 evening D1+D2+D3+D4+D5 RATIFICATION AMENDMENT verbatim 6-phase decomposition + jack-ryan Gate-1 prior verdict fold-ins + W-α6 work-product preservation + cases 10+12 absorption + Path α KEEP/SCAFFOLD/EMPIRICAL framing. Integrated successor to W-α6 + prior W-α7 master scoping (both superseded). Phase 2 gandalf design fires PARALLEL per Matt explicit authorization. Q10 quality > timeline + architectural-honesty path + closed risk surface at seam between symptom and root.
+
+---
+
+## Completion record — Phase 3d (gamora)
+
+**Completed:** 2026-05-28
+**Agent:** gamora
+**Commit:** `978a39e` — W-α7+ Phase 3d — BASE_DAMAGE_L50 re-derivation + TIER_COEFFICIENTS architecture correction
+**Tag:** `gamora/v2.10-w-alpha-7-plus-phase-3-base-rederivation-1`
+
+### Deliverables
+
+1. **Math note (Discipline #1):** `simulation/math/w-alpha-7-plus-phase-3d-base-rederivation-2026-05-28.md` — §§ 1-10 complete including §10 actuals post-convergence
+2. **TIER_COEFFICIENTS updated** to doc 51 §5.1 spec `{1: 1.00, 2: 1.50, 3: 2.17, 4: 4.00}` in `generation/per_skill_emitter.py` + `simulation/damage_resolver.py` (Discipline #12)
+3. **BASE_SPELL_DAMAGE_L50 = 20726.5 (all 4 tiers, uniform)** in `generation/per_skill_emitter.py` — W-α3 per-tier scaffold superseded
+4. **BASE_PHYSICAL_DAMAGE_L50 = 48467.0 (all 4 tiers, uniform)** in `generation/per_skill_emitter.py`
+5. **_BASE_SPELL_DAMAGE_FALLBACK = 20726.5 (all tiers)** + **_BASE_SPELL_DAMAGE_FALLBACK_DEFAULT = 20726.5** in `simulation/damage_resolver.py`
+6. **`_patch_kits_option_a()`** added to `simulation/unified_calibration_loop.py`; binary search loop updated to apply Option A patch before each iteration
+7. **MIGRATION.md §v1.46 filed** — two semantic shifts documented; star-lord seam: no action required
+8. **AGENT_STATE.md updated** with Phase 3d status + commit hash + tag
+
+### Acceptance criteria — all PASS
+
+| Criterion | Result |
+|---|---|
+| Cross-path parity ≤1.5× | 1.290× PASS |
+| Per-tier ratio 1:1.50:2.17:4.00 (±5%) | Exact mathematical identity PASS |
+| Calibration convergence ≤5% delta | KPM=73.17, delta=2.44% PASS |
+| Option A calibration anchor applied | _patch_kits_option_a() installed PASS |
+| Zero new test regressions | 101/101 PASS (1 pre-existing only) PASS |
+
+### Discipline #12 semantic shifts declared
+
+1. TIER_COEFFICIENTS: `{1.00, 1.15, 1.35, 2.00}` → `{1.00, 1.50, 2.17, 4.00}` — inter-tier KPM progression semantics shift; historical fight results under old coefficients carry old semantics
+2. BASE values uniform: W-α3 per-tier calibrated values replaced with uniform Phase 3d values — W-α3 Phase 2 scaffold superseded
+
+### Phase 3 sequence status
+
+Phase 3a (Pattern 1) + 3b (Pattern 2) + 3c (encounter HP) + 3d (BASE re-derivation): all COMPLETE. Phase 3 sequence fully closed. Phase 4 multi-dim calibration can fire.
