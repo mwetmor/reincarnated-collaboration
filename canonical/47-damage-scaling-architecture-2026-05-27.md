@@ -14,6 +14,7 @@
 - `canonical/40-gear-balance-guide-architecture-2026-05-26.md` — Cycle 13 architectural foundation; damage scaling integrates at Phase 2c substrate binding + Phase 2d gear gen + Phase 3 sim validation
 - `canonical/41-progression-framework-2026-05-27.md` — L50 hybrid; per-level attribute scaling math deferred per § 4 #1 (this doc's attribute scaling formulas reference that gate)
 - `canonical/46-concentration-architecture-2026-05-27.md` — Concentration architecture Layer 1 stat-range bounds; this doc operates against those caps
+- `canonical/50-bounded-viability-with-specialization-design-directive-2026-05-28.md` — bounded-viability-with-specialization design directive (forward-link 2026-05-28); doc 50 is the architectural-experience layer over this doc's mechanical substrate; § 3 forward-link block added at section head
 
 ---
 
@@ -151,6 +152,8 @@ The Phase 2a per-skill mechanical content emission (Track D.2 scope) emits each 
 ---
 
 ## 3. Weapon type implications per BC attribute
+
+> **Forward-link (2026-05-28):** the 4-damage-path mechanical partition documented in this § 3 is the MECHANICAL SUBSTRATE for the bounded-viability-with-specialization design directive at `canonical/50-bounded-viability-with-specialization-design-directive-2026-05-28.md`. Doc 50 operates the ARCHITECTURAL-EXPERIENCE layer over this mechanical substrate: the 4 paths must produce comparable base DPS within ~1.5× variance (doc 50 § 4 target 1) AND distinct per-kit specialization profiles (doc 50 § 4 target 4) AND no-strict-dominance bidirectional clause (doc 50 § 4 targets 3+5). Path α work-stream (W-α1 damage formula refactor + W-α2 KPM ceiling raise/remove + W-α3 unified calibration pass + W-α4 design-target validation framework) refactors against this § 3 substrate to land doc 50 directive compliance. Composition: § 3 partitions damage routing; doc 50 specifies the cohort-output the partition must produce.
 
 ### 3.1 Per-attribute weapon profile
 
