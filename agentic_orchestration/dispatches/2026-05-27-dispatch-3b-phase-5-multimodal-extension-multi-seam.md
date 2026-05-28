@@ -159,6 +159,66 @@ Per 5 star-lord PM-2 scope items (`708b575`):
 
 ---
 
+### Seam 1 completion — rocket (2026-05-27)
+
+**Status:** COMPLETE
+**Commit:** `a466eb1`
+**Tag:** `rocket/v1.6-dispatch-3b-seam-1-pm-1-g-b-1`
+**Smoke gate:** 50/50 new + 111/111 prior = 161/161 PASS; 10-season G-B smoke tie-break rate 0% (acceptance: <20%)
+**MIGRATION.md:** `generation/MIGRATION.md` — Dispatch 3B Seam 1 entry (ADR-004 compliant)
+
+#### PM-1 scope delivered
+
+**A4 GMM primary k∈{3,4} BIC-selected:**
+`run_pm1_clustering()` implements GMM 5-restart BIC sweep at k=3 vs k=4; selects lower BIC. At n>=24, BIC selection is empirically stable (confirmed across 10-season smoke).
+
+**A1 k-means n<20 fallback:**
+Four-tier sparsity branches per PM-1 § 5.2 GMM-aware thresholds (24/20/12/8):
+- `|K| >= 24`: GMM k∈{3,4} BIC (SparsityFlag.NONE)
+- `20 <= |K| < 24`: GMM k=3 fixed (SparsityFlag.SEASON_SPARSE)
+- `12 <= |K| < 20`: k-means k=3 (SparsityFlag.SEASON_SPARSE)
+- `8 <= |K| < 12`: k-means k=2 degraded (SparsityFlag.SEASON_SPARSE)
+- `|K| < 8`: clustering SKIPPED; single "unaffiliated-convergent" cluster (SparsityFlag.SEASON_CRITICALLY_SPARSE)
+
+**Aesthetic-heavy sqrt-weights + PCA-whitening:**
+Per § 3.3.1: `sqrt(w_aes=0.4)/sqrt(w_mech=0.3)/sqrt(w_subs=0.2)/sqrt(w_elem=0.1)` pre-PCA.
+Per § 3.3.2: PCA-whitening + truncate to top-95% variance (19 raw dims → typically 8-14 PCA dims at n=28-32).
+
+**Substrate-led discipline (Discipline #41) preserved:**
+Feature vectors are multimodal (BC axes + substrate-theme + aesthetic-tuples + element-attr); no pre-authored faction taxonomy at any layer. Clusters EMERGE from data.
+
+**PM-1↔MG-5 feedback loop hookup (§ 5.4):**
+`run_pm1_clustering(feedback_channel=...)` consumes `PM1FeedbackChannel.get_recent_evictions(season_id_int)` from gamora Dispatch 3A. Returns `feedback_summary` dict with eviction counts + sparsity_flag for star-lord telemetry emission. Graceful None handling when channel not yet initialized.
+
+**Cluster output consumable by G-B + gandalf PM-2 (Seam 2):**
+`PM1ClusteringResult.clusters` carries per-cluster: `centroid_pca`, `member_vectors_pca`, `modal_*` reps, `faction_label_placeholder`, `element_distribution`, `modal_bc_axis_signature` — all fields PM-2 Wave A LLM prompt needs.
+
+#### G-B scope delivered (Path III addition)
+
+**Mahalanobis pairwise centroid distance over PM-1 clusters:**
+`select_primary_faction_pair()` computes O(k²) pairwise distances (max 12 at k=4). REUSES MG-3 Tikhonov λ=1e-3 pooled-covariance regularization — no parallel implementation (per § 13.4 cross-link).
+
+**Tie-break logic per PM-2 § 13.2:**
+Priority: lineage diversity divergence → named-anchor count → geometry divergence → lexicographic (always deterministic). 10-season smoke: 0% tie-break rate (well under 20% acceptance bound).
+
+**primary_faction_pair + background_faction_pairs metadata:**
+Per § 13.3 schema: `{faction_a_cluster_id, faction_b_cluster_id, pairwise_distance, selection_rationale}` + list of remaining pairs.
+
+**primary_pair_flag ready for F-C Wave 3 inputs:**
+`GBPrimaryPairResult.primary_faction_pair` is the direct input for F-C LLM call narrative intensification when Wave 3 dispatch fires.
+
+#### Open questions
+
+- **Q-3B-rocket-1 (K=3 vs K=4 distribution):** 10-season smoke both k=3 and k=4 selected at n=28-32; empirical distribution across full live-generation scale TBD; surface to elrond if drift to k=5 emerges.
+
+#### Cross-seam dependencies
+
+- **Gandalf (Seam 2):** Wire `PM1ClusteringResult.clusters` into Wave A LLM prompt construction; consume `GBPrimaryPairResult.primary_faction_pair` as `primary_pair_flag` in F-C LLM call inputs
+- **Star-lord:** Emit `surviving_kit_count` + `sparsity_flag` + `pairwise_distance` + `selection_rationale` to telemetry; map `PM1Cluster` fields to `ExportFactionCluster` skeleton before `run_phase5_wave_a_sync()`
+- **Gamora:** Pass `PM1FeedbackChannel` instance as `feedback_channel` to `run_pm1_clustering()`; PM-1 side of 5-season window feedback loop is live
+
+---
+
 ### Seam 3 completion — star-lord (2026-05-27)
 
 **Status:** COMPLETE
