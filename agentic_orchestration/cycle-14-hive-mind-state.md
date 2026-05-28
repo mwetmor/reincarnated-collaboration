@@ -347,7 +347,7 @@ State file archival path (when reached): rename to `agentic_orchestration/cycle-
 ## 9. Sign-off (LIVE)
 
 **State file owner:** knight-rider (orchestrator)
-**State file status:** LIVE — Cycle 14 Path (1) Phase 4+5 LIGHT re-Gate-1 PASS; Matt-gate ratification fire-ready; Option α re-Gate-1 still firing (parallel)
-**Last updated:** 2026-05-27 (jack-ryan Phase 4+5 LIGHT re-Gate-1 PASS `25af11c`; 7 dispositions + 6 ratifications closed; transcription gating note for Dispatch 3A/3B captured)
+**State file status:** LIVE — Cycle 14 Path (1) both re-Gate-1 streams PASS-w-R; **both transcriptions COMPLETE**; LIGHT re-Gate-1 confirmation firing + PM-2 hygiene sweep firing; Matt-gate fire-ready upon confirmation
+**Last updated:** 2026-05-27 (gamora MG-2/3/4/5 transcription complete `fe938d9` + gandalf PM-1+Option α transcription complete `307ed1e` `0b3c5f8`; PM-2 6-stale-ref hygiene + LIGHT re-Gate-1 confirmation firing in parallel)
 
 **For:** cross-session continuity per hive-mind protocol § 8.1. Captures Wave + sidecar dispatch state for Cycle 14 lifecycle. Updated at each Wave boundary + dispatch completion. Archives on Cycle 14 close.
