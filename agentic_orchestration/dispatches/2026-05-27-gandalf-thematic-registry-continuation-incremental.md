@@ -122,7 +122,15 @@ Prior dispatch `2026-05-27-gandalf-thematic-registry-authoring.md` fired sub-age
 (append per-stage on completion)
 
 ### Stage 1
-(pending)
+
+**Status:** COMPLETE 2026-05-27
+**Commit:** `ee96176` — `gandalf: THEMATIC_REGISTRY Stage 1 — header + reconciliations + schema`
+**Push:** confirmed origin/main
+**File:** `canonical/story/thematic-registry-2026-05-27.md` created (122 lines, sections 1-5)
+**Stage budget:** completed well under 600s — no Stage-1a/1b split needed (Q-TR-Cont-1 disposition: monolithic Stage 1 acceptable)
+**Q-TR-Cont-2 disposition (recorded in § 4):** marginal-lineage contamination surfaced as registry-level watch-item with in-cell `[contamination-watch]` marker at Stage 2-3 authoring; elrond substrate re-curation logged as post-Wave-3 candidate, NOT escalated as Discipline #41 violation. Rationale: contaminated cells still surface substrate-anchored vocabulary; the contamination is about lineage *cell-density misattribution*, not about non-substrate terms.
+**Next:** KR to fire Stage 2 (element-only registry ~200 entries, lineage-agnostic)
+**Wave 3 unblock:** still PENDING — gates on Stage 4 completion + sign-off
 
 ### Stage 2
 (pending)
