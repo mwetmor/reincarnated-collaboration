@@ -901,6 +901,47 @@ KR fires W-α3 Phase 2 sub-agent next.
 - Option B: ~2-4d additional → bundle Gate-2 + Wave 5 RE-FIRE + v1 ratification within ~1-week budget
 
 **KR slight lean Option B per Matt Path α directive Q10 quality > timeline framing + bounded-viability-with-specialization design principle requires per-encounter measurement to verify "every kit has somewhere to be excellent" (not just cross-path DPS parity).**
+
+---
+
+### GATE-7 JACK-RYAN DISPOSITION LANDED 2026-05-28 — BLOCK PER DISCIPLINE #47
+
+**Jack-ryan Gate-7 ✅ COMPLETE** at engine `3512889` + tag `jack-ryan/v1.8-gate-7-case-9-disposition` (~4.5-min fire). Canonical disposition at `agentic_orchestration/qa/pending/2026-05-28-case-9-gauntlet-encounter-coverage-gate-7-disposition.md`.
+
+**Gamora forensic diagnosis VERIFIED PASS** (with one clarification):
+- `GAUNTLET_ELIGIBLE_ENCOUNTER_TYPES_C14V1` is a `frozenset` with exactly 2 members (`boss_with_adds`, `mini_boss`), locked by module-load assertion at gauntlet_sim.py lines 180-182
+- `tier_2_kpm` populates only on eligible-encounter T1 check pass; 4 bypassed types structurally produce `tier_2_kpm=0.0`
+- All 3 alternative root causes excluded: scale_factor miscalibration (T1 1.31× rules out), harness bug residue (patched pre-W-α4 run), doc 50 misalignment (harness implements verbatim per Amendments 1+2)
+- **Clarification:** "Cycle 15 Option A" = `ENCOUNTER_COHORT_KPM_BAND[enc_type][cohort]` per-encounter-type bands (**Gate-3 D2 ratified item**). DISTINCT from retracted Gate-5 D2 Option 6 metric replacement. Has never been implemented.
+
+**Gate-7 ranked options + recommendation:**
+
+| Rank | Option | Scope | compound_pass | Assessment |
+|---|---|---|---|---|
+| **1 RECOMMENDED** | **B — Pull Cycle 15 per-type bands into C14** | ~2-4d | True (full) | Directive properties verified; Mode B resolution; tag accurate |
+| 2 | A — Modified criterion T1+T3+T5 | 0d | True (partial) | Root-cause fix proven; directive properties 1+2 unmeasured; tag requires amendment |
+| 3 | D — Separate coverage harness as artifact | ~0.5d | False | Visibility only; T4 still fails on tier_1_kpm uniformity |
+| ELIMINATED | C — Expand eligibility without per-type bands | ~0.5d | False | Architecturally incoherent; same structural zeros |
+| INSUFFICIENT | E — Partial Option B (elite_pack only) | ~1-2d | False | 3 bypassed types remain |
+
+**Jack-ryan recommendation verbatim:** *"The bounded-viability-with-specialization directive's constitutive properties — bounded viability floor (T2) and specialization peaks (T4) — are the design intent of Path α, not measurement formality; shipping the `v1-cycle-14-bounded-viability-substrate-led` tag without verifying these properties produces a materially inaccurate RATIFICATION record against doc 50."*
+
+**Path α close trajectory under Option B (jack-ryan estimate):**
+- Per-encounter-type KPM bands math note (Discipline #1): ~0.5d
+- Calibration sweep × 6 encounter types × 4 cohorts: ~1-2d
+- BVV harness re-run (compound_pass=True expected): ~0.5d
+- Bundle Gate-2 + Wave 5 RE-FIRE: ~3-5d
+- **v1 tag: ~5-8d from Matt ratification** — well within 6-week budget
+
+**v1 tag semantics determination:**
+- **Option A:** `v1-cycle-14-bounded-viability-substrate-led` is **INACCURATE** — "bounded-viability" refers to doc 50's 3 constitutive properties; only 1 (DPS parity) verified. Choices: (a) amend tag to `v1-cycle-14-cross-path-dps-parity-substrate-led`, OR (b) retain tag with T2/T4-deferred annotation in decisions-log
+- **Option B:** `v1-cycle-14-bounded-viability-substrate-led` is **ACCURATE** — all 5 doc 50 § 4 targets verified via compound_pass=True. No amendment needed.
+
+**Jack-ryan declares BLOCK per Discipline #47 enforcement:** *"This disposition is a BLOCK per Discipline #47 — neither option proceeds without Matt ratification."*
+
+Discipline #47 enforcement operating exactly as architected at W-α5c: case 9 affects doc 50 § 4 5 targets (T2/T4 directly; T5 conditionally); Matt design-call ratification required; cannot pass on seam-owner discretion alone.
+
+**Pending Matt Pattern-B ratification.**
 - ✅ **W-α5 jack-ryan canonical retirements COMPLETE** at meta `deadd26` + tag `jack-ryan/v1.7-w-alpha-5-canonical-retirements-1` (bundled; ~11-min fire). All 3 sub-streams landed:
   - **W-α5a — 5 decisions-log entries:** Path α RATIFICATION (LOCKED) + Path β-narrow REJECTION + Path β-FULL Option 6 REJECTION + Cycle 15 D2 Option 6 RETRACTION (Discipline #40 case (c) FOURTH iteration declared) + Discipline #39 framework maturation (two modes defined — Mode A scaffold-drift catches cases 1-7; Mode B canonical scaffold resolutions case 8+; founding case `ee15c96` ANCHOR INTENTS; 3-element annotation requirement: scaffold declaration + named resolution party + named resolution gate; adjacent architectural truth pattern)
   - **W-α5b — Phase 7 doc § 3.14 + lifecycle:** Full Discipline #40 case (c) FOURTH iteration 6-step procedure executed. Phase 7 doc STATUS shifted LOAD-BEARING → HISTORICAL. D2 RATIFICATION marked RETRACTED in authority header. Doc 50 added as successor. Implementer historical-note added.
