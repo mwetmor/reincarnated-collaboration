@@ -942,6 +942,8 @@ For Phase 4 telemetry, the sweep records per-profile chain_progress per chain an
 ### 10.7 Per-kit T4 identity cycling — Phase 4 sweep dimension
 
 > **Status:** v1.2 third iteration — closes case 14 scope-completeness gap surfaced by Matt 2026-05-28 evening design call: "we will need to balance each class across its T4 identities separately." Adds T4-variant cycling as an explicit Phase 4 sweep dimension distinct from the (paths × cohorts × encounter types × profiles × mixed variants) framework of § 10.4.
+>
+> **v1.2 EXTENSION (NEW 2026-05-28 evening late post-CASE-19):** doc 47 § 4.6 NEW two-layer T4 architecture introduces the **Primary / Layer 2 slot distinction.** This § 10.7 extends per the two-layer architecture: Primary T4 slot (DIRECT_DAMAGE_AMPLIFICATION universal placeholder per doc 47 § 4.6.3) does NOT cycle (fixed assignment per kit; universal across all 18 kits); Secondary + Tertiary slots cycle through the 6 Layer 2 mechanical conversion strategies per doc 47 § 4.6.2 catalog (ELEMENT_CONVERSION 3 variants + TRADE_OFF REVERSED placeholder + GEOMETRY_COLLAPSE + RESOURCE_CONVERSION). See § 10.7.8 NEW for the two-layer Phase 4 sweep dimension extension.
 
 #### 10.7.1 Architectural distinction — calibration anchor vs gauntlet sim cycling vs T4 identity balance
 
@@ -1037,9 +1039,92 @@ profile × encounter type × cohort × path) tuple. Each T4 selection is
 balance-verified independently.
 ```
 
+#### 10.7.8 Two-layer T4 architecture extension (NEW v1.2 third iteration — 2026-05-28 evening late post-CASE-19)
+
+**Trigger:** Phase 4 RE-RUN at engine `4706af1` empirically validated case 19 magnitude-routing-gap — v1.1 per-variant ELEMENT_CONVERSION magnitudes (even at upper bounds) produced 0 in-band T4 cells across all 18 kits. Matt 2026-05-28 evening late strategic deliberation resolution introduces **two-layer T4 architecture** per doc 47 NEW § 4.6 (Primary slot universal DIRECT_DAMAGE_AMP guarantees Target 4; Layer 2 slots cycle through 6 mechanical conversion strategies).
+
+**Per-kit T4 slot composition under § 10.7.8:**
+
+| Slot | Assignment mechanism | Cycles? | Strip-and-ship § 10.8 applies? |
+|---|---|---|---|
+| **Primary T4** | Universal — DIRECT_DAMAGE_AMPLIFICATION assigned to every kit's Primary slot per doc 47 § 4.6.3 | NO — fixed assignment | NO — EXEMPT per doc 47 § 4.6.6 (universal-guarantee proof per § 4.6.4) |
+| **Secondary T4** | Per-kit — selected from 6 Layer 2 strategies per opportunity_scan + kit composition | YES — cycles through Layer 2 catalog per § 10.7.2 + doc 47 § 4.6.2 | YES — strip-and-ship per § 10.8 if not in-band |
+| **Tertiary T4** (4-chain kits only) | Per-kit — DIFFERENT Layer 2 strategy from Secondary per kit composition diversity | YES — cycles through Layer 2 catalog per § 10.7.2 + doc 47 § 4.6.2 | YES — strip-and-ship per § 10.8 if not in-band |
+
+**Phase 4 sweep dimension under § 10.7.8:**
+
+The § 10.7.3 sweep estimate (1500-2300 cells) holds with the following refinement:
+- 1 Primary T4 fixed per kit × 18 kits = 18 fixed Primary cells (no cycling multiplier; Primary T4 is universal)
+- 1-2 Layer 2 slots per kit cycle through 6 Layer 2 strategies = 1-2 × 6 = 6-12 Layer 2 candidate evaluations per kit
+- Per kit: 1 fixed Primary + (chain_count - 2) cycling Layer 2 slots × 6 Layer 2 strategies per slot
+
+**Refined sweep cell count (per § 10.7.3 framing extended):**
+`4 paths × 4 cohorts × 6 encounter types × 4 profile bins × mixed-variant expansion × (1 fixed Primary + 6 Layer 2 strategies cycling per per-kit Layer 2 slot)` ≈ within 1500-2300 cell estimate (Primary T4 fixed assignment does not multiply cell count; Layer 2 cycling per slot does).
+
+**Per-cell evaluation under § 10.7.8:**
+
+For each (kit, T4 slot, T4 variant assignment) tuple, Phase 4 sweep:
+
+1. Set `kit.active_t4_capstone` = Primary T4 (DIRECT_DAMAGE_AMP) for the Primary slot (universal; no cycling).
+2. For each Layer 2 slot in kit (Secondary; Tertiary if 4-chain), cycle through 6 Layer 2 strategies:
+   - Set `kit.active_t4_capstone` = (Primary, Layer 2 slot N, Layer 2 strategy K)
+   - Apply per-profile distribution per § 10.3 algorithm
+   - Run gauntlet sim against the encounter catalog
+   - Compute per-encounter-type KPM per cohort per path
+   - Verify Discipline #47 bounded-viability targets per doc 50 § 4
+3. Layer 2 slot disposition per § 10.8 strip-and-ship: in-band Layer 2 strategies retained; out-of-band stripped.
+4. Primary T4 EXEMPT from § 10.8 strip-and-ship (universal mechanism; guaranteed in-band per doc 47 § 4.6.4 universal-guarantee proof; never stripped).
+
+**Composition with § 10.7.5 Mode A + Mode B at max-profile (extended):**
+
+At max-profile, Mode A (all-skills-max calibration anchor) and Mode B (realistic-endgame specialization-aware) both fire per § 10.2.3. Two-layer architecture composes with BOTH modes per slot:
+
+- Mode A × Primary T4: hypothetical fully-maxed kit with DIRECT_DAMAGE_AMP universal; calibration reference for Primary T4 universal-guarantee proof verification
+- Mode B × Primary T4: realistic-endgame specialization-aware build with DIRECT_DAMAGE_AMP universal; player-experience verification at preferred-encounter cell
+- Mode A × Layer 2 slot K, strategy V: hypothetical fully-maxed kit with strategy V active at slot K; calibration reference for Layer 2 strategy V viability under variant assignment
+- Mode B × Layer 2 slot K, strategy V: realistic-endgame specialization-aware build with strategy V active at slot K; player-experience verification at variant-fit encounter cells
+
+**Coordination signal addition (extends § 10.7.7):**
+
+```
+PHASE 4 COORDINATION SIGNAL — TWO-LAYER T4 ARCHITECTURE (per § 10.7.8 + doc 47 § 4.6):
+
+- Reference: doc 47 § 4.6 NEW two-layer T4 architecture (Primary + Layer 2)
+- Reference: doc 47 § 4.6.2 7-active T4 strategy catalog
+- Reference: doc 47 § 4.6.3 Primary T4 slot specification (DIRECT_DAMAGE_AMP)
+- Reference: doc 47 § 4.6.4 universal Target 4 satisfaction proof
+- Reference: doc 51 § 10.7.8 (this section) two-layer Phase 4 sweep dimension
+- Reference: doc 51 § 10.8 strip-and-ship rule (Layer 2 ONLY; Primary EXEMPT)
+
+Sweep dimensions:
+- 4 paths (STR-physical, DEX-physical, INT-magical, WIS-faith)
+- 4 cohorts (Support, Control, Defensive, Damage, Hybrid per doc 50 § 3)
+- 6 encounter types (per W-α6 ENCOUNTER_COHORT_KPM_BAND)
+- 4 profile bins (low / mid / max / mixed; mixed expands to 3 variants)
+- Mode A + Mode B at max-profile (calibration anchor + realistic-endgame)
+- 1 Primary T4 (DIRECT_DAMAGE_AMP universal fixed assignment per kit)
+- 1-2 Layer 2 slots per kit, each cycling through 6 Layer 2 strategies
+  (chain_count - 1 total T4 slots; 1 reserved Primary; remainder Layer 2)
+
+Per-T4-slot bounded-viability verification:
+- Primary T4 verified universally per § 4.6.4 universal-guarantee proof
+- Layer 2 strategies verified per (kit × slot × strategy × profile × encounter type × cohort × path) tuple
+- Strip-and-ship § 10.8 disposes Layer 2 strategies that miss in-band
+- Primary T4 EXEMPT from strip-and-ship (universal-guarantee preservation)
+
+TRADE_OFF REVERSED slot 5 PLACEHOLDER disposition:
+- Per doc 47 § 4.6.5, slot 5 TRADE_OFF REVERSED is PLACEHOLDER (no engine impl at v1.2)
+- gamora Phase 4 RE-RUN-3 sweep SKIPS slot 5 (no mechanic to fire)
+- 6 of 7 catalog strategies evaluated empirically (1 Primary + 5 of 6 Layer 2)
+- Cycle 15 entry pre-scoping locks TRADE_OFF REVERSED specific mechanic per
+  Matt strategic deliberation queue item 3
+```
+
 ### 10.8 T4 strip-and-ship rule — out-of-band T4 disposition
 
 > **Status:** v1.2 third iteration — closes case 15 scope-completeness gap surfaced by Matt 2026-05-28 evening design call: "if a kit only passes 1 or 2 of its T4 nodes in band, the out-of-band T4 nodes should simply be removed. As long as a kit has 1+ T4 in band, it ships." Defines the post-Phase 4 disposition rule for T4 variants that fail bounded-viability per § 10.7 verification.
+>
+> **v1.2 EXTENSION (NEW 2026-05-28 evening late post-CASE-19):** doc 47 § 4.6 NEW two-layer T4 architecture refines this rule. Primary T4 slot (DIRECT_DAMAGE_AMPLIFICATION universal per doc 47 § 4.6.3) is **EXEMPT** from strip-and-ship per doc 47 § 4.6.6 — Primary T4 is guaranteed in-band by the universal-guarantee proof at doc 47 § 4.6.4 and is never stripped. **Strip-and-ship § 10.8 exercises ONLY on Layer 2 slots (Secondary + Tertiary per kit composition).** Failed Layer 2 T4s strip per the disposition rule below; chains preserved as supporting per § 10.8.3 unchanged. Kit ship criterion (≥1 in-band T4 per kit) is now TRIVIALLY satisfied via Primary T4 universal guarantee — no kit fails to ship under two-layer architecture. The § 10.8.5 edge case (zero in-band T4) is structurally absorbed by Primary T4 universal-guarantee (per § 10.8.9 NEW). See § 10.8.9 NEW for the full two-layer disposition extension.
 
 #### 10.8.1 The rule
 
@@ -1172,6 +1257,89 @@ Phase 4 output schema additions per § 10.8.6 pipeline:
 - kit.stripped_t4_variants: list of out-of-band T4 variant IDs (log)
 - kit.supporting_chains: list of chains whose T4 was stripped
 - kit.ships: bool (True IFF len(shipped_t4_variants) >= 1)
+```
+
+#### 10.8.9 Two-layer T4 architecture disposition (NEW v1.2 third iteration — 2026-05-28 evening late post-CASE-19)
+
+**Trigger:** doc 47 § 4.6 NEW two-layer T4 architecture introduces Primary T4 universal slot + Layer 2 cycling slots. Strip-and-ship disposition refines per the two-layer structure: Primary T4 EXEMPT (universal guarantee per doc 47 § 4.6.4); Layer 2 strip-and-ship per § 10.8 disposition rule.
+
+**Refined disposition algorithm:**
+
+```
+PHASE 4 SWEEP + STRIP-AND-SHIP PIPELINE — TWO-LAYER (per § 10.8.9 + doc 47 § 4.6):
+
+For each kit K:
+  K.primary_t4 = DIRECT_DAMAGE_AMPLIFICATION  # universal per doc 47 § 4.6.3; never stripped
+  K.shipped_layer2_t4_strategies = []
+  K.stripped_layer2_t4_strategies = []
+
+  For each Layer 2 slot S in K.layer2_t4_slots:  # (chain_count - 2) slots typically
+    For each Layer 2 strategy V in [Variant A, Variant B, Variant C, TRADE_OFF REVERSED*,
+                                     GEOMETRY_COLLAPSE, RESOURCE_CONVERSION]:
+      # *TRADE_OFF REVERSED skipped at v1.2 per doc 47 § 4.6.5 PLACEHOLDER
+      IF V == TRADE_OFF_REVERSED AND not <Matt-locked-mechanic>:
+        continue  # skip slot 5 placeholder per § 4.6.5
+
+      For each (profile, encounter_type, cohort, path) cell:
+        Apply per-profile distribution per § 10.3
+        Set K.layer2_active_t4 = (S, V)  # Primary K.primary_t4 also active
+        Run gauntlet sim
+        Verify Discipline #47 bounded-viability per doc 50 § 4
+
+      IF bounded_viability_pass_at_layer2(K, S, V):
+        K.shipped_layer2_t4_strategies.append((S, V))
+      ELSE:
+        K.stripped_layer2_t4_strategies.append((S, V))
+        log "kit K Layer 2 slot S strategy V stripped per § 10.8 strip-and-ship rule"
+
+  # Kit ship criterion under two-layer architecture:
+  # Primary T4 EXEMPT — guaranteed in-band per doc 47 § 4.6.4 universal-guarantee proof
+  # Kit ships TRIVIALLY:
+  ship_kit(K)  # always ships under two-layer architecture; Primary T4 universal-guarantee
+
+For each Layer 2 slot S in K with stripped Layer 2 strategy:
+  preserve chain in K's chain composition (T1+T2+T3 actives + passives preserved per § 10.8.3)
+  K.supporting_chains.append(S.chain) IF S.chain has no other in-band strategy at slot S
+```
+
+**Kit ship criterion under two-layer architecture (REVISED from § 10.8.4):**
+
+| § 10.8.4 (single-layer framing) | § 10.8.9 (two-layer framing per doc 47 § 4.6) |
+|---|---|
+| Kit ships IFF ≥1 T4 variant in-band | Kit ships UNIVERSALLY (Primary T4 universal-guarantee per doc 47 § 4.6.4) |
+| Edge case (zero in-band T4) triggers gandalf design escalation per § 10.8.5 | Edge case DOES NOT TRIGGER (Primary T4 covers Target 4); Layer 2 zero-in-band is honest empirical signal but does NOT block ship |
+
+**§ 10.8.5 edge case absorption under two-layer architecture:**
+
+The § 10.8.5 edge case (zero in-band T4 variants) NO LONGER triggers gandalf design escalation under the two-layer architecture. Primary T4 universal guarantee absorbs the edge case:
+
+- Kit's Primary T4 slot is DIRECT_DAMAGE_AMP (universal); guaranteed in-band per § 4.6.4 proof
+- Kit's Layer 2 slots may produce zero in-band strategies (honest empirical signal — kit's composition doesn't fit any Layer 2 strategy)
+- Kit ships with Primary T4 active; Layer 2 slots empty; player sees a kit with 1 T4 capstone option (Primary) and supporting chains for Layer 2 slot positions
+- The "kit's BC coordinate is too narrow for T4 viability" framing of § 10.8.5 no longer applies — Primary T4 universal mechanism is BC-agnostic (works for all kits regardless of BC coordinate)
+
+**Cycle 15+ scope under two-layer architecture:**
+
+If Layer 2 strip-and-ship empirical pattern surfaces architectural insight (e.g., systematic pattern of zero-Layer-2-in-band across kit composition profile X), Cycle 15 design call may extend the Layer 2 catalog with new mechanical strategies tailored to the unsupported profile. The two-layer architecture preserves Cycle 14 v1 close discipline (no kit fails to ship under Primary T4 universal guarantee) while honestly surfacing Layer 2 mechanical-fit signal for Cycle 15+ design work.
+
+**Composition with doc 47 § 4.6.6 cross-references:**
+
+| Reference | Direction | Content |
+|---|---|---|
+| doc 47 § 4.6.4 universal-guarantee proof | doc 47 → doc 51 § 10.8.9 | Primary T4 universal-guarantee proof is the structural basis for kit ship criterion revision (universal vs ≥1 in-band) |
+| doc 47 § 4.6.5 TRADE_OFF REVERSED PLACEHOLDER | doc 47 → doc 51 § 10.8.9 | Slot 5 PLACEHOLDER skipped at Phase 4 RE-RUN-3 sweep; Cycle 15 entry pre-scoping lock candidate |
+| doc 47 § 4.6.6 § 10.7 + § 10.8 composition | doc 47 → doc 51 § 10.7.8 + § 10.8.9 | Two-layer architecture composition spec authored at doc 47; § 10.7.8 + § 10.8.9 (this section) lock the application at doc 51 |
+| doc 50 § 4 5-target gate | doc 51 § 10.8.9 → doc 50 § 4 | Target 4 universal satisfaction via Primary T4 + Layer 2 strip-and-ship preserves doc 50 § 4 compound criterion |
+
+**Phase 4 output schema additions (REVISED from § 10.8.8):**
+
+```
+Phase 4 output schema additions per § 10.8.9 two-layer pipeline:
+- kit.primary_t4: DIRECT_DAMAGE_AMPLIFICATION (universal; not stripped)
+- kit.shipped_layer2_t4_strategies: list of (slot, strategy) tuples that passed bounded-viability
+- kit.stripped_layer2_t4_strategies: list of (slot, strategy) tuples stripped (log)
+- kit.supporting_chains: list of chains whose Layer 2 slot has zero in-band strategies
+- kit.ships: bool (True UNIVERSALLY under two-layer architecture; Primary T4 universal-guarantee)
 ```
 
 ---

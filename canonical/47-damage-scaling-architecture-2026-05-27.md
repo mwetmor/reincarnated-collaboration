@@ -1,6 +1,6 @@
 # 47 — Damage Scaling Architecture (Physical / Magical / Hybrid)
 
-> **STATUS:** CURRENT (load-bearing as of 2026-05-27; § 4.5 T4 ELEMENT_CONVERSION v1.0 lock 2026-05-28; § 4.5 v1.1 SECOND ITERATION per-variant magnitude amendment 2026-05-28 evening late) — foundational architectural commitment; surfaces what was implicit in `skill-system-2026-05-24.md` + `weapon-substrate-composition-policy-v1-2026-05-24.md` (Option α / β / C cell-type matching); becomes prerequisite for Cycle 13 content gap closure (Track D scope) + Cycle 14 Phase 5 cohesion coalescence; § 4.5 v1.0 lock specified T4 ELEMENT_CONVERSION as identity-1.0 across all variants (rocket Phase 3e Part 1 `3bb045f`); § 4.5 v1.1 second iteration refines to **per-variant magnitudes** (Variant A mono-caster ~1.10-1.15× multiplier; Variant B hybrid-caster 1.0 identity; Variant C physical-hybrid ~0.30-0.40 additive elemental magnitude) per Matt 2026-05-28 evening late design call driven by Phase 3d RE-RUN empirical finding (gear-affinity-zero across all 18 production kits); see `canonical/00-ground-state.md`
+> **STATUS:** CURRENT (load-bearing as of 2026-05-27; § 4.5 T4 ELEMENT_CONVERSION v1.0 lock 2026-05-28; § 4.5 v1.1 SECOND ITERATION per-variant magnitude amendment 2026-05-28 evening late; § 4.5 v1.2 THIRD ITERATION per-variant magnitude UPDATE + NEW § 4.6 two-layer T4 architecture 2026-05-28 evening late) — foundational architectural commitment; surfaces what was implicit in `skill-system-2026-05-24.md` + `weapon-substrate-composition-policy-v1-2026-05-24.md` (Option α / β / C cell-type matching); becomes prerequisite for Cycle 13 content gap closure (Track D scope) + Cycle 14 Phase 5 cohesion coalescence; § 4.5 v1.0 lock specified T4 ELEMENT_CONVERSION as identity-1.0 across all variants (rocket Phase 3e Part 1 `3bb045f`); § 4.5 v1.1 second iteration refined to per-variant magnitudes (Variant A ~1.10-1.15× / Variant B 1.0 / Variant C ~0.30-0.40 additive) per Matt 2026-05-28 evening late first design call; **§ 4.5 v1.2 THIRD ITERATION UPDATES magnitudes** (Variant A Single +50% / Variant B Hybrid +25% / Variant C Physical 25%+ailment) per Matt 2026-05-28 evening late strategic deliberation resolution D3 driven by Phase 4 RE-RUN at engine `4706af1` empirically validating CASE 19 (magnitude-routing-gap: v1.1 upper-bound magnitudes produced 0 in-band T4 cells across all 18 kits); **NEW § 4.6 TWO-LAYER T4 ARCHITECTURE** (Matt D1+D2+D3+D5 RATIFIED) — Primary T4 universal slot = DIRECT_DAMAGE_AMPLIFICATION (1.75× when fighting kit's preferred encounter type; Discipline #39 scaffold with EXPLICIT CYCLE 15 RETIREMENT COMMIT) guarantees Target 4 universal satisfaction; Layer 2 slots = 6 mechanical conversion strategies (ELEMENT_CONVERSION 3 variants + TRADE_OFF REVERSED placeholder + GEOMETRY_COLLAPSE + RESOURCE_CONVERSION) exercise via § 10.8 strip-and-ship; DEFENSIVE_TRADEOFF REMOVED (no chaos encounter signal); see `canonical/00-ground-state.md`
 
 **Date:** 2026-05-27
 **Author:** gandalf (story-and-design steward)
@@ -285,9 +285,13 @@ def calculate_hybrid_damage(player, weapon, skill, target):
         raise ValueError(f"Unknown hybrid_pattern: {skill.hybrid_pattern}")
 ```
 
-### 4.5 T4 ELEMENT_CONVERSION mechanic specification — v1.0 canonical lock (2026-05-28) + v1.1 SECOND ITERATION per-variant magnitude amendment (2026-05-28 evening late)
+### 4.5 T4 ELEMENT_CONVERSION mechanic specification — v1.0 canonical lock (2026-05-28) + v1.1 SECOND ITERATION per-variant magnitude amendment (2026-05-28 evening late) + v1.2 THIRD ITERATION per-variant magnitude UPDATE (2026-05-28 evening late, post-CASE-19)
 
-> **STATUS:** v1.1 SECOND ITERATION — LOAD-BEARING. v1.0 lock added 2026-05-28 in response to rocket Phase 3e consultation request `agentic_orchestration/gandalf/requests/2026-05-28-rocket-element-conversion-factor-design-lock-request.md`. v1.0 resolved `damage_resolver.py:618` TODO + named the specialization mechanism (Phase 3d `base_at_max` under T4 context via element-affinity gear shift) + locked PoE genre-precedent shape (pure unification, no flat numeric boost). v1.0 specified `element_conversion_factor = 1.0` (identity) across all kits. **v1.1 SECOND ITERATION** (2026-05-28 evening late) refines Q1 to **per-variant magnitudes** in response to Phase 3d RE-RUN empirical finding that `weapon_element_affinity_modifiers = {}` (zero gear affinity) for all 18 production kits — the element-affinity-gear-shift mechanism v1.0 anchored on is empirically INACTIVE. Specialization must emerge from per-variant magnitude differentiation instead. v1.1 introduces three variant magnitudes: **Variant A mono-caster Replace_Plus_Mult ~1.10-1.15× explicit multiplier**; **Variant B hybrid-caster Dual_Add 1.0 identity (preserves v1.0 Q1 for this variant)**; **Variant C physical-hybrid ~0.30-0.40 additive elemental magnitude**. Companion: rocket math note `~/Games/reincarnated-engine/src/reincarnated/simulation/math/w-alpha-7-phase-3e-element-conversion-factor-implementation-2026-05-28.md` § 4 (flat-cancellation impossibility proof) — load-bearing for v1.0 Q2 architectural framing; v1.1 amendment is a **scope-completeness fold-in** per Discipline #40 case (c) extension protocol (NOT a retraction — v1.0 Q1 identity-1.0 is preserved for Variant B; the v1.1 amendment surfaces per-variant magnitude differentiation as the specialization-mechanism source given empirical gear-affinity-zero state).
+> **STATUS:** v1.2 THIRD ITERATION — LOAD-BEARING. v1.0 lock added 2026-05-28 in response to rocket Phase 3e consultation request `agentic_orchestration/gandalf/requests/2026-05-28-rocket-element-conversion-factor-design-lock-request.md`. v1.0 resolved `damage_resolver.py:618` TODO + named the specialization mechanism (Phase 3d `base_at_max` under T4 context via element-affinity gear shift) + locked PoE genre-precedent shape (pure unification, no flat numeric boost). v1.0 specified `element_conversion_factor = 1.0` (identity) across all kits. **v1.1 SECOND ITERATION** (2026-05-28 evening late) refined Q1 to per-variant magnitudes in response to Phase 3d RE-RUN empirical finding that `weapon_element_affinity_modifiers = {}` (zero gear affinity) for all 18 production kits; v1.1 introduced **Variant A ~1.10-1.15× multiplier / Variant B 1.0 identity / Variant C ~0.30-0.40 additive**. **v1.2 THIRD ITERATION** (2026-05-28 evening late, post-CASE-19) UPDATES the v1.1 magnitudes per Matt 2026-05-28 evening late strategic deliberation resolution D3 driven by Phase 4 RE-RUN at engine `4706af1` empirical anchor: v1.1 upper-bound magnitudes (A=1.15, C=0.40) produced **0 in-band T4 cells across all 18 kits** (case 19 magnitude-routing-gap). v1.2 magnitudes: **Variant A Single +50%** (was ~1.10-1.15×); **Variant B Hybrid +25%** (was 1.0 identity); **Variant C Physical 25% + ailment if engine supports** (was ~0.30-0.40 additive). v1.2 amendment is a **scope-completeness fold-in** per Discipline #40 case (c) extension protocol (NOT a retraction — v1.0+v1.1 architectural framings preserved; magnitudes refined per empirical Phase 4 RE-RUN data). Companion: rocket math note `~/Games/reincarnated-engine/src/reincarnated/simulation/math/w-alpha-7-phase-3e-element-conversion-factor-implementation-2026-05-28.md` § 4 (flat-cancellation impossibility proof) — preserved as load-bearing v1.0 Q2 architectural framing across all iterations.
+
+> **v1.2 reading guidance:** § 4.5.1 below preserves the v1.0 lock as architectural anchor. § 4.5.1.A preserves the v1.1 SECOND ITERATION (Variant A/B/C variant nomenclature + per-variant Q1+Q2+Q3 architectural framing for each variant — Mono-caster Replace_Plus_Mult / Hybrid-caster Dual_Add / Physical Hybrid). **§ 4.5.1.B (NEW v1.2) supersedes v1.1's per-variant Q1 numeric magnitudes with v1.2 values** per Matt D3 strategic deliberation resolution. v1.2 magnitudes are the operative magnitudes for Phase 4 RE-RUN-3 implementation; v1.1 magnitudes are HISTORICAL (empirically falsified by Phase 4 RE-RUN at `4706af1`).
+>
+> **The two-layer T4 architecture (NEW § 4.6, v1.2 third iteration) is the canonical resolution to case 19 magnitude-routing-gap:** Primary T4 slot = DIRECT_DAMAGE_AMPLIFICATION (Discipline #39 scaffold with Cycle 15 retirement commit) guarantees Target 4 universal satisfaction; v1.2 ELEMENT_CONVERSION magnitudes operate at Layer 2 and exercise via § 10.8 strip-and-ship. § 4.5 Q1 magnitudes are NO LONGER the universal-T4-satisfaction mechanism (case 19 disproved that framing); they are Layer 2 mechanical-conversion strategies whose strip-and-ship disposition lands per doc 51 § 10.8.
 
 **v1.1 amendment authority chain:** Matt 2026-05-28 evening late design call verbatim (per hive-mind state § "MATT DESIGN CLARIFICATION ADDENDUM 2026-05-28 EVENING LATE — THREE T4 VARIANT MAGNITUDE PHILOSOPHY") + Phase 3d RE-RUN critical architectural finding (gamora forensic § "CRITICAL ARCHITECTURAL FINDING — GEAR AFFINITY EMPIRICALLY ZERO IN PRODUCTION KIT POPULATION") + gandalf v1.1 per-variant Q1+Q2+Q3 amendment authority under Discipline #40 case (c) extension protocol. v1.1 supersedes v1.0 Q1 numeric lock for Variants A + C; preserves v1.0 Q1 numeric lock for Variant B; preserves v1.0 Q2 architectural framing as the specialization-mechanism SOURCE (now refined to per-variant magnitude differentiation at the conversion-factor layer); preserves v1.0 Q3 PoE genre-precedent reading with refined per-variant precedent attribution.
 
@@ -378,6 +382,91 @@ The Variant B max-investment construction is IDENTICAL to v1.0; Variants A + C e
 
 **Composition with doc 51 § 10.7 T4 identity cycling:** doc 51 § 10.7 specifies that Phase 4 sweep cycles each T4 variant per kit as a sweep dimension — kit identity is evaluated separately for each T4 capstone selection. The v1.1 per-variant magnitudes are CONSUMED by this sweep: when the sweep evaluates a kit under ELEMENT_CONVERSION T4, the sweep applies the variant-appropriate magnitude (A, B, or C per the kit's variant assignment under the conversion strategy) and verifies bounded-viability per doc 50 § 4 targets. Per-variant magnitudes do NOT add new sweep dimensions (the variant assignment is determined per-kit by the existing ElementConversionStrategy + kit substrate properties); they parameterize the existing T4 variant evaluation at the conversion-factor slot.
 
+#### 4.5.1.B v1.2 THIRD ITERATION — per-variant magnitude UPDATE (2026-05-28 evening late post-CASE-19; supersedes v1.1 § 4.5.1.A Q1 numeric magnitudes; preserves v1.1 architectural framing for each variant)
+
+> **v1.2 trigger:** Phase 4 RE-RUN at engine `4706af1` (gamora `gamora/v2.14-w-alpha-7-plus-phase-4-rerun-per-variant-1`; ~28min fire; 3,024 cells × 17 gauntlet calls in 185s) empirically validated that v1.1 per-variant magnitudes — **even at upper bounds (A=1.150 / B=1.0 / C=0.400)** with TWO PRE-EXISTING BUGS (alteration_fields missing "variant" key; magical path missing element_conversion_factor_magical lookup) FIXED mid-execution — produced **0 in-band T4 kits at any calibration point** across all 7 investment profiles. Best observed T4 peak: wis_01 at magic_pack = 1.682× (single kit; in-band for that one cell at max A magnitude). No other kit/encounter combination reached Target 4's [1.5×, 2.0×] cohort_median band. compound_pass=False; T1 PASS 1.273× + T2 FAIL structural + T3 PASS + **T4 FAIL** + T5 PASS.
+>
+> **CASE 19 EMPIRICALLY VALIDATED:** v1.1 per-variant magnitude ranges are insufficient to drive universal T4 specialization (doc 50 § 4.4 Target 4 = ≥1 ≤2 peaks per kit at [1.5×, 2.0×] cohort_median per ALL 18 kits). The mechanism v1.1 specified cannot achieve compound_pass=True even at upper bounds.
+>
+> **Matt 2026-05-28 evening late strategic deliberation resolution D3 RATIFIED:** ELEMENT_CONVERSION variant magnitudes UPDATED to **substantially-widened v1.2 values**. The widened magnitudes operate at LAYER 2 of the two-layer T4 architecture (per NEW § 4.6); universal Target 4 satisfaction is guaranteed by the Primary T4 slot (DIRECT_DAMAGE_AMPLIFICATION; § 4.6). The widened ELEMENT_CONVERSION magnitudes are Layer 2 mechanical-conversion strategies whose strip-and-ship disposition lands per doc 51 § 10.8.
+
+##### 4.5.1.B.1 v1.2 per-variant magnitude UPDATE — table form
+
+| Variant | v1.1 magnitude (SUPERSEDED) | v1.2 magnitude (CURRENT) | Composition semantic | Engine-support condition |
+|---|---|---|---|---|
+| **Variant A — Mono-caster Replace_Plus_Mult** | [1.10, 1.15] explicit T4 multiplier | **Single +50%** (1.50× explicit T4 multiplier) | Multiplicative — composes downstream of element-chain multiplicatives | None (always active when ELEMENT_CONVERSION T4 fires) |
+| **Variant B — Hybrid-caster Dual_Add** | 1.0 identity (preserved v1.0 Q1) | **Hybrid +25%** (1.25× explicit T4 multiplier across both elements) | Multiplicative — applies to both elements in the Dual_Add stack | None (always active when ELEMENT_CONVERSION T4 fires) |
+| **Variant C — Physical Hybrid** | [0.30, 0.40] additive elemental magnitude | **Physical 25% (additive) + ailment if engine supports** | Additive elemental component (0.25 × base_physical) + per-kit ailment trigger gated on engine support | Ailment component fires IFF engine has ailment infrastructure for the elemental channel (fire DoT exists; water/wind/earth ailment infrastructure per engine-support flag) |
+
+**Operational constants (v1.2 LOCKED; supersede v1.1 calibration-range constants):**
+
+```
+ELEMENT_CONVERSION_VARIANT_A_MAGNITUDE = 1.50   # +50% multiplier (v1.2; was [1.10, 1.15] per v1.1)
+ELEMENT_CONVERSION_VARIANT_B_MAGNITUDE = 1.25   # +25% multiplier (v1.2; was 1.0 identity per v1.1+v1.0)
+ELEMENT_CONVERSION_VARIANT_C_MAGNITUDE = 0.25   # 25% additive (v1.2; was [0.30, 0.40] per v1.1)
+ELEMENT_CONVERSION_VARIANT_C_AILMENT_ENABLED = <engine-support flag>  # NEW v1.2; gated per element
+```
+
+##### 4.5.1.B.2 Why v1.2 magnitudes (empirical anchor + two-layer architecture composition)
+
+**Empirical anchor:** Phase 4 RE-RUN at `4706af1` demonstrated v1.1 magnitudes are insufficient for universal Target 4. v1.2 magnitudes are substantially widened (A: 1.10-1.15 → 1.50 = +33-36% additional explicit bonus; B: 1.0 → 1.25 = +25% addition vs identity; C: 0.30-0.40 → 0.25 reduced explicit fraction but adds ailment-trigger compensation channel where engine supports). v1.2 widening is not arbitrary — it composes with the two-layer T4 architecture (§ 4.6) where Layer 2 magnitudes need not guarantee universal Target 4 (Primary T4 universal slot handles that) but should produce SUFFICIENT specialization signal to land Layer 2 T4 cells in-band for the kit cohorts where the variant assignment fits.
+
+**Two-layer architecture composition:** v1.2 magnitudes are Layer 2 in the architecture introduced at NEW § 4.6. Layer 2 magnitudes operate under § 10.8 strip-and-ship — Layer 2 T4 cells that land in-band ship as additional T4 capstone options for the kit; Layer 2 T4 cells that miss the band are stripped (chain preserved as supporting). The Primary T4 universal slot (DIRECT_DAMAGE_AMPLIFICATION 1.75× preferred-encounter-type) guarantees ≥1 in-band T4 cell per kit per § 4.6.4 universal-guarantee proof; strip-and-ship § 10.8 exercises ONLY on Layer 2 slots per doc 51 § 10.8.
+
+**Variant C ailment extension:** Variant C v1.2 introduces an ailment-trigger channel additional to the additive elemental magnitude. The motivation is empirical-feasibility — physical-hybrid kits lack multi-element multiplicative chain scaffolding (per v1.1 § 4.5.1.A.3), and v1.1's additive-only magnitude proved insufficient. v1.2 adds a per-kit ailment trigger (burn for fire / freeze or chill for water / shock for wind / poison or bleed for earth — per engine ailment-support flag) that compounds the elemental fraction with status-effect damage downstream of resistance routing. Per Matt D3 directive verbatim: "Physical 25% + ailment if engine supports." The "if engine supports" clause acknowledges that ailment infrastructure exists for fire (canonical burn DoT) but is in scope-uncertain state for water/wind/earth — rocket implementation seam verifies engine support per element and disables ailment-component when not supported.
+
+##### 4.5.1.B.3 Composition with v1.0 + v1.1 architectural framings
+
+The v1.2 magnitude UPDATE **preserves** v1.0 + v1.1 § 4.5.1 + § 4.5.1.A architectural commitments:
+
+1. **Non-flat specialization source under T4 context** (v1.0 Q2 framing) — preserved; v1.2 widens the per-variant magnitude differentiation while keeping the non-flat-across-variants property. Flat-cancellation impossibility proof (rocket math note § 4.2) STILL applies: per-variant magnitudes vary across kits per variant assignment.
+2. **Pure-unification PoE genre precedent** (v1.0 Q3 framing) — preserved for Variant B refined by v1.2 from pure-unification (1.0) to small-explicit-bonus (1.25) reflecting empirical signal-strength requirement; precedent extends to PoE "small explicit conversion bonus" patterns (e.g., Heart of Flame +20% fire damage taken as conversion bonus). Variant A precedent extends to PoE chain-multiplicative pattern (now at +50% explicit, comparable to PoE Avatar of Fire Ascendancy +40% at conversion node). Variant C precedent preserved (PoE additive elemental damage on physical), now with ailment-extension precedent (PoE elemental ailment infrastructure).
+3. **Doc 50 § 4 5-target gate compliance** (v1.0 § 4.5.3 framing) — preserved per the two-layer composition: Targets 1+2+3+5 governed by Phase 3d BASE + doc 51 § 7.2 + § 7.3 (unchanged); Target 4 universal satisfaction guaranteed by Primary T4 (§ 4.6); Layer 2 ELEMENT_CONVERSION magnitudes produce additional Target 4 cells where variant-assignment fits, strip-and-ship per doc 51 § 10.8.
+
+The v1.2 amendment **refines** v1.1's per-variant Q1 numeric magnitudes from v1.1's identity-1.0-preserving ranges to substantially-widened v1.2 values in response to Phase 4 RE-RUN at `4706af1` case 19 empirical falsification. Per Discipline #40 case (c) extension protocol, v1.0 + v1.1 framings remain LOAD-BEARING as architectural anchors; v1.2 is the scope-completeness fold-in adapting the numeric layer to empirical reality.
+
+##### 4.5.1.B.4 Phase 4 RE-RUN-3 dispatch routing under v1.2 magnitudes
+
+**Phase 4 RE-RUN-3 (gamora; post-rocket-v1.13-implementation close)** fires with v1.2 magnitudes locked AND with Primary T4 DIRECT_DAMAGE_AMPLIFICATION slot active per § 4.6. Expected outcomes:
+- **Primary T4 slot guarantees** ≥1 in-band T4 cell per kit per § 4.6.4 universal-guarantee proof (DIRECT_DAMAGE_AMP 1.75× preferred-encounter-type lands kit at preferred-encounter cohort_median × 1.75 = squarely in [1.5×, 2.0×] cohort_median band)
+- **Layer 2 T4 cells under v1.2 magnitudes** produce additional in-band T4 cells where variant-assignment fits the encounter cohort; strip-and-ship per doc 51 § 10.8 disposes Layer 2 cells that miss band
+- **5/5 BVV PASS achievable** universally — doc 50 § 4 compound_pass=True for all 18 kits via Primary T4 + Layer 2 composition
+
+**Rocket Part 1 v1.2 amendment pseudocode (gandalf-specified for v1.2):**
+
+```python
+# Read element_conversion_factor from T4 alteration context on CombatantState.
+# Per canonical doc 47 § 4.5 v1.2 THIRD ITERATION (gandalf 2026-05-28 evening late post-CASE-19):
+# ELEMENT_CONVERSION variant magnitudes (Layer 2 mechanical-conversion strategies; § 10.8 strip-and-ship):
+#   Variant A (Mono-caster Replace_Plus_Mult):  1.50× multiplicative (Single +50%; v1.2 LOCKED)
+#   Variant B (Hybrid-caster Dual_Add):         1.25× multiplicative (Hybrid +25%; v1.2 LOCKED)
+#   Variant C (Physical Hybrid):                0.25 additive elemental magnitude + ailment if engine supports
+# v1.2 values supersede v1.1's calibration ranges per case 19 empirical falsification at engine `4706af1`.
+# Primary T4 slot (DIRECT_DAMAGE_AMPLIFICATION 1.75× preferred-encounter-type) handles universal Target 4
+# guarantee per § 4.6; v1.2 ELEMENT_CONVERSION magnitudes are Layer 2 (strip-and-ship per doc 51 § 10.8).
+if getattr(attacker, "t4_alteration_type", None) == "ELEMENT_CONVERSION":
+    variant = getattr(attacker, "t4_element_conversion_variant", "B")
+    if variant == "A":
+        element_conversion_factor = ELEMENT_CONVERSION_VARIANT_A_MAGNITUDE  # 1.50 v1.2 LOCKED
+    elif variant == "B":
+        element_conversion_factor = ELEMENT_CONVERSION_VARIANT_B_MAGNITUDE  # 1.25 v1.2 LOCKED
+    elif variant == "C":
+        element_conversion_factor = 1.0  # multiplicative slot remains 1.0; additive contribution handled in additive elemental component
+        # Additive component: element_additive_magnitude = ELEMENT_CONVERSION_VARIANT_C_MAGNITUDE × base_physical  # 0.25 v1.2 LOCKED
+        # Ailment component (NEW v1.2): if ELEMENT_CONVERSION_VARIANT_C_AILMENT_ENABLED[element]:
+        #   apply per-element ailment trigger (burn / freeze / shock / poison or bleed per engine support)
+    else:
+        element_conversion_factor = 1.0
+else:
+    element_conversion_factor = 1.0
+```
+
+##### 4.5.1.B.5 v1.2 acknowledgments
+
+- v1.1 LOAD-BEARING status changes to **HISTORICAL** (preserved as predecessor record; magnitudes empirically falsified by Phase 4 RE-RUN at `4706af1`)
+- v1.2 LOAD-BEARING for all Phase 4 RE-RUN-3+ work
+- Discipline #48 candidate (variant magnitudes scoped without empirical-feasibility validation) — N=5 case-register validation pending Phase 6a jack-ryan ratification (cases 11, 13, 14, 15, **19**); v1.2 amendment closes case 19's magnitude-routing-gap by reframing the magnitudes as Layer 2 strategies under the two-layer architecture rather than retaining the v1.1 universal-Target-4-via-magnitudes framing
+
 #### 4.5.2 Design rationale — why identity + Phase 3d anchoring (NOT a flat numeric boost)
 
 **Genre architectural reading.** The mature ARPG pattern (D2, PoE, LE, GD per doc 50 § 2.3) is that element-conversion mechanics derive value from GEAR/AFFINITY ROUTING, not from a flat damage boost. D2 Conviction aura debuffs target resistance; PoE Avatar of Fire routes damage through fire-affinity stack; LE elemental conversion routes through elemental affinity nodes; GD Avatar of Mogdrogen routes through chaos-affinity gear. The numeric boost (when present) is from a SEPARATE compounding source (passive, debuff, ascendancy), not from the conversion node itself. A flat conversion boost (Option B) would conflate two mechanics that the genre keeps separate; it would degrade build-crafting legibility because players couldn't reason about "what does the conversion do" separately from "what does my gear do."
@@ -406,7 +495,7 @@ The Variant B max-investment construction is IDENTICAL to v1.0; Variants A + C e
 
 Per rocket math note § 5 two-part root cause decomposition:
 
-**Part 1 (rocket seam — `damage_resolver.py:618`):** v1.0 implementation at engine `3db9ca8` replaced `element_conversion_factor = 1.0  # TODO` with explicit lookup from `attacker.t4_alteration_type` context returning 1.0 when ELEMENT_CONVERSION is active. **v1.1 SECOND ITERATION amendment:** rocket Part 1 amendment replaces v1.0's identity-1.0-across-all-kits lookup with **per-variant magnitude lookup** consuming the kit's ElementConversionStrategy variant assignment (A / B / C) and applying the variant-appropriate magnitude. Pseudocode (gandalf-specified for v1.1):
+**Part 1 (rocket seam — `damage_resolver.py:618`):** v1.0 implementation at engine `3db9ca8` replaced `element_conversion_factor = 1.0  # TODO` with explicit lookup from `attacker.t4_alteration_type` context returning 1.0 when ELEMENT_CONVERSION is active. **v1.1 SECOND ITERATION amendment:** rocket Part 1 amendment at engine `8516ce9` replaced v1.0's identity-1.0-across-all-kits lookup with v1.1's per-variant magnitude lookup consuming the kit's ElementConversionStrategy variant assignment (A / B / C) and applying the v1.1 calibration-range magnitudes. **v1.2 THIRD ITERATION amendment:** rocket Part 1 v1.2 amendment supersedes v1.1's calibration-range magnitudes with v1.2 LOCKED values (Variant A = 1.50; Variant B = 1.25; Variant C = 0.25 additive + ailment per engine support). v1.1 pseudocode preserved below as predecessor record; v1.2 amended pseudocode is at § 4.5.1.B.4 (canonical for Phase 4 RE-RUN-3 implementation). v1.1 pseudocode (HISTORICAL; calibration-range magnitudes; superseded by v1.2):
 
 ```python
 # Read element_conversion_factor from T4 alteration context on CombatantState.
@@ -487,6 +576,172 @@ Total: ~3-6 hours of compute + design review. Fits Cycle 14 v1 close trajectory 
 - **Discipline #47 design-time check (v1.1):** v1.1 amendment is balance-affecting per the per-variant magnitude introduction. Doc 50 § 4.4 Target 4 specialization peak [1.5×, 2.0×] cohort_median band remains the validation anchor; v1.1 magnitudes are tuning levers to land Target 4 within band given empirical gear-affinity-zero state. Phase 4 RE-RUN dispatch acceptance criteria cite v1.1 § 4.5.1.A as the design-target acceptance bar; rocket Part 1 amendment dispatch cites v1.1 § 4.5.4 amended pseudocode.
 - **Discipline #12 semantic-shifting (v1.1):** rocket Part 1 amendment commit declaration: "Replaces v1.0 identity-1.0-across-all-kits lookup with v1.1 per-variant magnitude lookup. Variant A produces multiplicative bonus ~1.10-1.15× (gamora-calibrated in range); Variant B preserves v1.0 identity-1.0; Variant C introduces additive elemental component with separate composition semantics (~0.30-0.40 additive elemental magnitude). Semantic change: damage_resolver now READS kit's variant assignment from CombatantState.t4_element_conversion_variant; downstream KPM outputs SHIFT per variant assignment. v1.1 per Matt 2026-05-28 evening late design call + Phase 3d RE-RUN gear-affinity-zero empirical finding."
 - **Discipline #1 math-before-code (v1.1):** rocket Part 1 amendment math note (new or extension of v1.0 math note) must specify Variant C additive elemental component composition with existing damage equation. The math note SHOULD include: (a) per-variant magnitude formula + composition order with Pattern 1+2 multipliers + tier_coefficient + per-encounter elemental resistance routing; (b) flat-cancellation impossibility extension — under v1.1 per-variant magnitudes the population is NOT uniformly identity (Variants A + C produce non-uniform magnitudes), so the v1.0 flat-cancellation proof does NOT apply across variants — per-variant magnitude differentiation is precisely the non-flat source v1.0 Q2 framing required; (c) Target 4 specialization peak prediction per variant magnitude midpoint defaults (A=1.125; C=0.35) before Phase 4 RE-RUN empirical tuning.
+
+**v1.2 THIRD ITERATION citations (NEW 2026-05-28 evening late post-CASE-19):**
+
+- **Discipline #45 vocabulary audit (v1.2):** v1.2 amendment retains v1.1 Variant nomenclature (Mono-caster Replace_Plus_Mult / Hybrid-caster Dual_Add / Physical Hybrid) per Discipline #45 vocabulary lock. v1.2 introduces operational vocabulary "Single +50%" / "Hybrid +25%" / "Physical 25%+ailment" as magnitude-value shorthand for Variants A/B/C respectively — these are operational-constant shorthand consistent with the existing per-variant nomenclature, exempt from #45 generative-architecture scope per "operational constant" framing. Grep audit on v1.2 amendment content + § 4.6 new content against #45 prohibited-vocabulary list: **PASS — zero non-exempt occurrences.** Operational constants ELEMENT_CONVERSION_VARIANT_A_MAGNITUDE / B / C / VARIANT_C_AILMENT_ENABLED are exempt per "operational constant" framing.
+- **Discipline #40 case (c) extension protocol (v1.2):** v1.2 amendment is a **scope-completeness fold-in** per Discipline #40 case (c) extension protocol — NOT a retraction. v1.0 + v1.1 § 4.5.1 + § 4.5.1.A locks remain LOAD-BEARING as architectural anchors (Q2 non-flat specialization source + Q3 PoE genre precedent + variant nomenclature preserved). v1.1 numeric magnitudes (Variants A [1.10, 1.15] + B 1.0 + C [0.30, 0.40]) DEMOTED to HISTORICAL per case 19 empirical falsification at Phase 4 RE-RUN engine `4706af1`. v1.2 § 4.5.1.B numeric magnitudes (Single +50% / Hybrid +25% / Physical 25%+ailment) supersede v1.1 magnitudes as the operative magnitudes for Phase 4 RE-RUN-3+ work. v1.2 amendment composes with NEW § 4.6 two-layer T4 architecture — universal Target 4 satisfaction moves from Layer 2 magnitudes (v1.1 framing) to Primary T4 slot (§ 4.6 v1.2 framing); v1.2 ELEMENT_CONVERSION magnitudes operate as Layer 2 mechanical-conversion strategies under § 10.8 strip-and-ship.
+- **Discipline #39 scaffold-with-pending-decision (v1.2):** the NEW § 4.6 Primary T4 slot mechanism DIRECT_DAMAGE_AMPLIFICATION (1.75× preferred-encounter-type) is an EXPLICITLY-FLAGGED Discipline #39 scaffold with CYCLE 15 RETIREMENT COMMIT per Matt D5 ratification. 3-element annotation per Discipline #39 Mode B framework: (i) scaffold declaration: 1.75× preferred-encounter-type universal placeholder; (ii) named resolution party: Cycle 15+ rocket (natural mechanics implementation seam); (iii) named resolution gate: Cycle 15 P0 architectural commit per-element +% damage stats + kit-specific resistance profiles OR per-encounter elemental advantage tables. Discipline #39 Mode B founding case `ee15c96` ANCHOR INTENTS is at engine-empirical-execution layer; § 4.6 DIRECT_DAMAGE_AMP is at design-dialog layer — mirrors `ee15c96` pattern with scaffold declaration + named party + named gate at canonical-doc authorship time. v1.2 ELEMENT_CONVERSION magnitudes are NOT scaffold-with-pending-decision (v1.2 values are Matt-ratified Layer 2 strategies; not deferred-to-resolution); only the Primary T4 slot mechanism is Discipline #39 scaffold.
+- **Discipline #47 design-time check (v1.2):** v1.2 amendment is balance-affecting per the per-variant magnitude update AND the Primary T4 slot introduction. Doc 50 § 4.4 Target 4 specialization peak [1.5×, 2.0×] cohort_median band remains the validation anchor; Primary T4 universal guarantee + Layer 2 strip-and-ship composition is the satisfaction architecture. Phase 4 RE-RUN-3 dispatch acceptance criteria cite v1.2 § 4.5.1.B + NEW § 4.6 as the design-target acceptance bar.
+- **Discipline #12 semantic-shifting (v1.2):** rocket Part 1 v1.2 amendment commit declaration: "Supersedes v1.1 per-variant magnitude calibration-range lookup with v1.2 LOCKED magnitudes (Variant A=1.50; Variant B=1.25; Variant C=0.25 additive + ailment if engine supports). v1.1 magnitudes empirically falsified at Phase 4 RE-RUN engine `4706af1` (case 19 magnitude-routing-gap; 0 in-band T4 cells at v1.1 upper bounds). v1.2 magnitudes are Layer 2 strategies under two-layer T4 architecture (§ 4.6); universal Target 4 satisfaction handled by Primary T4 slot DIRECT_DAMAGE_AMPLIFICATION. Semantic change: damage_resolver now applies v1.2 LOCKED magnitudes (not v1.1 calibration ranges) to variant assignment lookup; Variant C ailment-trigger channel added gated on engine-support flag per element. v1.2 per Matt 2026-05-28 evening late strategic deliberation resolution D3."
+- **Discipline #48 candidate validation (v1.2):** case 19 (variant magnitudes scoped without empirical-feasibility validation) added to Discipline #48 candidate validation set (N=5 cases: 11, 13, 14, 15, **19**). v1.2 magnitude UPDATE + § 4.6 two-layer architecture is the canonical resolution to case 19. Pending Phase 6a jack-ryan ratification of Discipline #48.
+
+---
+
+### 4.6 T4 catalog + two-layer T4 architecture (NEW v1.2 third iteration — 2026-05-28 evening late post-CASE-19 — Matt strategic deliberation resolution D1+D2+D3+D5 RATIFIED)
+
+> **STATUS:** v1.2 LOAD-BEARING. NEW section authored 2026-05-28 evening late per Matt strategic deliberation resolution (per hive-mind state § "MATT STRATEGIC DELIBERATION RESOLUTION LOCKED 2026-05-28 EVENING LATE — TWO-LAYER T4 ARCHITECTURE"). Resolves case 19 magnitude-routing-gap via architectural reframing of T4 specialization from single-layer Layer-2 mechanism (v1.0+v1.1 framing) to two-layer Primary + Layer-2 mechanism. Primary T4 = universal guarantee of Target 4; Layer 2 = mechanical variety via 6 strategies + strip-and-ship per doc 51 § 10.8.
+
+#### 4.6.1 Architectural framing — two-layer T4 specialization
+
+The bounded-viability-with-specialization design directive (doc 50 § 4.4 Target 4) requires each of 18 kits to produce ≥1 ≤2 encounter-type peaks at [1.5×, 2.0×] cohort_median. Phase 4 RE-RUN at engine `4706af1` empirically demonstrated that v1.1 single-layer per-variant magnitudes — even at upper bounds — fail this requirement universally (0 in-band T4 cells across all 18 kits). The architectural resolution: separate the "every kit gets Target 4" guarantee from the "mechanical variety in how each kit gets there" mechanism.
+
+**Two-layer architecture (Matt D1+D2 RATIFIED):**
+
+| Layer | Slot assignment | Mechanism | Target 4 role |
+|---|---|---|---|
+| **Primary T4** | Universal — every kit's PRIMARY T4 slot is DIRECT_DAMAGE_AMPLIFICATION | 1.75× damage multiplier when fighting kit's preferred encounter type; 1.0× elsewhere | **Guarantees** ≥1 in-band T4 cell per kit per § 4.6.4 universal-guarantee proof |
+| **Layer 2 (Secondary + Tertiary)** | Per-kit — cycle through 6 mechanical conversion strategies per kit composition + opportunity_scan | ELEMENT_CONVERSION 3 variants + TRADE_OFF REVERSED + GEOMETRY_COLLAPSE + RESOURCE_CONVERSION | **Produces additional in-band T4 cells** where variant fits; strip-and-ship per doc 51 § 10.8 disposes cells that miss [1.5×, 2.0×] band |
+
+**Layer assignment per kit chain composition:**
+- 3-chain kit: 2 T4 slots total → 1 Primary (DIRECT_DAMAGE_AMP) + 1 Secondary (Layer 2 strategy)
+- 4-chain kit: 3 T4 slots total → 1 Primary (DIRECT_DAMAGE_AMP) + 1 Secondary + 1 Tertiary (Layer 2 strategies)
+
+The Primary T4 slot is universal across ALL kits (DIRECT_DAMAGE_AMP placeholder per § 4.6.3). Layer 2 slots are kit-specific per opportunity_scan (mechanical synergy with kit's chain composition + substrate properties).
+
+#### 4.6.2 7-active T4 strategy catalog (Matt D3 RATIFIED)
+
+| # | Strategy | Layer | Mechanic | Magnitude (LOCKED v1.2) | Empirical-or-Locked |
+|---|---|---|---|---|---|
+| **1** | **DIRECT_DAMAGE_AMPLIFICATION** | **Primary (universal)** | 1.75× damage multiplier vs kit's preferred encounter type; 1.0× elsewhere | 1.75× LOCKED (Discipline #39 scaffold; § 4.6.3) | LOCKED per Matt D1+D5 |
+| 2 | **ELEMENT_CONVERSION Variant A (Mono-caster Replace_Plus_Mult)** | Layer 2 | Single +50% multiplicative; composes downstream of element-chain multiplicatives | 1.50× LOCKED (v1.2 supersedes v1.1 [1.10, 1.15]) | LOCKED per Matt D3; § 4.5.1.B canonical |
+| 3 | **ELEMENT_CONVERSION Variant B (Hybrid-caster Dual_Add)** | Layer 2 | Hybrid +25% multiplicative across dual-element coverage | 1.25× LOCKED (v1.2 supersedes v1.1 1.0 identity) | LOCKED per Matt D3; § 4.5.1.B canonical |
+| 4 | **ELEMENT_CONVERSION Variant C (Physical Hybrid)** | Layer 2 | Physical 25% additive elemental + ailment trigger per engine support | 0.25 additive LOCKED + ailment per element-support flag (v1.2 supersedes v1.1 [0.30, 0.40]) | LOCKED per Matt D3; § 4.5.1.B canonical |
+| 5 | **TRADE_OFF REVERSED** | Layer 2 | Specific mechanic PLACEHOLDER per Cycle 15 deferral (see § 4.6.5) | TBD per § 4.6.5 | PLACEHOLDER per Matt design-ambiguity; Cycle 15 lock candidate |
+| 6 | **GEOMETRY_COLLAPSE** | Layer 2 | Mechanic per existing engine ElementConversionStrategy + GeometryStrategy infrastructure | Empirical "try it out" per Matt D3 | EMPIRICAL — Phase 4 RE-RUN-3 measures viability |
+| 7 | **RESOURCE_CONVERSION** | Layer 2 | Mechanic per existing engine ResourceConversionStrategy infrastructure | Empirical "try it out" per Matt D3 | EMPIRICAL — Phase 4 RE-RUN-3 measures viability |
+
+**REMOVED from prior catalog per Matt D3:** DEFENSIVE_TRADEOFF (no chaos encounter signal — defensive mechanics did not produce per-encounter specialization variance in prior Phase 4 runs; removed pre-Phase-4-RE-RUN-3 to avoid noise in catalog evaluation).
+
+**Catalog cardinality discipline:** 7 active strategies (1 Primary + 6 Layer 2). Cycle 15 may expand the Layer 2 set if substrate signal + Cycle 14 v1 close empirical data motivates new mechanical strategies; current 7-active catalog is the v1.2 LOCKED set for Cycle 14 v1 close.
+
+#### 4.6.3 Primary T4 slot specification — DIRECT_DAMAGE_AMPLIFICATION (Matt Q6 lock; Discipline #39 scaffold with Cycle 15 retirement commit)
+
+**Mechanic specification:**
+
+```
+When attacker.t4_alteration_type == "DIRECT_DAMAGE_AMPLIFICATION":
+    if encounter_type == kit.preferred_encounter_type:
+        damage_multiplier = 1.75   # Primary T4 universal placeholder
+    else:
+        damage_multiplier = 1.0
+```
+
+**Per-kit `preferred_encounter_type` assignment (gandalf seam discretion):**
+
+| Assignment mechanism | When used | Disposition |
+|---|---|---|
+| **Per-kit canonical assignment** | Kits where opportunity_scan surfaces a clear preferred-encounter alignment (e.g., melee-cleave kit → magic_pack or elite_pack) | gandalf authors at kit-emergence time; assignment lives in kit substrate metadata; consumed by damage_resolver at Phase 4 RE-RUN-3 |
+| **Algorithmic via opportunity_scan inheritance** | Kits where opportunity_scan produces a top-ranked encounter-type fit naturally | Algorithmically derived per opportunity_scan output; no separate canonical assignment needed |
+| **Hybrid** | Default — opportunity_scan + per-kit override if substrate signal warrants | Algorithmic baseline + gandalf-discretion override at kit-emergence time |
+
+**Phase 4 RE-RUN-3 wiring requirement (gamora seam):** the preferred_encounter_type per kit must be available to damage_resolver at fight-resolution time. Implementation seam decision (rocket vs gamora) is rocket's discretion — likely a new field on `CombatantState` (rocket-side, populated at `_build_real_player_class(kit, t4_variant)` from kit substrate metadata).
+
+**Universal-Target-4-guarantee proof (per § 4.6.4):** the Primary T4 slot guarantees ≥1 in-band T4 cell per kit per the cohort_median structure of doc 50 § 4.4. See § 4.6.4 below.
+
+**Discipline #39 Mode B scaffold annotation (3-element framework per `ee15c96` ANCHOR INTENTS founding-case pattern):**
+
+1. **Scaffold declaration:** DIRECT_DAMAGE_AMPLIFICATION 1.75× preferred-encounter-type multiplier is a CANONICAL SCAFFOLD WITH PENDING CYCLE 15 RESOLUTION. The mechanism is a universal placeholder that guarantees Target 4 satisfaction under the Cycle 14 v1 close criterion. It is NOT the natural-mechanics resolution — it is a calibrated placeholder pending the natural-mechanics architectural commit at Cycle 15. The scaffold is EXPLICITLY FLAGGED at canonical-doc authorship time per Discipline #39 Mode B framework.
+
+2. **Named resolution party:** **Cycle 15+ rocket seam** (natural mechanics implementation). rocket owns the Cycle 15 implementation of the natural mechanics that replace the Primary T4 placeholder.
+
+3. **Named resolution gate:** **Cycle 15 P0 architectural commit** with EXPLICIT scope:
+   - Per-element +% damage stats architecture (gear affixes + skill passives) — replaces the encounter-type 1.75× multiplier with substrate-routed element-affinity gear shift produces empirical specialization signal
+   - Kit-specific resistance profiles OR per-encounter elemental advantage tables — replaces the placeholder's encounter-type discrimination with substrate-routed elemental-advantage signal
+   - Discipline #39 scaffold RETIREMENT — at Cycle 15 P0 close, DIRECT_DAMAGE_AMPLIFICATION as Primary T4 placeholder is RETIRED; natural mechanics replace the placeholder; v1.0 Q2 framing (specialization from non-flat source under T4 context via `base_at_max` distribution + element-affinity gear shift) is re-anchored on empirically-active gear affinity
+
+**Composition with `ee15c96` Mode B founding case:** the `ee15c96` ANCHOR INTENTS case operated at the engine empirical-execution layer (rocket Mode B canonical scaffold resolution at execution time). § 4.6 DIRECT_DAMAGE_AMP operates at the design-dialog layer (gandalf Mode B canonical scaffold resolution at canonical-doc authorship time). Both follow the 3-element annotation framework; both are LOAD-BEARING canonical scaffolds with named-party + named-gate retirement structure.
+
+**Cycle 14 v1 close discipline:** the Primary T4 placeholder is the architectural mechanism that makes Cycle 14 v1 close achievable WITHOUT premature commitment to per-element damage stats architecture. Cycle 14 v1 ships with the placeholder; Cycle 15 ratifies the natural-mechanics replacement at canonical-doc + engine-implementation level. The placeholder is honest scaffolding — the Cycle 15 retirement commit is named, not deferred-to-undetermined-future.
+
+**C14 strip-and-ship empirical outcomes inform C15 design dialog:** Cycle 14 Phase 4 RE-RUN-3 + Wave 5 RE-FIRE strip-and-ship data per kit produces empirical signal about which Layer 2 mechanical strategies fit which kit composition profiles. The Cycle 15 design dialog ratifying the natural-mechanics replacement inherits this empirical signal — kit-population strip-and-ship distributions inform whether the natural mechanics need per-kit resistance profiles OR per-encounter elemental advantage tables OR both.
+
+#### 4.6.4 Universal Target-4-satisfaction proof (Primary T4 universal guarantee)
+
+**Claim:** the Primary T4 slot DIRECT_DAMAGE_AMP universal assignment guarantees ≥1 in-band T4 cell per kit per doc 50 § 4.4 Target 4 (≥1 ≤2 encounter-type peaks at [1.5×, 2.0×] cohort_median).
+
+**Proof sketch:**
+
+1. **Premise:** every kit has exactly ONE Primary T4 slot containing DIRECT_DAMAGE_AMP. The mechanism fires 1.75× damage multiplier when fighting kit's preferred encounter type; 1.0× elsewhere.
+
+2. **Lower bound on kit's preferred-encounter KPM:** at the kit's preferred encounter type, damage output is 1.75× the no-T4 baseline. Cohort_median at that encounter type is approximately the no-T4 baseline (cohort is the kit-population without DIRECT_DAMAGE_AMP active at that encounter type cell). Therefore kit_KPM / cohort_median ≈ 1.75 — squarely inside the Target 4 band [1.5×, 2.0×].
+
+3. **Upper bound on kit's preferred-encounter KPM:** 1.75× is bounded ABOVE 2.0× by construction (1.75 < 2.0). Therefore the Primary T4 cell does NOT exceed Target 4's upper specialization band.
+
+4. **Non-preferred-encounter cells:** at all OTHER encounter types, damage_multiplier = 1.0 → kit_KPM = no-T4 baseline → cohort_median position UNCHANGED. Therefore Primary T4 does NOT produce additional T4 cells outside the preferred-encounter slot.
+
+5. **Conclusion:** the Primary T4 produces exactly 1 in-band T4 cell per kit at the kit's preferred encounter type. Target 4's ≥1 lower bound satisfied universally; Target 4's ≤2 upper bound preserved (Primary T4 contributes 1 cell; Layer 2 may contribute additional cells up to ≤2 total per kit per strip-and-ship disposition).
+
+**Refinement note:** the proof above relies on cohort_median being approximately the no-T4 baseline. If a substantial fraction of the kit-population activates DIRECT_DAMAGE_AMP simultaneously at the same encounter type (unlikely per opportunity_scan diversity, but possible per substrate signal), cohort_median shifts upward and the 1.75/cohort_median ratio drops below 1.75. Phase 4 RE-RUN-3 empirical validation confirms cohort_median structure at preferred-encounter-type cells under Primary T4 universal assignment; if cohort_median shift exceeds tolerance, gamora seam tunes Primary T4 magnitude (1.75 → 1.80 / 1.85 / 1.90) to preserve band-center alignment per the [1.5×, 2.0×] specification.
+
+**Discipline #48 candidate composition:** this proof is the formal-feasibility argument that the v1.1 magnitudes lacked (case 19 scope-completeness gap — v1.1 magnitudes scoped without empirical-feasibility validation). Discipline #48 enforcement at design-time would require this proof structure for any T4 specialization mechanism claim of universal Target 4 satisfaction.
+
+#### 4.6.5 TRADE_OFF REVERSED — PLACEHOLDER per Matt design-ambiguity (Cycle 15 deferral candidate)
+
+**Status:** PLACEHOLDER at v1.2 close. The TRADE_OFF REVERSED mechanic is in the 7-active T4 catalog per Matt D3 ratification, but the SPECIFIC MECHANIC is in Matt design-ambiguity state at v1.2 authoring time. gandalf authoring discipline:
+
+- **(a) Locked specific mechanic at v1.2:** rejected — gandalf does NOT have design conviction on TRADE_OFF REVERSED specific mechanic at v1.2 authoring time. Locking a specific mechanic without conviction would repeat the case 19 scope-completeness gap pattern (mechanism scoped without empirical-feasibility validation).
+- **(b) PLACEHOLDER with Cycle 15 deferral OPTIONAL annotation:** ADOPTED — gandalf authors TRADE_OFF REVERSED as PLACEHOLDER in the catalog with explicit Cycle 15 lock-candidate annotation. The placeholder is honest — the mechanic exists in the catalog (slot 5/7) but its specific mechanical realization is pending Matt design-call. Per Discipline #39 Mode B framework, the placeholder annotation is: scaffold declaration (TRADE_OFF REVERSED catalog slot) + named resolution party (Cycle 15 Matt + gandalf Pattern-B design call) + named resolution gate (Cycle 15 entry pre-scoping session per Matt strategic deliberation queue item 3).
+- **(c) Request KR surface to Matt for specific lock decision parallel with authoring:** SURFACED to KR per dispatch directive. KR may fire parallel surface to Matt; if Matt locks specific mechanic in window, gandalf v1.2.1 amendment supersedes this placeholder with locked mechanic; if Matt does NOT lock in window, this placeholder persists into Cycle 15 deferral per Matt strategic deliberation queue item 3.
+
+**Operational consequence at Phase 4 RE-RUN-3:** TRADE_OFF REVERSED PLACEHOLDER does NOT fire during Phase 4 RE-RUN-3 sweep (placeholder has no implemented mechanic; gamora skips slot 5 in the catalog enumeration). Phase 4 RE-RUN-3 evaluates 6 of 7 catalog slots empirically (1 Primary + 5 of 6 Layer 2 strategies); slot 5 PLACEHOLDER deferred to Cycle 15 design call. § 10.8 strip-and-ship on slot 5 disposition: not applicable until mechanic locks; once locked, strip-and-ship discipline applies normally.
+
+**Cycle 15 design-call queue item:** TRADE_OFF REVERSED specific mechanic locks at Cycle 15 entry pre-scoping per Matt strategic deliberation queue item 3 (Cycle 15 entry pre-scoping). Substrate signal from Cycle 14 v1 close strip-and-ship empirical data may inform the specific mechanic design (e.g., if certain kit composition profiles consistently strip Variants A/B/C at Layer 2, TRADE_OFF REVERSED may be designed to fill that mechanical gap).
+
+#### 4.6.6 Composition with doc 51 § 10.7 + § 10.8
+
+**§ 10.7 T4 identity cycling extends per § 4.6 two-layer architecture:** the Phase 4 sweep dimension expansion at § 10.7.3 cycles through each T4 variant per kit. Under § 4.6:
+- Primary T4 slot is universal DIRECT_DAMAGE_AMP — does NOT cycle (Primary slot is always the same mechanism per § 4.6.1).
+- Layer 2 slots (Secondary + Tertiary) cycle through Layer 2 strategies per kit composition + opportunity_scan output.
+- Phase 4 sweep cell count under § 4.6 (revised from § 10.7.3): `4 paths × 4 cohorts × 6 encounter types × 4 profile bins × mixed-variant expansion × (1 Primary fixed + 1-2 Layer 2 cycling per kit)` ≈ 1500-2300 cells (consistent with § 10.7.3 estimate; Primary fixed assignment does not multiply cell count).
+
+**§ 10.8 strip-and-ship rule extends per § 4.6 architecture:** per doc 51 § 10.8 (this canonical doc § 4.6 is upstream of doc 51 § 10.8):
+- Primary T4 EXEMPT from § 10.8 strip-and-ship (universal mechanism; guaranteed in-band per § 4.6.4 universal-guarantee proof; never stripped)
+- Strip-and-ship § 10.8 exercises ONLY on Layer 2 slots (Secondary + Tertiary per kit composition)
+- Failed Layer 2 T4s strip per § 10.8 disposition rule; chains preserved as supporting per § 10.8.3
+- Kit ship criterion (≥1 in-band T4 ships kit) is TRIVIALLY satisfied via Primary T4 universal guarantee — no kit fails to ship under two-layer architecture
+- § 10.8.5 edge case (zero in-band T4 at Layer 2) NO LONGER triggers gandalf design escalation — Primary T4 covers Target 4 satisfaction; Layer 2 zero-in-band is design-honest empirical signal (kit's composition doesn't fit any Layer 2 strategy) but does NOT block kit ship
+
+**Doc 51 § 10.7 + § 10.8 extensions per this § 4.6** are authored in parallel at doc 51 § 10.7 + § 10.8 (this session) to lock the strip-and-ship-exercises-on-Layer-2-only discipline canonically.
+
+#### 4.6.7 Composition with doc 50 § 4 5-target gate
+
+| Doc 50 Target | § 4.6 two-layer architecture compliance |
+|---|---|
+| Target 1 — Base DPS variance ≤1.5× across 4 paths | Unchanged; Primary T4 mechanic affects per-encounter damage_multiplier not BASE; Layer 2 ELEMENT_CONVERSION magnitudes affect post-BASE damage equation; BASE DPS variance governed by Phase 3d BASE re-derivation + § 7.2 max-investment construction (preserved) |
+| Target 2 — Every kit non-zero KPM on every encounter type | Primary T4 = 1.0× at non-preferred encounter types preserves non-zero floor (default damage path active); Layer 2 strategies preserve non-zero floor per v1.0+v1.1 architectural framings (preserved) |
+| Target 3 — No kit saturates KPM ceiling | Primary T4 1.75× at preferred encounter type capped by Target 4's [1.5×, 2.0×] band; Layer 2 magnitudes capped per v1.2 LOCKED values; ceiling saturation governed by W-α2 KPM ceiling (orthogonal to T4 mechanism) |
+| **Target 4 — Specialization (≥1 ≤2 peaks at [1.5×, 2.0×] cohort_median)** | **Universally satisfied via Primary T4 § 4.6.4 universal-guarantee proof.** Layer 2 strip-and-ship per doc 51 § 10.8 manages Layer 2 cell count to preserve ≤2 upper bound; ≥1 lower bound guaranteed by Primary T4 universally |
+| Target 5 — No kit <30% cohort median on any encounter type | Primary T4 = 1.0× at non-preferred encounter types preserves no-T4 baseline KPM; Layer 2 magnitudes raise floor where variant fits; cohort floor governed by Phase 3d BASE + doc 51 § 7.3 sub-max proof (preserved) |
+
+**Compound criterion (doc 50 § 4.6):** 5/5 BVV PASS achievable universally via Primary T4 + Layer 2 + strip-and-ship composition. Phase 4 RE-RUN-3 empirical validation under v1.2 + § 4.6 architecture confirms compound_pass=True per Cycle 14 v1 close criterion (per Matt D6 tag retention rationale: `v1-cycle-14-bounded-viability-substrate-led`).
+
+#### 4.6.8 Implementation routing (rocket Cycle 14 + Cycle 15)
+
+**Cycle 14 rocket implementation scope (v1.2 amendments):**
+- DIRECT_DAMAGE_AMPLIFICATION mechanic at `damage_resolver.py` (preferred-encounter-type detection + 1.75× multiplier; assigned to Primary T4 slot for every kit at kit-construction time)
+- ELEMENT_CONVERSION variant magnitudes UPDATE per v1.2 LOCKED values (Variant A=1.50, Variant B=1.25, Variant C=0.25 additive + ailment per engine support)
+- DEFENSIVE_TRADEOFF removal from engine catalog (per Matt D3 removal)
+- TRADE_OFF reversal PLACEHOLDER per § 4.6.5 (no engine implementation at v1.2; gamora skips slot 5 in Phase 4 RE-RUN-3 sweep) OR Cycle 15 deferral if Matt locks placeholder at C14 close
+- GEOMETRY_COLLAPSE / RESOURCE_CONVERSION empirical inclusion (existing engine infrastructure reused; Phase 4 RE-RUN-3 measures viability empirically)
+
+**Cycle 15 rocket implementation scope (Discipline #39 retirement gate):**
+- Per-element +% damage stats architecture (gear affixes + skill passives) — replaces Primary T4 placeholder mechanism with substrate-routed element-affinity signal
+- Kit-specific resistance profiles OR per-encounter elemental advantage tables — replaces preferred-encounter-type detection with substrate-routed elemental-advantage signal
+- DIRECT_DAMAGE_AMPLIFICATION Primary T4 slot RETIRED at canonical-doc + engine-implementation level
+- TRADE_OFF REVERSED specific mechanic locked per Matt + gandalf Cycle 15 entry design-call (if not locked at C14 close per § 4.6.5)
+
+**Phase 4 RE-RUN-3 dispatch acceptance criteria:** compound_pass=True per doc 50 § 4 + § 4.6.7 composition; Primary T4 universal-guarantee proof § 4.6.4 verified empirically; Layer 2 strip-and-ship § 10.8 produces per-kit Layer 2 in-band cell distribution for Cycle 15 design-call inheritance.
 
 ---
 
