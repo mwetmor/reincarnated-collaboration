@@ -1480,6 +1480,58 @@ KR fires Phase 4 sub-agent with explicit § 10.7 + § 10.8 coordination signal i
 
 **Pending Matt design-call ratification.**
 
+---
+
+### MATT CASE 16 DISPOSITION RATIFICATION LOCKED 2026-05-28 EVENING LATE — OPTION A (element_conversion_factor fix into C14)
+
+**D1 RATIFIED — Option A:** pull element_conversion_factor fix into Cycle 14.
+
+**Architectural reasoning (Matt verbatim):**
+- Case 16 is Discipline #39 scaffold-with-pending-decision (engine TODO at damage_resolver.py:618)
+- Pattern of Cycle 14 catches (16 prior cases): all engine-execution scaffolds resolved mid-cycle, not deferred
+- CLAUDE.md "Engine first. Game second. Phase third." — case 16 is engine integrity gap; phase scheduling doesn't override
+- Bounded-viability-with-specialization directive requires T4 specialization peaks empirically verified; Option B would defer this CENTRAL directive
+- v1 tag accuracy: `bounded-viability-substrate-led` requires full BVV PASS to ship under that semantic
+- Gate-7 precedent (corrected labeling): Matt consistently chooses architectural-honesty option; here that's Option A
+- Effort ~1.5-2d realistic; potentially ~half day under Discipline #1.1 compression pattern; well within Path α 4-6 week budget
+
+**D2 RATIFIED — Cycle 14 v1 close-criterion UNCHANGED:** full **5/5 BVV PASS** required (T1 + T2 + T3 + T4 + T5).
+
+**D3 RATIFIED — NEW WORK: Phase 3e rocket element_conversion_factor implementation (case 16 resolution):**
+- Read T4 conversion mechanic spec (doc 47 § 3 damage routing or adjacent canonical reference)
+- Map T4 variant ID → element_conversion factor per element pair
+- Implement at damage_resolver.py:618 (replace TODO with real conversion logic)
+- Unit tests + integration tests
+- Math note: `simulation/math/w-alpha-7-phase-3e-element-conversion-factor-implementation-2026-05-28.md`
+- Tag: `rocket/v1.11-element-conversion-factor-1`
+- Effort: ~1.5-2d projected; ~half day Discipline #1.1 likely
+
+**D4 RATIFIED — Phase 4 RE-RUN:** post case 16 resolution, gamora re-runs Phase 4 multi-dim sweep under implemented element_conversion_factor. Expected outcome: T4 specialization PASS; full 5/5 BVV compound_pass=True; integrated architecture confirmed.
+
+**D5 RATIFIED — Phase 5 + Phase 6 cascade:** gates on Phase 4 RE-RUN PASS; unchanged from prior trajectory otherwise.
+
+**Updated Cycle 14 v1 close trajectory:**
+- Current: ~6 hours cumulative evening
+- + Phase 3e + Phase 4 RE-RUN: ~2d projected; potentially ~few hours under #1.1
+- + Phase 5: ~3-5d
+- + Phase 6: ~1-2d
+- **Total: ~6-9 days under Discipline #1.1 pattern; ~10-14d under projection.** Path α 4-6 week budget intact.
+
+**Discipline #48 candidate N stays at 4 (cases 11 + 13 + 14 + 15)** — case 16 caught by Phase 4 BVV harness empirical execution (Mode A engine-execution; code TODO); NOT scope-completeness gap. Framework was operating; harness caught what it was designed to catch.
+
+---
+
+### PHASE 3e FIRING — ROCKET element_conversion_factor IMPLEMENTATION
+
+**KR routing:**
+- 🔥 Phase 3e rocket dispatch authoring + sub-agent fire (this turn)
+- ⏳ Phase 4 RE-RUN gamora on Phase 3e close (~30min expected per first Phase 4 cadence)
+- ⏳ Phase 5 cascade post Phase 4 RE-RUN compound_pass=True
+
+**Cycle 14 case register revised:**
+- Cases 1-15: prior
+- Case 16: Mode A engine-execution layer (element_conversion_factor TODO at damage_resolver.py:618) — Phase 3e resolves
+
 **Cycle 14 v1 close trajectory: ~14-22d from this evening ratification.** Path α 4-6 week budget intact (~42 calendar days; current ~Day 0; v1 lands ~Day 14-22 leaving ~20-28 days margin).
 
 ---
