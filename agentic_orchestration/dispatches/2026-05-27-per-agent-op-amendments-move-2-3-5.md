@@ -232,7 +232,28 @@ If the OP file doesn't yet exist for any agent, create it per the gandalf OP pro
 
 ### legolas
 
-(pending)
+**Status:** COMPLETE — 2026-05-27
+
+**OP file amended:** `agentic_orchestration/operating-procedures/legolas.md`
+
+**Placement decisions:**
+- **Move 5 (orientation phrase):** inserted at OP top preamble — after the STATUS/skill-packaging block, before `**Authored:**` metadata line and § 0. Placement chosen so orientation phrase is the first substantive content encountered on every invocation.
+- **Move 2 (framing-audit, Discipline #42):** new § 3.10 in decision-loop discipline section, following § 3.9 (empirical-evidence gate). Composes with existing Discipline #23 three-question protocol already cross-referenced in § 3 — noted explicitly as same discipline, Q1/Q2/Q3 structure is canonical form.
+- **Move 3 (framing-refusal, Discipline #44):** new § 3.11 immediately following § 3.10. Cross-references `agentic_orchestration/legolas/refusals/`. Composition note with existing § 3.1 pushback authority added — § 3.1 is the operational form; Discipline #44 is canonical framing; pushback categories mapped to R-patterns explicitly.
+
+**Q-OP-legolas-1 (template placement):** standard placement worked cleanly. No structural conflict. Move 5 preamble placement is natural given the thin-OP format (no § 0 heading to displace — it precedes the authored metadata block). Move 2 and Move 3 slot into decision-loop § 3 as §§ 3.10 and 3.11 without displacing any existing content.
+
+**Q-OP-legolas-2 (pre-existing discipline composition):** two composition notes:
+1. Discipline #23 (Pattern A-deep three-question protocol) already cross-referenced in § 3; Move 2 explicitly notes these are the same discipline at Q1/Q2/Q3 level — no duplication, just canonical anchoring.
+2. Pattern R-4 in Move 3 template is asymmetric for legolas: legolas IS the route-target for R-4 from other agents (methodology depth exceeding transcription scope routes TO legolas Mode A). When legolas itself faces a downstream R-4 situation (consumer asking legolas to synthesize beyond seam scope), re-route to KR. Asymmetry explicitly called out in § 3.11.
+
+**Discipline #42 framing-audit (Q1/Q2/Q3 for this amendment task):**
+- Q1: (1) template applies across legolas OP without contradiction; (2) legolas owns its OP per AGENTS.md; (3) no orientation phrase yet present in OP
+- Q2: read both OP and dispatch; verified no existing Move 5 preamble; verified § 3.1 pushback authority composes with (not duplicates) Discipline #44; verified no read-only constraint conflict (amendment is to legolas's own OP, which is in-seam-scope per seam authority)
+- Q3: no contradiction found; proceeded
+
+**Files amended:**
+- `agentic_orchestration/operating-procedures/legolas.md`
 
 ### galadriel
 
