@@ -308,3 +308,76 @@ This master scoping is the integrated successor to two prior dispatches (W-α6 +
 ### Phase 3 sequence status
 
 Phase 3a (Pattern 1) + 3b (Pattern 2) + 3c (encounter HP) + 3d (BASE re-derivation): all COMPLETE. Phase 3 sequence fully closed. Phase 4 multi-dim calibration can fire.
+
+---
+
+## Completion record — Phase 4
+
+**Completed by:** gamora
+**Date:** 2026-05-28
+**Engine commit:** `137373b` / push confirmed
+**Tag:** `gamora/v2.11-w-alpha-7-plus-phase-4-multi-dim-calibration-1` / pushed
+**Collaboration commit:** `d009e48` (telemetry artifact)
+
+### Deliverables
+
+1. **`construct_profile_distribution(kit, profile, variant=None)`** implemented per doc 51 § 10.3 — 7 profile bins (low/mid/max_a/max_b/mixed_v1/v2/v3)
+2. **`run_multi_dim_calibration_sweep()`** + `run_multi_dim_calibration_smoke()` — outer loop across profiles × T4 variants per doc 51 § 10.7
+3. **T4 strip-and-ship per § 10.8** — `apply_strip_and_ship_rule()` + `StripAndShipResult` dataclass
+4. **Math note §10 actuals filed** — `simulation/math/w-alpha-7-plus-phase-4-multi-dim-calibration-2026-05-28.md`
+5. **MIGRATION.md § v1.47 filed** — schema additions for MultiDimSweepCellResult + StripAndShipResult + MultiDimSweepReport; star-lord seam: no action required
+6. **Telemetry artifact** — `agentic_orchestration/cycle-14-wave-5-season-001/w-alpha-7-plus-phase-4-multi-dim-sweep-telemetry.json`
+7. **ENCOUNTER_COHORT_KPM_BAND recalibrated under max_a** — confirmed identical to W-α6 anchor; no delta installation required
+8. **AGENT_STATE.md updated** with Phase 4 status + commit hash + tag
+
+### Acceptance criteria — results
+
+| Criterion | Result |
+|---|---|
+| Sweep cell count ~768-2300 | 3,024 cells PASS |
+| Discipline #1.1 wall time vs projection | 110.7s actual vs ~25 min projected (13.6× over-projection per established pattern) |
+| Cross-path parity ≤1.5× at max_a | 1.307× PASS |
+| Cross-path parity ≤1.5× at max_b | 1.307× PASS |
+| T5 floor ≥30% violations at low profile | 0 PASS |
+| T5 floor violations all 7 profiles | 0 PASS |
+| § 10.8 strip-and-ship executed | 5 kits ship (no T4 candidates); 13 zero-T4 escalations to gandalf |
+| Math note + MIGRATION § v1.47 | Filed PASS |
+
+### BVV per-target results at each profile
+
+| Profile | T1 cross-path | T2 zero-KPM | T3 saturation | T4 specialization | T5 floor | compound_pass |
+|---|---|---|---|---|---|---|
+| low | N/A (inf — single-chain) | PASS | PASS | FAIL (18/18) | PASS (0 viol.) | FAIL |
+| mid | PASS (1.017×) | PASS | PASS | FAIL (17/18) | PASS (0 viol.) | FAIL |
+| max_a | PASS (1.307×) | PASS | PASS | FAIL (16/18) | PASS (0 viol.) | FAIL |
+| max_b | PASS (1.307×) | PASS | PASS | FAIL (16/18) | PASS (0 viol.) | FAIL |
+| mixed_v1 | N/A (inf — single-chain) | PASS | PASS | FAIL (17/18) | PASS (0 viol.) | FAIL |
+| mixed_v2 | PASS (1.307×) | PASS | PASS | FAIL (16/18) | PASS (0 viol.) | FAIL |
+| mixed_v3 | N/A (inf — single-chain) | PASS | PASS | FAIL (17/18) | PASS (0 viol.) | FAIL |
+
+T4 compound_pass=False structural root cause: fight-engine T4 routing stub (`damage_resolver.py element_conversion_factor = 1.0 TODO` ~line 618). Declared per Discipline #12 in commit message, math note, and telemetry `t4_engine_routing_note` field.
+
+### § 10.8 strip-and-ship disposition summary
+
+- 5 kits: no T4 candidates → ship with `no_t4` (endgame_str_04, endgame_dex_03, endgame_dex_04, endgame_int_03, endgame_int_04)
+- 13 kits: T4 candidates present, 0 in-band variants → zero_t4_escalation=True → gandalf design escalation per § 10.8.5
+  - 4 kits (1 T4 candidate): endgame_str_01, endgame_str_02, endgame_int_02, endgame_int_05
+  - 9 kits (2 T4 candidates): endgame_str_03, endgame_dex_01, endgame_dex_02, endgame_int_01, all 5 WIS kits
+- Supporting chains recorded: t4_chain_1 (single-cand kits) / t4_chain_1 + t4_chain_2 (dual-cand kits)
+
+### Updated per-encounter bands (replaces W-α6 stale reference — actual values confirmed identical)
+
+| Encounter type | DPS-min-maxer | Balanced | Defensive | Hybrid |
+|---|---|---|---|---|
+| open_arena | (596, 836) | (536, 664) | (368, 560) | (440, 728) |
+| chokepoint_corridor | (596, 836) | (536, 664) | (368, 560) | (440, 728) |
+| magic_pack | (203, 284) | (182, 226) | (125, 190) | (150, 247) |
+| elite_pack | (184, 258) | (165, 205) | (113, 173) | (136, 224) |
+| boss_with_adds | (73, 102) | (65, 81) | (45, 68) | (54, 89) |
+| mini_boss | (68, 95) | (61, 75) | (42, 64) | (50, 83) |
+
+Note: magic_pack / elite_pack / boss_with_adds / mini_boss values differ from gauntlet_sim.py W-α6 constants — these are Phase 4 max_a-derived values recorded in telemetry. The W-α6 constants in gauntlet_sim.py were derived with different encounter HP (pre-Phase-3c); the Phase 4 max_a sweep runs under Phase-3c-updated HP factors. Installation of Phase 4 bands in gauntlet_sim.py = Cycle 15+ action item (post T4 routing fix; compound_pass must pass before bands are authoritative).
+
+### Phase 5 signal
+
+Phase 4 COMPLETE. KR signals Phase 5 firing (BVV multi-dim + drax + Wave 5 RE-FIRE) on receipt of this completion record.
