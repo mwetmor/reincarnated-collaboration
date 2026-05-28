@@ -479,6 +479,44 @@ Gamora SC-7 ✅ COMPLETE at engine `e7af7db` + tag `gamora/v1.8-sc-7-base-spell-
 - 🔥 gamora Option F Track 1 per-damage-path empirical sweep (~0.5d; 4 archetypes × 4 cohorts = 16 calibrated values; smoke ≥12/18 emit acceptance)
 - 🔥 jack-ryan Phase 7 canonical re-write SECOND iteration (~0.25d; Discipline #40 case (c) 6-step retraction; per-archetype band canonical authority; Track 2 D3-deferred forward-link)
 
+---
+
+### 8TH SCAFFOLD-DRIFT CASE LANDED 2026-05-28 — D2 RE-EVALUATION HOOK TRIGGERED
+
+**Gamora Option F Track 1 ✅ INFRASTRUCTURE COMPLETE / ❌ ACCEPTANCE FAILED** at engine `f704599` + tag `gamora/v2.0-option-f-track-1-per-damage-path-bands-1` + meta `1a2b5a3`.
+
+**What landed cleanly (Track 1 infrastructure):**
+- `sc7_calibration_loop.py` — Track 1 sweep infrastructure (`run_track1_archetype_sweep`, `_get_kit_damage_scaling_path`, `_partition_kits_by_damage_scaling_path`, `_build_archetype_band_table`, `ATTRIBUTE_TO_DAMAGE_SCALING_PATH`, Discipline #45 runtime assertions)
+- `gauntlet_sim.py` — `_ARCHETYPE_COHORT_KPM_BAND` global registry + per-archetype in-band lookup in `w5g1_gauntlet_execution()`; fallback to `COHORT_KPM_BAND` when archetype band absent
+- `season_generation_pipeline.py` — `damage_scaling_path` key injected into all config dicts
+- Math note `option-f-track-1-per-damage-path-kpm-bands-2026-05-28.md` (Discipline #1)
+- MIGRATION.md § v1.38 (gate semantic change + Discipline #44 invocation record)
+- Canonical doc § 3.9 — 16 numeric band values populated by gamora (FALLBACK notation for STR/DEX)
+- Empirical sweep telemetry at `cycle-14-wave-5-season-001/option-f-track-1-calibration-telemetry.json`
+
+**Acceptance criterion FAILED: smoke season_emit = 3/18 (required ≥12/18).**
+
+**Discipline #44 framing-refusal invoked by gamora.** Verbatim gamora hand-back: *"STR/DEX physical kits produce boss KPM=0 because `base_physical_damage_l50` (SC-6b) is uncalibrated against boss HP targets. Per-archetype KPM band infrastructure is correct and operational; it cannot gate what produces no KPM signal. INT/WIS-faith bands are empirically grounded (82.192 median for INT-magical; 75.949 for WIS-faith). STR/DEX FALLBACK to prior single-cohort bands."*
+
+**Discipline #42 framing-audit (KR Q1+Q3) — DEEPER FINDING surfaces from gamora empirical inspection:**
+
+> **The 8th case is BROADER than the surface framing line.** Gamora's empirical sweep also revealed: *"Most kits — including INT kits — produce T1 REJECT at boss encounters (t2_kpm=0.0). Only `artillery_mage` has meaningful boss KPM. The vast majority of INT/WIS kits (int_01 standard_wizard, int_03 pyromantic_caster, int_04 red_mage, int_05 arcane_familiar, wis_01 channeling_cleric, etc.) all produce t1_kpm=0 / t2_kpm=0 at boss encounters."*
+>
+> **Implication:** the INT-magical band (61.64, 102.74) and WIS-faith band (75.949 median) are **single-outlier-driven** (artillery_mage for INT; equivalent for WIS). 13/16 band cells are either FALLBACK (STR/DEX × 4 cohorts each = 8) or single-outlier-derived (INT/WIS × non-modal cohorts). SC-7 BASE_SPELL_DAMAGE_L50 calibration (mult=93.8×) was sufficient to PASS single-class-single-archetype gating but does NOT produce broad-population boss kill viability.
+>
+> **Structural truth:** Boss HP scaling vs. kit damage output is the **fundamental gap**, not just STR/DEX-specific calibration. SC-6b (`base_physical_damage_l50`) AND SC-7 (`base_spell_damage_l50` for non-artillery kits) AND possibly T1 REJECT threshold (0.30) AND boss HP scaling — multiple substrate constants likely co-implicated.
+
+**Matt D2 re-evaluation hook from Gate-4 ratification TRIGGERS NOW:** *"if Track 1 surfaces 8th case materially extending scope, Matt re-evaluates. Don't pre-empt."* — The deeper finding materially extends scope further than the surface framing line.
+
+**KR routing per SC7-F1 Gate-3 + 7th-case Gate-4 ESTABLISHED PRECEDENT:**
+- 🔥 Jack-ryan Gate-5 architectural disposition FIRING NOW (~0.25d; 4-6 options analysis; root-cause depth; both framings carried)
+- ⏳ Surface 4-6 options package to Matt for D2-hook Pattern-B ratification
+- ⏳ Re-fire criterion per gamora hand-back: "Track 2 per-kit physical damage calibration (D3 deferred Cycle 15) — when `base_physical_damage_l50` values for STR/DEX kits are calibrated against boss HP targets, re-run `run_track1_archetype_sweep()` and replace the FALLBACK cells with empirical values" — **BUT** Gate-5 should examine whether Track 2 alone is sufficient given the deeper INT/WIS finding.
+
+**Cycle 14 Discipline #39 design pattern continues operating exactly as architected:** 8 consecutive cases now (case 1 mana bug → case 2 magnitude=3000 synthetic player → case 3 base_spell_damage default 1.0 → case 4 BASE_SPELL_DAMAGE_L50 SC-7 → case 5 _EXPECTED_ELIGIBLE_ROW_COUNT → case 6 SC7-F1 stratified floor → case 7 cross-class DPS → **case 8 broader damage formula vs boss HP scaling**). Each scaffold retirement surfaces next-deeper architectural truth.
+
+**Wave 5 cascade BLOCKED pending Gate-5 + Matt D2 re-evaluation.**
+
 **Meta-discipline lessons captured (Matt 2026-05-28):**
 - "Scaffolds get RESOLVED, not deliberately introduced" — D7 escalation policy IS for resolution, NOT scaffold proliferation
 - Discipline #18 refinement: methodology consultation at extension hotspots fires AFTER baseline empirical signal lands (Track 1 IS baseline; Track 2 design call deferred)
