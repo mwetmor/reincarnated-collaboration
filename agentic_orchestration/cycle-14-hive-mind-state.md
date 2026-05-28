@@ -830,6 +830,77 @@ W-α1 ✅ `d221fdd` + W-α2 ✅ `6983759` (ceiling=None). W-α3 Phase 2 can fire
 4. Bundle Gate-2 harness validation: `run_bounded_viability_validation_harness(smoke=False)` → expected `compound_pass=True` post-Phase-2
 
 KR fires W-α3 Phase 2 sub-agent next.
+
+---
+
+### W-α3 PHASE 2 COMPLETE 2026-05-28 — DISCIPLINE #44 FRAMING-REFUSAL — 9TH SCAFFOLD-DRIFT CASE (MODE A)
+
+**Engine `9c9ff97` + `01a70dc` AGENT_STATE + tag `gamora/v2.7-w-alpha-3-phase-2-reference-target-lock-1` + meta `dfb84a3`** (~25-min fire; ~28s actual calibration vs ~62min projection — much faster).
+
+**Calibration SUCCEEDED — Path α core deliverable confirmed:**
+- scale_factor = 0.664063
+- measured_kpm = 73.17 KPM (target=75.0; delta=2.44% within 5% tolerance)
+- **per_path_dps_variance_ratio = 1.24×** (target ≤1.5× — **PASS**)
+- 6 iterations, 28s wall-clock
+- Calibrated `BASE_SPELL_DAMAGE_L50 = {T1:18689, T2:28034, T3:40493, T4:74757}` + `BASE_PHYSICAL_DAMAGE_L50 = {T1:43703, T2:65533, T3:94629, T4:174714}`
+
+**Cross-path parity achieved: 79× pre-W-α1 → 1.24× post-Phase-2 (target ≤1.5× PASS).** Architectural root cause closed at the layer Path α was designed to address.
+
+**W-α4 harness result: compound_pass=False due to ARCHITECTURAL gap (not calibration failure):**
+
+| Target | Result | Detail |
+|---|---|---|
+| **T1 PASS** | 1.31× variance | Cross-path parity CONFIRMED |
+| **T2 FAIL** | 88/108 zero cells | architectural |
+| **T3 PASS** | structural (ceiling=None) | per W-α2 Option B |
+| **T4 FAIL** | 18/18 no peaks | architectural |
+| **T5 PASS** | 0 floor violations | architectural-conditional |
+
+**ROOT CAUSE OF T2/T4 FAILURES (gamora forensic):** Cycle 14 v1 gauntlet `GAUNTLET_ELIGIBLE_ENCOUNTER_TYPES_C14V1` only populates `tier_2_kpm` for **boss_with_adds + mini_boss** (2 of 6 encounter types). The other 4 (open_arena, chokepoint_corridor, magic_pack, elite_pack) produce structural-default KPM values (600/600/600/472) far outside the single Balanced band (71-79 KPM) → structurally produce `tier_2_kpm=0.0`. **The BVV harness was designed for Cycle 15 Option A per-encounter-type bands which don't exist yet.**
+
+**Bug fixes applied during Phase 2:**
+- `bounded_viability_validation.py`: `_bvv_kit_legendary_id()` helper format corrected (`{bc_cell_id}_t4_null`; previously `character_id` with S1_ prefix → zero matches)
+- `unified_calibration_loop.py`: same fix pattern earlier in Phase 2 session
+
+**Discipline #44 framing-refusal invoked by gamora:** compound_pass=True cannot be achieved within current architecture without resolving the gauntlet-encounter-coverage gap. **Matt decision required:**
+
+**Option A — Modify Path α close criterion to T1+T3+T5 PASS:**
+- T2/T4 deferred to Cycle 15 per-type bands
+- Path α core deliverable (T1 parity) confirmed → v1 ships now with 3/5 targets explicit + 2/5 deferred
+- Discipline #39 Mode A scaffold-drift acknowledged but NOT resolved within Cycle 14
+- 0d scope
+
+**Option B — Pull Cycle 15 Option A per-encounter-type bands into Cycle 14 v1:**
+- ~2-4d scope expansion
+- v1 ships with full 5/5 targets PASS
+- Path α architectural closure complete; no deferred targets
+- Discipline #39 Mode B canonical scaffold resolution pattern preserved (case 9 = Mode A hidden drift catch resolved within cycle)
+- Within Matt 6-week re-evaluation budget (Path α currently ~2hr elapsed; ~2-4d adds easily)
+
+**MIGRATION.md § v1.43** filed with Phase 2 + W-α4 actual result.
+
+**Math note § 5 (Phase 2 results) + § 11 (W-α4 architectural gap analysis)** authored.
+
+---
+
+### CASE 9 SCAFFOLD-DRIFT — MODE A (HIDDEN DRIFT CATCH)
+
+**Per Discipline #39 framework dual-mode classification (locked at W-α5 `deadd26`):**
+- Cases 1-7 = hidden scaffold-drift catches (Mode A)
+- Case 8 = canonical scaffold resolution (Mode B; `ee15c96` ANCHOR INTENTS)
+- **Case 9 = Mode A — hidden scaffold-drift catch** (gauntlet encounter coverage gap; `GAUNTLET_ELIGIBLE_ENCOUNTER_TYPES_C14V1` narrow scope vs BVV harness 6-type expectation)
+
+**Source-annotation framing analysis:** the gauntlet eligibility constant was authored without explicit "scaffold declaration + named resolution party + named resolution gate" (the 3-element pattern per Discipline #39 Mode B). Case 9 = pure Mode A drift; matures framework experience with W-α4 harness expectation vs simulation infrastructure scope.
+
+**KR routing per established Gate-N → Matt cadence:**
+- 🔥 Jack-ryan Gate-7 architectural disposition FIRING (~10-15 min; verify gamora forensic diagnosis + rank A/B + identify any additional options + Discipline #47 enforcement on case 9 resolution)
+- ⏳ Surface options package to Matt for Pattern-B ratification on Gate-7 return
+
+**Cycle 14 v1 close trajectory pending Matt ratification:**
+- Option A: ~0d additional → bundle Gate-2 + Wave 5 RE-FIRE + v1 ratification possible within hours
+- Option B: ~2-4d additional → bundle Gate-2 + Wave 5 RE-FIRE + v1 ratification within ~1-week budget
+
+**KR slight lean Option B per Matt Path α directive Q10 quality > timeline framing + bounded-viability-with-specialization design principle requires per-encounter measurement to verify "every kit has somewhere to be excellent" (not just cross-path DPS parity).**
 - ✅ **W-α5 jack-ryan canonical retirements COMPLETE** at meta `deadd26` + tag `jack-ryan/v1.7-w-alpha-5-canonical-retirements-1` (bundled; ~11-min fire). All 3 sub-streams landed:
   - **W-α5a — 5 decisions-log entries:** Path α RATIFICATION (LOCKED) + Path β-narrow REJECTION + Path β-FULL Option 6 REJECTION + Cycle 15 D2 Option 6 RETRACTION (Discipline #40 case (c) FOURTH iteration declared) + Discipline #39 framework maturation (two modes defined — Mode A scaffold-drift catches cases 1-7; Mode B canonical scaffold resolutions case 8+; founding case `ee15c96` ANCHOR INTENTS; 3-element annotation requirement: scaffold declaration + named resolution party + named resolution gate; adjacent architectural truth pattern)
   - **W-α5b — Phase 7 doc § 3.14 + lifecycle:** Full Discipline #40 case (c) FOURTH iteration 6-step procedure executed. Phase 7 doc STATUS shifted LOAD-BEARING → HISTORICAL. D2 RATIFICATION marked RETRACTED in authority header. Doc 50 added as successor. Implementer historical-note added.
