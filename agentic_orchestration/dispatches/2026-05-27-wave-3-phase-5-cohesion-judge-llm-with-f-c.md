@@ -146,7 +146,33 @@
 ## Completion record (two seams)
 
 ### Seam 1 — gandalf
-(pending)
+
+**Status:** LANDED 2026-05-27 (RE-FIRE after prior API stream timeout at 658s).
+
+**Deliverable:** `canonical/story/phase-5-llm-prompts-cohesion-judge-2026-05-27.md` (931 lines; commit `3532d76`; pushed).
+
+**Three LLM call surfaces specified:**
+- § 4 Wave A faction-level cohesion-judge LLM prompt template (SYSTEM § 4.2; USER § 4.3; acceptance § 4.4); registry § 9.1 consumption; D-Separate per PM-2 § 3.3
+- § 5 Wave B per-kit identity LLM prompt template (SYSTEM § 5.2; USER § 5.3; acceptance § 5.4); registry § 9.2 consumption; archetype-name + place-name + secondary motif slots
+- § 6 F-C per-pair inter-faction relationship LLM prompt template (SYSTEM § 6.3; USER § 6.4; acceptance § 6.5; distribution § 6.6); Path III addition; consumes Wave A + G-B primary_pair_flag + computed substrate_vote
+
+**Q-W3-G-1 resolved (§ 6.1):** `relationship_type` 6-enum = `{antagonist, rival, allied, neutral, mysterious, parallel}`. Rationale anchored on Diablo IV / PoE / Mushoku Tensei / Earth Self meta-layer; substrate-evidence-driven; cross-cultural neutrality binding; rejects `nemesis` / `progenitor` / `descendant` (pre-authored mythological taxonomy violations of Discipline #41).
+
+**Q-W3-S-1 design recommendation (non-binding; star-lord judgment per dispatch):** GATE F-C on G-B completion (G-B is O(k²) at k∈{3,4}; trivial compute; not latency-meaningful; F-C still fires in parallel across pairs). § 12.2 of deliverable.
+
+**D7 AI-tell verification (§ 8):** combined LLM self-assessment + mechanical grep validation; threshold ≥ 0.7 PASS; ≥ 0.5 ACCEPT_WARN; < 0.5 REGENERATE (max 1); mechanical grep takes precedence on conflict.
+
+**Diversity audit (§ 7):** composes with star-lord Seam 3 cosine-distance infrastructure (`bf7f659`); TF-IDF n-gram (2,4) cosine < 0.7 per season per Matt pre-ratification #2; Wave A re-fire with diversity-penalty system prompt on collision; max 1 regeneration per surface.
+
+**D-Sharpened invariance (§ 2 + § 5.5 + § 6.8):** `substrate_anchored_personage` NOT in any Wave A / Wave B / F-C prompt template; Gate-2 grep audit pattern in § 10.2; player-experience load-bearing property protected.
+
+**Discipline #45 vocabulary lock LOAD-BEARING throughout** (§ 3 documents discipline + carve-outs for narrative term-type tag `archetype-name` per registry § 5 + player-facing emitted output per `canonical/story/` exemption).
+
+**Cross-seam composition spec (§ 9):** Phase5Orchestrator integration sequence specified; per-season cost projection ~$0.65 (k=3) / ~$1.20 (k=4) within SC-3 envelope; ExportFactionRelationship schema reference for star-lord Seam 2 (gandalf does not author schema).
+
+**Open questions queued post first 3 seasons:** F-D2 cosine threshold calibration; F-C12 cross-cultural neutrality validation; F-D3 `ai_tell_compliance_score` saturation check (joint gandalf + star-lord review at wave-close).
+
+**Hand-back:** KR routes star-lord Wave 3 Seam 2 (per-pair LLM infra + ExportFactionRelationship schema + diversity smoke; MIGRATION.md per ADR-004) + rocket 1-line `_apply_gb_tiebreak` step 4 lexicographic_tiebreak return-value fix. Both consume this canonical prompt spec.
 
 ### Seam 2 — star-lord
-(pending)
+(pending; consumes Seam 1 canonical spec at `canonical/story/phase-5-llm-prompts-cohesion-judge-2026-05-27.md`)
