@@ -156,3 +156,46 @@ Per 5 star-lord PM-2 scope items (`708b575`):
 ## Completion record
 
 (append per seam on completion; KR consolidates Phase 5 close)
+
+---
+
+### Seam 3 completion — star-lord (2026-05-27)
+
+**Status:** COMPLETE
+**Commit:** `bf7f659`
+**Tag:** `star-lord/v1.0-dispatch-3b-phase-5-seam-3-1`
+**Smoke gate:** 50/50 new + 205/205 prior = 255/255 PASS
+**MIGRATION.md:** `export/MIGRATION.md § v1.10` + `llm/MIGRATION.md Phase 5 section` (ADR-004 compliant)
+
+#### 5 scope items delivered
+
+**Item 1 — LOAD-BEARING two-wave sequencing:**
+`Phase5OrchestratorConfig.should_fire_wave_a` + `run_phase5_wave_a_sync/async()` implement the Wave A → Wave B dependency. Wave A (faction-label calls) MUST complete before Wave B (per-kit identity calls) begins. Callers receive `Phase5Result` with all Wave A outputs before Wave B can start. No stale-cluster consumption race condition.
+
+**Item 2 — Concurrency strategy (Q-3B-star-lord-1 RESOLVED):**
+asyncio + `AsyncAnthropic` (SDK 0.97.0 verified). `asyncio.Semaphore(DEFAULT_CONCURRENCY=10)`. Rate limit headroom: 10 concurrent × 2-4 sec ≈ 20 calls/min; Sonnet tier-2 = 50 req/min. Synchronous callers use `run_phase5_wave_a_sync()` via `asyncio.run()`. Exponential backoff: 3 attempts max; 1s/2s/4s waits (Discipline #19 compliant — no polling).
+
+**Item 3 — ExportFactionCluster schema:**
+New 21-field Pydantic model in `export/schemas.py`. D-Hybrid architecture (placeholder always produced; canonical null for v1). D-Sharpened encoding (substrate_anchored_personages field; analytics only; NEVER LLM-prompt-exposed per D-Sharp-1). No-classes vocabulary throughout (Discipline #41). `ExportSeason.faction_clusters` additive nullable field (backward compat). Consumer obligations documented in MIGRATION.md § v1.10.
+
+**Item 4 — Local diversity checker (Q-3B-star-lord-2 RESOLVED):**
+Current backend: scikit-learn TF-IDF character n-gram (2,4) via `llm/faction_diversity.py`. No Anthropic API calls; no cost; no tracking gap. Upgrade path: `sentence-transformers>=2.2.0`, model `all-MiniLM-L6-v2` (86MB; 384-dim; local inference) — implementation in `_sentence_transformer_cosine_similarity()` dormant until dep added to `pyproject.toml`. Graceful fallback with WARNING log if import fails. Regeneration policy: 1 max per faction per season; no further retry post-regeneration; collision logged to telemetry.
+
+**Item 5 — Phase 7 joint-gate placeholder handling:**
+`phase7_gate_status = "placeholder"` by default (all Reincarnated v1 seasons). `"canonical"` only when `faction_label_canonical` is non-null. Short-circuit path produces all placeholder records when `faction_visibility = "invisible"`. Phase 7 MUST accept `"placeholder"` status — `faction_label_placeholder` carries sufficient semantic tokens for cohesion evaluation. Gamora/gandalf awareness flagged in MIGRATION.md.
+
+#### Open questions resolved
+
+- **Q-3B-star-lord-1:** asyncio + AsyncAnthropic primary; Semaphore(10) conservative start; increase to 20-30 if rate monitoring shows headroom
+- **Q-3B-star-lord-2:** TF-IDF current (scikit-learn in deps); sentence-transformers all-MiniLM-L6-v2 upgrade path ready and documented
+
+#### Cross-seam dependencies
+
+- **Rocket (Seam 1):** call `run_phase5_wave_a_sync(faction_clusters_input, config)` before Wave B per-kit calls; pass `faction_label_canonical` from results into per-kit call context
+- **Gandalf (Seam 2):** `Phase5OrchestratorConfig.thematic_registry` slot ready to receive THEMATIC_REGISTRY when it lands; Wave 3 impl gated on gandalf cross-cutting dispatch (per dispatch § out-of-scope)
+- **Gamora:** Phase 7 joint-gate design must accept `phase7_gate_status = "placeholder"` (all v1 seasons)
+- **Drax:** null-check `season.faction_clusters`; `substrate_anchored_personages` is metadata-only surface (NOT primary kit name per D-Sharp-2)
+
+#### Hand-back to KR
+
+Seam 3 complete. KR consolidates Phase 5 close signal when rocket Seam 1 (PM-1 clustering impl) and gandalf Seam 2 (PM-2 LLM logic + cohesion-judge prompts) complete.
