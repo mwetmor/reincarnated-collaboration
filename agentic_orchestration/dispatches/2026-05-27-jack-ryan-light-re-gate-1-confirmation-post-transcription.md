@@ -127,4 +127,36 @@ Per jack-ryan's Option α completion record at `fa18d89`: "Post-amendment: LIGHT
 
 ## Completion record
 
-(append on completion)
+**Completed:** 2026-05-27
+**Agent:** jack-ryan
+**Severity:** PASS — Matt-gate fire-ready for Phase 4+5 + Option α packages
+**Notes reviewed:** 11 (MG-2, MG-3, MG-4, MG-5, PM-1, Option α Notes 1-5)
+
+### Per-note verdicts
+
+| Note | Result | Notes |
+|---|---|---|
+| MG-2 | CONFIRMED CLEAN | MIN_POPULATION_FOR_DIVERSITY 6→10 + NSGA-III rejection + HVC deferral all land correctly. INFO: § 7 acceptance-criteria checklist still reads "k < 6 default" — cosmetic; body substance correct. |
+| MG-3 (LOAD-BEARING) | CONFIRMED CLEAN | All 6 amendments land. HDBSCAN § 4.6 pseudocode confirmed as transcription from elrond § 4.4 spec — not fresh methodology authoring (Q-Conf-MG3-1 RESOLVED). |
+| MG-4 | CONFIRMED CLEAN | § 3 KL+grid RETIRED cleanly; ribbon clean; JSD primary; Silverman + 0.05; NOVELTY_CLAMP removed; MIN_KL 5→10. No orphaned references. |
+| MG-5 | CONFIRMED CLEAN | CELL_CAPACITY_MAX 50→30 in § 7 + § 2. Gandalf amendments (§ X.3/X.3.2/X.7/X.8/X.9) preserved. Discipline #46 § 7 30+30=60 MAX integrity VERIFIED. |
+| PM-1 | CONFIRMED CLEAN | § 3.3 sqrt-weights + PCA-whitening 95% LOCKED; § 4.3 A4 GMM k∈{3,4} + A1 fallback + Option β LOCKED; § 5.2 24/20/12/8 thresholds LOCKED; § 5.4 NEW feedback loop fully specified. |
+| Notes 1, 2, 3, 5 | CONFIRMED CLEAN | Zero category-D residual class-vocabulary. Substrate field names preserved. Cross-ref filenames updated to `kit-naming-policy`. Discipline #41 preserved. |
+| Note 4 | CONFIRMED CLEAN; Q2 LOCKS | Field rename complete. § 2.6 + § 3.5 D-Sharpened encoding faithfully transfers PM-2 § 2.7 + § 3.7 pattern — section-number difference (Note 4 § 2.6/§ 3.5 vs PM-2 § 2.7/§ 3.7) is structural count difference, not content gap (Q-Conf-Note4-1 RESOLVED). Matt Q2 pre-ratification LOCKS. |
+
+### Cross-cutting checks
+
+- Discipline #41 substrate-led: preserved across all 11 notes
+- Discipline #42 framing-audit: holds; Discipline #44 not invoked by either gamora or gandalf
+- Matt Q1/Q2/Q3 pre-ratifications: all locked under canonical text
+- MG-5 Discipline #46 § 7 integrity: VERIFIED (30+30=60 MAX)
+
+### PM-2 stale-ref sweep (Q-Conf-PM2-Stale-1)
+
+**NOT YET LANDED.** Dispatch `2026-05-27-gandalf-pm2-stale-ref-sweep.md` exists; completion record empty. Stale `class_name_*` references confirmed at PM-2 lines 73, 77, 78, 188, 318, 478. **INFO severity — does NOT block Matt-gate.** Must land before Dispatch 3B authoring consumes PM-2 as canonical source.
+
+### Matt-gate signal
+
+**FIRE-READY.** Both Phase 4+5 and Option α packages confirmed clean post-transcription. Concurrent in-flight obligation: PM-2 stale-ref sweep (gandalf seam; INFO-grade; pre-3B).
+
+**Signed:** jack-ryan (analyst / QA / quality guardian)
