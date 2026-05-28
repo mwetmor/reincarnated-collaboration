@@ -129,4 +129,79 @@ A brief markdown report (~1-2 pages) appended to this dispatch as a completion r
 
 ## Completion record
 
-(rocket appends here)
+**Completed:** 2026-05-28
+**Author:** rocket
+**Effort:** ~30 min read-only verification
+
+---
+
+### 1. VERDICT
+
+`preferred_encounter_type` routes **Primary DDA targeting only (simulation-time)**.
+
+It has zero routing influence over Secondary T4 variant SELECTION at generation time or simulation time. KR's initial-read signal is confirmed correct.
+
+---
+
+### 2. GENERATION-TIME PATH
+
+**Assignment (generation-time, Primary T4 only):**
+
+- `mechanic_alteration.py:686-702` — `DirectDamageAmplificationStrategy._assign_preferred_encounter_type()`: algorithmic assignment from kit `damage_geometry` + `dominant_element`. Returns one of `open_arena | chokepoint_corridor | magic_pack | elite_pack | boss_with_adds | mini_boss`.
+- `mechanic_alteration.py:714-718` — `DirectDamageAmplificationStrategy.generate_alteration()`: stores the result as `strategy_params["preferred_encounter_type"]`. This is the PRIMARY T4 AlterationOutput only.
+- `mechanic_alteration.py:1170-1203` — `select_primary_t4()`: Primary T4 universal assignment entrypoint. Calls `DirectDamageAmplificationStrategy.generate_alteration()`. The doc comment at `mechanic_alteration.py:707-709` (inside `opportunity_scan`) explicitly states "The selection machinery is bypassed for Primary T4 (select_primary_t4() handles this)."
+- `mechanic_alteration.py:1206-1225` — `get_preferred_encounter_type()`: convenience helper used by `season_generation_pipeline` to populate `kit.preferred_encounter_type` (the per-kit schema field). This is a derivation helper, not a selection input.
+- `season_generation_pipeline.py:243-248` — `KitCandidate.preferred_encounter_type` field: schema slot for the derived value. Populated from `get_preferred_encounter_type()`.
+- `season_generation_pipeline.py:800-804` — `_gamora_fields_from_t4_candidate()` DIRECT_DAMAGE_AMPLIFICATION branch: places `preferred_encounter_type` into `direct_damage_amplification` combatant fields dict. This is the DDA arm of the dispatch; the other arms (ELEMENT_CONVERSION, TRADE_OFF_REVERSED_FRENZY, RESOURCE_CONVERSION, GEOMETRY_COLLAPSE) contain no `preferred_encounter_type` read.
+
+**Secondary/Tertiary T4 selection (generation-time):**
+
+The Layer 2 selection function `select_mechanic_alteration()` at `mechanic_alteration.py:1033-1112` calls `strategy.opportunity_scan(bc, substrate)` on each of the 6 Layer 2 strategies in `REGIME_CHANGE_STRATEGIES_V1_13_LAYER2`. None of those `opportunity_scan` implementations read `preferred_encounter_type` — they score against BC axes (`damage_geometry`, `resource_economy`, `damage_amplitude`, etc.). `preferred_encounter_type` does not appear as an input to `select_mechanic_alteration()` and is not present in `BcTargetView`. Secondary and Tertiary T4 variant selection (ELEMENT_CONVERSION variant A/B/C choice, GEOMETRY_COLLAPSE, RESOURCE_CONVERSION, TRADE_OFF, TRADE_OFF_REVERSED_FRENZY scoring) is entirely blind to `preferred_encounter_type`.
+
+---
+
+### 3. SIMULATION-TIME PATH
+
+**All consumers of `t4_preferred_encounter_type` / `t4_current_encounter_type` at simulation time:**
+
+- `combatant.py:216-230` — field definitions (`t4_preferred_encounter_type` + `t4_current_encounter_type`); both documented as DDA-only fields.
+- `combatant.py:571-586` — `from_player_class()` DDA handler: reads `af["direct_damage_amplification"]["preferred_encounter_type"]` to populate `_final_t4_preferred_encounter_type`. No other strategy branch (ELEMENT_CONVERSION, TRADE_OFF_REVERSED_FRENZY, RESOURCE_CONVERSION, GEOMETRY_COLLAPSE) touches either encounter-type field.
+- `combatant.py:679` — `CombatantState` constructor: sets `t4_preferred_encounter_type=_final_t4_preferred_encounter_type`; `t4_current_encounter_type` defaults to `None` (injected at fight setup).
+- `damage_resolver.py:249` — comment confirming DDA application rule.
+- `damage_resolver.py:403-407` — **sole live consumption site**: inside `resolve_skill()`, guarded by `t4_alteration_type == "DIRECT_DAMAGE_AMPLIFICATION"` check, then `_preferred_enc == _current_enc` equality. Multiplies `magnitude` by `DIRECT_DAMAGE_AMPLIFICATION_MULTIPLIER` (1.75) when match. No other strategy block reads either encounter-type field.
+- `t4_sim_cycling.py:1032-1040` — `w4g1_tier_1_sweep()` fight-context injection: sets `player_combatant.t4_current_encounter_type = encounter.scenario_shell_id`. Commented as DDA-specific; no other T4 mechanic reads this field.
+- `t4_sim_cycling.py:1128-1132` — `w4g2_tier_2_full_sim()` mirrors the Tier 1 injection pattern, same DDA-only purpose.
+- `unified_calibration_loop.py:3548-3570` — `primary_dda` branch in UCL two-layer logic: calls `select_primary_t4()`, extracts `preferred_encounter_type`, builds `alteration_fields["direct_damage_amplification"]` dict. This is the calibration-loop entry point for Primary T4; it is not a Secondary T4 routing path.
+
+**Non-DDA strategies at simulation time:** ELEMENT_CONVERSION modifies `damage_type` on skills (via `combatant.t4_element_conversion_variant`); TRADE_OFF_REVERSED_FRENZY modifies `accuracy` and `crit_chance` at `combatant.py:607-608`; RESOURCE_CONVERSION and GEOMETRY_COLLAPSE apply their own combatant fields. None of these read or write `t4_preferred_encounter_type` or `t4_current_encounter_type`.
+
+---
+
+### 4. EMPIRICAL TEST
+
+Exhaustive grep across all engine Python source (`src/reincarnated/**/*.py`) for `preferred_encounter_type`, `t4_preferred_encounter_type`, and `t4_current_encounter_type` returned 32 hits total. Every hit resolves to one of three categories: (a) DDA generation-time assignment / carry-forward, (b) DDA simulation-time field definition / injection / application, (c) comments and logging. Zero hits in any Secondary/Tertiary T4 selection path, any non-DDA strategy class, or any encounter-type-routed variant-selection logic.
+
+---
+
+### 5. R2 DISPOSITION RECOMMENDATION
+
+**REJECT** — under both the routing-scope finding and Read B.
+
+The routing scope finding alone is sufficient: `preferred_encounter_type` routes Primary DDA targeting only. Primary T4 is universal-EXEMPT from the T4 specialization metric (doc 51 § 10.8.9). Therefore R2 cannot move the T4 Secondary specialization metric at all — fixing assignment misalignment would not change which Secondary T4 variants are placed into cohort positions. R2 is architecturally moot for the Secondary T4 failure.
+
+Under Read B (Matt-locked this session), even if a future design expands `preferred_encounter_type` to influence Secondary T4 selection (a Cycle 16+ possibility per adjudication § 6, item 4), that work composes with BC axis expansion and is not a Cycle 14.5 hotfix candidate. No immediate player-experience consequence surfaces from the current routing scope that would override the REJECT disposition.
+
+**R2 is retired: REJECT.**
+
+---
+
+### 6. DISCIPLINE #12 / #1.2 NOTE
+
+No semantic-shift surfaces in the implementation vs math note. The generation math note (`generation/math/w-alpha-7-plus-two-layer-t4-architecture-implementation-2026-05-28.md`) § 2.3 describes `preferred_encounter_type` as a DDA routing signal exclusively; the simulation math note (`simulation/math/w-alpha-7-plus-phase-4-rerun-3-two-layer-t4-2026-05-28.md`) § 3.1 describes the gamora harness DDA-injection responsibility exclusively. Both notes are consistent with the implementation. No Discipline #12 flag required.
+
+One minor observation: `mechanic_alteration.py` line 1066 references `REGIME_CHANGE_STRATEGIES_V1` (without the `_13_LAYER2` suffix) in `select_mechanic_alteration()`, while the strategy list definition at line 848 is named `REGIME_CHANGE_STRATEGIES_V1_13_LAYER2`. This warrants a brief check that the two names resolve to the same object — but this is a naming-consistency observation, not a semantic-shift surface affecting the R2 finding. Flagged for KR awareness if a follow-on tidy is desired.
+
+---
+
+**Signed:** rocket (foundation seam verification)
+**For:** KR Mode A hive-mind R2 disposition under Cycle 14 adjudication lock 2026-05-28.
