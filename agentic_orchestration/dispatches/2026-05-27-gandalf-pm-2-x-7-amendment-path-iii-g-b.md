@@ -97,4 +97,62 @@
 
 ## Completion record
 
-(append on completion)
+**Completion timestamp:** 2026-05-27 (Pattern-A apply by sub-agent gandalf)
+**Executor:** sub-agent gandalf (KR invocation)
+**Effort actual:** ~20 min (within ~30-min estimate)
+
+### What landed
+
+**Target file:** `~/Games/reincarnated-engine/src/reincarnated/generation/math/phase-5-pm-2-faction-label-assignment-math-2026-05-27.md`
+
+**Section numbering decision (resolves Q-X7-1):**
+- The kicker's "§ X.7" naming was a placeholder. PM-2's existing top-level sequence runs § 1 through § 13 (Sign-off at § 13). Subsections use two-deep numbering (§ 2.1...§ 2.7, § 3.1...§ 3.7).
+- **Decision:** insert new content as top-level **§ 13** between § 12 (Architectural surprises) and the old § 13 Sign-off; renumber Sign-off to **§ 14**. Subsections become § 13.1 through § 13.5.
+- **Rationale:** G-B primary-pair selection is a new math layer adjacent to (not sub-of) § 3 label-assignment policy. Placing it as top-level § 13 keeps § 1-12 numbering intact (no churn on prior cross-refs to § 9 disciplines, § 11 framing-audit). Only Sign-off renumbers (§ 13 → § 14). Verified no external cross-refs to PM-2 § 13 across `reincarnated-engine/`, `canonical/`, `agentic_orchestration/` (grep returned zero matches).
+- Honors the kicker's "X.7.1...X.7.5" sub-numbering intent by mapping X=13 and writing subsections as § 13.1 through § 13.5 (matches PM-2's existing two-deep convention).
+
+**Cross-link to MG-3 (resolves Q-X7-2):**
+- Cross-link placed at **§ 13.4** (Discipline #46 compliance) — the natural home given MG-3 reuse is named in the Discipline #46 line of the kicker source
+- ADDITIONAL cross-link placed in the § 13 header composition note (engine commit `749d5aa` + absolute path to MG-3 spec)
+- ADDITIONAL cross-link at § 13.5 closing line (notes MG-3 pooled-covariance reused at cluster-centroid scale rather than per-cell scale)
+- Three cross-link placements ensures rocket Dispatch 3B Seam 1 impl + Wave 3 F-C LLM impl + jack-ryan LIGHT re-Gate-1 review all find the MG-3 reference at the expected reading location
+
+### Content applied (per kicker § 3 spec; verbatim where applicable)
+
+- § 13 header + composition note (gandalf addition; clarifies § 13 as new math layer composing with § 3 + § 3.7)
+- § 13.1 Algorithm (verbatim from kicker; formatted as code block per house style)
+- § 13.2 Tie-breaking (verbatim from kicker; 4 ordered rules)
+- § 13.3 Output metadata schema (verbatim from kicker; JSON block)
+- § 13.4 Discipline #46 compliance (verbatim from kicker + MG-3 cross-link expansion + Tikhonov regularization edge-case acknowledgement)
+- § 13.5 Cross-seam consumption (verbatim from kicker; drax + star-lord + F-C three-seam consumption pattern preserved; MG-3 cross-link added at closing)
+
+### Sign-off update
+
+Updated § 14 Sign-off Status line to acknowledge Path III § 13 amendment alongside prior D-Sharpened § 2.7 + § 3.7 amendments. LIGHT re-Gate-1 verification scope noted as folding into Dispatch 3B / Wave 3 authoring per kicker § 6.
+
+### Acceptance criteria verification
+
+- [x] § 13 amendment landed at PM-2 math note
+- [x] Section numbering clean (no collision with § 2.7 / § 3.7 D-Sharpened content; § 2.7 + § 3.7 preserved verbatim from engine `7233e0f`)
+- [x] § 13.1-13.5 sub-sections present per kicker § 3 spec
+- [x] Discipline #45 vocabulary compliance verified (only `proxy_geometry_class` matches in new block; exempt per Discipline #45 § 1715 — substrate field name; pre-existing infrastructure)
+- [x] Completion record appended (this section)
+- [ ] Commit + push per Matt 2026-05-27 per-cycle push pattern (next step)
+
+### Refutation-conditions check (per Quality criterion)
+
+- **§ X.7 placement conflicts with existing PM-2 numbering** — RESOLVED via § 13 placement + § 14 Sign-off renumbering; § 2.7 + § 3.7 preserved verbatim
+- **Mahalanobis pairwise centroid distance at k∈{3,4} produces NaN at MIN_COV<15 edge case** — § 13.4 now explicitly notes MG-3 Tikhonov regularization handles this edge case (composition with MG-3 § 4 per-cell algorithm); no separate engine implementation required for PM-2 — reuses MG-3 infrastructure
+- **Tie-break logic non-deterministic under specific substrate patterns** — § 13.2 # 4 (lexicographic final fallback) guarantees per-seed determinism; preserved verbatim from kicker
+
+### Architectural surprises surfaced (none new; one acknowledgement)
+
+No new architectural surprises beyond what kicker § 3 + the dispatch refutation conditions already named. One acknowledgement worth flagging for downstream jack-ryan LIGHT re-Gate-1 review:
+
+- **MG-3 reuse pattern composition with § 13:** MG-3 was authored for per-cell Mahalanobis distance during MAP-Elites archive duplicate detection (cell-scale; cell sample count drives MIN_COV threshold). § 13 reuses the SAME distance + pooled-covariance computation at cluster-centroid scale (k∈{3,4} centroids; cluster sample counts may differ from per-cell sample counts). The Tikhonov regularization that protects per-cell MIN_COV<15 ALSO protects cluster-scale MIN_COV<15 (centroid pooled-covariance over cluster member sample counts). Cross-link at § 13.4 makes this composition explicit; rocket Dispatch 3B Seam 1 impl should reuse MG-3 pooled-covariance computation directly (no parallel implementation). No additional refutation surfaced.
+
+### Hand-back
+
+Per dispatch hand-back spec: KR fires next gandalf-touching work post-completion (gandalf OP amendment, then Phase 7 Seam 1, then Wave 3 Seam 1, then A/B comparison protocol). Plus rocket Dispatch 3B Seam 1 PM-1 + G-B impl fires after this lands (rocket consumes G-B spec at § 13).
+
+**Signed:** sub-agent gandalf (story-and-design steward)
