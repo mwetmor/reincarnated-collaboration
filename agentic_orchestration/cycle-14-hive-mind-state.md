@@ -1582,6 +1582,43 @@ This is structurally significant: **Options A/B/C (identity / fixed boost / elem
 - **Case 17: canonical spec gap** (ELEMENT_CONVERSION numeric mechanic unspecified in doc 47/50/51 + mechanic_alteration.py)
 - **Case 18: Mode A engine-execution layer** (season_generation_pipeline._build_real_player_class missing alteration_fields wiring)
 
+---
+
+### GANDALF T4 ELEMENT_CONVERSION DESIGN LOCK COMPLETE 2026-05-28 EVENING LATE — DOC 47 § 4.5 AMENDED
+
+**Engine `3bb045f` + tag `gandalf/v1.0-doc-47-4-5-t4-element-conversion-lock`** (~5min fire). Canonical lock at doc 47 § 4.5 (chosen over doc 51 because doc 47 IS damage scaling architecture canonical authority; `element_conversion_factor` already named in doc 47 § 2.2 formula).
+
+**Q1 ANSWER — Option A: Identity 1.0** (B/C/D ALL REJECTED). TODO at `damage_resolver.py:618` replaced with explicit lookup from `attacker.t4_alteration_type` returning 1.0 when ELEMENT_CONVERSION active. Genre rationale: D2/PoE/LE/GD all separate "conversion node" (value-neutral) from "fire-bonus compounding source" (separate passive/ascendancy/affinity). Bundling them flattens build-crafting legibility. Reincarnated equivalent of compounding source = player's fire-affinity gear partition + fire-chain passives, NOT the T4 mechanic itself.
+
+**Q2 ANSWER — Specialization mechanism = Phase 3d `base_at_max` under T4 context** (NOT numeric factor). Extends doc 51 § 7.2 architectural symmetry. Rocket math note § 4.2 flat-cancellation proof load-bearing.
+
+**Q3 ANSWER — Pure unification** (no numeric fire bonus). PoE Avatar of Fire = TWO mechanics (a) conversion node + (b) +40% fire passive. Reincarnated T4 ELEMENT_CONVERSION = (a) only at 100% conversion. Reincarnated (b) equivalent = player's fire-affinity gear partition + fire-chain passives (assembled by player; surfaced by conversion routing damage through fire-affinity gear modifiers per doc 47 § 2.2).
+
+**Phase 3d RE-RUN REQUIRED: YES** — current Phase 3d output T4-naive (`_build_real_player_class` did not pass `alteration_fields`). Without RE-RUN under T4 context, `base_at_max` values don't embed element-affinity-gear-shift effect; doc 50 § 4.4 Target 4 cannot fire.
+
+**No Matt Pattern-B ratification required** — Option D scope expansion REJECTED; lock stays within existing vocabulary; aligns with Matt-ratified bounded-viability-with-specialization directive. No Discipline #47 kit-population-balance-change trigger.
+
+---
+
+### PHASE 3e PART 1 + PART 2 PARALLEL FAN-OUT FIRING — POST GANDALF LOCK
+
+Per gandalf routing recommendation:
+
+| Sub-stream | Owner | Scope | Tag |
+|---|---|---|---|
+| **Part 1** | rocket | `damage_resolver.py:618` explicit lookup from `attacker.t4_alteration_type` returning 1.0 when ELEMENT_CONVERSION active; unit + integration tests; Discipline #12 declaration | `rocket/v1.11-element-conversion-factor-1` |
+| **Part 2** | gamora | `season_generation_pipeline._build_real_player_class()` + `unified_calibration_loop.py:2408` T4 alteration_fields wiring; NO calibration runs; wiring only | `gamora/v2.12-w-alpha-7-plus-phase-3e-part-2-alteration-wiring-1` |
+
+**Parallel fan-out — independent code paths.**
+
+**Sequential post Part 1+2 close:**
+- **Phase 3d RE-RUN gamora** under T4 context (BASE re-derivation with element-affinity-gear-shift active) — ~few hours under Discipline #1.1 compression
+- **Phase 4 RE-RUN gamora** with multi-dim + T4 variant cycling per § 10.7 — should now pass 5/5 BVV per Target 4 finally achievable
+
+**Total post-lock cascade: ~3-6 hours to Phase 4 RE-RUN compound_pass=True attempt.**
+
+Cycle 14 v1 close trajectory PRESERVED at ~6-9d under #1.1 compression budget.
+
 **Cycle 14 v1 close trajectory: ~14-22d from this evening ratification.** Path α 4-6 week budget intact (~42 calendar days; current ~Day 0; v1 lands ~Day 14-22 leaving ~20-28 days margin).
 
 ---
