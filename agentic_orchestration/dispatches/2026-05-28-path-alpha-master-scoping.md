@@ -136,6 +136,8 @@ Each surfaced case follows Gate-N → Matt cadence per established pattern. Matt
 
 Post W-α1 + W-α2 + W-α3 + W-α4 + W-α5 all landed, gamora re-runs full production season under new engine state + design-target validation harness. **Acceptance: all 5 W-α4 design targets simultaneously satisfied across all 18 kits × 6 encounter types.**
 
+**W-α-bundle Gate-2 trigger note (jack-ryan Gate-1 bundle-coordination amendment):** full harness `run_bounded_viability_validation_harness(smoke=False)` fires ONLY after W-α1 + W-α2 + W-α3 all tagged + landed. Targets 4 (specialization) + 5 (floor) can ONLY be meaningfully measured post-bundle since each requires all three streams closed: W-α1 closes target 1 (base DPS variance); W-α2 closes target 3 (saturation); W-α3 is part of targets 2/4/5 via calibration. Each stream's isolated Gate-2 verifies only its direct contribution; bundle Gate-2 (post-W-α1+W-α2+W-α3 all-tagged) verifies target 4 + target 5 compound satisfaction. Premature harness run after only 2 of 3 streams closed will FAIL spuriously and obscure actual close-criterion signal.
+
 ### 2.5 Cycle 14 v1 tag at Path α close
 
 **Cycle 14 v1 tag = `v1-cycle-14-bounded-viability-substrate-led`** (revised from prior `v1-cycle-14-no-classes-substrate-led` — new framing reflects bounded-viability-with-specialization design directive as Cycle 14 architectural commit).

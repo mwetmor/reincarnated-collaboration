@@ -63,6 +63,8 @@ Gamora math note (Discipline #1) captures chosen architecture + sensitivity anal
 
 **Track 1 partition utilities (`_partition_kits_by_damage_scaling_path`, `_get_kit_damage_scaling_path`):** PERSIST per Matt D3 RATIFICATION. W-α3 reuses unchanged.
 
+**Partition-utility migration target (jack-ryan Gate-1 amendment):** if `sc7_calibration_loop.py` is retired (rather than extended), partition utilities MUST be explicitly re-exported from successor module (e.g., `unified_calibration_loop.py` or dedicated `damage_scaling_path_utilities.py`). MIGRATION.md captures import-path change for any downstream consumer (W-α4 harness `bounded_viability_validation.py` imports these per Matt D3). Silent breakage prevention: explicit re-export named in MIGRATION.md § v1.X.
+
 ### 1.4 Math note + MIGRATION.md
 
 **Math note required at:** `~/Games/reincarnated-engine/src/reincarnated/simulation/math/w-alpha-3-unified-calibration-pass-2026-05-28.md`
@@ -70,6 +72,7 @@ Gamora math note (Discipline #1) captures chosen architecture + sensitivity anal
 - Reference target derivation from W-α2 ceiling signal + post-W-α1 damage formulas
 - Sensitivity analysis: reference target variance ±20%; convergence properties
 - SC-6b + SC-7 retirement / supersession provenance
+- **Discipline #1.1 pre-fire resource-bounds projection (jack-ryan Gate-1 amendment):** estimate number of calibration iterations × per-sim wall-time + peak memory against host RAM before firing Phase 2 reference target lock. W-α3 is highest-compute stream in gamora seam; explicit projection in math note (not just § 4 risk flag) required.
 
 **MIGRATION.md § v1.X** (next available; coordinate sequencing with W-α2 if both fire close together):
 - SC-6b + SC-7 retirement / supersession record
@@ -113,7 +116,7 @@ Historical precedent:
 - `~/Games/reincarnated-engine/src/reincarnated/simulation/math/boss-hp-rebase-case-8-resolution-2026-05-28.md` (case 8 math note; load-bearing for encounter HP scaling)
 
 Disciplines:
-- #1 math-before-code (mandatory math note), #11 empirical inspection, #18.1 pre-fire resource projection (calibration sweep wall-time), **#47 bounded-viability decision gate** (verify reference target derivation supports all 5 doc 50 § 4 targets)
+- #1 math-before-code (mandatory math note), **#1.1 pre-fire resource-bounds projection** (jack-ryan Gate-1 amendment: correct citation — prior draft incorrectly cited #18.1; W-α3 is highest-compute stream in gamora seam; explicit projection in math note required), #11 empirical inspection, **#47 bounded-viability decision gate** (verify reference target derivation supports all 5 doc 50 § 4 targets)
 
 ---
 

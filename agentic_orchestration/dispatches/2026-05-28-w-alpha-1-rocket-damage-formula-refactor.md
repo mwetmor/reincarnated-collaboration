@@ -63,6 +63,8 @@ W-α3 calibrates AGAINST W-α1 output. Sequencing:
 
 **Coordination signal:** rocket commits + pushes W-α1 close (formulas + tag); gamora reads AGENT_STATE.md + W-α3 dispatch absorbs new formula state.
 
+**Cross-stream coherence note (jack-ryan Gate-1 amendment):** W-α1 math note MUST include a one-paragraph "cross-stream coherence check" identifying which W-α3 calibration architecture (α single ref target / β per-path ref targets / γ joint optimization) is most compatible with chosen Direction (A unified / B recalibrated per-path) and flagging any convergence concerns. Rationale: 2×2×3 = 12 configurations in space; two risk pairs flagged by jack-ryan: (a) Direction B × Option α may not converge within ≤1.5× variance (per-path formulas converging to single ref from different architectures); (b) Direction A × Option β degenerates gracefully (unified base → ref targets resolve to same value) but math note confirms degenerate case explicitly. Cross-stream coherence analysis stays in rocket's math note (sets formula architecture; W-α3 calibrates against it); does not pre-empt gamora's seam discretion on Option α/β/γ. Jack-ryan Gate-2 verifies coherence claim against W-α3's actual choice.
+
 ### 1.5 Cross-seam coordination
 
 - **Generation seam (rocket internal):** if W-α1 touches kit generation (kit damage values per skill), MIGRATION.md § v1.X within generation seam internal
@@ -89,6 +91,8 @@ Per master scoping § 1.3 — likely surface areas:
 - **Defense formulas** — armor/resistance computations may need re-balance
 
 Each surfaced case follows Gate-N → Matt cadence. Discipline #47 enforcement: balance changes affecting any of doc 50 § 4 5 targets require explicit ratification.
+
+**Discipline #47 re-check on each scaffold-drift case (jack-ryan Gate-1 amendment):** any scaffold-drift case that affects a doc 50 § 4 5 target must be explicitly evaluated against all 5 targets before Gate-N closes. Prevents implicit assumption that T4/gear/defense/attribute drift cases are pure implementation matters; ensures cross-target coherence preserved as adjacent architectural truths surface.
 
 ### 1.8 AGENT_STATE + tag
 
@@ -121,7 +125,7 @@ Engine source (current state):
 - `~/Games/reincarnated-engine/src/reincarnated/simulation/bounded_viability_validation.py` (W-α4 harness; use to validate at refactor close)
 
 Disciplines:
-- `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` — #1 math-before-code (mandatory math note), #11 empirical inspection, #18.1 pre-fire resource projection, #39 framework (Mode B canonical scaffold resolution context), #40 case (c) (if canonical-lock retraction surfaces), #45 vocabulary lock, **#47 bounded-viability-with-specialization decision gate** (enforce 5-target check at design-time)
+- `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` — #1 math-before-code (mandatory math note), **#1.1 pre-fire resource-bounds projection** (jack-ryan Gate-1 amendment: correct citation — prior draft incorrectly cited #18.1), #11 empirical inspection, #39 framework (Mode B canonical scaffold resolution context), #40 case (c) (if canonical-lock retraction surfaces), #45 vocabulary lock, **#47 bounded-viability-with-specialization decision gate** (enforce 5-target check at design-time)
 
 ---
 

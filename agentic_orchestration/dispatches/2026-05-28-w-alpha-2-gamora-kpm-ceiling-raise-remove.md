@@ -94,7 +94,7 @@ Engine source:
 - `~/Games/reincarnated-engine/src/reincarnated/simulation/MIGRATION.md` — recent sections (§§ v1.34-v1.40)
 
 Disciplines:
-- #1 math-before-code, #11 empirical inspection, **#47 bounded-viability decision gate** (verify chosen option satisfies doc 50 § 4.3 + supports targets 1-2-4-5)
+- #1 math-before-code, **#1.1 pre-fire resource-bounds projection** (jack-ryan Gate-1 amendment: correct citation — prior draft did not cite; #1.1 applies to Option A DPS sweep if re-run required), #11 empirical inspection, **#47 bounded-viability decision gate** (verify chosen option satisfies doc 50 § 4.3 + supports targets 1-2-4-5)
 
 ---
 
@@ -112,6 +112,8 @@ Disciplines:
 - **Option A vs Option B trade-off.** Option A preserves existing gate-semantic infrastructure; Option B simplifies but retires a gate. Both valid; gamora seam decision.
 - **Coordination with W-α3 reference target.** Master scoping Amendment 1 sequences this correctly; ensure gamora W-α3 dispatch absorbs W-α2 close signal before reference target commits.
 - **W-α4 harness Target 3 semantics under Option B:** structural PASS rather than measured PASS. Document explicitly in math note so downstream readers don't misinterpret.
+- **Option A DPS sweep resource projection (jack-ryan Gate-1 amendment):** if Option A ceiling derivation requires a population DPS sweep re-run, Discipline #1.1 pre-fire resource-bounds projection applies to that sweep — peak memory + wall-time projected against host RAM before fire.
+- **Option B regression risk (jack-ryan Gate-1 WARN — advisory):** if Option B is chosen, Target 3 (saturation_count = 0) becomes structurally always true; W-α4 harness loses regression-detection capability for inadvertent ceiling re-introduction. Math note SHOULD include a "regression risk statement" — recommend deriving a "headroom ratio" check that the harness adopts as a Target 3-adjacent regression sentinel.
 
 ---
 
