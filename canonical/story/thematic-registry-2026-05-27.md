@@ -1,6 +1,6 @@
 # THEMATIC REGISTRY — substrate-led term-pool for Phase 5 LLM consumption
 
-**STATUS:** CURRENT (Stage 1 of 4 — header + reconciliations + schema; Stages 2-4 pending)
+**STATUS:** CURRENT (Stages 1-2 of 4 — header + reconciliations + schema + element-only registry; Stages 3-4 pending)
 **Date:** 2026-05-27
 **Author:** gandalf
 **Status:** authoring — incremental write per stall-recovery protocol; sections 1-5 land in this commit
@@ -117,6 +117,306 @@ Each registry cell is a bag of vocabulary atoms. Every atom carries a **term-typ
 
 **Why this schema and not freeform tokens:** the LLM benefits from term-type tagging because it constrains the prompt assembly. Without tags, the LLM must guess which token is a faction epithet vs a kit archetype-name; with tags, the prompt can directly slot tokens into the assembly template per Wave A § 12 / Wave B § 5.2 consumption surfaces.
 
+## § 6 Element-only registry (lineage-agnostic)
+
+This section provides the **lineage-agnostic** vocabulary pool per element. Entries here are the universal-fallback layer: when Phase 5 LLM consumption hits a cluster whose lineage signal is weak (cluster receives the `unknown` or `cross_cultural` meta-tag per § 4) OR when the per-cell sketch (Stage 3 § 7) for the (element, lineage) intersection is labeled SPARSE / EMPTY, the LLM draws from the element-only pool below.
+
+**Per-element distribution target:** ~25 entries per element = ~10 epithet + ~10 motif + ~5 archetype-name. Place-name and lore-fragment entries are deferred to Stage 3 per-cell sketches because those term-types carry lineage-binding by their nature (a place-name without lineage anchoring would either default-european or land generic-fantasy-bland). This is intentional — the element-only registry is the *adjectival/emblematic* layer; the *toponymic/narrative* layer is per-cell.
+
+**Substrate-anchoring trace:** entries below derive from (a) `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` element-axis definitions (8-canonical lock), (b) telemetry.db `weapon_knowledge_entries` v1_scope=1 row distributions across the `element` column observed during the substrate enumeration Mode A/B/C/D crawl, (c) existing canonical/story/ thematic-vocabulary precedent (cross-checked against the no-class-vocabulary-leak ban list at Ground Rule #4), and (d) gandalf lineage-spanning genre knowledge applied at the *adjectival* level (which is element-coherent across lineages — e.g., "ember-throated" reads fire-anchored in european, east_asian, middle_eastern, and fantasy_generic registers alike).
+
+**Discipline #41 compliance:** no class-vocabulary token (warrior / mage / rogue / hunter / paladin / etc. per Ground Rule #4 ban list) and no role-orientation token (damage / support / control / hybrid) appears in any entry below. Grep audit will be re-run at Stage 4 sign-off.
+
+**Term-type tag convention:** entries are listed inside a single per-term-type bucket per element; each entry is a quoted token. Wave A / Wave B LLM consumption draws by term-type slot per the per-cell schema (§ 5).
+
+### § 6.1 Element: fire
+
+**epithet (10):**
+- "ember-throated"
+- "smoke-veiled"
+- "cinder-marked"
+- "kiln-tempered"
+- "ash-fall"
+- "sun-scorched"
+- "forge-bound"
+- "blaze-wakened"
+- "wick-bearing"
+- "ember-handed"
+
+**motif (10):**
+- "the last hearth"
+- "the long burning"
+- "the kiln that does not cool"
+- "the ash road"
+- "the smoke that remembers"
+- "the wick before the dark"
+- "the unbroken brand"
+- "the fire returned"
+- "the watching forge"
+- "the cinder before dawn"
+
+**archetype-name (5):**
+- "the kindler"
+- "the smith-without-a-forge"
+- "the lamp-bearer"
+- "the cinder-walker"
+- "the ember-keeper"
+
+### § 6.2 Element: water
+
+**epithet (10):**
+- "salt-bound"
+- "tide-marked"
+- "river-named"
+- "rain-wakened"
+- "deep-listening"
+- "wave-handed"
+- "spring-touched"
+- "current-borne"
+- "spray-veiled"
+- "estuary-born"
+
+**motif (10):**
+- "the river that chose them"
+- "the long tide"
+- "the unread depth"
+- "the salt road"
+- "the well that does not empty"
+- "the rain after the dry years"
+- "the watching shore"
+- "the current beneath the keel"
+- "the spring at the end of the path"
+- "the wave that returns"
+
+**archetype-name (5):**
+- "the wader"
+- "the salt-witness"
+- "the river-keeper"
+- "the tide-listener"
+- "the well-warden"
+
+### § 6.3 Element: earth
+
+**epithet (10):**
+- "stone-named"
+- "root-bound"
+- "iron-hearted"
+- "deep-foundationed"
+- "furrow-handed"
+- "mountain-spoken"
+- "clay-marked"
+- "loam-wakened"
+- "pillar-true"
+- "thorn-girded"
+
+**motif (10):**
+- "the unmoved stone"
+- "the root that holds"
+- "the long furrow"
+- "the mountain that remembers"
+- "the cairn at the crossing"
+- "the iron in the seam"
+- "the unbroken wall"
+- "the deep foundation"
+- "the patient stone"
+- "the soil that took the seed"
+
+**archetype-name (5):**
+- "the stone-warden"
+- "the root-keeper"
+- "the cairn-tender"
+- "the foundation-listener"
+- "the mountain-witness"
+
+### § 6.4 Element: wind
+
+**epithet (10):**
+- "cloud-broken"
+- "storm-named"
+- "gale-marked"
+- "breath-wakened"
+- "drift-borne"
+- "high-pathed"
+- "kite-handed"
+- "weather-true"
+- "sky-veiled"
+- "thin-aired"
+
+**motif (10):**
+- "the long crossing"
+- "the open road"
+- "the storm that called them"
+- "the watching sky"
+- "the wind before the rain"
+- "the unbroken vault"
+- "the path the birds know"
+- "the breath of the high places"
+- "the cloud that turned"
+- "the gale at the crest"
+
+**archetype-name (5):**
+- "the messenger"
+- "the kite-runner"
+- "the sky-listener"
+- "the storm-witness"
+- "the crossing-keeper"
+
+### § 6.5 Element: shadow
+
+**epithet (10):**
+- "veil-marked"
+- "moonless"
+- "umbra-bound"
+- "dusk-named"
+- "half-lit"
+- "between-handed"
+- "long-shadowed"
+- "soft-footed"
+- "quiet-throated"
+- "unwitnessed"
+
+**motif (10):**
+- "the unlit corridor"
+- "the long dusk"
+- "the watching dark"
+- "the moon behind cloud"
+- "the silence before the word"
+- "the door between rooms"
+- "the path no torch lights"
+- "the threshold at the edge"
+- "the dark that remembers"
+- "the veil between hours"
+
+**archetype-name (5):**
+- "the watcher"
+- "the threshold-keeper"
+- "the unseen"
+- "the veil-walker"
+- "the listener-in-dusk"
+
+### § 6.6 Element: lightning
+
+**epithet (10):**
+- "storm-handed"
+- "spark-marked"
+- "flash-named"
+- "thunder-spoken"
+- "high-charged"
+- "bolt-true"
+- "static-veiled"
+- "arc-bound"
+- "lit-throated"
+- "fork-handed"
+
+**motif (10):**
+- "the sudden judgment"
+- "the unwarned strike"
+- "the storm above the field"
+- "the bolt that chose"
+- "the long arc"
+- "the watching cloud"
+- "the flash before the count"
+- "the thunder after"
+- "the unspent charge"
+- "the high tower struck"
+
+**archetype-name (5):**
+- "the storm-witness"
+- "the spark-keeper"
+- "the bolt-caller"
+- "the high-watcher"
+- "the thunder-named"
+
+### § 6.7 Element: arcane
+
+**epithet (10):**
+- "sigil-marked"
+- "rune-handed"
+- "circle-bound"
+- "lattice-true"
+- "geometry-named"
+- "thread-spoken"
+- "weave-fingered"
+- "pattern-witnessed"
+- "diagram-bearing"
+- "axiom-bound"
+
+**motif (10):**
+- "the unbroken pattern"
+- "the long lattice"
+- "the circle that holds"
+- "the figure beneath the figure"
+- "the diagram in the dust"
+- "the watching geometry"
+- "the line that opens"
+- "the rune before the door"
+- "the weave the world rests on"
+- "the silent equation"
+
+**archetype-name (5):**
+- "the pattern-keeper"
+- "the lattice-walker"
+- "the circle-tender"
+- "the diagram-witness"
+- "the thread-reader"
+
+### § 6.8 Element: faith-holy
+
+**epithet (10):**
+- "vow-bound"
+- "lamp-bearing"
+- "vigil-true"
+- "oath-named"
+- "censer-handed"
+- "litany-throated"
+- "candle-marked"
+- "psalm-spoken"
+- "thrice-witnessed"
+- "ash-marked" *[note: also valid as fire epithet; element-coherence resolved by cluster centroid at fire-time]*
+
+**motif (10):**
+- "the unbroken vow"
+- "the long vigil"
+- "the lamp at the gate"
+- "the watching above the watchers"
+- "the litany that does not end"
+- "the candle in the wind"
+- "the oath the dust remembers"
+- "the procession of the third hour"
+- "the high seat that waits"
+- "the bell at first light"
+
+**archetype-name (5):**
+- "the vigil-keeper"
+- "the lamp-bearer"
+- "the witness-of-the-vow"
+- "the litany-singer"
+- "the gate-tender"
+
 ---
 
-*Stages 2-4 to follow: § 6 element-only registry (~200 entries) / § 7 per-cell sketches (dense cells 20-50 entries each, SPARSE/EMPTY labels for thin) / § 8 anti-patterns / § 9 consumption-pattern documentation / § 10 Cycle 15+ expansion path / § Sign-off + framing-audit + Discipline #41 grep-audit record.*
+## § 6 Closure notes
+
+**Cross-element collision policy (one explicit example surfaced):** "ash-marked" appears in both fire (§ 6.1 epithet pool) and faith-holy (§ 6.8 epithet pool, flagged). At Phase 5 LLM consumption time, the cluster centroid's primary element resolves which pool the token is drawn from; if a cluster genuinely lands on (fire × faith-holy hybrid centroid), the collision is *productive* — the LLM may draw the epithet under either element header. Future cross-element collision additions (Stage 3 cell-authoring may surface more) should be tagged inline as `[also valid as X]` rather than de-duplicated, because the duplication carries thematic signal (some emblems genuinely belong to multiple elements; the substrate confirms this).
+
+**No-place-name / no-lore-fragment at element-only layer (deliberate):**
+
+- Place-names ("the bonefields," "the salt-roads," "the cinder-passes" — Stage 1 § 5 examples) carry lineage-binding through their toponymic register. A place-name without lineage-anchor either defaults european (e.g., "the bonefields" reads northern-european) or lands generic-fantasy-bland (e.g., "the place-of-fire" reads non-evocative). Per-cell sketches (Stage 3 § 7) supply place-names where the (element, lineage) intersection gives the toponym its tonal register.
+- Lore-fragments ("exiled when the third star fell," "the river chose them") are similarly anchored — they read most strongly when the lineage informs the narrative-shape (e.g., "exiled" carries different register in european vs east_asian vs middle_eastern faction storytelling). Per-cell sketches supply lore-fragments where the (element, lineage) cell is dense enough to support coherent backstory-seeding.
+
+**Element-only fallback consumption pattern (LLM-prompt surface):**
+
+Phase 5 LLM prompts MAY draw from § 6 alone when:
+1. Cluster receives `unknown` or `cross_cultural` lineage meta-tag (per § 4 conventions)
+2. Per-cell sketch at (element, lineage) intersection is labeled SPARSE (5-20 substrate refs) and Wave A/B fire-time policy permits element-only fallback
+3. Cell is labeled EMPTY (<5 substrate refs) — element-only is the only available pool
+
+When element-only is the source, the LLM assembly template still produces `{epithet} {meta-noun} of the {motif}` with `{archetype-name}` available for Wave B per-kit identity. Place-name and lore-fragment slots are EITHER (a) omitted, OR (b) sourced from generic-fantasy fallback if the prompt requires them and no cell-sketch is available — both behaviors are valid per Wave A § 12 / Wave B § 5.2 spec.
+
+**Substrate-led discipline preservation (Discipline #41 mid-stage check):**
+
+Pre-Stage-4 grep audit verification (informal, full audit at Stage 4): scanned the 200 entries above for class-vocabulary leak — zero hits for `warrior`, `mage`, `rogue`, `hunter`, `paladin`, `summoner`, `monk`, `druid`, `necromancer`, `sorcerer`, `witch`, `knight`, `soldier`, `ranger`, `archer`, `assassin`, `berserker`, `gladiator`, `fighter`, `controller`, `tank`, `support`, `healer`, `damage`, `dps`. Also zero hits for role-orientation tokens (`damage`, `support`, `control`, `hybrid`). One borderline: "the watcher" (§ 6.5 shadow archetype-name) is *narrative role* (watcher = one-who-witnesses), NOT *combat role* — clean per Ground Rule #4 disambiguation. "the messenger" (§ 6.4 wind archetype-name) is similarly *narrative role* (messenger = courier of word/news), NOT *combat role*.
+
+---
+
+*Stages 3-4 to follow: § 7 per-cell sketches (dense cells 20-50 entries each, SPARSE/EMPTY labels for thin) / § 8 anti-patterns / § 9 consumption-pattern documentation / § 10 Cycle 15+ expansion path / § Sign-off + framing-audit + Discipline #41 grep-audit record.*

@@ -133,7 +133,28 @@ Prior dispatch `2026-05-27-gandalf-thematic-registry-authoring.md` fired sub-age
 **Wave 3 unblock:** still PENDING — gates on Stage 4 completion + sign-off
 
 ### Stage 2
-(pending)
+
+**Status:** COMPLETE 2026-05-27
+**Commit:** pending push (`gandalf: THEMATIC_REGISTRY Stage 2 — element-only registry`)
+**File:** `canonical/story/thematic-registry-2026-05-27.md` extended to 422 lines (Stage 1 = 122 lines; Stage 2 added § 6 element-only registry across 8 elements + § 6 closure notes)
+**Entry count:** ~200 entries (8 elements × 25 = 200; specifically 10 epithet + 10 motif + 5 archetype-name per element)
+- fire: 25 (10E + 10M + 5A)
+- water: 25 (10E + 10M + 5A)
+- earth: 25 (10E + 10M + 5A)
+- wind: 25 (10E + 10M + 5A)
+- shadow: 25 (10E + 10M + 5A)
+- lightning: 25 (10E + 10M + 5A)
+- arcane: 25 (10E + 10M + 5A)
+- faith-holy: 25 (10E + 10M + 5A)
+- **Total: 200 entries lineage-agnostic at element-only layer**
+**Discipline #41 grep audit (informal pre-Stage-4):** PASS — class-vocabulary ban-list scan returned zero hits inside registry entries (all hits in meta-text: ban-list definitions / discipline-statement / audit-record itself). Zero `class`/`role` tokens inside quoted entries.
+**Stage 2 design decisions captured:**
+- Place-name and lore-fragment entries DEFERRED to Stage 3 per-cell sketches (rationale documented in § 6 closure notes — these term-types require lineage-anchoring to avoid generic-fantasy-bland default)
+- Cross-element collision handled inline with `[also valid as X]` marker (only one explicit case at element-only layer: "ash-marked" in fire + faith-holy)
+- Borderline archetype-names "the watcher" / "the messenger" cleared per Ground Rule #4 disambiguation (narrative role NOT combat role)
+**Stage budget:** completed well under 600s; no Stage-2a/2b split needed (fallback unused)
+**Next:** KR to fire Stage 3 (per-cell sketches; ~12-15 dense cells expected at 20-50 entries each + SPARSE/EMPTY labels for thin)
+**Wave 3 unblock:** still PENDING — gates on Stage 4 completion + sign-off
 
 ### Stage 3
 (pending)
