@@ -609,8 +609,39 @@ Gate-5 D1 ratification rationale ("rebase IS the calibration") held for what it 
 - Option 6 advance: Cycle 15 architectural metric replacement promoted to Cycle 14 (~3-4d) — resolves two-path divergence at metric layer; was Matt D2 Cycle 15 commit
 
 **KR routing per established Gate-N → Matt cadence:**
-- 🔥 **Jack-ryan Gate-6 architectural re-disposition FIRING** (~0.25-0.4d; re-rank Options 2/3/5/6 against empirical 79× gap; reconsider Cycle 14 v1 close trajectory; Discipline #18 refinement applies — does post-rebase Track 1 telemetry constitute baseline empirical signal sufficient to advance Cycle 15 design call into Cycle 14?)
-- ⏳ Surface options package to Matt for Pattern-B ratification on Gate-6 return
+- ✅ **Jack-ryan Gate-6 architectural re-disposition COMPLETE** at engine `f996d96` + tag `jack-ryan/v1.6-gate-6-case-8-empirical-re-disposition` (pushed; ~5.5-min fire).
+- 🟡 Awaiting Matt Pattern-B ratification.
+
+**Gate-6 re-ranked options (post-empirical):**
+1. **Option 6** — Cycle 15 damage/HP% metric replacement (architectural resolution; correct C15 target)
+2. **Option 2 (RECOMMENDED)** — Option 5 administrative C14 close + Cycle 15 Option 6 (correct composite path; legolas Mode A consultation fires concurrently during C14 close wave)
+3. Option 3 — Per-kit SC-6b calibration at 79× scale (feasible but large-scale substrate surgery; still inherits metric architecture debt; Cycle 15 fallback only if Option 6 consultation surfaces blockers)
+4. Option 5 standalone (dominated by Option 2; weaker C15 pre-authorization)
+
+**Jack-ryan recommendation:** Option 2 with legolas Mode A consultation firing CONCURRENTLY during Cycle 14 close wave.
+
+**Cycle 14 v1 close trajectory revised:**
+| Path | Calendar | D13 quality |
+|---|---|---|
+| Option 2 (jack-ryan recommended) | 0.1d C14 admin close + tag; Cycle 15 Option 6 ~2.75-3.25d from entry. **Total to architectural close: ~3-4d** | 3/18 emit during C14 D13 P1-P9 parallel seasons → higher emit Cycle 15 |
+| Decision-1 alt (Option 6 promoted to C14) | ~3.5-4.5d from legolas consultation fire. D13 fires at higher quality | Higher emit during D13 |
+
+**Calendar delta near-zero (~0.5-1d).** Trade-off is D13 quality.
+
+**Discipline #18 hotspot trigger determination by jack-ryan: SATISFIED.** Three baseline questions from Phase 7 doc § 3.10 all answered by post-rebase telemetry:
+1. Are 4 archetypes sufficient? — NO; 79× gap is at formula-path level (deeper than archetype)
+2. Do per-archetype bands vary across cohorts? — yes but secondary to formula-path divergence
+3. How wide is the physical-vs-magical KPM gap? — **79× directly measured**
+
+→ Legolas Mode A consultation can fire DURING Cycle 14 close wave (parallel with Option 5 admin close), pre-authorizing Cycle 15 Option 6 dispatch.
+
+**KR read:**
+- Both Option 2 and Decision-1-alt converge at ~3-4d total calendar; primary difference is D13 quality trade-off
+- Option 2 strengths: clean cycle scoping (C14 v1 tag = infrastructure landing; C15 = architectural metric); legolas Mode A pre-authorizes C15 fastest path; jack-ryan recommended
+- Decision-1-alt strengths: ships v1 at proper quality (no 3/18 cap during D13); avoids player-surface quality debt for drax loadout wiring on 3-kit-emit population
+- KR slight lean Option 2 per jack-ryan; flag D13 player-surface quality consideration as the Matt judgment call
+
+**Pending Matt Pattern-B ratification.**
 
 **Jack-ryan retraction loop status:** § 3.11 FALLBACK retraction-pending notation now requires AMENDMENT — FALLBACK is NOT removed; FALLBACK is RETAINED post-rebase as structural finding. The retraction loop did not close as anticipated; gamora's empirical finding effectively converts "FALLBACK-as-artifact" → "FALLBACK-as-canonical-marker-of-two-path-divergence". Jack-ryan Gate-6 disposition includes updating § 3.11 framing.
 
