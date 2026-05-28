@@ -327,7 +327,7 @@ State file archival path (when reached): rename to `agentic_orchestration/cycle-
 
 **Sequencing:**
 1. **gandalf authors PM-2 + MG-5 amendments** (~45 min combined) — ✅ COMPLETE 2026-05-27 (engine `7233e0f` math notes; meta `fcb7b0d` completion record); PM-2 new § 2.7 + § 3.7 (D-Sharpened LAYERS ON D-Hybrid + D-Separate); MG-5 new § X.3 + § X.3.2 (gandalf-recommend (a) OWN 30-kit reject pool cap mirroring archive C2) + § X.7 + § X.8 (Trigger B candidates T-B-α / T-B-β / T-B-γ; gandalf-recommend T-B-α primary + T-B-γ override) + § X.9 (6 Risks + Watch Items + Q-E-3 telemetry YES-recommend); **NEW finding surfaced for jack-ryan re-Gate-1:** MG-5 § 7 pre-existing `CELL_CAPACITY_MAX=50` vs C2 30-kit ratification scaffold drift
-2. **jack-ryan LIGHT re-Gate-1** verification across all 6 amendments (~1-2 hrs; bundled review) — 🔥 FIRING (Pattern-A; dispatch at `2026-05-27-jack-ryan-light-re-gate-1-six-math-notes.md`)
+2. **jack-ryan LIGHT re-Gate-1** verification across all 6 amendments (~1-2 hrs; bundled review) — ✅ **PASS** at meta `25af11c` (no BLOCKs). Per-note verdicts: MG-1 PASS / MG-2 PASS-w-R (1 amendment) / MG-3 PASS-w-R (6 amendments LOAD-BEARING) / MG-4 PASS-w-R (5 amendments) / MG-5 PASS-w-R (CELL_CAPACITY 50→30 in § 7 + § 2 + E-Dev-Phase-Aware encoding) / PM-1 PASS-w-R (elrond algorithm commit + thresholds 24/20/12/8 + PM-1↔MG-5 loop § 5.4) / PM-2 PASS (§§ 2.7+3.7 clean). **6 ratifications closed:** Q-MG-3-1 Welford 500 / Q-MG-5-1 OWN 30-kit reject pool cap / Q-MG-5-2 T-B-α primary + T-B-γ override / Q-MG-5-3 in-scope scaffold annotation / Q-PM-1-1 substrate-led discipline preserved / Q-PM-2-1 Sketch F hidden-at-engine-layer satisfied. **GATING NOTE for KR (jack-ryan):** Dispatch 3A/3B must NOT fire until gamora (MG-2/3/4/5) + gandalf (PM-1) transcribe amendment text into canonical notes. Transcription obligation, not new design question. Amendment text authority = elrond consultation `f8eb1a4` + gandalf PM-2/MG-5 amendments `7233e0f`.
 3. **Matt-gate fires** as 8 math-note algorithm ratifications + 1 WARN + 4 INFO per Discipline #18 math-hotspot ratification
 4. **Post Matt-gate:** Dispatches 3A (gamora Phase 4 impl ~3-4 weeks) + 3B (gandalf+star-lord+rocket Phase 5 impl ~2-3 weeks parallel) authored with:
    - Move 1 quality-criterion template
@@ -347,7 +347,7 @@ State file archival path (when reached): rename to `agentic_orchestration/cycle-
 ## 9. Sign-off (LIVE)
 
 **State file owner:** knight-rider (orchestrator)
-**State file status:** LIVE — Cycle 14 Path (1) in flight; pre-Matt-gate amendment authoring queued (gandalf PM-2 + MG-5)
-**Last updated:** 2026-05-27 (elrond methodology consultation COMPLETE `f8eb1a4` + Matt 5 in-advance ratifications + D-Sharpened + E-Dev-Phase-Aware amendments + star-lord PM-2 `708b575` 5 Dispatch 3B items)
+**State file status:** LIVE — Cycle 14 Path (1) Phase 4+5 LIGHT re-Gate-1 PASS; Matt-gate ratification fire-ready; Option α re-Gate-1 still firing (parallel)
+**Last updated:** 2026-05-27 (jack-ryan Phase 4+5 LIGHT re-Gate-1 PASS `25af11c`; 7 dispositions + 6 ratifications closed; transcription gating note for Dispatch 3A/3B captured)
 
 **For:** cross-session continuity per hive-mind protocol § 8.1. Captures Wave + sidecar dispatch state for Cycle 14 lifecycle. Updated at each Wave boundary + dispatch completion. Archives on Cycle 14 close.
