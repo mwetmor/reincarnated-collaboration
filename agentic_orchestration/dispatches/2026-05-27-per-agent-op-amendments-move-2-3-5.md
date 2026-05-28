@@ -205,7 +205,26 @@ If the OP file doesn't yet exist for any agent, create it per the gandalf OP pro
 
 ### drax
 
-(pending)
+**Completed:** 2026-05-27
+**Agent:** drax
+**Status:** DONE
+
+**Framing-audit (Discipline #42) applied at entry:**
+- Q1: drax OP exists and is current; template applies without contradiction; drax has self-amendment authority; refusals directory confirmed present at `agentic_orchestration/drax/refusals/`
+- Q2: refutation evidence sought — no placement conflict found; existing Discipline #23 cross-reference composes with Move 2 (different depth: #42 fires at dispatch consumption entry, #23 is deep verdict-authoring protocol)
+- Q3: no contradiction surfaced; no framing-refusal invoked; proceeding
+
+**Placement decisions:**
+- Move 5 (orientation phrase): inserted at top preamble after metadata block, before `§ 0 What this skill IS and IS NOT`; canonical authority cross-referenced to AGENTS.md
+- Move 3 (framing-refusal authority): inserted as `### Framing-refusal authority (Discipline #44)` in `§ 2` mode-selection section, after Pattern B entry; cross-references `agentic_orchestration/drax/refusals/`; R-2 pattern adapted for presentation-seam specificity (engine-side fix from presentation seam named explicitly)
+- Move 2 (framing-audit at dispatch consumption): inserted as `§ 3.9` in `§ 3` decision-loop discipline section, after `§ 3.8`; includes composition note with Discipline #23 clarifying #42 fires at dispatch entry (#42 = gate, #23 = deep protocol); presentation-seam hotspots named (Vercel deploy decisions, demo-vs-loadout feature-placement)
+
+**Composition notes:**
+- Q-OP-drax-1: Template placement worked cleanly. Move 3 placed inside `§ 2` mode-selection (after Pattern B) rather than as a standalone section break — preserves mode-selection as the complete "what kind of work + what can be refused" block.
+- Q-OP-drax-2: Discipline #23 (framing-audit checklist; Pattern A-deep three-question protocol) pre-existed in cross-references. Composes-with Move 2 rather than replacing. Documented in §3.9 composition note.
+
+**Files amended:**
+- `agentic_orchestration/operating-procedures/drax.md`
 
 ### elrond
 
