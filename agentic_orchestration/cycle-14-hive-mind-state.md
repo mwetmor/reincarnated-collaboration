@@ -549,6 +549,52 @@ Gamora SC-7 ✅ COMPLETE at engine `e7af7db` + tag `gamora/v1.8-sc-7-base-spell-
 
 **Cycle 14 close trajectory at Option 1 + Option 6 ratification:** ~0.75-1d gamora boss HP rebase → Wave 5 cascade resumes → ~3-5d D13 parallel framework → v1 tag → end-to-end **~4-6 days from this ratification**.
 
+---
+
+### MATT GATE-5 RATIFICATIONS LOCKED 2026-05-28 + CASE-REGISTER REFRAMING
+
+**D1 RATIFIED — Option 1 Boss HP Rebase for Cycle 14:**
+- Architectural anchor: **CANONICAL SCAFFOLD RESOLUTION** that `endgame_mob_stat_profile.py` "ANCHOR INTENTS, not locked simulation targets" annotation (`ee15c96`, Cycle 13 SC-6) was waiting for. Not workaround; not Discipline #39 scaffold-fallback (D2-REJECTED at Gate-4 still holds). Rebase IS the calibration SC-6 deferred to Phase 7 gate.
+- Effort: ~0.75-1d (gamora boss HP sweep + jack-ryan canonical retraction record = Discipline #40 case (c) THIRD iteration on Phase 7 doc). Fits Phase 7 IMPL bridge window. Cycle 14 v1 close trajectory PRESERVED at ~4-6 days from ratification.
+
+**D2 RATIFIED — Option 6 damage-as-%-of-HP metric replacement for Cycle 15:**
+- Architectural anchor: resolves two-path divergence (physical vs magical damage scaling produces structurally different DPS curves; per-kit KPM calibration inherits divergence; %-HP metric eliminates divergence at metric layer). Composes Track 1 telemetry as Discipline #18 refinement baseline empirical signal — D3-deferred from Gate-4 surfaces as design-positive.
+- Pre-flight (Cycle 15 entry): **legolas Mode A methodology consultation on metric formulation (~half day) before Cycle 15 dispatch authoring fires.**
+- Cycle 15 architectural commitment: Option 6 damage/HP% metric (D3 from Gate-4 re-surfaces as Cycle 15 commit; **D2 Phase 2 per-encounter-type bands SUBSUMED by Option 6 single-metric architecture**; **KPM ceiling 600.0 investigation retains Cycle 15 scope**).
+
+**D3 RATIFIED — Tag persistence + new tags:**
+- `gamora/v2.0-option-f-track-1-per-damage-path-bands-1` **PERSISTS** as Track 1 infrastructure marker (band table re-activates post boss-HP-rebase per jack-ryan rationale)
+- `gamora/v2.1-boss-hp-rebase-1` **NEW** for case 8 resolution
+- `jack-ryan/v1.5-phase-7-canonical-retraction-3` **NEW** for Discipline #40 case (c) third iteration
+
+---
+
+### CASE-REGISTER REFRAMING (Matt 2026-05-28 framing note — LOAD-BEARING)
+
+**Cycle 14 case register revised:**
+- **Cases 1-7** = HIDDEN SCAFFOLD-DRIFT CATCHES (framework catching design drift via empirical sub-agent execution)
+- **Case 8** = **CANONICAL SCAFFOLD RESOLUTION** (framework processing source-annotated documented scaffold through planned resolution path)
+
+**Discipline #39 framework maturation insight:** the design pattern has matured to where DOCUMENTED scaffolds reach their planned-resolution gates and get processed canonically — a structurally different operational mode than catching hidden drift. Case 8 is the first instance.
+
+**Forensic precedent:** `endgame_mob_stat_profile.py` source annotation at `ee15c96` verbatim: *"ANCHOR INTENTS, not locked simulation targets. Gamora calibrates final numerics via simulation per Block C Scaffold 1 § 1.4."* — this is the canonical pattern for explicitly-flagged scaffolds: source annotation + calibration-target identified + handoff gate named.
+
+**Future canonical scaffold resolution pattern:** when a source-annotated scaffold reaches its planned-resolution gate, expect calibration-class work (~0.5-1d), not scaffold-drift triage (~0.25-0.4d Gate-N disposition + 0.75-2d resolution). The disposition itself becomes lighter when source annotation pre-resolves the framing question.
+
+---
+
+### KR EXECUTION PLAN — Gate-5 ratification fan-out
+
+**Parallel dispatches authored + firing:**
+- 🔥 **gamora dispatch — boss HP rebase** (Option 1; Pattern B; ~0.75-1d). Acceptance: population-DPS sweep → boss HP factor range rebase in `endgame_mob_stat_profile.py` → Track 1 re-run with new HP → smoke ≥12/18 emit → tag `gamora/v2.1-boss-hp-rebase-1`.
+- 🔥 **jack-ryan dispatch — Phase 7 canonical retraction record** (Discipline #40 case (c) third iteration; Pattern B; ~0.25d). Acceptance: § 3.11+ authored on Phase 7 doc capturing retraction + Track 1 band table re-activation + Option 6 Cycle 15 forward-link → tag `jack-ryan/v1.5-phase-7-canonical-retraction-3`.
+
+**Cycle 15 queue (post Cycle 14 v1 close):**
+- 🟡 legolas Mode A methodology consultation on Option 6 damage/HP% metric formulation (~0.5d; pre-flight before Cycle 15 dispatch authoring)
+- 🟡 Cycle 15 architectural commits: Option 6 single-metric replacement; D2 Phase 2 per-encounter-type bands subsumption; KPM ceiling 600.0 investigation
+
+**Gate-1 jack-ryan review of gamora dispatch fires FIRST (~5-10 min) per Pattern B + Cycle 14 cadence.** Then parallel fan-out.
+
 **Meta-discipline lessons captured (Matt 2026-05-28):**
 - "Scaffolds get RESOLVED, not deliberately introduced" — D7 escalation policy IS for resolution, NOT scaffold proliferation
 - Discipline #18 refinement: methodology consultation at extension hotspots fires AFTER baseline empirical signal lands (Track 1 IS baseline; Track 2 design call deferred)
