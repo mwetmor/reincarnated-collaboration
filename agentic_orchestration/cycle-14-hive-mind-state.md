@@ -1532,6 +1532,56 @@ KR fires Phase 4 sub-agent with explicit § 10.7 + § 10.8 coordination signal i
 - Cases 1-15: prior
 - Case 16: Mode A engine-execution layer (element_conversion_factor TODO at damage_resolver.py:618) — Phase 3e resolves
 
+---
+
+### PHASE 3e BLOCKED 2026-05-28 EVENING LATE — CASES 17+18 SURFACED VIA GUARD CLAUSE
+
+**Rocket fired dispatch § 1.1 guard clause correctly** ("If T4 conversion mechanic spec is NOT canonically locked, rocket consults gandalf"). Phase 3e implementation BLOCKED pending gandalf design lock.
+
+**Rocket math note + gandalf request committed:**
+- Math note: `~/Games/reincarnated-engine/src/reincarnated/simulation/math/w-alpha-7-phase-3e-element-conversion-factor-implementation-2026-05-28.md` (Discipline #1; flat-factor cancellation proof; two-part root cause)
+- Gandalf request: `agentic_orchestration/gandalf/requests/2026-05-28-rocket-element-conversion-factor-design-lock-request.md` (Q1+Q2+Q3 lock)
+
+**TWO-PART ROOT CAUSE DECOMPOSITION (rocket finding):**
+
+**Part 1 (rocket seam — case 17):** `damage_resolver.py:618 element_conversion_factor = 1.0  # TODO` stub. Canonical docs (47, 50, 51) reference factor in damage formula but **NO numeric value specified anywhere**. `mechanic_alteration.py ElementConversionStrategy` returns `{"target_element": "fire", "scope": "all_damage"}` — no numeric factor. **Case 17 = canonical spec gap for ELEMENT_CONVERSION numeric mechanic.**
+
+**Part 2 (gamora seam — case 18; NEW FINDING):** `season_generation_pipeline.py _build_real_player_class()` does NOT pass `alteration_fields` to PlayerClass construction. **T4 ELEMENT_CONVERSION element override (canonical_element → "fire") is NEVER applied during Phase 4 gauntlet runs.** `unified_calibration_loop.py` line 2408 acknowledges this explicitly but treats it as "not a limitation." **Case 18 = Mode A engine-execution wiring gap.**
+
+**ARCHITECTURAL IMPOSSIBILITY PROOF (rocket math note § 4.2 flat-cancellation):**
+
+> *"A flat `element_conversion_factor` (whether constant or element-pair lookup) CANNOT produce Target 4 specialization peaks in the season 001 kit population. Proof: within every `damage_scaling_path` cohort, all kits share the same source element (str=earth, dex=wind, int=fire, wis=water). Any flat factor F scales both kit_KPM and cohort_median by F; the specialization ratio is invariant."*
+
+This is structurally significant: **Options A/B/C (identity / fixed boost / element-pair lookup) cannot satisfy Target 4 by themselves**. Only Option D (per-encounter elemental advantage) OR Option A + Phase 3d-RE-RUN-under-T4-context can produce Target 4 specialization peaks.
+
+**Rocket Q1-Q3 to gandalf:**
+- **Q1 (BLOCKING):** numeric value of `element_conversion_factor` — Option A identity 1.0 / B fixed boost / C element-pair lookup / D per-encounter advantage table
+- **Q2:** is the numeric factor the Target 4 specialization mechanism, or do peaks come from Phase 3d `base_at_max` + element-affinity gear shift?
+- **Q3:** PoE Avatar of Fire genre precedent — numeric fire-bonus or pure unification?
+
+**Rocket's engineering assessment (for gandalf):**
+- **Fastest viable:** Option A (identity 1.0) + Phase 4 RE-RUN wiring fix (Part 2 case 18) + Phase 3d BASE re-derivation under T4 context
+- **More scope:** Option D adds per-encounter `FIRE_ADVANTAGE_TABLE` data structure (+ 0.5-1d)
+- **Time post-lock:** rocket Part 1 = 1-2hr; gamora Part 2 = 2-4hr
+
+**KR routing:**
+- 🔥 **Fire gandalf consultation (Q1+Q2+Q3 design lock)** — Tier-A canonical-write seam authority; ~30-45min expected
+- ⏳ On gandalf design lock:
+  - If Option D or BASE re-derivation needed → Matt Pattern-B ratification (scope expansion per Discipline #47)
+  - If Option A + Part 2 wiring → rocket completes Part 1 (~1-2hr) + Phase 4 RE-RUN dispatch amended to include gamora Part 2 wiring (~2-4hr) parallel; ~3-6hr total to Phase 4 RE-RUN fire
+- ⏳ Phase 4 RE-RUN gamora (with Part 2 wiring fold-in)
+- ⏳ Phase 5 + Phase 6 cascade
+
+**Discipline #48 candidate N tracking:**
+- Case 17 = canonical spec gap (ELEMENT_CONVERSION numeric mechanic unspecified) → could be classified as scope-completeness → potentially N=5
+- Case 18 = engine-execution layer (gamora wiring) → not scope-completeness; N would stay at 5
+- KR defers classification to jack-ryan Phase 6a disciplines batch (per established cadence; classification specifics are jack-ryan seam authority)
+
+**Cycle 14 case register revised (final this turn):**
+- Cases 1-16: prior
+- **Case 17: canonical spec gap** (ELEMENT_CONVERSION numeric mechanic unspecified in doc 47/50/51 + mechanic_alteration.py)
+- **Case 18: Mode A engine-execution layer** (season_generation_pipeline._build_real_player_class missing alteration_fields wiring)
+
 **Cycle 14 v1 close trajectory: ~14-22d from this evening ratification.** Path α 4-6 week budget intact (~42 calendar days; current ~Day 0; v1 lands ~Day 14-22 leaving ~20-28 days margin).
 
 ---
