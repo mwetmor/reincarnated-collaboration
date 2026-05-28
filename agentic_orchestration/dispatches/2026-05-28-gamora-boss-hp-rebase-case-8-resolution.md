@@ -41,7 +41,9 @@ Working backwards from Track 1 INT/WIS KPM bands (75-82 median observed):
 
 Compute new `ENDGAME_TIER_HP_FACTOR_RANGE["boss"]` from population-median DPS. Show derivation. Include sensitivity analysis: what if KPM target = 50 vs 75 vs 100? What if population DPS distribution shifts ±20%?
 
-Also reconsider mini-boss factor range `(5.00, 8.00)` — if boss is rebased, mini-boss should rebase proportionally to maintain difficulty tier semantics (likely also empirically-driven by Track 1 mini-boss data if present).
+**Cross-cohort variance operationalization (jack-ryan Gate-1 Amendment B):** median DPS target = population median at Balanced cohort (primary calibration anchor); range width `(lo, hi)` spans steamroll/hard-out spread empirically — report 25th/75th percentile DPS across cohorts as the lo/hi bounding inputs to the new HP factor range. This operationalizes the cross-cohort risk at § 5 and removes execution-time judgment from the decision.
+
+**Mini-boss tier decision rule (jack-ryan Gate-1 Amendment A):** if Track 1 telemetry contains ≥6 mini-boss encounter KPM observations across ≥2 cohorts, rebase mini-boss tier proportionally per same method (Balanced median anchor + 25th/75th percentile spread). Otherwise, preserve `(5.00, 8.00)` unchanged, document as Cycle 14-deferred in MIGRATION.md § v1.39 with explicit forward-link to "Cycle 15 per-tier calibration sweep" gate. No discretionary path; gamora has the decision rule.
 
 ### 1.3 Cross-seam rebase (ADR-004)
 
@@ -139,8 +141,8 @@ Canonical doc:
 
 ## 5. RISKS + COMPLICATIONS
 
-- **Population-DPS variance high.** If population-median DPS varies materially across cohorts (steamroll vs hard-out), single rebase value may not produce broad emit signal across all cohorts. Mitigation: per-cohort HP factor (already supported by `ENDGAME_TIER_HP_FACTOR_RANGE[(lo, hi)]` range); empirical sweep determines whether range tightens or stays loose.
-- **mini-boss tier may need parallel rebase.** Track 1 telemetry may not cover mini-boss encounters with sufficient depth; if so, gamora reasonably calibrates boss-only and notes mini-boss as Cycle 14-deferred-on-tier-correlation rather than re-spawning a parallel rebase fire.
+- **Population-DPS variance high.** If population-median DPS varies materially across cohorts (steamroll vs hard-out), single rebase value may not produce broad emit signal across all cohorts. **Resolved via Amendment B operationalization at § 1.2:** Balanced cohort = primary calibration anchor; range width spans empirical 25th/75th percentile across cohorts.
+- **mini-boss tier rebase decision-rule.** **Resolved via Amendment A operationalization at § 1.2:** ≥6 observations across ≥2 cohorts → rebase mini-boss proportionally; else preserve + Cycle 15 forward-link in MIGRATION.md.
 - **Cross-seam ADR-004 friction.** Touching `endgame_mob_stat_profile.py` requires MIGRATION.md; the file lives in generation/ (rocket seam). The source annotation explicitly pre-authorizes the handoff, but rocket is informed via MIGRATION.md update and may file a future audit on the new values' consistency with rocket's substrate generation expectations (low risk; rocket SC-6 commit authored the ANCHOR INTENTS scaffold expecting this gate).
 - **Track 1 re-run cost.** `run_track1_archetype_sweep()` is the longest single sim operation; budget ~30-60min wall time + per-cohort assertions. Pre-fire resource projection per Discipline #18.1 — if peak memory exceeds host RAM, scope-reduce per cohort sequence.
 
