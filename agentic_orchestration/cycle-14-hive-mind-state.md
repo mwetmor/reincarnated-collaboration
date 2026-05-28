@@ -347,7 +347,12 @@ State file archival path (when reached): rename to `agentic_orchestration/cycle-
 ## 9. Sign-off (LIVE)
 
 **State file owner:** knight-rider (orchestrator)
-**State file status:** LIVE — Cycle 14 Path (1) **✅ MATT-GATE RATIFIED + 6 pre-ratifications 2026-05-27** + implementation wave cascading. Status update:
+**State file status:** LIVE — Cycle 14 Path (1) **✅ MATT-GATE RATIFIED + 6 pre-ratifications + D-1/D-2B 2026-05-27** + implementation wave cascading. Status update:
+
+**Wave 3 Seam 1 RE-FIRE pending** — gandalf Wave 3 Seam 1 first fire hit API stream timeout at 658s; LLM prompts NOT saved (no `canonical/story/phase-5-llm-prompts-*` artifact created); ONLY PM-2 § 13.3 INFO-1 lexicographic_tiebreak amendment survived in working tree + committed at engine `0cf4f3a` (gandalf-attributed). KR queues re-fire.
+
+**Gamora Phase 7 IMPL RE-FIRED** at agentId `ad4fd234eed95418b` (prior fire TaskStopped + clean re-fire with D-1+D-2B explicit in invocation prompt + amended dispatch text on disk). Killed-session uncommitted MIGRATION.md skeleton remains in engine working tree (silent on D-1/D-2B; new fire will rewrite/augment per dispatch authoritative spec).
+
 
 **Matt 6 pre-ratifications LOCKED 2026-05-27:**
 1. Phase 7 2-layer joint-gate thresholds STATIC Cycle 14 v1
