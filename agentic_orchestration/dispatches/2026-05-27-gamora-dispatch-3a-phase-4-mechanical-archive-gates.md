@@ -179,4 +179,84 @@ Embed in completion record + AGENT_STATE.md:
 
 ## Completion record
 
-(append on completion)
+**Completed:** 2026-05-27
+**Commit:** `749d5aa` (engine main) — `gamora(dispatch-3a): Phase 4 mechanical archive gates MG-1/2/3/4/5 implementation`
+**Tag:** `gamora/v1.6-dispatch-3a-phase-4-mechanical-archive-1`
+**Smoke result:** 46/46 PASS
+
+### Scope completion checklist
+
+- [x] Part 1 — MG-1 Pareto Dominance: strict 5D; per-cell bounded; G-MG1-1 PASS; ε-dominance rejected
+- [x] Part 2 — MG-2 Crowding: NSGA-II Algorithm A; MIN_POPULATION_FOR_DIVERSITY=10 (=2d); G-MG2-1+2 PASS; HVC deferred indefinitely
+- [x] Part 3 — MG-3 Mahalanobis (LOAD-BEARING): Gaussian + Tikhonov λ=1e-3; Welford 500-insertion checkpoint; MIN_COV_POPULATION=15; empirical 5% target threshold; Pareto-strict replacement PRIMARY; HDBSCAN standby module § 4.6 — compiles and runs; G-MG3-1 Shapiro-Wilk gate (α=0.05; 2-of-5 dims × 30% cells) — structure verified
+- [x] Part 4 — MG-4 KL/JSD: JSD PRIMARY across full k range; discrete-grid KL RETIRED; NOVELTY_CLAMP REMOVED; Silverman+h_floor=0.05; MIN_KL_POPULATION=10; G-MG4-1+2 PASS
+- [x] Part 5 — MG-5 Eviction: E-Dev-Phase-Aware; OWN 30-kit reject pool (FIFO enforced); CELL_CAPACITY_MAX=30; Trigger B = T-B-α primary + T-B-γ override; Q-E-3 telemetry (FIFO eviction count per cell per season); Pareto Rank 0 protection documented; G-MG5-1+2 PASS
+- [x] Part 6 — Elrond cross-cutting items:
+  - [x] Shared CellContext materialization at Phase 4 pipeline entry (Σ + Q_mean + sorted_per_dim shared across MG-1/2/3/4; single build per insertion)
+  - [x] Post-first-smoke covariance audit deliverable infrastructure: `run_covariance_audit()` in `phase4_pipeline.py`; audit dict structure verified in smoke. **PENDING:** actual filing at `agentic_orchestration/elrond/notes/<date>-phase-4-covariance-audit.md` deferred until first production season run produces qualifying cells (k≥15). KR routes to elrond post-first-smoke.
+  - [x] PM-1↔MG-5 calibration feedback loop hookup (gamora side): `PM1FeedbackChannel` in `phase4_mg5_eviction.py`; 5-season window; `get_recent_evictions()` interface for rocket Dispatch 3B; G-PM1-1+2 PASS
+- [x] Part 7 — Risks + Watch Items: embedded in AGENT_STATE.md + MIGRATION.md § v1.34
+
+### G-gate firings (smoke pass results)
+
+| Gate | Description | Result |
+|---|---|---|
+| G-MG1-1 | Strict 5D Pareto; non-dominated pass; per-cell bounding | PASS |
+| G-MG2-1 | Crowding k<10 unconditional diversity=1.0 | PASS |
+| G-MG2-2 | Crowding k≥10; boundary max; score ∈ [0,1] | PASS |
+| G-MG3-1 | Shapiro-Wilk normality gate structure; HDBSCAN module compiles | PASS |
+| G-MG4-1 | JSD k<10 unconditional novelty=1.0 | PASS |
+| G-MG4-2 | JSD k≥10; score ∈ [0,1]; novel > redundant | PASS |
+| G-MG5-1 | Cell cap=30; capacity stress 35→30; reject pool cap independent | PASS |
+| G-MG5-2 | Reject pool FIFO 35→30 (5 evicted); TTL purge | PASS |
+| G-PM1-1 | PM-1 feedback events emitted; summary fields | PASS |
+| G-PM1-2 | 5-season window; old events pruned | PASS |
+| G-PM1-3 | CellContext shared; cov at k≥15; Euclidean fallback k<15 | PASS |
+| G-PM1-4 | Per-cell bounding; cross-cell independence | PASS |
+
+### EXPLAIN QUERY PLAN (Discipline #46 Pattern 3)
+
+DDL + query patterns implemented in `phase4_db.py`. `capture_all_explain_plans(conn)` infrastructure ready. Production EXPLAIN output pending DB-backed archive wiring (star-lord Dispatch 3B). In-memory archive used in smoke tests (interface contract is stable; DB substitution is drop-in per `phase4_db.py` DDL).
+
+Key query: `QUERY_ACTIVE_RESIDENTS` uses `WHERE bc_cell_id = :cell_id AND archive_status = 'ACTIVE'` — requires composite index `(bc_cell_id, archive_status)` per DDL. No unbounded fetchall on global archive.
+
+### Per-cell capacity stress test (Discipline #46 § 7)
+
+`test_g_mg5_1_per_cell_capacity_stress`: 35 insertions → cell population ≤ 30 PASS.
+`test_g_mg5_2_reject_pool_fifo_enforcement`: 35 rejects → reject pool = 30 (5 FIFO evicted) PASS.
+Total per-cell maximum: 30 archive + 30 reject pool = 60 rows VERIFIED.
+
+### Covariance audit deliverable (elrond cross-cutting item 2)
+
+**Status:** infrastructure complete (smoke PASS). Filing deferred to post-first production season.
+Gate criterion: first season run with qualifying cells (k≥15). KR routes audit dict to elrond after first smoke fires. Path: `agentic_orchestration/elrond/notes/<date>-phase-4-covariance-audit.md`.
+
+### Discipline #41/#42/#44/#46 § 7 verifications
+
+- **Discipline #42 (framing-audit):** Q1/Q2/Q3 verified — assumptions 1-4 from math notes hold; per-cell bounding confirmed; HDBSCAN spec gap NOT surfaced (module compiles); PM-1↔MG-5 not circular (5-season window; no feedback loop back to MG-5)
+- **Discipline #44 (framing-refusal):** NOT triggered — HDBSCAN § 4.6 pseudocode compiled successfully; no legolas Mode A consultation needed
+- **Discipline #46 § 7 (LOAD-BEARING):** fetchall grep CLEAN; all Phase 4 gates bounded to single bc_cell_id; CellContext never crosses cells; reject pool per-cell cap enforced; PM-1 channel emits per-cell events
+- **Discipline #41:** not directly applicable (no new simulation seam-crossing behavior in this dispatch)
+
+### Q-3A open questions disposition
+
+- **Q-3A-1:** HDBSCAN § 4.6 pseudocode compile-test — VERIFIED IMPL-READY. Module runs in G-MG3-1 test (test_hdbscan_fallback_compiles_and_runs PASS). No methodology gap.
+- **Q-3A-2:** Shared CellContext cache invalidation — implemented as per-insertion full rebuild (at k≤100 scale, rebuild is O(k×d) which is negligible). No per-batch vs per-insertion trade-off needed at this scale.
+- **Q-3A-3:** MG-2 § 7 cosmetic "k < 6 default" bullet — FIXED at impl entry. `MIN_POPULATION_FOR_DIVERSITY = 10` (body substance; confirmed by G-MG2-1 test assertion `assert MIN_POPULATION_FOR_DIVERSITY == 10`).
+- **Q-3A-4:** PM-1↔MG-5 5-season window compatibility with star-lord telemetry — `PM1FeedbackChannel.get_recent_evictions(season_id)` is the interface. Star-lord telemetry must persist PM-1 events at season-emit time (star-lord Dispatch 3B). No cross-seam schema mismatch identified; `MIGRATION.md § v1.34` documents the interface.
+
+### Risks + Watch Items status
+
+- **F-1 G-MG3-1 firing rate:** NOT measured at production scale. Deferred to first real season run. Gate criterion: >30% → HDBSCAN substitution re-Gate-1.
+- **F-2 per-cell capacity blowup:** capacity stress PASS (35→30). Full 68,040-cell production scale deferred.
+- **F-5 joint-gate threshold drift:** Phase 7 not yet implemented; no drift surface.
+- **F-6 class-vocabulary:** grep CLEAN.
+- **D-3 archive as canonical library drift:** TTL purge PASS; reject pool bounded.
+
+### Hand-back to KR
+
+1. **Covariance audit routing:** after first production smoke (real season with qualifying cells), KR routes covariance audit dict to elrond Pattern-A review at `agentic_orchestration/elrond/notes/<date>-phase-4-covariance-audit.md`.
+2. **G-MG3-1 firing rate monitoring:** if first production smoke shows >30% cells failing normality → re-Gate-1 for HDBSCAN substitution as primary (not standby).
+3. **Star-lord Dispatch 3B:** `kit_archive` + `reject_pool` DDL + Q-E-3 telemetry surface documented in `MIGRATION.md § v1.34`.
+4. **Rocket Dispatch 3B:** PM-1 consumer side — `PM1FeedbackChannel.get_recent_evictions()` interface ready at `phase4_mg5_eviction.py`.
+5. **Trigger B operational definition:** T-B-α (N=3 consecutive Cycle wave-closes PASS) primary + T-B-γ (Matt explicit verdict) override — jack-ryan ratified at `25af11c`; actionable when first 3 production waves close.
