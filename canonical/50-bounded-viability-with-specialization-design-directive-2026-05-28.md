@@ -260,6 +260,30 @@ The 5 targets are not independent — they compose. Target 1 (base DPS variance)
 | Specialization (peaks) | Target 4 (1-2 peaks in [1.5×, 2.0×] band) |
 | No strict dominance (bidirectional) | Target 3 (no ceiling saturation) + Target 1 (≤1.5× base variance) + Target 5 (no kit below 30% on all encounter types) |
 
+### 4.7 Composition with investment scaling (doc 51) — max-investment-profile is the calibration anchor
+
+**Forward-link (2026-05-28 evening; Matt RATIFICATION AMENDMENT integrated W-α7+ Phase 2):**
+
+`canonical/51-investment-scaling-6-pattern-architecture-2026-05-28.md` operates the per-node investment dimension (passive ∈ [0, 5] / active ∈ [0, 15] per `cycle13Types.ts:255` NODE_MAX). Pattern 1 (active skill damage scaling) and Pattern 2 (passive skill effect scaling) introduce the per-skill multiplier `[(1 - decay) + decay × (points / NODE_MAX)] × base_at_max` — bounded above by `base_at_max` (max-investment) and bounded below by `(1 - decay) × base_at_max` (zero-investment floor; 0.35× active, 0.50× passive).
+
+**The cohort_median that this doc's 5 design targets validate against is computed at max-investment-profile** per doc 51 § 3.5 + § 4.5 + § 6.4. Specifically:
+
+- **Target 1 (base DPS variance ≤1.5×)** — measured at max-investment-profile because the per-tier ratio 1:1.5:2.17:4.0 (Matt Phase 2 spec) preserves uniformly when investment multipliers are at their cap (1.0); cross-path variance at sub-max profiles is bounded by max-profile variance and floor-decay
+- **Target 2 (zero_count = 0)** — at max-investment-profile structurally satisfied by Pattern 1+2 form (multiplier > 0 at all points-invested ≥ 0); per-encounter-type bands populated via Phase 4 multi-dim calibration cover all 18 kits × 6 encounter types
+- **Target 3 (saturation_count = 0)** — investment scaling caps at multiplier=1.0 at max; super-peaks above `base_at_max` are NOT possible from investment scaling per doc 51 § 7.2 (formal proof); ceiling saturation is a separate measurement (W-α2 ceiling raise/remove)
+- **Target 4 (specialization 1.5-2× cohort median)** — specialization peaks emerge from `base_at_max(path, kit, tier, encounter_type)` distribution at max-investment-profile, NOT from investment scaling. Phase 3d gamora BASE re-derivation per-path × per-kit × per-tier is the calibration that produces the peak distribution; investment scaling at max provides the multiplier=1.0 that lets peaks land at calibrated `base_at_max`
+- **Target 5 (floor ≥30% cohort median)** — at max-investment-profile straightforward (full `base_at_max` × scaling); at sub-max profiles bounded by floor decay; if Phase 4 multi-dim calibration surfaces low-profile floor violations, resolution path is Phase 3c encounter HP rebalancing (low-profile-required-output reduction) per doc 51 § 7.3
+
+**Multi-dimensional validation:** Phase 4 multi-dim calibration extends the validation harness across paths × cohorts × encounter_types × investment_profiles = ~4 × 4 × 6 × 4-profile = ~384-cell space. The compound_pass criterion at max-profile slice IS the doc 50 5-target gate; aggregate compound_pass across profiles ensures bounded-viability holds at low / mid / mixed-profile too.
+
+**Profile semantic definitions** (per doc 51 § 6.1):
+- low-profile = early-game, <~25% budget invested
+- mid-profile = mid-game, ~25-75% budget invested
+- max-profile = endgame, ≥~75% budget invested (cohort_median calibration anchor)
+- mixed-profile = atypical investment distribution (expected outlier; floor target preserves bounded-viability)
+
+The bounded-viability-with-specialization directive operates over **endgame play** — the player at max-profile experiences the design intent. Sub-max profiles experience natural progression toward max-profile; the bounded floor (Pattern 1 0.35× active; Pattern 2 0.50× passive) preserves directive compliance at all profile levels.
+
 ---
 
 ## 5. Per-encounter-type validation framing
