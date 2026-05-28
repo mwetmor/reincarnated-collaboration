@@ -380,7 +380,23 @@ State file archival path (when reached): rename to `agentic_orchestration/cycle-
 - Dispatch E (Loadout Phase C stat calculator; ~1-2 weeks; doc 47 Track C gated)
 - **Dispatch F ⏳ QUEUED** for next drax invocation (Analytics + Encounters Cycle 14 wiring; ~1 week; Phase 7 IMPL ✅ landed; UNBLOCKED)
 
-**Design call #1 (H-5 hybrid seasonal hero):** gandalf bundle firing — seasonal_hero_candidates spec authoring at canonical/story/
+**Design call #1 (H-5 hybrid seasonal hero):** gandalf bundle ✅ COMPLETE at meta `35c2800` (doc 49 § 1.1.1 rank-0 amendment) + `574624a` (seasonal_hero H-5 hybrid spec ~660 lines). Q-Bundle-1 composite metric (w_quality·Q_norm + w_distinct·D_mahalanobis_norm + w_anchor·anchor_signal; weights 0.5/0.3/0.2 initial; #18 revision after 3 seasons); Q-Bundle-2 companion spec at canonical/story/; Q-Bundle-3 gandalf-autonomous within #43 authority DEFAULT + Pattern-B Matt escalation for 4 triggers.
+
+**Wave 5 Option C orchestration adopted 2026-05-27** per Matt orchestration concern + gandalf Option C recommendation:
+- Step 1 🔥 FIRING: gamora Wave 5 GENERATION (Phase 2-7; incremental-write per-phase commits; staging only — NO canonical commit)
+- Step 2 ⏳ POST step 1: KR fires gandalf #43 design-quality audit + A/B comparison + personage convergence
+- Step 3 ⏳ POST step 2: KR fires jack-ryan Gate-2 review
+- Step 4 ⏳ PASS branch: KR fires gamora (small) canonical_archetype_register commit + Court accumulation
+- Step 5 ⏳ FAIL branch: KR recalibrates per audit + re-fires step 1 (up to 3 attempts; Pattern B Matt escalation if 3 fail)
+
+**Drax Dispatch B 🔥 FIRING** post Dispatch A completion + doc 49 § 1.1.1 amendment landing (rank-0 + reset + persistence; ~1 week).
+
+**Queued KR follow-ons (next session):**
+- Ground-state oracle § 1 amendments (register doc 49 § 1.1.1 + seasonal_hero spec)
+- Phase 4 seasonal_hero_scorer impl (gamora; post-Wave-5)
+- Phase 5 ExportSeasonHeroCandidates schema (star-lord; post-Wave-5)
+- Wave 5 close gandalf OP § 4 amendment (selection workflow + audit-log template)
+- Drax Dispatch F (Analytics + Encounters Cycle 14 wiring) post Dispatch B completion
 
 **Star-lord post-first-3-seasons review surfaced:** F-D1/F-D2/F-D3/F-C12 audits for gandalf + star-lord joint review (downstream of Wave 5).
 
