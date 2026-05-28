@@ -643,6 +643,95 @@ Gate-5 D1 ratification rationale ("rebase IS the calibration") held for what it 
 
 **Pending Matt Pattern-B ratification.**
 
+---
+
+### MATT GATE-6 RATIFICATION REVERSAL LOCKED 2026-05-28 — PATH α (ROOT-CAUSE DAMAGE FORMULA REFACTOR)
+
+**Both Gate-6 KR-surfaced options REJECTED** + **Path α RATIFIED**.
+
+**CONTEXT REFRAME — design directive made explicit (Matt verbatim 2026-05-28):**
+
+> *"some kits are better at AOE, others are better at bosses/elites/mini-bosses, others are better at speed running, others are better in team play; all are within a bounded space of minimum viability but also none have zero strengths and all weaknesses."*
+
+This is the **bounded-viability-with-specialization** design directive. Both Gate-5 + Gate-6 KR option framings missed this — surfaced 79× population-median framing rather than per-encounter-type bounded-viability framing.
+
+**EMPIRICAL EVIDENCE — per-encounter-type aggregation reveals deeper structure than 79× population-median:**
+
+- INT/WIS **saturate 600 KPM ceiling on 4 of 6 encounter types** (no measurable weaknesses)
+- STR/DEX produce **0.0 KPM on boss + mini_boss + ~1.5 KPM on elite_pack** (catastrophic weakness; no strengths)
+- **Cross-path ratio at elite_pack: 365×** (worse than 79× initial framing)
+
+Current engine produces **INVERSE of design directive** — strictly-dominant + strictly-dominated paths, not bounded-viability-with-specialization.
+
+**PATH α RATIFIED — Root-cause damage formula refactor:**
+
+Scope:
+- **Unified or recalibrated damage formulas:** all 4 damage paths produce comparable BASE DPS at L50 (within ~1.5× variance)
+- **Engine KPM ceiling 600.0 raised or removed** (currently hides over-tuning)
+- **New unified calibration pass** — replaces SC-6b + SC-7 with single reference target
+
+**Operationalized design targets:**
+1. Base DPS variance ≤1.5× across paths
+2. Every kit produces non-zero KPM on every encounter type
+3. No kit saturates ceiling on any encounter type
+4. Specialization variance: each kit ~1.5-2× cohort median on 1-2 encounter types (designed, not emergent imbalance)
+5. No kit performs <30% of cohort median on any encounter type
+
+**Effort:** ~7-12 days realistic; ~10-15 days accounting for ~2-4 probable additional scaffold-drift cases (T4 capstones, gear scaling, monster HP curves, defense formulas, resource model interactions, attribute scaling).
+
+**Cycle 14 v1 close trajectory: ~4-6 weeks total** (extends current trajectory). **Q10 quality > timeline directly supports.** "Ship-the-novel-engine-with-the-fun/balanced-game" directly requires this.
+
+**Path β-NARROW REJECTED** (prior gandalf recommendation): would have shipped a "playable demo" preserving 365× cross-path imbalance. Violates bounded-viability-with-specialization design directive.
+
+**Path β-FULL (Gate-6 Option 6 damage/HP% metric) REJECTED:** would have replaced gate metric while preserving underlying damage formula imbalance. Future systems (gear, T4, progression, balance) would all inherit the divergence.
+
+**Matt re-evaluation hook:** if Path α refactor surfaces scaffold-drift case #9+ that extends Cycle 14 past 6 weeks total, Matt re-evaluates: extend further vs ship Path β-narrow as Cycle 14 v1 partial close + Path α as Cycle 15 architectural close. Path α doesn't lock; it shifts default to architectural honesty.
+
+---
+
+### CYCLE 14 RE-SCOPING — CANCELLED WORK + RE-SHAPED ROADMAP
+
+**CANCELLED (Path α supersedes):**
+- ❌ Wave 5 production season cascade (was: 3 seasons × emit ≥12/18 per Position B / D4) — no longer fires under current engine state; deferred until Path α complete + design targets met
+- ❌ D13 P1-P9 parallel framework (drax loadout sample-data, image pipeline, Court accumulation, Meshy embed, personage coherence, Analytics) — was gated on Wave 5 Gate-2 PASS; deferred until Path α Wave 5 re-fires
+- ❌ Cycle 15 Option 6 damage/HP% metric architectural commit (Matt D2 Gate-5 RATIFICATION) — Path α RATIFICATION REJECTS Option 6 (preserves underlying imbalance); D2 retroactively retracted
+- ❌ Legolas Mode A consultation on Option 6 metric formulation (was: pre-flight before Cycle 15 entry) — Option 6 retired
+- ❌ Jack-ryan § 3.11 retraction-loop framing amendment (was: re-frame FALLBACK as canonical marker) — superseded; Phase 7 doc enters HISTORICAL on Path α landing
+- ❌ KPM-band-table infrastructure (gamora v2.0 Track 1 + v2.1 boss HP rebase) — retained as historical instrumentation; KPM ceiling raised under Path α makes per-archetype bands moot
+
+**PRESERVED:**
+- ✅ Tags `gamora/v2.0-option-f-track-1-per-damage-path-bands-1`, `gamora/v2.1-boss-hp-rebase-1`, `jack-ryan/v1.5-phase-7-canonical-retraction-3`, `jack-ryan/v1.6-gate-6-case-8-empirical-re-disposition` — historical instrumentation tags persist as audit trail
+- ✅ All Gate-3/4/5/6 disposition records in `qa/pending/` — preserved as architectural-decision-trail
+- ✅ Empirical telemetry at `cycle-14-wave-5-season-001/` — load-bearing input for Path α work-stream design
+
+---
+
+### PATH α WORK-STREAM DECOMPOSITION (KR initial scoping)
+
+| Stream | Owner | Scope | Effort estimate |
+|---|---|---|---|
+| **W-α1 — Damage formula refactor** | rocket (foundation seam; element/anchor) | Unified or recalibrated damage formulas across 4 paths (STR-physical, DEX-physical, INT-magical, WIS-faith); base DPS variance ≤1.5× | ~3-5d |
+| **W-α2 — KPM ceiling raise/remove** | gamora (simulation seam; gauntlet_sim.py) | Raise or remove 600.0 ceiling; surface over-tuning empirically | ~0.5-1d |
+| **W-α3 — Unified calibration pass** | gamora (simulation seam; calibration loops) | Replace SC-6b + SC-7 binary-search calibrations with single reference target | ~2-3d |
+| **W-α4 — Design-target validation framework** | gandalf (design seam) + gamora (simulation seam) | 5 operationalized design targets formalized as canonical doc; validation harness in gauntlet sim | ~1-2d gandalf canonical + ~1-2d gamora harness |
+| **W-α5 — Path α canonical retirements** | jack-ryan (canonical-write seam) | Decisions-log entries for Path α RATIFICATION + Path β rejection rationale + Cycle 15 Option 6 D2 retraction; Phase 7 doc LOAD-BEARING → HISTORICAL | ~0.5d |
+
+**Sequential vs parallel dependencies:**
+- W-α4 (design-target canonical write) lands FIRST as load-bearing input
+- W-α1 + W-α2 + W-α3 fire PARALLEL post W-α4 design-target lock
+- W-α5 canonical retirements fire PARALLEL throughout (jack-ryan)
+- Wave 5 re-fire (against new engine state + design-target validation harness) lands at Path α close
+
+**KR routing:**
+- 🔥 **Path α master scoping dispatch authoring** (KR; this turn) — decomposes streams + sequencing + Gate-1 acceptance criteria
+- 🔥 **Jack-ryan Gate-1 review** of Path α master scoping (DESIGN-MODE; ~10-15 min)
+- 🔥 **Gandalf re-engagement on bounded-viability-with-specialization design-directive operationalization** (post Path β-narrow recommendation REJECTED context) — W-α4 lead authoring
+- ⏳ Per-stream dispatch authoring + parallel fan-out post Gate-1 PASS
+
+**Cycle 14 v1 close trajectory: ~4-6 weeks total from Path α firing.** Matt re-evaluation hook at 6 weeks if scaffold-drift case #9+ surfaces extending further.
+
+---
+
 **Jack-ryan retraction loop status:** § 3.11 FALLBACK retraction-pending notation now requires AMENDMENT — FALLBACK is NOT removed; FALLBACK is RETAINED post-rebase as structural finding. The retraction loop did not close as anticipated; gamora's empirical finding effectively converts "FALLBACK-as-artifact" → "FALLBACK-as-canonical-marker-of-two-path-divergence". Jack-ryan Gate-6 disposition includes updating § 3.11 framing.
 
 **Cycle 14 v1 close trajectory: AT RISK.** Either path forward (Option 3 / Option 5 / Option 6 advance) extends timeline. Pre-empirical estimate was ~4-6 days; post-empirical re-estimate awaits Gate-6.
