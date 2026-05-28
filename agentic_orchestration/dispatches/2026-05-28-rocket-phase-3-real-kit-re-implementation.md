@@ -69,6 +69,7 @@
 - [ ] D84 sub-option B per-legendary cohort selection methodology spec
 - [ ] BC coordinate validity criterion (what makes a coordinate "valid"; smoke-test acceptance threshold)
 - [ ] Composition with Phase 2 output schema + Phase 4 BC coordinate consumer + Phase 7 cohort classifier
+- [ ] **AMENDMENT 1 per jack-ryan Gate-1 (PASS-with-REVISIONS):** DB query pattern spec as explicit deliverable (Discipline #46 extension + #18 composition). Math note must include: per-cell bounding method + streaming vs fetchall + index verification via EXPLAIN QUERY PLAN. Per #46/#18: a math note that specifies algorithm without DB query pattern is incomplete.
 
 ### Part 2 — Phase 3 re-implementation (~1-2 days)
 
@@ -82,6 +83,7 @@
 - [ ] Remove `_SyntheticPlayerClass` from `season_generation_pipeline.py` lines 851-949 (or refactor with deprecation)
 - [ ] Remove `synthetic_mode=True` flag paths throughout pipeline.py
 - [ ] **Grep audit across ALL pipeline layers** (not just flag-level) for any remaining synthetic stubs (per Matt KR OP § 3.X observation; Wave 0.5 missed pipeline-layer)
+- [ ] **AMENDMENT 3 (recommended) per jack-ryan Gate-1:** explicit file scope for grep audit: `generation/season_generation_pipeline.py` + `simulation/gauntlet_sim.py` + `simulation/t4_sim_cycling.py` + `simulation/phase7_bridge.py` + `simulation/wave5_season_orchestrator.py`. Jack-ryan empirically verified existing references in t4_sim_cycling.py + phase7_bridge.py + gauntlet_sim.py are comment-only retirement notes (non-functional); confirm during audit.
 - [ ] Verify Discipline #39 LOAD-BEARING gap CLOSED via empirical grep audit
 
 ### Part 4 — Restore KPM gating per doc 39 § 5.3 playability gate (~0.5 day)
@@ -108,6 +110,7 @@
 - [ ] Verify BC coordinate validity post Phase 3 (empirical inspection; Discipline #11)
 - [ ] Verify Phase 4 + Phase 7 consume BC coordinates without degradation
 - [ ] Capture telemetry: per-kit KPM distribution + BC coordinate range + cohort classification
+- [ ] **AMENDMENT 2 per jack-ryan Gate-1 (PASS-with-REVISIONS) — Principle 6 round-trip clause:** `_build_legendary_config` output's `player_class` field changes from `_SyntheticPlayerClass` to real `PlayerClass`. Cross-seam consumer boundary = `combatant.from_player_class()`. Smoke-test MUST confirm real `PlayerClass` flows through `combatant.from_player_class()` without error; field-presence check passes (`stats.as_dict()`, `energy_type`, `skills`, `range_profile`). This Principle 6 round-trip clause folds into Part 7 smoke-test acceptance criterion.
 
 ### Part 8 — Incremental-write discipline + Wave 5 Option C composition (~throughout)
 
@@ -149,7 +152,7 @@
 
 ## Open questions for rocket
 
-- **Q-P3R-1:** Phase 2 staged kit format vs PlayerClass shape — direct consumable OR adapter needed? Your judgment per empirical inspection (read Phase 2 JSON + PlayerClass class at impl entry)
+- **Q-P3R-1:** Phase 2 staged kit format vs PlayerClass shape — direct consumable OR adapter needed? Your judgment per empirical inspection (read Phase 2 JSON + PlayerClass class at impl entry). **JACK-RYAN GATE-1 EMPIRICALLY VERIFIED 2026-05-28:** Phase 2 JSON kits contain `character_id` / `bc_tuple` / `element` / `cohort_archetype` — i.e., serialized `KitCandidate` NOT `PlayerClass`. Real `PlayerClass` is generated from `KitCandidate` inside `w5r1_generate_kit_candidates()` via generation pipeline. Real Phase 3 re-impl path: load Phase 2 JSON → reconstruct `KitCandidate` objects (OR call gen pipeline on 18 cells) → call `w5r2_gauntlet_sim_integration(kit_candidates=kits)` with real `KitCandidate` list which already builds `PlayerClass` objects internally. PlayerClass instantiation already happens inside `_build_legendary_config` → `_SyntheticPlayerClass`; the fix is replacing that with real `PlayerClass` construction via existing pipeline path.
 - **Q-P3R-2:** D84 sub-option B methodology depth — your judgment OR route legolas Mode A consultation (per Discipline #18 math-hotspot)?
 - **Q-P3R-3:** synthetic_mode grep audit scope — pipeline.py only OR cross-seam (gauntlet sim + bridge consumers)? Recommend cross-seam audit per Matt KR OP § 3.X observation
 - **Q-P3R-4:** BC coordinate validity criterion — what makes a coordinate "valid" (range / variance / cohort consistency)? Your judgment via math note Part 1
