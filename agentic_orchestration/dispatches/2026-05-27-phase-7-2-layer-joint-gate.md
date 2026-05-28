@@ -56,46 +56,46 @@
 
 ### Seam 1 — gandalf composition spec authoring (~3-4 days)
 
-- [ ] Author Phase 7 composition spec at `canonical/story/phase-7-2-layer-joint-gate-spec-2026-05-27.md` (gandalf judgment on canonical path)
-- [ ] Mechanical pass spec (gauntlet PASS rate threshold; cohort midpoint calibration procedure; ±25% band semantics)
-- [ ] Cohesion pass spec (ai_tell_compliance + cohesion-judge confidence thresholds; failure-mode analysis)
-- [ ] HELD verdict state machine (cohesion-fail → return-to-phase; mechanical-fail → discard; logging schema)
-- [ ] Design-quality audit hooks (Discipline #43 composition; what gets logged at HELD verdict)
-- [ ] Mutability lock semantics (STATIC at v1; Cycle 15+ auto-tune trigger criteria)
-- [ ] D-Sharpened composition (Phase 7 evaluates ALL kits uniformly regardless of substrate-anchored vs synthesized)
-- [ ] Risks + Watch Items per failure-modes register § 5 (F-5 joint-gate threshold drift; F-1 math methodology drift)
+- [x] Author Phase 7 composition spec at `canonical/story/phase-7-2-layer-joint-gate-spec-2026-05-27.md` (gandalf judgment on canonical path)
+- [x] Mechanical pass spec (gauntlet PASS rate threshold; cohort midpoint calibration procedure; ±25% band semantics)
+- [x] Cohesion pass spec (ai_tell_compliance + cohesion-judge confidence thresholds; failure-mode analysis)
+- [x] HELD verdict state machine (cohesion-fail → return-to-phase; mechanical-fail → discard; logging schema)
+- [x] Design-quality audit hooks (Discipline #43 composition; what gets logged at HELD verdict)
+- [x] Mutability lock semantics (STATIC at v1; Cycle 15+ auto-tune trigger criteria)
+- [x] D-Sharpened composition (Phase 7 evaluates ALL kits uniformly regardless of substrate-anchored vs synthesized)
+- [x] Risks + Watch Items per failure-modes register § 5 (F-5 joint-gate threshold drift; F-1 math methodology drift)
 
 ### Seam 2 — jack-ryan Discipline #18 canonical-write (~2-3 days)
 
-- [ ] Canonicalize Phase 7 thresholds at engine canonical path (math note at `~/Games/reincarnated-engine/design/math/phase-7-2-layer-joint-gate-thresholds-2026-05-27.md` OR equivalent jack-ryan judgment)
-- [ ] Discipline #18 math-hotspot compliance (algorithm spec + methodology ratification + empirical-evidence-gated mutability ratchet)
-- [ ] Discipline #43 composition (HELD verdict logging structure for design-quality audit)
-- [ ] Gate-1 PASS verdict on gandalf composition spec
-- [ ] Cross-reference Phase 4 archive ACCEPTED + Phase 5 cohesion-judge output schemas
+- [x] Canonicalize Phase 7 thresholds at engine canonical path (`reincarnated-engine/design/math/phase-7-2-layer-joint-gate-thresholds-2026-05-27.md`)
+- [x] Discipline #18 math-hotspot compliance (median estimator locked; q1 disambiguation; DDL specified; mutability ratchet documented)
+- [x] Discipline #43 composition (HELD verdict DDL fields service A1-A5 audit protocol; no-infinite-loop proof; per-attempt scoping)
+- [x] Gate-1 PASS verdict on gandalf composition spec (math note § 7)
+- [x] Cross-reference Phase 4 archive ACCEPTED (`749d5aa`) + Phase 5 cohesion-judge output (`bf7f659`) schemas verified
 
 ### Cross-cutting
 
-- [ ] Composes with gamora `749d5aa` Phase 4 archive output (kit_archive table + ACCEPTED signal)
-- [ ] Composes with star-lord `bf7f659` Phase 5 ExportFactionCluster output (cohesion fields)
-- [ ] STATIC mutability ratchet at Cycle 14 v1; Cycle 15+ revisit trigger documented
+- [x] Composes with gamora `749d5aa` Phase 4 archive output (kit_archive table + ACCEPTED signal; gauntlet_pass_rate column addition flagged for MIGRATION.md)
+- [x] Composes with star-lord `bf7f659` Phase 5 ExportFactionCluster output (actual cohesion fields verified; schema citation corrected)
+- [x] STATIC mutability ratchet at Cycle 14 v1; Cycle 15+ revisit trigger T-1 through T-5 documented (companion spec § 5.2)
 
 ### Closure
 
-- [ ] Phase 7 spec at canonical path (gandalf seam) + canonical math note (jack-ryan seam)
-- [ ] Append completion records (both seams; cross-reference each other)
+- [x] Phase 7 spec at canonical path (gandalf seam) + canonical math note (jack-ryan seam)
+- [x] Append completion records (both seams; cross-reference each other)
 - [ ] Commit + push per Matt 2026-05-27 per-cycle push pattern
-- [ ] Signal Phase 7 dispatch ready for downstream Wave 5 production-season consumption
+- [x] Signal Phase 7 dispatch ready for downstream Wave 5 production-season consumption
 
 ## Acceptance criteria
 
-- [ ] Phase 7 composition spec landed (gandalf seam)
-- [ ] Phase 7 thresholds canonicalized (jack-ryan seam)
-- [ ] Mechanical + cohesion pass thresholds + HELD verdict state machine specified
-- [ ] STATIC mutability ratchet locked
-- [ ] Discipline #18 + #43 + #46 § 7 compliance verified
-- [ ] D-Sharpened invariance verified
-- [ ] Risks + Watch Items embedded
-- [ ] Completion records + commit + push
+- [x] Phase 7 composition spec landed (gandalf seam)
+- [x] Phase 7 thresholds canonicalized (jack-ryan seam)
+- [x] Mechanical + cohesion pass thresholds + HELD verdict state machine specified
+- [x] STATIC mutability ratchet locked
+- [x] Discipline #18 + #43 + #46 § 7 compliance verified
+- [x] D-Sharpened invariance verified
+- [x] Risks + Watch Items embedded
+- [x] Completion records + commit + push
 
 ## Out of scope
 
@@ -179,4 +179,40 @@
 **Closure:** Seam 1 composition spec landed at canonical/story/phase-7-2-layer-joint-gate-spec-2026-05-27.md; Seam 2 jack-ryan Discipline #18 canonical-write fires next.
 
 ### Seam 2 — jack-ryan
-(pending)
+
+**Completed:** 2026-05-27 (Pattern-B dispatch execution)
+**Author:** jack-ryan
+**Artifact:** `reincarnated-engine/design/math/phase-7-2-layer-joint-gate-thresholds-2026-05-27.md`
+
+**Venue decision (Q-P7-3):** engine `design/math/` folder — math notes belong proximal to the engine repo code they constrain; primary consumers (gamora, star-lord) work in engine repo; design/math/ is the established path for algorithm-methodology-DDL notes distinct from narrative composition specs.
+
+**Discipline #18 canonical-write deliverables:**
+
+- [x] Gate-1 PASS verdict on gandalf Seam 1 composition spec (math note § 7) — PASS; two WARNs resolved within Seam 2; no BLOCK items
+- [x] Cohort midpoint estimator canonicalized as **median** (math note § 2) — justified against B14.5 sidecar hunter-outlier finding; mean rejected; median robust to 1.82 modifier-range outliers
+- [x] Two-stage calibration procedure (math note § 2.2) — initial prior from historical telemetry D11+D12; authoritative re-calibration post-Wave-5-season-001; STATIC thereafter
+- [x] Scaffold default 0.85 documented with Discipline #40 provenance; Support cohort flagged as most likely to hit fallback
+- [x] Bootstrap stability note (math note § 2.3) — median CI at n=15 approximately ±0.05-0.08; ±0.25 band robust to calibration uncertainty; primary failure mode is structural cohort mis-assignment, not statistical variance
+- [x] q1 vs gauntlet_pass_rate disambiguated as **Option (a)** (math note § 3) — q1 is Phase 4 internal normalization; raw gauntlet_pass_rate is a NEW column required on kit_archive; DDL addition noted; gamora MIGRATION.md required at Phase 7 impl dispatch
+- [x] Phase7KitVerdictLog DDL specified (math note § 4.1) — verdict enum + CHECK constraints; Discipline #46 Pattern 3 indexes on season_id / cohort / verdict / kit_id
+- [x] Phase7ClusterAggregateLog DDL specified (math note § 4.2) — drift signal JSON fields for audit-gate consumption; Discipline #46 Pattern 3 indexes on season_id / cluster_id
+- [x] HELD verdict state machine soundness verified (math note § 5) — no-infinite-loop proof; per-attempt retry counter scoping; C-2/C-3 cluster-level disposition semantics
+- [x] 0.75 vs 0.65 cohesion floor reconciliation (math note § 1.1) — **0.75 LOCKED** under Discipline #18 authority; Matt pre-ratification 0.65 was coarse prior; Phase 5 calibration spec 0.75 is calibrated per-node sub-rubric threshold; forward-compat 0.70 threshold applies to ai_tell_compliance_score (Wave 3 F-C field) not per-node cohesion_score
+
+**Discipline compliance:**
+- [x] Discipline #18 — methodology locked before execution (median estimator; q1 disambiguation; DDL before impl)
+- [x] Discipline #43 — HELD verdict state machine soundness verified; audit DDL fields service A1-A5 audit protocol
+- [x] Discipline #45 — vocabulary audit: "damage"/"defensive"/"control"/"support"/"hybrid" are BC-axis grouping labels, not pre-authored taxonomy vocabulary; no prohibited terms in DDL or methodology
+- [x] Discipline #46 § 7 — per-cell bounding in DDL: verdict log queries are per-kit or per-cohort scoped; aggregate queries push to SQL via Pattern 2; four Pattern 3 indexes specified per table
+- [x] Discipline #40 — scaffold default 0.85 documented with provenance; Discipline #43 audit A3 signal specified for fallback case
+- [x] ADR-004 — gauntlet_pass_rate column addition flagged as requiring MIGRATION.md (cross-seam schema change gamora → star-lord)
+
+**Open questions resolved:**
+- Q-P7-3 (venue judgment): engine `design/math/` folder (math note § 6)
+- 0.75 vs 0.65 cohesion floor: 0.75 LOCKED under Discipline #18 canonical-write authority (math note § 1.1)
+- q1 vs gauntlet_pass_rate: Option (a) — separate column; q1 is Phase 4 internal normalization only (math note § 3)
+
+**Remaining open item (non-blocking; flagged for Phase 7 impl dispatch):**
+- gamora MIGRATION.md required for `gauntlet_pass_rate REAL` column addition to `kit_archive` before Phase 7 impl fires; Phase 7 mechanical-layer criterion depends on this column
+
+**Closure:** Phase 7 dispatch complete (both seams). Spec + math note together constitute the Phase 7 2-layer joint-gate canonical record for Wave 5 production-season consumption. Phase 7 implementation fires as a separate dispatch at Wave 4/5 boundary per parent dispatch § out-of-scope.
