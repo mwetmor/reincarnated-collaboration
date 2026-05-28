@@ -108,8 +108,9 @@
 - Replaces W-α3 Phase 2 calibrated values (scaffold per Matt D1)
 - Math note + MIGRATION.md
 - Tag: `gamora/v2.10-w-alpha-7-plus-phase-3-base-rederivation-1`
+- **SEQUENTIAL post Phase 3c (jack-ryan Gate-1 Amendment):** BASE_DAMAGE_L50 re-derivation CONSUMES updated encounter HP factors from 3c; Phase 3d CANNOT begin until Phase 3c is tagged. Re-deriving BASE values against in-flight or pre-3c HP factors produces invalid calibration anchor.
 
-**Phase 3 close signal:** all 4 sub-streams tagged + AGENT_STATE.md updated; downstream Phase 4 consumes.
+**Phase 3 close signal:** all 4 sub-streams tagged + AGENT_STATE.md updated; downstream Phase 4 consumes. **Note (jack-ryan Gate-1 Amendment):** Phase 3c → Phase 3d ordering is a HARD DEPENDENCY; the four sub-streams are NOT fully parallel. 3a + 3b + 3c may parallel-fire post Phase 2 canonical lock; 3d fires sequentially after 3c close signal.
 
 ### Phase 4 — Multi-dimensional calibration (~2-4d) — gamora
 
