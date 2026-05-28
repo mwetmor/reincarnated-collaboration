@@ -178,4 +178,70 @@
 
 ## Completion record
 
-(append on completion)
+**Completed:** 2026-05-27
+**Agent:** gamora
+**Commit:** `eca0aa5` — Phase 7 impl: kit_archive→gauntlet_sim bridge + 2-layer gate + verdict emission; 9/9 smoke PASS
+**Tag:** `gamora/v1.7-phase-7-implementation-1`
+
+### Status: ALL 6 PARTS COMPLETE
+
+**Re-fire context:** prior firing (TaskStopped at "Now create the verdict module") had landed math note, MIGRATION.md §v1.35, phase7_db.py, and phase7_cohort.py. This re-fire completed: phase7_verdict.py, phase7_bridge.py, tests/test_phase7_bridge.py.
+
+### Module locations
+
+- `src/reincarnated/simulation/phase7_bridge.py` — main orchestrator (run_phase7_bridge)
+- `src/reincarnated/simulation/phase7_verdict.py` — HELD verdict state machine + emission
+- `src/reincarnated/simulation/phase7_cohort.py` — 5-cohort classifier (prior firing)
+- `src/reincarnated/simulation/phase7_db.py` — DDL + bounded query patterns (prior firing)
+- `src/reincarnated/simulation/math/phase-7-implementation-bridge-math-2026-05-27.md` — math note (prior firing)
+- `src/reincarnated/simulation/MIGRATION.md §v1.35` — cross-seam schema doc (prior firing + updated)
+- `tests/test_phase7_bridge.py` — 9 smoke gates
+
+### Smoke-test results: 9/9 PASS (Discipline #2)
+
+G-P7-1 PASS: gauntlet_pass_rate column migration idempotent; EXPLAIN QUERY PLAN clean
+G-P7-2 PASS: per-cell streaming; DISTINCT query returns O(cells) rows; per-cell bounding verified
+G-P7-3 PASS: Phase7SyntheticKit STR/DEX/INT/WIS; combatant.from_player_class() interface complete
+G-P7-4 PASS: cohort classifier 5 cohorts; Support→Control→Defensive→Damage→Hybrid priority order; deterministic
+G-P7-5 PASS: gauntlet_pass_rate write-back per-kit; NULL preserved for un-updated rows
+G-P7-6 PASS: 2-layer gate; all 8 verdict paths verified; mechanical+cohesion composition correct
+G-P7-7 PASS: HELD state machine; D-1 RESET (retry_attempt=0 per Wave 5 attempt); D-2B median calibration
+G-P7-8 PASS: phase7_kit_verdict_log + phase7_cluster_aggregate_log emit; drift signals non-null JSON
+G-P7-FULL PASS: end-to-end bridge smoke; D-1+D-2B+STATIC midpoints all verified; 0.24s total
+Regression: 46/46 Phase 4 tests PASS; 183/183 related seam tests PASS
+
+### EXPLAIN QUERY PLAN captures (Discipline #46 Pattern 3)
+
+QUERY_DISTINCT_ACTIVE_CELLS: SCAN kit_archive USING INDEX idx_kit_archive_cell_status (per-cell bounding)
+QUERY_ACTIVE_KITS_IN_CELL: SEARCH kit_archive USING INDEX idx_kit_archive_cell_status (bc_cell_id + status)
+QUERY_UPDATE_GAUNTLET_PASS_RATE: SEARCH kit_archive USING INTEGER PRIMARY KEY (kit_id PK lookup)
+
+### D-1 + D-2B amendment integration (per dispatch text)
+
+D-1 RESET: `retry_attempt=0` passed fresh to `evaluate_kit_verdict()` per Wave 5 attempt. Per-kit budgets are always fresh at evaluation_attempt=N. Verified in G-P7-7 + G-P7-FULL.
+
+D-2B NO PRIOR: `cohort_midpoints=None` triggers empirical calibration from run data. Midpoints RECALIBRATE per Position B retry attempt. Pre-locked midpoints are used as-is (STATIC after first PASS). Verified in G-P7-7 + G-P7-FULL.
+
+### Q-P7-IMPL answers resolved
+
+Q-P7-IMPL-1: Bridge venue = simulation/ top-level (phase7_bridge.py). Per math note § 6.
+Q-P7-IMPL-2: kit_archive row → Phase7SyntheticKit via bc_cell_id lookup against ENDGAME_ENCOUNTER_CATALOG. No generation seam imports; inline dict lookups only. Per math note § 1.
+Q-P7-IMPL-3: NULL gauntlet_pass_rate acceptable for pre-existing rows. Phase 7 bridge skips NULL via HELD-mechanical-fail-archive. Per math note § 7.
+Q-P7-IMPL-4: Discipline #45 vocab audit: 2 "archetype" refs in comments/log strings; both reference existing gauntlet_sim.py constants (exempt per math note § 8). Zero non-exempt vocabulary. CLEAN.
+
+### Discipline compliance
+
+- [x] Discipline #1 math-before-code: math note phase-7-implementation-bridge-math-2026-05-27.md (written in prior firing)
+- [x] Discipline #2 smoke-test: 9/9 PASS; mock gauntlet for speed; 0.24s total
+- [x] Discipline #11 WARN-pattern: threshold assertions at module-load in phase7_verdict.py (8 constants)
+- [x] Discipline #42 framing-audit: fired in dispatch (Q1/Q2/Q3 per dispatch §); all refutation evidence resolvable within scope
+- [x] Discipline #43 audit input: every verdict emits Phase7KitVerdictRecord; cluster aggregates with drift signals (midpoint_drift_signal + cohort_concentration); no silent re-roll
+- [x] Discipline #44 framing-refusal: mechanical-fail is non-retriable; enforced in compose_verdict()
+- [x] Discipline #45 vocabulary: CLEAN (2 exempt references; zero new non-exempt vocabulary)
+- [x] Discipline #46 §7 per-cell bounding LOAD-BEARING: QUERY_DISTINCT_ACTIVE_CELLS + QUERY_ACTIVE_KITS_IN_CELL + QUERY_UPDATE_GAUNTLET_PASS_RATE all per-cell bounded; grep fetchall() phase7_*.py = ZERO non-bounded hits
+
+### Open items handed to downstream
+
+- ExportFactionCluster.phase7_gate_status update from "placeholder" to "canonical": star-lord seam (bridge emits verdict records; audit-gate consumes; star-lord updates ExportFactionCluster post-audit-PASS)
+- First Wave 5 production season: D-2B calibration will produce authoritative cohort midpoints (replacing scaffold defaults). STATIC after first PASS commits.
+- Position B audit-gate WAIT semantics: Phase 7 verdict feeds INTO Discipline #43 + Gate-2 BEFORE canonical commit (not modified by bridge; bridge is stateless read+emit).
