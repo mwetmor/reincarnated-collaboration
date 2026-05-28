@@ -443,6 +443,18 @@ Gamora SC-7 ✅ COMPLETE at engine `e7af7db` + tag `gamora/v1.8-sc-7-base-spell-
 **Wave 5 cascade resumption blocked on Matt Pattern-B design call for SC7-F1 architectural redesign.** Parallel workstream authorization (Dispatches F + C + Sidecar G-2 + H) all gate on Wave 5 Step 1 GENERATION completion which itself gates on this SC7-F1 redesign.
 
 **Cycle 14 close trajectory: re-estimating post jack-ryan Gate-3 + Matt ratification.** Quality > timeline (Q10) supports continued architectural-honest path; SC7-F1 is the kind of structural validation only Wave 5 attempt could surface (per Discipline #11 empirical-inspection).
+
+**Matt 2026-05-28 SC7-F1 Gate-3 Pattern-B RATIFICATIONS LOCKED:**
+- D1 RATIFIED: Option F Phase 1 (stratified per-encounter-type floor + KPM=600.0 ceiling-artifact bypass) for Cycle 14 v1 closure. Acceptance: ≥12/18 Phase 2 kits emit. gamora ~0.5d + jack-ryan ~0.25d canonical re-write.
+- D2 RATIFIED: Cycle 15 Phase 2 = Option A (per-encounter-type KPM bands). Preserves boss-fantasy vs swarm-fantasy substrate distinction. Defer Option E unless Option A surfaces empirical gap.
+- D3 RATIFIED: Engine KPM ceiling 600.0 = simulation artifact (probable fight-duration discretization). Cycle 14 bypass; Cycle 15 investigate concurrent with D2 Phase 2.
+- Additional recognition: Phase 7 KPM-uniform-band is formally Discipline #39 scaffold-with-pending-decision. 6th Cycle 14 scaffold-drift case caught. **Discipline framework operating exactly as architected — 6 scaffolds caught single cycle via sub-agent empirical execution.**
+
+**Currently firing (parallel):**
+- gamora Option F Phase 1 (~0.5d; stratified floor + ceiling bypass + ≥12/18 emit acceptance)
+- jack-ryan Phase 7 canonical re-write per Discipline #40 case (c) 6-step retraction (~0.25d)
+
+**Cycle 14 v1 close trajectory at Matt D1 ratification:** ~0.75d unblock → Wave 5 cascade resumes via rocket's `run_phase3_from_staged_phase2()` with Option F Phase 1 gate → ~3-5d drax player-surface close parallel (Dispatches F + C + Sidecar G-2 + H) → end-to-end **~4-7 days from this ratification**.
 - Step 2 ⏳ POST step 1: KR fires gandalf #43 design-quality audit + A/B comparison + personage convergence
 - Step 3 ⏳ POST step 2: KR fires jack-ryan Gate-2 review
 - Step 4 ⏳ PASS branch: KR fires gamora (small) canonical_archetype_register commit + Court accumulation
