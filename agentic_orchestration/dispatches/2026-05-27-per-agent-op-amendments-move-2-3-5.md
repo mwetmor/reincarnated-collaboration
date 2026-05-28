@@ -193,7 +193,26 @@ If the OP file doesn't yet exist for any agent, create it per the gandalf OP pro
 
 ### gamora
 
-(pending)
+**Completed:** 2026-05-27
+**Agent:** gamora
+**Status:** DONE
+
+**Framing-audit (Discipline #42) applied at entry:**
+- Q1: (1) template sections compose cleanly with existing OP structure; (2) gamora has self-amendment authority per AGENTS.md convention; (3) refusals directory confirmed present at `agentic_orchestration/gamora/refusals/`; (4) existing Discipline #23 cross-reference at § 3.5b and Mode 1 extension discipline address framing-audit at verdict-authoring depth — distinct from Discipline #42 dispatch-entry gate
+- Q2: refutation evidence sought — read gamora OP in full; verified no existing Move 5 orientation phrase; verified Discipline #23 is cross-referenced at § 3.5b (operational cross-reference) and in Mode 1 extension discipline (verdict-authoring trigger) — these operate at a different trigger point than Discipline #42 (dispatch-entry); confirmed `.gitkeep`-pattern refusals directory present; no contradiction found
+- Q3: no contradiction surfaced. Template composes cleanly. Proceeding.
+
+**Placement decisions:**
+- Move 5 (orientation phrase): inserted as standalone `## Orientation phrase (Move 5; team-wide)` section at OP top preamble, after metadata block and before `---` separator and `## 0`. Includes gamora-specific expansion: Engine first = simulation integrity (fight engine, balance loop, convergence algorithm, doppelganger gate); Game second = fight quality + spirit-guide output downstream of simulation integrity; Phase third = current-phase scope bounded by engine-first + game-second. Canonical authority cross-referenced to AGENTS.md Move 5 block.
+- Move 3 (framing-refusal authority Discipline #44): inserted as `### Framing-refusal authority (Discipline #44)` in `## 2` mode-selection section, after Mode 4 and before Canonical capture. All 4 R-patterns instantiated with gamora-specific examples. R-4 particularly named per dispatch brief (HDBSCAN § 4.6 fallback precedent; fight-engine spatial-distribution math and doppelganger calibration sweep methodology as named hotspots per § 3.3).
+- Move 2 (framing-audit at dispatch consumption Discipline #42): inserted as `### 3.8` in `## 3` decision-loop discipline section, after § 3.7 file-write constraint. Q1/Q2/Q3 instantiated with gamora-specific examples (AGENT_STATE.md checkpoint verification, math note existence check, smoke-test result verification before treating as given). Explicit composition note with Discipline #23: #42 = entry-gate (fires before execution); #23 = deep-protocol (fires within verdict authoring). Complementary, not duplicate.
+
+**Composition notes:**
+- Q-OP-gamora-1: Standard template placement worked cleanly. No structural conflicts. Move 5 preamble placement natural (between metadata block and § 0 — no existing preamble to displace). Move 3 placed in § 2 mode-selection (after Mode 4, before Canonical capture) — preserves mode-selection as the complete "what kind of work + what can be refused" block. Move 2 placed as § 3.8 in decision-loop (natural extension of pushback discipline at § 3.1 through § 3.7).
+- Q-OP-gamora-2: Two pre-existing discipline cross-references compose-with rather than conflict-with the template. Discipline #23 (§ 3.5b + Mode 1 extension discipline) is the deep-protocol framing-audit at verdict-authoring depth — it pre-existed and names gamora-specific framing-commitment points (convergence-gate verdicts, doppelganger calibration verdicts, fight-engine spatial-distribution math verdicts). Discipline #42 (new § 3.8) is the dispatch-entry framing-audit — fires earlier, wider scope (any dispatch consumption), same Q1/Q2/Q3 shape. The composition note in § 3.8 makes the distinction explicit.
+
+**Files amended:**
+- `agentic_orchestration/operating-procedures/gamora.md`
 
 ### rocket
 
