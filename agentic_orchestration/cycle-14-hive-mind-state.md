@@ -1226,6 +1226,46 @@ Per master scoping § 1 Phase 3 + jack-ryan Gate-1 Amendment 1 (Phase 3d sequent
 
 KR will inject this signal into the Phase 3d dispatch when firing post 3c close.
 
+---
+
+### PHASE 3b ROCKET PATTERN 2 PASSIVE SCALING COMPLETE 2026-05-28 EVENING
+
+**Engine `dad651f` + tag `rocket/v1.10-w-alpha-7-plus-pattern-2-1`** (~11min fire). Note: per_skill_emitter.py + skill_schema.py constants/functions/fields were already included in Phase 3a commit `a57ed89` as prep fold-in; Phase 3b commit adds math note + MIGRATION + AGENT_STATE close.
+
+**Architectural insight — Pattern 2 INVERSE of Pattern 1:**
+> **Bake at kit generation (rocket seam), NOT at simulation runtime (gamora seam).** Passive effects (stat bonuses, DR modifiers, triggered-passive proc-rates/magnitudes) are static build properties; established when loadout finalized, NOT computed per-cast in damage_resolver.py. Baking at generation preserves seam clarity: rocket produces effective passive stats; gamora consumes at kit-load without knowing whether Pattern 2 was applied.
+
+This is the correct inverse of Pattern 1 (per-cast computation in damage_resolver because active skill damage depends on fight-state variance — crit rolls, attacker stats, defender armor at impact).
+
+**Implementation:**
+- `per_skill_emitter.py`: `NODE_MAX_PASSIVE=5`, `PATTERN_2_DECAY=0.50`, `PATTERN_2_FLOOR=0.50`, `PATTERN_2_PASSIVE_BASE_SCAFFOLD=1.0` (normalized scaffold until Phase 3d calibrates), `pattern_2_passive_multiplier()` + `compute_passive_effect_magnitude()` exported
+- `skill_schema.py`: `skill_node_type: str | None` ("active" | "passive"), `investment_points_passive: int | None` (∈[0,5]), `passive_effect_base_at_max: float | None`, `passive_effect_magnitude: float | None`
+- `damage_resolver.py`: **NO CHANGES** (Pattern 2 bakes at generation; no per-cast recomputation)
+- Module-load assertions verify floor=0.50, ceiling=1.00, midpoint=0.70 at import
+
+**W-α1 Direction A + W-α3 scale_factor=0.664063 ORTHOGONAL to Pattern 2** — those operate exclusively on active skill damage tables; unmodified by Pattern 2.
+
+**Doc 51 § 7 max-investment=1.0 construction property VERIFIED:**
+- Algebraic: `(1 - 0.50) + 0.50 × (5/5) = 1.00` (structural invariant for ANY decay ∈ (0,1))
+- Numerical exact: `compute_passive_effect_magnitude(5, 42.0) == 42.0` (no floating point error)
+
+**Integration test all 6 investment levels (points=0..5):** 0.50/0.60/0.70/0.80/0.90/1.00 multipliers PASS; clamping (points=-1→0.50, points=6→1.00) PASS.
+
+**Schema downstream consumer scope:** gamora `from_player_class()` + drax Phase 5b loadout UI (per Phase 3b MIGRATION.md).
+
+---
+
+### PHASE 3 STREAM STATUS
+
+| Sub-stream | Status |
+|---|---|
+| **3a rocket Pattern 1 active scaling** | ✅ `a57ed89` + tag `rocket/v1.9` (7.8min) |
+| **3b rocket Pattern 2 passive scaling** | ✅ `dad651f` + tag `rocket/v1.10` (11min) |
+| 3c gamora encounter HP rebalancing | 🔥 firing |
+| 3d gamora BASE_DAMAGE_L50 re-derivation | ⏳ sequential post 3c |
+
+Both rocket sub-streams CLOSED. Phase 3d gates on 3c close per jack-ryan Gate-1 Amendment 1 hard dependency.
+
 **Cycle 14 v1 close trajectory: ~14-22d from this evening ratification.** Path α 4-6 week budget intact (~42 calendar days; current ~Day 0; v1 lands ~Day 14-22 leaving ~20-28 days margin).
 
 ---
