@@ -166,4 +166,81 @@
 
 ## Completion record
 
-(append on completion)
+**Completed:** 2026-05-27
+**Reviewer:** jack-ryan
+**Effort:** ~1.5 hours (within 1-2 hr estimate)
+**Bundled re-Gate-1 status:** PASS (no BLOCKs; 5 notes PASS-with-REVISIONS; 2 notes PASS)
+**Matt-gate ready:** YES
+
+---
+
+### Discipline #42 framing-audit (re-Gate-1 entry)
+
+- **Q1 assumptions:** (1) Stream A + Stream B independently authored against compatible anchors; (2) LIGHT scope = amendment-delta only; (3) Trigger B ratifiable under Discipline #43 without sub-discipline cycle; (4) Q-MG-5-3 scaffold drift in-scope for jack-ryan annotation.
+- **Q2 refutation evidence:** Stream A + B independence verified (no note-section overlap). LIGHT scope boundary confirmed (MG-1 verification-only; PM-2 new §§ 2.7+3.7 only). Discipline #43 authority confirmed in `engineering-disciplines.md` § 43.
+- **Q3 outcome:** PROCEED. No framing contradiction. No Discipline #44 Framing-Refusal warranted.
+
+---
+
+### Per-note dispositions
+
+| Note | Disposition | Required amendments before Dispatch 3A/3B |
+|---|---|---|
+| MG-1 | PASS | None |
+| MG-2 | PASS-with-REVISIONS | gamora: § 4.3 MIN_POPULATION_FOR_DIVERSITY 6→10 |
+| MG-3 | PASS-with-REVISIONS | gamora: 6 amendments — λ=1e-3; MIN_COV_POPULATION=15; empirical threshold framing (5% target; not chi-squared); Pareto-strict replacement primary (Q_scalar tiebreak); HDBSCAN mutual-reachability standby module authored; G-MG3-1 Shapiro-Wilk trigger spec added |
+| MG-4 | PASS-with-REVISIONS | gamora: 5 amendments — retire § 3 KL+grid path; promote JSD across full k range; Silverman's rule + h_floor=0.05; remove NOVELTY_CLAMP; MIN_KL_POPULATION 5→10 |
+| MG-5 | PASS-with-REVISIONS | gamora: § 7 + § 2 input bundle CELL_CAPACITY_MAX 50→30 (Design Call C C2 alignment) |
+| PM-1 | PASS-with-REVISIONS | gandalf: note amended to reflect elrond algorithm commit (GMM A4 primary k∈{3,4} BIC; k-means A1 fallback n<20; Option β; revised sparsity thresholds 24/20/12/8; PM-1↔MG-5 feedback loop § 5.4) |
+| PM-2 | PASS | None — §§ 2.7 + 3.7 verified clean |
+
+---
+
+### 6-question ratifications
+
+- **Q-MG-3-1 (Welford 50 or 500?):** RATIFIED 500 (or condition-number-disagreement detection). Elrond establishes float64 stability to n~10^9; 50 is overly conservative. Low-priority amendment; 50 is also acceptable as conservative-but-correct. Under Discipline #11 authority.
+- **Q-MG-5-1 (OWN 30-kit vs SHARED 30-kit cap?):** CONFIRMED (a) OWN 30-kit per-cell cap. Decoupled telemetry signal preserves Discipline #43 diagnostic independence; symmetric architecture; Discipline #46 § 7 compliant. Under Discipline #46 § 7 authority.
+- **Q-MG-5-2 (T-B-α / T-B-β / T-B-γ?):** CONFIRMED T-B-α primary (N=3 consecutive wave-closes PASS; no DRIFT-DETECTED; no emergency revert) + T-B-γ as override path. T-B-β deprioritized (negative test; ambiguous at wave-close). Under Discipline #43 authority.
+- **Q-MG-5-3 (scaffold drift in-scope or Matt-gate?):** IN-SCOPE annotation. Design Call C C2 already ratified; gamora amends MG-5 § 7 + § 2 input bundle to reflect 30 not 50. Not escalated to Matt. Under ADR-002 within-seam annotation authority.
+- **Q-PM-1-1 (substrate-led discipline preserved?):** CONFIRMED YES. Aesthetic-heavy sqrt-weights are a design lens on clustering attention, not a pre-authored taxonomy. Clusters still emerge from substrate; weighting modulates salience. Discipline #41 preserved. Under Discipline #41 authority.
+- **Q-PM-2-1 (D-Sharpened satisfies "hidden at engine layer"?):** CONFIRMED YES. Personage hidden at LLM-generation layer (D-Sharp-1) and at primary-name surface. Surfaced at metadata layer (drax loadout + star-lord telemetry). Sketch F identity-bestowal semantics preserved. Under Sketch F + Discipline #41 authority.
+
+---
+
+### WARNs (pre-implementation amendment required)
+
+- **WARN-MG2-1:** MG-2 § 4.3 still shows MIN_POPULATION_FOR_DIVERSITY=6; must be 10. Discipline #11.
+- **WARN-MG3-1 through MG3-6:** 6 elrond amendments not yet reflected in MG-3 note text. Disciplines #1/#11/#18/#40/#41.
+- **WARN-MG4-1:** 5 elrond amendments not yet reflected in MG-4 note text. Disciplines #11/#18.
+- **WARN-MG5-1:** MG-5 § 7 + § 2 CELL_CAPACITY_MAX 50→30 annotation required. Discipline #40.
+- **WARN-PM1-1:** PM-1 still frames algorithm as open; must reflect GMM A4 commit + revised thresholds + PM-1↔MG-5 loop. Discipline #18.
+
+### INFOs
+
+- **INFO-1:** Welford 50→500 endorsed; low-priority; 50 conservative-but-correct if gamora prefers not to amend.
+- **INFO-2:** PM-1 `faction_count_target_per_season` engine-flag default should update to [3,4] at v1 cohort-size regime.
+- **INFO-3:** PM-1↔MG-5 5-season calibration feedback loop is load-bearing architectural concern per elrond; PM-1 § 5.4 amendment recommended.
+- **INFO-4:** Post-first-smoke covariance audit (per-cell Σ + condition-number + Shapiro-Wilk + pairwise correlations) should be a named Dispatch 3A smoke deliverable — one audit serves MG-1/2/3/4 upgrade-trigger decisions.
+
+---
+
+### Matt-gate fire-ready package (8 algorithm ratifications + 1 WARN + 4 INFO)
+
+**8 algorithm ratifications:**
+1. MG-1 Pareto: strict 5D Pareto as authored. RATIFIED.
+2. MG-2 Crowding: NSGA-II crowding distance + MIN_POPULATION=10. HVC deferred. RATIFIED.
+3. MG-3 Mahalanobis: Gaussian + Tikhonov λ=1e-3 + MIN_COV=15 + empirical threshold (5% target) + Pareto-strict replacement + HDBSCAN standby module (G-MG3-1 trigger) + Welford 500. RATIFIED (LOAD-BEARING amendments required).
+4. MG-4 KL: JSD primary full k range. Discrete-grid KL RETIRED. Silverman+floor. NOVELTY_CLAMP removed. MIN_KL_POPULATION=10. RATIFIED.
+5. MG-5 Eviction: E-Dev-Phase-Aware. OWN 30-kit per-cell reject pool. T-B-α primary + T-B-γ override. CELL_CAPACITY_MAX 50→30 annotation in-scope. RATIFIED.
+6. PM-1 Clustering: GMM A4 (k∈{3,4} BIC; 5 restarts) + k-means A1 (n<20 fallback) + Option β + aesthetic-heavy sqrt-weights + PCA-whitening 95% variance + sparsity thresholds (24/20/12/8) + PM-1↔MG-5 loop. Substrate-led discipline preserved. RATIFIED.
+7. PM-2 D-Sharpened: § 2.7 four-clause encoding + § 3.7 algorithm invariance. Composition with D-Hybrid + D-Separate (LAYERS ON). Sketch F "hidden at engine layer" satisfied. RATIFIED.
+8. Discipline #46 cross-cutting: per-cell bounding verified across all 6 notes. 30+30=60 per-cell max. No global-archive materializations. Kernel-panic risk NONE. RATIFIED.
+
+**1 WARN for Matt-gate:** Dispatch 3A/3B must NOT fire until gamora (MG-2/3/4/5) and gandalf (PM-1) land the amendment text in the notes. MIGRATION.md entry required at Trigger B switchover (T-B-α N=3) for reject-pool → E1-discard per ADR-004.
+
+**4 INFOs:** see INFO-1 through INFO-4 above.
+
+---
+
+**Signed:** jack-ryan (analyst / QA / quality guardian)
+**For:** LIGHT re-Gate-1 bundled verification of 6 math-notes (MG-1/2/3/4/5 + PM-1 Stream A elrond amendments; PM-2 + MG-5 Stream B gandalf amendments). All 6 open questions ratified. Matt-gate fire-ready package assembled. No BLOCKs. Pre-Dispatch-3A/3B amendment obligations named. Commit + push per Matt 2026-05-27 per-cycle push pattern.
