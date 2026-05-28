@@ -1619,6 +1619,54 @@ Per gandalf routing recommendation:
 
 Cycle 14 v1 close trajectory PRESERVED at ~6-9d under #1.1 compression budget.
 
+---
+
+### PHASE 3e PART 1 ROCKET COMPLETE 2026-05-28 EVENING LATE (CASE 17 RESOLVED)
+
+**Engine `3db9ca8` + tag `rocket/v1.11-element-conversion-factor-1` + meta `a82b4d3`** (~7.3min fire).
+
+**`damage_resolver.py:618` change:**
+- Before: `element_conversion_factor = 1.0  # TODO: read from T4 Cat A context when implemented`
+- After: explicit lookup from `getattr(attacker, "t4_alteration_type", None) == "ELEMENT_CONVERSION"` → 1.0; else default 1.0 (no T4 conversion active)
+- Both branches return 1.0 at v1 lock per doc 47 § 4.5 Q1
+- Structural change LOAD-BEARING: T4 alteration context now read; Discipline #39 scaffold-with-pending-decision RETIRED; future amendments have named lookup site
+
+**17/17 tests PASS** across 3 test classes:
+- TestElementConversionFactorLookup (8 tests) — factor=1.0 across all 7 T4 variant types; identity property
+- TestCompositionPreservation (5 tests) — TIER_COEFFICIENTS + Pattern 1 max/floor + phys_mod_factor + application order
+- TestIntegrationSmoke (4 tests) — Discipline #12 identity property (all T4 variants identical KPM at v1 lock)
+
+**Composition preserved:**
+- W-α1 parity: BASE_PHYSICAL / BASE_SPELL = 48467.0 / 20726.5 = 2.338 ✅
+- TIER_COEFFICIENTS {1.00, 1.50, 2.17, 4.00} ✅
+- Application order: `base × investment_multiplier × phys_mod_factor × element_conversion_factor × tier_coeff` ✅
+- Pattern 1 max-investment=1.0 + floor=0.35 ✅
+
+**Discipline declarations:**
+- #12 DECLARED (semantic shift: TODO sentinel → explicit lookup)
+- #39 RETIRED (scaffold-with-pending-decision resolved)
+- #47 RESOLVED (canonical spec gap closed via doc 47 § 4.5)
+
+**Star-lord NO action** — `t4_alteration_type` already tracked on CombatantState; no telemetry schema changes.
+
+**MIGRATION.md § v1.48** filed; math note completed (BLOCKED → COMPLETE; § 12 design lock summary added).
+
+**Important downstream signal (verbatim rocket):**
+> *"Specialization signal for doc 50 Target 4 comes from Phase 3d `base_at_max` under T4 context — not from the conversion factor."*
+
+Phase 3d RE-RUN gates on Part 2 gamora wiring close.
+
+---
+
+### PHASE 3e STREAM STATUS
+
+| Sub-stream | Status |
+|---|---|
+| **Part 1 rocket** | ✅ `3db9ca8` + tag `rocket/v1.11` (7.3min) |
+| **Part 2 gamora wiring** | 🔥 firing |
+| Phase 3d RE-RUN gamora | ⏳ sequential post Part 2 close |
+| Phase 4 RE-RUN gamora | ⏳ sequential post Phase 3d RE-RUN |
+
 **Cycle 14 v1 close trajectory: ~14-22d from this evening ratification.** Path α 4-6 week budget intact (~42 calendar days; current ~Day 0; v1 lands ~Day 14-22 leaving ~20-28 days margin).
 
 ---
