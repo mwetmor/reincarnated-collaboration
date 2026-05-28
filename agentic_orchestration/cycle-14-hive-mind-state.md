@@ -466,8 +466,22 @@ Gamora SC-7 ✅ COMPLETE at engine `e7af7db` + tag `gamora/v1.8-sc-7-base-spell-
 
 **Discipline #39 design pattern continues operating exactly as architected:** each scaffold retirement surfaces next-deeper architectural truth via empirical sub-agent execution.
 
-**Currently firing:**
-- 🔥 jack-ryan Gate-4 7th scaffold-drift architectural disposition (cross-class DPS variance)
+**Jack-ryan Gate-4 ✅ COMPLETE 2026-05-28** at meta `ce65b22` (canonical disposition filed at `agentic_orchestration/qa/pending/2026-05-28-7th-scaffold-drift-cross-class-dps-gate-4-disposition.md`). Root cause: damage-path variance (3/18 passing kits ALL INT/WIS caster archetype; STR/DEX physical paths use `base_physical_damage_l50` substrate-carried independent calibration history). 6 options analyzed; Option F (staged per-archetype) RECOMMENDED.
+
+**Matt 2026-05-28 Gate-4 RATIFICATIONS LOCKED:**
+- **D1 RATIFIED:** Option F Track 1 — per-damage-path KPM bands (4 archetypes × 4 cohorts = 16 calibrated values). 4 damage-scaling paths per doc 47 § 3 (STR-physical / DEX-physical / INT-magical / WIS-faith) are MECHANICAL partition — Discipline #13a-permitted + #45-compliant. gamora ~0.5d empirical sweep + jack-ryan ~0.25d canonical re-write.
+- **D2 REJECTED:** Option B ±0.40 scaffold-fallback. Framework discipline: "scaffolds get RESOLVED, not deliberately introduced." D7 escalation is for case-resolution NOT scaffold proliferation. Track 1 ~0.75d is tractable; not "too large for Wave 5." Re-evaluation hook: if Track 1 surfaces 8th case materially extending scope, Matt re-evaluates.
+- **D3 DEFERRED to Cycle 15 entry.** Discipline #18 refinement honored: methodology consultation at extension hotspots fires AFTER baseline empirical signal lands. Track 1 IS baseline. Track 2 design call (Option C damage/HP% vs Option A per-kit) consumes Track 1 telemetry before architectural commitment.
+
+**Tag retirement:** `gamora/v1.9-option-f-phase-1-stratified-floor-1` retires (Track 1 supersedes); new tag `gamora/v2.0-option-f-track-1-per-damage-path-bands-1` at Track 1 close.
+
+**Currently firing (parallel):**
+- 🔥 gamora Option F Track 1 per-damage-path empirical sweep (~0.5d; 4 archetypes × 4 cohorts = 16 calibrated values; smoke ≥12/18 emit acceptance)
+- 🔥 jack-ryan Phase 7 canonical re-write SECOND iteration (~0.25d; Discipline #40 case (c) 6-step retraction; per-archetype band canonical authority; Track 2 D3-deferred forward-link)
+
+**Meta-discipline lessons captured (Matt 2026-05-28):**
+- "Scaffolds get RESOLVED, not deliberately introduced" — D7 escalation policy IS for resolution, NOT scaffold proliferation
+- Discipline #18 refinement: methodology consultation at extension hotspots fires AFTER baseline empirical signal lands (Track 1 IS baseline; Track 2 design call deferred)
 
 **Cycle 14 v1 close trajectory at Matt D1 ratification:** ~0.75d unblock → Wave 5 cascade resumes via rocket's `run_phase3_from_staged_phase2()` with Option F Phase 1 gate → ~3-5d drax player-surface close parallel (Dispatches F + C + Sidecar G-2 + H) → end-to-end **~4-7 days from this ratification**.
 
