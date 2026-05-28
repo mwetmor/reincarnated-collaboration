@@ -149,7 +149,40 @@
 ## Completion record (three seams; KR consolidates cycle close)
 
 ### Seam 1 — gamora
-(pending)
+
+**Status: BLOCKED — pre-execution substrate assertion failure; KR routing required**
+
+**Completed (pre-execution artifacts):**
+- Math note authored (Discipline #1): `simulation/math/cycle-14-wave-5-season-001-orchestrator-math-2026-05-27.md`
+  - q1-q5 quality vector derivation defined (from GauntletEncounterResult fields)
+  - PM-1 feature vector BC-axis mapping defined
+  - Phase 4 DB connection strategy + output file structure documented
+  - Incremental-write checkpoint table included
+  - Acceptance criteria + degeneracy triggers documented
+- Orchestrator authored: `simulation/wave5_season_orchestrator.py`
+  - Full Phase 2-7 pipeline (BC discovery → gauntlet + PM-1 → mechanical archive → cohesion-judge → joint-gate)
+  - SEASON_ID=cycle-14-wave-5-season-001; SEED_BASE=14001; EVALUATION_ATTEMPT=0 (D-1 fresh)
+  - faction_visibility=invisible (Wave A skipped; placeholder mode)
+  - D-2B empirical calibration (cohort_midpoints=None)
+  - Incremental-write: per-phase JSON to staging dir before next phase fires
+  - Bug fix during authoring: Phase 5 `build_export_faction_clusters()` call corrected (wrong keyword args → correct positional args per phase5_orchestrator.py:2001)
+- Committed: gamora `fadf488`
+
+**BLOCKER — route to rocket:**
+`substrate_weapon_binding.py:123` `_EXPECTED_ELIGIBLE_ROW_COUNT = 2108` (calibrated at `dac5f9e` 2026-05-27 16:30, Fix A hygiene filter landing).
+Actual eligible row count at smoke-test time: **2314** (+206 above calibration point).
+Root cause: sc-6b substrate enrichment landed post-calibration and added ~206 eligible weapon entries to `weapon_knowledge_entries` JOIN `weapon_sim_props` filter. The Fix A filter itself is correct (no regression). The constant is stale.
+AssertionError re-raised explicitly at module load (line 184-185); cannot be bypassed by smoke.
+**Required fix (rocket seam):** update `_EXPECTED_ELIGIBLE_ROW_COUNT` to 2314 and recalibrate tolerance (or widen to ±150 to accommodate future enrichment headroom).
+Gamora cannot proceed with Phase 2 until this constant is updated and committed.
+
+**Queued after blocker resolves:**
+- Smoke test pass (Discipline #2) → commit math note + orchestrator (already committed; smoke validation pending)
+- Phase 2 BC discovery → commit: `gamora(wave-5-season-001): Phase 2 BC discovery complete`
+- Phase 3 gauntlet + clustering → commit: `gamora(wave-5-season-001): Phase 3 clustering complete`
+- Phase 4 mechanical archive → commit: `gamora(wave-5-season-001): Phase 4 mechanical archive complete (kit_archive populated)`
+- Phase 5 cohesion-judge → commit: `gamora(wave-5-season-001): Phase 5 cohesion-judge LLM complete (ExportFactionCluster + ExportFactionRelationship populated)`
+- Phase 7 joint-gate → commit: `gamora(wave-5-season-001): Phase 7 2-layer joint-gate complete (verdict logs populated; output staged at cycle-14-wave-5-season-001/)`
 
 ### Seam 2 — gandalf
 (pending)
