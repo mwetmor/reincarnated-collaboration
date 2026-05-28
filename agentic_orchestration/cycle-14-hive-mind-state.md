@@ -1709,6 +1709,55 @@ Per gandalf design lock Q2 (specialization mechanism = Phase 3d `base_at_max` un
 - Phase 4 RE-RUN gamora multi-dim sweep (paths × cohorts × encounter_types × investment_levels × T4_variants)
 - Expected: 5/5 BVV compound_pass=True (Target 4 now achievable via element-affinity gear shift under T4 context per Phase 3d RE-RUN base_at_max distribution)
 
+---
+
+### PHASE 3d RE-RUN COMPLETE 2026-05-28 EVENING LATE — CRITICAL ARCHITECTURAL FINDING
+
+**Engine `2c8ce23` + tag `gamora/v2.13-w-alpha-7-plus-phase-3d-rerun-t4-context-1` + meta `e060bf0`** (~30min fire). Discipline #1.1: 46.4s actual vs 50-120s projection ✅.
+
+**BASE values shifted minimally (~1%):**
+| Constant | Phase 3d-v1 (T4-naive) | Phase 3d RE-RUN (T4-aware) | Delta |
+|---|---|---|---|
+| `BASE_SPELL_DAMAGE_L50` (uniform) | 20726.5 | **20532.2** | -0.94% |
+| `BASE_PHYSICAL_DAMAGE_L50` (uniform) | 48467.0 | **48012.6** | -0.94% |
+
+TIER_COEFFICIENTS {1.00, 1.50, 2.17, 4.00} PRESERVED unchanged. Per-tier ratio 1:1.5:2.17:4.0 EXACT mathematical identity.
+
+**Cross-path parity verified PASS:**
+- STR 79.44 / DEX 82.33 / INT 68.18 / WIS 63.83 KPM
+- Max ratio: DEX/WIS = **1.290× PASS** (target ≤1.5×; W-α3 1.24× anchor preserved)
+- 5-iter convergence; scale_factor=0.990625
+
+---
+
+### 🚨 CRITICAL ARCHITECTURAL FINDING — GEAR AFFINITY EMPIRICALLY ZERO IN PRODUCTION KIT POPULATION
+
+**Gamora forensic (verbatim):**
+
+> *"All 18 production kits: `weapon_element_affinity_modifiers = {}` → `elem_affinity_pct = 0.0` for ALL kits. T4 ELEMENT_CONVERSION specialization does NOT operate via gear affinity in the current kit population. Mechanism: resistance routing (fire resistance 0-20% vs native element resistance when T4 active)."*
+
+**This contradicts gandalf Q2 architectural anchor:** Gandalf locked "specialization mechanism = Phase 3d `base_at_max` under T4 context VIA element-affinity gear shift." But empirically the gear affinity is **zero across all 18 production kits** → element-affinity-gear-shift mechanism is INACTIVE.
+
+**Actual specialization mechanism (gamora finding):** **resistance routing** — when T4 ELEMENT_CONVERSION active, attacker damage is routed through fire resistance (0-20% varies by encounter) instead of native element resistance. This produces per-encounter-type variance.
+
+**Phase 4 RE-RUN implication:** Target 4 specialization peaks (doc 50 § 4.4 [1.5, 2.0]× cohort_median) must emerge from RESISTANCE ROUTING DIFFERENTIATION per encounter type, NOT from gear-affinity gear shift.
+
+- If resistance routing variance is SUFFICIENT (e.g., fire-vulnerable encounters give meaningful boost vs fire-resistant encounters) → Target 4 PASS
+- If resistance routing variance is INSUFFICIENT (effect ~modest at population-median per gamora ~1%) → Target 4 likely FAIL → potential case 19+ scaffold-drift
+
+**Discipline #39 framework Mode A drift candidate:** if Phase 4 RE-RUN surfaces insufficient resistance-routing variance, this is a gear-affinity-population-gap (case 19?) that gandalf's Q2 lock didn't anticipate due to empirical kit-population state not matching design assumption.
+
+**KR routing:**
+- 🔥 Fire Phase 4 RE-RUN gamora with EXPANDED coordination signal including critical-finding annotation (resistance-routing specialization mechanism per empirical gear-affinity-zero state)
+- ⏳ On compound_pass=True → Phase 5 cascade as planned
+- ⏳ On FAIL → potential case 19 (gear-affinity-zero scaffold-drift) → KR Gate-N → Matt Pattern-B
+
+**MIGRATION.md § v1.50** filed. Math note (Discipline #1) complete with § 10 actuals.
+
+---
+
+### PHASE 4 RE-RUN FIRING — WITH RESISTANCE-ROUTING SPECIALIZATION ANNOTATION
+
 **Cycle 14 v1 close trajectory: ~14-22d from this evening ratification.** Path α 4-6 week budget intact (~42 calendar days; current ~Day 0; v1 lands ~Day 14-22 leaving ~20-28 days margin).
 
 ---
