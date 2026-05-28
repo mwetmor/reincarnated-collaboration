@@ -1268,6 +1268,36 @@ Both rocket sub-streams CLOSED. Phase 3d gates on 3c close per jack-ryan Gate-1 
 
 ---
 
+### MATT 2026-05-28 EVENING DOC 51 SCOPE-COMPLETENESS AMENDMENT BATCH — PHASE 3d HALTED + GANDALF AMENDMENT FIRING
+
+**Matt finding:** rocket Phase 3a signal "`skill.investment_points` must be set to 15" is vague on WHICH skills. Doc 51 § 6.3 defers numeric thresholds to gamora seam, but doesn't specify per-profile investment distribution rules. **Phase 4 multi-profile sweep needs distribution rules locked before it fires.**
+
+**Matt 2026-05-28 ratifications:**
+- **D1** Doc 51 amendment § 9: KNOWN-GAP cross-node prerequisite unlocks (T4_UNLOCK_THRESHOLD = 0.70 acknowledgment + Cycle 15+ deferral) — from prior gandalf+Matt exchange (gandalf has context)
+- **D2** Doc 51 amendment § 10: investment profile distribution rules
+  - Calibration anchor profile: OPTION A vs B decision (gamora discretion; gandalf recommendation in doc)
+  - Multi-profile distribution rules for low/mid/max/mixed
+  - Per-profile point allocation algorithm
+- **D3** Coordination signal injection at Phase 3d firing: KR routes explicit calibration profile (Option A all-skills-max vs Option B realistic-max) per § 10.1 lock; not ambiguous
+- **D4** Coordination signal injection at Phase 4 firing: KR routes per-profile distribution rules per § 10.2; gamora doesn't have to guess
+
+**Effort:** ~30-45min gandalf doc 51 amendment authoring (compose with D1 from prior exchange). Doesn't block Phase 3b (closed) or Phase 3c (closed); only Phase 3d + Phase 4 depend on resolution.
+
+**Discipline #48 candidate VALIDATION (Matt):** SECOND scope-completeness gap caught in doc 51 this session. Matt's manual scope-completeness audit caught both gaps (first: investment scaling gap = case 11; second: doc 51 § 10 distribution rules gap = this). #48 enforcement would have caught them pre-ratification. **N=2 evidence makes Discipline #48 candidate VALIDATED for Phase 6a disciplines batch consideration** (jack-ryan's earlier ruling at master scoping Gate-1 was "no #48 yet; one production instance insufficient" — now N=2 production gaps).
+
+**KR INTERVENTION:**
+- 🛑 Phase 3d gamora sub-agent STOPPED via TaskStop (clean halt; only file reads completed; no commits)
+- 🔥 Gandalf doc 51 § 9 + § 10 amendment dispatch authoring (this turn)
+- 🔥 Fire gandalf as sub-agent (~30-45min)
+- ⏳ Re-fire Phase 3d with explicit Option A/B + distribution rules coordination signal post-gandalf-amendment-lock
+- ⏳ Phase 4 firing post-Phase-3d with § 10.2 multi-profile distribution rules signal injection
+
+**Cycle 14 case register revised — case 13 surfaced:**
+- Case 13: Mode A scope-completeness gap (doc 51 § 10 investment distribution rules absent at Phase 2 lock) — Matt manual audit caught; gandalf amendment resolves
+- Validates Discipline #48 candidate at N=2 production instances per Matt
+
+---
+
 ### PHASE 3c GAMORA ENCOUNTER HP REBALANCING COMPLETE 2026-05-28 EVENING — CASE 10 RESOLVED
 
 **Engine `7767fc4` + tag `gamora/v2.9-w-alpha-7-plus-phase-3-encounter-hp-rebalance-1`** (~12.8min fire). Discipline #1.1: ~15min projected vs ~25min actual (within normal variance; iterative effective-DPS correction added ~10min).
