@@ -414,6 +414,15 @@ Per rocket completion at engine `96f5e32` + tag `rocket/v1.7-phase-3-real-kit-re
 - Matt awareness surface: Wave 5 timeline adjusts +X days for SC-7 calibration in addition to +3-5 days for Phase 3 re-impl just landed
 
 **Discipline #39 design pattern VALIDATED:** synthetic stub retirement surfaces previously-hidden upstream gaps. This is the second instance Cycle 14 (first being `_SyntheticPlayerClass` itself surfacing the magnitude=3000 vs 65× mob HP variance issue; this being `BASE_SPELL_DAMAGE_L50` surfacing the actual ~150x KPM gap). The framework caught both gaps cleanly via sub-agent empirical execution.
+
+**Matt 2026-05-28 4-parallel-workstream authorization** (post Wave 5 Step 1 GENERATION completion):
+
+1. **Dispatch F drax** (Analytics + Encounters Cycle 14 wiring; already authored at `2026-05-27-drax-dispatch-f-analytics-encounters-cycle-14-wiring.md`; fires post Wave 5 Step 1; parallel with gandalf Step 2 audit)
+2. **Dispatch C drax** (Summary tab faction-grouped re-architecture; NEW authored 2026-05-28 at `2026-05-28-drax-dispatch-c-summary-tab-faction-grouped-re-architecture.md`; replace /pitch with /summary per design call #2; consumes ExportFactionCluster + ExportFactionRelationship + ExportSeasonHero)
+3. **Sidecar G-2-equivalent** (NEW multi-seam dispatch authored 2026-05-28 at `2026-05-28-sidecar-g-2-equivalent-portraits-multi-seam.md`; legolas image gen + galadriel AI-tell inspection + drax Summary tab portrait wiring; ~3-4 days)
+4. **Dispatch H drax** (Summary tab Meshy embed; already authored at `2026-05-27-drax-dispatch-h-summary-tab-meshy-embed-seasonal-hero.md`; gates on Wave 5 close + Matt manual rigging + Meshy URL)
+
+**Cycle 14 close trajectory under parallel firing:** engine-side ~2-4 days + player-surface ~3-5 days parallel = end-to-end ~4-7 days (vs ~2-3 weeks sequential default).
 - Step 2 ⏳ POST step 1: KR fires gandalf #43 design-quality audit + A/B comparison + personage convergence
 - Step 3 ⏳ POST step 2: KR fires jack-ryan Gate-2 review
 - Step 4 ⏳ PASS branch: KR fires gamora (small) canonical_archetype_register commit + Court accumulation
