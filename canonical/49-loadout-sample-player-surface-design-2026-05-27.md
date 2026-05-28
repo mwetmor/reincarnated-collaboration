@@ -45,7 +45,7 @@
 **Functional spec:**
 
 - **Per-character selection:** player picks a kit from the season's surviving cohort (post Phase 7 2-layer joint-gate SHIPPED-WORTHY verdict; per pre-ratification #1)
-- **Skill tree starts EMPTY:** all nodes uninvested; per-node investment slots visible per kit's emergent chain structure (chain_count + chains + supporting chain + T4 candidates per Path (1) Wave 1.5 Stage 3 Option α emission)
+- **Skill tree starts EMPTY at RANK 0** (per Matt 2026-05-27 design call #3 ratification: "Rank 0 (true empty). All nodes uninvested at startup"): **every node holds zero points; NOT rank 1 default.** All nodes uninvested; per-node investment slots visible per kit's emergent chain structure (chain_count + chains + supporting chain + T4 candidates per Path (1) Wave 1.5 Stage 3 Option α emission). See § 1.1.1 Rank-0 empty-state amendment below.
 - **Per-node requirements:** node investment respects prerequisites + chain depth + branching gates per doc 40 § 8.3.1 (D69 branching gated by depth ≥4 nodes)
 - **Total skill points budget:** ~70-point endgame anchor per doc 41 § 4 + doc 40 Block A3; future L50 progression scaling per doc 41 § 2-3 hybrid progression framework
 - **T4 toggle:** player toggles ONE of N capstones unlockable (per kit's emergent T4 candidates; chain_count − 1 capstones per D83); ONE T4 active at a time per D66 sharpened
@@ -60,6 +60,35 @@
 **Genre precedent:** Path of Exile's Path of Building (community theorycraft tool); Diablo IV armory + build planner; Last Epoch in-app build planner; Lost Ark stat allocator. **Standard ARPG genre pattern.**
 
 **Player intent verbatim per Matt 2026-05-27:** "The goal is for myself or any user to theorycraft as to how they might improve or change the character across nodes/gear/T4 and eventually experience levels (TBD; future capability)."
+
+#### 1.1.1 Rank-0 empty-state amendment (Matt 2026-05-27 design call #3)
+
+**Amendment authority:** Matt 2026-05-27 verbatim design call #3 ratification: "Rank 0 (true empty). All nodes uninvested at startup; matches doc 49 § 1.1 (a) + Matt verbatim 'empty' + PoE PoB pattern. gandalf to author doc 49 amendment explicitly noting 'rank 0 (zero points per node); not rank 1 default.'"
+
+**Clarification:**
+
+The Loadout tab's empty starting state is **rank 0 — zero points invested at every node. It is NOT a rank-1 default.** This distinction is load-bearing for the theorycraft experience and for the stat-calculator math:
+
+- **Rank 0** = node is unallocated; contributes no stat modifier; visible in the tree as an investable slot
+- **Rank 1** = node holds one invested point; contributes its first-tier stat modifier
+
+A "rank 1 default" model — where every node starts pre-invested at rank 1 and the player can only increase from there — would be wrong for three composing reasons:
+
+1. **Mismatch with Matt verbatim ("empty"):** rank 1 default is not empty; it is "pre-allocated baseline."
+2. **Breaks the ~70-point endgame budget** (per doc 41 § 4 + doc 40 Block A3): if N nodes start at rank 1, the budget would need to cover those N points before any meaningful investment choice. With ~70 points and N nodes typically exceeding 70, rank-1-default would be either mathematically infeasible OR would force the budget anchor up to ~140+ points — both consequences violate doc 41 § 4's load-bearing endgame anchor.
+3. **Breaks theorycraft semantics:** the player intent ("theorycraft as to how they might improve or change the character across nodes/gear/T4") requires that **every allocation be a player choice with visible consequence**. Rank-1 default removes the first-allocation choice — the most narratively significant moment of investment — from the player's hands.
+
+**Genre precedent (PoE PoB pattern):** Path of Exile's Path of Building tool — the canonical ARPG theorycraft surface — represents the passive tree as empty at session start. Each allocated point is a player decision; nothing is pre-allocated. The "empty starting state" anchors the PoB user experience and shapes the planner's mathematical model. Doc 49 § 1.1's Loadout tab inherits this pattern directly: same player intent (theorycraft), same genre convention, same mathematical structure (point budget allocated by player choice).
+
+**Composition with substrate-emergent identity:**
+
+The kit's identity does NOT live in node allocation. Identity lives in the **kit shape** (chain_count + chains + supporting chain + T4 candidates per Path (1) Wave 1.5 Stage 3 Option α emission). Rank 0 empty preserves the substrate-emergent identity intact — the kit IS "Crimson Reaver" regardless of which nodes are invested — while making the entire allocation surface a theorycraft exploration space. This composes cleanly with Discipline #41 (no pre-authored taxonomy at player surface) and Discipline #45 (substrate-anchored vocabulary lock).
+
+**Drax-side derivation pattern (composing with § 2.3 dual-derivation):**
+
+Engine emits `kit_committed_state.skill_investment` as the gauntlet-passed investment map (per Sample tab). Drax derives the Loadout tab's empty starting state by **zeroing the committed investment** — every node returns to rank 0. The player can then optionally seed the planner from the Sample state ("start from gauntlet config") or work from true rank-0 empty ("start from scratch"). This is a drax UX surface affordance; both modes derive from the same single-source-of-truth engine emission.
+
+**Cross-reference:** Matt verbatim 2026-05-27 design call #3; PoE Path of Building empty-state pattern; doc 41 § 4 endgame point budget anchor; doc 40 Block A3 budget composition; Discipline #41 substrate-led + Discipline #45 vocabulary lock at player surface.
 
 ### 1.2 Sample tab — immutable historical snapshot
 
