@@ -372,13 +372,15 @@ State file archival path (when reached): rename to `agentic_orchestration/cycle-
 2. Summary tab identity (replace /pitch vs add /summary)
 3. Loadout empty-state spec (rank 0 vs rank 1)
 
-**Drax-surfaced 6 follow-on dispatches:**
-- Dispatch A (vocab lock redactions; ~0.5 days; IMMEDIATE no gate)
-- Dispatch B (Loadout Phase A empty-state; ~1 week; awaits Matt design call #3)
-- Dispatch C (Summary faction-grouped; ~1-2 weeks; Wave 3 + Track C gated)
-- Dispatch D (Loadout Phase B + Sample committed-state; ~1.5-2 weeks; Wave 1.5 Stage 3 + Wave 4 gated)
+**Drax-surfaced 6 follow-on dispatches (Matt RATIFIED 2026-05-27 + design calls):**
+- **Dispatch A ✅ COMPLETE** at loadout `42e9393` + meta `56a0958` (16 player-facing #45 violations remediated; 5 catalogued + 11 grep-discovered; build clean)
+- **Dispatch B 🔥 FIRING** at drax (Loadout Phase A; ~1 week; design call #3 ratified rank 0 LOCKED)
+- Dispatch C (Summary faction-grouped; ~1-2 weeks; Wave 3 ✅ + Track C gated; design call #2 ratified REPLACE /pitch with /summary)
+- Dispatch D (Loadout Phase B + Sample committed-state; ~1.5-2 weeks; Wave 1.5 Stage 3 ✅ + Wave 4 gated)
 - Dispatch E (Loadout Phase C stat calculator; ~1-2 weeks; doc 47 Track C gated)
-- Dispatch F (Analytics + Encounters Cycle 14 wiring; ~1 week; Phase 7 IMPL ✅ now landed; can fire)
+- **Dispatch F ⏳ QUEUED** for next drax invocation (Analytics + Encounters Cycle 14 wiring; ~1 week; Phase 7 IMPL ✅ landed; UNBLOCKED)
+
+**Design call #1 (H-5 hybrid seasonal hero):** gandalf bundle firing — seasonal_hero_candidates spec authoring at canonical/story/
 
 **Star-lord post-first-3-seasons review surfaced:** F-D1/F-D2/F-D3/F-C12 audits for gandalf + star-lord joint review (downstream of Wave 5).
 
