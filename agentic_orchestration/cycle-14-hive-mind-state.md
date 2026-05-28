@@ -942,6 +942,71 @@ KR fires W-α3 Phase 2 sub-agent next.
 Discipline #47 enforcement operating exactly as architected at W-α5c: case 9 affects doc 50 § 4 5 targets (T2/T4 directly; T5 conditionally); Matt design-call ratification required; cannot pass on seam-owner discretion alone.
 
 **Pending Matt Pattern-B ratification.**
+
+---
+
+### MATT GATE-7 RATIFICATION LOCKED 2026-05-28 — OPTION B (PER-ENCOUNTER-TYPE BANDS INTO CYCLE 14)
+
+**Architectural acknowledgments (Matt verbatim):**
+- Path α architectural breakthrough confirmed: cross-path DPS ratio 365× → 1.24× (target ≤1.5×). Structural root cause closed.
+- Discipline #47 first-firing acknowledged. Framework operating as architected at novel integration scale.
+- Jack-ryan BLOCK authority per #47 honored — design-call ratification required.
+
+**D1 RATIFIED — Option B (pull Cycle 15 Gate-3 D2 per-encounter-type bands into Cycle 14 v1):**
+- Effort: ~2-4d (math note ~0.5d + calibration sweep × 6 enc types × 4 cohorts ~1-2d + BVV re-run ~0.5d) + Bundle Gate-2 + Wave 5 re-fire ~3-5d = **~5-8d to v1 tag from this ratification**
+- Acceptance: BVV harness `compound_pass=True` (full 5/5 PASS) under post-Path-α + post-Option-B architecture
+- Rationale: bounded-viability-with-specialization constitutive properties (T2 + T4) require empirical verification; tag accuracy preserved; Q10 quality > timeline; Discipline #39 Mode A case 9 resolved within cycle; **C-Hybrid algorithmic discipline (Cycle 15+) measurement infrastructure depends on Option B per-encounter bands**
+
+**D2 RATIFIED — Tag retained:** `v1-cycle-14-bounded-viability-substrate-led` (no amendment needed; Option B preserves semantic accuracy).
+
+**D3 RATIFIED — Cycle 15 scope clarification post-Option-B:**
+
+**CONFIRMED in Cycle 15:**
+- Substrate-signal research for Layer 1 BC axis expansion (C-Hybrid Discipline #18 territory)
+- Spirit guide marginal value pass (deferred from prior cycles)
+- LLM naming refinement based on Cycle 14 v1 playtest feedback
+- C-Hybrid algorithm implementation (autonomy + focus + gear-orientation scoring; year-of-content curation pipeline; algorithmic faction-pair on full pool)
+- **Pirate-faction sub-cluster naming integration** per `canonical/story/c-hybrid-cell-and-curation-architecture-2026-05-28.md`
+
+**MOVED OUT of Cycle 15 (delivered Cycle 14 via Option B):**
+- Per-encounter-type KPM bands (Gate-3 D2)
+
+**NOT NEEDED (Path α made redundant):**
+- Option 6 damage/HP% metric replacement (Gate-5 D2 retracted; Path α 1.24× cross-path parity makes Option 6 unnecessary)
+- KPM ceiling investigation (Gate-5 D3) lighter or unnecessary given W-α2 Option B ceiling=None implementation
+
+**D4 ACKNOWLEDGED — Watch surfaces during Option B execution:**
+- Effort estimate calibration (Discipline #1.1 over-projection pattern; calibration sweep convergence variance) — note from W-α3 Phase 2 (~62min projected → ~28s actual)
+- Probable case 10 surfacing during execution (~30-50% base rate; framework catches if so)
+- Bundle Gate-2 compound_pass=True expectation verification
+- **Wave 5 RE-FIRE integration across multiple architectural changes composed into one run (Path α + Option B + R5-Plus scrub + Phase 5 LLM naming)**
+
+---
+
+### W-α6 EXECUTION — OPTION B PER-ENCOUNTER-TYPE BANDS
+
+**New work-stream within Path α (case 9 resolution):**
+
+| Sub-stream | Owner | Scope | Effort |
+|---|---|---|---|
+| **W-α6a** | gamora | Per-encounter-type KPM bands math note + canonical `ENCOUNTER_COHORT_KPM_BAND[enc_type][cohort]` structure | ~0.5d |
+| **W-α6b** | gamora | Calibration sweep × 6 encounter types × 4 cohorts = 24 cells | ~1-2d |
+| **W-α6c** | gamora | BVV harness re-run; compound_pass=True acceptance | ~0.5d |
+| **Bundle Gate-2** | jack-ryan | Post-W-α6 process verification + cross-target coherence | ~0.25d |
+| **Wave 5 RE-FIRE** | gamora | Full production season under Path α + Option B + R5-Plus scrub + Phase 5 LLM naming | ~3-5d |
+| **v1 ratification** | Matt | `v1-cycle-14-bounded-viability-substrate-led` | <0.1d |
+
+**KR routing:**
+- 🔥 W-α6 gamora dispatch authoring (this turn)
+- 🔥 Jack-ryan Gate-1 review (background; ~5-10min) — light review since W-α6 mirrors W-α3 Phase 2 pattern + Matt scope locked
+- ⏳ Fire gamora on Gate-1 PASS
+- ⏳ Bundle Gate-2 + Wave 5 RE-FIRE coordination post W-α6 compound_pass=True
+
+**Wave 5 RE-FIRE composition note (Matt D4):** integration across Path α + Option B + **R5-Plus scrub + Phase 5 LLM naming** — KR queues awareness of R5-Plus + Phase 5 LLM naming workstreams (likely in separate Matt-dialogues with gandalf/star-lord); will surface coordination needs at Wave 5 RE-FIRE timing.
+
+**KR pending awareness items:**
+- `canonical/story/c-hybrid-cell-and-curation-architecture-2026-05-28.md` — new canonical doc referenced by Matt (Cycle 15 scope) — KR has not yet read; will read at session-end handoff authoring or next session start
+- R5-Plus scrub + Phase 5 LLM naming workstreams — in flight outside Path α; integration at Wave 5 RE-FIRE
 - ✅ **W-α5 jack-ryan canonical retirements COMPLETE** at meta `deadd26` + tag `jack-ryan/v1.7-w-alpha-5-canonical-retirements-1` (bundled; ~11-min fire). All 3 sub-streams landed:
   - **W-α5a — 5 decisions-log entries:** Path α RATIFICATION (LOCKED) + Path β-narrow REJECTION + Path β-FULL Option 6 REJECTION + Cycle 15 D2 Option 6 RETRACTION (Discipline #40 case (c) FOURTH iteration declared) + Discipline #39 framework maturation (two modes defined — Mode A scaffold-drift catches cases 1-7; Mode B canonical scaffold resolutions case 8+; founding case `ee15c96` ANCHOR INTENTS; 3-element annotation requirement: scaffold declaration + named resolution party + named resolution gate; adjacent architectural truth pattern)
   - **W-α5b — Phase 7 doc § 3.14 + lifecycle:** Full Discipline #40 case (c) FOURTH iteration 6-step procedure executed. Phase 7 doc STATUS shifted LOAD-BEARING → HISTORICAL. D2 RATIFICATION marked RETRACTED in authority header. Doc 50 added as successor. Implementer historical-note added.
