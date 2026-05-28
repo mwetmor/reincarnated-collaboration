@@ -381,3 +381,78 @@ Note: magic_pack / elite_pack / boss_with_adds / mini_boss values differ from ga
 ### Phase 5 signal
 
 Phase 4 COMPLETE. KR signals Phase 5 firing (BVV multi-dim + drax + Wave 5 RE-FIRE) on receipt of this completion record.
+
+---
+
+## Completion record — Phase 3d RE-RUN (gamora)
+
+**Completed:** 2026-05-28
+**Agent:** gamora
+**Engine commit:** `2c8ce23` — gamora: W-α7+ Phase 3d RE-RUN — BASE_DAMAGE_L50 re-derivation under T4 context; Discipline #12 semantic shift; smoke PASS + 5-iter convergence
+**Tag:** `gamora/v2.13-w-alpha-7-plus-phase-3d-rerun-t4-context-1`
+**Push:** confirmed (main + tag pushed to remote)
+
+### Context
+
+Phase 3d RE-RUN was required after gandalf design lock at doc 47 § 4.5 Q2 + Phase 3e Part 1 (rocket `3db9ca8`) + Phase 3e Part 2 (gamora `b3214c3`) all CLOSED. Phase 3d-v1 BASE values were T4-naive (no element override active during calibration). RE-RUN re-derives BASE values with T4 ELEMENT_CONVERSION routing active for 13/18 kits.
+
+**Gandalf Q2 anchor (LOAD-BEARING):** "Specialization mechanism = Phase 3d `base_at_max` under T4 context (NOT numeric factor). Architectural symmetry with doc 51 § 7.2."
+
+### Deliverables
+
+1. **Math note (Discipline #1):** `simulation/math/w-alpha-7-plus-phase-3d-rerun-t4-context-2026-05-28.md` — §§ 1-10 complete including § 10 actuals post-convergence
+2. **BASE_SPELL_DAMAGE_L50 = 20532.2 (all 4 tiers, uniform)** in `generation/per_skill_emitter.py` (was 20726.5 T4-naive)
+3. **BASE_PHYSICAL_DAMAGE_L50 = 48012.6 (all 4 tiers, uniform)** in `generation/per_skill_emitter.py` (was 48467.0 T4-naive)
+4. **`_BASE_SPELL_DAMAGE_FALLBACK` = 20532.2 (all tiers)** + **`_BASE_SPELL_DAMAGE_FALLBACK_DEFAULT` = 20532.2** in `simulation/damage_resolver.py`
+5. **New T4-context calibration infrastructure** in `simulation/unified_calibration_loop.py`:
+   - `_T4_ELEMENT_CONVERSION_ALTERATION` module-level constant
+   - `_build_t4_context_configs()` bypasses `generation_shipped` gate; applies T4 alteration to 13/18 eligible kits
+   - `_run_gauntlet_t4_context()` gauntlet entry with T4-context configs
+   - `t4_context: bool = False` parameter added to `run_unified_calibration_pass()`
+   - `run_unified_calibration_smoke_t4()` smoke entry point
+6. **MIGRATION.md § v1.50 filed** — Discipline #12 semantic shift declared; star-lord seam: NO action required
+7. **AGENT_STATE.md updated** with Phase 3d RE-RUN status + commit hash + tag
+
+### Acceptance criteria — all PASS
+
+| Criterion | Result |
+|---|---|
+| Cross-path parity ≤1.5× | 1.290× PASS |
+| Per-tier ratio 1:1.50:2.17:4.00 (±5%) | Exact mathematical identity PASS |
+| Calibration convergence ≤5% delta | KPM=73.17, delta=2.44% PASS |
+| T4 context active for eligible kits | 13/18 kits with ELEMENT_CONVERSION T4 candidates PASS |
+| W-α1 cross-path ratio preserved | 48012.6/20532.2 = 2.338× (W-α1 anchor: 2.337) PASS |
+| Zero new test regressions | 0 new failures; 8 pre-existing confirmed via git stash isolation PASS |
+| Smoke PASS | 3 iterations, 1.8s PASS |
+
+### Convergence actuals
+
+| Field | Value |
+|---|---|
+| Iterations | 5 |
+| Wall time | 46.4s |
+| Converged scale_factor | 0.990625 |
+| KPM (population median) | 73.17 (delta=2.44% vs 75.0 target) |
+| BASE_SPELL_L50 (was 20726.5) | 20532.2 |
+| BASE_PHYSICAL_L50 (was 48467.0) | 48012.6 |
+| Cross-path parity (STR/DEX/INT/WIS) | STR=79.44, DEX=82.33, INT=68.18, WIS=63.83 (1.290× max) |
+
+### Discipline #12 semantic shift declared
+
+- Phase 3d-v1 BASE values: T4-naive semantics (no element override during calibration)
+- Phase 3d RE-RUN BASE values: T4-aware semantics (ELEMENT_CONVERSION active for 13/18 kits)
+- Declared in commit message, MIGRATION.md § v1.50, and math note
+
+### Empirical finding: element-affinity gear modifier
+
+All 18 production kits have `weapon_element_affinity_modifiers = {}` → `elem_affinity_pct = 0.0`.
+T4 ELEMENT_CONVERSION specialization operates via resistance routing (fire vs native element), NOT
+via gear affinity multiplier. The calibration difference between Phase 3d-v1 and RE-RUN is ~1%
+(scale 0.990625 vs Phase 3d-v1's calibrated values) because the current kit population's INT/WIS
+kits do not uniformly have high-resistance native elements against the anchor boss (dominant_element=earth).
+
+### Phase 4 RE-RUN signal
+
+KR fires Phase 4 RE-RUN gamora dispatch on receipt of this completion record.
+Phase 4 RE-RUN re-runs multi-dim calibration sweep with T4-context BASE values (20532.2 / 48012.6)
+replacing Phase 4's Phase-3d-v1-derived BASE values (20726.5 / 48467.0).
