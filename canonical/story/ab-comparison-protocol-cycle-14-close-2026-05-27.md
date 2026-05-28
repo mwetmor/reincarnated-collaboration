@@ -812,5 +812,187 @@ Cycle 15 watch.
 
 ---
 
+## 9. Composite verdict synthesis
+
+### 9.1 Per-dimension verdict aggregation rules
+
+Each dimension produces one of these verdicts:
+- B-PASS / LEAN-B → counts toward Option α architectural commitment
+- A-PASS / LEAN-A → counts against Option α
+- WARN / FOLLOW-UP-DEFER / INCONCLUSIVE / UNDER-POWERED-DEFER → uninformative
+
+### 9.2 Composite verdict computation
+
+**B-PASS composite:** at least 4 of 6 dimensions B-PASS or LEAN-B, AND zero dimensions A-PASS.
+
+**A-PASS composite:** at least 2 of 6 dimensions A-PASS, OR (any single A-PASS on dim #1 OR dim #4 — these are the architectural-load-bearing dimensions).
+
+**INCONCLUSIVE composite:** any other outcome. Specifically:
+- 3 or fewer B-PASS without compensating A-PASS evidence → not enough positive signal
+- Mixed A-PASS + B-PASS without clear dominance → genuine ambiguity
+- High proportion of UNDER-POWERED-DEFER → sample size insufficient
+
+**Why dim #1 and dim #4 are weighted as architectural load-bearing:**
+
+- **Dim #1 (archetype coverage):** if substrate-led emergence cannot reproduce designer-recognizable substrate patterns, the architectural commitment to substrate-led has decoupled from substrate-evidence-readability. This is a fundamental failure mode.
+- **Dim #4 (personage convergence):** if Sketch F substrate-anchor metadata does not converge on substrate-cluster identity, the D-Sharpened architectural commitment is not delivering mechanically. This is a fundamental architectural test.
+
+The other dimensions (#2 anchor distribution, #3 pairwise distance, #5 surprise emergence, #6 throwaway clusters) are tuning + quality dimensions; their A-PASS verdicts route to parameter recalibration. The architectural-load-bearing dimensions (#1, #4) route to architectural reconsideration if they A-PASS.
+
+### 9.3 Composite verdict consumers
+
+**B-PASS composite outcome:**
+- Discipline #43 gandalf design-quality audit at Wave 5 close → PASS contribution
+- KR commits Wave 5 closure record + ratifies Option α for v1 generative architecture
+- Matt notification: Option α verdict B-PASS; Cycle 15 planning proceeds on substrate-led foundation
+- Doc 48 STATUS confirmed as VESTIGIAL (no resurrection)
+
+**A-PASS composite outcome:**
+- Discipline #43 gandalf design-quality audit at Wave 5 close → DRIFT-DETECTED contribution
+- KR holds Wave 5 closure record
+- Pattern B engagement with Matt: substrate-led architectural commitment did not deliver at Wave 5 close; routes to Option β/γ reconsideration OR to substrate enrichment + Option α retry
+- Doc 48 status reconsideration: PRESERVED-FOR-COMPARISON status may need re-elevation pending substrate-led path forward
+
+**INCONCLUSIVE composite outcome:**
+- Discipline #43 gandalf design-quality audit at Wave 5 close → CONDITIONAL PASS
+- KR commits Wave 5 closure record AS PHASE-CLOSE-WITHOUT-ARCHITECTURAL-VERDICT
+- Cycle 15 planning includes 3-5 production-season replications to resolve INCONCLUSIVE dimensions
+- Pattern B engagement with Matt: timeline expectation set — composite verdict deferred to Cycle 15 close
+
+### 9.4 Per-dimension execution order
+
+Run dimensions in this order to minimize compute waste on data-pipeline failures:
+
+1. **Dim #3** (faction pairwise-distance) — fastest; reads single ExportFactionCluster field; if data missing, halts entire protocol
+2. **Dim #6** (throwaway-cluster count) — reads phase7_cluster_aggregate_log; if cluster data unhealthy, dim #1 + #5 results are interpretation-conditional
+3. **Dim #2** (substrate-anchor distribution) — reads ExportFactionCluster.substrate_anchored_personages; checks D-Sharpened pipeline integrity early
+4. **Dim #1** (archetype coverage) — needs kit_archive + phase7_kit_verdict_log join; produces kit-to-doc-48-archetype matching that dim #5 reuses
+5. **Dim #5** (surprise-emergence count) — reuses dim #1 matching output + clusters
+6. **Dim #4** (personage convergence Bayesian test) — highest-stakes inference; runs after data-pipeline integrity confirmed by dims #2, #3, #6; reuses anchor + cluster mapping
+
+### 9.5 Composite verdict output record format
+
+```
+Composite A/B verdict — Wave 5 season <season_id>
+
+Per-dimension verdicts:
+| Dim | Verdict | Contribution |
+|---|---|---|
+| #1 archetype coverage | B-PASS (0.85) | B |
+| #2 substrate-anchor distribution | B-PASS (0.34) | B |
+| #3 faction pairwise-distance | B-PASS (HIGH-DISTANCE 1.85) | B |
+| #4 personage convergence | B-PASS (BF=4.2) | B |
+| #5 surprise-emergence | B-PASS (1 surprise) | B |
+| #6 throwaway-cluster | WARN (0.25) | uninformative |
+
+B-PASS count: 5 of 6
+A-PASS count: 0 of 6
+Composite verdict: B-PASS
+
+Discipline #43 design-quality audit input: PASS contribution
+KR action: commit Wave 5 closure record; ratify Option α for v1
+Doc 48 status: VESTIGIAL confirmed
+Cycle 15 watch items: dim #6 WARN (PM-1 k-cap recalibration consideration)
+```
+
+---
+
+## 10. Risks + Watch Items (failure-modes register additions)
+
+Per dispatch closure obligation, the following items are added to `agentic_orchestration/gandalf/notes/2026-05-27-path-1-failure-modes-scope-creep-drift-register.md` § 5 (or § 1 if § 5 not yet present; section-add as needed at execution time):
+
+### F-11. A/B composite verdict premature commitment under small-n
+
+**Pattern:** Wave 5 single-season produces a B-PASS composite verdict from 4-5 B dimensions with high LEAN-B influence; KR commits Option α ratification; subsequent Cycle 15 replications produce divergent verdicts revealing Wave 5 was a sample-of-1 favorable seed. Composite verdict over-committed at insufficient sample size.
+
+**Watch:** any Wave 5 composite verdict B-PASS that derives ≥2 of its B-contributions from LEAN-B (rather than B-PASS) dimensions triggers a Cycle 15 replication-validation phase before final ratification; gandalf design-quality audit notes the LEAN-B contributions in the closure record.
+
+**Counter:** composite verdict semantics include explicit "Wave 5 single-season B-PASS-with-LEAN-B contributions = Wave 5 B-PASS-CONDITIONAL pending Cycle 15 3-5 production-season replication"; ratification proceeds but is conditional; Cycle 15 replication-validation is a named workstream rather than optional follow-up. Cycle 15 dispatch carries forward the LEAN-B dimensions for explicit re-evaluation.
+
+### F-12. Dim #4 Bayesian methodology mis-application
+
+**Pattern:** Bayesian posterior + Bayes factor methodology requires correct prior specification; mis-specified prior (e.g., wrong concentration parameter; wrong nested-vs-non-nested H1 structure) produces apparently-decisive Bayes factor that does not honestly represent evidence. Wave 5 verdict ratified on methodologically-corrupt BF value.
+
+**Watch:** Wave 5 execution of dim #4 includes prior-sensitivity analysis as standard practice — report BF under α=0.5 (more diffuse prior), α=1 (uniform), α=2 (more concentrated); discrepancy across prior choices >2x triggers methodology consultation (elrond per Discipline #18) before verdict commitment.
+
+**Counter:** dim #4 measurement procedure includes prior-sensitivity reporting requirement; protocol does not commit verdict on single-prior BF computation; any BF verdict derived from a single prior choice is automatically WARN at Wave 5 single-season pending Cycle 15 replication.
+
+### F-13. doc 48 baseline interpretation drift
+
+**Pattern:** dim #1 + dim #5 use doc 48 § 3.1 BC-axis signature encoding as baseline. If gandalf execution-time encoding of doc 48 archetypes drifts from doc 48's intent (e.g., encoder reads "small-AOE (cleave)" as `small-AOE` when doc 48 means a more specific cleave-cluster sub-bin), the A/B comparison measures a strawman doc 48 rather than the actual doc 48 baseline.
+
+**Watch:** encoding step (dim #1 § 3.2 Step 1) is reviewed by gandalf at execution time AND cross-validated against elrond Stage 1 audit § 2.1 substrate-evidence seed mapping; encoding mismatch >2 axes per archetype triggers re-encoding with explicit gandalf sign-off.
+
+**Counter:** dim #1 § 3.2 Step 1 specifies "encoded as test fixture in measurement script; reviewed by gandalf at protocol-execution time for fidelity to doc 48"; the review is a NAMED gate, not "while we're at it" implicit verification. Encoding-review record archived at `agentic_orchestration/gandalf/notes/<YYYY-MM-DD>-wave-5-ab-comparison-doc-48-encoding-review.md`.
+
+### F-14. Phase 7 data-pipeline integrity failure cascades into A/B verdict
+
+**Pattern:** A/B comparison protocol depends on phase7_kit_verdict_log + phase7_cluster_aggregate_log + ExportFactionCluster + ExportFactionRelationship being populated cleanly at Wave 5 close. If Phase 7 IMPL (gamora `eca0aa5`) has data-emission bugs (e.g., kit verdicts not all emitting; cluster aggregates missing fields; ExportFactionCluster.pairwise_distance_distribution null where G-B fired), the A/B comparison produces verdict on incomplete data — protocol cannot detect this from within.
+
+**Watch:** dim execution order (§ 9.4) is designed to surface data-pipeline failures early (dim #3 first; dim #6 second); each dimension's measurement procedure includes integrity-check steps (dim #3 Step 4 cross-checks G-B selection rationale vs distance shape; dim #6 Step 5 cross-checks with held_cohesion_fail_count; dim #4 sample-size-floor honesty clause).
+
+**Counter:** at protocol-execution time, the protocol-runner produces a PRE-EXECUTION DATA INTEGRITY REPORT before any dimension runs: count rows in each source table; verify schema fields populated at expected non-null rates; cross-reference ExportFactionCluster cluster_id values with phase7_cluster_aggregate_log cluster_id values; cross-reference ExportFactionCluster.pairwise_distance_distribution length with k. Any integrity failure halts protocol AND surfaces as routing-back to gamora + star-lord for data-pipeline fix BEFORE measurement proceeds. A/B verdict on incomplete data is worse than no A/B verdict at all.
+
+### F-15. dim #5 surprise-emergence interpretation drift (substrate-noise vs substrate-discovery)
+
+**Pattern:** dim #5 § 7.3 Step 5 requires gandalf design-quality interpretation per surprise cluster to distinguish (a) substrate-led discovery of meaningful new archetype-shape from (b) substrate noise producing thin incoherent cluster. Without rigor in this interpretation step, surprise count is reported high (B-PASS dim #5) while the surprises are actually noise — composite verdict elevated on noise interpretation.
+
+**Watch:** any surprise cluster recorded under dim #5 requires per-surprise record (dim #5 § 7.3 Step 5) with: modal BC signature + modal cultural lineage + modal substrate seeds + cluster compactness + discrimination-from-doc-48. The record is reviewed at gandalf design-quality audit; surprise WITHOUT supporting per-surprise record cannot count as B-PASS contribution.
+
+**Counter:** dim #5 measurement procedure mandates per-surprise interpretation record AND requires the record to demonstrate substrate-led discovery semantics — modal substrate seeds must indicate coherent substrate evidence (not random kit collection); modal cultural lineage must be consistent within the cluster; cluster compactness must be ≥0.50 (above the dim #6 floor) for surprise-as-discovery designation. Surprise clusters that fail these supplementary criteria are downgraded to "surprise-but-noise" and do not contribute to B-PASS.
+
+### F-16. Doc 48 VESTIGIAL status retraction creates pressure to deprecate baseline
+
+**Pattern:** Wave 5 close occurs months after doc 48 VESTIGIAL status; intervening canonical maintenance may pressure toward archiving or further-deprecating doc 48 ("we've moved past it; let's clean up"). If doc 48 is archived before A/B comparison executes, the baseline is lost; A/B comparison cannot run; Option α architectural verdict has no comparison surface.
+
+**Watch:** doc 48 STATUS protected as VESTIGIAL-PRESERVED-FOR-A/B-COMPARISON through Wave 5 close + Cycle 15 close (in case INCONCLUSIVE composite defers verdict to Cycle 15); any canonical-maintenance dispatch touching doc 48 between now and Cycle 15 close requires gandalf review + this A/B protocol's preservation requirement cited.
+
+**Counter:** doc 48 STATUS line and § 0 ledger explicitly call out "preserved as A/B baseline through Cycle 15 close at minimum; do not archive without explicit gandalf + Matt sign-off." This protocol's authority chain references doc 48 PRESERVATION as a hard requirement.
+
+---
+
+## 11. Discipline composition
+
+| Discipline | This protocol's application |
+|---|---|
+| **#11 (empirical inspection over assumption)** | Statistical methodology rigor (§ 2 small-n preamble; § 6 Bayesian framing for dim #4); per-dimension empirical data source specification; PRE-EXECUTION DATA INTEGRITY REPORT (F-14 counter); rejection of chi-squared at violated assumption |
+| **#41 (pre-authored taxonomy interrogation)** | Doc 48 baseline framed as COMPARISON not PRESCRIPTION (§ 0 TL;DR + dim #1 § 3.1 + dim #5 § 7.1); non-emergence treated as substrate-vote signal not automatic failure; surprise emergence positively valued as substrate-led architectural commitment justification |
+| **#42 (framing-audit at dispatch consumption)** | Pre-authoring framing-audit (Q1/Q2/Q3) executed and recorded in conversation log; vocabulary lock #45 compliance verified at every section |
+| **#43 (design-quality audit at wave-close)** | Composite verdict directly feeds Discipline #43 A1-A5 audit (§ 9.3); B-PASS contributes PASS; A-PASS contributes DRIFT-DETECTED; INCONCLUSIVE contributes CONDITIONAL PASS; protocol runs AFTER Phase 7 close + BEFORE KR wave-closure commit per #43 sequencing |
+| **#45 (vocabulary lock)** | Doc lives at canonical/story/ — narrative-vocabulary exemption applies BUT measurement specification uses kit/faction/substrate-anchor/cluster vocabulary throughout; references to doc 48 archetypes consistently use "candidate archetype-shape" framing per Discipline #45 anchored example #1; no "class taxonomy" usage in measurement infrastructure |
+| **#46 (DB anti-materialization)** | All measurement queries are bounded — per-season filters on season_id (bounded by # kits per season ~22-40); per-cluster queries bounded by k=3-4; no unbounded cross-archive joins; Bayesian computation operates on contingency table (bounded by anchor-lineage × cluster cardinality, max ~7×5=35 cells) |
+| **#40 (scaffold-with-pending-decision)** | Protocol is CURRENT (not scaffold); each dimension's acceptance criteria are NOT scaffold values — they are operational decisions per Q-AB-1/2/3 resolutions and per Sketch F architectural commitments. Drift-watch criteria are NOT pending-decisions — they are post-Wave-5 triggers for Cycle 15+ revisit. No scaffold flags. |
+| **#18 (math-hotspot routing)** | Bayesian methodology for dim #4 IS a math-hotspot; specified in protocol (Dirichlet-Multinomial conjugacy); methodology-consultation with elrond reserved for F-12 prior-sensitivity discrepancy trigger (not automatic) |
+
+---
+
+## 12. Sign-off
+
+**Author:** gandalf (story-and-design steward)
+**Status:** CURRENT — A/B comparison protocol authored; READY for Wave 5 close execution
+**Authority:** Matt 2026-05-27 pre-ratification #3 (6 measurement dimensions LOCKED) + KR dispatch `2026-05-27-gandalf-ab-comparison-protocol-wave-5-close.md`
+
+**Three open questions resolved within the protocol:**
+- **Q-AB-1** (dim #4 statistical test): Bayesian Dirichlet-Multinomial posterior + Bayes factor as PRIMARY; Fisher's exact supplementary; chi-squared REJECTED at violated asymptotic assumption (§ 6.2)
+- **Q-AB-2** (dim #5 surprise count acceptance): ≥1 surprise at Wave 5 = B-PASS; 0 = FOLLOW-UP-DEFER (small-n cannot distinguish either-direction); 4-all-surprises = A-PASS (architectural decoupling) (§ 7.2)
+- **Q-AB-3** (dim #6 throwaway threshold): dual-floor (member_count < max(3, 10% total) AND compactness < 0.40); BOTH must fail; THIN-COHERENT + FAT-INCOHERENT recorded separately (§ 8.2)
+
+**Composition:**
+- With doc 48 VESTIGIAL preservation (A baseline)
+- With Phase 7 IMPL (gamora `eca0aa5` — kit_archive → gauntlet_sim bridge + 2-layer joint-gate + verdict emission)
+- With G-B primary-pair selection (rocket `a466eb1` + PM-2 § 13 Mahalanobis pairwise distance)
+- With F-C Phase 5 inter-faction relationship (star-lord `bf7f659` + Wave 3 dispatch)
+- With Sketch F D-Sharpened substrate-anchor architecture (Path III note § 2)
+- With Discipline #43 wave-close design-quality audit (composite verdict feeds A1+A2+A4)
+- With Discipline #41 substrate-led architectural commitment (doc 48 framed as COMPARISON not PRESCRIPTION)
+- With Discipline #45 vocabulary lock (kit/faction/substrate-anchor vocabulary throughout measurement; doc 48 references use candidate-archetype-shape framing)
+
+**For:** the Wave 5 close measurement of whether Option α substrate-led emergence delivers a generative-architecture output equal to or better than doc 48 designer-curated baseline. Composite verdict feeds Discipline #43 design-quality audit, which gates KR wave-closure commit. B-PASS ratifies Option α for v1; A-PASS routes to Pattern B engagement with Matt; INCONCLUSIVE defers composite verdict to Cycle 15 with replication-validation workstream.
+
+**Hand-back:** KR routes A/B comparison execution at Wave 5 close (post canonical-promoted production season at audit-gate PASS). gandalf executes protocol; produces per-dimension audit records at `agentic_orchestration/gandalf/notes/<YYYY-MM-DD>-wave-5-ab-comparison-dim-N-output.md` per dimension; produces composite verdict record at `agentic_orchestration/gandalf/notes/<YYYY-MM-DD>-wave-5-ab-comparison-composite-verdict.md`; feeds composite verdict into Discipline #43 wave-close design-quality audit record.
+
+**Signed:** gandalf (story-and-design steward)
+
+
 
 

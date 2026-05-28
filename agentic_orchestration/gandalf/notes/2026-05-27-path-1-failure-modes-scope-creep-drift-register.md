@@ -14,11 +14,13 @@
 
 ## 0. TL;DR
 
-17 patterns to monitor during Cycle 14 Path (1) execution. Categorized: 8 failure modes / 4 scope creeps / 5 design drifts. Each pattern has a watch + counter. KR includes audit references in dispatches; gandalf design-quality audit at wave-close (Discipline #43) checks; framing-refusal authority (Discipline #44) empowers sub-agents to catch in-flight.
+23 patterns to monitor during Cycle 14 Path (1) execution. Categorized: 14 failure modes / 4 scope creeps / 5 design drifts. Each pattern has a watch + counter. KR includes audit references in dispatches; gandalf design-quality audit at wave-close (Discipline #43) checks; framing-refusal authority (Discipline #44) empowers sub-agents to catch in-flight.
+
+**Append-record 2026-05-27 evening:** F-11 through F-16 added per A/B comparison protocol authoring (`canonical/story/ab-comparison-protocol-cycle-14-close-2026-05-27.md` § 10). F-11 to F-16 are A/B-comparison-specific failure modes that surface at Wave 5 close.
 
 ---
 
-## 1. Failure modes (8 patterns)
+## 1. Failure modes (14 patterns — F-1 through F-16; F-8 and F-9 reserved for Path III primary-pair tie-break / LLM homogeneity at `2026-05-27-path-iii-faction-assembly-extension.md` § 6)
 
 ### F-1. Math methodology selection drift
 
@@ -85,6 +87,66 @@
 **Counter:** Bridge module per Phase 7 IMPL dispatch — explicit `kit_archive` ACCEPTED → `gauntlet_sim.py` encounter sweep → cohort KPM measurement pipeline. Bridge is a NAMED component (not "while we're at it" implicit infrastructure); dispatch acceptance criteria include bridge contract surface + smoke test on small ACCEPTED cohort before Wave 5 fires. **Composition with F-5 joint-gate threshold drift:** F-10 is the integration prerequisite that lets F-5 fire empirically — without the bridge, threshold calibration has no execution surface; with the bridge, F-5 watch (Wave 5 smoke threshold-pass-rate measurement) becomes actionable.
 
 **Surfaced via:** gamora Pattern A-light response 2026-05-27 (5-question architectural query about `spatial_gauntlet/` vs `gauntlet_sim.py` integration semantics). RECOGNIZED 2026-05-27; CLOSES at Phase 7 IMPL dispatch landing.
+
+### F-11. A/B composite verdict premature commitment under small-n
+
+**Pattern:** Wave 5 single-season produces a B-PASS composite verdict from 4-5 B dimensions with high LEAN-B influence; KR commits Option α ratification; subsequent Cycle 15 replications produce divergent verdicts revealing Wave 5 was a sample-of-1 favorable seed. Composite verdict over-committed at insufficient sample size.
+
+**Watch:** any Wave 5 composite verdict B-PASS that derives ≥2 of its B-contributions from LEAN-B (rather than B-PASS) dimensions triggers a Cycle 15 replication-validation phase before final ratification; gandalf design-quality audit notes the LEAN-B contributions in the closure record.
+
+**Counter:** composite verdict semantics include explicit "Wave 5 single-season B-PASS-with-LEAN-B contributions = Wave 5 B-PASS-CONDITIONAL pending Cycle 15 3-5 production-season replication"; ratification proceeds but is conditional; Cycle 15 replication-validation is a named workstream rather than optional follow-up.
+
+**Surfaced via:** A/B comparison protocol authoring 2026-05-27 (`canonical/story/ab-comparison-protocol-cycle-14-close-2026-05-27.md` § 9 composite verdict synthesis + § 10 risks register).
+
+### F-12. Dim #4 Bayesian methodology mis-application
+
+**Pattern:** Bayesian posterior + Bayes factor methodology requires correct prior specification; mis-specified prior (e.g., wrong concentration parameter; wrong nested-vs-non-nested H1 structure) produces apparently-decisive Bayes factor that does not honestly represent evidence. Wave 5 verdict ratified on methodologically-corrupt BF value.
+
+**Watch:** Wave 5 execution of dim #4 includes prior-sensitivity analysis as standard practice — report BF under α=0.5 (more diffuse prior), α=1 (uniform), α=2 (more concentrated); discrepancy across prior choices >2x triggers methodology consultation (elrond per Discipline #18) before verdict commitment.
+
+**Counter:** A/B protocol dim #4 measurement procedure includes prior-sensitivity reporting requirement; protocol does not commit verdict on single-prior BF computation.
+
+**Surfaced via:** A/B comparison protocol authoring 2026-05-27 § 6 dim #4 Q-AB-1 resolution + § 10 risks register.
+
+### F-13. doc 48 baseline interpretation drift
+
+**Pattern:** A/B protocol dim #1 + dim #5 use doc 48 § 3.1 BC-axis signature encoding as baseline. If gandalf execution-time encoding of doc 48 archetypes drifts from doc 48's intent (e.g., encoder reads "small-AOE (cleave)" as `small-AOE` when doc 48 means a more specific cleave-cluster sub-bin), the A/B comparison measures a strawman doc 48 rather than the actual doc 48 baseline.
+
+**Watch:** encoding step (A/B protocol dim #1 § 3.2 Step 1) is reviewed by gandalf at execution time AND cross-validated against elrond Stage 1 audit § 2.1 substrate-evidence seed mapping; encoding mismatch >2 axes per archetype triggers re-encoding with explicit gandalf sign-off.
+
+**Counter:** encoding-review record archived at `agentic_orchestration/gandalf/notes/<YYYY-MM-DD>-wave-5-ab-comparison-doc-48-encoding-review.md`; named gate, not implicit verification.
+
+**Surfaced via:** A/B comparison protocol authoring 2026-05-27 § 10 risks register.
+
+### F-14. Phase 7 data-pipeline integrity failure cascades into A/B verdict
+
+**Pattern:** A/B comparison protocol depends on phase7_kit_verdict_log + phase7_cluster_aggregate_log + ExportFactionCluster + ExportFactionRelationship being populated cleanly at Wave 5 close. If Phase 7 IMPL has data-emission bugs (e.g., kit verdicts not all emitting; cluster aggregates missing fields; pairwise_distance_distribution null where G-B fired), the A/B comparison produces verdict on incomplete data — protocol cannot detect this from within.
+
+**Watch:** dim execution order designed to surface data-pipeline failures early (dim #3 first; dim #6 second); each dimension's measurement procedure includes integrity-check steps.
+
+**Counter:** at protocol-execution time, produce PRE-EXECUTION DATA INTEGRITY REPORT before any dimension runs: count rows in each source table; verify schema fields populated at expected non-null rates; cross-reference ExportFactionCluster.cluster_id values with phase7_cluster_aggregate_log.cluster_id values; cross-reference pairwise_distance_distribution length with k. Integrity failure halts protocol AND surfaces routing-back to gamora + star-lord for data-pipeline fix BEFORE measurement proceeds.
+
+**Surfaced via:** A/B comparison protocol authoring 2026-05-27 § 9.4 execution order + § 10 risks register.
+
+### F-15. dim #5 surprise-emergence interpretation drift (substrate-noise vs substrate-discovery)
+
+**Pattern:** A/B dim #5 requires gandalf design-quality interpretation per surprise cluster to distinguish (a) substrate-led discovery of meaningful new archetype-shape from (b) substrate noise producing thin incoherent cluster. Without rigor in this interpretation step, surprise count is reported high (B-PASS dim #5) while the surprises are actually noise — composite verdict elevated on noise interpretation.
+
+**Watch:** any surprise cluster recorded under dim #5 requires per-surprise record with modal BC signature + modal cultural lineage + modal substrate seeds + cluster compactness + discrimination-from-doc-48; reviewed at gandalf design-quality audit.
+
+**Counter:** A/B protocol dim #5 measurement procedure mandates per-surprise interpretation record AND requires the record to demonstrate substrate-led discovery semantics. Surprise clusters that fail supplementary criteria (incoherent modal seeds; inconsistent cultural lineage; compactness <0.50) are downgraded to "surprise-but-noise" and do not contribute to B-PASS.
+
+**Surfaced via:** A/B comparison protocol authoring 2026-05-27 § 7 dim #5 + § 10 risks register.
+
+### F-16. Doc 48 VESTIGIAL status retraction creates pressure to deprecate baseline
+
+**Pattern:** Wave 5 close occurs months after doc 48 VESTIGIAL status; intervening canonical maintenance may pressure toward archiving or further-deprecating doc 48 ("we've moved past it; let's clean up"). If doc 48 is archived before A/B comparison executes, the baseline is lost; A/B comparison cannot run; Option α architectural verdict has no comparison surface.
+
+**Watch:** doc 48 STATUS protected as VESTIGIAL-PRESERVED-FOR-A/B-COMPARISON through Wave 5 close + Cycle 15 close (in case INCONCLUSIVE composite defers verdict to Cycle 15); any canonical-maintenance dispatch touching doc 48 between now and Cycle 15 close requires gandalf review + this preservation requirement cited.
+
+**Counter:** doc 48 STATUS line + § 0 ledger explicitly call out "preserved as A/B baseline through Cycle 15 close at minimum; do not archive without explicit gandalf + Matt sign-off." A/B comparison protocol authority chain references doc 48 PRESERVATION as a hard requirement.
+
+**Surfaced via:** A/B comparison protocol authoring 2026-05-27 § 12 sign-off composition + § 10 risks register.
 
 ---
 
