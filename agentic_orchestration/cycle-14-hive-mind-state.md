@@ -2032,6 +2032,34 @@ Gamora calibrates final A + C values empirically within Matt's ranges during Pha
 
 ---
 
+### MAIN GANDALF TRADE_OFF REVERSE OPTION (c) DECISION 2026-05-28 EVENING LATE
+
+**Main gandalf routing decision:** option (c) — KR surfaces TRADE_OFF reverse mechanic question to Matt for specific lock parallel with sub-agent gandalf canonical authoring.
+
+**Sub-agent gandalf authoring (currently firing):** authors canonical amendments with TRADE_OFF reverse as **PLACEHOLDER** + annotation: *"specific reverse mechanic pending Matt design lock; gandalf recommend Frenzy-style per main gandalf design dialog notes."*
+
+**Matt's TRADE_OFF reverse design lock — 3 options:**
+
+| Option | Mechanic | Genre precedent |
+|---|---|---|
+| **(A)** Acuity | hit unchanged + always crit | PoE Acuity ("precision") |
+| **(B)** Frenzy ← **MAIN GANDALF RECOMMEND** | hit -30% + crit +30% | PoE Frenzy ("wild swing") |
+| **(C)** Reckless | hit -30% + crit +20% + crit_multiplier 1.5× | glass-axe |
+
+**Main gandalf rationale for Frenzy:**
+- Architecturally simple (existing engine fields)
+- Distinct from Primary T4 DIRECT_DAMAGE_AMP (regime-change tradeoff, not guaranteed multiplier)
+- Composes with DEX-physical natural specialization
+- Generative for named-personage allocation (Berserker / Brunhilda / Cu Chulainn / Lu Bu archetypes)
+
+**KR back-fill protocol:** Matt locks at design dialog convenience. KR updates rocket implementation dispatch with locked mechanic BEFORE rocket fires (or before Phase 4 RE-RUN-3 fires at latest). Sub-agent gandalf author continues without blocking.
+
+**Cascade impact:** TRADE_OFF reverse is a Layer 2 (Secondary/Tertiary T4) strategy — exercised by § 10.8 strip-and-ship. Primary T4 DIRECT_DAMAGE_AMP guarantees universal Target 4 regardless of TRADE_OFF outcome. **Cycle 14 v1 close timeline NOT gated on Matt's TRADE_OFF lock**; ratification can come asynchronously.
+
+**Pending Matt design lock:** TRADE_OFF reverse — 3 options (A/B/C) — gandalf recommends **(B) Frenzy**.
+
+---
+
 ### MATT STRATEGIC DELIBERATION DIRECTIVE 2026-05-28 EVENING LATE — HALT CASCADE POST PHASE 4 RE-RUN
 
 **Matt verbatim:**
