@@ -139,4 +139,107 @@
 
 ## Completion record
 
-(append on completion)
+**Completed:** 2026-05-27
+**Reviewer:** jack-ryan
+**Mode:** DESIGN-MODE Gate-1 re-review (Option α math notes 1-5; no-classes vocabulary refresh + Matt Q1/Q2/Q3 pre-ratification verification + Math Note 4 D-Sharpened amendment surface)
+
+### Per-note dispositions
+
+| Note | File | Verdict | Residual class-vocab (body-text) | Additional issue |
+|---|---|---|---|---|
+| 1 — substrate-clustering | `wave-1-5-option-alpha-substrate-clustering-math-2026-05-27.md` | PASS-with-REVISIONS | 5 instances (lines 53, 178, 181, 251, 268) | None |
+| 2 — supporting-chain | `wave-1-5-option-alpha-supporting-chain-emergence-math-2026-05-27.md` | PASS-with-REVISIONS | 7 instances (lines 16, 20, 38, 124, 153, 223, 246) | Cross-ref to old Note 4 filename (line 246) |
+| 3 — t4-emergence | `wave-1-5-option-alpha-t4-emergence-math-2026-05-27.md` | PASS-with-REVISIONS | 5 instances (lines 45, 103, 206, 246, 270) | Cross-ref to old Note 4 filename (line 270) |
+| 4 — kit-naming | `wave-1-5-option-alpha-kit-naming-policy-math-2026-05-27.md` | PASS-with-REVISIONS (D-Sharpened amendment site) | Extensive: `class_name`/`class_name_placeholder`/`class_name_canonical` field names throughout | D-Sharpened amendment required: new § 2.6 + § 3.3 invariance clause; field names → `kit_name`/`kit_name_placeholder`/`kit_name_canonical` |
+| 5 — cross-season | `wave-1-5-option-alpha-cross-season-persistence-math-2026-05-27.md` | PASS-with-REVISIONS | 8 instances (lines 16, 20-22, 41, 164, 308, 319) | Cross-ref to old Note 4 filename (line 308) |
+
+**Total BLOCKs: 0. All 5 notes: PASS-with-REVISIONS.**
+
+### Q1/Q2/Q3 pre-ratification verification
+
+| Question | Verdict | Canonical text citation |
+|---|---|---|
+| Q1 — Per-kit sparsity fallback (chain_count=3 at \|S(K)\|<8) | CONFIRMED HOLDS | Note 1 § 5.2 sparsity-branches table encodes exactly this; threshold and fallback value both named |
+| Q2 — D-Sharpened kit-naming (substrate-anchor hidden; metadata to drax+star-lord; LLM uniform) | CONFIRMED — AMENDMENT REQUIRED | Note 4 does not yet encode D-Sharpened; PM-2 § 2.7 + § 3.7 pattern transfers cleanly; ~10-min gandalf amendment (amendment sites: Note 4 § 2.6 new + § 3.3 invariance clause + field name sweep) |
+| Q3 — E2 cross-season persistence (first-emergence name persists; substrate-signature persists) | CONFIRMED HOLDS | Note 5 § 3.1 encodes E2 including first-emergence register + subsequent-emergence lookup; § 3.2 archetype signature is 8-dimension substrate-grounded hash |
+
+**Option α Matt-gate fire-ready: YES** — subject to gandalf executing Math Note 4 D-Sharpened amendment (post this verdict). Q1 + Q3 pre-locked now. Q2 gates on Note 4 amendment close.
+
+### No-classes vocabulary grep audit findings
+
+**Methodology:** body-text grep for `class`/`classes`/`per-class`/`class-intrinsic`/`class_name`/`class-naming`/`warrior`/`mage`/`rogue`/`hunter`/`role`. Categorized: (A) STATUS-header redaction directive = acceptable; (B) PRESERVED-FOR-COMPARISON historical reference = acceptable; (C) external cross-reference file paths = acceptable; (D) residual live body-text class-vocabulary = REVISION item.
+
+- No warrior/mage/rogue/hunter/role residuals found in any of the 5 notes.
+- `class` residuals are all category (D) — live body text that escaped the redaction sweep. All are terminology-only (substance unaffected).
+- Notes 2, 3, 5 carry cross-references to the old Note 4 filename `wave-1-5-option-alpha-class-naming-policy-math-2026-05-27.md` (now renamed to `kit-naming-policy`). Correction needed in all three.
+- Notes 1-5 contain no residual warrior/mage/rogue/hunter/role vocabulary.
+
+**Total residual class-vocabulary instances across all 5 notes (body text only):** ~30 (Notes 1-3 + 5: ~25; Note 4 field-name occurrences: extensive). All are terminology replacements; none are substantive math or taxonomy violations.
+
+### Discipline #41 substrate-led discipline check
+
+| Note | Discipline #41 verdict | Rationale |
+|---|---|---|
+| Note 1 | PASS | chain_count emergence via algorithmic vote (R1/R2/R3); pre-authored per-class chain_count table retired |
+| Note 2 | PASS | Supporting-chain selection = substrate-richness-minimum cluster; A1 deterministic labels; A2 curated pool non-load-bearing |
+| Note 3 | PASS | Capstone selection = substrate-richness-maximum cluster; substrate fallback table uses substrate-grounded BC-cell bins (proxy_geometry_class / proxy_tempo_class), not designer-imposed categories |
+| Note 4 | PASS | THEMATIC_REGISTRY is per-element vocabulary constraint (not pre-authored archetype taxonomy); D3 hybrid placeholder uses 4 substrate-grounded tokens; LLM constrained by substrate evidence |
+| Note 5 | PASS | Archetype signature is 8-dimension substrate-grounded hash; E2 persists a substrate-emergent name, not a designer-imposed name |
+
+**Q-N5-1 resolved:** "first-emergence-canonical-archetype-name persists" composes cleanly with Discipline #41 — the persisted name is itself substrate-emergent (Phase 5 LLM from Note 4 D3 hybrid); no designer-imposed archetype list; no Discipline #41 ambiguity.
+
+**Q-N1-5-vocab resolved:** Residual class-vocabulary in Notes 1, 2, 3, 5 is terminology (escape from redaction sweep); does NOT require gandalf substantive rework beyond the Note 4 D-Sharpened amendment. All 5 notes can be corrected in a single gandalf terminology sweep.
+
+### Discipline #42 framing-audit outcome
+
+- Q1 (load-bearing assumptions): Matt pre-ratifications Q1/Q2/Q3 are all encodable cleanly in canonical text. PM-2 D-Sharpened pattern transfers to Note 4. Substance preserved across all 5 notes.
+- Q2 (refutation evidence): reviewed all 5 notes; no pre-authored taxonomy reimposed; no Discipline #41 violations; no math contradictions vs prior Gate-1 PASS.
+- Q3 (framing-contradiction trigger): NOT triggered. Discipline #44 framing-refusal NOT invoked.
+
+### Math Note 4 D-Sharpened amendment spec (for gandalf ~10-min execution)
+
+**Amendment sites:**
+
+1. **New § 2.6 "D-Sharpened named-personage encoding (Matt 2026-05-27 ratification)"**
+   - Specifies D-Sharp-1 through D-Sharp-4 table (parallel to PM-2 § 2.7.2 table)
+   - D-Sharp-1: `substrate_anchored_personage` field HIDDEN at engine layer; NOT passed to Phase 5 LLM prompt
+   - D-Sharp-2: `substrate_anchored_personage` surfaced to drax loadout summary as metadata only (non-functional; never as primary kit name)
+   - D-Sharp-3: `substrate_anchored_personage` surfaced to star-lord telemetry as analytics anchor
+   - D-Sharp-4: Phase 5 LLM Pattern B call runs identically for ALL kits regardless of substrate-anchor presence
+   - Cross-references: PM-2 § 2.7 (canonical pattern template) + Matt 2026-05-27 verbatim ratification
+
+2. **§ 3.3 amendment — algorithm invariance clause (parallel to PM-2 § 3.7)**
+   - After existing Phase 5 LLM call structure: add invariance clause
+   - SUBSTRATE_CONTEXT field does NOT include `substrate_anchored_personage` (D-Sharp-1)
+   - `kit_name_canonical` output is produced uniformly regardless of substrate-anchor presence
+   - Gate-2 audit pattern: any implementation that reads `substrate_anchored_personage` at kit-naming LLM call layer is a D-Sharpened violation (BLOCK trigger)
+
+3. **Field name sweep — `class_name` → `kit_name` throughout Note 4**
+   - `class_name` → `kit_name`
+   - `class_name_placeholder` → `kit_name_placeholder`
+   - `class_name_canonical` → `kit_name_canonical`
+   - Section headers + sign-off: "class-naming policy" → "kit-naming policy"
+   - Note title already updated per STATUS header; body text field names need sweep
+
+**Canonical pattern template:** PM-2 `phase-5-pm-2-faction-label-assignment-math-2026-05-27.md` § 2.7 + § 3.7 (engine `7233e0f`)
+
+**Estimated gandalf effort:** ~10 min (pattern transfer; no novel design decisions)
+
+### Revision execution routing (post-verdict)
+
+- **Notes 1, 2, 3, 5 terminology sweep:** gandalf single dispatch; ~20 min; batch all 4 notes in one pass
+  - Replace all category-(D) residual class-vocabulary per redaction directives in each note's STATUS header
+  - Correct cross-references from `wave-1-5-option-alpha-class-naming-policy-math-2026-05-27.md` → `wave-1-5-option-alpha-kit-naming-policy-math-2026-05-27.md` in Notes 2, 3, 5
+- **Note 4 D-Sharpened amendment:** gandalf separate pass; ~10 min; PM-2 § 2.7 + § 3.7 canonical pattern transfer
+- **Post-amendment:** LIGHT re-Gate-1 confirmation that amendment executed cleanly (jack-ryan; ~5 min; confirms Q2 locks)
+- **Then:** Matt-gate ratification fires; Wave 1.5 Stage 3 RE-AUTHORING unblocks; rocket Stage 3 fires
+
+### References
+
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/generation/math/wave-1-5-option-alpha-substrate-clustering-math-2026-05-27.md`
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/generation/math/wave-1-5-option-alpha-supporting-chain-emergence-math-2026-05-27.md`
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/generation/math/wave-1-5-option-alpha-t4-emergence-math-2026-05-27.md`
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/generation/math/wave-1-5-option-alpha-kit-naming-policy-math-2026-05-27.md`
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/generation/math/wave-1-5-option-alpha-cross-season-persistence-math-2026-05-27.md`
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/generation/math/phase-5-pm-2-faction-label-assignment-math-2026-05-27.md` § 2.7 + § 3.7 (D-Sharpened canonical pattern template)
+- `/Users/admin/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` § Discipline #41 + #42
