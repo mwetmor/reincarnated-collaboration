@@ -1758,6 +1758,57 @@ TIER_COEFFICIENTS {1.00, 1.50, 2.17, 4.00} PRESERVED unchanged. Per-tier ratio 1
 
 ### PHASE 4 RE-RUN FIRING — WITH RESISTANCE-ROUTING SPECIALIZATION ANNOTATION
 
+---
+
+### MATT DESIGN CLARIFICATION ADDENDUM 2026-05-28 EVENING LATE — THREE T4 VARIANT MAGNITUDE PHILOSOPHY (REFINES PRIOR DOC 47 § 4.5 Q1)
+
+**Phase 4 RE-RUN HALTED via TaskStop** (clean; engine at `386bd31`; in-progress band-edge debug work uncommitted). Re-fires per refined per-variant philosophy.
+
+**Matt verbatim:**
+
+> **Variant A — Mono-caster Replace_Plus_Mult:** ~1.10-1.15× explicit T4 multiplier. Rationale: existing element-chain multiplicatives FOLLOW the conversion; small explicit bonus tops them off.
+>
+> **Variant B — Hybrid-caster Dual_Add:** No explicit multiplier (1.0 identity). Rationale: dual-element coverage + dual multiplicative chain stacking IS the value; coverage breadth lands specialization.
+>
+> **Variant C — Physical Hybrid:** ~0.30-0.40 additive elemental magnitude. Rationale: physical kits lack multi-element multiplicative chain scaffolding; larger additive compensates to land specialization peak in band.
+
+**Calibration sweep directive:** per-variant magnitude tuning; gamora calibrates each variant's magnitude to land specialization peak in [1.5, 2.0] cohort_median band; specific magnitudes within target ranges above determined empirically.
+
+**Doc 47 § 4.5 AMENDMENT EXPANDED:** Q1 + Q2 + Q3 locks per variant per this calibration philosophy.
+
+**Total Cycle 14 scope addition:** ~3.5-4d (UNCHANGED from prior ratification; calibration philosophy clarifies sweep targets without expanding work scope).
+
+---
+
+### REFRAMING IMPLICATIONS — GANDALF Q1 IDENTITY 1.0 LOCK SUPERSEDED
+
+**Prior state:** gandalf Q1 = Option A identity 1.0 ACROSS ALL VARIANTS (doc 47 § 4.5 at `3bb045f`; rocket Part 1 at `3db9ca8` implements flat 1.0 lookup)
+
+**New state:** per-variant magnitudes (A: ~1.10-1.15× multiplier; B: 1.0 identity; C: ~0.30-0.40 additive). Doc 47 § 4.5 amendment + rocket Part 1 amendment required.
+
+**Reframing classification:**
+- Not a scaffold-drift catch (prior gandalf Q1 lock was a valid v1 specification per gear-affinity-active design assumption)
+- Phase 3d RE-RUN gear-affinity-zero empirical finding triggered the per-variant magnitude refinement (specialization must come from per-variant magnitude differentiation, not gear-affinity shift)
+- This is a **canonical lock refinement** driven by empirical reality
+
+**Phase 3d RE-RUN re-fire decision:** DEFERRED to gamora seam discretion at Phase 4 RE-RUN time. BASE values are cohort_median anchor under "all variants are 1.0" assumption (variant B reference); per-variant magnitudes layer on top during Phase 4 calibration sweep. If gamora finds BASE shift > threshold after per-variant magnitude integration, Phase 3d re-fires; otherwise proceeds.
+
+---
+
+### KR ROUTING POST DESIGN CLARIFICATION
+
+**Sequential cascade:**
+1. 🔥 **Gandalf amendment** to doc 47 § 4.5 — per-variant Q1+Q2+Q3 locks; tag `gandalf/v1.1-doc-47-4-5-per-variant-magnitude-philosophy` (~30-45min)
+2. 🔥 **Rocket amendment** to `damage_resolver.py:618` — per-variant lookup function consuming variant ID + magnitude spec; tag `rocket/v1.12-element-conversion-per-variant-magnitude` (~1-2hr; possibly faster per #1.1 compression)
+3. 🔥 **Phase 4 RE-RUN gamora** with EXPANDED scope — multi-dim sweep + per-variant magnitude calibration (iterate within Matt ranges to land Target 4 in [1.5, 2.0] cohort_median); BVV harness compound_pass=True acceptance
+4. ⏳ **Cascade unchanged from prior trajectory** — Phase 5 + Phase 6 + Matt v1 ratification
+
+**Effort estimate per Matt:** ~3.5-4d Cycle 14 scope addition (unchanged; per-variant philosophy clarifies sweep targets without expanding work scope). Under #1.1 compression pattern: ~few hours wall-clock.
+
+**Cycle 14 v1 close trajectory still ~6-9d under #1.1 compression budget intact.** Path α 4-6 week budget intact.
+
+**KR fires gandalf amendment THIS TURN.**
+
 **Cycle 14 v1 close trajectory: ~14-22d from this evening ratification.** Path α 4-6 week budget intact (~42 calendar days; current ~Day 0; v1 lands ~Day 14-22 leaving ~20-28 days margin).
 
 ---
