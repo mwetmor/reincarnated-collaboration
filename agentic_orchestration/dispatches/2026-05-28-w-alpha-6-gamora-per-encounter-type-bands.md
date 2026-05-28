@@ -1,11 +1,13 @@
 # DISPATCH — W-α6 gamora — Per-Encounter-Type KPM Bands (Option B Case 9 Resolution)
 
+> **STATUS — SUPERSEDED 2026-05-28 evening** per Matt RATIFICATION AMENDMENT integrated W-α7+ scope reframe. W-α6 work-product PRESERVED as Phase 1/2 input to integrated successor at `2026-05-28-integrated-w-alpha-7-plus-master-scoping.md`. Engine state at `7acf66c` + tag `gamora/v2.8-w-alpha-6-per-encounter-type-bands-1` retained as audit-trail; case 10 forensic preserved for Phase 3c encounter HP rebalancing design.
+
 **Authored:** 2026-05-28
 **Author:** knight-rider (Cycle 14 hive-mind state orchestrator)
 **Recipient:** gamora (simulation seam; calibration loops; per-encounter-type extension of W-α3 architecture)
 **Pattern:** Pattern B (~2-4d; per-encounter-type math note + calibration sweep × 24 cells + harness re-run + bundle Gate-2 + Wave 5 RE-FIRE prep)
-**Status:** PENDING — fires on jack-ryan Gate-1 PASS
-**Authority:** Matt 2026-05-28 Gate-7 D1+D2+D3+D4 RATIFICATION — Option B case 9 resolution within Cycle 14 v1
+**Status:** ✅ COMPLETED at engine `7acf66c` + tag `gamora/v2.8`; then SUPERSEDED at orchestration level by integrated W-α7+ scope
+**Authority:** Matt 2026-05-28 Gate-7 D1+D2+D3+D4 RATIFICATION (now superseded by Matt 2026-05-28 evening RATIFICATION AMENDMENT integrated W-α7+ scope)
 
 ---
 

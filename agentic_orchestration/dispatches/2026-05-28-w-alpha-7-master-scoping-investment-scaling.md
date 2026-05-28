@@ -1,11 +1,13 @@
 # DISPATCH — W-α7 Master Scoping — Investment Scaling MVP Patterns 1+2 + Multi-Profile Calibration (Case 11 Resolution)
 
+> **STATUS — SUPERSEDED 2026-05-28 evening** per Matt RATIFICATION AMENDMENT integrated W-α7+ scope reframe. Replaced by integrated successor at `2026-05-28-integrated-w-alpha-7-plus-master-scoping.md` which consolidates this + W-α6 Option B work into single 6-phase architecture. Jack-ryan Gate-1 verdict (PASS-WITH-AMENDMENTS) preserved as audit trail; all 5 amendments folded into integrated successor.
+
 **Authored:** 2026-05-28
 **Author:** knight-rider (Cycle 14 hive-mind state orchestrator)
 **Recipients:** gandalf (W-α7-gandalf canonical) + rocket (W-α7-rocket P1+P2) + gamora (W-α7-gamora multi-profile calibration + BVV harness extension) + drax (W-α7-drax loadout UI) + jack-ryan (W-α7-jack-ryan canonical retirements + Gate-1 of this master)
 **Pattern:** Pattern B master scoping (~7-10d sustained-intensity work; 12-17d total to v1 from Matt Gate-7 + this ratification combined)
-**Status:** PENDING — fires jack-ryan Gate-1 on receipt; per-stream dispatches authored post Gate-1 PASS
-**Authority:** Matt 2026-05-28 RATIFICATION — Cycle 14 architectural integrity scope expansion (CLAUDE.md engine > game > phase invocation)
+**Status:** SUPERSEDED at orchestration level by integrated W-α7+ scope (Phase 2 onwards consolidates into integrated successor)
+**Authority:** Matt 2026-05-28 RATIFICATION — Cycle 14 architectural integrity scope expansion (CLAUDE.md engine > game > phase invocation) — superseded by Matt 2026-05-28 evening RATIFICATION AMENDMENT integrated W-α7+ scope
 
 ---
 
