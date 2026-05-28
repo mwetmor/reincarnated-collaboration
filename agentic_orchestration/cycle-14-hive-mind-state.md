@@ -1410,6 +1410,76 @@ Per master scoping § 1 Phase 4 + doc 51 v1.2 § 10.7 + § 10.8 expansion:
 
 KR fires Phase 4 sub-agent with explicit § 10.7 + § 10.8 coordination signal injection (per Matt D4 — gamora doesn't guess).
 
+---
+
+### PHASE 4 MULTI-DIM CALIBRATION COMPLETE 2026-05-28 EVENING — CASE 16 EMERGED (13 ZERO-T4 ESCALATIONS)
+
+**Engine `137373b` + `d2b29a3` AGENT_STATE + tag `gamora/v2.11-w-alpha-7-plus-phase-4-multi-dim-calibration-1` + meta `d009e48` (telemetry) + `b4c3066` (completion)** (~30min fire). Discipline #1.1: 110.7s actual vs ~25min projection (13.6× over-projection consistent with W-α3/W-α6 pattern).
+
+**Sweep architecture: 3,024 cells (18 kits × 7 profiles × 6 encounter_types × 4 cohorts).** Profile-collapse approach (7 gauntlet calls one per profile) — efficient.
+
+**BVV per-target results across all 7 profiles:**
+
+| Profile | T1 cross-path | T2 zero-KPM | T3 saturation | T4 specialization | T5 floor |
+|---|---|---|---|---|---|
+| low | inf (single-chain) | PASS | PASS | **FAIL 18/18** | PASS |
+| mid | PASS 1.017× | PASS | PASS | **FAIL 17/18** | PASS |
+| max_a | PASS 1.307× | PASS | PASS | **FAIL 16/18** | PASS |
+| max_b | PASS 1.307× | PASS | PASS | **FAIL 16/18** | PASS |
+| mixed_v1 | inf | PASS | PASS | **FAIL 17/18** | PASS |
+| mixed_v2 | PASS 1.307× | PASS | PASS | **FAIL 16/18** | PASS |
+| mixed_v3 | inf | PASS | PASS | **FAIL 17/18** | PASS |
+
+**T1/T2/T3/T5 PASS at ALL profiles. T4 FAIL at ALL profiles** (16-18/18 kits no peaks).
+
+"inf" at low/mixed_v1/mixed_v3 = single-chain investment concentrating budget → other paths zero fight coverage → parity ratio undefined (expected per math note § 5.1; not a violation).
+
+**§ 10.8 strip-and-ship disposition:**
+- **5 kits ship with `no_t4` disposition:** endgame_str_04, endgame_dex_03, endgame_dex_04, endgame_int_03, endgame_int_04 (0 T4 candidates available)
+- **13 kits ZERO-T4 ESCALATION** filed per § 10.8.5:
+  - 4 single-T4-candidate kits: t4_candidate_0 stripped; t4_chain_1 assigned as supporting chain
+  - 9 dual-T4-candidate kits: t4_candidate_0+1 stripped; t4_chain_1+t4_chain_2 assigned as supporting chains
+
+---
+
+### CASE 16 — ENGINE STUB AT element_conversion_factor (MODE A ENGINE-EXECUTION DRIFT)
+
+**Gamora forensic (verbatim):**
+
+> *"T4 compound_pass=False is entirely structural: `damage_resolver.py element_conversion_factor = 1.0 # TODO` (~line 618). All T4 variants produce identical KPM. T1/T2/T3/T5 all pass at all profiles. Declared per Discipline #12."*
+>
+> *"Root cause for all 13 escalations: T4 fight-engine routing stub → BVV compound_pass=False → no in-band T4 variants → § 10.8.5 escalation. Not a Phase 4 design gap; Cycle 15+ rocket scope."*
+
+**Case 16 framing:** Mode A engine-execution layer drift catch. Phase 4 multi-dim sweep + § 10.7 T4 cycling + § 10.8 disposition machinery operated CORRECTLY — but downstream engine stub at element_conversion_factor produces uniform T4 KPM across variants, making T4 specialization (doc 50 § 4.4 Target 4 [1.5, 2.0]× cohort_median) IMPOSSIBLE to satisfy.
+
+**Per § 10.8.5: gandalf design escalation triggered for 13/18 kits zero-in-band T4 edge case.**
+
+---
+
+### MATT DESIGN-CALL RATIFICATION REQUIRED — V1 CLOSE-CRITERION OPTIONS
+
+**This is a Discipline #47 enforcement moment:** kit-population balance affected (13/18 kits zero-T4 strict-rule fail); v1 close-criterion (compound_pass=True) cannot be met without resolving case 16. Per Matt 2026-05-23 directive + Discipline #47, Matt design-call ratification required.
+
+**KR-surfaced options (precedent: Gate-7 Option B absorption pattern):**
+
+| Option | Scope | Cycle 14 v1 ships | C15 territory |
+|---|---|---|---|
+| **A** Pull element_conversion_factor fix into C14 (case 16 absorbed) | Rocket engine work; unknown effort (~?d) | 18/18 with T4 PASS attempt | n/a — case 16 resolved C14 |
+| **B** Modify v1 close-criterion to T1+T2+T3+T5 PASS (T4 deferred) | ~0d KR amendment | All 18 + 13 ship with "T4 pending C15" annotation | element_conversion_factor + T4 routing |
+| **C** Ship 5 no_t4 + 13 zero-T4-stripped supporting-chain disposition | ~0d (gamora already filed) | 5 strict + 13 stripped/supporting | element_conversion_factor + T4 reinstatement per kit |
+| **D** Gandalf design escalation per § 10.8.5 verbatim → Matt design-call after gandalf analysis | ~0.5-1d gandalf | Pending design call | TBD |
+
+**KR slight lean Option B** per:
+- Q10 quality > timeline framing (Option A may add significant rocket scope)
+- Discipline #47 framework allows close-criterion modification with explicit Matt ratification (Gate-7 precedent: similar T4/T5 partial-pass close-criterion at Option A discussion stage; Matt chose Option B integrated reframe)
+- Case 16 is a clearly-bounded engine stub fix; Cycle 15+ scope appropriate
+- All 18 kits ship under Option B with T4 deferred annotation (vs 5 strict ship under Option C)
+- Gamora's forensic explicitly framed it as "Cycle 15+ rocket scope"
+
+**Alternative consideration (KR):** Option D (gandalf design escalation first per § 10.8.5 verbatim) honors Matt's earlier design directive that gandalf is the first router for zero-in-band T4 edge case. Routing pattern: gandalf analyzes the 13 kits' supporting-chain dispositions for design coherence + reports → KR surfaces Matt + jack-ryan Gate-8 → Matt Pattern-B ratification.
+
+**Pending Matt design-call ratification.**
+
 **Cycle 14 v1 close trajectory: ~14-22d from this evening ratification.** Path α 4-6 week budget intact (~42 calendar days; current ~Day 0; v1 lands ~Day 14-22 leaving ~20-28 days margin).
 
 ---
