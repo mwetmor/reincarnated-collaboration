@@ -1007,6 +1007,83 @@ Discipline #47 enforcement operating exactly as architected at W-α5c: case 9 af
 **KR pending awareness items:**
 - `canonical/story/c-hybrid-cell-and-curation-architecture-2026-05-28.md` — new canonical doc referenced by Matt (Cycle 15 scope) — KR has not yet read; will read at session-end handoff authoring or next session start
 - R5-Plus scrub + Phase 5 LLM naming workstreams — in flight outside Path α; integration at Wave 5 RE-FIRE
+
+---
+
+### MATT 2026-05-28 RATIFICATION — CYCLE 14 ARCHITECTURAL INTEGRITY SCOPE EXPANSION (CASE 11 — INVESTMENT SCALING)
+
+**Invoked CLAUDE.md orientation:** "Engine first. Game second. Phase third."
+
+**ARCHITECTURAL FINDING (rocket sub-agent clarification surfaced; design-dialog layer):**
+- Engine has NO points-invested scaling in damage formula
+- NODE_MAX (5 passive / 15 active / 1 T4) exposed in loadout UI but engine doesn't deliver investment-scaled mechanics
+- **UI promise without engine delivery** — architectural-integrity violation
+
+**ARCHITECTURAL INTEGRITY ARGUMENT (per CLAUDE.md):** the skill-point-investment gap is at the ENGINE LAYER. Cycle 14 v1 close must address per engine > game > phase precedence.
+
+**D1 RATIFIED — Option B MVP investment scaling implementation in Cycle 14:**
+- **Pattern 1** active skill damage scaling per point implementation
+- **Pattern 2** passive skill effect scaling per point implementation
+- **Multi-investment-profile calibration** (Path α parity verified at multiple investment levels, not just W-α3 fixed profile)
+- **BVV harness update** for investment-profile coverage
+- **Wave 5 re-fire** under MVP investment-aware architecture
+- **Canonical doc** captures 6-pattern architecture (Patterns 3-6 canonical-locked for Cycle 15+ implementation)
+
+Effort: ~7-10 days additional to Option B trajectory. **Cycle 14 v1 close: ~12-17 days from Option B ratification + this ratification.** Within Path α 4-6 week budget; at upper end of sustained-intensity threshold.
+
+**D2 — Tag retained:** `v1-cycle-14-bounded-viability-substrate-led` (Option B delivers bounded-viability at calibrated profile + cross-investment-profile parity; tag remains accurate).
+
+**D3 — Patterns 3-6 canonical-locked for Cycle 15+ implementation:**
+- Pattern 3 — threshold unlocks
+- Pattern 4 — QoL modifiers
+- Pattern 5 — synergy bonuses
+- Pattern 6 — resource economy modifiers
+- Cycle 15 design dialog scopes detailed implementation per each pattern
+
+**D4 — Loadout app:** NODE_MAX surfaces become MECHANICALLY MEANINGFUL post-implementation. Drax updates loadout UI to reflect engine reality (each skill point now visibly affects kit performance).
+
+**CASE 11 SCAFFOLD-DRIFT (per Discipline #39 framework):** Mode A hidden drift catch at design-dialog layer. Different surface than cases 1-10 (which surfaced at engine empirical-execution layer). Framework operating as architected — Discipline #39 Mode A pattern extends to design-dialog inspection surfaces.
+
+---
+
+### W-α7 EXECUTION — INVESTMENT SCALING MVP PATTERNS 1+2 + MULTI-PROFILE CALIBRATION
+
+**New Cycle 14 architectural commitment — investment-aware engine architecture:**
+
+| Stream | Owner | Scope | Effort |
+|---|---|---|---|
+| **W-α7-gandalf** | gandalf | 6-pattern canonical architecture doc + Cycle 14 v1 commit + Patterns 3-6 forward-link | ~1-2d |
+| **W-α7-rocket-P1** | rocket | Pattern 1 active skill damage scaling per point (foundation + per_skill_emitter.py + damage_resolver.py) | ~2-3d |
+| **W-α7-rocket-P2** | rocket | Pattern 2 passive skill effect scaling per point | ~2-3d (parallel with P1) |
+| **W-α7-gamora** | gamora | Multi-investment-profile calibration + BVV harness investment-profile coverage | ~2-3d sequential post-rocket |
+| **W-α7-drax** | drax | Loadout UI update — NODE_MAX surfaces become mechanically meaningful | ~1-2d parallel with gamora |
+| **W-α7-jack-ryan** | jack-ryan | Canonical retirements + decisions-log entries + possible Discipline candidate (engine-integrity-check) | ~0.5d parallel throughout |
+
+**Sequencing:**
+- W-α7-gandalf canonical FIRST (load-bearing for downstream)
+- W-α7-rocket-P1 + W-α7-rocket-P2 parallel post canonical
+- W-α7-gamora sequential after rocket P1+P2 lands
+- W-α7-drax parallel with gamora (UI work gates on rocket engine, not gamora calibration)
+- W-α7-jack-ryan parallel throughout
+- Bundle Gate-2 + Wave 5 RE-FIRE post all streams
+
+**W-α6 status under this expansion:** W-α6 currently firing (case 9 resolution; per-encounter-type bands at fixed-profile). Let W-α6 complete — per-encounter bands + canonical structure persist as load-bearing input even under W-α7 multi-profile recalibration. W-α7-gamora multi-profile calibration EXTENDS W-α6 architecture (does not replace).
+
+**Cycle 14 v1 close trajectory revised:** **~12-17 days from this ratification + Gate-7 Option B ratification.** Path α 4-6 week budget intact.
+
+**KR routing:**
+- 🔥 W-α7 master scoping dispatch authoring (KR this turn; parallel with W-α6 firing)
+- 🔥 Jack-ryan Gate-1 review of W-α7 master scoping (background; ~10-15min)
+- ⏳ W-α6 completion + absorption (gamora still firing)
+- ⏳ Per-stream W-α7 dispatches authored + parallel fan-out post Gate-1 PASS
+- ⏳ Drax workstream REVIVED — loadout UI gated on rocket P1+P2 engine landing
+
+**Cycle 14 case register (per Matt 2026-05-28 framework):**
+- Cases 1-7 = Mode A hidden scaffold-drift catches (empirical execution layer)
+- Case 8 = Mode B canonical scaffold resolution (`ee15c96` ANCHOR INTENTS)
+- Case 9 = Mode A hidden scaffold-drift (gauntlet encounter coverage; W-α6 resolves)
+- Case 10 = ⏳ probable surfacing during W-α6 execution per Matt Gate-7 D4 watch (~30-50% base rate; not yet surfaced)
+- **Case 11 = Mode A hidden scaffold-drift at DESIGN-DIALOG LAYER (this ratification; investment scaling gap)** — framework extends Mode A to design-dialog inspection surfaces
 - ✅ **W-α5 jack-ryan canonical retirements COMPLETE** at meta `deadd26` + tag `jack-ryan/v1.7-w-alpha-5-canonical-retirements-1` (bundled; ~11-min fire). All 3 sub-streams landed:
   - **W-α5a — 5 decisions-log entries:** Path α RATIFICATION (LOCKED) + Path β-narrow REJECTION + Path β-FULL Option 6 REJECTION + Cycle 15 D2 Option 6 RETRACTION (Discipline #40 case (c) FOURTH iteration declared) + Discipline #39 framework maturation (two modes defined — Mode A scaffold-drift catches cases 1-7; Mode B canonical scaffold resolutions case 8+; founding case `ee15c96` ANCHOR INTENTS; 3-element annotation requirement: scaffold declaration + named resolution party + named resolution gate; adjacent architectural truth pattern)
   - **W-α5b — Phase 7 doc § 3.14 + lifecycle:** Full Discipline #40 case (c) FOURTH iteration 6-step procedure executed. Phase 7 doc STATUS shifted LOAD-BEARING → HISTORICAL. D2 RATIFICATION marked RETRACTED in authority header. Doc 50 added as successor. Implementer historical-note added.
