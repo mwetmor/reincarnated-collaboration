@@ -723,10 +723,13 @@ Scope:
 - Wave 5 re-fire (against new engine state + design-target validation harness) lands at Path α close
 
 **KR routing:**
-- 🔥 **Path α master scoping dispatch authoring** (KR; this turn) — decomposes streams + sequencing + Gate-1 acceptance criteria
-- 🔥 **Jack-ryan Gate-1 review** of Path α master scoping (DESIGN-MODE; ~10-15 min)
-- 🔥 **Gandalf re-engagement on bounded-viability-with-specialization design-directive operationalization** (post Path β-narrow recommendation REJECTED context) — W-α4 lead authoring
-- ⏳ Per-stream dispatch authoring + parallel fan-out post Gate-1 PASS
+- ✅ **Path α master scoping dispatch authored + Gate-1 PASS-WITH-AMENDMENTS A+B integrated** at meta `bd83ada`. Amendment 1: W-α3 reference target lock requires W-α2 ceiling signal (W-α3 harness in parallel; reference target value awaits W-α2). Amendment 2: W-α5a Cycle 15 D2 Option 6 retraction declared as Discipline #40 case (c) **FOURTH iteration** on Phase 7 doc.
+- ✅ **W-α4-gandalf canonical lock COMPLETE** at meta `fe0b4a7` + tag `gandalf/v1.13-w-alpha-4-bounded-viability-canonical-1` (pushed; ~12.5-min fire). **canonical/50-bounded-viability-with-specialization-design-directive-2026-05-28.md** LOAD-BEARING. 8 sections per dispatch § 1.1 authored. Cross-references updated at 00-ground-state (§ 1 Current Truth + § 4 first-reads); 02-roadmap (Companion docs + Wave 5 row rewritten with PATH α gate + NEW Path α active workstream row + NEW Cycle 15 D2 retraction row); doc 47 § 3 forward-link block (mechanical-substrate ↔ architectural-experience-layer composition). Discipline #45 vocab grep audit PASS. Gandalf lean recorded in § 5: cohort definition = per-damage-scaling-path for v1 Path α; cluster-based deferred Cycle 15+. Doc 50 § 8.1 forward-links W-α4-gamora harness.
+
+**Currently firing (parallel):**
+- 🔥 W-α4-gamora validation harness dispatch authoring (KR this turn) — implements 5 design targets as automated checks against 18×6=108-cell per-kit-per-encounter-type matrix per doc 50 § 4-5
+- 🔥 W-α5 jack-ryan canonical retirements dispatch authoring (KR this turn) — W-α5a Discipline #40 case (c) FOURTH iteration + W-α5b Phase 7 doc LOAD-BEARING → HISTORICAL + W-α5c discipline candidate (number to confirm at authoring)
+- ⏳ W-α1 rocket + W-α2 gamora + W-α3 gamora parallel fan-out post W-α4-gamora harness lock
 
 **Cycle 14 v1 close trajectory: ~4-6 weeks total from Path α firing.** Matt re-evaluation hook at 6 weeks if scaffold-drift case #9+ surfaces extending further.
 
