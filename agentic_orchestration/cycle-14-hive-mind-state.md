@@ -586,8 +586,13 @@ Gamora SC-7 ✅ COMPLETE at engine `e7af7db` + tag `gamora/v1.8-sc-7-base-spell-
 ### KR EXECUTION PLAN — Gate-5 ratification fan-out
 
 **Parallel dispatches authored + firing:**
-- 🔥 **gamora dispatch — boss HP rebase** (Option 1; Pattern B; ~0.75-1d). Acceptance: population-DPS sweep → boss HP factor range rebase in `endgame_mob_stat_profile.py` → Track 1 re-run with new HP → smoke ≥12/18 emit → tag `gamora/v2.1-boss-hp-rebase-1`.
-- 🔥 **jack-ryan dispatch — Phase 7 canonical retraction record** (Discipline #40 case (c) third iteration; Pattern B; ~0.25d). Acceptance: § 3.11+ authored on Phase 7 doc capturing retraction + Track 1 band table re-activation + Option 6 Cycle 15 forward-link → tag `jack-ryan/v1.5-phase-7-canonical-retraction-3`.
+- 🔥 **gamora dispatch — boss HP rebase** (Option 1; Pattern B; ~0.75-1d). Acceptance: population-DPS sweep → boss HP factor range rebase in `endgame_mob_stat_profile.py` → Track 1 re-run with new HP → smoke ≥12/18 emit → tag `gamora/v2.1-boss-hp-rebase-1`. Gate-1 PASS-WITH-AMENDMENTS A+B integrated at meta `926b068`.
+- ✅ **jack-ryan dispatch — Phase 7 canonical retraction THIRD iteration COMPLETE** at engine `a4fba64` + tag `jack-ryan/v1.5-phase-7-canonical-retraction-3` (pushed; ~7.5min fire). §§ 3.11-3.13 authored:
+  - § 3.11 — Discipline #40 case (c) 6-step procedure executed; FALLBACK retraction-pending notation; gamora's `v2.1` Track 1 re-run = retraction completion criterion
+  - § 3.12 — Case 8 canonical scaffold resolution provenance + 5-commit lineage (`ee15c96` → `3c95883` → `e7af7db` → `f704599` → Gate-5) + Matt case-register reframing + Discipline #39 framework maturation insight
+  - § 3.13 — Cycle 15 Option 6 (damage-as-%-of-HP metric `damage_fraction_per_fight = total_damage_dealt / encounter_total_HP`) architectural commit forward-link; D2 Phase 2 per-encounter-type bands SUBSUMED; KPM 600.0 retains C15 scope; legolas Mode A pre-flight noted as KR queue item; Phase 7 doc lifecycle LOAD-BEARING → HISTORICAL upon Option 6 landing
+  - decisions-log: case 8 canonical scaffold resolution entry added
+  - Header + Purpose items 13-15 + References third-iteration authority block updated
 
 **Cycle 15 queue (post Cycle 14 v1 close):**
 - 🟡 legolas Mode A methodology consultation on Option 6 damage/HP% metric formulation (~0.5d; pre-flight before Cycle 15 dispatch authoring)
