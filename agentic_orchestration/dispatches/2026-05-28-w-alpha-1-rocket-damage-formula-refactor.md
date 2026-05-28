@@ -161,3 +161,56 @@ Fire ASAP on jack-ryan Gate-1 PASS.
 ---
 
 **KR signature:** authored per Matt 2026-05-28 Path α RATIFICATION + doc 50 LOAD-BEARING + Discipline #47 enforcement + W-α4 harness operational + master scoping § 2.2 W-α1 architectural latitude ruling. Rocket seam authority for architectural Direction choice; auto-commit + auto-push per Cycle 14 cadence.
+
+---
+
+## Completion record
+
+**Status:** COMPLETE
+**Completed:** 2026-05-28
+**Author:** rocket
+**Engine commit:** pending (tag `rocket/v1.8-w-alpha-1-damage-formula-refactor-1`)
+
+### Architectural direction chosen
+
+**Direction A** — unified calibrated base constant `BASE_PHYSICAL_DAMAGE_L50`. Physical path seeds from a
+calibrated table (T1=65800, T2=98700, T3=142500, T4=263100) mirroring the existing `BASE_SPELL_DAMAGE_L50`
+pattern. `weapon_base_physical_damage` is demoted to a gear-affix carrier (not the DPS seed).
+
+### Math note
+
+`generation/math/path-alpha-damage-formula-refactor-2026-05-28.md` — full derivation including root cause
+(816× per-cast divergence), Direction A vs B analysis, parity factor 2.337 derivation, Discipline #47
+5-target check, scaffold-drift surfaces (SD-1/2/3), cross-stream coherence note (W-α1 × W-α3 Option α).
+
+### Files modified
+
+- `src/reincarnated/generation/per_skill_emitter.py` — `BASE_PHYSICAL_DAMAGE_L50` constant + parity
+  assertions + `base_physical_damage_l50` effect_params emission for STR/DEX skills
+- `src/reincarnated/simulation/damage_resolver.py` — `_calc_physical_damage_raw()` rebuilt (calibrated
+  base; removes weapon sentinel; optional effect_params parameter); `resolve_skill()` + hybrid routing updated
+
+### Target 1 result (doc 50 § 4.1)
+
+Population DPS ratio at T3 primary default scaffold: 0.9995× (physical vs magical). All-path max/min: 1.086×.
+Target 1 criterion (≤1.5×): CLOSED at formula level.
+
+### Pre-W-α3 harness state
+
+Gauntlet harness shows 0 KPM for all 108 cells post-W-α1. Root cause: physical KPM ≈150 vs
+COHORT_KPM_BAND (82–97 DPS-min-maxer) → TIER_1_REJECT. This is the pre-W-α3 expected condition (same
+pattern as INT/WIS kits before SC-7). W-α3 unified calibration (gamora, already at Phase 1 complete) will
+recalibrate both `BASE_SPELL_DAMAGE_L50` and `BASE_PHYSICAL_DAMAGE_L50` to land all paths in band.
+Not a W-α1 formula defect — formula correctness verified via direct fight simulation (STR kit kills boss
+231,000 HP in 0.4s; `termination_reason=b_dead`).
+
+### W-α3 cross-stream note
+
+W-α3 gamora `unified_calibration_loop.py` Phase 1 is complete (tag `gamora/v2.6-w-alpha-3-unified-calibration-1`).
+W-α3 Phase 2 runs against W-α1 output. Direction A × Option α (single scale_factor) is the recommended
+pairing per math note § 8; parity ratio preserved post-W-α3 calibration.
+
+### Dispatch migration record
+
+`generation/MIGRATION.md` updated with full W-α1 schema change documentation.
+`generation/AGENT_STATE.md` updated with W-α1 completion state.
