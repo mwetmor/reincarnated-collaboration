@@ -1861,6 +1861,39 @@ Gamora calibrates final A + C values empirically within Matt's ranges during Pha
 - Tag `rocket/v1.12-element-conversion-per-variant-magnitude-1`
 - Effort: ~1-2hr (possibly faster under #1.1 compression; existing Part 1 framework can be extended)
 
+---
+
+### MATT STRATEGIC DELIBERATION DIRECTIVE 2026-05-28 EVENING LATE — HALT CASCADE POST PHASE 4 RE-RUN
+
+**Matt verbatim:**
+
+> *"Continue Phase 4 RE-RUN per current plan. On return (Scenario A or B disposition), halt cascade pending Matt + gandalf 30-60 min strategic deliberation on:*
+> *- Three-variant proposal calibration philosophy (revised per engine-per-element-stats finding)*
+> *- Cycle 14 close discipline (keep absorbing vs defer to Cycle 15+)*
+> *- Cycle 15 entry pre-scoping"*
+
+**KR interpretation:**
+- Rocket v1.12 amendment (currently firing) + Phase 4 RE-RUN (next sub-agent fire) continue PER CURRENT PLAN — no intervention
+- **Phase 4 RE-RUN return triggers MANDATORY cascade halt** regardless of compound_pass outcome (Scenario A or B)
+- KR does NOT auto-fire:
+  - Phase 5 cascade (on Scenario A compound_pass=True)
+  - Case 19 KR Gate-N disposition (on Scenario B compound_pass=False)
+- KR surfaces Phase 4 RE-RUN result to Matt CLEANLY + acknowledges deliberation queue
+
+**Strategic deliberation queue (pre-flagged for Matt + gandalf 30-60min session):**
+
+1. **Three-variant proposal calibration philosophy revision** — Matt references new "engine-per-element-stats finding" potentially revising current Variant A/B/C philosophy. KR has not seen this finding; will absorb at deliberation time.
+2. **Cycle 14 close discipline** — meta-question: continue absorbing architectural truths surfacing through Path α empirical execution (~16-18 cases caught/resolved this session) vs. defer remaining to Cycle 15+. Architectural-honesty pattern vs scope-control pattern trade-off.
+3. **Cycle 15 entry pre-scoping** — what carries forward into Cycle 15: pre-staged items (per-encounter bands subsumed; element_conversion_factor implementation now Cycle 14 per Matt D1; Option 6 RETRACTED; Discipline #46 already exists; C-Hybrid algorithm pirate-faction sub-cluster naming; substrate-signal research Layer 1 BC axis; spirit guide marginal value; LLM naming refinement; Patterns 3-6 implementation).
+
+**KR routing post Phase 4 RE-RUN return:**
+- ✅ Update hive-mind state with Phase 4 RE-RUN forensic + per-target results
+- ✅ Surface to Matt: clean status + strategic deliberation queue items + KR's read of integrated W-α7+ architectural completeness vs known-residual-scope
+- ⏳ Wait for Matt + gandalf deliberation session — no autonomous cascade firing
+- ⏳ Matt directive on continued cadence (keep absorbing? Cycle 14 close-criterion amendment? Cycle 15 deferral?)
+
+**Meta-observation (KR):** Matt's strategic deliberation directive comes after ~8 hours sustained intensity + 16+ case absorptions. This represents framework-level meta-discipline: pause to evaluate whether continued absorption is architectural-honesty (Q10 quality > timeline) or scope-management drift. **The directive itself is exemplary engineering-discipline practice** — preventing momentum-driven scope expansion by introducing explicit deliberation gate.
+
 **Cycle 14 v1 close trajectory: ~14-22d from this evening ratification.** Path α 4-6 week budget intact (~42 calendar days; current ~Day 0; v1 lands ~Day 14-22 leaving ~20-28 days margin).
 
 ---
