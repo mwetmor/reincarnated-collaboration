@@ -27,7 +27,7 @@ Implement simulation-side validation harness that runs against current engine st
 
 **Architecture:**
 
-- **Input:** current 18-kit production population (post Wave 0.5 backfill + Wave 1.5 Stage 3 Option α + current substrate state); 6 encounter types from `~/Games/reincarnated-engine/src/reincarnated/generation/endgame_encounter_catalog.py` (swarm / magic / elite_pack / mini_boss / boss / endgame_capstone — gandalf to confirm exact list in doc 50 § 5; verify against engine catalog at harness implementation)
+- **Input:** current 18-kit production population (post Wave 0.5 backfill + Wave 1.5 Stage 3 Option α + current substrate state); **6 encounter types** from `~/Games/reincarnated-engine/src/reincarnated/generation/endgame_encounter_catalog.py` canonical valid_shells (lines 949-952): **`open_arena / chokepoint_corridor / magic_pack / elite_pack / boss_with_adds / mini_boss`** — locked per doc 50 § 5.1 + engine catalog (jack-ryan Gate-1 Amendment 1 correction; KR speculative list contained non-existent `endgame_capstone`). Gamora verifies at harness implementation against live catalog state per Discipline #45 + Review Principle #3 (schema validation at boundaries).
 - **Sweep:** per-kit at L50 against each encounter type × 4 cohorts (steamroll / balanced / hard-out / soft-out) per established Track 1 / boss HP rebase pattern
 - **Output:** 108-cell matrix (18 kits × 6 encounter types) with per-cell KPM measurement + cohort medians + per-kit specialization profile + saturation count + floor violations
 - **Per-cell metrics:** kit_KPM, kit_DPS, encounter_HP_consumed_per_second, cohort_median_KPM, kit_KPM / cohort_median_KPM ratio, saturation_flag (KPM >= ceiling), floor_violation_flag (ratio < 0.30)
@@ -39,7 +39,7 @@ Implement each as automated check:
 1. **Base DPS variance ≤1.5× across 4 damage-scaling paths** — population-DPS sweep at L50; group kits by `damage_scaling_path` (STR-physical / DEX-physical / INT-magical / WIS-faith); compute per-path median DPS; verify max(path_medians) / min(path_medians) ≤ 1.5
 2. **Every kit produces non-zero KPM on every encounter type** — across 108 cells, zero_count = 0; report cells with kit_KPM = 0
 3. **No kit saturates ceiling on any encounter type** — across 108 cells, saturation_count = 0 (where saturation = kit_KPM >= ceiling at W-α2 raised/removed value)
-4. **Specialization variance: each kit ~1.5-2× cohort median on 1-2 encounter types** — per-kit specialization profile; each kit must have 1-2 cells where 1.5 ≤ ratio ≤ 2.0; emergent imbalance ruled out via verifying no kit has 3+ cells at ratio > 1.5
+4. **Specialization variance: each kit ~1.5-2× cohort median on 1-2 encounter types** — per-kit specialization profile per doc 50 § 4.4 verbatim (jack-ryan Gate-1 Amendment 2 precision): each kit must have **≥1 and ≤2 cells where 1.5 ≤ ratio ≤ 2.0** (the [1.5, 2.0] specialization band). Kits with 0 cells in band FAIL (no designed peak). Kits with ≥3 cells in band FAIL (over-dominant). Ratios above 2.0 are handled by Target 3 saturation check (post-W-α2 ceiling).
 5. **No kit performs <30% of cohort median on any encounter type** — across 108 cells, floor_violation_count = 0 (where floor_violation = ratio < 0.30)
 
 **Compound pass criterion:** all 5 targets simultaneously satisfied.
