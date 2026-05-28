@@ -2412,3 +2412,137 @@ Open items handed back: ExportFactionCluster.phase7_gate_status placeholder→ca
 **Last updated:** 2026-05-27 (Matt 6 pre-ratifications + 5 new dispatches authored + Discipline #45 + 3 OP amendments firing)
 
 **For:** cross-session continuity per hive-mind protocol § 8.1. Captures Wave + sidecar dispatch state for Cycle 14 lifecycle. Updated at each Wave boundary + dispatch completion. Archives on Cycle 14 close.
+
+---
+
+### 🚨 MAC MINI FREEZE 2026-05-28 — HIVE-MIND CRASH-RECOVERY RE-ENTRY + DISCIPLINE #47 CANDIDATE ACTIVE
+
+**Incident:** Mac mini M2 (8 GB) froze at ~18:30 during Phase 4 RE-RUN-3 execution. Forced power-cycle at 18:32:23. **No data loss** — all Cycle 14 Wave 5 telemetry artifacts landed before freeze.
+
+**Diagnosis lock (gandalf):** `agentic_orchestration/gandalf/notes/2026-05-28-mac-mini-freeze-diagnosis.md` — two-stage memory collapse. Stage 1 baseline pressure from Phase 4 sweep (~5-6 GB working set on 8 GB unified RAM); Stage 2 sub-agent gandalf prior invocation issued recursive `grep` against ~2.1 GB EGL backup log directory → per-line buffer balloon → memory thrash → unified-memory GPU buffer eviction cascade → WindowServer wedge → full freeze. Not a kernel panic (no panic file; `ResetCounter-2026-05-28-183223.diag` present = unexpected-reset signature).
+
+**Remediation applied (gandalf):** EGL backup logs deleted (~2.1 GB reclaimed; verified 128K remaining post-remediation). Incident note filed. State verified intact.
+
+**DISCIPLINE #47 CANDIDATE — host-RAM-aware operational concurrency — ACTIVE PRE-RATIFICATION** (jack-ryan canonical-write authority pending; KR operates under candidate rules immediately):
+
+| Rule | Constraint |
+|---|---|
+| R47.1 | No recursive `grep` against a directory tree without first running `find <dir> -size +100M` |
+| R47.2 | No `grep` against any single file > 200 MB without `head` / streaming or `--max-count` discipline |
+| R47.3 | No `find -exec` against directory trees containing GB-scale binary content (UE / Steam / Docker / IDE projects) |
+| R47.4 | No unrelated heavy I/O while a Phase-4-class sweep fires in another seam — SEQUENCE, do not parallelize |
+| R47.5 | Pre-flight memory check: any operation expected to allocate > 500 MB must verify `vm_stat` shows > 1 GB free before firing |
+
+**Host class flag (active):** project host = 8 GB M2 mini = CONSTRAINED HOST. All cross-seam sub-agent invocations from this point operate under R47.1-R47.5 until further notice OR host upgrade.
+
+**Composition with existing disciplines:** #13 (implicit pillar — "host has unbounded RAM"); #18 (consultation at memory-hotspot includes host budget); #5 (right tool — grep against 1.4 GB log IS wrong tool when question is "find current corruption signal").
+
+**KR action queue for Discipline #47:**
+- ⏳ Surface to jack-ryan at next QA pass for canonical ratification at engineering-disciplines.md
+- ⏳ Update gandalf canonical-doc + recognition record cross-reference per #47 ratification
+- ⏳ Annotate Cycle 14 forward dispatches with R47.4 sequencing acknowledgement
+- ⏳ Forward as Cycle 15 entry condition consideration (operational baseline)
+
+---
+
+### PHASE 4 RE-RUN-3 TELEMETRY LANDED 2026-05-28 EVENING LATE — RESULT SURFACE FOR MATT STRATEGIC DELIBERATION
+
+**Sweep timestamp:** 2026-05-28T22:20:22Z; **wall_time:** 76.52s; **total_gauntlet_calls:** 8; **total_measurement_cells:** 3456; **kits_shipped:** 18/18.
+
+**Artifacts present on disk:**
+- `agentic_orchestration/cycle-14-wave-5-season-001/bounded-viability-validation-baseline-2026-05-28.json` (88 KB; calibration-anchor BVV at 22:21:39Z)
+- `agentic_orchestration/cycle-14-wave-5-season-001/w-alpha-7-plus-phase-4-rerun-3-two-layer-t4-sweep-telemetry.json` (12.4 KB; 7-profile multi-dim sweep)
+- `kit_archive.db` (100 KB; intact)
+
+**BVV calibration anchor result (single profile; all-skills-15/5):**
+
+| Target | Pass | Metric | Threshold | Notes |
+|---|---|---|---|---|
+| **T1 DPS variance** | ✅ PASS | 1.147× | ≤ 1.5× | str=281707 / dex=323219 / int=281707 / wis=303947 |
+| **T2 zero-KPM count** | ❌ FAIL | 19 zero cells | 0 | Primarily boss_with_adds + mini_boss; dex_02_archer also fails magic_pack; str_01 fails both bosses |
+| **T3 saturation** | ✅ PASS | 0 (structural) | 0 | Ceiling removed per W-α2 |
+| **T4 specialization** | ❌ FAIL | 14/18 kits fail | 0 | Peak distribution: 14 kits 0-peaks / 3 kits 1-peak / 1 kit 2-peaks |
+| **T5 floor** | ✅ PASS | 0 violations | 0 | floor_threshold=0.3 |
+
+**Compound_pass = FALSE.**
+
+**Multi-profile sweep results (all 7 profiles compound_pass=FALSE):**
+
+| Profile | T1 (cross-path) | T2 (zero-kpm) | T3 | T4 (spec) | T5 |
+|---|---|---|---|---|---|
+| low (20% budget) | ❌ Infinity | ❌ FAIL | ✅ | ❌ 18 fails | ✅ |
+| mid (50% budget) | ✅ 1.083 | ❌ FAIL | ✅ | ❌ 17 fails | ✅ |
+| max_a (calibration anchor) | ✅ 1.194 | ❌ FAIL | ✅ | ❌ 17 fails | ✅ |
+| max_b (realistic endgame 80% spec-aware) | ✅ 1.194 | ❌ FAIL | ✅ | ❌ 17 fails | ✅ |
+| mixed_v1 (passive-heavy) | ❌ Infinity | ❌ FAIL | ✅ | ❌ 17 fails | ✅ |
+| mixed_v2 (active-heavy) | ✅ 1.194 | ❌ FAIL | ✅ | ❌ 17 fails | ✅ |
+| mixed_v3 (supporting-chain-heavy) | ❌ Infinity | ❌ FAIL | ✅ | ❌ 17 fails | ✅ |
+
+**Strip-and-ship: 18/18 kits SHIP** under Primary T4 universal-guarantee (Primary DDA EXEMPT from strip per doc 51 § 10.8.9). Layer 2 ECF v1.2 strip detail: 13/18 kits drop ELEMENT_CONVERSION supporting chains; 5/18 kits (0 T4 candidates) ship with Primary DDA only; 5/18 kits ship BOTH Primary DDA + ELEMENT_CONVERSION (int_01 / wis_01 / wis_05 + 2 others). Zero T4 escalations.
+
+**SCENARIO B CONFIRMED (compound_pass=FALSE) — STRATEGIC DELIBERATION DIRECTIVE ACTIVE.** Per Matt verbatim 2026-05-28 evening late (state file § "MATT STRATEGIC DELIBERATION DIRECTIVE 2026-05-28 EVENING LATE — HALT CASCADE POST PHASE 4 RE-RUN" lines 2159-2190): **HALT CASCADE pending Matt + gandalf 30-60 min strategic deliberation**. KR does NOT auto-fire next phase.
+
+---
+
+### KR PRELIMINARY FORENSIC READ ON RE-RUN-3 RESULT (for Matt deliberation input)
+
+**T2 zero-KPM 19 failure pattern (DOMINANT BLOCKER):**
+
+The Primary DDA injection is structurally working — DDA 1.75× multiplier applies at preferred encounter type. BUT damage = 0 × 1.75 = 0. Zero-KPM cells at boss_with_adds + mini_boss + (some) magic_pack + (some) elite_pack indicate fight-engine timing-floor + insufficient base damage to break through high-HP encounters. T4 specialization CANNOT register peaks at zero-KPM cells regardless of multiplier — peak requires `ratio ≥ 1.5× cohort_median` and zero / zero is null.
+
+**T4 specialization 14/18 failure pattern (CASCADING from T2 + below-threshold peaks):**
+
+Examining BVV per-cell data for non-zero cells:
+- str_02_light_fighter elite_pack ratio = 1.341 (close to 1.5× but below)
+- str_02_light_fighter mini_boss ratio = 1.324 (close but below)
+- Many cells at ratio = 1.0 (= cohort median; no specialization)
+
+DDA 1.75× appears to be applying, but the effective uplift is partially absorbed by cohort_median rising in lockstep (all kits with same encounter type as preferred encounter type contribute to cohort, so median rises) — and/or DDA not reaching peak-threshold for kits where preferred_encounter_type assignment doesn't align with their actual strength encounter type.
+
+**Three candidate root causes for Matt + gandalf deliberation:**
+
+1. **(R1) DDA 1.75× multiplier too low** — needs 2.0×+ to reliably break 1.5× cohort_median peak threshold given current cohort_median inflation pattern. Within doc 47 § 4.6 Q6 [1.5, 2.0] range; can bump to upper bound without architectural change.
+
+2. **(R2) preferred_encounter_type assignment algorithm misaligned** — if kits are assigned preferred_encounter_type independent of their actual strongest empirical encounter type, DDA fires at sub-optimal cell. Gandalf seam discretion per § 4.6.4 — needs design check on assignment algorithm (per-kit canonical OR opportunity_scan-derived OR hybrid).
+
+3. **(R3) T2 zero-KPM root cause is base-damage / encounter-HP imbalance independent of T4** — Phase 3d RE-RUN BASE values calibrated under T4-aware context but boss_with_adds + mini_boss still produce zero-KPM for many kits, suggesting BASE may be undercalibrated for high-HP encounters OR fight-engine timing-floor (case 10 lineage) persists despite W-α6 encounter-HP rebalancing.
+
+**KR read on most likely diagnosis:** **combination of R2 + R3.** R1 alone (bump multiplier to 2.0×) won't fix T2; R3 is dominant blocker (zero-KPM = damage architecture problem, not specialization mechanic problem). R2 may explain why ratio stays at 1.0 for many non-zero cells (preferred = wrong encounter type).
+
+**Routing recommendation:**
+
+This is **Matt + gandalf strategic deliberation territory per Matt directive** — KR surfaces, does not adjudicate. Deliberation queue items (pre-flagged):
+
+1. Three-variant proposal calibration philosophy revision (Matt's "engine-per-element-stats finding" — KR has not seen)
+2. **NEW: Phase 4 RE-RUN-3 forensic → R1/R2/R3 root-cause adjudication** (DDA tuning vs preferred_encounter_type algorithm review vs BASE re-calibration / fight-engine timing-floor secondary investigation)
+3. Cycle 14 close discipline (keep absorbing? Cycle 15 deferral?) — Cycle 14 v1 close was gated on 5/5 BVV PASS; Phase 4 RE-RUN-3 fails 2/5; close-criterion amendment territory
+4. Cycle 15 entry pre-scoping (existing queue from state line 2180)
+
+---
+
+### NEXT-DISPATCH PROPOSAL (for Matt authorization per ADR-002 tiered approval)
+
+**Status:** PROPOSAL ONLY — Matt directive HALT-CASCADE active; do not auto-fire.
+
+**Pre-deliberation dispatch ordering (sequenced under Discipline #47 R47.4):**
+
+| Priority | Dispatch | Owner | Effort | Gate |
+|---|---|---|---|---|
+| **P0a** | KR surfaces RE-RUN-3 forensic + strategic deliberation queue items to Matt | KR (this re-entry) | seconds | self |
+| **P0b** | Matt + gandalf 30-60 min strategic deliberation session | Matt + gandalf | 30-60 min | self |
+| **P1** | Conditional on deliberation lock — one of three branches: (B1) DDA tuning + targeted re-fire / (B2) preferred_encounter_type algorithm review + re-fire / (B3) deeper BASE re-calibration + Phase 3e' + Phase 4 RE-RUN-4 | per-branch (rocket OR gandalf OR gamora) | branch-specific | Matt deliberation lock |
+
+**Discipline #47 compliance for any branch fire:**
+- Single-seam sub-agent at a time (R47.4)
+- Pre-flight `vm_stat` confirm >1 GB free + no concurrent heavy I/O (R47.5)
+- No recursive grep / find -exec without R47.1-R47.3 guard
+
+**KR action this re-entry (single sub-agent — none required for surface report itself):**
+- Update state file (THIS EDIT) — DONE
+- Surface to Matt cleanly with forensic + branches + Discipline #47 candidate — IN MESSAGE
+- WAIT for Matt deliberation lock — no autonomous fire
+
+---
+
+**Re-entry timestamp:** 2026-05-28 (post-freeze hive-mind re-entry under Discipline #47 candidate constraint).
+**Re-entry author:** knight-rider.
