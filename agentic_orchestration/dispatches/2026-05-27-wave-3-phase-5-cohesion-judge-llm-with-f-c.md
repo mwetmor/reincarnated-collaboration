@@ -175,4 +175,31 @@
 **Hand-back:** KR routes star-lord Wave 3 Seam 2 (per-pair LLM infra + ExportFactionRelationship schema + diversity smoke; MIGRATION.md per ADR-004) + rocket 1-line `_apply_gb_tiebreak` step 4 lexicographic_tiebreak return-value fix. Both consume this canonical prompt spec.
 
 ### Seam 2 — star-lord
-(pending; consumes Seam 1 canonical spec at `canonical/story/phase-5-llm-prompts-cohesion-judge-2026-05-27.md`)
+
+**Status:** LANDED 2026-05-27.
+
+**Deliverables:**
+- `src/reincarnated/export/schemas.py` — NEW `ExportFactionRelationship` (29 fields) + `RELATIONSHIP_TYPE_ENUM` + `ExportSeason.faction_relationships` additive nullable field
+- `src/reincarnated/llm/phase5_orchestrator.py` — Full F-C wave infrastructure: `ai_tell_grep_check()`, `compute_substrate_vote()`, `Phase5FCResult` dataclass, `_build_fc_system_prompt/user_prompt()`, `_parse_fc_response()`, `_validate_fc_acceptance()`, `_call_fc_single()`, `run_fc_per_pair_async()`, `build_export_faction_relationships()`, `run_phase5_with_fc_async/sync()`
+- `src/reincarnated/export/MIGRATION.md` — § v1.12-wave-3-seam-2-f-c-export-faction-relationship (mandatory per ADR-004)
+- `tests/test_wave3_seam2_fc_infra.py` — 55 tests (10 groups)
+- `src/reincarnated/export/AGENT_STATE.md` — updated
+
+**Smoke tests:** 55/55 new + 86/86 prior = 141/141 PASS
+
+**Q-W3-S-1 RESOLVED (star-lord judgment):** Gate F-C on G-B completion. G-B embedded in `faction_clusters_input` via `pm1_result_to_faction_clusters_input()`. F-C fires in parallel across k(k-1)/2 pairs once Wave A resolves.
+
+**5 scope items COMPLETE:**
+1. ExportFactionRelationship JSON schema — all fields per dispatch § 6: faction_a_id + faction_b_id + relationship_type (6-enum, validated at write boundary) + tension_narrative + shared_history_hook + primary_pair_intensifier (consumes G-B primary_pair_flag) + ai_tell_compliance_score + diversity_metrics
+2. MIGRATION.md per ADR-004 — § v1.12 authored
+3. Per-pair LLM call orchestration — extends Wave A/B to handle k(k-1)/2 pairs per season; F-C GATED on G-B completion per Q-W3-S-1
+4. Concurrency — composes with existing AsyncAnthropic + Semaphore(10) per `bf7f659`
+5. Diversity smoke — TF-IDF n-gram (2,4) cosine on tension_narratives; average similarity < 0.70; failure → diversity-penalty SYSTEM prompt + regen (max 1 per pair)
+
+**D-Sharpened invariance verified:** `substrate_anchored_personage` NOT in any F-C prompt construction (Group 10 compliance tests PASS; Gate-2 grep patterns from gandalf Seam 1 § 10.2 will pass)
+
+**Disciplines confirmed:** #8 (schema validation at write boundary) + #41 (no-classes vocabulary) + #42 (framing-audit) + #44 (framing-refusal) + #45 (vocabulary lock) + #46 (DB anti-materialization) + D7 (AI-tell combined LLM self-assessment + mechanical grep)
+
+**Tag:** `star-lord/v1.1-wave-3-seam-2-f-c-1`
+
+**Wave 3 dispatch status:** CLOSED (both Seam 1 + Seam 2 complete). Unblocks Wave 5 production season (final remaining dependency post Phase 7 IMPL `eca0aa5`).
