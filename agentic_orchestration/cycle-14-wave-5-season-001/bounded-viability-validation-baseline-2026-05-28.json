@@ -1,0 +1,2986 @@
+{
+  "run_at": "2026-05-28T13:37:47.863642+00:00",
+  "smoke_mode": true,
+  "kit_count": 18,
+  "encounter_type_count": 6,
+  "total_cells": 108,
+  "wall_clock_seconds": 1.7,
+  "harness_parameters": {
+    "kpm_ceiling": 600.0,
+    "floor_threshold": 0.3,
+    "specialization_lower": 1.5,
+    "specialization_upper": 2.0,
+    "base_dps_variance_ceiling": 1.5,
+    "reference_cohort": "Balanced",
+    "amendment_1": "encounter_types_verified_against_catalog",
+    "amendment_2": "specialization_criterion_doc50_4_4_verbatim",
+    "doc_50_anchor": "canonical/50-bounded-viability-with-specialization-design-directive-2026-05-28.md"
+  },
+  "compound_pass": false,
+  "target_1_dps_variance": {
+    "target_id": "target_1",
+    "passed": false,
+    "metric_value": Infinity,
+    "threshold": 1.5,
+    "details": {
+      "paths_with_observations": [],
+      "insufficient_signal": true,
+      "note": "fewer than 2 paths have boss_with_adds DPS signal"
+    },
+    "violation_cells": []
+  },
+  "target_2_zero_kpm_count": {
+    "target_id": "target_2",
+    "passed": false,
+    "metric_value": 108.0,
+    "threshold": 0.0,
+    "details": {
+      "zero_count": 108,
+      "zero_cells_sample": [
+        "S1_endgame_str_01_heavy_barbarian::open_arena",
+        "S1_endgame_str_01_heavy_barbarian::chokepoint_corridor",
+        "S1_endgame_str_01_heavy_barbarian::magic_pack",
+        "S1_endgame_str_01_heavy_barbarian::elite_pack",
+        "S1_endgame_str_01_heavy_barbarian::boss_with_adds",
+        "S1_endgame_str_01_heavy_barbarian::mini_boss",
+        "S1_endgame_str_02_light_fighter::open_arena",
+        "S1_endgame_str_02_light_fighter::chokepoint_corridor",
+        "S1_endgame_str_02_light_fighter::magic_pack",
+        "S1_endgame_str_02_light_fighter::elite_pack"
+      ]
+    },
+    "violation_cells": [
+      [
+        "S1_endgame_str_01_heavy_barbarian",
+        "open_arena"
+      ],
+      [
+        "S1_endgame_str_01_heavy_barbarian",
+        "chokepoint_corridor"
+      ],
+      [
+        "S1_endgame_str_01_heavy_barbarian",
+        "magic_pack"
+      ],
+      [
+        "S1_endgame_str_01_heavy_barbarian",
+        "elite_pack"
+      ],
+      [
+        "S1_endgame_str_01_heavy_barbarian",
+        "boss_with_adds"
+      ],
+      [
+        "S1_endgame_str_01_heavy_barbarian",
+        "mini_boss"
+      ],
+      [
+        "S1_endgame_str_02_light_fighter",
+        "open_arena"
+      ],
+      [
+        "S1_endgame_str_02_light_fighter",
+        "chokepoint_corridor"
+      ],
+      [
+        "S1_endgame_str_02_light_fighter",
+        "magic_pack"
+      ],
+      [
+        "S1_endgame_str_02_light_fighter",
+        "elite_pack"
+      ],
+      [
+        "S1_endgame_str_02_light_fighter",
+        "boss_with_adds"
+      ],
+      [
+        "S1_endgame_str_02_light_fighter",
+        "mini_boss"
+      ],
+      [
+        "S1_endgame_str_03_polearm_soldier",
+        "open_arena"
+      ],
+      [
+        "S1_endgame_str_03_polearm_soldier",
+        "chokepoint_corridor"
+      ],
+      [
+        "S1_endgame_str_03_polearm_soldier",
+        "magic_pack"
+      ],
+      [
+        "S1_endgame_str_03_polearm_soldier",
+        "elite_pack"
+      ],
+      [
+        "S1_endgame_str_03_polearm_soldier",
+        "boss_with_adds"
+      ],
+      [
+        "S1_endgame_str_03_polearm_soldier",
+        "mini_boss"
+      ],
+      [
+        "S1_endgame_str_04_thrown_heavy",
+        "open_arena"
+      ],
+      [
+        "S1_endgame_str_04_thrown_heavy",
+        "chokepoint_corridor"
+      ],
+      [
+        "S1_endgame_str_04_thrown_heavy",
+        "magic_pack"
+      ],
+      [
+        "S1_endgame_str_04_thrown_heavy",
+        "elite_pack"
+      ],
+      [
+        "S1_endgame_str_04_thrown_heavy",
+        "boss_with_adds"
+      ],
+      [
+        "S1_endgame_str_04_thrown_heavy",
+        "mini_boss"
+      ],
+      [
+        "S1_endgame_dex_01_dagger_assassin",
+        "open_arena"
+      ],
+      [
+        "S1_endgame_dex_01_dagger_assassin",
+        "chokepoint_corridor"
+      ],
+      [
+        "S1_endgame_dex_01_dagger_assassin",
+        "magic_pack"
+      ],
+      [
+        "S1_endgame_dex_01_dagger_assassin",
+        "elite_pack"
+      ],
+      [
+        "S1_endgame_dex_01_dagger_assassin",
+        "boss_with_adds"
+      ],
+      [
+        "S1_endgame_dex_01_dagger_assassin",
+        "mini_boss"
+      ],
+      [
+        "S1_endgame_dex_02_archer",
+        "open_arena"
+      ],
+      [
+        "S1_endgame_dex_02_archer",
+        "chokepoint_corridor"
+      ],
+      [
+        "S1_endgame_dex_02_archer",
+        "magic_pack"
+      ],
+      [
+        "S1_endgame_dex_02_archer",
+        "elite_pack"
+      ],
+      [
+        "S1_endgame_dex_02_archer",
+        "boss_with_adds"
+      ],
+      [
+        "S1_endgame_dex_02_archer",
+        "mini_boss"
+      ],
+      [
+        "S1_endgame_dex_03_crossbow_sniper",
+        "open_arena"
+      ],
+      [
+        "S1_endgame_dex_03_crossbow_sniper",
+        "chokepoint_corridor"
+      ],
+      [
+        "S1_endgame_dex_03_crossbow_sniper",
+        "magic_pack"
+      ],
+      [
+        "S1_endgame_dex_03_crossbow_sniper",
+        "elite_pack"
+      ],
+      [
+        "S1_endgame_dex_03_crossbow_sniper",
+        "boss_with_adds"
+      ],
+      [
+        "S1_endgame_dex_03_crossbow_sniper",
+        "mini_boss"
+      ],
+      [
+        "S1_endgame_dex_04_twin_blade_fencer",
+        "open_arena"
+      ],
+      [
+        "S1_endgame_dex_04_twin_blade_fencer",
+        "chokepoint_corridor"
+      ],
+      [
+        "S1_endgame_dex_04_twin_blade_fencer",
+        "magic_pack"
+      ],
+      [
+        "S1_endgame_dex_04_twin_blade_fencer",
+        "elite_pack"
+      ],
+      [
+        "S1_endgame_dex_04_twin_blade_fencer",
+        "boss_with_adds"
+      ],
+      [
+        "S1_endgame_dex_04_twin_blade_fencer",
+        "mini_boss"
+      ],
+      [
+        "S1_endgame_int_01_standard_wizard",
+        "open_arena"
+      ],
+      [
+        "S1_endgame_int_01_standard_wizard",
+        "chokepoint_corridor"
+      ],
+      [
+        "S1_endgame_int_01_standard_wizard",
+        "magic_pack"
+      ],
+      [
+        "S1_endgame_int_01_standard_wizard",
+        "elite_pack"
+      ],
+      [
+        "S1_endgame_int_01_standard_wizard",
+        "boss_with_adds"
+      ],
+      [
+        "S1_endgame_int_01_standard_wizard",
+        "mini_boss"
+      ],
+      [
+        "S1_endgame_int_02_artillery_mage",
+        "open_arena"
+      ],
+      [
+        "S1_endgame_int_02_artillery_mage",
+        "chokepoint_corridor"
+      ],
+      [
+        "S1_endgame_int_02_artillery_mage",
+        "magic_pack"
+      ],
+      [
+        "S1_endgame_int_02_artillery_mage",
+        "elite_pack"
+      ],
+      [
+        "S1_endgame_int_02_artillery_mage",
+        "boss_with_adds"
+      ],
+      [
+        "S1_endgame_int_02_artillery_mage",
+        "mini_boss"
+      ],
+      [
+        "S1_endgame_int_03_pyromantic_caster",
+        "open_arena"
+      ],
+      [
+        "S1_endgame_int_03_pyromantic_caster",
+        "chokepoint_corridor"
+      ],
+      [
+        "S1_endgame_int_03_pyromantic_caster",
+        "magic_pack"
+      ],
+      [
+        "S1_endgame_int_03_pyromantic_caster",
+        "elite_pack"
+      ],
+      [
+        "S1_endgame_int_03_pyromantic_caster",
+        "boss_with_adds"
+      ],
+      [
+        "S1_endgame_int_03_pyromantic_caster",
+        "mini_boss"
+      ],
+      [
+        "S1_endgame_int_04_red_mage_spellsword",
+        "open_arena"
+      ],
+      [
+        "S1_endgame_int_04_red_mage_spellsword",
+        "chokepoint_corridor"
+      ],
+      [
+        "S1_endgame_int_04_red_mage_spellsword",
+        "magic_pack"
+      ],
+      [
+        "S1_endgame_int_04_red_mage_spellsword",
+        "elite_pack"
+      ],
+      [
+        "S1_endgame_int_04_red_mage_spellsword",
+        "boss_with_adds"
+      ],
+      [
+        "S1_endgame_int_04_red_mage_spellsword",
+        "mini_boss"
+      ],
+      [
+        "S1_endgame_int_05_arcane_familiar_mage",
+        "open_arena"
+      ],
+      [
+        "S1_endgame_int_05_arcane_familiar_mage",
+        "chokepoint_corridor"
+      ],
+      [
+        "S1_endgame_int_05_arcane_familiar_mage",
+        "magic_pack"
+      ],
+      [
+        "S1_endgame_int_05_arcane_familiar_mage",
+        "elite_pack"
+      ],
+      [
+        "S1_endgame_int_05_arcane_familiar_mage",
+        "boss_with_adds"
+      ],
+      [
+        "S1_endgame_int_05_arcane_familiar_mage",
+        "mini_boss"
+      ],
+      [
+        "S1_endgame_wis_01_channeling_cleric",
+        "open_arena"
+      ],
+      [
+        "S1_endgame_wis_01_channeling_cleric",
+        "chokepoint_corridor"
+      ],
+      [
+        "S1_endgame_wis_01_channeling_cleric",
+        "magic_pack"
+      ],
+      [
+        "S1_endgame_wis_01_channeling_cleric",
+        "elite_pack"
+      ],
+      [
+        "S1_endgame_wis_01_channeling_cleric",
+        "boss_with_adds"
+      ],
+      [
+        "S1_endgame_wis_01_channeling_cleric",
+        "mini_boss"
+      ],
+      [
+        "S1_endgame_wis_02_holy_knight",
+        "open_arena"
+      ],
+      [
+        "S1_endgame_wis_02_holy_knight",
+        "chokepoint_corridor"
+      ],
+      [
+        "S1_endgame_wis_02_holy_knight",
+        "magic_pack"
+      ],
+      [
+        "S1_endgame_wis_02_holy_knight",
+        "elite_pack"
+      ],
+      [
+        "S1_endgame_wis_02_holy_knight",
+        "boss_with_adds"
+      ],
+      [
+        "S1_endgame_wis_02_holy_knight",
+        "mini_boss"
+      ],
+      [
+        "S1_endgame_wis_03_ritual_mage",
+        "open_arena"
+      ],
+      [
+        "S1_endgame_wis_03_ritual_mage",
+        "chokepoint_corridor"
+      ],
+      [
+        "S1_endgame_wis_03_ritual_mage",
+        "magic_pack"
+      ],
+      [
+        "S1_endgame_wis_03_ritual_mage",
+        "elite_pack"
+      ],
+      [
+        "S1_endgame_wis_03_ritual_mage",
+        "boss_with_adds"
+      ],
+      [
+        "S1_endgame_wis_03_ritual_mage",
+        "mini_boss"
+      ],
+      [
+        "S1_endgame_wis_04_storm_caller",
+        "open_arena"
+      ],
+      [
+        "S1_endgame_wis_04_storm_caller",
+        "chokepoint_corridor"
+      ],
+      [
+        "S1_endgame_wis_04_storm_caller",
+        "magic_pack"
+      ],
+      [
+        "S1_endgame_wis_04_storm_caller",
+        "elite_pack"
+      ],
+      [
+        "S1_endgame_wis_04_storm_caller",
+        "boss_with_adds"
+      ],
+      [
+        "S1_endgame_wis_04_storm_caller",
+        "mini_boss"
+      ],
+      [
+        "S1_endgame_wis_05_monk",
+        "open_arena"
+      ],
+      [
+        "S1_endgame_wis_05_monk",
+        "chokepoint_corridor"
+      ],
+      [
+        "S1_endgame_wis_05_monk",
+        "magic_pack"
+      ],
+      [
+        "S1_endgame_wis_05_monk",
+        "elite_pack"
+      ],
+      [
+        "S1_endgame_wis_05_monk",
+        "boss_with_adds"
+      ],
+      [
+        "S1_endgame_wis_05_monk",
+        "mini_boss"
+      ]
+    ]
+  },
+  "target_3_saturation_count": {
+    "target_id": "target_3",
+    "passed": true,
+    "metric_value": 0.0,
+    "threshold": 0.0,
+    "details": {
+      "saturation_count": 0,
+      "kpm_ceiling_used": 600.0,
+      "saturated_cells_sample": []
+    },
+    "violation_cells": []
+  },
+  "target_4_specialization_profile": {
+    "target_id": "target_4",
+    "passed": false,
+    "metric_value": 18.0,
+    "threshold": 0.0,
+    "details": {
+      "kits_failing": 18,
+      "kits_total": 18,
+      "peak_count_distribution": {
+        "0": 18
+      },
+      "fail_detail": [
+        {
+          "kit_id": "S1_endgame_str_01_heavy_barbarian",
+          "peaks": [],
+          "reason": "no_peaks"
+        },
+        {
+          "kit_id": "S1_endgame_str_02_light_fighter",
+          "peaks": [],
+          "reason": "no_peaks"
+        },
+        {
+          "kit_id": "S1_endgame_str_03_polearm_soldier",
+          "peaks": [],
+          "reason": "no_peaks"
+        },
+        {
+          "kit_id": "S1_endgame_str_04_thrown_heavy",
+          "peaks": [],
+          "reason": "no_peaks"
+        },
+        {
+          "kit_id": "S1_endgame_dex_01_dagger_assassin",
+          "peaks": [],
+          "reason": "no_peaks"
+        },
+        {
+          "kit_id": "S1_endgame_dex_02_archer",
+          "peaks": [],
+          "reason": "no_peaks"
+        },
+        {
+          "kit_id": "S1_endgame_dex_03_crossbow_sniper",
+          "peaks": [],
+          "reason": "no_peaks"
+        },
+        {
+          "kit_id": "S1_endgame_dex_04_twin_blade_fencer",
+          "peaks": [],
+          "reason": "no_peaks"
+        },
+        {
+          "kit_id": "S1_endgame_int_01_standard_wizard",
+          "peaks": [],
+          "reason": "no_peaks"
+        },
+        {
+          "kit_id": "S1_endgame_int_02_artillery_mage",
+          "peaks": [],
+          "reason": "no_peaks"
+        }
+      ]
+    },
+    "violation_cells": [
+      [
+        "S1_endgame_str_01_heavy_barbarian",
+        "specialization_fail"
+      ],
+      [
+        "S1_endgame_str_02_light_fighter",
+        "specialization_fail"
+      ],
+      [
+        "S1_endgame_str_03_polearm_soldier",
+        "specialization_fail"
+      ],
+      [
+        "S1_endgame_str_04_thrown_heavy",
+        "specialization_fail"
+      ],
+      [
+        "S1_endgame_dex_01_dagger_assassin",
+        "specialization_fail"
+      ],
+      [
+        "S1_endgame_dex_02_archer",
+        "specialization_fail"
+      ],
+      [
+        "S1_endgame_dex_03_crossbow_sniper",
+        "specialization_fail"
+      ],
+      [
+        "S1_endgame_dex_04_twin_blade_fencer",
+        "specialization_fail"
+      ],
+      [
+        "S1_endgame_int_01_standard_wizard",
+        "specialization_fail"
+      ],
+      [
+        "S1_endgame_int_02_artillery_mage",
+        "specialization_fail"
+      ],
+      [
+        "S1_endgame_int_03_pyromantic_caster",
+        "specialization_fail"
+      ],
+      [
+        "S1_endgame_int_04_red_mage_spellsword",
+        "specialization_fail"
+      ],
+      [
+        "S1_endgame_int_05_arcane_familiar_mage",
+        "specialization_fail"
+      ],
+      [
+        "S1_endgame_wis_01_channeling_cleric",
+        "specialization_fail"
+      ],
+      [
+        "S1_endgame_wis_02_holy_knight",
+        "specialization_fail"
+      ],
+      [
+        "S1_endgame_wis_03_ritual_mage",
+        "specialization_fail"
+      ],
+      [
+        "S1_endgame_wis_04_storm_caller",
+        "specialization_fail"
+      ],
+      [
+        "S1_endgame_wis_05_monk",
+        "specialization_fail"
+      ]
+    ]
+  },
+  "target_5_floor_count": {
+    "target_id": "target_5",
+    "passed": true,
+    "metric_value": 0.0,
+    "threshold": 0.0,
+    "details": {
+      "floor_violation_count": 0,
+      "floor_threshold_used": 0.3,
+      "violation_detail": []
+    },
+    "violation_cells": []
+  },
+  "cells": {
+    "S1_endgame_str_01_heavy_barbarian::open_arena": {
+      "kit_id": "S1_endgame_str_01_heavy_barbarian",
+      "encounter_type": "open_arena",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_str_01_heavy_barbarian::chokepoint_corridor": {
+      "kit_id": "S1_endgame_str_01_heavy_barbarian",
+      "encounter_type": "chokepoint_corridor",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_str_01_heavy_barbarian::magic_pack": {
+      "kit_id": "S1_endgame_str_01_heavy_barbarian",
+      "encounter_type": "magic_pack",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 8500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_str_01_heavy_barbarian::elite_pack": {
+      "kit_id": "S1_endgame_str_01_heavy_barbarian",
+      "encounter_type": "elite_pack",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 47500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_str_01_heavy_barbarian::boss_with_adds": {
+      "kit_id": "S1_endgame_str_01_heavy_barbarian",
+      "encounter_type": "boss_with_adds",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 231000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_str_01_heavy_barbarian::mini_boss": {
+      "kit_id": "S1_endgame_str_01_heavy_barbarian",
+      "encounter_type": "mini_boss",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 130000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_str_02_light_fighter::open_arena": {
+      "kit_id": "S1_endgame_str_02_light_fighter",
+      "encounter_type": "open_arena",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_str_02_light_fighter::chokepoint_corridor": {
+      "kit_id": "S1_endgame_str_02_light_fighter",
+      "encounter_type": "chokepoint_corridor",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_str_02_light_fighter::magic_pack": {
+      "kit_id": "S1_endgame_str_02_light_fighter",
+      "encounter_type": "magic_pack",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 8500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_str_02_light_fighter::elite_pack": {
+      "kit_id": "S1_endgame_str_02_light_fighter",
+      "encounter_type": "elite_pack",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 47500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_str_02_light_fighter::boss_with_adds": {
+      "kit_id": "S1_endgame_str_02_light_fighter",
+      "encounter_type": "boss_with_adds",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 231000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_str_02_light_fighter::mini_boss": {
+      "kit_id": "S1_endgame_str_02_light_fighter",
+      "encounter_type": "mini_boss",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 130000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_str_03_polearm_soldier::open_arena": {
+      "kit_id": "S1_endgame_str_03_polearm_soldier",
+      "encounter_type": "open_arena",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_str_03_polearm_soldier::chokepoint_corridor": {
+      "kit_id": "S1_endgame_str_03_polearm_soldier",
+      "encounter_type": "chokepoint_corridor",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_str_03_polearm_soldier::magic_pack": {
+      "kit_id": "S1_endgame_str_03_polearm_soldier",
+      "encounter_type": "magic_pack",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 8500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_str_03_polearm_soldier::elite_pack": {
+      "kit_id": "S1_endgame_str_03_polearm_soldier",
+      "encounter_type": "elite_pack",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 47500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_str_03_polearm_soldier::boss_with_adds": {
+      "kit_id": "S1_endgame_str_03_polearm_soldier",
+      "encounter_type": "boss_with_adds",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 231000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_str_03_polearm_soldier::mini_boss": {
+      "kit_id": "S1_endgame_str_03_polearm_soldier",
+      "encounter_type": "mini_boss",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 130000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_str_04_thrown_heavy::open_arena": {
+      "kit_id": "S1_endgame_str_04_thrown_heavy",
+      "encounter_type": "open_arena",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_str_04_thrown_heavy::chokepoint_corridor": {
+      "kit_id": "S1_endgame_str_04_thrown_heavy",
+      "encounter_type": "chokepoint_corridor",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_str_04_thrown_heavy::magic_pack": {
+      "kit_id": "S1_endgame_str_04_thrown_heavy",
+      "encounter_type": "magic_pack",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 8500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_str_04_thrown_heavy::elite_pack": {
+      "kit_id": "S1_endgame_str_04_thrown_heavy",
+      "encounter_type": "elite_pack",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 47500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_str_04_thrown_heavy::boss_with_adds": {
+      "kit_id": "S1_endgame_str_04_thrown_heavy",
+      "encounter_type": "boss_with_adds",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 231000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_str_04_thrown_heavy::mini_boss": {
+      "kit_id": "S1_endgame_str_04_thrown_heavy",
+      "encounter_type": "mini_boss",
+      "damage_scaling_path": "str_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 130000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_01_dagger_assassin::open_arena": {
+      "kit_id": "S1_endgame_dex_01_dagger_assassin",
+      "encounter_type": "open_arena",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_01_dagger_assassin::chokepoint_corridor": {
+      "kit_id": "S1_endgame_dex_01_dagger_assassin",
+      "encounter_type": "chokepoint_corridor",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_01_dagger_assassin::magic_pack": {
+      "kit_id": "S1_endgame_dex_01_dagger_assassin",
+      "encounter_type": "magic_pack",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 8500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_01_dagger_assassin::elite_pack": {
+      "kit_id": "S1_endgame_dex_01_dagger_assassin",
+      "encounter_type": "elite_pack",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 47500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_01_dagger_assassin::boss_with_adds": {
+      "kit_id": "S1_endgame_dex_01_dagger_assassin",
+      "encounter_type": "boss_with_adds",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 231000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_01_dagger_assassin::mini_boss": {
+      "kit_id": "S1_endgame_dex_01_dagger_assassin",
+      "encounter_type": "mini_boss",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 130000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_02_archer::open_arena": {
+      "kit_id": "S1_endgame_dex_02_archer",
+      "encounter_type": "open_arena",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_02_archer::chokepoint_corridor": {
+      "kit_id": "S1_endgame_dex_02_archer",
+      "encounter_type": "chokepoint_corridor",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_02_archer::magic_pack": {
+      "kit_id": "S1_endgame_dex_02_archer",
+      "encounter_type": "magic_pack",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 8500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_02_archer::elite_pack": {
+      "kit_id": "S1_endgame_dex_02_archer",
+      "encounter_type": "elite_pack",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 47500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_02_archer::boss_with_adds": {
+      "kit_id": "S1_endgame_dex_02_archer",
+      "encounter_type": "boss_with_adds",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 231000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_02_archer::mini_boss": {
+      "kit_id": "S1_endgame_dex_02_archer",
+      "encounter_type": "mini_boss",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 130000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_03_crossbow_sniper::open_arena": {
+      "kit_id": "S1_endgame_dex_03_crossbow_sniper",
+      "encounter_type": "open_arena",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_03_crossbow_sniper::chokepoint_corridor": {
+      "kit_id": "S1_endgame_dex_03_crossbow_sniper",
+      "encounter_type": "chokepoint_corridor",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_03_crossbow_sniper::magic_pack": {
+      "kit_id": "S1_endgame_dex_03_crossbow_sniper",
+      "encounter_type": "magic_pack",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 8500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_03_crossbow_sniper::elite_pack": {
+      "kit_id": "S1_endgame_dex_03_crossbow_sniper",
+      "encounter_type": "elite_pack",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 47500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_03_crossbow_sniper::boss_with_adds": {
+      "kit_id": "S1_endgame_dex_03_crossbow_sniper",
+      "encounter_type": "boss_with_adds",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 231000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_03_crossbow_sniper::mini_boss": {
+      "kit_id": "S1_endgame_dex_03_crossbow_sniper",
+      "encounter_type": "mini_boss",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 130000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_04_twin_blade_fencer::open_arena": {
+      "kit_id": "S1_endgame_dex_04_twin_blade_fencer",
+      "encounter_type": "open_arena",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_04_twin_blade_fencer::chokepoint_corridor": {
+      "kit_id": "S1_endgame_dex_04_twin_blade_fencer",
+      "encounter_type": "chokepoint_corridor",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_04_twin_blade_fencer::magic_pack": {
+      "kit_id": "S1_endgame_dex_04_twin_blade_fencer",
+      "encounter_type": "magic_pack",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 8500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_04_twin_blade_fencer::elite_pack": {
+      "kit_id": "S1_endgame_dex_04_twin_blade_fencer",
+      "encounter_type": "elite_pack",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 47500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_04_twin_blade_fencer::boss_with_adds": {
+      "kit_id": "S1_endgame_dex_04_twin_blade_fencer",
+      "encounter_type": "boss_with_adds",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 231000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_dex_04_twin_blade_fencer::mini_boss": {
+      "kit_id": "S1_endgame_dex_04_twin_blade_fencer",
+      "encounter_type": "mini_boss",
+      "damage_scaling_path": "dex_physical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 130000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_01_standard_wizard::open_arena": {
+      "kit_id": "S1_endgame_int_01_standard_wizard",
+      "encounter_type": "open_arena",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_01_standard_wizard::chokepoint_corridor": {
+      "kit_id": "S1_endgame_int_01_standard_wizard",
+      "encounter_type": "chokepoint_corridor",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_01_standard_wizard::magic_pack": {
+      "kit_id": "S1_endgame_int_01_standard_wizard",
+      "encounter_type": "magic_pack",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 8500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_01_standard_wizard::elite_pack": {
+      "kit_id": "S1_endgame_int_01_standard_wizard",
+      "encounter_type": "elite_pack",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 47500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_01_standard_wizard::boss_with_adds": {
+      "kit_id": "S1_endgame_int_01_standard_wizard",
+      "encounter_type": "boss_with_adds",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 231000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_01_standard_wizard::mini_boss": {
+      "kit_id": "S1_endgame_int_01_standard_wizard",
+      "encounter_type": "mini_boss",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 130000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_02_artillery_mage::open_arena": {
+      "kit_id": "S1_endgame_int_02_artillery_mage",
+      "encounter_type": "open_arena",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_02_artillery_mage::chokepoint_corridor": {
+      "kit_id": "S1_endgame_int_02_artillery_mage",
+      "encounter_type": "chokepoint_corridor",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_02_artillery_mage::magic_pack": {
+      "kit_id": "S1_endgame_int_02_artillery_mage",
+      "encounter_type": "magic_pack",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 8500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_02_artillery_mage::elite_pack": {
+      "kit_id": "S1_endgame_int_02_artillery_mage",
+      "encounter_type": "elite_pack",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 47500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_02_artillery_mage::boss_with_adds": {
+      "kit_id": "S1_endgame_int_02_artillery_mage",
+      "encounter_type": "boss_with_adds",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 231000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_02_artillery_mage::mini_boss": {
+      "kit_id": "S1_endgame_int_02_artillery_mage",
+      "encounter_type": "mini_boss",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 130000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_03_pyromantic_caster::open_arena": {
+      "kit_id": "S1_endgame_int_03_pyromantic_caster",
+      "encounter_type": "open_arena",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_03_pyromantic_caster::chokepoint_corridor": {
+      "kit_id": "S1_endgame_int_03_pyromantic_caster",
+      "encounter_type": "chokepoint_corridor",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_03_pyromantic_caster::magic_pack": {
+      "kit_id": "S1_endgame_int_03_pyromantic_caster",
+      "encounter_type": "magic_pack",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 8500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_03_pyromantic_caster::elite_pack": {
+      "kit_id": "S1_endgame_int_03_pyromantic_caster",
+      "encounter_type": "elite_pack",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 47500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_03_pyromantic_caster::boss_with_adds": {
+      "kit_id": "S1_endgame_int_03_pyromantic_caster",
+      "encounter_type": "boss_with_adds",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 231000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_03_pyromantic_caster::mini_boss": {
+      "kit_id": "S1_endgame_int_03_pyromantic_caster",
+      "encounter_type": "mini_boss",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 130000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_04_red_mage_spellsword::open_arena": {
+      "kit_id": "S1_endgame_int_04_red_mage_spellsword",
+      "encounter_type": "open_arena",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_04_red_mage_spellsword::chokepoint_corridor": {
+      "kit_id": "S1_endgame_int_04_red_mage_spellsword",
+      "encounter_type": "chokepoint_corridor",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_04_red_mage_spellsword::magic_pack": {
+      "kit_id": "S1_endgame_int_04_red_mage_spellsword",
+      "encounter_type": "magic_pack",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 8500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_04_red_mage_spellsword::elite_pack": {
+      "kit_id": "S1_endgame_int_04_red_mage_spellsword",
+      "encounter_type": "elite_pack",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 47500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_04_red_mage_spellsword::boss_with_adds": {
+      "kit_id": "S1_endgame_int_04_red_mage_spellsword",
+      "encounter_type": "boss_with_adds",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 231000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_04_red_mage_spellsword::mini_boss": {
+      "kit_id": "S1_endgame_int_04_red_mage_spellsword",
+      "encounter_type": "mini_boss",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 130000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_05_arcane_familiar_mage::open_arena": {
+      "kit_id": "S1_endgame_int_05_arcane_familiar_mage",
+      "encounter_type": "open_arena",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_05_arcane_familiar_mage::chokepoint_corridor": {
+      "kit_id": "S1_endgame_int_05_arcane_familiar_mage",
+      "encounter_type": "chokepoint_corridor",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_05_arcane_familiar_mage::magic_pack": {
+      "kit_id": "S1_endgame_int_05_arcane_familiar_mage",
+      "encounter_type": "magic_pack",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 8500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_05_arcane_familiar_mage::elite_pack": {
+      "kit_id": "S1_endgame_int_05_arcane_familiar_mage",
+      "encounter_type": "elite_pack",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 47500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_05_arcane_familiar_mage::boss_with_adds": {
+      "kit_id": "S1_endgame_int_05_arcane_familiar_mage",
+      "encounter_type": "boss_with_adds",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 231000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_int_05_arcane_familiar_mage::mini_boss": {
+      "kit_id": "S1_endgame_int_05_arcane_familiar_mage",
+      "encounter_type": "mini_boss",
+      "damage_scaling_path": "int_magical",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 130000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_01_channeling_cleric::open_arena": {
+      "kit_id": "S1_endgame_wis_01_channeling_cleric",
+      "encounter_type": "open_arena",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_01_channeling_cleric::chokepoint_corridor": {
+      "kit_id": "S1_endgame_wis_01_channeling_cleric",
+      "encounter_type": "chokepoint_corridor",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_01_channeling_cleric::magic_pack": {
+      "kit_id": "S1_endgame_wis_01_channeling_cleric",
+      "encounter_type": "magic_pack",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 8500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_01_channeling_cleric::elite_pack": {
+      "kit_id": "S1_endgame_wis_01_channeling_cleric",
+      "encounter_type": "elite_pack",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 47500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_01_channeling_cleric::boss_with_adds": {
+      "kit_id": "S1_endgame_wis_01_channeling_cleric",
+      "encounter_type": "boss_with_adds",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 231000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_01_channeling_cleric::mini_boss": {
+      "kit_id": "S1_endgame_wis_01_channeling_cleric",
+      "encounter_type": "mini_boss",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 130000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_02_holy_knight::open_arena": {
+      "kit_id": "S1_endgame_wis_02_holy_knight",
+      "encounter_type": "open_arena",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_02_holy_knight::chokepoint_corridor": {
+      "kit_id": "S1_endgame_wis_02_holy_knight",
+      "encounter_type": "chokepoint_corridor",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_02_holy_knight::magic_pack": {
+      "kit_id": "S1_endgame_wis_02_holy_knight",
+      "encounter_type": "magic_pack",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 8500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_02_holy_knight::elite_pack": {
+      "kit_id": "S1_endgame_wis_02_holy_knight",
+      "encounter_type": "elite_pack",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 47500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_02_holy_knight::boss_with_adds": {
+      "kit_id": "S1_endgame_wis_02_holy_knight",
+      "encounter_type": "boss_with_adds",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 231000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_02_holy_knight::mini_boss": {
+      "kit_id": "S1_endgame_wis_02_holy_knight",
+      "encounter_type": "mini_boss",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 130000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_03_ritual_mage::open_arena": {
+      "kit_id": "S1_endgame_wis_03_ritual_mage",
+      "encounter_type": "open_arena",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_03_ritual_mage::chokepoint_corridor": {
+      "kit_id": "S1_endgame_wis_03_ritual_mage",
+      "encounter_type": "chokepoint_corridor",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_03_ritual_mage::magic_pack": {
+      "kit_id": "S1_endgame_wis_03_ritual_mage",
+      "encounter_type": "magic_pack",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 8500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_03_ritual_mage::elite_pack": {
+      "kit_id": "S1_endgame_wis_03_ritual_mage",
+      "encounter_type": "elite_pack",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 47500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_03_ritual_mage::boss_with_adds": {
+      "kit_id": "S1_endgame_wis_03_ritual_mage",
+      "encounter_type": "boss_with_adds",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 231000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_03_ritual_mage::mini_boss": {
+      "kit_id": "S1_endgame_wis_03_ritual_mage",
+      "encounter_type": "mini_boss",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 130000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_04_storm_caller::open_arena": {
+      "kit_id": "S1_endgame_wis_04_storm_caller",
+      "encounter_type": "open_arena",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_04_storm_caller::chokepoint_corridor": {
+      "kit_id": "S1_endgame_wis_04_storm_caller",
+      "encounter_type": "chokepoint_corridor",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_04_storm_caller::magic_pack": {
+      "kit_id": "S1_endgame_wis_04_storm_caller",
+      "encounter_type": "magic_pack",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 8500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_04_storm_caller::elite_pack": {
+      "kit_id": "S1_endgame_wis_04_storm_caller",
+      "encounter_type": "elite_pack",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 47500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_04_storm_caller::boss_with_adds": {
+      "kit_id": "S1_endgame_wis_04_storm_caller",
+      "encounter_type": "boss_with_adds",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 231000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_04_storm_caller::mini_boss": {
+      "kit_id": "S1_endgame_wis_04_storm_caller",
+      "encounter_type": "mini_boss",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 130000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_05_monk::open_arena": {
+      "kit_id": "S1_endgame_wis_05_monk",
+      "encounter_type": "open_arena",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_05_monk::chokepoint_corridor": {
+      "kit_id": "S1_endgame_wis_05_monk",
+      "encounter_type": "chokepoint_corridor",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 3500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_05_monk::magic_pack": {
+      "kit_id": "S1_endgame_wis_05_monk",
+      "encounter_type": "magic_pack",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 8500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_05_monk::elite_pack": {
+      "kit_id": "S1_endgame_wis_05_monk",
+      "encounter_type": "elite_pack",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 47500.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_05_monk::boss_with_adds": {
+      "kit_id": "S1_endgame_wis_05_monk",
+      "encounter_type": "boss_with_adds",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 231000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    },
+    "S1_endgame_wis_05_monk::mini_boss": {
+      "kit_id": "S1_endgame_wis_05_monk",
+      "encounter_type": "mini_boss",
+      "damage_scaling_path": "wis_faith",
+      "kit_kpm": 0.0,
+      "kit_dps": 0.0,
+      "encounter_hp_mid": 130000.0,
+      "cohort_median_kpm": 0.0,
+      "ratio": null,
+      "is_zero": true,
+      "is_ceiling_saturated": false,
+      "is_specialization_peak": false,
+      "is_floor_violation": false,
+      "raw_kpm_observations": [],
+      "catalog_encounter_count": 0
+    }
+  },
+  "kit_profiles": [
+    {
+      "kit_id": "S1_endgame_str_01_heavy_barbarian",
+      "damage_scaling_path": "str_physical",
+      "per_encounter_kpm": {
+        "open_arena": 0.0,
+        "chokepoint_corridor": 0.0,
+        "magic_pack": 0.0,
+        "elite_pack": 0.0,
+        "boss_with_adds": 0.0,
+        "mini_boss": 0.0
+      },
+      "per_encounter_ratio": {
+        "open_arena": null,
+        "chokepoint_corridor": null,
+        "magic_pack": null,
+        "elite_pack": null,
+        "boss_with_adds": null,
+        "mini_boss": null
+      },
+      "specialization_peaks": [],
+      "floor_violations": [],
+      "saturation_cells": [],
+      "zero_cells": [
+        "open_arena",
+        "chokepoint_corridor",
+        "magic_pack",
+        "elite_pack",
+        "boss_with_adds",
+        "mini_boss"
+      ],
+      "target_4_pass": false,
+      "target_4_fail_reason": "no_peaks"
+    },
+    {
+      "kit_id": "S1_endgame_str_02_light_fighter",
+      "damage_scaling_path": "str_physical",
+      "per_encounter_kpm": {
+        "open_arena": 0.0,
+        "chokepoint_corridor": 0.0,
+        "magic_pack": 0.0,
+        "elite_pack": 0.0,
+        "boss_with_adds": 0.0,
+        "mini_boss": 0.0
+      },
+      "per_encounter_ratio": {
+        "open_arena": null,
+        "chokepoint_corridor": null,
+        "magic_pack": null,
+        "elite_pack": null,
+        "boss_with_adds": null,
+        "mini_boss": null
+      },
+      "specialization_peaks": [],
+      "floor_violations": [],
+      "saturation_cells": [],
+      "zero_cells": [
+        "open_arena",
+        "chokepoint_corridor",
+        "magic_pack",
+        "elite_pack",
+        "boss_with_adds",
+        "mini_boss"
+      ],
+      "target_4_pass": false,
+      "target_4_fail_reason": "no_peaks"
+    },
+    {
+      "kit_id": "S1_endgame_str_03_polearm_soldier",
+      "damage_scaling_path": "str_physical",
+      "per_encounter_kpm": {
+        "open_arena": 0.0,
+        "chokepoint_corridor": 0.0,
+        "magic_pack": 0.0,
+        "elite_pack": 0.0,
+        "boss_with_adds": 0.0,
+        "mini_boss": 0.0
+      },
+      "per_encounter_ratio": {
+        "open_arena": null,
+        "chokepoint_corridor": null,
+        "magic_pack": null,
+        "elite_pack": null,
+        "boss_with_adds": null,
+        "mini_boss": null
+      },
+      "specialization_peaks": [],
+      "floor_violations": [],
+      "saturation_cells": [],
+      "zero_cells": [
+        "open_arena",
+        "chokepoint_corridor",
+        "magic_pack",
+        "elite_pack",
+        "boss_with_adds",
+        "mini_boss"
+      ],
+      "target_4_pass": false,
+      "target_4_fail_reason": "no_peaks"
+    },
+    {
+      "kit_id": "S1_endgame_str_04_thrown_heavy",
+      "damage_scaling_path": "str_physical",
+      "per_encounter_kpm": {
+        "open_arena": 0.0,
+        "chokepoint_corridor": 0.0,
+        "magic_pack": 0.0,
+        "elite_pack": 0.0,
+        "boss_with_adds": 0.0,
+        "mini_boss": 0.0
+      },
+      "per_encounter_ratio": {
+        "open_arena": null,
+        "chokepoint_corridor": null,
+        "magic_pack": null,
+        "elite_pack": null,
+        "boss_with_adds": null,
+        "mini_boss": null
+      },
+      "specialization_peaks": [],
+      "floor_violations": [],
+      "saturation_cells": [],
+      "zero_cells": [
+        "open_arena",
+        "chokepoint_corridor",
+        "magic_pack",
+        "elite_pack",
+        "boss_with_adds",
+        "mini_boss"
+      ],
+      "target_4_pass": false,
+      "target_4_fail_reason": "no_peaks"
+    },
+    {
+      "kit_id": "S1_endgame_dex_01_dagger_assassin",
+      "damage_scaling_path": "dex_physical",
+      "per_encounter_kpm": {
+        "open_arena": 0.0,
+        "chokepoint_corridor": 0.0,
+        "magic_pack": 0.0,
+        "elite_pack": 0.0,
+        "boss_with_adds": 0.0,
+        "mini_boss": 0.0
+      },
+      "per_encounter_ratio": {
+        "open_arena": null,
+        "chokepoint_corridor": null,
+        "magic_pack": null,
+        "elite_pack": null,
+        "boss_with_adds": null,
+        "mini_boss": null
+      },
+      "specialization_peaks": [],
+      "floor_violations": [],
+      "saturation_cells": [],
+      "zero_cells": [
+        "open_arena",
+        "chokepoint_corridor",
+        "magic_pack",
+        "elite_pack",
+        "boss_with_adds",
+        "mini_boss"
+      ],
+      "target_4_pass": false,
+      "target_4_fail_reason": "no_peaks"
+    },
+    {
+      "kit_id": "S1_endgame_dex_02_archer",
+      "damage_scaling_path": "dex_physical",
+      "per_encounter_kpm": {
+        "open_arena": 0.0,
+        "chokepoint_corridor": 0.0,
+        "magic_pack": 0.0,
+        "elite_pack": 0.0,
+        "boss_with_adds": 0.0,
+        "mini_boss": 0.0
+      },
+      "per_encounter_ratio": {
+        "open_arena": null,
+        "chokepoint_corridor": null,
+        "magic_pack": null,
+        "elite_pack": null,
+        "boss_with_adds": null,
+        "mini_boss": null
+      },
+      "specialization_peaks": [],
+      "floor_violations": [],
+      "saturation_cells": [],
+      "zero_cells": [
+        "open_arena",
+        "chokepoint_corridor",
+        "magic_pack",
+        "elite_pack",
+        "boss_with_adds",
+        "mini_boss"
+      ],
+      "target_4_pass": false,
+      "target_4_fail_reason": "no_peaks"
+    },
+    {
+      "kit_id": "S1_endgame_dex_03_crossbow_sniper",
+      "damage_scaling_path": "dex_physical",
+      "per_encounter_kpm": {
+        "open_arena": 0.0,
+        "chokepoint_corridor": 0.0,
+        "magic_pack": 0.0,
+        "elite_pack": 0.0,
+        "boss_with_adds": 0.0,
+        "mini_boss": 0.0
+      },
+      "per_encounter_ratio": {
+        "open_arena": null,
+        "chokepoint_corridor": null,
+        "magic_pack": null,
+        "elite_pack": null,
+        "boss_with_adds": null,
+        "mini_boss": null
+      },
+      "specialization_peaks": [],
+      "floor_violations": [],
+      "saturation_cells": [],
+      "zero_cells": [
+        "open_arena",
+        "chokepoint_corridor",
+        "magic_pack",
+        "elite_pack",
+        "boss_with_adds",
+        "mini_boss"
+      ],
+      "target_4_pass": false,
+      "target_4_fail_reason": "no_peaks"
+    },
+    {
+      "kit_id": "S1_endgame_dex_04_twin_blade_fencer",
+      "damage_scaling_path": "dex_physical",
+      "per_encounter_kpm": {
+        "open_arena": 0.0,
+        "chokepoint_corridor": 0.0,
+        "magic_pack": 0.0,
+        "elite_pack": 0.0,
+        "boss_with_adds": 0.0,
+        "mini_boss": 0.0
+      },
+      "per_encounter_ratio": {
+        "open_arena": null,
+        "chokepoint_corridor": null,
+        "magic_pack": null,
+        "elite_pack": null,
+        "boss_with_adds": null,
+        "mini_boss": null
+      },
+      "specialization_peaks": [],
+      "floor_violations": [],
+      "saturation_cells": [],
+      "zero_cells": [
+        "open_arena",
+        "chokepoint_corridor",
+        "magic_pack",
+        "elite_pack",
+        "boss_with_adds",
+        "mini_boss"
+      ],
+      "target_4_pass": false,
+      "target_4_fail_reason": "no_peaks"
+    },
+    {
+      "kit_id": "S1_endgame_int_01_standard_wizard",
+      "damage_scaling_path": "int_magical",
+      "per_encounter_kpm": {
+        "open_arena": 0.0,
+        "chokepoint_corridor": 0.0,
+        "magic_pack": 0.0,
+        "elite_pack": 0.0,
+        "boss_with_adds": 0.0,
+        "mini_boss": 0.0
+      },
+      "per_encounter_ratio": {
+        "open_arena": null,
+        "chokepoint_corridor": null,
+        "magic_pack": null,
+        "elite_pack": null,
+        "boss_with_adds": null,
+        "mini_boss": null
+      },
+      "specialization_peaks": [],
+      "floor_violations": [],
+      "saturation_cells": [],
+      "zero_cells": [
+        "open_arena",
+        "chokepoint_corridor",
+        "magic_pack",
+        "elite_pack",
+        "boss_with_adds",
+        "mini_boss"
+      ],
+      "target_4_pass": false,
+      "target_4_fail_reason": "no_peaks"
+    },
+    {
+      "kit_id": "S1_endgame_int_02_artillery_mage",
+      "damage_scaling_path": "int_magical",
+      "per_encounter_kpm": {
+        "open_arena": 0.0,
+        "chokepoint_corridor": 0.0,
+        "magic_pack": 0.0,
+        "elite_pack": 0.0,
+        "boss_with_adds": 0.0,
+        "mini_boss": 0.0
+      },
+      "per_encounter_ratio": {
+        "open_arena": null,
+        "chokepoint_corridor": null,
+        "magic_pack": null,
+        "elite_pack": null,
+        "boss_with_adds": null,
+        "mini_boss": null
+      },
+      "specialization_peaks": [],
+      "floor_violations": [],
+      "saturation_cells": [],
+      "zero_cells": [
+        "open_arena",
+        "chokepoint_corridor",
+        "magic_pack",
+        "elite_pack",
+        "boss_with_adds",
+        "mini_boss"
+      ],
+      "target_4_pass": false,
+      "target_4_fail_reason": "no_peaks"
+    },
+    {
+      "kit_id": "S1_endgame_int_03_pyromantic_caster",
+      "damage_scaling_path": "int_magical",
+      "per_encounter_kpm": {
+        "open_arena": 0.0,
+        "chokepoint_corridor": 0.0,
+        "magic_pack": 0.0,
+        "elite_pack": 0.0,
+        "boss_with_adds": 0.0,
+        "mini_boss": 0.0
+      },
+      "per_encounter_ratio": {
+        "open_arena": null,
+        "chokepoint_corridor": null,
+        "magic_pack": null,
+        "elite_pack": null,
+        "boss_with_adds": null,
+        "mini_boss": null
+      },
+      "specialization_peaks": [],
+      "floor_violations": [],
+      "saturation_cells": [],
+      "zero_cells": [
+        "open_arena",
+        "chokepoint_corridor",
+        "magic_pack",
+        "elite_pack",
+        "boss_with_adds",
+        "mini_boss"
+      ],
+      "target_4_pass": false,
+      "target_4_fail_reason": "no_peaks"
+    },
+    {
+      "kit_id": "S1_endgame_int_04_red_mage_spellsword",
+      "damage_scaling_path": "int_magical",
+      "per_encounter_kpm": {
+        "open_arena": 0.0,
+        "chokepoint_corridor": 0.0,
+        "magic_pack": 0.0,
+        "elite_pack": 0.0,
+        "boss_with_adds": 0.0,
+        "mini_boss": 0.0
+      },
+      "per_encounter_ratio": {
+        "open_arena": null,
+        "chokepoint_corridor": null,
+        "magic_pack": null,
+        "elite_pack": null,
+        "boss_with_adds": null,
+        "mini_boss": null
+      },
+      "specialization_peaks": [],
+      "floor_violations": [],
+      "saturation_cells": [],
+      "zero_cells": [
+        "open_arena",
+        "chokepoint_corridor",
+        "magic_pack",
+        "elite_pack",
+        "boss_with_adds",
+        "mini_boss"
+      ],
+      "target_4_pass": false,
+      "target_4_fail_reason": "no_peaks"
+    },
+    {
+      "kit_id": "S1_endgame_int_05_arcane_familiar_mage",
+      "damage_scaling_path": "int_magical",
+      "per_encounter_kpm": {
+        "open_arena": 0.0,
+        "chokepoint_corridor": 0.0,
+        "magic_pack": 0.0,
+        "elite_pack": 0.0,
+        "boss_with_adds": 0.0,
+        "mini_boss": 0.0
+      },
+      "per_encounter_ratio": {
+        "open_arena": null,
+        "chokepoint_corridor": null,
+        "magic_pack": null,
+        "elite_pack": null,
+        "boss_with_adds": null,
+        "mini_boss": null
+      },
+      "specialization_peaks": [],
+      "floor_violations": [],
+      "saturation_cells": [],
+      "zero_cells": [
+        "open_arena",
+        "chokepoint_corridor",
+        "magic_pack",
+        "elite_pack",
+        "boss_with_adds",
+        "mini_boss"
+      ],
+      "target_4_pass": false,
+      "target_4_fail_reason": "no_peaks"
+    },
+    {
+      "kit_id": "S1_endgame_wis_01_channeling_cleric",
+      "damage_scaling_path": "wis_faith",
+      "per_encounter_kpm": {
+        "open_arena": 0.0,
+        "chokepoint_corridor": 0.0,
+        "magic_pack": 0.0,
+        "elite_pack": 0.0,
+        "boss_with_adds": 0.0,
+        "mini_boss": 0.0
+      },
+      "per_encounter_ratio": {
+        "open_arena": null,
+        "chokepoint_corridor": null,
+        "magic_pack": null,
+        "elite_pack": null,
+        "boss_with_adds": null,
+        "mini_boss": null
+      },
+      "specialization_peaks": [],
+      "floor_violations": [],
+      "saturation_cells": [],
+      "zero_cells": [
+        "open_arena",
+        "chokepoint_corridor",
+        "magic_pack",
+        "elite_pack",
+        "boss_with_adds",
+        "mini_boss"
+      ],
+      "target_4_pass": false,
+      "target_4_fail_reason": "no_peaks"
+    },
+    {
+      "kit_id": "S1_endgame_wis_02_holy_knight",
+      "damage_scaling_path": "wis_faith",
+      "per_encounter_kpm": {
+        "open_arena": 0.0,
+        "chokepoint_corridor": 0.0,
+        "magic_pack": 0.0,
+        "elite_pack": 0.0,
+        "boss_with_adds": 0.0,
+        "mini_boss": 0.0
+      },
+      "per_encounter_ratio": {
+        "open_arena": null,
+        "chokepoint_corridor": null,
+        "magic_pack": null,
+        "elite_pack": null,
+        "boss_with_adds": null,
+        "mini_boss": null
+      },
+      "specialization_peaks": [],
+      "floor_violations": [],
+      "saturation_cells": [],
+      "zero_cells": [
+        "open_arena",
+        "chokepoint_corridor",
+        "magic_pack",
+        "elite_pack",
+        "boss_with_adds",
+        "mini_boss"
+      ],
+      "target_4_pass": false,
+      "target_4_fail_reason": "no_peaks"
+    },
+    {
+      "kit_id": "S1_endgame_wis_03_ritual_mage",
+      "damage_scaling_path": "wis_faith",
+      "per_encounter_kpm": {
+        "open_arena": 0.0,
+        "chokepoint_corridor": 0.0,
+        "magic_pack": 0.0,
+        "elite_pack": 0.0,
+        "boss_with_adds": 0.0,
+        "mini_boss": 0.0
+      },
+      "per_encounter_ratio": {
+        "open_arena": null,
+        "chokepoint_corridor": null,
+        "magic_pack": null,
+        "elite_pack": null,
+        "boss_with_adds": null,
+        "mini_boss": null
+      },
+      "specialization_peaks": [],
+      "floor_violations": [],
+      "saturation_cells": [],
+      "zero_cells": [
+        "open_arena",
+        "chokepoint_corridor",
+        "magic_pack",
+        "elite_pack",
+        "boss_with_adds",
+        "mini_boss"
+      ],
+      "target_4_pass": false,
+      "target_4_fail_reason": "no_peaks"
+    },
+    {
+      "kit_id": "S1_endgame_wis_04_storm_caller",
+      "damage_scaling_path": "wis_faith",
+      "per_encounter_kpm": {
+        "open_arena": 0.0,
+        "chokepoint_corridor": 0.0,
+        "magic_pack": 0.0,
+        "elite_pack": 0.0,
+        "boss_with_adds": 0.0,
+        "mini_boss": 0.0
+      },
+      "per_encounter_ratio": {
+        "open_arena": null,
+        "chokepoint_corridor": null,
+        "magic_pack": null,
+        "elite_pack": null,
+        "boss_with_adds": null,
+        "mini_boss": null
+      },
+      "specialization_peaks": [],
+      "floor_violations": [],
+      "saturation_cells": [],
+      "zero_cells": [
+        "open_arena",
+        "chokepoint_corridor",
+        "magic_pack",
+        "elite_pack",
+        "boss_with_adds",
+        "mini_boss"
+      ],
+      "target_4_pass": false,
+      "target_4_fail_reason": "no_peaks"
+    },
+    {
+      "kit_id": "S1_endgame_wis_05_monk",
+      "damage_scaling_path": "wis_faith",
+      "per_encounter_kpm": {
+        "open_arena": 0.0,
+        "chokepoint_corridor": 0.0,
+        "magic_pack": 0.0,
+        "elite_pack": 0.0,
+        "boss_with_adds": 0.0,
+        "mini_boss": 0.0
+      },
+      "per_encounter_ratio": {
+        "open_arena": null,
+        "chokepoint_corridor": null,
+        "magic_pack": null,
+        "elite_pack": null,
+        "boss_with_adds": null,
+        "mini_boss": null
+      },
+      "specialization_peaks": [],
+      "floor_violations": [],
+      "saturation_cells": [],
+      "zero_cells": [
+        "open_arena",
+        "chokepoint_corridor",
+        "magic_pack",
+        "elite_pack",
+        "boss_with_adds",
+        "mini_boss"
+      ],
+      "target_4_pass": false,
+      "target_4_fail_reason": "no_peaks"
+    }
+  ],
+  "telemetry_output_path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/cycle-14-wave-5-season-001/bounded-viability-validation-baseline-2026-05-28.json",
+  "_gauntlet_run_provenance": {
+    "run_timestamp": "20260528_133747",
+    "smoke": true,
+    "n_kits": 18,
+    "discipline_1_math_note": "simulation/math/bounded-viability-validation-harness-2026-05-28.md",
+    "doc_50_canonical": "canonical/50-bounded-viability-with-specialization-design-directive-2026-05-28.md",
+    "migration_section": "simulation/MIGRATION.md \u00a7 v1.40",
+    "path_alpha_workstream": "W-\u03b14-gamora"
+  }
+}
