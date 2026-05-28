@@ -737,6 +737,32 @@ Scope:
 - **Smoke-mode limitation:** nested smoke (harness→gauntlet) truncates to 5 kits × 3 encounters; full signal requires `smoke=False` post-Path-α refactor
 
 **🔥 W-α1 + W-α2 + W-α3 parallel fan-out UNLOCKED.** Path α close criterion: `run_bounded_viability_validation_harness(smoke=False)` against post-refactor engine; `compound_pass=True` = Path α close signal.
+
+---
+
+### W-α2 GAMORA KPM CEILING COMPLETE 2026-05-28 (Option B — Remove)
+
+**Engine `6983759` + tag `gamora/v2.5-w-alpha-2-kpm-ceiling-1` pushed** (~12.5-min fire).
+
+**Decision: Option B — Remove ceiling entirely.** Architectural rationale (gamora):
+- 600.0 is a fight-duration discretization artifact (KPM = kills/min; trivial mob clears in short fights naturally land at 600.0), NOT a hardcoded simulation cap
+- **No stable ceiling value exists across 6-encounter-type HP range** (2k swarm → 231k boss): ceiling high enough to avoid swarm saturation at calibrated DPS is non-diagnostic for boss; ceiling tight enough for bosses is always saturated by swarm
+- Option A architecturally incoherent under heterogeneous encounter HP
+- "No strict dominance" property delegated to Target 4 (≤2 peaks at ≤2.0× cohort median; over_dominant fail) + Target 5 (≥30% floor; dominated fail) — architecturally correct instruments for per-encounter-type specialization measurement
+
+**Implementation:**
+- `gauntlet_sim.py` W5G.1: exact-match bypass `if t2_batch.observed_kpm == KPM_CEILING_ARTIFACT_VALUE` REMOVED. `KPM_CEILING_ARTIFACT_VALUE = 600.0` retained as historical reference constant. `bypassed_ceiling_artifact` telemetry field retained always-False (backward compat)
+- `bounded_viability_validation.py`: `KPM_CEILING_VALUE = None` (was `600.0`). Target 3 structural-PASS when `kpm_ceiling=None`. JSON output `harness_parameters["ceiling_removed"] = True` for downstream readers
+- Semantic shift declared per Discipline #12 in commit message + math note
+
+**Regression risk mitigation (jack-ryan Gate-1 Amendment WARN absorbed):**
+- **Headroom-ratio sentinel added:** `HEADROOM_RATIO_BOSS_KPM_FLOOR = 5.0` + `_check_headroom_ratio_sentinel()` function. Advisory WARNING (not blocking gate) if `max_boss_kpm < 5.0` across all non-zero kits on `boss_with_adds` — detects inadvertent KPM suppression re-introduction
+- Sentinel result included in `harness_parameters["headroom_sentinel"]` for traceability
+- Math note § 5 documents fully
+
+**MIGRATION.md § v1.41 filed.** Star-lord NO action required (backward telemetry compat preserved).
+
+**W-α3 Phase 2 unlock signal: PARTIAL.** Ceiling=None released — W-α3 reference target can now commit from uncapped empirical KPM signal. **STILL GATED ON W-α1** (formula architecture). Once W-α1 lands, W-α3 Phase 2 fully unlocks.
 - ✅ **W-α5 jack-ryan canonical retirements COMPLETE** at meta `deadd26` + tag `jack-ryan/v1.7-w-alpha-5-canonical-retirements-1` (bundled; ~11-min fire). All 3 sub-streams landed:
   - **W-α5a — 5 decisions-log entries:** Path α RATIFICATION (LOCKED) + Path β-narrow REJECTION + Path β-FULL Option 6 REJECTION + Cycle 15 D2 Option 6 RETRACTION (Discipline #40 case (c) FOURTH iteration declared) + Discipline #39 framework maturation (two modes defined — Mode A scaffold-drift catches cases 1-7; Mode B canonical scaffold resolutions case 8+; founding case `ee15c96` ANCHOR INTENTS; 3-element annotation requirement: scaffold declaration + named resolution party + named resolution gate; adjacent architectural truth pattern)
   - **W-α5b — Phase 7 doc § 3.14 + lifecycle:** Full Discipline #40 case (c) FOURTH iteration 6-step procedure executed. Phase 7 doc STATUS shifted LOAD-BEARING → HISTORICAL. D2 RATIFICATION marked RETRACTED in authority header. Doc 50 added as successor. Implementer historical-note added.
