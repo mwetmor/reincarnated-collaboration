@@ -1,6 +1,6 @@
 # C-Hybrid Cell-and-Curation Architecture — Design Call Synthesis
 
-> **STATUS:** CURRENT (load-bearing as of 2026-05-28) — Captures the 3-Layer + Cosmetic Surface architecture, autonomy × focus + gear-orientation experiential matrix, anti-cannibalization disciplines, 6-pattern skill point investment framework, Layer 2-derived → cosmetic semantic pathway, and Discipline #48 candidate proposal. Synthesizes ~13 design-dialog refinements from Cycle 14 close. Locks architectural direction for Cycle 14 v1 MVP + Cycle 15+ deferred implementation.
+> **STATUS:** CURRENT (load-bearing as of 2026-05-28; AMENDED 2026-05-28 post Phase 4 RE-RUN-3 deliberation — § 1.1 candidate-axis table extended (5→10 candidates); § 1.3 velocity granularity added) — Captures the 3-Layer + Cosmetic Surface architecture, autonomy × focus + gear-orientation experiential matrix, anti-cannibalization disciplines, 6-pattern skill point investment framework, Layer 2-derived → cosmetic semantic pathway, and Discipline #48 candidate proposal. Synthesizes ~13 design-dialog refinements from Cycle 14 close + post-RE-RUN-3 deliberation. Locks architectural direction for Cycle 14 v1 MVP + Cycle 15+ deferred implementation.
 
 **Date:** 2026-05-28
 **Author:** gandalf (story-and-design steward) — Matt + gandalf Pattern-B design call
@@ -74,8 +74,15 @@ Additional axes the substrate may have signal for:
 | `initiative_direction` | reactive / hybrid / proactive | Weapon-form (parry-daggers vs throwing-weapons) |
 | `trait_family / lineage_cultural_emphasis` | Cultural-tradition mechanical biases | Lineage data (samurai vs ancestor-spirits vs pyromantic) |
 | `supporting_theme` | Cluster cohesion + thematic coupling | Phase 5 PM-1 cluster emergence (partial capture exists) |
+| `damage_element_profile` | element-coverage / scalar-density (single / multi) | Skill element tags + gear element-scalar affix rolls (+fire% / +water% / +holy% etc.) |
+| `ailment_profile` | paralysis / chill / burn / blind / vulnerability / multi / none | Skill ailment-mechanic tags |
+| `hit_dodge_economy` | hit-floor-low / hit-floor-high / dodge-pivot / hybrid | Defensive-profile granularity + attack-roll telemetry (refinement of current defensive_profile axis) |
+| `movement_profile` | teleport / blink / leap-strike / dash / sprint / none | Skill movement-mechanic tags |
+| `proxy_summon_possession_split` | proxy / summon / possession / hybrid / none | Skill proxy-type tags (refinement of current proxy-density axis) |
 
 Expansion from 5 → 8-10 BC axes is meaningful architectural commit; coordinate space grows from 324 → ~2916+ cells; each cell more specialized. Cycle 16+ design call territory with legolas Mode A consultation per Discipline #18.
+
+**Amendment 2026-05-28 (Matt + gandalf Pattern B design call — following Phase 4 RE-RUN-3 close-criterion deliberation):** the candidate-expansion table extended from 5 → 10 candidate axes (added `damage_element_profile`, `ailment_profile`, `hit_dodge_economy`, `movement_profile`, `proxy_summon_possession_split`). With current 5 axes preserved + 10 candidates, full BC space at peak expansion: 5 → up to 15 axes; cell count grows from 324 → potentially 10⁵+ cells at peak. Not all candidates survive to commit; legolas Mode A consultation per Discipline #18 winnows the set against substrate signal-to-noise. The expansion remains canonically Cycle 16+ design-call territory; this amendment captures the design-call refinement against scope drift before commit. See `agentic_orchestration/gandalf/notes/2026-05-28-phase-4-rerun-3-adjudication.md` for the Phase 4 RE-RUN-3 deliberation context that surfaced the new candidate axes.
 
 ### 1.2 Layer 2-base — Per-kit kit-design (mechanical choices)
 
@@ -98,6 +105,16 @@ Properties that EMERGE from BC anchor + kit-design choices; computable from exis
 | **Play-pattern emergence** | Reactive/proactive; target-breadth (single/AoE); telegraph dependency | Gauntlet sim telemetry; skill mechanic metadata |
 
 **These are derived, not stored separately as axes.** Computed at scoring/curation time from existing engine output. No new instrumentation needed.
+
+**Amendment 2026-05-28 — gear-orientation velocity granularity (Matt + gandalf Pattern B design call):** the gear-orientation matrix (MF / Movement / Burst / Defensive) named in the Autonomy row supports finer per-kit experiential velocity granularity, all Layer 2-derived:
+
+| Layer 2-derived velocity axis | What varies | Source data |
+|---|---|---|
+| **Loot velocity** | Magic-find / material-find / gold-find granularity; rate-per-encounter-cleared | Gear-orientation MF expansion + per-encounter-class drop telemetry |
+| **Clear velocity (encounter-class-resolved)** | Trash-clear / swarm-clear / boss-clear time-per-encounter | Gauntlet sim KPM × encounter-class breakdown |
+| **Movement velocity** | Per-kit traversal-time-per-zone (idle-vs-active movement ratio; teleport / blink cadence) | Movement-skill cooldown × magnitude × in-combat-movement telemetry |
+
+These remain Layer 2-derived (computed at scoring/curation time from existing engine output + per-encounter-class telemetry instrumentation if needed). The velocity granularity composes with the Layer 1 amendment above — `damage_element_profile` + `movement_profile` BC-axis expansion at Layer 1 enables richer Layer 2-derived velocity scoring at Cycle 16+.
 
 ### 1.4 Cosmetic Surface (minimal gameplay impact in story-light design)
 
