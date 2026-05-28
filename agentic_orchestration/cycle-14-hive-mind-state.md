@@ -388,10 +388,10 @@ State file archival path (when reached): rename to `agentic_orchestration/cycle-
 2. **Dispatch F Option β HOLD-FOR-WAVE-5** — drax fires Dispatch G first; WAITS for Wave 5 generation cascade (gamora step 1 → gandalf audit → jack-ryan Gate-2 → commit/recalibrate per Position B); fires Dispatch F as single session post Wave 5 covering Part 1 Analytics + Part 2 Encounters against FULL data.
 
 **Drax sequencing LOCKED:**
-- Dispatch G 🔥 FIRING (Court tab + mobile blank column + mobile design button; ~half-day)
+- Dispatch G ✅ COMPLETE at loadout `d7b4a28` + `7fb763b` + meta `0b6d865`. Substantive findings: (Q-DG-1) Court tab NOT removed — scroll discoverability bug fixed via right-fade gradient overlay; (Q-DG-2) blank column was DEEPER — SkillTree hardcoded `CHAINS=['chain_A'..'chain_D']` + `TIERS=[1,2,3,4]` vs Cycle-13 `t4_chain_N` + string tiers caused 100% chain mismatch → completely blank skill tree (fix: dynamic chain/tier detection + `chainLabel()` + `Number(tier)` coercion); (Q-DG-3) mobile design button inline in ClassHeader (fix: `hidden sm:flex` on mobile).
+- **LOADOUT BUNDLE ✅ PUSHED** at loadout `42e9393..7fb763b` per Matt pre-authorized conditional ("Push fires when Dispatch G commits + local builds pass" — both ✅). Vercel auto-deploy fires.
 - WAIT for Wave 5 generation cascade complete
 - Dispatch F (Analytics + Encounters Cycle 14 wiring; ~1 week single session post Wave 5)
-- PUSH bundle: Dispatch B + Dispatch G per ADR-006 authorization
 
 **Vercel deployment composition:** Dispatch G (Court restore + mobile fixes) + Dispatch B (rank-0 + reset + persistence per doc 49 § 1.1.1) land together as coherent player-facing UX update.
 
