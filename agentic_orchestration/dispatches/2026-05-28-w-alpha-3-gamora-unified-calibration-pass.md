@@ -151,3 +151,71 @@ Fire ASAP on jack-ryan Gate-1 PASS.
 ---
 
 **KR signature:** authored per Matt 2026-05-28 Path α RATIFICATION directive verbatim + master scoping § 2.2 W-α3 + Amendment 1 critical Phase 2 sequencing. Gamora seam authority on architecture α/β/γ choice + SC-7 retirement/extension; auto-commit + auto-push.
+
+---
+
+## Completion record
+
+### Phase 1 — COMPLETE (2026-05-28)
+
+**Executor:** gamora
+**Commit:** `4280401` — gamora: W-α3 unified calibration pass Phase 1 harness; Option α architecture; SC-7 retired as calibration entry point; MIGRATION.md § v1.42
+**Tag:** `gamora/v2.6-w-alpha-3-unified-calibration-1`
+
+**Architecture chosen:** Option α — single reference target tied to population-median DPS at `boss_with_adds` × Balanced cohort × L50. Binary search over unified scale_factor applied to all 4 damage-scaling paths. Rationale documented in math note § 1.
+
+**Deliverables:**
+
+1. **New module:** `simulation/unified_calibration_loop.py`
+   - `run_unified_calibration_pass()` — binary search entry point; PLACEHOLDER reference target 75.0 KPM; `REFERENCE_TARGET_IS_PLACEHOLDER = True`
+   - `run_unified_calibration_smoke()` — Phase 1 infrastructure verification
+   - `derive_reference_target_from_empirical_sweep()` — Phase 2 empirical derivation
+   - `format_spell_damage_update_block()` — SC-6b/SC-7 update proposal formatter
+   - Track 1 partition utilities re-exported: `_partition_kits_by_damage_scaling_path`, `_get_kit_damage_scaling_path`, `_run_gauntlet_with_patched_kits`
+   - `BOSS_HP_MID_REFERENCE = 231_000.0` (DO NOT MODIFY — d83049a anchor)
+
+2. **Math note:** `simulation/math/w-alpha-3-unified-calibration-pass-2026-05-28.md`
+   - § 1: Architecture choice (Option α/β/γ rationale)
+   - § 7: Discipline #1.1 pre-fire resource projection: 18 kits × 30 fights × 20 iter max ≈ 62 min wall-clock; peak ~100 MB; sequential only (per Discipline #3)
+   - § 9: Phase 2 gating criteria (explicit)
+   - § 10: Cross-stream coherence with W-α1 (compatible with both Direction A + B)
+
+3. **MIGRATION.md § v1.42** (filed in prior commit `6983759`):
+   - SC-7 retirement record (retired as calibration entry point; unified_calibration_loop.py is canonical source)
+   - Track 1 partition utility import-path change: `sc7_calibration_loop` → `unified_calibration_loop`
+
+4. **bounded_viability_validation.py** (filed in prior commit `6983759`):
+   - Import of partition utilities + `_run_gauntlet_with_patched_kits` updated to `unified_calibration_loop`
+
+5. **Smoke test (Discipline #2):** import smoke PASS — all 7 unit tests PASS:
+   (1) module import, (2) PLACEHOLDER constants, (3) `_get_kit_damage_scaling_path`,
+   (4) `_partition_kits_by_damage_scaling_path`, (5) bounded_viability import migration,
+   (6) `KPM_CEILING_VALUE=None`, (7) `format_spell_damage_update_block` placeholder output
+
+**Gate-1 amendments (jack-ryan) — all resolved:**
+- [x] Discipline #1.1 citation corrected (#18.1 → #1.1) — math note § 7
+- [x] Pre-fire resource-bounds projection in math note — math note § 7
+- [x] Partition utilities explicitly re-exported from `unified_calibration_loop` — MIGRATION.md § v1.42 import-path record
+
+**Semantic shift recorded (Discipline #12):** SC-7 single-archetype (INT/WIS only) → unified cross-path (all 4 paths). Framed in commit message, math note § 8, and MIGRATION.md § v1.42.
+
+---
+
+### Phase 2 — PENDING (gated)
+
+**Gate criteria:**
+1. W-α1 dispatch completion record + tag `rocket/v1.8-w-alpha-1-damage-formula-refactor-1` confirmed
+2. W-α2 formal tag `gamora/v2.5-w-alpha-2-kpm-ceiling-1` confirmed (code landed at `b0dd455`; tag pending)
+
+**Phase 2 actions (on gate clear):**
+1. Run `derive_reference_target_from_empirical_sweep()` against post-W-α1 kit population
+2. Set `REFERENCE_TARGET_IS_PLACEHOLDER = False`; lock `UNIFIED_REFERENCE_KPM_TARGET`
+3. Run `run_unified_calibration_smoke()` — verify convergence
+4. Run `run_unified_calibration_pass(smoke=False)` — full calibration (~62 min)
+5. Update `BASE_SPELL_DAMAGE_L50` in `per_skill_emitter.py` with calibrated values
+6. Update `base_physical_damage_l50` / post-W-α1 physical coefficient
+7. Run W-α4 harness smoke re-run: `run_bounded_viability_validation_harness(smoke=True)` → confirm improvement
+8. Commit + re-tag `gamora/v2.6-w-alpha-3-unified-calibration-2`
+9. Write Phase 2 completion record here
+
+**W-α-bundle Gate-2 (all 3 streams):** After W-α1 + W-α2 + W-α3 ALL tagged, run `run_bounded_viability_validation_harness(smoke=False)` for full compound_pass check. Compound_pass=True = Path α close signal.
