@@ -372,19 +372,24 @@ State file archival path (when reached): rename to `agentic_orchestration/cycle-
 - Wave 5 production season (gamora + gandalf + jack-ryan)
 - Discipline #45 canonical-write (jack-ryan; LOAD-BEARING; protects against F-6)
 
-**Firing NOW (parallel; no same-agent concurrent conflict):**
-- jack-ryan Discipline #45 canonical-write
-- rocket OP amendment
-- gamora OP amendment
-- star-lord OP amendment
+**4-fire wave COMPLETE ✅:**
+- jack-ryan Discipline #45 canonical-write at engine `b576727` + meta `6ab3c31` (parallel #45 NOT sub of #41; scope boundary canonical; hard-prohibited list; Gate-2 grep audit command canonical; surgical bidirectional cross-refs at #41/#44)
+- rocket OP amendment at meta `29bc717` (Move 5 expanded with no-classes integrity anchor + Stage 3 Option α cross-reference)
+- gamora OP amendment at meta `68d5cb9` (Move 3 R-4 expanded with HDBSCAN § 4.6 + fight-engine spatial-distribution math + doppelganger sweep methodology hotspots)
+- star-lord OP amendment at meta `d2c1539` (Move 3 R-2 expanded with synthetic-stub-as-permanent-fallback for content-generation call-sites LOAD-BEARING)
 
-**Queued (sequenced post gandalf returns):**
+**Per-agent OP amendments milestone: 9 of 10 complete.** Only gandalf OP remains.
+
+**Firing now (gandalf sequential):**
+- gandalf PM-2 § X.7 amendment (Path III G-B math spec; ~30 min mechanical copy-paste from kicker § 3)
+
+**Queued sequential post PM-2 § X.7 landing:**
 - Gandalf OP amendment
-- PM-2 § X.7 amendment (Path III G-B math spec; ~30 min)
-- Phase 7 dispatch firing (gandalf Seam 1 composition spec)
-- Wave 3 dispatch firing (gandalf + star-lord per F-C)
-- A/B comparison protocol firing
-- Wave 5 production season dispatch (fires at end of cycle)
+- Rocket Dispatch 3B Seam 1 PM-1 + G-B impl (~5-7 days; consumes PM-2 § X.7)
+- Phase 7 dispatch firing (gandalf Seam 1 composition spec ~3-4 days; jack-ryan Seam 2 ~2-3 days)
+- Wave 3 dispatch firing (gandalf Seam 1 LLM prompts + star-lord Seam 2 ExportFactionRelationship parallel ~2 weeks)
+- A/B comparison protocol firing (gandalf ~2-3 days; fires at Wave 5 close)
+- Wave 5 production season dispatch (gamora + gandalf + jack-ryan; fires at end of cycle; Cycle 14 close criterion execution)
 
 **Cycle 14 timeline:** Path III adds +1-2 weeks → ~11-17 weeks total under Q10 quality > timeline. Single-day implementation cascade likely makes the original estimate conservative.
 
