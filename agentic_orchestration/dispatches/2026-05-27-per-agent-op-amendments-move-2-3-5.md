@@ -197,7 +197,26 @@ If the OP file doesn't yet exist for any agent, create it per the gandalf OP pro
 
 ### rocket
 
-(pending)
+**Completed:** 2026-05-27
+**Agent:** rocket
+**Status:** DONE
+
+**Framing-audit (Discipline #42) applied at entry:**
+- Q1: (1) three template sections compose cleanly with existing OP without contradiction; (2) rocket has self-amendment authority per AGENTS.md; (3) `agentic_orchestration/rocket/refusals/` directory confirmed present; (4) Move 5 orientation phrase at top preamble does not displace existing § 0 STATUS block; (5) Pattern R-3 (no-classes architecture) is particularly load-bearing for rocket given Stage 3 Option α recommitment at engine `2dce2fa`
+- Q2: (a) existing OP has no orientation phrase — Move 5 is net-new addition; (b) existing § 3.7 cross-references Discipline #23 framing-audit — #42 operates at dispatch-entry BEFORE execution; #23 operates within Pattern A-deep verdict authoring; these are different workflow points, not duplicates; (c) refusals directory confirmed present; (d) Move 3 framing-refusal authority fits naturally at end of § 2 mode-selection block; (e) Move 5 preamble before STATUS block confirmed structurally sound
+- Q3: No contradiction with seam-owned authority. All three templates compose cleanly. No Discipline #44 framing-refusal warranted. Proceeded.
+
+**Placement decisions:**
+- Move 5 (orientation phrase): inserted at TOP of file before STATUS block, as standalone preamble section; expanded with rocket-specific "Engine first" context anchoring to no-classes architecture (Discipline #41) + Stage 3 Option α recommitment; cross-references AGENTS.md as canonical authority; STATUS block amended with 2026-05-27 amendment note for provenance
+- Move 3 (framing-refusal authority, Discipline #44): inserted as new "Framing-refusal authority (Discipline #44 — Move 3)" subsection at END of § 2 mode-selection, after "Math hotspot execution" mode; all 4 R-patterns instantiated with rocket-specific examples; R-3 explicitly flagged as particularly load-bearing for rocket given Stage 3 Option α recommitment; composition note added distinguishing § 3.1 content-level push-back from Discipline #44 framing-level refusal
+- Move 2 (framing-audit at dispatch consumption, Discipline #42): inserted as new § 3.10 in decision-loop discipline section, after § 3.9; rocket-specific Q1/Q2 empirical evidence sources named; apply-points enumerated including dispatch entry, math hotspot ratification, Pattern A-deep verdict authoring, cross-seam routing, gandalf design-spec-as-math handoff; composition note with Discipline #23 (§ 3.7) making gate-vs-deep-protocol distinction explicit
+
+**Composition notes:**
+- Q-OP-rocket-1: Standard template placement worked cleanly. No structural conflicts. Move 5 preamble placement before STATUS block is natural given no existing orientation phrase. Move 3 placement at end of § 2 mode-selection keeps the complete "what kind of work + what can be refused" contract in one section. Move 2 as § 3.10 follows existing § 3.x numbering sequence without displacement.
+- Q-OP-rocket-2: Discipline #23 (§ 3.7 cross-reference) pre-exists for Pattern A-deep framing-audit within verdict authoring. Discipline #42 (§ 3.10) addresses dispatch-entry framing-audit before any execution begins. Composition note in § 3.10 makes #42-as-gate + #23-as-deep-protocol distinction explicit — complementary, not redundant.
+
+**Files amended:**
+- `agentic_orchestration/operating-procedures/rocket.md`
 
 ### star-lord
 
