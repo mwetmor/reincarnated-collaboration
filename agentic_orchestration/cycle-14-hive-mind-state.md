@@ -397,10 +397,21 @@ State file archival path (when reached): rename to `agentic_orchestration/cycle-
 - ✅ gandalf OP amendment (meta `6135810`; closes 10/10 OP milestone)
 - ✅ rocket Dispatch 3B Seam 1 PM-1+G-B impl (engine `a466eb1` + meta `2756dda` + tag `rocket/v1.6-dispatch-3b-seam-1-pm-1-g-b-1`; 50+111=161 tests PASS; 10-season smoke tie-break 0%)
 
-**Firing now:**
-- 🔥 gandalf Phase 7 Seam 1 composition spec (multi-day)
-- 🔥 jack-ryan LIGHT re-Gate-1 on Path III amendments (~15-30 min)
-- 🔥 star-lord PM1Cluster→ExportFactionCluster wiring (small adapter)
+**Phase 7 dispatch (spec + canonical-write) CLOSED ✅:**
+- gandalf Seam 1 composition spec at meta `0cf4e3d` (canonical/story/phase-7-2-layer-joint-gate-spec-2026-05-27.md; 10 sections)
+- jack-ryan Seam 2 Discipline #18 canonical-write at engine `3d4eda5` + meta `9db1e83` (engine/design/math/phase-7-2-layer-joint-gate-thresholds-2026-05-27.md; new venue path established)
+- Decisions: 0.75 cohesion floor LOCKED (stricter than Matt 0.65 floor; both consistent); q1 vs gauntlet_pass_rate option (a) — gauntlet_pass_rate NEW kit_archive column requiring MIGRATION.md at impl; cohort midpoint median estimator (mean rejected per B14.5 hunter outlier finding)
+
+**F-10 finding via gamora Pattern A-light (LOAD-BEARING for Wave 5):**
+- `spatial_gauntlet/` is R2 2D spatial combat research substrate; `gauntlet_sim.py` is 1D scalar-distance production gauntlet executor; they run concurrently — NEITHER replaces the other
+- kit_archive does NOT natively feed gauntlet_sim.py — bridge module REQUIRED at Phase 7 IMPL
+- Matt ratified all 4 routing items 2026-05-27
+
+**Jack-ryan LIGHT re-Gate-1 Path III ✅ PASS-with-INFO at meta** (Path III amendments cleared; INFO-1 lexicographic_tiebreak rationale addition queued for Wave 3; INFO-2 acknowledged design intent)
+
+**Star-lord PM1Cluster→ExportFactionCluster wiring** — still firing
+
+**Phase 7 IMPLEMENTATION dispatch authored** at `agentic_orchestration/dispatches/2026-05-27-gamora-phase-7-implementation-bridge.md` (~1-2 weeks gamora; LOAD-BEARING gating Wave 5; queues post star-lord wiring landing to avoid same-agent issues — actually gamora idle so fires now)
 
 **Queued post current firings:**
 - jack-ryan Phase 7 Seam 2 canonical-write (fires post gandalf Phase 7 Seam 1)

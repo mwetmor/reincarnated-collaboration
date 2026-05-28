@@ -117,6 +117,19 @@
 - Do NOT touch Cycle 15+ scope (Phase 6 visual joint-gate + Phase 8 multi-profile)
 - Do NOT touch doc 48 (PRESERVED-FOR-COMPARISON for A/B measurement only)
 
+## Dependencies (CRITICAL gating — Wave 5 cannot fire until ALL land)
+
+- ✅ Phase 4 mechanical archive gates (gamora `749d5aa`)
+- ✅ Phase 5 cohesion-judge LLM infra (star-lord `bf7f659`)
+- ✅ Phase 5 PM-1 multimodal clustering + G-B primary-pair (rocket `a466eb1`)
+- ✅ THEMATIC_REGISTRY (gandalf `da56926`)
+- ⏳ Phase 5 PM-2 LLM logic (gandalf Wave 3 Seam 1; queued post star-lord wiring)
+- ⏳ Phase 5 F-C inter-faction relationships (star-lord Wave 3 Seam 2; queued post gandalf Seam 1)
+- ⏳ Phase 7 2-layer joint-gate SPEC + canonical-write (gandalf Seam 1 ✅ `0cf4e3d`; jack-ryan Seam 2 firing)
+- ⏳ **Phase 7 IMPLEMENTATION dispatch** (gamora primary; LOAD-BEARING gating dependency per gamora Pattern A-light F-10 finding 2026-05-27; kit_archive ACCEPTED → gauntlet_sim.py bridge + encounter sweep + cohort KPM measurement + 2-layer gate runtime + verdict emission to ExportFactionCluster/kit_archive; ~1-2 weeks gamora; queues post Phase 7 Seam 2 canonical-write landing)
+
+**Wave 5 production season dispatch FIRES ONLY AFTER ALL DEPENDENCIES LAND.** Phase 7 IMPL is the LOAD-BEARING new dependency surfaced via gamora F-10 finding — current Phase 7 spec/canonical-write dispatch covers spec only, not the kit_archive → gauntlet_sim.py bridge implementation.
+
 ## Open questions
 
 - **Q-W5-G1 (gamora):** Production season count — Matt ratified "production fires after smoke acceptance" — single production season or multiple? Recommend 3 production seasons to validate Trigger B threshold (first 3 wave-closes); confirm at execution time
