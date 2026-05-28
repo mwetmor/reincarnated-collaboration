@@ -1966,6 +1966,72 @@ Gamora calibrates final A + C values empirically within Matt's ranges during Pha
 
 ---
 
+### MATT STRATEGIC DELIBERATION RESOLUTION LOCKED 2026-05-28 EVENING LATE — TWO-LAYER T4 ARCHITECTURE
+
+**Architectural decision:** two-layer T4 specialization architecture. **Primary T4** = universal placeholder guaranteeing Target 4; **Layer 2** = mechanical strategies validated via § 10.8 strip-and-ship.
+
+**D1 RATIFIED — New T4 strategy DIRECT_DAMAGE_AMPLIFICATION:**
+- 1.75× damage multiplier when fighting kit's PREFERRED ENCOUNTER TYPE; 1.0× elsewhere
+- **Discipline #39 scaffold with EXPLICIT CYCLE 15 RETIREMENT COMMIT** (doc 47 § 4.6 Q6 lock)
+- Assigned to PRIMARY T4 slot for EVERY kit — guarantees T4 specialization peak [1.5, 2.0] cohort_median universally
+
+**D2 RATIFIED — T4 slot assignment per kit:**
+- **Primary T4:** DIRECT_DAMAGE_AMPLIFICATION (placeholder)
+- **Secondary T4:** mechanical conversion strategy per opportunity_scan
+- **Tertiary T4** (4-chain kits): different mechanical conversion strategy
+- Strip-and-ship § 10.8 exercises on Secondary/Tertiary slots only
+
+**D3 RATIFIED — T4 catalog rebalance:**
+- **DEFENSIVE_TRADEOFF: REMOVED** (no chaos encounter signal)
+- **TRADE_OFF: REVERSED** — specific mechanic locked at C14 close OR deferred (design ambiguity PENDING Matt decision)
+- **ELEMENT_CONVERSION: SPLIT into 3 variants at NEW magnitudes:**
+  - **Single +50%** (was [1.10, 1.15])
+  - **Hybrid +25%** (was 1.0 identity)
+  - **Physical 25% + ailment if engine supports** (was [0.30, 0.40] additive)
+- **GEOMETRY_COLLAPSE / RESOURCE_CONVERSION:** empirical "try it out"
+
+**D4 RATIFIED — Doc amendments:**
+- Doc 47 § 4.5 + § 4.6: full T4 catalog + DIRECT_DAMAGE_AMP placeholder + Cycle 15 retirement commit
+- Doc 51 § 10.7 + § 10.8: T4 cycling extended for 7-active catalog; Layer 2 strip-and-ship application
+- Doc 50 § 4.4 Target 4 PRESERVED (Primary T4 guarantees universal)
+
+**D5 RATIFIED — Cycle 15 P0 architectural commit:**
+- Replace DIRECT_DAMAGE_AMPLIFICATION placeholder with proper algorithm via NATURAL MECHANICS
+- Per-element +% damage stats architecture (gear affixes + skill passives)
+- Kit-specific resistance profiles OR per-encounter elemental advantage tables
+- Discipline #39 scaffold retirement
+- C14 strip-and-ship empirical outcomes inform C15 design dialog
+
+**D6 RATIFIED — Tag retained:** `v1-cycle-14-bounded-viability-substrate-led` (5/5 BVV PASS achievable via Primary T4 + Layer 2 strip-and-ship).
+
+**Effort:** ~3-4d Cycle 14 additional scope. **Cycle 14 v1 close trajectory: ~5-7d under #1.1 compression.** Path α 4-6 week budget intact at 8.5h cumulative.
+
+**Discipline #48 candidate validation: N=5** (cases 11, 13, 14, 15, **19**). Case 19 classified as scope-completeness gap (variant magnitudes scoped without empirical-feasibility validation; #48 enforcement at design-time would have caught).
+
+**Discipline #39 scaffold acknowledged at canonical layer** (doc 47 § 4.6 DIRECT_DAMAGE_AMP as explicitly-flagged Cycle 15 retirement; mirrors `ee15c96` ANCHOR INTENTS Mode B at design-dialog layer).
+
+**Pending Matt design ambiguity:** TRADE_OFF REVERSE mechanic — lockable at C14 close OR deferred Cycle 15. KR will surface to Matt parallel with gandalf amendment.
+
+---
+
+### KR ROUTING — POST-DELIBERATION CASCADE
+
+**Sequential:**
+1. 🔥 **Gandalf canonical amendments** (~45-60min; multi-doc: doc 47 § 4.5 v1.2 + new § 4.6 + doc 51 § 10.7+§ 10.8 extensions + Discipline #39 scaffold annotation)
+2. 🔥 **Rocket implementation** (~2-3hr per #1.1 compression):
+   - DIRECT_DAMAGE_AMPLIFICATION (preferred-encounter detection + 1.75× multiplier; Primary T4 slot assignment)
+   - ELEMENT_CONVERSION variant magnitudes UPDATE (Single +50% / Hybrid +25% / Physical 25%+ailment)
+   - DEFENSIVE_TRADEOFF removal
+   - TRADE_OFF reversal OR Cycle 15 deferral per Matt ambiguity resolution
+   - GEOMETRY_COLLAPSE / RESOURCE_CONVERSION empirical inclusion
+3. 🔥 **Gamora Phase 4 RE-RUN-3** with new T4 catalog + Primary T4 universal + Layer 2 strip-and-ship
+4. 🔥 **Phase 5 cascade** (BVV multi-dim + drax UI revival + Wave 5 RE-FIRE composite)
+5. 🔥 **Phase 6 cascade** (Disciplines #41-#48 batched canonical-write + A/B comparison + Matt v1 ratification)
+
+**KR fires gandalf amendment + surfaces TRADE_OFF ambiguity to Matt in parallel.**
+
+---
+
 ### MATT STRATEGIC DELIBERATION DIRECTIVE 2026-05-28 EVENING LATE — HALT CASCADE POST PHASE 4 RE-RUN
 
 **Matt verbatim:**
