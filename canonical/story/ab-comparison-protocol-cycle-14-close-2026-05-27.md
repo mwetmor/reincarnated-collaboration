@@ -290,3 +290,259 @@ Cluster-collapse check: distributed across all 3 clusters → healthy.
 
 ---
 
+## 5. Dimension #3 — Faction pairwise-distance distribution
+
+### 5.1 Operational definition
+
+**Question this dimension answers:** are Wave 5 emergent factions structurally distinct from each other (high-distance signal) OR all-close (faction concept collapsing into single shape)?
+
+**Pairwise-distance** is Mahalanobis distance computed at G-B primary-pair selection time (rocket `a466eb1` / PM-2 § 13.2 algorithm); populated into `ExportFactionCluster.pairwise_distance_distribution` field (list of all pairwise distances per season, sorted descending; length k*(k-1)/2; k=3 → 3 values; k=4 → 6 values).
+
+**High-distance signal:** the max pairwise distance is meaningfully larger than the min pairwise distance (e.g., max/min ratio ≥1.5); the season has a primary tension pair AND a less-tense pair, producing narrative structure.
+
+**All-close signal:** max pairwise distance is within 5% of min pairwise distance (max/min ratio <1.05); all factions are equidistant; no meaningful primary-pair tension exists; G-B tie-break logic fires (per F-8 failure mode in `agentic_orchestration/gandalf/notes/2026-05-27-path-1-failure-modes-scope-creep-drift-register.md`).
+
+**Discipline #41 framing:** the spread of pairwise distances is the substrate's vote on whether faction emergence is producing meaningfully different factions OR variations on a single theme. All-close signal is not a code failure; it is a substrate-signal that the season substrate is uniform. The protocol surfaces the signal honestly.
+
+### 5.2 Measurement procedure
+
+**Step 1 — Extract pairwise-distance distribution for Wave 5 season.** Since `ExportFactionCluster.pairwise_distance_distribution` is duplicated on every cluster record (analyst convenience per PM-2 § 13.5), read from any single cluster record:
+
+```python
+clusters = ExportFactionCluster.where(season_id=wave_5_season_id)
+distances = clusters[0].pairwise_distance_distribution  # sorted descending
+k = len(clusters)
+expected_pair_count = k * (k - 1) // 2  # k=3 → 3; k=4 → 6
+assert len(distances) == expected_pair_count, "G-B distribution length integrity check"
+```
+
+**Step 2 — Compute distribution summary statistics.** At Wave 5 small-n (3 or 6 distances), descriptive statistics only:
+
+```python
+d_max = distances[0]          # largest pairwise distance
+d_min = distances[-1]         # smallest pairwise distance
+d_median = distances[len(distances)//2]
+ratio_max_min = d_max / d_min if d_min > 0 else float('inf')
+ratio_max_median = d_max / d_median if d_median > 0 else float('inf')
+spread_iqr = numpy.percentile(distances, 75) - numpy.percentile(distances, 25)
+```
+
+**Step 3 — Classify distribution shape.**
+
+| Shape | Condition | Interpretation |
+|---|---|---|
+| **HIGH-DISTANCE** | `ratio_max_min >= 1.50` | Primary-pair meaningfully distinct from background-pairs; faction structure has tension architecture |
+| **MODERATE-DISTANCE** | `1.05 <= ratio_max_min < 1.50` | Some pairwise separation; primary-pair selection meaningful but background-pairs not negligible |
+| **ALL-CLOSE** | `ratio_max_min < 1.05` | Factions equidistant; primary-pair tie-break fires; F-8 risk realized |
+
+**Step 4 — Cross-check with G-B selection rationale.** Read `ExportFactionCluster.gb_selection_rationale`:
+- `highest_substrate_distance` → consistent with HIGH-DISTANCE or MODERATE-DISTANCE shape
+- `lineage_diversity_tiebreak` / `named_anchor_tiebreak` / `geometry_divergence_tiebreak` → consistent with ALL-CLOSE shape (tie-breaks fired)
+- `degenerate_single_cluster` → k=1 fallback; dim #3 inapplicable; record separately
+
+Integrity check: if shape is HIGH-DISTANCE but rationale is a tiebreak, OR shape is ALL-CLOSE but rationale is highest_substrate_distance, data-pipeline integrity issue. Route to rocket + star-lord for G-B output validation.
+
+### 5.3 Acceptance criterion
+
+| Shape | Verdict | Rationale |
+|---|---|---|
+| HIGH-DISTANCE (ratio ≥1.50) | B-PASS dim #3 | Substrate-led emergence is producing structurally distinct factions; G-B primary-pair selection meaningful |
+| MODERATE-DISTANCE (1.05 ≤ ratio < 1.50) | WARN dim #3 | Factions distinct but tension architecture muted; design call on whether moderate is sufficient for player narrative |
+| ALL-CLOSE (ratio <1.05) | A-PASS dim #3 | Faction emergence has collapsed into single shape with variations; either substrate uniformity (substrate-vote signal — surface honestly) OR PM-1 clustering parameters mis-tuned (k might need k=2 binary forced) |
+
+**Why ratio thresholds, not absolute distance:** Mahalanobis distance is scale-dependent on cluster covariance; absolute distance values are not comparable across seasons with different substrate. Ratio of max-to-min within a season is scale-invariant and captures the "is there meaningful structure" question directly.
+
+**Why ≥1.50 ratio for B-PASS:** if primary pair is 50% farther apart than the closest pair, the primary-pair tension has narrative force — players experience the central conflict as central. Below 1.50 ratio, primary pair feels arbitrary even if statistically selected.
+
+### 5.4 Drift-watch criterion (Cycle 15+ revisit trigger)
+
+- **DRIFT TRIGGER:** if ratio_max_min consistently drops across Cycle 15+ seasons (e.g., Wave 5 = 1.85; Cycle 15 averaging 1.25), substrate may be homogenizing across seasons; investigate substrate-curation pipeline (elrond Phase D cleaning artifacts).
+- **DRIFT TRIGGER:** if tie-break rationale fires >20% of seasons across Cycle 15+ (per F-8 watch threshold), G-B algorithm needs refinement (widen tolerance OR add additional tie-breaker per F-8 counter).
+- **DRIFT TRIGGER:** if a season fires `degenerate_single_cluster` rationale, PM-1 clustering produced k=1 — investigate whether substrate is collapsing OR PM-1 BIC selection drifted (math note review).
+
+### 5.5 Empirical data source
+
+- **PRIMARY:** `ExportFactionCluster.pairwise_distance_distribution` field (duplicated on every cluster row; list[float] sorted descending)
+- **SECONDARY:** `ExportFactionCluster.gb_selection_rationale` field (G-B selection rationale enum)
+- **CROSS-CHECK:** `ExportFactionRelationship.pairwise_distance` field (per-pair distance; should equal corresponding entry in pairwise_distance_distribution)
+- **BASELINE:** doc 48 does NOT carry pairwise-distance baseline (doc 48 is per-archetype curation, not pairwise). Dim #3 is a Wave 5-internal structural check; doc 48 baseline does not apply.
+
+**Doc 48 baseline N/A note:** dim #3 is the dimension where the A/B comparison framing diverges most explicitly — doc 48 baseline carries NO pairwise-distance signal because designer-curation does not compute pairwise BC-distance between curated archetypes. The dim #3 verdict is therefore a Wave 5 self-evaluation (substrate-led emergence produces structurally meaningful factions OR it doesn't), with no A counterpart. This is honest: the doc 48 baseline cannot answer this question because designer-curation does not compute pairwise-distance signal at all.
+
+### 5.6 Output record format
+
+```
+Faction pairwise-distance distribution measurement — Wave 5 season <season_id>
+
+k = 3 clusters → 3 pairwise distances
+Distances (sorted descending): [4.82, 3.15, 2.61]
+d_max: 4.82  d_min: 2.61  d_median: 3.15
+ratio_max_min: 1.85
+ratio_max_median: 1.53
+Shape: HIGH-DISTANCE
+G-B selection rationale: highest_substrate_distance
+Integrity check: PASS (shape consistent with rationale)
+Verdict: B-PASS dim #3
+```
+
+---
+
+## 6. Dimension #4 — Personage convergence test (Q2 D-Sharpened H1 vs H2)
+
+### 6.1 Operational definition
+
+**Question this dimension answers:** does the named-personage anchor metadata (D-Sharpened D-Sharp-3) correlate with the substrate-cluster identity of the kits it anchors? That is — when Sketch F allocates Carnwennan to a kit, is that kit in a substrate-cluster whose other anchored kits share a thematic-anchor neighborhood with Carnwennan (assassin-stealth-dagger neighborhood), OR is Carnwennan allocated randomly across substrate-clusters with no correlation?
+
+**H1 — null hypothesis:** substrate-anchor allocation is uncorrelated with substrate-cluster membership. Carnwennan is as likely to anchor a kit in cluster 1 (DEX-melee-stealth) as in cluster 3 (WIS-channel-aura). D-Sharpened metadata is noise; named-personage anchors do not converge on thematically-coherent clusters.
+
+**H2 — alternative hypothesis:** substrate-anchor allocation correlates with substrate-cluster membership. Carnwennan reliably anchors kits in the DEX-melee-stealth cluster; Mistilteinn reliably anchors kits in the STR-polearm cluster; etc. D-Sharpened metadata IS signal; named-personage anchors converge on thematically-coherent clusters.
+
+**Discipline #41 framing:** H2 is the Sketch F architectural prediction. If Wave 5 substrate-led emergence is operating as designed, the substrate signal that surfaces Carnwennan as a Sketch F anchor (DEX-melee-stealth-dagger BC signature) should ALSO surface a cluster of related kits, AND Carnwennan should anchor a kit WITHIN that cluster — not in a random cluster. H1 vs H2 empirical verdict is the test of whether Sketch F architecture is mechanically delivering on its design intent at substrate-led-emergence layer.
+
+**Why this is Q2 D-Sharpened:** Sketch F D-Sharpened encoding (PM-2 § 2.7) commits to allocating anchors as ENGINE-INTERNAL ANALYTICS metadata; the test asks whether that metadata carries actionable signal (correlated to cluster identity = signal) or noise (random allocation = noise). Q2 from the Path III note is the convergence-test question that gates whether D-Sharpened survives Cycle 14 close.
+
+### 6.2 Q-AB-1 resolution — Statistical test choice
+
+**Decision: Bayesian posterior method (with Fisher's exact as supplementary report).**
+
+**Reasoning per sample size + question shape:**
+
+| Method | Suitability at Wave 5 n=22-40 kits / ~7-13 anchored kits / 3-4 clusters | Verdict |
+|---|---|---|
+| **Chi-squared test of independence** | Asymptotic; requires expected cell counts ≥5 per cell. At 3-4 clusters × 7-13 anchored kits, expected cell counts will frequently be <5. Chi-squared assumption violated. | REJECT — wrong tool at this sample size |
+| **Fisher's exact test** | Exact small-n method; no expected-count requirement; well-suited to 3×3 or 4×3 contingency table (clusters × anchor-thematic-neighborhoods). Produces p-value. | ACCEPTABLE — but produces only p-value; does not honestly represent uncertainty range |
+| **Bayesian posterior over correlation parameter** | Prior + Wave 5 likelihood → posterior over correlation strength; produces credible interval AND Bayes factor BF(H2/H1). Honestly represents small-n uncertainty. Supports Cycle 15+ posterior update with replication data without re-running test. | **PRIMARY** — small-n honesty; supports replication; aligns with Discipline #11 empirical-inspection-over-assumption |
+
+**Decision rationale:** at Wave 5 n=22-40 kits with ~7-13 anchored kits and 3-4 clusters, frequentist p-values lie about precision. A p=0.07 from Fisher's exact at this sample size says "data don't refute H1 at α=0.05" but does NOT say "data favor H1" — it says "we don't have enough data." Bayesian posterior with Bayes factor BF(H2/H1) honestly represents this: BF=1.5 means data weakly favor H2; BF=3.0 means moderate evidence for H2; BF=0.5 means data weakly favor H1; BF=0.95-1.05 means data are uninformative. Cycle 15 replication can update the posterior without re-running the test.
+
+**Fisher's exact as supplementary report:** report p-value alongside Bayes factor for cross-method sanity-check and for readers more familiar with frequentist framing. Discrepancy between Fisher's p-value and Bayes factor verdict triggers methodology review (elrond consultation per Discipline #18 math-hotspot routing).
+
+**Why not chi-squared:** chi-squared at this sample size violates its own asymptotic assumption. Reporting chi-squared p-value at n=22-40 with 3-4 clusters is methodologically dishonest. Reject.
+
+### 6.3 Measurement procedure
+
+**Step 1 — Construct anchor-thematic-neighborhood taxonomy.** For Wave 5 anchored kits, group by anchor_lineage field (from ExportFactionCluster.substrate_anchored_personages dicts). Anchor-lineage groups (per substrate's natural lineage distribution from elrond Stage 1 audit):
+- `european-historical` (Charlemagne / Beowulf / Arthur-cycle anchors)
+- `european-mythological` (Norse / Celtic mythological anchors including Mistilteinn, Hrunting)
+- `middle-eastern` (kris / scimitar / shamshir anchors)
+- `south-asian` (kukri / talwar anchors)
+- `east-asian` (katana / nodachi anchors)
+- `fantasy-generic` (substrate-natural fantasy template anchors)
+- `classical` (Greco-Roman anchors)
+
+Taxonomy emerges from substrate, NOT pre-authored. If Wave 5 produces anchor-lineage values outside this list, taxonomy expands (substrate-led discipline preserved).
+
+**Step 2 — Construct cluster-thematic-neighborhood mapping.** For each Wave 5 emergent cluster (3-4 clusters), assign expected anchor-lineage based on cluster's modal substrate signal (from `ExportFactionCluster.modal_cultural_lineage` field + `modal_bc_axis_signature`). Each cluster has 1-2 expected anchor-lineage neighborhoods.
+
+Example (hypothetical Wave 5 with 3 clusters):
+- Cluster 1: modal_cultural_lineage = european, BC signature = STR-melee-cleave → expected anchors: european-historical (Charlemagne, Arthur-cycle), european-mythological (Beowulf)
+- Cluster 2: modal_cultural_lineage = fantasy_generic, BC signature = DEX-ranged-firearm → expected anchors: fantasy-generic
+- Cluster 3: modal_cultural_lineage = mixed (european + middle-eastern), BC signature = DEX-melee-stealth → expected anchors: european-historical (Carnwennan via Arthur-cycle), middle-eastern (kris-lineage), south-asian (kukri-lineage)
+
+Mapping is computed deterministically from cluster modal fields; recorded as test fixture; reviewed by gandalf at execution time for fidelity.
+
+**Step 3 — Compute observed contingency table.** For each anchored kit, record (cluster_id, anchor_lineage) → contingency table of clusters × anchor_lineages.
+
+```
+                    cluster_1    cluster_2    cluster_3
+european-hist           4            0            1
+european-myth           1            0            0
+middle-eastern          0            0            2
+south-asian             0            0            1
+fantasy-generic         0            3            0
+```
+
+**Step 4 — H1 vs H2 test under Bayesian framing.**
+
+Model:
+- Let `p_{ij}` = probability that an anchored kit with anchor-lineage `i` ends up in cluster `j`.
+- H1: `p_{ij}` is uniform across `j` for each `i` (anchor allocation is independent of cluster).
+- H2: `p_{ij}` is concentrated on expected-anchor-lineage clusters (anchor allocation is correlated with cluster identity).
+
+Prior:
+- Dirichlet prior on `p_i` per anchor-lineage, with concentration parameter α=1 (uniform prior; weak Bayesian commitment to neither H1 nor H2).
+
+Likelihood:
+- Multinomial likelihood per anchor-lineage given observed contingency counts.
+
+Posterior:
+- Posterior over each `p_i` is Dirichlet (Dirichlet-Multinomial conjugacy).
+- Compute posterior probability that each anchor-lineage concentrates on its expected-cluster (per Step 2 mapping): `P(p_{i, expected_cluster_i} > 1/k | data)`.
+
+Bayes factor:
+- BF(H2/H1) = ratio of marginal likelihoods under H2 (concentration prior) vs H1 (uniform prior).
+- Compute via numerical integration over Dirichlet posterior OR via Savage-Dickey ratio if H1 is nested in H2 prior structure.
+
+**Step 5 — Report posterior verdict + Fisher's exact supplementary.**
+
+```
+Bayes factor BF(H2/H1) = X.YZ
+- BF >= 3.0 → moderate-to-strong evidence for H2 (Sketch F architecture delivers)
+- 1.50 <= BF < 3.0 → weak-to-moderate evidence for H2
+- 0.95 <= BF < 1.50 → data uninformative
+- 0.33 <= BF < 0.95 → weak-to-moderate evidence for H1
+- BF < 0.33 → moderate-to-strong evidence for H1 (D-Sharpened metadata is noise)
+
+Fisher's exact supplementary p-value: X.YZ
+Cross-method check: PASS / DISCREPANCY-REVIEW
+```
+
+### 6.4 Acceptance criterion
+
+| Bayes factor BF(H2/H1) | Verdict | Rationale |
+|---|---|---|
+| ≥3.0 | B-PASS dim #4 | Sketch F architecture mechanically delivers; D-Sharpened metadata is signal; substrate-anchor allocation converges on thematic-cluster neighborhoods |
+| 1.50 ≤ BF < 3.0 | LEAN-B dim #4 | Weak-to-moderate evidence for H2; consistent with Sketch F intent at small-n; Cycle 15 replication strengthens posterior |
+| 0.95 ≤ BF < 1.50 | INCONCLUSIVE dim #4 | Sample size insufficient; defer composite verdict OR replicate at Cycle 15 k=3-5 production seasons |
+| 0.33 ≤ BF < 0.95 | LEAN-A dim #4 | Weak-to-moderate evidence for H1; D-Sharpened metadata may be noise; flag for investigation |
+| <0.33 | A-PASS dim #4 | Strong evidence for H1; D-Sharpened allocation algorithm is not converging on substrate-cluster identity; Sketch F architectural intent not delivering |
+
+**Sample-size honesty clause:** if Wave 5 anchored-kit count <7 (insufficient data for any meaningful Bayes factor), dim #4 verdict is UNDER-POWERED-DEFER regardless of computed BF; defer to Cycle 15. Threshold of 7 derives from minimum-anchored-kit floor for 3-cluster contingency table to produce non-degenerate posterior.
+
+### 6.5 Drift-watch criterion (Cycle 15+ revisit trigger)
+
+- **DRIFT TRIGGER:** if Wave 5 verdict is B-PASS (BF ≥3.0) but Cycle 15 replications produce BF <1.5 average, D-Sharpened convergence is unstable; investigate whether substrate-anchor pool is fragmenting OR PM-1 clustering parameters are drifting.
+- **DRIFT TRIGGER:** if posterior credible interval narrows but stays near BF=1 across Cycle 15 replications, sample-size accumulation is confirming that data are genuinely uninformative; this is a signal that Sketch F architecture's predicted convergence may not be present in substrate-led emergence (architectural reconsideration warranted).
+- **DRIFT TRIGGER:** if Fisher's exact and Bayesian posterior produce discrepant verdicts (e.g., Fisher p<0.05 reject-H1 but BF=1.2 uninformative), methodology review (elrond consultation per Discipline #18) is required before next Cycle.
+
+### 6.6 Empirical data source
+
+- **PRIMARY:** `ExportFactionCluster.substrate_anchored_personages` (per-kit anchor-lineage records)
+- **PRIMARY:** `ExportFactionCluster.modal_cultural_lineage` + `modal_bc_axis_signature` (per-cluster expected-anchor-lineage mapping)
+- **SECONDARY:** `kit_archive` substrate-anchor metadata (per-kit-direct cross-validation)
+- **BASELINE:** doc 48 § 4.1 anchoring table (per-archetype substrate seed + lineage signal; serves as the expected-anchor-lineage prior structure for Step 2 cluster mapping)
+- **METHODOLOGY:** Bayesian Dirichlet-Multinomial posterior + Bayes factor; Fisher's exact supplementary; chi-squared REJECTED at this sample size
+
+### 6.7 Output record format
+
+```
+Personage convergence test (Q2 D-Sharpened H1 vs H2) — Wave 5 season <season_id>
+
+Anchored kit count: 11 (above 7 floor; analysis proceeds)
+Contingency table (clusters × anchor-lineages):
+                cluster_1   cluster_2   cluster_3
+european-hist       4           0            1
+european-myth       1           0            0
+middle-eastern      0           0            2
+south-asian         0           0            1
+fantasy-generic     0           3            0
+
+Cluster expected-anchor mapping (from Step 2):
+cluster_1: european-hist, european-myth
+cluster_2: fantasy-generic
+cluster_3: middle-eastern, south-asian, european-hist (Arthur-cycle)
+
+Bayesian posterior:
+P(anchors concentrate on expected clusters | data) = 0.91
+Bayes factor BF(H2/H1) = 4.2
+
+Fisher's exact supplementary p-value: 0.018
+Cross-method check: PASS (both reject H1; consistent verdict)
+
+Verdict: B-PASS dim #4 (BF=4.2 ≥3.0 → moderate-to-strong evidence for H2;
+Sketch F architecture mechanically delivers at Wave 5)
+```
+
+---
+
+
