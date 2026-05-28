@@ -347,14 +347,47 @@ State file archival path (when reached): rename to `agentic_orchestration/cycle-
 ## 9. Sign-off (LIVE)
 
 **State file owner:** knight-rider (orchestrator)
-**State file status:** LIVE — Cycle 14 Path (1) **✅ MATT-GATE RATIFIED 2026-05-27** + implementation wave landing. Status update:
+**State file status:** LIVE — Cycle 14 Path (1) **✅ MATT-GATE RATIFIED + 6 pre-ratifications 2026-05-27** + implementation wave cascading. Status update:
+
+**Matt 6 pre-ratifications LOCKED 2026-05-27:**
+1. Phase 7 2-layer joint-gate thresholds STATIC Cycle 14 v1
+2. F-C LLM prompt tonal direction (substrate-evidence-driven; cross-cultural neutrality; D7 AI-tell; cosine <0.7 TF-IDF)
+3. A/B comparison post-Wave-5 (6 measurement dimensions)
+4. Wave 5 production season parameters (3 smoke ≥2-PASS; fresh roster; guardrails)
+5. Discipline #45 canonical-write FIRE NOW (parallel with Phase 4 impl)
+6. Per-agent OP amendments PARALLEL FIRING NOW (4 remaining: rocket/gamora/gandalf/star-lord)
+
+**Cascade landings (single-day):**
 - 5 OP amendments LANDED ✅ (jack-ryan `fdc94b9` / drax `56c5564` / legolas / elrond `3da21f7` / galadriel `2f99778`)
-- **Rocket Wave 1.5 Stage 3 Option α ✅ COMPLETE** at engine `2dce2fa` + tag `rocket/v1.5-wave-1-5-stage-3-option-alpha-1` (6 modules + 61/61 tests + WARN-2.1 calibrated empirically DIVERSITY_THRESHOLD_4CHAIN 0.55→0.065 = 65% 3-chain matches Note 1 § 6.2 target)
-- **Star-lord Dispatch 3B Seam 3 ✅ COMPLETE** at engine `bf7f659` + tag `star-lord/v1.0-dispatch-3b-phase-5-seam-3-1` (255/255 tests; asyncio+AsyncAnthropic+Semaphore(10); TF-IDF current + sentence-transformers dormant; Phase 7 placeholder)
-- **Gandalf THEMATIC_REGISTRY Stage 1 ✅ COMPLETE** at meta `ee96176` + `ea929e8` (sections 1-5; 720-cell coordinate space; ~31 entries/dense-cell target); Stage 2 firing
-- **Gamora Dispatch 3A Phase 4 ✅ COMPLETE** at engine `749d5aa` + tag `gamora/v1.6-dispatch-3a-phase-4-mechanical-archive-1` (8 modules under spatial_gauntlet/ + 46/46 tests; HDBSCAN § 4.6 fallback VERIFIED compiling; PM1FeedbackChannel + run_covariance_audit() interfaces ready for Dispatch 3B + elrond Pattern-A; MIGRATION.md § v1.34 for star-lord)
-- **Elrond Pattern-A consultation IN FLIGHT** (WARN-2.1 calibration review per rocket hand-back; ~30-60 min)
-- **Queued post-current-fires:** Dispatch 3B Seam 1 (rocket PM-1 impl) + Dispatch 3B Seam 2 (gandalf PM-2 LLM logic post THEMATIC_REGISTRY) + 4 main-agent OP amendments (rocket/gamora/gandalf/star-lord)
-**Last updated:** 2026-05-27 (rocket Stage 3 + star-lord Seam 3 LANDED; gandalf Stage 2 + gamora Dispatch 3A + elrond Pattern-A firing)
+- **Rocket Wave 1.5 Stage 3 Option α ✅ COMPLETE** at engine `2dce2fa` (6 modules + 61/61 tests + WARN-2.1 calibrated 0.065)
+- **Star-lord Dispatch 3B Seam 3 ✅ COMPLETE** at engine `bf7f659` (255/255; asyncio+AsyncAnthropic; TF-IDF current; Phase 7 placeholder)
+- **Gamora Dispatch 3A Phase 4 ✅ COMPLETE** at engine `749d5aa` (8 modules + 46/46 tests; HDBSCAN § 4.6 verified; PM1FeedbackChannel + covariance audit ready; MIGRATION § v1.34)
+- **Gandalf THEMATIC_REGISTRY ✅ ALL 4 STAGES COMPLETE** at meta `da56926` (1503 lines / 665 entries / 15 dense cells; Discipline #41+#42+#11 FINAL PASS; Wave 3 UNBLOCK SIGNAL ISSUED)
+- **Elrond Pattern-A WARN-2.1 calibration ✅ COMPLETE** at meta `b268dec` (RATIFY-AS-CALIBRATED + 7 drift-watch triggers + 2 adjacent questions surfaced)
+
+**5 new dispatches authored (this turn):**
+- Phase 7 2-layer joint-gate (gandalf composition + jack-ryan Discipline #18 canonical-write)
+- Wave 3 with F-C scope (Path III integration; gandalf + star-lord; cohesion-judge LLM + inter-faction relationships)
+- A/B comparison protocol (gandalf at Wave 5 close)
+- Wave 5 production season (gamora + gandalf + jack-ryan)
+- Discipline #45 canonical-write (jack-ryan; LOAD-BEARING; protects against F-6)
+
+**Firing NOW (parallel; no same-agent concurrent conflict):**
+- jack-ryan Discipline #45 canonical-write
+- rocket OP amendment
+- gamora OP amendment
+- star-lord OP amendment
+
+**Queued (sequenced post gandalf returns):**
+- Gandalf OP amendment
+- PM-2 § X.7 amendment (Path III G-B math spec; ~30 min)
+- Phase 7 dispatch firing (gandalf Seam 1 composition spec)
+- Wave 3 dispatch firing (gandalf + star-lord per F-C)
+- A/B comparison protocol firing
+- Wave 5 production season dispatch (fires at end of cycle)
+
+**Cycle 14 timeline:** Path III adds +1-2 weeks → ~11-17 weeks total under Q10 quality > timeline. Single-day implementation cascade likely makes the original estimate conservative.
+
+**Last updated:** 2026-05-27 (Matt 6 pre-ratifications + 5 new dispatches authored + Discipline #45 + 3 OP amendments firing)
 
 **For:** cross-session continuity per hive-mind protocol § 8.1. Captures Wave + sidecar dispatch state for Cycle 14 lifecycle. Updated at each Wave boundary + dispatch completion. Archives on Cycle 14 close.
