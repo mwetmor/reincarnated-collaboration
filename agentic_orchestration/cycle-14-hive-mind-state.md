@@ -586,7 +586,37 @@ Gamora SC-7 ✅ COMPLETE at engine `e7af7db` + tag `gamora/v1.8-sc-7-base-spell-
 ### KR EXECUTION PLAN — Gate-5 ratification fan-out
 
 **Parallel dispatches authored + firing:**
-- 🔥 **gamora dispatch — boss HP rebase** (Option 1; Pattern B; ~0.75-1d). Acceptance: population-DPS sweep → boss HP factor range rebase in `endgame_mob_stat_profile.py` → Track 1 re-run with new HP → smoke ≥12/18 emit → tag `gamora/v2.1-boss-hp-rebase-1`. Gate-1 PASS-WITH-AMENDMENTS A+B integrated at meta `926b068`.
+- 🟡 **gamora dispatch — boss HP rebase EXECUTED + ACCEPTANCE FAILED** at engine `d83049a` (+`c774e0c` AGENT_STATE fixup) + tag `gamora/v2.1-boss-hp-rebase-1` + meta `2959db3` (pushed). Boss HP `(9.00, 14.00)` → `(10.50, 12.60)` rebased per Balanced-cohort median DPS + 25th/75th percentile span. Mini-boss PRESERVED `(5.00, 8.00)` per Amendment A insufficient-observations criterion. Smoke 3/18 emit (FAIL ≥12/18). EMPIRICAL FINDING:
+
+> **Population-median Balanced DPS observed:**
+> - INT/WIS magical path: **~297,000 HP/s** (SC-7 calibrated)
+> - STR/DEX physical path: **~3,750 HP/s** (SC-6b uncalibrated)
+> - **79× gap — structurally incompatible**
+>
+> Boss HP rebase moved midpoint +1,000 HP (+0.4%) — far too small to span the 79× DPS divergence. Track 1 band table functionally identical pre/post-rebase. STR/DEX FALLBACK RETAINED post-rebase as "Case 8 structural finding" (gamora MIGRATION.md § v1.39 + canonical doc § 3.9 update).
+
+---
+
+### CASE 8 EMPIRICAL ESCALATION 2026-05-28 — OPTION 1 INFEASIBLE ALONE; GATE-6 FIRING
+
+**Re-framing (NOT a 9th case — this is empirical quantification of case 8 structural depth):**
+
+Gate-5 D1 ratification rationale ("rebase IS the calibration") held for what it executed — boss HP factor range IS now calibrated to current population DPS. But the empirical signal reveals two-path divergence is **79× wide**, which no single boss HP value can span. Per jack-ryan Gate-5 § 5 verbatim warning (now empirically validated): *"Option 6 (damage/HP%) resolves that architectural truth by design rather than adding 72 per-kit KPM calibration values that still inherit the two-path divergence problem."* The 79× gap is PROOF that two-path divergence is architectural-truth-not-calibration-gap.
+
+**Cycle 14 close-criterion D9 (≥12/18 × 3 seasons emit) NOT ACHIEVABLE under current state without one of:**
+- Option 3 advance: SC-6b physical path per-kit calibration (~2-3d) — closes 79× gap via per-kit calibration; still inherits two-path metric divergence
+- Option 5 close-criterion amendment (~0.1d): accept 3/18 + Track 1 infra as Cycle 14 close
+- Option 6 advance: Cycle 15 architectural metric replacement promoted to Cycle 14 (~3-4d) — resolves two-path divergence at metric layer; was Matt D2 Cycle 15 commit
+
+**KR routing per established Gate-N → Matt cadence:**
+- 🔥 **Jack-ryan Gate-6 architectural re-disposition FIRING** (~0.25-0.4d; re-rank Options 2/3/5/6 against empirical 79× gap; reconsider Cycle 14 v1 close trajectory; Discipline #18 refinement applies — does post-rebase Track 1 telemetry constitute baseline empirical signal sufficient to advance Cycle 15 design call into Cycle 14?)
+- ⏳ Surface options package to Matt for Pattern-B ratification on Gate-6 return
+
+**Jack-ryan retraction loop status:** § 3.11 FALLBACK retraction-pending notation now requires AMENDMENT — FALLBACK is NOT removed; FALLBACK is RETAINED post-rebase as structural finding. The retraction loop did not close as anticipated; gamora's empirical finding effectively converts "FALLBACK-as-artifact" → "FALLBACK-as-canonical-marker-of-two-path-divergence". Jack-ryan Gate-6 disposition includes updating § 3.11 framing.
+
+**Cycle 14 v1 close trajectory: AT RISK.** Either path forward (Option 3 / Option 5 / Option 6 advance) extends timeline. Pre-empirical estimate was ~4-6 days; post-empirical re-estimate awaits Gate-6.
+
+**Discipline #39 framework operating insight (KR observation):** the case-register reframing Matt locked at Gate-5 was prescient — case 8 IS a canonical scaffold resolution (boss HP scaffold resolved per ANCHOR INTENTS source annotation), but the resolution exposes a deeper architectural truth (two-path divergence) that the original scaffold did not encode. Framework matures further: source-annotated scaffolds reach their gates AND surface adjacent architectural truths.
 - ✅ **jack-ryan dispatch — Phase 7 canonical retraction THIRD iteration COMPLETE** at engine `a4fba64` + tag `jack-ryan/v1.5-phase-7-canonical-retraction-3` (pushed; ~7.5min fire). §§ 3.11-3.13 authored:
   - § 3.11 — Discipline #40 case (c) 6-step procedure executed; FALLBACK retraction-pending notation; gamora's `v2.1` Track 1 re-run = retraction completion criterion
   - § 3.12 — Case 8 canonical scaffold resolution provenance + 5-commit lineage (`ee15c96` → `3c95883` → `e7af7db` → `f704599` → Gate-5) + Matt case-register reframing + Discipline #39 framework maturation insight
