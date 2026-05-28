@@ -1,6 +1,6 @@
 # Path (1) — Failure Modes, Scope Creep, Design Drift Register
 
-> **STATUS:** CURRENT — gandalf-authored. 16 patterns to watch during Cycle 14 Path (1) execution; KR includes audit references in dispatches; gandalf design-quality audit checks at wave-close (Discipline #43).
+> **STATUS:** CURRENT — gandalf-authored. 17 patterns to watch during Cycle 14 Path (1) execution; KR includes audit references in dispatches; gandalf design-quality audit checks at wave-close (Discipline #43).
 
 **Date:** 2026-05-27 evening
 **Author:** gandalf (story-and-design steward)
@@ -14,11 +14,11 @@
 
 ## 0. TL;DR
 
-16 patterns to monitor during Cycle 14 Path (1) execution. Categorized: 7 failure modes / 4 scope creeps / 5 design drifts. Each pattern has a watch + counter. KR includes audit references in dispatches; gandalf design-quality audit at wave-close (Discipline #43) checks; framing-refusal authority (Discipline #44) empowers sub-agents to catch in-flight.
+17 patterns to monitor during Cycle 14 Path (1) execution. Categorized: 8 failure modes / 4 scope creeps / 5 design drifts. Each pattern has a watch + counter. KR includes audit references in dispatches; gandalf design-quality audit at wave-close (Discipline #43) checks; framing-refusal authority (Discipline #44) empowers sub-agents to catch in-flight.
 
 ---
 
-## 1. Failure modes (7 patterns)
+## 1. Failure modes (8 patterns)
 
 ### F-1. Math methodology selection drift
 
@@ -75,6 +75,16 @@
 **Watch:** Phase 7 dispatch (per Path 1 record § 3.3) explicitly out-of-scope-guards visual layer; jack-ryan Gate-1 verifies out-of-scope text present.
 
 **Counter:** Phase 7 dispatch scope text: "**Visual layer DEFERRED to Cycle 15+**; Cycle 14 ships 2-layer (mechanical + cohesion) only; sub-agent authoring Phase 7 spec MUST NOT include visual gate evaluation."
+
+### F-10. Spatial-gauntlet integration gap
+
+**Pattern:** `kit_archive` (Phase 4 ACCEPTED kits substrate) does NOT natively feed `gauntlet_sim.py` (1D scalar-distance production gauntlet executor) without an explicit bridge module. `spatial_gauntlet/` (R2 2D spatial combat research substrate) is a CONCURRENT-but-distinct system — neither replaces the other; both run. Without bridge, Wave 5 production season cannot execute Phase 7 2-layer joint-gate because cohort-level KPM measurement on ACCEPTED kits has no executable path.
+
+**Watch:** Phase 7 IMPLEMENTATION dispatch landing at `agentic_orchestration/dispatches/2026-05-27-gamora-phase-7-implementation-bridge.md` (gamora primary; ~1-2 weeks estimated; LOAD-BEARING gating Wave 5); gamora Pattern A-light response 2026-05-27 (5-question architectural query) is the detection record.
+
+**Counter:** Bridge module per Phase 7 IMPL dispatch — explicit `kit_archive` ACCEPTED → `gauntlet_sim.py` encounter sweep → cohort KPM measurement pipeline. Bridge is a NAMED component (not "while we're at it" implicit infrastructure); dispatch acceptance criteria include bridge contract surface + smoke test on small ACCEPTED cohort before Wave 5 fires. **Composition with F-5 joint-gate threshold drift:** F-10 is the integration prerequisite that lets F-5 fire empirically — without the bridge, threshold calibration has no execution surface; with the bridge, F-5 watch (Wave 5 smoke threshold-pass-rate measurement) becomes actionable.
+
+**Surfaced via:** gamora Pattern A-light response 2026-05-27 (5-question architectural query about `spatial_gauntlet/` vs `gauntlet_sim.py` integration semantics). RECOGNIZED 2026-05-27; CLOSES at Phase 7 IMPL dispatch landing.
 
 ---
 
@@ -173,6 +183,7 @@ Each pattern above composes with specific disciplines. Audit table:
 | F-5 Joint-gate threshold drift | Discipline #11 (empirical inspection) + Discipline #43 | gandalf design-quality audit at Phase 7 close |
 | F-6 Class concept resurrection | Discipline #45 (vocabulary lock) + Discipline #42 (framing-audit) | gandalf design-quality audit + sub-agent framing-audit at session-start |
 | F-7 Phase 6 implicit creep | Discipline #43 + KR dispatch out-of-scope guards | jack-ryan Gate-1 + gandalf design-quality audit |
+| F-10 Spatial-gauntlet integration gap | Phase 7 IMPL dispatch (bridge module) + Discipline #11 (empirical inspection) + composes with F-5 | jack-ryan Gate-1 on Phase 7 IMPL dispatch + gamora smoke-test on bridge before Wave 5 |
 | S-1 Phase 8 multi-profile creep | KR dispatch out-of-scope guards + Discipline #43 | jack-ryan Gate-1 |
 | S-2 Wave 4 × Phase 5 cascade | KR dispatch scope bounds + Discipline #43 | jack-ryan Gate-1 |
 | S-3 Monster-contrast P5b creep | KR dispatch out-of-scope guards | jack-ryan Gate-1 |
@@ -212,6 +223,6 @@ This composes with Move 1 (quality-criterion in every dispatch) — the quality-
 **Authority:** Matt 2026-05-27 "confirm execute on all three"
 **Composition:** with Path 1 recognition record + Discipline #46 candidate + in-advance design calls record; composes with 12-discipline stack (esp. #41 pre-authored taxonomy interrogation + #42 framing-audit + #43 design-quality audit + #44 framing-refusal + #45 vocabulary lock + #46 DB anti-materialization) for full operational protection during Cycle 14 Path (1) work
 
-**For:** the 16-pattern audit register for Cycle 14 Path (1) execution — 7 failure modes + 4 scope creeps + 5 design drifts — each with watch + counter + discipline composition. KR includes register references in Phase 4 + 5 + 7 + 8 dispatch authoring per § 5; gandalf design-quality audit (Discipline #43) at wave-close checks each pattern; framing-refusal authority (Discipline #44) empowers sub-agents to catch in-flight. Composes with Move 1 quality-criterion in every dispatch for operational discipline.
+**For:** the 17-pattern audit register for Cycle 14 Path (1) execution — 8 failure modes + 4 scope creeps + 5 design drifts — each with watch + counter + discipline composition. KR includes register references in Phase 4 + 5 + 7 + 8 dispatch authoring per § 5; gandalf design-quality audit (Discipline #43) at wave-close checks each pattern; framing-refusal authority (Discipline #44) empowers sub-agents to catch in-flight. Composes with Move 1 quality-criterion in every dispatch for operational discipline.
 
 **Signed:** gandalf (story-and-design steward)
