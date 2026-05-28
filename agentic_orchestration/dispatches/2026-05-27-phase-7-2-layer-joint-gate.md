@@ -124,7 +124,59 @@
 ## Completion record (two seams; append per seam)
 
 ### Seam 1 — gandalf
-(pending)
+
+**Completed:** 2026-05-27 (Pattern-B dispatch execution)
+**Author:** gandalf
+**Artifact:** `canonical/story/phase-7-2-layer-joint-gate-spec-2026-05-27.md`
+
+**Discipline #42 framing-audit fired at consumption:**
+- Q1 load-bearing assumptions: 7 (per spec § 0.1)
+- Q2 refutation evidence: 4 surfaced
+  - **Primary catch:** parent dispatch cites `cohesion_judge_confidence + ai_tell_compliance_score` as ExportFactionCluster fields in `bf7f659`; verified-empirically the literal field names do NOT exist on that schema. Actual cohesion-bearing fields: `cluster_compactness`, `cosine_similarity_max`, `diversity_flag`, `phase7_gate_status`, `regeneration_fired`. The `ai_tell_compliance_score` field is referenced in Wave 3 F-C dispatch (not yet landed) for ExportFactionRelationship; forward-compat slot reserved in spec § 2.5.
+  - 5-cohort partition not previously defined canonically; operationalized in spec § 1.3 from locked BC axes (substrate-led; Discipline #41 compliant).
+  - `phase7_gate_status = "placeholder"` is Reincarnated v1 default (faction_visibility = invisible); spec § 2.2 explicitly accepts both canonical and placeholder states per star-lord PM-2 consultation requirement.
+  - Return-to-Phase-5 retry semantics: per-kit (C-1) vs per-cluster (C-2/C-3) failure modes have distinct retry caps; spec § 3 disambiguates.
+- Q3 outcome: PROCEED (refutation evidence resolvable within scope; no framing-refusal)
+
+**Spec deliverables (per dispatch § Seam 1):**
+- [x] Mechanical pass spec (spec § 1) — three-condition conjunction: archive_status=ACTIVE + gauntlet_pass_rate>0.70 + |pass_rate - cohort_midpoint| ≤ 0.25
+- [x] Cohort partition operational definition (spec § 1.3) — 5-cohort classifier from locked BC axes; priority-ordered (Support → Control → Defensive → Damage → Hybrid)
+- [x] Cohort midpoint calibration procedure (spec § 1.5) — Q-P7-1 resolved: HYBRID (historical telemetry initial prior + first-Wave-5-season authoritative re-calibration; STATIC thereafter); median estimator (Discipline #18 hotspot)
+- [x] ±25% band semantics + worked examples (spec § 1.6)
+- [x] Cohesion pass spec (spec § 2) — four-condition conjunction: kit_level_cohesion_score≥0.75 + cluster_compactness≥0.40 + diversity_flag≠True + phase7_gate_status∈{canonical, placeholder}
+- [x] Cohesion threshold disambiguation from Matt pre-ratification (spec § 2.3) — stricter Phase 5 calibration spec threshold 0.75 retained over coarser pre-ratification 0.65 floor
+- [x] Cohesion-fail mode disambiguation (spec § 2.4) — C-1 per-kit / C-2 cluster compactness / C-3 cross-faction diversity / C-4 placeholder+canonical-required (currently UNREACHABLE under v1 profile)
+- [x] Wave 3 F-C forward-compat slot (spec § 2.5) — ai_tell_compliance_score landing path specified
+- [x] HELD verdict state machine (spec § 3) — verdict enum + state transitions + retry caps (Q-P7-2 resolved: 2 retries per-kit C-1; 1 retry per-cluster C-2/C-3)
+- [x] No-silent-re-roll enforcement (spec § 3.4) — Discipline #43 audit log emission per retry
+- [x] Design-quality audit hooks (spec § 4) — Phase7KitVerdictLog + Phase7ClusterAggregateLog schemas + Discipline #43 A1-A5 audit consumption protocol
+- [x] Mutability lock semantics (spec § 5) — STATIC at Cycle 14 v1 + Cycle 15+ auto-tune trigger criteria T-1 through T-5
+- [x] D-Sharpened composition (spec § 6) — Phase 7 evaluates ALL kits uniformly; no anchor-preferential path
+- [x] Position B audit-gate composition (spec § 7) — Q-P7-3 resolved: Phase 7 verdicts feed INTO Wave 5 audit-gate; verdicts deterministic per kit; retry counters per-attempt scoped; cohort midpoints STATIC across attempts
+- [x] Risks + Watch Items (spec § 8) — F-5 / F-1 / F-7 / D-5 / S-4 watches surfaced per failure-modes register § 5
+
+**Discipline compliance:**
+- [x] #41 substrate-led (cohort partition derives from locked BC axes)
+- [x] #42 framing-audit at consumption (§ 0.1)
+- [x] #43 composition (§ 4 audit hooks per A1-A5)
+- [x] #45 vocabulary lock (no class/role/archetype non-exempt vocabulary)
+- [x] #46 § 7 per-cell bounding (mechanical-layer Phase 4 archive queries are per-cell-scoped)
+- [x] #18 math-hotspot annotation (cohort midpoint estimator routed to Seam 2 jack-ryan canonical-write)
+- [x] #36 substrate-as-keying-source (Phase 7 keys on BC axes + cohesion scores; not on named-personage)
+
+**Open questions resolved:**
+- Q-P7-1 (data source for cohort midpoint): HYBRID — historical telemetry initial prior; first-Wave-5-season authoritative re-calibration (spec § 1.5)
+- Q-P7-2 (retry cap): 2 retries per-kit C-1; 1 retry per-cluster C-2/C-3 (spec § 3.3)
+- Q-P7-3 (Position B composition): Phase 7 verdicts deterministic + stateless across iterative attempts; STATIC cohort midpoints prevent gaming; HELD aggregates feed audit-gate signal (spec § 7)
+
+**Hand-off to jack-ryan Seam 2:**
+- Canonical math note venue: jack-ryan judgment per Q-P7-3 (engine math/ folder OR canonical/ folder)
+- Methodology to canonicalize: median estimator for cohort midpoint (per spec § 1.5)
+- DDL canonicalize: Phase7KitVerdictLog + Phase7ClusterAggregateLog (per spec § 4)
+- Cross-references to anchor: Phase 4 archive ACCEPTED (`749d5aa`) + Phase 5 cohesion-judge output (`bf7f659` + `b576727`)
+- q1-to-gauntlet_pass_rate disambiguation (per spec § 1.4) requires Seam 2 resolution
+
+**Closure:** Seam 1 composition spec landed at canonical/story/phase-7-2-layer-joint-gate-spec-2026-05-27.md; Seam 2 jack-ryan Discipline #18 canonical-write fires next.
 
 ### Seam 2 — jack-ryan
 (pending)
