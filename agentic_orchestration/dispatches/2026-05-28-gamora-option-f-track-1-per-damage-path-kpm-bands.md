@@ -134,4 +134,20 @@
 
 ## Completion record
 
-(append on completion)
+### Jack-ryan Track 1 canonical re-write co-completion record
+
+**Recorded:** 2026-05-28
+**By:** jack-ryan (canonical re-write authority; firing parallel with this dispatch)
+
+**Phase 7 canonical doc amended:** `reincarnated-engine/design/math/phase-7-2-layer-joint-gate-thresholds-2026-05-27.md`
+
+**Amendments landed:**
+- § 3.8: Discipline #40 case (c) SECOND iteration retraction record — single-class-calibrated band RETIRED per Matt D1
+- § 3.9: Per-damage-path KPM band canonical (4 archetypes × 4 cohorts; table structure; estimator; composition with stratified floor; Disciplines #13a-partition + #45 verified) — **16 band values PENDING gamora Track 1 telemetry**
+- § 3.10: Track 2 D3 deferred Cycle 15 forward-link (Discipline #18 refinement § 18.2 compliance)
+- § 3.7 AMENDED: Track 2 D3 deferral context (Option A + Option C as branches; consumes Track 1 baseline)
+- STATUS header and §§ 0, 1 updated
+
+**Critical pending action (gamora):** when Track 1 sweep completes and `option-f-track-1-calibration-telemetry.json` is filed, populate the 16 `BAND[archetype][cohort]` placeholder cells in § 3.9 with numeric `(midpoint, ±0.25)` values. The canonical architecture is locked; the numeric values are the only missing element. File a follow-on amendment to the canonical doc with the numeric values + a co-completion record pointer back to this dispatch.
+
+**Jack-ryan dispatch completion record location:** `agentic_orchestration/dispatches/2026-05-28-jack-ryan-phase-7-track-1-canonical-re-write.md` § Completion record

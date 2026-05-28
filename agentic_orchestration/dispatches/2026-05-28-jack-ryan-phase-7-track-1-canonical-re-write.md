@@ -130,4 +130,76 @@ Amend `~/Games/reincarnated-engine/design/math/phase-7-2-layer-joint-gate-thresh
 
 ## Completion record
 
-(append on completion)
+**Completed:** 2026-05-28
+**Reviewer:** jack-ryan
+**Commit:** (pending — see closure instructions)
+
+### Discipline #42 Framing-Audit
+
+- **Framing-audit fired:** yes
+- **Q1 load-bearing assumptions identified:**
+  1. Gamora Track 1 telemetry fires parallel and produces 16 calibrated values at `option-f-track-1-calibration-telemetry.json`
+  2. Per-archetype bands compose with stratified floor (§ 3.5) without structural conflict — architectures are orthogonal (floor = encounter eligibility; band = KPM gate against archetype)
+  3. Cohort midpoint median estimator (§ 2) extends to per-archetype-per-cohort 16-cell table without methodology change
+  4. Track 2 D3 forward-link remains non-committal (explicitly deferred per Matt)
+  5. SC-7 INT/WIS reference-class calibration is preserved as INT/WIS-magical archetype anchor within Track 1, not formally retired
+- **Q2 refutation evidence:** gamora Track 1 telemetry not yet filed (firing parallel); canonical text uses forward-reference framing — "VALUES PENDING — TRACK 1 SWEEP IN PROGRESS" — and is structured to receive the 16 values when Track 1 completes. No refutation of the architecture; only numeric values are deferred.
+- **Q3 outcome:** PROCEED — framing is sound; canonical architecture established before numeric values land per Discipline #18 refinement (§ 18.2)
+
+### Open questions resolved (Q-JR2-1/2/3)
+
+- **Q-JR2-1 (section placement):** NEW § 3.8 + § 3.9 + § 3.10 (not amendment to § 3.5). Rationale: § 3.5 governs encounter eligibility; § 3.9 governs KPM gate against archetype — architecturally distinct layers. Mixing them would obscure two-axis gate composition. Three new sections reflect the 6-step retraction record (§ 3.8), the per-archetype band canonical (§ 3.9), and the Track 2 forward-link (§ 3.10).
+- **Q-JR2-2 (median estimator extension):** Per-archetype-per-cohort (16 cells) — full 4×4 granularity. Rationale: collapsing to per-archetype with cohort-aware band width loses the cross-cohort calibration signal within each archetype. 16 cells is the stated Track 1 output; per-kit per-cohort (Option A Track 2) defers to Cycle 15 per D3.
+- **Q-JR2-3 (SC-7 INT/WIS anchor phrasing):** SC-7 INT/WIS calibration STAYS as the INT/WIS-magical archetype anchor within Track 1 — one of 4 archetype empirical baselines, not retired. Dispatch "Out of scope" explicitly preserves SC-7 calibration values at `e7af7db`; Step 6 archive annotation preserves reference. Formal retirement would contradict dispatch constraint.
+
+### Discipline #40 case (c) 6-step retraction — SECOND iteration
+
+- [x] Step 1: single-class-calibrated KPM band (SC-7 INT/WIS reference-class, uniform application) named and retracted — § 3.8 Step 1
+- [x] Step 2: empirical evidence documented — Option F Phase 1 Part 4 smoke (85% T1 reject; INT/WIS-only passing) — § 3.8 Step 2
+- [x] Step 3: ratification authority — Matt 2026-05-28 D1 (Option F Track 1 ratified) + D2 (scaffold-fallback rejected) + D3 (Track 2 deferred) — § 3.8 Step 3
+- [x] Step 4: new canonical text — per-damage-path bands; 4 archetypes × 4 cohorts = 16 calibrated values — § 3.9
+- [x] Step 5: Track 2 forward-link — D3 deferred Cycle 15 entry; non-committal; Option A vs Option C design call after Track 1 baseline — § 3.10
+- [x] Step 6: archive annotation — single-class band archived with RETIRED notation + SC-7 INT/WIS anchor preservation note — § 3.8 Step 6
+
+### Canonical text amendments summary
+
+- **STATUS header:** updated to reflect Matt 2026-05-28 D1 Option F Track 1 ratification + SECOND iteration Discipline #40 case (c)
+- **Retraction header:** added single-class-calibrated band retraction pointer to § 3.8
+- **§ 0 (Purpose):** TOC updated with 7 new items (3 Phase 1 references + 3 Phase 2 new sections + renumbered existing)
+- **§ 1 threshold register:** cohort midpoint band row updated to reflect per-archetype application per § 3.9
+- **§ 3.7:** AMENDED — Track 2 D3 deferral context incorporated; Option C added as Track 2 branch alongside Option A; Discipline #18 refinement § 18.2 cross-reference added
+- **§ 3.8 (NEW):** Discipline #40 case (c) SECOND iteration retraction record (single-class-calibrated band)
+- **§ 3.9 (NEW):** Per-damage-path KPM band canonical (4 archetypes × 4 cohorts = 16 cells; table structure; estimator; composition with stratified floor; Discipline #13a-partition + #45 compliance)
+- **§ 3.10 (NEW):** Track 2 D3 deferred Cycle 15 forward-link (Discipline #18 refinement compliance)
+- **§ 8 References:** Phase 2 authority chain added (Gate-4 disposition `ce65b22`; gamora Track 1 dispatch; doc 47 § 3; Disciplines #13a-partition, #18.2, #45)
+
+### Composition with Option F Phase 1 — PRESERVED
+
+- [x] § 3.5 stratified floor STANDS (boss + mini-boss ELIGIBLE; swarm + magic_pack + elite_pack BYPASSED)
+- [x] § 3.6 KPM=600.0 ceiling bypass STANDS (preserved; referenced in § 3.9 gate evaluation composition)
+- [x] § 3.7 Cycle 15 Option A forward-link AMENDED with Track 2 D3 context (Option A = one branch; Option C = alternative; D3 deferred)
+- [x] Per-archetype gate evaluates AFTER stratified floor + ceiling bypass (composition order preserved in § 3.9 gate evaluation composition)
+
+### Discipline #18 refinement compliance
+
+- [x] Track 1 documented as baseline empirical signal — § 3.9 "Track 1 = baseline empirical signal (Discipline #18 refinement § 18.2)" + § 3.10 explicit methodology consultation timing
+- [x] Track 2 D3 deferred — consumes Track 1 telemetry for architectural commitment — § 3.10 "Track 2 consumes Track 1 telemetry" explicit cross-reference
+
+### Acceptance criteria verification
+
+- [x] Phase 7 canonical doc amended per Discipline #40 case (c) 6-step retraction (SECOND iteration) — §§ 3.8-3.10
+- [x] Per-damage-path KPM band canonical authority established (4 archetypes × 4 cohorts = 16 values; references gamora Track 1 sweep telemetry) — § 3.9
+- [x] Option F Phase 1 § 3.5-3.6 PRESERVED (stratified floor + ceiling bypass) — confirmed above
+- [x] Track 2 forward-link D3-deferred non-committal phrasing — §§ 3.7 AMENDED + 3.10
+- [x] Discipline #13a + #45 verified at per-archetype canonical text — § 3.9 compliance verification block
+- [x] STATUS line updated per Matt D1 — header updated
+
+### Framing-refusal scope (Discipline #44 check)
+
+Discipline #42 framing-audit did NOT surface additional retraction scope beyond Track 1. The "VALUES PENDING" notation in § 3.9 band table is not a scaffold — it is a correct forward-reference to telemetry that gamora Track 1 produces. The architecture is canonically locked; the numeric values are pending Track 1 completion. No Discipline #44 framing-refusal warranted. No additional retraction surfaced.
+
+### Cross-seam co-completion note
+
+This canonical re-write fires parallel with gamora Track 1 sweep. When gamora Track 1 completes and files `option-f-track-1-calibration-telemetry.json`, the 16 cell values in § 3.9 should be populated by a follow-on amendment to this canonical doc. The completion record should be appended to the gamora Track 1 dispatch at `agentic_orchestration/dispatches/2026-05-28-gamora-option-f-track-1-per-damage-path-kpm-bands.md` with a cross-reference pointer to this doc § 3.9 "VALUES PENDING" block.
+
+**Target for gamora Track 1 co-completion amendment:** `reincarnated-engine/design/math/phase-7-2-layer-joint-gate-thresholds-2026-05-27.md` § 3.9 table — replace the 16 `BAND[archetype][cohort]` placeholder cells with the numeric `(midpoint, ±0.25)` values from `option-f-track-1-calibration-telemetry.json`.
