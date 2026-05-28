@@ -455,6 +455,34 @@ Gamora SC-7 ✅ COMPLETE at engine `e7af7db` + tag `gamora/v1.8-sc-7-base-spell-
 - jack-ryan Phase 7 canonical re-write per Discipline #40 case (c) 6-step retraction (~0.25d)
 
 **Cycle 14 v1 close trajectory at Matt D1 ratification:** ~0.75d unblock → Wave 5 cascade resumes via rocket's `run_phase3_from_staged_phase2()` with Option F Phase 1 gate → ~3-5d drax player-surface close parallel (Dispatches F + C + Sidecar G-2 + H) → end-to-end **~4-7 days from this ratification**.
+
+**Matt 2026-05-28 ADDITIONAL RATIFICATIONS D4-D13 + watch surfaces W1-W6 (Cycle 14 forward-look + parallelization framework):**
+
+- **D4 RATIFIED:** Wave 5 = 3 production seasons (was 1 per Position B). Trigger B threshold validation requires N>1. Q-W5-G1 closed.
+- **D5 RATIFIED:** Seasonal hero = H-5 hybrid (substrate top-3 + gandalf curation tiebreak) per doc 49 + spec `574624a`; pre-locked. Hero selected from season_001 POST Gate-2 PASS.
+- **D6 RATIFIED:** A/B comparison success criteria PRE-LOCKED (bias guard): "Substrate-led vindicated" = ≥3 of (cluster count / primary axis-cohort assignment / named-anchor distribution / lineage-modal composition) DIFFER from doc 48; "Convergence on similar shape" = ≥3 MATCH → Discipline #41 stress-test PASSED; doc 48 stays VESTIGIAL. BOTH legitimate.
+- **D7 RATIFIED:** Trigger B escalation = 3-fail/season → Matt Pattern-B. No auto-retry beyond 3; no auto-abandon. Likely scaffold-drift case #7+.
+- **D8 RATIFIED:** Cycle 14 image pipeline scope cap: 1 seasonal hero (manual rigging + Meshy embed) + 20-30 supplementary portraits (auto-batch image-only). DEFERRED Cycle 15: armor-set portraits, T/A poses non-hero, Meshy embeds supplementary.
+- **D9 RATIFIED:** Cycle 14 v1 tag = `v1-cycle-14-no-classes-substrate-led`. Close criteria: (a) Wave 5 emits ≥12/18 kits × 3 seasons; (b) Gate-2 PASS each; (c) A/B comparison filed; (d) Disciplines #41-#46 batched canonical-write; (e) Matt ratifies tag.
+- **D10 RATIFIED:** Disciplines #41-#46 jack-ryan canonical-write BATCHED POST Wave 5 Gate-2 (not interspersed in-flight).
+- **D11 RATIFIED:** Loadout per-workstream push pattern for Cycle 14; drax pushes after each dispatch lands + smoke PASS. Already-pushed Dispatch B + G + A at loadout `42e9393..7fb763b` validates pattern.
+- **D12 RATIFIED:** Loadout sample-data baseline = season_001. Other 2 seasons inform Trigger B only (drax wires once vs 3×).
+- **D13 RATIFIED:** Parallel-fire authorization. Post season_001 Gate-2 PASS, P1-P9 fire PARALLEL with season_002+003 production:
+  - P1 A/B PRELIMINARY (finalized at N=3)
+  - P2 Drax loadout sample-data wiring (D12 baseline)
+  - P3 Image pipeline auto-batch (~20-30 portraits per D8)
+  - P4 Matt manual rigging on H-5 hero (~30 min)
+  - P5 Drax Dispatch H Meshy embed (post-P4)
+  - P6 Personage internal coherence test (intra-season)
+  - P7 Drax Dispatch C Summary tab faction-grouped
+  - P8 Drax Dispatch F Analytics/Encounters
+  - P9 Sidecar G-2 Equivalent portraits
+
+  A/B PRELIMINARY→FINAL reconciliation: agreement = ratified; divergence = gandalf+jack-ryan recommend canonical reading (default intersection); Matt tiebreak. Sequential gating (N=3) preserved for: seasons 002+003 emit + Gate-2, Trigger B verdict, A/B final, personage cross-season convergence, Disciplines #41-#46 canonical-write, v1 tag. Trigger B fail seasons 002/003 → halt parallel track until D7 escalation resolved.
+
+**Watch surfaces W1-W6 logged at gandalf notes** (KR + sub-agent awareness; not Matt-decisions).
+
+Wave 5 dispatch AMENDED 2026-05-28 with D4 + D7 + D13 + D5 + D6 + D9 + D10 framework.
 - Step 2 ⏳ POST step 1: KR fires gandalf #43 design-quality audit + A/B comparison + personage convergence
 - Step 3 ⏳ POST step 2: KR fires jack-ryan Gate-2 review
 - Step 4 ⏳ PASS branch: KR fires gamora (small) canonical_archetype_register commit + Court accumulation

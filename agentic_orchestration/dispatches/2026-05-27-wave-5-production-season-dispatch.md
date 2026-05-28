@@ -17,18 +17,45 @@
 
 ## Context
 
-**Matt pre-ratification #4 (Wave 5 production season parameters; AMENDED 2026-05-27 to Position B; LOCKED):**
+**Matt pre-ratification #4 (Wave 5 production season parameters; AMENDED 2026-05-27 to Position B + EXTENDED 2026-05-28 D4 to 3-season; LOCKED):**
 
-> **AMENDMENT 2026-05-27** — Matt replaced 3-smoke + 1 PRD pattern with Position B: single iterative generation with explicit audit gate before canonical commitment. Original 3-smoke retired.
+> **AMENDMENT 2026-05-27** — Position B per-season: single iterative generation with explicit audit gate before canonical commitment.
+> **EXTENSION 2026-05-28 D4:** Wave 5 = 3 production seasons (was 1). Trigger B threshold validation requires N>1. Q-W5-G1 closed.
+> **D7 ESCALATION POLICY:** 3-fail per season → Matt Pattern-B (no auto-retry beyond 3; no auto-abandon; likely scaffold-drift case #7+).
 
-- **Generation:** `cycle-14-wave-5-season-001` — full Phase 2-7 pipeline; ALL gates fire
-- **Audit gate BEFORE canonical commitment:** gandalf design-quality audit (Discipline #43) + jack-ryan Gate-2 review on output; **NO Court of Forms persistence + NO `canonical_archetype_register` registration until audit PASS**
-- **If audit PASS:** commit as `cycle-14-production-season-001` (Cycle 14 Wave 5 CANONICAL; Spirits enter Court; first-emergence registration locks)
-- **If audit FAIL:** audit feedback informs recalibration (Phase 7 thresholds / parameters / prompts); regenerate as `cycle-14-wave-5-season-002`; retry up to **3 attempts max**; escalate to Matt Pattern B if 3 attempts fail
-- **LLM cost per Cycle 14 close:** ~$0.65-$5.30 (vs $1.30-$10.60 under Position C; vs $2.60-$21.20 under Position A 3-smoke)
-- **Pre-Wave-5 calibration discipline preserved** via Phase 7 threshold calibration + Gate-2 reviews + design-quality audits at every wave-close (12-discipline stack)
-- **Fresh roster** per Q9 + Q10 ratification
-- **Guardrails against algorithm degeneracy** (empty seasons / over-saturated / throwaway / LLM blowup / per-cell blowup) STILL fire — guardrails are degeneracy detection, not retry mechanism; degeneracy triggers Pattern B Matt escalation, not silent retry
+- **Per-season generation:** `cycle-14-wave-5-season-NNN` (N=001/002/003) — full Phase 2-7 pipeline; ALL gates fire
+- **Per-season audit gate:** gandalf #43 + jack-ryan Gate-2; NO Court persistence + NO `canonical_archetype_register` until audit PASS
+- **Per-season PASS:** commit as `cycle-14-production-season-NNN` (CANONICAL); first-emergence registration locks per season
+- **Per-season FAIL:** audit feedback → recalibrate → regenerate (up to 3 attempts/season); 3-fail → Matt Pattern-B (D7)
+- **D9 Wave 5 close criterion:** ≥12/18 kits emit + Gate-2 PASS each of 3 seasons + A/B filed + Disciplines #41-#46 batched canonical-write (D10 POST Wave 5 Gate-2) + Matt ratifies tag `v1-cycle-14-no-classes-substrate-led`
+- **LLM cost per Cycle 14 close:** ~$2.00-$16.00 (3× single-season Position B)
+- **Fresh roster** per Q9+Q10 per season; **Guardrails STILL fire** (degeneracy → Pattern B escalation, not silent retry)
+
+**D13 PARALLEL-FIRE AUTHORIZATION (post season_001 Gate-2 PASS):**
+
+P1-P9 fan-out fires PARALLEL with season_002 + season_003 production:
+- P1: A/B comparison vs doc 48 (PRELIMINARY; finalized at N=3)
+- P2: Drax loadout sample-data wiring (D12 baseline = season_001)
+- P3: Image pipeline auto-batch (~20-30 portraits per D8 scope cap)
+- P4: Matt manual rigging on H-5 hero (~30 min)
+- P5: Drax Dispatch H Meshy embed (post-P4)
+- P6: Personage internal coherence test (intra-season)
+- P7: Drax Dispatch C Summary tab faction-grouped
+- P8: Drax Dispatch F Analytics + Encounters wiring
+- P9: Sidecar G-2 Equivalent portraits
+
+**A/B PRELIMINARY → FINAL reconciliation:** if season_001 verdict + N=3 verdict agree → ratified; if diverge → gandalf+jack-ryan recommend canonical reading (default: intersection of agreement across seasons); Matt tiebreak.
+
+**Sequential gating (N=3 required) preserved for:** seasons 002+003 emit + Gate-2 each, Trigger B verdict, A/B finalization, personage cross-season convergence, Disciplines #41-#46 canonical-write, v1 tag.
+
+**Trigger B fail on seasons 002/003** → halt parallel track until D7 escalation resolved.
+
+**D5 seasonal hero:** H-5 hybrid (substrate top-3 + gandalf curation tiebreak) per doc 49 + gandalf seasonal_hero spec `574624a`; pre-locked. Hero selected from season_001 POST Gate-2 PASS.
+
+**D6 A/B success criteria pre-locked (bias guard):**
+- "Substrate-led recommitment vindicated" = clusters differ from doc 48 on ≥3 of: cluster count, primary axis-cohort assignment, named-anchor distribution, lineage-modal composition
+- "Convergence on similar shape" = clusters match on ≥3 of above → Discipline #41 stress-test PASSED; doc 48 stays VESTIGIAL; no return to class-roster authoring
+- BOTH outcomes legitimate; pre-defining prevents post-hoc bias
 
 **Trigger B operationalization** (per gamora Dispatch 3A hand-back item 5): actionable when first 3 production wave-closes PASS under jack-ryan Discipline #43 authority — confirms pre-ratification + sequences post-Wave-5
 
