@@ -1662,10 +1662,52 @@ Phase 3d RE-RUN gates on Part 2 gamora wiring close.
 
 | Sub-stream | Status |
 |---|---|
-| **Part 1 rocket** | ✅ `3db9ca8` + tag `rocket/v1.11` (7.3min) |
-| **Part 2 gamora wiring** | 🔥 firing |
-| Phase 3d RE-RUN gamora | ⏳ sequential post Part 2 close |
+| **Part 1 rocket** | ✅ `3db9ca8` + tag `rocket/v1.11` (7.3min) — case 17 RESOLVED |
+| **Part 2 gamora wiring** | ✅ `b3214c3` + tag `gamora/v2.12` (16min) — case 18 RESOLVED |
+| Phase 3d RE-RUN gamora | 🔥 firing (~few hours under #1.1 compression) |
 | Phase 4 RE-RUN gamora | ⏳ sequential post Phase 3d RE-RUN |
+
+---
+
+### PHASE 3e PART 2 GAMORA WIRING COMPLETE 2026-05-28 EVENING LATE (CASE 18 RESOLVED)
+
+**Engine `b3214c3` + `bb9f47f` AGENT_STATE + tag `gamora/v2.12-w-alpha-7-plus-phase-3e-part-2-alteration-wiring-1`** (~16min fire).
+
+**Root cause fixed:** `_build_real_player_class()` in `season_generation_pipeline.py` was NOT passing `alteration_fields` to `PlayerClass` construction → T4 ELEMENT_CONVERSION element override (`canonical_element → "fire"`) NEVER applied during Phase 4 gauntlet runs.
+
+**Implementation:**
+- `season_generation_pipeline.py`: `KitCandidate.t4_alteration_variants` field; `_gamora_fields_from_t4_candidate()` helper; `_build_real_player_class()` alteration_fields param + injection into `t4_alteration_output`; `_kit_candidate_from_dict()` loads variants from phase2 JSON; `_build_legendary_config()` loop passes per-candidate alteration_fields
+- `combatant.py from_player_class()`: auto-extracts `alteration_fields` from `PlayerClass.t4_alteration_output["gamora_combatant_fields"]` when param is None (backward-compatible)
+- `unified_calibration_loop.py:2408`: Discipline #12 NOTE updated; **"not a limitation" framing RETIRED**
+
+**Smoke verification:**
+- 8 unit tests PASS
+- Smoke fight PASS
+- T4 ELEMENT_CONVERSION confirmed on combatant
+- All 12 skills at `canonical_element="fire"` ✅
+- **Element-affinity gear modifier path (25.0%) confirmed active** ✅
+- 8 pre-existing test failures unchanged (stash-verified; unrelated)
+
+**Discipline #12 semantic shift declared:** "T4 variant cycling = not a limitation" framing RETIRED. T4 element conversion is now functionally wired end-to-end.
+
+**MIGRATION.md § v1.49** filed.
+
+---
+
+### PHASE 3d RE-RUN FIRING — BASE_DAMAGE_L50 RE-DERIVATION UNDER T4 CONTEXT
+
+Per gandalf design lock Q2 (specialization mechanism = Phase 3d `base_at_max` under T4 context) + Part 1+2 close.
+
+**Scope:**
+- Re-run Option A all-skills-max calibration sweep with Part 2 wiring ACTIVE (T4 alteration_fields flow through to combatants; element-affinity gear modifier path active)
+- Derive new BASE_DAMAGE_L50 values under T4 context (with element-affinity gear shift active for ELEMENT_CONVERSION T4 variants)
+- Preserve: TIER_COEFFICIENTS {1.00, 1.50, 2.17, 4.00}; W-α1 parity 2.337; per-tier ratio 1:1.5:2.17:4.0; doc 50 § 4.1 Target 1 ≤1.5×
+- Output: `base_at_max` distribution under T4 context that enables Target 4 specialization peaks via Phase 4 RE-RUN
+- Tag: `gamora/v2.13-w-alpha-7-plus-phase-3d-rerun-t4-context-1` (suggested)
+
+**Cascade post Phase 3d RE-RUN close:**
+- Phase 4 RE-RUN gamora multi-dim sweep (paths × cohorts × encounter_types × investment_levels × T4_variants)
+- Expected: 5/5 BVV compound_pass=True (Target 4 now achievable via element-affinity gear shift under T4 context per Phase 3d RE-RUN base_at_max distribution)
 
 **Cycle 14 v1 close trajectory: ~14-22d from this evening ratification.** Path α 4-6 week budget intact (~42 calendar days; current ~Day 0; v1 lands ~Day 14-22 leaving ~20-28 days margin).
 
