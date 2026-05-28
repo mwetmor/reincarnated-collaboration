@@ -125,4 +125,46 @@
 
 ## Completion record
 
-(append on completion)
+**Completed:** 2026-05-27
+**Commit:** d7b4a28 (loadout repo)
+**Build:** tsc -b clean + vite build clean (866 modules, 0 TS errors) + 81/81 tests passing
+**Push status:** PENDING Matt authorization (ADR-006)
+
+### Discipline #42 framing-audit results
+
+**Q-DG-1 (Court tab regression cause):** NOT caused by Dispatch A or B. Git diff `42e9393..HEAD` confirmed only ActionBar.tsx, constants.ts, useSkillBuild.ts, Loadout.tsx changed — Nav.tsx and routing untouched. Court tab IS present in Nav.tsx and App.tsx unconditionally. Root cause: nav has 6 items in overflow-x-auto; at 375px mobile, last tab(s) require horizontal swipe with no visual indicator. Pre-existing bug, not Dispatch A/B regression.
+
+**Q-DG-2 (mobile blank column):** Root cause was schema mismatch — Hypothesis C (grid column adaptation). SkillTree hardcoded CHAINS = ['chain_A','chain_B','chain_C','chain_D'] but cycle-13 uses chain IDs `t4_chain_1`, `t4_chain_2`, `supporting_chain_1`. 100% mismatch → entire SkillTree rendered only the A/B/C/D header row with blank tier rows. Also: cycle-13 emits `tier:'1'` (string) vs expected number.
+
+**Q-DG-3 (design button):** Inline element in ClassHeader, not fixed/floating. On mobile the flex-wrap row rendered the toggle mid-header section below character name/stats/season block, cluttering the character focus area. No architectural issue — `hidden sm:flex` fix scoped correctly.
+
+**Q3 scope check:** All 3 root causes are CSS/component-level fixes. Discipline #44 framing-refusal NOT triggered.
+
+### Acceptance criteria status
+
+- [x] Court tab presence verified in nav across all viewports — present and correct; right-fade gradient added for mobile scroll discoverability
+- [x] Mobile blank column root cause identified (SkillTree chain ID mismatch with cycle-13 data) + remediated (dynamic chain/tier detection)
+- [x] Mobile design button positioning fixed — `hidden sm:flex` on DesignModeToggle in Loadout.tsx + Sample.tsx; character/class name not obscured on mobile
+- [x] No regression to Dispatch A vocab lock fixes — Discipline #45 grep clean
+- [x] Build clean — tsc -b + vite build; 81/81 tests passing
+- [x] Completion record appended
+- [ ] Commit — pending
+- [ ] Push — pending Matt authorization
+
+### Files changed
+
+- `src/components/Nav.tsx` — right-fade overflow gradient (mobile scroll indicator)
+- `src/components/SkillTree/SkillTree.tsx` — dynamic chain/tier detection replacing hardcoded CHAINS/TIERS constants
+- `src/pages/Loadout.tsx` — DesignModeToggle hidden on mobile (`hidden sm:flex`)
+- `src/pages/Sample.tsx` — DesignModeToggle hidden on mobile (`hidden sm:flex`)
+- `AGENT_STATE.md` — Dispatch G session record
+
+### Open questions resolved
+
+- Q-DG-1: Pre-existing nav overflow discoverability issue (not Dispatch A/B regression). Nav-fade fix applied.
+- Q-DG-2: SkillTree chain ID hardcoding was root cause. Dynamic chain detection fix applied. Cycle-13 SkillTree now renders actual skills in T4-1, T4-2, S-1 columns.
+- Q-DG-3: Position-fix-only (hidden sm:flex). No layout-anchor architecture issue.
+
+### Hand-back note
+
+Loadout commits pending push-batch authorization: Dispatch B `af155be` + `20e9288` + Dispatch G commit (this session). All three are routine work-products of Matt-authorized cycle work per CLAUDE.md commit discipline. Push requires Matt explicit authorization per ADR-006.
