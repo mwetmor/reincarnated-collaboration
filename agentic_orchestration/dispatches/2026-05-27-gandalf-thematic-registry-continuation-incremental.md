@@ -157,7 +157,46 @@ Prior dispatch `2026-05-27-gandalf-thematic-registry-authoring.md` fired sub-age
 **Wave 3 unblock:** still PENDING — gates on Stage 4 completion + sign-off
 
 ### Stage 3
-(pending)
+
+**Status:** COMPLETE 2026-05-27
+**Commit:** `1f363b5` — `gandalf: THEMATIC_REGISTRY Stage 3 — per-cell sketches`
+**Push:** confirmed origin/main (`b268dec..1f363b5`)
+**File:** `canonical/story/thematic-registry-2026-05-27.md` extended to 1248 lines (Stage 2 = 422 lines; Stage 3 added § 7 per-cell sketches across 15 dense cells + § 7.16 SPARSE labels + § 7.17 EMPTY labels + § 7 closure notes; net +827 lines, -1 line removing the Stage-3-pending stub)
+**Cell selection:** 15 dense cells (within dispatch 12-15 expected range):
+- § 7.1 fire × european
+- § 7.2 fire × east_asian
+- § 7.3 fire × middle_eastern
+- § 7.4 water × east_asian
+- § 7.5 water × european
+- § 7.6 earth × european
+- § 7.7 earth × east_asian
+- § 7.8 wind × middle_eastern
+- § 7.9 wind × east_asian
+- § 7.10 shadow × european
+- § 7.11 shadow × east_asian
+- § 7.12 lightning × european
+- § 7.13 lightning × south_asian
+- § 7.14 faith-holy × european
+- § 7.15 faith-holy × middle_eastern
+**Entry count:** 15 dense cells × 31 entries each (10E + 10M + 5A + 3P + 3L per cell, per Ground Rule #3 target distribution) = **465 lineage-anchored entries** at Stage 3. Combined with § 6 element-only (200 entries) = **665 total registry entries** at Stage 3 closure.
+**SPARSE labels (§ 7.16):** 11 enumerated cells (arcane × european, arcane × east_asian, faith-holy × south_asian, water × southeast_asian, earth × south_asian, fire × south_asian, wind × european, lightning × east_asian, shadow × middle_eastern, fire × fantasy_generic + ~30 implied across moderate-lineage × off-axis-element cells). SPARSE-cell consumption pattern documented inline (fallback to element-only § 6 + lineage-adjacent dense cell at fire-time).
+**EMPTY labels (§ 7.17):** 10 enumerated dispositions (any element × african / n.am.indigenous / s.am.indigenous / arctic_circumpolar / oceanic / sci_fi_generic / mesoamerican; plus faith-holy × east_asian; arcane × middle_eastern; remainder of 720-cell space). EMPTY-cell consumption pattern documented inline (fallback to element-only § 6 + meta-tag handling per § 4 + `[contamination-watch]` weighting at marginal-lineage cells).
+**Substrate density baseline captured in § 7 header:** v1_scope=1 lineage distribution queried from `~/Games/reincarnated-loadout/data/telemetry.db` weapon_knowledge_entries (2026-05-27): fantasy_generic 1124 / european 952 / east_asian 263 / south_asian 78 / middle_eastern 36 / southeast_asian 27 / mesoamerican 9 / unknown / south_american_indigenous 4 / african 2 / n.am.indigenous + arctic_circumpolar + oceanic + sci_fi_generic 0. Why-middle_eastern-reads-dense rationale documented inline (thematic-canon-augmented per Ground Rule #1).
+**Discipline #41 mid-stage grep audit:** PASS after surgical fix of three class-vocab leaks caught:
+  1. "the smith-monk" (§ 7.2 archetype-name) → "the smith-ascetic" (monk in ban list)
+  2. "the wind that scattered the assassin's footprints" (§ 7.8 motif) → "the wind that scattered the night-walker's footprints" (assassin in ban list)
+  3. "the rooftop where the assassin waited two nights" (§ 7.11 motif) → "the rooftop where the shadow-walker waited two nights" (assassin in ban list)
+All remaining grep hits inside file are META-TEXT (Substrate-anchor prose / Ground Rule definitions / consumption-pattern descriptions / contamination-watch annotations) — zero leaks inside ACTUAL entries that the LLM would sample. Borderline "the pilgrim" (§ 7.14, § 7.15 archetype-name) and "pilgrim-stoned" (§ 7.15 epithet) annotated as narrative-role-not-combat-role / scriptural-anchor-not-class-token per Ground Rule #4 disambiguation.
+**[contamination-watch] markers retained:** applied at § 7.16 (shadow × middle_eastern assassin-canon caution annotated `[contamination-watch: assassin lineage requires care — historical-figure not class-token]`) and § 7.17 (all 4 marginal-lineage EMPTY cells per Stage 1 § 4 disposition: n.am.indigenous / s.am.indigenous / arctic_circumpolar / oceanic).
+**Stage 3 design decisions captured in § 7 closure notes:**
+- Place-name and lore-fragment entries authored per dense cell (Stage 2 § 6 closure deferral resolved — both term-types require lineage-binding which Stage 3 supplies)
+- Cross-element collision noted inline with `[also valid as X]` marker (single explicit case: "ember-veiled" in § 7.2 fire × east_asian and § 7.3 fire × middle_eastern)
+- Within-cell semantic disambiguation noted inline (§ 7.5 water-fen "fen-born" vs § 7.6 earth-fen "fen-rooted")
+- 15 dense cells selected within dispatch 12-15 envelope per gandalf judgment; arcane and faith-holy × east_asian both flagged as Cycle 15+ augmentation candidates (substrate primarily blade-canon so non-weapon-substrate re-curation needed first)
+- SPARSE + EMPTY consumption patterns documented inline (fallback hierarchy: element-only § 6 → lineage-adjacent dense cell → meta-tag handling)
+**Stage budget:** completed well under 600s; no Stage-3a/3b split needed (fallback unused).
+**Next:** KR to fire Stage 4 (§ 8 anti-patterns + § 9 consumption-pattern documentation + § 10 Cycle 15+ expansion path + Sign-off with Discipline #41 full grep-audit verification + Discipline #42 framing-audit record + Wave 3 unblock signal).
+**Wave 3 unblock:** still PENDING — gates on Stage 4 completion + sign-off.
 
 ### Stage 4
 (pending)
