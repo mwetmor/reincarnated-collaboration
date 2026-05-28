@@ -156,3 +156,32 @@ No new architectural surprises beyond what kicker § 3 + the dispatch refutation
 Per dispatch hand-back spec: KR fires next gandalf-touching work post-completion (gandalf OP amendment, then Phase 7 Seam 1, then Wave 3 Seam 1, then A/B comparison protocol). Plus rocket Dispatch 3B Seam 1 PM-1 + G-B impl fires after this lands (rocket consumes G-B spec at § 13).
 
 **Signed:** sub-agent gandalf (story-and-design steward)
+
+---
+
+## INFO-1 follow-on completion record (rocket)
+
+**Completion timestamp:** 2026-05-27 (Pattern-A apply by sub-agent rocket)
+**Executor:** sub-agent rocket (INFO-1 follow-on per jack-ryan Path-III LIGHT re-Gate-1 verification note)
+**Effort actual:** ~5 min (mechanical; within ~5-10 min estimate)
+
+### What landed
+
+**Code fix:** `~/Games/reincarnated-engine/src/reincarnated/generation/phase5_pm1_multimodal_clustering.py` — `_apply_gb_tiebreak` step 4 return value changed from `"geometry_divergence_tiebreak"` to `"lexicographic_tiebreak"` (line 1042). Step 3 return (`"geometry_divergence_tiebreak"` at line 1036) is unchanged and correct.
+
+**Test updates** (3 call sites in `tests/test_dispatch_3b_phase5_seam1_pm1_gb.py`):
+- `test_tiebreak_lineage_diversity_preferred` (line 477): added `"lexicographic_tiebreak"` to the valid-rationale tuple
+- `test_tiebreak_valid_rationale_values` (line 500): added `"lexicographic_tiebreak"` to `valid_rationales` set
+- `test_10_season_tiebreak_rate_under_20pct` (line 655): added `"lexicographic_tiebreak"` to tiebreak-event counting set (step 4 is a tiebreak event; correct to include in rate)
+
+**Test run:** 50/50 PASS, 0 regressions.
+
+### Enum string verification
+
+PM-2 § 13.3 amendment at engine `0cf4f3a` lists `"lexicographic_tiebreak"` as the 5th permitted value verbatim. Impl now matches spec exactly.
+
+### Caller-site grep findings
+
+`_apply_gb_tiebreak` has one call site: `select_primary_faction_pair` line 926. No other code path emits `"geometry_divergence_tiebreak"` when step 4 is the actual resolver. Star-lord seam files `src/reincarnated/export/schemas.py` (line 672) and `src/reincarnated/export/MIGRATION.md` (line 39) still enumerate the old 4-value rationale comment — those are star-lord seam; flagged here for KR to route a star-lord follow-on if schema-comment alignment is desired.
+
+**Signed:** sub-agent rocket
