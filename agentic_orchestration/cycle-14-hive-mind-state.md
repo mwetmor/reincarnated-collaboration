@@ -1266,6 +1266,51 @@ This is the correct inverse of Pattern 1 (per-cast computation in damage_resolve
 
 Both rocket sub-streams CLOSED. Phase 3d gates on 3c close per jack-ryan Gate-1 Amendment 1 hard dependency.
 
+---
+
+### PHASE 3c GAMORA ENCOUNTER HP REBALANCING COMPLETE 2026-05-28 EVENING — CASE 10 RESOLVED
+
+**Engine `7767fc4` + tag `gamora/v2.9-w-alpha-7-plus-phase-3-encounter-hp-rebalance-1`** (~12.8min fire). Discipline #1.1: ~15min projected vs ~25min actual (within normal variance; iterative effective-DPS correction added ~10min).
+
+**HP factor range changes (significant):**
+
+| Tier | Old range | New range | Mid HP change |
+|---|---|---|---|
+| swarm | (0.15, 0.20) | (1.05, 1.60) | 3,500 → 26,500 |
+| magic | (0.35, 0.50) | (3.20, 4.80) | 8,500 → 80,000 |
+| elite | (2.00, 2.75) | (3.25, 5.00) | 47,500 → 82,500 |
+| mini-boss | (5.00, 8.00) | (9.50, 14.50) | 130,000 → 240,000 |
+| **boss** | **(10.50, 12.60)** | **(10.50, 12.60)** | **UNCHANGED — Phase 3d calibration anchor** |
+
+**Derivation rationale (gamora):** at W-α3 DPS, fight engine's effective throughput (boss-empirical anchor: 132,520 HP/s ≈ 54% of raw 288,750 HP/s due to armor + fight mechanics) requires mob HP in tens-of-thousands for multi-tick fights. New HP factors derived to achieve per-encounter `fight_duration` targets (1.0–3.0s) keeping KPM medians well below 600 ceiling while producing differentiated outputs. Elite raised above magic-mid (82,500 > 80,000) preserves HP tier hierarchy.
+
+**Case 10 resolution VERIFIED — T4 1.63× achievability floor across all 6 encounter types:**
+
+| Encounter | KPM median | KPM peak | T4 ratio |
+|---|---|---|---|
+| open_arena | 300 | 490 | **1.63×** ACHIEVABLE [1.5, 2.0] |
+| chokepoint_corridor | 300 | 490 | **1.63×** ACHIEVABLE |
+| magic_pack | 199 | 326 | **1.63×** ACHIEVABLE |
+| elite_pack | 98 | 161 | **1.63×** ACHIEVABLE |
+| mini_boss | 59 | 96 | **1.63×** ACHIEVABLE |
+| boss_with_adds | 60 | 98 | **1.63×** ACHIEVABLE |
+
+1.63× = baseline from cross-path (1.307×) + variance (±25%) at W-α3 DPS. Pattern 1+2 add per-kit-per-encounter investment scaling on top → specialized kits land further into [1.5, 2.0] band per doc 51 § 7.2 composition. Fight durations all ≥10 ticks (vs 1 tick pre-Phase 3c).
+
+**Cross-seam MIGRATION.md § v1.45** filed; touches `generation/endgame_mob_stat_profile.py` per case 8 ANCHOR INTENTS precedent. Star-lord NO action required. **W-α6 ENCOUNTER_COHORT_KPM_BAND now STALE; Phase 4 produces replacement under multi-dim calibration.**
+
+**Phase 3d SIGNAL LIVE** — gamora AGENT_STATE.md updated. Phase 3d must consume new HP factors from commit `7767fc4`.
+
+---
+
+### PHASE 3 ALL SUB-STREAMS CLOSED — PHASE 3d FIRING
+
+**Phase 3 status:**
+- ✅ 3a rocket Pattern 1 (`a57ed89` + tag `rocket/v1.9`; 7.8min)
+- ✅ 3b rocket Pattern 2 (`dad651f` + tag `rocket/v1.10`; 11min)
+- ✅ 3c gamora encounter HP rebalancing (`7767fc4` + tag `gamora/v2.9`; 12.8min)
+- 🔥 3d gamora BASE_DAMAGE_L50 re-derivation (firing; ~1-2d est)
+
 **Cycle 14 v1 close trajectory: ~14-22d from this evening ratification.** Path α 4-6 week budget intact (~42 calendar days; current ~Day 0; v1 lands ~Day 14-22 leaving ~20-28 days margin).
 
 ---
