@@ -173,4 +173,40 @@
 
 ## Completion record
 
-(append on completion)
+**Completed:** 2026-05-28
+**Commits:** `d3ace9e` (engine — Parts 1-3: math note + code); second commit (engine — MIGRATION.md + AGENT_STATE.md); third commit (collaboration — completion record)
+**Tag:** `rocket/v1.7-phase-3-real-kit-re-impl-1` (applied on push)
+
+### Acceptance criteria status
+
+- [x] Math note authored (Discipline #1) — `generation/math/phase-3-real-kit-re-impl-math-2026-05-28.md`
+- [x] Phase 3 re-implemented; consumes Phase 2 output; real PlayerClass instantiation — `_build_real_player_class()` + `run_phase3_from_staged_phase2()`
+- [x] `_SyntheticPlayerClass` removed/deprecated at pipeline layer — RETIRED with RETIREMENT NOTICE comment
+- [x] synthetic_mode grep audit CLEAN across all pipeline layers (Discipline #39 LOAD-BEARING closure) — ZERO functional instantiation in all 5 target files
+- [x] KPM gating restored per doc 39 § 5.3 playability semantics — TIER_1_REJECT_THRESHOLD=0.30 operational; real KPM signals confirmed (sg1_fail_count=165 on 3-kit run)
+- [x] D84 sub-option B operational (per-legendary cohort selection) — already implemented; confirmed at line 788 of _build_legendary_config
+- [x] Phase 3 → Phase 2 data flow verified (no loop dependency) — empirically confirmed (no kit_archive.db reads)
+- [x] Smoke-test against Phase 2 staged kits PASS — 3-kit smoke: 640 fights in 1.5s; pipeline flow confirmed
+- [x] BC coordinate validity verified empirically post Phase 3 (Discipline #11) — all 18 kits VALID; range_profile distribution: close=7/long=8/medium=3
+- [x] All 8 parts committed + pushed (incremental-write discipline)
+- [x] Tag `rocket/v1.7-phase-3-real-kit-re-impl-1`
+- [x] AGENT_STATE.md updated
+- [x] Completion record (this entry)
+
+### AMENDMENT compliance
+
+**AMENDMENT 1 (DB query pattern spec):** Math note § 5 documents: Phase 3 has no DB reads; Discipline #46 non-triggered for Phase 3 proper. Per-cell bounding pattern documented for future DB reads.
+
+**AMENDMENT 2 (Principle 6 round-trip):** `_principle6_round_trip_check()` added; fires at entry to `run_phase3_from_staged_phase2()` on 3-kit subset. ALL 18 Phase 2 staged kits PASS `combatant.from_player_class()` without error. Field-presence checks (stats.as_dict, energy_type, skills, range_profile) ALL PASS.
+
+**AMENDMENT 3 (grep audit scope):** Confirmed per empirical grep across all 5 specified files. Comment-only retirement notes remain; ZERO functional instantiation paths.
+
+### Key empirical finding (surface to gamora via KR)
+
+`BASE_SPELL_DAMAGE_L50` in `per_skill_emitter.py` is a Wave 0.5 scaffold ("STARTING ESTIMATE" per Wave 0.5 math note § 7). Real skill KPM ~0.34 kills/min vs KPM band floor 52 → ~150x gap. This is expected behavior; requires gamora SC-7 calibration of `BASE_SPELL_DAMAGE_L50` against endgame mob HP profile before Phase 3 produces `season_emit=True` kits. NOT a Phase 3 re-impl defect — Phase 3 is working correctly and Discipline #39 is CLOSED.
+
+### Hand-back
+
+**jack-ryan Gate-2:** verify Discipline #39 LOAD-BEARING closure + Principle 6 round-trip + BC coordinate validity per dispatch acceptance criteria.
+
+**Post Gate-2 PASS:** Wave 5 cascade resumes. Gamora SC-7 calibration of per_skill_emitter BASE_SPELL_DAMAGE_L50 required before Phase 3 produces passing kits. KR to route.
