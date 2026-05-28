@@ -2546,3 +2546,103 @@ This is **Matt + gandalf strategic deliberation territory per Matt directive** �
 
 **Re-entry timestamp:** 2026-05-28 (post-freeze hive-mind re-entry under Discipline #47 candidate constraint).
 **Re-entry author:** knight-rider.
+
+---
+
+### MATT ADJUDICATION LOCKED 2026-05-28 — PHASE 4 RE-RUN-3 DISPOSITION + AMENDED CLOSE-CRITERION + KR MODE A CHARGE
+
+**Adjudication record (load-bearing):** `agentic_orchestration/gandalf/notes/2026-05-28-phase-4-rerun-3-adjudication.md` (Pattern A-deep adjudication; Matt-signed-off this session).
+
+**c-hybrid canonical amendments (this session):**
+- `canonical/story/c-hybrid-cell-and-curation-architecture-2026-05-28.md` § 1.1 — candidate BC axis table extended 5 → 10 (added `damage_element_profile`, `ailment_profile`, `hit_dodge_economy`, `movement_profile`, `proxy_summon_possession_split`)
+- § 1.3 — Layer 2-derived velocity granularity added (Loot velocity / Clear velocity / Movement velocity)
+- STATUS line stamped with amendment marker
+
+**R1/R2/R3/R4 disposition LOCKED:**
+
+| Item | Disposition | Rationale |
+|---|---|---|
+| **R1 (DDA 1.75× → 2.0×)** | **REJECT** | Primary universal-EXEMPT (doc 51 § 10.8.9); tuning a SCAFFOLD-Cycle-15-RETIREMENT value mid-Cycle-14 is Discipline #40 violation; 1.75× × 0 KPM = 0 (doesn't rescue T2 either). KR preliminary "won't move needle" understated — it's architecturally theater. |
+| **R2 (preferred_encounter_type)** | **VERIFY-BEFORE-DECIDE** | rocket Pattern-A query: does `preferred_encounter_type` route Secondary T4 variant SELECTION at generation time, or only Primary DDA TARGETING at simulation time? Routing-scope-only → REJECT (universal-EXEMPT); Secondary T4 routing also → Cycle 14.5 hotfix candidate. Likely REJECT under Read B regardless. |
+| **R3 (T2 zero-KPM at boss/mini_boss)** | **CYCLE 14.5 HOTFIX BLOCKING CLOSE** | Independent of T4 layer choice; BASE-damage / fight-engine architecture problem. Player-experience-critical (bosses don't die = functional-broken-at-boss-content). Candidate sub-causes: Case 10 fight-engine timing-floor / BASE under-calibration for high-HP / encounter-class HP miscalibration / combination. gamora forensic dispatch. |
+| **R4 (Secondary T4 cohort peaks)** | **CYCLE 16+ DEFERRAL** | Canonically scoped per c-hybrid § 1.1 BC axis expansion; pre-expansion fix would commit to variant-pool refinement that Cycle 16 expansion may supersede; Secondary T4 ships via strip-and-ship per current generation. |
+| **Two-layer T4 architecture** | **PRESERVE (Read B)** | No code rollback; Matt D1-D6 commits `eb5bd1b` + `1ac272f` preserved; richer v1 MVP. |
+| **Cycle 14 close path** | **Option γ-refined** | Primary + strip-and-ship Secondary + R3 hotfix + canonical capture of Secondary T4 deferral to Cycle 16+. |
+
+**Cycle 14 close-criterion AMENDED (supersedes 5/5 BVV PASS at state file § "MATT 2026-05-28 EVENING RATIFICATION AMENDMENT — PATH α SCOPE REFRAME (INTEGRATED W-α7+)"):**
+
+| T | Status under amendment | Gate close? |
+|---|---|---|
+| T1 DPS variance | PASS at BVV anchor (1.147×); 4/7 profiles pass | **YES** |
+| T2 zero-KPM | FAIL (19 cells); R3 hotfix delivers | **YES — R3 hotfix gates close** |
+| T3 saturation | PASS structural at BVV; PASS all 7 profiles | **YES** |
+| T4 Secondary specialization | FAIL (14/18 fail) | **DROPPED AS GATE — design-intent deferred to Cycle 16+ BC axis expansion** |
+| T5 floor | PASS 0 violations at BVV; PASS all 7 profiles | **YES** |
+
+**Effective amended gate: T1 + T2 + T3 + T5 (4/4 required); T4 explicitly deferred.** Strip-and-ship 18/18 closure remains the v1 MVP shipping mechanism; Primary T4 1.75× DDA universal-guarantee provides universal-floor uplift at preferred_encounter_type; Secondary T4 variants ship per strip-and-ship pruning without cohort-relative peak gate.
+
+**Cycle 16+ deferred commitments capture (per adjudication § 6):**
+
+1. **BC axis expansion** — 5 current + up to 10 candidate (legolas Mode A consultation per Discipline #18 winnows commit set against substrate signal-to-noise)
+2. **Secondary T4 cohort-relative peak delivery** — at expanded BC axis space; re-run Phase 4 T4 specialization metric to verify
+3. **DDA multiplier formal value** — 1.75× SCAFFOLD retired; new value derived from three-dimensional BC space empirical data
+4. **R2 preferred_encounter_type expansion** — under expanded axis space; may compose with multiple BC axes for richer encounter-class routing
+5. **Layer 2-derived velocity granularity instrumentation** — Loot / Clear / Movement velocity per c-hybrid § 1.3 amendment
+
+**Empirical-validation criterion for Cycle 16 entry:** legolas Mode A consultation surfaces substrate signal-to-noise per candidate axis; commit set determined before Cycle 16 wave authoring fires.
+
+---
+
+### KR MODE A HIVE-MIND CHARGE ACTIVE — CYCLE 14 REMAINDER
+
+**Mode A scope:** sustained orchestration of Cycle 14 to v1 MVP closure under the adjudicated disposition. Not routine wave-by-wave reactivity; not single-dispatch firing.
+
+**Next-dispatch sequence (auto-fire under hive-mind decision-routing per Matt 2026-05-23 verbatim directive — KR decides in-scope work; Matt is LAST-resort escalation):**
+
+| Order | Dispatch | Owner | Effort | Sequencing |
+|---|---|---|---|---|
+| **1** | **rocket Pattern-A query** — does `preferred_encounter_type` route Secondary T4 variant SELECTION at generation time, or only Primary DDA TARGETING at simulation time? | rocket | ~30 min | FIRE FIRST (lightest; reduces R-set; likely retires R2 to REJECT under Read B) |
+| **2** | **gamora R3 forensic dispatch** — T2 zero-KPM sub-cause investigation at boss_with_adds + mini_boss; design-spec-as-math handoff; measurable outcome criterion (boss + mini_boss KPM > 0 across all 18 kits at BVV anchor + 7 profiles) | gamora | TBD | FIRE SECOND (after rocket Pattern-A returns) |
+| **3** | **Phase 4 RE-RUN-4** — T2-targeted re-verification sweep; verify T1+T2+T3+T5 passes at BVV anchor + 7 profiles | gamora | ~80s sweep | FIRE THIRD (post R3 fix) |
+| **4** | **Canonical close-criterion capture** — doc 47 § 4.6 + doc 51 § 10.8.9 amendment notes per c-hybrid anchor; Secondary T4 design-intent deferral capture; Cycle 14 close record | gandalf | TBD | FIRE FOURTH (post RE-RUN-4 verifies amended close) |
+| **5** | **jack-ryan Gate-2 wave-close review** + design-quality audit at wave close per OP § 4.6 (Disc #43 candidate) | jack-ryan | TBD | FIRE FIFTH |
+| **6** | **Cycle 14 closure record + Cycle 15 entry pre-scope** + Matt sign-off surface | KR | TBD | FIRE LAST under Mode A; surface to Matt |
+
+**Operational constraints (Discipline #47 candidate ACTIVE):**
+- R47.1-R47.5 per gandalf incident note § 6
+- Single sub-agent at a time; NO parallel fan-out while sweep resident on 8 GB host
+- Pre-flight `vm_stat` confirmation before each sweep fire
+- jack-ryan canonical-write at next QA pass; do NOT block on ratification
+
+**Critique-pair discipline (Pattern E autonomous-pair ratification per Matt pre-authorization at gates not exceeding ADR-002 seam authority):**
+- gandalf Pattern A-light for design reads at dispatch consumption
+- gandalf Pattern A-deep at substantive design-fit verdicts (already locked via this adjudication; further sub-agent gandalf invocation likely at R3 design-spec-as-math handoff + close-criterion canonical amendment)
+- jack-ryan Gate-1 pre-fire + Gate-2 post-output reviews per critique-pair-gate-protocol skill
+
+**Surface to Matt at (and only at):**
+- Pre-fire Gate-1 critique-pair findings exceeding seam authority
+- Post-output Gate-2 BLOCK findings
+- Framing-audit findings (Disc #42 candidate) catching pre-imposed assumption failure
+- Wave-close design-quality audit findings exceeding routine
+- Scope-amendment requests
+- Cycle 14 closure final sign-off
+
+**Deliberation-queue closure (from prior re-entry):**
+
+| Prior queue item | Disposition |
+|---|---|
+| 1. Three-variant proposal calibration philosophy revision (Matt's "engine-per-element-stats finding") | **RETIRED** — reconciled to c-hybrid § 1.1 canonical phrasing: substrate signal underlying new candidate axis `damage_element_profile`; canonically deferred to Cycle 16+ BC axis expansion per adjudication § 6 |
+| 2. RE-RUN-3 forensic → R1/R2/R3 adjudication | **RETIRED** — R1/R2/R3/R4 disposition LOCKED per adjudication this session |
+| 3. Cycle 14 close discipline | **ACTIVE** — amended close-criterion locked (T1+T2+T3+T5; T4 deferred); R3 hotfix gates close |
+| 4. Cycle 15 entry pre-scoping | **HELD until Cycle 14 closes** — KR final-tier dispatch under Mode A item 6 |
+| 5. Discipline #47 jack-ryan canonical ratification | **ACTIVE** — surface at next QA pass; operate under candidate rules immediately |
+
+**Anchors (unchanged per Matt charge):** Engine first / game second / phase third • Substrate-led discipline • Recognition → empirical validation → commit • Math-before-code at math hotspots (incl. R3 fight-engine forensic; design-spec-as-math handoff from gandalf to gamora where math methodology choice is load-bearing) • Framing-audit at dispatch consumption (Disc #42 candidate) • Design-quality audit at wave close (Disc #43 candidate) • Right tool for validation question (Disc #5) • Host-RAM-aware operational concurrency (Disc #47 candidate)
+
+---
+
+### MODE A DISPATCH 1 — ROCKET PATTERN-A QUERY (R2 VERIFICATION)
+
+Authoring this dispatch immediately under hive-mind decision-routing. Pre-flight `vm_stat`: load avg 1.25; ~2.8 GB inactive reclaimable; safe for single rocket sub-agent under R47.4.
+
+
