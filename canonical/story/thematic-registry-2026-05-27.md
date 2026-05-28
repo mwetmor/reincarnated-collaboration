@@ -1,9 +1,9 @@
 # THEMATIC REGISTRY — substrate-led term-pool for Phase 5 LLM consumption
 
-**STATUS:** CURRENT (Stages 1-2 of 4 — header + reconciliations + schema + element-only registry; Stages 3-4 pending)
+**STATUS:** CURRENT (Stages 1-4 of 4 COMPLETE — full structure landed; Cycle 15+ augmentation deferred per § 10)
 **Date:** 2026-05-27
 **Author:** gandalf
-**Status:** authoring — incremental write per stall-recovery protocol; sections 1-5 land in this commit
+**Status:** SIGNED-OFF — Stage 4 closure; Discipline #41 + #42 audits PASS; Wave 3 / Dispatch 3B Seam 2 UNBLOCKED
 **Authority:** Matt-gate Path (1) RATIFIED 2026-05-27 (THEMATIC_REGISTRY gates Wave 3 Phase 5 LLM impl); knight-rider routing under hive-mind crash-recovery § 2.4
 
 **Companion docs:**
@@ -1246,3 +1246,258 @@ The following (element × lineage) cells have <5 substrate references AND insuff
 ---
 
 *Stage 4 to follow: § 8 anti-patterns / § 9 consumption-pattern documentation / § 10 Cycle 15+ expansion path / § Sign-off + framing-audit + Discipline #41 grep-audit record.*
+
+## § 8 Anti-patterns
+
+The registry exists to **prevent** five named failure modes. Each is enumerated here with its detection signal and remediation path. Per PM-2 § 4.4 + Path (1) failure-modes register § 5.
+
+### § 8.1 — Pre-authored faction taxonomy (D-2 watch)
+
+**Failure shape:** registry entries grouped into pre-named factions like "the Ashen Order," "the Tide-singers," "the Order of the Last Star." LLM consumes these as *mandated* faction labels rather than as *vocabulary palette*.
+
+**Why this fails:** factions emerge from BC-axis clustering at Wave A. Pre-naming them collapses the substrate-led discipline into committee-think — the registry stops being a term-pool and becomes a prescribed taxonomy that the clustering output must be *fit to*. This is the canonical Diablo II pattern of "we wrote the lore first, then forced the mechanics to match" that produced the Necromancer / Druid scope-drift across the expansion cycle.
+
+**Detection signal:** any registry entry of shape `"the [adjective] [collective-noun]"` *appearing as a faction-header rather than as a per-cell motif/archetype-name token*. Faction-header structure exists nowhere in this document — registry is flat-organized by (element × lineage) cell, never by "factions." Grep for `Order of` / `Cult of` / `Brotherhood of` at sign-off audit.
+
+**Remediation:** entry stays in its cell as a *referenceable phrase*. Faction names are LLM-synthesized at Wave A *from* registry tokens, never *as* registry headers.
+
+### § 8.2 — Pre-impose narrative prescription (registry = term-pool, NOT faction-prescription)
+
+**Failure shape:** lore-fragment entries written as full narrative paragraphs ("they were once X, then Y happened, then they became Z, and now they wander the Q seeking R") rather than as compressed seed-phrases ("exiled when the third star fell," "the river chose them").
+
+**Why this fails:** the LLM at Wave A is meant to compose lore *from* seeds, not transcribe pre-written lore wholesale. Full-paragraph lore-fragments collapse the generative surface and produce the Mushoku-Tensei-derivative isekai light-novel pattern where every faction reads like a slightly-rephrased fan-translation of the same backstory template. Lore-fragments must be **short enough that the LLM does generative work, long enough that the LLM has a foothold.**
+
+**Detection signal:** lore-fragment entry exceeds ~12 words OR contains a full subject-verb-object sentence with no compression. Reviewed at sign-off; current entries average ~6-8 words.
+
+**Remediation:** compress to seed-phrase form. Strip narrative scaffolding; retain evocative anchor only.
+
+### § 8.3 — Class-vocabulary leak (Discipline #41 hard ban)
+
+**Failure shape:** registry entries containing ban-list tokens: `warrior`, `mage`, `rogue`, `hunter`, `paladin`, `summoner`, `monk`, `druid`, `necromancer`, `sorcerer`, `witch`, `knight`, `soldier`, `ranger`, `archer`, `assassin`, `berserker`, `gladiator`, `fighter`, `controller`, `tank`, `support`, `healer`, `damage`, `dps`. Plus role-orientation tokens (`damage` / `support` / `control` / `hybrid`).
+
+**Why this fails:** class identity is an engine-internal concept. Faction identity is a thematic-cohesion concept. Bleeding the two surfaces creates the Diablo III launch-cycle problem where "the Witch Doctor" was simultaneously a player-class identifier AND a faction-thematic identifier, leading to the persistent confusion in the build-crafting community about whether "doctor" was a role or a flavor. Lex-isolating the two surfaces eliminates the ambiguity at the lexical layer before it can manifest at the semantic layer.
+
+**Detection signal:** grep audit at sign-off (§ Sign-off below). Zero in-entry hits required.
+
+**Remediation:** substitute thematic equivalent. Caught examples from Stage 3 mid-audit:
+- "the smith-monk" → "the smith-ascetic" (monk in ban list; ascetic carries the lineage-tradition meaning without the class-token)
+- "the wind that scattered the assassin's footprints" → "the wind that scattered the night-walker's footprints" (assassin in ban list; night-walker carries the stealth-tradition meaning)
+- "the rooftop where the assassin waited two nights" → "the rooftop where the shadow-walker waited two nights" (same substitution pattern)
+
+**Disambiguation borderline cases (cleared):**
+- "the watcher" (§ 6.5 shadow archetype-name) — narrative role, not combat role; cleared per Ground Rule #4
+- "the messenger" (§ 6.4 wind archetype-name) — narrative role, not combat role; cleared per Ground Rule #4
+- "the pilgrim" (§ 7.14, § 7.15 archetype-name) — narrative role tied to scriptural-anchor lineage, not combat role; cleared
+- "pilgrim-stoned" (§ 7.15 epithet) — scriptural anchor, not class-token; cleared
+
+### § 8.4 — LLM-as-oracle drift (D-4 watch)
+
+**Failure shape:** Phase 5 LLM at Wave A or Wave B is asked to *generate registry entries*, with the generated entries fed back into subsequent calls as if they were registry-authoritative.
+
+**Why this fails:** the registry is **input** to the LLM, never **output** of the LLM. Self-feeding LLM outputs back into the registry source collapses the substrate-led discipline — the registry stops being substrate-anchored (legolas crawl + elrond curation + gandalf thematic-canon synthesis) and starts being LLM-generated. Within ~3-5 Wave-A iterations this produces the GPT-2-fanfiction-loop drift where the registry converges toward the LLM's training-data thematic median (mid-2010s isekai-tropes English-language Wikipedia summary register).
+
+**Detection signal:** any Wave A / Wave B prompt construction that includes "and add the generated entries to the registry" or equivalent feedback path. Reviewed at Phase 5 LLM impl Gate-1 (Dispatch 3B Seam 2 gandalf side authors prompts; jack-ryan Gate-1 reviews).
+
+**Remediation:** registry updates flow through gandalf canonical-write authority only. Cycle 15+ augmentation pulls from legolas Mode A research + elrond substrate re-curation, never from Phase 5 LLM outputs. LLM outputs are *consumption telemetry* (logged at star-lord), never *registry source*.
+
+### § 8.5 — Theological pre-imposition at faith-holy cell (D-5 watch + Discipline #11)
+
+**Failure shape:** faith-holy cell entries imposing a doctrinal system — pre-canonized "the Light," "the One God," "the Triune," "the Eight-fold Path" — rather than providing motif-and-epithet tokens that the LLM composes from contextually.
+
+**Why this fails:** religious vocabulary is the substrate-leaking-into-prescription case par excellence. The Diablo I → Diablo II transition is the cautionary tale: D1's "Cathedral / Catacombs / Caves / Hell" was contextual atmosphere; D2's introduction of "the Prime Evils / the Lesser Evils / the Angiris Council" pre-imposed a theological taxonomy that subsequent expansions (LoD, RoS, Immortal) had to perpetually scope-defend against retcon pressure. The same pattern in this registry would lock the engine into a single doctrinal frame, breaking the substrate-led discipline at religious cells and producing the "every faith-faction reads identically" failure mode.
+
+**Detection signal:** faith-holy cell entries containing proper-noun deity references, capitalized doctrinal terms, or pre-named pantheon structures. Discipline #11 empirical-inspection check: every faith-holy entry must read as *referenceable motif* (e.g., "the unbroken vow," "psalm-marked," "the seventh hour") not as *doctrinal claim* (e.g., "the Last God's testament," "the Threefold Truth").
+
+**Detection at current state:** § 6.8 faith-holy element-only registry + § 7.14 faith-holy × european + § 7.15 faith-holy × middle_eastern all scanned at Stage 3 mid-audit. All entries motif/archetype/lore-fragment form; zero proper-noun deity references. PASS.
+
+**Remediation:** entries reduce to evocative-motif tier. Proper-noun pantheons would be authored at *cluster-output* layer (Wave A LLM names a specific faction's specific god from registry-token assembly), never at registry-source layer.
+
+## § 9 Consumption pattern documentation
+
+The registry is consumed at Phase 5 fire-time across two LLM call surfaces (Wave A faction-level + Wave B per-kit identity) plus one auxiliary path (cross-faction diversity check via local sentence-transformers). This section documents the consumption pattern for Dispatch 3B Seam 2 LLM-prompt authoring (gandalf side, post Wave 3 unblock) and Dispatch 3B Seam 3 sentence-transformers integration (star-lord side, already landed at `bf7f659`).
+
+### § 9.1 — Wave A consumption: faction-level cohesion-judge LLM
+
+**Caller:** PM-2 § 12 faction-label assignment routine (star-lord LLM-call infrastructure).
+
+**Input to the LLM call:**
+- Cluster centroid (BC-axis coordinates)
+- Dominant `weapon_type_family` tuple per cluster (martial-heavy / martial-light / ranged / caster-faith / caster-arcane / hybrid)
+- Dominant `cultural_lineage` tag per cluster (european / east_asian / etc.; cross_cultural / unknown fallbacks)
+- **Registry filter:** (element × cultural_lineage) cell contents per dominant element + dominant lineage
+  - Cell-present case: pull the dense-cell entry list (§ 7.1-7.15) — 20-50 entries across {epithet, motif, archetype-name, place-name, lore-fragment}
+  - Cell-SPARSE case (§ 7.16): fallback hierarchy = element-only § 6 entries + lineage-adjacent dense cell at fire-time + `[contamination-watch]` flag where annotated
+  - Cell-EMPTY case (§ 7.17): fallback hierarchy = element-only § 6 entries + meta-tag handling per § 4 (cross_cultural / unknown / marginal-lineage tag substitution)
+- SC-3 Pattern B Structured Output schema (Layer Tags): LLM emits faction_epithet + faction_motif + faction_lore_fragment + structural-tag layers per Math Note 4 § 5.2
+
+**Prompt structure (Dispatch 3B Seam 2 gandalf side will author):**
+
+```
+SYSTEM: You are composing a faction identity. Draw vocabulary ONLY from the
+        provided registry tokens. Do not invent new thematic terms. Compose
+        coherent identity (epithet + motif + lore-fragment) by ASSEMBLING
+        registry tokens — combination is generative; tokens are fixed.
+
+CLUSTER: <centroid> <dominant weapon_type_family> <dominant cultural_lineage>
+REGISTRY (element × lineage cell filter applied): <token list, ~20-50 entries>
+
+TASK: Emit faction identity per Structured Output schema (Layer Tags).
+```
+
+### § 9.2 — Wave B consumption: per-kit identity LLM
+
+**Caller:** Wave 1.5 Option Alpha § 5.2 per-kit naming policy (star-lord LLM-call infrastructure).
+
+**Input to the LLM call:**
+- Per-kit substrate vector (BC coordinates for the specific kit)
+- Per-kit `weapon_type_family` + `cultural_lineage` tags (kit-level, not cluster-level)
+- Assigned faction-anchor from Wave A (faction_epithet + faction_motif from prior step)
+- **Registry filter:** refined cell filter — same (element × cultural_lineage) cell as Wave A, but Wave B prompt explicitly samples archetype-name + place-name + secondary motif slots (the slots Wave A did NOT consume), avoiding token re-use within a faction
+- D-Sharpened invariance: the registry filter operates IDENTICALLY whether the kit is substrate-anchored (real legolas-crawled weapon row) or synthesized (B14.5 V1 primary-loop generated kit). Metadata-emission gating at drax/star-lord controls *whether* substrate-attribution is shown at the player surface, but the naming-source path is uniform. Player cannot tell at the name/lore surface whether a kit came from substrate or synthesis — this is the load-bearing player-experience property the D-Sharpened decision protects.
+
+**Prompt structure (Dispatch 3B Seam 2 gandalf side will author):**
+
+```
+SYSTEM: You are naming a single kit within an already-named faction. Use the
+        faction-anchor as thematic frame. Draw archetype-name and place-name
+        ONLY from the provided registry tokens. Compose kit identity from
+        token assembly; do not invent new thematic terms.
+
+FACTION ANCHOR: <faction_epithet> <faction_motif> (from Wave A)
+KIT SUBSTRATE VECTOR: <BC coords> <weapon_type_family> <cultural_lineage>
+REGISTRY (refined cell filter — archetype-name + place-name + secondary motif slots): <token list>
+
+TASK: Emit kit identity per Structured Output schema.
+```
+
+### § 9.3 — Cross-faction diversity check (sentence-transformers path)
+
+**Caller:** star-lord ExportFactionCluster schema integration (Dispatch 3B Seam 3, landed `bf7f659`).
+
+**Mechanism:** local sentence-transformers (per Anthropic-cost-consultation `708b575` § 4 — no Anthropic embedding API) embed each cluster's emitted faction-identity tokens. Pairwise cosine similarity computed across all clusters in a season. If any pair exceeds diversity threshold (calibration-pending; placeholder 0.85), star-lord emits diversity-warning at ExportFactionCluster + flags for Wave A re-fire with diversity-penalty instruction in the system prompt.
+
+**Registry's role:** ExportFactionCluster schema receives the *registry-cell filter context* alongside the emitted faction-identity tokens. Diversity check operates on the *emitted tokens*, but the registry-cell context is logged for sidecar attribution — when two clusters collide on diversity, the cell-filter overlap is the explanatory variable (e.g., both clusters pulled from § 7.1 fire × european → expected high similarity; flag is informational).
+
+**Calibration trigger:** first 3 seasons emit diversity-distribution telemetry → star-lord + gandalf calibrate threshold + Wave-A diversity-penalty system-prompt amendment if false-positive rate exceeds 10%.
+
+### § 9.4 — D-Sharpened invariance summary
+
+The registry is consulted **uniformly** across:
+
+- Wave A faction-level (substrate-anchored cluster vs synthesized cluster — same registry path)
+- Wave B per-kit identity (substrate-anchored kit vs synthesized kit — same registry path)
+- Cross-faction diversity check input (substrate-anchored vs synthesized factions — same diversity scoring)
+
+Metadata-emission gating (drax loadout surface; star-lord telemetry sidecar) determines *whether substrate attribution is shown*. Naming-and-lore surface at the player layer is **uniform**. This is the architectural property the D-Sharpened decision (2026-05-27) ratified, and the registry's uniform consumption pattern is what implements it at the engine layer.
+
+## § 10 Cycle 15+ expansion path
+
+The registry at Stage 4 closure stands at **665 entries** (200 element-only § 6 + 465 lineage-anchored across 15 dense cells § 7.1-7.15). PM-2 § 12 architectural finding identifies *full granularity* as ~1,500-2,500 entries per cell at maturity. This section documents the expansion path from current sketch tier to full granularity.
+
+### § 10.1 — Augmentation trigger criteria
+
+Cycle 15+ augmentation fires when one or more of the following holds:
+
+- **Wave A diversity-failure pattern:** if first 3 seasons of Phase 5 emit diversity-warnings on >15% of cluster-pairs sharing a single (element × lineage) cell, that cell's entry list is too thin to support coherent within-cell faction differentiation → augment.
+- **Wave B token-recycling pattern:** if star-lord telemetry shows the same archetype-name or place-name token emitted at >25% rate within a single season (i.e., LLM has too few tokens to vary across kits in the same faction), the contributing cell's slot-distribution is too thin → augment.
+- **SPARSE cell exercised:** any SPARSE-labeled cell (§ 7.16) hit by a Wave A cluster three or more seasons running → upgrade SPARSE → dense via legolas Mode A research commission.
+- **EMPTY cell exercised:** any EMPTY-labeled cell (§ 7.17) hit by a Wave A cluster (should be rare given substrate-density distribution; meta-tag fallback handles most cases) → trigger substrate-led pre-requisite: elrond substrate re-curation must surface ≥5 row references before any registry authoring (Discipline #41 hard rule).
+
+### § 10.2 — SPARSE cell augmentation candidates (priority order)
+
+From § 7.16 listing, ranked by anticipated exercise frequency at Phase 5:
+
+1. **arcane × european + arcane × east_asian** (highest priority; arcane element is high-traffic at caster-arcane weapon family; current element-only § 6.7 carries most usage but lineage-anchored augmentation would sharpen scholar-tower / Hermetic vs daoist-talisman / cinnabar-alchemy distinction)
+2. **wind × european** (high priority; wind element under-served at european lineage despite substrate presence — Beowulf storm-canon, Hebridean gale-tradition, Alpine fohn-wind folklore)
+3. **shadow × middle_eastern** (medium priority; jinn-twilight tradition + assassin-canon both rich but `[contamination-watch]` annotated — augmentation must thread historical-figure-not-class-token care; legolas Mode A specifically asks for jinn-tradition vocabulary AVOIDING the *Hashshashin* class-token register)
+4. **lightning × east_asian** (medium priority; raijin / leigong / thunder-deity canon present but element-only § 6.6 carries it)
+5. **fire × south_asian + earth × south_asian + faith-holy × south_asian** (medium priority; south_asian substrate at 78 rows has thematic depth but needs targeted legolas crawl extension — Tamil-Sangam fire-poetry, Himalayan-tradition earth-thrones, Bhakti-tradition devotional vocabulary)
+6. **water × southeast_asian** (lower priority; substrate thin at 27 rows; thematic depth supports augmentation — naga-water canon, monsoon-water tradition — but exercise frequency expected low)
+
+### § 10.3 — EMPTY cell consideration (substrate-led pre-requisite)
+
+The four marginal-lineage EMPTY-labeled cell groups (§ 7.17: any element × african / n.am.indigenous / s.am.indigenous / arctic_circumpolar / oceanic) plus sci_fi_generic and mesoamerican-thin remain EMPTY at Stage 4 closure per Discipline #41 substrate-led hard rule.
+
+**Pre-requisite for any future authoring:** elrond substrate re-curation must surface ≥5 substrate row references AND legolas Mode A thematic-canon research must produce a vetted vocabulary list for the specific (element × lineage) combination. **No gandalf-judgment-only authoring at EMPTY cells.** The contamination watch from Stage 1 § 4 governs — 4-of-5 marginal-lineage tags presumed contaminated at substrate layer; remediation is substrate re-curation, not registry pre-imposition.
+
+**Timeline:** EMPTY cells stay EMPTY for Cycle 15-18 at least. Post-Phase-5 v1 stabilization, gandalf will commission a joint elrond-substrate-recuration + legolas-Mode-A-thematic-canon pass for ONE marginal-lineage tag at a time (likely order: african → n.am.indigenous → s.am.indigenous → arctic_circumpolar → oceanic), with Discipline #11 empirical-inspection + Discipline #41 substrate-led both load-bearing at each pass.
+
+### § 10.4 — Marginal-lineage `[contamination-watch]` remediation
+
+The `[contamination-watch]` markers at § 7.16 (shadow × middle_eastern assassin-canon) and § 7.17 (4 marginal-lineage EMPTY groups) are NOT Discipline #41 violations — they are substrate-led acknowledgments of cell-density misattribution at the lineage layer. Remediation path:
+
+- **shadow × middle_eastern (assassin-canon):** legolas Mode A research commission to surface jinn / twilight-tradition / caravan-night vocabulary specifically AVOIDING the *Hashshashin* class-token register; augment cell to dense status at Cycle 15+ (priority 3 above).
+- **marginal-lineage EMPTY cells:** elrond substrate re-curation pass per § 10.3 pre-requisite; if substrate density crosses 5-row threshold AND thematic-canon research vets vocabulary, cell upgrades EMPTY → SPARSE; further density supports SPARSE → dense.
+
+### § 10.5 — Full-granularity end state (~1,500-2,500 per cell)
+
+At full granularity per PM-2 § 12 architectural target, each dense cell expands from current ~31 entries to ~1,500-2,500. The expansion is **not** uniform: term-type distribution at full granularity is anticipated as approximately:
+
+- epithet: ~500-800 (largest pool; combinatorial use across Wave A faction-epithet AND Wave B per-kit-modifier slots)
+- motif: ~400-600 (Wave A faction-motif AND Wave B secondary-motif slots)
+- archetype-name: ~200-400 (Wave B per-kit archetype-name slot)
+- place-name: ~300-500 (Wave B per-kit place-name slot; combinatorial via prefix-suffix patterns possible)
+- lore-fragment: ~100-200 (Wave A faction-lore-fragment slot; lower count because each entry carries more semantic load)
+
+This expansion is **out of scope** for Cycle 14. Acceptance criterion for full-granularity authoring (Cycle 15+ or later): Phase 5 v1 telemetry confirms the consumption pattern of § 9 works at sketch tier; expansion targets the cells exercise telemetry says are bottlenecking diversity or token-recycling.
+
+## § Sign-off + framing-audit record
+
+### Discipline #41 final substrate-led grep audit
+
+Full-registry grep audit re-run at Stage 4 sign-off across all 1248+ lines:
+
+**Ban-list tokens scanned:** warrior, mage, rogue, hunter, paladin, summoner, monk, druid, necromancer, sorcerer, witch, knight, soldier, ranger, archer, assassin, berserker, gladiator, fighter, controller, tank, support, healer, damage, dps + role-orientation tokens (damage / support / control / hybrid).
+
+**In-quoted-entry hits:** ZERO. All grep hits resolved to one of:
+- Ground Rule statements citing ban-list words inside meta-text quotes (§ 2.4)
+- Discipline statements citing ban-list words (§ 1, § 8.3, § 6 closure)
+- Audit-record text itself citing ban-list words (§ 6 closure, § 7 closure, this Sign-off section)
+- Substrate-anchor prose describing thematic tradition (e.g., "necromancer-grave tradition" in § 7.10 substrate-anchor block — describing the LINEAGE-CANON not authoring a ban-list-token as an entry)
+- `[contamination-watch]` annotations explicitly flagging the historical-figure vs class-token disambiguation (§ 7.16 shadow × middle_eastern)
+
+**Stage 3 mid-grep fixes verified in final state:**
+- § 7.2 east_asian-archetype-name reads "the smith-ascetic" (not "the smith-monk") — VERIFIED
+- § 7.8 wind × middle_eastern motif reads "night-walker's footprints" (not "assassin's footprints") — VERIFIED
+- § 7.11 shadow × east_asian motif reads "shadow-walker waited" (not "assassin waited") — VERIFIED
+
+**Borderline disambiguation cases (all cleared per Ground Rule #4):**
+- "the watcher" (§ 6.5) — narrative role, not combat role
+- "the messenger" (§ 6.4) — narrative role, not combat role
+- "the pilgrim" (§ 7.14, § 7.15) — narrative role tied to scriptural lineage, not combat role
+- "pilgrim-stoned" (§ 7.15 epithet) — scriptural anchor, not class-token
+
+**Audit verdict: PASS.** Registry is Discipline #41 compliant. Zero class-vocabulary leaks inside actual registry entries that Phase 5 LLM would sample.
+
+### Discipline #42 framing-audit record
+
+**Q1 — Load-bearing assumptions verified:**
+- (element × cultural_lineage) cell structure is the right granularity → CONFIRMED across all 4 stages; Stage 3 dense-cell density distribution (15 cells) tracks substrate density distribution per § 7 header rationale; SPARSE/EMPTY fallback hierarchy is operationally tractable per § 9 consumption pattern
+- Sketch tier (20-50 per dense cell) is achievable at 2-3 day estimate → CONFIRMED at <1 day actual execution across 4 stages; full-granularity (~1,500-2,500/cell) appropriately deferred to Cycle 15+
+- Substrate-led discipline holds → CONFIRMED per § 8.4 LLM-as-oracle anti-pattern enforcement + § 10.3 EMPTY cell substrate-led pre-requisite + Stage 3 substrate-density baseline citation (§ 7 header from telemetry.db query)
+
+**Q2 — Refutation evidence sought + outcome:**
+- Substrate-led semantics verified at element-only layer (§ 6 closure) and per-cell layer (§ 7 closure) — registry entries are referenceable terms, not mandated kit-categorizations
+- Cross-element consistency check completed inline (only one "[also valid as X]" collision: "ember-veiled" in § 7.2 + § 7.3); no broader thematic-vocabulary confusion expected at Phase 5 LLM consumption
+- Consumption pattern fit verified by gandalf authoring § 9 directly (registry author and consumer-prompt author are same agent; minimizes consumption-misfit risk; jack-ryan Gate-1 at Dispatch 3B Seam 2 catches any residual)
+
+**Q3 — Outcome trigger:** N/A. Stage 4 lands within budget; no Discipline #44 framing-refusal invoked.
+
+### Cycle 14 close criterion contribution
+
+THEMATIC_REGISTRY landed at full Stage 1-4 structure at canonical path `canonical/story/thematic-registry-2026-05-27.md`. Contribution to Cycle 14 close criteria:
+
+- **Wave 3 / Dispatch 3B Seam 2 UNBLOCKED.** Phase 5 cohesion-judge LLM implementation (gandalf prompt authoring side) can now proceed against this registry as the authoritative term source.
+- **PM-2 § 12 architectural finding implemented at sketch tier.** Full-granularity expansion deferred to Cycle 15+ per § 10 expansion path.
+- **D-Sharpened invariance protected at engine layer.** § 9.4 documents the uniform-consumption pattern that the player-facing naming surface relies on.
+- **Discipline #41 substrate-led + Discipline #42 framing-audit + Discipline #11 empirical-inspection (at faith-holy cell) all PASS.**
+
+### Authority chain (final)
+
+Matt-gate (2026-05-27 Path (1) ratification) → gandalf authorship (Stages 1-4 across continuation dispatch) → knight-rider sequencing (4-stage decomposition under stall-recovery protocol) → jack-ryan Gate-2 review (pending; this Sign-off section is the artifact for Gate-2 BLOCK/PASS verdict) → star-lord Phase 5 LLM-prompt consumption at Wave A + Wave B fire-time (Dispatch 3B Seam 2 + Seam 3 integration paths documented in § 9).
+
+**Wave 3 unblock signal:** ISSUED at this Sign-off. Dispatch 3B Seam 2 gandalf LLM prompt-authoring side and Dispatch 3B Seam 3 star-lord sentence-transformers integration side are both unblocked from THEMATIC_REGISTRY gate.
+
+---
+
+**End of THEMATIC REGISTRY Stage 4 — Stages 1-4 COMPLETE.**

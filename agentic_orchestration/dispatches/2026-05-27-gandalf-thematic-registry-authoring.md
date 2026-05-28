@@ -128,4 +128,35 @@
 
 ## Completion record
 
-(append on completion)
+**Status:** COMPLETE 2026-05-27 (via continuation dispatch stall-recovery protocol; 4-stage incremental authoring)
+
+**Execution path:** original sub-agent fire `aa14f5225b17bbeb2` watchdog-timed out at 600s with planning complete but no file artifact written. KR routed under hive-mind crash-recovery § 2.4 to continuation dispatch `agentic_orchestration/dispatches/2026-05-27-gandalf-thematic-registry-continuation-incremental.md` which decomposed authoring into 4 incremental <600s stages.
+
+**Continuation dispatch stages:**
+- Stage 1 (`ee96176`): § 1-5 header + ground rules + element reconciliation + lineage reconciliation + per-cell schema (122 lines)
+- Stage 2 (`5cffc14`): § 6 element-only registry — 200 entries across 8 elements (422 lines total)
+- Stage 3 (`1f363b5`): § 7 per-cell sketches — 465 lineage-anchored entries across 15 dense cells + SPARSE/EMPTY labels (1248 lines total)
+- Stage 4 (pending commit): § 8 anti-patterns + § 9 consumption pattern documentation + § 10 Cycle 15+ expansion path + § Sign-off with full audits (1503 lines total)
+
+**Acceptance criteria status:**
+- [x] THEMATIC_REGISTRY landed at canonical path `canonical/story/thematic-registry-2026-05-27.md`
+- [x] (element × cultural_lineage) cell structure populated at sketch tier (15 dense cells; 11 SPARSE-labeled; 10 EMPTY-labeled dispositions)
+- [x] Discipline #41 substrate-led semantics verified (final grep audit PASS — zero class-vocabulary leaks in registry entries; all hits resolve to meta-text)
+- [x] Consumption pattern documented for Phase 5 LLM prompts (§ 9 — Wave A faction-level + Wave B per-kit identity + sentence-transformers diversity check + D-Sharpened invariance)
+- [x] No `class`/`role`/etc. vocabulary in registry (Discipline #41 + #42 grep audit at § Sign-off)
+- [x] Wave 3 unblock signal issued to KR (**Wave 3 / Dispatch 3B Seam 2 gandalf LLM logic UNBLOCKED**)
+- [x] Completion record appended (this entry + continuation dispatch Stage 4 record)
+- [x] Commit + push per Matt 2026-05-27 per-cycle push pattern (4 commits across stages)
+
+**Final state:**
+- Total entries: 665 (200 element-only + 465 lineage-anchored)
+- Total lines: 1503
+- File: `canonical/story/thematic-registry-2026-05-27.md`
+- Discipline audits: #41 PASS / #42 PASS / #11 PASS (faith-holy cell empirical-inspection)
+- Watch-items: marginal-lineage contamination retained as `[contamination-watch]` annotations (5 markers); remediation path documented at § 10.3 + § 10.4 (elrond substrate re-curation as Cycle 15+ candidate)
+
+**Authority chain closed:** Matt-gate Path (1) ratification → gandalf authorship (4 stages) → knight-rider sequencing (stall-recovery decomposition) → jack-ryan Gate-2 review (this artifact at § Sign-off is the Gate-2 input) → star-lord Phase 5 LLM-prompt consumption (Wave A + Wave B fire-time, Dispatch 3B Seam 2 + Seam 3 paths documented).
+
+**Wave 3 unblock signal:** ISSUED to KR. Phase 5 cohesion-judge LLM implementation can now proceed.
+
+**Companion completion record:** see `2026-05-27-gandalf-thematic-registry-continuation-incremental.md` § Per-stage completion records for stage-by-stage detail.

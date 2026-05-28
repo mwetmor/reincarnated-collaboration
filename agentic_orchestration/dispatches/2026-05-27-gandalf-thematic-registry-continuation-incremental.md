@@ -199,4 +199,33 @@ All remaining grep hits inside file are META-TEXT (Substrate-anchor prose / Grou
 **Wave 3 unblock:** still PENDING — gates on Stage 4 completion + sign-off.
 
 ### Stage 4
-(pending)
+
+**Status:** COMPLETE 2026-05-27
+**Commit:** pending push (`gandalf: THEMATIC_REGISTRY Stage 4 — anti-patterns + consumption + expansion + sign-off`)
+**File:** `canonical/story/thematic-registry-2026-05-27.md` extended to 1503 lines (Stage 3 = 1248 lines; Stage 4 added § 8 anti-patterns + § 9 consumption pattern documentation + § 10 Cycle 15+ expansion path + § Sign-off with audits; net +255 lines).
+
+**Stage 4 sections delivered:**
+- **§ 8 Anti-patterns** — five named failure modes per PM-2 § 4.4 + Path (1) failure-modes register § 5: (8.1) pre-authored faction taxonomy [D-2], (8.2) pre-impose narrative prescription, (8.3) class-vocabulary leak [Discipline #41 hard ban — includes Stage 3 mid-grep fix audit trail + borderline disambiguation roster], (8.4) LLM-as-oracle drift [D-4], (8.5) theological pre-imposition at faith-holy cell [D-5 + Discipline #11].
+- **§ 9 Consumption pattern documentation** — four subsections: (9.1) Wave A faction-level cohesion-judge LLM consumption [SC-3 Pattern B Structured Output with Layer Tags; element × cultural_lineage cell filter + SPARSE/EMPTY fallback hierarchy], (9.2) Wave B per-kit identity LLM consumption [refined cell filter operating on archetype-name + place-name + secondary motif slots], (9.3) Cross-faction diversity check via local sentence-transformers [per star-lord ExportFactionCluster schema integration `bf7f659`], (9.4) D-Sharpened invariance summary [uniform registry consumption across substrate-anchored vs synthesized at engine layer; metadata-emission gating at drax/star-lord; player-facing naming surface uniform].
+- **§ 10 Cycle 15+ expansion path** — five subsections: (10.1) augmentation trigger criteria [Wave A diversity-failure / Wave B token-recycling / SPARSE-cell exercised / EMPTY-cell exercised], (10.2) SPARSE cell augmentation candidates priority order [6 entries; arcane × european/east_asian highest], (10.3) EMPTY cell substrate-led pre-requisite [Discipline #41 hard rule — elrond substrate re-curation + legolas Mode A thematic-canon required before authoring], (10.4) marginal-lineage [contamination-watch] remediation, (10.5) full-granularity end state (~1,500-2,500 per cell) with term-type distribution forecast.
+- **§ Sign-off + framing-audit record** — Discipline #41 final grep audit PASS [zero in-quoted-entry hits across full 1503-line file; all hits resolve to Ground Rule statements / Discipline statements / audit-record meta-text / substrate-anchor prose / contamination-watch annotations / cleared borderline disambiguation cases]; Stage 3 mid-grep fixes VERIFIED in final state (smith-ascetic / night-walker / shadow-walker substitutions); Discipline #42 framing-audit Q1/Q2/Q3 record [all assumptions verified; sketch tier achievable; substrate-led discipline holds; Discipline #44 NOT invoked]; Cycle 14 close criterion contribution [Wave 3 / Dispatch 3B Seam 2 UNBLOCKED; PM-2 § 12 implemented at sketch tier; D-Sharpened invariance protected; all 3 disciplines PASS].
+
+**Audit results (FINAL):**
+- **Discipline #41 substrate-led:** PASS — zero class-vocabulary leaks in actual registry entries
+- **Discipline #42 framing-audit:** PASS — Q1/Q2/Q3 all CONFIRMED; Q3 outcome-trigger N/A
+- **Discipline #11 empirical-inspection at faith-holy cell:** PASS — § 6.8 + § 7.14 + § 7.15 all motif/archetype/lore-fragment form; zero proper-noun deity references; zero capitalized doctrinal terms
+
+**Registry final state at Stage 4 closure:**
+- Total lines: 1503
+- Total entries: **665** (200 element-only § 6 + 465 lineage-anchored across 15 dense cells § 7.1-7.15)
+- Dense cell count: 15 (within dispatch 12-15 envelope)
+- SPARSE cell labels: 11 enumerated (§ 7.16) — 6 priority-ordered for Cycle 15+ augmentation
+- EMPTY cell labels: 10 enumerated dispositions (§ 7.17) — substrate-led pre-requisite before any authoring
+- `[contamination-watch]` markers: 5 retained (§ 7.16 shadow × middle_eastern + § 7.17 4 marginal-lineage groups)
+- Companion docs referenced: 6 (PM-2 § 12, Note 4 § 5.2, ground-state, marginal-lineage pattern, continuation dispatch, original dispatch)
+
+**Stage 4 budget:** completed well under 600s; no Stage-4a/4b split required.
+
+**Wave 3 unblock signal:** ISSUED. **Wave 3 / Dispatch 3B Seam 2 gandalf LLM logic UNBLOCKED.** Phase 5 cohesion-judge LLM implementation (gandalf prompt-authoring side) can now proceed against THEMATIC_REGISTRY as the authoritative term source. Dispatch 3B Seam 3 sentence-transformers integration (star-lord side, already landed `bf7f659`) is also unblocked from THEMATIC_REGISTRY gate per § 9.3 documented integration path.
+
+**Stages 1-4 closure:** all 4 stages complete; dispatch acceptance criteria all met. Continuation dispatch CLOSED.
