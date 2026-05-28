@@ -143,3 +143,62 @@ Fire ASAP on jack-ryan Gate-1 PASS.
 ---
 
 **KR signature:** authored per Matt 2026-05-28 Gate-7 D1+D2+D3+D4 RATIFICATION + jack-ryan Gate-7 § 4 Option B + jack-ryan Gate-3 D2 prior ratification (per-encounter-type bands) + Matt D3 Cycle 15 scope clarification (per-encounter bands MOVED to C14). Discipline #47 design-time check satisfied via Matt Gate-7 RATIFICATION authority. Gamora seam authority on math note + canonical structure + calibration sweep architecture; auto-commit + auto-push per Cycle 14 cadence.
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-28
+**Completed by:** gamora
+
+### W-α6a — Math note
+COMPLETE. Math note at `simulation/math/w-alpha-6-per-encounter-type-bands-2026-05-28.md`. All sections
+authored including § 5.3 (Tier 1 semantic shift), § 6.3 (initial 24-cell table), § 6.4 (empirical-range
+recalibration), § 9.3 (Case 10 T4 structural diagnosis), § 11 (final BVV result).
+NAMED DECISION: GAUNTLET_ELIGIBLE_ENCOUNTER_TYPES_C14V1 retirement documented in § 2.
+
+### W-α6b — Calibration sweep
+COMPLETE. run_per_encounter_type_band_sweep() implemented in unified_calibration_loop.py.
+Full sweep: 18 kits × 6 enc types × 4 cohorts × 30 fights = 13,440 fights; 5.4s actual (projected 1.2 hrs — over-projection ×861).
+Empirical Balanced medians: open_arena=600, chokepoint=600, magic_pack=600, elite_pack=461.5, boss_with_adds=73.17, mini_boss=150.
+ENCOUNTER_COHORT_KPM_BAND 24-cell table installed in gauntlet_sim.py.
+W-α6c recalibration: elite_pack + mini_boss bands widened to empirical-range (Discipline #12 semantic shift).
+
+### W-α6c — BVV harness
+COMPLETE. compound_pass=False (Case 10 T4 structural barrier).
+
+| Target | Result | Metric |
+|---|---|---|
+| T1 DPS variance ≤1.5× | **PASS** | 1.307× |
+| T2 zero_count = 0 | **PASS** | 0 cells [W-α6 primary objective MET] |
+| T3 saturation = 0 | **PASS** | structural (ceiling=None) |
+| T4 specialization peaks | **FAIL** | 17/18 kits no_peaks |
+| T5 floor ≥30% | **PASS** | 0 violations |
+
+### Case 10 — T4 structural barrier (Discipline #44 framing-refusal)
+Fight-engine 0.1s timing floor produces uniform 600 KPM on 5/6 encounter types. Boss_with_adds
+max ratio = 1.29× < 1.5× T4 threshold. T4 peaks are structurally impossible at current kit DPS
+homogeneity + mob HP profile. Resolution requires Cycle 15 Track 2 D3 per-kit DPS differentiation
+OR encounter HP rebalancing (W-α7+) OR T4 target redesign (gandalf canonical authority).
+**KR Gate-8 routing required.**
+
+### GAUNTLET_ELIGIBLE_ENCOUNTER_TYPES_C14V1 — NAMED DECISION
+Frozenset retired as operative gate. Replaced by ENCOUNTER_COHORT_KPM_BAND (all 6 types).
+jack-ryan INFO observation satisfied: retirement documented in math note § 2 and gauntlet_sim.py comments.
+
+### Files modified
+- `simulation/gauntlet_sim.py` — ENCOUNTER_COHORT_KPM_BAND, Tier 1 band_override routing, GAUNTLET_ELIGIBLE_PASS_FLOOR_W_ALPHA_6, method updates
+- `simulation/t4_sim_cycling.py` — band_override parameter on _compute_kpm_delta, _route_tier_1, w4g1_tier_1_sweep; direct range check semantic
+- `simulation/unified_calibration_loop.py` — run_per_encounter_type_band_sweep() W-α6b function
+- `simulation/math/w-alpha-6-per-encounter-type-bands-2026-05-28.md` — math note (all sections)
+- `simulation/MIGRATION.md` — § v1.44
+- `simulation/AGENT_STATE.md` — updated
+- `dispatches/2026-05-28-w-alpha-6-gamora-per-encounter-type-bands.md` — this completion record
+
+### Tag
+`gamora/v2.8-w-alpha-6-per-encounter-type-bands-1`
+
+### Downstream signals required
+- KR Gate-8 disposition on Case 10 T4 structural barrier
+- Bundle Gate-2 (jack-ryan) gated on Case 10 resolution — NOT cleared yet
+- Wave 5 RE-FIRE gated on bundle Gate-2 — NOT cleared yet
