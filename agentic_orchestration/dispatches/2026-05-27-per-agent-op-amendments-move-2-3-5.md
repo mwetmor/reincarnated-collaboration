@@ -239,7 +239,26 @@ If the OP file doesn't yet exist for any agent, create it per the gandalf OP pro
 
 ### star-lord
 
-(pending)
+**Completed:** 2026-05-27
+**Agent:** star-lord
+**Status:** DONE
+
+**Framing-audit (Discipline #42) applied at entry:**
+- Q1: (1) template applies cleanly across star-lord OP thin-format; (2) star-lord has self-amendment authority per AGENTS.md; (3) `agentic_orchestration/star-lord/refusals/` confirmed present; (4) orientation phrase at OP top doesn't conflict with existing STATUS block; (5) Move 2 composes with existing Discipline #23 cross-reference at § 3.7 (different depth: #42 = dispatch-entry gate; #23 = Pattern A-deep verdict-authoring); (6) Move 3 adds formal framing-refusal authority — § 3.1 pushback is content-level; Discipline #44 is framing-level; no contradiction
+- Q2: verified Discipline #23 in § 3.7 operates at verdict-authoring depth (Pattern A-deep), not dispatch-entry — Move 2 is complementary not duplicate; verified § 3.1 pushback is content-level (specific field/retry/DB-write violations) vs Discipline #44 framing-level (structurally mis-framed dispatch) — composition without conflict; confirmed refusals dir present; confirmed no existing Move 5 preamble
+- Q3: no contradiction surfaced. Template composes cleanly. No framing-refusal invoked. Proceeding.
+
+**Placement decisions:**
+- Move 5 (orientation phrase): top preamble, BEFORE the STATUS block — matches drax/legolas/galadriel pattern; "Engine first" expanded to name star-lord's specific engine-layer meaning (export/output/telemetry/llm seam integrity: schema validation at write boundaries, cost-tracked LLM call-sites, durable telemetry, bounded retries); "Phase third" instantiated with ExportFactionCluster + Phase 5/7 placeholders per Dispatch 3B Seam 3 context; STATUS block updated with 2026-05-27 amendment note for provenance; canonical authority cross-referenced to AGENTS.md Move 5 block
+- Move 2 (framing-audit § 3.9): new § 3.9 in decision-loop section, after existing § 3.8 (deferred-work gate); seam-specific Q1/Q2 content named (schema validators at write boundary, telemetry column existence, MIGRATION.md presence, LLM call-site ledger coverage); apply-points include dispatch-entry, P5 methodology lock, Pattern A-deep export schema decisions, cross-seam routing; composition note explicitly distinguishes #42 (dispatch-entry) from #23 (verdict-authoring depth)
+- Move 3 (framing-refusal § 3.10): new § 3.10 immediately after § 3.9; cross-references `agentic_orchestration/star-lord/refusals/`; all 4 R-patterns instantiated with star-lord-resident examples; R-2 expanded per dispatch note (synthetic-stub-as-permanent-fallback for content-generation call-sites is load-bearing Pattern R-2 for LLM-call infra seam — test-only vs permanent-fallback boundary explicit); composition note distinguishes § 3.1 content-level pushback from § 3.10 framing-level refusal
+
+**Composition notes:**
+- Q-OP-star-lord-1: Standard template placement worked cleanly with seam-specific context adaptation (orientation block expanded to name star-lord-specific Engine/Game/Phase semantics; refusal patterns contextualized with export/telemetry/LLM resident examples; framing-audit Q1/Q2 surfaces seam-specific empirical checks). Adaptation is composition-with not modification-of canonical template.
+- Q-OP-star-lord-2: Discipline #23 (§ 3.7 cross-reference — Pattern A-deep three-question protocol) pre-exists and fires at verdict-authoring depth. Discipline #42 (§ 3.9) fires at dispatch-entry, before execution begins. These are complementary gates at different workflow depths. § 3.1 pushback (content-level) and § 3.10 Discipline #44 (framing-level) are two separate enforcement layers that compose without overlap.
+
+**Files amended:**
+- `agentic_orchestration/operating-procedures/star-lord.md`
 
 ### drax
 
