@@ -122,4 +122,106 @@ Composes with elrond bundled methodology consultation at `f8eb1a4` (4 of 5 math-
 
 ## Completion record
 
-(append on completion)
+**Completed:** 2026-05-27 (gandalf seam; ~45 min combined per estimate)
+**Status:** AMENDMENTS LANDED; awaiting jack-ryan LIGHT re-Gate-1 verification + Matt-gate per Discipline #18 math-hotspot ratification
+
+### Framing-audit (Discipline #42) at amendment-site verification — Q1/Q2/Q3 results
+
+**Q1 — Load-bearing framing assumptions:**
+1. PM-2 § 2.6 + § 3 are the correct amendment sites for D-Sharpened — **PARTIAL refinement (not refutation):** PM-2 § 2.6 is currently "No-classes recommitment vocabulary." Cleanest D-Sharpened encoding lands at a NEW § 2.7 (Faction × Sketch F interaction) + a NEW § 3.7 (algorithm invariance clause). The dispatch wording correctly identified amendment intent; notation refined to insert new sections rather than mutate existing ones.
+2. MG-5 has coherent reject-pool semantics — confirmed; existing § X (drafted as part of original MG-5 authoring with "AMENDED 2026-05-27 evening" header) provides the schema scaffold. This amendment SHARPENED § X.3 (per-cell cap rationale; gandalf-recommend (a) OWN cap mirroring archive); ADDED § X.8 (Trigger B candidates); ADDED § X.9 (Risks + Watch Items).
+3. Trigger B "engine production-stable" is ratifiable by jack-ryan under Discipline #43 — confirmed. Per `engineering-disciplines.md` § 43, jack-ryan + gandalf jointly own wave-close audit verdicts. Trigger B fits as a CYCLE-AGGREGATED audit verdict (across N wave-closes), not a new audit type. No new sub-discipline ratification needed.
+
+**Q2 — Refutation evidence sought + outcome:**
+1. PM-2 § 2.6 + § 3 structure verified (read in full) — confirmed § 2.6 is vocabulary lock; new § 2.7 inserted without disturbing existing § 2.6.
+2. MG-5 § X verified (read in full) — confirmed existing § X content + identified pre-existing scaffold drift: `CELL_CAPACITY_MAX = 50` in § 7 misaligned with C2 ratification (30 kits/cell v1). Surfaced at § X.3.2 as separate finding for jack-ryan re-Gate-1 (out-of-scope for this amendment per dispatch).
+3. Discipline #43 verdict scope verified (read in full from `engineering-disciplines.md` § 43) — confirmed jack-ryan + gandalf joint authority; Trigger B fits within existing Discipline #43 scope.
+
+**Q3 — Refine framing rather than execute?**
+
+Refutation evidence surfaced TWO refinements within scope:
+- (a) PM-2 amendment site notation refined (new § 2.7 + § 3.7 vs in-place edit of § 2.6 + § 3)
+- (b) Pre-existing scaffold drift surfaced (MG-5 § 7 cap-alignment with C2 ratification) — explicitly out-of-scope per dispatch; surfaced for jack-ryan re-Gate-1
+
+**Framing-audit verdict:** PROCEED with refinements. No framing-refusal warranted. The dispatch correctly named amendment scope; gandalf executed with notation refinement (insertion sites) and surfaced one pre-existing scaffold-drift finding for jack-ryan re-Gate-1 cycle.
+
+### Part 1 — PM-2 D-Sharpened amendment (~15 min target; actual ~15 min)
+
+**Status:** LANDED.
+
+Amendments at `~/Games/reincarnated-engine/src/reincarnated/generation/math/phase-5-pm-2-faction-label-assignment-math-2026-05-27.md`:
+
+- **STATUS block amended** to record D-Sharpened amendment + dispatch reference + AMENDMENT 2026-05-27 evening note
+- **§ 2.7 inserted (Faction × Sketch F interaction; D-Sharpened)** — 7 subsections:
+  - § 2.7.1 — the interaction question (Design Call D)
+  - § 2.7.2 — D-Sharpened encoding (Matt 2026-05-27 ratification verbatim) — four-clause table (D-Sharp-1 hidden engine-layer; D-Sharp-2 surfaced drax loadout summary metadata; D-Sharp-3 surfaced star-lord telemetry metadata; D-Sharp-4 LLM uniform naming)
+  - § 2.7.3 — why D-Sharpened over D3 (player-experience friction; design observability preserved; AI-tell line preserved)
+  - § 2.7.4 — composition with PM-2 D-Hybrid + D-Separate (LAYERS ON; does NOT replace) — explicit composition table
+  - § 2.7.5 — required emission surfaces (cross-seam contract; drax + star-lord field gating; LLM-call invariance per D-Sharp-1)
+  - § 2.7.6 — Risks + Watch Items (per failure-modes register § 5 pattern; F-1 / D-1 / D-4 / F-4 / NEW drax-star-lord metadata exposure / NEW composition-preservation)
+  - § 2.7.7 — cross-references
+- **§ 3.7 inserted (Algorithm invariance under D-Sharpened)** — 5 invariance clauses (placeholder algorithm invariant; LLM input composition invariant; LLM output schema invariant; no per-anchor regeneration branch; metadata emission downstream of PM-2) + implementation guard (jack-ryan grep audit pattern for `substrate_anchored_personage` reads at PM-2 layer)
+- **Sign-off block amended** to record D-Sharpened amendment + jack-ryan LIGHT re-Gate-1 routing
+
+**Composition verified:** D-Sharpened LAYERS ON PM-2 D-Hybrid + D-Separate; does NOT replace. § 3 algorithm + § 4 vocabulary + § 5 AI-tell discipline + § 6 Phase 7 joint-gate composition + § 7 star-lord Pattern-A query are all UNCHANGED.
+
+### Part 2 — MG-5 E-Dev-Phase-Aware amendment (~30 min target; actual ~30 min)
+
+**Status:** LANDED.
+
+Amendments at `~/Games/reincarnated-engine/src/reincarnated/simulation/math/phase-4-mg-5-eviction-rules-math-2026-05-27.md`:
+
+- **STATUS block amended** to record sharpening amendment + dispatch reference + Discipline #43 verdict authority callout
+- **§ X.3 amended** (per-cell rolling-window retention with full rationale):
+  - `MAX_REJECT_POOL_PER_CELL` revised from 50 → 30 (mirrors archive C2 cap per Design Call C; gandalf-recommend)
+  - § X.3.1 — per-cell cap rationale (Q-E-1) — explicit comparison of option (a) OWN cap (gandalf-recommend) vs option (b) SHARED cap; rationale ranked across 4 dimensions (per-cell footprint / decoupled telemetry / symmetric architecture / cost)
+  - § X.3.2 — Design Call C cap-alignment issue surfaced for jack-ryan re-Gate-1 (MG-5 § 7 `CELL_CAPACITY_MAX = 50` misaligned with C2 30-kits/cell ratification); explicitly out-of-scope per dispatch
+  - § X.3.3 — FIFO eviction policy when per-cell cap hit (with rationale: rejects read-once during Pareto-frontier learning; insertion timestamp is the right signal)
+- **§ X.7 amended** to reflect 30 + 30 = 60 per-cell total (was 30 + 50 = 80)
+- **§ X.8 added (Trigger B operational definition candidates; Q-E-2)** — Discipline #43 verdict-authority confirmation + 3 candidate operational definitions:
+  - T-B-α — Cycle-count threshold (N=3 consecutive wave-closes PASS; no DRIFT-DETECTED) — **gandalf-recommend primary**
+  - T-B-β — Production-shipped seasons threshold (N=3 production seasons; no Phase 4 tuning) — gandalf-deprioritized (negative test ambiguity)
+  - T-B-γ — Explicit Matt verdict — gandalf-recommend as override path
+  - jack-ryan re-Gate-1 selects
+- **§ X.9 added (Risks + Watch Items per failure-modes register § 5 pattern)** — 6 patterns:
+  - [F-2 per-cell capacity blowup] — reject-pool cap enforcement test gate
+  - [F-1 math methodology selection drift] — jack-ryan grep audit pattern for reject_pool reads from math-gate code paths
+  - [D-3 Phase 4 archive accumulation] — TTL purge integration test
+  - [NEW — Trigger B verdict ambiguity] — gandalf design-quality audit at first wave AFTER Trigger B ratification
+  - [NEW — reject pool eviction telemetry (Q-E-3)] — star-lord telemetry MUST include eviction-count aggregation; gandalf-recommend YES per Q-E-3
+  - [NEW — Design Call C cap-alignment scaffold drift] — surfaced for jack-ryan re-Gate-1 separate finding
+
+**Composition verified:** Discipline #46 § 7 per-cell bounding compliance preserved (30 archive + 30 reject = 60 per-cell rows MAX; well-bounded; no full-table-scan paths introduced). § X.4 transition protocol + § X.5 Phase E-Dev enables + § X.6 cross-seam impact UNCHANGED.
+
+### Acceptance criteria status
+
+- [x] PM-2 § 2.7 + § 3.7 added; D-Sharpened encoded; composes cleanly with PM-2 D-Hybrid + D-Separate (§ 2.7.4 explicit composition table)
+- [x] MG-5 § X.3 sharpened + § X.7 amended + § X.8 + § X.9 added; E-Dev-Phase-Aware encoded; reject pool schema Discipline #46 § 7 compliant
+- [x] Trigger B operational definition candidates surfaced (3 candidates; T-B-α gandalf-recommend) for jack-ryan re-Gate-1 selection
+- [x] Both amendments preserve game-quality intent per Move 1 quality-criterion
+- [x] "Risks + Watch Items" mini-sections added per failure-modes register § 5 pattern (PM-2 § 2.7.6; MG-5 § X.9)
+- [x] Completion record appended
+- [ ] Commit + push per Matt's per-cycle push pattern — proceeding next
+
+### Refutation conditions check (from dispatch quality criterion)
+
+- [ ] D-Sharpened encoding contradicts PM-2 D-Hybrid + D-Separate composition — **NO contradiction** (§ 2.7.4 composition table confirms layers-on)
+- [ ] E-Dev-Phase-Aware reject pool schema violates Discipline #46 § 7 per-cell bounding — **NO violation** (per-cell cap 30 + per-cell index; § X.7 compliance verified)
+- [ ] Trigger B verdict semantics ambiguous — **3 candidates surfaced** (T-B-α / T-B-β / T-B-γ); ambiguity resolved at jack-ryan re-Gate-1 picking
+- [ ] Substrate-anchored hidden-vs-surfaced metadata path conflicts with Sketch F design intent — **NO conflict** (§ 2.7.3 rationale; § 2.7.5 emission surfaces preserve substrate-led discipline; D-Sharp-1 hidden at LLM-prompt layer but surfaced at metadata layer)
+
+### Cross-references
+
+- `~/Games/reincarnated-engine/src/reincarnated/generation/math/phase-5-pm-2-faction-label-assignment-math-2026-05-27.md` § 2.7 + § 3.7 (D-Sharpened)
+- `~/Games/reincarnated-engine/src/reincarnated/simulation/math/phase-4-mg-5-eviction-rules-math-2026-05-27.md` § X.3 + § X.7 + § X.8 + § X.9 (E-Dev-Phase-Aware sharpening)
+- `agentic_orchestration/gandalf/notes/2026-05-27-path-1-in-advance-design-calls.md` § 4 + § 5 (original D / D3 + E / E1 gandalf-recommend; now amended to D-Sharpened + E-Dev-Phase-Aware)
+- `agentic_orchestration/gandalf/notes/2026-05-27-path-1-failure-modes-scope-creep-drift-register.md` § 5 (Risks + Watch Items pattern source)
+- `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` § 43 + § 44 + § 46 § 7 (LOAD-BEARING composition)
+
+### Sequel (KR consumption)
+
+KR consumes this verdict + routes to jack-ryan LIGHT re-Gate-1 bundle covering MG-2 + MG-3 + MG-4 + MG-5 + PM-1 + PM-2 (6 math-notes; consolidated re-Gate-1 stream from elrond methodology consultation `f8eb1a4` + this dispatch). jack-ryan re-Gate-1 picks Trigger B candidate (T-B-α / T-B-β / T-B-γ) + ratifies reject-pool schema vs Discipline #46 § 7 per-cell bounding + surfaces MG-5 § 7 cap-alignment scaffold drift as separate finding.
+
+**Signed:** gandalf (story-and-design steward)
+**Date:** 2026-05-27
+
