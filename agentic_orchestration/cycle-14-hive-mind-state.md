@@ -326,8 +326,8 @@ State file archival path (when reached): rename to `agentic_orchestration/cycle-
 - MG-1 PROCEED-AS-AUTHORED (no amendment)
 
 **Sequencing:**
-1. **gandalf authors PM-2 + MG-5 amendments** (~45 min combined) — parallel sub-agent fire under hive-mind decision-routing
-2. **jack-ryan LIGHT re-Gate-1** verification across all 6 amendments (~1-2 hrs; bundled review)
+1. **gandalf authors PM-2 + MG-5 amendments** (~45 min combined) — ✅ COMPLETE 2026-05-27 (engine `7233e0f` math notes; meta `fcb7b0d` completion record); PM-2 new § 2.7 + § 3.7 (D-Sharpened LAYERS ON D-Hybrid + D-Separate); MG-5 new § X.3 + § X.3.2 (gandalf-recommend (a) OWN 30-kit reject pool cap mirroring archive C2) + § X.7 + § X.8 (Trigger B candidates T-B-α / T-B-β / T-B-γ; gandalf-recommend T-B-α primary + T-B-γ override) + § X.9 (6 Risks + Watch Items + Q-E-3 telemetry YES-recommend); **NEW finding surfaced for jack-ryan re-Gate-1:** MG-5 § 7 pre-existing `CELL_CAPACITY_MAX=50` vs C2 30-kit ratification scaffold drift
+2. **jack-ryan LIGHT re-Gate-1** verification across all 6 amendments (~1-2 hrs; bundled review) — 🔥 FIRING (Pattern-A; dispatch at `2026-05-27-jack-ryan-light-re-gate-1-six-math-notes.md`)
 3. **Matt-gate fires** as 8 math-note algorithm ratifications + 1 WARN + 4 INFO per Discipline #18 math-hotspot ratification
 4. **Post Matt-gate:** Dispatches 3A (gamora Phase 4 impl ~3-4 weeks) + 3B (gandalf+star-lord+rocket Phase 5 impl ~2-3 weeks parallel) authored with:
    - Move 1 quality-criterion template
