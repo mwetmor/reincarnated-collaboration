@@ -102,4 +102,48 @@ For each of 5 locations:
 
 ## Completion record
 
-(append on completion)
+**Completed:** 2026-05-27
+**Drax session:** Cycle 14 Dispatch A
+**Build result:** tsc -b clean + vite build clean (866 modules; 0 TypeScript errors; chunk size warning pre-existing)
+
+### Vocabulary remapping applied
+
+| Location | Before | After | Notes |
+|---|---|---|---|
+| `Analytics.tsx:30` | `StatBadge label="Classes"` | `label="Kits"` | Dispatch scope |
+| `Encounters.tsx:454` | `Per-class` button | `Per-kit` | Dispatch scope |
+| `Encounters.tsx:469` | "Each card = one class" | "Each card = one kit" | Dispatch scope |
+| `Encounters.tsx:470` | "classes' performance... color = class" | "kits' performance... color = kit" | Dispatch scope |
+| `Pitch.tsx:22` | `{ label: 'Classes', value: 55 }` | entry removed entirely | Q-DA-1: stale hardcoded count removed |
+| `Encounters.tsx:348` | subtitle `classes ·` | `kits ·` | Discovered during audit |
+| `Encounters.tsx:355` | "class efficiency" | "kit efficiency" | Discovered during audit |
+| `Encounters.tsx:370-371` | "one class performs... per-class view... every class performs" | per-kit variants | Discovered during audit |
+| `Encounters.tsx:377` | "(11 classes)... (class × monster)" | kits variants | Discovered during audit |
+| `Encounters.tsx:383-384` | "AOE classes... non-AOE classes" | kits variants | Discovered during audit |
+| `Encounters.tsx:388,390` | "classes win or lose... zero spread across classes" | kits variants | Discovered during audit |
+| `Encounters.tsx:418-419,423,428` | "AOE classes... single-target classes" | kits variants | Discovered during audit |
+| `Encounters.tsx:435` | "classes have at least one" | "kits have at least one" | Discovered during audit |
+| `Encounters.tsx:488` | "fraction of class's skill kit" | "fraction of the kit's skills" | Discovered during audit |
+
+### Q-DA-1 resolution
+Removed stale "Classes: 55" stat entry from Pitch.tsx STATS array. Stale hardcoded count removed; page is interim pending Dispatch C /summary re-architecture.
+
+### Q-DA-2 resolution
+"Kits" used throughout. "Per-kit" for toggle button (parallel with "Per-encounter-slot"). Single-target/AOE archetype qualifiers preserved.
+
+### Grep audit result
+CLEAN. All remaining "class" occurrences in the three files are exempt per Discipline #45:
+- `className=` (Tailwind CSS attribute)
+- `class_0001`…`class_0011` (internal data key literals)
+- `CLASS_COLORS`, `classCards`, `flaggedClassCount`, `ClassLegend`, `classIds` (TypeScript identifiers)
+- `ViewMode = 'class'`, `view === 'class'`, `setView('class')` (internal state values, never rendered)
+- JSX comments
+- Pitch.tsx narrative prose ("class names" as engine output feature description, "Dungeon-of-Exile-class" quality idiom) — narrative output exemption
+
+### Acceptance criteria
+- [x] All 5 catalogued #45 violations remediated
+- [x] 11 additional player-facing violations discovered and remediated during grep audit
+- [x] Player-facing vocabulary CLEAN per Discipline #45 canonical
+- [x] No TypeScript errors
+- [x] AGENT_STATE.md updated
+- [x] Completion record appended
