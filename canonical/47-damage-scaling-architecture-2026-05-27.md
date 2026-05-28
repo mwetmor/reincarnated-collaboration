@@ -1,6 +1,6 @@
 # 47 — Damage Scaling Architecture (Physical / Magical / Hybrid)
 
-> **STATUS:** CURRENT (load-bearing as of 2026-05-27) — foundational architectural commitment; surfaces what was implicit in `skill-system-2026-05-24.md` + `weapon-substrate-composition-policy-v1-2026-05-24.md` (Option α / β / C cell-type matching); becomes prerequisite for Cycle 13 content gap closure (Track D scope) + Cycle 14 Phase 5 cohesion coalescence; see `canonical/00-ground-state.md`
+> **STATUS:** CURRENT (load-bearing as of 2026-05-27; § 4.5 T4 ELEMENT_CONVERSION lock amendment 2026-05-28) — foundational architectural commitment; surfaces what was implicit in `skill-system-2026-05-24.md` + `weapon-substrate-composition-policy-v1-2026-05-24.md` (Option α / β / C cell-type matching); becomes prerequisite for Cycle 13 content gap closure (Track D scope) + Cycle 14 Phase 5 cohesion coalescence; § 4.5 amendment locks T4 ELEMENT_CONVERSION specification (identity-1.0 + Phase 3d-anchored specialization + pure-unification PoE precedent) per rocket Phase 3e consultation request; see `canonical/00-ground-state.md`
 
 **Date:** 2026-05-27
 **Author:** gandalf (story-and-design steward)
@@ -284,6 +284,115 @@ def calculate_hybrid_damage(player, weapon, skill, target):
     else:
         raise ValueError(f"Unknown hybrid_pattern: {skill.hybrid_pattern}")
 ```
+
+### 4.5 T4 ELEMENT_CONVERSION mechanic specification — v1 canonical lock (2026-05-28)
+
+> **STATUS:** v1 canonical lock — added 2026-05-28 in response to rocket Phase 3e consultation request `agentic_orchestration/gandalf/requests/2026-05-28-rocket-element-conversion-factor-design-lock-request.md`. Resolves `damage_resolver.py:618` TODO + names the specialization mechanism + locks PoE genre-precedent shape. Companion: rocket math note `~/Games/reincarnated-engine/src/reincarnated/simulation/math/w-alpha-7-phase-3e-element-conversion-factor-implementation-2026-05-28.md` § 4 (flat-cancellation impossibility proof) — load-bearing for this lock.
+
+**Authority:** gandalf design-lock under rocket Phase 3e dispatch guard clause invocation + Discipline #47 design-time check (element conversion is balance-affecting; doc 50 § 4 5-target gate applies). Composes with `canonical/50-bounded-viability-with-specialization-design-directive-2026-05-28.md` § 4.4 (Target 4 specialization mechanism) + `canonical/51-investment-scaling-6-pattern-architecture-2026-05-28.md` § 7.2 (specialization peaks emerge from `base_at_max` distribution, NOT from investment scaling — symmetry extended here to T4 conversion factor).
+
+#### 4.5.1 The lock — three answers
+
+**Q1 — `element_conversion_factor` numeric value: 1.0 (identity).**
+
+`element_conversion_factor` is canonically 1.0 for ELEMENT_CONVERSION T4 mechanic activation. Options B (fixed boost), C (element-pair lookup), and D (per-encounter elemental advantage) are REJECTED. The conversion is value-neutral at the numeric-factor layer; the mechanic's combat value emerges from element-affinity gear routing + Phase 3d-calibrated `base_at_max` under T4 context.
+
+The TODO stub at `damage_resolver.py:618` is replaced with an explicit lookup from `attacker.t4_alteration_type` context; the lookup returns 1.0 when ELEMENT_CONVERSION is active. The implementation cleanup is real (T4 context wiring); the numeric value is identity by design.
+
+**Q2 — Specialization mechanism: Phase 3d `base_at_max` distribution under T4 context (NOT the numeric factor).**
+
+Doc 51 § 7.2 establishes that specialization peaks emerge from `base_at_max` distribution. This lock extends that architectural symmetry to T4 conversion: the bounded-viability-with-specialization Target 4 peaks (1.5-2× cohort median on 1-2 encounter types per kit) emerge from Phase 3d-calibrated `base_at_max(path, kit, tier, encounter_type)` UNDER T4 CONTEXT, not from `element_conversion_factor`.
+
+The rocket math note § 4.2 flat-cancellation proof is load-bearing for this answer: within every mono-element path cohort in the Season 001 population (str_physical=earth, dex_physical=wind, int_magical=fire identity, wis_faith=water), a flat factor F cancels in the specialization ratio. The specialization signal MUST come from a non-flat source. The architecturally consistent non-flat source is `base_at_max` under T4 context — because (a) it already carries per-kit × per-encounter-type variation, (b) Phase 3d is the calibration owner of `base_at_max`, (c) running Phase 3d under T4 context is a re-run of an existing calibration pass, not a new design surface.
+
+**Q3 — PoE genre precedent: pure unification (NO numeric fire bonus).**
+
+PoE Avatar of Fire is canonically two mechanics: (a) the conversion node (50% non-fire → fire conversion; value-neutral at the conversion node), and (b) a separate "Avatar of Fire" Ascendancy-tier passive (+40% fire damage if you have it). The PoE Avatar of Fire "experience" the community discusses is the COMPOSITE of (a)+(b). The conversion mechanic ITSELF (a) is unification-only; the bonus (b) is the player's chain-investment compounding.
+
+Reincarnated T4 ELEMENT_CONVERSION corresponds to PoE's (a) only. The Reincarnated (b) equivalent is the player's fire-affinity gear partition + fire-chain passives — surfaced by the conversion routing all damage through fire-affinity gear modifiers (per doc 47 § 2.2 magical path: `element_affinity_modifier` partition). The player's build is what compounds; T4 ELEMENT_CONVERSION makes the compounding accessible by unifying the damage type.
+
+The Reincarnated conversion is 100% (all damage → fire), not PoE's 50%. The implication: the player CANNOT preserve a partial water/wind/earth split when ELEMENT_CONVERSION is active. The build choice is "commit fully to fire-affinity routing." This is the cleaner architectural commitment that matches Reincarnated's locked T4 capstone framing (D66 ONE T4 unlocked at a time → all-in commitment).
+
+#### 4.5.2 Design rationale — why identity + Phase 3d anchoring (NOT a flat numeric boost)
+
+**Genre architectural reading.** The mature ARPG pattern (D2, PoE, LE, GD per doc 50 § 2.3) is that element-conversion mechanics derive value from GEAR/AFFINITY ROUTING, not from a flat damage boost. D2 Conviction aura debuffs target resistance; PoE Avatar of Fire routes damage through fire-affinity stack; LE elemental conversion routes through elemental affinity nodes; GD Avatar of Mogdrogen routes through chaos-affinity gear. The numeric boost (when present) is from a SEPARATE compounding source (passive, debuff, ascendancy), not from the conversion node itself. A flat conversion boost (Option B) would conflate two mechanics that the genre keeps separate; it would degrade build-crafting legibility because players couldn't reason about "what does the conversion do" separately from "what does my gear do."
+
+**Bounded-viability-with-specialization compliance.** Doc 50 § 4.4 Target 4 specifies peaks in the [1.5×, 2.0×] cohort-median band, NOT a flat +20-30% boost on all encounter types. A flat boost (Option B) at 1.2-1.3× shifts the kit's KPM curve uniformly upward without producing PEAKS — it produces "kit is slightly better than cohort on all encounter types," which fails the specialization clause and risks the no-strict-dominance clause if multiple T4-converted kits accumulate the same flat boost. The directive REQUIRES non-uniform per-encounter specialization. The non-uniform source is `base_at_max` under T4 context (per Q2).
+
+**Player-experience anchor.** A player picking T4 ELEMENT_CONVERSION on a water-path WIS kit (e.g., `endgame_wis_03_ritual_mage`) is making a build choice with consequences: "I'm converting my element to fire to route my damage through fire-affinity gear; my water-affinity gear becomes dead-weight unless I respec." If the conversion ALSO gave a flat +20% boost, the player decision flattens — they'd take ELEMENT_CONVERSION for the boost regardless of gear strategy, and the strategic dimension of "should I commit to fire-affinity routing" disappears. The build-crafting community discourse load-bearing for ARPG long-tail retention (doc 50 § 4.3) requires the player choice to be STRATEGIC (gear/affinity reshape) not NUMERIC (flat multiplier). Identity-1.0 preserves the strategic dimension.
+
+**Phase 3d RE-RUN architectural fit.** Phase 3d's purpose is BASE calibration per (path, kit, tier). Currently Phase 3d ran T4-naive (the gamora Part 2 wiring gap meant T4 alteration was never applied during the Phase 4 sim Phase 3d calibrated against). Re-running Phase 3d UNDER T4 context (with gamora Part 2 wiring fix landed) produces `base_at_max` values that embed the element-affinity-gear-shift effect. The specialization peaks fall out of this calibration NATURALLY — fire-affinity gear stacks fully when the kit's damage is fire-routed; the per-encounter-type interactions with mob composition produce the 1-2 peak distribution. This is not new design surface; it is the existing Phase 3d mechanism applied under the correct context.
+
+**Scope-coherence with Cycle 14 v1 close trajectory.** Option D (per-encounter elemental advantage table on `EndgameMobStatProfile`) would introduce a new design vocabulary — per-element mob advantage — that doesn't currently exist in Reincarnated's locked design language. Adding it ad-hoc to unblock T4 mechanic resolution is a Discipline #45 vocabulary expansion that should be a Pattern-B Matt conversation, not a rocket-Phase-3e unblock. Option A + Phase 3d RE-RUN operates entirely within existing vocabulary. Per-element mob advantage may be a legitimate Cycle 15+ design surface; surfacing it for Phase 3e is premature.
+
+#### 4.5.3 Composition with bounded-viability-with-specialization (doc 50 § 4)
+
+| Doc 50 Target | This lock's compliance |
+|---|---|
+| Target 1 — Base DPS variance ≤1.5× across 4 paths | T4 ELEMENT_CONVERSION does not affect base DPS variance; identity-1.0 preserves W-α3 unified calibration semantics |
+| Target 2 — Every kit non-zero KPM on every encounter type | Identity-1.0 + Phase 3d RE-RUN preserves the non-zero floor; gear-routing-through-fire-affinity provides DAMAGE (not zero) on all encounter types |
+| Target 3 — No kit saturates KPM ceiling | Identity-1.0 cannot push kits above ceiling; Phase 3d RE-RUN calibrates against W-α2 ceiling |
+| Target 4 — Specialization peaks (1.5-2× cohort median on 1-2 encounter types) | **Achieved via Phase 3d RE-RUN under T4 context**, NOT via numeric factor; per Q2 answer |
+| Target 5 — No kit <30% cohort median on any encounter type | Identity-1.0 + Phase 3d RE-RUN preserves the floor; gear-routing produces meaningful output on all encounter types |
+
+**The Doc 50 5-target compound pass criterion is the validation anchor for this lock.** Phase 4 RE-RUN under the new wiring (rocket Part 1 + gamora Part 2 + Phase 3d RE-RUN) MUST satisfy all 5 targets simultaneously across the 18 kits × 6 encounter types matrix for Cycle 14 v1 close-criterion to fire.
+
+#### 4.5.4 Phase 4 RE-RUN dispatch routing (rocket Part 1 + gamora Part 2)
+
+Per rocket math note § 5 two-part root cause decomposition:
+
+**Part 1 (rocket seam — `damage_resolver.py:618`):** replace `element_conversion_factor = 1.0  # TODO` with explicit lookup from `attacker.t4_alteration_type` context returning 1.0 when ELEMENT_CONVERSION is active. Pseudocode (gandalf-specified):
+
+```python
+# Read element_conversion_factor from T4 alteration context on CombatantState.
+# Per canonical doc 47 § 4.5 (gandalf 2026-05-28 design lock):
+# ELEMENT_CONVERSION is value-neutral at the conversion-factor layer (identity 1.0).
+# Combat value emerges from element-affinity gear routing + Phase 3d base_at_max under T4 context.
+if getattr(attacker, "t4_alteration_type", None) == "ELEMENT_CONVERSION":
+    element_conversion_factor = 1.0  # identity per canonical doc 47 § 4.5 Q1 lock
+else:
+    element_conversion_factor = 1.0  # default; no T4 conversion active
+```
+
+(The two branches produce the same value at v1 lock; the EXPLICIT lookup is required for Discipline #12 semantic-tracking and Discipline #39 scaffold-with-pending-decision retirement — the TODO comment is REMOVED.)
+
+**Part 2 (gamora seam — `season_generation_pipeline.py` + `unified_calibration_loop.py`):** wire T4 alteration fields into `_build_real_player_class(kit, t4_variant)` so the T4 ELEMENT_CONVERSION alteration ACTUALLY APPLIES during gauntlet sim runs. Per rocket math note § 5 Part 2, this requires:
+- `_build_real_player_class(kit, t4_variant=None)` accepts T4 variant context
+- When `t4_variant != None` and variant has `gamora_combatant_fields`, pass `alteration_fields=kit.gamora_combatant_fields[t4_variant_id]` to combatant construction
+- Phase 4 sweep runs once per profile × T4 variant (not skip T4 variants per the current `unified_calibration_loop.py:2408-2416` comment)
+
+**Routing recommendation (gandalf → knight-rider):**
+
+| Sequence | Reason |
+|---|---|
+| **Part 1 + Part 2 fire IN PARALLEL post this lock** | Independent code paths; rocket can replace `damage_resolver.py:618` TODO immediately while gamora wires `_build_real_player_class`. No dependency between them. |
+| **Phase 3d RE-RUN fires SEQUENTIALLY after Part 1 + Part 2 close** | Phase 3d RE-RUN needs T4 wiring landed to calibrate `base_at_max` UNDER T4 context. Without Part 2 wiring, Phase 3d RE-RUN reproduces the original T4-naive calibration (zero progress). |
+| **Phase 4 RE-RUN fires SEQUENTIALLY after Phase 3d RE-RUN** | Phase 4 validates against doc 50 5-target gate; needs Phase 3d's new BASE values to evaluate. |
+
+**Phase 3d RE-RUN required: YES.** Per Q2 answer, the specialization mechanism IS Phase 3d `base_at_max` distribution under T4 context. The current Phase 3d output was calibrated T4-naive (per rocket math note § 5 Part 2 + `_build_real_player_class` not passing `alteration_fields`). Without Phase 3d RE-RUN under T4 context, the `base_at_max` values do not embed the element-affinity-gear-shift effect, and doc 50 Target 4 cannot fire.
+
+**Estimated wall-clock post this lock (per rocket assessment + gandalf concurrence):**
+- Part 1 (rocket): 1-2 hours (lookup function + unit tests + Discipline #12 declaration in commit)
+- Part 2 (gamora): 2-4 hours (alteration-field wiring + unified_calibration_loop.py refactor + smoke test)
+- Phase 3d RE-RUN (gamora): ~few hours (re-run existing calibration under T4 context)
+- Phase 4 RE-RUN (gamora): ~0.5d (gauntlet sweep across 18 kits × 6 encounter types × profiles + 5-target validation)
+
+Total: ~3-6 hours of compute + design review. Fits Cycle 14 v1 close trajectory per Path α master scoping budget.
+
+#### 4.5.5 What this lock does NOT cover (deferred)
+
+- **Per-encounter elemental advantage data structure (Option D):** legitimate Cycle 15+ design surface; surfacing as ad-hoc T4 unblock is premature per § 4.5.2 scope-coherence framing. If Phase 4 RE-RUN under Identity-1.0 + Phase 3d RE-RUN produces 5-target PASS, Option D is unnecessary. If Phase 4 RE-RUN produces partial-PASS with specialization-target shortfall in specific kit-cohorts, Option D becomes a Pattern-B Matt conversation candidate for Cycle 15+.
+- **`dual_element_factor` (T4 DUAL_ELEMENT_ADDITION mechanic):** separate TODO at `damage_resolver.py` magical path (per rocket math note § 2). Out of Phase 3e scope per dispatch § 3. Future canonical lock will use the same Q1+Q2+Q3 framework — identity vs flat vs lookup vs per-encounter; specialization mechanism; genre precedent.
+- **PoE Avatar of Fire `+40%` equivalent:** Reincarnated does NOT bundle the PoE Ascendancy +40% fire damage passive into T4 ELEMENT_CONVERSION. The compounding-source equivalent in Reincarnated is fire-affinity gear partition + fire-chain passives, assembled by the player. This is intentional per Q3 answer; not a future design surface.
+- **Cross-element mixed cohorts:** the flat-cancellation proof (math note § 4.2) generalizes to cross-element kit mix — element-pair lookup would assign different factors per kit and break uniform cancellation. The Season 001 population is mono-element per path; future seasons MAY produce mixed cohorts. If that happens, the lock here STILL holds (identity-1.0 in mono-element case; element-pair lookup is a Cycle 15+ design surface if mixed cohorts produce target 4 shortfall).
+
+#### 4.5.6 Discipline citations
+
+- **Discipline #45 vocabulary audit:** "element_conversion_factor" is canonical-locked at this section; identity-1.0 value is canonical-locked; "ELEMENT_CONVERSION" mechanic name unchanged. No new prohibited-vocabulary introduced. No collision with prior canonical or engine source (rocket math note § 4.1 confirmed).
+- **Discipline #47 design-time check:** ELEMENT_CONVERSION is balance-affecting; this lock specifies the 5-target compliance pathway (§ 4.5.3). Per-dispatch declaration: rocket Part 1 dispatch + gamora Part 2 dispatch + Phase 3d RE-RUN dispatch + Phase 4 RE-RUN dispatch all cite this section as the design-target acceptance bar.
+- **Discipline #39 scaffold-with-pending-decision retirement:** the `damage_resolver.py:618` TODO is canonically retired by this lock. Future code referencing `element_conversion_factor` cites this section as the canonical source.
+- **Discipline #1 math-before-code:** rocket math note `~/Games/reincarnated-engine/src/reincarnated/simulation/math/w-alpha-7-phase-3e-element-conversion-factor-implementation-2026-05-28.md` is the math anchor. Part 1 implementation references this lock + math note in commit message.
+- **Discipline #12 semantic-shifting:** Part 1 implementation declares "replaces `# TODO` with explicit T4-context lookup; numeric value identity-1.0 per gandalf canonical lock; no semantic change to KPM outputs under v1 since prior TODO returned 1.0 — but SEMANTIC CONTEXT IS NEW (T4 alteration context is now read; future amendments may use this lookup site)."
 
 ---
 
