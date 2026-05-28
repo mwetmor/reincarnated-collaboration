@@ -396,7 +396,7 @@ State file archival path (when reached): rename to `agentic_orchestration/cycle-
 **Vercel deployment composition:** Dispatch G (Court restore + mobile fixes) + Dispatch B (rank-0 + reset + persistence per doc 49 § 1.1.1) land together as coherent player-facing UX update.
 
 **Wave 5 Option C orchestration adopted 2026-05-27** per Matt orchestration concern + gandalf Option C recommendation:
-- Step 1 🔥 FIRING: gamora Wave 5 GENERATION (Phase 2-7; incremental-write per-phase commits; staging only — NO canonical commit)
+- Step 1 ⚠️ SECOND BLOCKER: Phase 3 DEGENERACY HALT (0/22 configs pass Tier 1 gauntlet); root cause `_SyntheticPlayerClass.magnitude=3000` calibrated for synthetic_mode=True (RETIRED Wave 0.5 per #39); under full-variance gauntlet 65× mob HP span produces unrecoverable KPM dispersion across legendary configs; 4 rocket fix options surfaced + awaiting Matt Pattern-B design call (Option 1 dynamic per-encounter magnitude / Option 2 normalize catalog HP / Option 3 remove WR-bracket / Option 4 reconsider Phase 3 as gate per Phase 4 + Phase 7 are canonical quality gates per #39 LOAD-BEARING); Phase 2 staged at `cycle-14-wave-5-season-001/phase2_kit_candidates.json` (18 kits VALID); gamora documented at meta `b5d8211` + engine `7b11ca9` + Phase 2 serialization fix at engine `497fd98`
 - Step 2 ⏳ POST step 1: KR fires gandalf #43 design-quality audit + A/B comparison + personage convergence
 - Step 3 ⏳ POST step 2: KR fires jack-ryan Gate-2 review
 - Step 4 ⏳ PASS branch: KR fires gamora (small) canonical_archetype_register commit + Court accumulation
