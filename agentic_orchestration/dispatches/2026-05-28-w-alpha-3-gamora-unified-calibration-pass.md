@@ -201,21 +201,68 @@ Fire ASAP on jack-ryan Gate-1 PASS.
 
 ---
 
-### Phase 2 — PENDING (gated)
+### Phase 2 — COMPLETE (2026-05-28)
 
-**Gate criteria:**
-1. W-α1 dispatch completion record + tag `rocket/v1.8-w-alpha-1-damage-formula-refactor-1` confirmed
-2. W-α2 formal tag `gamora/v2.5-w-alpha-2-kpm-ceiling-1` confirmed (code landed at `b0dd455`; tag pending)
+**Executor:** gamora
+**Commit:** (pending — documenting before commit; see below)
+**Tag:** `gamora/v2.7-w-alpha-3-phase-2-reference-target-lock-1`
 
-**Phase 2 actions (on gate clear):**
-1. Run `derive_reference_target_from_empirical_sweep()` against post-W-α1 kit population
-2. Set `REFERENCE_TARGET_IS_PLACEHOLDER = False`; lock `UNIFIED_REFERENCE_KPM_TARGET`
-3. Run `run_unified_calibration_smoke()` — verify convergence
-4. Run `run_unified_calibration_pass(smoke=False)` — full calibration (~62 min)
-5. Update `BASE_SPELL_DAMAGE_L50` in `per_skill_emitter.py` with calibrated values
-6. Update `base_physical_damage_l50` / post-W-α1 physical coefficient
-7. Run W-α4 harness smoke re-run: `run_bounded_viability_validation_harness(smoke=True)` → confirm improvement
-8. Commit + re-tag `gamora/v2.6-w-alpha-3-unified-calibration-2`
-9. Write Phase 2 completion record here
+**Gate criteria resolved:**
+1. W-α1 dispatch completion record + tag `rocket/v1.8-w-alpha-1-damage-formula-refactor-1` confirmed — RECEIVED
+2. W-α2 formal tag `gamora/v2.5-w-alpha-2-kpm-ceiling-1` confirmed — RECEIVED
 
-**W-α-bundle Gate-2 (all 3 streams):** After W-α1 + W-α2 + W-α3 ALL tagged, run `run_bounded_viability_validation_harness(smoke=False)` for full compound_pass check. Compound_pass=True = Path α close signal.
+**Phase 2 actions completed:**
+1. Ran `derive_reference_target_from_empirical_sweep()`: confirmed 130.43 KPM at scale=1.0 post-W-α1
+2. Set `REFERENCE_TARGET_IS_PLACEHOLDER = False`; locked `UNIFIED_REFERENCE_KPM_TARGET = 75.0` (Balanced band center = (71+79)/2; confirmed empirically)
+3. Fixed `_extract_boss_kpm_from_gauntlet` to use `tier_1_kpm` (tier_2 blocked pre-calibration by stale band gates)
+4. Fixed kit ID mismatch in `kit_ids_by_path` (`_kit_legendary_id()` helper: `{bc_cell_id}_t4_null`)
+5. Fixed binary search bounds: `scale_lo=0.10, scale_hi=2.00` (Phase 2 empirical bounds)
+6. Calibration converged: scale_factor=0.664063, kpm=73.17 KPM (2.44% delta ≤ 5% tolerance), 6 iterations, 28s wall-clock
+7. Updated `BASE_SPELL_DAMAGE_L50` in `per_skill_emitter.py` with calibrated values
+8. Updated `BASE_PHYSICAL_DAMAGE_L50` in `per_skill_emitter.py` with W-α1 × W-α3 calibrated values
+9. Ran W-α4 harness `smoke=False` — see below
+
+**W-α4 harness result (W-α-bundle Gate-2):**
+
+```
+compound_pass: False
+T1 (DPS variance ≤1.5×):  PASS  — ratio=1.31 (core calibration goal MET)
+T2 (zero KPM = 0):        FAIL  — zero_count=88 (architectural gap — see below)
+T3 (saturation = 0):      PASS  — structural (ceiling=None, W-α2)
+T4 (specialization):      FAIL  — 18/18 kits no_peaks (consequence of T2)
+T5 (floor ≥30%):          PASS  — floor_violation_count=0
+```
+
+**T2/T4 FAIL root cause: architectural gap, not calibration failure.**
+
+The Cycle 14 v1 gauntlet architecture (`GAUNTLET_ELIGIBLE_ENCOUNTER_TYPES_C14V1`) only populates `tier_2_kpm` for boss_with_adds + mini_boss. The other 4 encounter types (open_arena, chokepoint_corridor, magic_pack, elite_pack) are far outside the single Balanced KPM band (71-79) at the calibrated DPS:
+- Swarm types (open_arena, chokepoint, magic_pack): tier_1_kpm=600.0 (at discretization ceiling)
+- Elite_pack: tier_1_kpm≈472 KPM (6× over band)
+- Mini_boss: tier_1_kpm≈98-147 KPM (1.3-2× over band; 2/18 kits pass T1)
+
+These encounters will NEVER produce non-zero `tier_2_kpm` under the single Balanced band architecture. This requires Cycle 15 Option A per-encounter-type bands to fix.
+
+T1 PASS at 1.31× confirms the core Path α deliverable: cross-path DPS calibration is achieved (pre-W-α1 this ratio was 79×+, now 1.31×). The compound_pass=False is a measurement architecture gap.
+
+**Discipline #44 framing-refusal triggered.** The compound_pass=True criterion as written in doc 50 § 4.6 requires Cycle 15 per-encounter-type bands. This exceeds W-α3 scope and gamora seam authority. Matt decision required:
+- Option A: modify Path α close criterion to T1 PASS + T3/T5 PASS (T2/T4 deferred to Cycle 15)
+- Option B: pull Cycle 15 Option A per-type bands into Cycle 14 v1 (~2-4d scope expansion)
+
+**bounded_viability_validation.py bug fixes applied:**
+- `_bvv_kit_legendary_id()` helper: `{bc_cell_id}_t4_null` format (was `character_id` with S1_ prefix — zero ID matches)
+- Fix documented in math note § 11.5 and MIGRATION.md § v1.43
+
+**Files changed (Phase 2):**
+- `simulation/unified_calibration_loop.py`: 4 Phase 2 changes (REFERENCE_TARGET_IS_PLACEHOLDER=False; tier_1_kpm extraction; _kit_legendary_id() helper; empirical bounds)
+- `generation/per_skill_emitter.py`: BASE_SPELL_DAMAGE_L50 + BASE_PHYSICAL_DAMAGE_L50 calibrated values applied
+- `simulation/bounded_viability_validation.py`: _bvv_kit_legendary_id() fix
+- `simulation/math/w-alpha-3-unified-calibration-pass-2026-05-28.md`: § 5 Phase 2 filled in + § 11 W-α4 result + architectural gap
+- `simulation/MIGRATION.md`: § v1.43 Phase 2 record + W-α4 actual result
+- `dispatches/2026-05-28-w-alpha-3-gamora-unified-calibration-pass.md`: this completion record
+
+**Math note:** `simulation/math/w-alpha-3-unified-calibration-pass-2026-05-28.md § 5 + § 11`
+**MIGRATION.md:** `simulation/MIGRATION.md § v1.43`
+**Discipline #12 (semantic-shifting):** Both BASE_SPELL_DAMAGE_L50 and BASE_PHYSICAL_DAMAGE_L50 semantically shifted to unified cross-path calibration (declared in MIGRATION.md § v1.43 + commit message)
+**Discipline #44 (framing-refusal):** compound_pass=False surfaced as architectural gap; Matt routing required for Path α close criterion decision
+
+**KR signal:** W-α3 Phase 2 complete. compound_pass=False (T1 PASS, T2/T4 architectural gap). Discipline #44 framing-refusal triggered. Routing to Matt for Path α close criterion decision before bundle Gate-2 can close.
