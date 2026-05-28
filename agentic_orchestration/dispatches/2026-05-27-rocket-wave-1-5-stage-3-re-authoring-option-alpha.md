@@ -168,3 +168,52 @@
 ## Completion record
 
 (append on completion)
+
+**Completed:** 2026-05-27
+**Tag:** `rocket/v1.5-wave-1-5-stage-3-option-alpha-1`
+**Commit:** `2dce2fa` (reincarnated-engine main)
+
+### Deliverables
+
+6 new modules implemented; 61/61 tests pass; MIGRATION.md updated; AGENT_STATE.md updated.
+
+**Modules:**
+- `src/reincarnated/generation/substrate_kit_clustering.py` — Note 1 (S(K) query + R2 Rule + chain_count emergence + partition)
+- `src/reincarnated/generation/supporting_chain_emergence.py` — Note 2 (LEAST-substrate-rich = supporting chain)
+- `src/reincarnated/generation/t4_capstone_emergence.py` — Note 3 (MOST-substrate-rich = capstones, SA1/SA2)
+- `src/reincarnated/generation/kit_naming_policy.py` — Note 4 (D3 hybrid + D-Sharp-1/2/3/4)
+- `src/reincarnated/generation/cross_season_persistence.py` — Note 5 (E2 8-dim archetype signature, Q3 LOCKED)
+- `src/reincarnated/generation/kit_population_synthesizer.py` — WARN-1.1 (Notes 1-5 synthesizer)
+
+### Open question dispositions
+
+**Q-S3-1 (WARN-2.1 clustering output captured):**
+```
+DIVERSITY_THRESHOLD_4CHAIN calibrated: 0.55 → 0.065
+Empirical v1 substrate (10 BC cells, 2026-05-27):
+  Natural gap: 0.0690 (STR/ranged) → 0.0741 (INT/hybrid)
+  At threshold=0.065: 65% 3-chain / 35% 4-chain across 216 BC combinations
+  Target: "~65-70% 3-chain" per math note 1 § 6.2 — PASS
+
+Root-cause note (WARN-2.1): soft-filter geometry collapse (n_geom=1 for most cells)
+suppresses geom_frac; cube-root normalization retains useful discrimination at the gap.
+```
+KR fires elrond Pattern-A consultation post smoke — data above is the empirical input.
+
+**Q-S3-2 (cross-seam MIGRATION.md scope):** ADR-004 MIGRATION entry filed. Cross-seam contracts documented for star-lord (Phase5LLMInputBundle + kit_name fields), drax (D-Sharp-2/3 metadata display-policy), gamora (chain_count emergence; no schema change required). Loadout/demo TS deferred per Q-T-N4-1 finding.
+
+**Q-S3-3 (per-seed determinism):** CONFIRMED clean — no RNG anywhere in identity production pipeline; sort-stable throughout; D-Sharp personage gating is metadata-only and does not affect algorithmic outputs (D-Sharp-4 invariance test pass).
+
+### Discipline compliance
+
+- **Discipline #41 (substrate-led):** formal grep audit CLEAN — no pre-authored taxonomy, no `class_name_*` in functional code; AST-based test coverage embedded
+- **Discipline #46 § 3.1 (bounded queries):** RATIFIED — EXPLAIN: `SEARCH wke USING INDEX idx_knowledge_v1_scope + SEARCH wsp USING INTEGER PRIMARY KEY`
+- **Discipline #40 (LOCKED decisions):** Q1 (chain_count=3 at sparse) + Q2 (D-Sharp-1 personage hidden) + Q3 (first-emergence canonical name persists) all implemented as locked
+- **Discipline #1 (math-before-code):** all 5 math notes are the spec; implementation follows notes; code-citation discipline maintained
+- **Refutation conditions:** all 5 checked PASS (clusters coherent; Q1 sparsity fallback functional; E2 persistence preserves first-emergence name; D-Sharp-1 blocks personage from LLM input; Discipline #41 audit clean)
+
+### Hand-back to KR
+
+MIGRATION.md cross-seam contracts document star-lord Phase 5 LLM integration scope. Phase 5 LLM call is star-lord's implementation ownership — receives Phase5LLMInputBundle from kit_naming_policy.py; calls finalize_canonical_name() after LLM response. KR should ensure star-lord Dispatch 3B Seam 3 (currently running) accounts for this bundle.
+
+WARN-2.1 elrond Pattern-A consultation data ready — KR fires when convenient.
