@@ -545,4 +545,272 @@ Sketch F architecture mechanically delivers at Wave 5)
 
 ---
 
+## 7. Dimension #5 — Surprise-emergence count
+
+### 7.1 Operational definition
+
+**Question this dimension answers:** how many Wave 5 emergent shape-clusters do NOT match any doc 48 candidate archetype-shape — that is, how many novel archetype-shapes did substrate-led emergence produce that designer-curation did not anticipate?
+
+**"Surprise emergence" means** a SHIPPED-WORTHY kit-cluster (group of ≥2 kits with shared BC-axis signature within similarity-threshold per dim #1 § 3.2) whose BC-axis signature does NOT match any of the 10 doc 48 archetype signatures at the ≥6-of-8 axes agreement threshold.
+
+**Discipline #41 framing:** surprise emergence is the POSITIVE outcome that justifies the substrate-led architectural commitment. If Option α only reproduces doc 48 (zero surprises), the substrate-led commitment delivers nothing beyond what designer-curation produced — Option α architectural commitment is computationally expensive ceremony. Some level of surprise emergence is what makes substrate-led emergence load-bearing for the generative-architecture decision.
+
+**Q-AB-2 surfaces here:** how LOW can surprise count be before B-PASS is undermined?
+
+### 7.2 Q-AB-2 resolution — Acceptance criterion for surprise-emergence count
+
+**Decision: surprise count ≥1 at Wave 5 is acceptance threshold for B-PASS; zero surprises is NOT automatic A-PASS but flags FOLLOW-UP-DEFER.**
+
+**Reasoning:**
+
+The doc 48 baseline has 10 archetype-shapes. Wave 5 production season produces ~3-4 substrate-clusters (per PM-1 GMM k∈{3,4}). The fundamental scale mismatch (10 baseline shapes vs 3-4 Wave 5 clusters) means:
+- Wave 5 cannot REPRODUCE 10 doc 48 archetypes — there is only room for 3-4 cluster identities.
+- The dim #1 archetype-coverage measurement asks "of the 10 doc 48 archetypes, how many emerge as SHIPPED-WORTHY kit-shapes within 3-4 clusters?" (Multiple archetypes can share a cluster if their BC signatures are adjacent.)
+- The dim #5 surprise-emergence measurement asks the converse: "of the 3-4 Wave 5 clusters, how many have a modal shape that doesn't map to any doc 48 archetype?"
+
+**At Wave 5 expected output (3-4 clusters), surprise-emergence count can range from 0 to 4.**
+
+| Surprise count | Verdict at Wave 5 (1 season) | Rationale |
+|---|---|---|
+| 0 | FOLLOW-UP-DEFER dim #5 | Wave 5 reproduced doc 48 shapes within its 3-4 clusters; absence of surprise at single-season is NOT refutation (small-n; novel emergence may appear at Cycle 15 replications); flag for Cycle 15 watch but does not block composite verdict |
+| 1 | B-PASS dim #5 | Substrate-led emergence produced novel shape designer did not anticipate; substrate-led architectural commitment delivers value beyond designer-curation reproduction |
+| 2-3 | B-PASS dim #5 (with gandalf interpretation) | Multiple surprises; each surprise requires gandalf design-quality audit to distinguish (a) substrate-led discovery of meaningful new archetype-shape from (b) substrate-noise producing thin incoherent cluster that happens to not match doc 48 |
+| 4 (all clusters surprise) | A-PASS dim #5 | Wave 5 reproduced ZERO doc 48 shapes; this is the inverted failure mode — substrate-led emergence is producing only novel shapes AND missing all designer-anticipated coverage; signals PM-1 clustering or Phase 4 eviction is over-rejecting designer-recognized substrate patterns; routes to math note re-review |
+
+**Why ≥1 (not ≥2) is B-PASS threshold:** at Wave 5 single-season, even 1 substrate-discovered novel archetype is empirical evidence that substrate-led emergence produces signal beyond designer-curation. Demanding ≥2 at single-season would require Wave 5 to half-not-match doc 48 at a sample size that cannot reliably distinguish "novel emergence" from "noise"; ≥1 threshold is the small-n-honest floor.
+
+**Why 0 surprises is FOLLOW-UP-DEFER (not A-PASS):** zero surprises at single-season is consistent with (a) substrate genuinely matches doc 48 anticipation OR (b) novel emergence is rare and Wave 5 happened to not surface any. Cannot distinguish at n=1 season. Defer to Cycle 15 replications: if 3-5 production seasons consistently produce 0 surprises, Option α architectural commitment is NOT delivering value beyond designer-curation; that pattern at sample size n=3-5 IS A-PASS evidence. Single-season zero is not enough to refute.
+
+**Why 4-all-surprises is A-PASS (not B-PASS):** if EVERY Wave 5 cluster is novel and ZERO doc 48 shapes emerge, the failure mode is symmetric to dim #1 ≤0.60 coverage A-PASS. Substrate-led emergence has decoupled from substrate-evidence that designer-curation could read directly. Either the algorithm is mis-tuned (rejecting recognizable patterns) OR substrate has shifted away from designer-anticipated cluster definitions. Routes to PM-1 + Phase 4 architectural re-review.
+
+**Q-AB-2 verdict:** the protocol structure embeds a quality-asymmetry — high surprise count is mostly good (substrate-led discovery), zero is deferred (could be either-direction), all-surprises is bad (architectural decoupling). The asymmetry honors the substrate-led architectural commitment WHILE recognizing that disconnection from designer-recognizable substrate patterns IS a failure mode.
+
+### 7.3 Measurement procedure
+
+**Step 1 — Reuse dim #1 kit-to-doc-48-archetype matching output.** For each SHIPPED-WORTHY kit, dim #1 § 3.2 Step 3 computed which doc 48 archetypes it matches (≥6 of 8 axes agreement). Carry forward to dim #5.
+
+**Step 2 — Identify Wave 5 clusters via `phase7_kit_verdict_log.cluster_id`.** Group SHIPPED-WORTHY kits by cluster_id; each cluster is a candidate substrate-led-emergent shape.
+
+**Step 3 — Compute per-cluster modal-shape match.** For each cluster, compute:
+- The cluster's modal doc 48 archetype match (the doc 48 archetype that ≥50% of cluster kits match)
+- If no doc 48 archetype is matched by ≥50% of cluster kits → cluster is a SURPRISE.
+
+**Step 4 — Surprise-emergence count.** `surprise_count = sum(1 for cluster if cluster.modal_match is None)`.
+
+**Step 5 — Per-surprise gandalf interpretation hook.** For each surprise cluster, record:
+- Modal BC-axis signature (the 8-tuple that defines the surprise shape)
+- Modal cultural lineage
+- Modal substrate seed (which substrate seeds drove this cluster's existence)
+- Cohesion score (from `phase7_cluster_aggregate_log.cluster_compactness`)
+- Discrimination from doc 48: which doc 48 archetype was closest BUT failed the ≥6-of-8 threshold?
+
+This per-surprise record enables gandalf design-quality audit to distinguish substrate-led discovery (meaningful new shape worth canonical recognition) from substrate noise (thin incoherent cluster that happens not to match anything).
+
+### 7.4 Acceptance criterion
+
+(See Q-AB-2 resolution table in § 7.2 above — repeated here for execution convenience)
+
+| Surprise count | Verdict | Composite verdict contribution |
+|---|---|---|
+| 0 | FOLLOW-UP-DEFER dim #5 | INCONCLUSIVE for composite (defers to Cycle 15) |
+| 1 | B-PASS dim #5 | B contribution |
+| 2-3 | B-PASS dim #5 (interpretation-gated) | B contribution conditional on gandalf design-quality audit verdict per surprise |
+| 4 (all clusters) | A-PASS dim #5 | A contribution |
+
+### 7.5 Drift-watch criterion (Cycle 15+ revisit trigger)
+
+- **DRIFT TRIGGER:** if Wave 5 surprise count = 0 and Cycle 15 replications (3-5 production seasons) consistently produce 0 surprises, Option α architectural commitment is not delivering value beyond designer-curation; trigger architectural reconsideration (Pattern B with Matt).
+- **DRIFT TRIGGER:** if Wave 5 surprise count = 1 B-PASS but Cycle 15 surprises explode to 4+ across multiple seasons, substrate-led emergence has decoupled from doc 48 baseline; either substrate-curation pipeline has drifted OR PM-1 clustering parameters are now over-discriminating.
+- **DRIFT TRIGGER:** if a surprise archetype-shape emerges at Wave 5, gets gandalf design-quality interpretation as "meaningful new shape," but does NOT reappear at Cycle 15 replications, the Wave 5 surprise was substrate-noise rather than substrate-signal; recognition record amended.
+
+### 7.6 Empirical data source
+
+- **PRIMARY:** `phase7_kit_verdict_log` (verdict = SHIPPED-WORTHY filter; cluster_id grouping) joined with `kit_archive` BC-axis signature decode
+- **SECONDARY:** `phase7_cluster_aggregate_log.cluster_compactness` (cohesion-score input to surprise-cluster interpretation)
+- **BASELINE:** `canonical/48-cycle-14-class-roster-2026-05-27.md` § 3.1 (10 archetype × 8 BC-axis signature table; same as dim #1)
+- **REUSE:** dim #1 § 3.2 Step 3 kit-to-doc-48-archetype matching output (no recomputation needed)
+
+### 7.7 Output record format
+
+```
+Surprise-emergence count measurement — Wave 5 season <season_id>
+
+Wave 5 cluster count: 3
+Per-cluster modal-shape match:
+| Cluster | Member count | Modal doc 48 match | Match fraction | Surprise? |
+|---|---|---|---|---|
+| 1 | 10 | Barbarian | 7 of 10 (0.70) | NO |
+| 2 | 8 | Gunslinger | 6 of 8 (0.75) | NO |
+| 3 | 14 | (none ≥50%) | best: Crusader 5 of 14 (0.36) | YES |
+
+Surprise count: 1
+Verdict: B-PASS dim #5
+
+Surprise cluster #3 detail (for gandalf design-quality audit):
+- Modal BC signature: (engagement="mid-medium", damage_geometry="multi-hit",
+  proxy_density="solo", control_density="mixed", damage_tempo="medium",
+  amplitude_variance="flat", defensive_profile="dodger",
+  resource_economy="generator-spender")
+- Modal cultural lineage: middle-eastern (5/14) + south-asian (4/14)
+- Modal substrate seeds: shamshir (12 rows) + chakram (5 rows) + tonfa (3 rows)
+- Cluster compactness: 0.78 (high)
+- Closest doc 48 archetype: Crusader (5-of-8 axis agreement — below ≥6 threshold)
+- Gandalf design-quality interpretation: pending (audit at Wave 5 close)
+```
+
+---
+
+## 8. Dimension #6 — Throwaway-cluster count
+
+### 8.1 Operational definition
+
+**Question this dimension answers:** how many Wave 5 emergent clusters are thin (few member kits) AND incoherent (low cluster_compactness) — that is, are substrate-tagging artifacts rather than meaningful substrate-emergent shapes?
+
+**"Throwaway cluster" means** a cluster that fails BOTH:
+- (a) `member_kit_count` floor — too few kits to constitute a meaningful shape
+- (b) `cluster_compactness` floor — too low to constitute a coherent shape
+
+A cluster failing only (a) but high on (b) is a "thin coherent cluster" — small but well-shaped; potentially a substrate-edge discovery; NOT a throwaway. A cluster failing only (b) but high on (a) is a "fat incoherent cluster" — large but ill-shaped; potentially over-clustering artifact; flag separately.
+
+**Discipline #41 framing:** throwaway clusters indicate that PM-1 clustering produced more clusters than the substrate actually supports — substrate-tagging artifact where k=4 was selected by BIC but only 2-3 meaningful clusters exist. Substrate-led architectural commitment is undermined when emergence produces noise-clusters; the protocol distinguishes substrate-led discovery from substrate-tagging noise.
+
+**Q-AB-3 surfaces here:** what are the operational thresholds for "too few kits" + "too low compactness"?
+
+### 8.2 Q-AB-3 resolution — Throwaway-cluster threshold operational definition
+
+**Decision: dual-floor threshold with substrate-led-tolerance band.**
+
+**Floor (a) — member_kit_count:** cluster member_count < max(3, floor(0.10 × total_shipped_kits)).
+- Rationale: cluster with fewer than 3 kits is statistically unreliable as a "cluster" (a single substrate-noise kit can dominate the modal signal); cluster with fewer than 10% of total SHIPPED-WORTHY kits is below "meaningful population share" floor.
+- At Wave 5 with ~22-40 SHIPPED-WORTHY kits, this evaluates to 3-4 kits minimum per cluster.
+
+**Floor (b) — cluster_compactness:** cluster_compactness < 0.40.
+- Rationale: cluster_compactness is computed at PM-1 via silhouette-or-equivalent on 0.0-1.0 scale (per ExportFactionCluster schema line 622); a compactness <0.40 indicates cluster boundary is poorly defined (members are nearly as close to other clusters as to their own).
+- Threshold 0.40 derives from: silhouette score interpretation literature (>0.7 strong; 0.5-0.7 moderate; 0.25-0.5 weak; <0.25 no substantial structure); the 0.40 mid-weak-band threshold catches clusters whose substrate-cohesion is questionable BEFORE they become full anti-cluster (<0.25).
+
+**Throwaway verdict:** cluster is throwaway iff BOTH (a) AND (b) fail. Either floor alone is WARN; both is THROWAWAY.
+
+**Asymmetric verdict structure:**
+
+| Member count | Compactness | Verdict |
+|---|---|---|
+| ≥ floor(a) | ≥ 0.40 | HEALTHY |
+| < floor(a) | ≥ 0.40 | THIN-COHERENT (substrate-edge discovery candidate; gandalf interpretation) |
+| ≥ floor(a) | < 0.40 | FAT-INCOHERENT (over-clustering artifact; PM-1 parameter review) |
+| < floor(a) | < 0.40 | **THROWAWAY** (substrate-tagging artifact) |
+
+**Why asymmetric instead of single-floor:** small-coherent clusters and large-incoherent clusters are different failure modes with different remediation paths. Collapsing both into "throwaway" loses signal. The dual-floor structure surfaces the substrate-state honestly.
+
+**Q-AB-3 verdict:** thresholds (a) max(3, 10% of total) AND (b) 0.40 compactness are the operational definitions; both must fail for throwaway classification; thin-coherent and fat-incoherent are recorded separately as WARN signals for substrate-led-tolerance interpretation.
+
+### 8.3 Measurement procedure
+
+**Step 1 — Query Wave 5 cluster aggregates from `phase7_cluster_aggregate_log`.**
+
+```sql
+SELECT cluster_id, member_kit_count, cluster_compactness,
+       cohort_composition_json, shipped_worthy_count,
+       held_cohesion_fail_count, held_mechanical_fail_count
+FROM phase7_cluster_aggregate_log
+WHERE season_id = :wave_5_season_id;
+```
+
+**Step 2 — Compute total_shipped_kits and floor(a).**
+
+```python
+total_shipped_kits = sum(row.shipped_worthy_count for row in cluster_aggregates)
+floor_a = max(3, int(0.10 * total_shipped_kits))
+```
+
+**Step 3 — Classify each cluster.**
+
+```python
+for cluster in cluster_aggregates:
+    member_count_pass = cluster.member_kit_count >= floor_a
+    compactness_pass = cluster.cluster_compactness >= 0.40
+    if member_count_pass and compactness_pass:
+        cluster.verdict = "HEALTHY"
+    elif not member_count_pass and compactness_pass:
+        cluster.verdict = "THIN-COHERENT"
+    elif member_count_pass and not compactness_pass:
+        cluster.verdict = "FAT-INCOHERENT"
+    else:
+        cluster.verdict = "THROWAWAY"
+```
+
+**Step 4 — Tally throwaway_count + WARN signals.**
+
+```python
+throwaway_count = sum(1 for c in cluster_aggregates if c.verdict == "THROWAWAY")
+thin_coherent_count = sum(1 for c in cluster_aggregates if c.verdict == "THIN-COHERENT")
+fat_incoherent_count = sum(1 for c in cluster_aggregates if c.verdict == "FAT-INCOHERENT")
+total_clusters = len(cluster_aggregates)
+throwaway_rate = throwaway_count / total_clusters
+```
+
+**Step 5 — Cross-check with substrate-tagging artifacts via `held_cohesion_fail_count`.** A throwaway cluster should also show high held_cohesion_fail_count (cluster's kits failed Phase 7 cohesion gate at high rate); discrepancy (throwaway-by-floor but low cohesion-fail) suggests the protocol's floors may need recalibration.
+
+### 8.4 Acceptance criterion
+
+| throwaway_rate | Verdict | Rationale |
+|---|---|---|
+| ≤0.15 (≤15% of clusters) | B-PASS dim #6 | Substrate-led emergence produces predominantly meaningful clusters; tagging artifacts are minority |
+| 0.16 - 0.30 | WARN dim #6 | Substantive substrate-tagging artifact rate; PM-1 parameter tuning may improve cluster quality; investigate at design-quality audit |
+| >0.30 (>30% of clusters) | A-PASS dim #6 | Substrate-led emergence is producing more noise than signal at cluster layer; PM-1 BIC selection or cluster compactness threshold needs re-calibration; routes to math note re-review |
+
+**At Wave 5 with 3-4 clusters:**
+- 3 clusters: 0/3 = 0.00 → B-PASS; 1/3 = 0.33 → A-PASS (any throwaway is borderline)
+- 4 clusters: 0/4 or 1/4 = 0.25 → B-PASS-to-WARN boundary; 2/4 = 0.50 → A-PASS
+
+The thresholds compose with k∈{3,4} reality: at k=3, even one throwaway is concerning; at k=4, one throwaway is acceptable.
+
+**Composite signal:** dim #6 verdict + dim #3 verdict (faction pairwise-distance) compose meaningfully — if dim #3 is ALL-CLOSE AND dim #6 has high throwaway count, the season substrate is genuinely homogeneous (clusters are forced into existence by k≥3 BIC selection but lack substrate support); record as substrate-vote evidence. If dim #3 is HIGH-DISTANCE but dim #6 has throwaway count, then k was selected too high; meaningful primary-pair tension exists with thin-noise satellites; PM-1 might benefit from k=2 binary mode in this substrate regime.
+
+### 8.5 Drift-watch criterion (Cycle 15+ revisit trigger)
+
+- **DRIFT TRIGGER:** if throwaway_rate consistently exceeds 0.15 across Cycle 15 replications (3-5 production seasons), PM-1 clustering parameters need re-calibration (BIC over-selecting k; or compactness floor should be raised); fires methodology consultation per Discipline #18.
+- **DRIFT TRIGGER:** if THIN-COHERENT count is consistently ≥1 per season across Cycle 15+, substrate-edge discovery is a recurrent pattern; consider raising k cap to k=5 to give substrate-edge shapes their own cluster identity rather than orphaning them as thin.
+- **DRIFT TRIGGER:** if FAT-INCOHERENT count is consistently ≥1 per season, PM-1 is under-discriminating; consider lowering k floor to k=2 OR adding cluster-split refinement step to PM-1 algorithm.
+
+### 8.6 Empirical data source
+
+- **PRIMARY:** `phase7_cluster_aggregate_log` table (member_kit_count + cluster_compactness + cohort_composition_json + held_cohesion_fail_count fields per cluster per season)
+- **SECONDARY:** `ExportFactionCluster.cluster_compactness` (cross-validation of compactness measurement; should equal phase7_cluster_aggregate_log value)
+- **BASELINE:** doc 48 baseline does NOT apply directly (doc 48 is per-archetype, not per-cluster-quality); dim #6 is substrate-emergence quality self-evaluation; A counterpart would be "did designer-curation produce any throwaway archetypes?" which is a Yes-by-different-mechanism question (designer can over-curate; substrate-led just makes the same failure visible differently). Recorded as Wave-5-internal structural check, similar to dim #3.
+
+### 8.7 Output record format
+
+```
+Throwaway-cluster count measurement — Wave 5 season <season_id>
+
+Total SHIPPED-WORTHY kits: 32
+floor(a) = max(3, int(0.10 * 32)) = max(3, 3) = 3
+
+| Cluster | Member count | Compactness | Verdict |
+|---|---|---|---|
+| 1 | 10 | 0.71 | HEALTHY |
+| 2 | 8 | 0.58 | HEALTHY |
+| 3 | 14 | 0.42 | HEALTHY |
+| 4 | 2 | 0.31 | THROWAWAY |
+
+throwaway_count: 1
+thin_coherent_count: 0
+fat_incoherent_count: 0
+total_clusters: 4
+throwaway_rate: 0.25
+Verdict: WARN dim #6 (0.25 in 0.16-0.30 band)
+
+Cross-check: cluster 4 held_cohesion_fail_count = 4 of 6 evaluated
+(consistent with throwaway designation — cohesion gate detected the
+noise pattern independently)
+
+Composite signal note: dim #3 verdict was HIGH-DISTANCE (B-PASS); meaningful
+primary-pair tension exists; cluster 4 is thin-noise satellite. PM-1 might
+benefit from k=3 cap consideration in this substrate regime; queued for
+Cycle 15 watch.
+```
+
+---
+
+
 
