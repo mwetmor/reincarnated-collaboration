@@ -399,6 +399,21 @@ State file archival path (when reached): rename to `agentic_orchestration/cycle-
 - Step 1 ⚠️ SECOND BLOCKER: Phase 3 DEGENERACY HALT (0/22 configs pass Tier 1 gauntlet); root cause `_SyntheticPlayerClass.magnitude=3000` calibrated for synthetic_mode=True (RETIRED Wave 0.5 per #39); under full-variance gauntlet 65× mob HP span produces unrecoverable KPM dispersion across legendary configs. **MATT OPTION 4 RATIFIED 2026-05-27** (retire Phase 3 synthetic-player gauntlet per Discipline #39 scaffold retirement). Sub-option 4a (retire entirely) vs 4b (re-implement with real kits) gates on gamora Pattern A-light architectural verification 🔥 FIRING (~30 min; verifies whether Phase 3 doc 39 § 5.3 elements — convergence iteration + multi-T4 sim methodology + playability gate — are SUBSUMED by Phase 4 + Phase 7 OR DISTINCT). Post gamora verdict + Matt sub-option ratify: KR fires rocket dispatch (4a ~1-2 days retire OR 4b ~3-5 days re-impl with real kits). Phase 2 staged at `cycle-14-wave-5-season-001/phase2_kit_candidates.json` (18 kits VALID); gamora documented at meta `b5d8211` + engine `7b11ca9` + Phase 2 serialization fix at engine `497fd98`. Cycle 14 close trajectory impact: +1-5 days depending on sub-option; quality > timeline (Q10) supports the architectural correction.
 
 **KR OP § 3.X amendment opportunity (Matt 2026-05-27 observation; queued for next-session follow-on):** "scaffold retirement requires explicit grep audit across ALL pipeline layers, not just flag-level." Wave 0.5 retirement of synthetic_mode SHOULD have included explicit grep audit of ALL synthetic stubs at pipeline layer; KR pre-ratification framing missed this. Third scaffold-drift case Cycle 14 caught (doc 48 + Phase 7 SPEC/IMPL + _SyntheticPlayerClass). Discipline framework operating correctly — each Discipline #40 gap surfaced through sub-agent execution; KR OP § 3.X amendment captures this pattern for future cycle scaffold retirements.
+
+**🚨 FOURTH SCAFFOLD-DRIFT CASE — `BASE_SPELL_DAMAGE_L50` (rocket surfaced 2026-05-28 post Phase 3 re-impl complete):**
+
+Per rocket completion at engine `96f5e32` + tag `rocket/v1.7-phase-3-real-kit-re-impl-1`:
+- `BASE_SPELL_DAMAGE_L50` in `per_skill_emitter.py` is a Wave 0.5 scaffold explicitly labeled "STARTING ESTIMATE" in Wave 0.5 math note § 7
+- Real skill KPM = 0.34 kills/min vs KPM band floor 52 → **same ~150x gap the synthetic magnitude=3000 was hiding**
+- NOT a Phase 3 defect — UNRESOLVED Wave 0.5 scaffold that gamora's calibration loop is designed to close
+- Discipline #39 retirement design pattern operated as intended — synthetic stub removal SURFACED the actual upstream gap
+
+**Cascade routing required:**
+- jack-ryan Gate-2 verification on rocket Phase 3 work (FIRING next; ~half-day; verifies #39 LOAD-BEARING closure + Principle 6 round-trip + BC coordinate validity)
+- gamora SC-7 calibration of `BASE_SPELL_DAMAGE_L50` against endgame mob HP profile (queued post Gate-2 PASS; Wave 5 cascade gates on this calibration before Phase 3 produces `season_emit=True` kits)
+- Matt awareness surface: Wave 5 timeline adjusts +X days for SC-7 calibration in addition to +3-5 days for Phase 3 re-impl just landed
+
+**Discipline #39 design pattern VALIDATED:** synthetic stub retirement surfaces previously-hidden upstream gaps. This is the second instance Cycle 14 (first being `_SyntheticPlayerClass` itself surfacing the magnitude=3000 vs 65× mob HP variance issue; this being `BASE_SPELL_DAMAGE_L50` surfacing the actual ~150x KPM gap). The framework caught both gaps cleanly via sub-agent empirical execution.
 - Step 2 ⏳ POST step 1: KR fires gandalf #43 design-quality audit + A/B comparison + personage convergence
 - Step 3 ⏳ POST step 2: KR fires jack-ryan Gate-2 review
 - Step 4 ⏳ PASS branch: KR fires gamora (small) canonical_archetype_register commit + Court accumulation
