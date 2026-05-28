@@ -85,17 +85,21 @@
 
 ### Part 3 — Cohort KPM measurement (~2-3 days)
 
+> **AMENDED 2026-05-27 per Matt D-2B pre-ratification:** NO historical-telemetry prior (avoids synthetic_mode-bypass contamination per Discipline #39); first-Wave-5-attempt empirical KPM distribution IS the calibration source; midpoints recalibrate per Position B retry attempt until first PASS commits; STATIC after first PASS commits (NOT after attempt 1 regardless of audit outcome).
+
 - [ ] Per-cohort gauntlet_pass_rate distribution capture
 - [ ] Cohort midpoint median estimator per jack-ryan `3d4eda5` (median per cohort; bootstrap stability ±0.05-0.08 CI at n=15)
-- [ ] First-Wave-5-season authoritative re-calibration (cohort midpoint LOCKS per gandalf § 1.5; STATIC thereafter)
-- [ ] Historical-telemetry initial prior consumption (D11+D12 era seasons via gandalf hybrid criterion)
+- [ ] **D-2B NO PRIOR:** first-Wave-5-attempt produces empirical KPM distribution → midpoints computed from that distribution (NO Cycle 13 telemetry; NO D11+D12 historical prior)
+- [ ] **Position B composition:** cohort midpoints RECALIBRATE per retry attempt (if attempt 1 audit FAILs → recalibrate midpoints on attempt 2 distribution; if attempt 2 audit FAILs → recalibrate on attempt 3 distribution); ONCE FIRST PASS COMMITS → midpoints LOCK STATIC for rest of Cycle 14
+- [ ] Cycle 15+ auto-tune per Matt pre-ratification #1 STATIC mutability (production-season evidence-driven)
 
 ### Part 4 — 2-layer gate runtime (~3-4 days)
 
 - [ ] **Mechanical pass** evaluation: gauntlet_pass_rate >70% within ±25% of cohort midpoint per cohort + Phase 4 archive_status='ACCEPTED'
 - [ ] **Cohesion pass** evaluation: consume Phase 5 ExportFactionCluster cohesion fields (cluster_compactness + cosine_similarity_max + diversity_flag + phase7_gate_status + regeneration_fired + downstream ai_tell_compliance_score from F-C Wave 3 Seam 2) per gandalf spec § 2 + jack-ryan canonical `3d4eda5`; cohesion-judge confidence ≥0.75 (jack-ryan canonical lock) + ai_tell_compliance_score ≥0.70 (forward-compat for Wave 3 F-C)
 - [ ] **HELD verdict** state machine: 2-retry-per-kit (C-1 cohesion fail) + 1-retry-per-cluster (C-2/C-3 cluster-level fails) + no-retry-for-mechanical-fail (Phase 4 already rejected)
-- [ ] NO silent re-roll loops; every retry logs to Discipline #43 audit input
+- [ ] **D-1 RESET BETWEEN ATTEMPTS:** per-kit HELD retry budgets RESET to fresh budget at start of EACH Wave 5 generation attempt (Position B retry attempts are independent calibration cycles; a kit that hit 2 retries on attempt 1 starts fresh on attempt 2)
+- [ ] NO silent re-roll loops; every retry logs to Discipline #43 audit input (across all attempts; audit log accumulates per Wave 5 cycle)
 
 ### Part 5 — Phase 7 verdict emission (~2-3 days)
 
