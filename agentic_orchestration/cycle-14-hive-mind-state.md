@@ -763,6 +763,30 @@ Scope:
 **MIGRATION.md § v1.41 filed.** Star-lord NO action required (backward telemetry compat preserved).
 
 **W-α3 Phase 2 unlock signal: PARTIAL.** Ceiling=None released — W-α3 reference target can now commit from uncapped empirical KPM signal. **STILL GATED ON W-α1** (formula architecture). Once W-α1 lands, W-α3 Phase 2 fully unlocks.
+
+---
+
+### W-α3 GAMORA UNIFIED CALIBRATION PHASE 1 COMPLETE 2026-05-28 (Option α — Single Reference Target)
+
+**Engine `4280401` + `82f753e` AGENT_STATE + tag `gamora/v2.6-w-alpha-3-unified-calibration-1` + meta `043f648`** (~17-min Phase 1 fire).
+
+**Architecture: Option α — Single reference target tied to encounter HP at L50.**
+
+**Phase 1 deliverables landed:**
+- `unified_calibration_loop.py` — Option α calibration harness: binary search over unified scale_factor; PLACEHOLDER reference target 75.0 KPM (`REFERENCE_TARGET_IS_PLACEHOLDER = True`); `BOSS_HP_MID_REFERENCE = 231_000.0` locked
+- **Partition utilities migration COMPLETE per jack-ryan Gate-1 Amendment:** `_partition_kits_by_damage_scaling_path` + `_get_kit_damage_scaling_path` re-exported from `unified_calibration_loop.py`. `bounded_viability_validation.py` imports migrated. MIGRATION.md § v1.42 filed with import-path change documented.
+- Math note `w-alpha-3-unified-calibration-pass-2026-05-28.md`: § 1 architecture choice + § 7 Discipline #1.1 pre-fire projection (~62 min / ~100 MB) + § 9 Phase 2 gating + § 10 W-α1 cross-stream coherence
+- Smoke test (Discipline #2): all 7 unit tests PASS
+
+**Phase 2 STATE: W-α2 LANDED; W-α1 PENDING.**
+- W-α2 ✅ `6983759` + tag `gamora/v2.5-w-alpha-2-kpm-ceiling-1` (ceiling=None released)
+- W-α1 🔥 rocket background agent still firing (`rocket/v1.8` tag pending)
+
+Once W-α1 lands, W-α3 Phase 2 fires:
+1. Reference target value commits per Option α derivation (uncapped empirical KPM signal × post-refactor damage formulas)
+2. `REFERENCE_TARGET_IS_PLACEHOLDER = False`
+3. Calibration pass runs against full post-Path-α engine state
+4. Bundle Gate-2 trigger: `run_bounded_viability_validation_harness(smoke=False)` → `compound_pass=True` = Path α close signal
 - ✅ **W-α5 jack-ryan canonical retirements COMPLETE** at meta `deadd26` + tag `jack-ryan/v1.7-w-alpha-5-canonical-retirements-1` (bundled; ~11-min fire). All 3 sub-streams landed:
   - **W-α5a — 5 decisions-log entries:** Path α RATIFICATION (LOCKED) + Path β-narrow REJECTION + Path β-FULL Option 6 REJECTION + Cycle 15 D2 Option 6 RETRACTION (Discipline #40 case (c) FOURTH iteration declared) + Discipline #39 framework maturation (two modes defined — Mode A scaffold-drift catches cases 1-7; Mode B canonical scaffold resolutions case 8+; founding case `ee15c96` ANCHOR INTENTS; 3-element annotation requirement: scaffold declaration + named resolution party + named resolution gate; adjacent architectural truth pattern)
   - **W-α5b — Phase 7 doc § 3.14 + lifecycle:** Full Discipline #40 case (c) FOURTH iteration 6-step procedure executed. Phase 7 doc STATUS shifted LOAD-BEARING → HISTORICAL. D2 RATIFICATION marked RETRACTED in authority header. Doc 50 added as successor. Implementer historical-note added.
