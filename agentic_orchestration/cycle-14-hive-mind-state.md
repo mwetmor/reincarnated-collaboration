@@ -1147,6 +1147,57 @@ Path α work status:
 - Matt's integrated reframe per "engine > game > phase" precedence avoids double-calibration risk; demonstrates framework architecture-rationality > operational-momentum
 - 6-phase decomposition is the cleanest Cycle 14 v1 architecture yet — engine layer fully addressed (Patterns 1+2 implementation + integrated calibration) before measurement-infrastructure (BVV harness update) before final close
 
+---
+
+### INTEGRATED W-α7+ PHASE 2 COMPLETE 2026-05-28 EVENING — DOC 51 LOAD-BEARING
+
+**Engine `ba1c4e7` + tag `gandalf/v1.14-w-alpha-7-plus-phase-2-investment-scaling-canonical-1`** (~12min fire). **`canonical/51-investment-scaling-6-pattern-architecture-2026-05-28.md` LOAD-BEARING** (5 files / 713 insertions).
+
+**Pattern 1 (Active skill damage scaling) FORMULA LOCKED:**
+```
+damage_multiplier_at_points = base_at_max × ((1 - decay) + decay × (points / 15))
+where decay = 0.65 → range [0.35, 1.00] × base_at_max
+```
+Linear-with-floor (geometric mean of pure-additive and pure-multiplicative). "Every point matters" gradient + "investment caps at cohort_median anchor" bounded ceiling.
+
+**Pattern 2 (Passive skill effect scaling) FORMULA LOCKED:**
+```
+effect_magnitude_at_points = base_at_max × ((1 - decay) + decay × (points / 5))
+where decay = 0.50 → range [0.50, 1.00] × base_at_max
+```
+Narrower decay (0.50) — passive effects aggregate multiplicatively across many sources; coarser per-point sensitivity in 5-point domain.
+
+**Calibration anchor: MAX-INVESTMENT** (cohort_median IS endgame-realized profile per doc 50 player-consequence framing; sub-max produces natural variance Target 5 absorbs).
+
+**Discipline #47 FORMAL PROOF at doc 51 § 7:** at max-investment, Pattern 1 multiplier = 1.0 + Pattern 2 magnitude = 1.0 BY CONSTRUCTION. **Specialization peaks emerge from `base_at_max` distribution (Phase 3d gamora BASE re-derivation), NOT from investment scaling.** Investment scaling CANNOT produce super-peaks above `base_at_max`. Sub-max profile floor (0.35 active / 0.50 passive) honors bounded-viability floor at low-profile via Phase 4 multi-dim validation.
+
+**Per-tier ratio 1:1.5:2.17:4.0 preservation framing:** `tier_coefficient` OUTER-LAYER; Pattern 1 multiplier INNER-LAYER. At max-investment multipliers=1.0 uniformly → per-tier KPM ratios reflect ONLY `tier_coefficient × base_at_max`. T1:T2:T3:T4 ratio preserved uniformly. T3→T4 step 1.84× is capstone-tier signature.
+
+**Profile semantic definitions (jack-ryan Gate-1 Amendment #3 satisfied):**
+- **low-profile** <~25% of total skill-point budget (early-game / leveling)
+- **mid-profile** ~25-75% of budget (mid-game / endgame approach)
+- **max-profile** ≥~75% with active near 15/15 + passive near 5/5 (endgame / fully-realized; **cohort_median calibration anchor**)
+- **mixed-profile** atypical investment ratio (intentional unconventional build; expected cohort_median outlier)
+
+Numeric thresholds = Phase 3+4 gamora seam discretion.
+
+**Cross-references updated:** 00-ground-state § 1 Current Truth + doc 50 composition note; 02-roadmap Path α row + Patterns 3-6 C15+ deferral row; doc 47 § 3 forward-link block extended (doc 50 + doc 51 composition at `skill_damage_multiplier` inner-layer slot); **doc 50 § 4.7 NEW SECTION** "Composition with investment scaling (doc 51) — max-investment-profile is the calibration anchor" with per-target composition mapping (T1-T5 each mapped to investment-scaling implication).
+
+**Discipline #45 vocabulary grep PASS** (doc 51 § 11). Cohort labels (DPS-min-maxer / Balanced / Defensive / Hybrid) exempted as mechanical-property descriptors.
+
+---
+
+### PHASE 3 FAN-OUT FIRING — INTEGRATED IMPLEMENTATION
+
+Per master scoping § 1 Phase 3 + jack-ryan Gate-1 Amendment 1 (Phase 3d sequential post 3c):
+
+- 🔥 **Phase 3a — rocket Pattern 1 implementation** (parallel; ~2-3d)
+- 🔥 **Phase 3b — rocket Pattern 2 implementation** (parallel; ~2-3d)
+- 🔥 **Phase 3c — gamora encounter HP rebalancing (case 10 resolution)** (parallel; ~1-2d)
+- ⏳ **Phase 3d — gamora BASE_DAMAGE_L50 re-derivation** (sequential post 3c; ~1-2d)
+
+**Doc 51 LOAD-BEARING canonical input for all Phase 3 sub-streams.**
+
 **Cycle 14 v1 close trajectory: ~14-22d from this evening ratification.** Path α 4-6 week budget intact (~42 calendar days; current ~Day 0; v1 lands ~Day 14-22 leaving ~20-28 days margin).
 
 ---
