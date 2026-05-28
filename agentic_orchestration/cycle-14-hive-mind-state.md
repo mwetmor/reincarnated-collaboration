@@ -2641,8 +2641,36 @@ This is **Matt + gandalf strategic deliberation territory per Matt directive** �
 
 ---
 
-### MODE A DISPATCH 1 — ROCKET PATTERN-A QUERY (R2 VERIFICATION)
+### MODE A DISPATCH 1 — ROCKET PATTERN-A QUERY (R2 VERIFICATION) ✅ COMPLETE
 
-Authoring this dispatch immediately under hive-mind decision-routing. Pre-flight `vm_stat`: load avg 1.25; ~2.8 GB inactive reclaimable; safe for single rocket sub-agent under R47.4.
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-28-rocket-pattern-a-preferred-encounter-type-routing-scope.md`
+**Completion record commit:** `2b987eb` (rocket)
+**Fire wall-clock:** ~30 min
+
+**VERDICT — R2 REJECT CONFIRMED:** `preferred_encounter_type` routes Primary DDA targeting only (simulation-time). KR's initial-read signal confirmed. Generation-time path: only `select_primary_t4()` (`mechanic_alteration.py:1170`) + `get_preferred_encounter_type()` (`:1206`) consume it; Secondary/Tertiary `select_mechanic_alteration()` (`:1033`) calls `opportunity_scan(bc, substrate)` on each of 6 LAYER2 strategies, and NONE of them read `preferred_encounter_type` (not in `BcTargetView`). Simulation-time path: `damage_resolver.py:403-407` is sole live consumer, guarded by `t4_alteration_type == "DIRECT_DAMAGE_AMPLIFICATION"`. Fight-context injection at `t4_sim_cycling.py:1039-1040` + `:1131-1132` is explicitly DDA-specific. **No non-DDA strategy at simulation time reads either encounter-type field.**
+
+**R2 DISPOSITION: REJECT.** Primary T4 is universal-EXEMPT from T4 specialization metric; fixing preferred_encounter_type assignment misalignment (if any existed) would not change Secondary T4 cohort positions. Under Read B, R2 also becomes a Cycle 16+ refinement item (adjudication § 6 item 4). No immediate player-experience consequence surfaces.
+
+**Discipline #12 / #1.2 finding:** no semantic shift between math notes + implementation. **Minor naming-consistency observation** (rocket flagged for KR awareness; does NOT affect R2 finding; deferred-follow-on candidate): `select_mechanic_alteration()` at `mechanic_alteration.py:1066` references `REGIME_CHANGE_STRATEGIES_V1` while the definition at `:848` is `REGIME_CHANGE_STRATEGIES_V1_13_LAYER2`. Tidy candidate for jack-ryan Gate-2 wave-close OR rocket follow-on amendment. NOT urgent.
+
+**R-set status after Mode A Dispatch 1:**
+- R1 ❌ REJECT (architectural mootness; SCAFFOLD-Cycle-15-RETIREMENT)
+- **R2 ❌ REJECT (Mode A Dispatch 1 empirically verified)**
+- R3 🔥 BLOCKING-close (Mode A Dispatch 2 firing next — gamora forensic)
+- R4 ⏳ Cycle 16+ deferred (BC axis expansion)
+
+**Deferred follow-on items log (KR action queue):**
+- Naming consistency `REGIME_CHANGE_STRATEGIES_V1` → `_V1_13_LAYER2` at `mechanic_alteration.py:1066` — surface to jack-ryan Gate-2 wave-close (Mode A Dispatch 5) OR rocket amendment if surfaced earlier; INFO-tier.
+- Discipline #47 candidate jack-ryan canonical ratification at next QA pass (existing item)
+
+---
+
+### MODE A DISPATCH 2 — GAMORA R3 FORENSIC + HOTFIX SPEC (T2 ZERO-KPM AT BOSS/MINI_BOSS — CYCLE 14.5 HOTFIX BLOCKING CLOSE)
+
+Authoring this dispatch immediately under hive-mind decision-routing. Pre-flight `vm_stat` confirmed (~2.9 GB available; load avg 1.60 recovering); safe for single gamora sub-agent under R47.4. Single-seam sequencing preserved — rocket session complete; no parallel fan-out.
+
+**Adjudication § 2 R3 LOCKED:** T2 zero-KPM is independent of T4 layer choice; BASE-damage / fight-engine architecture problem at high-HP encounters. Player-experience-critical (bosses don't die = functional-broken-at-boss-content). Candidate sub-causes: Case 10 fight-engine timing-floor / BASE under-calibration for high-HP / encounter-class HP miscalibration / combination.
+
+**Measurable outcome criterion:** boss_with_adds + mini_boss KPM > 0 across all 18 kits at BVV anchor + 7-profile gauntlet. (NOT T4 specialization — that's deferred to Cycle 16+. Just "non-zero KPM at boss/mini_boss for every kit".)
 
 
