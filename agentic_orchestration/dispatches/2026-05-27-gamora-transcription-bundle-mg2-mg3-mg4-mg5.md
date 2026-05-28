@@ -130,4 +130,91 @@
 
 ## Completion record
 
-(append on completion)
+**Completed:** 2026-05-27
+**Agent:** gamora
+**Engine commit:** `fe938d9` (4 files changed, 294 insertions, 168 deletions)
+**Effort:** ~1.5 hours (within 1-2 hr estimate)
+
+---
+
+### Per-part outcomes
+
+**Part 1 — MG-2 (MIN_POPULATION_FOR_DIVERSITY 6→10): COMPLETE**
+- MIN_POPULATION_FOR_DIVERSITY raised to 10 (= 2d at d=5) in § 3 recommendation text, § 4.3 algorithm pseudocode, and § 3 decision criteria text.
+- NSGA-II primary confirmed with explicit rationale.
+- HVC indefinitely deferred (not a v1 upgrade path; G-MG2-1 gate can reopen empirically).
+- NSGA-III reference-point variant rejected with substrate-led violation rationale.
+- IGD rejected (requires true Pareto-optimal set; not applicable).
+- Pattern-A consultation § 6 updated to reflect RETURNED status with elrond verdicts.
+- Acceptance criteria checked off; STATUS header updated.
+- Q-T-MG2-1: No pre-existing § structure resisted amendment. MG-2 § 4.3 pseudocode and § 3 decision criteria both needed updating; both clean.
+
+**Part 2 — MG-3 Mahalanobis LOAD-BEARING (6 amendments): COMPLETE**
+- Amendment 1 (Tikhonov λ=1e-3): § 4.2 numerical stability guards updated; PRIMARY/SAFETY-NET framing established; λ=1e-3 rationale documented (Ledoit-Wolf shrinkage spirit; [0,1]-normalized regime calibration).
+- Amendment 2 (MIN_COV_POPULATION 7→15): § 4.2 and § 4.3 both updated; 3d rule-of-thumb cited (Hardle + Simar 2007); covariance path table by population updated.
+- Amendment 3 (empirical threshold framing / Hotelling T² not chi-squared): § 3 entirely rewritten; chi-squared framing retired; empirical calibration to 5% target detection rate established as authoritative; Hotelling T² reference distribution documented.
+- Amendment 4 (Pareto-strict replaces Q_scalar): § 4.1 Step 5 pseudocode rewritten; Pareto-strict as PRIMARY; Q_scalar as tiebreak-only for Pareto-incomparable pairs; rationale: architectural consistency with MG-1 + substrate-led discipline.
+- Amendment 5 (Welford 500-insertion checkpoint): § 4.4 updated; Chan+Golub+Leveque 1983 citation; 500 adopted per jack-ryan Q-MG-3-1 ratification; conditional-recompute alternative noted.
+- Amendment 6 (HDBSCAN standby module + G-MG3-1 Shapiro-Wilk gate): new § 4.5 (G-MG3-1 gate spec: α=0.05, 2-of-5 dims, 30% qualifying cells) + new § 4.6 (HDBSCAN mutual-reachability standby module with full pseudocode, threshold derivation, and cost analysis) + new § 4.7 (implementation gates G-MG3-2 through G-MG3-4). Pattern-A consultation § 6 updated to RETURNED.
+
+Q-T-MG3-1 (HDBSCAN fallback spec depth): elrond consultation `f8eb1a4` § 4.4 provides complete algorithm spec (pseudocode for `core_dist` and `mutual_reachability_dist`, threshold derivation approach, cost analysis, mutual-reachability rationale). This is encodable as transcription without per-parameter mutual-reachability distance computation spec. NO Discipline #44 framing-refusal warranted. HDBSCAN standby module fully encoded at § 4.6.
+
+**Part 3 — MG-4 KL Information Gain (5 amendments): COMPLETE**
+- Amendment 1 (retire § 3 discrete-grid KL): § 3 entirely replaced with RETIRED section documenting 5-point rationale (curse of dimensionality; h~k^(-1/9) over-smooths; Monte Carlo KL doesn't fix underlying problem; JSD well-conditioned via mixture distribution; JSD natural boundedness eliminates NOVELTY_CLAMP).
+- Amendment 2 (JSD primary across full k range): § 4 renamed from "small-population fallback" to "PRIMARY algorithm"; k<20/k≥20 switch criterion eliminated; JSD sample-point evaluation approach documented.
+- Amendment 3 (Silverman + 0.05 bandwidth floor): § 2 reference distribution formulation updated; Scott's rule replaced; Silverman formula with min(std, IQR/1.34) documented; h_floor=0.05 scaffold parameter established.
+- Amendment 4 (NOVELTY_CLAMP removed): § 5 algorithm completely rewritten; KL path removed; JSD normalization via /log(2) established; NOVELTY_CLAMP removed from scaffold parameters.
+- Amendment 5 (MIN_KL_POPULATION 5→10): § 5 updated; rationale documented.
+- § 6 smoothing: Laplace grid smoothing (Approach A) RETIRED; KDE bandwidth floor sole mechanism; h_floor updated from 0.01 to 0.05.
+- Signed footer updated to reflect amended architecture.
+
+Q-T-MG4-1 (orphaned KL+grid references): checked. All instances of NOVELTY_CLAMP, Scott's rule, discrete grid, and k<20/k≥20 switch are either in the RETIRED § 3 (with explicit retirement annotation), in the updated Q2/Q3 framing audit (with struck-through text and amendment notes), or in the acceptance criteria (struck-through). No orphaned forward references. Clean ribbon verified.
+
+**Part 4 — MG-5 Eviction (§ 7 + § 2 cap annotation): COMPLETE**
+- § 2 input bundle: `cell_capacity` comment updated from "default: 50" to "default: 30; AMENDED per Design Call C C2 ratification; prior default was 50".
+- § 7 capacity parameter: CELL_CAPACITY_MAX = 50 → 30; full scaffold-drift-resolution annotation including C2 alignment, authority chain (jack-ryan Q-MG-5-3 in-scope at `25af11c`), and Discipline #46 § 7 integrity verification (30 archive + 30 reject pool = 60 per-cell rows MAX).
+- § 0 framing audit Q1: "default 50" reference updated to "default 30 per Design Call C C2".
+- § X.9 watch item for scaffold drift: updated from OPEN to RESOLVED.
+- Acceptance criteria: all items checked off; new items added for T-B-α confirmation, OWN cap confirmation, Discipline #46 integrity verification, and Pareto Rank 0 protection rationale.
+- Gandalf amendments at `7233e0f` (§ X.3/X.3.2/X.7/X.8/X.9) fully preserved.
+
+Q-T-MG5-1 (Discipline #46 § 7 integrity): CONFIRMED. § X.7 states 30 archive + 30 reject pool = 60 per-cell rows MAX. § 7 canonical cap CELL_CAPACITY_MAX = 30 is the archive bound. § X.3 MAX_REJECT_POOL_PER_CELL = 30 is the reject pool bound (OWN cap, jack-ryan Q-MG-5-1 confirmed). No other § of MG-5 implies a different cap. No Discipline #46 § 7 violation.
+
+---
+
+### HDBSCAN fallback encoding outcome
+
+HDBSCAN mutual-reachability standby module encoded at MG-3 § 4.6. Spec includes:
+- Full pseudocode for `core_dist` and `mutual_reachability_dist` with k_nn=5 convention
+- Duplicate detection logic using `argmin(mreach_dist)` and MREACH_DUPLICATE_THRESHOLD
+- Threshold derivation: empirical calibration to 5% target (same as primary Mahalanobis path)
+- Why mutual-reachability over KNN/LOF (density-robustness; pedigree from HDBSCAN internal distance)
+- Cost: O(k log k) KD-tree build; O(d log k) per check; KD-tree cached+invalidated-on-insertion
+- Replacement verdict: Pareto-strict primary (same as § 4.1 Step 5)
+
+Encoding was within transcription scope per elrond consultation `f8eb1a4` § 4.4. No Discipline #44 framing-refusal.
+
+---
+
+### Discipline #46 § 7 integrity verification
+
+- Per-cell ACCEPTED archive: CELL_CAPACITY_MAX = 30 (§ 7; amended from 50)
+- Per-cell REJECT pool: MAX_REJECT_POOL_PER_CELL = 30 (§ X.3; OWN cap; jack-ryan Q-MG-5-1 confirmed)
+- Total per-cell rows: 60 kits MAX = 30 + 30
+- O(k²) at k=60 → 3,600 ops per-cell; no kernel-panic class risk
+- All queries bounded by `bc_cell_id` index lookup (§ X.2 + § X.3)
+- NO algorithm reads reject_pool as input (§ X.7 architectural invariant preserved)
+- Discipline #46 § 7 per-cell bounding integrity: VERIFIED, NO VIOLATION
+
+---
+
+### Open questions — gamora answers
+
+- **Q-T-MG2-1:** No pre-existing structure resisted. MG-2 § 4.3 pseudocode (one line) + § 3 decision criteria text (one paragraph) needed updating; both clean.
+- **Q-T-MG3-1:** elrond consultation `f8eb1a4` § 4.4 text is sufficient for transcription. HDBSCAN standby module encoded at § 4.6. No Discipline #44 framing-refusal.
+- **Q-T-MG4-1:** Orphaned reference check complete. Ribbon is clean — all retired content carries RETIRED annotation or struck-through acceptance-criteria markers. No forward reference to KL+grid path survives without explicit retirement context.
+- **Q-T-MG5-1:** 30+30=60 is the canonical statement. No other § implies a different cap. MG-5 § 7 (archive) and § X.3 (reject pool) are now aligned. Verified.
+
+---
+
+**Hand-back to KR:** All 4 simulation-side math-note transcriptions complete. Engine commit `fe938d9`. Matt-gate ratification routing for Phase 4+5 + Option α packages may proceed (pending parallel gandalf transcription of PM-1 + Option α notes completing). Dispatch 3A (Phase 4 impl) remains gated on Matt-gate per jack-ryan WARN in `25af11c` completion record.
