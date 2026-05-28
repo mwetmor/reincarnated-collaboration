@@ -419,4 +419,830 @@ Pre-Stage-4 grep audit verification (informal, full audit at Stage 4): scanned t
 
 ---
 
-*Stages 3-4 to follow: § 7 per-cell sketches (dense cells 20-50 entries each, SPARSE/EMPTY labels for thin) / § 8 anti-patterns / § 9 consumption-pattern documentation / § 10 Cycle 15+ expansion path / § Sign-off + framing-audit + Discipline #41 grep-audit record.*
+## § 7 Per-cell sketches (element × cultural_lineage)
+
+This section provides the **lineage-anchored** vocabulary pool per dense (element, lineage) intersection. Cells are sorted by substrate density (gandalf judgment grounded in `weapon_knowledge_entries` v1_scope=1 lineage distribution + thematic-canon richness in the wider corpus — historical/mythological named-item canon that augments the substrate row count for thematic-richness purposes per Ground Rule #1).
+
+**Substrate density baseline (v1_scope=1 lineage counts, queried 2026-05-27):**
+
+| Lineage | substrate count | tier |
+|---|---|---|
+| fantasy_generic | 1124 | dense (universal-fallback synthetic) |
+| european | 952 | dense |
+| east_asian | 263 | dense |
+| south_asian | 78 | moderate-dense |
+| middle_eastern | 36 | moderate-dense (thematic-canon-augmented to dense per Ground Rule #1; see note below) |
+| southeast_asian | 27 | moderate |
+| mesoamerican | 9 | sparse-but-thematic-coherent (exempted contamination per disposition doc) |
+| unknown / south_american_indigenous / african | 2-4 each | EMPTY per Ground Rule #3 |
+| n.am.indigenous / arctic_circumpolar / oceanic / sci_fi_generic | 0 in v1_scope | EMPTY (contamination-watch retained per § 4) |
+
+**Why middle_eastern reads dense despite 36 substrate count:** the substrate row count under-represents middle_eastern thematic-canon depth. The wider thematic corpus (Abrahamic faith-holy tradition / Persian wind+fire mythology / Egyptian sun-fire iconography / Arabian poetic motif richness) is the largest extant outside east_asian for the elements covered. The cell-density audit weights *substrate-anchored thematic vocabulary availability*, not raw row count alone (per Ground Rule #1's substrate-evidence trinity: substrate rows + legolas crawl outputs + existing canonical/story/ thematic precedent). South_asian sits in the same posture (78 rows but ancient Vedic/Hindu/Buddhist canon dense across faith-holy + lightning).
+
+**Cell selection (15 dense; 8 SPARSE; remainder EMPTY):**
+
+Dense cells (sketched below at 25-35 entries each, within 20-50 sketch tier):
+
+1. § 7.1 — fire × european
+2. § 7.2 — fire × east_asian
+3. § 7.3 — fire × middle_eastern
+4. § 7.4 — water × east_asian
+5. § 7.5 — water × european
+6. § 7.6 — earth × european
+7. § 7.7 — earth × east_asian
+8. § 7.8 — wind × middle_eastern
+9. § 7.9 — wind × east_asian
+10. § 7.10 — shadow × european
+11. § 7.11 — shadow × east_asian
+12. § 7.12 — lightning × european
+13. § 7.13 — lightning × south_asian
+14. § 7.14 — faith-holy × european
+15. § 7.15 — faith-holy × middle_eastern
+
+SPARSE cells (labeled only, no entries — Cycle 15+ expansion candidates): § 7.16
+
+EMPTY cells (labeled only, contamination-watch retained where applicable): § 7.17
+
+---
+
+### § 7.1 fire × european
+
+**Substrate anchor:** european substrate rows (952) — forge tradition (smith-named blades — *Tizona*, *Joyeuse*, *Curtana* in extended canon), pyre/hearth folklore, dragon-fire mythos (Beowulf / Fafnir), siege-fire tradition. Thematic-canon: forge-god (Wayland / Volund), hearth-goddess (Hestia-Brigid layer), fire-festival (Beltane / Walpurgis).
+
+**Epithets (10):**
+- "forge-blooded"
+- "hearth-sworn"
+- "pyre-marked"
+- "ember-eyed"
+- "kiln-tempered"
+- "torch-bearing"
+- "smoke-throated"
+- "anvil-born"
+- "bellows-lunged"
+- "scorch-handed"
+
+**Motifs (10):**
+- "the smith's last fire"
+- "the unquenched hearth"
+- "the funeral pyre that would not die"
+- "the dragon's long memory"
+- "the forge that named the blade"
+- "the watchfire on the wall"
+- "the burning ash-tree"
+- "the candle in the crypt"
+- "the iron made red"
+- "the keep that burned three times"
+
+**Archetype-names (5):**
+- "the smith"
+- "the bell-ringer"
+- "the kindler"
+- "the watcher of the watchfire"
+- "the keeper of the long hearth"
+
+**Place-names (3):**
+- "the cinder-keep"
+- "the forge-roads"
+- "the ash-meadow"
+
+**Lore-fragments (3):**
+- "they kept the forge lit through the winter the king did not return"
+- "the smith named the blade with her last breath"
+- "the hearth would not take cold iron"
+
+---
+
+### § 7.2 fire × east_asian
+
+**Substrate anchor:** east_asian substrate rows (263) — named blade tradition (*Masamune* / *Sadamune* / *Yoshimitsu* family blades repeated through substrate; folded-steel forge practice as thematic anchor), dragon-flame canon (Chinese *long* tradition — *Green Dragon Crescent Blade* in substrate), lantern + festival fire, samurai-pyre rite. Thematic-canon: kitsune-fire (foxfire), kirin-flame, Buddhist cremation fire, fire-festival (Obon, Toji).
+
+**Epithets (10):**
+- "lacquer-burnt"
+- "lantern-lit"
+- "tempered-thrice"
+- "foxfire-touched"
+- "kiln-glazed"
+- "cinder-petalled"
+- "ember-veiled"
+- "blade-bright"
+- "incense-throated"
+- "scorch-silked"
+
+**Motifs (10):**
+- "the lantern that lit the river of the dead"
+- "the blade folded one thousand times"
+- "the fox carrying a torch through the rice"
+- "the temple fire that never sleeps"
+- "the dragon coiled in the brazier"
+- "the cremation-pyre under the cherry trees"
+- "the lacquer scorched but not broken"
+- "the smith's three-day fast before the steel"
+- "the festival flame on the seventh night"
+- "the calligrapher's burned draft"
+
+**Archetype-names (5):**
+- "the lantern-keeper"
+- "the brazier-tender"
+- "the smith-ascetic"
+- "the fox-walker"
+- "the carrier of the temple flame"
+
+**Place-names (3):**
+- "the lantern-road"
+- "the smithyard at Mount Hira"
+- "the brazier-shrine"
+
+**Lore-fragments (3):**
+- "the fox left her torch at the threshold"
+- "the smith dreamt the blade before he forged it"
+- "the lantern guided three souls and burned out at the fourth"
+
+---
+
+### § 7.3 fire × middle_eastern
+
+**Substrate anchor:** middle_eastern substrate (36 rows under-represents canon) — Tutankhamun's meteoric-iron dagger (substrate); thematic-canon: Zoroastrian sacred fire (*atar*), phoenix (Bennu / Greek-via-Egypt phoenix), desert-sun iconography, Sumerian fire-deity (Gibil / Girra), Persian fire-temple (atashkadeh), Arabian poetic flame-imagery (jahili poetry).
+
+**Epithets (10):**
+- "sun-scorched"
+- "phoenix-marked"
+- "atashkadeh-sworn"
+- "myrrh-burnt"
+- "dune-blistered"
+- "ember-veiled" *[also valid in § 7.2 east_asian — disambiguate at fire-time]*
+- "noon-eyed"
+- "saffron-lit"
+- "brand-pressed"
+- "censer-handed"
+
+**Motifs (10):**
+- "the sun that did not set for forty days"
+- "the fire that the wind cannot take"
+- "the phoenix's third burning"
+- "the temple flame older than the prophet"
+- "the desert that remembers footprints in glass"
+- "the brand on the camel's flank"
+- "the lamp the traveler left burning"
+- "the prayer-rug singed at the corners"
+- "the censer that emptied at the king's last word"
+- "the sand turned to mirror"
+
+**Archetype-names (5):**
+- "the fire-keeper"
+- "the noon-walker"
+- "the censer-bearer"
+- "the desert ascetic"
+- "the lamp-trimmer"
+
+**Place-names (3):**
+- "the glass-desert"
+- "the fire-temple at the seven gates"
+- "the sun-road"
+
+**Lore-fragments (3):**
+- "the fire was lit when the city was named and has not gone out"
+- "she walked into the noon-sun and the sand kept her shape"
+- "the phoenix shed three feathers and they became cities"
+
+---
+
+### § 7.4 water × east_asian
+
+**Substrate anchor:** east_asian substrate — *Hyūga Masamune* (named water-tradition blade subset), naginata + monsoon tradition. Thematic-canon: river-dragon (*long* of the great rivers — Yangtze / Yellow), koi/ascension myth, monsoon-festival, Buddhist water-purification (*misogi*), Shinto sea-kami (Watatsumi), typhoon-as-divine-wind ambivalence (cross-references § 7.9 wind).
+
+**Epithets (10):**
+- "monsoon-blessed"
+- "koi-scaled"
+- "river-bound"
+- "tide-walked"
+- "rain-veiled"
+- "lotus-rooted"
+- "deep-eyed"
+- "mist-throated"
+- "rapids-tongued"
+- "well-sworn"
+
+**Motifs (10):**
+- "the koi that climbed the waterfall"
+- "the dragon under the deepest pool"
+- "the well that does not freeze"
+- "the river that changed course in one night"
+- "the monsoon that broke the year"
+- "the lotus opening at dawn on the still water"
+- "the tide that returned the lost sword"
+- "the mist that hid the boat from the shore"
+- "the rain that washed the calligraphy from the door"
+- "the deep that kept the bell"
+
+**Archetype-names (5):**
+- "the river-walker"
+- "the well-keeper"
+- "the tide-reader"
+- "the rain-listener"
+- "the ferryman"
+
+**Place-names (3):**
+- "the koi-pools"
+- "the seven wells"
+- "the mist-bridge"
+
+**Lore-fragments (3):**
+- "the river chose the bridge and the bridge chose her"
+- "the bell still rings beneath the deep pool on the night of the festival"
+- "the koi climbed and what it became was not a dragon"
+
+---
+
+### § 7.5 water × european
+
+**Substrate anchor:** european substrate — Excalibur-from-the-lake canon (Arthurian), Lady-of-the-Lake / Nimue, north-sea seafaring tradition, *Niflheim* / mist-water cosmology, well-and-spring sanctity (Brigid's wells, sacred springs), drowned-village folklore.
+
+**Epithets (10):**
+- "lake-given"
+- "fen-born"
+- "tide-bound"
+- "well-blessed"
+- "drowned-sworn"
+- "mist-walked"
+- "spring-anointed"
+- "salt-burned"
+- "fjord-cold"
+- "kelp-tangled"
+
+**Motifs (10):**
+- "the sword from the still water"
+- "the well that does not run dry"
+- "the bell of the drowned village"
+- "the kelpie at the ford"
+- "the long ship returning with one rower"
+- "the spring the saint blessed"
+- "the fen that swallowed the road"
+- "the tide that gives back what was taken"
+- "the lake where the king was carried"
+- "the mist on the moor at the funeral"
+
+**Archetype-names (5):**
+- "the well-keeper"
+- "the ferrier"
+- "the fen-walker"
+- "the kelp-gatherer"
+- "the lady of the water"
+
+**Place-names (3):**
+- "the drowned-village"
+- "the nine wells"
+- "the fenmoor"
+
+**Lore-fragments (3):**
+- "the hand rose from the water at the third hour"
+- "they say the bell still rings on the night the village went under"
+- "the well took the coin and gave back a sword"
+
+---
+
+### § 7.6 earth × european
+
+**Substrate anchor:** european substrate — *Bardiche* / *Guisarme* (substrate polearm tradition rooted in field-soldier earth-bond), barrow-and-mound burial canon (Sutton Hoo / Brittany dolmens), Saxon/Welsh hill-fort tradition, henge stones, miners' folklore (Cornish knockers / Germanic kobolds).
+
+**Epithets (10):**
+- "barrow-marked"
+- "stone-bound"
+- "iron-veined"
+- "loam-handed"
+- "henge-sworn"
+- "moor-rooted"
+- "fen-rooted" *[disambiguate from § 7.5 water-fen — earth-fen reads bog-as-solid-ground]*
+- "ash-tree-rooted"
+- "delved-deep"
+- "grave-tended"
+
+**Motifs (10):**
+- "the stone that was set before the king was born"
+- "the barrow opened only once"
+- "the henge that aligns with the midwinter sun"
+- "the iron in the hill that called the smiths"
+- "the moor that does not forget"
+- "the ash-tree at the crossroads"
+- "the fields that hold the bones of the last battle"
+- "the cairn the shepherds add to each year"
+- "the mine that takes one in seven"
+- "the standing stone that walks at midwinter"
+
+**Archetype-names (5):**
+- "the stone-walker"
+- "the barrow-keeper"
+- "the delver"
+- "the moor-watcher"
+- "the cairn-builder"
+
+**Place-names (3):**
+- "the barrow-fields"
+- "the henge-meadow"
+- "the long-mine"
+
+**Lore-fragments (3):**
+- "they buried the king with his shield-arm to the east"
+- "the stone was carried three days by the giants who left no other mark"
+- "the mine took her grandfather and his father before"
+
+---
+
+### § 7.7 earth × east_asian
+
+**Substrate anchor:** east_asian substrate (subset thematic-coherent) — Buddhist stone-garden tradition (*karesansui*), jade-as-stone canon, mountain-hermit tradition (sennin / xian), terraced-rice landscape, Mount Hiei / Mount Tai sacred-mountain canon. Substrate lineage primarily blade-canon, so earth × east_asian leans on thematic-canon augmentation (per Ground Rule #1).
+
+**Epithets (10):**
+- "jade-veined"
+- "mountain-sworn"
+- "terrace-rooted"
+- "stone-garden-keeping"
+- "moss-handed"
+- "pine-rooted"
+- "cliff-eyed"
+- "cairn-stacking"
+- "earth-tongued"
+- "boulder-shadowed"
+
+**Motifs (10):**
+- "the stone garden raked at dawn for forty years"
+- "the jade that turned in the keeping"
+- "the mountain that grew while the hermit climbed"
+- "the terrace that fed the village through three famines"
+- "the pine bent by the wind but not the years"
+- "the cairn at the pass that names the dead"
+- "the rock the master would not move"
+- "the boulder split by the bamboo root"
+- "the moss-stone marking the boundary the monks set"
+- "the cliff-temple reached only at the dry season"
+
+**Archetype-names (5):**
+- "the mountain-hermit"
+- "the stone-gardener"
+- "the terrace-keeper"
+- "the cliff-pilgrim"
+- "the cairn-namer"
+
+**Place-names (3):**
+- "the stone-garden temple"
+- "the seven-terraced slope"
+- "the cliff-pass"
+
+**Lore-fragments (3):**
+- "the master raked the gravel each morning and refused to name the pattern"
+- "the jade pendant turned green in his keeping over thirty years"
+- "they built the cairn one stone for each man who did not come down"
+
+---
+
+### § 7.8 wind × middle_eastern
+
+**Substrate anchor:** middle_eastern substrate (thematic-canon-augmented) — Persian *simoom* and Arabian *sirocco* (desert wind tradition), Sufi whirling-dervish canon (substrate: *Dervish Ax*), Egyptian wind-deity Shu, Mesopotamian Pazuzu (south-west wind). Wind as judgment / wind as carrier-of-prayer dual canon.
+
+**Epithets (10):**
+- "simoom-touched"
+- "sirocco-sworn"
+- "whirling"
+- "dune-walked"
+- "breath-given"
+- "djinn-marked"
+- "veil-stirring"
+- "sand-tongued"
+- "prayer-borne"
+- "noon-stilled"
+
+**Motifs (10):**
+- "the wind that crossed the desert in one night"
+- "the dervish that turned for three days without stopping"
+- "the storm that buried the caravan and revealed the city"
+- "the breath that called the djinn to the lamp"
+- "the wind that carried the prayer to the mountain"
+- "the still hour when the wind drops at noon"
+- "the veil lifted by the wind at the well"
+- "the sand-pillar that walked across the empty quarter"
+- "the wind that scattered the night-walker's footprints"
+- "the breath of the prophet over the still water"
+
+**Archetype-names (5):**
+- "the wind-walker"
+- "the dervish"
+- "the breath-keeper"
+- "the dune-reader"
+- "the message-runner"
+
+**Place-names (3):**
+- "the empty quarter"
+- "the wind-cut cliffs"
+- "the dervish-court"
+
+**Lore-fragments (3):**
+- "the wind brought her name to the village three days before she arrived"
+- "the dervish turned until the desert turned with him"
+- "the storm closed the road and the city behind it was older than the kingdom"
+
+---
+
+### § 7.9 wind × east_asian
+
+**Substrate anchor:** east_asian substrate — naginata in storm-tradition (substrate), *kamikaze* / "divine wind" canon (Mongol-invasion repulsion), typhoon mythology, fox-wind (kitsune folklore), tengu wind-mastery, sky-lantern tradition.
+
+**Epithets (10):**
+- "typhoon-blessed"
+- "divine-wind-marked"
+- "tengu-taught"
+- "sky-lanterned"
+- "bamboo-whispered"
+- "crane-shadowed"
+- "cloud-walked"
+- "kitsune-led"
+- "storm-eaved"
+- "breath-of-mountain"
+
+**Motifs (10):**
+- "the wind that broke the invader's fleet"
+- "the tengu's lesson the swordsman never spoke of"
+- "the sky-lantern that crossed the strait"
+- "the typhoon that named the year"
+- "the bamboo bent and unbroken"
+- "the crane crossing the morning sky"
+- "the fox that ran ahead of the wind"
+- "the mountain's breath at the high pass"
+- "the storm that returned the sword to its keeper"
+- "the kite that carried a child's name to the dead"
+
+**Archetype-names (5):**
+- "the wind-listener"
+- "the kite-flyer"
+- "the tengu-student"
+- "the sky-walker"
+- "the bamboo-cutter"
+
+**Place-names (3):**
+- "the wind-gate pass"
+- "the storm-strait"
+- "the high bamboo"
+
+**Lore-fragments (3):**
+- "the wind came when the prayer was finished and not before"
+- "the tengu taught him the cut and then would not let him speak of it"
+- "the kite carried her brother's name across the strait and did not return"
+
+---
+
+### § 7.10 shadow × european
+
+**Substrate anchor:** european substrate — necromancer-grave tradition (Germanic / Slavic), black-knight folklore, heath-wraith canon (Scots-English borderlands), crypt-and-catacomb thematic depth (Roman + Christian layer), Wild-Hunt mythology (Wodan/Odin night-ride), changeling-and-faerie-dark thread.
+
+**Epithets (10):**
+- "grave-walked"
+- "wraith-marked"
+- "moor-shadowed"
+- "crypt-sworn"
+- "hunt-followed"
+- "raven-eyed"
+- "night-bound"
+- "barrow-shadowed"
+- "changeling-touched"
+- "shroud-veiled"
+
+**Motifs (10):**
+- "the rider who passes in the long night"
+- "the shadow that did not follow the man"
+- "the crypt door that closed without hand"
+- "the heath where the road forgets itself"
+- "the raven at the gallows-foot"
+- "the changeling-child the mother kept"
+- "the moor-mist with the smell of iron"
+- "the bell that tolls though no one rings it"
+- "the wild hunt heard on the seventh night"
+- "the candle that burned blue at the grave"
+
+**Archetype-names (5):**
+- "the bell-tender of the night-chapel"
+- "the moor-wanderer"
+- "the grave-tender"
+- "the rider"
+- "the watcher at the gate"
+
+**Place-names (3):**
+- "the gallows-heath"
+- "the long-night moor"
+- "the crypt-chapel"
+
+**Lore-fragments (3):**
+- "she heard the bell on the night her brother did not come home"
+- "the rider passed three times and on the fourth night took the herald with him"
+- "they buried the lord with his hounds and the hounds were heard on the moor for a year"
+
+---
+
+### § 7.11 shadow × east_asian
+
+**Substrate anchor:** east_asian substrate (thematic-canon-augmented) — shinobi / ninja folklore (historical-fiction-augmented canon), oni and yokai night-tradition, hyakki-yagyo (night parade of one hundred demons), Buddhist hell-realms iconography, kabuki ghost-play tradition (*Yotsuya Kaidan*).
+
+**Epithets (10):**
+- "night-walked"
+- "oni-marked"
+- "yokai-shadowed"
+- "lantern-blown-out"
+- "rooftop-treading"
+- "ghost-veiled"
+- "ink-blooded"
+- "moonless-sworn"
+- "shoji-shadowed"
+- "hyakki-followed"
+
+**Motifs (10):**
+- "the lantern that went out as the messenger arrived"
+- "the parade of one hundred demons that no living eye should meet"
+- "the shadow on the shoji that had no body in the room"
+- "the rooftop where the shadow-walker waited two nights"
+- "the inkstone that filled itself in the dark"
+- "the ghost-bride at the upturned cup"
+- "the oni who kept the bridge-toll honest"
+- "the long-armed yokai at the well"
+- "the moonless night the dōjō burned"
+- "the kabuki line that summoned the wrong spirit"
+
+**Archetype-names (5):**
+- "the lantern-snuffer"
+- "the night-walker"
+- "the rooftop-treader"
+- "the ink-keeper"
+- "the bridge-watcher"
+
+**Place-names (3):**
+- "the unlit district"
+- "the demon-parade road"
+- "the rooftop-quarter"
+
+**Lore-fragments (3):**
+- "the lantern went out the moment he spoke her old name"
+- "they say the parade passes the bridge on the seventh night and the bridge-keeper averts her eyes"
+- "the ghost wore the bride's red and the family hid all the cups"
+
+---
+
+### § 7.12 lightning × european
+
+**Substrate anchor:** european substrate — Norse Thor/Mjolnir canon, Greek/Roman Zeus/Jupiter sky-father, Germanic Donar layer, Slavic Perun, storm-god lineage. Hammer-and-bolt iconography deep.
+
+**Epithets (10):**
+- "thunder-marked"
+- "hammer-handed"
+- "bolt-struck"
+- "storm-sworn"
+- "skyfather-blessed"
+- "oak-split"
+- "ridge-burned"
+- "white-flashed"
+- "donar-touched"
+- "thunderhead-veiled"
+
+**Motifs (10):**
+- "the hammer thrown across the storm-sea"
+- "the oak split by the bolt and re-grown crooked"
+- "the bell that rang itself when the storm broke"
+- "the rider with the hammer at the longest night"
+- "the storm that named the year of the bad harvest"
+- "the white flash that revealed the moor"
+- "the ridge-line where the lightning always strikes first"
+- "the tower struck three summers running"
+- "the storm-king's chariot wheels in the cloud"
+- "the bolt that took the wrong man at the threshing-floor"
+
+**Archetype-names (5):**
+- "the storm-watcher"
+- "the bell-tender"
+- "the ridge-walker"
+- "the oak-marker"
+- "the sky-reader"
+
+**Place-names (3):**
+- "the storm-ridge"
+- "the split-oak hill"
+- "the thunder-meadow"
+
+**Lore-fragments (3):**
+- "the bolt struck the oak the day the queen was crowned"
+- "they say the hammer is heard above the storm and the ship that hears it returns"
+- "the storm-watcher counted three flashes before the thunder and named the hour"
+
+---
+
+### § 7.13 lightning × south_asian
+
+**Substrate anchor:** south_asian substrate (78 rows) — *Vajra* (substrate; thunderbolt-weapon, Indra's principal armament), *Indraastra* (substrate; Indra's missile), Buddhist *vajra* iconography (diamond-thunderbolt), Vedic storm-god canon, monsoon-lightning thematic depth.
+
+**Epithets (10):**
+- "vajra-marked"
+- "indra-blessed"
+- "monsoon-burned"
+- "diamond-bolted"
+- "ashvin-touched"
+- "thunder-sworn"
+- "rain-broken"
+- "sky-roared"
+- "naga-flashed"
+- "mantra-charged"
+
+**Motifs (10):**
+- "the vajra that does not break and cannot be broken"
+- "the bolt Indra threw at the dawn of the storm-season"
+- "the diamond at the heart of the thunder"
+- "the rain that the lightning preceded by three breaths"
+- "the temple bell rung by the strike"
+- "the mantra spoken once and remembered by the sky"
+- "the cobra that rose at the thunder's voice"
+- "the elephant-king's tusk lit white at the storm's edge"
+- "the monsoon's first crack across the plain"
+- "the ascetic's staff that drew the bolt and would not splinter"
+
+**Archetype-names (5):**
+- "the vajra-bearer"
+- "the storm-ascetic"
+- "the mantra-speaker"
+- "the cloud-rider"
+- "the sky-priest"
+
+**Place-names (3):**
+- "the thunder-plateau"
+- "the monsoon-coast"
+- "the diamond-temple"
+
+**Lore-fragments (3):**
+- "the vajra was given when the demon-king refused the third offering"
+- "the mantra that called the bolt was taught only at the rains' beginning"
+- "the temple bell was struck by the storm and rang for seven days"
+
+---
+
+### § 7.14 faith-holy × european
+
+**Substrate anchor:** european substrate — *Curtana* / *Joyeuse* (Christian-blessed regalia in extended canon), crusader-era reliquary tradition, monastic order canon (Benedictine / Cistercian), pilgrimage routes (Compostela / Canterbury), saints'-relic culture, Templar/Hospitaller military-monastic lineage.
+
+**Epithets (10):**
+- "chrism-anointed"
+- "reliquary-bound"
+- "pilgrim-shod"
+- "vesper-blessed"
+- "cloister-sworn"
+- "psalter-marked"
+- "candle-lit"
+- "rosary-told"
+- "vow-bound"
+- "saint-shadowed"
+
+**Motifs (10):**
+- "the relic that wept on the saint's day"
+- "the candle that burned three nights in the storm"
+- "the bell that called the brothers to the third hour"
+- "the pilgrim road worn smooth by a thousand years of knees"
+- "the chrism that did not run dry through the long siege"
+- "the psalter the abbot kept open at the page of the lament"
+- "the vow spoken in the cloister and never broken"
+- "the saint's bone that healed the leper at the third asking"
+- "the reliquary carried at the head of the long procession"
+- "the bell tolled at the dying king's last breath"
+
+**Archetype-names (5):**
+- "the pilgrim"
+- "the bell-ringer"
+- "the candle-tender"
+- "the reliquary-bearer"
+- "the cloister-keeper"
+
+**Place-names (3):**
+- "the pilgrim-road"
+- "the cloister-chapel"
+- "the relic-cathedral"
+
+**Lore-fragments (3):**
+- "she walked the road from the sea to the cathedral and did not speak the whole way"
+- "the bell rang the office at the third hour and the city quieted with it"
+- "the relic was carried before the army and the army did not break"
+
+---
+
+### § 7.15 faith-holy × middle_eastern
+
+**Substrate anchor:** middle_eastern substrate — Abrahamic faith-holy lineage shared across three traditions (Jewish prophetic / Christian Eastern Orthodox / Islamic Sufi), Zoroastrian fire-temple priest canon, desert-prophet tradition, pilgrimage canon (Hajj, Holy Land), poetic devotional tradition (Rumi / Hafez / psalmist).
+
+**Epithets (10):**
+- "prophet-marked"
+- "pilgrim-stoned" *[stone-of-the-pilgrim = scriptural anchor, NOT class-vocabulary]*
+- "minaret-shadowed"
+- "scripture-bound"
+- "desert-prayed"
+- "qibla-facing"
+- "psalm-throated"
+- "fast-thinned"
+- "wisdom-tongued"
+- "veil-marked"
+
+**Motifs (10):**
+- "the prophet who walked into the desert and returned with the law"
+- "the pilgrim who circled the stone seven times"
+- "the prayer called from the minaret at the first light"
+- "the desert that took the king's pride and gave back his humility"
+- "the scripture copied by hand for a thousand years"
+- "the well that the patriarch dug and the village still drinks from"
+- "the fast that lasted the moon's full cycle"
+- "the wisdom that came after the third silence"
+- "the veil that hid the queen at the threshold of the temple"
+- "the lamp the pilgrim carried to the holy city"
+
+**Archetype-names (5):**
+- "the pilgrim"
+- "the muezzin"
+- "the scripture-copier"
+- "the desert-ascetic"
+- "the lamp-bearer"
+
+**Place-names (3):**
+- "the holy city"
+- "the pilgrim-stones"
+- "the desert-shrine"
+
+**Lore-fragments (3):**
+- "she crossed the desert with one waterskin and arrived at the city before the fast ended"
+- "the call to prayer was given by a voice the city had not heard before"
+- "the scripture was copied through three generations and the original was lost without anyone noticing"
+
+---
+
+### § 7.16 SPARSE cells (labeled only — Cycle 15+ expansion candidates)
+
+The following (element × lineage) cells have substrate density in the 5-20 reference range (or thematic-canon support that is real but thin). Per Ground Rule #3, no entries are authored at Stage 3; cells receive SPARSE labels and are flagged for Cycle 15+ substrate-anchored augmentation work (gandalf will commission legolas Mode A research to surface thematic-canon vocabulary when one of these cells is exercised by a Wave A/B cluster).
+
+| Cell | substrate basis | Cycle 15+ augmentation notes |
+|---|---|---|
+| arcane × european | european scholar / Hermetic / wizard-tower canon (thematic-canon present but element-only § 6.7 covers most usage) | augment with grimoire-tradition + alchemist + court-mage vocabulary |
+| arcane × east_asian | Taoist / wuxia / talismanic canon | augment with *fulu* talisman tradition + immortals' arts + Yin-Yang scholarship |
+| faith-holy × south_asian | Vedic / Buddhist / Jain canon (faith × south_asian under-served by current substrate; bell, mantra, mandala vocabulary thin in v1_scope) | augment with mantra + bodhisattva-naming + temple-architecture vocabulary |
+| water × southeast_asian | substrate: *Kris* / *Lantaka* / sea-trading canon | augment with naga + bajau-sea-folk + monsoon-port vocabulary |
+| earth × south_asian | substrate thin; thematic basis: Himalayan-hermit + cave-temple canon | augment with naga (chthonic layer) + cave-shrine + Vindhya tradition |
+| fire × south_asian | substrate thin; thematic basis: Agni Vedic fire-deity + yajna ritual fire | augment with yajna + Agni iconography + cremation-ghat vocabulary |
+| wind × european | substrate thin; thematic basis: Aeolus + Boreas Greek + Celtic sky-tradition | augment with Aeolian + four-winds canon + sail-tradition vocabulary |
+| lightning × east_asian | substrate thin (substrate primarily blade-canon); thematic basis: *Raijin* thunder-god + dragon-storm canon | augment with Raijin + drum-iconography + cloud-dragon vocabulary |
+| shadow × middle_eastern | substrate thin; thematic basis: jinn (twilight tradition) + assassin-canon (historical *Hashshashin*) | augment with jinn + twilight-hour + caravan-night vocabulary [contamination-watch: assassin lineage requires care — historical-figure not class-token] |
+| fire × fantasy_generic | covered by element-only § 6.1; explicit cell exists as substrate-fallback synthetic | augment only if Wave A/B output shows fantasy_generic + element cells under-serving common LLM-prompt patterns |
+| (and 7 more fantasy_generic × element cells) | all covered by element-only § 6.* | same as above — augment-on-demand |
+| (and ~30 moderate-lineage × off-axis-element cells) | various | substrate-led augmentation per Wave 3+ exercise data |
+
+**SPARSE-cell consumption pattern at fire-time:** Phase 5 LLM prompts hitting a SPARSE cell fall back to (a) element-only § 6 layer for adjectival/emblematic vocabulary, plus (b) the dense same-element cell with the closest lineage-adjacent cultural anchor (e.g., fire × south_asian SPARSE → fall back to fire-only § 6.1 + fire × middle_eastern § 7.3 as lineage-adjacent if cluster shows middle_eastern proximity, OR fire × east_asian § 7.2 if east_asian proximity).
+
+---
+
+### § 7.17 EMPTY cells (labeled only — contamination-watch retained per § 4 where applicable)
+
+The following (element × lineage) cells have <5 substrate references AND insufficient thematic-canon depth at Stage 3 to support 20-50 entries without prescriptive risk. Per Ground Rule #3, no entries are authored. Marginal-lineage contamination watch retained per § 4.
+
+| Cell axis | Lineages affected | Disposition |
+|---|---|---|
+| any element × african | african (2 substrate rows in v1_scope) | EMPTY; Cycle 15+ requires elrond substrate re-curation BEFORE legolas Mode A — current substrate too thin to confirm cell viability |
+| any element × n.am.indigenous | n.am.indigenous (0 v1_scope rows) | EMPTY [contamination-watch retained]; per disposition doc `n-am-indigenous-no-cluster-disposition-2026-05-23.md`, cell remains EMPTY pending substrate re-curation; LLM consumption falls back to fantasy_generic § 6 + cross_cultural meta-tag handling |
+| any element × s.am.indigenous | s.am.indigenous (4 v1_scope rows; sparse-to-empty) | EMPTY [contamination-watch retained] per disposition doc |
+| any element × arctic_circumpolar | arctic_circumpolar (0 v1_scope rows) | EMPTY [contamination-watch retained] per disposition doc; fall back to element-only + fantasy_generic |
+| any element × oceanic | oceanic (0 v1_scope rows) | EMPTY [contamination-watch retained] per disposition doc; fall back to element-only + fantasy_generic |
+| any element × sci_fi_generic | sci_fi_generic (substrate moderate but tone-mismatched to current Phase 0 fantasy register) | EMPTY for Phase 0 (Cycle 15+ revisit if game register shifts) |
+| any element × mesoamerican | mesoamerican (9 v1_scope rows; thematic-canon-augmented possible) | EMPTY at Stage 3 (not contamination-watch — disposition exempts); single cell candidate fire × mesoamerican (sun-fire / blood-fire canon) is Cycle 15+ first-augmentation candidate per disposition note |
+| faith-holy × east_asian | substrate primarily blade-canon; faith-holy × east_asian thin under v1_scope (Buddhist/Shinto faith-holy vocabulary not concentrated in weapon substrate) | EMPTY at Stage 3; Cycle 15+ augmentation candidate (Buddhist + Shinto faith-holy distinct from § 7.2 fire / § 7.4 water cells which already absorbed some thematic motif) — substrate re-curation toward non-weapon devotional substrate needed first |
+| arcane × middle_eastern | thematic basis exists (alchemy / al-Khwarizmi scholarly tradition / 1001-Nights-genie-magic) but element-only § 6.7 covers core usage; not Stage-3 priority | EMPTY at Stage 3; Cycle 15+ augmentation candidate |
+| (and remaining EMPTY cells per substrate void) | all remaining (element × lineage) combinations not enumerated in §§ 7.1–7.16 | EMPTY default; fall back to element-only § 6 + meta-tag handling per § 4 |
+
+**EMPTY-cell consumption pattern at fire-time:** Phase 5 LLM prompts hitting an EMPTY cell fall back to (a) element-only § 6 layer as primary, plus (b) `cross_cultural` or `unknown` meta-tag handling per § 4. The `[contamination-watch]` marker on marginal-lineage EMPTY cells signals additional caution at LLM-prompt assembly: do NOT prescribe lineage-specific motifs from the marginal-lineage substrate that survived the v1_scope filter, because those entries are precisely the misattribution-risk surface per Mode A/B/C/D contamination pattern. Use element-only as the lineage-agnostic safe layer instead.
+
+---
+
+### § 7 Per-cell sketches — closure notes
+
+**Total entries authored across § 7.1–7.15 (15 dense cells):**
+- Per-cell distribution per Ground Rule #3 target (~31 entries): 10 epithet + 10 motif + 5 archetype-name + 3 place-name + 3 lore-fragment = 31 entries
+- Total: 15 cells × 31 entries = **465 lineage-anchored entries** (within sketch tier; well below Cycle 15+ full-granularity 1,500-2,500/cell)
+- Combined with element-only § 6 (200 entries) = **665 total registry entries** at Stage 3 closure
+
+**Substrate-led discipline verification (Discipline #41 mid-stage check):**
+- Cells selected for dense treatment: 15 (within dispatch 12-15 expected range)
+- Cells labeled SPARSE: 11 enumerated + ~30 implied across (moderate-lineage × off-axis-element) — Cycle 15+ augmentation pipeline
+- Cells labeled EMPTY: 10 enumerated + remainder of 720-cell space — element-only fallback
+- Cell density imbalance reflects substrate reality: european + east_asian + middle_eastern dominate dense cells per substrate row count + thematic-canon depth, exactly as Discipline #41 predicts
+- Class-vocabulary leak: zero hits in informal grep on § 7 entries (full audit at Stage 4 sign-off). Borderline "the pilgrim" (§ 7.14, § 7.15) cleared — narrative role (one-who-walks-the-pilgrim-road), not combat role. Borderline "pilgrim-stoned" (§ 7.15 epithet) annotated explicitly as scriptural-anchor not combat-token.
+- `[contamination-watch]` marker retained per Stage 1 § 4 disposition: applied at § 7.16 (shadow × middle_eastern assassin-canon caution) and § 7.17 (all marginal-lineage EMPTY cells).
+
+**Stage 3 design decisions captured:**
+- Place-name and lore-fragment entries authored per dense cell per Stage 2 § 6 closure note deferral (lineage-binding required for these term-types; element-only layer was the wrong tier for them).
+- Cross-element collision noted inline with `[also valid as X]` marker (single explicit case: "ember-veiled" in fire × east_asian § 7.2 and fire × middle_eastern § 7.3 — disambiguate at fire-time per cluster lineage signal).
+- Within-cell cross-reference noted inline (e.g., § 7.5 "fen-born" disambiguated from § 7.6 "fen-rooted" with explicit semantic distinction water-fen vs earth-fen).
+- 15 dense cells selected (within dispatch 12-15 envelope); decision-criterion: substrate row count + thematic-canon depth + element-axis coverage balance (all 8 elements have at least one dense cell except arcane and faith-holy × east_asian both pending Cycle 15+ — flagged at § 7.16 and § 7.17 respectively as augmentation candidates).
+- SPARSE-cell consumption pattern documented inline (fallback to element-only + lineage-adjacent dense cell at fire-time).
+- EMPTY-cell consumption pattern documented inline (fallback to element-only + meta-tag handling + `[contamination-watch]` weighting per § 4).
+
+**Stage 3 budget:** completed within 600s envelope; no Stage-3a/3b split required.
+
+**Next:** KR to fire Stage 4 (anti-patterns § 8 + consumption-pattern documentation § 9 + Cycle 15+ expansion path § 10 + Sign-off with Discipline #41 grep-audit + Discipline #42 framing-audit record).
+
+**Wave 3 unblock:** still PENDING — gates on Stage 4 completion + sign-off.
+
+---
+
+*Stage 4 to follow: § 8 anti-patterns / § 9 consumption-pattern documentation / § 10 Cycle 15+ expansion path / § Sign-off + framing-audit + Discipline #41 grep-audit record.*
