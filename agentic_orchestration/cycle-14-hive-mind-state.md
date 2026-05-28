@@ -423,6 +423,26 @@ Per rocket completion at engine `96f5e32` + tag `rocket/v1.7-phase-3-real-kit-re
 4. **Dispatch H drax** (Summary tab Meshy embed; already authored at `2026-05-27-drax-dispatch-h-summary-tab-meshy-embed-seasonal-hero.md`; gates on Wave 5 close + Matt manual rigging + Meshy URL)
 
 **Cycle 14 close trajectory under parallel firing:** engine-side ~2-4 days + player-surface ~3-5 days parallel = end-to-end ~4-7 days (vs ~2-3 weeks sequential default).
+
+**🚨 SC7-F1 STRUCTURAL FINDING — Wave 5 Step 1 GENERATION blocked AGAIN at architectural level (5th Cycle 14 scaffold-drift case):**
+
+Gamora SC-7 ✅ COMPLETE at engine `e7af7db` + tag `gamora/v1.8-sc-7-base-spell-damage-calibration-1`. Calibrated BASE_SPELL_DAMAGE_L50 = {T1:28144, T2:42216, T3:60978, T4:112575} via binary search (multiplier 93.8×; 8 iterations). Discipline #40 closed for BASE_SPELL_DAMAGE_L50 scaffold.
+
+**SC7-F1 surfaced:** `GAUNTLET_ENCOUNTER_PASS_FLOOR=14` is NOT achievable for any BASE_SPELL_DAMAGE_L50 value given 65× HP variance in ENDGAME_ENCOUNTER_CATALOG. Empirical ceiling 2-3/18 encounters in-band per cohort (vs pre-calibration estimate ~10/18). Season emit=0 for all 18 Phase 2 kits — STRUCTURAL, not Phase 3 defect, not SC-7 calibration failure. KPM band 14/18 floor too narrow for encounter HP variance.
+
+**Cycle 14 scaffold-drift case count:** 5 cases (doc 48 + Phase 7 SPEC/IMPL + _SyntheticPlayerClass + BASE_SPELL_DAMAGE_L50 + GAUNTLET_ENCOUNTER_PASS_FLOOR/Phase 7 KPM band architectural). Discipline framework operating exactly as designed — each scaffold gap surfaced via empirical sub-agent execution per #11 + #39 design pattern.
+
+**Jack-ryan Gate-3 architectural disposition FIRING** (~half-day to 1 day; diagnose root cause + 4-6 options package for Matt Pattern-B design call):
+- Option A: Per-encounter-type bands (stratified KPM evaluation by HP tier)
+- Option B: Stratified pass floor (lower GAUNTLET_ENCOUNTER_PASS_FLOOR to empirical ceiling)
+- Option C: Normalize ENDGAME_ENCOUNTER_CATALOG HP to narrower band
+- Option D: Widen Phase 7 KPM band (±0.50 vs ±0.25)
+- Option E: Reconsider KPM band as Phase 7 mechanical gate criterion entirely
+- Option F: jack-ryan judgment if applicable
+
+**Wave 5 cascade resumption blocked on Matt Pattern-B design call for SC7-F1 architectural redesign.** Parallel workstream authorization (Dispatches F + C + Sidecar G-2 + H) all gate on Wave 5 Step 1 GENERATION completion which itself gates on this SC7-F1 redesign.
+
+**Cycle 14 close trajectory: re-estimating post jack-ryan Gate-3 + Matt ratification.** Quality > timeline (Q10) supports continued architectural-honest path; SC7-F1 is the kind of structural validation only Wave 5 attempt could surface (per Discipline #11 empirical-inspection).
 - Step 2 ⏳ POST step 1: KR fires gandalf #43 design-quality audit + A/B comparison + personage convergence
 - Step 3 ⏳ POST step 2: KR fires jack-ryan Gate-2 review
 - Step 4 ⏳ PASS branch: KR fires gamora (small) canonical_archetype_register commit + Court accumulation
