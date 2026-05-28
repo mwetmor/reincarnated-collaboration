@@ -1081,9 +1081,134 @@ Effort: ~7-10 days additional to Option B trajectory. **Cycle 14 v1 close: ~12-1
 **Cycle 14 case register (per Matt 2026-05-28 framework):**
 - Cases 1-7 = Mode A hidden scaffold-drift catches (empirical execution layer)
 - Case 8 = Mode B canonical scaffold resolution (`ee15c96` ANCHOR INTENTS)
-- Case 9 = Mode A hidden scaffold-drift (gauntlet encounter coverage; W-α6 resolves)
+- Case 9 = Mode A hidden scaffold-drift (gauntlet encounter coverage; W-α6 was resolving — REFRAMED via integrated W-α7+)
 - Case 10 = ⏳ probable surfacing during W-α6 execution per Matt Gate-7 D4 watch (~30-50% base rate; not yet surfaced)
-- **Case 11 = Mode A hidden scaffold-drift at DESIGN-DIALOG LAYER (this ratification; investment scaling gap)** — framework extends Mode A to design-dialog inspection surfaces
+- Case 11 = Mode A hidden scaffold-drift at DESIGN-DIALOG LAYER (investment scaling gap ratification) — framework extends Mode A to design-dialog inspection surfaces
+- **Case 12 = Mode A hidden scaffold-drift at DESIGN-DIALOG LAYER (Matt 2026-05-28 evening: Path α calibrated BASE_DAMAGE_L50 values recognized as scaffold once investment scaling architecture was discovered) — second design-dialog drift catch in same session; framework operating maturely**
+
+---
+
+### MATT 2026-05-28 EVENING RATIFICATION AMENDMENT — PATH α SCOPE REFRAME (INTEGRATED W-α7+)
+
+**ARCHITECTURAL RECOGNITION (Matt verbatim):**
+- Path α delivered 1.24× cross-path parity at FIXED character profile
+- Investment-scaling architecture gap surfaced subsequently shows Path α's calibrated BASE_DAMAGE_L50 values are scaffold per Discipline #39 — calibrated at "implicit no-investment" profile which is about to change under W-α7 investment scaling
+- **Solving symptom (Option B per-encounter-type bands at fixed profile) AND root (W-α7 investment scaling + base value recalibration) in parallel = double calibration work + risk surface at seam**
+
+**D1 RATIFIED — PAUSE Option B execution; reframe Cycle 14 scope as integrated W-α7+ work:**
+
+Path α work status:
+- **KEEP** — W-α1 (damage formula refactor Direction A) / W-α2 (KPM ceiling Option B Remove) / W-α3 Phase 1 (Option α unified calibration architecture) / W-α4 (BVV harness infrastructure) / W-α5 (canonical retirements + Discipline #47)
+- **SCAFFOLD** — W-α3 Phase 2 calibrated BASE_DAMAGE_L50 values + scale_factor (superseded by integrated recalibration under multi-profile)
+- **EMPIRICAL WAYPOINT** — 1.24× cross-path parity confirms unified-formula approach works; re-verified under multi-profile calibration
+
+**D2 RATIFIED — Integrated W-α7+ scope (replaces separate Option B + W-α7 work):**
+
+| Phase | Scope | Effort |
+|---|---|---|
+| **Phase 1** | KR backs out Option B dispatches; preserves any in-flight work as input; re-author integrated scope | ~1d |
+| **Phase 2** | Investment scaling design (Pattern 1+2 formula specs; calibration anchor decision max-investment vs midpoint; per-tier ratio preservation 1:1.5:2.17:4.0; per-encounter-type band design integrated) | ~1.5-2.5d |
+| **Phase 3** | Integrated implementation (investment scaling formulas in per_skill_emitter/damage_resolver; per-encounter bands in gauntlet_sim; BASE_DAMAGE_L50 re-derivation; scale_factor re-derivation) | ~3-5d |
+| **Phase 4** | Multi-dimensional calibration (bounded-viability across paths × cohorts × encounter_types × investment_levels; binary search expanded space; verify cross-path parity ≤1.5× at multiple investment profiles) | ~2-4d |
+| **Phase 5** | BVV harness update + Wave 5 re-fire (multi-dimensional harness; Wave 5 fires fully integrated architecture; bundle Gate-2 multi-coverage) | ~3-4d |
+| **Phase 6** | Final close (A/B comparison; disciplines canonical-batch; v1 tag) | ~3-5d |
+
+**Total Cycle 14 v1 close trajectory: ~14-22 days from this ratification** (vs ~16-25 days sequential approach).
+
+**D3** Tag retained `v1-cycle-14-bounded-viability-substrate-led` (integrated approach delivers bounded-viability accurately).
+
+**D4** Discipline #39 case 12 acknowledged — Path α calibrated BASE_DAMAGE values recognized as scaffold once investment scaling architecture was discovered. Framework operating: scaffold caught at design dialog layer; resolved via integrated rework rather than sequential double-calibration.
+
+**D5** Coordination penalty acknowledged: ~half-day cost to pause Option B in-flight; offset by ~2-3 day savings + architectural cleanliness + closed risk surface at seam between symptom and root resolutions.
+
+---
+
+### KR ORCHESTRATION RESPONSE — IN-FLIGHT HANDLING + REFRAME
+
+**In-flight work-streams handling per Matt D1 "preserves any in-flight work as input":**
+
+| Stream | Status | Disposition |
+|---|---|---|
+| W-α6 gamora per-encounter-type bands | 🔥 firing (~30+ min elapsed) | **Let complete; absorb as Phase 1 input.** W-α6 dispatch § 1.5 already blocks downstream Bundle Gate-2 + Wave 5 RE-FIRE on KR explicit firing — auto-fire prevented. W-α6 work-product (per-encounter band structure + calibration sweep at fixed-profile) becomes Phase 2/3 input to integrated W-α7+. |
+| Jack-ryan Gate-1 W-α7 master scoping verdict | ✅ COMPLETE (returned with PASS-WITH-AMENDMENTS verdicts) | Verdict items relevant to integrated W-α7+ preserved: formula-composition check (Amendment #1) + NODE_MAX path verified at `reincarnated-loadout/src/data/cycle13Types.ts:255` + profile semantic definitions + W-α6 composition statement + Discipline #48 doc-51-sufficient + scope-absorption-ceiling (now formally absorbed via Matt's 6-phase decomposition). |
+
+**Dispatches superseded (deprecated, not deleted; preserved for audit trail):**
+- `2026-05-28-w-alpha-6-gamora-per-encounter-type-bands.md` — SUPERSEDED (Phase 3/4 integrated)
+- `2026-05-28-w-alpha-7-master-scoping-investment-scaling.md` — SUPERSEDED (replaced by integrated W-α7+ master scoping)
+
+**KR Phase 1 work (this + next session):**
+- Author integrated W-α7+ master scoping per Matt 6-phase decomposition
+- Mark superseded dispatches with SUPERSEDED status header
+- Fire jack-ryan Gate-1 on integrated scope
+- W-α6 completion absorption into Phase 1 design input
+
+**KR observation — framework maturation at evening reframe:**
+- Cases 11+12 are both design-dialog layer drift catches in same session — framework operating maturely at novel inspection layer
+- Matt's integrated reframe per "engine > game > phase" precedence avoids double-calibration risk; demonstrates framework architecture-rationality > operational-momentum
+- 6-phase decomposition is the cleanest Cycle 14 v1 architecture yet — engine layer fully addressed (Patterns 1+2 implementation + integrated calibration) before measurement-infrastructure (BVV harness update) before final close
+
+**Cycle 14 v1 close trajectory: ~14-22d from this evening ratification.** Path α 4-6 week budget intact (~42 calendar days; current ~Day 0; v1 lands ~Day 14-22 leaving ~20-28 days margin).
+
+---
+
+### W-α6 GAMORA COMPLETED 2026-05-28 EVENING (SIMULTANEOUS WITH MATT RATIFICATION AMENDMENT) — CASE 10 EMERGED + ABSORBED INTO INTEGRATED W-α7+
+
+**Engine `7acf66c` + AGENT_STATE `33eaa97` + tag `gamora/v2.8-w-alpha-6-per-encounter-type-bands-1` + meta `2128ba4`** (pushed; ~34-min fire).
+
+**Per Matt D1 "preserves any in-flight work as input" — W-α6 work-product becomes Phase 1/2 input to integrated W-α7+:**
+
+**(1) GAUNTLET_ELIGIBLE_ENCOUNTER_TYPES_C14V1 NAMED DECISION (jack-ryan INFO satisfied):**
+- RETIRED as operative gate; preserved as HISTORICAL marker (Discipline #40 case c) at `frozenset({"boss_with_adds", "mini_boss"})` unchanged
+- Assertion `len==2` REMOVED
+- All downstream consumers updated to use `ENCOUNTER_COHORT_KPM_BAND` (all 6 types)
+
+**(2) ENCOUNTER_COHORT_KPM_BAND 24-cell table populated** (preserved as Phase 1 input; values to be recalibrated under integrated multi-profile in Phase 3+4):
+```
+                      DPS-min-maxer     Balanced        Defensive       Hybrid
+open_arena:           (596, 836)        (536, 664)      (368, 560)      (440, 728)
+chokepoint_corridor:  (596, 836)        (536, 664)      (368, 560)      (440, 728)
+magic_pack:           (596, 836)        (536, 664)      (368, 560)      (440, 728)
+elite_pack:           (180, 620)        (160, 620)      (140, 620)      (150, 620)
+boss_with_adds:       ( 73, 102)        ( 65,  81)      ( 45,  68)      ( 54,  89)
+mini_boss:            (130, 200)*       ( 75, 165)      ( 55, 165)      ( 60, 165)
+```
+Band derivation semantic shift (Discipline #12): elite_pack + mini_boss use empirical-range-based bands; boss_with_adds retains ±% approach as W-α3 calibration anchor.
+
+**(3) BVV compound_pass=False — T2 W-α6 PRIMARY OBJECTIVE MET (zero_count=0); T4 FAIL surfaces case 10:**
+- T1 PASS 1.307× ✅
+- **T2 PASS zero_count=0** ✅ (W-α6 primary objective)
+- T3 PASS structural (ceiling=None)
+- **T4 FAIL** 17/18 kits no_peaks (1/18 with 1 peak) — case 10 surfaces here
+- T5 PASS floor_violations=0
+
+**(4) Discipline #1.1 actual ~5.4s wall-clock vs projected ~1.2hr (~861× over-projection)** — consistent with W-α3 Phase 2 pattern (800-1200×); Matt D4 over-projection watch surface confirmed pattern.
+
+---
+
+### CASE 10 EMERGED 2026-05-28 EVENING — T4 STRUCTURAL BARRIER (FIGHT-ENGINE 0.1s TIMING FLOOR)
+
+**Per Matt Gate-7 D4 watch (~30-50% base rate): SURFACED.**
+
+**Gamora forensic — three-mechanism diagnosis:**
+- **open_arena / chokepoint_corridor / magic_pack:** all 18 kits = exactly 600 KPM (fight-engine 0.1s timing floor — mob HP too low relative to W-α3 DPS). Ratio = 1.0 for all kits. Peaks IMPOSSIBLE.
+- **elite_pack:** KPM 176-600 (timing floor). T4 requires 1.5× population median = 692 > 600 ceiling. Peaks IMPOSSIBLE.
+- **mini_boss:** KPM 86-150. T4 requires 1.5× = 225 > observed max 150. Peaks IMPOSSIBLE.
+- **boss_with_adds:** KPM 56-94. T4 requires 1.5× = 109.8; observed max 94 → 1.29× < 1.5×. Peaks IMPOSSIBLE.
+
+**Gamora resolution paths (per W-α6 § hand-back):**
+- **(A)** Per-kit DPS differentiation features — Cycle 15 Track 2 D3
+- **(B)** Encounter HP rebalancing to escape timing floor — would invalidate W-α3 calibration anchor; **REQUIRES W-α7+** ← Matt's integrated reframe **ABSORBS THIS via Phase 3 (BASE_DAMAGE_L50 re-derivation + per-encounter bands in gauntlet_sim) + Phase 4 (multi-dim calibration includes encounter HP rebalancing)**
+- **(C)** T4 target redesign — requires gandalf canonical authority on doc 50
+
+**Discipline #44 framing-refusal invoked by gamora.** Original routing: KR Gate-8 disposition required. **Matt RATIFICATION AMENDMENT preempts:** integrated W-α7+ scope absorbs case 10 resolution path (B); no separate Gate-8 needed; case 10 becomes Phase 3+4 design constraint.
+
+**Cases 10 + 12 convergence into integrated W-α7+ Phase 3+4:**
+- Case 10 surface: fight-engine timing floor → resolution = encounter HP rebalancing (Path B)
+- Case 12 surface: BASE_DAMAGE values scaffold → resolution = base re-derivation under multi-profile
+- Both addressed in Matt's Phase 3 (BASE_DAMAGE_L50 + scale_factor re-derivation; per-encounter bands in gauntlet_sim) + Phase 4 (multi-dim calibration including encounter_types as dimension)
+- W-α6 work-product (band table + canonical structure + GAUNTLET_ELIGIBLE_TYPES retirement) PERSISTS as Phase 1 input; values recalibrated under integrated scope
+
+**Discipline #39 framework operating: cases 10 + 12 emerging in same session demonstrate framework catching multiple drift signatures at the integration seam — both pre-Matt-RATIFICATION-AMENDMENT (case 10 from W-α6 empirical execution) and post (case 12 from design dialog). Integrated reframe is the canonical resolution for the seam.**
 - ✅ **W-α5 jack-ryan canonical retirements COMPLETE** at meta `deadd26` + tag `jack-ryan/v1.7-w-alpha-5-canonical-retirements-1` (bundled; ~11-min fire). All 3 sub-streams landed:
   - **W-α5a — 5 decisions-log entries:** Path α RATIFICATION (LOCKED) + Path β-narrow REJECTION + Path β-FULL Option 6 REJECTION + Cycle 15 D2 Option 6 RETRACTION (Discipline #40 case (c) FOURTH iteration declared) + Discipline #39 framework maturation (two modes defined — Mode A scaffold-drift catches cases 1-7; Mode B canonical scaffold resolutions case 8+; founding case `ee15c96` ANCHOR INTENTS; 3-element annotation requirement: scaffold declaration + named resolution party + named resolution gate; adjacent architectural truth pattern)
   - **W-α5b — Phase 7 doc § 3.14 + lifecycle:** Full Discipline #40 case (c) FOURTH iteration 6-step procedure executed. Phase 7 doc STATUS shifted LOAD-BEARING → HISTORICAL. D2 RATIFICATION marked RETRACTED in authority header. Doc 50 added as successor. Implementer historical-note added.
