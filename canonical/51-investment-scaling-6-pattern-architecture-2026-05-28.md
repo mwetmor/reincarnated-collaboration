@@ -1,11 +1,13 @@
 # 51 — Investment Scaling 6-Pattern Architecture
 
-> **STATUS:** CURRENT (LOAD-BEARING as of 2026-05-28) — Phase 2 of integrated W-α7+ master scoping; canonical authority on the structural intent of skill-tree per-node investment scaling. Patterns 1+2 detailed for Cycle 14 v1 Phase 3 implementation; Patterns 3-6 canonical-locked stubs for Cycle 15+ work. Gates W-α7+ Phase 3 (rocket Patterns 1+2 implementation + gamora BASE re-derivation + encounter HP rebalancing) + Phase 4 (multi-dim calibration) + Phase 5 (BVV harness update + Wave 5 RE-FIRE). See `canonical/00-ground-state.md` § 1.
+> **STATUS:** CURRENT (LOAD-BEARING as of 2026-05-28) — SECOND ITERATION 2026-05-28 evening (§§ 9 + 10 scope-completeness amendment batch per Matt D1+D2+D3+D4 RATIFICATION + Discipline #40 case (c) extension protocol). Phase 2 of integrated W-α7+ master scoping; canonical authority on the structural intent of skill-tree per-node investment scaling. Patterns 1+2 detailed for Cycle 14 v1 Phase 3 implementation; Patterns 3-6 canonical-locked stubs for Cycle 15+ work. § 9 captures KNOWN-GAP cross-node prerequisite unlocks (T4_UNLOCK_THRESHOLD = 0.70 acknowledgment + Cycle 15+ deferral). § 10 captures investment-profile distribution rules (calibration anchor profile decision + multi-profile distribution rules + per-profile point allocation algorithm). Gates W-α7+ Phase 3d gamora BASE re-derivation + Phase 4 multi-profile sweep. See `canonical/00-ground-state.md` § 1.
 
-**Date:** 2026-05-28
+**Date:** 2026-05-28 (Phase 2 lock); 2026-05-28 evening (scope-completeness amendment batch §§ 9 + 10)
 **Author:** gandalf (story-and-design steward)
-**Status:** v1 canonical lock — Patterns 1+2 formula structures specified + calibration anchor decision (max-investment) + per-tier ratio preservation (1:1.5:2.17:4.0) + profile semantic definitions + per-encounter-type band design integrated + Patterns 3-6 canonical-locked stubs
-**Authority:** Matt 2026-05-28 evening RATIFICATION AMENDMENT — integrated W-α7+ scope absorbs case 9 + case 10 + case 11 + case 12; Phase 2 fires in PARALLEL with jack-ryan Gate-1 review of master scoping per Matt explicit authorization. Master scoping dispatch `agentic_orchestration/dispatches/2026-05-28-integrated-w-alpha-7-plus-master-scoping.md` § 1 Phase 2 carries verbatim scope.
+**Status:** v1.1 canonical lock SECOND ITERATION — Patterns 1+2 formula structures specified + calibration anchor decision (max-investment) + per-tier ratio preservation (1:1.5:2.17:4.0) + profile semantic definitions + per-encounter-type band design integrated + Patterns 3-6 canonical-locked stubs + NEW § 9 KNOWN-GAP T4_UNLOCK_THRESHOLD = 0.70 acknowledgment + NEW § 10 investment-profile distribution rules (calibration anchor + multi-profile distribution + per-profile allocation algorithm)
+**Authority:**
+- **First iteration (commit `ba1c4e7`):** Matt 2026-05-28 evening RATIFICATION AMENDMENT — integrated W-α7+ scope absorbs case 9 + case 10 + case 11 + case 12; Phase 2 fires in PARALLEL with jack-ryan Gate-1 review of master scoping per Matt explicit authorization. Master scoping dispatch `agentic_orchestration/dispatches/2026-05-28-integrated-w-alpha-7-plus-master-scoping.md` § 1 Phase 2 carries verbatim scope.
+- **Second iteration (§§ 9 + 10 amendment batch):** Matt 2026-05-28 evening D1+D2+D3+D4 RATIFICATION — Phase 3d gamora HALTED via TaskStop (Matt finding: rocket Phase 3a coordination signal `skill.investment_points must be set to 15` is vague on WHICH skills; Phase 4 multi-profile sweep needs distribution rules locked); KR dispatch `agentic_orchestration/dispatches/2026-05-28-gandalf-doc-51-scope-completeness-amendment-batch.md` carries verbatim scope. Discipline #40 case (c) extension protocol (NOT retraction; scope-completeness fold-in to LOAD-BEARING canonical). Case 13 surfaced; Discipline #48 candidate VALIDATED at N=2 (case 11 investment scaling gap + case 13 this § 10 distribution rules gap; Phase 6a disciplines batch territory per jack-ryan).
 **Companion docs:**
 - `canonical/00-ground-state.md` — ground-state oracle (this doc registers as new CURRENT entry; § 1 update required at session close)
 - `canonical/50-bounded-viability-with-specialization-design-directive-2026-05-28.md` — bounded-viability-with-specialization directive; Patterns 1+2 formulas MUST compose cleanly with bounded-viability constraints; this doc's max-investment KPM-ratio criterion is the Discipline #47 fold-in (jack-ryan Gate-1 Amendment #1)
@@ -53,7 +55,7 @@ The cohort_median that doc 50's 5 targets validate against is computed at **max-
 
 **Discipline #47 verification (Jack-ryan Gate-1 Amendment #1):** at max investment (15/15 active points; 5/5 passive points), kit peak KPM ratios remain within doc 50 § 4 Target 4 band [1.5×, 2.0×] cohort_median for the 1-2 designed peak encounter types. The linear-with-floor form bounds peak KPM at `base_at_max × 1.0` — there is no investment-driven super-peak above the calibrated `base_at_max`. Specialization peaks emerge from `base_at_max` distribution across kits (gamora Phase 3d BASE re-derivation per-path × per-kit space), NOT from investment scaling per se. See § 7 for the verification framework.
 
-**Discipline #45 vocabulary grep audit:** PASS at authoring. See § 11 for declaration.
+**Discipline #45 vocabulary grep audit:** PASS at authoring (first iteration) + PASS at second iteration (§§ 9 + 10 amendment batch). See § 13 for declaration.
 
 ---
 
@@ -542,7 +544,404 @@ Future cycles may extend the pattern vocabulary. Patterns 7+ would emerge from o
 
 ---
 
-## 9. Cross-references updated
+## 9. KNOWN-GAP — Cross-node prerequisite unlocks (T4_UNLOCK_THRESHOLD = 0.70)
+
+> **Status:** KNOWN-GAP at v1.1 second iteration. Cycle 15+ canonical-lock and implementation. This section captures the prior gandalf+Matt design exchange (`agentic_orchestration/gandalf/notes/2026-05-27-cycle-13-pre-launch-design-session-closeout.md` § 1.5 D71 lock; line 68: "T4-unlock threshold — 70% of chain max (per-chain calc; chain max varies by composition)") and makes the deferral explicit so Phase 3d gamora BASE re-derivation + Phase 4 multi-profile sweep do NOT assume T4 prerequisite unlock semantics at Cycle 14 v1 close.
+
+### 9.1 What the prior exchange ratified
+
+Matt + gandalf 2026-05-27 Pattern-B design session (Cycle 13 pre-launch) ratified the following skill-point-economy lock (D71, recorded at `2026-05-27-cycle-13-pre-launch-design-session-closeout.md` § 1.5):
+
+| Sub-item | Lock |
+|---|---|
+| Per-node max — Passive | 5 points (`NODE_MAX.passive = 5`) |
+| Per-node max — Active (T1-T3) | 15 points (`NODE_MAX.active = 15`) |
+| Per-node max — T4 capstone | 1/1 binary (0/1 if another T4 selected; D66 ONE T4 unlocked at a time) |
+| Endgame total budget | ~70 points (anchor; tunable per acquisition curve) |
+| **T4-unlock threshold** | **70% of chain max** (per-chain calc; chain max varies by composition) |
+| Earn rate | Per-level (L1 → L50 = 50 points) + per-content-completion bonuses (~20) |
+| **Branched-chain T4-unlock** | All UNIQUE prerequisites along one path; other branch optional pay-extra |
+
+Composition with chain-prerequisite gates (separate prior exchange — `agentic_orchestration/gandalf/notes/2026-05-26-cycle-13-design-session-pattern-a-deep-verdicts.md` § "Chain-prerequisite gates"): to unlock T2 in a chain, ≥3 points invested in T1; T3 requires ≥3 in T2; T4 requires ≥3 in T3 (chain-investment threshold = 9 points minimum to reach the T4 slot before the 70%-of-chain-max threshold check fires).
+
+### 9.2 The named constant: T4_UNLOCK_THRESHOLD = 0.70
+
+The numeric value `0.70` is the **per-chain investment fraction** above which the chain's T4 capstone becomes available for selection. Defined as:
+
+```
+T4_UNLOCK_THRESHOLD = 0.70  # per-chain investment fraction required to unlock the chain's T4 capstone
+
+For each chain C in kit:
+  chain_invested(C)    = sum of points invested in C's T1/T2/T3 nodes
+  chain_max(C)         = sum of NODE_MAX over C's T1/T2/T3 nodes (depends on chain composition: active vs passive)
+  chain_progress(C)    = chain_invested(C) / chain_max(C)
+
+T4 of chain C is UNLOCKED iff:
+  chain_progress(C) >= T4_UNLOCK_THRESHOLD       (= 0.70)
+  AND all chain-prerequisite gates satisfied     (≥3 points per upstream tier per Pattern A-deep verdict)
+  AND D66 active identity constraint preserved   (ONE T4 unlocked at a time; player chooses which)
+```
+
+Player-consequence framing: a player who spreads 70% of a chain's investment ceiling across the chain has signaled chain commitment; the T4 capstone becomes the build-defining moment. A player below 70% has the chain partially built but is not yet entitled to its capstone — preserves the "specialize in this chain, then choose how its T4 expresses" structure surfaced in the 2026-05-26 Pattern A-deep verdicts (genre precedent: PoE Ascendancy ratification at end of Labyrinth; D3 Paragon-style depth choice; Last Epoch chapter-completion gates).
+
+### 9.3 Why this is a KNOWN-GAP at v1.1 second iteration (NOT a Cycle 14 v1 close item)
+
+The 70%-of-chain-max threshold is **architecturally locked** (prior gandalf+Matt exchange) but **mechanically deferred** to Cycle 15+ for the following reasons:
+
+1. **Cycle 14 v1 calibration scope:** Phase 3d gamora BASE_DAMAGE_L50 re-derivation + Phase 4 multi-profile sweep operate at the per-skill-node investment layer (Patterns 1+2 per §§ 3 + 4). Threshold unlocks are Pattern 3 (per § 8.1) which is Cycle 15+ scope. Folding T4_UNLOCK_THRESHOLD enforcement into Cycle 14 v1 close would expand Phase 4's calibration space (separate "T4-locked" vs "T4-unlocked" cohort axes) and risk timing the Path α 4-6 week budget.
+
+2. **Phase 3d max-profile assumption:** Phase 3d gamora BASE re-derivation operates at the max-investment profile per § 3.5 + § 4.5. At max-profile, the player has ≥70% of every chain's max invested by construction (specialization peaks at max-investment) — therefore T4_UNLOCK_THRESHOLD is satisfied at max-profile by definition. The threshold becomes load-bearing at sub-max profiles where the player has NOT yet reached 70% in some chains; those profiles are Phase 4 multi-profile sweep territory but the threshold's IMPLEMENTATION is Cycle 15+.
+
+3. **Pattern 3 implementation scope (Cycle 15+):** per § 8.1, Pattern 3 threshold unlocks include "threshold value vocabulary" + "threshold capability spec format" + "per-skill threshold count limits" + "cohesion-judge integration" — all Cycle 15+ implementation surface. T4_UNLOCK_THRESHOLD = 0.70 is the FIRST CANONICAL VALUE in the Pattern 3 vocabulary; it's locked here so future Pattern 3 implementation cycles cite it by name rather than re-deriving.
+
+4. **Discipline #40 case (a) compliance:** T4_UNLOCK_THRESHOLD = 0.70 is RATIFIED here (this canonical doc, second iteration) — it is NOT a scaffold-with-pending-decision. Future code that introduces a `T4_UNLOCK_THRESHOLD` constant cites doc 51 § 9 as the canonical source. Pre-amendment, the value was implicit-in-prior-exchange (`2026-05-27-cycle-13-pre-launch-design-session-closeout.md` § 1.5 D71 line 68) but not load-bearing-canonical. This § 9 amendment makes it canonical without changing the value.
+
+### 9.4 Composition with Patterns 1+2 at Phase 3d + Phase 4
+
+**Phase 3d gamora BASE re-derivation (max-profile):** T4_UNLOCK_THRESHOLD is satisfied by construction (max-profile has every chain ≥70% per chain definition). Pattern 1 multiplier at points=15 = `base_at_max × 1.0` for the chain's T4-capstone-receiving node; Pattern 2 magnitude at points=5 = `base_at_max × 1.0` for the chain's passive nodes. No T4-unlock-related runtime gating affects Phase 3d derivation.
+
+**Phase 4 multi-profile sweep (low / mid / max / mixed):** at low-profile and some mixed-profile builds, chain_progress(C) < 0.70 for some chains C. Under the Cycle 14 v1 close model, T4 capstones in those chains are treated as **always-available for calibration purposes** — the multi-profile sweep evaluates kits as if every chain's T4 is the algorithm-chosen capstone, regardless of in-play unlock state. Rationale: Phase 4's purpose is bounded-viability calibration of `base_at_max` distribution, not in-play unlock gating. Pattern 3 enforcement (Cycle 15+) layers the runtime unlock gate on top of the calibrated `base_at_max`; the gate doesn't change the calibrated value.
+
+**Cycle 15+ Pattern 3 implementation note:** when T4_UNLOCK_THRESHOLD enforcement lands, the in-play behavior becomes "chain_progress < 0.70 → T4 of that chain is locked → its `damage_multiplier_at_points` contribution to KPM is zero for that chain's T4 node." The kit's KPM at sub-max-profile becomes a function of WHICH chains are above 70% (and therefore have T4 capstone available). The 4 named profiles (low / mid / max / mixed) per § 6 + § 10 retain their conceptual semantics; the numeric thresholds at gamora seam discretion per § 6.3 + § 10.2 may bin profiles around "expected unlocked-chain count" once Pattern 3 enforcement is live.
+
+### 9.5 Branched-chain T4-unlock — chain_max(C) composition
+
+Per the prior exchange D71 lock (line 70): "Branched-chain T4-unlock — All UNIQUE prerequisites along one path; other branch optional pay-extra." This composes with the chain_progress definition:
+
+```
+For a branched chain C with main-path nodes M(C) and optional-branch nodes B(C):
+  chain_max(C) = sum of NODE_MAX over M(C)              # main-path-only; branch points are "extra"
+  chain_invested(C) = sum of points invested in M(C)    # only main-path points count toward T4 unlock
+
+Branch investment increases kit capability (Pattern 1/2 damage/effect at that node)
+but does NOT advance T4 unlock progress.
+```
+
+Player-consequence framing: a player who invests in branches without completing the main path delays T4 unlock. This preserves the "specialize before capstone" intent and prevents branch-investment from being the cheap-T4-unlock workaround.
+
+**Cycle 15+ Pattern 3 implementation note:** the `M(C)` vs `B(C)` partition is per-chain-composition data (rocket Phase 2a kit composition output); the partition flows to drax loadout UI (Phase 5b) for player-visible chain_progress display.
+
+### 9.6 Deferral rationale + Cycle 15+ entry conditions
+
+**Deferred to Cycle 15+ entry.** Entry conditions for Pattern 3 + T4_UNLOCK_THRESHOLD implementation:
+
+1. Cycle 14 v1 LANDED (full Path α + integrated W-α7+ close; Wave 5 RE-FIRE compound pass)
+2. Drax loadout UI revival (Phase 5b) consumed Patterns 1+2 — UI surface exists for chain_progress display
+3. Pattern 3 implementation scope committed in Cycle 15+ kickoff (per § 8.1 Cycle 15+ scope list)
+4. Cohesion-judge integration spec'd (LLM-generated theme-aware threshold-effect naming per § 8.1)
+
+**Cross-references for Pattern 3 Cycle 15+ implementation:**
+- This doc § 8.1 Pattern 3 threshold-unlock stub
+- `2026-05-27-cycle-13-pre-launch-design-session-closeout.md` § 1.5 D71 (the prior exchange original record)
+- `2026-05-26-cycle-13-design-session-pattern-a-deep-verdicts.md` § "Chain-prerequisite gates" (3-point upstream-tier gates)
+- D66 active identity discipline (ONE T4 unlocked at a time; runtime mechanism; preserved across Patterns 1-6)
+- D75 + D73 T4-swap UX (Spirit-Guide-mediated respec; player-facing chain_progress display)
+
+### 9.7 Acknowledgment statement
+
+T4_UNLOCK_THRESHOLD = 0.70 is the canonical value as of doc 51 v1.1 second iteration. The threshold is **architecturally ratified** but **mechanically deferred** to Cycle 15+ Pattern 3 implementation. Phase 3d gamora BASE re-derivation + Phase 4 multi-profile sweep proceed under the assumption "every chain's T4 is calibration-available at every profile" — the unlock gate is a runtime overlay landed in Cycle 15+ that does not alter the calibrated `base_at_max` values.
+
+---
+
+## 10. Investment-profile distribution rules
+
+> **Status:** v1.1 second iteration — locked. This section closes the case 13 scope-completeness gap surfaced by Matt 2026-05-28 evening manual audit (rocket Phase 3a coordination signal `skill.investment_points must be set to 15` was vague on WHICH skills; Phase 4 multi-profile sweep needs distribution rules locked before it fires). Section provides Phase 3d + Phase 4 gamora seam with the per-profile investment distribution algorithm.
+
+### 10.1 Calibration anchor profile decision — Option A vs Option B
+
+Phase 3d gamora BASE_DAMAGE_L50 re-derivation operates against the max-investment profile per § 3.5 + § 4.5. But "max-investment" admits two distinct constructions:
+
+**Option A — All-skills-max:** every active skill node in the kit at `NODE_MAX.active = 15` AND every passive node at `NODE_MAX.passive = 5` AND the algorithm-chosen T4 unlocked. The kit's full schema is at investment ceiling across all nodes simultaneously.
+
+```
+For each active skill node S in kit K:    S.investment_points = 15
+For each passive node P in kit K:         P.investment_points_passive = 5
+For the kit's single algorithm-chosen T4: T4.unlocked = True
+```
+
+**Option B — Realistic-max specialization-aware:** the kit invests within its per-kit skill-budget ceiling (~70 endgame points per D71); specialization concentrates into 1-2 active skill nodes at NODE_MAX with remaining active skills at lower investment; passive nodes split between primary-chain max-invest and supporting-chain partial. Mirrors actual endgame loadout patterns where a player has finite skill-point budget.
+
+```
+For chain c* (player's primary specialization chain):
+  Primary active skill node S* in c*:    S*.investment_points = 15  (signature skill)
+  Remaining active nodes in c*:           investment_points distributed per chain-allocation rule
+  Passive nodes in c*:                    investment_points_passive at or near 5
+
+For other chains:
+  Lower-tier active skill nodes:          investment_points at chain-prerequisite floor (≥3 per Pattern A-deep) or higher
+  Passive nodes:                          investment_points_passive partial (1-3)
+```
+
+**Trade-off analysis:**
+
+| Property | Option A (all-skills-max) | Option B (realistic-max specialization-aware) |
+|---|---|---|
+| **Structural cleanness** | Multiplier=1.0 by construction across all skills; Pattern 1 + Pattern 2 produce `base_at_max` for every node | Multiplier=1.0 at specialization peaks only; per-skill variance at non-specialization slots |
+| **Calibration anchor coherence** | cohort_median computed at uniformly-max-invested profile; specialization peaks emerge solely from `base_at_max` distribution per § 7.2 | cohort_median computed at per-build-realistic profile; specialization peaks have BOTH `base_at_max` distribution AND investment concentration as sources |
+| **Genre realism** | Less realistic (no actual endgame player can max every skill simultaneously; ~70-point budget bounds simultaneous max nodes) | More realistic (mirrors how players actually distribute endgame points) |
+| **Per-profile variance complexity** | Zero variance at calibration anchor (every kit at uniform max-invest) | Per-build variance at calibration anchor (different kits specialize differently) |
+| **Phase 4 multi-profile composability** | Clean: sub-max profiles bound below `base_at_max` uniformly; the linear-with-floor floor (Pattern 1 0.35; Pattern 2 0.50) bounds sub-max KPM transparently | Complex: sub-max profiles relative to a specialization-aware anchor introduce additional axis (which-skill-the-player-specialized-in) |
+| **Doc 50 § 4 5-target verification surface** | cleaner — Target 4 (1.5-2.0× cohort_median) verified at `base_at_max(K, peak_encounter)` distribution; Target 1 (cross-path DPS variance ≤1.5×) at uniform-max profile | more complex — Target 4 + Target 1 both have specialization-pattern as nuisance variable |
+| **Player-experience semantic** | "If every skill were maxed simultaneously, where would the kit's KPM land?" — counterfactual upper bound | "How does an actual endgame realized-build perform?" — empirical endgame model |
+
+**Gandalf RECOMMENDATION: Option A — all-skills-max.**
+
+**Rationale (genre + design coherence):**
+
+1. **Structural cleanness wins at the calibration anchor.** Doc 51 § 7.2 proves Discipline #47 Target 4 at max-profile via "Pattern 1 max-multiplier=1.0 producing peaks at calibrated `base_at_max`." That proof is CLEAN under Option A — Pattern 1 contributes 1.0 uniformly across all skills, specialization peaks emerge solely from `base_at_max(P, K, T)` per-encounter-type distribution. Under Option B, the proof has to thread which-skills-are-at-max and which-are-not into the calibration anchor itself — the kit's KPM at peak_encounter under Option B = `f(base_at_max, specialization_pattern)`, which makes Phase 3d gamora BASE re-derivation a 5-axis (path × kit × tier × encounter × specialization_pattern) calibration instead of 4-axis. Two extra dimensions of complexity at the LOAD-BEARING calibration anchor.
+
+2. **Specialization-as-emergent-property is doc 50's load-bearing principle.** Doc 50 § 4 "bounded variance with designed peaks" + § 5 cohort framing position the calibration anchor as the **upper-bound canonical** against which sub-max profiles vary. Option A treats the upper bound literally — every skill at its ceiling. Option B encodes specialization INTO the upper bound, which means specialization is no longer purely emergent (from `base_at_max` distribution) but is partly baked into the calibration anchor. Doc 50's principle is cleaner under Option A.
+
+3. **Genre precedent — calibration ≠ play.** PoE balances skills against "every gem at level 20 + 23% quality" theoretical maxes; GGG's calibration is the upper bound, not the realistic mid-game endgame loadout. Last Epoch tests per-skill scaling against max-rank-per-skill independently. D2 LoD synergy bonuses were balanced against the theoretical "all synergies at level 20" max even though no actual character can achieve it (budget bound). The genre's calibration anchor convention is the structural ceiling, not the realistic build. Reincarnated joins the convention.
+
+4. **Phase 4 multi-profile sweep needs Option A as the reference baseline.** Phase 4 evaluates bounded-viability across `paths × cohorts × encounter_types × investment_profiles` (~384-cell space per § 12.5). The reference baseline at the max-end of the profile axis MUST be a single canonical construction (otherwise per-cell variance has TWO sources — profile axis AND specialization variance within profile). Option A gives Phase 4 a clean reference; Option B muddies it.
+
+5. **Player-consequence framing — Option A is the "ideal build" the player aspires toward.** The cohort_median that doc 50's 5 targets validate against is the CEILING the player's actual build approaches as they level. The conceptual labels in § 6.1 (low → mid → max-profile) describe the player's journey TOWARD the ceiling. If the ceiling itself is specialization-aware (Option B), the journey's destination changes per-build, which defeats the "cohort_median is the kit's full-power signature" framing.
+
+**Where Option B has merit (acknowledged):** Option B better captures actual endgame play, and Phase 4 multi-profile sweep DOES need to evaluate specialization-aware sub-max profiles per § 10.2 mixed-profile rule. The recommendation is NOT "ignore specialization in calibration" — it is "specialization is per-encounter-type variance under cohort_median anchor, NOT a re-anchor of cohort_median itself." Option B's realistic-max semantics are absorbed into the § 10.2 max-profile distribution rule (which IS specialization-aware) — but the calibration ANCHOR remains Option A.
+
+**Final recommendation for Phase 3d gamora seam:** adopt Option A (all-skills-max) as the calibration anchor profile. Per Matt D2: gamora retains seam discretion to override (if gamora's implementation surfaces an empirical reason Option B better serves the harness), but gandalf's design anchor is Option A.
+
+### 10.2 Multi-profile distribution rules — low / mid / max / mixed
+
+Per § 6.1, the 4 conceptual profile labels carry distinct distribution semantics. Phase 4 multi-profile sweep operates across all 4. Per Matt D2 + D4: numeric thresholds remain gamora seam discretion per § 6.3, but the DISTRIBUTION ALGORITHM per profile is canonically locked here so gamora's Phase 4 sweep doesn't have to guess.
+
+#### 10.2.1 low-profile — early-game leveling phase
+
+**Conceptual:** character has invested a small fraction of total budget (<~25%; gamora threshold discretion). Build is "coming online"; most skills are barely touched.
+
+**Distribution rule — `low_distribution(K, budget_fraction)`:**
+
+```
+1. Compute available_points = floor(budget_fraction × total_budget(K))     # gamora seam discretion on total_budget
+2. Identify primary_chain(K) per kit composition (rocket Phase 2a output)
+3. Allocate available_points across primary_chain in tier order:
+   a. T1 active skill node: investment_points = min(NODE_MAX.active, remaining_available / N_T1_active_in_primary)
+      Floor: at least 1 point per T1 active node in primary chain if any available_points exist
+   b. T1 passive nodes in primary chain: investment_points_passive = ceil(remaining / N_T1_passive)
+      Capped at NODE_MAX.passive = 5
+   c. T2/T3 active skill nodes in primary chain: investment_points = leftover allocation
+      Subject to chain-prerequisite gates (≥3 points in upstream-tier per Pattern A-deep)
+   d. Non-primary chains: investment_points = 0 (no investment in non-primary at low-profile)
+4. T4 capstone: unlocked = False (low-profile chain_progress < T4_UNLOCK_THRESHOLD per § 9.2)
+```
+
+**Player-experience semantic:** player has touched their primary chain's T1 and started moving up the chain; non-primary chains are unspent. KPM at this profile is bounded BELOW by Pattern 1 floor `0.35 × base_at_max(T1)` for primary-chain skills that have ≥1 point; Pattern 2 floor `0.50 × base_at_max(T1_passive)` for primary-chain passives.
+
+**Phase 4 verification target:** Target 5 (≥30% cohort_median floor) holds at low-profile across all encounter types. If Phase 4 surfaces floor violations at low-profile, Phase 3c encounter HP rebalancing (already landed per `gamora/v2.9`) absorbs the early-game required-output via lower-HP early-encounters.
+
+#### 10.2.2 mid-profile — mid-game endgame approach
+
+**Conceptual:** character has invested ~25-75% of total budget (gamora threshold discretion). Build is recognizable; primary chain approaching T4 unlock; secondary chains beginning.
+
+**Distribution rule — `mid_distribution(K, budget_fraction)`:**
+
+```
+1. Compute available_points = floor(budget_fraction × total_budget(K))
+2. Allocate ~60% of available_points to primary_chain(K) per kit composition
+3. Allocate ~25% to secondary_chain(K) (algorithm-determined secondary OR player-typical secondary)
+4. Allocate ~15% to supporting_chain(K) (the T3-only chain per doc 40 D83 / closeout § 1.4)
+5. Within each chain, distribute by tier:
+   a. Primary chain: active points concentrated at chain's T3 active skill node (pushes toward T4 unlock)
+      - chain_progress(primary_chain) target = at or just above T4_UNLOCK_THRESHOLD = 0.70 by end of mid-profile range
+   b. Secondary chain: distributed evenly across T1+T2 active and passive
+   c. Supporting chain: T1+T2 passive nodes at NODE_MAX.passive / 2 to 5
+6. T4 capstone status:
+   a. If primary_chain meets T4_UNLOCK_THRESHOLD: T4 unlocked (primary_chain's T4)
+   b. Otherwise: T4 locked
+   c. D66 enforced (ONE T4 at a time) — only primary's T4 is candidate
+```
+
+**Player-experience semantic:** primary chain is recognizable as the build's spine; T4 capstone is the imminent goal; secondary chain provides early synergy bonuses (Pattern 5 surface when implemented); supporting chain provides the kit-identity floor (the T3-only chain absorbs what closeout § 2.1 framed as the kit's foundational passives — vocabulary substituted per Discipline #45).
+
+**Phase 4 verification target:** Target 1 (cross-path DPS variance ≤1.5×) and Target 4 (specialization 1.5-2.0× cohort_median on 1-2 encounter types) verified at mid-profile. Mid-profile is the empirical proof-of-progression test — the kit's KPM gradient from low → mid → max-profile MUST be monotonic-increasing per encounter type.
+
+#### 10.2.3 max-profile — endgame fully-realized
+
+**Conceptual:** character has invested ≥~75% of total budget (gamora threshold discretion). Build is at or near max; T4 unlocked; specialization at peak.
+
+**Distribution rule — `max_distribution(K)`:**
+
+**Two sub-modes per § 10.1 calibration anchor decision:**
+
+- **Mode A (calibration anchor; gandalf recommendation):** all-skills-max
+  ```
+  For each active skill node S in K:        S.investment_points = NODE_MAX.active = 15
+  For each passive node P in K:             P.investment_points_passive = NODE_MAX.passive = 5
+  T4 capstone (algorithm-chosen): unlocked = True
+  ```
+
+- **Mode B (realistic endgame; for Phase 4 specialization-variance sweep):** specialization-aware
+  ```
+  1. Identify signature_skill(K) per kit composition (primary chain's T3 or T4-prerequisite active skill node)
+  2. signature_skill.investment_points = NODE_MAX.active = 15
+  3. Remaining active nodes in primary chain: distribute remaining ~30-40 points; floor ≥3 per chain-prerequisite gate
+  4. Secondary chain active nodes: distribute remaining points; min 3 per active node per chain-prerequisite gate
+  5. Supporting chain passive nodes: NODE_MAX.passive = 5 each
+  6. T4 capstone: unlocked = True (primary_chain's T4 per D66)
+  ```
+
+**Phase 3d gamora BASE re-derivation uses Mode A** (calibration anchor per § 10.1).
+
+**Phase 4 multi-profile sweep uses BOTH Mode A and Mode B at max-profile bin** — Mode A as the reference baseline; Mode B as the realistic-endgame variance check (does the cohort_median computed at Mode A hold within Target 1 cross-path variance ≤1.5× when evaluated against Mode B distributed builds? If yes, calibration anchor is robust; if no, calibration anchor needs adjustment).
+
+**Player-experience semantic:** Mode A is the "what would the spreadsheet say at infinite budget" reference; Mode B is "what an actual endgame build looks like." Both inform Phase 4 calibration verification.
+
+#### 10.2.4 mixed-profile — atypical builds
+
+**Conceptual:** character has invested points across active + passive in ratios distinct from cohort-typical (e.g., 90% passive depth + minimal active; or all-active-no-passive; or supporting-chain-heavy). Intentional unconventional build; expected outlier on cohort_median.
+
+**Distribution rule — `mixed_distribution(K, variant)`:**
+
+Phase 4 sweep evaluates 3 canonical mixed-profile variants per kit:
+
+- **mixed_variant_1 (passive-heavy):** all passive nodes at NODE_MAX.passive = 5; active skill nodes at chain-prerequisite floor (≥3 per gate) only
+- **mixed_variant_2 (active-heavy):** all active skill nodes at NODE_MAX.active = 15 (primary chain) or 10 (secondary chains); passive nodes at investment_points_passive = 1
+- **mixed_variant_3 (supporting-chain-heavy):** supporting chain's passive nodes all at NODE_MAX.passive = 5; primary + secondary chains at chain-prerequisite floor only
+
+**Per Phase 4 sweep purpose:** mixed-profile variants verify Target 5 (≥30% cohort_median floor) holds at intentional-unconventional builds. Mixed-profile KPM is EXPECTED to be sub-cohort_median; the Target 5 floor (30%) is the design's "your unconventional build is still viable" floor.
+
+**T4 capstone status under mixed-profile:** evaluated per chain_progress per § 9.2. Some mixed variants will have T4 unlocked (Variant 2 in primary chain); others will not (Variant 1 passive-heavy may not reach T4_UNLOCK_THRESHOLD on any chain). Phase 4 sweep records T4-unlocked-state per variant and evaluates KPM with the appropriate T4 contribution.
+
+### 10.3 Per-profile point allocation algorithm
+
+Phase 4 multi-profile sweep constructs per-profile investment distributions per the following algorithm:
+
+```
+ALGORITHM: construct_profile_distribution(kit K, profile P, variant V=None)
+
+INPUTS:
+  K            : kit (rocket Phase 2a kit composition output; active skill nodes + passive nodes + chain partition + T4 alteration)
+  P            : profile ∈ {low, mid, max, mixed}
+  V            : optional variant for mixed profile ∈ {passive_heavy, active_heavy, supporting_chain_heavy}; None for low/mid/max
+
+OUTPUTS:
+  distribution : dict mapping each node in K to its investment_points value
+                 (active nodes → investment_points; passive nodes → investment_points_passive; T4 → unlocked boolean)
+
+ALGORITHM:
+  1. Identify chain partition:
+     chains = K.chains                                    # list of chains per kit composition
+     primary_chain = chains[0]                            # algorithm-determined primary (rocket Phase 2a)
+     secondary_chains = chains[1:-1] if len(chains) > 2 else []
+     supporting_chain = chains[-1]                        # T3-only supporting chain per doc 40 D83
+
+  2. Compute total_budget(K):
+     active_nodes_per_chain = K.active_node_count_per_chain     # per kit composition
+     passive_nodes_per_chain = K.passive_node_count_per_chain
+     # gamora seam discretion on whether to use empirical D71 budget (~70) or per-kit-ceiling-derived budget
+
+  3. Branch on profile:
+
+     IF P == low:
+       budget_fraction = gamora_seam_low_threshold     # default suggestion: 0.20
+       Apply low_distribution rule per § 10.2.1
+       T4_unlocked = False                             # chain_progress < 0.70 per § 9
+
+     ELIF P == mid:
+       budget_fraction = gamora_seam_mid_midpoint      # default suggestion: 0.50
+       Apply mid_distribution rule per § 10.2.2
+       T4_unlocked = (chain_progress(primary_chain) >= T4_UNLOCK_THRESHOLD)
+                                                       # typically True at mid-profile upper range
+
+     ELIF P == max:
+       budget_fraction = 1.0                           # all-skills-max (Mode A; calibration anchor)
+       Apply max_distribution Mode A per § 10.2.3
+       T4_unlocked = True                              # max-profile by construction unlocks T4
+
+     ELIF P == max_realistic:                          # Phase 4 specialization-variance check
+       budget_fraction = gamora_seam_max_realistic_threshold   # default suggestion: 0.75-0.85
+       Apply max_distribution Mode B per § 10.2.3
+       T4_unlocked = True
+
+     ELIF P == mixed:
+       Apply mixed_distribution rule per § 10.2.4 (variant V):
+         IF V == passive_heavy: apply mixed_variant_1
+         ELIF V == active_heavy: apply mixed_variant_2
+         ELIF V == supporting_chain_heavy: apply mixed_variant_3
+       T4_unlocked = (chain_progress(primary_chain) >= T4_UNLOCK_THRESHOLD)
+                                                       # per-variant computation; Variant 2 likely True; Variants 1+3 likely False
+
+  4. Validate per-node constraints:
+     For each active node S in distribution:
+       assert 0 <= S.investment_points <= NODE_MAX.active        # = 15
+     For each passive node P in distribution:
+       assert 0 <= P.investment_points_passive <= NODE_MAX.passive  # = 5
+     Validate chain-prerequisite gates per Pattern A-deep verdict:
+       For each non-T1 active skill node S in chain C:
+         upstream_invested = sum of S.investment_points across upstream-tier nodes in C
+         if S.investment_points > 0:
+           assert upstream_invested >= 3                          # chain-prerequisite gate (Pattern A-deep)
+
+  5. Validate construction property (Patterns 1+2):
+     For max-profile Mode A (calibration anchor):
+       For each active node: assert investment_points == 15      # Pattern 1 multiplier = 1.0 by construction
+       For each passive node: assert investment_points_passive == 5  # Pattern 2 magnitude = 1.0 by construction
+
+  6. Emit distribution → consumed by Pattern 1 (`damage_multiplier_at_points`) and Pattern 2 (`effect_magnitude_at_points`) at per-skill emitter
+
+RETURNS: distribution
+```
+
+**Algorithm cross-references:**
+- chain_progress computation per § 9.2
+- T4_UNLOCK_THRESHOLD = 0.70 per § 9.2
+- chain-prerequisite gates (≥3 points upstream-tier) per `2026-05-26-cycle-13-design-session-pattern-a-deep-verdicts.md` § "Chain-prerequisite gates"
+- NODE_MAX source: `reincarnated-loadout/src/data/cycle13Types.ts:255`
+- D66 active identity discipline: ONE T4 unlocked at a time
+- D83 supporting chain T3-only architecture (closeout § 1.4)
+- D71 endgame budget anchor ~70 points (closeout § 1.5)
+
+**Construction property (Patterns 1+2 max-investment behavior):**
+
+The algorithm preserves the Patterns 1+2 construction property at max-profile Mode A (calibration anchor):
+
+```
+At max-profile Mode A:
+  For Pattern 1: every active skill node S has S.investment_points = NODE_MAX.active = 15
+    → damage_multiplier_at_points(S, 15) = base_at_max × ((1 - 0.65) + 0.65 × 15/15)
+                                          = base_at_max × (0.35 + 0.65)
+                                          = base_at_max × 1.0  ✓ construction preserved
+  For Pattern 2: every passive node P has P.investment_points_passive = NODE_MAX.passive = 5
+    → effect_magnitude_at_points(P, 5) = base_at_max × ((1 - 0.50) + 0.50 × 5/5)
+                                        = base_at_max × (0.50 + 0.50)
+                                        = base_at_max × 1.0  ✓ construction preserved
+```
+
+This is the Discipline #47 § 7.2 max-investment proof: at calibration anchor, Patterns 1+2 multipliers are uniformly 1.0; specialization peaks emerge solely from `base_at_max(P, K, T)` distribution. Phase 3d gamora BASE re-derivation operates with confidence that the calibration anchor profile is a single canonical construction.
+
+### 10.4 Phase 4 multi-profile sweep — operational composition
+
+Phase 4 gamora multi-profile sweep consumes the § 10.3 algorithm to construct profile distributions per (kit × profile × variant) tuple. The sweep evaluates ~ (4 paths × 4 cohorts × 6 encounter types × 4 profile bins × mixed-variant expansion) cells per § 12.5; each cell evaluates the kit at its constructed distribution against the doc 50 § 4 5 targets.
+
+**Coordination signal at Phase 4 firing (KR routes per Matt D4):**
+- Reference: doc 51 § 10.2 multi-profile distribution rules (this section)
+- Reference: doc 51 § 10.3 per-profile point allocation algorithm
+- Reference: doc 51 § 10.1 max-profile Mode A as calibration anchor (gandalf recommendation; gamora seam discretion to override per Matt D2)
+- Per-profile cell evaluation per § 10.2.{1,2,3,4}
+
+**Coordination signal at Phase 3d firing (KR routes per Matt D3):**
+- Reference: doc 51 § 10.1 Option A vs Option B decision (gandalf RECOMMENDS Option A; gamora seam discretion per Matt D2)
+- If gamora adopts Option A: Phase 3d BASE re-derivation operates at max-profile Mode A per § 10.2.3 + § 10.3
+- If gamora overrides to Option B: gamora records the override decision + rationale in gamora math note; Phase 4 sweep then uses Option B as calibration anchor + Mode A as variance check (inverse of recommendation)
+
+### 10.5 Why the 4-profile-with-mixed-variant partition (and not a continuous percentile sweep)
+
+The 4-category partition + 3-variant mixed expansion is BOUNDED by Phase 4 sweep complexity (~384 cells per § 12.5; mixed variants expand to ~768 cells). A continuous percentile sweep would explode the cell count without proportional design-signal gain.
+
+The 4 conceptual labels mirror genre progression-phase vocabulary per § 6.2 (D2 leveling/mid/Hell/atypical; PoE campaign/yellow/red/meme; Last Epoch campaign/mid-monolith/300+/off-meta). Phase 4 calibration verifies bounded-viability AT the named phases the player will actually experience. Per-encounter-type cohort_median is the validation target at each phase.
+
+**Mixed-profile is the design's "your unconventional build is viable" floor verification.** Without explicit mixed-profile sweep, Target 5 (≥30% cohort_median floor) becomes UNVERIFIED for the players who explicitly chose unconventional builds. The 3 mixed variants cover the substantive unconventional patterns; additional variants are Cycle 15+ scope.
+
+### 10.6 Composition with § 9 T4_UNLOCK_THRESHOLD
+
+At sub-max profiles, some chains have chain_progress < T4_UNLOCK_THRESHOLD = 0.70 per § 9.2. Per § 9.4 Cycle 14 v1 close model, Phase 4 sweep evaluates kits as if every chain's T4 is calibration-available — the unlock gate is Cycle 15+ Pattern 3 runtime overlay that does not change the calibrated `base_at_max`.
+
+For Phase 4 telemetry, the sweep records per-profile chain_progress per chain and the implied T4-unlocked-state under § 9.2 enforcement, BUT the KPM evaluation includes T4 contribution at every profile (calibration is the upper-bound reference). Cycle 15+ Pattern 3 implementation later overlays the gate at runtime; the calibrated `base_at_max` values from Phase 3d + 4 stand.
+
+---
+
+## 11. Cross-references updated
 
 The following docs require cross-reference updates at session close (Phase 2 acceptance criteria):
 
@@ -555,11 +954,22 @@ The following docs require cross-reference updates at session close (Phase 2 acc
 
 Cross-reference updates LANDED in this Phase 2 commit per master scoping § 1 Phase 2 acceptance criterion.
 
+**Second iteration (§§ 9 + 10 amendment batch) cross-reference verification:**
+
+| Doc | Verification | Status |
+|---|---|---|
+| `canonical/47-damage-scaling-architecture-2026-05-27.md` § 3 | Forward-link to doc 51 retained; no breaking changes from §§ 9 + 10 additions (the `skill_damage_multiplier` composition layer per § 3.3 unchanged) | PASS — no amendment required |
+| `canonical/50-bounded-viability-with-specialization-design-directive-2026-05-28.md` § 4.7 | Composition note retained; bounded-viability validation targets evaluated at max-investment-profile per § 10.1 Mode A calibration anchor still aligns with doc 50 framing | PASS — no amendment required |
+| `canonical/00-ground-state.md` § 1 | Doc 51 entry updated to reference v1.1 second iteration scope (§§ 9 + 10) | PENDING — knight-rider state-file maintenance routine post-tag |
+| Internal references in this doc to §§ 9, 10, 11, 12 | Renumbered: old § 9 → new § 11; old § 10 → new § 12; old § 11 → new § 13; old § 12 → new § 14; cross-doc-internal references to those sections updated in-line | PASS |
+
+No breaking-change cross-reference invalidations from §§ 9 + 10 additions. Patterns 1+2 formula structures (§§ 3 + 4) unchanged; calibration anchor decision (§§ 3.5 + 4.5) unchanged; per-tier ratio (§ 5) unchanged; Discipline #47 verification (§ 7) unchanged; Patterns 3-6 stubs (§ 8) unchanged.
+
 ---
 
-## 10. Forward-link to Phase 3+4+5+6 work-streams
+## 12. Forward-link to Phase 3+4+5+6 work-streams
 
-### 10.1 Phase 3a — rocket Pattern 1 implementation
+### 12.1 Phase 3a — rocket Pattern 1 implementation
 
 **Owner:** rocket (foundation seam)
 **Scope:** active skill damage scaling per § 3 of this doc; `per_skill_emitter.py` + `damage_resolver.py` touched
@@ -567,7 +977,7 @@ Cross-reference updates LANDED in this Phase 2 commit per master scoping § 1 Ph
 **Acceptance:** Pattern 1 multiplier produced at `points / NODE_MAX_active` query; cohort_median at max-investment matches `base_at_max`; floor at points=0 is 0.35 × `base_at_max`
 **Tag:** `rocket/v1.9-w-alpha-7-plus-pattern-1-1` (master scoping § Phase 3a)
 
-### 10.2 Phase 3b — rocket Pattern 2 implementation
+### 12.2 Phase 3b — rocket Pattern 2 implementation
 
 **Owner:** rocket (foundation seam)
 **Scope:** passive skill effect scaling per § 4 of this doc
@@ -575,60 +985,62 @@ Cross-reference updates LANDED in this Phase 2 commit per master scoping § 1 Ph
 **Acceptance:** Pattern 2 magnitude produced at `points / NODE_MAX_passive` query; cohort_median at max-investment matches `base_at_max`; floor at points=0 is 0.50 × `base_at_max`
 **Tag:** `rocket/v1.10-w-alpha-7-plus-pattern-2-1` (master scoping § Phase 3b)
 
-### 10.3 Phase 3c — gamora encounter HP rebalancing (case 10 resolution)
+### 12.3 Phase 3c — gamora encounter HP rebalancing (case 10 resolution)
 
 **Owner:** gamora (simulation seam)
 **Scope:** per-encounter HP factors in `endgame_mob_stat_profile.py` adjusted to escape fight-engine 0.1s timing floor for low-HP encounter types (open_arena / chokepoint_corridor / magic_pack / elite_pack); mini_boss + boss_with_adds factor ranges re-evaluated to ensure T4 specialization peaks at 1.5-2.0× cohort median become achievable
 **Acceptance:** post-rebalance W-α6-style sweep produces 18-kit KPM differentiation (not all-600 uniform) on swarm encounter types; T4 specialization peaks achievable at 1.5-2.0× cohort_median per Discipline #47 Target 4
 **Tag:** `gamora/v2.9-w-alpha-7-plus-phase-3-encounter-hp-rebalance-1` (master scoping § Phase 3c)
 
-### 10.4 Phase 3d — gamora BASE_DAMAGE_L50 re-derivation
+### 12.4 Phase 3d — gamora BASE_DAMAGE_L50 re-derivation
 
 **Owner:** gamora (simulation seam)
 **Scope:** under new W-α7+ formulas (Patterns 1+2 implemented) + new encounter HP (Phase 3c landed) + per-investment-profile reference targets; replaces W-α3 Phase 2 calibrated values (scaffold per Matt D1)
-**Acceptance:** per-tier 1:1.5:2.17:4.0 ratio preserved at cohort-output layer under max-investment-profile per § 5.3 of this doc; per-path base DPS variance ≤1.5× per doc 50 § 4 Target 1
+**Calibration anchor profile:** Option A — all-skills-max (gandalf RECOMMENDATION per § 10.1; gamora seam discretion to override per Matt D2). If Option A adopted, Phase 3d operates at max-profile Mode A per § 10.2.3 + § 10.3 construction algorithm.
+**Acceptance:** per-tier 1:1.5:2.17:4.0 ratio preserved at cohort-output layer under max-investment-profile per § 5.3 of this doc; per-path base DPS variance ≤1.5× per doc 50 § 4 Target 1; calibration anchor profile decision recorded in gamora math note
 **Tag:** `gamora/v2.10-w-alpha-7-plus-phase-3-base-rederivation-1` (master scoping § Phase 3d)
 
-### 10.5 Phase 4 — gamora multi-dim calibration
+### 12.5 Phase 4 — gamora multi-dim calibration
 
 **Owner:** gamora (simulation seam)
-**Scope:** calibration target = bounded-viability across paths × cohorts × encounter_types × investment_levels = ~4 × 4 × 6 × 4-profile = ~384-cell space; binary search across expanded space; verify cross-path parity ≤1.5× at multiple investment profiles per doc 50 § 4.1
-**Acceptance:** all 5 doc 50 targets satisfied at max-profile AND aggregate compound across profiles
+**Scope:** calibration target = bounded-viability across paths × cohorts × encounter_types × investment_levels = ~4 × 4 × 6 × 4-profile = ~384-cell base space (mixed-variant expansion to ~768 cells per § 10.2.4); binary search across expanded space; verify cross-path parity ≤1.5× at multiple investment profiles per doc 50 § 4.1
+**Distribution rules per profile:** § 10.2 multi-profile distribution rules (low / mid / max / mixed) consumed for cell construction; § 10.3 per-profile point allocation algorithm executed per (kit × profile × variant) tuple
+**Acceptance:** all 5 doc 50 targets satisfied at max-profile AND aggregate compound across profiles; Target 5 (≥30% cohort_median floor) verified at low-profile + mixed-profile per § 10.2.1 + § 10.2.4
 **Tag:** `gamora/v2.11-w-alpha-7-plus-phase-4-multi-dim-calibration-1` (master scoping § Phase 4)
 
-### 10.6 Phase 5a — gamora BVV harness multi-dim update
+### 12.6 Phase 5a — gamora BVV harness multi-dim update
 
 **Owner:** gamora (simulation seam)
 **Scope:** harness measures across multi-dimensional space (paths × cohorts × encounter_types × investment_levels); per-profile compound_pass + aggregate compound_pass
 **Tag:** `gamora/v2.12-w-alpha-7-plus-phase-5a-bvv-multi-dim-1` (master scoping § Phase 5a)
 
-### 10.7 Phase 5b — drax loadout UI revival
+### 12.7 Phase 5b — drax loadout UI revival
 
 **Owner:** drax (loadout app seam)
 **Scope:** NODE_MAX surfaces become MECHANICALLY MEANINGFUL post-Phase-3 implementation; loadout UI displays investment-scaled output (per-skill point delta visible)
 **Composition with this doc:** drax consumes Pattern 1 + Pattern 2 formulas via Phase 3 schema additions; the per-point multiplier displayed in UI is the Pattern 1/2 result at the player's current investment
 **Tag:** `drax/v1.2-w-alpha-7-plus-phase-5b-loadout-investment-ui-1` (master scoping § Phase 5b)
 
-### 10.8 Phase 5c — gamora Wave 5 RE-FIRE
+### 12.8 Phase 5c — gamora Wave 5 RE-FIRE
 
 **Owner:** gamora (simulation seam)
 **Scope:** full production season under composite engine state (Path α + integrated W-α7+ + R5-Plus scrub + Phase 5 LLM naming); Bundle Gate-2 multi-coverage
 **Tag:** `gamora/v2.13-w-alpha-7-plus-phase-5c-wave-5-refire-1` (master scoping § Phase 5c)
 
-### 10.9 Phase 6 — final close
+### 12.9 Phase 6 — final close
 
 **Owner:** jack-ryan + gandalf + Matt
 **Scope per master scoping § Phase 6:** disciplines #41-#46 batched canonical-write + A/B comparison + Matt v1 ratification
 
 ---
 
-## 11. Discipline #45 vocabulary grep audit
+## 13. Discipline #45 vocabulary grep audit
 
-**Audit performed at authoring 2026-05-28.**
+### 13.1 First iteration audit (Phase 2 lock; 2026-05-28)
 
 **Prohibited terms checked:** class / per-class / class roster / class taxonomy / class-intrinsic / class-naming policy / archetype / role.
 
-**Grep audit of this doc:**
+**Grep audit of first-iteration scope (§§ 1-8 + original §§ 9-12):**
 
 | Term | Occurrences | Status |
 |---|---|---|
@@ -641,15 +1053,50 @@ Cross-reference updates LANDED in this Phase 2 commit per master scoping § 1 Ph
 | `archetype` | 0 occurrences as generative-input label; 0 as taxonomy | PASS — doc uses "kit" + "skill" + "node" + "pattern" |
 | `role` | 0 as pre-authored generative taxonomy | PASS |
 
-**Exempt occurrences:** none required exempting in this doc. The doc operates strictly in mechanical/structural-intent vocabulary (kit / skill / node / pattern / investment / multiplier / scaling / damage / cohort / profile / encounter_type).
+**Exempt occurrences:** none required exempting in the first iteration.
 
 **Cohort labels used in this doc** (`DPS-min-maxer / Balanced / Defensive / Hybrid`): these are mechanical-property descriptors inherited from W-α6 `COHORT_KPM_BAND` / doc 50 § 5 framing. They are NOT generative-input taxonomy labels; they describe per-build mechanical fingerprints emerging from kit substrate. Per Discipline #45 scope exemption: "Describe the mechanical property directly" — these labels describe DPS/defense balance properties, not pre-authored generative taxonomy. EXEMPT.
 
-**Verdict:** PASS — zero non-exempt prohibited-vocabulary usage in this doc's acceptance criteria, quality criterion, generative-architecture description, or schema/field naming.
+**First iteration verdict:** PASS — zero non-exempt prohibited-vocabulary usage.
+
+### 13.2 Second iteration audit (§§ 9 + 10 amendment batch; 2026-05-28 evening)
+
+**Re-audit performed on new content in §§ 9 + 10 (KNOWN-GAP T4_UNLOCK_THRESHOLD + investment-profile distribution rules).**
+
+**Grep results for new content:**
+
+| Term | Occurrences in §§ 9 + 10 | Status |
+|---|---|---|
+| `class` | 0 in generative-architecture content; 0 in algorithm pseudocode; 0 in acceptance criteria; 0 in player-experience framing | PASS |
+| `per-class` | 0 | PASS |
+| `class roster` | 0 | PASS |
+| `class taxonomy` | 0 | PASS |
+| `class-intrinsic` | 0 | PASS |
+| `archetype` | 0 as generative-input label | PASS |
+| `role` | 0 as pre-authored taxonomy | PASS |
+
+**Exempt occurrences in §§ 9 + 10:**
+
+| Term | Context | Exemption basis |
+|---|---|---|
+| `"category"` in § 9.3 (item 3 "Pattern 3 implementation scope... vocabulary") and § 10.5 ("4-category partition") | "category" describes the 4-bin profile partition (low/mid/max/mixed), not generative units | EXEMPT — "category" is partition-vocabulary, not taxonomy-vocabulary; the partition describes per-profile mechanical state, not pre-authored kit shape |
+| Chain-position references (`primary` / `secondary` / `supporting` chain references in § 10.2) | Chain-position descriptors per doc 40 D83 + closeout § 1.4 | EXEMPT — chain-position is substrate-emergent per kit composition (rocket Phase 2a output), not pre-authored generative taxonomy |
+
+**Prohibited-vocabulary substitutions made during second iteration:**
+
+The original prior-exchange reference at closeout § 2.1 used the legacy "class identity" framing; § 10.2.2 references this prior record but substitutes "kit-identity floor" + "foundational passives" per Discipline #45. The substitution preserves the substantive design content (supporting chain absorbs kit-baseline passives) while honoring the current vocabulary lock. The historical record at closeout § 2.1 remains as written per Discipline #40 case (c) retraction-procedure § 6 (anchored examples remain readable).
+
+**Second iteration verdict:** PASS — zero non-exempt prohibited-vocabulary usage in §§ 9 + 10 amendment scope. The new content operates strictly in mechanical/structural-intent vocabulary (kit / chain / skill / node / pattern / profile / threshold / investment / distribution / variant / mode).
+
+### 13.3 Composite verdict
+
+**PASS — first iteration + second iteration both clean.** Doc 51 v1.1 second iteration introduces zero new Discipline #45 violations. Reciprocal cross-check: the new vocabulary introduced (`T4_UNLOCK_THRESHOLD` / `chain_progress` / `low_distribution` / `mid_distribution` / `max_distribution` / `mixed_distribution` / `mixed_variant_1` / `mixed_variant_2` / `mixed_variant_3` / `construct_profile_distribution`) is mechanical-algorithm vocabulary; future cross-references cite these by name as Cycle 15+ Pattern 3 implementation vocabulary anchors.
 
 ---
 
-## 12. Acceptance criteria (Phase 2 close)
+## 14. Acceptance criteria (Phase 2 close + scope-completeness amendment batch close)
+
+### 14.1 First iteration acceptance (Phase 2 lock; commit `ba1c4e7`)
 
 Per master scoping § 1 Phase 2 acceptance:
 
@@ -661,21 +1108,38 @@ Per master scoping § 1 Phase 2 acceptance:
 - [x] **Per-encounter-type band design integrated** — W-α6 ENCOUNTER_COHORT_KPM_BAND structure preserved per § 0 TL;DR + § 7.3; recalibrated values under multi-dim space land in Phase 4; case 10 timing-floor constraint acknowledged with Phase 3c encounter HP rebalancing as resolution path
 - [x] **Profile semantic definitions** — low / mid / max / mixed-profile semantics per § 6.1-6.4; numeric thresholds = Phase 3+4 gamora seam discretion per § 6.3
 - [x] **6-pattern canonical doc** — Patterns 1+2 detailed (§ 3 + § 4); Patterns 3-6 canonical-locked stubs (§ 8.1-8.4); Patterns 7+ deferred
-- [x] **Cross-references updated** — doc 00 + doc 02 + doc 47 § 3 + doc 50 per § 9 (in-flight this Phase 2 commit)
+- [x] **Cross-references updated** — doc 00 + doc 02 + doc 47 § 3 + doc 50 per § 11 (in-flight this Phase 2 commit)
 - [x] **NODE_MAX source location verified** — `reincarnated-loadout/src/data/cycle13Types.ts:255` (lines 255-259: passive=5, active=15, t4=1) per § 3.1 + § 4.1
-- [x] **Discipline #45 vocabulary grep audit PASS** — § 11
+- [x] **Discipline #45 vocabulary grep audit PASS** — § 13.1
+
+### 14.2 Second iteration acceptance (§§ 9 + 10 amendment batch; 2026-05-28 evening)
+
+Per KR dispatch `agentic_orchestration/dispatches/2026-05-28-gandalf-doc-51-scope-completeness-amendment-batch.md` § 4 acceptance:
+
+- [x] **§ 9 KNOWN-GAP T4_UNLOCK_THRESHOLD acknowledgment authored** — T4_UNLOCK_THRESHOLD = 0.70 captured per § 9.2 from prior gandalf+Matt design exchange (`2026-05-27-cycle-13-pre-launch-design-session-closeout.md` § 1.5 D71); Cycle 15+ deferral rationale per § 9.3; Pattern 3 implementation cross-reference per § 9.6; composition with Patterns 1+2 at Phase 3d + Phase 4 per § 9.4; branched-chain T4-unlock per § 9.5; acknowledgment statement per § 9.7
+- [x] **§ 10.1 calibration anchor profile decision authored** — Option A (all-skills-max) vs Option B (realistic-max specialization-aware) trade-off table per § 10.1; gandalf RECOMMENDATION = Option A with 5-point rationale (structural cleanness + specialization-as-emergent + genre precedent + Phase 4 reference baseline + player-consequence framing); gamora seam discretion to override per Matt D2
+- [x] **§ 10.2 multi-profile distribution rules authored** — low-profile distribution rule per § 10.2.1; mid-profile per § 10.2.2; max-profile (Mode A + Mode B) per § 10.2.3; mixed-profile (3 variants) per § 10.2.4
+- [x] **§ 10.3 per-profile point allocation algorithm authored** — concrete pseudo-code algorithm `construct_profile_distribution(K, P, V)` per § 10.3 with per-profile branch + per-node constraint validation + chain-prerequisite gate validation + max-profile Mode A construction property preservation; cross-references to § 9.2 (chain_progress + T4_UNLOCK_THRESHOLD) and Pattern A-deep chain-prerequisite gates
+- [x] **Header amended** — STATUS notice updated to "second iteration"; `**Date**` field extended; `**Status**` field updated to "v1.1 canonical lock SECOND ITERATION"; `**Authority**` field extended with second iteration record
+- [x] **Discipline #45 vocabulary grep re-audit on new content** — PASS per § 13.2; exempt occurrences declared
+- [x] **Cross-reference verification** — doc 50 § 4.7 + doc 47 § 3 forward-link blocks still valid; no breaking-change cross-reference invalidations from §§ 9 + 10 additions per § 11 second iteration table
+- [x] **Tag cut** — `gandalf/v1.15-doc-51-scope-completeness-amendment-batch-1` (seam discretion per dispatch § 2)
+- [x] **Discipline #40 case (c) extension framing** — captured in header authority block; this is scope-completeness fold-in to LOAD-BEARING canonical, NOT retraction (no retraction-procedure 6-step sequence required)
+- [x] **Discipline #48 candidate validation at N=2** — referenced in header authority block + commit message (case 11 investment scaling gap + case 13 this § 10 distribution rules gap); minting deferred to Phase 6a disciplines batch per jack-ryan
 
 ---
 
 ## Sign-off
 
 **Author:** gandalf (story-and-design steward)
-**Date:** 2026-05-28
-**Status:** v1 canonical lock; LOAD-BEARING per integrated W-α7+ Phase 2; gates Phase 3+4+5+6 work-streams; Cycle 14 v1 close trajectory ~14-22d from Matt 2026-05-28 evening RATIFICATION AMENDMENT
-**Authority:** Matt 2026-05-28 evening RATIFICATION AMENDMENT (integrated W-α7+ replaces separate Option B + W-α7) + Phase 2 firing PARALLEL with jack-ryan Gate-1 review per Matt explicit authorization
-**Discipline #45 vocabulary audit:** PASS per § 11 — zero non-exempt prohibited-vocabulary usage
-**Discipline #47 verification:** § 7 specifies peak-KPM-ratio framework; max-investment multiplier=1.0 by construction; specialization peaks emerge from `base_at_max` distribution (Phase 3d gamora seam); within [1.5, 2.0] × cohort_median target preserved
-**Discipline #1 (math-before-code) target:** Phase 3a + 3b + 3c + 3d math notes required at `~/Games/reincarnated-engine/src/reincarnated/{generation,simulation}/math/` per master scoping § Phase 3 sub-streams; each math note cites this doc § 3 / § 4 / § 5 / § 7 by section number as the design-spec-as-math handoff
-**Cross-references:** doc 00 (ground-state oracle — registration this session); doc 02 (roadmap — Cycle 14 trajectory + Patterns 3-6 Cycle 15+ surface); doc 47 § 3 (mechanical substrate; forward-link added this session); doc 50 (composition with bounded-viability constraints; cross-reference added this session); master scoping dispatch (parent); W-α6 math note (Phase 1 input absorbed); NODE_MAX source `reincarnated-loadout/src/data/cycle13Types.ts:255`; engineering-disciplines.md § 45 (vocabulary lock audit anchor) + § 47 (bounded-viability framework discipline)
+**Date:** 2026-05-28 (first iteration); 2026-05-28 evening (second iteration §§ 9 + 10 amendment batch)
+**Status:** v1.1 canonical lock SECOND ITERATION; LOAD-BEARING per integrated W-α7+ Phase 2 + Matt 2026-05-28 evening D1+D2+D3+D4 RATIFICATION; gates Phase 3d gamora BASE re-derivation + Phase 4 multi-profile sweep + Phase 5+6 work-streams; Cycle 14 v1 close trajectory ~14-22d from Matt 2026-05-28 evening RATIFICATION AMENDMENT
+**Authority — first iteration:** Matt 2026-05-28 evening RATIFICATION AMENDMENT (integrated W-α7+ replaces separate Option B + W-α7) + Phase 2 firing PARALLEL with jack-ryan Gate-1 review per Matt explicit authorization
+**Authority — second iteration:** Matt 2026-05-28 evening D1+D2+D3+D4 RATIFICATION (scope-completeness amendment batch §§ 9 + 10) per KR dispatch `agentic_orchestration/dispatches/2026-05-28-gandalf-doc-51-scope-completeness-amendment-batch.md`; Discipline #40 case (c) extension protocol (NOT retraction; scope-completeness fold-in to LOAD-BEARING canonical); Phase 3d gamora HALTED via TaskStop pending § 10.1 calibration anchor profile decision lock
+**Discipline #45 vocabulary audit:** PASS per § 13 — zero non-exempt prohibited-vocabulary usage (first iteration per § 13.1 + second iteration §§ 9 + 10 per § 13.2; composite verdict per § 13.3)
+**Discipline #47 verification:** § 7 specifies peak-KPM-ratio framework; max-investment multiplier=1.0 by construction; specialization peaks emerge from `base_at_max` distribution (Phase 3d gamora seam); within [1.5, 2.0] × cohort_median target preserved; § 10.3 construction property preservation extends verification to per-profile distribution algorithm
+**Discipline #48 candidate validation status:** N=2 production gaps confirmed (case 11 investment scaling gap → first iteration scope; case 13 § 10 distribution rules gap → second iteration scope); both caught by Matt manual scope-completeness audit; minting deferred to Phase 6a disciplines batch per jack-ryan
+**Discipline #1 (math-before-code) target:** Phase 3a + 3b + 3c + 3d math notes required at `~/Games/reincarnated-engine/src/reincarnated/{generation,simulation}/math/` per master scoping § Phase 3 sub-streams; each math note cites this doc § 3 / § 4 / § 5 / § 7 / § 10 by section number as the design-spec-as-math handoff
+**Cross-references:** doc 00 (ground-state oracle — registration first iteration; second iteration entry refresh pending knight-rider state-file maintenance); doc 02 (roadmap — Cycle 14 trajectory + Patterns 3-6 Cycle 15+ surface); doc 47 § 3 (mechanical substrate; forward-link unchanged at second iteration per § 11); doc 50 (composition with bounded-viability constraints; cross-reference unchanged at second iteration per § 11); master scoping dispatch (parent first iteration); scope-completeness amendment dispatch (second iteration parent); W-α6 math note (Phase 1 input absorbed); NODE_MAX source `reincarnated-loadout/src/data/cycle13Types.ts:255`; engineering-disciplines.md § 45 (vocabulary lock audit anchor) + § 47 (bounded-viability framework discipline) + § 40 case (c) (extension protocol for LOAD-BEARING canonical amendment); prior gandalf+Matt design exchange records `2026-05-27-cycle-13-pre-launch-design-session-closeout.md` § 1.5 D71 + `2026-05-26-cycle-13-design-session-pattern-a-deep-verdicts.md` § "Chain-prerequisite gates" (§ 9 KNOWN-GAP T4_UNLOCK_THRESHOLD provenance)
 
-**For:** the structural-intent layer over the skill-tree per-node investment domain. Phase 3 implementation (rocket Patterns 1+2; gamora BASE re-derivation + encounter HP rebalancing) consumes § 3 + § 4 + § 5 + § 7. Phase 4 multi-dim calibration consumes § 6 profile definitions. Phase 5 BVV harness validates § 7 Discipline #47 framework. From this commit forward, "Pattern 1 active skill damage scaling" and "Pattern 2 passive skill effect scaling" are the canonical vocabulary; downstream dispatches, math notes, and decisions-log entries cite them by name. The game we ship is the game where every invested point matters AND every player's build is in the band at endgame.
+**For:** the structural-intent layer over the skill-tree per-node investment domain. Phase 3 implementation (rocket Patterns 1+2; gamora BASE re-derivation + encounter HP rebalancing) consumes § 3 + § 4 + § 5 + § 7. Phase 3d gamora BASE re-derivation additionally consumes § 10.1 calibration anchor profile decision + § 10.3 max-profile Mode A construction algorithm. Phase 4 multi-profile sweep consumes § 6 profile definitions + § 10.2 multi-profile distribution rules + § 10.3 per-profile point allocation algorithm. Phase 5 BVV harness validates § 7 Discipline #47 framework. Cycle 15+ Pattern 3 implementation consumes § 9 T4_UNLOCK_THRESHOLD = 0.70 acknowledgment + § 9.4-9.6 composition + deferral logic. From this commit forward, "Pattern 1 active skill damage scaling" and "Pattern 2 passive skill effect scaling" are the canonical vocabulary; downstream dispatches, math notes, and decisions-log entries cite them by name. T4_UNLOCK_THRESHOLD = 0.70 is the named canonical Pattern 3 vocabulary anchor for Cycle 15+. The game we ship is the game where every invested point matters AND every player's build is in the band at endgame AND every chain's capstone is earned, not given.
