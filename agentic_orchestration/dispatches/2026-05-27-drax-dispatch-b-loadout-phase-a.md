@@ -111,4 +111,41 @@
 
 ## Completion record
 
-(append on completion)
+**Completed:** 2026-05-27
+**Commit:** `af155be` (reincarnated-loadout main)
+**Build:** tsc -b clean + vite build clean + 81 tests passing (0 failures)
+**Push status:** PENDING Matt push authorization
+
+### Part 1 — Rank-0 empty-state
+
+- SP_BUDGET updated 120 → 70 (`src/data/constants.ts`)
+- Skill Tree header now "{n} / 70 SP" (was hardcoded "/ 120 SP"); `data-testid="rank-zero-init"` on section
+- useSkillBuild confirmed rank-0 compliant: initializes as `{}` (absent key = 0 throughout)
+- TODO(drax) comment added: update to `season_metadata.skill_points_budget_endgame` when star-lord Track C ships § 3 emission
+- doc 49 § 1.1.1 compliance verified: no rank-1 default; every node zero at startup
+
+### Part 2 — True reset action
+
+- Two-click inline confirmation pattern: Reset → "Confirm reset?" (3s auto-cancel) → confirmed clears allocations to `{}`
+- Reset disabled when `totalSP === 0` (hasInvestment prop gate)
+- Reset does NOT clear savedBuilds (persisted snapshots survive until next save)
+- No modal — mobile-first inline
+
+### Part 3 — Per-kit build persistence
+
+- localStorage version-2 schema: adds `savedBuilds: SavedBuild[]` for named snapshots; version-1 records migrate transparently
+- Auto-save on invest/divest: debounced 800ms; working state persists across browser close without user action
+- Named manual snapshots: "Save Build" creates "Build 1", "Build 2", etc. in savedBuilds
+- `loadBuild(SavedBuild)` restores snapshot as working state
+- URL-param load fully wired: `parseBuildUrl()` result passed as `urlAllocations` to `useSkillBuild`; overrides localStorage when `?build=` present; shareable links functional
+- Share Build button enabled: clipboard copy with "Copied!" feedback (fallback: new tab)
+
+### UX judgments (Q-DB-1/2/3 resolved)
+
+- Q-DB-1: localStorage (auto + named) + URL params (shareable). Both.
+- Q-DB-2: Two-click inline confirmation. No modal.
+- Q-DB-3: Auto-save on invest/divest + manual named snapshots. Per-kit.
+
+### Discipline #45 audit
+
+Clean — no new player-visible "class" vocabulary introduced. Pre-existing analytics subtitle references ("classes") are out-of-scope for this dispatch and pre-date Dispatch B.
