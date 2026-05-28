@@ -259,3 +259,39 @@ Current backend: scikit-learn TF-IDF character n-gram (2,4) via `llm/faction_div
 #### Hand-back to KR
 
 Seam 3 complete. KR consolidates Phase 5 close signal when rocket Seam 1 (PM-1 clustering impl) and gandalf Seam 2 (PM-2 LLM logic + cohesion-judge prompts) complete.
+
+---
+
+### Seam 3 PM1-wiring completion — star-lord (2026-05-27)
+
+**Status:** COMPLETE
+**Commit:** `94f8c88`
+**Tag:** `star-lord/v1.0-dispatch-3b-seam-3-pm1-wiring-1`
+**Smoke gate:** 36/36 new + 100/100 prior (Dispatch 3B Seam 1 + Seam 3 base) = 136/136 PASS
+**MIGRATION.md:** `export/MIGRATION.md` § v1.11 + `llm/MIGRATION.md` PM1-wiring section (ADR-004 compliant)
+
+#### Scope delivered
+
+**PM1Cluster → ExportFactionCluster skeleton adapter:**
+`pm1_result_to_faction_clusters_input(pm1_result, gb_result)` in `llm/phase5_orchestrator.py`.
+Duck-typed (Any parameters) — no cross-seam import at module load time. Exported from `reincarnated.llm` public API.
+Produces list[dict] consumed directly by `build_export_faction_clusters()`.
+
+**G-B telemetry emission (PM-2 § 13.5):**
+Three additive fields on ExportFactionCluster:
+- `primary_pair_flag: bool = False` — True for the two clusters in GBPrimaryPairResult.primary_faction_pair; False for background clusters
+- `gb_selection_rationale: str | None` — PM-2 § 13.2 rationale enum; same value on all cluster records per season for analyst convenience
+- `pairwise_distance_distribution: list[float] | None` — all pairwise Mahalanobis distances sorted descending; same on all cluster records per season; length = k*(k-1)/2 (k=3 → 3; k=4 → 6)
+
+**build_export_faction_clusters() extended:**
+Reads `primary_pair_flag`, `gb_selection_rationale`, `pairwise_distance_distribution` from input dicts. Null-safe: old-style dicts without these keys default to False/None/None.
+
+**Phase5OrchestratorConfig.thematic_registry slot confirmed:**
+Slot was established in Seam 3 base. Confirmed ready for gandalf THEMATIC_REGISTRY dict from `canonical/story/thematic-registry-2026-05-27.md` (`da56926`). No code changes needed.
+
+#### Cross-seam hand-off
+
+- **Rocket:** Call `pm1_result_to_faction_clusters_input(pm1_result, gb_result)` after `run_pm1_and_gb()` to get faction_clusters_input. Then pass to `run_phase5_wave_a_sync()`. Import from `reincarnated.llm`.
+- **Gandalf (Wave 3 Seam 1):** `primary_pair_flag=True` clusters are candidates for narrative intensification at primary tension. `thematic_registry` slot ready. `faction_label_canonical` null pending Wave 3 LLM logic.
+- **Jack-ryan:** Tie-break rate monitoring: `WHERE gb_selection_rationale != "highest_substrate_distance"` / total season count should stay < 20%.
+- **Drax:** 3 new nullable fields on faction_clusters.json; guard with null-check; all False/None for Reincarnated v1.
