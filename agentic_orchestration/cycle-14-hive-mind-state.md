@@ -287,10 +287,67 @@ State file archival path (when reached): rename to `agentic_orchestration/cycle-
 
 ---
 
+## 8.5 Path (1) Phase 4+5 Math-Notes Bundle — Pre-Matt-gate ratification state (NEW 2026-05-27)
+
+**Elrond bundled methodology consultation (MG-1..MG-4 + PM-1):** ✅ COMPLETE at engine-side `f8eb1a4` (consultation filed at `agentic_orchestration/elrond/notes/2026-05-27-phase-4-5-methodology-consultation.md`).
+
+**Per-note disposition (elrond methodology recommendations):**
+
+| Note | Recommendation | Re-Gate-1 needed? |
+|---|---|---|
+| **MG-1 Pareto** | PROCEED as authored. Strict 5D Pareto correct at d=5, k≤100. Reject ε-dominance (MAP-Elites archive-bounding handles via MG-5). | NO |
+| **MG-2 Crowding** | PROCEED with NSGA-II crowding distance (Algorithm A); defer HVC indefinitely. Amendment: raise MIN_POPULATION_FOR_DIVERSITY 6→10 (=2d). Reject NSGA-III reference-point variant. | NO (minor amendment) |
+| **MG-3 Mahalanobis (LOAD-BEARING)** | PROCEED with PHASED METHODOLOGY: Gaussian Mahalanobis + Tikhonov (Σ+λI; λ=1e-3 NOT 1e-4); MIN_COV_POPULATION 7→15; empirically-calibrated DUPLICATE_THRESHOLD (target 5% detection rate, NOT chi-squared — Hotelling T² correct at small k); Pareto-strict replacement REPLACES Q_scalar arbitrary weights; HDBSCAN-style mutual-reachability fallback as standby module gated on Shapiro-Wilk normality smoke test (G-MG3-1). | **YES** — substantive |
+| **MG-4 KL** | PROCEED with REFRAMING: JSD primary across full k range; **retire discrete-grid KL path entirely** (statistically wrong at d=5, k≤100; KDE curse-of-dimensionality, h~k^(-1/9) over-smooths). Silverman's rule + bandwidth floor (0.05) replaces Scott's rule. Remove NOVELTY_CLAMP (JSD bounded naturally). Raise MIN_KL_POPULATION 5→10. | YES — substantive reframe |
+| **PM-1 Multimodal Clustering** | PROCEED with **A4 GMM primary (k∈{3,4} BIC-selected; NOT 5)**; **A1 k-means fallback at n<20**; **Option β CONFIRMED** (substrate-row HDBSCAN ≠ kit-population GMM; different statistical problems); **aesthetic-heavy weighting CONFIRMED** with sqrt-weights pre-PCA; **PCA-whitening to top-95% variance**; revised sparsity thresholds (24/20/12/8 GMM-aware); **PM-1↔MG-5 calibration feedback loop architecturally committed**. | YES — algorithm commit |
+
+**Elrond cross-cutting findings (§ 7) — 3 routings:**
+1. **Post-first-smoke covariance audit** (shared deliverable across all four Phase 4 gates) — KR folds into Dispatch 3A scope as named deliverable
+2. **Shared `CellContext` materialization** at Phase 4 pipeline entry (Σ_c + Q_mean_c + sorted_per_dim shared across MG-1/2/3/4) — KR folds into Dispatch 3A architectural pattern
+3. **PM-1↔MG-5 calibration feedback loop** architecturally committed now (5-season window) — KR folds into Dispatch 3A+3B coupling
+
+**Matt 5 in-advance design-call ratifications (2026-05-27 verbatim):**
+
+| Call | Ratification | Downstream |
+|---|---|---|
+| **A — Faction cardinality** | A2 K=2-4 emergent ✅ | Folds into Dispatch 3B PM-2 implementation |
+| **B — Archive persistence** | B1 hybrid (per-season + persistent Court) ✅ | Folds into Dispatch 3A MG-5 schema + Cycle 15 Court promotion criterion |
+| **C — Phase 4 archive capacity per cell** | C2 30 kits/cell v1 ✅ | Folds into Dispatch 3A MG-5 eviction policy |
+| **D — Faction × Sketch F interaction** | **D-Sharpened** (substrate-anchored named-personage hidden engine-layer; surfaced in drax loadout summary + star-lord telemetry as metadata; Phase 5 LLM names ALL kits uniformly player-facing regardless of substrate anchor). Composes with PM-2 D-Hybrid + D-Separate. | gandalf authors PM-2 § 2.6 + § 3 sharpening amendment (~15 min); requires LIGHT re-Gate-1 |
+| **E — Phase 4 reject handling** | **E-Dev-Phase-Aware** (retain rejected kits in reject pool during engine-dev phase; switch to E1 discard at Trigger B "engine production-stable" verdict per Discipline #43 design-quality audit; jack-ryan ratifies Trigger B). | gandalf authors MG-5 retention-policy amendment (~30 min); requires LIGHT re-Gate-1 (reject pool schema vs Discipline #46 § 7 per-cell bounding) |
+
+**Bundled re-Gate-1 stream (consolidated from elrond + Matt-amendments):**
+- MG-2 minor amendment (MIN_POPULATION 6→10)
+- **MG-3 substantive** (phased methodology + Tikhonov + Hotelling T² + HDBSCAN-fallback)
+- **MG-4 substantive** (JSD primary + KL discrete-grid retirement)
+- **MG-5 amendment** (E-Dev-Phase-Aware reject pool + Discipline #46 per-cell-bounding compliance)
+- **PM-1 algorithm commit** (GMM primary + revised thresholds + PM-1↔MG-5 feedback loop)
+- **PM-2 D-Sharpened amendment** (substrate-anchored hidden engine-layer; player-facing uniform)
+- MG-1 PROCEED-AS-AUTHORED (no amendment)
+
+**Sequencing:**
+1. **gandalf authors PM-2 + MG-5 amendments** (~45 min combined) — parallel sub-agent fire under hive-mind decision-routing
+2. **jack-ryan LIGHT re-Gate-1** verification across all 6 amendments (~1-2 hrs; bundled review)
+3. **Matt-gate fires** as 8 math-note algorithm ratifications + 1 WARN + 4 INFO per Discipline #18 math-hotspot ratification
+4. **Post Matt-gate:** Dispatches 3A (gamora Phase 4 impl ~3-4 weeks) + 3B (gandalf+star-lord+rocket Phase 5 impl ~2-3 weeks parallel) authored with:
+   - Move 1 quality-criterion template
+   - Discipline #42 framing-audit section
+   - Discipline #46 § 3.1 DB-query compliance section
+   - "Risks + Watch Items" section per failure-modes register § 5
+   - **LOAD-BEARING two-wave sequencing** in Dispatch 3B (Wave A clusters before Wave B per-kit per Phase 7 cohesion criterion; star-lord PM-2 finding `708b575`)
+   - Concurrency strategy for ~2,100 Phase 5 calls
+   - ExportFactionCluster schema + MIGRATION.md
+   - 3 elrond cross-cutting items (covariance audit + shared CellContext + PM-1↔MG-5 feedback loop)
+5. **THEMATIC_REGISTRY authoring** (gandalf ~2-3 days cross-cutting; gates Wave 3/Dispatch 3B; fires between Matt-gate and Dispatch 3B implementation)
+
+**Anti-stall:** elrond consultation surfaced NO blocking methodology questions; all five returned decisive recommendations.
+
+---
+
 ## 9. Sign-off (LIVE)
 
 **State file owner:** knight-rider (orchestrator)
-**State file status:** LIVE — Cycle 14 in flight; Wave 0 in progress; Wave 0.5 + downstream queued
-**Last updated:** 2026-05-27 (Wave 0 launch + dispatch fire-sequence complete)
+**State file status:** LIVE — Cycle 14 Path (1) in flight; pre-Matt-gate amendment authoring queued (gandalf PM-2 + MG-5)
+**Last updated:** 2026-05-27 (elrond methodology consultation COMPLETE `f8eb1a4` + Matt 5 in-advance ratifications + D-Sharpened + E-Dev-Phase-Aware amendments + star-lord PM-2 `708b575` 5 Dispatch 3B items)
 
 **For:** cross-session continuity per hive-mind protocol § 8.1. Captures Wave + sidecar dispatch state for Cycle 14 lifecycle. Updated at each Wave boundary + dispatch completion. Archives on Cycle 14 close.
