@@ -517,6 +517,38 @@ Gamora SC-7 ✅ COMPLETE at engine `e7af7db` + tag `gamora/v1.8-sc-7-base-spell-
 
 **Wave 5 cascade BLOCKED pending Gate-5 + Matt D2 re-evaluation.**
 
+---
+
+### GATE-5 JACK-RYAN DISPOSITION LANDED 2026-05-28 — AWAITING MATT PATTERN-B RATIFICATION
+
+**Jack-ryan Gate-5 ✅ COMPLETE** at meta `3251b6d` (canonical disposition filed at `agentic_orchestration/qa/pending/2026-05-28-8th-scaffold-drift-boss-kpm-damage-gap-gate-5-disposition.md`; 437 lines; ~7-minute fire).
+
+**Root-cause depth analysis (jack-ryan § 3):**
+- Three substrate constants co-implicated: `endgame_mob_stat_profile.py` boss HP (SC-6, `ee15c96`), `base_physical_damage_l50` (SC-6b, `3c95883`), `BASE_SPELL_DAMAGE_L50` (SC-7, `e7af7db`).
+- **Critical finding:** `ee15c96` source comment verbatim: *"ANCHOR INTENTS, not locked simulation targets. Gamora calibrates final numerics via simulation per Block C Scaffold 1 § 1.4."*
+- The boss HP anchors were set as an explicitly-flagged scaffold deferred to gamora at the Phase 7 gate. The 8th case IS that gate firing — three deferred calibrations meeting simultaneously.
+- Discipline #39 frame: rebase RESOLVES an existing source-annotated scaffold; it does NOT introduce one. Honors Matt's "scaffolds get RESOLVED, not deliberately introduced" framework directly.
+
+**6 ranked options (jack-ryan § 4):**
+1. **Option 1 — Boss HP Rebase to current kit-damage population (Cycle 14)** — ~0.75d gamora + ~0.25d jack-ryan canonical. Closes endgame_mob_stat_profile scaffold via empirical calibration. PARTIAL: leaves SC-6b/SC-7 per-kit scaffolds open (deferred Cycle 15 architectural framing).
+2. **Option 2 — Staged: Option 1 Cycle 14 + per-kit full calibration Cycle 15** — ~0.75d C14 + ~2-3d C15.
+3. **Option 6 — Option C damage/HP% metric replacement Cycle 15** (D3-deferred at Gate-4) — replaces KPM with path-agnostic metric; resolves two-path divergence architecturally by design rather than calibration; requires Discipline #18 methodology lock.
+4. **Option 3 — Full per-kit damage calibration NOW (SC-6b + SC-7 both per-kit)** — ~2-3d; AT RISK for Cycle 14 timeline.
+5. **Option 5 — Cycle 14 close-criterion amendment** (accept 3/18 emit) — ~0.1d; creates D13 P1-P9 downstream quality debt.
+6. **Option 4 — T1 REJECT threshold widen (0.30 → 0.45+)** — DO NOT PURSUE; empirically incoherent.
+
+**Jack-ryan recommendation:** **Option 1 (Boss HP Rebase) for Cycle 14 emit + Option 6 (Option C damage/HP% metric) as the Cycle 15 architectural commit.** Rationale (verbatim): *"The endgame_mob_stat_profile.py boss HP factor range (9.0-14.0)× was explicitly annotated 'ANCHOR INTENTS, not locked simulation targets — gamora calibrates final numerics' at commit ee15c96. The Phase 7 gate IS that calibration gate. Rebasing boss HP to the empirical kit-damage population median is the calibration the scaffold was waiting for — not a workaround, but the intended resolution. It closes the boss HP scaffold, re-activates the Track 1 16-cell band infrastructure (which is operationally correct), and produces broad population emit signal without touching SC-6b values or requiring rocket cross-seam involvement in Cycle 14. For Cycle 15, the Track 1 telemetry now confirms the deeper framing (two-path independent calibration produces incomparable KPM); Option C (damage/HP%) resolves that architectural truth by design rather than adding 72 per-kit KPM calibration values that still inherit the two-path divergence problem."*
+
+**KR read:**
+- The "ANCHOR INTENTS" source-annotation finding is **decisive**. It transforms what looked like an 8th case requiring scaffold-fallback (Matt D2 REJECTED at Gate-4) into a case where the canonical resolution path is **calibrating an explicitly-deferred scaffold to its design-intended gate**.
+- Option 1 + Option 6 path preserves Cycle 14 v1 close trajectory (~0.75-1d ratification → ~3-5d D13 parallel framework → v1 tag) AND commits Cycle 15 to architectural metric improvement rather than calibration-deepening.
+- Alternative read worth surfacing: Option 2 (Option 1 + per-kit calibration Cycle 15) closes SC-6b/SC-7 scaffolds via direct calibration but leaves the two-path divergence architectural problem unresolved. Option 6 explicitly addresses that problem; Option 2 defers it. Trade-off: certainty of per-kit closure (Option 2) vs. architectural resolution depth (Option 6).
+- KR slight lean Option 1 + Option 6 per jack-ryan; recognize Matt may prefer Option 1 + Option 2 if Cycle 15 path certainty is higher-priority than architectural-metric Cycle 15 commit.
+
+**Pending Matt Pattern-B ratification:** Option selection + Cycle 14 + Cycle 15 path.
+
+**Cycle 14 close trajectory at Option 1 + Option 6 ratification:** ~0.75-1d gamora boss HP rebase → Wave 5 cascade resumes → ~3-5d D13 parallel framework → v1 tag → end-to-end **~4-6 days from this ratification**.
+
 **Meta-discipline lessons captured (Matt 2026-05-28):**
 - "Scaffolds get RESOLVED, not deliberately introduced" — D7 escalation policy IS for resolution, NOT scaffold proliferation
 - Discipline #18 refinement: methodology consultation at extension hotspots fires AFTER baseline empirical signal lands (Track 1 IS baseline; Track 2 design call deferred)
