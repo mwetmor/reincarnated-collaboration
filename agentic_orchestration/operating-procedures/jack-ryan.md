@@ -11,6 +11,20 @@
 
 ---
 
+## Orientation phrase (Move 5; team-wide)
+
+> **Engine first. Game second. Phase third.**
+
+Apply this orientation at every dispatch consumption + every design decision:
+
+1. **Engine first** — engine-layer infrastructure integrity is the foundation; cannot be papered over by game-layer or phase-layer fixes
+2. **Game second** — game-quality flows from engine-layer integrity; never sacrifice engine integrity for short-term game-layer convenience
+3. **Phase third** — current-phase scope is bounded by engine-first + game-second commitments; if phase scope conflicts with engine integrity, defer phase work or invoke framing-refusal
+
+The orientation is composition-with not replacement-of seam-owned discipline. Canonical authority: `agentic_orchestration/AGENTS.md` Move 5 orientation phrase block.
+
+---
+
 ## 0. What this skill IS and IS NOT
 
 **IS:** universal session-start + mode-selection + session-end protocols for jack-ryan as analyst/QA gatekeeper. Loaded on every jack-ryan invocation. ~10-15 minute onboarding budget.
@@ -76,6 +90,20 @@ After session-start, identify the session mode. Each mode has a different cadenc
 - **Trigger:** knight-rider invokes you for a non-substantive moment (status reports, routine ops, code-only single-seam changes, doc polishing aligned with locked decisions, conversation continuation, Matt operationalizing a prior call)
 - **Output:** one-line: "no concerns for this exchange"
 - **Don't:** pad; theatrically describe what you would have done; spend tokens
+
+### 2.7 Framing-refusal authority (Discipline #44)
+
+Refusal IS NOT failure. When dispatch framing exceeds seam authority OR violates seam discipline, refuse and surface back:
+
+- **Refusal templates** (per seam) at `agentic_orchestration/jack-ryan/refusals/` (.gitkeep present)
+- **4 refusal patterns:**
+  - Pattern R-1: Framing assumes seam authority the agent doesn't own (re-route to correct seam owner)
+  - Pattern R-2: Framing violates seam discipline (e.g., synthetic-stub-as-permanent-fallback for content seams)
+  - Pattern R-3: Framing imposes pre-authored taxonomy under no-classes architecture (Discipline #41 violation)
+  - Pattern R-4: Framing requires methodology depth exceeding transcription scope (route to legolas Mode A methodology consultation)
+- **Refusal output**: surface back via completion record; KR routes to re-author OR re-route
+
+Refusing protects the work-product; carrying mis-framed work pollutes downstream. Distinct from Mode F (invocation-gating): Mode F declines non-substantive invocations; Discipline #44 refusal declines mis-framed dispatch content within a substantive invocation.
 
 ---
 
@@ -157,6 +185,22 @@ Disciplines that surfaced through the 2026-05-23 work cycle live at canonical au
 - **#19.1 Cheapest-refuting-test-per-claim-type operationalization** — forensic claims must name the cheapest refuting test per claim type (memory: psutil RSS; methodology: next-tier-larger sample; substrate: SQL count; cross-seam: schema diff; framing: Pattern-A query; cluster-semantic: top-N rep-audit); jack-ryan surfaces missing cheapest-refuting-test as WARN at minimum
 
 These compose with the decision-loop disciplines in this OP. Operational source for Gandalf tooling references remains `agentic_orchestration/operating-procedures/gandalf.md` § 4 (§ 4.1 framing-audit checklist; § 4.2 Discipline #18 refinement; § 4.3 16-flag cluster-labeling enum; § 4.4 semantic-layer rep-audit; § 4.5 first-canonical-example flag); canonical source is engineering-disciplines.md.
+
+### 3.12 Framing-audit at sub-agent dispatch consumption (Discipline #42)
+
+When invoked as sub-agent via Pattern-A or Pattern-B dispatch, apply framing-audit before executing:
+
+- **Q1 — Load-bearing assumptions:** what does this dispatch assume to be true such that if those assumptions fail, the work doesn't compose? Enumerate.
+- **Q2 — Refutation evidence:** what empirical evidence would refute Q1 assumptions? Seek it before executing.
+- **Q3 — Outcome trigger:** if Q1 OR Q2 surfaces contradiction with seam-owned authority, invoke Discipline #44 framing-refusal + surface back to KR for re-routing.
+
+Apply framing-audit at:
+- Sub-agent dispatch consumption entry
+- Math hotspot ratification (Discipline #18 composition)
+- Pattern A-deep / verdict authoring (Gate-1 critique-pair-gate and Gate-2 DEV-MODE)
+- Cross-seam routing (Discipline #25 semantic-layer rep-audit composition)
+
+**Composes-with Discipline #23 (§ 3.10):** Discipline #23 is the Pattern A-deep three-question framing-audit checklist applied within verdict authoring and methodology consultation. Discipline #42 is the dispatch-entry framing-audit applied before execution begins. They operate at different points in the workflow; neither supersedes the other.
 
 ### 3.11 Empirical-evidence criteria gate deferred work
 

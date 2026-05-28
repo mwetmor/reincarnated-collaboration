@@ -166,7 +166,26 @@ If the OP file doesn't yet exist for any agent, create it per the gandalf OP pro
 
 ### jack-ryan
 
-(pending)
+**Completed:** 2026-05-27
+**Agent:** jack-ryan
+**Status:** DONE
+
+**Framing-audit (Discipline #42) applied at entry:**
+- Q1: Template assumes clean composition across all 9 OPs; jack-ryan OP already has Discipline #23 (Pattern A-deep framing-audit) at § 3.10 — potential duplication risk
+- Q2: Verified Discipline #23 and Discipline #42 operate at different workflow points (#42 = dispatch-entry; #23 = within verdict authoring). No duplication. `agentic_orchestration/jack-ryan/refusals/` directory confirmed present. Orientation phrase placement at OP top verified no § 0 structural displacement.
+- Q3: No contradiction surfaced. Template composes cleanly. Proceeding.
+
+**Placement decisions:**
+- Move 5 (orientation phrase): inserted as standalone section BEFORE § 0 (top of OP preamble), with cross-reference to AGENTS.md canonical authority
+- Move 3 (framing-refusal § 2.7): inserted after Mode F in § 2 (mode-selection section), with explicit composition note distinguishing #44 refusal from Mode F invocation-gating
+- Move 2 (framing-audit § 3.12): inserted as § 3.12 in decision-loop section, after existing § 3.10 Discipline #23 cross-reference, with explicit composes-with note
+
+**Composition notes:**
+- Q-OP-jack-ryan-1: Standard placement worked cleanly. No structural conflicts.
+- Q-OP-jack-ryan-2: Discipline #23 (§ 3.10) pre-exists and addresses Pattern A-deep framing-audit within verdict authoring. Discipline #42 (§ 3.12) addresses dispatch-entry framing-audit before execution. The compose-with note in § 3.12 makes the distinction explicit — these are complementary, not redundant.
+
+**Files amended:**
+- `agentic_orchestration/operating-procedures/jack-ryan.md`
 
 ### gandalf
 
