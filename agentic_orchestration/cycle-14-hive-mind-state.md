@@ -347,7 +347,7 @@ State file archival path (when reached): rename to `agentic_orchestration/cycle-
 ## 9. Sign-off (LIVE)
 
 **State file owner:** knight-rider (orchestrator)
-**State file status:** LIVE — Cycle 14 Path (1) **🚦 MATT-GATE FIRE-READY** — all transcriptions + PM-2 hygiene + LIGHT re-Gate-1 confirmation COMPLETE; 11 math-notes confirmed clean (Phase 4+5 6 + Option α 5); Q2 LOCKS; Discipline #46 § 7 integrity preserved; 1 cosmetic INFO (MG-2 § 7 acceptance-criteria checklist k<6→k<10 at next touch)
-**Last updated:** 2026-05-27 (jack-ryan LIGHT confirmation PASS `65cb806`; gandalf PM-2 sweep `27bfd0e`/`9e8d6b5`; Matt-gate package surfaced)
+**State file status:** LIVE — Cycle 14 Path (1) **✅ MATT-GATE RATIFIED 2026-05-27** (Package A 7 Phase 4+5 + Package B 5 Option α). Cycle 14 implementation fires: Stage 3 RE-AUTHORING + Dispatch 3A (gamora Phase 4 ~3-4 wks) + Dispatch 3B (gandalf+star-lord+rocket Phase 5 ~2-3 wks parallel) + THEMATIC_REGISTRY (gandalf cross-cutting ~2-3 days; gates 3B impl) + per-agent OP amendments (Move 2+3+5; 9 files parallel). A SUPERSEDED 2026-05-27 by PM-1 K∈{3,4} (k=2 NOT in selection space; Cycle 15+ revisit if K=2 lockstep becomes design-essential).
+**Last updated:** 2026-05-27 (Matt-gate ratification + 4 main dispatch authoring + OP amendments coordination dispatch + wave-entry-fire-discipline application)
 
 **For:** cross-session continuity per hive-mind protocol § 8.1. Captures Wave + sidecar dispatch state for Cycle 14 lifecycle. Updated at each Wave boundary + dispatch completion. Archives on Cycle 14 close.

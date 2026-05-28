@@ -1,0 +1,201 @@
+# Dispatch — 2026-05-27 — per-agent OP amendments (Move 2+3+5 delivery; 9 OP files; parallel fan-out)
+
+**From:** knight-rider
+**To:** EACH AGENT (jack-ryan / gandalf / gamora / rocket / star-lord / drax / elrond / legolas / galadriel) — applies amendment to OWN OP file
+**Approved by:** Matt 2026-05-27 (Matt-gate Path (1) ratification + "Per-agent OP amendments (Move 2+3+5; 10 files) can fire in parallel")
+**Estimated effort:** ~5-15 min per agent (mechanical amendment per standardized template; ~1-2 hr total wall-time across parallel fires)
+**Acceptance:** each of 9 non-KR agent OP files amended per standardized template (Move 2 Discipline #42 framing-audit + Move 3 Discipline #44 framing-refusal authority + Move 5 orientation phrase preamble); KR OP already amended (Move 1 + Move 5 portion at `8a1ee9a`)
+
+## Quality criterion (Move 1)
+
+**Game-quality goal this dispatch serves:** propagate the 5-moves discipline-stack across all per-agent operating-procedures so the team operates under coherent quality discipline. Without Move 2+3+5 propagation, agents fire dispatches without framing-audit + refusal-authority + orientation preamble — discipline-stack remains partial. Composes "Engine first. Game second. Phase third." orientation.
+
+**Refutation conditions** (per agent surfaces if any apply):
+- Standard amendment template conflicts with existing OP structure (warrant agent judgment on placement, NOT contradiction)
+- Discipline #42 framing-audit conflicts with existing per-agent self-discipline (e.g., gandalf already has Pattern A-deep three-question protocol; surface composition note)
+- Discipline #44 framing-refusal template doesn't fit agent's actual seam scope (e.g., star-lord refusal pattern differs from gandalf refusal pattern)
+- Orientation phrase preamble already implicit via other OP language (cross-reference rather than duplicate)
+
+## Context
+
+**Authority chain:**
+- Disciplines #42 + #43 + #44 ratified at engine `e93d9ad` (jack-ryan canonical-write 2026-05-27)
+- Move 5 orientation phrase ratified: "Engine first. Game second. Phase third." (canonical at AGENTS.md + KR OP)
+- Move 1 KR OP quality-criterion template ratified (KR OP § 3.11)
+- Each agent owns their own OP file per AGENTS.md convention (self-authored from observed practice)
+
+**Standardized amendment template (3 sections per OP):**
+
+### Template Section A — Move 2: Discipline #42 framing-audit at sub-agent dispatch consumption
+
+```markdown
+## Framing-audit at sub-agent dispatch consumption (Discipline #42)
+
+When invoked as sub-agent via Pattern-A or Pattern-B dispatch, apply framing-audit before executing:
+
+- **Q1 — Load-bearing assumptions:** what does this dispatch assume to be true such that if those assumptions fail, the work doesn't compose? Enumerate.
+- **Q2 — Refutation evidence:** what empirical evidence would refute Q1 assumptions? Seek it before executing.
+- **Q3 — Outcome trigger:** if Q1 OR Q2 surfaces contradiction with seam-owned authority, invoke Discipline #44 framing-refusal + surface back to KR for re-routing.
+
+Apply framing-audit at:
+- Sub-agent dispatch consumption entry
+- Math hotspot ratification (Discipline #18 composition)
+- Pattern A-deep / verdict authoring (per role-specific OP)
+- Cross-seam routing (Discipline #25 semantic-layer rep-audit composition)
+```
+
+### Template Section B — Move 3: Discipline #44 framing-refusal authority
+
+```markdown
+## Framing-refusal authority (Discipline #44)
+
+Refusal IS NOT failure. When dispatch framing exceeds seam authority OR violates seam discipline, refuse and surface back:
+
+- **Refusal templates** (per seam) at `agentic_orchestration/<agent>/refusals/` (.gitkeep present)
+- **4 refusal patterns:**
+  - Pattern R-1: Framing assumes seam authority the agent doesn't own (re-route to correct seam owner)
+  - Pattern R-2: Framing violates seam discipline (e.g., synthetic-stub-as-permanent-fallback for content seams)
+  - Pattern R-3: Framing imposes pre-authored taxonomy under no-classes architecture (Discipline #41 violation)
+  - Pattern R-4: Framing requires methodology depth exceeding transcription scope (route to legolas Mode A methodology consultation)
+- **Refusal output**: surface back via completion record; KR routes to re-author OR re-route
+
+Refusing protects the work-product; carrying mis-framed work pollutes downstream.
+```
+
+### Template Section C — Move 5: Orientation phrase preamble
+
+```markdown
+## Orientation phrase (Move 5; team-wide)
+
+> **Engine first. Game second. Phase third.**
+
+Apply this orientation at every dispatch consumption + every design decision:
+
+1. **Engine first** — engine-layer infrastructure integrity is the foundation; cannot be papered over by game-layer or phase-layer fixes
+2. **Game second** — game-quality flows from engine-layer integrity; never sacrifice engine integrity for short-term game-layer convenience
+3. **Phase third** — current-phase scope is bounded by engine-first + game-second commitments; if phase scope conflicts with engine integrity, defer phase work or invoke framing-refusal
+
+The orientation is composition-with not replacement-of seam-owned discipline.
+```
+
+## Per-agent OP target files (9)
+
+| Agent | OP file path |
+|---|---|
+| jack-ryan | `agentic_orchestration/operating-procedures/jack-ryan.md` |
+| gandalf | `agentic_orchestration/operating-procedures/gandalf.md` |
+| gamora | `agentic_orchestration/operating-procedures/gamora.md` |
+| rocket | `agentic_orchestration/operating-procedures/rocket.md` |
+| star-lord | `agentic_orchestration/operating-procedures/star-lord.md` |
+| drax | `agentic_orchestration/operating-procedures/drax.md` |
+| elrond | `agentic_orchestration/operating-procedures/elrond.md` |
+| legolas | `agentic_orchestration/operating-procedures/legolas.md` |
+| galadriel | `agentic_orchestration/operating-procedures/galadriel.md` |
+
+If the OP file doesn't yet exist for any agent, create it per the gandalf OP prototype structure (`.claude/skills/reincarnated-<agent>-operating-procedure/SKILL.md` mirror).
+
+## Required reading
+
+- `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` § Discipline #42 (canonical text for Move 2 template)
+- `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` § Discipline #43 (composes with Move 4 at wave-close)
+- `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` § Discipline #44 (canonical text for Move 3 template)
+- `agentic_orchestration/AGENTS.md` (Move 5 orientation phrase block; canonical authority)
+- `agentic_orchestration/operating-procedures/knight-rider.md` § 3.11 (KR Move 1 template; pattern reference)
+- This dispatch (your seam's amendment instruction)
+
+## Discipline #46 compliance
+
+- N/A — OP documentation amendment; no DB queries
+
+## Discipline #42 framing-audit (this dispatch)
+
+- **Q1 load-bearing assumptions:** (1) standardized template applies across all 9 OPs without per-agent customization beyond placement judgment; (2) each agent has authority to amend their own OP per AGENTS.md convention; (3) per-agent OP file exists OR can be created per prototype
+- **Q2 refutation evidence to seek:** verify template doesn't contradict existing per-agent OP structure (especially gandalf with Pattern A-deep three-question protocol composition); verify orientation phrase placement at OP top doesn't displace existing § 0 or § 1 content
+- **Q3 outcome trigger:** if template doesn't compose cleanly with existing OP, invoke Discipline #44 framing-refusal + surface to KR for re-template
+
+## Scope (each agent on own OP)
+
+- [ ] Read your OP file at the target path
+- [ ] Read the 3 template sections above (Move 2 / Move 3 / Move 5)
+- [ ] Choose placement for each section:
+  - **Move 2 (framing-audit):** in disposition-related section (e.g., "Decision-loop discipline"); composes with any per-agent verdict-authoring protocol
+  - **Move 3 (framing-refusal):** in mode-selection or scope-management section; cross-reference per-seam refusal directory at `agentic_orchestration/<your-agent>/refusals/`
+  - **Move 5 (orientation phrase):** at OP top preamble OR § 0 introduction; cross-reference AGENTS.md authority
+- [ ] Apply template to OP file (verbatim or with per-agent context adaptation per your judgment)
+- [ ] Verify Discipline #42 framing-audit Q1/Q2/Q3 holds for your specific OP composition
+- [ ] If Q3 triggers, invoke Discipline #44 framing-refusal + surface back to KR (DO NOT force template if it contradicts your seam discipline)
+
+### Closure (per agent)
+
+- [ ] Update your own OP file
+- [ ] Append per-agent completion record to THIS dispatch (single dispatch file collects all 9 completion records)
+- [ ] Per-agent commit: `<agent>: OP amendment per Move 2+3+5 (Disciplines #42 + #44 + orientation phrase)`
+- [ ] Push per Matt 2026-05-27 per-cycle push pattern
+
+## Acceptance criteria (per agent)
+
+- [ ] OP file amended with Move 2 + Move 3 + Move 5 sections
+- [ ] No conflict with existing OP structure (or surfaced via #44 refusal)
+- [ ] Per-agent completion record appended
+- [ ] Commit + push per agent
+
+## Out of scope
+
+- Do NOT amend KR OP (already amended at `8a1ee9a`)
+- Do NOT amend canonical-discipline-authority text at engineering-disciplines.md (jack-ryan owns; canonical text is already at `e93d9ad`)
+- Do NOT amend AGENTS.md (already has Move 5 orientation phrase block)
+- Do NOT touch other agents' OPs (each owns own)
+
+## Open questions (per agent surfaces if applicable)
+
+- **Q-OP-<agent>-1:** does standard template placement work for your OP, or does per-agent context warrant adaptation? Surface in completion record
+- **Q-OP-<agent>-2:** any pre-existing per-agent discipline that composes-with vs replaces template (e.g., gandalf Pattern A-deep)?
+
+## References
+
+- Disciplines #42 / #43 / #44 ratified at engine `e93d9ad` (jack-ryan canonical-write)
+- AGENTS.md (Move 5 orientation phrase canonical)
+- KR OP § 3.11 (Move 1 template pattern reference)
+- Matt 2026-05-27 Matt-gate Path (1) ratification routing
+
+---
+
+## Per-agent completion records
+
+(each agent appends own section below on completion)
+
+### jack-ryan
+
+(pending)
+
+### gandalf
+
+(pending)
+
+### gamora
+
+(pending)
+
+### rocket
+
+(pending)
+
+### star-lord
+
+(pending)
+
+### drax
+
+(pending)
+
+### elrond
+
+(pending)
+
+### legolas
+
+(pending)
+
+### galadriel
+
+(pending)
