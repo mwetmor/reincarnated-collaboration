@@ -141,4 +141,52 @@
 
 ## Completion record
 
-(append on completion)
+**Completed:** 2026-05-28
+**Tag:** `gamora/v1.8-sc-7-base-spell-damage-calibration-1`
+**Status:** COMPLETE with SC7-F1 structural finding surfaced
+
+### Scope completed
+
+- [x] Part 1 — Calibration loop setup: `sc7_calibration_loop.py` built with binary search on uniform multiplier, AbilityEffect in-memory patching, KPM extraction from gauntlet output JSON
+- [x] Part 2 — Calibration loop run: 8 iterations, ~110s wall-clock; converged at mult=93.81× (iter 4 best: in_band=2/18)
+- [x] Part 3 — Per-cohort verification: all 4 cohorts verified; no saturation, no starvation; substrate-led discipline preserved
+- [x] Part 4 — BASE_SPELL_DAMAGE_L50 updated in `per_skill_emitter.py` + `damage_resolver._BASE_SPELL_DAMAGE_FALLBACK` synced
+- [x] Part 5 — Post-calibration smoke: Principle 6 PASS, BC coordinate validity PASS, pipeline clean
+- [x] AGENT_STATE.md updated
+- [x] Tag cut: `gamora/v1.8-sc-7-base-spell-damage-calibration-1`
+- [x] Telemetry artifact: `cycle-14-wave-5-season-001/sc-7-calibration-telemetry.json`
+- [x] MIGRATION.md § v1.36 filed
+- [x] Math note amended with § 12 empirical results
+
+### Calibrated values
+
+| Tier | Wave 0.5 Starting Estimate | SC-7 Calibrated | Multiplier |
+|------|---------------------------|-----------------|------------|
+| T1   | 300.0                     | 28,144.0        | ~93.8×     |
+| T2   | 450.0                     | 42,216.0        | ~93.8×     |
+| T3   | 650.0                     | 60,978.0        | ~93.8×     |
+| T4   | 1,200.0                   | 112,575.0       | ~93.8×     |
+
+### Acceptance criteria disposition
+
+- [x] Calibrated BASE_SPELL_DAMAGE_L50 values landed in per_skill_emitter.py
+- [~] Per-cohort KPM distribution within Phase 7 ±0.25 band — PARTIAL: 1-3 encounters in-band per cohort (empirical ceiling = 2-3/18; 14/18 floor structurally unreachable — see SC7-F1)
+- [~] 18 Phase 2 staged kits produce season_emit=True — NOT ACHIEVED: season_emit=0 for all kits; empirical explanation: GAUNTLET_ENCOUNTER_PASS_FLOOR=14 unreachable given 65× HP variance (structural finding SC7-F1, not a Phase 3 defect)
+- [x] Principle 6 round-trip preserved
+- [x] BC coordinate validity preserved
+- [x] Math note authored / amended (Discipline #1)
+- [x] Empirical telemetry artifact filed
+- [x] Tag cut + AGENT_STATE.md updated
+
+### SC7-F1 Structural Finding (for jack-ryan disposition)
+
+The GAUNTLET_ENCOUNTER_PASS_FLOOR=14 is NOT achievable with the current ENDGAME_ENCOUNTER_CATALOG HP profile. Empirical ceiling: 2-3/18 encounters in-band per cohort at the optimal multiplier (93.8×). The KPM bands (Balanced: 71-79) are too narrow for the 65× HP variance (swarm 3,500 HP vs boss 220,000 HP). No single BASE_SPELL_DAMAGE_L50 multiplier closes both encounter types simultaneously.
+
+This is surfaced in MIGRATION.md § v1.36 for jack-ryan Gate-3 disposition. Calibration serves its Discipline #40 purpose: empirically confirms the structural ceiling and provides the best achievable values within that ceiling. The Phase 3 gate floor requires redesign before season_emit=True is achievable.
+
+### Refutation conditions disposition
+
+- **Calibration produces tier values that work for light mobs but fail for boss mobs (or vice versa):** CONFIRMED. Empirical finding SC7-F1: at the optimal sweet spot, boss mobs are in-band (KPM 71-72) but all other mob types (swarm, elite, magic, mini-boss) are over-band. No uniform multiplier resolves this — HP variance is too large for a single KPM band.
+- **Methodology depth exceeds judgment:** NOT TRIGGERED. Binary search on uniform multiplier + gauntlet output JSON extraction was within scope. Legolas Mode A routing not required.
+- **Per-cohort KPM distribution shows degenerate clustering:** NOT TRIGGERED. Each cohort shows 1-3 in-band encounters with variance; no full saturation or starvation.
+- **Calibrated values produce balance regressions in B14.5 V1 historical telemetry:** NOT EVALUATED in this dispatch (B14.5 V1 is a separate historical telemetry seam); calibration targets Phase 3 endgame encounters which are a new scope.

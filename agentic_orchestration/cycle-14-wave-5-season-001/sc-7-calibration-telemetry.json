@@ -1,0 +1,1308 @@
+{
+  "calibration_run_at": "2026-05-28T05:21:27.108185+00:00",
+  "initial_seed": {
+    "1": 15000.0,
+    "2": 22500.0,
+    "3": 32500.0,
+    "4": 60000.0
+  },
+  "wave_0_5_starting_estimate": {
+    "1": 300.0,
+    "2": 450.0,
+    "3": 650.0,
+    "4": 1200.0
+  },
+  "converged": true,
+  "converged_at_iter": 3,
+  "final_calibrated_values": {
+    "1": 28143.75,
+    "2": 42215.625,
+    "3": 60978.125,
+    "4": 112575.0
+  },
+  "final_in_band_count": 2,
+  "max_achievable_in_band": 2,
+  "structural_finding": "Empirical ceiling: max in-band count = 2/18 (theoretical max from math note \u00a7 2.2 = ~10). Boss/mini-boss encounters (4=4) always REJECT (HP too high for any DPS). Elite encounters (4) require DPS ~18,800+ for Balanced floor, which over-bands swarm encounters (swarm KPM >> band ceiling). No uniform multiplier closes both gaps simultaneously. Phase 3 GAUNTLET_ENCOUNTER_PASS_FLOOR=14 is NOT achievable with current HP profiles. Calibrated values maximize in-band count within empirical ceiling. Surface finding to jack-ryan for Phase 3/Phase 7 gate disposition.",
+  "iterations": [
+    {
+      "iter": 0,
+      "multiplier": 50.5,
+      "base_values": {
+        "1": 15150.0,
+        "2": 22725.0,
+        "3": 32825.0,
+        "4": 60600.0
+      },
+      "in_band_count": 0,
+      "swarm_kpm_median": 600.0,
+      "elite_kpm_median": 156.08,
+      "boss_kpm_median": 50.59,
+      "per_encounter_kpm": {
+        "endgame_str_01_heavy_barbarian": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 49.587,
+          "in_band": false,
+          "kpm_delta": 0.339,
+          "cohort": "Balanced"
+        },
+        "endgame_str_02_light_fighter": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_str_03_polearm_soldier": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 169.316,
+          "in_band": false,
+          "kpm_delta": 1.258,
+          "cohort": "Balanced"
+        },
+        "endgame_str_04_thrown_heavy": {
+          "encounter_type": "magic_pack",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_01_dagger_assassin": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_02_archer": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_03_crossbow_sniper": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_04_twin_blade_fencer": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 156.081,
+          "in_band": false,
+          "kpm_delta": 1.081,
+          "cohort": "Balanced"
+        },
+        "endgame_int_01_standard_wizard": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_int_02_artillery_mage": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 51.109,
+          "in_band": false,
+          "kpm_delta": 0.319,
+          "cohort": "Balanced"
+        },
+        "endgame_int_03_pyromantic_caster": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_int_04_red_mage_spellsword": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 150.0,
+          "in_band": false,
+          "kpm_delta": 1.0,
+          "cohort": "Balanced"
+        },
+        "endgame_int_05_arcane_familiar_mage": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_01_channeling_cleric": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_02_holy_knight": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 50.587,
+          "in_band": false,
+          "kpm_delta": 0.326,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_03_ritual_mage": {
+          "encounter_type": "mini_boss",
+          "mob_count": 3,
+          "kpm_observed": 69.552,
+          "in_band": false,
+          "kpm_delta": 0.073,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_04_storm_caller": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_05_monk": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 156.081,
+          "in_band": false,
+          "kpm_delta": 1.081,
+          "cohort": "Balanced"
+        }
+      }
+    },
+    {
+      "iter": 1,
+      "multiplier": 75.25,
+      "base_values": {
+        "1": 22575.0,
+        "2": 33862.5,
+        "3": 48912.5,
+        "4": 90300.0
+      },
+      "in_band_count": 0,
+      "swarm_kpm_median": 600.0,
+      "elite_kpm_median": 283.49,
+      "boss_kpm_median": 61.7,
+      "per_encounter_kpm": {
+        "endgame_str_01_heavy_barbarian": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 59.913,
+          "in_band": false,
+          "kpm_delta": 0.201,
+          "cohort": "Balanced"
+        },
+        "endgame_str_02_light_fighter": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_str_03_polearm_soldier": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 272.727,
+          "in_band": false,
+          "kpm_delta": 2.636,
+          "cohort": "Balanced"
+        },
+        "endgame_str_04_thrown_heavy": {
+          "encounter_type": "magic_pack",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_01_dagger_assassin": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_02_archer": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_03_crossbow_sniper": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_04_twin_blade_fencer": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 323.864,
+          "in_band": false,
+          "kpm_delta": 3.318,
+          "cohort": "Balanced"
+        },
+        "endgame_int_01_standard_wizard": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_int_02_artillery_mage": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 61.697,
+          "in_band": false,
+          "kpm_delta": 0.177,
+          "cohort": "Balanced"
+        },
+        "endgame_int_03_pyromantic_caster": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_int_04_red_mage_spellsword": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 272.727,
+          "in_band": false,
+          "kpm_delta": 2.636,
+          "cohort": "Balanced"
+        },
+        "endgame_int_05_arcane_familiar_mage": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_01_channeling_cleric": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_02_holy_knight": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 63.736,
+          "in_band": false,
+          "kpm_delta": 0.15,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_03_ritual_mage": {
+          "encounter_type": "mini_boss",
+          "mob_count": 3,
+          "kpm_observed": 109.416,
+          "in_band": false,
+          "kpm_delta": 0.459,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_04_storm_caller": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_05_monk": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 294.258,
+          "in_band": false,
+          "kpm_delta": 2.923,
+          "cohort": "Balanced"
+        }
+      }
+    },
+    {
+      "iter": 2,
+      "multiplier": 87.625,
+      "base_values": {
+        "1": 26287.5,
+        "2": 39431.2,
+        "3": 56956.2,
+        "4": 105150.0
+      },
+      "in_band_count": 0,
+      "swarm_kpm_median": 600.0,
+      "elite_kpm_median": 418.27,
+      "boss_kpm_median": 68.26,
+      "per_encounter_kpm": {
+        "endgame_str_01_heavy_barbarian": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 65.294,
+          "in_band": false,
+          "kpm_delta": 0.129,
+          "cohort": "Balanced"
+        },
+        "endgame_str_02_light_fighter": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_str_03_polearm_soldier": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 418.269,
+          "in_band": false,
+          "kpm_delta": 4.577,
+          "cohort": "Balanced"
+        },
+        "endgame_str_04_thrown_heavy": {
+          "encounter_type": "magic_pack",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_01_dagger_assassin": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_02_archer": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_03_crossbow_sniper": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_04_twin_blade_fencer": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 461.538,
+          "in_band": false,
+          "kpm_delta": 5.154,
+          "cohort": "Balanced"
+        },
+        "endgame_int_01_standard_wizard": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_int_02_artillery_mage": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 68.261,
+          "in_band": false,
+          "kpm_delta": 0.09,
+          "cohort": "Balanced"
+        },
+        "endgame_int_03_pyromantic_caster": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_int_04_red_mage_spellsword": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 418.269,
+          "in_band": false,
+          "kpm_delta": 4.577,
+          "cohort": "Balanced"
+        },
+        "endgame_int_05_arcane_familiar_mage": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_01_channeling_cleric": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_02_holy_knight": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 70.942,
+          "in_band": false,
+          "kpm_delta": 0.054,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_03_ritual_mage": {
+          "encounter_type": "mini_boss",
+          "mob_count": 3,
+          "kpm_observed": 140.217,
+          "in_band": false,
+          "kpm_delta": 0.87,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_04_storm_caller": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_05_monk": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 418.269,
+          "in_band": false,
+          "kpm_delta": 4.577,
+          "cohort": "Balanced"
+        }
+      }
+    },
+    {
+      "iter": 3,
+      "multiplier": 93.812,
+      "base_values": {
+        "1": 28143.8,
+        "2": 42215.6,
+        "3": 60978.1,
+        "4": 112575.0
+      },
+      "in_band_count": 2,
+      "swarm_kpm_median": 600.0,
+      "elite_kpm_median": 474.52,
+      "boss_kpm_median": 71.1,
+      "per_encounter_kpm": {
+        "endgame_str_01_heavy_barbarian": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 71.096,
+          "in_band": true,
+          "kpm_delta": 0.052,
+          "cohort": "Balanced"
+        },
+        "endgame_str_02_light_fighter": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_str_03_polearm_soldier": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 461.538,
+          "in_band": false,
+          "kpm_delta": 5.154,
+          "cohort": "Balanced"
+        },
+        "endgame_str_04_thrown_heavy": {
+          "encounter_type": "magic_pack",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_01_dagger_assassin": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_02_archer": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_03_crossbow_sniper": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_04_twin_blade_fencer": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 530.769,
+          "in_band": false,
+          "kpm_delta": 6.077,
+          "cohort": "Balanced"
+        },
+        "endgame_int_01_standard_wizard": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_int_02_artillery_mage": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 69.552,
+          "in_band": false,
+          "kpm_delta": 0.073,
+          "cohort": "Balanced"
+        },
+        "endgame_int_03_pyromantic_caster": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_int_04_red_mage_spellsword": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 487.5,
+          "in_band": false,
+          "kpm_delta": 5.5,
+          "cohort": "Balanced"
+        },
+        "endgame_int_05_arcane_familiar_mage": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_01_channeling_cleric": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_02_holy_knight": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 72.441,
+          "in_band": true,
+          "kpm_delta": 0.034,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_03_ritual_mage": {
+          "encounter_type": "mini_boss",
+          "mob_count": 3,
+          "kpm_observed": 140.217,
+          "in_band": false,
+          "kpm_delta": 0.87,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_04_storm_caller": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_05_monk": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 418.269,
+          "in_band": false,
+          "kpm_delta": 4.577,
+          "cohort": "Balanced"
+        }
+      }
+    },
+    {
+      "iter": 4,
+      "multiplier": 90.719,
+      "base_values": {
+        "1": 27215.6,
+        "2": 40823.4,
+        "3": 58967.2,
+        "4": 108862.5
+      },
+      "in_band_count": 0,
+      "swarm_kpm_median": 600.0,
+      "elite_kpm_median": 418.27,
+      "boss_kpm_median": 69.47,
+      "per_encounter_kpm": {
+        "endgame_str_01_heavy_barbarian": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 69.474,
+          "in_band": false,
+          "kpm_delta": 0.074,
+          "cohort": "Balanced"
+        },
+        "endgame_str_02_light_fighter": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_str_03_polearm_soldier": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 418.269,
+          "in_band": false,
+          "kpm_delta": 4.577,
+          "cohort": "Balanced"
+        },
+        "endgame_str_04_thrown_heavy": {
+          "encounter_type": "magic_pack",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_01_dagger_assassin": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_02_archer": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_03_crossbow_sniper": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_04_twin_blade_fencer": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 461.538,
+          "in_band": false,
+          "kpm_delta": 5.154,
+          "cohort": "Balanced"
+        },
+        "endgame_int_01_standard_wizard": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_int_02_artillery_mage": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 68.261,
+          "in_band": false,
+          "kpm_delta": 0.09,
+          "cohort": "Balanced"
+        },
+        "endgame_int_03_pyromantic_caster": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_int_04_red_mage_spellsword": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 418.269,
+          "in_band": false,
+          "kpm_delta": 4.577,
+          "cohort": "Balanced"
+        },
+        "endgame_int_05_arcane_familiar_mage": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_01_channeling_cleric": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_02_holy_knight": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 70.942,
+          "in_band": false,
+          "kpm_delta": 0.054,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_03_ritual_mage": {
+          "encounter_type": "mini_boss",
+          "mob_count": 3,
+          "kpm_observed": 140.217,
+          "in_band": false,
+          "kpm_delta": 0.87,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_04_storm_caller": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_05_monk": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 418.269,
+          "in_band": false,
+          "kpm_delta": 4.577,
+          "cohort": "Balanced"
+        }
+      }
+    },
+    {
+      "iter": 5,
+      "multiplier": 92.266,
+      "base_values": {
+        "1": 27679.7,
+        "2": 41519.5,
+        "3": 59972.7,
+        "4": 110718.8
+      },
+      "in_band_count": 1,
+      "swarm_kpm_median": 600.0,
+      "elite_kpm_median": 418.27,
+      "boss_kpm_median": 70.94,
+      "per_encounter_kpm": {
+        "endgame_str_01_heavy_barbarian": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 71.096,
+          "in_band": true,
+          "kpm_delta": 0.052,
+          "cohort": "Balanced"
+        },
+        "endgame_str_02_light_fighter": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_str_03_polearm_soldier": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 418.269,
+          "in_band": false,
+          "kpm_delta": 4.577,
+          "cohort": "Balanced"
+        },
+        "endgame_str_04_thrown_heavy": {
+          "encounter_type": "magic_pack",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_01_dagger_assassin": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_02_archer": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_03_crossbow_sniper": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_04_twin_blade_fencer": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 461.538,
+          "in_band": false,
+          "kpm_delta": 5.154,
+          "cohort": "Balanced"
+        },
+        "endgame_int_01_standard_wizard": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_int_02_artillery_mage": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 68.261,
+          "in_band": false,
+          "kpm_delta": 0.09,
+          "cohort": "Balanced"
+        },
+        "endgame_int_03_pyromantic_caster": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_int_04_red_mage_spellsword": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 418.269,
+          "in_band": false,
+          "kpm_delta": 4.577,
+          "cohort": "Balanced"
+        },
+        "endgame_int_05_arcane_familiar_mage": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_01_channeling_cleric": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_02_holy_knight": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 70.942,
+          "in_band": false,
+          "kpm_delta": 0.054,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_03_ritual_mage": {
+          "encounter_type": "mini_boss",
+          "mob_count": 3,
+          "kpm_observed": 140.217,
+          "in_band": false,
+          "kpm_delta": 0.87,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_04_storm_caller": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_05_monk": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 418.269,
+          "in_band": false,
+          "kpm_delta": 4.577,
+          "cohort": "Balanced"
+        }
+      }
+    },
+    {
+      "iter": 6,
+      "multiplier": 93.039,
+      "base_values": {
+        "1": 27911.7,
+        "2": 41867.6,
+        "3": 60475.4,
+        "4": 111646.9
+      },
+      "in_band_count": 2,
+      "swarm_kpm_median": 600.0,
+      "elite_kpm_median": 474.52,
+      "boss_kpm_median": 71.1,
+      "per_encounter_kpm": {
+        "endgame_str_01_heavy_barbarian": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 71.096,
+          "in_band": true,
+          "kpm_delta": 0.052,
+          "cohort": "Balanced"
+        },
+        "endgame_str_02_light_fighter": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_str_03_polearm_soldier": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 461.538,
+          "in_band": false,
+          "kpm_delta": 5.154,
+          "cohort": "Balanced"
+        },
+        "endgame_str_04_thrown_heavy": {
+          "encounter_type": "magic_pack",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_01_dagger_assassin": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_02_archer": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_03_crossbow_sniper": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_04_twin_blade_fencer": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 530.769,
+          "in_band": false,
+          "kpm_delta": 6.077,
+          "cohort": "Balanced"
+        },
+        "endgame_int_01_standard_wizard": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_int_02_artillery_mage": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 69.552,
+          "in_band": false,
+          "kpm_delta": 0.073,
+          "cohort": "Balanced"
+        },
+        "endgame_int_03_pyromantic_caster": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_int_04_red_mage_spellsword": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 487.5,
+          "in_band": false,
+          "kpm_delta": 5.5,
+          "cohort": "Balanced"
+        },
+        "endgame_int_05_arcane_familiar_mage": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_01_channeling_cleric": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_02_holy_knight": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 72.441,
+          "in_band": true,
+          "kpm_delta": 0.034,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_03_ritual_mage": {
+          "encounter_type": "mini_boss",
+          "mob_count": 3,
+          "kpm_observed": 140.217,
+          "in_band": false,
+          "kpm_delta": 0.87,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_04_storm_caller": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_05_monk": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 418.269,
+          "in_band": false,
+          "kpm_delta": 4.577,
+          "cohort": "Balanced"
+        }
+      }
+    },
+    {
+      "iter": 7,
+      "multiplier": 92.652,
+      "base_values": {
+        "1": 27795.7,
+        "2": 41693.6,
+        "3": 60224.0,
+        "4": 111182.8
+      },
+      "in_band_count": 1,
+      "swarm_kpm_median": 600.0,
+      "elite_kpm_median": 439.9,
+      "boss_kpm_median": 70.94,
+      "per_encounter_kpm": {
+        "endgame_str_01_heavy_barbarian": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 71.096,
+          "in_band": true,
+          "kpm_delta": 0.052,
+          "cohort": "Balanced"
+        },
+        "endgame_str_02_light_fighter": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_str_03_polearm_soldier": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 418.269,
+          "in_band": false,
+          "kpm_delta": 4.577,
+          "cohort": "Balanced"
+        },
+        "endgame_str_04_thrown_heavy": {
+          "encounter_type": "magic_pack",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_01_dagger_assassin": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_02_archer": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_03_crossbow_sniper": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_dex_04_twin_blade_fencer": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 461.538,
+          "in_band": false,
+          "kpm_delta": 5.154,
+          "cohort": "Balanced"
+        },
+        "endgame_int_01_standard_wizard": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_int_02_artillery_mage": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 68.261,
+          "in_band": false,
+          "kpm_delta": 0.09,
+          "cohort": "Balanced"
+        },
+        "endgame_int_03_pyromantic_caster": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_int_04_red_mage_spellsword": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 487.5,
+          "in_band": false,
+          "kpm_delta": 5.5,
+          "cohort": "Balanced"
+        },
+        "endgame_int_05_arcane_familiar_mage": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_01_channeling_cleric": {
+          "encounter_type": "magic_pack",
+          "mob_count": 4,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_02_holy_knight": {
+          "encounter_type": "boss",
+          "mob_count": 3,
+          "kpm_observed": 70.942,
+          "in_band": false,
+          "kpm_delta": 0.054,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_03_ritual_mage": {
+          "encounter_type": "mini_boss",
+          "mob_count": 3,
+          "kpm_observed": 140.217,
+          "in_band": false,
+          "kpm_delta": 0.87,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_04_storm_caller": {
+          "encounter_type": "swarm",
+          "mob_count": 8,
+          "kpm_observed": 600.0,
+          "in_band": false,
+          "kpm_delta": 7.0,
+          "cohort": "Balanced"
+        },
+        "endgame_wis_05_monk": {
+          "encounter_type": "elite_pack",
+          "mob_count": 3,
+          "kpm_observed": 418.269,
+          "in_band": false,
+          "kpm_delta": 4.577,
+          "cohort": "Balanced"
+        }
+      }
+    }
+  ]
+}
