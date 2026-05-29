@@ -1,10 +1,10 @@
-# Pushback Memo — Discipline #42 Framing-Audit Canonical Ratification (Three-Instance Architectural Case)
+# Pushback Memo — Discipline #42 Framing-Audit Canonical Ratification (Four-Instance Architectural Case)
 
-**Date:** 2026-05-28
+**Date:** 2026-05-28 (amended same date — Instance 4 added post-A1-re-entry framing-audit by KR)
 **Author:** gandalf (story-and-design steward)
 **Recipient:** jack-ryan (analyst and QA gatekeeper; engineering-disciplines canonical-write authority)
 **Mode:** Pushback memorandum supporting Discipline #42 canonical ratification at next Gate-2 cycle
-**Status:** SUBSTANTIVE — three same-cycle empirical instances of the same architectural failure mode warrant canonical formalization
+**Status:** OVERDETERMINED — four same-cycle empirical instances + one prior canonical precedent constitute architectural-commitment-grade evidence for canonical formalization
 
 **Anchor docs:**
 - `agentic_orchestration/gandalf/notes/2026-05-28-phase-4-rerun-3-adjudication.md` (prior session adjudication; R3 root-cause reframing instance 1)
@@ -17,9 +17,9 @@
 
 ## 1. The architectural argument
 
-Three same-cycle empirical instances surface the same failure mode: **"production-layer dispatch fires against measurement-layer output that has context-dependent semantics, without verifying the measurement context first."** The pattern is real, recurring, and load-bearing at Cycle 14 v1 MVP close.
+Four same-cycle empirical instances surface the same failure mode: **"production-layer dispatch fires against measurement-layer output (or against architectural-commitment-layer language) that has context-dependent semantics, without verifying the operating context first."** The pattern is real, recurring, and architecturally distinct from existing disciplines #1-#41. Two of the four instances (Instance 2 + Instance 4) are specifically semantic-stability cases — same phrase, different scopes across contexts. The other two (Instance 1 + Instance 3) are measurement-context cases — same data, different validity across contexts.
 
-This memo is gandalf-side pushback supporting jack-ryan's canonical ratification of Discipline #42 (framing-audit). The three-instance case constitutes empirical evidence sufficient for canonical commit per Discipline #14 (empirical-evidence-gated discipline ratification).
+This memo is gandalf-side pushback supporting jack-ryan's canonical ratification of Discipline #42 (framing-audit). The four-instance case constitutes empirical evidence sufficient for canonical commit per Discipline #14 (empirical-evidence-gated discipline ratification). Two of the four were caught by KR's framing-audit in-window (Instance 2 + Instance 4); the discipline candidate is empirically demonstrating its own catching-power.
 
 ## 2. Instance 1 — R3 root-cause reframing (Phase 4 RE-RUN-3 adjudication)
 
@@ -51,19 +51,39 @@ This memo is gandalf-side pushback supporting jack-ryan's canonical ratification
 
 **Framing-audit Q1 that would have caught it:** "What load-bearing framing assumption does this hotfix depend on?" Answer: "max_a profile data is representative for ALL profile band calibration (both upper and lower edges)." Refutable in current scope via single-profile comparison query at the hotfix consumption gate.
 
+## 4-bis. Instance 4 — "Cycle 14 v1 MVP closure" terminus framing (A1 election addendum + KR election prompt)
+
+**Implicit framing in gandalf addendum § 4 + KR election prompt dispatch #6:** the phrase "Cycle 14 v1 MVP closure record" was used as the terminus of the Mode A 6-dispatch sequence. The implicit assumption was that the phrase carried stable semantics — that "Cycle 14 v1 MVP closure" meant the same thing in the addendum-context as it does in the D9/D4-ratified-context.
+
+**Empirical investigation result (KR framing-audit at A1 re-entry, this session):** the phrase carries materially different semantics across two contexts:
+
+| Context | Semantics of "Cycle 14 v1 MVP closure" |
+|---|---|
+| Gandalf addendum + KR election prompt (Phase 4 RE-RUN deliberation context) | "Path α + amended close-criterion (T1-base + T2-all-profiles + T3 + T5) + canonical capture + Gate-2 + closure record" |
+| D9 / D4 RATIFIED close-criteria (state file lines 2290, 2295) | "3 LLM production seasons emit ≥12/18 + 3× Gate-2 PASS + A/B comparison filed + Disciplines #41-#46 batched canonical-write + Matt v1 tag ratification" |
+
+Same phrase; different scope; different effort estimate (~1-2d for Path α v1 closure vs ~5-8d for D9 close); different work-cluster (engine-readiness gate vs LLM-cost-bearing production cascade).
+
+**The miss:** my prior addendum + KR election prompt treated "Cycle 14 v1 MVP closure" as semantically stable across the Path-α-deliberation context and the D9-ratification context. The Mode A 6-dispatch sequence delivers Path α v1 closure (engine-readiness gate); it does NOT deliver D9 close. The terminus framing was an overreach.
+
+**Framing-audit Q6 (semantic-stability subaudit) that would have caught it:** "does this phrase carry the same semantics across all contexts it will be evaluated in?" Answer: no — the Path-α-deliberation context and the D9-ratification context attach different scopes to the same phrase. Refutable in current scope via cross-reference to state file § 1 + D9 RATIFIED close-criteria, which KR's framing-audit ultimately did surface BEFORE Dispatch 1 fired against the misframed terminus.
+
+**Operational catching-power demonstration:** KR's framing-audit caught Instance 4 between A1 election authoring and Dispatch 1 firing — refinement landed in-window per OP § 4.1 Q3. State-file edit + gamora dispatch held UNCOMMITTED + UNFIRED pending Matt direction. Discipline #42 operating capability empirically demonstrated at full architectural resolution: same-session, in-window, before downstream work fires against bad framing.
+
 ## 5. The cross-cutting pattern
 
-All three instances share the same architectural shape:
+All four instances share the same architectural shape — though Instance 1 + Instance 3 are measurement-context cases and Instance 2 + Instance 4 are semantic-stability cases:
 
 | Layer | What was assumed | What was empirically true |
 |---|---|---|
-| Instance 1 | Measurement output = production behavior | Measurement output = harness band-reject artifact |
-| Instance 2 | Same measurement name = same measurement semantics | Same name; context-dependent semantics |
-| Instance 3 | Calibration derived from one profile applies to all | Profile-asymmetric calibration requirements |
+| Instance 1 (dispatch consumption) | Measurement output = production behavior | Measurement output = harness band-reject artifact |
+| Instance 2 (close-criterion authoring) | Same measurement name = same measurement semantics across context | Same name; context-dependent semantics (BVV-anchor vs DDA-active-sweep) |
+| Instance 3 (hotfix calibration scope) | Calibration derived from one profile applies to all | Profile-asymmetric calibration requirements |
+| Instance 4 (architectural-commitment terminus) | Same closure phrase = same closure scope across context | Same phrase; context-dependent scope (Path-α-deliberation vs D9-ratification) |
 
-**The unifying principle:** the measurement layer has its own semantics, and those semantics shift with context (DDA on/off, band-tight/recalibrated, profile-specific). Production-layer dispatches that fire against measurement-layer output without verifying measurement context produce wasted work or incorrect adjudications.
+**The unifying principle:** **the operating context has its own semantics, and those semantics shift across consumption points (DDA on/off, band-tight/recalibrated, profile-specific, deliberation-context-vs-ratification-context).** Production-layer dispatches that fire against operating-context-dependent output (measurement data OR architectural-commitment language) without verifying operating-context match produce wasted work, incorrect adjudications, or scope-overreach.
 
-This is the same architectural failure mode at three resolutions: dispatch-time (Instance 1), close-criterion-time (Instance 2), hotfix-time (Instance 3).
+This is the same architectural failure mode at four resolutions: dispatch-time (Instance 1), close-criterion-time (Instance 2), hotfix-time (Instance 3), terminus-framing-time (Instance 4). The discipline applies to measurement-context AND semantic-context AND calibration-scope-context AND architectural-commitment-context. Across all four, the cheapest-empirical-refutation pattern catches the failure mode at sub-hour latency if applied at consumption gates.
 
 ## 6. Discipline #42 canonical architecture (gandalf-side recommendation)
 
@@ -94,15 +114,16 @@ This is the same architectural failure mode at three resolutions: dispatch-time 
 
 **FIRST CANONICAL EXAMPLES (this discipline's founding precedents):**
 - 2026-05-23 Question A verdict § 1.3 + § 12.1 (W1.13 H1-H5 baseline-availability assumption; ~120s cheapest-refutation; framework intactness preserved). See `gandalf/notes/2026-05-23-question-A-w1-13-tier-4-hypothesis-verdict.md`.
-- 2026-05-28 Phase 4 RE-RUN-3 R3 root-cause reframing (Instance 1 this memo)
-- 2026-05-28 Phase 4 RE-RUN-4 T1 BVV-vs-sweep semantic-stability (Instance 2 this memo)
-- 2026-05-28 Phase 4 RE-RUN-4 Anomaly B profile-symmetric calibration (Instance 3 this memo)
+- 2026-05-28 Phase 4 RE-RUN-3 R3 root-cause reframing (Instance 1 this memo — measurement-context failure)
+- 2026-05-28 Phase 4 RE-RUN-4 T1 BVV-vs-sweep semantic-stability (Instance 2 this memo — semantic-context failure)
+- 2026-05-28 Phase 4 RE-RUN-4 Anomaly B profile-symmetric calibration (Instance 3 this memo — calibration-scope failure)
+- 2026-05-28 A1 election addendum + KR election prompt "Cycle 14 v1 MVP closure" terminus framing (Instance 4 this memo — architectural-commitment-context failure; **caught by KR framing-audit in-window before Dispatch 1 fired** — first operational demonstration of the discipline's catching-power at architectural-commitment resolution)
 
 ## 7. Ratification path
 
 This memo proposes jack-ryan canonical-write of Discipline #42 at `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` § Discipline #42 at next Gate-2 cycle. Ratification authority is jack-ryan per role separation (gandalf proposes; jack-ryan ratifies canonical-write).
 
-**Empirical-evidence threshold (Discipline #14 compliance):** four canonical examples (one prior + three this session) constitute sufficient empirical evidence. Pattern is REAL (not coincidence), RECURRING (not single-instance), and ARCHITECTURALLY DISTINCT (clear failure mode unconnected to existing #1-#41).
+**Empirical-evidence threshold (Discipline #14 compliance):** five canonical examples (one prior + four this session) constitute architectural-commitment-grade empirical evidence. Pattern is REAL (not coincidence), RECURRING (not single-instance), ARCHITECTURALLY DISTINCT (clear failure mode unconnected to existing #1-#41), and SELF-DEMONSTRATING-CATCHING-POWER (Instances 2 + 4 caught by framing-audit application in-window — the discipline operationally proves its own value within the same cycle it's being proposed).
 
 **Gandalf-side commitment:**
 - OP § 4.1 framing-audit checklist will be updated post-ratification to reference Discipline #42 as the canonical anchor
