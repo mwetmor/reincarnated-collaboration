@@ -4515,3 +4515,76 @@ A2-2 (jack-ryan Gate-2 Pattern E season_001) → A2-3 (season_002) → A2-4 (sea
   ↓ + D13 parallel-fire post-A2-2 PASS
 Cycle 14 v1 MVP D9 close
 ```
+
+### URGENT HALT 2026-05-29 evening late — gandalf surfaces Disc #42a Instance 6 #4 (Amendment 7a fix required)
+
+**A2-1 RE-FIRE-3 fired + CLOSED but on partly-broken substrate per gandalf URGENT HALT.**
+
+**Rocket S6c production cascade A2-1 RE-FIRE-3 CLOSED before gandalf HALT arrived — Engine `85d8b41` + tag `rocket/v1.0-cascade-r3-a2-1-refire-3-season-001-1`; collab `7c551f5`:**
+
+| Phase | Result |
+|---|---|
+| Phase 2 base kits | 54 ✅ |
+| Phase 3 variants | 810 enumerated; 585 shipped via cell_any_pass ✅ |
+| PM-1 clustering | GMM_BIC_selected k=4; input=598; non-degenerate ✅ |
+| Phase 4 archive | 34 (Pareto-2 partition; 25-40 PASS) ✅ |
+| Element coverage | 8/8 at primary layer (earth=9, fire=6, holy=6, lightning=6, physical=13, shadow=4, water=4, wind=6) ✅ |
+| Hybrid count | 12/54 (95% CI [6-13]) ✅ |
+| Substrate diversity | 5 cultural_lineage + 5 weapon_type_family ✅ |
+| Wave A LLM | 4 clusters / 4 calls / $0.02 — faction labels coherent |
+| F-C LLM | 6 pairs / diversity_pass=True; primary pair = Clusters 3↔4 |
+| Wave B LLM | 13 calls / $0.13; 10 cohesion scores populated; 3 parse failures (not systematic) |
+| **shipped_worthy** | **22/34 (64.7%)** ✅ (≥12/18 acceptance) |
+| held_cohesion (C1) | 0 |
+| held_mechanical | 12 |
+| **Total LLM cost** | **$0.15** (0.9% of $50 cap; 3-season projection ~$0.45) |
+| Wall clock | 83.9s |
+
+---
+
+**GANDALF URGENT HALT — Disc #42a Instance 6 #4 surface (cascade-r3 fourth surface; pattern now systemic):**
+
+> SkillEmissionConfig was not extended; chain_2.element on ChainSpec is metadata-only at skill emitter layer. Hybrid kits emit 12 skills with primary element only; secondary element exists as metadata but does NOT produce content-distinct chain_2 skills.
+>
+> If Phase 5 fires under current state, LLM Wave A/F-C/Wave B operate on substrate where hybrid kits are structurally hybrid but behaviorally mono at skill content.
+
+**Empirical reading of S6c production results:** A2-1 RE-FIRE-3 PASSED at architectural verification gates (≥12/18 shipped, 8-element coverage, hybrid count within CI) but on **partly-broken substrate at SKILL CONTENT layer** for the 12 hybrid kits. The PASS is technically true per acceptance criteria; the substrate-led emergence promise is NOT fully delivered for hybrid kits at content layer.
+
+**Cost impact:** $0.15 burned on partly-broken substrate (small; well under cap). Re-fire post-Amendment-7a will burn another ~$0.15-1.50; total ~$0.30-1.65 across both fires = still <4% of $50 cap.
+
+**Instance 6 cumulative pattern now at 4 surfaces:**
+1. Wave B phantom-component → CLOSED by S5/S5b
+2. Variant Pareto-dominance → pre-ratified per Recognition record A3 H0
+3. emit_skills_for_kit deterministic (Amendment 6 Sub-fix 3) → namespace-only acceptable per Gate-2 INFO
+4. **chain_2.element metadata-only at SkillEmissionConfig (Amendment 7) → SYSTEMIC; requires Amendment 7a fix**
+
+Per gandalf: "pattern is now systemic" — Cycle 14 wave-close canonical-write candidate (Disc #18 amendment for behavioral-vs-structural variation gap explicit at Phase-2-generation spec layer).
+
+---
+
+**AMENDMENT 7a SCOPE (rocket dispatch per gandalf URGENT HALT):**
+
+1. Extend `SkillEmissionConfig` (`per_skill_emitter.py`):
+   - ADD field: `chain_elements: dict[str, str] | None = None` (maps chain_id → element; None = use config.element for all chains; backward compatible)
+
+2. Amend `emit_skills_for_kit` inner loop (`per_skill_emitter.py:400+`):
+   - Resolve per-chain element: `chain_elem = (config.chain_elements or {}).get(chain_id, config.element)`
+   - Use chain_elem for placeholder name + skill.element field
+
+3. Thread chain_elements at `season_generation_pipeline.py:901-907`:
+   - Hybrid kits: `chain_elements = {"chain_A": primary, "chain_B": secondary, "chain_C": primary}` (or correct chain_id naming)
+   - Mono kits: `chain_elements = None` (existing behavior)
+
+4. Tests (~5-10 new): hybrid kit chain_2 skills have skill.element = secondary; chain_1 + supporting = primary; mono unchanged; 8-element coverage preserved
+
+5. Smoke + Phase 2-4 re-fire post-fix (~50sec; $0)
+
+**Estimate: ~30-60min rocket + smoke. Auto-commit per CLAUDE.md addendum.**
+
+**Post-Amendment-7a trajectory:**
+- jack-ryan Gate-2 quick review (composition verification with Amendments 6+7)
+- Phase 2-4 re-fire ($0)
+- Phase 5 LLM re-fire ($0.15-1.50; production cascade)
+- Continue A2-2 → A2-7 per existing sequence
+
+**Matt-surface per gandalf instruction:** confirm HALT + Amendment 7a dispatched (this turn) + surface at Amendment 7a close.
