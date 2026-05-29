@@ -3396,4 +3396,46 @@ Per supplemental Matt question to A1 re-entry: Disc #42 Q1-Q6 framing-audit appl
 - Author A2-2 dispatch (jack-ryan Gate-2 + gandalf critique-pair under Pattern E pre-authorization)
 - Fire A2-2 sub-agents under R48.4 single-seam (sequential: jack-ryan first then gandalf, or critique-pair invoked together if R48.4 supports — confirm at A2-2 authoring time)
 
+---
+
+### A2-1 INTERIM RESULT 2026-05-29 — FAIL (0/18 emit; root cause = cross-seam import bug; ROUTED to gamora for A2-1-FIX)
+
+**Rocket A2-1 sub-agent completed 2026-05-29 (~10 min wall-clock; agent ID `a25ccecd5df8ab05f`):**
+
+| Phase | Result |
+|---|---|
+| Phase 2 | 18 kits generated (earth × 4, wind × 4, fire × 5, water × 5) ✅ |
+| Phase 3 | **13/18 WR-bracket PASS**; 37,360 fights (validates Path α at gauntlet sim layer) ✅ |
+| Phase 4 | 18/18 ACCEPTED to kit_archive ✅ |
+| Phase 5 | $0.00 LLM cost (cohesion judge LLM NOT exercised because Phase 7 short-circuited via 0 KPM); 3 placeholder clusters |
+| Phase 7 | **0/18 shipped_worthy** ❌ — BLOCKED by `simulation/phase7_bridge.py` cross-seam import bug |
+
+**Disc #11 grep `synthetic_mode`:** ZERO functional code (PASS).
+**LLM cost:** $0.00 (well within $50 soft cap; no budget concern).
+**Rocket commits:** collab `26d4baa` (interim completion record + phase JSONs + pre-Path-α archived); engine `7701096` (AGENT_STATE checkpoint).
+
+**Root cause (KR-verified per Disc #42a meta-observation 5):**
+
+`src/reincarnated/simulation/phase7_bridge.py` lines 196-197 use relative imports `.ability_schema` + `.skill_schema` — both modules live in `reincarnated/generation/`, NOT `simulation/`. The relative imports fail with silent `ImportError` (caught by try/except at line 195), returning empty skills list. `Phase7SyntheticKit` then runs auto-attack only → 0 KPM in-band → 0/18 emit. Bug was masked in prior sessions by smoke mode (`use_mock_gauntlet=True` bypasses `_build_synthetic_skills` entirely). Code comment at line 191-193 already acknowledges the construction was copied from generation seam; imports were left relative without correcting cross-seam path.
+
+**KR Disc #42a vigilance flag forward to A2-1 re-fire:** rocket's framing "Phase 3 13/18 = Path α validated" is partially overcommitted. Phase 7 acceptance also gates on cohesion judge LLM exclusions (dispatch § 1.4 permits up to 6 LLM exclusions). 13/18 at Phase 3 → expected post-fix Phase 7 emit between 7/18 (worst case) and 13/18 (best case). Path α is FULLY validated only when Phase 7 emits ≥12/18 with real LLM cohesion judge exercised. A2-1 re-fire attestation MUST cite Phase 7 acceptance result (not Phase 3 proxy).
+
+**KR routing decision (in-scope per hive-mind decision-routing Matt 2026-05-23 verbatim — seam-owner decides; collaboration resolves):**
+
+Routing to gamora for A2-1-FIX (2-line absolute-import fix + verification + commit + optional secondary Phase 3 quality-vector anomaly investigation). NOT a Matt-surface — failure is contained ($0 LLM cost; Path α architecture validated at Phase 3 layer; clear fix path; no cascade-blocking ambiguity; no R48-rule escalation triggered).
+
+**A2-1-FIX dispatch fired:**
+- Dispatch file: `agentic_orchestration/dispatches/2026-05-29-gamora-cycle-14-a2-1-fix-phase7-bridge-import.md`
+- Recipient: gamora (simulation seam owner)
+- Pattern: Pattern A-light (~10-20 min wall-clock)
+- R48.4 single-seam preserved (rocket released; gamora is the only sub-agent firing)
+- Acceptance: 2-line absolute-import fix + skill construction smoke verification + Disc #11 grep ZERO + auto-commit + tag
+
+**Cascade sequence post A2-1-FIX:**
+1. Gamora A2-1-FIX PASS → KR fires rocket A2-1 re-fire (re-attempt of season_001 production cascade)
+2. Rocket A2-1 re-fire PASS (≥12/18 emit at Phase 7) → KR fires A2-2 (jack-ryan + gandalf critique-pair Gate-2 Pattern E autonomous)
+3. Cascade continues to A2-3 / A2-4 / A2-5 / A2-6 / A2-7
+
+**Secondary Phase 3 quality-vector anomaly (gamora investigation; non-blocking):** all 18 quality vectors emitted neutral 0.5 with 18 WARNs "no encounter_results found." Gamora's `_derive_quality_vector()` can't find expected field in gauntlet JSON. Gamora's call to bundle (if trivial diagnostic) or defer (if substantive design concern).
+
 **Session work-cluster complete.** Next KR session fires Phase A2 unattended cascade per Matt-paste of gandalf-authored handoff prompt.
