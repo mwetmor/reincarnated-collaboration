@@ -293,3 +293,157 @@ Append completion record (interim OR final) at any of:
 This dispatch is the cheapest empirical refutation of "does P3c fix at `gauntlet_sim.py` source resolve Concern #3 without cross-seam blast?" — single-file fix + smoke verification + comment hygiene at gamora's seam-internal cost (~30-60min wall-clock).
 
 A2-1 R2 Step 3 PASS = Concern #3 resolved at source + Disc #40 silent-4×-dilution corrected universally + Disc #11 hygiene improved + unblocks Step 4 (star-lord observability wire-up) → Step 5 (jack-ryan Gate-2) → Step 6 (A2-1 RE-FIRE-2) → cascade through A2-2 → A2-7 toward Cycle 14 v1 MVP D9 close.
+
+---
+
+## Completion record
+
+**Date:** 2026-05-29
+**Author:** gamora (engine simulation seam owner)
+**Wall-clock:** ~45 min (within ~30-60min estimate)
+
+---
+
+**1. VERDICT**
+
+A2-1 R2 Step 3 P3c fix at gauntlet_sim.py + comment hygiene at phase7_bridge.py — **PASS** (divisor cohorts-actually-run-aware; no regressions; Disc #12 EPOCH BREAK DECLARED). No surface-to-KR conditions triggered.
+
+---
+
+**2. P3c implementation design call**
+
+**Option β selected.** `GauntletKitResult.cohort_results` is a `dict[str, list[GauntletEncounterResult]]` populated only for cohorts actually run. Using `kr.cohort_results.keys()` in the iteration yields the exact cohorts-actually-populated set without any API surface change, new field exposure, or multi-file refactor. This is the most architecturally honest and self-documenting fix available.
+
+Option α (iterate where pass>0) was NOT chosen — ambiguous re unrun-vs-run-but-failed distinction.
+Option γ (pass cohorts list through from caller) was NOT chosen — would require signature change through multiple layers.
+
+---
+
+**3. Code change diffs**
+
+**gauntlet_sim.py:1068-1076 before:**
+```python
+    # Mean encounters passed per kit (across all cohorts, per kit)
+    if kit_results:
+        all_enc_pass_counts = []
+        for kr in kit_results:
+            for cohort in COHORT_ARCHETYPES:
+                all_enc_pass_counts.append(kr.encounters_passed(cohort))
+        quality_report.mean_encounters_passed_per_kit = (
+            statistics.mean(all_enc_pass_counts) if all_enc_pass_counts else 0.0
+        )
+```
+
+**gauntlet_sim.py:1068-1087 after:**
+```python
+    # Mean encounters passed per kit (across cohorts ACTUALLY POPULATED per kit).
+    # P3c fix (Concern #3 resolution 2026-05-29; ...):
+    #   [full bug explanation + semantics in inline comment]
+    if kit_results:
+        all_enc_pass_counts = []
+        for kr in kit_results:
+            for cohort in kr.cohort_results.keys():  # only cohorts actually run (P3c fix)
+                all_enc_pass_counts.append(kr.encounters_passed(cohort))
+        quality_report.mean_encounters_passed_per_kit = (
+            statistics.mean(all_enc_pass_counts) if all_enc_pass_counts else 0.0
+        )
+```
+
+**phase7_bridge.py:352-367 before:** 11-line misleading comment block asserting "for 1 kit, 1 cohort = exact value" (WRONG; divisor was fixed at 4).
+
+**phase7_bridge.py:352-362 after:** 9-line corrected comment block: "mean_encounters_passed_per_kit is now cohorts-actually-populated-aware (P3c fix); for 1-cohort Phase 7 evaluation, equals raw pass count for gauntlet_archetype (divisor=1, not divisor=4 as before)."
+
+---
+
+**4. Disc #2 smoke verification**
+
+- **Module-load smoke:** `python3 -c "from reincarnated.simulation.gauntlet_sim import COHORT_ARCHETYPES; print(list(COHORT_ARCHETYPES))"` — SUCCESS. Output: `['DPS-min-maxer', 'Balanced', 'Defensive', 'Hybrid']`
+- **Targeted unit smoke (gauntlet + phase7_bridge + spatial):** `pytest tests/test_cycle13_wave5_gauntlet_sim.py tests/test_phase7_bridge.py tests/test_spatial_gauntlet_scenarios.py` — 85 PASS, 7 FAIL (all 7 confirmed pre-existing via git stash baseline; zero new regressions)
+- **Regression check (baseline comparison):** git stash on unmodified HEAD produced identical 7 FAIL, 85 PASS. Restored with git stash pop. Change introduces NO new failures.
+- **Phase 7 integration smoke:** N/A (full Phase 7 evaluation requires LLM + production pipeline; integration verified via mathematical analysis: 1-cohort call → divisor=1 → max mean=18.0 → pass_rate ≤ 1.0; full Phase 7 integration validation is A2-1 RE-FIRE-2 Step 6)
+
+---
+
+**5. Disc #12 EPOCH BREAK assessment**
+
+**EPOCH BREAK DECLARED.**
+
+`GauntletQualityReport.mean_encounters_passed_per_kit` field semantic changes from "sum of encounters_passed(cohort) for all 4 COHORT_ARCHETYPES / 4" to "sum of encounters_passed(cohort) for all cohorts_actually_populated / len(cohorts_actually_populated)."
+
+- For full-set callers (all 4 cohorts populated): numerically equivalent; Epoch Break has no operational impact
+- For partial-set callers (Phase 7 1-cohort + UCL + SGP Disc #40 secondary): numerical value changes; field goes from silently-wrong to correct
+
+Declaration rationale: The change corrects a bug rather than shifting design intent — the intent was always "mean per-kit encounter passes" — but Disc #12 applies whenever a field's output value changes semantically for any caller. This is a correctness semantic shift. Future callers relying on the 4×-diluted value would break; correctness-aware callers (Phase 7) are unblocked.
+
+---
+
+**6. MIGRATION.md § v1.58**
+
+`simulation/MIGRATION.md § v1.58` appended. Captures: bug root cause, Option β fix, Epoch Break declaration, caller graph table, star-lord awareness note (no immediate schema migration required; no historical telemetry contamination since Phase 7 was 0/18 before fix).
+
+---
+
+**7. Downstream regression verification**
+
+- `unified_calibration_loop.py:739` (`_run_gauntlet_t4_context()`): does NOT read `mean_encounters_passed_per_kit` (caller at line 2753 discards quality_report as `_`). Field value changes but no operational impact. Verified empirically: Step 1 audit grep confirmed no read; re-grep at Step 3 entry confirmed unchanged.
+- `season_generation_pipeline.py:1193` (`w5r2_gauntlet_sim_integration()`): does NOT read `mean_encounters_passed_per_kit` (reads `total_kits_validated`, `kits_season_emit`, `total_fights_run` only). Same confirmation.
+- Both callers' Disc #40 latent-correctness gaps are now silently corrected (field value correct for future readers if they ever consume it).
+
+---
+
+**8. Disc #11 hygiene attestation**
+
+Comment block at `phase7_bridge.py:352-362` verified correct post-fix:
+- False claim "for 1 kit, 1 cohort = exact value" REMOVED
+- Replaced with correct framing: P3c fix citation + "mean_encounters_passed_per_kit now cohorts-actually-populated-aware; for Phase 7 1-cohort call, equals raw pass count (divisor=1)"
+- `# encounters_passed = mean_encounters_passed_per_kit (P3c: exact for any cohort-count)` inline comment preserved and corrected
+
+---
+
+**9. Disc #42a Q1-Q6 self-audit (at dispatch consumption)**
+
+| Q | Question | Verdict |
+|---|---|---|
+| Q1 | Load-bearing framing assumption (P3c fix at gauntlet_sim.py:1068-1076 preserves divisor=4 for full-set; corrects to divisor=1 for Phase 7 1-cohort) | CONFIRMED — verified empirically: `kr.cohort_results.keys()` returns exactly the cohorts that were run; mathematical analysis confirms divisor equivalence for full-set |
+| Q2 | Refutation evidence in scope | CONFIRMED — grep re-verified at Step 3 entry: only phase7_bridge.py:368 reads the field; UCL + SGP confirmed non-reading via full-source grep |
+| Q3 | Refutation surface-able cheaply | YES — module-load + targeted pytest suite completed in ~2 min |
+| Q4 | Measurement context match | YES — P3c operates at the producer site; Phase 7 acceptance gate (P7_GAUNTLET_PASS_FLOOR=0.70) unchanged; measurement context preserved |
+| Q5 | Calibration scope match | YES — one source line change + one comment block update; blast radius confirmed to gamora seam internal |
+| Q6 | Semantic stability | EPOCH BREAK DECLARED (honest re Disc #12 applicability) — for full-set callers: stable; for partial-set callers: field value changes from wrong to correct; declared explicitly in MIGRATION.md §v1.58 and commit message |
+
+All 6 Q verdicts: PASS. No framing refutation triggered. No surface-to-KR condition.
+
+---
+
+**10. Disc #48 R48.4/R48.5 verification**
+
+- **R48.4 single-seam:** confirmed — gandalf released post Step 2.5 per dispatch § 0.1; gamora alone in Step 3 slot; no parallel sub-agent fan-out occurred; all work was seam-internal (gauntlet_sim.py + phase7_bridge.py + MIGRATION.md + AGENT_STATE.md)
+- **R48.5 vm_stat:** Step A pre-flight showed ~8684 free pages × 16KB + ~164890 inactive + ~10883 purgeable ≈ 2.85 GB free+reclaimable (well above 1 GB threshold; KR pre-flight at Step 3 entry was ~2.7 GB; no RAM pressure during execution)
+
+---
+
+**11. Engine + collab commits + tag**
+
+- Engine commit 1: `3717a01` — "gamora: Concern #3 P3c fix — mean_encounters_passed_per_kit cohorts-aware divisor (A2-1 R2 Step 3)" (gauntlet_sim.py + phase7_bridge.py + MIGRATION.md + AGENT_STATE.md)
+- Engine commit 2: `ef742a2` — "gamora: AGENT_STATE checkpoint — A2-1 R2 Step 3 Concern #3 P3c fix COMPLETE"
+- Collab commit: this dispatch completion record append (pending auto-commit)
+- Tag: `gamora/v2.15-a2-1-r2-step-3-concern-3-p3c-fix-1` (applied at engine HEAD `3717a01`)
+- Push: NOT fired — KR fires push after A2-2 Gate-2 PASS per per-workstream pattern
+
+---
+
+**12. Telemetry output paths**
+
+N/A — this is a source-level bug fix + comment hygiene. No telemetry produced. No new output files. No new telemetry table fields (MIGRATION.md §v1.58 documents star-lord awareness: no immediate migration required).
+
+---
+
+**13. Anomalies surfaced during implementation**
+
+**A13-1 (tag namespace collision):** Dispatch specified tag `gamora/v2.14-a2-1-r2-step-3-...` but `gamora/v2.14` is already occupied by `gamora/v2.14-w-alpha-7-plus-phase-4-rerun-per-variant-1`. Resolved: used `gamora/v2.15-a2-1-r2-step-3-concern-3-p3c-fix-1` per seam convention (next available number). No block; no surface-to-KR needed.
+
+**A13-2 (7 pre-existing test failures in gauntlet suite):** `test_cycle13_wave5_gauntlet_sim.py` has 7 pre-existing failures confirmed via git stash baseline comparison (identical failures on unmodified HEAD). Not caused by P3c fix. P3c introduces zero new test failures. KR capture only; no action required from gamora.
+
+---
+
+**gamora signature:** A2-1 cascade-resumption-2 Step 3 CLOSED — Concern #3 P3c fix **PASS**. `mean_encounters_passed_per_kit` divisor is now cohorts-actually-populated-aware. Phase 7 1-cohort evaluation now produces correct pass_rate (max 1.0, not max 0.25). Disc #40 secondary callers (UCL + SGP) receive silently-corrected field value. Disc #11 comment hygiene complete. Disc #12 Epoch Break declared. 85 tests PASS, 0 new regressions. **Cascade proceeds to Step 4 (star-lord cost-tracker + observability wire-up).** Auto-committed per CLAUDE.md addendum 2026-05-25; no push (KR fires push after A2-2 Gate-2 PASS).
