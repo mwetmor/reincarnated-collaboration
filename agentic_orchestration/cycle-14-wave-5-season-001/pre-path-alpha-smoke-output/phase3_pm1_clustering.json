@@ -1,0 +1,26 @@
+{
+  "season_id": "cycle-14-wave-5-season-001",
+  "phase": 3,
+  "cluster_count": 1,
+  "algorithm": "skip_unaffiliated",
+  "sparsity_flag": "season_critically_sparse",
+  "clusters": [
+    {
+      "cluster_id": 1,
+      "member_kit_ids": [
+        "S1_endgame_str_01_heavy_barbarian",
+        "S1_endgame_str_02_light_fighter",
+        "S1_endgame_str_03_polearm_soldier"
+      ],
+      "member_count": 3,
+      "cluster_compactness": 0.0,
+      "faction_label_placeholder": "unaffiliated-convergent"
+    }
+  ],
+  "gb_primary_pair": {
+    "faction_a_cluster_id": 1,
+    "faction_b_cluster_id": 1,
+    "pairwise_distance": 0.0,
+    "selection_rationale": "degenerate_single_cluster"
+  }
+}

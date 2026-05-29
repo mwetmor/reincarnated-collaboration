@@ -1,26 +1,52 @@
 {
   "season_id": "cycle-14-wave-5-season-001",
   "phase": 3,
-  "cluster_count": 1,
-  "algorithm": "skip_unaffiliated",
-  "sparsity_flag": "season_critically_sparse",
+  "cluster_count": 3,
+  "algorithm": "kmeans_k3_fallback",
+  "sparsity_flag": "season_sparse",
   "clusters": [
     {
       "cluster_id": 1,
       "member_kit_ids": [
-        "S1_endgame_str_01_heavy_barbarian",
         "S1_endgame_str_02_light_fighter",
-        "S1_endgame_str_03_polearm_soldier"
+        "S1_endgame_str_03_polearm_soldier",
+        "S1_endgame_dex_01_dagger_assassin",
+        "S1_endgame_dex_02_archer",
+        "S1_endgame_int_01_standard_wizard",
+        "S1_endgame_wis_01_channeling_cleric",
+        "S1_endgame_wis_02_holy_knight",
+        "S1_endgame_wis_04_storm_caller",
+        "S1_endgame_wis_05_monk"
+      ],
+      "member_count": 9,
+      "cluster_compactness": 0.18725350024852852,
+      "faction_label_placeholder": "unknown-medieval-unknown-mixed-element"
+    },
+    {
+      "cluster_id": 2,
+      "member_kit_ids": [
+        "S1_endgame_int_05_arcane_familiar_mage"
+      ],
+      "member_count": 1,
+      "cluster_compactness": 0.18725350024852852,
+      "faction_label_placeholder": "unknown-medieval-unknown-fire"
+    },
+    {
+      "cluster_id": 3,
+      "member_kit_ids": [
+        "S1_endgame_str_01_heavy_barbarian",
+        "S1_endgame_int_02_artillery_mage",
+        "S1_endgame_wis_03_ritual_mage"
       ],
       "member_count": 3,
-      "cluster_compactness": 0.0,
-      "faction_label_placeholder": "unaffiliated-convergent"
+      "cluster_compactness": 0.18725350024852852,
+      "faction_label_placeholder": "unknown-medieval-unknown-mixed-element"
     }
   ],
   "gb_primary_pair": {
-    "faction_a_cluster_id": 1,
-    "faction_b_cluster_id": 1,
-    "pairwise_distance": 0.0,
-    "selection_rationale": "degenerate_single_cluster"
+    "faction_a_cluster_id": 2,
+    "faction_b_cluster_id": 3,
+    "pairwise_distance": 125.64144031320122,
+    "selection_rationale": "highest_substrate_distance"
   }
 }
