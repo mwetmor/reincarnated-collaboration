@@ -44,16 +44,24 @@
 
 ## 1. Wave status table
 
+> **§ 1 AMENDMENT 2026-05-28 (Matt-ratified Read γ election):** Waves 2/3/4 SUPERSEDED by no-classes substrate-led architectural recommitment (2026-05-27) + Path α workstream authoring. Wave 5 = sole content production wave per D4 / D9 ratified close-criterion (3 LLM seasons × ≥12/18 emit + 3× Gate-2 + A/B + Disciplines #41-#47 batch + Matt tag).
+>
+> **Cross-references:**
+> - No-classes architectural recommitment: `canonical/story/no-classes-architectural-recommitment-2026-05-27.md` (companion to Path α reframe)
+> - D9 ratified close criteria: state file § "Matt 2026-05-28 ADDITIONAL RATIFICATIONS D4-D13" — `v1-cycle-14-no-classes-substrate-led` tag; (a) Wave 5 emits ≥12/18 kits × **3 seasons**; (b) Gate-2 PASS each; (c) A/B comparison filed; (d) Disciplines #41-#46 batched canonical-write post Wave 5 Gate-2 (D10); (e) Matt ratifies tag
+> - Path α reframe authority: state file § "MATT 2026-05-28 EVENING RATIFICATION AMENDMENT — PATH α SCOPE REFRAME (INTEGRATED W-α7+)" — 6-phase architecture absorbing Wave 2/3/4 design scope into substrate-validation engine readiness gate
+> - Mode A 2-phase framing (Matt 2026-05-28): **Phase A1** = current 6-dispatch sequence (Path α v1 closure — engine readiness gate); **Phase A2** = Wave 5 production cascade (3 seasons + 3× Gate-2 + A/B + disciplines batch + Matt tag — Cycle 14 v1 MVP closure)
+
 | Wave | Status | Owners | Gates on | Wall-clock target |
 |---|---|---|---|---|
 | **Wave 0** | ✅ COMPLETE 2026-05-27 | KR + gandalf + jack-ryan + legolas + elrond | (entry) | landed in single-session sweep |
 | **Wave 0.5** | ✅ CLOSED 2026-05-27 | rocket + gamora + elrond (SC-6b) + jack-ryan Gate-2 PASS-with-WARN | 3 sub-agents landed (`3c95883` + `b2e9a86` + `cafd6e4`); Gate-2 PASS-with-WARN (0 BLOCK / 1 WARN / 4 INFO); Discipline #39 EMPIRICAL grep ZERO; Path A decisions-log entry landed at engine `f053281`; 1 WARN tracked as pre-Wave-5 follow-on | landed in single-session sweep |
 | **Wave 1** | ✅ CLOSED 2026-05-27 (Gate-2 PASS-with-WARN; 0 BLOCK / 1 WARN / 8 INFO) | rocket + gandalf design-spec + jack-ryan Gate-2 | Three sequenced commits: follow-on `685dafa` → 4 math-notes `0541105` → Wave 1 impl `98b68aa`; tag `rocket/v1.5-wave-1-concentration-architecture-layers-1-4-7`; Gate-2 empirical verifications PASSED: Discipline #33 (violation-injection fires with stat+value+bounds), Discipline #34 (avg 4.22 triggered_passives/kit), Layer 4 vocabulary (61 conditions; SC-4 said 63 per-family tables sum to 61 — Discipline #11 inspection resolved), CRITICAL_AI_TELL_TRIGGERS=5 incl on_cast, LUT alignment ALL 5+1 families (martial-heavy=177 / martial-light=99 / ranged=91 / caster-arcane=31 / caster-faith=31 / **hybrid=99**), math-notes Discipline #1.2 code-citations, 232/232 PASS; WARN G2-9 stale Pass-1 LUT JSON in math-note (documentation-only; rocket correctly used canonical JSON — route elrond hygiene follow-on) | landed in single-session sweep |
 | **Wave 0.5 follow-on** | ✅ COMPLETE 2026-05-27 (`685dafa`) | rocket + jack-ryan Gate-2 | Pipeline wiring (per_skill_emitter + substrate_weapon_binding → season_generation_pipeline.py) + 5-family LUT alignment per Gate-1 Finding FO-2 amendment | folded into rocket Wave 1 session |
-| **Wave 2** | ⏳ QUEUED | rocket + gandalf + jack-ryan Gate-2 | Wave 1 + SC-1 partial ratification (#36 + #37) | ~3-5 days |
-| **Wave 3** | ⏳ QUEUED | gandalf + star-lord + rocket | Wave 0.5 real content + SC-3 closure | ~1 week |
-| **Wave 4** | ⏳ QUEUED | gandalf + rocket + gamora | Wave 2 + Wave 3 | ~3-5 days |
-| **Wave 5** | ⏳ QUEUED | gamora + gandalf + rocket + jack-ryan close Gate-2 | All prior waves closed + synthetic_mode RETIRED verified | ~3-5 days; extends per Q10 |
+| **Wave 2** | 🗑️ SUPERSEDED 2026-05-27 by no-classes substrate-led architectural recommitment + Path α workstream authoring (was: rocket + gandalf + jack-ryan Gate-2; Wave 1 + SC-1 partial ratification #36+#37; ~3-5 days) | (n/a) | (n/a) | (absorbed into Path α Phase 3 architecture commit) |
+| **Wave 3** | 🗑️ SUPERSEDED 2026-05-27 by same (was: gandalf + star-lord + rocket; Wave 0.5 real content + SC-3 closure; ~1 week) | (n/a) | (n/a) | (absorbed into Path α Phase 5 architecture commit; SC-3 cohesion judge LLM design retained as Wave 5 production prerequisite) |
+| **Wave 4** | 🗑️ SUPERSEDED 2026-05-27 by same (was: gandalf + rocket + gamora; Wave 2 + Wave 3 synthesis; ~3-5 days) | (n/a) | (n/a) | (absorbed into Path α Phase 4+5 architecture commit) |
+| **Wave 5** | ⏳ QUEUED — gates on Path α v1 closure (Phase A1 of Mode A 2-phase framing) | gamora (production sweep) + rocket (kit emission) + star-lord (LLM cost / phase 5 cohesion judge) + gandalf (A/B + canonical writes) + jack-ryan close Gate-2 each season | Phase A1 6-dispatch sequence PASS (T1+T2+T3+T5 amended close-criterion at BVV anchor + 7 profiles) + canonical close-criterion capture PASS + jack-ryan Gate-2 Phase A1 PASS | **~5-8d post Path α close** under clean runs: 3 seasons × ~1d production + ~half-day Gate-2 each + A/B (~half-day) + disciplines batch (~half-day) + Matt tag |
 
 ---
 
@@ -2834,6 +2842,125 @@ The R3 hotfix recalibrated band UPPER bounds. This changed which kits are band-a
 | 6 | Cycle 14 closure record + Matt sign-off | ⏳ PENDING 5 |
 
 **Cycle 14 v1 MVP close trajectory:** unchanged ~4-7d from original estimate; R3-A election shape determines critical path. A1 (base-context T1) is fastest (~few hours including R3-B hotfix + RE-RUN-5); A2 (DDA-normalized T1) adds gandalf Pattern A-light consultation (~half-day); A3 (scope-amendment) is largest (~1-2d including canonical writes).
+
+---
+
+### MATT A1 ELECTION LOCKED 2026-05-28 — T1 BASE-CONTEXT + CANONICAL LAYER SEPARATION + DISC #42 OPERATIONAL ACTIVATION
+
+**A1 election addendum (load-bearing):** `agentic_orchestration/gandalf/notes/2026-05-28-a1-election-addendum.md` (Matt-signed-off this session; gandalf design-lead conviction record).
+
+**Framing-audit pushback memo (load-bearing for dispatch #5):** `agentic_orchestration/gandalf/pushback/2026-05-28-framing-audit-three-instance-case.md` (gandalf-side architectural argument for Discipline #42 canonical ratification at jack-ryan Gate-2 with three same-cycle instances + one prior canonical precedent).
+
+**Both committed at engine state `8813888`.**
+
+**T1 LOCKED at base-context (DDA off):** original measurement semantics restored. Cross-path equity measured at the layer where equity belongs (raw cohort DPS before in-game Primary T4 Capstone amplification). DDA-context divergence is design-intent (cycled into in-game Primary T4 Capstone at preferred_encounter_type) and is canonically the T4-axis territory (deferred to Cycle 16+ via BC axis expansion).
+
+**CANONICAL LAYER SEPARATION LOCKED (per A1 addendum § 2):**
+
+| Layer | Disposition |
+|---|---|
+| In-game Primary T4 Capstone (DDA 1.75× at preferred_encounter_type) | Universal-EXEMPT from close-criterion; SCAFFOLD-Cycle-15-RETIREMENT per Disc #40 |
+| In-game Secondary T4 Capstone (per-kit cohort-relative peak variants) | Canonically deferred to Cycle 16+ BC axis expansion |
+| Close-criterion T1 (cross-path DPS equity) | A1 ELECTED — measured at base context (DDA off) |
+| Close-criterion T2 (zero-KPM at any encounter type) | Must pass at all profiles — R3-prime hotfix Component B (gamora dispatch #2 below) |
+| Close-criterion T3 (saturation / structural) | Universally passes |
+| Close-criterion T4 (Secondary T4 specialization peaks) | DROPPED as Cycle 14 close-gate |
+| Close-criterion T5 (floor violations) | Universally passes |
+
+**Effective Cycle 14 v1 MVP close-criterion (LOCKED):** T1-base-context + T2-all-profiles + T3 + T5 = 4/4 required. T4 explicitly deferred.
+
+**NAMING-AMENDMENT CANDIDATE — KR DISPOSITION:** rename close-criterion T1-T5 → C1-C5 (or Target-1 through Target-5) per gandalf addendum § 3 to disambiguate measurement vocabulary from in-game T1-T4 skill-tier vocabulary. **KR election: FOLD INTO MODE A DISPATCH 4 (gandalf canonical close-criterion capture)** rather than scheduling as Cycle 15 housekeeping. Rationale: the canonical close-criterion rewrite is already in motion at dispatch #4; mechanical rename is incremental cost (~15-30 min added); avoids second-pass overhead; gandalf already enumerated proposal and can execute as part of canonical capture. Will instruct gandalf at dispatch #4 authoring to include C1-C5 rename. **(Operates per hive-mind decision-routing — KR scope decision; surface to Matt if naming impacts decisions-log canonical reading at dispatch #5 jack-ryan Gate-2.)**
+
+**DISCIPLINE #42 FRAMING-AUDIT OPERATIONALLY ACTIVE (pre-ratification) per Matt directive:**
+
+Apply OP § 4.1 framing-audit checklist Q1/Q2/Q3 + measurement-context subaudit Q4/Q5/Q6 at each dispatch consumption gate. Do NOT block on jack-ryan canonical ratification (sequenced at dispatch #5) to operate under it.
+
+| Q | Sub-audit | STOP condition |
+|---|---|---|
+| Q1 | What load-bearing framing assumption does this work depend on? | Refutable in current scope → STOP, verify |
+| Q2 | What evidence currently in hand could refute that assumption? | Refutation cheap (~30 min Pattern-A) → STOP, fire refutation first |
+| Q3 | Is refinement landing BEFORE downstream dispatch? | If not → STOP, refine framing first |
+| Q4 | What measurement context was this output produced under? Does it match the production context the dispatch will operate in? | Mismatch → STOP, restrict measurement OR introduce context-specific metric |
+| Q5 | What data scope was this calibration derived from? Does application scope match derivation scope? | Mismatch → STOP, request scope-coherent calibration |
+| Q6 | Does this metric name carry the same semantics across all contexts it will be evaluated in? | Context-dependent semantics → STOP, restrict OR rename |
+
+**Mode A 2-PHASE FRAMING (Matt-ratified 2026-05-28 per ITEM 3 amendment):**
+
+- **Phase A1** = current 6-dispatch sequence (Path α v1 closure — engine readiness gate)
+- **Phase A2** = Wave 5 production cascade (3 seasons + 3× Gate-2 + A/B + Disciplines #41-#47 batch + Matt v1 tag — Cycle 14 v1 MVP closure)
+- **Phase boundary at Path α close:** surface to Matt for THREE specific gates: (a) Path α closure record sign-off, (b) LLM cost authorization for season_001 production (star-lord cost guard), (c) Wave 5 production cascade scope re-confirmation under updated effort estimate
+
+**Phase A1 6-dispatch sequence (Matt charge per A1 addendum § 4 + ITEM 2 amendment):**
+
+| # | Dispatch | Owner | Cost | Dependency | Status |
+|---|---|---|---|---|---|
+| 1 | T1 measurement-context amendment to BVV harness (T1 explicit at base-context) | gamora (harness seam) | ~30 min | A1 elected | 🔥 FIRING (this re-entry) |
+| 2 | R3-prime hotfix Component B — band lower-bound recalibration for low/mid/mixed_v1/v3 | gamora | ~30-60 min | #1 complete | ⏳ |
+| 3 | Phase 4 RE-RUN-5 — verify amended close-criterion (T1-base + T2-all-profiles + T3 + T5 = 4/4) | gamora | ~80s sweep + analysis | #1 + #2 complete | ⏳ |
+| 4 | Canonical close-criterion capture (doc 47 § 4.6 + doc 51 § 10.8 + C1-C5 rename + layer separation; **explicit Path-α-closure vs Cycle-14-v1-MVP-closure distinction per ITEM 2**) | gandalf (sub-agent at KR invocation) | ~half-day | #3 PASS | ⏳ |
+| 5 | jack-ryan Gate-2 wave-close review + Disc #42 (FOUR-instance case per gandalf pushback amendment) + Disc #43 + Disc #47 canonical ratification | jack-ryan | ~half-day | #4 complete | ⏳ |
+| **6** | **Path α v1 closure record + Wave 5 production cascade entry pre-scope (per D9: 3 seasons × Gate-2 + A/B + disciplines batch + Matt tag)** — **AMENDED per ITEM 2** | KR | ~1-2 hours | #5 PASS | ⏳ |
+
+**Phase A2 sequence (post Path α close + Matt 3-gate surface at phase boundary):**
+
+| # | Dispatch | Owner | Cost | Dependency |
+|---|---|---|---|---|
+| A2-1 | Wave 5 season_001 PRODUCTION fire (full LLM run; ≥12/18 emit; phase 5 cohesion judge; phase 7 acceptance) | rocket + star-lord (LLM cost) + gamora | ~few hours to ~1d | Phase A1 close + Matt gates (a)+(b)+(c) PASS |
+| A2-2 | jack-ryan Gate-2 PASS season_001 | jack-ryan | ~half-day | A2-1 close |
+| A2-3 | Wave 5 season_002 PRODUCTION fire + Gate-2 | same | ~1d | A2-2 PASS |
+| A2-4 | Wave 5 season_003 PRODUCTION fire + Gate-2 | same | ~1d | A2-3 PASS |
+| A2-5 | A/B comparison filed per D6 | gandalf | ~half-day | A2-4 PASS |
+| A2-6 | Disciplines #41-#47 batched canonical-write (D10 RATIFIED: BATCHED POST Wave 5 Gate-2) | jack-ryan | ~half-day | A2-4 PASS |
+| A2-7 | Matt v1 tag ratification — `v1-cycle-14-no-classes-substrate-led` (or per D3 alt) | Matt | seconds | A2-5 + A2-6 PASS |
+
+**D13 parallel-fire authorization composes with Phase A2:** post season_001 Gate-2 PASS, P1-P9 parallel track fires alongside seasons 002+003 production (A/B preliminary; drax loadout sample-data wiring; image pipeline auto-batch; H-5 hero Meshy embed; personage coherence test; Dispatch C/F; Sidecar G-2). Disc #47 R47.4 modifies — parallel work means parallel KR coordination, NOT parallel sub-agents on the constrained host.
+
+**Surface-to-Matt protocol (continuing per A1 charge):**
+- Pre-fire Gate-1 critique-pair findings exceeding seam authority
+- Post-output Gate-2 BLOCK findings
+- Framing-audit findings (Disc #42 Q1-Q6) catching pre-imposed assumption failure at any of 6 dispatch consumption gates
+- Wave-close design-quality audit findings exceeding routine
+- Scope-amendment requests
+- Cycle 14 v1 MVP closure final sign-off (dispatch #6)
+- **If RE-RUN-5 (dispatch #3) returns FAIL on any of T1-base / T2-all-profiles / T3 / T5, surface IMMEDIATELY with Q1/Q2/Q3+Q4/Q5/Q6 applied to the failure mode before assuming production-layer cause**
+
+**Operational constraints (continuing):** Disc #47 R47.1-R47.5 active; single-seam sub-agent sequencing; pre-flight `vm_stat` before each sweep.
+
+**Anchors (Matt charge verbatim):** Engine first / game second / phase third • Substrate-led discipline (substrate votes at geometry layer; semantic layer requires rep-audit at firing per gandalf OP § 4.4) • Recognition → empirical validation → commit • Math-before-code at math hotspots • Right tool for validation question (Disc #5) • Auto-commit per CLAUDE.md addendum 2026-05-25; push remains Matt-explicit-authorization.
+
+---
+
+### MODE A DISPATCH 1 (A1 sequence) — GAMORA T1 MEASUREMENT-CONTEXT AMENDMENT TO BVV HARNESS
+
+Authoring this dispatch immediately under hive-mind decision-routing. Pre-flight `vm_stat` confirmed (~2.6 GB available; load avg 1.62 stable; safe under R47.5). Single-seam sequencing preserved — no other sub-agents fire.
+
+**Disc #42 Q1-Q6 framing-audit at KR dispatch-authoring gate (self-audit):**
+
+| Q | This dispatch's framing | Verdict |
+|---|---|---|
+| Q1 | This dispatch assumes BVV harness has a clean separation point to switch T1 measurement to base-context (DDA off) | Assumption is gamora seam authority to verify; dispatch authored as "amendment" not "find-and-implement" to preserve gamora forensic flexibility |
+| Q2 | Empirical refutation: does the existing BVV harness already support DDA-on/off toggling? Gamora attests at dispatch start | PASS — gamora attestation is a precondition; not an assumption KR locks |
+| Q3 | Refinement-before-fire: KR completed A1 addendum read; KR + Matt have locked semantic | PASS |
+| Q4 | Measurement context: this dispatch IS the measurement-framework amendment; subject explicitly | PASS — gate not relevant |
+| Q5 | Calibration scope: no calibration scope at stake; this is a measurement-mode toggle | PASS — gate not relevant |
+| Q6 | Semantic stability: this dispatch's job is to make T1's semantic context-explicit; STOP condition is the explicit subject | PASS — Q6 is the THING we're addressing |
+
+**Framing-audit gate: PASS.** Dispatch is sound under Disc #42 operational rules.
+
+---
+
+### MATT FRAMING-AUDIT INTERVENTION 2026-05-28 — DISC #42 FOURTH-INSTANCE CASE + 2-PHASE FRAMING
+
+Per supplemental Matt question to A1 re-entry: Disc #42 Q1-Q6 framing-audit applied at KR re-entry; Read Y (substantial remaining cycle scope) confirmed canonical. Matt-ratified ITEM 1-4 direction:
+
+- **ITEM 1 — § 1 amendment LANDED above:** Read γ elected; Waves 2/3/4 SUPERSEDED; Wave 5 gates on Path α v1 closure; cross-references added; auto-commit authorized
+- **ITEM 2 — 6-dispatch terminus amended:** Dispatch #6 = "Path α v1 closure record + Wave 5 production cascade entry pre-scope (per D9)"; Dispatch #4 canonical capture explicitly distinguishes Path-α-closure vs Cycle-14-v1-MVP-closure
+- **ITEM 3 — Mode A 2-phase framing LOCKED:** Phase A1 = current 6-dispatch (engine readiness gate); Phase A2 = Wave 5 production cascade (Cycle 14 v1 MVP closure); Matt 3-gate surface at phase boundary [(a) Path α closure sign-off; (b) LLM cost auth for season_001 production star-lord cost guard; (c) Wave 5 cascade scope re-confirm]
+- **ITEM 4 — Disc #42 now FOUR-INSTANCE case:** R3 reframing (Instance 1) + T1 BVV-vs-sweep (Instance 2) + T2 band lower-bound (Instance 3) + **Cycle 14 v1 MVP terminus framing (Instance 4 — this intervention)**. Gandalf will amend pushback memo post-direction; jack-ryan Gate-2 ratification case overdetermined.
+
+**Discipline #42 operational rules continuing:** Q1/Q2/Q3 + Q4/Q5/Q6 measurement-context subaudit at each dispatch consumption gate. **KR ADDITIONAL SELF-DISCIPLINE per Instance 4:** Q6 semantic-stability subaudit MUST be applied to phrases like "close", "ship", "v1 MVP", "ready" at framing-authoring time — not just at metric-naming time. Phase-vs-cycle terminus distinction is the recurring Q6 gap pattern.
+
+**Cycle 14 v1 MVP true trajectory estimate (Matt-ratified Phase A1+A2):** Path α close (~1-2d Phase A1 remaining) + Wave 5 production cascade (~5-8d Phase A2). Total ~6-10d from this intervention. Per D9 ratified close-criterion. Per cycle 14 v1 close-criterion budget (4-6 weeks at ratification line 2260; ~current Day ~0 of that budget post intervention).
 
 ---
 
