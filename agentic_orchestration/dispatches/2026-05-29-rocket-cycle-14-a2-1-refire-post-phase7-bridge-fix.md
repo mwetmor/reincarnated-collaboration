@@ -231,3 +231,168 @@ Append completion record (interim OR final) at any of:
 This dispatch is the cheapest empirical refutation of "does A2-1-FIX deliver ≥12/18 emit at Phase 7 acceptance layer (with REAL LLM cohesion judge exercised)?" — re-fire of original A2-1 pipeline with both fixes landed.
 
 A2-1 RE-FIRE PASS = Path α v1 architecturally validated at Phase 7 acceptance layer + unblocks A2-2 Gate-2 (Pattern E autonomous critique-pair) → cascade continues toward Cycle 14 v1 MVP D9 close.
+
+---
+
+## Completion record
+
+**Author:** rocket (engine content-generation seam owner)
+**Timestamp:** 2026-05-29 (post A2-1-FIX; re-fire attempt 1)
+**Status:** FAIL — Phase 7 emit 0/18; SURFACE TO KR IMMEDIATELY
+
+---
+
+### 1. VERDICT
+
+**A2-1 re-fire season_001 production — FAIL (Phase 7 emit count: 0/18; LLM exclusions: 0 — Wave A skipped in placeholder mode)**
+
+Phase 7 pipeline executed end-to-end without code error. The import bug (A2-1-FIX) is confirmed repaired. Phase 7 now constructs synthetic kits and runs gauntlet sweeps for all 18 kits. The failure is not a code bug — it is a calibration gap: the Phase 7 synthetic kit (magnitude=3000, single primary_attack, no gear) produces KPM values 7-26x below the minimum threshold of the empirically-calibrated ENCOUNTER_COHORT_KPM_BAND (W-α6). All 18 kits are TIER_1_REJECT across all 6 encounter types.
+
+This is a MATERIAL architectural concern per dispatch § 6 (FAIL-after-fix → routes to Matt).
+
+---
+
+### 2. Phase 7 emit count
+
+**0/18 kits shipped_worthy at Phase 7 acceptance gate.**
+
+- kits_evaluated: 18
+- kits_shipped_worthy: 0
+- kits_held_cohesion: 0
+- kits_held_mechanical: 5
+- kits_held_both: 13
+- acceptance_rate: 0.0%
+- wall_clock: 7.4s
+
+All 18 kits fail the mechanical gate. Root cause: Phase 7 gauntlet returns gauntlet_pass_rate=0.0 for all kits (T1 REJECT on all 18 encounters per kit). The P7_GAUNTLET_PASS_FLOOR threshold is 0.70; no kit approaches this.
+
+---
+
+### 3. Phase 5 LLM cohesion judge
+
+**Wave A SKIPPED (faction_visibility="invisible" = placeholder mode). Zero real LLM calls fired.**
+
+- Clusters: 3 (placeholder ExportFactionCluster records)
+- Relationships: 0
+- LLM cost: $0.0000
+- 3-season projection: $0.00 (placeholder mode produces no spend)
+
+**Important framing correction:** The dispatch framing said "cohesion judge LLM calls FOR REAL THIS TIME." This was incorrect — the wave5_season_orchestrator.py hardcodes `faction_visibility="invisible"` which short-circuits Wave A entirely. Phase 5 in this pipeline is placeholder mode by design (Reincarnated v1 default per phase5_orchestrator.py line 83). No LLM cohesion judge budget was consumed. The $50 soft cap is not under pressure from this run.
+
+---
+
+### 4. Phase 3 gauntlet sim (informational proxy)
+
+**13/18 kits pass WR-bracket at Phase 3 (same result as original A2-1 INTERIM).**
+
+Phase 3 uses full-stat generation pipeline kits (complete skill chains, gear bonuses, T4 capstones). Phase 7 uses synthetic single-skill kits constructed from encounter catalog only. These are distinct evaluation layers with distinct inputs.
+
+Phase 3 WR-bracket result: 13/18 PASS — informational proxy, NOT the architectural validation claim.
+
+Quality vectors: now meaningful post-bundled fix (57 encounter results matched per kit vs 0 pre-fix). Quality vector distribution confirmed non-uniform.
+
+---
+
+### 5. Disc #42a framing-audit — Q1-Q6 applied at completion (meta-observation 5)
+
+**Q1 — Load-bearing framing assumption:** "A2-1-FIX repairs the Phase 7 short-circuit + quality-vector signal; pipeline now produces meaningful Phase 7 emit count"
+**Q1 verdict:** PARTIALLY REFUTED. The import bug IS fixed (Phase 7 executes). But "meaningful Phase 7 emit count" assumed synthetic kit viability against calibrated KPM bands — which is not satisfied.
+
+**Q2 — Refutation evidence in scope:** Yes — the pipeline execution itself is the refutation. 57/57 eligible encounters return TIER_1_REJECT for the synthetic kit across all 6 encounter types. Empirical KPM values for synthetic kit vs ENCOUNTER_COHORT_KPM_BAND:
+
+| Encounter type | Synthetic kit KPM | Band lo (DPS) | Band hi (DPS) | Routing |
+|---|---|---|---|---|
+| boss_with_adds | 2.65 | 29.0 | 225.0 | REJECT |
+| open_arena | 18.07 | 193.0 | 836.0 | REJECT |
+| elite_pack | 7.33 | 51.0 | 699.0 | REJECT |
+| chokepoint_corridor | 18.07 | 182.0 | 836.0 | REJECT |
+| magic_pack | 6.56 | 52.0 | 614.0 | REJECT |
+| mini_boss | 1.79 | 46.0 | 204.0 | REJECT |
+
+Synthetic kit KPM is 7-26x below the minimum band for all encounter types.
+
+**Q3 — Refutation surface-able cheaply:** Yes — fire the pipeline. Observed in 25.1s wall-clock.
+
+**Q4 — Measurement context match:** Phase 7 acceptance threshold (≥12/18) was calibrated assuming production kits, not synthetic bridge kits. The threshold is correct for the intended measurement; the input (synthetic kit KPM) is miscalibrated.
+
+**Q5 — Calibration scope match:** The ENCOUNTER_COHORT_KPM_BAND was calibrated on full production kits (W-α6, Option F Track 1). Synthetic kit KPM is not in that calibration scope.
+
+**Q6 — Semantic stability:** Phase 7 emit cited explicitly (0/18). Phase 3 proxy cited as informational (13/18). These are correctly kept distinct. The architectural validation claim "Path α v1 validated at Phase 7 acceptance layer" is NOT established. Phase 7 emit is 0/18 — below the ≥12/18 threshold.
+
+---
+
+### 6. Disc #42a Q6 vigilance forward — attestation confirmation
+
+Attestation cites Phase 7 result explicitly: **0/18 kits shipped_worthy** — this is the architectural validation measurement, not Phase 3 proxy.
+
+Phase 3 proxy (13/18 WR-bracket PASS) is cited separately as informational.
+
+**"Path α v1 validated at Phase 7 acceptance layer" is NOT established.** Phase 7 emit = 0/18.
+
+---
+
+### 7. Disc #11 — synthetic_mode grep verification
+
+Re-verified post A2-1-FIX: all 7 occurrences of `synthetic_mode` in `src/reincarnated/simulation/` are comment/docstring text only (retirement notices, Discipline #39 annotations). Zero functional code. PASS.
+
+---
+
+### 8. AI-tell detection sub-audit (SC-3 DETECTION)
+
+Phase 5 ran in placeholder mode (Wave A skipped). No LLM cohesion judge output was produced. Cross-Character Diversity audit is not applicable to this run (no LLM-generated faction labels to audit). SC-3 DETECTION deferred pending Phase 5 Wave A activation.
+
+---
+
+### 9. Root cause diagnosis
+
+**The Phase 7 synthetic kit (Phase7SyntheticKit, magnitude=3000) is not calibrated against the current ENCOUNTER_COHORT_KPM_BAND (W-α6 + Option F Track 1).**
+
+The math note (`phase-7-implementation-bridge-math-2026-05-27.md § 1.3`) states magnitude=3000 is "empirically validated for all-encounter KPM pass." This validation was performed against the legacy COHORT_KPM_BAND (boss-oriented ±30% percentage-deviation routing). W-α6 (2026-05-28) replaced this with empirically-calibrated ENCOUNTER_COHORT_KPM_BAND using direct range checks. Synthetic kit KPM at magnitude=3000 was never re-validated against the W-α6 calibrated bands.
+
+**This gap became visible only when Phase 7 became functional (A2-1-FIX). Prior to A2-1-FIX, Phase 7 short-circuited at the import error, so this calibration gap was masked.**
+
+Two possible resolution paths (gamora seam — outside rocket scope):
+1. **Recalibrate synthetic kit magnitude** — find the magnitude value that puts synthetic kit KPM within the ENCOUNTER_COHORT_KPM_BAND ranges across all 6 encounter types. This is a calibration exercise (gamora math note required per Disc #1).
+2. **Redesign Phase 7 mechanical gate** — Phase 7's role may not be to re-run the same KPM gauntlet as Phase 3. If Phase 7's intended function is to validate archive cohesion (not mechanical KPM), the gauntlet design in Phase 7 may need a different acceptance criterion.
+
+Rocket does NOT own `simulation/` and cannot implement either path. This routes to gamora (A2-1-FIX-2 dispatch) + Matt review.
+
+---
+
+### 10. Telemetry output paths
+
+- `agentic_orchestration/cycle-14-wave-5-season-001/phase2_kit_candidates.json` — RE-FIRE (fresh)
+- `agentic_orchestration/cycle-14-wave-5-season-001/phase3_gauntlet_results.json` — RE-FIRE (fresh)
+- `agentic_orchestration/cycle-14-wave-5-season-001/phase3_pm1_clustering.json` — RE-FIRE (fresh)
+- `agentic_orchestration/cycle-14-wave-5-season-001/phase3_quality_vectors.json` — RE-FIRE (fresh; quality vectors meaningful post-bundled fix)
+- `agentic_orchestration/cycle-14-wave-5-season-001/phase4_archive_insertion.json` — RE-FIRE (fresh; 18 ACCEPTED)
+- `agentic_orchestration/cycle-14-wave-5-season-001/phase5_faction_clusters.json` — placeholder mode (Wave A skipped)
+- `agentic_orchestration/cycle-14-wave-5-season-001/phase5_faction_relationships.json` — empty (placeholder mode)
+- `agentic_orchestration/cycle-14-wave-5-season-001/phase7_season_summary.json` — RE-FIRE (0/18 shipped_worthy)
+- `agentic_orchestration/cycle-14-wave-5-season-001/season_summary.json` — RE-FIRE (generation_pass=False)
+- `agentic_orchestration/cycle-14-wave-5-season-001/a2-1-interim-pre-fix/` — INTERIM A2-1 phase outputs archived here (pre-fix; preserved for comparison)
+- `agentic_orchestration/cycle-14-wave-5-season-001/kit_archive.db` — cleared + re-populated with 18 ACCEPTED kits from RE-FIRE run
+- Wall-clock: 25.1s
+
+---
+
+### 11. Commits + tag
+
+Collab repo commit: appended completion record to this dispatch.
+Engine repo commit: AGENT_STATE.md checkpoint.
+Tag: `rocket/v1.0-season-001-re-fire-1-fail-phase7-kpm-gap` (FAIL state recorded; signals gamora A2-1-FIX-2 scope)
+
+---
+
+### 12. Surface-to-KR protocol activation
+
+Per dispatch § 7: Phase 7 emit < 12/18 → SURFACE IMMEDIATELY with framing-audit Q1/Q2/Q3 applied.
+
+**Framing-audit Q1/Q2/Q3 applied above (§ 5). Summary:**
+- Q1: Load-bearing assumption partially refuted (Phase 7 executes; synthetic kit KPM not calibrated)
+- Q2: Empirical evidence cited — KPM table showing 7-26x below minimum band
+- Q3: Refutation was surface-able cheaply — pipeline fire in 25.1s
+
+**Resolution path:** gamora dispatch required to address synthetic kit magnitude calibration against ENCOUNTER_COHORT_KPM_BAND OR Phase 7 gate redesign. Matt review required (MATERIAL architectural concern, dispatch § 6).
+
+KR: this is a FAIL-after-fix. The import bug is fixed. A new structural gap is now exposed. Routes to Matt per dispatch § 6.

@@ -1,0 +1,139 @@
+{
+  "metadata": {
+    "season_id": "cycle-14-wave-5-season-001",
+    "phase": 5,
+    "faction_visibility": "invisible",
+    "wave_a_fired": false,
+    "cluster_count": 3,
+    "relationship_count": 0,
+    "llm_cost_usd": 0.0
+  },
+  "clusters": [
+    {
+      "cluster_id": 1,
+      "season_id": "cycle-14-wave-5-season-001",
+      "member_kit_ids": [
+        "S1_endgame_str_02_light_fighter",
+        "S1_endgame_str_03_polearm_soldier",
+        "S1_endgame_dex_01_dagger_assassin",
+        "S1_endgame_dex_02_archer",
+        "S1_endgame_int_01_standard_wizard",
+        "S1_endgame_wis_01_channeling_cleric",
+        "S1_endgame_wis_02_holy_knight",
+        "S1_endgame_wis_04_storm_caller",
+        "S1_endgame_wis_05_monk"
+      ],
+      "member_count": 9,
+      "modal_cultural_lineage": "unknown",
+      "modal_tech_level": "medieval",
+      "modal_tone": "unknown",
+      "element_distribution": {
+        "water": 0.4444444444444444,
+        "earth": 0.2222222222222222,
+        "wind": 0.2222222222222222,
+        "fire": 0.1111111111111111
+      },
+      "modal_bc_axis_signature": {
+        "engagement_profile": "close",
+        "damage_geometry": "large-AOE"
+      },
+      "pm1_algorithm": "kmeans_k3_fallback",
+      "cluster_compactness": 0.18725350024852852,
+      "faction_label_placeholder": "unknown-medieval-unknown-mixed-element",
+      "faction_label_canonical": null,
+      "faction_identity_narrative": null,
+      "faction_thematic_tags": null,
+      "substrate_anchored_personages": null,
+      "cosine_similarity_max": null,
+      "diversity_flag": null,
+      "phase7_gate_status": "placeholder",
+      "llm_call_id": null,
+      "regeneration_fired": false,
+      "primary_pair_flag": false,
+      "gb_selection_rationale": "highest_substrate_distance",
+      "pairwise_distance_distribution": [
+        125.64144031320122,
+        114.51982479172307,
+        11.09417733188259
+      ]
+    },
+    {
+      "cluster_id": 2,
+      "season_id": "cycle-14-wave-5-season-001",
+      "member_kit_ids": [
+        "S1_endgame_int_05_arcane_familiar_mage"
+      ],
+      "member_count": 1,
+      "modal_cultural_lineage": "unknown",
+      "modal_tech_level": "medieval",
+      "modal_tone": "unknown",
+      "element_distribution": {
+        "fire": 1.0
+      },
+      "modal_bc_axis_signature": {
+        "engagement_profile": "ranged",
+        "damage_geometry": "large-AOE"
+      },
+      "pm1_algorithm": "kmeans_k3_fallback",
+      "cluster_compactness": 0.18725350024852852,
+      "faction_label_placeholder": "unknown-medieval-unknown-fire",
+      "faction_label_canonical": null,
+      "faction_identity_narrative": null,
+      "faction_thematic_tags": null,
+      "substrate_anchored_personages": null,
+      "cosine_similarity_max": null,
+      "diversity_flag": null,
+      "phase7_gate_status": "placeholder",
+      "llm_call_id": null,
+      "regeneration_fired": false,
+      "primary_pair_flag": true,
+      "gb_selection_rationale": "highest_substrate_distance",
+      "pairwise_distance_distribution": [
+        125.64144031320122,
+        114.51982479172307,
+        11.09417733188259
+      ]
+    },
+    {
+      "cluster_id": 3,
+      "season_id": "cycle-14-wave-5-season-001",
+      "member_kit_ids": [
+        "S1_endgame_str_01_heavy_barbarian",
+        "S1_endgame_int_02_artillery_mage",
+        "S1_endgame_wis_03_ritual_mage"
+      ],
+      "member_count": 3,
+      "modal_cultural_lineage": "unknown",
+      "modal_tech_level": "medieval",
+      "modal_tone": "unknown",
+      "element_distribution": {
+        "earth": 0.3333333333333333,
+        "fire": 0.3333333333333333,
+        "water": 0.3333333333333333
+      },
+      "modal_bc_axis_signature": {
+        "engagement_profile": "ranged",
+        "damage_geometry": "chain"
+      },
+      "pm1_algorithm": "kmeans_k3_fallback",
+      "cluster_compactness": 0.18725350024852852,
+      "faction_label_placeholder": "unknown-medieval-unknown-mixed-element",
+      "faction_label_canonical": null,
+      "faction_identity_narrative": null,
+      "faction_thematic_tags": null,
+      "substrate_anchored_personages": null,
+      "cosine_similarity_max": null,
+      "diversity_flag": null,
+      "phase7_gate_status": "placeholder",
+      "llm_call_id": null,
+      "regeneration_fired": false,
+      "primary_pair_flag": true,
+      "gb_selection_rationale": "highest_substrate_distance",
+      "pairwise_distance_distribution": [
+        125.64144031320122,
+        114.51982479172307,
+        11.09417733188259
+      ]
+    }
+  ]
+}

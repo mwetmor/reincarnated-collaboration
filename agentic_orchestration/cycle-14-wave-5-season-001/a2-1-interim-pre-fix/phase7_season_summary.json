@@ -17,7 +17,7 @@
     "support": 0.85,
     "hybrid": 0.85
   },
-  "wall_clock_seconds": 7.4,
+  "wall_clock_seconds": 27.91,
   "explain_plans": {
     "QUERY_DISTINCT_ACTIVE_CELLS": "[QUERY_DISTINCT_ACTIVE_CELLS]\n3 | 0 | 0 | SCAN kit_archive USING COVERING INDEX idx_kit_archive_cell_status",
     "QUERY_ACTIVE_KITS_IN_CELL": "[QUERY_ACTIVE_KITS_IN_CELL]\n3 | 0 | 0 | SEARCH kit_archive USING INDEX idx_kit_archive_cell_status (bc_cell_id=? AND archive_status=?)",
