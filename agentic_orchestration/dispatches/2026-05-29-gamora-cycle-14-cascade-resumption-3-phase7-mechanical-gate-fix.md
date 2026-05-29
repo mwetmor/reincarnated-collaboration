@@ -212,3 +212,113 @@ Pass_rate / eligible_encounters_passed measurement-context-dependent-semantics p
 **Cascade trajectory:** Phase 7 fix → S6c (A2-1 RE-FIRE-3) → A2-2 → A2-7 + D13 parallel-fire → Cycle 14 v1 MVP D9 close.
 
 **Signed:** knight-rider (orchestrator)
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-29
+**Author:** gamora
+**Tag:** `gamora/v2.17-cascade-r3-phase7-mechanical-gate-fix-1`
+
+### (a) Math note path + key derivation
+
+`/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/math/cascade-r3-phase7-mechanical-gate-alignment-2026-05-29.md`
+
+Key derivation:
+- A2-1 Step 1 calibrated to `eligible_encounters_passed(cohort) >= GAUNTLET_ELIGIBLE_PASS_FLOOR_W_ALPHA_6 = 9`
+- As fraction: `9 / 18 = 0.50` (18 encounters per cohort, full mode)
+- Recalibrated threshold: `P7_GAUNTLET_PASS_FLOOR = 0.50` (strict greater-than; > 9/18)
+- Boundary condition: `pass_rate = 9/18 = 0.50` FAILS strict floor (requires > 0.50 = at least 10/18)
+
+### (b) Option α.1 vs α.2 election + implementation evidence
+
+**Option α.2 elected (corrected implementation).** Option α.1 (plumb damage_scaling_path) was infeasible: `ARCHETYPE_COHORT_KPM_BAND` is `None` at runtime (Cycle 15 deferred); would still fall through to legacy `COHORT_KPM_BAND`.
+
+**Implementation evidence (phase7_bridge.py `_run_gauntlet_for_kit`):**
+
+First-pass α.2 used `quality_report.eligible_encounters_in_band` — discovered via empirical probe that this is the SUM across ALL 4 cohorts (gauntlet always runs all 4 regardless of `config['cohorts']` annotation). Empirical evidence: 1-kit probe showed aggregate=43 vs per-target-cohort=15.
+
+Corrected α.2: call `w5g0_gauntlet_setup` + `w5g1_gauntlet_execution` directly to access `GauntletKitResult` objects, then:
+```python
+enc_passed = kit_result.eligible_encounters_passed(gauntlet_archetype)
+```
+This reads per-cohort eligible count via `ENCOUNTER_COHORT_KPM_BAND` — the W-α6 calibration-aligned measurement.
+
+### (c) Threshold recalibration
+
+`P7_GAUNTLET_PASS_FLOOR`: `0.70` → `0.50`
+`_P7_PASS_FLOOR_EXPECTED` (postscript assertion): `0.70` → `0.50`
+Math note: § 3.2 (Option T1 — strict greater-than preserved; boundary kit at exactly 9/18 fails)
+
+### (d) Test results
+
+**New tests:**
+- `test_G_P7_9_mechanical_gate_positive`: 10/18 and 12/18 PASS recalibrated floor 0.50; boundary 9/18 correctly FAILS strict floor. PASS.
+- `test_G_P7_10_mechanical_gate_negative`: 8/18 and 0/18 FAIL recalibrated floor 0.50; gate remains binding. PASS.
+
+**Updated existing tests (G-P7-6 + G-P7-7):** Floor test values updated to use fractions below/at 0.50 (8/18, 0.50) instead of pre-fix values (0.65, 0.70, 0.60) which now pass under new floor.
+
+**All Phase 7 bridge tests: 11/11 PASS.**
+
+**Pre-existing failures (confirmed not regressions):** 13 failures in `test_cycle13_wave5_gauntlet_sim.py` + `test_cycle13_wave5_season_generation.py` confirmed pre-existing via `git stash` + re-test (same failures on HEAD without fix). These are W-α6 architecture mismatches in Cycle 13 tests not yet updated.
+
+### (e) S6a smoke re-fire results
+
+**Pre-fix (S6a investigation telemetry):**
+```json
+{"kits_evaluated": 18, "kits_shipped_worthy": 0, "kits_held_mechanical": 18,
+ "cohort_midpoints": {"damage": 0.0, "defensive": 0.0278, "control": 0.85, "support": 0.85, "hybrid": 0.85}}
+```
+
+**Post-fix (S6a re-fire 2026-05-29):**
+```json
+{"kits_evaluated": 18, "kits_shipped_worthy": 12, "kits_held_cohesion": 0, "kits_held_mechanical": 6,
+ "cohort_midpoints": {"damage": 0.8333, "defensive": 0.1111, "control": 0.85, "support": 0.85, "hybrid": 0.85},
+ "acceptance_rate": 0.6667, "wall_clock_seconds": 3.54}
+```
+
+Phase 7 mechanical gate FIRES. shipped_worthy: 0 → 12. Cohort midpoints correctly in [0,1] range.
+6 held-mechanical kits: failing either floor (pass_rate ≤ 0.50) or band check (defensive kits with low midpoint 0.1111 face tight band). Gate is binding and meaningful.
+
+### (f) Disc #42a Instance 2 sub-case context (pass_rate semantic alignment)
+
+**Pattern:** `pass_rate` — same field name, context-dependent semantics.
+
+| Context | Measurement | Band type | Result |
+|---|---|---|---|
+| Phase 7 bridge (pre-fix) | `encounters_passed / 18` via legacy `in_band` flag | COHORT_KPM_BAND (~75 KPM ±15%) | ≈ 0.0 (near-zero for synthetic kits) |
+| A2-1 Step 1 calibration | `eligible_encounters_passed >= 9` | ENCOUNTER_COHORT_KPM_BAND (per-enc-type) | GAUNTLET_PASS: 18/18 |
+| Phase 7 bridge (post-fix) | `eligible_encounters_passed(gauntlet_archetype) / 18` | ENCOUNTER_COHORT_KPM_BAND (per-enc-type) | 0.0–1.0 range; calibration-aligned |
+
+Flagged for jack-ryan + gandalf canonical-write consideration at Cycle 14 wave-close. Same-name field with context-dependent semantics is a recurrent pattern (Disc #42a Instance 2). This specific sub-case: A2-1 calibration used a boolean gate criterion (`gauntlet_pass = eligible >= 9`) while Phase 7 used a ratio computation — both named "pass" but via different code paths.
+
+**Additional sub-case discovered during implementation:** `quality_report.eligible_encounters_in_band` is an ALL-4-cohort aggregate (not per-cohort). The field name suggests "eligible encounters in band" without scope qualification. Naming clarification opportunity for Cycle 15 or canonical-write.
+
+### (g) Surface-to-KR findings
+
+**No § 6 surface triggers fired:**
+- Math note did not reveal deeper architectural concern; Two-layer gate design confirmed sound.
+- Cohort midpoint semantics post-fix are correct (fractions in [0,1] range; empirical values meaningful).
+- Smoke re-fire PASSED (shipped_worthy = 12 > 0).
+- Disc #42a Q1-Q6 clean (no framing creep; causal chain traceable; scope bounded).
+- Effort within ~2h estimate.
+
+**One finding for KR awareness (not a surface trigger; informational):**
+`gauntlet_sim.w5g1_gauntlet_execution` always runs all 4 `COHORT_ARCHETYPES` regardless of `config['cohorts']` annotation. The `cohorts` key in legendary_config is metadata only — it does NOT filter the cohort execution loop. This means:
+- `quality_report.eligible_encounters_in_band` = sum across all 4 cohorts for any call
+- Phase 7 bridge now bypasses `run_gauntlet_sim()` in favor of direct `w5g0+w5g1` access
+- No architectural change needed (existing behavior is correct for full gauntlet; Phase 7 just needs per-cohort access)
+
+This is informational context for S6c routing + any future Phase 7 changes. Not a blocking concern.
+
+### MIGRATION.md
+
+`§ v1.61` filed in `reincarnated-engine/src/reincarnated/simulation/MIGRATION.md`:
+- `_run_gauntlet_for_kit` measurement semantics change
+- `P7_GAUNTLET_PASS_FLOOR` recalibration
+- Cross-seam impact: minimal (gamora-seam files only; `gauntlet_pass_rate` writeback values now correct fractions)
+
+### S6c readiness
+
+Phase 7 mechanical gate fix COMPLETE. S6c (A2-1 RE-FIRE-3 full season_001 production) is unblocked. Phase 7 smoke re-fire confirms the gate fires and produces meaningful shipped_worthy count. Cohort midpoints are empirically calibrated from base kit pass_rates. KR can route S6c dispatch.
