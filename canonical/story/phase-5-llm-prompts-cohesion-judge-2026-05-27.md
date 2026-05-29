@@ -1,9 +1,18 @@
 # Phase 5 LLM Prompt Templates — Cohesion-Judge (Wave A + Wave B + F-C Inter-Faction Relationships)
 
-> **STATUS:** CURRENT (load-bearing as of 2026-05-27) — Wave 3 Seam 1 deliverable per dispatch `agentic_orchestration/dispatches/2026-05-27-wave-3-phase-5-cohesion-judge-llm-with-f-c.md`. RE-FIRE after API stream timeout at 658s on prior fire; INFO-1 PM-2 § 13.3 `lexicographic_tiebreak` preamble already landed at engine `0cf4f3a` and is NOT in scope here.
+> **STATUS:** CURRENT (load-bearing as of 2026-05-27; S4 audit amendment 2026-05-29) — Wave 3 Seam 1 deliverable per dispatch `agentic_orchestration/dispatches/2026-05-27-wave-3-phase-5-cohesion-judge-llm-with-f-c.md`. RE-FIRE after API stream timeout at 658s on prior fire; INFO-1 PM-2 § 13.3 `lexicographic_tiebreak` preamble already landed at engine `0cf4f3a` and is NOT in scope here. **S4 audit (cascade-resumption-3) 2026-05-29 confirmed prompt templates class-free at template-text layer; substrate-input purity precondition documented at § 2.5.**
 
-**Date:** 2026-05-27
+**Date:** 2026-05-27 (initial); 2026-05-29 (S4 audit amendment)
 **Author:** gandalf (story-and-design steward)
+
+## § 0.1 Amendment-pass-record
+
+| # | Date | Author | Amendment scope | Empirical trigger |
+|---|---|---|---|---|
+| Initial | 2026-05-27 | gandalf | Initial authoring per Wave 3 Seam 1 dispatch (engine commits + dispatch ref in header) | (initial authoring) |
+| Amendment 1 (S4) | 2026-05-29 | gandalf | **Cascade-resumption-3 S4 audit pass** per `agentic_orchestration/gandalf/notes/2026-05-29-cascade-resumption-3-class-eradication-authorization.md` Stream S4. Audit verified: § 4 Wave A USER prompt + § 5 Wave B USER prompt + § 6 F-C USER prompt are **class-free at template-text layer**. All three consume substrate-grounded fields only (cluster centroids + cultural lineage + tech level + tone + element distribution + BC axis signature + weapon_type_family + faction-level outputs). § 3 vocabulary discipline already enforces Discipline #45 (no `warrior\|mage\|rogue\|hunter\|paladin\|class taxonomy` etc.) at internal prompt text. **Substrate-input purity precondition** (NEW § 2.5) added — prompts assume substituted variables `{kit_id}` / `{kit_name_placeholder}` / `{rep_kit_X_placeholder}` / `{faction_label_placeholder}` carry class-vocabulary-free substrate per S1 class eradication (substrate-input layer refactor). **Runtime substrate-purity grep acceptance criteria** added at § 4.4 (W-A10) + § 5.4 (W-B8) + § 6.5 (F-C13) — call-construction-time grep against substituted variables prevents class-vocabulary survival via input substrate even if S1 incomplete or future regression. **No prompt template text refactor required**; correctness depends on S1 substrate-input layer eradication landing. Composes with no-classes architectural recommitment (Matt 2026-05-27 verbatim) at substrate-input layer; closes Phase 5 LLM consumption seam in cascade-resumption-3 work program. | Cascade-resumption-3 Stream S4 audit (commit this batch) |
+
+**Authority chain:**
 **Authority chain:**
 - Matt-gate Path (1) RATIFIED (PM-1 + PM-2 + D-Sharpened LOCKED)
 - Matt pre-ratification #2 LOCKED — F-C tonal direction (substrate-evidence-driven 6-enum `relationship_type`; cross-cultural neutrality; D7 AI-tell templated; cosine <0.7 diversity)
@@ -92,6 +101,33 @@ All three prompt templates below operate under Discipline #45 (generative-archit
 **Exempt narrative term-type tag usage:** when assembling the THEMATIC_REGISTRY filter for the LLM, the registry's `archetype-name` term-type tag (registry § 5) is allowed AS A TERM-TYPE LABEL — the registry maps narrative roles (e.g., "the wanderer", "the keeper") into the prompt slot. The tag name is metadata about WHERE the vocabulary slots in the assembled name; it is NOT an architectural taxonomy claim. Wave B § 5.2 of this doc and registry § 9.2 document the intended consumption.
 
 **Player-facing output exemption:** the LLM's *emitted* narrative (`faction_identity_narrative`, `tension_narrative`, `shared_history_hook`, `kit_identity_narrative`) is **player-facing output** and may use narrative vocabulary that would be prohibited in internal architecture docs (per `canonical/story/` exemption at engineering-disciplines.md line 1716). Critically: the **prompt that asks the LLM to produce that output** must not itself use prohibited vocabulary as an architectural-layer instruction.
+
+---
+
+## § 2.5 Substrate-input purity precondition (NEW per S4 audit 2026-05-29)
+
+The prompt templates at § 4 (Wave A) + § 5 (Wave B) + § 6 (F-C) are **class-vocabulary-free at template-text layer** per § 3 Discipline #45 enforcement. The templates' correctness depends on a substrate-input purity precondition:
+
+**Precondition:** all substituted variables in the USER prompt assembly carry class-vocabulary-free substrate per Discipline #45. Specifically:
+
+| Substituted variable | Source | Substrate-purity requirement |
+|---|---|---|
+| `{kit_id}` (Wave B § 5.3) | kit_archive.kit_id | NO class-vocabulary substrings (barbarian / wizard / cleric / monk / knight / fighter / assassin / archer / sniper / fencer / spellsword / mage / caller / etc.) |
+| `{kit_name_placeholder}` (Wave B § 5.3) | Phase 2 BC discovery procedural name OR pre-Wave-B placeholder | Same requirement |
+| `{rep_kit_X_placeholder}` (Wave A § 4.3) | kit_archive representative kit IDs OR rep summaries | Same requirement |
+| `{faction_label_placeholder}` (Wave A § 4.3) | Phase 3 PM-1 fallback label (e.g., "unknown-medieval-unknown-mixed-element") | Same requirement |
+| `{weapon_type_family}` (Wave B § 5.3) | Substrate-curated weapon family | Substrate-curated; clean |
+| `{cultural_lineage}` / `{modal_cultural_lineage}` | Substrate-curated cultural tradition | Substrate-curated; clean |
+| `{element}` / `{dominant_element}` / `{element_distribution}` | Substrate-curated element | Substrate-curated; clean |
+| `{bc_axis_signature_compact}` / `{modal_bc_axis_signature_compact}` | BC tuple per qd-engine-bc-axes-lock | Substrate-curated; clean |
+
+**Pre-cascade-resumption-3 violation:** the precondition was empirically violated via ENDGAME_ENCOUNTER_CATALOG class taxonomy (Cycle 13 SC-6 hand-crafted artifact embedding class names in `encounter_id` + `archetype_name` + `intent` + `cohort_notes` per `agentic_orchestration/gandalf/notes/2026-05-29-cascade-resumption-3-class-eradication-authorization.md` § 1). Phase 2 BC discovery inherited class-name embedded `encounter_id` → Phase 4 archive `kit_id` carried class taxonomy → Wave A `rep_kit_X` + Wave B `kit_id` substitutions would have leaked class vocabulary into LLM USER prompts.
+
+**Post-cascade-resumption-3 S1 commitment:** S1 (class eradication at substrate-input layer) refactors the catalog + downstream `kit_id` derivation pipeline + class-name field surfaces. Substrate-purity precondition holds post-S1.
+
+**Runtime enforcement:** § 4.4 / § 5.4 / § 6.5 acceptance criteria add `W-A10` / `W-B8` / `F-C13` runtime substrate-purity grep at call-construction time (star-lord Seam 2 implementation hook). This is the defensive layer — even if S1 incomplete or future regression introduces class vocabulary, runtime grep at prompt-construction catches the violation before the LLM call fires.
+
+**Disc #42a Instance 6 connection:** the substrate-input precondition violation was Instance 6 ROOT-CAUSE finding per `agentic_orchestration/gandalf/pushback/2026-05-28-framing-audit-three-instance-case.md`. § 2.5 makes the precondition explicit so future authors cannot propagate class vocabulary through substrate-input layer without acceptance-criteria refutation.
 
 ---
 
@@ -247,6 +283,7 @@ OUTPUT SCHEMA (respond with this JSON shape only):
 | W-A7 | No AI-tell phrase substring match | grep against the AI-tell phrase list in SYSTEM constraint 4; substring match WARN; replicate as cross-cluster check at diversity audit |
 | W-A8 | No prohibited Discipline #45 vocabulary in output | grep `\b(class\|warrior\|mage\|rogue\|hunter\|paladin)\b` against output (case-insensitive) |
 | W-A9 | D-Sharpened invariance preserved | `substrate_anchored_personage` NOT in SYSTEM or USER prompt (audit at call-construction; Gate-2 grep) |
+| **W-A10** (NEW S4 audit 2026-05-29) | **Substrate-input purity precondition runtime grep** — at USER prompt assembly time, grep all substituted variable values (`{rep_kit_1_placeholder}` / `{rep_kit_2_placeholder}` / `{rep_kit_3_placeholder}` / `{faction_label_placeholder}` / `{modal_cultural_lineage}` / etc.) for class-vocabulary substrings | `re.search(r'\b(barbarian\|wizard\|cleric\|monk\|knight\|fighter\|assassin\|archer\|sniper\|fencer\|spellsword\|mage\|caller\|warrior\|rogue\|hunter\|paladin)\b', combined_substituted_text, re.IGNORECASE)` — match triggers Gate-2 BLOCK + halt cascade + surface to Matt queue (substrate-input layer regression beyond cascade-resumption-3 S1 eradication) |
 
 ### § 4.5 Composition with G-B primary-pair (Path III)
 
@@ -374,6 +411,7 @@ OUTPUT SCHEMA (respond with this JSON shape only):
 | W-B5 | No prohibited Discipline #45 vocabulary in output | grep audit |
 | W-B6 | D-Sharpened invariance preserved | `substrate_anchored_personage` NOT in SYSTEM or USER prompt; same audit pattern as W-A9 |
 | W-B7 | Faction-coherence verified | `faction_name` substring OR ≥1 faction_thematic_tag appears in `kit_identity_narrative` (lightweight cohesion proxy) |
+| **W-B8** (NEW S4 audit 2026-05-29) | **Substrate-input purity precondition runtime grep** — at USER prompt assembly time, grep all substituted variable values (`{kit_id}` / `{kit_name_placeholder}` / `{weapon_type_family}` / `{cultural_lineage}` / `{element}` / `{faction_name}` from Wave A / etc.) for class-vocabulary substrings | `re.search(r'\b(barbarian\|wizard\|cleric\|monk\|knight\|fighter\|assassin\|archer\|sniper\|fencer\|spellsword\|mage\|caller\|warrior\|rogue\|hunter\|paladin)\b', combined_substituted_text, re.IGNORECASE)` — match triggers Gate-2 BLOCK + halt cascade + surface to Matt queue (substrate-input layer regression). This is the load-bearing runtime defense at Wave B per-kit layer; kit_id substitution is the highest-risk surface in pre-S1 substrate state |
 
 ### § 5.5 Composition with D-Sharpened (CRITICAL)
 
@@ -575,6 +613,7 @@ OUTPUT SCHEMA (respond with this JSON shape only):
 | F-C10 | No prohibited Discipline #45 vocabulary in output | grep audit |
 | F-C11 | D-Sharpened invariance preserved | no `substrate_anchored_personage` references in F-C prompts; grep audit |
 | F-C12 | Cross-cultural neutrality preserved | spot-check at design-quality audit; gandalf reviews relationship_type distribution per lineage-pair across first 3 seasons; if {European, anyOther} pair correlates with antagonist > 50% of fires, neutrality is leaking → prompt amendment |
+| **F-C13** (NEW S4 audit 2026-05-29) | **Substrate-input purity precondition runtime grep** — at USER prompt assembly time, grep all substituted variable values (`{faction_a_name}` / `{faction_a_narrative}` / `{faction_a_tags}` / `{faction_a_lineage}` / `{faction_a_element}` + B-side equivalents from Wave A outputs) for class-vocabulary substrings | `re.search(r'\b(barbarian\|wizard\|cleric\|monk\|knight\|fighter\|assassin\|archer\|sniper\|fencer\|spellsword\|mage\|caller\|warrior\|rogue\|hunter\|paladin)\b', combined_substituted_text, re.IGNORECASE)` — match triggers Gate-2 BLOCK. Lower-risk surface than Wave B (F-C consumes Wave A outputs which already passed W-A10); defensive layer against Wave A output regression OR Wave A output not yet S4-audited |
 
 ### § 6.6 Distribution acceptance (cross-call; per season)
 
