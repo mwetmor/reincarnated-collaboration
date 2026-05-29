@@ -140,4 +140,113 @@ Per Matt 2026-05-23 hive-mind decision-routing: seam-owner decides in-scope work
 
 ## Completion record
 
-(gamora appends here)
+**Completed:** 2026-05-28 (Phase A1 Dispatch 3)
+**Engine commits:** `fbea597` (RE-RUN-5 sweep harness + AGENT_STATE), `8468136` (AGENT_STATE checkpoint)
+**Collab commit:** `385572f` (RE-RUN-5 telemetry + this completion record)
+**Tag:** `gamora/v2.11-r3-phase-4-rerun-5-verification-1`
+
+---
+
+### 1. VERDICT
+
+Phase 4 RE-RUN-5 verifies amended close-criterion T1-base+T2+T3+T5 PASS across all 7 profiles at engine `fbea597` (post-Dispatch-1 T1 base-context amendment + post-Dispatch-2 R3-prime lower-bound recalibration state).
+
+**Path α v1 engine readiness gate: SATISFIED.** KR may fire Dispatch 4 (gandalf canonical close-criterion capture).
+
+---
+
+### 2. Per-profile results table
+
+| profile | T1-base metric | T1 PASS | T1 ctx | T2 PASS | T3 PASS | T4 metric (record) | T5 PASS | compound_pass(A1) |
+|---|---|---|---|---|---|---|---|---|
+| low (20% budget) | 1.203 | PASS | base_context_explicit | PASS (0) | PASS | 17/18 fail | PASS (0) | **True** |
+| mid (50% budget) | 1.140 | PASS | base_context_explicit | PASS (0) | PASS | 17/18 fail | PASS (0) | **True** |
+| max_a (calibration anchor) | 1.278 | PASS | base_context_explicit | PASS (0) | PASS | 18/18 fail | PASS (0) | **True** |
+| max_b (realistic endgame) | 1.278 | PASS | base_context_explicit | PASS (0) | PASS | 18/18 fail | PASS (0) | **True** |
+| mixed_v1 (passive-heavy) | 1.066 | PASS | base_context_explicit | PASS (0) | PASS | 16/18 fail | PASS (0) | **True** |
+| mixed_v2 (active-heavy) | 1.278 | PASS | base_context_explicit | PASS (0) | PASS | 18/18 fail | PASS (0) | **True** |
+| mixed_v3 (supporting-chain-heavy) | 1.066 | PASS | base_context_explicit | PASS (0) | PASS | 16/18 fail | PASS (0) | **True** |
+
+T3 is structural PASS across all profiles (ceiling removed W-α2; constant structural result).
+All T1 metrics below the 1.5× threshold. T2 zero_count=0 at all profiles. T5 floor_violations=0 at all profiles.
+compound_pass field in telemetry reflects 4/4 A1 criterion (T4 excluded per bounded_viability_validation.py line 1480-1486; Dispatch 1 SHIFT B). No derived-compound-pass needed — raw field is correct.
+t1_measurement_context=`base_context_explicit` at all 7 profiles — confirms Dispatch 1 Shape I sub-pass is active.
+
+---
+
+### 3. BVV anchor verification
+
+On-disk BVV baseline file (`cycle-14-wave-5-season-001/bounded-viability-validation-baseline-2026-05-28.json`; run_at `2026-05-29T03:10:26 UTC`) re-verified at dispatch start:
+- compound_pass: **True**
+- T2 metric_value: 0.0 / zero_count: 0 / violation_cells: []
+- wis_02/mini_boss: kpm=65.934 / is_zero=False
+- T1 metric: 1.1442 / passed: True
+
+BVV anchor remains PASS. No regression from Dispatches 1+2 state. On-disk file confirmed unchanged from KR's Disc #42 cheapest-refutation run.
+
+**Disc #42 vigilance applied:** on-disk RE-RUN-5 telemetry file read and verified against sweep output before attesting. All 7 profile `compound_pass` fields confirmed `true` in the file. Attestation is consistent with artifact.
+
+---
+
+### 4. Telemetry output path
+
+`/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/cycle-14-wave-5-season-001/w-alpha-7-plus-phase-4-rerun-5-amended-close-criterion-7-profile-telemetry.json`
+
+sweep_timestamp: `2026-05-29T03:26:21.189715+00:00`
+wall_time_s: 185.92 | total_gauntlet_calls: 15 | total_measurement_cells: 6480
+
+---
+
+### 5. Pre-Cycle-16 T4 baseline data
+
+T4 `kits_failing` per profile (all `t4_note="record_only_not_gated_a1_election"`):
+
+| profile | kits_failing | kits_total | T4 metric (fail count) |
+|---|---|---|---|
+| low | 17 | 18 | 17.0 |
+| mid | 17 | 18 | 17.0 |
+| max_a | 18 | 18 | 18.0 |
+| max_b | 18 | 18 | 18.0 |
+| mixed_v1 | 16 | 18 | 16.0 |
+| mixed_v2 | 18 | 18 | 18.0 |
+| mixed_v3 | 16 | 18 | 16.0 |
+
+Observation: T4 failure count is highest at max_a/max_b/mixed_v2 (18/18) and lowest at mixed_v1/mixed_v3 (16/18). The 2-kit reduction at passive-heavy and supporting-chain-heavy profiles suggests those profiles produce mild specialization shape in at least 2 kits even without the T4 secondary mechanic being targeted.
+
+All failure reason=`no_peaks` (kits not producing the [1.5, 2.0]× cohort median peak structure at any encounter type). This is the structural T4 barrier documented in Epoch Break cases A+B+C — not per-kit failure; the band structure itself does not produce peaks at current BC axis configuration.
+
+Pre-Cycle-16 BC axis expansion evidence: T4 specialization is structurally unresolvable at current single-axis (investment_level) sweep. `damage_element_profile` + other candidate axes per c-hybrid § 1.1 amendment remain the design target.
+
+---
+
+### 6. Strip-and-ship verification
+
+- kits_shipped: 18/18 (all ship)
+- kits_not_shipped: 0
+- zero_t4_escalations: []
+- All kits ship with `primary_dda` as the shipped_t4_variant
+- 8 kits have ELEMENT_CONVERSION stripped (ECF Layer 2 does not meet band criterion; primary_dda does)
+- 4 kits have 0 T4 candidates (str_04, dex_03, dex_04, int_03, int_04 — null variants only); ship with primary_dda as default
+
+Strip-and-ship 18/18 PASS confirmed.
+
+---
+
+### 7. Anomalies
+
+None. All profiles PASS. No unexpected kit behavior.
+
+Minor note: `encounter_band_table_updated` in telemetry reflects max_a profile RE-RUN-3 band derivation (the live table at time of max_a sweep pass). These values are from the RE-RUN-3 engine sweep at max_a, not the R3-prime recalibrated lower bounds in gauntlet_sim.py. This is expected — the `encounter_band_table_updated` field captures the max_a-derived upper bounds from the live sweep, while the lower bounds in gauntlet_sim.py are the R3-prime recalibrated values. No action required; not a discrepancy.
+
+---
+
+### 8. Commits + tag
+
+**Engine (reincarnated-engine):**
+- `fbea597` — gamora: Phase 4 RE-RUN-5 — 7-profile amended close-criterion PASS (Phase A1 Dispatch 3)
+- `8468136` — gamora: AGENT_STATE.md checkpoint — RE-RUN-5 commit hash + tag recorded
+- Tag: `gamora/v2.11-r3-phase-4-rerun-5-verification-1`
+
+**Collab (reincarnated-collaboration):**
+- `385572f` — gamora: RE-RUN-5 telemetry — 7-profile amended close-criterion all PASS (Phase A1 Dispatch 3)
+- (this completion record append — collab commit to follow)
