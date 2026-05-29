@@ -4110,3 +4110,49 @@ A2-2 → A2-7 + D13 parallel-fire → Cycle 14 v1 MVP D9 close
 ```
 
 **Updated estimate:** ~1d wall-clock remaining (gamora investigation + S6c).
+
+### CASCADE-RESUMPTION-3 PHASE 7 INVESTIGATION VERDICT B 2026-05-29 — genuine calibration issue; KR routes gamora Phase 7 fix dispatch (pre-ratified)
+
+**Gamora Pattern A-light Phase 7 mechanical gate investigation CLOSED — collab `0dcce25`:**
+
+Investigation note at `agentic_orchestration/gamora/notes/2026-05-29-cascade-r3-phase7-mechanical-gate-investigation.md` §§ 1-7.
+
+**Verdict: (B) Genuine calibration issue** — NOT a sample-size artifact.
+
+**Causal chain:**
+1. `_run_gauntlet_for_kit()` (phase7_bridge.py) builds `legendary_config` dict WITHOUT `damage_scaling_path` key
+2. `run_gauntlet_sim()` cannot derive `damage_scaling_path` from config or kit object → falls back to `'_fallback'`
+3. `get_archetype_cohort_kpm_band('_fallback', cohort)` returns legacy `COHORT_KPM_BAND` values (82-97 / 71-79 / 52-64 / 64-82 KPM — narrow band calibrated to ~75 KPM)
+4. Synthetic kit KPMs span 71-446 across encounter types — most produce `in_band=False` under narrow legacy bands
+5. `encounters_passed(cohort) = 0` → `pass_rate = 0.0` → fails `P7_GAUNTLET_PASS_FLOOR = 0.70` (condition 2)
+6. A2-1 Step 1 calibrated magnitudes against `eligible_encounters_passed >= 9` (W-α6 24-cell `ENCOUNTER_COHORT_KPM_BAND` table) — DIFFERENT measurement than Phase 7 bridge `pass_rate`
+
+**Sample-size REFUTED as cause:** damage cohort (n=9) + defensive cohort (n=6) both exceed `min_sample_size=5` at S6a. Empirical midpoints (0.0 and 0.0278) accurately reflect genuine near-zero pass_rates. Full season produces MORE INSTANCES of same signal, NOT improvement.
+
+**Disc #42a pattern observed:** same metric name (`pass_rate`) with context-dependent semantics across A2-1 Step 1 calibration vs Phase 7 bridge measurement. Sub-case of measurement-context-dependent-semantics pattern (Instance 2 in pushback memo). Flag for jack-ryan + gandalf canonical-write consideration at Cycle 14 wave-close.
+
+**Gamora recommended fix (Option α):**
+- Align Phase 7 bridge `pass_rate` measurement to use `eligible_encounters_passed(cohort)` (the metric A2-1 Step 1 calibrated to)
+- Recalibrate `P7_GAUNTLET_PASS_FLOOR` to ~0.50 (matching `GAUNTLET_ELIGIBLE_PASS_FLOOR_W_ALPHA_6 = 9/18`)
+- Math note required (Disc #1)
+- Estimated effort: ~1-2h
+- Fix bounded to `phase7_bridge._run_gauntlet_for_kit` + `phase7_verdict.P7_GAUNTLET_PASS_FLOOR`
+- Two-layer gate architecture is sound; fix is alignment-correction NOT architectural
+
+**No § 6 surface findings.**
+
+**Cost savings from investigation:** ~$50 LLM avoided on zero-output S6c run + ~1d wall-clock saved on remediation cycle.
+
+**KR routing per dispatch § 3 pre-ratified contingent decision (Verdict B):** Gamora seam-owner fix dispatch (Pattern A-light per gamora effort estimate). Auto-route per hive-mind decision-routing.
+
+**Cascade trajectory:**
+
+```
+Investigation ✅ Verdict B → Gamora Phase 7 fix dispatch (~1-2h)
+  ↓
+S6c (A2-1 RE-FIRE-3 full season production)
+  ↓
+A2-2 → A2-7 + D13 parallel-fire → Cycle 14 v1 MVP D9 close
+```
+
+**Updated estimate:** ~1d wall-clock remaining (gamora Phase 7 fix + S6c).
