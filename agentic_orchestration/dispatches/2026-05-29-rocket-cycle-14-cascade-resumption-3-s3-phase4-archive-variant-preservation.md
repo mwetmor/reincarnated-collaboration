@@ -194,4 +194,42 @@ Before code change, author math note at `reincarnated-engine/src/reincarnated/ge
 
 **Cascade trajectory:** S3 → S5b → S6 → A2-1 RE-FIRE-3 → A2-2 → A2-7 + D13 parallel-fire → Cycle 14 v1 MVP D9 close.
 
+---
+
+## Completion record
+
+**Status:** CLOSED
+**Date:** 2026-05-29
+**Agent:** rocket
+**Commit:** `40a53cb` — `rocket(S3): wire S2 variant population into Phase 4 archive + PM-1 clustering input`
+**Tag:** `rocket/v1.0-cascade-r3-s3-archive-variant-preservation-1`
+
+### Deliverables
+
+- **Math note (Disc #1):** `src/reincarnated/generation/notes/cascade-r3-s3-archive-variant-preservation-math-2026-05-29.md` — variant cardinality projection (270→~102-132 shipped), dedup key change analysis, Option B VariantKitRow architecture rationale, PM-1 input cardinality projection (>>24 → GMM BIC), schema impact (no change), existing consumer audit (all SAFE)
+- **Engine implementation:** `src/reincarnated/simulation/wave5_season_orchestrator.py` — VariantKitRow dataclass, `_build_variant_kit_rows()` helper, Phase 2.5 variant enumeration block, Phase 3 + Phase 4 extended call sites
+- **Tests:** `tests/test_cascade_r3_s3_archive_variant_preservation.py` — 36 tests across 8 sections; all PASS
+- **MIGRATION.md cross-seam entry:** `src/reincarnated/generation/MIGRATION.md` — S3 archive-variant-preservation section with full API change documentation
+- **AGENT_STATE.md checkpoint:** `src/reincarnated/generation/AGENT_STATE.md` — S3 CLOSED with all 15 implementation steps, acceptance gate results, framing-audit findings
+
+### Acceptance gates
+
+- **AG-1 (dedup key change):** PASS — VariantKitRow.character_id = `{bc_cell_id}_s2_{strategy}_{invest}` (S2 legendary_id); base kits retain `S1_{encounter_id}_s{idx}` scheme; no collision
+- **AG-2 (PM-1 cardinality):** PASS — PM-1 receives base (~18-54) + variant (~102-132) = >>24 → GMM BIC-selected (above SPARSITY_TIER_GMM_BIC=24); Instance 6 degenerate fallback eliminated
+- **AG-3 (schema no-change):** PASS — `kit_id TEXT NOT NULL PRIMARY KEY` accepts any TEXT; S2 legendary_ids are valid; no additional columns required
+- **AG-4 (backward compat):** PASS — `variant_configs=None`, `variant_kit_rows=None` defaults; existing callers unchanged; degeneracy return path updated 5→6-tuple (empty list appended)
+- **AG-5 (smoke test):** PASS — 36/36 new tests; 255 combined PASS; 0 regressions introduced
+
+### Framing-audit finding (Disc #42a)
+
+The dispatch described "extend dedup key" but the actual gap was that S2 variant configs never reached Phase 4 at all — they flow through a separate code path producing config dicts, not KitCandidates. Resolved by VariantKitRow bridge (Option B — simpler-implementation principle). This is a framing correction, not a scope deviation; all acceptance gates satisfied.
+
+### Cross-seam note
+
+`wave5_season_orchestrator.py` is gamora's seam. Modification was pre-authorized by dispatch § 2.2 ("Phase 4 hook lives in `simulation/wave5_season_orchestrator.py` gamora seam; MIGRATION.md required"). MIGRATION.md entry written.
+
+### KR handoff
+
+S3 CLOSED. Route S5b dispatch (rocket Wave B integration; depends on S3 + S5) per Amendment 2 § 2 trajectory. S5 status with gamora is the remaining dependency before S5b fires.
+
 **Signed:** knight-rider (orchestrator)
