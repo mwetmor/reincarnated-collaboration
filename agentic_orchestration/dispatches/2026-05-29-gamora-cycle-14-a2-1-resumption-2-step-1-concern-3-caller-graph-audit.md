@@ -258,3 +258,31 @@ Append completion record (interim OR final) at any of:
 This dispatch is the cheapest empirical refutation of "what is the cleanest architectural fix for Concern #3 — surgical Phase 7 bridge (P3a) or upstream architectural fix at gauntlet_sim source (P3c)?" — caller-graph audit + method-signature viability check at gamora's seam-internal cost (no LLM spend; ~15-30min wall-clock; read-only).
 
 A2-1 cascade-resumption-2 Step 1 audit PASS = Concern #3 routing decision unblocked + KR routes per § 3.2 matrix → cascade-resumption-2 proceeds Step 2 (KR routing) → Step 2.5 (gandalf gate (i) preliminary assessment) → Step 3 (gamora P3a/P3c fix) → Step 4 (star-lord cost-tracker) → Step 5 (jack-ryan Gate-2) → Step 6 (rocket A2-1 RE-FIRE-2) → cascade through A2-2 → A2-7 toward Cycle 14 v1 MVP D9 close.
+
+---
+
+## Completion record
+
+**Date:** 2026-05-29
+**Author:** gamora (engine simulation seam owner)
+**Engine HEAD at audit:** `98e1825` (rocket A2-1 RE-FIRE attempt 2 AGENT_STATE post-FAIL)
+
+1. **VERDICT:** Audit complete. § 3.2 matrix mapping: Case A (single consumer of `mean_encounters_passed_per_kit`) + Case D (P3a method `GauntletKitResult.encounters_passed(cohort)` viable at `gauntlet_sim.py:482`). KR-recommended action: **P3c preferred** (upstream fix at `gauntlet_sim.py:1068-1076`; divide by `len(cohorts_actually_run)` not `len(COHORT_ARCHETYPES)`); fallback P3a if P3c blocks. No surface-to-Matt required.
+
+2. **Audit-findings brief path:** `agentic_orchestration/gamora/notes/2026-05-29-concern-3-caller-graph-audit.md`
+
+3. **Caller-graph summary:** 1 consumer. `phase7_bridge.py:368` in `_run_gauntlet_for_kit()` is the sole Python site that reads `quality_report.mean_encounters_passed_per_kit`. Producer: `gauntlet_sim.py:1074`. Two other callers of `run_gauntlet_sim()` (`unified_calibration_loop.py:739` and `season_generation_pipeline.py:1193`) pass partial cohorts (`[cohort_normalized]`) but do NOT read `mean_encounters_passed_per_kit` — they are not operationally impacted by Concern #3 but benefit from P3c correction (Disc #40 secondary obs).
+
+4. **P3a viability:** VIABLE. `GauntletKitResult.encounters_passed(cohort: str) -> int` exists at `gauntlet_sim.py:482` with correct signature and return type. Access path requires exposing `kit_results` list on `GauntletQualityReport` (not currently a public field) — one additional field addition. P3c is cleaner (no API surface change required).
+
+5. **§ 3.2 matrix case mapping:** Case A (single consumer, phase7_bridge only) + Case D (P3a viable). Combined → P3c preferred; fallback P3a. NOT Case C + Case E combined. No surface-to-Matt triggered.
+
+6. **Disc #42a Q1-Q6 self-audit:** All 6 PASS. Q1: framing assumption confirmed (audit sufficient for routing determination). Q2: refutation evidence captured (grep + field-access analysis). Q3: cheap (< 30min wall-clock). Q4: measurement context matches (field-access pattern, not proxy). Q5: calibration scope matches (callers of field = impact scope of fix). Q6: semantics stable ("caller graph" = Python sites reading the field; "P3a viability" = method existence + signature + access path).
+
+7. **Disc #48 R48.4/R48.5 verification:** R48.4: no other sub-agent in-flight at audit-fire (gamora alone per KR R48.4 single-seam). R48.5: vm_stat at audit-fire: pages_free=13,534 + pages_inactive=156,885 × 16,384 bytes/page = ~221 MB free + ~2.57 GB reclaimable = ~2.79 GB total free+reclaimable. PASS (> 1 GB threshold).
+
+8. **Engine + collab commits:** Audit-brief auto-committed to collab repo (this completion record + brief file). Engine: no code-touch (audit-only dispatch).
+
+9. **Telemetry output paths:** N/A — audit-only; no simulation run; no telemetry file produced.
+
+10. **Anomalies surfaced:** (a) Disc #40 secondary obs: `unified_calibration_loop.py` and `season_generation_pipeline.py` both pass partial cohorts to `run_gauntlet_sim` but do not read `mean_encounters_passed_per_kit` — latent correctness gap if future callers read the field. P3c fixes universally. (b) Disc #11: comments at `phase7_bridge.py:355-367` actively misframe the bug as known-correct behavior ("1 kit × 1 cohort = exact value" — factually wrong; divisor remains 4). Correction required in downstream fix dispatch. (c) Disc #11: `phase7_bridge.py:351` sets `kit_results = quality_report` (aliasing the report object, not a kit-result list) — confusing name; no operational impact but would need resolution if P3a were chosen.
