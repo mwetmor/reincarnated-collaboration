@@ -2949,7 +2949,64 @@ Authoring this dispatch immediately under hive-mind decision-routing. Pre-flight
 
 ---
 
-### MATT FRAMING-AUDIT INTERVENTION 2026-05-28 — DISC #42 FOURTH-INSTANCE CASE + 2-PHASE FRAMING
+### PHASE A1 DISPATCH 1 (gamora T1 base-context amendment) ✅ COMPLETE
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-28-gamora-t1-base-context-amendment-bvv-harness.md`
+**Engine commits:** `20dde52` (amendment) + `0ac79a0` (state checkpoint) + tag `gamora/v2.10-t1-base-context-amendment-1`
+**Collaboration commit:** `bd7f6f3` (completion record)
+**Fire wall-clock:** ~30 min (matched estimate)
+
+**Disc #42 Q1-Q6 at gamora dispatch consumption gate: PASS.** No assumption KR or gandalf got wrong; amendment correctly motivated; no surfacing condition.
+
+**Implementation: Shape I — flag-gated T1 sub-pass.** Cleanest semantic separation between T1 (cross-path equity at base layer) and T2/T3/T4/T5 (DDA-active context). Backward-compatible API (defaults None). Shape III rejected (state contamination risk). Shape II rejected (weaker for dual-context need).
+
+**Discipline #12 TWO semantic shifts declared:**
+- **SHIFT A:** T1 measurement context now explicit via `harness_parameters["t1_measurement_context"]`. Pre-amendment implicit context (same name, different signal across BVV anchor vs Phase 4 sweep) retired
+- **SHIFT B:** `compound_pass` criterion amended from 5/5 to 4/4. T4 dropped from close-gate per A1 election (measured-for-record only; deferred Cycle 16+ BC axis expansion)
+
+**Files changed:**
+- `simulation/bounded_viability_validation.py` — new `t1_base_context_gauntlet_path` + `t1_base_context_kit_ids_by_path` params; T1-specific cell matrix (`t1_cells`); amended `compound_pass`; extended `harness_parameters`
+- `simulation/unified_calibration_loop.py` — Phase 4 profile loop: T1 base-context gauntlet sub-pass per profile; `t1_measurement_context` in profile results
+- `simulation/math/t1-base-context-amendment-2026-05-28.md` — math note (new)
+- `simulation/MIGRATION.md § v1.55` — downstream consumer notes
+- `simulation/AGENT_STATE.md` — checkpoint
+
+**Smoke verification:**
+- BVV anchor: T1 = **1.1442 PASS**; T2 = 0 PASS; T3 structural PASS; T5 = 0 PASS; **compound_pass(A1) = True** (was False pre-amendment when T4 was gated). T4 = 15 failing kits (measured-for-record, not gated)
+- Code structure smoke: all 10 BVV amendment elements present; all 8 Phase 4 sweep changes present; signature backward-compatible
+- Test suite: 138 PASS, 0 new regressions, 8 pre-existing unchanged
+
+**Phase 4 sweep coordination (load-bearing for Dispatch 3):** RE-RUN-5 will pick up the amendment automatically — 2 gauntlets per profile (DDA-active for T2/T3/T4/T5; base-context for T1). No additional wiring needed at Dispatch 3.
+
+**Phase A1 R-set status:**
+- R1 ❌ REJECT / R2 ❌ REJECT / R3 ✅ RESOLVED at BVV anchor + 7 profiles structurally (post-hotfix)
+- R3-A ✅ RESOLVED (T1 base-context measurement now explicit; Phase A1 Dispatch 1 lands)
+- R3-B 🔥 FIRING NEXT (Phase A1 Dispatch 2 — band lower-bound recalibration for low/mid/mixed_v1/v3)
+- R4 ⏳ Cycle 16+ deferred (BC axis expansion)
+
+**Deferred follow-on items log update (unchanged):**
+- Discipline #23 / #42 framing-audit canonical-write at Phase A1 Dispatch 5 (jack-ryan Gate-2) — four-instance case (Matt-ratified ITEM 4)
+- Naming consistency `mechanic_alteration.py:1066` (rocket follow-on)
+- Discipline #47 candidate jack-ryan canonical ratification at Phase A1 Dispatch 5
+
+---
+
+### PHASE A1 DISPATCH 2 — GAMORA R3-PRIME HOTFIX COMPONENT B (BAND LOWER-BOUND RECALIBRATION)
+
+Authoring this dispatch immediately under hive-mind decision-routing. Pre-flight `vm_stat` confirmed (~2.6 GB available; load avg 2.94 normal post-sweep; safe under R47.5). Single-seam sequencing preserved — gamora Dispatch 1 session complete; no parallel fan-out.
+
+**Disc #42 Q1-Q6 framing-audit at KR dispatch-authoring gate (self-audit):**
+
+| Q | This dispatch's framing | Verdict |
+|---|---|---|
+| Q1 | Anomaly B = band lower-bound calibration gap; profile-asymmetric kits at low/mid/mixed_v1/v3 fall BELOW band lower bounds | Empirically confirmed at RE-RUN-4 (T2 FAIL at low/mid/mixed_v1/v3 specifically) |
+| Q2 | Empirical refutation: could it be something other than lower-bound? E.g., upper-bound interaction at these profiles? | RE-RUN-4 T1 at mid (1.155) is INSIDE bounds; T1 at low (1.72) is OUTSIDE upper; T2 zeroes at low/mid/v1/v3 reflect path-reject, not measurement-level upper-bound issue. Lower-bound is dominant — gamora attestation confirms at Dispatch consumption |
+| Q3 | Refinement before downstream dispatch: this dispatch's framing matches gamora's own attestation from Dispatch 3 completion record | PASS |
+| Q4 | Measurement context: band-calibration is a measurement-layer concern; this dispatch operates at measurement layer | PASS |
+| Q5 | Calibration scope: previous calibration used max_a only (upper bounds); this dispatch must use profile-aware data for lower bounds | Q5 STOP triggered AT KR DISPATCH AUTHORING → made explicit in dispatch scope |
+| Q6 | Semantic stability: "band lower bound" carries same semantics across profiles; this dispatch makes the calibration scope explicit | PASS |
+
+**Framing-audit gate: PASS-with-Q5-explicit.** Dispatch must require gamora to use profile-aware calibration data; previously max_a-only is the gap to close.
 
 Per supplemental Matt question to A1 re-entry: Disc #42 Q1-Q6 framing-audit applied at KR re-entry; Read Y (substantial remaining cycle scope) confirmed canonical. Matt-ratified ITEM 1-4 direction:
 
