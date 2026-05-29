@@ -172,3 +172,61 @@ Authored at `agentic_orchestration/gandalf/notes/2026-05-29-cascade-r3-math-note
 **Cascade trajectory:** Gandalf review + S6c-Phase-2-4 parallel → KR Matt-surface (5-item gate content) → Matt RATIFY-FIRE → S6c-Phase-5+ → A2-2 → A2-7 + D13 parallel → Cycle 14 v1 MVP D9 close.
 
 **Signed:** knight-rider (orchestrator)
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-29
+**Author:** gandalf
+**Review note path:** `agentic_orchestration/gandalf/notes/2026-05-29-cascade-r3-math-note-review-expanded.md`
+
+### (a) Threshold validation verdict
+
+**PASS.** `P7_GAUNTLET_PASS_FLOOR = 0.50` strict greater-than is correctly aligned with W-α6 anchor `GAUNTLET_ELIGIBLE_PASS_FLOOR_W_ALPHA_6 = 9/18 = 0.50`. Math sound. Option T1 (strict >) preserves operator semantics from pre-fix `> 0.70`; boundary kit at exactly 9/18 excluded — conservative and rationale-defended in math note § 3.2. Cohort midpoint semantics preserved (algorithm unchanged; input pass_rate distribution shifts from near-zero to [0.50-1.00] range). Smoke re-fire empirically validates (shipped_worthy: 0 → 12/18 = 66.7%).
+
+### (b) Cost projection table at full-season scale (Matt-gate item 4 input)
+
+| Wave | Firing scale | Calls/season | Cost/season (mid) | 3-season cost (mid) | $50 cap status |
+|---|---|---|---|---|---|
+| Wave A | per-cluster | 4-7 | ~$0.20-0.35 | ~$0.60-1.05 | well under cap |
+| F-C | per-pair | 6-21 | ~$0.30 | ~$0.90 | well under cap |
+| **Wave B (IMPLEMENTED per-base-kit)** | **per-base-kit** | **54** | **~$0.65** | **~$1.95** | **well under cap** |
+| **TOTAL (mid)** | | **~64-82** | **~$1.15-1.30** | **~$3.45-3.90** | **~7-8% of $50 cap; PASS** |
+| TOTAL (worst-case) | | | ~$2.90 | ~$8.70 | ~17% of cap; still PASS |
+
+**Per-variant counterfactual (NOT implemented; for Matt context only):** 810 Wave B calls/season → ~$12.80/season mid → ~$38.40 / 3-season = 77% of cap; worst-case ~$69 = 138% of cap (EXCEEDS). Per-base-kit decision is materially cost-protective (~15× reduction).
+
+### (c) Wave B firing logic clarification
+
+**Per-base-kit, 54 calls/season at S6c expected cardinality. CONFIRMED, NO AMBIGUITY.**
+
+Implementation evidence (verbatim citations):
+- `reincarnated-engine/src/reincarnated/simulation/wave5_season_orchestrator.py:1080-1081` — `_build_kits_input_for_wave_b()` docstring: "Per canonical § 5.3: one Wave B call per kit (base kits only; variants inherit base kit cohesion_data per S5b pre-ratified per-kit decision)."
+- `reincarnated-engine/src/reincarnated/simulation/wave5_season_orchestrator.py:1577-1591` — Phase 5 hook explicitly notes "passing_kits are base kits only (variants inherit cohesion_data per pre-ratified per-kit decision at S5b § 3)"
+- `reincarnated-engine/src/reincarnated/simulation/wave5_season_orchestrator.py:1620-1624` — Phase 7 cohesion lookup: "Variants inherit base kit cohesion_data (pre-ratified per-kit: one Wave B call per base kit; variant kit_ids not present in wave_b_results → Phase 7 uses None → cohesion skipped)."
+
+Canonical alignment: `canonical/story/phase-5-llm-prompts-cohesion-judge-2026-05-27.md` § 5.3 spec ratified. Recognition record Amendment 3 H0 default (variant inheritance) aligns. No semantic gap.
+
+**Recommendation:** no change needed. Per-base-kit is canonically correct + cost-protective + H0-aligned.
+
+### (d) Matt-gate cost projection input ready
+
+Review note § 4 is the consolidated KR-consumption input for Matt-gate authoring at S6c Phase 5 entry. Contains: form counts (item 1), cost projection table (item 4) with per-base-kit IMPLEMENTED + per-variant COUNTERFACTUAL disclosure, Matt election options reference (item 5), telemetry instruments KR can surface from S6c-Phase-2-4 production-fire output.
+
+### (e) Surface-to-KR findings
+
+None fired per § 5 dispatch conditions. All 5 surface triggers (threshold BLOCK / Wave B ambiguous / cost > $50 / Disc #42a catch / effort overrun) clean.
+
+### (f) Cumulative recognitions for Cycle 14 wave-close
+
+Three captured (review note § 7):
+1. Disc #42a Instance 2 sub-case (pass_rate context-dependent semantics) — concurs with gamora math note § 5 + completion record § (f); canonical-write target
+2. `quality_report.eligible_encounters_in_band` field naming opportunity (all-4-cohort aggregate vs per-cohort target scope) — concurs with gamora completion record § (f)
+3. Pre-fire empirical-verification gate as discipline pattern (Matt-articulated at Amendment 5) — gandalf seam-owner candidate for canonical-write at Cycle 14 wave-close
+
+### (g) Auto-commit per CLAUDE.md addendum 2026-05-25
+
+Authorized cascade-resumption-3 work-product; auto-commit. NOT pushed (push requires Matt-explicit-auth).
+
+**Signed:** gandalf (story-and-design steward)
