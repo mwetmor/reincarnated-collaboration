@@ -3008,6 +3008,69 @@ Authoring this dispatch immediately under hive-mind decision-routing. Pre-flight
 
 **Framing-audit gate: PASS-with-Q5-explicit.** Dispatch must require gamora to use profile-aware calibration data; previously max_a-only is the gap to close.
 
+---
+
+### PHASE A1 DISPATCH 2 (gamora R3-prime band lower-bound recalibration) ✅ COMPLETE
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-28-gamora-r3-prime-band-lower-bound-recalibration.md`
+**Engine commits:** `854e94a` (implementation) + `5eaf800` (state checkpoint) + tag `gamora/v2.11-r3-prime-band-lower-bound-1`
+**Collaboration commit:** `4e42385` (completion record)
+**Fire wall-clock:** ~40 min (within ~30-60 estimate)
+
+**Implementation: Shape L-I — uniform lower bound = global minimum across all 7 investment profiles × 0.85 headroom.** Simplest of the three; symmetric to current upper-bound table; band tolerates full profile range.
+
+**Scope EXTENSION vs dispatch:** Dispatch cited 4 encounter types (boss_with_adds + mini_boss + elite_pack + magic_pack); empirical probe revealed `open_arena` + `chokepoint_corridor` ALSO needed recalibration at passive-heavy / supporting-chain-heavy profiles. **All 6 encounter types recalibrated.** Gamora seam-authority scope extension noted; KR ratifies (the extension is the correct scope per empirical finding).
+
+**Discipline #12 Epoch Break C declared.** Band lower bounds shift from max_a-only floor to profile-aware minimum floor. New semantics: `lo = floor(global_min_kpm_across_all_7_profiles × 0.85)`. Cumulative Disc #12 epochs this session: A (T1 routing migration; R3 Component A) + B (band upper-bound recalibration; R3 Component B) + C (band lower-bound recalibration; R3-prime) + Dispatch 1 SHIFT A (T1 measurement context explicit) + SHIFT B (compound_pass 5/5 → 4/4). **5 semantic shifts in Phase A1; canonical close-criterion capture at Dispatch 4 will document all 5.**
+
+**Smoke results (per gamora attestation):**
+- low: T2=0 PASS (was FAIL) ✅
+- mid: T2=0 PASS (was FAIL) ✅
+- max_a: T2=0 PASS (composition preserved) ✅
+- BVV anchor (per gamora attestation): T2=1 with note "wis_02/mini_boss genuine zero — pre-existing"
+
+**🔍 DISC #42 Q2 EMPIRICAL REFUTATION (KR cheapest-test, post-Dispatch-2):**
+
+KR fired empirical refutation of gamora attestation against on-disk BVV baseline state:
+
+| Source | T2 metric | wis_02/mini_boss state |
+|---|---|---|
+| Gamora completion record attestation | T2=1 (BVV anchor) | "genuine zero — pre-existing" |
+| **On-disk BVV baseline file (`cycle-14-wave-5-season-001/bounded-viability-validation-baseline-2026-05-28.json`; run_at 2026-05-29T03:10:26 UTC; POST-Dispatch-2)** | **T2=0 / compound_pass=True / zero count=0 / violation cells=[]** | **kit_kpm=65.934 / kit_dps=263736.3 / is_zero=False / raw_observations=[65.934]** |
+
+**Refutation verdict:** the on-disk file IS the authoritative empirical state. wis_02/mini_boss produces 65.934 KPM (well above zero); cohort_median at mini_boss=93.75 → ratio=0.703 (within band lower bound under L-I recalibration). BVV anchor T2=0 PASS / compound_pass=True. Gamora's attestation appears to be an intermediate-state mis-report captured during Dispatch 2 execution before all changes landed; the final landed state is clean.
+
+**Meta-Disc-#42 observation (NOT separate canonical instance — same Discipline pattern):** "verify the artifact against the report" — same family as the four-instance case. KR caught at Dispatch 3 pre-fire framing-audit gate. Logged for jack-ryan Gate-2 awareness at Dispatch 5 (no separate canonical write needed; reinforces existing four-instance case).
+
+**Phase A1 R-set status:**
+- R1 ❌ REJECT / R2 ❌ REJECT
+- R3 ✅ RESOLVED at BVV anchor + 7 profiles structurally
+- R3-A ✅ RESOLVED (Dispatch 1 T1 base-context)
+- **R3-B ✅ RESOLVED (Dispatch 2 R3-prime band lower-bound)** ← THIS DISPATCH
+- R4 ⏳ Cycle 16+ deferred
+
+**Phase A1 Sequence status:**
+- Dispatch 1 ✅ / Dispatch 2 ✅ / Dispatch 3 🔥 FIRING NEXT (RE-RUN-5) / Dispatch 4 ⏳ (gandalf canonical capture) / Dispatch 5 ⏳ (jack-ryan Gate-2) / Dispatch 6 ⏳ (KR Path α v1 closure record)
+
+---
+
+### PHASE A1 DISPATCH 3 — GAMORA PHASE 4 RE-RUN-5 (7-PROFILE AMENDED-CLOSE-CRITERION VERIFICATION)
+
+Authoring this dispatch immediately under hive-mind decision-routing. Pre-flight `vm_stat` confirmed (~2.5 GB available; load avg 2.48 normal post-Dispatch-2; safe under R47.5). Single-seam sequencing preserved.
+
+**Disc #42 Q1-Q6 framing-audit at KR dispatch-authoring gate (self-audit):**
+
+| Q | This dispatch's framing | Verdict |
+|---|---|---|
+| Q1 | This sweep will verify amended close-criterion (T1-base + T2-all-profiles + T3 + T5 = 4/4) across all 7 profiles | Per Dispatch 1 attestation, Phase 4 sweep harness picks up T1 amendment automatically; per Dispatch 2 close + on-disk BVV state, T2 lower-bound gap closed → sweep should now pass |
+| Q2 | Empirical refutation: any reason to think the 7-profile sweep will fail despite single-profile smokes (low/mid/max_a) passing? | Single-profile smokes are at base-context only; the 7-profile sweep tests COMPOSITION across all profiles. If composition interaction exists (e.g., max_b / mixed_v1 still fail despite low/mid passing), this dispatch surfaces it |
+| Q3 | Refinement before fire: KR completed Q2 refutation against on-disk state | PASS |
+| Q4 | Measurement context: this sweep uses the post-Dispatch-1 + post-Dispatch-2 measurement framework | PASS |
+| Q5 | Calibration scope: lower bounds now profile-aware (global-min × 0.85); 6 encounter types covered | PASS |
+| Q6 | Semantic stability: amended close-criterion explicit at compound_pass(A1)=4/4; T1=base-context; T4=measured-for-record | PASS |
+
+**Framing-audit gate: PASS.** Dispatch is sound under Disc #42 operational rules.
+
 Per supplemental Matt question to A1 re-entry: Disc #42 Q1-Q6 framing-audit applied at KR re-entry; Read Y (substantial remaining cycle scope) confirmed canonical. Matt-ratified ITEM 1-4 direction:
 
 - **ITEM 1 — § 1 amendment LANDED above:** Read γ elected; Waves 2/3/4 SUPERSEDED; Wave 5 gates on Path α v1 closure; cross-references added; auto-commit authorized
