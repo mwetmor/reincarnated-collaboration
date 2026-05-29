@@ -4302,3 +4302,55 @@ Cycle 14 v1 MVP D9 close
 - 3-season total: **~$2.16 (mid) / ~$4.50 (worst case)** = **~4-9% of $50 cap**
 
 **Matt-surface authored at this turn for Amendment 5 Matt-gate election (RATIFY-FIRE / REDUCE-SCOPE / ABORT).**
+
+### CASCADE-RESUMPTION-3 AMENDMENT 6 COMBINED FIX CLOSED 2026-05-29 — Disc #42a Instance 6 surface on Sub-fix 3
+
+**Rocket Amendment 6 combined fix CLOSED — Engine `6f9843c` + `18e833a` + tag `rocket/v1.0-cascade-r3-amendment-6-combined-fix-1`; collab `00436b2`:**
+
+**Sub-fix 1 (S7 deepcopy):** `to_character_dict()` line 294 `copy.deepcopy(self.gear_set)` per kit; explanatory comment lines 289-293. Result: **54 distinct substrate_binding entries** (was 18 flat). ✅
+
+**Sub-fix 2 (Pareto-2 lineage partition):** `Phase4Archive` partition key extended from `str` to `(bc_cell_id, cultural_lineage_canonical)` tuple in 5 locations across `phase4_pipeline.py`. Wire-up in `wave5_season_orchestrator.py`. Lineage = partition discriminator ONLY (NOT added to quality vector q1-q5). Result: **Phase 4 archive = 34** (predicted 25-40 range PASS). ✅
+
+**Sub-fix 3 (S8 Bound 4 paired-joint-sampling):** Per-sample skill emission loop with per-sample character_id; strict pairing by sample_idx. Result: **54 distinct (substrate, skill_tree) pairs** (NOT cross-product 162). ✅ (caveat: see Disc #42a Instance 6 surface below)
+
+**Engineering:**
+- 85 tests PASS (18 new + 67 updated)
+- Math note at `generation/notes/cascade-r3-amendment-6-pareto2-partition-math-2026-05-29.md` (Disc #1 BEFORE code)
+- MIGRATION.md cross-seam entry (Sub-fix 2 touches simulation/ seam atomically per ADR-004)
+- AGENT_STATE.md updated
+
+**Disc #42a Instance 6 surface (rocket-flagged):**
+
+Per rocket attestation on Sub-fix 3: "**`emit_skills_for_kit` is deterministic** — per-sample variation is skill_id namespace only (architecturally correct)."
+
+Implication: Sub-fix 3 produces 54 distinct skill_tree NAMESPACES per sample_idx (different skill_ids) but the SKILL CONTENT (mechanics, tiers, capstones) is identical across N=3 samples per BC cell because `emit_skills_for_kit` is deterministic given fixed BC cell parameters.
+
+Rocket judged "architecturally correct" per their interpretation. KR routing decision per hive-mind decision-routing: **fire jack-ryan Gate-2 Pattern E with explicit instruction to evaluate this Sub-fix 3 semantic claim vs Amendment 6 Bound 4 spec.**
+
+**This is the THIRD Disc #42a Instance 6 surface in cascade-resumption-3:**
+1. Wave B phantom-component (closed by S5/S5b)
+2. Variant Pareto-dominance at S6c gate content (pre-ratified per Recognition record Amendment 3 H0)
+3. **emit_skills_for_kit deterministic per-sample (Amendment 6 Sub-fix 3; rocket-flagged; jack-ryan Gate-2 evaluating)**
+
+Cumulative pattern data for Cycle 14 wave-close jack-ryan + gandalf canonical-write.
+
+**Cycle 15+ flag observations** (per rocket completion + Amendment 6):
+- Bound 3 (substrate-led discrimination at archive via skill_tree_archetype signature) — candidate if Sub-fix 3 namespace-only variation proves insufficient for empirical signal
+- Bound 6 (full enumeration + diversity-weighted archive selection) — for richer combinatorial coverage at higher complexity
+- Per-skill-emitter content-level variation — Cycle 15+ refinement candidate per Sub-fix 3 Instance 6 surface
+
+**Cascade trajectory carry-forward:**
+
+```
+Amendment 6 combined fix ✅ CLOSED
+  ↓
+Jack-ryan Gate-2 Pattern E review (~30min; explicit Sub-fix 3 Instance 6 evaluation)
+  ↓ (Gate-2 PASS / PASS-with-WARN / PASS-with-INFO)
+Re-fire S6c-Phase-2-4 in production (~50sec wall-clock; LLM=$0)
+  ↓
+KR re-surfaces Matt-gate at Phase 5 entry per Amendment 5 (updated empirical state per Amendment 6 predictions)
+  ↓ (Matt RATIFY-FIRE)
+S6c-Phase-5+ continuation (Wave A + F-C + Wave B + Phase 7 verdict)
+  ↓
+A2-2 → A2-7 + D13 parallel-fire → Cycle 14 v1 MVP D9 close
+```
