@@ -4682,3 +4682,72 @@ Gandalf Path decision (Amendment 7b fire-now / Cycle 14 v1 PASS-with-INFO / casc
   ↓ (per gandalf Path decision)
 KR routes downstream cascade per gandalf direction + Matt re-engage if needed
 ```
+
+### CASCADE-RESUMPTION-3 GANDALF URGENT REDIRECT 2026-05-29 — Phase 4 → Phase 5 disjoint population bug surface doc (commit `e466c26`)
+
+**Gandalf surface doc** at `agentic_orchestration/gandalf/notes/2026-05-29-phase-4-phase-5-disjoint-population-bug-surface.md`:
+
+- **Root cause located** at `wave5_season_orchestrator.py:825-836`: Phase 5 PM-1 reads `passing_kits + variant_passing_rows` (s2-only naming); Phase 4 Pareto-2 archive NOT consumed by Phase 5
+- **~80% disjoint populations:** 6 of 34 Phase-4-accepted in Phase 5; 28 Phase-4-accepted NOT in Phase 5; 202 Phase-5 members NOT in Phase 4
+- **22 shipped_worthy** despite only 6 P4∩P5 overlap — Phase 7 join logic question
+- **Three candidate fix paths:**
+  - Path X: Phase 5 PM-1 input = Phase 4 archive output (gandalf-lean; ~1-2hr; verify PM-1 sparsity at n=34)
+  - Path Y: S2 variants extend to s0/s1/s2 sample naming (preserves parallel arch; triples LLM cost)
+  - Path Z: variants enter Phase 4 Pareto archive (variant accept criterion design call)
+
+**Rocket investigation CLOSED in prior turn — collab `bb9a507` + findings note at `agentic_orchestration/rocket/notes/2026-05-29-cascade-r3-instance-6-5-phase4-phase5-disconnect-investigation.md`:**
+
+Rocket findings ANCHOR cleanly on the surface doc + ADD critical structural finding:
+- Phase 5 input reads `passing_kits + variant_passing_rows` per surface doc ✅
+- **NEW Instance 6 #6 candidate: `config_to_kit` collision at `season_generation_pipeline.py:1424-1428`** — `w5r2_gauntlet_sim_integration()` uses `legendary_id = f"{bc_cell_id}_{chain_id}"` as same string for all 3 samples; loop iterates s0→s1→s2; **s2 is last writer; only s2 receives `wr_bracket_pass=True`** — this is the STRUCTURAL cause of "s2-only naming" outcome
+- Per BC cell pass rate: s0=0/18, s1=0/18, s2=13/18 (NOT a filter — structural)
+- **Phase 4 archive IS consumed by Phase 7** (NOT dead-code; NOT decorative — Phase 7 reads all 34 ACTIVE rows for mechanical viability gate)
+- Phase 4 + Phase 5 are PARALLEL downstream branches from Phase 3 (Interpretation A per surface doc)
+- Verdict: NOT Amendment 7b; NOT decorative-by-design; **STRUCTURAL ARCHITECTURAL BYPASS via config_to_kit collision**
+- Surface for design question: should all 3 Amendment-7 samples per passing cell enter PM-1?
+
+**Jack-ryan investigation CLOSED in prior turn — collab `eb14ec3` + findings at `qa/pending/2026-05-29-jack-ryan-cascade-r3-instance-6-5-framing-audit-canonical-record.md`:**
+
+Jack-ryan findings ANCHOR on surface doc:
+- Q1-Q6 audit verdicts: WARN (Q1+Q2+Q3+Q4+Q6) / INFO (Q5)
+- **NOT a Cycle 14 v1 wave-close BLOCKER** — current production run empirically valid; Phase 5 PM-1 produced 4 substrate-led factions; ≥12/18 shipped_worthy assessable from existing outputs
+- Pareto-2 archive serves A/B comparison protocol + cross-season quality tracking (NOT decorative in architectural sense; "decorative for THIS RUN'S PM-1 clustering" is correct narrow characterization)
+- **New Disc #42a Q4 sub-case proposed: "Layer-isolation-vs-integration gap"** — 6th context-type; pipeline stages individually verified correct; inter-stage data flow source different than assumed
+- **Path recommendation: PASS-with-INFO + cascade-resumption-4 conditional on Matt design call** (if Phase 3 → Phase 5 intended: PASS-with-INFO + spec amendment; if Phase 4 → Phase 5 intended: cascade-resumption-4 narrow scope ~0.5-1d)
+- 9 disciplines canonical-write candidacy items queued for Cycle 14 wave-close
+
+**Combined rocket + jack-ryan finding (KR consolidation):**
+
+The "s2-only" surface symptom has TWO architectural layers:
+1. **gandalf-surfaced:** Phase 5 input reads passing_kits + variant_passing_rows (NOT Phase 4 archive) — disjoint population by parallel-vs-sequential architectural question
+2. **rocket-surfaced:** config_to_kit collision means even within passing_kits, only s2 receives wr_bracket_pass=True due to loop ordering — the "s2-only" outcome is STRUCTURAL not a naming filter
+
+This means:
+- Path X (Phase 5 input = Phase 4 archive): closes the parallel-vs-sequential question; but config_to_kit collision still exists at upstream layer
+- Path Y (extend variants to s0/s1/s2): would need to FIRST fix config_to_kit collision so s0/s1 actually get wr_bracket_pass=True; otherwise Path Y produces 0 new s0/s1 passing kits
+- Path Z (variants enter Phase 4 archive): orthogonal to config_to_kit collision
+
+Recommendation per consolidated findings: **EITHER Path X with PM-1 sparsity verification at n=34 (gandalf-lean; ~1-2hr) OR Path Y predicated on prior config_to_kit collision fix (~2-3hr; preserves more population substrate for PM-1)**. Gandalf design call on Path X vs Y.
+
+**Gamora investigation NOT YET FIRED** (parallel batch interrupted by user message between rocket+jack-ryan fires and gamora fire). REDIRECT scope per gandalf § 5 includes:
+- Phase 7 join logic: how does shipped_worthy compute with sparse Phase 5 cluster_id assignment?
+- Why 13/54 (24%) Phase 3 mechanical pass rate?
+- Sample distribution in passing_kits per BC cell
+
+Firing gamora NOW with surface-doc-anchored scope.
+
+**KR HOLD STATUS:** Per gandalf REDIRECT — hold extended past Amendment 7a to include Amendment 7b deliberation. No Phase 5 re-fire until Path X/Y/Z selected.
+
+**Cascade trajectory:**
+
+```
+Rocket investigation ✅ CLOSED (Path X recommendation + Instance 6 #6 config_to_kit collision finding)
+Jack-ryan investigation ✅ CLOSED (PASS-with-INFO + cascade-resumption-4 conditional + Layer-isolation-vs-integration sub-case)
+Gamora investigation ← FIRING NOW with surface-doc-anchored scope
+  ↓
+Findings consolidate to gandalf
+  ↓
+Gandalf Path X/Y/Z decision (or cascade-resumption-4 election)
+  ↓
+KR routes per gandalf direction + Matt re-engage if needed
+```
