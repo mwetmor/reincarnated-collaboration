@@ -199,4 +199,193 @@ Per Matt 2026-05-23 hive-mind decision-routing: seam-owner decides in-scope work
 
 ## Completion record
 
-(gandalf appends here)
+**Authored:** 2026-05-28 (Phase A1 Dispatch 4 — gandalf canonical close-criterion capture for Path α v1)
+**Author:** gandalf (story-and-design steward)
+**Status:** ✅ COMPLETE — all dispatch scope items landed; auto-commit per CLAUDE.md addendum; push deferred for Matt 3-gate surface at A1-A2 phase boundary per ITEM 3
+**Disposition:** normal close — no KR-surfacing condition triggered; no methodology consultation hotspot exceeding seam authority; no Q6 semantic-stability STOP triggered during authoring; no sixth Disc #42 canonical instance discovered during authoring
+
+---
+
+### 1. Discipline #42 framing-audit at MY consumption gate (self-audit; PASS-with-Q6-EXPLICIT-FORWARD-as-instructed)
+
+| Q | Verdict at consumption gate |
+|---|---|
+| Q1 | Load-bearing framing: amendment-notes pattern (not in-place rewrite); C1-C5 rename mechanical scope covers doc 47 + doc 51 + doc 50 cross-reference; engine-side vocabulary migration OUT OF SCOPE per § 3; Path-α-closure ≠ Cycle-14-v1-MVP-closure per Matt ITEM 2; Disc #42 case is FOUR canonical instances + meta-observation 5 (NOT five canonical instances) |
+| Q2 | Refutation evidence: read against doc 47 § 4.6 + doc 51 § 10.8 + doc 50 § 4.7 + state-file § PHASE A1 DISPATCH 4 — internally consistent and amendable in-place; no refutation surfaced |
+| Q3 | Refinement before fire: none — A1 addendum + pushback memo + dispatch directive all aligned |
+| Q4 | Measurement context: C1-C5 vocabulary explicitly disambiguates measurement-layer from in-game-layer per § D rename mechanics; in-game Primary T4 Capstone + in-game Secondary T4 Capstone vocabulary preserved per § C layer-separation table |
+| Q5 | Calibration scope: Path α v1 closure scope = BVV anchor + 7 profiles × 4 targets = 32 cells, C4 deferred — scope explicit at § A close-criterion amendment + § G closure-type distinction table |
+| Q6 | Semantic stability: every reference to "T4" context-qualifies the layer (in-game Primary T4 Capstone / in-game Secondary T4 Capstone / measurement-layer C4); every reference to "closure" context-qualifies the closure type (Path α v1 / Cycle 14 v1 MVP); compound criterion 5/5 vs 4/4 distinction explicit at § A; in-game-T1-T4-skill-tier vocabulary preserved per § D — **PASS** |
+
+**No Q6 STOP triggered.** Layered amendment-notes pattern is sufficient; § 4.6.1-§ 4.6.8 + § 10.8.1-§ 10.8.9 architectural-layer preserved verbatim; amendment-notes (§ 4.6.9 + § 10.8.10) carry the Path α v1 closure semantics on top.
+
+---
+
+### 2. Canonical amendments authored
+
+#### 2.1 doc 47 § 4.6.9 NEW (v1.3 amendment notes)
+
+- **File:** `canonical/47-damage-scaling-architecture-2026-05-27.md`
+- **Insertion point:** after § 4.6.8 line ~744 (existing v1.2 architecture preserved unchanged); before § 5 section break
+- **STATUS header updated** at line 3 to reflect v1.3 amendment
+- **Subsections authored (§ 4.6.9 § A-§ O):**
+  - § A — Close-criterion semantic amendment 5/5 → 4/4 (Disc #12 SHIFT B)
+  - § B — C1 (formerly close-criterion T1) measurement context locked at base context (DDA off) (Disc #12 SHIFT A)
+  - § C — Canonical layer separation table (in-game Primary T4 / in-game Secondary T4 / measurement C1-C5)
+  - § D — C1-C5 measurement-vocabulary rename mechanics + scope
+  - § E — Doc 50 § 4.7 forward cross-reference (companion update)
+  - § F — Q6 DDA 1.75× scope clarification (RE-RUN-5 empirical citations)
+  - § G — Path α v1 closure vs Cycle 14 v1 MVP closure distinction table (Matt ITEM 2)
+  - § H — Band recalibration epoch lock (R3 hotfix + R3-prime + T1 routing migration)
+  - § I — Strip-and-ship 18/18 ratified at Path α v1 close (pre-Cycle-16 T4 baseline)
+  - § J — Discipline #42 four-instance case + meta-observation 5 reference for jack-ryan Gate-2
+  - § K — Disciplines #42 + #43 + #47 ratification candidacy notes (Gate-2 batched per D10)
+  - § L — Cross-references
+  - § M — Composition with existing § 4.6.1-§ 4.6.8 (LOAD-BEARING UNCHANGED preservation)
+  - § N — Decisions-log entry proposal (full proposal text drafted; jack-ryan ratifies at Phase A1 Dispatch 5 Gate-2)
+  - § O — Path α v1 closure record forward-reference (Phase A1 Dispatch 6 KR authoring)
+
+#### 2.2 doc 51 § 10.8.10 NEW (v1.3 amendment notes)
+
+- **File:** `canonical/51-investment-scaling-6-pattern-architecture-2026-05-28.md`
+- **Insertion point:** after § 10.8.9 line ~1343 (existing v1.2 two-layer disposition preserved unchanged); before § 11 section break
+- **STATUS header updated** at line 3 (FOURTH ITERATION designation)
+- **Subsections authored (§ 10.8.10 § A-§ J):**
+  - § A — Primary EXEMPT discipline canonically RATIFIED at Path α v1 close (universal-ship 18/18 empirical)
+  - § B — C1-C5 measurement-vocabulary rename (mechanical scope; engine-side migration out of scope)
+  - § C — Secondary T4 deferral capture + pre-Cycle-16 empirical baseline (kits_failing 16-18/18 per profile; structural no_peaks)
+  - § D — Strip-and-ship 18/18 ratified at Path α v1 close
+  - § E — Band recalibration epoch lock (R3 Component B + R3-prime + T1 routing migration)
+  - § F — Path α v1 closure vs Cycle 14 v1 MVP closure distinction table
+  - § G — Cycle 16+ scope under two-layer architecture (forward-link)
+  - § H — Disciplines #42 + #43 + #47 ratification candidacy notes
+  - § I — Cross-references
+  - § J — Composition with existing § 10.8.1-§ 10.8.9 (LOAD-BEARING UNCHANGED preservation)
+
+#### 2.3 doc 50 § 4.7 v1.3 cross-reference amendment
+
+- **File:** `canonical/50-bounded-viability-with-specialization-design-directive-2026-05-28.md`
+- **Insertion point:** end of § 4.7 before `---` section break (~line 285)
+- **STATUS header updated** at line 3 to reflect v1.3 cross-reference amendment
+- **Content:** Path α v1 closure cross-reference; C1-C5 rename + criterion-layer-5-target-intent-preserved framing + C1 base-context lock + C4 Cycle 16+ deferral + Path-α-closure ≠ Cycle-14-v1-MVP-closure distinction; criterion-layer § 4.1-§ 4.5 explicitly UNCHANGED
+
+---
+
+### 3. C1-C5 rename mechanical scope completed
+
+| Doc | Mechanical scope at this dispatch | Status |
+|---|---|---|
+| doc 47 § 4.6.9 | Use C1-C5 throughout amendment notes (where referencing close-criterion); preserve in-game T4 / Primary T4 / Secondary T4 vocabulary | ✅ COMPLETE |
+| doc 51 § 10.8.10 | Use C1-C5 throughout amendment notes (where referencing close-criterion); preserve in-game Primary T4 + Layer 2 / Secondary T4 vocabulary | ✅ COMPLETE |
+| doc 50 § 4.7 v1.3 cross-reference | Use C1-C5 in cross-reference; criterion-layer § 4.1-§ 4.5 architectural intent preserved unchanged | ✅ COMPLETE |
+| Engine-side math notes + simulation code vocabulary migration | OUT OF SCOPE per dispatch § 3; flagged as Cycle 15 housekeeping OR jack-ryan Gate-2 follow-up | ⏳ DEFERRED |
+
+---
+
+### 4. Path-α-vs-Cycle-14-v1-MVP distinction landed
+
+| Closure type | Scope | Status | Canonical location |
+|---|---|---|---|
+| Path α v1 closure | Engine readiness gate: C1+C2+C3+C5 = 4/4 PASS at BVV anchor + 7 profiles × 4 targets = 32 cells + universal strip-and-ship 18/18 + pre-Cycle-16 T4 baseline | ✅ SATISFIED at engine `fbea597` (Phase A1 Dispatch 3 close) | doc 47 § 4.6.9 § G + doc 51 § 10.8.10 § F + doc 50 § 4.7 v1.3 |
+| Cycle 14 v1 MVP closure | D9 ratified close criteria: Wave 5 ≥12/18 × 3 seasons + Gate-2 × 3 + A/B per D6 + Disciplines #41-#47 batched canonical-write per D10 + Matt tag `v1-cycle-14-no-classes-substrate-led` | ⏳ PENDING Phase A2 (gates on Path α v1 closure + Matt 3-gate surface at A1-A2 phase boundary) | doc 47 § 4.6.9 § G + doc 51 § 10.8.10 § F + state-file § PHASE A1 DISPATCH 4 |
+
+---
+
+### 5. Discipline #42 four-instance case + meta-observation 5 captured
+
+- **Canonical reference at doc 47 § 4.6.9 § J** lists Instance 1 (measurement-context) + Instance 2 (semantic-stability) + Instance 3 (calibration-scope) + Instance 4 (architectural-commitment-context) + Meta-observation 5 (KR Disc #42 cheapest-empirical-refutation at Phase A1 Dispatch 2 close — gamora completion-record attestation BVV-anchor-T2-vs-on-disk-baseline)
+- **Pushback memo amendment FOLDED INTO this dispatch** at `agentic_orchestration/gandalf/pushback/2026-05-28-framing-audit-three-instance-case.md`:
+  - Title amended: "Four-Instance Architectural Case + Meta-Observation 5"
+  - Date line amended: meta-observation 5 added at Phase A1 Dispatch 4 canonical capture
+  - Status amended: OVERDETERMINED — four same-cycle empirical instances + one prior canonical precedent + one meta-observation (attestation-level reinforcement)
+  - NEW § 4-ter authored: "Meta-observation 5 — KR Disc #42 cheapest-empirical-refutation at Phase A1 Dispatch 2 close (attestation-level reinforcement; NOT a separate canonical instance)" with cumulative resolution coverage table
+  - § 6 founding precedents extended with meta-observation 5 entry
+  - § 7 ratification path empirical-evidence threshold extended with RESOLUTION-COMPLETE property
+
+The pushback memo composes with the canonical amendments at jack-ryan Gate-2 (Phase A1 Dispatch 5) as the architectural argument supporting Discipline #42 canonical-write at engineering-disciplines.md.
+
+---
+
+### 6. Decisions-log entry proposal (drafted as proposal text; NOT committed to decisions-log)
+
+- **Location:** doc 47 § 4.6.9 § N (full proposal text drafted)
+- **Title:** "Path α v1 close-criterion amended to 4/4 (C1+C2+C3+C5); C4 deferred to Cycle 16+"
+- **Decision + Reasoning + Alternatives (A1 elected / A2 rejected / A3 rejected) + Status + Related** sections all drafted per `reincarnated-decision-log-format` skill
+- **Authority:** jack-ryan canonical-writes to `~/Games/reincarnated-engine/design/decisions/decisions-log.md` at Phase A1 Dispatch 5 Gate-2 per role separation (gandalf proposes; jack-ryan ratifies canonical-write)
+
+---
+
+### 7. Disciplines #43 + #47 ratification candidacy notes captured
+
+- **doc 47 § 4.6.9 § K** captures the ratification candidacy notes for jack-ryan Gate-2 at Phase A1 Dispatch 5 per D10 ratified Disciplines #41-#47 batched canonical-write:
+  - **Discipline #42 (framing-audit + Q6 semantic-stability subaudit)** — reference § J + pushback memo + OP § 4.1 + § 3.7
+  - **Discipline #43 (design-quality wave-close audit)** — reference gandalf OP § 4.6 + Quality-Orientation Shift Move 4
+  - **Discipline #47 (host-RAM-aware operational concurrency)** — reference gandalf incident note `2026-05-28-mac-mini-freeze-diagnosis.md` § 6 R47.1-R47.5
+
+---
+
+### 8. Pushback memo amendment status
+
+- **Disposition:** FOLDED INTO this dispatch close (not sequenced post-this-dispatch)
+- **File amended:** `agentic_orchestration/gandalf/pushback/2026-05-28-framing-audit-three-instance-case.md`
+- **Filename retained** for continuity (no rename; the title in-document captures the four-instance + meta-observation 5 architectural case)
+- **Composition with jack-ryan Gate-2:** the amended pushback memo is the architectural argument supporting Discipline #42 canonical-write at engineering-disciplines.md; jack-ryan ratifies at Phase A1 Dispatch 5 Gate-2 per D10
+
+---
+
+### 9. Operational constraints honored
+
+- **R47.1:** no recursive grep against directory trees performed; targeted `grep -n` against specific files only
+- **R47.2:** no grep against single files > 200 MB performed
+- **R47.3:** no `find -exec` against directory trees performed
+- **R47.4:** single-seam sub-agent sequencing preserved; no parallel sub-agent fan-out
+- **R47.5:** no allocation expected > 500 MB at this dispatch (canonical-doc edits only); pre-flight vm_stat not required for this work pattern
+- **Discipline #42 framing-audit:** applied at MY consumption gate (§ 1 above); no Q6 STOP triggered; no sixth canonical instance discovered during authoring
+
+---
+
+### 10. Files modified
+
+| File | Modification | LoC delta |
+|---|---|---|
+| `canonical/47-damage-scaling-architecture-2026-05-27.md` | STATUS header v1.3 amendment + NEW § 4.6.9 amendment notes (§ A-§ O subsections) | +~270 LoC |
+| `canonical/51-investment-scaling-6-pattern-architecture-2026-05-28.md` | STATUS header FOURTH ITERATION amendment + NEW § 10.8.10 amendment notes (§ A-§ J subsections) | +~140 LoC |
+| `canonical/50-bounded-viability-with-specialization-design-directive-2026-05-28.md` | STATUS header v1.3 amendment + § 4.7 v1.3 cross-reference amendment | +~6 LoC |
+| `agentic_orchestration/gandalf/pushback/2026-05-28-framing-audit-three-instance-case.md` | Title + Date + Status amended; NEW § 4-ter Meta-observation 5; § 6 founding precedents extended; § 7 ratification path empirical-evidence threshold extended | +~50 LoC |
+| `agentic_orchestration/dispatches/2026-05-28-gandalf-canonical-close-criterion-capture-path-alpha-v1.md` | THIS completion record appended | +~210 LoC |
+
+---
+
+### 11. Commit + push disposition
+
+- **Commit:** auto-fire per CLAUDE.md addendum (authorized cycle work-product; Phase A1 Dispatch 4 work)
+- **Push:** DEFERRED — remains Matt-explicit-authorization per dispatch § 2.8 (sequenced for Matt 3-gate surface at A1-A2 phase boundary per ITEM 3)
+- **Engine tag:** none (this is canonical authorship; no engine code changes)
+
+Commit hash to be appended below by gandalf seam after `git commit` fires.
+
+---
+
+### 12. Cascade unblocked
+
+KR may fire **Phase A1 Dispatch 5 (jack-ryan Gate-2 wave-close review + Disc #42/#43/#47 canonical ratifications + gandalf pushback memo as architectural argument)** on receipt of this completion record.
+
+Dispatch 5 inputs at jack-ryan consumption:
+- doc 47 § 4.6.9 amendment notes (the canonical close-criterion capture)
+- doc 51 § 10.8.10 amendment notes (companion strip-and-ship-side capture)
+- doc 50 § 4.7 v1.3 cross-reference (companion architectural-experience-layer cross-reference)
+- Pushback memo amended (Disc #42 four-instance + meta-observation 5 architectural argument)
+- Decisions-log entry proposal at doc 47 § 4.6.9 § N (jack-ryan canonical-writes to decisions-log)
+- Disciplines #42 + #43 + #47 candidacy notes at doc 47 § 4.6.9 § K + doc 51 § 10.8.10 § H
+
+**Phase A1 Dispatch 6 (KR Path α v1 closure record + Wave 5 cascade entry pre-scope + Matt 3-gate surface)** fires on Dispatch 5 PASS.
+
+---
+
+### 13. Commit hashes
+
+- Auto-commit fired post-completion-record: **`<TBD — appended after `git commit`>`**
+
+---
+
+**gandalf signature:** Phase A1 Dispatch 4 canonical close-criterion capture for Path α v1 COMPLETE. Canonical amendments at doc 47 § 4.6.9 + doc 51 § 10.8.10 + doc 50 § 4.7 v1.3; C1-C5 measurement-vocabulary rename mechanical scope landed; Path-α-closure vs Cycle-14-v1-MVP-closure distinction surfaced; Disc #42 four-instance + meta-observation 5 captured at canonical layer + pushback memo folded in; decisions-log entry proposal drafted; Disciplines #43/#47 ratification candidacy notes captured. No KR-surfacing condition triggered; no Q6 STOP triggered. KR-cascade unblocked: Dispatch 5 (jack-ryan Gate-2) fires on receipt of this completion record.

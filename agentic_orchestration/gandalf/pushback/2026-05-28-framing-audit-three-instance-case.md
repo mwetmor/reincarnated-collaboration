@@ -1,10 +1,10 @@
-# Pushback Memo — Discipline #42 Framing-Audit Canonical Ratification (Four-Instance Architectural Case)
+# Pushback Memo — Discipline #42 Framing-Audit Canonical Ratification (Four-Instance Architectural Case + Meta-Observation 5)
 
-**Date:** 2026-05-28 (amended same date — Instance 4 added post-A1-re-entry framing-audit by KR)
+**Date:** 2026-05-28 (amended same date — Instance 4 added post-A1-re-entry framing-audit by KR; meta-observation 5 added at Phase A1 Dispatch 4 canonical capture per Path α v1 closure)
 **Author:** gandalf (story-and-design steward)
 **Recipient:** jack-ryan (analyst and QA gatekeeper; engineering-disciplines canonical-write authority)
-**Mode:** Pushback memorandum supporting Discipline #42 canonical ratification at next Gate-2 cycle
-**Status:** OVERDETERMINED — four same-cycle empirical instances + one prior canonical precedent constitute architectural-commitment-grade evidence for canonical formalization
+**Mode:** Pushback memorandum supporting Discipline #42 canonical ratification at Phase A1 Dispatch 5 Gate-2
+**Status:** OVERDETERMINED — four same-cycle empirical instances + one prior canonical precedent + one meta-observation (attestation-level reinforcement) constitute architectural-commitment-grade evidence for canonical formalization
 
 **Anchor docs:**
 - `agentic_orchestration/gandalf/notes/2026-05-28-phase-4-rerun-3-adjudication.md` (prior session adjudication; R3 root-cause reframing instance 1)
@@ -70,6 +70,30 @@ Same phrase; different scope; different effort estimate (~1-2d for Path α v1 cl
 
 **Operational catching-power demonstration:** KR's framing-audit caught Instance 4 between A1 election authoring and Dispatch 1 firing — refinement landed in-window per OP § 4.1 Q3. State-file edit + gamora dispatch held UNCOMMITTED + UNFIRED pending Matt direction. Discipline #42 operating capability empirically demonstrated at full architectural resolution: same-session, in-window, before downstream work fires against bad framing.
 
+## 4-ter. Meta-observation 5 — KR Disc #42 cheapest-empirical-refutation at Phase A1 Dispatch 2 close (attestation-level reinforcement; NOT a separate canonical instance)
+
+**Implicit framing in dispatch-completion attestation (gamora completion record at Phase A1 Dispatch 2 close):** gamora completion record attested "BVV anchor T2=1 wis_02/mini_boss genuine zero pre-existing" — the attested intermediate-state of the BVV baseline file was carried forward as authoritative for Phase A1 Dispatch 3 RE-RUN-5 framing.
+
+**Empirical investigation result (KR Disc #42 framing-audit at Dispatch 2 close, in-window before Dispatch 3 fired):** on-disk BVV baseline file `cycle-14-wave-5-season-001/bounded-viability-validation-baseline-2026-05-28.json` showed T2=0 / wis_02/mini_boss kpm=65.934 / is_zero=False. The attested intermediate-state was a mis-report; the on-disk file is authoritative.
+
+**The miss (this is the meta-observation, not a separate canonical instance):** the attestation language carried context-dependent semantics. "T2=1 genuine zero" in the gamora attestation-context (intermediate-state recall during completion-record authoring) mapped to "T2=0 / kpm=65.934 / is_zero=False" in the on-disk-artifact-context (authoritative post-Dispatch-2 baseline). Same target identifier; different attested-vs-empirical state at attestation-time.
+
+**Framing-audit Q-extension that would have caught it:** "verify the artifact against the report" — at any completion-record consumption, the cheapest-empirical-refutation is a 1-line file read against the attested intermediate state. KR's framing-audit applied this exact discipline at Dispatch 2 close — reading the BVV baseline file's actual T2/kpm/is_zero values against the gamora attestation — and caught the mis-report in-window before Dispatch 3 fired against the bad attested state.
+
+**Why this is a meta-observation and NOT a separate canonical instance:** Instances 1-4 are four distinct context-types (measurement-context / semantic-stability-context / calibration-scope-context / architectural-commitment-context). Meta-observation 5 reinforces the existing discipline at a NEW resolution (attestation-level — the gap between attested intermediate-state and on-disk-artifact authoritative-state) without introducing a fifth context-type. The discipline's existing Q-checklist (Q1/Q2/Q3 + Q4/Q5/Q6) covers it (Q2: refutation evidence in scope → 1-line file read against the attested state). The meta-observation captures the additional resolution at which the discipline operates without changing its architectural shape.
+
+**Cumulative resolution coverage of the discipline (post-meta-observation 5):**
+
+| Resolution | Operational gate | Instance / meta-observation |
+|---|---|---|
+| Dispatch consumption | Sub-agent framing-audit Q1-Q3 at dispatch-consumption time | Instance 1 (measurement-context) |
+| Close-criterion authoring | Q6 semantic-stability subaudit at criterion-authoring time | Instance 2 (semantic-stability) |
+| Hotfix calibration scope | Q5 calibration-scope subaudit at hotfix-authoring time | Instance 3 (calibration-scope) |
+| Architectural-commitment language | Q6 semantic-stability subaudit at architectural-commitment-authoring time | Instance 4 (architectural-commitment-context) |
+| Completion-record attestation | Q2 cheapest-empirical-refutation at attestation-consumption time (verify artifact against report) | Meta-observation 5 (attestation-level) |
+
+The discipline's full resolution coverage is now empirically demonstrated across five distinct operational gates within a single cycle. Cumulative cheapest-empirical-refutation latency: ~120s (Question A precedent) to ~5 min (Instance 2 surfacing) — all sub-hour.
+
 ## 5. The cross-cutting pattern
 
 All four instances share the same architectural shape — though Instance 1 + Instance 3 are measurement-context cases and Instance 2 + Instance 4 are semantic-stability cases:
@@ -118,12 +142,13 @@ This is the same architectural failure mode at four resolutions: dispatch-time (
 - 2026-05-28 Phase 4 RE-RUN-4 T1 BVV-vs-sweep semantic-stability (Instance 2 this memo — semantic-context failure)
 - 2026-05-28 Phase 4 RE-RUN-4 Anomaly B profile-symmetric calibration (Instance 3 this memo — calibration-scope failure)
 - 2026-05-28 A1 election addendum + KR election prompt "Cycle 14 v1 MVP closure" terminus framing (Instance 4 this memo — architectural-commitment-context failure; **caught by KR framing-audit in-window before Dispatch 1 fired** — first operational demonstration of the discipline's catching-power at architectural-commitment resolution)
+- 2026-05-28 Phase A1 Dispatch 2 gamora completion-record attestation BVV-anchor-T2-vs-on-disk-baseline (Meta-observation 5 this memo § 4-ter — attestation-level reinforcement; cheapest-empirical-refutation = 1-line file read against attested state; caught by KR framing-audit at Dispatch 2 close in-window before Dispatch 3 fired against bad attested state; reinforces the discipline's operational coverage across attestation-time gates without introducing a fifth context-type)
 
 ## 7. Ratification path
 
-This memo proposes jack-ryan canonical-write of Discipline #42 at `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` § Discipline #42 at next Gate-2 cycle. Ratification authority is jack-ryan per role separation (gandalf proposes; jack-ryan ratifies canonical-write).
+This memo proposes jack-ryan canonical-write of Discipline #42 at `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` § Discipline #42 at Phase A1 Dispatch 5 Gate-2 (per D10 ratified Disciplines #41-#47 batched canonical-write). Ratification authority is jack-ryan per role separation (gandalf proposes; jack-ryan ratifies canonical-write).
 
-**Empirical-evidence threshold (Discipline #14 compliance):** five canonical examples (one prior + four this session) constitute architectural-commitment-grade empirical evidence. Pattern is REAL (not coincidence), RECURRING (not single-instance), ARCHITECTURALLY DISTINCT (clear failure mode unconnected to existing #1-#41), and SELF-DEMONSTRATING-CATCHING-POWER (Instances 2 + 4 caught by framing-audit application in-window — the discipline operationally proves its own value within the same cycle it's being proposed).
+**Empirical-evidence threshold (Discipline #14 compliance):** five canonical examples (one prior + four this session) + one meta-observation reinforcement constitute architectural-commitment-grade empirical evidence. Pattern is REAL (not coincidence), RECURRING (not single-instance), ARCHITECTURALLY DISTINCT (clear failure mode unconnected to existing #1-#41), SELF-DEMONSTRATING-CATCHING-POWER (Instances 2 + 4 + Meta-observation 5 caught by framing-audit application in-window — the discipline operationally proves its own value within the same cycle it's being proposed), and RESOLUTION-COMPLETE (covers dispatch-consumption + close-criterion-authoring + hotfix-authoring + architectural-commitment-authoring + completion-record-attestation gates per § 4-ter coverage table).
 
 **Gandalf-side commitment:**
 - OP § 4.1 framing-audit checklist will be updated post-ratification to reference Discipline #42 as the canonical anchor

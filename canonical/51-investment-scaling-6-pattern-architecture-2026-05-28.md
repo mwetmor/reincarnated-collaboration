@@ -1,6 +1,6 @@
 # 51 — Investment Scaling 6-Pattern Architecture
 
-> **STATUS:** CURRENT (LOAD-BEARING as of 2026-05-28) — THIRD ITERATION 2026-05-28 evening late (§§ 10.7 + 10.8 T4 identity cycling + strip-and-ship additions per Matt design call + Discipline #40 case (c) extension protocol). SECOND ITERATION 2026-05-28 evening (§§ 9 + 10 scope-completeness amendment batch per Matt D1+D2+D3+D4 RATIFICATION). Phase 2 of integrated W-α7+ master scoping; canonical authority on the structural intent of skill-tree per-node investment scaling. Patterns 1+2 detailed for Cycle 14 v1 Phase 3 implementation; Patterns 3-6 canonical-locked stubs for Cycle 15+ work. § 9 captures KNOWN-GAP cross-node prerequisite unlocks (T4_UNLOCK_THRESHOLD = 0.70 acknowledgment + Cycle 15+ deferral). § 10 captures investment-profile distribution rules (calibration anchor profile decision + multi-profile distribution rules + per-profile point allocation algorithm). § 10.7 captures per-kit T4 identity cycling as Phase 4 sweep dimension. § 10.8 captures T4 strip-and-ship rule (out-of-band T4 removed; ≥1 in-band ships kit). Gates W-α7+ Phase 3d gamora BASE re-derivation + Phase 4 multi-profile sweep + Phase 4 post-sweep T4 disposition. See `canonical/00-ground-state.md` § 1.
+> **STATUS:** CURRENT (LOAD-BEARING as of 2026-05-28) — **FOURTH ITERATION 2026-05-28** (NEW § 10.8.10 v1.3 PATH α V1 CLOSE-CRITERION CAPTURE AMENDMENT NOTES — Matt A1 election + Path α v1 engine readiness gate SATISFIED at Phase A1 Dispatch 3; amended close-criterion C1+C2+C3+C5 = 4/4 at BVV anchor + 7 profiles × 4 targets = 32 cells; C4 deferred Cycle 16+; Primary T4 EXEMPT canonically ratified; T1-T5 → C1-C5 measurement-vocabulary rename; in-game T4 / Primary T4 / Secondary T4 vocabulary preserved; companion to doc 47 § 4.6.9). THIRD ITERATION 2026-05-28 evening late (§§ 10.7 + 10.8 T4 identity cycling + strip-and-ship additions per Matt design call + Discipline #40 case (c) extension protocol). SECOND ITERATION 2026-05-28 evening (§§ 9 + 10 scope-completeness amendment batch per Matt D1+D2+D3+D4 RATIFICATION). Phase 2 of integrated W-α7+ master scoping; canonical authority on the structural intent of skill-tree per-node investment scaling. Patterns 1+2 detailed for Cycle 14 v1 Phase 3 implementation; Patterns 3-6 canonical-locked stubs for Cycle 15+ work. § 9 captures KNOWN-GAP cross-node prerequisite unlocks (T4_UNLOCK_THRESHOLD = 0.70 acknowledgment + Cycle 15+ deferral). § 10 captures investment-profile distribution rules (calibration anchor profile decision + multi-profile distribution rules + per-profile point allocation algorithm). § 10.7 captures per-kit T4 identity cycling as Phase 4 sweep dimension. § 10.8 captures T4 strip-and-ship rule (out-of-band T4 removed; ≥1 in-band ships kit). Gates W-α7+ Phase 3d gamora BASE re-derivation + Phase 4 multi-profile sweep + Phase 4 post-sweep T4 disposition. See `canonical/00-ground-state.md` § 1.
 
 **Date:** 2026-05-28 (Phase 2 lock); 2026-05-28 evening (scope-completeness amendment batch §§ 9 + 10)
 **Author:** gandalf (story-and-design steward)
@@ -1341,6 +1341,117 @@ Phase 4 output schema additions per § 10.8.9 two-layer pipeline:
 - kit.supporting_chains: list of chains whose Layer 2 slot has zero in-band strategies
 - kit.ships: bool (True UNIVERSALLY under two-layer architecture; Primary T4 universal-guarantee)
 ```
+
+#### 10.8.10 Path α v1 close-criterion capture amendment notes (NEW v1.3 — 2026-05-28 — Matt A1 election + Path α v1 engine readiness gate SATISFIED at Phase A1 Dispatch 3 close)
+
+> **STATUS:** v1.3 AMENDMENT NOTES. Authored 2026-05-28 (Phase A1 Dispatch 4 — gandalf canonical close-criterion capture for Path α v1) per Matt A1 election lock + ITEM 1-4 ratification + Phase A1 Dispatch 1+2+3 engine commits `20dde52` + `854e94a` + `fbea597` delivering amended close-criterion 4/4 PASS across BVV anchor + 7 profiles × 4 targets = 32 cells.
+>
+> **Companion doc:** `canonical/47-damage-scaling-architecture-2026-05-27.md` § 4.6.9 (parallel authoring this session). This § 10.8.10 captures the doc 51 § 10.8 strip-and-ship-side amendments; § 4.6.9 captures the doc 47 § 4.6 in-game-T4-architecture-side amendments.
+>
+> **Scope discipline:** § 10.8.1-§ 10.8.9 remain LOAD-BEARING and UNCHANGED at the strip-and-ship-architectural layer. What changes is (a) the close-criterion measurement vocabulary used in the strip-and-ship-bounded-viability check (C1-C5 rename per § B below), (b) the Primary T4 EXEMPT discipline made explicit at Path α v1 closure capture, (c) Secondary T4 (in-game Layer 2 cohort-relative peak variants) canonical-deferral to Cycle 16+ captured as the Path α v1 closure disposition with pre-Cycle-16 empirical baseline.
+>
+> **Q6 semantic-stability discipline (Disc #42 forward-stop applied at this authoring gate):** every reference to "T4" context-qualifies the layer (in-game Primary T4 Capstone / in-game Secondary T4 Capstone (Layer 2) / measurement-layer C4 post-rename). Every reference to "closure" context-qualifies the closure type (Path α v1 closure / Cycle 14 v1 MVP closure).
+
+**A. Primary EXEMPT discipline preserved + canonically captured at Path α v1 close**
+
+The Primary T4 EXEMPT discipline from § 10.8 (line 1127) + § 10.8.9 strip-and-ship pipeline is canonically RATIFIED at Path α v1 close. Primary T4 slot (DIRECT_DAMAGE_AMPLIFICATION universal per doc 47 § 4.6.3) is universal-EXEMPT from close-criterion C4 (post-rename per § B below) per doc 47 § 4.6.4 universal-guarantee proof. Phase A1 Dispatch 3 RE-RUN-5 empirical confirms: 18/18 kits ship; 0 zero-T4 escalations under Primary T4 universal-guarantee mechanism.
+
+**B. C1-C5 measurement-vocabulary rename (Matt-ratified per KR ITEM 2 disposition: FOLD INTO this dispatch)**
+
+The strip-and-ship § 10.8.4 kit ship criterion + § 10.8.6 bounded_viability_pass + § 10.8.7 player-experience semantic + § 10.8.9 strip-and-ship pipeline reference the close-criterion targets from doc 50 § 4. The targets rename per `canonical/47-damage-scaling-architecture-2026-05-27.md` § 4.6.9 § D:
+
+| Old name | New name | Definition |
+|---|---|---|
+| Close-criterion T1 | **C1** | Cross-path DPS equity (≤1.5× ratio per doc 50 § 4.1) — LOCKED at BASE CONTEXT (DDA off) per Matt A1 election |
+| Close-criterion T2 | **C2** | Zero-KPM count at any encounter type (zero_count = 0 per doc 50 § 4.2) |
+| Close-criterion T3 | **C3** | Saturation / structural ceiling-removal (saturation_count = 0 per doc 50 § 4.3) |
+| Close-criterion T4 | **C4** | Secondary T4 cohort-relative specialization peaks at [1.5×, 2.0×] per doc 50 § 4.4 — DROPPED at Path α v1 close-gate; canonically deferred to Cycle 16+ BC axis expansion |
+| Close-criterion T5 | **C5** | Floor violations <30% cohort median (no cells below 30% per doc 50 § 4.5) |
+
+**In-game vocabulary preserved:** in-game T1-T4 (or future T0-T4) skill-tier vocabulary is UNCHANGED. In-game Primary T4 Capstone + in-game Secondary T4 Capstone (Layer 2) vocabulary preserved verbatim in § 10.7 + § 10.8.1-§ 10.8.9 (load-bearing for the strip-and-ship pipeline architectural layer).
+
+**Mechanical scope this dispatch:** the rename applies to amendment notes (§ 10.8.10) + the companion doc 47 § 4.6.9 + doc 50 § 4.7 cross-reference. Engine-side vocabulary migration (gauntlet_sim.py + bounded_viability_validation.py + unified_calibration_loop.py + math notes) is gamora seam authority; flagged as Cycle 15 housekeeping OR jack-ryan Gate-2 follow-up; NOT this dispatch.
+
+**C. Secondary T4 deferral capture — pre-Cycle-16 empirical baseline**
+
+In-game Secondary T4 Capstone (Layer 2 ELEMENT_CONVERSION Variants A/B/C + TRADE_OFF REVERSED placeholder + GEOMETRY_COLLAPSE + RESOURCE_CONVERSION per doc 47 § 4.6.2) cohort-relative specialization peaks (close-criterion C4) are canonically deferred to Cycle 16+ BC axis expansion per `canonical/story/c-hybrid-cell-and-curation-architecture-2026-05-28.md` § 1.1.
+
+**Pre-Cycle-16 empirical baseline (captured at Phase A1 Dispatch 3 RE-RUN-5):**
+
+- BVV anchor + 7 profiles × C4 = kits_failing 16-18/18 per profile
+- Structural `no_peaks` across all profiles (Secondary T4 mechanism does not produce cohort-relative peaks at current BC-axis resolution)
+- max_a / max_b / mixed_v2: C1-base 1.278; mixed_v1 / mixed_v3: C1-base 1.066 (DDA-driven path-asymmetry at preferred_encounter_type; designed intent per doc 47 § 4.6.3)
+- Telemetry: `agentic_orchestration/cycle-14-wave-5-season-001/w-alpha-7-plus-phase-4-rerun-5-amended-close-criterion-7-profile-telemetry.json`
+
+This empirical baseline becomes the canonical reference against which Cycle 16+ Secondary T4 cohort-relative peak delivery is measured at Cycle 16+ entry. C4 re-enters the close-gate at Cycle 16+ measurement framework against the expanded BC-axis space.
+
+**D. Strip-and-ship 18/18 ratified at Path α v1 close**
+
+§ 10.8.9 two-layer strip-and-ship pipeline (per doc 47 § 4.6 + doc 51 § 10.8.9) is RATIFIED at Path α v1 close:
+- Primary T4 universal-guarantee mechanism preserved (every kit ships with DIRECT_DAMAGE_AMPLIFICATION at preferred_encounter_type)
+- Secondary T4 variants ship via § 10.8.9 strip-and-ship pruning without cohort-relative peak gate (C4 deferred; no Layer 2 strategy in-band requirement enforced at Path α v1 closure)
+- Kit ship criterion universally satisfied (no kit fails to ship under two-layer architecture); empirical: 18/18 kits ship at Phase A1 Dispatch 3 RE-RUN-5
+- § 10.8.5 edge case (zero in-band T4) does NOT trigger gandalf design escalation under two-layer architecture (already captured at § 10.8.9 line 1310-1319; Path α v1 closure ratifies this disposition canonically)
+
+**E. Band recalibration epoch lock**
+
+The band table calibration governing § 10.8.6 `bounded_viability_pass_at_layer2` is canonically locked at Path α v1 close. Per gauntlet_sim.py band table post-Phase A1 Dispatch 2:
+- Upper bounds: R3 hotfix Component B (gamora `854e94a` precursor) — max_a-derived upper bounds extended profile-asymmetrically
+- Lower bounds: R3-prime (gamora `854e94a`) — profile-specific lower-bound recalibration for low / mid / mixed_v1 / mixed_v3 profiles addressed asymmetric C2 zero-KPM artifacts
+- T1 routing: migrated to `ENCOUNTER_COHORT_KPM_BAND` (R3 Component A) — replaces flat KPM band with per-encounter-type cohort bands
+
+Math note `~/Games/reincarnated-engine/src/reincarnated/simulation/math/r3-prime-band-lower-bound-recalibration-2026-05-28.md`.
+
+**F. Path α v1 closure vs Cycle 14 v1 MVP closure distinction (Matt ITEM 2 amendment)**
+
+This § 10.8.10 amendment notes close PATH α v1 — they do NOT close Cycle 14 v1 MVP. Per § 10.8.9 line 1305-1309 disposition table (kit ship criterion under two-layer architecture):
+
+| Closure type | Scope at this canonical layer | Status at this authoring |
+|---|---|---|
+| **Path α v1 closure** | Engine readiness gate: strip-and-ship 18/18 ratified at Phase A1 Dispatch 3 close; Primary T4 universal-guarantee operational; Secondary T4 pre-Cycle-16 baseline captured | SATISFIED at engine `fbea597` |
+| **Cycle 14 v1 MVP closure** | D9 ratified close criteria (3 LLM seasons × ≥12/18 + Gate-2 × 3 + A/B + Disciplines #41-#47 batched canonical-write + Matt tag) | PENDING Phase A2 cascade |
+
+Instance 4 of the Discipline #42 four-instance case (Cycle 14 v1 MVP terminus framing) motivates this distinction at canonical-doc authoring time.
+
+**G. Cycle 16+ scope under two-layer architecture (forward-link)**
+
+Per § 10.8.9 line 1321-1323: if Layer 2 strip-and-ship empirical pattern surfaces architectural insight at Path α v1 close (e.g., systematic pattern of zero-Layer-2-in-band across kit composition profile X), Cycle 15 design call may extend the Layer 2 catalog with new mechanical strategies tailored to the unsupported profile. The Phase A1 Dispatch 3 RE-RUN-5 empirical baseline (kits_failing 16-18/18 per profile; structural `no_peaks`) is the substrate signal that Cycle 15 design call inherits — if the unsupported pattern is BC-axis-resolution-bound (i.e., resolved by Cycle 16+ BC axis expansion), the Layer 2 catalog does NOT need extension; if the unsupported pattern is mechanic-fit-bound (i.e., persists across BC-axis resolution expansion), the Layer 2 catalog extends per Cycle 15 design call.
+
+**H. Discipline #42 + #43 + #47 ratification candidacy notes (Gate-2 batched per D10)**
+
+Per D10 ratified Disciplines #41-#47 batched canonical-write post Wave 5 Gate-2 (jack-ryan canonical-write authority), the candidacy notes captured at Path α v1 closure:
+
+- **Discipline #42 (framing-audit + semantic-stability subaudit) candidate:** four same-cycle empirical instances + one prior canonical precedent + one meta-observation reinforcement. Pushback memo at `agentic_orchestration/gandalf/pushback/2026-05-28-framing-audit-three-instance-case.md` is the architectural argument. Doc 47 § 4.6.9 § J captures the full instance list.
+- **Discipline #43 (design-quality wave-close audit) candidate:** gandalf OP § 4.6 capture; ratified at Gate-2 cycle by jack-ryan; active at every Cycle 14+ wave-close per Quality-Orientation Shift Move 4.
+- **Discipline #47 (host-RAM-aware operational concurrency) candidate:** gandalf incident note `agentic_orchestration/gandalf/notes/2026-05-28-mac-mini-freeze-diagnosis.md` § 6 R47.1-R47.5 rules; ratified at Gate-2 cycle by jack-ryan.
+
+**I. Cross-references**
+
+- `canonical/47-damage-scaling-architecture-2026-05-27.md` § 4.6.9 — companion Path α v1 closure amendment notes (parallel authoring this session); full Disc #42 four-instance case + meta-observation 5 captured at § 4.6.9 § J; decisions-log entry proposal at § 4.6.9 § N
+- `canonical/50-bounded-viability-with-specialization-design-directive-2026-05-28.md` § 4.7 — cross-reference update (close-criterion C1-C5 vocabulary in forward-link)
+- `canonical/story/c-hybrid-cell-and-curation-architecture-2026-05-28.md` § 1.1 + § 1.3 — Cycle 16+ BC axis expansion + velocity granularity (cross-reference target for C4 deferral)
+- `agentic_orchestration/gandalf/notes/2026-05-28-a1-election-addendum.md` — A1 election lock + canonical layer separation + naming-amendment candidate
+- `agentic_orchestration/gandalf/pushback/2026-05-28-framing-audit-three-instance-case.md` — Disc #42 architectural argument
+- `agentic_orchestration/gandalf/notes/2026-05-28-mac-mini-freeze-diagnosis.md` § 6 — Disc #47 R47.1-R47.5 rules
+- `~/Games/reincarnated-engine/design/decisions/decisions-log.md` — Path α v1 close-criterion proposal (jack-ryan ratifies at Phase A1 Dispatch 5; proposal text at doc 47 § 4.6.9 § N)
+- Engine commits: `20dde52` + `854e94a` + `fbea597`
+- Empirical telemetry: `cycle-14-wave-5-season-001/bounded-viability-validation-baseline-2026-05-28.json` + `cycle-14-wave-5-season-001/w-alpha-7-plus-phase-4-rerun-5-amended-close-criterion-7-profile-telemetry.json`
+- Engine math notes: `~/Games/reincarnated-engine/src/reincarnated/simulation/math/t1-base-context-amendment-2026-05-28.md` + `~/Games/reincarnated-engine/src/reincarnated/simulation/math/r3-prime-band-lower-bound-recalibration-2026-05-28.md`
+
+**J. Composition with existing § 10.8.1-§ 10.8.9**
+
+The amendment notes in § 10.8.10 do NOT supersede § 10.8.1-§ 10.8.9. The strip-and-ship architectural layer (§ 10.8.1-§ 10.8.9) remains LOAD-BEARING and UNCHANGED:
+- § 10.8.1 strip-and-ship rule preserved
+- § 10.8.2 rationale preserved
+- § 10.8.3 failed-T4 chain disposition preserved
+- § 10.8.4 kit ship criterion preserved at the single-layer framing layer; § 10.8.9 line 1305-1309 supersedes for two-layer framing; § 10.8.10 § A canonically ratifies the Primary EXEMPT + universal-ship disposition at Path α v1 close
+- § 10.8.5 edge case preserved (structurally absorbed by Primary T4 universal-guarantee per § 10.8.9)
+- § 10.8.6 § 10.7 + § 10.8 composition preserved
+- § 10.8.7 player-experience semantic preserved
+- § 10.8.8 coordination signal addition preserved
+- § 10.8.9 two-layer disposition preserved (LOAD-BEARING; canonical-RATIFIED at Path α v1 close per § 10.8.10 § A + § D)
+
+§ 10.8.10 encodes the measurement-vocabulary rename + Primary EXEMPT canonical-ratification + Secondary T4 deferral capture for canonical reader navigation; § 10.8.1-§ 10.8.9 encode the architectural-layer commitment that the strip-and-ship pipeline operates within.
 
 ---
 
