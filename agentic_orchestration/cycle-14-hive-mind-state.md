@@ -4481,3 +4481,37 @@ A2-1 RE-FIRE-3 PASS expected (≥12/18 shipped_worthy + 8-element coverage + hyb
   ↓
 A2-2 (Pattern E) → A2-3 → A2-4 → A2-5 → A2-6 → A2-7 + D13 parallel → Cycle 14 v1 MVP D9 close
 ```
+
+### CASCADE-RESUMPTION-3 AMENDMENT 7 GATE-2 PASS-with-INFO 2026-05-29 — S6c production cascade re-fire AUTHORIZED
+
+**Jack-ryan Amendment 7 Gate-2 Pattern E CLOSED — collab `a80ccff`; findings at `qa/pending/2026-05-29-jack-ryan-cascade-r3-amendment-7-gate-2-pattern-e-review.md`:**
+
+- **Layer 1 PASS** (STAT_ELEMENT_POOLS substrate-led from canonical elements.yaml; legacy retired)
+- **Layer 2 PASS** (HYBRID_RATE 0.175; 12/54 within 95% CI)
+- **Layer 3 PASS** (chain assignment + ELEMENT_CONVERSION T4 surface alignment)
+- **Amendment 6 composition PASS** (Pareto-2 + S7 deepcopy + S8 Bound 4 preserved; 67 combined tests PASS live-verified)
+- **Overall Pattern E disposition: PASS-with-INFO**
+
+**Two INFO items (deferred to Cycle 14 wave-close; no code change):**
+1. Math note § 1.3 seeding description imprecision (rocket reconciles)
+2. DEX Option C attribute-system § 2.1 lock closure (gandalf closes at wave-close)
+
+**Cumulative Instance 6 pattern: CLEAN — no fourth surface.** Amendment 7 produces BEHAVIORAL variation (distinct elements + distinct hybrid booleans + distinct secondary elements); confirmed counter-example to structural-vs-behavioral sub-type from 3 prior Instance 6 surfaces.
+
+**Cycle 14 wave-close canonical-write queue (9 items):** math note seeding clarification / DEX lock closure / STR pool expansion / hybrid rate calibration / canonical-engine drift detection / Bound 4 criterion (4) reconciliation / paired-joint-sampling discipline / Disc #42a structural-vs-behavioral sub-case + counter-example / Pre-fire empirical-verification gate discipline candidate (from Amendment 5/8 retired)
+
+**KR routing per Pattern E PASS-with-INFO + Amendment 8:** S6c production cascade re-fire AUTO-AUTHORIZED. Phase 2-4 → Phase 5 LLM → Phase 7 WITHOUT Matt-gate. KR monitors $50 cost cap; surface at ~75-80% approach OR breach (mandatory).
+
+**Cascade trajectory:**
+
+```
+All architectural streams CLOSED + Gate-2 PASS-with-INFO ✅
+  ↓
+S6c PRODUCTION CASCADE RE-FIRE (rocket; full Phase 2-7; smoke=False; LLM fires)
+  ↓ (KR monitors $50 cap throughout)
+A2-1 RE-FIRE-3 acceptance: ≥12/18 shipped_worthy + 8-element coverage + hybrid rate within CI + Wave A + F-C + Wave B all fire + Phase 7 mechanical gate fires per Phase 7 fix + Phase 7 cohesion gate BINDING
+  ↓
+A2-2 (jack-ryan Gate-2 Pattern E season_001) → A2-3 (season_002) → A2-4 (season_003) → A2-5 (A/B comparison protocol) → A2-6 (disciplines batched canonical-write per D10 RATIFIED) → A2-7 (Matt v1 tag ratification FINAL surface)
+  ↓ + D13 parallel-fire post-A2-2 PASS
+Cycle 14 v1 MVP D9 close
+```
