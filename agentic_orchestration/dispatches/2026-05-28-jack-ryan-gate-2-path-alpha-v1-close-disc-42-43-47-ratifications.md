@@ -225,4 +225,78 @@ Per Matt 2026-05-23 hive-mind decision-routing: seam-owner decides in-scope work
 
 ## Completion record
 
-(jack-ryan appends here)
+**Completed:** 2026-05-29 (Phase A1 Dispatch 5)
+**Reviewer:** jack-ryan
+
+### 1. Gate-2 verdict
+
+**PASS-with-INFO**
+
+Finding file: `agentic_orchestration/qa/findings/2026-05-28-gate-2-path-alpha-v1-close-disc-42-43-47-ratifications.md`
+
+INFO: Dispatch named "#47 candidate" for host-RAM-aware operational concurrency, but Discipline #47 was already ratified (2026-05-28 W-α5c) as the bounded-viability-with-specialization framework discipline. Correctly assigned as Discipline #48 at canonical-write time per jack-ryan seam authority. No remediation required.
+
+### 2. Decisions-log canonical write
+
+**Commit:** `566c7cd` (engine repo)
+**File:** `design/decisions/decisions-log.md`
+**Line range:** 3536–3598
+**Entry title:** `2026-05-28: Path α v1 close-criterion amended to 4/4 (C1+C2+C3+C5); C4 deferred to Cycle 16+`
+
+### 3. Discipline #42 canonical write
+
+**Action:** AMENDED (not fresh ratification — #42 was already ratified 2026-05-27 with Q1/Q2/Q3)
+**Commit:** `566c7cd` (engine repo)
+**File:** `design/working-agreement/engineering-disciplines.md`
+**Line range:** 1566–1678 (§42a — measurement-context subaudit Q4/Q5/Q6)
+**Amendment basis:** four same-cycle founding instances + one meta-observation (gandalf pushback memo `2026-05-28-framing-audit-three-instance-case.md` + Matt ITEM 4 ratification of Instance 4)
+
+### 4. Discipline #43 disposition
+
+**Action:** AMENDED — Phase A1 Dispatch 5 first-instance record appended
+**Commit:** `566c7cd` (engine repo)
+**File:** `design/working-agreement/engineering-disciplines.md`
+**Line range:** 1680 (first-instance paragraph)
+**A1-A5 audit verdict:** PASS — Path α v1 closure ready for KR Dispatch 6 closure record
+
+### 5. Discipline #47 / #48 canonical write
+
+**Action:** AMENDED numbering — dispatch authored "#47 candidate"; assigned as #48 (slot collision; #47 already taken)
+**Commit:** `566c7cd` (engine repo)
+**File:** `design/working-agreement/engineering-disciplines.md`
+**Line range:** 2227–2280 (Discipline #48 — host-RAM-aware operational concurrency; R48.1-R48.5)
+**Founding incident:** 2026-05-28 Mac mini M2 freeze (gandalf/notes/2026-05-28-mac-mini-freeze-diagnosis.md)
+
+### 6. Q6 semantic-stability verification
+
+**Result:** PASS across all three canonical artifacts
+- Doc 47 § 4.6.9: C1-C5 throughout; in-game T4/Primary T4/Secondary T4 vocabulary preserved unchanged; explicit "Path α v1 closure ≠ Cycle 14 v1 MVP closure" statement present
+- Doc 51 § 10.8.10: C1-C5 rename table present; Primary T4 EXEMPT ratified; t1_measurement_context='base_context_explicit' referenced
+- Doc 50 § 4.7 v1.3: T1-T5 → C1-C5 rename in forward-link; C1 base-context lock; C4 deferral; compound criterion 5/5 → 4/4
+
+No semantic-stability issue requiring gandalf amendment cycle.
+
+### 7. Cross-seam round-trip verification
+
+**Result:** PASS
+- Engine commits `20dde52` + `854e94a` (two A1 amendments) consumed by canonical authoring `c2c65cf` cleanly
+- RE-RUN-5 telemetry (`w-alpha-7-plus-phase-4-rerun-5-amended-close-criterion-7-profile-telemetry.json`) routing note explicitly references both A1 amendments active
+- Doc 47 § 4.6.9 cross-references all three engine commits + BVV anchor + RE-RUN-5 telemetry
+- MIGRATION.md §v1.55 + §v1.56 present; downstream consumer impact documented
+
+### 8. Anomalies and follow-on items
+
+**INFO — Gamora mis-attestation (Dispatch 2):** Gamora's completion record attested "T2=1 wis_02/mini_boss genuine zero." Independently verified via BVV anchor: wis_02/mini_boss kpm=65.934, is_zero=False. Not a genuine zero. BVV compound_pass=True regardless (T2 passes by zero_count=0 overall). Non-blocking. Recorded per Discipline #42 Q2 attestation-level discipline. Gamora should review attestation language in future completion records.
+
+**Cycle 15 housekeeping (non-blocking):** Engine-side T1-T5 → C1-C5 vocabulary migration in MIGRATION.md and math notes deferred to Cycle 15 per dispatch § 3 out-of-scope. Gamora seam authority; no blocking gate.
+
+**RE-RUN-5 T1 metrics for record:** low=1.203, mid=1.14, max_a=1.278, max_b=1.278, mixed_v1=1.066, mixed_v2=1.278, mixed_v3=1.066. All within acceptable range; C1 base-context PASS confirmed.
+
+### 9. Tags and commit hashes
+
+**Engine canonical-write commit:** `566c7cd` — jack-ryan Gate-2 Path α v1 close canonical writes
+**Engine commits under review:** `20dde52` (T1 base-context amendment), `854e94a` (R3-prime lower-bound), `fbea597` (RE-RUN-5 7-profile sweep), `8468136` (gamora AGENT_STATE checkpoint)
+**BVV anchor:** `bounded-viability-validation-baseline-2026-05-28.json` (compound_pass=True)
+**RE-RUN-5 telemetry:** `w-alpha-7-plus-phase-4-rerun-5-amended-close-criterion-7-profile-telemetry.json` (7 profiles × 4/4 PASS; sweep_timestamp 2026-05-29T03:26:21Z)
+
+**KR Dispatch 6 signal:** PASS — Path α v1 closure confirmed. Fire KR Dispatch 6 (Path α v1 closure record + Wave 5 cascade entry pre-scope + Matt 3-gate surface).
