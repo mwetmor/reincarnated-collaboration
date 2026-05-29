@@ -3837,3 +3837,57 @@ A2-2 → A2-7 + D13 parallel-fire → Cycle 14 v1 MVP D9 close
 ```
 
 **Updated estimate to A2-1 RE-FIRE-3 PASS:** ~3-5d wall-clock remaining (S7 + S5 closed cuts ~2d from prior estimate; S2 + S3 + S5b + S6 sequential remaining).
+
+### CASCADE-RESUMPTION-3 S2 + SURFACE 1 PATCH CLOSED 2026-05-29 — Amendment 4 dispositions executed
+
+**S2 (gamora) CLOSED — Engine `50ce983` + tag `gamora/v2.16-cascade-r3-s2-gauntlet-variant-enumeration-1`:**
+- Option C methodology applied: 270 cells enumerated (18 BC × 6 Layer 2 T4 strategies × 3 invest profiles, minus 54 structural NOs)
+- Structural NOs excluded: 24 ECA on STR/DEX cells × 3 invest + 30 ECC on INT/WIS cells × 3 invest = 54 cells
+- TOR skip-slot-5 update (Amendment 4 Surface 3 disposition): TOR present in LAYER2_T4_STRATEGIES tuple; absent from _STRUCTURAL_NO_CELLS frozenset; Phase 4 + other consumers read TRADE_OFF REVERSED as IMPLEMENTED
+- 78 new tests PASS / 0 new regressions
+- Disc #12 semantic shift captured: TOR transitions from PLACEHOLDER (excluded) to IMPLEMENTED (enumerated); inline comment + commit message + completion record
+- Math note authored at `simulation/math/cascade-r3-s2-gauntlet-variant-enumeration-2026-05-29.md`
+- MIGRATION.md § v1.60 added
+- AGENT_STATE checkpoint `03ecc99`
+- Collab completion record `0028f2a`
+- **Informational surface to KR (non-blocking):** 7 pre-existing test failures in `TestGauntletKitResult` (confirmed pre-S2 via git stash); flagged for jack-ryan triage at S6 Gate-2
+
+**Surface 1 regex patch (star-lord) CLOSED — Engine `857d825` + tag `star-lord/v1.4-cascade-r3-surface-1-regex-amendment-1`:**
+- SUBSTRATE_PURITY_VOCAB_REGEX at line 192-196 updated from `\b(...)\b` to `(?<![a-zA-Z])(...)(?![a-zA-Z])` per canonical § 4.4/5.4/6.5 amended verbatim (Amendment 4 Surface 1)
+- W-B8 (line 1636), W-A10 (line 474), F-C13 (line 1063) all reference the same constant; atomic update
+- Amendment 4 comment block at line 188 documents `\b` underscore boundary bug rationale
+- 16 new tests Group 15 `TestAmendment4LookaroundBoundary` all PASS:
+  - `warrior_001` → underscore-bounded class token caught (CascadeBlockError)
+  - `mage_caster_bc1high_fire` → underscore-bounded substring caught
+  - `cleric42` → digit-bounded caught
+  - `knight.alpha` → punctuation-bounded caught
+- Critical regression checks PASS: `ancient-magery-tradition` still passes (lookahead blocks `mage` followed by `r`); `spellcraft-blade` still passes (`spellsword` not substring)
+- 108/108 total tests PASS (92 existing + 16 new); zero regressions
+- **Disc #42a Instance 6 canonical-vs-implementation gap CLOSED** at W-B8/W-A10/F-C13 regex layer
+- Collab completion record `14ddb1a`
+
+**KR Disc #42a meta-observation 5 verification PASS:**
+- S2: LAYER2_T4_STRATEGIES tuple includes TOR; _STRUCTURAL_NO_CELLS frozenset present; engine grep verified
+- Surface 1: lookaround pattern present at line 193 verbatim per canonical doc
+- Both tags landed; both completion records authored; both AGENT_STATE checkpoints captured (where applicable)
+
+**Cascade trajectory carry-forward:**
+
+```
+S1 ✅ + S4 ✅ + S7 ✅ + S5 ✅ + gamora research ✅ + S2 ✅ + Surface 1 patch ✅
+  ↓
+S3 (rocket; ~0.5-1d) ← READY TO FIRE (S2 variants to preserve in kit_archive)
+  ↓
+S5b (rocket Wave B integration; ~2-4h) ← depends on S3 + S5 (S5 ✅)
+  ↓
+S6 (Gate-2 + A2-1 RE-FIRE-3; ~1-1.5d)
+  ↓
+A2-2 → A2-7 + D13 parallel-fire → Cycle 14 v1 MVP D9 close
+```
+
+**Updated estimate to A2-1 RE-FIRE-3 PASS:** ~2-4d wall-clock remaining (S2 + Surface 1 closed cuts ~1-2d from prior estimate).
+
+**Informational items deferred to jack-ryan triage at S6 Gate-2:**
+- 7 pre-existing TestGauntletKitResult failures (confirmed pre-S2 via git stash; per gamora completion record); not introduced by S2
+
+**KR auto-routes per Amendment 4 hive-state clarification — proceeding S3 fire per hive-mind decision-routing.**
