@@ -3149,6 +3149,65 @@ Authoring this dispatch immediately. Pre-flight `vm_stat` confirmed (~2.5 GB ava
 
 **Framing-audit gate: PASS-with-Q6-EXPLICIT-FORWARD.**
 
+---
+
+### PHASE A1 DISPATCH 4 (gandalf canonical close-criterion capture) ✅ COMPLETE
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-28-gandalf-canonical-close-criterion-capture-path-alpha-v1.md`
+**Commits:** `c2c65cf` (main canonical capture; 5 files; 568 ins / 10 del) + `c2df805` (completion-record hash-stamp follow-up)
+**Push:** DEFERRED for Matt 3-gate surface at A1-A2 phase boundary (per ITEM 3)
+**Fire wall-clock:** ~half-day target met
+
+**Disc #42 Q1-Q6 at gandalf consumption gate:** PASS-with-Q6-EXPLICIT-FORWARD honored; no Q6 STOP triggered during authoring; no sixth Disc #42 canonical instance discovered.
+
+**Canonical amendments landed:**
+
+| File | Change |
+|---|---|
+| `canonical/47-damage-scaling-architecture-2026-05-27.md` | STATUS v1.3 + NEW § 4.6.9 amendment notes (§§ A-O: close-criterion 5/5→4/4 / C1 base-context lock / canonical layer separation / C1-C5 rename mechanics / Q6 DDA 1.75× scope / Path-α-vs-Cycle-14-v1-MVP distinction / band recalibration epoch lock / strip-and-ship 18/18 / Disc #42 four-instance + meta-observation 5 / Disc #43/#47 candidacy / decisions-log entry proposal at § N / composition-preservation note at § M) |
+| `canonical/51-investment-scaling-6-pattern-architecture-2026-05-28.md` | STATUS FOURTH ITERATION + NEW § 10.8.10 amendment notes (§§ A-J: Primary EXEMPT canonical-ratification / C1-C5 rename / Secondary T4 deferral capture + pre-Cycle-16 empirical baseline / strip-and-ship / band recalibration epoch lock / Path-α-vs-Cycle-14-v1-MVP distinction / Cycle 16+ forward-link / Disc #42/#43/#47 candidacy / composition-preservation at § J) |
+| `canonical/50-bounded-viability-with-specialization-design-directive-2026-05-28.md` | STATUS v1.3 + § 4.7 v1.3 cross-reference amendment (criterion-layer §§ 4.1-4.5 explicitly UNCHANGED; C1-C5 rename; C1 base-context lock; C4 Cycle 16+ deferral; Path-α-closure ≠ Cycle-14-v1-MVP-closure) |
+| `gandalf/pushback/2026-05-28-framing-audit-three-instance-case.md` | Title + Date + Status amended (four-instance + meta-observation 5); NEW § 4-ter Meta-observation 5 (KR Disc #42 cheapest-empirical-refutation at Phase A1 Dispatch 2 close); § 6 founding precedents extended; § 7 ratification path with RESOLUTION-COMPLETE property |
+| Dispatch 4 file | Completion record appended |
+
+**Path-α-closure vs Cycle-14-v1-MVP-closure distinction landed in 3 canonical locations:** doc 47 § 4.6.9 § G + doc 51 § 10.8.10 § F + doc 50 § 4.7 v1.3.
+
+**Decisions-log entry proposal drafted at doc 47 § 4.6.9 § N** — title "Path α v1 close-criterion amended to 4/4 (C1+C2+C3+C5); C4 deferred to Cycle 16+"; includes Decision + Reasoning + Alternatives (A1 elected / A2 rejected / A3 rejected) + Status + Related per `reincarnated-decision-log-format`. Jack-ryan canonical-writes to decisions-log at Dispatch 5 Gate-2 per role separation.
+
+**C1-C5 rename mechanical scope COMPLETE at canonical layer.** Engine-side vocabulary migration (math notes + simulation code) OUT OF SCOPE — flagged as Cycle 15 housekeeping OR jack-ryan Gate-2 follow-up.
+
+**Pushback memo amendment FOLDED INTO this dispatch** (not sequenced post). Memo file retains original filename for continuity.
+
+**Phase A1 Sequence status:**
+- Dispatch 1 ✅ / Dispatch 2 ✅ / Dispatch 3 ✅ / Dispatch 4 ✅ / **Dispatch 5 🔥 FIRING NEXT (jack-ryan Gate-2 wave-close + Disc #42/#43/#47 ratifications)** / Dispatch 6 ⏳ (KR Path α v1 closure record)
+
+---
+
+### PHASE A1 DISPATCH 5 — JACK-RYAN GATE-2 WAVE-CLOSE REVIEW + DISC #42/#43/#47 CANONICAL RATIFICATIONS
+
+Authoring this dispatch immediately. Pre-flight `vm_stat` confirmed (~3.6 GB available; load avg 2.09 stable; safe under R47.5). Single-seam sequencing preserved.
+
+**Scope (per A1 addendum § 4 + KR Mode A charge):**
+- Gate-2 wave-close review of gandalf canonical amendments (doc 47 § 4.6.9 + doc 51 § 10.8.10 + doc 50 § 4.7 v1.3)
+- Decisions-log canonical write (consumes gandalf's proposal at doc 47 § 4.6.9 § N)
+- **Disc #42 canonical ratification** at `engineering-disciplines.md` (four-instance + meta-observation 5; gandalf pushback memo as architectural argument; per gandalf addendum § 5 + Matt-ratified ITEM 4)
+- **Disc #43 candidate ratification consideration** (design-quality wave-close audit; gandalf OP § 4.6 capture)
+- **Disc #47 candidate ratification** at engineering-disciplines.md (host-RAM-aware operational concurrency; gandalf incident note `2026-05-28-mac-mini-freeze-diagnosis.md` § 6 R47.1-R47.5)
+- Gate-2 verdict on Path α v1 closure readiness (BLOCK / WARN / INFO / PASS-with-conditions)
+
+**Disc #42 Q1-Q6 framing-audit at KR dispatch-authoring gate (self-audit):**
+
+| Q | This dispatch's framing | Verdict |
+|---|---|---|
+| Q1 | This Gate-2 reviews canonical writes + ratifies Disc #42/#43/#47 + writes decisions-log entry | All scope items grounded in completed Phase A1 1-4 work |
+| Q2 | Empirical refutation: any reason to fire Gate-2 BEFORE confirming gandalf authoring landed? | gandalf commits `c2c65cf` + `c2df805` verified at git log; canonical amendments empirically grounded; refutation cleared |
+| Q3 | Refinement before fire: PASS | PASS |
+| Q4 | Measurement context: Gate-2 reviews authored work; subject explicit | PASS |
+| Q5 | Calibration scope: ratification authority is jack-ryan's per role separation; scope explicit | PASS |
+| Q6 | Semantic stability: Gate-2 must verify C1-C5 rename + close-criterion phrases pass Q6 across canonical artifacts | Q6 EXPLICIT applied — Gate-2 reviewer's responsibility to verify Q6 stability across all amended canonical docs |
+
+**Framing-audit gate: PASS.** Dispatch is sound under Disc #42 operational rules.
+
 Per supplemental Matt question to A1 re-entry: Disc #42 Q1-Q6 framing-audit applied at KR re-entry; Read Y (substantial remaining cycle scope) confirmed canonical. Matt-ratified ITEM 1-4 direction:
 
 - **ITEM 1 — § 1 amendment LANDED above:** Read γ elected; Waves 2/3/4 SUPERSEDED; Wave 5 gates on Path α v1 closure; cross-references added; auto-commit authorized
