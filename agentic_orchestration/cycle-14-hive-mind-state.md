@@ -4646,3 +4646,39 @@ S6c production cascade re-fire (full Phase 2-7 with content-distinct hybrid subs
   ↓
 A2-2 → A2-7 + D13 parallel → Cycle 14 v1 MVP D9 close
 ```
+
+### CASCADE-RESUMPTION-3 INSTANCE 6 #5 INVESTIGATION 2026-05-29 — Phase 4 → Phase 5 disconnect; parallel fan-out (rocket + jack-ryan + gamora)
+
+**Gandalf finding post-A2-1-RE-FIRE-3 close:** Phase 5 PM-1 cluster input BYPASSES Phase 4 Pareto-2 archive entirely. Phase 5 clusters operate on `passing_kits` (Phase 3 mechanical gate) + `variant_passing_rows` (s2-only naming convention). **Amendment 6 Sub-fix 2 Pareto-2 work is DECORATIVE for player-facing output.** This is **Instance 6 #5 in cascade-resumption-3** (fifth pattern instance; pattern now BEYOND SYSTEMIC).
+
+**Empirical chain at `agentic_orchestration/cycle-14-wave-5-season-001/`:**
+- Phase 2: CORRECT (54 kits, 8 elements, 3 samples, 12 hybrid, 5 lineages)
+- Phase 4: archive=34 with s0=18, s1=9, s2=7 (CORRECT per spec)
+- **Phase 5: 208 unique members, ALL _s2 suffix; only 6 of 34 P4-accepted survive**
+- Phase 5 input code: `wave5_season_orchestrator.py:825-836`
+
+**Matt-authorized parallel fan-out** (per Matt verbatim "why not also fire jack ryan? and rocket?"):
+
+| Agent | Scope | Output |
+|---|---|---|
+| **Rocket** | Code-level investigation: passing_kits composition + variant_passing_rows _s2_ hardcoding location + extension cost + Phase 4 Pareto-2 dead-code-or-consumed-elsewhere | Amendment 7b spec proposal OR confirm decorative-by-design |
+| **Jack-ryan** | Framing audit Q1-Q6 + cumulative Instance 6 at 5 surfaces wave-close blocker assessment + canonical pattern record draft | Findings note + recommendation |
+| **Gamora** | Phase 3 mechanical gate analysis: 13/54 pass rate root cause + sample distribution in passing_kits + wr_bracket_pass inheritance across substrate variants | Analysis note |
+
+Gandalf continues design-context analysis in parallel. Findings consolidate to gandalf for **Path decision** (Amendment 7b fire-now / Cycle 14 v1 PASS-with-INFO / cascade-resumption-4).
+
+**KR HOLD STATUS:** Investigation work-products (findings notes + completion records) auto-commit per CLAUDE.md addendum 2026-05-25 (work-products of authorized cascade-r3 work). No production cascade re-fire; no Matt-gate; no pushes (default). Matt's prior post-Amendment-7a HOLD on production work persists; gandalf-authorized investigation fan-out is the active work-cluster.
+
+**Investigation dispatch fan-out trajectory:**
+
+```
+Amendment 7a ✅ CLOSED + Matt post-Amendment-7a HOLD
+  ↓
+Gandalf parallel fan-out investigation (rocket + jack-ryan + gamora; Matt-authorized)
+  ↓
+Findings consolidate to gandalf
+  ↓
+Gandalf Path decision (Amendment 7b fire-now / Cycle 14 v1 PASS-with-INFO / cascade-resumption-4)
+  ↓ (per gandalf Path decision)
+KR routes downstream cascade per gandalf direction + Matt re-engage if needed
+```
