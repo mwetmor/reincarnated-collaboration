@@ -233,3 +233,128 @@ grep -nE 'W-B8|substrate-input purity|barbarian.*wizard.*cleric' \
 - **gamora T4-strategy-applicability research** — light analytical work; <300 MB RSS; informs S2 dispatch authoring; fires in parallel
 
 **Signed:** knight-rider (orchestrator)
+
+---
+
+## Completion record
+
+**Completed by:** star-lord
+**Date:** 2026-05-29
+**Commit:** `a553950`
+**Tag:** `star-lord/v1.3-cascade-r3-s5-wave-b-impl-1`
+
+### (a) Wave B implementation evidence
+
+**grep verification (Disc #11 — post-S5):**
+```
+grep -rE 'run_wave_b_async|Phase5WaveBResult|CascadeBlockError|SUBSTRATE_PURITY_VOCAB_REGEX' \
+  reincarnated-engine/src/reincarnated/ --include='*.py'
+```
+Non-empty matches confirmed — vs ZERO pre-S5 per Instance 6 finding. Gap CLOSED.
+
+**Function signatures in `phase5_orchestrator.py`:**
+- `async def run_wave_b_async(kits_input, wave_a_results, config, tracker) -> tuple[dict[str, Phase5WaveBResult], dict[str, Any]]`
+- `def run_phase5_with_fc_and_wave_b_sync(faction_clusters_input, kits_input, config, tracker) -> Phase5Result`
+- `async def run_phase5_with_fc_and_wave_b_async(faction_clusters_input, kits_input, config, tracker) -> Phase5Result`
+- `def build_export_kit_identities(wave_b_results, season_id) -> list[dict[str, Any]]`
+
+**`Phase5WaveBResult` dataclass (18 fields):**
+- 4 gandalf-spec'd: `kit_name_canonical`, `kit_identity_narrative`, `ai_tell_compliance_score`, `cohesion_judge_confidence`
+- Identity + audit: `kit_id`, `parent_cluster_id`, `final_compliance_status`, `grep_compliance_pass`, `ai_tell_phrase_hits`
+- Telemetry: `llm_call_id`, `regeneration_fired`, `regeneration_reason`, `error`
+- Diversity: `cosine_distance_to_faction_peers`, `diversity_check_max_similarity`, `diversity_check_fired`
+- Purity: `substrate_purity_check_passed`
+
+**New constants:**
+- `AI_TELL_PHRASES_WAVE_B: list[str]` — 13 entries
+- `SUBSTRATE_PURITY_VOCAB_REGEX: re.Pattern` — 16-token canonical verbatim regex (renamed from initial SUBSTRATE_PURITY_CLASS_VOCAB_REGEX per Discipline #41 — no "class" as generative-unit taxonomy in constant names)
+- `WAVE_B_COST_ANOMALY_THRESHOLD_USD: float = 2.00`
+- `CascadeBlockError(Exception)` — Gate-2 BLOCK exception; raised (not warned) on substrate-input purity violations; propagates uncaught through `_call_wave_b_single` → `run_wave_b_async` → caller
+
+**Supporting infrastructure added to `phase5_orchestrator.py`:**
+- `_build_wave_b_system_prompt(thematic_registry, diversity_penalty_kit_names)` — Disc #41/#45 compliant; no class taxonomy
+- `_build_wave_b_user_prompt(kit_id, ...)` — W-B8 LOAD-BEARING at top; FACTION_ANCHOR + KIT_LAYER + SUBSTRATE_CONTEXT + THEMATIC_REGISTRY sections; D-Sharpened invariance enforced (no `substrate_anchored_personage` field)
+- `_parse_wave_b_response(response_text)` — JSON parse + W-B1 word-count check
+- `_validate_wave_b_acceptance(parsed, faction_name, faction_thematic_tags)` → `tuple[bool, str, list[str]]` — W-B1/3/4/5/7 checks; ACCEPT/ACCEPT_WARN/FAIL_RECORD
+- `_call_wave_b_single(...)` — asyncio.Semaphore(10), 3-retry exponential backoff, tracker telemetry, D7 compliance, 1 regen on FAIL_RECORD; CascadeBlockError NOT caught (propagates)
+
+**`Phase5Result` Wave B fields added:**
+- `wave_b_results: dict[str, Phase5WaveBResult]`
+- `wave_b_total_llm_calls: int`
+- `wave_b_cost_usd: float`
+- `wave_b_cost_anomaly_flagged: bool`
+- `wave_b_diversity_summary: dict[str, Any] | None`
+
+### (b) W-B8 runtime grep evidence
+
+**W-B8 implementation at `_build_wave_b_user_prompt()` — precondition before prompt lines assembly:**
+```python
+# W-B8: Substrate-input purity precondition runtime grep (canonical § 5.4 line 414)
+_combined_for_purity = " ".join(filter(None, [kit_id, kit_name_placeholder, ...]))
+_purity_match = SUBSTRATE_PURITY_VOCAB_REGEX.search(_combined_for_purity)
+if _purity_match:
+    raise CascadeBlockError(f"W-B8 substrate-input purity precondition violated for kit_id={kit_id}: ...")
+```
+
+**W-A10** confirmed added to `_build_wave_a_user_prompt()` before CLUSTER_LAYER assembly (was missing pre-S5; added in same pass per dispatch § 2.4 pre-ratified contingent).
+
+**F-C13** confirmed added to `_build_fc_user_prompt()` before `lines` assembly (was missing pre-S5; added in same pass per dispatch § 2.4 pre-ratified contingent).
+
+**W-B8 positive test** (class-vocabulary blocks): inputs using space-delimited patterns that fire `\b` boundary — `"warrior"`, `"kit-warrior-fire"`, `"rogue wanderer"`, `"mage lineage"` — all raise `CascadeBlockError`. PASS.
+
+**W-B8 negative test** (substrate vocabulary passes): `"kit_001_voidweaver_fire"`, `"nomad-caller-shadow"` without banned class terms — no exception raised. PASS.
+
+**NOTE on `\b` word boundary behavior:** per canonical verbatim spec, `warrior_001` does NOT trigger the regex because `_` is `\w` — regex word boundary does not fire at `warrior_` transition. Inputs like `"warrior_001"` in kit_id would not be caught. See surface-to-KR finding below.
+
+### (c) Smoke test + test suite results
+
+**Test suite:** `tests/test_cascade_r3_s5_wave_b_impl.py` — 92 new tests (14 groups):
+- `TestPhase5WaveBResult` — dataclass instantiation + defaults + optional fields
+- `TestCascadeBlockError` — exception type + inheritance + message
+- `TestSubstratePurityVocabRegex` — 16-token positive + negative cases + `\b` boundary cases
+- `TestWB8RuntimeGrep` — positive (class vocab blocks) + negative (substrate vocab passes) + error message content
+- `TestWA10RuntimeGrep` — Wave A USER prompt purity check
+- `TestFC13RuntimeGrep` — F-C USER prompt purity check
+- `TestWB8FromRunWaveBAsync` — purity check propagates from `run_wave_b_async` caller
+- `TestBuildWaveBSystemPrompt` — no class taxonomy, no substrate_anchored_personage
+- `TestBuildWaveBUserPrompt` — template sections present + D-Sharpened invariance
+- `TestParseWaveBResponse` — JSON parse + field extraction + W-B1 word count
+- `TestValidateWaveBAcceptance` — W-B1/3/4/5/7 criteria
+- `TestRunWaveBAsync` — mock LLM call + Phase5WaveBResult return shape + dict[kit_id, ...] structure
+- `TestBuildExportKitIdentities` — Disc #8 schema validation + D-Sharpened compliant output
+- `TestPhase5ResultWaveBFields` — Phase5Result Wave B fields present
+
+**Combined: 92 new + 141 prior Phase 5 baseline = 233/233 PASS, 0 regressions.**
+
+### (d) Cost-tracker integration verification
+
+- `Phase5OrchestratorConfig.wave_b_max_tokens = 512` added
+- `_call_wave_b_single()` calls `tracker._recorder.start_llm_call()` / `complete_llm_call()` per Wave A telemetry pattern
+- `run_wave_b_async()` accumulates per-call cost into `wave_b_cost_usd`; compares against `WAVE_B_COST_ANOMALY_THRESHOLD_USD = 2.00`; sets `wave_b_cost_anomaly_flagged` on `Phase5Result`
+- Smoke test with mock tracker verified `tracker.delta > 0` pattern wired (same NullRecorder-backed TrackedLLMClient that was confirmed functional at A2-1 R2 Step 4 commit `d388c49`)
+
+### (e) Surface-to-KR findings
+
+**Finding 1 — W-B8 `\b` regex underscore limitation (surface to knight-rider):**
+
+Per canonical verbatim § 5.4 line 414 regex using `\b` word boundaries: kit IDs using underscore-embedded class vocabulary (e.g., legacy pre-S1 `encounter_WARRIOR_CHARGE_fire` format) would NOT be caught because `_` is `\w` — the `\b` boundary does not fire at `warrior_` or `_warrior` transitions. Only space-delimited, hyphen-delimited, or string-boundary-adjacent class tokens trigger the check.
+
+Star-lord elected to implement the canonical verbatim spec as-is and document rather than unilaterally modifying the regex (per dispatch § 6 "W-B8 regex token list expansion" handling — defer to gandalf S4 amendment or jack-ryan Gate-2 review). Post-S1 substrate eradication means this pattern should not occur in newly-generated kit IDs. Risk is residual legacy regression only.
+
+**Deferred to:** gandalf S4 canonical § 5.4 amendment consideration OR jack-ryan Gate-2 review. No autonomous action by star-lord.
+
+**Finding 2 — Discipline #41 constant naming violation caught + fixed in-session:**
+
+Initial implementation used `SUBSTRATE_PURITY_CLASS_VOCAB_REGEX` — constant name contained "class" which is prohibited under Discipline #41 (no "class" as generative-unit taxonomy in code, field names, or prompts). Test `test_public_api_no_class_vocabulary` caught this. Renamed to `SUBSTRATE_PURITY_VOCAB_REGEX` across all occurrences before commit. No cross-seam impact — name was new in this session.
+
+---
+
+**S5 CLOSED per § 8 deliverables:**
+1. Engine commit `a553950` + tag `star-lord/v1.3-cascade-r3-s5-wave-b-impl-1` — DONE
+2. 92 new tests + W-B8 positive/negative — DONE
+3. `MIGRATION.md` § Cascade-resumption-3 S5 authored — DONE
+4. This completion record — DONE
+5. `AGENT_STATE.md` checkpoint at `src/reincarnated/export/AGENT_STATE.md` — DONE
+6. Auto-commit fired per CLAUDE.md addendum — DONE; push NOT fired (requires Matt-explicit-auth)
+
+**KR routing note:** S5b (rocket scope — Wave B invocation wire-up + `kit_archive.cohesion_data` + Phase 7 binding) remains deferred to post-S3 per Amendment 2 § 2 trajectory. Surface W-B8 `\b` finding to gandalf S4 if canonical regex amendment is warranted.
