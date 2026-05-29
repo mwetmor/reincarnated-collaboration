@@ -215,3 +215,76 @@ Per gamora research § 6.2 alteration_fields mapping confirmed from engine sourc
 **Parallel-firing companion this batch:** star-lord regex amendment patch (Surface 1 implementation amendment to lookaround pattern per canonical § 4.4/5.4/6.5 verbatim).
 
 **Signed:** knight-rider (orchestrator)
+
+---
+
+## Completion record
+
+**Date:** 2026-05-29
+**Agent:** gamora
+**Commit:** `50ce983`
+**Tag:** `gamora/v2.16-cascade-r3-s2-gauntlet-variant-enumeration-1`
+
+### (a) Variant enumeration evidence
+
+270-cell enumeration implemented per Option C (math note § 1.3). Mock-kit test verification:
+- 18 BC cells × 6 strategies × 3 invest = 324 raw; minus 54 structural NOs = 270 cells
+- 270 unique (bc_cell_id × t4_strategy × invest_profile) tuples confirmed by test
+  `TestBuildVariantEnumerationConfigs::test_full_18_kits_unique_tuples_equals_270`
+- Acceptance gate VARIANT_ENUMERATION_MIN_UNIQUE_TUPLES=22 satisfied (270 >> 22)
+- `build_variant_enumeration_configs()` emits: t4_strategy, invest_profile, bc_cell_id on each config
+- `verify_variant_enumeration_acceptance_gates()` all 5 gates PASS on compliant input
+
+### (b) Structural-NO exclusion evidence
+
+- ECA on STR/DEX cells (8 BC × 3 invest = 24): excluded by `_is_structural_no()`
+  - Test: `test_no_eca_on_str_cells`, `test_no_eca_on_dex_cells` — both PASS
+  - Discriminator: `_STRUCTURAL_NO_CELLS` frozenset contains (ECA,"str"), (ECA,"dex")
+- ECC on INT/WIS cells (10 BC × 3 invest = 30): excluded by `_is_structural_no()`
+  - Test: `test_no_ecc_on_int_cells`, `test_no_ecc_on_wis_cells` — both PASS
+  - Discriminator: `_STRUCTURAL_NO_CELLS` contains (ECC,"int"), (ECC,"wis")
+- Total structural NOs: 54 (test: `test_structural_no_count_for_1_str_kit_is_3` + `test_structural_no_count_for_1_int_kit_is_3`)
+- ECA NOT excluded on INT/WIS; ECC NOT excluded on STR/DEX — both verified PASS
+
+### (c) Skip-slot-5 (TRADE_OFF REVERSED) update verification
+
+Prior state: TOR absent from Phase 4 RE-RUN-3 enumeration due to PLACEHOLDER canonical status.
+Amendment 4 Surface 3: doc 47 § 4.6.5 AMENDED PLACEHOLDER → IMPLEMENTED; combatant.py:588-609 confirmed.
+
+Post-S2 state:
+- TOR is element 4 of LAYER2_T4_STRATEGIES tuple (position 3, 0-indexed)
+- `_STRUCTURAL_NO_CELLS` does NOT contain any (TOR, *) entry
+  - Test: `TestPostScriptCardinalityInvariants::test_tor_not_in_structural_no_cells` — PASS
+- TOR alteration_fields key: `{"trade_off_reversed_frenzy": {"hit_reduction": 0.30, "crit_boost": 0.30}}`
+  parameters sourced from `damage_resolver.TRADE_OFF_FRENZY_HIT_REDUCTION/CRIT_BOOST` (Matt-locked)
+  - Test: `TestT4StrategyAlterationFields::test_tor_returns_trade_off_reversed_frenzy` — PASS
+- TOR appears on all 18 BC cells × 3 invest = 54 TOR configs in full run
+  - Test: `test_tor_appears_on_all_18_cells_all_3_invest_profiles` — PASS
+- Disc #12 semantic shift: TOR PLACEHOLDER → IMPLEMENTED; framed in commit message + § 8b inline comment
+
+### (d) Smoke + tests PASS
+
+- 78 new tests: `tests/test_cascade_r3_s2_variant_enumeration.py`
+  - § 1: 9 module-load constant tests (cardinality invariants)
+  - § 2: 17 `_is_structural_no()` tests (all 4 NO pairs + all non-NO cases including TOR)
+  - § 3: 9 `_t4_strategy_alteration_fields()` tests
+  - § 4: 6 kit-count helper tests
+  - § 5: 18 `build_variant_enumeration_configs()` tests (cardinality, exclusions, TOR inclusion)
+  - § 6: 11 `verify_variant_enumeration_acceptance_gates()` tests
+  - § 7: 7 post-script cardinality invariant tests
+- All 78 PASS; 0 regressions vs pre-S2 baseline
+- Pre-existing failures: 7 in `TestGauntletKitResult` (confirmed pre-S2 via git stash)
+- Acceptance gate § 4.4 PASS
+
+### (e) Surface-to-KR findings
+
+None triggered from § 5 enumerated conditions:
+- No cross-seam rocket need: alteration_fields applied at runtime without kit-level T4 candidate exposure
+- Variant cardinality >> 22 threshold: 270 enumerated (well above ≥22 acceptance gate)
+- No Disc #42a framing-audit catch during execution
+- No new methodology questions beyond Option C
+
+Pre-existing test failures (7 in TestGauntletKitResult) pre-date S2. Surfaced to KR for jack-ryan triage per
+standard workflow; not an S2 regression.
+
+**Dispatch CLOSED. Tag gamora/v2.16-cascade-r3-s2-gauntlet-variant-enumeration-1 marks S2 milestone.**
