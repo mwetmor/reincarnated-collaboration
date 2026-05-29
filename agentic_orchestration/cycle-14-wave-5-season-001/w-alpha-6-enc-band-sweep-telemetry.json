@@ -1,0 +1,143 @@
+{
+  "w_alpha_6_band_sweep": true,
+  "run_at": "2026-05-28T15:11:00.435241+00:00",
+  "smoke": false,
+  "n_kits": 18,
+  "n_encounter_types": 6,
+  "projected_wall_hrs": 1.224,
+  "actual_wall_seconds": 5.1,
+  "actual_wall_minutes": 0.085,
+  "math_note": "simulation/math/w-alpha-6-per-encounter-type-bands-2026-05-28.md",
+  "migration_section": "simulation/MIGRATION.md \u00a7 v1.44",
+  "n_per_cell_kpm_observations": 378,
+  "encounter_cohort_kpm_band": {
+    "open_arena": {
+      "DPS-min-maxer": [
+        596.0,
+        836.0
+      ],
+      "Balanced": [
+        536.0,
+        664.0
+      ],
+      "Defensive": [
+        368.0,
+        560.0
+      ],
+      "Hybrid": [
+        440.0,
+        728.0
+      ]
+    },
+    "chokepoint_corridor": {
+      "DPS-min-maxer": [
+        596.0,
+        836.0
+      ],
+      "Balanced": [
+        536.0,
+        664.0
+      ],
+      "Defensive": [
+        368.0,
+        560.0
+      ],
+      "Hybrid": [
+        440.0,
+        728.0
+      ]
+    },
+    "magic_pack": {
+      "DPS-min-maxer": [
+        596.0,
+        836.0
+      ],
+      "Balanced": [
+        536.0,
+        664.0
+      ],
+      "Defensive": [
+        368.0,
+        560.0
+      ],
+      "Hybrid": [
+        440.0,
+        728.0
+      ]
+    },
+    "elite_pack": {
+      "DPS-min-maxer": [
+        458.0,
+        643.0
+      ],
+      "Balanced": [
+        412.0,
+        511.0
+      ],
+      "Defensive": [
+        283.0,
+        431.0
+      ],
+      "Hybrid": [
+        338.0,
+        560.0
+      ]
+    },
+    "boss_with_adds": {
+      "DPS-min-maxer": [
+        73.0,
+        102.0
+      ],
+      "Balanced": [
+        65.0,
+        81.0
+      ],
+      "Defensive": [
+        45.0,
+        68.0
+      ],
+      "Hybrid": [
+        54.0,
+        89.0
+      ]
+    },
+    "mini_boss": {
+      "DPS-min-maxer": [
+        149.0,
+        209.0
+      ],
+      "Balanced": [
+        134.0,
+        166.0
+      ],
+      "Defensive": [
+        92.0,
+        140.0
+      ],
+      "Hybrid": [
+        110.0,
+        182.0
+      ]
+    }
+  },
+  "balanced_medians_per_encounter": {
+    "open_arena": {
+      "balanced_median_kpm": 600.0
+    },
+    "chokepoint_corridor": {
+      "balanced_median_kpm": 600.0
+    },
+    "magic_pack": {
+      "balanced_median_kpm": 600.0
+    },
+    "elite_pack": {
+      "balanced_median_kpm": 461.54
+    },
+    "boss_with_adds": {
+      "balanced_median_kpm": 73.17
+    },
+    "mini_boss": {
+      "balanced_median_kpm": 150.0
+    }
+  }
+}

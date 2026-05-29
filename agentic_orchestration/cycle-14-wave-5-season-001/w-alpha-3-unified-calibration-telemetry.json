@@ -1,0 +1,120 @@
+{
+  "run_at": "2026-05-28T19:04:16.299035+00:00",
+  "phase": "phase_2_locked",
+  "smoke": false,
+  "wall_clock_seconds": 46.4,
+  "converged": true,
+  "converged_at_iter": 4,
+  "converged_scale_factor": 0.990625,
+  "reference_kpm_target": 75.0,
+  "reference_is_placeholder": false,
+  "final_measured_kpm": 73.171,
+  "implied_dps_target": 288750.0,
+  "per_path_median_kpm": {
+    "str_physical": 79.443,
+    "dex_physical": 82.331,
+    "int_magical": 68.182,
+    "wis_faith": 63.83
+  },
+  "per_path_dps_variance_ratio": 1.2898,
+  "calibrated_spell_damage_l50": {
+    "1": 20532.2,
+    "2": 20532.2,
+    "3": 20532.2,
+    "4": 20532.2
+  },
+  "calibrated_physical_scale_factor": 0.990625,
+  "w_alpha_1_tag": "",
+  "w_alpha_2_tag": "",
+  "iterations": [
+    {
+      "iter": 0,
+      "scale_factor": 1.05,
+      "measured_kpm": 82.331,
+      "reference_kpm": 75.0,
+      "kpm_delta_fraction": 0.0977,
+      "converged": false,
+      "n_kits_measured": 18,
+      "n_zero_kpm_kits": 0,
+      "per_path_median_kpm": {
+        "str_physical": 89.732,
+        "dex_physical": 89.732,
+        "int_magical": 68.182,
+        "wis_faith": 63.83
+      },
+      "notes": ""
+    },
+    {
+      "iter": 1,
+      "scale_factor": 0.575,
+      "measured_kpm": 49.587,
+      "reference_kpm": 75.0,
+      "kpm_delta_fraction": 0.3388,
+      "converged": false,
+      "n_kits_measured": 18,
+      "n_zero_kpm_kits": 0,
+      "per_path_median_kpm": {
+        "str_physical": 56.075,
+        "dex_physical": 51.109,
+        "int_magical": 49.587,
+        "wis_faith": 40.268
+      },
+      "notes": ""
+    },
+    {
+      "iter": 2,
+      "scale_factor": 0.8125,
+      "measured_kpm": 61.915,
+      "reference_kpm": 75.0,
+      "kpm_delta_fraction": 0.1745,
+      "converged": false,
+      "n_kits_measured": 18,
+      "n_zero_kpm_kits": 0,
+      "per_path_median_kpm": {
+        "str_physical": 63.83,
+        "dex_physical": 68.182,
+        "int_magical": 60.0,
+        "wis_faith": 52.632
+      },
+      "notes": ""
+    },
+    {
+      "iter": 3,
+      "scale_factor": 0.93125,
+      "measured_kpm": 68.182,
+      "reference_kpm": 75.0,
+      "kpm_delta_fraction": 0.0909,
+      "converged": false,
+      "n_kits_measured": 18,
+      "n_zero_kpm_kits": 0,
+      "per_path_median_kpm": {
+        "str_physical": 73.171,
+        "dex_physical": 76.059,
+        "int_magical": 63.83,
+        "wis_faith": 56.075
+      },
+      "notes": ""
+    },
+    {
+      "iter": 4,
+      "scale_factor": 0.990625,
+      "measured_kpm": 73.171,
+      "reference_kpm": 75.0,
+      "kpm_delta_fraction": 0.0244,
+      "converged": true,
+      "n_kits_measured": 18,
+      "n_zero_kpm_kits": 0,
+      "per_path_median_kpm": {
+        "str_physical": 79.443,
+        "dex_physical": 82.331,
+        "int_magical": 68.182,
+        "wis_faith": 63.83
+      },
+      "notes": ""
+    }
+  ],
+  "max_iterations": 20,
+  "discipline_1_math_note": "simulation/math/w-alpha-3-unified-calibration-pass-2026-05-28.md",
+  "doc_50_anchor": "canonical/50-bounded-viability-with-specialization-design-directive-2026-05-28.md",
+  "migration_section": "simulation/MIGRATION.md \u00a7 v1.41"
+}

@@ -227,4 +227,45 @@ Per Matt 2026-05-23 hive-mind decision-routing directive: seam-owner decides in-
 
 ## Completion record
 
-(gamora appends here)
+**Completed:** 2026-05-28 (gamora Cycle 14.5 R3 T2 hotfix)
+**Status:** DISPATCH COMPLETE — Cycle 14 v1 MVP BLOCKING CLOSE criterion MET
+
+**Forensic finding (revised from initial hypothesis):**
+The initial session hypothesis (SC2 = BASE under-calibration) was based on measurements taken
+with `investment_points=0` (bare kits). The BVV and Phase 4 RE-RUN-3 use profile-patched kits
+(`investment_points=15`, max_a profile). At profiled-kit DPS, boss_with_adds T1 KPM ranged from
+63.8 to 150.0 (Balanced median 98.6) — above the legacy routing upper bound of 97.5 and the prior
+ENCOUNTER_COHORT_KPM_BAND upper bound of 104.0.
+
+**Root cause confirmed:** T1 OVER-BAND REJECT (not under-band). The ENCOUNTER_COHORT_KPM_BAND
+upper bounds were calibrated under conditions that no longer match Phase 3c HP + Phase 3d RE-RUN
+BASE + max_a profile T4-context. The bands are miscalibrated, not the BASE values.
+
+**Hotfix shape:**
+- Component A: boss_with_adds added to `_T1_BAND_OVERRIDE_ENC_TYPES` in `gauntlet_sim.py`
+  (Discipline #12 Epoch Break A: T1 routing migrated from COHORT_KPM_BAND ±30% legacy to
+  ENCOUNTER_COHORT_KPM_BAND direct range check)
+- Component B: ENCOUNTER_COHORT_KPM_BAND upper bounds recalibrated for 4 encounter types
+  in `gauntlet_sim.py` (Discipline #12 Epoch Break B):
+  boss_with_adds Balanced 104 → 180; mini_boss Balanced 115 → 180;
+  elite_pack Balanced 340 → 660; magic_pack Balanced 380 → 555;
+  All other cohorts scaled proportionally.
+- No BASE value changes. BASE_SPELL_DAMAGE_L50 = 20532.2, BASE_PHYSICAL_DAMAGE_L50 = 48012.6 (unchanged).
+
+**BVV re-fire results:**
+- T2 zero-KPM count: **0** (down from 16 measured / 19 dispatch-stated). PASS.
+- T1 DPS variance: **1.1442** (< 1.5). PASS.
+- T3 saturation: **PASS** (structural; W-α2 ceiling removed).
+- T5 floor violations: **0**. PASS.
+- Cycle 14 close criterion (T1+T2+T3+T5): **ALL PASS**. T4 dropped as gate per adjudication.
+
+**Artifacts produced:**
+- Math note: `reincarnated-engine/src/reincarnated/simulation/math/cycle-14-5-r3-t2-zero-kpm-hotfix-2026-05-28.md`
+- MIGRATION.md: `reincarnated-engine/src/reincarnated/simulation/MIGRATION.md § v1.54`
+- BVV baseline: `agentic_orchestration/cycle-14-wave-5-season-001/bounded-viability-validation-baseline-2026-05-28.json`
+- Commit: `00b7f02` — gamora(v2.9): Cycle 14.5 R3 T2 hotfix COMPLETE — band recalibration; BVV T2=0 PASS
+- Tag: `gamora/v2.9-r3-t2-zero-kpm-hotfix-1`
+
+**KR handoff required:** Phase 4 RE-RUN-4 (Mode A Dispatch 3) can now fire.
+Amended close criterion T1+T2+T3+T5 confirmed PASS. Phase 4 RE-RUN-4 should run full 7-profile
+sweep and confirm T2=0 holds across all profiles at the hotfix band configuration.

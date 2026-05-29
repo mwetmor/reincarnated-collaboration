@@ -1,0 +1,221 @@
+{
+  "sweep_timestamp": "2026-05-29T00:30:43.785781+00:00",
+  "wall_time_s": 0.85,
+  "total_gauntlet_calls": 2,
+  "total_measurement_cells": 240,
+  "kits_shipped": 5,
+  "kits_not_shipped": 0,
+  "zero_t4_escalations": [],
+  "cross_path_parity_per_profile": {
+    "max_a": Infinity
+  },
+  "t5_floor_violations_per_profile": {
+    "max_a": 0
+  },
+  "t4_specialization_failures_per_profile": {
+    "max_a": 5
+  },
+  "t4_engine_routing_note": "Phase 4 RE-RUN-3: Two-Layer T4 architecture (gandalf v1.17 `eb5bd1b` + rocket v1.13 `1ac272f`). PRIMARY T4: DIRECT_DAMAGE_AMPLIFICATION 1.75\u00d7 at preferred_encounter_type (universal; all 18 kits). fight-context injection: t4_current_encounter_type=scenario_shell_id in t4_sim_cycling.py w4g1/w4g2. LAYER 2: ELEMENT_CONVERSION v1.2 (A=1.50 B=1.25 C=0.25 additive). 13/18 eligible kits. 5/18 kits (0 T4 candidates) ship with Primary DDA only. strip-and-ship: Primary T4 EXEMPT (all kits ship); Layer 2 strip/ship per ECF BVV T4 peaks. compound_pass = Primary DDA BVV max_a result. DDA epoch: t4_preferred_encounter_type/t4_current_encounter_type fields active. ECF v1.2 epoch: pre-v1.53 ECF telemetry NOT comparable. Discipline #12: DDA epoch break declared. Bug 1 (variant key) FIXED v1.52; Bug 2 (magical ECF) FIXED rocket v1.12, preserved v1.13. Math note: simulation/math/w-alpha-7-plus-phase-4-rerun-3-two-layer-t4-2026-05-28.md",
+  "encounter_band_table_updated": {
+    "open_arena": {
+      "DPS-min-maxer": [
+        596.0,
+        836.0
+      ],
+      "Balanced": [
+        536.0,
+        664.0
+      ],
+      "Defensive": [
+        368.0,
+        560.0
+      ],
+      "Hybrid": [
+        440.0,
+        728.0
+      ]
+    },
+    "chokepoint_corridor": {
+      "DPS-min-maxer": [
+        0.0,
+        1.0
+      ],
+      "Balanced": [
+        0.0,
+        1.0
+      ],
+      "Defensive": [
+        0.0,
+        1.0
+      ],
+      "Hybrid": [
+        0.0,
+        1.0
+      ]
+    },
+    "magic_pack": {
+      "DPS-min-maxer": [
+        0.0,
+        1.0
+      ],
+      "Balanced": [
+        0.0,
+        1.0
+      ],
+      "Defensive": [
+        0.0,
+        1.0
+      ],
+      "Hybrid": [
+        0.0,
+        1.0
+      ]
+    },
+    "elite_pack": {
+      "DPS-min-maxer": [
+        458.0,
+        643.0
+      ],
+      "Balanced": [
+        412.0,
+        511.0
+      ],
+      "Defensive": [
+        283.0,
+        431.0
+      ],
+      "Hybrid": [
+        338.0,
+        560.0
+      ]
+    },
+    "boss_with_adds": {
+      "DPS-min-maxer": [
+        192.0,
+        270.0
+      ],
+      "Balanced": [
+        173.0,
+        214.0
+      ],
+      "Defensive": [
+        119.0,
+        181.0
+      ],
+      "Hybrid": [
+        142.0,
+        235.0
+      ]
+    },
+    "mini_boss": {
+      "DPS-min-maxer": [
+        0.0,
+        1.0
+      ],
+      "Balanced": [
+        0.0,
+        1.0
+      ],
+      "Defensive": [
+        0.0,
+        1.0
+      ],
+      "Hybrid": [
+        0.0,
+        1.0
+      ]
+    }
+  },
+  "strip_and_ship": [
+    {
+      "kit_id": "endgame_str_01_heavy_barbarian",
+      "t4_candidates_count": 1,
+      "shipped_t4_variants": [
+        "primary_dda"
+      ],
+      "stripped_t4_variants": [
+        "ELEMENT_CONVERSION"
+      ],
+      "supporting_chains": [
+        "t4_chain_1"
+      ],
+      "ships": true,
+      "zero_t4_escalation": false
+    },
+    {
+      "kit_id": "endgame_str_02_light_fighter",
+      "t4_candidates_count": 1,
+      "shipped_t4_variants": [
+        "primary_dda"
+      ],
+      "stripped_t4_variants": [
+        "ELEMENT_CONVERSION"
+      ],
+      "supporting_chains": [
+        "t4_chain_1"
+      ],
+      "ships": true,
+      "zero_t4_escalation": false
+    },
+    {
+      "kit_id": "endgame_str_03_polearm_soldier",
+      "t4_candidates_count": 2,
+      "shipped_t4_variants": [
+        "primary_dda"
+      ],
+      "stripped_t4_variants": [
+        "ELEMENT_CONVERSION"
+      ],
+      "supporting_chains": [
+        "t4_chain_1",
+        "t4_chain_2"
+      ],
+      "ships": true,
+      "zero_t4_escalation": false
+    },
+    {
+      "kit_id": "endgame_str_04_thrown_heavy",
+      "t4_candidates_count": 0,
+      "shipped_t4_variants": [
+        "primary_dda"
+      ],
+      "stripped_t4_variants": [],
+      "supporting_chains": [],
+      "ships": true,
+      "zero_t4_escalation": false
+    },
+    {
+      "kit_id": "endgame_dex_01_dagger_assassin",
+      "t4_candidates_count": 2,
+      "shipped_t4_variants": [
+        "primary_dda"
+      ],
+      "stripped_t4_variants": [
+        "ELEMENT_CONVERSION"
+      ],
+      "supporting_chains": [
+        "t4_chain_1",
+        "t4_chain_2"
+      ],
+      "ships": true,
+      "zero_t4_escalation": false
+    }
+  ],
+  "profile_results": {
+    "max_a": {
+      "profile_key": "max_a",
+      "profile_label": "max-profile Mode A (calibration anchor; all-skills-15/5)",
+      "compound_pass": false,
+      "t1_dps_variance_pass": false,
+      "t1_metric": Infinity,
+      "t2_zero_kpm_pass": false,
+      "t3_saturation_pass": true,
+      "t4_specialization_pass": false,
+      "t4_metric": 5.0,
+      "t5_floor_pass": true,
+      "t5_metric": 0.0,
+      "layer": "primary_dda"
+    }
+  },
+  "telemetry_output_path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/cycle-14-wave-5-season-001/w-alpha-7-plus-phase-4-rerun-3-two-layer-t4-sweep-telemetry.json"
+}
