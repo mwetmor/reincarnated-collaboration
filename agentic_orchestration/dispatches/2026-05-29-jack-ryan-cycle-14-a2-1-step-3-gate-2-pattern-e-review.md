@@ -309,3 +309,133 @@ This dispatch is the cheapest empirical refutation of "are Step 1 + Step 2 outpu
 A2-1 Step 3 PASS = cascade-resumption Gate-2 cleared → unblocks A2-1 Step 4 (rocket + star-lord + gamora A2-1 RE-FIRE production cascade) → toward Cycle 14 v1 MVP D9 close.
 
 A2-1 Step 3 BLOCK = cascade halt; KR routes to Matt queue with finding-file + Pattern E BLOCK semantics.
+
+---
+
+## Completion record
+
+**Date:** 2026-05-29
+**jack-ryan commit (finding-file + completion record):** TBD (auto-committed per CLAUDE.md addendum below)
+
+---
+
+**1. VERDICT**
+
+PASS-with-INFO. Pattern E pre-authorization invoked. Cascade auto-advances to Step 4 A2-1 RE-FIRE.
+
+---
+
+**2. Finding-file path**
+
+`agentic_orchestration/qa/pending/2026-05-29-a2-1-step-3-gate-2-pattern-e-step-1-plus-step-2-review.md`
+
+---
+
+**3. Severity counts**
+
+| Severity | Count |
+|---|---|
+| BLOCK | 0 |
+| WARN | 0 |
+| INFO | 3 |
+
+---
+
+**4. Step 1 review outcome**
+
+Acceptance criteria: 7/7 PASS.
+
+Spot-check outcomes:
+- Q-spot-1: PASS — math note § 3 design call empirically grounded (single-magnitude infeasibility proof + per-P7-cohort infeasibility proof + per-bc_cell_id as minimal feasible architecture)
+- Q-spot-2: PASS — 3-cell sanity check (str_01/wis_02/int_01) confirms predicted KPM in-band vs ENCOUNTER_COHORT_KPM_BAND values from gauntlet_sim.py:206
+- Q-spot-3: PASS — 3-kit sweep telemetry spot-check (dex_03, wis_03, wis_04) confirms `p7_gauntlet_pass=true`
+- Q-spot-4: PASS — resource bounds: 3.21s wall-clock; peak RAM << 1 GB; R48.5 envelope satisfied
+- Q-spot-5: PASS — Disc #1.2 code-citations present (phase7_bridge.py:134-229, 66-72; t4_sim_cycling.py:853-910; phase7_cohort.py)
+- Q-spot-6: PASS — MIGRATION.md § v1.57 confirmed on-disk; Disc #12 EPOCH BREAK correctly declared
+- Q-spot-7: PASS-with-INFO (INFO-1) — Disc #42a Q5 calibration scope mismatch addressed in math note § 3.3; viable_cohorts bypass is the architectural resolution; captured as INFO carry-forward
+
+---
+
+**5. Step 2 review outcome**
+
+Acceptance criteria: 8/8 PASS.
+
+Spot-check outcomes:
+- Q-spot-8: PASS — independent Disc #11 re-run confirms 2-flag gate only; no additional LLM-gating flag; Disc #42a Instance-5 risk NOT triggered
+- Q-spot-9: PASS — should_fire_wave_a() at line 231 is exactly 2-flag OR; no third flag
+- Q-spot-10: PASS-with-INFO (INFO-2) — consumer-side default `"invisible"` at line 193 is benign (orchestrator overrides at line 835); disposition sufficient; latent hygiene note for future callers
+- Q-spot-11: PASS — lines 825-827 conditional log correctly NOT touched; under visible-mode reads "Wave A=ENABLED"
+- Q-spot-12: PASS — Disc #40 data point captured in rocket completion record field 13; Disc #42a Instance-5 addendum correctly deferred per resolution plan § 4; no unilateral canonical write
+- Q-spot-13: PASS — completion record § 9 provides clear generation-side vs player-facing separation attestation
+
+---
+
+**6. Disc #42a framing-audit verdict**
+
+Q1-Q6: all HOLDS. No pre-imposed assumption caught that would block Step 4. INFO-1 (Q5 calibration scope) + INFO-2 (Q6 semantic stability flag) captured for carry-forward.
+
+---
+
+**7. Disc #43 design-quality audit verdict**
+
+A1=YES (advances D9 close criterion) / A2=RESOLVES scaffold (Step 2) + no new scaffold (Step 1) / A3=YES (substrate-led discipline respected) / A4=YES (composes with locked decisions) / A5=DEFERRED to A2-6 D10 batched canonical-write (no immediate lock-NOW urgency).
+
+---
+
+**8. 5 critique-pair principles verdict**
+
+All 5 principles: PASS. Principles 6 + 7 N/A for this Step. See finding-file § 11 for full enumeration.
+
+---
+
+**9. Pattern E disposition**
+
+Pattern E pre-authorization invoked per Phase A1 closure record § 7 lines 142-145 + Matt 2026-05-29 in-session ratification. PASS-with-INFO fire-and-continue authorized. No BLOCK issued. No surface-to-Matt required.
+
+---
+
+**10. Recommendation for KR**
+
+FIRE Step 4 A2-1 RE-FIRE immediately. Cascade preconditions verified: synthetic KPM in-band (18/18), FACTION_VISIBILITY="visible" locked, Wave A fires, 2-flag gate confirmed clean. Step 4 is rocket + star-lord cost guard + gamora simulation (~1d production). Star-lord projects mid-cascade against $50 soft cap per resolution plan § 3.
+
+---
+
+**11. Disc #48 R48.4/R48.5 verification**
+
+- R48.5: vm_stat at Step 3 entry: free+reclaimable = ~2.65 GB (6120 free + 167801 inactive pages × 16384 bytes/page). Exceeds 1 GB floor. PASS.
+- R48.4: rocket released post Step 2 PASS (HEAD `3b69dad` = rocket AGENT_STATE). jack-ryan alone for Step 3. No parallel sub-agent fan-out. PASS.
+
+---
+
+**12. Engine + collab commits**
+
+Finding-file commit: jack-ryan auto-commit per CLAUDE.md addendum 2026-05-25 (work-product of authorized cascade-resumption work).
+Completion-record commit: same auto-commit batch.
+Engine commits: NONE — jack-ryan is REVIEW role; no engine code changes.
+Push: NOT fired — per per-workstream pattern; KR fires push after Step 4 A2-1 RE-FIRE PASS + A2-2 Gate-2 PASS.
+
+---
+
+**13. Cross-references**
+
+| Document | Path |
+|---|---|
+| Finding file | `agentic_orchestration/qa/pending/2026-05-29-a2-1-step-3-gate-2-pattern-e-step-1-plus-step-2-review.md` |
+| Step 1 dispatch + completion record | `agentic_orchestration/dispatches/2026-05-29-gamora-cycle-14-a2-1-step-1-synthetic-kit-kpm-recalibration.md` |
+| Step 2 dispatch + completion record | `agentic_orchestration/dispatches/2026-05-29-rocket-cycle-14-a2-1-step-2-faction-visibility-flip.md` |
+| Resolution plan | `agentic_orchestration/gandalf/notes/2026-05-29-concern-1-and-2-resolution-plan.md` |
+| Pattern E pre-authorization | `agentic_orchestration/cycle-14-path-alpha-v1-closure-record-2026-05-28.md` § 7 lines 142-145 |
+| Math note | `src/reincarnated/simulation/math/a2-1-step-1-synthetic-kit-kpm-recalibration-2026-05-29.md` |
+| Sweep telemetry | `agentic_orchestration/cycle-14-wave-5-season-001/a2-1-step-1-synthetic-kit-magnitude-sweep-telemetry.json` |
+| D9 close-criterion | `design/decisions/decisions-log.md` + `agentic_orchestration/cycle-14-hive-mind-state.md` § D9 ratification |
+
+---
+
+**14. Anomalies surfaced during review**
+
+- **Telemetry field `enc_passed`:** In sweep telemetry, most kits show `"enc_passed": 0` while the 3 Defensive viable_cohorts-bypass kits show `"enc_passed": 1`. This appears to be a different counter than `eligible_in_band` (which is the load-bearing Phase 7 acceptance signal). Noted as a telemetry semantic observation — does not affect PASS verdict; all kits show `p7_gauntlet_pass: true`. Carry-forward: if telemetry schema is formalized at A2-6, clarify `enc_passed` vs `eligible_in_band` semantics.
+- **Completion record sweep table shell assignments disagree with math note § 4 table in two cells:** Completion record field 5 shows `str_01` shell=`open_arena` but math note § 4 table shows `str_01` shell=`boss_with_adds`; sweep telemetry JSON shows `str_01` shell=`boss_with_adds`. Completion record table appears to have a copy-paste error in the shell column for several kits. The sweep telemetry JSON is the authoritative artifact; the PASS verdict (18/18 p7_gauntlet_pass=true) is confirmed by the JSON. The completion record table shell column is non-load-bearing. INFO only; does not affect verdict.
+
+---
+
+**jack-ryan signature:** A2-1 Step 3 PASS-with-INFO. Pattern E pre-authorization invoked. Step 4 A2-1 RE-FIRE unblocked. Cascade resumes.
