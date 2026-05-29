@@ -3705,3 +3705,51 @@ Rocket's attestation characterized these as "COMMENT-ONLY" in completion record 
 **Authorization § 4 unexpected-engine-surfaces condition (line 239) NOT TRIGGERED:** enumerated example surfaces (decisions-log; canonical docs; engine canonical library; LLM prompts already canonical) do NOT include "historical-data-parsing export utilities". The disposition fits within authorization scope under § 5 line 257 ("Cycle 15+ candidate scope expansion" — Cycle 14 wave-close cleanup OR Cycle 15+ if substrate-led discipline scope eventually extends to historical-data-parsing layer). Optional Cycle 14 wave-close cleanup data point captured for jack-ryan Disc #43 design-quality audit at S6.
 
 **Cascade trajectory:** S1 CLOSED → S2 ready to fire (gauntlet variant enumeration expansion; gamora primary owner per gauntlet_sim.py seam; rocket consult-as-needed for T4 candidate exposure on kits; Disc #18 hotspot consultation if methodology surfaces multiple options).
+
+### CASCADE-RESUMPTION-3 AMENDMENT 2 + AMENDMENT 3 — PARALLEL FAN-OUT FIRED 2026-05-29
+
+**Amendment 2 (commit `376c92b`):** R48.4 single-seam RELAXED for cascade-resumption-3; parallel sub-agent fan-out enabled where dependency graph permits; pre-flight vm_stat check still load-bearing.
+
+**Amendment 3 (commit `acdee87`):** Discipline #48 RAM-awareness RETIRED ENTIRELY per Matt verbatim "Let's retire the RAM awareness." R48.4 + R48.5 retired. R48.1/R48.2/R48.3 preserved under future Disc #49 (separable; non-blocking). No pre-flight vm_stat gate; no concurrent count limit; dependency graph alone determines parallelism. Disc #42a Instance 7 case-type captured (founding-incident-confounding-attribution).
+
+**Updated cascade-resumption-3 trajectory (per Amendment 2 § "Parallel-enabled trajectory"):**
+
+```
+S1 ✅ CLOSED + S4 ✅ CLOSED (gate cleared for parallel fan-out)
+  ↓
+  ┌──────────────────────────────────────────────┐
+  ↓                              ↓               ↓
+S7 (rocket; ~1-2d)   S5 (star-lord; ~4-6h)   gamora T4-strategy research
+  ↓                              │               (~2-4h light analytical)
+  ↓ (cascade-resumption-3 parallel-fan-out)      ↓
+S2 (rocket+gamora; ~1-2d) ←──────┘ ←─────────────┘ (informs S2 dispatch)
+  ↓
+S3 (rocket; ~0.5-1d)
+  ↓
+S5b (rocket integration; ~2-4h)
+  ↓
+S6 (Gate-2 + A2-1 RE-FIRE-3; ~1-1.5d)
+```
+
+**Realistic total to A2-1 RE-FIRE-3 PASS:** ~5-8 days wall-clock (down from ~7-12d sequential; Amendment 2 parallel fan-out cuts ~2-4d; Amendment 3 retirement minor reduction).
+
+**Dispatches fired in parallel fan-out 2026-05-29:**
+
+| Dispatch | Owner | Effort | Dispatch file |
+|---|---|---|---|
+| S7 Phase 2 multi-sample substrate consumption + lineage/period propagation | rocket | ~1-2d | `2026-05-29-rocket-cycle-14-cascade-resumption-3-s7-substrate-multi-sample-lineage-propagation.md` |
+| S5 Wave B FULL implementation per canonical § 5 (star-lord side only; S5b rocket integration deferred to post-S3) | star-lord | ~4-6h | `2026-05-29-star-lord-cycle-14-cascade-resumption-3-s5-wave-b-implementation.md` |
+| T4-strategy applicability research (pre-S2 methodology consultation per Disc #18) | gamora | ~2-4h (<300 MB RSS) | `2026-05-29-gamora-cycle-14-cascade-resumption-3-t4-strategy-applicability-research.md` |
+
+**Dispatch commit:** `da7378c` (3 dispatches authored + committed atomically)
+
+**Pre-flight at fire decision:** vm_stat 665 MB free + 2.2 GB reclaimable = ~2.9 GB combined; per Amendment 3 no gate required (R48.5 retired); macOS inactive-page reclamation handles RAM pressure naturally.
+
+**Cascade trajectory carry-forward per Amendment 2 § 2 table:**
+- S2 (rocket + gamora; ~1-2d) sequential after S7 close + gamora research close (S7 substrate-diverse base required; gamora research informs methodology)
+- S3 (rocket; ~0.5-1d) sequential after S2 close (variant population required for archive preservation)
+- S5b (rocket integration; ~2-4h) sequential after S3 + S5 close (Wave B orchestrator wiring + kit_archive.cohesion_data + Phase 7 binding)
+- S6 (Gate-2 + A2-1 RE-FIRE-3; ~1-1.5d) sequential after all close
+- A2-2 → A2-7 per existing Phase A2 sequence + D13 parallel-fire post-A2-1 RE-FIRE-3 PASS
+
+**Sub-agent observability:** rocket S7 + star-lord S5 + gamora T4 research fire in single parallel message via Agent tool foreground (results required before S2 routing).
