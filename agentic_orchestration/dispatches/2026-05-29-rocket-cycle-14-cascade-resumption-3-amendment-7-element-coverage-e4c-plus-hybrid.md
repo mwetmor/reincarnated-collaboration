@@ -264,3 +264,78 @@ Telemetry exports `kit.is_hybrid` + `kit.secondary_element` per emitted kit for 
 **Cascade trajectory:** Amendment 7 → jack-ryan Gate-2 → S6c production cascade (no Matt-gate; $50 cap monitoring) → A2-2 → A2-3 → A2-4 → A2-5 → A2-6 → A2-7 + D13 parallel → Cycle 14 v1 MVP D9 close.
 
 **Signed:** knight-rider (orchestrator)
+
+---
+
+## Completion record
+
+**Completed by:** rocket
+**Date:** 2026-05-29
+**Engine commit:** 8d5be1b, tag `rocket/v1.0-cascade-r3-amendment-7-element-coverage-1`
+**Math note:** `src/reincarnated/generation/notes/cascade-r3-amendment-7-element-coverage-math-2026-05-29.md`
+**MIGRATION.md entry:** `src/reincarnated/generation/MIGRATION.md` § [2026-05-29] Amendment 7
+**AGENT_STATE.md:** updated — Amendment 7 CLOSED checkpoint appended
+**Tests:** 49 new Amendment 7 tests + 554 total PASS
+
+### (a) Layer 1 retirement + STAT_ELEMENT_POOLS + element coverage
+
+`_BC_ATTRIBUTE_TO_ELEMENT` 1:1 table RETIRED. `STAT_ELEMENT_POOLS` active per canonical `elements.yaml` `scales_with` inversion:
+- INT → {fire, water, lightning, shadow} (4-pool)
+- WIS → {earth, wind, holy} (3-pool; full pool coverage per cell)
+- STR → {physical} (1-pool; degenerate; 3× physical)
+- DEX → all 8 elements (Option C decouple; attribute-system-2026-05-24.md § 2.1)
+
+`_draw_cell_elements(bc_attribute, enc_seed, n_samples)`: N=3 draws WITHOUT REPLACEMENT via `random.Random(enc_seed + 17).sample(pool, k=3)`. STR degenerate: `[pool[0]] * 3`.
+
+Smoke evidence (seed_base=14001, 54 kits): all 8 elements present at primary layer. Element distribution:
+`earth:9, fire:6, holy:6, lightning:6, physical:13, shadow:4, water:4, wind:6`. Missing: [] (empty).
+
+INT kits cover all 4-pool elements; WIS kits cover full 3-pool per cell; STR=physical; DEX covers all 8 across cells.
+
+### (b) Layer 2 hybrid rate evidence
+
+HYBRID_RATE = 0.175. `_roll_hybrid(primary, enc_seed, sample_idx)` seeded `enc_seed + sample_idx * 17 + 1`.
+
+Smoke result: **12 hybrid of 54 kits** (within 95% CI [6-13] PASS). Hybrid roll independence verified (cell-by-cell variance present). All is_hybrid + secondary_element field consistency checks PASS.
+
+### (c) Layer 3 chain assignment evidence
+
+`_build_chain_specs` updated with `primary_element`, `is_hybrid`, `secondary_element` args:
+- Mono: chain_1 = chain_2 = supporting = primary_element (VERIFIED at smoke)
+- Hybrid: chain_1 = supporting = primary; chain_2 = secondary; primary ≠ secondary (VERIFIED at smoke)
+
+Sample hybrid chain: primary=physical → chain_1=physical, chain_2=wind, supporting=physical.
+No ChainSpec schema change; existing `ChainSpec.element` field reused.
+
+### (d) Schema additions
+
+KitCandidate.is_hybrid + secondary_element: present, default False/None, correctly populated at w5r1_generate_kit_candidates.
+PlayerClass.is_hybrid + secondary_element: present, default False/None, propagated via _build_real_player_class.
+to_character_dict(): serializes both fields. Confirmed via `d["is_hybrid"]` + `d["secondary_element"]` present.
+
+### (e) Amendment 6 composition verification (§ 4.4)
+
+| Fix | Status |
+|---|---|
+| Pareto-2 partition key (bc_cell_id, cultural_lineage_canonical) unchanged | PASS — element not added to partition key |
+| S7 deepcopy in to_character_dict() | PASS — deepcopy still present; hybrid secondary_element on KitCandidate (not gear_set mutation) |
+| S8 Bound 4 paired-joint-sampling 54 kits | PASS — 54 kits generated at smoke |
+
+### (f) Smoke test results
+
+Phase 2 (w5r1_generate_kit_candidates): 54 kits, all acceptance gates PASS.
+Phase 2-4 end-to-end (wave5_season_orchestrator, halt_at_phase=5): PASS.
+Tests: 554 PASS (49 new Amendment 7 + 505 pre-existing; 0 regressions).
+
+### (g) Surface-to-KR findings
+
+None. No § 6 triggers fired:
+- STAT_ELEMENT_POOLS correctly derived from elements.yaml (no canonical drift)
+- Amendment 6 composition preserved (no regression)
+- All 8 elements present at population (none at 0%)
+- Hybrid count 12/54 within [6-13] CI
+- No Disc #42a framing-audit catch (implementation matches empirical behavior)
+- No schema consumer breakage (defaults backward-compatible)
+- Effort: ~1.5h wall-clock (within 1-2h estimate)
+
+**KR next step:** fire jack-ryan Gate-2 Pattern E review of Amendment 7. Per PASS/WARN/INFO → re-fire S6c production cascade Phase 5+ per Amendment 8 (no Matt-gate; KR monitors $50 cap).
