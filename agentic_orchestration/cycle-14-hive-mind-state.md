@@ -4156,3 +4156,79 @@ A2-2 → A2-7 + D13 parallel-fire → Cycle 14 v1 MVP D9 close
 ```
 
 **Updated estimate:** ~1d wall-clock remaining (gamora Phase 7 fix + S6c).
+
+### CASCADE-RESUMPTION-3 PHASE 7 FIX CLOSED 2026-05-29 — 12/18 shipped at small-sample; Amendment 5 consumed (Matt-gate at S6c Phase 5 entry)
+
+**Gamora Phase 7 mechanical gate fix CLOSED — Engine `496814b` + `a272223` + tag `gamora/v2.17-cascade-r3-phase7-mechanical-gate-fix-1`; collab `29e21e3`:**
+
+- **Option α.2 elected** (Option α.1 infeasible: `ARCHETYPE_COHORT_KPM_BAND` is None at runtime; Cycle 15 deferred). Direct alignment via `kit_result.eligible_encounters_passed(gauntlet_archetype)` reading per-cohort eligible count via W-α6 ENCOUNTER_COHORT_KPM_BAND
+- Implementation discovered intermediate concern: `quality_report.eligible_encounters_in_band` is ALL-4-cohort aggregate (not per-cohort) — naming clarification opportunity captured for Cycle 14 wave-close
+- Math note authored at `reincarnated-engine/src/reincarnated/simulation/math/cascade-r3-phase7-mechanical-gate-alignment-2026-05-29.md`: 9/18 = 0.50 (W-α6 calibration anchor); strict greater-than preserved (kit at exactly 9/18 fails)
+- `P7_GAUNTLET_PASS_FLOOR` 0.70 → 0.50 (also `_P7_PASS_FLOOR_EXPECTED` postscript assertion)
+- 11/11 Phase 7 bridge tests PASS; 13 pre-existing Cycle 13 test failures confirmed not regressions
+
+**S6a smoke re-fire results (CRITICAL):**
+
+| Metric | Pre-fix | Post-fix |
+|---|---|---|
+| kits_evaluated | 18 | 18 |
+| **kits_shipped_worthy** | **0** | **12** |
+| kits_held_mechanical | 18 | 6 |
+| acceptance_rate | 0.0 | **0.6667** |
+| damage cohort midpoint | 0.0 | 0.8333 |
+| defensive cohort midpoint | 0.0278 | 0.1111 |
+| wall_clock_seconds | — | 3.54 |
+
+**12/18 shipped MEETS A2-1 RE-FIRE-3 acceptance threshold ≥12/18 AT SMALL SAMPLE.** Full season scale (54 base + ~810 variants per Amendment 5 projections) expected comparable or better signal.
+
+**Disc #42a Instance 2 sub-case** (pass_rate context-dependent-semantics) explicitly documented at completion record (g) for jack-ryan + gandalf canonical-write at Cycle 14 wave-close. Additional sub-case: `quality_report.eligible_encounters_in_band` aggregate-vs-per-cohort naming gap.
+
+---
+
+### AMENDMENT 5 CONSUMED 2026-05-29 evening late — Matt-gate at Phase 5 entry of S6c (pre-fire empirical-verification gate)
+
+**Gandalf commit `7f3fb54`:** Matt 2026-05-29 evening late direction: "Should we set up a matt gate right before the LLM naming phase just to count the forms?" → AUTHORIZED.
+
+**Amendment 5 structure:**
+
+1. **NEW Matt-gate** between Phase 4 archive close and Phase 5 LLM entry for S6c (A2-1 RE-FIRE-3) season_001 production fire
+2. Gate fires ONCE at first Phase 5 entry; seasons 002+003 continue under existing Pattern E + $50 soft cap + per-workstream push (NO additional gates per season)
+3. **Gate surface content (KR-authored):**
+   - (1) Form counts — Phase 2 base kit count (expect 54 per S7) + Phase 4 archive variant count (expect ~810 per S2 Option C + S3) + distinct (lineage × period × register × weapon_family) tuples
+   - (2) Per-cohort distribution — damage/defensive/hybrid kit counts
+   - (3) Per-lineage distribution — ≥5 distinct cultural_lineage values expected per S7 + actual counts
+   - (4) Projected LLM cost — Wave A + F-C + Wave B call counts + firing logic per-variant vs per-base-kit (from gandalf math-note review) + cost-per-call × total + 3-season projection + $50 cap status (within / approaching / projected to exceed)
+   - (5) Matt election options — RATIFY-FIRE / REDUCE-SCOPE / ABORT
+
+**Sub-action: Gandalf math-note review** (expanded scope per Amendment 5):
+- Threshold change (0.70 → 0.50) per W-α6 calibration anchor
+- Cost projection at full-season scale
+- Wave B firing logic clarification (per-variant vs per-base-kit)
+- Fires ~15-30min; output feeds Matt-gate cost projection
+- Reviews gamora math note (now closed) — compose in series with Matt-gate
+
+**Composes with:** Phase A1 closure record Matt 3-gate (preserved) + $50 soft cap Amendment 4 (makes EX-ANTE what was EX-POST) + Pattern E pre-authorization (preserved; fires BEFORE Pattern E enters Phase 5) + H1 hypothesis test recognition record Amendment 3 (form distribution at gate is empirical instrument) + gandalf math-note review
+
+**Discipline candidate for Cycle 14 wave-close canonical-write:** "Pre-fire empirical-verification gate" as discipline pattern — analogous to Disc #42a framing-audit at dispatch consumption, applied at production-fire entry layer
+
+---
+
+**Cascade trajectory carry-forward (post-Amendment-5):**
+
+```
+✅ All architectural streams closed (S1+S4+S7+S5+Surface 1+S2+S3+S5b+S6a-FIX+Phase 7 fix)
+  ↓
+Gandalf math-note review (~15-30min) + S6c-Phase-2-4 (rocket Phase 2-4 fire + HALT at Phase 5 entry) ← PARALLEL FIRE
+  ↓
+KR authors Matt-surface with 5-item gate content (cost projection from gandalf review; form counts + cohort/lineage from S6c-Phase-2-4)
+  ↓
+Matt elects RATIFY-FIRE / REDUCE-SCOPE / ABORT
+  ↓ (RATIFY-FIRE)
+S6c-Phase-5+ rocket continuation (Wave A + F-C + Wave B + Phase 7)
+  ↓
+A2-2 (jack-ryan Gate-2 Pattern E review of season_001) → A2-3 (season_002 under Pattern E) → A2-4 (season_003 under Pattern E) → A2-5 (A/B comparison protocol) → A2-6 (disciplines batched canonical-write) → A2-7 (Matt v1 tag ratification)
+  ↓ + D13 parallel-fire post-A2-2 PASS
+Cycle 14 v1 MVP D9 close
+```
+
+**Updated estimate to Matt-gate surface:** ~1-2h wall-clock (gandalf review + S6c Phase 2-4 fire in parallel).
