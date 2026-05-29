@@ -240,3 +240,84 @@ Per Matt 2026-05-23 hive-mind decision-routing: gamora decides in-scope simulati
 This dispatch is the cheapest surface-able-by-collaboration repair of A2-1 INTERIM FAIL. 2-line absolute-import fix; verification; commit; tag; hand back to KR for rocket A2-1 re-fire under R48.4.
 
 A2-1-FIX PASS → rocket A2-1 re-fire → expected Phase 7 emit reproducing Phase 3 13/18 signal with cohesion judge LLM exclusions applied → A2-2 Gate-2 Pattern E autonomous-ratification → cascade continues toward Cycle 14 v1 MVP D9 close.
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-29 (Phase A2 A2-1-FIX; gamora simulation seam owner)
+**Status:** CLOSED — normal close
+
+### 1. VERDICT
+
+A2-1-FIX phase7_bridge cross-seam imports → absolute; verification PASS; bug fix complete; A2-1 re-fire unblocked. BUNDLED: quality-vector encounter-ID mismatch fix (Option B-1).
+
+### 2. Engine commit + tag
+
+- **Commit:** `b0ed9fd` — `gamora: A2-1-FIX phase7_bridge cross-seam absolute-imports + quality-vector ID fix — restores skill construction + encounter matching (Phase A2 A2-1-FIX)`
+- **Tag:** `gamora/v2.12-a2-1-fix-phase7-bridge-imports-1`
+- **AGENT_STATE commit:** `c08352f` — checkpoint update
+
+### 3. Verification results
+
+**Step 1 — Static import:** `python3 -c "from reincarnated.simulation.phase7_bridge import Phase7SyntheticKit"` → PASS (no ImportError)
+
+**Step 2 — Skill construction smoke:** `Phase7SyntheticKit(kit_id='smoke_test_001', bc_cell_id='endgame_str_01_heavy_barbarian', kit_seed=42, enc=ENDGAME_ENCOUNTER_CATALOG[0])`
+  - `kit.skills` length: 1 (PASS — non-empty)
+  - `kit.skills[0].role`: `primary_attack` (PASS)
+  - `kit.skills[0].id`: `synthetic_primary_endgame_str_01_heavy_barbarian` (PASS)
+  - `kit.element`: `earth` (correct for STR bc_attribute)
+
+**Step 3 — Test suite:** `pytest tests/test_phase7_bridge.py -v` → 9/9 PASS (0.21s)
+  - test_G_P7_1_column_addition PASSED
+  - test_G_P7_2_per_cell_streaming PASSED
+  - test_G_P7_3_synthetic_kit_construction PASSED
+  - test_G_P7_4_cohort_classifier PASSED
+  - test_G_P7_5_pass_rate_writeback PASSED
+  - test_G_P7_6_gate_runtime PASSED
+  - test_G_P7_7_verdict_state_machine PASSED
+  - test_G_P7_8_verdict_log_emission PASSED
+  - test_G_P7_full_bridge_smoke PASSED
+
+**Circular-import contingency (Disc #42a Q5):** Deferred-import pattern preserved (imports remain inside `_build_synthetic_skills` function body; only path changed from relative to absolute). No circular-import re-emerged. Static import PASS confirms.
+
+### 4. Disc #11 grep result — synthetic_mode
+
+`grep -rn "synthetic_mode" src/reincarnated/simulation/ --include="*.py"` → 6 matches, ALL comments/docstrings:
+- `phase7_verdict.py:635` — docstring ("avoids synthetic_mode-bypass contamination")
+- `gauntlet_sim.py:812` — comment ("Discipline #39 (Cycle 14 Wave 0.5): synthetic_mode detection retired")
+- `t4_sim_cycling.py:1004,1005,1115,1116,1177` — docstring/comment (Discipline #39 retirement notes)
+
+ZERO functional code. PASS.
+
+### 5. MIGRATION.md location
+
+`~/Games/reincarnated-engine/src/reincarnated/simulation/MIGRATION.md` § v1.55 — documents both Change A (phase7_bridge import fix) and Change B (quality-vector ID matching fix) with pre-fix / post-fix behavior descriptions per Discipline #12 attribution clarity.
+
+### 6. Secondary Phase 3 quality-vector investigation — BUNDLED (Option B-1)
+
+**Diagnosis confirmed:** `_derive_quality_vector()` in `wave5_season_orchestrator.py` was called with `kit_id = "S1_{bc_cell_id}"` (from `kit.character_id`, `season_generation_pipeline.py:534`). The gauntlet `encounter_results[*].legendary_id` uses format `"{bc_cell_id}_{chain_id}"` — no `S1_` prefix. The `startswith(kit_id)` filter at line 136 matched 0 entries for all 18 kits, producing 18 WARNs and neutral 0.5 vectors.
+
+**Fix applied:** Stripped `S1_` prefix to extract `bc_cell_id_prefix` before the filter. Verified with actual rocket A2-1 gauntlet JSON (`cycle-13-gauntlet-sim-results-20260529_052816.json`): 57 encounter_results now matched for `S1_endgame_str_01_heavy_barbarian` (vs 0 before). PASS.
+
+**Impact on A2-1 re-fire:** quality vectors on re-fire will be empirically meaningful (tier_1_kpm, tier_2_survival_rate, in_band, sg_overall dimensions populated). PM-1 clustering at Phase 5 will operate on real quality signal rather than uniform 0.5. Cohesion judge LLM behavior may differ from the placeholder-cluster run.
+
+**Non-blocking note confirmed:** this fix does not change whether Phase 7 emits ≥12/18; that depends on cohesion judge LLM exclusions against real quality-vector-informed clusters.
+
+### 7. Anomalies surfaced
+
+- **Pre-existing test collection errors (9 tests):** `grouping-layer-vocabulary.md` path resolution fails for tests importing `season_orchestrator` or `llm.naming`. Pre-existing; unrelated to this dispatch; rocket seam. Zero new test failures introduced.
+- **Quality-vector ID mismatch was a latent bug pre-dating this dispatch.** Masked in Phase 5 by placeholder clusters (faction_visibility=invisible). Would have produced uniform-cluster input to cohesion judge on any real run. Fix is intra-simulation-seam; no cross-seam schema impact.
+
+### 8. Disc #42a framing-audit at completion (meta-observation 5 attestation)
+
+Q1 (smallest-surface fix): PASS — 2-line import correction; no smaller alternative.
+Q2 (diagnosis correct, independently verified): PASS — file locations confirmed via `ls`; mechanism traced via ImportError catch at line 223 + empty list return.
+Q3 (semantic-shifting concern): PASS — fix restores INTENDED behavior; deferred-import pattern preserved; no semantic shift.
+Q4 (measurement-context for re-fire): PASS — Phase 3 13/18 ≠ Phase 7 ≥12/18; this dispatch makes no claim about Phase 7 outcome.
+Q5 (circular-import risk): PASS — absolute import still deferred inside function body; no circular-import re-emergence observed.
+Q6 (cross-seam contract change): PASS — intra-simulation-seam fix; generation seam imported from (read-only), not modified.
+
+**Gamora signature:** dispatch artifact verified against gamora execution report. All verification steps executed independently. Completion record is accurate.
+
+**Hand-to-KR:** rocket A2-1 re-fire authorized to proceed under R48.4 single-seam. Phase 7 synthetic kit skill construction is restored. Quality vectors will be empirically meaningful on re-fire.
