@@ -321,3 +321,136 @@ Append completion record (interim OR final) at any of:
 This dispatch is the cheapest empirical refutation of "is `FACTION_VISIBILITY="visible"` the single architectural lever that activates Phase 5 LLM exercise in Wave 5 production, AND is there no other pre-imposed assumption gating the LLM call?" — single-file amendment + downstream-consumer audit at rocket's seam-internal cost (no LLM spend; ~0.5-1h wall-clock).
 
 A2-1 Step 2 PASS = Concern #2 resolved + unblocks A2-1 Step 3 (jack-ryan Gate-2 Pattern E autonomous-pair on Step 1 + Step 2 outputs) → cascade resumes Step 4 (A2-1 RE-FIRE) → Step 5+ per resolution plan § 1 sequence toward Cycle 14 v1 MVP D9 close.
+
+---
+
+## Completion record
+
+**Date:** 2026-05-29
+**Rocket engine commits:** `5d69291` (flag flip) + `3b69dad` (AGENT_STATE checkpoint)
+**Tag:** `rocket/v1.1-a2-1-step-2-faction-visibility-visible-1`
+
+---
+
+**1. VERDICT**
+
+A2-1 Step 2 FACTION_VISIBILITY flip — PASS (all 5 edits landed; module-load assert updated Option α; downstream-consumer audit clean; v1 production locked to visible mode). Concern #2 resolved. A2-1 Step 3 (jack-ryan Gate-2) unblocked.
+
+---
+
+**2. 5 edits applied**
+
+| # | Site | Before | After |
+|---|---|---|---|
+| 1 | Line 12 module docstring | `faction_visibility=invisible` | `faction_visibility=visible` |
+| 2 | Line 89 constant + inline comment | `"invisible"   # Reincarnated v1 default; Wave A skipped` | `"visible"   # Reincarnated v1 default; Wave A + F-C + Wave B fire (Matt 2026-05-29 Path D — A2-1 Step 2 cascade-resumption)` |
+| 3 | Lines 802-806 Phase 5 function docstring | "invisible" mode: Wave A SKIPPED / F-C SKIPPED / Wave B SKIPPED | "visible" mode: Wave A FIRES / F-C FIRES / Wave B FIRES (per dispatch § 1.3 Edit 3 exact text) |
+| 4 | Line 847 inline comment | `# Run Phase 5 (Wave A skipped; placeholder mode active) / # With faction_visibility=invisible, run_phase5_with_fc_sync returns placeholder clusters / # and no F-C calls (Wave A is the prerequisite for F-C)` | `# Run Phase 5 (Wave A + F-C + Wave B active; visible mode) / # With faction_visibility=visible (Reincarnated v1 default per Matt 2026-05-29 Path D), / # run_phase5_with_fc_sync fires Wave A + F-C + Wave B; returns LLM-derived clusters + relationships` |
+| 5 | Lines 1264-1265 assert | `assert FACTION_VISIBILITY == "invisible", (f"... expected 'invisible' ...")` | `assert FACTION_VISIBILITY == "visible", (f"... expected 'visible' (... per Matt 2026-05-29 Path D) ...")` |
+
+Lines 825-827 (orchestrator log — already correctly conditional) and line 835 (pass-through to phase5_orchestrator) and line 897 (telemetry dict pass-through) — NOT touched per dispatch § 1.3 instruction.
+
+---
+
+**3. Architectural call on assert**
+
+Option α applied (update asserted value from `"invisible"` to `"visible"`). Rationale: D9 ratified close-criterion uses visible-mode as the production configuration; locking the asserted value matches the Cycle 14 v1 commitment. Option β (lift to broader invariant `{invisible, visible}`) was considered but Option α is cleaner for v1 lock semantics — if the flag changes in v1.x, that constitutes a deliberate revision requiring a new assert update and attribution, which is the correct audit trail. KR recommendation confirmed.
+
+---
+
+**4. Disc #11 downstream-consumer audit results**
+
+Audit commands run:
+- `grep -n "skip|short_circuit|placeholder|stub" phase5_orchestrator.py` — returned 60+ lines; all are: (a) placeholder field names / data structures, (b) the `if short_circuited:` branch handling visible/invisible forking (2-flag gate only), and (c) comments documenting placeholder semantics. No functional third gating flag found.
+- `grep -rn "faction_visibility|FACTION_VISIBILITY" src/reincarnated/` — returned 50+ hits across wave5_season_orchestrator.py, phase5_orchestrator.py, phase7_verdict.py, export/MIGRATION.md, export/schemas.py, and math docs. All references outside wave5_season_orchestrator.py are: (a) documentation/comments, (b) the `phase5_orchestrator.py:231` `should_fire_wave_a()` gate (2-flag: `faction_visibility == "visible" OR monster_contrast_enabled`), or (c) schema comments on nullable `faction_label_canonical`.
+- `phase5_orchestrator.py:229-231 should_fire_wave_a()` confirmed: `return self.faction_visibility == "visible" or self.monster_contrast_enabled` — exactly 2 gating flags. No third.
+- Lines 1691-1711: `short_circuited = not config.should_fire_wave_a` — derived from should_fire_wave_a; if faction_visibility="visible", short_circuited=False, Wave A fires. No downstream code asserts `short_circuited == True`.
+- Lines 2012-2013: comment only — "placeholder when LLM layer short-circuited"; not a functional assertion.
+
+**Verdict: CLEAN. No additional LLM-gating flag beyond FACTION_VISIBILITY + monster_contrast_enabled. No surface-to-KR condition triggered.**
+
+INFO observation (not a blocker): `phase5_orchestrator.py:193` consumer-side dataclass default is still `faction_visibility: str = "invisible"`. This is benign — wave5_season_orchestrator.py:835 overrides with FACTION_VISIBILITY explicitly at Phase5OrchestratorConfig construction. Consumer-side default mismatch is a Disc #11 hygiene note: if a future caller instantiates Phase5OrchestratorConfig without overriding, it will default to invisible. Out of scope for this dispatch per § 4 (consumer-side default flip explicitly excluded).
+
+---
+
+**5. Module-load smoke verification**
+
+```
+python3 -c "from reincarnated.simulation.wave5_season_orchestrator import FACTION_VISIBILITY; assert FACTION_VISIBILITY == 'visible'; print(f'PASS: FACTION_VISIBILITY={FACTION_VISIBILITY}')"
+```
+Output: `PASS: FACTION_VISIBILITY=visible`
+
+PASS.
+
+---
+
+**6. Disc #2 quick-smoke test results**
+
+`python3 -m pytest tests/test_phase7_bridge.py --no-header -q` — 9 passed in 0.22s. PASS.
+
+Broader pytest run filtered to `faction_visibility or wave5_season_orchestrator or phase5` surfaced 2 pre-existing collection errors in `test_b6_generator_wired.py` and `test_cosmological_vocabulary.py` (missing `grouping-layer-vocabulary.md` env var — star-lord seam environment issue, pre-existing, unrelated to this edit). No new test failures from FACTION_VISIBILITY assert update.
+
+---
+
+**7. Disc #42a Q1-Q6 framing-audit self-audit**
+
+| Q | Question | Verdict |
+|---|---|---|
+| Q1 | Load-bearing assumption: flipping FACTION_VISIBILITY to `visible` causes Wave A + F-C + Wave B to fire | HOLDS — `should_fire_wave_a()` returns True when faction_visibility=="visible"; verified at phase5_orchestrator.py:231 |
+| Q2 | Refutation evidence in scope: any OTHER pre-imposed gating assumption beyond FACTION_VISIBILITY? | HOLDS — Disc #11 audit found zero additional gating flag; 2 flags only confirmed |
+| Q3 | Refutation surface-able cheaply | HOLDS — grep + read took minutes, no LLM spend |
+| Q4 | Measurement context match: Step 4 A2-1 RE-FIRE will exercise visible-mode; cost guard active | HOLDS — no change to star-lord cost projection mechanism |
+| Q5 | Calibration scope match: D9 close-criterion authored under implicit visible-mode assumption; invisible was scaffold-survival | HOLDS — Path D restores measurement scope to D9 ratification intent (per resolution plan § 1 Step 2 semantic) |
+| Q6 | Semantic stability: generation-side LLM exercise vs player-facing faction surfacing are distinct | HOLDS — see § 9 attestation below |
+
+All 6 HOLD. Edits match dispatch intent. No surface-to-KR condition from framing-audit.
+
+---
+
+**8. Disc #48 R48.4/R48.5 verification**
+
+- R48.4: gamora released post Step 1 PASS (engine HEAD 685b362 = gamora AGENT_STATE checkpoint; no concurrent sub-agent). Rocket alone for Step 2. PASS.
+- R48.5: vm_stat at dispatch entry showed Pages free=6791 × 16384 = ~108 MB free + Pages inactive=170476 × 16384 = ~2.7 GB reclaimable = ~2.8 GB free+reclaimable. Exceeds 1 GB threshold. PASS.
+
+---
+
+**9. Player-facing-vs-generation-side separation attestation**
+
+ATTESTATION: This dispatch (A2-1 Step 2) flips `FACTION_VISIBILITY` from `"invisible"` to `"visible"` to activate the **generation-side LLM exercise** (Wave A faction-level LLM calls, F-C inter-faction relationship calls, Wave B per-kit identity calls). This controls whether the Phase 5 cohesion-judge LLM pipeline fires during season generation.
+
+This dispatch does NOT commit to any **player-facing faction surfacing** decision. The deferred-commitments recognition record at `canonical/story/fate-genre-recognition-and-mobile-alignment-trajectory-2026-05-23.md` stands: player-side faction surfacing (whether players see faction labels, whether faction clusters surface in UI, whether faction relationships are rendered in loadout) remains Matt-election territory for v1.x+. The orchestrator flag controls the generation-side LLM exercise; downstream player-facing surface decisions are a separate seam (drax/loadout architecture) that KR explicitly excluded from this dispatch's scope per § 4.
+
+These are semantically distinct: the flag being `"visible"` means "the cohesion-judge LLM exercises during generation to produce faction_label_canonical + ExportFactionCluster + ExportFactionRelationship records for telemetry + Phase 7 gate consumption." It does not mean "these records surface to the player in v1."
+
+---
+
+**10. MIGRATION.md disposition**
+
+Judged INAPPLICABLE. This is an engine-internal orchestrator flag flip. No cross-seam contract change: downstream consumers (phase5_orchestrator.py, phase7_verdict.py, export/schemas.py) were already designed to handle both modes via the `short_circuited` field and nullable `faction_label_canonical`. The semantic shift (placeholder clusters → LLM-derived clusters) was the pre-designed Phase 5 production mode; no consumer requires amendment to handle visible-mode outputs. MIGRATION.md would apply if the flag change required consumers to update their handling logic — it does not.
+
+---
+
+**11. Engine + collab commits + tag**
+
+- Engine commit 1: `5d69291` — `rocket: A2-1 Step 2 — FACTION_VISIBILITY flip invisible → visible (Path D, Matt 2026-05-29)`
+- Engine commit 2: `3b69dad` — `rocket: AGENT_STATE checkpoint — A2-1 Step 2 COMPLETE (FACTION_VISIBILITY visible; Concern #2 resolved)`
+- Tag: `rocket/v1.1-a2-1-step-2-faction-visibility-visible-1` (on `5d69291`)
+- Collab commit: this completion record append (to follow)
+
+---
+
+**12. Telemetry output paths**
+
+N/A — this dispatch produces no new sweep telemetry. It is an orchestrator flag flip only. Step 4 A2-1 RE-FIRE will produce the first real Phase 5 LLM telemetry (ExportFactionCluster + ExportFactionRelationship records with `faction_label_canonical` populated).
+
+---
+
+**13. Anomalies surfaced**
+
+- **Consumer-side default mismatch (INFO, not blocker):** `phase5_orchestrator.py:193` default remains `faction_visibility: str = "invisible"`. Orchestrator always overrides explicitly at line 835; no functional impact. Noted as hygiene item for future consumer-side cleanup if desired.
+- **Test collection errors (pre-existing, unrelated):** `test_b6_generator_wired.py` and `test_cosmological_vocabulary.py` fail collection due to missing `GROUPING_VOCAB_DOC_PATH` env var. Pre-existing star-lord seam environment gap; not introduced by this edit.
+- **Disc #40 scaffold-discipline data point (INFO):** the `FACTION_VISIBILITY="invisible"` hardcoded default + `assert FACTION_VISIBILITY == "invisible"` at module-load constitutes a scaffold-survival-into-production pattern (Disc #40 candidate). This dispatch resolves the scaffold by locking the production value. Deferred canonical-write per resolution plan § 4 (Matt re-engage for batched Disc #40 + Disc #42a Instance-5 capture).
+
+---
+
+**Rocket signature:** A2-1 Step 2 PASS — Concern #2 resolved. FACTION_VISIBILITY="visible" locked as Reincarnated v1 production default. Step 3 (jack-ryan Gate-2 Pattern E autonomous-pair on Step 1 + Step 2 outputs) unblocked. No surface-to-KR condition triggered at any step.
