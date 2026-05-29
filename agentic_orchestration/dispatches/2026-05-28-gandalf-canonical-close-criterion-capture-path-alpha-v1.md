@@ -384,7 +384,8 @@ Dispatch 5 inputs at jack-ryan consumption:
 
 ### 13. Commit hashes
 
-- Auto-commit fired post-completion-record: **`<TBD — appended after `git commit`>`**
+- Auto-commit fired post-completion-record: **`c2c65cf`** — "gandalf: Phase A1 Dispatch 4 canonical close-criterion capture for Path α v1 — doc 47 § 4.6.9 + doc 51 § 10.8.10 + doc 50 § 4.7 v1.3 + pushback memo amended" (5 files changed, 568 insertions, 10 deletions)
+- Push DEFERRED per dispatch § 2.8 + ITEM 3 (Matt 3-gate surface at A1-A2 phase boundary)
 
 ---
 
