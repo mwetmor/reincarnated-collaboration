@@ -110,6 +110,48 @@ The discipline's full resolution coverage is now empirically demonstrated across
 
 **Cascade architecture impact:** Recognition record chain Step C ("Wave B per-kit identity LLM" cohesion judge) is non-operational. Phase 7 cohesion gate has been effectively pass-through (no per-kit cohesion exclusions; cohesion_data={} hardcode) since cascade architecture was articulated. Path X (implement Wave B before A2-1 RE-FIRE-2; ~1.5-2d engineering optimistic) recommended per ambiguous-decisions-log resolution.
 
+### Instance 6 ROOT-CAUSE sub-case — ENDGAME_ENCOUNTER_CATALOG class-taxonomy at substrate-input layer (2026-05-29; cascade-resumption-2 evening)
+
+**The deeper finding:** Matt 2026-05-29 intuition surfaced after kit-count discrepancy investigation: "the labels you listed look like a vestigial hand-crafted naming convention from either cycle 13 or cycle 12 which this cycle 14 was specifically designed to counteract."
+
+**Empirical verification:** `reincarnated-engine/src/reincarnated/generation/endgame_encounter_catalog.py` is Cycle 13 SC-6 hand-crafted artifact:
+- File header line 2: "WU-R2 — 18 endgame-reference encounter definitions for **Cycle 13 SC-6**"
+- All 18 entries use class names in `archetype_name` field ("Heavy Barbarian", "Standard Wizard", "Channeling Cleric", "Holy Knight", "Storm Caller", "Monk", "Dagger Assassin", "Archer", "Crossbow Sniper", "Twin Blade Fencer", "Standard Wizard", "Artillery Mage", "Pyromantic Caster", "Red Mage Spellsword", "Arcane Familiar Mage", "Ritual Mage", "Light Fighter", "Polearm Soldier")
+- `encounter_id` field embeds class names (e.g., `endgame_str_01_heavy_barbarian`)
+- `intent` descriptions reference "the class" throughout (e.g., "tests the Heavy Barbarian's burst-window timing. Low tempo means the class must hold cooldowns...")
+- `cohort_notes` make class-bound assignments (e.g., "Defensive cohort may fall below KPM floor due to low-tempo class")
+
+**The propagation cascade:**
+- ENDGAME_ENCOUNTER_CATALOG → Phase 2 BC discovery → kit IDs embed class taxonomy (e.g., `S1_endgame_str_01_heavy_barbarian`)
+- Phase 3 gauntlet inherits class-keyed kit IDs
+- Phase 4 archive collapses variants back to class-keyed character_ids
+- PM-1 clustering operates on class-keyed substrate (degenerate fallback at k=3 inevitable)
+- Phase 5 Wave A consumes class-keyed cluster reps; emergent faction labels CANNOT be substrate-led because input substrate IS class taxonomy
+- Wave B (phantom + canonical-vs-implementation gap) compounds; even when built, would consume class-keyed substrate
+
+**Why this is ROOT-CAUSE within Instance 6:**
+
+The prior Instance 6 sub-findings (Wave B phantom + Wave B canonical-vs-implementation gap + kit-count canonical-vs-empirical gap + gauntlet variant enumeration shallow + Phase 4 archive collapse) are **all downstream symptoms** of the substrate-input layer carrying pre-imposed class taxonomy. The no-classes architectural recommitment (Matt 2026-05-27 verbatim) **landed at player-architecture layer** (doc 48 VESTIGIAL'd; engine commit `0a5a4f2` reverted at `c9fcb1d`) **but NOT at substrate-input layer**. The cycle's stated architectural commitment is empirically refuted at the root.
+
+**Critical propagation pattern (compounding):**
+
+| Layer | Propagation surface | Architectural commitment claimed | Empirical reality |
+|---|---|---|---|
+| Substrate-input | `endgame_encounter_catalog.py` (Cycle 13 SC-6 hand-crafted) | No-classes per Matt 2026-05-27 recommitment | Class taxonomy embedded in archetype_name + encounter_id + intent + cohort_notes |
+| Phase 2 BC discovery | Kit ID generation | Substrate-led from BC tuples | Class-name suffix carried forward from catalog |
+| Phase 3 gauntlet | kit_results IDs | Variant-cycled substrate-led identifiers | Class-name suffix preserved through variant cycling |
+| Phase 4 archive | kit_archive rows | Variant population for PM-1 | Variants collapse back to class-keyed character_ids |
+| Phase 3 PM-1 | Cluster input | Multimodal substrate-led emergence | Class-keyed substrate; degenerate k=3 fallback |
+| Phase 5 Wave A | Cluster naming LLM | Substrate-grounded faction emergence | Consumes class-keyed cluster reps |
+
+**Discipline #42a Instance 6 Q-extension reinforcement:** "verify the component exists" extends to "verify the substrate at every layer matches the architectural commitment." The KR grep refutation pattern (zero `wave_b|WaveB|run_wave_b` matches) generalizes to cycle-boundary architectural commitments: at every cycle's architectural recommitment, grep the codebase for surviving artifacts of the retired concept.
+
+**Matt 2026-05-29 election (per CLAUDE.md Engine > Game > Phase orientation):** "Per claude.md, there is only one choice here: erase class concept at all levels, then construct the Wave 2 [Wave B] LLM naming, then fire the full engine gen again with Wave 2 [Wave B] LLM entity naming."
+
+**Cascade-resumption-3 authorization at** `agentic_orchestration/gandalf/notes/2026-05-29-cascade-resumption-3-class-eradication-authorization.md` operationalizes the eradication + Wave B + cascade-architecture completion. ~6-10d engine + LLM + Gate-2 work before A2-1 RE-FIRE-3.
+
+**Critical observation:** Matt's intuition operated as exactly the framing-audit discipline this memo describes. He noted "the labels you listed look like a vestigial hand-crafted naming convention" at a glance — pattern-recognized the class taxonomy from kit IDs in a single output table. This is the framing-audit Q1/Q2/Q3 discipline operating at sub-30-second latency without explicit Q-application. The discipline is becoming reflexive at the human-design-judgment layer.
+
 ## 5. The cross-cutting pattern
 
 All five canonical instances + the meta-observation share the same architectural shape — though they span FIVE context-types now (with Instance 6 expanding the framework):
