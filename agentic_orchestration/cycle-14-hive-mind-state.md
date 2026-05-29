@@ -3592,3 +3592,66 @@ The discipline's existing Q1-Q6 + meta-observation 5 covers this case (Q4: measu
 **Co-author note:** Disc #42a Instance-5 may warrant pushback memo amendment to gandalf's `2026-05-28-framing-audit-three-instance-case.md` § 4-bis or § 4-quater (architectural-commitment ↔ implementation-empirical-gap as additional resolution). DEFERRED until Matt election clarifies the architectural disposition (resolution path C/D/E informs whether this is a discipline-reinforcing case or a discipline-misapplied-by-KR case).
 
 **Session work-cluster complete.** Next KR session fires Phase A2 unattended cascade per Matt-paste of gandalf-authored handoff prompt.
+
+---
+
+### CASCADE-RESUMPTION-3 ENTRY 2026-05-29 — Matt CLAUDE.md orientation invocation + substantial scope amendment
+
+**Authority chain:** Matt 2026-05-29 verbatim "Per claude.md, there is only one choice here: erase class concept at all levels, then construct the Wave 2 [Wave B] LLM naming, then fire the full engine gen again with Wave 2 [Wave B] LLM entity naming" + "Confirm scope, commit the authorization"
+
+**CLAUDE.md orientation directive (load-bearing for this trajectory):**
+> Engine first. Game second. Phase third.
+> Conflict resolution: engine > game > phase.
+
+**Architectural truth surfaced 2026-05-29:** ENDGAME_ENCOUNTER_CATALOG (`reincarnated-engine/src/reincarnated/generation/endgame_encounter_catalog.py`) is Cycle 13 SC-6 hand-crafted artifact embedding class taxonomy at substrate-input layer. No-classes architectural recommitment (Matt 2026-05-27) landed at player-architecture but NOT at substrate-input layer. Engine architectural integrity > Phase A2 cascade-timing per CLAUDE.md.
+
+**Cascade-resumption-3 work program (6 streams; ~6-10 days):**
+
+| Stream | Owner | Effort | Dependency |
+|---|---|---|---|
+| **S1 — Class-concept eradication at substrate-input layer** | rocket | ~1-2d | first; root-cause fix |
+| **S2 — Gauntlet variant enumeration expansion** | rocket + gamora | ~1-2d | S1 |
+| **S3 — Phase 4 archive variant preservation** | rocket | ~0.5-1d | S2 |
+| **S4 — Phase 5 LLM prompt audit for class-free substrate** | gandalf (parallel conversation thread) | ~1-2h | parallel-safe S1-S3 |
+| **S5 — Wave B FULL implementation per canonical § 5** | star-lord + rocket | ~1-1.5d | S3 + S4 |
+| **S6 — Integration + jack-ryan Gate-2 + A2-1 RE-FIRE-3** | rocket + gamora + star-lord + jack-ryan | ~1-1.5d | S1-S5 |
+
+**Authoritative artifacts:**
+- gandalf authorization at `agentic_orchestration/gandalf/notes/2026-05-29-cascade-resumption-3-class-eradication-authorization.md` (commit `ff1096a`)
+- Recognition record amendment 2 + pushback memo Instance 6 root-cause sub-case (commit `b58a5f4`)
+- KR-authored S1 dispatch at `agentic_orchestration/dispatches/2026-05-29-rocket-cycle-14-cascade-resumption-3-s1-class-eradication.md`
+
+**Carry-forward gates (UNCHANGED):**
+- $50 SOFT CAP for total Wave 5 cascade LLM spend
+- A2-1 through A2-7 sequence + D13 parallel-fire RATIFIED
+- PUSH per-workstream pattern after each season Gate-2 PASS
+- PATTERN E PRE-AUTHORIZATION for all Wave 5 Gate-2 reviews
+- CONCERN #3 pre-ratified P3c routing (LANDED in cascade-resumption-2)
+- CASCADE-RESUMPTION-3 pre-ratified contingent decisions per authorization § 3 (class-name token list grep extension + substrate-derived encounter_id naming + variant cycling axes ordering + archive insertion math + Wave B canonical § 5 spec verbatim)
+
+**Pre-flight verification:**
+- vm_stat ~960 MB free + ~2.2 GB inactive reclaimable (R48.4 OK)
+- kit_archive.db intact 118 KB
+- cascade artifacts intact at `cycle-14-wave-5-season-001/`
+- Active processes: gandalf PID 4723 (parallel conversation thread for S4); rocket TBD
+- Git status: meta-repo has pre-existing uncommitted cascade-resumption-2 work-products (BVV baseline + 2 telemetry files) + `gandalf/matt_conversations/` untracked; does NOT block S1 dispatch
+
+**S1 dispatch fired 2026-05-29:**
+- Recipient: rocket
+- File: `agentic_orchestration/dispatches/2026-05-29-rocket-cycle-14-cascade-resumption-3-s1-class-eradication.md`
+- Pattern: B sustained-execution (~1-2d)
+- R48.4 single-seam preserved
+- Acceptance: ZERO class-name grep matches in catalog + downstream surfaces + Phase 7 bridge magnitude dict + tests realigned + smoke gate PASS
+- Substrate-derived encounter_id scheme: `endgame_bc_{range}_{tempo}_{amplitude}_{attribute}_{proxy_density}` (gandalf scheme; authorization § 3 pre-ratified)
+- Preserve: cohort_archetype constants (BVV load-bearing) + BC tuple fields + T4 architecture + scenario shell IDs + MobSpec.archetype_tag (mob-side, different concept)
+
+**Catalog audit findings (knight-rider pre-survey at dispatch authoring):**
+- `endgame_encounter_catalog.py` (1002 lines, 18 entries): all carry class-suffix encounter_ids + `archetype_name=` class names + class-named `intent` + class-bound `cohort_notes`
+- `simulation/phase7_bridge.py:134-151`: HARDCODED magnitude dict keyed on class-suffix encounter_ids (gamora Concern #1 calibration; requires parallel update for runtime correctness)
+- `simulation/phase7_cohort.py:286-310` `classify_kit_cohort_from_encounter_id()`: audit for class-suffix regex-parsing dependency
+- `simulation/gauntlet_sim.py`: multiple references; code references survive renaming; verify Disc #11
+- `simulation/bounded_viability_validation.py:968`: scenario_shell_id check; preserve scenario_shell_id unchanged
+- `tests/test_cycle14_wave1_concentration.py:394,427`: test comments need encounter_id alignment
+- PRE-KNOWN SAFE: `llm/phase5_orchestrator.py` (Disc #45 policy enforcement); `llm/spirit_guide_voice.py` (form names + policy + LLM-bias commentary); `element/selector.py` (phonetic linguistic data); `llm/naming.py` (LLM-bias commentary)
+
+**Cascade trajectory:** S1 → S2 → S3 → (S4 parallel) → S5 → S6 → A2-1 RE-FIRE-3 → A2-2 → A2-3 → A2-4 → A2-5 → A2-6 → A2-7 v1 tag ratification. ~6-10d wall-clock to A2-1 RE-FIRE-3 PASS; ~5-9d additional vs cascade-resumption-2 prior estimate; Engine > Phase per CLAUDE.md trajectory cost ACCEPTED per Matt 2026-05-29 election.
