@@ -3438,4 +3438,59 @@ Routing to gamora for A2-1-FIX (2-line absolute-import fix + verification + comm
 
 **Secondary Phase 3 quality-vector anomaly (gamora investigation; non-blocking):** all 18 quality vectors emitted neutral 0.5 with 18 WARNs "no encounter_results found." Gamora's `_derive_quality_vector()` can't find expected field in gauntlet JSON. Gamora's call to bundle (if trivial diagnostic) or defer (if substantive design concern).
 
+---
+
+### A2-1-FIX RESULT 2026-05-29 — CLOSED (Pattern A-light; ~6 min wall-clock; ROUTED to rocket for A2-1 RE-FIRE)
+
+**Gamora A2-1-FIX sub-agent completed 2026-05-29 (agent ID `abaf66b165f5086af`):**
+
+**Primary fix (required) — `simulation/phase7_bridge.py` lines 196-197:**
+- FROM relative imports `.ability_schema` + `.skill_schema`
+- TO absolute `reincarnated.generation.ability_schema` + `reincarnated.generation.skill_schema`
+- Deferred-inside-function-body pattern preserved (no circular-import re-emergence)
+- `Phase7SyntheticKit` now constructs `kit.skills=[primary_attack]` with magnitude=3000 + energy_cost=0.0
+
+**Bundled secondary fix (Option B-1) — `simulation/wave5_season_orchestrator.py` `_derive_quality_vector()`:**
+- Root cause: `kit.character_id = "S1_{bc_cell_id}"` but gauntlet `legendary_id = "{bc_cell_id}_{chain_id}"` — `startswith()` filter mismatched
+- Fix: strip `S1_` prefix from `kit_id` before filter
+- Verification against actual A2-1 gauntlet JSON: 57 encounter results matched per kit (vs 0 pre-fix)
+- Quality vectors on A2-1 re-fire will be empirically meaningful, not uniform 0.5
+
+**Verification (gamora-attested + KR spot-check):**
+- ✅ Static import resolves: `from reincarnated.simulation.phase7_bridge import Phase7SyntheticKit`
+- ✅ Skill construction smoke: `kit.skills` len=1 role=primary_attack PASS
+- ✅ 9/9 `test_phase7_bridge.py` tests PASS
+- ✅ Disc #11 grep `synthetic_mode` in `src/reincarnated/simulation/` = ZERO functional code
+- ✅ Quality-vector fix verified against actual A2-1 gauntlet JSON
+
+**KR spot-check (Disc #42a meta-observation 5):**
+- ✅ `phase7_bridge.py` lines 196-197 read confirms absolute-import statements landed
+- ✅ Engine HEAD `c08352f` (gamora AGENT_STATE post A2-1-FIX); fix commit `b0ed9fd`; tag `gamora/v2.12-a2-1-fix-phase7-bridge-imports-1` resolves
+
+**Gamora commits:**
+- Engine `b0ed9fd` — A2-1-FIX (primary + bundled + MIGRATION.md §v1.55)
+- Engine `c08352f` — AGENT_STATE checkpoint
+- Engine tag `gamora/v2.12-a2-1-fix-phase7-bridge-imports-1`
+- Collab `1313d79` — completion record appended to A2-1-FIX dispatch
+
+**KR routing decision (in-scope per hive-mind decision-routing):**
+
+Route to rocket for A2-1 RE-FIRE (re-attempt of season_001 production cascade with both fixes landed). R48.4 single-seam preserved (gamora released; rocket firing alone).
+
+**A2-1 RE-FIRE dispatch fired:**
+- Dispatch file: `agentic_orchestration/dispatches/2026-05-29-rocket-cycle-14-a2-1-refire-post-phase7-bridge-fix.md`
+- Recipient: rocket (content generation seam)
+- Pattern: Pattern B sustained-execution; same shape as original A2-1 with both fixes applied
+- This is the FIRST production fire that meaningfully spends LLM cohesion judge budget — star-lord cost guard projects mid-cascade; surface at projected $50 cumulative across 3 seasons
+- Acceptance: ≥12/18 emit at Phase 7 acceptance + cohesion judge LLM exclusion count cited separately + Phase 3 WR-bracket as informational proxy
+
+**Disc #42a Q6 vigilance flag forward (load-bearing for re-fire attestation):**
+
+Rocket A2-1 INTERIM attestation conflated "Phase 3 13/18 = Path α validated" with the architectural claim. Phase 3 is gauntlet sim proxy; Phase 7 (post-LLM-cohesion-judge) is the full architectural validation gate. A2-1 RE-FIRE completion record MUST cite Phase 7 emit count explicitly (NOT Phase 3 proxy) for the architectural validation claim. KR will verify at completion-record consumption.
+
+**Cascade sequence post A2-1 RE-FIRE:**
+1. Rocket A2-1 RE-FIRE PASS (≥12/18 emit at Phase 7) → KR fires A2-2 (jack-ryan + gandalf critique-pair Gate-2 Pattern E autonomous)
+2. A2-2 Pattern E PASS → KR fires A2-3 (season_002 production)
+3. Cascade continues to A2-4 / A2-5 / A2-6 / A2-7
+
 **Session work-cluster complete.** Next KR session fires Phase A2 unattended cascade per Matt-paste of gandalf-authored handoff prompt.
