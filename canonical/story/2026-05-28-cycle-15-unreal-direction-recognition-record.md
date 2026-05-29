@@ -1,6 +1,6 @@
 # Cycle 15 Unreal Direction — Recognition Record (Architectural Commitments Deferred)
 
-> **STATUS:** CURRENT (recognition load-bearing as of 2026-05-28) — Recognition record only. Architectural commitments DEFERRED per recognition → empirical validation → commit discipline; gates on Cycle 14 D9 close + Matt + critique-pair adjudication.
+> **STATUS:** CURRENT (recognition load-bearing as of 2026-05-28; AMENDED 2026-05-28 — substantial substance recovery from Matt re: transformer/pass-through architecture + asset pipeline scaffold + drax-pushback clarification + agent draft authorship + M2-install scope) — Recognition record only. Architectural commitments DEFERRED per recognition → empirical validation → commit discipline; gates on Cycle 14 D9 close + Matt + critique-pair adjudication.
 
 **Date:** 2026-05-28
 **Author:** gandalf (story-and-design steward) — written from Matt's recollection of pre-freeze sub-agent gandalf Pattern B dialogue + design-side current-context surfacing
@@ -52,7 +52,7 @@ The direction aligns with established canonical anchors:
 
 `canonical/29-design-overview.md` frames Reincarnated as "Phase 0 = the seasonal journey portion of a larger eventual game." The "larger eventual game" implies a player-facing playable surface beyond demo + loadout. Unreal is the natural target for that playable surface — 3D combat rendering at production polish, mature toolchain for cross-platform shipping, existing project asset structure (UE_5.7 install) already in place.
 
-### 2.2 Engine output → player client architecture
+### 2.2 Engine output → player client architecture — TRANSFORMER / PASS-THROUGH PATTERN (load-bearing dev-time-savings discipline)
 
 The substrate-led Cycle 14 architecture (per c-hybrid 2026-05-28 § 1) produces calibrated kits + encounters + per-cell semantics. That output has been validated as substrate; what's missing is the playable rendering. The Unreal seam would own:
 - Engine kit-definition → Unreal gameplay data binding (Python catalogue / engine output → Unreal data tables / Blueprint structs)
@@ -60,13 +60,25 @@ The substrate-led Cycle 14 architecture (per c-hybrid 2026-05-28 § 1) produces 
 - Player input + camera + UI (the layers that turn calibrated combat into played combat)
 - Asset pipeline integration (Meshy + image-pass-through assets per existing D7 AI-tell-line discipline)
 
+**The overarching architecture principle (recovered from pre-freeze Pattern B with Matt this session):** **a transformer / pass-through layer (app/file structure on the Python engine side) adjusts what is emitted by the game engine to fit what Unreal needs.** This is load-bearing dev-time-savings discipline. The principle: **don't replicate Python engine work on the Unreal C++ side; emit JSON from Python that Unreal C++ consumes.** Specific recovered examples:
+
+| Domain | Don't (Unreal-side replication) | Do (transformer/pass-through) |
+|---|---|---|
+| **Real-time combat** | Implement combat math in Unreal C++ | Python engine emits sequenced-action JSON; Unreal C++ converts the sequenced actions to real-time playback. **Python simulation; Unreal renders the simulation** — preserves substrate-led discipline + lets Unreal stay focused on rendering excellence |
+| **VFX** | Configure VFX from scratch per skill in Niagara | Buy VFX packs from Unreal Marketplace; map them to JSON as C++-readable geometry / timing / geospatial data. Engine emits "skill X at timing T at location L with magnitude M with geometry G"; Unreal renders pre-built VFX pack triggered by the JSON spec |
+| **Asset pipeline** (current scaffold) | Build automated rigging + animation pipeline | **Manual scaffold:** stock-pile character + weapon reference images via GPT image generation; pass-through to Meshy (auto-rigs + auto-animates); manual import into Unreal. Pipeline-ify later when volume justifies |
+
+This pattern's genre lineage is strong — Quake III's bot scripting was data-driven; StarCraft Brood War unit behavior was data-table-driven; Diablo III's rune system was per-rune data tweaks. The "Python emits JSON; Unreal consumes" architecture is established game-engineering pattern for small-team / single-developer-plus-LLMs project shape. It massively reduces Unreal-side complexity AND keeps the engine substrate as the canonical truth.
+
+**Architectural implication:** the transformer/pass-through layer is its OWN load-bearing architectural commitment — distinct from the engine seam (rocket / gamora / star-lord) AND distinct from the Unreal seam itself. Open question: does the transformer live in the engine repo (extension of star-lord's export seam) OR in the Unreal seam repo (Python-side ETL adjacent to Unreal client) OR as its own bridge component? **Design-call territory deferred per § 4.**
+
 ### 2.3 Composition with existing seams
 
 The synthetic team currently has 10 seam-owners. The Unreal seam adds an 11th. Composition boundaries that need design-call adjudication (DEFERRED — see § 4):
 
 | Adjacent seam | Boundary question |
 |---|---|
-| **drax** (player-facing demo + loadout web) | Does drax own Unreal too (expanded player-facing scope), or is Unreal a new seam (separating 2D web from 3D native)? Strong design-side lean toward NEW seam — Unreal is sufficiently different tech stack + toolchain that single-seam ownership creates context overload |
+| **drax** (player-facing demo + loadout web) | RESOLVED (per pre-freeze sub-agent gandalf design call, recovered this session): NEW SEAM, not drax-absorption. Matt initially proposed re-purposing drax (he authored demo v1 Pixi.js); sub-agent gandalf pushed back that Unreal scope is BOTH "larger AND specifically different" — single-seam ownership would overload drax. drax stays focused on existing demo + loadout web; Unreal gets dedicated new seam. **Architecturally ratified by sub-agent gandalf pre-freeze; surfaces for Matt re-confirmation at Cycle 15 entry but the design-side call is already locked.** |
 | **star-lord** (export + telemetry + LLM) | star-lord owns engine output emission; the Unreal seam owns consumption. Hand-off boundary needs explicit format spec (likely JSON catalogue → Unreal data table import) |
 | **rocket** (generation) | rocket produces calibrated kits; Unreal seam renders them. No direct boundary; Unreal seam consumes downstream of rocket's output |
 | **gamora** (simulation) | gamora simulates combat in Python; Unreal renders combat playback. Open question: does Unreal re-simulate (Unreal-side combat logic) or playback-render (Python-side simulation → Unreal display layer)? **Load-bearing architectural choice; design-call territory** |
@@ -126,6 +138,11 @@ The following are explicitly DEFERRED per recognition → empirical validation �
 | Simulation-vs-rendering boundary (re-simulate-in-Unreal vs Python-simulation-playback-in-Unreal) | Pattern A-deep design verdict with gandalf + jack-ryan critique-pair; load-bearing architectural commitment |
 | Unreal sample project scope (minimal viable scaffold) | Matt + Unreal seam agent (once authored) joint scoping pass |
 | Asset pipeline composition (Meshy + image-pass-through-into-Unreal) | star-lord pipeline + Unreal seam alignment pass; D7 AI-tell-line discipline preserved at Unreal output layer |
+| **Transformer / pass-through layer architecture** (engine-side ETL) | Design-call: does the transformer live in engine repo (star-lord extension), Unreal seam repo (Python-side ETL adjacent to Unreal client), or as its own bridge component? Pattern A-deep verdict with gandalf + jack-ryan + star-lord + (new) Unreal-seam-agent input |
+| **Real-time-combat JSON spec** (sequenced-actions emission format) | Engine emits what? Per-tick actions? Per-skill-firing events? Per-encounter-resolution summaries? Format design call gates on which Unreal-side replay granularity supports the rendering target |
+| **VFX-pack acquisition + JSON-mapping spec** | Which VFX packs to buy? What JSON schema does the engine emit to trigger pack-rendering? Design-call between gandalf (genre lineage + visual target) + galadriel (visual-similarity scoring against genre peers) + Unreal seam agent (pack-integration mechanics) |
+| **Minimal-install scope for M2 Mac mini 8GB host** | Web research (this session, post-freeze): UE 5.7 native Apple Silicon supported; SM6 + Nanite on M2; **memory: testing showed instances using over 7GB on M2 hosts — 8GB host is genuinely tight + sensitive to context (other Claude sessions + sub-agents + Unreal editor simultaneously will hit memory thrash signature like the pre-freeze incident).** Recommended minimal install scope: macOS + Windows target platforms only (deselect iOS / Android / Linux / consoles); deselect Templates and Feature Packs; deselect Engine Source (~30+ GB saved); deselect Editor Debug Symbols (~50+ GB saved). Likely landing footprint: ~30-50 GB instead of 100-180 GB full install. **Operational discipline candidate:** when Unreal editor is running, KR Mode A sub-agent invocations should sequence single-seam under R47.4 with EXPLICIT host-RAM check accounting for Unreal editor working set |
+| **Agent draft authorship sequence** | RECOMMENDED: gandalf authors design recommendation at `agentic_orchestration/gandalf/recommendations/2026-05-XX-unreal-seam-agent-design-recommendation.md` (scope boundaries + persona + mythic-register naming + authority + discipline composition); KR drafts canonical `.claude/agents/<name>.md` from the recommendation; jack-ryan Gate-1 review; Matt election + ratification; KR commits canonical agent file. Each authorship step has clear seam-owner; clean separation of design vs canonical-write authorities. See § 6 for current-gandalf commitment to author the recommendation at Matt election time |
 
 ## 5. Operational status (this session post-freeze)
 
@@ -140,7 +157,7 @@ The following are explicitly DEFERRED per recognition → empirical validation �
 
 ## 6. What to do when this recognition record is referenced
 
-**For sub-agent gandalf invocations at Cycle 15 entry pre-scope (any future invocation reaching this scope):** read this record at session-start; treat it as the AUTHORITATIVE recovery of the pre-freeze direction; do not require Matt to re-explain the substance. Design-call work can proceed from this anchor.
+**For sub-agent gandalf invocations at Cycle 15 entry pre-scope (any future invocation reaching this scope):** read this record at session-start; treat it as the AUTHORITATIVE recovery of the pre-freeze direction; do not require Matt to re-explain the substance. Design-call work can proceed from this anchor. **Gandalf-side commitment:** when Matt elects to fire the Unreal seam agent authoring (post Cycle 14 D9 close OR parallel-to-D9-close per Matt direction), current-gandalf authors `agentic_orchestration/gandalf/recommendations/2026-05-XX-unreal-seam-agent-design-recommendation.md` covering scope boundaries + persona authoring + mythic-register naming + authority + discipline composition; KR pulls from that recommendation to draft the canonical .claude/agents/<name>.md.
 
 **For knight-rider at Cycle 15 entry:** the new "Unreal" seam agent authoring is an architectural-commitment-grade artifact (new .claude/agents/<name>.md + operating-procedure skill); requires Matt election + critique-pair adjudication; surfaces at Cycle 15 framing brief authoring time.
 
