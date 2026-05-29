@@ -206,3 +206,118 @@ If smoke fire cost projects > $50 across 3 full seasons via linear extrapolation
 **Cascade trajectory:** S6a + S6b parallel → S6c (A2-1 RE-FIRE-3 full season) → A2-2 → A2-7 + D13 parallel-fire → Cycle 14 v1 MVP D9 close.
 
 **Signed:** knight-rider (orchestrator)
+
+---
+
+## Completion record — rocket — 2026-05-29
+
+**Status:** HALTED — two § 6 surface conditions triggered (see below). S6a acceptance gates NOT met. S6c blocked.
+
+**Engine HEAD at execution:** post-S5b tag `rocket/v1.0-cascade-r3-s5b-wave-b-integration-1`
+
+---
+
+### Disc #11 audit results (§ 2.2)
+
+| Stream | Audit | Result |
+|---|---|---|
+| **S1** (class eradication) | grep on `endgame_encounter_catalog.py` for class name tokens | **PASS** — `sniper` hits are all MobSpec.archetype_tag (mob combat behavior taxonomy: swarmer/caster/brute/sniper/controller/tank), NOT player class names; SAFE surface per S1 acceptance; zero class-keyed substrate generation tokens |
+| **S7** (substrate multi-sample + lineage) | substrate_binding 13 fields; smoke sample ≥5 distinct lineages/weapons | **PASS** — `_query_substrate_weapon()` returns 13 fields (8 original + 5 S7: cultural_lineage_canonical, historical_period_canonical, register_canonical, cultural_lineage_confidence, named_mythological_match); `N_SUBSTRATE_SAMPLES_PER_CELL=3`; full run produced 54 kits from 18 cells × 3 samples |
+| **S2** (gauntlet variant enumeration) | LAYER2_T4_STRATEGIES tuple present; _STRUCTURAL_NO_CELLS frozenset present; smoke ≥22 unique tuples | **PASS** — `LAYER2_T4_STRATEGIES` at gauntlet_sim.py:1686; `_STRUCTURAL_NO_CELLS` at gauntlet_sim.py:1712; smoke=False produced 810 configs (18 BC × 5 strategies × 3 invest = 270 per profile × 3 profiles, minus 162 structural NOs) |
+| **S3** (Phase 4 archive variant preservation) | VariantKitRow dataclass present; PM-1 input ≥ base + variant; kit_archive ≥30 rows from ~50-90 kits | **PARTIAL-FAIL** — VariantKitRow present at wave5_season_orchestrator.py:420; BUT all 810 variants have wr_bracket_pass=False in smoke=False mode (see Surface Finding 1 below); PM-1 input = 13 base kits only (not ≥22); kit_archive UNIQUE constraint blocked insertion (see Surface Finding 2 below) |
+| **S5+S5b** (Wave B + integration) | run_wave_b_async present; Phase5WaveBResult present; cohesion_data={} hardcode ZERO; wave_b_results populated post-fire; cost-tracker per-call accumulates | **PARTIAL** — all grep checks PASS (run_wave_b_async at phase5_orchestrator.py:2084; Phase5WaveBResult at phase5_orchestrator.py:343; cohesion_data={} hardcode ZERO); BUT pipeline failed at Phase 4 before reaching Phase 5/Wave B in smoke=False run |
+| **Surface 1 patch** (regex lookaround) | `(?<![a-zA-Z])` pattern present; W-B8/W-A10/F-C13 amended | **PASS** — lookaround at phase5_orchestrator.py:188/193; W-B8 at line 1616; W-A10 at line 459; F-C13 at line 1024 |
+| **Phase 7 gate binding** | Synthetic positive + negative tests (S5b gate 4.3); BINDING behavior verified | **PASS (synthetic only)** — TestPhase7CohesionGateBinding: synthetic 0.50 → EXCLUDED (C1), 0.85 → INCLUDED; 40 S5b tests PASS; end-to-end binding NOT verified (pipeline failed before Phase 5/7 in smoke=False) |
+
+---
+
+### Integration smoke fire results (§ 2.1)
+
+**Run:** smoke=False, seed_base=14001, full 18-cell pipeline
+**Wall clock:** 49.63 seconds (Phase 2-4 only; halted at Phase 4)
+
+| Stage | Result | Detail |
+|---|---|---|
+| Phase 2 BC discovery | PASS | 54 kits (18 cells × 3 samples) |
+| Phase 2.5 S2 variant enumeration | PASS | 810 configs enumerated; 162 structural NOs skipped |
+| Phase 3 gauntlet sim | PARTIAL | 13 base kits passing WR-bracket; 0 variant rows passing (see Surface Finding 1) |
+| Phase 3 PM-1 clustering | DEGENERATE FALLBACK | kmeans_k3_fallback; input cardinality = 13 (below 22+ threshold); k=3 fallback |
+| Phase 4 archive | FAIL | UNIQUE constraint failed: kit_archive.kit_id (see Surface Finding 2) |
+| Phase 5 Wave A + F-C + Wave B | NOT REACHED | Pipeline halted at Phase 4 |
+| Phase 7 cohesion gate binding | NOT REACHED | Pipeline halted at Phase 4 |
+
+**generation_pass:** False
+**degeneracy_triggered:** True
+**degeneracy_reason:** Phase 4 error: UNIQUE constraint failed: kit_archive.kit_id
+
+---
+
+### Cost projection (§ 2.3)
+
+Wave A + F-C + Wave B did NOT fire (pipeline halted at Phase 4). No LLM cost incurred beyond Phase 5 scaffold ($0.00 in this run). Cost projection not possible from this run.
+
+**Prior smoke=True reference** (S5b validation): Wave A + mock-LLM fired; $0.01 for 3 kits/2 clusters.
+**Projected full-run cost** (if pipeline completed): Wave A ~5-6 clusters × $0.05 = $0.25-$0.30; F-C ~10 pairs × $0.025 = $0.25; Wave B ~13 base kits × $0.010 = $0.13. Total ~$0.60-0.70 per run. 3 seasons = ~$2.00-2.10. Well within $50 soft cap.
+
+---
+
+### § 6 surface conditions triggered
+
+**Surface Finding 1: PM-1 degenerate fallback (HALT)**
+
+- **Condition:** "PM-1 still produces degenerate fallback — PM-1 input cardinality ≥22 + still falls back to kmeans_k3"
+- **Root cause:** All S2 variant rows (810 configs) have wr_bracket_pass=False in smoke=False mode. The `_build_variant_kit_rows()` function looks up variant legendary_ids in gauntlet_results_json (Cycle 13 historical data at `cycle-13-gauntlet-sim-results-2026-05-27.json`). This JSON has Cycle 13 class-based legendary_ids, not S2 variant legendary_ids. emit_map misses all S2 legendary_ids → default False.
+- **Design gap:** Variants are synthetic T4 strategy configurations not run through the gauntlet simulator. They have no wr_bracket_pass signal from simulation. The smoke=True bypass (`if smoke: row.wr_bracket_pass = True`) masked this in S3 acceptance testing. In smoke=False mode, variants never pass.
+- **Impact:** PM-1 input = 13 base kits only; kmeans_k3_fallback fires (sparsity: season_sparse); k=3 degenerate result. The entire S2+S3 architecture for variant-enriched PM-1 clustering does not function in production mode.
+- **KR action required:** Design call on how S2 variant rows should acquire wr_bracket_pass in smoke=False mode. Options: (a) run variants through gauntlet sim (computationally expensive, may not be meaningful for synthetic T4 configs); (b) grant variants wr_bracket_pass=True unconditionally (since they're derived from passing base kits, the gauntlet gate doesn't apply semantically); (c) use a different pass criterion for variants (e.g., base kit season_emit inherited). This is a gandalf Pattern B design call per authorization § 4.
+
+**Surface Finding 2: Phase 4 UNIQUE constraint from stale kit_archive.db (HALT)**
+
+- **Condition:** "Smoke fire pipeline error — Phase 4 pipeline raises unexpected error"
+- **Root cause:** kit_archive.db contains 19 rows from pre-cascade runs with OLD class-based kit IDs (e.g., `S1_endgame_dex_02_archer`, `S1_endgame_int_01_standard_wizard`). These include one S1-compliant ID (`S1_endgame_bc_melee_low_spiky_str_none_s0`) inserted by the S5b smoke=True run. The smoke=False run attempts to insert the same IDs.
+- **Scope:** Two sub-issues: (a) old pre-cascade class-based IDs in DB — these should not survive cascade-resumption-3; (b) no INSERT OR REPLACE / ON CONFLICT semantics — re-runs always hit UNIQUE constraint on same seed.
+- **KR action required:** In-seam fix: DB initialization should either clear and re-initialize for each generation run, or use INSERT OR REPLACE semantics. Pre-cascade class-based IDs are stale data and should be cleared. However, this is an in-seam fix (rocket owns kit_archive initialization) — rocket can implement with KR authorization. Surface separately in case KR wants gamora to review DB semantics first.
+
+---
+
+### Disc #42a framing-audit Q1-Q6 (applied at dispatch consumption + findings interpretation)
+
+- Q1 (measurement context): surface findings are empirically observed from a real smoke=False pipeline run. Not inferred from code inspection alone.
+- Q2 (phantom components): no phantom propagation. The two surface findings are genuine integration gaps confirmed by log output and code trace.
+- Q3 (pre-imposed taxonomy): variant wr_bracket_pass design gap is not a class-taxonomy issue. It is a pass-criterion gap for synthetic configs.
+- Q4 (substrate-led): the PM-1 degenerate fallback IS what the substrate data votes — only 13 base kits with real gauntlet signal. The degenerate result is correct behavior given input cardinality. The design gap is at the variant pass-criterion layer, not PM-1 itself.
+- Q5 (scope boundary): Surface Finding 2 (DB UNIQUE constraint) is in-seam (rocket owns kit_archive initialization). Surface Finding 1 (variant wr_bracket_pass design) requires KR routing per § 6.
+- Q6 (acceptance gates): acceptance gates 4.1-4.4 NOT met. Gate 4.2 specifically fails (Disc #11 audit S3 partial-fail; PM-1 degenerate fallback). S6a does NOT PASS.
+
+**Instance 6 finding:** The S3 acceptance was validated only via smoke=True which bypassed the variant wr_bracket_pass gap. This is an Instance 6 pattern (phantom-component propagation via smoke bypass masking real integration gap). The smoke=True behavior gave a false positive for S3 integration.
+
+---
+
+### Acceptance gate results
+
+| Gate | Result |
+|---|---|
+| 4.1 Phase 2-7 pipeline fires end-to-end without error | FAIL — halted at Phase 4 UNIQUE constraint |
+| 4.2 All 8 stages operational per § 2.1 | FAIL — Stage 3 (PM-1) degenerate fallback; Stages 5-8 not reached |
+| 4.3 Cost-tracker captures Wave A + F-C + Wave B spend | NOT VERIFIED — pipeline halted before Phase 5 |
+| 4.4 PM-1 cluster count > 3 (NOT degenerate) | FAIL — k=3 kmeans_k3_fallback with input cardinality 13 |
+| 4.4 Wave B results non-empty | NOT VERIFIED |
+| 4.4 Phase 7 cohesion gate applies | NOT VERIFIED end-to-end (synthetic test evidence only from S5b) |
+| 4.4 shipped_worthy count > 0 | NOT VERIFIED |
+| 4.5 Tag | Not applicable — no material engine artifacts produced this session |
+
+---
+
+### S6a trajectory
+
+**S6a: HALTED** — two § 6 surface conditions triggered. S6a acceptance gates NOT met.
+
+**Cascade block:** S6c cannot fire until S6a acceptance gates pass.
+
+**KR required actions:**
+1. **Surface Finding 1 (PM-1 degenerate fallback):** Design call on variant wr_bracket_pass criterion in smoke=False mode. Candidate pre-ratified action: variants inherit base kit season_emit (simplest), or wr_bracket_pass=True unconditional for variants (semantic: they're derived from passing kits). Requires seam-owner (rocket) implementation after KR + gandalf Pattern B routing.
+2. **Surface Finding 2 (DB UNIQUE constraint):** In-seam fix authorized. Rocket can implement DB re-initialization / INSERT OR REPLACE semantics. Pre-cascade class-based IDs cleared from kit_archive.db. Requires KR authorization as scope amendment to S6a (in-seam but code modification).
+
+**Disc #11 audit partial results:** S1, S7, S2, S5+S5b, Surface 1 audit all PASS. S3 PARTIAL-FAIL (variant wr_bracket_pass gap). Phase 7 gate binding PASS (synthetic evidence only from S5b test suite).
+
+**Signed:** rocket (2026-05-29)
