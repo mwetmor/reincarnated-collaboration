@@ -12,12 +12,12 @@
   "clusters_aggregated": 4,
   "cohort_midpoints": {
     "damage": 0.0,
-    "defensive": 0.0278,
+    "defensive": 0.0,
     "control": 0.85,
     "support": 0.85,
     "hybrid": 0.85
   },
-  "wall_clock_seconds": 3.24,
+  "wall_clock_seconds": 7.4,
   "explain_plans": {
     "QUERY_DISTINCT_ACTIVE_CELLS": "[QUERY_DISTINCT_ACTIVE_CELLS]\n3 | 0 | 0 | SCAN kit_archive USING COVERING INDEX idx_kit_archive_cell_status",
     "QUERY_ACTIVE_KITS_IN_CELL": "[QUERY_ACTIVE_KITS_IN_CELL]\n3 | 0 | 0 | SEARCH kit_archive USING INDEX idx_kit_archive_cell_status (bc_cell_id=? AND archive_status=?)",

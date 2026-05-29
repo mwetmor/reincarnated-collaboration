@@ -282,3 +282,180 @@ Append completion record (interim OR final) at any of:
 This dispatch is the cheapest empirical refutation of "do Step 1 (per-bc_cell_id magnitude table) + Step 2 (FACTION_VISIBILITY=visible) together unblock A2-1 RE-FIRE to produce ≥12/18 emit at Phase 7 acceptance AFTER real-LLM cohesion judge exclusions under D9 ratified close-criterion?" — re-fire of season_001 production cascade with both fixes landed (~10-60 min wall + LLM phase; first real LLM spend establishes empirical baseline for 3-season cascade projection).
 
 A2-1 RE-FIRE attempt 2 PASS = Cycle 14 v1 architecture empirically validated at Phase 7 acceptance layer + unblocks A2-2 Gate-2 (Pattern E autonomous critique-pair = jack-ryan + gandalf) → cascade continues through A2-3 + A2-4 + A2-5 + A2-6 toward A2-7 Matt v1 tag ratification.
+
+---
+
+## Completion record
+
+**Date:** 2026-05-29
+**Rocket engine commits:** `98e1825` (AGENT_STATE checkpoint)
+**Tag:** `rocket/v1.2-a2-1-refire-2-season-001-fail-0`
+**Wall-clock:** 32.8s pipeline + LLM phase
+
+---
+
+**1. VERDICT**
+
+A2-1 RE-FIRE attempt 2 season_001 production — FAIL. Phase 7 emit: 0/18 (D9 ratified threshold: ≥12/18). LLM exclusions: 0 (mechanical gate fails precede cohesion gate). LLM cost: $0.00 tracked (real LLM calls did fire — observability gap; see § 4). NEW Concern #3 surfaced: `_run_gauntlet_for_kit()` metric extraction bug produces gauntlet_pass_rate ≈ 0 for all kits despite synthetic kit season_emit=True per Step 1 sweep. Routes to Matt per resolution plan § 3 second-material-fail clause. NO re-fire loop.
+
+---
+
+**2. Phase 7 emit count (D9 ratified validation gate)**
+
+Phase 7 emit: **0/18** shipped_worthy (acceptance_rate=0.0%).
+- kits_held_mechanical: 5
+- kits_held_both: 13
+- kits_held_cohesion: 0
+
+This is the D9 ratified Phase 7 result (NOT Phase 3 proxy — Q6 vigilance honored). Phase 3 WR-bracket: 13/18 PASS (informational proxy only).
+
+---
+
+**3. Phase 5 LLM cohesion judge**
+
+- wave_a_fired: True (FACTION_VISIBILITY=visible; Step 2 architecture confirmed active)
+- cluster_count: 3 (LLM-generated labels: "Tideworn Earthbreakers", "Ember Siege Vanguard", "Chain-Drawn Wandering Casters")
+- relationship_count: 3 (FC inter-faction relationships fired)
+- llm_cost_usd tracked: $0.00 (tracker=None → llm_call_id=None → cost counter = 0; real LLM spend occurred but untracked — pre-existing observability gap)
+- Phase 7 cohesion gate was NOT reached — mechanical gate failed first; cohesion_judge_confidence distribution is 0 kits processed through cohesion gate
+- Star-lord cost guard: $50 soft cap NOT triggered ($0 tracked; real spend unknown but likely small — 3 faction clusters + 3 FC relationships + Wave B per-kit calls)
+- INFO-2 consumer-side default disposition confirmed benign: orchestrator override at line 835 worked correctly (wave_a_fired=True)
+
+---
+
+**4. Phase 5 Wave A + F-C + Wave B exercised**
+
+Wave A: FIRED. ExportFactionCluster count: 3. Real LLM-generated faction_label_canonical populated:
+- Cluster 1 (9 kits): "Tideworn Earthbreakers" — water/earth close-press warband
+- Cluster 2 (1 kit): "Ember Siege Vanguard" — fire ranged-AOE
+- Cluster 3 (3 kits): "Chain-Drawn Wandering Casters" — water/wind orbital elemental
+
+F-C: FIRED. 3 ExportFactionRelationship records produced (allied, mysterious, rival semantics per narrative content). FC relationships contain ai_tell_compliance_score=0.85, final_compliance_status=ACCEPT.
+
+Wave B: FIRED (faction_visibility=visible causes should_fire_wave_a=True which enables Wave B; per-kit identity narratives produced — not extractable from Phase 5 JSON because per-kit records not surfaced in faction_clusters.json output; full Wave B telemetry captured in-process).
+
+INFO-2 disposition confirmed BENIGN: consumer-side default at phase5_orchestrator.py:193 "invisible" was correctly overridden by orchestrator at line 835; wave_a_fired=True confirms successful override.
+
+---
+
+**5. Per-kit cohesion_judge_confidence distribution**
+
+NOT CAPTURED. The mechanical gate failed at gauntlet_pass_rate ≈ 0 for all 18 kits, before cohesion gate evaluation. The cohesion_judge_confidence distribution from Phase 5 Wave B is not extractable from current telemetry because: (a) Phase 7 gate processes kits via evaluate_kit_verdict() but all kits failed mechanical gate; (b) cohesion_score mapping requires per-kit output from Phase 5 result.
+
+Disc #40 cohesion-threshold WARN-watch: N/A — mechanical failure precedes cohesion evaluation. Cohesion threshold remains unevaluated empirically.
+
+---
+
+**6. Phase 3 gauntlet sim (informational proxy)**
+
+Phase 3 WR-bracket PASS: 13/18 (proxy; not architectural validation signal). Quality vectors meaningful (bundled fix from A2-1-FIX active). Phase 4: 18/18 ACCEPTED to kit_archive.
+
+---
+
+**7. Synthetic-kit Phase 7 KPM coverage**
+
+Step 1 architecture (PHASE7_SYNTHETIC_KIT_MAGNITUDE_TABLE per-bc_cell_id table) confirmed active. Synthetic kit season_emit=True for all 18 kits per the per-kit gauntlet sweep (1510 total fights per kit; 40-47 eligible in-band encounters). However, `_run_gauntlet_for_kit()` at phase7_bridge.py:368 reads `quality_report.mean_encounters_passed_per_kit` — a 4-cohort average — producing near-zero gauntlet_pass_rate in kit_archive. This is Concern #3. KPM is in-band (Step 1 confirmed); the metric extraction bug is the new failure mode.
+
+Observed gauntlet_pass_rate values in kit_archive post-Phase-7:
+- 15/18 kits: 0.0 (DPS-min-maxer and Hybrid cohorts — enc_passed / 4 rounds to 0)
+- 3/18 kits: 0.0556 (Defensive cohort — enc_passed_Defensive=4 → mean=1.0 → round=1 → 1/18)
+- All 18: below P7_GAUNTLET_PASS_FLOOR=0.70 → mechanical fail
+
+---
+
+**8. AI-tell detection sub-audit (SC-3 DETECTION)**
+
+Phase 5 FC relationships include ai_tell_compliance_score=0.85, final_compliance_status=ACCEPT, grep_compliance_pass=True. Diversity check fired (diversity_check_enabled=True; backend=tfidf). No ai_tell_phrase_hits captured in relationship records. Cross-Character Diversity: 3 cluster labels produced; no duplicates; cosine_similarity_max=0.3913 for cluster 1 (below collision threshold). Diversity flag=False for all clusters. SC-3 DETECTION: clean for the outputs produced.
+
+---
+
+**9. Disc #11 grep verification**
+
+`grep -rn "synthetic_mode" src/reincarnated/simulation/` — ZERO functional code (all hits are .md docs, MIGRATION.md, AGENT_STATE.md, and comment-only lines in .py files). Disc #11 PASS.
+
+---
+
+**10. Telemetry output paths**
+
+| File | Status |
+|---|---|
+| `cycle-14-wave-5-season-001/phase2_kit_candidates.json` | Updated (attempt 2) |
+| `cycle-14-wave-5-season-001/phase3_gauntlet_results.json` | Updated |
+| `cycle-14-wave-5-season-001/phase3_pm1_clustering.json` | Updated |
+| `cycle-14-wave-5-season-001/phase3_quality_vectors.json` | Updated |
+| `cycle-14-wave-5-season-001/phase4_archive_insertion.json` | Updated |
+| `cycle-14-wave-5-season-001/phase5_faction_clusters.json` | Updated (LLM-derived labels) |
+| `cycle-14-wave-5-season-001/phase5_faction_relationships.json` | Updated (real FC relationships) |
+| `cycle-14-wave-5-season-001/phase7_season_summary.json` | Updated (0/18 emit) |
+| `cycle-14-wave-5-season-001/season_summary.json` | Updated |
+| `cycle-14-wave-5-season-001/kit_archive.db` | Cleared + re-populated (attempt 2) |
+| `cycle-14-wave-5-season-001/a2-1-refire-1-fail-pre-step1-step2/` | Prior attempt 1 outputs archived |
+
+---
+
+**11. Engine + collab commits + tag**
+
+- Engine commit: `98e1825` — AGENT_STATE checkpoint RE-FIRE attempt 2 FAIL + Concern #3 diagnosis
+- Tag: `rocket/v1.2-a2-1-refire-2-season-001-fail-0`
+- Collab commit: telemetry artifacts + completion record (this append; to follow)
+- Push: NOT fired — per per-workstream pattern; push after Matt resolution + cascade resumes
+
+---
+
+**12. Disc #42a framing-audit self-verification (Q1-Q6)**
+
+| Q | Question | Verdict |
+|---|---|---|
+| Q1 | Load-bearing assumption: Step 1 + Step 2 sufficient for ≥12/18 emit | REFUTED — Step 1 + Step 2 both architecturally correct, but a THIRD architectural concern exists in _run_gauntlet_for_kit() metric extraction. Q1 refutation is the empirical signal this dispatch was designed to surface. |
+| Q2 | Refutation evidence in scope: Step 4 production cascade IS the evidence | HOLDS — pipeline fired; refutation observed empirically at Phase 7 |
+| Q3 | Refutation surface-able cheaply: ~10-60 min pipeline | HOLDS — 32.8s wall-clock |
+| Q4 | Measurement context match: W-α6 calibration + D9 close-criterion active | HOLDS — ENCOUNTER_COHORT_KPM_BAND unchanged; all thresholds active |
+| Q5 | Calibration scope match: per-bc_cell_id table covers all 18 kits | HOLDS — but the metric extraction bug means per-cell calibration is irrelevant when pass_rate is miscalculated |
+| Q6 | Semantic stability: attestation cites Phase 7 result, not Phase 3 proxy | HONORED — "Phase 7 emit: 0/18" is cited explicitly; Phase 3 13/18 cited as informational proxy only |
+
+---
+
+**13. Disc #42a Q6 vigilance attestation**
+
+CONFIRMED. This completion record cites Phase 7 emit count (0/18) as the architectural validation gate result. Phase 3 WR-bracket (13/18) is cited as informational proxy ONLY. The Q6 vigilance flag from prior A2-1 RE-FIRE attempt 1 is honored.
+
+---
+
+**14. Star-lord LLM cost guard report**
+
+Tracked cost: $0.00 (tracker=None → no cost capture; pre-existing observability gap in phase5_orchestrator when tracker not wired). Real LLM spend: occurred (Wave A produced 3 labeled clusters + Wave B per-kit identity narratives; exact cost unknown but estimated small — 3 faction + 3 FC + ~18 Wave B kit calls at ~$0.005/call ≈ $0.12 estimate). $50 soft cap NOT triggered. $60 hard-halt NOT triggered. Cost baseline for 3-season extrapolation: not established (tracker gap blocks precise measurement). This observability gap is a pre-existing concern distinct from Concerns #1-3; deferred to Matt re-engage per resolution plan § 4 pattern.
+
+---
+
+**15. Anomalies surfaced**
+
+**CONCERN #3 (NEW MATERIAL FAIL — SURFACE TO KR IMMEDIATELY):**
+
+File: `simulation/phase7_bridge.py:_run_gauntlet_for_kit()` line 368
+```python
+# CURRENT (BUG):
+enc_passed = round(quality_report.mean_encounters_passed_per_kit)
+# mean_encounters_passed_per_kit averages kr.encounters_passed(cohort) across ALL 4 cohorts
+# (DPS-min-maxer, Balanced, Defensive, Hybrid) per gauntlet_sim.py:1072-1074
+# A Phase 7 synthetic kit is evaluated with cohorts=[gauntlet_archetype] (1 cohort only)
+# Other 3 cohorts = 0 encounters passed → mean = enc_passed_1_cohort / 4
+# For most kits: round(n/4) = 0 → pass_rate = 0/18 = 0.0 → mechanical fail
+```
+
+Effect: All 18 kits receive gauntlet_pass_rate ≈ 0 at Phase 7 despite synthetic kit season_emit=True per Step 1 per-kit sweep. This is a NEW architectural concern distinct from Concern #1 (KPM calibration) and Concern #2 (FACTION_VISIBILITY). This concern is in gamora's simulation/ seam (phase7_bridge.py).
+
+**FIX DIRECTION (gamora seam):**
+
+The correct metric to extract is per-cohort encounters_passed for the SPECIFIC cohort evaluated. Two candidate approaches:
+- Extract `kit_results[0].encounters_passed(gauntlet_archetype)` directly from `quality_report`'s kit_results (requires access to kit_results list not just quality_report aggregate)
+- Extract `kit_results[0].season_emit` and map season_emit=True → pass_rate sufficient to clear P7_GAUNTLET_PASS_FLOOR
+
+Gamora's seam-internal call on the implementation. This is Concern #3; routes to Matt per resolution plan § 3 second-material-fail clause.
+
+**Secondary observation (LLM cost observability gap):**
+
+Phase 5 fired real LLM calls (Wave A, F-C, Wave B) but cost tracker is None → total_cost_usd=0.0 tracked. The cost guard ($50/$60) did NOT function for this cascade. This is a pre-existing star-lord seam gap; deferred to Matt re-engage per resolution plan § 4 pattern.
+
+---
+
+**Rocket signature:** A2-1 RE-FIRE attempt 2 FAIL — Concern #3 surfaced (_run_gauntlet_for_kit metric extraction bug in gamora seam). SURFACE TO KR per resolution plan § 3 second-material-fail clause. Phase 7 emit 0/18 (D9 threshold ≥12/18). Step 1 + Step 2 architectural preconditions are correct; the new failure is in phase7_bridge.py metric extraction. Matt election required; no re-fire loop.
