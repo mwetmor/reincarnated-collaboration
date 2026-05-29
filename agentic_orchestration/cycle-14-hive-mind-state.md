@@ -3293,3 +3293,61 @@ Per supplemental Matt question to A1 re-entry: Disc #42 Q1-Q6 framing-audit appl
    - **(b)** LLM cost authorization for season_001 production — star-lord cost guard authorization
    - **(c)** Wave 5 production cascade scope re-confirmation — under updated effort estimate
 
+
+---
+
+### PHASE A1 DISPATCH 6 (KR Path α v1 closure record + Matt 3-gate surface) ✅ COMPLETE — MATT 3-GATE PASS + PHASE A2 PRE-AUTHORIZED
+
+**Dispatch:** `agentic_orchestration/cycle-14-path-alpha-v1-closure-record-2026-05-28.md` (artifact) + KR surface message
+**Commit:** `308c51b` (closure record + state-file update)
+
+**Matt 3-gate disposition (this session sign-off):**
+- **Gate (a) Path α v1 closure record sign-off — ✅ RATIFY as-is.** Phase A1 empirically complete; closure record locks.
+- **Gate (b) LLM cost authorization — ✅ $50 SOFT CAP** for total Wave 5 production cascade LLM spend across all 3 seasons. star-lord enforces as soft cap: project cost mid-cascade; surface to Matt queue when projected approach hits $50; hard halt ONLY if overshoot materially excessive (>20% beyond cap = >$60). Matt cap-extension elective in surface response.
+- **Gate (c) Wave 5 production cascade scope — ✅ CONFIRM A2-1 through A2-7** as enumerated in closure record § 7.
+
+**Push authorization (Matt-locked this session):**
+- Bundle Phase A1 push with this authorization (fires this session post-commit)
+- **Per-workstream push pattern for Phase A2:** push after each season's Gate-2 PASS (keeps remote in sync with empirical state through cascade; mirrors D11 drax precedent)
+
+**Pattern E pre-authorization (Matt-locked this session):**
+- Matt pre-authorizes critique-pair Pattern E autonomous-pair ratification for Wave 5 Gate-2 × 3 seasons during unattended-fire window
+- jack-ryan + gandalf may ratify autonomously per season as outputs land
+- PASS-with-WARN / PASS-with-INFO: fire-and-continue per Pattern E
+- BLOCK findings halt cascade + surface to Matt queue
+
+**Operational constraints carried forward (Disc #48 R48.4 single-seam preserved + pre-flight `vm_stat` + pre-flight EGL log clear if backup logs accumulate from UE install during session boundary):**
+
+| Rule | Constraint |
+|---|---|
+| R48.1 | No recursive `grep` against directory tree without `find -size +100M` pre-flight |
+| R48.2 | No `grep` against single file > 200 MB without head/streaming/--max-count |
+| R48.3 | No `find -exec` against directory trees containing GB-scale binary content |
+| R48.4 | Single-seam sub-agent at a time; no parallel fan-out while sweep is resident on 8 GB constrained host |
+| R48.5 | Pre-flight `vm_stat` confirm > 1 GB free if operation expected to allocate > 500 MB |
+
+**KR session-boundary directives (Matt-issued this session):**
+
+1. WIND DOWN this KR session post-commit. NO sub-agent fires. NO Phase A2 work.
+2. KR session-boundary memo authored at `agentic_orchestration/knight-rider/notes/2026-05-29-phase-a1-close-phase-a2-handoff-memo.md`
+3. State-file updates land in this commit batch
+4. Phase A2 cascade waits for new KR session post-UE-install (gandalf-authored handoff prompt at `gandalf/notes/2026-05-29-phase-a2-kr-fire-prompt-handoff.md` to be paste-input by Matt)
+
+**Phase A1 6-dispatch sequence STATE-OF-RECORD:**
+- Dispatch 1 ✅ T1 base-context amendment (gamora `20dde52`+`0ac79a0`; tag `gamora/v2.10-t1-base-context-amendment-1`)
+- Dispatch 2 ✅ R3-prime band lower-bound (gamora `854e94a`+`5eaf800`; tag `gamora/v2.11-r3-prime-band-lower-bound-1`)
+- Dispatch 3 ✅ RE-RUN-5 7-profile verification (gamora `fbea597`+`8468136`; tag `gamora/v2.11-r3-phase-4-rerun-5-verification-1`)
+- Dispatch 4 ✅ Canonical close-criterion capture (gandalf `c2c65cf`+`c2df805`)
+- Dispatch 5 ✅ Jack-ryan Gate-2 PASS-with-INFO + Disc #42a/#43/#48 ratifications (engine `566c7cd`; meta `2150e60`)
+- Dispatch 6 ✅ Path α v1 closure record + Matt 3-gate surface + Matt 3-gate PASS (this session; KR-authored)
+
+**Phase A1 status: ✅ CLOSED**
+**Phase A2 status: 🟡 QUEUED-FOR-UNATTENDED-CASCADE-FIRE** by next KR session (post-UE-install)
+
+---
+
+### Cycle 14 v1 MVP trajectory (post Phase A1 close)
+
+**Phase A2 unattended cascade pre-authorized.** Expected ~5-8d under clean runs. Cycle 14 v1 MVP closure at A2-7 Matt tag ratification. Well within 4-6 week budget anchor.
+
+**Session work-cluster complete.** Next KR session fires Phase A2 unattended cascade per Matt-paste of gandalf-authored handoff prompt.
