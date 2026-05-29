@@ -3931,3 +3931,53 @@ A2-2 → A2-7 + D13 parallel-fire → Cycle 14 v1 MVP D9 close
 **Updated estimate to A2-1 RE-FIRE-3 PASS:** ~1.5-3d wall-clock remaining (S3 closed cuts ~0.5-1d from prior estimate).
 
 **KR auto-routes per Amendment 4 hive-state clarification — proceeding S5b fire per hive-mind decision-routing.**
+
+### CASCADE-RESUMPTION-3 S5b CLOSED 2026-05-29 — Wave B orchestrator integration; Instance 6 phantom-component FULLY ELIMINATED
+
+**Rocket S5b sub-agent CLOSED — Engine `bf379f9` + tag `rocket/v1.0-cascade-r3-s5b-wave-b-integration-1`:**
+
+- `_build_kits_input_for_wave_b()` helper at line 1019 — builds per-kit input dicts for Wave B from Wave A cluster reps + kit cohesion data
+- `run_phase5_with_fc_and_wave_b_sync` invocation at Phase 5 hook line 1192 — sequence Wave A → F-C → Wave B per orchestrator docstring line 12
+- `wave_b_results` dict propagated through orchestrator (lines 1206, 1262, 1277, 1280, 1541, 1560)
+- `run_phase5_cohesion_judge()` extended (kits_input param + 4-tuple return)
+- cohesion_data `{}` hardcode REMOVED at line 1169; replaced with per-kit Phase5WaveBResult population
+- Phase 7 cohesion gate BINDING verified:
+  - Synthetic negative (cohesion_judge_confidence=0.50) → `evaluate_cohesion_pass()` returns (False, "C1") → EXCLUDED from shipped_worthy
+  - Synthetic positive (cohesion_judge_confidence=0.85) → (True, None) → SHIPPED-WORTHY
+- NO changes to phase7_verdict.py required — gate was pass-through ONLY because cohesion_scores was None (from `{}`); now non-empty cohesion_data → gate active naturally
+- 40 new tests / 9 classes at `tests/test_cascade_r3_s5b_wave_b_orchestrator_integration.py`; 371 targeted PASS; 0 regressions
+- Pipeline smoke (smoke=True) Phase 2-7 PASS (`generation_pass=True`, `degeneracy_triggered=False`)
+- MIGRATION.md S5b cross-seam entry added
+- AGENT_STATE checkpoint S5b CLOSED + S6 queued
+- Collab completion record `0d71f04`
+
+**KR Disc #42a meta-observation 5 verification PASS:**
+- run_phase5_with_fc_and_wave_b_sync invocation at line 1192
+- wave_b_results dict propagated through orchestrator
+- cohesion_data `{}` hardcode grep ZERO at line 1169
+- Tag landed; completion record authored
+
+**ARCHITECTURAL MILESTONE: Instance 6 phantom-component FULLY ELIMINATED**
+
+Pre-S5+S5b state: zero `wave_b|WaveB|run_wave_b` matches engine-wide; Wave B phantom across 5+ dispatches + 4 completion records + orchestrator docstring + recognition record. Post-cascade-resumption-3:
+- S5 (star-lord): Phase5WaveBResult dataclass + run_wave_b_async() + W-B8/W-A10/F-C13 lookaround grep + 92 tests
+- S5b (rocket): orchestrator-integration + cohesion_data wire-up + Phase 7 gate BINDING + 40 tests
+- Surface 1 (star-lord): regex lookaround amendment per canonical § 4.4/5.4/6.5 — closes canonical-vs-implementation gap
+
+Instance 6 root-cause + downstream symptoms (Wave B phantom + canonical-vs-implementation gap + PM-1 degenerate fallback + kit-count gap) all architecturally addressed.
+
+**Cascade trajectory carry-forward:**
+
+```
+S1 ✅ + S4 ✅ + S7 ✅ + S5 ✅ + gamora research ✅ + S2 ✅ + Surface 1 patch ✅ + S3 ✅ + S5b ✅
+  ↓ (ALL architectural pieces landed)
+S6a (rocket integration smoke + Disc #11 audit) + S6b (jack-ryan Gate-2 Pattern E review) ← PARALLEL FIRE
+  ↓
+S6c (rocket A2-1 RE-FIRE-3 full season_001 production fire; LLM-cost-bearing)
+  ↓
+A2-2 → A2-7 + D13 parallel-fire → Cycle 14 v1 MVP D9 close (Matt v1 tag ratification)
+```
+
+**Updated estimate to A2-1 RE-FIRE-3 PASS:** ~1-2d wall-clock remaining (all architectural work closed; S6 is integration + Gate-2 + production fire).
+
+**KR auto-routes per Amendment 4 hive-state clarification — proceeding S6a + S6b parallel fire.**
