@@ -168,3 +168,75 @@ grep -nE 'lookaround|\(\?\<!\[a-zA-Z\]\)' /Users/admin/Games/reincarnated-engine
 **Parallel-firing companion:** gamora S2 (gauntlet variant enumeration expansion per Option C; ~1-2d).
 
 **Signed:** knight-rider (orchestrator)
+
+---
+
+## Completion record
+
+**Date:** 2026-05-29
+**Agent:** star-lord
+**Engine commit:** `857d825` — `star-lord: cascade-r3 Surface 1 — SUBSTRATE_PURITY_VOCAB_REGEX lookaround amendment (Amendment 4 closure)`
+**Tag:** `star-lord/v1.4-cascade-r3-surface-1-regex-amendment-1`
+
+### § 3.1 Regex amendment evidence (before/after at SUBSTRATE_PURITY_VOCAB_REGEX line 192)
+
+**BEFORE (commit a553950; S5 implementation; old canonical pre-Amendment 4):**
+```python
+SUBSTRATE_PURITY_VOCAB_REGEX: re.Pattern = re.compile(
+    r"\b(barbarian|wizard|cleric|monk|knight|fighter|assassin|archer|sniper|"
+    r"fencer|spellsword|mage|caller|warrior|rogue|hunter|paladin)\b",
+    re.IGNORECASE,
+)
+```
+
+**AFTER (commit 857d825; canonical § 4.4/5.4/6.5 amended verbatim; Amendment 4 disposition):**
+```python
+SUBSTRATE_PURITY_VOCAB_REGEX: re.Pattern = re.compile(
+    r"(?<![a-zA-Z])(barbarian|wizard|cleric|monk|knight|fighter|assassin|archer|sniper|"
+    r"fencer|spellsword|mage|caller|warrior|rogue|hunter|paladin)(?![a-zA-Z])",
+    re.IGNORECASE,
+)
+```
+
+W-B8 (line 1636), W-A10 (line 474), F-C13 (line 1063) all reference `SUBSTRATE_PURITY_VOCAB_REGEX` — all three updated atomically via the single constant change.
+
+### § 3.2 New test cases PASS (underscore/digit/punctuation-bounded class tokens)
+
+Group 15 `TestAmendment4LookaroundBoundary` — 16 tests, all PASS:
+
+| Test | Input | Result |
+|---|---|---|
+| `test_w_b8_catches_underscore_bounded_class_token` | `kit_id="warrior_001"` | CascadeBlockError raised (W-B8) |
+| `test_w_b8_catches_underscore_prefix_class_token` | `kit_id="_warrior_001"` | CascadeBlockError raised (W-B8) |
+| `test_w_b8_catches_digit_suffix_class_token` | `kit_id="mage42"` | CascadeBlockError raised (W-B8) |
+| `test_w_b8_catches_punctuation_bounded_class_token` | `kit_id="knight.alpha"` | CascadeBlockError raised (W-B8) |
+| `test_w_b8_catches_class_token_in_kit_name_with_underscore` | `kit_name_placeholder="rogue_caster_001"` | CascadeBlockError raised (W-B8) |
+| `test_w_a10_catches_underscore_bounded_class_token` | rep_kit `"mage_caster_bc1high_fire"` | CascadeBlockError raised (W-A10) |
+| `test_w_a10_catches_digit_bounded_class_token` | rep_kit `"wizard42_bc_fire"` | CascadeBlockError raised (W-A10) |
+| `test_w_a10_catches_underscore_in_faction_label` | `faction_label_placeholder="rogue_fire_european"` | CascadeBlockError raised (W-A10) |
+| `test_f_c13_catches_digit_bounded_class_token` | `faction_a_name="The cleric42 Brotherhood"` | CascadeBlockError raised (F-C13) |
+| `test_f_c13_catches_underscore_bounded_class_token_in_faction_b` | `faction_b_name="hunter_elite clan"` | CascadeBlockError raised (F-C13) |
+| `test_magery_still_does_not_match_after_amendment` | `cultural_lineage="ancient-magery-tradition"` | PASS (no block — `r` after `mage` is alpha; lookahead blocks) |
+| `test_spellcraft_still_does_not_match_after_amendment` | `weapon_type_family="spellcraft-blade"` | PASS (no block — `spellsword` not substring) |
+| `test_warrior_standalone_still_blocks_after_amendment` | `kit_id="warrior"` | CascadeBlockError raised (no regression) |
+| `test_clean_substrate_still_passes_after_amendment` | default clean inputs | PASS (no block; no regression) |
+| `test_disc11_lookaround_pattern_present_in_source` | source grep at compile site | PASS — `(?<![a-zA-Z])` + `(?![a-zA-Z])` present at line 192 block |
+| `test_disc11_amendment4_comment_present_in_source` | source grep | PASS — `Amendment 4` + `f8ebac4` present |
+
+### § 3.3 Existing tests PASS (no regression)
+
+92 prior S5 tests PASS (0 regressions). Final: **108/108 PASS**.
+
+### § 3.4 Disc #11 grep verification PASS
+
+`(?<![a-zA-Z])` and `(?![a-zA-Z])` present at `SUBSTRATE_PURITY_VOCAB_REGEX` compile site (line 192). Amendment 4 comment block present at lines 182-191 (commit reference `f8ebac4`, dispatch reference, root-cause rationale).
+
+### Instance 6 canonical-vs-implementation gap status
+
+**CLOSED.** S5 surface finding 1 surfaced that `\b` did not catch `warrior_001`-style tokens. Canonical doc § 4.4/5.4/6.5 amended by gandalf (commit `f8ebac4`). Implementation now matches amended canonical verbatim. Gap duration: S5 commit (`a553950`) → this patch (`857d825`), same session batch.
+
+### § 5 surface conditions
+
+None triggered. No unrelated test regressions. Canonical verbatim copy matches character-for-character. No Disc #42a framing-audit catch during execution.
+
+**Signed:** star-lord (export seam)
