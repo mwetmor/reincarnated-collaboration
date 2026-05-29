@@ -149,3 +149,64 @@ Author findings note at `agentic_orchestration/rocket/notes/2026-05-29-cascade-r
 **Parallel-firing companions:** jack-ryan (framing audit + Instance 6 canonical record) + gamora (Phase 3 mechanical gate analysis).
 
 **Signed:** knight-rider (orchestrator)
+
+---
+
+## Completion record
+
+**Completed by:** rocket
+**Date:** 2026-05-29 evening late
+**Findings note:** `agentic_orchestration/rocket/notes/2026-05-29-cascade-r3-instance-6-5-phase4-phase5-disconnect-investigation.md`
+
+### (a) passing_kits composition
+
+- Total: 13 kits, all `sample_idx=2` (`_s2` suffix)
+- 0 kits at sample_idx=0 or 1 — structural consequence of config_to_kit collision (see § c below)
+- Per-lineage: fantasy_generic=7, east_asian=3, european=2, southeast_asian=1
+- Per-cohort: balanced=10, dps_min_maxer=3 (defensive=0, hybrid=0 — no dense-proxy cells in this run)
+- Per-BC-range: melee=6, ranged=6, mid=1
+- Per-BC-attribute: wis=5, int=3, str=3, dex=2
+- Element distribution: earth=6, physical=3, fire=1, wind=1, lightning=1, water=1; hybrid=3, mono=10
+- 5 cells produce zero passing kits (their s2 kit failed WR bracket)
+
+### (b) _s2_ hardcoding location + trace
+
+**No hardcoded filter exists in Phase 5 input code (lines 825-836).** The _s2_ exclusivity is a structural consequence of `config_to_kit` dict collision in `w5r2_gauntlet_sim_integration()` (`generation/season_generation_pipeline.py:1424-1428`). The gauntlet uses `legendary_id = f"{bc_cell_id}_{chain_id}"` (not `character_id`). All 3 samples for the same cell emit the same `legendary_id`. The loop `config_to_kit[cfg["legendary_id"]] = kit` overwrites s0 with s1 then s2. Only s2 KitCandidates receive `wr_bracket_pass=True`. The `_s2_` in variant IDs is intentional Amendment 6 S2 naming convention — not a filter.
+
+### (c) Phase 4 Pareto-2 consumption analysis
+
+- Phase 4 archive: 34 rows (s0=18, s1=9, s2=7); 0 variant rows (all 585 rejected: `inferior_duplicate` — variant quality_vectors identical to parent base kit; MG-3 flags them)
+- Phase 4 Pareto-2 archive is **consumed by Phase 7** — `phase7_bridge.py` reads ALL 34 ACTIVE rows, evaluates mechanical viability, emits verdict. Result: 22 shipped-worthy, 12 held-mechanical
+- Phase 4 is NOT dead-code. NOT decorative-by-design. Phase 7 is the intended Phase 4 consumer
+- Phase 5 PM-1 input operates on a SEPARATE population (WR-bracket-passing) — parallel downstream branch from Phase 3, not a Phase 4 → Phase 5 sequential chain
+- Overlap between Phase 4 archive and PM-1: 6 kits (s2 base kits that passed both gates)
+- 28 Phase 4 accepted kits (s0/s1) are absent from PM-1 due to config_to_kit collision
+
+### (d) Verdict
+
+**Architectural bypass — NOT Amendment 7b; NOT decorative-by-design.**
+
+Phase 4 → Phase 5 bypass is the intended architecture. Phase 4 populates kit_archive for Phase 7. Phase 5 operates on PM-1 (WR-bracket) population. Both are valid downstream paths from Phase 3.
+
+Gandalf finding ("Amendment 6 Sub-fix 2 Pareto-2 work is DECORATIVE for player-facing output") is partially correct in that Pareto-2 archive members don't feed Phase 5 faction clustering. But they DO feed Phase 7 mechanical gate, which determines shipped-worthy output. The claim that it is "decorative" does not hold at the Phase 7 level.
+
+**NEW surface (§ e):** The config_to_kit collision is the structural root cause of all-_s2_ Phase 5 input. This may be a separate Instance 6 candidate.
+
+### (e) Amendment 7b scope estimate
+
+Amendment 7b not recommended — bypass is architectural. However, **config_to_kit collision fix** is a candidate:
+
+- Modify `w5r2_gauntlet_sim_integration()` to accumulate all samples per `legendary_id`, mark all `wr_bracket_pass=True` — ~13 lines
+- PM-1 input would grow from 598 to ~624 (s0/s1 survivors added)
+- Effort estimate: 45-90 min code + smoke
+- DESIGN QUESTION prerequisite: should all 3 Amendment-7 distinct-element samples per cell enter PM-1?
+
+### (f) Surface-to-KR findings
+
+**§ 5 row 1 triggered (additional Instance 6 surface):**
+
+`config_to_kit` dict collision in `w5r2_gauntlet_sim_integration()` (`season_generation_pipeline.py:1424-1428`) silently drops s0/s1 kits from WR bracket across all 18 cells. Disc #42a pattern: pre-imposed structural constraint shaping all downstream WR bracket, PM-1, Phase 5 outputs invisibly. This may be Instance 6 #6. Surfaced to KR for gandalf design-context analysis.
+
+**Corollary gap:** 22 Phase 7 shipped-worthy kits include s0/s1 kits without faction cluster assignment (cohesion_data only covers 13 s2 base kits from Wave B). Export/drax downstream gap — not a new Instance 6 surface by itself.
+
+**Collab commit:** (appended post-commit by auto-commit)
