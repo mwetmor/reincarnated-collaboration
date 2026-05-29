@@ -219,3 +219,92 @@ At `tests/test_cascade_r3_amendment_7a_skillemissionconfig_chain_elements.py`:
 **Cascade trajectory:** Amendment 7a → jack-ryan Gate-2 → S6c production cascade re-fire (full Phase 2-7 with content-distinct hybrid substrate) → A2-2 → A2-7 + D13 parallel → Cycle 14 v1 MVP D9 close.
 
 **Signed:** knight-rider (orchestrator)
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-29 evening late
+**By:** rocket
+**Engine commit:** `5b76790` + AGENT_STATE commit `de82ff1`
+**Tag:** `rocket/v1.0-cascade-r3-amendment-7a-skillemissionconfig-chain-elements-1`
+**Wall-clock:** ~30min (within 30-60min estimate)
+**LLM cost:** $0
+
+---
+
+### (a) SkillEmissionConfig extension evidence
+
+`per_skill_emitter.py` SkillEmissionConfig dataclass now includes:
+```python
+chain_elements: dict[str, str] | None = None  # Amendment 7a: per-chain element override
+```
+Default None = backward-compatible mono behavior (all chains use config.element). Docstring added explaining hybrid vs mono semantics.
+
+### (b) emit_skills_for_kit per-chain resolution evidence
+
+At chain-loop level (outside tier loop), per-chain element resolved:
+```python
+chain_elem = (config.chain_elements or {}).get(chain_id, config.element)
+```
+Used for: `canonical_element=chain_elem` (THE load-bearing change), `effect_params["element"]=chain_elem`, and placeholder name title. Missing chain_id in dict falls back to config.element (backward-compat for partial dicts).
+
+### (c) Season pipeline threading evidence
+
+At `season_generation_pipeline.py` lines 906-920 (replaces original 901-907):
+- Hybrid kits: `chain_elements = {"chain_A": sample_element, "chain_B": sample_secondary_element, "chain_C": sample_element}` threaded into SkillEmissionConfig
+- Mono kits: `chain_elements = None` (existing behavior, no change)
+
+### (d) New test results
+
+17 new tests at `tests/test_cascade_r3_amendment_7a_skillemissionconfig_chain_elements.py` — ALL PASS.
+
+Covers: field presence + default + partial dict fallback; hybrid chain_B canonical_element=secondary; hybrid chain_A+chain_C canonical_element=primary; content-distinct (chain_A≠chain_B elements); effect_params element per-chain; placeholder name per-chain; mono backward-compat; 12 skills emitted regardless of chain_elements; pipeline threading simulation (hybrid + mono).
+
+### (e) Amendment 6 + 7 regression check
+
+- Amendment 6 tests (`test_cascade_r3_amendment_6_combined_fix.py`): 18/18 PASS
+- Amendment 7 tests (`test_cascade_r3_amendment_7_element_coverage_hybrid.py`): 49/49 PASS (note: includes the Amendment 6 composition sub-suite within Amendment 7 file)
+- Total regression: 84/84 PASS
+
+### (f) Phase 2-4 re-fire verification (smoke=False, halt_at_phase=5, seed_base=14001)
+
+| Metric | Result | Gate |
+|---|---|---|
+| Base kits (Phase 2) | 54 | PASS |
+| Variants shipped (Phase 3) | 585 | PASS |
+| Archive accepted (Phase 4) | 34 | PASS |
+| Hybrid kits | 12/54 (22.2%) | PASS |
+| Primary elements | All 8 present | PASS |
+| Primary + secondary combined | All 8 present | PASS |
+| chain_B skill.canonical_element = secondary | VERIFIED (all 12 hybrid kits asserted inline) | PASS |
+| chain_A skill.canonical_element = primary | VERIFIED | PASS |
+| LLM cost | $0.00 | PASS |
+| Degeneracy | None triggered | PASS |
+
+### (g) §6 surface findings
+
+**chain_id naming convention surface (§6 condition — NON-BLOCKING):**
+- `SkillEmissionConfig.chains` uses `chain_A/B/C` (per_skill_emitter.py defaults)
+- `_build_chain_specs` ChainSpecs use `t4_chain_1/t4_chain_2/supporting_chain`
+- These are parallel naming systems: ChainSpec feeds T4 candidate generation; SkillEmissionConfig feeds per-skill emission. Semantic correspondence is clear (chain_B ↔ t4_chain_2 — both are the hybrid secondary chain).
+- Dispatch pre-noted this as a possible surface; confirmed non-blocking. Documented here and in AGENT_STATE.md.
+
+No other §6 conditions triggered (no skill.element consumer breakage, no unexpected skill content shifts beyond the intended chain_B secondary change, no Disc #42a Q1-Q6 surface beyond Instance 6 #4, effort within estimate).
+
+### (h) Instance 6 #4 closure confirmation
+
+**Pre-fix:** `emit_skills_for_kit` used `config.element` (primary) for all 12 skills regardless of `chain_elements`. `ChainSpec.element` carried chain_2 secondary element as METADATA only. Hybrid kits were structurally hybrid (is_hybrid=True, secondary_element≠None, ChainSpec.element set correctly) but ALL 12 SKILLS had `canonical_element = primary`. Hybrid intent existed at metadata layer; skill content layer was mono.
+
+**Post-fix:** `chain_elements = {"chain_A": primary, "chain_B": secondary, "chain_C": primary}` threaded in pipeline for hybrid kits. emit_skills_for_kit resolves per-chain element. Hybrid kits now emit: chain_B T1-T4 (4 skills) with `canonical_element = secondary_element`; chain_A + chain_C (8 skills) with `canonical_element = primary`. Content-distinct hybrid at SKILL CONTENT layer.
+
+**Disc #42a Instance 6 #4 CLOSED.** Cascade-resumption-3 fourth surface resolved.
+
+---
+
+### KR routing
+
+Amendment 7a CLOSED. Routes to:
+1. jack-ryan Gate-2 Pattern E (Amendment 7a composition + Instance 6 #4 closure verification)
+2. Per Gate-2 PASS → S6c production cascade re-fire (full Phase 2-7 with content-distinct hybrid substrate)
+3. Matt-surface per gandalf URGENT HALT directive at Amendment 7a close
