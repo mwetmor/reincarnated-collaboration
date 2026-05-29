@@ -3753,3 +3753,87 @@ S6 (Gate-2 + A2-1 RE-FIRE-3; ~1-1.5d)
 - A2-2 → A2-7 per existing Phase A2 sequence + D13 parallel-fire post-A2-1 RE-FIRE-3 PASS
 
 **Sub-agent observability:** rocket S7 + star-lord S5 + gamora T4 research fire in single parallel message via Agent tool foreground (results required before S2 routing).
+
+### CASCADE-RESUMPTION-3 PARALLEL FAN-OUT BATCH CLOSED 2026-05-29 — S7 + S5 + gamora T4 research ALL CLOSED
+
+**Three sub-agents fired in parallel completed concurrently:**
+
+| Stream | Owner | Result | Engine | Tag | Collab |
+|---|---|---|---|---|---|
+| S7 Phase 2 multi-sample substrate + lineage propagation | rocket | ✅ CLOSED | `e177d8e` | `rocket/v1.0-cascade-r3-s7-substrate-multi-sample-lineage-1` | `90fbb12` |
+| S5 Wave B FULL implementation | star-lord | ✅ CLOSED | `a553950` + `a979281` | `star-lord/v1.3-cascade-r3-s5-wave-b-impl-1` | `90ab0d1` |
+| T4-strategy applicability research | gamora | ✅ CLOSED | n/a (analytical) | n/a | `5e964af` |
+
+**S7 substantive outcomes:**
+- substrate_binding: 13 fields (8 original + 5 new: cultural_lineage_canonical + historical_period_canonical + register_canonical + cultural_lineage_confidence + named_mythological_match)
+- Schema density verified: 99.9% lineage / 98.9% period / 100% register/confidence / 6.3% named_mythological_match (None valid)
+- 54 kits per season at N=3 (18 BC × 3 samples; character_id = `S1_{encounter_id}_s{sample_idx}`)
+- cultural_lineage_canonical distinct: **5** (fantasy_generic 32 / european 13 / east_asian 6 / south_asian 2 / southeast_asian 1) — PASS gate ≥5
+- weapon_type_family distinct: **5** (caster-arcane 15 / caster-faith 15 / ranged 13 / martial-heavy 10 / martial-light 1) — PASS gate ≥5
+- modal_cultural_lineage sources from kit aggregates (not placeholder)
+- PM-1 multimodal clustering atomic in-seam refactor (rocket's generation/phase5_pm1_multimodal_clustering.py); NO gamora cross-seam dispatch needed
+- 352 tests PASS / 3 pre-existing failures verified (test_d2_substrate_coupling env error)
+- No surface-to-KR triggered
+
+**S5 substantive outcomes:**
+- `Phase5WaveBResult` dataclass (line 333; engine phase5_orchestrator.py)
+- `run_wave_b_async()` function (line 2074)
+- W-B8 runtime grep at USER prompt assembly (canonical § 5.4 verbatim regex; CascadeBlockError class)
+- W-A10 (canonical § 4.4) added at Wave A USER prompt assembly (line 449/453/467)
+- F-C13 (canonical § 6.5) added at F-C USER prompt assembly (line 1014)
+- 92 new tests in `tests/test_cascade_r3_s5_wave_b_impl.py` (positive + negative cases for all three grep gates; dataclass; mocked async calls; export builder)
+- Cost-tracker integration verified (Wave B accumulates per call)
+- All 233 tests PASS
+- S5b deferred to rocket post-S3 (Wave B invocation orchestrator wiring + kit_archive.cohesion_data unhardcode + Phase 7 binding)
+
+**Gamora T4-strategy research substantive outcomes:**
+- 108-cell applicability matrix (18 BC × 6 Layer 2 T4 strategies) populated
+- Structural NOs identified: 54 cells = ECA on 8 STR/DEX cells + ECC on 10 INT/WIS cells (zero-magnitude by damage-path architecture)
+- Recommendation: Option C — PARTIAL-enumerate (270 cells = 324 - 54 structural NOs)
+- Projected shipped variants post-strip-and-ship: ~102-132 (well above ≥22 target)
+- alteration_fields mapping confirmed from engine source for all 6 strategies
+- Research note at `agentic_orchestration/gamora/notes/2026-05-29-cascade-r3-t4-strategy-applicability-research.md` (35KB)
+
+**KR Disc #42a meta-observation 5 verification PASS:**
+- S7 engine: substrate_weapon_binding.py SELECT extended (lines 339-343 + 420 verified); 5 new fields present
+- S5 engine: `Phase5WaveBResult` dataclass + `run_wave_b_async` function present; W-B8/W-A10/F-C13 verbatim regex line 176 + CascadeBlockError line 199; runtime grep at Wave A (449-467) + F-C (1014) + Wave B
+- Gamora research: 35KB note present + commit `5e964af` verified
+
+**Surface-to-KR findings to be ratified or routed:**
+
+**Surface 1 — W-B8 `\b` regex underscore limitation (star-lord finding e):**
+- Canonical verbatim regex `\b(barbarian|wizard|...)\b` doesn't catch tokens like `warrior_001` because `_` is `\w` (word character) and `\b` is at word boundary
+- Star-lord deferred to gandalf S4 canonical § 5.4 amendment consideration; no star-lord autonomous action
+- NOT blocking S5 close
+- **KR routing decision:** route to gandalf for canonical doc § 5.4 amendment review (Pattern A-light); document; gate-flag for jack-ryan Gate-2 design-quality audit at S6; not blocking S2/S3 cascade progression
+
+**Surface 2 — ENUMERATE-vs-PRE-FILTER methodology choice (gamora Disc #18 hotspot):**
+- Gamora identifies 3 options: A (enumerate-all-324; strip post) / B (pre-filter-and-enumerate-survivors-270) / C (PARTIAL-enumerate; 270 with structural-NO architectural justification)
+- Gamora recommends Option C with reasoning: 54 structural NOs are zero-magnitude by damage-path architecture (ECA on STR/DEX cells; ECC on INT/WIS cells); strip-and-ship would handle them post-gauntlet anyway; pre-filter just moves the strip earlier (~16% compute reduction)
+- Per authorization § 4 line 240 strict reading: surface condition triggers → halt + route to legolas Mode A OR gandalf Pattern B
+- Per hive-mind decision-routing (Matt 2026-05-23 verbatim per CLAUDE.md addendum): seam-owner decides per audit evidence; Matt is last-resort escalation
+- **KR routing decision:** RATIFY gamora's Option C recommendation per hive-mind decision-routing (gamora seam-owner with empirically-grounded structural-NO reasoning); document at state file; gate-flag for gandalf Pattern A-light review concurrent with S2 dispatch authoring (not blocking); jack-ryan Gate-2 design-quality audit at S6 reviews
+
+**Surface 3 — TRADE_OFF REVERSED canonical vocabulary gap (gamora + star-lord finding):**
+- Canonical doc 47 § 4.6.5 marks TRADE_OFF REVERSED as PLACEHOLDER
+- Engine `combatant.py:588-609` has `trade_off_reversed_frenzy` implemented (hit -30% / crit +30%, Matt-locked per damage_resolver.py:270-271)
+- S2 uses the engine implementation directly
+- **KR routing decision:** defer to gandalf canonical doc 47 amendment review (low-priority; not blocking S2); jack-ryan Gate-2 review at S6 covers; document
+
+**Cascade-resumption-3 trajectory carry-forward:**
+
+```
+S1 ✅ CLOSED + S4 ✅ CLOSED + S7 ✅ CLOSED + S5 ✅ CLOSED + gamora research ✅ CLOSED
+  ↓
+S2 (rocket+gamora; ~1-2d) ← READY TO FIRE (gamora research informs Option C methodology)
+  ↓ (gandalf Pattern A-light W-B8 + TRADE_OFF REVERSED + Option C review CONCURRENT; not blocking)
+S3 (rocket; ~0.5-1d)
+  ↓
+S5b (rocket Wave B integration; ~2-4h)
+  ↓
+S6 (Gate-2 + A2-1 RE-FIRE-3; ~1-1.5d)
+  ↓
+A2-2 → A2-7 + D13 parallel-fire → Cycle 14 v1 MVP D9 close
+```
+
+**Updated estimate to A2-1 RE-FIRE-3 PASS:** ~3-5d wall-clock remaining (S7 + S5 closed cuts ~2d from prior estimate; S2 + S3 + S5b + S6 sequential remaining).
