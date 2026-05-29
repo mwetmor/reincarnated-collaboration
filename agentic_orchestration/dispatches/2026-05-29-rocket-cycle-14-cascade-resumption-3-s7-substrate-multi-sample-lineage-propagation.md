@@ -172,3 +172,70 @@
 - **gamora T4-strategy-applicability research** — light analytical work; <300 MB RSS; informs S2 dispatch authoring; fires in parallel
 
 **Signed:** knight-rider (orchestrator)
+
+---
+
+## Completion record
+
+**Author:** rocket
+**Date:** 2026-05-29
+**Commit:** `e177d8e` (reincarnated-engine main)
+**Tag:** `rocket/v1.0-cascade-r3-s7-substrate-multi-sample-lineage-1`
+**Status:** S7 CLOSED — all acceptance gates 4.1-4.5 PASS
+
+### Sub-task completion
+
+| Sub-task | Status | Notes |
+|---|---|---|
+| 2.1 Extend SQL SELECT with 5 new fields | DONE | substrate_weapon_binding.py _query_substrate_weapon() + _query_n_substrate_weapons() |
+| 2.2 Extend _build_weapon_binding() to 13 data fields | DONE | cultural_lineage_canonical, historical_period_canonical, register_canonical, cultural_lineage_confidence, named_mythological_match |
+| 2.3 Add select_n_substrate_weapons_per_bc_cell() | DONE | N=3 default; seeded random.sample() without-replacement; single DB round-trip |
+| 2.4 Refactor w5r1_generate_kit_candidates() for N kits/cell | DONE | Gear/T4/skills shared per cell; N KitCandidates with distinct substrate bindings; 54 kits total |
+| 2.5 Propagate lineage/period/register to kit top-level | DONE | KitCandidate gets substrate_sample_idx + cultural_lineage_canonical + historical_period_canonical + register_canonical; serialized in to_character_dict() |
+| 2.6 Update Phase 3 PM-1 multimodal clustering input | DONE (in-seam atomic) | _LINEAGE_MAP extended with fantasy_generic/southeast_asian/south_american_indigenous; no gamora follow-on dispatch needed (PM-1 is in generation seam) |
+| 2.7 Phase 5 Wave A modal_cultural_lineage from kit aggregates | DONE | wave5_season_orchestrator.py _build_pm1_kit_data() updated; no longer "unknown" placeholder |
+| 2.8 Smoke test + Disc #11 audit | DONE | 352 PASS; functional acceptance gate smoke PASS |
+
+### Acceptance gate evidence (§ 4)
+
+**Gate 4.1 — substrate_binding dict expanded (11+ fields):**
+- 13 data fields confirmed: attribute_requirement, base_physical_damage, cultural_lineage_canonical, cultural_lineage_confidence, element_affinity_modifiers, historical_period_canonical, named_mythological_match, register_canonical, spell_damage_modifier, substrate_canonical_name, substrate_weapon_id, to_skill_level_modifiers, weapon_type_family
+- PASS
+
+**Gate 4.2 — Multi-sample generation (54 kits at N=3):**
+- Kit count: 54 (18 cells × 3 samples/cell)
+- 3 samples per first cell confirmed
+- Seeded deterministic without-replacement
+- PASS
+
+**Gate 4.3 — Diversity targets:**
+- cultural_lineage_canonical distinct values: 5 (fantasy_generic: 32, european: 13, east_asian: 6, south_asian: 2, southeast_asian: 1)
+- weapon_type_family distinct values: 5 (caster-arcane: 15, caster-faith: 15, ranged: 13, martial-heavy: 10, martial-light: 1)
+- PASS (≥5 each)
+
+**Gate 4.4 — Downstream propagation:**
+- to_character_dict() includes: cultural_lineage_canonical=european, historical_period_canonical=early_modern, register_canonical=historical, substrate_sample_idx=0
+- PM-1 kit data modal_cultural_lineage: european, european, fantasy_generic (real values, not "unknown")
+- Phase 5 Wave A modal_cultural_lineage PASS (sources from kit.cultural_lineage_canonical via _build_pm1_kit_data)
+- PASS
+
+**Gate 4.5 — Smoke + tests:**
+- 352 PASS, 3 pre-existing failures (test_d2_substrate_coupling — grouping vocabulary env error; confirmed pre-existing via git stash verification)
+- Substrate binding smoke: 4/4 cases PASS (STR/DEX/INT/WIS)
+- PASS
+
+### Surface-to-KR findings (§ 5)
+
+No surface conditions triggered:
+- Substrate library schema density: 99.9% (not sparse; no halt)
+- PM-1 is in generation seam (not gamora); sub-work 2.6 implemented in-seam; no blocking dependency
+- Effort within ~1d estimate; no scope amendment
+- Disc #42a Q1-Q6: all HOLD; no framing-audit catch
+
+### MIGRATION.md
+
+`reincarnated-engine/src/reincarnated/generation/MIGRATION.md` — entry `[2026-05-29] S7-substrate-multi-sample-lineage-propagation` added with full schema diff, downstream consumer table, acceptance gate results.
+
+### AGENT_STATE.md
+
+`reincarnated-engine/src/reincarnated/generation/AGENT_STATE.md` — S7 CLOSED checkpoint added; cascade-resumption-3 trajectory updated (S7 → S2).
