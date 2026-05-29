@@ -61,7 +61,7 @@
 | **Wave 2** | 🗑️ SUPERSEDED 2026-05-27 by no-classes substrate-led architectural recommitment + Path α workstream authoring (was: rocket + gandalf + jack-ryan Gate-2; Wave 1 + SC-1 partial ratification #36+#37; ~3-5 days) | (n/a) | (n/a) | (absorbed into Path α Phase 3 architecture commit) |
 | **Wave 3** | 🗑️ SUPERSEDED 2026-05-27 by same (was: gandalf + star-lord + rocket; Wave 0.5 real content + SC-3 closure; ~1 week) | (n/a) | (n/a) | (absorbed into Path α Phase 5 architecture commit; SC-3 cohesion judge LLM design retained as Wave 5 production prerequisite) |
 | **Wave 4** | 🗑️ SUPERSEDED 2026-05-27 by same (was: gandalf + rocket + gamora; Wave 2 + Wave 3 synthesis; ~3-5 days) | (n/a) | (n/a) | (absorbed into Path α Phase 4+5 architecture commit) |
-| **Wave 5** | ⏳ QUEUED — gates on Path α v1 closure (Phase A1 of Mode A 2-phase framing) | gamora (production sweep) + rocket (kit emission) + star-lord (LLM cost / phase 5 cohesion judge) + gandalf (A/B + canonical writes) + jack-ryan close Gate-2 each season | Phase A1 6-dispatch sequence PASS (T1+T2+T3+T5 amended close-criterion at BVV anchor + 7 profiles) + canonical close-criterion capture PASS + jack-ryan Gate-2 Phase A1 PASS | **~5-8d post Path α close** under clean runs: 3 seasons × ~1d production + ~half-day Gate-2 each + A/B (~half-day) + disciplines batch (~half-day) + Matt tag |
+| **Wave 5** | 🟢 UNBLOCKED 2026-05-28 — Path α v1 closure SATISFIED at Phase A1 Dispatch 6; pending Matt 3-gate surface for Phase A2 entry authorization | gamora (production sweep) + rocket (kit emission) + star-lord (LLM cost / phase 5 cohesion judge) + gandalf (A/B + canonical writes) + jack-ryan close Gate-2 each season | Phase A1 6-dispatch sequence PASS-with-INFO at Gate-2 + Matt 3-gate surface PASS [(a) Path α closure record sign-off + (b) LLM cost auth + (c) Wave 5 scope re-confirm] | **~5-8d post Matt 3-gate PASS** under clean runs: 3 seasons × ~1d production + ~half-day Gate-2 each + A/B (~half-day) + Disciplines #41/#44/#45/#46 batch (~half-day) + Matt v1 tag |
 
 ---
 
@@ -3221,4 +3221,75 @@ Per supplemental Matt question to A1 re-entry: Disc #42 Q1-Q6 framing-audit appl
 
 ---
 
+
+
+### PHASE A1 DISPATCH 5 (jack-ryan Gate-2 wave-close + canonical ratifications) ✅ COMPLETE — PASS-WITH-INFO
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-28-jack-ryan-gate-2-path-alpha-v1-close-disc-42-43-47-ratifications.md`
+**Engine commit (canonical writes):** `566c7cd` — decisions-log entry + Disc #42a/#43/#48 ratifications
+**Meta commit:** `2150e60` — finding file + dispatch completion record
+**Finding file:** `agentic_orchestration/qa/findings/2026-05-28-gate-2-path-alpha-v1-close-disc-42-43-47-ratifications.md`
+
+**Gate-2 verdict: ✅ PASS-with-INFO**
+
+**Single INFO finding (resolved at canonical-write time):** Dispatch named "Disc #47 candidate" for host-RAM-aware operational concurrency; Disc #47 slot was ALREADY ratified at 2026-05-28 W-α5c (bounded-viability-with-specialization framework). Jack-ryan assigned host-RAM-aware as **Discipline #48** (R48.1-R48.5) at canonical-write. No remediation required; KR going-forward references use #48.
+
+**KR numbering correction acknowledged:** all earlier state-file references to "Discipline #47 candidate" for host-RAM-aware operational concurrency are HISTORICAL; canonical-ratified slot is **#48**. Going forward in NEW canonical artifacts use Disc #48.
+
+**5 critique-pair principles verdicts:**
+- P1 math-before-code: ✅ PASS (Dispatch 1+2 math notes present; Disc #1.2 code citations honest)
+- P2 smoke-gate: ✅ PASS (MIGRATION.md § v1.55 + § v1.56 + RE-RUN-5 output cover Disc #2.1)
+- P3 cross-seam impact: ✅ PASS (ADR-004 honored)
+- P4 decisions-log as truth: ✅ PASS (engine `566c7cd` decisions-log.md line 3536; LOCKED status)
+- P6 cross-seam round-trip: ✅ PASS (engine `fbea597` consumed by canonical `c2c65cf` cleanly)
+
+**Q6 semantic-stability:** ✅ PASS — C1-C5 consistent across doc 47/51/50; Path-α-vs-Cycle-14 distinction internally consistent in all three.
+
+**RE-RUN-5 empirical anchor verified:** 7/7 profiles compound_pass=True; `t1_measurement_context="base_context_explicit"` uniform; kits_shipped=18/18, zero_t4_escalations=[].
+
+**Canonical writes landed (engine `566c7cd`):**
+
+| Write | Location | Status |
+|---|---|---|
+| Decisions-log entry — Path α v1 close-criterion amended to 4/4 (C1+C2+C3+C5); C4 deferred Cycle 16+ | `decisions-log.md` line 3536 | LOCKED |
+| Discipline #42a — Q4/Q5/Q6 measurement-context subaudit (extension to existing #42 framing-audit) | `engineering-disciplines.md` line 1566 | RATIFIED |
+| Discipline #43 — Phase A1 first-instance record (A1-A5 PASS; design-quality wave-close audit) | `engineering-disciplines.md` line 1680 | RATIFIED-FIRST-INSTANCE |
+| **Discipline #48** — host-RAM-aware operational concurrency (R48.1-R48.5; founding precedent Mac mini freeze 2026-05-28) | `engineering-disciplines.md` line 2227 | RATIFIED |
+
+**Non-blocking follow-on items (deferred-log update):**
+- Disc #42 reinforcement at Dispatch 2 (gamora wis_02/mini_boss mis-attestation) independently verified by jack-ryan as same pattern; logged in Disc #42a as attestation-level resolution
+- **Cycle 15 housekeeping:** engine-side T1-T5 → C1-C5 vocabulary migration (math notes + simulation code; canonical layer rename complete)
+- Pre-existing follow-ons unchanged: `mechanic_alteration.py:1066` naming consistency (rocket follow-on)
+
+**Phase A1 Sequence FINAL status:**
+- Dispatch 1 ✅ / Dispatch 2 ✅ / Dispatch 3 ✅ / Dispatch 4 ✅ / Dispatch 5 ✅ PASS-with-INFO / **Dispatch 6 🔥 FIRING NEXT (KR-authored Path α v1 closure record + Matt 3-gate surface)**
+
+---
+
+### PHASE A1 DISPATCH 6 — KR PATH α V1 CLOSURE RECORD + WAVE 5 CASCADE ENTRY PRE-SCOPE + MATT 3-GATE SURFACE
+
+**KR-authored** (no sub-agent invocation). Pre-flight `vm_stat` confirmed (~3.0 GB available; load avg 1.86 stable; safe under R48.5 — ratified Disc #48 numbering).
+
+**Disc #42 + #42a Q1-Q6 self-audit at KR dispatch-authoring gate:**
+
+| Q | This dispatch's framing | Verdict |
+|---|---|---|
+| Q1 | This is Path α v1 closure record + Wave 5 cascade entry pre-scope + Matt 3-gate surface per ITEM 2/3 | All scope items grounded in Phase A1 1-5 completion + Matt ITEM 1-4 ratification |
+| Q2 | Empirical refutation: any reason to author closure record BEFORE Gate-2 PASS? | jack-ryan Gate-2 PASS-with-INFO empirically lands; INFO resolved at canonical-write; gate cleared |
+| Q3 | Refinement before fire: PASS | PASS |
+| Q4 | Measurement context: closure record uses canonical-ratified vocabulary (C1-C5; Disc #48 numbering) per Dispatch 5 | PASS |
+| Q5 | Calibration scope: closure record is the Path α v1 close artifact; Phase A2 pre-scope is preview, not commitment | PASS |
+| Q6 | Semantic stability: "Path α v1 close" ≠ "Cycle 14 v1 MVP close" — distinction explicit per ITEM 2 + doc 47 § 4.6.9 § G | PASS |
+
+**Framing-audit gate: PASS.**
+
+**Scope:**
+
+1. **Path α v1 closure record artifact** at `agentic_orchestration/cycle-14-path-alpha-v1-closure-record-2026-05-28.md` — locks Path α v1 closure semantic + references all Phase A1 work-products
+2. **Wave 5 production cascade entry pre-scope** — preliminary Phase A2 sequence (A2-1 through A2-7) confirmed against current state; LLM cost projection; per-season effort projection
+3. **§ 1 wave table Wave 5 row update** — gates unblocked (Path α v1 closure SATISFIED at this dispatch); pending Matt 3-gate surface for Phase A2 entry authorization
+4. **Matt 3-gate surface** per ITEM 3:
+   - **(a)** Path α closure record sign-off — Matt ratifies the closure record artifact
+   - **(b)** LLM cost authorization for season_001 production — star-lord cost guard authorization
+   - **(c)** Wave 5 production cascade scope re-confirmation — under updated effort estimate
 
