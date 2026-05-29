@@ -3655,3 +3655,53 @@ The discipline's existing Q1-Q6 + meta-observation 5 covers this case (Q4: measu
 - PRE-KNOWN SAFE: `llm/phase5_orchestrator.py` (Disc #45 policy enforcement); `llm/spirit_guide_voice.py` (form names + policy + LLM-bias commentary); `element/selector.py` (phonetic linguistic data); `llm/naming.py` (LLM-bias commentary)
 
 **Cascade trajectory:** S1 → S2 → S3 → (S4 parallel) → S5 → S6 → A2-1 RE-FIRE-3 → A2-2 → A2-3 → A2-4 → A2-5 → A2-6 → A2-7 v1 tag ratification. ~6-10d wall-clock to A2-1 RE-FIRE-3 PASS; ~5-9d additional vs cascade-resumption-2 prior estimate; Engine > Phase per CLAUDE.md trajectory cost ACCEPTED per Matt 2026-05-29 election.
+
+### CASCADE-RESUMPTION-3 S1 CLOSED 2026-05-29 — class-eradication at substrate-input layer COMPLETE
+
+**Rocket S1 sub-agent completed 2026-05-29 (~6-8 min wall-clock):**
+
+| Layer | Result |
+|---|---|
+| Catalog (`endgame_encounter_catalog.py`) | 18/18 encounter_ids renamed to `endgame_bc_{range}_{tempo}_{amplitude}_{attribute}_{proxy}` ✅ |
+| Catalog `archetype_name` field | RETAINED (not removed); values replaced from class names to substrate-anchored neutral descriptors ("Heavy Barbarian" → "melee / low-tempo / spiky-amplitude / STR / no-proxy") ✅ |
+| Catalog `intent` + `cohort_notes` | Rewritten; "the class" framing removed; BC-tuple-anchored descriptions ✅ |
+| `simulation/phase7_bridge.py` magnitude dict | 18/18 keys updated; magnitude values preserved (Concern #1 gamora calibration unchanged); dict renamed `PHASE7_SYNTHETIC_KIT_MAGNITUDE_BY_BC_CELL` → `PHASE7_SYNTHETIC_KIT_MAGNITUDE_TABLE` (rocket semantic refinement; in-seam decision) ✅ |
+| `simulation/wave5_season_orchestrator.py:246` | Docstring example updated to substrate-derived ID ✅ |
+| `simulation/phase7_cohort.py` `classify_kit_cohort_from_encounter_id()` | NO suffix-regex dependency; operates on BC-tuple fields from encounter object; PASS ✅ |
+| `simulation/gauntlet_sim.py` | NO hardcoded class-suffix encounter_ids; PASS ✅ |
+| `simulation/bounded_viability_validation.py` | NO encounter_id parsing dependency; scenario_shell_id check preserved; PASS ✅ |
+| Test alignment | `test_cycle14_wave1_concentration.py:394,427` regression comments updated to substrate-derived names ✅ |
+| Pre-known SAFE surfaces (phase5_orchestrator, spirit_guide_voice, element/selector, naming.py) | PRESERVED unchanged ✅ |
+| Test suite | 249 PASS; 0 new failures introduced; 7 pre-existing failures verified pre-S1 via git stash ✅ |
+| Smoke (Disc #2) | Module import 18/18; Phase7SyntheticKit construction 18/18; catalog load OK ✅ |
+
+**Engine commits:** `99d67aa` (rocket S1) + tag `rocket/v1.0-cascade-r3-s1-class-eradication-1`
+**Collab commits:** `94a494a` (completion record appended)
+**Engine deliverables:** `src/reincarnated/generation/MIGRATION.md` § S1-class-eradication-2026-05-29 (334KB cumulative); `src/reincarnated/generation/AGENT_STATE.md` S1 CLOSED checkpoint (228KB cumulative)
+
+**KR Disc #42a meta-observation 5 verification (verify artifact against report):**
+
+- Catalog primary grep (`barbarian|wizard|cleric|monk|knight|fighter|assassin|archer|sniper|fencer|spellsword|mage|caller` on catalog file): ZERO functional matches; "mage" substring catches inside "damage" (English prose; non-taxonomy); "sniper" preserved in MobSpec.archetype_tag (mob-side taxonomy per dispatch § 2.1 PRESERVE) — PASS
+- Engine-wide grep with SAFE exclusions: ZERO functional class-name uses; all "caller" matches are English word "caller" (function caller / explicit convergence caller), not class taxonomy — PASS
+- Catalog ↔ phase7 magnitude dict parity: 18 ↔ 18 keys match exactly — PASS (runtime correctness gate)
+- Substrate-derived encounter_id pattern (`endgame_bc_*`) count: catalog 18 + bridge dict 18 — PASS
+- Symbol rename `PHASE7_SYNTHETIC_KIT_MAGNITUDE_BY_BC_CELL` → `PHASE7_SYNTHETIC_KIT_MAGNITUDE_TABLE`: in-seam semantic refinement by rocket; acceptable per hive-mind decision-routing (no downstream consumer of old name)
+
+**KR Disc #42a vigilance refinement — REFUTED-AS-MATERIAL finding (rocket attestation precision refinement):**
+
+KR engine-wide grep for `endgame_str_|endgame_dex_|endgame_int_|endgame_wis_` patterns surfaces hits in:
+- `src/reincarnated/export/cycle13_normal_season_export.py:296` — FUNCTIONAL regex `r"S1_endgame_\w+_\d+_(.*)"` parsing actual char_ids
+- `src/reincarnated/export/cycle13_normal_season_export.py:311-312` — docstring examples
+- `src/reincarnated/export/cycle13_loadout_ingest.py:126,605` — SQL schema comment + filesystem stem comment
+- `tests/test_cycle13_normal_season_export.py:116-125` — test cases asserting display name derivation on class-suffix char_ids
+- `tests/test_cycle13_option_a_loadout_ingest.py:277-378` — extensive round-trip tests on `S1_endgame_str_01_heavy_barbarian` fixture
+
+Rocket's attestation characterized these as "COMMENT-ONLY" in completion record § (c) "Not updated" — IMPRECISE characterization (regex at :296 + 30+ test cases are functional code, not comments).
+
+**Architectural reasoning verification:** rocket's broader disposition — preserve Cycle 13 historical export class-suffix parsing because the historical Cycle 13 mechanical season data files (16 char JSONs) have FROZEN class-suffix char_ids that cannot be retroactively renamed — IS SOUND. Per Disc #41 substrate-led vocabulary lock applies to GENERATIVE PATH (Cycle 14 substrate-input layer = catalog = class-free ✓); historical-data-parsing utilities at cycle13_* surfaces are a distinguishable architectural layer.
+
+**Decision per hive-mind decision-routing (Matt 2026-05-23 verbatim — seam-owner decides per audit evidence; Matt last-resort escalation):** S1 architectural disposition VERIFIED; not a Matt-surface scope-amendment trigger. Rocket's attestation wording could be tightened ("functional code preserving historical-data parsing" vs "comment-only"), but the architectural reasoning is correct. Cycle 13 export utility class-suffix surfaces are bounded scope (not on Cycle 14 v1 Wave 5 cascade runtime path; not generative class taxonomy) and architecturally appropriate. KR proceeds to S2 routing.
+
+**Authorization § 4 unexpected-engine-surfaces condition (line 239) NOT TRIGGERED:** enumerated example surfaces (decisions-log; canonical docs; engine canonical library; LLM prompts already canonical) do NOT include "historical-data-parsing export utilities". The disposition fits within authorization scope under § 5 line 257 ("Cycle 15+ candidate scope expansion" — Cycle 14 wave-close cleanup OR Cycle 15+ if substrate-led discipline scope eventually extends to historical-data-parsing layer). Optional Cycle 14 wave-close cleanup data point captured for jack-ryan Disc #43 design-quality audit at S6.
+
+**Cascade trajectory:** S1 CLOSED → S2 ready to fire (gauntlet variant enumeration expansion; gamora primary owner per gauntlet_sim.py seam; rocket consult-as-needed for T4 candidate exposure on kits; Disc #18 hotspot consultation if methodology surfaces multiple options).
