@@ -1,6 +1,6 @@
 # Cycle 15 Unreal Direction — Recognition Record (Architectural Commitments Deferred)
 
-> **STATUS:** CURRENT (recognition load-bearing as of 2026-05-28; AMENDED 2026-05-28 evening — 2.5D camera-angle pre-configuration transformer-pattern row added per Matt substance recovery; AMENDED 2026-05-28 earlier — substantial substance recovery re: transformer/pass-through architecture + asset pipeline scaffold + drax-pushback clarification + agent draft authorship + M2-install scope) — Recognition record only. Architectural commitments DEFERRED per recognition → empirical validation → commit discipline; gates on Cycle 14 D9 close + Matt + critique-pair adjudication.
+> **STATUS:** CURRENT (recognition load-bearing as of 2026-05-28; AMENDED 2026-05-29 — § 5 operational status updated (UE install deferred until D9 close + UE 5.7.4 FC02 failure-mode capture as operational lesson); AMENDED 2026-05-28 evening — 2.5D camera-angle pre-configuration transformer-pattern row added per Matt substance recovery; AMENDED 2026-05-28 earlier — substantial substance recovery re: transformer/pass-through architecture + asset pipeline scaffold + drax-pushback clarification + agent draft authorship + M2-install scope) — Recognition record only. Architectural commitments DEFERRED per recognition → empirical validation → commit discipline; gates on Cycle 14 D9 close + Matt + critique-pair adjudication.
 
 **Date:** 2026-05-28
 **Author:** gandalf (story-and-design steward) — written from Matt's recollection of pre-freeze sub-agent gandalf Pattern B dialogue + design-side current-context surfacing
@@ -150,12 +150,45 @@ The following are explicitly DEFERRED per recognition → empirical validation �
 
 | Item | Status |
 |---|---|
-| UE_5.7 install | PRESENT (2026-05-04 install at /Users/Shared/Epic Games/UE_5.7; 31 GB) |
-| Epic Games Launcher DMG | RE-DOWNLOADED + VERIFIED clean post-freeze (this session) |
-| Minimal Unreal install (Matt parallel work) | IN PROGRESS (this session) |
+| UE_5.7 partial install (31 GB at /Users/Shared/Epic Games/UE_5.7) | **DELETED 2026-05-28 evening** — was abandoned partial install (failed at 75% on 2026-05-04); reclaimed for clean reinstall |
+| Epic Games Launcher DMG | RE-DOWNLOADED + VERIFIED clean post-freeze (2026-05-28) |
+| EGL backup logs (~2.1 GB on 2026-05-28 + 673 MB on 2026-05-29) | RECLAIMED (durable disk-cache pressure relief per Discipline #48 R47.2-style pattern) |
+| Minimal Unreal install (Matt parallel work) | **DEFERRED until Cycle 14 D9 close per Matt 2026-05-29 sequencing call** (was: attempted twice 2026-05-29; both attempts failed at 75% with FC02 / FileConstructionFail — see § 5.1 install failure-mode capture below) |
 | Unreal seam agent | NOT YET AUTHORED — deferred per § 4 |
-| Cycle 14 D9 close | IN PROGRESS — Path α v1 closure via Mode A 6-dispatch sequence; Wave 5 production cascade ahead per amended terminus framing |
-| Cycle 15 entry pre-scope | DEFERRED to Path α closure record + Wave 5 production cascade completion + D9 close |
+| Cycle 14 D9 close | IN PROGRESS — Phase A1 closed 2026-05-29 (Path α v1 closure record commit `308c51b`); Phase A2 unattended cascade queued under Matt-pre-authorized gates ($50 LLM soft cap + Pattern E autonomous Gate-2 + per-workstream push + R48.4 single-seam) |
+| Cycle 15 entry pre-scope | DEFERRED to Cycle 14 D9 close (Phase A2 completion → Matt v1 tag ratification) |
+
+### 5.1 UE 5.7.4 install failure-mode capture (operational lesson for future invocations)
+
+**Failure pattern: FC02 / IS-IN-FC02 / FileConstructionFail at 75% install completion (reproducible).**
+
+Two install attempts on 2026-05-29; both failed at exactly 75% with identical error signature:
+
+```
+ErrorCode: FC02
+FailureReasonText: A file corruption has occurred. Please try again.
+FailureType: FileConstructionFail
+NumFailedDownloads: 0
+Retry 0/1/2/3: all FileConstructionFail with FC02
+Alert code: IS-IN-FC02
+```
+
+**Critical signal:** `NumFailedDownloads: 0` — chunks downloaded fine; failure is in CHUNK CONSTRUCTION (chunk-assembly into final files; CRC validation failing at write-out). NOT a network problem.
+
+**Root-cause hypothesis (gandalf 2026-05-29):** memory exhaustion during chunk construction on 8 GB M2 unified RAM. EGL's chunk-assembly phase needs RAM to hold chunks for CRC + write-assembly. With KR session + gandalf session + EGL itself + system processes all resident, the construction phase doesn't get sufficient headroom; writes corrupt mid-flight; CRC fails; EGL retries; same memory state; same failure.
+
+**Architectural failure family:** same root-cause as the 2026-05-28 Mac mini freeze (memory thrash on 8 GB unified RAM under multi-process load). Different symptom (silent CRC corruption vs WindowServer wedge); same root cause. **Discipline #48 R48.4 single-seam constraint directly applies** to UE install operations on this host.
+
+**Mitigation for future install attempts:**
+- Strict R48.4 single-seam during install (close all other Claude sessions; pause KR sub-agent fan-out; close other apps)
+- Delete partial install state before retry (cleared APFS metadata)
+- Delete accumulated EGL logs (Disc #48 host-cache-pressure relief)
+- Disable Warp AI background indexing
+- **UE 5.6 fallback** if UE 5.7.4 keeps failing — 5.7.4 (Nov 2025) shipped ~6 months ago in our timeline; 5.6 has longer Apple Silicon installer maturity
+- Consider VPN to different region (forces different Akamai CDN edge node) if FC02 persists even with clean host state
+- Source-build path (`github.com/EpicGames/UnrealEngine`) is last-resort fallback — requires Xcode + Epic account linking + hours of compilation; heavy for 8 GB RAM host but bypasses EGL chunk-assembly entirely
+
+**Operational composition with Discipline #48:** UE install attempts are R48.4 single-seam operations. KR sub-agent fan-out is incompatible with UE install. Sequence strictly.
 
 ## 6. What to do when this recognition record is referenced
 
