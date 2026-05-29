@@ -109,6 +109,73 @@ Per existing Phase A2 sequence in Phase A1 closure record § 7 and resume memo �
 
 ---
 
+## 1.5 D13 parallel-fire authorization — carry-forward pointer
+
+**Source of authority:** `agentic_orchestration/cycle-14-path-alpha-v1-closure-record-2026-05-28.md` § 7 line 142; § 8 Gate (c) RATIFIED ("D13 RATIFIED parallel-fire authorization").
+
+**What D13 authorizes:** post season_001 Gate-2 PASS (i.e., after Step 4 A2-1 RE-FIRE produces PASS verdict + jack-ryan Gate-2 PASS at A2-2 equivalent), a **P1-P9 parallel track** fires alongside seasons 002+003 production AND the A2-5 A/B comparison phase.
+
+**P1-P9 parallel track scope (enumerated per closure record line 142):**
+
+| P-item | Work | Owner |
+|---|---|---|
+| A/B preliminary | Early A/B analysis ahead of formal A2-5 (build out comparison harness; spot-check season_001 outputs against doc 48 baseline; surface protocol-execution risks early) | gandalf |
+| drax loadout sample-data wiring | Vercel-deployed loadout web app refresh consuming Wave 5 cascade outputs (kit_archive + ExportFactionCluster + ExportFactionRelationship + phase7_kit_verdict_log + phase7_cluster_aggregate_log) as updated sample data | drax |
+| image pipeline auto-batch | Asset pipeline automation work (Meshy / image-pass-through pipeline tooling) | star-lord |
+| H-5 hero Meshy embed | Hero-asset Meshy embedding for visual-coherence validation surface | galadriel + star-lord |
+| personage coherence test | Substrate-anchored personage convergence validation (Sketch F downstream check) | gandalf + elrond |
+| Drax Dispatch C/F | M-items M5 + other drax M-stream items per loadout app readiness scoping | drax |
+| Sidecar G-2 | Substrate sidecar work item (elrond) | elrond |
+
+**Discipline composition with R48.4 single-seam (Disc #48):**
+
+D13 + R48.4 compose explicitly per closure record line 142: **"parallel work means parallel KR coordination, NOT parallel sub-agents on the constrained host."**
+
+| Layer | Semantics |
+|---|---|
+| Wall-clock | Parallel tracks overlap; ~3-4d of overlap between P1-P9 items and the cascade tail (season_002 + season_003 + A2-5) |
+| Sub-agent resource | Strictly single-seam — KR sequences P-items + cascade items into a single dispatch queue; each fires alone under R48.4; no parallel sub-agent fan-out on the 8 GB constrained host |
+| KR coordination | KR round-robins P-items with cascade items per dispatch-queue ordering; KR-side priority: cascade integrity > P-item progress (cascade can't slip past A2-7 because P-items contend for sub-agent dispatch slot) |
+
+**Per-track fire conditions:**
+- Each P-item fires under R48.4 pre-flight (`vm_stat` > 1 GB free + EGL log clear)
+- Each P-item has its own KR-authored dispatch under hive-mind decision-routing
+- Each P-item completion is auto-committed per CLAUDE.md addendum 2026-05-25 (work-products of authorized cascade work)
+- Pattern E pre-authorization does NOT extend to P-items (P-items are not Gate-2 reviews); P-item failures route to gandalf/jack-ryan as appropriate per critique-pair structure
+- Surface to Matt at P-item BLOCK / scope-amendment-request / framing-audit catch (per existing surface conditions in this plan § 3)
+
+**Wall-clock interaction with cascade:**
+
+```
+Step 1 (gamora KPM recalibration)              ~1-2h
+  → Step 2 (rocket flag flip)                  ~0.5-1h
+    → Step 3 (jack-ryan Gate-2)                ~0.5h
+      → Step 4 (A2-1 RE-FIRE season_001)       ~1d
+        → A2-2 (jack-ryan Gate-2 season_001)   ~half-day
+          ↓
+          ┌─── D13 parallel track ACTIVATES here ───┐
+          │                                          │
+          ↓                                          ↓
+      A2-3 season_002 production + Gate-2      P1-P9 items dispatch
+        → A2-4 season_003 production + Gate-2    (drax Vercel refresh among them)
+          → A2-5 A/B comparison filed
+            → A2-6 disciplines batched canonical-write
+              → A2-7 Matt v1 tag ratification
+```
+
+**What D13 does NOT mean:**
+
+- Does NOT permit parallel sub-agent fan-out on the constrained host (R48.4 strict)
+- Does NOT release P-items from Pattern E or framing-audit disciplines
+- Does NOT pre-authorize drax sample-data wiring to commit player-facing faction visibility (deferred-commitments recognition record stands — drax pulls cascade outputs as substrate data; player-facing surfacing decisions remain Matt-election territory for v1.1+)
+- Does NOT collapse the cascade and the parallel track into a single closure gate — cascade closes at A2-7 Matt tag; parallel track closes per its own completion criteria (some items may carry into Cycle 14 wind-down / Cycle 15 entry)
+
+**Why this addendum exists:**
+
+The resolution plan § 1 Steps 1-5+ focuses on the immediate halt-recovery work. D13 parallel-fire authorization is canon per the Phase A1 closure record but was not re-stated here; explicit pointer added at Matt 2026-05-29 in-session direction so KR session-start protocol picks up D13 from this plan directly rather than relying solely on cross-reference to closure record § 7. KR reads this plan as required first read #1 per the resumption fire prompt; D13 carry-forward now lands on first-read.
+
+---
+
 ## 2. Total wall-clock estimate to A2-1 RE-FIRE PASS
 
 | Step | Effort | Cumulative |
