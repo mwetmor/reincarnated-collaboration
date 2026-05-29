@@ -1,6 +1,6 @@
 # Cycle 15 Unreal Direction — Recognition Record (Architectural Commitments Deferred)
 
-> **STATUS:** CURRENT (recognition load-bearing as of 2026-05-28; AMENDED 2026-05-29 — § 5 operational status updated (UE install deferred until D9 close + UE 5.7.4 FC02 failure-mode capture as operational lesson); AMENDED 2026-05-28 evening — 2.5D camera-angle pre-configuration transformer-pattern row added per Matt substance recovery; AMENDED 2026-05-28 earlier — substantial substance recovery re: transformer/pass-through architecture + asset pipeline scaffold + drax-pushback clarification + agent draft authorship + M2-install scope) — Recognition record only. Architectural commitments DEFERRED per recognition → empirical validation → commit discipline; gates on Cycle 14 D9 close + Matt + critique-pair adjudication.
+> **STATUS:** CURRENT (recognition load-bearing as of 2026-05-28; AMENDED 2026-05-29 — § 5 operational status updated + UE 5.7.4 FC02 failure-mode capture + § 5.2 UE install backup paths enumerated (Legendary CLI primary fallback; source-build last-resort; VPN region change; recommended escalation sequence); AMENDED 2026-05-28 evening — 2.5D camera-angle pre-configuration transformer-pattern row added per Matt substance recovery; AMENDED 2026-05-28 earlier — substantial substance recovery re: transformer/pass-through architecture + asset pipeline scaffold + drax-pushback clarification + agent draft authorship + M2-install scope) — Recognition record only. Architectural commitments DEFERRED per recognition → empirical validation → commit discipline; gates on Cycle 14 D9 close + Matt + critique-pair adjudication.
 
 **Date:** 2026-05-28
 **Author:** gandalf (story-and-design steward) — written from Matt's recollection of pre-freeze sub-agent gandalf Pattern B dialogue + design-side current-context surfacing
@@ -189,6 +189,73 @@ Alert code: IS-IN-FC02
 - Source-build path (`github.com/EpicGames/UnrealEngine`) is last-resort fallback — requires Xcode + Epic account linking + hours of compilation; heavy for 8 GB RAM host but bypasses EGL chunk-assembly entirely
 
 **Operational composition with Discipline #48:** UE install attempts are R48.4 single-seam operations. KR sub-agent fan-out is incompatible with UE install. Sequence strictly.
+
+### 5.2 UE install backup paths (Mac M2; ranked by viability)
+
+**No clean direct-download path exists for pre-built UE binaries.** Epic distributes pre-built binaries exclusively through EGL's BuildPatchServices system. No standalone DMG / pkg / archive direct from Epic for individual developers. However, three real backup paths exist if EGL persists in failing:
+
+#### Backup Path 1 (PRIMARY FALLBACK) — Legendary CLI
+
+`github.com/derrod/legendary` — open-source EGS CLI client. Cross-platform (Mac supported). Uses Epic's official APIs (legit; no piracy concerns) but **different code path than EGL** that may not hit the same memory-pressure-during-construction FC02 failure mode.
+
+Install + use pattern (Mac via pipx):
+```bash
+# Install via pipx (clean isolation)
+brew install pipx
+pipx install legendary-gl
+
+# Authenticate with Epic account (same account as EGL)
+legendary auth
+
+# List available Unreal Engine versions
+legendary list-ue --show-versions
+
+# Download specific UE version with selective components
+legendary install <UE_5.6_asset_name> --base-path "/Users/Shared/Epic Games"
+```
+
+**Why this might work where EGL fails:** Legendary's chunk-construction code path is independent. EGL's specific FileConstructionFail at 75% might not reproduce under Legendary's implementation. Same Epic CDN source; different consumption layer. Worth trying as primary fallback if EGL Resume / Fresh Install fails again.
+
+#### Backup Path 2 (LAST-RESORT FALLBACK) — Source build from GitHub
+
+`github.com/EpicGames/UnrealEngine` — official source mirror. Bypasses EGL entirely.
+
+Requirements:
+- Epic Games account linked to GitHub (~5-min setup at unrealengine.com/en-US/ue-on-github)
+- Xcode installed (~10 GB)
+- ~100-150 GB workspace total
+- Build time on M2 8 GB RAM: **many hours; possibly fails on memory pressure during compilation**
+
+```bash
+git clone -b 5.6.0-release https://github.com/EpicGames/UnrealEngine.git
+cd UnrealEngine
+./Setup.sh           # downloads ~30-50 GB of dependencies
+./GenerateProjectFiles.sh
+# Open UE5.xcworkspace in Xcode + build (hours)
+```
+
+**NOT recommended for 8 GB RAM host under normal conditions.** Theoretical fallback only. If both EGL AND Legendary fail, this is the last resort. May require offloading compilation to a higher-RAM machine OR partial-build acceptance.
+
+#### Backup Path 3 — VPN region change
+
+If FC02 persists with clean host state + via Legendary, the failure may be CDN-edge-specific (your Akamai edge node has corrupted chunks). VPN to different region forces EGL/Legendary to hit different CDN edge node. Less likely root cause given the FileConstructionFail signature (not download failure), but worth trying if everything else fails. Quick test before going to source build.
+
+#### Paths NOT available for this scenario
+
+- **Unreal Launcher** (third-party tool at unreallauncher.vercel.app) — Windows + Linux only; no Mac support
+- **Official offline installer** — only available to enterprise/org admins with purchased UE seats; not available for individual developers
+- **Pre-built UE binaries via curl / wget directly from Epic** — no public direct-download URL; binaries distributed only via BuildPatchServices
+
+#### Recommended escalation sequence (if EGL fails again post-D9-close)
+
+1. **UE 5.6 via EGL** (not 5.7.4) — most likely to succeed; maturity argument; 5.7.4 (Nov 2025) shipped ~6 months ago vs 5.6 longer Apple Silicon installer maturity
+2. **Legendary CLI** for UE 5.6 (different code path; bypasses EGL FC02 failure mode)
+3. **VPN region change** + retry EGL/Legendary (forces different CDN edge node)
+4. **Source build from GitHub** (theoretical only; impractical on 8 GB host without offload)
+
+**Durability across deferral window:** Both Legendary + Source-build paths remain available whenever Matt re-engages UE install after Cycle 14 D9 close. Capture preserved for future sub-agent invocations dealing with UE install scenarios.
+
+**Genre-lineage analog:** Legendary is the EGS equivalent of `youtube-dl` for video — community-maintained client against official APIs that bypasses vendor-specific failure modes. Pattern is established and durable.
 
 ## 6. What to do when this recognition record is referenced
 
