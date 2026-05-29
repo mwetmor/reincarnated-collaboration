@@ -94,9 +94,25 @@ Same phrase; different scope; different effort estimate (~1-2d for Path α v1 cl
 
 The discipline's full resolution coverage is now empirically demonstrated across five distinct operational gates within a single cycle. Cumulative cheapest-empirical-refutation latency: ~120s (Question A precedent) to ~5 min (Instance 2 surfacing) — all sub-hour.
 
+## 4-quater. Instance 6 — Wave B component-existence-context propagation (cascade-resumption-2 Step 4 surface; 2026-05-29)
+
+**Implicit framing across propagation surfaces:** 5+ dispatches + 4 completion records + orchestrator docstring (`wave5_season_orchestrator.py:12`: "Phase 5 — Cohesion-judge LLM: Phase5Orchestrator Wave A + F-C + Wave B") + recognition record (`canonical/story/2026-05-29-experiential-cascade-architecture-recognition.md` § 2.1 initial: "Phase 5 Wave B per-kit identity LLM | Built; UNTESTED in production") + Path D flip authorization (which framed cascade as "Wave A + F-C + Wave B all fire under visible") + gandalf preliminary gate (i) assessment authorization ALL propagated the taxonomy "Wave A + F-C + Wave B" as if all three were built components.
+
+**Empirical investigation result (KR cascade-resumption-2 Step 4 surface; commit `fd48cab`):** `grep -rE 'wave_b|WaveB|run_wave_b' reincarnated-engine/src/` returns ZERO matches engine-wide. `phase5_orchestrator.py` has Wave A + F-C functions; Wave B does not exist as built code. The propagated taxonomy was load-bearing in cascade architecture discussions for at least 5 prior dispatches + multiple completion records + the recognition record committed ~3h before refutation; never empirically verified across any propagation surface.
+
+**The miss:** **component-existence-context.** The taxonomy "Wave A + F-C + Wave B" was treated as if it described built components across all propagation surfaces. The empirical reality is that Wave A + F-C are built; Wave B is a phantom — referenced in artifacts and assumed to exist but never implemented. The cohesion_data={} hardcode at `wave5_season_orchestrator.py:1169` is the symptom; the absence of `run_wave_b_async()` (or equivalent) in `phase5_orchestrator.py` is the root cause.
+
+**Framing-audit Q-extension that would have caught it:** "**verify the component exists**" — at any taxonomy-claim consumption (dispatch authoring, completion-record attestation, recognition record authoring, fire-prompt authoring), the cheapest-empirical-refutation is a `grep` against the codebase for the component's expected symbol. KR's framing-audit applied this exact discipline at Step 4 consumption — when star-lord cost-tracker wire-up surfaced "Gap (b)+(c)" — and caught the phantom-component finding before A2-1 RE-FIRE-2 fired against it.
+
+**Why this is a separate canonical instance (NOT a meta-observation):** Instances 1-4 are four distinct context-types (measurement / semantic-stability / calibration-scope / architectural-commitment). Instance 6 introduces a FIFTH context-type — **component-existence-context** — where the discipline gap is "taxonomy describes a component; component existence not empirically verified." This is structurally distinct from the prior four (which all assume the components/measurements/criteria EXIST but vary in their semantic context). Instance 6 catches the case where the component does not exist at all.
+
+**Critical observation:** **Instance 6 propagated through gandalf-authored artifacts** (recognition record § 2.1 initial authoring; Path D flip authorization; preliminary gate (i) authorization). The pushback memo author (gandalf) IS one of the propagation surfaces for the failure mode the memo describes. The amendment-pass-record at `canonical/story/2026-05-29-experiential-cascade-architecture-recognition.md` § 0.1 captures this directly — the recognition record was amended to acknowledge the propagation surface within its own structure. This is honest discipline-application: the framework catches the failure-mode in the author's own work, not just in sub-agent work.
+
+**Cascade architecture impact:** Recognition record chain Step C ("Wave B per-kit identity LLM" cohesion judge) is non-operational. Phase 7 cohesion gate has been effectively pass-through (no per-kit cohesion exclusions; cohesion_data={} hardcode) since cascade architecture was articulated. Path X (implement Wave B before A2-1 RE-FIRE-2; ~1.5-2d engineering optimistic) recommended per ambiguous-decisions-log resolution.
+
 ## 5. The cross-cutting pattern
 
-All four instances share the same architectural shape — though Instance 1 + Instance 3 are measurement-context cases and Instance 2 + Instance 4 are semantic-stability cases:
+All five canonical instances + the meta-observation share the same architectural shape — though they span FIVE context-types now (with Instance 6 expanding the framework):
 
 | Layer | What was assumed | What was empirically true |
 |---|---|---|
@@ -104,10 +120,11 @@ All four instances share the same architectural shape — though Instance 1 + In
 | Instance 2 (close-criterion authoring) | Same measurement name = same measurement semantics across context | Same name; context-dependent semantics (BVV-anchor vs DDA-active-sweep) |
 | Instance 3 (hotfix calibration scope) | Calibration derived from one profile applies to all | Profile-asymmetric calibration requirements |
 | Instance 4 (architectural-commitment terminus) | Same closure phrase = same closure scope across context | Same phrase; context-dependent scope (Path-α-deliberation vs D9-ratification) |
+| **Instance 6 (component-existence propagation)** | **Taxonomy describes built component; component existence assumed across all propagation surfaces** | **Taxonomy propagated; component NEVER BUILT (Wave B phantom; zero `wave_b\|WaveB\|run_wave_b` matches engine-wide)** |
 
-**The unifying principle:** **the operating context has its own semantics, and those semantics shift across consumption points (DDA on/off, band-tight/recalibrated, profile-specific, deliberation-context-vs-ratification-context).** Production-layer dispatches that fire against operating-context-dependent output (measurement data OR architectural-commitment language) without verifying operating-context match produce wasted work, incorrect adjudications, or scope-overreach.
+**The unifying principle:** **the operating context has its own semantics, and those semantics shift across consumption points (DDA on/off, band-tight/recalibrated, profile-specific, deliberation-context-vs-ratification-context, taxonomy-vs-implementation-mismatch).** Production-layer dispatches that fire against operating-context-dependent output (measurement data OR architectural-commitment language OR component-taxonomy claims) without verifying operating-context match produce wasted work, incorrect adjudications, scope-overreach, OR cascade-architecture phantom-component propagation.
 
-This is the same architectural failure mode at four resolutions: dispatch-time (Instance 1), close-criterion-time (Instance 2), hotfix-time (Instance 3), terminus-framing-time (Instance 4). The discipline applies to measurement-context AND semantic-context AND calibration-scope-context AND architectural-commitment-context. Across all four, the cheapest-empirical-refutation pattern catches the failure mode at sub-hour latency if applied at consumption gates.
+This is the same architectural failure mode at FIVE resolutions: dispatch-time (Instance 1), close-criterion-time (Instance 2), hotfix-time (Instance 3), terminus-framing-time (Instance 4), component-existence-time (Instance 6). The discipline applies to measurement-context AND semantic-context AND calibration-scope-context AND architectural-commitment-context AND component-existence-context. Across all five, the cheapest-empirical-refutation pattern catches the failure mode at sub-hour latency if applied at consumption gates (grep is the empirical instrument for Instance 6).
 
 ## 6. Discipline #42 canonical architecture (gandalf-side recommendation)
 

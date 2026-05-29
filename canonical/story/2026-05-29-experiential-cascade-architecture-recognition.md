@@ -6,6 +6,13 @@
 **Author:** gandalf (story-and-design steward)
 **Authority:** Matt 2026-05-29 in-session synthesis (paste-conversation surfaced during Phase A2 cascade-fire offline-work window) + Matt 2026-05-29 ratification of canonicalization path (recognition record now; legolas Mode A research authored; doc 38 amendment + doc 52 promotion DEFERRED to empirical-evidence gates)
 
+## 0.1 Amendment-pass-record
+
+| # | Date | Author | Amendment scope | Empirical trigger |
+|---|---|---|---|---|
+| Initial | 2026-05-29 | gandalf | Recognition record authored per Matt 2026-05-29 paste-conversation synthesis + canonicalization-path ratification (commit `346075e`) | (initial authoring) |
+| Amendment 1 | 2026-05-29 | gandalf | **Wave B finding amendment** — KR empirical refutation at cascade-resumption-2 Step 4 (commit `fd48cab`): `grep -rE 'wave_b\|WaveB\|run_wave_b' reincarnated-engine/src/` returns ZERO matches engine-wide. Wave B per-kit identity LLM is NOT BUILT in production code. § 2.1 cascade chain Step C component status corrected from "Built; UNTESTED" → "NOT BUILT; phantom component"; § 2.3 unbuilt seams expanded; § 3 gate (i) disposition refined to PARTIAL PASS (Wave A + F-C verified coherent; Wave B refuted as built component; full gate (i) PASS requires Wave B operational). Captures Disc #42a Instance-6 case-type (component-existence-context propagation across artifacts without empirical verification) — recognition record IS one of the propagation surfaces (parallel to 5+ dispatches + 4 completion records + orchestrator docstring `wave5_season_orchestrator.py:12`). | KR empirical grep finding 2026-05-29 commit `fd48cab` |
+
 **Companion docs:**
 - `canonical/38-downstream-delivery-strategy-2026-05-23.md` — keystone delivery strategy (D1-D10); engine commercial framing refinement DEFERRED to this recognition record's gate (iv)
 - `canonical/39-qd-engine-end-to-end-workflow-2026-05-24.md` — production canonical engine architecture (Phase 2-7 pipeline; cascade architecture this record names rests on doc 39's pipeline)
@@ -118,9 +125,9 @@ The cascade synthesis spans components at very different maturity levels. Treati
 | Phase 2 BC discovery | Built; firing | `endgame_encounter_catalog.py` + `wave5_season_orchestrator.py` |
 | Phase 3 PM-1 multimodal clustering | Built; firing | `rocket a466eb1` (PM-1) + `gandalf 7233e0f` (PM-2 + § 13 G-B math) |
 | Phase 4 mechanical archive (MG-1 through MG-5 gates) | Built; firing | `engine 749d5aa` |
-| Phase 5 Wave A faction-level LLM | Built; **UNTESTED in production** until Path D flip fires (current Wave 5 cascade) | `phase5_orchestrator.py` |
-| Phase 5 Wave B per-kit identity LLM | Same — first production exercise in current cascade | Same |
-| Phase 5 F-C inter-faction relationships | Built under visible mode | `star-lord 6f94ce5` |
+| Phase 5 Wave A faction-level LLM | Built; **FIRED in cascade-resumption-2 Step 5; gandalf preliminary verdict PASS** (Wave A outputs coherent + AI-tell-clean per gate (i) preliminary assessment) | `phase5_orchestrator.py` |
+| ~~Phase 5 Wave B per-kit identity LLM~~ | ~~Same — first production exercise in current cascade~~ **AMENDED 2026-05-29: NOT BUILT; phantom component** — KR empirical grep finding (commit `fd48cab`): zero `wave_b\|WaveB\|run_wave_b` matches engine-wide. Moved to § 2.3 unbuilt seams. | (no implementation exists) |
+| Phase 5 F-C inter-faction relationships | Built; FIRED in cascade-resumption-2 Step 5 under visible mode | `star-lord 6f94ce5` |
 | Phase 7 2-layer joint-gate | Built | `gamora eca0aa5` |
 | A/B comparison protocol | Authored; awaits Wave 5 close to execute | `canonical/story/ab-comparison-protocol-cycle-14-close-2026-05-27.md` |
 
@@ -137,11 +144,13 @@ The cascade synthesis spans components at very different maturity levels. Treati
 
 | Component | Status | Reference |
 |---|---|---|
+| **Phase 5 Wave B per-kit identity LLM** | **NOT BUILT — empirical finding 2026-05-29 commit `fd48cab`.** Zero `wave_b\|WaveB\|run_wave_b` matches engine-wide via KR grep. Orchestrator docstring `wave5_season_orchestrator.py:12` references Wave B as if built; implementation does not exist. Phase 7 cohesion-judge gate has been effectively pass-through (no per-kit cohesion exclusions; cohesion_data={} hardcode at `wave5_season_orchestrator.py:1169`). Cascade chain Step C ("Cohesion judge labels the magic find rogue as a pirate" — per-kit identity layer) is non-operational. **Path X (implement before A2-1 RE-FIRE-2; ~1d engineering) routing recommended per ambiguity in decisions-log line 3536** | KR commit `fd48cab` (cascade-resumption-2 Step 4 surface) |
+| Player-kit-to-faction-coherence routing at per-kit layer | Same — depends on Wave B existence | Same |
 | **Antagonist/contrast-faction generation** | **NOT BUILT.** Monster-contrast pattern explicitly DEFERRED to Cycle 15+ per Path 1 scope expansion record | `agentic_orchestration/gandalf/notes/2026-05-27-path-1-phase-4-5-7-cycle-14-scope-expansion.md` |
 | Player-faction-to-antagonist-faction routing | Same | Same |
 | Antagonist-faction substrate vocabulary | Same | Same |
 
-**The cascade synthesis Matt's sentence describes IS NOT FULLY OPERATIONAL TODAY.** Step G (antagonist generation) is a separable engine seam that does not exist in current production code. Path 1 scope expansion record (2026-05-27) explicitly defers monster-contrast (closely related) to Cycle 15+. The cascade synthesis is therefore PARTIALLY ASPIRATIONAL — the architectural pattern is right; the implementation is incomplete.
+**The cascade synthesis Matt's sentence describes IS NOT FULLY OPERATIONAL TODAY.** Step G (antagonist generation) is a separable engine seam that does not exist in current production code. **AMENDED 2026-05-29:** Step C (Phase 5 Wave B per-kit identity) is ALSO not in production code (KR empirical refutation; commit `fd48cab`). Path 1 scope expansion record (2026-05-27) explicitly defers monster-contrast (closely related) to Cycle 15+; Wave B implementation routing is being elected at cascade-resumption-2 Matt-surface (Path X recommended). The cascade synthesis is therefore MORE PARTIALLY ASPIRATIONAL than initial authoring represented — the architectural pattern is right; **TWO** implementation components are incomplete (Wave B + antagonist generation), not one.
 
 ---
 
@@ -151,18 +160,22 @@ Per recognition-validate-commit discipline (Discipline #42a-adjacent), ALL canon
 
 ### Gate (i) — Phase 5 LLM cohesion judge fires successfully in current Wave 5 cascade
 
-**What it validates:** Cascade steps C, D, E, F (cohesion judge + clustering + faction naming + inter-faction relationships) operate at acceptable quality in production. Wave A produces coherent faction-level labels from PM-1 cluster reps; Wave B produces coherent per-kit identity from kit content + substrate vocabulary; F-C produces meaningful inter-faction relationships.
+**AMENDED 2026-05-29 per KR Wave B empirical refutation (commit `fd48cab`):** gate (i) disposition is now PARTIAL — Wave A + F-C verified coherent (gandalf preliminary assessment PASS); Wave B refuted as built component (does not exist in production code). Full gate (i) PASS requires Wave B operational. Path X election (implement Wave B before A2-1 RE-FIRE-2) advances toward full gate (i) PASS; Path Y election (ship without Wave B) makes gate (i) PARTIAL-PASS-with-architectural-gap the permanent disposition for v1.
 
-**Empirical instrument:** Path D flip authorized 2026-05-29 (FACTION_VISIBILITY=visible). Current Wave 5 cascade A2-1 RE-FIRE produces Wave A + Wave B + F-C LLM outputs. Quality assessment via:
-- ExportFactionCluster.faction_label_canonical: are names coherent + substrate-grounded?
-- ExportFactionRelationship: do inter-faction relationships make cultural sense?
-- Phase 7 cohesion_judge_confidence: do scores distribute at acceptable level (≥0.75 threshold or systematically below = scaffold-flag-finding)?
+**What it validates:** Cascade steps C, D, E, F (cohesion judge + clustering + faction naming + inter-faction relationships) operate at acceptable quality in production. Wave A produces coherent faction-level labels from PM-1 cluster reps; **Wave B produces coherent per-kit identity from kit content + substrate vocabulary IF AND WHEN BUILT** (per Path X election; currently NOT built per § 2.3 amendment); F-C produces meaningful inter-faction relationships.
 
-**Expected resolution:** within current Wave 5 cascade window (~1-2 day cascade execution + jack-ryan Gate-2 assessment).
+**Empirical instrument:** Path D flip authorized 2026-05-29 (FACTION_VISIBILITY=visible). Cascade-resumption-2 A2-1 RE-FIRE-2 produces Wave A + F-C LLM outputs **(Wave B awaits Path X implementation per cascade-resumption-2 Matt election)**. Quality assessment via:
+- ExportFactionCluster.faction_label_canonical: are names coherent + substrate-grounded? — **gate (i) Wave A sub-gate: PASS** per gandalf preliminary assessment
+- ExportFactionRelationship: do inter-faction relationships make cultural sense? — **gate (i) F-C sub-gate: PASS** per same
+- Phase 7 cohesion_judge_confidence: do scores distribute at acceptable level (≥0.75 threshold or systematically below = scaffold-flag-finding)? — **was effectively pass-through pre-amendment** (cohesion_data={} hardcode); becomes meaningful only post-Wave-B-implementation
+- **Wave B per-kit identity coherence (gate (i) NEW sub-gate post-Path-X-implementation):** do per-kit substrate-thematic identities ("magic find rogue → pirate") emerge from real LLM judging at coherent quality?
 
-**Gate disposition rule:**
-- PASS — Wave A + Wave B + F-C produce coherent outputs at expected quality → cascade architecture validated through F; promote experiential archetype dimension recognition to gate (ii) test
-- FAIL — Wave A or Wave B produce incoherent outputs OR systematic under-0.75 cohesion confidence → cascade architecture has quality issue at Phase 5; surface to Matt Pattern B for design call (NOT a recognition-record failure; an empirical finding for refinement)
+**Expected resolution:** Wave A + F-C sub-gates resolved 2026-05-29 PASS. Wave B sub-gate gated on Path X completion (post A2-1 RE-FIRE-2 if Path X elected; permanently unresolved at v1 if Path Y elected with explicit gap documentation).
+
+**Gate disposition rule (AMENDED):**
+- **FULL PASS** — Wave A + F-C + Wave B all produce coherent outputs at expected quality → cascade architecture validated through F; promote experiential archetype dimension recognition to gate (ii) test
+- **PARTIAL PASS** (current state pre-Path-X-implementation) — Wave A + F-C verified coherent; Wave B refuted as built component; cascade architecture chain Step C non-operational → gate (i) advances to PARTIAL; gate (ii) opens; full gate (i) deferred to Path X completion OR explicit v1 gap-acceptance per Matt Path Y election
+- **FAIL** — Wave A or F-C produce incoherent outputs OR systematic under-0.75 cohesion confidence → cascade architecture has quality issue at Phase 5; surface to Matt Pattern B for design call (NOT a recognition-record failure; an empirical finding for refinement)
 
 ### Gate (ii) — Cross-site ARPG community archetype vocabulary research
 
