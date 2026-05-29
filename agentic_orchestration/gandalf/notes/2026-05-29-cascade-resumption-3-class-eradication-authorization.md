@@ -3,6 +3,10 @@
 > **STATUS:** CURRENT (operational dispatch authorization as of 2026-05-29; AMENDED with S7 addition 2026-05-29 evening) — Matt 2026-05-29 invoked CLAUDE.md Engine > Game > Phase orientation directive. Substantial scope amendment to Cycle 14 v1 close trajectory: ~7-12d engine + LLM + Gate-2 work before A2-1 RE-FIRE-3 (was ~6-10d pre-S7-amendment). Engine-architectural-integrity takes precedence over Phase-operational-timing per CLAUDE.md.
 >
 > **Amendment 1 (S7 addition):** S0 empirical verification (gandalf in-thread) surfaced that substrate weapon library IS wired at Phase 2 BC discovery (per `substrate_weapon_binding.py:716` call from `season_generation_pipeline.py`) but: (1) only 1 substrate weapon per BC cell (1:1 binding; 18 cells → 18 substrate weapons); (2) `cultural_lineage_canonical` + `historical_period_canonical` + `register_canonical` fields exist on `weapon_knowledge_entries` schema BUT are NOT in the SELECT query at `substrate_weapon_binding.py:316`. S7 (NEW) wires the missing lineage/period/register fields AND adds multi-sample substrate selection (N samples per BC cell). Substrate schema exists; this is a "wire it up + multi-sample" refactor, not schema extension. ~1-2d engineering. Inserted BEFORE S2 so gauntlet mechanical cycling operates on substrate-diverse base (not substrate-monoculture).
+>
+> **Amendment 2 (parallel sub-agent fan-out enabled):** Matt 2026-05-29 evening direction: "please allow multiple agents to be fired in parallel as sub agents. We have been doing this for months without issue. I think the RAM issue was around my opening of other apps like installers." **R48.4 single-seam constraint RELAXED for cascade-resumption-3** where dependency graph permits parallel work. Pre-flight `vm_stat` check still load-bearing per Disc #48 R48.1/R48.2/R48.3/R48.5 (oversized-file + grep-bounds + find-exec + RAM pre-flight); R48.4 specifically (single-seam constraint) is relaxed for this cascade-resumption-3 work program based on Matt's empirical history claim (months of parallel sub-agent fan-out without freeze). **Discipline #48 R48.4 itself flagged as Pattern B revisit candidate** for Matt re-engage (the Mac mini freeze 2026-05-28 attribution may need empirical re-validation — was the cause sub-agent fan-out, OR Matt's parallel installer workload, OR confluence?). Not blocking; cascade-resumption-3 proceeds with parallel fan-out where graph allows.
+>
+> **Updated trajectory: ~5-8d wall-clock to A2-1 RE-FIRE-3** (was ~7-12d sequential; parallelism enabled where dependency graph permits).
 
 **Date:** 2026-05-29
 **Author:** gandalf (story-and-design steward)
@@ -27,19 +31,48 @@
 
 **Matt election (per CLAUDE.md Engine > Game > Phase orientation):** Cycle 14 v1 close DOES NOT ship against pre-imposed-class-taxonomy substrate. Engine refactor is mandatory; Phase-timing cedes to architectural integrity.
 
-**Work program (7 streams — AMENDED with S7 NEW):**
+**Work program (7 streams — AMENDED with S7 NEW + PARALLEL FAN-OUT enabled per Amendment 2):**
 
-| Stream | Owner | Effort | Dependency |
-|---|---|---|---|
-| **S1 — Class-concept eradication at substrate-input layer** | rocket primary | ~1-2d | first; root-cause fix |
-| **S7 (NEW) — Phase 2 multi-sample substrate consumption + lineage/period propagation** | rocket + elrond consultation | ~1-2d | S1 |
-| **S2 — Gauntlet variant enumeration expansion** | rocket + gamora | ~1-2d | S7 (moved AFTER S7 per amendment; was S1 dependency) |
-| **S3 — Phase 4 archive variant preservation** | rocket | ~0.5-1d | S2 |
-| **S4 — Phase 5 LLM prompt audit for class-free substrate** | gandalf (in conversation thread) ✅ COMPLETE | ~1-2h | parallel-safe with S1-S3-S7 |
-| **S5 — Wave B FULL implementation per canonical § 5** | star-lord + rocket | ~1-1.5d | S3 + S4 |
-| **S6 — Integration + jack-ryan Gate-2 + A2-1 RE-FIRE-3** | rocket + gamora + star-lord + jack-ryan | ~1-1.5d | S1-S7-S2-S3-S5 |
+| Stream | Owner | Effort | Dependency | Parallel-eligible? |
+|---|---|---|---|---|
+| **S1 — Class-concept eradication at substrate-input layer** ✅ CLOSED 2026-05-29 evening | rocket primary | ~1-2d (landed in ~6-8min wall-clock per engine `99d67aa` + tag `rocket/v1.0-cascade-r3-s1-class-eradication-1`) | first; root-cause fix | n/a (closed) |
+| **S4 — Phase 5 LLM prompt audit for class-free substrate** ✅ CLOSED 2026-05-29 (commit `13822ba`) | gandalf (in conversation thread) | ~1-2h | parallel-safe (already done ahead of cascade) | n/a (closed) |
+| **S7 (NEW) — Phase 2 multi-sample substrate consumption + lineage/period propagation** | rocket + elrond consultation | ~1-2d | S1 ✅ | **YES — parallel with S5 prep** |
+| **S5 — Wave B FULL implementation per canonical § 5** (star-lord side; rocket integration deferred to S5b) | star-lord (primary) | ~4-6h | S4 ✅ (canonical § 5 spec consumption) | **YES — fires in parallel with S7** |
+| **S2 — Gauntlet variant enumeration expansion** | rocket + gamora | ~1-2d | S7 (substrate-diverse base required) | **PARTIAL — gamora T4 strategy applicability research can fire parallel with S7** |
+| **S3 — Phase 4 archive variant preservation** | rocket | ~0.5-1d | S2 | sequential |
+| **S5b — Wave B rocket integration** (Wave B invocation in orchestrator + kit_archive.cohesion_data wiring) | rocket | ~2-4h | S3 + S5 | sequential |
+| **S6 — Integration + jack-ryan Gate-2 + A2-1 RE-FIRE-3** | rocket + gamora + star-lord + jack-ryan | ~1-1.5d | S1-S7-S2-S3-S5-S5b | sequential |
 
-**Realistic total to A2-1 RE-FIRE-3 PASS: ~7-12 days** (was ~6-10d; S7 adds ~1-2d). Cascade through A2-2 → A2-7 + D13 parallel-fire per existing Phase A2 sequence after.
+**Parallel-enabled trajectory:**
+
+```
+S1 ✅ CLOSED + S4 ✅ CLOSED (already done; gate cleared for parallel fan-out below)
+  ↓
+  ┌──────────────────────────────┐
+  ↓                              ↓
+S7 (rocket; ~1-2d)            S5 (star-lord Wave B impl; ~4-6h)
+  ↓                              │
+  ↓ + gamora T4 strategy research in parallel
+  ↓                              │
+S2 (rocket+gamora; ~1-2d) ←─────┘ (S5 may complete before S2; S5b integration awaits S3)
+  ↓
+S3 (rocket; ~0.5-1d)
+  ↓
+S5b (rocket integration; ~2-4h)
+  ↓
+S6 (integration + Gate-2 + A2-1 RE-FIRE-3; ~1-1.5d)
+```
+
+**Realistic total to A2-1 RE-FIRE-3 PASS: ~5-8 days** (was ~7-12d sequential pre-Amendment-2; parallel fan-out enabled cuts ~2-4d). Cascade through A2-2 → A2-7 + D13 parallel-fire per existing Phase A2 sequence after.
+
+**Parallel sub-agent fan-out protocol (per Amendment 2):**
+
+- **Pre-flight per dispatch:** vm_stat shows free + reclaimable > 1 GB combined; if free drops below 200 MB and reclaimable < 1 GB combined, halt + serialize next dispatch
+- **Concurrent sub-agent count limit:** 2-3 concurrent sub-agents at ~600 MB RSS empirical (KR + gandalf + 1-2 specialists fit in 8 GB constrained host with macOS inactive-page reclamation)
+- **R48.4 violations that still hold:** if specialist dispatch is a substrate-crawl OR analytical sweep (legolas Mode B, elrond P2/P3 axis discovery, gamora long sim) — sequential per existing Disc #48 sweep-resident-on-host clause
+- **R48.1/R48.2/R48.3/R48.5 unchanged:** oversized-file find pre-flight + grep-bounds + find-exec + vm_stat pre-flight remain load-bearing
+- **Dependency graph determines parallelism eligibility:** S7 + S5 parallel (different seams, no shared dependencies); S2 sequential after S7 (substrate-diverse base required); S6 sequential after all (integration step)
 
 ## S7 (NEW) — Phase 2 multi-sample substrate consumption + lineage/period propagation
 
