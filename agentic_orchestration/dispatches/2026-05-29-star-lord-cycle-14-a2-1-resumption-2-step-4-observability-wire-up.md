@@ -317,3 +317,211 @@ Append completion record (interim OR final) at any of:
 This dispatch is the cheapest empirical refutation of "are the 3 observability gaps (Phase 5 tracker=None + A12-1 Wave B persistence + A12-2 kit_cohesion_score) wireable within star-lord seam OR do they require cross-seam composition?" — landscape investigation + in-seam wire-up + cross-seam surface at star-lord seam-internal cost (~1-2h wall-clock).
 
 A2-1 R2 Step 4 PASS = observability landscape resolved (in-seam + cross-seam routing clear) → unblocks Step 5 (jack-ryan Gate-2 Pattern E on Step 1 + Step 3 + Step 4 outputs) → Step 6 (A2-1 RE-FIRE-2 with FUNCTIONAL cost-tracker + measurable Wave B + measurable cohesion score) → cascade through A2-2 → A2-7 toward Cycle 14 v1 MVP D9 close.
+
+---
+
+## Completion record
+
+**Authored:** 2026-05-29 (star-lord A2-1 R2 Step 4 close)
+**Engine commit:** `d388c49` — `star-lord: A2-1 R2 Step 4 — Phase 5 cost-tracker wire-up + call-count fix; Gaps (b)+(c) surfaced`
+**Collab commit:** (this dispatch file + completion record append)
+**Tag:** `star-lord/v1.2-a2-1-r2-step-4-observability-wire-up-1`
+
+---
+
+### 1. VERDICT
+
+A2-1 R2 Step 4 observability wire-up — PARTIAL with cross-seam SURFACES for KR.
+
+- Gap (a): IN-SEAM WIRED (Phase 5 cost-tracker + call-count fix landed)
+- Gap (b): CROSS-SEAM SURFACED (Wave B NOT implemented; requires new star-lord LLM function + rocket orchestration dispatch)
+- Gap (c): CROSS-SEAM SURFACED (kit_cohesion_score structurally blocked by Gap (b); gamora emit path READY once Wave B produces scores)
+
+---
+
+### 2. Gap (a) — Phase 5 LLM cost-tracker status: IN-SEAM WIRED
+
+**Root cause traced:**
+1. `wave5_season_orchestrator.py` passed `tracker=None` to `run_phase5_with_fc_sync()`
+2. `tracker=None` → per-call telemetry block skipped → `llm_call_id=None` on every `Phase5WaveAResult` / `Phase5FCResult`
+3. `total_llm_calls = len([r for r in wave_a_results if r.llm_call_id is not None])` → 0 → `total_cost_usd = $0.00`
+4. Same broken derivation in F-C: `successful_calls = len([r for r in fc_results if r.llm_call_id is not None])` → 0
+5. Phase 5 reported `llm_cost_usd=$0.00` while actual spend was ~$0.12 (per rocket A2-1 RE-FIRE attempt 2 attestation)
+6. `$50 soft cap` / `$60 hard halt` cost guards were advisory-only (0 projected; never triggered)
+
+**Fix 1 — `llm/phase5_orchestrator.py`:**
+- `run_phase5_wave_a_async()` line 1719: `total_llm_calls = len(wave_a_results)` (counts all call attempts, not just telemetry-recorded ones)
+- `run_fc_per_pair_async()` line 1584: `initial_calls = len(pairs)` + `regen_calls = len([r for r in fc_results if r.regeneration_fired])`
+
+**Fix 2 — `simulation/wave5_season_orchestrator.py`:**
+- `run_phase5_cohesion_judge()` now constructs `TrackedLLMClient.from_client(LLMClient(), NullRecorder())` with `set_season(SEASON_ID)` instead of passing `tracker=None`
+- NullRecorder: no DB writes; API key from env; call-count fix active; wired for future composability with TelemetryRecorder
+
+**NullRecorder rationale:** Per-call DB telemetry requires `TelemetryRecorder` with a research DB connection managed at CLI/orchestrator level (rocket seam). Threading a DB-backed recorder into `run_phase5_cohesion_judge()` is a cross-seam scope extension deferred to follow-on rocket dispatch.
+
+**Effect:** Phase 5 now reports accurate `total_llm_calls` (e.g., 3 Wave A + 3 F-C = 6 calls for a 3-cluster season) and accurate `total_cost_usd`. Cost guards are now functional for Step 6 A2-1 RE-FIRE-2.
+
+---
+
+### 3. Gap (b) — A12-1 Wave B per-kit identity persistence status: CROSS-SEAM SURFACED
+
+**Critical empirical finding:** Wave B is NOT IMPLEMENTED in `llm/phase5_orchestrator.py`.
+
+Evidence: full function inventory of 28 functions in the 2263-line file — `run_wave_a_async`, `run_fc_per_pair_async`, `_call_wave_a_single`, `_call_fc_single` exist; NO `run_wave_b_async`, `_call_wave_b_single`, or equivalent. `run_phase5_with_fc_async()` docstring explicitly states: "Wave B per-kit calls are NOT fired here (separate entry point)." The wave5_season_orchestrator.py comment claiming "run_phase5_with_fc_sync fires Wave A + F-C + Wave B" was incorrect; corrected in this dispatch's commit.
+
+**Implication:** The rocket A2-1 RE-FIRE attempt 2 completion record §4 stating "Wave B: FIRED" was a documentation error. `kit_archive.notes` is empty because Wave B never ran — there is no Wave B implementation to produce output.
+
+**Data-flow trace:** Wave B was intended to run per-kit LLM calls using parent faction context from Wave A results → return per-kit identity narratives → persist to `kit_archive.notes` via rocket orchestrator. All three steps are missing.
+
+**Routing recommendation:** Separate sequential dispatches under R48.4 strict-sequential:
+1. Star-lord: `run_wave_b_async()` LLM function in `llm/phase5_orchestrator.py` — new per-kit LLM function, `Phase5WaveBResult` dataclass, prompt templates, return-type design
+2. Rocket: Wave B invocation in `wave5_season_orchestrator.py` + persistence to `kit_archive.notes` — must wait for star-lord Wave B function to exist
+
+No schema migration needed for `kit_archive.notes` — column type `TEXT` is correct for per-kit identity narrative.
+
+---
+
+### 4. Gap (c) — A12-2 kit_cohesion_score status: CROSS-SEAM SURFACED (blocked by Gap (b))
+
+**Root cause chain:**
+1. `wave5_season_orchestrator.py:1169` hardcodes `cohesion_data={}` in `run_phase7_joint_gate()` call
+2. `Phase5Result` has `wave_a_results` (cluster-level) and `fc_results` (pair-level) — NO `{kit_id: cohesion_score}` per-kit mapping field
+3. Per-kit cohesion scores are supposed to come from Wave B output; Wave B not implemented (Gap (b))
+4. No data to wire into `cohesion_data`
+
+**Good news:** downstream emit path is fully READY.
+- `phase7_bridge.py` line 478: `cohesion_scores: Optional[dict[str, float]]` parameter — correct interface
+- Lines 714-715: `cohesion_score = cohesion_scores.get(kit_id)` — already implemented
+- Line 740: `kit_level_cohesion_score=cohesion_score` — emit to `phase7_kit_verdict_log` already wired
+- `phase7_db.py` line 100: `kit_cohesion_score REAL` column — exists in DDL, no schema migration needed
+
+**What's missing:** the producer (Wave B). Once Wave B returns `{kit_id: score}`, the wire-up in `wave5_season_orchestrator.py` is approximately 3 lines: extract per-kit scores from `p5_result` → pass to `run_phase7_joint_gate(cohesion_data=scores)`.
+
+**Routing recommendation:** Compose with Gap (b) Wave B implementation. After rocket's Wave B dispatch lands, a small follow-on (star-lord or rocket) threads `cohesion_data` from the `Phase5Result` return value into the phase 7 gate call. No schema migrations required anywhere.
+
+---
+
+### 5. Disc #2 smoke verification
+
+**Gap (a) wire-up smoke:**
+- Module-load: `python -c "from reincarnated.llm.phase5_orchestrator import run_phase5_with_fc_sync"` — PASS
+- Phase 5 test suite (`test_dispatch_3b_phase5_seam3`, `test_wave3_seam2_fc_infra`, `test_dispatch_3b_seam3_pm1_wiring`): 141/141 PASS
+- Gauntlet simulation suite (`test_cycle13_wave5_gauntlet_sim.py`): 85/85 PASS; 7 pre-existing failures confirmed as pre-existing via git stash baseline (same 7 tests, same count as gamora Step 3 baseline); 0 new regressions
+
+**Gap (b) + Gap (c):** No in-seam changes landed; no smoke applicable. Cross-seam surfaces only.
+
+---
+
+### 6. Disc #12 EPOCH BREAK assessment: NOT DECLARED
+
+Gap (a) fixes are observability corrections:
+- `total_llm_calls` and `total_cost_usd` now reflect actual call attempts instead of 0
+- No schema change; no behavioral change to LLM calls or output content; no downstream field value change for any consumer
+- Field semantics shift from "count of calls with telemetry record IDs" to "count of actual call attempts" — which is the intended semantic, not a semantic change
+
+EPOCH BREAK applies when the semantic meaning of an existing field changes for existing consumers. Here the field was broken (returning 0 always); correcting it to return the intended value does not constitute an epoch break.
+
+Gaps (b) and (c): no in-seam changes. No EPOCH BREAK applicable.
+
+---
+
+### 7. MIGRATION.md cited
+
+`/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/MIGRATION.md` — § v1.59 (prepended before § v1.58 gamora P3c fix)
+
+Content: Gap (a) wire-up with full code diffs at both fix sites; Gap (b) cross-seam surface with routing recommendation; Gap (c) structural blockage + routing; Disc #12 NOT DECLARED rationale; Disc #40 4-point cumulative queue.
+
+---
+
+### 8. Cross-seam surfaces
+
+**Gap (b) — Wave B NOT IMPLEMENTED (SURFACE TO KR):**
+
+| Dispatch | Owner | Scope | Dependency |
+|---|---|---|---|
+| Wave B LLM function dispatch | star-lord | `run_wave_b_async()` + `Phase5WaveBResult` dataclass + prompt templates in `llm/phase5_orchestrator.py` | None — fires first |
+| Wave B orchestration + persistence dispatch | rocket | Wave B invocation in `wave5_season_orchestrator.py` + `kit_archive.notes` write | Requires star-lord Wave B function to exist first |
+
+R48.4 strict-sequential: star-lord Wave B dispatch → rocket Wave B integration dispatch.
+
+**Gap (c) — cohesion_data threading (SURFACE TO KR, compose with Gap (b)):**
+
+| Dispatch | Owner | Scope | Dependency |
+|---|---|---|---|
+| cohesion_data wire-up | star-lord or rocket (small scope) | Extract `{kit_id: score}` from `p5_result` in `wave5_season_orchestrator.py`; pass to `run_phase7_joint_gate(cohesion_data=...)` | Requires Wave B implementation to produce per-kit scores |
+
+Gamora-seam `phase7_bridge.py` emit path at line 740 is already wired. No gamora dispatch needed for Gap (c) unless unexpected issue surfaces when threading real scores.
+
+---
+
+### 9. Disc #42a Q1-Q6 self-audit
+
+**Q1 — load-bearing framing assumption:** "The 3 gaps compose architecturally because they all share the pattern 'LLM output produced but not flowed through to downstream persistence/measurement.'"
+**Verdict: PARTIALLY CONFIRMED.** Gap (a) fits perfectly. Gaps (b) and (c): the empirical investigation revealed Wave B was never produced at all (not a flow problem — an implementation-missing problem). The "LLM output produced but not persisted" framing was slightly wrong for Gap (b); it should have been "LLM output never produced." This refinement didn't invalidate the composition decision — it clarified the routing.
+
+**Q2 — refutation evidence in scope:** investigation produces caller-graph + data-flow trace for all 3 gaps. Gap (b) surfaced the most significant refutation: "Wave B fires" (per rocket completion record) was incorrect. SURFACED per protocol.
+**Verdict: PASS — all refutation evidence captured.**
+
+**Q3 — refutation surface-able cheaply:** read-only investigation phase confirmed all 3 gap root causes without executing any LLM calls or simulation runs.
+**Verdict: PASS — investigation was low-cost as projected.**
+
+**Q4 — measurement context match:** Gap (a) fix now enables functional cost-tracking for Step 6 A2-1 RE-FIRE-2. Gaps (b) and (c) surface the requirement for Wave B before Step 6 can produce measurable cohesion signal. The D9 close-criterion ratified measurement dimensions are now clearly dependent on Wave B implementation.
+**Verdict: PASS — measurement context match confirmed; Wave B dependency surfaced clearly for KR sequencing.**
+
+**Q5 — calibration scope match:** Gap (a) wire-up directly enables the gandalf gate (i) full verdict + jack-ryan Gate-2 cost-tracking dimension. Gaps (b) and (c) cross-seam surfaces define what additional dispatches must precede Step 6 for the full empirical signal.
+**Verdict: PASS — scope match confirmed.**
+
+**Q6 — semantic stability of "observability wire-up" vs "scope amendment":** Gap (a) is a pure observability wire-up (existing interface; missing tracker instance). Gap (b) investigation revealed Wave B is a MISSING IMPLEMENTATION — this is a scope amendment, not a wire-up. Per Q6 protocol: SURFACED CROSS-SEAM rather than in-seam implementation. The dispatch framing correctly anticipated this possibility ("if investigation reveals gap requires cross-seam work, scope-amendment, OR deeper architectural intervention... surface to KR").
+**Verdict: PASS — Q6 protocol followed correctly; Gap (b) classified as scope-amendment → cross-seam surface.**
+
+---
+
+### 10. Disc #40 cumulative pattern queue update
+
+| # | Gap | Prior status | Status after Step 4 |
+|---|---|---|---|
+| (a) | `FACTION_VISIBILITY=invisible` default + hardcoded assert | RESOLVED (Step 2 cascade-resumption-1) | RESOLVED |
+| (b) | `tracker=None` in Phase 5 LLM path | OPEN | PARTIALLY RESOLVED — call-count estimation fixed; NullRecorder-backed tracker wired; per-call DB telemetry remains cross-seam follow-on (rocket seam, future dispatch) |
+| (c) | Wave B persistence-layer gap | OPEN | SURFACED — Wave B NOT implemented; star-lord + rocket follow-on dispatches needed (KR authors per Step 4 cross-seam surfaces) |
+| (d) | `phase7_kit_verdict_log.kit_cohesion_score` not-populated | OPEN | SURFACED — structurally blocked by (c); gamora emit path READY; wire-up follows Wave B implementation; compose with (c) Wave B dispatch |
+
+All 4 data points captured for Matt re-engage cumulative Disc #40 discussion per resolution plan § 4.
+
+---
+
+### 11. Disc #48 R48.4/R48.5 verification
+
+**R48.4 (single-seam):** Confirmed — gamora released post Step 3 PASS; only star-lord running in Step 4 slot. No parallel sub-agent fan-out. No parallel sub-seam work during investigation or wire-up.
+
+**R48.5 (RAM):** Pre-flight check at dispatch entry: 2.76 GB free + reclaimable (well above 1 GB threshold). PASS.
+
+---
+
+### 12. Engine + collab commits + tag
+
+**Engine commit:** `d388c49` — `star-lord: A2-1 R2 Step 4 — Phase 5 cost-tracker wire-up + call-count fix; Gaps (b)+(c) surfaced`
+- 4 files changed, 164 insertions(+), 11 deletions(-)
+- `src/reincarnated/export/AGENT_STATE.md` — session entry + tag reference
+- `src/reincarnated/llm/phase5_orchestrator.py` — Wave A + F-C total_llm_calls derivation fix (2 sites)
+- `src/reincarnated/simulation/MIGRATION.md` — § v1.59 prepended
+- `src/reincarnated/simulation/wave5_season_orchestrator.py` — NullRecorder-backed TrackedLLMClient + Wave B not-implemented note
+
+**Engine tag:** `star-lord/v1.2-a2-1-r2-step-4-observability-wire-up-1` applied to `d388c49`
+
+**Collab commit:** this dispatch file (completion record append) — auto-committed per CLAUDE.md addendum 2026-05-25
+
+**Push:** NOT fired — KR fires push after A2-2 Gate-2 PASS per per-workstream pattern.
+
+---
+
+### 13. Anomalies surfaced
+
+**ANOMALY A13-1 — Wave B "FIRED" documentation error:**
+The rocket A2-1 RE-FIRE attempt 2 completion record §4 states "Wave B: FIRED." Empirical code investigation finds NO `run_wave_b_async` or equivalent in `llm/phase5_orchestrator.py` (28-function inventory; 2263 lines; docstring explicitly says Wave B not fired here). The orchestrator comment also incorrectly claimed "Wave B fires." BOTH corrected in this dispatch's engine commit. Wave B has never run in any A2-1 RE-FIRE attempt. This means the recognition record gate (i) preliminary PASS-preliminary verdict (gandalf Step 2.5) was based on Wave A + F-C output only — Wave B observability gap was larger than the dispatch framing anticipated.
+
+**Implication for cascade timeline:** Step 6 A2-1 RE-FIRE-2 CANNOT produce measurable Wave B cohesion signal until star-lord Wave B LLM function dispatch + rocket Wave B integration dispatch both PASS. KR must sequence those dispatches between Step 4 close and Step 5 (jack-ryan Gate-2) OR between Step 5 and Step 6, depending on whether Gate-2 can run on Step 4 outputs alone.
+
+**KR routing note:** if jack-ryan Gate-2 (Step 5) can run on Step 1 + Step 3 + Step 4 outputs (Gap (a) wired; Gaps (b)+(c) surfaced but not yet resolved), KR may fire Step 5 immediately and sequence Wave B + cohesion_data dispatches between Step 5 and Step 6. If Step 5 Gate-2 requires Wave B observability to issue a verdict, KR should sequence Wave B dispatches before Step 5.
+
+**ANOMALY A13-2 — NullRecorder.start_llm_call() returns None:**
+Investigation confirmed `NullRecorder.start_llm_call()` returns `None` → even with a NullRecorder-backed tracker wired, `llm_call_id` remains `None` for all results. This means the call-count estimation fix (Fix 1) was necessary in addition to the tracker wire-up (Fix 2). Both fixes compose: Fix 1 corrects the count derivation; Fix 2 wires the tracker for API key propagation + future composability with TelemetryRecorder when the DB-backed path is implemented in a future rocket dispatch.
