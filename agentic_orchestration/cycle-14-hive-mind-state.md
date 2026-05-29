@@ -4048,3 +4048,65 @@ A2-2 → A2-7 + D13 parallel-fire → Cycle 14 v1 MVP D9 close
 ```
 
 **Updated estimate to A2-1 RE-FIRE-3 PASS:** ~1-2d wall-clock remaining (S6a-FIX + re-fire smoke + S6c).
+
+### CASCADE-RESUMPTION-3 S6a-FIX CLOSED 2026-05-29 — architectural fixes landed; Phase 7 mechanical gate scaffold-flag surfaced
+
+**Rocket S6a-FIX CLOSED — Engine `269a510` + `264d14b` + tag `rocket/v1.0-cascade-r3-s6a-fix-variant-wr-bracket-db-reinit-1`; collab `49c31c7`:**
+
+- **Fix 1** — VariantKitRow inherits base kit's wr_bracket_pass via `cell_any_pass` dict (line 536-543); emit_map keyed at BC cell level; smoke=True bypass removed; Instance 6 smoke-bypass-context-dependent-behavior pattern CLOSED
+- **Fix 2** — `INSERT OR REPLACE` semantics for kit_archive (line 365); idempotent re-fires; stale class-based rows handled
+- **bc_axis_signature dict fix** (additional in-seam scope amendment per rocket simpler-implementation election)
+- New `TestS6aFixVariantWrBracketInheritance` (5 tests) + idempotency tests; ALL PASS
+- AGENT_STATE checkpoint updated
+
+**S6a smoke re-fire results (smoke=False; small sample):**
+
+| Phase | Result |
+|---|---|
+| Phase 2 substrate multi-sample | PASS |
+| Phase 3 gauntlet variant enumeration | PASS — degeneracy_triggered=False |
+| Phase 3 PM-1 clustering | **PASS — input=598 (13 base + 585 variants); 4 GMM clusters** (NOT k=3 fallback) |
+| Phase 4 archive | PASS — 18 accepted |
+| Phase 5 Wave A + F-C + Wave B | PASS — all 3 LLM stages fired; cost-tracker accumulated |
+| Phase 7 cohesion gate | PASS — BINDING (cohesion_judge_confidence-based) |
+| Pipeline end-to-end | **PASS** — degeneracy_triggered=False; no halt |
+| **shipped_worthy** | **0** (held_mech=18; damage cohort gauntlet_pass_rate midpoint=0.0) |
+
+**KR Disc #42a meta-observation 5 verification (verify artifact against report):**
+
+- Engine commits + tag present; Fix 1 + Fix 2 + bc_axis_signature in code
+- Rocket TOP-of-message summary anachronistically referenced pre-cascade-resumption-3 state ("Wave 5 CASCADE HOLD"; "Wave B NOT implemented"; "Matt election paths X/Y/Z pending") — appears to echo AGENT_STATE.md initial read content. Rocket CLOSING paragraph + actual commits reflect successful S6a-FIX work + smoke re-fire PASS. KR routes per actual commit evidence + Disc #42a vigilance noted.
+
+**Gandalf Recognition Record Amendment 3 (commit `8e9aa94`):**
+
+Per Matt 2026-05-29 evening: "Do you think there is value in allowing flag 1 to pass into the gauntlet and season? If we can add the flag later on, we can use your concern as an h1 hypothesis test vs the null that rocket assumed?"
+
+- **H0 (cascade-default per KR S6a-FIX Finding 1 routing):** variant inheritance correct for investment profile (player-choice axis on single kit)
+- **H1 (gandalf concern; reframed as empirical test):** low/mid investment variants of barely-passing kits mis-attributed as mechanically viable
+- **5 empirical signatures** distinguishing H0 from H1 (Phase 7 cohesion gate / strip-and-ship / A/B Dim #1 / Phase 7 mechanical-floor / Cycle 15+ tier-list)
+- **Empirical-validation cost ZERO** — cascade proceeds with H0; H1 evidence emerges from cascade telemetry + A/B protocol + Cycle 15+ community signal
+- **Cycle 15+ scope-amendment candidate** if H1 confirmed (≥2 of 5 signatures show systematic correlation across 3 seasons)
+
+**Phase 7 mechanical gate scaffold-flag surfaced at S6a smoke (KR routing decision):**
+
+Phase 7 mechanical gate produces gauntlet_pass_rate midpoint=0.0 → held_mech=18 → shipped_worthy=0. Rocket attestation: "Phase 7 mechanical gate calibration is a separate gamora-seam concern for S6c"; "NOT a new failure introduced by S6a-FIX".
+
+Question: small-sample artifact (calibration produces meaningful midpoint at full season) OR genuine calibration issue (full season fires also produce 0 shipped)?
+
+**KR routing per hive-mind decision-routing + cost-efficiency:** Route gamora Pattern A-light investigation BEFORE S6c. ~30min; ZERO LLM cost; informs S6c routing. Empirical-validation framing PRESERVED at A2-1 RE-FIRE-3 level (variant inheritance H1 test fires at full season); gamora investigation is risk-management on Phase 7 mechanical gate calibration scaffold (separable axis from H1; not pre-decided methodology).
+
+If gamora investigation confirms small-sample artifact → S6c fires immediately. If gamora investigation surfaces genuine calibration issue → gamora seam-owner fixes; then S6c. Either way, ~30min gain in cascade-resumption-3 wall-clock.
+
+**Cascade trajectory:**
+
+```
+S6b ✅ + S6a-FIX ✅ + Recognition Record Amendment 3 (H1 captured)
+  ↓
+Gamora Pattern A-light Phase 7 mechanical gate investigation (~30min; $0)
+  ↓
+S6c (A2-1 RE-FIRE-3 full season production) — fires per gamora outcome
+  ↓
+A2-2 → A2-7 + D13 parallel-fire → Cycle 14 v1 MVP D9 close
+```
+
+**Updated estimate:** ~1d wall-clock remaining (gamora investigation + S6c).
