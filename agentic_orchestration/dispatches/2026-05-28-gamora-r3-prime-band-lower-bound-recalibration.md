@@ -163,4 +163,111 @@ Per Matt 2026-05-23 hive-mind decision-routing: seam-owner decides in-scope work
 
 ## Completion record
 
-(gamora appends here)
+**Completed:** 2026-05-28 / 2026-05-29 (cross-context; continued from Phase A1 Dispatch 1 session)
+**Gamora tag:** `gamora/v2.11-r3-prime-band-lower-bound-1`
+**Engine commits:** `854e94a` (implementation) + `5eaf800` (AGENT_STATE checkpoint)
+
+---
+
+### Implementation shape
+
+**Methodology:** L-I (uniform lower bound = minimum across all 7 profiles, with 15% headroom).
+Rationale documented in math note § 2. Table shape UNCHANGED: `{enc_type: {cohort: (lo, hi)}}`.
+Upper bounds UNCHANGED.
+
+**Scope extension vs dispatch:** empirical probe (`run_r3_prime_lower_bound_probe()`, ~87s) revealed
+`open_arena` and `chokepoint_corridor` also produce T1 band-rejects at `mid`/`mixed_v1`/`mixed_v3`
+profiles (passive-heavy + supporting-chain-heavy investment patterns push many kits to ~162-176 KPM,
+below prior 536/596 lower bounds). Dispatch cited 4 enc types (magic_pack, elite_pack, boss_with_adds,
+mini_boss); all 6 enc types recalibrated under L-I. Upper bounds for open/chokepoint unchanged (836/664/560/728 — well above timing floor 600).
+
+**Structural cells preserved:** Defensive at open_arena/chokepoint_corridor (no encounters by gauntlet
+design; structural zero in probe → lower bound unchanged). DPS-min-maxer at mini_boss (same).
+
+---
+
+### Recalibrated lower-bound table (lo only; upper bounds unchanged)
+
+| enc_type              | cohort        | prior lo | global_min | lo_new |
+|-----------------------|---------------|----------|------------|--------|
+| open_arena            | DPS-min-maxer | 596.0    | 227.1      | 193.0  |
+| open_arena            | Balanced      | 536.0    | 176.5      | 150.0  |
+| open_arena            | Defensive     | 368.0    | —(struct)  | 368.0  |
+| open_arena            | Hybrid        | 440.0    | 162.2      | 137.0  |
+| chokepoint_corridor   | DPS-min-maxer | 596.0    | 214.3      | 182.0  |
+| chokepoint_corridor   | Balanced      | 536.0    | 176.5      | 150.0  |
+| chokepoint_corridor   | Defensive     | 368.0    | —(struct)  | 368.0  |
+| chokepoint_corridor   | Hybrid        | 440.0    | 162.2      | 137.0  |
+| magic_pack            | DPS-min-maxer | 135.0    | 61.9       | 52.0   |
+| magic_pack            | Balanced      | 120.0    | 56.1       | 47.0   |
+| magic_pack            | Defensive     | 80.0     | 40.3       | 34.0   |
+| magic_pack            | Hybrid        | 100.0    | 52.6       | 44.0   |
+| elite_pack            | DPS-min-maxer | 120.0    | 60.0       | 51.0   |
+| elite_pack            | Balanced      | 107.0    | 56.1       | 47.0   |
+| elite_pack            | Defensive     | 74.0     | 44.4       | 37.0   |
+| elite_pack            | Hybrid        | 88.0     | 56.1       | 47.0   |
+| boss_with_adds        | DPS-min-maxer | 50.0     | 34.3       | 29.0   |
+| boss_with_adds        | Balanced      | 44.0     | 26.5       | 22.0   |
+| boss_with_adds        | Defensive     | 30.0     | 21.6       | 18.0   |
+| boss_with_adds        | Hybrid        | 37.0     | 25.1       | 21.0   |
+| mini_boss             | DPS-min-maxer | 46.0     | —(struct)  | 46.0   |
+| mini_boss             | Balanced      | 41.0     | 35.3       | 29.0   |
+| mini_boss             | Defensive     | 28.0     | 35.3       | 29.0   |
+| mini_boss             | Hybrid        | 34.0     | 35.3       | 29.0   |
+
+---
+
+### File and line citations
+
+- `gauntlet_sim.py:206-311` — `ENCOUNTER_COHORT_KPM_BAND` constant (lower bounds updated, upper bounds preserved)
+- `unified_calibration_loop.py` — `_R3_PRIME_LOWER_HEADROOM = 0.15` + `run_r3_prime_lower_bound_probe()` added
+- Math note: `simulation/math/r3-prime-band-lower-bound-recalibration-2026-05-28.md` (all sections filled)
+- MIGRATION.md: `simulation/MIGRATION.md § v1.56`
+
+---
+
+### Smoke verification results
+
+**BVV anchor (base context):**
+- T1: PASS (metric=1.0429; threshold<1.5)
+- T2: 1 violation — `(endgame_wis_02_holy_knight_t4_null, mini_boss)` — PRE-EXISTING genuine zero fight (not band-reject; not caused by R3-prime). Present in committed baseline `bc194a3` before this dispatch. Composition preserved: same violation count before and after recalibration (verified git stash round-trip).
+- T3: PASS (structural; ceiling removed)
+- T5: PASS (metric=0.0)
+- Dispatch criterion T2=0 cited the R3 hotfix state (commit `00b7f02`), which was subsequently overwritten by RE-RUN-4 baseline. Current anchor state accurately reflects post-RE-RUN-4 engine state.
+
+**Low profile (DDA context, full 18-kit population, RE-RUN-3 pipeline):**
+- T1=1.203 PASS, T2=0 PASS, T3 PASS, T5 PASS — compound PASS
+- wall_time ~37s. Previously FAILED T2.
+
+**Mid profile (DDA context, full 18-kit population, RE-RUN-3 pipeline):**
+- T1=1.140 PASS, T2=0 PASS, T3 PASS, T5 PASS — compound PASS
+- wall_time ~37s. Previously FAILED T2.
+
+**Max_a composition verification (bonus):**
+- T1=1.278 PASS, T2=0 PASS, T3 PASS, T5 PASS — compound PASS. Composition preserved.
+
+**Smoke harness note:** `run_multi_dim_calibration_sweep_phase4_rerun4_smoke()` (5-kit subset, max_a only) shows T2=False pre-existing — caused by W-α6 fallback band (0.0, 0.0) for Balanced cohort enc types when only 5 str-heavy kits are used (no Balanced cohort kits in subset). This is an unrelated pre-existing smoke harness limitation, not a regression from R3-prime. Verified via git stash: same T2=False exists before the band change.
+
+---
+
+### Discipline #12 Epoch Break C declaration
+
+Band lower bounds now calibrated from global minimum across all 7 investment profiles (with 15% headroom), replacing the prior implicit max_a-only calibration. Prior T2 zero-cell records at low/mid/mixed_v1/mixed_v3 profiles in pre-RE-RUN-5 telemetry are NOT comparable to post-RE-RUN-5 values. See math note § 6 for full declaration.
+
+---
+
+### AGENT_STATE.md checkpoint
+
+Updated at `5eaf800`.
+
+---
+
+### KR surfacing
+
+Normal close. Phase A1 Dispatch 3 (Phase 4 RE-RUN-5 full 7-profile sweep verification under amended close-criterion T1-base + T2-all-profiles + T3 + T5 = 4/4) is unblocked.
+
+**Anomaly B is closed.** Lower-edge band-reject cascade at low/mid/mixed_v1/mixed_v3 eliminated. Per-profile T2 status post-recalibration (confirmed by low/mid smoke, max_a composition verify): low PASS, mid PASS, max_a PASS. RE-RUN-5 should verify all 7 profiles.
+
+Note for RE-RUN-5: the wis_02/mini_boss T2=1 at BVV anchor is a genuine zero fight (not band-reject; kit has no investment at base context). This is NOT a T2 failure in the Phase 4 sweep context (Phase 4 sweep patches kits at each investment profile — wis_02 at any investment profile above zero produces non-zero KPM at mini_boss, as confirmed by the low/mid smoke). The anchor BVV runs unpatched kits.
+
+**Status: COMPLETE — gamora handoff to KR for Phase A1 Dispatch 3.**
