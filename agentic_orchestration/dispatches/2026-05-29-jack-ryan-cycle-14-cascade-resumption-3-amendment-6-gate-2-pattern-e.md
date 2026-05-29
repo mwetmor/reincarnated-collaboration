@@ -209,3 +209,73 @@ Per Phase A1 closure record § 7 + Amendment 5 + S6b prior PASS-with-WARN:
 **Cascade trajectory post-Amendment-7:** TBD per Amendment 7 spec.
 
 **Signed:** knight-rider (orchestrator)
+
+---
+
+## Completion Record
+
+**Completed by:** jack-ryan
+**Completed:** 2026-05-29
+**Findings document:** `agentic_orchestration/qa/pending/2026-05-29-jack-ryan-cascade-r3-amendment-6-gate-2-pattern-e-review.md`
+**Pattern E disposition:** PASS-with-INFO
+
+### (a) Per-sub-fix findings summary
+
+| Sub-fix | Disposition | Summary |
+|---|---|---|
+| **Sub-fix 1 — S7 deepcopy bug fix** | **PASS** | `copy.deepcopy(self.gear_set)` at line 294 correctly isolates each kit's serialization. Verified by 2 unit tests + 1 integration test. 54 distinct substrate_bindings confirmed. Disc #1 math note § 1 present. Disc #11 acceptance gate PASS. |
+| **Sub-fix 2 — Pareto-2 lineage partition** | **PASS** | `(bc_cell_id, cultural_lineage_canonical)` partition key implemented at 5 locations in phase4_pipeline.py + wire-up in wave5_season_orchestrator.py line 973-982. Q_DIM=5 preserved (verified by test). Archive=34 (within 25-40 prediction PASS). MIGRATION.md cross-seam entry present and substantive. Disc #1 math note § 2 present. Disc #46 § 7 per-bucket bounding preserved. |
+| **Sub-fix 3 — S8 Bound 4 paired-joint-sampling** | **PASS-with-INFO** | Per-sample emission loop at lines 753-762; `kit.skills = per_sample_skills[sample_idx]` at line 795 enforces pairing. 54 distinct (substrate, skill_tree) pairs confirmed. Cross-product (162) rejected. INFO: namespace-only variation; Bound 4 criterion "(4)" language imprecise — wave-close reconciliation recommended. |
+
+### (b) Sub-fix 3 Instance 6 verdict + rationale
+
+**Verdict: NAMESPACE-ONLY ACCEPTABLE — no scope-amendment required.**
+
+`emit_skills_for_kit` is deterministic (no seed parameter). Mechanical content (damage_multiplier,
+tier_coefficient, geometry, cooldown_seconds) is identical across all N=3 samples of the same BC cell —
+determined by bc_attribute + bc_amplitude. Per-sample variation = skill_id namespace only (character_id-keyed).
+
+This is architecturally correct per BC-determined mechanics model. H0 variant inheritance (Recognition
+record Amendment 3) extends cleanly to namespace-only skill_tree variants: two kits from the same BC
+cell with identical mechanics but distinct skill_id namespaces are the same kit with different
+serialization identities. No information is lost.
+
+The spec language imprecision in gandalf's Bound 4 criterion "(4)" — "skill_tree variation enters Pareto
+via quality vectors" — does not hold for namespace-only variation. Q1-Q6 verdict: archive=34 growth
+is attributable entirely to Sub-fix 2 (lineage partition); Sub-fix 3 is neutral to archive cardinality
+and Pareto dynamics. The imprecision is an INFO for wave-close canonical reconciliation, not a blocking finding.
+
+### (c) Pattern E disposition + rationale
+
+**PASS-with-INFO.**
+
+5 review principles PASS. Disc #43 A1-A5 PASS. 18 new tests PASS (live-verified: 18 passed in 2.80s).
+21 pre-existing test failures verified pre-existing via git stash. MIGRATION.md present and accurate.
+The sole INFO is Sub-fix 3 Bound 4 criterion "(4)" spec language imprecision — requires wave-close
+canonical-write by gandalf; no code change required; does not block re-fire.
+
+KR HOLD maintained per Matt Amendment 7 directive. Do NOT re-fire S6c-Phase-2-4 or re-surface Matt-gate
+without Amendment 7 direction.
+
+### (d) Cumulative Instance 6 cascade-r3 pattern observation
+
+Third Disc #42a Instance 6 surface in cascade-resumption-3:
+1. Wave B phantom-component → CLOSED by S5/S5b (prior Gate-2)
+2. Variant Pareto-dominance → pre-ratified per Recognition record Amendment 3 H0 variant inheritance
+3. `emit_skills_for_kit` deterministic → RESOLVED as INFO (this Gate-2)
+
+**Cumulative pattern: structural-vs-behavioral variation gap.** Architectural claims about diversity hold
+at structural layer (component exists, pairing exists, namespace is distinct) without necessarily holding
+at behavioral layer (distinct outputs, distinct quality vectors, distinct Pareto outcomes). Each surface
+was self-caught and resolved without cascade block — Disc #42a operating as designed.
+
+Cycle 14 wave-close canonical-write candidates:
+- "Paired-joint-sampling" as new engineering discipline entry
+- Disc #42a sub-case: "structural-vs-behavioral variation gap"
+- Bound 4 criterion "(4)" language reconciliation (gandalf seam)
+- Cycle 15+ Bound 3 flag: per-emitter seeding for content-level variation
+
+### (e) Surface-to-KR findings
+
+No § 6 conditions triggered. No BLOCK. No scope-amendment required. No MIGRATION gap. No effort overrun.
+Cascade HOLD per Matt Amendment 7 directive is the active KR state.
