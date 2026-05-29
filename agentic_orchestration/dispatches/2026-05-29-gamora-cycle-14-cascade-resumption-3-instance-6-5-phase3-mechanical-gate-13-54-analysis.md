@@ -157,3 +157,65 @@ Author analysis note at `agentic_orchestration/gamora/notes/2026-05-29-cascade-r
 **Parallel-firing companions:** rocket (code-level investigation) + jack-ryan (framing audit + canonical record).
 
 **Signed:** knight-rider (orchestrator)
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-29 evening late
+**Author:** gamora
+**Collab commit:** (post-commit hash appended by auto-commit)
+
+### (a) 13/54 root cause
+
+Two-cause decomposition confirmed empirically:
+
+1. **config_to_kit collision (Cause A, 26/41 fails):** For 13 passing BC cells, `w5r2_gauntlet_sim_integration()` dict-overwrite at `season_generation_pipeline.py:1424-1428` means only s2 receives `wr_bracket_pass=True`. s0 and s1 are silently overwritten → `wr_bracket_pass=False`. This accounts for 13 cells × 2 samples = 26 kits failing WR bracket.
+
+2. **t4_candidates=0 for 5 BC cells (Cause B, 15/41 fails):** The 5 failing cells (`endgame_bc_melee_high_flat_int_none`, `endgame_bc_mid_high_flat_dex_none`, `endgame_bc_mid_low_spiky_int_none`, `endgame_bc_ranged_low_spiky_dex_none`, `endgame_bc_ranged_low_spiky_str_none`) have `t4_candidates_count=0` for their s2 kit. No legendary_ids generated → no gauntlet kit_results entries → wr_bracket_pass=False for all 3 samples. 5 cells × 3 samples = 15 kits.
+
+**Verdict category: (A) Expected behavior per Amendment 6 Sub-fix 1 cell_any_pass + structural t4-chain absence. NOT Phase 3 over-tight calibration. NOT substrate-distinct systematic failure.** The Phase 3 WR-bracket gate itself is well-calibrated: 65/66 chain-level results show season_emit=True.
+
+### (b) Sample distribution in passing_kits + Phase 4 archive comparison
+
+- **passing_kits (WR-bracket):** 13 kits, ALL s2. PM-1 input: 13 base + 585 variants = 598.
+- **Phase 4 archive (Pareto-2):** 34 kits. s0=18, s1=9, s2=7. CONSISTENT with config_to_kit collision: Pareto-2 evaluates quality_vectors (q1-q5), not wr_bracket_pass. s0 kits dominate on quality despite having wr_bracket_pass=False.
+- **Variant archive:** 585 variants, 0 accepted (MG-3 flags all as inferior_duplicate — identical quality vectors to parent base kit). Expected behavior.
+- **cell_any_pass inheritance:** 585 = 13 cells × 45 variants per cell. Confirmed via phase4_archive_insertion.json. 5 t4-empty cells: 0 variants, correct.
+
+### (c) Amendment 6 Sub-fix 1 wr_bracket_pass inheritance verification
+
+FUNCTIONING PER SPEC. `_build_variant_kit_rows()` at `wave5_season_orchestrator.py:536-544` builds cell_any_pass as "True if any base kit for that cell has wr_bracket_pass=True." For 5 failing cells, all 3 samples have wr_bracket_pass=False → cell_any_pass=False → variants correctly excluded. For 13 passing cells, s2 has wr_bracket_pass=True → cell_any_pass=True → 45 variants per cell inherit pass.
+
+### (d) Verdict
+
+**Root cause (A) per dispatch framing + structural (B).** The 13/54 is expected behavior under the current config_to_kit collision + t4-empty cell constraints. Not a Phase 3 calibration concern.
+
+### (e) Phase 7 join logic + Interpretation A vs B
+
+**INTERPRETATION A CONFIRMED: parallel-by-design with implicit cohesion default.**
+
+Phase 7 ships kits that have mechanical_pass=True AND cohesion_pass=True. For kits not in Phase 5 clusters (cluster_id=NULL), `evaluate_cohesion_pass()` returns True by default when all three fields are None (cohesion_score=None → C-1 check skipped; cluster_compactness=None → C-2 check skipped; diversity_flag=None → C-3 check skipped). This is documented behavior per `phase7_verdict.py` docstring: "faction_visibility=invisible; no Phase 5 output produced."
+
+**shipped_worthy=22:** 19 of 22 shipped kits have cluster_id=NULL (implicit cohesion pass-through). 3 of 22 have explicit Phase 5 cluster membership. The `season_summary.json` count is distinct ACTIVE archive kit_ids with SHIPPED-WORTHY verdict. The 109 verdict_log records include multi-cohort evaluation rows and legacy-season rows; cross-referenced against ACTIVE archive produces the definitive 22.
+
+### (f) Path X PM-1 sparsity at n=34
+
+**VIABLE.** n=34 >= SPARSITY_TIER_GMM_BIC (24) → GMM_BIC sweep at k∈{3,4} applies. No degenerate fallback. Sparsity_flag=none. Expected cluster count k=3 or k=4 (BIC-determined). 8-element coverage in Phase 4 archive (per rocket Amendment 7 smoke at `8d5be1b`) means clustering substrate is element-diverse.
+
+### (g) Recommendations for gandalf Path X/Y/Z
+
+- **Path X:** RECOMMENDED if faction assignment for all shipped kits is design intent. GMM_BIC viable at n=34; no degenerate fallback; implementation cost ~1-2hr rocket.
+- **config_to_kit collision (rocket Instance 6 #6):** Separate fix — address independently after Path decision. Requires gandalf/Matt design call on "should all 3 substrate samples per passing cell enter PM-1?"
+- **Path Y:** Depends on config_to_kit collision fix first. Not primary recommendation for Cycle 14 v1.
+- **Path Z:** Not recommended for Cycle 14 v1 (variant Pareto-accept criterion needs new spec).
+
+### (h) Surface-to-KR conditions
+
+- **Phase 3 over-tight calibration:** NOT triggered. Gate functioning correctly.
+- **Substrate-distinct systematic failure:** NOT triggered. 5 failing cells are t4-empty by structure.
+- **Additional Instance 6 surface:** NOT triggered by gamora seam investigation. (rocket Instance 6 #6 config_to_kit collision already surfaced by rocket in their companion findings.)
+- **Disc #42a framing-audit catch:** NOT triggered — Phase 7 cohesion-pass implicit default is documented design per code comments.
+- **Effort overrun:** NOT triggered. Analysis completed within expected scope.
+
+**Analysis note at:** `agentic_orchestration/gamora/notes/2026-05-29-cascade-r3-instance-6-5-phase3-mechanical-gate-13-54-analysis.md`
