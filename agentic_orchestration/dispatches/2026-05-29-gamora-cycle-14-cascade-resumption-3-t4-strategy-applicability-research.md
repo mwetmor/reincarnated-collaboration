@@ -146,3 +146,47 @@ Authored at `agentic_orchestration/gamora/notes/2026-05-29-cascade-r3-t4-strateg
 - **S5 (star-lord)** — Wave B FULL implementation per canonical § 5; ~4-6h
 
 **Signed:** knight-rider (orchestrator)
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-29
+**Completed by:** gamora
+**Status:** CLOSED — all § 3 acceptance criteria met
+
+### (a) Matrix population evidence (sample rows)
+
+108-cell matrix populated at `agentic_orchestration/gamora/notes/2026-05-29-cascade-r3-t4-strategy-applicability-research.md` §§ 1.3 + 1.4.
+
+Sample rows:
+| BC cell | T4 strategy | Applicable? | Reasoning |
+|---|---|---|---|
+| (melee, low, spiky, STR, none) | ECA | NO | Structural: ECA applies 1.50× to magical damage path; STR kit is physical-primary; near-zero magical output → effective magnitude ~0; structurally unable to produce in-band cell |
+| (melee, low, spiky, STR, none) | ECC | YES | Canonical STR/DEX assignment per engine `unified_calibration_loop.py:654`; 0.25 additive elemental on physical base; strip risk low at max invest |
+| (melee, low, spiky, STR, none) | TOR | YES | Spiky amplitude favors high-crit variance; frenzy mechanic (hit -30% / crit +30%) produces burst-window KPM aligned with encounter's spiky amplitude profile |
+| (ranged, medium, variable, INT, none) | ECA | YES | Canonical INT assignment per engine; 1.50× multiplicative on magical damage path; empirically validated at Phase A1 RE-RUN-5 as in-band at max invest |
+| (ranged, medium, variable, INT, none) | ECC | NO | Structural: ECC applies 0.25 additive to physical base; INT kit is magical-primary; near-zero physical output → near-zero absolute bonus |
+| (ranged, medium, variable, INT, light) | ECB | YES | Proxy-light cell has broadest kit composition diversity; multi-element substrate sampling (S7) expected to surface dual-element INT kits where ECB is exact fit |
+| (mid, low, spiky, INT, none) | GC | YES | Mid-range position + spiky amplitude with multi-mob context; AOE-geometry skills benefit from 1.5× damage_multiplier even at 0.5 radius in chokepoint-style encounter |
+
+### (b) Methodology notes summary
+
+- Variant cycling axes: T4 strategy first → investment profile second → substrate sample variant third (per pre-ratified ordering; skill-tree within-chain cycling is Cycle 15+ scope)
+- ENUMERATE-vs-PRE-FILTER: Disc #18 methodology multi-option surfaced (§ 5.1). Gamora recommendation: PARTIAL-enumerate (Option C) — exclude 54 structural NO cells (ECA on BC 1-8 + ECC on BC 9-18); enumerate all remaining 270 cells. Structural NOs are zero-magnitude by damage-path architecture; enumerating them adds no empirical signal.
+- TRADE_OFF REVERSED canonical-vs-engine vocabulary gap: doc 47 § 4.6.5 marks as PLACEHOLDER but engine has `trade_off_reversed_frenzy` (hit -30% / crit +30%) Matt-locked. S2 uses engine implementation directly. Gandalf doc amendment flagged as low-priority follow-up.
+
+### (c) Cardinality estimate
+
+- Full enumeration: 18 BC × 6 strategies × 3 invest = 324 cells
+- Post structural-NO filter: 270 cells (54 structural NOs excluded)
+- Post-strip projected shipped variants: ~102-132 (well above ≥22 target; target structurally satisfied)
+- Post-S7 multi-sample (54 kits × 6 strategies × 3 invest): 972 cells — NOT recommended for single gauntlet run; one representative sample per BC cell for T4 × invest sweep recommended; multi-sample diversity feeds PM-1 clustering
+
+### (d) Surface-to-KR findings
+
+1. **Disc #18 hotspot (§ 5.1):** ENUMERATE-vs-PRE-FILTER methodology multi-option choice. KR routes to gandalf or decides per pre-ratified seam-owner authority. Gamora recommendation: PARTIAL-enumerate (270 cells). Does not require Matt escalation unless gandalf raises architectural concern.
+2. **TRADE_OFF REVERSED vocabulary gap (§ 5.2):** canonical doc PLACEHOLDER vs engine `trade_off_reversed_frenzy` implementation. Low-priority gandalf doc amendment. Does not block S2.
+3. **Cardinality above ≥22 target (§ 4.5):** no escalation required. Target satisfied.
+
+**Research note path:** `agentic_orchestration/gamora/notes/2026-05-29-cascade-r3-t4-strategy-applicability-research.md`
