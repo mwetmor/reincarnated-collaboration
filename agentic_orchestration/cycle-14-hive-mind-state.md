@@ -2730,4 +2730,111 @@ Authoring this dispatch immediately under hive-mind decision-routing. Pre-flight
 
 **Acceptance:** Phase 4 RE-RUN-4 telemetry shows T1+T2+T3+T5 PASS across all 7 profiles. T4 specialization is DROPPED-AS-GATE (Cycle 16+ deferred); we measure it for the record but it does NOT block close. Sweep wall-time ~80s per Phase 4 RE-RUN-3 precedent.
 
+---
+
+### 🚨 MODE A DISPATCH 3 — GAMORA PHASE 4 RE-RUN-4 ⚠️ FAILS AMENDED CLOSE-CRITERION — SURFACE-TO-MATT TRIGGERED
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-28-gamora-phase-4-rerun-4-amended-close-criterion-verification.md`
+**Engine commit:** `28a5518` (tag `gamora/v2.9-r3-phase-4-rerun-4-verification-1`)
+**Collaboration commit:** `bc194a3`
+**Telemetry:** `cycle-14-wave-5-season-001/w-alpha-7-plus-phase-4-rerun-4-amended-close-criterion-telemetry.json`
+**Fire wall-clock:** ~30 min (sweep 83s + read + attestation)
+
+**Per-profile result (amended close-criterion T1+T2+T3+T5):**
+
+| Profile | T1 | T2 | T3 | T5 | AMENDED PASS |
+|---|---|---|---|---|---|
+| low | 1.72 FAIL | FAIL | PASS | PASS | ❌ FAIL |
+| mid | 1.155 PASS | FAIL | PASS | PASS | ❌ FAIL |
+| max_a | 2.425 FAIL | PASS | PASS | PASS | ❌ FAIL |
+| max_b | 2.425 FAIL | PASS | PASS | PASS | ❌ FAIL |
+| mixed_v1 | Infinity FAIL | FAIL | PASS | PASS | ❌ FAIL |
+| mixed_v2 | 2.425 FAIL | PASS | PASS | PASS | ❌ FAIL |
+| mixed_v3 | Infinity FAIL | FAIL | PASS | PASS | ❌ FAIL |
+
+**0/7 profiles PASS amended close-criterion. Cycle 14 v1 MVP close BLOCKED pending resolution.**
+
+T3 + T5 universally PASS. T1 + T2 surface two distinct anomalies.
+
+---
+
+### 🚨 ANOMALY A — T1 MEASUREMENT-CONTEXT FRAMING SURFACE (Discipline #42 candidate)
+
+**Empirical state:**
+- Mode A Dispatch 2 BVV anchor (gamora-attested at hotfix close): T1 = 1.1442 PASS in "base context, no DDA override"
+- Phase 4 RE-RUN-3 (pre-hotfix; DDA-active): T1 at max_a = 1.194 PASS
+- **Phase 4 RE-RUN-4 (post-hotfix; DDA-active): T1 at max_a = 2.425 FAIL**
+
+**KR forensic read on what changed:**
+
+The R3 hotfix recalibrated band UPPER bounds. This changed which kits are band-accepted in the sweep. Previously-band-rejected kits (those above the legacy upper bound) are now accepted. Those kits have DDA-amplified DPS profiles at their `preferred_encounter_type` — 1.75× boost at one encounter type, 1.0× elsewhere. **The band-reject was previously HIDING the cross-path DPS divergence that DDA was designed to produce.** Now that band-accept includes the previously-rejected high-DPS kits, the cross-path median divergence surfaces.
+
+**This is design-intent surfacing:** DDA was canonically designed (doc 47 § 4.6 Q6 + adjudication § 1.4) to amplify damage at preferred_encounter_type. Different damage paths have different preferred encounter distributions (STR kits prefer boss_with_adds; DEX/INT/WIS prefer mini_boss per gamora attestation). So cross-path medians SHOULD diverge by ~1.75× at preferred slots — that's what the architecture commits to.
+
+**The framing-audit failure:** the amended close-criterion at T1 implicitly assumed T1 measured in "BVV anchor base context" was equivalent to T1 measured "in 7-profile DDA-active sweep". Empirically, they are not equivalent. The pre-hotfix RE-RUN-3 T1=1.194 was apparently passing because band-reject was hiding the divergence. Post-hotfix RE-RUN-4 surfaces the divergence the architecture was designed to produce.
+
+**KR escalation question for Matt:** **how should T1 be measured under the amended close-criterion?** Three candidate options:
+
+| Option | Shape | Impact |
+|---|---|---|
+| **A1 — T1 measured at base-context (DDA off)** | Restore original T1 semantics; DDA only affects T4-specialization which is deferred to Cycle 16+; T1 measures cross-path equity WITHOUT DDA amplification | T1 likely passes immediately (gamora BVV anchor base-context attested 1.1442); but T1 doesn't measure the live-DDA state players will experience |
+| **A2 — T1 measured in DDA context with normalization** | Compute path-median EXCLUDING preferred-encounter cells, OR normalize by 1.75× at preferred cells, OR measure path-median at non-preferred encounter types only | Requires methodology choice; gandalf Pattern A-light consultation hotspot per Discipline #18 |
+| **A3 — T1 explicit-scope amendment** | Drop T1 from amended close-criterion (in addition to T4); OR add T1 deferral specifics analogous to T4; OR replace T1 with a DDA-aware variance metric | Largest scope-amendment; Matt direct election; likely requires gandalf canonical write |
+
+**Discipline #18 / #42 / #23 framing-audit pattern:** the "exact zero" → "band-reject" reframing at Mode A Dispatch 2 already taught us that measurement-context matters. Anomaly A is the SAME pattern recurring at T1 — measurement-context matters; T1 in BVV anchor ≠ T1 in 7-profile DDA sweep. KR should have caught this in Mode A Dispatch 3 dispatch authoring; this is a KR framing-audit miss surfaced post-hoc.
+
+---
+
+### 🚨 ANOMALY B — T2 PROFILE-AWARE BAND LOWER-BOUND CALIBRATION GAP (R3-prime hotfix candidate)
+
+**Empirical state:** T2 FAILS at low / mid / mixed_v1 / mixed_v3 profiles (4/7). T2 PASSES at max_a / max_b / mixed_v2 (3/7).
+
+**KR forensic read:** Gamora hotfix Component B recalibrated `ENCOUNTER_COHORT_KPM_BAND` upper bounds from max_a profile data only. At lower investment profiles, kits produce lower KPM that falls BELOW band lower bounds → T1-reject in gauntlet_sim → T2 zero-KPM cells appear (band-reject artifact recurring at the LOWER edge, profile-specific).
+
+**This is a profile-specific extension of the same band-tightness issue.** R3-prime hotfix scope: gauntlet_sim.py band tuning with profile-aware band LOWER-bound calibration. Likely a 30-60 min gamora amendment.
+
+**Independence from Anomaly A:** Anomaly B is a band-calibration completeness gap (gamora seam authority; KR can route R3-prime); Anomaly A is a measurement-framing question (exceeds gamora seam authority; Matt + gandalf engagement). They can be resolved IN SEQUENCE — Anomaly A first (Matt methodology election), Anomaly B follows (R3-prime hotfix if needed).
+
+---
+
+### KR DECISION — SURFACE-TO-MATT (single-seam sequencing PAUSED)
+
+**Per Mode A surfacing protocol:**
+- Framing-audit finding catching pre-imposed assumption failure (Disc #42 candidate) — Anomaly A ✅
+- Scope-amendment request (T1 measurement semantics) — Anomaly A ✅
+- (Anomaly B is gamora seam authority; KR routes R3-prime hotfix per hive-mind decision-routing after Anomaly A resolved)
+
+**R47.4 single-seam sequencing PAUSED** — no further sub-agent fires until Matt elects A1/A2/A3 OR delegates to gandalf for Pattern A-deep verdict on T1 measurement semantics.
+
+**R-set status post Mode A Dispatch 3:**
+- R1 ❌ REJECT (architectural mootness)
+- R2 ❌ REJECT (empirically verified)
+- R3 ⚠️ PARTIAL — hotfix landed; verification surfaces Anomaly A (T1 framing) + Anomaly B (band lower-bound gap)
+- R4 ⏳ Cycle 16+ deferred (BC axis expansion)
+- **R3-A — NEW: T1 measurement-context framing — Matt election A1/A2/A3 territory**
+- **R3-B — NEW: profile-aware band lower-bound calibration — gamora R3-prime hotfix; sequences after R3-A election**
+
+**Deferred follow-on items log update:**
+- Discipline #23 / #42 framing-audit candidate REINFORCED — second instance same session ("verify measurement before diagnosing production"); strong canonical-write candidate for jack-ryan Gate-2 wave-close (Mode A Dispatch 5)
+- Engine commit `28a5518` (Phase 4 RE-RUN-4 harness in `unified_calibration_loop.py`) — verify scope-of-change at jack-ryan Gate-2 to confirm no cross-seam production-path impact (harness-only)
+- Pre-existing items unchanged (`mechanic_alteration.py:1066` naming + Discipline #47 ratification)
+
+**State of Mode A sequence:**
+
+| Order | Dispatch | Status |
+|---|---|---|
+| 1 | Rocket Pattern-A R2 verification | ✅ COMPLETE (REJECT confirmed) |
+| 2 | Gamora R3 forensic + hotfix | ✅ COMPLETE (BVV anchor PASS; framing-audit lesson captured) |
+| 3 | Gamora Phase 4 RE-RUN-4 7-profile sweep | ⚠️ FAIL — surfaces R3-A + R3-B; SURFACE-TO-MATT triggered |
+| 3a | (Matt election A1/A2/A3 + optional gandalf Pattern A-light consultation) | ⏳ PENDING Matt |
+| 3b | R3-prime hotfix (gamora; profile-aware band lower-bound) | ⏳ PENDING R3-A election |
+| 3c | Phase 4 RE-RUN-5 (post R3-prime; verifies amended close-criterion under Matt-elected T1 semantics) | ⏳ PENDING |
+| 4 | Gandalf canonical close-criterion capture | ⏳ PENDING 3c |
+| 5 | jack-ryan Gate-2 wave-close + design-quality audit | ⏳ PENDING 4 |
+| 6 | Cycle 14 closure record + Matt sign-off | ⏳ PENDING 5 |
+
+**Cycle 14 v1 MVP close trajectory:** unchanged ~4-7d from original estimate; R3-A election shape determines critical path. A1 (base-context T1) is fastest (~few hours including R3-B hotfix + RE-RUN-5); A2 (DDA-normalized T1) adds gandalf Pattern A-light consultation (~half-day); A3 (scope-amendment) is largest (~1-2d including canonical writes).
+
+---
+
 
