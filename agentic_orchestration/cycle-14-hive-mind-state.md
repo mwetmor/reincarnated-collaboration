@@ -3493,4 +3493,102 @@ Rocket A2-1 INTERIM attestation conflated "Phase 3 13/18 = Path α validated" wi
 2. A2-2 Pattern E PASS → KR fires A2-3 (season_002 production)
 3. Cascade continues to A2-4 / A2-5 / A2-6 / A2-7
 
+---
+
+### A2-1 RE-FIRE RESULT 2026-05-29 — MATERIAL FAIL → CASCADE HALTED + MATT SURFACE
+
+**Rocket A2-1 RE-FIRE sub-agent completed 2026-05-29 (agent ID `a64914780e60c112f`; ~25.1s pipeline wall-clock; commits collab `9f9ed28` + engine `c8586e4` + tag `rocket/v1.0-season-001-re-fire-1-fail-phase7-kpm-gap`):**
+
+**Pipeline result (Disc #42a Q6 attestation; Phase 7 explicit; LLM judge explicit; Phase 3 informational):**
+
+| Phase | Result |
+|---|---|
+| Phase 2 | 18 kits generated ✅ |
+| Phase 3 | 13/18 WR-bracket PASS (informational proxy; quality vectors NOW MEANINGFUL post bundled fix; 57 encounter results matched per kit) ✅ |
+| Phase 4 | 18/18 ACCEPTED to kit_archive ✅ |
+| **Phase 5** | **0 LLM exclusions; Wave A NOT FIRED** (hardcoded placeholder mode; LLM cost $0.00) — see Architectural Concern #2 below |
+| **Phase 7** | **0/18 shipped_worthy** ❌ — all 18 kits TIER_1_REJECT across all 6 encounter types (see Architectural Concern #1 below) |
+
+**Disc #11 grep `synthetic_mode`:** ZERO functional code (PASS).
+**LLM cost:** $0.0000 cumulative; $50 soft cap NOT under pressure.
+
+**KR artifact verification (Disc #42a meta-observation 5 PASS):**
+- ✅ `wave5_season_orchestrator.py:89` reads `FACTION_VISIBILITY: str = "invisible"  # Reincarnated v1 default; Wave A skipped`
+- ✅ Lines 802-806 confirm "Wave A SKIPPED + Wave B SKIPPED in invisible mode"
+- ✅ Lines 1264-1265 hardcoded ASSERT enforces this canonical default
+- ✅ `phase7_season_summary.json` confirms shipped_worthy=0, evaluated=18, acceptance_rate=0.0
+- ✅ Math note `phase-7-implementation-bridge-math-2026-05-27.md` confirmed CANONICAL (gamora Phase 7 impl dispatch 2026-05-27 + gandalf Phase 7 spec `0cf4e3d` + jack-ryan Phase 7 thresholds `3d4eda5`)
+
+---
+
+#### Architectural Concern #1 — Phase 7 synthetic-kit KPM calibration gap
+
+`Phase7SyntheticKit` (magnitude=3000, single primary_attack, no gear) produces KPM **7-26× BELOW** the W-α6 calibrated `ENCOUNTER_COHORT_KPM_BAND` lower bounds at ALL 6 encounter types:
+
+| Encounter | Synthetic KPM | Band lo (DPS) | Multiple under |
+|---|---|---|---|
+| boss_with_adds | 2.65 | 29.0 | ~11× |
+| open_arena | 18.07 | 193.0 | ~11× |
+| elite_pack | 7.33 | 51.0 | ~7× |
+| chokepoint_corridor | 18.07 | 182.0 | ~10× |
+| magic_pack | 6.56 | 52.0 | ~8× |
+| mini_boss | 1.79 | 46.0 | ~26× |
+
+**Root cause:** `Phase7SyntheticKit` magnitude=3000 was calibrated against pre-W-α6 `COHORT_KPM_BAND` (boss-oriented ±30% percentage-deviation routing). W-α6 (2026-05-28) replaced this with empirically-calibrated `ENCOUNTER_COHORT_KPM_BAND` direct-range checks against production-kit KPM. Synthetic kit was never re-validated against W-α6 bands. Math note `phase-7-implementation-bridge-math-2026-05-27.md § 1.3` claims magnitude=3000 is "empirically validated for all-encounter KPM pass" — that claim was valid against pre-W-α6 gauntlet, NOT current.
+
+**Why this gap was invisible until A2-1-FIX landed:** prior to A2-1-FIX, Phase 7 short-circuited at the import error, so this calibration gap was masked.
+
+**Resolution paths (require Matt election):**
+- **Path A — recalibrate synthetic kit magnitude** (gamora math note + empirical sweep): find magnitude value producing KPM within ENCOUNTER_COHORT_KPM_BAND ranges across all 6 encounter types. Mid-bound band ranges are wide; a single magnitude may satisfy.
+- **Path B — redesign Phase 7 mechanical gate** (architectural decision; gandalf + Matt): if Phase 7 role is to validate kit-archive cohesion (not re-run KPM gauntlet identical to Phase 3), the gate may need a different criterion appropriate for synthetic-kit evaluation. ROUTES TO MATT directly.
+
+---
+
+#### Architectural Concern #2 — Phase 5 LLM cohesion judge HARDCODED to placeholder mode under "Reincarnated v1 default"
+
+`wave5_season_orchestrator.py` line 89 hardcodes `FACTION_VISIBILITY = "invisible"` as "Reincarnated v1 default." Wave A LLM calls (faction clustering) AND Wave B LLM calls (per-kit identity) are BOTH SKIPPED in invisible mode. Phase 5 emits placeholder clusters only. **LLM cohesion judge is NEVER exercised in current v1 production configuration.**
+
+**Cumulative empirical evidence (this matches across A2-1 INTERIM + A2-1 RE-FIRE):**
+- A2-1 INTERIM Phase 5: $0.00 LLM cost + 3 placeholder clusters (faction_visibility=invisible). KR/rocket framed this as "Phase 7 short-circuit prevented Phase 5 from firing" — incorrect framing.
+- A2-1 RE-FIRE Phase 5: $0.00 LLM cost + 0 LLM exclusions + Wave A NOT FIRED. Same placeholder behavior; Phase 7 NOT short-circuited. Confirmed: Phase 5 ALWAYS placeholder under v1 default.
+
+**This contradicts the dispatch-level architectural framing in A2-1 + A2-1 RE-FIRE:** KR's dispatches stated "Phase 5 cohesion judge LLM exercised in production" + "FIRST production fire that meaningfully spends LLM cohesion judge budget" + "$50 soft cap across 3 seasons." Empirically, the v1 architecture spends $0 on cohesion judge LLM at current configuration.
+
+**Disc #42a Instance-5 finding:** the architectural-commitment-context framing pre-imposed an assumption ("Phase 5 LLM judge fires in v1 production") that is empirically false. This is the same case-type as Instance 4 in the gandalf pushback memo — same phrase ("Phase 5 cohesion judge production fire") carries different semantics across dispatch-framing-context vs implementation-context. The discipline's catching-power demonstrates again: the empirical refutation (faction_visibility="invisible" hardcoded + LLM cost $0.00 + Wave A NOT FIRED) is observable in current scope.
+
+**Resolution paths (require Matt election):**
+- **Path C — FACTION_VISIBILITY default is INTENTIONAL Reincarnated v1 architectural commitment** (LLM cohesion judge deferred to v2; current Cycle 14 v1 ships WITHOUT LLM cohesion judge). In which case D9 close criteria need RE-EXAMINATION: is ≥12/18 emit threshold the right gate when LLM judge isn't exercised? Does A2-5 A/B comparison (substrate-led vs doc 48 class-roster) still apply? SC-3 cohesion judge research was for v2 or future cycle, not v1?
+- **Path D — FACTION_VISIBILITY should be "visible" for Wave 5 production** (Wave A LLM should fire). In which case orchestrator hardcoded ASSERT needs amendment + Wave 5 production re-fires with LLM judge exercised. LLM cost projection becomes empirical concern; $50 soft cap re-engages.
+- **Path E — A2-1 production is correctly placeholder Phase 5 but D9 close criteria should INCLUDE Phase 5 LLM judge** (mixed model; current Phase 5 setting is bug). KR + rocket pre-imposed an architectural-commitment assumption that wasn't actually canonicalized. Need to reconcile with canonical/41 / canonical/46 / canonical/story/no-classes-substrate-led / SC-3 research / D6 / D9 / D10.
+
+**Routing decision (cannot be resolved by collaboration):** Matt must elect canonical disposition of "Reincarnated v1 default FACTION_VISIBILITY" architectural commitment. KR + agent team does NOT have the canonical context to determine if hardcoded placeholder mode is the architecturally-intended v1 commitment or a wiring gap.
+
+---
+
+#### Disc #42a Instance-5 case-type ratification candidate
+
+This re-fire empirically demonstrates a NEW operational gate at which Disc #42a applies:
+- **architectural-commitment-context surface BY OBSERVABLE EMPIRICAL REFUTATION** — the framing assumption "Phase 5 LLM judge fires in v1 production" was load-bearing across KR dispatches + rocket attestations + SC-3 research narrative. Empirical refutation (faction_visibility hardcoded + $0.00 LLM cost + Wave A skipped) was observable in `wave5_season_orchestrator.py` source + telemetry from Day 1.
+
+The discipline's existing Q1-Q6 + meta-observation 5 covers this case (Q4: measurement-context match; Q6: semantic stability of "cohesion judge fires in v1"; cheapest-empirical-refutation = grep `FACTION_VISIBILITY` in orchestrator). No new question slot needed; reinforces existing discipline at architectural-commitment-implementation gap resolution.
+
+---
+
+#### CASCADE STATE: HALTED
+
+- A2-1 RE-FIRE = FAIL (Phase 7 0/18; Phase 5 placeholder confirmed; 2 architectural concerns surface)
+- A2-2 Pattern E critique-pair Gate-2 = NOT FIRED (cascade halted)
+- A2-3 / A2-4 / A2-5 / A2-6 / A2-7 = QUEUED-BEHIND-MATT-ELECTION
+
+**Surface conditions met:**
+- A2-1 RE-FIRE dispatch § 6: "A2-1 RE-FIRE FAIL → KR surfaces to Matt with framing-audit Q1/Q2/Q3 applied (FAIL-after-fix is a MATERIAL architectural concern, not contained like the import bug)"
+- KR session-handoff prompt SURFACE TO MATT condition: "Discipline #42a framing-audit finding catching pre-imposed-assumption failure" — Instance-5 finding on Phase 5 placeholder applies
+- KR session-handoff prompt SURFACE TO MATT condition: "Any substantial unexpected failure mode not covered by R48 escalation rules" — Phase 7 calibration gap qualifies
+
+**KR routing decision (escalation):** Matt election required on resolution paths A/B (Phase 7 calibration) + C/D/E (Phase 5 architectural commitment). KR cannot proceed without Matt's canonical disposition of FACTION_VISIBILITY "Reincarnated v1 default."
+
+**LLM cost status:** $0.00 cumulative. $50 soft cap fully intact. Cost projection for 3-season cascade is currently $0 under v1 default; becomes meaningful only if Matt elects Path D (FACTION_VISIBILITY="visible" → Wave A LLM fires).
+
+**Co-author note:** Disc #42a Instance-5 may warrant pushback memo amendment to gandalf's `2026-05-28-framing-audit-three-instance-case.md` § 4-bis or § 4-quater (architectural-commitment ↔ implementation-empirical-gap as additional resolution). DEFERRED until Matt election clarifies the architectural disposition (resolution path C/D/E informs whether this is a discipline-reinforcing case or a discipline-misapplied-by-KR case).
+
 **Session work-cluster complete.** Next KR session fires Phase A2 unattended cascade per Matt-paste of gandalf-authored handoff prompt.
