@@ -168,3 +168,86 @@ Authored at `agentic_orchestration/gamora/notes/2026-05-29-cascade-r3-phase7-mec
 **Cascade trajectory:** gamora investigation → S6c (A2-1 RE-FIRE-3) → A2-2 → A2-7 + D13 parallel-fire → Cycle 14 v1 MVP D9 close.
 
 **Signed:** knight-rider (orchestrator)
+
+---
+
+## Completion record — gamora — 2026-05-29
+
+**Status:** CLOSED — verdict (B) delivered with full rationale + telemetry evidence + KR-consumption-ready S6c routing recommendation. All § 4 acceptance criteria met.
+
+**Investigation note:** `agentic_orchestration/gamora/notes/2026-05-29-cascade-r3-phase7-mechanical-gate-investigation.md`
+
+---
+
+### (a) Phase 7 mechanical gate analysis summary
+
+The Phase 7 mechanical gate evaluates three conjunctive conditions per kit. Condition 2 (`gauntlet_pass_rate > P7_GAUNTLET_PASS_FLOOR = 0.70`) is the failure mode for all 18 S6a kits. `gauntlet_pass_rate` is computed in `phase7_bridge._run_gauntlet_for_kit` as `enc_passed / 18`, where `enc_passed = round(mean_encounters_passed_per_kit)` (post-P3c fix, single-cohort call).
+
+`encounters_passed(cohort)` counts encounters where `in_band=True`. `in_band` is set by `get_archetype_cohort_kpm_band(kit_damage_scaling_path, cohort)`. The Phase 7 synthetic kit config (built in `_run_gauntlet_for_kit`) does NOT include `damage_scaling_path` — this key is absent from the `legendary_config` dict. Result: `kit_damage_scaling_path = '_fallback'` → falls through to legacy `COHORT_KPM_BAND` (DPS: 82-97, Balanced: 71-79, Defensive: 52-64, Hybrid: 64-82 KPM). Synthetic kit KPMs span 71-446 across encounter types (per `PHASE7_SYNTHETIC_KIT_MAGNITUDE_TABLE` inline calibration notes). The vast majority of encounters produce `in_band=False` under these narrow legacy bands → `enc_passed=0` → `pass_rate=0.0`.
+
+This is a calibration target mismatch: A2-1 Step 1 calibrated synthetic kit magnitudes against `eligible_encounters_passed >= 9` (using `ENCOUNTER_COHORT_KPM_BAND`, the 24-cell per-enc-type table). Phase 7 bridge measures `pass_rate` using `encounters_passed` (using `COHORT_KPM_BAND` legacy fallback). These are different measurement systems on different KPM band tables.
+
+---
+
+### (b) S6a smoke telemetry interpretation
+
+Telemetry source: `agentic_orchestration/cycle-14-wave-5-season-001/phase7_season_summary.json`.
+
+Cohort distribution (from `ENDGAME_ENCOUNTER_CATALOG` classifier, empirically verified):
+- damage: 9 cells → 9 kits in S6a (n >= min_sample_size=5 → empirical midpoint = 0.0)
+- defensive: 6 cells → 6 kits (n >= 5 → empirical midpoint = 0.0278)
+- control: 0 cells (scaffold = 0.85)
+- support: 0 cells (scaffold = 0.85)
+- hybrid: 3 cells → 3 kits (n < 5 → scaffold = 0.85)
+
+`damage=0.0` means all 9 damage-cohort kits had `pass_rate=0.0` (all encounters `in_band=False` under COHORT_KPM_BAND fallback). `defensive=0.0278` means median of 6 kits ≈ 1/18 pass_rate. These are empirical midpoints reflecting genuine near-zero pass_rates, not calibration sparsity artifacts.
+
+---
+
+### (c) Verdict (B) — Genuine calibration issue — rationale
+
+**Verdict: (B) Genuine calibration issue.** NOT a sample-size artifact.
+
+Evidence against (A) small-sample artifact:
+- damage (n=9) and defensive (n=6) cohorts both exceed `min_sample_size=5` in S6a
+- Both produce empirical midpoints (not scaffold fallback) — midpoints accurately reflect reality
+- At full season (damage ~81 kits, defensive ~54 kits), midpoints remain ≈0.0 because the underlying pass_rates are genuinely near-zero under COHORT_KPM_BAND fallback
+- More samples = better estimate of a genuine 0.0 signal, not a corrected signal
+
+Evidence for (B):
+- Complete code path traced from synthetic kit config → `damage_scaling_path=None` → `'_fallback'` → `COHORT_KPM_BAND` (82-97 / 71-79 / 52-64 / 64-82 KPM) → `in_band=False` for most encounters → `enc_passed=0` → `pass_rate=0.0`
+- A2-1 Step 1 18/18 GAUNTLET_PASS sweep used `eligible_encounters_passed >= 9` (ENCOUNTER_COHORT_KPM_BAND) — a DIFFERENT metric than Phase 7 bridge's `encounters_passed` (COHORT_KPM_BAND fallback)
+- The fix is well-bounded: missing `damage_scaling_path` key in Phase 7 synthetic kit config + measurement function mismatch. Two-layer gate design, cohort classifier, and verdict state machine are all sound.
+- NOT a deeper Phase 7 architectural concern — no §6 surface condition triggered
+
+---
+
+### (d) S6c routing recommendation
+
+**fix-then-fire.** Do NOT fire S6c before fix.
+
+Full-season run without fix: ~162 base kits + ~810 variant kits all held_mech at Phase 7 → `shipped_worthy=0` → ~$50 LLM spend with zero generation output. Not acceptable.
+
+**Fix scope (gamora seam-owner; Pattern A-light to Pattern B per gamora elect):**
+
+Recommended option: **Option α** — align Phase 7 bridge pass_rate measurement with A2-1 Step 1 calibration target:
+1. Math note (Discipline #1): document `eligible_encounters_passed(cohort)` as the correct measurement function for Phase 7 pass_rate, replacing `encounters_passed(cohort)`. Recalibrate `P7_GAUNTLET_PASS_FLOOR` to align with `GAUNTLET_ELIGIBLE_PASS_FLOOR_W_ALPHA_6` semantics (9/18 = 0.50, or empirically derived equivalent). Declare Discipline #12 semantic shift (pass_rate measurement function changes).
+2. Code fix in `phase7_bridge._run_gauntlet_for_kit`: replace `quality_report.mean_encounters_passed_per_kit` path with `eligible_encounters_passed(cohort)` extraction from kit result.
+3. Threshold update in `phase7_verdict.py`: `P7_GAUNTLET_PASS_FLOOR` recalibrated to ≈0.50 (matching 9/18 floor) or empirically derived from smoke-test pass_rate distribution.
+4. Smoke: verify non-zero pass_rates for ACTIVE kits post-fix.
+5. S6c fires after fix close + smoke PASS.
+
+**Estimated fix effort:** ~1-2h (math note + code change + smoke). Pattern A-light or Pattern B per gamora elect based on math note complexity.
+
+---
+
+### (e) Surface-to-KR findings
+
+None. No §6 surface conditions triggered:
+- No deeper Phase 7 architectural concern (root cause is well-bounded wiring gap)
+- Disc #42a framing-audit Q1-Q6 clean (no pre-imposed assumption surfaced)
+- Investigation effort within ~30min estimate
+
+**Cascade trajectory next step:** KR routes gamora fix dispatch (Pattern A-light or B; gamora seam-owner) → smoke PASS → S6c (A2-1 RE-FIRE-3).
+
+**Signed:** gamora (2026-05-29)
