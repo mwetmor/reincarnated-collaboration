@@ -239,3 +239,99 @@ S5 (Wave B full implementation) is star-lord-primary + rocket-integration AFTER 
 **Cascade-resumption-3 trajectory:** S1 → S2 → S3 → (S4 parallel by gandalf in conversation thread) → S5 → S6 → A2-1 RE-FIRE-3 → A2-2 → A2-3 → A2-4 → A2-5 → A2-6 → A2-7 v1 tag ratification.
 
 **Signed:** knight-rider (orchestrator)
+
+---
+
+## Completion record
+
+**Date:** 2026-05-29
+**Author:** rocket
+**Engine commit tag:** `rocket/v1.0-cascade-r3-s1-class-eradication-1`
+
+### (a) All 18 encounter_id renames (old → new)
+
+| Old ID | New ID |
+|---|---|
+| `endgame_str_01_heavy_barbarian` | `endgame_bc_melee_low_spiky_str_none` |
+| `endgame_str_02_light_fighter` | `endgame_bc_melee_high_flat_str_none` |
+| `endgame_str_03_polearm_soldier` | `endgame_bc_melee_medium_variable_str_none` |
+| `endgame_str_04_thrown_heavy` | `endgame_bc_ranged_low_spiky_str_none` |
+| `endgame_dex_01_dagger_assassin` | `endgame_bc_melee_high_flat_dex_none` |
+| `endgame_dex_02_archer` | `endgame_bc_ranged_high_flat_dex_none` |
+| `endgame_dex_03_crossbow_sniper` | `endgame_bc_ranged_low_spiky_dex_none` |
+| `endgame_dex_04_twin_blade_fencer` | `endgame_bc_mid_high_flat_dex_none` |
+| `endgame_int_01_standard_wizard` | `endgame_bc_ranged_medium_variable_int_none` |
+| `endgame_int_02_artillery_mage` | `endgame_bc_ranged_low_spiky_int_none` |
+| `endgame_int_03_pyromantic_caster` | `endgame_bc_mid_low_spiky_int_none` |
+| `endgame_int_04_red_mage_spellsword` | `endgame_bc_melee_high_flat_int_none` |
+| `endgame_int_05_arcane_familiar_mage` | `endgame_bc_ranged_medium_variable_int_light` |
+| `endgame_wis_01_channeling_cleric` | `endgame_bc_mid_medium_variable_wis_none` |
+| `endgame_wis_02_holy_knight` | `endgame_bc_melee_medium_variable_wis_none` |
+| `endgame_wis_03_ritual_mage` | `endgame_bc_ranged_low_spiky_wis_none` |
+| `endgame_wis_04_storm_caller` | `endgame_bc_ranged_medium_variable_wis_none` |
+| `endgame_wis_05_monk` | `endgame_bc_melee_high_variable_wis_none` |
+
+### (b) All 18 archetype_name field changes
+
+Field RETAINED (not removed — no downstream consumer prevents clean preservation; field is useful as substrate-anchored human-readable descriptor). Values replaced from class names to substrate-anchored neutral descriptors using format: `"{range} / {tempo}-tempo / {amplitude}-amplitude / {attribute} / {proxy}-proxy"`.
+
+Examples: `"Heavy Barbarian"` → `"melee / low-tempo / spiky-amplitude / STR / no-proxy"`. All 18 entries updated.
+
+### (c) Downstream consumer audit findings
+
+**Parallel-updated (gamora seam):**
+- `simulation/phase7_bridge.py` — PHASE7_SYNTHETIC_KIT_MAGNITUDE_TABLE: all 18 keys updated; magnitude values preserved unchanged. Docstring "player_class interface" updated to "kit-substrate-input interface". bc_cell_id docstring example updated.
+- `simulation/wave5_season_orchestrator.py:246` — docstring example string updated from `endgame_str_01_heavy_barbarian` to `endgame_bc_melee_low_spiky_str_none`.
+
+**Audited — no action required:**
+- `simulation/phase7_cohort.py` — `classify_kit_cohort_from_encounter_id()` operates on BC-tuple fields from encounter object, NOT string-suffix parsing. PASS.
+- `simulation/gauntlet_sim.py` — no hardcoded class-suffix encounter_ids. PASS.
+- `simulation/bounded_viability_validation.py` — no encounter_id references. PASS.
+- `llm/spirit_guide_voice.py:289` `form.archetype_name` — this is form-level (post-Phase-5 cohesion judge output), NOT catalog archetype_name field. PRESERVE confirmed.
+
+**Pre-known SAFE surfaces — verified preserved:**
+- `llm/phase5_orchestrator.py` lines 37, 783, 885 — Disc #45 policy enforcement strings. PRESERVED.
+- `llm/spirit_guide_voice.py` lines 92, 230-234, 330 — form names + policy. PRESERVED.
+- `element/selector.py` lines 113, 119, 128 — phonetic linguistic data. PRESERVED.
+- `llm/naming.py` lines 39, 210 — LLM-bias commentary. PRESERVED.
+
+**Tests updated:**
+- `tests/test_cycle14_wave1_concentration.py` lines 394, 427 — comment regression references updated to new substrate-derived naming.
+
+**Not updated (documented as historical artifacts):**
+- `export/cycle13_normal_season_export.py`, `export/cycle13_loadout_ingest.py` — COMMENT-ONLY references to old class-suffix IDs. These document Cycle 13 character_ids as historical examples. In star-lord's seam; no functional dependency; correctly preserved as historical record per Disc #42a framing-audit finding.
+
+### (d) Acceptance criteria § 3.1-3.6 results
+
+| Gate | Result |
+|---|---|
+| § 3.1 Catalog file grep (PRIMARY) | PASS — zero functional class-name encounter_id uses. `sniper` in mob archetype_tag and `mage` substring in "damage" are documented SAFE/incidental surfaces. |
+| § 3.2 Engine-wide downstream grep | PASS — zero class-taxonomy functional uses outside pre-known SAFE surfaces + cycle13 historical artifacts. "caller" = English prose (not class). |
+| § 3.3 Catalog dataclass integrity | PASS — 18 entries, all unique, valid scenario shells, `_validate_catalog()` fires at load. |
+| § 3.4 Phase7 bridge magnitude dict | PASS — 18/18 key match; magnitude values unchanged (Concern #1 calibration preserved). |
+| § 3.5 Test suite | PASS — 249 pass; 0 new failures introduced. 7 pre-existing failures confirmed pre-existing via git stash verification. |
+| § 3.6 Smoke test | PASS — module import (18/18), Phase7SyntheticKit 18/18 constructed, catalog load verified. |
+
+### (e) Surface-to-knight-rider findings
+
+**Disc #42a framing-audit findings (non-blocking, documented):**
+
+1. **grep pattern `mage` matches substring in "damage"**: The acceptance gate grep catches "mage" inside English word "damage" throughout playability_gate strings. These are NOT class taxonomy uses. The actual class-name-based encounter_ids (including `_artillery_mage`, `_ritual_mage`, etc.) have been removed. Spirit of acceptance gate is satisfied.
+
+2. **`sniper` in MobSpec archetype_tag**: dispatch § 2.1 explicitly preserves mob-side archetype_tag taxonomy (swarmer/caster/brute/sniper/controller/tank). The grep pattern catches these but they are documented SAFE.
+
+3. **`export/cycle13_*` comment-only surfaces**: Cycle 13 historical files in star-lord's seam contain old class-suffix IDs in COMMENTS documenting Cycle 13 character data. These are correctly preserved. NOT a scope-amendment trigger (COMMENT-ONLY, not functional class-taxonomy use, and updating them would be semantically incorrect).
+
+**MobSpec.archetype_tag semantic ambiguity (deferred per dispatch § 4):** "sniper" overlaps player-class taxonomy at glance. Captured as rocket attestation finding for cumulative gandalf review. Not S1 blocking.
+
+### (f) Disc #11 + Disc #45 grep output ZERO PASS
+
+For class taxonomy in functional code outside documented safe surfaces: ZERO matches confirmed.
+
+### MIGRATION.md entry
+
+`/Users/admin/Games/reincarnated-engine/src/reincarnated/generation/MIGRATION.md` § S1-class-eradication-2026-05-29 authored.
+
+### Next cascade step
+
+S1 CLOSED. Ready for knight-rider to route S2 dispatch (gauntlet variant enumeration expansion; rocket + gamora dependency; per cascade-resumption-3 authorization § 2).
