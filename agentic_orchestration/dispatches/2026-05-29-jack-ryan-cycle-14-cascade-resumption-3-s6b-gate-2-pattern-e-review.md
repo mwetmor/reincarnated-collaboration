@@ -229,3 +229,64 @@ Per Phase A1 closure record § 7 + authorization Pattern E pre-auth:
 **Cascade trajectory:** S6a + S6b parallel → S6c (A2-1 RE-FIRE-3) → A2-2 → A2-7 + D13 parallel-fire → Cycle 14 v1 MVP D9 close.
 
 **Signed:** knight-rider (orchestrator)
+
+---
+
+## Completion record
+
+**Date:** 2026-05-29
+**Author:** jack-ryan
+**Status:** S6b CLOSED — all acceptance gates 4.1-4.5 PASS
+**Findings document:** `agentic_orchestration/qa/pending/2026-05-29-jack-ryan-cascade-r3-gate-2-pattern-e-review.md`
+
+### (a) Per-stream findings summary
+
+| Stream | Severity | Summary |
+|---|---|---|
+| S1 — Class eradication (rocket `99d67aa`) | PASS-with-INFO | All 18 encounter_id renames executed; Disc #11 grep ZERO functional class-name uses; 249 tests PASS; MIGRATION.md present. INFO: mage substring in "damage" (documented), sniper in mob taxonomy (preserved), Cycle 13 comment artifacts (correctly preserved as-is). |
+| S4 — Phase 5 LLM prompt audit (gandalf `13822ba`) | PASS | Template-text layer class-free confirmed; W-A10/W-B8/F-C13 runtime preconditions added; § 0.1 amendment-pass-record + § 2.5 purity precondition authored. |
+| S7 — Multi-sample substrate (rocket `e177d8e`) | PASS-with-INFO | 13-field substrate_binding; 54 kits at N=3; ≥5 distinct lineage values; Phase 5 Wave A modal_cultural_lineage sourcing corrected. INFO: explicit Disc #1 math note not referenced in completion record (spirit satisfied via pre-ratified N=3 + method). |
+| S5 — Wave B implementation (star-lord `a553950`) | PASS-with-WARN | run_wave_b_async() + Phase5WaveBResult (18 fields) + W-B8/W-A10/F-C13 implemented; 92 new tests PASS; cost-tracker wired. WARN: `\b` regex underscore gap (canonical verbatim as-is per dispatch routing; now closed by Surface 1 patch). |
+| Surface 1 — Regex lookaround (star-lord `857d825`) | PASS | Lookaround `(?<![a-zA-Z])…(?![a-zA-Z])` lands at all 3 sites atomically; 16 new tests including warrior_001/mage42/knight.alpha all PASS; 108/108 PASS. Canonical-vs-implementation gap: CLOSED. |
+| S2 — Gauntlet variant enumeration (gamora `50ce983`) | PASS | 270-cell Option C enumeration; math note confirmed present; TOR skip-slot-5 updated; 78 new tests PASS; 0 regressions. |
+| S3 — Phase 4 archive variant preservation (rocket `40a53cb`) | PASS | Disc #1 math note confirmed present and substantive; VariantKitRow architecture; AG-1 through AG-5 all PASS; PM-1 cardinality >>24 GMM BIC-selected; in-seam framing correction (dispatch said "extend dedup key"; reality was "variants never reached Phase 4") caught and resolved. |
+| S5b — Wave B rocket integration (rocket `bf379f9`) | PASS-with-INFO | Wave B wired at Phase 5 hook; cohesion_data={} hardcode REMOVED (Disc #11 grep ZERO); Phase 7 gate BINDING (synthetic 0.50→EXCLUDED/0.85→INCLUDED); 40 new tests PASS. INFO: per-variant cohesion bypass intended but variants bypass Phase 7 cohesion gate (monitor in RE-FIRE-3); smoke suppresses Wave B LLM calls (expected; S6a companion smoke handles full verification). |
+
+### (b) Pattern E disposition
+
+**PASS-with-WARN**
+
+All 8 streams architecturally sound. Instance 6 ALL 7 FINDINGS CLOSED. Substrate-led emergence promise operationally complete. WARN for S5 `\b` gap (closed by Surface 1 same batch) + S5b per-variant cohesion bypass + Wave B smoke suppression (both expected behaviors, documented). No blocking issues.
+
+**KR action:** route S6c (A2-1 RE-FIRE-3 full season_001 production fire). WARNs folded into Cycle 14 wave-close review.
+
+### (c) Instance 6 closure verification results
+
+ALL 7 FINDINGS CLOSED:
+1. Wave B phantom-component — CLOSED (S5 acceptance gate 4.1 non-empty grep; S5b acceptance gate 4.1)
+2. Wave B canonical-vs-implementation gap (`\b` regex) — CLOSED (Surface 1 patch; test confirms character-for-character match)
+3. Kit-count canonical-vs-empirical gap — CLOSED (S7: 54 kits at N=3; S2: 270-cell enumeration)
+4. Gauntlet variant enumeration shallow — CLOSED (S2: 270 cells; test confirmed)
+5. Phase 4 archive collapse — CLOSED (S3: VariantKitRow; PM-1 cardinality >>24)
+6. CATALOG class-taxonomy ROOT-CAUSE — CLOSED (S1: Disc #11 grep ZERO functional class-name uses)
+7. PM-1 degenerate k=3 fallback — CLOSED (S3 AG-2: PM-1 input >>24 → GMM BIC-selected)
+
+### (d) Any surface-to-KR findings
+
+None triggered per § 6 enumerated conditions:
+- No BLOCK disposition
+- Instance 6 closure: PASS (all 7 closed)
+- No Disc #42a framing-audit catch (Q1-Q6 PASS)
+- No cross-seam MIGRATION gap
+- S6b effort within ~half-day estimate
+
+### (e) Discipline ratification candidacy notes
+
+1. **Disc #48 RETIRED (R48.4 + R48.5)** per Amendment 3 — canonical-write at wave-close
+2. **Disc #49 candidate** (oversized-file operational safety: R48.1/R48.2/R48.3 reclassified) — jack-ryan write at wave-close
+3. **Disc #42a Instance 7** (founding-incident-confounding-attribution; sixth context-type) — jack-ryan write at wave-close
+4. **Pre-existing 7 TestGauntletKitResult failures** surfaced by gamora S2 — enter standard triage queue
+
+**S6b CLOSED. Auto-commit per CLAUDE.md addendum 2026-05-25.**
+
+**Signed:** jack-ryan (analyst / QA gatekeeper)
