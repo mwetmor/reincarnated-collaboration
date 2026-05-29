@@ -4354,3 +4354,74 @@ S6c-Phase-5+ continuation (Wave A + F-C + Wave B + Phase 7 verdict)
   ↓
 A2-2 → A2-7 + D13 parallel-fire → Cycle 14 v1 MVP D9 close
 ```
+
+### CASCADE-RESUMPTION-3 AMENDMENT 6 GATE-2 PASS-with-INFO + AMENDMENT 7 + AMENDMENT 8 CONSUMED 2026-05-29
+
+**Jack-ryan Amendment 6 Gate-2 Pattern E CLOSED — collab `beefd64`; findings at `qa/pending/2026-05-29-jack-ryan-cascade-r3-amendment-6-gate-2-pattern-e-review.md`:**
+
+- Sub-fix 1 PASS (deepcopy isolates serialization)
+- Sub-fix 2 PASS (Pareto-2 partition; Q_DIM=5 preserved; ADR-004 compliant)
+- Sub-fix 3 **PASS-with-INFO** — Disc #42a Instance 6 verdict: **NAMESPACE-ONLY ACCEPTABLE** ("emit_skills_for_kit" deterministic by design; BC axes determine all mechanical content; no seed parameter; architecturally correct per BC-determined mechanics model; H0 variant inheritance extends cleanly)
+- One INFO: gandalf Bound 4 criterion (4) "skill_tree variation enters Pareto via quality vectors" is IMPRECISE — namespace-only does NOT change q1-q5; archive=34 growth attributable to Sub-fix 2 lineage partition (not Sub-fix 3); spec language reconciliation recommended at Cycle 14 wave-close (gandalf seam; no code change required)
+- Overall Pattern E disposition: **PASS-with-INFO**
+- 406 combined tests PASS; 21 pre-existing failures verified
+- Cumulative Instance 6 pattern documented as **"structural-vs-behavioral variation gap"** sub-case — Disc #42a Q2 cheapest-empirical-refutation is primary catch mechanism; self-caught in each case (discipline operating as designed)
+- Cycle 14 wave-close canonical-write candidates: "paired-joint-sampling" discipline entry + Disc #42a "structural-vs-behavioral variation gap" sub-case + Bound 4 criterion (4) reconciliation + Cycle 15+ Bound 3 per-emitter seeding flag
+
+---
+
+**Amendment 7 (gandalf at `agentic_orchestration/gandalf/notes/2026-05-29-amendment-7-element-coverage-e4c-plus-hybrid-spec.md`):**
+
+**Headline:** Cycle 14 v1 gauntlet output spans 8 elements at population level + chain-level element diversity at hybrid layer.
+
+**Pre-Amendment-7 element coverage:** `_BC_ATTRIBUTE_TO_ELEMENT` legacy 1:1 (STR→earth / DEX→wind / INT→fire / WIS→water) reaches only 4 of 8 elements (lightning + holy + shadow + physical at 0%).
+
+**Amendment 7 mechanism (3 layers):**
+
+| Layer | Description |
+|---|---|
+| **Layer 1 — Cell-level element selection** | STAT_ELEMENT_POOLS per canonical `elements.yaml` scales_with: INT→{fire/water/lightning/shadow} (4); WIS→{earth/wind/holy} (3); STR→{physical} (1; degenerate); DEX→{all 8} (Option C decouple). Draw N=3 elements WITHOUT REPLACEMENT per cell. Seeding: `enc_seed + sample_idx * 17` |
+| **Layer 2 — Hybrid promotion 17.5%** | Independent roll per sample; secondary draws from FULL 8-element pool excluding primary |
+| **Layer 3 — Chain assignment** | Mono: chain_1 = chain_2 = supporting = kit.element; Hybrid: chain_1 = supporting = primary, chain_2 = secondary |
+
+**Schema additions:** `is_hybrid: bool` + `secondary_element: str | None` to PlayerClass / KitCandidate.
+
+**Acceptance § 7:** All 8 elements ≥1 kit at primary-mono layer; hybrid rate 6-13 of 54 (95% CI binomial(54, 0.175)); Amendment 6 composition preserved (Pareto-2 + S7 deepcopy + S8 Bound 4 paired-joint-sampling).
+
+---
+
+**Amendment 8 (gandalf commit `be6fdb2`):** Matt-gate at Phase 5 entry RETIRED + $50 soft cap RE-IMPOSED as primary cost gate.
+
+**Operational changes:**
+1. Amendment 5 Matt-gate at Phase 5 entry RETIRED; cascade fires Phase 4 → Phase 5 → Phase 7 WITHOUT Matt-surface
+2. $50 soft cap RE-IMPOSED: KR monitors LLM cost projection; surface at ~75-80% projected approach OR breach (mandatory)
+3. Hive-state operating mode restored at Phase 5 entry: form counts + cohort + lineage + per-element (NEW per Amendment 7) auto-captured to telemetry WITHOUT Matt-surface
+4. Pattern E pre-authorization continues for seasons 002-003 under cost-cap monitoring
+
+**Matt-surface explicit triggers (UNCHANGED from Amendment 4):** $50 cap approach/breach / R48 (Disc #49) violations / Gate-2 BLOCK / Wave-B-spec-gap / Class-taxonomy unexpected surface / Third material-fail / Disc #42a framing-audit load-bearing refutation
+
+**Forward action sequence per Amendment 8:**
+1. Dispatch combined Amendment 6 + Amendment 7 to rocket (Amendment 6 already in code at engine `6f9843c`; Amendment 7 layers element coverage on top; rocket verifies Amendment 6 composition preservation per § 7.4)
+2. Auto-route through jack-ryan Gate-2 (composition verification; § 7 acceptance criteria)
+3. Fire Phase 4 archive close → Phase 5 LLM entry WITHOUT Matt-gate
+4. Monitor $50 cost cap during Phase 5; surface at threshold approach
+5. Continue cascade through Phase 7 → A2-2 → A2-7
+6. Pattern E pre-authorization fires seasons 002-003
+
+**Cascade trajectory:**
+
+```
+Amendment 6 ✅ CLOSED + Gate-2 PASS-with-INFO ✅ + Amendments 7+8 CONSUMED
+  ↓
+Rocket Amendment 7 dispatch (element coverage E4C + hybrid 17.5% + composition verification)
+  ↓
+Jack-ryan Gate-2 Pattern E review (Amendment 7 + composition with Amendment 6)
+  ↓ (PASS-with-WARN/INFO per Pattern E)
+Re-fire S6c production cascade Phase 2-4 → Phase 5 → Phase 7 (NO Matt-gate per Amendment 8)
+  ↓ (KR monitors $50 cap; surface at ~75-80% approach OR breach)
+A2-1 RE-FIRE-3 PASS (≥12/18 shipped_worthy + 8-element coverage + hybrid rate 6-13)
+  ↓
+A2-2 (Pattern E) → A2-3 (season_002) → A2-4 (season_003) → A2-5 (A/B) → A2-6 (disciplines batched canonical-write) → A2-7 (Matt v1 tag ratification)
+  ↓ + D13 parallel-fire post-A2-2 PASS
+Cycle 14 v1 MVP D9 close
+```
