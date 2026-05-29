@@ -3071,6 +3071,84 @@ Authoring this dispatch immediately under hive-mind decision-routing. Pre-flight
 
 **Framing-audit gate: PASS.** Dispatch is sound under Disc #42 operational rules.
 
+---
+
+### 🎉 PHASE A1 DISPATCH 3 (gamora RE-RUN-5 7-profile verification) ✅ COMPLETE — PATH α V1 ENGINE READINESS GATE SATISFIED
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-28-gamora-phase-4-rerun-5-amended-close-criterion-7-profile-verification.md`
+**Engine commits:** `fbea597` (sweep harness extension) + `8468136` (state checkpoint) + tag `gamora/v2.11-r3-phase-4-rerun-5-verification-1`
+**Collaboration commits:** `385572f` (telemetry) + `b300042` (completion record)
+**Fire wall-clock:** ~15 min (under ~20-30 estimate)
+**Telemetry:** `cycle-14-wave-5-season-001/w-alpha-7-plus-phase-4-rerun-5-amended-close-criterion-7-profile-telemetry.json`
+
+**Per-profile result — amended close-criterion 4/4 PASS at every profile:**
+
+| Profile | T1-base | T2 | T3 | T4 (record) | T5 | compound_pass(A1) |
+|---|---|---|---|---|---|---|
+| low | 1.203 ✅ | ✅ PASS | ✅ PASS | 17/18 fail | ✅ PASS | **True** |
+| mid | 1.140 ✅ | ✅ PASS | ✅ PASS | 17/18 fail | ✅ PASS | **True** |
+| max_a | 1.278 ✅ | ✅ PASS | ✅ PASS | 18/18 fail | ✅ PASS | **True** |
+| max_b | 1.278 ✅ | ✅ PASS | ✅ PASS | 18/18 fail | ✅ PASS | **True** |
+| mixed_v1 | 1.066 ✅ | ✅ PASS | ✅ PASS | 16/18 fail | ✅ PASS | **True** |
+| mixed_v2 | 1.278 ✅ | ✅ PASS | ✅ PASS | 18/18 fail | ✅ PASS | **True** |
+| mixed_v3 | 1.066 ✅ | ✅ PASS | ✅ PASS | 16/18 fail | ✅ PASS | **True** |
+
+**Critical confirmations (gamora-attested + KR Disc #42 vigilance maintained):**
+- `t1_measurement_context = "base_context_explicit"` at all 7 profiles — Dispatch 1 amendment confirmed active
+- T2 = 0 zero cells at all profiles INCLUDING low / mid / mixed_v1 / mixed_v3 — Dispatch 2 R3-prime lower bounds confirmed active
+- compound_pass raw field reflects 4/4 A1 criterion (T4 excluded) — no derived field needed
+- BVV anchor on-disk (run_at 2026-05-29T03:10:26 UTC) verified PASS unchanged
+- Disc #42 vigilance: gamora attests on-disk telemetry read + verified BEFORE attesting (no recurrence of Dispatch 2 intermediate-state mis-report)
+- 18/18 kits ship; 0 zero-T4 escalations; 0 new test failures
+
+**Pre-Cycle-16 T4 baseline data captured:** kits_failing 16-18/18 per profile; structural `no_peaks` across all profiles. Input for Cycle 16+ BC axis expansion design call (c-hybrid § 1.1 amendment 5→10 candidate axes; `damage_element_profile` + others). Provides empirical baseline against which Cycle 16+ Secondary T4 cohort-relative peak delivery can be measured.
+
+**Phase A1 R-set FINAL status:**
+- R1 ❌ REJECT (architectural mootness; SCAFFOLD-Cycle-15-RETIREMENT)
+- R2 ❌ REJECT (Dispatch 1 empirical verification)
+- R3 ✅ RESOLVED (Dispatches 2+3 close at BVV anchor + 7 profiles)
+- R3-A ✅ RESOLVED (Dispatch 1 T1 base-context amendment)
+- R3-B ✅ RESOLVED (Dispatch 2 R3-prime band lower-bound)
+- R4 ⏳ Cycle 16+ deferred (BC axis expansion)
+
+**Phase A1 Sequence status:**
+- Dispatch 1 ✅ / Dispatch 2 ✅ / Dispatch 3 ✅ / **Dispatch 4 🔥 FIRING NEXT (gandalf canonical close-criterion capture)** / Dispatch 5 ⏳ (jack-ryan Gate-2) / Dispatch 6 ⏳ (KR Path α v1 closure record)
+
+**Path α v1 engine readiness gate empirical state lock:**
+- Engine commits: `20dde52` (T1 amendment) → `854e94a` (R3-prime) → `fbea597` (RE-RUN-5 sweep)
+- Cumulative Disc #12 semantic shifts (5 total in Phase A1): A (T1 routing migration; R3 hotfix) + B (band upper-bound; R3 hotfix) + C (band lower-bound; R3-prime) + SHIFT A (T1 measurement-context explicit; Dispatch 1) + SHIFT B (compound_pass 5/5 → 4/4; Dispatch 1)
+- Universal amended close-criterion PASS: BVV anchor + 7 profiles × 4 targets = 32 cells
+- Strip-and-ship 18/18 kits universally
+- T4 measured-for-record (Cycle 16+ baseline)
+
+---
+
+### PHASE A1 DISPATCH 4 — GANDALF CANONICAL CLOSE-CRITERION CAPTURE
+
+Authoring this dispatch immediately. Pre-flight `vm_stat` confirmed (~2.5 GB available; load avg 1.60 stable; safe under R47.5). Single-seam sequencing preserved.
+
+**Scope (per Matt ITEM 2 amendment + KR ITEM 2 disposition):**
+- Doc 47 § 4.6 amendment notes: close-criterion semantics + T1 base-context + canonical layer separation (in-game T4 Capstone vs measurement-T1-T5)
+- Doc 51 § 10.8 amendment notes: Primary EXEMPT discipline + Secondary T4 deferral capture
+- **C1-C5 rename** per gandalf addendum § 3 (KR-elected FOLD INTO this dispatch rather than Cycle 15 housekeeping)
+- **Explicit Path-α-closure vs Cycle-14-v1-MVP-closure distinction** per ITEM 2 amendment in canonical notes
+- Reference Disc #42 four-instance case (now FIVE-instance per meta-observation) for jack-ryan Gate-2 ratification at Dispatch 5
+- Reference Disc #47 host-RAM-aware operational concurrency for Gate-2 ratification at Dispatch 5
+- Reference Disc #43 design-quality wave-close audit (candidate)
+
+**Disc #42 Q1-Q6 framing-audit at KR dispatch-authoring gate (self-audit):**
+
+| Q | This dispatch's framing | Verdict |
+|---|---|---|
+| Q1 | Canonical close-criterion needs amendment to reflect 5 Disc #12 semantic shifts + amended 4/4 close-criterion + layer separation + C1-C5 rename + Path-α-vs-Cycle-14-v1-MVP distinction | All five amendments empirically grounded (Dispatches 1-3 close + Matt-ratified ITEM 1-4) |
+| Q2 | Empirical refutation: any reason to amend canonical BEFORE jack-ryan Gate-2? | Standard pattern — gandalf canonical capture is design-spec authorship at Tier A; jack-ryan Gate-2 reviews the canonical write; sequencing correct |
+| Q3 | Refinement before fire: KR has Matt-ratified ITEM 1-4 disposition + complete Phase A1 1-3 closure data | PASS |
+| Q4 | Measurement context: this dispatch documents the measurement framework in canonical; subject explicit | PASS |
+| Q5 | Calibration scope: this dispatch encodes the amended close-criterion's calibration scope explicitly | PASS |
+| Q6 | Semantic stability: gandalf must verify all metric names + close-criterion phrases are semantically stable across canonical docs | Q6 EXPLICIT STOP applied at dispatch authoring — Q6 STOP fires forward to gandalf consumption gate |
+
+**Framing-audit gate: PASS-with-Q6-EXPLICIT-FORWARD.**
+
 Per supplemental Matt question to A1 re-entry: Disc #42 Q1-Q6 framing-audit applied at KR re-entry; Read Y (substantial remaining cycle scope) confirmed canonical. Matt-ratified ITEM 1-4 direction:
 
 - **ITEM 1 — § 1 amendment LANDED above:** Read γ elected; Waves 2/3/4 SUPERSEDED; Wave 5 gates on Path α v1 closure; cross-references added; auto-commit authorized
