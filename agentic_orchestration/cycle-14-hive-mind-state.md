@@ -4751,3 +4751,94 @@ Gandalf Path X/Y/Z decision (or cascade-resumption-4 election)
   ↓
 KR routes per gandalf direction + Matt re-engage if needed
 ```
+
+### CASCADE-RESUMPTION-3 INSTANCE 6 #5 INVESTIGATION COMPLETE 2026-05-29 — All 3 sub-agents closed; findings consolidated for gandalf Path X/Y/Z decision
+
+**Gamora investigation CLOSED — collab `76b1f15`; analysis note at `agentic_orchestration/gamora/notes/2026-05-29-cascade-r3-instance-6-5-phase3-mechanical-gate-13-54-analysis.md`:**
+
+**Phase 7 join logic (PRIMARY finding):**
+- `phase7_verdict.py:evaluate_cohesion_pass()` skips C-1/C-2/C-3 sub-checks when cohesion data is None
+- **19 of 22 shipped kits have `cluster_id=NULL`** → cohesion_pass=True via implicit None-skip
+- Only 3 of 22 shipped kits have explicit Phase 5 cluster membership
+- DOCUMENTED behavior for `faction_visibility=invisible` / Cycle 14 v1 placeholder mode per code comments at `wave5_season_orchestrator.py:1820-1824`
+
+**INTERPRETATION RESOLUTION: Interpretation A CONFIRMED** (parallel-by-design with implicit cohesion default). Interpretation B (sequential-bug) REFUTED. Architectural gap: 86% of shipped kits have no faction assignment — DESIGNED placeholder-mode behavior for Cycle 14 v1, NOT accidental wiring omission.
+
+**13/54 root cause — TWO-CAUSE DECOMPOSITION:**
+
+| Cause | Kits affected | Mechanism |
+|---|---|---|
+| A: config_to_kit collision | 13 cells × 2 samples = 26 | s0/s1 overwritten by s2 in `w5r2_gauntlet_sim_integration()` per rocket finding |
+| B: t4_candidates=0 | 5 cells × 3 samples = 15 | No T4 chains → no legendary_ids → no gauntlet records |
+| Passing | 13 cells × 1 sample = 13 | s2 survives config_to_kit; receives `wr_bracket_pass=True` |
+
+**Phase 3 WR-bracket gate is NOT over-tight** — 65/66 chain-level gauntlet results show `season_emit=True`. If config_to_kit collision fixed: effective base pass rate ~72% (13/18 cells; only 5 t4-empty cells fail all samples).
+
+The 5 failing cells: `endgame_bc_melee_high_flat_int_none`, `endgame_bc_mid_high_flat_dex_none`, `endgame_bc_mid_low_spiky_int_none`, `endgame_bc_ranged_low_spiky_dex_none`, `endgame_bc_ranged_low_spiky_str_none`. No substrate-systematic pattern; all share `t4_candidates=0` for their s2 kit.
+
+**Phase 4 archive s0=18/s1=9/s2=7 consistency:** Pareto-2 operates on quality_vectors INDEPENDENTLY of wr_bracket_pass. s0/s1 kits with wr_bracket_pass=False can still enter Phase 4 archive because they dominate quality-wise within (bc_cell_id × cultural_lineage_canonical) partition buckets.
+
+**Path X PM-1 sparsity at n=34: VIABLE** — `SPARSITY_TIER_GMM_BIC=24`; n=34>24; GMM_BIC sweep at k∈{3,4}; no degenerate fallback. 8-element coverage preserved.
+
+No § 5 surfaces. Gamora investigation CLEAN.
+
+---
+
+## 🟡 KR CONSOLIDATED FINDINGS FOR GANDALF PATH DECISION
+
+**Empirical anchor (gandalf surface doc commit `e466c26`):** Phase 5 PM-1 input (598 / 208 _s2 unique) ≠ Phase 4 archive output (34 mixed-sample). ~80% disjoint at kit_id join.
+
+**Architectural verdict (gamora confirmed):** Interpretation A — parallel-by-design with implicit cohesion None-skip. Code is designed behavior for `faction_visibility=invisible` placeholder mode. NOT a sequential-bug.
+
+**Two separable architectural questions surfaced:**
+
+| Question | Layer | Findings |
+|---|---|---|
+| **Q1: Phase 5 input source** | Pipeline architecture | Phase 5 reads passing_kits + variant_passing_rows (NOT Phase 4 archive); 19 of 22 shipped have cluster_id=NULL with cohesion-skip |
+| **Q2: config_to_kit collision (Instance 6 #6 candidate)** | Phase 3 gauntlet integration | `season_generation_pipeline.py:1424-1428` — same legendary_id for all 3 samples; s2 last writer; s0/s1 silently dropped from gauntlet wr_bracket_pass=True (26 kits affected) |
+
+**Gandalf surface doc Three Paths re-evaluation per consolidated findings:**
+
+| Path | Description | Resolves Q1 | Resolves Q2 | Effort | Verdict per consolidation |
+|---|---|---|---|---|---|
+| **Path X** | Phase 5 PM-1 input = Phase 4 archive output (gandalf-lean) | ✅ | ❌ | ~1-2hr | VIABLE per gamora PM-1 sparsity at n=34 (GMM_BIC at k∈{3,4}; non-degenerate); 100% Phase 4 ∩ Phase 5 overlap; 8-element coverage preserved |
+| **Path Y** | S2 variants extend to s0/s1/s2 sample naming | ❌ (orthogonal) | ❌ (requires PRE-fix) | ~2-3hr predicated on Q2 fix | NOT RECOMMENDED for Cycle 14 v1 without first resolving config_to_kit (per gamora) |
+| **Path Z** | Variants enter Phase 4 Pareto archive | ❌ | ❌ (orthogonal) | needs variant accept criterion design call | NOT RECOMMENDED for Cycle 14 v1 (per gamora) |
+| **Q2-only fix** | config_to_kit collision repair (rocket Instance 6 #6 finding) | ❌ | ✅ | gandalf/Matt design call needed | Independent fix; lower priority than Path decision per gamora |
+
+**Cycle 14 v1 wave-close blocker assessment (jack-ryan):** **NOT a wave-close BLOCKER.** Current production run empirically valid (4 substrate-led factions; ≥12/18 acceptance threshold assessable at 22/34). Path recommendation: PASS-with-INFO + cascade-resumption-4 conditional on Matt design call.
+
+**KR consolidation recommendation:**
+
+Per consolidated findings, **gandalf-lean Path X is the cleanest architectural path** for Cycle 14 v1:
+- Resolves Q1 (Phase 5 input source) by routing Phase 4 archive output → Phase 5 PM-1 input
+- ~1-2hr rocket implementation
+- PM-1 viable at n=34 per gamora (no degenerate fallback)
+- 100% Phase 4 ∩ Phase 5 overlap at Phase 7 join
+- 8-element coverage preserved per Amendment 7
+
+**Q2 (config_to_kit collision) is SEPARABLE:**
+- Lower priority than Path decision for Cycle 14 v1
+- Requires gandalf/Matt design call: "should all 3 substrate samples per WR-bracket-passing cell enter PM-1?"
+- If Q2 fixed: 26 additional s0/s1 kits become wr_bracket_pass=True → effective base pass rate ~72%; PM-1 input grows
+- Q2 can be Cycle 15+ scope OR added to Amendment 7b spec
+
+**Path forward (gandalf design call):**
+- **Option α: Path X only (~1-2hr)** — close Q1 disjoint; defer Q2 to Cycle 15+; PASS-with-INFO at Cycle 14 v1 wave-close per jack-ryan
+- **Option β: Path X + Q2 (~3-4hr)** — close BOTH Q1 disjoint AND config_to_kit collision in Amendment 7b; cleaner architectural completion
+- **Option γ: cascade-resumption-4 fire** — broader scope per Matt design call
+
+**KR HOLD STATUS:** Held per gandalf REDIRECT past Amendment 7a + Amendment 7b deliberation. No Phase 5 re-fire until Path α/β/γ selected. Matt-surface at this consolidation per gandalf "let's surface it to KR and resolve" instruction.
+
+**Cumulative Disc #42a Instance 6 cascade-r3 pattern observation:**
+
+| # | Surface | Resolution |
+|---|---|---|
+| 1 | Wave B phantom-component | CLOSED by S5/S5b |
+| 2 | Variant Pareto-dominance at S6c gate content | pre-ratified per Recognition record A3 H0 |
+| 3 | emit_skills_for_kit deterministic (Amendment 6 Sub-fix 3) | namespace-only acceptable per Gate-2 INFO |
+| 4 | chain_2.element metadata-only (Amendment 7) | SYSTEMIC; closed by Amendment 7a |
+| 5 | Phase 5 reads passing_kits not Phase 4 archive (gandalf surface) | **Interpretation A CONFIRMED (parallel-by-design; placeholder-mode for v1)** |
+| 6 (candidate) | config_to_kit collision (rocket finding) | gandalf/Matt design call pending |
+
+**Cycle 14 wave-close canonical-write queue:** 9+ items (per jack-ryan findings) including new Disc #42a Q4 sub-case "Layer-isolation-vs-integration gap" + paired-joint-sampling discipline + Bound 4 language reconciliation + DEX Option C lock closure + Disc #49 candidate + Disc #42a Instance 7 + math note seeding clarification + hybrid rate calibration + canonical-engine drift detection.
