@@ -224,3 +224,91 @@ grep -nE 'cohesion_data\s*=\s*\{\s*\}' \
 **Cascade trajectory:** S5b → S6 (Gate-2 + A2-1 RE-FIRE-3 PASS expected ≥12/18 shipped_worthy with all gates BINDING) → A2-2 → A2-7 + D13 parallel-fire → Cycle 14 v1 MVP D9 close.
 
 **Signed:** knight-rider (orchestrator)
+
+---
+
+## Completion record
+
+**Completed by:** rocket
+**Date:** 2026-05-29
+**Commit:** `bf379f9`
+**Tag:** `rocket/v1.0-cascade-r3-s5b-wave-b-integration-1`
+
+### (a) Wave B invocation evidence
+
+**Acceptance gate 4.1 grep:**
+```
+grep -nE 'run_wave_b_async|wave_b_results|run_phase5_with_fc_and_wave_b' \
+  reincarnated-engine/src/reincarnated/simulation/wave5_season_orchestrator.py
+```
+Non-empty matches confirmed:
+- `_build_kits_input_for_wave_b()` helper at §10 (line 1019): builds per-kit Wave B input
+- `run_phase5_with_fc_and_wave_b_sync` invoked at Phase 5 hook (line 1192)
+- `wave_b_results` dict captured + populated to cohesion_data (lines 1200, 1541, 1573)
+
+**Sequence Wave A → F-C → Wave B:** Implemented via `run_phase5_with_fc_and_wave_b_sync()` (star-lord S5; step 1 Wave A → step 2 F-C → step 3 Wave B per canonical § 1 architecture overview). Orchestrator docstring line 12 sequence confirmed.
+
+### (b) cohesion_data unhardcode evidence
+
+**Acceptance gate 4.2 grep:**
+```
+grep -nE 'cohesion_data\s*=\s*\{\s*\}' \
+  reincarnated-engine/src/reincarnated/simulation/wave5_season_orchestrator.py
+```
+**ZERO matches** — hardcode removed.
+
+**Replaced with:** `cohesion_data` dict populated from `wave_b_results` per § 2.2 dict shape:
+```python
+cohesion_data[kit_id] = float(wb_result.cohesion_judge_confidence or wb_result.ai_tell_compliance_score)
+```
+Phase 7 receives `cohesion_data=cohesion_data` (was `cohesion_data={}`).
+
+### (c) Phase 7 cohesion gate binding verification
+
+**Synthetic negative (0.5 → EXCLUDED):**
+- `cohesion_judge_confidence=0.50` → `evaluate_cohesion_pass()` → `(False, "C1")`
+- compose_verdict(mech_pass=True, coh_pass=False, fail_mode="C1") → `HELD-cohesion-fail-C1` / `DISP_RETRY_PHASE5`
+- EXCLUDED from shipped_worthy. PASS.
+
+**Synthetic positive (0.85 → INCLUDED):**
+- `cohesion_judge_confidence=0.85` → `evaluate_cohesion_pass()` → `(True, None)`
+- compose_verdict(mech_pass=True, coh_pass=True, ...) → `SHIPPED-WORTHY` / `DISP_SHIP`
+- INCLUDED. PASS.
+
+**Gate mechanism:** No changes to `phase7_verdict.py` required. `P7_KIT_COHESION_SCORE_FLOOR=0.75` already enforces `cohesion_score < 0.75 → C1 fail`. Gate was previously pass-through because `cohesion_data={}` → Phase 7 received `cohesion_scores=None` → `kit_level_cohesion_score=None` → check skipped. Post-S5b: non-empty `cohesion_data` → `cohesion_scores` non-None → check active → gate BINDING.
+
+**Per-variant pass-through:** Variant kit_ids not in `wave_b_results` → `cohesion_data.get(variant_id)` = `None` → Phase 7 KitCohesionInput.kit_level_cohesion_score=None → cohesion check skipped (pass-through). Pre-ratified per-kit behavior confirmed.
+
+### (d) Smoke + tests PASS
+
+**Pipeline smoke (smoke=True):**
+- Phase 2-7 cascade: `generation_pass=True`, `degeneracy_triggered=False`
+- `phase2_kit_count=3`, `phase4_accepted_count=1`, `phase5_cluster_count=2`
+- `phase7_kits_evaluated=3`, `phase7_shipped_worthy=1`
+- Wave B suppressed in smoke mode (Wave B LLM calls = 0; `effective_kits_input=[]` when `smoke=True`)
+
+**Test suite:**
+- 40 new tests in `tests/test_cascade_r3_s5b_wave_b_orchestrator_integration.py` (9 test classes)
+- 371 targeted tests (all related suites) PASS — 0 new failures
+- Pre-existing 7 TestGauntletKitResult failures confirmed pre-existing (not caused by S5b)
+
+### (e) Surface-to-KR findings
+
+None. All § 6 surface conditions evaluated:
+- Kit_archive schema migration: not required (cohesion_data flows as in-memory dict; no DB column change)
+- Phase 7 cohesion-judge gate lookup: no failure (existing logic handles non-None cohesion_scores correctly)
+- Wave B synthetic error: not triggered (smoke=True suppresses Wave B; no LLM calls; no CascadeBlockError)
+- Per-variant ambiguity: pre-ratified per-kit confirmed (variants inherit via None score pass-through)
+- Disc #42a: Q1-Q6 HOLD — Instance 6 closure confirmed, no framing-refusal trigger
+- Effort: within ~2-4h estimate
+
+---
+
+**S5b CLOSED per § 8 deliverables:**
+1. Engine commit `bf379f9` + tag `rocket/v1.0-cascade-r3-s5b-wave-b-integration-1` — DONE
+2. MIGRATION.md S5b cross-seam entry — DONE
+3. This completion record — DONE
+4. AGENT_STATE.md checkpoint (S5b CLOSED + S6 queued) — DONE
+5. Auto-commit fired per CLAUDE.md addendum — DONE; push NOT fired (requires Matt-explicit-auth)
+
+**KR routing note:** S6 (jack-ryan Gate-2 + A2-1 RE-FIRE-3 full season production fire; ≥12/18 shipped_worthy with all gates BINDING) is the next cascade step. All S5b gates BINDING. S5b unblocks S6.
