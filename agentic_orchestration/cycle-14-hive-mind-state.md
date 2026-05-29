@@ -3891,3 +3891,43 @@ A2-2 → A2-7 + D13 parallel-fire → Cycle 14 v1 MVP D9 close
 - 7 pre-existing TestGauntletKitResult failures (confirmed pre-S2 via git stash; per gamora completion record); not introduced by S2
 
 **KR auto-routes per Amendment 4 hive-state clarification — proceeding S3 fire per hive-mind decision-routing.**
+
+### CASCADE-RESUMPTION-3 S3 CLOSED 2026-05-29 — Phase 4 archive variant preservation; Instance 6 PM-1 degenerate fallback ELIMINATED
+
+**Rocket S3 sub-agent CLOSED — Engine `40a53cb` + tag `rocket/v1.0-cascade-r3-s3-archive-variant-preservation-1`:**
+
+- `VariantKitRow` dataclass (line 420) — bridges S2 config dicts into Phase 4 + PM-1 as duck-typed object with `.character_id` = S2 legendary_id (`{bc_cell_id}_s2_{strategy}_{invest}`)
+- `_build_variant_kit_rows()` helper (line 455) — maps S2 config dicts → VariantKitRows; propagates S7 lineage fields from base kit; smoke=True forces all wr_bracket_pass=True
+- Phase 2.5 block in `run_wave5_season_001()` — calls `build_variant_enumeration_configs()` from gauntlet_sim.py
+- Phase 3 extended: variant_configs param; derives quality vectors for variant legendary_ids; expands PM-1 input to base + variant; returns 7-tuple
+- Phase 4 extended: variant_kit_rows param; unified archive insertion for base + variant population; tags insertion_results with variant provenance
+- Math note authored at `reincarnated-engine/src/reincarnated/generation/notes/cascade-r3-s3-archive-variant-preservation-math-2026-05-29.md` (Disc #1)
+- 36 new tests at `tests/test_cascade_r3_s3_archive_variant_preservation.py`; 255 combined; 0 regressions
+- AGENT_STATE.md checkpoint updated
+- Collab completion record `058bdb3`
+
+**ARCHITECTURAL MILESTONE: Instance 6 PM-1 degenerate fallback ELIMINATED**
+
+Per rocket attestation: PM-1 now receives base (~18-54) + variant (~102-132) = well above GMM BIC threshold of 24. k=3 degenerate fallback path no longer triggered. The phantom-component + degenerate-fallback Instance 6 root-cause pattern that drove cascade-resumption-3 is closed at the substrate-emergence pipeline layer.
+
+**KR Disc #42a meta-observation 5 verification PASS:**
+- VariantKitRow dataclass + _build_variant_kit_rows() present at engine
+- variant_configs + variant_passing_rows wired through Phase 3 → Phase 4
+- Math note + tests authored
+- Tag landed; completion record authored
+
+**Cascade trajectory carry-forward:**
+
+```
+S1 ✅ + S4 ✅ + S7 ✅ + S5 ✅ + gamora research ✅ + S2 ✅ + Surface 1 patch ✅ + S3 ✅
+  ↓
+S5b (rocket Wave B integration; ~2-4h) ← READY TO FIRE (S3 + S5 both ✅)
+  ↓
+S6 (jack-ryan Gate-2 + A2-1 RE-FIRE-3; ~1-1.5d)
+  ↓
+A2-2 → A2-7 + D13 parallel-fire → Cycle 14 v1 MVP D9 close
+```
+
+**Updated estimate to A2-1 RE-FIRE-3 PASS:** ~1.5-3d wall-clock remaining (S3 closed cuts ~0.5-1d from prior estimate).
+
+**KR auto-routes per Amendment 4 hive-state clarification — proceeding S5b fire per hive-mind decision-routing.**
