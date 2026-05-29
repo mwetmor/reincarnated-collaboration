@@ -1,6 +1,8 @@
 # Cascade-Resumption-3 — Class-Eradication + Full Cascade-Architecture Completion Authorization
 
-> **STATUS:** CURRENT (operational dispatch authorization as of 2026-05-29) — Matt 2026-05-29 invoked CLAUDE.md Engine > Game > Phase orientation directive. Substantial scope amendment to Cycle 14 v1 close trajectory: ~6-10d engine + LLM + Gate-2 work before A2-1 RE-FIRE-3. Engine-architectural-integrity takes precedence over Phase-operational-timing per CLAUDE.md.
+> **STATUS:** CURRENT (operational dispatch authorization as of 2026-05-29; AMENDED with S7 addition 2026-05-29 evening) — Matt 2026-05-29 invoked CLAUDE.md Engine > Game > Phase orientation directive. Substantial scope amendment to Cycle 14 v1 close trajectory: ~7-12d engine + LLM + Gate-2 work before A2-1 RE-FIRE-3 (was ~6-10d pre-S7-amendment). Engine-architectural-integrity takes precedence over Phase-operational-timing per CLAUDE.md.
+>
+> **Amendment 1 (S7 addition):** S0 empirical verification (gandalf in-thread) surfaced that substrate weapon library IS wired at Phase 2 BC discovery (per `substrate_weapon_binding.py:716` call from `season_generation_pipeline.py`) but: (1) only 1 substrate weapon per BC cell (1:1 binding; 18 cells → 18 substrate weapons); (2) `cultural_lineage_canonical` + `historical_period_canonical` + `register_canonical` fields exist on `weapon_knowledge_entries` schema BUT are NOT in the SELECT query at `substrate_weapon_binding.py:316`. S7 (NEW) wires the missing lineage/period/register fields AND adds multi-sample substrate selection (N samples per BC cell). Substrate schema exists; this is a "wire it up + multi-sample" refactor, not schema extension. ~1-2d engineering. Inserted BEFORE S2 so gauntlet mechanical cycling operates on substrate-diverse base (not substrate-monoculture).
 
 **Date:** 2026-05-29
 **Author:** gandalf (story-and-design steward)
@@ -25,18 +27,61 @@
 
 **Matt election (per CLAUDE.md Engine > Game > Phase orientation):** Cycle 14 v1 close DOES NOT ship against pre-imposed-class-taxonomy substrate. Engine refactor is mandatory; Phase-timing cedes to architectural integrity.
 
-**Work program (6 streams):**
+**Work program (7 streams — AMENDED with S7 NEW):**
 
 | Stream | Owner | Effort | Dependency |
 |---|---|---|---|
 | **S1 — Class-concept eradication at substrate-input layer** | rocket primary | ~1-2d | first; root-cause fix |
-| **S2 — Gauntlet variant enumeration expansion** | rocket + gamora | ~1-2d | S1 |
+| **S7 (NEW) — Phase 2 multi-sample substrate consumption + lineage/period propagation** | rocket + elrond consultation | ~1-2d | S1 |
+| **S2 — Gauntlet variant enumeration expansion** | rocket + gamora | ~1-2d | S7 (moved AFTER S7 per amendment; was S1 dependency) |
 | **S3 — Phase 4 archive variant preservation** | rocket | ~0.5-1d | S2 |
-| **S4 — Phase 5 LLM prompt audit for class-free substrate** | gandalf (this conversation thread) | ~1-2h | parallel-safe with S1-S3 |
+| **S4 — Phase 5 LLM prompt audit for class-free substrate** | gandalf (in conversation thread) ✅ COMPLETE | ~1-2h | parallel-safe with S1-S3-S7 |
 | **S5 — Wave B FULL implementation per canonical § 5** | star-lord + rocket | ~1-1.5d | S3 + S4 |
-| **S6 — Integration + jack-ryan Gate-2 + A2-1 RE-FIRE-3** | rocket + gamora + star-lord + jack-ryan | ~1-1.5d | S1-S5 |
+| **S6 — Integration + jack-ryan Gate-2 + A2-1 RE-FIRE-3** | rocket + gamora + star-lord + jack-ryan | ~1-1.5d | S1-S7-S2-S3-S5 |
 
-**Realistic total to A2-1 RE-FIRE-3 PASS: ~6-10 days.** Cascade through A2-2 → A2-7 + D13 parallel-fire per existing Phase A2 sequence after.
+**Realistic total to A2-1 RE-FIRE-3 PASS: ~7-12 days** (was ~6-10d; S7 adds ~1-2d). Cascade through A2-2 → A2-7 + D13 parallel-fire per existing Phase A2 sequence after.
+
+## S7 (NEW) — Phase 2 multi-sample substrate consumption + lineage/period propagation
+
+**Empirical basis (S0 verification 2026-05-29 evening):** substrate IS wired at Phase 2 but partially. `gear_representative.main_weapon.substrate_binding` carries 8 fields (substrate_weapon_id, substrate_canonical_name, base_physical_damage, spell_damage_modifier, element_affinity_modifiers, to_skill_level_modifiers, attribute_requirement, weapon_type_family). All 18 kits empirically have populated bindings (Lance head / Sword / Mjölnir / Whip / Wurrog Staff / Khakkhara / etc.) — substrate IS consulted. BUT:
+
+1. **1:1 binding pattern** — `substrate_weapon_binding.select_and_bind_substrate_weapon()` selects ONE substrate weapon per call via `rng.choice(row_dicts)`. Phase 2 calls it once per kit; 18 kits → 18 substrate weapons.
+2. **cultural_lineage / historical_period / register NOT in SELECT query** — `weapon_knowledge_entries` schema HAS `cultural_lineage_canonical` (14-enum) + `historical_period_canonical` (9-enum) + `register_canonical` (6-enum) + `cultural_lineage_confidence` REAL + `named_mythological_match` TEXT, but the SELECT at `substrate_weapon_binding.py:316` doesn't pull them. Substrate_binding dict therefore lacks lineage/period/register fields → downstream Wave A LLM `modal_cultural_lineage` defaults to placeholder.
+3. **weapon_type_family collapses to 4 attribute-keyed buckets** (martial-heavy / ranged / caster-arcane / caster-faith) — empirical spread across 18 kits.
+
+**S7 work scope:**
+
+| Sub-work | Owner | Effort |
+|---|---|---|
+| Extend SQL query at `substrate_weapon_binding.py:316` to also SELECT `cultural_lineage_canonical`, `historical_period_canonical`, `register_canonical`, `cultural_lineage_confidence`, `named_mythological_match` | rocket | ~30min |
+| Extend `_build_weapon_binding()` to include new fields in substrate_binding dict (11+ fields) | rocket | ~30min |
+| Refactor `select_and_bind_substrate_weapon()` to support multi-sample selection (`select_n_substrate_weapons_per_bc_cell(n=3-5)`) | rocket | ~2-4h |
+| Refactor `season_generation_pipeline.py:w5r1_generate_kit_candidates()` to generate N kits per BC cell from N substrate samples (was: 1 kit per BC cell) | rocket | ~1-2h |
+| Propagate lineage/period/register to kit top-level for downstream Phase 3 PM-1 + Phase 5 Wave A consumption | rocket | ~1h |
+| Update Phase 3 PM-1 multimodal clustering input to consume new lineage/period/register fields as multimodal vector axes (composes with existing BC tuple + element axes) | gamora consultation; rocket implements | ~1-2h |
+| Phase 5 Wave A `modal_cultural_lineage` aggregation now sources from kit lineage (not placeholder) | rocket | ~30min |
+| Smoke test + Disc #11 audit | rocket+gamora | ~1h |
+| jack-ryan Gate-2 (Pattern E pre-auth) | jack-ryan | ~half-day |
+
+**Acceptance criteria (S7 close):**
+
+- substrate_binding dict carries 11+ fields including cultural_lineage_canonical + historical_period_canonical + register_canonical + cultural_lineage_confidence + named_mythological_match (NEW; in addition to existing 8 mechanical fields)
+- Phase 2 generates N kits per BC cell (N=3-5 per Matt election; default N=3) → 18 cells × 3 samples = 54+ kits (was: 18)
+- Per-season cultural_lineage_canonical distribution shows ≥5 distinct values across all kits (empirical spread target)
+- Per-season weapon_type_family distribution shows ≥5 distinct values (NOT collapse to 4 attribute-keyed buckets if lineage-diversity is real)
+- Phase 5 Wave A `modal_cultural_lineage` field sources from kit aggregates (not placeholder default)
+- jack-ryan Gate-2 PASS-with-WARN/INFO (Pattern E)
+
+**Pre-ratified contingent decisions for S7 (KR routes per § 3 of this authorization):**
+- N=3 default substrate samples per BC cell (KR can elect N=5 if substrate density supports per elrond consultation; surface to Matt only if N=10+ or substrate density issues surface)
+- Substrate library SELECT query extension scope: 5 new fields per S7 sub-work table; surface if schema gaps surface beyond these 5
+- Multi-sample selection method: seeded rng without replacement (simple); surface if methodology has multiple options requiring legolas Mode A consultation
+- Lineage/period field placement on kit top-level (NOT just substrate_binding): rocket implements per simpler-flow principle; surface if schema impact ripples beyond Phase 2
+
+**S7 surface-to-Matt edge cases (additions to § 4):**
+- Substrate library schema gap surfaces (cultural_lineage missing OR sparse across attribute buckets) → halt + surface (substrate library quality issue beyond cascade-resumption-3 scope)
+- Multi-sample selection produces NO additional cluster spread post-PM-1 (variant count up; cluster count still ~3-4 fallback) → surface (deeper algorithmic issue with PM-1 multimodal clustering methodology; Pattern B design call territory)
+- S7 effort exceeds ~3d (substantial implementation complexity surfaced) → surface (scope-amendment reconsideration; might affect cascade-resumption-3 trajectory)
 
 **Strip:** class taxonomy from `endgame_encounter_catalog.py` (archetype_name field; encounter_id class-name suffix; intent "the class" references; cohort_notes class-bound assignments) + audit other engine files for surviving class taxonomy.
 
