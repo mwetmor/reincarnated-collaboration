@@ -4588,3 +4588,61 @@ Per gandalf: "pattern is now systemic" — Cycle 14 wave-close canonical-write c
 - Continue A2-2 → A2-7 per existing sequence
 
 **Matt-surface per gandalf instruction:** confirm HALT + Amendment 7a dispatched (this turn) + surface at Amendment 7a close.
+
+### CASCADE-RESUMPTION-3 AMENDMENT 7a CLOSED 2026-05-29 — Disc #42a Instance 6 #4 CLOSED at SKILL CONTENT layer; KR HOLD per Matt directive
+
+**Rocket Amendment 7a CLOSED — Engine `5b76790` + `de82ff1` + tag `rocket/v1.0-cascade-r3-amendment-7a-skillemissionconfig-chain-elements-1`; collab `e89aa24`:**
+
+- **SkillEmissionConfig extension:** `chain_elements: dict[str, str] | None = None` field added (backward-compatible None default; mono behavior preserved)
+- **emit_skills_for_kit per-chain resolution:** `chain_elem = (config.chain_elements or {}).get(chain_id, config.element)` at chain-loop level; drives `canonical_element` + `effect_params["element"]` + placeholder name
+- **Season pipeline threading** at lines 906-920: Hybrid → `{chain_A: primary, chain_B: secondary, chain_C: primary}`; Mono → None
+- **17 new tests** at `test_cascade_r3_amendment_7a_skillemissionconfig_chain_elements.py` — ALL PASS
+- **Amendment 6 regression:** 18/18 PASS ✅
+- **Amendment 7 regression:** 49/49 PASS ✅
+- **Phase 2-4 re-fire** (smoke=False; halt_at_phase=5; seed=14001):
+  - Base kits: 54
+  - Variants shipped: 585
+  - Archive accepted: 34
+  - Hybrid kits: 12/54 (22.2%)
+  - 8-element coverage at primary: ALL 8 PRESENT
+  - **chain_B skill.canonical_element = secondary VERIFIED across ALL 12 hybrid kits at SKILL CONTENT layer** ✅
+  - LLM cost: $0.00
+  - No degeneracy
+
+**Instance 6 #4 closure confirmation:**
+- Pre-fix: all 12 skills per hybrid kit had `canonical_element = primary`; chain_2 secondary existed as metadata only
+- Post-fix: chain_B T1-T4 (4 skills) carry `canonical_element = secondary_element`; **content-distinct hybrid at SKILL CONTENT layer — substrate-led promise delivered**
+
+**§ 6 surface (non-blocking, documented):** chain_id parallel naming — SkillEmissionConfig uses `chain_A/B/C` while `_build_chain_specs` ChainSpecs use `t4_chain_1/t4_chain_2/supporting_chain`. Semantic correspondence clear (chain_B ↔ t4_chain_2); hybrid fix correctly applied. No escalation needed.
+
+**Wall-clock:** ~30min. **LLM cost:** $0.
+
+---
+
+**MATT DIRECTIVE — KR HOLD post Amendment 7a:**
+
+Matt verbatim: "Please hold after amendment 7a and any 7a follow-up work/commits/pushes. I found a lot of missing/incomplete data in the $0.15 production run that was just completed and I need time to investigate."
+
+**KR HOLD status:**
+- jack-ryan Gate-2 Pattern E review of Amendment 7a — **NOT FIRED**
+- S6c production cascade re-fire (full Phase 2-7 with content-distinct hybrid substrate) — **NOT FIRED**
+- A2-2 → A2-7 cascade — **NOT FIRED**
+- Any further work/commits/pushes — **HALTED**
+
+**Investigation context:** Matt investigating missing/incomplete data in the $0.15 production run (A2-1 RE-FIRE-3 at engine `85d8b41`). The $0.15 cascade fired BEFORE gandalf URGENT HALT arrived; PASSED at architectural acceptance gates (shipped_worthy 22/34; 8-element coverage; hybrid 12/54; PM-1 4 GMM clusters; Wave A 4 calls + F-C 6 pairs + Wave B 13 calls all fired) but on substrate where hybrid kits were structurally hybrid but behaviorally mono at SKILL CONTENT layer.
+
+Amendment 7a CLOSED has architecturally fixed the chain_2 content gap; Phase 2-4 re-fire ($0) verified content-distinct hybrid; ready for re-cascade when Matt clears HOLD.
+
+**Cascade trajectory (post-HOLD, pending Matt direction):**
+
+```
+Amendment 7a ✅ CLOSED + KR HOLD pending Matt investigation
+  ↓ (Matt clears HOLD)
+Per Matt direction (continue cascade OR refine OR halt)
+  ↓ (assuming continue)
+jack-ryan Gate-2 Pattern E quick composition review of Amendment 7a
+  ↓ PASS
+S6c production cascade re-fire (full Phase 2-7 with content-distinct hybrid substrate)
+  ↓
+A2-2 → A2-7 + D13 parallel → Cycle 14 v1 MVP D9 close
+```
