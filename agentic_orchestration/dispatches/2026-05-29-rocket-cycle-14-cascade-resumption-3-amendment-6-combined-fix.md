@@ -260,3 +260,73 @@ Against Amendment 6 predictions table:
 **Cascade trajectory:** Amendment 6 combined fix → jack-ryan Gate-2 → S6c-Phase-2-4 re-fire → Matt-gate re-surface → Matt RATIFY-FIRE → S6c-Phase-5+ → A2-2 → A2-7 + D13 parallel-fire → Cycle 14 v1 MVP D9 close.
 
 **Signed:** knight-rider (orchestrator)
+
+---
+
+## Completion record
+
+**Completed by:** rocket
+**Completed:** 2026-05-29
+**Engine commit:** `6f9843c` — "rocket: cascade-resumption-3 Amendment 6 combined fix — S7 deepcopy + Pareto-2 lineage partition + S8 Bound 4 paired-skill-emission"
+**AGENT_STATE commit:** `18e833a`
+**Tag:** `rocket/v1.0-cascade-r3-amendment-6-combined-fix-1`
+**Math note:** `/Users/admin/Games/reincarnated-engine/src/reincarnated/generation/notes/cascade-r3-amendment-6-pareto2-partition-math-2026-05-29.md`
+
+### Sub-fix 1 (S7 deepcopy) — DONE
+
+- Root cause confirmed: `to_character_dict()` aliased `gear_set` dict entries via `rarity_dict[preferred_rarity]` reference; substrate_binding injection mutated shared object; last-write-wins across 3 samples.
+- Fix: `gear_set_copy = copy.deepcopy(self.gear_set)` at start of `to_character_dict()`. Loop uses `gear_set_copy.items()`.
+- Result: 54 distinct substrate_binding entries per season.
+- Files: `src/reincarnated/generation/season_generation_pipeline.py`
+
+### Sub-fix 2 (Pareto-2 lineage partition) — DONE
+
+- Fix: Phase4Archive partition key extended to `(bc_cell_id, cultural_lineage_canonical)` tuple. 5 locations updated: `get_residents()`, `cell_population()`, `_apply_accept()`, `_insertion_counts` dict, `run_covariance_audit()`. Wire-up in `run_phase4_mechanical_archive()`.
+- Design constraint upheld: lineage is partition discriminator ONLY, not added to q1-q5.
+- Disc #46 § 7 per-cell bounding preserved per-bucket.
+- Files: `src/reincarnated/simulation/spatial_gauntlet/phase4_pipeline.py`, `src/reincarnated/simulation/wave5_season_orchestrator.py`
+
+### Sub-fix 3 (S8 Bound 4 paired-joint-sampling) — DONE
+
+- Fix: Replaced single shared `cell_skills` with per-sample emission loop using `f"{cell_prefix}_s{sample_idx}"` character_id. Strict pairing by sample_idx.
+- Disc #42a Instance 6 surface: `emit_skills_for_kit` is DETERMINISTIC. Mechanical content identical across N; variation = skill_id namespace only. Architecturally correct per dispatch § 2.3.
+- Cross-product (9 × 18 = 162) rejected per Bound 4.
+- Files: `src/reincarnated/generation/season_generation_pipeline.py`
+
+### § 8 deliverables
+
+| Deliverable | Status |
+|---|---|
+| Engine commit (all 3 sub-fixes + tests) | DONE — commit `6f9843c` |
+| Tag (rocket prefix) | DONE — `rocket/v1.0-cascade-r3-amendment-6-combined-fix-1` |
+| Disc #1 math note | DONE — `notes/cascade-r3-amendment-6-pareto2-partition-math-2026-05-29.md` |
+| MIGRATION.md cross-seam entry | DONE — appended to `src/reincarnated/generation/MIGRATION.md` |
+| AGENT_STATE.md checkpoint | DONE — commit `18e833a` |
+| 18 new tests (test_cascade_r3_amendment_6_combined_fix.py) | DONE — all 18 PASS |
+| 67 updated tests (test_cycle13_wave5_season_generation.py) | DONE — all 85 PASS |
+| Phase 2-4 empirical smoke (halt_at_phase=5) | DONE — Phase 2=54, Phase 4=34 (predicted 25-40 PASS) |
+| Completion record (this section) | DONE |
+
+### Disc #11 audit summary
+
+| Gate | Status |
+|---|---|
+| Sub-fix 1: 54 distinct substrate bindings | PASS |
+| Sub-fix 2: archive in 25-40 range | PASS (34) |
+| Sub-fix 3: 54 distinct (substrate, skill_tree) pairs | PASS |
+| Disc #42a Instance 6 surface documented | PASS |
+| Bound 4 anti-pattern rejected | PASS |
+| Disc #46 § 7 per-cell bounding preserved | PASS (per-bucket) |
+| 85 tests PASS | PASS |
+| LLM cost $0 (halt_at_phase=5) | PASS |
+
+### Pre-existing test failures (not caused by Amendment 6)
+
+21 failures in 3 files verified pre-existing via `git stash` + baseline run before Amendment 6:
+- `tests/test_range_profile.py` (known pre-existing)
+- `tests/test_substrate_identity_loader.py` (known pre-existing)
+- `tests/test_wind_controller_dps_floor.py` (known pre-existing)
+
+### KR next-step
+
+Jack-ryan Gate-2 Pattern E review of Amendment 6 combined fix. Per Gate-2 PASS → KR re-fires S6c-Phase-2-4 production run → re-surfaces Matt-gate at Phase 5 entry with updated Amendment 6 empirical state.
