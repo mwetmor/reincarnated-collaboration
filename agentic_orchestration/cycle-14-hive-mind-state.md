@@ -4232,3 +4232,73 @@ Cycle 14 v1 MVP D9 close
 ```
 
 **Updated estimate to Matt-gate surface:** ~1-2h wall-clock (gandalf review + S6c Phase 2-4 fire in parallel).
+
+### CASCADE-RESUMPTION-3 S6c-PHASE-2-4 + GANDALF MATH-NOTE REVIEW CLOSED 2026-05-29 — Matt-gate surface ready
+
+**Parallel batch closed concurrently:**
+
+**Gandalf math-note review CLOSED — collab `2d0e156`; review note at `agentic_orchestration/gandalf/notes/2026-05-29-cascade-r3-math-note-review-expanded.md`:**
+
+- **Threshold validation: PASS** — `P7_GAUNTLET_PASS_FLOOR = 0.50` (strict greater-than) correctly aligned with W-α6 anchor `GAUNTLET_ELIGIBLE_PASS_FLOOR_W_ALPHA_6 = 9/18 = 0.50`. Math sound; gamora Option T1 election (strict >) preserves operator semantics; smoke re-fire empirically validates (0 → 12/18 shipped)
+- **Wave B firing logic: per-base-kit CONFIRMED** (3 code citations in `wave5_season_orchestrator.py:1080-1081, 1577-1591, 1620-1624`; canonical § 5.3 + Recognition record Amendment 3 H0 default — variant inheritance)
+- **Cost projection (gandalf basis):**
+  - Wave A: 4-7 calls × ~$0.05 = ~$0.20-0.35/season
+  - F-C: 6 calls × ~$0.05 = ~$0.30/season
+  - Wave B per-base-kit: 54 × ~$0.012 = ~$0.65/season
+  - Total mid ~$1.15-1.30/season; 3-season ~$3.45-3.90 mid; ~$8.70 worst-case = **7-17% of $50 cap; WITHIN cap**
+- **No § 5 surface findings**
+- 3 cumulative recognitions for Cycle 14 wave-close (Disc #42a Instance 2 sub-case `pass_rate` semantic alignment / `eligible_encounters_in_band` aggregate naming / Pre-fire empirical-verification gate discipline pattern)
+
+**Rocket S6c-Phase-2-4 CLOSED — Engine `6b703f8` + tag `rocket/v1.0-cascade-r3-s6c-phase-2-4-1`; collab `32421f2`:**
+
+- `halt_at_phase` param added to `run_wave5_season_001()` (simplest-implementation)
+- `_collect_gate_content()` helper collects 5 gate categories
+- Pipeline exited cleanly after Phase 4; Phase 5 LLM imports NOT executed; **LLM cost = $0**
+- Gate content JSON at `agentic_orchestration/cycle-14-wave-5-season-001/s6c-phase-5-entry-gate-content.json`
+- Wall clock 50s
+- 100 tests PASS
+
+**Phase 2-4 results:**
+
+| Phase | Result |
+|---|---|
+| Phase 2 base kits | 54 (18 BC × N=3 substrate samples; seed_base=14001) |
+| Phase 3 variants enumerated | 810 (S2 Option C: 270 cells × 3 strategy/invest; 162 structural NOs skipped) |
+| Phase 3 variants shipped | 585 (cell_any_pass inheritance per S6a-FIX Fix 1) |
+| PM-1 input cardinality | **598** (13 passing base + 585 passing variants) |
+| PM-1 clusters | **4 (GMM_BIC_selected; NOT degenerate fallback)** |
+| Phase 4 archive total | **18** (1 base kit per BC cell after Pareto dominance) |
+| Phase 4 archive variant rows accepted | **0** (all 585 dominated by base kits with real quality vectors; variants have neutral 0.5 quality_vector → dominated) |
+| Wall clock | 50s |
+
+**Substrate diversity (Amendment 5 item 1+3):**
+
+| Dimension | Distinct | Distribution |
+|---|---|---|
+| cultural_lineage_canonical | **5** (MEETS ≥5) | european 13 / fantasy_generic 32 / south_asian 2 / east_asian 6 / southeast_asian 1 |
+| weapon_type_family | **5** (MEETS ≥5) | martial-heavy 10 / ranged 13 / martial-light 1 / caster-arcane 15 / caster-faith 15 |
+| historical_period_canonical | 8 | early_modern 10 / industrial 4 / fictional 27 / contemporary 2 / medieval 2 / modern 2 / pre_classical 1 / classical 6 |
+| register_canonical | 4 | historical 18 / fantasy 32 / mythological 3 / military_modern 1 |
+| distinct (lineage × period × register × weapon) tuples | **22** | — |
+
+**Per-cohort distribution (Amendment 5 item 2):**
+
+- damage_min_maxer: 18
+- balanced: 36
+- defensive: **0**
+- hybrid: **0**
+
+**Pre-ratified surface findings (NOT new triggers):**
+
+1. **Phase 4 archive collapses 585 variant rows to 0 accepted** — root cause: variant quality vectors are neutral 0.5 (no per-variant gauntlet encounter data → `_derive_quality_vector()` neutral fallback). Base kits occupy per-cell archive slots with real quality vectors → variants Pareto-dominated. PM-1 substrate CORRECTLY includes 598 for clustering substrate; archive storage = base kits only. Aligns with Recognition record Amendment 3 H0 (variant inheritance).
+2. **Cohort: defensive=0, hybrid=0** — BC catalog `_infer_primary_cohort()` only produces dps_min_maxer (spiky amplitude) and balanced (default). No BC cells with bc_proxy_density=dense or bc_tempo=low AND bc_amplitude=flat combinations. BC catalog characteristic, not pipeline failure.
+
+**Refined LLM cost projection (per archive=18 not gandalf's 54 base):**
+
+- Wave A: 4 calls/season × ~$0.05 = ~$0.20/season
+- F-C: 6 calls/season × ~$0.05 = ~$0.30/season
+- Wave B per-archive-kit: 18 × ~$0.012 = ~$0.22/season
+- Total per season: ~$0.72/season (mid)
+- 3-season total: **~$2.16 (mid) / ~$4.50 (worst case)** = **~4-9% of $50 cap**
+
+**Matt-surface authored at this turn for Amendment 5 Matt-gate election (RATIFY-FIRE / REDUCE-SCOPE / ABORT).**
