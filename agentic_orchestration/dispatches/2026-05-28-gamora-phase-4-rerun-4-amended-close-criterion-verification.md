@@ -111,4 +111,162 @@ If this FAILS → KR diagnoses + iterates R3-prime hotfix dispatch; Cycle 14 clo
 
 ## Completion record
 
-(gamora appends here)
+**Completed:** 2026-05-28 (gamora Phase 4 RE-RUN-4)
+**Status:** DISPATCH COMPLETE — KR SURFACING CONDITION: amended close-criterion T1+T2+T3+T5 FAILS at 5 of 7 profiles
+
+---
+
+### 1. VERDICT
+
+Phase 4 RE-RUN-4 verifies the R3 hotfix (`00b7f02`) PARTIALLY satisfies amended close-criterion T1+T2+T3+T5 across 7 profiles: **max_a, max_b, mixed_v2 PASS T2; ALL 7 profiles FAIL T1 except mid (1.155 PASS)**. Amended close-criterion is NOT satisfied across the full 7-profile sweep. Surfacing to KR per dispatch § 4 partial-coverage risk + § 0 surfacing protocol.
+
+**Root distinction from RE-RUN-3:** The R3 hotfix BVV anchor (Dispatch 2) confirmed T1=1.1442 PASS in **base context** (direct BVV run, no DDA context override). RE-RUN-4 measures T1 in **DDA context** (override_kit_ids_by_path active), where DDA 1.75× amplification at preferred_encounter_type creates cross-path DPS variance above the 1.5 threshold. This is a pre-existing DDA architectural characteristic — not a hotfix regression. T2 failures at low/mid/mixed profiles are investment-level artifacts: hotfix bands were calibrated from max_a profile KPM; lower-investment profiles produce KPM below band lower bounds.
+
+---
+
+### 2. Pre-flight attestation
+
+- **Memory (R47.5 + Disc #1.1):** vm_stat pre-flight 2.58 GB available (free + inactive + purgeable). PASS. Threshold = 1 GB.
+- **Engine state:** `00b7f02` (gamora/v2.9-r3-t2-zero-kpm-hotfix-1) — hotfix active. Confirmed.
+- **Single-seam sequencing (R47.4):** no parallel work fired. PASS.
+- **Smoke (Disc #2):** RE-RUN-4 smoke run (5 kits, max_a) confirmed pipeline operates end-to-end before full run.
+- **Wall time:** 83.0 s (vs ~80s RE-RUN-3 precedent). PASS.
+
+---
+
+### 3. Per-profile metrics table
+
+| Profile | T1 (ratio) | T1 PASS | T2 PASS | T3 PASS | T4 fails/18 | T5 viol | T5 PASS |
+|---------|-----------|---------|---------|---------|-------------|---------|---------|
+| low | 1.720 | FAIL | FAIL | PASS | 18 | 0 | PASS |
+| mid | 1.155 | PASS | FAIL | PASS | 17 | 0 | PASS |
+| max_a | 2.425 | FAIL | PASS | PASS | 18 | 0 | PASS |
+| max_b | 2.425 | FAIL | PASS | PASS | 18 | 0 | PASS |
+| mixed_v1 | inf | FAIL | FAIL | PASS | 17 | 0 | PASS |
+| mixed_v2 | 2.425 | FAIL | PASS | PASS | 18 | 0 | PASS |
+| mixed_v3 | inf | FAIL | FAIL | PASS | 17 | 0 | PASS |
+
+Notes:
+- T1 threshold = 1.5 (max/min per-path median DPS ratio)
+- T3 is structural PASS at all profiles (W-α2 ceiling removed; saturation_count=0 always)
+- T5 = 0 floor violations at all profiles (floor=0.30 DPS threshold)
+- T4 = measured-for-record only (Cycle 16+ deferred; does NOT gate close)
+
+---
+
+### 4. Derived-compound-pass under amended criterion (T1+T2+T3+T5; T4 excluded)
+
+| Profile | T1 PASS | T2 PASS | T3 PASS | T5 PASS | AMENDED DERIVED PASS |
+|---------|---------|---------|---------|---------|---------------------|
+| low | FAIL | FAIL | PASS | PASS | **FAIL** |
+| mid | PASS | FAIL | PASS | PASS | **FAIL** |
+| max_a | FAIL | PASS | PASS | PASS | **FAIL** |
+| max_b | FAIL | PASS | PASS | PASS | **FAIL** |
+| mixed_v1 | FAIL | FAIL | PASS | PASS | **FAIL** |
+| mixed_v2 | FAIL | PASS | PASS | PASS | **FAIL** |
+| mixed_v3 | FAIL | FAIL | PASS | PASS | **FAIL** |
+
+**Amended close-criterion verdict: FAIL — 0 of 7 profiles PASS amended criterion.**
+
+Note: raw `compound_pass` field from telemetry = False at all 7 profiles (AND of T1+T2+T3+T4+T5 includes T4). Derived amended PASS (T1+T2+T3+T5 only) = FAIL at all 7 profiles due to T1 failures.
+
+---
+
+### 5. BVV anchor re-verification
+
+The BVV anchor file (`bounded-viability-validation-baseline-2026-05-28.json`) was overwritten during RE-RUN-4 by the ECF Layer 2 BVV pass (which runs BVV at max_a in ECF context, not DDA context). The ECF-context BVV shows T1=1.1442 PASS T2=PASS T3=PASS T5=PASS — consistent with Dispatch 2 anchor result. This confirms the hotfix anchor is still PASS in base/ECF context.
+
+The DDA-context BVV at max_a (primary DDA layer) shows T1=2.425 FAIL — this is the cross-path DPS variance introduced by DDA amplification, not a hotfix regression.
+
+**BVV anchor (base/ECF context): T1+T2+T3+T5 still PASS — consistent with Dispatch 2 record.**
+
+---
+
+### 6. Telemetry path
+
+`/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/cycle-14-wave-5-season-001/w-alpha-7-plus-phase-4-rerun-4-amended-close-criterion-telemetry.json`
+
+- wall_time_s: 83.01
+- total_gauntlet_calls: 8 (7 DDA profiles + 1 ECF Layer 2)
+- total_measurement_cells: 3456
+- kits_shipped: 18 / 18
+
+Note: RE-RUN-3 telemetry path (`w-alpha-7-plus-phase-4-rerun-3-two-layer-t4-sweep-telemetry.json`) was overwritten as a side-effect of RE-RUN-4 delegating to RE-RUN-3's engine function. RE-RUN-3 internal write fires before RE-RUN-4 override. Content is the 7-profile RE-RUN-4 run data — not a correctness issue; the RE-RUN-4 output path is canonical for this run.
+
+---
+
+### 7. Pre-Cycle-16 T4 baseline data
+
+**T4 specialization failures per profile (Cycle 16+ BC axis expansion baseline):**
+
+| Profile | T4 kit failures (of 18) | Pass rate |
+|---------|------------------------|-----------|
+| low | 18 | 0% |
+| mid | 17 | 5.6% (1 kit PASS) |
+| max_a | 18 | 0% |
+| max_b | 18 | 0% |
+| mixed_v1 | 17 | 5.6% |
+| mixed_v2 | 18 | 0% |
+| mixed_v3 | 17 | 5.6% |
+
+T4 fail reason at all profiles: `no_peaks` — no kit produces a cell with DDA ratio in [1.5, 2.0] × cohort_median. The 1.75× DDA multiplier fires at preferred_encounter_type but the BVV T4 criterion requires the preferred-encounter-type cell to show ratio in [1.5, 2.0] vs median. At max investment all cells are elevated, compressing the relative specialization ratio.
+
+**Strip-and-ship (18/18 ships — Primary DDA EXEMPT):**
+
+| Kit | Primary DDA | ECF Layer 2 |
+|-----|------------|------------|
+| endgame_str_01_heavy_barbarian | SHIPS | stripped |
+| endgame_str_02_light_fighter | SHIPS | stripped |
+| endgame_str_03_polearm_soldier | SHIPS | stripped |
+| endgame_str_04_thrown_heavy | SHIPS | (no ECF candidate) |
+| endgame_dex_01_dagger_assassin | SHIPS | stripped |
+| endgame_dex_02_archer | SHIPS | stripped |
+| endgame_dex_03_crossbow_sniper | SHIPS | (no ECF candidate) |
+| endgame_dex_04_twin_blade_fencer | SHIPS | (no ECF candidate) |
+| endgame_int_01_standard_wizard | SHIPS | SHIPS |
+| endgame_int_02_artillery_mage | SHIPS | stripped |
+| endgame_int_03_pyromantic_caster | SHIPS | (no ECF candidate) |
+| endgame_int_04_red_mage_spellsword | SHIPS | (no ECF candidate) |
+| endgame_int_05_arcane_familiar_mage | SHIPS | SHIPS |
+| endgame_wis_01_channeling_cleric | SHIPS | SHIPS |
+| endgame_wis_02_holy_knight | SHIPS | stripped |
+| endgame_wis_03_ritual_mage | SHIPS | stripped |
+| endgame_wis_04_storm_caller | SHIPS | stripped |
+| endgame_wis_05_monk | SHIPS | SHIPS |
+
+4 kits ship with Primary DDA + ECF Layer 2 (int_01, int_05, wis_01, wis_05).
+9 kits ship with Primary DDA + ECF stripped.
+5 kits ship with Primary DDA only (no ECF candidates).
+
+---
+
+### 8. Anomalies (KR-surfacing conditions)
+
+**ANOMALY A — T1 FAIL in DDA context (all profiles except mid):**
+
+T1 ratio at max_a = 2.425 in DDA context, but T1 = 1.1442 in base/ECF context (Dispatch 2 BVV anchor). The DDA 1.75× amplification at preferred_encounter_type is encounter-type-specific. Different damage_scaling_paths have kits assigned different preferred_encounter_types by `select_primary_t4` (str kits → boss_with_adds; DEX/INT/WIS kits → mini_boss per run logs). This creates cross-path DPS median divergence above the 1.5 threshold when measured in DDA context.
+
+**This is NOT a hotfix regression** — RE-RUN-3 showed max_a T1=Infinity before hotfix. The hotfix fixed T2 (band-reject artifact). T1 in DDA context is a structural DDA architectural characteristic.
+
+**KR diagnosis question:** Is T1 intended to be measured in DDA context or base context for the amended close-criterion? If base context (which is what Dispatch 2 BVV anchor measured), T1 = 1.1442 PASS. If DDA context, T1 = 2.425 FAIL at max_a.
+
+**ANOMALY B — T2 FAIL at low/mid/mixed_v1/mixed_v3 profiles:**
+
+T2 PASS at max_a, max_b, mixed_v2 (3 of 7 profiles). FAIL at low, mid, mixed_v1, mixed_v3 (4 of 7 profiles). The hotfix recalibrated ENCOUNTER_COHORT_KPM_BAND upper bounds from max_a profile empirical KPM data. At lower investment levels, kits produce lower KPM that falls below the band lower bounds — triggering T1-reject in gauntlet_sim which results in zero-KPM cells in BVV T2 count.
+
+**This is partial hotfix coverage** — the hotfix was calibrated to max_a profile; lower-investment profiles were not part of the calibration. Per dispatch § 4: "band recalibration may be insufficient for that profile's investment configuration. Surface to KR for diagnosis; potential R3-prime hotfix iteration scope: same gauntlet_sim.py band table, profile-aware band tuning."
+
+**Action required (per dispatch § 1, surfacing condition 2 + 3):** Surface to KR for R3-prime diagnosis. Two candidate shapes:
+- R3-prime shape 1: Profile-aware band lower bound tuning (lower investment → lower floor bands)
+- R3-prime shape 2: Clarify T1 measurement context (DDA vs base) in amended criterion
+
+---
+
+### 9. Auto-commit + tag
+
+- Engine commit: `gamora(v2.9): Phase 4 RE-RUN-4 harness (run_multi_dim_calibration_sweep_phase4_rerun4) — 7-profile amended close-criterion verification`
+- Collab commit: RE-RUN-4 telemetry + dispatch completion record
+- Tag: `gamora/v2.9-r3-phase-4-rerun-4-verification-1` (per dispatch § 2.3 item 8)
+- Push: withheld pending KR disposition per ADR-006
+
+**KR handoff:** RE-RUN-4 COMPLETE. Amended close-criterion T1+T2+T3+T5 FAILS at all 7 profiles (T1 DDA-context measurement + T2 investment-level calibration gaps). Two anomalies diagnosed and surfaced above. R3-prime required. Recommend KR diagnosis before Mode A Dispatch 4 fires.

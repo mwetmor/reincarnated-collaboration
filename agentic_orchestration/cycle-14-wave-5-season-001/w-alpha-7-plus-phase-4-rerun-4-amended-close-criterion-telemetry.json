@@ -33,7 +33,7 @@
     "mixed_v2": 18,
     "mixed_v3": 17
   },
-  "t4_engine_routing_note": "Phase 4 RE-RUN-3: Two-Layer T4 architecture (gandalf v1.17 `eb5bd1b` + rocket v1.13 `1ac272f`). PRIMARY T4: DIRECT_DAMAGE_AMPLIFICATION 1.75\u00d7 at preferred_encounter_type (universal; all 18 kits). fight-context injection: t4_current_encounter_type=scenario_shell_id in t4_sim_cycling.py w4g1/w4g2. LAYER 2: ELEMENT_CONVERSION v1.2 (A=1.50 B=1.25 C=0.25 additive). 13/18 eligible kits. 5/18 kits (0 T4 candidates) ship with Primary DDA only. strip-and-ship: Primary T4 EXEMPT (all kits ship); Layer 2 strip/ship per ECF BVV T4 peaks. compound_pass = Primary DDA BVV max_a result. DDA epoch: t4_preferred_encounter_type/t4_current_encounter_type fields active. ECF v1.2 epoch: pre-v1.53 ECF telemetry NOT comparable. Discipline #12: DDA epoch break declared. Bug 1 (variant key) FIXED v1.52; Bug 2 (magical ECF) FIXED rocket v1.12, preserved v1.13. Math note: simulation/math/w-alpha-7-plus-phase-4-rerun-3-two-layer-t4-2026-05-28.md",
+  "t4_engine_routing_note": "Phase 4 RE-RUN-4: Amended close-criterion verification (KR Mode A Dispatch 3). Same Two-Layer T4 architecture as RE-RUN-3 (gandalf v1.17 `eb5bd1b` + rocket v1.13 `1ac272f`). Hotfix active: Cycle 14.5 R3 T2 zero-KPM hotfix (engine 00b7f02 / gamora/v2.9-r3-t2-zero-kpm-hotfix-1). Hotfix components: (A) boss_with_adds added to direct-range-check T1 routing enc types; (B) ENCOUNTER_COHORT_KPM_BAND upper bounds recalibrated for magic_pack + mini_boss. ROOT CAUSE: band-reject artifact in BVV harness (not BASE under-calibration). AMENDED close-criterion: T1+T2+T3+T5 all PASS required; T4 measured-for-record only (Cycle 16+ deferred). Discipline #12 epoch breaks A+B active (math note cycle-14-5-r3-t2-zero-kpm-hotfix-2026-05-28.md). compound_pass = raw RE-RUN-3 field (may AND T4); use derived_compound_pass (T1+T2+T3+T5) for amended criterion.",
   "encounter_band_table_updated": {
     "open_arena": {
       "DPS-min-maxer": [
@@ -490,5 +490,5 @@
       "layer": "primary_dda"
     }
   },
-  "telemetry_output_path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/cycle-14-wave-5-season-001/w-alpha-7-plus-phase-4-rerun-3-two-layer-t4-sweep-telemetry.json"
+  "telemetry_output_path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/cycle-14-wave-5-season-001/w-alpha-7-plus-phase-4-rerun-4-amended-close-criterion-telemetry.json"
 }
