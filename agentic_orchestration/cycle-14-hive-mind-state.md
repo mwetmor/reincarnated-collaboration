@@ -4425,3 +4425,59 @@ A2-2 (Pattern E) → A2-3 (season_002) → A2-4 (season_003) → A2-5 (A/B) → 
   ↓ + D13 parallel-fire post-A2-2 PASS
 Cycle 14 v1 MVP D9 close
 ```
+
+### CASCADE-RESUMPTION-3 AMENDMENT 7 CLOSED 2026-05-29 — 8-element coverage + hybrid 12/54
+
+**Rocket Amendment 7 CLOSED — Engine `8d5be1b` + `1cc2507` + tag `rocket/v1.0-cascade-r3-amendment-7-element-coverage-1`:**
+
+**Layer 1 — STAT_ELEMENT_POOLS active:**
+- `_BC_ATTRIBUTE_TO_ELEMENT` legacy RETIRED
+- Per canonical `elements.yaml` scales_with: INT→{fire/water/lightning/shadow}(4), WIS→{earth/wind/holy}(3), STR→{physical}(1), DEX→{all 8}(Option C decouple)
+- N=3 elements WITHOUT REPLACEMENT per cell
+- Smoke (54 kits, seed=14001) primary distribution: earth=9 / fire=6 / holy=6 / lightning=6 / physical=13 / shadow=4 / water=4 / wind=6 — **all 8 elements present** ✅
+
+**Layer 2 — Hybrid 17.5%:**
+- HYBRID_RATE = 0.175; independent roll per sample; seed `enc_seed + sample_idx * 17 + 1`
+- Smoke: **12 hybrid of 54 kits** — within 95% CI [6-13] PASS ✅
+
+**Layer 3 — Chain assignment:**
+- Mono: chain_1 = chain_2 = supporting = kit.element
+- Hybrid: chain_1 = supporting = primary; chain_2 = secondary
+- No ChainSpec schema change (existing field reused)
+
+**Schema additions:**
+- `KitCandidate.is_hybrid` + `KitCandidate.secondary_element` (backward-compat defaults)
+- `PlayerClass.is_hybrid` + `PlayerClass.secondary_element` (backward-compat defaults)
+- `to_character_dict()` serializes both for telemetry/Phase 5/archive
+
+**Amendment 6 composition verification:**
+- Pareto-2 partition (bc_cell_id, cultural_lineage_canonical) PRESERVED ✅
+- S7 deepcopy in to_character_dict() PRESERVED ✅
+- S8 Bound 4 paired-joint-sampling PRESERVED ✅
+
+**Engineering:**
+- Math note at `generation/notes/cascade-r3-amendment-7-element-coverage-math-2026-05-29.md`
+- MIGRATION.md cross-seam entry
+- 49 new tests at `test_cascade_r3_amendment_7_element_coverage_hybrid.py`
+- 554 tests PASS / 0 regressions
+- ~1.5h effort (within ~1-2h estimate)
+- No § 6 surface findings
+
+**KR Disc #42a meta-observation 5 verification (smoke-line evidence):**
+- All 8 elements present at primary-mono layer ✅
+- Hybrid rate within 95% CI ✅
+- Amendment 6 composition unbroken ✅
+
+**Cascade trajectory carry-forward:**
+
+```
+Amendment 6 ✅ + Gate-2 PASS-with-INFO ✅ + Amendments 7+8 ✅ + Amendment 7 implementation ✅
+  ↓
+Jack-ryan Gate-2 Pattern E review of Amendment 7 (composition verification + § 7 acceptance)
+  ↓ (PASS-with-WARN/INFO per Pattern E)
+Re-fire S6c production cascade Phase 2-4 → Phase 5 LLM (Wave A + F-C + Wave B) → Phase 7 (NO Matt-gate per Amendment 8)
+  ↓ (KR monitors $50 cap; surface at ~75-80% approach OR breach)
+A2-1 RE-FIRE-3 PASS expected (≥12/18 shipped_worthy + 8-element coverage + hybrid rate within CI)
+  ↓
+A2-2 (Pattern E) → A2-3 → A2-4 → A2-5 → A2-6 → A2-7 + D13 parallel → Cycle 14 v1 MVP D9 close
+```
