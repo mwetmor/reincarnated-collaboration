@@ -235,7 +235,78 @@ Wave B option (i) authorized per Matt verbatim "yes, option (i)" — Wave B oper
 
 ---
 
-## 10. Sign-off
+## 11. Post-production parallel phases (Cycle 14 v1 close trajectory)
+
+**Triggering event:** cascade-resumption-4 § 9.1 step 5 completes — season_001 Phase 5+ re-fire under Path X lands; KR consolidates output; Matt surface confirms shipped-worthy + element coverage acceptance.
+
+**Once season_001 lands, MOVE TO PARALLEL TRACKS IMMEDIATELY.** Do NOT serialize the remaining Cycle 14 v1 close work. Four parallel tracks fire concurrently:
+
+### 11.1 Track A — Production runs 002 + 003 (KR coordination)
+- Pattern E pre-authorization per Amendment 8 + cascade-resumption-4 § 9.1 step 6
+- KR fires season_002 + season_003 production cascades under $50 cap monitoring
+- Each season runs full Phase 2-7 cascade with different RNG seed (per-season substrate + element + hybrid variance)
+- Expected total cost: ~$0.74 (2 × ~$0.37/season)
+- Matt-surface only on $50 cap threshold or material-fail (per Amendment 4 + 8 enumeration)
+
+### 11.2 Track B — Drax loadout app refresh + summary tab
+- **Drax** refreshes `reincarnated-loadout/` web app to surface Cycle 14 v1 production output
+- **Drax + Legolas + Galadriel** coordinate ChatGPT API image generation for summary tab content (per `canonical/story/style-register.md` locked register; per `canonical/19-llm-call-map.md` + image-gen integration plumbing)
+- Galadriel produces CV-pipeline scoring against genre-peer references for summary tab visual quality
+- Legolas provides image-gen prompts informed by per-kit + per-faction substrate metadata (cultural lineage, period, register, element, weapon family)
+- See § 12 for the drax specific hero-image-extraction task (companion to summary tab work)
+
+### 11.3 Track C — Gandalf A/B testing (sub-agent firing)
+- **Gandalf (sub-agent invocation)** authors A/B testing scope for Cycle 14 v1 player-facing surfaces
+- Per Amendment 6 Sub-fix 2 reasoning: Pareto-2 archive serves A/B comparison protocol (jack-ryan canonical-write framing); cascade-resumption-4 fixed Phase 5 wire-up so A/B test substrate is now player-facing-coherent
+- Scope: identify variant pairs (per-faction; per-kit-archetype; per-element-class) for A/B comparison; design test instruments (visual presentation pairs; mechanical-presentation pairs; cohesion-emergence comparison); coordinate with drax on loadout-app A/B presentation surface
+- Composes with multi-season variant data (3 seasons × ~22 shipped kits per season = ~66 candidate kits for A/B pool)
+
+### 11.4 Parallel-track resource constraints
+- Track A runs at $50 cap (KR monitors)
+- Track B + C run under Disc #19 background processes per Amendment 3 (R48 retired except R48.1-R48.3 oversized-file safety per Disc #49)
+- All four tracks compose; no inter-track dependencies block firing
+- Track A produces empirical substrate for Track B + C consumption AS it lands (not blocking)
+
+---
+
+## 12. Drax hero + gear image extraction task (companion to § 11.2 Track B)
+
+**Matt-specified task for drax post-season_001 Phase 7 close:**
+
+### 12.1 Drax responsibilities
+1. **Isolate the seasonal hero** from season_001 Phase 7 shipped_worthy roster
+   - Selection criterion: TBD with Matt design call (likely highest cohesion-score kit per cluster OR specific faction-alignment marquee OR Matt-elected per substrate metadata)
+   - Drax surfaces selection criterion options to Matt; Matt elects; drax executes isolation
+2. **Generate seasonal hero image** via ChatGPT API image-gen (Track B Track integration)
+   - Prompt informed by hero kit substrate metadata (cultural lineage + period + register + element + weapon family + faction identity)
+   - Style register per `canonical/story/style-register.md` lock
+3. **Extract every gear piece image** the hero wears
+   - 11 gear slots per current kit schema (per `gear_instance_generator.py:300` reference)
+   - Per-piece image generation OR isolation from a composite hero image (drax design call)
+   - Each gear piece image must be ISOLATED (no background; no overlap; suitable for Meshy ingestion)
+4. **Send Matt** the seasonal hero image + each isolated gear piece image (12 images total: 1 hero + 11 gear)
+
+### 12.2 Matt handoff
+- Matt receives the 12 images from drax
+- Matt loads images into Meshy for 3D animation
+- Matt produces Meshy animation link/URL
+- Matt returns Meshy animation URL to drax
+
+### 12.3 Drax animation wiring
+- Drax receives Meshy animation URL from Matt
+- Drax wires the URL into the loadout app summary tab (or appropriate surface per Track B § 11.2)
+- Animation surfaces in Cycle 14 v1 player-facing loadout app
+
+### 12.4 Scope notes
+- This task fires AFTER cascade-resumption-4 Path X production season_001 closes (Track A starting point)
+- Drax can begin hero-isolation logic in parallel with Track A while waiting for season_001 Phase 7 output
+- Image generation costs estimate: 12 images × ~$0.04-0.08/image (ChatGPT API image-gen) = ~$0.50-1.00 per season; 3 seasons ~$1.50-3.00 (assuming one hero per season)
+- Composes with Designer-writes-substrate principle: drax's hero isolation + image gen consume substrate metadata (cultural lineage, period, etc.) — substrate-led visual identity
+- Composes with no-raw-LLM-dialogue discipline (canonical/38 D7 AI-tell line): image-gen prompts are templated with narrow substrate-filled blanks; not raw LLM dialogue
+
+---
+
+## 13. Sign-off
 
 **Authored:** gandalf (story-and-design steward) per Matt 2026-05-29 evening late "Path X — fire cascade-resumption-4" + "yes, option (i)" verbatim
 **Composition:** Cycle 14 v1 close trajectory; cascade-resumption-4 work program
