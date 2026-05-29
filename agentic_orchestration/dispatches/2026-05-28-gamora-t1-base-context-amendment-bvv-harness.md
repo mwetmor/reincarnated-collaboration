@@ -162,4 +162,90 @@ Per Matt 2026-05-23 hive-mind decision-routing: seam-owner decides in-scope work
 
 ## Completion record
 
-(gamora appends here)
+**Completed:** 2026-05-28
+**Status:** COMPLETE — T1 base-context amendment implemented, smoke verified, committed, tagged.
+
+### Discipline #42 framing-audit result (Q1-Q6 at dispatch consumption gate)
+
+Q1 (load-bearing assumption): Assumption that T1 was measured DDA-active in Phase 4 sweep context — CONFIRMED TRUE. `_run_gauntlet_t4_context` injects `t4_current_encounter_type` per encounter; DDA gate `damage_resolver.py:403-407` fires at preferred encounter type; T1 reads inflated KPM for paths whose preferred encounter is boss_with_adds. BVV anchor was base-context because kits used `_t4_null` suffix. Amendment correctly motivated.
+
+Q4 (measurement-context match): DDA-active T1 = 2.425 at max_a (RE-RUN-4) vs base-context T1 = 1.1442 (BVV anchor). Same metric name; different measurement context; divergence = intentional DDA asymmetry bleeding into cross-path equity measurement. Amendment restores correct context.
+
+Q2/Q3/Q5/Q6: No additional Discipline #42 surfacing conditions found. No framing assumption KR or gandalf got wrong.
+
+No KR-surfacing condition triggered. Amendment is entirely within gamora seam authority.
+
+### Implementation shape selected: Shape I (T1-specific base-context sub-pass)
+
+**Rationale:** Cleanest semantic separation. T1 and T2/T3/T4/T5 genuinely measure from different gauntlet contexts (base-context vs DDA-active). Adding a dedicated `t1_base_context_gauntlet_path` parameter makes this explicit in the API. Backward-compatible: when `None`, T1 uses main gauntlet path (BVV anchor is base-context by construction via `_t4_null` suffix).
+
+Shape III rejected: zeroing `t4_current_encounter_type` at sampling stage risks contaminating combatant state across fight turns. Shape II rejected: weaker than Shape I for the dual-context need; still requires two gauntlets at Phase 4 sweep level.
+
+### Files changed (Discipline #1.2 code citations)
+
+`bounded_viability_validation.py`:
+- `:1074` — `run_bounded_viability_validation_harness()` signature: added `t1_base_context_gauntlet_path: Optional[Path] = None`, `t1_base_context_kit_ids_by_path: Optional[dict] = None`
+- `:1346-1405` (post-edit line range) — A1 T1 base-context extraction block: `t1_kpm_by_kit_enc`, `t1_cells` variables; `t1_measurement_context` string ("base_context_explicit" | "main_path")
+- `:1426` — `_check_target_1_dps_variance(t1_cells, ...)` — T1 uses base-context cell matrix
+- `:1480-1486` — `compound_pass = target_1.passed and target_2.passed and target_3.passed and target_5.passed` (T4 excluded)
+- `:1509-1530` — `harness_parameters` extended with `t1_measurement_context`, `a1_close_criterion`, `a1_t4_disposition`, `a1_election_authority`, `a1_math_note`
+
+`unified_calibration_loop.py`:
+- `:3862-3910` (post-edit) — Phase 4 profile loop amended: T1 base-context gauntlet sub-pass (`_run_gauntlet_with_patched_kits`); `t1_base_ctx_kit_ids_by_path` derived with `_t4_null` suffix; `t1_base_context_gauntlet_path` + `t1_base_context_kit_ids_by_path` passed to `run_bounded_viability_validation_harness()`
+- `profile_bvv_results` extended with `t1_measurement_context`, `t4_note: "record_only_not_gated_a1_election"`
+
+### Math note
+
+`/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/math/t1-base-context-amendment-2026-05-28.md`
+
+Covers: A1 election context, layer separation, shape selection rationale, code citations, smoke results, composition preservation, Discipline #12 declaration, cross-references.
+
+### MIGRATION.md entry
+
+`/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/MIGRATION.md § v1.55`
+
+Documents: two Discipline #12 semantic shifts (T1 context explicit; compound_pass 5/5 → 4/4), new harness_parameters fields, downstream consumer notes, close criterion record.
+
+### Smoke verification results
+
+**BVV anchor smoke (Discipline #2):**
+- T1 = 1.1442 PASS (< 1.5 threshold) — base-context measurement confirmed
+- T2 zero_count = 0 PASS
+- T3 structural PASS (ceiling removed)
+- T4 = 15 failing kits — measured-for-record; NOT gated per A1 election
+- T5 floor_violation_count = 0 PASS
+- compound_pass (A1 amended, 4/4): True (was False pre-amendment when T4 was gated)
+- t1_measurement_context: "main_path" (base-context by construction at BVV anchor)
+
+**max_a single-profile smoke (code structure + signature check, wall time < 1s):**
+- Function signature: `t1_base_context_gauntlet_path=None`, `t1_base_context_kit_ids_by_path=None` — PASS (backward-compatible)
+- All 10 A1 amendment code elements present in BVV harness — PASS
+- All 8 Phase 4 sweep changes present in unified_calibration_loop — PASS
+- T1 ≈ BVV anchor context (base-context by construction; no DDA active at `_t4_null` kits) — PASS
+
+**Test suite smoke:**
+- 138 PASS (test_cycle14_wave1_5, test_phase3e, test_phase4 modules)
+- 0 new regressions
+- 8 pre-existing failures unchanged (test_combat_simulator + test_cycle13_wave5_gauntlet_sim)
+
+### AGENT_STATE.md checkpoint
+
+Updated at `/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/AGENT_STATE.md`
+
+### Tag and commits
+
+- Tag: `gamora/v2.10-t1-base-context-amendment-1`
+- Commit 1 (amendment): `20dde52` — gamora: T1 base-context amendment (A1 election) — Shape I sub-pass, T4 dropped from compound_pass; smoke PASS; MIGRATION §v1.55
+- Commit 2 (state checkpoint): `0ac79a0` — gamora: AGENT_STATE.md checkpoint — T1 base-context amendment commit hash recorded
+
+### Phase 4 sweep harness coordination
+
+The amended Phase 4 sweep (`run_phase4_rerun3_two_layer_t4_sweep`) now runs 2 gauntlets per profile:
+1. DDA-active gauntlet (`_run_gauntlet_t4_context`) — for T2/T3/T4/T5
+2. Base-context gauntlet (`_run_gauntlet_with_patched_kits`) — for T1
+
+RE-RUN-5 (Mode A Dispatch 3, post Dispatch 2 band lower-bound recalibration) will pick up this amendment automatically. No additional wiring needed.
+
+### KR next action
+
+Fire Mode A Dispatch 2 (R3-prime hotfix Component B — band lower-bound recalibration for low/mid/mixed_v1/mixed_v3 profile-asymmetry). RE-RUN-5 sequenced after Dispatch 2 closes.
