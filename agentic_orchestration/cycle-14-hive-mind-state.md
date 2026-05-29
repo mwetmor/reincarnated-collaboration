@@ -2673,4 +2673,61 @@ Authoring this dispatch immediately under hive-mind decision-routing. Pre-flight
 
 **Measurable outcome criterion:** boss_with_adds + mini_boss KPM > 0 across all 18 kits at BVV anchor + 7-profile gauntlet. (NOT T4 specialization — that's deferred to Cycle 16+. Just "non-zero KPM at boss/mini_boss for every kit".)
 
+---
+
+### MODE A DISPATCH 2 — GAMORA R3 FORENSIC + HOTFIX ✅ COMPLETE
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-05-28-gamora-r3-forensic-t2-zero-kpm-boss-mini-boss-hotfix.md`
+**Engine commit:** `00b7f02` (tag `gamora/v2.9-r3-t2-zero-kpm-hotfix-1`)
+**Collaboration commit:** `9d30581` (completion record + BVV baseline refresh + artifacts)
+**Fire wall-clock:** ~2-4hr (matched estimate)
+
+**🚨 CRITICAL FRAMING-AUDIT FINDING (Discipline #23 / #42 candidate surface — for jack-ryan Gate-2 review):**
+
+KR's preliminary forensic intuition was WRONG. The exact-zero pattern `[0.0, 0.0, 0.0]` across 3 observations was NOT a deterministic-zeroing-bug signal (SC5) or damage-pipeline issue. **It was a BVV harness band-reject artifact** — kits WERE producing damage (boss_with_adds T1 KPM 63.8-150.0; Balanced median 98.6 at max_a profile-patched kits), but the harness band upper-bounds were over-tight relative to the actual Phase 3c HP + Phase 3d BASE + T4-context KPM distribution, so kits were band-rejected as "over-cap" and reported KPM=0.
+
+**Initial gamora session SC2 diagnosis (BASE under-calibration) was ALSO REJECTED** — it was based on bare-kit `investment_points=0` measurements (0.35 floor multiplier) which is NOT what BVV uses (BVV uses profile-patched kits at investment_points=15 for max_a). Cheapest-empirical-refutation per Discipline #19.1 applied correctly only after KR's framing assumption was caught and replaced by gamora.
+
+**Lesson captured (for Discipline #23 / #42 framing-audit checklist):** "exact-zero output across N observations" can be a measurement-artifact rather than a production-event. Before diagnosing the production path, verify the MEASUREMENT path is honestly reporting what the production path produces. This is a Q2-style cheapest-empirical-refutation insight (verify the measurement claim first; then dig into the production claim).
+
+**Root cause confirmed: OVER-BAND REJECT** — `ENCOUNTER_COHORT_KPM_BAND` upper bounds set too tight for the actual KPM distribution; T1 routing at boss_with_adds was still consuming legacy COHORT_KPM_BAND ±30% (accept [52.5, 97.5]) instead of the new ENCOUNTER_COHORT_KPM_BAND direct range check.
+
+**Hotfix (gamora, in `simulation/gauntlet_sim.py`):**
+
+- **Component A — T1 routing migration (Discipline #12 Epoch Break A):** added `boss_with_adds` to `_T1_BAND_OVERRIDE_ENC_TYPES` — T1 routing for boss_with_adds now uses ENCOUNTER_COHORT_KPM_BAND direct range check (consistent with elite_pack + mini_boss). Eliminates the ±30% accept-window mismatch.
+- **Component B — band upper-bound recalibration (Discipline #12 Epoch Break B):** recalibrated `ENCOUNTER_COHORT_KPM_BAND` upper bounds for all 4 affected encounter types (boss_with_adds, mini_boss, elite_pack, magic_pack) across all 4 cohorts (DPS-min-maxer / Balanced / Defensive / Hybrid), based on empirical max KPM + 10-20% headroom from a full 18-kit ECF gauntlet run.
+- **BASE values UNCHANGED** — Phase 3d RE-RUN BASE_DAMAGE_L50 values (20532.2 + 48012.6) preserved; no generation-side cross-seam impact; no rocket consumer breakage.
+
+**BVV anchor verification (single calibration profile; gamora-attested):**
+
+| Target | Pre-hotfix | Post-hotfix | Status |
+|---|---|---|---|
+| T1 DPS variance | 1.147× PASS | 1.1442× PASS | ✅ preserved |
+| T2 zero-KPM | 19 cells FAIL | 0 cells PASS | ✅ FIXED |
+| T3 saturation | structural PASS | structural PASS | ✅ preserved |
+| T5 floor | 0 violations PASS | 0 violations PASS | ✅ preserved |
+
+**Cycle 14 amended close-criterion (T1+T2+T3+T5) PASSES at BVV anchor.** T4 explicitly deferred per Cycle 16+ BC axis expansion.
+
+**R-set status post Mode A Dispatch 2:**
+- R1 ❌ REJECT (architectural mootness)
+- R2 ❌ REJECT (Mode A Dispatch 1 empirical verification)
+- **R3 ✅ RESOLVED (Mode A Dispatch 2 BVV anchor PASS at T1+T2+T3+T5; 7-profile sweep verification firing next)**
+- R4 ⏳ Cycle 16+ deferred (BC axis expansion)
+
+**Deferred follow-on items log update:**
+- Discipline #23 / #42 framing-audit candidate — "verify measurement before diagnosing production"; surface to jack-ryan Gate-2 wave-close (Mode A Dispatch 5) for Discipline canonical-write candidacy
+- Naming consistency at `mechanic_alteration.py:1066` (rocket Mode A Dispatch 1 deferred item — unchanged)
+- Discipline #47 candidate jack-ryan canonical ratification (unchanged)
+
+---
+
+### MODE A DISPATCH 3 — GAMORA PHASE 4 RE-RUN-4 (7-PROFILE SWEEP VERIFICATION)
+
+Authoring this dispatch immediately under hive-mind decision-routing. Pre-flight `vm_stat` confirmed (~2.6 GB available; load avg 2.77 normal post-sweep; safe under R47.5). Single-seam sequencing preserved — gamora hotfix session complete; no parallel fan-out.
+
+**Goal:** verify amended close-criterion (T1+T2+T3+T5) passes at BVV anchor + all 7 profiles (low / mid / max_a / max_b / mixed_v1 / mixed_v2 / mixed_v3). BVV anchor already PASS per Mode A Dispatch 2 gamora attestation; this sweep verifies the 7-profile composition.
+
+**Acceptance:** Phase 4 RE-RUN-4 telemetry shows T1+T2+T3+T5 PASS across all 7 profiles. T4 specialization is DROPPED-AS-GATE (Cycle 16+ deferred); we measure it for the record but it does NOT block close. Sweep wall-time ~80s per Phase 4 RE-RUN-3 precedent.
+
 
