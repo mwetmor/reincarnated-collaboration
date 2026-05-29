@@ -209,4 +209,4 @@ Amendment 7b not recommended — bypass is architectural. However, **config_to_k
 
 **Corollary gap:** 22 Phase 7 shipped-worthy kits include s0/s1 kits without faction cluster assignment (cohesion_data only covers 13 s2 base kits from Wave B). Export/drax downstream gap — not a new Instance 6 surface by itself.
 
-**Collab commit:** (appended post-commit by auto-commit)
+**Collab commit:** `764e732`

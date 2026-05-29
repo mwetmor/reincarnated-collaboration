@@ -231,4 +231,4 @@ This meets Disc #42a framing-audit pattern: a pre-imposed structural constraint 
 ---
 
 **Findings authored by:** rocket, 2026-05-29 evening late
-**Collab commit:** (appended post-commit)
+**Collab commit:** `764e732`
