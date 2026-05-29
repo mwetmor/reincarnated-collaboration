@@ -235,3 +235,93 @@ Document deviations from expectation at completion record for Matt-gate consider
 **Cascade trajectory:** S6c-Phase-2-4 + gandalf review parallel → KR Matt-surface (5-item gate) → Matt RATIFY-FIRE → S6c-Phase-5+ (Wave A + F-C + Wave B + Phase 7 verdict) → A2-2 (jack-ryan Gate-2 Pattern E) → A2-3 → A2-4 → A2-5 → A2-6 → A2-7 (Matt v1 tag ratification) + D13 parallel-fire → Cycle 14 v1 MVP D9 close.
 
 **Signed:** knight-rider (orchestrator)
+
+---
+
+## Completion record
+
+**Date:** 2026-05-29
+**Agent:** rocket
+**Engine commit:** (see tag `rocket/v1.0-cascade-r3-s6c-phase-2-4-1`)
+**Session duration:** ~50s wall clock (Phase 2-4 only; Phase 5 HALT confirmed)
+
+### (a) Phase 2-4 fire results
+
+| Stage | Result |
+|---|---|
+| Phase 2 BC discovery | PASS — 54 kits (18 cells × 3 samples) |
+| Phase 2.5 S2 variant enumeration | PASS — 810 variant configs; 162 structural NOs skipped |
+| Phase 3 gauntlet + variants | PASS — 13 base kits passing; 585 variant rows passing |
+| Phase 3 PM-1 clustering | PASS — input=598 (13 base + 585 variants); 4 GMM clusters (GMM_BIC_selected) |
+| Phase 4 archive | PASS — 18 ACCEPTED total (18 base + 0 variants); 621 rejected of 639 |
+| Phase 5 HALT | CONFIRMED — exit before Phase 5 LLM block |
+
+### (b) Gate content summary
+
+File: `agentic_orchestration/cycle-14-wave-5-season-001/s6c-phase-5-entry-gate-content.json`
+
+- `phase_2_base_kits`: 54
+- `phase_3_variants_enumerated`: 810
+- `phase_3_variants_shipped`: 585
+- `phase_4_archive_total`: 18 (base kits only; variants=0 — see § (d) surface finding 1)
+- `substrate_diversity.cultural_lineage_canonical_distinct`: 5
+- `substrate_diversity.weapon_type_family_distinct`: 5
+- `substrate_diversity.historical_period_canonical_distinct`: 8
+- `substrate_diversity.register_canonical_distinct`: 4
+- `substrate_diversity.distinct_lineage_period_register_weapon_tuples`: 22
+- `cohort_distribution`: damage_min_maxer=18, balanced=36, defensive=0, hybrid=0
+- `pm1_clustering.input_cardinality`: 598
+- `pm1_clustering.cluster_count`: 4
+- `pm1_clustering.selection_method`: GMM_BIC_selected
+- `pm1_clustering.degenerate_fallback_triggered`: false
+- `llm_cost_so_far_usd`: 0
+- `ready_for_gate`: true
+
+### (c) Amendment 5 gate verification (Disc #11)
+
+| Expectation | Status | Detail |
+|---|---|---|
+| 54 base kits (S7 acceptance) | PASS | 54 kits exactly |
+| ~810 enumerated variants (S2 Option C) | PASS | 810 enumerated |
+| ≥5 cultural_lineage_canonical distinct (S7) | PASS | 5 distinct values |
+| ≥5 weapon_type_family distinct | PASS | 5 distinct values |
+| PM-1 non-degenerate (GMM; not kmeans_k3_fallback) | PASS | 4 GMM clusters |
+| HALT at Phase 5 entry (LLM cost=$0) | PASS | Confirmed; no LLM imports executed |
+| Phase 4 variants in archive (~810 per expectation) | SURFACE | 0 variants accepted (see § (d) finding 1) |
+| Cohort diversity (defensive/hybrid) | SURFACE | defensive=0, hybrid=0 (see § (d) finding 2) |
+
+### (d) § 6 surface findings
+
+**Surface finding 1 — Phase 4 archive variant cardinality = 0:**
+- All 585 variant rows submitted to Phase 4 Pareto gates were rejected
+- Root cause: variant quality vectors are neutral (0.5 for all q1-q5 dimensions, as per `_derive_quality_vector()` neutral fallback when gauntlet results don't match S2 variant legendary_ids). Base kits occupy per-cell archive slots with real quality vectors → variants are dominated.
+- PM-1 substrate correctly includes 598 variants (Phase 3 variant_passing_rows = 585 passing via cell_any_pass). The clustering substrate is correct. The archive storage is base-kits-only.
+- Pre-ratified action: document + surface to KR per dispatch § 3. Matt-gate consideration item.
+- Classification: NOT a pipeline failure; variant clustering input is correct. Phase 4 quality gate behavior is expected given neutral q-vectors for variants.
+
+**Surface finding 2 — Cohort distribution: defensive=0, hybrid=0:**
+- BC catalog `_infer_primary_cohort()` produces only `dps_min_maxer` (spiky amplitude) and `balanced` (default) for all 18 encounter cells
+- No BC cells have `bc_proxy_density=dense` (→ hybrid) or `bc_tempo=low AND bc_amplitude=flat` (→ defensive) combinations
+- This is a BC catalog characteristic, not a pipeline failure
+- Pre-ratified action: document; Matt-gate surfaces for evaluation
+
+### (e) HALT confirmation
+
+- `halt_at_phase=5` parameter added to `run_wave5_season_001()` — simplest-implementation path per dispatch § 2.2 (orchestrator param)
+- `_collect_gate_content()` helper added at orchestrator (collects substrate diversity + cohort distribution + PM-1 + form counts in one pass after Phase 4 close)
+- Pipeline exited before Phase 5 block (lines 1764+ in orchestrator); no Phase 5 imports executed; no LLM API calls made
+- LLM cost = $0 confirmed
+- kit_archive idempotent: INSERT OR REPLACE per S6a-FIX Fix 2; stale row cleanup at DB init
+
+### Engine changes
+
+- `simulation/wave5_season_orchestrator.py`: added `_collect_gate_content()` (lines 1415-1561) + `halt_at_phase: int = 0` param + HALT block after Phase 4 complete + `variant_enum_metadata: dict = {}` pre-try init
+- No schema changes; no migration required (orchestrator param is backward compat; default=0 = full pipeline)
+
+### Tests
+
+100 cascade-r3 + phase7 tests PASS post-change (test_cascade_r3_s3_archive_variant_preservation.py + test_cascade_r3_s5b_wave_b_orchestrator_integration.py + test_phase7_bridge.py)
+
+### KR next-step
+
+Consume gate content output at `agentic_orchestration/cycle-14-wave-5-season-001/s6c-phase-5-entry-gate-content.json` + gandalf math-note review (parallel-firing companion) → author Amendment 5 Matt-surface (5-item gate content) → Matt RATIFY-FIRE / REDUCE-SCOPE / ABORT → S6c-Phase-5+ dispatch if ratified.

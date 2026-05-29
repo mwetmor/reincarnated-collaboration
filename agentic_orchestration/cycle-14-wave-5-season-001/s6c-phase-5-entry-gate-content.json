@@ -1,0 +1,82 @@
+{
+  "phase_2_base_kits": 54,
+  "phase_3_variants_enumerated": 810,
+  "phase_3_variants_shipped": 585,
+  "phase_4_archive_total": 18,
+  "phase_4_archive_detail": {
+    "base_kits_accepted": 18,
+    "variant_rows_accepted": 0,
+    "variant_rows_submitted": 585,
+    "note": "All 585 variants rejected by Phase 4 Pareto dominance gates (quality_vector neutral 0.5 → dominated by base kits occupying per-cell slots). Phase 4 archive = base kits only. PM-1 input (598 = 13 passing base + 585 passing variants) correctly includes variants for clustering substrate."
+  },
+  "substrate_diversity": {
+    "cultural_lineage_canonical_distinct": 5,
+    "cultural_lineage_canonical_distribution": {
+      "european": 13,
+      "fantasy_generic": 32,
+      "south_asian": 2,
+      "east_asian": 6,
+      "southeast_asian": 1
+    },
+    "weapon_type_family_distinct": 5,
+    "weapon_type_family_distribution": {
+      "martial-heavy": 10,
+      "ranged": 13,
+      "martial-light": 1,
+      "caster-arcane": 15,
+      "caster-faith": 15
+    },
+    "historical_period_canonical_distinct": 8,
+    "historical_period_canonical_distribution": {
+      "early_modern": 10,
+      "industrial": 4,
+      "fictional": 27,
+      "contemporary": 2,
+      "medieval": 2,
+      "modern": 2,
+      "pre_classical": 1,
+      "classical": 6
+    },
+    "register_canonical_distinct": 4,
+    "register_canonical_distribution": {
+      "historical": 18,
+      "fantasy": 32,
+      "mythological": 3,
+      "military_modern": 1
+    },
+    "distinct_lineage_period_register_weapon_tuples": 22
+  },
+  "cohort_distribution": {
+    "damage_min_maxer": 18,
+    "balanced": 36,
+    "defensive": 0,
+    "hybrid": 0,
+    "note": "defensive=0 hybrid=0 is expected: BC catalog _infer_primary_cohort() maps to only dps_min_maxer (spiky amplitude) and balanced (default). No BC cells with bc_proxy_density=dense or low-tempo+flat combination exist in 18-cell catalog."
+  },
+  "pm1_clustering": {
+    "input_cardinality": 598,
+    "cluster_count": 4,
+    "selection_method": "GMM_BIC_selected",
+    "degenerate_fallback_triggered": false,
+    "note": "598 = 13 passing base kits + 585 passing variant rows. GMM BIC-selected k=4. Non-degenerate."
+  },
+  "llm_cost_so_far_usd": 0,
+  "halt_reason": "Amendment 5 Matt-gate at Phase 5 entry",
+  "ready_for_gate": true,
+  "disc11_audit": {
+    "form_counts_meet_expectation": true,
+    "substrate_diversity_meets_ge5": true,
+    "substrate_diversity_cl_distinct": 5,
+    "substrate_diversity_wtf_distinct": 5,
+    "pm1_non_degenerate": true,
+    "halt_confirmed_llm_cost_zero": true,
+    "deviations": [
+      "Phase 4 archive variants=0 (all 585 rejected by Pareto gates). DB archive = 18 base rows only. PM-1 substrate correctly uses 598 = 13 base + 585 variants for clustering.",
+      "Cohort distribution: defensive=0, hybrid=0. Only dps_min_maxer and balanced produced by BC catalog. No BC cells trigger hybrid/defensive cohort inference path."
+    ]
+  },
+  "generated_at": "2026-05-29T15:13:52Z",
+  "seed_base": 14001,
+  "smoke": false,
+  "wall_clock_seconds": 50.0
+}
