@@ -61,7 +61,7 @@
 | **Wave 2** | 🗑️ SUPERSEDED 2026-05-27 by no-classes substrate-led architectural recommitment + Path α workstream authoring (was: rocket + gandalf + jack-ryan Gate-2; Wave 1 + SC-1 partial ratification #36+#37; ~3-5 days) | (n/a) | (n/a) | (absorbed into Path α Phase 3 architecture commit) |
 | **Wave 3** | 🗑️ SUPERSEDED 2026-05-27 by same (was: gandalf + star-lord + rocket; Wave 0.5 real content + SC-3 closure; ~1 week) | (n/a) | (n/a) | (absorbed into Path α Phase 5 architecture commit; SC-3 cohesion judge LLM design retained as Wave 5 production prerequisite) |
 | **Wave 4** | 🗑️ SUPERSEDED 2026-05-27 by same (was: gandalf + rocket + gamora; Wave 2 + Wave 3 synthesis; ~3-5 days) | (n/a) | (n/a) | (absorbed into Path α Phase 4+5 architecture commit) |
-| **Wave 5** | 🟢 UNBLOCKED 2026-05-28 — Path α v1 closure SATISFIED at Phase A1 Dispatch 6; pending Matt 3-gate surface for Phase A2 entry authorization | gamora (production sweep) + rocket (kit emission) + star-lord (LLM cost / phase 5 cohesion judge) + gandalf (A/B + canonical writes) + jack-ryan close Gate-2 each season | Phase A1 6-dispatch sequence PASS-with-INFO at Gate-2 + Matt 3-gate surface PASS [(a) Path α closure record sign-off + (b) LLM cost auth + (c) Wave 5 scope re-confirm] | **~5-8d post Matt 3-gate PASS** under clean runs: 3 seasons × ~1d production + ~half-day Gate-2 each + A/B (~half-day) + Disciplines #41/#44/#45/#46 batch (~half-day) + Matt v1 tag |
+| **Wave 5** | 🔥 FIRING (A2-1 season_001 PRODUCTION cascade) 2026-05-29 — Phase A2 ENTERED unattended-fire window; A2-1 rocket sub-agent dispatched per R48.4 single-seam; star-lord cost guard $50 soft cap active in-process; gamora simulation in-process | rocket (kit emission primary; A2-1 lead) + gamora (sim in-process) + star-lord (LLM cost guard in-process) + gandalf (A2-5 A/B canonical write) + jack-ryan (A2-2/A2-3/A2-4 Pattern E autonomous Gate-2 × 3 seasons + A2-6 disciplines batch) | Phase A1 ✅ CLOSED + Matt 3-gate PASS (Gate (a) RATIFY + Gate (b) $50 SOFT CAP + Gate (c) A2-1→A2-7 CONFIRMED) + Pattern E pre-authorization + per-workstream push pattern | **~5-8d Phase A2 cascade post Matt 3-gate PASS** under clean runs: A2-1 (~few hours to ~1d) + A2-2 Pattern E (~half-day) + A2-3+A2-4 × 2 (~3d total) + A2-5 A/B (~half-day) + A2-6 disciplines (~half-day) + A2-7 Matt v1 tag |
 
 ---
 
@@ -3342,12 +3342,58 @@ Per supplemental Matt question to A1 re-entry: Disc #42 Q1-Q6 framing-audit appl
 - Dispatch 6 ✅ Path α v1 closure record + Matt 3-gate surface + Matt 3-gate PASS (this session; KR-authored)
 
 **Phase A1 status: ✅ CLOSED**
-**Phase A2 status: 🟡 QUEUED-FOR-UNATTENDED-CASCADE-FIRE** by next KR session (post-UE-install)
+**Phase A2 status: 🔥 FIRING (unattended cascade window entered 2026-05-29)**
 
 ---
 
 ### Cycle 14 v1 MVP trajectory (post Phase A1 close)
 
 **Phase A2 unattended cascade pre-authorized.** Expected ~5-8d under clean runs. Cycle 14 v1 MVP closure at A2-7 Matt tag ratification. Well within 4-6 week budget anchor.
+
+---
+
+### PHASE A2 ENTERED 2026-05-29 — A2-1 DISPATCHED + ROCKET SUB-AGENT FIRING
+
+**Session-start pre-flight verifications (KR 2026-05-29 unattended cascade entry session):**
+
+| Pre-flight check | Result |
+|---|---|
+| 5 required first reads | ✅ COMPLETE (gandalf resume memo + KR session-boundary memo + Path α closure record + state file § 1 + Disc #42a pushback memo) |
+| vm_stat — Disc #48 R48.5 | ✅ PASS (~152 MB free + ~2.1 GB inactive reclaimable + ~567 MB speculative = ~2.8 GB available; > 1 GB threshold satisfied) |
+| EGL backup log accumulation | ✅ RECLAIMED 670 MB at `EpicGamesLauncher-backup-2026.05.29-05.12.54.log` (from Matt's UE 5.7.4 install failure during session boundary; reclaim pattern per gandalf incident note + Disc #48 prior precedent — Matt himself reclaimed 673 MB during prior session via same pattern) |
+| kit_archive.db | ✅ INTACT at `cycle-14-wave-5-season-001/kit_archive.db` (102 KB) |
+| Active sub-agent processes from prior session | ✅ NONE (only this KR session process PID 1173) |
+
+**A2-1 dispatch authored + fired:**
+- Dispatch file: `agentic_orchestration/dispatches/2026-05-29-rocket-cycle-14-wave-5-season-001-production-fire.md`
+- Pattern: Pattern B sustained-execution; full season production pipeline (phase 2 → 3 → 4 → 5 → 7)
+- Primary recipient: rocket (content generation seam orchestrator)
+- In-process composition: gamora simulation + star-lord LLM cost guard (NOT separate sub-agent invocations — R48.4 single-seam preserved)
+- LLM cost: $50 soft cap across 3 seasons; star-lord cost guard projects mid-cascade; surface at projected $50 approach; hard-halt at $60
+- Acceptance: ≥12/18 kits emit at phase 7 + Disc #11 grep ZERO `synthetic_mode` + AI-tell detection sub-audit (Cross-Character Diversity per SC-3 DETECTION)
+- Disc #42a framing-audit at dispatch authoring: SELF-AUDITED PASS (Q1-Q6 enumerated; load-bearing assumption "production pipeline structurally intact + path-α-ready" traces to Wave 0.5 close + Wave 1 close + Phase A1 closure record)
+
+**A2-1 firing protocol (per § 3.10 wave-entry-fire-discipline):**
+1. ✅ Dispatch authored
+2. ✅ State file updated (this section + § 1 Wave 5 row)
+3. ⏳ Commit (next step; auto-commit per CLAUDE.md addendum 2026-05-25 — work-products of authorized cascade work)
+4. ⏳ Fire rocket sub-agent via Agent tool with `run_in_background=true` (cascade enters monitor-not-poll mode per Disc #19)
+5. ⏳ Push DEFERRED until A2-2 Gate-2 PASS (per-workstream push pattern Matt-locked)
+
+**Surface-to-Matt conditions ACTIVE (cascade surfaces ONLY at these gates):**
+- Gate-2 BLOCK finding at any season (Pattern E halts cascade + surfaces)
+- LLM soft-cap projection approach ($50 cumulative threshold; star-lord surfaces)
+- Disc #48 R48.4 pre-flight check FAIL (RAM < 1 GB or other operational concern)
+- Disc #42a framing-audit finding catching pre-imposed-assumption failure at any dispatch consumption gate
+- Scope-amendment request from any sub-agent
+- A2-7 Matt v1 tag ratification (cascade-complete final surface)
+- Substantial unexpected failure mode not covered by R48 escalation rules
+
+**NEXT KR action on A2-1 completion notification:**
+- Read A2-1 completion record from dispatch file
+- Verify ≥12/18 emit PASS + LLM cost within $50 + Disc #11 grep ZERO
+- Apply Disc #42a framing-audit to completion attestation (meta-observation 5 reinforcement: verify artifact against report; KR caught a discrepancy at Phase A1 Dispatch 2 — same vigilance applies here)
+- Author A2-2 dispatch (jack-ryan Gate-2 + gandalf critique-pair under Pattern E pre-authorization)
+- Fire A2-2 sub-agents under R48.4 single-seam (sequential: jack-ryan first then gandalf, or critique-pair invoked together if R48.4 supports — confirm at A2-2 authoring time)
 
 **Session work-cluster complete.** Next KR session fires Phase A2 unattended cascade per Matt-paste of gandalf-authored handoff prompt.
