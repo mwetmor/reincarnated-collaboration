@@ -227,3 +227,110 @@ Output season_001 telemetry artifacts to `cycle-14-wave-5-season-001/`.
 **Cascade trajectory:** S6c → A2-2 → A2-3 → A2-4 → A2-5 → A2-6 → A2-7 + D13 parallel → Cycle 14 v1 MVP D9 close.
 
 **Signed:** knight-rider (orchestrator)
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-29 22:12:37 UTC
+**Engine HEAD:** 1cc2507 (tag: `rocket/v1.0-cascade-r3-amendment-7-element-coverage-1` — no code changes this session; production fire only)
+**Production tag:** `rocket/v1.0-cascade-r3-a2-1-refire-3-season-001-1` (applied post-completion)
+**Wall clock:** 83.9s
+**Outcome:** A2-1 RE-FIRE-3 **PASS**
+
+### (a) Phase 2-4 results
+
+| Stage | Result |
+|---|---|
+| Phase 2 BC discovery | **54 kits** (18 cells × 3 samples) |
+| Phase 2.5 variant enumeration | 810 variant configs; 162 structural NOs skipped |
+| Phase 3 gauntlet | 13 / 54 base kits passing WR-bracket; 585 variant rows passing (cell_any_pass) |
+| Phase 3 PM-1 clustering | Input=598 (13 base + 585 variants); **k=4 GMM clusters** (gmm_k4; BIC-selected; non-degenerate; sparsity=none) |
+| Phase 4 archive | **34 ACCEPTED** (34 base + 0 variants); 605 rejected of 639 total; Pareto-2 partition by (BC × lineage) |
+
+**8-element coverage at primary layer:** earth, fire, holy, lightning, physical, shadow, water, wind — **8/8 PASS**
+
+**Hybrid count:** 12/54 (22.2%) — within 95% CI [6-13] **PASS**
+
+**Substrate diversity:**
+- cultural_lineage_canonical distinct: 5 (east_asian, european, fantasy_generic, south_asian, southeast_asian) — **≥5 PASS**
+- weapon_type_family distinct: 5 (caster-arcane, caster-faith, martial-heavy, martial-light, ranged) — **≥5 PASS**
+
+### (b) Phase 5 LLM results
+
+**Wave A — faction labels (4 clusters):**
+1. Cluster 1: "Hallowed Strike Vanguard" — tags: holy-lightning, close-AOE, medieval-frontline (233 variant members)
+2. Cluster 2: "Ashwind Pyre Wardens" — tags: wide-area-fire, ranged-combustion, field-denial (181 variant members)
+3. Cluster 3: "Ashfield Ember Wardens" — tags: fire-saturation, ranged-AOE, medieval-pyrotechnics (46 variant members)
+4. Cluster 4: "Stormcall Chain Wardens" — tags: chain-lightning, ranged-doctrine, medieval-storm (138 variant members)
+
+**F-C inter-faction relationships (6 pairs, k(k-1)/2 = 6 for k=4):**
+- 1↔2: rival | 1↔3: rival | 1↔4: rival | 2↔3: rival | 2↔4: rival | 3↔4: rival (primary pair)
+- diversity_pass=True
+
+**Wave B — per-kit identity (13 base kit calls, 13 results):**
+- 13 LLM calls fired
+- 3 parse failures → placeholder fallback (S1_endgame_bc_melee_high_flat_str_none_s2, S1_endgame_bc_melee_high_variable_wis_none_s2, S1_endgame_bc_melee_high_flat_dex_none_s2)
+- 3 W-B7 weak-coherence warns (faction_name absent from identity_narrative)
+- 10 cohesion scores populated from successful Wave B results
+
+### (c) Phase 7 verdict
+
+| Metric | Value | Gate |
+|---|---|---|
+| kits_evaluated | 34 | — |
+| **shipped_worthy** | **22** | **≥12/18 PASS** |
+| held_cohesion (C1 fail) | 0 | cohesion gate BINDING |
+| held_mechanical | 12 | — |
+| held_both | 0 | — |
+| acceptance_rate | 64.7% | — |
+| Phase 7 cohesion gate | BINDING (10 scores; all ≥0.75; held_coh=0) | PASS |
+| Phase 7 mechanical gate | Option α.2 eligible_encounters_passed ≥0.50 | PASS |
+
+**Note:** Phase 7 log records 22 shipped at 22:12:37 UTC (current run); prior-run rows present in DB from pre-S6c attempts but Phase 7 bridge processes only ACTIVE archive kits from current Phase 4 insertion.
+
+### (d) Cost tracker
+
+| Wave | Calls | Cost |
+|---|---|---|
+| Wave A | 4 | $0.02 |
+| F-C | 6 | included in Wave A line |
+| Wave B | 13 | $0.13 |
+| **Season total** | **23 calls** | **$0.15** |
+
+**3-season projection:** $0.15 × 3 = $0.45 mid (**0.9% of $50 cap — well within**)
+
+**Disc #40 scaffold flag (star-lord seam):** `season_summary.json:phase5_llm_cost_usd` records $0.02 (Wave A only); Wave B cost ($0.13) not propagated to season_summary field. Total authoritative from Phase 5 log: `COMPLETE: cost=$0.1500`. Not a § 6 surface condition (cost within cap); flag for star-lord follow-on telemetry propagation fix.
+
+### (e) § 6 surface findings
+
+No § 6 mandatory surfaces triggered. All acceptance gates PASS. Auto-routing in-scope per hive-mind decision-routing:
+
+**Wave B parse failures (3/13):** Not systematic (3 failures, 10 successes). No halt triggered. Scaffold-flag: Wave B prompt may produce unparseable JSON for specific kit profiles (WIS/DEX high-flat kits). Disc #40; star-lord seam. Cycle 15+ candidate.
+
+**W-B7 weak-coherence warnings (3/13):** Faction thematic tags absent from narrative text. Cosmetic quality signal. Not § 6 surface condition. Wave B fires, identities generated, cohesion scores available. Acceptable at A2-1 RE-FIRE-3 bar.
+
+### Acceptance gate summary
+
+| Gate | Threshold | Actual | Status |
+|---|---|---|---|
+| 4.1 shipped_worthy | ≥12/18 | 22/34 (64.7%) | **PASS** |
+| 4.2 All 8 elements | 8 | 8 | **PASS** |
+| 4.2 Hybrid rate | 6-13 | 12 | **PASS** |
+| 4.2 cultural_lineage ≥5 | ≥5 | 5 | **PASS** |
+| 4.2 weapon_type_family ≥5 | ≥5 | 5 | **PASS** |
+| 4.2 Pareto-2 archive 25-40 | 25-40 | 34 | **PASS** |
+| 4.2 PM-1 GMM non-degenerate | GMM BIC; not k3-fallback | gmm_k4 | **PASS** |
+| 4.2 Wave A fired | yes | 4 calls | **PASS** |
+| 4.2 F-C fired | yes | 6 calls | **PASS** |
+| 4.2 Wave B fired | yes | 13 calls | **PASS** |
+| 4.2 Cost-tracker functional | non-zero | $0.15 | **PASS** |
+| 4.2 Phase 7 mechanical gate | Option α.2 | 22/34 shipped | **PASS** |
+| 4.2 Phase 7 cohesion gate BINDING | held_coh=0 | 0 | **PASS** |
+| 4.3 Cost ≤ $50 cap | $50 | $0.15/$0.45 3-season | **PASS** |
+| 4.4 Telemetry artifacts | season_001/ | all written | **PASS** |
+| 4.5 Tag | rocket prefix | applied | **PASS** |
+
+**A2-1 RE-FIRE-3: PASS.** All 16 gates PASS. Next: KR fires A2-2 jack-ryan Gate-2 Pattern E review of season_001.
+
+**Signed:** rocket (content generation seam)
