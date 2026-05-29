@@ -3981,3 +3981,70 @@ A2-2 → A2-7 + D13 parallel-fire → Cycle 14 v1 MVP D9 close (Matt v1 tag rati
 **Updated estimate to A2-1 RE-FIRE-3 PASS:** ~1-2d wall-clock remaining (all architectural work closed; S6 is integration + Gate-2 + production fire).
 
 **KR auto-routes per Amendment 4 hive-state clarification — proceeding S6a + S6b parallel fire.**
+
+### CASCADE-RESUMPTION-3 S6a HALT + S6b PASS-with-WARN 2026-05-29 — runtime findings + KR routing
+
+**Both sub-agents fired in parallel completed concurrently** (after one prior API-error retry).
+
+**S6b (jack-ryan Gate-2 Pattern E) CLOSED — collab `9ee9af6` + findings doc at `agentic_orchestration/qa/pending/2026-05-29-jack-ryan-cascade-r3-gate-2-pattern-e-review.md`:**
+
+| Stream | Disposition |
+|---|---|
+| S1 class eradication | PASS-with-INFO (mage/damage substring + mob sniper taxonomy + Cycle 13 comment artifacts documented SAFE) |
+| S4 LLM prompt audit | PASS |
+| S7 multi-sample substrate | PASS-with-INFO (Disc #1 explicit math note INFO; spirit satisfied via pre-ratified N=3) |
+| S5 Wave B implementation | PASS-with-WARN (`\b` regex underscore gap; now closed by Surface 1) |
+| Surface 1 regex lookaround | PASS |
+| S2 gauntlet variant enumeration | PASS |
+| S3 Phase 4 archive variant preservation | PASS (in-seam framing correction demonstrates live Disc #42a) |
+| S5b Wave B rocket integration | PASS-with-INFO (per-variant cohesion bypass INFO; monitor in RE-FIRE-3 telemetry) |
+
+**Overall Pattern E disposition: PASS-with-WARN** → fire-and-continue; KR routes S6c per Pattern E pre-auth (after S6a runtime gate clears).
+
+**Instance 6 closure verification: ALL 7 FINDINGS CLOSED**
+
+**Discipline ratification candidacy notes** for Cycle 14 wave-close canonical-write:
+- Disc #48 RETIRED (R48.4+R48.5)
+- Disc #49 candidate (R48.1/R48.2/R48.3 reclassified — oversized-file operational safety)
+- Disc #42a Instance 7 (founding-incident-confounding-attribution)
+
+---
+
+**S6a (rocket integration smoke + Disc #11 audit) HALTED — collab `2cb4204` + engine `41a6287`:**
+
+Disc #11 audit per stream: 6/7 PASS; S3 PARTIAL-FAIL (variants get wr_bracket_pass=False in smoke=False; PM-1 degenerate fallback follows). Pipeline smoke fire halted at Phase 4 UNIQUE constraint after Phase 3 degenerate fallback.
+
+**Two § 6 surface findings (HALT):**
+
+**Finding 1 — variant wr_bracket_pass derivation gap (PM-1 degenerate fallback root cause):**
+
+`_build_variant_kit_rows()` at `wave5_season_orchestrator.py:455` builds `emit_map` from `gauntlet_results_json` (Cycle 13 historical data at `cycle-13-gauntlet-sim-results-2026-05-27.json` with class-based legendary_ids). S2 variant legendary_ids (format `{bc_cell_id}_s2_{strategy}_{invest}`) NEVER match. All 810 variants get `wr_bracket_pass=False` by default. PM-1 input = 13 base kits → kmeans_k3_fallback (well below 22+ threshold).
+
+The smoke=True bypass at `_build_variant_kit_rows():538` (`if smoke: row.wr_bracket_pass = True`) MASKED this in S3 acceptance testing — a **smoke-bypass-context-dependent-behavior pattern** (Disc #42a Instance 6 sub-case for jack-ryan + gandalf canonical-write consideration at Cycle 14 wave-close).
+
+**KR routing per hive-mind decision-routing (seam-owner decides per audit evidence; Matt is last-resort escalation):**
+
+**RATIFY rocket's "alternative" framing: variants inherit base kit's season_emit result.** Semantic argument: VariantKitRow represents (base kit) × (T4 strategy) × (investment profile) overlays; base kit goes through WR-bracket gauntlet at base-kit level; variants represent the SAME base kit with different T4/invest overlays; variants inherit base kit's WR-bracket gate result (not re-applied per overlay). This matches gamora research § 6 + alteration_fields semantics — T4 strategies apply at simulation runtime; they don't change the base kit's mechanical WR-bracket performance.
+
+**Finding 2 — kit_archive.db UNIQUE constraint (Phase 4 halt):**
+
+kit_archive.db has 19 stale rows (18 pre-cascade class-based IDs from earlier cycle work + 1 S5b smoke run S1-compliant ID). `_persist_kit_to_db()` uses plain INSERT without ON CONFLICT. Re-runs hit UNIQUE constraint at Phase 4.
+
+**KR routing per hive-mind decision-routing:**
+
+**RATIFY rocket scope-amendment authorization: DB re-init at production-fresh-run + clear stale pre-cascade class-based rows.** Production cascade (A2-1 RE-FIRE-3) should produce CLEAN run with substrate-led IDs only. Rocket elects implementation (DB re-init vs INSERT OR REPLACE) per simpler-implementation principle; KR ratifies either per seam-owner authority.
+
+**Neither finding requires Matt-surface per authorization § 4 enumerated triggers + hive-state clarification.**
+
+**Cascade trajectory carry-forward:**
+
+```
+S6b ✅ PASS-with-WARN
+S6a HALT → S6a-FIX dispatch (rocket; both findings; ~30min-1h) → S6a re-fire smoke verification
+  ↓
+S6c (A2-1 RE-FIRE-3 full season production fire)
+  ↓
+A2-2 → A2-7 + D13 parallel-fire → Cycle 14 v1 MVP D9 close
+```
+
+**Updated estimate to A2-1 RE-FIRE-3 PASS:** ~1-2d wall-clock remaining (S6a-FIX + re-fire smoke + S6c).
