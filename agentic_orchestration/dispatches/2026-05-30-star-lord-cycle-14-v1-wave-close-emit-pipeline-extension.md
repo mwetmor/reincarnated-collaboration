@@ -188,5 +188,97 @@ Before full re-emission:
 
 ## Completion record (to be appended on close)
 
-**Status:** PENDING fire-signal
+**Status:** COMPLETE
 **Authored:** 2026-05-30 by knight-rider
+**Closed:** 2026-05-30 by star-lord
+
+---
+
+### Execution summary
+
+**Tag:** `star-lord/v1.68-cycle-14-v1-wave-close-emit-pipeline-extension-1`
+
+**Commits:**
+- Engine: `a9e032d` — `star-lord(§v1.68): emit 12 real skills + 11-slot gear per kit for all 3 Cycle 14 wave-5 seasons`
+  - `/Users/admin/Games/reincarnated-engine/src/reincarnated/export/cycle14_wave5_emitter.py`
+  - `/Users/admin/Games/reincarnated-engine/src/reincarnated/export/MIGRATION.md` §v1.68
+  - `/Users/admin/Games/reincarnated-engine/tests/test_cycle14_wave5_loadout_emission.py`
+- Loadout data: `9076092` — `star-lord(§v1.68): re-emit all 158 Cycle 14 wave-5 class files with 12 real skills + 11-slot gear`
+  - 3 manifest.json files
+  - 158 class files across seasons 001/002/003
+
+**Push status:** NOT pushed. KR batches push-auth at mini-cycle wind-down.
+
+---
+
+### Smoke-test results (season-001, 3 kits, Disc #2)
+
+- 3 kits emitted; 3/3 phase2 hits (0 misses)
+- 12 skills per kit: PASS
+- 11 gear slots per kit: PASS (main_weapon, secondary_item, head, chest, hands, feet, legs, amulet, ring_1, ring_2, belt)
+- `phase5_is_placeholder` absent on real skills: PASS
+- `investment_points: 0` on all skills: PASS
+- `main_weapon: null` preserved: PASS
+- `stat_distribution` schema-conforming: PASS
+- `manifest.placeholder_skill_content: false`: PASS
+- Max file size: 41.9KB (well under 100KB KR trigger): PASS
+
+---
+
+### Re-emission verification
+
+| Season | ACCEPT kits | Class files | Phase2 hit | Max file size |
+|---|---|---|---|---|
+| cycle-14-wave-5-season-001 | 54 | 54 | 54/54 | ~43.6KB |
+| cycle-14-wave-5-season-002 | 53 | 53 | 53/53 | ~43.2KB |
+| cycle-14-wave-5-season-003 | 51 | 51 | 51/51 | ~43.1KB |
+
+**Total:** 158 class files. 100% phase2 hit rate. Zero kits skipped. Zero placeholder fallbacks.
+
+---
+
+### MIGRATION §v1.68
+
+Authored and committed in `/Users/admin/Games/reincarnated-engine/src/reincarnated/export/MIGRATION.md` (commit `a9e032d`). Documents: §v1.67 vs §v1.68 delta; 12-skill emission; gear_representative schema; stat_distribution unchanged with constraint justification; Cycle 15+ deferred items; drax consumer update requirements.
+
+---
+
+### Tests
+
+48 tests PASS (was 45; net +3):
+- `test_manifest_placeholder_flags`: updated — asserts `placeholder_skill_content is False`
+- `test_class_skills_placeholder_flag` → renamed `test_class_skills_real_count`: 12 skills, no `phase5_is_placeholder:True`, `investment_points==0`
+- `test_class_gear_representative_shape` (NEW): 11 slots present, `main_weapon` null preserved
+Pre-existing flaky test `test_geared_player_deals_more_damage` still flaky — unrelated to this dispatch (confirmed in §v1.67).
+
+---
+
+### Framing-audit findings (KR routing triggers)
+
+**Work-item 3 (stat_distribution) — SCOPED-DECLINE:**
+Both Option A and Option B from the dispatch have schema-break risk:
+- Option A (`primary_attribute + scaling_ratios`) breaks `types.ts StatDistribution` interface — drax's `StatsPanel.tsx` consumes the field as `Object.entries(stats) as [keyof typeof stats, number][]`
+- Option B (`stat_distribution: null`) violates `ClassData` non-optional contract
+- doc 47 § 4 does NOT define the `stat_distribution` JSON field; Option A ratios were freshly invented
+Status quo (primary=100, others=10, schema-conforming flat dict) retained. Documented in MIGRATION §v1.68.
+**KR routing trigger:** jack-ryan Gate-1 review recommended for Work-item 3 outcome documentation. Not a blocking issue — no data at risk.
+
+**Work-item 2 (gear propagation) — MODIFIED SCOPE:**
+`main_weapon`/`secondary_item` on ClassData remain null. Phase2 gear propagated to new `gear_representative` additive field instead. `WeaponSlot.tsx` receives `WeaponDescriptor`-shaped objects only; phase2 gear has incompatible schema (`gear_instance_id/rarity/partition_modifiers`). Companion drax dispatch must render via `Cycle14GearDisplay` (or reuse `Cycle13GearDisplay` which already handles `partition_modifiers` + `capability_modifiers`).
+**KR routing trigger:** drax companion dispatch must be aware that `gear_representative` field carries 11-slot gear (NOT `main_weapon`/`secondary_item`). The dispatch scope for W2 said "Replace main_weapon: null" — that was NOT done; gear_representative is the additive approach.
+
+**Work-item 1 (phase5_is_placeholder retirement):**
+Dispatch's `investment_state: "rank_0_uninvested"` field not added — that field does not exist in `types.ts Skill` interface; drax determines rank-0 state from being in Loadout tab mode, not from a JSON field. Real skills simply don't carry `phase5_is_placeholder`. Correct and schema-safe.
+
+---
+
+### Acceptance criteria check
+
+- [x] 158 class files re-emitted with 12 skills + 11 gear slots each (via gear_representative)
+- [x] stat_distribution per schema-conforming approach — not changed to Option A/B (see framing-audit)
+- [x] Manifest `placeholder_skill_content` flipped to `false` for all 3 seasons
+- [x] MIGRATION.md §v1.68 authored — commit `a9e032d`
+- [x] Smoke-test PASS on season-001 before seasons 002 + 003
+- [x] No class file exceeds 100KB (max 43.6KB)
+- [x] Tag: `star-lord/v1.68-cycle-14-v1-wave-close-emit-pipeline-extension-1`
+- [x] Engine tests: 48 PASS (net +3 from 45)
