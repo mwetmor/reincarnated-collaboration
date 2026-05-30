@@ -10,12 +10,44 @@
 
 ---
 
-## Blocking dependency
+## Blocking dependency — RESOLVED 2026-05-30
 
-This dispatch is GATED on completion of:
+This dispatch was GATED on completion of:
 - `agentic_orchestration/dispatches/2026-05-30-star-lord-cycle-14-v1-wave-close-emit-pipeline-extension.md`
 
-When star-lord completes (158 class files re-emitted with 12 skills + 11 gear slots + non-fabricated stat_distribution; manifest `placeholder_skill_content: false`), this dispatch fires.
+**Star-lord W1 COMPLETE 2026-05-30.** Engine commit `a9e032d` + loadout commit `9076092` + tag `star-lord/v1.68-cycle-14-v1-wave-close-emit-pipeline-extension-1`. 158 class files + 3 manifests re-emitted.
+
+---
+
+## CRITICAL AMENDMENTS FROM W1 STAR-LORD FINDINGS (KR amendment 2026-05-30 post-W1-close)
+
+Star-lord W1 surfaced three framing-audit findings that change what drax verifies. **Read these before executing work-items below.**
+
+### Amendment 1 — Gear is at NEW top-level `gear_representative` field, NOT main_weapon/secondary_item
+
+Per star-lord Finding 2: gear emitted as new top-level `gear_representative` field on each class JSON. `main_weapon` and `secondary_item` remain `null` — `WeaponSlot` schema preserved.
+
+**Render path:** drax must render gear from `class.gear_representative.{main_weapon, secondary_item, head, chest, hands, feet, legs, amulet, ring_1, ring_2, belt}` using `Cycle13GearDisplay` (which already handles `partition_modifiers` + `capability_modifiers`) — NOT `WeaponSlot` component which expects different schema.
+
+`/Users/admin/Games/reincarnated-loadout/src/components/Cycle13/Cycle13GearDisplay.tsx` is the candidate render component. If a new `Cycle14GearDisplay` shape is needed for slot variance, drax decides.
+
+### Amendment 2 — `investment_state: "rank_0_uninvested"` field NOT emitted; drax derives rank-0 from tab mode
+
+Per star-lord Finding 1: `investment_state` field does NOT exist in `types.ts Skill` and was NOT added. Star-lord verified drax derives rank-0 state from TAB MODE, not a JSON field.
+
+**Render path:** /loadout renders the 12 real skills as rank-0 uninvested via Loadout-tab-mode logic (per doc 49 § 1.1.1). No JSON-field check needed.
+
+### Amendment 3 — `stat_distribution` status quo retained; drax StatsPanel UNCHANGED
+
+Per star-lord Work-item 3 SCOPED-DECLINE: both Option A and Option B from KR dispatch broke `types.ts StatDistribution` schema. doc 47 § 4 defines fight-engine damage formulas, NOT the JSON schema; the dispatch's invented 1.0/0.1/0.1/0.1 ratios had no canonical anchor. Star-lord declined Work-item 3 and retained 100/10/10/10 emission.
+
+**Render path:** drax `StatsPanel.tsx` continues consuming `stat_distribution` as before. NO drax-side change needed for stat distribution. Original Work-item 1 acceptance criterion "stat distribution renders per chosen star-lord option" is **REMOVED** (no option chosen; status quo retained).
+
+**Follow-on:** KR queues Pattern A-light gandalf consult post-W2-close: what SHOULD stat_distribution render at /loadout (design call), and does that require a schema extension to `types.ts StatDistribution`? Out of scope for this drax dispatch.
+
+### Amendment 4 — `placeholder_skill_content: false` is REAL — banner update IS required
+
+`placeholder_skill_content` flag IS flipped to `false` in star-lord-emitted manifests. Work-item 3 banner text update / removal IS in scope as originally written. `cycle_14_refresh_pending` stays `true` (drives the violet "engine refresh pending" banner if drax kept that logic; verify against current Loadout.tsx state).
 
 ---
 
@@ -39,13 +71,13 @@ Same surface as star-lord companion dispatch — gandalf 2026-05-30 surface: /lo
 
 ### Work-item 1 — Loadout tab render verification (PRIMARY)
 
-Verify `/loadout` page renders:
-- All 12 skills per kit (not 1 placeholder)
-- Skills present as **rank-0 uninvested** per doc 49 § 1.1.1 Rank-0 amendment (e.g., skill cards greyed/dimmed with "Rank 0 — Uninvested" callout; rank pip = 0 of N)
-- Gear catalog renders 11 slots per kit with rarity + modifiers + substrate_binding
-- Stat distribution renders per doc 47 § 4 — primary attribute callout + scaling ratios (if star-lord chose Option A) OR live-calc placeholder (if Option B)
+Verify `/loadout` page renders (per W1 amendments above):
+- All 12 skills per kit (not 1 placeholder) — sourced from `class.skills` array now carrying 12 real entries
+- Skills present as **rank-0 uninvested** per doc 49 § 1.1.1 Rank-0 amendment — derived from Loadout tab mode logic, NOT from a JSON `investment_state` field (Amendment 2)
+- Gear catalog renders 11 slots per kit from `class.gear_representative` top-level field (Amendment 1) using `Cycle13GearDisplay` or a new `Cycle14GearDisplay` — NOT `WeaponSlot`. `main_weapon` + `secondary_item` at the top level remain `null` by design (schema preservation)
+- Stat distribution: NO CHANGE — `StatsPanel.tsx` continues consuming existing `stat_distribution` schema (Amendment 3); 100/10/10/10 fabrication remains pending Pattern A-light gandalf design call (out of scope here)
 - No console errors on load
-- Build still clean (1035 modules; zero TypeScript errors)
+- Build still clean (1035-ish modules; zero TypeScript errors)
 - 81/81 tests PASS (no regression)
 
 ### Work-item 2 — Sample tab scope boundary enforcement (CRITICAL)
@@ -100,11 +132,27 @@ Before full verification:
 
 ---
 
+## Quality criterion
+
+**Game-quality goal this dispatch serves:** player-facing /loadout surface shows real substrate-anchored character identity (12 skills + 11 gear slots with rarity + modifiers + substrate_binding) consumed correctly from the engine's emitted shape. Closes the user-visible gap that gandalf surfaced 2026-05-30 — at the player-surface side of the closure (star-lord W1 closed the engine-emission side). /sample tab scope boundary is enforced (Cycle 15+ scope respected). Composes upward: Engine (emission landed in W1) > Game (player reads substrate identity at v1 surface) > Phase (this dispatch).
+
+**Refutation conditions** (drax sub-agent surfaces if any apply BEFORE executing):
+- W1 amendments above contradict a render approach drax has working assumption on (e.g., gear render component choice)
+- A `Cycle13GearDisplay` field-shape mismatch surfaces vs `class.gear_representative` actual structure — drax inspects 1 emitted class JSON before committing render path
+- Sample tab scope boundary (Amendment 3 originally; now Work-item 2) requires a Cycle 15+ investment-commit decision that has not landed
+- Banner removal at Loadout tab pre-commits to a player-surface UX decision Matt has not ratified — drax decides per existing UX vision, escalates if uncertain
+- Dispatch introduces a pre-authored taxonomy without justification (#41 candidate)
+- Dispatch introduces a scaffold value not flagged as pending-decision (#40)
+
+**Sub-agent action if refutation triggers:** halt before render-pass execution; return triage finding to KR; do NOT push Vercel deploy. KR routes to gandalf Pattern A-light for design alignment OR to Matt for scope-amendment.
+
+---
+
 ## Acceptance criteria
 
-- [ ] /loadout: 12 skills per kit render as rank-0 uninvested (doc 49 § 1.1.1)
-- [ ] /loadout: 11 gear slots populated with rarity + modifiers + substrate_binding
-- [ ] /loadout: stat distribution renders per chosen star-lord option (no 100/10/10/10 fabrication on player surface)
+- [ ] /loadout: 12 skills per kit render as rank-0 uninvested via Loadout tab mode logic (doc 49 § 1.1.1; no JSON `investment_state` field — Amendment 2)
+- [ ] /loadout: 11 gear slots render from `class.gear_representative` via `Cycle13GearDisplay` (or new `Cycle14GearDisplay`) — NOT `WeaponSlot` (Amendment 1)
+- [ ] /loadout: stat_distribution NO change — StatsPanel.tsx renders existing schema; 100/10/10/10 pending separate gandalf design call (Amendment 3)
 - [ ] /sample: scope boundary held (Cycle 15+ scope respected; no investment-committed render)
 - [ ] Banner text updated OR removed per Work-item 3 decision
 - [ ] /analytics: no regression

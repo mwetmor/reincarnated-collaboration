@@ -29,9 +29,37 @@ Single-wave mini-cycle (this is post-v1 polish, not a multi-phase cycle):
 
 | Wave | Scope | Sub-agents | Sequencing | Status |
 |---|---|---|---|---|
-| **W1 (star-lord)** | Extend `cycle14_wave5_emitter.py` to propagate 12 skills + 11 gear + scaling-ratio stat_distribution; re-emit 158 class files; MIGRATION §v1.68 | star-lord | Fires first | FIRING |
-| **W2 (drax)** | Verify /loadout renders 12 skills as rank-0 uninvested + gear catalog; enforce /sample Cycle 15+ scope boundary; banner text update; Vercel deploy | drax | Gated on W1 close | PENDING-GATE |
-| **Wind-down** | Mini-cycle close: state-file archival, CHANGELOG entry, milestone tag candidate (`v1.1-cycle-14-wave-close-polish-1`), single push-auth ask | knight-rider | After W2 close | PENDING |
+| **W1 (star-lord)** | Extend `cycle14_wave5_emitter.py` to propagate 12 skills + 11 gear + scaling-ratio stat_distribution; re-emit 158 class files; MIGRATION §v1.68 | star-lord | Fires first | **CLOSED 2026-05-30** |
+| **W2 (drax)** | Verify /loadout renders 12 skills as rank-0 uninvested + gear catalog from `gear_representative`; enforce /sample Cycle 15+ scope boundary; banner update; Vercel deploy | drax | Post-W1 amendments applied; FIRING | **FIRING 2026-05-30** |
+| **Wind-down** | Mini-cycle close: state-file archival, CHANGELOG entry, milestone tag candidate (`v1.1-cycle-14-wave-close-polish-1`), single push-auth ask, gandalf Pattern A-light on stat_distribution design call | knight-rider | After W2 close | PENDING |
+
+### W1 outcome record (star-lord closed 2026-05-30)
+
+| Item | Outcome |
+|---|---|
+| Tag | `star-lord/v1.68-cycle-14-v1-wave-close-emit-pipeline-extension-1` |
+| Engine commit | `a9e032d` (emitter + MIGRATION §v1.68 + 3 new tests) |
+| Loadout commit | `9076092` (158 class files + 3 manifests re-emitted) |
+| Collab commit | `eb6345d` (completion record) |
+| Push status | NOT pushed (KR batches at wind-down) |
+| Tests | 48 PASS (45 → 48; net +3) |
+| Skills propagation | 12 real skills per kit (`build_real_skills()`); `investment_points: 0` flagged Cycle 15+; `phase5_is_placeholder` not emitted on real skills (correct — that flag is cycle-13 LLM placeholders only) |
+| Gear propagation | 11 slots emitted as NEW top-level `gear_representative` field; `main_weapon` + `secondary_item` stay null (WeaponSlot schema preserved) |
+| stat_distribution | **SCOPED-DECLINE** — both Option A and Option B from dispatch broke `types.ts StatDistribution`; doc 47 § 4 defines fight-engine damage formulas not JSON schema; KR-invented 1.0/0.1/0.1/0.1 ratios had no canonical anchor. Star-lord retained status quo (100/10/10/10). Quality Criterion refutation condition #41 fired correctly. |
+| Manifest flag | `placeholder_skill_content: false` for all 3 seasons; `cycle_14_refresh_pending: true` retained |
+| Re-emission | 158 class files; 100% phase2 hit (54/54, 53/53, 51/51); max file 43.6KB (well under 100KB KR trigger) |
+
+### W1 framing-audit findings (3) → KR routing
+
+| Finding | Disposition |
+|---|---|
+| **1 — Work-item 3 SCOPED-DECLINE** (stat_distribution schema-break risk) | Status quo retained; KR queues Pattern A-light **gandalf** consult at wind-down on what stat_distribution SHOULD render at /loadout (design call) + whether `types.ts StatDistribution` schema extension is warranted. NOT blocking W2. |
+| **2 — Gear is at `gear_representative` top-level field NOT main_weapon/secondary_item** | KR amended drax dispatch (Amendment 1) — drax renders from `gear_representative` via `Cycle13GearDisplay`. |
+| **3 — Authority audit note** | KR fire-authorization was implicit from Matt α-fire of mini-cycle per hive-mind state file. Non-blocking. Audit trail captured here. |
+
+### W2 dispatch amendments authored 2026-05-30 (post-W1 close, pre-W2 fire)
+
+KR amended `dispatches/2026-05-30-drax-cycle-14-v1-wave-close-render-verification.md` with 4 amendments derived from W1 findings (gear render path, rank-0 derivation from tab mode, stat_distribution status quo, banner update real). Quality Criterion block added per KR OP § 3.11. Drax fires Agent tool background per § 3.10.
 
 **No parallel fan-out at W1** — only one sub-agent fireable (drax is data-dependent on W1 output).
 
