@@ -211,3 +211,85 @@ new seasons to the season picker in `useSeasonData` (they'll auto-appear via glo
 - [x] Tag `drax/v1.0-cascade-r4-v1-close-loadout-sample-pages-extension-1` pushed
 - [x] Live URL verification: `index-DTt_mltz.js` live; all 3 season names + section header present
 - [x] Data-emission gap surfaced (star-lord routing: manifest.json + classes/ per Cycle 14 season)
+
+---
+
+## Completion record — Matt-corrected refactor (cascade-r4 integration refactor)
+
+**Completed:** 2026-05-29
+**Agent:** drax
+**Session authority:** cascade-r4 v1-close; auto-commit + auto-push per cycle authorization
+**Matt directive:** "why did you make a whole new section instead of resolving the issues and routing
+the appropriate content from the new seasons into the existing page structure?" (2026-05-29)
+
+### What changed
+
+Prior approach: `Cycle14LoadoutSection` parallel section below existing page content (wrong).
+Corrected approach: drax-side adapter integrating Cycle 14 seasons into existing season-selector + components.
+
+**Files changed:** 5 (1 new, 1 deleted, 3 amended)
+- `src/data/cycle14Adapter.ts` (NEW): `buildCycle14SeasonData()` transforms Cycle14SeasonSummary →
+  SeasonData. Each WaveBKit → ClassData. BC axis decoded from kit_id. Dominant element from cluster
+  element_distribution. Substrate-derived fills with TODO(star-lord) on all skill/gear/balance gaps.
+  `CYCLE14_SEASON_DATA[]` exported for all 3 seasons.
+- `src/hooks/useSeasonData.ts` (amended): injects CYCLE14_SEASON_DATA into seasonMap post-glob-build.
+  Cycle 14 seasons appear in selectableSeasons (existing season-picker dropdown) alongside legacy seasons.
+- `src/pages/Loadout.tsx` (amended): removes Cycle14LoadoutSection; adds isCycle14AdapterSeason detection;
+  renders violet "engine-emission pending" banner for Cycle 14 vs amber "Phase 5 coalescence" for Cycle 13.
+- `src/pages/Sample.tsx` (amended): same pattern as Loadout.tsx.
+- `src/components/Cycle14/Cycle14LoadoutSection.tsx` (DELETED): parallel section removed.
+
+### Adapter design
+
+Season selector display: `cycle-14-wave-5-season-001 — Season of the Chain-Strike Pyre`
+Class picker: 54 kits per season (ACCEPT compliance only); each kit has substrate-derived ClassData.
+Skill tree: 1 placeholder skill per class; `name: null` falls through to kit_id display in SkillNode;
+`flavor_text` explains BC profile + engine-emission gap inline.
+Placeholder banner: `manifest_version === 'cycle14-adapter-v1'` discriminates Cycle 14 adapter seasons.
+
+### TODO(star-lord) inline annotations (Work-item 5)
+
+All substrate-derived fills annotated:
+- `buildPlaceholderSkills()`: skill data gap
+- `deriveStatDistribution()`: stat distribution gap  
+- `deriveArchetypeTag()` / `deriveRoleOrientation()`: per-kit class metadata gap
+- `SeasonData.gearPool`: gear pool gap (empty array)
+- manifest `generated_at` + `elements`: manifest gap
+- `useSeasonData.ts` injection block: removal trigger when engine emits
+
+### Build + test results
+
+- 878 modules (1 new adapter + 1 deleted component = net neutral)
+- 0 TypeScript errors
+- 81 tests pass (3 test files)
+
+### Commit + tag
+
+**Commit:** `2985f0b` — "loadout: cascade-r4 refactor — Cycle 14 seasons integrated into existing /loadout + /sample via drax-side adapter"
+**Tag:** `drax/v1.0-cascade-r4-v1-close-loadout-sample-integration-refactor-1` (pushed to origin)
+**Push:** pushed to `origin/main` — `6f490e0..2985f0b`
+
+### Live bundle verification
+
+Local dist bundle `index-D40jM6FW.js` content check:
+- `cycle14-adapter-v1`: 3 matches (manifest version discriminator)
+- `engine-emission pending`: 3 matches (placeholder banner text)
+- `Chain-Strike Pyre`: 1 match (season_001 name)
+- `Ironsoil Wide-Front`: 1 match (season_002 name)
+- `Broad-Front Shadow`: 1 match (season_003 name)
+- `cycle-14-wave-5-season-001`: 62 matches (season ID in kit data)
+
+Vercel deployment `ekn773duq` (Ready, Production, 28s build time) is HEAD.
+Public domain CDN propagation pending (prior sessions: ~2-5 min lag; same pattern observed here).
+
+### Acceptance criteria
+
+- [x] Cycle14LoadoutSection removed from /loadout + /sample pages
+- [x] Component file deleted
+- [x] Adapter authored (`src/data/cycle14Adapter.ts`): transforms Cycle 14 wave-5 → SeasonData/ClassData/SeasonManifest
+- [x] Cycle 14 seasons appear in existing season-selector alongside legacy seasons
+- [x] Selecting a Cycle 14 season routes through existing ClassHeader + SkillTree + StatsPanel + GearGrid (no parallel rendering path)
+- [x] Substrate-derived fills with inline TODO(star-lord) tags at all data gaps
+- [x] Build clean (878 modules, 0 TS errors, 81 tests pass)
+- [x] Commit `2985f0b` + push + tag
+- [x] Vercel deployment Ready (ekn773duq); local bundle verification confirms all content present
