@@ -168,3 +168,38 @@ Author at `agentic_orchestration/legolas/notes/2026-05-29-cycle-14-v1-image-gen-
 ---
 
 **KR sign-off:** Authored per Matt 2026-05-29 Step 7 CONFIRM-FIRE + cascade-r4 § 11.2 Track B legolas scope; routed to legolas as seam owner of research/image-gen prompt construction per AGENTS.md scope map. Auto-commit per CLAUDE.md addendum.
+
+---
+
+## Completion Record
+
+**Completed by:** legolas
+**Completed at:** 2026-05-29
+**Tag:** `legolas/v1.0-cascade-r4-track-b-image-gen-prompts-1`
+**Deliverable:** `agentic_orchestration/legolas/notes/2026-05-29-cycle-14-v1-image-gen-prompt-templates.md`
+
+### Status per acceptance criterion
+
+- [x] Per-faction prompt templates (4 for season_001) — COMPLETE; style adherence PASS; D7 compliance PASS
+- [x] Per-kit prompt template (1 + 34 instances) — COMPLETE; substrate metadata partially complete (3 gaps flagged)
+- [x] Per-gear-piece sub-templates (11 gear slots) — COMPLETE; slot-specific visual notes per slot
+- [x] Wanderer-specific variant templates — COMPLETE (Section 4; deferred plan + template format; layering condition: gamora Amendment 1 close)
+- [x] Style register adherence verified — PASS all templates
+- [x] D7 AI-tell line compliance verified — PASS all templates (all <= 200 words; bracketed blanks; no free-form dialogue)
+- [x] Substrate metadata fields documented — COMPLETE; per-kit fields from substrate_weapon_binding (loadout telemetry.db); 3 gaps in KR Flags section
+- [x] Iteration plan documented — COMPLETE (Section 5; post-gamora; seasons 002+003; Cycle 15+)
+
+### KR flags requiring routing
+
+1. **wave_b_name gap** — Wave B LLM names not in available JSON output files; routing: rocket/elrond for persistence location
+2. **element_primary gap** — per-kit element not persisted in phase4/5 archive; proxy applied (cluster modal element); routing: star-lord/rocket to add per-kit element to archive JSON
+3. **t4_strategy gap** — null in phase4 archive insertion per-kit; routing: rocket to expose t4_strategy in archive JSON
+4. **modal_tone unknown** — all 4 clusters have modal_tone="unknown"; low impact; routing: gandalf if needed
+
+### Substrate metadata extraction method
+
+- Faction metadata: `phase5_faction_clusters.json` (all fields direct)
+- Per-kit BC axes: parsed from `bc_cell_id` string (engagement / damage_level / damage_pattern / attribute / element_secondary)
+- Per-kit weapon substrate: `substrate_weapon_binding.select_and_bind_substrate_weapon()` with seed from `kit_archive.db` + loadout `telemetry.db` v1_scope weapon entries
+- Per-kit element_primary: cluster modal element proxy (gap; see KR Flag 2)
+- wave_b_name: kit_id substituted (gap; see KR Flag 1)
