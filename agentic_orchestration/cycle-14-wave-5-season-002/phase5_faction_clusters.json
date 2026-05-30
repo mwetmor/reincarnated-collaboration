@@ -1,0 +1,230 @@
+{
+  "metadata": {
+    "season_id": "cycle-14-wave-5-season-001",
+    "phase": 5,
+    "faction_visibility": "visible",
+    "wave_a_fired": true,
+    "cluster_count": 4,
+    "relationship_count": 6,
+    "llm_cost_usd": 0.02,
+    "wave_b_kit_count": 33,
+    "wave_b_cost_usd": 0.33
+  },
+  "clusters": [
+    {
+      "cluster_id": 1,
+      "season_id": "cycle-14-wave-5-season-001",
+      "member_kit_ids": [
+        "S1_endgame_bc_ranged_medium_variable_int_light_s0",
+        "S1_endgame_bc_ranged_medium_variable_int_light_s1",
+        "S1_endgame_bc_ranged_medium_variable_int_light_s2"
+      ],
+      "member_count": 3,
+      "modal_cultural_lineage": "european",
+      "modal_tech_level": "medieval",
+      "modal_tone": "unknown",
+      "element_distribution": {
+        "lightning": 0.3333333333333333,
+        "shadow": 0.3333333333333333,
+        "fire": 0.3333333333333333
+      },
+      "modal_bc_axis_signature": {
+        "engagement_profile": "ranged",
+        "damage_geometry": "large-AOE"
+      },
+      "pm1_algorithm": "gmm_k4",
+      "cluster_compactness": 0.2053799935850509,
+      "faction_label_placeholder": "european-medieval-unknown-mixed-element",
+      "faction_label_canonical": "Tricast Siege Wardens",
+      "faction_identity_narrative": "Medieval European ranged combatants who deploy overlapping fields of lightning, shadow, and fire to break formations at distance. Their doctrine favors wide-area devastation over precision, burning and darkening the ground before any blade is drawn.",
+      "faction_thematic_tags": [
+        "tri-element bombardment",
+        "medieval ranged warfare",
+        "large-area denial"
+      ],
+      "substrate_anchored_personages": null,
+      "cosine_similarity_max": 0.3941,
+      "diversity_flag": false,
+      "phase7_gate_status": "canonical",
+      "llm_call_id": null,
+      "regeneration_fired": false,
+      "primary_pair_flag": true,
+      "gb_selection_rationale": "highest_substrate_distance",
+      "pairwise_distance_distribution": [
+        119.12769378310583,
+        99.42308338802789,
+        50.89983374371662,
+        20.53513975352396,
+        6.275890103111686,
+        5.855330803198098
+      ]
+    },
+    {
+      "cluster_id": 2,
+      "season_id": "cycle-14-wave-5-season-001",
+      "member_kit_ids": [
+        "S1_endgame_bc_melee_low_spiky_str_none_s0",
+        "S1_endgame_bc_melee_high_flat_str_none_s0",
+        "S1_endgame_bc_melee_high_flat_str_none_s1",
+        "S1_endgame_bc_melee_medium_variable_str_none_s0",
+        "S1_endgame_bc_melee_medium_variable_str_none_s1",
+        "S1_endgame_bc_mid_medium_variable_wis_none_s2",
+        "S1_endgame_bc_melee_medium_variable_wis_none_s1",
+        "S1_endgame_bc_ranged_medium_variable_wis_none_s0",
+        "S1_endgame_bc_melee_high_variable_wis_none_s0"
+      ],
+      "member_count": 9,
+      "modal_cultural_lineage": "european",
+      "modal_tech_level": "medieval",
+      "modal_tone": "unknown",
+      "element_distribution": {
+        "lightning": 0.5555555555555556,
+        "earth": 0.4444444444444444
+      },
+      "modal_bc_axis_signature": {
+        "engagement_profile": "close",
+        "damage_geometry": "large-AOE"
+      },
+      "pm1_algorithm": "gmm_k4",
+      "cluster_compactness": 0.2053799935850509,
+      "faction_label_placeholder": "european-medieval-unknown-mixed-element",
+      "faction_label_canonical": "Stormbreak Earthen Vanguard",
+      "faction_identity_narrative": "A close-quarters medieval European fighting force that channels split elemental dominance \u2014 crackling lightning and grinding earth \u2014 into wide-arc devastation, built for holding ground while breaking formations apart. Their battlefield identity is defined by the tension between the volatile and the immovable, expressed through heavy engagement at the front line.",
+      "faction_thematic_tags": [
+        "lightning-earth duality",
+        "close-range AOE pressure",
+        "medieval European martial"
+      ],
+      "substrate_anchored_personages": null,
+      "cosine_similarity_max": 0.3941,
+      "diversity_flag": false,
+      "phase7_gate_status": "canonical",
+      "llm_call_id": null,
+      "regeneration_fired": false,
+      "primary_pair_flag": false,
+      "gb_selection_rationale": "highest_substrate_distance",
+      "pairwise_distance_distribution": [
+        119.12769378310583,
+        99.42308338802789,
+        50.89983374371662,
+        20.53513975352396,
+        6.275890103111686,
+        5.855330803198098
+      ]
+    },
+    {
+      "cluster_id": 3,
+      "season_id": "cycle-14-wave-5-season-001",
+      "member_kit_ids": [
+        "S1_endgame_bc_melee_high_flat_dex_none_s0",
+        "S1_endgame_bc_melee_high_flat_dex_none_s1",
+        "S1_endgame_bc_ranged_high_flat_dex_none_s0",
+        "S1_endgame_bc_ranged_high_flat_dex_none_s2",
+        "S1_endgame_bc_mid_high_flat_dex_none_s0",
+        "S1_endgame_bc_mid_high_flat_dex_none_s2",
+        "S1_endgame_bc_ranged_medium_variable_int_none_s0",
+        "S1_endgame_bc_melee_high_flat_int_none_s0",
+        "S1_endgame_bc_melee_high_flat_int_none_s1",
+        "S1_endgame_bc_mid_medium_variable_wis_none_s0",
+        "S1_endgame_bc_melee_medium_variable_wis_none_s0",
+        "S1_endgame_bc_ranged_medium_variable_wis_none_s1",
+        "S1_endgame_bc_melee_high_variable_wis_none_s2"
+      ],
+      "member_count": 13,
+      "modal_cultural_lineage": "fantasy_generic",
+      "modal_tech_level": "medieval",
+      "modal_tone": "unknown",
+      "element_distribution": {
+        "wind": 0.3076923076923077,
+        "holy": 0.23076923076923078,
+        "water": 0.23076923076923078,
+        "lightning": 0.15384615384615385,
+        "shadow": 0.07692307692307693
+      },
+      "modal_bc_axis_signature": {
+        "engagement_profile": "close",
+        "damage_geometry": "large-AOE"
+      },
+      "pm1_algorithm": "gmm_k4",
+      "cluster_compactness": 0.2053799935850509,
+      "faction_label_placeholder": "fantasy_generic-medieval-unknown-mixed-element",
+      "faction_label_canonical": "Gale and Tide Wardens",
+      "faction_identity_narrative": "Close-quarters fighters who channel converging wind, water, and holy currents into broad sweeping strikes that clear ground rather than pierce it. Their craft sits at the intersection of elemental flux and martial discipline, with shadow threading the edges where the cleaner forces cannot reach.",
+      "faction_thematic_tags": [
+        "multi-element convergence",
+        "wide-arc combat",
+        "elemental generalism"
+      ],
+      "substrate_anchored_personages": null,
+      "cosine_similarity_max": 0.3847,
+      "diversity_flag": false,
+      "phase7_gate_status": "canonical",
+      "llm_call_id": null,
+      "regeneration_fired": false,
+      "primary_pair_flag": false,
+      "gb_selection_rationale": "highest_substrate_distance",
+      "pairwise_distance_distribution": [
+        119.12769378310583,
+        99.42308338802789,
+        50.89983374371662,
+        20.53513975352396,
+        6.275890103111686,
+        5.855330803198098
+      ]
+    },
+    {
+      "cluster_id": 4,
+      "season_id": "cycle-14-wave-5-season-001",
+      "member_kit_ids": [
+        "S1_endgame_bc_ranged_low_spiky_str_none_s0",
+        "S1_endgame_bc_ranged_low_spiky_str_none_s2",
+        "S1_endgame_bc_ranged_low_spiky_dex_none_s0",
+        "S1_endgame_bc_ranged_low_spiky_dex_none_s1",
+        "S1_endgame_bc_ranged_low_spiky_int_none_s0",
+        "S1_endgame_bc_mid_low_spiky_int_none_s0",
+        "S1_endgame_bc_ranged_low_spiky_wis_none_s0",
+        "S1_endgame_bc_ranged_low_spiky_wis_none_s1"
+      ],
+      "member_count": 8,
+      "modal_cultural_lineage": "fantasy_generic",
+      "modal_tech_level": "medieval",
+      "modal_tone": "unknown",
+      "element_distribution": {
+        "lightning": 0.375,
+        "shadow": 0.375,
+        "earth": 0.125,
+        "wind": 0.125
+      },
+      "modal_bc_axis_signature": {
+        "engagement_profile": "ranged",
+        "damage_geometry": "chain"
+      },
+      "pm1_algorithm": "gmm_k4",
+      "cluster_compactness": 0.2053799935850509,
+      "faction_label_placeholder": "fantasy_generic-medieval-unknown-mixed-element",
+      "faction_label_canonical": "Stormveil Chain Wardens",
+      "faction_identity_narrative": "Ranged combatants who weaponize cascading arcs of lightning and shadow across chained targets, operating from medieval fortifications where storm and darkness are harnessed as tactical tools rather than feared phenomena. Their battlefield geometry favors spread and sequence \u2014 one strike triggers the next, binding enemies in conducted ruin.",
+      "faction_thematic_tags": [
+        "chain-discharge",
+        "lightning-shadow-duality",
+        "ranged-cascade"
+      ],
+      "substrate_anchored_personages": null,
+      "cosine_similarity_max": 0.364,
+      "diversity_flag": false,
+      "phase7_gate_status": "canonical",
+      "llm_call_id": null,
+      "regeneration_fired": false,
+      "primary_pair_flag": true,
+      "gb_selection_rationale": "highest_substrate_distance",
+      "pairwise_distance_distribution": [
+        119.12769378310583,
+        99.42308338802789,
+        50.89983374371662,
+        20.53513975352396,
+        6.275890103111686,
+        5.855330803198098
+      ]
+    }
+  ]
+}
