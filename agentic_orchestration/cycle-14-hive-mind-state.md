@@ -5467,3 +5467,67 @@ Per substrate-led discipline + Designer-writes-substrate principle: full re-clus
 **Drax data refresh** (post-rocket-close): inline constant update per drax iteration plan.
 
 **Final Matt surface:** Cycle 14 v1 tag ratification post all retroactive close.
+
+---
+
+## CASCADE-R4 FOLLOW-ON — ROCKET AGGREGATOR REMEDIATION CLOSED + PUSH AUTH GRANTED + DRAX COMPREHENSIVE V1 CLOSE FIRING 2026-05-29
+
+### Rocket aggregator remediation CLOSED (engine commit `818a4ca`; collab `6ad5879`; tag `rocket/v1.0-cascade-r4-element-distribution-aggregator-remediation-1`)
+
+**Option B executed:** existing GMM cluster membership preserved; all 4 LLM waves re-fired with corrected element_distribution.
+
+**Cost actual:** $1.905 across 3 seasons (3.8% of $50 cap; slightly over $0.60/season threshold due to actual 54 kits/season vs 33 estimated; aggregate within $2.00 KR trigger).
+
+**Substrate-honest name corrections across 3 seasons:**
+
+| Season | Cluster | Pre-fix faction name | Post-fix faction name |
+|---|---|---|---|
+| 001 | C1 | Stormfield Chain Wardens | Earthbound Chain Wardens |
+| 001 | C2 | Stormbreak Vanguard | Ashwind Vanguard |
+| 001 | C3 | Stormcallers of the Pale Keep | **Ironfield Vanguard** (hero faction; substrate identity preserved) |
+| 001 | C4 | Ashfield Ember Wardens | Ashfield Ember Wardens (unchanged; already substrate-honest) |
+| 002 | C1 | Stormcaller Siege Corps | Stormcallers of the Pale Reach (substrate-honest; lightning genuinely 33.3%) |
+| 002 | C2 | Stormbreak Earthen Vanguard | Ironsoil Vanguard |
+| 003 | C1 | Stormcallers of the Broken Field | Ironfield Wardens |
+| 003 | C2 | Chainstrike Stormcallers | Scattered Wind Skirmishers |
+
+**Wave-S season name corrections:**
+- season_001: "Season of the Lightning-Scorched Chain" → "Season of the Chain-Strike Pyre"
+- season_002: "Season of the Storm-Shadowed Siege" → "Season of the Ironsoil Wide-Front"
+- season_003: "Season of the Grounded Arcs" → "Season of the Broad-Front Shadow Warcraft"
+
+**Element distribution sanity check post-fix:** physical 18-33% reported (was 0%); lightning 7.7-11.1% reported (was 27-44%); substrate-truth honored.
+
+27 new tests PASS; zero regression on 173 existing phase5 tests. MIGRATION.md §v1.66.
+
+### Push authorization GRANTED + executed (Matt directive)
+
+**Matt verbatim:** "yes, please push the commits so vercel goes live."
+
+Push pattern established per ADR-006 exception ("per-workstream push-pattern can be established by Matt authorization"). All 3 repos pushed:
+- `reincarnated-collaboration` 2c222b4..6ad5879 → origin/main ✅
+- `reincarnated-engine` 566c7cd..818a4ca → origin/main ✅
+- `reincarnated-loadout` 7fb763b..ebf857a → origin/main ✅
+
+**Vercel preview auto-deploy fired** on reincarnated-loadout push.
+
+### NEW Matt directive — drax comprehensive Cycle 14 v1 close work program
+
+**Matt verbatim (composed 2026-05-29):**
+1. "ensure the faction names and season names get refreshed once the faction missing physical element issue is fixed and new names for factions/seasons are live."
+2. "Has drax began the Summary page update as well in partnership with galadriel/legolas if needed with the Hero update and folder with hero image gen and image gen for all of the hero's gear?"
+3. "after the summary page, we will also need to test the encounters page and the analytics page for the new season's data"
+
+Bundles into drax comprehensive dispatch:
+
+1. **Data refresh** — update loadout app inline constants in `cycle14SeasonData.ts` with new substrate-honest faction names + season names from rocket commit `6ad5879` artifacts; commit + push reincarnated-loadout → Vercel live
+2. **§ 12.2 hero image generation** — Cluster 3 hero (now "Ironfield Vanguard" post-fix; substrate identity preserved per Option B; pair selection still holds per substrate composition unchanged). Partner with legolas (per-faction + per-kit prompt templates ready at `legolas/notes/2026-05-29-cycle-14-v1-image-gen-prompt-templates.md` commit `5acebda`); partner with galadriel (visual-coherence reads if needed; pair selection at `drax/notes/2026-05-29-cycle-14-v1-seasonal-hero-selection.md` commit `a7f4727`). Execute ChatGPT API image-gen.
+3. **§ 12.2 11 gear-piece image generation** — per-slot isolated images; Meshy-ingestion-compatible per legolas sub-templates
+4. **Send 12 images to Matt** for § 12.3 Meshy handoff
+5. **Encounters page test** — verify rendering with new 3-season data; surface any data-contract gaps to KR
+6. **Analytics page test** — verify rendering with new 3-season data; surface any data-contract gaps to KR
+
+§ 12.3 Matt Meshy handoff fires after drax delivers 12 images. § 12.4 drax wires Meshy URL to loadout summary tab post-Matt-return. § 12.5 final Cycle 14 v1 tag ratification surface to Matt.
+
+**Push pattern for reincarnated-loadout established this cycle:** drax auto-pushes their own commits post-this-dispatch under per-workstream-push-pattern exception.
+
