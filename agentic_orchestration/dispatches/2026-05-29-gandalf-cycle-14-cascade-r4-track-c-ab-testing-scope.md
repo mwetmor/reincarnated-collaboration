@@ -164,3 +164,32 @@ Author at `agentic_orchestration/gandalf/notes/2026-05-29-cycle-14-v1-ab-testing
 ---
 
 **KR sign-off:** Authored per Matt 2026-05-29 Step 7 CONFIRM-FIRE + cascade-r4 § 11.3 Track C; routed to gandalf as story-and-design steward per AGENTS.md scope map. Auto-commit per CLAUDE.md addendum.
+
+---
+
+## Completion record — 2026-05-29 (gandalf)
+
+**Status:** ✅ COMPLETE — A/B testing scope authored per dispatch.
+
+**Output deliverable:** `agentic_orchestration/gandalf/notes/2026-05-29-cycle-14-v1-ab-testing-scope.md`
+
+**Acceptance criteria status:**
+
+- [x] A/B variant pair catalog (per-faction + per-archetype + per-element axes) — scope § 2 (Axes I.1/I.2/I.3 + II.1/II.2 + III.1/III.2; 7 pair shapes total)
+- [x] Test instruments specified per variant pair type — scope § 3 (VI-1/2/3 visual + MP-1/2 mechanical + CE-1/2/3 cohesion-emergence; 8 instruments)
+- [x] Loadout app A/B coordination notes filed — scope § 4 (documented inline as Cycle 15+ drax deliverable spec per KR routing trigger; did NOT fire drax mid-track per scope § "OR document requirements as Cycle 15+ deliverable spec without firing drax mid-track")
+- [x] Cycle 14 v1 deliverable + Cycle 15+ execution plan documented — scope § 5 + § 6
+- [x] Composes-with documentation — scope § 7 (Amendment 6 Sub-fix 2 + Amendment 1 + Amendment 2 + Designer-writes-substrate + D10 + Style Register)
+- [x] Style register adherence noted per visual variant pair test — scope § 3.1 + § 4.1 (ARPG-anchored 100-130 px figure-content target; nearest-neighbor enforcement CRITICAL; no within-frame mixing; per-embodiment register-awareness honored)
+- [x] **BONUS** — load-bearing two-layer A/B disambiguation against existing architectural-validation protocol (`canonical/story/ab-comparison-protocol-cycle-14-close-2026-05-27.md`) — scope § 1 (prevents Layer 1 vs Layer 2 confusion at Cycle 15+ execution)
+- [x] **BONUS** — 8 predictions registered for Cycle 15+ empirical refutation per recognition-validate-commit discipline — scope § 8
+
+**Drax coordination state:** documented inline as Cycle 15+ deliverable spec at scope § 4.1 + § 4.2 + § 4.3 (loadout-app A/B presentation infrastructure requirements; extended data contract; coordination triggers for KR routing). No drax sub-agent fire; KR routes formal coordination dispatch at Cycle 15+ entry per dispatch § "OR document the requirements as Cycle 15+ deliverable spec without firing drax mid-track."
+
+**Pattern A-deep verdict authored in-session per scope authority** (no KR-routing for verdict per dispatch § "Pattern-A-deep verdict needed → author own verdict in-session").
+
+**Tag:** `gandalf/v1.0-cascade-r4-track-c-ab-testing-scope-1`
+
+**Commits made:** scope doc + dispatch completion record auto-commit per CLAUDE.md addendum.
+
+— gandalf
