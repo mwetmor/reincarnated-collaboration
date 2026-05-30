@@ -143,3 +143,68 @@ Coordinate with drax as § 12.1 selection-authority pair. Galadriel provides:
 ---
 
 **KR sign-off:** Authored per Matt 2026-05-29 Step 7 CONFIRM-FIRE + Amendment 2 hero pair delegation; routed to galadriel as seam owner of CV-pipeline + visual-similarity work per AGENTS.md scope map. Auto-commit per CLAUDE.md addendum. KR mediates pair consensus + deadlock escalation if needed.
+
+---
+
+## Completion record — 2026-05-29 galadriel
+
+**Status:** COMPLETE — Phase-1 substrate-level deliverables delivered; Phase-2 CV-pipeline-image-scoring deferred with documented gap-surfaces.
+
+### Deliverables produced
+
+1. **CV-pipeline scoring report** (Phase-1 substrate-level + Phase-2 methodology spec) — `agentic_orchestration/galadriel/notes/2026-05-29-cycle-14-v1-cv-pipeline-scoring-cluster-visual-coherence.md`
+   - 6-axis substrate visual-coherence rubric authored (§ 2)
+   - Per-cluster scoring applied (§ 3) on all 4 clusters from `phase5_faction_clusters.json`
+   - Per-cluster summary table + rank (§ 4)
+   - Phase-2 CV-pipeline-scoring methodology spec (axes A7-A10; pHash / HSV histogram / Canny edge density / manual style-register conformance)
+   - Iteration plan: Phase-2 post-image-gen; Phase-3 post-gamora Wanderer; Phase-4 post-Track-A seasons 002+003
+
+2. **§ 12.1 hero pair galadriel-side contribution** — `agentic_orchestration/galadriel/notes/2026-05-29-cycle-14-v1-seasonal-hero-selection-galadriel-contribution.md`
+   - Per-cluster candidate read (4 clusters)
+   - Per-Wanderer candidate read (Cluster 4 / Ashfield singleton; full substrate read pre-gamora-close)
+   - DEFAULT VOTE: Cluster 3 — Stormveil Ironclad Surge (substrate mean 4.83)
+   - ALTERNATIVE VOTE: Cluster 4 / Ashfield Wanderer (substrate mean 4.60 on substrate axes)
+   - Pair-consensus offer structured with explicit fall-back preferences + veto threshold + deadlock escalation criteria
+
+### Acceptance criteria status
+
+**Track B § 11.2:**
+- [x] CV-pipeline scoring report for season_001 4 clusters produced (Phase-1 substrate-level baseline; Phase-2 image-scoring deferred pending genre-peer benchmark set acquisition + § 12.4 image-gen close)
+- [~] Genre-peer reference benchmark set — NOT acquired (KR-routing-trigger #1 surfaced; acquisition plan documented; galadriel can fire next-session if KR authorizes; NOT blocking § 12.1 selection)
+- [x] Per-cluster visual-coherence read documented + scored
+- [x] Iteration plan documented (Phase-2 post-image-gen / Phase-3 post-gamora Wanderer / Phase-4 post-Track-A seasons 002+003)
+
+**§ 12.1 hero pair galadriel half:**
+- [x] Visual-coherence read per candidate kit (cluster-level + cluster-4 singleton substrate-level)
+- [~] CV-pipeline similarity scoring per candidate kit — DEFERRED to Phase-2 (no candidate-kit imagery exists yet; § 12.2-12.4 image-gen blocks on § 12.1 selection; substrate visual-coherence rubric delivered as evidence-defensible Phase-1 substitute)
+- [x] Per-cluster + per-Wanderer (singleton-only pre-gamora) hero recommendations to drax pair
+- [~] Pair consensus reached with drax — PENDING drax's UX-fit + image-extraction-feasibility response; galadriel-side contribution authored; consensus expected via galadriel-drax round-trip via KR (no deadlock; explicit fall-back preferences offered)
+- [x] Visual-coherence reads contributed via dedicated galadriel-side notes file (drax authors consolidated selection note; galadriel contribution-file is drop-in-ready for that file)
+
+### KR routing surfaces
+
+1. **CV-pipeline scoring infrastructure gap** — genre-peer benchmark image set not curated; acquisition plan documented (~2-3h galadriel work; Steam store + App Store + press kits for Octopath / Triangle Strategy / Eastward / CrossCode; 12-16 frames); awaiting KR authorization for next-session execution. NOT blocking § 12.1 selection.
+2. **Substrate metadata gap** — Wave B per-kit names not persisted in consumable JSON artifacts (only count + cost recorded); surface to KR for rocket/star-lord routing assessment (whether names exist elsewhere or whether follow-on dispatch persists them). NOT blocking § 12.1 selection.
+
+### Pair-coordination state
+
+- Galadriel-side contribution authored as: (a) standalone backing report + (b) drop-in companion contribution-file ready for drax's consolidated selection note at `agentic_orchestration/drax/notes/2026-05-29-cycle-14-v1-seasonal-hero-selection.md`
+- Galadriel cannot author the consolidated drax-authored selection note directly (out-of-seam write); drax composes the consolidated file from drax's UX-fit/extraction reads + galadriel's contribution file
+- Pair-consensus offer: Cluster 3 DEFAULT or Cluster 4 / Ashfield Wanderer ALTERNATIVE; both substrate-defensible; drax's UX-fit + image-extraction reads settle which
+- Deadlock escalation criterion: if drax votes Cluster 1 or 2 over both (a) and (b) without concrete UX-fit/extraction blockers, galadriel escalates to gandalf-sub-agent per Amendment 2 deadlock route (NOT Matt-surface)
+- Galadriel routing note to KR: please relay galadriel contribution-file to drax for composition into the consolidated selection note; or instruct galadriel to surface contribution differently if drax's expected workflow differs
+
+### Commits + tag
+
+- Commits: 2 work-products (CV-pipeline scoring report + § 12.1 contribution file) + completion record append (this section)
+- Tag: `galadriel/v1.0-cascade-r4-track-b-cv-scoring-plus-12-1-pair-1` (committed at session-close per dispatch execution-sequence § 8)
+- Auto-commit per CLAUDE.md addendum (in-scope cycle work; routine work-products of authorized cycle)
+- No push (default per ADR-006; KR may batch push at cycle-close per established push-pattern)
+
+### Discipline observations (no surfaces)
+
+- **No sub-agent invocation fired** (galadriel-unique HARD NO discipline observed; parallel work deferred to KR coordination per dispatch routing-trigger framework)
+- **Mirror discipline observed** — what the picture could not yet show was named plainly (no manufactured CV scores against non-existent benchmark images; no per-kit reads against non-persisted Wave-B-names); what the picture COULD show defensibly was scored against the substrate visual-coherence rubric with per-axis evidence-cites
+- **Reference-image discipline preserved** — no reference image acquisition fired without KR authorization; acquisition plan documented and surfaced for routing
+
+— galadriel session close 2026-05-29
