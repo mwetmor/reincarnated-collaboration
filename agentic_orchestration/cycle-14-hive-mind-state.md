@@ -5297,3 +5297,63 @@ Wave B re-fire ~$1.00 + Wave-S retroactive ~$0.045 = ~$1.05 total (2.1% of $50 c
 3. **Drax loadout refresh** (post-rocket, per Matt verbatim): consume wave_b_identities.json + season_name; summary tab UI per-kit names + season-name header; iterate Wanderer placeholder; document § 12 hero card "marquee of [season_name]"
 
 **KR HOLD STATUS:** Step 7 closed at all 5 sub-agents PASS + Track A PASS + Gate-2 PASS-with-INFO. LLM naming-gap follow-on cycle in flight under hive-mind decision-routing. Final Matt-surface at Cycle 14 v1 tag ratification (post-drax close).
+
+---
+
+## CASCADE-R4 FOLLOW-ON — ROCKET RETROACTIVE COMPLETE + CRITICAL NAMELESS-KITS SURFACE 2026-05-29
+
+**Rocket combined dispatch CLOSED** (engine `45f7868` + `dc98231` + `cc54751`; collab `f7944fc`; tag `rocket/v1.0-cascade-r4-followon-wave-b-persist-plus-wave-s-integration-1`):
+- Wave B persistence write-path implemented at `run_phase5_cohesion_judge()`
+- Wave-S orchestrator integration: Wave A → {Wave-S, F-C parallel} → Wave B via asyncio.gather; Wave B SEASON_CONTEXT injected with season_name
+- 3 seasons retroactively backfilled (script: `scripts/retroactive_wave_b_wave_s_backfill.py`)
+- 21 new tests; 254/254 PASS; zero regressions
+- MIGRATION.md §v1.64
+- Total retroactive cost: $0.055 (well below $1.05 projection)
+
+**3 Wave-S season names produced** (W-S7 distinctness all PASS; but W-S2 regex FAIL_RECORD on all 3 due to hyphenated compounds):
+- season_001: "Season of the Mixed-Element Storm"
+- season_002: "Season of the Lightning-Scarred Medieval Veil"
+- season_003: "Season of the Lightning-Struck Mixed Realm"
+
+### CRITICAL MATT-SURFACE TRIGGER — 34 of 100 kits NAMELESS across 3 seasons
+
+**Matt verbatim 2026-05-29:** "after applying the retroactive LLM names fixes, please have someone do a quick sweep of characters LLM names? I want to be sure we didn't leave any characters nameless. If names fail, we need to retry (or lower the threshold eventually, but kits can't be nameless)."
+
+**Empirical sweep across all 3 wave_b_identities.json:**
+
+| Season | Total kits | Nameless | ACCEPT | FAIL_RECORD |
+|---|---|---|---|---|
+| 001 | 34 | **9 (26%)** | 25 | 9 |
+| 002 | 33 | **13 (39%)** | 20 | 13 |
+| 003 | 33 | **12 (36%)** | 21 | 12 |
+| **TOTAL** | **100** | **34 (34%)** | 66 | 34 |
+
+**Root cause (KR forensic check):** All 34 FAIL_RECORD kits have:
+- `final_compliance_status: "FAIL_RECORD"`
+- `kit_name_canonical: ""` (empty)
+- `error: "parse_failure"` (LLM response malformed JSON)
+- `regeneration_fired: false` (retry NOT triggered)
+
+The Wave B regeneration loop in `_call_wave_b_single` fires on W-B compliance gate failures but does NOT fire on parse_failure. When the LLM returns malformed JSON, the code records the failure but does not retry — leaving the kit nameless.
+
+**Two follow-on items rocket also surfaced:**
+1. W-S2 regex fix in phase5_orchestrator.py: `WAVE_S_PATTERN_REGEX` `[A-Z][a-z]+` doesn't match hyphenated compounds like "Mixed-Element"; needs `[A-Z][A-Za-z]*(-[A-Z][A-Za-z]*)*` pattern
+2. Drax loadout refresh authorized per Matt directive ("Once retroactive fix is in, unblock drax")
+
+### Star-lord combined remediation dispatch firing NOW
+
+Scope:
+1. **Fix retry-on-parse-failure** in `_call_wave_b_single` (parse_failure → automatic regeneration; max 2 retries)
+2. **Substrate-derived fallback name pattern** as last-resort backstop after max retries exhausted (e.g., `[Faction Name] [BC archetype]` or `[Modal Lineage] [Element] [Weapon Family]` — kit cannot be nameless per Matt directive)
+3. **W-S2 regex fix** for hyphenated compounds in `WAVE_S_PATTERN_REGEX`
+4. **Re-fire 34 nameless kits** across 3 seasons using fixed retry logic; verify 100% kit coverage post-remediation
+5. **Re-fire 3 Wave-S calls** post-regex-fix to capture proper PASS status (gandalf spec § 5 W-S2 acceptance gate now matches actual LLM output pattern)
+6. **Updated MIGRATION.md** §v1.65 (additive; retry-on-parse-failure semantics + fallback name pattern documented)
+7. **Tests** for new retry-on-parse-failure path + fallback pattern
+
+Cost projection: ~$0.34 Wave B re-fire (34 × ~$0.01) + ~$0.045 Wave-S re-fire (3 × $0.015) = ~$0.385 (de minimis vs $50 cap).
+
+### Drax loadout refresh STILL QUEUED (post-star-lord-remediation per Matt directive)
+
+Per Matt verbatim "Once retroactive fix is in, unblock drax for the loadout app" — the "retroactive fix" landing is now defined to include the nameless-kit remediation (per Matt's additional 2026-05-29 directive "kits can't be nameless"). Drax fires after star-lord nameless-kit remediation closes.
+
