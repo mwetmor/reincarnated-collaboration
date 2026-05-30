@@ -114,3 +114,31 @@ This is surfaced for KR awareness. If galadriel/legolas have season_002-specific
 ---
 
 *Dispatch executed and closed by drax, 2026-05-30.*
+
+---
+
+## Phase 2 Completion Record — Group Portrait Re-roll
+
+**Executed by:** drax
+**Date:** 2026-05-30
+**Commit:** `5a5530e`
+**Tag:** `drax/v1.0-cascade-r4-v1-season-002-marquee-polish-1`
+**Vercel deploy:** `reincarnated-loadout-kdmcull1n` — READY (29s)
+
+**Trigger:** Matt 2026-05-29 correction: "quality of all group photos are very poor."
+
+**Step 1 — Re-roll executed (Y):**
+Used legolas's authored prompts (filed at `agentic_orchestration/legolas/notes/2026-05-29-cycle-14-season-002-marquee-image-gen-prompts.md`) + galadriel's group composition designs (§1 of `agentic_orchestration/galadriel/notes/2026-05-29-cycle-14-season-002-marquee-visual-coherence-design.md`). Upgraded to `quality="high"` (vs "medium" first-pass). 4 new group images generated.
+Cost: $0.32 (4 × $0.08). Ledger total: $3.52.
+
+**Step 2 — Quality assessment:**
+- Stormcallers: clear improvement — tri-element tri-band visible, 3 distinct figures, pale storm sky, European medieval, HD-2D register present
+- Ironsoil: improved — low-angle mass, dust-haze, concentric earth-impact rings correct; per-figure detail inherently soft at 9-body group scale
+- Gale-Blessed: BEST re-roll result — wind-primary dominant, 13 figures broad-front, holy-lit blade visible, pluralistic armor, reads faction correctly
+- Duskchain: significant improvement — shadow-tendrils (not literal metal chains); dispersed-depth; twilight palette; correct staging
+
+**Step 3 — Decision: SHIP RE-ROLL.** Re-rolled images materially better than first-pass. Acceptable quality for faction group scenes in HD-2D register. No collage fallback needed.
+
+**FALLBACK kit (`Gale-Blessed Physical Fighter Bearer`):** NOT displayed in current marquee (not in top-3 for Cluster 3). No KR surface needed at this time.
+
+**Prior groups:** backed up to `public/pitch/season_002/factions/prior/`.
