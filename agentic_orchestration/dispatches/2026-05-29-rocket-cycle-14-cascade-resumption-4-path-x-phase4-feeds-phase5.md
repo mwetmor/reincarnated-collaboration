@@ -195,3 +195,50 @@ KR will then:
 ---
 
 **KR sign-off:** Dispatch authored per Matt 2026-05-29 evening late "Path X — fire cascade-resumption-4" + "yes, option (i)" verbatim authorization, routed to rocket as the seam owner of `wave5_season_orchestrator.py` per AGENTS.md scope map. Auto-commits expected per CLAUDE.md addendum (rocket = seam owner of engine generation code; cascade-resumption-4 work program = authorized; no per-commit Matt re-ask).
+
+---
+
+## Completion record
+
+**Completed by:** rocket
+**Date:** 2026-05-29
+**Engine commit:** `779b547` (code + math note + tests)
+**Collaboration commit:** `30b30ff` (Phase 5+ re-fire artifacts)
+**Tag:** `rocket/v1.0-cascade-r4-path-x-phase4-feeds-phase5-1`
+
+### Acceptance criteria verification (§ 6)
+
+1. **PM-1 cardinality actual:** 34 (s0=18 / s1=9 / s2=7 — exact match Phase 4 archive ACTIVE count)
+2. **Sparsity tier:** NONE — n=34 >= SPARSITY_TIER_GMM_BIC=24; GMM BIC sweep at k∈{3,4}
+3. **GMM cluster count k selected:** k=4 (BIC-selected)
+4. **Per-element distribution (primary mono, 8 elements):** earth / fire / holy / lightning / physical / shadow / water / wind — all represented
+5. **Faction cluster labels:**
+   - Grounded Chain Strikers (13 kits)
+   - Stormbreak Vanguard (11 kits)
+   - Stormveil Ironclad Surge (9 kits)
+   - Ashfield Siege Callers (1 kit)
+6. **Wave B kit_count actual:** 34 (all 34 archive kits named per Matt option (i))
+7. **Phase 7 cluster_id assignment coverage:** 34/34 = 100% (prior: 17.6% = 6/34)
+8. **Phase 7 shipped_worthy:** 0 — C-2 compactness gate calibration gap (clusters at n=34 produce compactness ≈0.14; gate floor=0.40; calibrated for 598-kit population). **KR surface per dispatch §9.2.** Not a Path X wiring defect.
+9. **LLM cost actual:** $0.36 (Wave A $0.02 + Wave B $0.34) — within $0.37 estimate
+10. **Wall clock:** 42.5s
+11. **Backward-compat fallback smoke:** PASS — archive_count < 8 path triggers WARN + falls back to `passing_kits + variant_passing_rows` + surfaces `pm1_path_x_fallback=True`
+12. **Composition preservation:** Phase 2-4 pipeline untouched; `start_from_phase=5` fast-path verified; Phase 3 PM-1 result overridden at Phase 4.5 step (after Phase 4 completes)
+
+### New surfaces for KR routing
+
+- **Phase 7 C-2 compactness calibration gap:** P7_CLUSTER_COMPACTNESS_FLOOR=0.40 was calibrated for the 598-kit PM-1 population. At n=34, cluster compactness ≈0.14 → all kits fail C-2 gate → shipped_worthy=0. This is a separate calibration issue from Path X; needs KR assessment for Cycle 15. Route per dispatch §9.2.
+
+### Deferred (out-of-scope for this dispatch)
+
+- `config_to_kit` collision (`season_generation_pipeline.py:1424-1428`): last-writer-wins drops s0/s1 from `wr_bracket_pass=True`; deferred to Cycle 15+ per Instance 6 #5 investigation findings
+
+### Artifacts produced
+
+- `reincarnated-engine/src/reincarnated/simulation/wave5_season_orchestrator.py` — `ArchiveKitAdapter`, `_load_phase4_archive_for_pm1`, `_run_pm1_on_phase4_archive` helpers; Phase 4.5 block; `start_from_phase` parameter
+- `reincarnated-engine/src/reincarnated/simulation/math/cascade-r4-path-x-pm1-input-source-change-2026-05-29.md` — math note (Discipline #1)
+- `reincarnated-engine/tests/test_cascade_r4_path_x_pm1_input_source.py` — 14 tests across 5 groups
+- `agentic_orchestration/cycle-14-wave-5-season-001/phase5_faction_clusters.json` — re-fire output (k=4, 34 kits)
+- `agentic_orchestration/cycle-14-wave-5-season-001/phase5_faction_relationships.json` — re-fire output
+- `agentic_orchestration/cycle-14-wave-5-season-001/phase7_season_summary.json` — re-fire output (shipped_worthy=0; 100% cluster coverage)
+- `agentic_orchestration/cycle-14-wave-5-season-001/kit_archive.db` — unchanged archive (re-fire reads only)
