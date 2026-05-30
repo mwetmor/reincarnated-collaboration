@@ -113,11 +113,21 @@
   <li><a href="#pathway">Cycle 14 → Cycle 15+ pathway</a></li>
   <li><a href="#risks">Risk register</a></li>
   <li><a href="#openq">Open questions for Pattern B</a></li>
+  <li style="list-style: none; padding-top: 0.5rem; border-top: 1px dashed var(--rule); margin-top: 0.4rem;"><strong style="color: var(--risk); font-family: 'Helvetica Neue', sans-serif; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em;">Amendment 2026-05-29 late (build-defining research)</strong></li>
+  <li><a href="#bd-research">Genre build-defining mechanism research findings</a></li>
+  <li><a href="#bd-families">The 7 mechanism families — family taxonomy</a></li>
+  <li><a href="#bd-verdict">T4 architectural verdict — is T4 the right abstraction?</a></li>
+  <li><a href="#bd-amendments">Amendments to this doc per build-defining research</a></li>
 </ol>
 </nav>
 
 <!-- =================================================================================== -->
 <h2 id="exec">1. Executive summary — top 7 actionable findings <a class="anchor-link" href="#exec">§</a></h2>
+
+<div class="callout callout-risk" style="margin-bottom: 1.5rem;">
+<strong>Amendment 2026-05-29 late — build-defining research findings landed</strong>
+A second research commission (legolas Mode A; 31 mechanisms × 9 ARPG games; sourced at <code>agentic_orchestration/research/arpg-build-defining-mechanisms-2026-05-29/</code>) substantially refines this doc's framing. The original findings below remain valid for axis-expansion + T4 strategy candidates. <strong>But the genre research reveals T4 is one of 7 mechanism families, not the singular surface for build-defining moments.</strong> Family B (extractable/imbue-able power — D2 Runewords, D3 Kanai's Cube, D4 Legendary Aspects) is the DOMINANT genre family by primary-crystallization moments and is ABSENT from Reincarnated's current architecture. See § <a href="#bd-research">18</a>–§ <a href="#bd-amendments">21</a> for the full verdict + amendments. <strong>Verdict in brief:</strong> T4 architecture is preserved and is genuinely novel — but is insufficient alone. Family B is the highest-leverage Cycle 15+ architectural addition, surfacing as a design call BEFORE the T4 strategy set expansion proposed in § 11.
+</div>
 
 <ol>
   <li><strong>Three axis classes exist, our engine canonicalizes only one fully.</strong> Mechanical (BC 8-axis + damage-scaling + cohort) is canonical and load-bearing. Experiential (Bossing/Speedfarm/Push/Generalist/Leveling/LeagueStart + Investment Tier + Playstyle Geometry) is empirically validated at 91% Skill+Class spine + 4 game-source breadth, ready for canonical promotion. Player-facing (the "feel" lexicon: Gear Dependent, Buff Management, Don't Get Hit, Difficult to Play Optimally, etc.) is unmeasured and ungoverned — community names it; we don't model it.</li>
@@ -655,6 +665,11 @@ T4 capstones are not just mechanical-parameter shifts. They are <strong>coordina
 <!-- =================================================================================== -->
 <h2 id="t4-candidates">11. Specific T4 capstone candidates — 15 new Layer 2 strategies <a class="anchor-link" href="#t4-candidates">§</a></h2>
 
+<div class="callout callout-risk">
+<strong>Refinement per § 18–21 build-defining research</strong>
+The 15 T4 strategies below remain valid as Family D (passive-tree capstone) extensions. <strong>But several strategies have stronger Family B (extractable/imbue-able power) or Family A (intra-skill transformation) genre analogs and may belong in those families instead of (or in addition to) Layer 2 T4.</strong> Specifically: T4-ROLE-3 MOBILITY_AS_DAMAGE has closest analog in LE intra-skill nodes + D4 Whirlwind aspect (Family A + B); T4-PF-1 GEAR_INDEPENDENT has closest analog in D2 base-tier Runewords + LE day-1 Skill Trees (Family B + A); T4-EXP-1 SPEEDFARM_MODE has direct analog in D4 movement-speed aspects (Family B). See § 21 for the family-mapping verdict per strategy and which should potentially re-architect into other families when Reincarnated adds Family B + Family A depth.
+</div>
+
 <p>Each strategy: <strong>name + mechanism + axis served + community-substrate citation + composition note.</strong></p>
 
 <h3>11.1 Experiential-archetype T4 strategies (4 new)</h3>
@@ -1015,6 +1030,259 @@ Player-facing axes (Cognitive Load Index, Execution Skill Floor/Ceiling, Gear De
 
   <li><strong>Cross-cycle substrate-led-discipline drift detection.</strong> 14 axis classes is a lot of dimensions to keep substrate-led. Periodic ARPG community research re-sprints (annual?) provide drift detection. Routine cadence for Cycle 15+/16+ design calls.</li>
 </ol>
+
+<!-- =================================================================================== -->
+<!-- ============= AMENDMENT 2026-05-29 LATE — BUILD-DEFINING RESEARCH ================= -->
+<!-- =================================================================================== -->
+
+<h2 id="bd-research" style="margin-top: 4rem; padding-top: 1.5rem; border-top: 3px solid var(--risk);">18. Build-defining mechanism research findings <a class="anchor-link" href="#bd-research">§</a></h2>
+
+<p><span class="figure-num">Amendment 2026-05-29 late.</span> Second research commission anchored on Matt's directive: "send agents to find which ARPG games have build-defining [mechanism] and whether T4 is the right abstraction or whether we should delete T4 nodes altogether." Legolas Mode A executed; findings at <code>agentic_orchestration/research/arpg-build-defining-mechanisms-2026-05-29/findings.md</code> + <code>mechanisms.csv</code>; data ingested into <code>agentic_orchestration/research/arpg-community-axes-2026-05-29/research.db</code> as three new tables (<code>build_defining_mechanisms</code> with 31 rows; <code>mechanism_families</code> with 7 rows; <code>t4_genre_analog_mapping</code> with 24 rows). This section synthesizes the verdict.</p>
+
+<h3>18.1 Research scope</h3>
+
+<p>Enumerated build-defining mechanisms across 9 ARPG games: Path of Exile 1 + 2 EA, Diablo 2 + D2R, Diablo 3, Diablo 4, Last Epoch, Grim Dawn, Lost Ark, Wolcen. Per mechanism captured: name, mechanism class, magnitude pattern, stackability, trigger condition, scope, gating, reversibility, resource cost, build-defining axis, investment-tier coupling, genre lineage, source URL.</p>
+
+<table>
+<tr><th>Game</th><th>Mechanisms enumerated</th><th>Primary crystallization moment</th></tr>
+<tr><td>Path of Exile 1</td><td>9</td><td>6-link acquisition; Ascendancy completion</td></tr>
+<tr><td>Path of Exile 2 EA</td><td>2 new + 3 inherited</td><td>Spirit reservation lock-in; Ascendancy</td></tr>
+<tr><td>Diablo 2 / D2R</td><td>3</td><td><strong>Runeword acquisition</strong> (Enigma/Infinity totemic)</td></tr>
+<tr><td>Diablo 3</td><td>3</td><td><strong>Class Set 6-piece completion</strong></td></tr>
+<tr><td>Diablo 4</td><td>5</td><td><strong>Legendary Aspect assembly</strong></td></tr>
+<tr><td>Last Epoch</td><td>4</td><td>Skill specialization tree completion</td></tr>
+<tr><td>Grim Dawn</td><td>2</td><td>Dual Mastery selection (permanent)</td></tr>
+<tr><td>Lost Ark</td><td>3</td><td>Class engraving + general engraving stack</td></tr>
+<tr><td>Wolcen</td><td>1</td><td>Gate of Fates path alignment</td></tr>
+</table>
+
+<p><strong>Per-character simultaneous build-defining mechanism count: 3–5 (genre tendency).</strong> D2 and GD are the strongest 1-2-mega-moment outliers; PoE is the 5-8 outlier; all others cluster at 3-5. <strong>The genre does NOT converge on a "single dominant build-defining moment" model.</strong></p>
+
+<!-- =================================================================================== -->
+<h2 id="bd-families">19. The 7 mechanism families — family taxonomy <a class="anchor-link" href="#bd-families">§</a></h2>
+
+<p>Cross-game pattern extraction yields 7 distinct mechanism families. The HTML colors mark our gap-severity at each.</p>
+
+<table>
+<tr><th>Family</th><th>Members</th><th>Game coverage</th><th>Reincarnated equivalent</th><th>Gap severity</th></tr>
+<tr style="background: var(--mechanical-bg);">
+  <td><strong>A — Intra-skill transformation</strong></td>
+  <td>LE Skill Specialization Tree; PoE Support Gem Links (5 supports stack); LA Tripod (3 tiers per skill); PoE2 Meta Gem</td>
+  <td>LE + PoE + LA + PoE2</td>
+  <td>Partial (skill geometry + T4 scope expansion approximates)</td>
+  <td><span class="tag tag-moderate">MODERATE</span></td>
+</tr>
+<tr style="background: var(--risk-bg);">
+  <td><strong>B — Extractable / imbue-able power</strong><br><em>DOMINANT BY PRIMARY CRYSTALLIZATION</em></td>
+  <td>D2 Rune Words (Enigma/Infinity/Spirit); D3 Kanai's Cube (extracted legendary powers); D4 Legendary Aspect (Codex of Power); D4 Tempering</td>
+  <td>D2 + D3 + D4 — three of the most commercially successful ARPGs all center build-defining here</td>
+  <td><strong>NONE</strong></td>
+  <td><span style="background: var(--risk); color: var(--bg); padding: 0.1rem 0.5rem; font-family: 'Helvetica Neue', sans-serif; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; border-radius: 3px;">MAJOR GAP</span></td>
+</tr>
+<tr style="background: var(--mechanical-bg);">
+  <td><strong>C — Class-identity combo</strong></td>
+  <td>GD Dual Mastery (66 combinations); D3 Class Set 6pc; LA Class Engraving; PoE Ascendancy Class</td>
+  <td>GD + D3 + LA + PoE</td>
+  <td>Partial (spirit-swap is temporal not simultaneous-synergy)</td>
+  <td><span class="tag tag-moderate">MODERATE</span></td>
+</tr>
+<tr style="background: var(--t4-bg);">
+  <td><strong>D — Passive-tree capstone node</strong><br><em>Reincarnated's current T4 family</em></td>
+  <td>PoE Keystone; PoE Ascendancy Capstone; GD Devotion Celestial (terminal); D4 Paragon Legendary Glyph (level 51)</td>
+  <td>PoE + PoE2 + GD + D4 Paragon (3 of 9 games as primary)</td>
+  <td><strong>YES — T4 architecture (Primary + Layer 2 cycling)</strong></td>
+  <td>No gap — preserved + extended</td>
+</tr>
+<tr style="background: var(--mechanical-bg);">
+  <td><strong>E — Item-slot anchor (unique/mythic)</strong></td>
+  <td>Mageblood; Headhunter; Enigma; Infinity; Tyrael's Might; The Grandfather</td>
+  <td>PoE + D2 + D4</td>
+  <td>Partial (legendary system exists; no Mageblood-class)</td>
+  <td><span class="tag tag-moderate">MODERATE</span></td>
+</tr>
+<tr>
+  <td><strong>F — Consumable / inventory-resident passive</strong></td>
+  <td>D2 Charms (Grand Charm Skiller); LE Idols; LE Blessing</td>
+  <td>D2 + LE</td>
+  <td>None</td>
+  <td><span class="tag tag-weak">MINOR</span></td>
+</tr>
+<tr style="background: var(--mechanical-bg);">
+  <td><strong>G — Proc-attached celestial / secondary effect</strong></td>
+  <td>GD Devotion Celestial Power (linked to skill); PoE Watcher's Eye conditional mod; D3 Legendary Gem Rank 25 secondary</td>
+  <td>GD + PoE + D3</td>
+  <td>None (T4 proc-on-condition is partial analog)</td>
+  <td><span class="tag tag-moderate">MODERATE</span></td>
+</tr>
+</table>
+
+<h3>19.1 The architectural distinction that matters</h3>
+
+<p><strong>Family count by raw mechanism quantity differs from family count by primary-crystallization weight.</strong> By raw count, Family D (passive-tree capstone) has 9 mechanisms in our ingestion — the most. By primary-crystallization weight (which mechanism do players cite as "the build came online" moment in each game?), <strong>Family B is dominant</strong> — D2 (Enigma/Infinity), D3 (Class Set / Kanai's Cube), D4 (Legendary Aspect assembly) all center the crystallization moment in Family B. Family D mechanisms are numerous in PoE (Keystones + Ascendancy + Cluster Jewel notables + Devotion terminals + Glyph) but represent <em>distributed</em> build-defining moments, not the singular crystallization.</p>
+
+<div class="callout callout-mech">
+<strong>The headline insight</strong>
+The genre's most-beloved canonical build-defining moments — Enigma in D2, Marauder 6pc in D3, Aspect assembly in D4 — all live in <strong>Family B</strong>. Reincarnated has <strong>zero Family B mechanisms</strong>. T4 architecture is preserved as a genuine Family D innovation, but Family B is the highest-leverage missing surface. Adding T4 strategies (the § 11 proposal) extends Family D coverage; <strong>adding a Family B mechanism is the more architecturally consequential Cycle 15+ design call.</strong>
+</div>
+
+<h3>19.2 Mathematical-property summary by family</h3>
+
+<table>
+<tr><th>Family</th><th>Magnitude pattern</th><th>Stackability</th><th>Trigger</th><th>Scales with investment</th></tr>
+<tr><td>A (intra-skill)</td><td>Transformative (type change) OR +20-50% multiplicative per support</td><td>Additive within family; "more" multiplicative</td><td>Always-on or trigger-linked</td><td>Gem level / node point count</td></tr>
+<tr><td>B (extractable/imbue)</td><td>Fixed power set; aspect scales with item stat (life, crit%, item-power)</td><td>Single per slot; no double-up</td><td>Always-on (imprinted)</td><td>Flat or scales with item power level</td></tr>
+<tr><td>C (class-combo)</td><td>Large flat bonus or mechanic unlock (D3 Marauder: 12,000% per active Sentry)</td><td>Single-instance per choice</td><td>Always-on when complete</td><td>Scales with class mechanic count</td></tr>
+<tr><td>D (capstone-node)</td><td>Binary two-sided mechanic swap; +25-50% large bonus typical</td><td>Single-instance</td><td>Always-on (allocated)</td><td>Flat OR scales with adjacent investment</td></tr>
+<tr><td>E (item-slot anchor)</td><td>Large unique effect not otherwise achievable</td><td>Single per slot</td><td>Always-on or on-kill (Headhunter)</td><td>Does not scale — power is fixed per item tier</td></tr>
+<tr><td>F (consumable/inventory)</td><td>+1 skill / +% resist / flat stats; small per piece, cumulative</td><td>Additive unlimited up to inventory space</td><td>Always-on (held)</td><td>Scales with count (fill inventory)</td></tr>
+<tr><td>G (proc-attached)</td><td>Chance-to-proc new skill on attack</td><td>Single attachment per skill (GD)</td><td>Proc-on-event</td><td>Scales with attached skill's attack frequency</td></tr>
+</table>
+
+<!-- =================================================================================== -->
+<h2 id="bd-verdict">20. T4 architectural verdict — is T4 the right abstraction? <a class="anchor-link" href="#bd-verdict">§</a></h2>
+
+<h3>20.1 The headline verdict</h3>
+
+<div class="callout callout-t4">
+<strong>T4 architecture is preserved. T4 is genuinely novel. T4 is incomplete alone.</strong>
+The proposal in Matt's prompt — "the answer could be delete T4 nodes altogether and create build-defining events in a different way" — surfaced as a deliberate open door. The research closes that door but adds a wider one: T4 is correct for Family D and is genuinely architecturally novel in its MECHANICAL STRATEGY cycling design. But Family D alone is insufficient to capture the genre's build-defining design space. Three additional families need representation in Reincarnated's architecture: <strong>Family B (extractable/imbue-able power; MAJOR gap), Family A (intra-skill transformation depth; moderate gap), and Family C (class-combo combinatorial; moderate gap).</strong>
+</div>
+
+<h3>20.2 Cheapest-empirical-refutation tested</h3>
+
+<p>If T4 were the canonical dominant pattern, all major ARPGs would center build identity on tree-terminal nodes. Refutation evidence:</p>
+<ul class="compact">
+<li><strong>D2:</strong> no passive tree capstone of note. Build identity = Runewords + skill tree. <em>Refutes "T4 is canonical."</em></li>
+<li><strong>D3:</strong> primary crystallization = Class Set 6pc (Family C). <em>Refutes.</em></li>
+<li><strong>D4:</strong> primary crystallization = Legendary Aspect assembly (Family B). <em>Refutes.</em></li>
+<li><strong>LE:</strong> primary = skill specialization tree completion (Family A — intra-skill). <em>Refutes.</em></li>
+<li><strong>GD:</strong> primary = Dual Mastery selection (Family C). <em>Refutes.</em></li>
+<li><strong>PoE:</strong> only game centering on capstone nodes — and even there, 6-link acquisition (Family A skill-link) is cited as the more salient moment than Keystone allocation. <em>Partial support only.</em></li>
+</ul>
+
+<p><strong>Refuted in 5 of 6 cases. T4 is a minority-family abstraction, not the canonical genre default.</strong></p>
+
+<h3>20.3 What this means for the 15 new T4 strategies proposed in § 11</h3>
+
+<p>The 15 strategies remain valid as Family D extensions. But several have stronger Family B / Family A genre analogs and would be better-architected in those families:</p>
+
+<table>
+<tr><th>T4 Strategy</th><th>Closest genre analog</th><th>Best family fit</th><th>Architectural verdict</th></tr>
+<tr><td>T4-EXP-1 SPEEDFARM_MODE</td><td>D4 movement-speed aspect; PoE Tailwind ascendancy</td><td>B + D hybrid</td><td>Could live in Family B (Reincarnated Aspect equivalent) when introduced</td></tr>
+<tr><td>T4-EXP-2 BOSSING_MODE</td><td>D3 Roland's 6pc + LA Grudge engraving</td><td>C + D</td><td>Could live in Family C (Reincarnated class-combo equivalent)</td></tr>
+<tr><td>T4-EXP-3 PUSH_MODE</td><td>PoE Awakened-tier + D4 Greater Affix Pit-pushing</td><td>B + E</td><td>Family B + E; T4 valid but late-game scaling pattern</td></tr>
+<tr><td>T4-EXP-4 LEAGUE_STARTER_MODE</td><td>D2 Spirit runeword + LE day-1 Skill Tree</td><td>B + A</td><td>Family B (early-tier crafting); T4 partial fit</td></tr>
+<tr><td>T4-ROLE-1 AMP_FUSION</td><td>PoE Trigger-class support gems (Cast on Crit; Cast When Stunned)</td><td>A</td><td>BETTER as Family A intra-skill link than as T4</td></tr>
+<tr><td>T4-ROLE-2 CORE_DUPLICATION</td><td>D4 Necromancer corpse double-cast + PoE Cast-on-Crit</td><td>A + B</td><td>Family A + B hybrid</td></tr>
+<tr><td>T4-ROLE-3 MOBILITY_AS_DAMAGE</td><td>LE Tempest Strike skill tree nodes + D4 Dust Devils aspect</td><td>A + B</td><td>STRONGEST candidate for re-architecture — better as intra-skill (Family A) per LE precedent</td></tr>
+<tr><td>T4-ROLE-4 DEFENSE_AS_DAMAGE</td><td>PoE Gladiator/Champion + D4 Bash-thorns aspect</td><td>B + D</td><td>Family B (Aspect) + Family D (Ascendancy)</td></tr>
+<tr><td>T4-ROLE-5 RESOURCE_AS_AMP</td><td>D3 Wrath of the Berserker + PoE Berserker rage</td><td>C + D</td><td>Class-set + capstone hybrid</td></tr>
+<tr><td>T4-PF-1 GEAR_INDEPENDENT</td><td>D2 base-rune Spirit/Stealth; LE day-1 Skill Tree</td><td>B + A</td><td>Family B early-tier crafting + Family A; T4 fit partial</td></tr>
+<tr><td>T4-PF-2 SKILL_TIMING_WINDOW</td><td>PoE Hierophant Penance Brand timing + LA Awakening burst</td><td>D + C</td><td>Capstone + class-engraving anchor; T4 valid</td></tr>
+<tr><td>T4-PF-3 COGNITIVE_SIMPLIFIER</td><td>D3 simulacrum-class one-button builds + LA Reflux</td><td>C + D</td><td>Class-set + class-engraving; T4 valid</td></tr>
+<tr><td><strong>T4-PF-4 WANDERER_STANDALONE</strong></td><td>No direct genre analog</td><td><strong>Reincarnated novel</strong></td><td>Stay as T4 — genuinely original mechanism</td></tr>
+<tr><td><strong>T4-COUPLE-1 LOOT_LAYER_DECOUPLE</strong></td><td>No direct genre analog</td><td><strong>Reincarnated novel</strong></td><td>Stay as T4 — architectural statement mechanism</td></tr>
+<tr><td><strong>T4-COUPLE-2 SINGLE_AXIS_ANCHOR</strong></td><td>PoE-Vault "Clear Speed" named-but-disincentivized</td><td>derived (Reincarnated first to enforce)</td><td>Stay as T4 — genre signal exists, no engine enforces</td></tr>
+</table>
+
+<p><strong>3 of 15 stay T4 unconditionally</strong> (Wanderer + 2 Couple strategies — all Reincarnated novel). <strong>5 of 15 are stronger candidates in Family A / B / C once those families are introduced</strong> (T4-ROLE-1 / T4-ROLE-3 / T4-PF-1 / T4-EXP-1 / T4-EXP-4). <strong>7 of 15 are hybrid-family</strong> (could live in T4 or split across families).</p>
+
+<h3>20.4 Three actionable signals from the research</h3>
+
+<ol>
+  <li><strong>Family B gap is the most architecturally significant.</strong> Reincarnated has no extractable/portable power mechanism. The genre's most-beloved build crystallization moments all live here. <strong>Family B architectural design call is recommended PRIORITY 1 for Cycle 15+ — before T4 strategy set expansion.</strong></li>
+  <li><strong>Intra-skill transformation (Family A) is underweighted.</strong> LE's per-skill 20-node trees are the canonical "skill comes online" moment. Reincarnated's skill geometry + T4 partially approximates but doesn't replicate. <strong>Family A depth via per-skill specialization investment is a Cycle 15+ priority 2.</strong></li>
+  <li><strong>T4 mechanical strategy cycling is genuinely novel.</strong> No single mechanism in the genre does "pick one of N strategy archetypes" at a unified abstraction layer. <strong>This is worth preserving even as we add Family B + A.</strong></li>
+</ol>
+
+<!-- =================================================================================== -->
+<h2 id="bd-amendments">21. Amendments to this doc per build-defining research <a class="anchor-link" href="#bd-amendments">§</a></h2>
+
+<h3>21.1 Amendment to § 11 (T4 capstone candidates)</h3>
+
+<p><strong>§ 11 remains canonically authored but reframed:</strong> the 15 strategies are Family D Layer 2 T4 extensions, valid for kits whose architectural anchor is the passive-tree capstone family. 5 of 15 (T4-ROLE-1, T4-ROLE-3, T4-PF-1, T4-EXP-1, T4-EXP-4) are candidates for re-architecture into Family A or Family B once those families are introduced — the same mechanical intent can manifest at a different architectural layer. § 11 stays operational; § 20.3 table provides the per-strategy family-mapping verdict.</p>
+
+<h3>21.2 New § 15 pathway insertion — Family B architectural design call as priority 1</h3>
+
+<p>Per § 19.2 verdict, the Cycle 15+ pathway in § 15.2 should insert a new step 0 BEFORE step 1 (doc 52 promotion):</p>
+
+<div class="callout callout-mech">
+<strong>Cycle 15+ Pathway Step 0 (NEW) — Family B architectural design call</strong>
+Author canonical doc <code>canonical/story/2026-05-29-family-b-extractable-power-architecture.md</code> proposing Reincarnated's equivalent of D4 Legendary Aspect / D3 Kanai's Cube / D2 Runeword. Candidate mechanisms to explore in Pattern B with Matt:
+<ul class="compact">
+<li><strong>Spirit-Kit Aspect Extraction:</strong> at end of season, player can extract one mechanical property from the season's spirit-kit to add to a "Codex of Aspects" carried into future seasons (composes with Earth Self / form library architecture)</li>
+<li><strong>Seasonal Glyph Cubes:</strong> 3 extracted-power slots per character carried across seasons; each slot holds one mechanism from a prior season's kit; cross-seasonal build assembly</li>
+<li><strong>Inscribed Rune Sequence:</strong> multi-component "rune words" assembled from substrate-elected components; each season produces new components; assembly creates trans-seasonal build identity</li>
+</ul>
+This design call lands BEFORE the 15-strategy T4 expansion to ensure the T4 architecture composes cleanly with Family B rather than duplicating its design space.
+</div>
+
+<h3>21.3 New § 15 pathway insertion — Family A per-skill specialization depth as priority 2</h3>
+
+<div class="callout callout-mech">
+<strong>Cycle 15+ Pathway Step 0.5 (NEW) — Family A architectural design call</strong>
+Extend Reincarnated's per-skill investment depth to support intra-skill transformation. LE's 20-node-per-skill trees are the canonical pattern. Doc 51's investment scaling currently scales skill magnitude; Family A extension introduces per-skill TRANSFORMATION nodes (change damage type, alter geometry, add targeting behavior, modify resource cost) inside the skill's own investment space. Candidate naming: "Skill Refinement Tree" or "Skill Affinity Path." Anchors to substrate-led discipline — the transformation nodes available per skill are substrate-elected per the skill's BC + element + cultural lineage.
+</div>
+
+<h3>21.4 New § 16 risk addition — R7 single-family-architecture-bias</h3>
+
+<div class="callout callout-risk">
+<strong>R7: Single-family-architecture-bias risk</strong>
+Reincarnated's current architecture centers on Family D (passive-tree capstone) via T4. Adding 15 more T4 strategies extends Family D coverage but does NOT broaden the architectural family base. Risk: kits emerge that fit Family D but feel architecturally narrow vs the genre canon where the same kit might also have Family B + A + C + E build-defining surfaces simultaneously.<br><br>
+<strong>Mitigation:</strong> § 21.2 + § 21.3 introduce Family B + A as Cycle 15+ priority 1 + 2 design calls BEFORE T4 expansion. Family C (class-combo) and Family E (item-slot anchor) become Cycle 16+ candidates. Reincarnated's architecture moves toward genre-canonical 3-5 simultaneous build-defining surfaces per kit instead of 1 (current).
+</div>
+
+<h3>21.5 Composition with Wanderer architecture</h3>
+
+<p>Wanderer architecture (cascade-r4 amendment <code>acb8b5f</code>) introduces SINGLETON substrate-elected state + Wanderer player-facing surface. Composition with Family B + A:</p>
+<ul class="compact">
+<li>Cross-seasonal Wanderer re-clustering (Cycle 15+ deferred work) composes with Family B Codex-of-Aspects accumulation — Wanderers contribute substrate components that may cluster into emergent multi-seasonal factions</li>
+<li>Family A per-skill specialization depth allows Wanderer kits to express identity more richly via per-skill transformation nodes — the "Lone Wanderer's Skill Refinement" becomes a player-narrative surface</li>
+<li>T4-PF-4 WANDERER_STANDALONE remains Family D Reincarnated-novel — but pairs naturally with Family B accumulated aspects giving the Wanderer additional standalone power</li>
+</ul>
+
+<h3>21.6 Genre-canonical simultaneous build-defining count target</h3>
+
+<p>Per § 18 finding "3-5 simultaneous build-defining mechanisms is the genre tendency," Reincarnated should target an architecture where each kit experiences <strong>3-5 simultaneous build-defining moments</strong>:</p>
+
+<table>
+<tr><th>Surface</th><th>Family</th><th>Reincarnated status</th></tr>
+<tr><td>Substrate-elected kit identity (Phase 2-7 cascade)</td><td>—</td><td>✅ operational (cascade-r4)</td></tr>
+<tr><td>T4 capstone strategy selection (Layer 2)</td><td>D</td><td>✅ operational (6 strategies); Cycle 15+ → 21 strategies per § 11</td></tr>
+<tr><td>Per-skill specialization investment (skill tree depth)</td><td>A</td><td>⏳ partial (doc 51 magnitude scaling); Cycle 15+ priority 2 (§ 21.3)</td></tr>
+<tr><td>Extractable Aspect / Cube / Rune slot</td><td>B</td><td>❌ Cycle 15+ priority 1 (§ 21.2)</td></tr>
+<tr><td>Class-combo or spirit-combo synergy</td><td>C</td><td>⏳ partial (spirit-swap is temporal); Cycle 16+ candidate</td></tr>
+<tr><td>Item-slot anchor unique (Mageblood-equivalent)</td><td>E</td><td>❌ Cycle 16+ candidate</td></tr>
+<tr><td>Proc-attached celestial / secondary trigger</td><td>G</td><td>❌ partial (T4 proc-on-condition); Cycle 16+ candidate</td></tr>
+</table>
+
+<p>Post-Cycle-15+ target: each kit has 3-4 simultaneous build-defining surfaces (substrate-elected identity + T4 + skill specialization + Aspect). Post-Cycle-16+ target: 5-6 surfaces by adding class-combo + item-anchor + proc-attached.</p>
+
+<h3>21.7 Schema extension landed at <code>research.db</code></h3>
+
+<p>Build-defining mechanism research data is durable + queryable at <code>agentic_orchestration/research/arpg-community-axes-2026-05-29/research.db</code>:</p>
+<ul class="compact">
+<li><code>build_defining_mechanisms</code> — 31 rows; one per mechanism × game; full mathematical/mechanical properties</li>
+<li><code>mechanism_families</code> — 7 rows; family taxonomy with game-coverage + dominant-flag + gap-severity</li>
+<li><code>t4_genre_analog_mapping</code> — 24 rows; closest-genre-analog mapping for each Reincarnated T4 strategy (9 current + 15 proposed)</li>
+</ul>
+
+<p>Future cross-referenceability with the community-axes data (104 builds; 92 loot vocab; 37 convergence; 30 composite assessments) enables joined analyses — e.g., "which build-defining family is most associated with the Bossing archetype across the build corpus?" Cycle 15+ analytical work can compose.</p>
+
+<h3>21.8 What our knowledge changed about our approach</h3>
+
+<div class="callout callout-t4">
+<strong>The summary verdict — what changed, what stayed.</strong>
+<ul class="compact">
+<li><strong>STAYED:</strong> T4 capstone architecture is preserved. Two-Layer T4 (Primary universal + Layer 2 cycling) is genuinely novel and architecturally correct for Family D. The 15 proposed Layer 2 strategies in § 11 remain canonical-authoring candidates.</li>
+<li><strong>STAYED:</strong> Substrate-led discipline + Wanderer architecture + Designer-writes-substrate principle + Layer 1.5 coupling architecture commitment (≤3 loot layers) — all unchanged.</li>
+<li><strong>CHANGED — major:</strong> T4 is one of 7 mechanism families, not the singular surface. Genre tendency is 3-5 simultaneous build-defining surfaces per kit. Reincarnated currently has 1 (T4 = Family D). Architecture should broaden.</li>
+<li><strong>CHANGED — major:</strong> Family B (extractable/imbue-able power) is the genre's dominant build-defining family by primary-crystallization moments. Reincarnated has zero Family B mechanisms. <strong>Family B design call is the highest-leverage Cycle 15+ architectural addition.</strong></li>
+<li><strong>CHANGED — moderate:</strong> Cycle 15+ pathway re-prioritized. Family B design call (priority 1) + Family A per-skill depth (priority 2) land BEFORE T4 strategy set expansion. 5 of 15 proposed T4 strategies are candidates for re-architecture into Family A / B when those families are introduced.</li>
+<li><strong>CHANGED — moderate:</strong> Architecture target shifts from "T4 as the build-defining surface" to "3-5 simultaneous build-defining surfaces per kit." § 21.6 specifies the per-surface family mapping + Cycle progression.</li>
+<li><strong>DID NOT DELETE T4:</strong> Matt's open door was real and considered. The research closed it. T4's MECHANICAL STRATEGY cycling design is genuinely novel and worth preserving. T4 is not wrong; T4 is correct + insufficient. The fix is ADD families, not REMOVE T4.</li>
+</ul>
+</div>
 
 <!-- =================================================================================== -->
 <footer>
