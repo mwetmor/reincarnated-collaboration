@@ -171,13 +171,21 @@ PC procurement is **gated separately** but explicitly tracked here:
 
 ---
 
-## 7. Open items for Matt's election (sequence Phase 1 execution)
+## 7. Matt elections — LOCKED 2026-05-30
 
-1. **Augmentation framing confirmation** — Pi is for Mac↔PC engine-output flow; git+Vercel continues for everything else. CONFIRM or amend? **(this doc commits AUGMENTATION; amend by explicit Matt directive)**
-2. **Phase 1 timing** — fire now (before PC) OR sequence with PC readiness? **(this doc recommends fire-now)**
-3. **Backup target** — Mac local rsync recommendation, or different (cloud / second SSD on Pi)? **(this doc recommends rsync to Mac as Day-1 minimum; cloud add-on Phase 4)**
-4. **Network resolution** — start with `.local` mDNS, upgrade to static IP if .local flaky? **(this doc recommends .local first)**
-5. **PC procurement timing** — concurrent with Pi Phase 1 OR sequential? **(this doc recommends concurrent procurement; concurrent execution since Pi Phase 1 doesn't require PC)**
+Per Matt 2026-05-30 verbatim "lock the 5 elections" following gandalf recommendations, all five open elections close at recommended values:
+
+| # | Election | LOCKED decision |
+|---|---|---|
+| 1 | **Augmentation framing** | ✅ **LOCKED — AUGMENTATION confirmed.** Pi handles Mac↔PC engine-output flow; git+Vercel continues for canonical docs + loadout app + design artifacts. Per § 1.2 table. |
+| 2 | **Phase 1 timing** | ✅ **LOCKED — FIRE NOW.** Phase 1 Samba file sharing executes immediately without waiting for PC procurement. Phase 1 has independent value (test infrastructure, build backup discipline, prepare data directory structure). |
+| 3 | **Backup target** | ✅ **LOCKED — Mac local rsync as Day-1 minimum.** Weekly rsync of Pi `/home/matt/data` + pg_dump to Mac local disk per HTML implementation plan § 7. Cloud add-on deferred to Phase 4. |
+| 4 | **Network resolution** | ✅ **LOCKED — .local mDNS first.** Pi addressable as `reincarnated-pi.local` from Mac (built-in mDNS) and PC (Apple Bonjour Print Services for Windows fallback). Upgrade to static IP via router DHCP reservation only if `.local` proves flaky in practice. |
+| 5 | **PC procurement timing** | ✅ **LOCKED — CONCURRENT with Phase 1.** PC procurement fires in parallel with Pi Phase 1 execution. Pi Phase 1 doesn't require PC to validate (Mac alone proves the file share infrastructure). PC arrival accelerates Phase 2 HTTP API readiness when ready. |
+
+**Composition with rollout sequencing:** All 5 elections compose without internal conflict. KR's first-dispatch sequence per per-agent-per-seam doc § 11 operates under these locked decisions; no Matt re-election needed for Phase 1 work-items.
+
+**Amendment authority:** future amendments to these elections require explicit Matt verbatim directive + gandalf canonical doc update. Locked elections are load-bearing for subsequent dispatch authoring.
 
 ---
 
