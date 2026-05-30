@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "season_id": "cycle-14-wave-5-season-001",
+    "season_id": "cycle-14-wave-5-season-003",
     "phase": 5,
     "faction_visibility": "visible",
     "wave_a_fired": true,
@@ -8,12 +8,14 @@
     "relationship_count": 3,
     "llm_cost_usd": 0.015,
     "wave_b_kit_count": 33,
-    "wave_b_cost_usd": 0.33
+    "wave_b_cost_usd": 0.33,
+    "wave_s_fired": true,
+    "wave_s_cost_usd": 0.0
   },
   "clusters": [
     {
       "cluster_id": 1,
-      "season_id": "cycle-14-wave-5-season-001",
+      "season_id": "cycle-14-wave-5-season-003",
       "member_kit_ids": [
         "S1_endgame_bc_melee_high_flat_str_none_s0",
         "S1_endgame_bc_melee_high_flat_str_none_s1",
@@ -58,15 +60,15 @@
       "pm1_algorithm": "gmm_k3",
       "cluster_compactness": 0.1972707352293513,
       "faction_label_placeholder": "fantasy_generic-medieval-unknown-mixed-element",
-      "faction_label_canonical": "Stormcaller Vanguard",
-      "faction_identity_narrative": "A close-quarters fighting collective whose members channel converging lightning, wind, and holy currents into sweeping area strikes, their medieval battlefield doctrine built around overwhelming clustered enemies with crackling broad-front pressure. Their mixed elemental draw \u2014 weighted toward sky and light, grounded by earth \u2014 reflects a pragmatic martial tradition rather than any single elemental school.",
+      "faction_label_canonical": "Stormcallers of the Broken Field",
+      "faction_identity_narrative": "Close-range fighters who channel surging lightning and sweeping wind into wide-arc devastation, their medieval craft fusing earthen footing with holy current to shatter formations from the inside out. They hold ground through elemental overwhelm rather than precision, letting the storm do the geometry.",
       "faction_thematic_tags": [
-        "storm-convergence",
-        "broad-front-assault",
-        "sky-and-earth-duality"
+        "arc-discharge",
+        "mass-disruption",
+        "grounded-surge"
       ],
       "substrate_anchored_personages": null,
-      "cosine_similarity_max": 0.4179,
+      "cosine_similarity_max": 0.4067,
       "diversity_flag": false,
       "phase7_gate_status": "canonical",
       "llm_call_id": null,
@@ -81,7 +83,7 @@
     },
     {
       "cluster_id": 2,
-      "season_id": "cycle-14-wave-5-season-001",
+      "season_id": "cycle-14-wave-5-season-003",
       "member_kit_ids": [
         "S1_endgame_bc_melee_low_spiky_str_none_s0",
         "S1_endgame_bc_ranged_low_spiky_str_none_s0",
@@ -112,15 +114,15 @@
       "pm1_algorithm": "gmm_k3",
       "cluster_compactness": 0.1972707352293513,
       "faction_label_placeholder": "fantasy_generic-medieval-unknown-mixed-element",
-      "faction_label_canonical": "Chain-Strike Stormcallers",
-      "faction_identity_narrative": "A loose medieval fellowship of ranged combatants who channel arcing lightning and cascading wind to strike multiple targets in sequence, supplemented by scattered fire, water, earth, and holy disciplines. Their battlefield signature is the chain \u2014 energy that jumps and propagates rather than landing in a single concentrated blow.",
+      "faction_label_canonical": "Chainstrike Stormcallers",
+      "faction_identity_narrative": "A loose medieval fellowship of ranged combatants who channel arcing lightning and gusting wind to thread damage across multiple targets in rapid succession. Their craft favors chain-geometry strikes over brute force, drawing from a broad elemental vocabulary that keeps opponents off-balance and unable to predict the next vector of attack.",
       "faction_thematic_tags": [
-        "chain-propagation",
-        "storm-ranged",
+        "chain-lightning",
+        "ranged-arcing",
         "multi-element"
       ],
       "substrate_anchored_personages": null,
-      "cosine_similarity_max": 0.4179,
+      "cosine_similarity_max": 0.4067,
       "diversity_flag": false,
       "phase7_gate_status": "canonical",
       "llm_call_id": null,
@@ -135,7 +137,7 @@
     },
     {
       "cluster_id": 3,
-      "season_id": "cycle-14-wave-5-season-001",
+      "season_id": "cycle-14-wave-5-season-003",
       "member_kit_ids": [
         "S1_endgame_bc_ranged_medium_variable_int_light_s0",
         "S1_endgame_bc_ranged_medium_variable_int_light_s1"
@@ -155,15 +157,15 @@
       "pm1_algorithm": "gmm_k3",
       "cluster_compactness": 0.1972707352293513,
       "faction_label_placeholder": "european-medieval-unknown-mixed-element",
-      "faction_label_canonical": "Tidal Umbra Wardens",
-      "faction_identity_narrative": "Rooted in medieval European martial tradition, these ranged combatants command overlapping tides of shadow and water to blanket wide formations in suppressive, area-denying volleys. Their craft favors broad erasure over precision \u2014 obscuring ground, drowning lines, and leaving little room for retreat.",
+      "faction_label_canonical": "Tidal Shadow Wardens",
+      "faction_identity_narrative": "Ranged combatants rooted in medieval European tradition who blend shadow and water into sweeping area denial, flooding battlefields with obscuring dark tides. Their engagements favor wide suppression over precision, drowning opposition in overlapping curtains of shadow-laced water.",
       "faction_thematic_tags": [
         "shadow-water convergence",
         "area suppression",
         "medieval ranged doctrine"
       ],
       "substrate_anchored_personages": null,
-      "cosine_similarity_max": 0.3445,
+      "cosine_similarity_max": 0.34,
       "diversity_flag": false,
       "phase7_gate_status": "canonical",
       "llm_call_id": null,

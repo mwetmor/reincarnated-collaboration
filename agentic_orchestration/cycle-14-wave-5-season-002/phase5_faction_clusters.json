@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "season_id": "cycle-14-wave-5-season-001",
+    "season_id": "cycle-14-wave-5-season-002",
     "phase": 5,
     "faction_visibility": "visible",
     "wave_a_fired": true,
@@ -8,12 +8,14 @@
     "relationship_count": 6,
     "llm_cost_usd": 0.02,
     "wave_b_kit_count": 33,
-    "wave_b_cost_usd": 0.33
+    "wave_b_cost_usd": 0.33,
+    "wave_s_fired": true,
+    "wave_s_cost_usd": 0.0
   },
   "clusters": [
     {
       "cluster_id": 1,
-      "season_id": "cycle-14-wave-5-season-001",
+      "season_id": "cycle-14-wave-5-season-002",
       "member_kit_ids": [
         "S1_endgame_bc_ranged_medium_variable_int_light_s0",
         "S1_endgame_bc_ranged_medium_variable_int_light_s1",
@@ -35,15 +37,15 @@
       "pm1_algorithm": "gmm_k4",
       "cluster_compactness": 0.2053799935850509,
       "faction_label_placeholder": "european-medieval-unknown-mixed-element",
-      "faction_label_canonical": "Tricast Siege Wardens",
-      "faction_identity_narrative": "Medieval European ranged combatants who deploy overlapping fields of lightning, shadow, and fire to break formations at distance. Their doctrine favors wide-area devastation over precision, burning and darkening the ground before any blade is drawn.",
+      "faction_label_canonical": "Stormcaller Siege Corps",
+      "faction_identity_narrative": "A medieval European ranged cadre whose battlefield doctrine centers on wide-area elemental bombardment, cycling lightning, shadow, and fire across overlapping strike zones. Their engagements are defined less by individual heroics than by coordinated coverage \u2014 scorching, darkening, and electrifying the same contested ground in sequence.",
       "faction_thematic_tags": [
-        "tri-element bombardment",
-        "medieval ranged warfare",
-        "large-area denial"
+        "elemental-rotation",
+        "large-AOE-doctrine",
+        "ranged-siege"
       ],
       "substrate_anchored_personages": null,
-      "cosine_similarity_max": 0.3941,
+      "cosine_similarity_max": 0.409,
       "diversity_flag": false,
       "phase7_gate_status": "canonical",
       "llm_call_id": null,
@@ -61,7 +63,7 @@
     },
     {
       "cluster_id": 2,
-      "season_id": "cycle-14-wave-5-season-001",
+      "season_id": "cycle-14-wave-5-season-002",
       "member_kit_ids": [
         "S1_endgame_bc_melee_low_spiky_str_none_s0",
         "S1_endgame_bc_melee_high_flat_str_none_s0",
@@ -89,14 +91,14 @@
       "cluster_compactness": 0.2053799935850509,
       "faction_label_placeholder": "european-medieval-unknown-mixed-element",
       "faction_label_canonical": "Stormbreak Earthen Vanguard",
-      "faction_identity_narrative": "A close-quarters medieval European fighting force that channels split elemental dominance \u2014 crackling lightning and grinding earth \u2014 into wide-arc devastation, built for holding ground while breaking formations apart. Their battlefield identity is defined by the tension between the volatile and the immovable, expressed through heavy engagement at the front line.",
+      "faction_identity_narrative": "A close-quarters medieval European fighting force that channels split dominion over lightning and earth into wide-sweeping battlefield detonations, grinding opponents down through overlapping shockwaves and ruptured ground. Their engagements are defined by aggressive proximity and catastrophic area denial rather than precision or range.",
       "faction_thematic_tags": [
         "lightning-earth duality",
-        "close-range AOE pressure",
-        "medieval European martial"
+        "close-range AOE",
+        "medieval European"
       ],
       "substrate_anchored_personages": null,
-      "cosine_similarity_max": 0.3941,
+      "cosine_similarity_max": 0.409,
       "diversity_flag": false,
       "phase7_gate_status": "canonical",
       "llm_call_id": null,
@@ -114,7 +116,7 @@
     },
     {
       "cluster_id": 3,
-      "season_id": "cycle-14-wave-5-season-001",
+      "season_id": "cycle-14-wave-5-season-002",
       "member_kit_ids": [
         "S1_endgame_bc_melee_high_flat_dex_none_s0",
         "S1_endgame_bc_melee_high_flat_dex_none_s1",
@@ -149,14 +151,14 @@
       "cluster_compactness": 0.2053799935850509,
       "faction_label_placeholder": "fantasy_generic-medieval-unknown-mixed-element",
       "faction_label_canonical": "Gale and Tide Wardens",
-      "faction_identity_narrative": "Close-quarters fighters who channel converging wind, water, and holy currents into broad sweeping strikes that clear ground rather than pierce it. Their craft sits at the intersection of elemental flux and martial discipline, with shadow threading the edges where the cleaner forces cannot reach.",
+      "faction_identity_narrative": "A loose confederation of close-quarters fighters whose combat style blends sweeping wind and water into wide-area surges, with holy light and crackling lightning reinforcing the strike front. Shadow runs thin in their ranks \u2014 these are warriors who prefer the open clash over concealment, pushing broad fronts rather than threading needle strikes.",
       "faction_thematic_tags": [
-        "multi-element convergence",
-        "wide-arc combat",
-        "elemental generalism"
+        "wide-front assault",
+        "wind-water convergence",
+        "medieval field combat"
       ],
       "substrate_anchored_personages": null,
-      "cosine_similarity_max": 0.3847,
+      "cosine_similarity_max": 0.3633,
       "diversity_flag": false,
       "phase7_gate_status": "canonical",
       "llm_call_id": null,
@@ -174,7 +176,7 @@
     },
     {
       "cluster_id": 4,
-      "season_id": "cycle-14-wave-5-season-001",
+      "season_id": "cycle-14-wave-5-season-002",
       "member_kit_ids": [
         "S1_endgame_bc_ranged_low_spiky_str_none_s0",
         "S1_endgame_bc_ranged_low_spiky_str_none_s2",
@@ -202,15 +204,15 @@
       "pm1_algorithm": "gmm_k4",
       "cluster_compactness": 0.2053799935850509,
       "faction_label_placeholder": "fantasy_generic-medieval-unknown-mixed-element",
-      "faction_label_canonical": "Stormveil Chain Wardens",
-      "faction_identity_narrative": "Ranged combatants who weaponize cascading arcs of lightning and shadow across chained targets, operating from medieval fortifications where storm and darkness are harnessed as tactical tools rather than feared phenomena. Their battlefield geometry favors spread and sequence \u2014 one strike triggers the next, binding enemies in conducted ruin.",
+      "faction_label_canonical": "Chain-Strike Stormcallers",
+      "faction_identity_narrative": "A loose medieval fellowship of ranged combatants who weaponize chained lightning and spreading shadow to punish clustered enemies, their strikes cascading across battlefields in arcing sequences. They share no formal hierarchy \u2014 only a common doctrine of gap-maintained, multi-target attrition drawn from storm and darkness in equal measure.",
       "faction_thematic_tags": [
-        "chain-discharge",
-        "lightning-shadow-duality",
-        "ranged-cascade"
+        "chain-damage",
+        "lightning-shadow",
+        "ranged-attrition"
       ],
       "substrate_anchored_personages": null,
-      "cosine_similarity_max": 0.364,
+      "cosine_similarity_max": 0.3957,
       "diversity_flag": false,
       "phase7_gate_status": "canonical",
       "llm_call_id": null,
