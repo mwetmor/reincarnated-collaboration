@@ -5184,3 +5184,24 @@ Remaining gates:
 7. Vercel push authorization (Matt)
 8. Cycle 14 wave-close canonical-write batched (14 items in queue: 12 prior + 2 new from amendments)
 9. v1 tag ratification — final Matt surface — `v1-cycle-14-bounded-viability-substrate-led-1`
+
+---
+
+## CASCADE-R4 GATE-2 PASS-WITH-INFO ON GAMORA AMENDMENT 1 + TRACK A ROCKET RELEASE 2026-05-29
+
+**Jack-ryan Gate-2 disposition** (commit `0bee7b2`): PASS-with-INFO. All 7 acceptance criteria VERIFIED. Tag `gamora/v1.0-cascade-r4-amendment-1-wanderer-architecture-1` authorized.
+
+**Scale-relative floor verified defensible:** `floor(n) = 0.40 × min(1.0, sqrt(n/180))` — Phase 3 anchor preserved at n=180; n=34 population passes; n_cluster=11 margin between observed compactness (0.14) and floor (0.099) is 0.041.
+
+**3 INFO items queued for Cycle 14 wave-close canonical-write** (cumulative queue now 17 items):
+
+15. **Floor margin monitoring (INFO-1):** track per-cluster compactness in seasons 002/003 re-fires; flag at canonical-write if any cluster lands < 1.5× floor
+16. **SINGLETON single-member live-path logging (INFO-2):** Cluster 4 (n=1) NOT classified SINGLETON in live run despite unit-test coverage of that path; live PM-1 path may have subtle difference from synthetic test path; emit explicit per-cluster τ value log at SINGLETON classification step on next re-fire
+17. **Gauntlet defensive cohort calibration (INFO-3, gamora ambient signal):** 12/34 kits held on `HELD-mechanical-fail-band`; defensive cohort midpoint = 0.111 anomalously low; dominant hold cause separate from Amendment 1 scope
+
+**Track A rocket dispatch transitioned BLOCKED → FIRING.** Per Pattern E pre-authorization + Amendment 8 + jack-ryan release recommendation, KR auto-routes WITHOUT Matt re-surface. Rocket sub-agent fires next per dispatch at `agentic_orchestration/dispatches/2026-05-29-rocket-cycle-14-cascade-r4-track-a-seasons-002-003-production.md`.
+
+**Expected Track A timeline:** 2 × Phase 2-7 cascades × ~50sec wall-clock + ~$0.36 LLM per season → ~2 min total + ~$0.72 LLM aggregate.
+
+**Wave-B-spec-gap MATT-SURFACE FIRING** per cascade-r4 § 9.2 enumerated trigger. Matt election needed on Option A (rocket/star-lord wave_b persistence fix dispatch) vs Option B (v1 ships without per-kit names; defer to Cycle 15+). Surfacing in next KR message.
+
