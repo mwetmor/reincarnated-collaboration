@@ -100,24 +100,102 @@ Reasoning:
 
 ## 3. Galadriel reads
 
-*Pending galadriel parallel session. Galadriel provides:*
-- *Visual-coherence read per candidate faction (CV-pipeline similarity scores against genre-peer marquee references)*
-- *Per-faction image quality projection*
-- *Hero recommendation with CV scoring*
+**Galadriel returned 2026-05-29.** Full reads at:
+- Backing report: `agentic_orchestration/galadriel/notes/2026-05-29-cycle-14-v1-cv-pipeline-scoring-cluster-visual-coherence.md`
+- Contribution file: `agentic_orchestration/galadriel/notes/2026-05-29-cycle-14-v1-seasonal-hero-selection-galadriel-contribution.md`
 
-**Status: AWAITING galadriel input.** Galadriel is firing in parallel under independent dispatch `2026-05-29-galadriel-cycle-14-cascade-r4-track-b-cv-scoring-plus-12-1-hero-pair-galadriel-half.md`.
+### 3.1 Mirror's first plain word — what the picture could and could not show
+
+The dispatch framed CV-pipeline scoring against genre-peer marquee references (Octopath / Triangle Strategy / Eastward / CrossCode per `canonical/story/style-register.md`). **Three plain-sight gaps shape what galadriel could deliver:**
+
+1. **No genre-peer benchmark image set exists** — the curated reference-images set at `agentic_orchestration/galadriel/reference-images/` is the 7-frame DoE mobile-ARPG cluster reference (locked for a *different* benchmark question — mobile-feel — not for HD-2D style-register adherence). Genre-peer benchmark set has not been curated, sourced, or manifest-rowed. **Surfaced to KR as infrastructure gap; acquisition plan documented; awaits KR authorization for next-session execution.**
+2. **No candidate-kit imagery exists** — § 12.2-12.4 image-gen blocks on § 12.1 selection; no rendered visual to apply CV pipeline to. CV-pipeline-image-scoring is therefore architecturally downstream of THIS pair-consensus decision.
+3. **Wave B per-kit names not persisted** (drax also surfaced this in § 1) — only count + cost recorded; per-kit identity-narrative-level reads await rocket/star-lord follow-on.
+
+**Therefore: substrate-level visual-coherence reads are the only evidence-defensible scoring instrument at this moment.** Phase-2 CV-pipeline-image-scoring methodology spec is drafted ready-to-fire in the backing report once both gaps close.
+
+### 3.2 Substrate visual-coherence rubric (galadriel v1; 6 axes, 1-5 scoring; per-axis evidence-cite; honesty floor)
+
+| Axis | What it measures |
+|---|---|
+| A1. Lineage-period coherence | Modal cultural lineage + tech-level present as singular visual-tradition? |
+| A2. Element-distribution coherence | Top-3 element distribution present as thematically-readable identity? |
+| A3. BC-axis-geometry coherence | Modal engagement-profile + damage-geometry read as coherent fighting-style? |
+| A4. Faction-narrative coherence | Wave A `faction_identity_narrative` derivable from substrate without LLM-fiat? |
+| A5. HD-2D pixel-art renderability | Does substrate compose into the Octopath / Triangle Strategy HD-2D register? |
+| A6. Cluster-cohesion strength | `cosine_similarity_max` against noise floor and sibling-cluster rank? |
+
+### 3.3 Galadriel per-cluster scoring
+
+| Cluster | A1 lineage | A2 element | A3 BC | A4 narrative | A5 HD-2D render | A6 cohesion | Substrate mean | Galadriel rank |
+|---|---|---|---|---|---|---|---|---|
+| 1 — Grounded Chain Strikers | 4 | 4 | 5 | 5 | 4 | 3 | **4.17** | 2nd cluster-membered |
+| 2 — Stormbreak Vanguard | 4 | 3 | 5 | 4 | 3 | 4 | **3.83** | 3rd cluster-membered |
+| **3 — Stormveil Ironclad Surge** | **5** | **5** | **5** | **5** | **5** | 4 | **4.83** | **1st cluster-membered** |
+| 4 — Ashfield Siege Callers | 4 | 5 | 4 | 5 | 5 | N/A singleton | **4.60** (substrate-axes only) | Wanderer-alternative |
+
+### 3.4 Galadriel-side per-cluster reads (compressed)
+
+- **Cluster 1 — Grounded Chain Strikers:** lineage + BC + element + narrative coherent (mean 4.17); HD-2D renderable; weakest cohesion (cosine_max 0.34); reads as **a school, not an individual** — hero render would be "exemplar of the chain-striker tradition" rather than "the chain-striker."
+- **Cluster 2 — Stormbreak Vanguard:** strong tactical identity (close-AOE) but **multi-element-no-primary** (3 elements at 27% each); creates render-choice burden at prompt-construction time — substrate doesn't pre-commit which element wears the colors. Mean 3.83.
+- **Cluster 3 — Stormveil Ironclad Surge:** **cleanest substrate visual identity in the season.** Only cluster with substrate-anchored named lineage (`european` — not `fantasy_generic` placeholder). Lightning 44% primary anchors visual identity; holy+shadow compose as secondary palette without contesting. **HD-2D-genre-canonical** (Triangle Strategy Holy Empire / Octopath Cleric+Warrior / Live A Live medieval / FF Tactics Holy Knight). Five 5s on six axes. Mean 4.83.
+- **Cluster 4 — Ashfield Siege Callers:** **Wanderer candidate per Amendment 1.** Strongest mono-element identity in the season (fire 100%); zero element-dissonance possible at render. Mean 4.60 on substrate axes; cohesion N/A for singleton. Substrate-honest "Lone Wanderer of Ashfield" framing; isekai-canon-thematic; highest LLM-image-gen consistency prior.
+
+### 3.5 Galadriel election
+
+**DEFAULT VOTE: Cluster 3 — Stormveil Ironclad Surge** (substrate mean 4.83; HD-2D-genre-canonical; lineage-specific; cleanest singular-hero substrate visual coherence)
+
+**ALTERNATIVE VOTE: Cluster 4 / Ashfield Wanderer** (substrate mean 4.60; substrate-elected singleton per Amendment 1; isekai-canon-thematic Lone-Wanderer pattern)
 
 ---
 
-## 4. Pair consensus state
+## 4. Pair consensus state — CONVERGENT ON CLUSTER 3
 
-**Drax recommendation:** Cluster 3 — Stormveil Ironclad Surge
+**Drax recommendation:** Cluster 3 — Stormveil Ironclad Surge (UX-fit 5/5; image-extraction feasibility HIGHEST; pragmatism rank 1st)
 
-**Galadriel recommendation:** PENDING
+**Galadriel recommendation:** Cluster 3 — Stormveil Ironclad Surge (substrate visual-coherence 4.83/5; HD-2D-genre-canonical; lineage-specific)
 
-**Consensus status:** DRAX-SIDE COMPLETE — AWAITING GALADRIEL
+**Consensus status:** ✅ **CONVERGENT — PAIR ELECTS CLUSTER 3 (STORMVEIL IRONCLAD SURGE) AS THE SEASON 001 MARQUEE HERO.**
 
-**Deadlock procedure:** If galadriel returns a different recommendation with conflicting CV evidence, pair cannot resolve internally → KR routes to gandalf-sub-agent for design-fit adjudication per dispatch KR routing triggers.
+### 4.1 Triangulation summary
+
+Pair independently converged on Cluster 3 via different evidence layers:
+
+| Evidence layer | Drax instrument | Galadriel instrument | Cluster 3 result |
+|---|---|---|---|
+| Substrate specificity | UX-fit 5/5 (european lineage; lightning+holy element clarity) | Substrate visual-coherence A1=5 + A2=5 (only cluster with substrate-anchored named lineage; lightning 44% primary anchors visual identity) | CONVERGENT — substrate-richest of the four |
+| Image-gen prompt construction | Image-extraction feasibility HIGHEST (compositionally coherent 11-slot gear story) | HD-2D pixel-art renderability A5=5 (Triangle Strategy Holy Empire / Octopath Cleric+Warrior direct neighbors; legolas catalogue research confirms strong asset-library prior) | CONVERGENT — strongest LLM-image-gen prior |
+| Faction-cohort representation | 9 members (substantial; not singleton) | A6 cohesion = 4 (tied with cluster 2 for highest; meaningful internal cohesion at n=9) | CONVERGENT — substantial faction; not singleton |
+| Genre-positioning fit | HD-2D pixel register honored at UI chrome level | HD-2D-genre-canonical via european-medieval lightning-paladin-with-shadow-undertones | CONVERGENT — genre-correct |
+| Narrative coherence | "Ironclad Surge" naming carries visual specificity | A4 narrative coherence = 5 (every claim derivable from substrate; thematic tags triangulate clean) | CONVERGENT — narrative substrate-derived |
+
+**Galadriel's veto threshold (per § 12.1 contribution file):** "if drax votes Cluster 1 or 2 over both Cluster 3 AND Ashfield Wanderer without concrete UX-fit/extraction blockers, galadriel would escalate to gandalf-sub-agent." **Drax did NOT vote Cluster 1 or 2 — drax voted Cluster 3. No deadlock; no gandalf-sub-agent escalation needed.**
+
+**Drax's deadlock procedure note:** "If galadriel returns a different recommendation with conflicting CV evidence, pair cannot resolve internally → KR routes to gandalf-sub-agent." **Galadriel did NOT return conflicting CV evidence — galadriel returned converging substrate visual-coherence evidence. No deadlock; no gandalf-sub-agent escalation needed.**
+
+### 4.2 Final election
+
+**Pair-elected season_001 marquee hero: Cluster 3 — Stormveil Ironclad Surge.**
+
+**Substrate basis for § 12.2 prompt construction (drax-authored summary cross-confirmed by galadriel):**
+- Cultural lineage: **european**
+- Period: **medieval** (drax noted `medieval_or_early_modern` accessible from kit_archive.db)
+- Dominant element primary: **lightning (44%)**
+- Element secondary palette: **holy (22%) + shadow (11%)**
+- BC engagement / geometry: **close / large-AOE**
+- Style register: **hand-drawn pixel-art HD-2D-shaped (per canonical/story/style-register.md lock; Octopath / Triangle Strategy / Eastward / CrossCode primary references)**
+- Faction-narrative anchor: **"close-quarters European medieval warband channeling dominant lightning alongside traces of holy radiance and shadow"** (Wave A canonical)
+- HD-2D-genre-canonical archetype: **lightning-paladin-with-shadow-undertones; Triangle Strategy Holy Empire / Octopath Cleric+Warrior / Live A Live medieval / FF Tactics Holy Knight neighbor**
+
+### 4.3 Wanderer alternative — NOT ELECTED but flagged for cross-season pattern
+
+The Ashfield Wanderer (cluster 4 singleton) was galadriel's ALTERNATIVE vote and substrate-defensible (mean 4.60; mono-element fire; substrate-elected singleton per Amendment 1; isekai-canon-thematic Lone-Wanderer pattern). It was NOT elected because Cluster 3 outranked it on substrate visual-coherence (4.83 vs 4.60) AND drax's UX-fit + image-extraction reads converged on Cluster 3.
+
+**Forward note (post-gamora Amendment 1):** when gamora ships Wanderer architecture and the SINGLETON state schema lands, the Ashfield Siege Caller singleton will be canonically renamed as "Lone Wanderer of Ashfield" (per Amendment 2 ALTERNATIVE framing). It may carry FUTURE season-marquee weight in a different season where no faction emerges as substrate-rich as Cluster 3 here. **The Wanderer-as-hero pattern is established as a substrate-honest hero pattern; it's just not the right call for THIS season because a substrate-richer cluster-membered faction emerged.**
+
+### 4.4 Deadlock disposition
+
+NONE. Pair-consensus convergent on Cluster 3. **No KR routing to gandalf-sub-agent; no Matt-surface.** Per CLAUDE.md addendum + hive-mind decision-routing directive Matt 2026-05-23: pair-decided in-scope.
 
 ---
 
