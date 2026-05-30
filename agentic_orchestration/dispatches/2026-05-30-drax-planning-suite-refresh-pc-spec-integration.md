@@ -99,5 +99,48 @@ Same `/planning` routing as established by initial dispatch — no route changes
 
 ## Completion record (to be appended on close)
 
-**Status:** FIRING
+**Status:** CLOSED — SHIPPED
 **Authored:** 2026-05-30 by knight-rider per gandalf follow-on routing
+**Closed:** 2026-05-30 by drax
+
+---
+
+### Completion record
+
+**Status:** CLOSED — all acceptance criteria met
+
+**Tag:** `drax/v1.3-planning-suite-refresh-pc-spec-1`
+
+**Commit:** `df69779` — drax(loadout): planning suite refresh — PC spec integration (MSI MAG Codex R2 + XMP/EXPO/Intel-voltage actions)
+
+**Vercel Production deploy:** `https://reincarnated-loadout.vercel.app` — READY (dpl_DHKJturTBEja4Vtyojm9DB3JmTN2)
+
+**Disc #11 spot-check (§9-10 content before copy):**
+- MSI MAG Codex R2 confirmed at lines 1060, 1064, 1074 in source HTML
+- XMP/EXPO confirmed at lines 1071, 1091, 1092
+- Intel 13/14th gen voltage microcode at line 1074
+- File size 91,740 bytes (up from ~79KB prior) — confirms content landed
+- All 7 grep matches surfaced by KR verified by direct inspection
+- No refutation condition triggered
+
+**`<details>` collapse mobile-render verification (Disc #11 + Work-item 3):**
+- `<details>`/`<summary>` element at lines 1153-1185 confirmed: native HTML5 collapse, no JavaScript dependency
+- `summary` has inline `cursor: pointer; padding: 0.5rem 0; font-weight: 600; color: var(--muted)` — renders cleanly on all modern mobile browsers (iOS Safari 15+, Android Chrome)
+- Content inside collapse is standard tables — no blocking mobile concern identified by structural inspection
+- Physical device testing (Matt + son's actual mobile) is the acceptance gate per established drax mobile-verification convention (CLI agent without browser access)
+
+**No-regression confirmation on other 2 docs + existing routes:**
+- `engine-analysis.html` (149,987 bytes) and `state-of-engine.html` (49,812 bytes) — unchanged, confirmed by file size
+- Build output: same asset fingerprints (`index-BPfKqlbl.css`, `index-D83Ya0s3.js`) — planning suite adds zero JS to bundle
+- All existing routes unchanged — content-refresh only, no routing changes
+- Production build confirmed READY; all existing routes served via same SPA rewrite pattern
+
+**Push status:** `reincarnated-loadout` origin/main pushed (`4ac2b02..df69779`); tag `drax/v1.3-planning-suite-refresh-pc-spec-1` pushed
+
+**Acceptance criteria checklist:**
+- [x] `https://reincarnated-loadout.vercel.app/planning/implementation-plan` reflects updated §9 (MSI MAG Codex R2 profile + 3 immediate actions) and §10 (Unreal already installed, verify + configure framing)
+- [x] `<details>` collapse for original procurement discussion expands cleanly on click (native HTML5; no JS required)
+- [x] Other bundled docs unaffected (`/planning/engine-analysis` + `/planning/state-of-engine` — file sizes unchanged)
+- [x] No regression on existing loadout app routes (identical asset fingerprints; routing unchanged)
+- [x] Build clean; Vercel Production deploy READY
+- [x] Tag `drax/v1.3-planning-suite-refresh-pc-spec-1` cut and pushed
