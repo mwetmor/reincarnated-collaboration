@@ -131,17 +131,21 @@ Per-seam direction lives in `agentic_orchestration/gandalf/notes/2026-05-30-pi-i
 
 ---
 
-## 5. PC procurement sequencing
+## 5. PC procurement — COMPLETE per Matt 2026-05-30 spec report
 
-PC procurement is **gated separately** but explicitly tracked here:
+**Status:** PC procurement closed; specs gathered + documented at `SYSTEM_SPECS_FOR_PIPELINE.md` (Matt 2026-05-30). Section preserved for record + reference; HTML implementation plan § 9 carries the actual PC profile + configuration directions.
 
-| Decision | Status |
+| Item | Locked state |
 |---|---|
-| **Procure now (parallel with Pi Phase 1)** | RECOMMENDED — Pi Phase 1 has value independent of PC; PC arrival accelerates Pi Phase 2 readiness |
-| **Defer PC until Pi Phase 1 closes** | Acceptable; Pi can be tested with Mac-as-sole-client |
-| **PC spec floor** | UE5 minimum: 16GB RAM (32GB recommended), 1TB NVMe SSD, RTX 3060+ GPU, modern CPU, DX12 |
-| **PC spec target for Reincarnated specifically** | 32GB+ RAM (Lumen + Nanite + Niagara are RAM-hungry), 1TB NVMe SSD, RTX 4070+ GPU, modern CPU |
-| **Decision authority** | Matt (hardware budget); HTML implementation plan § 11 captures full discussion |
+| **PC in hand** | ✅ MSI MAG Codex R2; LAN IP 192.168.1.133; Windows 11 Home 24H2 |
+| **CPU** | ✅ Intel i7-14700F (20C/28T) — exceeds CEILING tier (recommended i9-13900K) |
+| **RAM** | ⚠️ 32GB DDR5 — meets FLOOR target; 64GB upgrade recommended; XMP/EXPO disabled (BIOS action needed) |
+| **GPU** | ⚠️ RTX 4060 Ti 8GB — below TARGET (4070 recommended); viable at 1080p with DLSS; VRAM management strategy per HTML § 9.4 |
+| **Storage** | ✅ 2TB NVMe SSD (289GB free) — exceeds budget recommendation |
+| **Engine + toolchain** | ✅ Unreal 5.4 + 5.5 + VS 2022 + .NET 10 + Python 3.12 + Node.js + Git ALL INSTALLED |
+| **Three immediate hardware actions** | ⚠️ XMP/EXPO BIOS profile enable + BIOS update (predates Intel 13/14th gen microcode fixes) + wired ethernet connect — Matt + son direct execution per HTML § 9.2 |
+
+**Effect on rollout sequencing:** Election #5 (PC procurement timing) was LOCKED 2026-05-30 as "concurrent with Phase 1." With PC already in hand, the concurrency tightens — PC is ready waiting for Pi Phase 1 to land. Phase 2 HTTP API readiness depends only on Pi Phase 1 + drax Unreal HTTP client wiring + three immediate PC hardware actions (XMP / BIOS / ethernet).
 
 ---
 
