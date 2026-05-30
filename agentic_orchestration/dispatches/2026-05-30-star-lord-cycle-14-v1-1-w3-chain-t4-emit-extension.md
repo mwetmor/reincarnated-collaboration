@@ -47,7 +47,9 @@ Propagate from `phase2_kit_candidates.json kits[i]`:
 
 Propagate `kits[i].t4_candidates[]` with all fields per phase2 emission: `candidate_id`, `category_a_strategy`, `category_bc_strategy`, `t4_scope`, `is_active`, `secondary_element`, `magnitude_tier`, `parallel_chain_mode`, `target_chain_id`, `scope_projection_data`, etc.
 
-**Verify at emit:** exactly one entry per kit has `is_active=True` — gauntlet-selected Layer 2 T4. If a kit has zero `is_active=True` OR more than one, halt + return to KR (substrate violation).
+**Verify at emit:** for kits with `t4_scope != CHAIN_WIDE_OWN`, exactly one entry per kit has `is_active=True` — gauntlet-selected Layer 2 T4. If a kit has zero `is_active=True` OR more than one, halt + return to KR (substrate violation).
+
+**CHAIN_WIDE_OWN exception (KR amendment 2026-05-30 post-W3-halt):** kits with `t4_scope=CHAIN_WIDE_OWN` legitimately have `t4_candidates=[]` per engine canonical state `CHAIN_WIDE_OWN_NO_T4` (documented in `unified_calibration_loop.py:693`). These kits satisfy Target 4 via Primary T4 universal guarantee alone (doc 47 § 4.6.4). Empty `t4_candidates` is substrate-honest — DO NOT halt for this case; emit empty list. (W3 star-lord empirical verification: 17 ACCEPT kits across 3 seasons have this state.)
 
 ### Work-item 3 — Primary T4 universal slot (NEW canonical field)
 
@@ -98,7 +100,7 @@ Re-fire emitter against all 3 Cycle 14 wave-5 seasons. Verify:
 **Refutation conditions** (star-lord sub-agent surfaces if any apply BEFORE executing):
 - Dispatch contradicts canonical anchor doc 47 § 4.6 / § 4.6.4 / doc 51 § 10.8.5 universal-guarantee proof
 - Primary T4 shape proposed in this dispatch (1.75× DIRECT_DAMAGE_AMPLIFICATION preferred-encounter-type universal) does NOT match § 4.6.4 — halt for gandalf consult
-- `t4_candidates[is_active=True]` count != 1 per kit in phase2 data — substrate violation; do NOT silently emit; halt + return finding (this is exactly the type of upstream-substrate-integrity catch Disc #11 + Quality Criterion is for)
+- `t4_candidates[is_active=True]` count != 1 per kit in phase2 data WHEN `t4_scope != CHAIN_WIDE_OWN` — substrate violation; do NOT silently emit; halt + return finding (this is exactly the type of upstream-substrate-integrity catch Disc #11 + Quality Criterion is for). For `t4_scope=CHAIN_WIDE_OWN`, `t4_candidates=[]` is canonically valid; emit empty.
 - Dispatch introduces a pre-authored taxonomy without justification (#41) — Primary T4 shape MUST cite § 4.6.4 directly (verified by anchor in `primary_t4.discipline_anchor` field)
 - Dispatch introduces a scaffold value not flagged as pending-decision (#40) — none expected; flag if surfaces
 - Schema change risks breaking drax `types.ts` consumers — surface for KR routing to drax pre-W4 (parallel to W1 Finding 2 pattern)

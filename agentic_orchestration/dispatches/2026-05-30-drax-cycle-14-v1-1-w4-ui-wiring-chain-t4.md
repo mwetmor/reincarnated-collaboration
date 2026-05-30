@@ -68,6 +68,21 @@ Show ALL `t4_candidates` as **toggleable unlockables** per doc 49 § 1.1 sandbox
 
 **Visual:** radio-button semantics — each candidate listed with its description (t4_scope + category_a_strategy + category_bc_strategy + secondary_element + magnitude_tier); selected one highlighted; clicking another deselects current and selects new.
 
+### Work-item 5b — CHAIN_WIDE_OWN empty-Layer-2-T4 handling (KR amendment 2026-05-30 post-W3-routing)
+
+**17 ACCEPT kits across 3 seasons** have `t4_scope=CHAIN_WIDE_OWN` and `t4_candidates=[]` per engine canonical state `CHAIN_WIDE_OWN_NO_T4` (`unified_calibration_loop.py:693`). Per doc 47 § 4.6.4 universal-guarantee proof, these kits satisfy Target 4 via Primary T4 universal alone — Layer 2 T4 list is canonically empty, NOT missing.
+
+**Per-season ACCEPT breakdown** (star-lord W3 verification):
+- season-001: 8 / 54 ACCEPT kits
+- season-002: 3 / 53 ACCEPT kits
+- season-003: 6 / 51 ACCEPT kits
+
+**Render path (drax UX call within doc 47 § 4.6.4 anchor):**
+- Loadout tab Layer 2 T4 panel: render empty-state for these kits with explanatory copy. Suggested copy: "This kit has no Layer 2 T4 unlocks — its T4 capability is provided by the Primary T4 universal guarantee alone (canonical per doc 47 § 4.6.4)." Drax adjusts wording per player-surface vocabulary discretion.
+- Sample tab Layer 2 T4 surface: same empty-state pattern — there is no "AS-gauntlet-passed Layer 2 T4 selection" because none exists. Display the Primary T4 universal as the kit's sole T4 commitment.
+
+**Anti-pattern guard:** do NOT render a placeholder "coming soon" or "Cycle 15+ pending" — these kits are canonically complete at v1.1; the empty state IS the substrate-honest design output.
+
 ### Work-item 6 — Gear display (no change)
 
 `Cycle14GearDisplay` (W2-built) continues working. No changes needed.
@@ -103,6 +118,7 @@ Push pattern is established this cycle. Trigger Vercel Production deploy (not pr
 - [ ] Primary T4 fixed slot rendered on both pages — non-toggleable, universal scope shape per § 4.6.4
 - [ ] Sample tab shows ACTIVE Layer 2 T4 candidate as real AS-gauntlet-passed selection
 - [ ] Loadout tab shows all Layer 2 T4 candidates as toggleable unlockables; ONE active at a time (radio-button per D66)
+- [ ] CHAIN_WIDE_OWN kits (17 ACCEPT across 3 seasons) render empty Layer 2 T4 panel with canonically-grounded empty-state copy per doc 47 § 4.6.4 (Primary T4 universal-guarantee satisfies Target 4 alone)
 - [ ] investment_points = 0 displayed as uninvested rank-0 nodes per doc 49 § 1.1.1
 - [ ] Cycle14GearDisplay (W2) continues working — no regression
 - [ ] No regression on /analytics, /encounters

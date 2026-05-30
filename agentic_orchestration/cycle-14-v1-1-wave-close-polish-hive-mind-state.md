@@ -55,6 +55,29 @@ Single-wave mini-cycle (this is post-v1 polish, not a multi-phase cycle):
 
 **W3 KR routing request:** Option A (recommended): amend refutation condition to allow CHAIN_WIDE_OWN kits with `t4_candidates=[]`; authorize full re-emission of seasons 001+002+003 + apply v1.69 tag. See dispatch completion record for full finding triage.
 
+### W3 KR routing decision 2026-05-30 — Option A AUTHORIZED
+
+**Decision:** Option A authorized per hive-mind decision-routing § 4 seam-owner-decides. Star-lord did empirical verification (Disc #11) of `unified_calibration_loop.py:693`; engine canonically codes `CHAIN_WIDE_OWN_NO_T4` as valid state. KR refutation condition in original dispatch was overly strict.
+
+**Amendments authored:**
+- W3 dispatch Work-item 2 refutation: CHAIN_WIDE_OWN exception added explicitly
+- W3 dispatch Quality Criterion refutation list: same exception added
+- W4 dispatch (next): CHAIN_WIDE_OWN render guidance for empty Layer 2 T4 panel
+
+**Fresh star-lord agent fires for re-emit seasons 002+003 + apply v1.69 tag** (per Pattern A short task subagent; full context provided since fresh agent has no memory).
+
+### Pattern surface — 3rd KR-error-caught-by-seam-owner this cycle (cumulative)
+
+| # | Wave | KR error | Seam-owner catch | Mechanism |
+|---|---|---|---|---|
+| 1 | W1 | KR-invented stat_distribution Option A taxonomy (1.0/0.1/0.1/0.1 ratios) without canonical anchor | star-lord scope-declined Work-item 3 | Quality Criterion refutation #41 |
+| 2 | W2 | KR-propagated Cycle13GearDisplay reuse recommendation from W1 Finding 2 without inspection | drax built NEW Cycle14GearDisplay per schema empirical inspection | Disc #11 empirical inspection |
+| 3 | W3 | KR overly-strict refutation condition (didn't account for engine's documented `CHAIN_WIDE_OWN_NO_T4` state) | star-lord halted per condition + empirically verified engine state + recommended Option A | Disc #11 empirical inspection + refutation surfaced correctly |
+
+**Cumulative pattern observation:** KR dispatches make assumptions that seam-owner empirical evidence refines. Quality Criterion blocks + framing-audit Q1-Q3 + Disc #11 are catching them at fire-time before execution. Discipline-stack composition working as designed. But also signals KR dispatch authoring needs more pre-fire empirical grounding before pre-committing assumptions seam-owners would otherwise validate at fire-time.
+
+**Jack-ryan wave-close ratification queue updated** with this cumulative pattern observation.
+
 ### Cycle re-open record 2026-05-30 (post-W2 wind-down draft; pre-W3 fire)
 
 Gandalf consolidated follow-on dispatch routed via Matt 2026-05-30 verbatim "wire in T4 nodes... emit the hidden secondary T4." Cycle re-opened from wind-down state. KR authored:
