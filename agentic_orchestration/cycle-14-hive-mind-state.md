@@ -5630,3 +5630,42 @@ Tag candidate per canonical/50 § 4.5: `v1-cycle-14-bounded-viability-substrate-
 | § 12.5 Cycle 14 v1 tag ratification | Matt | FINAL REQUIRED MATT SURFACE |
 
 Tag candidate: `v1-cycle-14-bounded-viability-substrate-led-1`
+
+---
+
+## CASCADE-R4 FOLLOW-ON DRAX LOADOUT + SAMPLE PAGE EXTENSION COMPLETE 2026-05-29
+
+**Matt verbatim:** "I see the new seasons on the encounters page and the analytics page and summary page but missing from loadout and sample pages"
+
+### Drax loadout + sample extension CLOSED (loadout `ea7795e` + `3d1a103`; collab `4b22cee`; tag `drax/v1.0-cascade-r4-v1-close-loadout-sample-pages-extension-1`)
+
+**Approach:** Option B (substrate-derived placeholder + data-emission gap surfaced). Cycle 14 wave-5 artifacts in loadout bundle (faction-clusters.json + wave-b-identities.json flat JSON) — NO `manifest.json` + `classes/*.json` directory structure. Full skill-tree rendering not possible from current artifacts.
+
+**Shared component `Cycle14LoadoutSection`** appended to BOTH /loadout + /sample pages:
+- Tabbed 3-season view
+- Per-season header + thematic tags + stats strip
+- Per-faction FactionClusterTile (faction name + BC axis + element distribution + per-kit names + narratives)
+- Explicit skill-tree deferred note + star-lord routing target documented in-page
+
+**Live URL verification (bundle `index-DTt_mltz.js`):**
+- "Kit Identity Preview" section header present
+- All 3 season names present
+- "star-lord to emit" gap note present (transparent surfacing)
+
+### NEW Cycle 15+ canonical-write queue item (surfaced this dispatch)
+
+**20. Cycle 14 wave-5 manifest.json + classes/*.json emission** (star-lord canonical-write target):
+- Required for full /loadout + /sample skill-tree rendering on Cycle 14 v1 seasons
+- Loadout `useSeasonData` glob auto-picks-up when emitted
+- Drax `TODO(drax)` annotations in place at 3 sites for cleanup post-emission
+- Per-season targets: `data/cycle-14-wave-5-season-{001,002,003}/manifest.json` + `classes/*.json`
+
+### Cycle 14 v1 close pathway — REMAINING STEPS
+
+| Step | Owner | Status |
+|---|---|---|
+| § 12.3 Matt Meshy handoff | Matt | READY (12 images at reincarnated-loadout/public/pitch/heroes/) |
+| § 12.4 drax Meshy URL wire-up | drax | QUEUED post-Matt-return |
+| § 12.5 Cycle 14 v1 tag ratification | Matt | FINAL REQUIRED MATT SURFACE |
+
+All loadout app surface routes (/pitch + /analytics + /encounters + /loadout + /sample + summary) now render Cycle 14 v1 substrate-honest data. Player-facing v1 coherent.
