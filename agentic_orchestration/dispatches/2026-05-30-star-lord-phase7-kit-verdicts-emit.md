@@ -173,5 +173,102 @@ Per W2 / W3 / W4 / planning-refresh / dashboard-Phase-α: KR dispatch descriptio
 
 ## Completion record (to be appended on close)
 
-**Status:** FIRING
+**Status:** COMPLETE
 **Authored:** 2026-05-30 by knight-rider per gandalf routing
+**Closed:** 2026-05-30 by star-lord
+
+---
+
+### Status
+
+COMPLETE. All acceptance criteria satisfied. 99 tests pass (28 new § v1.70 tests).
+
+### Tag
+
+`star-lord/v1.70-cycle-14-phase7-kit-verdicts-emit-1` — engine repo
+
+### Commits
+
+- Engine: `71562c4` — `star-lord §v1.70: phase7_kit_verdicts first-class engine emit`
+  (cycle14_wave5_emitter.py + MIGRATION.md §v1.70 + test extension)
+- Loadout: `334c5d7` — `star-lord §v1.70: re-emit phase7_kit_verdicts for all 3 cycle-14 wave-5 seasons`
+
+### Push status
+
+PUSHED — engine main + tag; loadout main. Both confirmed.
+
+### Target path decision + rationale
+
+Emit target: `reincarnated-loadout/public/engine-state/season-{N}/phase7_kit_verdicts.json`
+
+Rationale: Dashboard `useEngineStateData.ts` calls `buildSeasonUrl(seasonSlug, file)` →
+`/engine-state/{seasonSlug}/{file}` where `seasonSlug` is the `SeasonId` type value
+`"season-001"` (short form, NOT `"cycle-14-wave-5-season-001"`). This maps to
+`public/engine-state/season-{N}/` on disk. Confirmed empirically by reading
+`useEngineStateData.ts` (not assumed). No drax fetch-path change needed — emit lands
+at exactly the path the dashboard already fetches from.
+
+The existing v1.67–v1.69 wave-5 emit (manifest.json + classes/) goes to
+`data/cycle-14-wave-5-season-{N}/` — a different path used by Vite glob import.
+Phase7 verdicts are a runtime-fetched dashboard artifact, not a statically bundled
+loadout artifact. The two paths serve different consumers and are both correct.
+
+### Shape verification (byte-for-byte structural match)
+
+| Season | DB total rows | Emitted rows | Match | shipped_count (emit/DB) | Match | highest_cohesion_kit_id (emit) | highest_cohesion_kit_id (DB recomputed) | Match |
+|--------|-------------|-------------|-------|------------------------|-------|-------------------------------|----------------------------------------|-------|
+| 001    | 281         | 281         | PASS  | 114/114                | PASS  | S1_endgame_bc_melee_high_flat_dex_none_s1 | S1_endgame_bc_melee_high_flat_dex_none_s1 | PASS |
+| 002    | 33          | 33          | PASS  | 21/21                  | PASS  | S1_endgame_bc_melee_high_flat_dex_none_s0 | S1_endgame_bc_melee_high_flat_dex_none_s0 | PASS |
+| 003    | 33          | 33          | PASS  | 22/22                  | PASS  | S1_endgame_bc_ranged_low_spiky_dex_none_s0 | S1_endgame_bc_ranged_low_spiky_dex_none_s0 | PASS |
+
+### Disc #11 spot-check findings (column-by-column)
+
+- **DB schema columns:** 24 total (including `cohort_predicates`, `archive_status`, `log_id`,
+  `retry_attempt`, `phase4/5/7_completed_at`, `ai_tell_scores_json`, etc.)
+- **Drax pre-extracted per-kit fields:** 14 (empirically verified from
+  `public/engine-state/season-001/phase7_kit_verdicts.json`)
+- **KR dispatch listed `cohort_predicates` as a required field — INCORRECT.** `cohort_predicates`
+  is in the DB schema (TEXT JSON array) but NOT in drax's actual consumed shape and NOT in
+  `engineStateTypes.ts Phase7KitVerdict` interface. Not emitted in §v1.70 (Disc #11 empirical
+  inspection takes precedence over dispatch description — 5th catch this session).
+- Per-kit fields emitted by engine (14): exact match of drax pre-extracted contract.
+  `_PHASE7_VERDICT_COLUMNS` constant covers: `kit_id, cluster_id, cohort, gauntlet_pass_rate,
+  kit_cohesion_score, cluster_compactness, mechanical_pass, cohesion_pass, verdict, disposition,
+  phase7_gate_status, diversity_flag, band_distance, cohort_midpoint`
+
+### Derivation notes
+
+**`highest_cohesion_kit_id`:** derived field — MAX(`kit_cohesion_score`) among
+SHIPPED-WORTHY rows. Tie-broken by MIN(`kit_id`) alphabetically. Documented in emitter
+docstring, MIGRATION §v1.70, and test `test_phase7_verdicts_highest_cohesion_kit_id`.
+
+**Season-001 correction:** drax pre-extracted value was
+`S1_endgame_bc_melee_low_spiky_str_none_s2` (first unsorted SHIPPED-WORTHY row with
+score 0.85). Engine §v1.70 value is `S1_endgame_bc_melee_high_flat_dex_none_s1` (correct
+MAX derivation, deterministic tie-break). Engine value is authoritative. Noted in
+MIGRATION §v1.70 for drax follow-on awareness.
+
+**`schema_version: "cycle14-v1.70"`:** additive field (not in drax `Phase7KitVerdictsFile`
+interface; TypeScript consumers accept without type change).
+
+### MIGRATION §v1.70 commit reference
+
+Committed in engine `71562c4` (same commit as emitter extension). Section:
+`§ v1.70-cycle14-phase7-kit-verdicts-emit` in
+`src/reincarnated/export/MIGRATION.md`.
+
+### Tests pass count
+
+99/99 (71 prior §v1.67–v1.69 tests all PASS + 28 new §v1.70 tests all PASS).
+
+### Drax follow-on path
+
+**No drax fetch-path change needed.** Engine emit lands at
+`public/engine-state/season-{N}/phase7_kit_verdicts.json` — exactly the path
+`useEngineStateData.ts` already fetches from.
+
+**Drax follow-on Pattern A-light:** retire pre-extraction script
+(`extract_phase7_verdicts.py` or equivalent). The engine-emitted JSON is now the
+canonical source. Drax should also be aware of the `highest_cohesion_kit_id` correction
+for season-001 if that field is rendered prominently (e.g., "Kit of the Season" display)
+— the value changed from the pre-extraction workaround to the correct MAX derivation.
