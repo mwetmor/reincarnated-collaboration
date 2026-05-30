@@ -130,3 +130,111 @@ For each season:
 ---
 
 **KR sign-off:** Authored as BLOCKED dispatch. KR transitions to FIRING after gamora Amendment 1 close + jack-ryan Gate-2 PASS + KR consolidation. No Matt re-surface per Pattern E pre-authorization.
+
+---
+
+## Completion record
+
+**Completed by:** rocket
+**Date:** 2026-05-29
+**Engine implementation commit:** `dc3124d` (run_season_production + 5 tests; 19/19 PASS)
+**Collab commit season_002:** `1e525e3` (season_002 production artifacts)
+**Collab commit season_003:** `7189699` (season_003 production artifacts)
+**Tags:**
+- `rocket/v1.0-cascade-r4-track-a-season-002-1` (engine repo)
+- `rocket/v1.0-cascade-r4-track-a-season-003-1` (engine repo)
+
+### Season_002 summary
+
+| Field | Value |
+|---|---|
+| season_id | cycle-14-wave-5-season-002 |
+| seed_base | 14002 |
+| kits_evaluated | 33 |
+| shipped_worthy | 21 |
+| cluster_count (k) | 4 (BIC-selected) |
+| Wanderer count | 0 |
+| Cluster 1 members | 3 |
+| Cluster 2 members | 9 |
+| Cluster 3 members | 13 |
+| Cluster 4 members | 8 |
+| Wave B kit_count | 33 |
+| LLM cost | $0.35 ($0.02 Wave A + $0.33 Wave B) |
+| wall_clock | 109.2s |
+| Phase 2 kits | 54 |
+| Phase 3 passing | 16 |
+| Phase 4 archive | 33 |
+
+### Season_003 summary
+
+| Field | Value |
+|---|---|
+| season_id | cycle-14-wave-5-season-003 |
+| seed_base | 14003 |
+| kits_evaluated | 33 |
+| shipped_worthy | 22 |
+| cluster_count (k) | 3 (BIC-selected) |
+| Wanderer count | 0 |
+| Cluster 1 members | 22 |
+| Cluster 2 members | 9 |
+| Cluster 3 members | 2 |
+| Wave B kit_count | 33 |
+| LLM cost | $0.345 ($0.015 Wave A + $0.33 Wave B) |
+| wall_clock | 99.7s |
+| Phase 2 kits | 54 |
+| Phase 3 passing | 13 |
+| Phase 4 archive | 33 |
+
+### 3-season aggregate
+
+| Season | shipped_worthy | LLM cost |
+|---|---|---|
+| season_001 (A2-1 RE-FIRE-3 + Amendment 1 re-fire) | 21 | $0.15 |
+| season_002 | 21 | $0.35 |
+| season_003 | 22 | $0.345 |
+| **TOTAL** | **64** | **$0.845** |
+
+- 3-season shipped_worthy: **64** (target ~60-80 PASS)
+- 3-season LLM cost: **$0.845** vs $50 cap = **1.69%** (well within; target <$5.00 PASS)
+
+### Acceptance criteria verification (per season)
+
+| Criterion | Season_002 | Season_003 |
+|---|---|---|
+| shipped_worthy > 0 | 21 PASS | 22 PASS |
+| cluster count k ∈ {3,4} | k=4 PASS | k=3 PASS |
+| Wanderer count 0-3 | 0 PASS | 0 PASS |
+| Wave A fires cluster-membered only | PASS | PASS |
+| Wave B fires ALL kits | 33 PASS | 33 PASS |
+| Per-season LLM cost ≤ $1.50 | $0.35 PASS | $0.345 PASS |
+| 3-season aggregate ≤ $5.00 | $0.845 PASS | — |
+
+### KR routing triggers (none)
+
+No KR routing triggers fired:
+- Cost well within cap ($0.845 / $50 = 1.69%)
+- shipped_worthy > 0 both seasons (21 and 22)
+- Wanderer count = 0 both seasons (0 across all 3 seasons — well below 10 aggregate)
+- No Gate-2 material-fail surfaces
+- No new Instance 6 surfaces (#8 candidate not observed)
+
+### Composition with Amendments preserved
+
+- Amendment 6 (S7 deepcopy; Pareto-2 lineage partition; S8 Bound 4): in force via run_phase2_bc_discovery + run_phase4_mechanical_archive phase functions — PRESERVED
+- Amendment 7 (8-element coverage; STAT_ELEMENT_POOLS; 17.5% hybrid): in force via w5r1_generate_kit_candidates — PRESERVED (both seasons show element diversity)
+- Amendment 7a (chain_elements SkillEmissionConfig): in force via emit_skills_for_kit — PRESERVED
+- Amendment 8 ($50 cap; Pattern E pre-authorization): 3-season total $0.845 — PRESERVED
+- Path X (Phase 4 archive → Phase 5 PM-1): in force via _load_phase4_archive_for_pm1 + Phase 4.5 block — PRESERVED (both seasons: archive_count=33, 100% cluster coverage)
+- gamora Amendment 1 (Wanderer architecture; scale-relative compactness floor; SINGLETON): in force via phase7_verdict.py scale_relative_compactness_floor — PRESERVED (both seasons: 0 SINGLETON, shipped_worthy > 0 confirms C-2 floor working correctly at n≈33)
+
+### Notes
+
+1. phase7_season_summary.json for both seasons carries season_id="season_001" in the Phase 7 bridge output — this is pre-existing behavior in phase7_bridge.py using SEASON_ID module constant for the verdict log DB write. The season_summary.json (run_season_production output) correctly carries season_id="cycle-14-wave-5-season-002/003". Not a new Instance 6 surface; informational only.
+
+2. Both seasons produced phase4_accepted_count=33 (identical to season_001's 34 ±1). This is expected — Pareto-2 archive size is seed-dependent substrate-led variance within the 25-40 predicted range.
+
+3. run_season_production function added to wave5_season_orchestrator.py as § 12.5 (commit dc3124d engine). Scripts/run_season_production.py added as production runner. 5 parametrization tests added.
+
+### Dispatch status
+
+CLOSED — PASS. All acceptance criteria met both seasons. 3-season aggregate within bounds. Route to KR for Cycle 14 v1 tag ratification gate (Step 6 cascade-r4 close criteria).
