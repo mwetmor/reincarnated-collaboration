@@ -132,6 +132,22 @@ Before full re-emission:
 
 ---
 
+## Quality criterion
+
+**Game-quality goal this dispatch serves:** /loadout page surfaces real engine-emitted character identity (12 substrate-anchored skills + 11 substrate-bound gear slots + canonical primary-attribute callout) so players see what the engine actually produced for Cycle 14 wave-5, instead of placeholder cards + null gear + obviously-fabricated stat distribution. Closes the user-visible gap between "engine emits real data" and "v1 surface renders it" — the gap gandalf surfaced 2026-05-30. Composes upward: Engine (data exists at phase2_kit_candidates) > Game (player can read substrate identity at v1 surface) > Phase (this dispatch). Per CLAUDE.md orientation: engine integrity is preserved (no new computation), game-quality lifts (player surface gains real substrate), phase serves both.
+
+**Refutation conditions** (star-lord sub-agent surfaces if any apply BEFORE executing):
+- Dispatch contradicts canonical anchor doc 47 § 4 (stat distribution architecture) or doc 49 § 1.1.1 (Rank-0 amendment) or doc 49 § 1.2 (Sample tab Cycle 15+ scope)
+- Alternative execution (e.g., Phase 5 LLM re-fire for canonical_skill_names BEFORE Cycle 15) serves the named quality goal better
+- Acceptance criteria can pass without advancing the quality goal (e.g., 12 skills present in JSON but drax cannot consume them as rank-0 uninvested due to schema mismatch)
+- Dispatch framing pre-commits to a decision Matt has not ratified (e.g., commits the team to retiring `phase5_is_placeholder` as a global field rename rather than scoped to Cycle 14 wave-5 emission)
+- Dispatch introduces a pre-authored taxonomy without justification (#41 candidate) — Option A vs B at stat_distribution must cite doc 47 § 4 directly, not invent a third option
+- Dispatch introduces a scaffold value not flagged as pending-decision (#40) — `investment_points: 0` MUST flag as "Cycle 15+ deferred" in emitter comments + MIGRATION §v1.68, not silently emit 0
+
+**Sub-agent action if refutation triggers:** halt before re-emission; return triage finding to KR; do NOT execute the propagation pass. KR routes to gandalf Pattern A-light for doc-anchor alignment OR to Matt for scope-amendment if framing pre-commit surfaces.
+
+---
+
 ## Acceptance criteria
 
 - [ ] 158 class files re-emitted with 12 skills + 11 gear slots each
