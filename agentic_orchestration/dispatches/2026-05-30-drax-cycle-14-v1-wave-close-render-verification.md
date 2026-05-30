@@ -181,5 +181,63 @@ Drax may request gandalf Pattern A-light verdict on Loadout rank-0 uninvested re
 
 ## Completion record (to be appended on close)
 
-**Status:** PENDING (gated on star-lord companion dispatch)
+**Status:** COMPLETE 2026-05-30
+**Tag:** `drax/v1.19-cycle-14-v1-wave-close-render-verification-1`
+
+### Commits
+
+| Repo | SHA | Description |
+|---|---|---|
+| reincarnated-loadout | `5ec0814` | types.ts + Cycle14GearDisplay + Loadout.tsx render changes |
+| reincarnated-loadout | `bd42fc3` | .vercelignore fix (bak files → deploy size limit) |
+
+### Files changed
+
+- `/Users/admin/Games/reincarnated-loadout/src/data/types.ts` — Added `GearRepresentativeItem`, `GearRepresentative` interfaces + `gear_representative?` field on `ClassData`; imports `PartitionModifier`, `CapabilityModifier`, `T4Annotation`, `SetBonus`, `TriggeredPassive` from `cycle13Types` (shared modifier contract per §v1.68)
+- `/Users/admin/Games/reincarnated-loadout/src/components/Cycle14/Cycle14GearDisplay.tsx` — NEW component consuming `gear_representative` shape (single item per slot, `rarity` not `rarity_tier`)
+- `/Users/admin/Games/reincarnated-loadout/src/pages/Loadout.tsx` — Import `Cycle14GearDisplay`; route gear to `Cycle14GearDisplay` when `gear_representative` present; amber banner hides when `placeholder_skill_content: false`; new violet rank-0 note when `cycle_14_refresh_pending: true`
+- `/Users/admin/Games/reincarnated-loadout/.vercelignore` — Extended to exclude 2×204MB telemetry `.bak` files that blocked deploy
+
+### Smoke-test results
+
+- Build: CLEAN — 1036 modules (was 1035 pre-dispatch; +1 for Cycle14GearDisplay), zero TypeScript errors
+- Skill spot-check: `ashfen_gloomchain_warden.json` — 12 skills, no `phase5_is_placeholder`, `investment_points: 0` (rank-0 confirmed)
+- Gear spot-check: 11/11 slots populated in `gear_representative` at `legendary_t1` rarity; `partition_modifiers` (5), `capability_modifiers` (1) confirmed present
+- Tests: 81/81 PASS (no regression)
+
+### Render path decisions
+
+**Gear render component:** NEW `Cycle14GearDisplay` (not `Cycle13GearDisplay` reuse). Rationale: schema mismatch confirmed via Disc #11 empirical inspection — `gear_representative` emits one item per slot using `rarity` field (not `rarity_tier`); `Cycle13GearDisplay` expects `Cycle13GearInstance[]` (110-item array across all rarity tiers). MIGRATION.md §v1.68 also explicitly names `Cycle14GearDisplay`. The amendment's "Cycle13GearDisplay" was a draft approximation — the actual schema requires a new component. Drax in-scope decision per dispatch's "If a new Cycle14GearDisplay shape is needed for slot variance, drax decides."
+
+**Rank-0 derivation source:** Loadout tab `useSkillBuild` hook — all allocations default to 0 at startup (existing behavior per doc 49 § 1.1.1). No new code required. `parseBuildUrl` returns null when no `?build=` param → rank-0. The `data-testid="rank-zero-init"` section was already in place from prior dispatch work.
+
+### Banner decision (Work-item 3)
+
+**Loadout tab:** Amber placeholder banner HIDES for Cycle 14 v1 seasons (`placeholder_skill_content: false`). New **violet** rank-0 uninvested note appears when `cycle_14_refresh_pending: true` — communicates "12 real skills, rank-0, investment commits Cycle 15+". Rationale: amber was specifically about placeholder skill content (no longer true); violet communicates the real-skills-but-uninvested state with a different visual weight.
+
+### Sample tab scope decision (Work-item 2)
+
+**Decision: (b) — status quo.** Sample tab continues current placeholder state (synthesized gear + rank-1 baseline view). Rationale: Sample tab's "Engine Baseline View" framing (rank-1 everywhere = what the balance loop tuned against) is the correct read-only display per existing design. The amber placeholder banner now correctly hides on Sample too (since `placeholder_skill_content: false`), which is accurate — the skills ARE real. Sample gear stays synthesized since `gear_representative` rendering in Sample tab would require the investment-commit framing of doc 49 § 1.2 (Cycle 15+ scope).
+
+### Vercel deploy status
+
+- **Preview READY:** `https://reincarnated-loadout-4p42kmypt-matthew-wetmore-s-projects.vercel.app`
+- Inspect: `https://vercel.com/matthew-wetmore-s-projects/reincarnated-loadout/AXJEhVvxPe1x41oUrTQKKAcyESfL`
+- First deploy attempt failed: telemetry `.bak` files (2×204MB) not in `.vercelignore` → exceeded 100MB limit. Fixed in commit `bd42fc3`. Second deploy succeeded.
+- **Production deploy:** NOT executed — deferred to KR wind-down per dispatch instructions (Matt authorizes production per ADR-006). Preview URL above is the verified state.
+
+### Analytics + Encounters no-op verification
+
+- Analytics tab: unaffected — consumes `balance_metadata` (§v1.67 schema, unchanged)
+- Encounters tab: `Cycle14EncountersNote` substrate placeholder still renders (no changes to Encounters path)
+
+### Framing-audit findings surfaced
+
+**Framing finding (gear render component):** Amendment 1 named `Cycle13GearDisplay` but empirical inspection (Disc #11) showed schema incompatibility (`rarity` vs `rarity_tier`; single-item vs array). MIGRATION.md §v1.68 actually names `Cycle14GearDisplay`. Resolved by drax in-scope decision (new component). NOT a halt condition — dispatch explicitly grants drax the decision.
+
+**No other refutation conditions triggered.**
+
+### Push status
+
+NOT pushed to GitHub remote — KR batches at wind-down.
 **Authored:** 2026-05-30 by knight-rider
