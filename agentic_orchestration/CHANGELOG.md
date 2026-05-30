@@ -4,6 +4,33 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-30 — Cycle 14 v1.1 wave-close polish hive-mind mini-cycle CLOSED (2 waves; Quality Criterion + Disc #11 efficacy validation)
+
+**Event:** First hive-mind cycle to use Move 1 Quality Criterion blocks (ratified Matt 2026-05-27 KR OP § 3.11). Cycle 14 v1 milestone stays SHIPPED; this was v1.1 polish to close user-visible gap surfaced by gandalf 2026-05-30 — engine emitted 12 real skills + 11 gear slots per kit at phase2_kit_candidates layer, but `cycle14_wave5_emitter.py` §v1.67 emit scope was bounded narrower than engine emission scope (Cumulative Disc #42a Instance 6 pattern surface #8 confirmed).
+
+**Waves:**
+- W1 (star-lord): emit-pipeline extension; tag `star-lord/v1.68-cycle-14-v1-wave-close-emit-pipeline-extension-1`; engine `a9e032d` + loadout `9076092` + collab `eb6345d`; 48 tests PASS (+3); 158 class files re-emitted across 3 wave-5 seasons
+- W2 (drax): render verification; loadout `5ec0814` + `bd42fc3`; Vercel preview READY; 81/81 tests PASS; NEW `Cycle14GearDisplay` component built
+
+**Two seam-owner catches of KR-routed errors (discipline efficacy validation):**
+- W1 Quality Criterion refutation #41: star-lord caught KR-invented `stat_distribution` Option A taxonomy (1.0/0.1/0.1/0.1 ratios) had no canonical anchor; declined Work-item 3 in-scope; retained 100/10/10/10; queued for gandalf design call
+- W2 Disc #11 empirical inspection: drax caught KR-propagated `Cycle13GearDisplay` reuse recommendation had schema mismatch with actual emitted `gear_representative`; built NEW `Cycle14GearDisplay` per MIGRATION §v1.68 naming
+
+**Hive-mind decision-routing (Matt 2026-05-23) functioned as designed:** seam-owners decided in-scope at both catches; KR did NOT escalate to Matt; KR did NOT decide solo. Both Waves closed successfully via seam-owner authority.
+
+**Pending Matt asks at wind-down:**
+- Push-auth for 3 repos (engine + loadout + collab; 7 commits + 1 tag batched)
+- Milestone tag candidate `v1.1-cycle-14-wave-close-polish-1` across 3 repos
+- Cycle-15-vs-v1.2 scope decision (gated on gandalf Pattern A-light return on stat_distribution design call)
+
+**Companion docs:**
+- `agentic_orchestration/cycle-14-v1-1-wave-close-polish-hive-mind-state.md` (state file; archived post wind-down)
+- `agentic_orchestration/cycle-14-v1-1-wave-close-polish-wind-down-summary-2026-05-30.md` (wind-down summary)
+- `agentic_orchestration/dispatches/2026-05-30-star-lord-cycle-14-v1-wave-close-emit-pipeline-extension.md` (W1 dispatch + completion record)
+- `agentic_orchestration/dispatches/2026-05-30-drax-cycle-14-v1-wave-close-render-verification.md` (W2 dispatch + completion record)
+
+---
+
 ## 2026-05-29 — Cycle 14 v1 SHIPPED — `v1-cycle-14-bounded-viability-substrate-led-1` milestone tag (3 repos)
 
 **Event:** Cycle 14 v1 milestone tag fired across all 3 repos capturing player-facing v1 launch of substrate-led-emergence engine output. Tag `v1-cycle-14-bounded-viability-substrate-led-1` on:

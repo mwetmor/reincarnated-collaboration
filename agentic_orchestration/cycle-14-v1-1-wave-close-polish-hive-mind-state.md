@@ -30,8 +30,8 @@ Single-wave mini-cycle (this is post-v1 polish, not a multi-phase cycle):
 | Wave | Scope | Sub-agents | Sequencing | Status |
 |---|---|---|---|---|
 | **W1 (star-lord)** | Extend `cycle14_wave5_emitter.py` to propagate 12 skills + 11 gear + scaling-ratio stat_distribution; re-emit 158 class files; MIGRATION §v1.68 | star-lord | Fires first | **CLOSED 2026-05-30** |
-| **W2 (drax)** | Verify /loadout renders 12 skills as rank-0 uninvested + gear catalog from `gear_representative`; enforce /sample Cycle 15+ scope boundary; banner update; Vercel deploy | drax | Post-W1 amendments applied; FIRING | **FIRING 2026-05-30** |
-| **Wind-down** | Mini-cycle close: state-file archival, CHANGELOG entry, milestone tag candidate (`v1.1-cycle-14-wave-close-polish-1`), single push-auth ask, gandalf Pattern A-light on stat_distribution design call | knight-rider | After W2 close | PENDING |
+| **W2 (drax)** | Verify /loadout renders 12 skills as rank-0 uninvested + gear catalog from `gear_representative`; enforce /sample Cycle 15+ scope boundary; banner update; Vercel deploy | drax | Post-W1 amendments applied; FIRED | **CLOSED 2026-05-30** |
+| **Wind-down** | Mini-cycle close: state-file archival, CHANGELOG entry, milestone tag candidate (`v1.1-cycle-14-wave-close-polish-1`), single push-auth ask, gandalf Pattern A-light on stat_distribution design call | knight-rider | After W2 close | **IN FLIGHT 2026-05-30** |
 
 ### W1 outcome record (star-lord closed 2026-05-30)
 
@@ -60,6 +60,33 @@ Single-wave mini-cycle (this is post-v1 polish, not a multi-phase cycle):
 ### W2 dispatch amendments authored 2026-05-30 (post-W1 close, pre-W2 fire)
 
 KR amended `dispatches/2026-05-30-drax-cycle-14-v1-wave-close-render-verification.md` with 4 amendments derived from W1 findings (gear render path, rank-0 derivation from tab mode, stat_distribution status quo, banner update real). Quality Criterion block added per KR OP § 3.11. Drax fires Agent tool background per § 3.10.
+
+### W2 outcome record (drax closed 2026-05-30)
+
+| Item | Outcome |
+|---|---|
+| Vercel preview URL | `https://reincarnated-loadout-4p42kmypt-matthew-wetmore-s-projects.vercel.app` (READY; preview target) |
+| Production deploy | DEFERRED to wind-down per ADR-006 |
+| Loadout commits | `5ec0814` (render changes) + `bd42fc3` (.vercelignore fix) |
+| Build | 1036 modules; 0 TypeScript errors |
+| Tests | 81/81 PASS |
+| Render path — skills | 12 real skills via existing `useSkillBuild` rank-0 default (doc 49 § 1.1.1; no `investment_state` JSON field required — Amendment 2 confirmed at execution) |
+| Render path — gear | NEW `Cycle14GearDisplay` component built (NOT Cycle13 reuse as KR-amended dispatch suggested). Disc #11 empirical-inspection catch: drax found `gear_representative` uses `rarity` field (not `rarity_tier`) and emits one item per slot (not 110-item array). MIGRATION §v1.68 also named `Cycle14GearDisplay`. Drax made the in-scope render-component decision; dispatch explicitly granted this discretion. |
+| Stat distribution | StatsPanel.tsx UNCHANGED (Amendment 3 confirmed) — 100/10/10/10 retained; pending gandalf Pattern A-light at wind-down |
+| Sample tab | Decision **(b)** status quo — Sample keeps synthesized gear + rank-1 baseline view; no preview-only mode added |
+| Banner | Amber placeholder banner REMOVED for Loadout (`placeholder_skill_content: false` triggers); replaced with violet "12 real skills — rank-0 uninvested" note keyed on `cycle_14_refresh_pending: true` |
+| .vercelignore fix | Pre-existing 2×204MB `.bak` telemetry files exceeded Vercel 100MB limit; fixed in `bd42fc3`. Not introduced by this dispatch but unblocked first deploy. |
+| Analytics + Encounters | No regression confirmed (Work-item 4) |
+| Push status | NOT pushed to GitHub (KR batches at wind-down) |
+| Tag intent | TBD by drax post-push-auth (none cut yet) |
+
+### W2 framing-audit finding (1) — Disc #11 empirical inspection caught KR amendment error
+
+**Finding:** Amendment 1 to drax dispatch (post-W1 close) recommended `Cycle13GearDisplay` reuse based on star-lord W1 Finding 2 (which named Cycle13GearDisplay as the candidate). Drax empirical inspection of actual emitted `gear_representative` JSON shape revealed schema mismatch — fields don't align with Cycle13GearDisplay's expected shape. Drax made the in-scope decision to build `Cycle14GearDisplay` instead. Decision aligned with MIGRATION §v1.68 naming.
+
+**Discipline lesson:** Second seam-owner catch of KR-routed assumption this cycle (after star-lord Quality Criterion #41 fire on Work-item 3). Both catches surface a pattern: KR-routed recommendations downstream from one seam's framing audit may carry assumptions that the receiving seam's own empirical inspection invalidates. KR should propagate findings WITHOUT pre-committing render-path / schema-choice details when the receiving seam owns those choices.
+
+**Disposition:** noted for jack-ryan ratification queue as candidate engineering discipline refinement (pattern: "KR-propagated cross-seam recommendation requires receiving-seam empirical re-verification before commit").
 
 **No parallel fan-out at W1** — only one sub-agent fireable (drax is data-dependent on W1 output).
 
