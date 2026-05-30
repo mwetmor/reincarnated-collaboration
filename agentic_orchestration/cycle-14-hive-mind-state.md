@@ -4838,7 +4838,78 @@ Per consolidated findings, **gandalf-lean Path X is the cleanest architectural p
 | 2 | Variant Pareto-dominance at S6c gate content | pre-ratified per Recognition record A3 H0 |
 | 3 | emit_skills_for_kit deterministic (Amendment 6 Sub-fix 3) | namespace-only acceptable per Gate-2 INFO |
 | 4 | chain_2.element metadata-only (Amendment 7) | SYSTEMIC; closed by Amendment 7a |
-| 5 | Phase 5 reads passing_kits not Phase 4 archive (gandalf surface) | **Interpretation A CONFIRMED (parallel-by-design; placeholder-mode for v1)** |
-| 6 (candidate) | config_to_kit collision (rocket finding) | gandalf/Matt design call pending |
+| 5 | Phase 5 reads passing_kits not Phase 4 archive (gandalf surface) | **Interpretation A CONFIRMED (parallel-by-design; placeholder-mode for v1)** → **cascade-resumption-4 Path X authorized 2026-05-29 evening late by Matt; resolution in flight** |
+| 6 (candidate) | config_to_kit collision (rocket finding) | DEFERRED to Cycle 15+ canonical-write target per cascade-resumption-4 § 2 + § 8 item 3 |
 
 **Cycle 14 wave-close canonical-write queue:** 9+ items (per jack-ryan findings) including new Disc #42a Q4 sub-case "Layer-isolation-vs-integration gap" + paired-joint-sampling discipline + Bound 4 language reconciliation + DEX Option C lock closure + Disc #49 candidate + Disc #42a Instance 7 + math note seeding clarification + hybrid rate calibration + canonical-engine drift detection.
+
+---
+
+## CASCADE-RESUMPTION-4 FIRE 2026-05-29 evening late — Path X (Phase 4 archive → Phase 5 PM-1 wire-up) + post-production parallel phases authorized
+
+**Authority:** Matt 2026-05-29 evening late "Path X — fire cascade-resumption-4" verbatim + "yes, option (i)" Wave B scope confirmation + § 11 parallel-tracks-immediately + § 12 drax hero-image-task verbatim.
+
+**Authorizing document (controlling):** `agentic_orchestration/gandalf/notes/2026-05-29-cascade-resumption-4-path-x-phase4-feeds-phase5-authorization.md` (commit `3de3a40`).
+
+**Trigger event:** gandalf FROM-message routed via KR fresh session (2026-05-29 evening late) post-cascade-resumption-3 CLOSE. Composes with: jack-ryan PASS-with-INFO (Path X conditional clause satisfied by Matt design call); rocket Instance 6 #5 investigation findings (Path X circumvents the `config_to_kit` collision rather than fixing it; deferred to Cycle 15+); gamora investigation (PM-1 sparsity at n=34 VIABLE).
+
+**Scope summary** (per cascade-resumption-4 § 5):
+
+1. **Wire-up change** at `reincarnated-engine/src/reincarnated/simulation/wave5_season_orchestrator.py:825-836` — PM-1 input changes from `passing_kits + variant_passing_rows` (598) to Phase 4 Pareto-2 archive output (34 base kits; s0=18, s1=9, s2=7)
+2. **NO Phase 2-4 re-fire** (archive intact from A2-1 RE-FIRE-3; `kit_archive.db` preserved)
+3. **Phase 5+ re-fire on season_001 only** (~50sec; ~$0.37 LLM)
+4. **Wave B option (i):** all 34 archive kits named (NOT subset of Phase 7 shipped_worthy)
+5. **Tests:** ~5-10 new per cascade-resumption-4 § 5.4 + § 6 acceptance criteria
+6. **Per-season cost ~$0.37; 3-season ~$1.10 (<2% of $50 cap)**
+
+**Composition preservation** (cascade-resumption-4 § 6.3):
+- Amendment 6 Sub-fix 1/2/3 — UNCHANGED + Sub-fix 2 NOW CONSUMED by Phase 5
+- Amendment 7 (E4c element coverage) — NOW VISIBLE at Phase 5
+- Amendment 7a (per-chain element wiring) — UNCHANGED
+- Amendment 8 ($50 cap re-imposed; Matt-gate retired) — UNCHANGED
+
+**Post-production parallel phases** (cascade-resumption-4 § 11) — IMMEDIATELY upon season_001 close + Matt confirmation gate (§ 9.1 step 6):
+
+| Track | Scope | Owners |
+|---|---|---|
+| Track A | Seasons 002 + 003 production runs under Pattern E + $50 cap monitoring | rocket; KR coordinates |
+| Track B | Drax loadout app refresh + summary tab; ChatGPT API image-gen integration | drax + legolas + galadriel |
+| Track C | Gandalf A/B testing scope authoring (sub-agent invocation) | gandalf |
+| § 12 | Drax seasonal hero + 11 gear piece image extraction → Matt Meshy handoff → animation URL wiring | drax (+ Matt Meshy step) |
+
+Four tracks fire CONCURRENTLY; no inter-track dependencies block firing.
+
+**Dispatch sequence** (cascade-resumption-4 § 9.1):
+
+1. ✅ KR confirms cascade-resumption-3 CLOSED (this section above)
+2. ✅ KR authors rocket Path X dispatch — `agentic_orchestration/dispatches/2026-05-29-rocket-cycle-14-cascade-resumption-4-path-x-phase4-feeds-phase5.md`
+3. 🟡 Rocket implements § 5.1 wire-up + § 5.4 tests + Phase 5+ re-fire (~30-60min code + ~50sec re-fire; auto-commit per CLAUDE.md addendum)
+4. ⏳ Jack-ryan Gate-2 quick review (cascade-resumption-4 § 6 acceptance criteria + Amendment 6 + 7 + 7a composition preservation)
+5. ⏳ KR consolidates season_001 Phase 5 output + Phase 7 verdict + cost actual vs $1.00 projection
+6. ⏳ MATT SURFACE — confirmation gate; Matt confirms acceptable → KR fires Phase 2 parallel tracks (Track A + B + C + § 12)
+7. ⏳ Parallel tracks fire concurrently; KR monitors $50 cap + per-track surface conditions
+
+**KR HOLD STATUS:** RELEASED from cascade-resumption-3 hold; cascade-resumption-4 dispatch fired to rocket; rocket session-pickup expected next rocket invocation.
+
+**Matt-surface explicit triggers** (UNCHANGED from cascade-resumption-3 Amendment 4 + 8, plus cascade-resumption-4 § 9.2 additions):
+- $50 soft cap approach (~75-80% projected) OR breach (mandatory)
+- R48 violations (Disc #49 oversized-file safety)
+- Gate-2 material-fail (jack-ryan BLOCK)
+- Wave-B-spec-gap surfaces
+- Class-taxonomy unexpected surface
+- Third material-fail in any phase
+- Framing-audit catches load-bearing assumption refutation
+- **PM-1 cardinality < 8 at Path X archive consumption** (SPARSITY floor breach; new per § 9.2)
+- **Track B image-gen cost projection approaches $50 cap** (rare; track separately from Phase 5 LLM cap)
+- **Season_001 cascade-resumption-4 re-fire output Matt-surface** (step 6 confirmation gate; required before Phase 2 fires)
+- **New Instance 6 surface (#7 candidate)** discovered during rocket execution
+
+**KR auto-routed (no Matt surface)** — per hive-mind decision-routing directive Matt 2026-05-23:
+- All in-scope cascade-resumption-4 work within authorization
+- Gate-2 PASS surfaces (jack-ryan)
+- Track A seasons 002 + 003 fires under Pattern E pre-authorization
+- Per-seam-owner decisions per ADR-002 tiered approval
+- Drax + legolas + galadriel coordination within Track B authorization
+- Gandalf A/B sub-agent invocation under Track C
+
+**Cycle 14 v1 close trajectory:** cascade-resumption-4 → season_001 Phase 5+ re-fire + Matt confirmation gate → 4-track parallel fire (seasons 002 + 003 + loadout app + A/B scope + hero-image-task) → v1 tag ratification per existing close criteria (3 LLM seasons emit ≥12/18 shipped_worthy + 3× Gate-2 PASS + A/B comparison filed + Disciplines #41-#46 batched canonical-write + Matt v1 tag ratification).
