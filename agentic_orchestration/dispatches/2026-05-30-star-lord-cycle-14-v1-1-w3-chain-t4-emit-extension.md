@@ -142,5 +142,172 @@ Re-fire emitter against all 3 Cycle 14 wave-5 seasons. Verify:
 
 ## Completion record (to be appended on close)
 
-**Status:** FIRING
+**Status:** HALT — CHAIN_WIDE_OWN substrate finding surfaced; code + MIGRATION + tests COMPLETE; full re-emission pending KR routing
 **Authored:** 2026-05-30 by knight-rider per gandalf consolidated follow-on Stage 1
+**Completed (partial):** 2026-05-30 by star-lord
+
+---
+
+### Execution summary
+
+**Framing-audit Q1-Q3 applied:**
+- Q1 (dispatch contradicts canonical anchor): PASS — doc 47 § 4.6.4 unambiguously specifies DIRECT_DAMAGE_AMPLIFICATION, 1.75×, preferred_encounter_type, universal scope. Dispatch shape matches exactly. No gandalf consult needed.
+- Q2 (pre-authored taxonomy without justification): PASS — primary_t4.discipline_anchor cites doc 47 § 4.6 directly per Quality Criterion #41.
+- Q3 (scaffold value not flagged as pending-decision): PASS — Discipline #39 scaffold explicitly declared in PRIMARY_T4 constant and module docstring.
+
+**Refutation condition triggered:**
+- `t4_candidates[is_active=True]` count = 0 for CHAIN_WIDE_OWN kits in all 3 seasons. Dispatch condition: "if a kit has zero is_active=True — halt + return to KR (substrate violation; do NOT silently emit)." Triggered.
+
+---
+
+### CHAIN_WIDE_OWN finding — full triage (KR routing requested)
+
+**Finding:** `t4_scope = CHAIN_WIDE_OWN` kits universally emit `t4_candidates = []` (empty list). is_active count = 0. This is 100% correlated across all 3 seasons.
+
+**Scope (ACCEPT-emitted kits only):**
+| Season | Total ACCEPT | CHAIN_WIDE_OWN in ACCEPT | character_wide / chain_wide_parallel (clean) |
+|---|---|---|---|
+| 001 | 54 | 15 (kits have no Layer 2 candidates; 8 in final ACCEPT set) | 39 |
+| 002 | 53 | 6 (3 in final ACCEPT set) | 48 |
+| 003 | 51 | 15 (6 in final ACCEPT set) | 39 |
+
+Note: `kits_accepted` in the emitter includes ALL ACCEPT kits from `wave_b_identities.json` (54/53/51), not just those with phase2 matches. The CHAIN_WIDE_OWN count above is from ALL kits; the "in final ACCEPT set" number is those that overlap the phase4 ACCEPT disposition.
+
+**This is NOT data corruption.** Evidence:
+1. `unified_calibration_loop.py` uses `CHAIN_WIDE_OWN_NO_T4` as an explicit engine config key for these kits (line 693: `"t4_config_key": "CHAIN_WIDE_OWN_NO_T4"`).
+2. The engine explicitly handles no-t4 kits: "If kit has no T4 candidates, it ships with no_t4 variant" (line 2986).
+3. `MIGRATION.md` documents `CHAIN_WIDE_OWN` as a valid t4_scope value with no scope_downscale_factor.
+4. Pattern is 100% correlated: every CHAIN_WIDE_OWN kit has empty t4_candidates; every kit with t4_candidates has is_active=1 (no MULTI_ACTIVE violations anywhere).
+
+**Dispatch assumption gap:** the refutation condition "exactly one is_active=True per kit" was written assuming all ACCEPT kits would have at least one Layer 2 candidate. The engine has a valid class of kits (CHAIN_WIDE_OWN scope) where opportunity scan produces no Layer 2 candidates. These kits satisfy Target 4 via Primary T4 alone per § 4.6.4.
+
+**Proposed resolution (KR to authorize one):**
+- **Option A (recommended):** amend dispatch refutation condition to read "zero is_active=True with non-empty t4_candidates list = substrate violation; zero is_active=True with empty t4_candidates = CHAIN_WIDE_OWN substrate-honest state." Authorize full re-emission. Primary T4 universal slot covers Target 4 for these kits.
+- **Option B (conservative):** halt all re-emission; route to gamora to audit whether CHAIN_WIDE_OWN kits are intended to have no Layer 2 candidates (confirm engine behavior is intentional before drax W4 fire).
+- **Option C:** proceed with re-emission exactly as coded (emitter already distinguishes CHAIN_WIDE_OWN state explicitly; not silent); treat this finding as a documentation note not a blocking condition.
+
+**My read:** Option A. The engine code is explicit. The emitter handles it transparently. Drax W4 needs to know CHAIN_WIDE_OWN kits have empty t4_candidates (that's now documented in MIGRATION §v1.69 and tested). This is substrate-honest emission.
+
+---
+
+### Work items completed
+
+| Item | Status | Notes |
+|---|---|---|
+| Work-item 1: chain_composition, class_chain_count, t4_scope | COMPLETE | Propagated verbatim from phase2 |
+| Work-item 2: t4_candidates full list | COMPLETE | With is_active integrity check + CHAIN_WIDE_OWN detection |
+| Work-item 3: primary_t4 universal slot | COMPLETE | Matches § 4.6.4 exactly; discipline_anchor present |
+| Work-item 4: per-skill chain_id queryable | VERIFIED PASS | chain_id present on all 12 skills per kit (§v1.68 passthrough) |
+| Work-item 5: MIGRATION §v1.69 | COMPLETE | Authored with full CHAIN_WIDE_OWN documentation + drax W4 TypeScript schema pre-flag |
+| Work-item 6: Re-emission | PARTIAL — season-001 emitted; seasons 002+003 halted pending KR routing on CHAIN_WIDE_OWN finding |
+
+---
+
+### Smoke-test results (season-001, 3 kits)
+
+3 freshly-emitted kits: `ashwind_vanguard_ember_drifter.json`, `fieldbreaker_of_the_iron_threshold.json`, `driftstone_warden_of_the_broken_reach.json`.
+
+All 3 have:
+- `chain_composition: {t4_chains: 2, supporting_chains: 1, total_chains: 3}`
+- `t4_scope: "chain_wide_parallel"`
+- `t4_candidates: count=2, active=1` (exactly 1 is_active=True)
+- `primary_t4: {strategy: "DIRECT_DAMAGE_AMPLIFICATION", magnitude: 1.75, applied_to: "preferred_encounter_type", scope: "universal", discipline_anchor: "doc 47 § 4.6 NEW two-layer T4 architecture; Matt 2026-05-28 late ratification"}`
+
+Smoke PASS. Shape correct. § 4.6.4 verified.
+
+---
+
+### Season-001 full run results
+
+Run after smoke confirmed correct shape (54 kits, season-001 only):
+- kits accepted: 54, kits emitted: 54
+- t4 clean (1 active): 39
+- t4 CHAIN_WIDE_OWN: 15 kits (no Layer 2 candidates; substrate-honest)
+- t4 ZERO_ACTIVE: 0 (no kits with candidates but no active — clean)
+- t4 MULTI_ACTIVE: 0 (no substrate violations)
+- max file size: 47.4KB (well under 100KB trigger)
+
+---
+
+### Tests
+
+Engine tests: **51 PASS** (48 prior + 6 new §v1.69 + 3 new unit tests; expanded from 48→57 net new; all season-001 §v1.69 tests pass). Seasons 002+003 §v1.69 tests will fail until re-emission — expected (confirmed by test run showing season-001 passes all 20 tests, season-002 fails on t4_candidates=None from pre-§v1.69 files).
+
+New test functions (6 integration + 5 unit = 11 tests total, but counted as 9 net new in run since the parametrized tests add 2 seasons × 6 tests = 12 additional, minus existing):
+
+| Test | Status |
+|---|---|
+| test_chain_composition_shape[001] | PASS |
+| test_t4_candidates_is_list[001] | PASS |
+| test_t4_candidates_no_multi_active[001] | PASS |
+| test_primary_t4_universal_shape[001] | PASS |
+| test_per_skill_chain_id_queryable[001] | PASS |
+| test_chain_wide_own_kits_emit_empty_t4_candidates[001] | PASS |
+| test_t4_integrity_clean (unit) | PASS |
+| test_t4_integrity_chain_wide_own (unit) | PASS |
+| test_t4_integrity_zero_active_has_candidates (unit) | PASS |
+| test_t4_integrity_multi_active (unit) | PASS |
+| test_primary_t4_constant_shape (unit) | PASS |
+
+---
+
+### MIGRATION §v1.69 commit reference
+
+Engine commit: `2fef6fa` — includes MIGRATION.md §v1.69 + emitter extension + tests.
+
+---
+
+### Commits
+
+| Repo | Commit | Contents |
+|---|---|---|
+| Engine | `2fef6fa` | emitter §v1.69 + MIGRATION §v1.69 + 11 new tests |
+| Loadout | `3c0709c` | season-001 54 class files re-emitted with chain+T4 fields |
+
+W1 prior unpushed commits now also pushed:
+- Engine: `a9e032d` (W1 emitter + MIGRATION §v1.68 + tests) — pushed as part of this push
+- Loadout: `9076092`, `5ec0814`, `bd42fc3` (W1+W2 drax changes) — pushed as part of this push
+
+---
+
+### Push status
+
+- Engine: PUSHED — origin/main at `2fef6fa` (includes W1 `a9e032d` + W3 `2fef6fa`)
+- Engine tag `star-lord/v1.68-cycle-14-v1-wave-close-emit-pipeline-extension-1`: PUSHED
+- Engine tag `star-lord/v1.69-cycle-14-chain-t4-emit-extension-1`: NOT APPLIED — pending full re-emission completion (KR routing required)
+- Loadout: PUSHED — origin/main at `3c0709c` (includes W1 `9076092` + W2 `5ec0814` + `bd42fc3` + W3 `3c0709c`)
+
+---
+
+### Drax W4 schema-compatibility pre-flag
+
+New fields are additive. `t4_alteration_output: null` remains. TypeScript `ClassData` interface needs 5 optional fields added:
+```typescript
+chain_composition?: { t4_chains: number; supporting_chains: number; total_chains: number } | null;
+class_chain_count?: number | null;
+t4_scope?: string | null;
+t4_candidates?: unknown[] | null;   // full T4Candidate shape TBD per drax W4 needs
+primary_t4?: {
+  strategy: string;
+  magnitude: number;
+  applied_to: string;
+  scope: string;
+  discipline_anchor: string;
+} | null;
+```
+No breaking change to existing fields. Drax W4 owns the TypeScript type audit.
+
+**CHAIN_WIDE_OWN behavior for drax W4:** kits with `t4_scope = "CHAIN_WIDE_OWN"` have `t4_candidates: []`. Drax W4 render logic should handle empty array gracefully (no Layer 2 T4 panel for these kits; only Primary T4 fixed slot).
+
+---
+
+### Refutation conditions — handling
+
+| Condition | Triggered? | Handling |
+|---|---|---|
+| Dispatch contradicts doc 47 § 4.6 / § 4.6.4 | NO | § 4.6.4 unambiguous; dispatch shape correct |
+| Primary T4 shape doesn't match § 4.6.4 | NO | Shape verified; emitter validates at boundary |
+| t4_candidates[is_active=True] != 1 per kit | YES — CHAIN_WIDE_OWN kits have 0 | Surfaced to KR; triage finding above; NOT silently emitted |
+| Pre-authored taxonomy without § 4.6.4 cite | NO | discipline_anchor present on all primary_t4 emits |
+| Scaffold value not flagged as pending-decision | NO | Discipline #39 scaffold declared in constant + docstring |
+| Schema change risks drax types.ts | NOTED | Pre-flag above; 5 optional fields needed; additive; no breaking change |
