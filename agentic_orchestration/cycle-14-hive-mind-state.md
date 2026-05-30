@@ -5357,3 +5357,54 @@ Cost projection: ~$0.34 Wave B re-fire (34 × ~$0.01) + ~$0.045 Wave-S re-fire (
 
 Per Matt verbatim "Once retroactive fix is in, unblock drax for the loadout app" — the "retroactive fix" landing is now defined to include the nameless-kit remediation (per Matt's additional 2026-05-29 directive "kits can't be nameless"). Drax fires after star-lord nameless-kit remediation closes.
 
+
+---
+
+## CASCADE-R4 FOLLOW-ON — STAR-LORD NAMELESS-KIT REMEDIATION CLOSED + NEW Phase 5 ELEMENT_DISTRIBUTION AGGREGATOR DRIFT 2026-05-29
+
+### Star-lord Scope 3 nameless-kit remediation CLOSED
+
+Commits: engine `16d6e01` + `9d3820e` + `5220468` + `08271ab`; collab `7513e54` + `d2560b4`; tag `star-lord/v1.0-cascade-r4-followon-nameless-kit-remediation-1`.
+
+**All 34 nameless kits remediated → 100% kit coverage achieved across 3 seasons (zero nameless).**
+- 9 + 13 + 12 kits re-fired via parse-failure retry; all resolved at retry layer (ACCEPT) — zero FALLBACK_SUBSTRATE_DERIVED triggers
+- W-S2 regex amended for hyphenated compounds; all 3 Wave-S re-fired with final_compliance_status=ACCEPT
+- 3 new Wave-S names: "Season of the Lightning-Scorched Chain" / "Season of the Storm-Shadowed Siege" / "Season of the Grounded Arcs"
+- MIGRATION.md §v1.65; 15 new tests; 250/250 PASS; zero regressions
+- Cost: ~$0.385 (within projection)
+- Star-lord-surfaced for rocket: 2 season_003 placeholders contained prohibited class-vocabulary ("Black Knight Ultra Greatsword" + "Assassin's Throwing Axe"); cleared manually at re-fire; future SUBSTRATE_PURITY_VOCAB_REGEX guard needed in `_build_kits_input_for_wave_b`
+
+### MATT SURFACE 2026-05-29 — Phase 5 element_distribution aggregator drift (Instance 6 #7 candidate)
+
+**Matt verbatim:** "please investigate the root cause of all factions receiving lightning-related names when the actual elemental make-up of the faction clusters is not lightning-dominant or modal. Let's fix this retroactively."
+
+**Empirical pattern** (Matt-surfaced; consistent across all 4 clusters season_001 + spot-check 002/003):
+
+Example C1 "Stormfield Chain Wardens" (n=13):
+- ACTUAL primary elements: earth 5 (38%), physical 3 (23%), fire 2 (15%), wind 1 (8%), lightning 1 (8%), holy 1 (8%)
+- WAVE A REPORTED: earth 38%, **lightning 31% (3.9× over)**, fire 15%, wind 8%, holy 8%, **physical 0% (dropped entirely)**
+
+Same skew in C2 (lightning 9%→27%; physical 18%→0%) and C3 (lightning 11%→44%; physical 33%→0%).
+
+**Working hypothesis** (Matt-relayed): Phase 5 element_distribution aggregator operates at CHAIN level not kit-primary-element level. Reconciles if: 13 kits × ~3 chains = ~39 chain-votes; aggregator excludes physical chains (doc 47 routes physical via weapon-damage path, not element path) but then either (a) doesn't re-normalize remaining elements correctly, OR (b) re-attributes dropped physical chain-votes to lightning via some default routing path.
+
+**Parallel to Amendment 7a structural-vs-behavioral gap** at skill emitter — same family of bug: per-chain element wiring set correctly per kit; aggregator over cluster mis-reads chain elements for STR→physical kits.
+
+**Substrate-led discipline drift CONFIRMED at aggregator layer.** LLM is doing its job correctly given biased input data; substrate-led intact at substrate layer; broken at Phase 5 aggregator. This is the source of all storm/lightning theming in faction names + Wave-S names (e.g., "Lightning-Struck Mixed Realm" for season_003 where lightning is actually LOWEST substrate element at 7%).
+
+### Routing — parallel investigation + drax in parallel + sequential gandalf remediation
+
+**Parallel fan-out FIRING NOW (3 sub-agents):**
+
+1. **Rocket Pattern-A query** (~15 min) on `phase5_orchestrator.py` element_distribution computation
+2. **Jack-ryan Disc #42a Q1-Q6 framing-audit** (~30 min) — Instance 6 #7 candidacy assessment
+3. **Drax loadout refresh** per Matt earlier directive ("Once retroactive fix is in, unblock drax") — proceeds in parallel; consumes CURRENT faction names + Wave-S names; iterates post-aggregator-fix re-fire
+
+**Sequential post-investigation:**
+4. **Gandalf remediation scope coordination** (post rocket + jack-ryan close)
+5. **Rocket retroactive re-fire** of Wave A + Wave-S based on corrected aggregator (~$0.20 across 3 seasons)
+6. **Drax data refresh** post-re-fire (consume updated faction + season names)
+
+**NOT v1 blocking** per Matt — wave-close canonical-write candidate registered: "Phase 5 element_distribution aggregator-vs-substrate ground-truth disjoint" + sub-discipline candidate for substrate-honest aggregation at compositional layers.
+
+**Cumulative Disc #42a Instance 6 pattern: now 8 surfaces** (existing 7 + this candidate); canonical-write priority elevated to wave-close.
