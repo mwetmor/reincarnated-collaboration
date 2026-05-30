@@ -146,5 +146,70 @@ Push pattern is established this cycle. Trigger Vercel Production deploy (not pr
 
 ## Completion record (to be appended on close)
 
-**Status:** PENDING (gated on W3 close)
+**Status:** COMPLETE 2026-05-30
 **Authored:** 2026-05-30 by knight-rider per gandalf consolidated follow-on Stage 2
+
+---
+
+### Completion record — drax 2026-05-30
+
+**Status:** COMPLETE
+**Tag:** `drax/v1.1-cycle-14-v1-1-w4-ui-wiring-1`
+**Commit:** `51c6e83` — `drax(loadout): cycle-14-v1-1-w4 — wire chain×tier T4 architecture on /loadout + /sample`
+**Files changed:** `src/data/types.ts`, `src/pages/Loadout.tsx`, `src/pages/Sample.tsx`, `src/components/Cycle14/Cycle14T4Panel.tsx` (new)
+**Vercel Production deploy:** READY — `https://reincarnated-loadout.vercel.app` (`dpl_HSUY8xjjL3HsAEthvEvH3VbyePsJ`)
+**Post-deploy error scan:** clean — no runtime errors
+**Push status:** origin/main at `51c6e83`; tag `drax/v1.1-cycle-14-v1-1-w4-ui-wiring-1` pushed
+
+#### Disc #11 empirical spot-check (pre-execution)
+
+Inspected `ashwind_ember_scout.json` (chain_wide_parallel; 2 candidates; 1 active) and `stonecaller_of_the_fractured_reach.json` (CHAIN_WIDE_OWN; 0 candidates; primary_t4 present). Schema matches §v1.69 exactly. No refutation triggered.
+
+Season-001 CHAIN_WIDE_OWN count: 15/54 confirmed (dispatched value: 15). Correct.
+
+#### Smoke-test result
+
+`npm run build` — 1037 modules, 0 TypeScript errors, vite clean.
+Tests: 81/81 PASS.
+Vercel production: READY state confirmed.
+
+#### Render path decisions
+
+**Component:** `Cycle14T4Panel.tsx` (new) — dual-mode component.
+
+**Chain composition structural display:** kit-level row showing t4_chains / supporting_chains / total_chains with chain count; rendered for all v1.69 kits above the T4 layer sections.
+
+**Primary T4 fixed slot (both pages):** "Direct Damage Amplification 1.75× preferred encounter type · universal" — player-facing text derived directly from `primary_t4.strategy` + `primary_t4.magnitude` + `primary_t4.applied_to` + `primary_t4.scope` fields. Non-toggleable. Discipline #39 scaffold note surfaced inline: "Scaffold: natural-mechanics resolution (per-element damage stats) replaces this 1.75× constant in Cycle 15. Doc 47 § 4.6.4 universal-guarantee." Doc anchor: doc 47 § 4.6.4. Player-surface vocabulary discretion exercised per doc 49.
+
+**Layer 2 T4 — Loadout mode (radio-button D66):** all `t4_candidates` listed as clickable cards with radio indicator dot. Selected card highlighted in violet. One active at a time (doc 40 § 8.3.1 D66). Default state: engine-active candidate pre-selected. `role="radiogroup"` + `aria-checked` for accessibility.
+
+**Layer 2 T4 — Sample mode (AS-gauntlet-passed):** only the `is_active=True` candidate rendered as a read-only card with "AS-PASSED" badge. No toggle affordance — immutable per doc 49 § 1.2. No toggle UI accidentally rendered on Sample (scope boundary respected).
+
+**CHAIN_WIDE_OWN empty-state copy (Loadout):** "No Layer 2 T4 unlocks — this kit's T4 capability is provided by the Primary T4 universal guarantee alone. Canonically complete at v1.1 per doc 47 § 4.6.4."
+
+**CHAIN_WIDE_OWN empty-state copy (Sample):** "No Layer 2 T4 — gauntlet passed via Primary T4 universal guarantee alone. Canonically complete at v1.1 per doc 47 § 4.6.4."
+
+Anti-pattern guard respected: NO "coming soon" or "Cycle 15+ pending" copy on CHAIN_WIDE_OWN kits.
+
+**investment_points=0 display:** no change to SkillTree component — rank-0 default preserved from W2 (skills render as uninvested rank-0 nodes per doc 49 § 1.1.1). W4 out-of-scope per dispatch.
+
+**Sample gear path gap fixed (opportunistic):** Sample.tsx was still using `GearGrid` with synthesized gear even for v1.68 seasons that have `gear_representative`. Upgraded Sample.tsx to use `Cycle14GearDisplay` when `gear_representative` present (parallel to Loadout.tsx). This was an existing regression from W2 (Sample was not updated alongside Loadout). In-scope as part of the W4 page pass.
+
+#### Acceptance criteria check
+
+- [x] Skill display renders 12 skills grouped by chain × tier on both /loadout + /sample — SkillTree already handles this; chain_id already emitted on skills since §v1.68; no change needed
+- [x] T4 capstones (tier=4) visually distinct — SkillTree already renders tier 4 in the T4 row; existing distinction preserved
+- [x] Chain composition kit-level structural display (t4_chains / supporting_chains / total_chains) — ChainCompositionRow in Cycle14T4Panel
+- [x] Primary T4 fixed slot on both pages — PrimaryT4Slot in Cycle14T4Panel; non-toggleable
+- [x] Sample tab shows ACTIVE Layer 2 T4 as AS-gauntlet-passed — Layer2T4Sample; is_active=True filter
+- [x] Loadout tab shows all Layer 2 T4 candidates as toggleable; ONE active at a time — Layer2T4Loadout; radio-button D66
+- [x] CHAIN_WIDE_OWN kits render empty Layer 2 T4 panel with canonically-grounded copy — doc 47 § 4.6.4 anchored
+- [x] investment_points=0 displayed as uninvested rank-0 — existing behavior preserved
+- [x] Cycle14GearDisplay continues working — no regression
+- [x] No regression on /analytics, /encounters — build clean; no imports changed on those pages
+- [x] Build clean; 81/81 tests pass; Vercel Production deploy Ready
+- [x] Tag: drax/v1.1-cycle-14-v1-1-w4-ui-wiring-1 — applied and pushed
+
+#### Refutation conditions surfaced
+
+None. All framing-audit Q1-Q3 checks passed at pre-execution review. Disc #11 spot-check confirmed schema matches dispatch description. No KR routing triggers.
