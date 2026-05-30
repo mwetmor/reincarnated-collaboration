@@ -167,3 +167,67 @@ These steps fire AFTER § 12.1 hero pair selection lands. Coordinate via KR.
 ---
 
 **KR sign-off:** Authored per Matt 2026-05-29 Step 7 CONFIRM-FIRE + Amendment 2 hero pair delegation; routed to drax as seam owner of `reincarnated-loadout/` + § 12 image extraction per AGENTS.md scope map. Auto-commit per CLAUDE.md addendum. KR mediates pair consensus + deadlock escalation if needed.
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-29
+**Agent:** drax
+**Session commits:**
+- `9ceeb40` — loadout: cycle-14 §11.2 Summary tab faction cluster tiles + cluster_id type union
+- `c7b4bd0` — loadout: AGENT_STATE.md checkpoint
+- `33678d2` — collab: §12.1 hero pair drax-half selection notes
+
+**Tag applied:** `drax/v1.0-cascade-r4-track-b-loadout-plus-12-1-pair-1` (reincarnated-loadout repo)
+
+---
+
+### Acceptance criteria check
+
+**Track B §11.2 (loadout app refresh):**
+- [x] Loadout app data layer handles `cluster_id: int | "SINGLETON"` type union — `src/data/cycle14Types.ts` ClusterId type
+- [x] Summary tab surfaces season_001 4-cluster output (baseline NOW; pre-Wanderer) — Cycle14SeasonSection + FactionClusterTile components live on /pitch
+- [x] Style register honored (hand-drawn pixel-art HD-2D-shaped) — dark palette, pixel-register typography, minimal chrome matching existing Pitch page aesthetic
+- [x] Iteration plan documented — in-code TODOs + AGENT_STATE.md + Cycle14SeasonSection.tsx
+- [x] Build smoke-test: `npm run build` clean (870 modules, 0 TS errors, 81 tests passing)
+- [ ] Vercel preview deployment: PENDING push authorization (Matt required per ADR-006)
+
+**§12.1 hero pair drax half:**
+- [x] UX-fit read per candidate kit produced — all 4 clusters assessed; ratings 2–5/5
+- [x] Image-extraction feasibility read per candidate kit produced — substrate richness ranked; Cluster 3 highest
+- [x] Pair consensus: DRAX-SIDE COMPLETE — Cluster 3 (Stormveil Ironclad Surge) elected; AWAITING GALADRIEL
+- [x] Selection documented at `agentic_orchestration/drax/notes/2026-05-29-cycle-14-v1-seasonal-hero-selection.md`
+- [x] §12.2–12.4 DEFERRED notice — recorded in selection notes § 6 and AGENT_STATE.md
+
+---
+
+### Deliverables back to KR
+
+1. **Loadout app refresh status:** COMPLETE (baseline). Summary tab now surfaces 4 faction cluster tiles from season_001 Phase 5 output. `cluster_id: number | "SINGLETON"` type union implemented. Wanderer placeholder rendered (post-gamora slot held). Hero image placeholder rendered (post-§12 slot held). Build clean.
+
+2. **§12.1 hero pair selection outcome:** DRAX-SIDE COMPLETE. Drax election: **Cluster 3 — Stormveil Ironclad Surge** (european + lightning-dominant + close-AOE; strongest substrate for image-gen prompt construction). Awaiting galadriel visual-coherence reads + CV scoring to complete pair consensus.
+
+3. **Pair coordination state:** DRAX-HALF COMPLETE — galadriel reads outstanding. When galadriel returns, KR routes to drax for pair consensus confirmation or deadlock assessment.
+
+4. **Wanderer integration plan:** Post-gamora Amendment 1 close. Wanderer placeholder tile is already rendered in Cycle14SeasonSection.tsx (cluster_id="SINGLETON" filter). When gamora ships Wanderer kits with SINGLETON cluster_id, they will surface automatically on refresh. No loadout-side structural work needed beyond data refresh.
+
+5. **§12.2–12.4 readiness:** DEFERRED. Fires after: (a) pair consensus confirmed on hero selection, (b) legolas Track B prompt construction lands, (c) Matt authorizes Meshy handoff. All three prerequisites outstanding.
+
+6. **Vercel deployment state:** Preview deploy NOT yet fired. Requires push authorization (Matt per ADR-006). Local dev server: `npm run dev` renders faction cluster tiles on /pitch route. Preview deploy can fire immediately once push authorization is given.
+
+7. **Tag committed:** `drax/v1.0-cascade-r4-track-b-loadout-plus-12-1-pair-1` ✅
+
+8. **Commits made:** 3 commits across 2 repos (2 in reincarnated-loadout, 1 in reincarnated-collaboration)
+
+---
+
+### Findings and notes for KR
+
+**Wave B kit names not available:** Wave B implementation was missing at cascade-resumption-2. The faction clusters in phase5_faction_clusters.json contain engine-format kit IDs (e.g., `S1_endgame_bc_melee_high_flat_dex_none_s1`) but no LLM-generated per-kit names. The loadout displays member_count per faction rather than individual kit names. This is correct behavior for the current data state — per-kit names will surface when Wave B ships.
+
+**substrate_anchored_personages null on all clusters:** The phase5_faction_clusters.json has `substrate_anchored_personages: null` on all 4 clusters. When substrate-anchored personages are populated by elrond in a future wave, the FactionClusterTile component will need a display extension. The null is currently handled silently.
+
+**Individual kit substrate fields for §12.2:** Per-kit cultural_lineage_canonical, weapon_type_family, historical_period_canonical are in kit_archive.db (not in phase5 JSON). For §12.2 image-gen prompt construction, the elected kit's substrate fields should be retrieved from kit_archive.db. If this requires elrond, route to KR.
+
+**Style register:** The faction tile UI uses the same dark palette (gray-950/900/800 backgrounds, mono-uppercase labels, border-based structure) as the existing Pitch page components. Pixel-art HD-2D register is honored at the UI chrome level; actual sprite/image assets will honor it when hero images land in §12.2+.
