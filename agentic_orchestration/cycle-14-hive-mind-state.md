@@ -5408,3 +5408,62 @@ Same skew in C2 (lightning 9%→27%; physical 18%→0%) and C3 (lightning 11%→
 **NOT v1 blocking** per Matt — wave-close canonical-write candidate registered: "Phase 5 element_distribution aggregator-vs-substrate ground-truth disjoint" + sub-discipline candidate for substrate-honest aggregation at compositional layers.
 
 **Cumulative Disc #42a Instance 6 pattern: now 8 surfaces** (existing 7 + this candidate); canonical-write priority elevated to wave-close.
+
+---
+
+## CASCADE-R4 FOLLOW-ON — PARALLEL FAN-OUT CLOSED + Matt RETROACTIVE SEASON NAMES DIRECTIVE 2026-05-29
+
+### Parallel fan-out CLOSED (all 3 sub-agents)
+
+**Rocket Pattern-A aggregator forensics CLOSED** (commit `57cbdc5`):
+- Aggregator at `reincarnated-engine/src/reincarnated/generation/phase5_pm1_multimodal_clustering.py` `_compute_cluster_reps()` lines 635-736
+- Q1: Kit-level encoding (NOT chain-level as Matt hypothesized; mechanism is simpler)
+- Q2: `_ELEMENT_MAP` lines 310-313 has 7 elements; **physical ABSENT**; encode missing key → default 0.5 → decode min(map) → lightning (0.571 nearest; wind 0.429 tied at 0.071 distance but CPython tie-break to lightning)
+- Q3: No stale-cache; recomputes per re-fire
+- **Remediation: SMALL — 1-line addition** `"physical": 1.0` as 8th `_ELEMENT_MAP` entry
+
+**Jack-ryan framing-audit CLOSED** (commit `baf6c46`):
+- **Instance 6 #8** (cumulative pattern now 8; #7 was Phase 7 C-2 compactness floor per prior Gate-2 commit `0bee7b2`)
+- Same family: structural-vs-behavioral variation gap; aggregator-layer instantiation
+- NEW sub-case named: **"vocabulary-staleness-vs-substrate-expansion gap"** (P1 wave-close canonical-write candidate)
+- Severity: INFO (NOT v1 blocking; concurs with Matt)
+- Composes with Designer-writes-substrate principle (first confirmed Disc #41 drift at aggregator layer, not generation layer)
+
+**Drax loadout refresh CLOSED** (loadout `c268650` + `ebf857a`; collab `ec2a638`; tag `drax/v1.0-cascade-r4-followon-loadout-refresh-1`):
+- All 3 seasons rendering on `/pitch` route (Vercel preview pending Matt push-auth per ADR-006)
+- Per-kit names + season-name headers live
+- **Drax-discovered surface:** 2 Wanderer kits found in wave_b_identities.json (season_001 + season_002 each have 1) — surfacing via wave_b "Wanderer" framing tag despite gamora Amendment 1 SINGLETON classification reporting 0 Wanderers. Substrate-level Wanderer surface vs cluster-level SINGLETON disjoint; not blocking; investigation candidate for Cycle 15+
+- 875 modules; 0 TS errors; 81 tests PASS
+- Iteration plan documented: post-aggregator-fix update 3 inline constants in `cycle14SeasonData.ts` (no structural change); post-§ 12.2 hero set `hero_faction_cluster_id: 3` + `hero_image_url` in CYCLE14_SEASON_001
+
+### NEW Matt directive 2026-05-29 (refining retroactive scope)
+
+**Matt verbatim:** "once the lightning-themed faction issue has been resolved, please retroactively refresh the season names as well."
+
+Bundles into rocket's retroactive scope:
+- **Aggregator fix** (1-line `_ELEMENT_MAP` addition) — code change
+- **Re-fire Wave A faction names** — new substrate-grounded element_distribution → new faction names (no longer lightning-biased)
+- **Re-fire Wave-S season names** — consume new faction names per gandalf spec § 6 sequencing → new season names (no longer storm-themed)
+- (Optional) Re-fire Wave B per-kit names — for consistency
+
+**Open design question for gandalf coordination:** Full Phase 5 re-cluster (with physical→1.0 encoding may shift cluster boundaries) OR keep existing clusters + name-only refresh?
+- Cost A (full re-cluster + all waves): ~$0.36/season × 3 = ~$1.08 (matches original Track A cost; well within cap)
+- Cost B (existing clusters + Wave A + F-C + Wave-S + Wave B re-fire): ~$0.36/season × 3 = ~$1.08 (similar cost; substrate-led discipline says substrate truth correction = let substrate speak)
+- Cost C (existing clusters + Wave A + Wave-S only): ~$0.075/season × 3 = ~$0.225 (cheapest; keeps F-C + Wave B intact; risk: F-C + Wave B were generated with biased faction-name context)
+
+Per substrate-led discipline + Designer-writes-substrate principle: full re-cluster is the architecturally honest move (substrate truth correction → let clusters re-emerge). But name-only refresh preserves continuity with already-shipped names. Gandalf design call.
+
+### Routing — gandalf coordination FIRING NOW; rocket execution sequential post-gandalf
+
+**Gandalf coordination dispatch:** ~15 min Pattern-A-deep:
+1. Confirm `_ELEMENT_MAP` fix as remediation scope (rocket finding ratified)
+2. Resolve full-re-cluster vs name-only-refresh design question
+3. Specify scope: which waves re-fire; per-season or batch
+4. Composes-with documentation (Designer-writes-substrate principle Layer 1 → aggregator-layer drift; canonical-write capture)
+5. Output: Wave-S re-fire spec amendment (if needed beyond existing gandalf spec) + retroactive sequence + cost projection
+
+**Rocket retroactive execution dispatch** (post-gandalf-close): aggregator fix + retroactive re-fire per gandalf spec + tests + MIGRATION.md.
+
+**Drax data refresh** (post-rocket-close): inline constant update per drax iteration plan.
+
+**Final Matt surface:** Cycle 14 v1 tag ratification post all retroactive close.
