@@ -4984,3 +4984,103 @@ Phase 7 verdict breakdown (from `phase7_season_summary.json`):
 Path X mechanically complete; player-facing coherence improvement landed (100% cluster_id coverage; 4 substrate-led factions emergent with substrate-led canonical names per designer-writes-substrate principle); cost on target ($0.36 vs $0.37 estimate). New surface (Instance 6 #7) at Phase 7 C-2 compactness gate calibration is OUT-OF-SCOPE for Path X dispatch but materially affects Step 7 Track A readiness. Matt elects: (i) CONFIRM AS-IS for Track C + § 12 NOW (hero selection criterion election; cohesion-score or substrate-metadata) + authorize narrow gamora calibration dispatch before Track A fires; (ii) REDUCE-SCOPE (fold calibration into cascade-r4 closure; halt Step 7 until recalibration lands; sequence Track A immediately after); (iii) ABORT cascade-r4 and re-deliberate at Pattern B design call.
 
 **KR HOLD STATUS:** Step 7 fan-out HELD pending Matt election at Step 6 confirmation gate. Rocket + jack-ryan auto-commit cycle complete; no push (default per ADR-006). KR ready to author Step 6 Matt surface.
+
+---
+
+## CASCADE-RESUMPTION-4 STEP 6 MATT CONFIRMATION GATE — CONFIRM-FIRE with TWO AMENDMENTS 2026-05-29
+
+**Matt 2026-05-29 late verbatim authorization at Step 6 confirmation gate:**
+
+- Amendment 1 (Wanderer architecture) — substrate-elected faction-membership; SINGLETON cluster_id state; "Wanderer" player-facing term; resolves Instance 6 #7 (Phase 7 C-2 compactness gap) at the architectural layer, not constant-value layer
+- Amendment 2 (§ 12.1 hero selection delegated to galadriel + drax pair) — hero selection moves off Matt's plate; pair operates by consensus; deadlock → gandalf sub-agent (NOT Matt)
+
+**Composition with cascade-r4:** Both amendments compose cleanly with cascade-r4 § 11 four-track parallel fan-out. Both fire under hive-mind decision-routing per Matt 2026-05-23 directive (no Matt re-surface; seam-owner-decides per amended scope).
+
+### AMENDMENT 1 — Wanderer architecture (gamora dispatch scope)
+
+**Principle (per Designer-writes-substrate principle composition):** Faction-membership is substrate-elected, not designer-imposed. Substrate-cohesive clusters surface as factions; substrate-singleton kits are explicitly substrate-elected as unclustered at this temporal scale, queryable for Cycle 15+ cross-seasonal re-clustering.
+
+**Two-layer architecture:**
+- Substrate data layer: cluster_id="SINGLETON" as positive substrate-elected state (NOT NULL; NOT missing data; explicitly marked; queryable; durable)
+- Player-facing surface layer: SINGLETON-marked kits surface as "Wanderers" in loadout app + summary tab + spirit-guide narration + Wave B kit naming context
+
+**Gamora dispatch implementation (~0.5d; methodology amendment from prior constant-value recalibration):**
+
+1. Phase 5 PM-1 algorithm modification: cluster_id="SINGLETON" output for kits whose nearest-centroid distance exceeds per-kit cohesion threshold. Default: nearest cluster IF cohesion threshold cleared; SINGLETON otherwise. NOT NULL.
+
+2. Phase 7 mechanical gate verdict logic split:
+   - Cluster-membered kits (cluster_id ∈ {1,2,3,...}): per-cluster compactness gate; floor recalibrated to scale-relative function form (NOT absolute constant)
+   - SINGLETON-marked kits: per-kit cohesion-judge verdict (kit-level identity coherence: substrate metadata + Wave B name + standalone narrative-fit); NOT subject to per-cluster compactness floor
+
+3. Phase 5 Wave A LLM faction-naming: does NOT fire for SINGLETON kits (no clustering signal → no designer-imposed faction emerges); SINGLETON kits get no modal_cultural_lineage / faction_name / faction_archetype output
+
+4. Phase 5 Wave B LLM kit-naming: fires per-kit AS NORMAL for ALL kits (cluster-membered AND SINGLETON); every kit gets its own identity name regardless of clustering state
+
+5. Phase 7 ship verdict fires per-kit:
+   - cluster_id ∈ {1,2,3,...} AND cluster passes per-cluster compactness gate (scale-relative floor) AND kit has Wave B name → shipped_worthy=True
+   - cluster_id="SINGLETON" AND kit passes per-kit cohesion-judge verdict AND kit has Wave B name → shipped_worthy=True
+   - Otherwise → shipped_worthy=False
+
+6. Scale-relative function form (compactness floor): gamora's calibration call; lean toward formulations deriving from input cardinality + expected geometric compactness at scale; document function form in math note for Cycle 14 wave-close canonical-write inheritance
+
+**Acceptance criteria extension (beyond cascade-r4 § 6):**
+- [ ] SINGLETON kits surface with cluster_id="SINGLETON" in kit_archive.db + phase5_*.json schemas (queryable)
+- [ ] Wave A output JSON does NOT contain faction entries for SINGLETON kits
+- [ ] Wave B output JSON contains per-kit names for ALL kits (cluster-membered AND SINGLETON)
+- [ ] Phase 7 ship verdict logic per-kit (not per-cluster all-or-nothing)
+- [ ] season_001 Phase 7 re-fire produces shipped_worthy > 0 across mixed cluster + SINGLETON kit population
+- [ ] Player-facing surface term "Wanderer" propagates to loadout app data contract (drax Track B consumes)
+
+**Expected results post-amendment (season_001):**
+- Clusters 1, 2, 3 (cohesively-membered factions) ship per scale-relative floor; expected ~25-30 cluster-membered shipped
+- Cluster 4 (n=1 fire 100%) reclassified SINGLETON; per-kit cohesion-judge; expected shipped_worthy=1 (Wave B-named fire-bearer with coherent standalone identity)
+- Aggregate season_001: ~26-31 shipped_worthy of 34 (~75-90% ship rate; satisfies Cycle 14 v1 close criteria)
+
+**Expected results post-amendment (seasons 002+003):**
+- Per-season Wanderer count varies with substrate distribution per RNG seed; expected 0-3 Wanderers
+- Per-season cluster-membered shipped: ~20-25
+- 3-season aggregate: ~70-90 shipped_worthy
+
+### AMENDMENT 2 — § 12.1 seasonal hero selection delegated to galadriel + drax pair
+
+**Matt 2026-05-29 late verbatim:** "leave the seasonal hero call up to galadriel and drax."
+
+Hero selection moves off Matt's plate; galadriel + drax pair becomes selection authority. § 12.2-12.4 (Matt Meshy handoff + drax URL wire-up) unchanged.
+
+**Delegation scope:**
+
+1. Galadriel provides: visual-coherence read per kit (cohesion-judge + Wave B name + substrate metadata → renders well as seasonal hero?); CV-pipeline similarity scoring against genre-peer marquee references; recommendation per cluster (one preferred hero per faction) + per Wanderer (which Wanderer if any has standalone strength to carry as Lone-Wanderer-hero alternative)
+
+2. Drax provides: UX-fit read per kit (slots cleanly into loadout app summary tab?); image-extraction feasibility (substrate metadata + 11 gear-slot composition support § 12 extraction?); pragmatism preference for substrate-metadata-rich candidates
+
+3. Selection rule:
+   - DEFAULT: hero per cluster faction (4 candidates in season_001; pair elects ONE faction's candidate as season marquee)
+   - ALTERNATIVE: Wanderer-as-hero ("Lone Wanderer of [Season Identity]" pattern; substrate-honest + genre-thematic isekai canon); elected if pair judges Wanderer standalone identity stronger than any faction candidate
+   - Pair operates by consensus; deadlock → gandalf sub-agent (NOT Matt-surface) for design-fit adjudication
+
+4. Hero selection criterion documented at `agentic_orchestration/drax/notes/<YYYY-MM-DD>-cycle-14-v1-seasonal-hero-selection.md`: per-cluster candidate read (galadriel); per-Wanderer candidate read (galadriel; if any); UX-fit read (drax); elected hero + reasoning; composes with cascade-r4 § 12.1 + Matt 2026-05-29 late delegation + substrate-led discipline
+
+5. § 12.2-12.4 unchanged
+
+**Matt-surface trigger (new for § 12.1 delegation):** Galadriel + drax + gandalf-sub-agent three-way deadlock → Matt surface (Pattern B design call). Expected zero firings.
+
+### Cycle 14 wave-close canonical-write queue UPDATES (two new items per Matt directive):
+
+13. **Wanderer architecture principle doc** (gandalf canonical-write target; `canonical/story/2026-05-29-substrate-elected-faction-membership-two-temporal-scales.md` or similar) — substrate-elected faction-membership; SINGLETON as positive state; "Wanderer" player-facing canonical term; two-temporal-scale composition (cluster-membership at season; cross-seasonal re-clustering at Cycle 15+)
+
+14. **§ 12.1 galadriel-drax hero-selection pattern** (drax + galadriel canonical-write target) — pair-consensus selection authority; DEFAULT faction-hero + ALTERNATIVE Wanderer-as-hero pattern; deadlock escalation to gandalf-sub-agent; documented at first execution
+
+### Step 7 dispatch sequence (parallel fan-out FIRING NOW under amendments)
+
+| Dispatch | Owner | Scope | Status |
+|---|---|---|---|
+| Gamora — Amendment 1 Wanderer architecture | gamora | Phase 5 SINGLETON + Phase 7 verdict split + scale-relative compactness floor + season_001 re-fire | FIRING |
+| Track A seasons 002+003 production | rocket | Full Phase 2-7 cascade × 2 seasons (per-season RNG; consumes Path X wire-up + Wanderer architecture) | AUTHORED — BLOCKED on gamora close |
+| Track B drax — loadout app refresh + § 12.1 drax half | drax | Loadout web app surface for 4-cluster + Wanderer post-gamora; § 12.1 UX-fit reads + image-extraction feasibility | FIRING |
+| Track B galadriel — CV scoring + § 12.1 galadriel half | galadriel | CV-pipeline scoring against genre-peer references; § 12.1 visual-coherence reads per cluster + per Wanderer | FIRING |
+| Track B legolas — image-gen prompts | legolas | Substrate-metadata-informed ChatGPT API image-gen prompts (per-kit + per-faction); style register per canonical/story/style-register.md | FIRING |
+| Track C gandalf — A/B testing scope | gandalf | A/B variant pairs (per-faction; per-kit-archetype; per-element-class); test instruments; coordinate with drax on loadout-app A/B surface | FIRING |
+| § 12 drax + Matt Meshy handoff + drax URL wire-up | drax + Matt | Asynchronous-blocking on hero selection + 12 image generation | DEFERRED until hero pair selects |
+
+**Parallel-fan-out resource constraints:** Discipline #48 RAM-awareness RETIRED per Amendment 3; R48.1/R48.2/R48.3 oversized-file safety preserved. 5 parallel sub-agents acceptable per cascade-r4 § 11.4.
+
