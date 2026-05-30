@@ -5817,3 +5817,67 @@ Matt directives composed this session:
 
 Player-facing v1 complete; all routes live on Vercel; 3D animated hero on Summary; Season 002 marquee curated. Cycle 14 v1 SHIPPED.
 
+
+---
+
+## CASCADE-R4 V1 SESSION-END POLISH 2026-05-29 — Drax group re-roll PASS + KR hero name revert + model-viewer enlarge
+
+### Drax group portrait re-roll CLOSED (loadout `5a5530e` + `fd54f01`; collab `8c387af`; tag `drax/v1.0-cascade-r4-v1-season-002-marquee-polish-1`)
+
+**Matt feedback:** singles great; group photos poor; conditional collage-fallback authorized.
+
+**Drax decision:** RE-ROLL ACCEPTABLE (no collage fallback needed). 4 new group portraits generated using legolas authored prompts + galadriel composition designs (which weren't consumed in first execution due to parallel-fire timing). Cost $0.32. Prior poor-quality groups backed up to `factions/prior/`.
+
+**Quality assessment per drax:**
+- Stormcallers: tri-element tri-band triangle ✓ correct
+- Ironsoil: low-angle mass-charge + dust-haze + concentric earth-impact rings ✓ correct
+- Gale-Blessed: BEST result; wind-primary + broad-front + pluralistic armor + holy-lit blade
+- Duskchain: shadow-tendrils + dispersed-depth + twilight palette ✓ correct
+
+Vercel deploy `reincarnated-loadout-kdmcull1n` READY (29s).
+
+### Hero name revert + model-viewer enlarge (loadout `96b57eb`)
+
+**Matt verbatim 2026-05-29:**
+"It would be great if you can make the hero of the season/engine's animation image size much larger to match the text space of his page area. Also, his name is supposed to be Crushguard of the shattered gate."
+
+**KR direct wire-up (corrected own prior mistake):**
+- `HERO_OF_ENGINE.className`: "Crusader of the Ember Cross" → "Crushguard of the Shattered Gate" (revert; engine-emitted substrate-honest name; my prior rename to match Meshy URL slug was wrong inference — Matt's Meshy iteration label is asymmetric from in-app display name)
+- `whyThisHero` narrative: reverted to original substrate-led "LLM composed Crushguard" framing
+- Inline comment: documents Meshy GLB filename has "Crusader_of_the_Ember" (Matt's Meshy iteration) vs in-app display "Crushguard of the Shattered Gate" (engine emission) — asymmetric source vs display is intentional
+- Model-viewer container: enlarged from `md:w-[280px]` (max) to `md:w-[480px] lg:w-[540px]` (with `sm:max-w-[480px]` mobile sizing); aspect-[3/4] preserved; significantly larger 3D viewport matching prose-area visual weight on desktop
+
+Build clean (1036 modules; 0 TS errors); pushed; Vercel auto-deploy firing.
+
+### Cumulative session image-gen cost ledger
+
+| Phase | Images | Cost |
+|---|---|---|
+| § 12.2 Crushguard hero (initial drax-generated; later replaced by Matt-curated) | 1 | $0.042 |
+| § 12.2 11 gear pieces | 11 | $0.462 |
+| Season 002 marquee Phase 1 (4 group + 12 individual; group quality poor) | 16 | $0.64 |
+| Season 002 marquee Phase 2 re-roll (4 group; quality acceptable) | 4 | $0.32 |
+| **Total** | **32** | **$1.464** |
+
+Well within $5 sub-budget; far within $20 cycle image-gen budget.
+
+### Routing-discipline learning captured for Cycle 14 wave-close canonical-write
+
+**KR pattern surfaced:** when delegating naming decisions across designer-curated sources (e.g., Meshy URL slug; image filename), preserve engine-emitted substrate-honest name as in-app display default UNLESS Matt explicitly elects the alternative. My inference from Meshy URL slug → in-app rename was wrong; should have asked Matt OR defaulted to engine emission.
+
+Added to wave-close canonical-write queue as **21. KR routing-discipline: substrate-honest name preservation under designer-tool-source ambiguity** (companion to #20 integration-over-parallel-section).
+
+### SESSION-END FINAL STATUS
+
+Matt directives composed this session (all CLOSED):
+1. Cycle 14 v1 ratification — DONE (3-repo tag)
+2. Star-lord fast-follow engine emission — DONE (158 class files + 3 manifests)
+3. Drax post-emission adapter integration — DONE
+4. Summary page Season 002 marquee reshape — DONE
+5. Meshy animated hero embed — DONE
+6. Group portrait quality fix — DONE (re-roll PASS)
+7. Hero name revert + model-viewer enlarge — DONE
+
+Cumulative wave-close canonical-write queue: 21 items.
+Player-facing Cycle 14 v1 SHIPPED + POLISHED.
+
