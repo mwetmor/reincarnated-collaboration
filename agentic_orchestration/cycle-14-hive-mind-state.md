@@ -4913,3 +4913,74 @@ Four tracks fire CONCURRENTLY; no inter-track dependencies block firing.
 - Gandalf A/B sub-agent invocation under Track C
 
 **Cycle 14 v1 close trajectory:** cascade-resumption-4 → season_001 Phase 5+ re-fire + Matt confirmation gate → 4-track parallel fire (seasons 002 + 003 + loadout app + A/B scope + hero-image-task) → v1 tag ratification per existing close criteria (3 LLM seasons emit ≥12/18 shipped_worthy + 3× Gate-2 PASS + A/B comparison filed + Disciplines #41-#46 batched canonical-write + Matt v1 tag ratification).
+
+---
+
+## CASCADE-RESUMPTION-4 STEP 3-5 COMPLETE 2026-05-29 — Path X dispatch CLOSED + Gate-2 PASS-with-INFO + Instance 6 #7 confirmed; Matt confirmation gate (§ 9.1 step 6) FIRING
+
+**Trigger:** rocket Path X dispatch executed end-to-end (commits `779b547` engine code + `3cfd5af` AGENT_STATE + `30b30ff` Phase 5+ re-fire artifacts + `52c1550` dispatch completion record); jack-ryan Gate-2 Pattern E PASS-with-INFO (commit `5db1729`).
+
+**Path X dispatch CLOSED — § 6 acceptance criteria all PASS:**
+
+| Criterion | Target | Actual | Disposition |
+|---|---|---|---|
+| PM-1 input cardinality | 34 | 34 (s0=18 / s1=9 / s2=7) | ✅ PASS |
+| Sparsity branch | NONE (gmm_bic_sweep) | NONE | ✅ PASS |
+| GMM cluster count k | ∈ {3, 4} | k=4 (BIC-selected) | ✅ PASS |
+| Sample distribution per cluster | mixed s0/s1/s2 | C1:5/2/6 C2:8/2/1 C3:4/5/0 C4:1/0/0 (aggregate exactly matches archive) | ✅ PASS |
+| Wave B kit_count | 34 | 34 | ✅ PASS |
+| Phase 7 cluster_id coverage | 100% | 100% (34/34; prior 17.6%) | ✅ PASS |
+| Per-season LLM cost | ≤ $0.50 (target $0.37) | $0.36 (W-A $0.02 + W-B $0.34) | ✅ PASS |
+| 3-season projection | ≤ $1.50 (target $1.10) | $1.08 | ✅ PASS |
+| Amendment 6/7/7a/8 composition | Preserved | Preserved (Sub-fix 2 now consumed; Amendment 7 now visible at Phase 5) | ✅ PASS |
+| Backward-compat smoke | archive<8 fallback fires | Smoke PASS | ✅ PASS |
+| Cross-seam contract | NONE | NONE | ✅ PASS |
+| Tag | `rocket/v1.0-cascade-r4-path-x-phase4-feeds-phase5-1` | committed | ✅ PASS |
+
+**4 substrate-led factions emergent at Phase 5 (Wave A LLM curation on 34 archive kits):**
+
+| Cluster | Name | Members | Modal lineage | Modal BC engagement | Top elements (cluster-aggregate) |
+|---|---|---|---|---|---|
+| 1 | Grounded Chain Strikers | 13 | fantasy_generic medieval | ranged / chain | earth (38%) / lightning (31%) / fire (15%) / wind (8%) / holy (8%) |
+| 2 | Stormbreak Vanguard | 11 | fantasy_generic medieval | close / large-AOE | lightning (27%) / fire (27%) / wind (27%) / earth (9%) / holy (9%) |
+| 3 | Stormveil Ironclad Surge | 9 | european medieval | close / large-AOE | lightning (44%) / holy (22%) / shadow (11%) / water (11%) / wind (11%) |
+| 4 | Ashfield Siege Callers | 1 | fantasy_generic medieval | ranged / large-AOE | fire (100%) |
+
+**Element coverage at Phase 5 cluster-aggregate layer: 7 of 8** (earth, fire, holy, lightning, shadow, water, wind — **physical missing from cluster-aggregate distribution**). Rocket completion record claims "all 8 elements at primary mono"; cluster-aggregate JSON shows 7. Secondary observation pending clarification at per-kit primary mono layer (3 STR kits in cluster 1 should contribute physical per Amendment 7 STAT_ELEMENT_POOLS; cluster-aggregate distribution rows do not sum a physical share). Disposition: SECONDARY-OBSERVATION; not BLOCKING; surface to Matt at Step 6 for verification call (re-fire Wave A with primary mono layer explicit OR defer Cycle 15+).
+
+### NEW Instance 6 #7 surface (per dispatch § 9.2 routing trigger) — Phase 7 C-2 compactness gate calibration gap
+
+**Rocket-surfaced + jack-ryan-classified:** `P7_CLUSTER_COMPACTNESS_FLOOR=0.40` (at `phase7_verdict.py:66`) was calibrated for the 598-kit PM-1 input population. At Path X n=34 archive input, ALL four clusters return compactness ≈0.14 → all kits fail C-2 gate → **`shipped_worthy=0` for season_001**.
+
+Phase 7 verdict breakdown (from `phase7_season_summary.json`):
+- kits_evaluated: 34
+- kits_shipped_worthy: **0**
+- kits_held_cohesion: 22
+- kits_held_mechanical: 0
+- kits_held_both: 12
+
+**Jack-ryan classification (commit `5db1729`):** WARN (not BLOCK). Pre-existing calibration gap; gate floor not a Path X dispatch defect. Confirmed as **Disc #42a Instance 6 #7** — seventh surface in cascade-resumption-3 cumulative pattern. Path X wire-up is mechanically complete; the gate floor needs recalibration for the new (Phase 4 archive) input scale.
+
+**Cumulative Disc #42a Instance 6 pattern record (7 surfaces; ELEVATED-PRIORITY canonical-write target):**
+
+| # | Surface | Resolution |
+|---|---|---|
+| 1 | Wave B phantom-component | CLOSED by S5/S5b |
+| 2 | Variant Pareto-dominance at S6c gate content | pre-ratified A3 H0 |
+| 3 | Sub-fix 3 namespace-only verdict | PASS-with-INFO Gate-2 |
+| 4 | Amendment 7 hybrid metadata-only | CLOSED by Amendment 7a behavioral fix |
+| 5 | Phase 5 reads passing_kits not Phase 4 archive | CLOSED by cascade-r4 Path X (THIS WORK) |
+| 6 | config_to_kit collision (rocket finding) | DEFERRED Cycle 15+ |
+| 7 | Phase 7 C-2 compactness floor calibrated for prior input scale | NEW — surfaces in Path X re-fire; calibration amendment pending |
+
+### Step 7 four-track readiness assessment (per jack-ryan Gate-2 finding § 6 disposition)
+
+- **Track C (gandalf A/B testing scope):** READY — faction labels + Wave B names on 34 archive kits constitute a valid A/B candidate pool independent of shipped_worthy
+- **Track B (drax loadout app refresh + summary tab + § 12 hero image):** CONDITIONALLY READY — hero selection criterion must NOT require shipped_worthy > 0 (cohesion score per kit OR direct substrate metadata election); § 12.1 Matt design call still pending
+- **Track A (rocket seasons 002 + 003 production):** ADVISABLE TO HOLD — Track A will hit same C-2 floor and produce shipped_worthy=0 unless calibration amendment fires first. Jack-ryan estimates ~0.5d gamora dispatch to recalibrate compactness floor for Phase 4 archive input scale.
+
+### Matt-surface framing for confirmation gate (§ 9.1 step 6) — author follows in next KR turn
+
+Path X mechanically complete; player-facing coherence improvement landed (100% cluster_id coverage; 4 substrate-led factions emergent with substrate-led canonical names per designer-writes-substrate principle); cost on target ($0.36 vs $0.37 estimate). New surface (Instance 6 #7) at Phase 7 C-2 compactness gate calibration is OUT-OF-SCOPE for Path X dispatch but materially affects Step 7 Track A readiness. Matt elects: (i) CONFIRM AS-IS for Track C + § 12 NOW (hero selection criterion election; cohesion-score or substrate-metadata) + authorize narrow gamora calibration dispatch before Track A fires; (ii) REDUCE-SCOPE (fold calibration into cascade-r4 closure; halt Step 7 until recalibration lands; sequence Track A immediately after); (iii) ABORT cascade-r4 and re-deliberate at Pattern B design call.
+
+**KR HOLD STATUS:** Step 7 fan-out HELD pending Matt election at Step 6 confirmation gate. Rocket + jack-ryan auto-commit cycle complete; no push (default per ADR-006). KR ready to author Step 6 Matt surface.
