@@ -33,27 +33,29 @@ Single-wave mini-cycle (this is post-v1 polish, not a multi-phase cycle):
 |---|---|---|---|---|
 | **W1 (star-lord)** | Extend `cycle14_wave5_emitter.py` to propagate 12 skills + 11 gear + scaling-ratio stat_distribution; re-emit 158 class files; MIGRATION §v1.68 | star-lord | Fires first | **CLOSED 2026-05-30** |
 | **W2 (drax)** | Verify /loadout renders 12 skills as rank-0 uninvested + gear catalog from `gear_representative`; enforce /sample Cycle 15+ scope boundary; banner update; Vercel deploy | drax | Post-W1 amendments applied; FIRED | **CLOSED 2026-05-30** |
-| **W3 (star-lord)** | Chain + T4 emit extension (`chain_composition`, `class_chain_count`, `t4_candidates`, `t4_scope`, `primary_t4` universal); MIGRATION §v1.69; re-emit 158 class files; tag `star-lord/v1.69-cycle-14-chain-t4-emit-extension-1` | star-lord | Per gandalf consolidated follow-on Stage 1; FIRING | **HALTED — CHAIN_WIDE_OWN finding; KR routing required** |
-| **W4 (drax)** | UI wiring: skills × chain × tier grouping (Loadout + Sample); chain composition kit-level structural; Primary T4 fixed slot; Sample active Layer 2 T4 selection; Loadout toggleable Layer 2 T4 unlocks (D66 radio-button); Vercel Production deploy | drax | Per gandalf consolidated follow-on Stage 2; gated on W3 | **PENDING-GATE on W3 (KR routing required for re-emission auth)** |
+| **W3 (star-lord)** | Chain + T4 emit extension (`chain_composition`, `class_chain_count`, `t4_candidates`, `t4_scope`, `primary_t4` universal); MIGRATION §v1.69; re-emit 158 class files; tag `star-lord/v1.69-cycle-14-chain-t4-emit-extension-1` | star-lord | Per gandalf consolidated follow-on Stage 1; FIRING | **COMPLETE 2026-05-30 (Option A re-fire)** |
+| **W4 (drax)** | UI wiring: skills × chain × tier grouping (Loadout + Sample); chain composition kit-level structural; Primary T4 fixed slot; Sample active Layer 2 T4 selection; Loadout toggleable Layer 2 T4 unlocks (D66 radio-button); Vercel Production deploy | drax | Per gandalf consolidated follow-on Stage 2; gated on W3 | **PENDING — W3 gate CLEARED; ready to fire** |
 | **Wind-down (REVISED)** | Mini-cycle close: state-file archival, CHANGELOG entry, milestone tag candidate (`v1.1-cycle-14-wave-close-polish-1` covering W1+W2+W3+W4 bundle), gandalf Pattern A-light queue (stat_distribution Cycle 15+ deferred per Matt 2026-05-30) | knight-rider | After W4 close | PENDING |
 
-### W3 outcome record (star-lord — HALTED on CHAIN_WIDE_OWN finding 2026-05-30)
+### W3 outcome record (star-lord — COMPLETE 2026-05-30 Option A re-fire)
 
 | Item | Outcome |
 |---|---|
-| Engine commit | `2fef6fa` (emitter §v1.69 + MIGRATION §v1.69 + 11 new tests) |
-| Loadout commit | `3c0709c` (season-001 54 class files re-emitted with chain+T4) |
-| Collab commit | TBD (dispatch completion record + state file update) |
-| Engine push | PUSHED — origin/main at `2fef6fa` (includes W1 `a9e032d`) |
-| Loadout push | PUSHED — origin/main at `3c0709c` (includes W1+W2 pending commits) |
-| Tag | NOT APPLIED — pending full re-emission completion |
-| Tests | Season-001: 20/20 PASS; unit tests: 11/11 PASS; seasons 002+003 fail on t4_candidates=None (expected — pre-§v1.69 files) |
-| Smoke-test | PASS — 3-kit season-001 smoke: chain_composition populated, 1 is_active=True, primary_t4 matches § 4.6.4 exactly |
-| Season-001 full run | 54 kits emitted, 39 clean (1 active), 15 CHAIN_WIDE_OWN (no Layer 2 candidates), 0 ZERO_ACTIVE, 0 MULTI_ACTIVE |
-| CHAIN_WIDE_OWN finding | SURFACED — kits with t4_scope=CHAIN_WIDE_OWN have empty t4_candidates (substrate-honest engine state). Dispatch refutation condition triggered. Full re-emission halted. KR routing requested. |
-| Refutation trigger | `t4_candidates[is_active=True]` count = 0 for 15 kits/season in season-001; engine explicitly codes `CHAIN_WIDE_OWN_NO_T4` as valid state in `unified_calibration_loop.py:693` |
+| Engine commit | `2fef6fa` (emitter §v1.69 + MIGRATION §v1.69 + 11 new tests — prior session; no new engine code in Option A re-fire) |
+| Loadout commit (season-001) | `3c0709c` (season-001 54 class files re-emitted with chain+T4 — prior session) |
+| Loadout commit (seasons 002+003) | `9d1521d` (seasons 002+003 104 class files re-emitted with chain+T4 — Option A re-fire) |
+| Collab commit | TBD (dispatch completion record + state file update — this re-fire) |
+| Engine push | PUSHED — origin/main at `2fef6fa`; tag `star-lord/v1.69-cycle-14-chain-t4-emit-extension-1` pushed |
+| Loadout push | PUSHED — origin/main at `9d1521d` (`3c0709c..9d1521d` range pushed in Option A re-fire) |
+| Tag | APPLIED — `star-lord/v1.69-cycle-14-chain-t4-emit-extension-1` on engine `2fef6fa`; pushed to origin |
+| Tests | 71/71 PASS in test_cycle14_wave5_loadout_emission.py (was 67/71 pre-re-emission); 254/254 broader export suite; all 4 previously-failing season-002/003 tests now pass |
+| 158 total class files | CONFIRMED — 54 (season-001) + 53 (season-002) + 51 (season-003) = 158 |
+| CHAIN_WIDE_OWN totals | 15 (season-001) + 6 (season-002) + 15 (season-003) = 36 total across all seasons; all emit empty t4_candidates (substrate-honest); zero violations |
+| ZERO_ACTIVE / MULTI_ACTIVE | 0 / 0 across all 158 files |
+| Max file sizes | season-001: 47.4KB; season-002: 46.6KB; season-003: 46.9KB (all well under 100KB) |
+| Disc #11 spot-checks | season-002 CHAIN_WIDE_OWN kit: PASS; season-003 chain_wide_parallel kit: PASS |
 
-**W3 KR routing request:** Option A (recommended): amend refutation condition to allow CHAIN_WIDE_OWN kits with `t4_candidates=[]`; authorize full re-emission of seasons 001+002+003 + apply v1.69 tag. See dispatch completion record for full finding triage.
+**W3 KR routing request:** RESOLVED — Option A authorized; re-emission complete; W4 gate cleared.
 
 ### W3 KR routing decision 2026-05-30 — Option A AUTHORIZED
 

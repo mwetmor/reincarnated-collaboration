@@ -150,6 +150,81 @@ Re-fire emitter against all 3 Cycle 14 wave-5 seasons. Verify:
 
 ---
 
+## Completion record (Option A re-fire 2026-05-30)
+
+**Status:** COMPLETE
+**Tag applied:** `star-lord/v1.69-cycle-14-chain-t4-emit-extension-1` on engine `2fef6fa` (HEAD at tag application; tag pushed to origin)
+
+### Commits
+
+| Repo | Commit | Contents |
+|---|---|---|
+| Engine | `2fef6fa` | emitter §v1.69 + MIGRATION §v1.69 + 11 new tests (prior session; no new engine code this re-fire — code was already correct) |
+| Loadout | `9d1521d` | seasons 002+003 104 class files re-emitted with chain+T4 fields |
+
+Prior session commits (already pushed):
+- Engine: `2fef6fa` (W3 emitter + MIGRATION + tests) — at origin/main before this session
+- Loadout: `3c0709c` (season-001 54 files) — at origin/main before this session
+
+### Re-emission verification
+
+**158 total class files across all 3 seasons confirmed:**
+
+| Season | Total files | Clean (1 is_active T4) | CHAIN_WIDE_OWN (empty t4_candidates) | ZERO_ACTIVE | MULTI_ACTIVE |
+|---|---|---|---|---|---|
+| 001 | 54 | 39 | 15 | 0 | 0 |
+| 002 | 53 | 47 | 6 | 0 | 0 |
+| 003 | 51 | 36 | 15 | 0 | 0 |
+| **Total** | **158** | **122** | **36** | **0** | **0** |
+
+CHAIN_WIDE_OWN total: 36 kits (15+6+15) across all 3 seasons. These legitimately emit `t4_candidates=[]` per engine canonical state `CHAIN_WIDE_OWN_NO_T4` (unified_calibration_loop.py:693). Target 4 satisfied via Primary T4 universal guarantee alone per doc 47 § 4.6.4.
+
+### Disc #11 spot-check results (new seasons only)
+
+**Season-002 first file (ashwarden_of_the_pale_reach.json) — CHAIN_WIDE_OWN kit:**
+- chain_composition: {t4_chains: 2, supporting_chains: 1, total_chains: 3}
+- t4_scope: CHAIN_WIDE_OWN
+- t4_candidates: [] (empty — substrate-honest)
+- primary_t4.strategy: DIRECT_DAMAGE_AMPLIFICATION / magnitude: 1.75 / applied_to: preferred_encounter_type / scope: universal
+- PASS
+
+**Season-003 first file (arbiter_of_the_pale_reach.json) — chain_wide_parallel kit:**
+- chain_composition: {t4_chains: 2, supporting_chains: 1, total_chains: 3}
+- t4_scope: chain_wide_parallel
+- t4_candidates count: 2, is_active count: 1
+- primary_t4.strategy: DIRECT_DAMAGE_AMPLIFICATION / magnitude: 1.75 / applied_to: preferred_encounter_type / scope: universal
+- PASS
+
+Both spot-checks: PASS. §4.6.4 shape verified.
+
+### Test pass count
+
+- `test_cycle14_wave5_loadout_emission.py`: **71/71 PASS** (was 67/71 pre-re-emission; 4 previously-failing season-002/003 §v1.69 tests now pass)
+- Broader export + T4 suite (254 tests): **254/254 PASS**
+- The 4 tests that were failing (`test_t4_candidates_is_list[002]`, `test_t4_candidates_is_list[003]`, `test_primary_t4_universal_shape[002]`, `test_primary_t4_universal_shape[003]`) now all pass.
+- Vocab-path-blocked tests (9 files requiring grouping-layer-vocabulary.md path resolution): pre-existing environment issue; not introduced by this session; not related to emission pipeline.
+
+### Max file sizes
+
+- Season-002: 46.6KB max (well under 100KB trigger)
+- Season-003: 46.9KB max (well under 100KB trigger)
+
+### Push status
+
+- Engine: NO new push (engine code was already at origin/main `2fef6fa` from prior session; tag pushed: `star-lord/v1.69-cycle-14-chain-t4-emit-extension-1` → origin)
+- Loadout: PUSHED `3c0709c..9d1521d` — origin/main at `9d1521d`
+
+### Drax W4 schema-compatibility confirmation
+
+No changes from prior session pre-flag. All 5 optional TypeScript fields documented in prior completion record remain the schema contract:
+- `chain_composition`, `class_chain_count`, `t4_scope`, `t4_candidates`, `primary_t4`
+- All additive. `t4_alteration_output: null` preserved. No breaking changes.
+- CHAIN_WIDE_OWN kits emit `t4_candidates: []`; drax W4 render logic should handle empty array gracefully (no Layer 2 T4 panel; only Primary T4 fixed slot).
+
+**W3 COMPLETE. W4 (drax) gate cleared.**
+
+---
+
 ### Execution summary
 
 **Framing-audit Q1-Q3 applied:**
