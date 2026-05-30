@@ -4,12 +4,12 @@
   "evaluation_attempt": 0,
   "smoke": false,
   "kits_evaluated": 34,
-  "kits_shipped_worthy": 22,
-  "kits_held_cohesion": 0,
-  "kits_held_mechanical": 12,
-  "kits_held_both": 0,
-  "acceptance_rate": 0.6471,
-  "clusters_aggregated": 3,
+  "kits_shipped_worthy": 0,
+  "kits_held_cohesion": 22,
+  "kits_held_mechanical": 0,
+  "kits_held_both": 12,
+  "acceptance_rate": 0.0,
+  "clusters_aggregated": 4,
   "cohort_midpoints": {
     "damage": 0.8333,
     "defensive": 0.1111,
@@ -17,7 +17,7 @@
     "support": 0.85,
     "hybrid": 0.6111
   },
-  "wall_clock_seconds": 5.73,
+  "wall_clock_seconds": 5.93,
   "explain_plans": {
     "QUERY_DISTINCT_ACTIVE_CELLS": "[QUERY_DISTINCT_ACTIVE_CELLS]\n3 | 0 | 0 | SCAN kit_archive USING COVERING INDEX idx_kit_archive_cell_status",
     "QUERY_ACTIVE_KITS_IN_CELL": "[QUERY_ACTIVE_KITS_IN_CELL]\n3 | 0 | 0 | SEARCH kit_archive USING INDEX idx_kit_archive_cell_status (bc_cell_id=? AND archive_status=?)",
