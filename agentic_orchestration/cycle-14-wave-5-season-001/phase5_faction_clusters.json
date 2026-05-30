@@ -1,16 +1,10 @@
 {
   "metadata": {
     "season_id": "cycle-14-wave-5-season-001",
-    "phase": 5,
-    "faction_visibility": "visible",
-    "wave_a_fired": true,
-    "cluster_count": 4,
-    "relationship_count": 6,
-    "llm_cost_usd": 0.02,
-    "wave_b_kit_count": 34,
-    "wave_b_cost_usd": 0.34,
-    "wave_s_fired": true,
-    "wave_s_cost_usd": 0.0
+    "remediation": "cascade-r4-element-distribution-aggregator-fix",
+    "remediated_at": "2026-05-30T04:47:07.368959+00:00",
+    "option": "B",
+    "note": "element_distribution, dominant_element, element_token, faction_label_placeholder corrected from substrate truth (physical no longer maps to lightning). Cluster membership (cluster_id + member_kit_ids) PRESERVED. Faction names refreshed via Wave A re-fire."
   },
   "clusters": [
     {
@@ -37,9 +31,10 @@
       "modal_tone": "unknown",
       "element_distribution": {
         "earth": 0.38461538461538464,
-        "lightning": 0.3076923076923077,
+        "physical": 0.23076923076923078,
         "fire": 0.15384615384615385,
         "wind": 0.07692307692307693,
+        "lightning": 0.07692307692307693,
         "holy": 0.07692307692307693
       },
       "modal_bc_axis_signature": {
@@ -49,15 +44,15 @@
       "pm1_algorithm": "gmm_k4",
       "cluster_compactness": 0.14053893367721867,
       "faction_label_placeholder": "fantasy_generic-medieval-unknown-mixed-element",
-      "faction_label_canonical": "Stormfield Chain Wardens",
-      "faction_identity_narrative": "Ranged combatants who harness cascading earth tremors and arcing lightning to lock down terrain and chain damage across clustered foes. Their medieval roots show in grounded tactical patience \u2014 holding lines with stone and shock before fire or wind ever enters the equation.",
+      "faction_label_canonical": "Earthbound Chain Wardens",
+      "faction_identity_narrative": "A medieval fellowship of ranged combatants whose strikes arc and chain across terrain, drawing power predominantly from earth and physical force with scattered infusions of fire, wind, lightning, and holy energy. Their battlefield doctrine favors cascading damage geometries that ripple outward from a grounded anchor point, reflecting a pragmatic multi-element inheritance rooted in generic frontier tradition.",
       "faction_thematic_tags": [
-        "chain-damage",
-        "earth-dominance",
-        "ranged-control"
+        "chain-strike",
+        "earth-dominant",
+        "ranged-pragmatist"
       ],
       "substrate_anchored_personages": null,
-      "cosine_similarity_max": 0.3668,
+      "cosine_similarity_max": 0.4275,
       "diversity_flag": false,
       "phase7_gate_status": "canonical",
       "llm_call_id": null,
@@ -94,10 +89,11 @@
       "modal_tech_level": "medieval",
       "modal_tone": "unknown",
       "element_distribution": {
-        "lightning": 0.2727272727272727,
         "fire": 0.2727272727272727,
         "wind": 0.2727272727272727,
+        "physical": 0.18181818181818182,
         "earth": 0.09090909090909091,
+        "lightning": 0.09090909090909091,
         "holy": 0.09090909090909091
       },
       "modal_bc_axis_signature": {
@@ -107,15 +103,15 @@
       "pm1_algorithm": "gmm_k4",
       "cluster_compactness": 0.14053893367721867,
       "faction_label_placeholder": "fantasy_generic-medieval-unknown-mixed-element",
-      "faction_label_canonical": "Stormbreak Vanguard",
-      "faction_identity_narrative": "A close-quarters warband drawn from the medieval frontier, these fighters channel converging currents of lightning, fire, and wind into wide-sweeping strikes that scour the battlefield. Their methods are blunt and elemental \u2014 no doctrine, just the raw geometry of force applied at range zero.",
+      "faction_label_canonical": "Ashwind Vanguard",
+      "faction_identity_narrative": "A loose coalition of close-quarters fighters drawn from medieval fantasy stock, these combatants specialize in sweeping fire and wind techniques that scorch and scatter wide formations. Their battlefield presence is defined by overlapping elemental surges\u2014flame and gust working in tandem to clear ground rather than pierce single targets.",
       "faction_thematic_tags": [
-        "multi-element",
-        "close-engagement",
-        "AOE-pressure"
+        "fire-wind convergence",
+        "AOE melee pressure",
+        "medieval frontline"
       ],
       "substrate_anchored_personages": null,
-      "cosine_similarity_max": 0.4318,
+      "cosine_similarity_max": 0.4508,
       "diversity_flag": false,
       "phase7_gate_status": "canonical",
       "llm_call_id": null,
@@ -150,10 +146,11 @@
       "modal_tech_level": "medieval",
       "modal_tone": "unknown",
       "element_distribution": {
-        "lightning": 0.4444444444444444,
+        "physical": 0.3333333333333333,
         "holy": 0.2222222222222222,
         "shadow": 0.1111111111111111,
         "water": 0.1111111111111111,
+        "lightning": 0.1111111111111111,
         "wind": 0.1111111111111111
       },
       "modal_bc_axis_signature": {
@@ -163,15 +160,15 @@
       "pm1_algorithm": "gmm_k4",
       "cluster_compactness": 0.14053893367721867,
       "faction_label_placeholder": "european-medieval-unknown-mixed-element",
-      "faction_label_canonical": "Stormcallers of the Pale Keep",
-      "faction_identity_narrative": "Rooted in European medieval warfare, these close-range fighters channel dominant lightning alongside holy and shadow currents to sweep wide formations with volatile, overlapping discharge. Their battlefield presence is defined by the thunderous convergence of elemental forces rather than any singular discipline.",
+      "faction_label_canonical": "Ironfield Vanguard",
+      "faction_identity_narrative": "A close-quarters European medieval fighting force built around broad physical dominance and sweeping area denial, supplemented by scattered holy, shadow, and elemental disciplines that reflect a pragmatic rather than doctrinal approach to power. Their battlefield identity is defined by the crush of heavy engagement and the wide arc of devastation rather than precision or range.",
       "faction_thematic_tags": [
-        "lightning-dominant",
-        "close-range-AOE",
-        "medieval-european"
+        "close-engagement",
+        "area-dominance",
+        "mixed-discipline"
       ],
       "substrate_anchored_personages": null,
-      "cosine_similarity_max": 0.4318,
+      "cosine_similarity_max": 0.4508,
       "diversity_flag": false,
       "phase7_gate_status": "canonical",
       "llm_call_id": null,
@@ -208,14 +205,14 @@
       "cluster_compactness": 0.14053893367721867,
       "faction_label_placeholder": "fantasy_generic-medieval-unknown-fire",
       "faction_label_canonical": "Ashfield Ember Wardens",
-      "faction_identity_narrative": "A loosely affiliated cadre of medieval ranged combatants who specialize in wide-area fire deployment across open terrain, their tactics favoring scorched-earth coverage over precision. Their identity is forged less by doctrine than by shared reliance on flame as the primary instrument of battlefield control.",
+      "faction_identity_narrative": "A medieval ranged combat tradition built around wide-area fire deployment, these fighters specialize in scorching broad swaths of terrain from distance rather than close engagement. Their craft is less about precision and more about denial \u2014 turning open ground into cinders before the enemy can close the gap.",
       "faction_thematic_tags": [
-        "fire-dominance",
+        "fire",
         "ranged-AOE",
-        "medieval-scorched-earth"
+        "medieval"
       ],
       "substrate_anchored_personages": null,
-      "cosine_similarity_max": 0.3668,
+      "cosine_similarity_max": 0.4312,
       "diversity_flag": false,
       "phase7_gate_status": "canonical",
       "llm_call_id": null,
