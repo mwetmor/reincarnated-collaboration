@@ -5592,3 +5592,41 @@ Tag candidate per canonical/50 § 4.5: `v1-cycle-14-bounded-viability-substrate-
 - Seasons 002+003 hero gen (this dispatch scope was season_001 hero only)
 - v1.1+ Recognitions 5/6/7 (per canonical/38 amendment)
 
+
+---
+
+## CASCADE-R4 FOLLOW-ON DRAX PAGE EXTENSION COMPLETE 2026-05-29 — All 3 loadout routes live with Cycle 14 v1
+
+### Drax page extension CLOSED (loadout commits `8e2e6d6` + `764cbbe`; tag `drax/v1.0-cascade-r4-v1-close-loadout-pages-extension-1`)
+
+**Matt v1-blocking surface:** "I'm not seeing any of the new seasons on any of the vercel app pages yet at https://reincarnated-loadout.vercel.app/analytics" — Matt re-framed drax's prior Cycle 15+ punt as v1-blocking.
+
+**Vercel deploy verification (drax pre-extension):** HEAD `1edf292` already live; deploy pipeline healthy; gap was purely UI code.
+
+**3 routes confirmed live post-extension:**
+
+| Route | Status | Cycle 14 v1 surface |
+|---|---|---|
+| `/pitch` | ✅ LIVE | 3 seasons + 4+4+3 faction tiles + per-kit names; substrate-honest names (Earthbound Chain Wardens / Ashwind Vanguard / Ironfield Vanguard / etc.); season headers (Chain-Strike Pyre / Ironsoil Wide-Front / Broad-Front Shadow Warcraft) |
+| `/analytics` | ✅ LIVE | New `Cycle14AnalyticsSection` below legacy 11-season charts; 3-season summary strip + per-season panels (aggregate element distribution + per-faction cohesion metrics: compactness + cosine-sim-max + kit compliance) |
+| `/encounters` | ✅ LIVE | New `Cycle14EncountersNote` below legacy scatter; "Encounter Sim Deferred to Cycle 15+" header + per-season per-faction substrate-derived encounter expectation inference (BC engagement_profile + damage_geometry); directional only |
+
+**Files added/amended:**
+- `src/components/analytics/Cycle14AnalyticsSection.tsx` (new)
+- `src/components/analytics/Cycle14EncountersNote.tsx` (new)
+- `src/pages/Analytics.tsx` (+1 import; +4 lines)
+- `src/pages/Encounters.tsx` (+1 import; +3 lines)
+
+**Push pushed; Vercel auto-deploy firing.** Matt should see updated pages within ~1-3 min (may need hard-refresh Cmd+Shift+R to bypass browser cache).
+
+**Cycle 15+ scope confirmed (gamora routing):** when gauntlet sweeps run for Cycle 14 wave-5 seasons, produce `encounter_analytics.json` in existing format; drax will replace the placeholder cleanly.
+
+### Cycle 14 v1 close pathway — REMAINING STEPS
+
+| Step | Owner | Status |
+|---|---|---|
+| § 12.3 Matt Meshy handoff | Matt | READY (12 images delivered; awaiting Matt) |
+| § 12.4 drax Meshy URL wire-up | drax | QUEUED post-Matt-return |
+| § 12.5 Cycle 14 v1 tag ratification | Matt | FINAL REQUIRED MATT SURFACE |
+
+Tag candidate: `v1-cycle-14-bounded-viability-substrate-led-1`
