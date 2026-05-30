@@ -947,6 +947,14 @@
       <h4 class="callout-title">Tidal Shadow Wardens — clean lineage cluster held by mechanical gate</h4>
       <p class="callout-body">Cluster 3 has the cleanest lineage signature (european × medieval × shadow+water; n=2) but both members failed mechanical pass (gauntlet_pass_rate 0.11). Cohesion gate passed; joint-gate held. Substrate produced a clean faction identity that mechanically can't ship.</p>
     </div>
+    <div class="callout" style="--callout-color: #b91c1c;">
+      <h4 class="callout-title">Defensive cohort 0% ship rate — three compositional gaps</h4>
+      <p class="callout-body">All 11 held kits are defensive cohort (0 damage, 0 hybrid held). Refined diagnosis composes three separable architectural gaps surfacing as one mechanical failure: <strong>(1)</strong> Cohort weight mismatch — generating ~25-33% defensive vs ~5% genre empirical (legolas corpus); <strong>(2)</strong> Missing canonical defensive-viable mechanism (PoE thorns / Gladiator reflect / D4 Bash-thorns aspect) — our T4 strategy set lacks DEFENSE_AS_DAMAGE so defensive-shaped kits have no path to convert survival into damage; <strong>(3)</strong> Encounter battery (W-α6 24-cell ENCOUNTER_COHORT_KPM_BAND) lacks defensive-friendly variants that reward thorns/reflect/attrition specialty. <strong>gauntlet_pass_rate is composite</strong> (win × in-band × system-gate), not raw win rate — defensive kits may be winning fights but failing in-band cohort fit. KR routing recommended to rocket: split GPR into <code>tier_1_outcome</code> × <code>in_band</code> × <code>sg_overall</code> sub-metrics to diagnose which gap dominates.</p>
+    </div>
+    <div class="callout" style="--callout-color: var(--phase-3);">
+      <h4 class="callout-title">gauntlet_pass_rate ≠ win_rate (terminology clarification)</h4>
+      <p class="callout-body">gauntlet_pass_rate is the Discipline #26 PLAYABLE-AND-IN-BAND composite criterion: requires win AND in-cohort-KPM-band AND survival AND no <code>sg_overall: BLOCK</code> from ceiling-artifact gate. In sample sim data: 89.8% raw tier_1_outcome PROVISIONAL_PASS (wins) but only 11.5% in_band; the 78% gap between "won" and "won-correctly-for-cohort" is where defensive-cohort kits typically fail. Raw win rate not directly emitted to Phase 7 verdict log — composite GPR is the load-bearing metric.</p>
+    </div>
     <div class="callout" style="--callout-color: var(--phase-5);">
       <h4 class="callout-title">Mega-cluster vs distinctive cluster trade-off</h4>
       <p class="callout-body">Cluster 1 has 22 of 33 archive kits — substrate-dominant but generic. Cluster 3 has 2 of 33 — substrate-distinctive but small. PM-1 clustering produces this bimodal distribution; cluster-cardinality variance is substrate-elected per Wanderer architecture principle (Amendment 1).</p>
