@@ -5738,3 +5738,82 @@ All loadout app surface routes (/pitch + /analytics + /encounters + /loadout + /
 | § 12.5 Cycle 14 v1 tag ratification | Matt | FINAL REQUIRED MATT SURFACE |
 
 Tag candidate: `v1-cycle-14-bounded-viability-substrate-led-1`
+
+---
+
+## CASCADE-R4 V1 SESSION-END FINAL — Season 002 marquee + Crusader of the Ember Cross 3D animated hero embed 2026-05-29
+
+### Season 002 marquee reshape (loadout `ca29dfa` + `b20f1de`; collab `7b9aae9`; tag `drax/v1.0-cascade-r4-v1-season-002-marquee-reshape-1`)
+
+3-parallel sub-agent fan-out CLOSED:
+
+**Galadriel** (commit `319a647`; tag `galadriel/v1.0-cascade-r4-v1-season-002-marquee-design-1`):
+- 4 per-faction group composition designs (Stormcallers tri-element triangle / Ironsoil mid-charge mass / Gale-Blessed wide-front panoramic / Duskchain dispersed twilight)
+- 4 per-faction visual-coherence reads (Ironsoil 4.83/5 strongest; Gale-Blessed 3.17/5 highest risk; risk-area prompt-engineering guards)
+- 33/33 cluster-membered kits scored; 1 FALLBACK kit flagged for regen recommendation
+- 21 non-cluster-membered kits surfaced as substrate-architecture observation (Cycle 15+ elrond/rocket clarification target)
+
+**Legolas** (commit `469d208`; tag `legolas/v1.0-cascade-r4-v1-season-002-marquee-prompts-1`):
+- 4 group prompts (178-192 words; ultra-thematic + dramatic; HD-2D style register; D7 compliant)
+- 33 individual kit prompts (118-133 words each)
+- Baseline only — galadriel design didn't land before legolas authoring close; post-galadriel iteration plan documented for KR coordination
+
+**Drax** (commits `ca29dfa` + `b20f1de` + `7b9aae9`; tag `drax/v1.0-cascade-r4-v1-season-002-marquee-reshape-1`):
+- /pitch filtered to ONLY Season 002 (seasons 001+003 hidden from Summary; remain on other routes)
+- 4 faction sections layout (group portrait 16:7 + faction narrative + BC/element badges + kit grid top-3 per faction)
+- 16 images generated (4 group + 12 individual top-3-per-faction); cost $0.64; cumulative ledger $3.20 (within $5 budget)
+- Hero of the Season RETAINED as Crushguard (later renamed Crusader of the Ember Cross)
+- Vercel deploy `reincarnated-loadout-cz27w90uu` READY (32s build)
+- **KR-routing note from drax:** legolas/galadriel Season 002 prompts hadn't surfaced when drax executed image gen; drax constructed prompts from substrate using legolas template format; Phase 2 re-roll available if Matt wants higher fidelity per legolas+galadriel authored work
+
+### Crusader of the Ember Cross 3D animated hero embed (loadout `2248d79`)
+
+Matt 2026-05-29 (2 composed messages):
+1. Meshy URL link to animated hero
+2. Downloaded GLB assets locally at `public/pitch/heroes/season_001_hero_animated/` (9 animations)
+
+**Wire-up by KR directly:**
+- `index.html`: Google `<model-viewer>` web component (v4.0.0 via unpkg)
+- `src/types/model-viewer.d.ts`: TypeScript declaration (dual JSX namespace pattern for React 19 react-jsx mode)
+- `HERO_OF_ENGINE`: renamed Crushguard → Crusader of the Ember Cross; added `modelPath` field pointing to Idle_03 GLB
+- `HeroOfEngineSpotlight.tsx`: conditional render `<model-viewer>` with auto-rotate + camera-controls; static portrait as poster fallback
+- `.gitignore`: 8 of 9 GLB files excluded (only Idle_03 committed; ~28MB; Matt has full local set)
+- `whyThisHero` narrative composes engine-emitted name + designer-curated name per Designer-writes-substrate principle (substrate = engine; name = player-facing experience layer)
+
+### Cycle 14 v1 TAG RATIFIED + PUSHED
+
+Tag: `v1-cycle-14-bounded-viability-substrate-led-1` on:
+- engine `818a4ca`
+- loadout `2985f0b` (subsequent commits ride forward without v1 tag movement)
+- collab `a55133e`
+
+All 3 repos pushed to origin/main.
+
+### Star-lord fast-follow CLOSED (post-v1-tag)
+
+Engine emission of Cycle 14 manifest.json + classes/*.json (158 class files + 3 manifests; 45 new tests; MIGRATION.md §v1.67):
+- engine `4a007f9`
+- loadout `fd4c0ae` (direct cross-seam write per legacy pattern)
+- collab `02f8f67`
+- Tag: `star-lord/v1.0-cascade-r4-v1-fast-follow-engine-emission-1`
+
+### Cycle 14 wave-close canonical-write queue: 20+ items
+
+Highlights from cascade-r4 follow-on cycle:
+- Disc #42a Q7 candidate: vocabulary-staleness-vs-substrate-expansion gap (jack-ryan; from element_distribution aggregator drift)
+- KR routing-discipline: integration-over-parallel-section (from drax Cycle14LoadoutSection refactor)
+- Designer-writes-substrate principle § 4.1 extension: aggregator-vocabulary-staleness as third locus of substrate-led drift (gandalf)
+- Star-lord canonical-write target: full Cycle 14 manifest+classes emission for Cycle 15+ engine generation runs (drop drax cycle14Adapter when star-lord engine emission becomes the default)
+- Floor margin monitoring at small n + SINGLETON live-path verification + gauntlet defensive cohort midpoint + config_to_kit collision deferred + Wanderer substrate-tag vs SINGLETON disjoint + encounters page Cycle 14 sim emission
+
+### SESSION-END status
+
+Matt directives composed this session:
+1. Cycle 14 v1 ratification — DONE (3-repo tag push)
+2. Star-lord fast-follow (engine emission of manifest+classes) — DONE
+3. Drax post-emission update — DONE (per star-lord pre-staged adapter integration)
+4. Summary page Season 002 marquee reshape — DONE
+5. Meshy animated hero embed + rename — DONE
+
+Player-facing v1 complete; all routes live on Vercel; 3D animated hero on Summary; Season 002 marquee curated. Cycle 14 v1 SHIPPED.
+
