@@ -138,3 +138,35 @@ To be committed: `star-lord/v1.0-cascade-r4-followon-llm-naming-gaps-1`
 - Gandalf Wave-S spec not yet landed
 - Iteration plan documented in § 3 above
 - Awaiting KR sequencing of gandalf spec dispatch → star-lord Scope 2 execution
+
+---
+
+**Scope 2 COMPLETE 2026-05-29 (star-lord):**
+- Gandalf Wave-S spec read fully (commit `a8d5a28`; tag `gandalf/v1.0-wave-s-season-naming-spec-1`)
+- Wave-S LLM call infrastructure implemented in `src/reincarnated/llm/phase5_orchestrator.py`:
+  - `AI_TELL_PHRASES_WAVE_S` (18 phrases per spec § 4.1 constraint 5)
+  - `WAVE_S_PATTERN_REGEX`, `WAVE_S_COST_ANOMALY_THRESHOLD_USD`
+  - `Phase5WaveSResult` dataclass (16 fields)
+  - `Phase5OrchestratorConfig.wave_s_max_tokens = 256`
+  - `Phase5Result` extended with `wave_s_result / wave_s_cost_usd / wave_s_cost_anomaly_flagged`
+  - `_build_wave_s_system_prompt()` per spec § 4.1
+  - `_build_wave_s_user_prompt(...)` per spec § 4.2; W-S8 purity grep at assembly
+  - `_parse_wave_s_response()` JSON parse + validation
+  - `_validate_wave_s_acceptance()` all 10 gates W-S1..W-S10 per spec § 5
+  - `_call_wave_s_single()` async call; 3-attempt backoff; max 1 regen; diversity-penalty preamble
+  - `run_wave_s_async()` orchestration entry; substrate aggregation; k=1
+  - `build_export_season_name()` boundary-validated export for season_summary.json
+- `llm/__init__.py` extended with 6 new Wave-S public exports
+- AsyncAnthropic routing decision: AsyncAnthropic direct (same as Wave A/B/F-C); k=1 makes LLMClient.complete() recoverability benefit trivially small (~$0.015 vs Wave B's $1.00); documented
+- MIGRATION.md § v1.63-wave-s-season-naming authored
+- 66 new tests (test_wave_s_season_naming_impl.py) — all 66 PASS
+- Combined: 319/319 PASS (66 new + 253 prior), 0 regressions
+- Notes doc: `agentic_orchestration/star-lord/notes/2026-05-29-wave-s-llm-call-infrastructure.md`
+- Tag: `star-lord/v1.0-wave-s-implementation-1`
+
+**Cross-seam data contract for rocket:**
+- Entry: `run_wave_s_async(faction_clusters_input, config, prior_season_names, tracker)` → `Phase5WaveSResult`
+- Export: `build_export_season_name(wave_s_result, season_id)` → dict for `season_summary.json`
+- Retroactive backfill order: season_001 (no prior) → season_002 (prior=[001 name]) → season_003 (prior=[001, 002 names])
+- Wave B SEASON_CONTEXT block: rocket wires `wave_s_result.season_name` as `{season_name}` per spec § 6
+- All fields additive; backward-compatible; pre-Wave-S seasons unaffected
