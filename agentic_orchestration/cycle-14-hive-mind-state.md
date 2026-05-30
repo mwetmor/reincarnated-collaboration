@@ -5084,3 +5084,103 @@ Hero selection moves off Matt's plate; galadriel + drax pair becomes selection a
 
 **Parallel-fan-out resource constraints:** Discipline #48 RAM-awareness RETIRED per Amendment 3; R48.1/R48.2/R48.3 oversized-file safety preserved. 5 parallel sub-agents acceptable per cascade-r4 § 11.4.
 
+
+---
+
+## CASCADE-RESUMPTION-4 STEP 7 PARALLEL FAN-OUT COMPLETE 2026-05-29 — 5 sub-agents PASS; § 12.1 pair CONVERGENT; Wave-B-spec-gap surface
+
+**Trigger:** 5 parallel sub-agents fired in single message (gamora Amendment 1 + drax Track B + galadriel Track B + legolas Track B + gandalf Track C); all returned PASS.
+
+### Gamora — Amendment 1 Wanderer architecture (Engine commits 3607f24/07bd5c4/69674e2; Collab 87e6e08)
+
+| Metric | Value | Disposition |
+|---|---|---|
+| shipped_worthy | **21 of 34 (61.8%)** | ✅ PASS (architecture intent met; up from 0) |
+| SINGLETON kits this run | 0 (all 34 within P75×1.5 threshold) | Wanderer mechanism wired + tested; inactive this run on existing substrate |
+| Cluster count | 4 (GMM BIC k=4) | PASS |
+| Scale-relative compactness floor | `floor(n) = 0.40 × min(1.0, sqrt(n/180))` | Documented in math note |
+| Cohesion-judge threshold C-1 | `score >= 0.75` | Documented |
+| LLM cost (Phase 5+ re-fire) | ~$0.02 | Well within cap |
+| Wall clock | ~48s | Acceptable |
+| MIGRATION.md | §v1.62 authored (cluster_id INTEGER → TEXT) | Cross-seam contract change documented |
+| 23 new tests | ALL PASS | + G-P7-6 updated for Amendment 1 |
+
+**Ambient signal (out-of-scope; not Amendment 1):** 12 kits held on mechanical gauntlet band; defensive midpoint anomalously low (0.11) — gauntlet band calibration question for Cycle 14 wave-close canonical-write attention.
+
+**Tag pending jack-ryan Gate-2** (FIRING in parallel with this consolidation).
+
+### Drax — Track B loadout app refresh + § 12.1 drax half (Loadout 9ceeb40/c7b4bd0; Collab 33678d2/4fd9d2b)
+
+- Loadout app data layer: `ClusterId = number | "SINGLETON"` type union (pre-implemented per gamora Amendment 1 contract)
+- Summary tab `/pitch` route: 4-cluster faction tiles + Wanderer placeholder slot (filtering `cluster_id === "SINGLETON"`; surfaces automatically on data refresh post-gamora) + hero image deferred placeholder
+- Build smoke: clean (870 modules, 0 TS errors, 81/81 tests PASS)
+- **Vercel preview NOT deployed** — push requires Matt authorization per ADR-006
+- § 12.1 drax election: **Cluster 3 — Stormveil Ironclad Surge** (european + lightning 44% + holy 22% + close-AOE; 9 kits; richest substrate-metadata for image-gen prompt construction)
+- Tag: `drax/v1.0-cascade-r4-track-b-loadout-plus-12-1-pair-1`
+
+### Galadriel — Track B CV scoring + § 12.1 galadriel half (Collab d9102ea/a7f4727)
+
+- **§ 12.1 PAIR CONVERGENT** on Cluster 3 Stormveil Ironclad Surge — independently triangulated across 5 evidence layers. No deadlock; no gandalf-sub-agent escalation; no Matt-surface required for pair selection.
+- Cluster 4 Ashfield Siege Callers (1-member singleton) substrate-defensible Wanderer-as-hero ALTERNATIVE (mean 4.60) but not elected (Cluster 3 outranked on substrate visual-coherence)
+- Substrate basis for § 12.2 prompt construction: european lineage / medieval / lightning 44% primary + holy 22% + shadow 11% / close + large-AOE / HD-2D-genre-canonical lightning-paladin-with-shadow-undertones archetype
+- Tag: `galadriel/v1.0-cascade-r4-track-b-cv-scoring-plus-12-1-pair-1`
+- **2 KR routing triggers surfaced** (see below)
+
+### Legolas — Track B image-gen prompts (Collab 5acebda)
+
+- 4 per-faction prompt templates (87-94 words each; style register + D7 compliance PASS)
+- 1 per-kit prompt template + 34 substrate-filled instances (80-97 words each; PASS)
+- 11 per-gear-piece sub-templates (Meshy-ingestion-compatible)
+- Wanderer variant templates deferred plan documented
+- Iteration plan for season 002+003 + Cycle 15+ documented
+- Tag: `legolas/v1.0-cascade-r4-track-b-image-gen-prompts-1`
+- **4 KR routing triggers surfaced** (see below)
+
+### Gandalf — Track C A/B testing scope (Collab fcbf788)
+
+- 408-line scope doc at `agentic_orchestration/gandalf/notes/2026-05-29-cycle-14-v1-ab-testing-scope.md`
+- 7 variant pair shapes × 3 axes (per-faction / per-archetype-vs-Wanderer / per-element-class)
+- 8 test instruments (VI-1/2/3 visual + MP-1/2 mechanical + CE-1/2/3 cohesion-emergence)
+- Cycle 14 v1 ships scope + variant catalog + infrastructure spec; Cycle 15+ ships execution + data collection
+- Drax coordination documented inline as Cycle 15+ deliverable spec (no mid-track sub-agent fire)
+- 2 BONUS additions: two-layer A/B disambiguation (Layer 1 architectural-validation vs Layer 2 player-facing presentation A/B; prevents Cycle 15+ execution conflation) + 8 predictions registered for empirical refutation
+- Tag: `gandalf/v1.0-cascade-r4-track-c-ab-testing-scope-1`
+
+### CRITICAL NEW SURFACE — Wave-B-spec-gap (per cascade-r4 § 9.2 enumerated Matt-surface trigger)
+
+**Three independent confirmations** (drax + galadriel + legolas) that Wave B per-kit names are NOT PERSISTED to consumable JSON artifacts. `phase5_*.json` records only count + cost; per-kit names absent.
+
+**Impact:**
+- Drax loadout app summary tab cannot surface per-kit names → faction tiles ship with member counts only (acceptable for v1; degrades player-facing experience)
+- Legolas per-kit prompt templates have `[wave_b_name]` blank with no source data → § 12.2 hero image prompt construction blocked at this layer
+- § 12 hero image gen for Cluster 3 marquee blocked until wave_b_name source-of-truth resolved
+
+**Cycle 14 v1 close pathway depends on resolution:**
+- Option A: Wave B persistence fix dispatch (rocket/star-lord) before § 12.2 fires; minor effort
+- Option B: § 12 hero image construction uses faction-name + cluster substrate (drop per-kit name); ships v1 without per-kit name surface; defer wave_b persistence to Cycle 15+
+
+### Additional substrate metadata gaps surfaced by legolas (KR routing for follow-on)
+
+| Gap | Owner | Impact |
+|---|---|---|
+| wave_b_name not persisted | rocket / elrond | per-kit name absent in JSON (BLOCKING for § 12 + drax loadout) |
+| element_primary not in phase4/5 archive JSON | star-lord / rocket | per-kit element via cluster modal proxy; not authoritative |
+| t4_strategy null in phase4_archive_insertion.json | rocket | per-kit T4 strategy substrate not exposed |
+| modal_tone all clusters "unknown" | gandalf if desired | low impact on current faction compositions |
+
+### Track A rocket release status
+
+Track A rocket dispatch (`agentic_orchestration/dispatches/2026-05-29-rocket-cycle-14-cascade-r4-track-a-seasons-002-003-production.md`) remains BLOCKED pending jack-ryan Gate-2 PASS on gamora Amendment 1. Per Pattern E pre-authorization + Amendment 8, KR transitions BLOCKED → FIRING after Gate-2 PASS WITHOUT Matt re-surface.
+
+### Cycle 14 v1 close pathway
+
+Remaining gates:
+1. Jack-ryan Gate-2 on gamora Amendment 1 (FIRING in parallel)
+2. Track A rocket seasons 002+003 (post-Gate-2 PASS; ~$0.74 LLM; ~2 × Phase 2-7 cascades)
+3. Wave-B persistence resolution (Option A rocket/star-lord fix OR Option B v1 ships without per-kit names)
+4. § 12.2 hero image gen for Cluster 3 + 11 gear pieces (drax executes via ChatGPT API; legolas prompts ready except wave_b_name blank)
+5. § 12.3 Matt Meshy handoff (12 images → animation URL)
+6. § 12.4 drax URL wire-up to loadout summary tab
+7. Vercel push authorization (Matt)
+8. Cycle 14 wave-close canonical-write batched (14 items in queue: 12 prior + 2 new from amendments)
+9. v1 tag ratification — final Matt surface — `v1-cycle-14-bounded-viability-substrate-led-1`
