@@ -219,3 +219,49 @@ If BLOCKING surface: halt, surface to KR with reasoning. If PASS: route to jack-
 ---
 
 **KR sign-off:** Dispatch authored per Matt 2026-05-29 late Amendment 1 verbatim authorization; routed to gamora as seam owner of `phase7_verdict.py` + cohesion-judge code per AGENTS.md scope map. Auto-commits expected per CLAUDE.md addendum (gamora = seam owner; cascade-r4 Amendment 1 work = authorized; no per-commit Matt re-ask).
+
+---
+
+## Completion record
+
+**Completed:** 2026-05-29 (gamora cascade-r4 Amendment 1 session)
+**Session commits:** `3607f24` (implementation + tests), `07bd5c4` (re-fire artifacts)
+**Tag:** `gamora/v1.0-cascade-r4-amendment-1-wanderer-architecture-1` (pending — see below)
+
+### Deliverable summary
+
+1. **SINGLETON kit count actual (season_001 Phase 5+ re-fire):** 0 SINGLETONs — all 34 archive kits were within P75×1.5 cohesion threshold; SINGLETON path exercised in code but not triggered this run. SINGLETON architecture ready for future runs where kits fall outside clusters.
+
+2. **Cluster count after SINGLETON reclassification:** 4 clusters (all kits cluster-membered). GMM BIC at n=34 selected k=4 (vs expected k=3; BIC favored 4 clusters given archive diversity).
+
+3. **Phase 7 shipped_worthy actual:** 21 of 34 kits (61.8% acceptance). Acceptance criterion MET (target > 0; prior result = 0). Target of ~26-31 not fully reached — 12 held on mechanical (gauntlet band), 1 held on cohesion. Mechanical holds are a separate issue from the compactness floor bug this amendment fixed.
+
+4. **Per-cluster shipped count (cluster-membered):** clusters_aggregated=4; shipped_worthy=21 cluster-membered kits. Individual cluster breakdown in `phase7_season_summary.json`.
+
+5. **Per-SINGLETON shipped count:** 0 SINGLETON kits shipped (0 SINGLETONs classified this run).
+
+6. **Scale-relative compactness floor function form:**
+   `floor(n) = 0.40 × min(1.0, sqrt(n / 180))`
+   At n=11: floor≈0.099 (was 0.40 absolute → 0 shipped; now 0.099 → compactness check passes).
+   At n=180: floor=0.40 (Phase 3 calibration anchor preserved exactly).
+
+7. **Cohesion-judge threshold function form:** C-1 per-kit: `score >= 0.75`. C-2 cluster: `compactness >= scale_relative_compactness_floor(n_cluster)`. SINGLETON kits: C-2 skipped entirely. C-3: diversity_flag != True (applies to all).
+
+8. **LLM cost actual:** ~$0.02 (Wave A + Wave B; n=34 kits in ~48s wall time).
+
+9. **Cross-seam impact:** MIGRATION.md § v1.62 authored. `cluster_id` field: `Optional[int]` → `Optional[int | "SINGLETON"]`; `phase7_kit_verdict_log.cluster_id` column: `INTEGER` → `TEXT`. Drax Track B loadout consumers must handle both int-as-text and "SINGLETON" string. No immediate drax impact (loadout display of cluster_id not yet implemented).
+
+10. **Instance 6 surface / framing-audit:** No new Instance 6 surface caught this session. Discipline #12 semantic shift declared in commit message for both C-2 semantics change and cluster_id type change.
+
+11. **Tag pending:** `gamora/v1.0-cascade-r4-amendment-1-wanderer-architecture-1` — not yet committed; KR to authorize or gamora to place after jack-ryan Gate-2.
+
+12. **Commits made:**
+    - `3607f24` — gamora: cascade-r4 Amendment 1 — Wanderer Architecture implementation
+    - `07bd5c4` — gamora: cascade-r4 Amendment 1 — season_001 Phase 5+ re-fire artifacts
+
+### KR routing triggers per dispatch § 7
+
+- PASS: route to jack-ryan Gate-2 for Amendment 1 review (parallel to Track A)
+- No BLOCKING surfaces encountered
+- Wave B parse failures (11 kits) are pre-existing behavior (not Amendment 1 regressions); kits fall back to placeholder names; do not block shipped_worthy count (verdict based on gauntlet pass rate, not Wave B name quality)
+- 12 mechanical holds (HELD-mechanical-fail-band/floor) are pre-existing gauntlet calibration issue — separate from Amendment 1 scope; surface to KR as ambient signal
