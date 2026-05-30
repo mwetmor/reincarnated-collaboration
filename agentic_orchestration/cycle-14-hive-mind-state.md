@@ -5688,3 +5688,53 @@ All loadout app surface routes (/pitch + /analytics + /encounters + /loadout + /
 **Composition with substrate-honest narrative:** the substrate spoke through Cluster 3 (physical 33% + holy 22% + STR War Hammer + close-AOE BC profile + european medieval cultural lineage); LLM composed "Crushguard of the Shattered Gate" from that substrate after the cascade-r4 aggregator fix surfaced physical truth. Matt's curated image visually matches the substrate-derived narrative perfectly — the engine + Matt arrived at the same player-facing identity from the same substrate.
 
 **Awaiting Matt § 12.3 Meshy animation URL** for § 12.4 portraitPath swap from static PNG → animated embed.
+
+---
+
+## CASCADE-R4 V1 CLOSE — Drax loadout + sample INTEGRATION REFACTOR 2026-05-29 (loadout `2985f0b`; collab `7757454`)
+
+**Matt verbatim (correcting prior approach):** "Regarding loadout and sample pages, why did you make a whole new section instead of resolving the issues and routing the appropriate content from the new seasons into the existing page structure?"
+
+**KR ack:** my prior dispatch authorized Option B (parallel placeholder) as a shortcut when drax found Cycle 14 lacks the existing `manifest.json + classes/*.json` skill-tree directory structure. That shortcut was wrong. The right framing: drax-side adapter that transforms Cycle 14 wave-5 schema → existing manifest schema.
+
+### Drax refactor CLOSED — Cycle 14 fully integrated
+
+**Adapter:** `src/data/cycle14Adapter.ts` (new) transforms wave_b_identities.json + faction-clusters.json → existing SeasonManifest + ClassData shape:
+- `WaveBKit` → `ClassData` (1 kit = 1 class; ACCEPT compliance filter)
+- `kit_id` decoded → `range_profile` + `archetype_tag` + `energy_type`
+- `FactionCluster.element_distribution` top entry → `dominant_element`
+- `FactionCluster.modal_bc_axis_signature` → `role_orientation`
+- Placeholder skills (1 per class) with flavor_text explaining BC profile + engine-emission gap
+- SeasonManifest `anchor.name = wave_s_season_name_canonical`; `manifest_version: 'cycle14-adapter-v1'`
+
+**Wire-up:** `useSeasonData.ts` injects `CYCLE14_SEASON_DATA[]` into `seasonMap` post-glob-build. Cycle 14 seasons appear in existing `selectableSeasons` dropdown alongside legacy seasons.
+
+**Existing components reused (no parallel rendering path):** ClassHeader + SkillTree + StatsPanel + GearGrid all render Cycle 14 seasons via existing pipeline.
+
+**Inline engine-emission gap surface:** violet "engine-emission pending" banner discriminated by `manifest_version === 'cycle14-adapter-v1'`; renders within existing page structure. TODO(star-lord) annotations at: skill data, stats distribution, per-kit metadata derivation, gearPool, manifest generated_at/elements.
+
+**Removed:** `Cycle14LoadoutSection.tsx` deleted; refs removed from Loadout.tsx + Sample.tsx.
+
+**Build:** 878 modules; 0 TS errors; 81 tests PASS.
+
+**Vercel:** deployment `ekn773duq` Ready + Production (28s build); CDN propagation in flight.
+
+**Tag:** `drax/v1.0-cascade-r4-v1-close-loadout-sample-integration-refactor-1`
+
+### Routing-discipline learning captured for Cycle 14 wave-close canonical-write
+
+**Sub-discipline candidate (KR seam):** "Reject parallel-placeholder shortcuts when integration is feasible." When seam-owner surfaces data-emission gap, default response is drax-side adapter (consume data in current schema, transform to target schema) NOT parallel rendering path. Parallel sections fragment player-facing experience + dodge integration discipline. Add to wave-close canonical-write queue (KR canonical-write target; composes with engineering-disciplines.md routing-discipline section).
+
+### Cumulative wave-close canonical-write queue: 20 items
+
+20 = **KR routing-discipline: integration-over-parallel-section** (new; surfaced by Matt this refactor cycle)
+
+### Cycle 14 v1 close pathway — REMAINING STEPS
+
+| Step | Owner | Status |
+|---|---|---|
+| § 12.3 Matt Meshy handoff | Matt | READY (12 images delivered) |
+| § 12.4 drax Meshy URL wire-up | drax | QUEUED post-Matt-return |
+| § 12.5 Cycle 14 v1 tag ratification | Matt | FINAL REQUIRED MATT SURFACE |
+
+Tag candidate: `v1-cycle-14-bounded-viability-substrate-led-1`
