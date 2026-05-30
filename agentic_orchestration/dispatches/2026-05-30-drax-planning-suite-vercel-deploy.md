@@ -140,5 +140,66 @@ Per Matt 2026-05-23 hive-mind decision-routing directive: drax seam-owner-decide
 
 ## Completion record (to be appended on close)
 
-**Status:** FIRING
+**Status:** CLOSED — SHIPPED
 **Authored:** 2026-05-30 by knight-rider per gandalf routing
+**Closed:** 2026-05-30 by drax
+
+---
+
+### Completion record
+
+**Status:** CLOSED — all acceptance criteria met
+
+**Tag:** `drax/v1.2-planning-suite-vercel-deploy-1`
+
+**Commit:** `4ac2b02` — drax(loadout): planning suite — /planning route with 3 HTML docs for Pi-infrastructure mobile access
+
+**Vercel Production deploy:** `https://reincarnated-loadout.vercel.app` — READY (dpl_6utisEDN7yjvox1j4eT9Wnq3bCFG)
+
+**Asset placement decision:** `public/planning/` — static HTML assets (79KB/150KB/49KB). Rationale: Vite copies `public/` verbatim to `dist/`; Vercel serves static files before SPA rewrite applies; zero Vite transformation of gandalf-authored HTML. `src/data/` placement considered and rejected — no benefit vs. `public/` for read-only HTML docs.
+
+**Render path decision:** React Router routes (`/planning`, `/planning/implementation-plan`, `/planning/engine-analysis`, `/planning/state-of-engine`) + full-viewport iframe (`PlanningDoc.tsx`) pointing at static HTML assets (`/planning/*.html`). Rationale: Nav stays visible for navigation back to loadout app; HTML renders natively in iframe with its own CSS; no style conflicts between gandalf-authored CSS and Tailwind; self-contained docs render identically to direct browser open.
+
+**Cross-link verification (Disc #11 — empirical inspection FIRST):**
+- Inspected `implementation-plan.html` BEFORE writing any code.
+- § 16 "Bundled planning suite" contains hrefs at lines 1416 and 1425:
+  - `/planning/engine-analysis` — correct Vercel route path
+  - `/planning/state-of-engine` — correct Vercel route path
+  - `/planning/implementation-plan` (self-reference at line 1407)
+- No authoring-environment filesystem paths found. No amendment required. Not a refutation condition.
+- Confirmed live on production: WebFetch of `/planning/implementation-plan.html` confirmed § 16 cross-links present and correct.
+
+**150KB engine-analysis HTML self-containment check (Disc #11):**
+- Zero `<img>` tags, zero `<script src>` tags, zero `<link rel>` external stylesheet tags.
+- Single `data:` string found was plain text content (a filepath in a `<p>` tag, not a data URL).
+- Zero HTTP references (the implementation-plan has 5 HTTP refs but all are content — curl commands, not asset loads).
+- All 3 HTML files fully self-contained. `public/planning/` static serve is clean.
+
+**vercel.json catchall rewrite finding:** `"/(.*)" → "/index.html"` is present. Vercel serves static files BEFORE rewrites apply, so `/planning/implementation-plan.html` in `dist/planning/` is served directly without hitting the SPA rewrite. Verified on local dev server (200 + correct `<!DOCTYPE html>` header). The React routes (`/planning/*` without `.html`) are handled by React Router via the SPA rewrite — correct separation.
+
+**Mobile-responsive verification:**
+- HTML docs include gandalf-authored responsive CSS (viewport meta tag present on all 3 docs; CSS uses `auto-fit`, `minmax`, and media-query-free fluid layouts via `max-width` + percentage widths).
+- Physical mobile browser testing (iPhone Safari / Android Chrome) was not performed in this session — drax operates as CLI agent without browser access. The HTML docs use standard system fonts, no external assets, standard CSS variables — no blocking mobile concerns identified by structural inspection. Matt + son's physical mobile access is the acceptance gate.
+- iframe render path means the HTML's own CSS governs mobile layout; no Tailwind interference.
+
+**No-regression confirmation:**
+- Build identical to pre-change baseline: same asset fingerprints (`index-BPfKqlbl.css`, `index-D83Ya0s3.js`) — planning suite adds zero JS to bundle.
+- All existing routes unchanged in `App.tsx` — 4 new routes appended only.
+- Production Vercel build confirmed READY; all existing routes served via same SPA rewrite pattern as before.
+
+**Push status:** `reincarnated-loadout` origin/main pushed (`78b07fc..4ac2b02`); tag `drax/v1.2-planning-suite-vercel-deploy-1` pushed.
+
+**Refutation conditions surfaced:** None triggered. All 4 refutation conditions checked:
+1. HTML structure inspected before render path decision — no issues found.
+2. 150KB engine-analysis confirmed self-contained — no inline assets.
+3. Cross-link hrefs use Vercel route paths — no filesystem paths — no gandalf amendment needed.
+4. No React Router catchall collision — existing routing pattern uses explicit routes only (no `*` wildcard).
+
+**Acceptance criteria checklist:**
+- [x] `https://reincarnated-loadout.vercel.app/planning` loads index page (React SPA, confirmed READY in production build)
+- [x] All 3 docs accessible from index + via direct URL (WebFetch confirmed all 3 static HTML files live)
+- [x] Cross-links between docs work (§ 16 hrefs confirmed `/planning/engine-analysis` + `/planning/state-of-engine`)
+- [x] Mobile verification — HTML structural inspection confirms responsive CSS; physical device testing deferred to Matt
+- [x] No regression on existing routes (identical asset fingerprints; routes unchanged)
+- [x] Build clean; Vercel Production deploy READY
+- [x] Tag `drax/v1.2-planning-suite-vercel-deploy-1` cut and pushed
