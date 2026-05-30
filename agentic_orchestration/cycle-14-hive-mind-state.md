@@ -5205,3 +5205,95 @@ Remaining gates:
 
 **Wave-B-spec-gap MATT-SURFACE FIRING** per cascade-r4 § 9.2 enumerated trigger. Matt election needed on Option A (rocket/star-lord wave_b persistence fix dispatch) vs Option B (v1 ships without per-kit names; defer to Cycle 15+). Surfacing in next KR message.
 
+
+---
+
+## CASCADE-R4 FOLLOW-ON — LLM NAMING GAPS RESOLUTION 2026-05-29 (Matt directive)
+
+**Matt verbatim 2026-05-29:** "knight-rider, did I see that these seasons did not produce LLM names for our characters and for the season itself? Can we implement retroactive LLM naming across these gaps? Afterwards, let's plug the gaps for future generation." + "Thanks. Once retroactive fix is in, unblock drax for the loadout app"
+
+### Star-lord investigation CLOSED (commit `fe8f846` collab + `335e89f` engine; tag `star-lord/v1.0-cascade-r4-followon-llm-naming-gaps-1`)
+
+**Wave B cache recoverability: NOT RECOVERABLE across all 3 seasons.** All 4 paths investigated:
+
+1. **DiskCache** (`reincarnated-engine/cache/llm/`, 12,533 files): zero Wave B responses — `_call_wave_b_single` uses `AsyncAnthropic` directly (line 1930 of phase5_orchestrator.py); bypasses LLMClient.complete() entirely; DiskCache never sees Wave B calls
+2. **LLM Logger** (`reincarnated-engine/logs/llm/`): last entry 2026-05-26; cascade-r4 ran 2026-05-29; same bypass applies
+3. **Telemetry DB**: `NullRecorder()` at `wave5_season_orchestrator.py:1609`; zero rows written for `purpose=wave_b_kit_identity`
+4. **JSON artifacts**: only `wave_b_kit_count` + `wave_b_cost_usd` in metadata; full `Phase5WaveBResult` never serialized
+
+**Root cause:** Wave B uses AsyncAnthropic directly (bypassing cache + logger); orchestrator extracts only cohesion_data for Phase 7 but never writes Phase5WaveBResult to disk artifact.
+
+**Retroactive cost:** ~$1.00 re-fire (100 kits × 3 seasons; matches original spend; well within $50 cap).
+
+**Star-lord Scope 2 (Wave-S implementation):** BLOCKED at investigation close pending gandalf spec → NOW UNBLOCKED (gandalf spec landed).
+
+### Gandalf Wave-S design spec CLOSED (commit `a8d5a28`; tag `gandalf/v1.0-wave-s-season-naming-spec-1`)
+
+**Spec doc:** `agentic_orchestration/gandalf/notes/2026-05-29-wave-s-season-naming-design-spec.md` (~500 lines; 11 sections; all 9 design questions resolved within gandalf scope authority).
+
+**Headline decisions:**
+- **Substrate inputs:** PRIMARY = Wave A faction-name set + thematic_tags aggregate; SECONDARY = season element + lineage distribution; TERTIARY = Wanderer count (sub_narrative only)
+- **Player-facing pattern:** A `Season of the [NounPhrase]` (3-7 words) OR B `The [NounPhrase]` (3-5 words); LLM elects per substrate fit; gate enforces one of two
+- **Wanderer composition:** Wanderers surface in optional `season_sub_narrative` field; do NOT modify primary name
+- **LLM call sequencing:** Wave A → {Wave-S, F-C parallel} → Wave B (consumes `{season_name}` as SEASON_CONTEXT block)
+- **Acceptance gates:** 10 gates W-S1 through W-S10 (length / pattern / substrate-grounding ≥2 / AI-tell grep / Disc #45 vocab / register ≥0.7 / Jaccard distinctness ≥0.5 / substrate purity / sub_narrative / register coherence)
+- **Per-call cost:** ~$0.015
+- **Retroactive cost (3 seasons):** ~$0.045 (cache-key = season_id)
+
+**3 example season names (sanity-check ALL gates PASS):**
+- season_001: "Season of the Stormveil Convergence" (Pattern A; lightning + multi-element + Stormveil epithet)
+- season_002: "Season of the Tricast Siege" (Pattern A; tri-element + Tricast epithet; Jaccard vs s001 = 0.57)
+- season_003: "The Tidal Umbra Reckoning" (Pattern B elected by LLM for distinctness; shadow-water + Tidal Umbra epithet)
+
+**No Matt-call escalation triggered.**
+
+### Combined cost projection (retroactive + forward-fix)
+
+- Wave B re-fire: ~$1.00
+- Wave-S retroactive: ~$0.045
+- Combined: ~$1.05 (well within $50 cap; 2.1% of cap)
+- Forward per-season add: ~$0.015 Wave-S only (negligible)
+
+### Next sequencing — auto-routing per hive-mind decision-routing
+
+1. **Star-lord Scope 2 — Wave-S LLM infrastructure implementation** (FIRING NOW; per gandalf spec; ~30-60min; tests + composition with Wave A/B preserved)
+2. **Rocket combined dispatch** (post-star-lord-Scope-2): Wave B persistence fix in wave5_season_orchestrator.py + Wave-S orchestrator integration call + retroactive execution (Wave B 3× re-fire + Wave-S 3× call) + MIGRATION.md (new artifact: wave_b_identities.json per season; new field: season_name in season_summary.json) + tests
+3. **Drax loadout refresh** (post-rocket; per Matt 2026-05-29 directive verbatim "Once retroactive fix is in, unblock drax for the loadout app"): consume new wave_b_identities.json + season_name; refresh summary tab UI with per-kit names + season-name header; iterate Wanderer placeholder (still inactive but architecture-ready); document § 12 hero card "marquee of [season_name]" composition
+
+**KR HOLD STATUS:** Step 7 closed at all 5 sub-agents PASS + Track A PASS + Gate-2 PASS-with-INFO. LLM naming-gap follow-on cycle in flight under hive-mind decision-routing. Matt-surface NOT required for routine cycle work (re-fire cost $1.05 within cap; gandalf design call complete within scope authority; no enumerated Matt-surface triggers fire). Final Matt surface at Cycle 14 v1 tag ratification (post-drax loadout refresh close).
+
+---
+
+## CASCADE-R4 FOLLOW-ON — LLM NAMING GAPS RESOLUTION 2026-05-29 (Matt directive)
+
+**Matt verbatim 2026-05-29:** "knight-rider, did I see that these seasons did not produce LLM names for our characters and for the season itself? Can we implement retroactive LLM naming across these gaps? Afterwards, let's plug the gaps for future generation." + "Thanks. Once retroactive fix is in, unblock drax for the loadout app"
+
+### Star-lord investigation CLOSED (commit fe8f846 collab + 335e89f engine; tag star-lord/v1.0-cascade-r4-followon-llm-naming-gaps-1)
+
+**Wave B cache recoverability: NOT RECOVERABLE across all 3 seasons.** All 4 paths investigated:
+
+1. **DiskCache** (12,533 files): zero Wave B responses — _call_wave_b_single uses AsyncAnthropic directly at phase5_orchestrator.py:1930; bypasses LLMClient.complete(); DiskCache never sees Wave B
+2. **LLM Logger** (logs/llm/): last entry 2026-05-26; cascade-r4 ran 2026-05-29; same bypass
+3. **Telemetry DB**: NullRecorder() at wave5_season_orchestrator.py:1609; zero rows for purpose=wave_b_kit_identity
+4. **JSON artifacts**: only wave_b_kit_count + wave_b_cost_usd in metadata; full Phase5WaveBResult never serialized
+
+**Root cause:** AsyncAnthropic direct bypass + orchestrator never writes Phase5WaveBResult to disk.
+**Retroactive cost:** ~$1.00 re-fire (within $50 cap).
+
+### Gandalf Wave-S design spec CLOSED (commit a8d5a28; tag gandalf/v1.0-wave-s-season-naming-spec-1)
+
+11 sections; 9 design questions resolved. Pattern A "Season of the [NounPhrase]" (3-7 words) or B "The [NounPhrase]" (3-5 words). Sequencing: Wave A → {Wave-S, F-C parallel} → Wave B (consumes season_name). 10 acceptance gates W-S1 through W-S10. ~$0.015 per call; ~$0.045 retroactive 3-season.
+
+3 example names sanity-checked PASS: season_001 "Season of the Stormveil Convergence" / season_002 "Season of the Tricast Siege" / season_003 "The Tidal Umbra Reckoning". No Matt-call escalation.
+
+### Combined cost projection
+
+Wave B re-fire ~$1.00 + Wave-S retroactive ~$0.045 = ~$1.05 total (2.1% of $50 cap). Forward per-season add: ~$0.015 Wave-S only.
+
+### Next sequencing — auto-routing per hive-mind decision-routing
+
+1. **Star-lord Scope 2** — Wave-S LLM infrastructure implementation per gandalf spec — FIRING NOW
+2. **Rocket combined dispatch** (post-star-lord Scope 2): Wave B persistence fix + Wave-S orchestrator integration + retroactive execution + MIGRATION.md + tests
+3. **Drax loadout refresh** (post-rocket, per Matt verbatim): consume wave_b_identities.json + season_name; summary tab UI per-kit names + season-name header; iterate Wanderer placeholder; document § 12 hero card "marquee of [season_name]"
+
+**KR HOLD STATUS:** Step 7 closed at all 5 sub-agents PASS + Track A PASS + Gate-2 PASS-with-INFO. LLM naming-gap follow-on cycle in flight under hive-mind decision-routing. Final Matt-surface at Cycle 14 v1 tag ratification (post-drax close).
