@@ -34,7 +34,7 @@ Single-wave mini-cycle (this is post-v1 polish, not a multi-phase cycle):
 | **W1 (star-lord)** | Extend `cycle14_wave5_emitter.py` to propagate 12 skills + 11 gear + scaling-ratio stat_distribution; re-emit 158 class files; MIGRATION §v1.68 | star-lord | Fires first | **CLOSED 2026-05-30** |
 | **W2 (drax)** | Verify /loadout renders 12 skills as rank-0 uninvested + gear catalog from `gear_representative`; enforce /sample Cycle 15+ scope boundary; banner update; Vercel deploy | drax | Post-W1 amendments applied; FIRED | **CLOSED 2026-05-30** |
 | **W3 (star-lord)** | Chain + T4 emit extension (`chain_composition`, `class_chain_count`, `t4_candidates`, `t4_scope`, `primary_t4` universal); MIGRATION §v1.69; re-emit 158 class files; tag `star-lord/v1.69-cycle-14-chain-t4-emit-extension-1` | star-lord | Per gandalf consolidated follow-on Stage 1; FIRING | **COMPLETE 2026-05-30 (Option A re-fire)** |
-| **W4 (drax)** | UI wiring: skills × chain × tier grouping (Loadout + Sample); chain composition kit-level structural; Primary T4 fixed slot; Sample active Layer 2 T4 selection; Loadout toggleable Layer 2 T4 unlocks (D66 radio-button); Vercel Production deploy | drax | Per gandalf consolidated follow-on Stage 2; gated on W3 | **PENDING — W3 gate CLEARED; ready to fire** |
+| **W4 (drax)** | UI wiring: skills × chain × tier grouping (Loadout + Sample); chain composition kit-level structural; Primary T4 fixed slot; Sample active Layer 2 T4 selection; Loadout toggleable Layer 2 T4 unlocks (D66 radio-button); Vercel Production deploy | drax | Per gandalf consolidated follow-on Stage 2; fired post W3 clear | **CLOSED 2026-05-30** |
 | **Wind-down (REVISED)** | Mini-cycle close: state-file archival, CHANGELOG entry, milestone tag candidate (`v1.1-cycle-14-wave-close-polish-1` covering W1+W2+W3+W4 bundle), gandalf Pattern A-light queue (stat_distribution Cycle 15+ deferred per Matt 2026-05-30) | knight-rider | After W4 close | PENDING |
 
 ### W3 outcome record (star-lord — COMPLETE 2026-05-30 Option A re-fire)
@@ -79,6 +79,40 @@ Single-wave mini-cycle (this is post-v1 polish, not a multi-phase cycle):
 **Cumulative pattern observation:** KR dispatches make assumptions that seam-owner empirical evidence refines. Quality Criterion blocks + framing-audit Q1-Q3 + Disc #11 are catching them at fire-time before execution. Discipline-stack composition working as designed. But also signals KR dispatch authoring needs more pre-fire empirical grounding before pre-committing assumptions seam-owners would otherwise validate at fire-time.
 
 **Jack-ryan wave-close ratification queue updated** with this cumulative pattern observation.
+
+### W4 outcome record (drax closed 2026-05-30)
+
+| Item | Outcome |
+|---|---|
+| Vercel Production URL | `https://reincarnated-loadout.vercel.app` (READY; production target) |
+| Loadout commit | `51c6e83` |
+| Collab commit | `d052c3d` (completion record append) |
+| Build | 1037 modules; 0 TypeScript errors |
+| Tests | 81/81 PASS |
+| New component | `src/components/Cycle14/Cycle14T4Panel.tsx` (chain summary + Primary T4 fixed slot + Layer 2 T4 dual-mode Loadout/Sample) |
+| Types extension | `ClassData` + new interfaces `ChainComposition`, `T4Candidate`, `PrimaryT4` (all 5 fields optional/additive — no breaking changes) |
+| Loadout mode (Layer 2 T4) | D66 radio-button per doc 40 § 8.3.1; one active at a time; default pre-selects engine-active candidate |
+| Sample mode (Layer 2 T4) | `is_active=True` candidate read-only with "AS-PASSED" badge; no toggle per doc 49 § 1.2 immutable |
+| CHAIN_WIDE_OWN empty-state | Anchored to doc 47 § 4.6.4 universal-guarantee; no "coming soon" framing |
+| Sample.tsx gear-path fix | Upgraded `GearGrid` fallback → `Cycle14GearDisplay` when `gear_representative` present (parallel to W2 Loadout.tsx fix; was a v1.68 surface drax found mid-W4) |
+| Disc #11 application | Drax ran empirical spot-check FIRST this time (learned from W2/W3 catches); no refutation triggered |
+| Discipline #39 scaffold note | Surfaced on Primary T4 fixed value (1.75× constant per kit) — flagged in completion record for jack-ryan ratification queue |
+| Push status | PUSHED — loadout + collab to origin/main |
+
+### Discipline efficacy — W4 application of cumulative pattern
+
+Drax W4 applied Disc #11 empirical inspection FIRST (before code) per the cumulative pattern surfaced in W1+W2+W3 KR-error-catches. This is the discipline-stack composition working downstream: seam-owners now treat KR-routed dispatches with default empirical-verification. Pattern observation upgrade: the W1+W2+W3 catches taught seam-owners to apply the discipline preemptively in W4 — the discipline catches errors AND propagates risk-awareness through the cycle. Worth wave-close canonical-write capture.
+
+### Cycle waves all CLOSED 2026-05-30
+
+| Wave | Final tag / commit |
+|---|---|
+| W1 | `star-lord/v1.68-cycle-14-v1-wave-close-emit-pipeline-extension-1` |
+| W2 | drax loadout `5ec0814` + `bd42fc3` (no explicit tag) |
+| W3 | `star-lord/v1.69-cycle-14-chain-t4-emit-extension-1` (engine `2fef6fa` + loadout `9d1521d`) |
+| W4 | drax loadout `51c6e83` + collab `d052c3d` (no explicit tag) |
+
+**Vercel Production live:** `https://reincarnated-loadout.vercel.app` — all 4 pages (Loadout / Sample / Analytics / Encounters) render real engine substrate at v1.1 polish level.
 
 ### Cycle re-open record 2026-05-30 (post-W2 wind-down draft; pre-W3 fire)
 

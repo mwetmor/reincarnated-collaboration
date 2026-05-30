@@ -4,30 +4,46 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
-## 2026-05-30 — Cycle 14 v1.1 wave-close polish hive-mind mini-cycle CLOSED (2 waves; Quality Criterion + Disc #11 efficacy validation)
+## 2026-05-30 — Cycle 14 v1.1 wave-close polish hive-mind mini-cycle CLOSED (4 waves; 3 KR-error-catches; discipline-stack composition validated)
 
-**Event:** First hive-mind cycle to use Move 1 Quality Criterion blocks (ratified Matt 2026-05-27 KR OP § 3.11). Cycle 14 v1 milestone stays SHIPPED; this was v1.1 polish to close user-visible gap surfaced by gandalf 2026-05-30 — engine emitted 12 real skills + 11 gear slots per kit at phase2_kit_candidates layer, but `cycle14_wave5_emitter.py` §v1.67 emit scope was bounded narrower than engine emission scope (Cumulative Disc #42a Instance 6 pattern surface #8 confirmed).
+**Event:** First hive-mind cycle to use Move 1 Quality Criterion blocks (ratified Matt 2026-05-27 KR OP § 3.11). Cycle 14 v1 milestone stays SHIPPED; this was v1.1 polish surfaced by gandalf 2026-05-30. Cycle extended mid-stream by Matt 2026-05-30 follow-on "wire in T4 nodes... emit the hidden secondary T4" (gandalf consolidated follow-on routing) adding W3+W4.
 
-**Waves:**
-- W1 (star-lord): emit-pipeline extension; tag `star-lord/v1.68-cycle-14-v1-wave-close-emit-pipeline-extension-1`; engine `a9e032d` + loadout `9076092` + collab `eb6345d`; 48 tests PASS (+3); 158 class files re-emitted across 3 wave-5 seasons
-- W2 (drax): render verification; loadout `5ec0814` + `bd42fc3`; Vercel preview READY; 81/81 tests PASS; NEW `Cycle14GearDisplay` component built
+**4 waves:**
+- W1 (star-lord): skills + gear emit-pipeline extension; tag `star-lord/v1.68-cycle-14-v1-wave-close-emit-pipeline-extension-1`; engine `a9e032d` + loadout `9076092`; 158 class files re-emitted; 48 tests PASS
+- W2 (drax): initial render verification + Cycle14GearDisplay build; loadout `5ec0814` + `bd42fc3`; Vercel preview READY; 81/81 tests
+- W3 (star-lord): chain + Layer 2 T4 + Primary T4 universal emit extension; tag `star-lord/v1.69-cycle-14-chain-t4-emit-extension-1`; engine `2fef6fa` + loadout `3c0709c..9d1521d`; 558/558 broader tests; 158 class files re-emitted with chain+T4 (36 CHAIN_WIDE_OWN with empty t4_candidates per `unified_calibration_loop.py:693`)
+- W4 (drax): UI wiring final wave; new Cycle14T4Panel component (chain summary + Primary T4 fixed slot + Layer 2 T4 dual-mode Loadout/Sample); Sample.tsx gear-path correction; loadout `51c6e83`; Vercel PRODUCTION deploy READY
 
-**Two seam-owner catches of KR-routed errors (discipline efficacy validation):**
-- W1 Quality Criterion refutation #41: star-lord caught KR-invented `stat_distribution` Option A taxonomy (1.0/0.1/0.1/0.1 ratios) had no canonical anchor; declined Work-item 3 in-scope; retained 100/10/10/10; queued for gandalf design call
-- W2 Disc #11 empirical inspection: drax caught KR-propagated `Cycle13GearDisplay` reuse recommendation had schema mismatch with actual emitted `gear_representative`; built NEW `Cycle14GearDisplay` per MIGRATION §v1.68 naming
+**3 seam-owner catches of KR-routed errors (cumulative discipline efficacy):**
+- W1 Quality Criterion #41 (star-lord): KR-invented `stat_distribution` Option A taxonomy (1.0/0.1/0.1/0.1) without canonical anchor; SCOPED-DECLINE; retained status quo
+- W2 Disc #11 (drax): KR-propagated Cycle13GearDisplay recommendation had schema mismatch; built NEW Cycle14GearDisplay
+- W3 Disc #11 + Quality Criterion (star-lord): KR refutation condition overly strict — didn't account for engine's `CHAIN_WIDE_OWN_NO_T4` valid state; halted + recommended Option A; KR authorized; re-fire emitted CHAIN_WIDE_OWN kits with empty t4_candidates per doc 47 § 4.6.4 universal-guarantee
 
-**Hive-mind decision-routing (Matt 2026-05-23) functioned as designed:** seam-owners decided in-scope at both catches; KR did NOT escalate to Matt; KR did NOT decide solo. Both Waves closed successfully via seam-owner authority.
+**W4 discipline-stack propagation (positive emergent property):** drax applied Disc #11 FIRST (before code) because of W1+W2+W3 cumulative pattern; no refutation triggered. Also caught + fixed Sample.tsx gear-path fallback issue out-of-dispatch-scope via same spot-check.
+
+**Hive-mind decision-routing (Matt 2026-05-23) functioned at all 3 catches:** seam-owners decided in-scope; KR did NOT escalate to Matt; KR did NOT decide solo. All 4 Waves closed successfully via seam-owner authority.
+
+**Pattern surface for jack-ryan ratification queue:**
+- KR-authored dispatches that pre-author taxonomies (#41) without canonical anchor
+- KR-propagated cross-seam recommendations need receiving-seam empirical re-verification
+- KR refutation conditions must enumerate engine-canonical valid states (cite source)
+- Discipline-stack propagation through cycle waves (encouraged practice canonical-write candidate)
+
+**Push pattern shift:** mid-cycle established AUTO-PUSH per gandalf 2026-05-30 note (supersedes prior single-push-auth-at-wind-down). All 3 repos pushed during cycle execution.
 
 **Pending Matt asks at wind-down:**
-- Push-auth for 3 repos (engine + loadout + collab; 7 commits + 1 tag batched)
-- Milestone tag candidate `v1.1-cycle-14-wave-close-polish-1` across 3 repos
-- Cycle-15-vs-v1.2 scope decision (gated on gandalf Pattern A-light return on stat_distribution design call)
+- Milestone tag candidate `v1.1-cycle-14-wave-close-polish-1` across 3 repos (suggested tag points: engine `2fef6fa`, loadout `51c6e83`, collab tip after wind-down push)
+- Cycle 15 hand-off — stat_distribution design call + investment_points compute + color_palette + seasonal_cipher + t4_substrate_binding + convergence-loop balance metadata bundled
+
+**Vercel Production live:** `https://reincarnated-loadout.vercel.app` — all 4 pages render real engine substrate at v1.1 polish level.
 
 **Companion docs:**
 - `agentic_orchestration/cycle-14-v1-1-wave-close-polish-hive-mind-state.md` (state file; archived post wind-down)
-- `agentic_orchestration/cycle-14-v1-1-wave-close-polish-wind-down-summary-2026-05-30.md` (wind-down summary)
-- `agentic_orchestration/dispatches/2026-05-30-star-lord-cycle-14-v1-wave-close-emit-pipeline-extension.md` (W1 dispatch + completion record)
-- `agentic_orchestration/dispatches/2026-05-30-drax-cycle-14-v1-wave-close-render-verification.md` (W2 dispatch + completion record)
+- `agentic_orchestration/cycle-14-v1-1-wave-close-polish-wind-down-summary-2026-05-30.md` (wind-down summary; extended for W3+W4)
+- W1: `dispatches/2026-05-30-star-lord-cycle-14-v1-wave-close-emit-pipeline-extension.md`
+- W2: `dispatches/2026-05-30-drax-cycle-14-v1-wave-close-render-verification.md`
+- W3: `dispatches/2026-05-30-star-lord-cycle-14-v1-1-w3-chain-t4-emit-extension.md`
+- W4: `dispatches/2026-05-30-drax-cycle-14-v1-1-w4-ui-wiring-chain-t4.md`
 
 ---
 
