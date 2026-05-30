@@ -3,9 +3,11 @@
 **Cycle name:** cycle-14-v1-1-wave-close-polish
 **Mode:** A (knight-rider orchestration via parallel/serial sub-agent invocation)
 **Entry path:** Path A (Matt 2026-05-30 verbatim: "fire star lord as a sub agent. please enter hive mind state (mode A)")
-**Authorization:** Matt α-option fire 2026-05-30 in response to gandalf surface routing
+**Authorization:** Matt α-option fire 2026-05-30 + Matt 2026-05-30 follow-on verbatim "wire in T4 nodes... emit the hidden secondary T4" (captured via gandalf consolidated follow-on routing)
 **Cycle 14 v1 milestone status:** SHIPPED `v1-cycle-14-bounded-viability-substrate-led-1` 2026-05-29 — stays SHIPPED; this mini-cycle is v1.1 polish, not v1 rework
+**Cycle extended 2026-05-30 with W3+W4** (gandalf consolidated follow-on; pre-wind-down)
 **State-file path:** `agentic_orchestration/cycle-14-v1-1-wave-close-polish-hive-mind-state.md` (this file)
+**Push pattern:** AUTO-PUSH established this cycle (gandalf note 2026-05-30; supersedes prior single-push-auth-at-wind-down framing)
 
 ---
 
@@ -31,7 +33,19 @@ Single-wave mini-cycle (this is post-v1 polish, not a multi-phase cycle):
 |---|---|---|---|---|
 | **W1 (star-lord)** | Extend `cycle14_wave5_emitter.py` to propagate 12 skills + 11 gear + scaling-ratio stat_distribution; re-emit 158 class files; MIGRATION §v1.68 | star-lord | Fires first | **CLOSED 2026-05-30** |
 | **W2 (drax)** | Verify /loadout renders 12 skills as rank-0 uninvested + gear catalog from `gear_representative`; enforce /sample Cycle 15+ scope boundary; banner update; Vercel deploy | drax | Post-W1 amendments applied; FIRED | **CLOSED 2026-05-30** |
-| **Wind-down** | Mini-cycle close: state-file archival, CHANGELOG entry, milestone tag candidate (`v1.1-cycle-14-wave-close-polish-1`), single push-auth ask, gandalf Pattern A-light on stat_distribution design call | knight-rider | After W2 close | **IN FLIGHT 2026-05-30** |
+| **W3 (star-lord)** | Chain + T4 emit extension (`chain_composition`, `class_chain_count`, `t4_candidates`, `t4_scope`, `primary_t4` universal); MIGRATION §v1.69; re-emit 158 class files; tag `star-lord/v1.69-cycle-14-chain-t4-emit-extension-1` | star-lord | Per gandalf consolidated follow-on Stage 1; FIRING | **FIRING 2026-05-30** |
+| **W4 (drax)** | UI wiring: skills × chain × tier grouping (Loadout + Sample); chain composition kit-level structural; Primary T4 fixed slot; Sample active Layer 2 T4 selection; Loadout toggleable Layer 2 T4 unlocks (D66 radio-button); Vercel Production deploy | drax | Per gandalf consolidated follow-on Stage 2; gated on W3 | **PENDING-GATE on W3** |
+| **Wind-down (REVISED)** | Mini-cycle close: state-file archival, CHANGELOG entry, milestone tag candidate (`v1.1-cycle-14-wave-close-polish-1` covering W1+W2+W3+W4 bundle), gandalf Pattern A-light queue (stat_distribution Cycle 15+ deferred per Matt 2026-05-30) | knight-rider | After W4 close | PENDING |
+
+### Cycle re-open record 2026-05-30 (post-W2 wind-down draft; pre-W3 fire)
+
+Gandalf consolidated follow-on dispatch routed via Matt 2026-05-30 verbatim "wire in T4 nodes... emit the hidden secondary T4." Cycle re-opened from wind-down state. KR authored:
+- W3 dispatch: `dispatches/2026-05-30-star-lord-cycle-14-v1-1-w3-chain-t4-emit-extension.md` (with Quality Criterion block per § 3.11)
+- W4 dispatch: `dispatches/2026-05-30-drax-cycle-14-v1-1-w4-ui-wiring-chain-t4.md` (with Quality Criterion block; gated on W3)
+
+Push pattern shifted from "single push-auth at wind-down" to AUTO-PUSH established this cycle (gandalf note). Matt asks from W2 wind-down (push-auth + milestone-tag + Cycle-15-vs-v1.2 scope) carry forward; revised wind-down bundles W1+W2+W3+W4 into single milestone-tag ask.
+
+Cumulative Disc #42a Instance 6 surface count: now 4 surfaces in 48h (Path X / Phase 5 element aggregator / W1 emit / W3 chain+T4 emit). Jack-ryan wave-close consolidation candidate registered as sub-discipline "engine-emit-pipeline-scope-bounded-narrower-than-engine-emission."
 
 ### W1 outcome record (star-lord closed 2026-05-30)
 
