@@ -5669,3 +5669,22 @@ Tag candidate: `v1-cycle-14-bounded-viability-substrate-led-1`
 | § 12.5 Cycle 14 v1 tag ratification | Matt | FINAL REQUIRED MATT SURFACE |
 
 All loadout app surface routes (/pitch + /analytics + /encounters + /loadout + /sample + summary) now render Cycle 14 v1 substrate-honest data. Player-facing v1 coherent.
+
+---
+
+## CASCADE-R4 V1 CLOSE — Matt-curated hero image swap 2026-05-29 (loadout `6f490e0`)
+
+**Matt verbatim:** "I added a new version of the hero of the season at this link (wearing weapon/shield/amulet). Please replace the hero of the season and the hero of the engine with this hero picture/name/flavor in the summary tab. I will share animation link shortly as well."
+
+**Wire-up by KR directly (mechanical seam-edit; no sub-agent overhead):**
+- New Matt-curated image copied from `~/.claude/image-cache/c88e3121-4295-4e38-b24d-36416e8fbcca/1.png` to `reincarnated-loadout/public/pitch/heroes/season_001_hero.png` (1024×1024 PNG; replaces drax-generated)
+- `HERO_OF_ENGINE` in `src/data/pitch/pitchData.ts` swapped: Canary of the Drowned Seam (season_002013 fire_mage; legacy showcase) → Crushguard of the Shattered Gate (cycle-14-wave-5-season-001 Cluster 3 Ironfield Vanguard physical_ironclad; cascade-r4 v1 post-aggregator-fix substrate-honest output)
+- Name + flavor sourced from drax wave_b_identities.json (kit `S1_endgame_bc_melee_high_flat_str_none_s0`; ACCEPT 0.82)
+- Both Hero of the Season AND Hero of the Engine now point to the same Matt-curated image
+- Build clean (878 modules; 0 TS errors); pushed; Vercel auto-deploy firing
+
+**Image content (from Matt):** ironclad crusader in dark plate armor with gold-trimmed cross motifs, holding rune-glowing War Hammer (gold runes on hammerhead) in right hand, heater shield with gold cross emblem in left hand, cross amulet on chest. European medieval; physical-force iron + holy-gold theming.
+
+**Composition with substrate-honest narrative:** the substrate spoke through Cluster 3 (physical 33% + holy 22% + STR War Hammer + close-AOE BC profile + european medieval cultural lineage); LLM composed "Crushguard of the Shattered Gate" from that substrate after the cascade-r4 aggregator fix surfaced physical truth. Matt's curated image visually matches the substrate-derived narrative perfectly — the engine + Matt arrived at the same player-facing identity from the same substrate.
+
+**Awaiting Matt § 12.3 Meshy animation URL** for § 12.4 portraitPath swap from static PNG → animated embed.
