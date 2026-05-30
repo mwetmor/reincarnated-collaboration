@@ -5881,3 +5881,82 @@ Matt directives composed this session (all CLOSED):
 Cumulative wave-close canonical-write queue: 21 items.
 Player-facing Cycle 14 v1 SHIPPED + POLISHED.
 
+
+---
+
+## CASCADE-R4 V1 SESSION-END FINAL CLOSE 2026-05-29 — Model-viewer height + drax adapter cleanup CLOSED
+
+### Model-viewer height fix (loadout `32053b9`)
+
+Matt: "extend the height by triple or more (to match height of the text boxes near it, defining it?"
+
+KR direct edit: model-viewer aspect-ratio `3/4` → `1/2`. Height at lg breakpoint: 540×720px → 540×1080px (50% increase; on mobile max-420px renders ~840px tall). Auto-rotate + camera-controls preserved. Build clean; pushed.
+
+### Drax adapter cleanup CLOSED (loadout `d97462f` + `d28f1e4`; collab `6880cb4`; tag `drax/v1.0-cascade-r4-v1-session-end-adapter-cleanup-1`)
+
+Matt: "surface all of the loadout, sample, analytics and encounter page data that star-lord has now wired in."
+
+KR ack: task #30 (drax post-star-lord adapter removal) was premature-closed in error; this dispatch is the deferred cleanup.
+
+**Drax cleanup:**
+- `src/data/cycle14Adapter.ts` DELETED (319 lines)
+- `useSeasonData.ts` cleaned: removed CYCLE14_SEASON_DATA import + 7-line injection block; 87 lines total now with zero adapter references
+- Vite glob `../../data/*/manifest.json` auto-discovers all 3 star-lord-emitted manifests + 158 class files
+- `selectableSeasons` enumerates Cycle 14 seasons entirely via glob (no adapter injection)
+- Violet "engine-emission pending" banner removed
+- `isCycle14AdapterSeason` discriminant removed from Loadout.tsx + Sample.tsx
+- TODO(star-lord) annotations removed throughout
+- **Amber banner retained** with honest text: "Kit identities, faction clusters, and balance metadata (win rates, quality vectors, cohort) are real engine output. Skill names and descriptions are substrate-derived placeholders — full skill tree generation requires a Cycle 15+ engine run."
+
+**All 4 pages live with real engine data:**
+- /loadout: kit names + flavor + balance_metadata (actual_winrate + quality_vector + cohort) from star-lord emission
+- /sample: same
+- /analytics: Cycle14AnalyticsSection real fields
+- /encounters: substrate-derived placeholder (encounter sim Cycle 15+; expected gap; no routing trigger)
+
+**Data-contract gaps surfaced (Cycle 15+ scope; not v1 blocking):**
+- `gearPool: []` — gear_instance_generator not run for wave-5
+- `skills`: single placeholder per kit with `phase5_is_placeholder: true` — full skill tree gen requires Cycle 15+
+- `balance_metadata.final_modifier` / `convergence_iterations` / `converged`: null (no balance-loop convergence ran for wave-5)
+
+Production deploy `dpl_DSsWYePohEWkm3EsMwSHBaettY2o` Ready on https://reincarnated-loadout.vercel.app. Bundle verified zero adapter strings.
+
+### SESSION FINAL STATUS — Cycle 14 v1 SHIPPED
+
+Matt directives composed across session: ALL CLOSED.
+
+Session handoff filed: `agentic_orchestration/skill_handoff_2026-05-29.md`
+CHANGELOG entry: `agentic_orchestration/CHANGELOG.md` (Cycle 14 v1 milestone documented; cumulative metrics + critique-pair chain captured)
+
+Cumulative wave-close canonical-write queue: 21 items (jack-ryan + gandalf + KR canonical-write targets for Cycle 15+ entry).
+
+Cumulative session cost: ~$5.28 (10.5% of $50 cap).
+
+Substrate-led discipline preserved throughout. KR routing-discipline drift twice corrected by Matt (integration-over-parallel-section; substrate-honest name preservation); both captured for canonical-write.
+
+Engine first. Game second. Phase third. Cycle 14 v1 SHIPPED.
+
+---
+
+## CASCADE-R4 V1 SESSION-END FINAL CLOSE 2026-05-29 — Model-viewer height + drax adapter cleanup CLOSED
+
+### Model-viewer height fix (loadout `32053b9`)
+
+Matt: "extend the height by triple or more (to match height of the text boxes near it, defining it?"
+KR direct edit: model-viewer aspect-ratio `3/4` → `1/2`. Height at lg: 540×720 → 540×1080 (50% increase from prior; 3x+ from original 280px container). Auto-rotate + camera-controls preserved.
+
+### Drax adapter cleanup CLOSED (loadout `d97462f` + `d28f1e4`; collab `6880cb4`; tag `drax/v1.0-cascade-r4-v1-session-end-adapter-cleanup-1`)
+
+Matt: "surface all of the loadout, sample, analytics and encounter page data that star-lord has now wired in."
+KR ack: task #30 was premature-closed in error; this dispatch is the deferred cleanup.
+
+cycle14Adapter.ts DELETED. useSeasonData glob auto-discovers all 3 star-lord-emitted manifests + 158 class files. Violet banner removed. All 4 pages live with real engine data. Amber banner retained with honest "skill descriptions are substrate-derived placeholders" framing (full skill tree requires Cycle 15+ engine run).
+
+### SESSION FINAL STATUS — Cycle 14 v1 SHIPPED
+
+Session handoff: `agentic_orchestration/skill_handoff_2026-05-29.md`
+CHANGELOG entry: filed (Cycle 14 v1 milestone documented)
+Cumulative wave-close canonical-write queue: 21 items
+Cumulative session cost: ~\$5.28 (10.5% of \$50 cap)
+
+Engine first. Game second. Phase third. Cycle 14 v1 SHIPPED.

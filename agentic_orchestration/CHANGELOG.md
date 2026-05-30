@@ -4,6 +4,56 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-29 — Cycle 14 v1 SHIPPED — `v1-cycle-14-bounded-viability-substrate-led-1` milestone tag (3 repos)
+
+**Event:** Cycle 14 v1 milestone tag fired across all 3 repos capturing player-facing v1 launch of substrate-led-emergence engine output. Tag `v1-cycle-14-bounded-viability-substrate-led-1` on:
+- reincarnated-engine @ `818a4ca` (Phase 5 element_distribution aggregator remediation close)
+- reincarnated-loadout @ `2985f0b` (Cycle 14 integration refactor close)
+- reincarnated-collaboration @ `a55133e` (KR state capture)
+
+All 3 pushed to origin/main 2026-05-29.
+
+**What ships at v1:**
+- Substrate-led faction emergence (4 factions per season; 3 seasons) via Path X (Phase 4 archive → Phase 5 PM-1 wire-up; rocket)
+- Wanderer architecture (substrate-elected SINGLETON kits; gamora Amendment 1)
+- 4 LLM waves (Wave A faction-naming + F-C relationship + Wave-S season-naming + Wave B per-kit identity) with star-lord implementation + gandalf design specs
+- 100% kit-name coverage (star-lord nameless-kit remediation; parse-failure retry; substrate-derived fallback backstop)
+- Substrate-honest element distribution (Instance 6 #8 aggregator drift resolved; physical element no longer dropped + lightning no longer over-reported 3-4×)
+- Player-facing Vercel app: 6 routes (`/pitch` + `/loadout` + `/sample` + `/analytics` + `/encounters` + summary) all surfacing real engine substrate
+- 3D animated hero (Meshy GLB via Google `<model-viewer>` web component)
+- Cycle 14 v1 Summary page Season 002 marquee (4 faction sections + group portraits + per-kit individuals)
+
+**Cumulative metrics:**
+- ~$5.28 total LLM + image-gen spend (10.5% of $50 cap)
+- 3 seasons × ~54 kits = 162 total kits with 100% name coverage
+- 158 manifest+classes JSON files emitted to loadout repo
+- 32 ChatGPT API images (hero + gear + Season 002 marquee + re-roll)
+- 21+ wave-close canonical-write queue items captured
+
+**Critique-pair chain across cascade-r4 + follow-on:**
+- gandalf design specs (Wave-S; aggregator remediation; A/B testing scope; Wanderer architecture)
+- rocket implementation (Path X; Track A seasons 002+003; aggregator fix; manifest emission script)
+- gamora Wanderer architecture (substrate-elected SINGLETON + Phase 7 verdict split + scale-relative compactness floor)
+- star-lord Wave-S LLM infrastructure + Wave B parse_failure retry + manifest+classes engine emission
+- jack-ryan Gate-2 PASS-with-INFO on Path X + Wanderer architecture + Instance 6 #8 framing-audit
+- galadriel § 12.1 hero pair + Season 002 marquee design + visual-coherence reads
+- legolas image-gen prompts (Cycle 14 v1 + Season 002 marquee)
+- drax /pitch + /analytics + /encounters + /loadout + /sample integration + Season 002 marquee reshape + adapter cleanup + Meshy 3D embed
+
+**Cycle 15+ scope deferred:**
+- Full skill_emitter + gear_instance_generator + encounter sim production runs (per-kit skill content; gear pool population; encounter analytics)
+- 21-item canonical-write queue (jack-ryan + gandalf + KR canonical write targets)
+- ARPG community vocabulary research sprint (legolas + elrond)
+- A/B testing execution per gandalf Track C scope filing
+- LLM cache refactor (star-lord; AsyncAnthropic → LLMClient routing for recoverability)
+- config_to_kit collision fix (Instance 6 #5/#6 deferred)
+- Wanderer substrate-tag-vs-SINGLETON-cluster disjoint investigation
+- Gauntlet defensive cohort midpoint calibration (jack-ryan INFO-3)
+
+**Session handoff:** `skill_handoff_2026-05-29.md` filed with complete repo state + cost ledger + Cycle 15+ pickup options.
+
+---
+
 ## 2026-05-26 — Phase 5 EMPIRICALLY COMPLETE — `v2.1-phase-5-t4-narration-complete` milestone tag + T4 PM1 READY
 
 **Event:** Post-fast-follow milestone tag fired (engine `v2.1-phase-5-t4-narration-complete` @ `69970aa`; pushed to origin/main 2026-05-26) capturing the substantively-complete v2_narrow_phase_5 production deploy after a multi-session fast-follow chain that resolved 6 empirical conditions across engine + loadout surfaces.
