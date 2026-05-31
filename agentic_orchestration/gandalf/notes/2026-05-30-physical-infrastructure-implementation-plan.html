@@ -1005,6 +1005,76 @@ psql -U matt -h localhost -c 'DROP DATABASE reincarnated_restore_test;'</code></
 <tr><td>Quarterly archive (optional)</td><td>Quarterly</td><td>Last 4 quarters</td><td>External HDD or cloud (Phase 4)</td></tr>
 </table>
 
+<h3 class="subsection">7.6 Verified file-share restore procedure (Phase 1 — executed 2026-05-30)</h3>
+<div class="callout ok">
+<span class="callout-title">Battle-tested commands from Phase 1 § 7.4 test restore</span>
+<p>This procedure was executed end-to-end during Phase 1 acceptance close. SHA-256 hash match + zero-diff full-tree verified against the live mounted share. Distinct from § 7.4's PostgreSQL-restore commands (Phase 2 territory) — these recover the <strong>file-share archives</strong> that protect engine artifacts, visual outputs, and Meshy handoff files.</p>
+</div>
+
+<p><strong>Scenario:</strong> Pi SD card has died; you have a Mac-side backup archive (<code>~/Backups/reincarnated-pi/shared-YYYY-MM-DD.tar.gz</code>) and need to recover its contents.</p>
+
+<p><strong>(A) Selective single-file recovery:</strong></p>
+<pre><code><span class="comment"># Extract the archive to a scratch dir</span>
+mkdir -p /tmp/restore-test
+tar -xzf ~/Backups/reincarnated-pi/shared-YYYY-MM-DD.tar.gz -C /tmp/restore-test
+
+<span class="comment"># Copy the file(s) you need out of the extracted tree</span>
+cp "/tmp/restore-test/shared/engine-output/SOME_FILE.json" /destination/path/
+
+<span class="comment"># Cleanup scratch when done</span>
+rm -rf /tmp/restore-test</code></pre>
+
+<p><strong>(B) Archive integrity verification (Mac-only; no Pi required):</strong></p>
+<pre><code><span class="comment"># Extract to scratch</span>
+mkdir -p /tmp/restore-test
+tar -xzf ~/Backups/reincarnated-pi/shared-YYYY-MM-DD.tar.gz -C /tmp/restore-test
+
+<span class="comment"># Test 1 — checksum a known file against live mounted share (hashes must match byte-for-byte)</span>
+shasum -a 256 "/Volumes/reincarnated/engine-output/SOME_KNOWN_FILE"
+shasum -a 256 "/tmp/restore-test/shared/engine-output/SOME_KNOWN_FILE"
+
+<span class="comment"># Test 2 — full-tree diff against live mount (expected: no output = no differences)</span>
+diff -r /Volumes/reincarnated/ /tmp/restore-test/shared/
+
+<span class="comment"># Test 3 — verify tree structure complete</span>
+ls -la /tmp/restore-test/shared/engine-output/
+ls -la /tmp/restore-test/shared/visual-artifacts/
+ls -la /tmp/restore-test/shared/meshy-handoff/
+
+<span class="comment"># Cleanup</span>
+rm -rf /tmp/restore-test</code></pre>
+
+<p><strong>(C) Full Pi restore — rebuild Pi-side share from Mac archive:</strong></p>
+<pre><code><span class="comment"># Prerequisite: Pi rebuilt to baseline — OS installed, mwetmor user created,</span>
+<span class="comment"># Samba reinstalled per § 4.2, shared dir hierarchy recreated.</span>
+
+<span class="comment"># 1. Copy archive from Mac to Pi via scp (uses the SSH key auth from § 7.2)</span>
+scp ~/Backups/reincarnated-pi/shared-YYYY-MM-DD.tar.gz reincarnated-pi:/tmp/
+
+<span class="comment"># 2. SSH into Pi and extract to shared parent dir</span>
+ssh reincarnated-pi
+tar -xzf /tmp/shared-YYYY-MM-DD.tar.gz -C /home/mwetmor/data/
+
+<span class="comment"># 3. Fix ownership (extracted files may have admin:wheel from Mac-side ls;</span>
+<span class="comment">#    tar preserves numeric uid/gid which resolve correctly here, but chown belt-and-suspenders)</span>
+sudo chown -R mwetmor:mwetmor /home/mwetmor/data/shared/
+
+<span class="comment"># 4. Verify by checking from Mac via SMB mount</span>
+ls -la /Volumes/reincarnated/
+
+<span class="comment"># 5. Cleanup transit archive on Pi</span>
+rm /tmp/shared-YYYY-MM-DD.tar.gz</code></pre>
+
+<p><strong>Operational notes from Phase 1 execution:</strong></p>
+<ul>
+<li>On Mac extraction, file ownership shows as <code>admin:wheel</code> instead of <code>mwetmor:mwetmor</code> because Mac doesn't have a local <code>mwetmor</code> user. Tar still preserves numeric uid/gid; restoration to Pi resolves correctly via Pi's user database.</li>
+<li><strong>Mac retention is 28 days rolling</strong> (<code>MAC_RETENTION_DAYS=28</code> in <code>~/scripts/pull-pi-backup.sh</code>); <strong>Pi retention is 7 days</strong> (<code>RETENTION_DAYS=7</code> in <code>/home/mwetmor/scripts/backup-shared.sh</code>). Mac archive history exceeds Pi's by ~3 weeks — this is intentional (Mac is the durable history layer).</li>
+<li>Both backup jobs run unattended: Pi cron <code>0 3 * * *</code> daily; Mac launchd <code>com.reincarnated.pi-backup</code> Sunday 04:00 weekly.</li>
+<li>Logs: Pi <code>/home/mwetmor/backups/backup.log</code>; Mac <code>~/Backups/reincarnated-pi/pull.log</code>; launchd stdio at <code>~/Backups/reincarnated-pi/launchd.out.log</code> + <code>launchd.err.log</code>.</li>
+<li>SSH key for Mac→Pi passwordless rsync: <code>~/.ssh/reincarnated-pi</code> private + <code>~/.ssh/reincarnated-pi.pub</code> public; Host entry in <code>~/.ssh/config</code> for <code>reincarnated-pi</code> shortname.</li>
+<li><strong>Worked-around gotcha:</strong> Warp terminal's smart-paste auto-indents multi-line pastes, which breaks heredoc terminators and adds leading whitespace to script content. Mac's built-in Terminal.app preserves pastes verbatim — use it for heredoc edits.</li>
+</ul>
+
 </section>
 
 <!-- =================================================================== -->
