@@ -4,6 +4,28 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-05-31 — Pi infrastructure Phase 1 substantively CLOSED (Samba file sharing + backup discipline + engine output env-var scaffolding)
+
+**Event:** Pi infrastructure Phase 1 substantively complete per gandalf 2026-05-31 surface. Acceptance gate § 15.1 in HTML implementation plan: **6 of 8 criteria fully met** (1, 2, 4 scaffolding, 5, 6, 7); criterion 3 (PC mount) deferred per explicit allowance; criterion 8 (team-familiarity distribution) routes to next wave-close.
+
+**Verified-restore procedure** § 7.6 committed at gandalf `53b64e5` (collab repo, unpushed pending Matt-explicit-authorization per ADR-006).
+
+**Workstream 1A gate-release** per HTML implementation plan § 17.6 "Once Phase 1 is closed — Return to gandalf session for Workstream 1A Pattern B design conversation (substrate / vector / categorical axis expansion + measurement architecture, including flavor elements as new measured axis + Phase 5 LLM call architecture amendment per recent design proposal). Gates release once Pi Phase 1 closes." **GATE RELEASED** — gandalf + Matt may engage Pattern B at Matt's discretion.
+
+**Companion docs (state tracked across):**
+- `canonical/story/2026-05-30-pi-middleware-mac-to-pc-architecture.md` (canonical commitment)
+- `agentic_orchestration/gandalf/notes/2026-05-30-pi-infrastructure-rollout-per-agent-per-seam-directions.md` (per-seam directions)
+- `agentic_orchestration/gandalf/notes/2026-05-30-physical-infrastructure-implementation-plan.html` § 7.6 + § 15.1 + § 17.6 (HTML plan, deployed at `https://reincarnated-loadout.vercel.app/planning/implementation-plan`)
+
+**No dedicated Pi hive-mind state file exists** — Pi work proceeded as Mode B routine dispatches against canonical doc + per-seam directions; CHANGELOG is the team-level state record per ADR pattern.
+
+**Pending Matt-explicit-authorization at this entry:**
+- Push of gandalf `53b64e5` + this KR CHANGELOG commit to origin/main (collab repo)
+
+**Phase 2 + Phase 3 NOT YET ACTIVE** — those gate on Pi Phase 1 + PC online + Unreal configured + dispatch fire from KR; tracked in per-seam directions doc § 2.2 + § 3.2 etc.
+
+---
+
 ## 2026-05-30 — Cycle 14 v1.1 wave-close polish hive-mind mini-cycle CLOSED (4 waves; 3 KR-error-catches; discipline-stack composition validated)
 
 **Event:** First hive-mind cycle to use Move 1 Quality Criterion blocks (ratified Matt 2026-05-27 KR OP § 3.11). Cycle 14 v1 milestone stays SHIPPED; this was v1.1 polish surfaced by gandalf 2026-05-30. Cycle extended mid-stream by Matt 2026-05-30 follow-on "wire in T4 nodes... emit the hidden secondary T4" (gandalf consolidated follow-on routing) adding W3+W4.
