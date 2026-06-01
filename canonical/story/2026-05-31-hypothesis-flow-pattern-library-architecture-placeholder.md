@@ -1,6 +1,6 @@
 # Hypothesis Flow + Pattern Library Architecture — PLACEHOLDER FOR REFINEMENT
 
-> **STATUS:** PLACEHOLDER (refinement iteration 7 — 2026-06-01) — pre-commitment architectural draft. Iter 1: gauntlet provisional + manifestation Phase 1/2 + retroactive + WS1A.4 + three-layer validation. Iter 2: P4 → creation-moment-memorability. Iter 3: 7 mechanism families → three-layer treatment (Layer 1 P1-P5 / Layer 2 mechanism-structural / Layer 3 observational); "Family B gap" framing retired. **Iter 4: multi-axis experiential architecture** per Matt 2026-06-01 observation that 6 primary archetype labels (Bossing / Speedfarm / Push / Generalist / Leveling / League Starter) aren't a flat enum — they decompose into orthogonal axes (Progression-Stage / Target-Pattern / Depth-vs-Breadth) plus additional axes (Mode / Activity-Format / Loot-Focus / Maxroll 5-axis). Axis-type taxonomy (Identity / Viability / Mode / Sub) treats each axis differently; cell shape framework (Specialized / Hybrid / Generalist / Anti-specialization) declares intended profile shape; Leveling-as-viability-axis hypothesis per Reincarnated 50-level + 85%-leveling-only structure (pending playtest validation); genre-relative LE-to-D3 moderate specialization positioning; mutual exclusivity preference framed as substrate-led empirically validated, not pre-imposed. **Iter 5: pipeline placement decision LOCKED** — Phase 5+ LLM naming (per-skill flavor judgment + skill naming + cohesion clustering + Wave A/B naming) fires AFTER Pareto reduction (Option A; on ~30 kits not ~650); cost-efficient (~$1.50-4.50/cycle vs $30-90); cohesion judge n=30 sufficient for meaningful clustering (~3-5 emergent factions); Option B (pre-Pareto naming with faction-aware reduction) deferred to future refinement gated on playtest evidence of natural-faction-loss; substrate-led discipline composes with gauntlet provisional recognition (don't compound provisionality without empirical validation). **Iter 6: Mode axis REMOVED** per Matt observation that Hardcore/Softcore would not differentiate player experience across kits — all kits available within both modes. Mode is player-session-level choice, not kit-architecture-level property. HC-viability (if HC mode added later) becomes higher Survivability threshold within existing Viability axis treatment, NOT a separate axis. Removed: `mode_axis` field; MODE_HARDCORE/MODE_SOFTCORE/MODE_EITHER flags; AXIS_TYPE_MODE classification. Added: `VIABILITY_HC_SURVIVABILITY_PASS` conditional gate within Viability axis flags. **Iter 7: multi-source hypothesis generation across launch lifecycle** — Matt observation that methodology should include real player game telemetry + community-derived telemetry (Reincarnated-hosted community sites + third-party community sites + blogs + social posts) as engine learnings. § 2.4 NEW sub-section covers availability-gated hypothesis source scaling across launch lifecycle (pre-launch → alpha → soft-launch → full launch → mature ecosystem); real-player-telemetry methodology (Stage 1 input expanded; star-lord seam composition); community-derived telemetry ingest architecture (3 channels: Reincarnated-hosted + third-party + distributed); substrate-led discipline applied fractally at post-launch player-experience layer; pre-launch architectural decisions surfaced (telemetry event set / retention policy / community site timing). Synthesizes 2026-05-29 ARPG community research sprint output + designer-writes-substrate / player-names-experience principle + 5-property substrate framework + 7-mechanism-family taxonomy + experiential cascade architecture recognition + Matt 2026-05-31 hypothesis-flow methodology articulation + 2026-06-01 refinements. **Not a commitment.** Document is the substrate for ongoing Pattern B refinement conversation that produces the committed architecture.
+> **STATUS:** PLACEHOLDER (refinement iteration 8 — 2026-06-01) — pre-commitment architectural draft. Iter 1: gauntlet provisional + manifestation Phase 1/2 + retroactive + WS1A.4 + three-layer validation. Iter 2: P4 → creation-moment-memorability. Iter 3: 7 mechanism families → three-layer treatment (Layer 1 P1-P5 / Layer 2 mechanism-structural / Layer 3 observational); "Family B gap" framing retired. **Iter 4: multi-axis experiential architecture** per Matt 2026-06-01 observation that 6 primary archetype labels (Bossing / Speedfarm / Push / Generalist / Leveling / League Starter) aren't a flat enum — they decompose into orthogonal axes (Progression-Stage / Target-Pattern / Depth-vs-Breadth) plus additional axes (Mode / Activity-Format / Loot-Focus / Maxroll 5-axis). Axis-type taxonomy (Identity / Viability / Mode / Sub) treats each axis differently; cell shape framework (Specialized / Hybrid / Generalist / Anti-specialization) declares intended profile shape; Leveling-as-viability-axis hypothesis per Reincarnated 50-level + 85%-leveling-only structure (pending playtest validation); genre-relative LE-to-D3 moderate specialization positioning; mutual exclusivity preference framed as substrate-led empirically validated, not pre-imposed. **Iter 5: pipeline placement decision LOCKED** — Phase 5+ LLM naming (per-skill flavor judgment + skill naming + cohesion clustering + Wave A/B naming) fires AFTER Pareto reduction (Option A; on ~30 kits not ~650); cost-efficient (~$1.50-4.50/cycle vs $30-90); cohesion judge n=30 sufficient for meaningful clustering (~3-5 emergent factions); Option B (pre-Pareto naming with faction-aware reduction) deferred to future refinement gated on playtest evidence of natural-faction-loss; substrate-led discipline composes with gauntlet provisional recognition (don't compound provisionality without empirical validation). **Iter 6: Mode axis REMOVED** per Matt observation that Hardcore/Softcore would not differentiate player experience across kits — all kits available within both modes. Mode is player-session-level choice, not kit-architecture-level property. HC-viability (if HC mode added later) becomes higher Survivability threshold within existing Viability axis treatment, NOT a separate axis. Removed: `mode_axis` field; MODE_HARDCORE/MODE_SOFTCORE/MODE_EITHER flags; AXIS_TYPE_MODE classification. Added: `VIABILITY_HC_SURVIVABILITY_PASS` conditional gate within Viability axis flags. **Iter 7: multi-source hypothesis generation across launch lifecycle** — Matt observation that methodology should include real player game telemetry + community-derived telemetry (Reincarnated-hosted community sites + third-party community sites + blogs + social posts) as engine learnings. § 2.4 NEW sub-section covers availability-gated hypothesis source scaling across launch lifecycle (pre-launch → alpha → soft-launch → full launch → mature ecosystem); real-player-telemetry methodology (Stage 1 input expanded; star-lord seam composition); community-derived telemetry ingest architecture (3 channels: Reincarnated-hosted + third-party + distributed); substrate-led discipline applied fractally at post-launch player-experience layer; pre-launch architectural decisions surfaced (telemetry event set / retention policy / community site timing). **Iter 8: endgame content type architecture — player-input procedural map generation (Matt 2026-06-01 PROPOSED)** — Matt observation that Depth-vs-Breadth axis requires multiple endgame content types to be meaningful, plus Matt elegant two-bird-one-stone proposal: extend existing planned procedural map generation with player input modifiers + unlimited scaling via input selection (similar to PoE 1/2 maps but ≤3 multiplicative layers per coupling architecture discipline). Single content design activates 5+ axes (Depth-vs-Breadth + Activity-Format + Target-Pattern + Loot-Focus + Push tier-scaling). Uber-Bosses emerge from boss-input maps (no separate content type needed); infinite-tower equivalent via tier-scaling progression (no separate content type needed). Composes with cascade architecture (anti-faction inputs) + ≤3 layer coupling discipline (LE Monolith pattern target). § 1.8.7 NEW sub-sub-section + § 3.5 Activity-Format axis values stabilized + § 4.1 Activity-Format flags (9 input-category flags) + § 8h 7 new open questions. ARCHITECTURAL COMMITMENT STATUS: PROPOSED PLAYTEST-PENDING (Matt 2026-06-01 game-design proposal; not yet canonically committed; warrant for separate canonical recognition record per Q54). Synthesizes 2026-05-29 ARPG community research sprint output + designer-writes-substrate / player-names-experience principle + 5-property substrate framework + 7-mechanism-family taxonomy + experiential cascade architecture recognition + Matt 2026-05-31 hypothesis-flow methodology articulation + 2026-06-01 refinements. **Not a commitment.** Document is the substrate for ongoing Pattern B refinement conversation that produces the committed architecture.
 
 **Date:** 2026-05-31
 **Author:** gandalf (story-and-design steward)
@@ -431,6 +431,53 @@ Quick designer-mode positioning to anchor the Reincarnated specialization prefer
 
 **Designer hypothesis (pending playtest validation):** Reincarnated targets **LE-to-D3 level moderate specialization** with a strong Leveling viability gate. Specialization at identity-axis layer (Target-Pattern + Depth-vs-Breadth) preserves commercial differentiation + identity strength. Universal viability at Leveling axis honors structural constraints. End-game-tier extreme specialization (PoE-style) reserved for high-investment cells targeting the 15% endgame population.
 
+#### 1.8.7 Endgame content type architecture — player-input procedural map generation (Matt 2026-06-01 iter 8 proposal)
+
+**The prerequisite gate Matt identified:** the Depth-vs-Breadth axis requires multiple endgame content types to be meaningful (Push specializes INTO; Generalist generalizes ACROSS). Without multiple content types, the axis collapses. Same gate applies to Activity-Format axis values and to Target-Pattern endgame specialization.
+
+**Matt's proposed solution (iter 8):** extend the existing planned procedural map generation system to accept **player input modifiers** with **unlimited scaling via input selection** (similar to PoE 1/2 maps, but architecturally thinner per coupling-architecture discipline).
+
+**What's already in plan (existing canonical commitments):**
+- Procedural map generation (per existing roadmap)
+- Faction + anti-faction themed map elements (per `canonical/story/2026-05-29-experiential-cascade-architecture-recognition.md`)
+
+**What this iter 8 proposal ADDS:**
+- Player input layer (UI + input selection mechanic at endgame)
+- Input-driven generation parameters (engine accepts input modifiers; substrate-led generation responds)
+- Scaling progression (tier system via input combinations; unlimited scaling encompasses infinite-tower concept)
+
+**Architectural payoff — single content design activates 5+ axes:**
+
+| Axis | Activation via player-input maps |
+|---|---|
+| **Depth-vs-Breadth** | Push = high-tier scaling specialization; Generalist = broad input variety mastery |
+| **Activity-Format** | Input categories become Activity-Format values (boss-rich / mob-dense / currency-rich / magic-find-rich / anti-faction-rich / etc.) |
+| **Target-Pattern** | Bossing = boss-input maps; Speedfarming = mob-density-input maps |
+| **Loot-Focus sub-axis** | Magic-find inputs → loot magic-find sub-axis; currency inputs → loot currency sub-axis |
+| **Maxroll 5-axis Push score** | Activates via tier-scaling specialization |
+
+**Genre composition:**
+
+| Game | Layer count | Reincarnated alignment |
+|---|---|---|
+| D4 Pit | ~1 layer (tier selection) | Lighter than target |
+| **LE Monolith** | **~3 layers (echo + corruption + modifier)** | **TARGET — matches Reincarnated coupling-architecture per sprint synthesis ≤3 layer recommendation** |
+| PoE Maps | 6 layers (map IIR × atlas × scarab × Delirium × pack-size × sextant) | EXCEEDS target — DO NOT replicate |
+
+**Coupling-architecture discipline (per § 1.1.5 Layer 1.5):** Reincarnated's player-input map system MUST stay at **≤3 multiplicative input layers** with **light-multiplicative OR additive coupling** to preserve single-axis archetype viability (per 2026-05-29 ARPG sprint synthesis verdict § 7.5). Avoid PoE-style 6-layer exponential cascade. Target LE Monolith 3-layer simpler-multiplication.
+
+**Uber-Bosses-without-separate-content-type (bonus payoff):** boss-input maps spawn pinnacle bosses within the map system. No separate Uber Boss content type required; bosses emerge from input selection. This composes with genre-canonical pattern (PoE Pinnacle Bosses appear in Atlas at high-tier specific encounters; D4 Tormented Echoes integrate with Helltide / Whisper systems; LE Boss Echoes integrate with Monolith).
+
+**Infinite-tower-without-separate-content-type:** the tier-scaling progression via input combinations IS the infinite tower. Climbing the tier scale = climbing the tower. No separate infinite-tower content type required.
+
+**Scope implication:** bounded addition to existing map generation plan. Estimated 3-6 months engineering after manifestation milestone. Composes with existing cascade architecture (faction inputs map to faction theming; anti-faction inputs map to opposition theming).
+
+**Composition with hypothesis-flow methodology:** the player-input layer is a SUBSTRATE for hypothesis generation. Cells can hypothesize "cells with input-selection-A + tier-N performance profile = build-defining X experience"; engineering tunes generation; playtest validates. Same six-stage cycle; richer substrate.
+
+**Architectural commitment status:** **PROPOSED PLAYTEST-PENDING.** This is Matt 2026-06-01 game-design proposal; not yet canonicalized as committed architecture. Pattern B refinement conversation about player-input system specifics + canonical recognition record authoring + cross-seam routing (gamora engine generation + star-lord pipeline + drax UI + gandalf design) compose toward eventual commitment. Open questions in § 8h cover specifics.
+
+**Iter 8 placeholder doc treatment:** Depth-vs-Breadth axis no longer PROVISIONAL pending content type architecture; instead, it's PROPOSED-PENDING the player-input-procedural-map-generation architecture committing. If that architecture commits → Depth-vs-Breadth axis activates fully. If it doesn't commit → Depth-vs-Breadth axis reverts to PROVISIONAL pending alternative content type architecture.
+
 ---
 
 ## 2. The hypothesis-flow methodology (Matt 2026-05-31 framing)
@@ -768,11 +815,11 @@ Specifies the player-experience profile the cell targets. **Iter 4 refinement (M
 
 **Mode axis — REMOVED per § 1.8 iter 6 amendment.** Mode (HC/SC) is player-session-level choice, not kit-architecture-level property. If Reincarnated adds HC mode, HC-viability is a higher Survivability threshold (`hc_survivability_threshold_pass` viability gate within existing Viability axis treatment), NOT a kit-level field.
 
-**Activity-Format axis (per Reincarnated TBD endgame structure):**
+**Activity-Format axis (per § 1.8.7 PROPOSED player-input procedural map generation):**
 
 | Field | Type | Notes |
 |---|---|---|
-| `activity_format_target` | enum: TBD per Reincarnated endgame | Which endgame activity format the cell specializes for; values determined when Reincarnated endgame structure ships |
+| `activity_format_target` | enum: input category labels (e.g., `boss_rich` / `mob_dense` / `currency_rich` / `magic_find_rich` / `anti_faction_rich` / `mixed` / `tier_scaling_high` / `tier_scaling_broad`) | Per § 1.8.7 iter 8 PROPOSED architecture: Activity-Format values are input category identifiers within the player-input map system. Values stabilize when player-input architecture commits canonically. |
 
 **Loot-Focus sub-axis (within Speedfarming):**
 
@@ -936,11 +983,19 @@ Flags are the engine-side instrument that connects pattern-library cells to gene
 | `LOOT_DROP_DENSITY_FOCUSED` | High-mob-density loot farming |
 | `LOOT_GENERIC_SPEEDFARM` | No loot specialization within Speedfarm |
 
-**Activity-Format axis flags (per Reincarnated TBD endgame structure):**
+**Activity-Format axis flags (per § 1.8.7 PROPOSED player-input procedural map generation; iter 8):**
 
 | Flag | Notes |
 |---|---|
-| `ACTIVITY_FORMAT_*` | Values determined when Reincarnated endgame structure ships; placeholder enum |
+| `ACTIVITY_FORMAT_BOSS_RICH` | Cell targets boss-input maps (Bossing endgame specialization) |
+| `ACTIVITY_FORMAT_MOB_DENSE` | Cell targets mob-density-input maps (Speedfarming endgame specialization) |
+| `ACTIVITY_FORMAT_CURRENCY_RICH` | Cell targets currency-rich input maps (loot-currency sub-axis focus) |
+| `ACTIVITY_FORMAT_MAGIC_FIND_RICH` | Cell targets magic-find-rich input maps (loot-magic-find sub-axis focus) |
+| `ACTIVITY_FORMAT_ANTI_FACTION_RICH` | Cell targets anti-faction-input maps (cascade architecture composition) |
+| `ACTIVITY_FORMAT_MIXED` | Cell performs across mixed input compositions (Generalist) |
+| `ACTIVITY_FORMAT_TIER_SCALING_HIGH` | Cell targets high-tier input combinations (Push specialization; infinite-tower-equivalent depth) |
+| `ACTIVITY_FORMAT_TIER_SCALING_BROAD` | Cell targets broad-tier coverage (sustained-performance Generalist) |
+| `ACTIVITY_FORMAT_PRE_ARCHITECTURE_COMMITMENT` | Marker flag for cells authored BEFORE player-input architecture commits canonically; reactivate-on-commit |
 
 **Emergent archetype labels (OBSERVATIONAL only; output-time post-hoc):**
 
@@ -1651,6 +1706,22 @@ This document is intentionally a placeholder. The following questions need Matt'
 47. **Cross-source signal validation** — when community-derived telemetry suggests Pattern X is build-defining BUT real player telemetry suggests Pattern X is rarely chosen, which signal wins? Substrate-led discipline says "substrate votes" but here multiple substrate channels disagree. Methodology needed for cross-source disagreement resolution.
 
 48. **Substrate-led discipline canonical write at player-experience layer** (per § 2.4.4) — should gandalf author a new canonical refinement of the designer-writes-substrate / player-names-experience principle specifically covering the post-launch player-data layer? Anticipates need; timing TBD.
+
+### 8h. Open questions from iter 8 refinement (endgame content type architecture — player-input procedural map generation)
+
+49. **Player input architecture specifics** (per § 1.8.7) — what's the player-input mechanic? Slot-based (select N input modifiers per map run)? Sequence-based (build up modifier chains)? Resource-based (spend currency to add modifiers)? Tier-pin-based (lock in tier first, then auto-populate modifiers)? Each affects player engagement pattern + cohesion judge clustering.
+
+50. **Input layer count per substrate-led coupling discipline** (per § 1.1.5 + § 1.8.7) — Reincarnated targets ≤3 multiplicative input layers per coupling-architecture recommendation. What are the 3 layers? Initial proposal: (1) base tier; (2) input category; (3) modifier intensity. Alternative: (1) faction theming; (2) content focus; (3) reward focus. Other compositions? Designer call composing with sprint synthesis recommendation.
+
+51. **Tier scaling progression mathematics** — infinite-tower-equivalent scaling via tiers means progression math must scale gracefully. PoE tiers scale ~50% damage + ~30% HP per tier (rough); D4 Pit scales ~40% damage per tier; LE Monolith corruption scales ~25% damage per corruption level. What's Reincarnated's tier scaling rate? Composes with existing damage scaling architecture (doc 47) + investment scaling (doc 51).
+
+52. **Boss emergence within map system** (per § 1.8.7 Uber-Bosses-bonus) — how do pinnacle bosses spawn within input-driven maps? Tier-gate spawn (above tier-X, boss-input maps spawn pinnacle bosses)? Modifier-gate spawn (boss-input modifier presence + adequate tier triggers pinnacle boss)? Pre-authored boss roster + emergence rules? Game-design call.
+
+53. **Anti-faction input composition with cascade architecture** — cascade architecture (canonical) maps player choice to environment morphing + faction opposition. Player-input map architecture extends this — anti-faction inputs spawn anti-faction-themed maps. Per § 1.8.7, this is bonus composition. How exactly do anti-faction inputs intersect with cascade architecture's existing anti-faction emergence?
+
+54. **Canonical recognition record for player-input procedural map generation** — should gandalf author a separate canonical recognition record at `canonical/story/2026-06-01-player-input-procedural-map-generation-recognition.md` capturing Matt's iter 8 proposal independent of the placeholder doc? Substantive game-design proposal warrants canonical capture beyond placeholder inclusion; timing TBD pending Matt direction.
+
+55. **Cross-seam routing for implementation** — implementation requires: gamora (engine generation accepting input modifiers); star-lord (pipeline + Phase 5 integration of input-derived metadata); drax (player-facing input UI); gandalf (design specs); knight-rider (cross-seam coordination); rocket (canonical-doc updates for generation integration). When player-input architecture commits canonically, KR routes implementation dispatches. Timing per Matt direction.
 
 ---
 
