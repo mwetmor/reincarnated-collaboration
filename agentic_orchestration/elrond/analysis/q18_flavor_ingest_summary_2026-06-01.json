@@ -1,0 +1,74 @@
+{
+  "files": {
+    "full-ARPG-holy.jsonl": 17,
+    "full-ARPG-wind.jsonl": 14,
+    "full-JRPG_isekai-holy.jsonl": 16,
+    "full-JRPG_isekai-shadow.jsonl": 25,
+    "full-tabletop_myth-wind.jsonl": 20,
+    "sample-A.jsonl": 48,
+    "sample-B.jsonl": 40,
+    "sample-C.jsonl": 37
+  },
+  "total_rows": 217,
+  "expected_rows": 217,
+  "validation_issues": [],
+  "per_phase_counts": {
+    "phase3": 92,
+    "phase1": 125
+  },
+  "per_track_counts": {
+    "ARPG": 79,
+    "JRPG_isekai": 81,
+    "tabletop_myth": 57
+  },
+  "per_primary_counts": {
+    "holy": 49,
+    "wind": 47,
+    "shadow": 42,
+    "fire": 17,
+    "water": 17,
+    "earth": 14,
+    "lightning": 16,
+    "physical": 15
+  },
+  "per_(track,primary)_counts": {
+    "ARPG|earth": 6,
+    "ARPG|fire": 7,
+    "ARPG|holy": 23,
+    "ARPG|lightning": 6,
+    "ARPG|physical": 5,
+    "ARPG|shadow": 6,
+    "ARPG|water": 7,
+    "ARPG|wind": 19,
+    "JRPG_isekai|earth": 4,
+    "JRPG_isekai|fire": 5,
+    "JRPG_isekai|holy": 21,
+    "JRPG_isekai|lightning": 5,
+    "JRPG_isekai|physical": 5,
+    "JRPG_isekai|shadow": 31,
+    "JRPG_isekai|water": 5,
+    "JRPG_isekai|wind": 5,
+    "tabletop_myth|earth": 4,
+    "tabletop_myth|fire": 5,
+    "tabletop_myth|holy": 5,
+    "tabletop_myth|lightning": 5,
+    "tabletop_myth|physical": 5,
+    "tabletop_myth|shadow": 5,
+    "tabletop_myth|water": 5,
+    "tabletop_myth|wind": 23
+  },
+  "recognizability_distribution": {
+    "1": 21,
+    "2": 103,
+    "3": 93
+  },
+  "substrate_type_distribution": {
+    "material": 28,
+    "phenomenon": 82,
+    "proper_noun": 35,
+    "mythological": 31,
+    "mechanical_keyword": 36,
+    "other": 1,
+    "ailment": 4
+  }
+}

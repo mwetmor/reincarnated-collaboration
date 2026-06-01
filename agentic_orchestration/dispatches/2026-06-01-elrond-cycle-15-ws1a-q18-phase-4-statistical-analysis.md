@@ -218,3 +218,56 @@ After completion record append, KR routes Phase 4 stats verdict to gandalf for P
 ---
 
 **End of Phase 4 elrond statistical analysis dispatch.**
+
+---
+
+## Completion record
+**Completed:** 2026-06-01 (Phase 4 statistical analysis)
+**Outputs:**
+- `agentic_orchestration/elrond/analysis/element-flavor-mapping-stats-2026-06-01.md` (stats verdict; primary deliverable)
+- `agentic_orchestration/elrond/analysis/q18_flavor_candidates_2026-06-01.db` (transient SQLite; tables: candidates, manifests)
+- `agentic_orchestration/elrond/analysis/q18_flavor_ingest_summary_2026-06-01.json` (ingest summary)
+- `agentic_orchestration/elrond/analysis/q18_flavor_stats_results_2026-06-01.json` (raw per-step machine-readable results)
+- `agentic_orchestration/research/scripts/q18_flavor_phase4_analysis.py` (reproducible pipeline)
+
+**Total row count ingested:** 217 (expected 217; exact match)
+
+**Per-primary candidate count (unique after dedup on candidate):**
+- fire=15, water=13, earth=10, wind=35, lightning=12, holy=38, shadow=35, physical=13
+
+**Cardinality recommendations per primary (T_principal=6; substrate-led against pool.json allow-list anchor):**
+
+| Primary | T_perm (4) | T_princ (6) | T_strict (9) | Pool anchor |
+|---|---:|---:|---:|---:|
+| fire | 14 | **8** | 1 | 20 |
+| water | 12 | **10** | 0 | 11 |
+| earth | 8 | **3** | 2 | 22 |
+| wind | 28 | **21** | 9 | 7 |
+| lightning | 12 | **11** | 1 | — |
+| holy | 29 | **19** | 6 | — |
+| shadow | 23 | **17** | 3 | — |
+| physical | 12 | **9** | 1 | — |
+
+**7-vs-8 empirical verdict:** **WEAK-8.** Quantitative axes (rows / unique / track coverage) satisfy STRONG-8 thresholds, but substrate-type analysis shows physical concentrates 0.85 in mechanical_keyword (vs rotating primaries' 0.32–0.70 modal share). Physical surfaces as damage-type taxonomy (pierce/slash/bludgeon/sever/force), not flavor-pool semantic. Empirical answer only; architectural-commitment is Matt at PG-3.
+
+**Confidence-degraded primaries:**
+- earth: MEDIUM by rule (14 rows just shy of 15 threshold; substrate compensated by existing pool depth = 22 entries)
+- physical: DEGRADED (Phase 3 deliberately excluded physical expansion per gandalf PG-1 § 2 + WEAK-8 substrate signal)
+- wind: HIGH-with-caveat (gandalf PG-1 § 2 surface 1: structurally under-served in wind-PURE; high yield is in storm-flex which carries cross-elemental conflation)
+
+**Borderline candidates flagged:**
+- Explicit (per Phase 3 close note): `lux` (single-track JRPG holy, score=4) and `celestial` (single-track JRPG holy, score=4) — both SINGLE-TRACK BORDERLINE, recommend defer to Phase 5a synthesis curation
+- General borderline (single-track + score 4–8): 92 candidates across all 8 primaries (full enumeration in q18_flavor_stats_results JSON)
+
+**Phase 4 contingency fired?:** NO. F-6 (qualitative-collapse) did not fire; dataset is firmly quantitatively-amenable (0 schema validation issues, well-populated structured fields, citation density meeting bar).
+
+**Phase 3 methodology-deviation observation:** legolas-direct execution (Agent tool unavailable in sub-agent session) produced data of comparable-or-higher quality than sub-agent path would have. 0 validation issues; citation density marginally HIGHER (1.78 cites/row vs Phase 1's 1.66). NO data-quality concerns. Operational-procedure observation surfaced for KR/gandalf awareness in § 12.3 of stats verdict.
+
+**Notable findings:**
+1. **Wind cardinality vs pool gap is the clearest extension surface.** Dataset T6 floor = 21; existing pool allow-list = 7. Confirms gandalf PG-1 surface 1 (wind under-served in existing pool relative to genre-canonical depth). Phase 5a synthesis has 14+ high-yield additions to evaluate (tempest, cyclone, whirlwind, gale, gust, squall, zephyr, hurricane, tornado, vortex, etc.).
+2. **Water↔wind contamination cell = 7** (largest off-diagonal). Substrate genuinely conflates ocean-storm and atmospheric-storm vocabulary. Phase 5a must make explicit primary-slot choice per candidate (hurricane / squall / stormtide / mist / etc.).
+3. **Shadow's three-canonical-layer competition** (SMT proper-nouns / FF mechanical / Solo Leveling phenomenon) confirmed by cluster structure (7 distinct HDBSCAN clusters).
+4. **Earth research yield was thin** (10 unique candidates, T6 floor = 3). Existing pool depth (22 allow-list entries) provides substrate-led anchor; no significant earth vocabulary additions warranted from this research.
+5. **Holy has dominant radiance/divine/sacred core cluster** (n=22 HDBSCAN cluster) — strongest single-vocabulary-family concentration in dataset. Religious-coded vs non-religious-coded split is a real curation surface for Phase 5a (per gandalf PG-1 surface 2).
+
+**Routing back to KR:** proceed to PG-2 (route stats verdict to gandalf for ratification).
