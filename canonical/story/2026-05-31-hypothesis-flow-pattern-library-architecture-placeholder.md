@@ -1,6 +1,6 @@
 # Hypothesis Flow + Pattern Library Architecture — PLACEHOLDER FOR REFINEMENT
 
-> **STATUS:** PLACEHOLDER (refinement iteration 1 — 2026-06-01) — pre-commitment architectural draft authored 2026-05-31; first refinement pass 2026-06-01 incorporating: (a) gauntlet metrics as provisional hypotheses recognition (2026-06-01 recognition record), (b) manifestation milestone Phase 1 (identity finalization) + Phase 2 (realization) split, (c) retroactive feasibility of WS1A.2/3/4 on wave-5 snapshot archive starting at Phase 4 output, (d) WS1A.4 per-skill bounded LLM flavor judgment (single-element 3-option / hybrid 2-element 15-option), (e) three-layer playtest validation framing (hypothesis cells + gauntlet metrics + LLM naming/cohesion outputs). Synthesizes 2026-05-29 ARPG community research sprint output + designer-writes-substrate / player-names-experience principle + 5-property substrate framework + 7-mechanism-family taxonomy + experiential cascade architecture recognition + Matt 2026-05-31 hypothesis-flow methodology articulation + 2026-06-01 refinements. **Not a commitment.** Document is the substrate for ongoing Pattern B refinement conversation that produces the committed architecture.
+> **STATUS:** PLACEHOLDER (refinement iteration 2 — 2026-06-01) — pre-commitment architectural draft. Iteration 1 (2026-06-01): (a) gauntlet metrics as provisional hypotheses recognition, (b) manifestation milestone Phase 1/Phase 2 split, (c) retroactive feasibility of WS1A.2/3/4 on wave-5 snapshot, (d) WS1A.4 per-skill bounded LLM flavor judgment, (e) three-layer playtest validation. Iteration 2 (2026-06-01): P4 → creation-moment-memorability remapping per Matt observation that genre-style in-game acquisition surfaces (item drops / Aspect assembly / Mageblood acquisition) don't exist in Reincarnated; § 1.3.1 maps P4 to character creation / Spirit discovery / emergent-kit-concept-reveal. Synthesizes 2026-05-29 ARPG community research sprint output + designer-writes-substrate / player-names-experience principle + 5-property substrate framework + 7-mechanism-family taxonomy + experiential cascade architecture recognition + Matt 2026-05-31 hypothesis-flow methodology articulation + 2026-06-01 refinements. **Not a commitment.** Document is the substrate for ongoing Pattern B refinement conversation that produces the committed architecture.
 
 **Date:** 2026-05-31
 **Author:** gandalf (story-and-design steward)
@@ -73,6 +73,37 @@ Five properties define whether a mechanism produces the player experience of "bu
 **Composition rule:** 4-5 properties = canonical "build came online" moments. 2-3 = sub-axis or significant build choice. 0-1 = QoL / routine progression.
 
 **Refinement for this work:** the 5 properties are the **axes of pattern-library cell scoring**. A pattern's "build-defining strength" is its multi-dimensional position in P1-P5 space. Cells with high scores on multiple properties are stronger pattern candidates. Cells with low scores are not build-defining — and per § 22 finding, that's NOT a bug; some patterns are anti-build-defining identity-anchor patterns (Wanderer-style / approachable / one-button) that intentionally score low on P1-P5.
+
+#### 1.3.1 Reincarnated-specific P4 treatment — Matt 2026-06-01 refinement
+
+**P4 (acquisition memorability) was imported from genre conventions** (D2 Enigma drop / D3 Aspect assembly / D4 Codex acquisition / PoE Mageblood drop / GD Devotion shrine selection) where the genre has discrete in-game acquisition events. **Reincarnated structurally does not have these surfaces** within the foreseeable launch-scope game:
+
+- No item drops in the genre-canonical sense (per existing design direction)
+- T4 is set at kit generation, not earned post-hoc (per § 22.4 of the HTML doc — "T4 is the kit's identity from L1")
+- No Family B mechanism currently exists (per § 1.4 — the dominant P4 surface across D2/D3/D4 is the architectural gap that may close at Cycle 15+ but doesn't exist today)
+- No paragon-grinding / set-completion / power-extraction surfaces
+
+**Mapped P4 surface for Reincarnated:** the **character creation / Spirit discovery moment** IS the acquisition event. § 22.4 of the HTML doc named this: "Reincarnated's existing P4 surface is meta-level: receiving the new spirit each season. The seasonal-transition IS the memorable acquisition event."
+
+This refinement makes it explicit: **P4 in Reincarnated cell scoring measures the memorability of the creation-moment, not in-game mechanism acquisition.** Specifically:
+
+| Reincarnated P4 surface | What's being measured |
+|---|---|
+| Spirit form sculpting (Phase 1 of manifestation milestone) | Did the player engage meaningfully with the sculpting interaction? |
+| Manifestation transition (Spirit → realized character) | Was the transition moment memorable and identity-grounding? |
+| Emergent kit concept reveal (Wave B per-kit identity per § 1.7.4) | Did the player experience "I made a Necromancer" as the discovery moment? |
+| Seasonal acquisition (per-season spirit-arrival) | Does receiving the seasonal spirit feel like a discrete memorable event? |
+
+**Operational implications for cell scoring:**
+
+- `mechanism_p4_score` field stays in schema with revised semantics (see § 3.3)
+- Cells score P4 based on **predicted creation-moment memorability** for characters embodying the cell
+- High P4 cells (Necromancer / Death Knight / canonical-feeling genre concepts) carry strong emergent-kit-concept reveal at creation
+- Low P4 cells (generic / approachable / Wanderer-style) intentionally have low creation-moment specificity — and that's correct for their archetype
+
+**Composition with Hidden-Spirit-Discovery proposal** (§ 23 of HTML doc): if Matt's late-2026-05-29 Hidden-Spirit-Discovery proposal eventually graduates from recognition record to architectural commitment, that would substantially AMPLIFY the P4 surface (per § 23.6 architectural implications). Current treatment: P4 mapped to existing planned creation moment (Spirit sculpting + manifestation transition + emergent concept reveal); future amplification possible if Hidden-Spirit-Discovery lands.
+
+**What this is NOT:** does NOT pre-impose that all Reincarnated cells must score high P4. Wanderer-style / approachable / generic-flavored cells SHOULD score low P4 (their archetype is "no specific creation moment; just a kit you play") and that's correct. The framework just stops pretending P4 measures genre-acquisition; it measures creation-moment-memorability instead.
 
 ### 1.4 7 mechanism families
 
@@ -385,7 +416,7 @@ Specifies what mechanism family the cell instantiates AND the structural relatio
 | `mechanism_p1_score` | 0 / 0.5 / 1 | Identity-axis transformation |
 | `mechanism_p2_score` | 0 / 0.5 / 1 | Multiplicative composition |
 | `mechanism_p3_score` | 0 / 0.5 / 1 | System-substitution |
-| `mechanism_p4_score` | 0 / 0.5 / 1 / 2 | Acquisition memorability (per § 22.5 refinement candidate; P4 weight may scale with acquisition friction) |
+| `mechanism_p4_score` | 0 / 0.5 / 1 | **Creation-moment memorability** (Matt 2026-06-01 refinement per § 1.3.1) — measures predicted memorability of the character creation / Spirit discovery / emergent-kit-concept-reveal moment for characters embodying this cell. NOT genre-style in-game acquisition (which Reincarnated structurally lacks). P4=1 means the emergent kit concept is genre-recognizable AND creation moment is identity-grounding (e.g., Necromancer / Death Knight emergence); P4=0 means generic / approachable archetype with low creation-moment specificity (Wanderer-style; intentionally low and correct). |
 | `mechanism_p5_score` | 0 / 0.5 / 1 | Composition unlock |
 | `mechanism_total_score` | calculated | Sum (NOT averaged — multiplicative gestalt per § 22.5) |
 | `mechanism_relationship_vector` | enum | **Matt 2026-05-31 framing**: structural relationship between component mechanisms — `orthogonal-90` / `inverse-180` / `synergistic-0` / `complementary-270` / `composite` |
@@ -813,7 +844,7 @@ Per the recognition record `canonical/story/2026-06-01-gauntlet-metrics-as-provi
 |---|---|---|
 | **Layer 1 — Hypothesis-cell patterns** | Does the cell's predicted build-defining pattern match playtest experience? | Direct hypothesis confirmation per § 6.6 graduation criteria |
 | **Layer 2 — Gauntlet metric predictions** | Do gauntlet-predicted KPM, multi-format winning, cohort archetype match playtest observations? | Compare predicted vs observed KPM per power plane; compare predicted multi-format viability vs playtest experience |
-| **Layer 3 — LLM naming + cohesion judge outputs** | Do the emergent skill names, kit identity, and faction context feel correct? Does "Necromancer" emerge as the kit concept consistently with what playtest reveals? | Subjective playtest signal on identity coherence; failure-mode comparison test for identity distinctness |
+| **Layer 3 — LLM naming + cohesion judge outputs + creation-moment P4** | Do the emergent skill names, kit identity, and faction context feel correct? Does "Necromancer" emerge as the kit concept consistently with what playtest reveals? **Does the creation-moment (Spirit sculpting → manifestation transition → emergent kit concept reveal) feel memorable per § 1.3.1 P4 mapping?** | Subjective playtest signal on identity coherence; failure-mode comparison test for identity distinctness; **creation-moment memorability self-report from playtest (Matt + son)** |
 
 Three layers validated in one playtest cycle. Same instrument; three operational benefits per cycle:
 - Validates pattern library cell graduation discipline
