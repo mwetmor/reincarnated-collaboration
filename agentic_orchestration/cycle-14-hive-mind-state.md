@@ -68,6 +68,24 @@
 > - Disciplines #41 amendment landing (queued for jack-ryan ratification per recognition § 3.1 / § 7.3 — landing post wave-close)
 >
 > **Push authorization:** commit `daa1c98` (gandalf recognition record) + this state-file amendment + the two dispatches AWAIT Matt explicit go per ADR-006 read-only-by-default + dispatch text "PUSH AUTHORIZATION: commit daa1c98 awaiting Matt push approval. KR read access works locally; push to origin/main on Matt explicit go."
+>
+> **§ 1 AMENDMENT 2026-06-01 SUB-AMENDMENT (Gate (c) verdict + Path X branch) — gandalf design-intent verdict + KR Path X dispatch:**
+>
+> Wave-5 swift-closure execution flow:
+> - **gamora swift-closure** ✅ CLOSED 2026-06-01 (engine `3365eb4` + tag `gamora/v2.18-cycle-14-wave-5-swift-closure-gauntlet-stop-joint-gate-snapshot-1`; collab `16ce0bf` + `5b7dd59`; 19/19 PASS; Phase 3 gauntlet HALTED + Phase 4 archive STABLE [34 kits] + Phase 6/7 sign-off COMPLETE with PROVISIONAL marker; MIGRATION.md § v1.63 filed)
+> - **star-lord swift-closure** ⏸️ HALTED at pre-fire empirical-inspection gate (collab `6593626`) — Gate (a) PASS post-gamora, Gate (b) PASS empirical, Gate (c) **CONDITIONAL** (Phase 4 → Phase 5 disjoint at `wave5_season_orchestrator.py:825-836` UNRESOLVED), Gate (d) PASS
+> - **gandalf Gate (c) verdict** ✅ AUTHORED 2026-06-01 (collab `05c1300` + `900c0bc`) at `agentic_orchestration/gandalf/notes/2026-06-01-gate-c-recognition-record-intent-verdict.md` — **Verdict: OPTION 2 — Path X structural fix required before star-lord cohesion judge fires.** Recognition § 4.2 carries metric-axis provisionality, NOT structural-axis tolerance; PROVISIONAL markers cannot cover input-population mismatch (category error). Snapshot semantics require internal artifact-set coherence per verdict § 3.1.
+> - **Path X dispatch** 🔥 FIRING 2026-06-01 — rocket: `agentic_orchestration/dispatches/2026-06-01-rocket-cycle-14-wave-5-swift-closure-path-x-phase4-feeds-phase5.md`; scope ~1-2h; code change at `wave5_season_orchestrator.py:825-836` (Phase 5 PM-1 input source from `passing_kits + variant_passing_rows` to Phase 4 archive Pareto-2 winners — 34 kits per gamora archive-stable enumeration); three empirical-criterion gates per verdict § 2 Q3 (code-level + n=34 PM-1 sparsity + 8-element BC coverage); 5-10 new tests; MIGRATION.md required; tag `rocket/v1.1-cycle-14-wave-5-swift-closure-path-x-phase4-feeds-phase5-1`
+> - **Sequencing post-Path-X:** jack-ryan Gate-2 critique-pair review on Path X tagged commit → star-lord re-engages with Gate (c) PASS confirmation → Phase 5 cohesion judge fires AGAINST snapshot → jack-ryan wave-close canonical write (gamora Q3 sequential preference)
+>
+> **What gandalf verdict DOES NOT force:**
+> - Wave B / Path Y / Path Z architectural elections remain Cycle 15+ canonical-write candidates (separable from wave-5 closure per gandalf verdict § 2 Q4; gamora separability framing correct in that sphere, mis-applied only to Gate (c) specifically)
+> - Recognition-record amendment NOT required (recognition record stands; Path X makes empirical match design intent)
+> - Disc #41 amendment scope unchanged (substrate-led at validation-metric layer; orthogonal to Path X structural layer per verdict § 2 Q4)
+>
+> **Wave-close timeline impact:** ~1-2 engineering days for Path X + jack-ryan Gate-2 + star-lord Phase 5 re-fire (per gandalf verdict § 0); acceptable trade against multi-week opportunity cost the swift-closure recognition unlocked.
+>
+> **Push authorization (sub-amendment):** commits `05c1300` + `900c0bc` (gandalf verdict) + Path X dispatch authoring commit (KR, this state-file amendment) all await Matt explicit go.
 
 > **§ 1 AMENDMENT 2026-05-28 (Matt-ratified Read γ election):** Waves 2/3/4 SUPERSEDED by no-classes substrate-led architectural recommitment (2026-05-27) + Path α workstream authoring. Wave 5 = sole content production wave per D4 / D9 ratified close-criterion (3 LLM seasons × ≥12/18 emit + 3× Gate-2 + A/B + Disciplines #41-#47 batch + Matt tag).
 >
