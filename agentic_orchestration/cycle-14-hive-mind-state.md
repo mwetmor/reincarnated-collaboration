@@ -102,6 +102,26 @@
 > - jack-ryan wave-close canonical write (gates on star-lord Phase 5 close per gamora Q3 sequential preference) — covers Disc #41 amendment + Disc #42b (new candidate) + WARN/INFO disposition + Phase 5 cohesion judge Gate-2 review
 >
 > **Push authorization (sub-amendment-B):** engine commits `3365eb4` ALREADY PUSHED + tag pushed (Matt 2026-06-01); engine `15735d0` + tag `rocket/v1.1-...` LOCAL; collab `dc4ca86` + `2bbf08c` + `af0fe09` (bundles jack-ryan finding) LOCAL; this state-file amendment LOCAL. All await Matt explicit go.
+>
+> **§ 1 SUB-AMENDMENT 2026-06-01-C (star-lord Phase 5 cohesion judge COMPLETE + KR jack-ryan wave-close canonical write fired):**
+>
+> - **star-lord Phase 5 cohesion judge** ✅ COMPLETE 2026-06-01 (engine `62f1429` + `553f4cf` + tag `star-lord/v1.5-cycle-14-wave-5-swift-closure-cohesion-judge-snapshot-1`; collab `4ab0377`; MIGRATION § v1.71)
+> - **Phase 5 fire results** (Disc #11 — inspected per star-lord completion note):
+>   - 4 clusters generated (Wave A faction-level): "Broad Blade Convergence" (15), "Loess Cannon Wardens" (8), "Broadfield Convergence Wardens" (5), "Ironfield Tide Wardens" (6)
+>   - 6 F-C inter-faction relationships (k=4 → 6 pairs)
+>   - 34 Wave B per-kit identities named
+>   - Wave S season naming fired
+>   - Substrate-input purity W-A10/W-B8/F-C13: PASS (no CascadeBlockError)
+>   - PROVISIONAL marker uniformly applied to ALL Phase 5 emissions (`phase5_faction_clusters.json` + `phase5_faction_relationships.json` + `wave_b_identities.json`; `ExportFactionCluster.provisional_pending_playtest_validation: bool = False` added to schema with `True` hardcoded at `start_from_phase=5` path)
+>   - 17 new P5P tests; 250/250 combined PASS; 0 regressions
+> - **INFO-2 CONFIRMED EMPIRICALLY** (jack-ryan Gate-2 prediction held): shadow=1 kit subsumed into cluster 3 (mixed-cluster identity); water=1 kit subsumed into cluster 4 (mixed-cluster identity). Both produce coherent per-kit identity output — NOT a regression.
+> - **Cost INFO**: $0.50 total ($0.02 Wave A + F-C; $0.48 Wave B 34 kits; $0.00 Wave S). Exceeds $0.30 dispatch estimate but within system anomaly guards (`WAVE_B_COST_ANOMALY_THRESHOLD_USD=$2.00`; `DEGENERACY_MAX_LLM_COST_USD=$0.60`). Star-lord analysis: estimate basis was 2× full-season-regen baseline ($0.15), not Phase 5-alone at 34-kit Wave B depth. Cost-envelope calibration signal for Cycle 15+ Wave B dispatch authoring.
+> - **KR jack-ryan wave-close canonical write dispatch** 🔥 FIRING 2026-06-01 at `agentic_orchestration/dispatches/2026-06-01-jack-ryan-wave-close-canonical-write-cycle-14-wave-5-swift-closure.md` — combined dispatch covering FIVE deliverables (single jack-ryan session): wave-close canonical-write document + Disc #41 amendment + Disc #42b new + decisions-log entry + Gate-2 on `star-lord/v1.5-...`. On PASS: wave-5 swift-closure CLOSED.
+>
+> **Wave-5 swift-closure arc complete (pending jack-ryan canonical write):**
+> - Recognition (gandalf 2026-06-01) → routing (KR) → gamora swift-closure → star-lord pre-fire surface → Gate (c) verdict (gandalf) → Path X verification (rocket) → Path X Gate-2 (jack-ryan PASS-with-INFO) → star-lord Phase 5 re-engagement → ✅ Phase 5 cohesion judge fired → jack-ryan wave-close canonical write (FIRING)
+>
+> **Push authorization (sub-amendment-C):** engine `62f1429` + `553f4cf` + tag `star-lord/v1.5-...` LOCAL; collab `4ab0377` + this state-file amendment + jack-ryan wave-close dispatch commit LOCAL. PLUS gandalf hypothesis-flow iter 7 (`93b22c3`) LOCAL — orthogonal workstream landed in parallel. All await Matt explicit go.
 
 > **§ 1 AMENDMENT 2026-05-28 (Matt-ratified Read γ election):** Waves 2/3/4 SUPERSEDED by no-classes substrate-led architectural recommitment (2026-05-27) + Path α workstream authoring. Wave 5 = sole content production wave per D4 / D9 ratified close-criterion (3 LLM seasons × ≥12/18 emit + 3× Gate-2 + A/B + Disciplines #41-#47 batch + Matt tag).
 >
