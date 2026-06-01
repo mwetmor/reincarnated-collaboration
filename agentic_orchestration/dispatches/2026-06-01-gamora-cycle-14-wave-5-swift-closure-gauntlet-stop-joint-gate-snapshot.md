@@ -46,7 +46,7 @@
    - § 3 discipline composition (Disc #41 substrate-led extension + Disc #42a framing-audit applied + recognition→validation→commit applied to gauntlet itself)
    - § 4 wave-5 closure path operational implications (the table of what changes / what doesn't)
    - § 4.3 the wave-5 close dispatch text (this dispatch's authoritative routing source)
-2. `canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture-placeholder.md` — placeholder this recognition refines (companion architecture)
+2. `canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture.md` — placeholder this recognition refines (companion architecture)
 3. `agentic_orchestration/cycle-14-hive-mind-state.md` § 1 Wave 5 row (current cascade-resumption-4 / wave-5 state — pre-swift-closure baseline; KR will amend post-dispatch-authoring per § 6 below)
 4. `canonical/50-bounded-viability-with-specialization-design-directive-2026-05-28.md` — BVV framework whose thresholds are designer-asserted; sign-off carries PROVISIONAL marker on BVV-derived emissions
 5. `canonical/51-investment-scaling-6-pattern-architecture-2026-05-28.md` — investment scaling math (partially-validated; calibration layer provisional)
@@ -170,7 +170,7 @@ Does this dispatch add, modify, rename, or remove any field on telemetry/fight_l
 ## 9. References
 
 - `canonical/story/2026-06-01-gauntlet-metrics-as-provisional-hypotheses-recognition.md` (AUTHORITATIVE; commit `daa1c98`)
-- `canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture-placeholder.md`
+- `canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture.md`
 - `agentic_orchestration/cycle-14-hive-mind-state.md` § 1 Wave 5 row
 - `canonical/50-bounded-viability-with-specialization-design-directive-2026-05-28.md`
 - `canonical/51-investment-scaling-6-pattern-architecture-2026-05-28.md`

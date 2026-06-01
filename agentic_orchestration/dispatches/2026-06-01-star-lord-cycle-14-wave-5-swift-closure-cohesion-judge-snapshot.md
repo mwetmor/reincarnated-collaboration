@@ -190,7 +190,7 @@ Does this dispatch add, modify, rename, or remove any field on telemetry/fight_l
 
 - `canonical/story/2026-06-01-gauntlet-metrics-as-provisional-hypotheses-recognition.md` (AUTHORITATIVE; commit `daa1c98`)
 - `canonical/story/phase-5-llm-prompts-cohesion-judge-2026-05-27.md` (Phase 5 LLM prompts AUTHORITATIVE)
-- `canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture-placeholder.md`
+- `canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture.md`
 - `agentic_orchestration/cycle-14-hive-mind-state.md` § 1 Wave 5 row
 - `agentic_orchestration/gandalf/notes/2026-05-29-phase-4-phase-5-disjoint-population-bug-surface.md` (Disc #42a Instance 6 #5/#6 candidate; awaiting Matt Path α/β/γ decision)
 - `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` § 11 / § 18 / § 41 / § 42a

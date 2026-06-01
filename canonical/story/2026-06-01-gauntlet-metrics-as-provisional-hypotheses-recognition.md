@@ -7,7 +7,7 @@
 **Author:** gandalf (story-and-design steward)
 
 **Companion artifacts:**
-- `canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture-placeholder.md` — pattern library architecture this recognition refines
+- `canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture.md` — pattern library architecture this recognition refines
 - `canonical/story/2026-05-29-designer-writes-substrate-player-names-experience-principle.md` — foundational principle
 - `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` § 41 (substrate-led) + § 42a (framing-audit)
 - `canonical/50-bounded-viability-with-specialization-design-directive-2026-05-28.md` — BVV framework (gauntlet's validation framework)
@@ -107,7 +107,7 @@ Operating the gauntlet AS IF the commit phase had happened (iterating to converg
 
 ### 3.4 Hypothesis-flow methodology placeholder composition
 
-Per `canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture-placeholder.md`, hypothesis-flow Stage 4 is playtest validation. The placeholder doc framed this as the validation instrument for pattern library cells (downstream artifacts).
+Per `canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture.md`, hypothesis-flow Stage 4 is playtest validation. The placeholder doc framed this as the validation instrument for pattern library cells (downstream artifacts).
 
 This recognition extends the Stage 4 validation instrument **one layer up the stack**: playtest validates BOTH (a) hypothesis-cell patterns AND (b) the gauntlet metrics that produce those patterns. Same playtest cycles validate two layers simultaneously.
 
@@ -183,7 +183,7 @@ appropriate empirical validation instrument).
 
 ## 5. Sequencing implications for pattern library work
 
-Per `2026-05-31-hypothesis-flow-pattern-library-architecture-placeholder.md` § 5.2, pattern library Phase A gates on (a)+(b)+(c). This recognition refines the gating semantics:
+Per `2026-05-31-hypothesis-flow-pattern-library-architecture.md` § 5.2, pattern library Phase A gates on (a)+(b)+(c). This recognition refines the gating semantics:
 
 | Gate (placeholder) | Refinement (this recognition) |
 |---|---|
@@ -216,7 +216,7 @@ Net Phase A start estimate: **5-11 months from now** (down from 6-12 month range
 
 ### 7.1 Composes with
 
-- `canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture-placeholder.md` — pattern library architecture; this recognition strengthens § 5.2 gating semantics
+- `canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture.md` — pattern library architecture; this recognition strengthens § 5.2 gating semantics
 - `canonical/story/2026-05-29-designer-writes-substrate-player-names-experience-principle.md` — foundational principle; this recognition extends substrate-led discipline to the gauntlet-metric layer
 - `canonical/47-damage-scaling-architecture-2026-05-27.md` — damage architecture (gauntlet axis); recognition treats this axis as provisional at the calibration layer
 - `canonical/50-bounded-viability-with-specialization-design-directive-2026-05-28.md` — BVV thresholds are designer-asserted; provisional

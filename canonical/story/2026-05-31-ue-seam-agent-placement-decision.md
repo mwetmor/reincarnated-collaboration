@@ -10,7 +10,7 @@
 - `canonical/story/2026-05-30-pi-middleware-mac-to-pc-architecture.md` — three-machine architecture commitment (CURRENT)
 - `matt_notes_handoff_docs/reincarnated-headless-ssh-handoff.md` § "UPDATE 2026-05-31 — Mac-side execution findings" — proves the SSH→Unreal capability that enables this placement
 - `agentic_orchestration/AGENTS.md` — current 8-agent team topology (UE seam not yet enumerated)
-- `canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture-placeholder.md` — pattern library architecture that the UE seam agent's playtest work will support
+- `canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture.md` — pattern library architecture that the UE seam agent's playtest work will support
 
 ---
 
@@ -186,7 +186,7 @@ Pattern library Phase A-E work (UE seam supports playtest infrastructure per § 
 - `canonical/story/2026-05-30-pi-middleware-mac-to-pc-architecture.md` — three-machine architecture (Mac + Pi + PC); this doc places the UE agent within that architecture
 - `matt_notes_handoff_docs/reincarnated-headless-ssh-handoff.md` — proves the SSH→Unreal capability that operationalizes the SSH-from-Mac invocation variant
 - `agentic_orchestration/AGENTS.md` — current team topology; this doc adds (implicitly) a 9th seam (UE) at PC residence; formal team-topology update is a future amendment
-- `canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture-placeholder.md` — pattern library architecture; UE seam supports Stages 3 (manifestation) and 4 (playtest)
+- `canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture.md` — pattern library architecture; UE seam supports Stages 3 (manifestation) and 4 (playtest)
 - The forthcoming **manifestation milestone Recognition Record** (authored when next prioritized) — manifestation milestone is the gate for activating the UE seam as load-bearing
 
 ### 6.2 Refines
