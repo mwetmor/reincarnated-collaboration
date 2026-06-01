@@ -1,6 +1,6 @@
 # Hypothesis Flow + Pattern Library Architecture — PLACEHOLDER FOR REFINEMENT
 
-> **STATUS:** PLACEHOLDER (refinement iteration 6 — 2026-06-01) — pre-commitment architectural draft. Iter 1: gauntlet provisional + manifestation Phase 1/2 + retroactive + WS1A.4 + three-layer validation. Iter 2: P4 → creation-moment-memorability. Iter 3: 7 mechanism families → three-layer treatment (Layer 1 P1-P5 / Layer 2 mechanism-structural / Layer 3 observational); "Family B gap" framing retired. **Iter 4: multi-axis experiential architecture** per Matt 2026-06-01 observation that 6 primary archetype labels (Bossing / Speedfarm / Push / Generalist / Leveling / League Starter) aren't a flat enum — they decompose into orthogonal axes (Progression-Stage / Target-Pattern / Depth-vs-Breadth) plus additional axes (Mode / Activity-Format / Loot-Focus / Maxroll 5-axis). Axis-type taxonomy (Identity / Viability / Mode / Sub) treats each axis differently; cell shape framework (Specialized / Hybrid / Generalist / Anti-specialization) declares intended profile shape; Leveling-as-viability-axis hypothesis per Reincarnated 50-level + 85%-leveling-only structure (pending playtest validation); genre-relative LE-to-D3 moderate specialization positioning; mutual exclusivity preference framed as substrate-led empirically validated, not pre-imposed. **Iter 5: pipeline placement decision LOCKED** — Phase 5+ LLM naming (per-skill flavor judgment + skill naming + cohesion clustering + Wave A/B naming) fires AFTER Pareto reduction (Option A; on ~30 kits not ~650); cost-efficient (~$1.50-4.50/cycle vs $30-90); cohesion judge n=30 sufficient for meaningful clustering (~3-5 emergent factions); Option B (pre-Pareto naming with faction-aware reduction) deferred to future refinement gated on playtest evidence of natural-faction-loss; substrate-led discipline composes with gauntlet provisional recognition (don't compound provisionality without empirical validation). **Iter 6: Mode axis REMOVED** per Matt observation that Hardcore/Softcore would not differentiate player experience across kits — all kits available within both modes. Mode is player-session-level choice, not kit-architecture-level property. HC-viability (if HC mode added later) becomes higher Survivability threshold within existing Viability axis treatment, NOT a separate axis. Removed: `mode_axis` field; MODE_HARDCORE/MODE_SOFTCORE/MODE_EITHER flags; AXIS_TYPE_MODE classification. Added: `VIABILITY_HC_SURVIVABILITY_PASS` conditional gate within Viability axis flags. Synthesizes 2026-05-29 ARPG community research sprint output + designer-writes-substrate / player-names-experience principle + 5-property substrate framework + 7-mechanism-family taxonomy + experiential cascade architecture recognition + Matt 2026-05-31 hypothesis-flow methodology articulation + 2026-06-01 refinements. **Not a commitment.** Document is the substrate for ongoing Pattern B refinement conversation that produces the committed architecture.
+> **STATUS:** PLACEHOLDER (refinement iteration 7 — 2026-06-01) — pre-commitment architectural draft. Iter 1: gauntlet provisional + manifestation Phase 1/2 + retroactive + WS1A.4 + three-layer validation. Iter 2: P4 → creation-moment-memorability. Iter 3: 7 mechanism families → three-layer treatment (Layer 1 P1-P5 / Layer 2 mechanism-structural / Layer 3 observational); "Family B gap" framing retired. **Iter 4: multi-axis experiential architecture** per Matt 2026-06-01 observation that 6 primary archetype labels (Bossing / Speedfarm / Push / Generalist / Leveling / League Starter) aren't a flat enum — they decompose into orthogonal axes (Progression-Stage / Target-Pattern / Depth-vs-Breadth) plus additional axes (Mode / Activity-Format / Loot-Focus / Maxroll 5-axis). Axis-type taxonomy (Identity / Viability / Mode / Sub) treats each axis differently; cell shape framework (Specialized / Hybrid / Generalist / Anti-specialization) declares intended profile shape; Leveling-as-viability-axis hypothesis per Reincarnated 50-level + 85%-leveling-only structure (pending playtest validation); genre-relative LE-to-D3 moderate specialization positioning; mutual exclusivity preference framed as substrate-led empirically validated, not pre-imposed. **Iter 5: pipeline placement decision LOCKED** — Phase 5+ LLM naming (per-skill flavor judgment + skill naming + cohesion clustering + Wave A/B naming) fires AFTER Pareto reduction (Option A; on ~30 kits not ~650); cost-efficient (~$1.50-4.50/cycle vs $30-90); cohesion judge n=30 sufficient for meaningful clustering (~3-5 emergent factions); Option B (pre-Pareto naming with faction-aware reduction) deferred to future refinement gated on playtest evidence of natural-faction-loss; substrate-led discipline composes with gauntlet provisional recognition (don't compound provisionality without empirical validation). **Iter 6: Mode axis REMOVED** per Matt observation that Hardcore/Softcore would not differentiate player experience across kits — all kits available within both modes. Mode is player-session-level choice, not kit-architecture-level property. HC-viability (if HC mode added later) becomes higher Survivability threshold within existing Viability axis treatment, NOT a separate axis. Removed: `mode_axis` field; MODE_HARDCORE/MODE_SOFTCORE/MODE_EITHER flags; AXIS_TYPE_MODE classification. Added: `VIABILITY_HC_SURVIVABILITY_PASS` conditional gate within Viability axis flags. **Iter 7: multi-source hypothesis generation across launch lifecycle** — Matt observation that methodology should include real player game telemetry + community-derived telemetry (Reincarnated-hosted community sites + third-party community sites + blogs + social posts) as engine learnings. § 2.4 NEW sub-section covers availability-gated hypothesis source scaling across launch lifecycle (pre-launch → alpha → soft-launch → full launch → mature ecosystem); real-player-telemetry methodology (Stage 1 input expanded; star-lord seam composition); community-derived telemetry ingest architecture (3 channels: Reincarnated-hosted + third-party + distributed); substrate-led discipline applied fractally at post-launch player-experience layer; pre-launch architectural decisions surfaced (telemetry event set / retention policy / community site timing). Synthesizes 2026-05-29 ARPG community research sprint output + designer-writes-substrate / player-names-experience principle + 5-property substrate framework + 7-mechanism-family taxonomy + experiential cascade architecture recognition + Matt 2026-05-31 hypothesis-flow methodology articulation + 2026-06-01 refinements. **Not a commitment.** Document is the substrate for ongoing Pattern B refinement conversation that produces the committed architecture.
 
 **Date:** 2026-05-31
 **Author:** gandalf (story-and-design steward)
@@ -441,12 +441,24 @@ The proposed methodology is a closed loop:
 
 ```
 ┌────────────────────────────────────────────────────────────────┐
-│  STAGE 1 — Community-research-led hypothesis generation         │
-│  Input:    Empirical seed corpus + ongoing legolas Mode A       │
-│            research + Matt genre experience + community         │
-│            discourse mining                                     │
+│  STAGE 1 — Multi-source hypothesis generation                   │
+│  Inputs (availability-gated per § 2.4 launch lifecycle):        │
+│    Pre-launch:                                                  │
+│      - Empirical seed corpus (2026-05-29 ARPG sprint)           │
+│      - Ongoing legolas Mode A research                          │
+│      - Matt genre experience                                    │
+│      - Community discourse mining (genre community)             │
+│    Soft-launch+:                                                │
+│      - Matt + son playtest signal                               │
+│      - Cross-cell composition discovery from prior cycles       │
+│    Player-launch+:                                              │
+│      - Real player game telemetry (star-lord seam)              │
+│      - Reincarnated-community-derived telemetry                 │
+│      (hosted forums + blogs + social posts + third-party        │
+│      community sites — iter 7 addition; per § 2.4)              │
 │  Output:   Hypothesized mathematical cell (provisional)         │
-│  Discipline: Substrate-led (community vocabulary votes)         │
+│  Discipline: Substrate-led at every available data source       │
+│            (community vocabulary votes; telemetry votes)         │
 └────────────────────────────────────────────────────────────────┘
                               ↓
 ┌────────────────────────────────────────────────────────────────┐
@@ -536,6 +548,107 @@ Mapped to the six stages:
 | "across play tests we evaluate mathematical patterns to evolve the hypothesis" | Stage 5 partial-confirmation branch — math pattern evolution; cell coordinate refinement |
 
 The methodology you named is the methodology this document operationalizes. The six stages are an articulation of your closed loop into discrete steps with substrate-led discipline anchors per step.
+
+### 2.4 Multi-source hypothesis generation across launch lifecycle (iter 7 refinement — Matt 2026-06-01)
+
+**Matt 2026-06-01 observation:** the methodology should also include real player game telemetry + community-derived telemetry (hosted Reincarnated forums + blogs + social posts + third-party community sites) as engine learnings, with implementation of hypotheses regarding play time, retention, etc.
+
+**Affirmation + framing:** not too soon. Designing the methodology WITHOUT anticipating these sources would be the bigger error. Data sources scale with launch lifecycle; methodology stays consistent; substrate-led discipline at the player-experience layer (per `2026-05-29-designer-writes-substrate-player-names-experience-principle.md`) is fundamentally the right frame for community-derived data.
+
+#### 2.4.1 Hypothesis-source availability gates across launch lifecycle
+
+The Stage 1 input list is availability-gated. Different sources become available at different launch phases. The methodology weights hypothesis generation across whatever sources are available at the current gate:
+
+| Lifecycle phase | Available hypothesis sources | Source weighting |
+|---|---|---|
+| **Pre-launch** (current) | ARPG sprint empirical seed corpus; ongoing legolas Mode A research; Matt genre experience; community discourse mining (GENRE community — D2/D3/D4/PoE/LE/etc.) | Substantial weight on community research; Matt experience anchor |
+| **Alpha / private playtest** | + Matt + son playtest signal; + small alpha tester pool (if any) | + playtest signal added |
+| **Beta / broader playtest** | + broader playtest population telemetry; + initial community formation | + telemetry signal weighted with playtest |
+| **Soft launch** | + real player game telemetry (small player base); + early Reincarnated community emergence | Player telemetry weighted with community research |
+| **Full launch** | + full player telemetry; + Reincarnated-hosted community sites; + third-party community sites (if they emerge for Reincarnated) | Full multi-source weighting |
+| **Mature ecosystem** | + community-emergent vocabulary (Reincarnated community vocabulary); + blogs + social posts + community-authored guides + streamers | Full ecosystem; community-derived data weighted comparable to or higher than genre community research |
+
+**Substrate-led discipline at each gate:** whatever data sources are available at a gate, the substrate (community vocabulary; telemetry signals; playtest evidence) votes. Designer doesn't pre-impose hypothesis sources; available substrate signals inform hypothesis generation.
+
+#### 2.4.2 Real player game telemetry — methodology
+
+Once Reincarnated has players, the engine collects telemetry events that inform hypothesis generation:
+
+| Telemetry event class | Hypothesis signal | Engine collection responsibility |
+|---|---|---|
+| **Play time per character** | Which characters players stay with vs abandon → cell graduation signal (high-engagement cells emerge) | Star-lord seam (telemetry collection) |
+| **Character creation paths** | Which Spirit sculpting paths players take → emergent design preference signal | Star-lord + Drax (creation UI telemetry) |
+| **Retention by character type** | Which character types retain players past day 7 / day 30 / day 90 → cell long-term viability signal | Star-lord |
+| **Combat encounter outcomes per character** | Which characters succeed at which encounter types → gauntlet metric validation (refines per gauntlet provisional recognition) | Star-lord + gamora |
+| **Build-defining moment frequency** | When do players experience "build came online" moments → P5 composition unlock validation | Star-lord with engine instrumentation |
+| **Investment tier progression** | How players invest across tiers → investment scaling validation (doc 51) | Star-lord |
+| **Faction membership / loyalty patterns** | Which factions players gravitate to + how long they stay → cohesion judge faction validation | Star-lord with engine instrumentation |
+| **Skill usage patterns per character** | Which skills players actually use → per-skill flavor judgment validation (§ 1.7 WS1A.4 hypothesis testing) | Star-lord |
+
+**Composition with star-lord seam:** real-player-telemetry collection IS what star-lord's seam exists for. Pre-launch engine architecture should design telemetry events with this hypothesis-generation methodology in mind. Telemetry isn't just for ops monitoring — it's the engine's empirical-validation instrument at scale.
+
+**Composition with Pi-LLM-proxy architecture (per `canonical/story/2026-05-30-pi-llm-proxy-architecture-recognition.md`):** telemetry aggregation + analysis can run on Pi infrastructure post-launch. Composes with the centralized Pi LLM proxy pattern.
+
+#### 2.4.3 Community-derived telemetry — ingest architecture
+
+Reincarnated-community emergence at the player-names-experience layer produces vocabulary, build guides, social discussion that the engine should ingest as substrate-led hypothesis input. Three ingest channels:
+
+**Channel A — Reincarnated-hosted community sites:**
+
+| Source | Hypothesis signal | Ingest method |
+|---|---|---|
+| Reincarnated-hosted forums | Community vocabulary emergence; build discussion; archetype labeling | Direct DB query (we own the data) |
+| Reincarnated-hosted wiki | Community-authored guides; canonical content as community sees it | Direct query + parsing |
+| Reincarnated-hosted build hub | Build submission + rating patterns; community-favored builds | Direct query + statistical analysis |
+
+**Channel B — Third-party community sites (if/when they emerge):**
+
+| Source | Hypothesis signal | Ingest method |
+|---|---|---|
+| Maxroll-equivalent (if exists) | Tier-list ratings + structured build analysis | Legolas Mode B crawl (per existing methodology); subject to robots.txt + rate-limiting |
+| Mobalytics-equivalent (if exists) | Build analysis + tier ratings | Same |
+| Reddit r/reincarnated (if exists) | Community discourse vocabulary; community archetype labeling | Reddit API (per existing legolas methodology) |
+| Discord community servers | Real-time discussion; emergent vocabulary | Discord API (if community grants access) |
+
+**Channel C — Distributed community content:**
+
+| Source | Hypothesis signal | Ingest method |
+|---|---|---|
+| Community-authored blogs | Long-form build analysis; designer-vocabulary intersection | Legolas Mode B crawl |
+| Social posts (Twitter/X/Reddit/etc.) | Real-time sentiment; emergent vocabulary; community-emergent classifications | Social media API (per platform terms) |
+| Streamer / video content | Build demonstration; per-character feel discussion | Manual + LLM analysis of transcripts (post-launch ops) |
+
+**Architectural compositions:**
+- Pi infrastructure hosts ingest pipelines (composes with Pi-LLM-proxy + future Postgres recognition)
+- Star-lord seam handles ingest tooling (composes with existing Phase 5 LLM call infrastructure)
+- Legolas Mode B methodology extends to Reincarnated-community crawling (substrate-led research applied to our own community)
+- Elrond seam curates community-derived data (per existing data steward role)
+
+#### 2.4.4 Substrate-led discipline at the player-experience layer (post-launch)
+
+The designer-writes-substrate / player-names-experience principle (`canonical/story/2026-05-29-designer-writes-substrate-player-names-experience-principle.md`) applies fractally to post-launch:
+
+| Layer | Pre-launch | Post-launch |
+|---|---|---|
+| Designer-writes-substrate | Substrate library + canonical vocabulary + BC axes | Same; substrate doesn't change because players exist |
+| Player-names-experience | Genre community research (other games' player-names-experience) | + Reincarnated community-names-experience (our players' emergent vocabulary) |
+
+Post-launch, the player-experience layer has substantially more data. The methodology consumes that data via Channels A + B + C with the same substrate-led discipline (community vocabulary votes; engine consumes post-emergence; designer doesn't pre-impose).
+
+#### 2.4.5 Pre-launch architectural decisions this surfaces
+
+To support the multi-source methodology, pre-launch decisions are needed:
+
+| Decision | Owner | Pre-launch lock |
+|---|---|---|
+| What telemetry events to capture (initial set) | star-lord + gandalf + gamora | Pre-soft-launch |
+| Telemetry data model + retention policy | star-lord + jack-ryan | Pre-soft-launch |
+| Player privacy + GDPR considerations | jack-ryan + Matt | Pre-launch |
+| Reincarnated-hosted community site architecture | Matt + future engineer | Pre-launch + post-launch evolution |
+| Community ingest pipeline architecture | star-lord + Pi infrastructure | Mid-development; composes with Pi recognition records |
+| Substrate-led discipline applied to player data | gandalf + jack-ryan | Continuous; canonical write candidate when ready |
+
+These are forward-looking architectural calls. The hypothesis-flow methodology landing now anticipates them; specific implementations defer to appropriate timing per the recognition-validate-commit discipline.
 
 ---
 
@@ -1524,6 +1637,20 @@ This document is intentionally a placeholder. The following questions need Matt'
 41. **HC mode inclusion decision** — does Reincarnated ship with Hardcore mode? Per § 1.8 iter 6 amendment, Mode axis was removed because mode is player-session-level choice, not kit-architecture-level property. IF HC mode is added: HC-viability becomes higher Survivability threshold within existing Viability axis (`VIABILITY_HC_SURVIVABILITY_PASS` gate). IF HC mode is not added: the question is moot. Decision-pending per game design call.
 
 42. **HC-Survivability threshold delta** (conditional on Q41 yes) — if HC mode is added, what's the threshold delta between baseline `VIABILITY_SURVIVABILITY_PASS` and `VIABILITY_HC_SURVIVABILITY_PASS`? Designer-asserted starting value, then refined per playtest evidence on HC death rates per kit?
+
+### 8g. Open questions from iter 7 refinement (multi-source hypothesis generation)
+
+43. **Initial telemetry event set** (per § 2.4.2) — which telemetry events does the engine capture from day 1 of Reincarnated player exposure? Comprehensive (every event) or curated (engagement-critical only)? Star-lord + gandalf + gamora design call pre-soft-launch.
+
+44. **Telemetry retention policy** — how long does the engine retain player telemetry? GDPR-compatible retention windows? Aggregation timelines? Star-lord + jack-ryan design call pre-launch.
+
+45. **Reincarnated-hosted community site architecture timing** — when does Reincarnated-hosted community infrastructure go live relative to game launch? Pre-launch community (build hype) vs at-launch vs post-launch? Affects ingest pipeline architecture timing.
+
+46. **Multi-source hypothesis weighting** — when telemetry from multiple sources is available, how does Stage 1 hypothesis generation weight sources? Designer-asserted weights? Empirically-validated weights (which sources produce best hypothesis-graduation rates)? Per-source confidence scoring?
+
+47. **Cross-source signal validation** — when community-derived telemetry suggests Pattern X is build-defining BUT real player telemetry suggests Pattern X is rarely chosen, which signal wins? Substrate-led discipline says "substrate votes" but here multiple substrate channels disagree. Methodology needed for cross-source disagreement resolution.
+
+48. **Substrate-led discipline canonical write at player-experience layer** (per § 2.4.4) — should gandalf author a new canonical refinement of the designer-writes-substrate / player-names-experience principle specifically covering the post-launch player-data layer? Anticipates need; timing TBD.
 
 ---
 
