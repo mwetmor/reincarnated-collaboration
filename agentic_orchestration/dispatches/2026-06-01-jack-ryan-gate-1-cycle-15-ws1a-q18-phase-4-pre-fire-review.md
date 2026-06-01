@@ -172,15 +172,15 @@ If BLOCK: KR remediates per your guidance; re-Gate-1.
 ---
 
 ## Completion record
-**Completed:** 2026-06-XX HH:MM
-**Verdict:** INFO / WARN / BLOCK
-**Final classification:** PASS / PASS-with-INFO / BLOCK
+**Completed:** 2026-06-01
+**Verdict:** INFO
+**Final classification:** PASS-with-INFO
 **Finding artifact:** agentic_orchestration/qa/findings/2026-06-01-q18-phase-4-gate-1.md
-**Methodology-lock fidelity check:** PASS / FAIL
-**Track-source weighting check:** PASS / FAIL
-**Phase 3 deviation handling:** PASS / FAIL
-**Key items surfaced (1-2 line summary):** <text>
-**Routing back to KR:** fire elrond Phase 4 / remediate first / hold
+**Methodology-lock fidelity check:** PASS
+**Track-source weighting check:** PASS
+**Phase 3 deviation handling:** PASS
+**Key items surfaced (1-2 line summary):** INFO 1 — T numeric value not pre-stated in dispatch (design-appropriate; T is substrate-calibrated by elrond; pre-fixing would violate Discipline #41; no action). INFO 2 — ingest script path reference to PG-0 § 5 note is non-binding; elrond seam-owner authority governs; no action.
+**Routing back to KR:** fire elrond Phase 4 immediately
 ```
 
 ---
