@@ -184,3 +184,13 @@ If verdict is BLOCK: KR remediates per your guidance; re-Gate-1.
 ---
 
 **End of jack-ryan Gate-1 dispatch.**
+
+---
+
+## Completion record
+**Completed:** 2026-06-01
+**Verdict:** INFO
+**Final classification:** PASS-with-INFO
+**Finding artifact:** agentic_orchestration/qa/findings/2026-06-01-q18-wave-open-gate-1.md
+**Key items surfaced (1-2 line summary):** All three artifacts PASS on Principles 1-6 and all checklist items. Three INFO items: (A) wave-state self-flag entry is stale — KR session DOES have Agent tool; wave-state § 7 + § 2 Phase 0 status need lightweight amendment before firing; (B) Phase-1 Gate-1 routing note for E.β case (schema-extension dispatch also needs Gate-1); (C) sub-phase 5b wall-clock rate-limiter acknowledged.
+**Routing back to KR:** amend wave-state file first (INFO A — remove "Matt agent-session launch" gate dependency; add decision-log correction entry), then fire Phase 0 immediately via Agent tool.
