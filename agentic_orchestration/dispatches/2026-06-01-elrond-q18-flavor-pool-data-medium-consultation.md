@@ -137,4 +137,17 @@ After completion record append, the wave proceeds to KR Phase-1 dispatch authori
 
 ---
 
+## Completion record
+**Completed:** 2026-06-01
+**Output:** `agentic_orchestration/elrond/consultations/2026-06-01-q18-flavor-pool-data-medium.md`
+**Medium choice:** **E.γ-prime** — JSONL (one JSON object per line) for per-candidate rows + sidecar manifest JSON per sub-agent for qualitative narrative; Phase 4 ingest via pandas → transient SQLite for analysis-time joins. Within E.γ family (no re-routing to gandalf needed; refinement is format-precision only).
+**Format spec ready for KR insertion:** YES — § 3.1 (Phase 1 sampler per-row JSONL schema) + § 3.2 (Phase 1 sidecar manifest schema) + § 4 (Phase 3 expansion sub-agent variant) ready for drop-in. § 8 carries pre-drafted placeholder-replacement text for KR to lift into Sampler-A/B/C dispatch templates.
+**Notes for KR:**
+- F-6 risk (data shape too qualitative): LOW under this format; structured citations + enums prevent qualitative collapse.
+- Phase 4 methodology lock (HDBSCAN cluster method; citation-weighted frequency; symmetric contamination matrix; substrate-calibrated cardinality threshold) called out in § 5 for inclusion in Phase-4 dispatch authoring per Discipline #18.
+- No cross-seam contract change in this consultation; sub-phase 5f POST-WAVE substrate migration unaffected.
+- Wave-state file decision-log row update: PG-0 verdict landed; elrond decision authority exercised within seam scope per hive-mind decision-routing (Matt 2026-05-23).
+
+---
+
 **End of Phase-0 elrond consultation dispatch.**

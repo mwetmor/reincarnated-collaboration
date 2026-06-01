@@ -44,7 +44,7 @@ Per operational sequence § 2. Single wave; 5 phases gated internally; wave-clos
 
 | Phase | Owner | Scope summary | Status | Artifact path |
 |---|---|---|---|---|
-| Phase 0 | elrond | Data-medium consultation (E.α / E.β / E.γ) | ⏳ DISPATCH-AUTHORED-AWAITING-FIRE (gated on jack-ryan Gate-1 PASS + Matt agent-session launch) | `elrond/consultations/2026-06-XX-q18-flavor-pool-data-medium.md` |
+| Phase 0 | elrond | Data-medium consultation (E.α / E.β / E.γ) | 🔥 FIRING (Gate-1 PASS-with-INFO 2026-06-01; Agent tool available in current KR session; sub-agent fires directly per hive-mind-protocol § 2.2.2) | `elrond/consultations/2026-06-XX-q18-flavor-pool-data-medium.md` |
 | Phase 1 | legolas (3 samplers fan-out) | Parallel sample: Sampler-A ARPG / Sampler-B JRPG-isekai / Sampler-C tabletop-myth | ⏳ pending (gated on PG-0) | `legolas/research/element-flavor-mapping-2026-06-XX/sample-<A|B|C>.md` |
 | Phase 2 | legolas (analyzer) | In-seam triage + 8×3 viability matrix + Phase 3 scope proposal | ⏳ pending | `legolas/research/element-flavor-mapping-2026-06-XX/sample-triage.md` |
 | Phase 3 | legolas (≤6 expansion fan-out) | Adaptive-scope full research per PG-1 ratified scope | ⏳ pending (gated on PG-1) | `legolas/research/element-flavor-mapping-2026-06-XX/full-<track>-<primary>.md` |
@@ -62,7 +62,7 @@ Per operational sequence § 2. Single wave; 5 phases gated internally; wave-clos
 
 | Phase-gate | Trigger | Decider | Status |
 |---|---|---|---|
-| PG-0 (data medium) | Pre-Phase-1 | elrond | ⏳ DISPATCH-AUTHORED-AWAITING-FIRE |
+| PG-0 (data medium) | Pre-Phase-1 | elrond | 🔥 FIRING (Gate-1 PASS-with-INFO 2026-06-01) |
 | PG-1 (triage scope) | Post-Phase-2 | gandalf | ⏳ pending |
 | PG-1.5 (in-flight amendment; conditional) | Mid-Phase-3 | gandalf | ⏳ pending (conditional) |
 | PG-2 (stats sufficiency) | Post-Phase-4 | gandalf | ⏳ pending |
@@ -77,7 +77,7 @@ Per operational sequence § 2. Single wave; 5 phases gated internally; wave-clos
 
 | Sub-agent | Phase | Scope | Status | Fired-at |
 |---|---|---|---|---|
-| (initial state — none) | — | — | — | — |
+| elrond | Phase 0 (PG-0) | Data-medium consultation (E.α / E.β / E.γ); format spec for Phase 1 sampler dispatches | 🔥 FIRING | 2026-06-01 |
 
 Updated as phases fire.
 
@@ -128,7 +128,9 @@ Date stamps `2026-06-XX` resolve to actual dates as artifacts land.
 | Timestamp | Phase-gate | Decider | Verdict | Linked artifact |
 |---|---|---|---|---|
 | 2026-06-01 wave-open | — | Matt | "hand to KR to fire the wave" (verbatim) | operational sequence § 11 |
-| 2026-06-01 wave-open | Gate-1 dispatch route | KR | Jack-ryan Gate-1 pre-fire review routed via dispatch (Pattern A short-task; Task/Agent tool not surfaced in this session) | `dispatches/2026-06-01-jack-ryan-gate-1-cycle-15-ws1a-q18-wave-open-pre-fire-review.md` |
+| 2026-06-01 wave-open | Gate-1 dispatch route | KR | Jack-ryan Gate-1 pre-fire review routed via dispatch (Pattern A short-task; Task/Agent tool not surfaced in prior KR session) | `dispatches/2026-06-01-jack-ryan-gate-1-cycle-15-ws1a-q18-wave-open-pre-fire-review.md` |
+| 2026-06-01 Gate-1 verdict | Pre-Phase-0 critique-pair | jack-ryan | PASS-with-INFO (3 INFO items; INFO A wave-state correction actioned; INFO B forward note re schema-extension routing if elrond recommends E.β; INFO C acknowledged) | `qa/findings/2026-06-01-q18-wave-open-gate-1.md` |
+| 2026-06-01 Phase 0 fire | Post Gate-1 PASS | KR | Elrond Phase-0 data-medium consultation fired via direct Agent invocation (hive-mind-protocol § 2.2.2 semantics restored in current KR session) | `dispatches/2026-06-01-elrond-q18-flavor-pool-data-medium-consultation.md` |
 | (further entries appended as phase-gates ratify) | | | | |
 
 ---
@@ -183,7 +185,8 @@ Per operational sequence § 7:
 | Timestamp | Event |
 |---|---|
 | 2026-06-01 wave-open | State file initialized; wave-open dispatch authored; Phase-0 elrond consultation dispatch authored; jack-ryan Gate-1 dispatch authored (Pattern A short-task pre-fire review); all work-products committed |
-| 2026-06-01 wave-open KR self-flag | Task/Agent tool NOT surfaced in this KR session inventory; sub-agent invocations route via dispatch authoring + Matt-manual-session-launch per `dispatches/README.md`. This deviates from hive-mind-protocol § 2.2.2 "Agent tool firing" semantics. Jack-ryan Gate-1 § 5 surfaces this for review. Wave is at "dispatches authored + awaiting Gate-1 PASS + Matt-launches-agent-sessions" state, not "Phase 0 actively executing." |
+| 2026-06-01 wave-open KR self-flag | Task/Agent tool NOT surfaced in prior KR session inventory; sub-agent invocations routed via dispatch authoring + Matt-manual-session-launch per `dispatches/README.md`. This deviated from hive-mind-protocol § 2.2.2 "Agent tool firing" semantics. Jack-ryan Gate-1 § 5 surfaces this for review. **SUPERSEDED — see next entry.** |
+| 2026-06-01 KR session resume + Gate-1 PASS-with-INFO | Agent tool IS surfaced in resumed KR session; hive-mind-protocol § 2.2.2 direct Agent-invocation semantics restored. Prior self-flag superseded. Jack-ryan Gate-1 verdict: PASS-with-INFO at `qa/findings/2026-06-01-q18-wave-open-gate-1.md` — 3 INFO items: (A) wave-state amendment to update Phase 0 status + decision-log + supersede prior self-flag — **ACTIONED in this commit**; (B) post-PG-0 if elrond recommends E.β, route schema-extension dispatch + Phase 1 sampler dispatches jointly to jack-ryan Gate-1 (schema extension is cross-seam contract change per ADR-004); (C) sub-phase 5b Pattern B wall-clock rate-limiter acknowledged. KR fires Phase 0 elrond consultation immediately via direct Agent invocation. |
 
 ---
 
