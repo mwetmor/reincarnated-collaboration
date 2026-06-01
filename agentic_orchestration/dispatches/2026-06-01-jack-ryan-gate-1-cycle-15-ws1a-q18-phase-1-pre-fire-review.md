@@ -186,3 +186,17 @@ If verdict is BLOCK: KR remediates per your guidance; re-Gate-1.
 ---
 
 **End of jack-ryan Phase-1 Gate-1 dispatch.**
+
+---
+
+## Completion record
+**Completed:** 2026-06-01
+**Verdict:** INFO
+**Final classification:** PASS-with-INFO
+**Finding artifact:** `agentic_orchestration/qa/findings/2026-06-01-q18-phase-1-gate-1.md`
+**INFO B disposition:** does NOT fire — elrond chose E.γ-prime (not E.β); no schema extension authored; no cross-seam contract change in Phase 1 dispatch. Confirmed.
+**Key items surfaced:**
+- INFO 1: Sampler-B + Sampler-C output format sections reference "same schema as Sampler-A" rather than inlining verbatim. No drift risk in this dispatch; consideration for future parallel-sampler commissions. No action required now.
+- INFO 2: Commit-discipline note in legolas § 6 is correct and aligned with CLAUDE.md. No action required.
+- All schema-fidelity checks pass: elrond § 3.1 per-row schema (8 primary_element values, 7 substrate_type values, integer recognizability_score, list cross_primary_contamination, required source_citations) inserted correctly into Sampler-A verbatim; Sampler-B/C inherit via explicit reference with correct track literals. Elrond § 3.2 manifest schema present in all 3 prompts. No schema drift detected.
+**Routing back to KR:** fire Phase 1 (legolas) immediately — no remediation required before fire.
