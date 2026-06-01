@@ -122,6 +122,53 @@
 > - Recognition (gandalf 2026-06-01) → routing (KR) → gamora swift-closure → star-lord pre-fire surface → Gate (c) verdict (gandalf) → Path X verification (rocket) → Path X Gate-2 (jack-ryan PASS-with-INFO) → star-lord Phase 5 re-engagement → ✅ Phase 5 cohesion judge fired → jack-ryan wave-close canonical write (FIRING)
 >
 > **Push authorization (sub-amendment-C):** engine `62f1429` + `553f4cf` + tag `star-lord/v1.5-...` LOCAL; collab `4ab0377` + this state-file amendment + jack-ryan wave-close dispatch commit LOCAL. PLUS gandalf hypothesis-flow iter 7 (`93b22c3`) LOCAL — orthogonal workstream landed in parallel. All await Matt explicit go.
+>
+> **§ 1 SUB-AMENDMENT 2026-06-01-D (WAVE-5 SWIFT-CLOSURE CLOSED — jack-ryan canonical write PASS):**
+>
+> - **jack-ryan wave-close canonical write** ✅ COMPLETE 2026-06-01 — disposition **PASS** (singular outcome on combined dispatch)
+> - **Five deliverables landed in single jack-ryan session:**
+>   1. Wave-close canonical record at `canonical/story/2026-06-01-cycle-14-wave-5-swift-closure-wave-close-record.md` (STATUS: CURRENT; PROVISIONAL marker discipline at doc layer; 19KB)
+>   2. `canonical/00-ground-state.md` § 1 registration row added for the wave-close doc
+>   3. Phase 5 Gate-2 finding at `agentic_orchestration/qa/pending/2026-06-01-jack-ryan-cycle-14-wave-5-phase-5-cohesion-judge-gate-2.md` — **PASS-with-INFO** on tag `star-lord/v1.5-cycle-14-wave-5-swift-closure-cohesion-judge-snapshot-1`; 4 INFOs (k=4 resolved; sparse-element kits confirmed shadow=1/water=1; Phase 7 DB carry-forward; cost calibration)
+>   4. KR coordination signal at `agentic_orchestration/jack-ryan/notes/2026-06-01-wave-5-swift-closure-canonical-write-complete.md`
+>   5. Engine commit `d364c49`: Disc #41.x amendment (substrate-led extended to validation-metric layer; AS SUB-SECTION not § 41a/41b fragment per Q1 jack-ryan seam decision) + Disc #42b new (line-reference re-verification at re-citation; AS NEW DISCIPLINE per Q2 jack-ryan canonical phrasing decision) + decisions-log entry (wave-5 swift-closure architectural decision)
+> - **Open-Q decisions taken by jack-ryan (seam authority per § 3.9):**
+>   - Q1: Disc #41 as § 41.x sub-section (substrate-led discipline coherent at multiple layers, single doc)
+>   - Q2: Disc #42b phrasing "line-reference re-verification at re-citation"
+>   - Q3: Phase 5 cost ($0.50 vs $0.30) = INFO not WARN (within anomaly guards; estimate basis was wrong, not a cost anomaly)
+>   - Q4: Phase 7 DB `provisional_pending_playtest_validation` column migration = INFO carry-forward; ADR-006 Matt-authorization required before gamora/elrond fires it
+> - **Wave-5 swift-closure status: CLOSED.** Cycle-14 Wave 5 transitions to deferred-debt state for Cycle 15+ refinement per gandalf recognition record § 5 + § 7.3.
+>
+> **Carry-forward items for Cycle 15+ (per jack-ryan canonical write + Gate-2 INFOs):**
+> - Phase 7 DB column migration (gamora seam; ADR-006 Matt-authorization required)
+> - Phase 5 LLM cost-envelope calibration for Cycle 15+ Wave B dispatch authoring
+> - Path Y / Path Z architectural elections (separable from wave-5 closure per gandalf verdict § 2 Q4)
+> - Gauntlet metric refinement workstream (post-manifestation-milestone-enabled playtest)
+> - Disc #41.x ratified (load-bearing for substrate-led applications going forward at validation-metric layer)
+> - Disc #42b ratified (load-bearing for dispatch authoring hygiene going forward)
+>
+> **Push authorization (sub-amendment-D):** all wave-5 swift-closure artifacts CLOSED; collab `2f1fc57` + engine `d364c49` LOCAL; plus all carry-forward LOCAL commits from sub-amendments A/B/C. ALSO gandalf hypothesis-flow iter 8 (`e04caba`) LOCAL — orthogonal workstream landed in parallel during jack-ryan fire. All await Matt explicit go.
+>
+> **Full wave-5 swift-closure arc (single-session, multi-agent, hive-mind Mode A):**
+>
+> ```
+> Matt 2026-05-31 framing-audit observation
+>   → gandalf recognition record (daa1c98)
+>     → KR routing (gamora + star-lord dispatches; state amendment)
+>       → gamora swift-closure (engine 3365eb4 + tag gamora/v2.18-...; collab 16ce0bf + 5b7dd59)
+>       → star-lord pre-fire empirical-inspection surface (6593626 + collab Gate (c) CONDITIONAL)
+>         → gandalf Gate (c) verdict (05c1300 + 900c0bc; Option 2 / Path X canonical)
+>           → KR Path X dispatch (05374f8)
+>             → rocket Path X verification (engine 15735d0 + tag rocket/v1.1-...; collab dc4ca86)
+>               → KR jack-ryan Gate-2 Path X dispatch (2bbf08c)
+>                 → jack-ryan Path X Gate-2 PASS-with-INFO (bundled af0fe09)
+>                   → KR state sub-amendment B (4accc93)
+>                     → KR star-lord re-engagement
+>                       → star-lord Phase 5 cohesion judge fire (engine 62f1429 + 553f4cf + tag star-lord/v1.5-...; collab 4ab0377)
+>                         → KR jack-ryan wave-close dispatch (3bda3af + state sub-amendment C)
+>                           → jack-ryan wave-close canonical write PASS (collab 2f1fc57; engine d364c49)
+>                             → WAVE-5 SWIFT-CLOSURE CLOSED 2026-06-01
+> ```
 
 > **§ 1 AMENDMENT 2026-05-28 (Matt-ratified Read γ election):** Waves 2/3/4 SUPERSEDED by no-classes substrate-led architectural recommitment (2026-05-27) + Path α workstream authoring. Wave 5 = sole content production wave per D4 / D9 ratified close-criterion (3 LLM seasons × ≥12/18 emit + 3× Gate-2 + A/B + Disciplines #41-#47 batch + Matt tag).
 >
