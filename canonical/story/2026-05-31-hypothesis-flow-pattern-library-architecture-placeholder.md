@@ -1,6 +1,6 @@
 # Hypothesis Flow + Pattern Library Architecture — PLACEHOLDER FOR REFINEMENT
 
-> **STATUS:** PLACEHOLDER (refinement iteration 4 — 2026-06-01) — pre-commitment architectural draft. Iter 1: gauntlet provisional + manifestation Phase 1/2 + retroactive + WS1A.4 + three-layer validation. Iter 2: P4 → creation-moment-memorability. Iter 3: 7 mechanism families → three-layer treatment (Layer 1 P1-P5 / Layer 2 mechanism-structural / Layer 3 observational); "Family B gap" framing retired. **Iter 4: multi-axis experiential architecture** per Matt 2026-06-01 observation that 6 primary archetype labels (Bossing / Speedfarm / Push / Generalist / Leveling / League Starter) aren't a flat enum — they decompose into orthogonal axes (Progression-Stage / Target-Pattern / Depth-vs-Breadth) plus additional axes (Mode / Activity-Format / Loot-Focus / Maxroll 5-axis). Axis-type taxonomy (Identity / Viability / Mode / Sub) treats each axis differently; cell shape framework (Specialized / Hybrid / Generalist / Anti-specialization) declares intended profile shape; Leveling-as-viability-axis hypothesis per Reincarnated 50-level + 85%-leveling-only structure (pending playtest validation); genre-relative LE-to-D3 moderate specialization positioning; mutual exclusivity preference framed as substrate-led empirically validated, not pre-imposed. Synthesizes 2026-05-29 ARPG community research sprint output + designer-writes-substrate / player-names-experience principle + 5-property substrate framework + 7-mechanism-family taxonomy + experiential cascade architecture recognition + Matt 2026-05-31 hypothesis-flow methodology articulation + 2026-06-01 refinements. **Not a commitment.** Document is the substrate for ongoing Pattern B refinement conversation that produces the committed architecture.
+> **STATUS:** PLACEHOLDER (refinement iteration 5 — 2026-06-01) — pre-commitment architectural draft. Iter 1: gauntlet provisional + manifestation Phase 1/2 + retroactive + WS1A.4 + three-layer validation. Iter 2: P4 → creation-moment-memorability. Iter 3: 7 mechanism families → three-layer treatment (Layer 1 P1-P5 / Layer 2 mechanism-structural / Layer 3 observational); "Family B gap" framing retired. **Iter 4: multi-axis experiential architecture** per Matt 2026-06-01 observation that 6 primary archetype labels (Bossing / Speedfarm / Push / Generalist / Leveling / League Starter) aren't a flat enum — they decompose into orthogonal axes (Progression-Stage / Target-Pattern / Depth-vs-Breadth) plus additional axes (Mode / Activity-Format / Loot-Focus / Maxroll 5-axis). Axis-type taxonomy (Identity / Viability / Mode / Sub) treats each axis differently; cell shape framework (Specialized / Hybrid / Generalist / Anti-specialization) declares intended profile shape; Leveling-as-viability-axis hypothesis per Reincarnated 50-level + 85%-leveling-only structure (pending playtest validation); genre-relative LE-to-D3 moderate specialization positioning; mutual exclusivity preference framed as substrate-led empirically validated, not pre-imposed. **Iter 5: pipeline placement decision LOCKED** — Phase 5+ LLM naming (per-skill flavor judgment + skill naming + cohesion clustering + Wave A/B naming) fires AFTER Pareto reduction (Option A; on ~30 kits not ~650); cost-efficient (~$1.50-4.50/cycle vs $30-90); cohesion judge n=30 sufficient for meaningful clustering (~3-5 emergent factions); Option B (pre-Pareto naming with faction-aware reduction) deferred to future refinement gated on playtest evidence of natural-faction-loss; substrate-led discipline composes with gauntlet provisional recognition (don't compound provisionality without empirical validation). Synthesizes 2026-05-29 ARPG community research sprint output + designer-writes-substrate / player-names-experience principle + 5-property substrate framework + 7-mechanism-family taxonomy + experiential cascade architecture recognition + Matt 2026-05-31 hypothesis-flow methodology articulation + 2026-06-01 refinements. **Not a commitment.** Document is the substrate for ongoing Pattern B refinement conversation that produces the committed architecture.
 
 **Date:** 2026-05-31
 **Author:** gandalf (story-and-design steward)
@@ -297,6 +297,33 @@ Per § 2 hypothesis-flow methodology refinement (Stage 2.5 identity finalization
 - Wave A faction naming + Wave B kit identity naming re-fire with rich semantic inputs
 
 Single Phase 5+ re-run pass against snapshot archive produces full identity-finalized output. ~1-2 weeks horizon as named in § 5.
+
+#### 1.7.8 Pipeline placement decision — Phase 5+ LLM naming fires AFTER Pareto reduction (Option A; iter 5 lock per Matt 2026-06-01)
+
+**Decision:** Phase 5+ LLM naming (Phase 5a' per-skill flavor judgment + Phase 5a skill naming + Phase 5b cohesion clustering + Wave A faction naming + Wave B per-kit identity naming) fires **AFTER** Phase 4 Pareto reduction. On ~30 reduced kits, not on ~650 pre-Pareto kits.
+
+**The three options considered:**
+
+| Option | Order | LLM cost | Cohesion judge n | Faction representation |
+|---|---|---|---|---|
+| **A (LOCKED)** | math-validate → Pareto-reduce → LLM-name → cluster | LOW (~30 kits; ~150-210 LLM calls; ~$1.50-4.50 per cycle) | Small (~30); ~3-5 emergent factions; ~6-10 kits per faction | Constrained by Pareto-survived population; cluster composition depends on what survived |
+| **B (FUTURE REFINEMENT)** | math-validate → LLM-name → cluster → Pareto-per-cluster | HIGH (~650 kits; ~3,250-4,550 LLM calls; ~$30-90 per cycle) | Large (~650); semantic identity informs clustering | Preserves faction representation in final 30 kits (Pareto operates per-cluster) |
+| **C (REJECTED)** | math-validate → LLM-name → Pareto-reduce → cluster | HIGH | Small (~30) | Same as A but at B's cost; mostly inferior |
+
+**Why Option A is locked:**
+
+1. **Cost efficiency** — 22× LLM call reduction without obvious quality loss at current stage. Bounded absolute cost ($1.50-4.50/cycle vs $30-90/cycle).
+2. **Substrate-led discipline composition with gauntlet provisional recognition (`canonical/story/2026-06-01-gauntlet-metrics-as-provisional-hypotheses-recognition.md`)** — Pareto's selection axes (substrate + math-viability) are themselves provisional pending playtest validation; adding semantic axes to Pareto without empirical validation would compound provisionality, not resolve it.
+3. **Cohesion judgment scope** — n=30 is sufficient for meaningful clustering; comparable to genre ship scale (D2 has 7 classes; D4 has 6 classes; PoE has ~20 ascendancies; ~3-5 emergent factions per Reincarnated season is appropriate).
+4. **Retroactive runs are cheaper** — if we need to re-name later (e.g., per identity-finalization Phase 1 of manifestation milestone), only 30 kits to re-process.
+5. **Iteration speed** — smaller LLM batch fires faster; tighter dev loop; faster wave-close turnaround.
+6. **Identity emergence is largely predictable from substrate** — BC tuple + cultural lineage + element + period + register strongly constrain emergent identity. Cohesion judge can largely INFER which substrate clusters will produce which emergent identities without running all 650 LLM passes; running on 30 named kits is sufficient signal.
+
+**Counter-argument honestly surfaced:** Option B is more architecturally complete — semantic identity diversity is a substrate-led property that Pareto-on-math-axes can't see. If playtest evidence reveals natural-faction-loss (e.g., expected emergent identity like "Death Knight" failed to surface because its candidate kits were Pareto-eliminated before naming), that's empirical evidence for B. Until that evidence exists, Option A is the substrate-led-disciplined choice.
+
+**Deferral path to Option B if playtest evidence supports:** during manifestation milestone Phase 1 identity finalization + subsequent playtest cycles, if observation surfaces that meaningful identity diversity was lost at the Pareto step, gandalf authors a refinement record + KR routes a pipeline-restructure dispatch + star-lord implements Option B. Until that evidence: Option A is locked.
+
+**Composition with hypothesis-flow methodology:** the Stage 1 → Stage 6 cycle operates on Option A pipeline structure. Hypothesis cells at Stage 1 inform Phase 2 BC discovery; engineering at Stage 2 tunes generation parameters; manifestation at Stage 3 (Phase 1 identity finalization re-runs Phase 5+ on snapshot archive); playtest at Stage 4 validates whether the Phase 5+ outputs feel coherent. Three-layer playtest validation (§ 6.0) includes "did meaningful identity diversity survive Pareto reduction?" as part of Layer 3 (LLM naming + cohesion outputs).
 
 ### 1.8 Multi-axis experiential architecture (iter 4 refinement — Matt 2026-06-01)
 
@@ -1082,13 +1109,19 @@ Manifestation milestone Phase 1 — IDENTITY FINALIZATION (retroactive on wave-5
     │ Starts AFTER Phase 4 archive insertion of wave-5 snapshot (the gauntlet-emitted piece).
     │ Substrate stays substrate; identity layer regenerates via WS1A-amended Phase 5+ pipeline.
     │
-    ├── Re-run Phase 5a' (per-skill flavor judgment, bounded per § 1.7) on snapshot kits
+    │ Pipeline placement (per § 1.7.8 Option A — iter 5 lock): Phase 5+ LLM naming
+    │ fires on the ~30 Pareto-reduced kits, NOT on ~650 pre-Pareto kits. Cost
+    │ efficient (~$1.50-4.50 per cycle vs $30-90); cohesion judge n=30 sufficient;
+    │ retroactive runs cheaper. Option B (pre-Pareto LLM naming with faction-aware
+    │ reduction) deferred until playtest evidence of natural-faction-loss supports.
+    │
+    ├── Re-run Phase 5a' (per-skill flavor judgment, bounded per § 1.7) on ~30 snapshot kits
     ├── Re-run Phase 5a (skill naming consuming per-skill flavor judgments)
-    ├── Re-run Phase 5b cohesion judge clustering (richer semantic inputs)
+    ├── Re-run Phase 5b cohesion judge clustering (richer semantic inputs; ~3-5 emergent factions on n=30)
     ├── Re-run Wave A faction naming
     ├── Re-run Wave B per-kit identity naming
     ├── Snapshot archive transitions: "wave-5 PROVISIONAL (gauntlet metrics)" → "wave-5 PROVISIONAL + IDENTITY-FINALIZED"
-    └── Single Phase 5+ re-run pass; ~1-2 weeks horizon
+    └── Single Phase 5+ re-run pass; ~1-2 weeks horizon; ~150-210 LLM calls total
     ↓
 Manifestation milestone Phase 2 — REALIZATION in Unreal
     │
@@ -1481,6 +1514,16 @@ This document is intentionally a placeholder. The following questions need Matt'
 35. **Cross-axis profile constraints** — are there combinations of multi-axis coordinates that are STRUCTURALLY incompatible (e.g., "high Bossing + high Speedfarming at Specialized cell shape" is contradictory)? Generation needs to know which combinations are valid candidates vs structurally impossible.
 
 36. **Emergent label inference methodology** — § 3.5 `emergent_archetype_label` field is computed post-hoc from multi-axis profile dominance. What's the inference algorithm? Threshold-based (e.g., "if Bossing > 7 AND Push > 7 → 'Bossing Push'")? LLM-based labeling? Statistical clustering? Implementation choice affects label consistency and player-facing surface coherence.
+
+### 8e. Open questions from iter 5 refinement (pipeline placement decision)
+
+37. **Option B deferral evidence threshold** — what specific empirical evidence at manifestation milestone playtest would trigger Option B (pre-Pareto LLM naming with faction-aware reduction)? Concrete criteria needed: e.g., "if 2+ playtest cycles surface 'expected emergent identity X failed to materialize because candidate kits were Pareto-eliminated before naming'" → Option B refinement.
+
+38. **Cost compounding across cycles** — Option A's ~$1.50-4.50/cycle assumes per-cycle LLM cost. Across many cycles (52 seasons/year × multi-year project lifespan), this compounds. Is Pi-LLM-proxy infrastructure (per `canonical/story/2026-05-30-pi-llm-proxy-architecture-recognition.md`) the cost-mitigation answer (caching + provider routing)?
+
+39. **Phase 5b cohesion clustering threshold for n=30** — at n=30 kits with ~3-5 emergent factions, are there minimum-kits-per-faction thresholds that would refute a clustering decision? E.g., a 1-kit cluster is more likely substrate noise than a meaningful faction; should cohesion judge enforce minimum-cluster-size of 3-4?
+
+40. **Pre-Pareto cohesion-judge inference (gandalf hypothesis at § 1.7.8)** — gandalf argued that "identity emergence is largely predictable from substrate (BC tuple + cultural lineage + element + period + register)" without running LLM naming on all 650 kits. Is this empirically testable BEFORE manifestation milestone? E.g., LLM-name a small sample (50 kits) pre-Pareto and post-Pareto; compare identity distributions. If gandalf hypothesis holds, Option A is fully validated; if not, Option B becomes more compelling.
 
 ---
 
