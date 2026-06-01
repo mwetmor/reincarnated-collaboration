@@ -44,6 +44,31 @@
 
 ## 1. Wave status table
 
+> **§ 1 AMENDMENT 2026-06-01 (gandalf swift-closure recognition record + KR routing):** Wave 5 closure path REFRAMED from "gauntlet-defined convergence" to "iteration-snapshot with PROVISIONAL marker" per `canonical/story/2026-06-01-gauntlet-metrics-as-provisional-hypotheses-recognition.md` (commit `daa1c98`). Recognition observation: gauntlet metrics (KPM thresholds + multi-format winning criteria + cohort archetype taxonomy + encounter representativeness + BVV thresholds) are designer-asserted without empirical validation instrument; iterating to convergence on unvalidated metrics is wasted iteration per Disc #41 substrate-led extended to validation-metric layer. Empirical validation gate: manifestation-milestone-enabled playtest (Cycle 15+).
+>
+> **Wave 5 close direction (this amendment):**
+> 1. STOP Phase 3 gauntlet sim iteration — current state IS wave-5 snapshot
+> 2. LOCK current Phase 4 archive insertion candidates as wave-5 archive (no further Pareto-2 iteration cycles)
+> 3. Phase 5 cohesion judge fires AS-IS against snapshot archive (methodology preserved per recognition § 4.2)
+> 4. Phase 6 + Phase 7 sign-off operates on snapshot archive AS-IS with PROVISIONAL marker
+> 5. Wave-close canonical write (jack-ryan seam) explicitly marks Phase 3 gauntlet metrics + Phase 4 archive PROVISIONAL pending manifestation-milestone-enabled playtest validation
+>
+> **Dispatch routing 2026-06-01:**
+> - gamora dispatch: `agentic_orchestration/dispatches/2026-06-01-gamora-cycle-14-wave-5-swift-closure-gauntlet-stop-joint-gate-snapshot.md` (gauntlet STOP + Phase 6/7 joint-gate snapshot sign-off)
+> - star-lord dispatch: `agentic_orchestration/dispatches/2026-06-01-star-lord-cycle-14-wave-5-swift-closure-cohesion-judge-snapshot.md` (Phase 5 cohesion judge fires AGAINST snapshot; sequencing-critical AFTER gamora signals archive stable)
+> - jack-ryan dispatch (queued; authored AFTER gamora Phase 7 sign-off + star-lord Phase 5 close): wave-close canonical write with PROVISIONAL marker discipline
+>
+> **What this amendment supersedes:**
+> - 2026-05-29 Wave 5 HOLD (Matt election paths X/Y/Z for cascade-resumption-2 Step 4 Wave B material discovery) is REFRAMED — swift-closure path does NOT require resolving the X/Y/Z election before wave-close, because wave-5 outputs are now PROVISIONAL by recognition, not waiting for validated convergence. Star-lord dispatch pre-fire empirical-inspection gate § 2.1 surfaces the Wave B status + Phase 4 → Phase 5 disjoint resolution as load-bearing IF still open at fire-time (escalates to KR; KR escalates to Matt only as last resort per § 3.9). The two architectural surfaces remain separable from the recognition-driven swift-closure direction.
+>
+> **What this amendment does NOT change:**
+> - Cohesion judge methodology (recognition § 4.2 — preserved)
+> - Phase 6/7 joint-gate logic (recognition § 4.2 — preserved)
+> - Docs 47 / 50 / 51 (recognition § 6 — not invalidated)
+> - Disciplines #41 amendment landing (queued for jack-ryan ratification per recognition § 3.1 / § 7.3 — landing post wave-close)
+>
+> **Push authorization:** commit `daa1c98` (gandalf recognition record) + this state-file amendment + the two dispatches AWAIT Matt explicit go per ADR-006 read-only-by-default + dispatch text "PUSH AUTHORIZATION: commit daa1c98 awaiting Matt push approval. KR read access works locally; push to origin/main on Matt explicit go."
+
 > **§ 1 AMENDMENT 2026-05-28 (Matt-ratified Read γ election):** Waves 2/3/4 SUPERSEDED by no-classes substrate-led architectural recommitment (2026-05-27) + Path α workstream authoring. Wave 5 = sole content production wave per D4 / D9 ratified close-criterion (3 LLM seasons × ≥12/18 emit + 3× Gate-2 + A/B + Disciplines #41-#47 batch + Matt tag).
 >
 > **Cross-references:**
