@@ -175,4 +175,17 @@ If BLOCK: KR remediates per your guidance; re-Gate-1.
 
 ---
 
+## Completion record
+
+**Completed:** 2026-06-01
+**Verdict:** INFO
+**Final classification:** PASS-with-INFO
+**Finding artifact:** agentic_orchestration/qa/findings/2026-06-01-q18-phase-3-gate-1.md
+**Schema-fidelity check:** PASS
+**Gandalf-amendment fidelity check:** PASS (5 of 5 — Exp-A.1 wind-purity prefix PASS; Exp-A.2 non-religious weighting + flag PASS; Exp-B.1 no-amendment-correct PASS; Exp-B.2 substrate-honest-WEAK caveat PASS; Exp-C.1 no-amendment-correct PASS)
+**Key items surfaced:** 3 INFO items, no action required before fire: (1) Exp-B.1 manifest three-layer distinction — Phase 4 dependency; flag at legolas report-back if absent. (2) Exp-A.1 thin-substrate fallback path (MEDIUM-with-thin-yield) correctly enabled and likely to fire per gandalf substrate-thinness signal. (3) Phase 1 Gate-1 INFO 1 (schema cross-reference pattern) disposed-of — Phase 3 prompts are each self-contained on schema.
+**Routing back to KR:** fire legolas (Phase 3) immediately — no remediation required
+
+---
+
 **End of jack-ryan Phase-3 Gate-1 dispatch.**
