@@ -1,6 +1,6 @@
 # Hypothesis Flow + Pattern Library Architecture — PLACEHOLDER FOR REFINEMENT
 
-> **STATUS:** PLACEHOLDER — pre-commitment architectural draft authored 2026-05-31 for Matt review + refinement before any canonical promotion. Synthesizes 2026-05-29 ARPG community research sprint output + designer-writes-substrate / player-names-experience principle + 5-property substrate framework + 7-mechanism-family taxonomy + experiential cascade architecture recognition + Matt 2026-05-31 hypothesis-flow methodology articulation. **Not a commitment.** Document is the substrate for a Pattern B refinement conversation that produces the committed architecture.
+> **STATUS:** PLACEHOLDER (refinement iteration 1 — 2026-06-01) — pre-commitment architectural draft authored 2026-05-31; first refinement pass 2026-06-01 incorporating: (a) gauntlet metrics as provisional hypotheses recognition (2026-06-01 recognition record), (b) manifestation milestone Phase 1 (identity finalization) + Phase 2 (realization) split, (c) retroactive feasibility of WS1A.2/3/4 on wave-5 snapshot archive starting at Phase 4 output, (d) WS1A.4 per-skill bounded LLM flavor judgment (single-element 3-option / hybrid 2-element 15-option), (e) three-layer playtest validation framing (hypothesis cells + gauntlet metrics + LLM naming/cohesion outputs). Synthesizes 2026-05-29 ARPG community research sprint output + designer-writes-substrate / player-names-experience principle + 5-property substrate framework + 7-mechanism-family taxonomy + experiential cascade architecture recognition + Matt 2026-05-31 hypothesis-flow methodology articulation + 2026-06-01 refinements. **Not a commitment.** Document is the substrate for ongoing Pattern B refinement conversation that produces the committed architecture.
 
 **Date:** 2026-05-31
 **Author:** gandalf (story-and-design steward)
@@ -26,7 +26,7 @@
 
 **The mathematical structure:** each hypothesized build-defining pattern is a **mathematical cell** in pattern-library space. A cell carries substrate-axis coordinates (designer-writes layer) + experiential-axis coordinates (player-names layer) + mechanism-axis coordinates (5-property scoring + mechanism family + relationship-transform vector) + validation state. **Flags** are bit-marks attached to engine-generated characters indicating which cells they match, enabling downstream stages (Phase 5 LLM cohesion judge; Wave A faction naming; Wave B per-kit identity; spirit-guide content layer; playtest evaluation) to act on the structural identity.
 
-**The sequencing:** this work gates on (a) Cycle 14 wave-5 closing, (b) WS1A architectural foundations landing (substrate axis expansion + Phase 5 LLM amendment + flavor-element wiring), (c) the manifestation milestone establishing playtest infrastructure. Pattern-library Phase A-E work begins AFTER these gates resolve. Estimated horizon: 6-12 months from now to begin Phase A; 12-24 months to graduate the first encoded patterns.
+**The sequencing (revised 2026-06-01):** this work gates on (a) Cycle 14 wave-5 **swift snapshot closure** per 2026-06-01 recognition record (gauntlet metrics as provisional hypotheses; days to ~2 weeks); (b) WS1A architectural foundations landing — WS1A.1 substrate axis expansion + WS1A.2 Phase 5 LLM amendment + WS1A.3 flavor element wiring + **WS1A.4 per-skill bounded flavor judgment**; (c) manifestation milestone as **two-phase** — Phase 1 retroactive identity finalization on wave-5 snapshot (~1-2 weeks; single Phase 5+ re-run pass starting after Phase 4 output) + Phase 2 realization in Unreal (3-6 months); (d) playtest cycles validate THREE layers simultaneously (hypothesis cell patterns + gauntlet metric predictions + LLM naming/cohesion outputs). Pattern-library Phase A-E work begins AFTER these gates resolve. Estimated horizon: **4-8 months** from now to begin Phase A (revised down from 6-12 months pre-recognition); 9-15 months to graduate first encoded patterns.
 
 **The risks remaining:** five concrete risks named in § 8. The most architecturally consequential: pattern encoding before substrate-axis expansion completes locks in patterns at incomplete substrate coordinates; failure-mode playtest discipline must be honored to prevent confirmation-biased graduation; small playtest population (Matt + son = 2) limits pattern generalization without supplementary instrument (community research stays load-bearing through all cycles).
 
@@ -115,6 +115,120 @@ Empirically validated at 104-build scale across 6 sites × 4 games:
 - **Reincarnated recommendation**: ≤3 multiplicative loot substrate layers; LE-style simpler-multiplication; preserve single-axis archetype viability
 
 **Refinement for this work:** the research findings are the **empirical seed corpus** for the hypothesis-flow methodology. Community-research-led hypothesis batches (§ 2 Stage 1) draw from this corpus + ongoing community-research sprints + Matt's lived genre experience. The research is not finished; ongoing legolas Mode A research extends the empirical seed corpus as the work progresses.
+
+### 1.7 Per-skill flavor judgment architecture (WS1A.4)
+
+**Source:** Matt 2026-06-01 refinement during Pattern B dialogue on the manifestation milestone scope.
+
+**The architecture:** in addition to per-kit primary element (substrate) and per-kit sub-element / flavor element selection (WS1A.3), each SKILL within a kit gets an LLM-judged flavor alignment. The LLM judgment is **bounded** — constrained to the kit's substrate-declared element pair — not free invention from the full canonical 2.5 flavor vocabulary.
+
+#### 1.7.1 Single-element kit case (1 primary + 1 sub)
+
+Kit declares:
+- **Primary element**: 1 from the canonical 8-element catalog (e.g., earth)
+- **Sub / flavor element**: 1 selection from the **primary's flavor pool** (e.g., bone — which lives in earth's flavor pool because bone is earth-substrate-aligned)
+
+> **Important constraint** (Matt 2026-06-01): the sub-element pool is the PRIMARY's flavor pool, NOT the full canonical 2.5 vocabulary. Earth's sub-elements are earth-aligned (bone, stone, ore, root, sand, clay, crystal, mineral, etc.) — NOT shadow, NOT fire, NOT lightning (those are their own canonical elements with their own flavor pools).
+
+Per-skill LLM judgment chooses from **3 bounded options**:
+
+| Option | Meaning | Example (Earth + Bone kit) |
+|---|---|---|
+| `primary` | Skill aligns with primary element flavor only | Stone Spike (pure earth) |
+| `sub` | Skill aligns with sub-element flavor only | Bone Armor (pure bone-sub) |
+| `blend` | Skill composes primary + sub flavors | Bone Spear (earth structural + bone-sub aspect) |
+
+LLM does NOT pick from outside this 3-option set per skill. The kit's flavor identity is constrained by its substrate declaration.
+
+#### 1.7.2 Hybrid 2-element kit case (2 primaries + 2 subs)
+
+Kit declares:
+- **Primary Element 1** (P1): canonical element (e.g., earth)
+- **Primary Element 2** (P2): canonical element (e.g., shadow)
+- **Sub / Flavor Element 1** (S1): drawn from P1's flavor pool (e.g., bone, from earth's pool)
+- **Sub / Flavor Element 2** (S2): drawn from P2's flavor pool (e.g., umbra, from shadow's pool)
+
+Per-skill LLM judgment chooses from **15 bounded options** — every non-empty subset of {P1, P2, S1, S2}:
+
+| Option | Subset | Example identity (Earth + Shadow / Bone + Umbra kit) |
+|---|---|---|
+| A | {P1} | Stone Spike (pure earth) |
+| B | {P2} | Shadow Drain (pure shadow) |
+| C | {P1, P2} | Stone Curse (earth + shadow blended; both primaries) |
+| D | {S1} | Bone Armor (pure bone-sub) |
+| E | {S2} | Umbral Veil (pure umbra-sub) |
+| F | {S1, S2} | Bone Shroud (bone + umbra blended; both subs) |
+| G | {P1, S1} | Petrified Marrow (earth + bone; same-primary blend) |
+| H | {P1, S2} | Earth Wraith (earth + umbra; cross-primary blend) |
+| I | {P2, S1} | Bone Specter (shadow + bone; cross-primary blend) |
+| J | {P2, S2} | Shadow Mist (shadow + umbra; same-primary blend) |
+| K | {P1, P2, S1} | Bone Spear (earth + shadow + bone; triple) |
+| L | {P1, P2, S2} | Umbral Quake (earth + shadow + umbra; triple) |
+| M | {P1, S1, S2} | Marrow Wraith (earth + bone + umbra; triple) |
+| N | {P2, S1, S2} | Bone Wraith (shadow + bone + umbra; triple) |
+| O | {P1, P2, S1, S2} | Soulshatter Bone (all four; full quad blend) |
+
+15 options = 2⁴ - 1 (every non-empty subset of 4 elements). Same bounded discipline — LLM picks from the kit's substrate context, not from arbitrary flavor vocabulary.
+
+#### 1.7.3 Why bounded judgment matters
+
+| Dimension | Unbounded LLM judgment | Bounded {primary/sub pair OR P1/P2/S1/S2 quad} |
+|---|---|---|
+| Substrate-led discipline | LLM could introduce off-substrate flavor identities | LLM constrained to kit's substrate-declared pair/quad |
+| Kit coherence | Risk of element soup; identity fragmentation | All skills root in same substrate identity space |
+| LLM API cost | Choice space = canonical 2.5 pool (~30+) per skill | 3 options (single) or 15 options (hybrid) per skill |
+| Emergent class concept | Risk of incoherent identity composition | Composition stays within substrate identity; emergent class concept (necromancer, druid, etc.) cleanly emerges from skill flavor composition |
+| Cohesion judge inputs | Higher variance; harder to cluster | Lower variance; faction clustering operates on coherent flavor signatures |
+
+The bounded approach preserves substrate-led discipline at the per-skill semantic-identity layer.
+
+#### 1.7.4 Emergent kit concept ("necromancer" emerges without being declared)
+
+Worked example — single-element kit:
+- **Substrate**: Primary = Shadow; Sub = Umbra (from shadow's flavor pool); cultural lineage = necromantic-folk; period = early-medieval; register = grim
+- **Skills** (4 skill slots from Phase 4 archive, each with mechanical properties)
+- **Per-skill LLM judgment**: skill 1 = `blend`, skill 2 = `primary`, skill 3 = `sub`, skill 4 = `blend`
+- **Phase 5a skill naming**: Shadow Spear, Umbral Drain, Shadow Veil, Soul Shroud
+- **Phase 5b cohesion judge**: clusters with other shadow + umbra + necromantic-folk + grim kits
+- **Wave B per-kit identity LLM**: emerges **"Necromancer"** as kit concept
+
+Designer never pre-imposed "necromancer." Substrate declared shadow + umbra + necromantic-folk + grim. LLM per-skill bounded judgment + downstream composition synthesized the kit concept. **Substrate-led discipline preserved end-to-end.**
+
+This is "emergent classes, not abandoned classes" made operational. Compare to designer-imposed alternative ("here's a necromancer class taxonomy; generate necromancer kits") — that violates substrate-led discipline. Per-skill bounded LLM judgment with substrate-declared element scope preserves the discipline AND produces the genre-recognizable kit concept.
+
+#### 1.7.5 Composition with hybrid kits enables much richer emergent concepts
+
+Hybrid kits' 15-option per-skill judgment matrix supports complex emergent identities. Earth + Shadow + Bone + Umbra hybrid produces concepts that single-element kits cannot:
+
+- "Death Knight" (Earth-armor + Shadow-magic + Bone-physical + Umbra-aspect blends)
+- "Bone Witch" (Bone-physical + Umbra-spectral focus across skills)
+- "Tomb Warden" (Earth-defensive + Bone-physical + Shadow-passive blend)
+- "Soul Reaver" (Shadow-active + Bone-projectile + Umbra-finishing blends)
+
+The kit concept emerges from composition of bounded per-skill judgments across the 4-element substrate space. Single-element kits cannot reach these emergent concepts because their 3-option scope is too narrow. Hybrid kits are architecturally richer at the player-experience layer.
+
+This composes with `canonical/story/c-hybrid-cell-and-curation-architecture-2026-05-28.md` — hybrid kits as a deliberate kit-architecture choice that produces richer experiential identity.
+
+#### 1.7.6 Cost analysis
+
+| Kit type | Skills per kit (typical) | Options per skill | Total per-kit judgment cost (LLM calls) |
+|---|---|---|---|
+| Single-element kit | ~4-6 skills | 3 | ~4-6 LLM judgments per kit |
+| Hybrid 2-element kit | ~4-6 skills | 15 | ~4-6 LLM judgments per kit (same call count; richer choice space) |
+
+LLM call count is the same; choice space per call is richer for hybrid. Marginal API cost is comparable. Single-element kits are NOT cheaper to judge; both are bounded by the kit's substrate scope; both produce one judgment per skill.
+
+#### 1.7.7 Composes with Cycle 14 wave-5 retroactive identity finalization
+
+Per § 2 hypothesis-flow methodology refinement (Stage 2.5 identity finalization), the per-skill flavor judgment **runs retroactively** on the wave-5 snapshot archive starting after Phase 4 archive insertion:
+
+- Wave-5 snapshot kits already declare primary element (substrate)
+- Sub-element selection per kit (WS1A.3) runs retroactively
+- Per-skill flavor judgment (WS1A.4) runs retroactively
+- Phase 5b cohesion clustering re-runs with full flavor judgment inputs
+- Wave A faction naming + Wave B kit identity naming re-fire with rich semantic inputs
+
+Single Phase 5+ re-run pass against snapshot archive produces full identity-finalized output. ~1-2 weeks horizon as named in § 5.
 
 ---
 
@@ -251,7 +365,11 @@ These fields specify which engine-substrate region the cell occupies. Cells may 
 | `historical_period` | 9-enum | `historical_period_canonical` |
 | `register` | 6-enum | `register_canonical` |
 | `weapon_type_family` | 6-enum | `weapon_type_family` |
-| `element` | 8-enum + flavor pool | Canonical 8 + flavor-element vocabulary (per Phase 5 LLM call amendment workstream 1A.5) |
+| `kit_architecture` | enum: `single_element` / `hybrid_2_element` | Per § 1.7; determines per-skill flavor judgment scope (3-option vs 15-option) |
+| `kit_primary_element_1` | 8-enum (canonical) | The canonical primary element; ALWAYS present |
+| `kit_primary_element_2` | 8-enum (canonical) OR null | Only present for `hybrid_2_element` kits |
+| `kit_sub_element_1` | from P1's flavor pool | Sub-element drawn from primary 1's flavor pool (NOT from full canonical 2.5); per WS1A.3 |
+| `kit_sub_element_2` | from P2's flavor pool OR null | Only present for hybrid; drawn from primary 2's flavor pool |
 | `attribute` | STR / DEX / INT / WIS | Per `attribute-system-2026-05-24.md` (VIT deferred) |
 | `t4_strategy` | 6 current + 15 proposed = 21 | Per doc 47 § 4.6 + § 11 proposed; cell may target specific T4 or T4-family |
 | `investment_profile` | low / mid / max | Per doc 51 Patterns 1+2 |
@@ -348,6 +466,32 @@ Cells don't exist in isolation; they compose into clusters and oppose other cell
 | `opposing_cells` | list | Cells that structurally exclude each other (e.g., Bossing-Push vs Speedfarm-Clear) |
 | `parent_cluster` | str | Which pattern-cluster does this cell belong to (if any)? |
 | `composition_strength` | float | How strong is the cell's tendency to co-occur with cluster siblings? |
+
+### 3.10 Per-skill flavor judgment fields (per § 1.7 WS1A.4)
+
+Specifies the cell's prediction for how per-skill bounded LLM judgment distributes across the kit's substrate-declared element scope.
+
+**For single-element kit cells:**
+
+| Field | Type | Notes |
+|---|---|---|
+| `skill_flavor_alignment_distribution` | dict | Predicted distribution across `{primary, sub, blend}` for the cell's typical skill composition; e.g., `{primary: 2, sub: 1, blend: 2}` for 5 skills |
+| `predicted_emergent_kit_concept` | str | What kit concept the LLM should produce at Wave B per-kit identity step; e.g., "Necromancer" / "Stoneward" / etc. |
+
+**For hybrid 2-element kit cells:**
+
+| Field | Type | Notes |
+|---|---|---|
+| `skill_flavor_alignment_distribution` | dict | Predicted distribution across the 15-subset space `{P1, P2, S1, S2, {P1,P2}, ..., {P1,P2,S1,S2}}`; same skill-count total |
+| `predicted_emergent_kit_concept` | str | What kit concept the LLM should produce; hybrids unlock richer concepts (e.g., "Death Knight" / "Bone Witch" / "Tomb Warden" / "Soul Reaver") |
+| `cross_primary_blend_count` | int | Cells targeting specifically cross-primary blends (e.g., P1+S2 or P2+S1 subsets); higher counts predict more unusual emergent identities |
+
+**Validation field (shared across single/hybrid):**
+
+| Field | Type | Notes |
+|---|---|---|
+| `actual_emergent_concept_observed` | str | What Wave B LLM actually produced at identity-finalization; compared to `predicted_emergent_kit_concept` for cell validation |
+| `concept_match_score` | float 0-1 | Cohesion between predicted and observed emergent concept; per playtest signal on identity coherence |
 
 ---
 
@@ -493,6 +637,50 @@ Universal across 4 games per research sprint findings (37% of all multi-variant 
 | `EXECUTION_FLOOR_LOW` | Approachable; works without execution skill |
 | `EXECUTION_CEILING_HIGH` | Rewards execution mastery |
 
+### 4.13 Kit architecture flags (per § 1.7 WS1A.4)
+
+| Flag | Notes |
+|---|---|
+| `KIT_SINGLE_ELEMENT` | Kit has 1 primary element + 1 sub-element from primary's flavor pool; per-skill judgment scope = 3 options |
+| `KIT_HYBRID_2_ELEMENT` | Kit has 2 primary elements + 2 sub-elements (each from respective primary's pool); per-skill judgment scope = 15 options |
+
+### 4.14 Per-skill flavor judgment flags (per § 1.7 WS1A.4)
+
+Single-element kit per-skill alignment:
+
+| Flag | Notes |
+|---|---|
+| `SKILL_ALIGNMENT_PRIMARY` | Skill aligns with kit's primary element only |
+| `SKILL_ALIGNMENT_SUB` | Skill aligns with kit's sub-element only |
+| `SKILL_ALIGNMENT_BLEND` | Skill blends primary + sub |
+
+Hybrid 2-element kit per-skill alignment (15-subset space):
+
+| Flag | Notes |
+|---|---|
+| `SKILL_ALIGNMENT_P1` | Skill aligns with primary element 1 only |
+| `SKILL_ALIGNMENT_P2` | Skill aligns with primary element 2 only |
+| `SKILL_ALIGNMENT_P1_P2` | Skill blends both primaries |
+| `SKILL_ALIGNMENT_S1` | Skill aligns with sub-element 1 only |
+| `SKILL_ALIGNMENT_S2` | Skill aligns with sub-element 2 only |
+| `SKILL_ALIGNMENT_S1_S2` | Skill blends both sub-elements |
+| `SKILL_ALIGNMENT_P1_S1` | Skill blends primary 1 + sub 1 (same-primary blend) |
+| `SKILL_ALIGNMENT_P2_S2` | Skill blends primary 2 + sub 2 (same-primary blend) |
+| `SKILL_ALIGNMENT_P1_S2` | Skill blends primary 1 + sub 2 (cross-primary blend) |
+| `SKILL_ALIGNMENT_P2_S1` | Skill blends primary 2 + sub 1 (cross-primary blend) |
+| `SKILL_ALIGNMENT_P1_P2_S1` | Triple blend (excludes S2) |
+| `SKILL_ALIGNMENT_P1_P2_S2` | Triple blend (excludes S1) |
+| `SKILL_ALIGNMENT_P1_S1_S2` | Triple blend (excludes P2) |
+| `SKILL_ALIGNMENT_P2_S1_S2` | Triple blend (excludes P1) |
+| `SKILL_ALIGNMENT_FULL_QUAD` | Full {P1, P2, S1, S2} quad blend |
+
+Per-kit emergent identity:
+
+| Flag | Notes |
+|---|---|
+| `EMERGENT_KIT_CONCEPT_DECLARED` | Wave B LLM emerged a recognizable kit concept (Necromancer / Druid / Stoneward / Death Knight / etc.) |
+| `EMERGENT_KIT_CONCEPT_AMBIGUOUS` | Wave B LLM produced ambiguous output; identity coherence weak |
+
 ---
 
 ## 5. Sequencing — when this work fires
@@ -512,19 +700,39 @@ Cycle 14 wave-5 close
     ↓
 WS1A architectural foundations land
     │
-    ├── Substrate axis expansion (per § 4-9 of HTML doc; experiential archetype + investment tier + Maxroll 5-axis + playstyle geometry tags + GDI + CLI + skill-floor/ceiling + skill-role distribution)
-    ├── Phase 5 LLM call architecture amendment (Workstream 1A.5)
-    └── Flavor element vocabulary wiring (canonical 2.5; never previously wired as live LLM call)
+    ├── WS1A.1 Substrate axis expansion (per § 4-9 of HTML doc; experiential archetype + investment tier + Maxroll 5-axis + playstyle geometry tags + GDI + CLI + skill-floor/ceiling + skill-role distribution)
+    │   ├── PARTIAL retroactive on wave-5 snapshot (axes can be inferred or extracted)
+    │   └── FULL validation requires Cycle 15+ proper generation
+    ├── WS1A.2 Phase 5 LLM call architecture amendment (two-stage: skills + flavor BEFORE cohesion clustering)
+    ├── WS1A.3 Flavor element vocabulary wiring (per-kit sub-element selection from PRIMARY's flavor pool; canonical 2.5)
+    └── WS1A.4 Per-skill flavor judgment (bounded: single-element = 3 options; hybrid 2-element = 15 options; per § 1.7)
     ↓
-Manifestation milestone landed
+Manifestation milestone Phase 1 — IDENTITY FINALIZATION (retroactive on wave-5 snapshot archive)
     │
-    ├── One realized character (Drifter of the Scattered Reach or equivalent)
+    │ Starts AFTER Phase 4 archive insertion of wave-5 snapshot (the gauntlet-emitted piece).
+    │ Substrate stays substrate; identity layer regenerates via WS1A-amended Phase 5+ pipeline.
+    │
+    ├── Re-run Phase 5a' (per-skill flavor judgment, bounded per § 1.7) on snapshot kits
+    ├── Re-run Phase 5a (skill naming consuming per-skill flavor judgments)
+    ├── Re-run Phase 5b cohesion judge clustering (richer semantic inputs)
+    ├── Re-run Wave A faction naming
+    ├── Re-run Wave B per-kit identity naming
+    ├── Snapshot archive transitions: "wave-5 PROVISIONAL (gauntlet metrics)" → "wave-5 PROVISIONAL + IDENTITY-FINALIZED"
+    └── Single Phase 5+ re-run pass; ~1-2 weeks horizon
+    ↓
+Manifestation milestone Phase 2 — REALIZATION in Unreal
+    │
+    │ Binds Phase 1 identity-finalized JSON output. Chosen character carries final
+    │ skill names, kit identity, faction context for playtest validity.
+    │
+    ├── Chosen manifestation character with finalized identity (e.g., "Necromancer" emergent from shadow + umbra)
     ├── Modular character architecture established (stock mannequin + armor pieces + materials)
     ├── Initial component library (5-10 base bodies + 50-100 heads + 200-500 armor + 100-300 weapons + 100-200 accessories per modular character research)
     ├── Spirit-form sculpting prototype
     ├── Manifestation transition (Spirit → realized character)
     ├── Basic moveset + combat interaction
-    └── Glimpse of level-50 future-self
+    ├── Glimpse of level-50 future-self
+    └── Failure-mode comparison character realized (also identity-finalized via Phase 1)
     ↓
 PATTERN LIBRARY PHASE A — Pattern Discovery Infrastructure
     │
@@ -558,19 +766,26 @@ PATTERN LIBRARY PHASE E — Expansion and Maintenance
     └── Engine continues compounding value
 ```
 
-### 5.3 Estimated horizon
+### 5.3 Estimated horizon (revised 2026-06-01 per retroactive feasibility recognition)
 
 | Phase | Start | Duration estimate |
 |---|---|---|
-| WS1A foundations | Post-Cycle-14-close | 4-8 weeks |
-| Manifestation milestone | After WS1A | 3-6 months |
-| Phase A infrastructure | After manifestation lands | 4-8 weeks |
+| Wave-5 swift closure (snapshot per recognition record 2026-06-01) | NOW | days to ~2 weeks |
+| WS1A foundations | Post-wave-5-close | 4-8 weeks |
+| **Manifestation milestone Phase 1 (identity finalization; retroactive)** | **After WS1A** | **~1-2 weeks** |
+| Manifestation milestone Phase 2 (realization in Unreal) | After Phase 1 | 3-6 months |
+| Phase A infrastructure | After Phase 2 lands | 4-8 weeks |
 | Phase B initial library | Concurrent with A's end | 2-4 months |
 | Phase C generation integration | After B reaches ~10 locked cells | 2-4 months |
 | Phase D validation + iteration | Continuous from C | Ongoing |
 | Phase E expansion | Continuous | Ongoing |
 
-**Net horizon to begin Phase A:** 6-12 months from now. **Net horizon to first library-locked cells:** 12-18 months. **Net horizon to commercially-meaningful pattern library:** 24-36 months. The work is substantial but proceeds in increments; value emerges progressively as the first cells graduate.
+**Net horizon to begin Phase A (revised):** 4-8 months from now (down from 6-12 month range pre-recognition). **Net horizon to first library-locked cells:** 9-15 months. **Net horizon to commercially-meaningful pattern library:** 18-30 months. The work is substantial but proceeds in increments; value emerges progressively as the first cells graduate.
+
+**The horizon shortened because:**
+- Wave-5 closes at snapshot, not gauntlet convergence (per 2026-06-01 recognition record)
+- Manifestation Phase 1 runs retroactively on snapshot (single Phase 5+ re-run, not full regeneration)
+- WS1A.1 substrate axis expansion validated PARTIALLY at manifestation (full validation defers to Cycle 15+ proper without blocking pattern library start)
 
 ### 5.4 What does NOT block this sequencing
 
@@ -589,6 +804,23 @@ PATTERN LIBRARY PHASE E — Expansion and Maintenance
 ---
 
 ## 6. Validation methodology details
+
+### 6.0 Three-layer playtest validation (revised 2026-06-01)
+
+Per the recognition record `canonical/story/2026-06-01-gauntlet-metrics-as-provisional-hypotheses-recognition.md` + the per-skill flavor judgment refinement (§ 1.7), **playtest cycles validate THREE LAYERS simultaneously** on the same realized character:
+
+| Layer | What playtest validates | Validation evidence |
+|---|---|---|
+| **Layer 1 — Hypothesis-cell patterns** | Does the cell's predicted build-defining pattern match playtest experience? | Direct hypothesis confirmation per § 6.6 graduation criteria |
+| **Layer 2 — Gauntlet metric predictions** | Do gauntlet-predicted KPM, multi-format winning, cohort archetype match playtest observations? | Compare predicted vs observed KPM per power plane; compare predicted multi-format viability vs playtest experience |
+| **Layer 3 — LLM naming + cohesion judge outputs** | Do the emergent skill names, kit identity, and faction context feel correct? Does "Necromancer" emerge as the kit concept consistently with what playtest reveals? | Subjective playtest signal on identity coherence; failure-mode comparison test for identity distinctness |
+
+Three layers validated in one playtest cycle. Same instrument; three operational benefits per cycle:
+- Validates pattern library cell graduation discipline
+- Validates gauntlet metrics (currently provisional per 2026-06-01 recognition)
+- Validates Phase 5 LLM naming + cohesion judge outputs (currently provisional pending WS1A landing + Phase 1 identity finalization)
+
+The three layers are not separable. A character feels build-defining (Layer 1) when its skills KPM correctly (Layer 2) AND its identity reads as a coherent emergent concept (Layer 3). All three must validate for the cell to graduate.
 
 ### 6.1 Community-research-led hypothesis generation
 
@@ -832,6 +1064,24 @@ This document is intentionally a placeholder. The following questions need Matt'
 
 15. **Hypothesis batch authoring cadence** — how often are new hypothesis batches generated? Quarterly? Per substrate-axis expansion event? Continuously?
 
+### 8b. Open questions from 2026-06-01 refinement iteration
+
+16. **WS1A.4 per-skill flavor judgment LLM prompt design** (per § 1.7) — what's the LLM prompt template that produces bounded per-skill judgment? Single-element kit prompt vs hybrid 2-element prompt differ in choice space; both need precise prompt engineering to constrain output to the bounded set. Star-lord seam authoring + Matt sign-off; Cycle 15+ work.
+
+17. **Hybrid kit element pair selection criteria** (per § 1.7.2) — when generation creates a hybrid 2-element kit, what determines WHICH 2 primary elements are paired? Designer-declared at substrate level? Substrate-led emergence from BC tuple coordinates? Specific cohesion-judge rules? This is upstream of per-skill flavor judgment but affects what kits become hybrid candidates.
+
+18. **Flavor pool per primary element** (per § 1.7.1) — the canonical 2.5 vocabulary is segmented by primary element. Each canonical primary has its own sub-element flavor pool. Has this segmentation been canonically locked? If not, that's a prerequisite locking step for WS1A.3 + WS1A.4 implementation. (Matt 2026-06-01 correction: earth's flavor pool includes bone/stone/ore/etc., NOT shadow which is its own canonical element.)
+
+19. **Emergent kit concept naming consistency** — Wave B LLM emerges concepts like "Necromancer" / "Death Knight" / "Bone Witch." These names persist as the kit's player-facing identity. Should emergent concepts be drawn from a canonical vocabulary list (curated; ensures genre-recognizable names) OR free LLM generation (richer; risks unrecognizable names)? Tension between substrate-led discipline (free LLM emergence) vs player-recognizability (curated list).
+
+20. **Identity-finalization re-run scope** — Phase 1 manifestation milestone runs identity finalization on full wave-5 snapshot archive OR only on the chosen manifestation character? Full archive is cleaner (everything stays in sync); single character is faster. Tradeoff: faster Phase 1 vs cleaner architecture for cross-cell hypothesis testing.
+
+21. **Three-layer playtest validation co-graduation** (per § 6.0) — if a playtest cycle confirms hypothesis-cell pattern (Layer 1) but the gauntlet metric prediction was wrong (Layer 2), does the cell graduate? Should there be cell-level vs gauntlet-level graduation independence, or co-graduation discipline?
+
+22. **WS1A.1 retroactive inference confidence threshold** — § 5.2 + § 7 note that wave-5 snapshot kits get expanded axes via retroactive inference. What confidence threshold gates "this kit's experiential archetype = Bossing"? LLM-inferred labels carry uncertainty; pattern library needs to know when inference is reliable enough to encode against.
+
+23. **Cell-level flavor judgment distribution prediction** (per § 3.10) — cells predict the distribution of per-skill flavor alignments (e.g., "Necromancer cell predicts {blend: 2, sub: 1, primary: 2}"). Is this distribution a STRONG cell-level constraint OR a SOFT preference? Generation logic at Phase C may need to know how to weight cell-predicted distributions vs LLM judgment freedom.
+
 ---
 
 ## 9. Cross-references
@@ -840,12 +1090,15 @@ This document is intentionally a placeholder. The following questions need Matt'
 
 - `canonical/story/2026-05-29-designer-writes-substrate-player-names-experience-principle.md` — foundational three-layer architecture
 - `canonical/story/2026-05-29-experiential-cascade-architecture-recognition.md` — third coordinate axis
+- `canonical/story/2026-06-01-gauntlet-metrics-as-provisional-hypotheses-recognition.md` — gauntlet metric validity recognition; informs three-layer playtest validation framing (§ 6.0); wave-5 swift snapshot closure path
+- `canonical/story/2026-05-31-ue-seam-agent-placement-decision.md` — UE seam agent placement; supports manifestation milestone Phase 2 realization
+- `canonical/story/c-hybrid-cell-and-curation-architecture-2026-05-28.md` — hybrid kit architecture; foundation for hybrid 2-element kit per-skill judgment (§ 1.7.2)
 - `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` § 41 — substrate-led discipline (with refinement per § 1.2 above)
 - `canonical/47-damage-scaling-architecture-2026-05-27.md` — T4 architecture
 - `canonical/50-bounded-viability-with-specialization-design-directive-2026-05-28.md` — BVV
 - `canonical/51-investment-scaling-6-pattern-architecture-2026-05-28.md` — investment scaling
 - `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` — 8 BC axes
-- `canonical/story/phase-5-llm-prompts-cohesion-judge-2026-05-27.md` — Phase 5 prompts (current; Cycle 15+ extension target)
+- `canonical/story/phase-5-llm-prompts-cohesion-judge-2026-05-27.md` — Phase 5 prompts (current; WS1A.2 amendment target)
 - `agentic_orchestration/research/arpg-community-axes-2026-05-29/synthesis-verdict.md` — empirical research sprint output
 - `agentic_orchestration/gandalf/notes/2026-05-29-community-substrate-axis-expansion-and-t4-capstone-design-implications.html` § 19 + § 22 — mechanism families + 5-property framework
 - `matt_notes_handoff_docs/build-defining-backward-inference.md` — original Topic #1 architectural concept
