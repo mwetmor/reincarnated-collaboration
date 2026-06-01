@@ -1,6 +1,6 @@
 # Hypothesis Flow + Pattern Library Architecture — PLACEHOLDER FOR REFINEMENT
 
-> **STATUS:** PLACEHOLDER (refinement iteration 2 — 2026-06-01) — pre-commitment architectural draft. Iteration 1 (2026-06-01): (a) gauntlet metrics as provisional hypotheses recognition, (b) manifestation milestone Phase 1/Phase 2 split, (c) retroactive feasibility of WS1A.2/3/4 on wave-5 snapshot, (d) WS1A.4 per-skill bounded LLM flavor judgment, (e) three-layer playtest validation. Iteration 2 (2026-06-01): P4 → creation-moment-memorability remapping per Matt observation that genre-style in-game acquisition surfaces (item drops / Aspect assembly / Mageblood acquisition) don't exist in Reincarnated; § 1.3.1 maps P4 to character creation / Spirit discovery / emergent-kit-concept-reveal. Synthesizes 2026-05-29 ARPG community research sprint output + designer-writes-substrate / player-names-experience principle + 5-property substrate framework + 7-mechanism-family taxonomy + experiential cascade architecture recognition + Matt 2026-05-31 hypothesis-flow methodology articulation + 2026-06-01 refinements. **Not a commitment.** Document is the substrate for ongoing Pattern B refinement conversation that produces the committed architecture.
+> **STATUS:** PLACEHOLDER (refinement iteration 3 — 2026-06-01) — pre-commitment architectural draft. Iteration 1: gauntlet metrics provisional + manifestation Phase 1/2 split + retroactive feasibility + WS1A.4 per-skill bounded flavor judgment + three-layer playtest validation. Iteration 2: P4 → creation-moment-memorability remapping per Matt observation that genre-style in-game acquisition surfaces don't exist in Reincarnated launch scope. **Iteration 3: 7 mechanism families distilled into three-layer treatment (Layer 1 P1-P5 player-value axes + Layer 2 mechanism-structural dimensions + Layer 3 observational family descriptors)** per Matt 2026-06-01 substrate-led-applied-to-mechanisms observation; "Family B is highest-leverage gap" framing RETIRED — replaced by "value-axis gap (high P2 + high P3 + multiplicative-stackability + on-event-trigger + scales-with-investment Layer 2 coordinates)" framing; generation operates at Layer 1 + Layer 2, family flags become post-hoc descriptors. Synthesizes 2026-05-29 ARPG community research sprint output + designer-writes-substrate / player-names-experience principle + 5-property substrate framework + 7-mechanism-family taxonomy + experiential cascade architecture recognition + Matt 2026-05-31 hypothesis-flow methodology articulation + 2026-06-01 refinements. **Not a commitment.** Document is the substrate for ongoing Pattern B refinement conversation that produces the committed architecture.
 
 **Date:** 2026-05-31
 **Author:** gandalf (story-and-design steward)
@@ -105,25 +105,62 @@ This refinement makes it explicit: **P4 in Reincarnated cell scoring measures th
 
 **What this is NOT:** does NOT pre-impose that all Reincarnated cells must score high P4. Wanderer-style / approachable / generic-flavored cells SHOULD score low P4 (their archetype is "no specific creation moment; just a kit you play") and that's correct. The framework just stops pretending P4 measures genre-acquisition; it measures creation-moment-memorability instead.
 
-### 1.4 7 mechanism families
+### 1.4 7 mechanism families — observational layer over substrate-led value axes
 
-**Canonical anchor:** § 19 of same HTML doc.
+**Canonical anchor:** § 19 + § 19.2 of same HTML doc.
 
-Seven distinct mechanism families across genre:
+**Refinement iteration 3 (Matt 2026-06-01)**: the 7 families were extracted from genre research — empirical categorization of HOW the genre has historically implemented mechanisms. They are **observational categories** of "how the genre solved the build-defining-moment problem." They are NOT substrate axes that Reincarnated must target to deliver build-defining experiences. **Substrate-led discipline (Disc #41) applied at the mechanism layer requires distinguishing observation from substrate.**
 
-| Family | Pattern | Reincarnated current coverage | Gap |
-|---|---|---|---|
-| **A** — Intra-skill transformation | LE Skill Specialization Tree; PoE Support Gem; LA Tripod; PoE2 Meta Gem | Partial (skill geometry + T4 scope) | MODERATE |
-| **B** — Extractable / imbue-able power | D2 Rune Words; D3 Kanai's Cube; D4 Legendary Aspect; D4 Tempering | NONE | **MAJOR GAP** — dominant genre crystallization surface |
-| **C** — Class-identity combo | GD Dual Mastery; D3 Class Set 6pc; LA Class Engraving; PoE Ascendancy | Partial (spirit-swap is temporal not simultaneous) | MODERATE |
-| **D** — Passive-tree capstone | PoE Keystone; PoE Ascendancy Capstone; GD Devotion Celestial; D4 Paragon Glyph | YES — Reincarnated T4 architecture | No gap — preserved + extended |
-| **E** — Item-slot anchor | Mageblood; Headhunter; Enigma; Infinity; Tyrael's Might | Partial (legendary exists; no Mageblood-class) | MODERATE |
-| **F** — Consumable / inventory-resident passive | D2 Charms; LE Idols; LE Blessing | None | MINOR |
-| **G** — Proc-attached celestial / secondary | GD Devotion Celestial; PoE Watcher's Eye; D3 Legendary Gem secondary | None (T4 proc-on-condition is partial) | MODERATE |
+The 7 families:
 
-**Architectural headline:** the genre's most-beloved canonical build-defining moments (Enigma in D2, Marauder 6pc in D3, Aspect assembly in D4) all live in **Family B**. Reincarnated has zero Family B mechanisms. T4 architecture is a genuine Family D innovation that should be preserved + extended; **adding a Family B mechanism is the highest-leverage Cycle 15+ design call**.
+| Family | Pattern | Genre exemplars |
+|---|---|---|
+| **A** — Intra-skill transformation | Skills change qualitatively via attached transformations | LE Skill Specialization Tree; PoE Support Gem; LA Tripod; PoE2 Meta Gem |
+| **B** — Extractable / imbue-able power | Powers extracted from items and imbued elsewhere | D2 Rune Words; D3 Kanai's Cube; D4 Legendary Aspect; D4 Tempering |
+| **C** — Class-identity combo | Large bonuses on combo completion | GD Dual Mastery; D3 Class Set 6pc; LA Class Engraving; PoE Ascendancy |
+| **D** — Passive-tree capstone | Single-instance two-sided mechanic swap | PoE Keystone; PoE Ascendancy Capstone; GD Devotion Celestial; D4 Paragon Glyph |
+| **E** — Item-slot anchor | Singular unique item carrying unique effect | Mageblood; Headhunter; Enigma; Infinity; Tyrael's Might |
+| **F** — Consumable / inventory-resident passive | Multiple held items providing cumulative passive | D2 Charms; LE Idols; LE Blessing |
+| **G** — Proc-attached celestial / secondary | Chance-to-proc effects linked to other skills | GD Devotion Celestial; PoE Watcher's Eye; D3 Legendary Gem secondary |
 
-**Refinement for this work:** the 7 families are the **mechanism-axis flag enum** for pattern-library cells. A cell carries one or more mechanism family flags. Cells targeting Family B are highest-leverage gap-filling candidates. Cells targeting Family D extend existing strength.
+#### 1.4.1 The three-layer treatment
+
+What the 7 families REVEAL when distilled properly through substrate-led discipline:
+
+| Layer | What it is | Substrate-axis status |
+|---|---|---|
+| **Layer 1 — Player-value axes** | The WHY — what player experience each mechanism produces. Already captured by the 5-property framework (P1-P5 per § 1.3): identity-axis transformation / multiplicative composition / system-substitution / creation-moment-memorability / composition-unlock. | **Generation-targetable substrate axes.** Cells are coordinates in this space. |
+| **Layer 2 — Mechanism-structural dimensions** | The HOW — mechanical substrate of the mechanism. Per § 19.2 of HTML doc, the 7-family research surfaced four structural dimensions: magnitude pattern (transformative / +X% / fixed-power / +flat-stat), stackability (single / additive / multiplicative), trigger (always-on / on-event / on-condition), scaling (with item-power / with-investment / fixed). | **Generation-targetable substrate axes.** Cells specify mechanism-structural coordinates that determine HOW the mechanism delivers Layer 1 value. |
+| **Layer 3 — Observational family flags** | The WHAT-IT-LOOKS-LIKE — post-hoc categorization of "this mechanism structurally resembles genre Family X." | **Descriptive flags only.** NOT generation targets. Cells may carry "resembles Family B" or "resembles Family D" tags for community-recognizability and discoverability, but generation operates at Layer 1 + Layer 2. |
+
+**Reincarnated designs at Layer 1 + Layer 2.** Layer 3 family-similarity is post-hoc characterization.
+
+#### 1.4.2 Why this matters — the "Family B gap" framing was wrong as substrate-led
+
+The previous framing said: *"Family B is the highest-leverage gap-filling candidate; adding a Family B mechanism is the highest-leverage Cycle 15+ design call."* That framing **pre-imposed genre taxonomy** (build Family B!) without empirical evidence that Family B specifically — as opposed to its underlying Layer 1 + Layer 2 property profile — is what delivers the player experience.
+
+Substrate-led refinement of the same observation:
+
+> "Reincarnated currently delivers high P4 + high P5 via the seasonal arc + creation moment + composition unlock; delivers high P1 via spirit-swap differentiation; delivers low-to-medium P2 + P3 because T4 is set at generation and no current Reincarnated mechanism eliminates other gameplay systems. **The highest-leverage gap is the Layer 1 value-axis space (high P2 + high P3 + multiplicative-stackability + on-event-trigger + scales-with-investment Layer 2 coordinates) that no current Reincarnated mechanism covers.** Whether we fill that gap with a Family-B-resembling mechanism, a Family-E-resembling mechanism, or a Reincarnated-native mechanism with no genre analog is a downstream design decision; the substrate-axis gap is what matters, not the family taxonomy."
+
+The genre research is still valuable — it surfaces Layer 2 structural dimensions we wouldn't have catalogued without it. The 7 families themselves become descriptive flags at the output layer, not substrate axes at the generation layer.
+
+#### 1.4.3 Composition with hypothesis-flow methodology
+
+Per § 2 hypothesis-flow methodology, the Stage 1 → Stage 6 cycle operates on **Layer 1 + Layer 2 coordinates**, not Family A-G membership:
+
+| Stage | What's hypothesized at the mechanism layer |
+|---|---|
+| Stage 1 (hypothesis) | "Cells with high P2 + high P3 + multiplicative stackability + on-event trigger produce build-defining magic-find-rogue archetype" — Layer 1 + Layer 2 coordinates |
+| Stage 2 (engineering) | Generation tuned to produce candidates exhibiting those coordinates, using whatever substrate-native machinery delivers them |
+| Stage 3 (manifestation) | Realized characters whose mechanisms hit the predicted Layer 1 + Layer 2 coordinates |
+| Stage 4 (playtest) | Validates whether the Layer 1 + Layer 2 coordinate profile actually produces the predicted player experience |
+| Stage 5 (graduation) | Library-locks Layer 1 + Layer 2 coordinate specifications; family flags emerge as post-hoc descriptors |
+| Stage 6 (encoding) | Generation logic encodes Layer 1 + Layer 2 patterns — NOT family-membership targeting |
+
+This is substrate-led discipline applied to the mechanism layer. The 7-families work was necessary to surface Layer 2; the families themselves don't survive as substrate-targeting axes.
+
+**Refinement for this work:** Layer 1 (P1-P5) + Layer 2 (mechanism-structural dimensions) are the substrate axes. Layer 3 (Family A-G) flags become post-hoc descriptors at output time. Cells specify Layer 1 + Layer 2 coordinates; emergent family-similarity is observed AFTER manifestation, not pre-imposed.
 
 ### 1.5 Experiential cascade architecture
 
@@ -405,14 +442,32 @@ These fields specify which engine-substrate region the cell occupies. Cells may 
 | `t4_strategy` | 6 current + 15 proposed = 21 | Per doc 47 § 4.6 + § 11 proposed; cell may target specific T4 or T4-family |
 | `investment_profile` | low / mid / max | Per doc 51 Patterns 1+2 |
 
-### 3.3 Mechanism-axis coordinates
+### 3.3 Mechanism-axis coordinates (revised iter 3: three-layer treatment per § 1.4.1)
 
-Specifies what mechanism family the cell instantiates AND the structural relationships between component mechanisms.
+Specifies the cell's mechanism coordinates across the three-layer treatment: Layer 1 (player-value axes; P1-P5) + Layer 2 (mechanism-structural dimensions) + Layer 3 (observational family descriptors).
+
+**Layer 1 — Player-value axes (P1-P5; substrate-targetable):** see fields below (`mechanism_p1_score` through `mechanism_p5_score`).
+
+**Layer 2 — Mechanism-structural dimensions (substrate-targetable; per § 19.2 of HTML doc):**
+
+| Field | Type | Notes |
+|---|---|---|
+| `mechanism_magnitude_pattern` | enum: `transformative` / `percentage` / `fixed-power` / `flat-stat` | How the mechanism delivers its effect quantitatively. Transformative = type/axis change (e.g., life→ES); percentage = +X% multiplier; fixed-power = unique-item-class fixed effect; flat-stat = additive constant. |
+| `mechanism_stackability` | enum: `single-instance` / `additive` / `multiplicative` | How instances of the mechanism combine when stacked. Single = one per slot; additive = N copies sum; multiplicative = N copies multiply. |
+| `mechanism_trigger` | enum: `always-on` / `on-event` / `on-condition` / `on-cooldown` | When the mechanism's effect fires. Always-on = passive; on-event = trigger like on-kill; on-condition = while-active threshold; on-cooldown = periodic refresh. |
+| `mechanism_scaling_pattern` | enum: `with-item-power` / `with-investment` / `with-skill-level` / `fixed` | What the mechanism's magnitude scales against. Item-power = unique-class scaling; investment = multiplicative-with-build-investment; skill-level = with-skill-progression; fixed = no scaling. |
+
+**Layer 3 — Observational family descriptors (descriptive flags only; NOT substrate-targetable):**
+
+| Field | Type | Notes |
+|---|---|---|
+| `observed_family_similarity` | list of A-G | Post-hoc characterization — which genre families this cell's mechanism resembles structurally. Computed at manifestation/output time; NOT a generation target. |
+| `family_similarity_confidence` | dict | Per-family-flag confidence score from observational analysis (e.g., `{"B": 0.85, "E": 0.42}`). |
+
+**Composition and signatures (unchanged):**
 
 | Field | Source | Notes |
 |---|---|---|
-| `primary_mechanism_family` | A-G (per § 19) | Which of the 7 families the cell's primary mechanism lives in |
-| `secondary_mechanism_families` | list of A-G | Additional families involved in cell composition |
 | `mechanism_p1_score` | 0 / 0.5 / 1 | Identity-axis transformation |
 | `mechanism_p2_score` | 0 / 0.5 / 1 | Multiplicative composition |
 | `mechanism_p3_score` | 0 / 0.5 / 1 | System-substitution |
@@ -607,17 +662,20 @@ Universal across 4 games per research sprint findings (37% of all multi-variant 
 | `T4_BUILD_DEFINING_MEDIUM` | T4 scores 2-3/5 |
 | `T4_IDENTITY_ANCHOR` | T4 scores 0-1/5 (intentional anti-build-defining; Wanderer-style) |
 
-### 4.8 Mechanism family flags (per § 19)
+### 4.8 Mechanism family flags (OBSERVATIONAL only per § 1.4.1 Layer 3 — revised iter 3)
 
-| Flag | Family | Notes |
+**Status:** these flags are **descriptive output-time tags**, NOT substrate-targetable generation inputs. Per the three-layer treatment in § 1.4.1, generation operates on Layer 1 (P1-P5 player-value axes) + Layer 2 (mechanism-structural dimensions per § 3.3 Layer 2 fields). Family flags are attached AFTER manifestation as post-hoc observation of "this cell's mechanism structurally resembles genre Family X."
+
+| Flag | Family | Genre exemplars |
 |---|---|---|
-| `MECHANISM_FAMILY_A` | Intra-skill transformation | LE Specialization / PoE Support / LA Tripod |
-| `MECHANISM_FAMILY_B` | Extractable / imbue-able power | D2 Runewords / D3 Cube / D4 Aspect; **MAJOR GAP** in Reincarnated |
-| `MECHANISM_FAMILY_C` | Class-identity combo | GD Dual Mastery / D3 Class Set / LA Engraving |
-| `MECHANISM_FAMILY_D` | Passive-tree capstone | PoE Keystone / Reincarnated T4 |
-| `MECHANISM_FAMILY_E` | Item-slot anchor | Mageblood / Headhunter / Enigma |
-| `MECHANISM_FAMILY_F` | Consumable / inventory-resident | D2 Charms / LE Idols |
-| `MECHANISM_FAMILY_G` | Proc-attached celestial | GD Devotion / PoE Watcher's Eye |
+| `OBSERVED_RESEMBLES_FAMILY_A` | Intra-skill transformation | LE Specialization / PoE Support / LA Tripod |
+| `OBSERVED_RESEMBLES_FAMILY_B` | Extractable / imbue-able power | D2 Runewords / D3 Cube / D4 Aspect |
+| `OBSERVED_RESEMBLES_FAMILY_C` | Class-identity combo | GD Dual Mastery / D3 Class Set / LA Engraving |
+| `OBSERVED_RESEMBLES_FAMILY_D` | Passive-tree capstone | PoE Keystone / Reincarnated T4 |
+| `OBSERVED_RESEMBLES_FAMILY_E` | Item-slot anchor | Mageblood / Headhunter / Enigma |
+| `OBSERVED_RESEMBLES_FAMILY_F` | Consumable / inventory-resident | D2 Charms / LE Idols |
+| `OBSERVED_RESEMBLES_FAMILY_G` | Proc-attached celestial | GD Devotion / PoE Watcher's Eye |
+| `OBSERVED_NOVEL_NO_GENRE_ANALOG` | Reincarnated-native mechanism not resembling any existing family | NEW — Reincarnated may produce mechanisms with no genre analog; this flag captures that case |
 
 ### 4.9 5-property score flags
 
@@ -711,6 +769,47 @@ Per-kit emergent identity:
 |---|---|
 | `EMERGENT_KIT_CONCEPT_DECLARED` | Wave B LLM emerged a recognizable kit concept (Necromancer / Druid / Stoneward / Death Knight / etc.) |
 | `EMERGENT_KIT_CONCEPT_AMBIGUOUS` | Wave B LLM produced ambiguous output; identity coherence weak |
+
+### 4.15 Layer 2 mechanism-structural flags (per § 1.4.1 — substrate-targetable)
+
+These flags ARE substrate-targetable generation inputs. Per the three-layer treatment, Layer 2 mechanism-structural dimensions are what cells specify as generation targets at the mechanism layer.
+
+Magnitude-pattern flags:
+
+| Flag | Notes |
+|---|---|
+| `MECHANISM_MAGNITUDE_TRANSFORMATIVE` | Type / axis change (e.g., life→ES); qualitative shift |
+| `MECHANISM_MAGNITUDE_PERCENTAGE` | +X% multiplier; quantitative scaling |
+| `MECHANISM_MAGNITUDE_FIXED_POWER` | Unique-item-class fixed effect |
+| `MECHANISM_MAGNITUDE_FLAT_STAT` | Additive constant |
+
+Stackability flags:
+
+| Flag | Notes |
+|---|---|
+| `MECHANISM_STACK_SINGLE` | One instance per slot |
+| `MECHANISM_STACK_ADDITIVE` | N copies sum |
+| `MECHANISM_STACK_MULTIPLICATIVE` | N copies multiply |
+
+Trigger flags:
+
+| Flag | Notes |
+|---|---|
+| `MECHANISM_TRIGGER_ALWAYS_ON` | Passive; always-active |
+| `MECHANISM_TRIGGER_ON_EVENT` | Fires on event like on-kill / on-hit |
+| `MECHANISM_TRIGGER_ON_CONDITION` | Active while threshold condition met |
+| `MECHANISM_TRIGGER_ON_COOLDOWN` | Periodic refresh |
+
+Scaling-pattern flags:
+
+| Flag | Notes |
+|---|---|
+| `MECHANISM_SCALES_WITH_ITEM_POWER` | Unique-class scaling with item power |
+| `MECHANISM_SCALES_WITH_INVESTMENT` | Multiplicative-with-build-investment |
+| `MECHANISM_SCALES_WITH_SKILL_LEVEL` | With-skill-progression |
+| `MECHANISM_SCALES_FIXED` | No scaling; constant magnitude |
+
+**Composition pattern:** cells specify these flags in combination. For example, a cell targeting the "high P2 + high P3 + multiplicative-stackability + on-event-trigger + scales-with-investment" gap surfaces in § 1.4.2 carries flags `MECHANISM_STACK_MULTIPLICATIVE` + `MECHANISM_TRIGGER_ON_EVENT` + `MECHANISM_SCALES_WITH_INVESTMENT` at Layer 2 + high `mechanism_p2_score` and `mechanism_p3_score` at Layer 1. Cells composed this way drive generation toward Reincarnated-native mechanisms (no family pre-imposition) that deliver the predicted Layer 1 value through Layer 2 structural choices.
 
 ---
 
@@ -1112,6 +1211,18 @@ This document is intentionally a placeholder. The following questions need Matt'
 22. **WS1A.1 retroactive inference confidence threshold** — § 5.2 + § 7 note that wave-5 snapshot kits get expanded axes via retroactive inference. What confidence threshold gates "this kit's experiential archetype = Bossing"? LLM-inferred labels carry uncertainty; pattern library needs to know when inference is reliable enough to encode against.
 
 23. **Cell-level flavor judgment distribution prediction** (per § 3.10) — cells predict the distribution of per-skill flavor alignments (e.g., "Necromancer cell predicts {blend: 2, sub: 1, primary: 2}"). Is this distribution a STRONG cell-level constraint OR a SOFT preference? Generation logic at Phase C may need to know how to weight cell-predicted distributions vs LLM judgment freedom.
+
+### 8c. Open questions from iter 3 refinement (three-layer mechanism treatment)
+
+24. **Layer 2 mechanism-structural dimension enums** — proposed 4 dimensions (magnitude pattern / stackability / trigger / scaling) with 3-4 enum values each. Are these the right dimensions? Are there other mechanism-structural axes the genre research surfaced that should be added? (e.g., visibility / interaction-coupling / per-skill-vs-per-kit-application).
+
+25. **Layer 2 vs Layer 1 generation priority** — when generation operates against both Layer 1 (P1-P5 scores) AND Layer 2 (structural enums) coordinates, which takes precedence if they conflict? E.g., if Layer 1 target says "high P2 multiplicative composition" but Layer 2 target says "fixed magnitude no-stacking," are these compatible at all? Probably no — surfaces a constraint-satisfaction question for generation logic.
+
+26. **Family-similarity observational classifier** — how does Layer 3 `observed_family_similarity` get computed? LLM-judgment-based classification? Rule-based pattern matching against the 7-family templates? Statistical similarity scoring against genre exemplar mechanisms? Implementation choice affects how reliably the observational tags fire.
+
+27. **Reincarnated-native mechanisms with no genre analog** — the `OBSERVED_NOVEL_NO_GENRE_ANALOG` flag covers cells whose mechanisms don't fit any of A-G. How does this flag get attached — automatic when none of A-G similarity exceeds threshold, OR explicit author-time declaration? Implementation question.
+
+28. **Reframing Family B "highest-leverage gap" as Layer 1 + Layer 2 coordinate gap** — § 1.4.2 reframes "highest-leverage Cycle 15+ design call" from "build Family B" to "fill the high-P2-P3 + multiplicative-stackability + on-event-trigger + scales-with-investment coordinate gap." Is this reframing complete, or do other sections still carry the old framing that needs retirement? Matt review needed.
 
 ---
 
