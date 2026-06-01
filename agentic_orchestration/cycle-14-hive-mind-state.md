@@ -86,6 +86,22 @@
 > **Wave-close timeline impact:** ~1-2 engineering days for Path X + jack-ryan Gate-2 + star-lord Phase 5 re-fire (per gandalf verdict § 0); acceptable trade against multi-week opportunity cost the swift-closure recognition unlocked.
 >
 > **Push authorization (sub-amendment):** commits `05c1300` + `900c0bc` (gandalf verdict) + Path X dispatch authoring commit (KR, this state-file amendment) all await Matt explicit go.
+>
+> **§ 1 SUB-AMENDMENT 2026-06-01-B (Path X PASS + jack-ryan Gate-2 PASS-with-INFO):**
+>
+> - **rocket Path X verification** ✅ COMPLETE 2026-06-01 (engine `15735d0` + tag `rocket/v1.1-cycle-14-wave-5-swift-closure-path-x-phase4-feeds-phase5-1`; collab `dc4ca86`). **EMPIRICAL FINDING:** Path X was ALREADY IMPLEMENTED in cascade-r4 commit `779b547` (2026-05-29) via `_load_phase4_archive_for_pm1` + `_run_pm1_on_phase4_archive` at Phase 4.5. Dispatch line reference `wave5_season_orchestrator.py:825-836` was stale (propagated through star-lord surface + gandalf verdict + KR dispatch authoring). rocket's Disc #11 empirical inspection caught the staleness. Today's `15735d0` provides empirical-criterion verification + 12 new tests + MIGRATION. Three gates ALL PASS: (i) code-level PASS; (ii) smoke PASS (n=34, k=4 gmm_k4 BIC-selected, no fallback); (iii) BC-axis PASS (8 elements: earth=6 fire=6 holy=4 lightning=3 physical=8 shadow=1 water=1 wind=5).
+> - **jack-ryan Gate-2** ✅ PASS-with-INFO 2026-06-01 — finding file at `agentic_orchestration/qa/pending/2026-06-01-jack-ryan-cycle-14-wave-5-swift-closure-path-x-gate-2.md` (bundled into commit `af0fe09` due to bookkeeping; content correct + canonical). All three gates verified by direct code inspection (Disc #11); Phase 4.5 override structural not comment-only; MIGRATION.md adequate; 12/12 tests confirmed (7 enumerated + 5 unenumerated inspected directly); test→gate mappings correct.
+> - **Two INFOs to carry forward:**
+>   1. k=4 held (gandalf 2026-05-29 caveat 1 predicted k=2/3; empirically k=4). Benign for star-lord. Cluster count same as pre-Path-X but now over the CORRECT population.
+>   2. shadow=1, water=1 sparse — these single-kit elements will subsume into mixed clusters at k=4. star-lord carries this into cohesion judge context (cluster labels will be dominated by physical/earth/fire/wind). NOT a regression; a composition fact about the Phase 4 archive.
+> - **Disc #42a Q5 adjudication** (jack-ryan): line-reference-staleness at re-citation is DISCIPLINE-CANDIDATE INFO. Proposed as **Disc #42b "line-reference re-verification at re-citation"** for jack-ryan wave-close canonical-write. rocket's Disc #11 empirical inspection was the correct and sufficient termination; lesson is upstream authoring-time discipline.
+> - **Gate (c) STATUS: PASS.** star-lord Phase 5 cohesion judge dispatch UNBLOCKED on Gate (a)/(b)/(c)/(d) all PASS.
+>
+> **Sequencing (post-Gate-2-PASS):**
+> - star-lord re-engages Phase 5 cohesion judge fire AS-IS against snapshot Phase 4 archive (with INFO 2 sparse-element context carried) → completion signal
+> - jack-ryan wave-close canonical write (gates on star-lord Phase 5 close per gamora Q3 sequential preference) — covers Disc #41 amendment + Disc #42b (new candidate) + WARN/INFO disposition + Phase 5 cohesion judge Gate-2 review
+>
+> **Push authorization (sub-amendment-B):** engine commits `3365eb4` ALREADY PUSHED + tag pushed (Matt 2026-06-01); engine `15735d0` + tag `rocket/v1.1-...` LOCAL; collab `dc4ca86` + `2bbf08c` + `af0fe09` (bundles jack-ryan finding) LOCAL; this state-file amendment LOCAL. All await Matt explicit go.
 
 > **§ 1 AMENDMENT 2026-05-28 (Matt-ratified Read γ election):** Waves 2/3/4 SUPERSEDED by no-classes substrate-led architectural recommitment (2026-05-27) + Path α workstream authoring. Wave 5 = sole content production wave per D4 / D9 ratified close-criterion (3 LLM seasons × ≥12/18 emit + 3× Gate-2 + A/B + Disciplines #41-#47 batch + Matt tag).
 >
