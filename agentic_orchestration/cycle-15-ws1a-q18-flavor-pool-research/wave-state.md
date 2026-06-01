@@ -44,8 +44,8 @@ Per operational sequence § 2. Single wave; 5 phases gated internally; wave-clos
 
 | Phase | Owner | Scope summary | Status | Artifact path |
 |---|---|---|---|---|
-| Phase 0 | elrond | Data-medium consultation (E.α / E.β / E.γ) | 🔥 FIRING (Gate-1 PASS-with-INFO 2026-06-01; Agent tool available in current KR session; sub-agent fires directly per hive-mind-protocol § 2.2.2) | `elrond/consultations/2026-06-XX-q18-flavor-pool-data-medium.md` |
-| Phase 1 | legolas (3 samplers fan-out) | Parallel sample: Sampler-A ARPG / Sampler-B JRPG-isekai / Sampler-C tabletop-myth | ⏳ pending (gated on PG-0) | `legolas/research/element-flavor-mapping-2026-06-XX/sample-<A|B|C>.md` |
+| Phase 0 | elrond | Data-medium consultation (E.α / E.β / E.γ) | ✅ COMPLETE (PG-0 PASS; E.γ-prime — JSONL + sidecar manifest JSON) | `elrond/consultations/2026-06-01-q18-flavor-pool-data-medium.md` |
+| Phase 1 | legolas (3 samplers fan-out) | Parallel sample: Sampler-A ARPG / Sampler-B JRPG-isekai / Sampler-C tabletop-myth | 📝 DISPATCH-AUTHORING + Gate-1 routing (post-PG-0) | `legolas/research/element-flavor-mapping-2026-06-01/sample-<A|B|C>.jsonl` + `.manifest.json` |
 | Phase 2 | legolas (analyzer) | In-seam triage + 8×3 viability matrix + Phase 3 scope proposal | ⏳ pending | `legolas/research/element-flavor-mapping-2026-06-XX/sample-triage.md` |
 | Phase 3 | legolas (≤6 expansion fan-out) | Adaptive-scope full research per PG-1 ratified scope | ⏳ pending (gated on PG-1) | `legolas/research/element-flavor-mapping-2026-06-XX/full-<track>-<primary>.md` |
 | Phase 4 | elrond | Statistical analysis (frequency / contamination matrix / cluster analysis / cardinality recommendations / 7-vs-8 verdict) | ⏳ pending | `elrond/analysis/element-flavor-mapping-stats-2026-06-XX.md` |
@@ -62,7 +62,7 @@ Per operational sequence § 2. Single wave; 5 phases gated internally; wave-clos
 
 | Phase-gate | Trigger | Decider | Status |
 |---|---|---|---|
-| PG-0 (data medium) | Pre-Phase-1 | elrond | 🔥 FIRING (Gate-1 PASS-with-INFO 2026-06-01) |
+| PG-0 (data medium) | Pre-Phase-1 | elrond | ✅ PASS (E.γ-prime — JSONL per-row + sidecar manifest JSON; 2026-06-01) |
 | PG-1 (triage scope) | Post-Phase-2 | gandalf | ⏳ pending |
 | PG-1.5 (in-flight amendment; conditional) | Mid-Phase-3 | gandalf | ⏳ pending (conditional) |
 | PG-2 (stats sufficiency) | Post-Phase-4 | gandalf | ⏳ pending |
@@ -77,7 +77,9 @@ Per operational sequence § 2. Single wave; 5 phases gated internally; wave-clos
 
 | Sub-agent | Phase | Scope | Status | Fired-at |
 |---|---|---|---|---|
-| elrond | Phase 0 (PG-0) | Data-medium consultation (E.α / E.β / E.γ); format spec for Phase 1 sampler dispatches | 🔥 FIRING | 2026-06-01 |
+| elrond | Phase 0 (PG-0) | Data-medium consultation; format spec for Phase 1 sampler dispatches | ✅ COMPLETE (E.γ-prime; commit `9decb18`) | 2026-06-01 |
+| jack-ryan | Phase 1 Gate-1 (pre-fire) | Critique-pair review of Phase 1 legolas commissioning dispatch | 📝 DISPATCH-AUTHORED-AWAITING-FIRE | 2026-06-01 |
+| legolas | Phase 1 commissioning | Spawn Sampler-A/B/C in parallel via Agent multi-invocation (gated on Phase 1 Gate-1 PASS) | ⏳ pending Gate-1 PASS | — |
 
 Updated as phases fire.
 
@@ -131,6 +133,8 @@ Date stamps `2026-06-XX` resolve to actual dates as artifacts land.
 | 2026-06-01 wave-open | Gate-1 dispatch route | KR | Jack-ryan Gate-1 pre-fire review routed via dispatch (Pattern A short-task; Task/Agent tool not surfaced in prior KR session) | `dispatches/2026-06-01-jack-ryan-gate-1-cycle-15-ws1a-q18-wave-open-pre-fire-review.md` |
 | 2026-06-01 Gate-1 verdict | Pre-Phase-0 critique-pair | jack-ryan | PASS-with-INFO (3 INFO items; INFO A wave-state correction actioned; INFO B forward note re schema-extension routing if elrond recommends E.β; INFO C acknowledged) | `qa/findings/2026-06-01-q18-wave-open-gate-1.md` |
 | 2026-06-01 Phase 0 fire | Post Gate-1 PASS | KR | Elrond Phase-0 data-medium consultation fired via direct Agent invocation (hive-mind-protocol § 2.2.2 semantics restored in current KR session) | `dispatches/2026-06-01-elrond-q18-flavor-pool-data-medium-consultation.md` |
+| 2026-06-01 PG-0 verdict | Phase 0 close | elrond | **E.γ-prime** (JSONL per-row + sidecar manifest JSON; pandas → SQLite at Phase 4). No re-routing to gandalf required (within E.γ family; not E.δ). Format spec at § 3.1 + § 3.2 of consultation note; KR placeholder text at § 8. F-6 risk LOW under this format. No cross-seam contract change. | `elrond/consultations/2026-06-01-q18-flavor-pool-data-medium.md` (commit `9decb18`) |
+| 2026-06-01 Phase 1 Gate-1 dispatch | Pre-Phase-1 critique-pair | KR | Jack-ryan Gate-1 pre-fire review on Phase 1 legolas commissioning dispatch routed via direct Agent invocation (INFO B from prior Gate-1 confirms: schema-extension routing NOT required since elrond chose E.γ-prime, not E.β) | `dispatches/2026-06-01-jack-ryan-gate-1-cycle-15-ws1a-q18-phase-1-pre-fire-review.md` |
 | (further entries appended as phase-gates ratify) | | | | |
 
 ---
@@ -187,6 +191,7 @@ Per operational sequence § 7:
 | 2026-06-01 wave-open | State file initialized; wave-open dispatch authored; Phase-0 elrond consultation dispatch authored; jack-ryan Gate-1 dispatch authored (Pattern A short-task pre-fire review); all work-products committed |
 | 2026-06-01 wave-open KR self-flag | Task/Agent tool NOT surfaced in prior KR session inventory; sub-agent invocations routed via dispatch authoring + Matt-manual-session-launch per `dispatches/README.md`. This deviated from hive-mind-protocol § 2.2.2 "Agent tool firing" semantics. Jack-ryan Gate-1 § 5 surfaces this for review. **SUPERSEDED — see next entry.** |
 | 2026-06-01 KR session resume + Gate-1 PASS-with-INFO | Agent tool IS surfaced in resumed KR session; hive-mind-protocol § 2.2.2 direct Agent-invocation semantics restored. Prior self-flag superseded. Jack-ryan Gate-1 verdict: PASS-with-INFO at `qa/findings/2026-06-01-q18-wave-open-gate-1.md` — 3 INFO items: (A) wave-state amendment to update Phase 0 status + decision-log + supersede prior self-flag — **ACTIONED in this commit**; (B) post-PG-0 if elrond recommends E.β, route schema-extension dispatch + Phase 1 sampler dispatches jointly to jack-ryan Gate-1 (schema extension is cross-seam contract change per ADR-004); (C) sub-phase 5b Pattern B wall-clock rate-limiter acknowledged. KR fires Phase 0 elrond consultation immediately via direct Agent invocation. |
+| 2026-06-01 PG-0 PASS + Phase 1 routing | Elrond Phase-0 consultation COMPLETE; verdict E.γ-prime (JSONL + sidecar manifest JSON); commit `9decb18`. INFO B from prior Gate-1 does NOT fire — elrond chose E.γ-prime, not E.β, so no schema extension; no cross-seam contract change. KR authors Phase 1 legolas commissioning dispatch (with Sampler-A/B/C prompts finalized per operational sequence § 9 Appendix A + elrond § 3.1/§ 3.2 format spec inlined). KR routes Phase 1 Gate-1 to jack-ryan for pre-fire review before legolas fires. |
 
 ---
 
