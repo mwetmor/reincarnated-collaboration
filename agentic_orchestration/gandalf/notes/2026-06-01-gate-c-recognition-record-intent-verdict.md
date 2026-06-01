@@ -164,4 +164,4 @@ This composes with the recognition record's § 3.1 Disc #41 amendment candidate 
 
 **Composition**: this verdict is a Pattern A-deep design-intent verdict per gandalf OP § 4; commits locally per CLAUDE.md auto-commit addendum; no push (gate honored).
 
-**Commit reference** (to be appended post-commit): TBD
+**Commit reference**: `05c1300` (gandalf: gate-c verdict — Path X required before star-lord cohesion judge fires)
