@@ -1,6 +1,6 @@
 # Hypothesis Flow + Pattern Library Architecture — PLACEHOLDER FOR REFINEMENT
 
-> **STATUS:** PLACEHOLDER (refinement iteration 3 — 2026-06-01) — pre-commitment architectural draft. Iteration 1: gauntlet metrics provisional + manifestation Phase 1/2 split + retroactive feasibility + WS1A.4 per-skill bounded flavor judgment + three-layer playtest validation. Iteration 2: P4 → creation-moment-memorability remapping per Matt observation that genre-style in-game acquisition surfaces don't exist in Reincarnated launch scope. **Iteration 3: 7 mechanism families distilled into three-layer treatment (Layer 1 P1-P5 player-value axes + Layer 2 mechanism-structural dimensions + Layer 3 observational family descriptors)** per Matt 2026-06-01 substrate-led-applied-to-mechanisms observation; "Family B is highest-leverage gap" framing RETIRED — replaced by "value-axis gap (high P2 + high P3 + multiplicative-stackability + on-event-trigger + scales-with-investment Layer 2 coordinates)" framing; generation operates at Layer 1 + Layer 2, family flags become post-hoc descriptors. Synthesizes 2026-05-29 ARPG community research sprint output + designer-writes-substrate / player-names-experience principle + 5-property substrate framework + 7-mechanism-family taxonomy + experiential cascade architecture recognition + Matt 2026-05-31 hypothesis-flow methodology articulation + 2026-06-01 refinements. **Not a commitment.** Document is the substrate for ongoing Pattern B refinement conversation that produces the committed architecture.
+> **STATUS:** PLACEHOLDER (refinement iteration 4 — 2026-06-01) — pre-commitment architectural draft. Iter 1: gauntlet provisional + manifestation Phase 1/2 + retroactive + WS1A.4 + three-layer validation. Iter 2: P4 → creation-moment-memorability. Iter 3: 7 mechanism families → three-layer treatment (Layer 1 P1-P5 / Layer 2 mechanism-structural / Layer 3 observational); "Family B gap" framing retired. **Iter 4: multi-axis experiential architecture** per Matt 2026-06-01 observation that 6 primary archetype labels (Bossing / Speedfarm / Push / Generalist / Leveling / League Starter) aren't a flat enum — they decompose into orthogonal axes (Progression-Stage / Target-Pattern / Depth-vs-Breadth) plus additional axes (Mode / Activity-Format / Loot-Focus / Maxroll 5-axis). Axis-type taxonomy (Identity / Viability / Mode / Sub) treats each axis differently; cell shape framework (Specialized / Hybrid / Generalist / Anti-specialization) declares intended profile shape; Leveling-as-viability-axis hypothesis per Reincarnated 50-level + 85%-leveling-only structure (pending playtest validation); genre-relative LE-to-D3 moderate specialization positioning; mutual exclusivity preference framed as substrate-led empirically validated, not pre-imposed. Synthesizes 2026-05-29 ARPG community research sprint output + designer-writes-substrate / player-names-experience principle + 5-property substrate framework + 7-mechanism-family taxonomy + experiential cascade architecture recognition + Matt 2026-05-31 hypothesis-flow methodology articulation + 2026-06-01 refinements. **Not a commitment.** Document is the substrate for ongoing Pattern B refinement conversation that produces the committed architecture.
 
 **Date:** 2026-05-31
 **Author:** gandalf (story-and-design steward)
@@ -298,6 +298,110 @@ Per § 2 hypothesis-flow methodology refinement (Stage 2.5 identity finalization
 
 Single Phase 5+ re-run pass against snapshot archive produces full identity-finalized output. ~1-2 weeks horizon as named in § 5.
 
+### 1.8 Multi-axis experiential architecture (iter 4 refinement — Matt 2026-06-01)
+
+#### 1.8.1 The decomposition
+
+The 6 primary archetype labels from community research (Bossing / Speedfarming / Push / Endgame Generalist / Leveling / League Starter) are NOT a flat enumeration. Community vocabulary emerged on top of orthogonal underlying axes; compound labels ("Push Bossing" / "Leveling Speedfarm" / "League Starter Mapper") expose the compositional structure.
+
+**Three primary axes (Matt 2026-06-01 decomposition):**
+
+| Axis | Values | Meaning |
+|---|---|---|
+| **Progression-Stage axis** | Leveling / League Starter / End Game | When in the player journey is the build optimized for? Leveling = L1-50 journey; League Starter = endgame-from-scratch self-sufficient; End Game = true endgame (only ~15% of players reach per working hypothesis) |
+| **Target-Pattern axis** | Bossing / Speedfarming | What target pattern does combat optimize for? Bossing = single-strong-high-quality targets; Speedfarming = many-weak-low-quality targets |
+| **Depth-vs-Breadth axis** | Push / Generalist | How deep vs how broad? Push = deep specialization into one content type; Generalist = broad coverage across many |
+
+**Additional axes (gandalf 2026-06-01 designer additions):**
+
+| Axis | Values | Treatment |
+|---|---|---|
+| **Mode axis** | Hardcore / Softcore | Binary; composes with all other axes |
+| **Activity-Format axis** | Per Reincarnated's TBD endgame structure | Game-specific endgame content type; values determined by what endgame Reincarnated ships |
+| **Loot-Focus sub-axis** | Magic-Find / Currency-Farmer / Drop-Density / Generic | Sub-axis within Speedfarming; carries enough identity weight to deserve dimension |
+| **Maxroll 5-axis structured rating** | Bossing/Speed/Push/Survivability/Playability | Continuous per-axis scoring (0-10 each); same character can score on multiple simultaneously |
+
+#### 1.8.2 Axis-type taxonomy — Identity vs Viability vs Mode vs Sub
+
+Different axes get different treatment in cell scoring and generation:
+
+| Axis type | Treatment | Examples |
+|---|---|---|
+| **Identity axis** | Specialize-and-differentiate; per-cell prefer dominance pattern; cells declare axis dominance | Target-Pattern (Bossing vs Speedfarming); Depth-vs-Breadth (Push vs Generalist) |
+| **Viability axis** | Universal-adequate-score; gates per minimum threshold; cells gate below threshold | Survivability (Maxroll); Playability (Maxroll); **possibly Leveling per § 1.8.5 hypothesis** |
+| **Mode axis** | Binary composition; applies across all other axes | Hardcore / Softcore |
+| **Sub-axis** | Within-axis sub-classification | Loot-Focus within Speedfarming |
+
+**Reincarnated designs treat each axis-type differently.** Identity axes get specialization preference and per-cell dominance declaration. Viability axes get minimum-threshold gates (must-pass below threshold). Mode axes compose orthogonally. Sub-axes refine within parent axes.
+
+#### 1.8.3 Mutual exclusivity preference — substrate-led empirically validated
+
+**Structural fact:** orthogonal axes ENABLE multi-axis membership. A character can score on Bossing AND Speedfarming simultaneously if mechanics support both target patterns. A character can score on Leveling AND End Game if the build scales across the journey. This is just truth about what's possible.
+
+**Designer preference (Reincarnated-specific):** prefer TENDENCY toward mutual exclusivity at identity-axis layer to preserve:
+
+| Preserved | Why |
+|---|---|
+| Identity clarity | Sharper per-kit Wave B naming (per § 1.7); "Bossing Necromancer" stronger identity than "Bossing-and-Speedfarm-and-Generalist Necromancer" |
+| Build-defining moment integrity | Specialization grounds canonical "build came online" experience per § 1.3 P5 |
+| Substrate-led signal strength | Strong substrate votes produce identity-strong characters; multi-axis-spanning profiles suggest weak vote |
+| Cohesion-judge clustering quality | Specialized profiles cluster cleanly into factions; over-generalist profiles produce mushy boundaries |
+| Commercial differentiation | Procedural character diversity is stronger when characters specialize differently; generic-everything characters undercut the value proposition |
+
+**Constraint pulling opposite direction (Reincarnated structural):** 50-level scope + no multiple acts + 85%-never-reach-endgame working hypothesis means:
+
+| Constraint | Implication |
+|---|---|
+| 50-level leveling scope | Shorter than genre norm (D2's 99-level + 5-act; PoE's 100-level + 10-act); builds must be playable through full leveling |
+| No multiple-acts structure | Can't support stage-specific specialization where Act 1 build differs from Act 5 build |
+| 85% never reach endgame | Leveling IS the primary experience for majority of player population |
+| Single-player solo | Every build must be self-sufficient through full content; no party-composition diversity to absorb over-specialized builds |
+
+**Substrate-led discipline applied:** the mutual exclusivity preference is a HYPOTHESIS that playtest validates. Generation does NOT pre-impose mutual exclusivity through hard constraints; substrate produces cells; playtest evaluates whether identity-strong cells (specialized profiles) or identity-weak cells (multi-axis-spanning profiles) actually feel better. Hypothesis-flow Stage 4 validates per-cycle.
+
+#### 1.8.4 Cell shape framework
+
+Cells declare intended profile shape per their multi-axis coordinates:
+
+| Cell shape | Profile pattern | Generation preference |
+|---|---|---|
+| **Specialized** | Dominant on 1 identity axis; minimum-adequate on viability axes; sub-dominant or absent on other identity axes | Most common; favored for identity strength; default cell shape |
+| **Hybrid** | Significant scores on 2-3 identity axes; intentional cross-axis utility (e.g., Boss-Speed dual-capability build) | Common for hybrid 2-element kits per § 1.7.2; intentional cross-archetype design |
+| **Generalist** | Moderate scores across many identity axes; "do everything" archetype | Rare; high-investment-tier; PoE Mageblood-Headhunter-class extreme builds; intentional anti-specialization identity |
+| **Anti-specialization** | Intentionally low on identity axes; high on Survivability + Playability; identity-anchor for approachable / one-button archetype | Wanderer-style per § 22 of HTML doc; NOT a bug; intentional design choice for approachable archetype |
+
+Cell shape is declared at cell authoring. Generation parameters can favor specific shapes statistically. Playtest validates whether the predicted shape actually emerges in manifested characters.
+
+#### 1.8.5 Leveling-as-viability-axis hypothesis (Reincarnated-specific; pending playtest validation)
+
+**Hypothesis:** the Progression-Stage axis treats Leveling as a viability axis (universal-adequate-score required), not an identity axis (specialize-and-differentiate). League Starter and End Game remain identity axis values; Leveling becomes a viability gate.
+
+**Reasoning:**
+- 50-level scope is shorter than genre norm
+- No multiple-acts structure to support stage-specific specialization
+- 85%-never-reach-endgame means leveling IS the primary experience for most players
+- Single-player solo means every build must be self-sufficient through full leveling
+
+**If validated:** ALL Reincarnated cells must predict adequate Leveling-axis scores; cells below threshold are gate-failed regardless of endgame specialization. Endgame specialization (Push / Generalist + Bossing / Speedfarming + League Starter / End Game) operates on top of universal Leveling viability.
+
+**If refuted:** Progression-Stage axis treats all three values (Leveling / League Starter / End Game) as identity axis values; cells can specialize toward stages including endgame-only builds.
+
+This is a hypothesis-flow Stage 1 hypothesis. Playtest cycles across Leveling + Endgame validate which framework holds for Reincarnated specifically. Decision deferred until empirical evidence (per recognition-validate-commit discipline).
+
+#### 1.8.6 Genre-relative specialization positioning
+
+Quick designer-mode positioning to anchor the Reincarnated specialization preference:
+
+| Game | Specialization norm | Reincarnated relative position |
+|---|---|---|
+| **D2** | Strong specialization (MF Sorc / Hammerdin / Bone Necromancer all narrow) | Stronger than Reincarnated likely needs |
+| **D3** | Broad generalism (most builds do most content; Greater Rift push is specialization layer) | Possibly Reincarnated's closest analog given 50-level scope |
+| **D4** | Moderate specialization (Pit Push / Helltide farm / Boss Materials distinguish) | Possibly Reincarnated's other closest analog |
+| **PoE** | Very strong specialization (Mapper vs Bosser vs Currency Farmer; Mageblood-Headhunter for extreme generalist) | Genre's extreme; Reincarnated needs distinctness but probably not this restrictive |
+| **LE** | Moderate specialization (most builds work for most content; some specialization toward Echo types) | Possibly Reincarnated's closest LE-style positioning |
+
+**Designer hypothesis (pending playtest validation):** Reincarnated targets **LE-to-D3 level moderate specialization** with a strong Leveling viability gate. Specialization at identity-axis layer (Target-Pattern + Depth-vs-Breadth) preserves commercial differentiation + identity strength. Universal viability at Leveling axis honors structural constraints. End-game-tier extreme specialization (PoE-style) reserved for high-investment cells targeting the 15% endgame population.
+
 ---
 
 ## 2. The hypothesis-flow methodology (Matt 2026-05-31 framing)
@@ -492,21 +596,80 @@ Specifies the predicted gauntlet / playtest behavior at hypothesis time.
 | `power_plane_validity` | list | Which power planes the pattern must hold across; minimum 3 per Matt framing |
 | `failure_mode_comparison_target` | str | Description of what character should NOT exhibit this pattern; the failure-mode playtest counter-example |
 
-### 3.5 Experiential-axis coordinates (Layer 2; player-names-experience)
+### 3.5 Experiential-axis coordinates (Layer 2; player-names-experience; revised iter 4 per § 1.8)
 
-Specifies the player-experience archetype the cell targets.
+Specifies the player-experience profile the cell targets. **Iter 4 refinement (Matt 2026-06-01)**: the 6 primary archetype labels decomposed into multi-axis coordinates per § 1.8.1; cells specify CONTINUOUS scores along orthogonal axes rather than single-label categorical assignment.
 
-| Field | Source | Notes |
+**Identity axes (substrate-targetable; specialize-and-differentiate per § 1.8.2):**
+
+| Field | Type | Notes |
 |---|---|---|
-| `primary_experiential_archetype` | 6 canonical labels | Bossing / Speedfarming / Push / Endgame Generalist / Leveling / League Starter (per research sprint synthesis) |
-| `sub_axis_flags` | list | Magic Find / IIR / Currency Farmer / Mapper / Hardcore / etc. |
+| `target_pattern_bossing_score` | 0-10 continuous | Predicted Bossing axis score (single-strong-target combat optimization) |
+| `target_pattern_speedfarming_score` | 0-10 continuous | Predicted Speedfarming axis score (many-weak-target combat optimization) |
+| `depth_breadth_push_score` | 0-10 continuous | Predicted Push axis score (deep specialization into one content type) |
+| `depth_breadth_generalist_score` | 0-10 continuous | Predicted Generalist axis score (broad coverage across many content types) |
+
+**Viability axes (substrate-targetable; universal-adequate-threshold per § 1.8.2):**
+
+| Field | Type | Notes |
+|---|---|---|
+| `survivability_score` | 0-10 continuous; gate at ≥X threshold | Per Maxroll 5-axis rating; viability axis — cells below gate threshold fail viability regardless of identity-axis scores |
+| `playability_score` | 0-10 continuous; gate at ≥X threshold | Per Maxroll 5-axis rating; viability axis |
+| `leveling_viability_score` | 0-10 continuous; gate at ≥X threshold | **Per § 1.8.5 hypothesis (pending playtest validation):** treated as VIABILITY axis for Reincarnated (50-level scope + 85%-never-reach-endgame); cells must score adequately regardless of endgame specialization |
+
+**Progression-Stage axis (TBD identity OR viability per § 1.8.5 playtest validation):**
+
+| Field | Type | Notes |
+|---|---|---|
+| `progression_stage_target` | enum: `Leveling` / `League_Starter` / `End_Game` | Which stage of player journey the build optimizes for; treatment depends on § 1.8.5 hypothesis validation |
+| `progression_stage_classification` | enum: `identity_axis` / `viability_axis_per_18_5` | Per-cell declaration of how this axis is treated; hypothesis-pending |
+
+**Mode axis (binary; composes per § 1.8.2):**
+
+| Field | Type | Notes |
+|---|---|---|
+| `mode_axis` | enum: `Hardcore` / `Softcore` / `Either` | Mode this cell targets; Hardcore requires perma-death survival viability gates; Either means cell works in both modes |
+
+**Activity-Format axis (per Reincarnated TBD endgame structure):**
+
+| Field | Type | Notes |
+|---|---|---|
+| `activity_format_target` | enum: TBD per Reincarnated endgame | Which endgame activity format the cell specializes for; values determined when Reincarnated endgame structure ships |
+
+**Loot-Focus sub-axis (within Speedfarming):**
+
+| Field | Type | Notes |
+|---|---|---|
+| `loot_focus_sub_axis` | enum: `Magic_Find` / `Currency_Farmer` / `Drop_Density` / `Generic` / `Not_Applicable` | Sub-axis classification within Speedfarming; Not_Applicable for non-Speedfarm cells |
+
+**Maxroll 5-axis structured rating prediction (continuous per axis):**
+
+| Field | Type | Notes |
+|---|---|---|
+| `maxroll_5axis_prediction` | dict {Bossing, Speed, Push, Survivability, Playability} → 0-10 | Per § 4.3 of HTML doc; cells predict full 5-axis profile; observation at playtest validates predictions |
+
+**Cell shape declaration (per § 1.8.4):**
+
+| Field | Type | Notes |
+|---|---|---|
+| `cell_shape_target` | enum: `Specialized` / `Hybrid` / `Generalist` / `Anti_Specialization` | Intended profile shape per § 1.8.4; declared at cell authoring; validated at playtest |
+
+**Investment + cognitive load + accessibility (preserved from prior iteration):**
+
+| Field | Type | Notes |
+|---|---|---|
 | `investment_tier` | 5-level | Extreme / Low / Medium / High / Mageblood-required |
-| `speedfarm_push_position` | -1.0 to +1.0 | -1.0 = pure Speedfarm; +1.0 = pure Push; 0 = generalist |
-| `cognitive_load_target` | low / medium / high | Per § 4.6 CLI (Cognitive Load Index) framework |
+| `cognitive_load_target` | low / medium / high | Per § 4.6 CLI framework |
 | `gear_dependency_index` | low / medium / high | Per § 4.6 GDI framework |
 | `execution_skill_floor` | low / medium / high | Per § 4.6 |
 | `execution_skill_ceiling` | low / medium / high | Per § 4.6 |
 | `playstyle_geometry_tag` | ranged / melee / all-rounder | Per PoE-Vault community vocabulary |
+
+**Emergent archetype label (output-time observation; NOT generation target):**
+
+| Field | Type | Notes |
+|---|---|---|
+| `emergent_archetype_label` | str | Post-hoc observed label inferred from multi-axis profile dominance (e.g., "Bossing Push End Game" / "Leveling Speedfarm Generalist"); NOT a generation input; emerges from continuous axis scores via profile-dominance pattern recognition |
 
 ### 3.6 Layer 1.5 coupling-architecture markers
 
@@ -585,19 +748,73 @@ Specifies the cell's prediction for how per-skill bounded LLM judgment distribut
 
 Flags are the engine-side instrument that connects pattern-library cells to generated characters. When the engine generates a character, the cohesion-judge or post-generation analyzer evaluates which cells the character matches and attaches the corresponding flag set. Downstream stages act on flags.
 
-### 4.1 Primary archetype flags (player-names layer)
+### 4.1 Experiential-axis flags (axis-grouped families per § 1.8 multi-axis architecture; revised iter 4)
 
-| Flag | Source | Notes |
-|---|---|---|
-| `PRIMARY_BOSSING` | Cross-site STRONG (6 sites) | Single-target high-DPS specialization |
-| `PRIMARY_SPEEDFARM` | Cross-site STRONG (6 sites) | Clear-rate optimization |
-| `PRIMARY_PUSH` | Cross-site STRONG (4 sites) | Content-depth progression |
-| `PRIMARY_ENDGAME_GENERALIST` | Cross-site STRONG (5 sites) | All-rounder |
-| `PRIMARY_LEVELING` | Cross-site STRONG (4 sites) | Pre-endgame progression-stage |
-| `PRIMARY_LEAGUE_STARTER` | Cross-site STRONG (4 sites) | Self-sufficient early-economy |
-| `PRIMARY_MAPPER` | Game-specific MODERATE (PoE-genre) | Reincarnated may absorb into Push or distinguish |
-| `PRIMARY_CURRENCY_FARMER` | Game-specific WEAK (PoE-only) | Likely absorb into Speedfarm sub-axis |
-| `PRIMARY_HARDCORE` | Mode-specific | Composes with other primary flags |
+**Iter 4 refinement (Matt 2026-06-01):** the flat `PRIMARY_*` enum from prior iterations is RETIRED. Per § 1.8.1 multi-axis decomposition, flags now group by orthogonal axis. A cell carries flags from MULTIPLE axis families simultaneously (one flag per Identity axis it specializes on; viability flags if scored; Mode flag; sub-axis flag if applicable).
+
+**Target-Pattern axis flags (Identity axis):**
+
+| Flag | Notes |
+|---|---|
+| `TARGET_PATTERN_BOSSING` | Single-strong-target combat specialization; cell scores ≥7/10 on `target_pattern_bossing_score` |
+| `TARGET_PATTERN_SPEEDFARMING` | Many-weak-target combat specialization; cell scores ≥7/10 on `target_pattern_speedfarming_score` |
+| `TARGET_PATTERN_BALANCED` | No dominant target-pattern; both scores in 4-6 range |
+
+**Depth-vs-Breadth axis flags (Identity axis):**
+
+| Flag | Notes |
+|---|---|
+| `DEPTH_PUSH` | Deep specialization into one content type; cell scores ≥7/10 on `depth_breadth_push_score` |
+| `BREADTH_GENERALIST` | Broad coverage across many content types; cell scores ≥7/10 on `depth_breadth_generalist_score` |
+| `DEPTH_BREADTH_BALANCED` | Both scores in 4-6 range |
+
+**Progression-Stage axis flags (Identity OR Viability per § 1.8.5 hypothesis):**
+
+| Flag | Notes |
+|---|---|
+| `PROGRESSION_LEVELING` | Optimized for Levels 1-50 journey |
+| `PROGRESSION_LEAGUE_STARTER` | Self-sufficient endgame-from-scratch capability |
+| `PROGRESSION_END_GAME` | True endgame specialization (per § 1.8 hypothesis, only ~15% of players reach this; cells targeting this are end-game-tier-investment) |
+| `PROGRESSION_LEVELING_VIABILITY_GATE` | Per § 1.8.5 hypothesis: this cell adequately covers Leveling-axis viability gate; gate-pass marker |
+
+**Mode axis flags (binary; composes):**
+
+| Flag | Notes |
+|---|---|
+| `MODE_HARDCORE` | Cell viable in Hardcore (perma-death) mode |
+| `MODE_SOFTCORE` | Cell targets Softcore mode primarily |
+| `MODE_EITHER` | Cell works in both modes |
+
+**Viability axis flags (gate markers):**
+
+| Flag | Notes |
+|---|---|
+| `VIABILITY_SURVIVABILITY_PASS` | Cell scores ≥X on Maxroll Survivability axis (gate threshold) |
+| `VIABILITY_PLAYABILITY_PASS` | Cell scores ≥X on Maxroll Playability axis |
+| `VIABILITY_LEVELING_PASS` | Per § 1.8.5 hypothesis: cell scores ≥X on Leveling-axis viability gate |
+| `VIABILITY_GATE_FAILED` | Cell fails at least one viability gate; flagged for review or refutation |
+
+**Loot-Focus sub-axis flags (within Speedfarming):**
+
+| Flag | Notes |
+|---|---|
+| `LOOT_MAGIC_FIND_FOCUSED` | IIR-targeted (legacy in D4; alive in PoE2) |
+| `LOOT_CURRENCY_FARMER` | PoE-specific currency-stack farming |
+| `LOOT_DROP_DENSITY_FOCUSED` | High-mob-density loot farming |
+| `LOOT_GENERIC_SPEEDFARM` | No loot specialization within Speedfarm |
+
+**Activity-Format axis flags (per Reincarnated TBD endgame structure):**
+
+| Flag | Notes |
+|---|---|
+| `ACTIVITY_FORMAT_*` | Values determined when Reincarnated endgame structure ships; placeholder enum |
+
+**Emergent archetype labels (OBSERVATIONAL only; output-time post-hoc):**
+
+| Flag | Notes |
+|---|---|
+| `EMERGENT_LABEL_DECLARED` | Post-hoc archetype label inferred from multi-axis profile dominance (e.g., "Bossing Push End Game"); NOT a generation target; emerges from continuous axis scores |
+| `EMERGENT_LABEL_AMBIGUOUS` | Multi-axis profile produces no dominant archetype label; cell is over-generalized OR identity-anchor (Anti-specialization shape per § 1.8.4) |
 
 ### 4.2 Sub-axis flags (within primary archetype)
 
@@ -810,6 +1027,29 @@ Scaling-pattern flags:
 | `MECHANISM_SCALES_FIXED` | No scaling; constant magnitude |
 
 **Composition pattern:** cells specify these flags in combination. For example, a cell targeting the "high P2 + high P3 + multiplicative-stackability + on-event-trigger + scales-with-investment" gap surfaces in § 1.4.2 carries flags `MECHANISM_STACK_MULTIPLICATIVE` + `MECHANISM_TRIGGER_ON_EVENT` + `MECHANISM_SCALES_WITH_INVESTMENT` at Layer 2 + high `mechanism_p2_score` and `mechanism_p3_score` at Layer 1. Cells composed this way drive generation toward Reincarnated-native mechanisms (no family pre-imposition) that deliver the predicted Layer 1 value through Layer 2 structural choices.
+
+### 4.16 Cell shape flags (per § 1.8.4 multi-axis architecture)
+
+Cell-level declaration of intended profile shape across multi-axis experiential space:
+
+| Flag | Notes |
+|---|---|
+| `CELL_SHAPE_SPECIALIZED` | Dominant on 1 identity axis; minimum-adequate on viability axes; sub-dominant or absent on other identity axes. Most common cell shape; favored for identity strength; default shape. |
+| `CELL_SHAPE_HYBRID` | Significant scores on 2-3 identity axes; intentional cross-axis utility (e.g., Boss-Speed dual-capability). Common for hybrid 2-element kits per § 1.7.2. |
+| `CELL_SHAPE_GENERALIST` | Moderate scores across many identity axes; "do everything" archetype. Rare; high-investment-tier; PoE Mageblood-Headhunter-class extreme builds. |
+| `CELL_SHAPE_ANTI_SPECIALIZATION` | Intentionally low on identity axes; high on Survivability + Playability; identity-anchor for approachable / one-button / Wanderer-style archetype. Per § 22 of HTML doc; NOT a bug. |
+
+### 4.17 Axis-type classification flags (per § 1.8.2)
+
+Per-axis declaration of how the axis is treated in cell scoring and generation:
+
+| Flag | Notes |
+|---|---|
+| `AXIS_TYPE_IDENTITY` | Axis treated as identity-and-differentiation; cells prefer dominance pattern; per-axis specialization preferred |
+| `AXIS_TYPE_VIABILITY` | Axis treated as universal-adequate-threshold; cells must score above gate threshold; minimum-viability gate applies |
+| `AXIS_TYPE_MODE` | Axis treated as binary mode composition; applies across all other axes orthogonally |
+| `AXIS_TYPE_SUB` | Axis treated as within-axis sub-classification of a parent axis |
+| `AXIS_TYPE_PROGRESSION_STAGE_TBD` | Progression-Stage axis treatment is hypothesis-pending per § 1.8.5; either AXIS_TYPE_IDENTITY OR AXIS_TYPE_VIABILITY pending playtest validation |
 
 ---
 
@@ -1223,6 +1463,24 @@ This document is intentionally a placeholder. The following questions need Matt'
 27. **Reincarnated-native mechanisms with no genre analog** — the `OBSERVED_NOVEL_NO_GENRE_ANALOG` flag covers cells whose mechanisms don't fit any of A-G. How does this flag get attached — automatic when none of A-G similarity exceeds threshold, OR explicit author-time declaration? Implementation question.
 
 28. **Reframing Family B "highest-leverage gap" as Layer 1 + Layer 2 coordinate gap** — § 1.4.2 reframes "highest-leverage Cycle 15+ design call" from "build Family B" to "fill the high-P2-P3 + multiplicative-stackability + on-event-trigger + scales-with-investment coordinate gap." Is this reframing complete, or do other sections still carry the old framing that needs retirement? Matt review needed.
+
+### 8d. Open questions from iter 4 refinement (multi-axis experiential architecture)
+
+29. **Leveling-as-viability-axis hypothesis (§ 1.8.5)** — TRUE for Reincarnated (50-level scope + 85%-leveling-only forces universal viability gate) OR FALSE (Progression-Stage works as identity axis like genre)? This is the central iter 4 hypothesis. Playtest validates; decision deferred.
+
+30. **Viability-axis gate threshold values** — what minimum score on each viability axis (Survivability / Playability / possibly Leveling) constitutes "pass"? Designer-asserted starting values, then refined through playtest evidence? Or empirically-derived from genre community-acceptability thresholds (Maxroll's "S-tier" / "A-tier" / etc.)?
+
+31. **Mutual exclusivity preference operationalization** — how do generation parameters target mutual exclusivity? Statistical preference (most cells specialized; some hybrid)? Hard constraint (cells fail if multi-axis-spanning beyond threshold)? Per-cell-shape declaration that generation honors? Tied to § 1.8.4 cell shape distribution targets.
+
+32. **Cell-shape distribution targets per cycle** — what fraction of cells per cycle should be Specialized vs Hybrid vs Generalist vs Anti-specialization? Reincarnated-target distribution (e.g., 70% Specialized + 20% Hybrid + 5% Generalist + 5% Anti-specialization)? Per-power-plane distribution targets (e.g., Anti-specialization more common at low investment tiers; Specialized more common at high investment tiers)?
+
+33. **Activity-Format axis values** — Reincarnated's endgame structure determines the enum values for Activity-Format axis. What endgame structure does Reincarnated ship with? TBD per game design; pattern library waits or uses placeholder enum.
+
+34. **Maxroll 5-axis structured rating prediction precision** — cells predict 5-axis profiles (Bossing/Speed/Push/Survivability/Playability) at hypothesis time. What's the prediction granularity (integer 1-10? Decimal? Range?) and how is prediction-vs-observation match scored at validation?
+
+35. **Cross-axis profile constraints** — are there combinations of multi-axis coordinates that are STRUCTURALLY incompatible (e.g., "high Bossing + high Speedfarming at Specialized cell shape" is contradictory)? Generation needs to know which combinations are valid candidates vs structurally impossible.
+
+36. **Emergent label inference methodology** — § 3.5 `emergent_archetype_label` field is computed post-hoc from multi-axis profile dominance. What's the inference algorithm? Threshold-based (e.g., "if Bossing > 7 AND Push > 7 → 'Bossing Push'")? LLM-based labeling? Statistical clustering? Implementation choice affects label consistency and player-facing surface coherence.
 
 ---
 
