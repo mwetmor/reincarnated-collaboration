@@ -1,0 +1,85 @@
+{
+  "track": "ARPG",
+  "sampler_id": "A",
+  "sample_window": {
+    "started": "2026-06-01T00:00:00",
+    "completed": "2026-06-01T04:00:00"
+  },
+  "row_count": 48,
+  "per_primary_yield": {
+    "fire": {
+      "score": "STRONG",
+      "row_count": 7,
+      "rationale": "ARPG fire vocabulary is the richest and most consistent across sources. Cinder, ember, scorch, ignite, blaze, pyre, char all surface with multi-source citation. Ember is particularly strong (Torchlight Embermage makes it class identity). Ignite is formally named ailment in PoE. Excellent substrate diversity: material (cinder/ember/char/pyre), phenomenon (scorch/blaze), ailment (ignite).",
+      "continue_stop_expand_recommendation": "STOP",
+      "expansion_focus_if_recommended": ""
+    },
+    "water": {
+      "score": "STRONG",
+      "row_count": 6,
+      "rationale": "Water/cold vocabulary in ARPG is extensive: frost, chill, glacial are ubiquitous. Brine, torrent, tide, rime add depth. PoE treats water primarily through cold damage (Frostbolt, Frost Bomb, Glacial Hammer); Lost Ark and Last Epoch surface water-specific skills. The cold/water overlap is a consistent pattern — most ARPGs don't distinguish water from cold. Rime is flagged as obscure-vocab candidate.",
+      "continue_stop_expand_recommendation": "STOP",
+      "expansion_focus_if_recommended": ""
+    },
+    "earth": {
+      "score": "STRONG",
+      "row_count": 5,
+      "rationale": "Tremor, quake, stone, dust, thorn, bedrock all surface with clear ARPG citations. Quake/earthquake is ubiquitous across all surveyed sources. Thorn is unusual — D3 Thorns is a major gear affix concept. Dust has contamination with wind. Earth vocabulary is well-distributed across material and phenomenon substrate types.",
+      "continue_stop_expand_recommendation": "STOP",
+      "expansion_focus_if_recommended": ""
+    },
+    "wind": {
+      "score": "MEDIUM",
+      "row_count": 5,
+      "rationale": "Gale, tempest, gust, cyclone, vortex surface across multiple sources. Cyclone is the highest-signal wind term in ARPG (PoE Cyclone is an iconic skill). Tempest has lightning contamination. Wind is notably underrepresented in some ARPGs (PoE maps wind mostly through storm/lightning; Diablo maps wind through Physical or Druid nature). Lost Ark has explicit wind element. Fewer citations per candidate vs fire/water.",
+      "continue_stop_expand_recommendation": "CONTINUE",
+      "expansion_focus_if_recommended": "Storm/squall/whirlwind vocabulary; check Diablo 4 Druid wind skills more deeply"
+    },
+    "lightning": {
+      "score": "STRONG",
+      "row_count": 6,
+      "rationale": "Shock (PoE formal ailment), arc (PoE iconic skill), volt, surge, spark, static all surface with strong citations. Arc and Spark are named PoE skills with very high player recognition. Shock is the formal named lightning ailment in PoE. Lightning gap-fill question: genre STRONGLY uses arc/spark/shock as primary sub-vocabulary. Plasma and storm are present but less lightning-specific (storm contaminates wind).",
+      "continue_stop_expand_recommendation": "STOP",
+      "expansion_focus_if_recommended": ""
+    },
+    "holy": {
+      "score": "MEDIUM",
+      "row_count": 6,
+      "rationale": "Radiant, blessed, sacred, divine, dawn, sanctum surface. Holy vocabulary is concentrated in Crusader/Paladin class archetypes (Diablo 3 Crusader, Lost Ark Paladin, Wolcen Sacred damage type). Wolcen formally names the damage type 'Sacred' — strong single-source validation. Risk of over-religious-coded vocabulary: 'divine', 'blessed', 'sanctum' all have religious connotation. 'Radiant' and 'dawn' are the most tone-safe options.",
+      "continue_stop_expand_recommendation": "EXPAND",
+      "expansion_focus_if_recommended": "Survey additional ARPG holy class vocabulary; look for non-religious light sub-vocabulary (aureate, luminary, corona); check Grim Dawn Order affinity constellation names"
+    },
+    "shadow": {
+      "score": "STRONG",
+      "row_count": 7,
+      "rationale": "Void, shade, umbra, wraith, blight, decay all surface with clear citations. Void is the strongest signal (Last Epoch formal damage type). Blight and decay have contamination with earth-decay which is a real cross-primary risk. Umbra is flagged as potentially obscure-vocab (low recognizability score = 1). Overall shadow vocabulary is richest in chaos/void/darkness family; Grim Dawn Chaos damage and Last Epoch Void are the strongest genre authorities.",
+      "continue_stop_expand_recommendation": "STOP",
+      "expansion_focus_if_recommended": ""
+    },
+    "physical": {
+      "score": "MEDIUM",
+      "row_count": 5,
+      "rationale": "7-vs-8 signal: ARPG canon does NOT consistently treat physical sub-vocabulary as a sub-element layer. Key findings: (1) PoE treats bleed as AILMENT of physical, impale as DEBUFF — not damage sub-types. (2) Grim Dawn treats pierce and bleed as SIBLING damage types to physical (formal). (3) Wolcen separates Rend (bleed) as a distinct material sub-type. (4) Titan Quest and Torchlight follow simpler physical = flat primary model. Verdict: physical sub-vocab EXISTS in genre (bleed/pierce/sever/crush/impale) but its status as SUB-ELEMENT vs AILMENT vs MECHANIC is source-dependent. Not a clean sub-element layer like fire→ember.",
+      "continue_stop_expand_recommendation": "CONTINUE",
+      "expansion_focus_if_recommended": "7-vs-8 empirical resolution needs cross-track corroboration (JRPG and tabletop tracks); Grim Dawn pierce/bleed-as-sibling model is strongest ARPG precedent for sub-element treatment"
+    }
+  },
+  "source_coverage_breadth": [
+    {"source": "Path of Exile 1+2", "yield": "STRONG", "notes": "Richest ARPG source for formal damage type taxonomy; named ailments (Ignite/Shock/Chill/Bleed) are excellent sub-element anchors"},
+    {"source": "Diablo 4", "yield": "STRONG", "notes": "6 named damage types including Shadow and Holy (as Crusader); strong cross-class vocabulary coverage"},
+    {"source": "Lost Ark", "yield": "STRONG", "notes": "6 element system (Dark/Holy/Earth/Fire/Lightning/Water) — directly maps to 6 of our 8 primaries; best ARPG holy/shadow formal vocabulary source"},
+    {"source": "Grim Dawn", "yield": "STRONG", "notes": "Load-bearing for physical sub-type question: pierce and bleed as sibling damage types; Aether/Chaos as non-elemental types; devotion affinity system"},
+    {"source": "Wolcen", "yield": "MEDIUM", "notes": "Clean 9-type taxonomy (Physical/Rend/Toxic/Fire/Frost/Lightning/Sacred/Shadow/Aether); best single source for holy=Sacred naming"},
+    {"source": "Last Epoch", "yield": "STRONG", "notes": "Void damage type is strongest ARPG shadow-adjacent formal named type; Necrotic as second shadow-adjacent type"},
+    {"source": "Torchlight 2", "yield": "MEDIUM", "notes": "5 types (physical/fire/ice/electric/poison); Embermage class makes ember central identity term"},
+    {"source": "Diablo 3", "yield": "MEDIUM", "notes": "Holy damage formally introduced; Crusader class vocabulary; Thorns as earth physical mechanic"},
+    {"source": "Diablo Immortal", "yield": "MEDIUM", "notes": "Holy/shadow vocabulary in Crusader and Necromancer skills; Conjuration of Light as holy beam"},
+    {"source": "Diablo 2", "yield": "MEDIUM", "notes": "Fire/Cold/Lightning/Poison/Magic/Physical; Paladin Holy Fire/Freeze/Shock but as elemental auras not holy type"},
+    {"source": "Titan Quest", "yield": "WEAK", "notes": "Fire/Cold/Lightning as primary elemental; Earth mastery gives quake/stone vocabulary; no formal holy/shadow"},
+    {"source": "Torchlight Infinite", "yield": "WEAK", "notes": "Similar taxonomy to T2; limited additional signal"}
+  ],
+  "substrate_tagging_gaps": "Key contamination patterns observed: (1) tempest contaminates wind↔lightning (storm evokes both); (2) blight/decay contaminate shadow↔earth (organic decomposition is earth-adjacent); (3) dust contaminates earth↔wind; (4) vortex contaminates wind↔water (PoE Vortex is cold-damage); (5) abyss would contaminate shadow↔water if included (deep sea = abyss; underworld = abyss — dual contamination). The holy vocabulary is almost entirely free of contamination. Lightning vocabulary (arc/spark/shock) is very clean.",
+  "seven_vs_eight_signal": "ARPG canon is DIVIDED on physical sub-element status. Evidence for sub-element layer: Grim Dawn has Pierce and Bleed as formal sibling damage types with their own resistances; Wolcen has Rend (bleed) as distinct material damage type. Evidence against: PoE treats bleed/impale as ailments and debuffs (NOT sub-elements); Diablo, Torchlight, Last Epoch treat physical as flat primary. The strongest ARPG precedent for 7-element treatment (physical = flat primary, no sub-layer) comes from the majority of sources. However, Grim Dawn's pierce-as-sibling model is a genuine counter-signal. Net ARPG read: physical CAN have sub-vocabulary (bleed/pierce/crush/sever/impale) but genre does NOT consistently treat these as sub-elements in the way fire has ember/cinder. The question is design-side: does Reincarnated want to make physical behave like Grim Dawn (sub-types) or like PoE (ailments only)?",
+  "track_alignment_concerns": "Constraint: holy vocabulary risks over-religious-coded terms (divine, blessed, sanctum all have direct religious connotation). Dawn and radiant are safer for a game not wanting explicit religious framing. The Reincarnated provisional isekai positioning per D10 makes direct religious-coded vocabulary a mild alignment risk — isekai typically uses light/radiance framing rather than holy/sacred/divine. No alignment concerns for fire/water/earth/wind/lightning/shadow.",
+  "sampler_summary": "ARPG canon yields excellent coverage for fire (7 rows; strong across material/phenomenon/ailment substrate types), water/cold (6 rows; frost/chill as ubiquitous anchors), earth (5 rows; quake/stone as ubiquitous), lightning (6 rows; arc/spark/shock as strongest sub-vocab), shadow (7 rows; void/blight as strongest), and holy (6 rows; sacred/radiant as most genre-grounded). Wind is the weakest ARPG yield (5 rows; cyclone strongest but some contamination). Physical is the structurally ambiguous case — ARPG genre does not consistently resolve physical as having a sub-element layer; 7-vs-8 signal is divided with Grim Dawn pro-sub-type and PoE/Diablo anti-sub-type. Total 48 rows across 8 primaries. Sources most load-bearing: PoE, Lost Ark, Last Epoch, Grim Dawn, Wolcen."
+}

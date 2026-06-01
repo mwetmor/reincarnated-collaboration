@@ -1,0 +1,108 @@
+{
+  "track": "tabletop_myth",
+  "sampler_id": "C",
+  "sample_window": {
+    "started": "2026-06-01T00:00:00",
+    "completed": "2026-06-01T06:00:00"
+  },
+  "row_count": 37,
+  "per_primary_yield": {
+    "fire": {
+      "score": "STRONG",
+      "row_count": 5,
+      "rationale": "Tabletop/myth fire vocabulary yields conflagration (D&D spell text), cinder (MTG Red), sulphur (alchemical prime), ember (MTG Red), smelt (Wu Xing/alchemy). The alchemical track is uniquely productive here — sulphur as an alchemical fire prime is not present in ARPG or JRPG tracks. MTG Red card names confirm cinder and ember. Cross-track confirmation on ember (also in Sampler-A).",
+      "continue_stop_expand_recommendation": "STOP",
+      "expansion_focus_if_recommended": ""
+    },
+    "water": {
+      "score": "STRONG",
+      "row_count": 5,
+      "rationale": "Tabletop/myth water vocabulary: brine (MTG Blue/Black), torrent (Pathfinder named spell), mercury (alchemical prime), glacial (D&D/Pathfinder), mist (D&D Misty Step iconic). Mercury as alchemical fluid principle is unique to this track. Mist has strong D&D grounding (Misty Step) plus Celtic mythology liminal framing. Cross-track confirmation on glacial (also Sampler-A) and torrent (also Sampler-A).",
+      "continue_stop_expand_recommendation": "STOP",
+      "expansion_focus_if_recommended": ""
+    },
+    "earth": {
+      "score": "MEDIUM",
+      "row_count": 4,
+      "rationale": "Tabletop/myth earth yields stone (D&D named spells + MTG Green), salt (alchemical prime), tremor (D&D/Pathfinder), loam (MTG iconic card Life from the Loam). Salt as alchemical earth prime is unique to this track — not present in ARPG or JRPG. Loam is an MTG-grounded organic earth vocabulary. Only 4 rows — wind (3 rows) is the weaker yield but earth lacks one more obvious candidate.",
+      "continue_stop_expand_recommendation": "CONTINUE",
+      "expansion_focus_if_recommended": "MTG Green earth cards (Cultivate, Earthcraft); D&D Druid earth vocabulary; Wu Xing earth concepts (center, stability, loess)"
+    },
+    "wind": {
+      "score": "MEDIUM",
+      "row_count": 3,
+      "rationale": "Tabletop/myth wind yields only gust (D&D/Pathfinder named spells), tempest (D&D Tempest Domain), cyclone (Pathfinder Air Elemental). Only 3 candidates — the weakest primary in this track. D&D Tempest Domain is richly developed but it blends wind + lightning. MTG does not have a strong wind-exclusive vocabulary (Blue handles wind but conflates with island/water). Wind is structurally underrepresented in tabletop taxonomy.",
+      "continue_stop_expand_recommendation": "EXPAND",
+      "expansion_focus_if_recommended": "Aeolus and Greek wind deity vocabulary (Boreas, Notus, Eurus, Zephyrus); Norse wind mythology (Kari); MTG Blue storm/wind cards"
+    },
+    "lightning": {
+      "score": "STRONG",
+      "row_count": 5,
+      "rationale": "Tabletop/myth lightning is the strongest primary in this track. D&D 5e has formal Lightning AND Thunder damage types — two distinct vocabulary anchors. Pathfinder has Electric Arc as its most common lightning cantrip (named with arc). Cross-track confirmation on arc (Sampler-A) and volt (Sampler-A). Tabletop is the most rigorous source for lightning formal taxonomy — Lightning Bolt is 50 years of D&D iconography.",
+      "continue_stop_expand_recommendation": "STOP",
+      "expansion_focus_if_recommended": ""
+    },
+    "holy": {
+      "score": "STRONG",
+      "row_count": 5,
+      "rationale": "Tabletop/myth holy vocabulary: radiant (D&D 5e formal damage type), sacred (D&D cantrip + Pathfinder trait), divine (D&D magic school), aether (classical fifth element + D&D ethereal), dawn (D&D Xanathar spell + solar mythology). This is the strongest holy yield across all three tracks. D&D Radiant damage type is the clearest game-mechanical holy vocabulary — non-religious-coded while formal. Aether is unique to this track (not in ARPG or JRPG).",
+      "continue_stop_expand_recommendation": "STOP",
+      "expansion_focus_if_recommended": ""
+    },
+    "shadow": {
+      "score": "STRONG",
+      "row_count": 5,
+      "rationale": "Tabletop/myth shadow vocabulary: necrotic (D&D 5e formal damage type — strongest tabletop shadow anchor), umbral (D&D Shadowfell vocabulary), void (Pathfinder formal damage type + MTG Black), umbra (Roman mythology), shade (D&D creature type + Greek mythology). D&D formal damage types (Necrotic + Void in Pathfinder) provide the most rigorous tabletop shadow vocabulary. Umbral is unique to this track. Cross-track confirmation on void (Samplers A and B) and shade (Sampler B).",
+      "continue_stop_expand_recommendation": "STOP",
+      "expansion_focus_if_recommended": ""
+    },
+    "physical": {
+      "score": "STRONG",
+      "row_count": 5,
+      "rationale": "7-vs-8 signal: tabletop is the STRONGEST evidence source for 8-element (physical-as-sub-element-layered) treatment. D&D 5e has a formal, mechanically-distinct Bludgeoning/Piercing/Slashing trinity where each sub-type has different creature interactions (werewolves non-magic slashing resistant; vampires piercing immune; etc.). Additionally, Force damage is a fourth physical-adjacent type. Pathfinder formalizes these further with mechanical traits. The D&D physical sub-type system is the clearest genre precedent for treating physical with a sub-element vocabulary layer.",
+      "continue_stop_expand_recommendation": "STOP",
+      "expansion_focus_if_recommended": ""
+    }
+  },
+  "source_coverage_breadth": [
+    {
+      "source": "D&D 5e PHB + Xanathar's Guide",
+      "yield": "STRONG",
+      "notes": "Most formal damage-type taxonomy in tabletop; formal types for all 8 primaries including physical (B/P/S)"
+    },
+    {
+      "source": "Pathfinder 2e Core Rulebook",
+      "yield": "STRONG",
+      "notes": "Named spells for most elements; formal trait system provides structured vocabulary"
+    },
+    {
+      "source": "MTG (Magic: The Gathering)",
+      "yield": "STRONG",
+      "notes": "Color pie card-name vocabulary is rich; Red=fire, Blue=water+wind+lightning, Black=shadow, Green=earth+wind, White=holy; 30 years of card names"
+    },
+    {
+      "source": "Western alchemical tradition",
+      "yield": "MEDIUM",
+      "notes": "Sulphur/Mercury/Salt trinity is unique to this track; calcination and other alchemical operations are too obscure as player-facing vocabulary"
+    },
+    {
+      "source": "Wu Xing (Eastern five elements)",
+      "yield": "MEDIUM",
+      "notes": "Good cross-check; wood element is an interesting earth-adjacent candidate not in Western tracks"
+    },
+    {
+      "source": "Folklore / mythology (Greek/Roman/Norse)",
+      "yield": "STRONG",
+      "notes": "Load-bearing for holy (dawn/solar deities) and shadow (umbra/shade/Hades vocabulary)"
+    },
+    {
+      "source": "Celtic mythology",
+      "yield": "WEAK",
+      "notes": "Mist/liminal water vocabulary; limited additional signal beyond mist"
+    }
+  ],
+  "substrate_tagging_gaps": "Key contamination patterns: (1) tempest contaminates wind/lightning (D&D Tempest Domain explicitly mixes both); (2) mist contaminates water/wind (airborne water vapor); (3) sulphur contaminates fire/shadow (brimstone/infernal associations); (4) mercury contaminates water/lightning (quicksilver speed/electrical metaphor); (5) salt contaminates earth/holy (purification/folk magic protective use); (6) aether contaminates holy/lightning (Victorian electrical-aether conflation). The D&D formal damage-type vocabulary (Radiant/Necrotic/Lightning/Thunder/Force/Bludgeoning/Piercing/Slashing/Fire/Cold/Acid) is the most contamination-resistant source — designed for game mechanics, semantic separation is intentional.",
+  "seven_vs_eight_signal": "Tabletop canon is the STRONGEST evidence source for 8-element treatment. D&D 5e's Bludgeoning/Piercing/Slashing are formal damage types with distinct mechanical interactions (creature immunities differ; material considerations differ). The case for 8-element is: the most rigorous game-mechanical damage-type taxonomy in any genre (D&D) treats physical with a 3-way sub-type split. Force damage adds a 4th physical-adjacent type. Pathfinder formalizes this further. However, for player-facing vocabulary: Bludgeoning/Piercing/Slashing are mechanical keywords, not flavor keywords — they describe the attack TYPE not an elemental identity. A Reincarnated physical sub-element vocabulary would need to translate mechanical keywords into flavor-consistent substrate words (blunt/pierce/sever/crush rather than bludgeoning/piercing/slashing). Net tabletop vote: STRONG for 8-element treatment; vocabulary translation from mechanical to flavor-substrate needed.",
+  "track_alignment_concerns": "Constraint: divine as holy vocabulary is the most religious-coded term surveyed across all three tracks. D&D's divine magic school name is unavoidable in tabletop but potentially misaligned with Reincarnated isekai positioning. Radiant is the clearly safer option. Alignment: alchemical vocabulary (sulphur, mercury, salt, calcination) is intellectually interesting but may be too obscure for player-facing flavor vocabulary — the tabletop_myth track reveals vocabulary that is substrate-coherent but low-recognizability. These should be scored as recognizability_score=1 candidates in Phase 3 expansion and treated with caution at curation. The MTG card-name vocabulary is an unexpected strong source for tabletop_myth flavor words because card names are designed for player-facing recognizability.",
+  "sampler_summary": "Tabletop/myth track yields excellent coverage for lightning (5 rows; D&D has dual Lightning+Thunder formal types; arc cross-confirmed from Sampler-A), holy (5 rows; strongest holy yield across all three tracks — radiant as D&D formal damage type is the key find), shadow (5 rows; necrotic as D&D formal damage type; umbral as unique-to-track find), fire (5 rows; alchemical sulphur unique find), water (5 rows; mercury as alchemical prime unique find). Wind (3 rows) is the weakest yield — recommend EXPAND. Physical: STRONG 7-vs-8 signal — D&D Bludgeoning/Piercing/Slashing as formal damage types with distinct mechanical interactions is the most rigorous genre evidence for 8-element treatment. Total: 37 rows. Sources most load-bearing: D&D 5e, Pathfinder 2e, MTG color pie, Western alchemical tradition, Greco-Roman mythology."
+}

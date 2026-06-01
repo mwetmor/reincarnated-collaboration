@@ -1,0 +1,123 @@
+{
+  "track": "JRPG_isekai",
+  "sampler_id": "B",
+  "sample_window": {
+    "started": "2026-06-01T00:00:00",
+    "completed": "2026-06-01T06:00:00"
+  },
+  "row_count": 40,
+  "per_primary_yield": {
+    "fire": {
+      "score": "STRONG",
+      "row_count": 5,
+      "rationale": "JRPG fire vocabulary is rich and genre-locked: Agi (SMT 30-year anchor), Fira (FF 30-year anchor), Inferno (Ifrit summon), Hellfire (Overlord/Black Clover), Crimson (isekai intensity marker). Two competing canonical vocabularies (SMT proper-nouns vs FF proper-nouns vs English descriptors) give strong cross-source coverage. The isekai track adds crimson as an intensity modifier not present in ARPG.",
+      "continue_stop_expand_recommendation": "STOP",
+      "expansion_focus_if_recommended": ""
+    },
+    "water": {
+      "score": "STRONG",
+      "row_count": 5,
+      "rationale": "JRPG ice/water vocabulary is extremely consistent: Blizzara (FF 30-year anchor), Bufu (SMT 30-year anchor), Aqua (KonoSuba character name as element identity), Tide (Leviathan summon), Deluge (Mushoku Tensei/Overlord top-tier). The ice=water mapping is universal across JRPG — cold IS water in genre canon. KonoSuba uniquely makes aqua a proper-noun water word with divine contamination.",
+      "continue_stop_expand_recommendation": "STOP",
+      "expansion_focus_if_recommended": ""
+    },
+    "earth": {
+      "score": "MEDIUM",
+      "row_count": 4,
+      "rationale": "JRPG earth vocabulary yields terra, stone, quake, mineral — less consistent across sources than fire/water. Terra is a proper-noun (FF character) rather than a flavor keyword. Stone/quake are cross-track confirmed. Mineral is niche. JRPG earth lacks the depth of ARPG earth (which has thorn/bedrock/dust) — the element is structurally underserved in JRPG magic systems compared to fire/water/lightning.",
+      "continue_stop_expand_recommendation": "CONTINUE",
+      "expansion_focus_if_recommended": "Deeper survey of Mushoku Tensei earth magic vocabulary; Persona earth skills in P3/P4 (Maragi/Mabufula equivalent for earth); Black Clover stone magic"
+    },
+    "wind": {
+      "score": "STRONG",
+      "row_count": 5,
+      "rationale": "JRPG wind vocabulary is unusually strong: Garu (SMT 30-year anchor), Aero (FF 30-year anchor), Zephyr (mythology-grounded mid-tier), Squall (FF8 character name), Gale (FFT/Tower of God). Two proper-noun anchors plus three phenomenon descriptors. JRPG wind is better served than ARPG wind (which rated MEDIUM).",
+      "continue_stop_expand_recommendation": "STOP",
+      "expansion_focus_if_recommended": ""
+    },
+    "lightning": {
+      "score": "STRONG",
+      "row_count": 5,
+      "rationale": "JRPG lightning vocabulary is very strong: Zio (SMT 30-year anchor), Thundara (FF 30-year anchor), Bolt (FF early entries + Black Clover), Plasma (FF7/Solo Leveling manhwa), Surge (FF13 protagonist-adjacent). Cross-track confirmation with Sampler-A on bolt/surge/plasma. The JRPG track has stronger plasma/surge signal than ARPG.",
+      "continue_stop_expand_recommendation": "STOP",
+      "expansion_focus_if_recommended": ""
+    },
+    "holy": {
+      "score": "MEDIUM",
+      "row_count": 5,
+      "rationale": "JRPG holy vocabulary yields Hama (SMT 30-year anchor), Holy (FF formal element name), Radiance (Black Clover/FF), Aura (FF/Overlord), Seraph (FFT/SMT). The SMT Hama and FF Holy are genre-locked proper-nouns but they name the PRIMARY element, not sub-elements. Aura and seraph are more distinctive as sub-vocabulary. Holy vocabulary in JRPG is structurally dominated by proper-nouns rather than flavor descriptors.",
+      "continue_stop_expand_recommendation": "EXPAND",
+      "expansion_focus_if_recommended": "Survey isekai clerics and paladin-class magic: KonoSuba divine powers, Mushoku Tensei healing magic vocabulary, Overlord divine magic system — focus on non-proper-noun descriptors"
+    },
+    "shadow": {
+      "score": "STRONG",
+      "row_count": 6,
+      "rationale": "JRPG/isekai shadow vocabulary is the strongest of any track. Solo Leveling shadow-army framing (shadow, shade) is genre-defining for isekai. Mudo (SMT Chaos/dark anchor), Drain (FF dark mechanic), Void (FF5/Mushoku Tensei), Necro (FF/Overlord), Shadow (Solo Leveling primary element name). Solo Leveling makes shadow the richest isekai element — more candidates discoverable with expansion.",
+      "continue_stop_expand_recommendation": "EXPAND",
+      "expansion_focus_if_recommended": "Solo Leveling shadow system has more sub-vocabulary (Shadow Exchange, Shadow Preserve, Shadow Linker — individual shadow abilities as sub-vocabulary); Overlord undead vocabulary deeper survey"
+    },
+    "physical": {
+      "score": "STRONG",
+      "row_count": 5,
+      "rationale": "7-vs-8 signal: JRPG/isekai STRONGLY supports physical sub-element treatment. Persona 3 has formal Slash/Strike/Pierce taxonomy with enemy weakness tracking — this is the strongest JRPG precedent for physical-as-layered-element. Additionally: isekai systems (Mushoku Tensei, Slime) distinguish physical impact from elemental damage. The Slash/Strike/Pierce trinity in Persona 3 maps almost exactly to the D&D Bludgeoning/Piercing/Slashing trinity.",
+      "continue_stop_expand_recommendation": "STOP",
+      "expansion_focus_if_recommended": ""
+    }
+  },
+  "source_coverage_breadth": [
+    {
+      "source": "Persona 3/4/5 (SMT series)",
+      "yield": "STRONG",
+      "notes": "Most rigorous JRPG element taxonomy; Agi/Bufu/Zio/Garu/Hama/Mudo as 30-year locked vocabulary; Slash/Strike/Pierce physical sub-types"
+    },
+    {
+      "source": "Final Fantasy series (multiple entries)",
+      "yield": "STRONG",
+      "notes": "30-year locked spell families (Fire/Fira/Firaga etc.); the most recognizable JRPG element vocabulary globally"
+    },
+    {
+      "source": "Solo Leveling (manhwa)",
+      "yield": "STRONG",
+      "notes": "Strongest isekai shadow vocabulary source; Shadow Monarch framing is genre-defining"
+    },
+    {
+      "source": "Overlord (isekai LN/anime)",
+      "yield": "STRONG",
+      "notes": "Best isekai source for high-tier magic vocabulary across multiple elements"
+    },
+    {
+      "source": "Mushoku Tensei (isekai LN/anime)",
+      "yield": "MEDIUM",
+      "notes": "Strong earth and water vocabulary; spell categorization system well-documented"
+    },
+    {
+      "source": "Black Clover (manga/anime)",
+      "yield": "MEDIUM",
+      "notes": "Good fire and holy magic vocabulary; Creation Magic system has interesting sub-type framing"
+    },
+    {
+      "source": "KonoSuba (isekai anime/LN)",
+      "yield": "MEDIUM",
+      "notes": "Aqua as water-goddess character name is unique; explosion magic gives fire context"
+    },
+    {
+      "source": "Tower of God (manhwa)",
+      "yield": "WEAK",
+      "notes": "Shinsoo system is not element-typed in conventional sense; limited direct element vocabulary"
+    },
+    {
+      "source": "Berserk (manga)",
+      "yield": "WEAK",
+      "notes": "Shadow/darkness vocabulary from Griffith transformation; not a magic-system source"
+    },
+    {
+      "source": "That Time I Got Reincarnated as a Slime",
+      "yield": "MEDIUM",
+      "notes": "Magicule system has element vocabulary; mineral earth and impact physical vocabulary"
+    }
+  ],
+  "substrate_tagging_gaps": "Key contamination patterns: (1) aqua contaminates water/holy via KonoSuba water goddess = divine purification framing; (2) hellfire contaminates fire/shadow via infernal framing; (3) squall contaminates wind/water via rain-squall semantic overlap; (4) aura contaminates holy/wind via aura-as-emanation. The JRPG proper-noun vocabulary (Agi, Bufu, Zio, Garu, Hama, Mudo) is entirely contamination-free — it is element-locked by design. The biggest gap is earth: JRPG earth vocabulary is thin compared to fire/water/wind/lightning.",
+  "seven_vs_eight_signal": "JRPG/isekai STRONGLY supports 8-element (physical-as-sub-element-layered) treatment. The Persona 3 Slash/Strike/Pierce formal taxonomy is the strongest genre evidence found across all three tracks for treating physical as a sub-layered element with distinct mechanical vocabulary. Persona 3 tracks enemy weaknesses to Slash, Strike, and Pierce separately — exactly the same mechanical structure as tracking weaknesses to Fire, Ice, Lightning, Wind. This is the most direct counterargument to the 7-element (physical flat-primary) model. Additionally, Mushoku Tensei and Slime isekai both distinguish physical impact from elemental damage in their magic systems. JRPG vote: STRONG for 8-element treatment.",
+  "track_alignment_concerns": "Alignment: JRPG proper-noun vocabulary (Agi/Bufu/Zio/Garu/Hama/Mudo) is genre-locked but NOT player-facing recognizable for non-JRPG players. Reincarnated isekai positioning means JRPG players are the target audience — but proper-nouns as sub-element flavor vocabulary would be opaque to ARPG-only players. Recommend proper-noun row_ids be flagged as JRPG-recognizable but cross-track-unconfirmed. Constraint: holy vocabulary (Hama, Holy) primarily names the PRIMARY element rather than sub-elements — this is a structural JRPG limitation for the holy gap-fill objective. Shadow vocabulary (Mudo, Void, Drain) is stronger.",
+  "sampler_summary": "JRPG/isekai track yields strong coverage for fire (5 rows; two 30-year locked FF/SMT anchors plus isekai intensity markers), water (5 rows; ice=water canonical mapping; aqua as KonoSuba divine-water unique find), wind (5 rows; strongest JRPG track — garu/aero as 30-year anchors), lightning (5 rows; zio/thundara anchors plus plasma/surge), shadow (6 rows; Solo Leveling shadow-army vocabulary is the highlight; recommend expansion). Earth (4 rows) and holy (5 rows with proper-noun dominance) are the weaker yields. Physical: STRONG 7-vs-8 signal — Persona 3 Slash/Strike/Pierce formal taxonomy is the strongest genre evidence for 8-element treatment found in this research. Total: 40 rows. Sources most load-bearing: Persona/SMT, Final Fantasy, Solo Leveling, Overlord."
+}
