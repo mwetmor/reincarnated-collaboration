@@ -47,7 +47,7 @@ Per operational sequence § 2. Single wave; 5 phases gated internally; wave-clos
 | Phase 0 | elrond | Data-medium consultation (E.α / E.β / E.γ) | ✅ COMPLETE (PG-0 PASS; E.γ-prime — JSONL + sidecar manifest JSON) | `elrond/consultations/2026-06-01-q18-flavor-pool-data-medium.md` |
 | Phase 1 | legolas (3 samplers fan-out) | Parallel sample: Sampler-A ARPG / Sampler-B JRPG-isekai / Sampler-C tabletop-myth | ✅ COMPLETE (125 rows total: A=48 B=40 C=37; all 8 primaries covered in each sampler; JSONL well-formed; commits `1674766` + `15ce1d3`; resumed session after first session stream timeout) | `legolas/research/element-flavor-mapping-2026-06-01/sample-<A|B|C>.jsonl` + `.manifest.json` |
 | Phase 2 | legolas (analyzer) | In-seam triage + 8×3 viability matrix + Phase 3 scope proposal | ✅ COMPLETE (8×3 matrix mostly STRONG/MEDIUM; no MISALIGNED; 5 EXPAND cells proposed under ≤6 cap; no TERMINATE; no NARROW; 7-vs-8 signal favors 8-element 2-of-3 tracks) | `legolas/research/element-flavor-mapping-2026-06-01/sample-triage.md` |
-| Phase 3 | legolas (≤6 expansion fan-out) | Adaptive-scope full research per PG-1 ratified scope | 📝 SCOPE-AWAITING-RATIFICATION (gandalf PG-1 routing in-flight; 5 EXPAND cells proposed: ARPG×wind / ARPG×holy / JRPG×shadow / JRPG×holy / tabletop×wind) | `legolas/research/element-flavor-mapping-2026-06-01/full-<track>-<primary>.jsonl` + `.manifest.json` |
+| Phase 3 | legolas (5 expansion fan-out under ≤6 cap) | Adaptive-scope expansion per PG-1 ratified scope: Exp-A.1 ARPG×wind / Exp-A.2 ARPG×holy / Exp-B.1 JRPG×shadow / Exp-B.2 JRPG×holy / Exp-C.1 tabletop×wind | 📝 DISPATCH-AUTHORING + Gate-1 routing (post-PG-1; gandalf amendments inlined) | `legolas/research/element-flavor-mapping-2026-06-01/full-<track>-<primary>.jsonl` + `.manifest.json` |
 | Phase 4 | elrond | Statistical analysis (frequency / contamination matrix / cluster analysis / cardinality recommendations / 7-vs-8 verdict) | ⏳ pending | `elrond/analysis/element-flavor-mapping-stats-2026-06-XX.md` |
 | Phase 5a | gandalf | Synthesis draft (per-primary curated allow-list + Q18.a-e structural + existing-pool audit) | ⏳ pending (gated on PG-2) | `gandalf/notes/2026-06-XX-q18-flavor-pool-research-synthesis.md` |
 | Phase 5b | gandalf + Matt | Pattern B substantive design call (PG-3 architectural-commitment lock) | ⏳ pending | (ratified in Pattern B; canonical write fires) |
@@ -63,7 +63,7 @@ Per operational sequence § 2. Single wave; 5 phases gated internally; wave-clos
 | Phase-gate | Trigger | Decider | Status |
 |---|---|---|---|
 | PG-0 (data medium) | Pre-Phase-1 | elrond | ✅ PASS (E.γ-prime — JSONL per-row + sidecar manifest JSON; 2026-06-01) |
-| PG-1 (triage scope) | Post-Phase-2 | gandalf | 🔥 FIRING (Pattern A-light sub-agent invocation; legolas Phase 2 triage routing) |
+| PG-1 (triage scope) | Post-Phase-2 | gandalf | ✅ RATIFIED-as-proposed (5 EXPAND cells + 3 brief amendments + 1 substrate-honest-WEAK caveat; commit `21eb116`) |
 | PG-1.5 (in-flight amendment; conditional) | Mid-Phase-3 | gandalf | ⏳ pending (conditional) |
 | PG-2 (stats sufficiency) | Post-Phase-4 | gandalf | ⏳ pending |
 | PG-3 (architectural-commitment lock) | Post-Phase-5b Pattern B | Matt | ⏳ pending |
@@ -80,7 +80,9 @@ Per operational sequence § 2. Single wave; 5 phases gated internally; wave-clos
 | elrond | Phase 0 (PG-0) | Data-medium consultation; format spec for Phase 1 sampler dispatches | ✅ COMPLETE (E.γ-prime; commit `9decb18`) | 2026-06-01 |
 | jack-ryan | Phase 1 Gate-1 (pre-fire) | Critique-pair review of Phase 1 legolas commissioning dispatch | ✅ COMPLETE (PASS-with-INFO; commit `1ad4cd6`) | 2026-06-01 |
 | legolas | Phase 1 + Phase 2 (in-seam triage) | Spawn Sampler-A/B/C in parallel via Agent multi-invocation; absorb returns; author Phase-2 sample-triage.md | ✅ COMPLETE (commits `1674766` + `15ce1d3`; resumed-session after first session stream-timeout — Sampler-A landed pre-timeout; Sampler-B/C + triage landed in resumed session) | 2026-06-01 |
-| gandalf | PG-1 ratification (Pattern A-light) | Confirm/dissent 5 EXPAND cells; lock soft-cap; ratify Phase 3 scope | 🔥 FIRING | 2026-06-01 |
+| gandalf | PG-1 ratification (Pattern A-light) | Confirm/dissent 5 EXPAND cells; lock soft-cap; ratify Phase 3 scope | ✅ COMPLETE (RATIFIED-as-proposed; commit `21eb116`) | 2026-06-01 |
+| jack-ryan | Phase 3 Gate-1 (pre-fire) | Critique-pair review of Phase 3 legolas expansion-commissioning dispatch | 📝 DISPATCH-AUTHORED-AWAITING-FIRE | 2026-06-01 |
+| legolas | Phase 3 expansion commissioning | Spawn 5 expansion sub-agents (Exp-A.1 / A.2 / B.1 / B.2 / C.1) in parallel via Agent multi-invocation (gated on Phase 3 Gate-1 PASS) | ⏳ pending Gate-1 PASS | — |
 
 Updated as phases fire.
 
@@ -140,6 +142,8 @@ Date stamps `2026-06-XX` resolve to actual dates as artifacts land.
 | 2026-06-01 Phase 1 fire | Post Phase-1 Gate-1 PASS | KR | Legolas Phase-1 + Phase-2 commissioning fired via direct Agent invocation; legolas spawns Sampler-A/B/C in single multi-agent invocation; Phase-2 in-seam triage auto-fires post-Phase-1 within same legolas session | `dispatches/2026-06-01-legolas-cycle-15-ws1a-q18-phase-1-parallel-sampler-commissioning.md` |
 | 2026-06-01 Phase 1 + Phase 2 close | Post Phase-1 fire | legolas | COMPLETE: 125 rows total (A=48, B=40, C=37); all 8 primaries covered per sampler; JSONL well-formed; 8×3 triage matrix authored; 5 EXPAND cells proposed under ≤6 cap (ARPG×wind, ARPG×holy, JRPG×shadow, JRPG×holy, tabletop×wind); no TERMINATE/NARROW; 7-vs-8 favors 8-element (2-of-3 tracks). First session stream-timed-out post Sampler-A; resumed-session completed B/C + triage cleanly. | `legolas/research/element-flavor-mapping-2026-06-01/sample-<A|B|C>.{jsonl,manifest.json}` + `sample-triage.md` (commits `1674766` + `15ce1d3`) |
 | 2026-06-01 PG-1 routing | Pre-Phase-3 | KR | Gandalf PG-1 ratification routed via direct Agent invocation (Pattern A-light); reviews 8×3 matrix + 5 EXPAND cells + 7-vs-8 signal | (no formal dispatch file; in-wave Pattern A-light) |
+| 2026-06-01 PG-1 verdict | Phase 2 triage ratification | gandalf | **RATIFIED-as-proposed** (5 EXPAND cells confirmed; soft-cap ≤6 respected at 5; 3 brief amendments per § 4 — (1) ARPG×wind: surface wind-pure vs storm-flex distinction; (2) ARPG×holy: weight non-religious-coded vocabulary as PRIMARY targets; flag religious-coded with `track_alignment_concern`; (3) JRPG×holy substrate-honest-WEAK caveat — no manufacture pressure). No design-side override changes scope. Forward track-source weighting note to Phase 4 elrond. | `gandalf/notes/2026-06-01-q18-gate-1-triage-ratification.md` (commit `21eb116`) |
+| 2026-06-01 Phase 3 Gate-1 dispatch | Pre-Phase-3 critique-pair | KR | Jack-ryan Phase 3 Gate-1 pre-fire review on Phase 3 legolas expansion-commissioning dispatch routed via direct Agent invocation; reviews 5 expansion sub-agent prompts + gandalf amendments inlined + Phase 3 schema (Phase 1 + expansion-specific fields per elrond § 4) | `dispatches/2026-06-01-jack-ryan-gate-1-cycle-15-ws1a-q18-phase-3-pre-fire-review.md` |
 | (further entries appended as phase-gates ratify) | | | | |
 
 ---
