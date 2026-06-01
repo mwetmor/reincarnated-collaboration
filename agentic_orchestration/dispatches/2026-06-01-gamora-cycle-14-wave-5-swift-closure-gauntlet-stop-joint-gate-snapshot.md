@@ -182,3 +182,42 @@ Does this dispatch add, modify, rename, or remove any field on telemetry/fight_l
 ---
 
 **Authored by:** knight-rider (orchestrator) per gandalf 2026-06-01 recognition record + Matt 2026-06-01 dispatch routing
+
+---
+
+## Completion record
+
+**Completed by:** gamora (simulation + spirit-guide seam)
+**Completion date:** 2026-06-01
+**Engine commit:** `3365eb4` (reincarnated-engine main)
+**Collaboration commit:** `16ce0bf` (reincarnated-collaboration main)
+**Tag:** `gamora/v2.18-cycle-14-wave-5-swift-closure-gauntlet-stop-joint-gate-snapshot-1`
+
+### Acceptance criteria — status
+
+- [x] Phase 3 gauntlet sim iteration halted; no new gauntlet sim runs fire from dispatch authoring time forward
+- [x] Phase 4 archive (current state per `phase4_archive_insertion.json`) confirmed STABLE as wave-5 snapshot — empirically inspected (Disc #11): 34 accepted / 639 total; `quality_vector=[0.5,0.5,0.5,0.5,0.5]` uniform; `t4_strategy=null`, `invest_profile=null`
+- [x] Phase 6 sign-off fires against snapshot archive AS-IS with PROVISIONAL marker — sign-off artifact at `cycle-14-wave-5-season-001/wave5-swift-closure-phase67-sign-off-2026-06-01.json`
+- [x] Phase 7 joint-gate verdict fires against snapshot archive AS-IS with PROVISIONAL marker phrase in verdict_text — PROVISIONAL_SIGN_OFF_PHRASE verified in sign-off record verdict_text (dispatch § 2.4 literal requirement)
+- [x] MIGRATION.md authored — `simulation/MIGRATION.md § v1.63`: `provisional_pending_playtest_validation INTEGER` column + idempotent migration function + updated INSERT query + Phase7KitVerdictRecord field + evaluate_kit_verdict param + build_wave5_swift_closure_sign_off_record function
+- [x] Round-trip smoke: 8/8 SW-tests PASS + 11/11 G-P7-tests PASS = 42 total PASS, 0 regressions. PROVISIONAL marker field present, correctly populated, downstream consumers do not crash.
+- [x] AGENT_STATE.md updated with snapshot-stable signal + sign-off verdict reference
+- [x] Coordination signal to star-lord dispatch path emitted — `agentic_orchestration/gamora/notes/2026-06-01-wave-5-swift-closure-archive-snapshot-stable.md` (34 kit IDs enumerated; Wave B note; Q3 resolved)
+- [x] Tag: `gamora/v2.18-cycle-14-wave-5-swift-closure-gauntlet-stop-joint-gate-snapshot-1`
+
+### Q1 resolution (seam decides per dispatch § 8)
+
+**Field name chosen:** `provisional_pending_playtest_validation` (boolean INTEGER in DB; Python bool in dataclass). Schema: `INTEGER NOT NULL DEFAULT 0 CHECK (provisional_pending_playtest_validation IN (0, 1))`. Rationale: boolean field is ergonomic for downstream SELECT queries; CHECK constraint prevents silent corruption; DEFAULT 0 preserves backward compatibility for all existing rows.
+
+### Q3 resolution (seam decides per dispatch § 8)
+
+**Preference: sequential.** Phase 7 verdict sign-off is complete. jack-ryan wave-close canonical write fires AFTER star-lord Phase 5 cohesion judge close. jack-ryan canonical write references sign-off artifact by path. Audit chain: gamora sign-off → star-lord Phase 5 → jack-ryan wave-close. KR to sequence jack-ryan dispatch accordingly.
+
+### Open items surfaced (non-blocking for star-lord dispatch)
+
+- Wave B implementation gap (pre-existing; hive-mind state § 1 Wave 5 row, cascade-resumption-2 Step 4 material discovery) — star-lord dispatch pre-fire empirical-inspection gate should surface whether this blocks Phase 5 cohesion judge execution; escalates to KR if needed; not gamora's seam to resolve.
+- Disc #41 amendment canonical write — queued for jack-ryan ratification per recognition record § 3.1 / § 7.3; surfaces in jack-ryan wave-close dispatch.
+
+### Refutation checklist result (dispatch § 6)
+
+All 6 refutation conditions checked. None landed. Dispatch executed as authored.
