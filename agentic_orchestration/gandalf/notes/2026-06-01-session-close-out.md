@@ -199,18 +199,76 @@ Phases B-E pattern library work
 >
 > Read the hypothesis-flow pattern library architecture canonical at `canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture.md` — graduated from PLACEHOLDER to CURRENT at the 2026-06-01 close-out following 8 refinement iterations.
 >
-> **Suggested starting point: the 55 open questions in § 8a-h of the hypothesis-flow architecture doc.** Per Matt close-out direction: "Probably a good place to start will be all of the Open Questions!" Each question is a candidate refinement; some are pre-implementation parameter decisions; some are gated on playtest evidence.
+> **Critical-path framing for resume work (Matt 2026-06-01 clarification):**
+>
+> The next session work is NOT "answer open questions for completeness." It IS: **produce WS1A implementation specs that unblock the causal chain:**
+>
+> ```
+> WS1A implementation specs authored (Pattern B + 4 canonical docs)
+>   ↓
+> KR fires WS1A hive-mind dispatches
+>   ↓
+> Star-lord + rocket implement WS1A.1-4 in engine
+>   ↓
+> Engine RUNS Phase 5+ retroactively on wave-5 snapshot
+>   (Manifestation Milestone Phase 1 — identity finalization)
+>   ↓
+> Snapshot archive transitions:
+>   "wave-5 PROVISIONAL + IDENTITY-PARTIAL (substrate-only Phase 5)"
+>    → "wave-5 PROVISIONAL + IDENTITY-FINALIZED
+>       (sub-elements + per-skill flavor + emergent concepts)"
+>   ↓
+> JSON specs for Unreal manifestation become available
+>   ↓
+> Manifestation Milestone Phase 2 — REALIZATION in Unreal
+>   (3-6 months; UE-seam-agent role-def authored here)
+>   ↓
+> UNREAL CHARACTER TESTING UNBLOCKED
+>   ↓
+> Playtest cycles fire (hypothesis-flow Stage 4 three-layer validation)
+> ```
+>
+> **WS1A hard-blocker open questions (start here):**
+>
+> | Question | What it produces |
+> |---|---|
+> | **Q16** WS1A.4 per-skill flavor judgment LLM prompt design | Canonical: `canonical/story/202X-XX-XX-ws1a-4-per-skill-flavor-judgment-prompt-spec.md` |
+> | **Q17** Hybrid kit element pair selection criteria | Canonical: same doc as Q16 OR companion doc |
+> | **Q18** Flavor pool per primary element canonical lock | Canonical: `canonical/story/202X-XX-XX-flavor-pool-per-primary-element-lock.md` |
+> | **Q19** Emergent kit concept naming consistency policy | Canonical: companion to Q18 OR Wave A/B prompt amendment |
+>
+> Plus probably:
+> - **Q24** Layer 2 mechanism-structural dimension enum finalization (soft blocker for WS1A.1 substrate axis expansion scope)
+> - **WS1A.1 substrate axis expansion first-wave scope decision** — which specific axes from the 13 candidates in HTML doc § 5-9 are in scope for FIRST wave; produces canonical: `canonical/story/202X-XX-XX-ws1a-1-substrate-axis-expansion-first-wave-scope.md`
+> - **WS1A.2 Phase 5 prompt amendment spec** — produces canonical (amendment-pass-record to existing Phase 5 prompts doc OR standalone): `canonical/story/202X-XX-XX-phase-5-llm-prompts-amendment-ws1a-2.md`
+>
+> Estimated session count for hard-blocker resolution: **3-5 focused Pattern B sessions** + companion canonical authoring. Then KR can fire WS1A hive-mind.
+>
+> **Other open questions** (Q1-15, Q20-23, Q25-55) can defer to:
+> - During WS1A engine implementation (refined as implementation surfaces concrete trade-offs)
+> - Post-WS1A (refined per playtest evidence at manifestation milestone)
+> - Cycle 15+ (refined per ongoing community-research sprints + telemetry as launch lifecycle progresses)
 >
 > Mode: Pattern B (sustained design dialogue with Matt). Default behavior:
 > 1. Acknowledge resume + state of work
-> 2. Surface high-priority open questions to Matt for direction (Q41 HC mode inclusion / Q1-Q15 methodology decisions / Q49-Q55 player-input architecture specifics)
-> 3. Engage Pattern B refinement as Matt steers; each substantive observation surfaces as a new iteration (9+) of the architecture doc OR triggers separate canonical artifact authoring
+> 2. Open with WS1A-blocker prioritization framing per above
+> 3. Engage Pattern B on Q16-Q19 (and/or Q24 + WS1A.1 scope + WS1A.2 spec) in whatever sequence Matt steers
+> 4. Each Pattern B session produces one or more canonical docs (substantial; not lightweight)
+> 5. When all WS1A hard-blockers resolve, surface KR dispatch authoring to Matt for hive-mind firing
 >
 > Operational state to know:
 > - Cycle 14 wave-5 CLOSED-PROVISIONAL 2026-06-01
 > - Pi infrastructure Phase 1 EXECUTED end-to-end
 > - UE blank project scaffolded at `C:\dev\reincarnated-unreal\`
-> - WS1A architectural foundations is next active workstream; gates on Matt direction + engine seam-owner readiness
+> - WS1A architectural foundations is next active workstream; gates on hard-blocker Q16-Q19 resolution
+>
+> Additional dependencies between WS1A implementation and "character testing in Unreal":
+> - UE-seam-agent role definition (gandalf authors when manifestation milestone scope activates; 1 session)
+> - UE-seam-agent operating procedure (gandalf authors; composes off existing patterns; 1 session)
+> - PC-side Claude CLI + repo clones + reincarnated-unreal GitHub repo created (UE-seam-agent first invocation; hours)
+> - Modular character architecture + initial component library (UE-seam-agent + Meshy iteration; 3-6 months)
+> - Spirit-form sculpting prototype + manifestation transition + basic moveset + level-50 future-glimpse (UE-seam-agent + design coordination; within Phase 2 horizon)
+> - Failure-mode comparison character realized (UE-seam-agent; within Phase 2 horizon)
 >
 > Discipline reminders:
 > - § 3.5 NO sleep recommendations
@@ -218,7 +276,7 @@ Phases B-E pattern library work
 > - Substrate-led discipline applied fractally (caught at gauntlet metrics + mechanism families + experiential axes + Mode axis + content types — all in this session)
 > - Recognition → empirical validation → commit per Disc anchor + jack-ryan Disc #41 amendment 2026-06-01
 >
-> The architecture is committed; parameter thresholds + content-type decisions remain PROPOSED. The next layer of refinement is yours to shape.
+> The architecture is committed; the implementation specs are the next layer to author. Each WS1A hard-blocker is a Pattern B substantive design call producing canonical commitments that unblock the engine.
 
 ---
 
