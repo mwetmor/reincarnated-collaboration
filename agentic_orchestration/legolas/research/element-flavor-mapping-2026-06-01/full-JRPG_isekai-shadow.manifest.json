@@ -1,0 +1,48 @@
+{
+  "track": "JRPG_isekai",
+  "primary": "shadow",
+  "expansion_id": "Exp-B.1",
+  "sample_window": {
+    "started": "2026-06-01T02:00:00Z",
+    "completed": "2026-06-01T03:30:00Z"
+  },
+  "row_count": 25,
+  "duplicate_with_phase_1_count": 4,
+  "novel_count": 21,
+  "yield_score": "STRONG",
+  "yield_rationale": "Phase 3 expansion surfaced 21 novel candidates beyond the 6 Phase 1 Sampler-B shadow rows (mudo, drain, shadow, necro, void, shade). 25 total rows. Highest-yield expansion cell as expected. The three canonical layers are distinct and well-populated: SMT proper-noun layer (mudoon, mamudo, mamudoon + mudo re-cited = 4 rows), FF mechanical-keyword layer (drain re-cited, negative burst, dark wisdom, grasp heart + death knight = 5 rows), and Solo Leveling phenomenon + named-shadow layer (shadow exchange, shadow preserve, shadow linker, domain of the monarch, bellion, beru, igris, monarch, sovereign = 9 rows). Additional layers: Overlord undead hierarchy (lich, death lord, death knight) + Berserk vocabulary (femto, wraith, cimmerian). Abyss is the cross-source highest-confidence shadow phenomenon candidate.",
+  "source_coverage_breadth": [
+    {
+      "source": "Solo Leveling (manhwa/novel)",
+      "yield": "STRONG",
+      "notes": "Solo Leveling is the single richest isekai source for shadow vocabulary. Named abilities (Shadow Exchange/Preserve/Linker/Domain), named soldiers (Bellion/Beru/Igris), and tier vocabulary (Monarch/Sovereign) all yield distinct sub-vocabulary not present in any other source. 9 of 25 rows are Solo Leveling primary citations."
+    },
+    {
+      "source": "SMT / Persona series",
+      "yield": "STRONG",
+      "notes": "Mudo family deepening tiers (Mudoon/Mamudo/Mamudoon) are fully surfaced. Phase 1 had only the base Mudo; all three tier-progression forms now present. 30-year genre-locked vocabulary."
+    },
+    {
+      "source": "Overlord (isekai LN/anime)",
+      "yield": "STRONG",
+      "notes": "Overlord yields distinct undead-hierarchy vocabulary: Death Knight, Death Lord, Lich, Negative Burst, Grasp Heart, Dark Wisdom. These are different in character from Solo Leveling's shadow-army vocabulary — Overlord's shadow is necromantic/undead rather than extracted-shadow-soldier."
+    },
+    {
+      "source": "Berserk (manga)",
+      "yield": "MEDIUM",
+      "notes": "Berserk yields Femto (God Hand shadow identity), wraith (dark realm spirit entities), Cimmerian (absolute darkness framing). Significant dark manga vocabulary depth."
+    },
+    {
+      "source": "Final Fantasy series",
+      "yield": "MEDIUM",
+      "notes": "FF contributes abyss (The Void/FF14 void), death knight (FF class archetype), miasma (FF14 shadow corruption phenomenon). The core FF shadow vocabulary (drain, death, dark) was already in Phase 1."
+    },
+    {
+      "source": "That Time I Got Reincarnated as a Slime",
+      "yield": "WEAK",
+      "notes": "Slime isekai shadow vocabulary is thin; miasma is the strongest Slime-specific shadow sub-word but it is primarily FF14-cited."
+    }
+  ],
+  "substrate_tagging_observations": "Three canonical layers as gandalf flagged are clearly distinguishable in the data: (1) SMT proper-noun layer: Mudo/Mudoon/Mamudo/Mamudoon — all formal Sanskrit-derived dark-death skill names with recognizability within JRPG fanbase but opaque to non-SMT players. (2) FF mechanical-keyword layer: drain, dark (type), death (type), negative burst — all recognizable to broad JRPG audience. (3) Solo Leveling phenomenon + named-shadow layer: shadow exchange/preserve/linker/domain + monarch/sovereign + named soldiers (Bellion/Beru/Igris) — recognizable specifically to Solo Leveling readers, which is a large and growing isekai manhwa fanbase. Additional layer: Overlord undead-hierarchy layer (lich/death knight/death lord) and Berserk dark-manga layer (femto/wraith). Contamination profile: abyss and miasma have cross-primary contamination (water/earth respectively); all others are shadow-pure. Abyss is flagged with water contamination but JRPG/isekai genre consistently maps abyss to shadow not ocean.",
+  "expansion_sub_agent_summary": "JRPG/isekai × shadow is confirmed the highest-yield expansion cell. 25 rows total, 21 novel. The THREE competing canonical layers per gandalf PG-1 § 1.3 / § 2 override-surface-3: (Layer 1 — SMT proper-noun) Mudo family deepened to full four-tier sequence: Mudo(Phase1)/Mudoon/Mamudo/Mamudoon — all are 30-year genre-locked JRPG vocabulary with high recognizability within SMT/Persona fanbase; moderate to low outside it. (Layer 2 — FF mechanical-keyword) Drain(Phase1), negative burst, grasp heart, dark wisdom, death knight represent the action/effect vocabulary of shadow magic — what shadow DOES rather than what it IS. (Layer 3 — Solo Leveling phenomenon + named-shadow) This is the isekai-specific layer that gandalf flagged as most thematically aligned with Reincarnated: Shadow Exchange/Preserve/Linker/Domain represent the systematic shadow-ability vocabulary; Monarch/Sovereign represent the authority-tier vocabulary; Bellion/Beru/Igris represent the named-shadow-entity proper nouns. Phase 5a synthesis will need to decide which layer(s) to lean on — SMT has 30-year lock and opaque proper-nouns; FF has broad recognizability but is mechanical; Solo Leveling has isekai-thematic alignment and named-entity depth but is newer and manhwa-fanbase-specific. Top 10 ranked candidates: abyss(1), monarch(2), shadow exchange(3), sovereign(4), shadow preserve(5), shadow linker(6), domain of the monarch(7), lich(8), dark wisdom(9), wraith(10)."
+}

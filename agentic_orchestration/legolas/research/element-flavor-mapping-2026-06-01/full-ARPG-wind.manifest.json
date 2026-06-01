@@ -1,0 +1,43 @@
+{
+  "track": "ARPG",
+  "primary": "wind",
+  "expansion_id": "Exp-A.1",
+  "sample_window": {
+    "started": "2026-06-01T00:00:00Z",
+    "completed": "2026-06-01T01:00:00Z"
+  },
+  "row_count": 14,
+  "duplicate_with_phase_1_count": 5,
+  "novel_count": 9,
+  "yield_score": "MEDIUM",
+  "yield_rationale": "Phase 3 expansion surfaced 9 novel candidates beyond the 5 Phase 1 Sampler-A wind rows (gale, tempest, gust, cyclone, vortex re-cited with additional sources). Novel candidates: whirlwind, tornado, squall (additional ARPG citations), updraft, blast, sirocco, hurricane, zephyr, breeze. Substrate is real but ARPG wind vocabulary is structurally thinner than fire/water/earth as gandalf flagged. The wind-PURE vs STORM_FLEX tension is the dominant substrate pattern: tornado/whirlwind/gale/updraft/breeze/zephyr are PURE; tempest/hurricane/squall are STORM_FLEX with lightning or water contamination; blast/vortex are UNCLEAR. Genre conflation of wind→storm→lightning is confirmed across D4 Druid, Last Epoch, Path of Exile sources.",
+  "source_coverage_breadth": [
+    {
+      "source": "Diablo 4 (Druid wind skills)",
+      "yield": "STRONG",
+      "notes": "D4 Druid has the most developed ARPG wind skill tree: Tornado, Hurricane, Wind Shear, Cyclone Strike, Twister. Most novel PURE wind candidates come from here."
+    },
+    {
+      "source": "Path of Exile 1+2",
+      "yield": "MEDIUM",
+      "notes": "PoE wind vocabulary is mostly storm-conflated (Tempest Shield, Tornado skill); some pure wind in PoE 2 Mercenary skills. Cyclone is iconic but wind-physical hybrid."
+    },
+    {
+      "source": "Lost Ark (Wardancer / Striker)",
+      "yield": "MEDIUM",
+      "notes": "Lost Ark wind class kits use gale/breeze/zephyr-adjacent vocabulary for movement and burst attacks. Less dense than D4 Druid wind tree."
+    },
+    {
+      "source": "Grim Dawn",
+      "yield": "WEAK",
+      "notes": "Grim Dawn does not have a dedicated wind element; sirocco and zephyr appear only in devotion constellation flavor text. Sparse yield."
+    },
+    {
+      "source": "Wolcen / Titan Quest",
+      "yield": "WEAK",
+      "notes": "Wind vocabulary thin in both; Titan Quest Storm mastery conflates wind+lightning; Wolcen has wind as a sub-damage-type but limited unique vocabulary."
+    }
+  ],
+  "substrate_tagging_observations": "Wind is the primary most susceptible to storm-flex contamination in ARPG. The conflation pattern is consistent across all major sources: D4 Druid's wind-pure skills sit next to Druid's storm/lightning nature skills; PoE Tempest Shield and Tempest's Binding are wind-named but lightning-dealing; Last Epoch Tempestborn is explicitly storm-hybrid. The PURE candidates cluster around kinetic-air-only phenomena: whirlwind, tornado, updraft, breeze, zephyr, gust. The STORM_FLEX cluster: tempest, hurricane, squall. Blast and vortex are UNCLEAR because context determines which semantic they activate. This contamination pattern is substrate-honest — genre does not maintain wind/storm semantic separation.",
+  "expansion_sub_agent_summary": "ARPG × wind Phase 3 expansion confirmed the genre-canonical tension gandalf flagged: the substrate is genuinely thin on wind-PURE vocabulary beyond what Phase 1 established. The 9 novel candidates surfaced are real and citable but most ARPG sources treat wind as storm-adjacent rather than wind-pure. The most significant novel additions are: whirlwind (Diablo series canonical across D2/D3/D4; highest recognizability wind skill name in ARPG), tornado (D4 Druid named skill; PoE named skill), updraft (genuinely novel pure-wind vocabulary absent from Phase 1), and hurricane (D4 Druid named skill; already in D1 pool). The wind-purity flag distribution across all 14 rows: PURE = 7 (whirlwind, tornado, gale, zephyr, updraft, breeze, cyclone), STORM_FLEX = 4 (squall, hurricane, tempest, gust-excluded-from-STORM), UNCLEAR = 2 (blast, vortex) — approximately 50% PURE, 29% STORM_FLEX, 14% UNCLEAR. Substrate-honest MEDIUM yield per gandalf INFO 2 expectation."
+}

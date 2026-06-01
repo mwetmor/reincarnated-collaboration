@@ -1,0 +1,48 @@
+{
+  "track": "tabletop_myth",
+  "primary": "wind",
+  "expansion_id": "Exp-C.1",
+  "sample_window": {
+    "started": "2026-06-01T04:15:00Z",
+    "completed": "2026-06-01T05:15:00Z"
+  },
+  "row_count": 20,
+  "duplicate_with_phase_1_count": 3,
+  "novel_count": 17,
+  "yield_score": "STRONG",
+  "yield_rationale": "Phase 3 expansion dramatically deepened the 3-row Phase 1 baseline (gust, tempest, cyclone) with 17 novel candidates. Mythology is confirmed as the richest source for wind-PURE vocabulary as gandalf predicted. The Greek Anemoi (Zephyrus, Boreas, Aeolus, Notus, Eurus) provided 5 distinct mythological wind-deity proper-nouns. Norse wind vocabulary (Kari, Vindsval, Njord) added 3 more. The Western alchemical Sylph (Paracelsian air-elemental spirit) is a novel cross-mythology find. D&D/Pathfinder formal wind spell names (Wind Wall, Whirlwind, Gust of Wind, Air Elemental) deepened the game-canonical wind vocabulary. MTG Blue yielded Cyclonic Rift, Stormtide, Aetherspouts, Tempest Djinn. Wu Xing absence-data-point captured per dispatch instruction.",
+  "source_coverage_breadth": [
+    {
+      "source": "Greek mythology (Anemoi)",
+      "yield": "STRONG",
+      "notes": "The Anemoi are the single best wind-PURE substrate source across all three tracks. Zephyrus/Boreas/Aeolus/Notus/Eurus are all wind-specific deities with no lightning or storm portfolio. Most are proper-noun mythological but they represent unambiguous wind-distinct vocabulary absent from ARPG/JRPG canons."
+    },
+    {
+      "source": "D&D 5e + Pathfinder 2e (wind spells + creatures)",
+      "yield": "STRONG",
+      "notes": "D&D/Pathfinder yield: Wind Wall, Whirlwind, Air Elemental, Djinni, Gust of Wind, Gale Force. These are formally named wind vocabulary in the most rigorous tabletop taxonomy. Several are pure-wind with no storm/lightning contamination."
+    },
+    {
+      "source": "MTG (Magic: The Gathering — Blue)",
+      "yield": "MEDIUM",
+      "notes": "MTG Blue handles wind/air/water/storm together, so not all Blue cards are wind-pure. The strongest yield: Cyclonic Rift (iconic wind mechanic), Tempest Djinn (wind-entity card name), Aetherspouts (aether-wind compound). Stormtide is water-contaminated. MTG does NOT have a wind-exclusive vocabulary."
+    },
+    {
+      "source": "Norse mythology",
+      "yield": "MEDIUM",
+      "notes": "Norse wind vocabulary: Kari (wind personification), Vindsval (cold wind), Njord (wind+sea). All are mythological proper-nouns but Njord carries water contamination. Less wind-PURE than the Greek Anemoi."
+    },
+    {
+      "source": "Western alchemical tradition (Paracelsus)",
+      "yield": "MEDIUM",
+      "notes": "Paracelsian elemental spirits: Sylph for Air/Wind. The four-elemental-spirit system (Salamander/Undine/Gnome/Sylph) is a clean source for wind-distinct alchemical vocabulary. D&D adopts this tradition directly."
+    },
+    {
+      "source": "Wu Xing (Eastern five elements)",
+      "yield": "SPECIAL",
+      "notes": "Wu Xing absence-data-point: NO wind element in the five-element East Asian taxonomy. Closest is Wood. This is a substrate-distinct finding that confirms wind as an element absent from one of the two major elemental taxonomies. Captured per dispatch instruction."
+    }
+  ],
+  "substrate_tagging_observations": "The mythological wind substrate is cleanly wind-PURE to a degree that game-canonical sources cannot match. The Greek Anemoi are specifically wind-deities with no lightning or storm portfolio — they represent the purest wind vocabulary in the mythology corpus. The key contamination pattern in tabletop_myth wind: MTG conflates wind with Blue (which is water+air); D&D Tempest Domain conflates wind+lightning (confirmed from Phase 1). The mythological sources (Greek, Norse) maintain wind-PURE vocabulary more reliably than game-adapted sources. Sylph (alchemical air-spirit) is wind-PURE. Wu Xing's absence of wind is the most significant cross-taxonomy data point: it confirms that Eastern elemental taxonomy did not develop wind as a distinct primary, which has implications for Phase 5a cardinality decisions.",
+  "expansion_sub_agent_summary": "tabletop_myth × wind Phase 3 expansion is the highest-yield expansion by novel-candidate-per-baseline ratio: 17 novel candidates from a 3-row baseline (5.7x expansion). Mythology confirmed as the only substrate with sustained wind-PURE vocabulary depth. The Greek Anemoi are the anchor: Zephyrus (West Wind, gentle/spring), Boreas (North Wind, cold/winter), Aeolus (Keeper of Winds), Notus (South Wind, hot/fog), Eurus (East Wind, changeable) — five wind-specific deity proper-nouns with 0 lightning contamination, covering distinct wind personalities (directional, seasonal, intensity). This is the substrate-distinct finding gandalf anticipated. Norse adds Kari (wind-giant) and Vindsval (cold-wind) for Nordic flavor. Sylph (Paracelsian air-elemental) bridges alchemical and fantasy traditions. Djinn (Arabian myth / D&D Air Genie) adds another wind-entity proper-noun with high recognizability. MTG Blue yields Cyclonic Rift (highest-recognizability MTG wind mechanic) and Aetherspouts. Wu Xing absence-data-point captured. Mythological-vs-game-canon distribution: mythological = 9 of 20 rows (45%); game-canonical = 10 of 20 (50%); data-point = 1 of 20 (5%). The Greek Anemoi names (Zephyrus/Boreas/Aeolus/Notus/Eurus) are the single most valuable novel addition to the entire WS1A.Q18 wind vocabulary set."
+}
