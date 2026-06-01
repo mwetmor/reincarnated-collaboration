@@ -324,3 +324,36 @@ After completion record append, Phase 2 fires automatically (legolas authors `sa
 ---
 
 **End of Phase 1 legolas commissioning dispatch.**
+
+---
+
+## Completion record
+
+**Completed:** 2026-06-01 (resumed session — Sampler-A was on disk from prior session; Sampler-B + Sampler-C fired and authored this session)
+**Outputs:**
+- `agentic_orchestration/legolas/research/element-flavor-mapping-2026-06-01/sample-A.jsonl` + `sample-A.manifest.json`
+- `agentic_orchestration/legolas/research/element-flavor-mapping-2026-06-01/sample-B.jsonl` + `sample-B.manifest.json`
+- `agentic_orchestration/legolas/research/element-flavor-mapping-2026-06-01/sample-C.jsonl` + `sample-C.manifest.json`
+- `agentic_orchestration/legolas/research/element-flavor-mapping-2026-06-01/sample-triage.md` (Phase 2 in-seam triage)
+**Total row count (across A+B+C):** 125
+**Per-sampler row counts:** A=48, B=40, C=37
+**JSONL well-formedness validated:** yes — all 3 files pass `python -c "import json; [json.loads(line) for line in open('<path>')]"`; all required fields present; all row_ids unique; all 8 primaries present in each file
+
+**Per-track per-primary yield summary (8 × 3):**
+
+| Primary   | ARPG (A) | JRPG_isekai (B) | tabletop_myth (C) |
+|-----------|----------|-----------------|-------------------|
+| fire      | STRONG   | STRONG          | STRONG            |
+| water     | STRONG   | STRONG          | STRONG            |
+| earth     | STRONG   | MEDIUM          | MEDIUM            |
+| wind      | MEDIUM   | STRONG          | MEDIUM            |
+| lightning | STRONG   | STRONG          | STRONG            |
+| holy      | MEDIUM   | MEDIUM          | STRONG            |
+| shadow    | STRONG   | STRONG          | STRONG            |
+| physical  | MEDIUM   | STRONG          | STRONG            |
+
+**7-vs-8 preliminary signal (composed across 3 samplers):** Genre canon FAVORS 8-element treatment (physical with sub-element vocabulary): Track B (Persona 3 Slash/Strike/Pierce formal taxonomy) and Track C (D&D Bludgeoning/Piercing/Slashing formal damage types) both STRONGLY support sub-element treatment; Track A is divided (PoE: ailments only; Grim Dawn: sibling types). Structural caveat: tabletop/JRPG sub-types are mechanical keywords — flavor-translation to substrate vocabulary is needed before allow-list curation. This remains a design-side call at PG-3.
+
+**Notable issues:** none. Resumed-session execution clean. All 3 samplers returned valid outputs; Phase 2 triage authored and committed in same session.
+
+**Routing back to KR:** proceed to PG-1 — route `sample-triage.md` to gandalf for ratification of Phase 3 EXPAND/TERMINATE/NARROW scope (5 EXPAND cells proposed; within ≤6 soft cap).
