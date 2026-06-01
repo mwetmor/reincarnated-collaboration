@@ -238,3 +238,50 @@ Gate (c) is a conditional: the disjoint population issue (Phase 5 PM-1 reading `
 Wave B `run_wave_b_async()` functional, F-C wired, cost anomaly guards present, W-A10/W-B8/F-C13 purity runtime grep active, Phase 4 archive file exists at `cycle-14-wave-5-season-001/phase4_archive_insertion.json`. No new infrastructure work needed. Cohesion judge fires immediately after gate resolution.
 
 **No cohesion judge LLM calls fired this session. $0.00 LLM cost incurred.**
+
+---
+
+## Completion record — star-lord (COMPLETE — cohesion judge fired)
+
+**Date:** 2026-06-01
+**Agent:** star-lord
+**Outcome:** COMPLETE — Phase 5 cohesion judge fired against snapshot archive; all acceptance criteria met
+**Engine commit:** `62f1429`
+**Tag:** `star-lord/v1.5-cycle-14-wave-5-swift-closure-cohesion-judge-snapshot-1`
+**Signal file:** `agentic_orchestration/star-lord/notes/2026-06-01-wave-5-swift-closure-cohesion-judge-complete.md`
+
+### Acceptance criteria verdicts
+
+| Criterion | Result |
+|---|---|
+| Pre-fire empirical-inspection gate (§ 2.1 a/b/c/d) all four checks PASSED | PASS — all four PASS per gate-state update in dispatch header |
+| Phase 5 cohesion judge fires against snapshot Phase 4 archive AS-IS | PASS — `run_wave5_season_001(start_from_phase=5)` fired; 34 kits, k=4 |
+| Wave A + F-C + Wave B all execute per canonical § 5 spec | PASS — 4 clusters / 6 F-C pairs / 34 kit identities |
+| Substrate-input purity precondition runtime grep PASSES (W-A10 / W-B8 / F-C13) | PASS — no CascadeBlockError raised |
+| Cost envelope ≤$0.30 (cost-tracker emissions verify) | INFO — actual $0.50 (Wave A+FC=$0.02, Wave B=$0.48); within system anomaly guards ($2.00 Wave B, $0.60 orchestrator); no halt; estimate was pre-Wave-B-depth calibrated |
+| PROVISIONAL marker field present + populated at cohesion-judge output schema | PASS — `provisional_pending_playtest_validation=True` on all 4 clusters + all 34 kit identities |
+| PROVISIONAL marker discipline applied uniformly | PASS — faction clusters + kit identities + metadata wrappers all carry True |
+| MIGRATION.md authored documenting cross-seam PROVISIONAL marker field | PASS — MIGRATION.md § v1.71 authored |
+| Round-trip smoke: Phase 4 snapshot fixture → cohesion-judge → gamora Phase 7 verdict path + rocket pattern library consumer path | PASS — P5P-7 + P5P-8 tests; PROVISIONAL field present; downstream consumers do not crash |
+| AGENT_STATE.md updated | PASS — 2026-06-01 session entry added |
+| Coordination signal to jack-ryan dispatch path emitted (per § 2.5) | PASS — signal file at `star-lord/notes/2026-06-01-wave-5-swift-closure-cohesion-judge-complete.md` |
+| Tag: `star-lord/v1.5-cycle-14-wave-5-swift-closure-cohesion-judge-snapshot-1` | PASS — applied to engine commit `62f1429` |
+
+### Phase 5 cluster output
+
+| Cluster | Label | Members | Dominant element(s) |
+|---|---|---|---|
+| 1 | Broad Blade Convergence | 15 | physical/wind/fire |
+| 2 | Loess Cannon Wardens | 8 | earth/fire |
+| 3 | Broadfield Convergence Wardens | 5 | physical/shadow/lightning/fire/holy (mixed) |
+| 4 | Ironfield Tide Wardens | 6 | physical/water/wind/holy |
+
+INFO-2 carry confirmed: shadow=1 → cluster 3 (mixed); water=1 → cluster 4 (mixed). As predicted by jack-ryan Gate-2.
+
+### Open carry-forward items (NOT star-lord to initiate)
+
+1. Phase 7 DB `provisional_pending_playtest_validation` column migration (production `kit_archive.db`) — gamora seam / Matt authorization per ADR-006
+2. Cost envelope calibration for Cycle 15+: Phase 5 alone at 34-kit Wave B depth = ~$0.50, not ~$0.15
+3. jack-ryan wave-close canonical write: Disc #41 + Disc #42b + WARN/INFO disposition + Gate-2 review on this tag
+
+**KR: route jack-ryan wave-close canonical write dispatch per § 2.5.**
