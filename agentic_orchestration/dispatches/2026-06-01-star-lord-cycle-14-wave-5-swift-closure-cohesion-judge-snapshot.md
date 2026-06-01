@@ -202,3 +202,39 @@ Does this dispatch add, modify, rename, or remove any field on telemetry/fight_l
 ---
 
 **Authored by:** knight-rider (orchestrator) per gandalf 2026-06-01 recognition record + Matt 2026-06-01 dispatch routing
+
+---
+
+## Completion record — star-lord (surface to KR — pre-fire gate BLOCK)
+
+**Date:** 2026-06-01
+**Agent:** star-lord
+**Outcome:** PRE-FIRE GATE SURFACE — cohesion judge did NOT fire; surfaced to KR per dispatch § 2.1 + dispatch critical note
+**Signal file:** `agentic_orchestration/star-lord/notes/2026-06-01-wave-5-swift-closure-cohesion-judge-surface.md`
+
+### Gate results
+
+| Gate | Check | Result |
+|---|---|---|
+| (a) Gamora archive-stable signal | `gamora/notes/2026-06-01-wave-5-swift-closure-archive-snapshot-stable.md` present? | **BLOCK — absent** |
+| (b) Wave B implementation status | `run_wave_b_async()` present + functional? | PASS — tag `star-lord/v1.3-cascade-r3-s5-wave-b-impl-1` confirmed; no drift |
+| (c) Phase 4 → Phase 5 disjoint population resolution | Path X/Y/Z resolved at code level? | CONDITIONAL — see surface note; KR must confirm swift-closure intent |
+| (d) Cost-tracker functional state | `TrackedLLMClient` + per-wave anomaly guards wired? | PASS — all four wave cost guards present; known Wave B async-bypass estimation approach is functional |
+
+### Block detail
+
+Gate (a) is a hard STOP. Gamora companion dispatch exists but has no completion record and has not emitted the archive-stable signal. The sequencing dependency is mandatory per dispatch architecture: star-lord fires AFTER gamora signals snapshot stable.
+
+Gate (c) is a conditional: the disjoint population issue (Phase 5 PM-1 reading `passing_kits + variant_passing_rows` rather than Phase 4 Pareto-2 archive) was unresolved as of 2026-05-29 gandalf surface note. Swift-closure framing in the recognition record implies firing AS-IS, but KR must confirm whether that means accepting the existing `_s2`-variant-heavy population as the cohesion judge input, or whether Path X must land first.
+
+### KR actions requested
+
+1. Coordinate gamora dispatch execution — signal required at `agentic_orchestration/gamora/notes/2026-06-01-wave-5-swift-closure-archive-snapshot-stable.md`
+2. Confirm gate (c) intent: Option 1 (fire AS-IS against existing code path, ~208 `_s2` members, PROVISIONAL covers) OR Option 2 (Path X required first, separate rocket/gamora dispatch, not swift-closure)
+3. Re-engage star-lord once both resolved — all other infrastructure is ready to execute
+
+### Infrastructure confirmed ready (for KR reference)
+
+Wave B `run_wave_b_async()` functional, F-C wired, cost anomaly guards present, W-A10/W-B8/F-C13 purity runtime grep active, Phase 4 archive file exists at `cycle-14-wave-5-season-001/phase4_archive_insertion.json`. No new infrastructure work needed. Cohesion judge fires immediately after gate resolution.
+
+**No cohesion judge LLM calls fired this session. $0.00 LLM cost incurred.**
