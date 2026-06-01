@@ -562,6 +562,20 @@ What's in flight RIGHT NOW + what fires next.
 - star-lord telemetry refresh
 - Gated on Wave 5 gauntlet output + Phase 5 cohesion-judge output (NOT Matt design call — Matt pre-resolved 2026-05-27)
 
+### 4.5 WS1A hypothesis-flow workstream lane — hard-blocker Q-waves
+
+**Scope:** WS1A workstream (parent canonical at `canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture.md` § 5.2 + § 8b) runs hypothesis-flow hard-blocker question waves IN PARALLEL with Cycle 14 (Phase 5) and forward cycles. Each Q-wave is a single hive-mind cycle (5 phases internally gated; PG-0 elrond / PG-1 gandalf triage / PG-2 gandalf stats-sufficiency / PG-3 Matt architectural-commitment / PG-4 jack-ryan wave-close). WS1A.Q18 pattern-sets the wave shape for Q16/Q17/Q19 per operational sequence § 10.2.
+
+| Q-wave | Status | Detail |
+|---|---|---|
+| **WS1A.Q18 — Flavor-pool per-primary-element lock** | ✅ **CLOSED 2026-06-01** (canonical write COMPLETE; Phase 5d jack-ryan Gate-2 PG-4 wave-close critique next) | Matt 2026-06-01 PG-3 architectural-commitment ratification at `agentic_orchestration/cycle-15-ws1a-q18-flavor-pool-research/pg-3-ratification-2026-06-01.md`; canonical lock at `canonical/story/2026-06-01-flavor-pool-per-primary-element-lock.md` — **Architecture A LOCKED**, 118 entries across 8 primaries (109 rotating + 9 physical taxonomy registry); Q18.a-e structural commitments locked; physical opts out of WS1A.4 LLM judgment (mechanical-schema templates); pool.json schema amendments deferred to sub-phase 5f POST-WAVE migration (3 new fields: substrate_validation_lineage + vocabulary_commonness + slot_unambiguous); 3 discipline-recognition candidates surfaced awaiting jack-ryan wave-close ratification |
+| **WS1A.Q16 — Per-skill flavor judgment LLM prompt design** | ⏳ **UNBLOCKED** (pending PG-4 PASS on Q18; wave-open dispatch authoring queued) | Composes against the locked Q18 pool; Q16's research scope shifts to LLM-prompt-design canon (FF / SMT spell-naming conventions; PoE skill-name patterns; D&D 5e formal taxonomies). Pattern-sets per WS1A.Q18 5-phase wave structure. |
+| **WS1A.Q17 — Hybrid kit element pair selection** | ⏳ **UNBLOCKED** (pending PG-4 PASS on Q18; wave-open dispatch authoring queued) | Composes against the locked Q18 pool + Q16 judgment design. Hybrid kit pairs primaries; per-pair sub-element selection consumes Q18 allow-lists per primary. Pattern-sets per WS1A.Q18 5-phase wave structure. |
+| **WS1A.Q19 — Emergent kit concept naming consistency** | ⏳ **UNBLOCKED** (pending PG-4 PASS on Q18; wave-open dispatch authoring queued) | Composes against Q16 LLM judgment + Q18 pool. Naming consistency validates per-kit naming against (primary + sub-element + form + ailment) coherence per Q18 vocabulary. Pattern-sets per WS1A.Q18 5-phase wave structure. |
+| **Sub-phase 5f — pool.json migration dispatch (POST-WAVE for Q18)** | ❌ **QUEUED** (POST-WAVE; not within Q18 wave scope) | KR authors operational dispatch extending `data/seasonal_elements/pool.json` per the Q18 lock; elrond + star-lord surface touches (pool migration; 3 schema-field additions; 118 entries migrated with lineage tags per Q18 canonical doc § 7; 9 physical entries to separate taxonomy-registry surface; downstream consumer updates). Cross-seam contract change per ADR-004. |
+
+**WS1A workstream lane composition:** runs in parallel with engine-build cycles; does NOT block the engine-build progress tracker phases 1-8. Wave-close (PG-4 PASS) on Q18 unblocks the Q16/Q17/Q19 sequence. Each Q-wave is bounded by its own 5-phase internal sequence; multiple Q-waves may fire in parallel post-Q18-close per orchestrator scheduling.
+
 ---
 
 ## 5. Deferred commitments + empirical-evidence gates
