@@ -12,6 +12,7 @@
 - `agentic_orchestration/cycle-15-ws1a-q18-flavor-pool-research/pg-3-ratification-2026-06-01.md` (PG-3 ratification artifact)
 - `agentic_orchestration/gandalf/notes/2026-06-01-q18-flavor-pool-research-operational-sequence.md` (authoritative operational sequence)
 - `agentic_orchestration/gandalf/notes/2026-06-01-ws1a-q18-wave-close-design-quality-audit.md` (gandalf design-quality audit)
+- `agentic_orchestration/gandalf/notes/2026-06-01-q18-deferred-commitments.md` (deferred-commitments record; theme-coherence gating + modern-caster substrate-coverage gap; integrated at § 5.1 via 2026-06-01 amendment-pass-record)
 - `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` § 49 / § 50 / § 51 (ratified this wave)
 - `~/Games/reincarnated-engine/design/decisions/decisions-log.md` 2026-06-01 entry (Architecture A lock)
 
@@ -25,6 +26,14 @@ The WS1A.Q18 flavor-pool research-and-lock wave executed end-to-end as a single 
 **Wave-close verdict:** ✅ CLOSED.
 **Architectural commitment:** Architecture A locked (7-primary rotating flavor pools + physical-as-taxonomy-sibling; 118 entries across 8 primaries).
 **Discipline composition:** Disciplines #41 + #42 + #18 applied; **Disciplines #49 + #50 + #51 ratified this wave**.
+
+---
+
+## 0.1 Amendment-pass-record
+
+| Date | Author | Amendment | Reason |
+|---|---|---|---|
+| 2026-06-01 | gandalf | Integrate 2 deferred-commitments items (theme-coherence gating + modern-caster substrate-coverage gap) into § 5; cross-reference standalone artifact `agentic_orchestration/gandalf/notes/2026-06-01-q18-deferred-commitments.md` (commit `76f2250`) | Artifact was committed AFTER wave-close bundle fired; cross-reference closes the orphan-loop. Items composed with PG-3 Pattern B critique-pair output but were not absorbed at wave-close authoring time. Recovery via amendment-pass-record per canonical doc format protocol. |
 
 ---
 
@@ -115,6 +124,41 @@ Per operational sequence § 10.2 + gandalf design-quality audit § 3, the WS1A.Q
 - Operational; explicitly OUT-OF-SCOPE for WS1A.Q18 wave
 
 **Note on lineage-tag aggregate reconciliation** (per jack-ryan Gate-2 INFO-1): the canonical doc § 7.1 per-primary lineage-table-distribution differs from PG-3 § 5 aggregate (both align at 118 total but per-tag distribution is illustrative not binding). Sub-phase 5f executor reads PG-3 § 5 as authoritative source for per-entry tag application.
+
+---
+
+## 5.1 Deferred-commitments items surfaced at PG-3 Pattern B (amendment 2026-06-01)
+
+Two deferred-commitments items surfaced during PG-3 Pattern B dialogue (Matt + gandalf) and were captured in standalone artifact `agentic_orchestration/gandalf/notes/2026-06-01-q18-deferred-commitments.md` (commit `76f2250`). Neither was integrated into the wave-close bundle at original authoring time; this amendment closes the cross-reference loop.
+
+### 5.1.1 WS1A.3 theme-coherence gating
+
+**Recognition:** the WS1A.Q18 lock added 19 modern-caster overlay entries distributed across 7 rotating primaries. These introduce thematic asymmetry within per-primary allow-lists (a lightning kit's pool contains both pre-industrial `arc`/`spark`/`thunder` AND modern-scientific `tesla`/`voltage`/`ion`/`flash`). Without explicit theme-coherence gating at WS1A.3 sub-element selection, identity-incoherent compositions become possible (e.g., "Medieval Tesla Knight").
+
+**Mitigation options:** 5 paths surfaced in the standalone artifact (G1 theme-axis substrate gate / G2 lineage-tag filter / G3 LLM prompt context-gating / G4 probability-weighted / G5 cell-level theme declaration). **Gandalf lean:** G2 + G3 composition (hard filter via lineage-tag + soft coherence via LLM prompt context).
+
+**Empirical-evidence trigger for re-engagement:** WS1A.3 implementation design surface fires at Q16 or Q17 wave scope; theme-axis substrate-extension scope decision; first manifestation-milestone playtest surfaces identity-coherence concerns.
+
+**Owner + composition:** gandalf design-side (Pattern B surface) + star-lord / rocket implementation-side (WS1A.3 logic). Composes with hypothesis-flow architecture § 1.8 multi-axis experiential framework + pool.json schema amendments at sub-phase 5f.
+
+### 5.1.2 Modern-caster substrate-coverage gap
+
+**Recognition:** modern-caster flavor pool entries imply modern-caster kit identity; weapon substrate likely thin on sci-fi-coded caster implements (Tesla Coil, plasma rifle, laser device, sonic emitter, cryo weapon, seismic device, etc.).
+
+**Matt 2026-06-01 verbatim context:** *"we manually wrote the caster substrate mostly and so we may need to manually author modern variants."* This is critical operational context: caster substrate is manually-authored (gandalf/Matt design surface), NOT legolas-crawled. Modern-caster weapon variants follow the same manual-authoring pattern, NOT Mode B catalogue crawl.
+
+**Recommended path:** **A+B hybrid** — Phase 1 elrond Mode A audit (~0.5 session; quick discovery query) → Phase 2 gandalf manual-authoring of gap-fill weapons per primary (~2-3 sessions; ~35-70 weapons across 7 rotating primaries) → Phase 3 elrond schema/ingest with lineage tags → Phase 4 substrate-coverage validation. Total horizon: ~3-5 sessions.
+
+**Empirical-evidence trigger for re-engagement:** post-wave-close (now); gandalf + Matt design call on Path A vs B vs A+B; elrond Mode A audit dispatch; manual-authoring session(s); WS1A.3 implementation fires.
+
+**Owner + composition:** gandalf (manual authoring) + elrond (schema/ingest/lineage tagging). Composes with existing manually-authored caster substrate lineage + weapon-substrate composition policy Option β (caster-attribute-magical) + post-Q18 pool.json schema amendments. Does NOT compose with legolas Mode B catalogue crawl (manual authoring is the path per Matt 2026-06-01).
+
+### 5.1.3 Authoritative artifact for both items
+
+`agentic_orchestration/gandalf/notes/2026-06-01-q18-deferred-commitments.md` (commit `76f2250`) is the authoritative artifact. KR can route downstream dispatches against it when authorized:
+
+- **Item 5.1.1:** queue as Q16/Q17 hard-blocker wave Pattern B surface
+- **Item 5.1.2:** elrond audit dispatch (~0.5 session) → gandalf manual-authoring session(s) (~2-3 sessions) → elrond ingest dispatch (~0.5 session); fires post-wave-close as sibling-of-sub-phase-5f operational work
 
 ---
 
