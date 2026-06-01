@@ -1,6 +1,6 @@
 # Hypothesis Flow + Pattern Library Architecture — PLACEHOLDER FOR REFINEMENT
 
-> **STATUS:** PLACEHOLDER (refinement iteration 5 — 2026-06-01) — pre-commitment architectural draft. Iter 1: gauntlet provisional + manifestation Phase 1/2 + retroactive + WS1A.4 + three-layer validation. Iter 2: P4 → creation-moment-memorability. Iter 3: 7 mechanism families → three-layer treatment (Layer 1 P1-P5 / Layer 2 mechanism-structural / Layer 3 observational); "Family B gap" framing retired. **Iter 4: multi-axis experiential architecture** per Matt 2026-06-01 observation that 6 primary archetype labels (Bossing / Speedfarm / Push / Generalist / Leveling / League Starter) aren't a flat enum — they decompose into orthogonal axes (Progression-Stage / Target-Pattern / Depth-vs-Breadth) plus additional axes (Mode / Activity-Format / Loot-Focus / Maxroll 5-axis). Axis-type taxonomy (Identity / Viability / Mode / Sub) treats each axis differently; cell shape framework (Specialized / Hybrid / Generalist / Anti-specialization) declares intended profile shape; Leveling-as-viability-axis hypothesis per Reincarnated 50-level + 85%-leveling-only structure (pending playtest validation); genre-relative LE-to-D3 moderate specialization positioning; mutual exclusivity preference framed as substrate-led empirically validated, not pre-imposed. **Iter 5: pipeline placement decision LOCKED** — Phase 5+ LLM naming (per-skill flavor judgment + skill naming + cohesion clustering + Wave A/B naming) fires AFTER Pareto reduction (Option A; on ~30 kits not ~650); cost-efficient (~$1.50-4.50/cycle vs $30-90); cohesion judge n=30 sufficient for meaningful clustering (~3-5 emergent factions); Option B (pre-Pareto naming with faction-aware reduction) deferred to future refinement gated on playtest evidence of natural-faction-loss; substrate-led discipline composes with gauntlet provisional recognition (don't compound provisionality without empirical validation). Synthesizes 2026-05-29 ARPG community research sprint output + designer-writes-substrate / player-names-experience principle + 5-property substrate framework + 7-mechanism-family taxonomy + experiential cascade architecture recognition + Matt 2026-05-31 hypothesis-flow methodology articulation + 2026-06-01 refinements. **Not a commitment.** Document is the substrate for ongoing Pattern B refinement conversation that produces the committed architecture.
+> **STATUS:** PLACEHOLDER (refinement iteration 6 — 2026-06-01) — pre-commitment architectural draft. Iter 1: gauntlet provisional + manifestation Phase 1/2 + retroactive + WS1A.4 + three-layer validation. Iter 2: P4 → creation-moment-memorability. Iter 3: 7 mechanism families → three-layer treatment (Layer 1 P1-P5 / Layer 2 mechanism-structural / Layer 3 observational); "Family B gap" framing retired. **Iter 4: multi-axis experiential architecture** per Matt 2026-06-01 observation that 6 primary archetype labels (Bossing / Speedfarm / Push / Generalist / Leveling / League Starter) aren't a flat enum — they decompose into orthogonal axes (Progression-Stage / Target-Pattern / Depth-vs-Breadth) plus additional axes (Mode / Activity-Format / Loot-Focus / Maxroll 5-axis). Axis-type taxonomy (Identity / Viability / Mode / Sub) treats each axis differently; cell shape framework (Specialized / Hybrid / Generalist / Anti-specialization) declares intended profile shape; Leveling-as-viability-axis hypothesis per Reincarnated 50-level + 85%-leveling-only structure (pending playtest validation); genre-relative LE-to-D3 moderate specialization positioning; mutual exclusivity preference framed as substrate-led empirically validated, not pre-imposed. **Iter 5: pipeline placement decision LOCKED** — Phase 5+ LLM naming (per-skill flavor judgment + skill naming + cohesion clustering + Wave A/B naming) fires AFTER Pareto reduction (Option A; on ~30 kits not ~650); cost-efficient (~$1.50-4.50/cycle vs $30-90); cohesion judge n=30 sufficient for meaningful clustering (~3-5 emergent factions); Option B (pre-Pareto naming with faction-aware reduction) deferred to future refinement gated on playtest evidence of natural-faction-loss; substrate-led discipline composes with gauntlet provisional recognition (don't compound provisionality without empirical validation). **Iter 6: Mode axis REMOVED** per Matt observation that Hardcore/Softcore would not differentiate player experience across kits — all kits available within both modes. Mode is player-session-level choice, not kit-architecture-level property. HC-viability (if HC mode added later) becomes higher Survivability threshold within existing Viability axis treatment, NOT a separate axis. Removed: `mode_axis` field; MODE_HARDCORE/MODE_SOFTCORE/MODE_EITHER flags; AXIS_TYPE_MODE classification. Added: `VIABILITY_HC_SURVIVABILITY_PASS` conditional gate within Viability axis flags. Synthesizes 2026-05-29 ARPG community research sprint output + designer-writes-substrate / player-names-experience principle + 5-property substrate framework + 7-mechanism-family taxonomy + experiential cascade architecture recognition + Matt 2026-05-31 hypothesis-flow methodology articulation + 2026-06-01 refinements. **Not a commitment.** Document is the substrate for ongoing Pattern B refinement conversation that produces the committed architecture.
 
 **Date:** 2026-05-31
 **Author:** gandalf (story-and-design steward)
@@ -339,14 +339,15 @@ The 6 primary archetype labels from community research (Bossing / Speedfarming /
 | **Target-Pattern axis** | Bossing / Speedfarming | What target pattern does combat optimize for? Bossing = single-strong-high-quality targets; Speedfarming = many-weak-low-quality targets |
 | **Depth-vs-Breadth axis** | Push / Generalist | How deep vs how broad? Push = deep specialization into one content type; Generalist = broad coverage across many |
 
-**Additional axes (gandalf 2026-06-01 designer additions):**
+**Additional axes (gandalf 2026-06-01 designer additions; iter 6 amendment: Mode axis REMOVED per Matt observation):**
 
 | Axis | Values | Treatment |
 |---|---|---|
-| **Mode axis** | Hardcore / Softcore | Binary; composes with all other axes |
 | **Activity-Format axis** | Per Reincarnated's TBD endgame structure | Game-specific endgame content type; values determined by what endgame Reincarnated ships |
 | **Loot-Focus sub-axis** | Magic-Find / Currency-Farmer / Drop-Density / Generic | Sub-axis within Speedfarming; carries enough identity weight to deserve dimension |
 | **Maxroll 5-axis structured rating** | Bossing/Speed/Push/Survivability/Playability | Continuous per-axis scoring (0-10 each); same character can score on multiple simultaneously |
+
+**Mode axis (Hardcore / Softcore) — REMOVED from architecture per Matt 2026-06-01 iter 6 observation:** if Reincarnated ever adds HC/SC mode option, it would NOT differentiate kits/cells — all kits are available within both modes. Mode is a player-session-level choice, not a kit-architecture-level property. Including it as a substrate axis was a category error: substrate axes characterize kit identity; mode characterizes player session. HC-viability (if HC mode is added later) is a higher Survivability threshold gate within the existing Viability axis treatment, NOT a separate axis. Open question 41 (§ 8f) tracks this.
 
 #### 1.8.2 Axis-type taxonomy — Identity vs Viability vs Mode vs Sub
 
@@ -355,11 +356,12 @@ Different axes get different treatment in cell scoring and generation:
 | Axis type | Treatment | Examples |
 |---|---|---|
 | **Identity axis** | Specialize-and-differentiate; per-cell prefer dominance pattern; cells declare axis dominance | Target-Pattern (Bossing vs Speedfarming); Depth-vs-Breadth (Push vs Generalist) |
-| **Viability axis** | Universal-adequate-score; gates per minimum threshold; cells gate below threshold | Survivability (Maxroll); Playability (Maxroll); **possibly Leveling per § 1.8.5 hypothesis** |
-| **Mode axis** | Binary composition; applies across all other axes | Hardcore / Softcore |
+| **Viability axis** | Universal-adequate-score; gates per minimum threshold; cells gate below threshold | Survivability (Maxroll); Playability (Maxroll); **possibly Leveling per § 1.8.5 hypothesis**; HC-viability if HC mode added (higher Survivability threshold) |
 | **Sub-axis** | Within-axis sub-classification | Loot-Focus within Speedfarming |
 
-**Reincarnated designs treat each axis-type differently.** Identity axes get specialization preference and per-cell dominance declaration. Viability axes get minimum-threshold gates (must-pass below threshold). Mode axes compose orthogonally. Sub-axes refine within parent axes.
+**Reincarnated designs treat each axis-type differently.** Identity axes get specialization preference and per-cell dominance declaration. Viability axes get minimum-threshold gates (must-pass below threshold). Sub-axes refine within parent axes.
+
+**Iter 6 amendment:** Mode axis (Hardcore/Softcore) REMOVED — mode is player-session-level choice, not kit-architecture-level property. If HC mode is added to Reincarnated, HC-viability is a HIGHER Survivability threshold within existing Viability axis treatment, NOT a separate axis-type category.
 
 #### 1.8.3 Mutual exclusivity preference — substrate-led empirically validated
 
@@ -651,11 +653,7 @@ Specifies the player-experience profile the cell targets. **Iter 4 refinement (M
 | `progression_stage_target` | enum: `Leveling` / `League_Starter` / `End_Game` | Which stage of player journey the build optimizes for; treatment depends on § 1.8.5 hypothesis validation |
 | `progression_stage_classification` | enum: `identity_axis` / `viability_axis_per_18_5` | Per-cell declaration of how this axis is treated; hypothesis-pending |
 
-**Mode axis (binary; composes per § 1.8.2):**
-
-| Field | Type | Notes |
-|---|---|---|
-| `mode_axis` | enum: `Hardcore` / `Softcore` / `Either` | Mode this cell targets; Hardcore requires perma-death survival viability gates; Either means cell works in both modes |
+**Mode axis — REMOVED per § 1.8 iter 6 amendment.** Mode (HC/SC) is player-session-level choice, not kit-architecture-level property. If Reincarnated adds HC mode, HC-viability is a higher Survivability threshold (`hc_survivability_threshold_pass` viability gate within existing Viability axis treatment), NOT a kit-level field.
 
 **Activity-Format axis (per Reincarnated TBD endgame structure):**
 
@@ -804,13 +802,7 @@ Flags are the engine-side instrument that connects pattern-library cells to gene
 | `PROGRESSION_END_GAME` | True endgame specialization (per § 1.8 hypothesis, only ~15% of players reach this; cells targeting this are end-game-tier-investment) |
 | `PROGRESSION_LEVELING_VIABILITY_GATE` | Per § 1.8.5 hypothesis: this cell adequately covers Leveling-axis viability gate; gate-pass marker |
 
-**Mode axis flags (binary; composes):**
-
-| Flag | Notes |
-|---|---|
-| `MODE_HARDCORE` | Cell viable in Hardcore (perma-death) mode |
-| `MODE_SOFTCORE` | Cell targets Softcore mode primarily |
-| `MODE_EITHER` | Cell works in both modes |
+**Mode axis flags — REMOVED per § 1.8 iter 6 amendment.** HC-viability (if HC mode added) handled as `VIABILITY_HC_SURVIVABILITY_PASS` within Viability axis treatment below.
 
 **Viability axis flags (gate markers):**
 
@@ -819,6 +811,7 @@ Flags are the engine-side instrument that connects pattern-library cells to gene
 | `VIABILITY_SURVIVABILITY_PASS` | Cell scores ≥X on Maxroll Survivability axis (gate threshold) |
 | `VIABILITY_PLAYABILITY_PASS` | Cell scores ≥X on Maxroll Playability axis |
 | `VIABILITY_LEVELING_PASS` | Per § 1.8.5 hypothesis: cell scores ≥X on Leveling-axis viability gate |
+| `VIABILITY_HC_SURVIVABILITY_PASS` | (Conditional — if Reincarnated adds HC mode) Cell scores ≥X+threshold on Survivability for HC viability gate; higher threshold than baseline VIABILITY_SURVIVABILITY_PASS |
 | `VIABILITY_GATE_FAILED` | Cell fails at least one viability gate; flagged for review or refutation |
 
 **Loot-Focus sub-axis flags (within Speedfarming):**
@@ -1074,9 +1067,10 @@ Per-axis declaration of how the axis is treated in cell scoring and generation:
 |---|---|
 | `AXIS_TYPE_IDENTITY` | Axis treated as identity-and-differentiation; cells prefer dominance pattern; per-axis specialization preferred |
 | `AXIS_TYPE_VIABILITY` | Axis treated as universal-adequate-threshold; cells must score above gate threshold; minimum-viability gate applies |
-| `AXIS_TYPE_MODE` | Axis treated as binary mode composition; applies across all other axes orthogonally |
 | `AXIS_TYPE_SUB` | Axis treated as within-axis sub-classification of a parent axis |
 | `AXIS_TYPE_PROGRESSION_STAGE_TBD` | Progression-Stage axis treatment is hypothesis-pending per § 1.8.5; either AXIS_TYPE_IDENTITY OR AXIS_TYPE_VIABILITY pending playtest validation |
+
+**Note (iter 6 amendment):** `AXIS_TYPE_MODE` REMOVED from enum. Mode (HC/SC) is player-session-level choice; not a kit-architecture axis type.
 
 ---
 
@@ -1524,6 +1518,12 @@ This document is intentionally a placeholder. The following questions need Matt'
 39. **Phase 5b cohesion clustering threshold for n=30** — at n=30 kits with ~3-5 emergent factions, are there minimum-kits-per-faction thresholds that would refute a clustering decision? E.g., a 1-kit cluster is more likely substrate noise than a meaningful faction; should cohesion judge enforce minimum-cluster-size of 3-4?
 
 40. **Pre-Pareto cohesion-judge inference (gandalf hypothesis at § 1.7.8)** — gandalf argued that "identity emergence is largely predictable from substrate (BC tuple + cultural lineage + element + period + register)" without running LLM naming on all 650 kits. Is this empirically testable BEFORE manifestation milestone? E.g., LLM-name a small sample (50 kits) pre-Pareto and post-Pareto; compare identity distributions. If gandalf hypothesis holds, Option A is fully validated; if not, Option B becomes more compelling.
+
+### 8f. Open questions from iter 6 refinement (Mode axis removal)
+
+41. **HC mode inclusion decision** — does Reincarnated ship with Hardcore mode? Per § 1.8 iter 6 amendment, Mode axis was removed because mode is player-session-level choice, not kit-architecture-level property. IF HC mode is added: HC-viability becomes higher Survivability threshold within existing Viability axis (`VIABILITY_HC_SURVIVABILITY_PASS` gate). IF HC mode is not added: the question is moot. Decision-pending per game design call.
+
+42. **HC-Survivability threshold delta** (conditional on Q41 yes) — if HC mode is added, what's the threshold delta between baseline `VIABILITY_SURVIVABILITY_PASS` and `VIABILITY_HC_SURVIVABILITY_PASS`? Designer-asserted starting value, then refined per playtest evidence on HC death rates per kit?
 
 ---
 
