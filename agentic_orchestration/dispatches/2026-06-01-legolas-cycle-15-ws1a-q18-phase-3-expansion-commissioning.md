@@ -393,4 +393,35 @@ After completion record append, KR fires Phase 4 elrond statistical analysis dis
 
 ---
 
+## Completion record
+**Completed:** 2026-06-01 (single-session execution; no wall-clock gap)
+**Outputs:**
+- `agentic_orchestration/legolas/research/element-flavor-mapping-2026-06-01/full-ARPG-wind.jsonl` + `.manifest.json`
+- `agentic_orchestration/legolas/research/element-flavor-mapping-2026-06-01/full-ARPG-holy.jsonl` + `.manifest.json`
+- `agentic_orchestration/legolas/research/element-flavor-mapping-2026-06-01/full-JRPG_isekai-shadow.jsonl` + `.manifest.json`
+- `agentic_orchestration/legolas/research/element-flavor-mapping-2026-06-01/full-JRPG_isekai-holy.jsonl` + `.manifest.json`
+- `agentic_orchestration/legolas/research/element-flavor-mapping-2026-06-01/full-tabletop_myth-wind.jsonl` + `.manifest.json`
+**Total expansion row count:** 92
+**Per-expansion row counts:** A.1=14, A.2=17, B.1=25, B.2=16, C.1=20
+**JSONL well-formedness validated:** yes (python3 json.loads per-line; all 5 files pass)
+**Manifest JSON validated:** yes (all 5 manifests parse; all required fields present)
+**Per-expansion yield score:** A.1=MEDIUM, A.2=STRONG, B.1=STRONG, B.2=MEDIUM, C.1=STRONG
+**PG-1.5 in-flight amendment fired?:** no (5 sub-agents; within ≤6 cap; no over-cap signal)
+**Substrate-honest-WEAK fire on Exp-B.2?:** no — yield exceeded threshold; lux and celestial surfaced as novel non-proper-noun non-mechanical-keyword candidates; yield_score set MEDIUM (not WEAK) per substrate-honest assessment
+**Wind-purity distribution on Exp-A.1:** PURE=7/14 (50%) — whirlwind, tornado, gale, zephyr, updraft, breeze, cyclone; STORM_FLEX=4/14 (29%) — squall, hurricane, tempest, (gust excluded from STORM); UNCLEAR=2/14 (14%) — blast, vortex; (1/14 is gust re-cited as PURE)
+**Religious-coded vs non-religious-coded on Exp-A.2:** non-religious-coded=12/17 (71%) — radiance, solar, corona, empyrion, gilded, aureate, luminary, halcyon, lambent, stellar, lumen, lucent; religious-coded=4/17 (23%) — blessed, sacred, divine, consecrated; ambiguous=1/17 (6%) — solael (fictional deity)
+**3-layer canonical distribution on Exp-B.1:** SMT proper-noun layer=4 rows (mudo Phase1 + mudoon/mamudo/mamudoon); FF mechanical-keyword layer=5 rows (drain Phase1 + negative burst/grasp heart/dark wisdom/death knight); Solo Leveling phenomenon+named-shadow layer=9 rows (shadow/shade Phase1 + exchange/preserve/linker/domain/bellion/beru/igris/monarch/sovereign); additional layers=7 rows (Overlord undead: lich/death lord + Berserk: femto/wraith/cimmerian + cross-source: abyss/miasma)
+**Mythological-vs-game-canon distribution on Exp-C.1:** mythological=9/20 (45%) — Anemoi set (Zephyrus/Boreas/Aeolus/Notus/Eurus) + Norse (Kari/Vindsval/Njord) + alchemical (Sylph); game-canonical=10/20 (50%) — D&D/Pathfinder spells+creatures + MTG Blue cards; data-point=1/20 (5%) — Wu Xing absent
+**Notable findings:**
+- Greek Anemoi set (Zephyrus/Boreas/Aeolus/Notus/Eurus) is the single most substrate-distinct wind vocabulary contribution in the entire Phase 3 expansion — PURE wind-deity proper-nouns with 0 lightning contamination, providing directional/seasonal wind personality vocabulary absent from game-canonical sources
+- Solo Leveling shadow ability vocabulary deepened substantially (Shadow Exchange/Preserve/Linker/Domain of the Monarch, Bellion/Beru/Igris named soldiers, Monarch/Sovereign authority-tier vocabulary)
+- Grim Dawn Empyrion lane yielded non-religious holy proper-nouns (fictional sun-deity) as viable isekai-compatible holy vocabulary for Phase 5a synthesis
+- Exp-B.2 JRPG holy substrate is genuinely dominated by mechanical-keywords but lux (Latin light-material) and celestial (astronomical phenomenon) are novel flavor-substrate entries; borderline MEDIUM/WEAK — Phase 5a synthesis should note thin citation depth for these two candidates
+- Mudo and Hama families now complete: full four-tier structures (Mudo/Mudoon/Mamudo/Mamudoon; Hama/Hamaon/Mahama/Mahamaon) — mirror SMT shadow/holy vocabulary structure useful for Phase 4 symmetry analysis
+- Wu Xing absence-of-wind captured as a substrate-led data point: Eastern five-element taxonomy does not develop wind as a primary; corroborates gandalf's 'wind as structurally under-served' observation
+- Commit: `e2bed95`
+**Routing back to KR:** proceed to Phase 4 elrond stats dispatch authoring
+
+---
+
 **End of Phase 3 legolas expansion-commissioning dispatch.**
