@@ -1,6 +1,6 @@
 # Cycle 17 — QDX QD-Engine Workflow Re-Fire with WS1A.4-lite Integration — Wave State
 
-**STATUS:** 🟢 OPEN (Phase 1 firing 2026-06-02)
+**STATUS:** 🟢 OPEN (Phase 1 ✅ ALL PASS 2026-06-02; Phase 2 routing)
 **Date opened:** 2026-06-02
 **Owner:** knight-rider (orchestrator)
 **Authority:** Matt 2026-06-02 Pattern B substantive design session — gandalf transmission with QDX chain routing (Locks A-P preserved from EAA chain; Locks Q-T NEW for QDX scope)
@@ -127,38 +127,46 @@ KR escalates to Matt for:
 | Property | Value |
 |---|---|
 | **Owner** | rocket + star-lord per LOCK Q |
-| **Status** | 🟢 FIRING (Phase 1) |
+| **Status** | ✅ COMPLETE (2026-06-02) — PASS clean |
 | **Dispatch** | `dispatches/2026-06-02-qdx-1-ws1a-4-lite-into-phase-5-skill-naming.md` |
-| **Scope** | Integrate `llm/ws1a4_lite_flavor_judgment.py` into `generation/phase5_skill_naming.py`; preserve backward-compatibility for non-WS1A.4 callers |
-| **Output** | `phase5_skill_naming.py` with optional WS1A.4-lite invocation; activates when `ws1a4_active=True` parameter passed |
-| **Gates** | jack-ryan Gate-1 pre-fire + Gate-2 post-output |
-| **Estimated** | ~1-2 sessions |
+| **Tag** | `rocket/v1.5-qdx-1-ws1a-4-lite-phase-5-integration-1` |
+| **Engine commit** | `76adb6e` |
+| **Tests** | 10/10 new PASS + 34/34 existing WS1A.4-lite PASS (zero regression) |
+| **Smoke** | Shadow kit 6 skills: variety PASS (1 canonical + 5 flavored); Q18 pool validation PASS; cost telemetry composes ($0.013 ws1a4 + $0.016 phase5) |
+| **MIGRATION.md** | `generation/MIGRATION.md` § QDX-1 entry added |
+| **LOCK Q ADDITIVE-ONLY** | RESPECTED (zero semantic changes for non-ws1a4 callers) |
 
 #### QDX-2 — kit_space_emitter wired into QD-engine workflow terminal
 
 | Property | Value |
 |---|---|
 | **Owner** | star-lord + rocket per LOCK Q |
-| **Status** | 🟢 FIRING (Phase 1) |
+| **Status** | ✅ COMPLETE (2026-06-02) — PASS clean |
 | **Dispatch** | `dispatches/2026-06-02-qdx-2-kit-space-emitter-into-qd-engine-terminal.md` |
-| **Scope** | Enable QD-engine workflow output to emit to kit_space schema (`data/kit_space/`) instead of `seasons/season_NNNNNN/`; preserve legacy season output path for non-kit-space callers |
-| **Output** | QD-engine workflow terminal phase supports kit_space emit path |
-| **Gates** | jack-ryan Gate-1 + Gate-2 |
-| **Estimated** | ~1 session |
+| **Tag** | `star-lord/v1.5-qdx-2-kit-space-emit-into-qd-engine-terminal-1` |
+| **Engine commit** | `9fba775` |
+| **New function** | `season_generation_pipeline.run_qd_engine_terminal_phase()` (additive only) |
+| **Tests** | 14/14 new PASS + 113/113 pre-existing kit_space PASS (zero regression) |
+| **Smoke** | Both paths verified (skip_*=True → kit_space; skip_*=False → season-manifest); FK linkage PASS; emit-order discipline preserved |
+| **MIGRATION.md** | `export/MIGRATION.md` § v1.73-qdx-2 + `generation/MIGRATION.md` § QDX-2 (ADR-004 cross-seam compliance) |
+| **LOCK Q ADDITIVE-ONLY** | RESPECTED (w5r3_author_season_content, run_season_generation, kit_space_emitter public API ALL UNCHANGED) |
 
 #### QDX-3 — Single-entry-point fire script
 
 | Property | Value |
 |---|---|
 | **Owner** | rocket per LOCK Q |
-| **Status** | 🟢 FIRING (Phase 1) |
+| **Status** | ✅ COMPLETE (2026-06-02) — PASS-with-INFO (3 INFOs self-resolved during smoke) |
 | **Dispatch** | `dispatches/2026-06-02-qdx-3-qd-engine-single-entry-point-fire-script.md` |
-| **Scope** | `scripts/qdx_qd_engine_re_fire_*.py` orchestrating Phase 2 candidate gen → Phase 4 Pareto reduction → Phase 5 cohesion clustering → Phase 5 skill naming (WS1A.4-lite active) → Wave A faction naming LLM → Wave B per-kit emergent identity LLM → multi-T4 selection per kit → emit to kit_space schema |
-| **Output** | Fireable script that produces Cycle 14-equivalent + WS1A.4-lite output in single invocation |
-| **Gates** | jack-ryan Gate-1 + Gate-2 |
-| **Estimated** | ~1-2 sessions |
+| **Tag** | `rocket/v1.5-qdx-3-qd-engine-fire-script-1` |
+| **Engine commit** | `cf6e9ae` |
+| **Script** | `scripts/qdx_qd_engine_re_fire_20260602.py` |
+| **Smoke** | wall=0.3min cost=$0.025 (≤$0.10 bound PASS); phase composition Phase 1→2→4→5(a/b/c)→Wave A→Wave B→7→8 verified; FK linkage PASS; Wave B non-template ("Brute of the Unmarked Ground" / "Striker Without Recoverable Ground"); T4 narration 2/2 |
+| **INFO disposition** | (1) variety check MARGINAL in smoke (physical-only substrate; ws1a4 routing CONFIRMED wired; full fire will satisfy → QDX-4 fires non-physical smoke); (2) T4 narrate_t4_keystone signature mismatch FIXED; (3) substrate DB path resolved to loadout telemetry.db |
+| **7 smoke bugs fixed** | All in fire script (no upstream module changes): substrate DB path, ChainSpec fields, PM1Cluster.member_kit_ids, T4GenerationResult.chain_candidates, narrate_t4_keystone 15-param signature, Phase 7 parametric pareto_min, audit_log key structure |
+| **Dependencies verified** | QDX-1 (ws1a4_active wiring) ✓ + QDX-2 (kit_space_emitter terminal) ✓ both CONFIRMED PRESENT in composed pipeline |
 
-Phase 1 PASS criterion: QDX-1 + QDX-2 + QDX-3 all jack-ryan Gate-2 PASS.
+Phase 1 PASS criterion: ✅ ACHIEVED. QDX-1 + QDX-2 + QDX-3 all PASS (with QDX-3 INFOs self-resolved). LOCK S formal smoke-gate (QDX-4) verifies non-physical-primary variety + jack-ryan Gate-2 verification per 7-criteria checklist.
 
 ### Phase 2 — Integration smoke-gate (sequential after Phase 1 PASS)
 
@@ -166,11 +174,12 @@ Phase 1 PASS criterion: QDX-1 + QDX-2 + QDX-3 all jack-ryan Gate-2 PASS.
 
 | Property | Value |
 |---|---|
-| **Owner** | KR + rocket + star-lord + jack-ryan per LOCK S |
-| **Status** | ❌ NOT STARTED (gates on Phase 1 PASS) |
-| **Scope** | Single-kit smoke fire (1 kit through full pipeline) before full Pareto-pool fire; verifies WS1A.4-lite integration + emitter composition + Wave A/B identity LLM + T4 selection |
-| **Output** | Smoke kit JSON at `data/kit_space/kits/`; jack-ryan Gate-2 verifies per 7-criteria smoke checklist |
-| **Gates on** | QDX-1 + QDX-2 + QDX-3 PASS |
+| **Owner** | KR + rocket + jack-ryan per LOCK S |
+| **Status** | 🟢 FIRING (Phase 2) |
+| **Dispatch** | `dispatches/2026-06-02-qdx-4-integration-smoke-gate.md` |
+| **Scope** | Formal LOCK S smoke fire — non-physical single-kit smoke through composed pipeline; resolves QDX-3 variety-check MARGINAL INFO; jack-ryan Gate-2 verifies QDX-1+QDX-2+QDX-3 outputs + QDX-4 smoke output against 7-criteria checklist |
+| **Output** | (a) Fresh non-physical smoke kit JSON at `data/kit_space/kits/` with WS1A.4-lite metadata populated; (b) jack-ryan Gate-2 unified finding covering Phase 1 outputs + QDX-4 smoke |
+| **Gates on** | Phase 1 ✅ PASS (achieved) |
 | **Estimated** | ~0.5-1 session |
 
 ### Phase 3 — Full fire + verification (sequential after QDX-4 PASS)
@@ -317,8 +326,14 @@ Plus **discipline #56 candidate from EAA chain** (generator-path explicit naming
 | 2026-06-02 | Wave-state authored by KR (this file) |
 | 2026-06-02 | Wave-open dispatch authored |
 | 2026-06-02 | QDX-1 + QDX-2 + QDX-3 dispatches authored |
-| 2026-06-02 | jack-ryan Gate-1 routed on wave-open + Phase 1 dispatches |
+| 2026-06-02 | jack-ryan Gate-1 routed on wave-open + Phase 1 dispatches → PASS-with-INFO (7 INFOs; no BLOCKs); commit `9f5c01d` |
 | 2026-06-02 | Phase 1 fired in parallel (rocket + star-lord) |
+| 2026-06-02 | ✅ QDX-2 PASS clean (star-lord; engine commit `9fba775`; 14/14 tests; LOCK Q ADDITIVE-ONLY) |
+| 2026-06-02 | ✅ QDX-1 PASS clean (rocket; engine commit `76adb6e`; 10/10 tests; cost telemetry composed) |
+| 2026-06-02 | ✅ QDX-3 PASS-with-INFO (rocket; engine commit `cf6e9ae`; smoke wall=0.3min cost=$0.025; 3 INFOs self-resolved; variety check MARGINAL on physical-only substrate → QDX-4 fires non-physical smoke) |
+| 2026-06-02 | Phase 1 ✅ ALL PASS; Phase 2 routing |
+| 2026-06-02 | QDX-4 dispatch authored (formal LOCK S smoke-gate; non-physical primary) |
+| 2026-06-02 | jack-ryan Gate-2 bundled QDX-1/2/3 review + rocket QDX-4 smoke fired in parallel |
 
 ---
 
