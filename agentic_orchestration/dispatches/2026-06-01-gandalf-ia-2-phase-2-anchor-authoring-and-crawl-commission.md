@@ -251,4 +251,16 @@ After your completion, KR routes Phase 3 (elrond ingest + lineage tag applicatio
 
 ---
 
+## Completion record — MEDIEVAL batch
+**Completed:** 2026-06-01
+**MEDIEVAL anchor batch:** `agentic_orchestration/gandalf/notes/2026-06-01-ia-2-phase-2-anchors-medieval-batch.md` (commit will be auto-stamped at commit step)
+**Anchor count:** 29 (matches binding distribution: fire=4 / water=4 / earth=3 / wind=4 / lightning=4 / holy=4 / shadow=6 CRITICAL CELL)
+**MEDIEVAL × shadow CRITICAL CELL addressed:** 6 anchors across 6 distinct cultural traditions + 6 distinct registers + 6 distinct forms (Solomonic / Hermetic-Arabic / Hebrew-magical / Norse seiðr / late-medieval macabre / Inquisition-paradox)
+**Novel-design entries surfaced:** 25 of 29 (caster-rebalance of named bearers × 6: Brand of Roland / Joyeuse Aqua-Veil Sheen / Durendal Stone-Cleaver / Hauteclère Stormbrand / Curtana Reliquary / Skofnung Spark-Sword; witch-folklore implement compositions × 5: Brimstone Censer / Hag's Tide-Distaff / Stone-Circle Wand / Storm Broom-Stave / Lodestone Rod; Hermetic alchemy four-element implement set × 4: Athanor-Rod / Mercurial Flask / Bellows-Focus / Geomancer's Pestle; Crusader reliquary register × 4: San Pietro Brand / Storm-Ward Censer / Curtana / Sceptre of Three Kings; MEDIEVAL.shadow novel-implement × 4: Picatrix Mirror / Sefer HaRazim Quill-Rod / Plague-Doctor Bone-Staff / Iron Maiden Reliquary; cross-tradition × 2: Aeolian Harp Troubadour / St. Christopher Khakkhara). All within LOCK D § 2.3 authority.
+**Cultural-tradition diversification:** 11 distinct traditions represented (Carolingian / Crusader-Latin-Christian / European witch-folklore / Hermetic alchemy major axes; Norse saga / Grimoire / Mongol / Welsh / Occitan / Pilgrim / Late-medieval macabre breadth)
+**Escape-clause trigger fired?:** no — all 29 anchors within binding distribution + LOCK D authority; no architectural amendment beyond pre-commitment scope
+**Routing back to KR:** proceed to MODERN batch re-fire
+
+---
+
 **End of IA-2 Phase 2 gandalf anchor authoring + crawl commission dispatch.**
