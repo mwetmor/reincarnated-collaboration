@@ -181,4 +181,25 @@ If BLOCK on either: KR remediates per your guidance; re-Gate-1.
 
 ---
 
+## Completion record
+**Completed:** 2026-06-01
+**IA-2.P3 verdict:** INFO
+**IA-2.P3 classification:** PASS-with-INFO
+**IA-2.P3 ingest fidelity:** PASS (125 = 102 gandalf + 23 legolas verified against JSON consolidation + manifests)
+**IA-2.P3 Q18 IMMUTABILITY:** PASS (not proposed for amendment; referenced as substrate context only)
+**IA-2.P3 cross-seam discipline:** PASS (MIGRATION.md required + enumerated + round-trip named; ADR-004 satisfied)
+**IA-3 P1 verdict:** INFO
+**IA-3 P1 classification:** PASS-with-INFO
+**IA-3 P1 MVP-discipline:** PASS (existing components ONLY explicit; in/out-of-scope bounded; UI deferred)
+**IA-3 P1 V1 consumption:** PASS (all 8 paths from close record § 6.2 matched; season_000042 named)
+**Finding artifact:** agentic_orchestration/qa/findings/2026-06-01-ia-2-p3-and-ia-3-p1-gate-1.md
+**Key items surfaced:**
+- IA-2.P3 INFO-1: legolas per-period breakdown not enumerated in dispatch (9+9+5=23 verified; suggest elrond document in ingest summary)
+- IA-2.P3 INFO-2: retroactive-primary-tagging must stay consistent with Option α/β/C caster-class coding (no STR-coded melee rows tagged caster-primary)
+- IA-3.P1 INFO-3: reincarnated-demo existing-component inventory not pre-enumerated (drax discovery; document in close summary for Gate-2)
+- IA-3.P1 INFO-4: fights.jsonl (41.8MB) correctly flagged as probably out of MVP scope; LOCK F applies if any fight data surfaced
+**Routing back to KR:** fire both — elrond IA-2.P3 + drax IA-3.P1 in parallel (background)
+
+---
+
 **End of jack-ryan combined Gate-1 dispatch for IA-2.P3 + IA-3 P1.**
