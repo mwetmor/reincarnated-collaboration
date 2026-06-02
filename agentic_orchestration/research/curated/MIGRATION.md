@@ -7,6 +7,191 @@
 
 ---
 
+## v1.8 — EAA-3 + EAA-4 — engine kit_space shadow tables (engine_kit_index + engine_kit_space_events) — 2026-06-02
+
+### What changed (one line)
+
+Authored ELROND-SIDE schema for cycle-16 EAA-3 (per-kit JSON output) + EAA-4 (kit-space chronicle infrastructure) as joint cross-dispatch spec: locked `kit_id` format (`kit_<primary>_<seq6>`) + `kit_space_expansion_event_id` format (`kse_<YYYYMMDD>_<HHMMSS>_<6char-hex>` per pre-existing coordination note at `cycle-16-eaa-engine-architectural-amendment/eaa-3-eaa-4-coordination/event-id-foreign-key-format-2026-06-02.md`); chose Option α (filesystem source-of-truth at `reincarnated-engine/data/kit_space/`) + Option β-light (additive shadow tables `engine_kit_index` + `engine_kit_space_events` in curated catalogue.db) as analytical-index for cross-cutting joins; confirmed elrond ingest-compat against rocket DRAFT per-kit JSON schema with 5 iteration points named for joint resolution.
+
+### Why (one line)
+
+Operationalizes canonical record `2026-06-02-season-archive-realm-expansion-pivot.md` § 3.3 + § 3.4 (continuous kit space + parameter-expansion-event chronicle); replaces per-season manifest as engine output unit (additive; historical seasons preserved per Path α); composes EAA-3 + EAA-4 elrond-side decisions before either rocket spec (EAA-3) or elrond chronicle implementation (EAA-4) finalizes, per Phase 1 batch Gate-1 INFO-B amendment (jack-ryan).
+
+### Who's affected
+
+- **Rocket** — owns engine emit (per-kit JSON shape, EAA-3 primary); MUST consume FK format lock (§ 1 of joint spec note) + kit_id format lock (§ 2); MUST align engine-side enum casing on 5 iteration points named in joint spec note § 4.4 (primary_element lowercase / period uppercase enum / engine_version short-sha format / emit ordering chronicle-first / flavor_decision+flavor_word_used integrity at per-skill level).
+- **Star-lord** — owns engine output pipeline (EAA-3 + EAA-4 co-owner on emit); MUST implement chronicle event emit FIRST then per-kit JSONs SECOND (atomicity discipline § 5 of joint spec note); MUST emit `engine_version` short-sha consistently; MAY trigger elrond shadow ingest as post-emit hook.
+- **Drax** — LOCK O scope (EAA-6 + EAA-7); consumes kit space output + chronicle for loadout app + engine page reframe; NOT impacted by this MIGRATION (consumption deferred to those workstreams).
+- **Gandalf** — design steward; new chronicle event log provides design-narrative substrate for engine page + Realm-Expansion-targeting-underplayed-kits future workstream; new shadow tables enable cross-cutting analytical queries.
+- **Jack-ryan** — Gate-2 review (BLOCK authority) on EAA-3 + EAA-4 schema spec including this MIGRATION; verifies FK format consistency across dispatches + LOCK K ADDITIVE-AND-REVERSIBLE discipline + cross-seam contract reversibility.
+- **Knight-rider** — receives report-back; routes Gate-2; sequences EAA-5 first-fire to consume EAA-3 + EAA-4 infrastructure.
+- **Legolas** — no action.
+- **Matt** — LAST-resort escalation if (a) rocket DRAFT diverges substantially from joint spec § 4 on any of 5 iteration points AND iteration cycle fails to converge OR (b) cross-seam contract reversibility surfaces unexpected coupling.
+
+### What downstream consumers need to do
+
+**Rocket (EAA-3 implementation):**
+- Author per-kit JSON schema as DRAFT (per joint spec note § 4); iterate against five iteration points if engine-side surfaces divergence
+- Engine-side `primary_element` enum: lowercase canonical-7+1 only (`fire`, `water`, `earth`, `wind`, `lightning`, `holy`, `shadow`, `physical`)
+- Engine-side `period` enum: uppercase WS2.P2 substrate values (`ANCIENT`, `MEDIEVAL`, `MODERN`) when populated; nullable when substrate doesn't supply
+- Engine emit `kit_id` using `mint_kit_id(primary, prior_primary_count)` rule (joint spec § 2.4)
+- Engine emit `kit_space_expansion_event_id` using `mint_kit_space_expansion_event_id(event_date_utc, prior_today_count)` rule (joint spec § 1.3)
+- Engine emit `lineage_tags` 4-field substructure: `kit_space_lineage` / `engine_provenance` / `substrate_provenance` / `generation_cohort_date`
+
+**Star-lord (EAA-3 + EAA-4 emit pipeline):**
+- Implement emit-order discipline: chronicle event entry FIRST, then per-kit JSON entries (so FK target exists in chronicle when shadow ingest runs)
+- Implement chronicle JSON shape per joint spec § 3.4 (events array; schema_version present)
+- Source `engine_version_sha` from `git rev-parse --short=7 HEAD` at fire-time; commit at emit-time
+- Path discipline: `data/kit_space/kit_space_chronicle.json` + `data/kit_space/kits/<kit_id>.json` per kit; optional `data/kit_space/kits_index.json`
+
+**Elrond (this MIGRATION + EAA-3/4 implementation):**
+- Author shadow-table CREATE script (DDL at joint spec § 3.5)
+- Author ingest script: walks `data/kit_space/`; upserts to `engine_kit_index` + `engine_kit_space_events`; tolerates partial emissions (skips kit if FK target missing; surfaces warning)
+- Rebuildable: truncate + reload = deterministic
+- Smoke-test against EAA-5 first-fire output (joint spec § 7)
+
+**Drax / Gandalf (no immediate action; future workstreams):**
+- Drax EAA-6 (loadout MVP) + EAA-7 (engine page MVP) consume kit space + chronicle via LOCK O existing-components-only discipline; deferred
+- Gandalf has new analytical surface for substrate-led discipline at content-engagement layer (Disc #41 composition; future Realm Expansion targeting underplayed-kit telemetry)
+
+### Schema diff or example before/after
+
+**Old (per-season manifest path; legacy; PRESERVED for historical seasons per Path α):**
+- `seasons/season_NNNNNN/manifest.json` — per-season summary + theme element + cosmological_vocabulary + class JSON refs
+- `seasons/season_NNNNNN/classes/class_NNNN.json` — per-class skill + stat data; season-anchored numbering
+- No cross-file foreign key; class id is season-scoped
+
+**New (per-kit + chronicle path; ADDITIVE; emitted when EAA-2 skip flags active):**
+- `data/kit_space/kit_space_chronicle.json` — append-only event list; `events: [{event_id, event_type, event_timestamp, event_scope, substrate_inputs_changed, engine_version_sha, kit_ids_generated, kit_count, skip_flags_active, lineage_tags}]`
+- `data/kit_space/kits/kit_<primary>_<seq6>.json` — per-kit; `{kit_id, primary_element, cultural_tradition, period, chain_composition, t4_selection, supporting_chain, skills, emergent_kit_concept, substrate_trace, kit_space_expansion_event_id, engine_version, generation_timestamp, lineage_tags}`
+- Foreign key: per-kit `kit_space_expansion_event_id` → chronicle `event_id` (format: `kse_<YYYYMMDD>_<HHMMSS>_<6char-hex>`; regex `^kse_\d{8}_\d{6}_[0-9a-f]{6}$`; per pre-existing coordination note)
+- Per-skill EAA-1 metadata: each `skills[]` entry carries `flavor_decision: bool` + `flavor_word_used: str | null` (cross-coupled per EAA-1 § 3 plus joint spec § 4.3)
+
+**New shadow tables (elrond catalogue.db; ADDITIVE; rebuildable from filesystem):**
+
+```sql
+-- engine_kit_space_events: per-chronicle-event row indexed by event_id
+CREATE TABLE engine_kit_space_events (
+    event_id                TEXT PRIMARY KEY,                      -- kse_<YYYYMMDD>_<HHMMSS>_<6char-hex>
+                                                                   -- regex: ^kse_\d{8}_\d{6}_[0-9a-f]{6}$ (27 chars)
+    event_uuid_full         TEXT,                                  -- full UUID4 source for the 6-char-hex suffix (nullable; provenance trace)
+    event_type              TEXT NOT NULL DEFAULT 'kit-space-expansion'
+                            CHECK (event_type IN ('kit-space-expansion', 'realm-expansion', 'reserved-future')),
+    event_timestamp         TEXT NOT NULL,                         -- ISO-8601 UTC
+    event_date_utc          TEXT NOT NULL,                         -- ISO date
+    event_scope             TEXT NOT NULL,
+    substrate_inputs_changed_json TEXT NOT NULL,
+    engine_version_sha      TEXT NOT NULL,
+    engine_version_full     TEXT,
+    kit_count               INTEGER NOT NULL CHECK (kit_count >= 0),
+    skip_flags_active_json  TEXT,
+    lineage_tags_json       TEXT,
+    source_chronicle_path   TEXT NOT NULL,
+    ingest_timestamp        TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX idx_kse_event_date ON engine_kit_space_events(event_date_utc);
+CREATE INDEX idx_kse_event_type ON engine_kit_space_events(event_type);
+
+-- engine_kit_index: per-kit row indexed by kit_id
+CREATE TABLE engine_kit_index (
+    kit_id                          TEXT PRIMARY KEY,                  -- kit_<primary>_<seq6>
+    primary_element                 TEXT NOT NULL
+                                    CHECK (primary_element IN ('fire', 'water', 'earth', 'wind', 'lightning', 'holy', 'shadow', 'physical')),
+    cultural_tradition              TEXT,
+    period                          TEXT
+                                    CHECK (period IS NULL OR period IN ('ANCIENT', 'MEDIEVAL', 'MODERN')),
+    emergent_kit_concept            TEXT,
+    chain_composition_json          TEXT,
+    t4_selection_json               TEXT,
+    supporting_chain_json           TEXT,
+    skill_count                     INTEGER NOT NULL CHECK (skill_count >= 0),
+    skills_summary_json             TEXT NOT NULL,
+    substrate_trace_json            TEXT NOT NULL,
+    kit_space_expansion_event_id    TEXT NOT NULL REFERENCES engine_kit_space_events(event_id),
+    engine_version_sha              TEXT NOT NULL,
+    generation_timestamp            TEXT NOT NULL,
+    lineage_tags_json               TEXT,
+    source_kit_json_path            TEXT NOT NULL,
+    ingest_timestamp                TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX idx_kit_primary ON engine_kit_index(primary_element);
+CREATE INDEX idx_kit_event ON engine_kit_index(kit_space_expansion_event_id);
+CREATE INDEX idx_kit_period ON engine_kit_index(period);
+CREATE INDEX idx_kit_cultural_tradition ON engine_kit_index(cultural_tradition);
+```
+
+**schema_meta entry:**
+```sql
+INSERT INTO schema_meta (version, applied_at, description) VALUES (
+    'v1.8-eaa-3-plus-4-engine-kit-shadow-tables',
+    CURRENT_TIMESTAMP,
+    'EAA-3 + EAA-4: engine_kit_index + engine_kit_space_events shadow tables; additive; rebuildable from kit_space/ filesystem; source-of-truth lives at reincarnated-engine/data/kit_space/*.json.'
+);
+```
+
+### Format locks (cross-dispatch coordination per Phase 1 batch Gate-1 INFO-B amendment)
+
+**LOCKED jointly between EAA-3 (rocket) + EAA-4 (elrond) per LOCK K:**
+
+| Field | Format | Owner |
+|---|---|---|
+| `kit_id` | `kit_<primary>_<seq6>` (e.g., `kit_shadow_000001`) | elrond decision per LOCK K; rocket implements emit |
+| `kit_space_expansion_event_id` | `kse_<YYYYMMDD>_<HHMMSS>_<6char-hex>` (e.g., `kse_20260602_143052_a1b2c3`); per pre-existing coordination note | elrond decision per LOCK K (pre-existing coordination artifact); rocket + star-lord implement emit |
+| `primary_element` | lowercase canonical-7+1 (`fire`, `water`, `earth`, `wind`, `lightning`, `holy`, `shadow`, `physical`) | upstream canonical-7+1 lock; rocket emit must match |
+| `period` | uppercase `ANCIENT` / `MEDIEVAL` / `MODERN` (nullable when substrate doesn't supply) | WS2.P2 substrate convention; rocket emit must match |
+| `engine_version_sha` | 7-char short sha (`git rev-parse --short=7 HEAD`) | star-lord seam; consistent across emit |
+| `lineage_tags` substructure | 4-field object (`kit_space_lineage` / `engine_provenance` / `substrate_provenance` / `generation_cohort_date`) per pool.json v1.1 pattern | elrond decision per LOCK K; rocket + star-lord populate |
+
+### Migration verification (deferred to EAA-3 + EAA-4 implementation; this MIGRATION authors design)
+
+Acceptance criteria (verified at jack-ryan Gate-2 + EAA-5 smoke-test):
+- [ ] Rocket per-kit JSON schema spec PASSES Gate-2 with format locks applied
+- [ ] Star-lord chronicle emit + per-kit emit lands in `data/kit_space/` per § 5 layout
+- [ ] elrond shadow-table CREATE script runs against catalogue.db; idempotent
+- [ ] elrond ingest script populates shadow tables from filesystem; deterministic rebuild
+- [ ] Single-event-single-kit smoke (§ 7 joint spec) passes end-to-end
+- [ ] FK integrity: every `engine_kit_index.kit_space_expansion_event_id` resolves to `engine_kit_space_events.event_id`
+- [ ] Backward-compat: existing season manifests + class JSONs at `seasons/` unchanged
+- [ ] Reversibility (LOCK J): dropping shadow tables and deleting `kit_space/` directory both restore prior-state cleanly
+
+### Files committed (this MIGRATION authoring step)
+
+- `agentic_orchestration/elrond/notes/2026-06-02-eaa-3-plus-4-joint-ingest-and-chronicle-spec.md` — joint elrond-side spec (10 sections; LOCKED kit_id + event_id formats; shadow-table DDL; ingest-compat verdict)
+- `agentic_orchestration/research/curated/MIGRATION.md` — THIS entry (v1.8)
+
+**Deferred to EAA-3 + EAA-4 implementation phase (post-Gate-2):**
+- `agentic_orchestration/research/scripts/eaa_3_4_create_kit_shadow_tables_2026_06_02.py` — shadow-table CREATE script
+- `agentic_orchestration/research/scripts/eaa_3_4_ingest_kit_space_2026_06_02.py` — ingest from filesystem
+- Smoke-test scripts (single-event-single-kit; rebuild determinism; FK integrity)
+- Engine-side EAA-3 schema implementation (rocket); engine-side EAA-4 chronicle emit (star-lord)
+
+### Related canonical docs + disciplines
+
+- `canonical/story/2026-06-02-season-archive-realm-expansion-pivot.md` § 3.3 + § 3.4 (binding architectural commitment)
+- `canonical/story/2026-06-01-flavor-pool-per-primary-element-lock.md` (Q18 vocabulary lock; consumed by per-skill flavor naming + lineage tag substrate provenance)
+- `agentic_orchestration/dispatches/2026-06-02-eaa-3-kit-space-output-schema.md` (rocket primary + elrond co-owner)
+- `agentic_orchestration/dispatches/2026-06-02-eaa-4-kit-space-chronicle-infrastructure.md` (elrond primary + star-lord co-owner)
+- `agentic_orchestration/qa/findings/2026-06-02-eaa-phase-1-batch-gate-1.md` (Phase 1 batch Gate-1 PASS-with-INFO; INFO-B amendment composed into this entry)
+- `agentic_orchestration/cycle-16-eaa-engine-architectural-amendment/wave-state.md` (workstream status)
+- Locks A-P (per gandalf transmission 2026-06-02; LOCK K active for engine schema design authority; LOCK J ADDITIVE-AND-REVERSIBLE heuristic governs both shadow tables and filesystem layout)
+- Discipline #41 substrate-led (kit space is the substrate; engine emits per-kit entries; analytical layer reads substrate truth not pre-imposed taxonomy)
+- ADR-004 (cross-seam MIGRATION discipline; this entry is the elrond-side artifact composing with future rocket-side engine emit MIGRATION)
+- ADR-006 (read-only-by-default external systems; elrond owns curated catalogue.db writes; engine remains source-of-truth)
+
+### Routing back to KR
+
+- Joint spec authored ✅
+- `kit_space_expansion_event_id` format LOCKED (§ 1) ✅
+- `kit_id` format LOCKED (§ 2) ✅
+- Chronicle storage medium LOCKED (§ 3) ✅
+- elrond ingest-compat CONFIRMED (§ 4.4) ✅
+- Five iteration points named for rocket DRAFT alignment (§ 4.4) — needs rocket acknowledgment
+- Cross-seam MIGRATION.md COMMITTED at elrond seam boundary (this entry)
+- Backward-compat statement complete (§ 6 of joint spec); historical seasons preserved
+- Routing back: **proceed to rocket DRAFT review + jack-ryan Gate-2** (schema + MIGRATION) with format locks attached for joint verification
+
+---
+
 ## v1.7 — WS1A.Q18 sub-phase 5f — pool.json v1.1 migration + physical_taxonomy.json — 2026-06-01
 
 ### What changed (one line)

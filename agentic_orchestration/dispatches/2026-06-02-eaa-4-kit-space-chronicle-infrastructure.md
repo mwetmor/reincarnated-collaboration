@@ -158,3 +158,42 @@ Per Matt 2026-06-02 explicit cycle-push authorization + CLAUDE.md addendum 2026-
 ---
 
 **End of EAA-4 dispatch. Fires after jack-ryan Gate-1 PASS on this dispatch.**
+
+---
+
+## Completion record — elrond primary owner schema + storage decisions (2026-06-02)
+
+**Status:** 🟡 ELROND-SIDE SCHEMA + STORAGE LOCKED; awaiting star-lord engine emit integration + jack-ryan Gate-2
+
+**Elrond primary sub-tasks delivered (per dispatch § 3.1 + § 3.2 + § 3.5; composed with EAA-3):**
+
+1. ✅ **Chronicle entry schema specified** (per dispatch § 3.1; LOCK K) — full field set at joint spec § 3.4; event_type extensibility supported (kit-space-expansion / realm-expansion / reserved-future)
+2. ✅ **`event_id` format LOCKED jointly with EAA-3 `kit_space_expansion_event_id`** (per Phase 1 batch Gate-1 INFO-B amendment) — `kse_<YYYYMMDD>_<HHMMSS>_<6char-hex>` per pre-existing coordination note at `cycle-16-eaa-engine-architectural-amendment/eaa-3-eaa-4-coordination/event-id-foreign-key-format-2026-06-02.md`; foreign-key linkage between per-kit JSON and chronicle entry; same value, single source of truth; UUID-derived suffix for distributed-safe collision-resistance
+3. ✅ **Chronicle storage medium selected** (per dispatch § 3.2; LOCK K discretion) — **Option α + Option β-light** combined:
+   - Option α (source-of-truth): flat JSON at `reincarnated-engine/data/kit_space/kit_space_chronicle.json` (parallels pool.json pattern; engine owns; git-versioned)
+   - Option β-light (analytical shadow): `engine_kit_space_events` + `engine_kit_index` shadow tables in curated catalogue.db (rebuildable from filesystem; powers cross-cutting analytical joins; per LOCK J ADDITIVE-AND-REVERSIBLE)
+   - Rationale at joint spec § 3.2 (engine ownership separation per ADR-006; query patterns differ; reversibility clean)
+4. ✅ **MIGRATION.md authored** (per dispatch § 3.5; LOCK K) — `agentic_orchestration/research/curated/MIGRATION.md` v1.8 (single entry covers both EAA-3 + EAA-4 since they compose; cross-seam contract documented for both old/new contracts + backward-compat)
+
+**Artifacts:**
+- Joint spec note: `agentic_orchestration/elrond/notes/2026-06-02-eaa-3-plus-4-joint-ingest-and-chronicle-spec.md` (§ 1 FK format lock; § 3 storage medium decisions; § 3.4 chronicle JSON shape; § 3.5 shadow-table DDL)
+- MIGRATION.md v1.8: `agentic_orchestration/research/curated/MIGRATION.md`
+- Wave-state update: `agentic_orchestration/cycle-16-eaa-engine-architectural-amendment/wave-state.md` § 3 (EAA-3 + EAA-4 rows updated)
+
+**Deferred to post-Gate-2 implementation phase:**
+- Engine emit integration (star-lord per dispatch § 3.3) — chronicle event entry FIRST, per-kit JSONs SECOND; atomicity preferred
+- elrond shadow-table CREATE script + ingest script (rebuildable; deterministic)
+- Smoke-test discipline (per dispatch § 3.4 + joint spec § 7) — single-event-single-kit; rebuild determinism; FK integrity
+
+**Out-of-scope reaffirmed (per dispatch § 4):**
+- Per-kit engagement telemetry — NOT in chronicle; separate future workstream per canonical record § 7.4
+- Realm Expansion event records — schema accommodates via `event_type` field; this dispatch implements only `kit-space-expansion`
+- Engine page UI rendering — EAA-7 scope
+- Historical season chronicle backfill — preserved as-is per Path α
+
+**Next moves:**
+- Star-lord: implement chronicle JSON emit + per-kit JSON emit per joint spec § 5 filesystem layout + § 3.4 chronicle shape
+- Elrond: shadow-table CREATE script + ingest script (deferred to post-Gate-2 implementation phase; runs as cycle-orchestrator post-emit hook)
+- KR: route star-lord emit-integration sub-dispatch (if needed) + jack-ryan Gate-2 on chronicle + per-kit JSON co-emission
+
+**Signed:** elrond (data steward; LOCK K + LOCK E seam authority; EAA-4 primary owner + EAA-3 co-owner)

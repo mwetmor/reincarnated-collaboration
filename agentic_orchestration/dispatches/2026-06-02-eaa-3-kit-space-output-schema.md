@@ -182,3 +182,31 @@ Per Matt 2026-06-02 explicit cycle-push authorization + CLAUDE.md addendum 2026-
 ---
 
 **End of EAA-3 dispatch. Fires after jack-ryan Gate-1 PASS on this dispatch.**
+
+---
+
+## Completion record — elrond co-owner sub-tasks (2026-06-02)
+
+**Status:** 🟡 ELROND-SIDE COMPLETE; awaiting rocket DRAFT spec author + star-lord output pipeline integration + jack-ryan Gate-2
+
+**Elrond sub-tasks delivered (per dispatch § 3.2 + composed with EAA-4):**
+
+1. ✅ **Ingest-compat confirmed** — per-kit JSON entry shape consumable by elrond ingest pipeline; shadow tables additive per LOCK J ADDITIVE-AND-REVERSIBLE; no engine-side schema field that breaks ingest
+2. ✅ **Substrate DB extension authored additively** — `engine_kit_index` + `engine_kit_space_events` shadow tables (DDL at joint spec § 3.5) — rebuildable from filesystem; reversible per LOCK J
+3. ✅ **`kit_space_expansion_event_id` format LOCKED jointly with EAA-4** (per Phase 1 batch Gate-1 INFO-B amendment) — `kse_<YYYYMMDD>_<HHMMSS>_<6char-hex>` per pre-existing coordination note at `cycle-16-eaa-engine-architectural-amendment/eaa-3-eaa-4-coordination/event-id-foreign-key-format-2026-06-02.md`; 27-char fixed; chronologically sortable as text; UUID-derived suffix for distributed-safe collision-resistance; future-extensible event-type prefix space (`re_` realm-expansion reserved)
+4. ✅ **`kit_id` format LOCKED** — `kit_<primary>_<seq6>` (joint spec § 2); per-primary sequence; permanent (not season-numbered)
+5. ✅ **5 iteration points named for rocket DRAFT** (joint spec § 4.4) — `primary_element` lowercase / `period` uppercase / `engine_version` short-sha / emit ordering chronicle-first / EAA-1 `flavor_decision`+`flavor_word_used` integrity; iteration cycle in-scope per LOCK K
+6. ✅ **MIGRATION.md authored** (per dispatch § 3.5; LOCK K) — `agentic_orchestration/research/curated/MIGRATION.md` v1.8 covering old contract (per-season manifest) + new contract (per-kit JSON + chronicle) + backward-compat (BOTH coexist) + consumer-side impact + reversibility per LOCK J ADDITIVE-AND-REVERSIBLE
+
+**Artifacts:**
+- Joint spec note: `agentic_orchestration/elrond/notes/2026-06-02-eaa-3-plus-4-joint-ingest-and-chronicle-spec.md` (10 sections)
+- MIGRATION.md v1.8: `agentic_orchestration/research/curated/MIGRATION.md` (most-recent-first; v1.8 entry at top)
+- Wave-state update: `agentic_orchestration/cycle-16-eaa-engine-architectural-amendment/wave-state.md` § 3 (EAA-3 + EAA-4 rows updated)
+
+**Next moves:**
+- Rocket: author per-kit JSON schema DRAFT per joint spec § 4 with format locks applied; iterate against 5 iteration points if engine-side surfaces divergence
+- Star-lord: implement chronicle emit FIRST then per-kit JSONs SECOND (atomicity discipline § 5); source `engine_version_sha` consistently
+- Elrond: shadow-table CREATE script + ingest script deferred to EAA-3 + EAA-4 implementation phase post-Gate-2
+- KR: route rocket DRAFT review + jack-ryan Gate-2 on schema spec + MIGRATION.md with format locks attached
+
+**Signed:** elrond (data steward; LOCK K + LOCK E seam authority; EAA-3 co-owner)
