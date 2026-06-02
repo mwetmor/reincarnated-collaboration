@@ -192,3 +192,31 @@ On completion:
 ---
 
 **End of EAA-6 + EAA-7 sequential-within-drax dispatch. Fires after jack-ryan Gate-1 PASS.**
+
+---
+
+## Completion record — EAA-6
+
+**Completed:** 2026-06-02
+**Commit:** `2f5fec4` (reincarnated-loadout)
+**Tag:** `drax/v1.4-eaa-6-loadout-kit-space-1`
+**Vercel preview:** `https://reincarnated-loadout-d1pvkgywc-matthew-wetmore-s-projects.vercel.app` — READY
+**Gate-2:** PASS — `agentic_orchestration/qa/findings/2026-06-02-eaa-6-loadout-kit-space-gate-2.md`
+**ACs:** 7/7 PASS
+**Type extensions:** `KitSpaceChronicle`, `KitSpaceChronicleEvent`, `KitSpaceChronicleLineageTags`, `KitSpaceChronicleGenerationParameters`, `KitData`, `KitSkill`, `KitSubstrateTrace`, `KitChainComposition`, `LineageTags` — all new in `src/data/kitSpaceTypes.ts`
+**Components reused:** `CourtBrowser` card grid pattern (adapted via `KitCard`); inline detail pattern (adapted via `KitDetailPanel`); `SubstrateToggle` pattern (adapted via `ElementToggle`); `useEngineStateData` fetch pattern (adapted via `useKitSpaceData`)
+**No TODO(drax) overrides**
+
+## Completion record — EAA-7
+
+**Completed:** 2026-06-02
+**Commit:** `42a0a0b` (reincarnated-loadout)
+**Tag:** `drax/v1.4-eaa-7-engine-page-chronicle-1`
+**Vercel preview:** `https://reincarnated-loadout-madl8913m-matthew-wetmore-s-projects.vercel.app` — READY
+**Gate-2:** PASS (INFO) — `agentic_orchestration/qa/findings/2026-06-02-eaa-7-engine-page-chronicle-gate-2.md`
+**ACs:** 6/6 PASS
+**Type extensions:** none — reuses `KitSpaceChronicle` + `KitSpaceChronicleEvent` from EAA-6
+**Components:** `EngineStateChronicle.tsx` (adapts EngineStatePipelineFlow section pattern); `useKitSpaceChronicleData.ts` (chronicle-only hook)
+**Gate-2 INFOs queued for EAA-8:** INFO-1 (ChronicleSection inside season-gated block; hoist candidate); INFO-2 (refresh wire-up; remount-via-key functional equivalent)
+**No TODO(drax) overrides**
+**Phase 4 readiness:** EAA-8 wave-close routable; INFOs are non-blocking
