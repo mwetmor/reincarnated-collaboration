@@ -1,6 +1,6 @@
 # Cycle 17 — QDX QD-Engine Workflow Re-Fire with WS1A.4-lite Integration — Wave State
 
-**STATUS:** 🟢 OPEN — Phase 4 ✅ COMPLETE (QDX-7 drax PASS; Vercel preview deployed; LOCK O compliant); Phase 5 (QDX-8 wave-close) firing
+**STATUS:** ✅ CLOSED (2026-06-02; canonical wave-close record at `canonical/story/2026-06-02-qdx-chain-wave-close-record.md` commit `a6fc319`; gandalf design-quality audit `ee86489`; jack-ryan engineering-discipline ratification engine `69e352c` + collab `3ca3bf7`; Matt's stated chain-close goal empirically met)
 **Date opened:** 2026-06-02
 **Owner:** knight-rider (orchestrator)
 **Authority:** Matt 2026-06-02 Pattern B substantive design session — gandalf transmission with QDX chain routing (Locks A-P preserved from EAA chain; Locks Q-T NEW for QDX scope)
@@ -262,8 +262,12 @@ Phase 1 PASS criterion: ✅ ACHIEVED. QDX-1 + QDX-2 + QDX-3 all PASS (with QDX-3
 | Property | Value |
 |---|---|
 | **Owner** | KR + gandalf design-quality audit + jack-ryan Gate-2 wave-close |
-| **Status** | 🟢 FIRING (Phase 5; gates on QDX-7 ✅ cleared) |
-| **Substreams** | (a) KR wave-close canonical record at `canonical/story/2026-06-02-qdx-chain-wave-close-record.md`; (b) gandalf design-quality audit per LOCK H; (c) jack-ryan engineering-discipline ratification (Discipline #56 genre-aligned distribution candidate + others); (d) canonical/00-ground-state.md § 1 update; (e) Matt strategic re-engagement signal |
+| **Status** | ✅ COMPLETE (2026-06-02) — all 5 substreams landed |
+| **Substream (a) KR wave-close canonical record** | `canonical/story/2026-06-02-qdx-chain-wave-close-record.md` commit `a6fc319` |
+| **Substream (b) gandalf design-quality audit** | `agentic_orchestration/gandalf/notes/2026-06-02-qdx-chain-wave-close-design-quality-audit.md` commit `ee86489` — verdict PASS-with-design-concerns; "work of a senior ARPG designer at GGG / Crate / Blizzard"; **convergent with jack-ryan on elrond substrate-enrichment as highest-leverage next-cycle investment** |
+| **Substream (c) jack-ryan engineering-discipline ratification** | engine `69e352c` (engineering-disciplines.md disciplines #56 + #57 + #59 RATIFIED; #58 DECLINED redundant with #53; #60 QUEUED) + collab `3ca3bf7` (CHANGELOG + jack-ryan/notes/2026-06-02-qdx-chain-discipline-ratification.md) |
+| **Substream (d) ground-state § 1 update** | canonical/00-ground-state.md updated to reflect QDX chain CLOSED + canonical "current" kit_space = event_008 + 3 ratified disciplines + canonical commitments preserved/refined |
+| **Substream (e) Matt strategic re-engagement signal** | Composed post-this-record; 5 strategic options ranked + critique-pair convergence on elrond substrate enrichment |
 | **Scope** | KR wave-close record + gandalf design-quality audit + jack-ryan engineering-disciplines.md amendments if applicable + ground-state § 1 update + strategic re-engagement signal to Matt |
 | **Estimated** | ~1-2 sessions |
 
@@ -387,6 +391,11 @@ Plus **discipline #56 candidate from EAA chain** (generator-path explicit naming
 | 2026-06-02 | KR fires drax QDX-7 (loadout + engine page consume QDX-5 kit_space output; LOCK O MVP-discipline; LOCK T scope-bounding) |
 | 2026-06-02 | ✅ drax QDX-7 PASS (loadout `eca9349`; tag `drax/v1.5-qdx-7-loadout-engine-page-kit-space-1`; Vercel preview deployed; 1067 modules / 0 TS errors / 81/81 tests; LOCK O compliant; routing notes 2+3 IMPLEMENTED; note 1 DEFERRED per LOCK O escape — engine needs per-kit faction_id) |
 | 2026-06-02 | KR routes QDX-8 wave-close substreams in parallel: KR canonical record + gandalf design-quality audit + jack-ryan engineering-discipline ratification |
+| 2026-06-02 | ✅ KR wave-close canonical record committed `a6fc319` (374 lines summarizing full QDX chain) |
+| 2026-06-02 | ✅ gandalf design-quality audit returned PASS-with-design-concerns (commit `ee86489`); convergent with jack-ryan on substrate enrichment as next-cycle priority |
+| 2026-06-02 | ✅ jack-ryan discipline ratification: 3 RATIFIED (#56 generator-path naming + #57 genre-aligned distribution + #59 substrate-coverage binding constraint) + 1 DECLINED redundant (#58 → consumed by #53) + 1 QUEUED (#60 LOCK O escape-as-discipline; needs 2nd founding instance); engine commit `69e352c` + collab commit `3ca3bf7` |
+| 2026-06-02 | ✅ KR updates canonical/00-ground-state.md § 1 reflecting QDX chain CLOSED + canonical current = event_008 + 3 ratified disciplines |
+| 2026-06-02 | ✅ QDX chain CLOSED — wave-state STATUS updated; Matt strategic re-engagement signal pending compose |
 
 ---
 
