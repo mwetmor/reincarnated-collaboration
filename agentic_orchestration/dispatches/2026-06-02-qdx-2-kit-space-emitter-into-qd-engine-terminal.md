@@ -165,3 +165,106 @@ On work-completion, append a completion record block to this dispatch file with:
 ---
 
 **End of QDX-2 dispatch.**
+
+---
+
+## Completion record
+
+**Completed by:** star-lord (2026-06-02)
+**Tag:** `star-lord/v1.5-qdx-2-kit-space-emit-into-qd-engine-terminal-1`
+**Engine commit:** `9fba775`
+**Tests:** 14/14 PASS
+  - TestLegacyPath::test_skip_false_routes_to_legacy
+  - TestLegacyPath::test_both_false_routes_to_legacy
+  - TestLegacyPath::test_legacy_path_writes_manifest_file
+  - TestKitSpacePath::test_both_true_routes_to_kit_space
+  - TestKitSpacePath::test_kit_space_path_writes_chronicle_and_kit_json
+  - TestMixedSkipFlags::test_skip_theme_false_skip_vocab_true
+  - TestMixedSkipFlags::test_skip_theme_true_skip_vocab_false
+  - TestGenerationParametersPropagation::test_generation_parameters_in_chronicle
+  - TestGenerationParametersPropagation::test_generation_parameters_none_is_ok
+  - TestEmitOrderAndFKLinkage::test_chronicle_written_before_kit_json
+  - TestGuardConditions::test_none_export_dicts_raises
+  - TestGuardConditions::test_empty_list_kit_space_path
+  - TestGuardConditions::test_empty_list_legacy_path
+  - TestResourceBounds::test_single_kit_wall_clock_under_5s
+**MIGRATION.md:** 2 entries added:
+  - `src/reincarnated/export/MIGRATION.md` § v1.73-qdx-2-kit-space-emitter-wired-into-qd-engine-terminal
+  - `src/reincarnated/generation/MIGRATION.md` § [2026-06-02] QDX-2
+**Smoke output:**
+```
+should_use_kit_space_emit truth table: PASS
+
+SMOKE PATH 1 (skip_*=True kit_space):
+  QD-engine workflow terminal phase entered.
+  skip_theme_coalescence=True  skip_cosmological_vocabulary=True
+  should_use_kit_space_emit(True, True) = True [ROUTING TO KIT_SPACE]
+  emit_kit_space_expansion_event() called with n_kits=1
+  chronicle entry written: event_id='kse_20260602_001' (atomic .tmp -> os.replace)
+  per-kit JSON written: data/kit_space/kits/kit_shadow_000001.json
+  FK linkage verified: kit.kit_space_expansion_event_id == 'kse_20260602_001'
+  emit_stats: kits_emitted=1, kits_validation_errors=0
+  wall_clock: 0.02s (< 5s: True)
+  PASS
+
+SMOKE PATH 2 (skip_*=False season-manifest):
+  QD-engine workflow terminal phase entered.
+  skip_theme_coalescence=False  skip_cosmological_vocabulary=True
+  should_use_kit_space_emit(False, True) = False [ROUTING TO SEASON-MANIFEST]
+  season manifest written: terminal_phase_manifest.json
+  PASS
+```
+**FK linkage:** verified == PASS (kit.kit_space_expansion_event_id == chronicle event_id)
+**Emit-order discipline:** PRESERVED — chronicle FIRST delegated to emitter (CHRONICLE_SCHEMA.md § 5.1). run_qd_engine_terminal_phase() routes through emit_kit_space_expansion_event() which enforces the order; terminal function does NOT re-implement it.
+**Backward compat:** LOCK Q ADDITIVE-ONLY preserved. w5r3_author_season_content() + run_season_generation() UNCHANGED. skip_*=False callers route to legacy path, no behavior change.
+**Existing test suite:** 113/113 pre-existing kit_space emitter + schema + skill_naming tests PASS (no regressions).
+**Gate-2 verdict:** Pending jack-ryan Gate-2 review of tagged commit.
+**Implementation note:** The QD-engine workflow terminal function is located at:
+  `src/reincarnated/generation/season_generation_pipeline.py` § 6.5 — `run_qd_engine_terminal_phase()`
+  Target file verified as canonical Cycle 13 Wave 5 lineage entry point (wave-state + dispatch both point here).
+
+**Notes for downstream (QDX-3):**
+QDX-3's fire script should call `run_qd_engine_terminal_phase()` as the final step after
+Phase 5 output (WS1A.4-lite + cohesion naming) is ready. Minimal call pattern:
+
+```python
+from reincarnated.generation.season_generation_pipeline import run_qd_engine_terminal_phase
+
+terminal_result = run_qd_engine_terminal_phase(
+    export_dicts_with_metadata=named_export_dicts,  # list[dict] from Phase 5 output
+    skip_theme_coalescence=True,                    # Realm Expansion default (EAA-2)
+    skip_cosmological_vocabulary=True,              # Realm Expansion default (EAA-2)
+    event_scope="QDX-5 full fire: N kits from QD-engine workflow + WS1A.4-lite",
+    substrate_inputs_changed=["Q18 vocabulary lock", "WS2.P2 magic weapons"],
+    generation_parameters={
+        "n_candidates": n_candidates,
+        "pareto_target": pareto_target,
+        "ws1a4_lite_active": True,
+        "skip_theme_coalescence": True,
+        "skip_cosmological_vocabulary": True,
+        # ... any other fire-run parameters for chronicle provenance
+    },
+    # kit_space_data_dir defaults to data/kit_space/ (engine repo root relative)
+    # Override for tests: kit_space_data_dir=Path("...") 
+)
+
+assert terminal_result["emit_path"] == "kit_space"
+assert terminal_result["kits_validation_errors"] == 0
+print(f"event_id: {terminal_result['event_id']}")
+print(f"kits_emitted: {terminal_result['kits_emitted']}")
+```
+
+No bypass of the workflow needed (contrast with EAA-5 v2 which bypassed and called the emitter
+directly). QDX-3's fire script invokes the workflow and calls `run_qd_engine_terminal_phase()`
+at the end — that IS the correct composition. The emitter is wired INTO the terminal; QDX-3
+does not call `emit_kit_space_expansion_event()` directly.
+
+**export_dicts_with_metadata schema:** each dict must have:
+  - `dominant_element`: str (lowercase canonical-7+1)
+  - `skills`: list of skill dicts (with ws1a4_* fields populated by WS1A.4-lite per EAA-1)
+  - `name`: str | None (kit name from Wave B identity LLM)
+  - `balance_metadata`: dict | None (cultural_tradition, period)
+  - `archetype_tag`: str | None
+  - Optional: `emergent_kit_concept`, `chain_composition`, `t4_selection`, `supporting_chain`, `substrate_trace`
+
+This matches the output format of `apply_kit_space_skill_naming_batch()` + any Phase 5 enrichment.
