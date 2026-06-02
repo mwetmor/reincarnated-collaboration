@@ -153,16 +153,16 @@ If BLOCK: KR remediates; re-Gate-1.
 ---
 
 ## Completion record
-**Completed:** 2026-06-XX HH:MM
-**Verdict:** INFO / WARN / BLOCK
-**Final classification:** PASS / PASS-with-INFO / BLOCK
+**Completed:** 2026-06-01
+**Verdict:** INFO
+**Final classification:** PASS-with-INFO
 **Finding artifact:** agentic_orchestration/qa/findings/2026-06-01-ia-2-phase-2-gate-1.md
-**Audit-scope fidelity:** PASS / FAIL
-**Pre-commitment scope fidelity:** PASS / FAIL
-**Q18 IMMUTABILITY discipline:** PASS / FAIL
-**Retroactive-primary-tagging discipline:** PASS / FAIL
-**Key items surfaced:** brief
-**Routing back to KR:** fire gandalf IA-2 Phase 2 / remediate first / hold
+**Audit-scope fidelity:** PASS
+**Pre-commitment scope fidelity:** PASS
+**Q18 IMMUTABILITY discipline:** PASS
+**Retroactive-primary-tagging discipline:** PASS
+**Key items surfaced:** INFO-1 — MODERN per-cell anchor floors are WS2.P1-embedded; MODERN × lightning (8-12 per audit vs dispatch 6-8) flagged for gandalf authoring awareness. INFO-2 — ANCIENT per-cell dispatch targets slightly above audit § 6.3 minimums; within aggregate range and LOCK C cap; no remediation.
+**Routing back to KR:** fire gandalf IA-2 Phase 2 immediately (no blocking items)
 ```
 
 ---
