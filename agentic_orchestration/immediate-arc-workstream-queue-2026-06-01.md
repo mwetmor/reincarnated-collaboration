@@ -144,7 +144,7 @@ Generate a season + ensure magic weapons across periods + drax loads generated s
 | **IA-3.P1** Drax workstream open + V1 integration scaffolding | Phase 1 | ✅ **SUCCESS** — reincarnated-loadout commit `75417f8` + Vercel preview `reincarnated-loadout-dkmj99vb8-matthew-wetmore-s-projects.vercel.app` (data-loading via existing `useSeasonData.ts` glob; 0 TS errors; existing components used); reincarnated-demo commit `0e511c4cb` (no Vercel — R2 in prod; data at public/; 0 TS errors). Existing-component inventory documented per INFO-3. 1 additive type extension per LOCK J § 1 (`blink` GeometryType in demo). 3 existing-component bugs surfaced for post-immediate-arc: (1) classes 0006-0011 `is_act_boss: null` not true; (2) resolveElementDisplay null-guard scope; (3) SeasonManifest elements non-optional vs engine emits null. V2 observation: 8 cosmological slots, 5 surfaced — radiance/penumbra/resonance no dedicated display. | drax close summary at `drax/notes/2026-06-01-ia-3-phase-1-mvp-integration-close.md` |
 | **IA-3.P2** Integration | Phase 2 | ✅ ABSORBED-INTO-P1 (drax MVP integrated data + components in single session per LOCK F MVP-discipline) | — |
 | **IA-3.P3** Vercel deployment | Phase 3 | ✅ COMPLETE (loadout Vercel preview live; demo R2-served in prod no Vercel deploy per drax-side decision) | reincarnated-loadout-dkmj99vb8-matthew-wetmore-s-projects.vercel.app |
-| **IA-3.P4** Iterate with V2 | Phase 4 | ⏸ pending IA-2 close + IA-1 V2 close | |
+| **IA-3.P4** Iterate with V2 | Phase 4 | 📝 DISPATCH-AUTHORING (per LOCK F MVP-discipline; drax consumes V2 season_000043 same pattern as P1 consumed V1) | V2 brine-theme; LLM-named vocab Evaporant Scorch / Tidal Seeping / Salt-Crust Warding / etc. |
 
 ---
 
