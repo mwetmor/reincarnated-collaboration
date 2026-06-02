@@ -273,3 +273,40 @@ This spec is DRAFT per dispatch § 3.1 + jack-ryan Phase 1 batch Gate-1 INFO-B. 
 - EAA-3 acceptance criterion 3 (engine emit path): pending star-lord integration; in-scope for star-lord's EAA-3 co-owner scope
 
 **Signed:** rocket (generation seam; LOCK K co-owner; EAA-3 primary owner)
+
+---
+
+## Completion record — star-lord co-owner (EAA-3 § 3.3 emit integration) (2026-06-02)
+
+**Completed by:** star-lord
+**Date:** 2026-06-02
+**Status:** ✅ COMPLETE — star-lord emit integration delivered; AC-3 MET; jack-ryan Gate-2 PASS-with-INFO
+
+### Commits
+
+| Sha | Tag | Repo | Contents |
+|---|---|---|---|
+| `23b42ed` | `star-lord/v1.4-eaa-3-eaa-4-emit-integration-1` | reincarnated-engine | `src/reincarnated/export/kit_space_emitter.py` + `tests/test_kit_space_emitter.py` + MIGRATION.md § v1.72 + AGENT_STATE.md |
+
+### Star-lord sub-tasks delivered (per dispatch § 3.3)
+
+1. ✅ **Engine emit path emits per-kit JSON entry to kit space directory** — `emit_kit_space_expansion_event()` in `kit_space_emitter.py`; writes per-kit JSONs atomically (`.tmp` → `os.replace`) to `data/kit_space/kits/kit_<primary>_<seq6>.json`
+2. ✅ **Per-kit emit coordinated with EAA-4 chronicle emit** — chronicle entry written FIRST per CHRONICLE_SCHEMA.md § 5 emit-order discipline; per-kit JSONs written SECOND; FK `kit_space_expansion_event_id` verified in round-trip tests
+3. ✅ **EAA-2 skip-flag compose rule implemented** — `should_use_kit_space_emit()` returns True only when BOTH `skip_theme_coalescence=True` AND `skip_cosmological_vocabulary=True`; legacy path untouched (LOCK M Stage 1)
+4. ✅ **Schema validation at write boundary** (Discipline #8) — `validate_per_kit_entry()` called before each kit JSON write; errors surfaced in `KitSpaceEmitStats`
+5. ✅ **MIGRATION.md § v1.72 authored** — old/new contracts, consumer obligations, backward-compat, smoke results
+
+### Acceptance criteria MET (EAA-3 § 6)
+
+| AC | Status |
+|---|---|
+| 1. Per-kit JSON entry schema specified | ✅ COMPLETE — rocket (kit_space_schema.py) |
+| 2. ADR-004 MIGRATION.md authored | ✅ COMPLETE — star-lord MIGRATION.md § v1.72 (engine seam); elrond MIGRATION.md v1.8+v1.9 (collab seam) |
+| 3. Engine emit path emits per-kit entries | ✅ COMPLETE — this star-lord delivery |
+| 4. Smoke-test pass + backward-compat preserved | ✅ COMPLETE — 31/31 new + 317/317 combined PASS; skip-flag guard confirmed |
+| 5. elrond ingest + star-lord output pipeline confirm | ✅ COMPLETE — elrond ingest-compat CONFIRMED (joint spec § 4.4); star-lord emit implemented |
+| 6. jack-ryan Gate-2 PASS | ✅ COMPLETE — PASS-with-INFO; finding `qa/findings/2026-06-02-eaa-3-eaa-4-star-lord-emit-gate-2.md` |
+
+**EAA-3 FULLY CLOSED at star-lord seam.**
+
+**Signed:** star-lord (export seam; LOCK K co-owner; EAA-3 co-owner) 2026-06-02

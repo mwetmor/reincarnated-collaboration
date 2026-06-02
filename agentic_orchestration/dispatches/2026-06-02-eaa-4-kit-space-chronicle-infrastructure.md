@@ -261,3 +261,41 @@ Per Matt 2026-06-02 explicit cycle-push authorization + CLAUDE.md addendum 2026-
 | jack-ryan Gate-2 review | jack-ryan |
 
 **Signed (addendum):** elrond (data steward; chronicle implementation slice) 2026-06-02
+
+---
+
+## Completion record — star-lord co-owner (EAA-4 § 3.3 chronicle emit integration) (2026-06-02)
+
+**Completed by:** star-lord
+**Date:** 2026-06-02
+**Status:** ✅ COMPLETE — chronicle emit integration delivered; AC-3 MET; jack-ryan Gate-2 PASS-with-INFO
+
+### Commits
+
+| Sha | Tag | Repo | Contents |
+|---|---|---|---|
+| `23b42ed` | `star-lord/v1.4-eaa-3-eaa-4-emit-integration-1` | reincarnated-engine | `src/reincarnated/export/kit_space_emitter.py` + `tests/test_kit_space_emitter.py` + MIGRATION.md § v1.72 + AGENT_STATE.md |
+
+### Star-lord sub-tasks delivered (per dispatch § 3.3)
+
+1. ✅ **Engine emits chronicle entry on each kit-space-expansion fire** — `_build_chronicle_event_entry()` + `_load_chronicle()` + `_atomic_write_json()` in `kit_space_emitter.py`; all CHRONICLE_SCHEMA.md § 4.2 required fields populated
+2. ✅ **Emit-order discipline enforced** (CHRONICLE_SCHEMA.md § 5.1 CRITICAL) — chronicle entry appended FIRST to `data/kit_space/kit_space_chronicle.json` before any per-kit JSON writes; code comments label the steps explicitly
+3. ✅ **Atomic write convention** (CHRONICLE_SCHEMA.md § 5.2) — `.tmp` → `os.replace` for all writes (chronicle + per-kit JSONs + kits_index.json)
+4. ✅ **skip_flags_active captured in chronicle entry** — EAA-2 state at event-fire recorded in chronicle for provenance; test confirms
+5. ✅ **lineage_tags 4-field substructure** (CHRONICLE_SCHEMA.md § 4.3 + pool.json v1.1 pattern) — all 4 fields present in chronicle entry
+
+### Acceptance criteria MET (EAA-4 § 6)
+
+| AC | Status |
+|---|---|
+| 1. Chronicle entry schema specified | ✅ COMPLETE — elrond (CHRONICLE_SCHEMA.md v1.0) |
+| 2. Chronicle storage medium selected + implemented | ✅ COMPLETE — elrond (Option α flat JSON source-of-truth + Option β-light shadow tables DDL) |
+| 3. Engine emit path emits chronicle entry on each kit-space-expansion fire | ✅ COMPLETE — this star-lord delivery |
+| 4. Per-kit JSON (EAA-3) links to chronicle via `kit_space_expansion_event_id` | ✅ COMPLETE — FK round-trip verified (test_fk_linkage_* tests); SEQ-3 format enforced |
+| 5. Smoke-test demonstrates chronicle + per-kit JSON co-emission + linkage integrity | ✅ COMPLETE — 31/31 PASS; test_chronicle_written_before_per_kit_json + test_fk_linkage_all_kits (20 kits) |
+| 6. ADR-004 MIGRATION.md authored | ✅ COMPLETE — star-lord MIGRATION.md § v1.72 (engine seam); elrond MIGRATION.md v1.8+v1.9 |
+| 7. jack-ryan Gate-2 PASS | ✅ COMPLETE — PASS-with-INFO; finding `qa/findings/2026-06-02-eaa-3-eaa-4-star-lord-emit-gate-2.md` |
+
+**EAA-4 FULLY CLOSED at star-lord seam.**
+
+**Signed:** star-lord (export seam; LOCK K co-owner; EAA-4 co-owner) 2026-06-02
