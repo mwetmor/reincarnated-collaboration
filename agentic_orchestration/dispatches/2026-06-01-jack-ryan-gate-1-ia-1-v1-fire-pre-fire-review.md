@@ -136,20 +136,18 @@ If BLOCK: KR remediates; re-Gate-1.
 
 ## Completion record (you append at completion)
 
-```markdown
 ---
 
 ## Completion record
-**Completed:** 2026-06-XX HH:MM
-**Verdict:** INFO / WARN / BLOCK
-**Final classification:** PASS / PASS-with-INFO / BLOCK
-**Finding artifact:** agentic_orchestration/qa/findings/2026-06-01-ia-1-v1-fire-gate-1.md
-**Pre-commitment scope fidelity:** PASS / FAIL
-**Entry-point fidelity:** PASS / FAIL
-**Execution discipline:** PASS / FAIL
-**Key items surfaced:** brief
-**Routing back to KR:** fire star-lord IA-1 V1 / remediate first / hold
-```
+**Completed:** 2026-06-01
+**Verdict:** INFO
+**Final classification:** PASS-with-INFO
+**Finding artifact:** `agentic_orchestration/qa/findings/2026-06-01-ia-1-v1-fire-gate-1.md`
+**Pre-commitment scope fidelity:** PASS
+**Entry-point fidelity:** PASS
+**Execution discipline:** PASS
+**Key items surfaced:** INFO-only — push-authorization citation in § 2 Step 5 correct; no amendments required
+**Routing back to KR:** fire star-lord IA-1 V1 immediately
 
 ---
 
