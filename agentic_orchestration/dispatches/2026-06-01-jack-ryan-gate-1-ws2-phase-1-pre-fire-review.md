@@ -148,4 +148,17 @@ If BLOCK: KR remediates; re-Gate-1.
 
 ---
 
+## Completion record
+
+**Completed:** 2026-06-01
+**Verdict:** INFO
+**Final classification:** PASS-with-INFO
+**Finding artifact:** `agentic_orchestration/qa/findings/2026-06-01-ws2-phase-1-gate-1.md`
+**Gandalf-deferred fidelity check:** PASS
+**Audit scope-bound check:** PASS
+**Key items surfaced:** All 5 checklist areas clean. Single INFO: lineage-disambiguation fallback ("where substrate fields permit") is self-documented via mandatory audit-limitations section — no action required.
+**Routing back to KR:** fire elrond WS2 Phase 1 immediately
+
+---
+
 **End of jack-ryan WS2 Phase 1 Gate-1 dispatch.**
