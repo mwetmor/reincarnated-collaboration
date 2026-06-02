@@ -146,15 +146,15 @@ If BLOCK: KR remediates per your guidance; re-Gate-1.
 ---
 
 ## Completion record
-**Completed:** 2026-06-XX HH:MM
-**Verdict:** INFO / WARN / BLOCK
-**Final classification:** PASS / PASS-with-INFO / BLOCK
+**Completed:** 2026-06-01
+**Verdict:** INFO
+**Final classification:** PASS
 **Finding artifact:** agentic_orchestration/qa/findings/2026-06-01-ia-1-pre-fire-question-gate-1.md
-**Pre-fire question fidelity:** PASS / FAIL
-**Seam-owner authority respect:** PASS / FAIL
-**Scope-bound discipline:** PASS / FAIL
-**Key items surfaced:** brief
-**Routing back to KR:** route pre-fire question to star-lord+rocket / remediate first
+**Pre-fire question fidelity:** PASS
+**Seam-owner authority respect:** PASS
+**Scope-bound discipline:** PASS
+**Key items surfaced:** All 7 checklist sections PASS. One INFO observation: § 8 acceptance criteria are correctly written for star-lord's response (not dispatch completion) — structurally correct, noted for audit clarity only. Drift-14 handling correctly threads "note behavior / don't pre-decide answer." No WARN or BLOCK items.
+**Routing back to KR:** route pre-fire question to star-lord+rocket immediately
 ```
 
 ---
