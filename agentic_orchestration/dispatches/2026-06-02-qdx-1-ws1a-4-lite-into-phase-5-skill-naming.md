@@ -160,3 +160,77 @@ On work-completion, append a completion record block to this dispatch file with:
 ---
 
 **End of QDX-1 dispatch.**
+
+---
+
+## Completion record
+
+**Completed by:** rocket (2026-06-02)
+**Tag:** `rocket/v1.5-qdx-1-ws1a-4-lite-phase-5-integration-1`
+**Engine commit:** `76adb6e`
+
+**Tests:** 10/10 PASS (new) + 34/34 PASS (existing WS1A.4-lite regression)
+
+New tests in `tests/test_phase5_qdx1_ws1a4_integration.py`:
+1. `test_backward_compat_false_path` — ws1a4_active=False: output identical to existing behavior; all ws1a4_* stats zero
+2. `test_ws1a4_active_flavor_true_path` — flavor=True path: ws1a4_flavor_decision=True, word from Q18 pool, constraint injected
+3. `test_ws1a4_active_flavor_false_path` — flavor=False path: ws1a4_flavor_decision=False, word=None, canonical constraint injected
+4. `test_physical_opt_out_path` — physical primary: judge not called; ws1a4_physical_opt_out incremented; no ws1a4_* fields
+5. `test_llm_unavailable_fallback` — llm_client=None + ws1a4_active=True: graceful degradation to placeholder naming
+6. `test_stats_accumulation_flavor` — multi-skill kit: flavor/canonical/cost counters accumulate correctly
+7. `test_variety_check` — ≥1 flavor=True AND ≥1 flavor=False in same kit (dispatch § 4 variety criterion)
+8. `test_ws1a4_metadata_written_to_skill` — all 4 ws1a4_* fields written into skill dict
+9. `test_phase5_stats_backward_compat` — Phase5RunStats new fields default 0/0.0; to_dict() includes ws1a4_* keys; existing fields preserved
+10. `test_append_ws1a4_constraint_flavor_true_and_false` — constraint helper produces correct flavor/canonical blocks
+
+**MIGRATION.md:** § QDX-1 entry added at `src/reincarnated/generation/MIGRATION.md` (top of entries; documents all new params, skill dict fields, Phase5RunStats additive fields, downstream consumer impact, cost telemetry composition)
+
+**Smoke output (shadow kit, 6 skills, ws1a4_active=True):**
+```
+  chain1_t1: ws1a4_flavor=False  word=None       → name='Shadow Bolt'
+  chain1_t2: ws1a4_flavor=True   word='wraith'   → name='Wraith Binding'
+  chain1_t3: ws1a4_flavor=True   word='void'     → name='Void Wraith Strike'
+  chain2_t1: ws1a4_flavor=True   word='shade'    → name='Shade Step'
+  chain2_t2: ws1a4_flavor=True   word='soul'     → name='Soul Slip'
+  chain2_t3: ws1a4_flavor=True   word='necrotic' → name='Necrotic Soul Slip'
+ws1a4_flavor_rate: 5/6 = 0.83
+Variety check: has_flavor_true=True, has_flavor_false=True — PASS
+Q18 pool validation: PASS (all flavor words from shadow pool)
+```
+
+**Cost telemetry:** ws1a4_total_cost_usd=$0.0130, phase5_total_cost_usd=$0.0162 (both tracked separately; both > 0 per acceptance criterion § 3.1 item 5)
+
+**Gate-2 verdict:** Awaiting jack-ryan Gate-2 post-output review.
+
+**Notes for downstream (QDX-3):**
+
+QDX-3 fire script invokes Phase 5 with `ws1a4_active=True` via:
+
+```python
+from reincarnated.generation.phase5_skill_naming import apply_phase5_skill_naming
+
+result_dicts, stats, t4_stats = apply_phase5_skill_naming(
+    llm_client=llm_client,
+    export_dicts=export_dicts,
+    archetype_tags=archetype_tags,        # parallel list per form
+    form_summaries=form_summaries,        # parallel list per form
+    verbose=True,
+    run_t4_narration=True,
+    ws1a4_active=True,                    # QDX-1 integration parameter
+    kit_concepts=kit_concepts,            # parallel list of emergent kit concept strings per form
+)
+# stats.ws1a4_total_cost_usd = WS1A.4-lite cost
+# stats.total_estimated_cost_usd = Phase 5 cohesion-judge cost
+# stats.ws1a4_flavor_rate = fraction of skills that took flavor branch
+```
+
+`kit_concepts` is a parallel list of emergent kit concept strings (e.g., "Shadow Necromancer"),
+one per form in `export_dicts`. If None is passed, `name_form_skills()` falls back to using
+the form's `name` field — so it's optional but recommended for richer WS1A.4-lite context.
+
+For physical-primary kits, ws1a4_active=True is safe: WS1A.4-lite opts out automatically;
+no ws1a4_* fields are written; physical opt-out counter is incremented in stats.
+
+The EAA-1 wrapper (`kit_space_skill_naming.py`) is unaffected — it calls `name_form_skills`
+without the new params (backward-compat); QDX-3 should call `apply_phase5_skill_naming`
+directly with `ws1a4_active=True`, not via the EAA-1 wrapper.
