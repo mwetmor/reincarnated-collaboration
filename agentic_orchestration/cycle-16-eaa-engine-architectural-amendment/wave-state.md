@@ -1,6 +1,6 @@
 # Cycle 16 — Engine Architectural Amendment (EAA) Chain — Wave State
 
-**STATUS:** OPEN (wave-open authoring complete; Phase 1 fan-out pending Gate-1 PASS)
+**STATUS:** ✅ CLOSED (2026-06-02; canonical wave-close record at `canonical/story/2026-06-02-eaa-chain-wave-close-record.md` commit `9b637d6`; Matt's stated chain-close goal empirically met)
 **Date opened:** 2026-06-02
 **Owner:** knight-rider (orchestrator)
 **Authority:** Matt 2026-06-02 Pattern B substantive design session ratification (canonical record at `canonical/story/2026-06-02-season-archive-realm-expansion-pivot.md`); gandalf transmission with Locks A-P pre-commitment package
@@ -190,9 +190,9 @@ Workstream decomposition is ADVISORY per gandalf transmission; KR may amend per 
 | **EAA-3** Kit-space output schema | ✅ COMPLETE (all seams) | Owner: rocket + elrond + star-lord. All 6 AC MET. Rocket v2: sha=ca45b5d / tag=rocket/v1.4-eaa-3-kit-space-schema-2; 63/63 PASS; all 5 elrond iteration points; SEQ-3 format LOCKED. Elrond ingest-compat CONFIRMED (joint spec). Star-lord emit integration: sha=23b42ed / tag=star-lord/v1.4-eaa-3-eaa-4-emit-integration-1; 31/31 PASS; emit_kit_space_expansion_event() with per-kit JSON emit SECOND; validate_per_kit_entry() at write boundary (Disc #8); MIGRATION.md § v1.72 authored. Gate-2: jack-ryan PASS-with-INFO 2 INFOs (finding `qa/findings/2026-06-02-eaa-3-eaa-4-star-lord-emit-gate-2.md`). |
 | **EAA-4** Kit-space chronicle infrastructure | ✅ COMPLETE (all seams) | Owner: elrond + star-lord. All 7 AC MET. Elrond: schema LOCKED (CHRONICLE_SCHEMA.md v1.0); Option α source-of-truth `kit_space_chronicle.json` + Option β-light shadow tables DDL; smoke 9/9 PASS; MIGRATION.md v1.8+v1.9. Star-lord emit integration: sha=23b42ed / tag=star-lord/v1.4-eaa-3-eaa-4-emit-integration-1; chronicle entry written FIRST (emit-order discipline per CHRONICLE_SCHEMA.md § 5); atomic .tmp→os.replace; FK round-trip verified (31 tests); skip_flags_active captured in chronicle entry. Gate-2: jack-ryan PASS-with-INFO 2 INFOs (finding `qa/findings/2026-06-02-eaa-3-eaa-4-star-lord-emit-gate-2.md`). |
 | **EAA-5** First kit-space-expansion generation fire | ✅ COMPLETE | Owner: KR + rocket + star-lord. v2 ClassGenerator path. event_id=kse_20260602_001; 25 kits; 8/8 elements; ws1a4_flavor_rate=44.9%; validation_errors=0; total_llm_cost=$0.2956; engine_sha=23b42ed. Gate-2: STRUCTURAL PASS (jack-ryan; finding `qa/findings/2026-06-02-eaa-5-v2-class-generator-gate-2.md`; 3 INFOs non-blocking). EAA-5 CLOSES. |
-| **EAA-6** Drax MVP reframe | ✅ UNBLOCKED (EAA-5 PASS) | Owner: drax |
-| **EAA-7** Engine page MVP reframe | ✅ UNBLOCKED (EAA-5 + EAA-4 PASS) | Owner: drax |
-| **EAA-8** Wave-close | ⏸ pending all PASS | Owner: KR + gandalf + jack-ryan |
+| **EAA-6** Drax MVP reframe | ✅ COMPLETE | Owner: drax. sha=`2f5fec4` / tag `drax/v1.4-eaa-6-loadout-kit-space-1`. Vercel preview `reincarnated-loadout-guxgt5bxe-matthew-wetmore-s-projects.vercel.app`. Gate-2 PASS clean (1 INFO: static `KIT_IDS` defer to EAA-8; finding `qa/findings/2026-06-02-eaa-6-loadout-kit-space-gate-2.md`). LOCK O compliant; backward-compat preserved. |
+| **EAA-7** Engine page MVP reframe | ✅ COMPLETE | Owner: drax. sha=`42a0a0b` / tag `drax/v1.4-eaa-7-engine-page-chronicle-1`. Vercel preview `reincarnated-loadout-madl8913m-matthew-wetmore-s-projects.vercel.app`. Reuses EAA-6 chronicle types. Gate-2 PASS-with-INFO 2 INFOs (finding `qa/findings/2026-06-02-eaa-7-engine-page-chronicle-gate-2.md`). LOCK O compliant; 0 regressions. |
+| **EAA-8** Wave-close | ✅ COMPLETE | KR wave-close canonical record `canonical/story/2026-06-02-eaa-chain-wave-close-record.md` commit `9b637d6`. Gandalf design-quality audit + jack-ryan engineering-discipline ratification fired concurrently (background). Ground-state § 1 update + strategic re-engagement signal to Matt pending session close. |
 
 ---
 
