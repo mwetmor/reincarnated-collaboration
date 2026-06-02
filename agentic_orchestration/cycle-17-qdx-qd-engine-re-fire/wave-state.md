@@ -1,6 +1,6 @@
 # Cycle 17 — QDX QD-Engine Workflow Re-Fire with WS1A.4-lite Integration — Wave State
 
-**STATUS:** 🟢 OPEN — Phase 3 ✅ QDX-5 PASS (37 kits emitted; ~$1.14 actual cost / 10.6 min wall-clock); QDX-6 Gate-2 acceptance verification firing
+**STATUS:** 🟢 OPEN — Phase 3 ✅ COMPLETE (QDX-5 + QDX-6 PASS-with-INFO; 0 BLOCKs across full QDX chain); Phase 4 (QDX-7 drax MVP refresh) firing
 **Date opened:** 2026-06-02
 **Owner:** knight-rider (orchestrator)
 **Authority:** Matt 2026-06-02 Pattern B substantive design session — gandalf transmission with QDX chain routing (Locks A-P preserved from EAA chain; Locks Q-T NEW for QDX scope)
@@ -218,7 +218,14 @@ Phase 1 PASS criterion: ✅ ACHIEVED. QDX-1 + QDX-2 + QDX-3 all PASS (with QDX-3
 | Property | Value |
 |---|---|
 | **Owner** | jack-ryan per LOCK L pattern |
-| **Status** | 🟢 FIRING (Phase 3; gates on QDX-5 ✅ achieved) |
+| **Status** | ✅ COMPLETE (2026-06-02) — PASS-with-INFO; 0 BLOCKs |
+| **Finding file** | `qa/findings/2026-06-02-qdx-phase-3-qdx-5-gate-2.md` |
+| **Commit** | `fc075ae` (pushed) |
+| **8-criteria** | 5 PASS + 3 PASS-with-INFO (criterion #2 distinct identities — w/INFO on 5 substrate-fallback name duplicates; #4 multi-T4 — w/INFO on 4 null kits; #6 substrate-led — w/INFO Option B interpretation per Matt ratification) |
+| **4-WARN triage** | ALL classified INFO carry-forward (rocket's t4_null / W-B7 / generic Wave B / B6 substrate-coverage) |
+| **Phase 4 routing** | ✅ CLEARED for drax QDX-7 |
+| **Strategic signal** | "elrond substrate-enrichment is the highest-leverage next-cycle investment. The caster side of QDX-5 empirically delivers Cycle 14 wave-5-equivalent richness. The physical side's quality deficit is structural, not architectural — the pipeline is sound; the substrate is thin." (queued for gandalf QDX-8 + Matt) |
+| **3 routing notes for drax QDX-7** | (1) faction grouping NOT in per-kit `emergent_kit_concept` (Phase 5a clustering data); (2) check `t4_selection.is_active` flag (not just null); (3) filter to `kit_space_expansion_event_id == "kse_20260602_008"` (historical kits have different schema) |
 | **Dispatch** | `dispatches/2026-06-02-qdx-6-gate-2-acceptance-verification.md` |
 | **Scope** | Verify QDX-5 output against amended 8-criteria checklist: (1-7 original) + (8 NEW) per-primary distribution matches Option B4 target ~40-45% physical ± 5% / ~55-60% caster |
 | **Discipline #41 interpretation** | criterion 6 reinterpreted per Matt 2026-06-02 ratification: substrate-led WITHIN element axis; Option B4 weighted round-robin for element-axis coverage |
@@ -233,7 +240,8 @@ Phase 1 PASS criterion: ✅ ACHIEVED. QDX-1 + QDX-2 + QDX-3 all PASS (with QDX-3
 | Property | Value |
 |---|---|
 | **Owner** | drax per LOCK T |
-| **Status** | ❌ NOT STARTED (gates on QDX-5 + QDX-6 PASS) |
+| **Status** | 🟢 FIRING (Phase 4; gates on QDX-5 + QDX-6 ✅ cleared) |
+| **Dispatch** | `dispatches/2026-06-02-qdx-7-drax-mvp-refresh.md` |
 | **Scope** | reincarnated-loadout consumes new richer kit_space output; reincarnated-loadout engine page chronicles QDX-5 expansion event; MVP-discipline (existing components only) |
 | **Output** | Vercel deployed loadout + engine page rendering new output |
 | **Gates on** | QDX-5 + QDX-6 PASS |
@@ -365,6 +373,9 @@ Plus **discipline #56 candidate from EAA chain** (generator-path explicit naming
 | 2026-06-02 | rocket pre-flight smoke confirmed Option B4.5 path; PASS (3 kits; cost $0.13; FK linkage PASS) |
 | 2026-06-02 | ✅ rocket QDX-5 FULL FIRE PASS-with-WARNs (engine `00cfbd0`; tag `rocket/v1.5-qdx-5-full-fire-option-b4-1`; event `kse_20260602_008`; **37 kits / 43.2% physical / $1.14 / 10.6 min**); 0 BLOCKs; 4 WARNs queued for QDX-6 triage |
 | 2026-06-02 | KR routes jack-ryan QDX-6 Gate-2 acceptance verification (8-criteria + WARN triage) |
+| 2026-06-02 | ✅ jack-ryan QDX-6 PASS-with-INFO (commit `fc075ae`); 0 BLOCKs accumulated; Phase 4 CLEARED for drax; strategic signal queued (substrate-enrichment = highest-leverage next-cycle investment) |
+| 2026-06-02 | KR authored QDX-7 dispatch with 3 jack-ryan routing notes embedded |
+| 2026-06-02 | KR fires drax QDX-7 (loadout + engine page consume QDX-5 kit_space output; LOCK O MVP-discipline; LOCK T scope-bounding) |
 
 ---
 
