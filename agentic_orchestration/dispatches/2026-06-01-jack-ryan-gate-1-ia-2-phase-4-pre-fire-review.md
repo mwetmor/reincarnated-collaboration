@@ -133,4 +133,19 @@ If BLOCK: KR remediates; re-Gate-1.
 
 ---
 
+## Completion record
+**Completed:** 2026-06-01
+**Verdict:** INFO
+**Final classification:** PASS-with-INFO
+**Finding artifact:** `agentic_orchestration/qa/findings/2026-06-01-ia-2-phase-4-gate-1.md`
+**Methodology fidelity:** PASS
+**CRITICAL cell scope:** PASS (§ 2.4 explicit; MEDIEVAL × shadow + 6-anchor binding referenced correctly)
+**Substrate-led discipline composition:** PASS (Disc #41 + #49 explicitly composed; REMAINS-OPEN substrate-honest acceptance confirmed)
+**Retroactive-primary-tagging quality scope:** PASS (127/10 ratio + per-primary distribution + confidence threshold + INFO-2 Option α/β/C all in scope)
+**Wave-close signal scope:** PASS (escape-clause criteria proportionate; no pre-decided verdict)
+**Key items surfaced:** INFO — elrond should use IA-2.P3 § 3.3 ingest grid as anchor for IA-2 entry delta derivation (live query still required for retroactive-tag + legacy substrate delta)
+**Routing back to KR:** fire elrond IA-2.P4 immediately
+
+---
+
 **End of jack-ryan IA-2.P4 Gate-1 dispatch.**
