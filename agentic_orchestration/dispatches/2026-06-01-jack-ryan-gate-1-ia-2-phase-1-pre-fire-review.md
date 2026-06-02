@@ -156,4 +156,17 @@ If BLOCK: KR remediates; re-Gate-1.
 
 ---
 
+## Completion record
+**Completed:** 2026-06-01
+**Verdict:** INFO
+**Final classification:** PASS-with-INFO
+**Finding artifact:** `agentic_orchestration/qa/findings/2026-06-01-ia-2-phase-1-gate-1.md`
+**IA-2 scope fidelity:** PASS
+**WS2.P1 reuse discipline:** PASS (CRITICAL — three-layer assurance satisfied: dispatch body + § 4 constraints + § 7 acceptance criteria)
+**Audit scope-bound:** PASS
+**Key items surfaced:** INFO-1 (21-cell grid correctly excludes physical; confirm in methodology); INFO-2 (designer-curation-modern-scientific-overlay entries are primary audit target for MODERN period); INFO-3 (elrond should define per-period magic-weapon criteria explicitly for ANCIENT + MEDIEVAL, analogous to WS2.P1 § 1.2); stale 89,839 row-count in dispatch (known; non-blocking)
+**Routing back to KR:** fire elrond IA-2 Phase 1 immediately
+
+---
+
 **End of jack-ryan IA-2 Phase 1 Gate-1 dispatch.**
