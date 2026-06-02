@@ -247,3 +247,37 @@ On work-completion, BOTH workstreams append a completion record to this dispatch
 ---
 
 **End of QDX-4 dispatch.**
+
+---
+
+## Completion record — Workstream B (jack-ryan Gate-2 unified)
+
+**Completed by:** jack-ryan (2026-06-02)
+**Finding file:** `qa/findings/2026-06-02-qdx-phase-1-phase-2-gate-2.md`
+**Commit:** (see git log)
+**Per-workstream verdicts:**
+- QDX-1: PASS-with-INFO (INFO 1-2 carry-forward: EAA-1 wrapper test gap; no BLOCKs)
+- QDX-2: PASS (all criteria met; Gate-1 INFO 2-1 dual-MIGRATION.md closed)
+- QDX-3: PASS-with-INFO (INFO 3-A Wave A escalation path carry-forward; Gate-1 INFOs W-1 + 3-2 closed)
+- QDX-4: PENDING (rocket Workstream A not landed; criteria 5-7 unverified; chronicle at kse_20260602_005; no non-physical smoke kit on disk)
+
+**LOCK S 7-criteria checklist (partial — QDX-4 pending):**
+1. Kit count ≥1: PASS (QDX-3 smoke: 2 kits)
+2. Distinct emergent kit identities: PASS (Wave B non-template confirmed in QDX-3 smoke)
+3. Faction emergence ≥1: PASS (QDX-3 smoke: "Null Convergence Drift")
+4. t4_selection not null: PASS (QDX-3 smoke: 2/2 kits narrated)
+5. ws1a4_flavor_rate > 0; per-skill ws1a4_* metadata: PENDING (QDX-4 required)
+6. Substrate-led element non-physical: PENDING (QDX-4 required)
+7. Per-skill flavor coherence (sample inspection): PENDING (QDX-4 required)
+
+**Gate-1 INFO disposition:**
+- INFO W-1: CLOSED (Phase 3 docstring present in QDX-3 script)
+- INFO W-2: CLOSED (n_candidates scaffold documented; LOCK R operative)
+- INFO 1-1: CLOSED (test uses concrete structural assertions, not vague "semantically-identical")
+- INFO 1-2: CARRY-FORWARD (MIGRATION.md consumer table documents; no explicit test added)
+- INFO 2-1: CLOSED (both export/MIGRATION.md + generation/MIGRATION.md present)
+- INFO 3-1: CARRY-FORWARD (Wave A escalation path implicit under LOCK L; no separate escape clause written)
+- INFO 3-2: CLOSED (pre-fire projection uses PARETO_TARGET at startup; conservative and correct)
+
+**BLOCKs accumulated:** 0
+**Phase 3 routing clearance:** CONDITIONAL YES (clears on QDX-4 LOCK S smoke PASS + criteria 5-7 verification)
