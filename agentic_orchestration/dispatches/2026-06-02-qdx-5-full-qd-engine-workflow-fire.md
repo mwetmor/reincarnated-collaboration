@@ -255,3 +255,39 @@ On work-completion, append a completion record to this dispatch file with:
 ---
 
 **End of QDX-5 dispatch.**
+
+---
+
+## Completion record
+
+**Completed by:** rocket (2026-06-02)
+**Tag:** `rocket/v1.5-qdx-5-full-fire-option-b4-1`
+**Engine commit:** `00cfbd0` (fire outputs) / `d89d23e` (pre-fire snapshot); pre-fire script state `cd3b10c`
+**Script path:** `scripts/qdx_qd_engine_re_fire_20260602.py --option-b` (extended at QDX-4; B4.5 amendment in place)
+**Pre-fire cost projection:** $1.03 (vs $30 LOCK R bound; ABORT threshold $60)
+**Pre-fire memory projection:** ~300 MB
+**Cost actual:** $1.14 ($1.1392) — ws1a4=$0.19 / phase5=$0.21 / t4_narr=$0.13 / wave_a=$0.015 / wave_b=$0.59
+**Wall-clock actual:** 10.6 min (vs ~30-90 min projected; substantially faster due to ClassGenerator path bypassing BC-target candidate pool)
+**Kit count actual:** 37 (vs 37 target; PASS)
+**Per-primary distribution actual:** {earth: 3, fire: 3, holy: 3, lightning: 3, physical: 16, shadow: 3, water: 3, wind: 3}
+**% physical:** 43.2% (vs 40-45% target; PASS)
+**WS1A.4-lite stats:** flavor_count=86; canonical_count=110; fallback_count=0; flavor_rate=30.3%; physical_opt_out=16 kits
+**Phase 5 cohesion:** PASS rate=99.6% (284 skills); 3 faction clusters (pm1_algorithm=GMM_K3)
+**Wave A faction names:** Iron Ground Crushers / Scattered Meridian Cannons / Earthen Siege Wardens
+**Wave B emergent identities sample:** 'Crusher Who Holds the Ground' [physical], 'Ember Caster of Scorched Meridian' [fire], 'Penumbra Caster of Dusk Meridian' [shadow], 'Tidecaster of the Scattered Reach' [water], 'Radiant Arbiter of the Open Field' [holy]; wave_b_template_repeat_detected=False
+**Multi-T4 selection:** 33/37 kits populated (4 nulls = kits where T4 alteration output was absent; WARN — surface for QDX-6 criterion #4)
+**Event_id:** `kse_20260602_008`
+**Chronicle entry:** WRITTEN; FK linkage PASS (chronicle-first emit-order discipline respected)
+**Kit JSONs:** 37 new files (kit_physical_000013-000028, kit_fire_000006-000008, kit_water_000004-000006, kit_earth_000004-000006, kit_wind_000004-000006, kit_lightning_000004-000006, kit_holy_000004-000006, kit_shadow_000007-000009)
+**Generic-name fallback (Wave B):** 9 kits used substrate-derived fallback names after 2 LLM parse retries exhausted (3x 'Iron Physical Fighter Bearer', 3x 'Earthen Earth Fighter Bearer', 2x 'Scattered Wind Fighter Bearer', 1x 'Scattered Holy Fighter Bearer'); these are not template-repeat (different kit IDs, distinct kit content) but are low-quality names — surface for QDX-6 inspection
+**Regressions:** none (LOCK Q ADDITIVE-ONLY — zero upstream module changes; script-only)
+**Gate-2 readiness:** READY for QDX-6 verification
+**Notes for QDX-6:**
+- t4_selection null on 4 kits: WARN #4 — not all kits have T4 alteration output (root cause: some ClassGenerator kits produce BC axes where T4 narration has no alteration field; acceptance criterion 4 says "not null on all kits" — jack-ryan should assess whether 33/37=89% constitutes PASS-with-INFO or BLOCK on this criterion)
+- W-B7 faction-coherence warnings on ~9 physical kits: Wave B identity_narrative did not reference faction name/thematic_tag; likely structural (physical archetype names tend to be self-contained; faction tags are caster-themed); jack-ryan should assess whether this is an INFO or a deeper prompt design issue
+- Generic-name fallback on 9 kits: Wave B LLM parse failed 2x before fallback; fallback names like 'Earthen Earth Fighter Bearer' and 'Iron Physical Fighter Bearer' are generic; assess whether these kits constitute acceptance criterion #2 (template-repeat) PASS or borderline
+- 1 AI-tell phrase hit on qdx5-kit-physical-009: "this kit embodies" in Wave B output; FAIL_RECORD triggered regeneration; resolved; surface for jack-ryan awareness
+- Kit quality gradient visible: caster kits (fire, shadow, water, lightning, holy) have substantially richer Wave B identities than physical/earth kits; this is expected given substrate thinness for physical (B6 fallback on all 16 physical kits logged); jack-ryan should note this as INFO on criterion #3 (emergent identity quality)
+**Notes for QDX-7 (drax MVP):** 75 total kits in kit_space (38 historical + 37 QDX-5); kit JSONs include emergent_kit_concept field for identity display; faction_name field is null in kit JSONs (faction membership is in pm1 clustering output, not per-kit JSON — drax should use emergent_kit_concept as primary identity display; faction grouping requires loading from phase5a output or chronicle notes); t4_selection is populated on 33/37 kits with full narration + thematic_rationale fields
+
+**Forensic note (prior invocation diagnosis):** The prior rocket invocation that "exited at ~21 min reporting PID 77973 alive" ran `--option-b --smoke` (the 3-kit Option B pre-flight smoke per dispatch § 3.5), NOT the full fire. Chronicle event `kse_20260602_007` has `fire_mode=option_b_smoke` and kit_count=3. The full fire had never been attempted. The 11 uncommitted kit JSONs were from QDX-3/4/5 smoke runs (events 002-007, all with correct FK linkage). Recovery decision was Option (ii) in dispatch framing terms — re-fire from correct state — but this was not an interrupted partial fire; it was the first full fire attempt.
