@@ -20,7 +20,7 @@ Four workstreams queued. WORKSTREAM 1 + WORKSTREAM 2 Phase 1 AUTHORIZED to fire 
 
 | WS | Title | Owner(s) | Authorization | Horizon | Status |
 |---|---|---|---|---|---|
-| **WS1** | Sub-phase 5f pool.json migration | elrond + star-lord (cross-seam) + jack-ryan Gate-1 | ✅ KR discretion (per WS1A.Q18 wave-close 5f deferral) | 1 wave (~3-5 sessions) | 🔥 FIRING (Gate-1 PASS-with-INFO; PG-3 fidelity + INFO-1 actioned + cross-seam handling all PASS; 2 INFO items no action: stormtide legacy entry routing; abbreviated discipline citation style) |
+| **WS1** | Sub-phase 5f pool.json migration | elrond + star-lord (cross-seam) + jack-ryan Gate-1 + Gate-2 | ✅ KR discretion (per WS1A.Q18 wave-close 5f deferral) | 1 wave (~3-5 sessions) | ✅ ELROND COMPLETE — schema extended (4 additive fields), pool.json v1.0→v1.1 (156→214 entries: 100 Architecture-A locked + 114 legacy preserved-quarantined), physical_taxonomy.json separate file (elrond decision), MIGRATION.md engine+meta sides, backward-compat verified 10-test smoke suite PASSES, **3 material ambiguities surfaced (cardinality discrepancy 109 vs 100, lineage-tag aggregate reconciliation, stormtide no-op); jack-ryan Gate-2 routing fires now (BLOCK authority + ambiguity assessment)** (engine commit `fcc4887` + meta-repo `d1beb95`) |
 | **WS2.P1** | Elrond Mode A modern-caster substrate audit | elrond + jack-ryan Gate-1 | ✅ KR discretion (audit only; informs Phase 2 decision) | ~0.5 session | ✅ COMPLETE — uniformly THIN coverage: lightning/fire/wind/water/earth=ABSENT, holy/shadow=WEAK; Path A+B confirmed at ~45-67 weapons total (upper-medium of gandalf § 2.5 estimate); 3 notable findings — surfaced for Matt + gandalf (commit `a79fa33`) |
 | **WS2.P2** | Gandalf manual-authoring sessions for gap-fill modern-caster weapons | gandalf + Matt (Path A/B/A+B decision) | 🔴 Matt authorization required (audit confirms Path A+B at ~45-67 weapons total; gandalf § 2.5 estimate upper-medium range) | 2-3 sessions | 🔴 SURFACED-TO-MATT — audit findings ready; Path A+B authorization request pending |
 | **WS2.P3** | Elrond schema + ingest + lineage tag application | elrond | 🔴 Conditional on WS1 (lineage tag schema) + WS2.P2 completion | ~0.5 session | ⏸ HELD pending WS1 + WS2.P2 |
@@ -69,9 +69,12 @@ Variant of α with explicit gandalf-Matt sequencing checkpoints between Q waves.
 
 | Dispatch | Path | Status |
 |---|---|---|
-| WS1 main dispatch | `dispatches/2026-06-01-elrond-cycle-15-ws1a-q18-sub-phase-5f-pool-migration.md` | 🔥 FIRING (elrond) |
+| WS1 main dispatch | `dispatches/2026-06-01-elrond-cycle-15-ws1a-q18-sub-phase-5f-pool-migration.md` | ✅ COMPLETE (elrond) |
 | WS1 Gate-1 dispatch | `dispatches/2026-06-01-jack-ryan-gate-1-cycle-15-ws1a-q18-sub-phase-5f-pre-fire-review.md` | ✅ COMPLETE (PASS-with-INFO) |
 | WS1 Gate-1 finding | `qa/findings/2026-06-01-ws1-sub-phase-5f-gate-1.md` | ✅ COMMITTED |
+| WS1 engine-side migration artifacts | `~/Games/reincarnated-engine/data/seasonal_elements/{pool.json,pool.json.pre-q18-2026-06-01-backup,physical_taxonomy.json}` + `~/Games/reincarnated-engine/src/reincarnated/element/{schema.py,pool.py,MIGRATION.md}` | ✅ COMMITTED (engine repo `fcc4887`) |
+| WS1 meta-repo migration artifacts | `agentic_orchestration/research/curated/MIGRATION.md` v1.7 + `agentic_orchestration/research/scripts/q18_pool_migration_2026_06_01.py` | ✅ COMMITTED (`d1beb95`) |
+| WS1 Gate-2 dispatch | `dispatches/2026-06-01-jack-ryan-gate-2-ws1-sub-phase-5f-migration-review.md` | 🔥 FIRING |
 | WS2.P1 main dispatch | `dispatches/2026-06-01-elrond-ws2-phase-1-modern-caster-substrate-audit.md` | ✅ COMPLETE |
 | WS2.P1 Gate-1 dispatch | `dispatches/2026-06-01-jack-ryan-gate-1-ws2-phase-1-pre-fire-review.md` | ✅ COMPLETE (PASS-with-INFO) |
 | WS2.P1 Gate-1 finding | `qa/findings/2026-06-01-ws2-phase-1-gate-1.md` | ✅ COMMITTED |
