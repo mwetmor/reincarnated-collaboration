@@ -7,6 +7,97 @@
 
 ---
 
+## v1.7 — WS1A.Q18 sub-phase 5f — pool.json v1.1 migration + physical_taxonomy.json — 2026-06-01
+
+### What changed (one line)
+
+Executed POST-WAVE pool.json v1.0→v1.1 schema-extension-and-data-migration per WS1A.Q18 PG-3 ratification: extended `PoolElement` with 4 additive fields, migrated `data/seasonal_elements/pool.json` from 156 → 214 entries (100 Architecture-A locked allow-list + 114 legacy preserved-as-quarantined), created `data/seasonal_elements/physical_taxonomy.json` as separate Architecture-A taxonomy-sibling registry (9 physical entries), authored engine-side ADR-004 MIGRATION.md companion entry.
+
+### Why (one line)
+
+Operationalizes WS1A.Q18 wave-close architectural commitment (Architecture A LOCKED 2026-06-01: 7 rotating primaries with substrate-honest flavor pools + physical-as-Architecture-A-taxonomy-sibling); deferred from wave-scope to sub-phase 5f POST-WAVE per ADR-004 cross-seam contract change discipline.
+
+### Who's affected
+
+- **Rocket** — owns engine generation; no immediate action required (backward-compat preserved); MAY consume new fields in future WS1A.3 theme-coherence gating per deferred-commitments item 5.1.1.
+- **Star-lord** — owns telemetry/export; no immediate action required (telemetry packets do not currently read pool.json beyond named fields); MAY surface lineage tags in future telemetry-audit work.
+- **Drax** — owns loadout/demo; zero impact (consumes engine-generated artifacts, not pool.json directly).
+- **Gandalf** — design steward; new lineage tags enable per-tag distribution audit queries; useful surface for deferred-commitments items 5.1.1 (theme-coherence) + 5.1.2 (modern-caster substrate-gap).
+- **Jack-ryan** — Gate-2 review (BLOCK authority) on this migration per dispatch § 4 acceptance criteria.
+- **Knight-rider** — receives report-back; routes Gate-2; sequences cardinality-discrepancy ambiguity-surface for resolution.
+- **Legolas** — no action.
+- **Matt** — LAST-resort escalation for cardinality ambiguity surfaced below (internal inconsistency in canonical lock cardinality assertions vs verbatim per-primary lists).
+
+### What downstream consumers need to do
+
+**Rocket (no immediate action):** v1.1 schema is fully backward-compatible; existing selector.py + naming.py readers absorb new fields silently. Future lineage-tag-aware sub-element selection is a separate dispatch.
+
+**Star-lord (no immediate action):** export packet schema unchanged. Future telemetry extension to surface lineage tags would be a separate dispatch.
+
+**Drax (no action):** zero impact.
+
+**Gandalf (no action; future query surface enabled):** new lineage tag enum supports per-tag-distribution queries.
+
+### Schema diff or example before/after
+
+**Engine-side MIGRATION.md companion entry** (authoritative engine-side schema spec): `reincarnated-engine/src/reincarnated/element/MIGRATION.md` § "[2026-06-01] WS1A.Q18 sub-phase 5f". Contains before/after schema diff, enum value spec, backward-compat verification, and migration order. This data-layer-side entry COMPOSES with the engine-side entry per ADR-004 round-trip discipline.
+
+**Pool.json v1.1 file-level diff:**
+- `version`: "1.0" → "1.1"
+- New top-level fields: `schema_version: "1.1"`, `schema_notes`
+- `elements` array: 156 → 214 entries (100 Architecture-A locked + 114 legacy preserved)
+
+**New file: `data/seasonal_elements/physical_taxonomy.json`** — 9-entry Architecture-A taxonomy-sibling registry (4 damage_sub_type + 4 mechanical_action_vocabulary + 1 ailment). Physical kits opt out of WS1A.4 LLM judgment per canonical lock § 4.
+
+### Cardinality discrepancies surfaced (NOT silently resolved — per dispatch ambiguity-surface protocol)
+
+**Ambiguity 1 — Canonical lock cardinality (109 claimed vs 100 enumerated):** canonical lock + PG-3 ratification both assert "109 rotating-primary + 9 physical = 118 total", but per-primary verbatim entry lists (Gate-2-PASS-verified entry-by-entry) sum to 16+14+18+13+13+14+12 = **100**, not 109. Elrond seam decision: migrate against the verified verbatim per-primary lists; surface to KR for resolution by canonical-doc steward (gandalf) and/or PG-3 ratification author (Matt). Final lineage tag application targets adjusted to reconcile with 100-entry actual total.
+
+**Ambiguity 2 — Lineage tag aggregate reconciliation:** PG-3 § 5 binding aggregate (65/24/19/1/9 = 118) does NOT reconcile with 100 actual rotating-primary entries. Canonical § 7.1 illustrative col-sum (57/19/23/1/9 = 109) DOES reconcile with 100 actual rotating-primary entries. Canonical § 7 explicit modern-scientific enumeration is 19 entries (matches PG-3 § 5; not § 7.1 col 23). Elrond seam decision: apply lineage tags per § 7.1 col-sum reconciliation BUT honor canonical § 7 explicit overlay enumeration → final per-entry distribution: 57/23/19/1 = 100 rotating + 9 physical = 109 actual total. Documented + traceable in migration script.
+
+**Ambiguity 3 — INFO-1 `stormtide`:** stormtide appears in slot-routing decisions but NOT in the 109-entry rotating-primary lock NOR in v1.0 pool.json. Elrond seam decision: no-op (no entry to route; slot-routing decision preserved in script for future reference).
+
+### Migration verification
+
+- ✅ Schema-extended PoolElement reads v1.1 pool.json cleanly (all 214 entries parse)
+- ✅ Pre-extension PoolElement reads v1.1 pool.json cleanly (backward-compat)
+- ✅ Round-trip JSON parse OK for pool.json + physical_taxonomy.json
+- ✅ Lineage-tag aggregate matches § 7.1 col-sums: 57+23+19+1 = 100 rotating + 9 physical = 109
+- ✅ Slot routing applied: mist → water primary (was wind)
+- ✅ Cull-tag dispositions applied: thorn promoted (drift-14-plant-anatomical dissolved-for-thorn); cyclone/whirlwind/squall/hurricane cull-tag dissolved (entries now in lock); typhoon legacy with cull-tag preserved
+- ✅ Drift-14 invariant validator still fires for new entries that lack VFX manifest coverage (expected; future surface)
+
+### Files committed (this MIGRATION)
+
+- `reincarnated-engine/src/reincarnated/element/schema.py` — PoolElement extended with 4 additive fields
+- `reincarnated-engine/src/reincarnated/element/pool.py` — add_element_to_pool() preserves new fields
+- `reincarnated-engine/src/reincarnated/element/MIGRATION.md` — engine-side cross-seam MIGRATION entry
+- `reincarnated-engine/data/seasonal_elements/pool.json` — v1.0 → v1.1 (156 → 214 entries)
+- `reincarnated-engine/data/seasonal_elements/pool.json.pre-q18-2026-06-01-backup` — pre-migration snapshot
+- `reincarnated-engine/data/seasonal_elements/physical_taxonomy.json` — NEW Architecture-A taxonomy registry
+- `agentic_orchestration/research/scripts/q18_pool_migration_2026_06_01.py` — migration script
+- `agentic_orchestration/research/curated/MIGRATION.md` — THIS entry (v1.7)
+
+### Related canonical docs + disciplines
+
+- `canonical/story/2026-06-01-flavor-pool-per-primary-element-lock.md` (Architecture A LOCK)
+- `canonical/story/2026-06-01-ws1a-q18-flavor-pool-wave-close-record.md` (wave-close record)
+- `agentic_orchestration/cycle-15-ws1a-q18-flavor-pool-research/pg-3-ratification-2026-06-01.md` (PG-3 ratification)
+- `agentic_orchestration/dispatches/2026-06-01-elrond-cycle-15-ws1a-q18-sub-phase-5f-pool-migration.md` (this dispatch)
+- Discipline #41 (substrate-led) + #49 (substrate-silence ≠ substrate-validation; the 23 substrate-silent lineage tags here are this discipline's first operational application) + #50 (3-test inclusion gate) + #51 (synthesis-draft adversarial Pattern B critique)
+- ADR-004 (cross-seam MIGRATION discipline) + ADR-006 (read-only-by-default external systems)
+
+### Routing back to KR
+
+- Migration COMMITTED per acceptance criteria § 4
+- Cross-seam MIGRATION.md COMMITTED at engine-side seam boundary
+- Backward-compat VERIFIED (pre-extension + extended schemas both parse pool.json v1.1 cleanly)
+- Per-entry lineage tag application: clean per § 7.1 col-sum reconciliation; 3 ambiguities surfaced — see above; do NOT silently resolved
+- Cross-seam touches surfaced for follow-on: NONE require secondary dispatch (rocket + star-lord + drax all confirmed no-action-required)
+- Routing back: **proceed to jack-ryan Gate-2 (schema + migration review)** with cardinality-discrepancy ambiguity-surface attached for joint resolution
+
+---
+
 ## v1.6 — Pattern A: Tier 5.1/5.2 final curation — additive schema spec + manifest extension — 2026-05-18
 
 ### What changed (one line)
