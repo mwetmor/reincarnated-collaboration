@@ -135,3 +135,18 @@ After your completion, KR routes jack-ryan Gate-2 minimal verification. On Gate-
 ---
 
 **End of WS1.AP-FU dispatch.**
+
+---
+
+## Completion record
+**Completed:** 2026-06-01
+**Path executed:** Path B (shadow-row-only cell swap) — Path A explicitly refuted via empirical pool.json verification and ratified by KR per ADR-002 direct-approval documentation-only authority.
+**§ 7.1 column header swap applied:** NO — column headers PRESERVED unchanged (Path A explicitly rejected; would have corrupted 6/7 rotating-primary rows whose cells were already correctly labeled).
+**§ 7.1 shadow-row cell swap applied:** YES — substrate-silent cell 0 → 4; designer-curation-modern-scientific cell 4 → 0.
+**§ 7.1 total row corrected:** YES — substrate-silent total 19 → 23; designer-curation-modern-scientific total 23 → 19. Final totals: 57/23/19/1/9 = 109.
+**Per-row cells verified against pool.json:** YES — empirical pool.json `ws1a_q18_lock_date=2026-06-01` cohort arithmetic confirmed for all 7 rotating-primary rows: fire 4/3, water 4/2, earth 9/2, wind 2/2, lightning 0/5, holy 0/5, shadow 4/0 (silent / modsci).
+**Column-sum arithmetic verified:** 9+8+7+9+8+9+7+0=57; 4+4+9+2+0+0+4+0=23; 3+2+2+2+5+5+0+0=19; 1; 9 → 109 total. Row sums match per-primary cardinality (fire 16, water 14, earth 18, wind 13, lightning 13, holy 14, shadow 12, physical 9).
+**Cross-reference verification clean:** YES — § 7 aggregate (lines 280-287) corroborates corrected § 7.1 totals; § 8.1 "23 entries" reference consistent with corrected substrate-silent column total; PG-3 § 5 aggregate (57/23/19/1/9=109) consistent.
+**Amendment-pass-record entry added to § 0.1:** YES — documents Path A insufficiency finding, Path B selection, empirical basis, cross-validation, authority chain.
+**Architectural intent:** UNCHANGED.
+**Routing back to KR:** "proceed to jack-ryan Gate-2 minimal verification" — verification will implicitly ratify diagnosis revision (shadow-row-only cell inversion, not column-header inversion) in addition to verifying Path B execution.
