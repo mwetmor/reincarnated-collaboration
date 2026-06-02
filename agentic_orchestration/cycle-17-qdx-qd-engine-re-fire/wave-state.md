@@ -1,6 +1,6 @@
 # Cycle 17 — QDX QD-Engine Workflow Re-Fire with WS1A.4-lite Integration — Wave State
 
-**STATUS:** 🟢 OPEN — Phase 3 ✅ COMPLETE (QDX-5 + QDX-6 PASS-with-INFO; 0 BLOCKs across full QDX chain); Phase 4 (QDX-7 drax MVP refresh) firing
+**STATUS:** 🟢 OPEN — Phase 4 ✅ COMPLETE (QDX-7 drax PASS; Vercel preview deployed; LOCK O compliant); Phase 5 (QDX-8 wave-close) firing
 **Date opened:** 2026-06-02
 **Owner:** knight-rider (orchestrator)
 **Authority:** Matt 2026-06-02 Pattern B substantive design session — gandalf transmission with QDX chain routing (Locks A-P preserved from EAA chain; Locks Q-T NEW for QDX scope)
@@ -240,8 +240,16 @@ Phase 1 PASS criterion: ✅ ACHIEVED. QDX-1 + QDX-2 + QDX-3 all PASS (with QDX-3
 | Property | Value |
 |---|---|
 | **Owner** | drax per LOCK T |
-| **Status** | 🟢 FIRING (Phase 4; gates on QDX-5 + QDX-6 ✅ cleared) |
+| **Status** | ✅ COMPLETE (2026-06-02) — PASS; LOCK O compliant; Vercel preview deployed |
 | **Dispatch** | `dispatches/2026-06-02-qdx-7-drax-mvp-refresh.md` |
+| **Tag** | `drax/v1.5-qdx-7-loadout-engine-page-kit-space-1` |
+| **Loadout commits** | `eca9349` (QDX-7 work) + `3f8b1bd` (AGENT_STATE) |
+| **Vercel preview** | https://reincarnated-loadout-i5lk3kop7-matthew-wetmore-s-projects.vercel.app |
+| **Build** | 1067 modules / 0 TS errors / 81/81 tests PASS / 1.86s local / 4.39s Vercel |
+| **LOCK O compliance** | PASS — no new UI component files; inline functions; additive hooks/types/pages |
+| **Routing notes disposition** | Note 1 (faction grouping): DEFERRED per LOCK O escape — engine needs per-kit `faction_id` field; Note 2 (is_active): IMPLEMENTED — kit_lightning_000005 correctly suppressed; Note 3 (event_008 filter): IMPLEMENTED + historical EAA-5 v2 set preserved via toggle |
+| **Sample-inspection** | "Penumbra Caster of Dusk Meridian" / "Stormcaller of the Scattered Meridian" / "Crusher Who Holds the Ground" / "Ember Caster of the Scattered Reach" / "Crushweight of the Mudline" — non-template emergent identities rendering correctly with T4 + flavor metadata |
+| **Notes for QDX-8** | Faction view gap (engine needs per-kit faction_id); 9 fallback identity names render correctly but read as low-quality; "Scattered" token repetition visually apparent (reinforces semantic-clustering observation) |
 | **Scope** | reincarnated-loadout consumes new richer kit_space output; reincarnated-loadout engine page chronicles QDX-5 expansion event; MVP-discipline (existing components only) |
 | **Output** | Vercel deployed loadout + engine page rendering new output |
 | **Gates on** | QDX-5 + QDX-6 PASS |
@@ -254,7 +262,8 @@ Phase 1 PASS criterion: ✅ ACHIEVED. QDX-1 + QDX-2 + QDX-3 all PASS (with QDX-3
 | Property | Value |
 |---|---|
 | **Owner** | KR + gandalf design-quality audit + jack-ryan Gate-2 wave-close |
-| **Status** | ❌ NOT STARTED (gates on QDX-7 PASS) |
+| **Status** | 🟢 FIRING (Phase 5; gates on QDX-7 ✅ cleared) |
+| **Substreams** | (a) KR wave-close canonical record at `canonical/story/2026-06-02-qdx-chain-wave-close-record.md`; (b) gandalf design-quality audit per LOCK H; (c) jack-ryan engineering-discipline ratification (Discipline #56 genre-aligned distribution candidate + others); (d) canonical/00-ground-state.md § 1 update; (e) Matt strategic re-engagement signal |
 | **Scope** | KR wave-close record + gandalf design-quality audit + jack-ryan engineering-disciplines.md amendments if applicable + ground-state § 1 update + strategic re-engagement signal to Matt |
 | **Estimated** | ~1-2 sessions |
 
@@ -376,6 +385,8 @@ Plus **discipline #56 candidate from EAA chain** (generator-path explicit naming
 | 2026-06-02 | ✅ jack-ryan QDX-6 PASS-with-INFO (commit `fc075ae`); 0 BLOCKs accumulated; Phase 4 CLEARED for drax; strategic signal queued (substrate-enrichment = highest-leverage next-cycle investment) |
 | 2026-06-02 | KR authored QDX-7 dispatch with 3 jack-ryan routing notes embedded |
 | 2026-06-02 | KR fires drax QDX-7 (loadout + engine page consume QDX-5 kit_space output; LOCK O MVP-discipline; LOCK T scope-bounding) |
+| 2026-06-02 | ✅ drax QDX-7 PASS (loadout `eca9349`; tag `drax/v1.5-qdx-7-loadout-engine-page-kit-space-1`; Vercel preview deployed; 1067 modules / 0 TS errors / 81/81 tests; LOCK O compliant; routing notes 2+3 IMPLEMENTED; note 1 DEFERRED per LOCK O escape — engine needs per-kit faction_id) |
+| 2026-06-02 | KR routes QDX-8 wave-close substreams in parallel: KR canonical record + gandalf design-quality audit + jack-ryan engineering-discipline ratification |
 
 ---
 
