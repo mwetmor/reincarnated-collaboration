@@ -185,10 +185,10 @@ Workstream decomposition is ADVISORY per gandalf transmission; KR may amend per 
 | **Wave-open dispatch** | ✅ AUTHORED | KR (this cycle) |
 | **Wave-open Gate-1** | ✅ COMPLETE (PASS-with-INFO) | jack-ryan; INFO-2 + INFO-3 incorporated in Phase 1 dispatches; INFO-1 deferred to Phase 3 authoring |
 | **Phase 1 batch Gate-1** | ✅ COMPLETE (PASS-with-INFO) | jack-ryan; 3 amendments incorporated in EAA-2 + EAA-3 dispatches before specialist fire |
-| **EAA-1** WS1A.4-lite implementation | 🔥 FIRING | Owner: star-lord + rocket; sub-agent gandalf-as-subagent |
+| **EAA-1** WS1A.4-lite implementation | ✅ COMPLETE | sha=54215d8 / tag=star-lord/v1.4-eaa-1-ws1a-4-lite-1; smoke=34/34 PASS; Gate-2=PASS-with-INFO (3 INFOs, 0 BLOCKs, 0 WARNs); finding at `qa/findings/2026-06-02-eaa-1-ws1a-4-lite-gate-2.md`; rocket pipeline integration pending (co-owner scope) |
 | **EAA-2** Engine skip-flag pattern | 🔥 FIRING | Owner: rocket + star-lord |
-| **EAA-3** Kit-space output schema | 🔥 FIRING | Owner: rocket + elrond + star-lord |
-| **EAA-4** Kit-space chronicle infrastructure | 🔥 FIRING | Owner: elrond + star-lord |
+| **EAA-3** Kit-space output schema | 🟡 ELROND-SIDE COMPLETE; awaiting rocket DRAFT + Gate-2 | Owner: rocket + elrond + star-lord. elrond joint spec at `elrond/notes/2026-06-02-eaa-3-plus-4-joint-ingest-and-chronicle-spec.md`; MIGRATION.md v1.8 at `research/curated/MIGRATION.md`; FK format LOCKED (`kse_<YYYYMMDD>_<HHMMSS>_<6char-hex>` per pre-existing coordination note); kit_id format LOCKED (`kit_<primary>_<seq6>`); 5 iteration points named for rocket alignment per LOCK K DRAFT discipline |
+| **EAA-4** Kit-space chronicle infrastructure | 🟡 ELROND-SIDE SCHEMA + STORAGE LOCKED; awaiting star-lord emit integration + Gate-2 | Owner: elrond + star-lord. elrond joint spec at `elrond/notes/2026-06-02-eaa-3-plus-4-joint-ingest-and-chronicle-spec.md` § 3 (Option α filesystem source-of-truth + Option β-light shadow tables; chronicle JSON shape § 3.4; shadow-table DDL § 3.5); MIGRATION.md v1.8 at `research/curated/MIGRATION.md` |
 | **EAA-5** First kit-space-expansion generation fire | ⏸ pending Phase 1 PASS | Owner: KR + rocket + star-lord |
 | **EAA-6** Drax MVP reframe | ⏸ pending EAA-5 PASS | Owner: drax |
 | **EAA-7** Engine page MVP reframe | ⏸ pending EAA-5 + EAA-4 PASS | Owner: drax |
@@ -203,7 +203,7 @@ Workstream decomposition is ADVISORY per gandalf transmission; KR may amend per 
 | EAA wave-open | `dispatches/2026-06-02-cycle-16-eaa-engine-architectural-amendment-wave-open.md` | ✅ AUTHORED |
 | EAA wave-open Gate-1 finding | `qa/findings/2026-06-02-eaa-wave-open-gate-1.md` | ✅ AUTHORED (PASS-with-INFO) |
 | EAA Phase 1 batch Gate-1 finding | `qa/findings/2026-06-02-eaa-phase-1-batch-gate-1.md` | ✅ AUTHORED (PASS-with-INFO; 3 amendments incorporated) |
-| EAA-1 WS1A.4-lite | `dispatches/2026-06-02-eaa-1-ws1a-4-lite-implementation.md` | 🔥 FIRING (star-lord+rocket+gandalf-subagent) |
+| EAA-1 WS1A.4-lite | `dispatches/2026-06-02-eaa-1-ws1a-4-lite-implementation.md` | ✅ COMPLETE (star-lord seam; Gate-2 PASS-with-INFO; sha=54215d8; rocket pipeline integration pending) |
 | EAA-2 skip-flag | `dispatches/2026-06-02-eaa-2-engine-skip-flag-retirement.md` | 🔥 FIRING (rocket+star-lord) |
 | EAA-3 kit-space schema | `dispatches/2026-06-02-eaa-3-kit-space-output-schema.md` | 🔥 FIRING (rocket+elrond+star-lord) |
 | EAA-4 chronicle | `dispatches/2026-06-02-eaa-4-kit-space-chronicle-infrastructure.md` | 🔥 FIRING (elrond+star-lord) |
