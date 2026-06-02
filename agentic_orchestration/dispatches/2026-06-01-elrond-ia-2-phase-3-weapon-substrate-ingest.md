@@ -203,3 +203,53 @@ After your completion, KR routes IA-2 Phase 4 substrate-coverage validation per 
 ---
 
 **End of IA-2 Phase 3 elrond ingest dispatch.**
+
+---
+
+## Completion record
+
+**Completed:** 2026-06-01
+
+**Schema extension:** `ALTER TABLE weapon_knowledge_entries ADD COLUMN period_tag TEXT` applied to `~/Games/reincarnated-loadout/data/telemetry.db` (loadout repo). Backward-compat: 90,220 legacy rows default to NULL. Enum: `ancient` | `medieval` | `modern` | NULL (contract-side enforcement).
+
+**125 weapons ingested:** all in `weapon_knowledge_entries` (loadout DB):
+- 102 gandalf anchors (24 ANCIENT + 29 MEDIEVAL + 49 MODERN)
+- 23 legolas crawl entries (9 ANCIENT + 9 MEDIEVAL + 5 MODERN per INFO-1)
+- Total rows post-ingest: 90,345 (= 90,220 pre-ingest baseline + 125 IA-2)
+
+**Lineage tag distribution:**
+- `gandalf-authored-magic-anchor-ancient-2026-06-01`: 24
+- `gandalf-authored-magic-anchor-medieval-2026-06-01`: 29
+- `gandalf-authored-magic-anchor-modern-2026-06-01`: 49
+- `legolas-crawl-magic-supplementary-ancient-2026-06-01`: 9
+- `legolas-crawl-magic-supplementary-medieval-2026-06-01`: 9
+- `legolas-crawl-magic-supplementary-modern-2026-06-01`: 5
+- Per-primary distribution: fire 18 / water 15 / earth 15 / wind 15 / lightning 20 / holy 19 / shadow 23
+
+**Retroactive-primary-tagging coverage:**
+- 137 rows tagged (127 high-confidence single-keyword match + 10 uncertain multi-match flagged for follow-on)
+- 543 magic-eligible rows had no vocabulary signal (preserved per audit § 7.4 conservative-floor caveat)
+- Lineage tag: `elrond-retroactive-primary-tag-2026-06-01`
+- INFO-2 caster-class consistency: every tagged row records `matching_policy` per Option α/β/C derived from `proxy_attribute_class`; no STR-coded melee row received caster-routing semantic shift
+
+**MIGRATION.md:** `agentic_orchestration/elrond/research/ia-2-phase-3-ingest-2026-06-01/MIGRATION.md` (cross-seam contract change record per ADR-004)
+
+**Backward-compat verified:** YES — 6 smoke-tests PASS (legacy SELECT / rocket substrate-binding JOIN / engine_authored_gap_fill_v1 count preserved / period_tag queryable / legacy rows NULL / total row count matches expected). See ingest summary § 5.
+
+**Cross-seam touches surfaced for follow-on:**
+- rocket: optional forward-compat consumption of `period_tag` + `structured_properties.primary_element` (no required change; backward-compat preserved)
+- star-lord: no impact
+- drax: no impact (consumes rocket emission)
+- gamora: no impact (consumes character JSON downstream)
+
+**Ingest summary (meta repo):** `agentic_orchestration/elrond/notes/2026-06-01-ia-2-phase-3-ingest-summary.md`
+
+**Ingest stats (machine-readable):** `agentic_orchestration/elrond/research/ia-2-phase-3-ingest-2026-06-01/ingest-summary-stats.json`
+
+**Ingest script (reproducible):** `agentic_orchestration/research/scripts/ia2_phase3_weapon_substrate_ingest.py`
+
+**Backup:** `~/Games/reincarnated-loadout/data/telemetry.db.pre-ia-2-phase-3-2026-06-01.bak` (preserved rollback anchor)
+
+**No escape-clause triggered:** all work within LOCK E + LOCK J § 5 + LOCK C ~140 cap + canonical Option α/β/C composition policy + Q18 IMMUTABLE constraints.
+
+**Routing back to KR:** proceed to IA-2 Phase 4 substrate-coverage validation pass per LOCK E autonomous.

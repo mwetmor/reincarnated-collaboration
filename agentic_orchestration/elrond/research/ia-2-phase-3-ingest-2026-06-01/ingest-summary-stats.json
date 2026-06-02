@@ -1,0 +1,150 @@
+{
+  "dispatch": "agentic_orchestration/dispatches/2026-06-01-elrond-ia-2-phase-3-weapon-substrate-ingest.md",
+  "authority": "LOCK E (Phase 3 elrond autonomous) + LOCK J § 5 (additive period_tag) + jack-ryan IA-2.P3 Gate-1 PASS-with-INFO (1cd73a5)",
+  "db_path": "/Users/admin/Games/reincarnated-loadout/data/telemetry.db",
+  "backup": "/Users/admin/Games/reincarnated-loadout/data/telemetry.db.pre-ia-2-phase-3-2026-06-01.bak",
+  "step_1_schema_extension": {
+    "status": "added",
+    "column": "period_tag",
+    "type": "TEXT (enum-by-contract: ancient|medieval|modern|NULL)"
+  },
+  "pre_ingest_row_count": 90220,
+  "step_3a_ingest_gandalf": {
+    "source": "gandalf-anchor",
+    "expected_count": 102,
+    "inserted": 102,
+    "skipped_existing": 0,
+    "per_period": {
+      "ancient": 24,
+      "medieval": 29,
+      "modern": 49
+    },
+    "per_primary": {
+      "fire": 15,
+      "water": 14,
+      "earth": 12,
+      "wind": 14,
+      "lightning": 16,
+      "holy": 14,
+      "shadow": 17
+    },
+    "per_period_primary": {
+      "ancient.fire": 4,
+      "ancient.water": 4,
+      "ancient.earth": 3,
+      "ancient.wind": 3,
+      "ancient.lightning": 3,
+      "ancient.holy": 3,
+      "ancient.shadow": 4,
+      "medieval.fire": 4,
+      "medieval.water": 4,
+      "medieval.earth": 3,
+      "medieval.wind": 4,
+      "medieval.lightning": 4,
+      "medieval.holy": 4,
+      "medieval.shadow": 6,
+      "modern.fire": 7,
+      "modern.water": 6,
+      "modern.earth": 6,
+      "modern.wind": 7,
+      "modern.lightning": 9,
+      "modern.holy": 7,
+      "modern.shadow": 7
+    }
+  },
+  "step_3b_ingest_legolas": {
+    "source": "legolas-crawl",
+    "expected_count": 23,
+    "inserted": 23,
+    "skipped_existing": 0,
+    "per_period": {
+      "ancient": 9,
+      "medieval": 9,
+      "modern": 5
+    },
+    "per_primary": {
+      "holy": 5,
+      "wind": 1,
+      "shadow": 6,
+      "water": 1,
+      "earth": 3,
+      "lightning": 4,
+      "fire": 3
+    },
+    "per_period_primary": {
+      "ancient.holy": 2,
+      "ancient.wind": 1,
+      "ancient.shadow": 1,
+      "ancient.water": 1,
+      "ancient.earth": 2,
+      "ancient.lightning": 2,
+      "medieval.holy": 3,
+      "medieval.shadow": 3,
+      "medieval.fire": 2,
+      "medieval.lightning": 1,
+      "modern.shadow": 2,
+      "modern.lightning": 1,
+      "modern.earth": 1,
+      "modern.fire": 1
+    }
+  },
+  "step_4_retroactive_primary_tagging": {
+    "rows_scanned": 7590,
+    "tagged_high_confidence": 127,
+    "tagged_uncertain_multi_match": 10,
+    "skipped_not_magic_eligible": 6839,
+    "skipped_no_vocabulary_match": 543,
+    "skipped_already_ia2_or_primary_tagged": 71,
+    "skipped_already_retroactive_tagged": 0,
+    "skipped_strict_martial_caster_mismatch": 0,
+    "per_primary_tagged_high_confidence": {
+      "lightning": 21,
+      "earth": 44,
+      "water": 6,
+      "holy": 30,
+      "wind": 9,
+      "shadow": 15,
+      "fire": 2
+    },
+    "per_period_tagged": {
+      "pre_classical": 20,
+      "medieval": 31,
+      "classical": 76
+    },
+    "per_primary_uncertain_candidates": {
+      "wind": 1,
+      "lightning": 1,
+      "fire": 3,
+      "shadow": 4,
+      "earth": 4,
+      "holy": 6,
+      "water": 1
+    },
+    "lineage_tag": "elrond-retroactive-primary-tag-2026-06-01",
+    "matching_policy_assignment": "per row proxy_attribute_class → Option α/β/C (INFO-2 consistency)"
+  },
+  "step_5_smoke_test_backward_compat": {
+    "legacy_column_read_ok": true,
+    "substrate_weapon_binding_join_ok": true,
+    "engine_authored_gap_fill_v1_count_preserved": true,
+    "period_tag_query_ok": true,
+    "period_tag_distribution_after_ingest": {
+      "ancient": 33,
+      "medieval": 38,
+      "modern": 54
+    },
+    "legacy_rows_period_tag_null_count": 90220,
+    "total_rows_post_ingest": 90345
+  },
+  "acceptance_check": {
+    "gandalf_inserted_matches_102": true,
+    "legolas_inserted_matches_23": true,
+    "total_ingest_125": true,
+    "info_1_per_period_legolas": {
+      "ancient": 9,
+      "medieval": 9,
+      "modern": 5
+    },
+    "period_tag_column_added": true
+  }
+}
