@@ -141,20 +141,18 @@ If BLOCK: KR remediates per your guidance; re-Gate-1.
 
 ## Completion record (you append at completion)
 
-```markdown
 ---
 
 ## Completion record
-**Completed:** 2026-06-XX HH:MM
-**Verdict:** INFO / WARN / BLOCK
-**Final classification:** PASS / PASS-with-INFO / BLOCK
+**Completed:** 2026-06-01
+**Verdict:** INFO
+**Final classification:** PASS-with-INFO
 **Finding artifact:** agentic_orchestration/qa/findings/2026-06-01-ws1-sub-phase-5f-gate-1.md
-**PG-3 fidelity check:** PASS / FAIL
-**INFO-1 actioned check:** PASS / FAIL
-**Cross-seam impact handling check:** PASS / FAIL
-**Key items surfaced:** brief
-**Routing back to KR:** fire elrond WS1 / remediate first / hold
-```
+**PG-3 fidelity check:** PASS (schema extension / entry migration / physical taxonomy / cull-tag dispositions / slot routing all verbatim)
+**INFO-1 actioned check:** PASS (PG-3 § 5 binding citation present; § 7.1 illustrative-only flag present; ambiguity surface-to-KR instruction present)
+**Cross-seam impact handling check:** PASS (cross-seam declared; 4 seams enumerated; MIGRATION.md mandated; round-trip ACK required per ADR-004)
+**Key items surfaced:** INFO-1 — `stormtide` in slot routing is not in the 109-entry rotating lock; elrond should surface at migration time (non-blocking). INFO-2 — minor discipline citation style note (non-blocking).
+**Routing back to KR:** fire elrond WS1 immediately
 
 ---
 
