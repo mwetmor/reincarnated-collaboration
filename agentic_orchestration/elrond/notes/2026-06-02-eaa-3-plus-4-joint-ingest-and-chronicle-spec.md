@@ -15,7 +15,7 @@
 This note locks the elrond-side decisions for the two composed dispatches (EAA-3 + EAA-4) BEFORE either schema spec finalizes. Three coupled decisions:
 
 1. **`kit_id` format:** `kit_<primary>_<seq6>` (e.g., `kit_shadow_000001`); stable permanent identifier; primary-element-grouped; text-sortable.
-2. **`kit_space_expansion_event_id` format (FK shared with EAA-4):** `kse_<YYYYMMDD>_<HHMMSS>_<6char-hex>` (e.g., `kse_20260602_143052_a1b2c3`); per pre-existing coordination note at `cycle-16-eaa-engine-architectural-amendment/eaa-3-eaa-4-coordination/event-id-foreign-key-format-2026-06-02.md`; chronological + sub-day-precise + UUID-collision-resistant; future-extensible event_type prefix space (`re_` realm-expansion reserved).
+2. **`kit_space_expansion_event_id` format (FK shared with EAA-4):** `kse_<YYYYMMDD>_<seq3>` (e.g., `kse_20260602_001`); SEQ-3 canonical per `reincarnated-engine/data/kit_space/chronicle/CHRONICLE_SCHEMA.md` § 3 + MIGRATION v1.9 (the prior `eaa-3-eaa-4-coordination` UUID-hex draft has been SUPERSEDED and redirects to this joint spec); chronological at day-granularity (lexical sort = chronological sort) with HHMMSS-precise emit-time preserved separately via `event_timestamp` field; future-extensible event_type prefix space (`re_` realm-expansion reserved).
 3. **Chronicle storage medium:** Option α (flat JSON at `data/kit_space/kit_space_chronicle.json`) as source of truth + Option β-light (shadow tables `engine_kit_index` + `engine_kit_space_events` in curated catalogue.db) as derived-and-rebuildable analytical index.
 
 elrond ingest-compat: **CONFIRMED.** Per-kit JSON entries are filesystem-addressable; shadow tables are additive (LOCK J ADDITIVE-AND-REVERSIBLE); ingest pipeline is a directory-walk + insert/upsert (substrate DB extension authored additively per LOCK K).
@@ -26,75 +26,66 @@ elrond ingest-compat: **CONFIRMED.** Per-kit JSON entries are filesystem-address
 
 Per Phase 1 batch Gate-1 finding amendment 2 (jack-ryan): **rocket + elrond MUST coordinate `kit_space_expansion_event_id` format JOINTLY before either EAA-3 or EAA-4 finalizes spec.**
 
-**AUTHORITATIVE FORMAT NOTE:** This section ADOPTS the pre-existing FK-format coordination note at `agentic_orchestration/cycle-16-eaa-engine-architectural-amendment/eaa-3-eaa-4-coordination/event-id-foreign-key-format-2026-06-02.md` (LOCKED earlier this session by elrond as EAA-4 primary owner). The pre-existing note is the BINDING FK format contract; this section restates it for joint-spec reading convenience.
+**AUTHORITATIVE FORMAT NOTE:** SEQ-3 (`kse_<YYYYMMDD>_<seq3>`) is the canonical FK format, sourced from `reincarnated-engine/data/kit_space/chronicle/CHRONICLE_SCHEMA.md` § 3 + `agentic_orchestration/research/curated/MIGRATION.md` v1.9 (smoke 9/9 PASS). An earlier coordination draft at `agentic_orchestration/cycle-16-eaa-engine-architectural-amendment/eaa-3-eaa-4-coordination/event-id-foreign-key-format-2026-06-02.md` proposed a UUID-hex alternative (`kse_<YYYYMMDD>_<HHMMSS>_<6char-hex>`); that draft has been SUPERSEDED and now redirects to this joint spec. This § 1 restates the SEQ-3 lock for joint-spec reading convenience; jack-ryan Gate-2 BLOCK 2026-06-02 confirmed SEQ-3 as canonical and triggered this amendment to retire the UUID-hex documentation drift.
 
-### 1.1 Format (per pre-existing coordination note)
+### 1.1 Format (SEQ-3; canonical per CHRONICLE_SCHEMA.md § 3 + MIGRATION v1.9)
 
 ```
-kse_<YYYYMMDD>_<HHMMSS>_<6char-hex>
+kse_<YYYYMMDD>_<seq3>
 ```
 
 - `kse` — event-type namespace prefix; 3 chars; lowercase (`kse` = kit-space-expansion; future-extensible: `re_` reserved for realm-expansion per canonical record § 3.4)
 - `_` — separator
 - `YYYYMMDD` — UTC date of event-fire (8 chars; zero-padded; ISO basic format)
 - `_` — separator
-- `HHMMSS` — UTC time of event-fire 24h (6 chars; zero-padded)
-- `_` — separator
-- `6char-hex` — first 6 hex chars of a UUID4 (16^6 = 16.7M values; collision-resistant within same-second bucket)
+- `seq3` — within-day zero-padded 3-digit sequence (`001`–`999`; first event of day = `001`)
 
-**Example:** `kse_20260602_143052_a1b2c3`
+**Example:** `kse_20260602_001`
 
-**Total length:** 27 chars (fixed). Lexical sort = chronological sort.
+**Total length:** 16 chars (fixed). Lexical sort = chronological sort (by day, then by within-day sequence).
 
-**Regex:** `^kse_\d{8}_\d{6}_[0-9a-f]{6}$`
+**Regex:** `^kse_\d{8}_\d{3}$`
 
-### 1.2 Rationale (per pre-existing coordination note § 2)
+**Construction:** `kse_` + `YYYYMMDD` (UTC date) + `_` + zero-padded 3-digit within-day sequence.
 
-- **Distributed-safe** — no chronicle-query required before minting (UUID gives collision-resistant independence; superior to monotonic-int sequence-counter which would require central counter + introduce single-source-of-truth fragility)
-- **Sub-day chronological precision** — HHMMSS preserves intra-day ordering (lexical-sort = chronological-sort)
-- **Human-inspectable** — reading `kse_20260602_143052_a1b2c3` immediately tells the inspector when the event fired
-- **Decoupled from engine SHA** — engine sha goes in a separate field (`engine_version_sha`); two-axis provenance preserved
-- **Future-extensible** — `kse_` event-type prefix lets future event types (realm-expansion `re_`, etc.) coexist without renaming
-- **Defense-in-depth FK integrity** — the prefix in the id-itself encodes the event-type fact; a per-kit JSON FK that ever points to a non-`kse_` event is immediately flagged by regex validation
+### 1.2 Rationale (SEQ-3; mirrors CHRONICLE_SCHEMA.md § 3)
 
-### 1.3 Generation rule (engine-side; rocket + star-lord implementation; per pre-existing note § 4)
+- **Sequence query at emit-time** — `prior_today_count + 1` queried against the chronicle at event-fire; deterministic, single-source-of-truth, no distributed-minting concern (events fire sequentially from the engine; not a distributed system).
+- **999/day bound** — three-digit within-day sequence supports up to 999 kit-space-expansion events per UTC day; sufficient for foreseeable kit-space-expansion event cadence (canonical pivot anticipates expansion events at parameter-scope-amendment cadence, NOT per-kit cadence).
+- **Human-inspectable ordering** — reading `kse_20260602_001` immediately tells the inspector when the event fired and its within-day ordinal; lexical sort = chronological sort within a day.
+- **Decoupled from engine SHA** — engine sha goes in a separate field (`engine_version_sha`); two-axis provenance preserved.
+- **Future-extensible** — `kse_` event-type prefix lets future event types (realm-expansion `re_`, etc.) coexist without renaming.
+- **Defense-in-depth FK integrity** — the prefix in the id-itself encodes the event-type fact; a per-kit JSON FK that ever points to a non-`kse_` event is immediately flagged by regex validation.
+- **Sub-day chronological precision** — within-day sequence is at day-granularity ordinal precision; emit-time HHMMSS precision is preserved separately via the `event_timestamp` (ISO-8601 UTC) field on the chronicle entry. SEQ-3 is the ordering id; `event_timestamp` is the precise wall-clock.
+- **Composes with CHRONICLE_SCHEMA.md § 5 emit-order discipline** — chronicle entry FIRST → per-kit JSON SECOND; atomic `.tmp` → `os.replace` write convention ensures the FK target exists before any per-kit JSON references it.
+
+### 1.3 Generation rule (engine-side; rocket + star-lord implementation; canonical per CHRONICLE_SCHEMA.md § 3)
 
 ```python
-import uuid
-from datetime import datetime, timezone
-
-def new_kit_space_expansion_event_id() -> tuple[str, str]:
-    """Return (event_id, event_uuid). event_id is the FK form; event_uuid is the full UUID4 for provenance."""
-    now = datetime.now(timezone.utc)
-    full_uuid = uuid.uuid4()
-    short_hex = full_uuid.hex[:6]
-    event_id = f"kse_{now.strftime('%Y%m%d_%H%M%S')}_{short_hex}"
-    return event_id, str(full_uuid)
+def mint_kit_space_expansion_event_id(event_date_utc, prior_today_count: int) -> str:
+    seq = prior_today_count + 1
+    return f"kse_{event_date_utc.strftime('%Y%m%d')}_{seq:03d}"
 ```
 
+`prior_today_count` is queried from chronicle at emit-time (count of existing events with same `event_date_utc`). First event of day = `001`.
+
 Same construction MUST be used by both:
-- EAA-4 chronicle emit path (engine fires expansion event → mints id → writes chronicle entry)
+- EAA-4 chronicle emit path (engine fires expansion event → queries chronicle for `prior_today_count` → mints id → writes chronicle entry)
 - EAA-3 per-kit emit path (each kit references the SAME id minted at expansion-event-start; NOT re-minted per kit)
 
-**Emission order:** event_id minted FIRST (at expansion-event start) → propagated to every per-kit emit AND to the chronicle entry → both written to disk after all kits in the event are generated (transactionally if implementation supports).
+**Emission order:** event_id minted FIRST (at expansion-event start) → chronicle entry appended FIRST → per-kit JSONs emitted SECOND, each carrying the minted `kit_space_expansion_event_id`. Atomic `.tmp` → `os.replace` per CHRONICLE_SCHEMA.md § 5.2.
 
 ### 1.4 Cross-seam contract
 
-This is the **single foreign-key value** linking EAA-3 per-kit JSON entries to EAA-4 chronicle entries. Format LOCKED per pre-existing coordination note. Schema spec on both sides MUST use this exact format; jack-ryan Gate-2 will verify against the regex `^kse_\d{8}_\d{6}_[0-9a-f]{6}$`.
+This is the **single foreign-key value** linking EAA-3 per-kit JSON entries to EAA-4 chronicle entries. Format LOCKED (SEQ-3) per CHRONICLE_SCHEMA.md § 3 + MIGRATION v1.9. Schema spec on both sides MUST use this exact format; jack-ryan Gate-2 will verify against the regex `^kse_\d{8}_\d{3}$`.
 
 ### 1.5 Companion field on chronicle entry
 
-Per pre-existing coordination note § 3, chronicle entries OPTIONALLY carry the full UUID4 (`event_uuid`) alongside the truncated `event_id`:
+SEQ-3 form uses **only** the `event_id` field on chronicle entries; no companion UUID is minted or stored. The prior UUID-hex companion (`event_uuid`) was UUID-hex-form-specific and does not apply under SEQ-3.
 
-```json
-{
-  "event_id": "kse_20260602_143052_a1b2c3",
-  "event_uuid": "a1b2c3d4-e5f6-4789-9abc-def012345678",
-  ...
-}
-```
+Precise wall-clock timing is preserved separately via the `event_timestamp` (ISO-8601 UTC) field on the chronicle entry per CHRONICLE_SCHEMA.md § 4.2 — SEQ-3 carries the within-day ordinal, `event_timestamp` carries the HHMMSS-precise fire time. Two-field decomposition (ordinal id + precise timestamp) is cleaner than packing both into the id.
 
-Shadow table `engine_kit_space_events` adds nullable `event_uuid_full TEXT` column to preserve this (additive; backward-compat if engine doesn't emit).
+Shadow table `engine_kit_space_events` accordingly does NOT require an `event_uuid_full` column; `event_id` (PK) + `event_timestamp` cover the provenance surface.
 
 ---
 
@@ -193,8 +184,7 @@ def mint_kit_id(primary: str, prior_primary_count: int) -> str:
   "schema_notes": "kit-space-expansion chronicle. Per canonical/story/2026-06-02-season-archive-realm-expansion-pivot.md § 3.4. Event-type extensible per event_type field; this v1.0 implements kit-space-expansion only.",
   "events": [
     {
-      "event_id": "kse_20260602_143052_a1b2c3",
-      "event_uuid": "a1b2c3d4-e5f6-4789-9abc-def012345678",
+      "event_id": "kse_20260602_001",
       "event_type": "kit-space-expansion",
       "event_timestamp": "2026-06-02T14:30:52Z",
       "event_date_utc": "2026-06-02",
@@ -210,8 +200,8 @@ def mint_kit_id(primary: str, prior_primary_count: int) -> str:
       "kit_count": 25,
       "skip_flags_active": ["skip_theme_coalescence", "skip_cosmological_vocabulary"],
       "lineage_tags": {
-        "kit_space_lineage": "kit-space-expansion-kse_20260602_143052_a1b2c3",
-        "engine_provenance": "engine-<sha7>-kse_20260602_143052_a1b2c3",
+        "kit_space_lineage": "kit-space-expansion-kse_20260602_001",
+        "engine_provenance": "engine-<sha7>-kse_20260602_001",
         "substrate_provenance": "pool-v1.1+ws2.p2-magic-weapons",
         "generation_cohort_date": "2026-06-02"
       }
@@ -225,9 +215,8 @@ def mint_kit_id(primary: str, prior_primary_count: int) -> str:
 ```sql
 -- engine_kit_space_events: per-chronicle-event row
 CREATE TABLE engine_kit_space_events (
-    event_id                TEXT PRIMARY KEY,                      -- kse_<YYYYMMDD>_<HHMMSS>_<6char-hex> format (LOCKED § 1)
-                                                                   --   regex: ^kse_\d{8}_\d{6}_[0-9a-f]{6}$ (27 chars)
-    event_uuid_full         TEXT,                                  -- full UUID4 source for the 6-char-hex suffix (nullable; provenance trace)
+    event_id                TEXT PRIMARY KEY,                      -- kse_<YYYYMMDD>_<seq3> format (LOCKED § 1; SEQ-3 canonical)
+                                                                   --   regex: ^kse_\d{8}_\d{3}$ (16 chars)
     event_type              TEXT NOT NULL DEFAULT 'kit-space-expansion'
                             CHECK (event_type IN ('kit-space-expansion', 'realm-expansion', 'reserved-future')),
     event_timestamp         TEXT NOT NULL,                         -- ISO-8601 UTC
@@ -341,12 +330,12 @@ Per EAA-3 dispatch § 3.1, rocket authors the draft schema spec; this section na
     "supporting_chain_source": "...",
     "substrate_inputs_changed_since_prior_event": "..."
   },
-  "kit_space_expansion_event_id": "kse_20260602_143052_a1b2c3",
+  "kit_space_expansion_event_id": "kse_20260602_001",
   "engine_version": "<sha7>",
   "generation_timestamp": "2026-06-02T14:23:18.117Z",
   "lineage_tags": {
-    "kit_space_lineage": "kit-space-expansion-kse_20260602_143052_a1b2c3",
-    "engine_provenance": "engine-<sha7>-kse_20260602_143052_a1b2c3",
+    "kit_space_lineage": "kit-space-expansion-kse_20260602_001",
+    "engine_provenance": "engine-<sha7>-kse_20260602_001",
     "substrate_provenance": "pool-v1.1+ws2.p2-magic-weapons",
     "generation_cohort_date": "2026-06-02"
   }
@@ -458,7 +447,7 @@ EAA-7 consumes chronicle JSON for engine page rendering. THIS dispatch produces 
 
 Before EAA-5 first-fire consumes this infrastructure:
 
-1. **Single-event-single-kit smoke:** mint one event_id (`kse_<YYYYMMDD>_<HHMMSS>_<6char-hex>` per § 1.3 generation rule); write chronicle entry; write one kit JSON entry; verify:
+1. **Single-event-single-kit smoke:** mint one event_id (`kse_<YYYYMMDD>_<seq3>` per § 1.3 generation rule); write chronicle entry; write one kit JSON entry; verify:
    - Chronicle file parses (JSON valid; schema_version present)
    - Per-kit JSON parses (schema_version present; all required fields present)
    - `kit_space_expansion_event_id` in per-kit JSON matches chronicle entry `event_id`
@@ -503,7 +492,7 @@ Smoke-test scripts authored when EAA-3 + EAA-4 implementation lands. This note l
 | Engine output unit | Per-season manifest (`seasons/season_NNNNNN/manifest.json` + class/monster/trial/gear JSONs) | Per-kit JSON entry (`data/kit_space/kits/kit_<primary>_<seq6>.json`) + chronicle event entry | BOTH coexist; historical seasons preserved; new generation emits per-kit |
 | Engine chronicle | Per-season manifest record on engine page (legacy) | `kit_space_chronicle.json` event list | BOTH coexist (engine page may surface historical season chronicle as legacy view; new content from new chronicle) |
 | Elrond ingest | NO existing ingest of engine class JSONs (analysis read filesystem ad-hoc) | NEW shadow tables (`engine_kit_index` + `engine_kit_space_events`) in catalogue.db; rebuildable from filesystem | Strictly additive; rebuildable; reversible per LOCK J |
-| Foreign-key linkage | N/A (no cross-file FK in old per-season schema) | `kit_space_expansion_event_id: kse_<YYYYMMDD>_<HHMMSS>_<6char-hex>` links per-kit JSON to chronicle event | New contract; FORMAT LOCKED § 1 (per pre-existing coordination note) |
+| Foreign-key linkage | N/A (no cross-file FK in old per-season schema) | `kit_space_expansion_event_id: kse_<YYYYMMDD>_<seq3>` links per-kit JSON to chronicle event | New contract; FORMAT LOCKED § 1 (SEQ-3; canonical per CHRONICLE_SCHEMA.md § 3 + MIGRATION v1.9) |
 
 **ADDITIVE-AND-REVERSIBLE per LOCK J:** ALL changes are additive (no old field removed; no enum value removed; no required-field added to existing schemas). Shadow tables can be DROPPED without affecting engine; engine kit_space/ can be DELETED without affecting historical seasons.
 

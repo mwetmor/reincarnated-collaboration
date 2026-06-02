@@ -196,7 +196,7 @@ LOCK L escape clause: NOT triggered (zero BLOCKs; first Gate-2 iteration PASS).
 ### Acceptance criterion check
 
 1. ✅ WS1A.4-lite prompt template authored by gandalf-as-subagent + jack-ryan Gate-2 PASS on structural prompt fitness
-2. ⏳ WS1A.4-lite integrated into engine skill-naming pipeline — PENDING (rocket co-owner scope; `apply_ws1a4_lite_to_kit()` available at `reincarnated.llm` public API; rocket wires call site into `phase5_skill_naming.py` or kit-space equivalent)
+2. ✅ WS1A.4-lite integrated into engine skill-naming pipeline — COMPLETE (rocket co-owner scope; `apply_kit_space_skill_naming()` + batch driver + `KitSpaceNamingRunStats`; sha=cdc8531 / tag=rocket/v1.4-eaa-1-rocket-wiring-1)
 3. ✅ Smoke-test on 34 synthetic skills demonstrates correct Q18 pool consumption + per-skill independence + output schema validity
 4. ✅ Skill JSON output schema additive extension MIGRATION.md authored (4 new fields: `ws1a4_flavor_decision`, `ws1a4_flavor_word_used`, `ws1a4_attempt_number`, `ws1a4_is_fallback`)
 5. ✅ No regressions in existing skill-naming pipeline (module is additive; existing paths untouched)
@@ -211,3 +211,37 @@ EAA-1 star-lord seam: COMPLETE. EAA-5 is blocked on EAA-1+2+3+4 all PASS. EAA-2 
 - `tests/test_ws1a4_lite_flavor_judgment.py` — NEW (34 smoke tests)
 - `src/reincarnated/llm/__init__.py` — MODIFIED (9 new exports added)
 - `src/reincarnated/llm/MIGRATION.md` — MODIFIED (EAA-1 entry appended)
+
+---
+
+## Completion record — rocket co-owner (2026-06-02)
+
+**Completed by:** rocket
+**Date:** 2026-06-02
+**Status:** COMPLETE — EAA-1 all 5 acceptance criteria MET (both seams)
+
+### Commits
+
+| Sha | Tag | Repo | Contents |
+|---|---|---|---|
+| `cdc8531` | `rocket/v1.4-eaa-1-rocket-wiring-1` | reincarnated-engine | New module `kit_space_skill_naming.py` + 19 smoke tests + MIGRATION.md EAA-1 entry |
+
+### Gate-2 verdict
+
+**PASS-with-INFO.** No structural BLOCKs. No WARNs. Two INFOs (non-blocking).
+
+Finding file: `agentic_orchestration/qa/findings/2026-06-02-eaa-1-rocket-wiring-gate-2.md`
+
+INFOs:
+- INFO-1: Phase 5 overwrites WS1A.4-lite name field — intent ambiguous; clarify at next MIGRATION.md touch whether Phase 5 name is authoritative or WS1A.4-lite name is authoritative
+- INFO-2: `ws1a4_attempt_number` 1-indexed semantics (1 = first attempt; 0 = no-LLM fallback) not restated in rocket MIGRATION.md consumer obligations block
+
+### Smoke-test results
+
+19/19 PASS. Coverage: output schema validity, physical opt-out, skip_cosmological_vocabulary=False (WS1A.4-lite not called), skip_cosmological_vocabulary=True (WS1A.4-lite fires), no-LLM mode, per-skill independence, stats accumulation, batch driver, kit summary helper.
+
+### Files modified / created
+
+- `src/reincarnated/generation/kit_space_skill_naming.py` — NEW (EAA-1 rocket wiring module)
+- `tests/test_kit_space_skill_naming.py` — NEW (19 smoke tests; 19/19 PASS)
+- `src/reincarnated/generation/MIGRATION.md` — MODIFIED (EAA-1 rocket wiring entry prepended)

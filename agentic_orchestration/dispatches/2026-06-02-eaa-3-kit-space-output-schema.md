@@ -210,3 +210,62 @@ Per Matt 2026-06-02 explicit cycle-push authorization + CLAUDE.md addendum 2026-
 - KR: route rocket DRAFT review + jack-ryan Gate-2 on schema spec + MIGRATION.md with format locks attached
 
 **Signed:** elrond (data steward; LOCK K + LOCK E seam authority; EAA-3 co-owner)
+
+---
+
+## Completion record — rocket primary (2026-06-02)
+
+**Completed by:** rocket
+**Date:** 2026-06-02
+**Status:** DRAFT COMPLETE — rocket spec authored + 51/51 smoke tests PASS; awaiting jack-ryan Gate-2 + star-lord emit integration
+
+### Commits
+
+| Sha | Tag | Repo | Contents |
+|---|---|---|---|
+| `1d4ad87` | `rocket/v1.4-eaa-3-kit-space-schema-1` | reincarnated-engine | New module `kit_space_schema.py` + 51 smoke tests + MIGRATION.md EAA-3 entry |
+
+### Rocket sub-tasks delivered (per dispatch § 3.1)
+
+1. ✅ **Per-kit JSON schema spec authored** — `src/reincarnated/generation/kit_space_schema.py` implements:
+   - `new_kit_space_expansion_event_id() -> tuple[str, str]` — locked FK format per joint spec § 1.3
+   - `mint_kit_id(primary, prior_count) -> str` — locked kit_id format per joint spec § 2.4
+   - `validate_event_id(event_id)` + `validate_kit_id(kit_id)` — format validators
+   - `validate_per_kit_entry(entry) -> list[str]` — full schema validation covering all 5 iteration points
+   - `build_kit_entry(...) -> dict` — per-kit JSON entry builder for star-lord emit path
+   - `count_kits_by_primary(kits_dir) -> dict` — directory glob for mint_kit_id prior count
+2. ✅ **All 5 elrond iteration points enforced** at emit time:
+   - IP-1: `primary_element` lowercase canonical-7+1 (validated + normalised in `mint_kit_id`)
+   - IP-2: `period` ANCIENT/MEDIEVAL/MODERN uppercase (validated in `build_kit_entry` + `validate_per_kit_entry`)
+   - IP-3: `kit_space_expansion_event_id` FK regex `^kse_\d{8}_\d{6}_[0-9a-f]{6}$` (validated in `validate_event_id`)
+   - IP-4: `engine_version` presence check (validated in `validate_per_kit_entry`)
+   - IP-5: `flavor_decision` + `flavor_word_used` integrity enforced at per-skill level (validated in `validate_per_kit_entry`)
+3. ✅ **MIGRATION.md EAA-3 entry authored** — `src/reincarnated/generation/MIGRATION.md` (field table, consumer obligations, backward-compat, iteration points, identifier generation rules)
+4. ✅ **Event-id length empirical correction** — joint spec § 1.1 states 27 chars but locked format produces 26; regex is authoritative; test asserts 26 + documents discrepancy
+5. ✅ **Lineage tags auto-built** matching pool.json v1.1 pattern (4-field: kit_space_lineage, engine_provenance, substrate_provenance, generation_cohort_date)
+
+### Smoke-test results
+
+51/51 PASS. Coverage per dispatch § 3.4:
+- event_id mint: regex, length, prefix, UUID validity, uniqueness (5 tests)
+- kit_id mint: all 8 primaries, sequencing, zero-padding, titlecase normalisation, invalid primary, regex (7 tests)
+- validate_event_id: PASS + 4 FAIL paths
+- validate_kit_id: PASS + 4 FAIL paths
+- validate_per_kit_entry PASS: minimal, all periods, physical opt-out, flavor=true+word, flavor=false+null (5 tests)
+- validate_per_kit_entry FAIL: all 5 IPs + missing kit_id + empty skills + wrong schema_version (9 tests)
+- build_kit_entry: valid entry, schema_version, lineage_tags, timestamp, invalid event_id, invalid period, JSON-serialisable (7 tests)
+- count_kits_by_primary: empty dir, with kit files, non-kit files ignored (3 tests)
+- lineage_tags: 4 fields, date extraction, field content (4 tests)
+- round-trip: event_id mint -> kit_id mint -> build_kit_entry -> validate -> JSON round-trip (1 test)
+
+### DRAFT discipline note
+
+This spec is DRAFT per dispatch § 3.1 + jack-ryan Phase 1 batch Gate-1 INFO-B. Elrond ingest-compat is CONFIRMED per joint spec § 4.4 for all 5 iteration points. No divergence detected. If star-lord emit implementation surfaces schema adjustments, iterate against elrond joint spec before Gate-2 submission.
+
+### Next moves
+
+- jack-ryan: Gate-2 review on schema spec (kit_space_schema.py + MIGRATION.md EAA-3 entry + 5 iteration point coverage)
+- star-lord: implement chronicle emit + per-kit JSON emit using `build_kit_entry()` + `validate_per_kit_entry()` from this module; emit chronicle FIRST then per-kit entries (joint spec § 5)
+- EAA-3 acceptance criterion 3 (engine emit path): pending star-lord integration; in-scope for star-lord's EAA-3 co-owner scope
+
+**Signed:** rocket (generation seam; LOCK K co-owner; EAA-3 primary owner)
