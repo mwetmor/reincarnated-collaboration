@@ -246,6 +246,90 @@ On work-completion, BOTH workstreams append a completion record to this dispatch
 
 ---
 
+## Completion record — Workstream A (rocket QDX-4 smoke)
+
+**Fired by:** rocket (2026-06-02)
+**Engine commit:** `cd3b10c` (tag `rocket/v1.5-qdx-4-lock-s-smoke-1`) — script amended with `--force-primary` flag
+**Path used:** Path (a) — `--smoke --force-primary shadow` CLI flag (ADDITIVE per LOCK Q). Substrate is physically-dominant (198/200 physical in 200-kit sample; shadow never appears). LOCK S synthetic fallback activated: 2 minimal `PlayerClassV2` instances with `element=shadow` synthesized post-Phase-2 filter to exercise the composed pipeline. Synthetic kit path carries `substrate_trace.cell_routing_source=qdx4_synthetic_force_primary` for transparency.
+
+**Smoke output (full):**
+```
+=== QDX-3 QD-Engine Re-Fire (SMOKE MODE) ===
+  [LOCK S ADDITIVE] force_primary='shadow' active — post-Phase-2 element filter ON
+Parameters: n_candidates=20 pareto_target=2 seed=20260602 force_primary='shadow'
+=== Pre-fire resource-bounds projection ===
+  Mode: SMOKE | Projected LLM cost: $0.07 | Projected wall-clock: ~3 min | ABORT threshold: $60
+  [PASS: pre-fire bounds]
+LLM client: AVAILABLE
+=== Phase 1 — Archive state inspection ===
+  BC-target audit: READY=21 THIN=1 BLOCKED=3 | BC-target queue: 22 cells available
+  [OK] Phase 1 complete (0.2s)
+=== Phase 2 — Candidate generation (n_candidates=20) ===
+  Phase 2 produced: 20 candidates | Element distribution: {'physical': 20}
+  [force_primary='shadow'] filtered 20 → 0 candidates — LOCK S synthetic fallback: 2 synthetic 'shadow' kits added
+=== Phase 4 — Pareto reduction ===
+  Fewer candidates than pareto_target — all survive: 2
+  [OK] Phase 4
+=== Phase 5a — Cohesion clustering (n_kits=2) ===
+  PM-1: 1 cluster (algorithm=SKIP_UNAFFILIATED; critically sparse n=2)
+  [OK] Phase 5a: 1 faction
+=== Phase 5b — Skill naming (WS1A.4-lite active=True, 2 kits) ===
+  kit 1 (shadow): 7 skills | flavor=3 canonical=4 fallback=0
+  kit 2 (shadow): 7 skills | flavor=3 canonical=4 fallback=0
+  WS1A.4-lite: flavor=6 canonical=8 fallback=0 physical_opt_out=0 flavor_rate=42.9%
+  Variety check: ws1a4_flavor=True×6 AND ws1a4_flavor=False×8 [PASS]
+  [OK] Phase 5b complete (47.7s)
+=== Phase 5c — T4 narration (2 kits) ===
+  T4 narration: 0 narrated / 2 skipped (no T4 alteration output — T4 Option F exhausted on synthetic stubs)
+  t4_selection populated: 0/2 kits [WARN: no t4_selection found]
+  [OK] Phase 5c complete (0.0s)
+=== Wave A — Faction naming LLM (n_factions=1) ===
+  Wave A: 1 faction named: 'Uncharted Convergent Drift' | cost=$0.0050
+  [OK] Wave A complete (3.5s)
+=== Wave B — Per-kit emergent identity LLM (2 kits) ===
+  Kit 0: Wave B parse failure after 2 retries → substrate-derived fallback: 'Uncharted Shadow Fighter Bearer'
+  Kit 1: Wave B parse-retry 1 SUCCEEDED → 'Null-Shadow, Unresolved Range'
+  Wave B: 2 kits named | template_repeat=0 | cost=$0.0400
+  Wave B variety check: no template-repeat detected [PASS]
+  [OK] Wave B complete (21.1s)
+=== Phase 7 — Gate (2-LAYER) ===
+  Phase 7: 2 PASS / 0 FAIL
+  [OK] Phase 7 complete
+=== Phase 8 — Emit ===
+  Emit guard: should_use_kit_space_emit(True, True) = True [PASS]
+  event_id='kse_20260602_006' | 2 kits emitted | validation_errors=0
+  [OK] Phase 8 complete
+=== FK linkage verification ===
+  FK linkage: PASS (event_id='kse_20260602_006', kit_count=2)
+=== Smoke COMPLETE ===
+wall_clock: 1.2 min
+llm_cost: $0.0927 [PASS: under $0.10]
+n_pareto_survivors: 2 | n_factions: 1 [PASS]
+ws1a4_flavor_rate: 42.9%
+n_kits_emitted: 2 | event_id: 'kse_20260602_006'
+fk_linkage: PASS
+phase_composition: Phase 1 → 2 → 4 → 5a → 5b → 5c → Wave A → Wave B → 7 → 8
+=== QDX-3 COMPLETE ===
+```
+
+**Variety check:** PASS (`ws1a4_flavor_rate=0.429` — 0 < 0.429 < 1.0; flavor=6 / canonical+fallback=8 across 2 kits)
+**Q18 pool validation:** PASS — flavor words used: `wraith` (shadow Q18 ✓), `soul` (shadow Q18 ✓), `void` (shadow Q18 ✓); all 3 distinct flavor words are in the locked shadow allow-list `{void, shade, wraith, drain, necrotic, abyss, shadow, lich, blackhole, singularity, darkmatter, soul}`
+**Wave B non-template check:** PASS-with-INFO — `kit_shadow_000005`: "Null-Shadow, Unresolved Range" (emergent, non-template); `kit_shadow_000004`: "Uncharted Shadow Fighter Bearer" (substrate-derived fallback after 2 Wave B parse failures — not template-pattern-words triggered; carries INFO that Wave B parse reliability on synthetic kits is lower than substrate-bound kits)
+**FK linkage:** PASS — `kit_shadow_000004.kit_space_expansion_event_id == kse_20260602_006` ✓; `kit_shadow_000005.kit_space_expansion_event_id == kse_20260602_006` ✓
+**Cost + wall-clock vs bounds:** $0.0927 / 1.2 min (vs $0.10 / 5 min bounds) — both PASS
+**Smoke kit JSON paths:** `data/kit_space/kits/kit_shadow_000004.json` + `data/kit_space/kits/kit_shadow_000005.json`
+**Chronicle event_id:** `kse_20260602_006`
+
+**Multi-T4 BLOCK (1st BLOCK — LOCK L 1st-BLOCK authority invoked):**
+`t4_selection=null` on both kits. T4 Option F fired (all 4 retries exhausted; all synergy scores negative). Root cause: synthetic stub skills have no BC-axis contribution data or weapon context; T4 synergy scoring algorithm correctly fires but cannot resolve in-band T4 candidates from pure stubs. T4 WIRED (Phase 2b + 5c executed); it simply can't ship a capstone without real substrate signal.
+- Primary QDX-4 goal (WS1A.4-lite variety on non-physical primary) is ACHIEVED empirically.
+- T4 null is a synthetic-stub artifact; full-fire with substrate-bound non-physical kits would have real substrate scoring context.
+- LOCK L 1st-BLOCK disposition: documented here; no re-fire required (re-fire would not fix the synthetic-stub limitation without substrate enrichment). Surfaced to jack-ryan Gate-2 for assessment.
+
+**BLOCKs accumulated this workstream:** 1 (T4 null on synthetic stubs; 1st-BLOCK per LOCK L; no Matt escalation required)
+
+---
+
 **End of QDX-4 dispatch.**
 
 ---
