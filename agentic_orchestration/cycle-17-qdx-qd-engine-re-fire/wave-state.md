@@ -1,6 +1,6 @@
 # Cycle 17 — QDX QD-Engine Workflow Re-Fire with WS1A.4-lite Integration — Wave State
 
-**STATUS:** 🟢 OPEN (Phase 1 ✅ ALL PASS 2026-06-02; Phase 2 routing)
+**STATUS:** 🟡 OPEN — GATED on Matt generator-path strategic decision (Phase 1 ✅ ALL PASS; Phase 2 ✅ PASS-with-INFO; Phase 3 routing GATED — see `qdx-5-generator-path-strategic-decision-2026-06-02.md`)
 **Date opened:** 2026-06-02
 **Owner:** knight-rider (orchestrator)
 **Authority:** Matt 2026-06-02 Pattern B substantive design session — gandalf transmission with QDX chain routing (Locks A-P preserved from EAA chain; Locks Q-T NEW for QDX scope)
@@ -175,7 +175,10 @@ Phase 1 PASS criterion: ✅ ACHIEVED. QDX-1 + QDX-2 + QDX-3 all PASS (with QDX-3
 | Property | Value |
 |---|---|
 | **Owner** | KR + rocket + jack-ryan per LOCK S |
-| **Status** | 🟢 FIRING (Phase 2) |
+| **Status** | ✅ COMPLETE — PASS-with-INFO (2026-06-02) |
+| **Workstream A (rocket smoke)** | engine `cd3b10c` tag `rocket/v1.5-qdx-4-lock-s-smoke-1`; --force-primary CLI flag added (LOCK Q ADDITIVE); 2 shadow kits synthesized at `data/kit_space/kits/kit_shadow_000004/5.json`; event `kse_20260602_006`; variety 0.429; Q18 PASS; Wave B non-template; FK linkage PASS; cost $0.09 / 1.2 min |
+| **Workstream B (jack-ryan Gate-2)** | unified Gate-2 finding at `qa/findings/2026-06-02-qdx-phase-1-phase-2-gate-2.md`; commit `2352d54`; 0 BLOCKs; 7-criteria 6/7 PASS + 1 MARGINAL (t4_null = smoke-artifact exception per synthetic-stub root cause); LOCK L not triggered |
+| **Critical signal surfaced** | substrate-coverage problem (98%+ physical; same EAA-5 v1 root cause); QDX-5 generator-path decision required before Phase 3 fires |
 | **Dispatch** | `dispatches/2026-06-02-qdx-4-integration-smoke-gate.md` |
 | **Scope** | Formal LOCK S smoke fire — non-physical single-kit smoke through composed pipeline; resolves QDX-3 variety-check MARGINAL INFO; jack-ryan Gate-2 verifies QDX-1+QDX-2+QDX-3 outputs + QDX-4 smoke output against 7-criteria checklist |
 | **Output** | (a) Fresh non-physical smoke kit JSON at `data/kit_space/kits/` with WS1A.4-lite metadata populated; (b) jack-ryan Gate-2 unified finding covering Phase 1 outputs + QDX-4 smoke |
@@ -189,7 +192,7 @@ Phase 1 PASS criterion: ✅ ACHIEVED. QDX-1 + QDX-2 + QDX-3 all PASS (with QDX-3
 | Property | Value |
 |---|---|
 | **Owner** | KR + rocket + star-lord per LOCK R |
-| **Status** | ❌ NOT STARTED (gates on QDX-4 PASS) |
+| **Status** | 🟡 GATED on Matt generator-path decision — see `qdx-5-generator-path-strategic-decision-2026-06-02.md` |
 | **Scope** | Full Pareto-pool fire (~30-40 kits surviving); multi-hour LLM execution; substantive cost ($5-30); produces Cycle 14-equivalent architectural richness + WS1A.4-lite per-skill flavor |
 | **Output** | ~30-40 kits in `data/kit_space/` with full identity emergence |
 | **Gates on** | QDX-4 smoke PASS |
@@ -334,6 +337,10 @@ Plus **discipline #56 candidate from EAA chain** (generator-path explicit naming
 | 2026-06-02 | Phase 1 ✅ ALL PASS; Phase 2 routing |
 | 2026-06-02 | QDX-4 dispatch authored (formal LOCK S smoke-gate; non-physical primary) |
 | 2026-06-02 | jack-ryan Gate-2 bundled QDX-1/2/3 review + rocket QDX-4 smoke fired in parallel |
+| 2026-06-02 | jack-ryan Gate-2 unified (Phase 1) returned PASS-with-INFO; commit `ecdc0d9` |
+| 2026-06-02 | rocket QDX-4 LOCK S smoke completed PASS-with-INFO; engine `cd3b10c`; t4_null = smoke-artifact (synthetic-stub root cause); substrate-coverage signal surfaced (~98% physical; EAA-5 v1 root cause recurring) |
+| 2026-06-02 | jack-ryan QDX-4 supplement returned PASS-with-INFO; commit `2352d54`; 0 BLOCKs; Phase 3 CONDITIONAL YES (generator-path decision required) |
+| 2026-06-02 | KR authored strategic decision document `qdx-5-generator-path-strategic-decision-2026-06-02.md`; Matt-touch warranted per ADR-002 architectural-commitment-tier; Phase 3 GATED |
 
 ---
 
