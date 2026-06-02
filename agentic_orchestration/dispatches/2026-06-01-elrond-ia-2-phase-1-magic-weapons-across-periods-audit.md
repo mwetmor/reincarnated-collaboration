@@ -179,3 +179,45 @@ After your report-back, KR surfaces audit findings to Matt + gandalf for Phase 2
 ---
 
 **End of IA-2 Phase 1 magic-weapons-across-periods audit dispatch.**
+
+---
+
+## Completion record
+
+**Completed:** 2026-06-01
+**Audit artifact:** `agentic_orchestration/elrond/audits/2026-06-01-magic-weapons-across-periods-audit.md`
+**Audit script (reproducible):** `agentic_orchestration/research/scripts/ia2_phase1_magic_weapons_across_periods_audit.py`
+
+**21-cell coverage grid:**
+
+| Primary | ANCIENT | MEDIEVAL | MODERN |
+|---|---|---|---|
+| fire | WEAK (3) | WEAK (2) | ABSENT (per WS2.P1) |
+| water | WEAK (5) | WEAK (2) | ABSENT (per WS2.P1) |
+| earth | STRONG (38) | MEDIUM (13) | ABSENT (per WS2.P1) |
+| wind | MEDIUM (10) | WEAK (2) | ABSENT (per WS2.P1) |
+| lightning | MEDIUM (16) | WEAK (6) | WEAK (per WS2.P1) |
+| holy | STRONG (30) | MEDIUM (11) | WEAK (per WS2.P1) |
+| shadow | MEDIUM (13) | ABSENT (1) | WEAK (per WS2.P1) |
+
+**Per-period gap quantification:**
+- ANCIENT: 117 magic-weapon-vocabulary rows (509 magic-weapon-eligible); Phase 2 anchor scope ~15-24 weapons
+- MEDIEVAL: 37 magic-weapon-vocabulary rows (60 magic-weapon-eligible); Phase 2 anchor scope ~22-31 weapons
+- MODERN: ~46 fantasy-fictional-modern-coded per WS2.P1 reuse-by-reference; Phase 2 anchor scope ~45-67 per WS2.P1 § 5.2
+
+**Phase 2 scope recommendation:** ~80-100 weapons mid-range (gandalf 67-88 anchors + legolas 22 supplementary); Y3 hybrid CONFIRMED; per-cell split per audit § 6.3. Broader than dispatch ~45-80 range; audit recommends scope-broadening to cover ANCIENT + MEDIEVAL alongside MODERN per WS2.P1.
+
+**Audit limitations / blind spots:**
+- Keyword-only scan over canonical_name + named_mythological_match + structured_properties (description text + embeddings un-queried)
+- WoW-classic-items period-misclassification at classical (inflates ANCIENT.fantasy by ~3,149 rows)
+- Early-modern period (14,549 rows) held out of scope
+- MODERN reused-by-reference per dispatch + WS2.P1 § 7 not re-derived
+- Primary-unattributed magic-weapon-eligible pool (~569 ANCIENT + MEDIEVAL rows) not per-primary-classified (Phase 3 methodology question)
+
+**Notable findings:**
+1. **Coverage asymmetry** — ANCIENT (117) >> MEDIEVAL (37) ≈ MODERN (~46). Phase 2 anchor scope should be sized to gap, not uniform.
+2. **Fire and water uniformly thin cross-period** — substrate has DEX-coded military + STR-coded melee saturation; caster-class fire/water implements under-represented at every period.
+3. **MEDIEVAL.shadow is the single worst cell** (1 row only — Talisman of Charlemagne). 5-6 anchor weapons recommended (largest single-cell anchor scope in the audit).
+4. **Retroactive-primary-tagging methodology candidate for Phase 3** — 509 ANCIENT + 60 MEDIEVAL primary-unattributed magic-weapon-eligible substrate rows exist (Solomonic grimoires, Mongol banners, Egyptian Ankh, Norse mythological named weapons). Phase 3 could amend ingest methodology to retroactively-tag these ~50-100 rows with primary-element associations. Surfaced for Matt + gandalf Phase 2 plan consideration.
+
+**Routing back to KR:** report ready for Matt + gandalf Phase 2 plan. Audit broadens scope mid-range to ~80-100 weapons (vs dispatch ~45-80); surfaces retroactive-primary-tagging methodology candidate for Phase 3; Y3 hybrid + Cycle 10 Stage 3.5 operational template unchanged. No escalation per dispatch § 4 escalation criterion (no fundamental scope-shape change).
