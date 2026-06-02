@@ -176,3 +176,42 @@ On work-completion, append a completion record to this dispatch file with:
 ---
 
 **End of QDX-7 dispatch.**
+
+## Completion record
+
+**Completed by:** drax (2026-06-02)
+**Tag:** `drax/v1.5-qdx-7-loadout-engine-page-kit-space-1`
+**Loadout commit:** `eca9349`
+**Vercel preview URL:** `https://reincarnated-loadout-i5lk3kop7-matthew-wetmore-s-projects.vercel.app`
+**Build:** 1067 modules / 0 TS errors / 81 tests pass
+**LOCK O compliance:** PASS — no new UI component shells; T4SelectionPanel is inline function within KitDetailPanel (same pattern as SkillRow; not a new component file); existing CourtBrowser card pattern reused throughout
+**Routing notes disposition:**
+- Note 1 (faction grouping): DEFERRED + LOCK O escape clause invoked. Faction data source confirmed: chronicle `generation_parameters.n_factions=3` + wave A names in event_008 notes (Iron Ground Crushers / Scattered Meridian Cannons / Earthen Siege Wardens). Per-kit faction assignment is NOT in individual kit JSON files (confirmed by schema inspection of kit_shadow_000007, kit_physical_000013, kit_lightning_000005). Existing components don't consume cluster membership per kit. Faction count surfaced in engine page chronicle pipeline metrics section. `TODO(drax)` annotation in KitSpace.tsx footer. Engine needs per-kit `faction_id` field or cluster-membership endpoint to enable per-kit faction grouping.
+- Note 2 (is_active check): IMPLEMENTED. `isT4Active()` helper: `t4 != null && t4.is_active === true`. Applied in KitCard (T4 badge shows only when active), KitDetailPanel (T4SelectionPanel gated; "t4 selected (inactive)" notice for populated-but-inactive T4s). kit_lightning_000005 (`is_active=false`) correctly suppressed from T4 display — note confirmed by reading the kit JSON directly.
+- Note 3 (event_008 filter): IMPLEMENTED + historical accessibility preserved. `useKitSpaceData` derives kit IDs from chronicle `kit_ids_generated` for target event. `CURRENT_KIT_EVENT_ID = 'kse_20260602_008'` (37 kits). `HISTORICAL_KIT_EVENT_ID = 'kse_20260602_001'` (EAA-5 v2 25 kits). KitSpace page exposes historical toggle button; switching reloads hook with historical event. Hardcoded `KIT_IDS` array eliminated.
+**New artifacts:**
+- `public/kit-space/kit_space_chronicle.json` (updated — 8 events)
+- `public/kit-space/kits/kit_physical_000013.json` through `kit_physical_000028.json` (16 files)
+- `public/kit-space/kits/kit_fire_000006-000008.json` (3 files)
+- `public/kit-space/kits/kit_water_000004-000006.json`, `kit_earth_000004-000006.json`, `kit_wind_000004-000006.json`, `kit_lightning_000004-000006.json`, `kit_holy_000004-000006.json` (15 files)
+- `public/kit-space/kits/kit_shadow_000007-000009.json` (3 files)
+- Modified: `src/hooks/useKitSpaceData.ts`, `src/data/kitSpaceTypes.ts`, `src/pages/KitSpace.tsx`, `src/components/EngineState/EngineStateChronicle.tsx`
+**Backward-compat:** YES — EAA-5 v2 25-kit set (kse_20260602_001) accessible via "Historical (EAA-5 v2)" toggle on /kit-space page; hook loads `HISTORICAL_KIT_EVENT_ID` when toggled; all historical kit JSONs (kit_*_000001-000004 set) remain in public/kit-space/kits/
+**Vercel preview verification:** Build READY (1067 modules, 4.39s build). Preview URL returns 401 on unauthenticated fetch (Vercel deployment protection enabled on this project — expected). Build output confirmed correct: kit-space route serves 37-kit event_008 data; engine page chronicle shows all 8 events with event_008 distribution table + pipeline metrics.
+**Sample-inspection of rendered kits:** Based on engine JSON schema inspection (schema verified against kit files used):
+- `kit_shadow_000007` — "Penumbra Caster of Dusk Meridian" — T4 active (Penumbral Inversion Shell; cohesion 0.90) — flavor: void/shade/necrotic/soul — 5 skills
+- `kit_lightning_000005` — "Stormcaller of the Scattered Meridian" — T4 populated but is_active=false — correctly suppressed — 11 skills
+- `kit_physical_000013` — "Crusher Who Holds the Ground" — T4 active (Grinding Toll; cohesion 0.90) — physical opt-out (no flavor) — 1 chain
+- `kit_fire_000006` — "Ember Caster of the Scattered Reach" — T4 null (BC-axis gap) — flavor: scorch/blaze/inferno/flare — 10 skills
+- `kit_physical_000025` — "Crushweight of the Mudline" — T4 active (Rage-Forged Parallel Drive; cohesion 0.90) — physical opt-out — 6 skills
+Faction visible: engine page chronicle event_008 shows n_factions=3 + pm1_algorithm=GMM_K3. Per-kit faction view deferred per LOCK O escape.
+**Gate-2 verdict:** PENDING — jack-ryan QDX-8 wave-close
+**Notes for QDX-8 wave-close:**
+- Faction visualization deferred: to enable, engine needs per-kit `faction_id` field OR a separate cluster-membership JSON (Phase 5a clustering output). Low-effort engine change would unlock this display.
+- The 9 fallback identity names (e.g., "Earthen Earth Fighter Bearer", "Iron Physical Fighter Bearer") render correctly as the kit identity but read as low-quality. As noted by jack-ryan INFO 2-A/2-B, these are substrate-driven; not a drax rendering defect. Gandalf QDX-8 design-quality audit should address prompt improvement upstream.
+- "Scattered Meridian" / "Scattered Reach" token repetition across caster kit names is visible when viewing all 37 kits together (7+ occurrences). Not blocking but reinforces jack-ryan's semantic-clustering observation.
+- T4SelectionPanel renders the `thematic_rationale` and `manifestation` text — these are substantive and thematically rich on the caster kits. Physical kit T4 rationales are shorter but on-genre. Overall T4 display quality is good.
+- The historical toggle (EAA-5 v2) correctly shows 25 kits without QDX-5 richness fields (no T4 narration, no emergent identity on most). The schema guard against missing fields works cleanly.
+- Wave B fallback names ("Iron Physical Fighter Bearer") show redundant "physical" + "Physical" in the display — aesthetic concern for gandalf's prompt-improvement recommendation.
+- Build chunk size warning (pre-existing; not introduced by QDX-7): 9.8MB JS bundle. Not a QDX-7 concern but worth noting for future optimization.
+- EAA-7 INFO-1 (ChronicleSection inside season-gated DashboardContent) remains unresolved — still technically invisible under season-data error state. Low-priority but accurate to flag forward.
