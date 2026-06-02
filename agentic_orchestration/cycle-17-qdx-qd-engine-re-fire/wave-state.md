@@ -1,6 +1,6 @@
 # Cycle 17 — QDX QD-Engine Workflow Re-Fire with WS1A.4-lite Integration — Wave State
 
-**STATUS:** 🟢 OPEN — Phase 3 FIRING (Matt 2026-06-02 ratified Option B + Option B4 weighted distribution amendment; QDX-5 full fire in flight)
+**STATUS:** 🟢 OPEN — Phase 3 ✅ QDX-5 PASS (37 kits emitted; ~$1.14 actual cost / 10.6 min wall-clock); QDX-6 Gate-2 acceptance verification firing
 **Date opened:** 2026-06-02
 **Owner:** knight-rider (orchestrator)
 **Authority:** Matt 2026-06-02 Pattern B substantive design session — gandalf transmission with QDX chain routing (Locks A-P preserved from EAA chain; Locks Q-T NEW for QDX scope)
@@ -192,12 +192,22 @@ Phase 1 PASS criterion: ✅ ACHIEVED. QDX-1 + QDX-2 + QDX-3 all PASS (with QDX-3
 | Property | Value |
 |---|---|
 | **Owner** | KR + rocket + star-lord per LOCK R (Matt 2026-06-02 ratified Option B + Option B4 weighted distribution amendment) |
-| **Status** | 🟢 FIRING (Phase 3; rocket multi-hour LLM execution) |
+| **Status** | ✅ COMPLETE (2026-06-02) — PASS-with-WARNs (4 WARN items queued for QDX-6 jack-ryan triage; 0 BLOCKs) |
 | **Dispatch** | `dispatches/2026-06-02-qdx-5-full-qd-engine-workflow-fire.md` |
-| **Generator path** | ClassGenerator (Option B; EAA-5 v2 path extended with QDX richness) |
-| **Distribution** | Option B4.5 weighted round-robin (gandalf-preferred): physical=16, fire/water/earth/wind/lightning/holy/shadow=3 each (total=37; ~43% physical / ~57% caster) |
-| **Matt-ratified Discipline #41 interpretation** | substrate determines fill WITHIN each element axis; element axis follows Option B4 weighted round-robin |
-| **Cost projection** | ~$5-7 (within $30 LOCK R bound; $60 ABORT threshold) |
+| **Tag** | `rocket/v1.5-qdx-5-full-fire-option-b4-1` |
+| **Engine commits** | `d89d23e` (pre-fire snapshot) + `00cfbd0` (full fire) + `b76222e` (AGENT_STATE checkpoint) |
+| **Event_id** | `kse_20260602_008` |
+| **Generator path** | ClassGenerator (Option B) |
+| **Distribution ACTUAL** | physical=16, fire=3, water=3, earth=3, wind=3, lightning=3, holy=3, shadow=3 (total=37; **43.2% physical / 56.8% caster** — within 40-45% Matt-target) |
+| **Cost ACTUAL** | **$1.14** (vs $1.03 projected; well under $30 LOCK R bound) |
+| **Wall-clock ACTUAL** | **10.6 min** (well under 4-hour bound) |
+| **WS1A.4-lite ACTUAL** | flavor_rate=30.3%; 0 fallbacks; physical_opt_out=16 kits |
+| **Wave A factions** | 3 named: Iron Ground Crushers / Scattered Meridian Cannons / Earthen Siege Wardens |
+| **Wave B template_repeat_detected** | False (criterion #2 PASS) |
+| **Phase 7 gate** | 37/37 PASS |
+| **FK linkage + emit-order** | PASS (chronicle FIRST discipline respected) |
+| **Regressions** | none (LOCK Q ADDITIVE-ONLY held) |
+| **WARNs for QDX-6 triage** | (1) t4_selection null on 4/37 kits (89% populated; ClassGenerator-axis-coverage); (2) W-B7 faction-coherence on ~9 physical kits (Wave B identity_narrative doesn't reference faction); (3) 9 generic Wave B fallbacks on physical/earth ("Iron Physical Fighter Bearer" style; non-template but low quality); (4) B6 substrate-coverage pattern on all 16 physical kits (pre-existing 98% physical substrate) |
 | **Scope** | Full Pareto-pool fire (~30-40 kits surviving); multi-hour LLM execution; substantive cost ($5-30); produces Cycle 14-equivalent architectural richness + WS1A.4-lite per-skill flavor |
 | **Output** | ~30-40 kits in `data/kit_space/` with full identity emergence |
 | **Gates on** | QDX-4 smoke PASS |
@@ -208,7 +218,7 @@ Phase 1 PASS criterion: ✅ ACHIEVED. QDX-1 + QDX-2 + QDX-3 all PASS (with QDX-3
 | Property | Value |
 |---|---|
 | **Owner** | jack-ryan per LOCK L pattern |
-| **Status** | ❌ NOT STARTED (gates on QDX-5 emit) |
+| **Status** | 🟢 FIRING (Phase 3; gates on QDX-5 ✅ achieved) |
 | **Dispatch** | `dispatches/2026-06-02-qdx-6-gate-2-acceptance-verification.md` |
 | **Scope** | Verify QDX-5 output against amended 8-criteria checklist: (1-7 original) + (8 NEW) per-primary distribution matches Option B4 target ~40-45% physical ± 5% / ~55-60% caster |
 | **Discipline #41 interpretation** | criterion 6 reinterpreted per Matt 2026-06-02 ratification: substrate-led WITHIN element axis; Option B4 weighted round-robin for element-axis coverage |
@@ -352,6 +362,9 @@ Plus **discipline #56 candidate from EAA chain** (generator-path explicit naming
 | 2026-06-02 | KR authored QDX-5 dispatch (Option B4.5 distribution: physical=16, rotating=3 each, total=37; ~43% physical) + QDX-6 dispatch (8-criteria amended for distribution criterion #8) |
 | 2026-06-02 | Phase 3 firing — rocket QDX-5 multi-hour LLM execution (~$5-7 cost projection; $60 ABORT threshold) |
 | 2026-06-02 | Discipline candidate queued for QDX-8: "Genre-aligned distribution discipline" (gandalf transmission) |
+| 2026-06-02 | rocket pre-flight smoke confirmed Option B4.5 path; PASS (3 kits; cost $0.13; FK linkage PASS) |
+| 2026-06-02 | ✅ rocket QDX-5 FULL FIRE PASS-with-WARNs (engine `00cfbd0`; tag `rocket/v1.5-qdx-5-full-fire-option-b4-1`; event `kse_20260602_008`; **37 kits / 43.2% physical / $1.14 / 10.6 min**); 0 BLOCKs; 4 WARNs queued for QDX-6 triage |
+| 2026-06-02 | KR routes jack-ryan QDX-6 Gate-2 acceptance verification (8-criteria + WARN triage) |
 
 ---
 
