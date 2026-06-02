@@ -1,0 +1,43 @@
+{
+  "crawl_id": "legolas-crawl-magic-supplementary-medieval-2026-06-01",
+  "period": "medieval",
+  "crawl_date": "2026-06-01",
+  "entry_count": 9,
+  "sources_consulted": [
+    "Le Morte d'Arthur (Malory, 1485)",
+    "Alliterative Morte Arthure (14th C)",
+    "Culhwch and Olwen (Mabinogion, 11th-12th C)",
+    "Trioedd Ynys Prydein (Welsh Triads)",
+    "Chanson de Roland (11th-12th C)",
+    "Chanson d'Aspremont (12th C)",
+    "Völsunga saga (Old Norse, 13th C manuscript)",
+    "Poetic Edda (Fáfnismál, Reginsmál, Grímnismál, Eddic kenning-traditions)",
+    "Gylfaginning (Snorri Sturluson, Prose Edda)",
+    "Gospel of John 19:34",
+    "Raymond d'Agiles — Chronicle of the First Crusade (1098)",
+    "Legenda Aurea (Jacobus de Voragine, 13th C)",
+    "Petit Albert (French grimoire, 18th C compilation of medieval folk-tradition)",
+    "Grose's Provincial Glossary (1787)",
+    "Middleton's Witch (1613)"
+  ],
+  "breadth_by_cultural_tradition": {
+    "Arthurian / British": 2,
+    "Welsh / Arthurian": 1,
+    "Carolingian": 2,
+    "Norse saga": 2,
+    "European grimoire / folk-magic": 1,
+    "Latin Christian / Crusader": 1
+  },
+  "breadth_by_primary_element": {
+    "holy": 3,
+    "shadow": 3,
+    "fire": 2,
+    "lightning": 1
+  },
+  "novel_design_flag_summary": {
+    "false": 9,
+    "true": 0
+  },
+  "duplication_avoidance": "Verified against gandalf MEDIEVAL batch (29 entries, lineage gandalf-authored-magic-anchor-medieval-2026-06-01). No canonical_name overlaps. Gandalf covered: Carolingian (Joyeuse, Durendal, Hauteclère, Roland-brand), Norse saga (Skofnung, Seiðstafr), Welsh (Bran Cauldron Ladle), grimoire (Athame, Picatrix, Sefer HaRazim), macabre (Plague-Doctor, Iron Maiden), witch-folklore, alchemy. This crawl uses: Arthurian (Galatine, Clarent, Carnwennan — absent from gandalf), Carolingian breadth (Almace, Précieuse — Turpin/Aspremont not in gandalf), Norse breadth (Gram, Hófuð — Völsunga/Heimdall not in gandalf), reliquary (Spear of Destiny — distinct from gandalf's San Pietro Brand / Storm-Ward Censer), folk-magic (Hand of Glory — distinct from gandalf's grimoire athame / witch-folklore set).",
+  "coverage_notes": "Water and earth primaries are not represented in this 9-entry crawl because gandalf MEDIEVAL batch has 4 water anchors (Joyeuse Aqua-Veil, Bran Cauldron Ladle, Hag Tide-Distaff, Mercurial Flask) and 3 earth anchors (Durendal Stone-Cleaver, Witch-Sabbath Stone-Circle Wand, Geomancer Sigil-Pestle) providing solid coverage. Legolas supplementary prioritizes holy/shadow/fire/lightning breadth where the Arthurian + Norse saga + Carolingian traditions have strong named-weapon attestation that gandalf did not exhaust."
+}
