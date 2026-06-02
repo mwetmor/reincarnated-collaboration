@@ -212,4 +212,22 @@ Append a completion record to this dispatch file.
 
 ---
 
+## Completion record
+
+**Completed:** 2026-06-01
+**Verdict:** WARN
+**Final classification:** PASS-with-WARN
+**Finding artifact:** `agentic_orchestration/qa/findings/2026-06-01-ws1-sub-phase-5f-gate-2.md`
+**Migration completeness:** PASS (100 rotating + 9 physical = 109 verified independently; all 7 per-primary entry-sets match PG-3 § 1 verbatim; 114 legacy quarantine preserved; stormtide correctly absent)
+**Schema extension:** PASS (4 additive fields; safe defaults; 4th field within elrond seam authority; backward-compat confirmed both directions)
+**Cross-seam handling:** PASS (MIGRATION.md engine-side + data-layer-side; all 4 seam ACKs documented; tag correctly deferred pending Gate-2)
+**Ambiguity 1 (cardinality) verdict:** WARN — EDITORIAL ERROR CONFIRMED. PG-3 § 1.9 + canonical lock § 0/§ 2.9 + wave-close § 0 + decisions-log all assert "109 rotating / 118 total"; independent jack-ryan count = 100 rotating / 109 total. Error originated in PG-3 § 1.9 sub-totaling; propagated forward into 6 source-doc locations. Migration is CORRECT (honored verbatim entry lists). Amendment-pass required on 6 doc locations before WS1A.3/WS1A.4 fire. Remediation path: Option A — gandalf authors correction; jack-ryan direct-approves as documentation-only change (ADR-002).
+**Ambiguity 2 (lineage tag aggregate) verdict:** INFO — Elrond resolution RATIFIED. Applies § 7.1 col-sum reconciliation (which reconciles to 100 rotating) + honors canonical § 7 explicit modern-sci enumeration (19 entries). Final: 57 validated / 23 silent / 19 modern-sci / 1 mystical = 100 rotating. Confirmed against migrated pool.json. Bundle § 7.1 correction into Ambiguity 1 amendment-pass.
+**Ambiguity 3 (stormtide) verdict:** INFO — No-op CORRECT. stormtide not in PG-3 §§ 1.1–1.7 entry lists; not in v1.0 pool.json; correctly absent from v1.1. Routing intent preserved in migration script. Recommend stormtide annotation added to canonical lock § 3.3 at amendment-pass ("not in v1.0 lock; routing preserved for future reference").
+**Drift-14 finding disposition:** INFO — Out-of-WS1-scope. Auto-demote of new lock entries is EXPECTED pre-existing invariant behavior. Forward note: vfx_coverage_manifest.json extension is a WS1A.3 dispatch prerequisite. Does not affect WS1 wave-close.
+**Key items surfaced:** (1) Cardinality editorial error 109→100 rotating / 118→109 total confirmed by independent count; (2) Elrond lineage resolution ratified; (3) Elrond honest-surface discipline exemplary — 3 ambiguities reported, not silently absorbed; (4) 4th schema field (ws1a_q18_lock_date) accepted under elrond seam authority.
+**Routing back to KR:** WS1 CLOSED with WARN. Tag `elrond/v1.7-q18-pool-migration` CLEARS immediately. Amendment-pass (gandalf) required before WS1A.3/WS1A.4 fire — route as separate dispatch. VFX manifest extension prerequisite noted for WS1A.3. Q16/Q17/Q19 routing unaffected.
+
+---
+
 **End of jack-ryan WS1 Gate-2 dispatch.**
