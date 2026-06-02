@@ -192,3 +192,132 @@ The single remaining gate before Phase 3 clearance is QDX-4 criteria 5-7: empiri
 **LOCK L status:** not triggered
 **Phase 3 routing clearance:** CONDITIONAL YES (clears on QDX-4 smoke PASS)
 **Escalation to Matt:** not required (0 BLOCKs; no escape clause triggered)
+
+---
+
+## QDX-4 LOCK S smoke verdict (supplement)
+
+**Supplement authored:** 2026-06-02
+**Engine commit reviewed:** `cd3b10c` | **Tag:** `rocket/v1.5-qdx-4-lock-s-smoke-1`
+**Kit files inspected:** `kit_shadow_000004.json` + `kit_shadow_000005.json`
+**Chronicle event verified:** `kse_20260602_006`
+
+---
+
+### Overall QDX-4 verdict: PASS-with-INFO
+
+The LOCK S 7-criteria smoke is substantively PASS. The t4_selection=null finding on both kits is a deterministic artifact of the synthetic-stub path, not a pipeline regression — the T4 algorithm fired (Phase 2b + 5c executed per rocket's record; `t4_selection_active=true` in chronicle generation_parameters), but Option F exhausted because synthetic stub skills carry empty `bc_axis_contribution: {}` — there is no scoring substrate for T4 synergy resolution. The distinction matters: the pipeline is wired correctly and confirmed to fire; the null result is input-data-determined, not a code defect. This is structurally identical to the EAA-5 v1 empty-skills pattern — a synthetic artifact that does not characterize real substrate behavior. LOCK L 1st-BLOCK does not trigger; see framing rationale below.
+
+---
+
+### 7-criteria final disposition
+
+| # | Criterion | Status | Notes |
+|---|---|---|---|
+| 1 | Kit count ≥1 (smoke relaxation) | PASS | 2 kits emitted (`kit_shadow_000004` + `kit_shadow_000005`); `kit_count=2` in chronicle |
+| 2 | Distinct emergent kit identities (no template-repeat) | PASS | "Uncharted Shadow Fighter Bearer" (substrate-derived fallback post Wave B parse failure) + "Null-Shadow, Unresolved Range" (emergent, non-template); `wave_b_template_repeat_detected=false` in chronicle |
+| 3 | Faction emergence ≥1 (smoke relaxation) | PASS | `n_factions=1` in chronicle; 1 faction is the relaxed smoke criterion |
+| 4 | t4_selection not null | MARGINAL — smoke-artifact exception | Both kits: `t4_selection=null`. T4 algorithm confirmed wired (`t4_selection_active=true`); null is synthetic-stub artifact (empty `bc_axis_contribution` → Option F exhausted → null result). Real substrate kits carry scoring context; this criterion will resolve in QDX-5 full fire on canonical substrate. Not treated as BLOCK. See LOCK L framing below. |
+| 5 | ws1a4_flavor_rate > 0 AND < 1.0; per-skill ws1a4_* metadata | PASS | `ws1a4_flavor_rate=0.429` (6 flavor=True; 8 canonical; 0 fallback); per-skill `ws1a4_flavor_decision` + `ws1a4_flavor_word_used` + `ws1a4_attempt_number` present on all 14 skills across both kits. Variety confirmed: both flavor=True and flavor=False skills present |
+| 6 | Substrate-led element (non-physical forced) | PASS | `--force-primary shadow` activated LOCK S synthetic fallback per spec; `cell_routing_source=qdx4_synthetic_force_primary` in both substrate traces; `primary_element=shadow` on both kits; LOCK Q ADDITIVE-ONLY respected (flag default=None; existing path unchanged) |
+| 7 | Per-skill flavor decisions thematically coherent; Q18 pool validation | PASS | Inspected: `wraith` (Shadow Lance, t2 chain_A), `soul` (Shadow Shackle Barrage, t3 chain_A), `void` (Shadow Shackle Volley, t4 chain_A) — all three in locked shadow Q18 allow-list. Flavor text coherent with shadow theme across both kits. Phase 5 cohesion scores 0.90-1.00. Wave B parse-failure fallback name ("Uncharted Shadow Fighter Bearer") is less rich but non-template per dispatch spec |
+
+**Summary:** 5 criteria PASS clean (1, 2, 3, 5, 6, 7 — noting 7 combines two sub-checks, all PASS). Criterion 4 is MARGINAL with smoke-artifact exception. No hard FAILs.
+
+---
+
+### LOCK L iteration disposition
+
+**Framing decision: t4_null is a smoke-artifact, not a seam-re-fire BLOCK.**
+
+Rationale:
+- T4 algorithm is confirmed wired and confirmed to fire. The `t4_selection_active=true` flag in the chronicle `generation_parameters` plus rocket's execution record confirm Phase 2b + 5c both ran.
+- The null output is mechanically determined by the synthetic stub input: `bc_axis_contribution: {}` on all synthetic skills means T4 has no scoring signal to rank candidates. This is expected behavior given the input.
+- EAA-5 v1 precedent: empty `bc_axis_contribution` as a synthetic/stub artifact is a known pattern; the EAA chain resolved it by switching to real substrate paths, not by re-firing the same synthetic path.
+- LOCK L 1st-BLOCK authority applies to "prompt or integration failures on real substrate" (wave-state escape clause 5). A synthetic-stub input producing null output from a correctly-wired algorithm is not a prompt failure or integration failure.
+
+**BLOCK count: 0 accumulated** (t4_null classified as smoke-artifact exception; no seam-re-fire triggered).
+
+**LOCK L status: not triggered.** Matt escalation not required.
+
+**Open observation (INFO, not BLOCK):** t4_selection resolution should be verified explicitly as a QDX-5 acceptance criterion — the full fire on canonical substrate (BcTargetSubspaceGenerator → real substrate scoring context) is where this criterion gets its empirical PASS. Recommend adding explicit t4_selection != null check to QDX-5 AC, noting it was MARGINAL on QDX-4 synthetic-stub path.
+
+- Cite: LOCK L escape clause 5; Discipline #2 (smoke-test discipline — smoke exercises wiring, not data completeness)
+
+---
+
+### LOCK Q ADDITIVE-ONLY verification
+
+`--force-primary` implementation confirmed additive:
+- `default=None` preserves existing behavior identically when flag absent
+- Flag activates post-Phase-2 element filter ONLY when set
+- Synthetic fallback fires ONLY when `force_primary != None AND filtered_count == 0`
+- No module-level semantics changed; fire script orchestration layer only
+- `_synthesize_forced_primary_kit()` is internal to the fire script (not a public API mutation)
+
+LOCK Q: PASS clean.
+
+---
+
+### Substrate coverage strategic assessment
+
+**What the smoke revealed:**
+
+`BcTargetSubspaceGenerator` produced 0/500-sample shadow kits in the QDX-3 smoke (physical-dominant substrate). QDX-4 synthetic fallback activated, generating 2 minimal stubs. This is the same root-cause structural tension identified in EAA-5 v1: `infer_element_from_name()` returns `"physical"` as residual fallback for canonical weapon names lacking elemental keywords. 98%+ of the physical weapons substrate maps to physical element; non-physical elements cannot emerge naturally from substrate-led generation at this substrate composition.
+
+**Is this inside or outside QDX chain scope?**
+
+This is **outside QDX chain scope** — it is an escape clause #9 signal (strategic substrate-architecture direction outside QDX chain). The QDX chain's mandate is: fire the pipeline with the confirmed QDX generator path, verify WS1A.4-lite integration, land kits. The question of which generator path QDX-5 should use for the full 35-kit fire is a **generator-path selection decision** that sits at the KR/Matt level, not within rocket's seam authority to resolve unilaterally.
+
+Specifically: the QDX-3 script uses `BcTargetSubspaceGenerator` (canonical 39 Phase 1-2 path per the fire script docstring). The EAA-5 v2 success used `ClassGenerator` (different path; round-robin element distribution). These are architecturally distinct approaches:
+
+- **BcTargetSubspaceGenerator path** (QDX-5 as currently scripted): substrate-led, substrate-composition-bound, will produce ~98% physical kits without substrate enrichment. Non-physical coverage requires LOCK S synthetic fallback or a future elrond substrate enrichment dispatch.
+- **ClassGenerator path** (EAA-5 v2): round-robin element distribution enforced at generation layer; element variety is guaranteed by the generator, not by substrate composition. Does not depend on substrate having non-physical weapons.
+
+**EAA-5 v1 architectural tension recurrence:** the wave-close record § "EAA-5 v1" explicitly documents this as a root-cause investigation resolved by switching to ClassGenerator for EAA-5 v2. QDX-3 re-introduced BcTargetSubspaceGenerator in the fire script. The question is whether QDX-5 (35-kit full fire) should inherit the same substrate-bound constraint, or whether KR should route to ClassGenerator path for element variety — or whether elrond should be dispatched first for substrate enrichment (non-physical weapon entries).
+
+**My engineering-process critique:**
+
+The QDX-3 fire script docstring cites "canonical 39 Phase 1-2" for BcTargetSubspaceGenerator. However, canonical 39 describes the phase ordering (Phase 1 = BC-target audit; Phase 2 = candidate generation) — it does not mandate a specific generator implementation. The EAA-5 v2 ClassGenerator path also implements canonical 39 Phase 1-2; it just uses a different underlying generator. The fire script should not be treated as locking in BcTargetSubspaceGenerator for QDX-5 full fire without a deliberate generator-path selection decision.
+
+**Recommendation:** this is a KR/Matt call, not a rocket seam-re-fire. See QDX-5 routing clearance below.
+
+- Cite: Discipline #41 (substrate-led discipline); ADR-002 (tiered approval — generator path selection is architectural)
+
+---
+
+### Phase 3 (QDX-5 full fire) routing clearance
+
+**CONDITIONAL YES — with generator-path decision required before QDX-5 fires.**
+
+QDX-4 criteria 5-7 are now verified (with criterion 4 marginal on synthetic-stub path; will resolve on real substrate). The WS1A.4-lite integration through the full composed pipeline is confirmed. FK linkage, cost bounds, wall-clock bounds, variety, and Q18 pool validation all PASS. The pipeline is ready to fire at full scale.
+
+**The condition is generator-path explicit selection (Discipline #6 from EAA chain harvest — "generator-path explicit naming in dispatches"):**
+
+Three options for QDX-5 dispatch:
+
+| Option | Generator path | Element variety | Substrate enrichment required? | Notes |
+|---|---|---|---|---|
+| A | BcTargetSubspaceGenerator (as currently scripted) | ~98% physical | YES (elrond dispatch first) | Produces element variety only if substrate has non-physical weapons; substrate enrichment is a separate elrond workstream |
+| B | ClassGenerator (EAA-5 v2 path) | Round-robin across canonical 8 elements | NO | Guaranteed element variety; proven in EAA-5 v2 (25 kits, 8/8 elements); does not depend on substrate composition |
+| C | BcTargetSubspaceGenerator + LOCK S synthetic fallback for non-physical elements | Mixed: physical from substrate + synthetic stubs for non-physical | NO | Hybrid; produces real substrate kits for physical; synthetic stubs for non-physical; t4_selection null on all non-physical kits (same QDX-4 marginal outcome) |
+
+**My recommendation to KR:** Option B (ClassGenerator path) for QDX-5 if element variety across the 35-kit output is a goal. Option A if KR/Matt wants to treat QDX-5 as a substrate-bound proof and accept physical-dominant distribution with explicit documentation; this would also imply pausing QDX-5 for an elrond substrate-enrichment dispatch first (non-physical weapon entries added to substrate DB). Option C is the least clean — it institutionalizes the synthetic-stub pattern at full scale, which carries the t4_selection null risk across all non-physical kits in the fire.
+
+**Route this decision to Matt or KR** before QDX-5 dispatch authoring, as it is a generator-path architectural decision (Discipline #6; ADR-002 tiered approval — cross-seam generator selection).
+
+**Phase 3 clearance status: CONDITIONAL YES.** QDX-4 Gate-2 gate clears. QDX-5 dispatch authoring requires generator-path explicit selection before rocket fires.
+
+---
+
+### QDX-4 supplement sign-off
+
+**Reviewer:** jack-ryan
+**Timestamp:** 2026-06-02 (supplement)
+**QDX-4 verdict:** PASS-with-INFO (criteria 1-3, 5-7 PASS; criterion 4 MARGINAL smoke-artifact; no BLOCK)
+**BLOCKs accumulated (chain total):** 0
+**LOCK L status:** not triggered (t4_null classified as smoke-artifact exception)
+**Phase 3 routing clearance:** CONDITIONAL YES (QDX-4 gate clears; QDX-5 requires generator-path decision before dispatch)
+**Substrate-coverage signal:** escalated to KR as architectural decision (Option A/B/C generator path for QDX-5; outside rocket seam authority)
+**Escalation to Matt:** recommended for generator-path selection (KR/Matt call); not for LOCK L (BLOCK count = 0)
+**Next action for KR:** route generator-path decision (Option A/B/C) to Matt or decide within KR authority, then author QDX-5 dispatch with explicit generator-path named per Discipline #6
