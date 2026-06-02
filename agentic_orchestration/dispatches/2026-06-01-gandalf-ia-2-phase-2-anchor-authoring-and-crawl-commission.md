@@ -277,4 +277,21 @@ After your completion, KR routes Phase 3 (elrond ingest + lineage tag applicatio
 
 ---
 
+## Completion record — JSON consolidation
+**Completed:** 2026-06-01
+**Consolidated JSON:** `agentic_orchestration/gandalf/notes/2026-06-01-ia-2-phase-2-anchors-batch.json` (commit will be auto-stamped at commit step)
+**Total entries:** 102 (verified — schema-version `ia-2-phase-2-anchors-v1`)
+**Integrity check:** PASS
+- Total count = 102 entries in `anchors` array (declared = actual)
+- Per-period counts match declaration: ancient=24, medieval=29, modern=49
+- Per-primary per-period counts match `primary_counts_per_period` declaration across all 21 cells
+- All 102 weapon_ids unique (no collisions)
+- All 10 required fields present per entry (weapon_id / canonical_name / primary_element / period / cultural_tradition / form / register / design_rationale / substrate_validation_lineage / novel_design_flag)
+- Source batches referenced with commit pins: ancient@7565b0a, medieval@b2d42b6, modern@de1e2bd
+- Ratification lineage stamped: LOCK C + LOCK D + WS1A.Q18-Architecture-A
+**Schema readiness:** engine-ingest-ready per Phase 3 elrond schema requirements (operational schema readiness per ancient/medieval/modern batch § 8.4-8.7 carried through; description_text + structured_properties + proxy_class fields deferred to Phase 3 ingest + rocket Stage 3.5 skill-kit pass per audit § 6.5 Cycle 10 Stage 3.5 operational template).
+**Routing back to KR:** proceed to legolas crawl commission
+
+---
+
 **End of IA-2 Phase 2 gandalf anchor authoring + crawl commission dispatch.**
