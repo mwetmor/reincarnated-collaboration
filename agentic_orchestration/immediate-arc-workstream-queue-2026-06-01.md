@@ -134,7 +134,7 @@ Generate a season + ensure magic weapons across periods + drax loads generated s
 
 | WS | Phase | Status | Notes |
 |---|---|---|---|
-| **IA-1** V1 baseline season generation | Pre-fire question | 🔥 FIRING (Gate-1 clean PASS; pre-fire question routed to star-lord+rocket; on engine-readiness confirmation, KR routes V1 fire dispatch) | star-lord assesses; rocket coordinates substrate-side; Drift-14 auto-demote assessment included |
+| **IA-1** V1 baseline season generation | Pre-fire question + setup | ✅ STAR-LORD COMPLETE — MINIMAL-SETUP-REQUIRED: (a) ANTHROPIC_API_KEY env-check; (b) rocket entry-point confirmation (`python -m reincarnated.cli generate-season` SeasonOrchestrator is READY; alternative `run_season_generation()` is Cycle-13-mechanical NOT IA-1 target). Drift-14 acceptable V1 baseline (58/100 auto-demote at load; wind degrades most; vfx_coverage_manifest DEFERRED per strategic reset; weaker wind flavor acceptable for V1). LLM-call ready. Wall-clock ~20 min full / ~5 min smoke. Star-lord artifact at `star-lord/notes/2026-06-01-ia-1-engine-readiness-pre-fire-response.md` (commit `4a2abf2`). Per LOCK A: KR routes rocket confirmation autonomously. |
 | **IA-2.P1** Magic-weapons-across-periods audit | Phase 1 audit | 🔥 FIRING (Gate-1 PASS-with-INFO; 3 INFO items for elrond awareness: physical excluded by design; modern-scientific overlay entries primary MODERN target; ANCIENT+MEDIEVAL operational criteria spec recommended) | elrond Mode A audit; broader scope than WS2.P1 (3 periods × 7 primaries = 21 cells); WS2.P1 MODERN data REUSED by reference |
 | **IA-2.P2** Gap-fill (Y3 hybrid) | Phase 2 | ⏸ pending IA-2.P1 close | gandalf authoring + legolas crawl |
 | **IA-2.P3** Elrond ingest + lineage tags | Phase 3 | ⏸ pending IA-2.P2 close | |
@@ -150,9 +150,12 @@ Generate a season + ensure magic weapons across periods + drax loads generated s
 
 | Dispatch | Path | Status |
 |---|---|---|
-| IA-1 pre-fire question dispatch | `dispatches/2026-06-01-star-lord-rocket-ia-1-engine-readiness-pre-fire-question.md` | 🔥 FIRING (star-lord) |
+| IA-1 pre-fire question dispatch | `dispatches/2026-06-01-star-lord-rocket-ia-1-engine-readiness-pre-fire-question.md` | ✅ COMPLETE (star-lord; commit `4a2abf2`) |
 | IA-1 Gate-1 dispatch | `dispatches/2026-06-01-jack-ryan-gate-1-ia-1-engine-readiness-pre-fire-question.md` | ✅ COMPLETE (PASS clean) |
 | IA-1 Gate-1 finding | `qa/findings/2026-06-01-ia-1-pre-fire-question-gate-1.md` | ✅ COMMITTED (`0eff666`) |
+| IA-1 star-lord readiness response | `star-lord/notes/2026-06-01-ia-1-engine-readiness-pre-fire-response.md` | ✅ COMMITTED (`4a2abf2`) |
+| Immediate-arc pre-commitment ratification | `immediate-arc-pre-commitment-ratification-2026-06-01.md` | 📝 AUTHORED |
+| IA-1 rocket entry-point confirmation dispatch | `dispatches/2026-06-01-rocket-ia-1-entry-point-confirmation.md` | 📝 AUTHORING |
 | IA-2.P1 audit dispatch | `dispatches/2026-06-01-elrond-ia-2-phase-1-magic-weapons-across-periods-audit.md` | 🔥 FIRING (elrond) |
 | IA-2.P1 Gate-1 dispatch | `dispatches/2026-06-01-jack-ryan-gate-1-ia-2-phase-1-pre-fire-review.md` | ✅ COMPLETE (PASS-with-INFO) |
 | IA-2.P1 Gate-1 finding | `qa/findings/2026-06-01-ia-2-phase-1-gate-1.md` | ✅ COMMITTED |
