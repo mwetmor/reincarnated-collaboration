@@ -135,7 +135,8 @@ Generate a season + ensure magic weapons across periods + drax loads generated s
 | WS | Phase | Status | Notes |
 |---|---|---|---|
 | **IA-1** V1 baseline season generation | Pre-fire question + setup | ✅ STAR-LORD COMPLETE — MINIMAL-SETUP-REQUIRED: (a) ANTHROPIC_API_KEY env-check; (b) rocket entry-point confirmation (`python -m reincarnated.cli generate-season` SeasonOrchestrator is READY; alternative `run_season_generation()` is Cycle-13-mechanical NOT IA-1 target). Drift-14 acceptable V1 baseline (58/100 auto-demote at load; wind degrades most; vfx_coverage_manifest DEFERRED per strategic reset; weaker wind flavor acceptable for V1). LLM-call ready. Wall-clock ~20 min full / ~5 min smoke. Star-lord artifact at `star-lord/notes/2026-06-01-ia-1-engine-readiness-pre-fire-response.md` (commit `4a2abf2`). Per LOCK A: KR routes rocket confirmation autonomously. |
-| **IA-2.P1** Magic-weapons-across-periods audit | Phase 1 audit | 🔥 FIRING (Gate-1 PASS-with-INFO; 3 INFO items for elrond awareness: physical excluded by design; modern-scientific overlay entries primary MODERN target; ANCIENT+MEDIEVAL operational criteria spec recommended) | elrond Mode A audit; broader scope than WS2.P1 (3 periods × 7 primaries = 21 cells); WS2.P1 MODERN data REUSED by reference |
+| **IA-2.P1** Magic-weapons-across-periods audit | Phase 1 audit | ✅ COMPLETE (commit `1160333`) — 21-cell grid: ANCIENT mostly WEAK-MEDIUM with earth STRONG(38)/holy STRONG(30); MEDIEVAL mostly WEAK with shadow ABSENT(1) worst cell; MODERN ABSENT/WEAK per WS2.P1; coverage asymmetry ANCIENT>>MEDIEVAL~MODERN; fire/water uniformly thin cross-period; Phase 2 scope **~80-100 weapons mid-range** (gandalf 67-88 manual + legolas 22 crawl); within LOCK C ~140 cap; **Retroactive-primary-tagging surfaced** as Phase 3 methodology consideration; no escalation. |
+| **IA-2.P2** Gap-fill (Y3 hybrid; gandalf anchor authoring + legolas crawl) | Phase 2 | 📝 DISPATCH-AUTHORING (per LOCK C autonomous; ~80-100 weapons total within ~140 cap; gandalf authority) | gandalf authors ~67-88 anchors per cell × 21 cells; legolas crawls ~22 supplementary entries; auto-fire per LOCK C |
 | **IA-2.P2** Gap-fill (Y3 hybrid) | Phase 2 | ⏸ pending IA-2.P1 close | gandalf authoring + legolas crawl |
 | **IA-2.P3** Elrond ingest + lineage tags | Phase 3 | ⏸ pending IA-2.P2 close | |
 | **IA-2.P4** Substrate-coverage validation | Phase 4 | ⏸ pending IA-2.P3 close | |
@@ -155,10 +156,18 @@ Generate a season + ensure magic weapons across periods + drax loads generated s
 | IA-1 Gate-1 finding | `qa/findings/2026-06-01-ia-1-pre-fire-question-gate-1.md` | ✅ COMMITTED (`0eff666`) |
 | IA-1 star-lord readiness response | `star-lord/notes/2026-06-01-ia-1-engine-readiness-pre-fire-response.md` | ✅ COMMITTED (`4a2abf2`) |
 | Immediate-arc pre-commitment ratification | `immediate-arc-pre-commitment-ratification-2026-06-01.md` | 📝 AUTHORED |
-| IA-1 rocket entry-point confirmation dispatch | `dispatches/2026-06-01-rocket-ia-1-entry-point-confirmation.md` | 📝 AUTHORING |
-| IA-2.P1 audit dispatch | `dispatches/2026-06-01-elrond-ia-2-phase-1-magic-weapons-across-periods-audit.md` | 🔥 FIRING (elrond) |
+| IA-1 rocket entry-point confirmation dispatch | `dispatches/2026-06-01-rocket-ia-1-entry-point-confirmation.md` | ✅ COMPLETE (CLI-PATH-CONFIRMED; commit `155b6ba`) |
+| IA-1 rocket response | `rocket/notes/2026-06-01-ia-1-entry-point-confirmation-response.md` | ✅ COMMITTED (`155b6ba`) |
+| IA-1 V1 fire dispatch | `dispatches/2026-06-01-star-lord-ia-1-v1-baseline-season-generation-fire.md` | 📝 AUTHORING |
+| IA-2.P1 audit dispatch | `dispatches/2026-06-01-elrond-ia-2-phase-1-magic-weapons-across-periods-audit.md` | ✅ COMPLETE (elrond; commit `1160333`) |
 | IA-2.P1 Gate-1 dispatch | `dispatches/2026-06-01-jack-ryan-gate-1-ia-2-phase-1-pre-fire-review.md` | ✅ COMPLETE (PASS-with-INFO) |
 | IA-2.P1 Gate-1 finding | `qa/findings/2026-06-01-ia-2-phase-1-gate-1.md` | ✅ COMMITTED |
+| IA-2.P1 audit artifact | `elrond/audits/2026-06-01-magic-weapons-across-periods-audit.md` | ✅ COMMITTED (`1160333`) |
+| IA-2.P1 reproducible script | `research/scripts/ia2_phase1_magic_weapons_across_periods_audit.py` | ✅ COMMITTED (`1160333`) |
+| IA-1 V1 fire dispatch | `dispatches/2026-06-01-star-lord-ia-1-v1-baseline-season-generation-fire.md` | ✅ AUTHORED |
+| IA-1 V1 Gate-1 dispatch | `dispatches/2026-06-01-jack-ryan-gate-1-ia-1-v1-fire-pre-fire-review.md` | 📝 AUTHORING |
+| IA-2.P2 dispatch | `dispatches/2026-06-01-gandalf-ia-2-phase-2-anchor-authoring-and-crawl-commission.md` | 📝 AUTHORING |
+| IA-2.P2 Gate-1 dispatch | `dispatches/2026-06-01-jack-ryan-gate-1-ia-2-phase-2-pre-fire-review.md` | 📝 AUTHORING |
 
 ---
 
