@@ -168,3 +168,43 @@ On completion:
 ---
 
 **End of EAA-5 v2 dispatch. Fires after KR signal.**
+
+---
+
+## Completion record
+
+**Completed by:** star-lord
+**Date:** 2026-06-02
+**Status:** COMPLETE
+
+### Execution summary
+
+**Pre-fire cleanup:** v1 defective artifacts (25 `kit_physical_*` JSONs + chronicle event `kse_20260602_001`) cleared per dispatch § 3.1. kits/ directory reset to `.gitkeep`-only; chronicle reset to `{"schema_version": "1.0", "events": []}`.
+
+**v2 fire:** `python3 scripts/eaa5_kit_space_first_fire_20260602.py` — wall_clock=341.9s; 0 errors; exit 0.
+
+**Results:**
+- event_id: `kse_20260602_001`
+- kits_emitted: 25
+- engine_version: `23b42ed` (full: `23b42edd295385517933d4f2dd448806d9c2d65d`)
+- validation_errors: 0
+- total_llm_cost: $0.2956 (vs $0.50 projection; within LOCK L ceiling)
+
+**Per-primary distribution:** fire=4, water=3, earth=3, wind=3, lightning=3, holy=3, shadow=3, physical=3 (8/8 elements; ≥5 requirement exceeded)
+
+**WS1A.4-lite stats:** flavor_count=102, canonical_count=109, fallback_count=0, flavor_rate=44.9%, physical_opt_out=3 kits, cost=$0.1262
+
+**Phase 5 stats:** total_nodes=227, borderline_flags=0, final_fails=1 (0.44% placeholder rate), cost=$0.1694
+
+**Sample kit spot-checks:**
+- `kit_fire_000001` (Fire Mage) — 11 skills; Ember Burst, Flame Dash (flavor_word=blaze), Cinder Shield (flavor_word=cinder), Cinder Storm (flavor_word=inferno), Cinder Apocalypse
+- `kit_water_000001` (Water Channeler) — 11 skills; Flowing Current, Surging Wave (flavor_word=torrent), Raging Deluge (flavor_word=tide), Relentless Torrent (flavor_word=brine), Undying Tidal Bastion
+- `kit_shadow_000001` (Shadow Necromancer) — Shadow Bolt, Umbral Strike (flavor_word=void)
+- `kit_holy_000001` (Holy Arbiter) — Sacred Judgment Strike, Divine Verdict
+- `kit_physical_000001` (Physical Warrior, rage energy) — Raging Strike, Furious Blow; correctly NO ws1a4 fields
+
+**jack-ryan Gate-2:** STRUCTURAL PASS (finding at `qa/findings/2026-06-02-eaa-5-v2-class-generator-gate-2.md`; 3 INFOs non-blocking: t4_selection null / WS2.P2 0 MODERN-period kits / 1 Phase 5 placeholder). Escape clause #3 NOT triggered (0% non-grammatical).
+
+**Commit shas:** see engine commit tagged `star-lord/v1.4-eaa-5-v2-class-generator-fire-1`
+
+**Phase 3 readiness:** EAA-6 (drax MVP reframe) + EAA-7 (engine page MVP reframe) UNBLOCKED.
