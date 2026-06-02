@@ -144,6 +144,16 @@ If you observe a confirmation requirement that exceeds rocket seam authority (e.
 **Routing back to KR:** "fire IA-1 V1 immediately at <entry-point>" / "fire setup dispatch first" / "escalate per escape clause"
 ```
 
+---
+
+## Completion record
+**Completed:** 2026-06-01 (rocket session)
+**Response artifact:** `agentic_orchestration/rocket/notes/2026-06-01-ia-1-entry-point-confirmation-response.md`
+**Entry-point verdict:** CLI-PATH-CONFIRMED
+**Specific arguments:** `--seed 42 --output seasons/` (defaults sufficient); `--smoke` recommended for pre-V1 sanity pass; do NOT use `--theme-input` or `--no-coalesce`
+**Substrate-side V1 pre-fire check:** READY — canonical_library.json EXISTS; pool.json v1.1 consumed correctly in inverted mode; Drift-14 demote acceptable (Option A); ANTHROPIC_API_KEY must be set in execution environment (not rocket-seam, operational pre-check)
+**Routing back to KR:** fire IA-1 V1 immediately at `python -m reincarnated.cli generate-season --seed 42 --output seasons/`; recommend smoke pass first; no setup dispatch required; no escape-clause trigger
+
 After your response, KR fires IA-1 V1 dispatch (assuming CLI-PATH-CONFIRMED or alternative explicitly named).
 
 ---
