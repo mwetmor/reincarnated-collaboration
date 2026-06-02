@@ -1,9 +1,149 @@
 # MIGRATION — Catalogue Data Layer (Elrond-owned)
 
 **Owner:** elrond
-**Scope:** schema migrations for non-engine data layers under `agentic_orchestration/research/curated/`. Currently: catalogue.db.
+**Scope:** schema migrations for non-engine data layers under `agentic_orchestration/research/curated/`. Currently: catalogue.db + (NEW v1.8 / v1.9) engine `data/kit_space/` chronicle (cross-seam co-ownership with star-lord per LOCK K).
 **Pattern:** parallels star-lord's engine-side `MIGRATION.md` files per AGENTS.md Tactic 2 + ADR-004.
 **Append-only.** Most recent entry at the top.
+
+---
+
+## v1.9 — EAA-4 chronicle implementation slice — `kit_space_chronicle.json` source-of-truth landed + smoke 9/9 PASS — 2026-06-02
+
+### What changed (one line)
+
+Implemented the EAA-4 chronicle source-of-truth layer per the v1.8 joint design verdict: authored `CHRONICLE_SCHEMA.md` v1.0 (per-event entry shape + 4-field lineage_tags substructure + emit-order discipline) at `reincarnated-engine/data/kit_space/chronicle/CHRONICLE_SCHEMA.md`, landed empty `kit_space_chronicle.json` source-of-truth file ready for EAA-5 first-fire, landed kit_space/ directory layout (`README.md` + `kits/` empty dir), authored smoke-test script verifying 9/9 round-trip checks PASS (TempDir + live), verified cleanup discipline (live dir returns to clean ready state).
+
+### Why (one line)
+
+Operationalizes the v1.8 joint design verdict for the EAA-4 chronicle-implementation slice specifically (the v1.8 entry authored the joint EAA-3 + EAA-4 design + format locks + shadow-table DDL; this entry lands the chronicle source-of-truth surface + smoke-test that downstream — EAA-5 first-fire — consumes); composes natively with EAA-3 per-kit JSON (rocket) on the locked FK format (`kse_<YYYYMMDD>_<seq3>`).
+
+### Who's affected
+
+- **Star-lord** — engine emit integration (per CHRONICLE_SCHEMA.md § 5 emit-order discipline): mint `event_id` per joint spec § 1.3 → append chronicle event entry FIRST to `kit_space_chronicle.json` (atomic write) → emit per-kit JSONs SECOND. Engine-side companion MIGRATION.md entry SHOULD be authored at `reincarnated-engine/src/reincarnated/output/MIGRATION.md` or `export/MIGRATION.md` when emit-integration commit lands.
+- **Rocket** — EAA-3 per-kit JSON schema MUST adopt the locked FK format for `kit_space_expansion_event_id` per joint spec § 1; per-kit JSON lands under `data/kit_space/kits/kit_<primary>_<seq6>.json` per joint spec § 5.
+- **Drax** — EAA-7 engine page reframe (LOCK O scope): consumes `data/kit_space/kit_space_chronicle.json` via single `fetch()`; flat JSON shape per CHRONICLE_SCHEMA.md § 4. Not blocking EAA-5.
+- **Elrond (self; future post-EAA-5)** — shadow-table CREATE + ingest scripts deferred to post-EAA-5 (the joint spec § 3.5 authored the DDL; ingest implementation fires when first real chronicle data exists). Rebuildable from filesystem per joint spec § 3.2.
+- **Gandalf** — design steward; chronicle's `substrate_inputs_changed` + `event_scope` + `lineage_tags` fields surface design narrative for engine-page rendering (EAA-7). Not load-bearing at this phase.
+- **Jack-ryan** — Gate-2 review on this implementation + v1.8 joint design + smoke results.
+- **Knight-rider** — receives EAA-4 completion report; routes Gate-2.
+- **Matt** — no action; LOCK K + cycle-push pre-authorized.
+
+### What downstream consumers need to do
+
+**Star-lord (REQUIRED before or coincident with EAA-5 fire):**
+1. Implement emit-order discipline per CHRONICLE_SCHEMA.md § 5: chronicle entry FIRST → per-kit JSONs SECOND
+2. Use joint spec § 1.3 reference impl for `event_id` minting: query chronicle for `prior_today_count`; `+1`; format `kse_YYYYMMDD_seq3`
+3. Use atomic-write convention: write to `.tmp` → `os.replace`
+4. Author engine-side companion MIGRATION.md entry per ADR-004 round-trip
+5. Surface `engine_version_sha` as 7-char short (`git rev-parse --short=7 HEAD`)
+
+**Rocket (REQUIRED for EAA-3 schema spec):** include `kit_space_expansion_event_id` field per joint spec § 4.1; format MUST match `^kse_\d{8}_\d{3}$`. Per-kit JSON lands at `data/kit_space/kits/<kit_id>.json`. Per-skill `flavor_decision` + `flavor_word_used` cross-coupling per EAA-1 § 3 + joint spec § 4.3.
+
+**Drax (EAA-7 scope; not blocking EAA-5):** consume `kit_space_chronicle.json` via `fetch('/data/kit_space/kit_space_chronicle.json')`; render `events[]` via existing `EngineStatePipelineFlow` component pattern per LOCK O.
+
+**Jack-ryan (Gate-2):** review chronicle schema (`reincarnated-engine/data/kit_space/chronicle/CHRONICLE_SCHEMA.md`) + smoke results (9/9 PASS TempDir + 9/9 PASS live; cleanup verified clean state) + this v1.9 entry composing on v1.8 design verdict.
+
+### Schema diff or example before/after
+
+**Before this implementation slice:** v1.8 design verdict authored format locks + storage medium choice + shadow-table DDL; NO chronicle source-of-truth file existed; NO directory layout existed; NO smoke-test existed.
+
+**After this implementation slice:**
+
+```
+reincarnated-engine/data/kit_space/
+├── README.md                                # NEW; directory layout + consumer guide
+├── chronicle/
+│   └── CHRONICLE_SCHEMA.md                  # NEW; per-event entry schema v1.0 + emit-order discipline
+├── kit_space_chronicle.json                 # NEW; empty source-of-truth (events: []) ready for first emit
+└── kits/                                    # NEW; empty dir (EAA-3 populates per-kit JSONs; star-lord emit fills)
+```
+
+**Chronicle file shape (per joint spec § 3.4 + CHRONICLE_SCHEMA.md § 4):** `{schema_version, schema_notes, events: [event-entry...]}` where each event-entry has required fields `event_id`, `event_type`, `event_timestamp`, `event_date_utc`, `event_scope`, `substrate_inputs_changed`, `engine_version_sha`, `kit_ids_generated`, `kit_count`; optional fields `engine_version_full`, `skip_flags_active`, `lineage_tags`, `generation_parameters`, `substrate_trace_summary`, `notes`.
+
+**Format locks (re-stating from joint spec § 1 + § 2; preserved verbatim):**
+
+| Field | Format | Regex |
+|---|---|---|
+| `event_id` | `kse_<YYYYMMDD>_<seq3>` | `^kse_\d{8}_\d{3}$` |
+| `kit_id` | `kit_<primary>_<seq6>` | `^kit_(fire\|water\|earth\|wind\|lightning\|holy\|shadow\|physical)_\d{6}$` |
+| `primary_element` | lowercase canonical-7+1 | — |
+| `period` | uppercase enum nullable | — |
+| `engine_version_sha` | 7-char short SHA | `^[0-9a-f]{7}$` |
+
+### Smoke-test results (Discipline #2)
+
+Script: `agentic_orchestration/research/scripts/eaa_4_chronicle_smoke_2026_06_02.py`
+
+Modes verified:
+- `python3 eaa_4_chronicle_smoke_2026_06_02.py` — TempDir dry-run: **9/9 PASS**
+- `python3 eaa_4_chronicle_smoke_2026_06_02.py --live` — write to live engine `data/kit_space/`: **9/9 PASS**
+- `python3 eaa_4_chronicle_smoke_2026_06_02.py --cleanup-live` — remove smoke artifacts: **verified clean state** (chronicle returned to `events: []`; smoke kit JSON removed; ready for EAA-5)
+
+Round-trip checks (all 9 PASS both TempDir + live):
+1. event_id regex match (`^kse_\d{8}_\d{3}$`)
+2. kit_id regex match (`^kit_(canonical-7+1)_\d{6}$`)
+3. chronicle JSON round-trips through `json.load`
+4. chronicle contains target event (event_id appended correctly)
+5. chronicle event's `kit_ids_generated` contains kit_id
+6. per-kit JSON exists + round-trips
+7. per-kit FK matches chronicle event_id
+8. per-kit `primary_element` matches kit_id encoding (FK integrity in two-direction)
+9. chronicle `event_date_utc` matches event_id date segment (denormalization consistency)
+
+Smoke uses reserved seq6 range (kit_shadow_999xxx) to avoid colliding with real generation; smoke kits + events tagged with sentinel `_smoke_test_stub: true` for safe cleanup identification.
+
+### Storage medium decision (re-stating v1.8 joint spec § 3.1)
+
+Per joint spec § 3.1: **Option α (source-of-truth) + Option β-light (analytical shadow)**.
+
+- Option α: flat `data/kit_space/kit_space_chronicle.json` (this v1.9 implements)
+- Option β-light: `engine_kit_space_events` + `engine_kit_index` in elrond's catalogue.db (DDL authored in joint spec § 3.5; ingest implementation deferred to post-EAA-5)
+
+This v1.9 lands the source-of-truth surface only. Shadow-table CREATE + ingest scripts are queued for post-EAA-5 (when first real chronicle data exists to ingest).
+
+### Backward compatibility
+
+- This implementation is **NEW + ADDITIVE** per LOCK J + LOCK K
+- Existing `seasons/season_*` (season_000001-200) preserved as historical per Path α — not migrated
+- Engine emit branches on EAA-2 skip flags: skip-flags-active → emit to `data/kit_space/`; skip-flags-inactive → emit to legacy `seasons/season_*` per pre-EAA convention
+- Drax consumes BOTH layouts; data-shape distinguishable by directory location
+- Verified via smoke-test cleanup: live `data/kit_space/` returns to clean ready state (chronicle `events: []`); no irreversible state introduced
+
+### Coordination with EAA-3 (rocket primary) — FK format compose
+
+The locked FK format (`kse_<YYYYMMDD>_<seq3>`) is **shared verbatim** between EAA-3 per-kit JSON `kit_space_expansion_event_id` field and EAA-4 chronicle `event_id` field. Authoritative source: joint spec § 1. Rocket's EAA-3 schema spec MUST adopt this format. This v1.9 implementation respects the format; smoke-test verifies it.
+
+A prior `eaa-3-eaa-4-coordination/event-id-foreign-key-format-2026-06-02.md` doc was authored in parallel proposing an alternative `kse_<YYYYMMDD>_<HHMMSS>_<6hex>` format; that doc has been **SUPERSEDED** and now redirects to the joint spec as authoritative.
+
+### Files committed (this v1.9 entry)
+
+- `reincarnated-engine/data/kit_space/README.md` — NEW; directory layout + consumer guide + format-lock summary
+- `reincarnated-engine/data/kit_space/chronicle/CHRONICLE_SCHEMA.md` — NEW; chronicle schema v1.0 spec
+- `reincarnated-engine/data/kit_space/kit_space_chronicle.json` — NEW; empty source-of-truth (`events: []`) ready for EAA-5
+- `reincarnated-engine/data/kit_space/kits/` — NEW empty dir (rocket EAA-3 populates)
+- `agentic_orchestration/research/scripts/eaa_4_chronicle_smoke_2026_06_02.py` — NEW; smoke-test (9/9 PASS verified)
+- `agentic_orchestration/cycle-16-eaa-engine-architectural-amendment/eaa-3-eaa-4-coordination/event-id-foreign-key-format-2026-06-02.md` — SUPERSEDED (redirects to joint spec)
+- `agentic_orchestration/research/curated/MIGRATION.md` — THIS entry (v1.9; composing on v1.8)
+
+### Related canonical docs + disciplines
+
+- `canonical/story/2026-06-02-season-archive-realm-expansion-pivot.md` § 3.4 (chronicle commitment)
+- `agentic_orchestration/dispatches/2026-06-02-eaa-4-kit-space-chronicle-infrastructure.md` (this dispatch)
+- `agentic_orchestration/elrond/notes/2026-06-02-eaa-3-plus-4-joint-ingest-and-chronicle-spec.md` (authoritative joint design verdict; v1.8 MIGRATION entry covers)
+- `agentic_orchestration/qa/findings/2026-06-02-eaa-phase-1-batch-gate-1.md` (Phase-1 batch Gate-1; recommended amendment 2 — FK format coordination — fulfilled by joint spec + this implementation)
+- `agentic_orchestration/qa/findings/2026-06-02-eaa-wave-open-gate-1.md` (wave-open INFO-3 — per-kit engagement telemetry out-of-scope — respected in CHRONICLE_SCHEMA.md § 9)
+- Discipline #2 (smoke-gate; 9/9 PASS satisfies), #6 (cross-seam contract; satisfied via joint spec + this v1.9 round-trip), #8 (schema validation at boundaries; chronicle schema versioned + atomic-write), #10 (attribution clarity; engine_version_sha + lineage_tags), #11 (empirical inspection; smoke verifies live dir state)
+- ADR-004 (cross-seam MIGRATION) + ADR-006 (read-only-by-default external systems; engine owns kit_space/ writes; elrond owns catalogue.db shadow-table writes per joint spec § 3.5; no remote pushes from this step)
+
+### Routing back to KR
+
+- Joint design verdict v1.8 authored + LOCKED (FK format + kit_id format + storage medium + shadow-table DDL + 5 iteration points named for rocket EAA-3)
+- Chronicle source-of-truth layer LANDED (CHRONICLE_SCHEMA.md + empty chronicle JSON + layout README)
+- Smoke-test 9/9 PASS TempDir + 9/9 PASS live + cleanup verified clean state
+- Live `data/kit_space/` ready for EAA-5 first-fire consumption (empty chronicle; star-lord emit-integration may co-fire with EAA-5)
+- Cross-dispatch FK format LOCKED + SUPERSEDED-coord-doc redirects to joint spec
+- Star-lord engine-emit integration (per CHRONICLE_SCHEMA.md § 5) is the named NEXT cross-seam touch; companion MIGRATION.md entry recommended on engine-emit commit
+- Routing back: **proceed to jack-ryan Gate-2** on v1.8 joint design + v1.9 implementation slice + smoke results; EAA-4 acceptance criteria 1, 2, 4, 5, 6 satisfied; AC #3 (engine emit path) lands at star-lord integration
 
 ---
 
