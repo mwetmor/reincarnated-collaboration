@@ -20,8 +20,8 @@ Four workstreams queued. WORKSTREAM 1 + WORKSTREAM 2 Phase 1 AUTHORIZED to fire 
 
 | WS | Title | Owner(s) | Authorization | Horizon | Status |
 |---|---|---|---|---|---|
-| **WS1** | Sub-phase 5f pool.json migration | elrond + star-lord (cross-seam) + jack-ryan Gate-1 | ✅ KR discretion (per WS1A.Q18 wave-close 5f deferral) | 1 wave (~3-5 sessions) | 📝 DISPATCH-AUTHORING + Gate-1 routing |
-| **WS2.P1** | Elrond Mode A modern-caster substrate audit | elrond + jack-ryan Gate-1 | ✅ KR discretion (audit only; informs Phase 2 decision) | ~0.5 session | 📝 DISPATCH-AUTHORING + Gate-1 routing |
+| **WS1** | Sub-phase 5f pool.json migration | elrond + star-lord (cross-seam) + jack-ryan Gate-1 | ✅ KR discretion (per WS1A.Q18 wave-close 5f deferral) | 1 wave (~3-5 sessions) | 🔥 FIRING (Gate-1 PASS-with-INFO; PG-3 fidelity + INFO-1 actioned + cross-seam handling all PASS; 2 INFO items no action: stormtide legacy entry routing; abbreviated discipline citation style) |
+| **WS2.P1** | Elrond Mode A modern-caster substrate audit | elrond + jack-ryan Gate-1 | ✅ KR discretion (audit only; informs Phase 2 decision) | ~0.5 session | 🔥 FIRING (Gate-1 PASS-with-INFO; gandalf-deferred fidelity + audit scope-bound all PASS; 1 INFO no action: lineage-disambiguation fallback self-documented) |
 | **WS2.P2** | Gandalf manual-authoring sessions for gap-fill modern-caster weapons | gandalf + Matt (Path A/B/A+B decision) | 🔴 Matt authorization required (gandalf design call likely needed) | 2-3 sessions | ⏸ HELD pending Matt direction |
 | **WS2.P3** | Elrond schema + ingest + lineage tag application | elrond | 🔴 Conditional on WS1 (lineage tag schema) + WS2.P2 completion | ~0.5 session | ⏸ HELD pending WS1 + WS2.P2 |
 | **WS2.P4** | Substrate-coverage validation pass + gandalf design-quality review | elrond + gandalf | 🔴 Conditional on WS2.P3 completion | ~0.5 session | ⏸ HELD pending WS2.P3 |
@@ -69,10 +69,12 @@ Variant of α with explicit gandalf-Matt sequencing checkpoints between Q waves.
 
 | Dispatch | Path | Status |
 |---|---|---|
-| WS1 main dispatch | `dispatches/2026-06-01-elrond-cycle-15-ws1a-q18-sub-phase-5f-pool-migration.md` | 📝 AUTHORED |
-| WS1 Gate-1 dispatch | `dispatches/2026-06-01-jack-ryan-gate-1-cycle-15-ws1a-q18-sub-phase-5f-pre-fire-review.md` | 📝 AUTHORED |
-| WS2.P1 main dispatch | `dispatches/2026-06-01-elrond-ws2-phase-1-modern-caster-substrate-audit.md` | 📝 AUTHORED |
-| WS2.P1 Gate-1 dispatch | `dispatches/2026-06-01-jack-ryan-gate-1-ws2-phase-1-pre-fire-review.md` | 📝 AUTHORED |
+| WS1 main dispatch | `dispatches/2026-06-01-elrond-cycle-15-ws1a-q18-sub-phase-5f-pool-migration.md` | 🔥 FIRING (elrond) |
+| WS1 Gate-1 dispatch | `dispatches/2026-06-01-jack-ryan-gate-1-cycle-15-ws1a-q18-sub-phase-5f-pre-fire-review.md` | ✅ COMPLETE (PASS-with-INFO) |
+| WS1 Gate-1 finding | `qa/findings/2026-06-01-ws1-sub-phase-5f-gate-1.md` | ✅ COMMITTED |
+| WS2.P1 main dispatch | `dispatches/2026-06-01-elrond-ws2-phase-1-modern-caster-substrate-audit.md` | 🔥 FIRING (elrond) |
+| WS2.P1 Gate-1 dispatch | `dispatches/2026-06-01-jack-ryan-gate-1-ws2-phase-1-pre-fire-review.md` | ✅ COMPLETE (PASS-with-INFO) |
+| WS2.P1 Gate-1 finding | `qa/findings/2026-06-01-ws2-phase-1-gate-1.md` | ✅ COMMITTED |
 
 ---
 
