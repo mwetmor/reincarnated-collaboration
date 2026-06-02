@@ -240,4 +240,15 @@ After your completion, KR routes Phase 3 (elrond ingest + lineage tag applicatio
 
 ---
 
+## Completion record (ANCIENT batch only — re-fire bounded scope per work-in-batches discipline)
+**Completed:** 2026-06-01
+**ANCIENT anchor batch:** `agentic_orchestration/gandalf/notes/2026-06-01-ia-2-phase-2-anchors-ancient-batch.md` (commit 7565b0a)
+**Anchor count:** 24 (matches binding distribution: fire=4 / water=4 / earth=3 / wind=3 / lightning=3 / holy=3 / shadow=4)
+**Novel-design entries surfaced:** 10 of 24 (period-reframing × 2: Xiuhcoatl Fire-Serpent Wand + Tlaloc Rain-Conch Staff; caster-rebalance × 2: Poseidon Aquamancer's Trident-Focus + Hades' Bident Focus; deity-attribution + form-composition × 6: Hephaestus Forge-Spark Staff / Gaia's Loam-Sceptre / Geb Earthmother Wand / Aeolus' Tempest-Pipes / Tlaloc Bolt-Conch Staff / Anubis Embalmer's Wand / Kali Skull-Garland Staff). All within LOCK D § 2.3 authority.
+**Cultural-tradition diversification:** 10 distinct traditions represented (Vedic / Greek / Egyptian / Aztec major axes; Slavic / Norse / Celtic / Japanese-Shinto / Buddhist / Hindu-Tantric breadth)
+**Escape-clause trigger fired?:** no — all 24 anchors within binding distribution + LOCK D authority; no architectural amendment beyond pre-commitment scope
+**Routing back to KR:** proceed to MEDIEVAL batch re-fire
+
+---
+
 **End of IA-2 Phase 2 gandalf anchor authoring + crawl commission dispatch.**
