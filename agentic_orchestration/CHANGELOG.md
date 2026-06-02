@@ -4,6 +4,27 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-06-02 — Engineering disciplines #56 / #57 / #59 ratified (QDX-8 wave-close); #53 third founding instance recorded; #60 queued
+
+**Event:** jack-ryan QDX-8 wave-close discipline ratification. 5 candidates evaluated (#56 through #60); 3 RATIFIED + canonical write; 1 DECLINED as redundant (founding instance added to existing discipline instead); 1 QUEUED with empirical-evidence trigger named.
+
+**Ratified disciplines:**
+
+- **#56 — Generator-path explicit naming in dispatches:** when engine has multiple generator paths, dispatches must name the expected generator class explicitly; fire scripts must confirm at startup. Three founding instances across EAA chain + QDX chain. Composes with Disciplines #41 (substrate-led) + #54 (integration-smoke-gate).
+- **#57 — Genre-aligned distribution:** element/archetype distribution across kit rosters should target ARPG/JRPG genre convention (40-45% physical / 55-60% caster) unless explicit ratified departure. Founding instance: Matt + gandalf Option B4 ratification 2026-06-02; QDX-5 empirical 43.2%/56.8% PASS. Composes with Disciplines #41 + #56.
+- **#59 — Substrate-coverage as binding quality constraint:** distinguish "pipeline sound; substrate thin" from "pipeline defect" before iterating on generation quality. Three-chain empirical pattern (EAA-5 v1 forensic + QDX-4 signal + QDX-5 WARN-4 + QDX-6 strategic signal). Correct response to Category B is elrond substrate-enrichment, not pipeline iteration. Composes with Disciplines #39 + #41 + #54.
+
+**Discipline #53 amendment:** third founding instance recorded (QDX-1/2/3 LOCK Q ADDITIVE-ONLY across three seams; zero semantic API amendments). Candidate #58 DECLINED as redundant — the pattern is the ADDITIVE-AND-REVERSIBLE heuristic body of #53, not a distinct discipline.
+
+**Discipline #60 queued:** LOCK O escape-clause-as-discipline (drax QDX-7 faction_id deferral as founding instance); one instance insufficient for ratification. Empirical-evidence trigger: second cross-chain escape-clause activation where consumer-side MVP-discipline dispatch defers feature citing missing engine field AND follow-on workstream closes the loop.
+
+**Engine commit:** TBD (jack-ryan auto-commit to reincarnated-engine)
+**Meta-repo commit:** TBD (jack-ryan auto-commit to reincarnated-collaboration)
+**Authoritative write:** `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`
+**Rationale notes:** `agentic_orchestration/jack-ryan/notes/2026-06-02-qdx-chain-discipline-ratification.md`
+
+---
+
 ## 2026-05-31 — Pi infrastructure Phase 1 substantively CLOSED (Samba file sharing + backup discipline + engine output env-var scaffolding)
 
 **Event:** Pi infrastructure Phase 1 substantively complete per gandalf 2026-05-31 surface. Acceptance gate § 15.1 in HTML implementation plan: **6 of 8 criteria fully met** (1, 2, 4 scaffolding, 5, 6, 7); criterion 3 (PC mount) deferred per explicit allowance; criterion 8 (team-familiarity distribution) routes to next wave-close.
