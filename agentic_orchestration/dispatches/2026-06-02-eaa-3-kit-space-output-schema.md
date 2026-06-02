@@ -217,13 +217,16 @@ Per Matt 2026-06-02 explicit cycle-push authorization + CLAUDE.md addendum 2026-
 
 **Completed by:** rocket
 **Date:** 2026-06-02
-**Status:** DRAFT COMPLETE — rocket spec authored + 51/51 smoke tests PASS; awaiting jack-ryan Gate-2 + star-lord emit integration
+**Status:** DRAFT v2 COMPLETE (SEQ-3 corrected) — rocket spec authored + 63/63 smoke tests PASS; awaiting jack-ryan Gate-2 + star-lord emit integration
+
+**Note:** Initial commit 1d4ad87 (tag v1) implemented UUID-hex event_id format per joint spec § 1.1-1.2 body text. Jack-ryan Gate-2 BLOCK finding identified this as documentation drift; SEQ-3 is authoritative per CHRONICLE_SCHEMA.md § 3. v2 commit ca45b5d corrects to SEQ-3.
 
 ### Commits
 
 | Sha | Tag | Repo | Contents |
 |---|---|---|---|
-| `1d4ad87` | `rocket/v1.4-eaa-3-kit-space-schema-1` | reincarnated-engine | New module `kit_space_schema.py` + 51 smoke tests + MIGRATION.md EAA-3 entry |
+| `1d4ad87` | `rocket/v1.4-eaa-3-kit-space-schema-1` | reincarnated-engine | Initial DRAFT: `kit_space_schema.py` + 51 smoke tests + MIGRATION.md EAA-3 entry (UUID-hex; superseded by v2) |
+| `ca45b5d` | `rocket/v1.4-eaa-3-kit-space-schema-2` | reincarnated-engine | v2 SEQ-3 corrected: `mint_kit_space_expansion_event_id` + `count_chronicle_events_today` + UUID-hex rejection in validator; 63/63 PASS |
 
 ### Rocket sub-tasks delivered (per dispatch § 3.1)
 
@@ -237,7 +240,7 @@ Per Matt 2026-06-02 explicit cycle-push authorization + CLAUDE.md addendum 2026-
 2. ✅ **All 5 elrond iteration points enforced** at emit time:
    - IP-1: `primary_element` lowercase canonical-7+1 (validated + normalised in `mint_kit_id`)
    - IP-2: `period` ANCIENT/MEDIEVAL/MODERN uppercase (validated in `build_kit_entry` + `validate_per_kit_entry`)
-   - IP-3: `kit_space_expansion_event_id` FK regex `^kse_\d{8}_\d{6}_[0-9a-f]{6}$` (validated in `validate_event_id`)
+   - IP-3: `kit_space_expansion_event_id` SEQ-3 regex `^kse_\d{8}_\d{3}$` (validated in `validate_event_id`; UUID-hex explicitly rejected)
    - IP-4: `engine_version` presence check (validated in `validate_per_kit_entry`)
    - IP-5: `flavor_decision` + `flavor_word_used` integrity enforced at per-skill level (validated in `validate_per_kit_entry`)
 3. ✅ **MIGRATION.md EAA-3 entry authored** — `src/reincarnated/generation/MIGRATION.md` (field table, consumer obligations, backward-compat, iteration points, identifier generation rules)
@@ -246,14 +249,15 @@ Per Matt 2026-06-02 explicit cycle-push authorization + CLAUDE.md addendum 2026-
 
 ### Smoke-test results
 
-51/51 PASS. Coverage per dispatch § 3.4:
-- event_id mint: regex, length, prefix, UUID validity, uniqueness (5 tests)
+63/63 PASS (v2 SEQ-3). Coverage per dispatch § 3.4:
+- event_id mint (SEQ-3): regex, length, prefix, seq-001, seq-002, seq-padding, different-date, no-uuid-hex (8 tests)
+- count_chronicle_events_today: empty, same-day events, missing file (3 tests)
 - kit_id mint: all 8 primaries, sequencing, zero-padding, titlecase normalisation, invalid primary, regex (7 tests)
-- validate_event_id: PASS + 4 FAIL paths
+- validate_event_id: SEQ-3 PASS + UUID-hex FAIL + 4 other FAIL paths (6 tests)
 - validate_kit_id: PASS + 4 FAIL paths
-- validate_per_kit_entry PASS: minimal, all periods, physical opt-out, flavor=true+word, flavor=false+null (5 tests)
-- validate_per_kit_entry FAIL: all 5 IPs + missing kit_id + empty skills + wrong schema_version (9 tests)
-- build_kit_entry: valid entry, schema_version, lineage_tags, timestamp, invalid event_id, invalid period, JSON-serialisable (7 tests)
+- validate_per_kit_entry PASS: minimal, all periods, physical opt-out, flavor=true+word, flavor=false+null, seq3-002 (6 tests)
+- validate_per_kit_entry FAIL: all 5 IPs (IP-3 tested twice: UUID-hex + bad_id) + missing kit_id + empty skills + wrong schema_version (10 tests)
+- build_kit_entry: valid entry, schema_version, lineage_tags, timestamp, invalid event_id, UUID-hex raises, invalid period, JSON-serialisable (8 tests)
 - count_kits_by_primary: empty dir, with kit files, non-kit files ignored (3 tests)
 - lineage_tags: 4 fields, date extraction, field content (4 tests)
 - round-trip: event_id mint -> kit_id mint -> build_kit_entry -> validate -> JSON round-trip (1 test)
