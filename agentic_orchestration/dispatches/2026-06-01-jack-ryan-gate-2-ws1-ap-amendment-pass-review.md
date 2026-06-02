@@ -162,3 +162,18 @@ Append completion record to this dispatch file.
 ---
 
 **End of jack-ryan WS1.AP Gate-2 dispatch.**
+
+---
+
+## Completion record
+**Completed:** 2026-06-01
+**Verdict:** WARN
+**Final classification:** PASS-with-WARN
+**Finding artifact:** agentic_orchestration/qa/findings/2026-06-01-ws1-ap-amendment-pass-gate-2.md
+**Cardinality correction:** PASS (all 8 doc locations; § 7.1 total-row also corrected but per-row cells remain label-inverted — see Surface 2)
+**Consistency amendments (surface 1):** RATIFY — ground-state oracle + roadmap corrections sound; propagation-prevention rationale valid per Principle 4
+**§ 7.1 readability (surface 2):** REQUEST — label-cell inversion confirmed by pool.json arithmetic (substrate-silent col sums to 19; pool.json ground truth = 23; modern-sci col sums to 23; pool.json ground truth = 19); follow-on amendment required before WS1A.3/4 fire; does NOT block WS1.AP close
+**Decisions-log format (surface 3):** RATIFY Option A — inline "AMENDED 2026-06-01" dated annotation preserves append-only temporal log per decision-log-format skill § 5; attribution chain correct; architectural commitment unchanged
+**Architectural intent unchanged:** PASS — Architecture A LOCKED + Q18.a-e commitments + per-primary verbatim entry lists + cull-tag dispositions + Disciplines #49/#50/#51 substance all confirmed unchanged across all 8 doc locations
+**Key items surfaced:** § 7.1 per-primary lineage distribution table has substrate-silent / modern-scientific columns inverted vs pool.json ground truth; TOTAL row corrected to "57/19/23/1/9" but correct values are "57/23/19/1/9"; gandalf follow-on amendment required (swap column headers OR re-author per-row cells)
+**Routing back to KR:** WS1.AP CLOSED PASS-with-WARN; WS1A.3/4 unblocked subject to (1) § 7.1 follow-on amendment complete + (2) vfx_coverage_manifest prerequisite; Q16/Q17/Q19 unblocking unaffected by § 7.1 item
