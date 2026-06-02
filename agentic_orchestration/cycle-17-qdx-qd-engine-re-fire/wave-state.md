@@ -1,6 +1,6 @@
 # Cycle 17 — QDX QD-Engine Workflow Re-Fire with WS1A.4-lite Integration — Wave State
 
-**STATUS:** 🟡 OPEN — GATED on Matt generator-path strategic decision (Phase 1 ✅ ALL PASS; Phase 2 ✅ PASS-with-INFO; Phase 3 routing GATED — see `qdx-5-generator-path-strategic-decision-2026-06-02.md`)
+**STATUS:** 🟢 OPEN — Phase 3 FIRING (Matt 2026-06-02 ratified Option B + Option B4 weighted distribution amendment; QDX-5 full fire in flight)
 **Date opened:** 2026-06-02
 **Owner:** knight-rider (orchestrator)
 **Authority:** Matt 2026-06-02 Pattern B substantive design session — gandalf transmission with QDX chain routing (Locks A-P preserved from EAA chain; Locks Q-T NEW for QDX scope)
@@ -191,21 +191,28 @@ Phase 1 PASS criterion: ✅ ACHIEVED. QDX-1 + QDX-2 + QDX-3 all PASS (with QDX-3
 
 | Property | Value |
 |---|---|
-| **Owner** | KR + rocket + star-lord per LOCK R |
-| **Status** | 🟡 GATED on Matt generator-path decision — see `qdx-5-generator-path-strategic-decision-2026-06-02.md` |
+| **Owner** | KR + rocket + star-lord per LOCK R (Matt 2026-06-02 ratified Option B + Option B4 weighted distribution amendment) |
+| **Status** | 🟢 FIRING (Phase 3; rocket multi-hour LLM execution) |
+| **Dispatch** | `dispatches/2026-06-02-qdx-5-full-qd-engine-workflow-fire.md` |
+| **Generator path** | ClassGenerator (Option B; EAA-5 v2 path extended with QDX richness) |
+| **Distribution** | Option B4.5 weighted round-robin (gandalf-preferred): physical=16, fire/water/earth/wind/lightning/holy/shadow=3 each (total=37; ~43% physical / ~57% caster) |
+| **Matt-ratified Discipline #41 interpretation** | substrate determines fill WITHIN each element axis; element axis follows Option B4 weighted round-robin |
+| **Cost projection** | ~$5-7 (within $30 LOCK R bound; $60 ABORT threshold) |
 | **Scope** | Full Pareto-pool fire (~30-40 kits surviving); multi-hour LLM execution; substantive cost ($5-30); produces Cycle 14-equivalent architectural richness + WS1A.4-lite per-skill flavor |
 | **Output** | ~30-40 kits in `data/kit_space/` with full identity emergence |
 | **Gates on** | QDX-4 smoke PASS |
 | **Estimated** | ~1-3 sessions including generation execution |
 
-#### QDX-6 — jack-ryan Gate-2 acceptance verification
+#### QDX-6 — jack-ryan Gate-2 acceptance verification (8-criteria; amended)
 
 | Property | Value |
 |---|---|
 | **Owner** | jack-ryan per LOCK L pattern |
 | **Status** | ❌ NOT STARTED (gates on QDX-5 emit) |
-| **Scope** | Verify QDX-5 output against 7-criteria: (1) Kit count 30-40 range; (2) Distinct emergent kit identities (no template-repeat); (3) Faction emergence ≥3 named clusters; (4) Multi-T4 selection populated on all kits; (5) ws1a4_flavor_rate > 0 + per-skill flavor metadata; (6) Substrate-led element distribution (not round-robin); (7) Per-skill flavor decisions thematically coherent (sample inspection) |
-| **Output** | Gate-2 PASS / PASS-with-INFO / BLOCK |
+| **Dispatch** | `dispatches/2026-06-02-qdx-6-gate-2-acceptance-verification.md` |
+| **Scope** | Verify QDX-5 output against amended 8-criteria checklist: (1-7 original) + (8 NEW) per-primary distribution matches Option B4 target ~40-45% physical ± 5% / ~55-60% caster |
+| **Discipline #41 interpretation** | criterion 6 reinterpreted per Matt 2026-06-02 ratification: substrate-led WITHIN element axis; Option B4 weighted round-robin for element-axis coverage |
+| **Output** | Gate-2 PASS / PASS-with-INFO / BLOCK at `qa/findings/2026-06-02-qdx-phase-3-qdx-5-gate-2.md` |
 | **If BLOCK** | iterate per LOCK L (seam re-fire authority on 1st BLOCK; Matt escalation on 2+ BLOCKs) |
 | **Estimated** | ~0.5-1 session |
 
@@ -341,6 +348,10 @@ Plus **discipline #56 candidate from EAA chain** (generator-path explicit naming
 | 2026-06-02 | rocket QDX-4 LOCK S smoke completed PASS-with-INFO; engine `cd3b10c`; t4_null = smoke-artifact (synthetic-stub root cause); substrate-coverage signal surfaced (~98% physical; EAA-5 v1 root cause recurring) |
 | 2026-06-02 | jack-ryan QDX-4 supplement returned PASS-with-INFO; commit `2352d54`; 0 BLOCKs; Phase 3 CONDITIONAL YES (generator-path decision required) |
 | 2026-06-02 | KR authored strategic decision document `qdx-5-generator-path-strategic-decision-2026-06-02.md`; Matt-touch warranted per ADR-002 architectural-commitment-tier; Phase 3 GATED |
+| 2026-06-02 | Matt + gandalf ratify **Option B + Option B4 weighted distribution amendment** (~40-45% physical / ~55-60% caster across 7 rotating elements; genre-true per ARPG/JRPG convention; substrate-led fill WITHIN element axis; canonical re-ratification of Discipline #41 interpretation); "No further Matt-touch required before QDX-6" |
+| 2026-06-02 | KR authored QDX-5 dispatch (Option B4.5 distribution: physical=16, rotating=3 each, total=37; ~43% physical) + QDX-6 dispatch (8-criteria amended for distribution criterion #8) |
+| 2026-06-02 | Phase 3 firing — rocket QDX-5 multi-hour LLM execution (~$5-7 cost projection; $60 ABORT threshold) |
+| 2026-06-02 | Discipline candidate queued for QDX-8: "Genre-aligned distribution discipline" (gandalf transmission) |
 
 ---
 
