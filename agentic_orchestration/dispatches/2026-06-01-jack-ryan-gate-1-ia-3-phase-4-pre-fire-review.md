@@ -122,15 +122,15 @@ If BLOCK: KR remediates; re-Gate-1.
 ---
 
 ## Completion record
-**Completed:** 2026-06-XX HH:MM
-**Verdict:** INFO / WARN / BLOCK
-**Final classification:** PASS / PASS-with-INFO / BLOCK
+**Completed:** 2026-06-01
+**Verdict:** INFO
+**Final classification:** PASS-with-INFO
 **Finding artifact:** agentic_orchestration/qa/findings/2026-06-01-ia-3-phase-4-gate-1.md
-**LOCK F MVP-discipline:** PASS / FAIL
-**V1 preservation:** PASS / FAIL
-**Bug surface verification scope:** PASS / FAIL
-**Key items surfaced:** brief
-**Routing back to KR:** fire drax IA-3 P4 / remediate first / hold
+**LOCK F MVP-discipline:** PASS
+**V1 preservation:** PASS
+**Bug surface verification scope:** PASS
+**Key items surfaced:** Single INFO — fights.jsonl (47.8MB) implicit exclusion; drax should note explicitly in close summary. No WARN or BLOCK. All 7 checklist items PASS. Dispatch is structurally identical to P1 V1 Gate-1 pattern (which produced SUCCESS).
+**Routing back to KR:** fire drax IA-3 P4 immediately (background). No remediation required.
 ```
 
 ---
