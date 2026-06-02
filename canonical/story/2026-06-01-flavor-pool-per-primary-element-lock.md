@@ -4,7 +4,7 @@
 
 **Date:** 2026-06-01
 **Author:** gandalf (story-and-design steward) — authored per Matt 2026-06-01 PG-3 ratification
-**Status:** v1.0 canonical lock — Architecture A locked; 118 entries committed; Q18.a-e structural commitments locked
+**Status:** v1.0 canonical lock — Architecture A locked; 109 entries committed; Q18.a-e structural commitments locked
 **Authority:** Matt 2026-06-01 verbatim PG-3 architectural-commitment ratification (ADR-002 Tier A) at `agentic_orchestration/cycle-15-ws1a-q18-flavor-pool-research/pg-3-ratification-2026-06-01.md`
 **Companion docs:**
 - `canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture.md` § 1.7 + § 8b Q18 — parent canonical doc (Q18 closure path execution)
@@ -19,9 +19,17 @@
 
 ---
 
+## 0.1 Amendment-pass-record
+
+| Date | Author | Amendment | Reason |
+|---|---|---|---|
+| 2026-06-01 | gandalf | **Cardinality correction:** "118 entries" → "109 entries" (5 wording instances across § 0 TL;DR / § 1 / § 2.9 cardinality table / § 6.2 migration scope / § 9.2 sign-off / § 10 footer). "109 rotating" → "100 rotating" (3 wording instances). **§ 7 lineage-tag aggregate reconciliation** to migrated pool.json ground truth: 65/24/19/1/9=118 → 57/23/19/1/9=109. **§ 3.3 stormtide annotation** added (preserved as routing intent in migration script; not in locked allow-list). **§ 7.1 closing parenthetical** corrected: "109 rotating + 9 physical = 118" → "100 rotating + 9 physical = 109". **§ 8.1 operational-application count** corrected: "24 entries" → "23 entries" (consistency with § 7 aggregate). | WS1 Sub-Phase 5f Gate-2 PASS-with-WARN (jack-ryan finding `agentic_orchestration/qa/findings/2026-06-01-ws1-sub-phase-5f-gate-2.md` commit `09fe8d8`) — independent cardinality verification confirmed editorial double-add of physical count in source-doc assembly. Verbatim per-primary entry lists in § 2 were always ground truth (16+14+18+13+13+14+12=100 rotating + 9 physical = 109 total). Migrated pool.json (engine `fcc4887`) is structurally correct at 109; amendment-pass reconciles canonical-doc wording to ground truth. Lineage tag aggregate reconciled to applied distribution (57/23/19/1/9) per Ambiguity 2 resolution. Stormtide annotation per Ambiguity 3. Authority per ADR-002 jack-ryan direct-approval for documentation-only changes + dispatch `agentic_orchestration/dispatches/2026-06-01-gandalf-ws1-amendment-pass-cardinality-correction.md`. Architectural intent UNCHANGED. |
+
+---
+
 ## 0. TL;DR
 
-**Architecture A LOCKED.** 7 rotating primaries (fire / water / earth / wind / lightning / holy / shadow) carry substrate-honest flavor pools; physical exists as the 8th DAMAGE TYPE via Architecture-A taxonomy-sibling registry (NOT a flavor pool). Total: **118 entries** locked across 8 primaries — 109 rotating-primary flavor-pool entries + 9 physical taxonomy-registry entries.
+**Architecture A LOCKED.** 7 rotating primaries (fire / water / earth / wind / lightning / holy / shadow) carry substrate-honest flavor pools; physical exists as the 8th DAMAGE TYPE via Architecture-A taxonomy-sibling registry (NOT a flavor pool). Total: **109 entries** locked across 8 primaries — 100 rotating-primary flavor-pool entries + 9 physical taxonomy-registry entries.
 
 This lock is the keystone artifact for WS1A.Q18 (per-primary flavor-pool research-and-lock wave). It composes with the canonical-7+1 element catalog at `config/elements.yaml` (substrate preserved), authorizes the sub-phase 5f pool.json migration (POST-WAVE), and unblocks WS1A.3 (per-kit sub-element selection) + WS1A.4 (per-skill bounded LLM flavor judgment). Wave-close (PG-4) unblocks the Q16 / Q17 / Q19 hard-blocker waves per pattern-set composition.
 
@@ -33,7 +41,7 @@ This lock is the keystone artifact for WS1A.Q18 (per-primary flavor-pool researc
 
 **Architecture A — 7-primary rotating + physical-as-taxonomy-sibling.**
 
-- **7 rotating primaries** (fire / water / earth / wind / lightning / holy / shadow) each carry a substrate-honest flavor pool of 12–18 entries (109 total).
+- **7 rotating primaries** (fire / water / earth / wind / lightning / holy / shadow) each carry a substrate-honest flavor pool of 12–18 entries (100 total).
 - **Physical** exists as the 8th DAMAGE TYPE in the engine taxonomy (for damage resists, mitigation routing, ailment dispatch per `config/elements.yaml`) but does NOT carry a "flavor pool" in the same sense. Its 9 entries form a **damage sub-type field + mechanical action vocabulary registry** (a taxonomy-sibling), categorically different from rotating-primary flavor pools.
 - **Physical kits opt out of WS1A.4 LLM flavor judgment.** Physical kit naming uses **mechanical-schema templates** (weapon-form + action-vocabulary composition) rather than LLM bounded judgment against a flavor pool.
 - **Physical kit identity differentiates through** (a) WEAPON-FORM substrate (sword / spear / bow / axe — Reincarnated already has this surface per canonical 17-gear); (b) PHYSICAL-AILMENT vocabulary (bleed — already locked in `config/elements.yaml`); and (c) the 9-entry mechanical-action vocabulary registry below.
@@ -118,7 +126,7 @@ Every ARPG cited (Diablo 1/2/3/4/Immortal, PoE 1+2, Last Epoch, Grim Dawn, Lost 
 
 ### 2.9 Total cardinality
 
-**118 entries locked across 8 primaries** = 109 rotating-primary flavor-pool entries + 9 physical taxonomy-registry entries.
+**109 entries locked across 8 primaries** = 100 rotating-primary flavor-pool entries + 9 physical taxonomy-registry entries.
 
 Per-primary cardinality summary:
 
@@ -132,7 +140,7 @@ Per-primary cardinality summary:
 | holy | 14 | rotating flavor pool |
 | shadow | 12 | rotating flavor pool |
 | physical | 9 | Architecture-A taxonomy-sibling registry |
-| **TOTAL** | **118** | |
+| **TOTAL** | **109** | |
 
 ---
 
@@ -160,7 +168,7 @@ Verbatim per PG-3 ratification § 2.
 - `vortex` → WIND primary (substrate-rotational-primary; PoE Vortex cold-AOE-rotational; designer-judgment surface — Matt may override water per cold-association)
 - `hurricane` → WIND primary, water flex (tropical-storm IS wind-rotational at source)
 - `squall` → WIND primary, water flex (wind-storm-event; oceanic-squall is secondary)
-- `stormtide` → WIND primary, water flex (storm hitting tide; substrate-honest wind-primary)
+- `stormtide` → WIND primary, water flex (storm hitting tide; substrate-honest wind-primary). **Note (2026-06-01 amendment-pass):** `stormtide` is preserved as routing intent in the migration script (wind primary) but is not in the locked allow-list per PG-3 ratification. If future research / vfx-coverage / playtest evidence supports promotion, stormtide would route to wind.
 - `tempest` → WIND primary, water flex (overwhelmingly substrate-wind; pool-existing routing preserved)
 - `njord` → WATER primary, wind flex (Norse sea-god primary domain is sea; wind is secondary)
 
@@ -256,7 +264,7 @@ To be added to pool.json schema at sub-phase 5f migration:
 **Deferred to sub-phase 5f POST-WAVE migration dispatch** per ADR-004 cross-seam contract change. Migration scope:
 
 - Schema extension (3 new fields)
-- 109 rotating-primary entry migration with lineage tags applied per § 7
+- 100 rotating-primary entry migration with lineage tags applied per § 7
 - 9 physical entry migration to separate taxonomy-registry surface
 - elrond + star-lord cross-seam coordination (pool.json is consumed by downstream pipeline)
 - Existing entries audited against PRESERVE / DEMOTE / EXTEND verdicts per Phase 5a synthesis § 6
@@ -267,16 +275,16 @@ This is operational migration, not architectural commitment. The canonical lock 
 
 ## 7. Lineage tags (per-entry; substrate-validation provenance)
 
-Per PG-3 ratification § 5. Each of the 118 locked entries carries a substrate-validation lineage tag indicating its provenance:
+Per PG-3 ratification § 5 (corrected at 2026-06-01 amendment-pass; counts reconciled to migrated pool.json ground truth). Each of the 109 locked entries carries a substrate-validation lineage tag indicating its provenance:
 
 | Lineage tag | Count | Description |
 |---|---:|---|
-| `substrate-validated-this-wave-2026-06-01` | 65 | Survived Phase 4 high-confidence core threshold (score ≥ T6 AND tracks ≥ 2); substrate-vote-confirmed cross-track |
-| `substrate-silent-2026-05-08-D1-pool` | 24 | Carry-over from original D1 pool (2026-05-08); substrate research did not surface but did not refute (preserved per substrate-silence ≠ substrate-refutation principle) |
+| `substrate-validated-this-wave-2026-06-01` | 57 | Survived Phase 4 high-confidence core threshold (score ≥ T6 AND tracks ≥ 2); substrate-vote-confirmed cross-track |
+| `substrate-silent-2026-05-08-D1-pool` | 23 | Carry-over from original D1 pool (2026-05-08); substrate research did not surface but did not refute (preserved per substrate-silence ≠ substrate-refutation principle) |
 | `designer-curation-modern-scientific-overlay-2026-06-01` | 19 | Modern-scientific vocabulary overlay added at PG-3 designer-curation gate (`fusion`, `thermal`, `combustion`, `hydro`, `hydraulic`, `seismic`, `tectonic`, `sonic`, `shockwave`, `plasma`, `flash`, `ion`, `voltage`, `tesla`, `stellar`, `solar`, `photon`, `laser`, `prismatic`) |
 | `designer-curation-mystical-fantasy-overlay-2026-06-01` | 1 | Single mystical-fantasy overlay (`shadow:soul`); transparent acknowledgment of designer judgment outside substrate vote |
 | `architecture-A-taxonomy-registry-2026-06-01` | 9 | Architecture-A taxonomy-sibling registry entries (physical's 9); semantically distinct from flavor-pool entries |
-| **TOTAL** | **118** | |
+| **TOTAL** | **109** | |
 
 ### 7.1 Per-primary lineage distribution (aggregated for readability)
 
@@ -292,7 +300,7 @@ Per PG-3 ratification § 5. Each of the 118 locked entries carries a substrate-v
 | physical (9) | 0 | 0 | 0 | 0 | 9 |
 | **TOTAL** | **57** | **19** | **23** | **1** | **9** |
 
-(Aggregate-count totals reconcile to 109 rotating-primary entries + 9 physical = 118. Per-entry lineage tags applied at sub-phase 5f migration; see PG-3 ratification § 5 for the substrate-validation-tag binding to specific entries.)
+(Aggregate-count totals reconcile to 100 rotating-primary entries + 9 physical = 109. Per-entry lineage tags applied at sub-phase 5f migration; see PG-3 ratification § 5 for the substrate-validation-tag binding to specific entries.)
 
 ### 7.2 Why lineage tagging matters
 
@@ -312,7 +320,7 @@ Per PG-3 ratification § 6. Three discipline candidates emerged from the WS1A.Q1
 
 **The discipline asserts:** when substrate research does not surface a vocabulary candidate but does not refute it either, the appropriate disposition is **lineage-tagged preservation** ("substrate-silent" lineage) NOT promotion-to-validated. Transparency on what the substrate said vs what the substrate did not address.
 
-**Operational application in this lock:** 24 entries (`substrate-silent-2026-05-08-D1-pool`) preserved with substrate-silent lineage rather than being either (a) auto-promoted to substrate-validated OR (b) culled for substrate-thin.
+**Operational application in this lock:** 23 entries (`substrate-silent-2026-05-08-D1-pool`) preserved with substrate-silent lineage rather than being either (a) auto-promoted to substrate-validated OR (b) culled for substrate-thin.
 
 ### 8.2 Discipline-candidate-2 — Substrate-vocabulary inclusion 3-test (Matt 2026-06-01)
 
@@ -352,7 +360,7 @@ Per PG-3 ratification § 6. Three discipline candidates emerged from the WS1A.Q1
 
 ### 9.2 Authorizes downstream
 
-- **Sub-phase 5f migration dispatch (POST-WAVE)** — extends `data/seasonal_elements/pool.json` per this lock; 3 schema field additions; 118 entries migrated with lineage tags; elrond + star-lord cross-seam coordination. NOT within this canonical doc's scope; operational follow-on.
+- **Sub-phase 5f migration dispatch (POST-WAVE)** — extends `data/seasonal_elements/pool.json` per this lock; 3 schema field additions; 109 entries migrated with lineage tags; elrond + star-lord cross-seam coordination. NOT within this canonical doc's scope; operational follow-on.
 - **WS1A.3 per-kit sub-element selection implementation** — consumes the locked rotating-primary pools; physical kits route through weapon-form path instead.
 - **WS1A.4 per-skill bounded LLM flavor judgment implementation** — consumes the locked rotating-primary pools as judgment-space; physical kits opt out and use mechanical-schema templates.
 
@@ -376,7 +384,7 @@ Pattern-setting at Q18 reduces orchestration overhead for subsequent waves by ~3
 
 ## 10. Sign-off
 
-**v1.0 canonical lock RATIFIED.** Architecture A LOCKED; 118 entries committed; Q18.a–e structural commitments locked; cull-tag dispositions specified; pool.json schema amendments specified (deferred to sub-phase 5f); 3 discipline-recognition candidates surfaced (awaiting jack-ryan wave-close ratification).
+**v1.0 canonical lock RATIFIED.** Architecture A LOCKED; 109 entries committed; Q18.a–e structural commitments locked; cull-tag dispositions specified; pool.json schema amendments specified (deferred to sub-phase 5f); 3 discipline-recognition candidates surfaced (awaiting jack-ryan wave-close ratification).
 
 **Authority chain:**
 
@@ -402,4 +410,4 @@ Pattern-setting at Q18 reduces orchestration overhead for subsequent waves by ~3
 ---
 
 **Signed:** gandalf (story-and-design steward)
-**For:** the canonical lock of WS1A.Q18 flavor-pool per-primary-element allow-lists at v1.0 — Architecture A (7 rotating primaries with substrate-honest flavor pools + physical as Architecture-A taxonomy-sibling registry); 118 entries committed; Q18.a–e structural commitments locked; substrate-led methodology composed at the vocabulary-substrate layer per Discipline #41 refinement.
+**For:** the canonical lock of WS1A.Q18 flavor-pool per-primary-element allow-lists at v1.0 — Architecture A (7 rotating primaries with substrate-honest flavor pools + physical as Architecture-A taxonomy-sibling registry); 109 entries committed; Q18.a–e structural commitments locked; substrate-led methodology composed at the vocabulary-substrate layer per Discipline #41 refinement.

@@ -24,7 +24,7 @@ The WS1A.Q18 flavor-pool research-and-lock wave executed end-to-end as a single 
 
 **Wave-close criterion:** PG-4 PASS-with-INFO (jack-ryan Gate-2 on canonical write).
 **Wave-close verdict:** ✅ CLOSED.
-**Architectural commitment:** Architecture A locked (7-primary rotating flavor pools + physical-as-taxonomy-sibling; 118 entries across 8 primaries).
+**Architectural commitment:** Architecture A locked (7-primary rotating flavor pools + physical-as-taxonomy-sibling; 109 entries across 8 primaries).
 **Discipline composition:** Disciplines #41 + #42 + #18 applied; **Disciplines #49 + #50 + #51 ratified this wave**.
 
 ---
@@ -34,6 +34,7 @@ The WS1A.Q18 flavor-pool research-and-lock wave executed end-to-end as a single 
 | Date | Author | Amendment | Reason |
 |---|---|---|---|
 | 2026-06-01 | gandalf | Integrate 2 deferred-commitments items (theme-coherence gating + modern-caster substrate-coverage gap) into § 5; cross-reference standalone artifact `agentic_orchestration/gandalf/notes/2026-06-01-q18-deferred-commitments.md` (commit `76f2250`) | Artifact was committed AFTER wave-close bundle fired; cross-reference closes the orphan-loop. Items composed with PG-3 Pattern B critique-pair output but were not absorbed at wave-close authoring time. Recovery via amendment-pass-record per canonical doc format protocol. |
+| 2026-06-01 | gandalf | **Cardinality correction:** "118 entries" → "109 entries" (4 wording instances across § 0 TL;DR / § 1 phase table Phase 5b row / § 2 Headline outputs / § 7 Authority chain). "109 rotating-primary entry migration" → "100 rotating-primary entry migration" (§ 5 deferral list). **§ 5 lineage-tag reconciliation note** updated to reflect post-amendment alignment (57/23/19/1/9=109 across canonical lock § 7.1 + PG-3 § 5 + migrated pool.json). | WS1 Sub-Phase 5f Gate-2 PASS-with-WARN (jack-ryan finding `agentic_orchestration/qa/findings/2026-06-01-ws1-sub-phase-5f-gate-2.md` commit `09fe8d8`) — independent cardinality verification confirmed editorial double-add of physical count. Verbatim per-primary entry lists in canonical lock § 2 were always ground truth (100 rotating + 9 physical = 109 total). Migrated pool.json (engine `fcc4887`) is structurally correct at 109. Architectural intent UNCHANGED. Authority per ADR-002 jack-ryan direct-approval for documentation-only changes + dispatch `agentic_orchestration/dispatches/2026-06-01-gandalf-ws1-amendment-pass-cardinality-correction.md`. |
 
 ---
 
@@ -52,7 +53,7 @@ The WS1A.Q18 flavor-pool research-and-lock wave executed end-to-end as a single 
 | Phase 4 (statistical analysis) | elrond | 217 rows ingested clean; cardinality recommendations per primary at T6; **7-vs-8 empirical verdict: WEAK-8**; confidence-degraded earth=MEDIUM physical=DEGRADED wind=HIGH-with-caveat; F-6 NOT fired; Phase 3 deviation observation: 0 data-quality concerns | `abd4782` |
 | PG-2 (gandalf ratification) | gandalf | **RATIFIED**; 3 forward notes for Phase 5a synthesis; soft lean Architecture A | `5ad97e7` |
 | Phase 5a (synthesis draft) | gandalf | 815 lines / 13 sections; 5 architectural decisions + 15 enumerated PG-3 decision surfaces; BOTH architectures presented | `5f5b405` |
-| Phase 5b (Matt Pattern B) / PG-3 | Matt + gandalf | **RATIFIED**; Architecture A LOCKED; 118 entries committed; Q18.a-e structural commitments; cull-tag dispositions; lineage tags; 3 discipline-recognition candidates surfaced | (`d6ed4fc` artifact) |
+| Phase 5b (Matt Pattern B) / PG-3 | Matt + gandalf | **RATIFIED**; Architecture A LOCKED; 109 entries committed; Q18.a-e structural commitments; cull-tag dispositions; lineage tags; 3 discipline-recognition candidates surfaced | (`d6ed4fc` artifact) |
 | Phase 5c (canonical write) | gandalf | 3 artifacts: canonical doc + ground-state § 1 + roadmap § 4.5 | `492adb8` |
 | Phase 5d / PG-4 (jack-ryan Gate-2; wave-close criterion) | jack-ryan | **PASS-with-INFO**; drift PASS on all major items; lineage-tag reconciliation IMMATERIAL; all 3 candidates RATIFIED as Disciplines #49/#50/#51 | (in `9889bff`) |
 | Phase 5e (wave-close bundle) | KR + gandalf + jack-ryan | KR wave-close record (this doc) + gandalf design-quality audit + jack-ryan engineering-disciplines.md amendments + decisions-log entry | `84502e3` + `a08d553` (engine repo) + this commit |
@@ -62,7 +63,7 @@ The WS1A.Q18 flavor-pool research-and-lock wave executed end-to-end as a single 
 ## 2. Headline outputs
 
 **Architectural commitment (the LOCK):**
-`canonical/story/2026-06-01-flavor-pool-per-primary-element-lock.md` — Architecture A locked; 118 entries across 8 primaries; Q18.a-e structural commitments; pool.json schema amendments deferred to sub-phase 5f.
+`canonical/story/2026-06-01-flavor-pool-per-primary-element-lock.md` — Architecture A locked; 109 entries across 8 primaries; Q18.a-e structural commitments; pool.json schema amendments deferred to sub-phase 5f.
 
 **Empirical foundation:**
 `agentic_orchestration/elrond/analysis/element-flavor-mapping-stats-2026-06-01.md` — 217-row dataset; per-primary candidate frequency; cross-primary contamination matrix; cluster analysis; cardinality recommendations; 7-vs-8 WEAK-8 verdict.
@@ -118,12 +119,12 @@ Per operational sequence § 10.2 + gandalf design-quality audit § 3, the WS1A.Q
 
 **Deferred to sub-phase 5f POST-WAVE:**
 - `~/Games/reincarnated-engine/data/seasonal_elements/pool.json` schema extension (3 new fields per PG-3 § 4: `substrate_validation_lineage`, `vocabulary_commonness`, `slot_unambiguous`)
-- 109 rotating-primary entry migration with per-entry lineage tags applied
+- 100 rotating-primary entry migration with per-entry lineage tags applied
 - 9 physical entry migration to separate taxonomy registry surface
 - elrond + star-lord cross-seam touches (per ADR-004 MIGRATION discipline)
 - Operational; explicitly OUT-OF-SCOPE for WS1A.Q18 wave
 
-**Note on lineage-tag aggregate reconciliation** (per jack-ryan Gate-2 INFO-1): the canonical doc § 7.1 per-primary lineage-table-distribution differs from PG-3 § 5 aggregate (both align at 118 total but per-tag distribution is illustrative not binding). Sub-phase 5f executor reads PG-3 § 5 as authoritative source for per-entry tag application.
+**Note on lineage-tag aggregate reconciliation** (per jack-ryan Gate-2 INFO-1 + 2026-06-01 amendment-pass): post-amendment, the canonical doc § 7.1 per-primary distribution AND PG-3 § 5 aggregate both reconcile to applied distribution (57/23/19/1/9 = 109 total). The PG-3 § 5 aggregate is binding for per-entry tag application; migrated pool.json (engine `fcc4887`) is structurally aligned.
 
 ---
 
@@ -181,7 +182,7 @@ Two deferred-commitments items surfaced during PG-3 Pattern B dialogue (Matt + g
 ## 7. Authority chain
 
 - **Matt 2026-06-01 wave directive:** "ratify hive-mind path; author the operational sequence" + "Can we not have this made into one long hive mind wave?" + "hand to KR to fire the wave"
-- **Matt 2026-06-01 PG-3 ratification:** Architecture A LOCKED; 118 entries committed (Pattern B with gandalf complete)
+- **Matt 2026-06-01 PG-3 ratification:** Architecture A LOCKED; 109 entries committed (Pattern B with gandalf complete)
 - **gandalf** as commissioner + Phase 5a synthesis author + Phase 5c canonical write author + Phase 5e design-quality audit
 - **jack-ryan** as critique-pair Gate-1 + Gate-2 + Disciplines #49/#50/#51 author + decisions-log entry author
 - **elrond** as Phase 0 data-medium decision + Phase 4 statistical analysis

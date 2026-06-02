@@ -70,7 +70,9 @@
 
 ### 1.9 Total
 
-118 entries locked across 8 primaries (109 rotating-primary flavor pool + 9 physical taxonomy registry).
+109 entries locked across 8 primaries (100 rotating-primary flavor pool + 9 physical taxonomy registry).
+
+**Note (2026-06-01 amendment-pass):** § 1.9 was previously asserted "118 entries locked across 8 primaries (109 rotating-primary flavor pool + 9 physical taxonomy registry)" — that wording was an editorial double-add of the physical count in source-doc assembly. The verbatim per-primary lists in §§ 1.1–1.8 above are the ground truth (16+14+18+13+13+14+12=100 rotating + 9 physical = 109 total). Migrated pool.json (engine `fcc4887`) is structurally correct at 109. See § 10 amendment-pass-record below.
 
 ---
 
@@ -130,17 +132,19 @@ Add fields:
 
 ## 5. Lineage tags (canonical write applies per-entry)
 
-The canonical write at Phase 5c applies these tags per-entry:
+The canonical write at Phase 5c applies these tags per-entry. **Counts below corrected at 2026-06-01 amendment-pass** to applied distribution (jack-ryan Gate-2 Ambiguity 2 ratification); migrated pool.json (engine `fcc4887`) is ground truth.
 
 | Lineage tag | Count | Description |
 |---|---|---|
-| `substrate-validated-this-wave-2026-06-01` | 65 entries | Survived Phase 4 high-confidence core threshold (score ≥ T6 AND tracks ≥ 2) |
-| `substrate-silent-2026-05-08-D1-pool` | 24 entries | Carry-over from original D1 pool; substrate research did not surface but did not refute |
+| `substrate-validated-this-wave-2026-06-01` | 57 entries | Survived Phase 4 high-confidence core threshold (score ≥ T6 AND tracks ≥ 2) |
+| `substrate-silent-2026-05-08-D1-pool` | 23 entries | Carry-over from original D1 pool; substrate research did not surface but did not refute |
 | `designer-curation-modern-scientific-overlay-2026-06-01` | 19 entries | Modern-scientific vocabulary overlay (fusion, hydraulic, photon, voltage, blackhole, etc.) added at PG-3 designer-curation gate |
 | `designer-curation-mystical-fantasy-overlay-2026-06-01` | 1 entry (`shadow:soul`) | Single mystical-fantasy overlay; transparent acknowledgment |
 | `architecture-A-taxonomy-registry-2026-06-01` | 9 entries (physical) | Architecture-A taxonomy-sibling; not a flavor pool |
 
-**Total: 118 entries locked.**
+**Total: 109 entries locked.**
+
+**Note (2026-06-01 amendment-pass):** prior table asserted 65/24/19/1/9=118; corrected to applied distribution 57/23/19/1/9=109 per jack-ryan Gate-2 Ambiguity 2 ratification. Discipline #49 (substrate-silence ≠ substrate-validation) operates symmetrically at the corrected counts — substrate-silent is residual after subtracting confirmed overlay categories, which is mechanically correct per the discipline's design.
 
 ---
 
@@ -193,7 +197,7 @@ The discipline asserts: synthesis drafts authored by single-seam stewards must u
 
 6. **Author sub-phase 5f migration dispatch (POST-WAVE):**
    - `pool.json` schema extension (3 new fields per § 4)
-   - 109 rotating-primary entry migration with lineage tags applied per § 5
+   - 100 rotating-primary entry migration with lineage tags applied per § 5
    - 9 physical entry migration to separate taxonomy registry surface
    - elrond + star-lord cross-seam touches
    - Operational; not within WS1A.Q18 wave scope
@@ -210,7 +214,7 @@ On wave-close, **Q16 / Q17 / Q19 hard-blocker waves unblock** per operational se
 
 ## 9. Sign-off
 
-**PG-3 verdict: RATIFIED** — Architecture A LOCKED; 118 entries committed; Q18.a-e structural commitments locked; cull-tag dispositions specified; pool.json schema amendments specified (deferred to sub-phase 5f); 3 discipline-recognition candidates surfaced.
+**PG-3 verdict: RATIFIED** — Architecture A LOCKED; 109 entries committed; Q18.a-e structural commitments locked; cull-tag dispositions specified; pool.json schema amendments specified (deferred to sub-phase 5f); 3 discipline-recognition candidates surfaced.
 
 **Authority chain:**
 - Matt 2026-06-01 verbatim ratification per ADR-002 Tier A architectural-commitment authority
@@ -224,5 +228,13 @@ On wave-close, **Q16 / Q17 / Q19 hard-blocker waves unblock** per operational se
 - 3 candidate disciplines per § 6 above (await jack-ryan ratification at wave-close)
 
 **Next:** KR fires Phase 5c canonical write per § 7.1.
+
+---
+
+## 10. Amendment-pass-record
+
+| Date | Author | Amendment | Reason |
+|---|---|---|---|
+| 2026-06-01 | gandalf | **§ 1.9 total cardinality:** "118 entries locked... (109 rotating + 9 physical)" → "109 entries locked... (100 rotating + 9 physical)". **§ 5 lineage-tag totals:** 65/24/19/1/9=118 → 57/23/19/1/9=109. **§ 7 sub-phase 5f migration scope:** "109 rotating-primary entry migration" → "100 rotating-primary entry migration". **§ 9 sign-off:** "118 entries committed" → "109 entries committed". | WS1 Sub-Phase 5f Gate-2 PASS-with-WARN (jack-ryan finding `agentic_orchestration/qa/findings/2026-06-01-ws1-sub-phase-5f-gate-2.md` commit `09fe8d8`) — independent cardinality verification confirmed editorial double-add of physical count. Verbatim per-primary entry lists in §§ 1.1–1.8 were always ground truth; aggregate sub-totaling at PG-3 was the inflation point. Lineage-tag aggregate reconciled to applied distribution per Ambiguity 2 ratification. Authority per ADR-002 jack-ryan direct-approval for documentation-only changes + dispatch `agentic_orchestration/dispatches/2026-06-01-gandalf-ws1-amendment-pass-cardinality-correction.md`. Architectural intent UNCHANGED (Architecture A LOCKED). |
 
 **End of PG-3 ratification.**
