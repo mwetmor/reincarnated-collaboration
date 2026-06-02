@@ -147,4 +147,21 @@ After your response, KR proceeds per your routing instruction.
 
 ---
 
+## Completion record
+
+**Completed:** 2026-06-01
+**Response artifact:** `agentic_orchestration/star-lord/notes/2026-06-01-ia-1-engine-readiness-pre-fire-response.md`
+**Readiness verdict:** MINIMAL-SETUP-REQUIRED
+**Minimal setup steps (if any):**
+  1. Confirm `ANTHROPIC_API_KEY` set in execution environment (operational pre-check; no code change)
+  2. Rocket confirms IA-1 V1 entry point is `python -m reincarnated.cli generate-season` (SeasonOrchestrator). If entry point is instead `run_season_generation()` from `season_generation_pipeline.py`, rocket-seam SEASON_ID update needed (1-line; not star-lord seam)
+  3. Drift-14 wind fidelity: optional. 5 wind allow-list entries effective post-demote. Acceptable V1 baseline (Option A). Option B (vfx_coverage_manifest extension for 8 wind entries) requires Matt authorization per ADR-006 — deferred to V2.
+**Drift-14 assessment:** acceptable-V1-baseline for canonical-4 fire (fire/wind/water/earth only). Wind degraded to 5 allow-list entries; 58 of 100 lock-cohort entries demote to eligible at load. WARN logs confirm. Lightning/holy/shadow demotion not material for canonical-4 V1.
+**LLM-call readiness:** ready — `phase5_orchestrator.py` operational at `62f1429`; `naming.py` / `selector.py` / `TrackedLLMClient` all confirmed operational; no prompt changes needed; pool.json v1.1 vocabulary flows into element selection prompt automatically
+**Rocket coordination surface:** Confirm IA-1 V1 entry point (CLI SeasonOrchestrator vs. season_generation_pipeline.py). No other rocket-side changes needed.
+**Estimated V1 fire wall-clock:** ~20 min full named season; ~5 min smoke mode
+**Routing back to KR:** "fire setup dispatch first" — route rocket entry-point confirmation, then fire IA-1 V1. If rocket confirms CLI path immediately, fire IA-1 V1 immediately thereafter.
+
+---
+
 **End of IA-1 engine-readiness pre-fire question dispatch.**
