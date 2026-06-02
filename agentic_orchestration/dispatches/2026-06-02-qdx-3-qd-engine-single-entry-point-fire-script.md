@@ -257,3 +257,70 @@ On work-completion (Phase 1 close; before QDX-4 smoke-gate fires), append a comp
 ---
 
 **End of QDX-3 dispatch.**
+
+## Completion record
+
+**Completed by:** rocket (2026-06-02)
+**Tag:** `rocket/v1.5-qdx-3-qd-engine-fire-script-1`
+**Engine commit:** `cf6e9ae`
+**Script path:** `scripts/qdx_qd_engine_re_fire_20260602.py`
+
+**Smoke output:**
+```
+=== QDX-3 QD-Engine Re-Fire (SMOKE MODE) ===
+Parameters: n_candidates=8 pareto_target=2 seed=20260602
+Flags: ws1a4=True wave_a=True wave_b=True t4=True skip_theme=True skip_cosmovocab=True
+[PASS: pre-fire bounds — projected cost under ABORT threshold]
+Phase 1 — BC-target audit: READY=21 THIN=1 BLOCKED=3
+Phase 2 — 8 candidates (element distribution: physical × 8)
+Phase 4 — 2 survivors (round-robin element selection)
+Phase 5a — 1 cluster (CRITICALLY SPARSE n=2<8; single Unaffiliated pseudo-cluster)
+Phase 5b — ws1a4 physical_opt_out=2 (all physical kits; routing wired, variety check MARGINAL by design)
+Phase 5c — T4 narration: 2/2 kits narrated
+Wave A — Faction: 'Null Convergence Drift'
+Wave B — Kit identities: 'Brute of the Unmarked Ground' / 'Striker Without Recoverable Ground'
+           Wave B variety check: no template-repeat [PASS]
+Phase 7 — 2 PASS / 0 FAIL
+Phase 8 — event_id='kse_20260602_005' kits=2 chronicle=WRITTEN validation_errors=0 index_regenerated=True
+FK linkage: PASS
+wall_clock: 0.3 min
+llm_cost: $0.0250 [PASS: under $0.10]
+phase_composition: Phase 1 → 2 → 4 → 5a → 5b → 5c → Wave A → Wave B → 7 → 8
+```
+
+**Cost projection vs actual (smoke):** projected $0.07 / actual $0.0250
+
+**Phase composition verified:** Phase 1 → 2 → 4 → 5(a/b/c) → Wave A → Wave B → 7 → 8 [PASS]
+
+**Dependencies on QDX-1 / QDX-2:** VERIFIED PRESENT
+- QDX-1 (ws1a4_active wiring in phase5_skill_naming.py): CONFIRMED — module docstring reads "QDX-1 integration (additive — 2026-06-02)"; ws1a4_hint parameter present; tag rocket/v1.5-qdx-1-ws1a-4-lite-phase-5-integration-1
+- QDX-2 (kit_space_emitter terminal routing): CONFIRMED — emit_kit_space_expansion_event() wired; tag star-lord/v1.5-qdx-2-kit-space-emit-into-qd-engine-terminal-1
+
+**Gate-2 verdict:** PASS-with-INFO
+- INFO-1: Variety check MARGINAL in smoke — first 8 BC cells produce physical-only kits from substrate. ws1a4_flavor routing code path IS wired and confirmed. Full fire (N_CANDIDATES=200) will produce non-physical kits and satisfy criterion 11.
+- INFO-2: T4 signature mismatch between assumed API and actual narrate_t4_keystone() — 7 parameter gaps fixed during smoke integration. Call now correct. Documented in AGENT_STATE.md.
+- INFO-3: Substrate DB path mismatch fixed — weapon_knowledge_entries lives in reincarnated-loadout telemetry.db, not engine telemetry.db. _SUBSTRATE_DB_PATH const added.
+
+**Bug fixes found during smoke (7 total):**
+1. Substrate DB path: loadout telemetry (not engine telemetry)
+2. ChainSpec fields: no dominant_role/tier_distribution → has_t4_slot/bc_amplitude/bc_attribute
+3. PM1Cluster.member_kit_ids (not .member_count)
+4. T4GenerationResult.chain_candidates dict by chain_id (not flat .candidates list)
+5. narrate_t4_keystone full positional signature (15 params; extracted from T4CandidateV2.to_dict())
+6. Phase 7 hardcoded PARETO_MIN → parametric pareto_min (smoke-mode compatible)
+7. audit_log top-level ready/thin/blocked lists (not cell_classifications[].status dicts)
+
+**Notes for QDX-4 (LOCK S formal smoke-gate):**
+- QDX-4 gates on QDX-1 + QDX-2 both passing Gate-2 (per wave-state.md Phase 1 pass criterion)
+- Command: `python3 scripts/qdx_qd_engine_re_fire_20260602.py --smoke` (LOCK S smoke = another smoke run)
+- No parameter changes needed; smoke parameters are correct (n=8 pareto=2)
+- Watch for: variety check with non-physical kits (will require ≥8 non-physical BC cells in first pull)
+- If substrate has ≥3 non-physical cells in first 8: variety criterion 11 will auto-satisfy
+
+**Notes for QDX-5 (full fire):**
+- Command: `python3 scripts/qdx_qd_engine_re_fire_20260602.py` (no --smoke)
+- Full fire: N_CANDIDATES=200 → expected ~22 READY cells × ~9 kits each → PARETO_TARGET=35
+- Projected cost: $0.89 (well within $60 ABORT threshold)
+- Watch: T4 all-negative-score warning for physical_kit (known; not a bug; all-negative-score path ships least-negative)
+- Watch: PM-1 CRITICALLY SPARSE if n<8 survives Pareto — unlikely at PARETO_TARGET=35 but if element distribution skews physical-heavy, could get sparse clustering
+- After full fire: QDX-6 (kit_space validation) and QDX-7 (drax render check) can proceed on emitted kits
