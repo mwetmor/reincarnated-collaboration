@@ -134,13 +134,13 @@ Generate a season + ensure magic weapons across periods + drax loads generated s
 
 | WS | Phase | Status | Notes |
 |---|---|---|---|
-| **IA-1** V1 baseline season generation | V1 FIRE | 🔥 FIRING (Gate-1 PASS-with-INFO; star-lord executes smoke-then-full per rocket-confirmed CLI path; background ~25-30 min) | env-precheck → smoke → full → close-summary; output to `seasons/<id>/` engine-repo + close-summary meta-repo; auto-commit + auto-push per cycle-push pattern |
+| **IA-1** V1 baseline season generation | V1 FIRE | ✅ **SUCCESS** — season_000042 generated (engine sha `cda99a5`; 1728.7s; validation PASSED; 5 classes all converged 4/5 in target band; 44 monsters; 200 gear; 49.33% trial defeat target 50%; LLM-named cosmological_vocab with 8 slot fills + 3 pair rationales coalesced theme="forge"; star-lord close-summary deferred — KR orchestration close record at `ia-1-v1-close-record-2026-06-01.md` substitutes) | Engine artifacts at `~/Games/reincarnated-engine/seasons/season_000042/` |
 | **IA-2.P1** Magic-weapons-across-periods audit | Phase 1 audit | ✅ COMPLETE (commit `1160333`) — 21-cell grid: ANCIENT mostly WEAK-MEDIUM with earth STRONG(38)/holy STRONG(30); MEDIEVAL mostly WEAK with shadow ABSENT(1) worst cell; MODERN ABSENT/WEAK per WS2.P1; coverage asymmetry ANCIENT>>MEDIEVAL~MODERN; fire/water uniformly thin cross-period; Phase 2 scope **~80-100 weapons mid-range** (gandalf 67-88 manual + legolas 22 crawl); within LOCK C ~140 cap; **Retroactive-primary-tagging surfaced** as Phase 3 methodology consideration; no escalation. |
 | **IA-2.P2** Gap-fill (Y3 hybrid; gandalf anchor authoring + legolas crawl) | Phase 2 | ✅ AUTHORING COMPLETE (work-in-batches discipline validated): ANCIENT 24 (`7565b0a`) + MEDIEVAL 29 incl CRITICAL × shadow 6 (`b2d42b6`) + MODERN 49 incl × lightning 9 (`de1e2bd`) = **102 gandalf anchors VERIFIED** + legolas crawl 23 entries (`6bb68b2`) = **125 total within ~140 LOCK C cap**. Awaiting JSON consolidation gandalf (background) before IA-2.P3 routes. |
 | **IA-2.P2** Gap-fill (Y3 hybrid) | Phase 2 | ⏸ pending IA-2.P1 close | gandalf authoring + legolas crawl |
-| **IA-2.P3** Elrond ingest + lineage tags | Phase 3 | ⏸ pending IA-2.P2 close | |
+| **IA-2.P3** Elrond ingest + lineage tags | Phase 3 | 📝 DISPATCH-AUTHORING (per LOCK E autonomous; ingest 102 gandalf anchors + 23 legolas crawl = 125 weapons into engine weapon substrate with lineage tag application + retroactive-primary-tagging methodology audit-surfaced) | Schema additive period_tag if needed per LOCK J § 5; cross-seam MIGRATION.md per ADR-004 |
 | **IA-2.P4** Substrate-coverage validation | Phase 4 | ⏸ pending IA-2.P3 close | |
-| **IA-3.P1** Drax workstream open | Phase 1 | ⏸ pending IA-1 V1 close | |
+| **IA-3.P1** Drax workstream open + V1 integration scaffolding | Phase 1 | 📝 DISPATCH-AUTHORING (per LOCK F MVP-discipline; drax consumes season_000042 V1 output into reincarnated-loadout + reincarnated-demo; existing components ONLY; no new UI) | season output paths per close record § 6.2 |
 | **IA-3.P2** Integration | Phase 2 | ⏸ pending IA-3.P1 close | |
 | **IA-3.P3** Vercel deployment | Phase 3 | ⏸ pending IA-3.P2 close | |
 | **IA-3.P4** Iterate with V2 | Phase 4 | ⏸ pending IA-2 close + IA-1 V2 close | |
