@@ -205,3 +205,63 @@ On work-completion, append a completion record to this dispatch file with:
 ---
 
 **End of Issue 4 dispatch.**
+
+---
+
+## Completion record
+
+**Completed by:** gandalf-as-subagent (2026-06-02)
+**Engine commit:** `b77cc95` (auto-commit + push to mwetmor/reincarnated-engine main)
+**Kits amended:** 37/37
+**LLM cost actual:** $0.1497 (vs $0.30 projection; well under $0.60 LOCK R abort ceiling)
+**Wall-clock:** 53.1 s (0.88 min; vs ≤30 min acceptance bound)
+**Model:** claude-sonnet-4-6 (project default per `src/reincarnated/llm/client.py`)
+
+**Output uniqueness:** PASS (37 unique of 37; 6 first-pass duplicates resolved via seam-internal corrective-prompt re-fire). First-pass duplicate cluster: 5x "Ravager of the Unbroken Fury", 3x "Ravager of the Bloodsworn Fury", 3x "Ravager of the Unyielding Flesh", 3x "Ravager of the Sundered Flesh", 2x "Deepcaller of the Sunken Meridian", 2x "Veilsinger of the Wandering Breath". All offending kits (kept first occurrence; regenerated the rest) now hold unique names. Note for jack-ryan: physical-cluster duplicate-saturation is a substrate signal — 16 physical kits compressed against a narrow vocabulary space; see § Notes for drax Phase 2 below.
+
+**Q18 word check:** PASS — no fire/water/earth/wind/lightning/holy/shadow/physical flavor pool word (per `canonical/story/2026-06-01-flavor-pool-per-primary-element-lock.md` § 2 — 109-entry full Q18 allow-list inverted as avoid-list) appears in any rename. Word-boundary case-insensitive tokenization applied via `re.findall(r"[A-Za-z]+", name)` intersected with avoid-set.
+
+**Generic-archetype check:** PASS — no Caster/Cleric/Mage/Warrior/Knight/Bearer/Fighter/Warden/Champion/Master/Adept/Apprentice in any rename. (Note: "Cleaver" appears in 3 names — `cleaver/cleave` is NOT in the avoid-list per dispatch § 3; verb-form `slash/sever/strike` IS avoided per Q18 physical pool. Cleaver passes literal acceptance criteria but is verb-archetype-adjacent; flagging for jack-ryan Gate-2 aesthetic-judgment.)
+
+**Etymological-family check:** PASS — no umbra/umbral/penumbra in any rename. shadow_000007 explicitly avoided the prior "Penumbra Caster" template; "Duskweaver of the Eclipsed Meridian" is the validated replacement.
+
+**Regenerations needed:** 0 rule-violation regenerations (all 37 first-attempt outputs passed Q18 + generic + etymological checks); 12 uniqueness-collision regenerations (6 duplicate clusters resolved via corrective-prompt re-fire). Zero LLM violations of the hard prompt rules across the entire cohort — strong signal of prompt clarity.
+
+**Top-1 + top-5 sample inspection:**
+- `kit_shadow_000007` (TOP-1): "Penumbra Caster of Dusk Meridian" → **"Duskweaver of the Eclipsed Meridian"** — removes penumbra (etymological-family) + Caster (generic); preserves Meridian lore anchor; invents Duskweaver as kit-specific archetype.
+- `kit_fire_000007`: "Ember Caster of Scorched Meridian" → **"Ashcaller of the Burning Veil"** — removes Ember (Q18 fire) + Scorched (Q18 scorch root) + Caster (generic); invents Ashcaller; new lore-suffix.
+- `kit_wind_000006`: "Galewright of the Scattered Pale" → **"Driftcaller of the Hollow Sky"** — removes Gale (Q18 wind); preserves invented-archetype-pattern (Galewright was already good-style; Driftcaller is the new invented-archetype). Note: this kit's pre-existing name was acceptable-style per dispatch context note; LLM still regenerated for Q18 compliance.
+- `kit_holy_000005`: "Cannonade Cleric of Scattered Light" → **"Verdictbringer of the Hallowed Tribunal"** — removes Cleric (generic); skill themes (Sacred Verdict / Divine Sentence / Holy Decree) drove judicial-thematic Verdictbringer + Tribunal selection (strong context-driven cohesion).
+- `kit_physical_000026`: "Stonefist of Broken Wall" → **"Furyboned Cleaver of the Rawbone Pact"** — removes Stone (Q18 earth — note: prior name was technically Q18-violating for earth-not-physical primary). Aesthetic-judgment caveat: "Furyboned" + "Rawbone" within same name is repetitive bone-imagery; "Cleaver" is verb-archetype-adjacent. Acceptable per literal rules; mid-tier aesthetic quality. Flag for jack-ryan Gate-2.
+
+**Gate-2 readiness:** READY (all four hard rules PASS; cost well under projection; uniqueness resolved; sample inspection complete).
+
+**LOCK L disposition:** 0 BLOCKs — first-pass acceptance-criteria PASS across all four checks; only seam-internal duplicate resolution applied (within authority).
+
+**Notes for drax Phase 2 (consumer-side observations):**
+
+1. **Drax sync requirement:** drax must copy `~/Games/reincarnated-engine/data/kit_space/kits/` → `~/Games/reincarnated-loadout/public/kit-space/kits/` to surface the renames in the loadout web app per dispatch § 5. No API change; new values flow automatically through `useKitSpaceData.ts`.
+
+2. **Name-length variance:** post-rename names range 3-7 words (median ~5); UI layout testing should check rendering of longer names like "Deepcurrent Flowsinger of the Abyssal Fen" (7 words) and "Wrathbound Feral of the Crimson Rampage" (6 words) vs shorter forms like "Driftcaller of the Hollow Sky" (5 words).
+
+3. **Sample-inspection priorities for player-facing diff:** the TOP-1 + TOP-5 transitions above are the strongest before/after comparisons; drax may want to highlight these in the demo1 surface to demonstrate the QDX-7-AMEND-FULL game-quality lift.
+
+**Notes for jack-ryan Gate-2 (specific kits worth sample-inspection):**
+
+1. **`kit_physical_000026` Furyboned Cleaver of the Rawbone Pact** — flagged above as aesthetic-mid-tier. Per dispatch § 8 refutation conditions, this is not template-repeat (each physical kit got unique invented archetype) but is the lowest-aesthetic of the cohort. If jack-ryan judges this as quality-floor breach, gandalf can re-fire this single kit at higher temperature.
+
+2. **Cleaver-word recurrence (3 physical kits):** Wrathborn Cleaver / Bonecleaver / Furyboned Cleaver. Per literal dispatch rules: PASS (cleaver/cleave not in avoid-list). Per substrate observation: the physical pool's 4-entry mechanical-action vocabulary (`pierce`, `slash`, `sever`, `strike` per canonical Q18 lock § 2.8) deliberately excluded the cleave-family at v1.0 lock; LLM gravitated to `cleave/cleaver` as a substitute. This is substrate-honest noise (the LLM found the gap and filled it consistently) but worth surfacing to gandalf for v1.1+ deferral list consideration (`crush/impact/rend` per § 2.8 + potentially `cleave`).
+
+3. **Veil-word recurrence (6 kits):** "Smoldering Veil", "Burning Veil", "Crimson Veil", "Hallowed Veil" (none — that was Tribunal), "Hollow Veil" (none — that was Sky), "Pelagic Veilsinger", "Veilsinger of the Wandering Breath", "Breeveiler", "Wrathborn Cleaver of the Crimson Veil". Pattern: "Veil" is a high-frequency mid-fantasy suffix that the LLM clustered toward across elements. Not a violation (Veil is not in any Q18 pool / not a generic archetype). Acceptable per literal rules but worth jack-ryan aesthetic-judgment review for Q19 (emergent-kit-concept naming consistency) wave parameter-tuning.
+
+4. **"Meridian" anchor preserved well:** 3 kits (shadow_000007, lightning_000006, water_000004 was-Sunken-Meridian-but-resolved) retained the "of the X Meridian" lore-suffix pattern; the dispatch § 3 prompt explicitly endorsed this; the LLM applied it judiciously rather than universally. Indicator of prompt design quality.
+
+5. **kit_wind_000004 + kit_wind_000005 are the pre-existing "Scattered Wind Fighter Bearer" template-collapse cases** — both renamed to wholly distinct "Veilsinger of the Wandering Breath" and "Breeveiler of the Wandering Expanse" respectively, demonstrating that the LLM successfully de-collapsed identical pre-existing names into unique post-rename identities.
+
+6. **Discipline-recognition candidate (surface for jack-ryan):** the 12 first-pass duplicates (mostly physical) suggest a discipline candidate — **within-cohort uniqueness should be a first-class LLM prompt constraint when batch-naming N>10 same-primary kits, not a post-hoc filter.** The current prompt fires per-kit-independently with no awareness of sibling outputs; future batch-rename work might benefit from passing the running list of already-assigned names as part of the user prompt. Not architectural-commitment; flagging for Q19 wave consideration.
+
+---
+
+**Completion record signed:** gandalf (story-and-design steward; subagent role for this rename pass)
+**For:** cycle-18 Drax QDX-7-AMEND-FULL Issue 4 — the substrate-honest transition of 37 kit identities from generic-archetype-flattening to invented-unique-archetype form per Matt 2026-06-02 directive + Q18 canonical lock as inverted avoid-list.
+
