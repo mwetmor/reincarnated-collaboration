@@ -195,3 +195,57 @@ LOCK G Vercel auto-deploy fires on push; preview URL returned in completion reco
 ---
 
 **End of Phase 2 drax consolidated dispatch.**
+
+---
+
+## Completion record
+
+**Completed by:** drax (2026-06-02)
+**Tag:** `drax/v1.6-cycle-18-issues-1-2-3-5b-loadout-consolidated-1`
+**Loadout commit:** `8c790cb` (AGENT_STATE checkpoint updated in same commit)
+**Vercel production URL:** `https://reincarnated-loadout-lro7681sz-matthew-wetmore-s-projects.vercel.app` (canonical post-cycle-18 entry point; LOCK G auto-deploy — Ready, 30s build)
+**Build:** 1061 modules / 0 TS errors / 79 tests pass (3 stale placeholder-season-indicator tests retired and replaced with repoint-verification tests)
+**LOCK O AMENDED compliance:** PASS — no new `.tsx`/`.ts` files created in `src/components/`; all render helpers (`SkillElementFlag`, `FlavorWordAnnotation`, `FeaturedKitCard`, `FactionBadge`) are inline functions inside `Loadout.tsx`; KitSpace.tsx deleted; `/loadout` repointed (not duplicated)
+
+**Issue 1 disposition:**
+- /loadout repointed: YES — now consumes `public/kit-space/` (QDX-5 37-kit output with Issue-4 renames)
+- /kit-space removed/redirected: YES — `<Navigate to="/loadout" replace />` in App.tsx
+- KitSpace.tsx deleted: YES
+- Season pages deprecated from nav: YES — "Kit Space" removed from Nav.tsx; old season-data Loadout view replaced; `public/seasons/` JSONs preserved
+
+**Issue 2 disposition:**
+- Primary element FLAG prominence: IMPLEMENTED at kit-card level (bright bordered badge in card header) AND per-skill level (`SkillElementFlag` renders `SUBSTRATE_COLORS` bg/text/border on each skill row)
+- Flavor word demoted to muted grey annotation: IMPLEMENTED — `text-[9px] font-mono text-gray-600 italic` (NOT orange, NOT symbol-prefixed); also applied to flavor rate in detail panel header
+
+**Issue 3 disposition:**
+- Featured Characters section: PRESENT at top of /loadout (above main 37-kit grid)
+- Top-5 rendered with renamed Wave B identities: YES (names read from `emergent_kit_concept` JSON field at render time via `FEATURED_KIT_IDS` stable kit_id references)
+- Top-1 (kit_shadow_000007) visual emphasis: YES — ★ TOP PICK gold badge + double border + amber ring accent
+
+**Issue 5B disposition:**
+- Faction badge renders per kit card: YES — `FactionBadge` inline function; 3 faction-specific accent colors (red/sky/lime per f001/f002/f003)
+- Faction filter operational: YES — faction filter strip (all / Iron Ground Crushers / Scattered Meridian Cannons / Earthen Siege Wardens); click badge = filter; click again = clear; all 3 factions testable
+- Reuses existing badge/filter component patterns: YES — reuses ElementToggle filter strip pattern; badge reuses SUBSTRATE_COLORS/border pattern
+
+**Sample-inspection rendered featured cards (post-Issue-4 names from kit JSONs):**
+- top-1 (kit_shadow_000007): **Duskweaver of the Eclipsed Meridian**
+- 2 (kit_fire_000007): Ashcaller of the Burning Veil
+- 3 (kit_wind_000006): Driftcaller of the Hollow Sky
+- 4 (kit_holy_000005): Verdictbringer of the Hallowed Tribunal
+- 5 (kit_physical_000026): Furyboned Cleaver of the Rawbone Pact
+
+**Q18 + generic-archetype check (all 5 featured):** PASS — no umbra/umbral/penumbra; no Caster/Cleric/Mage/Warrior/Knight/Bearer/Fighter/Warden/Champion/Master/Adept
+
+**Files added:** `public/kit-space/faction_assignments.json`; 12 new kit JSONs (previously engine-only: kit_fire_000005, kit_physical_000004-000012, kit_shadow_000004-000006)
+**Files amended:** `src/App.tsx`; `src/__tests__/cycle13-normal-season.test.ts`; `src/components/Nav.tsx`; `src/data/kitSpaceTypes.ts` (FactionEntry/FactionAssignments/KitFactionMap types); `src/hooks/useKitSpaceData.ts` (factionMap parallel fetch + buildFactionMap + result extension); `src/pages/Loadout.tsx` (full kit-space repoint); 37 kit JSONs (emergent_kit_concept renames synced from engine)
+**Files deleted:** `src/pages/KitSpace.tsx`
+
+**Backward-compat for historical EAA-5 v2 kits:** Preserved via `showHistorical` toggle in `useKitSpaceData` — historical kits (kse_20260602_001; 25 kits) accessible via "Historical (EAA-5 v2)" toggle button in page header. `public/kit-space/kits/` still contains all historical kit JSONs. factionMap returns empty for historical kits (faction_assignments.json is event_008-scoped) — faction badge/filter gracefully absent for historical view.
+
+**Gate-2 readiness:** READY for jack-ryan Phase 3 10-criteria acceptance verification
+
+**Notes for Phase 4 KR close (aesthetic / UX observations for gandalf review):**
+1. The Featured Characters section renders cleanly but top-1 card is visually similar in height to the other 4 featured cards at lg+ breakpoints — the ★ TOP PICK badge and gold ring distinguish it but a size differential (wider card or taller header) could reinforce the top-1 identity more strongly. Deferred aesthetic refinement candidate.
+2. Faction badge abbreviation: faction names are long ("Scattered Meridian Cannons") and truncate on narrow cards — a short abbreviation (SMC / IGC / ESW) in the badge with full name in tooltip would improve mobile readability. Low priority for current pass.
+3. The `cultural_tradition` / `period` fields are null across all 37 QDX-5 kits (per dispatch INFO) — the Featured card gracefully hides them. When EAA-8 lands substrate enrichment, these fields will populate and the FeaturedKitCard display path is already wired for it (non-null check exists).
+4. Flavor rate bar removed from KitCard in the repoint (was in KitSpace.tsx KitCard; not re-added to Issue 1 merged KitCard). Could be re-added if useful — omitted to keep cards tighter for mobile-first per the dispatch hierarchy fix goal.
