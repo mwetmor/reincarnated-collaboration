@@ -229,6 +229,10 @@ Phase 4 (close-out):
 | 2026-06-02 | ✅ jack-ryan Phase 3 Gate-2 PASS-with-INFO (commit `491278f`); 16/16 criteria PASS; 3 Gate-1 catches RESOLVED CLEAN; 3 NEW observations queued; Phase 4 routing clearance YES |
 | 2026-06-02 | ✅ KR Phase 4 wave-close record authored at canonical/story/2026-06-02-cycle-18-drax-amend-full-wave-close-record.md |
 | 2026-06-02 | ✅ Cycle-18 CLOSED — wave-state STATUS updated; ground-state § 1 updated post-this; Matt strategic re-engagement signal pending compose |
+| 2026-06-02 | Matt direct inspection surfaced Gate-2 escape: `/loadout` URL blank (drax routed Loadout to `/` only); `/sample` shows stale season-data |
+| 2026-06-02 | KR fires drax LOCK L 1st-BLOCK recovery per Matt B1 directive (deprecate Sample from nav; preserve route) |
+| 2026-06-02 | ✅ drax recovery PASS — loadout `01b7424` / tag `drax/v1.6-cycle-18-recovery-1`; Vercel preview `reincarnated-loadout-mp2iupz4o-matthew-wetmore-s-projects.vercel.app`; verified empirically: `/loadout` literal URL renders Loadout ✓; `/` preserved ✓; Sample NavItem removed ✓; `/sample` route preserved ✓; `/kit-space` 301-redirect preserved ✓; build 1061 modules / 0 TS errors / 17s. LOCK L 1st-BLOCK resolved within seam authority; no Matt escalation. **Cycle-18 BLOCK count: 1** (revised from prior 0 — recovery applied post-wave-close canonical record) |
+| 2026-06-02 | Discipline-recognition candidate queued: Gate-2 verification discipline should include "all routed URLs the dispatch + completion record cite must resolve correctly" + "other-page audit for data-source consistency when multi-page React app has one page refactored" (composes with QDX-8 candidate #60 LOCK O escape-clause-as-discipline pattern) |
 
 ---
 
