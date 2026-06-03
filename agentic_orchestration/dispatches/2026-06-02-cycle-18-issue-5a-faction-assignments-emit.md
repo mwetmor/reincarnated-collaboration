@@ -183,3 +183,36 @@ Auto-commit + auto-push per CLAUDE.md star-lord auto-commit pattern + cycle-push
 ---
 
 **End of Issue 5A dispatch.**
+
+---
+
+## Completion record
+
+**Completed by:** star-lord (2026-06-02)
+**Tag:** `star-lord/v1.6-cycle-18-issue-5a-faction-assignments-emit-1`
+**Engine commit:** `50c5e71`
+**New artifact:** `data/kit_space/faction_assignments.json`
+**Schema version:** 1.0
+**Event_id:** `kse_20260602_008`
+**Faction count:** 3 (Iron Ground Crushers / Scattered Meridian Cannons / Earthen Siege Wardens)
+**Kit assignments:** 37/37 accounted for
+**Per-faction kit counts:** {f001: 16, f002: 18, f003: 3}
+**Data source path used:** (b) log inspection — `/tmp/qdx5_full_fire.log` (QDX-5 Phase 5a cluster output). Option (a) deterministic re-run ATTEMPTED and FAILED: emitted kit JSONs store simplified BC axis representation vs. in-memory export_dicts used during original QDX-5 fire; all 16 physical kits are near-identical in the simplified feature space (B6 substrate-coverage gap), causing GMM to collapse to k=2 instead of k=3. Log reconstruction confirmed cluster structure: 16 physical → Cluster 1 → Iron Ground Crushers; 18 caster-non-earth (fire/water/wind/lightning/holy/shadow) → Cluster 2 → Scattered Meridian Cannons; 3 earth → Cluster 3 → Earthen Siege Wardens. Distribution {1:16, 2:18, 3:3} verified matches chronicle n_factions=3 and QDX-5 log cluster sizes exactly.
+**MIGRATION.md updates:** `src/reincarnated/export/MIGRATION.md` § v1.74-cycle-18-issue-5a-faction-assignments-emit (new artifact + schema + cross-seam consumer drax loadout). Generation MIGRATION.md NOT touched (no generation-side code amended per LOCK Q ADDITIVE-ONLY).
+**LOCK Q ADDITIVE-ONLY:** RESPECTED — no semantic API amendments to `phase5_pm1_multimodal_clustering.py` or `kit_space_emitter.py`. New artifact + one-off export script + smoke tests only.
+**Tests:** 12/12 new smoke tests PASS (`tests/test_faction_assignments_event008.py`); 113/113 existing kit_space tests PASS (zero regressions).
+**Gate-2 readiness:** READY
+
+**Notes for drax Phase 2 (Issue 5B):**
+- File path: `data/kit_space/faction_assignments.json` in reincarnated-engine; sync to `public/kit-space/faction_assignments.json` in loadout (same pattern as kit_space_chronicle.json + kits/ sync)
+- Recommended pattern: load file at module init; `factions` array is small (3 entries); full in-memory use acceptable; no caching strategy needed
+- Faction lookup: iterate `factions` array to build `kit_id → {faction_id, faction_name}` reverse map for badge rendering
+- `event_id` field matches `kse_20260602_008` — can use as guard if multi-event support added later
+- Faction membership is mutually exclusive (no kit in multiple factions); no deduplication required
+- Kit order within each faction's `kit_ids` array follows kit_ids_generated order from chronicle (generation order, not alphabetical)
+
+**Notes for jack-ryan Gate-2:**
+- 12 acceptance criteria implemented as unit tests in `tests/test_faction_assignments_event008.py` (AC-1 through AC-12); all 12 PASS
+- Key verification targets: AC-6 (37/37 total), AC-9 (no cross-faction duplicates), AC-10 (per-faction counts {f001:16, f002:18, f003:3}), AC-5 (faction names match QDX-5 Wave A)
+- Data provenance carry-forward (surfaced for rocket via KR per dispatch-discipline): `pm1_result.kit_cluster_assignments` computed during Phase 5a but not persisted to chronicle. This caused Option (a) failure. Future events should persist cluster assignments to `generation_parameters.cluster_assignments` or a sibling `phase5a_cluster_map.json` artifact. This is a rocket seam concern; not star-lord to initiate.
+- LOCK Q ADDITIVE-ONLY compliance: confirmed — zero amendments to `phase5_pm1_multimodal_clustering.py`, `kit_space_emitter.py`, per-kit JSONs, or chronicle entry
