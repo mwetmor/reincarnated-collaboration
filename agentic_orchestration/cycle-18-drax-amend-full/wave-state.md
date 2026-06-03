@@ -1,6 +1,6 @@
 # Cycle 18 — Drax QDX-7-AMEND-FULL — Comprehensive Fix-Forward + Renaming + Faction Integration — Wave State
 
-**STATUS:** 🟢 OPEN — Phase 1 ✅ ALL PASS (Gate-1 PASS-with-INFO; Issue 4 ✅; Issue 5A ✅); Phase 2 drax consolidated firing
+**STATUS:** 🟢 OPEN — Phase 2 ✅ COMPLETE (drax consolidated PASS; Vercel preview deployed; LOCK O AMENDED compliant); Phase 3 jack-ryan Gate-2 firing
 **Date opened:** 2026-06-02
 **Owner:** knight-rider (orchestrator)
 **Authority:** Matt 2026-06-02 verbatim "yes, let's do it all" → gandalf transmission with comprehensive 5-issue routing across 3 seams + KR phasing
@@ -97,7 +97,21 @@ KR escalates to Matt for:
 | Property | Value |
 |---|---|
 | **Owner** | drax per LOCK O (AMENDED) + LOCK T |
-| **Status** | 🟢 FIRING (Phase 2; gates on Phase 1 ✅ cleared) |
+| **Status** | ✅ COMPLETE (2026-06-02) — PASS clean; Vercel preview deployed |
+| **Tag** | `drax/v1.6-cycle-18-issues-1-2-3-5b-loadout-consolidated-1` |
+| **Loadout commits** | `8c790cb` (code) + `6ac9bbb` (AGENT_STATE) |
+| **Vercel preview** | https://reincarnated-loadout-lro7681sz-matthew-wetmore-s-projects.vercel.app |
+| **Build** | 1061 modules / 0 TS errors / 79/79 tests / 30s LOCK G auto-deploy |
+| **LOCK O AMENDED** | PASS — no new `.tsx`/`.ts` in `src/components/`; inline functions in Loadout.tsx (FactionBadge etc.); KitSpace.tsx deleted; /loadout repointed not duplicated |
+| **Issue 1** | /loadout repointed ✓; /kit-space `<Navigate to="/loadout" replace />` ✓; KitSpace.tsx deleted ✓; season nav removed (public/seasons/ preserved) ✓ |
+| **Issue 2** | Primary element FLAG prominence (kit + skill level via SUBSTRATE_COLORS bg/text/border) ✓; flavor word demoted to `text-[9px] font-mono text-gray-600 italic` (no orange, no symbol, no emphasis) ✓ |
+| **Issue 3** | Featured Characters section present ✓; top-5 via stable FEATURED_KIT_IDS references ✓; names read from emergent_kit_concept JSON at render time ✓; top-1 ★ TOP PICK gold badge + double border + amber ring accent ✓ |
+| **Issue 5B** | Faction badge per kit card (3 accent colors) ✓; filter strip operational; all 3 factions click-to-filter; click again = clear; inline FactionBadge function ✓ |
+| **Backward-compat** | EAA-5 v2 25-kit set accessible via "Historical (EAA-5 v2)" toggle in useKitSpaceData |
+| **Top-5 rendered samples** | ★ Duskweaver of the Eclipsed Meridian / Ashcaller of the Burning Veil / Driftcaller of the Hollow Sky / Verdictbringer of the Hallowed Tribunal / Furyboned Cleaver of the Rawbone Pact |
+| **Files added (additive only)** | public/kit-space/faction_assignments.json (synced); 37 kit JSONs (synced); 3 new types (FactionEntry/FactionAssignments/KitFactionMap) |
+| **Files deleted** | src/pages/KitSpace.tsx |
+| **Phase 4 carry-forward observations** | (1) Top-1 size differential at wider breakpoints; (2) faction badge abbreviation + tooltip mobile; (3) cultural_tradition/period nulls (substrate-enrichment-gated); (4) flavor rate bar omitted (future pass) |
 | **Dispatch** | `dispatches/2026-06-02-cycle-18-issues-1-2-3-5b-drax-consolidated.md` |
 | **Issue 1 scope** | Repoint `/loadout` to consume `public/kit-space/` (renamed kit JSONs from Issue 4); merge KitSpace.tsx features; delete KitSpace.tsx + remove `/kit-space` route; deprecate season-data Loadout view |
 | **Issue 2 scope** | Visual hierarchy fix — primary canonical element FLAG prominent (kit + skill level via SUBSTRATE_COLORS); flavor word secondary muted annotation |
@@ -113,8 +127,8 @@ KR escalates to Matt for:
 | Property | Value |
 |---|---|
 | **Owner** | jack-ryan DEV-MODE |
-| **Status** | ❌ NOT STARTED (gates on Phase 2 PASS) |
-| **Scope** | 10-criteria acceptance verification per gandalf transmission § ACCEPTANCE CRITERIA |
+| **Status** | 🟢 FIRING (Phase 3; gates on Phase 2 ✅ cleared) |
+| **Scope** | 10-criteria acceptance verification per gandalf transmission § ACCEPTANCE CRITERIA + 3 jack-ryan-anticipated catches (LOCK O AMENDED file-additions audit; faction filter interaction all-3 test; identity-delta verification) |
 | **Estimated** | ~0.5-1 session |
 
 ### Phase 4 — Close-out
@@ -208,6 +222,8 @@ Phase 4 (close-out):
 | 2026-06-02 | ✅ star-lord Issue 5A PASS clean (engine `50c5e71`); faction distribution f001=16/f002=18/f003=3; LOCK Q held; 12/12+113/113 tests; strategic carry-forward queued (cluster_assignments persistence for future events) |
 | 2026-06-02 | Phase 1 ✅ ALL PASS; Phase 2 routing |
 | 2026-06-02 | KR fires drax Phase 2 consolidated (Issues 1+2+3+5B) per LOCK O AMENDED |
+| 2026-06-02 | ✅ drax Phase 2 PASS clean (loadout `8c790cb`+`6ac9bbb`; tag `drax/v1.6-cycle-18-issues-1-2-3-5b-loadout-consolidated-1`); Vercel preview deployed; 1061 modules / 0 TS errors / 79/79 tests; LOCK O AMENDED compliant; all 4 issues IMPLEMENTED with verified renamed Wave B identities + faction badge + filter operational; 4 aesthetic observations queued for Phase 4 |
+| 2026-06-02 | KR fires jack-ryan Phase 3 Gate-2 (10-criteria + 3 anticipated catches per Gate-1 INFOs) |
 
 ---
 
