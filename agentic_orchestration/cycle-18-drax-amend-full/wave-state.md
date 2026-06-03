@@ -1,6 +1,6 @@
 # Cycle 18 — Drax QDX-7-AMEND-FULL — Comprehensive Fix-Forward + Renaming + Faction Integration — Wave State
 
-**STATUS:** 🟢 OPEN (Phase 1 firing 2026-06-02)
+**STATUS:** 🟢 OPEN — Phase 1 ✅ ALL PASS (Gate-1 PASS-with-INFO; Issue 4 ✅; Issue 5A ✅); Phase 2 drax consolidated firing
 **Date opened:** 2026-06-02
 **Owner:** knight-rider (orchestrator)
 **Authority:** Matt 2026-06-02 verbatim "yes, let's do it all" → gandalf transmission with comprehensive 5-issue routing across 3 seams + KR phasing
@@ -57,23 +57,30 @@ KR escalates to Matt for:
 | Property | Value |
 |---|---|
 | **Owner** | gandalf-as-subagent (via KR routing) |
-| **Status** | 🟢 FIRING (Phase 1) |
+| **Status** | ✅ COMPLETE (2026-06-02) — PASS clean; 0 BLOCKs |
 | **Dispatch** | `dispatches/2026-06-02-cycle-18-issue-4-llm-rename-all-37-kits.md` |
-| **Scope** | Replace `emergent_kit_concept` field in all 37 kit JSONs (event `kse_20260602_008`); LLM prompt embedded with Q18 avoid-list + generic-archetype avoid-list + etymological-family avoidance (umbra/umbral/penumbra) + invented-unique-archetype-per-kit rule |
-| **Cost projection** | ~$0.30 (37 × ~$0.008 per Wave B-style rename) |
-| **Auto-commit** | per established cycle-push pattern |
-| **Estimated** | ~0.5-1 session |
+| **Engine commit** | `b77cc95` (37 kit JSONs amended) + meta-repo commit `13fa984` (completion record) |
+| **Metrics** | 37/37 kits renamed; **$0.1497 actual cost** (50% under $0.30 projection); **53.1s wall-clock** (vs ≤30 min bound) |
+| **Acceptance** | 4/4 hard rules PASS (uniqueness + Q18 word + generic-archetype + etymological-family); 0 rule-violation regens (first-pass passes); 12 uniqueness-collision regens resolved seam-internally |
+| **Top-1 rename** | `kit_shadow_000007`: "Penumbra Caster of Dusk Meridian" → **"Duskweaver of the Eclipsed Meridian"** (jack-ryan WARN-2 quality concern addressed; preserves Dusk + Meridian + reaches comparable evocative register) |
+| **Top-5 renames** | fire_7 "Ashcaller of the Burning Veil"; wind_6 "Driftcaller of the Hollow Sky"; holy_5 "Verdictbringer of the Hallowed Tribunal"; physical_26 "Furyboned Cleaver of the Rawbone Pact" (gandalf flagged aesthetic-mid-tier) |
+| **Gate-2 carry-forward** | 6 observations queued: Cleaver-word recurrence (3 kits; Q1.1 candidate); Veil-word recurrence (6 kits; Q19 candidate); within-cohort uniqueness as first-class prompt constraint (discipline-recognition candidate) |
 
 #### Issue 5A — faction_assignments.json export (star-lord + rocket)
 
 | Property | Value |
 |---|---|
 | **Owner** | star-lord + rocket per LOCK Q |
-| **Status** | 🟢 FIRING (Phase 1) |
+| **Status** | ✅ COMPLETE (2026-06-02) — PASS clean; 0 BLOCKs |
 | **Dispatch** | `dispatches/2026-06-02-cycle-18-issue-5a-faction-assignments-emit.md` |
-| **Scope** | Export Phase 5a clustering data for event `kse_20260602_008` to `data/kit_space/faction_assignments.json`; schema per gandalf transmission (event_id + factions array with faction_id/faction_name/kit_ids); cross-seam MIGRATION.md per ADR-004 |
-| **LOCK Q ADDITIVE-ONLY** | new file emitted; no semantic changes to existing engine modules |
-| **Estimated** | ~1 session |
+| **Engine commit** | `50c5e71` / tag `star-lord/v1.6-cycle-18-issue-5a-faction-assignments-emit-1` |
+| **New artifact** | `data/kit_space/faction_assignments.json` (schema v1.0; event_008) |
+| **Distribution actual** | f001 Iron Ground Crushers=16 (all physical); f002 Scattered Meridian Cannons=18 (caster-non-earth); f003 Earthen Siege Wardens=3 (all earth); 37/37 accounted |
+| **Tests** | 12/12 new smoke PASS + 113/113 existing kit_space PASS (zero regressions) |
+| **LOCK Q ADDITIVE-ONLY** | RESPECTED (zero semantic API amendments to `phase5_pm1_multimodal_clustering.py` or `kit_space_emitter.py`) |
+| **MIGRATION.md** | `export/MIGRATION.md` § v1.74-cycle-18-issue-5a-faction-assignments-emit (generation MIGRATION not touched — no generation-side code amendment) |
+| **Data source path used** | (b) log inspection — Option (a) deterministic re-derivation FAILED due to simplified BC axis representation in emitted kit JSONs differing from in-memory export_dicts (B6 substrate-coverage gap propagating into GMM cluster collapse k=3→k=2). Clean recovery via empirical-inspection-over-assumption (Discipline #11) |
+| **Strategic carry-forward queued** | `pm1_result.kit_cluster_assignments` should be persisted to chronicle (`generation_parameters.cluster_assignments`) OR sibling `phase5a_cluster_map.json` artifact for future events — composes with Discipline #59 at NEW layer (substrate-thinness propagates into post-hoc cluster-derivability gap) |
 
 #### Gate-1 critique-pair (jack-ryan)
 
@@ -90,7 +97,7 @@ KR escalates to Matt for:
 | Property | Value |
 |---|---|
 | **Owner** | drax per LOCK O (AMENDED) + LOCK T |
-| **Status** | ❌ NOT STARTED (gates on Phase 1 PASS) |
+| **Status** | 🟢 FIRING (Phase 2; gates on Phase 1 ✅ cleared) |
 | **Dispatch** | `dispatches/2026-06-02-cycle-18-issues-1-2-3-5b-drax-consolidated.md` |
 | **Issue 1 scope** | Repoint `/loadout` to consume `public/kit-space/` (renamed kit JSONs from Issue 4); merge KitSpace.tsx features; delete KitSpace.tsx + remove `/kit-space` route; deprecate season-data Loadout view |
 | **Issue 2 scope** | Visual hierarchy fix — primary canonical element FLAG prominent (kit + skill level via SUBSTRATE_COLORS); flavor word secondary muted annotation |
@@ -196,6 +203,11 @@ Phase 4 (close-out):
 | 2026-06-02 | Issue 4 + Issue 5A + drax consolidated dispatches authored |
 | 2026-06-02 | jack-ryan Gate-1 routed on cycle-18 dispatches |
 | 2026-06-02 | Phase 1 fired in parallel (gandalf Issue 4 + star-lord Issue 5A) |
+| 2026-06-02 | ✅ jack-ryan Gate-1 PASS-with-INFO (commit `0fb5a97`); 0 BLOCKs; 2 WARNs (WARN-1 gale-loss; WARN-2 penumbra-loss highest-stakes); Phase 1 fire clearance YES |
+| 2026-06-02 | ✅ gandalf Issue 4 PASS clean (engine `b77cc95` + meta `13fa984`); 37/37 renames; $0.15 cost; 53s wall-clock; top-1 = "Duskweaver of the Eclipsed Meridian" (WARN-2 quality addressed); 6 carry-forward observations queued |
+| 2026-06-02 | ✅ star-lord Issue 5A PASS clean (engine `50c5e71`); faction distribution f001=16/f002=18/f003=3; LOCK Q held; 12/12+113/113 tests; strategic carry-forward queued (cluster_assignments persistence for future events) |
+| 2026-06-02 | Phase 1 ✅ ALL PASS; Phase 2 routing |
+| 2026-06-02 | KR fires drax Phase 2 consolidated (Issues 1+2+3+5B) per LOCK O AMENDED |
 
 ---
 
