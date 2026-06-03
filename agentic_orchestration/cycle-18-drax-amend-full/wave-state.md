@@ -1,6 +1,6 @@
 # Cycle 18 — Drax QDX-7-AMEND-FULL — Comprehensive Fix-Forward + Renaming + Faction Integration — Wave State
 
-**STATUS:** 🟢 OPEN — Phase 2 ✅ COMPLETE (drax consolidated PASS; Vercel preview deployed; LOCK O AMENDED compliant); Phase 3 jack-ryan Gate-2 firing
+**STATUS:** ✅ CLOSED (2026-06-02; canonical wave-close record at `canonical/story/2026-06-02-cycle-18-drax-amend-full-wave-close-record.md`; Phase 1 + Phase 2 + Phase 3 all PASS; 0 BLOCKs accumulated; LOCK L never triggered; Matt's 5-issue fix-forward checklist empirically met at Vercel preview)
 **Date opened:** 2026-06-02
 **Owner:** knight-rider (orchestrator)
 **Authority:** Matt 2026-06-02 verbatim "yes, let's do it all" → gandalf transmission with comprehensive 5-issue routing across 3 seams + KR phasing
@@ -127,9 +127,11 @@ KR escalates to Matt for:
 | Property | Value |
 |---|---|
 | **Owner** | jack-ryan DEV-MODE |
-| **Status** | 🟢 FIRING (Phase 3; gates on Phase 2 ✅ cleared) |
-| **Scope** | 10-criteria acceptance verification per gandalf transmission § ACCEPTANCE CRITERIA + 3 jack-ryan-anticipated catches (LOCK O AMENDED file-additions audit; faction filter interaction all-3 test; identity-delta verification) |
-| **Estimated** | ~0.5-1 session |
+| **Status** | ✅ COMPLETE (2026-06-02) — PASS-with-INFO; 0 BLOCKs |
+| **Finding** | `qa/findings/2026-06-02-cycle-18-drax-amend-full-gate-2.md` (commit `491278f`) |
+| **Result** | 16/16 criteria PASS (1 PASS-with-INFO on stale test retirement); 3 Gate-1 anticipated catches ALL RESOLVED CLEAN |
+| **3 NEW jack-ryan observations** | Word recurrence patterns (Veil 5/37 + caller 5/37 + Dusk 4/37 + Cleaver 2/37; cohort uniqueness candidate convergent with gandalf #6); 13 inert smoke-event artifacts (storage hygiene); f003 ESW 3-kit sparsity (substrate-enrichment signal) |
+| **Phase 4 routing clearance** | YES |
 
 ### Phase 4 — Close-out
 
@@ -224,6 +226,9 @@ Phase 4 (close-out):
 | 2026-06-02 | KR fires drax Phase 2 consolidated (Issues 1+2+3+5B) per LOCK O AMENDED |
 | 2026-06-02 | ✅ drax Phase 2 PASS clean (loadout `8c790cb`+`6ac9bbb`; tag `drax/v1.6-cycle-18-issues-1-2-3-5b-loadout-consolidated-1`); Vercel preview deployed; 1061 modules / 0 TS errors / 79/79 tests; LOCK O AMENDED compliant; all 4 issues IMPLEMENTED with verified renamed Wave B identities + faction badge + filter operational; 4 aesthetic observations queued for Phase 4 |
 | 2026-06-02 | KR fires jack-ryan Phase 3 Gate-2 (10-criteria + 3 anticipated catches per Gate-1 INFOs) |
+| 2026-06-02 | ✅ jack-ryan Phase 3 Gate-2 PASS-with-INFO (commit `491278f`); 16/16 criteria PASS; 3 Gate-1 catches RESOLVED CLEAN; 3 NEW observations queued; Phase 4 routing clearance YES |
+| 2026-06-02 | ✅ KR Phase 4 wave-close record authored at canonical/story/2026-06-02-cycle-18-drax-amend-full-wave-close-record.md |
+| 2026-06-02 | ✅ Cycle-18 CLOSED — wave-state STATUS updated; ground-state § 1 updated post-this; Matt strategic re-engagement signal pending compose |
 
 ---
 
