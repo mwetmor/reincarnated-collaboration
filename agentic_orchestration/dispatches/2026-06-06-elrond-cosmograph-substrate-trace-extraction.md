@@ -148,22 +148,25 @@ The 2D embedding (Phase 3) will produce emergent clustering by family WITHOUT us
 
 These are GUIDES for coverage, NOT the schema. Each mechanic gets its own row.
 
-### 2.5 Weapon-form token enumeration with magic/physical ratio (per Matt 2026-06-06)
+### 2.5 Weapon-form token enumeration with magic/physical ratio — AMENDED per 2026-06-06 Pattern-A verdict
 
-**Phase A working target:** **50/50 physical/magical split** per Matt 2026-06-06 directive ("we can just use a 50/50 split for magical/physical for now until we find it"). The canonical-locked ratio (recalled at ~54%/46% but unverified) will be located + validated in a future workstream; for Phase A cosmograph commissioning, 50/50 is the operational target.
+**AMENDED 2026-06-06 per Pattern-A verdict at `agentic_orchestration/gandalf/notes/2026-06-06-pattern-a-verdict-cosmograph-weapon-form-ratio.md`:** the prior "50/50 working target" was authored at the WRONG SURFACE. The canonical-locked ~54/46 ratio recalled by Matt lives at the KIT-ROSTER element-axis-coverage layer (40-45% physical / 55-60% caster per Discipline #58 + Matt 2026-06-02 verbatim QDX-5 ratification), NOT at the weapon-form-token layer. See verdict § 2 for the three-surface disambiguation.
+
+**Phase A target at weapon-form-token surface:** render the EMPIRICAL substrate ratio honestly per Discipline #41 + #59. NO ratio target imposed; substrate is the truth.
 
 **Phase 0 deliverable:**
 1. Enumerate all weapon-form tokens from `weapon_form_token_lookup.json` (~200)
 2. Tag each token as `physical` / `magical` / `hybrid` per `(range, geometry, tempo, attribute)` tuple + `gear-substrate-rule-table-v1-2026-05-22.md` § 2 15-gear catalogue physical-vs-caster lean
-3. Compute actual physical/magical ratio from substrate enumeration
-4. If actual ratio is materially off the 50/50 working target (>±10%), surface to gandalf via Pattern-A query — DO NOT manufacture missing tokens to balance (substrate-led discipline)
-5. Canonical ratio lookup is a SEPARATE workstream nice-to-have; not blocking Phase A
+3. Compute actual physical/magical ratio from substrate enumeration (empirical Phase-0 measurement returned ~89/11 at token level + ~92/8 at row level — this IS the substrate-honest answer at this surface)
+4. Render the actual ratio honestly in Phase A cosmograph
+5. Document in `cosmograph_README.md` § `substrate_coverage_honesty`: "Weapon-form-token region renders ~89% physical / ~11% magical at token level. Reflects substrate composition under cycle-10 source mix; magical-implement diversity is the elrond substrate-enrichment workstream target per Discipline #59."
+6. Queue substrate-enrichment workstream pointer: magical-implement diversity (wand / orb / focus / staff / tome / censer / grimoire) — target v2 substrate-snapshot ramp toward 70/30 phys/mag at token level
 
 **Operational discipline:**
-- Honor what the substrate says (substrate-led discipline; Discipline #41)
-- Render the actual ratio honestly in Phase A cosmograph
-- If substrate is materially imbalanced vs the 50/50 working target, flag for the substrate-enrichment workstream (already queued per cycle-14 wave-5 swift closure work) — but DO NOT block Phase A cosmograph delivery on enrichment
-- Future workstream: locate the canonical-locked ratio + validate the cosmograph rendering against it
+- Honor what the substrate says (substrate-led discipline; Discipline #41 + #59)
+- DO NOT manufacture missing magical tokens to balance — would violate substrate-led discipline by ~8× over-sampling
+- Render the asymmetry visibly in cosmograph encoding (color-channel or brightness gradient so phys/mag composition is legible, not hidden)
+- Kit-roster element-axis-coverage distribution (the 40-45/55-60 layer) is handled at § 4.1 step 2 (Phase 2 sim-kit generation), NOT at weapon-form-token enumeration
 
 ### 2.6 Region labels (Lock #4 — sky-neighborhood structure)
 
@@ -212,6 +215,7 @@ For each of ~1000 simulated constellations:
 
 1. **Sample random subset of primitives** weighted by BDI ω+τ correlation per `canonical/story/bdi-omega-tau-tables-v1-2026-05-22.md` — primitives that co-occur in genre-canonical kits should co-occur in simulated kits at higher rates (plausibility, not noise)
 2. **Apply substrate-led plausibility filters:**
+   - **Element distribution constraint (NEW per 2026-06-06 Pattern-A verdict):** kit element selection across the ~1000 sim kits is weighted to honor Discipline #58 genre-aligned distribution: physical-primary kits = 40-45% of total; caster-primary kits = 55-60% of total. Within caster primaries, distribute approximately evenly across 7 canonical elements (~7-9% each). This is the kit-roster element-axis-coverage surface where the canonical-locked ratio lives — see Pattern-A verdict § 2.2.
    - Each kit selects 1-2 elements (per atomic-substrate-registry § 2.1 single vs hybrid)
    - Each kit selects 1 attribute (per element-attribute coupling — element_biases.py:28)
    - Each kit selects 1-3 T4 strategies
