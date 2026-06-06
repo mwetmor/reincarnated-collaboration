@@ -19,16 +19,21 @@
 
 ## 0. TL;DR
 
-Elrond extracts the substrate data that feeds the cosmograph at `/forge`. Output is a unified parquet/JSON packet consumable by drax: ~350-400 atomic substrate primitive nodes ("stars") + ~150 real named-bearer kits + ~850 simulated PROVISIONAL constellations + 2D embedding coordinates + per-kit primitive-set mapping + per-primitive BDI-β load-bearing weights.
+Elrond extracts the substrate data that feeds the cosmograph at `/forge`. Output is a unified parquet/JSON packet consumable by drax: ~350-400 atomic substrate primitive nodes ("stars") + **~1000 simulated PROVISIONAL constellations (Option B AMENDMENT 2026-06-06)** + 2D embedding coordinates + per-constellation primitive-set mapping + per-primitive BDI-β load-bearing weights.
 
-**Five-phase execution:**
+**Option B AMENDMENT 2026-06-06** (per Matt ratification): cycle 14 wave-5 named-bearer kits were NOT generated against the future-engine substrate vocabulary (race + ~65-100 mechanic primitives + skill-tree-position + investment-scaling + per-skill flavor judgment + canonical 47/51/atomic-substrate-registry additions). Force-mapping them to constellations defined over future-engine primitives would claim substrate membership they don't have, violating substrate-led discipline. Therefore: **cosmograph at /forge is FORWARD-LOOKING — renders the future-engine substrate vocabulary as ALL simulated PROVISIONAL.** Cycle 14 named-bearer corpus (Duskweaver + 36 others) STAYS at /loadout as the empirical-current-state showcase. Phase 1 (per-kit primitive-set extraction from real corpus) RETIRED; Phase 2 sim count EXPANDED to ~1000.
+
+**Four-phase execution (post-Option B amendment):**
 - **Phase 0** — Primitive vocabulary enumeration + validation (~1 day)
-- **Phase 1** — Per-kit primitive-set extraction from real corpus (~0.5 day)
-- **Phase 2** — Move B simulated constellation generation (~0.5 day)
+- **Phase 1** — RETIRED per Option B amendment
+- **Phase 2** — Move B simulated constellation generation, ~1000 PROVISIONAL kits (~1 day; expanded from ~0.5)
 - **Phase 3** — Per-primitive BDI weighting + 2D embedding (~0.5 day)
 - **Phase 4** — Output packet assembly + delivery (~0.25 day)
 
-**Substrate-led discipline applied throughout:** no pre-imposed taxonomy on substrate output; primitives flat-enumerated (no family grouping per Matt 2026-06-06 substrate-led correction); clustering emerges from 2D embedding.
+**Total time UNCHANGED** at ~2-3 days elrond (Phase 1 retirement reallocated to Phase 2 expansion).
+**Total cost UNCHANGED** at $0 LLM.
+
+**Substrate-led discipline applied throughout:** no pre-imposed taxonomy on substrate output; primitives flat-enumerated (no family grouping per Matt 2026-06-06 substrate-led correction); clustering emerges from 2D embedding; cycle 14 kits NOT force-mapped against substrate they weren't generated under (Option B amendment).
 
 **Framing-audit checklist applied at Phase 0 start** (per OP § 4.1 + 2026-06-06 recognition). Q1-Q3 audit of load-bearing assumptions BEFORE Phase 1+ execution.
 
@@ -44,17 +49,18 @@ A delivery packet at `agentic_orchestration/elrond/research/cosmograph-substrate
 |---|---|---|
 | `primitive_registry.parquet` | parquet | The ~350-400 atomic substrate primitives (Lock #1) with per-primitive substrate fingerprint + element-coupling + 2D embedding coordinate + brightness-weight |
 | `region_labels.json` | JSON | Sky-neighborhood labels (BC bins, tier labels, scaling-pattern labels, emergent mechanic-family labels read from clustering) per Lock #4 |
-| `kit_constellations.parquet` | parquet | ~150 real named-bearer constellations + ~850 simulated constellations; per-kit primitive-set membership; cell_status; identity content (name + narrative for real; placeholder for sim) |
+| `kit_constellations.parquet` | parquet | **~1000 simulated PROVISIONAL constellations per Option B AMENDMENT** (no real-kit rows; cycle 14 named-bearers stay at /loadout); per-kit primitive-set membership; cell_status PROVISIONAL; bc_cell_id placeholder identifiers; no LLM-named identities (D7 line) |
 | `flag_enum_attachments.parquet` | parquet | Per-kit attachment of hypothesis-flow § 4 flag families (17 family enums) |
 | `faction_overlays.json` | JSON | ~9 faction-grouping polygon definitions per phase5_faction_clusters |
 | `cosmograph_README.md` | markdown | Manifest of all artifacts + drax ingestion contract |
 
 ### 1.2 What elrond does NOT produce in this commission
 
-- **No LLM-driven content** (per D7 AI-tell line + cost-discipline). Per-skill flavor judgment + kit naming + faction naming have already happened upstream (cycle-14 wave-5 wave_b_identities + phase5_faction_clusters). Elrond consumes pre-vetted identities; does not generate new ones.
+- **No LLM-driven content** (per D7 AI-tell line + cost-discipline). Cosmograph constellations are ALL bc_cell_id placeholders per Option B amendment; no LLM-named identities at /forge.
+- **No real-kit constellation rows in this packet** (per Option B amendment). Cycle 14 wave-5 named-bearer corpus (~150 kits with cohesion-judge-approved identities like Duskweaver) stays at /loadout as the empirical-current-state showcase. They were NOT generated against the future-engine substrate vocabulary (race + ~65-100 mechanic primitives + skill-tree-position + canonical 47/51 additions); force-mapping them as constellations would claim substrate they don't have.
 - **No mechanic-family pre-grouping.** Per Matt 2026-06-06 substrate-led correction: enumerate mechanics FLAT; clustering emerges from 2D embedding, not from pre-imposed family taxonomy.
-- **No q-score generation for simulated constellations.** Simulated constellations carry `is_simulated: true` + null q-scores + null gauntlet pass rate. Drax never displays q-scores on simulated kits.
-- **No engine kit regeneration.** Cosmograph reads what the engine has produced; sparsity-by-design honored per qd-engine-bc-axes-lock § 2.
+- **No q-score generation for simulated constellations.** All sim constellations carry `is_simulated: true` + null q-scores + null gauntlet pass rate. Drax never displays q-scores in the cosmograph.
+- **No engine kit regeneration.** Once cycle 15+ generates kits against the future-engine substrate, THOSE become real constellations at /forge progressively. Until then, /forge is forward-looking simulation.
 
 ---
 
@@ -183,86 +189,26 @@ Generate `region_labels.json` with the following label families (NOT first-class
 
 ---
 
-## 3. Phase 1 — Per-kit primitive-set extraction from real corpus
+## 3. Phase 1 — RETIRED per Option B amendment (2026-06-06)
 
-**Duration:** ~0.5 day elrond
-**Output:** `kit_constellations.parquet` rows 1-~150 (real named-bearers)
-**Discipline anchors:** substrate-led discipline; Discipline #46 db-anti-materialization at per-cell bounding
+**Status:** RETIRED
+**Reason:** cycle 14 wave-5 named-bearer kits were NOT generated against the future-engine substrate vocabulary (race + ~65-100 mechanic primitives + skill-tree-position + canonical 47 scaling-pattern-per-tier + canonical 51 investment-scaling + per-skill flavor judgment + atomic-substrate-registry § 1 additions). Force-mapping them as constellations defined over future-engine primitives would CLAIM substrate membership they don't have, violating substrate-led discipline.
+**Disposition:** cycle 14 named-bearer corpus stays at `/loadout` as empirical-current-state showcase (Duskweaver + 36 others remain showcased there per cycle-18 wave-close). Cosmograph at `/forge` is FORWARD-LOOKING — renders the future-engine substrate vocabulary as ALL simulated PROVISIONAL until cycle 15+ regenerates kits against the new substrate. Phase 1 time-budget reallocates to Phase 2 sim-count expansion.
 
-### 3.1 Source corpus join
-
-Join the following sources to produce per-kit primitive-set:
-
-| Source | Provides |
-|---|---|
-| `reincarnated-loadout/data/cycle14-season-00{1,2,3}-wave-b-identities.json` | ~150 kits with `kit_id` + `kit_name_canonical` + `kit_identity_narrative` + `parent_cluster_id` + cohesion-judge status |
-| `reincarnated-loadout/data/cycle13_characters.db` | mechanical depth: `bc_tuple_json` + `chain_composition_json` + `t4_scope` + `attribute` + `element` + `resource_model` + `cohort_archetype` |
-| `agentic_orchestration/cycle-14-wave-5-season-001/kit_archive.db` | Pareto rank + q-scores (q1-q5) + gauntlet_pass_rate per ACTIVE kit |
-| `agentic_orchestration/cycle-14-wave-5-season-001/phase2_kit_candidates.json` | kit composition spec (skills + weapon-form references + T4 selection per kit) |
-| `agentic_orchestration/cycle-14-wave-5-season-001/phase5_faction_clusters.json` + `phase5_faction_relationships.json` | faction-cluster membership per kit |
-
-### 3.2 Per-kit row schema
-
-```
-kit_constellations schema (real-kit rows):
-- kit_id: str (primary key)
-- kit_name: str (kit_name_canonical from wave-b-identities)
-- kit_identity_narrative: str (from wave-b-identities)
-- faction_cluster_id: int (from phase5_faction_clusters)
-- cell_status: enum (PROVISIONAL — for real kits at Phase A; will graduate via hypothesis-flow § 6.6 playtest validation)
-- primitive_set: list[str] (LIST OF PRIMITIVE_IDS — the constellation's star membership)
-- bc_tuple: dict (from cycle13_characters bc_tuple_json — for derivation context)
-- q_scores: dict (q1-q5 from kit_archive when available; else null)
-- gauntlet_pass_rate: float (from kit_archive when available; else null)
-- pareto_rank: int (from kit_archive when available; else null)
-- archive_status: enum (ACTIVE / DOMINATED / EVICTED from kit_archive; null if not present)
-- is_simulated: bool (False)
-- predicted_emergent_concept: str (from wave-b-identities — kit_name_canonical doubles as this; or extract from kit_identity_narrative)
-- t4_selection: str (the kit's selected T4 strategy)
-- centroid_x: float (computed in Phase 3 from primitive_set's embedding centroid)
-- centroid_y: float (computed in Phase 3)
-```
-
-### 3.3 Primitive-set derivation rules
-
-For each real kit, extract the primitive_set by walking the kit's composition:
-
-| Substrate source | Primitive IDs added to set |
-|---|---|
-| Element from cycle13 characters / wave-b identity | `element_<name>` (e.g., `element_shadow`) |
-| Sub-element from per-skill flavor judgment (if available) | `sub_element_<primary>_<flavor>` |
-| Attribute | `attribute_<STR/DEX/INT/WIS>` |
-| T4 selection | `T4_<strategy>` |
-| Skill geometries (per-skill) | `geometry_<type>` (multiple per kit) |
-| Mechanic primitives (per-skill — for each mechanic-altering passive in the kit's skill tree) | `mechanic_<name>` (multiple per kit) |
-| Weapon-form tokens (per-equipped-weapon) | `weapon_form_<token>` |
-| Cultural-tradition (mode + entropy across kit's weapon palette) | `cultural_<tradition>` (1-3 dominant per kit) |
-| Historical-period (mode + entropy) | `period_<period>` (1-3 dominant) |
-| Register (mode) | `register_<register>` |
-| Off-hand substrate (if equipped) | `off_hand_<type>` |
-| Race (per-season default randomized for Phase A) | `race_<race>` (one per kit) |
-| Racial traits (per-race contribution) | `racial_trait_<trait>` (subset per kit) |
-| Investment scaling pattern (per mechanism) | `investment_scaling_<pattern>` (multiple) |
-| Resource model | `resource_model_<model>` |
-
-### 3.4 Phase 1 acceptance criteria
-
-- ~150 real-kit rows produced in `kit_constellations.parquet`
-- Each row has primitive_set with ≥80% of expected primitives populated (per kit's substrate complexity)
-- bc_tuple + q_scores + gauntlet_pass_rate populated where source data exists
-- No LLM-generated content (kit_name + narrative inherited from cohesion-judge-approved wave-b-identities)
+**Phase 1 work IS NOT lost** — once cycle 15+ regenerates kits against the future-engine substrate, those kits become real constellations at /forge progressively. The primitive-set extraction methodology lives in this dispatch and is reusable in that future workstream.
 
 ---
 
-## 4. Phase 2 — Move B simulated constellation generation
+## 4. Phase 2 — Move B simulated constellation generation (EXPANDED per Option B amendment)
 
-**Duration:** ~0.5 day elrond
-**Output:** `kit_constellations.parquet` rows ~151-1000 (simulated PROVISIONAL fill)
+**Duration:** ~1 day elrond (expanded from ~0.5 day per Option B amendment)
+**Output:** `kit_constellations.parquet` with ~1000 simulated PROVISIONAL rows (EXPANDED from ~850 per Option B amendment)
 **Discipline anchors:** substrate-led (BDI-weighted plausibility); D7 (no LLM-named identities); explicit demarcation
+**Per Option B amendment 2026-06-06:** ALL constellations at /forge are simulated PROVISIONAL. No real-kit reference rows. Cycle 14 corpus stays at /loadout.
 
 ### 4.1 Generation algorithm
 
-For each of ~850 simulated constellations:
+For each of ~1000 simulated constellations:
 
 1. **Sample random subset of primitives** weighted by BDI ω+τ correlation per `canonical/story/bdi-omega-tau-tables-v1-2026-05-22.md` — primitives that co-occur in genre-canonical kits should co-occur in simulated kits at higher rates (plausibility, not noise)
 2. **Apply substrate-led plausibility filters:**
@@ -297,10 +243,11 @@ If >5% of generated kits fail plausibility QA, regenerate the failing subset wit
 
 ### 4.3 Phase 2 acceptance criteria
 
-- ~850 simulated-kit rows produced
+- ~1000 simulated-kit rows produced (EXPANDED per Option B amendment)
 - Plausibility QA pass rate ≥95%
-- All sim kits flagged `is_simulated: true` + cell_status PROVISIONAL + null identity fields
+- All sim kits flagged `is_simulated: true` + cell_status PROVISIONAL + null identity fields + bc_cell_id placeholder identifiers
 - No LLM cost (pure deterministic generation)
+- No real-kit reference rows in `kit_constellations.parquet` per Option B amendment
 
 ---
 

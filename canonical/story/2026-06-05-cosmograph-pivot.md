@@ -255,19 +255,20 @@ This cosmograph commitment is ARCHITECTURALLY ANCHORED on TWO load-bearing canon
 
 Together they form the cemented future-state architecture. The cosmograph is the player-facing manifestation of the pattern library; pattern-library cells render as constellations; atomic substrate primitives render as stars; cell_status (PROVISIONAL / PLAYTEST-CONFIRMED / LIBRARY-LOCKED) renders as visual brightness gradient.
 
-### 9.4 Move B simulation strategy (PROVISIONAL constellation fill)
+### 9.4 Move B simulation strategy (Option B AMENDMENT 2026-06-06: ALL PROVISIONAL simulated)
 
-Per Matt 2026-06-06 authorization: ~850 simulated constellations populate the cosmograph alongside the ~150 real named-bearers.
+**Option B amendment per Matt 2026-06-06:** cycle 14 wave-5 named-bearer kits were NOT generated against the future-engine substrate vocabulary (race + ~65-100 mechanic primitives + skill-tree-position + canonical 47/51 additions + atomic-substrate-registry § 1 additions). Force-mapping them as constellations defined over future-engine primitives would CLAIM substrate membership they don't have, violating substrate-led discipline. Therefore: **cosmograph at /forge is FORWARD-LOOKING — renders the future-engine substrate vocabulary as ALL ~1000 simulated PROVISIONAL constellations.** Cycle 14 named-bearer corpus stays at /loadout as empirical-current-state showcase.
 
 | Constellation status | Source | Visual encoding | Lasso behavior |
 |---|---|---|---|
-| LIBRARY-LOCKED | cell graduated through playtest validation per hypothesis-flow § 6.6 | Solid bright constellation lines; full name + narrative in side panel | Resolves normally |
-| PLAYTEST-CONFIRMED-CROSS-PLANE | mid-validation per hypothesis-flow § 6.6 | Medium-opacity solid lines; full name + narrative | Resolves normally |
-| PLAYTEST-CONFIRMED-LOW | partial validation | Lighter solid lines + "PRELIMINARY" badge in side panel | Resolves normally |
-| PROVISIONAL (real ~150 kits) | cycle-14 wave-5 named-bearers; not yet playtest-validated | Solid constellation lines + "PROVISIONAL" badge | Resolves normally; side panel notes provisional status |
-| PROVISIONAL (simulated ~850 kits) | Move B fill; random primitive subsets | DOTTED constellation lines + "PROVISIONAL — engine has not yet composed this pattern" badge; NO human-readable name (bc_cell_id-style placeholder) | Resolves; side panel notes simulated status; q-scores hidden |
+| LIBRARY-LOCKED | cell graduated through playtest validation per hypothesis-flow § 6.6 (FUTURE; cycle 15+) | Solid bright constellation lines; full name + narrative in side panel | Resolves normally |
+| PLAYTEST-CONFIRMED-CROSS-PLANE | mid-validation per hypothesis-flow § 6.6 (FUTURE) | Medium-opacity solid lines; full name + narrative | Resolves normally |
+| PLAYTEST-CONFIRMED-LOW | partial validation (FUTURE) | Lighter solid lines + "PRELIMINARY" badge in side panel | Resolves normally |
+| **PROVISIONAL (Phase A — ~1000 simulated)** | **Move B fill; random primitive subsets BDI ω+τ weighted for plausibility per Option B amendment** | **DOTTED constellation lines + "PROVISIONAL — engine has not yet composed this pattern" badge; NO human-readable name (bc_cell_id-style placeholder per D7)** | **Resolves; side panel notes simulated status; q-scores hidden** |
 
-**Empirical-evidence trigger to strip simulated kits:** if Phase A Vercel preview review surfaces confusion between real and simulated OR D7 violation OR validation muddiness → flip elrond config flag to filter simulated kits.
+**Cycle 14 named-bearer corpus disposition (Option B amendment):** Duskweaver + 36 others remain showcased at `/loadout` (cycle-18 wave-close empirical artifact). They are NOT rendered as constellations at /forge in Phase A. Future cycle 15+ regeneration against future-engine substrate produces "real" kits that become real constellations at /forge progressively.
+
+**Empirical-evidence trigger to strip simulated kits:** if Phase A Vercel preview review surfaces D7 violation OR validation muddiness OR substrate-led-discipline violation → flip elrond config flag to reduce sim count.
 
 ### 9.5 Sequencing per 2026-06-06 ratification
 
