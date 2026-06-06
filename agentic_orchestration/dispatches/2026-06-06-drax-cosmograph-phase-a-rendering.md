@@ -417,6 +417,20 @@ Math hotspots that drax should validate BEFORE writing code:
 
 **No math hotspot requires Pattern-A query consultation a priori** (Discipline #18). All projections sit within standard envelope. If any measured performance falls outside projection by >2× in Phase 5, surface to gandalf for methodology review BEFORE optimization.
 
+### 6.1 Phase 2 empirical reconciliation (added 2026-06-06 by gandalf)
+
+**Empirical measurement:** drax Phase 1 ingestion-contract validation + Phase 2 confirmation surfaced `primitive_set_size` mean = **34.3** across 1000 simulated PROVISIONAL constellations.
+
+**Projection drift:** § 4.2 projected ~13 mean primitives/kit (structural-mechanic primitives only — mechanics + weapon-form + cultural + element + attribute + T4). Empirical 34.3 includes weapon-form tokens AND sub-element flavors AND off-hand AND historical-period AND register primitives — broader vocabulary than the projection targeted.
+
+**Downstream impact:** MST edge count projection of ~12K segments revises to **~33K segments actual** (1000 kits × 33 edges per 34-node MST). Deviation: **2.75× over projection**, technically crossing Discipline #18 math-hotspot consultation threshold (>2×).
+
+**Drax seam-authority disposition (made within Discipline #18 in-execution mitigation channel):** Pixi.js v7 batched Graphics envelope remains within 60fps budget at 33K total segments AND the cull-by-default approach (constellation lines render ONLY on lasso vicinity / zoom-in / faction-highlight, never all 1000 simultaneously) makes the total-segment count a non-issue at default interactive baseline. Worst-case faction-highlight render = ~143 kits × 33 edges ≈ 4,700 segments (one of 7 factions visible at a time), well within batched-Graphics envelope.
+
+**Gandalf design-side acknowledgment (2026-06-06):** cull-by-default mitigation is sufficient for Phase A. No pre-baked LOD cap required. The empirical-evidence trigger remains: if Phase 5 Vercel preview surfaces sustained-FPS deviation under worst-case faction-highlight render, escalate to gandalf for Phase B optimization commission (matches § 10 commission-close protocol bullet 3). Substrate honesty preserved — render reflects what the substrate actually contains; the 34.3 mean is honest signal that the engine's design-history vocabulary is richer than the structural-mechanic-only projection assumed, and the cosmograph should communicate that richness, not flatten it.
+
+**Recorded per Principle 4** (decisions-log + dispatch is single source of truth for design state). Routed by knight-rider 2026-06-06 per drax's pre-Phase-3 design-state-record request.
+
 ---
 
 ## 7. Cross-seam impact + Discipline anchors
