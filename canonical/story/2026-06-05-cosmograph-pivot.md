@@ -220,3 +220,67 @@ The Veo harness (duskweaver-mm-p1/veo_runner.py) is preserved for the post-confi
 **Empirical-evidence trigger for re-engaging Veo cinematic work:** cosmograph lasso → confirm flow lands in pre-milestone build; gandalf re-engaged to design the post-confirm materialization cinematic from the original Veo prompt foundation
 
 **End of recognition record.**
+
+---
+
+## 9. Amendment 2026-06-06 — primitive-star + kit-as-constellation refinement + architectural-anchor lock
+
+**Authority:** Matt 2026-06-06 multi-iteration design call ratifying Pattern A-deep verdict at `agentic_orchestration/gandalf/notes/2026-06-06-cosmograph-star-granularity-verdict.md` + architectural anchoring on the cemented-future-state architecture
+
+### 9.1 Star granularity REFINED — primitive-as-star + kit-as-constellation
+
+The original cosmograph-pivot record treated kits as the rendered nodes. Per Matt 2026-06-06 pushback ("wouldn't it be better if each star represented a point within the engine's generative space"), the architectural verdict is:
+
+- **Stars are PRIMITIVES** (Layer 0 atomic substrates per the atomic-substrate-registry doc § 1)
+- **Constellations are KITS** — named patterns of primitives the engine has connected into Pareto-balanced compositions (the kit's name = the constellation's name; e.g., "Driftstone Warden of the Broken Reach")
+- **Brightest stars in a constellation = the load-bearing primitives** (BDI β-driving per `bdi-omega-tau-tables-v1-2026-05-22.md`)
+- **Faction overlays group multiple constellations** into shared mythological context
+
+This is substrate-led discipline applied at the generative-substrate layer. The cosmograph mirrors what the engine actually produces (primitives composed into named kits), not just the engine's filtered output.
+
+### 9.2 DP1-DP4 amendments
+
+- **DP1 (data source) AMENDED:** combined QDX-5 + EAA-5 v2 corpus EXPANDED to include the full cycle-14 wave-5 seasons 001+002+003 corpus (~150 kits) PLUS Layer 0 + Layer 0.5 primitive registry per `canonical/story/2026-06-06-atomic-substrate-registry.md`. Per Matt 2026-06-06 Move B authorization: ~850 PROVISIONAL-status simulated constellations populate the cosmograph alongside the ~150 real named-bearers, with explicit demarcation (dotted-line constellations + placeholder identifiers; NO LLM-named identities per D7).
+- **DP2 (embedding axes) AMENDED:** the 2D embedding is over PRIMITIVE space, not BC tuple space — UMAP/t-SNE over the ~300-400 first-class atomic primitive stars per atomic-substrate-registry § 6.1.
+- **DP3 (visual encoding) AMENDED:** stars are primitives; constellations are kits; element_primary tint applies to primitives via element-attribute coupling; T4 strategies are extra-bright primitives (capstone-keystones); skill-tree-position primitives weighted by tier (T4 capstone brightest).
+- **DP4 (spirit-preview) AMENDED:** lasso → primitive set → constellation-overlap scoring → matched kit's pre-computed identity (per verdict § 4.3 algorithm; composite_score = 0.4 × coverage_fraction + 0.3 × density_score + 0.3 × β-weighted overlap).
+- **DP5 (hosting at /forge) PRESERVED.**
+
+### 9.3 Architecture-anchor lock
+
+This cosmograph commitment is ARCHITECTURALLY ANCHORED on TWO load-bearing canonical docs:
+
+1. **`canonical/story/2026-06-06-atomic-substrate-registry.md`** — Layer 0 + Layer 0.5 + derivation chains + Naming Layer N1-N4 stack
+2. **`canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture.md`** — Layer 1 + Layer 1.5 + Layer 2 + Layer 3 + cell schema + flag enum + pattern-library Phase A-E roadmap (CANONICAL status as of 2026-06-06)
+
+Together they form the cemented future-state architecture. The cosmograph is the player-facing manifestation of the pattern library; pattern-library cells render as constellations; atomic substrate primitives render as stars; cell_status (PROVISIONAL / PLAYTEST-CONFIRMED / LIBRARY-LOCKED) renders as visual brightness gradient.
+
+### 9.4 Move B simulation strategy (PROVISIONAL constellation fill)
+
+Per Matt 2026-06-06 authorization: ~850 simulated constellations populate the cosmograph alongside the ~150 real named-bearers.
+
+| Constellation status | Source | Visual encoding | Lasso behavior |
+|---|---|---|---|
+| LIBRARY-LOCKED | cell graduated through playtest validation per hypothesis-flow § 6.6 | Solid bright constellation lines; full name + narrative in side panel | Resolves normally |
+| PLAYTEST-CONFIRMED-CROSS-PLANE | mid-validation per hypothesis-flow § 6.6 | Medium-opacity solid lines; full name + narrative | Resolves normally |
+| PLAYTEST-CONFIRMED-LOW | partial validation | Lighter solid lines + "PRELIMINARY" badge in side panel | Resolves normally |
+| PROVISIONAL (real ~150 kits) | cycle-14 wave-5 named-bearers; not yet playtest-validated | Solid constellation lines + "PROVISIONAL" badge | Resolves normally; side panel notes provisional status |
+| PROVISIONAL (simulated ~850 kits) | Move B fill; random primitive subsets | DOTTED constellation lines + "PROVISIONAL — engine has not yet composed this pattern" badge; NO human-readable name (bc_cell_id-style placeholder) | Resolves; side panel notes simulated status; q-scores hidden |
+
+**Empirical-evidence trigger to strip simulated kits:** if Phase A Vercel preview review surfaces confusion between real and simulated OR D7 violation OR validation muddiness → flip elrond config flag to filter simulated kits.
+
+### 9.5 Sequencing per 2026-06-06 ratification
+
+1. ✅ DONE — atomic-substrate-registry doc authored (`canonical/story/2026-06-06-atomic-substrate-registry.md`)
+2. ✅ DONE — hypothesis-flow doc CANONICAL amendment (this doc + hypothesis-flow doc both updated)
+3. ✅ DONE — cosmograph-pivot architectural-anchor lock (this § 9 amendment)
+4. PENDING — ground-state oracle update with all three commitments
+5. PENDING — Matt + gandalf primitive-vocabulary-lock design-call (Q2 from verdict § 8)
+6. PENDING — elrond commission spec authoring (consumes atomic-substrate-registry § 1 + hypothesis-flow § 4 flag enum)
+7. PENDING — drax commission spec authoring (consumes constellation-overlap scoring + Move B demarcation rules)
+
+### 9.6 Sign-off on amendment
+
+**Authored:** gandalf 2026-06-06 per Matt verbatim ratification across multi-iteration design call (NA-substrate-blind framing-audit recognition + kit-as-star vs primitive-as-star Pattern A-deep verdict + hypothesis-flow doc identification as cemented future-state + atomic-substrate-registry authoring + race + skill-tree-position + seasonal-substrate-rotation + Depth-2 derivation + Naming Layer stack + Move B simulation authorization)
+
+**End of 2026-06-06 amendment.**
