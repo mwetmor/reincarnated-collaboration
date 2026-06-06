@@ -1,10 +1,12 @@
 # QDX-5 Governance Lapse — Skill Tree Minimums
 
-**STATUS:** CURRENT (governance lapse record; for next engine gen workstream)
-**Date:** 2026-06-02
+**STATUS:** CURRENT (governance lapse record; for next engine gen workstream); URGENCY ELEVATED 2026-06-05 per cosmograph pivot
+**Date:** 2026-06-02 (original) + 2026-06-05 urgency-elevation note
 **Author:** gandalf (story-and-design steward)
 **Authority:** Matt 2026-06-02 verbatim observation: "we had a governance lapse in skill trees. We have many kits with only 1 or 2 chains (minimum is supposed to be 3-4, and kits with as few as only 5 skills (none passive)"
 **Source:** QDX-5 fire output at `~/Games/reincarnated-engine/data/kit_space/kits/` (37 kits; event `kse_20260602_008`)
+
+**URGENCY ELEVATION NOTE (2026-06-05):** the cosmograph pivot (`canonical/story/2026-06-05-cosmograph-pivot.md`) makes this governance lapse more load-bearing than originally framed. The cosmograph renders each kit's substrate-trace vector as a BC cell node; substrate-thin kits (cultural_tradition=NA + period=NA + short chains + low skill counts) produce a substrate-thin cosmograph with weak cluster differentiation and weak spirit-preview content when lassoed. The substrate-enrichment workstream (engine work items 1-4 in § 4.1 below) gates the cosmograph's perceived quality. Surface this dependency to elrond / rocket / star-lord when commissioning the next engine gen workstream.
 
 ---
 

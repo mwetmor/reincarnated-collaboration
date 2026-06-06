@@ -1,6 +1,7 @@
 # MM-P1 Self-Validation — Video (Stage A→B) + Meshy Gear Manifest (Stage D L50 reveal)
 
-**STATUS:** CURRENT (production playbook; Matt-executable artifact)
+**STATUS:** PARKED 2026-06-05 — recontextualized per `canonical/story/2026-06-05-cosmograph-pivot.md`. This playbook's video sequence (Stage A→B materialization + Stage D L50 reveal) remains LOAD-BEARING for the **post-confirm cinematic payoff** that fires after the cosmograph player surface lassos and confirms a substrate region. It is NOT the main MM-P1 self-validation surface; that surface is the cosmograph itself. Re-engage this playbook after the cosmograph minimum-viable build lands.
+**Original Status:** CURRENT (production playbook; Matt-executable artifact)
 **Date:** 2026-06-02
 **Author:** gandalf (story-and-design steward)
 **Authority:** Matt 2026-06-02 verbatim: "So it is actually a video just for me right now, but I will likely show people. I want to first validate my own concept" + "we can keep it to 8 seconds by choosing only one character if needed" + "Duskweaver of the Eclipsed Meridian is the new name of the top candidate" + "3rd step being level 50 decked out" + "i'll do it myself in meshy if you pass my alll of the gear and details of the gear and llm gear names"

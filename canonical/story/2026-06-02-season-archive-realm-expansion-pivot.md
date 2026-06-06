@@ -1,9 +1,11 @@
 # Season Concept ARCHIVED — Realm Expansion Pivot
 
-**STATUS:** CURRENT (architectural commitment; load-bearing for all engine workflow + player-surface design from this point forward)
+**STATUS:** CURRENT (architectural commitment; load-bearing for all engine workflow + player-surface design from this point forward); player-facing-surface implementation amended 2026-06-05 per cosmograph pivot (see § 0 below)
 **Date:** 2026-06-02
 **Author:** gandalf (story-and-design steward) per Pattern B substantive design session with Matt
 **Authority:** Matt 2026-06-02 ratification ("season = archived. We have lost the concept of season with the introduction of the 'chernoff celestial body'... Realm Expansion confirmed, path α, draft the canonical record")
+
+**AMENDMENT NOTE (2026-06-05):** the chernoff-celestial-body player-facing surface design described in this record (cinematic constellation→materialization stages) was further refined to an **interactive cosmograph (force-directed graph)** per `canonical/story/2026-06-05-cosmograph-pivot.md`. The Realm Expansion architecture, content-rhythm decision, and substrate-led discipline ALL STAND. The change is to the visualization primitive of the chernoff-celestial-body player surface: cosmograph for substrate exploration + lasso + spirit lookup; Veo cinematic preserved for post-confirm materialization payoff. Read this record TOGETHER with the cosmograph-pivot record; they compose.
 **Companion docs:**
 - `canonical/story/2026-06-01-flavor-pool-per-primary-element-lock.md` (Q18 vocabulary lock; preserved; per-skill flavor consumption per § 5)
 - `canonical/00-ground-state.md` § 1 (current truth — update needed post-this-record to reflect season-archival)

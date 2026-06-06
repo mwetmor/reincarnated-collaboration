@@ -1,12 +1,13 @@
 # MM-P1 Top-1 Rename — Duskweaver of the Eclipsed Meridian
 
-**STATUS:** CURRENT (rename artifact; feeds MM-P1 self-validation video production playbook AND drax cycle-18 LLM renaming pass)
-**Date:** 2026-06-02
+**STATUS:** CURRENT (rename artifact + T4 vocabulary amendment 2026-06-05; feeds cosmograph pre-milestone scoping AND post-confirm cinematic-payoff playbook)
+**Date:** 2026-06-02 (original) + 2026-06-05 (T4 amendment)
 **Author:** Matt (name selection) / gandalf (rationale capture + discipline framing)
-**Authority:** Matt 2026-06-02 verbatim: "Duskweaver of the Eclipsed Meridian is the new name of the top candidate btw"
+**Authority:** Matt 2026-06-02 verbatim: "Duskweaver of the Eclipsed Meridian is the new name of the top candidate btw"; Matt 2026-06-05 amendment: "Twilight instead of Penumbra"
 **Source kit:** `kit_shadow_000007` from QDX-5 (`kse_20260602_008`)
 **Original Wave B identity:** "Penumbra Caster of Dusk Meridian"
 **Final identity for MM-P1 path:** **"Duskweaver of the Eclipsed Meridian"**
+**T4 selection name (amended 2026-06-05):** **"Twilight Inversion Shell"** (replaces "Penumbral Inversion Shell" per Matt's Penumbra/Umbra dislike directive — see § 6 below)
 
 ---
 
@@ -86,10 +87,29 @@ So 3 of 5 top picks need renames per refined discipline. Cycle-18 LLM renaming p
 **Source kit:** `kit_shadow_000007` (`kse_20260602_008`)
 **Original Wave B identity:** "Penumbra Caster of Dusk Meridian" (deprecated for MM-P1 path)
 **Final identity:** **"Duskweaver of the Eclipsed Meridian"**
+
+---
+
+## 6. T4 selection vocabulary amendment (2026-06-05)
+
+**Amendment:** Duskweaver's T4 selection name changes from **"Penumbral Inversion Shell"** to **"Twilight Inversion Shell"**.
+
+**Authority:** Matt 2026-06-05 verbatim during cosmograph-pivot scoping session: "Twilight instead of Penumbra" — applying the same Penumbra/Umbra dislike directive that drove the flavor-asteroid selection of DARKNESS over Penumbra. "Twilight" is on Matt's eligible shadow-flavor pool (per cosmograph-pivot session enumeration of acceptable shadow-flavor candidates: Darkness / Dusk / Eclipse / Gloom / Hollow / Nightfall / Shroud / Twilight / Vale / Veil).
+
+**Composition:**
+- "Twilight" preserves the original verb-object structure ("Twilight Inversion Shell" = same mechanic, different flavor word)
+- "Twilight Inversion Shell" + flavor-asteroid "Darkness" coexist at different architectural layers: Twilight is the T4-mechanic identifier (engine-side kit-level); Darkness is the flavor vocabulary that flavors other skill names (Q18 per-skill layer)
+- Composes with Discipline #41 (per-skill flavor-or-canonical) and the refined Wave-B-identity discipline above (generic-archetype-templating is the failure mode, not flavor-vocab presence)
+
+---
+
+## 7. Sign-off
+
 **Composes with:**
-- `2026-06-02-qdx-5-top-5-character-curation.md` (TOP-1 designation)
-- `2026-06-02-qdx-5-governance-lapse-skill-tree-minimums.md` (acknowledges remaining chain/skill/substrate gaps)
-- `2026-06-02-mm-p1-self-validation-video-production-playbook.md` (consumes this rename)
+- `2026-06-02-qdx-5-top-5-character-curation.md` (TOP-1 designation; T4 name in that doc may need parallel amendment if mentioned)
+- `2026-06-02-qdx-5-governance-lapse-skill-tree-minimums.md` (acknowledges remaining chain/skill/substrate gaps; cosmograph pivot adds urgency)
+- `2026-06-02-mm-p1-self-validation-video-production-playbook.md` (PARKED 2026-06-05; recontextualized as post-confirm cinematic-payoff playbook)
+- `canonical/story/2026-06-05-cosmograph-pivot.md` (supersedes MM-P1 video as main self-validation surface; this rename remains LOAD-BEARING as the player-facing TOP-1 identity surfaced by cosmograph lookup AND as the character of the post-confirm cinematic)
 - drax cycle-18 LLM renaming pass (applies refined discipline to remaining 36 kits)
 
 **End of rename artifact.**

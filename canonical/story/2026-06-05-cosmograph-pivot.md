@@ -117,25 +117,43 @@ The Veo iteration is NOT wasted. It contributed:
 
 ## 4. Recontextualized architecture
 
+### 4.1 Critical runtime boundary — engine pre-generates; game selects
+
+The runtime flow is **substrate-selection → character-LOOKUP**, NOT substrate-selection → character-generation. Architectural boundary:
+
+- **Engine (Python; offline/batch)** pre-generates the kit corpus via QDX/EAA/etc. pipelines and packages it as a JSON packet (`kit_archive.db` + downstream export)
+- **Game-side (web client at runtime)** receives the JSON packet, renders the cosmograph from each shipped kit's substrate-trace vector, listens for player lasso, and DOES THE MATCHING — finds the nearest pre-generated character to the lassoed centroid
+- "Materialization" in this document means **game-side lookup-and-display of the matched pre-generated character**, NOT runtime character generation. The engine has already derived everything (categorical labels, identity name, T4 selection, kit content); the game READS what the engine produced and displays it
+
+This composability is honest to canonical 39 Architecture B substrate-BOUND: the engine binds substrate to content during Phase 2 generation; the game's runtime job is selection, not generation.
+
+### 4.2 Player journey + tool stack
+
 ```
 PLAYER JOURNEY:
-[Cosmograph substrate exploration] → [Lasso region] → [See selected + spirit preview]
+[Cosmograph substrate exploration] → [Lasso region] → [Game looks up nearest
+                                                       pre-generated character +
+                                                       displays matched spirit preview]
         ↓ player iterates (re-lasso, swap, modify)
 [Player confirms]
         ↓
-[Cinematic materialization payoff — Veo's original constellation→apprentice prompt]
+[Cinematic materialization payoff — Veo's original constellation→apprentice prompt,
+ either pre-rendered per kit or runtime-fired with matched kit's substrate as input]
         ↓
-[Gameplay: the apprentice plays through the seasonal journey]
+[Gameplay: the matched apprentice plays through the seasonal journey]
         ↓
 [L50 ascension cinematic — short Veo clip or rendered image]
 ```
 
-| Layer | Tool | Owner | Status |
-|---|---|---|---|
-| Substrate exploration + lasso + spirit preview | Cosmograph (web, React) | drax (frontend); elrond (data) | NEXT — to scope and commission |
-| Substrate data feed | kit_archive.db + curated substrate columns | elrond | Existing data, may need curation pass |
-| Post-confirm materialization cinematic | Veo 3.1 (original prompt as foundation) | gandalf (prompt design) + Matt (executes via veo_runner) | PARKED — re-engage after cosmograph milestone |
-| L50 ascension cinematic | Veo 3.1 or rendered image | gandalf + Matt | PARKED — re-engage after materialization |
+| Layer | Tool | Owner | Generation timing | Status |
+|---|---|---|---|---|
+| Kit corpus generation | Engine (Python; QDX/EAA pipelines) | rocket + gamora + elrond + star-lord | OFFLINE / BATCH | Existing; substrate-thin per QDX-5 governance lapse |
+| JSON packet export | Engine export pipeline | star-lord | OFFLINE | Existing |
+| Substrate exploration + lasso UX | Cosmograph (web, React) | drax (frontend); elrond (data) | RUNTIME (client-side) | NEXT — to scope and commission |
+| Substrate-to-character lookup | Cosmograph app frontend logic | drax | RUNTIME (client-side) | NEXT — game-side matching, NOT engine generation |
+| Spirit preview display | Side panel reading pre-computed kit fields | drax | RUNTIME (client-side) | NEXT — reads `name`, `categorical_labels`, `t4_selection`, etc. from matched kit |
+| Post-confirm materialization cinematic | Veo 3.1 (original prompt as foundation) | gandalf (prompt design) + Matt (executes via veo_runner) | RUNTIME or pre-rendered (TBD) | PARKED — re-engage after cosmograph milestone |
+| L50 ascension cinematic | Veo 3.1 or rendered image | gandalf + Matt | RUNTIME or pre-rendered (TBD) | PARKED — re-engage after materialization |
 
 ---
 
