@@ -47,8 +47,9 @@ Next session resumes at the **cosmograph pre-milestone commissioning** phase. Pa
 
 | Track | Owner | Scope | Status |
 |---|---|---|---|
+| Cycle-18 recovery-2 wave-close | knight-rider | Author wave-close record OR amendment for the recovery-2 delivery (page rewrite + new /kits route + sample nav deprecation); ratify recovery-2 as delivered → clean cycle close | NOT YET CLOSED — Matt 2026-06-05 ratification confirmed; KR to formalize |
 | Substrate-trace extraction | elrond | Combined QDX-5 + EAA-5 v2 corpus → cleaned cell-coordinate vectors as `.csv` or `.parquet` for cosmograph ingestion | NOT YET COMMISSIONED |
-| Cosmograph web build (minimum) | drax | React/Vite frontend at `/forge` sub-route; ingest substrate-trace data; force-directed layout via @cosmograph/react; lasso interaction; side-panel character lookup | NOT YET COMMISSIONED |
+| Page restore + cosmograph build (combined dispatch) | drax | Workstream A: restore `/loadout` to cycle-18 grid+featured+faction view, dissolve `/kits` route, extract rich-character-view component for reuse. Workstream B: build cosmograph at `/forge` using extracted component as side-panel preview. Combined dispatch to avoid double deploys. | NOT YET COMMISSIONED — gated on (a) recovery-2 KR close, (b) elrond substrate-trace delivery |
 | Cinematic payoff design (parked) | gandalf + Matt | Re-engage Veo prompt design for post-confirm materialization moment when cosmograph milestone lands | PARKED — empirical-evidence trigger is cosmograph lasso→confirm flow operational |
 
 ---
@@ -81,12 +82,20 @@ Spec content:
 - Time budget: 1-2 hours elrond time
 - Cost budget: ~$0 (no LLM calls; pure curation work)
 
-### Phase 4 — Commission drax (cosmograph web build minimum) [~45 min authoring]
+### Phase 4 — Commission drax (combined: page-restore + cosmograph web build minimum) [~45 min authoring]
 
-Draft a drax commission spec at `agentic_orchestration/gandalf/dispatches/2026-06-XX-drax-cosmograph-minimum.md`.
+Matt 2026-06-05 directive: "bring back sample and loadout as they were" — `/loadout` should restore to cycle-18 original grid+featured+faction view; recovery-2's rich per-character view gets REPURPOSED as the cosmograph's side-panel character preview at `/forge` (work not lost; repositioned).
 
-Spec content:
-- Target: `/forge` sub-route on existing loadout app
+Draft a combined drax commission spec at `agentic_orchestration/gandalf/dispatches/2026-06-XX-drax-cosmograph-plus-page-restore.md` covering BOTH workstreams in one dispatch:
+
+**Workstream A — Page restoration:**
+- Restore `/loadout` to cycle-18 original: grid + featured picks + faction filter (currently at `/kits`)
+- Move `/kits` content back to `/loadout`; delete `/kits` route; redirect `/kits` → `/loadout`
+- Preserve `/sample` unchanged (already as it was)
+- Recovery-2's rich per-character view code (`Loadout.tsx` cycle-18 recovery-2 state) extracted as a reusable component for re-use in Workstream B
+
+**Workstream B — Cosmograph at `/forge` (minimum build):**
+- Target: NEW `/forge` sub-route on existing loadout app
 - Stack: React/Vite/Tailwind (matches existing loadout); add `@cosmograph/react` dependency
 - Data ingest: load substrate-trace data from elrond's extracted `.csv`/`.parquet`; one BC cell per row
 - Visualization:
@@ -98,12 +107,25 @@ Spec content:
 - Side panel:
   - On lasso, compute centroid of selected cells' substrate vectors
   - Find nearest pre-generated kit (by Euclidean distance in substrate space)
-  - Display matched kit's pre-computed identity: name, element, archetype, categorical labels, T4 selection, Q18 flavor identity
+  - Display matched kit's pre-computed identity via the rich-character-view component repurposed from Workstream A: name, element, archetype, categorical labels, T4 selection (with Twilight Inversion Shell rename applied to kit_shadow_000007), Q18 flavor identity
 - Confirm button: stub for now (no cinematic firing yet); routes to placeholder "spirit confirmed" view
-- Acceptance criteria: cosmograph renders all 62 BC cells; lasso interaction works; side panel displays matched kit correctly when lassoed
-- Time budget: 1-3 days drax time
-- Cost budget: $0 (no LLM calls; pure frontend build)
+
+**Acceptance criteria (both workstreams):**
+- `/loadout` restored to grid + featured + faction filter view
+- `/kits` route returns 301/308 redirect to `/loadout`
+- `/sample` unchanged
+- `/forge` new route renders all 62 BC cells in cosmograph; lasso interaction works; side panel displays matched kit correctly using repurposed rich-character view
 - Vercel preview deployment expected on completion
+
+**Sequencing within dispatch:**
+- Workstream A first (page restore + component extraction)
+- Workstream B builds on A's extracted component
+- Combined sequencing within one drax dispatch avoids double Vercel deploys
+
+**Time budget:** 1-4 days drax time (combined workstreams)
+**Cost budget:** $0 (no LLM calls; pure frontend build)
+
+**Pre-commission dependency:** recovery-2 KR wave-close formalized first (so the rollback is clean — close cycle-18-recovery-2 → open new cycle for the page-restore + cosmograph combined dispatch).
 
 ### Phase 5 — Wave-close
 
