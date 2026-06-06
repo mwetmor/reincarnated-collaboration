@@ -534,6 +534,47 @@ When Phase 5 acceptance criteria met:
 **Authority:** Matt 2026-06-06 multi-iteration design call (primitive-vocabulary lock + cosmograph Phase A commission + Option B amendment ratification)
 **Anchor evidence:** elrond Phase 4 packet (100% plausibility QA pass; Surface B 42.80/57.20 within tolerance; KMeans-k=6 emergent labels at mean purity 0.95; 7 faction halos via convex hull) + cosmograph-star-granularity-verdict Option 4 adopted + cosmograph-pivot § 9 amendment + atomic-substrate-registry CANONICAL + hypothesis-flow-pattern-library CANONICAL + Pattern-A weapon-form-ratio verdict
 **Empirical-evidence trigger for commission close:** Phase 5 Vercel preview URL operational + 18-criteria Gate-2 jack-ryan acceptance PASS + Matt signal
+
+---
+
+## Completion record — Phase 1
+
+**Phase 1 completed:** 2026-06-06
+**Completed by:** drax
+**Commit:** `ec894b8` + `c157d9a` (AGENT_STATE update + tag `drax/v1.7-cosmograph-phase-a-phase-1`)
+**Build:** `npm run build` PASS — 1488 modules, 0 TS errors. 79/79 tests pass.
+
+### Phase 1 acceptance criteria — ALL MET
+
+| Criterion (§ 2.6) | Status |
+|---|---|
+| /forge route resolves in dev server | PASS — Forge.tsx registered; App.tsx + Nav.tsx updated |
+| Pixi.js installed; bundle build succeeds | PASS — pixi.js@7.4.2 + @pixi/react@7.1.2 installed; +142 KB gz delta (under 400 KB threshold) |
+| All 5 substrate data files served from /data/cosmograph/ | PASS — 5 JSON files + 3 source parquets in public/data/cosmograph/ |
+| Ingestion-contract validation report (all 14 checks) | ALL PASS — see MIGRATION.md § cosmograph-phase-a |
+| Framing-audit Q1-Q3 captured | CAPTURED — no Pattern-A query fired; all framing locked |
+| MIGRATION.md updated | PASS — full ADR-004 entry with route + dependency + data placement + validation results |
+
+### Key measurements
+
+- **Bundle delta:** +142 KB gzipped (pixi.js v7 tree-shaken; well under 400 KB jack-ryan threshold)
+- **Data payload (gzip):** 228 KB total across 5 JSON files
+- **Ingestion-contract deviation noted (non-blocking):** primitive_set_size mean = 34.3 (dispatch estimated 13). MST Phase 3 edge count will be ~33K (not 12K as projected). Pixi perf envelope unaffected.
+
+### Files authored in Phase 1
+
+- `reincarnated-loadout/src/pages/Forge.tsx`
+- `reincarnated-loadout/src/components/Cosmograph/CosmographCanvas.tsx`
+- `reincarnated-loadout/src/data/cosmographTypes.ts`
+- `reincarnated-loadout/src/data/cosmographData.ts`
+- `reincarnated-loadout/src/utils/lassoResolution.ts`
+- `reincarnated-loadout/scripts/convert-cosmograph-data.py`
+- `reincarnated-loadout/public/data/cosmograph/` (5 JSON + 3 parquet source files)
+
+### STOP — awaiting Phase 2 authorization
+
+Knight-rider to relay gandalf amendment confirmation (Discipline #1→#1 citation fix; #58→#57; primitive count; Gate-2 criteria count) before Phase 2 fires.
+Phase 2 target: CosmographCanvas.tsx star rendering — 570 stars with brightness + color + provenance-tag encoding.
 **Cross-seam routing:** Gate-1 jack-ryan pre-fire review BEFORE Phase 1 fires (math-before-code Pixi.js perf + cross-seam ingestion contract validation + Pixi.js-in-loadout dependency-add review per standard critique-pair pattern); knight-rider routes when this spec lands and Matt + jack-ryan signal pre-fire ratification
 
 **End of drax cosmograph Phase A commission spec.**
