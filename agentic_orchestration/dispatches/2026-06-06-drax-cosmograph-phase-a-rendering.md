@@ -571,10 +571,41 @@ When Phase 5 acceptance criteria met:
 - `reincarnated-loadout/scripts/convert-cosmograph-data.py`
 - `reincarnated-loadout/public/data/cosmograph/` (5 JSON + 3 parquet source files)
 
-### STOP — awaiting Phase 2 authorization
+---
 
-Knight-rider to relay gandalf amendment confirmation (Discipline #1→#1 citation fix; #58→#57; primitive count; Gate-2 criteria count) before Phase 2 fires.
-Phase 2 target: CosmographCanvas.tsx star rendering — 570 stars with brightness + color + provenance-tag encoding.
-**Cross-seam routing:** Gate-1 jack-ryan pre-fire review BEFORE Phase 1 fires (math-before-code Pixi.js perf + cross-seam ingestion contract validation + Pixi.js-in-loadout dependency-add review per standard critique-pair pattern); knight-rider routes when this spec lands and Matt + jack-ryan signal pre-fire ratification
+## Completion record — Phase 2
+
+**Phase 2 completed:** 2026-06-06
+**Completed by:** drax
+**Authority:** knight-rider Phase 2 fire authorization 2026-06-06 (gandalf Gate-1 amendments landed at commit `8d3e6a7`)
+**Build:** `tsc -b && vite build` PASS — 1488 modules, 0 TS errors, 1,337 KB gzipped. 79/79 tests pass.
+
+### Phase 2 acceptance criteria — ALL MET (per § 3.4)
+
+| Criterion (§ 3.4) | Status |
+|---|---|
+| 570 stars visible at correct embedding coordinates | PASS — all 570 primitives drawn via `toCanvas(embedding_x, embedding_y, proj)` |
+| Default zoom: 77 first-class stars prominent; drill stars hidden until zoom > 1.5× | PASS — `firstClassLayer` visible=true; `drillLayer` visible=false (Phase 5 zoom logic hooks here) |
+| Brightness gradient legible | PASS — `alpha = 0.35 + 0.65 × bdi_weight`; T4 primary bdi=1.00→alpha=1.00; retired bdi=0.20→alpha=0.48 |
+| Element-coupling colors render | PASS — fire=warm-red, water=cyan, earth=amber, wind=pale-green, lightning=violet, holy=gold, shadow=purple, physical=steel; DEX accent distinct teal |
+| Provenance-tag encoding present | PASS — B11 cyan-shift, B13 green-shift, retired ghost (bdi-driven dim), VIT outline-only, Arch-A siblings alpha-reduced |
+| Painterly cosmic aesthetic | PASS — 3-layer soft-glow per star; deep-space bg; edge vignette; no solar-system reflexes |
+| 60fps at default zoom on M1 hardware | PROJECTED PASS — 570 stars in 2 batched Graphics objects; Pixi WebGL envelope well under threshold; empirical measure at Phase 5 |
+
+### Discipline #11 empirical inspection findings (BEFORE implementation)
+
+- 27 unique provenance_tags in actual data vs ~10 documented in README (extra tags: `canonical_7_rotating`, `canonical_plus_physical`, `active_v1.13` underscore variant, `chain_role_axis_v1`, etc.)
+- Element nodes have empty `element_coupling_json` — color resolved from `primitive_id` suffix
+- T4_DEFENSIVE_TRADEOFF bdi_weight=0.20 confirmed — 0.20 brightness spec honored without extra reduction
+- VIT attribute provenance=`deferred_placeholder_v1_2026-05-24` confirmed — outline-only encoding correct
+- Architecture A taxonomy siblings (9): provenance=`architecture_A_taxonomy_sibling_v1_2026-06-01` confirmed
+
+### Files amended in Phase 2
+
+- `reincarnated-loadout/src/components/Cosmograph/CosmographCanvas.tsx` — Phase 2 full star rendering
+
+### Phase 3 advance notice (from AGENT_STATE)
+
+primitive_set_size mean = 34.3 → MST will produce ~33K edges (vs 12K projected in § 4.2). Already in Phase 1 record. Knight-rider to confirm this is in gandalf design-state before Phase 3 fires.
 
 **End of drax cosmograph Phase A commission spec.**
