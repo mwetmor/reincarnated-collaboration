@@ -270,4 +270,96 @@ KR wave-close record (this artifact) + wave-state CLOSED + canonical/00-ground-s
 2. ✅ Update `canonical/00-ground-state.md` § 1 with this cycle-18 fix-forward entry
 3. ✅ Compose Matt strategic re-engagement signal (5 options refined from cycle-17 + 2 new from cycle-18 forensics)
 
-**End of cycle-18 wave-close record.**
+**End of cycle-18 wave-close record (original; 2026-06-02 author-timestamp preserved).**
+
+---
+
+## 7. Recovery Addendum + Ratified Close-State (2026-06-05 amendment)
+
+**Authority:** Matt 2026-06-05 verbatim ratification: "Recovery-2 (drax a60b900, deploy 58a0e38) ratified as delivered."
+
+This addendum amends the original record (§ 0 TL;DR through § 6 Sign-off preserved as authored at 2026-06-02 timestamp) to honestly reflect the post-original-publication discoveries during Matt direct inspection and the subsequent LOCK L 1st-BLOCK + Matt-directed scope-correction recoveries.
+
+### 7.1 Honest BLOCK count revision
+
+The original § 0 TL;DR stated "0 BLOCKs accumulated across entire cycle-18." Subsequent Matt direct inspection at Vercel preview surfaced **2 BLOCKs that the Gate-1 + Gate-2 critique-pair coverage did not catch**:
+
+**BLOCK #1 (resolved by recovery-1; loadout commit `01b7424`):**
+- `/loadout` literal URL returned blank page (drax routed Loadout to `/` only; no explicit `/loadout` route)
+- `/sample` page showed stale season-data (Sample.tsx still consumes useSeasonData; not in cycle-18 explicit scope but Matt-visible regression)
+- **Disposition:** LOCK L 1st-BLOCK seam re-fire authority; drax added explicit `/loadout` route + removed Sample NavItem (preserving `/sample` route per Path α)
+- **Tag:** `drax/v1.6-cycle-18-recovery-1`
+
+**BLOCK #2 (resolved by recovery-2; loadout commit `a60b900`):**
+- Cycle-18 Loadout.tsx wholesale-REPLACED the rich per-character view (which Matt wanted PRESERVED with swapped data source) — KR dispatch wording ("Deprecate old season-data Loadout view") was ambiguous between "swap data source" and "delete the page"
+- Element selector listed Q18 flavor pool words instead of canonical-7+1 primary names
+- Equipment missing per kit (Matt's "gear may be auto-resolved by bringing back the loadout page" hypothesis NOT confirmed — kit JSONs don't carry the equipment shape)
+- **Disposition:** Matt-directed scope correction; supersedes LOCK L 2+-BLOCK Matt-escalation discipline (Matt has authority over scope amendment); drax restored rich per-character view at `/loadout` + moved cycle-18 grid+featured+faction to new `/kits` route + canonical-7+1 element selector + substrate-proxy graceful disposition for equipment gaps
+- **Tag:** `drax/v1.6-cycle-18-recovery-2-rich-loadout-restored`
+
+### 7.2 Ratified close-state architecture (Matt 2026-06-05)
+
+The cycle-18 ratified close-state — what Matt has empirically inspected and ratified as the canonical cycle-close deliverable — is:
+
+| Route | State at cycle-18 close |
+|---|---|
+| `/` | Renders Loadout (root entry; cycle-18 recovery-1) |
+| `/loadout` | **Rich per-character view** mirroring Sample.tsx structure (cycle-18 recovery-2); default kit = "Duskweaver of the Eclipsed Meridian" (`kit_shadow_000007`); kit selector dropdown for 37 kits; canonical-7+1 element selector; substrate-trace proxy + "pending EAA-8" graceful placeholders for gear/weapon/stat data-shape gaps |
+| `/kits` | **New route hosting cycle-18 grid + Featured Characters + faction filter** (recovery-2 reorganization); KitBrowser.tsx additive route-page per EAA-6/7 precedent; element filter canonical-7+1; faction filter operational; current/historical (EAA-5 v2) toggle; cards link to `/loadout?kit=<id>` |
+| `/sample` | **Preserved unchanged** (Sample.tsx + useSeasonData flow untouched per Matt B1 directive 2026-06-02); deprecated from active Nav.tsx (recovery-1); URL still resolves per Path α historical access |
+| `/kit-space` | 301-redirects to `/kits` (recovery-2; cycle-18 Issue 1 redirect target updated) |
+
+**Production URL:** `https://reincarnated-loadout.vercel.app` (canonical production alias; promoted from preview 2026-06-03 per Matt explicit authorization; commit `a60b900`; deployment ID `dpl_7Xs8xFvjRACNWKVtUea17aQTVDMh`)
+
+### 7.3 Discipline-recognition candidates queued (compose with original § 4 list)
+
+Recovery-1 surfaced (BLOCK #1):
+- **Gate-2 verification discipline** should include "all routed URLs the dispatch + completion record cite must resolve correctly" (would have caught BLOCK #1 Fix A)
+- **Multi-page React app data-source-consistency audit** — when one page is refactored, other pages consuming the prior data source must be explicitly inventoried (would have caught BLOCK #1 Fix B)
+
+Recovery-2 surfaced (BLOCK #2):
+- **Dispatch wording for refactor-vs-replace** must be unambiguous when the existing surface has substantive design value — KR dispatch root cause analysis attributed BLOCK #2 to dispatch wording ambiguity, not drax interpretation error
+- **Empirical observation reinforcing Discipline #59** at consumer-facing rendering layer: Matt's "gear may be auto-resolved by bringing back loadout page" hypothesis NOT confirmed because kit JSON doesn't carry gear/weapon/stat fields; drax surfaces substrate-trace proxy + "pending EAA-8" placeholders gracefully — substrate enrichment workstream IS the resolution path (further reinforces critique-pair triple convergence)
+
+### 7.4 Recovery-2 work disposition for next-cycle
+
+Per Matt 2026-06-05 directive + gandalf next-session plan (`agentic_orchestration/gandalf/notes/2026-06-05-next-session-plan-cosmograph-commissioning.md`):
+
+**Recovery-2's rich per-character view code is NOT lost; it is REPOSITIONED.** Next cycle's drax combined dispatch (Workstream A page-restore + Workstream B cosmograph at `/forge`) will:
+- Restore `/loadout` to cycle-18 original grid+featured+faction view (revert from recovery-2 rich-character view)
+- Dissolve `/kits` route (content returns to `/loadout`)
+- Extract recovery-2's rich per-character view code as a reusable component for re-use as **the cosmograph's side-panel character preview at `/forge`**
+
+The recovery-2 work is the proof-of-concept for what the cosmograph side-panel preview will render when player lassos a substrate region and game-side LOOKUP returns the matched pre-generated character.
+
+### 7.5 Composition with cosmograph pivot
+
+Per `canonical/story/2026-06-05-cosmograph-pivot.md` (load-bearing architectural commitment from 2026-06-05 forward): the chernoff-celestial-body player-facing surface renders as an **interactive cosmograph (force-directed graph of BC cells / vector space points / categorical labels)**, NOT as cinematic video. The cycle-18 ratified close-state (37-kit kit_space + drax loadout/kits/sample routes + Vercel production) is the substrate-engagement-layer artifact the cosmograph commissioning gates on.
+
+**Next-cycle pre-commission gates:**
+1. ✅ Cycle-18 recovery-2 ratified close (THIS amendment)
+2. ❌ Elrond commission for combined QDX-5 + EAA-5 v2 substrate-trace extraction (~62 BC cells; not yet commissioned)
+3. ❌ Drax combined dispatch (Workstream A page-restore + Workstream B cosmograph at `/forge`; gates on (1) + (2))
+
+**T4 vocabulary amendment (cosmograph-pivot-adjacent):** Duskweaver's T4 selection name **Penumbral Inversion Shell → Twilight Inversion Shell** per Matt 2026-06-05 directive (composes with Penumbra/Umbra dislike already locked at PG-3 2026-06-01). Captured at `agentic_orchestration/gandalf/notes/2026-06-02-mm-p1-top-1-rename-duskweaver.md` § 6. Cycle-18 kit_space artifact does NOT auto-amend; next-cycle drax dispatch should inspect and amend if shipping the T4 narration field through any UI render path.
+
+### 7.6 Final close-out
+
+**Cycle-18 formally CLOSED 2026-06-05** per Matt ratification + this addendum's honest BLOCK accounting + ratified architectural close-state captured.
+
+**Honest cycle-18 metrics (revised):**
+- 5-issue fix-forward checklist: ✅ delivered (with recovery-2 scope correction restoring the rich per-character view Matt wanted preserved)
+- 2 BLOCKs accumulated (recovery-1 + recovery-2; both resolved within seam authority + Matt-directed scope correction)
+- 0 Gate-1 + Gate-2 critique-pair BLOCKs raised pre-Matt-inspection (the empirical gate was Matt direct inspection)
+- Cost: $0.15 LLM (Issue 4 rename pass; unchanged)
+- LOCK L escape clause never formally triggered for Matt escalation (Matt's direct scope-correction authority supersedes 2+-BLOCK escalation discipline)
+- Production URL: `https://reincarnated-loadout.vercel.app` (commit `a60b900`)
+
+**Next-cycle direction (per gandalf next-session-plan + cosmograph pivot):**
+- Elrond commission for substrate-trace extraction (combined QDX-5 + EAA-5 v2 corpus)
+- Drax combined dispatch (page-restore Workstream A + cosmograph Workstream B at `/forge`)
+- Substrate-enrichment workstream URGENCY ELEVATED per cosmograph rendering quality gating on substrate richness
+
+**Authored:** knight-rider 2026-06-05 per Matt 2026-06-05 cycle-push authorization. Auto-commit + auto-push per established pattern. Amends original record at § 0-§ 6; preserves § 0-§ 6 at original 2026-06-02 author-timestamp.
+
+**End of cycle-18 recovery addendum + ratified close-state.**
