@@ -19,7 +19,9 @@
 
 ## 0. TL;DR
 
-Elrond extracts the substrate data that feeds the cosmograph at `/forge`. Output is a unified parquet/JSON packet consumable by drax: ~350-400 atomic substrate primitive nodes ("stars") + **~1000 simulated PROVISIONAL constellations (Option B AMENDMENT 2026-06-06)** + 2D embedding coordinates + per-constellation primitive-set mapping + per-primitive BDI-β load-bearing weights.
+Elrond extracts the substrate data that feeds the cosmograph at `/forge`. Output is a unified parquet/JSON packet consumable by drax: ~570 atomic substrate primitive nodes ("stars") (Phase 0 empirical enumeration; original projection ~350-400) + **~1000 simulated PROVISIONAL constellations (Option B AMENDMENT 2026-06-06)** + 2D embedding coordinates + per-constellation primitive-set mapping + per-primitive BDI-β load-bearing weights.
+
+**Primitive-count expansion note (2026-06-06 post-Phase-0 reconciliation per gandalf amendment-pass per jack-ryan Gate-1 WARN-3):** the original dispatch estimate of `~350-400` was a pre-enumeration projection. Phase 0 empirical enumeration produced **570** primitives — the expansion reflects (a) full sub-element-flavor enumeration per flavor-pool-lock v1.0 (100 rotating + 9 Architecture-A taxonomy-siblings adds ~100 rows not captured by the original "9 flavors per element × 7 elements" arithmetic), (b) full provenance-tagged geometry palette at 28 vs the 16-active-palette estimate (+12), and (c) finer per-family atomicity than the original mid-estimate assumed (mechanic primitives landed at the upper bound of the ~65-100 range; T4 strategies + scaling-pattern-per-tier + investment-scaling + per-resource-model primitives each expanded slightly). Per Principle 4 (decisions-log + dispatches as single source of truth), this dispatch is amended to reflect what shipped. Downstream artifacts (`cosmograph_README.md`, drax dispatch, Pattern-A verdict) already reference 570 — this amendment closes the upstream-vs-downstream count drift.
 
 **Option B AMENDMENT 2026-06-06** (per Matt ratification): cycle 14 wave-5 named-bearer kits were NOT generated against the future-engine substrate vocabulary (race + ~65-100 mechanic primitives + skill-tree-position + investment-scaling + per-skill flavor judgment + canonical 47/51/atomic-substrate-registry additions). Force-mapping them to constellations defined over future-engine primitives would claim substrate membership they don't have, violating substrate-led discipline. Therefore: **cosmograph at /forge is FORWARD-LOOKING — renders the future-engine substrate vocabulary as ALL simulated PROVISIONAL.** Cycle 14 named-bearer corpus (Duskweaver + 36 others) STAYS at /loadout as the empirical-current-state showcase. Phase 1 (per-kit primitive-set extraction from real corpus) RETIRED; Phase 2 sim count EXPANDED to ~1000.
 
@@ -47,7 +49,7 @@ A delivery packet at `agentic_orchestration/elrond/research/cosmograph-substrate
 
 | Artifact | Format | Purpose |
 |---|---|---|
-| `primitive_registry.parquet` | parquet | The ~350-400 atomic substrate primitives (Lock #1) with per-primitive substrate fingerprint + element-coupling + 2D embedding coordinate + brightness-weight |
+| `primitive_registry.parquet` | parquet | The ~570 atomic substrate primitives (Phase 0 empirical enumeration; Lock #1) with per-primitive substrate fingerprint + element-coupling + 2D embedding coordinate + brightness-weight |
 | `region_labels.json` | JSON | Sky-neighborhood labels (BC bins, tier labels, scaling-pattern labels, emergent mechanic-family labels read from clustering) per Lock #4 |
 | `kit_constellations.parquet` | parquet | **~1000 simulated PROVISIONAL constellations per Option B AMENDMENT** (no real-kit rows; cycle 14 named-bearers stay at /loadout); per-kit primitive-set membership; cell_status PROVISIONAL; bc_cell_id placeholder identifiers; no LLM-named identities (D7 line) |
 | `flag_enum_attachments.parquet` | parquet | Per-kit attachment of hypothesis-flow § 4 flag families (17 family enums) |
@@ -84,7 +86,7 @@ Surface any refutation in pre-Phase-1 escalation to gandalf via Pattern-A query 
 
 ### 2.2 Enumerate Layer 0 atomic primitives per atomic-substrate-registry § 1
 
-Produce a flat list of ~350-400 primitives with the following per-primitive schema:
+Produce a flat list of ~570 primitives (Phase 0 empirical enumeration; original projection ~350-400 expanded per § 0 reconciliation note) with the following per-primitive schema:
 
 ```
 primitive_registry schema:
@@ -183,7 +185,7 @@ Generate `region_labels.json` with the following label families (NOT first-class
 ### 2.7 Phase 0 acceptance criteria
 
 - `primitive_registry.parquet` v0 produced with all 14+ primitive families enumerated
-- Total atomic primitive count: ~350-400 (within ±20% acceptable range)
+- Total atomic primitive count: ~570 (Phase 0 empirical enumeration; original projection ~350-400 expanded per § 0 reconciliation note)
 - Per-primitive substrate fingerprint populated for ≥95% of primitives
 - Weapon-form token physical/magical ratio computed + validated against canonical lock
 - `region_labels.json` v0 produced (excluding emergent mechanic-family labels which await Phase 3 clustering)

@@ -12,11 +12,11 @@
 
 ## 0. TL;DR
 
-**Primary Q (weapon-form ratio):** **Option 4 — re-scope per Possibility C, with sharpened layer-disambiguation.** The 50/50 working target in dispatch § 2.5 was AUTHORED AT THE WRONG SURFACE. The canonical-locked ratio recalled at "~54/46" is **kit-level physical/caster** (40-45% / 55-60% per Discipline #58 genre-aligned distribution; Matt 2026-06-02 verbatim). It lives at the **kit-roster element-axis-coverage** layer, NOT at the **weapon-form-token** layer. Weapon-form-tokens are a different substrate surface where the empirical ~89/11 IS substrate-honest and should render that way.
+**Primary Q (weapon-form ratio):** **Option 4 — re-scope per Possibility C, with sharpened layer-disambiguation.** The 50/50 working target in dispatch § 2.5 was AUTHORED AT THE WRONG SURFACE. The canonical-locked ratio recalled at "~54/46" is **kit-level physical/caster** (40-45% / 55-60% per Discipline #57 genre-aligned distribution; Matt 2026-06-02 verbatim). It lives at the **kit-roster element-axis-coverage** layer, NOT at the **weapon-form-token** layer. Weapon-form-tokens are a different substrate surface where the empirical ~89/11 IS substrate-honest and should render that way.
 
 **Disposition:**
 - **Weapon-form-token region:** render the empirical ~89/11 phys/mag honestly. Document in `cosmograph_README.md` § substrate_coverage_honesty. Flag as substrate-enrichment workstream candidate (magical-implement diversity — wand/orb/focus/staff/tome/censer/grimoire — is the elrond enrichment lane Discipline #59 calls out).
-- **Kit-roster region (if/when sim-kit element-distribution is being measured):** the 40-45/55-60 physical/caster genre-aligned distribution per Discipline #58 governs. NOT a weapon-form constraint — this is the cross-roster element-axis coverage target.
+- **Kit-roster region (if/when sim-kit element-distribution is being measured):** the 40-45/55-60 physical/caster genre-aligned distribution per Discipline #57 governs. NOT a weapon-form constraint — this is the cross-roster element-axis coverage target.
 - **Element-attribute coupling region:** rendered separately (1 STR-coupled + 3 INT/WIS-coupled elements + DEX uncoupled = the substrate-honest distribution per § 1.3).
 
 Three different surfaces. Three different substrate-honest renderings. Cosmograph displays each at its own region.
@@ -34,7 +34,7 @@ But the Pattern-A query surfaced something larger: the 50/50 in dispatch § 2.5 
 Refutation evidence in hand:
 - Empirical weapon-form token data: ~89/11 phys/mag (elrond Phase 0 measurement)
 - Empirical row-level: ~92/8
-- Canonical-locked ratio (Discipline #58 + Matt 2026-06-02 verbatim): 40-45% / 55-60% **physical/caster — KIT level, per element-axis coverage across the roster**
+- Canonical-locked ratio (Discipline #57 + Matt 2026-06-02 verbatim): 40-45% / 55-60% **physical/caster — KIT level, per element-axis coverage across the roster**
 
 Three numbers. Not refuting each other — measuring **three different surfaces.** Option 4 names that explicitly. Option 1 by itself would have left the kit-roster surface unaddressed in the cosmograph.
 
@@ -56,7 +56,7 @@ Three numbers. Not refuting each other — measuring **three different surfaces.
 
 ### 2.2 Surface B — Kit-roster element-axis coverage (if/when cosmograph surfaces this)
 
-**Canonical-locked ratio:** 40-45% physical / 55-60% caster per Discipline #58 + Matt 2026-06-02 verbatim. EMPIRICAL ANCHOR: QDX-5 produced 43.2% / 56.8% — PASS.
+**Canonical-locked ratio:** 40-45% physical / 55-60% caster per Discipline #57 + Matt 2026-06-02 verbatim. EMPIRICAL ANCHOR: QDX-5 produced 43.2% / 56.8% — PASS.
 
 **Substrate-honest read at this surface:** caster primaries (fire/water/earth/wind/lightning/holy/shadow — 7) + physical primary (1) compose the canonical-7+1 element vocabulary. The 40-45/55-60 distribution is the cross-roster TARGET, NOT the substrate composition — it's the genre-aligned distribution discipline that Matt + I ratified during the QDX-5 strategic-decision session.
 
@@ -155,13 +155,13 @@ Per ADR-002 tiered approval + my seam authority over dispatch authorship + Matt 
 
 The "Phase A working target: 50/50" sentence is **superseded** by this verdict's Surface A treatment. § 2.5 is amended to:
 
-> **Phase A working target:** weapon-form-token region renders the EMPIRICAL substrate ratio honestly per Discipline #41 + #59. The 50/50 working target authored in the previous version of this dispatch was at the WRONG SURFACE — the canonical-locked ~54/46 (40-45/55-60) ratio lives at the KIT-ROSTER element-axis-coverage layer per Discipline #58, not at the weapon-form-token layer. See `agentic_orchestration/gandalf/notes/2026-06-06-pattern-a-verdict-cosmograph-weapon-form-ratio.md` § 2 for three-surface disambiguation.
+> **Phase A working target:** weapon-form-token region renders the EMPIRICAL substrate ratio honestly per Discipline #41 + #59. The 50/50 working target authored in the previous version of this dispatch was at the WRONG SURFACE — the canonical-locked ~54/46 (40-45/55-60) ratio lives at the KIT-ROSTER element-axis-coverage layer per Discipline #57, not at the weapon-form-token layer. See `agentic_orchestration/gandalf/notes/2026-06-06-pattern-a-verdict-cosmograph-weapon-form-ratio.md` § 2 for three-surface disambiguation.
 
 ### 4.2 Amendment to § 4.1 step 2 (kit-roster element distribution)
 
 Step 2 is amended to add:
 
-> **Element distribution constraint (NEW per 2026-06-06 Pattern-A verdict):** kit element selection across the ~1000 sim kits is weighted to honor Discipline #58 genre-aligned distribution: physical-primary kits = 40-45% of total; caster-primary kits = 55-60% of total. Within caster primaries, distribute approximately evenly across 7 canonical elements (~7-9% each). Element-attribute coupling honors element_biases.py:28.
+> **Element distribution constraint (NEW per 2026-06-06 Pattern-A verdict):** kit element selection across the ~1000 sim kits is weighted to honor Discipline #57 genre-aligned distribution: physical-primary kits = 40-45% of total; caster-primary kits = 55-60% of total. Within caster primaries, distribute approximately evenly across 7 canonical elements (~7-9% each). Element-attribute coupling honors element_biases.py:28.
 
 I will commit these dispatch amendments concurrently with this verdict file (auto-commit authorized per CLAUDE.md team discipline; same-cycle authorship).
 
@@ -195,7 +195,7 @@ This is not a separate verdict; it's a thematic observation that reinforces the 
 - Atomic substrate registry: `canonical/story/2026-06-06-atomic-substrate-registry.md`
 - Framing-audit precedent: `agentic_orchestration/gandalf/notes/2026-06-06-framing-audit-na-substrate-blind-recognition.md`
 - Star-granularity verdict: `agentic_orchestration/gandalf/notes/2026-06-06-cosmograph-star-granularity-verdict.md`
-- Discipline #58 (genre-aligned distribution) + Matt 2026-06-02 verbatim: `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` § 58 line 2762
+- Discipline #57 (genre-aligned distribution) + Matt 2026-06-02 verbatim: `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` § 57 line 2731
 - Discipline #59 (substrate-coverage as binding quality constraint): same file § 59 line 2789
 - Discipline #41 (substrate-led / pre-authored taxonomy interrogation): same file § 41 line 1478
 - Discipline #42 (framing-audit checklist): same file § 42 line 1552
@@ -210,10 +210,10 @@ This is not a separate verdict; it's a thematic observation that reinforces the 
 ## 8. Sign-off
 
 **Authored:** gandalf 2026-06-06 per ADR-002 tiered approval + Matt 2026-05-23 hive-mind decision-routing seam-owner authority
-**Authority basis:** design-side dispatch authorship + substrate-led discipline ownership + Discipline #41 + #58 + #59 + #42 composition
+**Authority basis:** design-side dispatch authorship + substrate-led discipline ownership + Discipline #41 + #57 + #59 + #42 composition
 **Empirical anchor:** elrond Phase 0 token-level + row-level measurements (89/11 + 92/8) + QDX-5 kit-roster empirical (43.2/56.8) + element_biases.py coupling matrix
-**Escalation to Matt:** NOT NEEDED — verdict is within dispatch-authorship + substrate-led-discipline seam scope; the canonical-locked ratio per Discipline #58 is Matt-ratified substrate I'm applying, not new architectural commitment
+**Escalation to Matt:** NOT NEEDED — verdict is within dispatch-authorship + substrate-led-discipline seam scope; the canonical-locked ratio per Discipline #57 is Matt-ratified substrate I'm applying, not new architectural commitment
 **Auto-commit:** authorized per CLAUDE.md team discipline (authored as part of authorized cosmograph Phase A cycle)
-**Discipline citations applied:** #41 (substrate-led / pre-authored taxonomy interrogation), #42 (framing-audit — same-author state-import refinement), #58 (genre-aligned distribution at kit-roster layer), #59 (substrate-coverage as binding quality constraint)
+**Discipline citations applied:** #41 (substrate-led / pre-authored taxonomy interrogation), #42 (framing-audit — same-author state-import refinement), #57 (genre-aligned distribution at kit-roster layer), #59 (substrate-coverage as binding quality constraint)
 
 **End of verdict.**

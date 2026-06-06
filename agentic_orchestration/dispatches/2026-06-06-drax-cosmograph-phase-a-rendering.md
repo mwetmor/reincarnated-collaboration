@@ -39,7 +39,7 @@ Elrond Phase 4 packet delivered 2026-06-06: 570 primitive stars + 1000 PROVISION
 
 **Substrate-led discipline applied throughout:** render what the substrate says (89/11 weapon-form ratio at token level; attribute-group factional structure; provenance-tag design-history layers) — do NOT manufacture cosmetic uniformity.
 
-**Math-before-code applied (Discipline #11):** § 6 lays out the math-hotspots (lasso polygon point-in-polygon resolution; viewport culling thresholds; performance envelope projections) BEFORE drax writes code.
+**Math-before-code applied (Discipline #1):** § 6 lays out the math-hotspots (lasso polygon point-in-polygon resolution; viewport culling thresholds; performance envelope projections) BEFORE drax writes code.
 
 **Framing-audit Q1-Q3 applied at Phase 1 start** (per OP § 4 + 2026-06-06 NA-substrate-blind recognition). See § 2.1.
 
@@ -78,7 +78,7 @@ A new route + rendering surface in the `reincarnated-loadout` React/Vite app at 
 
 **Duration:** ~0.5 session drax
 **Output:** `/forge` route renders an empty Pixi.js canvas + substrate-data loaded into memory + ingestion-contract validation report
-**Discipline anchors:** framing-audit Q1-Q3 BEFORE execution (Discipline #42); math-before-code (Discipline #11); cross-seam impact (Discipline review-principle § 3); MIGRATION.md per ADR-004
+**Discipline anchors:** framing-audit Q1-Q3 BEFORE execution (Discipline #42); math-before-code (Discipline #1); empirical inspection over assumption at parquet-schema-vs-ingestion-contract validation (Discipline #11 — see § 2.5); cross-seam impact (Discipline review-principle § 3); MIGRATION.md per ADR-004
 
 ### 2.1 Framing-audit Q1-Q3 (PRE-EXECUTION)
 
@@ -132,9 +132,11 @@ Create `src/pages/Forge.tsx` with stub component that renders:
 
 **Alternative (drax discretion):** if drax prefers runtime parquet loading for symmetry with future engine deliveries, use `apache-arrow` for streaming read. Surface preference in § 9.1 Pattern-A query if non-trivial.
 
-### 2.5 Ingestion-contract validation
+### 2.5 Ingestion-contract validation (empirical inspection per Discipline #11)
 
-Before Phase 2 fires, drax validates the substrate data programmatically:
+Before Phase 2 fires, drax performs empirical inspection of the delivered substrate against the dispatch-declared ingestion contract. Discipline #11 applies: do not assume the parquet packet matches the schema this dispatch declares — verify by reading the files and asserting row counts + column populations + value ranges.
+
+Validation checks:
 1. `primitive_registry`: 570 rows present; all required columns populated; `bdi_weight ∈ [0.10, 1.00]`; `embedding_x`, `embedding_y` populated for all rows
 2. `kit_constellations`: 1000 rows present; all `is_simulated=true`; all `cell_status="PROVISIONAL"`; all `kit_name == kit_id`; all `q_scores`, `pareto_rank`, `archive_status`, `gauntlet_pass_rate` null
 3. `flag_enum_attachments`: 1000 rows; one per kit_id; mean `flag_count ≈ 15.6` ± 2
@@ -183,7 +185,7 @@ Per cosmograph-pivot record § 3 + § 4: the rendering aesthetic is **painterly 
 
 This is a **register-locked aesthetic** — Matt has ratified the painterly cosmic register at the cosmograph-pivot record level. Phase 5 polish allows refinement, but the core register is locked.
 
-### 3.3 Performance envelope (math-before-code per Discipline #11)
+### 3.3 Performance envelope (math-before-code per Discipline #1)
 
 **Projection for 570 stars at default zoom + 77 first-class stars at all zoom levels:**
 
@@ -225,7 +227,7 @@ Per `cosmograph_README.md` "Drax rendering rules" under `kit_constellations.parq
 - Constellation centroid (`centroid_x`, `centroid_y`) = label anchor point; centroid renders as small dim circle (1.5 px, alpha 0.3)
 - **NO kit_name label rendered.** The kit_name is the `bc_cell_NNNN_simulated` placeholder — visually rendering it as text would clutter the sky AND violate Option B amendment intent. On hover, the side panel shows the placeholder ID + the literal narrative string `"PROVISIONAL — engine has not yet composed this pattern."`
 
-### 4.2 Constellation spanning-line algorithm (math-before-code per Discipline #11)
+### 4.2 Constellation spanning-line algorithm (math-before-code per Discipline #1)
 
 The naive approach — draw a line from every primitive to every other primitive in the kit — produces N×(N−1)/2 lines per kit. For mean 13 primitives/kit and 1000 kits = 78,000 line segments worst-case. This will not render at 60fps.
 
@@ -302,7 +304,7 @@ Per `region_labels.json` ingestion contract:
 - "Clear" button in side panel resets lasso state
 - Optional (drax discretion): "shift-click" to add discrete primitives to the lasso set (per cosmograph-star-granularity-verdict § 4.4 DP12 lean toward click-to-add for accessibility)
 
-### 5.2 Lasso-resolution algorithm (math-before-code per Discipline #11)
+### 5.2 Lasso-resolution algorithm (math-before-code per Discipline #1)
 
 Per `cosmograph_README.md` lasso-resolution input contract + cosmograph-star-granularity-verdict § 4.3:
 
@@ -400,7 +402,7 @@ This is **honest signal** — players who notice the flags shouldn't be misled i
 
 ---
 
-## 6. Math-before-code summary (Discipline #11)
+## 6. Math-before-code summary (Discipline #1)
 
 Math hotspots that drax should validate BEFORE writing code:
 
@@ -433,7 +435,8 @@ Math hotspots that drax should validate BEFORE writing code:
 
 | Discipline | Application |
 |---|---|
-| #11 — Math-before-code | § 6 summary; performance projections precede implementation |
+| #1 — Math-before-code | § 6 summary; performance projections (lasso latency, MST line counts, sprite-batching draw calls, viewport-culling thresholds) precede implementation |
+| #11 — Empirical inspection over assumption | § 2.5 parquet-schema-vs-ingestion-contract validation BEFORE Phase 2 implementation; Phase 5 measured FPS vs projected FPS deviation check; lasso-resolve latency measurement vs projected <5 ms |
 | #18 — Math-hotspot methodology consultation | Lasso-resolution + viewport culling are math-near; standard envelope; surface only on deviation >2× |
 | #41 — Substrate-led | Render what the substrate says (attribute-group factional structure; 89/11 token ratio reflected in star coloring; provenance-tag design-history layers) |
 | #42 — Framing-audit Q1-Q3 | Applied at Phase 1 start (§ 2.1) |
@@ -514,7 +517,7 @@ When Phase 5 acceptance criteria met:
 1. Drax authors wave-close record at `agentic_orchestration/drax/cosmograph-phase-a-2026-06-XX/wave-close-record.md` capturing: Vercel preview URL + screenshots + perf measurements (FPS at default + zoom-in) + lasso-resolve latency measurements + any deviations from spec
 2. Auto-commit work-products per CLAUDE.md team commit discipline (work-products of authorized cycle / workstream)
 3. Push to remote remains Matt-explicit-authorization (default) — drax surfaces Vercel preview URL + waits for Matt push-pattern authorization OR Matt direct-confirm before pushing to production
-4. Knight-rider routes Gate-2 jack-ryan acceptance verification (10-criteria checklist § 8)
+4. Knight-rider routes Gate-2 jack-ryan acceptance verification (18-criteria checklist § 8)
 5. On Gate-2 PASS → Matt signal-receive → commission CLOSED → cosmograph-pivot record updated with Phase A landing status
 
 **Empirical-evidence triggers for downstream work:**
@@ -530,7 +533,7 @@ When Phase 5 acceptance criteria met:
 **Authored:** gandalf 2026-06-06 per Matt 2026-06-06 directive at dispatch fire time + elrond Phase 4 delivery + Option B amendment compliance + cosmograph-pivot § 9 architectural-anchor lock
 **Authority:** Matt 2026-06-06 multi-iteration design call (primitive-vocabulary lock + cosmograph Phase A commission + Option B amendment ratification)
 **Anchor evidence:** elrond Phase 4 packet (100% plausibility QA pass; Surface B 42.80/57.20 within tolerance; KMeans-k=6 emergent labels at mean purity 0.95; 7 faction halos via convex hull) + cosmograph-star-granularity-verdict Option 4 adopted + cosmograph-pivot § 9 amendment + atomic-substrate-registry CANONICAL + hypothesis-flow-pattern-library CANONICAL + Pattern-A weapon-form-ratio verdict
-**Empirical-evidence trigger for commission close:** Phase 5 Vercel preview URL operational + 15-criteria Gate-2 jack-ryan acceptance PASS + Matt signal
+**Empirical-evidence trigger for commission close:** Phase 5 Vercel preview URL operational + 18-criteria Gate-2 jack-ryan acceptance PASS + Matt signal
 **Cross-seam routing:** Gate-1 jack-ryan pre-fire review BEFORE Phase 1 fires (math-before-code Pixi.js perf + cross-seam ingestion contract validation + Pixi.js-in-loadout dependency-add review per standard critique-pair pattern); knight-rider routes when this spec lands and Matt + jack-ryan signal pre-fire ratification
 
 **End of drax cosmograph Phase A commission spec.**

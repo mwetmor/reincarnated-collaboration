@@ -40,7 +40,7 @@ Weapon-form-token region renders **~88.84% physical / ~11.16% magical at classif
 
 ### Kit-roster element-axis-coverage (Surface B — per Pattern-A verdict § 2.2)
 
-Phase 2 sim-kit element selection honors Discipline #58 genre-aligned distribution. Empirical:
+Phase 2 sim-kit element selection honors Discipline #57 genre-aligned distribution. Empirical:
 - **Physical-primary kits: 42.80%** (target 40-45% — PASS)
 - **Caster-primary kits: 57.20%** (target 55-60% — PASS)
 - **Per-caster element: 7.5%-8.9% each** (target ~7-9% — PASS)
