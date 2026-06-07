@@ -1,9 +1,51 @@
 # Criterion 3.2 — Meshy → UE 5.7 Import
 
-**Verdict:** YELLOW — awaiting rigged FBX from Matt (Meshy web app step required)
-**Date:** 2026-06-06 Session 1
+**Verdict:** YELLOW — interactive import needed; Interchange/Slate headless constraint discovered
+**Date:** 2026-06-06 Session 1 + 2026-06-07 Session 2
+**Session 2 update:** Headless import attempted (2026-06-07); Interchange/Slate constraint found; interactive import path documented below.
 **Criteria 3.1 status:** PASS ✅ — 3 meshes available at `meshy-3d-outputs/`
-**Rigging blocker:** Meshy text-to-3D API = mesh only; rigging requires Matt to run "Rig Character" in Meshy web app
+**Session 2 inputs available:**
+- Crusader biped GLBs at `C:\dev\reincarnated-collaboration\duskweaver\Meshy_AI_Crusader_of_the_Ember_biped\` — 4 animations (Idle_03, Walking, Running, Roll_Dodge_4), all with skin + skeleton + animation baked in (~28MB each)
+- Matt's spike-generated FBX: stated to be at `Content\Characters\MeshyTest\` but directory does NOT exist at session 2 start (pending Matt dropping files)
+
+## Pipeline constraint identified (Session 2 — 2026-06-07)
+
+**Empirical finding:** UE 5.7 Interchange framework requires Slate application (editor UI) for asset import operations. In headless mode (`-nullrhi -nosound`), Slate is not initialized. When `AssetImportTask` is called in headless Python, Interchange invokes the ContentBrowser + Slate for import dialogs, causing:
+
+```
+Assertion failed: CurrentApplication.IsValid()
+[File: SlateApplication.h Line: 321]
+```
+
+Callstack: `PythonScriptPlugin → AssetTools.ImportAssetTasks → InterchangeEngine → ContentBrowser → Slate` → crash.
+
+**Implication:**
+- GLB/FBX import via `AssetImportTask` is NOT headless-compatible with UE 5.7's Interchange pipeline
+- Interactive UE Editor session required for import verification
+- This is NOT a product capability limitation — it is a headless-testing tooling constraint
+- Production import workflow is always interactive anyway; this constraint does not block WS1+
+
+**Alternative headless path (for future reference):**
+- Interchange can be disabled via `Config/DefaultEditor.ini`: `[/Script/InterchangeCore.InterchangeProjectSettings] bInterchangeEnabled=False` — this reverts to old FBX importer which may be headless-safe for FBX format
+- GLB format without Interchange: NOT supported (Interchange provides GLB/glTF support; disabling Interchange = no GLB import)
+
+## Meshy image → 3D pipeline constraint (Matt, 2026-06-07)
+
+**CRITICAL PRODUCTION PIPELINE NOTE** (Matt, 2026-06-07):
+
+When passing images to Meshy for character generation (image-to-3D path):
+- **Image MUST be in T-pose or A-pose** — character with arms extended horizontally or at 45°
+- **No items in hands** — weapons, shields, tools must not appear in the reference image
+- **No secondary entities** — pets, mounts, companions, environmental objects must not appear
+
+This constraint applies to the IMAGE-TO-3D path. The text-to-3D path (used in criterion 3.1) does not have this constraint — Meshy generates T-pose automatically from text prompts.
+
+**Impact on production pipeline:**
+- Text-to-3D (criterion 3.1 path): no constraint; Meshy auto-generates T-pose
+- Image-to-3D (future path for character appearance generation from substrate reference images): T-pose/A-pose images REQUIRED
+- Museum weapon images (criterion 3.3 path): no T-pose constraint (weapons are static meshes; no skeleton needed)
+
+**Documented for WS1 commission scoping:** production character pipeline must source or generate T-pose/A-pose reference images when image-to-3D is used for character body generation.
 
 ---
 
@@ -83,4 +125,18 @@ The Meshy → UE 5.7 path is preferred (as tested in this criterion) because it'
 
 ---
 
-*Criterion 3.2 status: BLOCKED (awaiting 3.1 mesh output) — import pipeline ready; execution protocol documented.*
+## Interactive import verification protocol (for Matt)
+
+5-minute step to close criterion 3.2:
+1. Open UE 5.7 Editor at `C:\dev\reincarnated-unreal\Reincarnated\Reincarnated.uproject`
+2. In Content Browser: navigate to `Characters/MeshyTest/`
+3. Drag-and-drop `Meshy_AI_Crusader_of_the_Ember_biped_Animation_Idle_03_withSkin.glb` from Explorer
+4. In Interchange import dialog: select "Skeletal Mesh" → enable "Import Animations" → OK
+5. Verify in Content Browser: SK_Crusader + Skeleton + AnimSequence assets created
+6. Double-click Skeleton → confirm humanoid bone hierarchy (Pelvis, Spine, Arms, Legs)
+7. Screenshot the Skeleton editor → add to this file
+8. Mantis marks criterion 3.2 PASS when screenshot received
+
+**Alternatively:** if Matt places the spike-generated FBX files at `Content\Characters\MeshyTest\`, same import protocol applies.
+
+*Criterion 3.2 status: YELLOW — Interchange/Slate headless constraint found (empirical, 2026-06-07); interactive import is the correct production path; 5-minute interactive verification step needed to close to PASS.*

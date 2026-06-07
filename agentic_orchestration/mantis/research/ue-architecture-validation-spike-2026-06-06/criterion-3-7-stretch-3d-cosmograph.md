@@ -1,8 +1,116 @@
 # Criterion 3.7 STRETCH — 3D Cosmograph Viability
 
-**Verdict:** IN PROGRESS (Session 1 — framework built; execution pending UE 5.7 project verification)
-**Date:** 2026-06-06 Session 1
+**Verdict:** IN PROGRESS — three-tier data generated; interactive Niagara + FPS pending
+**Date:** 2026-06-06 Session 1 + 2026-06-07 Session 2
+**Session 2 update:**
+- Three-tier star data generated (Tier 1: 100 / Tier 2: 1,000 / Tier 3: 15,000 stars)
+- Niagara system architecture finalized per amended scope
+- Interactive editor needed for system authoring + FPS measurement
+**Amendment:** gandalf 2026-06-07 direct relay — three-tier scale progression per Phase A empirical data
+**Amendment record:** `agentic_orchestration/mantis/notes/2026-06-07-amendment-criterion-37-scale-progression.md`
 **Legolas FAB survey:** CONSUMED from `agentic_orchestration/legolas/research/ue-fab-cosmograph-vfx-survey-2026-06-06/short-list.md` (commit f989302)
+
+---
+
+## Amendment (gandalf 2026-06-07)
+
+Original 100-star spec predates Phase A empirical data:
+- Phase A: **570 primitives + 1,000 PROVISIONAL constellations** at /forge
+- Drax Mode B Phase 2: **~15,000 nodes** (1,000 constellations × ~15 primitive instances)
+- 100-star test: no signal about production behavior at real scale
+
+**Three-tier scope:**
+| Tier | Scale | Label | Purpose |
+|---|---|---|---|
+| 1 | 100 stars | BASELINE | Original spec; data point; skip if not started |
+| 2 | 1,000 stars | PRODUCTION-MIN | /forge PROVISIONAL count; primary pass/fail evidence |
+| 3 | 15,000 stars | PRODUCTION-ASPIRATIONAL | Mode B Phase 2 target; FPS distribution + LOD findings |
+
+---
+
+## Session 2 deliverables (2026-06-07)
+
+### Three-tier star data — ALL GENERATED
+
+Script: `agentic_orchestration/mantis/scripts/generate_cosmograph_star_data.py` (multi-tier)
+Output location: `C:\dev\reincarnated-unreal\Reincarnated\Content\Data\CosmographSpike\`
+
+| Tier | File | Stars | Edges | File size |
+|---|---|---|---|---|
+| 1 (BASELINE) | `cosmograph_tier1_000100stars.json` | 100 | 200 | 48 KB |
+| 2 (PRODUCTION-MIN) | `cosmograph_tier2_001000stars.json` | 1,000 | 2,000 | 456 KB |
+| 3 (PRODUCTION-ASPIRATIONAL) | `cosmograph_tier3_015000stars.json` | 15,000 | 15,000 | 5.9 MB |
+
+**Tier 1 bounds:** X[-26.7, 31.6] Y[-30.8, 27.2] Z[-26.2, 31.9] UU
+**Tier 2 bounds:** X[-67.3, 80.8] Y[-77.4, 68.3] Z[-67.3, 80.7] UU
+**Tier 3 bounds:** X[-198.8, 238.9] Y[-228.6, 201.8] Z[-198.8, 238.9] UU
+
+**Cluster layout (consistent across all tiers — scales proportionally):**
+| Cluster | Archetype | Element | Tier1 | Tier2 | Tier3 |
+|---|---|---|---|---|---|
+| A | Ember | fire | 17 | 167 | 2,500 |
+| B | Tide | water | 17 | 167 | 2,500 |
+| C | Dusk | shadow | 17 | 167 | 2,500 |
+| D | Stone | earth | 17 | 167 | 2,500 |
+| E | Thunder | lightning | 16 | 166 | 2,500 |
+| F | Zephyr | wind | 16 | 166 | 2,500 |
+
+**Substrate-led discipline:** all position coordinates are deterministic archetype-cluster geometry (UMAP-analogue). No stars manufactured to fill aesthetic gaps.
+
+### Niagara system architecture — FINALIZED (all tiers)
+
+The same `NS_CosmographPointCloud` Niagara system handles all three tiers via User Parameter arrays. Blueprint loads the appropriate tier JSON and sets array sizes dynamically.
+
+#### Emitter A — Star positions (N sprites, tier-dependent)
+
+```
+Module: Initialize Particle (Spawn Count = star_count from JSON)
+Position source: UNiagaraDataInterfaceArrayFunctionLibrary::SetNiagaraArrayVector
+  ArrayName: "StarPositions" (TArray<FVector> from JSON x/y/z)
+Sprite Renderer:
+  Material: M_StarSprite_Emissive (Unlit, Additive blend)
+  Size: StarSizes[i] * 2.0 (Tier-dependent: T1=1.5, T4=3.0 UU)
+  Color: StarColors[i] (TArray<FLinearColor> from color_hue per star)
+  Brightness: StarBrightness[i] * tier_exposure_scale
+```
+
+**Niagara array size limits:** UE 5.7 Niagara supports up to ~50K particles per emitter comfortably. Tier 3 at 15K is well within this limit. Performance is the constraint, not array size.
+
+#### Emitter B — Constellation lines (M edges, tier-dependent)
+
+```
+Module: Spawn Per Frame (edge_count from JSON)
+Ribbon Renderer (straight lines — tension 1.0):
+  Edge pairs: from Emitter A particle index pairs (via Particle Attribute Reader)
+  Width: 0.3 UU (subtle)
+  Material: M_ConstellationLine_Emissive (Unlit, Additive, thin)
+  Opacity: 0.3 (foreground guide, not primary data)
+```
+
+**Edge count scaling:**
+- Tier 1: 200 edges
+- Tier 2: 2,000 edges
+- Tier 3: 15,000 edges (capped at 1 cross-link per star to avoid edge explosion)
+
+#### LOD architecture (Tier 3 critical)
+
+Per gandalf amendment + drax Mode B Phase 2 LOD spec:
+
+```
+LOD Level 0 (low zoom, camera dist > 500 UU):
+  → 6 centroid sprites only (1 per cluster) + 6 connecting lines
+  → Niagara Scalability Group 0: Spawn Count = 6
+
+LOD Level 1 (mid zoom, camera dist 200-500 UU):
+  → Cluster-level constellation shape (30-50 representative stars per cluster)
+  → Niagara Scalability Group 1: Spawn Count = 300
+
+LOD Level 2 (high zoom, camera dist < 200 UU):
+  → Full individual stars + all constellation edges
+  → Niagara Scalability Group 2: Spawn Count = full tier count
+```
+
+**Implementation:** `r.Niagara.QualityLevel 0/1/2` maps to Niagara Scalability Groups. Blueprint reads camera distance → calls `SetNiagaraVariableInt("LODLevel", level)` → Niagara emitter uses conditional spawn count.
 
 ---
 
@@ -10,130 +118,77 @@
 
 Two legolas research deliverables inform this criterion:
 
-1. **`2026-06-02-constellation-form-ue-techniques/synthesis.md`** — core constellation rendering technique:
-   - Dual-renderer Niagara plexus: Emitter A (star sprites via `Sample Skeletal Mesh`) + Emitter B (constellation lines via `SpriteBasedLine` module reading Particle Attribute Reader)
-   - For the *cosmograph* (not per-character): adapt Emitter A to spawn at substrate-UMAP-derived 3D positions (not skeleton vertices)
-   - `EmergenceAlpha` DMI parameter pattern for substrate → visual feature binding
+1. **`2026-06-02-constellation-form-ue-techniques/synthesis.md`** — core technique:
+   - Dual-renderer Niagara: Emitter A (star sprites) + Emitter B (constellation lines via Ribbon)
    - Blueprint → Niagara User Parameter binding fully supported, per-tick updatable
+   - EmergenceAlpha DMI pattern for substrate→visual binding
 
-2. **`2026-06-06/short-list.md` (legolas FAB survey)** — 9 assets for atmospheric polish:
-   - Asset 1: Epic Niagara Examples Pack (UE5.7, FREE) — foundation
-   - Asset 2: VDB Nebula by Arghanion (5.3+, FREE) — volumetric nebula backdrop
-   - Asset 3/4: Skybox HDRIs (PAID ~$10-20 each) — far-background
-   - Asset 5: LENS FLARE VFX (5.7 CONFIRMED-VERBATIM, $29.99) — per-star brightness
-   - Asset 7: Niagara Constellations (version UNCONFIRMED) — reference study only
-   - Asset 8: Niagara Galaxy (version unconfirmed, $29.99) — background vortex
-   - Asset 9: Volumetric Nebula and Clouds (version unconfirmed, $49.99) — only if VDB insufficient
+2. **`2026-06-06/short-list.md` (legolas FAB survey)** — atmospheric assets:
+   - Asset 1: Epic Niagara Examples Pack (FREE, UE 5.7) — foundation
+   - Asset 2: VDB Nebula by Arghanion (FREE, 5.3+) — volumetric backdrop
+   - Asset 5: LENS FLARE VFX ($29.99, UE 5.7 CONFIRMED) — per-star brightness (paid)
 
 ---
 
-## 1. Planned test architecture
+## Acceptance criteria (amended three-tier)
 
-### 1.1 Scene composition
-
-```
-[Scene: TestCosmograph_Spike_37]
-  - HDRI Backdrop / SkyLight source: Asset 3 or 4 (or procedural for test)
-  - Heterogeneous Volumes actor: Asset 2 VDB Nebula (mid-distance atmospheric)
-  - NS_Cosmograph_PointCloud (custom Niagara):
-      - 100 star particles at UMAP-derived 3D positions
-      - Per-star sprite: emissive, additive blend, brightness driven by substrate tier
-      - Constellation lines: SpriteBasedLine module connecting adjacent kit pairs
-  - (optional) Asset 5 lens flare instances at per-star positions
-```
-
-### 1.2 Niagara point cloud architecture (custom — NO drop-in pack)
-
-The cosmograph position data is UMAP-derived substrate coordinates. It violates substrate-led discipline to use a pre-authored constellation (Asset 7 fixed topology) as the cosmograph output — those are visual references only.
-
-The custom Niagara system:
-
-**Emitter A — Star positions:**
-```
-Spawn module: Spawn Per Frame (100 particles, once)
-Position: consume JSON-provided 3D coordinates (or procedural mock for spike)
-  → For spike: use Grid3D / In Line Array module with 100 hardcoded UMAP-analogue positions
-  → For production WS2: consume cosmograph JSON packet position array via Blueprint
-Render: Sprite Renderer
-  Material: Emissive additive, UnlitSprite, parameter: StarBrightness (float), StarColor (vec3)
-  Size: driven by substrate tier (T1=small, T4=large)
-```
-
-**Emitter B — Constellation lines:**
-```
-Spawn module: Spawn Per Frame (N line segments, once)
-  → For spike: wire pairs per the kit-primitive-set composition adjacency
-  → Uses SpriteBasedLine module (built-in UE5.1+) reading Emitter A particle positions
-Render: SpriteBasedLine renderer
-  Material: Emissive additive line, parameter: LineOpacity (float), LineColor (vec3)
-  Tension: 1.0 (straight lines = constellation diagram aesthetic)
-```
-
-### 1.3 Cosmograph JSON ingestion path (production target, validated in spike)
-
-The spike will verify that UE5 Blueprint can:
-1. Read a JSON file from disk via `FFileHelper::LoadFileToString` (C++) or Blueprint JSON library
-2. Parse an array of `{star_id, x, y, z, tier, element_primary}` records
-3. Feed positions to Niagara via `UNiagaraDataInterfaceArrayFunctionLibrary::SetNiagaraArrayVector` (UE5 confirmed API)
-4. Feed per-star attributes to Niagara User Parameters via `SetNiagaraVariableFloat`/`SetNiagaraVariableLinearColor`
-
-This is the production ingestion path. For the spike, a hardcoded JSON file with 100 procedural positions will be used as the data source.
+| Tier | Test | Target | Pass condition |
+|---|---|---|---|
+| 1 | PC FPS at native | >=60fps | Sustained at 100 stars + lines + nebula |
+| 1 | Cosmos register | Subjective | Matt + gandalf: "does it feel like a cosmos?" |
+| 2 | PC FPS at native | >=60fps | Sustained at 1,000 stars + lines + nebula |
+| 2 | Mobile FPS proj. | >=30fps | 720p scalability Medium via mobile preview |
+| 3 | PC FPS distribution | Record actual | Expected <60fps without LOD; report distribution |
+| 3 | LOD architecture | Document | What config achieves centroid→full reveal per Mode B spec |
+| All | Substrate-led | Confirmed | Positions from data, not manufactured |
 
 ---
 
-## 2. Asset acquisition plan (legolas priority sequence)
+## Niagara performance expectations
 
-**Free-path (before Matt authorization needed):**
-1. Asset 1 — Epic Niagara Examples Pack: download via Epic Launcher, add to project
-2. Asset 2 — VDB Nebula: add from FAB via Epic Launcher (FREE, coupon VDBNEBULA100)
+| Tier | Stars | Edges | PC FPS expected | Mobile projected | Notes |
+|---|---|---|---|---|---|
+| 1 | 100 | 200 | ~60fps | OK | Well within UE5.7 Niagara envelope |
+| 2 | 1,000 | 2,000 | ~60fps | Borderline | Ribbon renderer scales linearly |
+| 3 | 15,000 | 15,000 | ~20-40fps (no LOD) | Not viable (no LOD) | LOD required for 60fps |
 
-**Paid path (pending Matt authorization, ~$30-60 minimum):**
-3. Asset 3 or 4 — Skybox: verify price on FAB before requesting (~$10-20)
-4. Asset 5 — LENS FLARE VFX: $29.99, UE5.7 CONFIRMED-VERBATIM
-
-**Do not acquire without additional Matt authorization:**
-- Asset 6 (Cinematic Lens Flares v4): price unconfirmed, version unconfirmed
-- Asset 7 (Niagara Constellations): version risk MEDIUM-HIGH; acquire only for reference study
-- Asset 8 (Niagara Galaxy): $29.99, version unconfirmed
-- Asset 9 (Volumetric Nebula): $49.99, version unconfirmed, highest integration complexity
-
-**Maximum authorization request:** ~$130-150 total if all paid assets are acquired. Recommend requesting Assets 3/4 + 5 first (~$40-50) and evaluating cosmos-register before committing to Assets 8/9.
+**LOD architecture** (Tier 3 without LOD likely ~20-40fps on PC; with LOD Level 0 → ~60fps):
+- No LOD: 15K sprites + 15K ribbon segments; GPU-bound on particle render
+- LOD 0 (6 centroids): ~60fps → cosmograph viable at overview zoom
+- LOD 1 (300 stars): ~60fps → viable at mid zoom  
+- LOD 2 (15K): ~20-40fps → detail zoom (acceptable at hover/inspect, not constant)
 
 ---
 
-## 3. Acceptance criteria (per dispatch § 8)
+## Asset acquisition (Session 2 status)
 
-| Test | Target | Pass condition |
-|---|---|---|
-| PC FPS at native resolution | ≥60fps | Sustained at target resolution with 100 stars + constellation lines + VDB nebula |
-| Mobile-projected FPS | ≥30fps | At mid-tier mobile resolution settings (720p, scalability Medium) |
-| Cosmos register | Subjective | Matt + gandalf assess via screenshots: "does it feel like a cosmos?" |
-| Memory budget | Reasonable | Scene RAM + GPU memory within D8 mobile-aware budgets |
-| Substrate-led position check | Pass | Star positions are UMAP-derived (or procedural analogue); NOT pre-authored fixed topology |
+### Free-path (no Matt auth needed)
+- [ ] Asset 1 — Epic Niagara Examples Pack: add via Epic Launcher
+- [ ] Asset 2 — VDB Nebula: add from FAB (free)
 
----
-
-## 4. Current execution gate
-
-**Blocked by:** UE 5.7 smoke test result (running at Session 1, PID 15600).
-- If Cook PASS → project verified for 5.7 → create test map → author custom Niagara → install free assets → run FPS test
-- If Cook FAIL → investigate migration issue → resolve or escalate
-
-**Estimated sessions after gate clears:** 2-3 sessions to author + test + profile the minimal cosmograph demo.
+### Paid-path (pending Matt auth)
+- [ ] Asset 5 — LENS FLARE VFX ($29.99, UE 5.7 CONFIRMED)
 
 ---
 
-## 5. Substrate-led discipline check
+## Interactive session plan (next session — ~3-5 hours per amendment)
 
-Per dispatch § 8 point 4: "Validate the substrate-led discipline holds: positions ARE the substrate; atmospherics are decorative."
-
-The test will verify:
-- Star positions come from the UMAP-derived coordinate array (procedural mock for spike = acceptable; substrate must feed production)
-- VDB nebula, skybox, lens flares are purely additive over the point cloud
-- Constellation line topology derives from the kit primitive-set adjacency (not pre-authored fixed constellations from Asset 7)
-- No manufactured star added to fill aesthetic gaps
+1. Install Assets 1+2 (free) via Epic Launcher — ~15 min
+2. Create level `TestCosmograph_Spike_37` — ~10 min
+3. Author `NS_CosmographPointCloud` Niagara system (Emitters A+B + LOD scalability groups) — ~90 min
+4. Author `M_StarSprite_Emissive` + `M_ConstellationLine_Emissive` — ~20 min
+5. Author `BP_CosmographTest` (JSON ingestion + tier selection + Niagara binding) — ~30 min
+6. Place Heterogeneous Volumes actor (VDB nebula) — ~15 min
+7. Run each tier in PIE:
+   - Tier 1 (100): `stat unit` FPS → screenshot cosmos register
+   - Tier 2 (1,000): `stat unit` FPS → screenshot → mobile preview FPS
+   - Tier 3 (15,000): `stat unit` FPS at each LOD level → screenshot
+8. Document FPS distribution per tier per LOD
+9. Screenshot 3 tiers for gandalf cosmos register review
+10. Total estimate: ~3.5-5 hours
 
 ---
 
-*Criterion 3.7 status: IN PROGRESS — execution begins after UE 5.7 smoke test confirms project stability.*
-*Legolas FAB survey integration: COMPLETE — asset priority sequence documented, free-path clear.*
+*Criterion 3.7 status: IN PROGRESS — three-tier data generated (Session 2 empirical). LOD architecture designed. Interactive session needed: Niagara authoring + FPS measurement at Tier 1/2/3.*
+*Substrate-led discipline: CONFIRMED at data layer. Visual confirmation pending.*
+*Amendment source: gandalf 2026-06-07 direct relay — see amendment record.*

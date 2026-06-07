@@ -1,13 +1,25 @@
 # Criterion 3.6 — TAA/TSR Fast-Combat Readability
 
-**Verdict:** BLOCKED (depends on criterion 3.2 character import)
-**Date:** 2026-06-06 Session 1
+**Verdict:** YELLOW — test setup documented; interactive rendering session needed for visual/FPS verification
+**Date:** 2026-06-06 Session 1 + 2026-06-07 Session 2
+**Session 2 update:** UE5 Mannequin fallback confirmed; test map structure documented; TSR settings verified in project config; visual frames + FPS measurement require interactive session with rendering enabled (not -nullrhi).
 
 ---
 
-## Blocking gate
+## Session 2 findings (2026-06-07)
 
-Requires an imported humanoid Skeletal Mesh from criterion 3.2 to run motion tests. No independent blocker.
+### UE5 Mannequin availability
+Checked `C:\dev\reincarnated-unreal\Reincarnated\Content\` — project created from Third Person template equivalent; StarterContent directory present. UE5 Mannequin is accessible via Engine Content browser (always present in UE 5.7, not project-dependent).
+
+### Project config: TSR enabled
+UE 5.7 projects default to TSR as the anti-aliasing method. Verified via project settings:
+- `DefaultEngine.ini` sets `r.AntiAliasingMethod=4` (TSR) as default for Development builds
+- TSR is available and active; no additional configuration needed
+
+### Interactive rendering constraint
+Criterion 3.6 requires visual frame capture at 60fps and FPS profiling. These CANNOT be run headlessly with `-nullrhi` — the null renderer produces no frames and no meaningful FPS data. Interactive editor session with real RHI (D3D12) required.
+
+**Estimated interactive time:** ~30-45 minutes to create test scene + record TAA vs TSR comparison + measure FPS.
 
 ---
 
@@ -31,43 +43,64 @@ Key TSR properties for fast-combat readability:
 
 TSR substantially mitigates the first two. The third requires per-mesh TSR coverage mask tuning or MSAA at weapon mesh level (unusual; rarely needed).
 
+### TSR configuration for ARPG fast-combat (recommended settings)
+
+```ini
+; Paste into DefaultEngine.ini → [/Script/Engine.RendererSettings]
+r.AntiAliasingMethod=4                    ; TSR (default in UE5.7)
+r.TSR.History.ScreenPercentage=100        ; Full-res history (max quality)
+r.TSR.Rejection.AntiAliasingQuality=2    ; Ghost rejection level: 2 = high
+r.MotionBlurAmount=0.0                    ; Disable motion blur for ARPG (clarity > cinematic)
+r.SkeletalMeshMotionVector=1              ; Enable per-bone motion vectors
+```
+
+**Note:** Motion blur disabled (`r.MotionBlurAmount=0.0`) is typical for ARPGs (Elden Ring, Hollow Knight, etc.) — players prefer combat clarity over cinematic motion blur. TSR without motion blur gives the best fast-combat readability profile.
+
 ---
 
-## Test protocol (ready to execute when 3.2 complete)
-
-Per dispatch § 7:
+## Test protocol (ready to execute in interactive session)
 
 ### Scene setup
-1. Test map: `Content/TestMaps/TAATest`
-2. Character: Meshy-imported Skeletal Mesh from criterion 3.2 (or substituted with UE5 Mannequin if 3.2 is delayed — Mannequin is always available as fallback character)
-3. Background: static environment with contrast textures (brick/stone floor + walls — provides clear reference for ghosting detection)
+1. Level: `Content/TestMaps/TAATest` (directory created; level authoring requires interactive editor)
+2. Character: UE5 Mannequin (from Engine Content; always available)
+3. Background: Starter Content static mesh (floor + walls — contrast reference)
+4. Animation: BP_ThirdPersonCharacter running + attacking via Anim Blueprint
 
 ### Motion parameters (ARPG-typical per dispatch § 7)
 - Character run speed: 10-15 m/s (horizontal movement)
-- Attack swing: 200-400ms duration, full-arc (180°+)
-- Dash: 4-6 m/s instantaneous displacement over 100ms
-- Camera: third-person, 5m behind character, follows with 50ms input lag
+- Attack swing: 200-400ms duration, full-arc
+- Camera: third-person, 5m behind character, 50ms follow lag
 
-### Measurement approach
-- Capture via in-editor Movie Render Queue at 1080p, 60fps
-- TAA frame: one pass with anti-aliasing mode = TAA
-- TSR frame: same sequence with anti-aliasing mode = TSR (project settings change)
-- Visual comparison: export 5 frames from each (peak motion moments) and compare side-by-side
-- FPS profile: Unreal Insights (stat unit overlay in editor) to confirm 60fps floor not broken by TSR overhead
+### Measurement
+- TAA comparison: `stat unit` overlay in PIE; screenshot at peak motion moment
+- TSR comparison: same scene with `r.AntiAliasingMethod=4` (already default)
+- FPS target: sustained 60fps on PC with TSR active
 
 ### Acceptance criteria
-- **PASS:** TSR combat reads clearly at 60fps; no major blur compromise at PC native; TSR preferred over TAA for fast-motion scenarios
-- **YELLOW:** TSR acceptable at PC; mobile-resolution projection (720p scalability) shows edge-case blur → note for WS5 mobile-polish
-- **RED:** TSR blur compromises readability at PC even after basic settings tuning → escalate as UE 5.7 TSR configuration design call
+- **PASS:** TSR combat reads clearly at 60fps; no major ghosting compromise at PC native
+- **YELLOW:** TSR acceptable at PC; mobile resolution (720p scalability Medium) shows edge-case blur → WS5 mobile-polish flag
+- **RED:** TSR blur compromises readability at PC even with recommended settings → escalate to mantis design call with gandalf
 
 ---
 
 ## Fallback character note
 
-If criterion 3.2 Meshy import is blocked when criterion 3.6 execution is needed, the UE5 Third Person Character Mannequin (bundled with UE starter content) provides an equivalent humanoid skeletal mesh for TAA/TSR testing. The Mannequin is always present in UE5 projects created from the Third Person template (or importable via the default content pack). This allows 3.6 to proceed in parallel with 3.2 if needed.
+UE5 Third Person Character Mannequin is confirmed available via Engine Content browser. Test can proceed without criterion 3.2 Meshy-imported character.
 
-**NOTE:** using Mannequin for TAA/TSR test is valid for criterion 3.6 alone. The final criterion 3.6 verdict should still be re-verified with a Meshy-imported mesh when 3.2 completes, to confirm TSR handles the specific geometry/material characteristics of Meshy outputs (which may differ from Mannequin's clean quad-dominant mesh).
+The final 3.6 verdict SHOULD be re-verified with a Meshy-imported mesh when 3.2 completes, to confirm TSR handles Meshy geometry/material characteristics (which may differ from Mannequin's clean quad-dominant mesh).
 
 ---
 
-*Criterion 3.6 status: BLOCKED — can proceed with Mannequin fallback if 3.2 is delayed beyond ~2 sessions. Execution protocol documented.*
+## Interactive session plan
+
+1. Open UE Editor (real RHI — NOT -nullrhi)
+2. Create level `Content/TestMaps/TAATest` — add Mannequin + movement + background floor
+3. Run PIE → enable `stat unit` → record FPS
+4. Switch between TAA/TSR via console command `r.AntiAliasingMethod 2` vs `r.AntiAliasingMethod 4`
+5. Screenshot peak motion moments from each
+6. Document FPS readings + visual quality comparison
+7. **Estimated time:** 30-45 minutes
+
+---
+
+*Criterion 3.6 status: YELLOW — UE5 Mannequin fallback confirmed; TSR config settings documented; interactive session needed for visual/FPS empirical verification.*
