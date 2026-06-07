@@ -33,7 +33,7 @@ Six primary criteria + one stretch criterion for the UE architecture-validation 
 | # | Criterion | Verdict | Remaining gate |
 |---|---|---|---|
 | 3.1 | JSON → Meshy | **PASS** ✅ | — |
-| 3.2 | Meshy → UE 5.7 | **YELLOW** | Interactive import (5 min); or Matt drops FBX to MeshyTest/ |
+| 3.2 | Meshy → UE 5.7 | **PASS** ✅ | Closed Session 3 — skeleton hierarchy clean (Hips root, ~24 bones, Mixamo convention); idle anim confirmed matching Meshy source |
 | 3.3 | Image-pass-through | **PASS** ✅ | — |
 | 3.4 | Niagara JSON | **PASS (data)** / PENDING visual | Interactive PIE (45-60 min) |
 | 3.5 | PCG geo-spatial | **DEFERRED** | Engine geo-spatial JSON (star-lord/gamora scope) |
