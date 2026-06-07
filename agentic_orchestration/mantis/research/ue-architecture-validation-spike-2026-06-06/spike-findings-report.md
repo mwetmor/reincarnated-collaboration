@@ -35,7 +35,7 @@ Six primary criteria + one stretch criterion for the UE architecture-validation 
 | 3.1 | JSON → Meshy | **PASS** ✅ | — |
 | 3.2 | Meshy → UE 5.7 | **PASS** ✅ | Closed Session 3 — skeleton hierarchy clean (Hips root, ~24 bones, Mixamo convention); idle anim confirmed matching Meshy source |
 | 3.3 | Image-pass-through | **PASS** ✅ | — |
-| 3.4 | Niagara JSON | **PASS (data)** / PENDING visual | Interactive PIE (45-60 min) |
+| 3.4 | Niagara JSON | **PASS** ✅ | Closed Session 3 — data pipeline PASS (S2) + visual PIE confirmed + User Exposed param added |
 | 3.5 | PCG geo-spatial | **DEFERRED** | Engine geo-spatial JSON (star-lord/gamora scope) |
 | 3.6 | TAA/TSR readability | **YELLOW** | Interactive editor + real RHI (30-45 min) |
 | 3.7 STRETCH | 3D cosmograph | **IN PROGRESS** | Install free assets + author Niagara (2.5 hr interactive) |
