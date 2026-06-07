@@ -4,6 +4,45 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-06-06 — Cosmograph Phase A creation-moment manifestation CLOSED (production deploy live; first creation-moment surface validated)
+
+**Event:** First creation-moment manifestation of the future-engine substrate at production `/forge` route. End-to-end Phase A round-trip closed across elrond (substrate-trace extraction) + gandalf (commission authoring + Pattern-A adjudication + Gate-1 amendments + wave-close authoring) + drax (5-phase rendering + 3 post-Gate-2 polish phases) + jack-ryan (Gate-1 PASS-WITH-AMENDMENTS + Gate-2 PASS-CLEAN-MERGE) + Matt (Path-A-feature push directive + final preview ratification). Architecture per `canonical/story/2026-06-05-cosmograph-pivot.md` § 9 (primitive-as-star + kit-as-constellation) + Option B amendment (ALL constellations PROVISIONAL until cycle 15+ regenerates against future-engine substrate; cycle 14 corpus untouched at `/loadout`).
+
+**Production state:**
+- Live `/forge` route auto-deployed from `origin/main` `6907acc` (loadout repo merge of `cosmograph/phase-a-preview`)
+- 570 substrate-honest primitive stars + 1000 sim PROVISIONAL constellations + 7 attribute-group faction halos + 6 emergent mechanic-family labels + tier annotation block + substrate-honest disclosures
+- Pointer/Lasso mode toggle (default Pointer + grab cursor; opt-in Lasso + crosshair); zoom + pan via native DOM events; lasso coord-transform stage-local
+- D7 placeholder-only throughout; cycle-14 corpus untouched at `/loadout`
+- Surface A weapon-form ~88.84/11.16 substrate-honest + Surface B kit-roster 42.80/57.20 within Discipline #57 target + Surface C element-attribute coupling honest
+- $0 LLM cost end-to-end
+
+**Substrate-led discipline arc (Discipline #41 + #59 honored end-to-end):** six substrate-honest reveals preserved against pressure to manufacture cosmetic uniformity — weapon-form Surface A; mechanic flat-enumeration with emergent KMeans-k=6 family structure; engine ground-truth counts (28 geometries / 8 T4 strategies / 109 sub-elements / 570 total primitives) over dispatch estimates; faction structure attribute-group not per-element; center-of-canvas uncharted sky honest empty; tier annotation block (not canvas-wide bands).
+
+**Empirical-inspection arc (Discipline #11) — seven substrate-truths caught during execution:** 27 unique provenance_tags vs ~10 projected; 11 flag families vs 17 (audit GREEN at Gate-2); MST edge count 33,318 vs 12K projected (2.75× triggered Discipline #18 — cull-by-default verdict per gandalf); element nodes empty `element_coupling_json` (color resolved from `primitive_id` suffix); T4_DEFENSIVE_TRADEOFF bdi_weight=0.20 confirmed; Surface B 42.80/57.20 PASS; Surface A weapon-form ratio computed empirically at Phase 0 framing-audit before Phase 2 manufacture risk.
+
+**Interaction-architecture arc — three Pixi v7 event-routing nuances resolved at post-Gate-2 polish:**
+- Phase 5b lasso coord-transform: `toStageLocal` inverse helper (stage transform inverse for `FederatedPointerEvent.globalX/Y` → stage-local UMAP coords)
+- Phase 5c pan event-routing: native DOM events on container + document (Pixi federated pointermove fails mid-drag when stage-local position exits `hitArea`)
+- Phase 5d uncharted-sky UX copy (substrate-honest empty-state preserved; 0.300 composite-score threshold load-bearing per dispatch § 5.2 unchanged)
+
+**Continuation criteria (4 items per gandalf wave-close § 6; empirical-evidence triggers per Discipline #22):**
+- **Phase B trigger:** cycle 15+ kit regeneration against future-engine substrate produces real kits → progressively replace PROVISIONAL constellations
+- **LOD optimization trigger:** sustained FPS p95 < 30 for ≥3 seconds via in-app ticker (pre-optimization prohibited per Discipline #41)
+- **Substrate-enrichment workstream queue:** magical weapon-form-token coverage 11.16% → closer to canonical-locked ratio when located
+- **Open design question (drax flagged):** `/forge` soft pan-bounds vs unbounded pan — empirical via Matt + son playtest patterns
+
+**Decisions-log entry recommendation routed for jack-ryan evaluation:** gandalf wave-close § 8 surfaces candidate entry `2026-06-06: Cosmograph Phase A creation-moment manifestation — primitive-as-star + kit-as-constellation architecture validated empirically`. Per ownership boundary (jack-ryan owns decisions-log writes), open for next-session disposition.
+
+**Authoritative wave-close record:** `canonical/story/2026-06-06-cosmograph-phase-a-creation-moment-wave-close.md` (commit `5bb8670`)
+**Session handoff:** `agentic_orchestration/skill_handoff_2026-06-06-cosmograph-phase-a-close.md`
+**Production merge commit:** `6907acc` on `origin/main` (loadout repo); meta-repo push deferred per ADR-006 default (open for Matt disposition at session-boundary)
+
+**Pending Matt-explicit-authorization at this entry:**
+- Meta-repo push to origin (committed locally; no production impact; open for next-session disposition)
+- Jack-ryan decisions-log entry evaluation (per ownership boundary)
+
+---
+
 ## 2026-06-02 — Engineering disciplines #56 / #57 / #59 ratified (QDX-8 wave-close); #53 third founding instance recorded; #60 queued
 
 **Event:** jack-ryan QDX-8 wave-close discipline ratification. 5 candidates evaluated (#56 through #60); 3 RATIFIED + canonical write; 1 DECLINED as redundant (founding instance added to existing discipline instead); 1 QUEUED with empirical-evidence trigger named.
