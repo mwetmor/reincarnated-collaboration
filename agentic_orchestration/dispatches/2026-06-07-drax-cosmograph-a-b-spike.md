@@ -269,6 +269,40 @@ Per the framing-audit checklist applied at dispatch consumption:
 
 **Routing:** drax consumes at session-start; Phase 1 returns to gandalf for ratification; Phase 2 fires conditionally; jack-ryan Gate-2 at spike close.
 
+---
+
+## Phase 2 completion record
+
+**Phase 2 completed:** drax 2026-06-07
+**Verdict:** GREEN — full corpus rendering confirmed at 1000-kit scale. LOD toggle operational.
+
+**Key Phase 2 findings:**
+
+1. **Force-directed layout abandoned at full corpus:** F-R repulsion + Jaccard-spring collapses all 1000 centroids to ~40px separation at full corpus (Jaccard uniformly ~0.224 — no clustering gradient). Grid layout with element-sort adopted instead. Min NN distance: 172.5px > 140px threshold ✓.
+
+2. **LOD architecture operational:** Centroid dots at normalizedZoom < 2.0; full star clusters (18,607 first-class nodes) at ≥ 2.0. LOD switch is single-frame (layer visibility toggle, no redraw). 60 FPS in both modes.
+
+3. **Element-regional clustering visible at dot view:** Orange/red (fire+lightning) region left, blue (water+wind) center, gray (physical) right — legible at initial 1.0× zoom.
+
+4. **Gate-1 Finding 4 REFUTED (confirmed at Phase 2 scale):** UMAP centroid_x/y degenerate for Mode B — structural at all corpus sizes. Grid layout is correct approach. TODO(drax) annotated in code. Elrond Phase B kit-to-kit similarity 2D embedding commission flagged if improved macro-pattern needed.
+
+5. **Lasso in Mode B:** Functional at 2×+ zoom (star mode only). World-space transform + viewport culling. `scoreKitsByPrimitiveSet` fixes Phase 1 bug where Mode A positions fed Mode B scores.
+
+**Force-config Phase 2 lock:**
+Grid: 32×32, WORLD_W=9000, WORLD_H=7000, JITTER=20px, MAX_CONSTELLATION_RADIUS=70px.
+Sunflower spiral Stage 2. Centroid dots: 16px inner / 32px outer world-space radius.
+LOD_ZOOM_THRESHOLD = 2.0 (normalized).
+
+**Vercel preview URL:** `https://reincarnated-loadout-krulytb91-matthew-wetmore-s-projects.vercel.app`
+*(Behind Vercel auth; Mode A and Mode B toggle operational. Phase 2 commits: bb7176c + e63f667)*
+
+**Deliverables:**
+- `agentic_orchestration/drax/notes/2026-06-07-cosmograph-a-b-spike/phase-2-full-corpus-findings.md` — full findings + verdict
+- `agentic_orchestration/drax/notes/2026-06-07-cosmograph-a-b-spike/phase-2-screenshot-primitive-full.png` — Mode A production render
+- `agentic_orchestration/drax/notes/2026-06-07-cosmograph-a-b-spike/phase-2-screenshot-constellation-full.png` — Mode B Phase 2 full corpus (1000 dots at 1.0× zoom)
+
+**Routing:** Surface to gandalf for mode-disposition verdict. jack-ryan Gate-2 at spike close per dispatch § 5.2.
+
 **End of dispatch.**
 
 ---
