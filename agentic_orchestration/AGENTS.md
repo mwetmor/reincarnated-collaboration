@@ -27,14 +27,16 @@ This team is structured to attack all four. It is **not** primarily about parall
 
 ---
 
-## 2. Team topology — 10 entities
+## 2. Team topology — 11 Mac-resident + 3 PC-resident = 14 entities (federated as of 2026-06-07)
+
+### Mac-resident team (11 entities)
 
 | Entity | Role | Model | Writes production code? |
 |---|---|---|---|
 | **Matt** (Senior Architect) | Final approval; design direction | (human) | No (reviews) |
-| `knight-rider` | Orchestrator / Communicator | Opus | **No** — coordinates only |
-| `jack-ryan` | Analyst / QA — technical critique side | Sonnet | **No** — reviews + maintains design docs |
-| `gandalf` | Story and Design Steward — generative critique side | **Opus** | **No** — design docs and pushback only |
+| `knight-rider` | Orchestrator / Communicator (Mac-side) | Opus | **No** — coordinates only |
+| `jack-ryan` | Analyst / QA — technical critique side (Mac-side) | Sonnet | **No** — reviews + maintains design docs |
+| `gandalf` | Story and Design Steward — generative critique side (Mac-side) | **Opus** | **No** — design docs and pushback only |
 | `rocket` | Developer (content generation) | Sonnet | Yes |
 | `gamora` | Developer (simulation + spirit guide) | Sonnet | Yes |
 | `star-lord` | Developer (output / telemetry / LLM) | Sonnet | Yes |
@@ -43,18 +45,34 @@ This team is structured to attack all four. It is **not** primarily about parall
 | `elrond` | Data Steward — external + cross-cutting data layers | **Opus** | **No** — schemas, curation, abstraction analysis |
 | `galadriel` | Visual Perception and UX-Similarity Steward — screenshot capture, computer-vision pipelines, similarity scoring, benchmark reports against genre-peer references | **Opus** | **No** — read-only across production code; writes pipeline scripts + rubrics + benchmark evidence inside her own working tree |
 
-**Critique-pair pattern:** jack-ryan (technical/process) and gandalf (thematic/experiential) form the two-sided critique pair for major decisions. Knight-rider invokes both during decision loops when appropriate.
+### PC-resident team (3 federated counterparts + 1 specialist; added 2026-06-07 per `canonical/story/2026-06-07-federated-pc-team-architecture-commit.md`)
 
-**Research + data pattern:** legolas (raw research and crawl) and elrond (curation and abstraction analysis) form the knowledge-acquisition pair. Commissions flow from knight-rider or gandalf; output lands at `agentic_orchestration/research/`.
+| Entity | Role | Model | Writes production code? | Counterpart to |
+|---|---|---|---|---|
+| `david-h` | PC-side orchestrator | Opus | **No** — coordinates PC-seam only | Mac-`knight-rider` |
+| `radagast` | PC-side design steward (Brown wizard; domain-bound; non-competing with Gandalf for primacy) | **Opus** | **No** — PC-seam design docs and pushback only; cross-cutting routes via Mac-gandalf consultation | Mac-`gandalf` |
+| `sam` | PC-side QA gatekeeper (Sam Fisher persona; Tom-Clancy-genre tactical operator) | Sonnet | **No** — PC-seam Gate-1 + Gate-2 reviews; proposes decisions-log + discipline entries to Mac-jack-ryan via consultation | Mac-`jack-ryan` |
+| `mantis` | Developer (Unreal Engine 5.7 seam; `reincarnated-unreal/` at `C:\dev\reincarnated-unreal\`) | Sonnet | Yes (PC-resident; SSH-invoked from Mac) | (no Mac counterpart) |
 
-### Authority tiers (codified 2026-05-16)
+**Federated architecture pattern:** PC-resident counterparts have **seam-bound authority** — primary on PC-seam work (UE patterns, Niagara, Mutable, weapon-sockets, asset pipeline, rendering, animation); Mac-resident counterparts hold primary on cross-cutting + Mac-resident seams. Cross-host coordination via **file-based message bus** (commit + push + fetch on shared meta-repo). See `canonical/story/2026-06-07-federated-pc-team-architecture-commit.md` for ownership boundary table + cross-host coordination protocol + drift-discipline codification.
+
+**Critique-pair pattern:** jack-ryan (technical/process) and gandalf (thematic/experiential) form the Mac-side critique pair for major decisions. **PC-side** parallel: Sam (technical/process) and Radagast (thematic/experiential) form the PC-side critique pair for PC-seam decisions. Pattern E autonomous-pair ratification fires within-host (Mac trio for Mac-seam; PC trio for PC-seam). Cross-host critique-pair ratifications route via consultation.
+
+**Research + data pattern:** legolas (raw research and crawl) and elrond (curation and abstraction analysis) form the knowledge-acquisition pair. Commissions flow from knight-rider or gandalf (Mac-side primary). PC-side requests for research route via consultation to Mac-gandalf.
+
+**Decision-routing model (Matt invocation table):** see `canonical/story/2026-06-07-federated-pc-team-architecture-commit.md` § 5.1 for the full routing table. Summary: invoke David-H for PC orchestration; invoke Radagast for PC design dialogue; invoke Sam for PC QA gate; invoke mantis directly for UE execution; invoke KR for cross-host or Mac orchestration.
+
+### Authority tiers (codified 2026-05-16; federated PC team amendment 2026-06-07)
 
 | Tier | Entities | Authority profile |
 |---|---|---|
-| **A — Senior critics/stewards** | gandalf, jack-ryan | Non-implementing. Recommend, push back, gate design decisions. Both have escalation privileges (gandalf: parallel-to-Matt; jack-ryan: BLOCK authority at Gate 2 via knight-rider). |
-| **B — Orchestrator** | knight-rider | Coordinates; never owns files; never critiques design. |
+| **A — Senior critics/stewards (Mac)** | gandalf, jack-ryan | Non-implementing. Recommend, push back, gate design decisions. Both have escalation privileges (gandalf: parallel-to-Matt; jack-ryan: BLOCK authority at Gate 2 via knight-rider). Hold cross-cutting canonical-write authority. |
+| **A — Senior critics/stewards (PC; seam-bound)** | radagast, sam | Non-implementing. Recommend, push back, gate PC-seam design decisions. PC-seam-scoped authority; cross-cutting routes via Mac counterpart consultation per `canonical/story/2026-06-07-federated-pc-team-architecture-commit.md` § 6. Pattern E autonomous-pair ratification within PC seam. |
+| **B — Orchestrator (Mac)** | knight-rider | Coordinates Mac-seam + cross-host workstreams; never owns files; never critiques design. Cross-host primary orchestrator. |
+| **B — Orchestrator (PC; seam-bound)** | david-h | Coordinates PC-seam only; never owns files; cross-host coordination to Mac-KR via consultation. |
 | **C+ — Implementers with steward authority** | elrond, galadriel | elrond owns concrete artifacts (schemas, databases, curation) with steward authority *within data domain*. galadriel owns visual-perception artifacts (capture pipeline, rubrics, similarity scoring, benchmark reports) with steward authority *within visual-perception domain*. Neither critiques outside their domain; escalation through knight-rider only (galadriel does NOT have parallel-escalation privilege — that's gandalf's asymmetry). |
-| **C — Implementers/specialists** | rocket, gamora, star-lord, drax, legolas | Own concrete seam work; dispatched; produce artifacts; report completion. Escalation through knight-rider only. |
+| **C — Implementers/specialists (Mac)** | rocket, gamora, star-lord, drax, legolas | Own concrete seam work; dispatched; produce artifacts; report completion. Escalation through knight-rider only. |
+| **C — Implementers/specialists (PC)** | mantis | Owns `reincarnated-unreal/` UE-seam work; dispatched by David-H (PC-seam-only) or Mac-KR (cross-host workstreams); produces UE work-products; reports completion. Escalation through David-H (PC-seam) or via consultation to Mac team (cross-host). |
 
 ### Viability-gate workflow (catalogue work)
 

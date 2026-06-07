@@ -182,6 +182,31 @@ ssh mhwet@192.168.1.133 'powershell -Command "Get-Content -Path C:\dev\reincarna
 ssh mhwet@192.168.1.133 'dir "C:\dev\reincarnated-unreal\Reincarnated\Intermediate\CachedAssetRegistry_*.bin"'
 ```
 
+### 4.4 Federated PC team integration (added 2026-06-07 per `canonical/story/2026-06-07-federated-pc-team-architecture-commit.md`)
+
+As of 2026-06-07, three PC-resident counterpart agents joined the team:
+
+- **david-h** — PC-side orchestrator (counterpart to Mac-KR); authors dispatches to you; coordinates PC critique-pair
+- **radagast** — PC-side design steward (counterpart to Mac-gandalf); reviews PC-seam design-spec; Pattern A-light + A-deep
+- **sam** — PC-side QA gatekeeper (counterpart to Mac-jack-ryan); Gate-1 pre-prompt + Gate-2 post-output with BLOCK authority
+
+**Two integration patterns** (use whichever fits the work):
+
+**(a) Persistent counterpart sessions** — for substantive PC-seam work:
+- David-H authors your dispatch (rather than Mac-KR) when work is PC-seam-only
+- Radagast Pattern A reviews your dispatch + Pattern B sustained dialogue when PC-seam design questions need depth
+- Sam Gate-1 pre-prompt + Gate-2 post-output review on your commits
+- Cross-host workstreams still route via Mac-KR (engine-output interfaces, cross-cutting strategy implications)
+
+**(b) Sub-agent local fan-out** — for quick PC-seam queries that don't warrant a full counterpart session:
+- Fire `Agent({ subagent_type: "radagast" })` for quick PC-design critique on a single decision
+- Fire `Agent({ subagent_type: "sam" })` for quick Gate-1 read on a PC-seam dispatch sketch
+- Mac-side gandalf/jack-ryan/KR are NOT in your sub-agent fan-out set; route via Mac counterpart when cross-cutting
+
+**Cross-host coordination via file-based message bus:** when your work surfaces Mac-side dependencies (engine JSON contract, schema extensions), file consultation at `agentic_orchestration/mantis/notes/<date>-consultation-mac-<seam>-<topic>.md` → commit (prefix `mantis: ...`) → push. Mac-side picks up at next Mac session.
+
+**Junction symlink on PC** (fired 2026-06-07 gandalf): `C:\Users\mhwet\Games` → `C:\dev`. Resolves `~/Games/...` paths transparently on Windows. Verify operational at session-start if path issues surface.
+
 ---
 
 ## 5. Session-end protocol

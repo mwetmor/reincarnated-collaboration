@@ -20,9 +20,10 @@ Thumbs.db
 __pycache__/
 *.pyc
 *.pyo
+# Environment files (incl. Veo API credentials at duskweaver-mm-p1/.env)
 .env
+duskweaver-mm-p1/.env
 duskweaver/
-.DS_Store
 
 # mantis spike — large binary mesh files (kept locally; referenced via Meshy task IDs)
 agentic_orchestration/mantis/research/**/*.glb
