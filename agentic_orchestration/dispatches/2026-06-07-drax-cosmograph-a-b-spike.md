@@ -270,3 +270,29 @@ Per the framing-audit checklist applied at dispatch consumption:
 **Routing:** drax consumes at session-start; Phase 1 returns to gandalf for ratification; Phase 2 fires conditionally; jack-ryan Gate-2 at spike close.
 
 **End of dispatch.**
+
+---
+
+## Completion record
+
+**Phase 1 completed:** drax 2026-06-07
+**Verdict:** GREEN — RENDERING-UNIT READABILITY confirmed at 10-kit sample scale. Substrate-coverage validation out of scope per § 8 Q1 Finding 3 amendment.
+
+**Key Phase 1 finding (surfaces to gandalf for Phase 2 ratification):**
+UMAP centroid_x/y from elrond Phase 4 packet is degenerate for Mode B constellation placement. All 1000 kit centroids span 43×56 px on canvas (smaller than one MAX_CONSTELLATION_RADIUS = 70px). Gate-1 Finding 4 INFO note ("UMAP seeds may make CENTROID_ATTRACTION redundant") does NOT apply — CENTROID_ATTRACTION is the sole inter-constellation positioning mechanism. A separate two-stage force-directed layout is required. Tracked as TODO(drax) in `constellationModeLayout.ts`. Surfaces to elrond if Phase 2 needs a pre-computed kit-to-kit similarity embedding.
+
+**Force-config c1 global bound landing values:**
+MAX_CONSTELLATION_RADIUS=70px, INTRA_KIT_SPRING_STRENGTH=0.9, Stage1 repulsion=15000px², rest_len=320px, REPULSION_FLOOR=10px
+
+**Phase 2 scale considerations flagged:**
+(1) Stage 1 O(N²) force layout at 1000 kits needs Web Worker or pre-computed static positions. (2) 1000 constellations × 70px radius = 15× canvas area — LOD (zoom-culling centroid dots at 1.0×, full clusters at 2×+) required for visual readability at full corpus.
+
+**Toggle deployed:** `/forge?view=primitive` (Mode A) and `/forge?view=constellation` (Mode B Phase 1) both operational at dev + will ship to Vercel preview on push.
+
+**Deliverables:**
+- `agentic_orchestration/drax/notes/2026-06-07-cosmograph-a-b-spike/phase-1-sample-findings.md` — full findings + verdict
+- `agentic_orchestration/drax/notes/2026-06-07-cosmograph-a-b-spike/phase-1-screenshot-primitive-mode.png` — Mode A capture
+- `agentic_orchestration/drax/notes/2026-06-07-cosmograph-a-b-spike/phase-1-screenshot-constellation-mode.png` — Mode B capture (10 constellation clusters visible)
+- `agentic_orchestration/drax/notes/2026-06-07-cosmograph-a-b-spike/phase-1-toggle-operational.md` — toggle deployment notes
+
+**Routing:** Phase 1 surfaces to gandalf for ratification. Phase 2 fires on gandalf GREEN. jack-ryan Gate-2 at spike close.
