@@ -153,7 +153,7 @@ These are starting values; drax tunes during Phase 1:
 
 `phase-1-sample-findings.md` should answer:
 
-1. **Visual readability:** does the kit-as-bounded-constellation metaphor read CLEAN, YELLOW (needs tuning), or RED (architecturally wrong) at the sample cohort scale?
+1. **Visual readability:** does the kit-as-bounded-constellation metaphor read CLEAN, YELLOW (needs tuning), or RED (architecturally wrong) at the sample cohort scale? **Scope clarification per § 8 Q1 substrate-coverage caveat:** a GREEN verdict here means RENDERING-UNIT READABILITY only; does NOT validate PROVISIONAL constellation primitive-coherence (deferred to Phase B real cycle 15+ kits).
 2. **Force-config landing values:** what starting parameters converged on a readable rendering? Note any tuning iterations performed.
 3. **Inter-constellation macro-pattern:** is element-similarity at the centroid layer legible (fire-heavy constellations cluster near each other)? If not — does that matter at sample scale, or is it a Phase 2 full-corpus concern?
 4. **Lasso UX simulation:** mentally simulate lassoing — does Mode B's lasso semantics improve over Mode A at this sample? Concrete observations.
@@ -249,6 +249,7 @@ Per the framing-audit checklist applied at dispatch consumption:
 - The metaphor failure Matt observed is at the **rendering-unit-of-visualization** layer (kits scattered as primitive-subsets), not at the **substrate-structure** layer (primitive clusters are substrate-honest).
 - Mode B fixes the rendering-unit problem without touching substrate.
 - Per-kit primitive instances at Mode B do not corrupt substrate vote (verified at § 6).
+- **Substrate-coverage validation OUT OF SCOPE for this spike** (jack-ryan Gate-1 Finding 3 amendment 2026-06-07): Mode B cannot validate PROVISIONAL constellation primitive-coherence. The 1000 Move B simulated kits were never Pareto-balanced empirically per `canonical/story/2026-06-05-cosmograph-pivot.md` § 9.4. Phase 1 GREEN verdict confirms RENDERING-UNIT READABILITY only — that kit-as-bounded-cluster reads better than primitive-galaxy for the kit-as-discovery metaphor. It does NOT confirm constellation contents are substrate-coherent. Substrate-coverage validation defers to Phase B (real cycle 15+ kits generated against future-engine substrate per `canonical/story/2026-06-06-atomic-substrate-registry.md`). Without this caveat, a false-positive Phase 1 GREEN could be interpreted as substrate-validation it cannot provide.
 
 **Q2 — Refutation evidence in scope:**
 - If Phase 1 sample readability shows constellation-bounding makes things WORSE (visual clutter from 15× node density even at sample scale), the architectural premise is wrong → Phase 1 RED → ping gandalf
