@@ -8,6 +8,11 @@
 
 ## Synthetic engineering team
 
+  > **Orientation:** Engine first. Game second. Phase third.                                                                                                                                                                                                                                                                                  
+  > Engine = architectural integrity (substrate-led discipline; canonical docs).
+  > Game = player-facing quality. Phase = operational unit (waves, dispatches).                                                                                                                                                                                                                                                               
+  > Conflict resolution: engine > game > phase. 
+
 A 6-entity agentic team operates across all repos. **Read `agentic_orchestration/AGENTS.md` first.**
 
 Quick launch:
@@ -56,13 +61,15 @@ Matt (mhwetmore@gmail.com) — final approval, design direction, resolves jack-r
 
 > **Authored 2026-05-25** per Matt directive to resolve recurring knight-rider over-asking behavioral bug.
 
-The Claude Code system-default commit rule ("NEVER commit changes unless the user explicitly asks") was designed for single-user single-agent scenarios. The reincarnated-collaboration meta-repo runs a 10-entity synthetic engineering team (per `agentic_orchestration/AGENTS.md`) where routine in-scope work-products SHOULD auto-commit without per-commit re-asking.
+The Claude Code system-default commit rule ("NEVER commit changes unless the user explicitly asks") was designed for single-user single-agent scenarios. The reincarnated-collaboration meta-repo runs a 14-entity federated synthetic engineering team (11 Mac-resident + 3 PC-resident counterparts + 1 PC-resident UE specialist; team expanded 2026-06-07 per `canonical/story/2026-06-07-federated-pc-team-architecture-commit.md`) where routine in-scope work-products SHOULD auto-commit without per-commit re-asking.
 
 This addendum refines the system-default rule for team-level operation:
 
 ### Commits — AUTO-FIRE without per-commit Matt re-asking
 
 Seam-owning agents AUTO-COMMIT routine work-products from authorized in-scope work. Examples:
+
+**Mac-resident team (canonical authority for cross-cutting):**
 
 | Agent | Auto-commit pattern (when authorized cycle work produces) |
 |---|---|
@@ -77,6 +84,15 @@ Seam-owning agents AUTO-COMMIT routine work-products from authorized in-scope wo
 | Legolas | Research + crawl artifacts from authorized Mode A / Mode B work |
 | Jack-ryan | Gate-1 / Gate-2 findings; engineering-discipline canonical writes; decisions-log entries |
 
+**PC-resident team (added 2026-06-07 federated commit; auto-commit pattern explicitly extended):**
+
+| Agent | Auto-commit pattern (when authorized cycle work produces) |
+|---|---|
+| David-H | PC-seam orchestration dispatches; Gate-1 critique-pair coordination artifacts (David-H + Radagast + Sam local trio); PC-side wave-close records; cross-host consultation notes to Mac-KR; session-boundary memos |
+| Radagast | PC-seam canonical-story doc updates (UE patterns, Niagara VFX, Mutable, weapon-sockets, asset pipeline, mantis-spike learnings); PC-seam pushback memoranda; PC-side Pattern A-deep verdict files; PC-seam recognition records; cross-host consultation notes to Mac-gandalf |
+| Sam | PC-seam Gate-1 / Gate-2 findings (`agentic_orchestration/qa/findings/<date>-<work-item>.md`); decisions-log entry PROPOSALS (Mac-jack-ryan canonical-writes); engineering-discipline amendment PROPOSALS; PC-side ADR-002 tiered approvals; cross-host consultation notes to Mac-jack-ryan |
+| Mantis | UE work-products in `reincarnated-unreal/` from authorized port/spike workstreams; spike findings + criterion reports; PC-side AGENT_STATE.md updates; cross-host consultation notes to Mac-side seam owners when work touches cross-cutting interfaces |
+
 **Authorization for auto-commit:** the work-producing TASK was Matt-authorized (e.g., "fire dispatch authoring" → dispatch authoring AND its commit are both authorized). Do not re-ask per-commit.
 
 **Authorization scope:** auto-commit applies to work-products of the AUTHORIZED CYCLE / WORKSTREAM. Cross-cycle commits OR scope-amendment commits require fresh Matt-authorization.
@@ -87,10 +103,12 @@ Push to remote remains Matt-explicit-authorization per ADR-006 read-only-by-defa
 
 ### What anti-patterns this addendum retires
 
-The following knight-rider patterns are EXPLICITLY ANTI-PATTERNS per this addendum:
-- "Awaiting your direction on (1)+(2)+(3) before firing" for items where (1) and (2) are clearly in-scope orchestration decisions
+The following patterns are EXPLICITLY ANTI-PATTERNS per this addendum (originally surfaced as knight-rider over-asking behavioral bug; **extended 2026-06-07 to all federated agents including PC team**):
+- "Awaiting your direction on (1)+(2)+(3) before firing" for items where (1) and (2) are clearly in-scope orchestration / seam decisions
 - "Awaiting your 'commit + push' go" for routine work-products of authorized cycle work (commit auto-fires; push asks)
 - "Confirm sequence to proceed" for items that are seam-owner's scope per hive-mind decision-routing directive (Matt 2026-05-23)
+- **Per-task confirmation requests during session-start protocol execution** — session-start protocol items (read ground-state, read role-def, pull origin, read in-flight dispatches, read own notes) are NEVER permission-gated; they fire as part of the agent's normal session-start discipline. Asking "should I read X?" is anti-pattern.
+- **PC-resident agent over-asking** — PC team (David-H, Radagast, Sam, Mantis) inherits the same auto-commit + autonomous-execution disposition as Mac team. The fact that PC team is SSH-invoked from Mac does NOT make them more cautious; the Matt-authorization at session invocation is identical to Mac-side session invocation.
 
 ### Composition with hive-mind decision-routing (Matt 2026-05-23 verbatim)
 
