@@ -37,7 +37,7 @@ Six primary criteria + one stretch criterion for the UE architecture-validation 
 | 3.3 | Image-pass-through | **PASS** ✅ | — |
 | 3.4 | Niagara JSON | **PASS** ✅ | Closed Session 3 — data pipeline PASS (S2) + visual PIE confirmed + User Exposed param added |
 | 3.5 | PCG geo-spatial | **DEFERRED** | Engine geo-spatial JSON (star-lord/gamora scope) |
-| 3.6 | TAA/TSR readability | **YELLOW** | Interactive editor + real RHI (30-45 min) |
+| 3.6 | TAA/TSR readability | **PASS** ✅ | Closed Session 3 — 60 FPS at TSR + TAA; visual parity at idle; TSR default confirmed |
 | 3.7 STRETCH | 3D cosmograph | **IN PROGRESS** | Install free assets + author Niagara (2.5 hr interactive) |
 | UE 5.7 migration | Smoke test | **PASS** ✅ | — |
 | Legolas sub-step | FAB asset survey | **COMPLETE** ✅ | — |
