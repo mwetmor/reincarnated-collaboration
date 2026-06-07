@@ -13,12 +13,13 @@
 Six primary criteria + one stretch criterion for the UE architecture-validation spike. Session 1 establishes the environment baseline, fires the UE 5.7 smoke test, and documents per-criterion status + blocking gates.
 
 **Session 1 key findings:**
-1. **UE 5.7 confirmed on PC.** `UE_5.7` present at `C:\Program Files\Epic Games\UE_5.7\`. Binary verified. Project at `C:\dev\reincarnated-unreal\Reincarnated\` is a UE 5.5 project — 5.7 Cook smoke test fired at 23:14:06 PC time.
-2. **Engine JSON available in meta-repo.** Cycle-14 wave-5 kit output + cosmograph substrate trace found in `agentic_orchestration/`. Kit identity/narrative schema confirmed. Full substrate fields (element, weapon_form, cultural_tradition) need separate extraction per criterion 3.1.
-3. **Legolas FAB survey consumed.** 9 assets shortlisted; asset priority sequence (free-path $0 for minimal test → full paid ~$130-150 with Matt authorization) documented. Free-path Assets 1+2 sufficient for criterion 3.7 smoke test.
-4. **Criterion 3.5 (PCG geo-spatial) → DEFERRED.** Engine doesn't yet emit room-layout JSON — per dispatch § 6 rule, this is DEFERRED not RED. Does NOT block WS1-3.
-5. **Criteria 3.1-3.3 (Meshy):** BLOCKED pending Meshy API key. Request to Matt when Meshy test session is ready.
-6. **Criterion 3.4 (Niagara JSON) + 3.7 (cosmograph):** framework built; ready to execute when UE project verified clean under 5.7.
+1. **UE 5.7 PASS.** Cook smoke test PASS — 290 cooked items, SM5+SM6 shaders, uproject migrated 5.5→5.7. UE 5.7 confirmed operational for spike.
+2. **Criterion 3.1: PASS.** 3 kits (Ember Sweeper/fire/DEX, Tide Warden/holy/WIS East Asian, Duskweaver/shadow/INT) → Meshy v2 text-to-3D → humanoid meshes at ~49,600 triangles each. All clearly humanoid, closed-mesh, within 30K-80K target range. Cost: 60 credits (~$3.00 of $20 budget).
+3. **Criterion 3.3: PASS.** Sidecar A (star-lord, 2026-05-23, 5 weapons × 2 paths) covers this criterion empirically. Tier-1 museum: Path 1 WINS. Tier-2 operational: EQUAL. Tier-3 game-render: Path 2 REQUIRED. Polearm policy confirmed. Production routing lock confirmed.
+4. **Criterion 3.2: YELLOW.** Meshy API preview = mesh only, NO skeleton. Rigging requires Matt to run "Rig Character" in Meshy web app on 3 task IDs, then export with UE5 preset. Import test ready as soon as rigged FBX available.
+5. **Criterion 3.5 (PCG geo-spatial) → DEFERRED.** Engine doesn't emit room-layout JSON — per dispatch § 6, DEFERRED not RED. Does NOT block WS1-3.
+6. **Criterion 3.4 (Niagara JSON) + 3.7 (cosmograph):** UE 5.7 verified → execute next session. Ability-spec JSON drafted; Niagara system design documented.
+7. **Legolas FAB survey consumed.** 9 assets shortlisted; free-path (Assets 1+2, $0) sufficient for 3.7 smoke test.
 
 ---
 
@@ -26,14 +27,15 @@ Six primary criteria + one stretch criterion for the UE architecture-validation 
 
 | # | Criterion | Verdict | Session |
 |---|---|---|---|
-| 3.1 | JSON → Meshy | **BLOCKED** (Meshy API key needed) | Session 1 |
-| 3.2 | Meshy → UE 5.7 | **BLOCKED** (depends on 3.1) | Session 1 |
-| 3.3 | Image-pass-through | **BLOCKED** (Meshy API key needed) | Session 1 |
+| 3.1 | JSON → Meshy | **PASS** ✅ (3/3 humanoid meshes, ~49.6K tris each) | Session 1 |
+| 3.2 | Meshy → UE 5.7 | **YELLOW** — awaiting Matt to rig kits in Meshy web app | Session 1 |
+| 3.3 | Image-pass-through | **PASS** ✅ (Sidecar A: Path 1 wins Tier-1, conditional routing confirmed) | Session 1 |
 | 3.4 | Niagara JSON | **IN PROGRESS** | Session 1 |
 | 3.5 | PCG geo-spatial | **DEFERRED** (engine doesn't emit room JSON yet) | Session 1 |
-| 3.6 | TAA/TSR readability | **BLOCKED** (depends on 3.2 character) | Session 1 |
-| 3.7 STRETCH | 3D cosmograph | **IN PROGRESS** | Session 1 |
-| Legolas sub-step | FAB asset survey | **COMPLETE** (legolas, commit f989302) | — |
+| 3.6 | TAA/TSR readability | **YELLOW** — can run with UE Mannequin fallback if 3.2 delayed | Session 1 |
+| 3.7 STRETCH | 3D cosmograph | **IN PROGRESS** — execute after UE 5.7 project confirmed ✅ | Session 1 |
+| UE 5.7 migration | Smoke test | **PASS** ✅ (290 cooked items, SM5+SM6 shaders, uproject → 5.7) | Session 1 |
+| Legolas sub-step | FAB asset survey | **COMPLETE** ✅ (legolas, commit f989302) | — |
 
 ---
 

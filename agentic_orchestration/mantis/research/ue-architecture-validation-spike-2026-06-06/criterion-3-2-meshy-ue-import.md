@@ -1,13 +1,32 @@
 # Criterion 3.2 — Meshy → UE 5.7 Import
 
-**Verdict:** BLOCKED (depends on criterion 3.1 mesh output)
+**Verdict:** YELLOW — awaiting rigged FBX from Matt (Meshy web app step required)
 **Date:** 2026-06-06 Session 1
+**Criteria 3.1 status:** PASS ✅ — 3 meshes available at `meshy-3d-outputs/`
+**Rigging blocker:** Meshy text-to-3D API = mesh only; rigging requires Matt to run "Rig Character" in Meshy web app
 
 ---
 
-## Blocking gate
+## Status
 
-Depends on criterion 3.1 producing 3 Meshy .FBX/.GLB mesh outputs. No independent blocker beyond that.
+Criterion 3.1 is PASS — 3 meshes generated and evaluated. The remaining blocker is the **Meshy rigging step**, which requires the Meshy web app (not available via API).
+
+**Empirical finding (Session 1):** Meshy text-to-3D preview API returns FBX with mesh + textures but ZERO skeleton entries. Verified: Kit A FBX downloaded and parsed — no bone/skeleton/deformer data present. The "Rig Character" feature exists only in the Meshy web app.
+
+**What Matt needs to do (one-time manual step):**
+1. Log into Meshy web app (meshy.ai)
+2. Open tasks for Kit A, B, C (by task ID)
+3. Click "Rig Character" on each → Meshy auto-detects humanoid skeleton
+4. Export each with "Unreal Engine" preset → downloads FBX with Control Rig
+5. Copy FBX files to `C:\dev\reincarnated-unreal\Reincarnated\Content\Characters\MeshyTest\` on PC
+6. Mantis imports via UE Editor → completes criterion 3.2 evaluation
+
+**Meshy task IDs for web app:**
+| Kit | Task ID |
+|---|---|
+| Kit A — Ember Sweeper (fire/DEX) | `019ea025-fe66-71d2-b139-2687d74b5aa5` |
+| Kit B — Tide Warden (holy/WIS) | `019ea026-074b-705d-ac86-6d5f2405e8ec` |
+| Kit C — Duskweaver (shadow/INT) | `019ea026-100e-7339-bc41-c57937bba495` |
 
 ---
 
