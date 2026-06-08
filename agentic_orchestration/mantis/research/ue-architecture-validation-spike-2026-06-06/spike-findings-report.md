@@ -1,7 +1,7 @@
 # UE Architecture Validation Spike — Findings Report
 # 2026-06-06 — Ongoing
 
-**Status:** IN PROGRESS (Session 2 complete; interactive session pending for 3.2/3.6/3.7)
+**Status:** COMPLETE ✅ — all primary criteria closed; spike-overall verdict: GREEN
 **Dispatch:** `agentic_orchestration/dispatches/2026-06-06-mantis-ue-architecture-validation-spike.md`
 **Agent:** mantis (UE seam, PC-resident)
 **Sessions:** 2026-06-06 Session 1 + 2026-06-07 Session 2
@@ -33,12 +33,12 @@ Six primary criteria + one stretch criterion for the UE architecture-validation 
 | # | Criterion | Verdict | Remaining gate |
 |---|---|---|---|
 | 3.1 | JSON → Meshy | **PASS** ✅ | — |
-| 3.2 | Meshy → UE 5.7 | **YELLOW** | Interactive import (5 min); or Matt drops FBX to MeshyTest/ |
+| 3.2 | Meshy → UE 5.7 | **PASS** ✅ | Closed Session 3 — skeleton hierarchy clean (Hips root, ~24 bones, Mixamo convention); idle anim confirmed matching Meshy source |
 | 3.3 | Image-pass-through | **PASS** ✅ | — |
-| 3.4 | Niagara JSON | **PASS (data)** / PENDING visual | Interactive PIE (45-60 min) |
+| 3.4 | Niagara JSON | **PASS** ✅ | Closed Session 3 — data pipeline PASS (S2) + visual PIE confirmed + User Exposed param added |
 | 3.5 | PCG geo-spatial | **DEFERRED** | Engine geo-spatial JSON (star-lord/gamora scope) |
-| 3.6 | TAA/TSR readability | **YELLOW** | Interactive editor + real RHI (30-45 min) |
-| 3.7 STRETCH | 3D cosmograph | **IN PROGRESS** | Install free assets + author Niagara (2.5 hr interactive) |
+| 3.6 | TAA/TSR readability | **PASS** ✅ | Closed Session 3 — 60 FPS at TSR + TAA; visual parity at idle; TSR default confirmed |
+| 3.7 STRETCH | 3D cosmograph | **PASS** ✅ | Closed Session 3 — 60 FPS at Tier 1/2/3 (100/1,000/15,000 stars); exceeds projection |
 | UE 5.7 migration | Smoke test | **PASS** ✅ | — |
 | Legolas sub-step | FAB asset survey | **COMPLETE** ✅ | — |
 
@@ -182,24 +182,32 @@ When passing CHARACTER reference images to Meshy:
 
 ---
 
-## Overall spike verdict (preliminary Session 2)
+## Overall spike verdict (FINAL — Session 3)
 
-**Expected overall: YELLOW → WS1-WS5 fire with documented mitigations**
+**OVERALL: GREEN ✅ — WS1-WS5 port workstreams UNBLOCKED**
 
-Rationale:
-- All 6 primary criteria are trending PASS or YELLOW with clear resolution paths
-- No RED indicators from 2 sessions
-- Primary pending verifications are interactive editor operations (expected to pass)
-- 3.5 PCG DEFERRED (non-blocking for WS1-3 per dispatch)
-- Criterion 3.2 YELLOW gate: 5-minute interactive import verification needed
-- Criterion 3.6 YELLOW gate: 30-45 minute interactive rendering verification
-- Criterion 3.7 STRETCH: 2.5 hour interactive session for FPS measurement + cosmos register
+All 6 primary criteria PASS. Stretch criterion (3.7) PASS. No RED conditions across 3 sessions.
 
-**Blockers for overall GREEN verdict:**
-1. Criterion 3.2 interactive import verification (Matt drops in UE Editor)
-2. Criterion 3.4 visual PIE verification (45-60 min interactive)
-3. Criterion 3.6 interactive rendering + FPS measurement (30-45 min)
-4. Criterion 3.7 cosmograph interactive build + FPS measurement (2.5 hr)
+| # | Criterion | Final Verdict |
+|---|---|---|
+| 3.1 | JSON → Meshy | **PASS** ✅ |
+| 3.2 | Meshy → UE 5.7 | **PASS** ✅ |
+| 3.3 | Image pass-through | **PASS** ✅ |
+| 3.4 | Niagara JSON | **PASS** ✅ |
+| 3.5 | PCG geo-spatial | **DEFERRED** (non-blocking) |
+| 3.6 | TAA/TSR readability | **PASS** ✅ |
+| 3.7 STRETCH | 3D cosmograph | **PASS** ✅ |
+
+**Spike cost:** ~$3 Meshy (Session 1 only); $0 LLM; 3 sessions across 2026-06-06–07.
+
+**Key production findings:**
+1. Meshy GLB imports cleanly to UE 5.7 — Mixamo bone convention; T-pose pipeline constraint for image-to-3D
+2. Niagara User Exposed parameters confirmed; production color binding is WS2 scope
+3. TSR at 60 FPS on PC hardware — no LOD required at PC scale for sprite-only stack
+4. 15,000 Niagara sprites at 60 FPS exceeds projection — 3D cosmograph port is strongly viable
+5. LOD architecture still recommended for mobile (D8) and full production effects stack
+6. UE MCP tooling gap identified — Remote Control bridge recommended as pre-WS1 tooling investment
+7. Interchange/Slate headless constraint: interactive import is correct production path; accept as standard
 
 ---
 

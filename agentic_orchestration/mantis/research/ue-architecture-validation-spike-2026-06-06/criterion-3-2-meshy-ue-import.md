@@ -1,8 +1,52 @@
 # Criterion 3.2 — Meshy → UE 5.7 Import
 
-**Verdict:** YELLOW — interactive import needed; Interchange/Slate headless constraint discovered
-**Date:** 2026-06-06 Session 1 + 2026-06-07 Session 2
-**Session 2 update:** Headless import attempted (2026-06-07); Interchange/Slate constraint found; interactive import path documented below.
+**Verdict:** PASS ✅ — skeleton hierarchy clean; animation confirmed matching Meshy source; criterion closed Session 3
+**Date:** 2026-06-06 Session 1 + 2026-06-07 Session 2 + 2026-06-07 Session 3 (interactive close)
+**Session 3 close (2026-06-07):** Interactive UE Editor verification complete. Assets already imported in project. Skeleton hierarchy confirmed clean. Animation confirmed playing correctly in Animation Sequence editor. Criterion closed GREEN.
+
+---
+
+## Session 3 interactive close findings
+
+### Assets confirmed in project (Content/Characters/meshy_ai_crusader/)
+- `sk_crusader_idle` — Skeletal Mesh ✅
+- `sk_crusader_idle_anim` — Animation Sequence ✅
+- `sk_crusader_idle_physics_asset` — Physics Asset ✅
+- `sk_crusader_idle_skeleton` — Skeleton ✅
+- Supporting: Materials/material1, Textures/texture_0 + texture_01
+
+### Skeleton hierarchy verified (visual inspection, screenshot z:\visual-artifacts\skeleton.png)
+
+Root bone: **Hips**
+
+```
+Hips (root)
+├── LeftUpLeg → LeftLeg → LeftFoot → LeftToeBase
+├── RightUpLeg → RightLeg → RightFoot → RightToeBase
+└── Spine02 → Spine01 → Spine
+    ├── LeftShoulder → LeftArm → LeftForeArm → LeftHand
+    ├── RightShoulder → RightArm → RightForeArm → RightHand
+    └── neck → Head → head_end + headfront
+```
+
+**~24 bones total.** Full humanoid biped — both leg chains (4 bones each), both arm chains (4 bones each), 3-bone spine, neck+head chain.
+
+**Naming convention:** Mixamo/Maya standard (LeftUpLeg, LeftArm, LeftForeArm). Same convention as Meshy auto-rig output. Animates natively via Meshy-baked animations.
+
+**WS1 retargeting note:** Root bone is `Hips` (Mixamo convention), not `root` (UE5 Mannequin convention). If UE5 Mannequin animations are retargeted to this skeleton in production, a one-time IK Retargeter bone-map is required (~30 min). NOT a blocker — Meshy baked animations work natively.
+
+### Animation verification (Animation Sequence editor)
+- Double-clicked `sk_crusader_idle_anim` → Animation Sequence editor opened with Crusader in preview
+- Idle animation plays on loop — confirmed matching Meshy source visual quality
+- Matt: "animation looks great and the same as it was in meshy"
+- **PASS: Meshy mesh + skeleton + animation compose correctly in UE 5.7**
+
+### Verification path used
+Animation Sequence editor preview (not PIE level placement). Sufficient for spike criterion — confirms skeleton + mesh + animation compose correctly. PIE level placement is standard production workflow; spike confirms the critical composition step.
+
+---
+
+## Session 2 update:** Headless import attempted (2026-06-07); Interchange/Slate constraint found; interactive import path documented below.
 **Criteria 3.1 status:** PASS ✅ — 3 meshes available at `meshy-3d-outputs/`
 **Session 2 inputs available:**
 - Crusader biped GLBs at `C:\dev\reincarnated-collaboration\duskweaver\Meshy_AI_Crusader_of_the_Ember_biped\` — 4 animations (Idle_03, Walking, Running, Roll_Dodge_4), all with skin + skeleton + animation baked in (~28MB each)
