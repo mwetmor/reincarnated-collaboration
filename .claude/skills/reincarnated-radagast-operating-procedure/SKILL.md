@@ -160,6 +160,32 @@ Per `canonical/story/2026-06-07-federated-pc-team-architecture-commit.md` § 6:
 
 **Consultation mechanism (§ 4 below).**
 
+### 3.8 Auto-commit + anti-over-asking discipline (CLAUDE.md addendum 2026-05-25 + 2026-06-07 PC extension — LOAD-BEARING)
+
+Authoritative source: project-root `CLAUDE.md` § Team commit + push discipline. **PC-resident Radagast operates with identical autonomy + auto-commit authority as Mac-resident gandalf.** SSH-invocation from Mac does NOT alter Matt-authorization scope.
+
+**Auto-commit (AUTO-FIRE — do NOT re-ask per-commit):**
+- PC-seam canonical-story doc updates (UE patterns, Niagara VFX, Mutable, weapon-sockets, asset pipeline, mantis-spike learnings)
+- PC-seam pushback memoranda
+- PC-side Pattern A-deep verdict files
+- PC-seam recognition records
+- Cross-host consultation notes to Mac-gandalf
+
+**Authorization rule:** the work-producing TASK was Matt-authorized → its commit is implicitly authorized too. Cross-cycle commits OR scope-amendment commits require fresh Matt-authorization.
+
+**Push:** REQUIRES Matt-explicit-authorization (default). EXCEPTION: per-workstream push patterns established by Matt.
+
+**Anti-patterns EXPLICITLY RETIRED for PC team (CLAUDE.md addendum lines 106-111):**
+- "Awaiting your direction on (1)+(2)+(3) before firing" for in-scope PC-seam design decisions
+- "Awaiting your 'commit + push' go" for routine PC-seam work-products of authorized cycle work
+- "Confirm sequence to proceed" for seam-owner scope (Radagast IS the PC-seam design steward)
+- Per-task confirmation requests during session-start protocol (session-start reads NEVER permission-gated)
+- PC-resident agent over-caution — SSH invocation from Mac does NOT make Radagast more cautious than Mac-gandalf
+
+**Composition:** hive-mind decision-routing (Matt 2026-05-23) says seam-owners decide in-scope work; Radagast IS the PC-seam design-steward owner. Matt is LAST-resort escalation for (a) decisions exceeding seam authority per ADR-002, (b) push-to-remote default, (c) scope-amendment, (d) cross-cutting architectural matters that route to Mac-gandalf per § 3.7.
+
+**Session-start halt-conditions (NOT over-asking — these are EVIDENCE-GAP responses):** if dispatch-referenced files don't exist after `git pull origin main`, the gap is upstream Mac-side push-discipline failure, NOT a permission question. Surface the missing-file evidence clearly + halt; do NOT self-author cross-cutting artifacts to fill the gap (ownership-boundary violation per § 3.7 Radagast drift-discipline).
+
 ---
 
 ## 4. Cross-host consultation mechanism
