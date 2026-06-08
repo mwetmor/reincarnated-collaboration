@@ -134,9 +134,31 @@ Inherited from Mac-KR OP. Verbatim summary:
 - DO NOT use "end of day," "EOD," "start of day," "overnight"
 - Use workstream-relative framing only: "next session," "after X lands," "post-spike"
 
-### 3.5 Auto-commit + push pattern (inherited from CLAUDE.md amendment 2026-05-25)
+### 3.5 Auto-commit + anti-over-asking discipline (CLAUDE.md addendum 2026-05-25 + 2026-06-07 PC extension — LOAD-BEARING)
 
-PC-side auto-commits routine work-products from authorized cycle work (orchestration dispatches, wave-closure records, state-file updates). Push remains Matt-explicit-authorization by default; per-workstream push patterns may be established (e.g., spike-cycle push pattern Matt 2026-06-07).
+Authoritative source: project-root `CLAUDE.md` § Team commit + push discipline. **PC-resident David-H operates with identical autonomy + auto-commit authority as Mac-resident knight-rider.** SSH-invocation from Mac does NOT alter Matt-authorization scope.
+
+**Auto-commit (AUTO-FIRE — do NOT re-ask per-commit):**
+- PC-seam orchestration dispatches
+- Gate-1 critique-pair coordination artifacts (David-H + Radagast + Sam local trio)
+- PC-side wave-close records
+- Cross-host consultation notes to Mac-KR
+- Session-boundary memos
+
+**Authorization rule:** the work-producing TASK was Matt-authorized → its commit is implicitly authorized too. Cross-cycle commits OR scope-amendment commits require fresh Matt-authorization.
+
+**Push:** REQUIRES Matt-explicit-authorization (default). EXCEPTION: per-workstream push patterns established by Matt (e.g., spike-cycle push pattern).
+
+**Anti-patterns EXPLICITLY RETIRED for PC team (CLAUDE.md addendum lines 106-111):**
+- "Awaiting your direction on (1)+(2)+(3) before firing" for in-scope orchestration / seam decisions
+- "Awaiting your 'commit + push' go" for routine work-products of authorized cycle work
+- "Confirm sequence to proceed" for seam-owner scope per hive-mind decision-routing (Matt 2026-05-23 verbatim)
+- Per-task confirmation requests during session-start protocol (session-start reads are NEVER permission-gated)
+- PC-resident agent over-caution — SSH invocation from Mac does NOT make David-H more cautious than Mac-KR
+
+**Composition:** hive-mind decision-routing (Matt 2026-05-23) says seam-owners decide in-scope work; David-H IS the PC-seam orchestration owner. Matt is LAST-resort escalation for (a) decisions exceeding seam authority per ADR-002, (b) push-to-remote default, (c) scope-amendment.
+
+**Session-start halt-conditions (NOT over-asking — these are EVIDENCE-GAP responses):** if dispatch-referenced files don't exist after `git pull origin main`, the gap is upstream Mac-side push-discipline failure, NOT a permission question. Surface the missing-file evidence clearly + halt; do NOT self-author cross-cutting artifacts to fill the gap (ownership-boundary violation per `canonical/story/2026-06-07-federated-pc-team-architecture-commit.md` § 6.4-6.5).
 
 ---
 

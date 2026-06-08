@@ -139,6 +139,31 @@ Identify the session mode after start. Each mode has a different cadence + outpu
 - Pre-flight check via `wmic OS get FreePhysicalMemory` (or equivalent) before fire units; abort to Matt queue if free RAM < 2 GB
 - EGL log accumulation reclaim per 2026-05-29 incident pattern
 
+### 3.9 Auto-commit + anti-over-asking discipline (CLAUDE.md addendum 2026-05-25 + 2026-06-07 PC extension — LOAD-BEARING)
+
+Authoritative source: project-root `CLAUDE.md` § Team commit + push discipline. **PC-resident Mantis operates with identical autonomy + auto-commit authority as Mac-resident specialists.** SSH-invocation from Mac (or David-H sub-agent invocation pattern) does NOT alter Matt-authorization scope.
+
+**Auto-commit (AUTO-FIRE — do NOT re-ask per-commit):**
+- UE work-products in `reincarnated-unreal/` from authorized port/spike workstreams
+- Spike findings + criterion reports
+- PC-side `AGENT_STATE.md` updates
+- Cross-host consultation notes to Mac-side seam owners when work touches cross-cutting interfaces
+
+**Authorization rule:** the work-producing TASK was Matt-authorized (via direct invocation OR via David-H sub-agent dispatch) → its commit is implicitly authorized too. Cross-cycle commits OR scope-amendment commits require fresh Matt-authorization.
+
+**Push:** REQUIRES Matt-explicit-authorization (default). EXCEPTION: per-workstream push patterns established by Matt (e.g., spike-cycle push pattern).
+
+**Anti-patterns EXPLICITLY RETIRED for PC team (CLAUDE.md addendum lines 106-111):**
+- "Awaiting your direction on (1)+(2)+(3) before firing" for in-scope UE work
+- "Awaiting your 'commit + push' go" for routine UE work-products of authorized cycle work
+- "Confirm sequence to proceed" for seam-owner scope (mantis is the PC UE-seam owner)
+- Per-task confirmation requests during session-start protocol (session-start reads NEVER permission-gated)
+- PC-resident agent over-caution — SSH invocation from Mac (or David-H Pattern A sub-agent invocation) does NOT make mantis more cautious
+
+**Composition:** hive-mind decision-routing (Matt 2026-05-23) says seam-owners decide in-scope work; mantis IS the UE-seam owner. Matt is LAST-resort escalation for (a) decisions exceeding seam authority per ADR-002, (b) push-to-remote default, (c) scope-amendment.
+
+**Session-start halt-conditions (NOT over-asking — these are EVIDENCE-GAP responses):** if David-H dispatch-referenced files don't exist after `git pull origin main`, the gap is upstream Mac-side push-discipline failure, NOT a permission question. Surface the missing-file evidence clearly + halt; do NOT self-author cross-cutting artifacts to fill the gap.
+
 ---
 
 ## 4. SSH invocation pattern (operational reference)

@@ -13,11 +13,15 @@
   > Game = player-facing quality. Phase = operational unit (waves, dispatches).                                                                                                                                                                                                                                                               
   > Conflict resolution: engine > game > phase. 
 
-A 6-entity agentic team operates across all repos. **Read `agentic_orchestration/AGENTS.md` first.**
+A **14-entity federated agentic team** operates across all repos (10 Mac-resident specialists + 4 PC-resident — 3 PC counterparts to Mac orchestrator/design/QA + Mantis at PC for UE seam; team federated 2026-06-07 per `canonical/story/2026-06-07-federated-pc-team-architecture-commit.md`). **Read `agentic_orchestration/AGENTS.md` first.** PC-resident agents also first-read the federated team commit doc.
+
+**PC-resident agents (David-H, Radagast, Sam, Mantis) operate with identical autonomy + auto-commit authority as Mac-resident agents.** SSH-invocation from Mac does NOT alter Matt-authorization scope. The Team commit + push discipline addendum below applies symmetrically to both hosts. PC team is NOT more cautious than Mac team.
 
 Quick launch:
 
 ```bash
+# === Mac-resident team ===
+
 # Coordinator session (start of day)
 cd ~/Games/reincarnated-collaboration && claude --agent knight-rider
 
@@ -27,13 +31,30 @@ cd ~/Games/reincarnated-loadout && claude --agent drax        # or reincarnated-
 
 # QA session
 cd ~/Games/reincarnated-collaboration && claude --agent jack-ryan
+
+# === PC-resident team (SSH from Mac) ===
+# Connection target: mhwet@192.168.1.133 (passwordless SSH from Mac per matt_notes_handoff_docs/reincarnated-headless-ssh-handoff.md)
+
+# One-shot pattern (Warp-friendly; -t forces PTY for Claude Code TUI)
+ssh -t mhwet@192.168.1.133 "cd C:\dev\reincarnated-collaboration && claude --agent david-h"   # or radagast, sam
+ssh -t mhwet@192.168.1.133 "cd C:\dev\reincarnated-unreal\Reincarnated && claude --agent mantis"  # UE seam
+
+# Two-step pattern (any terminal)
+ssh mhwet@192.168.1.133
+# then on PC shell:
+cd C:\dev\reincarnated-collaboration
+claude --agent david-h   # or radagast, sam
 ```
+
+**CRITICAL — PC-side pull discipline at session-start.** PC clone is a git-tracked sibling of Mac clone. Mac-side commits do NOT reach PC until origin push + PC pull. PC agents MUST `git pull origin main` at session-start before reading task-specific dispatches. If session-opener prompt references files that don't exist after pull, the gap is Mac-side push-discipline failure, not authoring failure — surface clearly + halt; do NOT self-author cross-cutting artifacts to fill the gap.
 
 ## Where to find things
 
 | Need | Path |
 |---|---|
 | Team topology + scope map | `agentic_orchestration/AGENTS.md` |
+| **Federated PC team architecture (PC team first-read)** | `canonical/story/2026-06-07-federated-pc-team-architecture-commit.md` |
+| **SSH handoff + passwordless setup** | `matt_notes_handoff_docs/reincarnated-headless-ssh-handoff.md` |
 | Founding ADRs | `agentic_orchestration/GOVERNANCE.md` |
 | Review process + 5 principles | `agentic_orchestration/REVIEW_PROCESS.md` |
 | Latest handoff context | `agentic_orchestration/skill_handoff_<date>.md` |
@@ -61,7 +82,7 @@ Matt (mhwetmore@gmail.com) — final approval, design direction, resolves jack-r
 
 > **Authored 2026-05-25** per Matt directive to resolve recurring knight-rider over-asking behavioral bug.
 
-The Claude Code system-default commit rule ("NEVER commit changes unless the user explicitly asks") was designed for single-user single-agent scenarios. The reincarnated-collaboration meta-repo runs a 14-entity federated synthetic engineering team (11 Mac-resident + 3 PC-resident counterparts + 1 PC-resident UE specialist; team expanded 2026-06-07 per `canonical/story/2026-06-07-federated-pc-team-architecture-commit.md`) where routine in-scope work-products SHOULD auto-commit without per-commit re-asking.
+The Claude Code system-default commit rule ("NEVER commit changes unless the user explicitly asks") was designed for single-user single-agent scenarios. The reincarnated-collaboration meta-repo runs a **14-entity federated synthetic engineering team** (10 Mac-resident specialists + 4 PC-resident — 3 PC counterparts to Mac orchestrator/design/QA + Mantis at PC for UE seam; team federated 2026-06-07 per `canonical/story/2026-06-07-federated-pc-team-architecture-commit.md`) where routine in-scope work-products SHOULD auto-commit without per-commit re-asking.
 
 This addendum refines the system-default rule for team-level operation:
 

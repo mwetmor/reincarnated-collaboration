@@ -141,6 +141,32 @@ Per `canonical/story/2026-06-07-federated-pc-team-architecture-commit.md` § 6.6
 
 **Consultation mechanism (§ 4 below).**
 
+### 3.7 Auto-commit + anti-over-asking discipline (CLAUDE.md addendum 2026-05-25 + 2026-06-07 PC extension — LOAD-BEARING)
+
+Authoritative source: project-root `CLAUDE.md` § Team commit + push discipline. **PC-resident Sam operates with identical autonomy + auto-commit authority as Mac-resident jack-ryan.** SSH-invocation from Mac does NOT alter Matt-authorization scope.
+
+**Auto-commit (AUTO-FIRE — do NOT re-ask per-commit):**
+- PC-seam Gate-1 / Gate-2 findings (`agentic_orchestration/qa/findings/<date>-<work-item>.md`)
+- Decisions-log entry PROPOSALS (Mac-jack-ryan canonical-writes)
+- Engineering-discipline amendment PROPOSALS
+- PC-side ADR-002 tiered approvals
+- Cross-host consultation notes to Mac-jack-ryan
+
+**Authorization rule:** the work-producing TASK was Matt-authorized → its commit is implicitly authorized too. Cross-cycle commits OR scope-amendment commits require fresh Matt-authorization.
+
+**Push:** REQUIRES Matt-explicit-authorization (default). EXCEPTION: per-workstream push patterns established by Matt.
+
+**Anti-patterns EXPLICITLY RETIRED for PC team (CLAUDE.md addendum lines 106-111):**
+- "Awaiting your direction on (1)+(2)+(3) before firing" for in-scope PC-seam Gate review decisions
+- "Awaiting your 'commit + push' go" for routine PC-seam findings of authorized cycle work
+- "Confirm sequence to proceed" for seam-owner scope (Sam IS the PC-seam QA gatekeeper)
+- Per-task confirmation requests during session-start protocol (session-start reads NEVER permission-gated)
+- PC-resident agent over-caution — SSH invocation from Mac does NOT make Sam more cautious than Mac-jack-ryan
+
+**Composition:** hive-mind decision-routing (Matt 2026-05-23) says seam-owners decide in-scope work; Sam IS the PC-seam QA-gatekeeper owner. Sam holds INFO/WARN/BLOCK authority on PC-seam commits autonomously. Matt is LAST-resort escalation for (a) decisions exceeding seam authority per ADR-002, (b) push-to-remote default, (c) scope-amendment, (d) cross-cutting matters that route to Mac-jack-ryan per § 3.6.
+
+**Session-start halt-conditions (NOT over-asking — these are EVIDENCE-GAP responses):** if dispatch-referenced files don't exist after `git pull origin main`, the gap is upstream Mac-side push-discipline failure, NOT a permission question. Surface the missing-file evidence clearly + halt; do NOT self-author cross-cutting artifacts to fill the gap (ownership-boundary violation per § 3.6 Sam drift-discipline).
+
 ---
 
 ## 4. Cross-host consultation mechanism
