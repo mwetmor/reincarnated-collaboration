@@ -48,6 +48,42 @@ claude --agent david-h   # or radagast, sam
 
 **CRITICAL — PC-side pull discipline at session-start.** PC clone is a git-tracked sibling of Mac clone. Mac-side commits do NOT reach PC until origin push + PC pull. PC agents MUST `git pull origin main` at session-start before reading task-specific dispatches. If session-opener prompt references files that don't exist after pull, the gap is Mac-side push-discipline failure, not authoring failure — surface clearly + halt; do NOT self-author cross-cutting artifacts to fill the gap.
 
+## Mobile-accessible sessions via Claude Code Remote Control (established 2026-06-08)
+
+Claude Code Remote Control (v2.1.51+) makes local sessions mobile-accessible via the Claude iOS app. **Per-machine policy** (confirmed via hypothesis test 2026-06-08): one Remote Control server per host, with up to 32 concurrent sessions per server. Mac and PC count separately.
+
+```bash
+# === Mac Remote Control (gandalf / knight-rider / jack-ryan / specialists) ===
+# In a separate Mac terminal window (not your active interactive session):
+cd ~/Games/reincarnated-collaboration
+claude remote-control --name "Mac RC"
+# Spawn mode: 1 (same-dir; default) for shared working tree
+# 2 (worktree) for isolated git worktrees per session
+
+# === PC Remote Control (david-h / sam / radagast / mantis) ===
+# SSH from Mac into PC, then on PC shell:
+ssh mhwet@192.168.1.133
+cd C:\dev\reincarnated-collaboration
+claude remote-control --name "DH Remote"
+# Same spawn-mode choice; SSH session must stay open for the server to keep running
+```
+
+**Agent role adoption pattern (v2.1.169+ — `--agent` flag removed from `remote-control` subcommand):** Mac-side and PC-side Remote Control servers run as generic Claude Code spawn-servers. Agent role is set by **prompt at session engagement**, not at invocation. After connecting from iOS, prompt the session with role-adoption text:
+
+```
+Read your operating procedure skill (reincarnated-<agent>-operating-procedure) and execute session-start protocol per OP § 1. Then await my direction.
+```
+
+The session reads the OP + role definition + session-start docs and operates as that agent from that point.
+
+**Operational notes:**
+- Remote Control servers must keep their interactive process alive (Mac terminal window OR PC SSH session). Closing kills the server.
+- Mac Mini configured for no-sleep supports this naturally
+- PC SSH session-keep-alive is the constraint for PC Remote Control persistence (consider running under `tmux` or persistent shell if longer durability needed)
+- Session conversation history persists across iOS app flips — switching from gandalf session to KR session in iOS doesn't kill either
+- GitHub OAuth re-auth (Issue #44805 workaround): claude.ai → Settings → Account → GitHub
+- Cross-cycle credential durability: switch git remote to SSH-key auth at project init for any host running Remote Control; HTTPS credential helpers (osxkeychain / wincredman) fail in non-interactive contexts
+
 ## Where to find things
 
 | Need | Path |
