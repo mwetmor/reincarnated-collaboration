@@ -154,7 +154,7 @@ Authoritative source: project-root `CLAUDE.md` § Team commit + push discipline.
 
 **Authorization rule:** the work-producing TASK was Matt-authorized → its commit is implicitly authorized too. Cross-cycle commits OR scope-amendment commits require fresh Matt-authorization.
 
-**Push:** REQUIRES Matt-explicit-authorization (default). EXCEPTION: per-workstream push patterns established by Matt.
+**Push:** STANDING PATTERN at wave-close per CLAUDE.md § "PC-seam standing wave-close push pattern (established 2026-06-08 post-SSH-key auth)." Sam is OFTEN the wave-closing agent (Gate-2 PASS is the wave-close gate); when Sam closes, Sam pushes ALL accumulated wave commits including her own Gate-2 finding + decisions-log entry proposals routed to Mac-jack-ryan. Mid-wave push (e.g., Mac-jack-ryan consultation needed on a Sam Gate-1 finding before David-H authors a dispatch) and cross-cycle push (scope amendment) remain Matt-explicit-ask.
 
 **Anti-patterns EXPLICITLY RETIRED for PC team (CLAUDE.md addendum lines 106-111):**
 - "Awaiting your direction on (1)+(2)+(3) before firing" for in-scope PC-seam Gate review decisions

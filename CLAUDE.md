@@ -118,9 +118,34 @@ Seam-owning agents AUTO-COMMIT routine work-products from authorized in-scope wo
 
 **Authorization scope:** auto-commit applies to work-products of the AUTHORIZED CYCLE / WORKSTREAM. Cross-cycle commits OR scope-amendment commits require fresh Matt-authorization.
 
-### Pushes — REQUIRE Matt-explicit-authorization (default)
+### Pushes — REQUIRE Matt-explicit-authorization (default; Mac team + exceptions below)
 
 Push to remote remains Matt-explicit-authorization per ADR-006 read-only-by-default external-systems rule. EXCEPTION: per-workstream push-pattern can be established by Matt authorization (e.g., "push pattern established for this cycle; push after each wave completes" = auto-push for that cycle).
+
+### PC-seam standing wave-close push pattern (established 2026-06-08 post-SSH-key auth)
+
+Following SSH-key-based git auth setup on PC 2026-06-08 (closes the wincredman credential gap; remote `origin` switched from HTTPS to SSH per `git@github.com:mwetmor/reincarnated-collaboration.git`), PC-seam push at wave-close is a STANDING PATTERN, not per-cycle ask. PC team agents (David-H, Radagast, Sam, Mantis) AUTO-PUSH at wave-close per this protocol:
+
+**Pull at wave-start:**
+- PC agent runs `git pull origin main` at session-start (already canonical per intro § CRITICAL)
+- Additionally pulls at any wave-start within a multi-wave session (rare; explicit when needed)
+- The pull captures Mac-side commits authored since the prior PC session — including dispatches, canonical updates, discipline amendments
+
+**Push at wave-close (STANDING — no per-push re-ask):**
+- After Sam Gate-2 PASS (or absence of Gate-2 requirement when the work is non-gating) AND David-H session-boundary-memo authored, AUTO-PUSH the wave's accumulated PC commits via `git push origin main`
+- The wave-close gate IS the authorization moment; no further re-ask required
+- Push fires per SSH-key auth (no credentials prompt; works in SSH session)
+- For multi-agent waves (e.g., mantis Phase 1 + 2, david-h Phase 3, sam Phase 4), the wave-close-pushing agent pushes ALL accumulated wave commits together — typically David-H or Sam at the closing phase
+
+**Mid-wave push (exception path; requires Matt-ask):**
+- If cross-host coordination requires Mac-side visibility on a mid-wave commit (e.g., gandalf needs to consume a Sam Gate-1 finding before authoring a Mac-side dispatch), PC agent asks Matt for mid-wave push authorization
+- Default mid-wave: NO push; accumulate to wave-close
+
+**Cross-cycle / scope-amendment commits (preserved Matt-ask):**
+- Still require fresh Matt-authorization per CLAUDE.md addendum standing rules
+- Wave-close standing-push applies ONLY to in-scope cycle work products
+
+**Asymmetry with Mac team is intentional:** Mac-side credential setup allows interactive auth flows; Mac push remains per-cycle Matt-ask to preserve ADR-006 read-only-default. PC-side SSH-key auth makes wave-close push operationally clean, and the wave-close gate provides the discipline anchor.
 
 ### What anti-patterns this addendum retires
 

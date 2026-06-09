@@ -151,7 +151,7 @@ Authoritative source: project-root `CLAUDE.md` § Team commit + push discipline.
 
 **Authorization rule:** the work-producing TASK was Matt-authorized (via direct invocation OR via David-H sub-agent dispatch) → its commit is implicitly authorized too. Cross-cycle commits OR scope-amendment commits require fresh Matt-authorization.
 
-**Push:** REQUIRES Matt-explicit-authorization (default). EXCEPTION: per-workstream push patterns established by Matt (e.g., spike-cycle push pattern).
+**Push:** STANDING PATTERN at wave-close per CLAUDE.md § "PC-seam standing wave-close push pattern (established 2026-06-08 post-SSH-key auth)." Mantis-authored UE work commits accumulate within wave; the wave-closing agent (typically David-H or Sam at Phase 3+4) pushes ALL accumulated wave commits together at wave-close gate. Mid-wave push (cross-host visibility) and cross-cycle push (scope amendment) remain Matt-explicit-ask.
 
 **Anti-patterns EXPLICITLY RETIRED for PC team (CLAUDE.md addendum lines 106-111):**
 - "Awaiting your direction on (1)+(2)+(3) before firing" for in-scope UE work

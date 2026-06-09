@@ -147,7 +147,7 @@ Authoritative source: project-root `CLAUDE.md` § Team commit + push discipline.
 
 **Authorization rule:** the work-producing TASK was Matt-authorized → its commit is implicitly authorized too. Cross-cycle commits OR scope-amendment commits require fresh Matt-authorization.
 
-**Push:** REQUIRES Matt-explicit-authorization (default). EXCEPTION: per-workstream push patterns established by Matt (e.g., spike-cycle push pattern).
+**Push:** STANDING PATTERN at wave-close per CLAUDE.md § "PC-seam standing wave-close push pattern (established 2026-06-08 post-SSH-key auth)." After Sam Gate-2 PASS + David-H session-boundary-memo authored, AUTO-PUSH accumulated wave commits via `git push origin main`. The wave-close gate IS the authorization moment; no per-push re-ask. Mid-wave push (cross-host visibility) and cross-cycle push (scope amendment) remain Matt-explicit-ask.
 
 **Anti-patterns EXPLICITLY RETIRED for PC team (CLAUDE.md addendum lines 106-111):**
 - "Awaiting your direction on (1)+(2)+(3) before firing" for in-scope orchestration / seam decisions
