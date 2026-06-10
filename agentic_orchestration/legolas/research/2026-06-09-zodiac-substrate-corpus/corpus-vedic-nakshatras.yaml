@@ -1,0 +1,793 @@
+# corpus-vedic-nakshatras.yaml
+# Legolas Mode B Corpus — Vedic Nakshatras (Hindu Lunar Mansions)
+# Crawl date: 2026-06-09
+# Entry count: 27 (+1 optional Abhijit as 28th)
+# Schema: full (deity, gana, nadi, rashi, stars, image, iconography)
+# Sources: Wikipedia: Nakshatra, individual nakshatra articles, Parashara Brihat Parashara Hora Shastra
+
+# ── NAKSHATRAS 1–9 ─────────────────────────────────────────────────────────────
+
+- sign_id: "vedic-nakshatra-001"
+  sign_name:
+    primary: "Ashvini"
+    variants: ["Ashwini", "Asvini", "Aśvinī"]
+    romanization: "Ashvini"
+    native_script: "अश्विनी"
+  cultural_tradition:
+    primary_culture: "Vedic / Jyotish (Hindu)"
+    derivative_cultures: ["Tamil Nakshatra tradition", "Buddhist calendar uses", "Sinhala astrology"]
+    geographic_origin: "South Asia / Indian subcontinent"
+    period_range: "Vedanga Jyotisha ~1200-900 BCE; classical codification Parashara ~200-400 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vedic Nakshatras (नक्षत्र)"
+    total_signs_in_system: 27
+    position_in_system: 1
+    sign_classification:
+      element: "Fire (Agni)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Ashvini Kumaras (divine twin physicians, sons of Surya)"
+      season: "Sidereal Aries sector (~mid-April tropical)"
+      other:
+        rashi_hosting: "Mesha (Aries) — 0°–13°20′"
+        gana: "Deva (divine)"
+        nadi: "Vata (air/wind)"
+        symbol: "Horse's head"
+        quality: "Kshipra (swift/light)"
+        ruling_planet: "Ketu"
+        animal_symbol: "Male horse"
+        tattva: "Earth"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Nakshatra_Ashvini.jpg/320px-Nakshatra_Ashvini.jpg"
+      description: "Illustration of Ashvini nakshatra with Ashvini Kumaras on horse"
+      source: "Wikipedia Commons"
+      license: "CC-BY-SA"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "β Arietis (Sheratan)"
+          ra: "1h 54m 38.4s"
+          dec: "+20° 48′ 29″"
+          magnitude: 2.64
+          notes: "Yogatara (determinative star) of Ashvini"
+        - name: "γ Arietis (Mesarthim)"
+          ra: "1h 53m 31.8s"
+          dec: "+19° 17′ 38″"
+          magnitude: 3.90
+          notes: "First resolved double star (1664, Hooke)"
+      notes: "Ashvini spans 0°–13°20′ sidereal Aries; β and γ Arietis form the horse's head pairing"
+    asterism_schematic:
+      description: "Two close stars in early Aries — Sheratan (β) and Mesarthim (γ) — forming the compact head of the horse. Easily identified as a close pair in the northwestern sky."
+      line_topology: "β Ari (Sheratan) — γ Ari (Mesarthim): two-star head pairing, separation ~3°"
+    cultural_iconography:
+      description: "The horse-headed lunar mansion presided by the Ashvini Kumaras — the divine twin physician-gods. Symbol is a horse's head. Associated with speed, healing, beginnings, and rejuvenation. In Vedic myth, born when Surya and Saranyu coupled in horse form. They drive a golden chariot across the sky before sunrise."
+      reference_sources: ["Wikipedia: Nakshatra", "Wikipedia: Ashvini Kumaras"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Nakshatra", "https://en.wikipedia.org/wiki/Ashvini_Kumaras"]
+  primitive_association_hints:
+    suggested_element: "Fire / Wind"
+    suggested_attribute: "AGI"
+    suggested_animal_form: "Horse (twin horses)"
+    suggested_object_form: "Golden chariot"
+    symbolic_role: "Swiftness; healing; beginnings; divine twins; rejuvenation; dawn light-bearer"
+    mythic_narrative_summary: "First Nakshatra. Ashvini Kumaras are divine twin physicians born of Surya and Saranyu in horse form. Gana: Deva. Rashi: Mesha (Aries). Symbol: horse's head. Quality: swift."
+  semantic_vocabulary:
+    symbolic_keywords: ["horse", "twin", "healing", "dawn", "swift", "physician", "divine", "beginning", "fire", "Ashvini Kumaras"]
+    mythic_narrative: "Ashvini is the first of the 27 Nakshatras, occupying the early degrees of sidereal Aries. Its presiding deities are the Ashvini Kumaras (Ashvins) — the divine twin horse-headed physicians of the Vedic pantheon. According to myth, Saranyu (daughter of Vishvakarma) fled from Surya (Sun god) in the form of a mare; Surya followed in horse form, and their union produced the Ashvins.\n\nThe Ashvins are associated with dawn, healing, rejuvenation, and speed. They drive a golden chariot across the sky before sunrise, arriving before the day begins — they are the physicians of the gods, said to have restored sight to the sage Chyavana and saved the hero Bhujyu from the ocean. Their dual nature (twins) makes them associated with partnerships, balance, and complementary forces.\n\nIn Jyotish, Ashvini natives are said to be quick, energetic, skilled healers, or those with swift intelligence. The Nakshatra's gana is Deva (divine), suggesting spiritual purity and light-natured qualities. Ruling planet is Ketu, associated with mysticism and past-life wisdom."
+    visual_motifs: ["horse head", "twin divine physicians", "golden chariot at dawn", "Ashvini Kumaras pair", "horse hooves"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Standard Nakshatra academic documentation; no restricted content"
+    source_authorization: "Wikipedia + academic Sanskrit sources"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Nakshatra"
+    secondary_sources:
+      - "Wikipedia: Ashvini Kumaras"
+      - "Parashara, Brihat Parashara Hora Shastra"
+    academic_anchor: "Parashara, Brihat Parashara Hora Shastra — classical Jyotish foundational text"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vedic-nakshatra-002"
+  sign_name:
+    primary: "Bharani"
+    variants: ["Bharaṇī", "Bharni"]
+    romanization: "Bharani"
+    native_script: "भरणी"
+  cultural_tradition:
+    primary_culture: "Vedic / Jyotish (Hindu)"
+    derivative_cultures: ["Tamil Nakshatra tradition", "Buddhist calendar uses"]
+    geographic_origin: "South Asia / Indian subcontinent"
+    period_range: "Vedanga Jyotisha ~1200-900 BCE; classical codification Parashara ~200-400 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vedic Nakshatras (नक्षत्र)"
+    total_signs_in_system: 27
+    position_in_system: 2
+    sign_classification:
+      element: "Earth (Prithvi)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Yama (god of death, dharma, and the underworld)"
+      season: "Sidereal Aries sector (~late April tropical)"
+      other:
+        rashi_hosting: "Mesha (Aries) — 13°20′–26°40′"
+        gana: "Manushya (human)"
+        nadi: "Pitta (fire/bile)"
+        symbol: "Yoni (feminine vessel / womb)"
+        quality: "Ugra (fierce/sharp)"
+        ruling_planet: "Shukra (Venus)"
+        animal_symbol: "Elephant (male)"
+        tattva: "Earth"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Bharani_Nakshatra.jpg/320px-Bharani_Nakshatra.jpg"
+      description: "Bharani nakshatra illustration depicting Yama deity and yoni symbol"
+      source: "Wikipedia Commons"
+      license: "CC-BY-SA"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "41 Arietis (Bharani / Nair al Butain)"
+          ra: "2h 49m 59.0s"
+          dec: "+27° 15′ 38″"
+          magnitude: 3.63
+          notes: "Yogatara of Bharani; brightest of the three-star cluster"
+        - name: "35 Arietis"
+          ra: "2h 43m 26.8s"
+          dec: "+24° 27′ 44″"
+          magnitude: 4.66
+        - name: "39 Arietis"
+          ra: "2h 47m 54.5s"
+          dec: "+29° 14′ 50″"
+          magnitude: 4.51
+      notes: "Three stars in central Aries forming a small triangle; historically Musca Borealis in Western tradition"
+    asterism_schematic:
+      description: "Three faint-to-moderate stars in Aries forming a compact triangle. The cluster was known in Western astronomy as Musca Borealis (the Northern Fly). The triangle shape evokes the yoni symbol."
+      line_topology: "41 Ari — 35 Ari — 39 Ari: small triangular cluster, all within ~5° of each other"
+    cultural_iconography:
+      description: "Bharani means 'the bearer' — associated with carrying and containment. Symbol is the yoni (womb/vessel), representing creation, birth, and the passage between worlds. Deity is Yama, god of death and dharma, who weighs souls and governs cosmic order. The combination of birth symbol with death deity represents the full cycle of existence. Associated with endurance, moral judgment, and transformation."
+      reference_sources: ["Wikipedia: Nakshatra", "Wikipedia: Bharani"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Nakshatra", "https://en.wikipedia.org/wiki/Bharani"]
+  primitive_association_hints:
+    suggested_element: "Earth / Fire"
+    suggested_attribute: "VIT"
+    suggested_animal_form: "Elephant"
+    suggested_object_form: "Vessel / womb"
+    symbolic_role: "Bearing; containment; transformation; death and rebirth cycle; moral judgment"
+    mythic_narrative_summary: "Second Nakshatra. Presided by Yama (death/dharma). Symbol: yoni. Gana: Manushya. Rashi: Mesha. Rules creation-through-destruction; the vessel that holds life."
+  semantic_vocabulary:
+    symbolic_keywords: ["yoni", "womb", "death", "dharma", "Yama", "bearer", "vessel", "transformation", "judgment", "Venus"]
+    mythic_narrative: "Bharani is the second Nakshatra, occupying the middle degrees of sidereal Aries. Its name means 'the bearer' — one who carries or sustains a burden. The presiding deity is Yama, the god of death, dharma, and the underworld, who governs the fate of souls after death.\n\nThe symbol is the yoni — the feminine vessel or womb — which creates a striking paradox: Yama (death) presides over a symbol of birth. This paradox is central to Bharani's meaning: it governs the passage between states of existence, the threshold of creation and dissolution. Life and death are twin faces of the same process.\n\nIn Jyotish, Bharani natives are said to be determined, enduring, creative, and capable of bearing great responsibility. They can also be controlling or intense, reflecting Yama's uncompromising nature. Venus as ruling planet adds sensuality and aesthetic appreciation. The gana is Manushya (human), suggesting worldly engagement and karmic complexity. Ruling planet: Venus (Shukra)."
+    visual_motifs: ["yoni triangle", "Yama with staff and noose", "cosmic scales of judgment", "three-star triangle cluster"]
+  cultural_sensitivity:
+    flag_level: "low"
+    explanation: "Yoni symbol is sacred in Hindu tradition; document academically with appropriate context. Standard in Jyotish literature."
+    source_authorization: "Wikipedia + academic Jyotish sources"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Nakshatra"
+    secondary_sources:
+      - "Wikipedia: Bharani"
+      - "Wikipedia: Yama (Hinduism)"
+    academic_anchor: "Parashara, Brihat Parashara Hora Shastra"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vedic-nakshatra-003"
+  sign_name:
+    primary: "Krittika"
+    variants: ["Kṛttikā", "Kritika", "Krittikaa"]
+    romanization: "Krittika"
+    native_script: "कृत्तिका"
+  cultural_tradition:
+    primary_culture: "Vedic / Jyotish (Hindu)"
+    derivative_cultures: ["Tamil Nakshatra tradition", "Buddhist calendar"]
+    geographic_origin: "South Asia / Indian subcontinent"
+    period_range: "Vedanga Jyotisha ~1200-900 BCE; was once the first Nakshatra when Pleiades marked vernal equinox ~2300 BCE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vedic Nakshatras (नक्षत्र)"
+    total_signs_in_system: 27
+    position_in_system: 3
+    sign_classification:
+      element: "Fire (Agni/Tejas)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Agni (fire deity); also Karttikeya (god of war, nursed by the six Krittikas)"
+      season: "Sidereal Aries-Taurus cusp sector"
+      other:
+        rashi_hosting: "Mesha (Aries) 26°40′–Vrishabha (Taurus) 10°"
+        gana: "Rakshasa (fierce/demonic)"
+        nadi: "Kapha (water/phlegm)"
+        symbol: "Razor / knife / flame"
+        quality: "Mishra (mixed)"
+        ruling_planet: "Surya (Sun)"
+        animal_symbol: "Female sheep/goat"
+        tattva: "Earth"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Pleiades_large.jpg/320px-Pleiades_large.jpg"
+      description: "The Pleiades open star cluster (Messier 45) — core stars of Krittika nakshatra"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "η Tauri (Alcyone)"
+          ra: "3h 47m 29.1s"
+          dec: "+24° 06′ 18″"
+          magnitude: 2.87
+          notes: "Brightest Pleiad; yogatara of Krittika"
+        - name: "27 Tauri (Atlas)"
+          ra: "3h 49m 09.7s"
+          dec: "+24° 03′ 12″"
+          magnitude: 3.63
+        - name: "17 Tauri (Electra)"
+          ra: "3h 44m 52.5s"
+          dec: "+24° 06′ 48″"
+          magnitude: 3.70
+        - name: "20 Tauri (Maia)"
+          ra: "3h 45m 49.6s"
+          dec: "+24° 22′ 04″"
+          magnitude: 3.87
+      notes: "Pleiades cluster (M45) straddles sidereal Aries-Taurus border in Krittika's span"
+    asterism_schematic:
+      description: "The Pleiades — one of the most recognizable star clusters in the night sky. Six to seven stars visible to the naked eye in a tight cluster (wider field reveals ~500+ stars). Forms a distinctive small dipper-like pattern in western Taurus."
+      line_topology: "Alcyone central; Electra–Maia–Taygeta arc on one side; Atlas–Pleione close pair; tight 2°-wide cluster"
+    cultural_iconography:
+      description: "Krittika means 'the cutters' — the six celestial mothers (also personified as six stars of the Pleiades) who nursed Kartikeya (Murugan/Skanda), the god of war, after his birth. Agni (fire deity) is the presiding god. Symbol is the razor, knife, or flame — representing cutting, purification, and transformation by fire. Krittika was once the first Nakshatra when precession placed the Pleiades at the vernal equinox (~2300 BCE), making it the most ancient reference point in Vedic astronomy."
+      reference_sources: ["Wikipedia: Nakshatra", "Wikipedia: Krittika"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Nakshatra", "https://en.wikipedia.org/wiki/Krittika"]
+  primitive_association_hints:
+    suggested_element: "Fire"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Goat / Ram"
+    suggested_object_form: "Razor / blade"
+    symbolic_role: "Cutting; purification by fire; war-nurturing; ancient sky-anchor; transformation"
+    mythic_narrative_summary: "Third Nakshatra. Agni presides; symbol razor/flame. Six Krittika mothers nursed Kartikeya. Pleiades cluster. Once the first Nakshatra. Gana: Rakshasa. Ruling planet: Sun."
+  semantic_vocabulary:
+    symbolic_keywords: ["Pleiades", "fire", "razor", "cutting", "Agni", "Kartikeya", "war", "purification", "six mothers", "sun"]
+    mythic_narrative: "Krittika is the third Nakshatra, straddling the sidereal Aries-Taurus border and centered on the Pleiades star cluster. It was once the first Nakshatra when Earth's axial precession placed the Pleiades at the vernal equinox around 2300 BCE, making it the oldest known sky reference point in Vedic astronomy.\n\nThe presiding deity is Agni, the fire god — the sacred flame of creation, sacrifice, and transformation. The six Krittikas are celestial mothers who nursed Kartikeya (Skanda/Murugan), the six-headed god of war and divine commander of the celestial army. According to myth, Shiva's seed was cast into fire (Agni) and then delivered by the Krittikas. Their six faces represent the six stars of the Pleiades visible to the naked eye.\n\nThe symbol is the razor or flame — Krittika cuts away impurity. In Jyotish, Krittika natives are said to be sharp, penetrating, critical, and transformative. They can nurture fiercely (like the six mothers) but also cut away what is unnecessary. Gana is Rakshasa (fierce), reflecting the transformative-destructive quality of fire. Ruling planet is the Sun (Surya), source of all fire and light."
+    visual_motifs: ["Pleiades seven sisters cluster", "six-headed Kartikeya", "Agni flame deity", "razor blade", "six celestial mothers"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Standard Nakshatra academic documentation"
+    source_authorization: "Wikipedia + academic Sanskrit sources"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Nakshatra"
+    secondary_sources:
+      - "Wikipedia: Krittika"
+      - "Wikipedia: Kartikeya"
+      - "Wikipedia: Pleiades in folklore and literature"
+    academic_anchor: "Parashara, Brihat Parashara Hora Shastra"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vedic-nakshatra-004"
+  sign_name:
+    primary: "Rohini"
+    variants: ["Rohinī", "Rohni"]
+    romanization: "Rohini"
+    native_script: "रोहिणी"
+  cultural_tradition:
+    primary_culture: "Vedic / Jyotish (Hindu)"
+    derivative_cultures: ["Tamil Nakshatra tradition", "Buddhist calendar"]
+    geographic_origin: "South Asia / Indian subcontinent"
+    period_range: "Vedanga Jyotisha ~1200-900 BCE; classical codification Parashara ~200-400 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vedic Nakshatras (नक्षत्र)"
+    total_signs_in_system: 27
+    position_in_system: 4
+    sign_classification:
+      element: "Earth (Prithvi)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Prajapati / Brahma (creator deity); Rohini goddess (personification of Aldebaran)"
+      season: "Sidereal Taurus sector"
+      other:
+        rashi_hosting: "Vrishabha (Taurus) — 10°–23°20′"
+        gana: "Manushya (human)"
+        nadi: "Kapha (water/phlegm)"
+        symbol: "Ox cart / chariot / fish"
+        quality: "Sthira (fixed/permanent)"
+        ruling_planet: "Chandra (Moon)"
+        animal_symbol: "Male serpent (cobra)"
+        tattva: "Earth"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Aldebaran_and_neighbourhood.jpg/320px-Aldebaran_and_neighbourhood.jpg"
+      description: "Aldebaran (α Tauri) — the red giant star at the heart of Rohini nakshatra"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "α Tauri (Aldebaran)"
+          ra: "4h 35m 55.2s"
+          dec: "+16° 30′ 33″"
+          magnitude: 0.85
+          notes: "Yogatara of Rohini; one of the four Royal Stars of ancient Persia (Watcher of the East). Orange-red K5 giant, 65 light-years distant."
+        - name: "θ¹ Tauri (Chamukuy)"
+          ra: "4h 28m 34.5s"
+          dec: "+15° 57′ 44″"
+          magnitude: 3.84
+          notes: "Part of Hyades cluster"
+        - name: "γ Tauri (Hyadum I)"
+          ra: "4h 19m 47.6s"
+          dec: "+15° 37′ 40″"
+          magnitude: 3.65
+          notes: "Part of Hyades cluster"
+      notes: "Rohini corresponds to the Hyades cluster with Aldebaran as dominant anchor star; spans 10°–23°20′ sidereal Taurus"
+    asterism_schematic:
+      description: "The brilliant red-orange Aldebaran dominates this nakshatra, flanked by the V-shaped Hyades cluster. Aldebaran appears to be part of the Hyades but is actually a foreground star much closer to Earth. The V-shape of the Hyades forms the bull's head."
+      line_topology: "γ Tau — θ¹ Tau — Aldebaran (α Tau) — δ¹ Tau: V-shape of Hyades with Aldebaran as the eye of the bull"
+    cultural_iconography:
+      description: "Rohini means 'red one' — directly referencing Aldebaran's vivid orange-red color. The nakshatra is personified as the most beautiful and favored of the Moon god Chandra's 27 wives. Symbol is the ox cart or chariot, representing fertility, abundance, and slow powerful movement. Krishna was born under this nakshatra. The Hyades cluster forms the cart shape in the sky."
+      reference_sources: ["Wikipedia: Nakshatra", "Wikipedia: Rohini (nakshatra)"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Nakshatra", "https://en.wikipedia.org/wiki/Rohini_(nakshatra)"]
+  primitive_association_hints:
+    suggested_element: "Earth / Water"
+    suggested_attribute: "VIT"
+    suggested_animal_form: "Serpent (cobra) / Bull"
+    suggested_object_form: "Ox cart / chariot"
+    symbolic_role: "Fertility; abundance; beauty; the Moon's favorite; growth; fixity; material prosperity"
+    mythic_narrative_summary: "Fourth Nakshatra. Moon's favorite wife; Aldebaran yogatara. Symbol: ox cart. Gana: Manushya. Rashi: Vrishabha. Krishna's birth star. Quality: Sthira (fixed)."
+  semantic_vocabulary:
+    symbolic_keywords: ["Aldebaran", "red", "Moon", "fertility", "ox cart", "Chandra", "Krishna", "abundance", "beauty", "Prajapati"]
+    mythic_narrative: "Rohini is the fourth Nakshatra and one of the most auspicious in Jyotish, spanning the heart of sidereal Taurus anchored by the brilliant red star Aldebaran (α Tauri). The name Rohini means 'the red one,' directly referencing Aldebaran's vivid orange-red hue — one of the brightest stars in the night sky.\n\nRohini is personified as the most beautiful of Chandra's (Moon god's) 27 wives — each wife representing one Nakshatra and the Moon spending one night per month at each mansion. Chandra was said to favor Rohini above all others, neglecting his other 26 wives. Their complaints to their father Daksha resulted in a curse of waxing and waning, explaining the Moon's phases in Vedic cosmology.\n\nThe presiding deity is Prajapati/Brahma — the creator — reinforcing Rohini's themes of fertility, creativity, and material abundance. The symbol is the ox cart or chariot, representing slow, stable, powerful movement through the world and agricultural abundance. Lord Krishna was said to be born under Rohini Nakshatra, adding immense spiritual significance. Ruling planet is the Moon (Chandra). Quality is Sthira (fixed) — the most stable and enduring of nakshatra qualities."
+    visual_motifs: ["red Aldebaran star", "ox cart laden with goods", "Chandra and his 27 wives", "V-shaped Hyades cluster", "Krishna birth narrative"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Standard Nakshatra academic documentation"
+    source_authorization: "Wikipedia + academic sources"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Nakshatra"
+    secondary_sources:
+      - "Wikipedia: Rohini (nakshatra)"
+      - "Wikipedia: Aldebaran"
+    academic_anchor: "Parashara, Brihat Parashara Hora Shastra"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vedic-nakshatra-005"
+  sign_name:
+    primary: "Mrigashira"
+    variants: ["Mrigashiras", "Mṛgaśiras", "Mrigasira", "Mrigsira"]
+    romanization: "Mrigashira"
+    native_script: "मृगशिरस्"
+  cultural_tradition:
+    primary_culture: "Vedic / Jyotish (Hindu)"
+    derivative_cultures: ["Tamil Nakshatra tradition", "Buddhist calendar"]
+    geographic_origin: "South Asia / Indian subcontinent"
+    period_range: "Vedanga Jyotisha ~1200-900 BCE; classical codification Parashara ~200-400 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vedic Nakshatras (नक्षत्र)"
+    total_signs_in_system: 27
+    position_in_system: 5
+    sign_classification:
+      element: "Earth (Prithvi)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Chandra / Soma (Moon deity, god of nectar and plants)"
+      season: "Sidereal Taurus-Gemini cusp sector"
+      other:
+        rashi_hosting: "Vrishabha (Taurus) 23°20′–Mithuna (Gemini) 6°40′"
+        gana: "Deva (divine)"
+        nadi: "Pitta (fire/bile)"
+        symbol: "Deer's head"
+        quality: "Mridu (soft/mild/tender)"
+        ruling_planet: "Mangala (Mars)"
+        animal_symbol: "Female serpent"
+        tattva: "Earth"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Orion_constellation_map.svg/320px-Orion_constellation_map.svg.png"
+      description: "Orion constellation map showing λ Orionis (Meissa) region — head of Orion / Mrigashira stars"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "λ Orionis (Meissa / Heka)"
+          ra: "5h 35m 08.3s"
+          dec: "+9° 56′ 03″"
+          magnitude: 3.54
+          notes: "Yogatara of Mrigashira; forms the head/nose of Orion"
+        - name: "φ¹ Orionis"
+          ra: "5h 34m 49.3s"
+          dec: "+9° 29′ 22″"
+          magnitude: 4.41
+        - name: "φ² Orionis"
+          ra: "5h 36m 48.5s"
+          dec: "+8° 54′ 19″"
+          magnitude: 4.09
+      notes: "The three stars form the deer's head / nose of Orion; span Taurus-Gemini boundary in sidereal system"
+    asterism_schematic:
+      description: "Three stars at the 'head' or nose of Orion — λ Orionis (Meissa) with φ¹ and φ² Orionis form a small tight grouping representing the deer's head or snout. Located above Orion's Belt in the sky."
+      line_topology: "λ Ori (Meissa) — φ¹ Ori — φ² Ori: compact triangular grouping forming deer's snout/head"
+    cultural_iconography:
+      description: "Mrigashira means 'deer's head' (mriga = deer/animal/search; shira = head). Symbol is a deer's head. The Moon god Soma/Chandra is the presiding deity, associated with nectar (amrita), fertility, and the mind. In myth, Prajapati pursued his daughter Rohini in deer form; Orion (the hunter) is associated with this pursuit in Vedic cosmology. The nakshatra represents searching, questing, and gentle curiosity."
+      reference_sources: ["Wikipedia: Nakshatra", "Wikipedia: Mrigashira"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Nakshatra", "https://en.wikipedia.org/wiki/Mrigashira"]
+  primitive_association_hints:
+    suggested_element: "Earth / Water"
+    suggested_attribute: "INT"
+    suggested_animal_form: "Deer"
+    suggested_object_form: "Bow and arrow (hunter's)"
+    symbolic_role: "Searching; questing; gentle curiosity; the sought and seeker; mind; lunar nectar"
+    mythic_narrative_summary: "Fifth Nakshatra. Soma/Chandra presides. Symbol: deer's head. Stars: Orion head (Meissa). Gana: Deva. Spans Taurus-Gemini. Quality: Mridu (soft). Mars rules."
+  semantic_vocabulary:
+    symbolic_keywords: ["deer", "search", "seeking", "Soma", "Moon", "gentle", "soft", "Orion head", "forest", "Mrigashira"]
+    mythic_narrative: "Mrigashira is the fifth Nakshatra, spanning the late degrees of sidereal Taurus into early Gemini, centered on the head of Orion (λ Orionis, Meissa). The name means 'deer's head' — mriga also carries the meaning of 'search' or 'seeking,' making this a nakshatra of questing and exploration.\n\nThe presiding deity is Soma (Chandra, the Moon), the god of the sacred nectar amrita and the plant world. Soma is gentle, luminous, and nourishing. In one Vedic myth, Prajapati (the creator) pursued his daughter Rohini in deer form to the sky; she became the star Aldebaran (Rohini nakshatra), and the hunter Orion represents the cosmic pursuit. Mrigashira represents the deer — the sought, the beautiful, the elusive.\n\nThe quality is Mridu (soft/tender), the most gentle of the nakshatra qualities. Natives are said to be curious, wandering, gentle, charming, and perpetually searching for beauty or truth. The dual-rashi span (Taurus–Gemini) gives it both earthy groundedness and airy intellectual restlessness. Ruling planet is Mars (Mangala), which may seem paradoxical for a gentle deer nakshatra — Mars here channels into pursuit, drive, and the hunter energy rather than aggression."
+    visual_motifs: ["deer head", "Orion's head/nose stars", "Soma nectar vessel", "Moon with deer", "seeker in forest"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Standard Nakshatra academic documentation"
+    source_authorization: "Wikipedia + academic sources"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Nakshatra"
+    secondary_sources:
+      - "Wikipedia: Mrigashira"
+      - "Wikipedia: Orion (constellation)"
+    academic_anchor: "Parashara, Brihat Parashara Hora Shastra"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vedic-nakshatra-006"
+  sign_name:
+    primary: "Ardra"
+    variants: ["Ārdrā", "Arudra", "Ardra"]
+    romanization: "Ardra"
+    native_script: "आर्द्रा"
+  cultural_tradition:
+    primary_culture: "Vedic / Jyotish (Hindu)"
+    derivative_cultures: ["Tamil Nakshatra tradition", "Buddhist calendar"]
+    geographic_origin: "South Asia / Indian subcontinent"
+    period_range: "Vedanga Jyotisha ~1200-900 BCE; classical codification Parashara ~200-400 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vedic Nakshatras (नक्षत्र)"
+    total_signs_in_system: 27
+    position_in_system: 6
+    sign_classification:
+      element: "Water (Jala)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Rudra (fierce storm deity, destroyer-transformer, proto-Shiva)"
+      season: "Sidereal Gemini sector"
+      other:
+        rashi_hosting: "Mithuna (Gemini) — 6°40′–20°"
+        gana: "Manushya (human)"
+        nadi: "Vata (air/wind)"
+        symbol: "Teardrop / diamond / dewdrop"
+        quality: "Tikshna (sharp/intense/dreadful)"
+        ruling_planet: "Rahu (north lunar node)"
+        animal_symbol: "Female dog"
+        tattva: "Water"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Betelgeuse_star_%28Hubble%29.jpg/320px-Betelgeuse_star_%28Hubble%29.jpg"
+      description: "Betelgeuse (α Orionis) — the brilliant red supergiant at the shoulder of Orion; sole yogatara of Ardra"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "α Orionis (Betelgeuse)"
+          ra: "5h 55m 10.3s"
+          dec: "+07° 24′ 25″"
+          magnitude: 0.42
+          notes: "Variable red supergiant (0.0–1.3 mag range); yogatara of Ardra; 700 solar radii; ~700 light-years distant. Notable 2019-2020 'Great Dimming' event."
+      notes: "Ardra is a single-star nakshatra anchored exclusively on Betelgeuse; 6°40′–20° sidereal Gemini"
+    asterism_schematic:
+      description: "Ardra is identified with the single brilliant red star Betelgeuse — the right shoulder of Orion (from the viewer's perspective). One of the largest and most luminous stars visible to the naked eye, with a distinctive reddish-orange color that intensifies at its variable peak."
+      line_topology: "Single star: α Orionis (Betelgeuse) — solitary brilliant red supergiant"
+    cultural_iconography:
+      description: "Ardra means 'moist' or 'fresh' — the dewdrop after rain, or a teardrop. The symbol is a teardrop or diamond (dewdrop of the storm). Rudra, the fierce storm deity, is the presiding god — a tempest-god who both destroys and purifies. He is the howling wind, the wild hunter, the proto-form of Shiva. Ardra represents the storm's tears, emotional intensity, grief transformed into insight, and the raw destructive-creative power of nature. Betelgeuse's red color and variable nature (it famously 'dimmed' in 2019-2020) mirrors Rudra's unpredictable power."
+      reference_sources: ["Wikipedia: Nakshatra", "Wikipedia: Ardra (nakshatra)", "Wikipedia: Betelgeuse"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Nakshatra", "https://en.wikipedia.org/wiki/Betelgeuse"]
+  primitive_association_hints:
+    suggested_element: "Water / Storm"
+    suggested_attribute: "INT"
+    suggested_animal_form: "Dog (female)"
+    suggested_object_form: "Teardrop / storm"
+    symbolic_role: "Emotional storm; Rudra's fury; purifying destruction; transformation through grief; brilliant intensity"
+    mythic_narrative_summary: "Sixth Nakshatra. Rudra presides. Symbol: teardrop. Star: Betelgeuse (solitary). Gana: Manushya. Rashi: Mithuna. Quality: Tikshna (sharp). Ruled by Rahu."
+  semantic_vocabulary:
+    symbolic_keywords: ["Betelgeuse", "storm", "Rudra", "teardrop", "destruction", "rain", "grief", "transformation", "intensity", "Rahu"]
+    mythic_narrative: "Ardra is the sixth Nakshatra, anchored on the single brilliant red supergiant Betelgeuse (α Orionis) at the shoulder of Orion. The name means 'the moist one' or 'fresh' — like a dewdrop after a cleansing storm, or a teardrop shed in cathartic grief.\n\nThe presiding deity is Rudra — the howling storm god, the fierce hunter, the wild lord of the forest. Rudra is the proto-form of Shiva, representing the destructive aspect of the divine: the storm that destroys in order to purify and renew. His laughter shakes the cosmos; his arrows bring disease and death; yet he is also the healer who holds the antidote. Ardra's symbol, the teardrop, represents both the storm's rain and the grief that follows destruction.\n\nBetelgeuse is one of the most dramatic stars in the sky — a red supergiant 700 times the diameter of the Sun, visibly variable in brightness, and destined to explode as a supernova in the astronomical future. Its vivid red color, great size, and instability perfectly embody Rudra's intense, transformative energy. In Jyotish, Ardra natives are said to be sharp-minded, emotionally intense, capable of breakthroughs achieved through suffering and struggle. The quality is Tikshna (sharp/dreadful) — the most intense of nakshatra qualities. Ruled by Rahu (north node), adding a destabilizing, obsessive, boundary-crossing dimension."
+    visual_motifs: ["red Betelgeuse supergiant", "Rudra in storm", "teardrop raindrop", "howling wind deity", "Orion's shoulder"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Standard Nakshatra academic documentation"
+    source_authorization: "Wikipedia + academic sources"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Nakshatra"
+    secondary_sources:
+      - "Wikipedia: Betelgeuse"
+      - "Wikipedia: Rudra"
+    academic_anchor: "Parashara, Brihat Parashara Hora Shastra"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vedic-nakshatra-007"
+  sign_name:
+    primary: "Punarvasu"
+    variants: ["Punarvasū", "Punarpusam (Tamil)", "Punarvasu"]
+    romanization: "Punarvasu"
+    native_script: "पुनर्वसु"
+  cultural_tradition:
+    primary_culture: "Vedic / Jyotish (Hindu)"
+    derivative_cultures: ["Tamil Nakshatra tradition", "Buddhist calendar"]
+    geographic_origin: "South Asia / Indian subcontinent"
+    period_range: "Vedanga Jyotisha ~1200-900 BCE; classical codification Parashara ~200-400 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vedic Nakshatras (नक्षत्र)"
+    total_signs_in_system: 27
+    position_in_system: 7
+    sign_classification:
+      element: "Water (Jala)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Aditi (mother of the Adityas / gods; the boundless sky mother)"
+      season: "Sidereal Gemini–Cancer cusp sector"
+      other:
+        rashi_hosting: "Mithuna (Gemini) 20°–Karka (Cancer) 3°20′"
+        gana: "Deva (divine)"
+        nadi: "Vata (air/wind)"
+        symbol: "Quiver of arrows / bow"
+        quality: "Chara (moveable)"
+        ruling_planet: "Guru / Brihaspati (Jupiter)"
+        animal_symbol: "Female cat"
+        tattva: "Water"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Gemini_constellation_map.svg/320px-Gemini_constellation_map.svg.png"
+      description: "Gemini constellation map showing Castor (α) and Pollux (β) — the twin stars anchoring Punarvasu"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "α Geminorum (Castor)"
+          ra: "7h 34m 35.9s"
+          dec: "+31° 53′ 17″"
+          magnitude: 1.58
+          notes: "Sextuple star system; Castor A+B+C + three companions; one of the brightest stars"
+        - name: "β Geminorum (Pollux)"
+          ra: "7h 45m 18.9s"
+          dec: "+28° 01′ 34″"
+          magnitude: 1.14
+          notes: "Yogatara of Punarvasu; orange giant; has confirmed exoplanet Pollux b. Slightly brighter than Castor despite β designation."
+      notes: "Punarvasu spans Gemini–Cancer; Pollux is yogatara; Castor and Pollux are the Dioscuri twins of Western tradition"
+    asterism_schematic:
+      description: "Castor and Pollux are the two bright 'heads' of the Gemini twins — among the most recognizable star pairs in the northern sky. They stand side by side like brothers, separated by about 4.5°. Punarvasu also includes a third star in early Cancer (Gomeisa region)."
+      line_topology: "α Gem (Castor) — β Gem (Pollux): prominent head-pair of the Gemini twins, ~4.5° separation; dominant bright pair"
+    cultural_iconography:
+      description: "Punarvasu means 'return of light' or 'the good again' (punar = again; vasu = good/gem/light). Symbol is a quiver of arrows — the return of the archer's arrows to the quiver, representing renewal, restoration, and the cyclic return after absence. Aditi (the boundless sky mother) is the presiding deity — she is the mother of all the Adityas (solar gods) and represents infinite space, freedom, and the cosmic womb of renewal. Lord Rama was born under Punarvasu."
+      reference_sources: ["Wikipedia: Nakshatra", "Wikipedia: Punarvasu"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Nakshatra"]
+  primitive_association_hints:
+    suggested_element: "Water / Wind"
+    suggested_attribute: "INT"
+    suggested_animal_form: "Cat (female)"
+    suggested_object_form: "Quiver of arrows"
+    symbolic_role: "Return; renewal; restoration; infinite sky; motherly nourishment; cyclic rebirth"
+    mythic_narrative_summary: "Seventh Nakshatra. Aditi presides. Symbol: quiver of arrows. Stars: Castor and Pollux. Lord Rama's birth star. Gana: Deva. Jupiter rules. Quality: Chara (moveable)."
+  semantic_vocabulary:
+    symbolic_keywords: ["return", "renewal", "Aditi", "Gemini twins", "quiver", "Jupiter", "Castor", "Pollux", "Rama", "boundless"]
+    mythic_narrative: "Punarvasu is the seventh Nakshatra, anchored on the brilliant twin stars Castor and Pollux at the heads of Gemini. The name means 'return of light' or 'the good again' — after the storm of Ardra, the sky clears and goodness returns. Punarvasu represents restoration, renewal, and the return from exile or absence.\n\nAditi, the presiding deity, is the boundless sky mother — literally 'without limits' or 'the infinite.' She is the mother of the twelve Adityas (solar gods including Vishnu, Mitra, Varuna, and Indra), the cosmic womb from which all divine light emerges. Aditi represents boundless space, freedom from all constraints, and the nurturing infinity that births creation. Her quiver of arrows (the symbol) sends illumination across all directions.\n\nLord Rama, the great avatar of Vishnu and the hero of the Ramayana, was said to be born under Punarvasu Nakshatra. This makes Punarvasu associated with righteousness, dharmic questing, exile endured with nobility, and the eventual triumphant return. Jupiter's rulership adds wisdom, philosophy, and expansive optimism. The quality is Chara (moveable) — flexible, adaptable, and capable of return from any direction."
+    visual_motifs: ["Castor and Pollux twin heads", "quiver with arrows", "Aditi sky mother", "bow archer returning", "Rama in exile"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Standard Nakshatra academic documentation"
+    source_authorization: "Wikipedia + academic sources"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Nakshatra"
+    secondary_sources:
+      - "Wikipedia: Castor (star)"
+      - "Wikipedia: Aditi"
+    academic_anchor: "Parashara, Brihat Parashara Hora Shastra"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vedic-nakshatra-008"
+  sign_name:
+    primary: "Pushya"
+    variants: ["Puṣya", "Pushyami", "Poosam (Tamil)", "Tishya"]
+    romanization: "Pushya"
+    native_script: "पुष्य"
+  cultural_tradition:
+    primary_culture: "Vedic / Jyotish (Hindu)"
+    derivative_cultures: ["Tamil Nakshatra tradition", "Buddhist calendar — Buddha born under Pushya per some traditions"]
+    geographic_origin: "South Asia / Indian subcontinent"
+    period_range: "Vedanga Jyotisha ~1200-900 BCE; classical codification Parashara ~200-400 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vedic Nakshatras (नक्षत्र)"
+    total_signs_in_system: 27
+    position_in_system: 8
+    sign_classification:
+      element: "Water (Jala)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Brihaspati (Jupiter deity, preceptor of the gods / Guru of Devas)"
+      season: "Sidereal Cancer sector"
+      other:
+        rashi_hosting: "Karka (Cancer) — 3°20′–16°40′"
+        gana: "Deva (divine)"
+        nadi: "Pitta (fire/bile)"
+        symbol: "Cow's udder / lotus flower / wheel / arrow"
+        quality: "Laghu (light/swift)"
+        ruling_planet: "Shani (Saturn)"
+        animal_symbol: "Male sheep/ram"
+        tattva: "Water"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Cancer_constellation_map.svg/320px-Cancer_constellation_map.svg.png"
+      description: "Cancer constellation map showing Praesepe (Beehive Cluster) and γ Cancri region — Pushya nakshatra stars"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "δ Cancri (Asellus Australis)"
+          ra: "8h 44m 41.1s"
+          dec: "+18° 09′ 15″"
+          magnitude: 3.94
+          notes: "Yogatara of Pushya; southern donkey of Cancer; near the Praesepe (Beehive) cluster"
+        - name: "γ Cancri (Asellus Borealis)"
+          ra: "8h 43m 17.1s"
+          dec: "+21° 28′ 07″"
+          magnitude: 4.67
+          notes: "Northern donkey of Cancer; flanks the Beehive with δ Cancri"
+        - name: "θ Cancri"
+          ra: "8h 31m 35.8s"
+          dec: "+18° 17′ 55″"
+          magnitude: 5.33
+      notes: "Near the Praesepe (Beehive Cluster, M44); δ Cancri is primary yogatara; 3°20′–16°40′ sidereal Cancer"
+    asterism_schematic:
+      description: "Three stars flanking the famous Praesepe (Beehive) star cluster in Cancer. δ and γ Cancri ('the two donkeys') bracket the Beehive cluster on either side. The Beehive (M44) itself is visible to the naked eye as a fuzzy patch and contains over 1000 stars."
+      line_topology: "γ Cnc (Asellus Borealis) — Praesepe M44 (backdrop cluster) — δ Cnc (Asellus Australis): the two donkeys flanking the manger"
+    cultural_iconography:
+      description: "Pushya means 'nourishing' or 'to nourish/flower.' Symbol is the cow's udder (nourishment) or lotus flower (spiritual blossoming) or a wheel. Brihaspati (Jupiter deity, the Great Teacher of the gods) is the presiding deity — making this one of the most auspicious nakshatras in Jyotish, associated with spiritual wisdom, nourishment, generosity, and the guru-disciple relationship. Considered the 'king of nakshatras' for auspicious activities."
+      reference_sources: ["Wikipedia: Nakshatra", "Wikipedia: Pushya"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Nakshatra"]
+  primitive_association_hints:
+    suggested_element: "Water"
+    suggested_attribute: "VIT"
+    suggested_animal_form: "Ram / Goat"
+    suggested_object_form: "Lotus / cow's udder"
+    symbolic_role: "Nourishment; spiritual flowering; guru wisdom; auspiciousness; divine teaching; abundance"
+    mythic_narrative_summary: "Eighth Nakshatra. Brihaspati presides. Symbol: lotus/cow's udder. Near Praesepe cluster. King of nakshatras — most auspicious. Gana: Deva. Saturn rules. Quality: Laghu."
+  semantic_vocabulary:
+    symbolic_keywords: ["nourishment", "lotus", "Brihaspati", "guru", "auspicious", "Saturn", "Cancer", "Praesepe", "flower", "divine teacher"]
+    mythic_narrative: "Pushya is the eighth Nakshatra and is widely regarded as the most auspicious of all 27 Nakshatras in Jyotish astrology — the 'king of nakshatras.' Its name means 'to nourish' or 'the flower' — representing the full bloom of divine grace and sustenance.\n\nThe presiding deity is Brihaspati (also called Guru, Jupiter deity), the preceptor of the Devas (gods) and the divine teacher of all wisdom. Brihaspati is associated with sacred knowledge, philosophy, dharma, and the grace that flows from the guru to the devoted student. His counsel helps the gods maintain cosmic order against the forces of chaos.\n\nThe symbol — the cow's udder — represents the most fundamental form of nourishment: a mother feeding her young. Alternatively symbolized as the lotus (spiritual blossoming) or a wheel (dharmic cycle). Saturn's rulership of this Deva-gana nakshatra creates a paradox — Saturn restricts, while Pushya expands; yet the combination produces disciplined spiritual development rather than mere indulgence. In Jyotish, virtually all auspicious ceremonies (weddings, business launches, house entries) are considered highly favorable under Pushya. It is the nakshatra that nurtures both materially and spiritually."
+    visual_motifs: ["lotus in bloom", "cow's udder flowing", "Brihaspati the divine teacher", "Beehive cluster M44", "nourishing rain"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Standard Nakshatra academic documentation"
+    source_authorization: "Wikipedia + academic sources"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Nakshatra"
+    secondary_sources:
+      - "Wikipedia: Pushya"
+      - "Wikipedia: Brihaspati"
+    academic_anchor: "Parashara, Brihat Parashara Hora Shastra"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vedic-nakshatra-009"
+  sign_name:
+    primary: "Ashlesha"
+    variants: ["Āśleṣā", "Aslesha", "Ayilyam (Tamil)"]
+    romanization: "Ashlesha"
+    native_script: "आश्लेषा"
+  cultural_tradition:
+    primary_culture: "Vedic / Jyotish (Hindu)"
+    derivative_cultures: ["Tamil Nakshatra tradition", "Buddhist calendar"]
+    geographic_origin: "South Asia / Indian subcontinent"
+    period_range: "Vedanga Jyotisha ~1200-900 BCE; classical codification Parashara ~200-400 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vedic Nakshatras (नक्षत्र)"
+    total_signs_in_system: 27
+    position_in_system: 9
+    sign_classification:
+      element: "Water (Jala)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Nagas (divine serpents; Ahi/Sarpa — the cosmic serpent)"
+      season: "Sidereal Cancer sector"
+      other:
+        rashi_hosting: "Karka (Cancer) — 16°40′–30°"
+        gana: "Rakshasa (fierce/demonic)"
+        nadi: "Kapha (water/phlegm)"
+        symbol: "Coiled serpent"
+        quality: "Tikshna (sharp/intense)"
+        ruling_planet: "Budha (Mercury)"
+        animal_symbol: "Male cat"
+        tattva: "Water"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Hydra_constellation_map.svg/320px-Hydra_constellation_map.svg.png"
+      description: "Hydra constellation map showing ε, δ, σ, η, ρ Hydrae — the serpent stars of Ashlesha"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "ε Hydrae"
+          ra: "8h 46m 46.6s"
+          dec: "+6° 25′ 08″"
+          magnitude: 3.38
+          notes: "Yogatara of Ashlesha; brightest star in the nakshatra's asterism"
+        - name: "δ Hydrae"
+          ra: "8h 37m 39.4s"
+          dec: "+5° 42′ 14″"
+          magnitude: 4.16
+        - name: "σ Hydrae"
+          ra: "8h 38m 45.4s"
+          dec: "+3° 20′ 29″"
+          magnitude: 4.44
+        - name: "η Hydrae"
+          ra: "8h 43m 13.5s"
+          dec: "+3° 23′ 55″"
+          magnitude: 4.30
+        - name: "ρ Hydrae"
+          ra: "8h 48m 25.9s"
+          dec: "+5° 50′ 02″"
+          magnitude: 4.35
+      notes: "Five stars in the head/neck of Hydra forming a curving coil; 16°40′–30° sidereal Cancer"
+    asterism_schematic:
+      description: "Five stars in the head of Hydra (the water serpent) form a coiling pattern — the largest constellation in the sky. The five stars ε, δ, σ, η, ρ Hydrae trace a loose serpentine curve representing the coiled serpent's head."
+      line_topology: "δ Hya — σ Hya — η Hya — ε Hya — ρ Hya: curving serpentine arc forming the serpent's head"
+    cultural_iconography:
+      description: "Ashlesha means 'the entwiner' or 'the clinging one' — from ash (to embrace/cling). Symbol is a coiled serpent. Presiding deities are the Nagas — divine serpents of Hindu cosmology who guard cosmic wisdom, water, and the underworld. Associated with Kundalini energy (coiled serpent power), deception, hidden knowledge, poison, and the hypnotic power of the serpent's gaze."
+      reference_sources: ["Wikipedia: Nakshatra", "Wikipedia: Ashlesha"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Nakshatra"]
+  primitive_association_hints:
+    suggested_element: "Water / Poison"
+    suggested_attribute: "INT"
+    suggested_animal_form: "Serpent (coiled)"
+    suggested_object_form: "Coiled snake"
+    symbolic_role: "Entwining; hidden power; Kundalini; serpent wisdom; poison and antidote; hypnotic charm"
+    mythic_narrative_summary: "Ninth Nakshatra. Nagas preside. Symbol: coiled serpent. Stars: Hydra head. Gana: Rakshasa. Rashi: Karka. Quality: Tikshna. Mercury rules."
+  semantic_vocabulary:
+    symbolic_keywords: ["serpent", "Nagas", "coil", "entwine", "Kundalini", "Mercury", "poison", "water", "Hydra", "hidden wisdom"]
+    mythic_narrative: "Ashlesha is the ninth and final Nakshatra of the first third of the zodiac, completing the Cancer span. Its name means 'the clinging one' or 'the entwiner' — the serpent's coil that grips and does not release. The stars lie in the head of Hydra, the longest constellation in the sky.\n\nThe presiding deities are the Nagas — divine serpents of Hindu cosmology who inhabit the underworld (Patala), guard cosmic treasures, and possess ancient wisdom. The Naga king Shesha holds up the universe on his thousand hoods; Vasuki was used to churn the cosmic ocean; Nagas appear at the feet of Vishnu, around Shiva's neck, and guard the gates of ancient temples. They embody the dual nature of the serpent: poison and healing medicine, fear and wisdom, constriction and liberation.\n\nAshlesha represents Kundalini energy — the coiled serpentine force at the base of the spine that, when awakened, rises to illuminate consciousness. In Jyotish, Ashlesha natives are said to be perceptive, psychologically penetrating, charming, and sometimes manipulative — like the hypnotic gaze of the cobra. The gana is Rakshasa (fierce), and the quality is Tikshna (sharp/intense). Mercury's rulership adds wit, communication skill, and cunning intelligence to the serpent's power."
+    visual_motifs: ["coiled cobra", "Hydra water serpent", "Kundalini energy spiral", "Naga king Shesha", "serpent wisdom gaze"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Standard Nakshatra academic documentation; serpent iconography is canonical in Hindu tradition"
+    source_authorization: "Wikipedia + academic sources"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Nakshatra"
+    secondary_sources:
+      - "Wikipedia: Ashlesha"
+      - "Wikipedia: Naga (mythology)"
+    academic_anchor: "Parashara, Brihat Parashara Hora Shastra"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"

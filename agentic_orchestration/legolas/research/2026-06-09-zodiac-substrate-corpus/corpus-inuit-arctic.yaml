@@ -1,0 +1,675 @@
+# corpus-inuit-arctic.yaml
+# Legolas Mode B — Zodiac Substrate Corpus
+# Crawl date: 2026-06-09
+# Protocol: B (High)
+# Sourcing: MacDonald (1998) "The Arctic Sky" (Royal Ontario Museum);
+#            Laugrand & Oosterens academic publications;
+#            Bjerregaard, Rasmussen (1929 Thule expeditions — historical public record);
+#            Wikipedia citing academic sources
+# CRITICAL: Each entry specifies primary_culture at per-culture level.
+#           NEVER collapsed to "Arctic" or "Inuit zodiac"
+# NEVER SAY "Inuit zodiac" — these are sky-knowledge traditions, not zodiac systems
+
+entries:
+
+  - sign_id: "inuit-eastern-arctic-001"
+    sign_name:
+      primary: "Tukturjuit"
+      variants:
+        - "The Caribou (Inuit)"
+        - "Ursa Major Caribou"
+      romanization: "Tukturjuit"
+      native_script: "ᑐᒃᑐᕐᔪᐃᑦ"
+      # Inuktitut syllabics; from MacDonald (1998) and public Inuktitut sources
+    cultural_tradition:
+      primary_culture: "Eastern Arctic Inuit (Nunavut / Baffin Island region)"
+      derivative_cultures:
+        - "This sky-reading is documented for Eastern Arctic Inuit traditions;
+           other Inuit regional traditions may have related or variant readings
+           of Ursa Major. Each regional tradition is distinct."
+      geographic_origin: "Eastern Canadian Arctic — Baffin Island, Nunavut, and surrounding regions"
+      period_range: >
+        Living tradition; documented in ethnographic record from Rasmussen's
+        Thule Expeditions (1920s); academic study by MacDonald (1998) from
+        elder consultation. Continuous pre-contact practice.
+      status_in_modern_tradition: "active_living"
+    system_metadata:
+      system_name: "Eastern Arctic Inuit sky-tradition"
+      total_signs_in_system: 0
+      position_in_system: 1
+      sign_classification:
+        element: ""
+        modality: ""
+        quadrant: ""
+        deity_association: ""
+        season: >
+          Ursa Major is circumpolar from Arctic latitudes — visible year-round.
+          Tukturjuit's orientation and position track the seasons. Spring
+          and autumn migrations of caribou correspond to the constellation's
+          position in the night sky.
+        other:
+          constellation_type: "bright_star_asterism"
+          stellar_identification: "Ursa Major (the Big Dipper / Plough)"
+          seasonal_use: >
+            The rotating position of Tukturjuit (Ursa Major) through the Arctic
+            night sky tracks seasonal passage. Caribou hunting seasons
+            historically correlated with the constellation's observed position.
+    visual_representation:
+      image_url:
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Ursa_Major_constellation_map.svg/1200px-Ursa_Major_constellation_map.svg.png"
+        description: >
+          IAU star map of Ursa Major — the constellation identified as
+          Tukturjuit (Caribou) in Eastern Arctic Inuit tradition.
+        source: "Wikipedia Commons (IAU constellation map)"
+        license: "CC-BY-SA"
+        verified_loads: true
+      image_url_secondary: []
+      star_coordinates:
+        coordinate_system: "IAU equatorial J2000"
+        primary_stars:
+          - name: "Dubhe (α Ursae Majoris)"
+            ra: "11h 03m 44s"
+            dec: "+61° 45′ 03″"
+            magnitude: 1.79
+            notes: "Part of Ursa Major; circumpolar from Arctic latitudes"
+          - name: "Merak (β Ursae Majoris)"
+            ra: "11h 01m 50s"
+            dec: "+56° 22′ 56″"
+            magnitude: 2.37
+            notes: "Part of Big Dipper / Plough asterism"
+          - name: "Alioth (ε Ursae Majoris)"
+            ra: "12h 54m 02s"
+            dec: "+55° 57′ 35″"
+            magnitude: 1.77
+            notes: "Brightest star in Ursa Major"
+          - name: "Alkaid (η Ursae Majoris)"
+            ra: "13h 47m 32s"
+            dec: "+49° 18′ 48″"
+            magnitude: 1.86
+            notes: "Tail end of Big Dipper handle"
+        notes: >
+          Ursa Major is circumpolar at Arctic latitudes (60°N+), rotating
+          around Polaris throughout the year. This makes Tukturjuit a
+          year-round sky-presence for Eastern Arctic Inuit communities,
+          though its position changes hour-by-hour and season-by-season.
+      asterism_schematic:
+        description: >
+          The seven principal stars of the Big Dipper / Plough form the body
+          and legs of the caribou. Dubhe and Merak form the 'bowl' (body);
+          the handle (Alioth, Mizar, Alkaid) forms the neck and head or legs,
+          depending on source description. The broader Ursa Major constellation
+          (88 IAU) extends further for the full body outline.
+        line_topology: >
+          Seven-star Big Dipper asterism; caribou body mapped to the Dipper
+          bowl and handle. Exact limb-assignment varies by sub-regional
+          tradition within Inuit.
+      cultural_iconography:
+        description: >
+          The identification of Ursa Major with a large animal being hunted
+          is one of the most geographically widespread in human ethnoastronomy —
+          appearing independently in multiple Arctic cultures (Inuit, Sámi)
+          and in some Native American traditions. For Eastern Arctic Inuit,
+          Tukturjuit (caribou) being hunted is a sky-narrative that mirrors
+          terrestrial hunting life. The circumpolar nature of the constellation
+          means it is always present, rotating through the Arctic sky; its
+          orientation signals the time of night and season of year.
+          MacDonald (1998) "The Arctic Sky" is the authoritative English-
+          language academic source, based on interviews with Inuit elders and
+          analysis of historical ethnographic records.
+        reference_sources:
+          - "MacDonald, J. (1998). The Arctic Sky: Inuit Astronomy, Star Lore,
+             and Legend. Royal Ontario Museum / Nunavut Research Institute."
+          - "Laugrand, F. & Oosterens, J. (2010). Inuit Shamanism and
+             Christianity. McGill-Queen's University Press."
+          - "Wikipedia: Tukturjuit"
+        reference_urls:
+          - "https://en.wikipedia.org/wiki/Tukturjuit"
+    primitive_association_hints:
+      suggested_element: "Earth / Water (Arctic)"
+      suggested_attribute: "Migration / survival / hunter-prey relationship"
+      suggested_animal_form: "Caribou (Rangifer tarandus)"
+      suggested_object_form: ""
+      symbolic_role: >
+        Hunted animal; seasonal guide; survival knowledge embodied in sky;
+        hunter-caribou relationship as cosmic frame
+      mythic_narrative_summary: >
+        Tukturjuit (Caribou) is the Eastern Arctic Inuit identification of
+        Ursa Major as a caribou being pursued by hunters. Circumpolar and
+        year-round visible; its rotating position tracks seasons and time
+        of night. MacDonald (1998) is the authoritative academic source.
+    semantic_vocabulary:
+      symbolic_keywords:
+        - "caribou"
+        - "Ursa Major"
+        - "Big Dipper"
+        - "Inuit"
+        - "Eastern Arctic"
+        - "circumpolar"
+        - "hunting"
+        - "seasonal migration"
+        - "Arctic survival"
+        - "tukturjuit"
+      mythic_narrative: >
+        Tukturjuit — the Caribou — is one of the most recognised Inuit sky-
+        figures, identifying the seven stars of the Big Dipper (Ursa Major)
+        as a caribou. The constellation is circumpolar at Arctic latitudes,
+        meaning it never sets below the horizon; it rotates through the Arctic
+        sky as a great clock and calendar. Caribou are the central subsistence
+        animal of many Eastern Arctic Inuit communities; their migrations are
+        life-sustaining events, and the sky-caribou embodies the relationship
+        between hunter and hunted at cosmic scale. MacDonald (1998) "The
+        Arctic Sky" documents this and related Inuit sky-figures from elder
+        consultation and historical ethnographic records held by the Royal
+        Ontario Museum and Nunavut Research Institute.
+      visual_motifs:
+        - "caribou silhouette"
+        - "Big Dipper asterism as body"
+        - "circumpolar rotation"
+        - "Arctic tundra below / star-field above"
+    cultural_sensitivity:
+      flag_level: "high"
+      explanation: >
+        Sourced from publicly-published academic ethnoastronomy: MacDonald
+        (1998) "The Arctic Sky" (Royal Ontario Museum / Nunavut Research
+        Institute) — the authoritative English-language academic source for
+        Inuit astronomy, based on elder consultation and historical records.
+        Primary culture is Eastern Arctic Inuit (not collapsed to "Arctic"
+        or "Inuit" without qualifier). Living cultural tradition; only
+        publicly-published institutional and academic material included.
+        Never referred to as "Inuit zodiac."
+      source_authorization: >
+        MacDonald, J. (1998). The Arctic Sky. Royal Ontario Museum /
+        Nunavut Research Institute. ISBN 0-88854-427-8.
+    provenance:
+      primary_source_url: "https://en.wikipedia.org/wiki/Tukturjuit"
+      secondary_sources:
+        - "MacDonald, J. (1998). The Arctic Sky: Inuit Astronomy, Star Lore,
+           and Legend. Royal Ontario Museum."
+        - "Laugrand, F. & Oosterens, J. (2010). Inuit Shamanism and
+           Christianity. McGill-Queen's University Press."
+      academic_anchor: "MacDonald (1998) The Arctic Sky — Royal Ontario Museum"
+      crawl_date: "2026-06-09"
+      legolas_confidence: "high"
+
+  - sign_id: "inuit-eastern-arctic-002"
+    sign_name:
+      primary: "Aagjuuk"
+      variants:
+        - "the Hunter Stars (Eastern Arctic Inuit)"
+        - "Aquila pair (Inuit)"
+      romanization: "Aagjuuk"
+      native_script: "ᐋᒡᔪᒃ"
+      # Inuktitut syllabics from MacDonald (1998) and public sources
+    cultural_tradition:
+      primary_culture: "Eastern Arctic Inuit (Nunavut / Baffin Island region)"
+      derivative_cultures: []
+      geographic_origin: "Eastern Canadian Arctic"
+      period_range: "Living tradition; documented in MacDonald (1998) from elder consultation"
+      status_in_modern_tradition: "active_living"
+    system_metadata:
+      system_name: "Eastern Arctic Inuit sky-tradition"
+      total_signs_in_system: 0
+      position_in_system: 2
+      sign_classification:
+        element: ""
+        modality: ""
+        quadrant: ""
+        deity_association: ""
+        season: >
+          Critical summer marker: Aagjuuk (α and γ Aquilae — Altair and
+          Tarazed) marks the shortest night near summer solstice in Eastern
+          Arctic Inuit tradition. Its annual heliacal rising (first appearance
+          before dawn) after a period of invisibility signals the return of
+          Arctic darkness and approaching autumn — vital information in
+          a land of midnight sun.
+        other:
+          constellation_type: "bright_star_pair"
+          stellar_identification: "α Aquilae (Altair) and γ Aquilae (Tarazed)"
+          seasonal_use: >
+            Marks the summer solstice period / shortest night; signals return
+            of meaningful darkness; critical calendar star for Arctic communities
+            where summer brings weeks of continuous daylight.
+    visual_representation:
+      image_url:
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Aquila_constellation_map.svg/1200px-Aquila_constellation_map.svg.png"
+        description: >
+          IAU star map of Aquila constellation; Aagjuuk = α Aquilae (Altair)
+          and γ Aquilae (Tarazed), the two stars identified in Eastern Arctic
+          Inuit tradition.
+        source: "Wikipedia Commons"
+        license: "CC-BY-SA"
+        verified_loads: true
+      image_url_secondary: []
+      star_coordinates:
+        coordinate_system: "IAU equatorial J2000"
+        primary_stars:
+          - name: "Altair (α Aquilae)"
+            ra: "19h 50m 47s"
+            dec: "+08° 52′ 06″"
+            magnitude: 0.77
+            notes: >
+              12th brightest star in the sky; visible from Arctic latitudes
+              (rises low on the horizon); one of the two Aagjuuk stars per
+              MacDonald (1998)
+          - name: "Tarazed (γ Aquilae)"
+            ra: "19h 46m 15s"
+            dec: "+10° 36′ 48″"
+            magnitude: 2.72
+            notes: >
+              Second star of the Aagjuuk pair; close to Altair on the sky;
+              together they mark the shortest night
+        notes: >
+          MacDonald (1998) specifically documents Aagjuuk as these two stars
+          and their role as a summer solstice marker. The pair rises low above
+          the southern horizon at Arctic latitudes; their brief appearance in
+          the twilight of the Arctic summer signals the beginning of the return
+          of night. This is a critically practical piece of astronomical
+          knowledge for communities where the midnight sun can last for weeks.
+      asterism_schematic:
+        description: >
+          Two-star pair: Altair (α Aquilae) and Tarazed (γ Aquilae), both in
+          the Aquila region, separated by ~2.6 degrees on the sky. The pair
+          marks a specific calendrical event (shortest night) rather than
+          depicting a figure or creature.
+        line_topology: "Two-star pair; line between α and γ Aquilae"
+      cultural_iconography:
+        description: >
+          Aagjuuk serves a critically practical function in the Eastern Arctic
+          Inuit astronomical calendar: it marks the end of the period when
+          the Arctic night is so short as to be negligible. Its re-appearance
+          after the midnight-sun period signals the approach of autumn —
+          the season of hunting, seal-harvesting, and preparation for winter.
+          MacDonald (1998) documents Aagjuuk as one of the most practically
+          important sky-markers in the Eastern Arctic Inuit astronomical
+          tradition.
+        reference_sources:
+          - "MacDonald, J. (1998). The Arctic Sky. Royal Ontario Museum /
+             Nunavut Research Institute."
+          - "Wikipedia: Aagjuuk"
+        reference_urls:
+          - "https://en.wikipedia.org/wiki/Aagjuuk"
+    primitive_association_hints:
+      suggested_element: "Air / Light"
+      suggested_attribute: "Precision / calendrical precision / seasonal pivot"
+      suggested_animal_form: ""
+      suggested_object_form: "Two-star calendar marker"
+      symbolic_role: >
+        Summer solstice / shortest-night marker; herald of returning darkness;
+        Arctic calendar pivot-point
+      mythic_narrative_summary: >
+        Aagjuuk (α and γ Aquilae) marks the shortest night near the summer
+        solstice in Eastern Arctic Inuit tradition. Its brief appearance in
+        the twilight signals the return of meaningful night — a critical
+        calendar marker for Arctic communities. Documented by MacDonald (1998).
+    semantic_vocabulary:
+      symbolic_keywords:
+        - "Aagjuuk"
+        - "Altair"
+        - "Aquila"
+        - "summer solstice"
+        - "shortest night"
+        - "Arctic calendar"
+        - "midnight sun"
+        - "returning darkness"
+        - "two stars"
+        - "Eastern Arctic Inuit"
+      mythic_narrative: >
+        Aagjuuk — the two stars Altair (α Aquilae) and Tarazed (γ Aquilae) —
+        is one of the most practically significant sky-figures in Eastern Arctic
+        Inuit astronomy. At Arctic latitudes, the summer sun barely sets for
+        weeks; the brief reappearance of Aagjuuk low on the southern horizon
+        at midnight marks the exact turning point — the shortest night, after
+        which meaningful darkness gradually returns. This signals the beginning
+        of the autumn hunting and preparation season. MacDonald (1998) "The
+        Arctic Sky" identifies Aagjuuk as among the most precisely observed
+        Inuit sky-figures, a testament to the practical astronomical precision
+        maintained by Arctic communities through generations of careful sky-
+        watching.
+      visual_motifs:
+        - "two bright stars low on horizon"
+        - "twilight Arctic sky"
+        - "midnight sun giving way to first true darkness"
+        - "hunting season beginning"
+    cultural_sensitivity:
+      flag_level: "high"
+      explanation: >
+        Sourced from MacDonald (1998) "The Arctic Sky" — the authoritative
+        academic source for Inuit astronomy. Primary culture is Eastern Arctic
+        Inuit. Living tradition. Never referred to as "Inuit zodiac."
+      source_authorization: >
+        MacDonald, J. (1998). The Arctic Sky. Royal Ontario Museum /
+        Nunavut Research Institute.
+    provenance:
+      primary_source_url: "https://en.wikipedia.org/wiki/Aagjuuk"
+      secondary_sources:
+        - "MacDonald, J. (1998). The Arctic Sky. Royal Ontario Museum."
+      academic_anchor: "MacDonald (1998)"
+      crawl_date: "2026-06-09"
+      legolas_confidence: "high"
+
+  - sign_id: "inuit-circumpolar-001"
+    sign_name:
+      primary: "Sakiattiat"
+      variants:
+        - "The Pleiades (Inuit traditions)"
+        - "The Ones That Lie in Clusters Together"
+      romanization: "Sakiattiat"
+      native_script: "ᓴᑭᐊᑦᑎᐊᑦ"
+      # Inuktitut; from MacDonald (1998)
+    cultural_tradition:
+      primary_culture: "Multiple Inuit regional traditions (documented across Inuit cultural region)"
+      derivative_cultures:
+        - "NOTE: Sakiattiat or variant names for the Pleiades are documented
+           across multiple Inuit regional traditions. This entry documents the
+           pattern; per-regional specifics should be consulted in MacDonald
+           (1998) for precise sub-regional attribution."
+      geographic_origin: "Arctic Canada, Greenland, Alaska — Inuit cultural region"
+      period_range: "Living tradition; documented in MacDonald (1998)"
+      status_in_modern_tradition: "active_living"
+    system_metadata:
+      system_name: "Inuit sky-tradition (multi-regional)"
+      total_signs_in_system: 0
+      position_in_system: 3
+      sign_classification:
+        element: ""
+        modality: ""
+        quadrant: ""
+        deity_association: ""
+        season: >
+          Pleiades is a winter constellation from mid-northern latitudes;
+          in the Arctic it rises in autumn and is prominent in winter skies.
+          Sakiattiat's winter prominence corresponds to deep winter — one of
+          the most critical and dangerous seasons for Arctic communities.
+        other:
+          constellation_type: "open_cluster"
+          stellar_identification: "Pleiades (M45)"
+          seasonal_use: >
+            Winter sky marker; the Pleiades' prominence signals deep winter
+            season. Specific seasonal correlations vary by regional tradition.
+    visual_representation:
+      image_url:
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Pleiades_large.jpg/1200px-Pleiades_large.jpg"
+        description: >
+          The Pleiades star cluster (M45) — identified as Sakiattiat
+          across multiple Inuit traditions.
+        source: "Wikipedia Commons"
+        license: "CC-BY-SA"
+        verified_loads: true
+      image_url_secondary: []
+      star_coordinates:
+        coordinate_system: "IAU equatorial J2000"
+        primary_stars:
+          - name: "Pleiades cluster (M45)"
+            ra: "03h 47m 00s"
+            dec: "+24° 07′ 00″"
+            magnitude: 1.6
+            notes: >
+              Open star cluster in Taurus; ~444 ly from Earth; contains ~3,000
+              stars; seven principal naked-eye stars (the Seven Sisters).
+        notes: >
+          The Pleiades is among the most universally cross-culturally recognised
+          sky-objects. Its recognition across Inuit traditions as Sakiattiat
+          (or variants) is consistent with its prominence in winter skies and
+          its universal salience as a tight star-cluster. MacDonald (1998)
+          documents specific Inuit readings of the cluster.
+      asterism_schematic:
+        description: >
+          Open star cluster; seven principal naked-eye stars form the visible
+          figure. In Inuit tradition the cluster is read as a group huddled
+          together (the name meaning "the ones that lie in clusters together").
+        line_topology: "Compact cluster; no line-topology"
+      cultural_iconography:
+        description: >
+          Sakiattiat — "the ones that lie in clusters together" — evokes the
+          visual impression of the Pleiades as a tight group of stars, and
+          may metaphorically reference the close-quarters living of Inuit
+          communities during deep winter. The Pleiades is one of the most
+          prominent star-clusters in the winter sky from Arctic latitudes.
+          MacDonald (1998) documents Sakiattiat as a recognised feature of
+          Inuit sky-knowledge.
+        reference_sources:
+          - "MacDonald, J. (1998). The Arctic Sky. Royal Ontario Museum /
+             Nunavut Research Institute."
+          - "Wikipedia: Sakiattiat"
+        reference_urls:
+          - "https://en.wikipedia.org/wiki/Sakiattiat"
+    primitive_association_hints:
+      suggested_element: "Water / Ice"
+      suggested_attribute: "Community / winter gathering / cluster"
+      suggested_animal_form: ""
+      suggested_object_form: "Group of people huddled together"
+      symbolic_role: "Winter cluster; community gathering; deep-winter sky marker"
+      mythic_narrative_summary: >
+        Sakiattiat ("the ones that lie in clusters together") is the Inuit
+        identification of the Pleiades as a tight group. Documented across
+        multiple Inuit regional traditions by MacDonald (1998). A winter sky
+        marker of deep significance.
+    semantic_vocabulary:
+      symbolic_keywords:
+        - "Sakiattiat"
+        - "Pleiades"
+        - "M45"
+        - "winter"
+        - "cluster"
+        - "gathering"
+        - "Inuit"
+        - "deep winter"
+        - "Arctic"
+        - "star cluster"
+      mythic_narrative: >
+        Sakiattiat — "the ones that lie in clusters together" — is the Inuit
+        reading of the Pleiades star cluster. The name itself captures the
+        visual impression of the Pleiades as a dense group, and may carry
+        connotations of the Inuit experience of winter community: people
+        gathered close in warmth against the Arctic cold. The Pleiades
+        is prominent in the winter sky, the most dangerous and demanding
+        season for Arctic communities; its appearance is both a celestial
+        marker and a reminder of the need for communal solidarity.
+      visual_motifs:
+        - "tight cluster of stars"
+        - "winter sky"
+        - "group huddled together"
+        - "seven sisters star-cluster"
+    cultural_sensitivity:
+      flag_level: "high"
+      explanation: >
+        Sourced from MacDonald (1998) "The Arctic Sky" — authoritative academic
+        source. Primary culture is Inuit (multiple regional traditions noted).
+        Never referred to as "Inuit zodiac." Living tradition.
+      source_authorization: >
+        MacDonald, J. (1998). The Arctic Sky. Royal Ontario Museum /
+        Nunavut Research Institute.
+    provenance:
+      primary_source_url: "https://en.wikipedia.org/wiki/Sakiattiat"
+      secondary_sources:
+        - "MacDonald, J. (1998). The Arctic Sky. Royal Ontario Museum."
+      academic_anchor: "MacDonald (1998)"
+      crawl_date: "2026-06-09"
+      legolas_confidence: "high"
+
+  - sign_id: "sami-001"
+    sign_name:
+      primary: "Sarva"
+      variants:
+        - "The Elk / Moose (Sámi)"
+        - "Ursa Major Elk (Sámi)"
+      romanization: "Sarva"
+      native_script: ""
+      # Sámi language term; confirmed in academic ethnoastronomy sources
+    cultural_tradition:
+      primary_culture: "Sámi people (Scandinavia / Arctic Norway, Sweden, Finland, Kola Peninsula)"
+      derivative_cultures:
+        - "Northern Sámi / Southern Sámi / Lule Sámi traditions share common
+           sky-knowledge heritage but are distinct linguistic and cultural
+           communities. Sarva is documented in pan-Sámi academic ethnoastronomy."
+      geographic_origin: "Arctic Scandinavia and Kola Peninsula — Sápmi (Sámiland)"
+      period_range: >
+        Living tradition; documented in academic Sámi ethnoastronomy.
+        Pre-dates European contact. Continuous tradition through contemporary
+        Sámi cultural revival.
+      status_in_modern_tradition: "active_living"
+    system_metadata:
+      system_name: "Sámi sky-tradition"
+      total_signs_in_system: 0
+      position_in_system: 1
+      sign_classification:
+        element: ""
+        modality: ""
+        quadrant: ""
+        deity_association: ""
+        season: >
+          Ursa Major is circumpolar from Sámi latitudes (65–70°N); Sarva is
+          year-round visible. The elk's seasonal behaviour — rut in autumn,
+          calving in spring — is tracked against Sarva's sky position.
+        other:
+          constellation_type: "bright_star_asterism"
+          stellar_identification: "Ursa Major (Big Dipper / Plough region)"
+          seasonal_use: >
+            Sarva the Elk's sky position tracks the elk hunting and behaviour
+            seasons for Sámi reindeer herding communities.
+    visual_representation:
+      image_url:
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Ursa_Major_constellation_map.svg/1200px-Ursa_Major_constellation_map.svg.png"
+        description: >
+          IAU star map of Ursa Major — identified as Sarva (the Elk) in
+          Sámi tradition.
+        source: "Wikipedia Commons"
+        license: "CC-BY-SA"
+        verified_loads: true
+      image_url_secondary: []
+      star_coordinates:
+        coordinate_system: "IAU equatorial J2000"
+        primary_stars:
+          - name: "Dubhe (α Ursae Majoris)"
+            ra: "11h 03m 44s"
+            dec: "+61° 45′ 03″"
+            magnitude: 1.79
+          - name: "Alioth (ε Ursae Majoris)"
+            ra: "12h 54m 02s"
+            dec: "+55° 57′ 35″"
+            magnitude: 1.77
+          - name: "Alkaid (η Ursae Majoris)"
+            ra: "13h 47m 32s"
+            dec: "+49° 18′ 48″"
+            magnitude: 1.86
+        notes: >
+          Ursa Major identified as elk or large deer in multiple Arctic
+          circumpolar traditions independently (Inuit: Tukturjuit = Caribou;
+          Sámi: Sarva = Elk). This independent parallel is a striking
+          example of convergent ethnoastronomy — different Arctic peoples
+          reading the same constellation as a large hunted animal.
+      asterism_schematic:
+        description: >
+          Seven-star Big Dipper asterism + broader Ursa Major. The elk's
+          body, antlers, and legs are mapped across the constellation's stars.
+          Exact limb assignment from academic sources not confirmed at this
+          crawl resolution; Phase 2 should consult Sámi-specific ethnographic
+          sources directly.
+        line_topology: >
+          Seven-star Big Dipper pattern; elk body interpretation. Exact
+          limb connections not confirmed in sources consulted for this crawl.
+      cultural_iconography:
+        description: >
+          The Sámi identification of Ursa Major as Sarva the Elk is one of
+          the most striking instances of cross-cultural convergence in Arctic
+          ethnoastronomy — both Inuit (Caribou) and Sámi (Elk) independently
+          read the same constellation as a large hunted herd animal. The Sámi
+          are a reindeer-herding and hunting people of Sápmi (northern
+          Scandinavia and Kola Peninsula); elk and reindeer are central to
+          their material and cultural life. The sky elk mirrors the terrestrial
+          elk in the Sámi astronomical tradition. Documented in academic
+          Sámi ethnography and ethnoastronomy.
+        reference_sources:
+          - "Edvardsen, E. (academic Sámi ethnography sources)"
+          - "Wikipedia: Sami people — cosmology section"
+          - "Helmer Aslaksen, academic references on Sámi astronomy (NUS)"
+        reference_urls:
+          - "https://en.wikipedia.org/wiki/S%C3%A1mi_people"
+    primitive_association_hints:
+      suggested_element: "Earth / Ice"
+      suggested_attribute: "Wild strength / migration / Arctic endurance"
+      suggested_animal_form: "Elk / Moose (Alces alces)"
+      suggested_object_form: ""
+      symbolic_role: >
+        Great hunted animal in the sky; circumpolar presence; Sámi
+        reindeer-herding culture's sky-mirror
+      mythic_narrative_summary: >
+        Sarva the Elk is the Sámi identification of Ursa Major as a great
+        elk — a parallel to the Inuit Tukturjuit (Caribou) in the same
+        constellation. Both Arctic peoples independently read Ursa Major as
+        a large hunted animal; this convergence is documented in academic
+        Arctic ethnoastronomy.
+    semantic_vocabulary:
+      symbolic_keywords:
+        - "Sarva"
+        - "Elk"
+        - "Ursa Major"
+        - "Sámi"
+        - "Sápmi"
+        - "circumpolar"
+        - "reindeer herding"
+        - "Arctic"
+        - "convergent ethnoastronomy"
+        - "Big Dipper"
+      mythic_narrative: >
+        In Sámi tradition, the seven stars of the Big Dipper (Ursa Major)
+        trace the outline of Sarva the great Elk. The Sámi people of Sápmi
+        (northern Scandinavia and Kola Peninsula) are a reindeer-herding
+        and hunting culture; the elk is a major animal in their world. That
+        both the Sámi and the Inuit independently identified Ursa Major as
+        a large hunted herd animal is one of the more striking examples of
+        convergent ethnoastronomy between distinct Arctic peoples. Sarva is
+        documented in academic Sámi ethnography as part of a broader sky-
+        tradition that includes the hunter chasing the elk — a story of
+        the turning year played out in the circumpolar stars.
+      visual_motifs:
+        - "elk with antlers against star-field"
+        - "Big Dipper as elk body"
+        - "northern lights (aurora) background"
+        - "Arctic tundra setting"
+    cultural_sensitivity:
+      flag_level: "high"
+      explanation: >
+        Sourced from academic Sámi ethnography and ethnoastronomy. The Sámi
+        are a living indigenous people of Sápmi (Norway, Sweden, Finland,
+        Russia). Primary culture specified as Sámi (not collapsed to "Arctic").
+        Living tradition. Sources consulted include Wikipedia citing academic
+        sources; Phase 2 should consult Sámi-specific academic ethnoastronomy
+        for deeper sourcing.
+      source_authorization: >
+        Academic Sámi ethnography + Wikipedia citing academic sources
+    provenance:
+      primary_source_url: "https://en.wikipedia.org/wiki/S%C3%A1mi_people"
+      secondary_sources:
+        - "Academic Sámi ethnoastronomy sources (Aslaksen, NUS + Sámi
+           ethnographic literature)"
+      academic_anchor: "Academic Sámi ethnography — Phase 2 deeper sourcing recommended"
+      crawl_date: "2026-06-09"
+      legolas_confidence: "medium"
+      # medium: cross-cultural pattern well-established; specific academic
+      # source citation for Sarva = Ursa Major not confirmed to a single
+      # citable paper in this crawl pass. Phase 2: direct Sámi academic
+      # ethnoastronomy consultation recommended.
+
+
+# EXCLUDED CONTENT LOG (Inuit/Arctic)
+# Per Protocol B: the following content was considered and excluded:
+#
+# 1. Qilluqiit (Orion's Belt = "the Blubbery Ones" / "Seal-Breathing-Hole Stars")
+#    — mentioned in dispatch approved figures list. The name Qilluqiit and the
+#    Orion's Belt identification are in the public academic record (MacDonald 1998).
+#    NOT excluded on sensitivity grounds — deferred to Phase 2 YAML extension.
+#    The core established figures (Tukturjuit, Aagjuuk, Sakiattiat) were
+#    prioritised per "quality > quantity" protocol.
+#
+# 2. Favdna (the Hunter / Arcturus — Sámi tradition) — mentioned in approved
+#    figures list. Deferred to Phase 2 YAML extension; Sarva was prioritised
+#    as the stronger-sourced Sámi entry. Phase 2: confirm Favdna = Arcturus
+#    from specific academic Sámi ethnoastronomy citation.
+#
+# 3. West Alaska Yupik sky-traditions — distinct from Inuit; no confirmed
+#    peer-reviewed academic source for specific sky-figures identified in
+#    this crawl pass. Deferred to Phase 2.
+#
+# 4. Greenlandic Inuit-specific sky-traditions (distinct regional sub-tradition)
+#    — deferred to Phase 2 with MacDonald (1998) as primary source.

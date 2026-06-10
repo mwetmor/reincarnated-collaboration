@@ -22,23 +22,23 @@
 | Japanese (Jūnishi) | ✅ COMPLETE | 12 | TBC | corpus-japanese-junishi.yaml written |
 | Korean (Ddi) | ✅ COMPLETE | 12 | TBC | corpus-korean-ddi.yaml written |
 | Vietnamese (12-animal) | ✅ COMPLETE | 12 | TBC | Cat-for-Rabbit documented |
-| Tibetan (12-animal) | in-progress | — | — | Agent still running |
-| Persian/Zoroastrian (12) | ✅ COMPLETE | 12 | TBC | corpus-persian-zoroastrian.yaml written |
-| Vedic Rashi (12) | in-progress | — | — | Agent still running |
-| Vedic Nakshatras (27/28) | in-progress | — | — | Agent running |
+| Tibetan (12-animal) | ✅ COMPLETE | 12 | TBC | Garuda/Nāga variant documented |
+| Persian/Zoroastrian (12) | ✅ COMPLETE | 12 | image_url + iconography | Yazatas; Tishtrya=Sirius; Mithra distinguished from Roman Mithras |
+| Vedic Rashi (12) | ✅ COMPLETE | 12 | image_url + stars + iconography | Sidereal vs tropical; Makara creature documented; Kalapurusha body-mapping |
+| Vedic Nakshatras (27/28) | in-progress | 9/27 | full on 9 | Ashvini–Ashlesha done; agent still running |
 | Egyptian decans (36) | in-progress | — | — | Agent running |
 | Arabic Manazil al-Qamar (28) | in-progress | — | — | Agent running |
-| Mayan Tzolkin (20 day-signs) | in-progress | — | — | Agent running |
+| Mayan Tzolkin (20 day-signs) | ✅ COMPLETE | 20 | image_url + iconography | Living ceremonial; medium sensitivity applied |
 | Aztec Tonalpohualli (20 day-signs) | in-progress | — | — | Agent running |
-| Polynesian navigator traditions | in-progress | — | — | HIGH sensitivity; Agent running |
-| Aboriginal Australian | in-progress | — | — | HIGH/RESTRICTED; Agent running |
-| Inuit/Arctic Circumpolar | in-progress | — | — | HIGH sensitivity; Agent running |
+| Polynesian navigator traditions | ✅ COMPLETE | 12 | image_url + stars + iconography | Hawaiian 7 + Maori 5; high sensitivity applied |
+| Aboriginal Australian | ✅ COMPLETE | 5 | image_url + dark-cloud schematic | Kamilaroi + Boorong; Protocol C; restricted content excluded |
+| Inuit/Arctic Circumpolar | ✅ COMPLETE | 4 | stars + iconography | Per-culture (Inuit/Sámi); high sensitivity applied |
 | Andean (Quechua/Aymara) | in-progress | — | — | MEDIUM sensitivity; Agent running |
 | West African (Dogon + broader) | in-progress | — | — | HIGH; Griaule flag; Agent running |
 | Native American (multi-tribal) | in-progress | — | — | HIGH/RESTRICTED; per-tribe; Agent running |
 
-**Running total: 60 entries confirmed** (12 Western + 12 Chinese + 12 Japanese + 12 Korean + 12 Vietnamese)
-**Additional confirmed in-progress: 12 Persian + more from running agents**
+**Running total: 146 entries confirmed**
+**Projected final (all agents complete): 400–430 entries**
 
 ---
 
@@ -59,8 +59,29 @@
 ### Vietnamese zodiac — COMPLETE (2026-06-09)
 **12 entries.** Derivative from Chinese zodiac; distinct primary_culture = "Vietnamese." Key variant: **Cat (Mèo) replaces Rabbit** at position 4 — documented with Vietnamese legend. Corpus file: `corpus-vietnamese-zodiac.yaml` (49 KB).
 
+### Tibetan zodiac — COMPLETE (2026-06-09)
+**12 entries.** Derivative from Chinese zodiac; distinct primary_culture = "Tibetan." Dragon entry documents Nāga/Garuda variant framing in Tibetan-Buddhist context. Corpus file: `corpus-tibetan-zodiac.yaml` (49 KB).
+
 ### Persian/Zoroastrian — COMPLETE (2026-06-09)
-**12 entries.** All 12 month-signs with named Yazata (divine beings): Farvardin/Fravashis, Ordibehesht/Asha Vahishta, Khordad/Haurvatat, Tir/Tishtrya (Sirius), Mordad/Ameretat, Shahrivar/Kshathra Vairya, Mehr/Mithra, Aban/Apas, Azar/Atar (sacred fire), Dey/Ahura Mazda, Bahman/Vohu Manah, Esfand/Spenta Armaiti. Faravahar symbol documented. Cultural sensitivity: none. Corpus file: `corpus-persian-zoroastrian.yaml` (65 KB).
+**12 entries.** All 12 month-signs with named Yazata (divine beings): Farvardin/Fravashis, Ordibehesht/Asha Vahishta, Khordad/Haurvatat, Tir/Tishtrya (Sirius — astronomically specific), Mordad/Ameretat, Shahrivar/Kshathra Vairya, Mehr/Mithra (Roman Mithraism tauroctony distinguished as Roman derivative, not Avestan), Aban/Apas, Azar/Atar (sacred fire), Dey/Ahura Mazda, Bahman/Vohu Manah, Esfand/Spenta Armaiti. Faravahar symbol documented. Cultural sensitivity: none. Corpus file: `corpus-persian-zoroastrian.yaml` (65 KB).
+
+### Vedic Rashi — COMPLETE (2026-06-09)
+**12 entries.** All 12 Rashi with Sanskrit names, Jyotish ruling planets, element (Agni/Prithvi/Vayu/Jala), quality (Chara/Sthira/Dwiswabhava), Kalapurusha body-part mapping (Mesha=head through Meena=feet). Key distinctions documented: (1) sidereal vs tropical zodiac (~23° ayanamsa offset); (2) Makara documented as mythical Makara sea-creature (NOT simply goat-fish); (3) planetary exaltations and debilities captured. Corpus file: `corpus-vedic-rashi.yaml` (71 KB).
+
+### Vedic Nakshatras — IN PROGRESS (9/27 complete)
+**9 entries confirmed** (Ashvini through Ashlesha). All first 9 with full schema: deity, gana (Deva/Manushya/Rakshasa), nadi, hosting Rashi, primary star RA/Dec, symbol, mythic narrative. Agent still running for entries 10–27 (Magha through Revati + optional Abhijit).
+
+### Mayan Tzolkin — COMPLETE (2026-06-09)
+**20 entries.** All 20 day-signs with Yucatec and K'iche' name variants, presiding deities, glyph image URLs (Dresden Codex / Wikipedia Commons), cultural iconography, mythic narratives. Aztec parallel noted in each entry. Cultural sensitivity: medium applied throughout. Corpus file: `corpus-mayan-tzolkin.yaml` (88 KB).
+
+### Polynesian navigator traditions — COMPLETE (2026-06-09)
+**12 entries** (7 Hawaiian + 5 Maori). Hawaiian: Hokule'a (Arcturus/zenith star), Makali'i (Pleiades/harvest), Hoku Pa'a (Polaris), Newe/Maui's Fishhook (Scorpius), A'a (Sirius), Na Hiku (Big Dipper), Ke Ali'i o Kona i Ka Lewa (Canopus). Maori: Matariki (Pleiades cluster with 7 named stars), Tautoru (Orion's Belt), Māhutonga (Southern Cross), Rehua, Māui's Fishhook. Cultural sensitivity: high applied; sourced from Bishop Museum + Te Papa + PVS + academic only. Star coordinates included where applicable. Corpus file: `corpus-polynesian.yaml` (88 KB).
+
+### Aboriginal Australian — COMPLETE (2026-06-09)
+**5 entries.** Kamilaroi Emu in the Sky (dark-cloud, Coalsack-to-Milky-Way-rift), Boorong tradition figures (Wotjobaluk people): Tchingal (Emu dark cloud), Warepil (Wedge-tailed Eagle/Altair), Marpeankurrk (Sugar Ant/Arcturus), and one additional Boorong figure. Protocol C applied; AIATSIS protocol followed; sacred-restricted content excluded. Cultural sensitivity: high. Corpus file: `corpus-aboriginal-australian.yaml` (43 KB).
+
+### Inuit/Arctic Circumpolar — COMPLETE (2026-06-09)
+**4 entries.** Per-culture: Inuit Tukturjuit (Caribou/Ursa Major), Inuit Aagjuuk (Altair+Tarazed — summer solstice marker), Inuit Sakiattiat (Pleiades), Sámi Sarva (Elk/Ursa Major). Anti-collapse discipline applied (Inuit ≠ Sámi ≠ Yupik). Cultural sensitivity: high. Corpus file: `corpus-inuit-arctic.yaml` (33 KB).
 
 ---
 

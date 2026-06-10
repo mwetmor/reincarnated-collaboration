@@ -1,0 +1,1371 @@
+# corpus-mayan-tzolkin.yaml
+# Legolas Mode B Corpus — Mayan Tzolkin 20 Day-Signs
+# Crawl date: 2026-06-09
+# Entry count: 20
+# Sources: Wikipedia (Tzolk'in, Maya calendar, individual day-sign articles), Smithsonian, INAH
+# Academic anchor: Tedlock, Barbara. Time and the Highland Maya. University of New Mexico Press, 1982.
+# Cultural sensitivity: MEDIUM — living ceremonial tradition in contemporary Maya communities (K'iche', Kaqchikel, Tz'utujil, Mam, Guatemala highlands)
+# Note on naming: Yucatec Mayan spellings (Imix, Ik, etc.) appear in older academic literature;
+#   K'iche' spellings (Imox, Iq', Aq'ab'al, etc.) are modern orthographic standard.
+#   Both documented per entry.
+
+- sign_id: "mayan-tzolkin-001"
+  sign_name:
+    primary: "Imix"
+    variants: ["Imox (K'iche' modern)", "Im", "Crocodile day", "Water Lily day"]
+    romanization: "Imix / Imox"
+    native_script: "glyph: Water-lily / caiman-head motif (no standard Unicode; see image_url)"
+  cultural_tradition:
+    primary_culture: "Yucatec Mayan"
+    derivative_cultures: ["K'iche' Maya", "Kaqchikel Maya", "Tz'utujil Maya", "Aztec (parallel: Cipactli)"]
+    geographic_origin: "Mesoamerica — Yucatan Peninsula and Maya Highlands (Guatemala)"
+    period_range: "Pre-Classic Maya origin ~2000 BCE; Classic period codification ~250–900 CE; living ceremonial tradition in contemporary Maya communities"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Mayan Tzolkin (Tz'olk'in)"
+    total_signs_in_system: 20
+    position_in_system: 1
+    sign_classification:
+      element: "Water / Earth (primordial)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Earth Monster / Caiman deity (Itzam Kab Ain) / Primordial Sea"
+      season: ""
+      other:
+        number_cycle: "260-day cycle: 20 day-signs × 13 numbers (1 Imix through 13 Ajaw then repeat)"
+        aztec_parallel: "Cipactli (Aztec Tonalpohualli position 1)"
+        k_iche_name: "Imox"
+        yucatec_name: "Imix"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/8/8e/MAYA-g-log-cal-D01-Imix.png"
+      description: "Mayan glyph for Imix (day 1 of Tzolkin) — water-lily / caiman-head motif"
+      source: "Wikipedia Commons"
+      license: "Public Domain (ancient pre-Columbian art)"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/MAYA-g-log-cal-D01-Imix.png/120px-MAYA-g-log-cal-D01-Imix.png"
+        description: "Thumbnail version — Imix glyph"
+        source: "Wikipedia Commons"
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Tzolkin day-signs are calendar-based, not stellar. Associated with the 260-day agricultural/ritual cycle, not individual star positions. The Pleiades heliacal rising was important for Mayan calendar reckoning but day-signs themselves are not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Imix depicts the primordial Earth Crocodile or Caiman — a cosmic reptile whose back forms the surface of the world floating on primordial waters. Depicted as a water-lily or crocodilian head in Classic Maya iconography. The figure (Itzam Kab Ain or Cipactli equivalent) represents primal chaotic creative energy. Associated with beginnings, primordial waters, and sustenance. Glyph shows water-lily motif with infixed elements indicating moisture and earth."
+      reference_sources: ["Wikipedia: Tzolk'in", "Wikipedia: Maya calendar"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tzolk%27in", "https://en.wikipedia.org/wiki/Maya_calendar"]
+  primitive_association_hints:
+    suggested_element: "Water / Earth (primordial)"
+    suggested_attribute: "CON"
+    suggested_animal_form: "Crocodile / Caiman"
+    suggested_object_form: "Water lily"
+    symbolic_role: "Primordial beginning; creation-force; earth floating on water; primal sustenance"
+    mythic_narrative_summary: "Imix is the first Tzolkin day-sign. The primal Earth Crocodile/Caiman whose back is the world's surface. Represents beginnings, primordial creative force, and the boundary between order and chaos."
+  semantic_vocabulary:
+    symbolic_keywords: ["crocodile", "caiman", "earth", "water", "primordial", "beginning", "creation", "water-lily", "sustenance", "chaos"]
+    mythic_narrative: "Imix (K'iche': Imox) opens the 260-day Tzolkin cycle. The day-sign represents the primordial Earth Crocodile — a cosmic caiman whose back is the surface of the world, floating upon the primordial sea. In Maya creation mythology this primal figure relates to Itzam Kab Ain. Imix energy is associated with raw creative force — chaotic, fecund, primordially powerful. '1 Imix' begins a new Tzolkin cycle and is particularly auspicious for new ventures. Governed by the caiman deity, associated with water-lily plants, rain, and the sustaining power of the earth itself."
+    visual_motifs: ["caiman head glyph", "water-lily motif", "earth-monster back", "primordial sea"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Tzolkin day-signs sourced from Wikipedia and academic institutional record only. The Tzolkin is a living ceremonial tradition in Maya communities. Ceremonial-specific practices and day-keeper (ajq'ij) traditions are not documented here."
+    source_authorization: "Wikipedia + Smithsonian + INAH + Tedlock (1982)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tzolk%27in"
+    secondary_sources: ["Wikipedia: Maya calendar", "Smithsonian: Mesoamerican collections"]
+    academic_anchor: "Tedlock, Barbara. Time and the Highland Maya. University of New Mexico Press, 1982."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "mayan-tzolkin-002"
+  sign_name:
+    primary: "Ik'"
+    variants: ["Ik (Yucatec older spelling)", "Iq' (K'iche' variant)", "Wind day", "Breath day"]
+    romanization: "Ik' / Ik / Iq'"
+    native_script: "glyph: T-shape wind motif / breath symbol"
+  cultural_tradition:
+    primary_culture: "Yucatec Mayan"
+    derivative_cultures: ["K'iche' Maya", "Kaqchikel Maya", "Aztec (parallel: Ehecatl)"]
+    geographic_origin: "Mesoamerica — Yucatan Peninsula and Maya Highlands"
+    period_range: "Pre-Classic Maya origin ~2000 BCE; Classic codification ~250–900 CE; living tradition"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Mayan Tzolkin (Tz'olk'in)"
+    total_signs_in_system: 20
+    position_in_system: 2
+    sign_classification:
+      element: "Air / Wind"
+      modality: ""
+      quadrant: ""
+      deity_association: "Huracán (Wind deity) / Kukulkan aspects"
+      season: ""
+      other:
+        aztec_parallel: "Ehecatl (Aztec Tonalpohualli position 2)"
+        k_iche_name: "Iq'"
+        yucatec_name: "Ik'"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/d/d3/MAYA-g-log-cal-D02-Ik.png"
+      description: "Mayan glyph for Ik' (day 2 of Tzolkin) — T-shaped wind/breath symbol"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Ik' is rendered as a T-shaped glyph representing wind, breath, and vital spirit. The T-shape (IK sign) appears throughout Maya architecture as wind-portals. Wind was understood as the breath of life and divine communication. Associated with the cross-wind directions and the breath that animates living beings."
+      reference_sources: ["Wikipedia: Tzolk'in", "Wikipedia: Maya calendar"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tzolk%27in"]
+  primitive_association_hints:
+    suggested_element: "Air / Wind"
+    suggested_attribute: "SPD"
+    suggested_animal_form: "Bird / Wind-spirit"
+    suggested_object_form: "Breath / T-portal"
+    symbolic_role: "Vital force; communication; divine breath; animating spirit"
+    mythic_narrative_summary: "Ik' is the breath and wind sign — the animating vital force. Represents communication, spiritual energy, and the invisible power that moves through the world."
+  semantic_vocabulary:
+    symbolic_keywords: ["wind", "breath", "spirit", "vital force", "communication", "air", "animation", "divine breath", "T-sign"]
+    mythic_narrative: "Ik' (K'iche': Iq') is the day of Wind and Breath. The T-shaped glyph appears as architectural wind-portals throughout Maya temples. Wind is the animating breath of life — the spirit that moves invisibly but is felt everywhere. Ik' days are associated with communication, spiritual messages, and the unpredictable power of the unseen. The wind deity's domain encompasses both gentle breeze and destructive storm, making Ik' a sign of vital but potentially overwhelming force."
+    visual_motifs: ["T-shaped glyph", "wind portal", "breath lines", "directional winds"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only. Living tradition respected."
+    source_authorization: "Wikipedia + Tedlock (1982)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tzolk%27in"
+    secondary_sources: ["Wikipedia: Maya calendar"]
+    academic_anchor: "Tedlock, Barbara. Time and the Highland Maya. University of New Mexico Press, 1982."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "mayan-tzolkin-003"
+  sign_name:
+    primary: "Ak'bal"
+    variants: ["Akbal (older Yucatec)", "Aq'ab'al (K'iche' modern)", "Night day", "Darkness day", "Temple day"]
+    romanization: "Ak'bal / Aq'ab'al"
+    native_script: "glyph: darkness / night-sky / jaguar-pelt motif"
+  cultural_tradition:
+    primary_culture: "Yucatec Mayan"
+    derivative_cultures: ["K'iche' Maya", "Kaqchikel Maya", "Aztec (parallel: Calli)"]
+    geographic_origin: "Mesoamerica — Yucatan Peninsula and Maya Highlands"
+    period_range: "Pre-Classic Maya origin ~2000 BCE; Classic codification ~250–900 CE; living tradition"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Mayan Tzolkin (Tz'olk'in)"
+    total_signs_in_system: 20
+    position_in_system: 3
+    sign_classification:
+      element: "Darkness / Earth"
+      modality: ""
+      quadrant: ""
+      deity_association: "Jaguar deity / Lord of Night / Underworld"
+      season: ""
+      other:
+        aztec_parallel: "Calli (Aztec Tonalpohualli position 3)"
+        k_iche_name: "Aq'ab'al"
+        yucatec_name: "Ak'bal"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/b/bb/MAYA-g-log-cal-D03-Akbal.png"
+      description: "Mayan glyph for Ak'bal (day 3 of Tzolkin) — night/darkness motif"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Ak'bal depicts the darkness of night — the interior of the jaguar's pelt, the darkness of the temple sanctuary, and the underworld's entrance. The night/darkness glyph often shows star or darkness infixes. Associated with introspection, the sacred interior, and the transformative power of the dark. Temples were Ak'bal spaces — places of sacred darkness and hidden power."
+      reference_sources: ["Wikipedia: Tzolk'in"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tzolk%27in"]
+  primitive_association_hints:
+    suggested_element: "Darkness / Void"
+    suggested_attribute: "INT"
+    suggested_animal_form: "Jaguar (night hunter)"
+    suggested_object_form: "Temple / Cave entrance"
+    symbolic_role: "Night; introspection; sacred interior; transformative darkness; hidden knowledge"
+    mythic_narrative_summary: "Ak'bal is the night and darkness sign. The interior of the jaguar's domain, the temple's sacred darkness, the cave entrance to the underworld. Represents hidden wisdom, introspection, and the transformative power of darkness."
+  semantic_vocabulary:
+    symbolic_keywords: ["night", "darkness", "temple", "cave", "jaguar", "underworld", "introspection", "sacred interior", "hidden power"]
+    mythic_narrative: "Ak'bal (K'iche': Aq'ab'al) is the day of Night and Darkness. The sacred darkness of the temple, the underworld's mouth, the jaguar's pelt — all are Ak'bal domains. In Maya cosmology, darkness is not simply absence of light but a distinct sacred state of hidden potential and transformative power. The underworld (Xibalba) is reached through cave entrances, and Ak'bal marks those thresholds. Days signed Ak'bal are associated with dreaming, divination, and accessing hidden knowledge."
+    visual_motifs: ["darkness glyph", "jaguar pelt markings", "cave entrance", "night sky infixes"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Tedlock (1982)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tzolk%27in"
+    secondary_sources: ["Wikipedia: Maya calendar"]
+    academic_anchor: "Tedlock, Barbara. Time and the Highland Maya. University of New Mexico Press, 1982."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "mayan-tzolkin-004"
+  sign_name:
+    primary: "K'an"
+    variants: ["Kan (older Yucatec)", "K'at (K'iche' modern)", "Corn day", "Lizard day", "Net day", "Yellow day"]
+    romanization: "K'an / K'at"
+    native_script: "glyph: maize / net / lizard motif"
+  cultural_tradition:
+    primary_culture: "Yucatec Mayan"
+    derivative_cultures: ["K'iche' Maya", "Kaqchikel Maya", "Aztec (parallel: Cuetzpallin)"]
+    geographic_origin: "Mesoamerica — Yucatan Peninsula and Maya Highlands"
+    period_range: "Pre-Classic Maya origin ~2000 BCE; Classic codification ~250–900 CE; living tradition"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Mayan Tzolkin (Tz'olk'in)"
+    total_signs_in_system: 20
+    position_in_system: 4
+    sign_classification:
+      element: "Earth / Fire"
+      modality: ""
+      quadrant: ""
+      deity_association: "Young Maize God (Hun Hunahpu aspects)"
+      season: "Maize planting season"
+      other:
+        aztec_parallel: "Cuetzpallin (Aztec Tonalpohualli position 4)"
+        k_iche_name: "K'at"
+        yucatec_name: "K'an"
+        color_association: "Yellow (kan = yellow in Yucatec)"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/a/a7/MAYA-g-log-cal-D04-Kan.png"
+      description: "Mayan glyph for K'an (day 4 of Tzolkin) — maize/net motif"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "K'an is the yellow/ripe maize sign. 'Kan' means yellow in Yucatec, and the sign references both the yellow corn and the net (k'an also means net) used for harvesting and carrying. The lizard (cuetzpallin in Aztec parallel) connection is secondary. The Young Maize God is the primary deity association — a beautiful, vital, life-giving figure. Maize is the substance from which humans were made according to the Popol Vuh."
+      reference_sources: ["Wikipedia: Tzolk'in", "Wikipedia: Popol Vuh"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tzolk%27in"]
+  primitive_association_hints:
+    suggested_element: "Earth / Fire (warmth of grain)"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Lizard / Corn spirit"
+    suggested_object_form: "Ear of corn / Gathering net"
+    symbolic_role: "Abundance; harvest; human sustenance; seeds; gathering; fertility"
+    mythic_narrative_summary: "K'an is the corn/abundance sign. The yellow ripe maize is the fundamental life-substance — humans were made from corn in the Popol Vuh. Represents harvest, abundance, and the gathering net of plenty."
+  semantic_vocabulary:
+    symbolic_keywords: ["corn", "maize", "yellow", "abundance", "harvest", "seeds", "net", "lizard", "ripe", "sustenance", "Young Maize God"]
+    mythic_narrative: "K'an (K'iche': K'at) is the day of Ripe Maize. 'Kan' means yellow in Yucatec — the color of ripe corn. This is one of the most auspicious signs: maize is the sacred substance from which the gods fashioned humankind according to the Popol Vuh creation narrative. The net (k'at) also references gathering, collecting, and the web of abundance that sustains community. K'at days are considered excellent for planting, harvesting, and commercial activity."
+    visual_motifs: ["maize cob", "yellow corn glyph", "gathering net", "lizard", "abundance motif"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Tedlock (1982) + Popol Vuh (Christenson translation)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tzolk%27in"
+    secondary_sources: ["Wikipedia: Maya calendar", "Wikipedia: Popol Vuh"]
+    academic_anchor: "Tedlock, Barbara. Time and the Highland Maya. University of New Mexico Press, 1982."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "mayan-tzolkin-005"
+  sign_name:
+    primary: "Chicchan"
+    variants: ["Chikchan (alternative Yucatec)", "Kan (some older orthographies — note: different from K'an position 4)", "Kaan (variant)", "Serpent day"]
+    romanization: "Chicchan / Chikchan"
+    native_script: "glyph: serpent / sky-serpent motif"
+  cultural_tradition:
+    primary_culture: "Yucatec Mayan"
+    derivative_cultures: ["K'iche' Maya", "Kaqchikel Maya", "Aztec (parallel: Coatl)"]
+    geographic_origin: "Mesoamerica — Yucatan Peninsula and Maya Highlands"
+    period_range: "Pre-Classic Maya origin ~2000 BCE; Classic codification ~250–900 CE; living tradition"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Mayan Tzolkin (Tz'olk'in)"
+    total_signs_in_system: 20
+    position_in_system: 5
+    sign_classification:
+      element: "Fire / Kundalini-force"
+      modality: ""
+      quadrant: ""
+      deity_association: "Sky Serpent / Kukulkan aspects / Celestial Dragon"
+      season: ""
+      other:
+        aztec_parallel: "Coatl (Aztec Tonalpohualli position 5)"
+        k_iche_name: "Kan (K'iche' — distinct spelling from Yucatec K'an position 4)"
+        yucatec_name: "Chicchan"
+        notes: "The K'iche' name 'Kan' for this sign (meaning serpent) is distinct from K'at (K'iche' name for position 4 / K'an). Orthographic disambiguation required."
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/8/81/MAYA-g-log-cal-D05-Chicchan.png"
+      description: "Mayan glyph for Chicchan (day 5 of Tzolkin) — sky serpent motif"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Chicchan is the celestial serpent sign. The feathered serpent Kukulkan (Quetzalcoatl in Aztec tradition) is the supreme serpent deity — a sky dragon whose undulation creates the horizon and whose feathers reach the heavens. The sign depicts a serpent head glyph and is associated with powerful celestial kundalini-like energy, sexual power, and the transformative force that rises through the world-tree axis."
+      reference_sources: ["Wikipedia: Tzolk'in", "Wikipedia: Kukulkan"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tzolk%27in"]
+  primitive_association_hints:
+    suggested_element: "Fire / Lightning"
+    suggested_attribute: "WIS"
+    suggested_animal_form: "Feathered Serpent / Sky Dragon"
+    suggested_object_form: "Coiled serpent / World-tree axis"
+    symbolic_role: "Celestial serpent power; kundalini-force; sexual energy; sky-dragon; transformation"
+    mythic_narrative_summary: "Chicchan is the sky serpent — the primal celestial dragon whose coiling creates cosmic order. Associated with Kukulkan/Quetzalcoatl, this sign embodies transformative serpent power and the rising force of the cosmos."
+  semantic_vocabulary:
+    symbolic_keywords: ["serpent", "sky-dragon", "feathered serpent", "Kukulkan", "kundalini", "celestial", "coiling", "transformation", "lightning", "cosmic force"]
+    mythic_narrative: "Chicchan is the day of the Celestial Serpent. The great feathered serpent Kukulkan — the Maya equivalent of Aztec Quetzalcoatl — embodies this sign's power. The sky-serpent's body forms the horizon; its scales are the clouds; its breath is the wind. Chicchan days carry intense, coiling energy — primal, transformative, potentially dangerous. In some interpretations this sign relates to a kundalini-like force that rises through the body, connecting earth to sky through the world-tree axis."
+    visual_motifs: ["serpent head glyph", "feathered serpent undulation", "sky-dragon motif", "coiled snake"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only. 'Kundalini' is used descriptively for comparative purposes, not as appropriation of Hindu tradition."
+    source_authorization: "Wikipedia + Tedlock (1982)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tzolk%27in"
+    secondary_sources: ["Wikipedia: Maya calendar", "Wikipedia: Kukulkan"]
+    academic_anchor: "Tedlock, Barbara. Time and the Highland Maya. University of New Mexico Press, 1982."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "mayan-tzolkin-006"
+  sign_name:
+    primary: "Kimi"
+    variants: ["Cimi (older Yucatec)", "Kame (K'iche' modern)", "Death day", "Ancestor day"]
+    romanization: "Kimi / Cimi / Kame"
+    native_script: "glyph: death's-head / skull motif"
+  cultural_tradition:
+    primary_culture: "Yucatec Mayan"
+    derivative_cultures: ["K'iche' Maya", "Kaqchikel Maya", "Aztec (parallel: Miquiztli)"]
+    geographic_origin: "Mesoamerica — Yucatan Peninsula and Maya Highlands"
+    period_range: "Pre-Classic Maya origin ~2000 BCE; Classic codification ~250–900 CE; living tradition"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Mayan Tzolkin (Tz'olk'in)"
+    total_signs_in_system: 20
+    position_in_system: 6
+    sign_classification:
+      element: "Death / Transformation"
+      modality: ""
+      quadrant: ""
+      deity_association: "Death God (Ah Puch / Kisin) / Xibalba lords"
+      season: ""
+      other:
+        aztec_parallel: "Miquiztli (Aztec Tonalpohualli position 6)"
+        k_iche_name: "Kame"
+        yucatec_name: "Kimi / Cimi"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/2/26/MAYA-g-log-cal-D06-Cimi.png"
+      description: "Mayan glyph for Kimi/Cimi (day 6 of Tzolkin) — death's-head skull motif"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Kimi is the death sign — depicted as a skull or death's-head glyph. The Death God (Ah Puch or Kisin) presides. Crucially, in Maya thought death is not an ending but a transformation and the necessary predecessor to rebirth. The ancestors live in the underworld Xibalba and communicate with the living. Kimi days are for honoring ancestors, contemplating transformation, and acknowledging the cycles of death and regeneration."
+      reference_sources: ["Wikipedia: Tzolk'in", "Wikipedia: Maya death gods"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tzolk%27in"]
+  primitive_association_hints:
+    suggested_element: "Death / Void / Shadow"
+    suggested_attribute: "WIS"
+    suggested_animal_form: "Owl (messenger of death) / Bat"
+    suggested_object_form: "Skull / Ancestor effigy"
+    symbolic_role: "Death; transformation; ancestor veneration; endings enabling new beginnings; underworld passage"
+    mythic_narrative_summary: "Kimi is the death/transformation sign. In Maya cosmology death is a transformation, not an ending. The ancestors dwell in Xibalba and guide the living. Kimi marks passages, transitions, and the deep wisdom of those who have crossed over."
+  semantic_vocabulary:
+    symbolic_keywords: ["death", "skull", "ancestor", "transformation", "underworld", "Xibalba", "Ah Puch", "endings", "rebirth", "passage"]
+    mythic_narrative: "Kimi (K'iche': Kame) is the day of Death — but in Maya cosmology, death is a transformation and a threshold, not an ending. The Xibalba lords preside over an underworld that is a place of testing and ultimately of resurrection (as the Hero Twins demonstrate in the Popol Vuh). Kimi days are associated with honoring the dead, communicating with ancestors, and acknowledging that endings create the conditions for new beginnings. The Death God Ah Puch (or Kisin) is a complex figure — the lord of transformation."
+    visual_motifs: ["skull glyph", "death's-head", "bone imagery", "Xibalba lords", "ancestor effigies"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Tedlock (1982) + Popol Vuh"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tzolk%27in"
+    secondary_sources: ["Wikipedia: Maya calendar", "Wikipedia: Popol Vuh"]
+    academic_anchor: "Tedlock, Barbara. Time and the Highland Maya. University of New Mexico Press, 1982."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "mayan-tzolkin-007"
+  sign_name:
+    primary: "Manik"
+    variants: ["Manik' (K'iche' variant)", "Q'anil (K'iche' alternate — note some texts use Q'anil for position 8)", "Deer day", "Hand day", "Healing day"]
+    romanization: "Manik / Manik'"
+    native_script: "glyph: grasping hand / deer motif"
+  cultural_tradition:
+    primary_culture: "Yucatec Mayan"
+    derivative_cultures: ["K'iche' Maya", "Kaqchikel Maya", "Aztec (parallel: Mazatl)"]
+    geographic_origin: "Mesoamerica — Yucatan Peninsula and Maya Highlands"
+    period_range: "Pre-Classic Maya origin ~2000 BCE; Classic codification ~250–900 CE; living tradition"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Mayan Tzolkin (Tz'olk'in)"
+    total_signs_in_system: 20
+    position_in_system: 7
+    sign_classification:
+      element: "Earth / Wood"
+      modality: ""
+      quadrant: ""
+      deity_association: "Deer deity / God of the Hunt / Sacrifice deity"
+      season: "Hunting season"
+      other:
+        aztec_parallel: "Mazatl (Aztec Tonalpohualli position 7)"
+        k_iche_name: "Q'anil (some sources; note disambiguation with position 8)"
+        yucatec_name: "Manik"
+        notes: "Glyph shows grasping hand; deer is the primary animal; sacrifice/completion themes"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/f/f7/MAYA-g-log-cal-D07-Manik.png"
+      description: "Mayan glyph for Manik (day 7 of Tzolkin) — grasping hand / deer motif"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Manik is the deer and hand sign. The deer (manik) is a noble animal associated with sacrifice and offering. The hand glyph suggests healing, dexterity, and the act of offering. In Mesoamerican ritual, the deer hunt was a ceremonial act — the deer's sacrifice sustained the community and mirrored the cosmic sacrifice that created the world. Healing arts (curanderismo tradition) draw on Manik energy."
+      reference_sources: ["Wikipedia: Tzolk'in"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tzolk%27in"]
+  primitive_association_hints:
+    suggested_element: "Earth / Wood"
+    suggested_attribute: "DEX"
+    suggested_animal_form: "Deer"
+    suggested_object_form: "Grasping hand / Healing staff"
+    symbolic_role: "Deer sacrifice; healing arts; completion; dexterity; ritual offering; noble grace"
+    mythic_narrative_summary: "Manik is the deer and hand sign — healing, sacrifice, and graceful completion. The deer is a noble sacrificial animal; the hand represents healing skill. Associated with the healer's arts and ritual completion."
+  semantic_vocabulary:
+    symbolic_keywords: ["deer", "hand", "healing", "sacrifice", "offering", "completion", "dexterity", "hunt", "noble", "ritual"]
+    mythic_narrative: "Manik is the day of the Deer and the Healing Hand. The deer is the noble prey animal whose ritual sacrifice sustained Maya communities. The hand glyph references both the act of hunting/offering and the healing touch. Manik days are considered auspicious for healing ceremonies, skilled handwork, and completing tasks. The hunter and the healer share Manik energy — both involve precise skill, respect for the sacred, and the graceful application of force."
+    visual_motifs: ["grasping hand glyph", "deer antlers", "sacrifice posture", "offering hand"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Tedlock (1982)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tzolk%27in"
+    secondary_sources: ["Wikipedia: Maya calendar"]
+    academic_anchor: "Tedlock, Barbara. Time and the Highland Maya. University of New Mexico Press, 1982."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "mayan-tzolkin-008"
+  sign_name:
+    primary: "Lamat"
+    variants: ["Lamat (Yucatec)", "Q'anil (K'iche' modern)", "Rabbit day", "Star day", "Venus day"]
+    romanization: "Lamat / Q'anil"
+    native_script: "glyph: Venus star / four-pointed star motif"
+  cultural_tradition:
+    primary_culture: "Yucatec Mayan"
+    derivative_cultures: ["K'iche' Maya", "Kaqchikel Maya", "Aztec (parallel: Tochtli)"]
+    geographic_origin: "Mesoamerica — Yucatan Peninsula and Maya Highlands"
+    period_range: "Pre-Classic Maya origin ~2000 BCE; Classic codification ~250–900 CE; living tradition"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Mayan Tzolkin (Tz'olk'in)"
+    total_signs_in_system: 20
+    position_in_system: 8
+    sign_classification:
+      element: "Earth / Water (fertility)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Venus deity / Rabbit Moon deity / Xux Ek (Venus as evening star in some sources)"
+      season: ""
+      other:
+        aztec_parallel: "Tochtli (Aztec Tonalpohualli position 8)"
+        k_iche_name: "Q'anil"
+        yucatec_name: "Lamat"
+        celestial_association: "Venus — the Maya tracked Venus cycles with extraordinary precision; the Dresden Codex contains a full Venus almanac"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/2/20/MAYA-g-log-cal-D08-Lamat.png"
+      description: "Mayan glyph for Lamat (day 8 of Tzolkin) — four-pointed Venus star motif"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Lamat is associated with Venus (not a fixed star but a planet). The Maya Venus cycle: 584 days synodic period. Dresden Codex Venus almanac spans 65 Venus cycles = 104 solar years = 2 Calendar Rounds."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Lamat is the Venus/Star sign — depicted as a four-pointed star in a circle, referencing Venus's position as both morning and evening star. The rabbit (tochtli in Aztec parallel) appears in the Moon, and Q'anil in K'iche' means 'yellow ripeness.' The sign combines Venus's cyclical brilliance, the rabbit's lunar fertility, and the abundance of ripe yellow grain. The Dresden Codex's Venus almanac shows Maya astronomical precision in tracking this sign's celestial correlate."
+      reference_sources: ["Wikipedia: Tzolk'in", "Wikipedia: Dresden Codex", "Wikipedia: Venus in Mesoamerican mythology"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tzolk%27in", "https://en.wikipedia.org/wiki/Dresden_Codex"]
+  primitive_association_hints:
+    suggested_element: "Fire (star-fire) / Earth (fertility)"
+    suggested_attribute: "LCK"
+    suggested_animal_form: "Rabbit / Venus as morning-star aspect"
+    suggested_object_form: "Four-pointed star / Venus glyph"
+    symbolic_role: "Venus cycles; abundance; fertility; lunar rabbit; star-brilliance; cyclical renewal"
+    mythic_narrative_summary: "Lamat is the Venus/Star sign — cycles of celestial brilliance, abundance, and fertility. The Maya tracked Venus obsessively; Lamat marks the planet's power and the rabbit's lunar abundance."
+  semantic_vocabulary:
+    symbolic_keywords: ["Venus", "star", "rabbit", "abundance", "fertility", "cycle", "brilliance", "moon", "yellow", "ripe", "celestial"]
+    mythic_narrative: "Lamat (K'iche': Q'anil) is the day of the Star and Venus. The four-pointed glyph represents Venus — the planet the Maya tracked with extraordinary precision as recorded in the Dresden Codex Venus almanac. Venus appears as both morning and evening star (Xux Ek), wielding dangerous spear-throwing power at heliacal rising. The rabbit association connects Lamat to the lunar cycle and to abundance — the rabbit in the moon is a pan-Mesoamerican image. Q'anil days are considered excellent for sowing seeds and celebrating cycles of renewal."
+    visual_motifs: ["four-pointed star glyph", "Venus circle", "rabbit in moon", "ripe grain motif"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Tedlock (1982) + Dresden Codex (public domain facsimile)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tzolk%27in"
+    secondary_sources: ["Wikipedia: Maya calendar", "Wikipedia: Dresden Codex"]
+    academic_anchor: "Tedlock, Barbara. Time and the Highland Maya. University of New Mexico Press, 1982."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "mayan-tzolkin-009"
+  sign_name:
+    primary: "Muluk"
+    variants: ["Muluc (older Yucatec)", "Toj (K'iche' modern)", "Water day", "Jade day", "Rain day", "Offering day"]
+    romanization: "Muluk / Muluc / Toj"
+    native_script: "glyph: water / jade motif"
+  cultural_tradition:
+    primary_culture: "Yucatec Mayan"
+    derivative_cultures: ["K'iche' Maya", "Kaqchikel Maya", "Aztec (parallel: Atl)"]
+    geographic_origin: "Mesoamerica — Yucatan Peninsula and Maya Highlands"
+    period_range: "Pre-Classic Maya origin ~2000 BCE; Classic codification ~250–900 CE; living tradition"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Mayan Tzolkin (Tz'olk'in)"
+    total_signs_in_system: 20
+    position_in_system: 9
+    sign_classification:
+      element: "Water"
+      modality: ""
+      quadrant: ""
+      deity_association: "Water God / Rain / Tlaloc-equivalent (Chaac)"
+      season: "Rainy season"
+      other:
+        aztec_parallel: "Atl (Aztec Tonalpohualli position 9)"
+        k_iche_name: "Toj"
+        yucatec_name: "Muluk / Muluc"
+        notes: "K'iche' name Toj means 'payment / offering / debt' — the water offering clears debts and obligations"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/7/7e/MAYA-g-log-cal-D09-Muluc.png"
+      description: "Mayan glyph for Muluk/Muluc (day 9 of Tzolkin) — water/jade motif"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Muluk is the water and jade sign. Jade (chalchihuitl in Nahuatl) was the most precious substance in Mesoamerica — its green color equated with water, maize, and life itself. Offerings of jade into cenotes (sacred water wells) were among the most sacred acts. The K'iche' name Toj (payment/debt) reveals the sign's ritual dimension: water offerings clear karmic and social debts. Chaac (the Maya rain deity) governs this sign."
+      reference_sources: ["Wikipedia: Tzolk'in", "Wikipedia: Chaac"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tzolk%27in"]
+  primitive_association_hints:
+    suggested_element: "Water"
+    suggested_attribute: "WIS"
+    suggested_animal_form: "Frog / Rain deity"
+    suggested_object_form: "Jade bead / Cenote offering"
+    symbolic_role: "Water offering; payment of debts; rain; jade; sacred exchange; cleansing"
+    mythic_narrative_summary: "Muluk is the water/jade/offering sign. Rain is the life-giving gift; jade is the most precious payment. Toj days are for clearing debts, making offerings, and receiving rain's blessing."
+  semantic_vocabulary:
+    symbolic_keywords: ["water", "jade", "rain", "offering", "payment", "debt", "Chaac", "cenote", "jade bead", "cleansing", "sacred exchange"]
+    mythic_narrative: "Muluk (K'iche': Toj) is the day of Water and Jade Offering. Jade was the supreme precious material — its green color linked water, maize, and life. Tossing jade beads into a cenote was among the most sacred acts, a payment to the water deities for rain and abundance. The K'iche' name Toj (payment, debt) captures the reciprocal dimension: the earth owes the sky water, humans owe the gods offerings. Muluk days are for clearing debts, making offerings, and receiving rain's blessing."
+    visual_motifs: ["water glyph", "jade bead motif", "cenote", "Chaac rain deity", "offering hands"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Tedlock (1982)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tzolk%27in"
+    secondary_sources: ["Wikipedia: Maya calendar", "Wikipedia: Chaac"]
+    academic_anchor: "Tedlock, Barbara. Time and the Highland Maya. University of New Mexico Press, 1982."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "mayan-tzolkin-010"
+  sign_name:
+    primary: "Ok"
+    variants: ["Oc (older Yucatec)", "Tz'i' (K'iche' modern)", "Dog day", "Justice day", "Law day"]
+    romanization: "Ok / Oc / Tz'i'"
+    native_script: "glyph: dog / paw motif"
+  cultural_tradition:
+    primary_culture: "Yucatec Mayan"
+    derivative_cultures: ["K'iche' Maya", "Kaqchikel Maya", "Aztec (parallel: Itzcuintli)"]
+    geographic_origin: "Mesoamerica — Yucatan Peninsula and Maya Highlands"
+    period_range: "Pre-Classic Maya origin ~2000 BCE; Classic codification ~250–900 CE; living tradition"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Mayan Tzolkin (Tz'olk'in)"
+    total_signs_in_system: 20
+    position_in_system: 10
+    sign_classification:
+      element: "Earth / Underworld"
+      modality: ""
+      quadrant: ""
+      deity_association: "Dog deity (underworld guide) / Xolotl parallel"
+      season: ""
+      other:
+        aztec_parallel: "Itzcuintli (Aztec Tonalpohualli position 10)"
+        k_iche_name: "Tz'i'"
+        yucatec_name: "Ok / Oc"
+        notes: "The dog guides souls through the underworld; xoloitzcuintle hairless dogs were sacrificed to accompany the dead"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/e/e8/MAYA-g-log-cal-D10-Oc.png"
+      description: "Mayan glyph for Ok/Oc (day 10 of Tzolkin) — dog / paw motif"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Ok is the dog sign — the faithful animal that guides souls through the underworld. The xoloitzcuintle (hairless dog) was a sacred animal sacrificed to accompany the dead through Xibalba's dangerous passages. Dogs represent fidelity, justice, the law, and the loyalty that persists even through death. Tz'i' in K'iche' carries connotations of justice and authority. Ok days are associated with legal matters, authority, and the bonds of loyalty."
+      reference_sources: ["Wikipedia: Tzolk'in", "Wikipedia: Xoloitzcuintle"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tzolk%27in"]
+  primitive_association_hints:
+    suggested_element: "Earth / Underworld"
+    suggested_attribute: "CON"
+    suggested_animal_form: "Dog / Xoloitzcuintle"
+    suggested_object_form: "Paw print / Legal seal"
+    symbolic_role: "Fidelity; guidance; justice; loyalty; underworld passage; law enforcement"
+    mythic_narrative_summary: "Ok is the dog sign — faithful guide through the underworld, symbol of justice and loyal service. The hairless dog (xolo) led souls safely through Xibalba's dangerous tests."
+  semantic_vocabulary:
+    symbolic_keywords: ["dog", "fidelity", "justice", "law", "loyalty", "underworld guide", "xolo", "Xibalba", "authority", "service"]
+    mythic_narrative: "Ok (K'iche': Tz'i') is the day of the Dog. The sacred hairless dog (xoloitzcuintle) was the guide who led newly dead souls safely through the treacherous underworld Xibalba. This guide function makes Ok a sign of fidelity and faithful service — the dog who never abandons you. K'iche' Tz'i' carries connotations of justice and authority. Ok days are good for legal matters, establishing loyal bonds, and clearing debts of loyalty."
+    visual_motifs: ["dog head glyph", "paw print", "xoloitzcuintle silhouette", "underworld path", "loyalty bond"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Tedlock (1982)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tzolk%27in"
+    secondary_sources: ["Wikipedia: Maya calendar"]
+    academic_anchor: "Tedlock, Barbara. Time and the Highland Maya. University of New Mexico Press, 1982."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "mayan-tzolkin-011"
+  sign_name:
+    primary: "Chuen"
+    variants: ["Ch'en (variant)", "B'atz' (K'iche' modern)", "Monkey day", "Artisan day", "Thread-of-time day"]
+    romanization: "Chuen / B'atz'"
+    native_script: "glyph: monkey / weaving thread motif"
+  cultural_tradition:
+    primary_culture: "Yucatec Mayan"
+    derivative_cultures: ["K'iche' Maya", "Kaqchikel Maya", "Aztec (parallel: Ozomatli)"]
+    geographic_origin: "Mesoamerica — Yucatan Peninsula and Maya Highlands"
+    period_range: "Pre-Classic Maya origin ~2000 BCE; Classic codification ~250–900 CE; living tradition"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Mayan Tzolkin (Tz'olk'in)"
+    total_signs_in_system: 20
+    position_in_system: 11
+    sign_classification:
+      element: "Air / Time"
+      modality: ""
+      quadrant: ""
+      deity_association: "Monkey God / Howler Monkey Gods (Hun Batz and Hun Chouen) / Artisan deity"
+      season: ""
+      other:
+        aztec_parallel: "Ozomatli (Aztec Tonalpohualli position 11)"
+        k_iche_name: "B'atz'"
+        yucatec_name: "Chuen"
+        notes: "B'atz' means 'thread' in K'iche' — the thread of time itself. The Howler Monkey Gods in the Popol Vuh were the elder half-brothers of the Hero Twins, transformed into monkeys."
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/a/a4/MAYA-g-log-cal-D11-Chuen.png"
+      description: "Mayan glyph for Chuen (day 11 of Tzolkin) — monkey / weaving motif"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Chuen/B'atz' is the monkey and weaving sign. The Howler Monkey Gods (Hun Batz and Hun Chouen) were skilled artisans and scribes transformed into monkeys by the Hero Twins in the Popol Vuh. B'atz' means 'thread' — the thread of time that weaves the fabric of days. Weavers, artists, scribes, and craftspeople are all under Chuen's influence. This is the sign of creative mastery, time-keeping, and artistic genius."
+      reference_sources: ["Wikipedia: Tzolk'in", "Wikipedia: Popol Vuh"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tzolk%27in"]
+  primitive_association_hints:
+    suggested_element: "Air / Time"
+    suggested_attribute: "INT"
+    suggested_animal_form: "Howler Monkey"
+    suggested_object_form: "Weaving loom / Scribe's brush"
+    symbolic_role: "Arts; creativity; weaving time; craftsmanship; scribal knowledge; playful genius"
+    mythic_narrative_summary: "Chuen is the monkey-artisan sign. The Howler Monkey Gods were the original artists — weavers, scribes, crafters. B'atz' (thread) is the thread of time itself, woven by the artisan's hand."
+  semantic_vocabulary:
+    symbolic_keywords: ["monkey", "thread", "weaving", "arts", "artisan", "time", "creativity", "scribe", "craftsmanship", "Howler Monkey Gods", "Popol Vuh"]
+    mythic_narrative: "Chuen (K'iche': B'atz') is the day of the Monkey-Artisan. The K'iche' name B'atz' means 'thread' — the thread of time woven by the artisan's hand. In the Popol Vuh, the Howler Monkey Gods (Hun Batz and Hun Chouen) were magnificent craftsmen and scribes, older half-brothers of the Hero Twins, ultimately transformed into monkeys through the Twins' trickery. Chuen days celebrate creative mastery in all forms — weaving, scribal arts, music, dance — and are considered especially powerful for beginning artistic projects."
+    visual_motifs: ["monkey head glyph", "weaving thread", "howler monkey posture", "artisan's hands", "time-thread spool"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Tedlock (1982) + Popol Vuh"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tzolk%27in"
+    secondary_sources: ["Wikipedia: Maya calendar", "Wikipedia: Popol Vuh"]
+    academic_anchor: "Tedlock, Barbara. Time and the Highland Maya. University of New Mexico Press, 1982."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "mayan-tzolkin-012"
+  sign_name:
+    primary: "Eb"
+    variants: ["E (K'iche' modern)", "Grass day", "Path day", "Road day", "Tooth day"]
+    romanization: "Eb / E"
+    native_script: "glyph: tooth / road / grass motif"
+  cultural_tradition:
+    primary_culture: "Yucatec Mayan"
+    derivative_cultures: ["K'iche' Maya", "Kaqchikel Maya", "Aztec (parallel: Malinalli)"]
+    geographic_origin: "Mesoamerica — Yucatan Peninsula and Maya Highlands"
+    period_range: "Pre-Classic Maya origin ~2000 BCE; Classic codification ~250–900 CE; living tradition"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Mayan Tzolkin (Tz'olk'in)"
+    total_signs_in_system: 20
+    position_in_system: 12
+    sign_classification:
+      element: "Earth / Air (journey)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Road deity / Sky-Road / Milky Way as road of the dead"
+      season: "Journey time"
+      other:
+        aztec_parallel: "Malinalli (Aztec Tonalpohualli position 12)"
+        k_iche_name: "E"
+        yucatec_name: "Eb"
+        notes: "K'iche' 'E' is the road — one of the most fundamental Tzolkin signs for K'iche' communities"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/d/de/MAYA-g-log-cal-D12-Eb.png"
+      description: "Mayan glyph for Eb (day 12 of Tzolkin) — tooth/road/grass motif"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based. The Milky Way (Sak B'e, 'White Road') is a road-of-the-dead in Maya cosmology, but Eb is not assigned to specific stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Eb is the road and grass sign — the path of human life, the journey, the way ahead. The 'teeth' aspect of the glyph may reference the bared-tooth skull showing of the road through the underworld. The Milky Way (Sak B'e) was the White Road to Xibalba and the celestial realm. Human journeys (both physical and spiritual) follow the Eb pattern. Grass (malinalli in Aztec parallel) suggests the path through the field — humility, the everyday journey."
+      reference_sources: ["Wikipedia: Tzolk'in"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tzolk%27in"]
+  primitive_association_hints:
+    suggested_element: "Earth / Air (journey)"
+    suggested_attribute: "SPD"
+    suggested_animal_form: "None specific / Road-walker"
+    suggested_object_form: "Road / Footpath / Grass blade"
+    symbolic_role: "Life journey; human path; road of the dead; everyday travel; humble persistence"
+    mythic_narrative_summary: "Eb is the road and journey sign. The human path through life, the Milky Way as the celestial road, the humble grass underfoot. E days in K'iche' tradition are deeply valued for their association with the life-journey."
+  semantic_vocabulary:
+    symbolic_keywords: ["road", "path", "journey", "grass", "travel", "life-path", "White Road", "Milky Way", "humble", "persistence", "everyday"]
+    mythic_narrative: "Eb (K'iche': E) is the day of the Road. The road (be in Maya) is the fundamental metaphor for human life — the path we walk from birth to death and beyond. The Milky Way is the Sak B'e (White Road), the celestial path to the underworld and the realm of ancestors. E is one of the most honored Tzolkin signs in K'iche' tradition. E days are for travel, undertaking new journeys, and asking for protection on the road of life."
+    visual_motifs: ["tooth glyph", "road path", "footprints", "grass blade", "White Road/Milky Way"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Tedlock (1982)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tzolk%27in"
+    secondary_sources: ["Wikipedia: Maya calendar"]
+    academic_anchor: "Tedlock, Barbara. Time and the Highland Maya. University of New Mexico Press, 1982."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "mayan-tzolkin-013"
+  sign_name:
+    primary: "Ben"
+    variants: ["Ben (Yucatec)", "Aj (K'iche' modern)", "Reed day", "Corn Stalk day", "Staff day"]
+    romanization: "Ben / Aj"
+    native_script: "glyph: reed / corn stalk / staff motif"
+  cultural_tradition:
+    primary_culture: "Yucatec Mayan"
+    derivative_cultures: ["K'iche' Maya", "Kaqchikel Maya", "Aztec (parallel: Acatl)"]
+    geographic_origin: "Mesoamerica — Yucatan Peninsula and Maya Highlands"
+    period_range: "Pre-Classic Maya origin ~2000 BCE; Classic codification ~250–900 CE; living tradition"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Mayan Tzolkin (Tz'olk'in)"
+    total_signs_in_system: 20
+    position_in_system: 13
+    sign_classification:
+      element: "Air / Earth (upright growth)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Reed deity / Authority / Corn God in stalk-form"
+      season: ""
+      other:
+        aztec_parallel: "Acatl (Aztec Tonalpohualli position 13)"
+        k_iche_name: "Aj"
+        yucatec_name: "Ben"
+        notes: "Acatl (reed) was the year-sign of Ce Acatl / 1-Reed — the birth year of Quetzalcoatl"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/31/MAYA-g-log-cal-D13-Ben.png"
+      description: "Mayan glyph for Ben (day 13 of Tzolkin) — reed/corn stalk motif"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Ben is the reed and corn-stalk sign. The upright reed represents authority, the staff of office, and the corn plant's upward growth reaching toward heaven. Aj (K'iche') also connotes the cane or reed used for writing and measurement. The reed's association with writing instruments connects Ben to learning, authority, and the transmission of knowledge. Ben persons were considered natural leaders and custodians of tradition."
+      reference_sources: ["Wikipedia: Tzolk'in"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tzolk%27in"]
+  primitive_association_hints:
+    suggested_element: "Air / Earth"
+    suggested_attribute: "STR"
+    suggested_animal_form: "None specific / Upright corn stalk"
+    suggested_object_form: "Reed staff / Corn stalk"
+    symbolic_role: "Authority; abundance; staff of life; corn-growth; leadership; custodianship of tradition"
+    mythic_narrative_summary: "Ben is the reed/corn stalk sign — upright authority and abundance. The corn stalk reaching heaven; the reed staff of leadership. Ben days are auspicious for authority, abundance, and transmitting knowledge."
+  semantic_vocabulary:
+    symbolic_keywords: ["reed", "corn stalk", "staff", "authority", "abundance", "leadership", "upright", "writing", "tradition", "custodian"]
+    mythic_narrative: "Ben (K'iche': Aj) is the day of the Reed and Corn Stalk. The upright reed is both the staff of authority and the corn plant that reaches toward the sun — both emblems of life-giving power and rightful leadership. The reed was used for writing and measurement, connecting Ben to scholarship, tradition-keeping, and righteous governance. Ben days are auspicious for leaders, teachers, and those who protect community wellbeing."
+    visual_motifs: ["reed stalk glyph", "corn plant upright", "authority staff", "measuring rod"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Tedlock (1982)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tzolk%27in"
+    secondary_sources: ["Wikipedia: Maya calendar"]
+    academic_anchor: "Tedlock, Barbara. Time and the Highland Maya. University of New Mexico Press, 1982."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "mayan-tzolkin-014"
+  sign_name:
+    primary: "Ix"
+    variants: ["Ix (Yucatec)", "I'x (K'iche' modern)", "Jaguar day", "Shaman day", "Witch day"]
+    romanization: "Ix / I'x"
+    native_script: "glyph: jaguar-pelt spots / shaman motif"
+  cultural_tradition:
+    primary_culture: "Yucatec Mayan"
+    derivative_cultures: ["K'iche' Maya", "Kaqchikel Maya", "Aztec (parallel: Ocelotl)"]
+    geographic_origin: "Mesoamerica — Yucatan Peninsula and Maya Highlands"
+    period_range: "Pre-Classic Maya origin ~2000 BCE; Classic codification ~250–900 CE; living tradition"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Mayan Tzolkin (Tz'olk'in)"
+    total_signs_in_system: 20
+    position_in_system: 14
+    sign_classification:
+      element: "Earth / Shadow"
+      modality: ""
+      quadrant: ""
+      deity_association: "Jaguar deity (Balam) / Earth shamanism / Ix Chel (Moon goddess aspect in some traditions)"
+      season: ""
+      other:
+        aztec_parallel: "Ocelotl (Aztec Tonalpohualli position 14)"
+        k_iche_name: "I'x"
+        yucatec_name: "Ix"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/16/MAYA-g-log-cal-D14-Ix.png"
+      description: "Mayan glyph for Ix (day 14 of Tzolkin) — jaguar/shaman motif with pelt-spot infixes"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Ix is the jaguar and shaman sign. The jaguar (balam) is the supreme predator of the Americas and the primary power animal of Maya shamanism. Jaguar-shamans wear jaguar pelts and access the jaguar's power to move between worlds. The spotted pelt is the visible sign of earth-magic and hidden power. Ix days are associated with shamanic power, earth-magic, feminine mystery (Ix is also a female prefix in Yucatec), and the hidden forces that move the world."
+      reference_sources: ["Wikipedia: Tzolk'in", "Wikipedia: Jaguar in Mesoamerican cultures"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tzolk%27in"]
+  primitive_association_hints:
+    suggested_element: "Earth / Shadow"
+    suggested_attribute: "WIS"
+    suggested_animal_form: "Jaguar"
+    suggested_object_form: "Jaguar pelt / Shaman's rattle"
+    symbolic_role: "Earth magic; shamanism; jaguar power; feminine mystery; hidden forces; world-crossing"
+    mythic_narrative_summary: "Ix is the jaguar-shaman sign. The jaguar is the supreme earth-power animal — the shaman wears its pelt to move between worlds. Hidden forces, earth magic, and feminine mystery are Ix domains."
+  semantic_vocabulary:
+    symbolic_keywords: ["jaguar", "shaman", "balam", "earth magic", "pelt spots", "hidden power", "feminine", "shadow", "underworld passage", "earth force"]
+    mythic_narrative: "Ix (K'iche': I'x) is the day of the Jaguar-Shaman. The jaguar Balam is the apex predator of the jungle — night-hunter, earth-dweller, boundary-crosser between the living world and Xibalba. Maya shamans wore jaguar pelts to embody jaguar power, seeing in the dark, moving through walls between worlds. 'Ix' is also the feminine prefix in Yucatec, giving this sign a dimension of feminine earth-power and mystery. I'x days are for earth ceremonies, healing magic, and accessing hidden knowledge."
+    visual_motifs: ["jaguar pelt spots glyph", "shaman with pelt", "jaguar head", "earth-magic motifs"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only. Shamanic practices documented at institutional level; ceremonial specifics not included."
+    source_authorization: "Wikipedia + Tedlock (1982)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tzolk%27in"
+    secondary_sources: ["Wikipedia: Maya calendar"]
+    academic_anchor: "Tedlock, Barbara. Time and the Highland Maya. University of New Mexico Press, 1982."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "mayan-tzolkin-015"
+  sign_name:
+    primary: "Men"
+    variants: ["Men (Yucatec)", "Tz'ikin (K'iche' modern)", "Eagle day", "Bird day", "Wise one day"]
+    romanization: "Men / Tz'ikin"
+    native_script: "glyph: eagle head / bird-eye motif"
+  cultural_tradition:
+    primary_culture: "Yucatec Mayan"
+    derivative_cultures: ["K'iche' Maya", "Kaqchikel Maya", "Aztec (parallel: Cuauhtli)"]
+    geographic_origin: "Mesoamerica — Yucatan Peninsula and Maya Highlands"
+    period_range: "Pre-Classic Maya origin ~2000 BCE; Classic codification ~250–900 CE; living tradition"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Mayan Tzolkin (Tz'olk'in)"
+    total_signs_in_system: 20
+    position_in_system: 15
+    sign_classification:
+      element: "Air / Fire (solar bird)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Eagle / Bird deity / Moon Goddess (some Yucatec traditions)"
+      season: ""
+      other:
+        aztec_parallel: "Cuauhtli (Aztec Tonalpohualli position 15)"
+        k_iche_name: "Tz'ikin"
+        yucatec_name: "Men"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/4/49/MAYA-g-log-cal-D15-Men.png"
+      description: "Mayan glyph for Men (day 15 of Tzolkin) — eagle/bird eye motif"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Men is the eagle and bird sign. The eagle soars highest of all birds, seeing the whole landscape from above. Tz'ikin in K'iche' simply means 'bird' — but the bird-sign encompasses the eagle's high vision and spiritual sight. Men days are associated with wisdom gained through high perspective, freedom of thought, and the ability to see what others cannot. The quetzal bird (whose feathers adorned nobility) is also in the Men domain."
+      reference_sources: ["Wikipedia: Tzolk'in"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tzolk%27in"]
+  primitive_association_hints:
+    suggested_element: "Air / Fire"
+    suggested_attribute: "INT"
+    suggested_animal_form: "Eagle / Quetzal"
+    suggested_object_form: "Eagle feather / High-summit vantage"
+    symbolic_role: "High vision; wisdom; freedom; bird-flight; noble perspective; seeing the whole"
+    mythic_narrative_summary: "Men is the eagle/bird sign — high vision, wisdom, and freedom of flight. The eagle sees from above what others cannot. Tz'ikin days are for strategic thinking, gaining perspective, and aspiring to higher understanding."
+  semantic_vocabulary:
+    symbolic_keywords: ["eagle", "bird", "quetzal", "high vision", "wisdom", "flight", "freedom", "perspective", "strategic sight", "nobility"]
+    mythic_narrative: "Men (K'iche': Tz'ikin) is the day of the Eagle and Bird. The eagle soars highest, seeing the whole world from above. This high-altitude perspective is the domain of wisdom — the capacity to see patterns invisible from ground level. The quetzal bird's resplendent tail feathers were the supreme symbol of nobility and divine favor. Men days are associated with strategic vision, wisdom, freedom from earthly constraints, and the aspirational flight toward higher understanding."
+    visual_motifs: ["eagle head glyph", "bird-eye motif", "quetzal feathers", "high-altitude view", "soaring wings"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Tedlock (1982)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tzolk%27in"
+    secondary_sources: ["Wikipedia: Maya calendar"]
+    academic_anchor: "Tedlock, Barbara. Time and the Highland Maya. University of New Mexico Press, 1982."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "mayan-tzolkin-016"
+  sign_name:
+    primary: "Kib"
+    variants: ["Cib (older Yucatec)", "Ajmaq (K'iche' modern)", "Vulture day", "Owl day", "Wax/Shell day", "Forgiveness day"]
+    romanization: "Kib / Cib / Ajmaq"
+    native_script: "glyph: vulture / shell / wax motif"
+  cultural_tradition:
+    primary_culture: "Yucatec Mayan"
+    derivative_cultures: ["K'iche' Maya", "Kaqchikel Maya", "Aztec (parallel: Cozcacuauhtli)"]
+    geographic_origin: "Mesoamerica — Yucatan Peninsula and Maya Highlands"
+    period_range: "Pre-Classic Maya origin ~2000 BCE; Classic codification ~250–900 CE; living tradition"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Mayan Tzolkin (Tz'olk'in)"
+    total_signs_in_system: 20
+    position_in_system: 16
+    sign_classification:
+      element: "Earth / Air (carrion)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Death / Sin deity / Vulture deity / Ancestral debt lord"
+      season: ""
+      other:
+        aztec_parallel: "Cozcacuauhtli (Aztec Tonalpohualli position 16)"
+        k_iche_name: "Ajmaq"
+        yucatec_name: "Kib / Cib"
+        notes: "Ajmaq in K'iche' is associated with forgiveness, ancestral sin, and clearing karmic debt"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/7/71/MAYA-g-log-cal-D16-Cib.png"
+      description: "Mayan glyph for Kib/Cib (day 16 of Tzolkin) — vulture/shell motif"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Kib/Ajmaq is the vulture and forgiveness sign. The vulture (cozcacuauhtli, 'vulture eagle' in Aztec parallel) is the carrion-eater, the purifier who recycles death into life. In K'iche' tradition, Ajmaq specifically relates to ancestral sin, forgiveness, and the clearing of inherited karmic debts. The owl, shell, and wax associations suggest darkness, protection, and the beeswax candles burned in ancestral ceremony. Kib days are for seeking forgiveness, clearing debts, and honoring the wisdom earned through suffering."
+      reference_sources: ["Wikipedia: Tzolk'in"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tzolk%27in"]
+  primitive_association_hints:
+    suggested_element: "Earth / Shadow"
+    suggested_attribute: "WIS"
+    suggested_animal_form: "Vulture / Owl"
+    suggested_object_form: "Shell / Beeswax candle"
+    symbolic_role: "Forgiveness; ancestral debt; wisdom through suffering; purification; recycling; sin-clearing"
+    mythic_narrative_summary: "Kib is the vulture-forgiveness sign. The vulture purifies by consuming death; Ajmaq days are for acknowledging ancestral sin, seeking forgiveness, and clearing inherited debts."
+  semantic_vocabulary:
+    symbolic_keywords: ["vulture", "owl", "forgiveness", "ancestral sin", "debt", "purification", "carrion", "wax candle", "clearing", "wisdom-through-suffering"]
+    mythic_narrative: "Kib (K'iche': Ajmaq) is the day of the Vulture and Forgiveness. The vulture purifies the landscape by consuming death — a sacred ecological role made divine. In K'iche' tradition, Ajmaq is associated with ancestral sin (the accumulated karmic weight passed down through generations) and with the possibility of clearing that weight through ceremony and genuine forgiveness. Kib days are associated with depth of wisdom earned through difficulty, the ability to find meaning in darkness, and the transformative power of true forgiveness."
+    visual_motifs: ["vulture head glyph", "shell motif", "wax candle", "owl in darkness", "ancestral ceremony"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Tedlock (1982)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tzolk%27in"
+    secondary_sources: ["Wikipedia: Maya calendar"]
+    academic_anchor: "Tedlock, Barbara. Time and the Highland Maya. University of New Mexico Press, 1982."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "mayan-tzolkin-017"
+  sign_name:
+    primary: "Kaban"
+    variants: ["Caban (older Yucatec)", "No'j (K'iche' modern)", "Earth day", "Earthquake day", "Movement day", "Intelligence day"]
+    romanization: "Kaban / Caban / No'j"
+    native_script: "glyph: earth / curling hair / movement motif"
+  cultural_tradition:
+    primary_culture: "Yucatec Mayan"
+    derivative_cultures: ["K'iche' Maya", "Kaqchikel Maya", "Aztec (parallel: Ollin)"]
+    geographic_origin: "Mesoamerica — Yucatan Peninsula and Maya Highlands"
+    period_range: "Pre-Classic Maya origin ~2000 BCE; Classic codification ~250–900 CE; living tradition"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Mayan Tzolkin (Tz'olk'in)"
+    total_signs_in_system: 20
+    position_in_system: 17
+    sign_classification:
+      element: "Earth"
+      modality: ""
+      quadrant: ""
+      deity_association: "Earth deity / Earthquake deity / Intelligence / Earth-shaking force"
+      season: ""
+      other:
+        aztec_parallel: "Ollin (Aztec Tonalpohualli position 17)"
+        k_iche_name: "No'j"
+        yucatec_name: "Kaban / Caban"
+        notes: "No'j in K'iche' means 'intelligence' / 'thought' — the earth-sign is reframed as the seat of intelligence and knowledge"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/2/2c/MAYA-g-log-cal-D17-Caban.png"
+      description: "Mayan glyph for Kaban/Caban (day 17 of Tzolkin) — earth/movement motif"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Kaban/No'j is the earth and intelligence sign. The earth moves — earthquakes are the earth's expression of power and transformation. But the K'iche' name No'j (thought/intelligence) reveals a deeper layer: the earth is the seat of accumulated wisdom, the repository of all knowledge. Kaban persons are associated with practical intelligence rooted in direct experience, scientific thinking, and the capacity to feel the earth's movements (both literal and metaphorical)."
+      reference_sources: ["Wikipedia: Tzolk'in"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tzolk%27in"]
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "INT"
+    suggested_animal_form: "None specific / Earthquake wyrm"
+    suggested_object_form: "Moving earth / Intelligence symbol"
+    symbolic_role: "Earth intelligence; movement; practical wisdom; earthquake force; scientific thinking; earth-knowledge"
+    mythic_narrative_summary: "Kaban is the earth/intelligence sign. The earth moves and the earth thinks — No'j days are for applying practical intelligence, earth-based wisdom, and the power of the moving world."
+  semantic_vocabulary:
+    symbolic_keywords: ["earth", "earthquake", "movement", "intelligence", "thought", "No'j", "practical wisdom", "earth-knowledge", "scientific", "shifting ground"]
+    mythic_narrative: "Kaban (K'iche': No'j) is the day of Earth and Intelligence. The earth moves — earthquakes express the earth's own power and will. The K'iche' name No'j (thought, intelligence) reveals that in Maya philosophy, the earth is not passive but is the seat of deep intelligence. Knowledge is grounded in the earth, not floating in the abstract. Kaban days are associated with practical thinking, scientific curiosity, working with materials, and innovations rooted in direct experience of the natural world."
+    visual_motifs: ["curling earth glyph", "earthquake waves", "earth-segment motif", "intelligence symbol"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Tedlock (1982)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tzolk%27in"
+    secondary_sources: ["Wikipedia: Maya calendar"]
+    academic_anchor: "Tedlock, Barbara. Time and the Highland Maya. University of New Mexico Press, 1982."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "mayan-tzolkin-018"
+  sign_name:
+    primary: "Etz'nab"
+    variants: ["Etznab (older Yucatec)", "Tijax (K'iche' modern)", "Flint day", "Knife day", "Mirror day", "Obsidian day"]
+    romanization: "Etz'nab / Etznab / Tijax"
+    native_script: "glyph: obsidian knife / mirror / flint flake motif"
+  cultural_tradition:
+    primary_culture: "Yucatec Mayan"
+    derivative_cultures: ["K'iche' Maya", "Kaqchikel Maya", "Aztec (parallel: Tecpatl)"]
+    geographic_origin: "Mesoamerica — Yucatan Peninsula and Maya Highlands"
+    period_range: "Pre-Classic Maya origin ~2000 BCE; Classic codification ~250–900 CE; living tradition"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Mayan Tzolkin (Tz'olk'in)"
+    total_signs_in_system: 20
+    position_in_system: 18
+    sign_classification:
+      element: "Air / Fire (cutting force)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Obsidian Mirror deity / Sacrifice knife deity / Tezcatlipoca parallel"
+      season: ""
+      other:
+        aztec_parallel: "Tecpatl (Aztec Tonalpohualli position 18)"
+        k_iche_name: "Tijax"
+        yucatec_name: "Etz'nab / Etznab"
+        notes: "Obsidian was both the sharpest cutting edge and the mirror for divination — sharp intelligence and reflective self-knowledge combined"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/39/MAYA-g-log-cal-D18-Etznab.png"
+      description: "Mayan glyph for Etz'nab/Etznab (day 18 of Tzolkin) — obsidian flint knife/mirror motif"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Etz'nab/Tijax is the obsidian knife and mirror sign. Obsidian (volcanic glass) produces the sharpest cutting edge known in the pre-modern world — sharper than metal. It was the primary tool for bloodletting rituals and sacrifice. Simultaneously, polished obsidian served as the divination mirror for scrying. This dual nature — razor-sharp cutting tool AND reflective divination instrument — makes Etz'nab the sign of penetrating intelligence that cuts through illusion. Tijax in K'iche' carries connotations of conflict, sacrifice, and the painful clarity that heals."
+      reference_sources: ["Wikipedia: Tzolk'in", "Wikipedia: Obsidian in Mesoamerica"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tzolk%27in"]
+  primitive_association_hints:
+    suggested_element: "Air / Fire"
+    suggested_attribute: "INT"
+    suggested_animal_form: "None specific / Cutting force"
+    suggested_object_form: "Obsidian blade / Black mirror"
+    symbolic_role: "Sharp intelligence; sacrifice knife; obsidian mirror; penetrating truth; cutting illusion; painful clarity"
+    mythic_narrative_summary: "Etz'nab is the obsidian knife/mirror sign — the sharpest cutting edge and the deepest reflecting surface. Cuts through illusion; sees the truth. Tijax days carry the energy of difficult, necessary clarity."
+  semantic_vocabulary:
+    symbolic_keywords: ["obsidian", "flint", "knife", "mirror", "sacrifice", "cutting", "clarity", "reflection", "divination", "sharp intelligence", "painful truth"]
+    mythic_narrative: "Etz'nab (K'iche': Tijax) is the day of the Obsidian Knife and Mirror. Obsidian is the sharpest material in the pre-modern world — the primary blade for bloodletting and sacrifice. But polished obsidian is also the scrying mirror of the shaman, showing the truth behind appearances. This dual nature (cutting edge AND reflective surface) makes Etz'nab a sign of penetrating intelligence that simultaneously wounds and reveals. Tijax days are associated with necessary conflicts, painful truths, and the courageous clarity that ultimately heals."
+    visual_motifs: ["obsidian flake glyph", "knife blade", "black mirror surface", "bloodletting lancet", "reflective dark surface"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only. Bloodletting ritual documented at institutional level; ceremonial specifics not included."
+    source_authorization: "Wikipedia + Tedlock (1982)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tzolk%27in"
+    secondary_sources: ["Wikipedia: Maya calendar"]
+    academic_anchor: "Tedlock, Barbara. Time and the Highland Maya. University of New Mexico Press, 1982."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "mayan-tzolkin-019"
+  sign_name:
+    primary: "Kawak"
+    variants: ["Cauac (older Yucatec)", "Kawoq (K'iche' modern)", "Storm day", "Rain day", "Thunder day", "Lightning day"]
+    romanization: "Kawak / Cauac / Kawoq"
+    native_script: "glyph: storm / rain-droplet / thunder motif"
+  cultural_tradition:
+    primary_culture: "Yucatec Mayan"
+    derivative_cultures: ["K'iche' Maya", "Kaqchikel Maya", "Aztec (parallel: Quiahuitl)"]
+    geographic_origin: "Mesoamerica — Yucatan Peninsula and Maya Highlands"
+    period_range: "Pre-Classic Maya origin ~2000 BCE; Classic codification ~250–900 CE; living tradition"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Mayan Tzolkin (Tz'olk'in)"
+    total_signs_in_system: 20
+    position_in_system: 19
+    sign_classification:
+      element: "Water / Air (storm)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Rain God (Chaac) / Tlaloc equivalent / Thunder deity / Feminine storm-power"
+      season: "Rainy season"
+      other:
+        aztec_parallel: "Quiahuitl (Aztec Tonalpohualli position 19)"
+        k_iche_name: "Kawoq"
+        yucatec_name: "Kawak / Cauac"
+        notes: "Kawoq in K'iche' is associated with feminine power, community, and the communal force of the storm. The four Chaac rain deities correspond to the four cardinal directions."
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/8/82/MAYA-g-log-cal-D19-Cauac.png"
+      description: "Mayan glyph for Kawak/Cauac (day 19 of Tzolkin) — storm/rain/thunder motif"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Kawak/Kawoq is the storm sign — rain, thunder, and lightning combined in the tropical thunderstorm that transforms the dry season into abundance. Chaac, the Maya rain deity, wields a lightning-axe and his four manifestations stand at the four directions. The storm is both destructive and utterly necessary for life. Kawoq's feminine associations (K'iche' tradition) position the storm as a community-sustaining maternal force — powerful, cleansing, and necessary."
+      reference_sources: ["Wikipedia: Tzolk'in", "Wikipedia: Chaac"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tzolk%27in"]
+  primitive_association_hints:
+    suggested_element: "Water / Air"
+    suggested_attribute: "CON"
+    suggested_animal_form: "Frog / Storm serpent"
+    suggested_object_form: "Lightning axe / Storm cloud"
+    symbolic_role: "Storm power; rain; thunder; feminine community-force; cleansing; necessary destruction"
+    mythic_narrative_summary: "Kawak is the storm sign — tropical thunder and life-giving rain. Chaac's lightning axe strikes; the storm cleanses and renews. Kawoq brings the community-sustaining feminine power of the storm."
+  semantic_vocabulary:
+    symbolic_keywords: ["storm", "rain", "thunder", "lightning", "Chaac", "cleansing", "feminine power", "community", "renewal", "four directions", "tropical storm"]
+    mythic_narrative: "Kawak (K'iche': Kawoq) is the day of the Storm. The tropical thunderstorm is the most dramatic natural event in the Maya lowlands — sudden, violent, utterly necessary for life. Chaac, the Maya rain deity, wields a lightning-axe and appears in four manifestations at the four cardinal directions. Kawoq's K'iche' association with feminine power and community positions the storm as a maternal force — overwhelming but ultimately nurturing, cleansing the world for renewal. Kawoq days carry intense communal energy."
+    visual_motifs: ["storm glyph", "rain-droplet infixes", "lightning axe", "Chaac fang mask", "thunder cloud"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Tedlock (1982)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tzolk%27in"
+    secondary_sources: ["Wikipedia: Maya calendar", "Wikipedia: Chaac"]
+    academic_anchor: "Tedlock, Barbara. Time and the Highland Maya. University of New Mexico Press, 1982."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "mayan-tzolkin-020"
+  sign_name:
+    primary: "Ajaw"
+    variants: ["Ahau (older Yucatec)", "Ajpu (K'iche' modern)", "Sun day", "Lord day", "Flower day", "Blowgunner day", "Hunahpu day"]
+    romanization: "Ajaw / Ahau / Ajpu"
+    native_script: "glyph: sun face / lord face / flower motif"
+  cultural_tradition:
+    primary_culture: "Yucatec Mayan"
+    derivative_cultures: ["K'iche' Maya", "Kaqchikel Maya", "Aztec (parallel: Xochitl)"]
+    geographic_origin: "Mesoamerica — Yucatan Peninsula and Maya Highlands"
+    period_range: "Pre-Classic Maya origin ~2000 BCE; Classic codification ~250–900 CE; living tradition"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Mayan Tzolkin (Tz'olk'in)"
+    total_signs_in_system: 20
+    position_in_system: 20
+    sign_classification:
+      element: "Fire / Solar"
+      modality: ""
+      quadrant: ""
+      deity_association: "Sun God (Kinich Ahau) / Hero Twins (Hunahpu and Xbalanque) / Solar Lord"
+      season: "Summer solstice associations"
+      other:
+        aztec_parallel: "Xochitl (Aztec Tonalpohualli position 20)"
+        k_iche_name: "Ajpu"
+        yucatec_name: "Ajaw / Ahau"
+        notes: "Ajaw means 'lord' in Yucatec — the sun is the supreme lord. Ajpu in K'iche' directly references Hunahpu, one of the Hero Twins who ascends to become the Sun in the Popol Vuh. '13 Ajaw' ends a Tzolkin cycle and begins the next — the supreme day."
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/0/0c/MAYA-g-log-cal-D20-Ahau.png"
+      description: "Mayan glyph for Ajaw/Ahau (day 20 of Tzolkin) — sun face / lord face motif"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/MAYA-g-log-cal-D20-Ahau.png/120px-MAYA-g-log-cal-D20-Ahau.png"
+        description: "Thumbnail — Ajaw glyph"
+        source: "Wikipedia Commons"
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Ajaw/Sun is associated with the solar disc, not individual stars. Summer solstice sunrise alignments at sites like Chichen Itza connect the solar calendar to Ajaw. The Tzolkin cycle ending on 13 Ajaw was a calendric apex."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Ajaw is the supreme Tzolkin sign — the Sun, the Lord, the Flower. The sun-face glyph depicts Kinich Ahau, the Solar God. In the Popol Vuh, the Hero Twin Hunahpu (K'iche' Ajpu) defeats the lords of Xibalba and ascends to become the Sun itself — the ultimate heroic arc. Ajaw combines solar power, lordly authority, artistic beauty (flower), and the blowgunner's skill. '4 Ajaw 8 Kumk'u' was the Maya creation date. '13 Ajaw' is the last day of the 260-day cycle."
+      reference_sources: ["Wikipedia: Tzolk'in", "Wikipedia: Popol Vuh", "Wikipedia: Kinich Ahau"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tzolk%27in", "https://en.wikipedia.org/wiki/Popol_Vuh"]
+  primitive_association_hints:
+    suggested_element: "Fire / Solar"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Sun jaguar (underworld sun) / Quetzal bird"
+    suggested_object_form: "Solar disc / Flower / Blowgun"
+    symbolic_role: "Solar lordship; heroic apotheosis; beauty; flower; supreme authority; cycle completion; Hunahpu hero"
+    mythic_narrative_summary: "Ajaw is the supreme sign — Sun, Lord, Flower, Hunahpu. The Hero Twin who defeats death and becomes the Sun. '13 Ajaw' closes the Tzolkin cycle. The highest sign of solar power and heroic triumph."
+  semantic_vocabulary:
+    symbolic_keywords: ["sun", "lord", "flower", "Hunahpu", "Hero Twins", "solar power", "apotheosis", "beauty", "blowgunner", "cycle completion", "supreme", "13 Ajaw"]
+    mythic_narrative: "Ajaw (K'iche': Ajpu) is the final and supreme Tzolkin day-sign — the Sun, the Lord, the Flower. The K'iche' name Ajpu directly references Hunahpu, one of the Hero Twins of the Popol Vuh, who defeats the lords of Xibalba (the underworld death-lords) and ascends to become the Sun itself. Ajaw combines solar power, lordly authority, artistic beauty (flower imagery), and the blowgunner's precise skill. '4 Ajaw 8 Kumk'u' was the Maya creation date; '13 Ajaw' closes the Tzolkin's 260-day count and initiates a new cycle. Ajaw days are the most auspicious — associated with completion, triumph, solar radiance, and the flowering of all creative potential."
+    visual_motifs: ["sun face glyph", "flower petal motif", "lord-face with solar infixes", "Hero Twin blowgunner", "solar disc"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only. The Popol Vuh is a published academic translation; institutional record only."
+    source_authorization: "Wikipedia + Tedlock (1982) + Popol Vuh (Christenson translation)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tzolk%27in"
+    secondary_sources: ["Wikipedia: Maya calendar", "Wikipedia: Popol Vuh", "Wikipedia: Kinich Ahau"]
+    academic_anchor: "Tedlock, Barbara. Time and the Highland Maya. University of New Mexico Press, 1982."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"

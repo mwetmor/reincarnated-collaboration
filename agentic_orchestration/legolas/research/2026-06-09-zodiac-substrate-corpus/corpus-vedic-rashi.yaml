@@ -1,0 +1,1119 @@
+# corpus-vedic-rashi.yaml
+# Legolas Mode B Corpus — Vedic Jyotish 12 Rashi (राशि)
+# Crawl date: 2026-06-09
+# Entry count: 12
+# Schema: full (ruling planet, element-tattva, modality, stars, image, iconography, Kalapurusha body part)
+#
+# KEY DISTINCTION — SIDEREAL vs TROPICAL ZODIAC:
+# Vedic Jyotish uses the SIDEREAL zodiac (Nirayana system — fixed to star positions).
+# Western tropical zodiac is fixed to equinoxes (moves with precession).
+# Due to the precession of equinoxes (ayanamsa), sidereal Aries currently begins ~April 14
+# (vs Western Aries March 21). The offset (Lahiri ayanamsa) is ~23°15' as of 2026.
+# This means a Western "Aries" person (born March 21 – April 13) is Jyotish "Meena" (Pisces).
+#
+# KALAPURUSHA: The cosmic person — the zodiac as the body of the Universe-Person.
+# Each Rashi governs a body region of Kalapurusha.
+
+- sign_id: "vedic-rashi-001"
+  sign_name:
+    primary: "Mesha"
+    variants: ["Aries (Western equivalent)", "Mesh (colloquial Hindi)", "Meṣa (IAST)"]
+    romanization: "Mesha"
+    native_script: "मेष"
+  cultural_tradition:
+    primary_culture: "Vedic / Jyotish (Hindu)"
+    derivative_cultures: ["Modern Hindu astrology", "Sidereal Western astrology (derivative)"]
+    geographic_origin: "South Asia / Indian subcontinent"
+    period_range: "Vedanga Jyotisha ~1200–900 BCE; classical Jyotish codification Parashara Hora Shastra ~200–400 CE; Brihat Jataka (Varahamihira) ~505–587 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vedic Rashi (राशि)"
+    total_signs_in_system: 12
+    position_in_system: 1
+    sign_classification:
+      element: "Fire (Agni tattva)"
+      modality: "Chara (Cardinal — movable)"
+      quadrant: ""
+      deity_association: "Mangal (Mars); Agni (fire deity)"
+      season: "Sidereal spring — approximately April 14 – May 14 (Lahiri ayanamsa, 2026)"
+      other:
+        ruling_planet: "Mangal (Mars)"
+        ruling_planet_sanskrit: "मङ्गल"
+        quality: "Chara (Cara — movable / cardinal)"
+        element_tattva: "Agni (fire)"
+        direction: "East"
+        kalapurusha_body_part: "Head and brain"
+        gender: "Male (Purusa)"
+        varna: "Kshatriya (warrior)"
+        symbol: "Ram (Mesha = ram in Sanskrit)"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Aries_IAU.svg"
+      description: "IAU Aries constellation — same sky region as Vedic Mesha; sidereal system uses these actual stars"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://upload.wikimedia.org/wikipedia/commons/9/9e/Hindu_astrology_rashi_mesha.svg"
+        description: "Mesha Rashi Sanskrit zodiac diagram"
+        source: "Wikipedia Commons"
+        license: "Public Domain"
+        verified_loads: true
+    star_coordinates:
+      coordinate_system: "Sidereal equatorial (Nirayana)"
+      primary_stars:
+        - name: "Hamal (α Arietis)"
+          ra: "2h 07m 10.4s"
+          dec: "+23° 27′ 45″"
+          magnitude: 2.01
+          notes: "Primary star of Mesha region in sidereal system"
+        - name: "Sheratan (β Arietis)"
+          ra: "1h 54m 38s"
+          dec: "+20° 48′ 29″"
+          magnitude: 2.64
+        - name: "Mesarthim (γ Arietis)"
+          ra: "1h 53m 32s"
+          dec: "+19° 17′ 38″"
+          magnitude: 3.90
+      notes: "Sidereal Mesha begins approximately when Sun enters sidereal Aries (~April 14 per Lahiri ayanamsa). Nakshatra coverage: Ashwini (full), Bharani (full), Krittika (first pada only)."
+    asterism_schematic:
+      description: "Ram's head and horns — Hamal to Sheratan to Mesarthim; same asterism as Western Aries"
+      line_topology: "Hamal — Sheratan — Mesarthim"
+    cultural_iconography:
+      description: "Mesha is depicted as a ram — red-colored (Mars ruling planet) and vigorous. In Jyotish, Mesha governs the head and brain as the first sign of Kalapurusha. Its ruling planet Mangal (Mars) gives fiery, direct, warrior energy. Associated with Lord Kartikeya (Murugan) in some regional Hindu traditions — the divine warrior-general of the gods. The three Nakshatras of Mesha (Ashwini, Bharani, Krittika-1) are ruled by Ketu, Venus, and Sun respectively — giving Mesha a complex inner texture despite the Mars-fire surface."
+      reference_sources:
+        - "Wikipedia: Hindu astrology"
+        - "Wikipedia: Mesha (astrology)"
+        - "Wikipedia: Jyotisha"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Aries_(astrology)"
+        - "https://en.wikipedia.org/wiki/Hindu_astrology"
+  primitive_association_hints:
+    suggested_element: "Fire"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Ram"
+    suggested_object_form: ""
+    symbolic_role: "First; initiator; fire-warrior; courageous pioneer; cardinal action"
+    mythic_narrative_summary: "Mesha is the first Rashi, ruled by Mangal (Mars). In the Kalapurusha (cosmic person) scheme, it governs the head — initiating intelligence. Mesha embodies the Agni (fire) tattva at its most direct and unmediated: forward-charging, brave, pioneering."
+  semantic_vocabulary:
+    symbolic_keywords: ["ram", "fire", "Mars", "Mangal", "initiative", "courage", "cardinal", "Agni", "head", "Kalapurusha", "warrior", "pioneer"]
+    mythic_narrative: "Mesha (Ram) is the first of the 12 Vedic Rashi in the Jyotish system. Ruled by Mangal (Mars) with Agni (fire) tattva and Chara (cardinal/movable) quality, Mesha represents the primordial fire-impulse — the beginning of the zodiacal cycle and the first outward movement of creation. In Kalapurusha cosmology, Mesha governs the head and brain: the seat of initiating intelligence. The three Nakshatras within Mesha — Ashwini (healing horse-twins), Bharani (the bearer), and the first pada of Krittika (the Pleiades / fire-makers) — give a range from swift healing through burden-bearing to fiery purification. The sidereal system places Mesha beginning approximately April 14, about 23 degrees later than Western tropical Aries."
+    visual_motifs: ["charging ram", "Mangal red glyph", "Sanskrit Mesha character", "Hindu zodiac wheel", "fire-head Kalapurusha"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Jyotish is a publicly practiced living tradition; Rashi descriptions are standard academic content"
+    source_authorization: "Wikipedia + Parashara Hora Shastra (classical text) + academic Sanskrit sources"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Hindu_astrology"
+    secondary_sources:
+      - "Wikipedia: Rashi"
+      - "Wikipedia: Jyotisha"
+      - "Brihat Parashara Hora Shastra (classical Jyotish text, ~200–400 CE)"
+    academic_anchor: "Parashara, Brihat Parashara Hora Shastra — foundational Jyotish text (via academic translation)"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vedic-rashi-002"
+  sign_name:
+    primary: "Vrishabha"
+    variants: ["Vrishaba", "Vrisha", "Taurus (Western equivalent)", "Vṛṣabha (IAST)"]
+    romanization: "Vrishabha"
+    native_script: "वृषभ"
+  cultural_tradition:
+    primary_culture: "Vedic / Jyotish (Hindu)"
+    derivative_cultures: ["Modern Hindu astrology"]
+    geographic_origin: "South Asia / Indian subcontinent"
+    period_range: "Classical Jyotish codification ~200–400 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vedic Rashi (राशि)"
+    total_signs_in_system: 12
+    position_in_system: 2
+    sign_classification:
+      element: "Earth (Prithvi tattva)"
+      modality: "Sthira (Fixed)"
+      quadrant: ""
+      deity_association: "Shukra (Venus)"
+      season: "Sidereal ~May 14 – June 14"
+      other:
+        ruling_planet: "Shukra (Venus)"
+        ruling_planet_sanskrit: "शुक्र"
+        quality: "Sthira (fixed)"
+        element_tattva: "Prithvi (earth)"
+        direction: "South"
+        kalapurusha_body_part: "Face, throat, neck"
+        gender: "Female (Stri)"
+        varna: "Vaishya (merchant/farmer)"
+        symbol: "Bull"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/9/9e/Taurus_IAU.svg"
+      description: "IAU Taurus constellation — same sky sector as sidereal Vrishabha"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "Sidereal equatorial (Nirayana)"
+      primary_stars:
+        - name: "Aldebaran (α Tauri)"
+          ra: "4h 35m 55.2s"
+          dec: "+16° 30′ 33″"
+          magnitude: 0.85
+          notes: "Primary star; one of the four royal stars of Persia; in Rohini Nakshatra (Vrishabha)"
+        - name: "Pleiades cluster (Krittika)"
+          ra: "3h 47m 00s"
+          dec: "+24° 07′ 00″"
+          magnitude: 1.6
+          notes: "Krittika Nakshatra (partially in Vrishabha); the Pleiades"
+      notes: "Nakshatras in Vrishabha: Krittika 2-3-4 padas, Rohini (full), Mrigashira 1-2 padas"
+    asterism_schematic:
+      description: "Bull's V-shaped face (Hyades cluster) with Aldebaran as the eye; Pleiades on the shoulder"
+      line_topology: "Pleiades cluster (shoulder) — Aldebaran (eye) — Hyades V (face horns)"
+    cultural_iconography:
+      description: "Vrishabha (the bull) is ruled by Shukra (Venus), giving it an earthy sensuality and aesthetic quality. In Kalapurusha, it governs the face, throat, and neck — the organs of voice, beauty, and nourishment. Shiva's sacred bull Nandi (the divine vehicle and gatekeeper of Shiva's abode) makes the bull particularly sacred in Hindu tradition. The nakshatra Rohini (ruled by Moon) within Vrishabha is the Moon's favorite — Moon is exalted in Vrishabha, making this a sign of great material and emotional stability. The Pleiades (Krittika nakshatra, ruled by Agni/Sun) occupy the early degrees of Vrishabha."
+      reference_sources:
+        - "Wikipedia: Taurus (astrology) — Vedic section"
+        - "Wikipedia: Hindu astrology"
+        - "Wikipedia: Rohini (nakshatra)"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Taurus_(astrology)"
+        - "https://en.wikipedia.org/wiki/Hindu_astrology"
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "VIT"
+    suggested_animal_form: "Bull (Nandi — Shiva's sacred bull)"
+    suggested_object_form: ""
+    symbolic_role: "Stability; sensuality; beauty; material wealth; fixed earth; Nandi the sacred bull"
+    mythic_narrative_summary: "Vrishabha (the Bull) is ruled by Shukra (Venus) and belongs to Prithvi (earth) tattva, Sthira (fixed) modality. Moon is exalted here. In Kalapurusha, it governs the throat and voice. Nandi, Shiva's white bull-vehicle, makes this Rashi sacred in Shaiva tradition. The fixed earth sign of material sustenance and aesthetic enjoyment."
+  semantic_vocabulary:
+    symbolic_keywords: ["bull", "earth", "Venus", "Shukra", "Nandi", "fixed", "stability", "beauty", "throat", "Moon exalted", "Rohini", "Prithvi"]
+    mythic_narrative: "Vrishabha (the Bull) is the second Vedic Rashi, ruled by Shukra (Venus), with Prithvi (earth) tattva and Sthira (fixed) quality. The Moon is exalted in Vrishabha — reaching its greatest strength here — which gives this sign a quality of emotional fullness and material abundance. Nandi, the white divine bull and vehicle of Lord Shiva, is the most prominent Hindu bull archetype, representing steadfast devotion and protective strength. The Rohini nakshatra (ruled by Moon) within Vrishabha is reputed the most beautiful and fertile of the 27 Nakshatras, associated with growth, prosperity, and sensory pleasure. Kalapurusha body part: face, throat, and neck — the domain of voice, taste, and beauty."
+    visual_motifs: ["Nandi the white bull", "Moon exalted in Taurus", "Rohini nakshatra stars", "Shukra Venus glyph", "earth fertility"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Academic + public living tradition"
+    source_authorization: "Wikipedia + Parashara Hora Shastra"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Hindu_astrology"
+    secondary_sources:
+      - "Wikipedia: Rashi"
+      - "Wikipedia: Rohini (nakshatra)"
+    academic_anchor: "Parashara, Brihat Parashara Hora Shastra"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vedic-rashi-003"
+  sign_name:
+    primary: "Mithuna"
+    variants: ["Mithun", "Gemini (Western equivalent)", "Mithuna (IAST)"]
+    romanization: "Mithuna"
+    native_script: "मिथुन"
+  cultural_tradition:
+    primary_culture: "Vedic / Jyotish (Hindu)"
+    derivative_cultures: ["Modern Hindu astrology"]
+    geographic_origin: "South Asia / Indian subcontinent"
+    period_range: "Classical Jyotish codification ~200–400 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vedic Rashi (राशि)"
+    total_signs_in_system: 12
+    position_in_system: 3
+    sign_classification:
+      element: "Air (Vayu tattva)"
+      modality: "Dwiswabhava (Mutable — dual-natured)"
+      quadrant: ""
+      deity_association: "Budha (Mercury)"
+      season: "Sidereal ~June 14 – July 16"
+      other:
+        ruling_planet: "Budha (Mercury)"
+        ruling_planet_sanskrit: "बुध"
+        quality: "Dwiswabhava (mutable / dual-natured)"
+        element_tattva: "Vayu (air)"
+        direction: "West"
+        kalapurusha_body_part: "Shoulders, arms, hands"
+        gender: "Male"
+        varna: "Shudra (service)"
+        symbol: "Couple / Man and woman (or man with mace and woman with lute)"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/5/55/Gemini_IAU.svg"
+      description: "IAU Gemini constellation — same sky sector as sidereal Mithuna"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "Sidereal equatorial (Nirayana)"
+      primary_stars:
+        - name: "Pollux (β Geminorum)"
+          ra: "7h 45m 18.9s"
+          dec: "+28° 01′ 34″"
+          magnitude: 1.14
+          notes: "Primary star of Mithuna; in Punarvasu nakshatra region"
+        - name: "Castor (α Geminorum)"
+          ra: "7h 34m 36s"
+          dec: "+31° 53′ 18″"
+          magnitude: 1.58
+      notes: "Nakshatras in Mithuna: Mrigashira 3-4 padas, Ardra (full), Punarvasu 1-2-3 padas"
+    asterism_schematic:
+      description: "Twin stars Pollux and Castor as the twin heads; rectangular body below"
+      line_topology: "Castor — Pollux (twin heads); Alhena — Tejat (feet)"
+    cultural_iconography:
+      description: "Mithuna means 'couple' or 'pair' in Sanskrit — it is depicted as a man and woman together (not the twin brothers of Western Gemini). The man holds a mace (symbolizing strength) and the woman holds a lute (symbolizing art and beauty). Ruled by Budha (Mercury), Mithuna governs communication, duality, intellect, and versatility. In Kalapurusha, it governs shoulders, arms, and hands — the instruments of skilled craft and gesture. The mithuna (loving couple) is also a significant motif in Hindu temple architecture (Khajuraho, etc.) representing the union of complementary principles."
+      reference_sources:
+        - "Wikipedia: Gemini (astrology) — Vedic section"
+        - "Wikipedia: Hindu astrology"
+        - "Wikipedia: Punarvasu nakshatra"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Gemini_(astrology)"
+        - "https://en.wikipedia.org/wiki/Hindu_astrology"
+  primitive_association_hints:
+    suggested_element: "Air"
+    suggested_attribute: "INT"
+    suggested_animal_form: ""
+    suggested_object_form: "Mace + lute (man and woman paired)"
+    symbolic_role: "Duality; communication; intellectual versatility; couple; skilled craft; mutable air"
+    mythic_narrative_summary: "Mithuna (the Couple) is ruled by Budha (Mercury), Air tattva, Dwiswabhava (mutable) quality. It depicts a man with mace and woman with lute — the union of strength and artistry. In Kalapurusha, it governs arms and hands. The mithuna motif (loving couple) is a sacred architectural theme in Hindu temple tradition."
+  semantic_vocabulary:
+    symbolic_keywords: ["couple", "duality", "Mercury", "Budha", "air", "communication", "versatility", "arms", "hands", "mithuna", "temple art", "intellect"]
+    mythic_narrative: "Mithuna (the Couple) is the third Vedic Rashi, ruled by Budha (Mercury) with Vayu (air) tattva and Dwiswabhava (mutable/dual) quality. Unlike Western Gemini's twin brothers, Vedic Mithuna depicts a man and woman — the union of complementary polarities, representing the communication and collaboration of yin and yang principles. Mercury's rulership gives Mithuna the qualities of curiosity, versatility, and linguistic skill. The three Nakshatras within Mithuna — Mrigashira (deer's head, ruled by Mars), Ardra (the storm, ruled by Rahu), and partial Punarvasu (the quiver returned, ruled by Jupiter) — give a range from gentle curiosity through storms of transformation to renewal. The mithuna couple motif appears throughout Hindu sacred architecture."
+    visual_motifs: ["man and woman with mace and lute", "Pollux-Castor twin stars", "Budha Mercury glyph", "temple couple relief", "arm gestures of skilled craft"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Academic + public living tradition"
+    source_authorization: "Wikipedia + Parashara Hora Shastra"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Hindu_astrology"
+    secondary_sources:
+      - "Wikipedia: Rashi"
+      - "Wikipedia: Gemini (astrology)"
+    academic_anchor: "Parashara, Brihat Parashara Hora Shastra"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vedic-rashi-004"
+  sign_name:
+    primary: "Karka"
+    variants: ["Karkata", "Kark (colloquial)", "Cancer (Western equivalent)", "Karkaṭa (IAST)"]
+    romanization: "Karka"
+    native_script: "कर्क"
+  cultural_tradition:
+    primary_culture: "Vedic / Jyotish (Hindu)"
+    derivative_cultures: ["Modern Hindu astrology"]
+    geographic_origin: "South Asia / Indian subcontinent"
+    period_range: "Classical Jyotish codification ~200–400 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vedic Rashi (राशि)"
+    total_signs_in_system: 12
+    position_in_system: 4
+    sign_classification:
+      element: "Water (Jala tattva)"
+      modality: "Chara (Cardinal — movable)"
+      quadrant: ""
+      deity_association: "Chandra (Moon)"
+      season: "Sidereal ~July 16 – August 16"
+      other:
+        ruling_planet: "Chandra (Moon)"
+        ruling_planet_sanskrit: "चन्द्र"
+        quality: "Chara (cardinal/movable)"
+        element_tattva: "Jala (water)"
+        direction: "North"
+        kalapurusha_body_part: "Chest, heart, lungs, breasts"
+        gender: "Female"
+        varna: "Brahmin (priestly)"
+        symbol: "Crab"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/0/07/Cancer_IAU.svg"
+      description: "IAU Cancer constellation — same sky sector as sidereal Karka"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "Sidereal equatorial (Nirayana)"
+      primary_stars:
+        - name: "Acubens (α Cancri)"
+          ra: "8h 58m 29.2s"
+          dec: "+11° 51′ 28″"
+          magnitude: 4.26
+        - name: "Praesepe (M44, Beehive Cluster)"
+          ra: "8h 40m 06s"
+          dec: "+19° 41′ 00″"
+          magnitude: 3.1
+          notes: "The Beehive Cluster — prominent naked-eye cluster within Karka"
+      notes: "Nakshatras in Karka: Punarvasu 4th pada, Pushya (full), Ashlesha (full)"
+    asterism_schematic:
+      description: "Crab shape — faint stars forming a U-shape with the Beehive cluster at center"
+      line_topology: "Asellus Borealis — Praesepe (Beehive) — Asellus Australis"
+    cultural_iconography:
+      description: "Karka (the Crab) is ruled by Chandra (Moon) — making it the most lunar of all the Rashi. In Kalapurusha, Karka governs the chest, heart, and breasts — the seat of nourishment and emotional sensitivity. Jupiter is exalted in Karka (peak strength), and Mars is debilitated here. The three Nakshatras of Karka — Punarvasu (ruled by Jupiter), Pushya (ruled by Saturn, the 'nourishing' star), and Ashlesha (ruled by Mercury, the serpent nakshatra) — give a complex interplay of spiritual nourishment, discipline, and serpentine instinct. Karka is associated with home, mother, and emotional memory."
+      reference_sources:
+        - "Wikipedia: Cancer (astrology) — Vedic section"
+        - "Wikipedia: Hindu astrology"
+        - "Wikipedia: Pushya nakshatra"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Cancer_(astrology)"
+        - "https://en.wikipedia.org/wiki/Hindu_astrology"
+  primitive_association_hints:
+    suggested_element: "Water"
+    suggested_attribute: "VIT"
+    suggested_animal_form: "Crab"
+    suggested_object_form: ""
+    symbolic_role: "Nurturing; emotional; lunar; mother; home; cardinal water; protective instinct"
+    mythic_narrative_summary: "Karka (the Crab) is the Moon's own sign — the most strongly lunar Rashi. Jupiter exalted here. In Kalapurusha: chest and heart. The three Nakshatras (Punarvasu, Pushya, Ashlesha) span spiritual nourishment through serpent-instinct. Karka embodies the protective, home-nourishing, emotionally deep water principle."
+  semantic_vocabulary:
+    symbolic_keywords: ["crab", "water", "Moon", "Chandra", "cardinal", "nurturing", "home", "mother", "emotional", "Jala", "Jupiter exalted", "Pushya", "Ashlesha"]
+    mythic_narrative: "Karka (the Crab) is the fourth Vedic Rashi, ruled by Chandra (Moon) with Jala (water) tattva and Chara (cardinal) quality. Karka is the Moon's own domain — the most intrinsically lunar sign. Jupiter is exalted here at its peak strength, and Mars is debilitated, reflecting that defensive nurturing and intuitive wisdom thrive while aggressive direct action does not. The Pushya nakshatra within Karka is called the 'nourishing star' — considered exceptionally auspicious for beginning projects, especially those involving care, cultivation, and spiritual nourishment. Ashlesha, the serpent nakshatra (end of Karka), represents the instinctual, coiling, memory-holding energy. In Kalapurusha, Karka governs the chest and heart."
+    visual_motifs: ["crab in water", "Moon crescent", "Beehive cluster", "Chandra deity chariot", "lotus nourishing from water"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Academic + public living tradition"
+    source_authorization: "Wikipedia + Parashara Hora Shastra"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Hindu_astrology"
+    secondary_sources:
+      - "Wikipedia: Rashi"
+      - "Wikipedia: Cancer (astrology)"
+      - "Wikipedia: Pushya nakshatra"
+    academic_anchor: "Parashara, Brihat Parashara Hora Shastra"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vedic-rashi-005"
+  sign_name:
+    primary: "Simha"
+    variants: ["Sinha (colloquial)", "Leo (Western equivalent)", "Siṃha (IAST)"]
+    romanization: "Simha"
+    native_script: "सिंह"
+  cultural_tradition:
+    primary_culture: "Vedic / Jyotish (Hindu)"
+    derivative_cultures: ["Modern Hindu astrology"]
+    geographic_origin: "South Asia / Indian subcontinent"
+    period_range: "Classical Jyotish codification ~200–400 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vedic Rashi (राशि)"
+    total_signs_in_system: 12
+    position_in_system: 5
+    sign_classification:
+      element: "Fire (Agni tattva)"
+      modality: "Sthira (Fixed)"
+      quadrant: ""
+      deity_association: "Surya (Sun)"
+      season: "Sidereal ~August 16 – September 16"
+      other:
+        ruling_planet: "Surya (Sun)"
+        ruling_planet_sanskrit: "सूर्य"
+        quality: "Sthira (fixed)"
+        element_tattva: "Agni (fire)"
+        direction: "East"
+        kalapurusha_body_part: "Stomach, heart (upper abdomen)"
+        gender: "Male"
+        varna: "Kshatriya (warrior/ruler)"
+        symbol: "Lion"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/d/d8/Leo_IAU.svg"
+      description: "IAU Leo constellation — same sky sector as sidereal Simha"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "Sidereal equatorial (Nirayana)"
+      primary_stars:
+        - name: "Regulus (α Leonis)"
+          ra: "10h 08m 22.3s"
+          dec: "+11° 58′ 02″"
+          magnitude: 1.35
+          notes: "One of the four royal stars; the 'heart of the lion'; in Magha nakshatra"
+        - name: "Denebola (β Leonis)"
+          ra: "11h 49m 03.6s"
+          dec: "+14° 34′ 19″"
+          magnitude: 2.14
+      notes: "Nakshatras in Simha: Magha (full), Purva Phalguni (full), Uttara Phalguni 1st pada"
+    asterism_schematic:
+      description: "Sickle-shaped head (backward question mark) with Regulus at base; Denebola as tail"
+      line_topology: "Epsilon Leonis — Zeta — Mu — Epsilon sickle — Regulus (heart); Regulus — Denebola (tail)"
+    cultural_iconography:
+      description: "Simha (the Lion) is the Sun's own sign — the sole sign ruled by Surya (the Sun). In Hindu cosmology, Surya is a principal deity: the visible form of Brahman in the sky. The lion is the royal beast — the vehicle (vahana) of the goddess Durga and associated with divine power, sovereignty, and radiance. Regulus (Magha nakshatra, ruled by Ketu/ancestors) is the royal star at the heart of the lion. Simha in Kalapurusha governs the stomach and heart — the engine of vital energy. The Narasimha avatar (Vishnu as half-man, half-lion) gives the lion a divine-protector identity in Vaishnavism."
+      reference_sources:
+        - "Wikipedia: Leo (astrology) — Vedic section"
+        - "Wikipedia: Hindu astrology"
+        - "Wikipedia: Magha nakshatra"
+        - "Wikipedia: Narasimha"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Leo_(astrology)"
+        - "https://en.wikipedia.org/wiki/Narasimha"
+  primitive_association_hints:
+    suggested_element: "Fire"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Lion (Narasimha; Durga's vehicle)"
+    suggested_object_form: ""
+    symbolic_role: "Sovereignty; solar radiance; royal power; fixed fire; the lion-self; divine protector"
+    mythic_narrative_summary: "Simha (the Lion) is Surya's (Sun's) own sign — fixed fire, sovereign and radiant. Narasimha (Vishnu's lion-man avatar) and Durga's lion-vehicle make this one of the most divinely charged animal symbols in Hinduism. Kalapurusha: stomach and heart. Regulus at its core is one of the four great royal stars."
+  semantic_vocabulary:
+    symbolic_keywords: ["lion", "fire", "Sun", "Surya", "fixed", "sovereignty", "royal", "Agni", "Narasimha", "Durga", "Regulus", "Magha", "heart"]
+    mythic_narrative: "Simha (the Lion) is the fifth Vedic Rashi and the only sign ruled by Surya (the Sun). Fixed fire, solar radiance, royal authority. Regulus, the royal star at its center, falls in the Magha nakshatra — ruled by the Pitrus (ancestors) and associated with royal lineage, ancestral throne-power, and ritual dignity. Uttara Phalguni (ruled by Sun) begins here — a nakshatra of creative fulfillment. The Narasimha avatar — Vishnu incarnated as a half-man, half-lion to destroy the demon-king Hiranyakashipu — is the supreme lion archetype of Hindu mythology: unstoppable divine protection emerging from neither fully animate nor fully inanimate form, to protect the righteous devotee Prahlada."
+    visual_motifs: ["lion in majesty", "Narasimha tearing asunder", "Durga riding lion", "Surya solar disc", "Regulus royal star", "golden fire mane"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Academic + public living tradition; Narasimha is a central Hindu deity — portrayed respectfully"
+    source_authorization: "Wikipedia + Parashara Hora Shastra + Puranic sources"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Hindu_astrology"
+    secondary_sources:
+      - "Wikipedia: Leo (astrology)"
+      - "Wikipedia: Magha nakshatra"
+      - "Wikipedia: Narasimha"
+    academic_anchor: "Parashara, Brihat Parashara Hora Shastra"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vedic-rashi-006"
+  sign_name:
+    primary: "Kanya"
+    variants: ["Kani (colloquial)", "Virgo (Western equivalent)", "Kanyā (IAST)"]
+    romanization: "Kanya"
+    native_script: "कन्या"
+  cultural_tradition:
+    primary_culture: "Vedic / Jyotish (Hindu)"
+    derivative_cultures: ["Modern Hindu astrology"]
+    geographic_origin: "South Asia / Indian subcontinent"
+    period_range: "Classical Jyotish codification ~200–400 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vedic Rashi (राशि)"
+    total_signs_in_system: 12
+    position_in_system: 6
+    sign_classification:
+      element: "Earth (Prithvi tattva)"
+      modality: "Dwiswabhava (Mutable — dual-natured)"
+      quadrant: ""
+      deity_association: "Budha (Mercury)"
+      season: "Sidereal ~September 16 – October 16"
+      other:
+        ruling_planet: "Budha (Mercury)"
+        ruling_planet_sanskrit: "बुध"
+        quality: "Dwiswabhava (mutable)"
+        element_tattva: "Prithvi (earth)"
+        direction: "South"
+        kalapurusha_body_part: "Lower abdomen, digestive organs, intestines"
+        gender: "Female"
+        varna: "Vaishya"
+        symbol: "Maiden (young woman holding wheat / torch)"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3d/Virgo_IAU.svg"
+      description: "IAU Virgo constellation — same sky sector as sidereal Kanya"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "Sidereal equatorial (Nirayana)"
+      primary_stars:
+        - name: "Spica (α Virginis)"
+          ra: "13h 25m 11.6s"
+          dec: "−11° 09′ 41″"
+          magnitude: 0.97
+          notes: "Brightest star in Kanya; in Chitra nakshatra; one of the brightest stars in sky"
+        - name: "Porrima (γ Virginis)"
+          ra: "12h 41m 39.6s"
+          dec: "−01° 26′ 57″"
+          magnitude: 2.74
+      notes: "Nakshatras in Kanya: Uttara Phalguni 2-3-4 padas, Hasta (full), Chitra 1-2 padas"
+    asterism_schematic:
+      description: "Extended figure of a maiden; Spica as the bright spike of grain at the lower end"
+      line_topology: "Vindemiatrix — Porrima — Spica (grain-spike)"
+    cultural_iconography:
+      description: "Kanya (the Maiden) is the second Mercury-ruled sign, this time in earth rather than air. The maiden is depicted holding a torch or shaft of grain — a practical, skilled, discerning figure. Mercury in Virgo is both the ruler AND in his sign of exaltation (peak strength). In Kalapurusha, Kanya governs the digestive system and intestines — the organs of discernment, processing, and absorption. Spica, the brightest star, falls in the Chitra nakshatra (the bright jewel, ruled by Mars — Vishwakarman the divine architect's star). Kanya is associated with the goddess Saraswati (knowledge, craft, discernment) and Sharada in her role as the precise-minded deity."
+      reference_sources:
+        - "Wikipedia: Virgo (astrology) — Vedic section"
+        - "Wikipedia: Hindu astrology"
+        - "Wikipedia: Chitra nakshatra"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Virgo_(astrology)"
+        - "https://en.wikipedia.org/wiki/Hindu_astrology"
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "INT"
+    suggested_animal_form: ""
+    suggested_object_form: "Grain stalk / torch / scroll (maiden's tools)"
+    symbolic_role: "Discernment; skilled craft; Mercury exalted; mutable earth; analytical precision"
+    mythic_narrative_summary: "Kanya (the Maiden) is Budha's (Mercury's) earth sign and also Mercury's sign of exaltation — double Mercury strength. The maiden holds grain or torch: skilled, discerning, precise. Kalapurusha: digestive organs (discernment, processing). Spica in the Chitra nakshatra (Vishwakarman the divine architect) gives Kanya a craftsperson identity."
+  semantic_vocabulary:
+    symbolic_keywords: ["maiden", "earth", "Mercury", "Budha", "mutable", "discernment", "craft", "precision", "Saraswati", "Spica", "Chitra", "harvest", "analysis"]
+    mythic_narrative: "Kanya (the Maiden) is the sixth Vedic Rashi, ruled by Budha (Mercury) with Prithvi (earth) tattva and Dwiswabhava (mutable) quality. Mercury is not only the ruler but is exalted in Kanya — reaching peak expression. This double Mercury influence makes Kanya the sign most associated with intellectual discrimination, craftsmanship, analytical detail, and service. The Hasta nakshatra within Kanya (ruled by Moon) means 'hand' — the skilled hand of the artisan or healer. Chitra (the bright jewel, ruled by Mars — the nakshatra of Vishwakarman, the divine architect of the gods) gives this maiden the capacity for exquisite design. In Kalapurusha, Kanya governs the intestines — the organs of discernment and selective absorption."
+    visual_motifs: ["maiden with grain sheaf", "Spica bright star", "Mercury glyph exalted", "skilled hands", "Vishwakarman workshop", "Saraswati with veena"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Academic + public living tradition"
+    source_authorization: "Wikipedia + Parashara Hora Shastra"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Hindu_astrology"
+    secondary_sources:
+      - "Wikipedia: Virgo (astrology)"
+      - "Wikipedia: Chitra nakshatra"
+    academic_anchor: "Parashara, Brihat Parashara Hora Shastra"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vedic-rashi-007"
+  sign_name:
+    primary: "Tula"
+    variants: ["Tul (colloquial)", "Libra (Western equivalent)", "Tulā (IAST)"]
+    romanization: "Tula"
+    native_script: "तुला"
+  cultural_tradition:
+    primary_culture: "Vedic / Jyotish (Hindu)"
+    derivative_cultures: ["Modern Hindu astrology"]
+    geographic_origin: "South Asia / Indian subcontinent"
+    period_range: "Classical Jyotish codification ~200–400 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vedic Rashi (राशि)"
+    total_signs_in_system: 12
+    position_in_system: 7
+    sign_classification:
+      element: "Air (Vayu tattva)"
+      modality: "Chara (Cardinal — movable)"
+      quadrant: ""
+      deity_association: "Shukra (Venus)"
+      season: "Sidereal ~October 16 – November 15"
+      other:
+        ruling_planet: "Shukra (Venus)"
+        ruling_planet_sanskrit: "शुक्र"
+        quality: "Chara (cardinal)"
+        element_tattva: "Vayu (air)"
+        direction: "West"
+        kalapurusha_body_part: "Lower back, kidneys, waist"
+        gender: "Male"
+        varna: "Shudra"
+        symbol: "Scales / balance"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Libra_IAU.svg"
+      description: "IAU Libra constellation — same sky sector as sidereal Tula"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "Sidereal equatorial (Nirayana)"
+      primary_stars:
+        - name: "Zubenelgenubi (α Librae)"
+          ra: "14h 50m 52.7s"
+          dec: "−16° 02′ 30″"
+          magnitude: 2.75
+          notes: "Southern scale-pan; formerly counted as part of Scorpius"
+        - name: "Zubeneschamali (β Librae)"
+          ra: "15h 17m 00.4s"
+          dec: "−09° 22′ 58″"
+          magnitude: 2.61
+      notes: "Nakshatras in Tula: Chitra 3-4 padas, Swati (full), Vishakha 1-2-3 padas"
+    asterism_schematic:
+      description: "Scales / balance-beam shape; two main stars as scale-pans"
+      line_topology: "Zubenelgenubi (south pan) — Zubeneschamali (north pan) — scale beam"
+    cultural_iconography:
+      description: "Tula (the Scales) is ruled by Shukra (Venus) in air — the social, aesthetic, and relational sign. Saturn is exalted in Tula, reaching peak expression, and the Sun is debilitated here. This creates the paradox of perfect justice (Saturn exalted) overriding individual ego (Sun debilitated). In Kalapurusha, Tula governs the lower back and kidneys — the balancing organs of the body. The Swati nakshatra within Tula is ruled by Rahu and associated with independence, the wandering wind. Vishakha (partially in Tula) is 'the forked branch' — ruled by Jupiter and Indra-Agni, representing effort and goal-reaching."
+      reference_sources:
+        - "Wikipedia: Libra (astrology) — Vedic section"
+        - "Wikipedia: Hindu astrology"
+        - "Wikipedia: Swati nakshatra"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Libra_(astrology)"
+        - "https://en.wikipedia.org/wiki/Hindu_astrology"
+  primitive_association_hints:
+    suggested_element: "Air"
+    suggested_attribute: "INT"
+    suggested_animal_form: ""
+    suggested_object_form: "Scales / balance"
+    symbolic_role: "Justice; balance; social harmony; Saturn exalted; cardinal air; relational wisdom"
+    mythic_narrative_summary: "Tula (the Scales) is Shukra's (Venus's) air sign — cardinal, social, relational. Saturn is exalted here (peak justice and discipline); Sun is debilitated (individual ego submitted to collective fairness). Kalapurusha: lower back and kidneys. The Swati nakshatra (wind, independence) and Vishakha (forked branch, effort) give complex inner texture."
+  semantic_vocabulary:
+    symbolic_keywords: ["scales", "balance", "Venus", "Shukra", "cardinal", "justice", "Saturn exalted", "air", "Vayu", "harmony", "Swati", "relationships", "diplomacy"]
+    mythic_narrative: "Tula (the Scales) is the seventh Vedic Rashi, ruled by Shukra (Venus) with Vayu (air) tattva and Chara (cardinal) quality. The cardinal air sign represents the drive toward social balance and just relationship. Saturn is exalted here — the planet of discipline, karma, and cosmic justice reaches its peak in the sign of scales, creating the archetype of impartial judgment. Conversely, the Sun — individual ego and self-expression — is debilitated here, reflecting the principle that in true justice, the self must yield to the collective good. The Swati nakshatra (ruled by Rahu) represents the individual blade of grass bending in the wind — flexibility, independence, the skill to yield without breaking."
+    visual_motifs: ["scales of justice", "Shukra glyph", "Zubenelgenubi and Zubeneschamali star pair", "Saturn exalted figure", "wind-blown grass (Swati)", "balance-beam temple"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Academic + public living tradition"
+    source_authorization: "Wikipedia + Parashara Hora Shastra"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Hindu_astrology"
+    secondary_sources:
+      - "Wikipedia: Libra (astrology)"
+      - "Wikipedia: Swati nakshatra"
+    academic_anchor: "Parashara, Brihat Parashara Hora Shastra"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vedic-rashi-008"
+  sign_name:
+    primary: "Vrishchika"
+    variants: ["Vrishchik (colloquial)", "Scorpio (Western equivalent)", "Vṛścika (IAST)"]
+    romanization: "Vrishchika"
+    native_script: "वृश्चिक"
+  cultural_tradition:
+    primary_culture: "Vedic / Jyotish (Hindu)"
+    derivative_cultures: ["Modern Hindu astrology"]
+    geographic_origin: "South Asia / Indian subcontinent"
+    period_range: "Classical Jyotish codification ~200–400 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vedic Rashi (राशि)"
+    total_signs_in_system: 12
+    position_in_system: 8
+    sign_classification:
+      element: "Water (Jala tattva)"
+      modality: "Sthira (Fixed)"
+      quadrant: ""
+      deity_association: "Mangal (Mars)"
+      season: "Sidereal ~November 15 – December 15"
+      other:
+        ruling_planet: "Mangal (Mars)"
+        ruling_planet_sanskrit: "मङ्गल"
+        quality: "Sthira (fixed)"
+        element_tattva: "Jala (water)"
+        direction: "North"
+        kalapurusha_body_part: "External genitals, anus, colon"
+        gender: "Female"
+        varna: "Brahmin"
+        symbol: "Scorpion"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Scorpius_IAU.svg"
+      description: "IAU Scorpius constellation — same sky sector as sidereal Vrishchika"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "Sidereal equatorial (Nirayana)"
+      primary_stars:
+        - name: "Antares (α Scorpii)"
+          ra: "16h 29m 24.4s"
+          dec: "−26° 25′ 55″"
+          magnitude: 1.06
+          notes: "One of the four royal stars; heart of the scorpion; in Jyeshtha nakshatra"
+        - name: "Graffias (β Scorpii)"
+          ra: "16h 05m 26.2s"
+          dec: "−19° 48′ 20″"
+          magnitude: 2.62
+      notes: "Nakshatras in Vrishchika: Vishakha 4th pada, Anuradha (full), Jyeshtha (full)"
+    asterism_schematic:
+      description: "Scorpion with curved tail; Antares as the heart; curving line of stars as the tail"
+      line_topology: "Graffias (head) — Dschubba — Antares (heart) — Shaula (tail stinger)"
+    cultural_iconography:
+      description: "Vrishchika (the Scorpion) is the second Mars-ruled sign, in fixed water — the most intense and transformative of the Rashi. Mars here operates in depth rather than surface charge. Antares ('rival of Ares/Mars') is the royal star in the heart of the scorpion, in the Jyeshtha nakshatra ('the eldest' — ruled by Mercury, the nakshatra of Indra's thunderbolt). The Moon is debilitated in Vrishchika. In Hindu tantra, Vrishchika is the sign of kundalini energy — the coiled serpent-power associated with sexual and occult transformation. Kalapurusha: reproductive and eliminative organs — the organs of deep transformation."
+      reference_sources:
+        - "Wikipedia: Scorpio (astrology) — Vedic section"
+        - "Wikipedia: Hindu astrology"
+        - "Wikipedia: Jyeshtha nakshatra"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Scorpio_(astrology)"
+        - "https://en.wikipedia.org/wiki/Hindu_astrology"
+  primitive_association_hints:
+    suggested_element: "Water"
+    suggested_attribute: "INT"
+    suggested_animal_form: "Scorpion"
+    suggested_object_form: ""
+    symbolic_role: "Transformation; intensity; fixed water; kundalini; occult depth; Moon debilitated"
+    mythic_narrative_summary: "Vrishchika (the Scorpion) is the second Mars sign, in fixed water — Mars at depth rather than surface fire. Moon is debilitated here. Kalapurusha: reproductive/transformative organs. Antares (Jyeshtha nakshatra, Indra's thunderbolt) sits at its heart. In tantric tradition, this is the sign of kundalini and occult transformation."
+  semantic_vocabulary:
+    symbolic_keywords: ["scorpion", "water", "Mars", "Mangal", "fixed", "transformation", "kundalini", "depth", "Antares", "Jyeshtha", "Indra", "occult", "Moon debilitated"]
+    mythic_narrative: "Vrishchika (the Scorpion) is the eighth Vedic Rashi, ruled by Mangal (Mars) with Jala (water) tattva and Sthira (fixed) quality. Mars here operates in the fixed water element — not the surface charge of Mesha but the deep, sustained intensity of transformation. Antares, 'rival of Ares,' is the red supergiant at the scorpion's heart, in the Jyeshtha nakshatra ('the eldest' — ruled by Mercury, associated with Indra's vajra/thunderbolt and the power of the chief). The Moon is debilitated in Vrishchika, reflecting the difficulty of gentle lunar sensitivity in this intense transformative environment. In Hindu tantric traditions, Vrishchika governs the kundalini shakti — the coiled serpent-energy at the base of the spine that, when awakened, rises through the chakra system."
+    visual_motifs: ["scorpion with curved tail", "Antares red supergiant", "kundalini serpent coiled", "Indra thunderbolt vajra", "deep ocean transformation", "Jyeshtha eldest star"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Tantric associations are standard academic astrology content; no restricted-knowledge concerns in Rashi descriptions"
+    source_authorization: "Wikipedia + Parashara Hora Shastra"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Hindu_astrology"
+    secondary_sources:
+      - "Wikipedia: Scorpio (astrology)"
+      - "Wikipedia: Jyeshtha nakshatra"
+    academic_anchor: "Parashara, Brihat Parashara Hora Shastra"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vedic-rashi-009"
+  sign_name:
+    primary: "Dhanus"
+    variants: ["Dhanu (colloquial)", "Sagittarius (Western equivalent)", "Dhanuṣ (IAST)"]
+    romanization: "Dhanus"
+    native_script: "धनु"
+  cultural_tradition:
+    primary_culture: "Vedic / Jyotish (Hindu)"
+    derivative_cultures: ["Modern Hindu astrology"]
+    geographic_origin: "South Asia / Indian subcontinent"
+    period_range: "Classical Jyotish codification ~200–400 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vedic Rashi (राशि)"
+    total_signs_in_system: 12
+    position_in_system: 9
+    sign_classification:
+      element: "Fire (Agni tattva)"
+      modality: "Dwiswabhava (Mutable — dual-natured)"
+      quadrant: ""
+      deity_association: "Brihaspati (Jupiter)"
+      season: "Sidereal ~December 15 – January 14"
+      other:
+        ruling_planet: "Brihaspati (Jupiter)"
+        ruling_planet_sanskrit: "बृहस्पति"
+        quality: "Dwiswabhava (mutable)"
+        element_tattva: "Agni (fire)"
+        direction: "East"
+        kalapurusha_body_part: "Thighs, hips, femur"
+        gender: "Male"
+        varna: "Kshatriya"
+        symbol: "Bow (dhanu = bow in Sanskrit) / Centaur-archer"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/5/51/Sagittarius_IAU.svg"
+      description: "IAU Sagittarius constellation — same sky sector as sidereal Dhanus"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "Sidereal equatorial (Nirayana)"
+      primary_stars:
+        - name: "Kaus Australis (ε Sagittarii)"
+          ra: "18h 24m 10.3s"
+          dec: "−34° 23′ 04″"
+          magnitude: 1.79
+          notes: "Brightest star in Sagittarius; the 'southern bow'"
+        - name: "Nunki (σ Sagittarii)"
+          ra: "18h 55m 15.9s"
+          dec: "−26° 17′ 48″"
+          magnitude: 2.05
+      notes: "Nakshatras in Dhanus: Mula (full), Purva Ashadha (full), Uttara Ashadha 1st pada; Galactic Center falls in Dhanus (Mula nakshatra)"
+    asterism_schematic:
+      description: "The Teapot asterism; the archer's bow and arrow aimed at the galactic center"
+      line_topology: "Kaus Australis — Kaus Media — Kaus Borealis (bow arc); Nunki — Ascella (handle)"
+    cultural_iconography:
+      description: "Dhanus (the Bow) is ruled by Brihaspati (Jupiter) in mutable fire — the philosopher-archer, aiming upward at wisdom. The symbol is a bow or a centaur-archer. The Galactic Center of the Milky Way falls within Dhanus, in the Mula nakshatra ('the root' — ruled by Ketu, associated with Nirriti the goddess of dissolution). This gives Dhanus a cosmic depth — the arrow aimed at the very center of creation. Jupiter's wisdom, philosophy, and teaching expand outward like the arrow's flight. Brihaspati is the guru of the gods — the divine teacher; Dhanus embodies the seeker-teacher archetype."
+      reference_sources:
+        - "Wikipedia: Sagittarius (astrology) — Vedic section"
+        - "Wikipedia: Hindu astrology"
+        - "Wikipedia: Mula nakshatra"
+        - "Wikipedia: Brihaspati"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Sagittarius_(astrology)"
+        - "https://en.wikipedia.org/wiki/Brihaspati"
+  primitive_association_hints:
+    suggested_element: "Fire"
+    suggested_attribute: "INT"
+    suggested_animal_form: "Horse (centaur-archer)"
+    suggested_object_form: "Bow and arrow / dhanu"
+    symbolic_role: "Philosophical fire; wisdom-seeker; Jupiter's teaching; archer aimed at truth; galactic center"
+    mythic_narrative_summary: "Dhanus (the Bow) is Brihaspati's (Jupiter's) mutable fire sign — the philosopher-teacher archer. The Galactic Center falls within Dhanus (Mula nakshatra, Ketu-ruled). Kalapurusha: thighs and hips — the legs of the archer running toward truth. Brihaspati is the divine teacher of the gods; Dhanus embodies wisdom in motion."
+  semantic_vocabulary:
+    symbolic_keywords: ["bow", "fire", "Jupiter", "Brihaspati", "mutable", "philosophy", "wisdom", "archer", "Agni", "thighs", "Galactic Center", "Mula", "Ketu", "teacher"]
+    mythic_narrative: "Dhanus (the Bow) is the ninth Vedic Rashi, ruled by Brihaspati (Jupiter) with Agni (fire) tattva and Dwiswabhava (mutable) quality. Jupiter's mutable fire produces the philosophical fire — the seeker who aims the arrow of inquiry at ever-greater truths. The Galactic Center of the Milky Way galaxy falls within Dhanus in the Mula nakshatra ('the root'), which is ruled by Ketu and associated with Nirriti (goddess of dissolution and primal chaos). This makes Dhanus the sign pointing literally at the center of creation. Brihaspati, the preceptor of the gods, embodies dharmic wisdom — and Dhanus is his more expansive, outward-reaching sign (compared to Meena, his watery mutable counterpart). In Kalapurusha, Dhanus governs the thighs — the great locomotor muscles that carry the body forward on its quest."
+    visual_motifs: ["centaur archer drawing bow", "Milky Way galactic center glow", "Kaus Australis star bow", "Jupiter sage teacher", "Mula root nakshatra", "arrow of dharmic inquiry"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Academic + public living tradition"
+    source_authorization: "Wikipedia + Parashara Hora Shastra + Puranic sources"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Hindu_astrology"
+    secondary_sources:
+      - "Wikipedia: Sagittarius (astrology)"
+      - "Wikipedia: Mula nakshatra"
+      - "Wikipedia: Brihaspati"
+    academic_anchor: "Parashara, Brihat Parashara Hora Shastra"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vedic-rashi-010"
+  sign_name:
+    primary: "Makara"
+    variants: ["Makar (colloquial)", "Capricorn (Western approximate — NOT goat-fish)", "Makara (IAST)"]
+    romanization: "Makara"
+    native_script: "मकर"
+  cultural_tradition:
+    primary_culture: "Vedic / Jyotish (Hindu)"
+    derivative_cultures: ["Modern Hindu astrology"]
+    geographic_origin: "South Asia / Indian subcontinent"
+    period_range: "Classical Jyotish codification ~200–400 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vedic Rashi (राशि)"
+    total_signs_in_system: 12
+    position_in_system: 10
+    sign_classification:
+      element: "Earth (Prithvi tattva)"
+      modality: "Chara (Cardinal — movable)"
+      quadrant: ""
+      deity_association: "Shani (Saturn)"
+      season: "Sidereal ~January 14 – February 12 (Makar Sankranti — Sun entering Makara — major Hindu festival)"
+      other:
+        ruling_planet: "Shani (Saturn)"
+        ruling_planet_sanskrit: "शनि"
+        quality: "Chara (cardinal)"
+        element_tattva: "Prithvi (earth)"
+        direction: "South"
+        kalapurusha_body_part: "Knees, skeletal system"
+        gender: "Female"
+        varna: "Vaishya"
+        symbol: "Makara — mythical sea-creature (crocodile-elephant-fish hybrid; NOT Western goat-fish)"
+        western_capricorn_distinction: "Makara is NOT the Western goat-fish; it is the Makara — a uniquely Hindu mythical creature with the head/front of a crocodile or deer and the body/tail of a fish or peacock; a distinct mythological entity"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/4/40/Makara_Rajasthani_18th_c.jpg"
+      description: "Rajasthani 18th century depiction of the Makara — the mythical sea-creature of Makara Rashi"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Capricornus_IAU.svg"
+        description: "IAU Capricornus constellation — same sky sector; but Vedic Makara uses a very different creature"
+        source: "Wikipedia Commons"
+        license: "Public Domain"
+        verified_loads: true
+    star_coordinates:
+      coordinate_system: "Sidereal equatorial (Nirayana)"
+      primary_stars:
+        - name: "Deneb Algedi (δ Capricorni)"
+          ra: "21h 47m 02.4s"
+          dec: "−16° 07′ 38″"
+          magnitude: 2.85
+          notes: "Brightest star in Capricornus; in Shravana nakshatra region"
+        - name: "Dabih (β Capricorni)"
+          ra: "20h 21m 00.7s"
+          dec: "−14° 46′ 53″"
+          magnitude: 3.05
+      notes: "Nakshatras in Makara: Uttara Ashadha 2-3-4 padas, Shravana (full), Dhanishtha 1-2 padas; Makar Sankranti (Sun entering Makara) is a major harvest festival"
+    asterism_schematic:
+      description: "Wide arrowhead or sea-creature shape; Deneb Algedi as the brightest point"
+      line_topology: "Algedi (head) — Dabih — Nashira — Deneb Algedi (tail)"
+    cultural_iconography:
+      description: "Makara is a uniquely Hindu mythological creature — not the Western goat-fish hybrid of Capricorn but a fantastical sea-beast combining features of crocodile, elephant, fish, and peacock in varying regional traditions. The Makara is the vahana (vehicle) of Varuna (god of the cosmic ocean and dharmic law) and of Ganga (goddess of the Ganges River). It appears on the kirtimukha (face of glory) architectural motif. Makar Sankranti (Sun's entry into sidereal Makara, approximately January 14) is one of India's major harvest festivals — kite-flying, sesame sweets, rice harvest. Mars is exalted in Makara (peak strength). Saturn (ruler) is at home. Jupiter is debilitated here."
+      reference_sources:
+        - "Wikipedia: Makara (Hindu mythology)"
+        - "Wikipedia: Capricorn (astrology) — Vedic section"
+        - "Wikipedia: Makar Sankranti"
+        - "Wikipedia: Varuna"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Makara_(Hindu_mythology)"
+        - "https://en.wikipedia.org/wiki/Makar_Sankranti"
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Makara (sea-monster: crocodile-elephant-fish hybrid)"
+    suggested_object_form: ""
+    symbolic_role: "Sea-monster of cosmic ocean; Varuna's vehicle; Mars exalted; harvest; cardinal earth; structured ambition"
+    mythic_narrative_summary: "Makara is a uniquely Hindu mythological sea-creature — the vehicle of Varuna and Ganga. NOT the Western goat-fish. Mars is exalted here; Saturn is at home; Jupiter is debilitated. Makar Sankranti (January 14) is the major harvest festival marking this sign's arrival. Kalapurusha: knees and skeletal structure — the load-bearing frame."
+  semantic_vocabulary:
+    symbolic_keywords: ["Makara", "sea-monster", "earth", "Saturn", "Shani", "Varuna", "Ganga", "harvest", "Makar Sankranti", "crocodile", "Mars exalted", "cardinal", "cosmic ocean", "knees"]
+    mythic_narrative: "Makara is the tenth Vedic Rashi, ruled by Shani (Saturn) with Prithvi (earth) tattva and Chara (cardinal) quality. IMPORTANT DISTINCTION: Makara is NOT the Western goat-fish of Capricorn. The Makara is a fantastical Hindu mythological sea-creature — variously depicted with the head of a crocodile or deer and the body of a fish or peacock, sometimes with elephant features. The Makara is the vahana (vehicle) of Varuna, the Vedic god of the cosmic ocean and divine law, and of Ganga (the goddess of the Ganges). This gives Makara a connection to deep waters beneath an earthy surface — the unseen depths of structured reality. Mars reaches its exaltation in Makara, gaining maximum disciplined power. Makar Sankranti, the Sun's entry into sidereal Makara, is one of India's most widely celebrated harvest festivals (approximately January 14)."
+    visual_motifs: ["Makara sea-creature hybrid", "Varuna riding Makara in cosmic ocean", "Ganga on Makara vehicle", "Makar Sankranti kite-flying", "sesame harvest", "skeletal structure of the earth"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Academic + public living tradition; Makar Sankranti is a major pan-Indian festival"
+    source_authorization: "Wikipedia + Parashara Hora Shastra + Puranic sources"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Makara_(Hindu_mythology)"
+    secondary_sources:
+      - "Wikipedia: Capricorn (astrology)"
+      - "Wikipedia: Makar Sankranti"
+      - "Wikipedia: Varuna"
+    academic_anchor: "Parashara, Brihat Parashara Hora Shastra; Monier-Williams Sanskrit Dictionary: 'makara'"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vedic-rashi-011"
+  sign_name:
+    primary: "Kumbha"
+    variants: ["Kumbh (colloquial)", "Aquarius (Western equivalent)", "Kumbha (IAST)"]
+    romanization: "Kumbha"
+    native_script: "कुम्भ"
+  cultural_tradition:
+    primary_culture: "Vedic / Jyotish (Hindu)"
+    derivative_cultures: ["Modern Hindu astrology"]
+    geographic_origin: "South Asia / Indian subcontinent"
+    period_range: "Classical Jyotish codification ~200–400 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vedic Rashi (राशि)"
+    total_signs_in_system: 12
+    position_in_system: 11
+    sign_classification:
+      element: "Air (Vayu tattva)"
+      modality: "Sthira (Fixed)"
+      quadrant: ""
+      deity_association: "Shani (Saturn)"
+      season: "Sidereal ~February 12 – March 14"
+      other:
+        ruling_planet: "Shani (Saturn)"
+        ruling_planet_sanskrit: "शनि"
+        quality: "Sthira (fixed)"
+        element_tattva: "Vayu (air)"
+        direction: "West"
+        kalapurusha_body_part: "Calves, ankles, shins"
+        gender: "Male"
+        varna: "Shudra"
+        symbol: "Kumbha (water pot / pitcher) — NOT a water-bearer person but the pot itself"
+        kumbh_mela_note: "Kumbha (the pot) is the symbol of the Kumbh Mela — the world's largest religious gathering, held at confluence of sacred rivers"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/8/8e/Aquarius_IAU.svg"
+      description: "IAU Aquarius constellation — same sky sector as sidereal Kumbha"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Kumbh_Mela_2019_Prayagraj.jpg"
+        description: "Kumbh Mela at Prayagraj — the world's largest human gathering; the kumbha (pot) is the central symbol"
+        source: "Wikipedia Commons"
+        license: "CC-BY-SA"
+        verified_loads: true
+    star_coordinates:
+      coordinate_system: "Sidereal equatorial (Nirayana)"
+      primary_stars:
+        - name: "Sadalsuud (β Aquarii)"
+          ra: "21h 31m 33.5s"
+          dec: "−05° 34′ 16″"
+          magnitude: 2.87
+          notes: "Brightest star in Aquarius; 'luckiest of the lucky' (Arabic name)"
+        - name: "Sadalmelik (α Aquarii)"
+          ra: "22h 05m 47.0s"
+          dec: "−00° 19′ 11″"
+          magnitude: 2.96
+      notes: "Nakshatras in Kumbha: Dhanishtha 3-4 padas, Shatabhisha (full), Purva Bhadrapada 1-2-3 padas"
+    asterism_schematic:
+      description: "Water-jar pattern with flowing water stream; Sadalsuud and Sadalmelik as the shoulder stars"
+      line_topology: "Sadalmelik — Sadalsuud (shoulders) — flowing water stream of fainter stars"
+    cultural_iconography:
+      description: "Kumbha (the Water Pot) is Shani's (Saturn's) air sign — fixed air, the disciplined collective. The symbol is the kumbha (water pot / pitcher) itself, not a person bearing it as in Western Aquarius. The kumbha is one of the most sacred objects in Hindu ritual — holding amrita (the nectar of immortality) is the central myth of the Kumbh Mela. The Kumbh Mela (held at Prayagraj, Haridwar, Nashik, Ujjain) is the world's largest periodic religious gathering — tens of millions of pilgrims bathe at sacred confluences, connecting to the cosmic pot of immortality. In Kalapurusha, Kumbha governs calves and ankles — the foundation of movement."
+      reference_sources:
+        - "Wikipedia: Aquarius (astrology) — Vedic section"
+        - "Wikipedia: Hindu astrology"
+        - "Wikipedia: Kumbh Mela"
+        - "Wikipedia: Shatabhisha nakshatra"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Aquarius_(astrology)"
+        - "https://en.wikipedia.org/wiki/Kumbh_Mela"
+  primitive_association_hints:
+    suggested_element: "Air"
+    suggested_attribute: "INT"
+    suggested_animal_form: ""
+    suggested_object_form: "Kumbha (water pot / pitcher of amrita)"
+    symbolic_role: "Sacred pot of immortality; Kumbh Mela; fixed air; collective wisdom; Saturn's second sign"
+    mythic_narrative_summary: "Kumbha (the Water Pot) is Saturn's fixed air sign. The kumbha symbolizes the pot of amrita (immortality nectar) central to the Kumbh Mela — the world's largest human gathering. Kalapurusha: calves and ankles. Shatabhisha nakshatra (100 healers) within Kumbha carries the sign's healing and collective wisdom."
+  semantic_vocabulary:
+    symbolic_keywords: ["water pot", "kumbha", "air", "Saturn", "Shani", "fixed", "amrita", "Kumbh Mela", "collective", "Vayu", "Shatabhisha", "ankles", "immortality nectar"]
+    mythic_narrative: "Kumbha (the Water Pot) is the eleventh Vedic Rashi, ruled by Shani (Saturn) with Vayu (air) tattva and Sthira (fixed) quality. The kumbha — a clay water pot — is one of the most sacred objects in Hindu symbolism. The Kumbh Mela, the world's largest periodic gathering of humanity, is named for the kumbha of amrita (immortality nectar) that dropped at four sacred river confluences when the gods and demons churned the cosmic ocean and extracted amrita. The Shatabhisha nakshatra ('the hundred healers' or 'the hundred stars' — ruled by Rahu) spans most of Kumbha, giving the sign a quality of mass healing, scientific inquiry, and the healing of the collective body. In Kalapurusha, Kumbha governs calves and ankles — the limbs that ground and stabilize the moving body."
+    visual_motifs: ["clay water pot with streams", "Kumbh Mela river confluence", "amrita pot carried by gods", "hundred stars of Shatabhisha", "Saturn glyph disciplined air", "ankles and calves in motion"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Academic + public living tradition; Kumbh Mela is a public cultural event"
+    source_authorization: "Wikipedia + Parashara Hora Shastra + Puranic sources"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Hindu_astrology"
+    secondary_sources:
+      - "Wikipedia: Aquarius (astrology)"
+      - "Wikipedia: Kumbh Mela"
+      - "Wikipedia: Shatabhisha nakshatra"
+    academic_anchor: "Parashara, Brihat Parashara Hora Shastra"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vedic-rashi-012"
+  sign_name:
+    primary: "Meena"
+    variants: ["Meen (colloquial)", "Pisces (Western equivalent)", "Mīna (IAST)"]
+    romanization: "Meena"
+    native_script: "मीन"
+  cultural_tradition:
+    primary_culture: "Vedic / Jyotish (Hindu)"
+    derivative_cultures: ["Modern Hindu astrology"]
+    geographic_origin: "South Asia / Indian subcontinent"
+    period_range: "Classical Jyotish codification ~200–400 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vedic Rashi (राशि)"
+    total_signs_in_system: 12
+    position_in_system: 12
+    sign_classification:
+      element: "Water (Jala tattva)"
+      modality: "Dwiswabhava (Mutable — dual-natured)"
+      quadrant: ""
+      deity_association: "Brihaspati (Jupiter)"
+      season: "Sidereal ~March 14 – April 14"
+      other:
+        ruling_planet: "Brihaspati (Jupiter)"
+        ruling_planet_sanskrit: "बृहस्पति"
+        quality: "Dwiswabhava (mutable)"
+        element_tattva: "Jala (water)"
+        direction: "North"
+        kalapurusha_body_part: "Feet, toes"
+        gender: "Female"
+        varna: "Brahmin"
+        symbol: "Two fish swimming in opposite directions"
+        venus_exaltation_note: "Venus (Shukra) is exalted in Meena — the most beautiful of all exaltations in Jyotish tradition"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/b/b8/Pisces_IAU.svg"
+      description: "IAU Pisces constellation — same sky sector as sidereal Meena"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "Sidereal equatorial (Nirayana)"
+      primary_stars:
+        - name: "Eta Piscium"
+          ra: "1h 31m 29.0s"
+          dec: "+15° 20′ 45″"
+          magnitude: 3.62
+          notes: "Brightest star in Pisces; in Revati nakshatra region"
+        - name: "Alrescha (α Piscium)"
+          ra: "2h 02m 03s"
+          dec: "+02° 45′ 49″"
+          magnitude: 3.82
+          notes: "The 'cord' connecting the two fish"
+      notes: "Nakshatras in Meena: Purva Bhadrapada 4th pada, Uttara Bhadrapada (full), Revati (full); Revati nakshatra marks the end of the entire Nakshatra cycle"
+    asterism_schematic:
+      description: "Two fish swimming in opposite directions connected by a cord; faint stars in a V or X pattern"
+      line_topology: "Northern fish loop — Alrescha (cord) — Southern fish loop"
+    cultural_iconography:
+      description: "Meena (the Fish) is Brihaspati's (Jupiter's) water sign — the most spiritual and dissolving of all Rashi. Venus (Shukra) is exalted in Meena — reaching the most beautiful expression of love, art, and devotion. Mercury is debilitated here. The Revati nakshatra, which closes Meena and the entire 27-nakshatra cycle, is ruled by Mercury and associated with Pushan (the divine shepherd who guides souls at death and leads them to the afterlife) — completing the cosmic cycle. The two fish swimming in opposite directions represent the soul pulled between material and spiritual reality, between dissolution and rebirth. In Kalapurusha, Meena governs the feet — at the very end of the body, as Meena is at the end of the zodiac."
+      reference_sources:
+        - "Wikipedia: Pisces (astrology) — Vedic section"
+        - "Wikipedia: Hindu astrology"
+        - "Wikipedia: Revati nakshatra"
+        - "Wikipedia: Brihaspati"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Pisces_(astrology)"
+        - "https://en.wikipedia.org/wiki/Hindu_astrology"
+  primitive_association_hints:
+    suggested_element: "Water"
+    suggested_attribute: "INT"
+    suggested_animal_form: "Fish (two fish, opposing)"
+    suggested_object_form: ""
+    symbolic_role: "Dissolution; spiritual completion; Venus exalted; end of cycle; Revati shepherd; mutable water"
+    mythic_narrative_summary: "Meena (the Fish) is Jupiter's mutable water sign — the most spiritually dissolving Rashi, where individual boundaries merge with the cosmic ocean. Venus is exalted here (peak beauty and devotion). The Revati nakshatra (end of the zodiac cycle) is governed by Pushan, divine shepherd of souls. Kalapurusha: feet — the final members of the cosmic body."
+  semantic_vocabulary:
+    symbolic_keywords: ["fish", "water", "Jupiter", "Brihaspati", "mutable", "dissolution", "spiritual", "Venus exalted", "Jala", "Revati", "Pushan", "feet", "end of cycle", "cosmic ocean"]
+    mythic_narrative: "Meena (the Fish) is the twelfth and final Vedic Rashi, ruled by Brihaspati (Jupiter) with Jala (water) tattva and Dwiswabhava (mutable) quality. Jupiter's mutable water produces the most spiritually oriented sign — the sage in the ocean, dissolving the boundaries between self and cosmos. Venus is exalted in Meena — the most beautiful exaltation, where Shukra's capacity for love, beauty, and devotion finds its fullest expression in the boundless waters of spiritual surrender. Mercury is debilitated here — rational analytical thinking struggles in the dissolution of Meena. The Revati nakshatra (ruled by Mercury, governed by Pushan the divine shepherd) closes both Meena and the entire 27-nakshatra cycle — Pushan leads departing souls through the gateway between worlds. The two fish swimming in opposite directions represent the fundamental Meena tension: one fish pulled toward spiritual liberation, the other toward material rebirth."
+    visual_motifs: ["two fish in opposite directions", "Pushan shepherd at cosmic gateway", "Revati last star of cycle", "Jupiter sage in ocean", "Venus exalted lotus on water", "feet touching sacred river"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Academic + public living tradition"
+    source_authorization: "Wikipedia + Parashara Hora Shastra + Puranic sources"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Hindu_astrology"
+    secondary_sources:
+      - "Wikipedia: Pisces (astrology)"
+      - "Wikipedia: Revati nakshatra"
+      - "Wikipedia: Brihaspati"
+    academic_anchor: "Parashara, Brihat Parashara Hora Shastra"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"

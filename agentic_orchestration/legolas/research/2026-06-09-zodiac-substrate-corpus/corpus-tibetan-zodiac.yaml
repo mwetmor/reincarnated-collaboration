@@ -1,0 +1,807 @@
+# corpus-tibetan-zodiac.yaml
+# Tibetan Zodiac — Legolas Mode B Corpus
+# Crawl date: 2026-06-09
+# Source: https://en.wikipedia.org/wiki/Tibetan_calendar
+# 12 entries — sign_ids: tibetan-zodiac-001 through tibetan-zodiac-012
+# NOTE: Tibetan zodiac order starts with Hare (not Rat) as traditionally listed in Tibetan calendar documentation.
+# This corpus uses traditional Tibetan ordering starting with Hare.
+# Five Tibetan elements: Wood, Fire, Earth, Iron, Water (cycling 2-year M/F each = 10-year element cycle × 12 animals = 60-year Rabjung)
+
+- sign_id: "tibetan-zodiac-001"
+  sign_name:
+    primary: "Yos (Hare)"
+    variants: ["Rabbit", "Yos-pa"]
+    romanization: "Yos"
+    native_script: "ཡོས་ (yos)"
+  cultural_tradition:
+    primary_culture: "Tibetan"
+    derivative_cultures: ["Chinese zodiac", "Tibetan-Buddhist calendar system"]
+    geographic_origin: "Tibet (Tibetan Plateau; Tibetan Buddhist cultural sphere)"
+    period_range: "Tibetan zodiac formalized from 12th century CE via Buddhist transmission; 60-year Rabjung cycle introduced 1025 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Tibetan Zodiac (Lo-Khak / Tibetan Animal Calendar)"
+    total_signs_in_system: 12
+    position_in_system: 1
+    sign_classification:
+      element: "Wood (primary in Rabjung cycle; varies by year)"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Spring"
+      other:
+        earthly_branch: "卯 (Chinese equivalent)"
+        yin_yang: "Yin (female element years)"
+        tibetan_five_elements: ["Wood", "Fire", "Earth", "Iron", "Water"]
+        rabjung_note: "Each animal pairs with 5 elements in M/F aspects across 60-year cycle"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Tibetan_calendar_wheel.jpg/320px-Tibetan_calendar_wheel.jpg"
+      description: "Tibetan calendar wheel showing 12 animal zodiac signs in Tibetan Buddhist context"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar/temporal system; no stellar coordinates."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Hare (ཡོས་, Yos) opens the traditional Tibetan zodiac year sequence. In Tibetan Buddhist culture, zodiac animals appear on thangka paintings, astrological charts (Nangsi Khorlo), and divination manuals. The Hare is associated with gentle wisdom and the lunar cycle — connecting to the traditional Buddhist 'Moon Hare' motif found across Buddhist Asia. Tibetan astrology integrates Indian (Kalachakra) and Chinese (sexagenary) calendar systems, giving each zodiac animal a unique Buddhist-tantric resonance."
+      reference_sources: ["Wikipedia: Tibetan calendar"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tibetan_calendar"]
+  primitive_association_hints:
+    suggested_element: "Wood"
+    suggested_attribute: "AGI"
+    suggested_animal_form: "Hare/Rabbit"
+    suggested_object_form: ""
+    symbolic_role: "Gentle lunar wisdom; traditional Tibetan year-opener; Buddhist Moon Hare motif"
+    mythic_narrative_summary: "Yos (Hare) is first in the traditional Tibetan zodiac sequence. Tibetan astrology began the year cycle with Hare. Connected to the Buddhist Moon Hare tradition across Himalayan Buddhist cultures."
+  semantic_vocabulary:
+    symbolic_keywords: ["hare", "rabbit", "wood", "yin", "Tibetan", "yos", "Buddhist", "moon hare", "lunar", "thangka", "Nangsi Khorlo"]
+    mythic_narrative: "The Hare (ཡོས་, Yos) is the first sign in the traditional Tibetan zodiac listing, as documented in the Tibetan calendar. Tibet adopted the 12-animal Chinese zodiac cycle from the 12th century CE through Buddhist transmission routes, integrating it with Tibetan-Buddhist and Indian astrological systems. The Hare connects to the Buddhist Moon Hare motif found across Buddhist Asia. Tibetan astrological manuals (Nangsi Khorlo — Wheel of Life) depict zodiac animals in circular arrangements used for personal horoscope calculations, life-force assessments, and auspicious timing."
+    visual_motifs: ["Tibetan Nangsi Khorlo calendar wheel with hare", "thangka painting zodiac hare", "Buddhist moon hare Tibetan art"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tibetan_calendar"
+    secondary_sources: ["Wikipedia: Tibetan astrology", "Wikipedia: Nangsi Khorlo"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "tibetan-zodiac-002"
+  sign_name:
+    primary: "'Brug (Dragon)"
+    variants: ["Dragon", "Nāga-Dragon (partially)", "Sea-Monster (some traditions)"]
+    romanization: "'Brug"
+    native_script: "འབྲུག་ ('brug)"
+  cultural_tradition:
+    primary_culture: "Tibetan"
+    derivative_cultures: ["Chinese zodiac", "Tibetan-Buddhist calendar system"]
+    geographic_origin: "Tibet"
+    period_range: "12th century CE formalization"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Tibetan Zodiac (Lo-Khak)"
+    total_signs_in_system: 12
+    position_in_system: 2
+    sign_classification:
+      element: "Earth (varies by Rabjung year)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Nāga serpent-dragon deities; Druk (Thunder Dragon)"
+      season: "Spring"
+      other:
+        earthly_branch: "辰 (Chinese equivalent)"
+        yin_yang: "Yang"
+        special_note: "Tibetan Dragon ('Brug) has Nāga (serpent-water spirit) qualities not present in Chinese Dragon"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tibetan_dragon_thangka.jpg/320px-Tibetan_dragon_thangka.jpg"
+      description: "Tibetan dragon ('Brug) in thangka painting style — note the serpentine Nāga qualities"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Tibetan Dragon ('Brug, འབྲུག) carries Buddhist-tantric dimensions absent from the Chinese original. In Tibetan Buddhism, serpentine Nāga spirits control water, rain, and underground treasures — and the Tibetan Dragon incorporates these Nāga qualities, making it a serpent-dragon hybrid rather than a purely draconic figure. 'Brug is also the name used by Bhutan (Druk Yul, 'Land of the Thunder Dragon') as its national identity. In Tibetan astrological divination, the Dragon year is associated with powerful, transformative forces."
+      reference_sources: ["Wikipedia: Tibetan calendar", "Wikipedia: Nāga (Buddhism)", "Wikipedia: Bhutan (Druk)"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tibetan_calendar"]
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Dragon/Nāga"
+    suggested_object_form: ""
+    symbolic_role: "Nāga serpent-dragon hybrid; Tibetan thunder dragon; Buddhist water-treasure deity"
+    mythic_narrative_summary: "'Brug (Dragon) is second in Tibetan listing — incorporates Nāga (Buddhist serpent-spirit) qualities. Also gives Bhutan its name (Druk Yul = Land of the Thunder Dragon)."
+  semantic_vocabulary:
+    symbolic_keywords: ["dragon", "earth", "yang", "Tibetan", "'brug", "nāga", "serpent-dragon", "thunder dragon", "Bhutan", "Buddhist", "thangka"]
+    mythic_narrative: "The Dragon (འབྲུག, 'Brug) is second in the Tibetan zodiac sequence. In Tibetan Buddhist cosmology, the Dragon is enriched with Nāga (nāga — serpent water-spirit) qualities absent from the Chinese original. Tibetan Nāgas control water, hidden treasures, and the fertility of the land; the 'Brug incorporates this serpentine, subterranean spiritual energy into the dragon archetype. This is why some Tibetan sources describe the 4th position animal as a 'sea-monster' or Nāga-dragon hybrid. The word 'Brug also names Bhutan — 'Druk Yul,' Land of the Thunder Dragon — demonstrating this Tibetan dragon tradition's political and national dimensions."
+    visual_motifs: ["Tibetan thangka dragon-nāga", "Bhutanese Druk Thunder Dragon flag", "Tibetan tantric dragon illustration"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tibetan_calendar"
+    secondary_sources: ["Wikipedia: Nāga (Buddhism)", "Wikipedia: Bhutan"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "tibetan-zodiac-003"
+  sign_name:
+    primary: "Sbrul (Snake)"
+    variants: ["Snake", "Serpent"]
+    romanization: "Sbrul"
+    native_script: "སྦྲུལ་ (sbrul)"
+  cultural_tradition:
+    primary_culture: "Tibetan"
+    derivative_cultures: ["Chinese zodiac", "Tibetan-Buddhist calendar system"]
+    geographic_origin: "Tibet"
+    period_range: "12th century CE formalization"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Tibetan Zodiac (Lo-Khak)"
+    total_signs_in_system: 12
+    position_in_system: 3
+    sign_classification:
+      element: "Fire (varies by Rabjung year)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Nāga associations (serpent realm)"
+      season: "Late Spring"
+      other:
+        earthly_branch: "巳 (Chinese equivalent)"
+        yin_yang: "Yin"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Tibetan_naga_serpent.jpg/320px-Tibetan_naga_serpent.jpg"
+      description: "Tibetan nāga serpent deity — closely related to the Tibetan Snake zodiac sign"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Snake (སྦྲུལ་, Sbrul) in Tibetan Buddhist context is closely related to the Nāga tradition — serpent spirits controlling water, rain, earth treasures, and underground realms. Tibetan Buddhist iconography features Nāga serpents as protective deities of sacred spaces and Buddhist texts. The Snake sign inherits this Nāga resonance: wisdom, hidden knowledge, and the power of water. Sbrul-year individuals are associated with deep wisdom and the ability to perceive hidden truths."
+      reference_sources: ["Wikipedia: Tibetan calendar", "Wikipedia: Nāga (Buddhism)"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tibetan_calendar"]
+  primitive_association_hints:
+    suggested_element: "Fire"
+    suggested_attribute: "INT"
+    suggested_animal_form: "Snake"
+    suggested_object_form: ""
+    symbolic_role: "Nāga-adjacent wisdom; hidden knowledge; Buddhist serpent realm"
+    mythic_narrative_summary: "Sbrul (Snake) is third — in Tibetan Buddhism, the snake is deeply connected to Nāga spirits (water, earth-treasure, hidden knowledge). Wisdom and the serpent realm."
+  semantic_vocabulary:
+    symbolic_keywords: ["snake", "fire", "yin", "Tibetan", "sbrul", "nāga", "Buddhist", "hidden wisdom", "water", "serpent realm"]
+    mythic_narrative: "The Snake (སྦྲུལ་, Sbrul) is third in the Tibetan zodiac. In Tibetan Buddhism, the snake is adjacent to and overlapping with the Nāga realm — powerful serpentine spiritual beings who guard water sources, underground treasure, and sacred Buddhist texts. Offerings to Nāgas are made to maintain ecological balance and avoid disease. Sbrul-year individuals inherit the deep, hidden wisdom associated with the Buddhist serpent tradition — perceptive, intuitive, and possessing access to truths others cannot readily see."
+    visual_motifs: ["Tibetan Buddhist nāga offering ceremony illustration", "thangka snake motif", "Tibetan calendar snake sign"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tibetan_calendar"
+    secondary_sources: ["Wikipedia: Nāga (Buddhism)"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "tibetan-zodiac-004"
+  sign_name:
+    primary: "Rta (Horse)"
+    variants: ["Horse", "Ta"]
+    romanization: "Rta"
+    native_script: "རྟ་ (rta)"
+  cultural_tradition:
+    primary_culture: "Tibetan"
+    derivative_cultures: ["Chinese zodiac", "Tibetan-Buddhist calendar system"]
+    geographic_origin: "Tibet"
+    period_range: "12th century CE formalization"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Tibetan Zodiac (Lo-Khak)"
+    total_signs_in_system: 12
+    position_in_system: 4
+    sign_classification:
+      element: "Fire (varies by Rabjung year)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Lungta (Wind Horse) — semi-distinct but related concept"
+      season: "Summer"
+      other:
+        earthly_branch: "午 (Chinese equivalent)"
+        yin_yang: "Yang"
+        special_note: "Tibetan horse tradition includes Lungta (Wind Horse / Lucky Horse) energy concept"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Tibetan_prayer_flag_lungta.jpg/320px-Tibetan_prayer_flag_lungta.jpg"
+      description: "Tibetan prayer flags (lungta/wind horse) — the Horse in Tibetan culture is linked to the Lungta wind-horse concept"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Horse (རྟ་, Rta) in Tibetan culture is connected to the Lungta (Wind Horse / Lucky Horse) concept — a symbol of the human soul, vitality, and fortune that appears on Tibetan prayer flags. The Lungta horse carries a wish-fulfilling jewel on its back and represents the practitioner's life-force energy. While Lungta is technically a separate concept from the zodiac Horse, both share the horse as their central symbol in Tibetan cultural imagination. High-altitude horse culture of the Tibetan plateau gives the Rta sign deep ecological resonance."
+      reference_sources: ["Wikipedia: Tibetan calendar", "Wikipedia: Lungta"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tibetan_calendar", "https://en.wikipedia.org/wiki/Lungta"]
+  primitive_association_hints:
+    suggested_element: "Fire"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Horse"
+    suggested_object_form: ""
+    symbolic_role: "Vitality; wind-horse (Lungta) life-force energy; Tibetan plateau horse culture"
+    mythic_narrative_summary: "Rta (Horse) is fourth — the Tibetan Lungta (Wind Horse) prayer flag tradition connects the zodiac horse to concepts of life-force, luck, and soul-energy. High-altitude Tibetan nomadic horse culture grounds this sign deeply."
+  semantic_vocabulary:
+    symbolic_keywords: ["horse", "fire", "yang", "Tibetan", "rta", "lungta", "wind horse", "prayer flags", "vitality", "life-force", "nomadic"]
+    mythic_narrative: "The Horse (རྟ་, Rta) is fourth in the Tibetan zodiac. Tibet's high-altitude nomadic culture has been inseparable from horse-keeping for millennia, giving Rta deep ecological roots. The Horse also connects to the Lungta (wind horse) — one of the most distinctive Tibetan Buddhist symbols, printed on prayer flags and representing the practitioner's life-force, spiritual momentum, and fortunate energy. The Lungta horse carries a wish-fulfilling jewel (cintamani) on its back, linking the horse zodiac sign to abundance and the fulfillment of aspirations. Rta-year individuals carry associations of vitality, noble bearing, and tireless forward momentum."
+    visual_motifs: ["Tibetan prayer flags (lungta) with horse motif", "high-altitude Tibetan plateau horse nomad art", "Rta zodiac thangka illustration"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tibetan_calendar"
+    secondary_sources: ["Wikipedia: Lungta", "Wikipedia: Tibetan nomads"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "tibetan-zodiac-005"
+  sign_name:
+    primary: "Lug (Sheep)"
+    variants: ["Goat", "Ram"]
+    romanization: "Lug"
+    native_script: "ལུག་ (lug)"
+  cultural_tradition:
+    primary_culture: "Tibetan"
+    derivative_cultures: ["Chinese zodiac", "Tibetan-Buddhist calendar system"]
+    geographic_origin: "Tibet"
+    period_range: "12th century CE formalization"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Tibetan Zodiac (Lo-Khak)"
+    total_signs_in_system: 12
+    position_in_system: 5
+    sign_classification:
+      element: "Earth (varies by Rabjung year)"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Summer"
+      other:
+        earthly_branch: "未 (Chinese equivalent)"
+        yin_yang: "Yin"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Tibetan_sheep_zodiac.jpg/320px-Tibetan_sheep_zodiac.jpg"
+      description: "Tibetan zodiac Sheep (Lug) illustration"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Sheep (ལུག་, Lug) in Tibetan nomadic culture is closely tied to subsistence pastoralism — yaks and sheep form the economic backbone of traditional Tibetan plateau life. Tibetan wool is a traditional craft product, and sheep herding is central to nomadic livelihoods. Lug-year individuals in Tibetan tradition are associated with gentle creativity and cooperative social behavior. The Sheep's connection to pastoral life on the plateau gives this sign a specifically Tibetan ecological character."
+      reference_sources: ["Wikipedia: Tibetan calendar", "Wikipedia: Tibetan nomads"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tibetan_calendar"]
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "INT"
+    suggested_animal_form: "Sheep"
+    suggested_object_form: ""
+    symbolic_role: "Pastoral subsistence; nomadic plateau ecology; gentle social cooperation"
+    mythic_narrative_summary: "Lug (Sheep) is fifth — sheep herding is central to Tibetan nomadic plateau culture. Lug carries pastoral ecological authenticity on the Tibetan plateau."
+  semantic_vocabulary:
+    symbolic_keywords: ["sheep", "earth", "yin", "Tibetan", "lug", "nomadic", "pastoral", "plateau", "wool", "gentle"]
+    mythic_narrative: "The Sheep (ལུག་, Lug) is fifth in the Tibetan zodiac. On the Tibetan plateau, sheep and yaks form the economic and nutritional foundation of nomadic life — Tibetan pastoral culture has herded sheep for millennia across the world's highest plateau. Tibetan wool textiles are a traditional craft product of global renown. This pastoral ecological reality gives the Lug sign a specifically Tibetan flavor: not merely a zodiac symbol but a lived daily presence in traditional Tibetan nomadic existence. Lug-year individuals are associated with gentleness, cooperative teamwork, and quiet creative ability."
+    visual_motifs: ["Tibetan nomad shepherd with flock on plateau", "Tibetan wool textile pattern", "Lug zodiac calendar illustration"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tibetan_calendar"
+    secondary_sources: ["Wikipedia: Tibetan nomads"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "tibetan-zodiac-006"
+  sign_name:
+    primary: "Spre (Monkey)"
+    variants: ["Monkey", "Tré"]
+    romanization: "Spre"
+    native_script: "སྤྲེ་ (spre)"
+  cultural_tradition:
+    primary_culture: "Tibetan"
+    derivative_cultures: ["Chinese zodiac", "Tibetan-Buddhist calendar system"]
+    geographic_origin: "Tibet"
+    period_range: "12th century CE formalization"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Tibetan Zodiac (Lo-Khak)"
+    total_signs_in_system: 12
+    position_in_system: 6
+    sign_classification:
+      element: "Metal (varies by Rabjung year)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Hanuman (via Buddhist-Hindu transmission)"
+      season: "Late Summer"
+      other:
+        earthly_branch: "申 (Chinese equivalent)"
+        yin_yang: "Yang"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Tibetan_monkey_zodiac.jpg/320px-Tibetan_monkey_zodiac.jpg"
+      description: "Tibetan zodiac Monkey (Spre) illustration"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Monkey (སྤྲེ་, Spre) in Tibetan Buddhist culture draws on both Chinese zodiac transmission and Indian Buddhist traditions including Hanuman. In Tibetan art, monkey figures appear in Buddhist narrative painting. The Tibetan origin myth of the Tibetan people involves a bodhisattva-monkey (a manifestation of Chenrezig/Avalokiteshvara) coupling with a rock-demoness — making the Monkey a figure of sacred ancestral origin in Tibetan national mythology. Spre-year individuals are associated with cleverness and adaptability."
+      reference_sources: ["Wikipedia: Tibetan calendar", "Wikipedia: Origin of Tibetan people"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tibetan_calendar"]
+  primitive_association_hints:
+    suggested_element: "Metal"
+    suggested_attribute: "AGI"
+    suggested_animal_form: "Monkey"
+    suggested_object_form: ""
+    symbolic_role: "Ancestral origin (Bodhisattva Monkey + rock demoness); Buddhist sacred monkey; clever wisdom"
+    mythic_narrative_summary: "Spre (Monkey) is sixth — Tibetan origin myth traces the Tibetan people to a Bodhisattva-monkey (Chenrezig manifestation), making the Monkey sign ancestrally sacred in Tibetan national mythology."
+  semantic_vocabulary:
+    symbolic_keywords: ["monkey", "metal", "yang", "Tibetan", "spre", "Chenrezig", "bodhisattva", "origin myth", "ancestral", "Buddhist"]
+    mythic_narrative: "The Monkey (སྤྲེ་, Spre) is sixth in the Tibetan zodiac. Tibetan origin mythology holds that the Tibetan people descended from the union of a bodhisattva manifested as a monkey — traditionally identified with Chenrezig (Avalokiteshvara) — and a rock-demoness (Srinmo). Their offspring became the ancestors of the Tibetan race. This origin myth elevates the Monkey to a position of sacred ancestral significance in Tibetan national identity, distinct from its Chinese zodiac role as merely the ninth animal in the cycle. Spre-year individuals are associated with cleverness, curiosity, and sacred lineage."
+    visual_motifs: ["Tibetan monkey bodhisattva origin myth thangka", "Tibetan zodiac monkey calendar illustration", "Chenrezig bodhisattva monkey art"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tibetan_calendar"
+    secondary_sources: ["Wikipedia: Origin of the Tibetan people"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "tibetan-zodiac-007"
+  sign_name:
+    primary: "Bya (Bird/Rooster)"
+    variants: ["Rooster", "Bird", "Jha"]
+    romanization: "Bya"
+    native_script: "བྱ་ (bya)"
+  cultural_tradition:
+    primary_culture: "Tibetan"
+    derivative_cultures: ["Chinese zodiac", "Tibetan-Buddhist calendar system"]
+    geographic_origin: "Tibet"
+    period_range: "12th century CE formalization"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Tibetan Zodiac (Lo-Khak)"
+    total_signs_in_system: 12
+    position_in_system: 7
+    sign_classification:
+      element: "Metal (varies by Rabjung year)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Garuda (via Buddhist-Hindu transmission)"
+      season: "Autumn"
+      other:
+        earthly_branch: "酉 (Chinese equivalent)"
+        yin_yang: "Yin"
+        special_note: "Tibetan uses generic 'Bird' (Bya) rather than specifically 'Rooster' — encompasses avian archetype more broadly"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Garuda_tibetan.jpg/320px-Garuda_tibetan.jpg"
+      description: "Tibetan Garuda — the supreme bird of Tibetan Buddhism, related to the Bya (Bird) zodiac sign"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Bird (བྱ་, Bya) in Tibetan Buddhist culture connects to the supreme avian figure of Garuda — the great bird deity of Buddhist and Hindu tradition, enemy of serpents (Nāgas) and symbol of transcendent wisdom. Tibetan Bya encompasses a broader avian archetype than the Chinese Rooster, connecting to Garuda's cosmic significance. Bird imagery in Tibetan art spans from common cranes to the mythical Garuda. Bya-year individuals are associated with precision, observation, and swift decisive action."
+      reference_sources: ["Wikipedia: Tibetan calendar", "Wikipedia: Garuda (Buddhism)"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tibetan_calendar"]
+  primitive_association_hints:
+    suggested_element: "Metal"
+    suggested_attribute: "AGI"
+    suggested_animal_form: "Bird/Rooster"
+    suggested_object_form: ""
+    symbolic_role: "Garuda-connected cosmic bird; enemy of Nāgas; transcendent avian wisdom"
+    mythic_narrative_summary: "Bya (Bird) is seventh — Tibetan uses generic 'Bird' not specifically Rooster. Connected to the Garuda tradition — the cosmic bird of Tibetan Buddhism, enemy of serpents."
+  semantic_vocabulary:
+    symbolic_keywords: ["bird", "rooster", "metal", "yin", "Tibetan", "bya", "Garuda", "Buddhist", "avian", "cosmic bird", "nāga enemy"]
+    mythic_narrative: "The Bird (བྱ་, Bya) is seventh in the Tibetan zodiac. Where Chinese uses the specific Rooster (酉), Tibetan uses the broader category of Bird (Bya), which allows connection to Tibet's supreme avian figure: the Garuda (Khyung). In Tibetan Buddhism, the Garuda is a cosmic bird of transcendent wisdom, eternal enemy of the Nāga serpents — representing the triumph of spiritual clarity over deluded attachment to material power. This connection elevates the Bird sign from a simple rooster to a figure of cosmic spiritual significance. Bya-year individuals carry associations of precision, aerial perspective, and decisive clarity."
+    visual_motifs: ["Tibetan Garuda (Khyung) thangka painting", "Tibetan Bya bird zodiac calendar", "Garuda in Buddhist mandala"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tibetan_calendar"
+    secondary_sources: ["Wikipedia: Garuda (Buddhism)"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "tibetan-zodiac-008"
+  sign_name:
+    primary: "Khyi (Dog)"
+    variants: ["Dog"]
+    romanization: "Khyi"
+    native_script: "ཁྱི་ (khyi)"
+  cultural_tradition:
+    primary_culture: "Tibetan"
+    derivative_cultures: ["Chinese zodiac", "Tibetan-Buddhist calendar system"]
+    geographic_origin: "Tibet"
+    period_range: "12th century CE formalization"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Tibetan Zodiac (Lo-Khak)"
+    total_signs_in_system: 12
+    position_in_system: 8
+    sign_classification:
+      element: "Earth (varies by Rabjung year)"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Autumn"
+      other:
+        earthly_branch: "戌 (Chinese equivalent)"
+        yin_yang: "Yang"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Tibetan_mastiff.jpg/320px-Tibetan_mastiff.jpg"
+      description: "Tibetan Mastiff — the iconic Tibetan dog breed associated with the Khyi zodiac sign"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Dog (ཁྱི་, Khyi) in Tibetan culture is embodied by the legendary Tibetan Mastiff (Do-Khyi) — one of the world's most ancient large dog breeds, used for centuries to guard monasteries, nomadic camps, and livestock from wolves and snow leopards on the Tibetan plateau. The Tibetan Mastiff's fierce protective loyalty gives the Khyi sign a powerful guardian archetype. Khyi-year individuals are associated with loyalty, protective determination, and fierce devotion to those they guard."
+      reference_sources: ["Wikipedia: Tibetan calendar", "Wikipedia: Tibetan Mastiff"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tibetan_calendar"]
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Dog"
+    suggested_object_form: ""
+    symbolic_role: "Tibetan Mastiff guardian archetype; monastery and camp protector; fierce loyal defender"
+    mythic_narrative_summary: "Khyi (Dog) is eighth — the Tibetan Mastiff (Do-Khyi) is the iconic Tibetan dog breed, used to guard monasteries and nomadic camps for centuries. The guardian dog archetype is powerfully embodied here."
+  semantic_vocabulary:
+    symbolic_keywords: ["dog", "earth", "yang", "Tibetan", "khyi", "Tibetan Mastiff", "Do-Khyi", "guardian", "monastery", "nomadic", "loyal"]
+    mythic_narrative: "The Dog (ཁྱི་, Khyi) is eighth in the Tibetan zodiac. Tibetan dog culture is defined by the Do-Khyi — the Tibetan Mastiff — one of the world's oldest and largest dog breeds. For centuries, these massive dogs have guarded Tibetan nomadic camps, monastery grounds, and remote passes from wolves, snow leopards, and human intruders. Their fierce, loyal temperament makes them quintessential guardian animals. Khyi-year individuals embody this guardian energy: fiercely protective, deeply loyal, and formidable when their charges are threatened."
+    visual_motifs: ["Tibetan Mastiff guard dog at monastery", "Do-Khyi portrait", "Tibetan zodiac dog calendar illustration"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tibetan_calendar"
+    secondary_sources: ["Wikipedia: Tibetan Mastiff"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "tibetan-zodiac-009"
+  sign_name:
+    primary: "Phag (Pig/Boar)"
+    variants: ["Pig", "Boar"]
+    romanization: "Phag"
+    native_script: "ཕག་ (phag)"
+  cultural_tradition:
+    primary_culture: "Tibetan"
+    derivative_cultures: ["Chinese zodiac", "Tibetan-Buddhist calendar system"]
+    geographic_origin: "Tibet"
+    period_range: "12th century CE formalization"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Tibetan Zodiac (Lo-Khak)"
+    total_signs_in_system: 12
+    position_in_system: 9
+    sign_classification:
+      element: "Water (varies by Rabjung year)"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Winter"
+      other:
+        earthly_branch: "亥 (Chinese equivalent)"
+        yin_yang: "Yin"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Tibetan_pig_zodiac.jpg/320px-Tibetan_pig_zodiac.jpg"
+      description: "Tibetan zodiac Pig (Phag) illustration"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Pig (ཕག་, Phag) in Tibetan Buddhist tradition is also connected to the Three Poisons of Buddhist teaching — one of the three animals at the center of the Wheel of Life (Bhavachakra) is the pig, representing ignorance (moha/delusion). This philosophical-religious dimension gives the Tibetan Pig sign a unique depth: Phag embodies both the mundane animal and the Buddhist concept of ignorance that drives the cycle of samsara. Phag-year individuals are associated with honesty and good-natured sincerity."
+      reference_sources: ["Wikipedia: Tibetan calendar", "Wikipedia: Wheel of Life (Bhavachakra)"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tibetan_calendar"]
+  primitive_association_hints:
+    suggested_element: "Water"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Pig/Boar"
+    suggested_object_form: ""
+    symbolic_role: "Buddhist Wheel of Life; ignorance (moha) symbolism; honest good-natured sincerity"
+    mythic_narrative_summary: "Phag (Pig) is ninth — uniquely in Tibetan tradition, the pig at the center of the Buddhist Wheel of Life (Bhavachakra) represents ignorance (moha), one of the Three Poisons driving samsara."
+  semantic_vocabulary:
+    symbolic_keywords: ["pig", "water", "yin", "Tibetan", "phag", "Buddhist", "Three Poisons", "ignorance", "moha", "Wheel of Life", "Bhavachakra", "samsara"]
+    mythic_narrative: "The Pig (ཕག་, Phag) is ninth in the Tibetan zodiac. In Tibetan Buddhism, the pig at the center of the Bhavachakra (Wheel of Life/Existence) represents moha — ignorance or delusion — one of the Three Root Poisons driving the cycle of samsaric rebirth. The three animals at the Bhavachakra's center are the pig (ignorance), snake (hatred), and rooster (greed), each biting the tail of the next in a circle. This central placement gives the Tibetan Pig sign a philosophical depth absent from other traditions: Phag carries the weight of existential ignorance while Phag-year individuals are simultaneously associated with good-natured sincerity and honest simplicity."
+    visual_motifs: ["Bhavachakra Wheel of Life with pig at center", "Tibetan pig zodiac calendar", "Three Root Poisons Buddhist illustration"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Buddhist philosophical association documented for accuracy; not pejorative in context"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tibetan_calendar"
+    secondary_sources: ["Wikipedia: Bhavachakra", "Wikipedia: Three poisons (Buddhism)"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "tibetan-zodiac-010"
+  sign_name:
+    primary: "Byi-ba (Rat)"
+    variants: ["Rat", "Mouse", "Jiwa"]
+    romanization: "Byi-ba"
+    native_script: "བྱི་བ་ (byi.ba)"
+  cultural_tradition:
+    primary_culture: "Tibetan"
+    derivative_cultures: ["Chinese zodiac", "Tibetan-Buddhist calendar system"]
+    geographic_origin: "Tibet"
+    period_range: "12th century CE formalization"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Tibetan Zodiac (Lo-Khak)"
+    total_signs_in_system: 12
+    position_in_system: 10
+    sign_classification:
+      element: "Water (varies by Rabjung year)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Ganesha associations (via Hindu-Buddhist transmission; elephant-headed deity's vehicle is a rat)"
+      season: "Winter"
+      other:
+        earthly_branch: "子 (Chinese equivalent)"
+        yin_yang: "Yang"
+        note: "Rat is 10th in traditional Tibetan listing (not 1st as in Chinese listing)"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tibetan_zodiac_rat.jpg/320px-Tibetan_zodiac_rat.jpg"
+      description: "Tibetan zodiac Rat (Byi-ba) illustration"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Rat (བྱི་བ་, Byi-ba) occupies the 10th position in traditional Tibetan zodiac listing, unlike the Chinese tradition where it is first. This positional difference reflects the distinct starting point of the Tibetan sequence. In Tibetan Buddhist iconography, the rat is associated with Ganesha's vehicle (vahana) — Ganesha being a deity integrated into the Tibetan Buddhist pantheon. Rat symbolism in Tibet connects to resourcefulness and the ability to find sustenance in any environment."
+      reference_sources: ["Wikipedia: Tibetan calendar"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tibetan_calendar"]
+  primitive_association_hints:
+    suggested_element: "Water"
+    suggested_attribute: "AGI"
+    suggested_animal_form: "Rat"
+    suggested_object_form: ""
+    symbolic_role: "Resourcefulness; Ganesha's vehicle (Buddhist-Hindu transmission); finds sustenance anywhere"
+    mythic_narrative_summary: "Byi-ba (Rat) is tenth in traditional Tibetan listing — notably not first as in Chinese zodiac. Ganesha's rat vehicle connects to the Rat sign through Tibetan Buddhist Hindu transmission."
+  semantic_vocabulary:
+    symbolic_keywords: ["rat", "water", "yang", "Tibetan", "byi-ba", "Ganesha", "vehicle", "resourceful", "10th position", "Hindu-Buddhist"]
+    mythic_narrative: "The Rat (བྱི་བ་, Byi-ba) is tenth in the traditional Tibetan zodiac sequence, a notable departure from the Chinese arrangement where Rat is first. This positional shift reflects the distinct cultural transmission of the zodiac into Tibet, where the year-cycle's starting animal differs. In the broader Buddhist-Hindu transmission through which Tibetan culture received many of its religious elements, the rat is notable as the vehicle (vahana) of Ganesha — the elephant-headed deity of beginnings and obstacle removal, integrated into the Tibetan Buddhist pantheon as Vinayaka. Byi-ba-year individuals are associated with resourcefulness, adaptability, and the ability to find opportunity in unexpected places."
+    visual_motifs: ["Ganesha with rat vehicle (vahana)", "Tibetan zodiac rat calendar illustration", "Tibetan Vinayaka/Ganesha Buddhist thangka"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tibetan_calendar"
+    secondary_sources: ["Wikipedia: Ganesha", "Wikipedia: Earthly Branches"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "tibetan-zodiac-011"
+  sign_name:
+    primary: "Glang (Ox)"
+    variants: ["Ox", "Bull", "Lang"]
+    romanization: "Glang"
+    native_script: "གླང་ (glang)"
+  cultural_tradition:
+    primary_culture: "Tibetan"
+    derivative_cultures: ["Chinese zodiac", "Tibetan-Buddhist calendar system"]
+    geographic_origin: "Tibet"
+    period_range: "12th century CE formalization"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Tibetan Zodiac (Lo-Khak)"
+    total_signs_in_system: 12
+    position_in_system: 11
+    sign_classification:
+      element: "Earth (varies by Rabjung year)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Yamantaka (Bull-headed tantric deity of Tibetan Buddhism)"
+      season: "Winter"
+      other:
+        earthly_branch: "丑 (Chinese equivalent)"
+        yin_yang: "Yin"
+        special_note: "Tibetan Glang (Ox/Bull) connects to Yamantaka — fearsome bull-headed tantric deity who overcomes death"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Yamantaka_thangka.jpg/320px-Yamantaka_thangka.jpg"
+      description: "Yamantaka — bull-headed Tibetan Buddhist wrathful deity; intimately connected to the Tibetan Glang (Ox) zodiac sign"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Ox (གླང་, Glang) in Tibetan Buddhism connects to the powerful tantric deity Yamantaka — the 'Conqueror of Death' — depicted with a bull's head, embodying the wrathful aspect of Manjushri. Yamantaka is a major deity in Tibetan Vajrayana practice, one of the most important wrathful yi-dam (meditational deities) in the Gelug school. The yak also figures into the Tibetan plateau ecology — the domesticated yak (Bos grunniens) is the primary large bovine of Tibet, making Glang ecologically relevant on multiple levels."
+      reference_sources: ["Wikipedia: Tibetan calendar", "Wikipedia: Yamantaka"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tibetan_calendar"]
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Ox/Bull"
+    suggested_object_form: ""
+    symbolic_role: "Yamantaka connection; yak plateau ecology; wrathful strength overcoming death"
+    mythic_narrative_summary: "Glang (Ox) is eleventh — connects to Yamantaka, the bull-headed wrathful tantric deity of Tibetan Buddhism who conquers death. Yak culture on the plateau adds ecological grounding."
+  semantic_vocabulary:
+    symbolic_keywords: ["ox", "earth", "yin", "Tibetan", "glang", "Yamantaka", "yak", "tantric", "wrathful", "death conqueror", "Vajrayana"]
+    mythic_narrative: "The Ox (གླང་, Glang) is eleventh in the Tibetan zodiac and carries a uniquely powerful Tibetan Buddhist dimension: connection to Yamantaka (Gshin rje gshed), the 'Conqueror of Death' — a wrathful tantric deity with a bull's head, considered the most powerful yi-dam in the Gelug school of Tibetan Buddhism. Yamantaka is the fierce aspect of Manjushri who defeats Yama (the lord of death), and practitioners who meditate on Yamantaka seek liberation from the fear of death and samsaric existence. The yak (Bos grunniens) also grounds Glang in Tibetan plateau ecology — yaks are the primary large bovine of Tibet, essential for transport, milk, wool, and fuel."
+    visual_motifs: ["Yamantaka thangka wrathful bull-headed deity", "Tibetan yak on plateau", "Glang zodiac calendar illustration"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Yamantaka is a standard Tibetan Buddhist wrathful deity; documented for completeness"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tibetan_calendar"
+    secondary_sources: ["Wikipedia: Yamantaka", "Wikipedia: Yak"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "tibetan-zodiac-012"
+  sign_name:
+    primary: "Stag (Tiger)"
+    variants: ["Tiger", "Tag"]
+    romanization: "Stag"
+    native_script: "སྟག་ (stag)"
+  cultural_tradition:
+    primary_culture: "Tibetan"
+    derivative_cultures: ["Chinese zodiac", "Tibetan-Buddhist calendar system"]
+    geographic_origin: "Tibet"
+    period_range: "12th century CE formalization"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Tibetan Zodiac (Lo-Khak)"
+    total_signs_in_system: 12
+    position_in_system: 12
+    sign_classification:
+      element: "Wood (varies by Rabjung year)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Snow tiger as seat of wrathful deities; Dorje Legpa mount"
+      season: "Early Spring"
+      other:
+        earthly_branch: "寅 (Chinese equivalent)"
+        yin_yang: "Yang"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Tibetan_snow_tiger.jpg/320px-Tibetan_snow_tiger.jpg"
+      description: "Snow tiger in Tibetan landscape — the tiger as guardian/throne-beast of Tibetan wrathful deities"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Tiger (སྟག་, Stag) is the twelfth and final animal in the traditional Tibetan zodiac sequence. The snow tiger has deep resonance in Tibetan Buddhist iconography: tigers serve as thrones or mounts for wrathful protector deities including Dorje Legpa (Vajrasādhu). The four dignities of Tibetan tradition include the tiger as a symbol of discernment and confidence. Tiger skins appear as ritual meditation seats and as decorative elements on wrathful deity imagery in Tibetan thangkas. The Bengal tiger was historically found in lower-elevation Himalayan borderlands."
+      reference_sources: ["Wikipedia: Tibetan calendar", "Wikipedia: Dorje Legpa", "Wikipedia: Four dignities (Tibetan Buddhism)"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tibetan_calendar"]
+  primitive_association_hints:
+    suggested_element: "Wood"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Tiger"
+    suggested_object_form: ""
+    symbolic_role: "Wrathful protector mount; Four Dignities tiger-discernment; Himalayan apex predator"
+    mythic_narrative_summary: "Stag (Tiger) is twelfth and final in the Tibetan sequence — snow tigers serve as thrones for wrathful deities. The Four Dignities of Tibetan tradition include the tiger as a symbol of discernment."
+  semantic_vocabulary:
+    symbolic_keywords: ["tiger", "wood", "yang", "Tibetan", "stag", "wrathful deity", "Dorje Legpa", "snow tiger", "Four Dignities", "discernment", "confidence"]
+    mythic_narrative: "The Tiger (སྟག་, Stag) is the twelfth and final sign in the traditional Tibetan zodiac sequence. In Tibetan Buddhist tradition, the snow tiger carries special symbolic weight as the mount and seat of wrathful protector deities including Dorje Legpa (Vajrasādhu). The Four Dignities (Tibetan: pak shi nam zhi) of Tibetan tradition include the tiger as representing discernment, precision, and controlled confidence. Tiger skins serve as ritual meditation seats for tantric practice, and thangka paintings of wrathful deities often show them seated on tiger skins or accompanied by tigers. Stag-year individuals embody fierce discernment, bold confidence, and the protective power of a guardian at the apex of its domain."
+    visual_motifs: ["Tibetan wrathful deity seated on tiger skin thangka", "Dorje Legpa on snow tiger", "Four Dignities tiger illustration"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tibetan_calendar"
+    secondary_sources: ["Wikipedia: Dorje Legpa", "Wikipedia: Four dignities (Tibetan Buddhism)"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"

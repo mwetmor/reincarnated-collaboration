@@ -1,0 +1,617 @@
+# corpus-west-african.yaml
+# Legolas Mode B — Zodiac Substrate Corpus
+# Crawl date: 2026-06-09
+# Protocol: B (High) with mandatory Griaule controversy flag on ALL Dogon entries
+# Sourcing: Van Beek (1991) "Dogon Restudied"; Griaule & Dieterlen (1950s — contested);
+#            academic peer-reviewed ethnoastronomy; Wikipedia citing academic sources
+# CRITICAL: Every Dogon entry must carry the Griaule controversy flag.
+#            Griaule-sourced claims are documented as "per Griaule (contested)"
+#            NOT as established fact.
+
+entries:
+
+  - sign_id: "west-african-dogon-001"
+    sign_name:
+      primary: "Sigi tolo (Sirius)"
+      variants:
+        - "Star of Sigui"
+        - "Sirius / the Dogon's bright star"
+      romanization: "Sigi tolo"
+      native_script: ""
+      # Dogon language (Dogon is a language cluster; Griaule worked with
+      # Ogotemeli and others from specific Dogon communities in Mali)
+    cultural_tradition:
+      primary_culture: "Dogon people (Mali, West Africa)"
+      derivative_cultures: []
+      geographic_origin: "Bandiagara Escarpment, Mali, West Africa"
+      period_range: >
+        Continuous living tradition. Griaule & Dieterlen fieldwork 1930s–1950s
+        documented this tradition; van Beek re-study (1991) questioned parts
+        of Griaule's documentation. The public record of the Dogon–Sirius
+        association and the Sigui ceremony dates to Griaule's publications,
+        which are the entry point into the academic debate.
+      status_in_modern_tradition: "active_living"
+    system_metadata:
+      system_name: "Dogon sky-tradition (partially contested)"
+      total_signs_in_system: 0
+      position_in_system: 1
+      sign_classification:
+        element: ""
+        modality: ""
+        quadrant: ""
+        deity_association: "Sirius is associated with the Dogon creator deity Amma; Sigui ceremony is linked to ancestral renewal"
+        season: >
+          The Sigui ceremony occurs approximately every 60 years. It is the
+          most significant ceremonial event in Dogon culture. The timing and
+          astronomical basis of the 60-year cycle are documented in the
+          academic record, though their interpretation is debated.
+        other:
+          constellation_type: "bright_star"
+          stellar_identification: "Sirius (α Canis Majoris) — the brightest star in the night sky"
+          note: "GRIAULE CONTROVERSY — see cultural_sensitivity field"
+    visual_representation:
+      image_url:
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Sirius_A_and_B_artwork.jpg/1200px-Sirius_A_and_B_artwork.jpg"
+        description: >
+          Artist's impression of Sirius A and B (NASA/ESA) — Sirius B is the
+          white dwarf companion; the Dogon's purported knowledge of Sirius B
+          is the central contested claim.
+        source: "NASA/ESA via Wikipedia Commons"
+        license: "Public domain (NASA)"
+        verified_loads: true
+      image_url_secondary:
+        - url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Sirius_A_and_B_Hubble_photo.jpg/1200px-Sirius_A_and_B_Hubble_photo.jpg"
+          description: "Hubble Space Telescope image of Sirius A and B"
+          source: "NASA/ESA Hubble via Wikipedia Commons"
+          license: "Public domain (NASA)"
+          verified_loads: true
+      star_coordinates:
+        coordinate_system: "IAU equatorial J2000"
+        primary_stars:
+          - name: "Sirius (α Canis Majoris)"
+            ra: "06h 45m 08s"
+            dec: "−16° 42′ 58″"
+            magnitude: -1.46
+            notes: >
+              Sirius is the brightest star in the night sky (magnitude −1.46).
+              It is a binary system: Sirius A (main sequence star) + Sirius B
+              (white dwarf, invisible to naked eye at magnitude ~8.4).
+              Griaule's contested claim was that the Dogon had pre-telescopic
+              knowledge of Sirius B. Sirius A is visible to the naked eye;
+              Sirius B is NOT.
+        notes: >
+          GRIAULE CONTROVERSY FLAG: Griaule & Dieterlen (1950s) claimed the
+          Dogon had detailed knowledge of Sirius's white dwarf companion
+          (Sirius B), which is invisible to the naked eye. Van Beek (1991)
+          "Dogon Restudied" (Current Anthropology) found that Dogon people
+          he interviewed did NOT have the astronomical knowledge Griaule had
+          reported. The prevailing academic view now is that Griaule's
+          Sirius B data likely reflects post-fieldwork contamination or
+          selective documentation. See cultural_sensitivity for full flag.
+      asterism_schematic:
+        description: >
+          Sirius (Sigi tolo) is a single star in the Dogon tradition —
+          specifically the bright star at the centre of Dogon sky-knowledge
+          per Griaule's account. The 'asterism' is the binary system
+          (Sirius A visible + Sirius B white dwarf). The Dogon name for
+          Sirius A is Sigi tolo; the name for the putative companion star
+          is Po tolo (see separate entry).
+        line_topology: "Single star (Sirius A); associated with contested companion"
+      cultural_iconography:
+        description: >
+          WHAT IS DOCUMENTED IN THE PUBLIC ACADEMIC RECORD (not contested):
+          (1) Sirius (Sigi tolo) is of religious significance to the Dogon.
+          This is established fact in the public record.
+          (2) The Sigui ceremony occurs approximately every 60 years and is
+          the most important ceremonial event in Dogon culture.
+          (3) The Sigui ceremony's timing has been linked by various scholars
+          to astronomical observations; the specific astronomical basis is
+          part of the academic debate.
+
+          WHAT IS CONTESTED (per Griaule; challenged by van Beek 1991):
+          (1) That the Dogon had detailed pre-telescopic knowledge of Sirius B.
+          (2) That the 60-year cycle maps to a known astronomical period.
+          (3) The specific astronomical content of Amma's cosmological system
+              as Griaule documented it.
+
+          Academic sources to consult: van Beek (1991) "Dogon Restudied"
+          in Current Anthropology is the key re-study. Clifford (1983) is
+          the broader anthropological critique of Griaule's methodology.
+        reference_sources:
+          - "Griaule, M. & Dieterlen, G. (1950). 'A Sudanese Sirius System.'
+             Journal de la Société des Africanistes, 20(2), 273–294.
+             [PRIMARY SOURCE — CONTESTED]"
+          - "van Beek, W.E.A. (1991). 'Dogon Restudied: A Field Evaluation of
+             the Work of Marcel Griaule.' Current Anthropology, 32(2), 139–167.
+             [KEY CRITIQUE — this is the refutation study]"
+          - "Clifford, J. (1983). 'Power and Dialogue in Ethnography: Marcel
+             Griaule's Initiation.' In Observers Observed. Univ. of Wisconsin.
+             [Methodological critique of Griaule]"
+          - "Wikipedia: Dogon people — astronomy section"
+        reference_urls:
+          - "https://en.wikipedia.org/wiki/Dogon_people#Astronomy"
+          - "https://en.wikipedia.org/wiki/Sirius_in_mythology_and_religion"
+    primitive_association_hints:
+      suggested_element: "Water / Cosmic"
+      suggested_attribute: "Ancestral renewal / ceremonial time / cosmic centre"
+      suggested_animal_form: ""
+      suggested_object_form: "Bright star at the axis of ceremonial time"
+      symbolic_role: >
+        Central star in Dogon cosmology; linked to creator deity Amma;
+        associated with 60-year Sigui ceremony; culturally central but
+        academically contested in specifics
+      mythic_narrative_summary: >
+        Sigi tolo (Sirius) is the most prominent sky-figure in Dogon
+        tradition: the star is linked to the creator deity Amma and to the
+        60-year Sigui ceremony. Griaule's claims about Dogon pre-telescopic
+        knowledge of Sirius B are contested by van Beek (1991). This entry
+        documents the public academic record with the Griaule controversy
+        flag applied throughout.
+    semantic_vocabulary:
+      symbolic_keywords:
+        - "Sirius"
+        - "Sigi tolo"
+        - "Dogon"
+        - "Mali"
+        - "Sigui ceremony"
+        - "Amma"
+        - "creator deity"
+        - "bright star"
+        - "60-year cycle"
+        - "Griaule controversy"
+        - "contested anthropology"
+      mythic_narrative: >
+        Sigi tolo is the Dogon name for Sirius, the brightest star in the
+        night sky. In Dogon tradition, Sirius is associated with Amma, the
+        creator deity, and with the Sigui — the most important Dogon
+        ceremony, held approximately every 60 years and involving ritual
+        renewal and ancestral rites. Marcel Griaule's 1930s–1950s fieldwork
+        documented detailed Dogon cosmological knowledge around Sirius,
+        including claims about knowledge of Sirius's white dwarf companion
+        (Sirius B, invisible to the naked eye). This sparked decades of
+        popular interest and academic debate. Walter van Beek's 1991
+        restudy (Current Anthropology) is the key academic counter-point:
+        van Beek found that Dogon people he consulted did NOT possess the
+        astronomical knowledge Griaule had reported. The prevailing academic
+        view now treats Griaule's Sirius B claims with significant scepticism
+        as likely post-fieldwork contamination. What is NOT contested: Sirius
+        is of religious and ceremonial significance to the Dogon.
+      visual_motifs:
+        - "brightest star in night sky"
+        - "binary star system"
+        - "Dogon Bandiagara cliff dwellings"
+        - "ceremonial masks"
+        - "ancestral figure imagery"
+    cultural_sensitivity:
+      flag_level: "high"
+      griaule_controversy_flag: |
+        MANDATORY GRIAULE CONTROVERSY FLAG:
+        Marcel Griaule's fieldwork (1930s–1950s) claimed the Dogon people
+        had detailed pre-telescopic knowledge of Sirius B (a white dwarf
+        companion to Sirius, invisible to the naked eye). This claim was
+        widely publicised and became a popular-press sensation.
+
+        Academic status: CONTESTED.
+        Van Beek, W.E.A. (1991). "Dogon Restudied: A Field Evaluation of
+        the Work of Marcel Griaule." Current Anthropology, 32(2), 139–167.
+        Van Beek returned to the same Dogon communities and found that
+        Dogon people he interviewed did NOT possess the astronomical knowledge
+        Griaule had reported. Van Beek concluded that Griaule's methodology
+        and documentation were unreliable; the Sirius B knowledge was likely
+        post-hoc contamination from Western visitors who had discussed Sirius
+        with Dogon community members before or during Griaule's fieldwork.
+        James Clifford's (1983) anthropological critique further questioned
+        Griaule's methodology.
+
+        Current academic consensus: the specific Sirius B claims attributed
+        to the Dogon by Griaule should be treated as academically unreliable
+        without independent corroboration. The undisputed fact is that Sirius
+        (Sigi tolo) is religiously significant to the Dogon.
+      explanation: >
+        Dogon sky-lore sourced from peer-reviewed academic sources with
+        explicit Griaule controversy flag. Marcel Griaule's 1930s–1950s
+        fieldwork has been contested by subsequent anthropologists, notably
+        van Beek (1991) "Dogon Restudied." Claims about Dogon pre-telescopic
+        knowledge of Sirius B are academically disputed; this entry documents
+        the public record with controversy flagged. Griaule-sourced claims
+        are marked as "per Griaule (contested)."
+      source_authorization: >
+        Van Beek (1991) Current Anthropology; Clifford (1983); Wikipedia
+        academic-cited ethnoastronomy
+    provenance:
+      primary_source_url: "https://en.wikipedia.org/wiki/Dogon_people#Astronomy"
+      secondary_sources:
+        - "van Beek, W.E.A. (1991). Dogon Restudied. Current Anthropology, 32(2)."
+        - "Griaule, M. & Dieterlen, G. (1950). Journal de la Société des
+           Africanistes, 20(2). [cited as contested primary source]"
+        - "Clifford, J. (1983). Power and Dialogue in Ethnography. Wisconsin."
+      academic_anchor: "van Beek (1991) Current Anthropology [refutation study]"
+      crawl_date: "2026-06-09"
+      legolas_confidence: "medium"
+      # medium: that Sirius is significant to Dogon = high confidence.
+      # Specific astronomical knowledge claims = low confidence (contested).
+      # Overall entry confidence = medium, reflecting documented-but-disputed.
+
+  - sign_id: "west-african-dogon-002"
+    sign_name:
+      primary: "Po tolo (Sirius companion)"
+      variants:
+        - "Digitaria star (Griaule's term)"
+        - "The 'heavy star' / white dwarf companion"
+      romanization: "Po tolo"
+      native_script: ""
+    cultural_tradition:
+      primary_culture: "Dogon people (Mali, West Africa)"
+      derivative_cultures: []
+      geographic_origin: "Bandiagara Escarpment, Mali, West Africa"
+      period_range: >
+        Reported by Griaule & Dieterlen (1950s); academically contested
+        by van Beek (1991). The existence of this knowledge in pre-contact
+        Dogon tradition is the central contested claim.
+      status_in_modern_tradition: "active_living"
+    system_metadata:
+      system_name: "Dogon sky-tradition (per Griaule — CONTESTED)"
+      total_signs_in_system: 0
+      position_in_system: 2
+      sign_classification:
+        element: ""
+        modality: ""
+        quadrant: ""
+        deity_association: "Per Griaule: Po tolo is associated with Amma and the primordial seed (po = millet grain)"
+        season: ""
+        other:
+          constellation_type: "stellar_companion"
+          stellar_identification: "Sirius B (white dwarf) — invisible to naked eye; magnitude ~8.4"
+          note: >
+            [PER GRIAULE, CONTESTED]: The Dogon reportedly called the companion
+            star of Sirius 'Po tolo' and described it as 'the heaviest star'
+            and 'the smallest star.' Griaule mapped this to Sirius B. This
+            entry documents what Griaule reported, NOT as fact.
+    visual_representation:
+      image_url:
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Sirius_A_and_B_artwork.jpg/1200px-Sirius_A_and_B_artwork.jpg"
+        description: >
+          Artist's impression of Sirius A and B — Po tolo is claimed
+          (per Griaule, contested) to be the Dogon name for Sirius B,
+          the white dwarf companion visible only through telescope.
+        source: "NASA/ESA via Wikipedia Commons"
+        license: "Public domain (NASA)"
+        verified_loads: true
+      image_url_secondary: []
+      star_coordinates:
+        coordinate_system: "IAU equatorial J2000"
+        primary_stars:
+          - name: "Sirius B (white dwarf companion)"
+            ra: "06h 45m 08s"
+            dec: "−16° 42′ 58″"
+            magnitude: 8.44
+            notes: >
+              Sirius B is at the same position as Sirius A on the sky
+              (binary system) but invisible to the naked eye (magnitude 8.44
+              vs Sirius A at −1.46). This is precisely why Griaule's claim
+              was sensational — and why it was subsequently contested.
+              A naked-eye observer cannot distinguish Sirius B from Sirius A.
+        notes: >
+          The key scientific fact underpinning the Griaule controversy:
+          Sirius B was discovered telescopically in 1862 (Clark). It cannot
+          be observed with the naked eye. If the Dogon had detailed knowledge
+          of Sirius B as Griaule claimed, this would require either (a) an
+          unknown pre-telescopic discovery method, or (b) post-contact
+          knowledge transmission. Van Beek (1991) argues for explanation (b)
+          or simple fieldwork error as the most parsimonious account.
+      asterism_schematic:
+        description: >
+          Per Griaule (contested): Po tolo is the companion star of Sirius —
+          invisible to naked eye. The 'asterism' is the putative two-star
+          mental model (Sirius A = Sigi tolo; Sirius B = Po tolo).
+          This mental model's pre-contact authenticity is what is disputed.
+        line_topology: "Two-body stellar pair (one invisible to naked eye)"
+      cultural_iconography:
+        description: >
+          PER GRIAULE (CONTESTED):
+          Griaule documented that the Dogon described Po tolo as: (1) the
+          heaviest of all stars; (2) the smallest of all stars; (3) a companion
+          to Sigi tolo (Sirius A); (4) associated with the po seed (millet) —
+          the smallest Dogon grain, symbolising density and concentration.
+          Griaule and Dieterlen published this in "A Sudanese Sirius System"
+          (1950) and developed it further in "Le Renard pâle" (1965).
+
+          VAN BEEK RESTUDY (1991):
+          Van Beek found that Dogon people did not describe Sirius as having
+          a companion star; the knowledge of Po tolo as a white-dwarf companion
+          was not reproduced in his fieldwork. Van Beek concluded the knowledge
+          was likely introduced to Dogon communities by Western visitors before
+          or during Griaule's fieldwork.
+
+          WHAT THIS ENTRY DOCUMENTS:
+          The public academic record of the Griaule claim and the van Beek
+          counter-evidence. Not the truth of the astronomical knowledge itself.
+        reference_sources:
+          - "Griaule, M. & Dieterlen, G. (1950). A Sudanese Sirius System.
+             Journal de la Société des Africanistes. [CONTESTED]"
+          - "van Beek, W.E.A. (1991). Dogon Restudied. Current Anthropology.
+             [KEY REFUTATION]"
+        reference_urls:
+          - "https://en.wikipedia.org/wiki/Dogon_people#Astronomy"
+    primitive_association_hints:
+      suggested_element: "Cosmic / Unknown"
+      suggested_attribute: "Density / concentrated essence / primordial seed"
+      suggested_animal_form: ""
+      suggested_object_form: "Heaviest / smallest star; companion to the bright star"
+      symbolic_role: >
+        [Per Griaule, contested] Companion to Sirius; dense-star archetype;
+        primordial-seed cosmological symbol in Dogon tradition as documented
+        by Griaule
+      mythic_narrative_summary: >
+        Po tolo — per Griaule (contested) — is the Dogon name for a companion
+        star to Sirius, described as the heaviest and smallest star, mapped
+        by Griaule to Sirius B (the white dwarf). Van Beek (1991) could not
+        reproduce this knowledge in restudy fieldwork. This entry documents
+        the academic debate, not the claimed astronomical knowledge as fact.
+    semantic_vocabulary:
+      symbolic_keywords:
+        - "Po tolo"
+        - "Sirius B"
+        - "white dwarf"
+        - "Dogon"
+        - "Griaule"
+        - "contested"
+        - "millet seed"
+        - "heaviest star"
+        - "companion star"
+        - "van Beek"
+        - "anthropological controversy"
+      mythic_narrative: >
+        Po tolo is the name Griaule's informants gave (per his 1950 publication)
+        to the companion star of Sirius — described as the smallest and heaviest
+        of all stars, associated symbolically with the po (millet) seed, the
+        smallest grain in Dogon agriculture. Griaule mapped this to the white
+        dwarf Sirius B, invisible to the naked eye. The claim that the Dogon
+        possessed pre-telescopic knowledge of an invisible stellar companion
+        became one of the most debated claims in 20th-century anthropology of
+        knowledge. Walter van Beek's 1991 restudy published in Current
+        Anthropology found no evidence of this knowledge in the same Dogon
+        communities, leading to the consensus that Griaule's documentation
+        was unreliable. The entry documents the academic controversy; the
+        underlying cosmological framework (dense star, primordial seed
+        symbolism) may reflect authentic Dogon cosmological concepts even if
+        the Sirius B identification is post-hoc.
+      visual_motifs:
+        - "tiny white star next to brilliant star"
+        - "binary star pair"
+        - "millet grain"
+        - "cosmic density"
+    cultural_sensitivity:
+      flag_level: "high"
+      griaule_controversy_flag: |
+        MANDATORY GRIAULE CONTROVERSY FLAG (intensified for this entry):
+        Po tolo specifically is the subject of the central contested Griaule
+        claim — that the Dogon had pre-telescopic knowledge of Sirius B.
+        Van Beek (1991) "Dogon Restudied" is the key academic counter-study.
+        THIS ENTRY DOCUMENTS THE ACADEMIC RECORD OF THE CLAIM, NOT THE CLAIM
+        AS ESTABLISHED FACT. Confidence in the pre-contact authenticity of
+        Po tolo as a white-dwarf astronomical observation is LOW per current
+        academic consensus.
+      explanation: >
+        Po tolo entry documents the Griaule claim and the van Beek refutation.
+        Griaule controversy flag applies with maximum intensity to this entry.
+        Do not present the Sirius B / Po tolo connection as established fact.
+      source_authorization: >
+        Van Beek (1991) Current Anthropology; Griaule & Dieterlen (1950)
+        [cited as contested]; Wikipedia academic-cited
+    provenance:
+      primary_source_url: "https://en.wikipedia.org/wiki/Dogon_people#Astronomy"
+      secondary_sources:
+        - "van Beek, W.E.A. (1991). Dogon Restudied. Current Anthropology, 32(2)."
+        - "Griaule, M. & Dieterlen, G. (1950). A Sudanese Sirius System.
+           Journal de la Société des Africanistes. [cited as contested]"
+      academic_anchor: "van Beek (1991) — refutation study is the academic anchor"
+      crawl_date: "2026-06-09"
+      legolas_confidence: "low"
+      # low: this entry documents a CONTESTED claim; confidence in the
+      # astronomical knowledge claim itself is low per academic consensus.
+      # Confidence in documenting the controversy accurately = high.
+
+  - sign_id: "west-african-dogon-003"
+    sign_name:
+      primary: "Sigui Ceremony (60-year astronomical cycle)"
+      variants:
+        - "Sigui"
+        - "Sigi ceremony"
+        - "Dogon 60-year renewal"
+      romanization: "Sigui"
+      native_script: ""
+    cultural_tradition:
+      primary_culture: "Dogon people (Mali, West Africa)"
+      derivative_cultures: []
+      geographic_origin: "Bandiagara Escarpment, Mali, West Africa"
+      period_range: >
+        Active living tradition; most recent Sigui ceremony documented ~1966–73
+        (the ceremony spans multiple years of village-to-village progression);
+        next cycle would be ~2026–2033. Pre-dates European contact.
+      status_in_modern_tradition: "active_living"
+    system_metadata:
+      system_name: "Dogon ceremonial astronomy"
+      total_signs_in_system: 0
+      position_in_system: 3
+      sign_classification:
+        element: ""
+        modality: ""
+        quadrant: ""
+        deity_association: "Sigui is associated with ancestral renewal and the Dogon origin myths; Amma is the creator deity"
+        season: >
+          The Sigui ceremony occurs on a ~60-year cycle; it is not season-
+          specific within a year. The 60-year interval is the astronomical
+          period in question. Possible astronomical bases: Jupiter's ~12-year
+          orbital period × 5 = 60 years; or Saturn's ~29.5-year × 2 = 59 years.
+          The exact astronomical basis is academically discussed but not
+          definitively established.
+        other:
+          constellation_type: "ceremonial_cycle"
+          stellar_identification: "Sirius association; 60-year interval"
+          note: >
+            GRIAULE CONTROVERSY: Griaule linked the 60-year Sigui cycle to
+            Jupiter and to Sirius B's orbit (which is ~50 years — not 60).
+            Van Beek (1991) found the astronomical basis for the 60-year cycle
+            unclear in restudy fieldwork. The ceremony itself is documented
+            and real; its astronomical derivation is contested.
+    visual_representation:
+      image_url:
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Dogon_mask_dance_Tireli_mali_1972.jpg/1200px-Dogon_mask_dance_Tireli_mali_1972.jpg"
+        description: >
+          Dogon mask dance, Tireli, Mali (1972) — ceremonial context associated
+          with Dogon ceremony cycles. Image for cultural context; not specifically
+          the Sigui ceremony.
+        source: "Wikipedia Commons"
+        license: "CC-BY-SA"
+        verified_loads: true
+      image_url_secondary: []
+      star_coordinates:
+        coordinate_system: "N/A"
+        primary_stars: []
+        notes: >
+          The Sigui ceremony is a time-cycle entry, not a specific sky-figure
+          with stellar co-ordinates. Its astronomical basis (if any) is debated.
+      asterism_schematic:
+        description: >
+          Not an asterism. The Sigui is a 60-year ceremonial cycle. The
+          astronomical basis — whether tied to Sirius's position, Jupiter's
+          cycle, or another astronomical phenomenon — is part of the academic
+          debate.
+        line_topology: "N/A — ceremonial time cycle, not a sky-figure"
+      cultural_iconography:
+        description: >
+          WHAT IS DOCUMENTED (NOT CONTESTED):
+          The Sigui ceremony is the most important ceremonial event in Dogon
+          culture, held approximately every 60 years. It involves elaborate
+          masked dances, the construction of new ritual objects, and the
+          renewal of ancestral knowledge. The ceremony proceeds village-by-
+          village over several years. It was last performed in 1966–73 (with
+          filming by ethnographers including Jean Rouch). The next cycle would
+          be approximately 2026–2033.
+
+          WHAT IS CONTESTED (per Griaule, challenged by van Beek):
+          The specific astronomical derivation of the 60-year interval.
+          Griaule linked it to Jupiter (×5) and/or Sirius B's orbit (~50 years
+          — but this does not fit exactly to 60). Van Beek found the astronomi-
+          cal rationale unclear in restudy.
+        reference_sources:
+          - "Griaule, M. & Dieterlen, G. (1950). A Sudanese Sirius System. [CONTESTED]"
+          - "van Beek, W.E.A. (1991). Dogon Restudied. Current Anthropology."
+          - "Wikipedia: Sigui ceremony"
+          - "Jean Rouch (filmmaker): Sigui documentary series (1967–73)"
+        reference_urls:
+          - "https://en.wikipedia.org/wiki/Sigui"
+          - "https://en.wikipedia.org/wiki/Dogon_people"
+    primitive_association_hints:
+      suggested_element: "Cosmic / Time"
+      suggested_attribute: "Renewal / ancestral time / generational cycle"
+      suggested_animal_form: ""
+      suggested_object_form: "Ceremonial cycle; great serpent of time (Sigui mythology)"
+      symbolic_role: >
+        Greatest Dogon ceremonial event; 60-year renewal; ancestral
+        transformation; multi-village progression; cosmic time-marking
+      mythic_narrative_summary: >
+        The Sigui ceremony is a 60-year Dogon ceremonial cycle — the most
+        important event in Dogon culture. Its astronomical basis is debated
+        (Griaule: Sirius B orbit; contested by van Beek). The ceremony itself
+        is a documented public fact; documented by Jean Rouch's film series
+        (1966–73) and academic ethnographers.
+    semantic_vocabulary:
+      symbolic_keywords:
+        - "Sigui"
+        - "60-year cycle"
+        - "Dogon ceremony"
+        - "ancestral renewal"
+        - "Mali"
+        - "masked dance"
+        - "generational ritual"
+        - "Griaule controversy"
+        - "Jupiter cycle"
+        - "living tradition"
+      mythic_narrative: >
+        The Sigui ceremony is held by the Dogon of the Bandiagara Escarpment
+        approximately every 60 years — a generational event that involves
+        masked dances, the renewal of ancestral objects, and the transmission
+        of Dogon cultural knowledge across generations. It proceeds from
+        village to village over several years. The most recent Sigui was held
+        in 1966–73 and was documented on film by ethnographer Jean Rouch;
+        the next would occur approximately 2026–2033. Griaule associated the
+        60-year interval with Jupiter's cycle and with Sirius B's orbital
+        period (~50 years); van Beek's restudy questioned whether this
+        astronomical linkage reflected authentic Dogon astronomy or Griaule's
+        interpretive framework. The Sigui's cultural reality and importance
+        are not in question; its astronomical derivation is the contested
+        territory.
+      visual_motifs:
+        - "Dogon masked dancers"
+        - "great serpent of Sigui mythology"
+        - "village-to-village procession"
+        - "ancestral masks"
+        - "60-year generational renewal"
+    cultural_sensitivity:
+      flag_level: "high"
+      griaule_controversy_flag: |
+        GRIAULE CONTROVERSY FLAG: The astronomical basis of the 60-year Sigui
+        interval is contested. Griaule attributed it to Jupiter's cycle and/or
+        Sirius B's orbit. Van Beek (1991) found the astronomical derivation
+        unclear in restudy. The ceremony itself is documented reality;
+        its astronomical rationale is academically debated.
+      explanation: >
+        Sigui ceremony entry documents the undisputed ceremonial reality
+        (60-year cycle, masked dance, village progression, Jean Rouch
+        documentation) separately from the contested astronomical derivation
+        (Griaule's Sirius B / Jupiter linkage). Griaule controversy flag
+        applied throughout.
+      source_authorization: >
+        Van Beek (1991); Wikipedia academic-cited; Jean Rouch film documentation
+        (public record)
+    provenance:
+      primary_source_url: "https://en.wikipedia.org/wiki/Sigui"
+      secondary_sources:
+        - "van Beek, W.E.A. (1991). Dogon Restudied. Current Anthropology."
+        - "Wikipedia: Dogon people"
+        - "Jean Rouch, Sigui documentary series (1967–73)"
+      academic_anchor: "van Beek (1991) + Wikipedia academic-cited"
+      crawl_date: "2026-06-09"
+      legolas_confidence: "medium"
+      # medium: ceremony itself = high confidence. Astronomical derivation = contested.
+
+
+# NOTE ON YORUBA ASTRONOMY:
+# The dispatch approved figures list mentions Yoruba traditions (Orunmila /
+# Ifa divination with celestial associations). Academic sources on Yoruba
+# astronomy specifically are sparse in the publicly accessible record for
+# this crawl pass. Orunmila is the Yoruba deity of wisdom and Ifa divination;
+# some academic sources note celestial associations in the Ifa corpus, but
+# specific sky-figures mapped to IAU stellar coordinates were not confirmed
+# in peer-reviewed academic ethnoastronomy sources for this crawl.
+# A Yoruba entry is deferred to Phase 2 pending identification of
+# peer-reviewed academic sources specifically addressing Yoruba ethnoastronomy.
+# This is NOT a sensitivity exclusion — it is a sourcing quality gate.
+# See exclusion log below.
+
+
+# EXCLUDED CONTENT LOG (West African)
+# Per Protocol B: the following content was considered and excluded or deferred:
+#
+# 1. Yoruba sky-figures (Orunmila / Ifa celestial associations) — deferred,
+#    not excluded on sensitivity grounds. No peer-reviewed academic source
+#    specifically addressing Yoruba stellar identifications was confirmed in
+#    this crawl pass. Quality gate per "3 well-sourced > 10 poorly sourced"
+#    protocol. Phase 2: consult Drewal, Pemberton, and Yoruba-specific academic
+#    ethnoastronomy sources.
+#
+# 2. Dogon Nommo (water spirits) cosmological associations — Griaule describes
+#    Nommo as amphibious sky-beings linked to Sirius. This has even more severe
+#    Griaule controversy contamination than Po tolo. Excluded as the van Beek
+#    restudy specifically questioned Nommo cosmological detail. Cultural fact
+#    of Nommo as important Dogon spiritual beings = public record; their
+#    specific astronomical mapping per Griaule = contested and excluded.
+#    Disposition: "withheld — Dogon Nommo sky-associations are Griaule-sourced
+#    with no independent academic corroboration; van Beek (1991) specifically
+#    challenges this material."
+#
+# 3. Akan (Ghana) sky-traditions — mentioned in some West African astronomy
+#    literature. No peer-reviewed academic source for specific sky-figures
+#    confirmed in this crawl. Deferred to Phase 2.

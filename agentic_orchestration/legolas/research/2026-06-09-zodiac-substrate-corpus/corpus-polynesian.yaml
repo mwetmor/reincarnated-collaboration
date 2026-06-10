@@ -1,0 +1,1142 @@
+# corpus-polynesian.yaml
+# Legolas Mode B Corpus — Polynesian Navigator Star Traditions
+# Crawl date: 2026-06-09
+# Entry count: 12 (7 Hawaiian + 5 Maori)
+# Schema: full (navigation function, star coordinates, cultural iconography, sensitivity)
+# Cultural sensitivity protocol: HIGH — sourced exclusively from institutional public materials
+# Sources: Bishop Museum (Honolulu), Te Papa Tongarewa (Wellington), Polynesian Voyaging Society,
+#          Wikipedia, peer-reviewed ethnoastronomy (Lewis 1972, Makemson 1941, Orchiston 2000)
+# DISTINCT CULTURES: Hawaiian entries (primary_culture: "Hawaiian") +
+#                    Maori entries (primary_culture: "Maori (New Zealand)") — NOT collapsed.
+
+# =============================================================================
+# HAWAIIAN TRADITION (entries polynesian-hawaiian-001 through 007)
+# Primary sources: Bishop Museum Hawaiian star records, Polynesian Voyaging Society
+#                  public navigation materials, Nainoa Thompson publicly shared training
+# =============================================================================
+
+- sign_id: "polynesian-hawaiian-001"
+  sign_name:
+    primary: "Hokule'a"
+    variants: ["Hokuleʻa", "Arcturus (Western identifier)", "Hōkūleʻa"]
+    romanization: "Hokule'a"
+    native_script: "Hōkūleʻa"
+  cultural_tradition:
+    primary_culture: "Hawaiian"
+    derivative_cultures: []
+    geographic_origin: "Hawaiian archipelago (North Pacific Ocean, ~19–22°N)"
+    period_range: "Traditional Hawaiian navigation knowledge; pre-European contact through present; Bishop Museum documentation 20th–21st century; Polynesian Voyaging Society active use from 1976 to present"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Hawaiian navigator star tradition"
+    total_signs_in_system: 0  # not a fixed-count system — a functional navigation star-set
+    position_in_system: 1
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Year-round navigation reference; zenith star"
+      other:
+        navigation_function: "Zenith star — marks latitude ~19–21°N (Hawaiian Islands) when at zenith overhead"
+        canoe_namesake: "Hōkūleʻa double-hulled voyaging canoe (Polynesian Voyaging Society, launched 1976)"
+        star_type: "Individual bright star (orange giant)"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Bootes_IAU.svg"
+      description: "IAU constellation diagram for Boötes, containing Arcturus (Hokule'a) as the brightest star at lower center"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://upload.wikimedia.org/wikipedia/commons/a/a2/Hokule%27a_return_to_hawaii.jpg"
+        description: "Hōkūleʻa voyaging canoe under sail — named for this star"
+        source: "Wikipedia Commons"
+        license: "CC-BY-SA"
+        verified_loads: true
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Arcturus (α Boötis)"
+          ra: "14h 15m 39.7s"
+          dec: "+19° 10′ 57″"
+          magnitude: -0.05
+          notes: "Fourth-brightest star in the night sky; orange giant K-type; zenith star for Hawaiian archipelago (~19–21°N latitude). Declination +19.18° closely matches Hawaiian island latitudes."
+      notes: "Hokuleʻa is the Hawaiian name for Arcturus. Its declination closely matches the latitude of the Hawaiian archipelago, making it the zenith star — the star that passes directly overhead — for Hawaiian observers. When Hokule'a reaches zenith, the navigator knows they are at Hawaiian latitudes."
+    asterism_schematic:
+      description: "Arcturus (Hokule'a) is a solitary brilliant orange-tinged star in the constellation Boötes. No asterism topology — it is used as a single point reference. Its position in the sky directly overhead at Hawaiian latitudes is its primary navigational significance."
+      line_topology: "Single star — no multi-star asterism"
+    cultural_iconography:
+      description: "Hokule'a (lit. 'star of gladness / star of clarity / joyful star') is the zenith star of the Hawaiian archipelago — when it passes directly overhead, the navigator knows they are at Hawaiian latitudes (~19–21°N). In traditional Hawaiian deep-ocean navigation, the zenith star was a primary latitude anchor: as a canoe sailed north or south, the navigator tracked which stars passed overhead, maintaining latitude by keeping target stars at zenith. Hokule'a was the homecoming star — when it rose to zenith, land was near. In 1976, the Polynesian Voyaging Society launched the 62-foot double-hulled voyaging canoe Hōkūleʻa (named for this star) and sailed from Hawaiʻi to Tahiti using only traditional Polynesian navigation: stars, ocean swells, wind, clouds, and birds. Navigator Mau Piailug (Satawalese) guided the first voyage; Nainoa Thompson trained under him and led subsequent voyages. The 1976 voyage sparked a Hawaiian and Pacific Islander cultural renaissance that continues today."
+      reference_sources:
+        - "Bishop Museum: Hawaiian star knowledge records"
+        - "Polynesian Voyaging Society: navigation stars and Hokule'a documentation"
+        - "Wikipedia: Hōkūleʻa"
+        - "Wikipedia: Arcturus"
+        - "Lewis, David. We, the Navigators. 1972."
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/H%C5%8Dk%C5%ABle%CA%BBa"
+        - "https://en.wikipedia.org/wiki/Arcturus"
+        - "https://www.hokulea.com/"
+  primitive_association_hints:
+    suggested_element: "Wind / Water"
+    suggested_attribute: "WIS"
+    suggested_animal_form: ""
+    suggested_object_form: "Double-hulled voyaging canoe"
+    symbolic_role: "Zenith anchor; homecoming star; wayfinder; cultural renaissance symbol; latitude reference"
+    mythic_narrative_summary: "Hokule'a (Arcturus) is the zenith star of Hawaii — when overhead, a navigator knows they are at Hawaiian latitudes. The Polynesian Voyaging Society's Hōkūleʻa canoe carried this name on its 1976 revival voyage, beginning a Pacific Islander cultural renaissance. The star of joy that guides the voyager home."
+  semantic_vocabulary:
+    symbolic_keywords: ["zenith", "navigation", "home", "Hawaii", "wayfinding", "canoe", "orange star", "latitude", "Arcturus", "joyful star", "homecoming"]
+    mythic_narrative: "Hokule'a is the Hawaiian name for Arcturus (α Boötis), the fourth-brightest star in the night sky. Its declination (+19°) closely matches the latitude of the Hawaiian archipelago (~19–21°N), making it the zenith star — the star that passes directly overhead — for Hawaiian observers. Traditional Hawaiian navigators used this as a primary latitude reference: when Hokule'a was at zenith overhead, they knew they were at Hawaiian latitudes. In 1976, the Polynesian Voyaging Society launched the Hōkūleʻa, a 62-foot double-hulled voyaging canoe named after this star, sailing from Hawaiʻi to Tahiti using only traditional Polynesian navigation methods. The voyage sparked a Hawaiian cultural renaissance. Nainoa Thompson, who became the leading Hawaiian navigator trained in traditional star-path methods, has explicitly shared the star's significance in PVS public materials."
+    visual_motifs: ["orange giant star", "zenith overhead star", "Hōkūleʻa canoe under stars", "wayfinding navigator", "Pacific Ocean night sky"]
+  cultural_sensitivity:
+    flag_level: "high"
+    explanation: "Sourced from publicly-published institutional material: Bishop Museum, Polynesian Voyaging Society public records, and Wikipedia. Hawaiian navigator star traditions are living cultural knowledge. This entry documents only publicly-shared information explicitly placed in public record by the PVS and Bishop Museum. Nainoa Thompson and the PVS have explicitly and publicly shared this star's significance as part of their cultural-renaissance mission."
+    source_authorization: "Bishop Museum + Polynesian Voyaging Society public materials + Wikipedia Commons"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/H%C5%8Dk%C5%ABle%CA%BBa"
+    secondary_sources:
+      - "Polynesian Voyaging Society: https://www.hokulea.com/"
+      - "Wikipedia: Arcturus — https://en.wikipedia.org/wiki/Arcturus"
+      - "Bishop Museum: Hawaiian astronomy records (institutional)"
+    academic_anchor: "Lewis, David. We, the Navigators: The Ancient Art of Landfinding in the Pacific. University of Hawaii Press, 1972."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "polynesian-hawaiian-002"
+  sign_name:
+    primary: "Makali'i"
+    variants: ["Makalii", "Makaliʻi", "Pleiades (Western identifier)", "Seven Sisters"]
+    romanization: "Makali'i"
+    native_script: "Makaliʻi"
+  cultural_tradition:
+    primary_culture: "Hawaiian"
+    derivative_cultures: []
+    geographic_origin: "Hawaiian archipelago"
+    period_range: "Traditional Hawaiian knowledge; pre-European contact through present; documented by Bishop Museum and PVS"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Hawaiian navigator star tradition"
+    total_signs_in_system: 0
+    position_in_system: 2
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "November heliacal rising — signals start of Hawaiian year / Makahiki harvest festival"
+      other:
+        navigation_function: "Seasonal calendar marker; heliacal rising signals Makahiki season; used for latitude reference"
+        star_type: "Open star cluster (Pleiades / M45)"
+        makahiki_association: "The appearance of Makali'i triggers the Makahiki festival season — 4 months of harvest, games, and tribute"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Pleiades_large.jpg"
+      description: "Photograph of the Pleiades open cluster (Makali'i) showing the blue star cluster with nebulosity"
+      source: "Wikipedia Commons"
+      license: "Public Domain (NASA/Palomar)"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://upload.wikimedia.org/wikipedia/commons/8/8e/Taurus_IAU.svg"
+        description: "IAU constellation diagram for Taurus showing location of Pleiades cluster"
+        source: "Wikipedia Commons"
+        license: "Public Domain"
+        verified_loads: true
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Alcyone (η Tauri) — brightest Pleiades star"
+          ra: "3h 47m 29.1s"
+          dec: "+24° 06′ 18″"
+          magnitude: 2.87
+          notes: "Brightest member of the Pleiades cluster; central anchor star"
+        - name: "Atlas (27 Tauri)"
+          ra: "3h 49m 09.7s"
+          dec: "+24° 03′ 12″"
+          magnitude: 3.63
+        - name: "Electra (17 Tauri)"
+          ra: "3h 44m 52.5s"
+          dec: "+24° 06′ 48″"
+          magnitude: 3.72
+        - name: "Maia (20 Tauri)"
+          ra: "3h 45m 49.6s"
+          dec: "+24° 22′ 04″"
+          magnitude: 3.87
+        - name: "Merope (23 Tauri)"
+          ra: "3h 46m 19.6s"
+          dec: "+23° 56′ 54″"
+          magnitude: 4.14
+        - name: "Taygeta (19 Tauri)"
+          ra: "3h 45m 12.5s"
+          dec: "+24° 28′ 02″"
+          magnitude: 4.30
+        - name: "Pleione (28 Tauri)"
+          ra: "3h 49m 11.2s"
+          dec: "+24° 08′ 12″"
+          magnitude: 5.05 (variable)
+      notes: "Pleiades (M45) is an open cluster in Taurus; the 6–7 naked-eye members are visible to the unaided eye; dozens more with binoculars. Distance ~444 light-years. Cluster spans ~2° of sky."
+    asterism_schematic:
+      description: "The Pleiades appear as a tight dipper-shaped cluster of 6–7 blue-white stars visible to the naked eye. The cluster has a characteristic 'saucepan' or 'mini-dipper' shape. To the Hawaiian navigator, it is a marker cluster rather than a navigation direction line."
+      line_topology: "Dense cluster — compact arrangement of ~6 visible stars; no single line-topology"
+    cultural_iconography:
+      description: "Makali'i (lit. 'eyes of the chief' or 'little eyes') is the Hawaiian name for the Pleiades star cluster. Its heliacal rising in the east after sunset in late November marks the beginning of the Hawaiian year and triggers the Makahiki — a four-month harvest festival season involving games, tribute collection, and the appearance of the god Lono. The cluster was used by Hawaiian navigators as a latitude and seasonal reference. The Polynesian Voyaging Society canoe Makaliʻi (sister canoe to Hōkūleʻa, built 1993) is named for this star cluster. The cluster's position and size were also used by Andean and other Pacific cultures to forecast agricultural seasons — an independent convergent use across cultures."
+      reference_sources:
+        - "Bishop Museum: Makahiki and Hawaiian astronomical calendar"
+        - "Polynesian Voyaging Society: navigator star references"
+        - "Wikipedia: Pleiades in folklore and literature"
+        - "Wikipedia: Makahiki"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Pleiades_in_folklore_and_literature"
+        - "https://en.wikipedia.org/wiki/Makahiki"
+  primitive_association_hints:
+    suggested_element: "Water / Wind"
+    suggested_attribute: "WIS / CHA"
+    suggested_animal_form: ""
+    suggested_object_form: "Harvest basket / canoe cluster"
+    symbolic_role: "Seasonal herald; year-bringer; festival trigger; calendar anchor; agricultural cycle"
+    mythic_narrative_summary: "Makali'i (Pleiades) rises in November to herald the Hawaiian year and the Makahiki harvest festival. 'Eyes of the chief' — a cluster that watches over the seasonal passage. Used for both calendar-reckoning and latitude navigation. The sister canoe Makaliʻi (1993) bears this name."
+  semantic_vocabulary:
+    symbolic_keywords: ["Pleiades", "harvest", "new year", "Makahiki", "festival", "cluster", "eyes of the chief", "November", "calendar", "season-herald"]
+    mythic_narrative: "Makali'i (lit. 'little eyes' or 'eyes of the chief') is the Hawaiian name for the Pleiades open cluster (M45). Its heliacal rising in the eastern sky after sunset in late November signals the beginning of the Hawaiian calendar year and triggers the Makahiki — a four-month harvest festival sacred to the god Lono, involving athletic games, tribute to chiefs, and ceremonial observances. Hawaiian navigators also used the cluster as a latitude reference, as its altitude above the horizon varies with the observer's latitude. The Polynesian Voyaging Society's second voyaging canoe, built in 1993, was named Makaliʻi after this cluster."
+    visual_motifs: ["tight blue-white star cluster", "mini-dipper shape", "November eastern sky", "harvest festival", "six sister stars"]
+  cultural_sensitivity:
+    flag_level: "high"
+    explanation: "Sourced from publicly-published institutional material: Bishop Museum Makahiki records, PVS public navigation star references, and Wikipedia. The Makahiki calendar connection is publicly documented academic and museum knowledge. No restricted ceremonial details included."
+    source_authorization: "Bishop Museum + PVS public materials + Wikipedia"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Pleiades_in_folklore_and_literature"
+    secondary_sources:
+      - "Wikipedia: Makahiki — https://en.wikipedia.org/wiki/Makahiki"
+      - "Bishop Museum: Hawaiian calendar and astronomical records"
+      - "Makemson, Maud. The Morning Star Rises: An Account of Polynesian Astronomy. 1941."
+    academic_anchor: "Makemson, Maud Worcester. The Morning Star Rises: An Account of Polynesian Astronomy. Yale University Press, 1941."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "polynesian-hawaiian-003"
+  sign_name:
+    primary: "Hoku Pa'a"
+    variants: ["Hoku Paʻa", "Polaris (Western identifier)", "North Star", "Pole Star"]
+    romanization: "Hoku Pa'a"
+    native_script: "Hoku Paʻa"
+  cultural_tradition:
+    primary_culture: "Hawaiian"
+    derivative_cultures: []
+    geographic_origin: "Hawaiian archipelago"
+    period_range: "Traditional Hawaiian navigation knowledge; pre-European contact through present"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Hawaiian navigator star tradition"
+    total_signs_in_system: 0
+    position_in_system: 3
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Year-round; circumpolar — never rises or sets from Hawaiian latitudes"
+      other:
+        navigation_function: "North celestial pole marker; latitude indicator for Northern Hemisphere sailing; altitude equals observer's latitude"
+        star_type: "Individual bright star (supergiant — α Ursae Minoris)"
+        circumpolar: true
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/8/84/Ursa_Minor_IAU.svg"
+      description: "IAU constellation diagram for Ursa Minor — Polaris (Hoku Pa'a) is at the tip of the constellation's 'tail'"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Polaris (α Ursae Minoris)"
+          ra: "2h 31m 47.1s"
+          dec: "+89° 15′ 51″"
+          magnitude: 1.98
+          notes: "North Celestial Pole star; currently within ~0.7° of true north celestial pole. Yellow-white supergiant. Distance ~433 light-years. Altitude above horizon equals observer's latitude in Northern Hemisphere."
+      notes: "Polaris sits near the north celestial pole and appears nearly stationary in the night sky. Its altitude above the northern horizon equals the observer's latitude — a direct latitude-reading tool for Northern Hemisphere navigation."
+    asterism_schematic:
+      description: "Hoku Pa'a (Polaris) is a solitary star at the tip of Ursa Minor's 'handle.' It appears stationary while all other stars rotate around it. To a Hawaiian navigator sailing northward, Polaris rises higher in the sky as latitude increases — it is a direct altitude-to-latitude instrument."
+      line_topology: "Single star — no multi-star asterism (the fixed-point reference)"
+    cultural_iconography:
+      description: "Hoku Pa'a (lit. 'fixed star' or 'immovable star') is the Hawaiian name for Polaris, the North Star. While all other stars appear to rotate around the night sky as Earth turns, Hoku Pa'a appears to stand still — the hub of the celestial wheel. Hawaiian navigators sailing north toward the Pacific Northwest or Alaska watched this star rise higher above the horizon, using its altitude to track their northward progress. Conversely, sailing south from Hawaii toward Tahiti or the equator, the star descends toward the horizon and eventually disappears below it — indicating the navigator has crossed into the Southern Hemisphere. The star's unique stationary quality made it a conceptually important anchor star even for primarily southward-sailing Hawaiian navigators."
+      reference_sources:
+        - "Polynesian Voyaging Society: navigation stars — public documentation"
+        - "Wikipedia: Polaris"
+        - "Lewis, David. We, the Navigators. 1972."
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Polaris"
+        - "https://www.hokulea.com/"
+  primitive_association_hints:
+    suggested_element: "Wind / Sky"
+    suggested_attribute: "WIS"
+    suggested_animal_form: ""
+    suggested_object_form: "Fixed axis / pivot"
+    symbolic_role: "Immovable center; north anchor; latitude gauge; celestial hub; stillness amid motion"
+    mythic_narrative_summary: "Hoku Pa'a (Polaris) is the 'fixed star' — it does not move as all other stars rotate around it. Hawaiian navigators tracked its altitude to measure latitude: rising as they sailed north, sinking as they sailed south. The still point at the center of the turning sky."
+  semantic_vocabulary:
+    symbolic_keywords: ["north star", "fixed", "immovable", "latitude", "pole", "celestial axis", "stillness", "navigation anchor", "Polaris"]
+    mythic_narrative: "Hoku Pa'a (lit. 'fixed star') is the Hawaiian name for Polaris (α Ursae Minoris). While every other star appears to wheel across the sky as Earth rotates, Hoku Pa'a stands nearly motionless at the north celestial pole — the axis around which all other stars appear to turn. Hawaiian navigators used its altitude above the northern horizon to read their latitude: the star rises by one degree for every degree of northward travel, and sinks toward the horizon as they sail south. When Polaris disappears below the horizon entirely, the navigator knows they have crossed the equator into the Southern Hemisphere — entering Maori and Southern Pacific star territory."
+    visual_motifs: ["single still star", "celestial pole axis", "stars rotating around fixed point", "northern horizon"]
+  cultural_sensitivity:
+    flag_level: "high"
+    explanation: "Sourced from Polynesian Voyaging Society public navigation documentation and Wikipedia. The fixed-star concept is PVS-publicly-shared navigation knowledge. No restricted ceremonial content."
+    source_authorization: "PVS public materials + Wikipedia"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Polaris"
+    secondary_sources:
+      - "Polynesian Voyaging Society public navigation resources"
+      - "Lewis, David. We, the Navigators. 1972."
+    academic_anchor: "Lewis, David. We, the Navigators: The Ancient Art of Landfinding in the Pacific. University of Hawaii Press, 1972."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "polynesian-hawaiian-004"
+  sign_name:
+    primary: "Maui's Fishhook"
+    variants: ["Newe", "Ka Makau Nui o Māui", "Scorpius / Scorpion (Western identifier)"]
+    romanization: "Ka Makau Nui o Maui"
+    native_script: "Ka Makau Nui o Māui"
+  cultural_tradition:
+    primary_culture: "Hawaiian"
+    derivative_cultures: []
+    geographic_origin: "Hawaiian archipelago"
+    period_range: "Traditional Hawaiian knowledge; pre-European contact through present"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Hawaiian navigator star tradition"
+    total_signs_in_system: 0
+    position_in_system: 4
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: "Maui — the trickster demigod who fished up the Hawaiian islands"
+      season: "Southern sky summer visibility (Northern Hemisphere summer — June through September)"
+      other:
+        navigation_function: "Southern direction and latitude indicator; the fishhook's curved tail points south"
+        star_type: "Multi-star constellation (Scorpius)"
+        myth_type: "Demigod tool / creation myth"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/8/8e/Scorpius_IAU.svg"
+      description: "IAU constellation diagram for Scorpius — the curved tail forms Maui's Fishhook shape"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Antares (α Scorpii) — heart of the scorpion / hook apex"
+          ra: "16h 29m 24.5s"
+          dec: "−26° 25′ 55″"
+          magnitude: 0.96 (variable)
+          notes: "Red supergiant; fifteenth-brightest star; the red 'heart' of Scorpius, at the apex of Maui's hook curve. Name means 'rival of Mars' (Greek) for its red color."
+        - name: "Shaula (λ Scorpii) — tip of the fishhook tail"
+          ra: "17h 33m 36.5s"
+          dec: "−37° 06′ 14″"
+          magnitude: 1.62
+          notes: "The bright star at the tip of the curved Scorpius tail — the point of Maui's fishhook"
+        - name: "Lesath (υ Scorpii)"
+          ra: "17h 30m 45.8s"
+          dec: "−37° 17′ 45″"
+          magnitude: 2.70
+          notes: "Paired with Shaula in the tail tip"
+      notes: "Scorpius is a large southern constellation; most visible from the Southern Hemisphere. Its curved tail is especially visible from tropical and southern latitudes. From Hawaii (~20°N), Scorpius appears low in the southern sky in summer."
+    asterism_schematic:
+      description: "The Scorpius constellation forms a J-shaped or fishhook curve: a bright head/body region containing Antares (the red heart), then a long curving tail that sweeps southward and east, ending in the bright pair Shaula/Lesath at the tip. The fishhook shape — wide opening at top, curving point at bottom — is visually striking. Maui was said to have used this hook to fish the Hawaiian islands up from the ocean floor."
+      line_topology: "J-curve: Antares (body) → δ Sco → π Sco → σ Sco → α Sco → τ Sco → ε Sco → μ Sco → ζ Sco → η Sco → θ Sco → ι Sco → κ Sco → λ Sco (Shaula) — forming the characteristic hooked tail"
+    cultural_iconography:
+      description: "Ka Makau Nui o Māui (lit. 'the great fishhook of Maui') — Scorpius in Hawaiian tradition is the fishhook of the demigod Maui, who used it to fish up the Hawaiian Islands from the ocean floor. Maui, the trickster demigod of Polynesian tradition, is one of the most important mythological figures across all Polynesian cultures (Hawaiian, Maori, Tongan, Samoan). The fishhook in Hawaiian culture is a symbol of abundant fishing, skill, and the origins of the land. The curved southern tail of Scorpius visually forms a perfect fishhook shape in the southern sky."
+      reference_sources:
+        - "Wikipedia: Scorpius"
+        - "Wikipedia: Maui (mythology)"
+        - "Bishop Museum: Hawaiian mythology records"
+        - "Lewis, David. We, the Navigators. 1972."
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Scorpius"
+        - "https://en.wikipedia.org/wiki/Maui_(mythology)"
+  primitive_association_hints:
+    suggested_element: "Water / Fire (Antares red)"
+    suggested_attribute: "STR / CHA"
+    suggested_animal_form: "Fishhook (divine tool)"
+    suggested_object_form: "Fishhook"
+    symbolic_role: "Creation through cunning; trickster's tool; island-fisher; heroic demigod's instrument"
+    mythic_narrative_summary: "Ka Makau Nui o Māui — the great fishhook of Maui. The curved tail of Scorpius is Maui's fishhook, with which he fished the Hawaiian Islands up from the ocean floor. The red heart-star Antares glows at the hook's apex. Used by Hawaiian navigators as a southern sky reference."
+  semantic_vocabulary:
+    symbolic_keywords: ["fishhook", "Maui", "demigod", "trickster", "islands", "Scorpius", "red star", "Antares", "creation", "southern sky", "fishing"]
+    mythic_narrative: "Ka Makau Nui o Māui (The Great Fishhook of Maui) is the Hawaiian interpretation of the constellation Scorpius. The demigod Maui — the great trickster and hero of Polynesian mythology — used a magical fishhook to pull islands up from the ocean floor. In Hawaiian tradition, the curved tail of Scorpius in the southern sky forms this fishhook. Antares, the brilliant red supergiant at the heart of Scorpius, glows at the apex of the hook's curve. Hawaiian navigators used Scorpius as a southern sky reference, and Antares as a direction and latitude indicator for southward passages."
+    visual_motifs: ["J-shaped star curve", "red heart star (Antares)", "fishhook shape", "southern sky", "Maui demigod", "ocean islands"]
+  cultural_sensitivity:
+    flag_level: "high"
+    explanation: "Sourced from Wikipedia and Bishop Museum public records. The Maui mythology is publicly documented across academic and institutional sources. No restricted ceremonial or navigation-transmission content included."
+    source_authorization: "Bishop Museum + Wikipedia public records"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Scorpius"
+    secondary_sources:
+      - "Wikipedia: Maui (mythology) — https://en.wikipedia.org/wiki/Maui_(mythology)"
+      - "Bishop Museum: Hawaiian mythology records"
+    academic_anchor: "Lewis, David. We, the Navigators: The Ancient Art of Landfinding in the Pacific. University of Hawaii Press, 1972."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "polynesian-hawaiian-005"
+  sign_name:
+    primary: "A'a"
+    variants: ["Aʻa", "Sirius (Western identifier)", "Dog Star"]
+    romanization: "A'a"
+    native_script: "Aʻa"
+  cultural_tradition:
+    primary_culture: "Hawaiian"
+    derivative_cultures: []
+    geographic_origin: "Hawaiian archipelago"
+    period_range: "Traditional Hawaiian knowledge; pre-European contact through present"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Hawaiian navigator star tradition"
+    total_signs_in_system: 0
+    position_in_system: 5
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Winter/spring visibility — prominent in evening sky January through April"
+      other:
+        navigation_function: "Brightest star in sky; direction and latitude indicator; used in star path navigation"
+        star_type: "Individual bright star (binary — α Canis Majoris A + B)"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Canis_Major_IAU.svg"
+      description: "IAU constellation diagram for Canis Major — Sirius (A'a) is the bright star at upper left"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Sirius (α Canis Majoris)"
+          ra: "6h 45m 08.9s"
+          dec: "−16° 42′ 58″"
+          magnitude: -1.46
+          notes: "Brightest star in the night sky; blue-white main sequence star; distance 8.6 light-years; declination −16.7° — rises in the southeast from Hawaiian latitudes, useful for east-southeast direction indication"
+      notes: "Sirius is a binary system (Sirius A + white dwarf Sirius B); only Sirius A is visible to the naked eye. Its brightness makes it immediately identifiable in any sky."
+    asterism_schematic:
+      description: "A'a (Sirius) is a solitary blazing white-blue star — by far the brightest star in the night sky. No asterism topology. Its extreme brightness makes it immediately identifiable and useful as a navigational anchor point in the winter/spring sky."
+      line_topology: "Single star — no multi-star asterism"
+    cultural_iconography:
+      description: "A'a is the Hawaiian name for Sirius (α Canis Majoris), the brightest star in the entire night sky at magnitude −1.46. In traditional Hawaiian navigation, A'a is part of the star path system (kilo hōkū) — the navigator's memorized sequence of stars to follow on a given route. A'a's brilliance and its specific rising and setting points on the horizon make it a reliable direction star: from Hawaii, Sirius rises in the east-southeast. Its name A'a may relate to the Hawaiian word for a type of rough lava (ʻaʻā), though the star-name connection is documented separately in ethnoastronomy sources."
+      reference_sources:
+        - "Polynesian Voyaging Society: navigation star references"
+        - "Wikipedia: Sirius"
+        - "Makemson, Maud. The Morning Star Rises. 1941."
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Sirius"
+        - "https://www.hokulea.com/"
+  primitive_association_hints:
+    suggested_element: "Fire / Light"
+    suggested_attribute: "STR / WIS"
+    suggested_animal_form: "Dog (Canis Majoris)"
+    suggested_object_form: "Blazing beacon"
+    symbolic_role: "Brightest beacon; direction anchor; star-path waypoint; brilliance"
+    mythic_narrative_summary: "A'a (Sirius) is the blazing white-blue star — the brightest in all the sky. No other star outshines it. Hawaiian navigators used it as a direction and latitude reference in the winter star path. The original bright beacon of the night ocean."
+  semantic_vocabulary:
+    symbolic_keywords: ["Sirius", "brightest star", "beacon", "white-blue", "winter star", "navigation path", "dog star", "blazing"]
+    mythic_narrative: "A'a is the Hawaiian name for Sirius, the brightest star in the night sky by a large margin (magnitude −1.46 — nearly double the brightness of Canopus, the second brightest). Hawaiian navigators incorporated A'a into their kilo hōkū star-path system, using its rising and setting points on the horizon to orient direction. Its blazing brightness made it unmissable in any conditions — even through haze or thin clouds."
+    visual_motifs: ["blazing white-blue star", "brightest point in night sky", "winter evening sky", "direction beacon"]
+  cultural_sensitivity:
+    flag_level: "high"
+    explanation: "Sourced from PVS public navigation references and Wikipedia. The identification of A'a as Sirius is documented in Makemson (1941) and PVS materials — institutional public record."
+    source_authorization: "PVS public materials + Makemson (1941) academic + Wikipedia"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Sirius"
+    secondary_sources:
+      - "Makemson, Maud. The Morning Star Rises. 1941."
+      - "Polynesian Voyaging Society navigation star documentation"
+    academic_anchor: "Makemson, Maud Worcester. The Morning Star Rises: An Account of Polynesian Astronomy. Yale University Press, 1941."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "polynesian-hawaiian-006"
+  sign_name:
+    primary: "Nā Hiku"
+    variants: ["Na Hiku", "Big Dipper", "Ursa Major (Western identifier)", "The Seven"]
+    romanization: "Na Hiku"
+    native_script: "Nā Hiku"
+  cultural_tradition:
+    primary_culture: "Hawaiian"
+    derivative_cultures: []
+    geographic_origin: "Hawaiian archipelago"
+    period_range: "Traditional Hawaiian knowledge; pre-European contact through present"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Hawaiian navigator star tradition"
+    total_signs_in_system: 0
+    position_in_system: 6
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Year-round from Hawaiian latitudes (circumpolar at higher northern latitudes; visible but not circumpolar from ~20°N)"
+      other:
+        navigation_function: "Northern direction finder; the two 'pointer stars' (Dubhe and Merak) point toward Hoku Pa'a (Polaris); used for north-finding and night-clock estimation"
+        star_type: "Multi-star asterism (7 stars of Ursa Major)"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/19/Ursa_Major_IAU.svg"
+      description: "IAU constellation diagram for Ursa Major — the Big Dipper asterism (Nā Hiku) forms the tail and rump of the Great Bear"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Dubhe (α Ursae Majoris) — pointer star, bowl rim"
+          ra: "11h 03m 43.7s"
+          dec: "+61° 45′ 03″"
+          magnitude: 1.79
+          notes: "One of two 'pointer' stars in Big Dipper bowl; line from Merak through Dubhe points to Polaris"
+        - name: "Merak (β Ursae Majoris) — pointer star, bowl base"
+          ra: "11h 01m 50.5s"
+          dec: "+56° 22′ 57″"
+          magnitude: 2.37
+          notes: "Second pointer star; with Dubhe forms the celestial compass pointing to Polaris"
+        - name: "Alioth (ε Ursae Majoris) — brightest of the seven"
+          ra: "12h 54m 01.7s"
+          dec: "+55° 57′ 35″"
+          magnitude: 1.77
+        - name: "Alcor and Mizar (ζ Ursae Majoris) — the visual test pair"
+          ra: "13h 23m 55.5s"
+          dec: "+54° 55′ 31″"
+          magnitude: 2.04
+          notes: "Mizar has a naked-eye companion Alcor (~12 arcminutes separation); traditional naked-eye test for good eyesight"
+      notes: "The Big Dipper (Nā Hiku = 'the seven') is an asterism of 7 stars forming a ladle shape within Ursa Major. Visible from the Hawaiian Islands though not circumpolar — it dips toward the northern horizon in autumn evenings."
+    asterism_schematic:
+      description: "Nā Hiku forms a ladle or dipper: four stars make the bowl (Dubhe, Merak, Phecda, Megrez) and three make the curved handle (Alioth, Mizar, Alkaid). The two bowl-edge stars Merak and Dubhe are 'pointer stars' — a line extended 5× their separation leads to Polaris (Hoku Pa'a). This pointer function made Nā Hiku a practical north-finder even when Polaris was not immediately obvious."
+      line_topology: "Ladle: Megrez→Phecda→Merak→Dubhe (bowl) + Megrez→Alioth→Mizar→Alkaid (handle)"
+    cultural_iconography:
+      description: "Nā Hiku (lit. 'the seven') is the Hawaiian name for the Big Dipper — the seven-star asterism forming a ladle in the northern sky. In Hawaiian navigation, its primary function was pointing toward Hoku Pa'a (Polaris): the two bowl-rim stars Merak and Dubhe serve as pointer stars — a line through them, extended five times their separation, reaches Polaris. Nā Hiku also served as a celestial clock: its rotation around Polaris through the night and across the seasons allowed skilled navigators to estimate time and season."
+      reference_sources:
+        - "Polynesian Voyaging Society: navigation star documentation"
+        - "Wikipedia: Ursa Major"
+        - "Wikipedia: Big Dipper"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Ursa_Major"
+        - "https://en.wikipedia.org/wiki/Big_Dipper"
+  primitive_association_hints:
+    suggested_element: "Water / Wind"
+    suggested_attribute: "WIS"
+    suggested_animal_form: "Bear (Western) — unnamed animal in Hawaiian tradition"
+    suggested_object_form: "Ladle / dipper / cup"
+    symbolic_role: "North-pointer; celestial clock; seven-star pattern; navigator's compass"
+    mythic_narrative_summary: "Nā Hiku — 'the seven' — is the Big Dipper, seven stars forming a ladle in the northern sky. Its pointer stars guide to Hoku Pa'a (Polaris) for north-finding. The Big Dipper rotates around the north pole through the night, serving as the Hawaiian navigator's celestial clock."
+  semantic_vocabulary:
+    symbolic_keywords: ["Big Dipper", "seven stars", "ladle", "north pointer", "celestial clock", "Ursa Major", "direction", "night rotation"]
+    mythic_narrative: "Nā Hiku (lit. 'the seven') — the seven stars of the Big Dipper. The bowl of the ladle contains the pointer stars Merak and Dubhe; a line through them five times extended reaches Hoku Pa'a (Polaris). Hawaiian navigators used this north-pointing function when the fixed star itself was hard to locate. The dipper's rotation around the pole through the night provided a celestial clock for estimating hours elapsed."
+    visual_motifs: ["ladle shape", "seven stars", "northern sky", "pointer arrow toward Polaris", "celestial rotation"]
+  cultural_sensitivity:
+    flag_level: "high"
+    explanation: "Sourced from PVS public navigation documentation and Wikipedia. The Big Dipper's north-pointing function is publicly documented standard navigation knowledge."
+    source_authorization: "PVS public materials + Wikipedia"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Big_Dipper"
+    secondary_sources:
+      - "Polynesian Voyaging Society navigation star documentation"
+    academic_anchor: "Lewis, David. We, the Navigators: The Ancient Art of Landfinding in the Pacific. University of Hawaii Press, 1972."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "polynesian-hawaiian-007"
+  sign_name:
+    primary: "Ke Ali'i o Kona i Ka Lewa"
+    variants: ["Ke Aliʻi o Kona i Ka Lewa", "Canopus (Western identifier)", "α Carinae"]
+    romanization: "Ke Ali'i o Kona i Ka Lewa"
+    native_script: "Ke Aliʻi o Kona i Ka Lewa"
+  cultural_tradition:
+    primary_culture: "Hawaiian"
+    derivative_cultures: []
+    geographic_origin: "Hawaiian archipelago"
+    period_range: "Traditional Hawaiian knowledge; pre-European contact through present"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Hawaiian navigator star tradition"
+    total_signs_in_system: 0
+    position_in_system: 7
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Winter/spring visibility — prominent in southern sky December through April from Hawaiian latitudes"
+      other:
+        navigation_function: "Southern sky reference; second-brightest star in the sky; used for southward latitude tracking; appears low on southern horizon from Hawaii"
+        star_type: "Individual bright star (yellow-white supergiant — α Carinae)"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Carina_IAU.svg"
+      description: "IAU constellation diagram for Carina — Canopus (Ke Ali'i o Kona i Ka Lewa) is the brightest star"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Canopus (α Carinae)"
+          ra: "6h 23m 57.1s"
+          dec: "−52° 41′ 45″"
+          magnitude: -0.74
+          notes: "Second-brightest star in the night sky; yellow-white supergiant; declination −52.7° — barely visible from Hawaiian latitudes (~20°N) on the southern horizon. Its low southern horizon appearance made it the southern counterpart to Hokule'a in the north."
+      notes: "Canopus has declination −52.7°, meaning it is visible from latitudes north of approximately +37.3°N only briefly at its highest. From Hawaii (~20°N), it barely clears the southern horizon. The star's low position was used by navigators as a southern latitude indicator."
+    asterism_schematic:
+      description: "Ke Ali'i o Kona i Ka Lewa (Canopus) is a solitary brilliant yellowish-white star that appears very low on the southern horizon from Hawaii. Its low altitude is itself the navigational information — as a voyager sails south from Hawaii, Canopus rises higher in the sky; as they sail north, it sinks and eventually disappears below the horizon."
+      line_topology: "Single star — no multi-star asterism"
+    cultural_iconography:
+      description: "Ke Ali'i o Kona i Ka Lewa (lit. 'the chief of the southern heavens' or 'the lord of the southern sky') — Canopus is the second-brightest star in the night sky, outshone only by Sirius (A'a). In Hawaiian tradition, it is accorded the status of a chief of the southern sky — Hokule'a (Arcturus) rules the northern zenith of Hawaiian experience, while Canopus lords over the deep southern reaches that voyagers enter when sailing toward Tahiti. Canopus appears very low on the Hawaiian southern horizon, and its rising higher in the sky as a canoe sails south toward the equator and beyond was used to track southward progress — the southern counterpart to tracking Polaris rising in the north."
+      reference_sources:
+        - "Polynesian Voyaging Society: navigation star documentation"
+        - "Wikipedia: Canopus"
+        - "Makemson, Maud. The Morning Star Rises. 1941."
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Canopus"
+        - "https://www.hokulea.com/"
+  primitive_association_hints:
+    suggested_element: "Water / Wind"
+    suggested_attribute: "CHA / WIS"
+    suggested_animal_form: ""
+    suggested_object_form: "Southern crown / chief's symbol"
+    symbolic_role: "Lord of the southern sky; southern-passage guide; latitude marker for deep southern voyages; chief-star"
+    mythic_narrative_summary: "Ke Ali'i o Kona i Ka Lewa — the chief of the southern heavens. Canopus is the second-brightest star in the sky; from Hawaii it gleams low on the southern horizon. As a voyager sails south toward Tahiti, this chief-star rises higher, marking progress into the southern Pacific."
+  semantic_vocabulary:
+    symbolic_keywords: ["Canopus", "southern chief", "second brightest", "southern sky", "latitude", "Tahiti voyage", "southern lord", "yellow-white"]
+    mythic_narrative: "Ke Aliʻi o Kona i Ka Lewa (The Chief of the Southern Heavens) is the Hawaiian name for Canopus (α Carinae), the second-brightest star in the night sky. From the Hawaiian Islands, Canopus barely clears the southern horizon — it is a deep-southern star, the lord of the sky beyond the equator. Hawaiian voyagers sailing the 2,400-mile route to Tahiti used Canopus as their southern latitude guide: as they crossed the equator and continued south, Canopus rose progressively higher in the sky, confirming their southward progress. It is conceptually paired with Hokule'a (Arcturus/north zenith) and Hoku Pa'a (Polaris/north pole) as the southern complement of the Hawaiian navigational compass."
+    visual_motifs: ["brilliant yellowish star low on southern horizon", "southern passage", "deep ocean voyage", "chief's authority", "latitude rising"]
+  cultural_sensitivity:
+    flag_level: "high"
+    explanation: "Sourced from PVS public navigation documentation, Makemson (1941) academic, and Wikipedia. The identification of Canopus and its navigation function is publicly documented institutional knowledge."
+    source_authorization: "PVS public materials + Makemson (1941) academic + Wikipedia"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Canopus"
+    secondary_sources:
+      - "Polynesian Voyaging Society navigation star documentation"
+      - "Makemson, Maud. The Morning Star Rises. 1941."
+    academic_anchor: "Makemson, Maud Worcester. The Morning Star Rises: An Account of Polynesian Astronomy. Yale University Press, 1941."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+# =============================================================================
+# MAORI TRADITION (entries polynesian-maori-001 through 005)
+# Primary sources: Te Papa Tongarewa (Wellington, NZ) public documentation,
+#                  New Zealand government Matariki public holiday records,
+#                  Wikipedia, academic ethnoastronomy (Orchiston 2000, Best 1922)
+# DISTINCT from Hawaiian entries — primary_culture: "Maori (New Zealand)"
+# =============================================================================
+
+- sign_id: "polynesian-maori-001"
+  sign_name:
+    primary: "Matariki"
+    variants: ["Matariki cluster", "Pleiades (Western identifier)", "Subaru (Japanese)"]
+    romanization: "Matariki"
+    native_script: "Matariki"
+  cultural_tradition:
+    primary_culture: "Maori (New Zealand)"
+    derivative_cultures: []
+    geographic_origin: "Aotearoa / New Zealand (and broader Polynesia)"
+    period_range: "Traditional Maori knowledge; pre-European contact through present; New Zealand Public Holiday established 2022 (Matariki Holiday Act 2021)"
+    status_in_modern_tradition: "active_living — national public holiday since 2022"
+  system_metadata:
+    system_name: "Maori star knowledge (kōrero whetū)"
+    total_signs_in_system: 0  # not a fixed-count system
+    position_in_system: 1
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: "Matariki is a star-being (atua whetū) associated with the environment, health, and spiritual connection to ancestors"
+      season: "Maori New Year — heliacal rising of Matariki cluster in late May to mid-June (Southern Hemisphere winter / midwinter); signals new year and time of reflection, remembrance, and celebration"
+      other:
+        navigation_function: "Seasonal calendar marker; Maori New Year herald; time of remembrance for those who died since the previous Matariki"
+        star_type: "Open star cluster (Pleiades / M45)"
+        public_holiday: "New Zealand Matariki public holiday — observed on the Friday before or on the new moon following the heliacal rise of Matariki; established by Matariki Observance Act 2021"
+        nine_stars_tradition: "Te Papa publicly documents the tradition that Matariki comprises nine named stars with distinct domains"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Pleiades_large.jpg"
+      description: "Photograph of the Pleiades open cluster — Matariki — showing blue-white stars with nebulosity"
+      source: "Wikipedia Commons"
+      license: "Public Domain (NASA/Palomar)"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://upload.wikimedia.org/wikipedia/commons/0/05/Taurus_constellation_map.svg"
+        description: "Constellation map showing Taurus with Pleiades (Matariki) cluster location labeled"
+        source: "Wikipedia Commons"
+        license: "Public Domain"
+        verified_loads: true
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Matariki / Alcyone (η Tauri) — central star; health, environment, spiritual connection"
+          ra: "3h 47m 29.1s"
+          dec: "+24° 06′ 18″"
+          magnitude: 2.87
+          notes: "Matariki — the overall cluster / Alcyone. Associated with health, wellbeing, and spiritual connection to ancestors and environment. Te Papa public documentation."
+        - name: "Pōhutukawa / Alcyone (η Tauri) — or Asterope"
+          ra: "3h 47m 29.1s"
+          dec: "+24° 06′ 18″"
+          magnitude: 2.87
+          notes: "Pōhutukawa — the star that connects the living to the dead; the bridge to ancestors. NOTE: exact per-star mapping to Pleiades members varies by iwi source; this represents one documented tradition."
+        - name: "Tupuānuku / Atlas (27 Tauri) — food grown in the ground"
+          ra: "3h 49m 09.7s"
+          dec: "+24° 03′ 12″"
+          magnitude: 3.63
+          notes: "Tupuānuku — domain: cultivated foods, crops, kūmara. Food from the earth."
+        - name: "Tupuārangi / Electra (17 Tauri) — food from the sky"
+          ra: "3h 44m 52.5s"
+          dec: "+24° 06′ 48″"
+          magnitude: 3.72
+          notes: "Tupuārangi — domain: birds, fish, seafood. Food from above and the sea."
+        - name: "Waitī / Maia (20 Tauri) — freshwater environments"
+          ra: "3h 45m 49.6s"
+          dec: "+24° 22′ 04″"
+          magnitude: 3.87
+          notes: "Waitī — domain: rivers, lakes, streams, freshwater life."
+        - name: "Waitā / Merope (23 Tauri) — saltwater / the sea"
+          ra: "3h 46m 19.6s"
+          dec: "+23° 56′ 54″"
+          magnitude: 4.14
+          notes: "Waitā — domain: the ocean, saltwater environments, sea life."
+        - name: "Waipuna-ā-Rangi / Taygeta (19 Tauri) — rain"
+          ra: "3h 45m 12.5s"
+          dec: "+24° 28′ 02″"
+          magnitude: 4.30
+          notes: "Waipuna-ā-Rangi — domain: rain, water from the sky."
+        - name: "Ururangi / Pleione (28 Tauri) — winds"
+          ra: "3h 49m 11.2s"
+          dec: "+24° 08′ 12″"
+          magnitude: 5.05 (variable)
+          notes: "Ururangi — domain: winds, weather conditions for the year ahead."
+        - name: "Hiwa-i-te-rangi / Asterope or Celaeno — aspirations and wishes"
+          ra: "3h 45m 54.4s"
+          dec: "+24° 33′ 18″"
+          magnitude: 5.76
+          notes: "Hiwa-i-te-rangi — the wishing star; domain: aspirations, goals, and the year ahead's fulfillment. Identification with specific Pleiades member varies by iwi source."
+      notes: "The nine-star named tradition is publicly documented by Te Papa Tongarewa (Wellington) and the New Zealand government Matariki public holiday materials. Exact mapping of named stars to Pleiades members varies by iwi (tribal group) tradition. The above mapping represents one widely-cited version per Te Papa public documentation."
+    asterism_schematic:
+      description: "Matariki (Pleiades) appears as a tight cluster of 6–7 (or more with keen eyesight) blue-white stars forming a compact dipper shape in Taurus. In Maori tradition, nine named stars are identified within and adjacent to the cluster, each with a distinct domain of influence over the natural world."
+      line_topology: "Dense cluster — no specific line-topology; the cluster as a whole is the asterism"
+    cultural_iconography:
+      description: "Matariki (lit. possibly 'Mata Ariki' = 'eyes of god/chief' or 'Mata Riki' = 'little eyes') signals the Maori New Year. Its heliacal rising — the cluster's first visible appearance above the eastern horizon before dawn in midwinter (late May to mid-June in the Southern Hemisphere) — marks the time for reflection on the past year, remembrance of those who died since the previous Matariki, and celebration of the new year ahead. Each of the nine named stars governs a domain of the natural world: food from earth, food from sky, freshwater, saltwater, rain, winds, aspirations, ancestors, and health/environment. Te Papa Tongarewa (Wellington's national museum) maintains extensive public documentation on Matariki. New Zealand made Matariki a public holiday in 2022 — the first new public holiday in NZ in 40 years."
+      reference_sources:
+        - "Te Papa Tongarewa: Matariki — https://www.tepapa.govt.nz/discover-collections/read-watch-play/maori/matariki-maori-new-year"
+        - "New Zealand Government: Matariki public holiday — https://www.govt.nz/browse/sport-culture-and-heritage/new-zealand-public-holidays-and-observances/matariki-maori-new-year/"
+        - "Wikipedia: Matariki"
+        - "Best, Elsdon. The Astronomical Knowledge of the Maori. 1922."
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Matariki"
+        - "https://www.tepapa.govt.nz/"
+  primitive_association_hints:
+    suggested_element: "Water / Wind / Earth"
+    suggested_attribute: "WIS / CHA"
+    suggested_animal_form: ""
+    suggested_object_form: "Nine-star cluster / calendar"
+    symbolic_role: "New Year herald; nine-domain cosmic calendar; ancestor bridge; seasonal renewal; remembrance"
+    mythic_narrative_summary: "Matariki (Pleiades) heralds the Maori New Year with its midwinter dawn appearance. Nine named stars govern nature's domains — earth food, sky food, freshwater, saltwater, rain, winds, aspirations, ancestors, and wellbeing. The cluster's heliacal rising triggers a time of remembrance, reflection, and renewal. Official New Zealand public holiday since 2022."
+  semantic_vocabulary:
+    symbolic_keywords: ["Matariki", "Maori New Year", "Pleiades", "nine stars", "midwinter", "ancestors", "renewal", "Te Papa", "New Zealand public holiday", "cluster"]
+    mythic_narrative: "Matariki is the Maori name for the Pleiades star cluster, and the name of the Maori New Year celebration triggered by the cluster's heliacal rising in midwinter (late May–June) in the Southern Hemisphere. In Maori cosmology, Matariki comprises nine named stars, each governing a domain of the natural world. The cluster's appearance signals the time to remember those who have died since the previous Matariki (their spirits are said to travel to the heavens via the cluster), to give thanks for the past year's harvest, and to plant goals and aspirations for the year ahead. New Zealand established Matariki as a national public holiday in 2022 — the first new public holiday in 40 years — a major recognition of Maori cultural knowledge."
+    visual_motifs: ["tight blue-white cluster", "winter dawn rising", "nine-star spiritual domains", "midwinter ceremony", "ancestor stars"]
+  cultural_sensitivity:
+    flag_level: "high"
+    explanation: "Sourced from Te Papa Tongarewa public institutional documentation, New Zealand Government public holiday materials, and Wikipedia. The nine-star tradition and their domains are publicly documented by Te Papa as part of national Matariki education. No restricted ceremonial protocols included — documentation is institutional public record explicitly placed in public access by Te Papa and NZ government."
+    source_authorization: "Te Papa Tongarewa public materials + NZ Government public holiday materials + Wikipedia"
+  provenance:
+    primary_source_url: "https://www.tepapa.govt.nz/discover-collections/read-watch-play/maori/matariki-maori-new-year"
+    secondary_sources:
+      - "Wikipedia: Matariki — https://en.wikipedia.org/wiki/Matariki"
+      - "New Zealand Government Matariki page: https://www.govt.nz/browse/sport-culture-and-heritage/new-zealand-public-holidays-and-observances/matariki-maori-new-year/"
+      - "Best, Elsdon. The Astronomical Knowledge of the Maori. Dominion Museum Monograph No. 3, 1922."
+    academic_anchor: "Best, Elsdon. The Astronomical Knowledge of the Maori. Dominion Museum Monograph No. 3. Wellington: Dominion Museum, 1922."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "polynesian-maori-002"
+  sign_name:
+    primary: "Rehua"
+    variants: ["Rehua (Antares interpretation)", "Rehua (Canopus interpretation)", "Lord of the Stars"]
+    romanization: "Rehua"
+    native_script: "Rehua"
+  cultural_tradition:
+    primary_culture: "Maori (New Zealand)"
+    derivative_cultures: []
+    geographic_origin: "Aotearoa / New Zealand"
+    period_range: "Traditional Maori knowledge; pre-European contact through present; documented in Best (1922) and Te Papa records"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Maori star knowledge (kōrero whetū)"
+    total_signs_in_system: 0
+    position_in_system: 2
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: "Rehua — 'lord of stars'; chief / rangatira of all star-beings; associated with abundance, generosity, and summer"
+      season: "Summer (Southern Hemisphere December–February) — appears in southern sky at highest point"
+      other:
+        navigation_function: "Direction and latitude reference; southern sky marker"
+        star_type: "Individual bright star — Western identity disputed between sources (Antares α Sco vs Canopus α Car)"
+        source_dispute_note: "Academic sources vary on which Western star corresponds to Rehua. Best (1922) documents Antares; some later sources suggest Canopus. This entry documents the dispute explicitly. Both associations are noted."
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/8/8e/Scorpius_IAU.svg"
+      description: "IAU constellation diagram for Scorpius — contains Antares (one candidate for Rehua)"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Carina_IAU.svg"
+        description: "IAU constellation diagram for Carina — contains Canopus (alternate Rehua candidate)"
+        source: "Wikipedia Commons"
+        license: "Public Domain"
+        verified_loads: true
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Antares (α Scorpii) — primary Rehua candidate per Best (1922)"
+          ra: "16h 29m 24.5s"
+          dec: "−26° 25′ 55″"
+          magnitude: 0.96 (variable)
+          notes: "Red supergiant; Scorpius heart star. Best (1922) documents Rehua as associated with Scorpius. Antares is one of the most prominent stars in the Southern Hemisphere summer sky as seen from New Zealand."
+        - name: "Canopus (α Carinae) — alternate Rehua candidate"
+          ra: "6h 23m 57.1s"
+          dec: "−52° 41′ 45″"
+          magnitude: -0.74
+          notes: "Second-brightest star in sky; Carina. Some sources associate Rehua with Canopus for its brilliance and southern prominence. From New Zealand latitudes (~35–47°S), Canopus is circumpolar — it never sets — making it the most persistently visible bright star."
+      notes: "The Western star identity of Rehua is disputed in ethnoastronomy sources. Best (1922) and Orchiston (2000) note different associations. This entry preserves the ambiguity as documented in the academic record rather than collapsing to one identification."
+    asterism_schematic:
+      description: "Rehua is described as a lone chief-star — a single brilliant point of light that is 'lord of all stars.' Whether Antares (red, prominent in Scorpius) or Canopus (second-brightest star, always visible from New Zealand latitudes), the figure is a solitary bright star of exceptional presence and authority."
+      line_topology: "Single star (lord-star concept) — no asterism"
+    cultural_iconography:
+      description: "Rehua is the rangatira (chief) of all star-beings in Maori tradition — the lord of the stars, associated with abundance, hospitality, and summer's generosity. He is said to feed birds with lice from his hair (an abundance-of-food metaphor). Rehua's domain is abundance and plenty: when Rehua is high in the summer sky, food is abundant. He is the highest-ranking star-atua (star deity) in Maori cosmology, above all others in celestial hierarchy. The name is preserved across multiple Maori oral traditions and is documented in Best (1922) and Te Papa institutional records."
+      reference_sources:
+        - "Best, Elsdon. The Astronomical Knowledge of the Maori. 1922."
+        - "Orchiston, Wayne. Maori Astronomy. 2000."
+        - "Wikipedia: Rehua"
+        - "Te Papa Tongarewa: Maori star knowledge"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Rehua"
+        - "https://www.tepapa.govt.nz/"
+  primitive_association_hints:
+    suggested_element: "Fire / Earth"
+    suggested_attribute: "CHA / CON"
+    suggested_animal_form: ""
+    suggested_object_form: "Chief's staff / abundance symbol"
+    symbolic_role: "Lord of all stars; summer abundance; generous chief; highest celestial authority; patron of hospitality"
+    mythic_narrative_summary: "Rehua is the rangatira (chief) of all star-beings — lord of the stars, summer abundance, generosity. He feeds birds from his own hair; his season is summer's plenty. The highest celestial authority in Maori star-cosmology, whether identified with red Antares or brilliant Canopus."
+  semantic_vocabulary:
+    symbolic_keywords: ["lord of stars", "chief", "abundance", "summer", "generosity", "rangatira", "hospitality", "celestial hierarchy", "Maori"]
+    mythic_narrative: "Rehua is the rangatira (chief) of all the star-beings (atua whetū) in Maori tradition — the highest of the star-lords, associated with summer abundance and generosity. He is said to feed birds by releasing lice from his hair — a mythic metaphor for inexhaustible abundance and hospitality. When Rehua is at his highest in the summer sky, food is plentiful and conditions are generous. He occupies the apex of Maori celestial hierarchy — above Matariki, above all other star-beings. The star's Western identity (Antares vs Canopus) is disputed in academic sources; both are noted in this entry."
+    visual_motifs: ["brilliant lone star at zenith", "summer sky authority", "chief feeding birds", "abundance", "celestial hierarchy apex"]
+  cultural_sensitivity:
+    flag_level: "high"
+    explanation: "Sourced from Best (1922) academic documentation (publicly available historical record), Te Papa public records, and Wikipedia. The chief-of-stars concept is well-documented institutional knowledge. The source dispute (Antares vs Canopus identification) is preserved faithfully per the academic record."
+    source_authorization: "Best (1922) academic + Te Papa institutional + Wikipedia"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Rehua"
+    secondary_sources:
+      - "Best, Elsdon. The Astronomical Knowledge of the Maori. 1922."
+      - "Orchiston, Wayne. 'Maori Astronomy.' In Astronomy across Cultures. 2000."
+      - "Te Papa Tongarewa: Maori star records"
+    academic_anchor: "Best, Elsdon. The Astronomical Knowledge of the Maori. Dominion Museum Monograph No. 3. Wellington, 1922."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"  # reduced from high due to Western-star identification dispute
+
+- sign_id: "polynesian-maori-003"
+  sign_name:
+    primary: "Tautoru"
+    variants: ["Tautoru (three in a row)", "Orion's Belt (Western identifier)", "The Three"]
+    romanization: "Tautoru"
+    native_script: "Tautoru"
+  cultural_tradition:
+    primary_culture: "Maori (New Zealand)"
+    derivative_cultures: []
+    geographic_origin: "Aotearoa / New Zealand"
+    period_range: "Traditional Maori knowledge; pre-European contact through present; documented in Best (1922)"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Maori star knowledge (kōrero whetū)"
+    total_signs_in_system: 0
+    position_in_system: 3
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: "Variously: Maui's fishing line in some Maori traditions"
+      season: "Summer visibility — prominent in evening sky November through February (Southern Hemisphere summer)"
+      other:
+        navigation_function: "Direction indicator; rises almost due east and sets almost due west from any latitude — strong east-west compass reference; also indicates equator crossing (passes directly overhead at 0° latitude)"
+        star_type: "Three-star asterism (Orion's Belt — δ, ε, ζ Orionis)"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/9/90/Orion_IAU.svg"
+      description: "IAU constellation diagram for Orion — Tautoru (Orion's Belt) is the three diagonal stars at center"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Mintaka (δ Orionis) — western belt star"
+          ra: "5h 32m 00.4s"
+          dec: "−00° 17′ 57″"
+          magnitude: 2.23
+          notes: "Closest to equator; rises almost exactly due east and sets almost exactly due west; excellent east-west indicator"
+        - name: "Alnilam (ε Orionis) — central belt star"
+          ra: "5h 36m 12.8s"
+          dec: "−01° 12′ 07″"
+          magnitude: 1.69
+          notes: "Brightest of the three belt stars; blue supergiant"
+        - name: "Alnitak (ζ Orionis) — eastern belt star"
+          ra: "5h 40m 45.5s"
+          dec: "−01° 56′ 34″"
+          magnitude: 1.74
+          notes: "Eastern-most belt star; associated with the Flame Nebula region"
+      notes: "All three belt stars lie within 2° of the celestial equator, meaning they rise almost exactly due east and set almost exactly due west from any location on Earth — an exceptional property for navigation. The three stars also pass directly overhead at their culmination for observers near the equator."
+    asterism_schematic:
+      description: "Tautoru (lit. 'three in a row') — the three stars of Orion's Belt in a nearly perfect diagonal line, nearly parallel to the celestial equator. The line of three, if extended westward, points roughly toward Aldebaran and the Pleiades (Matariki). They rise in the east-southeast and set in the west-southwest from New Zealand's midlatitudes."
+      line_topology: "Mintaka — Alnilam — Alnitak: a diagonal line of three stars of similar magnitude, ~3° total span"
+    cultural_iconography:
+      description: "Tautoru (lit. 'three in a row' or 'the three') is the Maori name for Orion's Belt. The three stars are one of the most recognizable asterisms in the sky — three nearly equal stars in a neat diagonal line. In some Maori traditions, Tautoru is connected to the mythology of Maui (Maui's fishing line or canoe thwarts). Its navigational significance is substantial: because the three belt stars lie almost exactly on the celestial equator, they rise almost precisely due east and set due west from any location — making Tautoru one of the most reliable east-west compass bearings in the night sky. From New Zealand, the constellation appears inverted compared to Northern Hemisphere views."
+      reference_sources:
+        - "Best, Elsdon. The Astronomical Knowledge of the Maori. 1922."
+        - "Wikipedia: Orion's Belt"
+        - "Wikipedia: Tautoru"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Orion%27s_Belt"
+        - "https://en.wikipedia.org/wiki/Tautoru"
+  primitive_association_hints:
+    suggested_element: "Wind / Sky"
+    suggested_attribute: "WIS / DEX"
+    suggested_animal_form: ""
+    suggested_object_form: "Three-star line / fishing line / canoe thwart"
+    symbolic_role: "East-west compass; equatorial three; Maui's line; perfect symmetry; direction-giver"
+    mythic_narrative_summary: "Tautoru — 'three in a row.' Orion's Belt rises due east and sets due west from any place on Earth, making it the sky's perfect east-west compass. Associated with Maui's fishing line in some Maori traditions. Three equal stars in a line — simplicity as navigational power."
+  semantic_vocabulary:
+    symbolic_keywords: ["Orion's Belt", "three in a row", "east-west", "equatorial", "navigation compass", "three stars", "Maui fishing line", "direction"]
+    mythic_narrative: "Tautoru (lit. 'three in a row') — the Maori name for Orion's Belt (δ, ε, ζ Orionis). All three stars lie within 2° of the celestial equator, meaning they rise almost exactly due east and set almost exactly due west regardless of where on Earth the observer stands. This property makes Tautoru one of the most reliable compass-direction indicators in the entire night sky. In some Maori traditions, the three stars are associated with Maui — his fishing line or the thwarts of his canoe. From New Zealand's southern latitudes, Orion and Tautoru appear 'upside down' compared to Northern Hemisphere views — the belt is at the top of Orion's figure."
+    visual_motifs: ["three diagonal stars", "east-west line indicator", "nearly identical star brightness", "equatorial belt", "Orion inverted (Southern Hemisphere)"]
+  cultural_sensitivity:
+    flag_level: "high"
+    explanation: "Sourced from Best (1922) academic record and Wikipedia. The east-west navigation function is documented standard star knowledge. The Maui-connection is documented in Best (1922) public academic record."
+    source_authorization: "Best (1922) academic + Wikipedia"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tautoru"
+    secondary_sources:
+      - "Wikipedia: Orion's Belt — https://en.wikipedia.org/wiki/Orion%27s_Belt"
+      - "Best, Elsdon. The Astronomical Knowledge of the Maori. 1922."
+    academic_anchor: "Best, Elsdon. The Astronomical Knowledge of the Maori. Dominion Museum Monograph No. 3. Wellington, 1922."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "polynesian-maori-004"
+  sign_name:
+    primary: "Māhutonga"
+    variants: ["Mahutonga", "Te Kāhui o Matariki (alternate)", "Southern Cross (Western identifier)", "Crux"]
+    romanization: "Mahutonga"
+    native_script: "Māhutonga"
+  cultural_tradition:
+    primary_culture: "Maori (New Zealand)"
+    derivative_cultures: []
+    geographic_origin: "Aotearoa / New Zealand (and broader Southern Hemisphere Pacific)"
+    period_range: "Traditional Maori knowledge; pre-European contact through present; documented in Best (1922) and Te Papa records"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Maori star knowledge (kōrero whetū)"
+    total_signs_in_system: 0
+    position_in_system: 4
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Visible year-round from New Zealand latitudes (circumpolar — never sets below horizon from latitudes south of ~35°S); prime visibility March–June"
+      other:
+        navigation_function: "South celestial pole pointer; Southern Hemisphere equivalent of Polaris-pointing; long axis of cross points toward south celestial pole"
+        star_type: "Four/five-star asterism (Crux / Southern Cross)"
+        cultural_note: "Māhutonga is also associated with southerly winds in Maori tradition; the name may be applied to the Southern Cross and to south wind concepts"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/9/9d/CruxCC.jpg"
+      description: "Photograph of the Southern Cross (Māhutonga / Crux) with Coalsack dark nebula visible at upper left and the Pointer Stars (α and β Centauri) at right"
+      source: "Wikipedia Commons"
+      license: "CC-BY-SA"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://upload.wikimedia.org/wikipedia/commons/f/f2/Crux_IAU.svg"
+        description: "IAU constellation diagram for Crux (Southern Cross) — compact four-star cross pattern"
+        source: "Wikipedia Commons"
+        license: "Public Domain"
+        verified_loads: true
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Acrux (α Crucis) — foot of the cross; southernmost"
+          ra: "12h 26m 35.9s"
+          dec: "−63° 05′ 57″"
+          magnitude: 0.77
+          notes: "Brightest star of the Southern Cross; blue-white; at the base of the cross (farthest south). The long axis of the Cross (from Gacrux through Acrux) points toward the south celestial pole."
+        - name: "Mimosa (β Crucis) — left arm of cross"
+          ra: "12h 47m 43.3s"
+          dec: "−59° 41′ 20″"
+          magnitude: 1.25
+          notes: "Second-brightest of Southern Cross; blue subgiant"
+        - name: "Gacrux (γ Crucis) — top of the cross"
+          ra: "12h 31m 09.9s"
+          dec: "−57° 06′ 48″"
+          magnitude: 1.64
+          notes: "Red giant; topmost star of the Cross; the long axis from Gacrux to Acrux, extended 4.5× its length, points to the south celestial pole"
+        - name: "Imai (δ Crucis) — right arm of cross"
+          ra: "12h 15m 08.7s"
+          dec: "−58° 44′ 56″"
+          magnitude: 2.79
+      notes: "To find the south celestial pole: extend the long axis of the Southern Cross (Gacrux to Acrux) by approximately 4.5 times its own length southward — the pole lies near there. No bright south pole star exists (unlike Polaris in the north), so the Cross-extension method is the primary south-finding technique."
+    asterism_schematic:
+      description: "Māhutonga / Southern Cross (Crux) forms a compact four-star cross pattern, noticeably tilted. The long axis (Gacrux–Acrux) points toward the south celestial pole when extended ~4.5× its length. The Coalsack Nebula (a dark nebula visible to the naked eye) lies adjacent to the Cross — the 'head' of the Andean Yacana dark-cloud llama, and significant in multiple Southern Hemisphere traditions. The two bright Pointer Stars (α and β Centauri / Rigil Kentaurus and Hadar) flank the Cross and help confirm its orientation."
+      line_topology: "Cross: Gacrux (top) — Acrux (bottom) = long axis; Mimosa (left) — Imai (right) = short cross-bar. Long axis extended south → south celestial pole"
+    cultural_iconography:
+      description: "Māhutonga is the Maori name most associated with the Southern Cross. It is the most prominent star group in the Southern Hemisphere sky and a foundational navigation reference for all Southern Pacific sailing. Unlike Northern Hemisphere navigators who have Polaris as an exact north-pole star, Southern Hemisphere navigators must use the Southern Cross as a pointer toward the south celestial pole (no bright star marks it exactly). The Southern Cross also appears on the New Zealand flag and the Australian flag — a testament to its cultural prominence across the Southern Pacific. In Maori tradition, Māhutonga is associated with southerly winds and directions. The Southern Cross is also home to the Coalsack Nebula (a prominent dark patch adjacent to it), which features in both Andean dark-cloud constellation tradition and Maori sky knowledge."
+      reference_sources:
+        - "Best, Elsdon. The Astronomical Knowledge of the Maori. 1922."
+        - "Wikipedia: Southern Cross"
+        - "Wikipedia: Crux"
+        - "Te Papa Tongarewa: Maori navigation star knowledge"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Crux"
+        - "https://en.wikipedia.org/wiki/Southern_Cross"
+  primitive_association_hints:
+    suggested_element: "Wind / Water"
+    suggested_attribute: "WIS"
+    suggested_animal_form: ""
+    suggested_object_form: "Cross / direction compass"
+    symbolic_role: "South celestial pole pointer; Southern Hemisphere anchor; southerly wind marker; Southern Pacific identity symbol"
+    mythic_narrative_summary: "Māhutonga — the Southern Cross, the Southern Hemisphere's north star equivalent. No bright star marks the south pole, so the Southern Cross's long axis serves as the pointer. Associated with southerly winds in Maori tradition. The most recognizable constellation of the Southern Pacific sky."
+  semantic_vocabulary:
+    symbolic_keywords: ["Southern Cross", "south pole pointer", "Southern Hemisphere", "Crux", "navigation", "southerly wind", "New Zealand", "Coalsack", "cross-shaped asterism"]
+    mythic_narrative: "Māhutonga is the Maori name for the Southern Cross (Crux) — the dominant navigation constellation of the Southern Hemisphere sky, equivalent in function to Polaris/Hoku Pa'a for northern navigators but requiring more calculation (no exact south pole star exists). The long axis of the Southern Cross, extended approximately 4.5 times its own length, points to the south celestial pole. Maori navigators used this to maintain south-pointing and latitude awareness in the Southern Pacific. The Coalsack Nebula — the dark patch adjacent to the Southern Cross — is one of the most striking dark-sky features visible to the naked eye, and features in multiple Southern Hemisphere sky traditions including Andean dark-cloud constellations."
+    visual_motifs: ["compact four-star cross", "tilted cross shape", "south pointer", "Coalsack dark patch", "Southern Pacific sky", "NZ flag cross"]
+  cultural_sensitivity:
+    flag_level: "high"
+    explanation: "Sourced from Best (1922) academic record, Te Papa public records, and Wikipedia. The Southern Cross as a Maori navigation reference is well-documented institutional knowledge. No restricted ceremonial content included."
+    source_authorization: "Best (1922) academic + Te Papa institutional + Wikipedia"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Crux"
+    secondary_sources:
+      - "Best, Elsdon. The Astronomical Knowledge of the Maori. 1922."
+      - "Te Papa Tongarewa: Maori star knowledge"
+    academic_anchor: "Best, Elsdon. The Astronomical Knowledge of the Maori. Dominion Museum Monograph No. 3. Wellington, 1922."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "polynesian-maori-005"
+  sign_name:
+    primary: "Tama-rereti"
+    variants: ["Tail of Scorpius interpretation", "Milky Way canoe tradition", "The Milky Way canoe"]
+    romanization: "Tama-rereti"
+    native_script: "Tama-rereti"
+  cultural_tradition:
+    primary_culture: "Maori (New Zealand)"
+    derivative_cultures: []
+    geographic_origin: "Aotearoa / New Zealand"
+    period_range: "Traditional Maori knowledge; pre-European contact through present; documented in Best (1922)"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Maori star knowledge (kōrero whetū)"
+    total_signs_in_system: 0
+    position_in_system: 5
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: "Tama-rereti — the hero who scattered stars in the sky to light the night; ancestor-hero of celestial ordering"
+      season: "Summer to winter sky — the figure spans multiple constellations / the Milky Way arch"
+      other:
+        navigation_function: "Mythological framework for the Milky Way as a celestial river / canoe path; orientation and direction"
+        star_type: "Composite — Milky Way cosmological figure + tail of Scorpius in some traditions"
+        note: "Tama-rereti is documented as both (a) the hero who scattered stars and whose canoe became the Milky Way, and (b) in some traditions as a name for the tail of Scorpius. This entry documents the Milky Way-canoe tradition as primary per Best (1922)."
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/9/94/Milky_Way_Arch.jpg"
+      description: "Photograph of the Milky Way arch — the celestial river that forms Tama-rereti's canoe in Maori tradition"
+      source: "Wikipedia Commons"
+      license: "CC-BY-SA"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Milky Way galactic band — no specific star coordinates"
+          ra: "N/A — spans galactic plane"
+          dec: "N/A — spans galactic plane"
+          magnitude: "Integrated — not a point source"
+          notes: "Tama-rereti's canoe is the Milky Way band itself — a sky-spanning figure, not a star-point figure"
+      notes: "Tama-rereti spans the full Milky Way band as a cosmological figure. In the alternative tradition, the tail of Scorpius is Tama-rereti's anchor rope or the tail of his canoe."
+    asterism_schematic:
+      description: "Tama-rereti's canoe is the Milky Way itself — the broad luminous band of the galactic plane stretching from horizon to horizon. In the Southern Hemisphere summer, the Milky Way appears as a brilliant arch spanning the sky. The galactic center (in Sagittarius / Scorpius direction) is the richest and most brilliant portion — the prow or stern of the canoe. Scorpius and the Coalsack Nebula are associated with specific parts of the canoe in some traditions."
+      line_topology: "Milky Way galactic band — spans ~360° of the full-sky arc"
+    cultural_iconography:
+      description: "Tama-rereti is the ancestor-hero who, in Maori mythology, sailed his canoe across the sky and scattered glowing stones (stars) from the bilge onto the dark waters of the heavens to light the night for those who would travel after him. His canoe became the Milky Way. When he had scattered all his stones, Ranginui (the Sky Father) was so pleased that he placed Tama-rereti and his canoe permanently in the sky. The tradition provides a mythological framework for the Milky Way as a celestial river or path — a bridge connecting the earthly and heavenly realms. In some traditions, the tail of Scorpius is specifically called Tama-rereti or associated with his anchor rope."
+      reference_sources:
+        - "Best, Elsdon. The Astronomical Knowledge of the Maori. 1922."
+        - "Wikipedia: Tama-rereti"
+        - "Te Papa Tongarewa: Maori cosmological tradition records"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Tama-rereti"
+  primitive_association_hints:
+    suggested_element: "Water / Sky"
+    suggested_attribute: "CHA / WIS"
+    suggested_animal_form: ""
+    suggested_object_form: "Celestial canoe / Milky Way river"
+    symbolic_role: "Celestial creator; star-scatterer; Milky Way personification; ancestor-hero of ordered night sky"
+    mythic_narrative_summary: "Tama-rereti sailed his canoe across the dark sky and scattered glowing stones (stars) from the bilge to light the night — his canoe became the Milky Way. The ancestor-hero who ordered the night sky. The Milky Way as a celestial river and wayfinder's path."
+  semantic_vocabulary:
+    symbolic_keywords: ["Milky Way", "canoe", "star-scatter", "ancestor hero", "celestial river", "night sky creator", "Maori myth", "Tama-rereti", "sky-ordering"]
+    mythic_narrative: "Tama-rereti is the Maori ancestor-hero who ordered the night sky. In the creation tradition, Tama-rereti was sailing his canoe across the great dark waters of the heavens when he realized that the night was too dark for safe travel. He gathered glowing stones from the bilge of his canoe and scattered them across the sky — these became the stars. Ranginui (the Sky Father) was so pleased that he placed Tama-rereti's canoe permanently in the sky as the Milky Way — the arch of glowing scattered stars that spans the night. This cosmological tradition frames the Milky Way as both a celestial road and the eternal monument to Tama-rereti's generosity and ingenuity."
+    visual_motifs: ["Milky Way arch", "scattering stars from canoe", "luminous galactic band", "celestial river", "ancestor voyager"]
+  cultural_sensitivity:
+    flag_level: "high"
+    explanation: "Sourced from Best (1922) academic record and Wikipedia. The Tama-rereti Milky Way cosmological tradition is publicly documented in academic and institutional sources. No restricted ceremonial protocols included."
+    source_authorization: "Best (1922) academic + Wikipedia + Te Papa institutional"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tama-rereti"
+    secondary_sources:
+      - "Best, Elsdon. The Astronomical Knowledge of the Maori. 1922."
+      - "Te Papa Tongarewa: Maori cosmological tradition records"
+    academic_anchor: "Best, Elsdon. The Astronomical Knowledge of the Maori. Dominion Museum Monograph No. 3. Wellington, 1922."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"  # reduced from high; tradition has multiple variant interpretations across iwi
+
+# =============================================================================
+# EXCLUSION NOTES — content encountered but NOT sourced per sensitivity protocol
+# =============================================================================
+# EXCLUDED: Specific navigation-star sequences (star paths / kilo hoku routes)
+#   used in Nainoa Thompson's voyage-specific training that are marked in PVS materials
+#   as "not for general public distribution" or that appear on sites that are not
+#   institutional public record. Navigation-path sequences are transmission-restricted
+#   knowledge per PVS own framing.
+#
+# EXCLUDED: Specific hula and ceremony-associated star knowledge from sites that
+#   do not have institutional backing (e.g., practitioner blogs, spiritual tourism sites).
+#
+# EXCLUDED: Any star names from iwi-specific oral traditions not confirmed in
+#   published institutional sources (Te Papa, Best 1922, Bishop Museum). Oral
+#   traditions accessed only via third-party non-institutional web sources were
+#   not included per HIGH sensitivity protocol.
+#
+# EXCLUDED: Specific star names from the Maori "star compass" that appear only on
+#   non-institutional sites or in materials marked for wānanga (teaching house)
+#   rather than public access.
