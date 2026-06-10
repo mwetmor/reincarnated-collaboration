@@ -18,13 +18,28 @@ PC hive-mind autonomous cycles surfaced two operational ceilings during 2026-06-
 1. **SSH session persistence is brittle** — connection drops mid-flight kill the David-H session (tmux not installed on PC; no Windows-native equivalent durable through SSH disconnect)
 2. **Permission allowlist is too narrow for autonomous operation** — every safe diagnostic operation (git ls-files, where commands, common PowerShell queries) triggers per-operation Matt approval; defeats autonomy purpose
 
-**Both need solving for future PC hive-mind cycles to deliver on the federated PC team architecture promise.** Setup session estimated ~1-2 hour Matt + PC hands-on work + ~1 hour gandalf documentation refresh.
+**Matt 2026-06-10 directive — TWO-PHASE APPROACH ratified:**
 
-**Recommended setup-session scope:**
-1. Install WSL2 + Ubuntu + tmux on PC (~30-45 min; one-time admin + reboot)
-2. Refine PC `.claude/settings.local.json` for autonomous-safe operation (broader patterns for common diagnostic operations; preserve narrow allowlist for write + scope-amendment operations) (~30 min)
-3. Update CLAUDE.md + PC team OPs with new tmux-wrapped invocation pattern (~30 min gandalf authoring)
-4. Test autonomous PC hive-mind cycle end-to-end with refined infrastructure (~30 min)
+### Phase 1 (NEXT SESSION) — Option α git-focused settings refinement
+**Just** refine PC `.claude/settings.local.json` to broad-allow git read operations + common PowerShell diagnostic patterns. **NO tmux install. NO WSL install. NO system-state changes.** Pure settings-file refinement, additive only, reversible if needed.
+
+Rationale: Matt 2026-06-10 verbatim "git is the main problem" — git friction was the actual operational pain point per 2026-06-09 evening cycle. Settings refinement alone delivers most autonomy benefit at much lower cost than full infrastructure setup. SSH-keepalive workflow remains current; sufficient for sessions where Matt is actively monitoring.
+
+**Phase 1 scope (~30 min next session):**
+- Append broad git read patterns + PowerShell diagnostic patterns to PC `.claude/settings.local.json` per § 2.3
+- Commit settings change with `david-h` prefix per CLAUDE.md addendum
+- Push per PC-seam standing wave-close pattern
+- Test next autonomous wave-cycle for friction reduction
+
+### Phase 2 (DEFERRED — subsequent setup session)
+**Full PC infrastructure setup** — WSL2 + Ubuntu + tmux install + docs update + comprehensive autonomous-cycle test. **Fires only if Phase 1 proves insufficient** OR session-persistence friction becomes pressing (e.g., autonomous cycles need to run beyond Matt active-monitoring windows).
+
+**Phase 2 scope (~1-2 hour focused session; deferred):**
+- Install WSL2 + Ubuntu + tmux on PC (~30-45 min; one-time admin + reboot)
+- Update CLAUDE.md + PC team OPs with new tmux-wrapped invocation pattern (~30 min gandalf authoring)
+- Test autonomous PC hive-mind cycle end-to-end with full infrastructure (~30 min)
+
+**This document captures BOTH phases.** Phase 1 fires next session per § 2.3 + § 4.2-α below. Phase 2 fires when triggered per § 4.2-β below.
 
 ---
 
@@ -240,27 +255,48 @@ Append amendment section: "PC infrastructure refinement 2026-06-XX: WSL + tmux i
 
 ## 4. Recommended setup-session sequencing
 
-### 4.1 Pre-session prep (Matt)
-- Backup PC settings.local.json (just in case)
-- Identify good time window for PC reboot (WSL install requires it)
+### 4.1 Pre-session prep
+- (Phase 1) NONE — settings refinement is gandalf-side authoring; no Matt-side prep needed
+- (Phase 2, deferred) Backup PC settings.local.json + identify good time window for PC reboot (WSL install requires it)
 
-### 4.2 Setup session execution (~1-2 hour wall-clock)
+### 4.2-α PHASE 1 — Git-focused settings refinement (NEXT SESSION; ~30 min wall-clock)
+
+| Step | Action | Owner | Time |
+|---|---|---|---|
+| 1 | Gandalf reads current PC `.claude/settings.local.json` via SSH | gandalf | ~5 min |
+| 2 | Gandalf authors broad git read pattern + PowerShell diagnostic pattern additions per § 2.3 | gandalf | ~10 min |
+| 3 | Gandalf commits settings update with `david-h` prefix per CLAUDE.md addendum via SSH (cd C:\dev\reincarnated-collaboration && git add + commit + push) | gandalf via SSH | ~5 min |
+| 4 | Brief autonomous-cycle test: fire David-H with a simple read-only diagnostic task; verify ≤2 Matt-interruption prompts | gandalf + Matt monitors | ~10 min |
+| 5 | Gandalf updates ground-state oracle § 5 + this plan doc § 0 to note Phase 1 complete | gandalf | ~5 min |
+
+**Phase 1 acceptance criteria:**
+- ✅ PC `.claude/settings.local.json` extended with broad git read patterns + common PowerShell diagnostic patterns per § 2.3
+- ✅ Narrow exact-string allowlist preserved for write + scope-amendment operations per § 2.4
+- ✅ Settings change committed + pushed via PC-seam standing wave-close pattern
+- ✅ Brief autonomous-cycle test shows friction reduction (≤2 Matt-interruption prompts on read-only diagnostic task; vs ~10-15 pre-refinement)
+- ✅ Ground-state oracle updated; this plan § 0 TL;DR notes Phase 1 complete
+
+**Phase 1 done — return to design-trajectory work** (Pattern B icon design / WS2 commission authoring / etc. per `2026-06-09-next-session-plan-post-branch-A-lock.md`).
+
+### 4.2-β PHASE 2 — Full infrastructure setup (DEFERRED; fires only on empirical trigger)
 
 | Step | Action | Owner | Time |
 |---|---|---|---|
 | 1 | Install WSL2 via admin PowerShell (`wsl --install`) + reboot | Matt at PC | ~15 min + reboot |
 | 2 | Set up Ubuntu user account + install tmux (`sudo apt install tmux`) | Matt in WSL shell | ~10 min |
 | 3 | Test tmux from SSH: `ssh -t mhwet@192.168.1.133 "wsl -d Ubuntu -- tmux ls"` | Matt from Mac | ~5 min |
-| 4 | Gandalf authors PC `.claude/settings.local.json` refinement per § 2.3 | gandalf via SSH | ~20 min |
-| 5 | Test autonomous PC hive-mind end-to-end with refined infrastructure | David-H autonomous + Matt monitors | ~30 min |
-| 6 | Gandalf updates CLAUDE.md + PC team OPs + federated PC team architecture commit doc per § 3 | gandalf | ~30 min |
-| 7 | Push + commit + skill_handoff for cross-session continuity | KR | ~10 min |
+| 4 | Gandalf updates CLAUDE.md + PC team OPs + federated PC team architecture commit doc per § 3 | gandalf | ~30 min |
+| 5 | Test autonomous PC hive-mind end-to-end with full infrastructure | David-H autonomous + Matt monitors | ~30 min |
+| 6 | Push + commit + skill_handoff for cross-session continuity | KR | ~10 min |
 
-### 4.3 Acceptance criteria for the setup session
+**Phase 2 firing triggers (any one):**
+- Phase 1 proves insufficient (friction not adequately reduced; autonomous cycles still hit operational ceiling)
+- Session-persistence friction becomes pressing (autonomous cycles need to run beyond Matt active-monitoring windows; e.g., WS2 commission execution at AAA-fidelity scope warrants 1-2 hour autonomous wave-cycles)
+- New PC-side tooling needed that justifies WSL install for broader Linux tooling ecosystem
 
+**Phase 2 acceptance criteria** (when fired):
 - ✅ tmux installed and operational on PC (via WSL or alternative)
 - ✅ SSH-via-tmux invocation pattern documented + tested
-- ✅ PC `.claude/settings.local.json` refined to support autonomous diagnostic operations
 - ✅ Test autonomous wave-cycle completes with ≤3 Matt-interruption prompts
 - ✅ CLAUDE.md + PC team OP docs updated
 - ✅ Cross-session continuity preserved (skill_handoff + ground-state oracle § 5 updates)
