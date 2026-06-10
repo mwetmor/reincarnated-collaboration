@@ -4,6 +4,16 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-06-09 — Pi power-outage recovery pattern captured (knight-rider ops note; D1 still deferred)
+
+**Event:** Power outage during interval left the Pi with sshd in a post-boot degraded state (`kex_exchange_identification: read: Connection reset by peer` despite healthy TCP + ping). Single physical power cycle + 60–90s wait restored SSH cleanly; rootfs came back `rw` with no fsck damage; SMB share remounted via `⌘K → smb://reincarnated-pi.local` (Finder sidebar staleness bypassed). Postgres-not-installed re-confirmed empirically — matches deferred-D1 status from 2026-05-25 recognition record.
+
+**Durable artifact:** `agentic_orchestration/knight-rider/notes/2026-06-09-pi-power-outage-recovery-pattern.md` captures the diagnostic chain (network → TCP → IPv4/v6 split → power-cycle recovery → post-cycle health verification), the Finder SMB-discovery bypass pattern, and the empirical evidence from this outage (SD card survived, sshd misleading symptom). Recommended for incorporation into the eventual D1 ops runbook (post-Tier-1-execution; star-lord territory; not yet authored).
+
+**Decision impact:** none. D1 (Pi-Postgres) stays RATIFIED-but-DEFERRED per the 2026-05-25 recognition record § 7.1. D8 (Tailscale) stays deferred to Matt's 15-min window. This note adds operational evidence for the eventual ops runbook, NOT a scheduling commitment.
+
+---
+
 ## 2026-06-06 — Cosmograph Phase A creation-moment manifestation CLOSED (production deploy live; first creation-moment surface validated)
 
 **Event:** First creation-moment manifestation of the future-engine substrate at production `/forge` route. End-to-end Phase A round-trip closed across elrond (substrate-trace extraction) + gandalf (commission authoring + Pattern-A adjudication + Gate-1 amendments + wave-close authoring) + drax (5-phase rendering + 3 post-Gate-2 polish phases) + jack-ryan (Gate-1 PASS-WITH-AMENDMENTS + Gate-2 PASS-CLEAN-MERGE) + Matt (Path-A-feature push directive + final preview ratification). Architecture per `canonical/story/2026-06-05-cosmograph-pivot.md` § 9 (primitive-as-star + kit-as-constellation) + Option B amendment (ALL constellations PROVISIONAL until cycle 15+ regenerates against future-engine substrate; cycle 14 corpus untouched at `/loadout`).
