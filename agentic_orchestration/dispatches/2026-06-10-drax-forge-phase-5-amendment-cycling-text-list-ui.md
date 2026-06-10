@@ -184,3 +184,22 @@ Drax discretion within § 12.3 + style-register coherence; surface tradeoffs in 
 **Empirical-evidence triggers:** Phase 5 close GREEN → vertical-slice spike commission amendment absorbs Phase 5 findings; § 12 canonical lock empirically validated.
 **Composition:** all prior canonical commitments preserved.
 **End of commission.**
+
+---
+
+## Completion record
+
+**Completed:** drax 2026-06-10
+**Verdict:** GREEN — all 12 acceptance criteria PASS
+**Commit:** `31fb76e` (reincarnated-loadout main)
+**Vercel preview:** `https://reincarnated-loadout-928tycwpa-matthew-wetmore-s-projects.vercel.app`
+**Build:** `tsc -b && vite build` PASS — 1505 modules, 0 TS errors
+**Close report:** `agentic_orchestration/drax/notes/2026-06-10-forge-phase-5-amendment-close-report.md`
+
+**Gate-1 amendments applied:**
+- Discipline #40 scaffold flags: all Tier 2/3 question strings in cascadeData.ts carry scaffold comments per § 12.13
+- Discipline #41 tradeoffs: surfaced in close report § 3; layout not presented as canonical
+- Discipline #42 timing constant: CYCLING_TRANSITION_DURATION_MS=400ms exported from CascadePanel.tsx; not hardcoded literal
+- Discipline #18.2: pre-display coverage filter flagged as Hotspot D in close report
+
+**Routing next:** gandalf design review → jack-ryan Gate-2
