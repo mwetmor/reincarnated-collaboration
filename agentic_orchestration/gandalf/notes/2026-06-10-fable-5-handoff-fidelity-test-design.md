@@ -144,3 +144,32 @@ The cost reframing matters: a model that produces more verbose but more *predict
 ---
 
 **End of design note.** The task is unchanged; the lens is sharper. We are measuring the *spec-as-channel*, and the 1:1-assignment trap gives us a single falsifiable fidelity probe at the center of it.
+
+---
+
+## 9. FIELD FINDINGS — author-phase run (2026-06-10, commit 8ba4da1)
+
+The Fable-5 author phase ran and produced `agentic_orchestration/gandalf/notes/2026-06-10-kit-to-star-sign-assignment-spec.md` (376 lines). gandalf-Opus-4.8 read it in full (trust-but-verify): the spec is high-quality and matches the author's self-summary. The author caught the 1:1 constraint (§ 1.3 / § 4.1 / § 4.2 — injective matching, open addressing with linear probe, birthday-bound computed). **But the trap-detection signal is contaminated on TWO layers, and the deeper one is an eval-design lesson, not just a process slip:**
+
+### 9.1 Layer 1 — structural air-gap leak (author self-disclosed; my process error)
+The author's OP § 1 session-start mandates "read own latest 3 notes." The latest note in `gandalf/notes/` *was the author-commission file itself* — whose protocol preamble **names the 1:1-binding trap** ("do NOT paste this section… predicting the trap IS the test"). So the trap-name sat directly in the author's mandated read path. **This is my authoring error:** I put the trap-naming protocol note in the same file, in the same directory the author is required to read. Fix (author's own recommendation, correct): stage the commission/protocol material OUTSIDE the author's session-start read path — a separate `agentic_orchestration/fable-5-eval/` directory the author OP does not walk.
+
+### 9.2 Layer 2 — the trap is pre-documented in the MANDATED canonical sources (the deeper lesson)
+Independent of the leak: the 1:1 constraint is stated verbatim in Tal Rasha § 0 (Branch A "1:1") and cosmograph-pivot § 10 — both *required* reads. Worse for the probe, the elrond MVP close § 3.1 — also a required read — **explicitly flags the 4 collisions as a methodology hotspot AND names the fix** ("constrained random sampling without replacement"). So any author faithfully reading the mandated sources encounters both the constraint and the fix. **The 1:1 trap therefore tests faithful source-synthesis (which Phase 1 already established), NOT novel architectural prediction.** A trap whose answer is written in the required reading has weak discriminating power between a deep and a shallow author.
+
+### 9.3 The REAL clean signal — predictive completeness on details NOT in any source
+The uncontaminated, high-value signal is everything in the spec that is *not* derivable from the sources: ordinal-vs-locale string-comparison determinism (§ 5.2), the load-bearing `"::"` separator, emit-nothing-on-partial-failure (§ 5.4 step 8), 13 normative edge cases, post-condition asserts, the Hungarian forward-compat separation-of-concerns (§ 10), and **authoring-time-computed fixture vectors** (it actually ran SHA256 → h mod 391 = 234, found the single real probe-collision kit_physical_000028 → chinese-xiu-022). None of that is in the sources; all of it is implementer-load-bearing. *That* is the predictive-architecture capability Matt's reframing targets, and it is clean.
+
+### 9.4 Consequence for the eval verdict
+- The 1:1-trap probe is **discounted** (contaminated both layers).
+- The author-phase verdict rests on **predictive completeness** (§ 9.3) — strong and clean.
+- The **implementer phase remains fully valid and uncontaminated**: "can a fresh clean-room agent build this from the spec alone, zero round-trips?" The spec now *contains* the correct injective formulation, so the implementer test is no longer about the trap — it's about whether the spec's completeness (§ 9.3) actually holds up under a build. Predicted result: G0. If a fresh build hits gaps, those gaps are the true fidelity signal.
+
+### 9.5 Implementer-seam note (production owner ≠ eval implementer)
+The task's *production* owner is **elrond** (data steward; built the v1.0 MVP; the spec extends its script conventions). But elrond cannot be the *eval* implementer — it built the predecessor, so it carries prior task knowledge and would violate the clean-room (spec-is-only-channel) premise. The eval implementer must be a Fable-5 agent with **no prior exposure to this task** (rocket fits). Reconciliation: the eval produces a test artifact; production seam-correct integration (elrond) is a separate post-eval step.
+
+### 9.6 Eval-design corrections registered (for the next iteration of this test)
+1. Stage commission + protocol material outside the author's OP read path (§ 9.1).
+2. Choose a probe whose load-bearing detail is genuinely absent from the mandated sources — OR judge the author on predictive completeness (§ 9.3) rather than a single documented "trap" (§ 9.2).
+3. Eval implementer must be a non-owner clean-room agent (§ 9.5).
+4. The author's honest self-disclosure of the leak is itself a positive discipline marker — record it in the eval memo as a recognition-validate-commit / honesty signal.
