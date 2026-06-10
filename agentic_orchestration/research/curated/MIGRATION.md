@@ -7,6 +7,62 @@
 
 ---
 
+## v1.10 — kit_star_sign_assignments.json sidecar landed (kit-to-star-sign MVP Phase 2) — 2026-06-09
+
+### What changed (one line)
+
+Landed `reincarnated-loadout/public/kit-space/kit_star_sign_assignments.json` (schema v1.0; artifact_kind `kit_star_sign_assignments`) — a parallel sidecar to `faction_assignments.json` carrying per-kit `star_sign_id` + `star_sign_name` + `star_sign_tradition` + `star_sign_assignment_method` (HAND_CURATED | RANDOM) + optional `hand_curated_anchor` for the active 37-kit corpus. Source corpus: Legolas 423-entry zodiac substrate at `agentic_orchestration/legolas/research/2026-06-09-zodiac-substrate-corpus/corpus.yaml`. 3 hand-curated overrides (Duskweaver→Mula; Cannonade Cleric→Krittika; Stonefist→Hercules per gandalf Phase 1 doc) + 34 deterministic-random assignments from a 394-entry filtered pool (29 high-flag-level entries deferred to gandalf review; 0 restricted).
+
+### Why (one line)
+
+Operationalizes the kit-binds-1:1-to-star-sign architectural commitment (Branch A half per Tal Rasha glyphic primitive-anchor architecture recognition 2026-06-09) at MVP scope per Matt 2026-06-09 directive ("3 kits map cleanly; rest random"); unblocks drax /forge cosmograph kits-as-constellations rendering + downstream mantis UE port WS1 DataTable ingestion of `star_sign_id` without pre-committing to full-corpus canonical semantic mapping methodology (deferred to Cycle 15+ Pattern B once empirical vertical-slice playtest informs).
+
+### Who's affected
+
+- **Drax** — `/forge` cosmograph consumer: read `public/kit-space/kit_star_sign_assignments.json` alongside existing `faction_assignments.json` + per-kit JSONs; `star_sign_id` is the FK into the Legolas zodiac corpus (sign_id key); `star_sign_name` + `star_sign_tradition` are denormalized for direct display without corpus-load dependency. Rendering kits-as-constellations is a separate Phase 5 or amendment dispatch — this MIGRATION lands the data surface, not the rendering.
+- **Mantis (PC seam; downstream)** — UE port WS1 absorbs `star_sign_id` via DataTable ingestion when WS1 scope is authored. No immediate action; surface for awareness.
+- **Gandalf** — design-review surface: 29 high-sensitivity-flag corpus entries deferred to gandalf review per dispatch § 3.4 (substrate-cleanliness-over-volume default applied). If gandalf reviews + decides any subset should be includable in the random pool, bump filter policy in script and re-run (deterministic; only affected RANDOM assignments shift).
+- **Star-lord** — engine emit is NOT affected. The kit JSON files at `public/kit-space/kits/` were NOT modified (no kit regeneration triggered). Engine-side telemetry has no new write path.
+- **Rocket** — engine-side generation has no new dependency. Kit corpus generation continues to emit the existing schema; the sidecar is purely an elrond-seam additive curation pass on top of generated kit IDs.
+- **Knight-rider** — wave-close routing surface: this commission is the Phase 2 closure of dispatch `2026-06-09-elrond-kit-to-star-sign-assignment-mvp.md`. Phase 1 (gandalf hand-curation) committed prior at `7d334d7`.
+- **Legolas** — substrate-source-of-truth: 423-entry zodiac corpus is the canonical source-of-truth for sign_id resolution; future corpus updates (per-tradition additions; sensitivity-flag refinements) will require Phase 2 re-run to propagate.
+- **Matt** — no action required; commission MVP scope satisfied per dispatch acceptance criteria.
+
+### What downstream consumers need to do
+
+**Drax (when /forge cosmograph rendering phase fires):**
+1. Load `kit_star_sign_assignments.json` alongside `faction_assignments.json` (parallel sidecar pattern; same loading discipline)
+2. Use `star_sign_id` as FK into Legolas corpus for full sign data (mythic_narrative, star_coordinates, asterism_schematic, etc.); use `star_sign_name` + `star_sign_tradition` denormalized fields for tooltip/label rendering without corpus dependency
+3. Distinguish HAND_CURATED vs RANDOM assignments in UI presentation if narrative-richness emphasis is desired (e.g., HAND_CURATED kits get prominent star-sign narrative overlay; RANDOM kits get minimal sign-name binding)
+4. The 3 HAND_CURATED mappings have `hand_curated_anchor` field referencing gandalf doc § anchors for traceability
+
+**Mantis (when UE port WS1 commission fires):**
+1. Add `star_sign_id` (string FK) + `star_sign_assignment_method` (enum string) columns to kit DataTable schema
+2. Ingest from `kit_star_sign_assignments.json` at import time; reverse-lookup against zodiac corpus for full sign data
+3. No engine-side runtime LLM dependency (D7 AI-tell line preserved)
+
+**Gandalf (downstream review of deferred high-flag-level entries):**
+1. Review the 29 high-sensitivity-flag corpus entries (any of the 423 zodiac entries with `cultural_sensitivity.flag_level == "high"`)
+2. Per-entry include/exclude decision; for any entries promoted from deferred to eligible, document rationale per Discipline #25 (semantic-layer rep-audit) and bump script `ELIGIBLE_FLAG_LEVELS` or `DEFERRED_FLAG_LEVELS` constants accordingly
+3. Re-run script; deterministic — only RANDOM-method assignments shift (HAND_CURATED unaffected)
+
+### Cross-seam ADR compliance
+
+- **ADR-002 (cross-seam schema):** sidecar pattern parallels the established `faction_assignments.json` precedent (event_id `kse_20260602_008`); no NEW cross-seam contract — same sidecar discipline as cycle-18 Issue 5A. No Matt re-approval required; covered by parent dispatch `2026-06-09-elrond-kit-to-star-sign-assignment-mvp.md` authorization (Matt 2026-06-09 directive).
+- **ADR-004 (MIGRATION.md for cross-seam handoff):** this entry fulfills the requirement. Drax-side does not need a parallel MIGRATION; consumption is loadout-app data-ingestion (parallel to existing faction_assignments.json consumption pattern). Mantis-side adds a MIGRATION when WS1 ingestion lands.
+- **ADR-006 (external-systems writes require authorization):** the write is to a meta-repo-adjacent loadout-public asset under elrond-domain authority for catalogue/abstraction-analysis data. Push to remote remains Matt-explicit-authorization per CLAUDE.md addendum; this entry covers auto-commit only.
+- **Discipline #59 (substrate-coverage honesty):** flagged in close report — random assignment WILL produce kit-pairs sharing the same star_sign_id (birthday-paradox math: 34 picks from 394 pool → ~1.5 expected collisions). Two collision-pairs observed empirically (`andean-001 Yacana` hit by fire_000006 + wind_000004; `aztec-tonalpohualli-004 Cuetzpallin` hit by physical_000019 + water_000006; `iau-constellations-033-dorado` hit by physical_000014 + wind_000005; `western-zodiac-005 Leo` hit by earth_000006 + wind_000006). Uniqueness was NOT a dispatch requirement — many-to-one mapping is architecturally acceptable at MVP scope (cosmograph visualization layer; multiple kits can orbit one star-sign). Surfaced as observation for Phase 3 design review.
+
+### Open follow-ons (not blocking the lock)
+
+1. **Gandalf review of 29 high-flag-level deferred entries** — non-blocking; default exclusion preserved substrate-cleanliness; review can promote subset to eligible if appropriate per culture-specific assessment; re-run script propagates.
+2. **Cycle 15+ Pattern B canonical semantic mapping** — replaces RANDOM assignments with semantic methodology (similarity / curated rule-table / hybrid) per dispatch § 1; gated on vertical-slice spike playtest empirical signal informing methodology choice.
+3. **Star-sign-to-kit reverse-mapping** — out of scope per dispatch § 6; can be derived at query time from forward mapping if needed by drax /forge.
+4. **Seasonal-substrate-rotation operator integration** — per atomic-substrate-registry Layer 0.5; the 3 hand-curated mappings have per-season cultural-variant alternatives documented in gandalf Phase 1 doc § 4.3 (Krittika → Pleiades/Matariki/Mǎo; Hercules → Gilgamesh/Thor/Bhima; Mula → Ketu/Scorpius/Andean dark-cloud). Operator design is downstream of this MVP.
+5. **Cross-tradition collision-handling** — the 4 observed RANDOM-collision pairs are MVP-acceptable but worth surfacing if cosmograph visualization makes the same-star-sign coupling visually awkward; uniqueness constraint can be added in a future re-run if desired (constrained random sampling without replacement up to pool size).
+
+---
+
 ## v1.9 — EAA-4 chronicle implementation slice — `kit_space_chronicle.json` source-of-truth landed + smoke 9/9 PASS — 2026-06-02
 
 ### What changed (one line)
