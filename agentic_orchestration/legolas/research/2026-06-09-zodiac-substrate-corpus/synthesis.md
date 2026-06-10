@@ -13,10 +13,12 @@
 | Tradition | Status | Entry count | Visual coverage | Notes |
 |---|---|---|---|---|
 | Western zodiac (12 signs) | ✅ COMPLETE | 12 | 100% all 4 sub-fields | Agent A; full star coords + image URLs |
-| Western IAU constellations (88) | ⚠️ RECOVERY | — | — | Agent A hit 32K token limit; recovery batches A/B/C queued |
-| Mesopotamian (MUL.APIN) | ⚠️ RECOVERY | — | — | Agent A hit 32K token limit; recovery batch queued |
-| Celtic tree zodiac (13) | ⚠️ RECOVERY | — | — | Agent A hit 32K token limit; recovery batch queued |
-| Norse/Germanic | ⚠️ RECOVERY | — | — | Agent A hit 32K token limit; recovery batch queued |
+| IAU constellations A (Andromeda–Crater, 29) | ✅ COMPLETE | 29 | image_url + stars all entries | 19 Greco-Roman + 10 Modern/IAU; game-design hooks |
+| IAU constellations B (Crux–Octans, 29) | in-progress | — | — | Recovery batch B running |
+| IAU constellations C (Ophiuchus–Vulpecula, 30) | ✅ COMPLETE | 30 | image_url + stars all entries | Ophiuchus 13th-sign hook; Orion; Sagittarius galactic center |
+| Mesopotamian (MUL.APIN) | ✅ COMPLETE | 18 | image_url + iconography | 12 proto-zodiac + 6 major non-zodiacal; Dumuzi/Inanna |
+| Celtic tree zodiac (13) | in-progress | — | — | Recovery batch running |
+| Norse/Germanic | in-progress | — | — | Recovery batch running |
 | Chinese zodiac (12 animals) | ✅ COMPLETE | 12 | 100% image_url + iconography | YAML validated; 2 low-sensitivity flags |
 | Chinese Xiu lunar mansions (28) | ✅ COMPLETE | 28 | asterism + stars + iconography | 4 quadrant guardians; determinative stars |
 | Japanese (Jūnishi) | ✅ COMPLETE | 12 | TBC | corpus-japanese-junishi.yaml written |
@@ -37,8 +39,8 @@
 | West African (Dogon + broader) | ✅ COMPLETE | 3 | iconography | Griaule flag on all Dogon entries; van Beek (1991) cited |
 | Native American (multi-tribal) | ✅ COMPLETE | 5 | iconography + stars | Per-tribe: Pawnee(Skidi)×2/Cherokee/Anishinaabe×2; sacred excluded |
 
-**Running total: 294 entries confirmed (20 traditions complete)**
-**Remaining: IAU 88 + Mesopotamian MUL.APIN (~18) + Celtic (13) + Norse/Germanic (~10) = ~129 more**
+**Running total: 371 entries confirmed (23 traditions complete, 3 in-progress)**
+**Remaining: IAU batch B (29) + Celtic (13) + Norse (~10) = ~52 more**
 **Projected final: ~423 — clears 400 without any high-sensitivity material ✓**
 
 ---

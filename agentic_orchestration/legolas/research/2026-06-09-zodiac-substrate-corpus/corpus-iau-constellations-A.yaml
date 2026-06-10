@@ -1,0 +1,1677 @@
+# corpus-iau-constellations-A.yaml
+# Legolas Mode B Corpus — IAU 88 Constellations, Batch A (Andromeda through Crater)
+# Crawl date: 2026-06-09
+# Entry count: 29
+# Sequence: alphabetical IAU name, positions 001–029 within this batch
+# Schema: IAU constellation variant (area, alpha star, hemisphere, mythic narrative)
+# Sources: Wikipedia constellation articles; IAU constellation catalogue; Ian Ridpath Star Tales 2018
+# Cultural provenance note: entries 001–029 span Greco-Roman classical constellations (Ptolemy
+#   Almagest ~150 CE) and post-Renaissance modern constellations created 1600s–1800s by Lacaille,
+#   Hevelius, and other astronomers. Modern/IAU entries are flagged in cultural_tradition.
+# Image URL pattern: https://en.wikipedia.org/wiki/[Name]_(constellation)
+#   Most IAU constellation maps available as File:[Abbrev]CC.jpg on Wikipedia Commons (Public Domain).
+
+---
+
+- sign_id: "iau-constellations-001-andromeda"
+  sign_name:
+    primary: "Andromeda"
+    abbreviation: "And"
+    genitive: "Andromedae"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Greece / Mediterranean"
+    period_range: "Ancient Greek astronomy; Ptolemy Almagest ~150 CE; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 1
+    sign_classification:
+      iau_abbreviation: "And"
+      iau_area_sq_degrees: 722
+      brightest_star: "Alpheratz (α Andromedae)"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "northern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Andromeda_(constellation)"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "Alpheratz (α Andromedae)"
+        bayer: "α And"
+        ra_j2000: "00h 08m 23s"
+        dec_j2000: "+29° 05′ 27″"
+        magnitude: 2.06
+      - name: "Mirach (β Andromedae)"
+        bayer: "β And"
+        ra_j2000: "01h 09m 44s"
+        dec_j2000: "+35° 37′ 14″"
+        magnitude: 2.06
+    asterism_schematic: "Chain of stars extending northeast from Pegasus Square; three lines of stars fan outward. M31 (Andromeda Galaxy) visible to naked eye — nearest major galaxy."
+    cultural_iconography: "Chained princess; sacrifice; liberation. Adjacent constellation group: Cepheus, Cassiopeia, Perseus, Pegasus, Cetus, Andromeda — entire Perseus saga preserved in the sky."
+  primitive_association_hints:
+    suggested_attributes: ["chained/bound", "rescued heroine", "liminal sky/sea boundary", "noble lineage", "gateway to other worlds"]
+    narrative_archetype: "captive princess; sacrifice; liberation; cosmic threshold"
+    game_design_notes: "M31 galaxy = 'window to another world' design hook; chain motif = binding/curse mechanic; rescue arc = spirit-swap trigger candidate"
+  mythic_narrative: >
+    In Greek mythology Andromeda was daughter of King Cepheus and Queen Cassiopeia of Ethiopia.
+    Cassiopeia boasted Andromeda surpassed the Nereids in beauty, angering Poseidon who sent the
+    sea monster Cetus to ravage the coast. Andromeda was chained to a rock as sacrifice but rescued
+    by Perseus. Zeus placed her among the stars. The Andromeda Galaxy (M31), visible to the naked eye,
+    lies within the constellation boundaries — the nearest large galaxy at ~2.5 million light-years.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Classical Greco-Roman mythology; public domain scholarly tradition"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Andromeda_(constellation)"
+      - "https://www.iau.org/public/themes/constellations/"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-002-antlia"
+  sign_name:
+    primary: "Antlia"
+    abbreviation: "Ant"
+    genitive: "Antliae"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "France (Paris Observatory)"
+    period_range: "Created by Nicolas Louis de Lacaille 1751–1752 during Cape of Good Hope expedition; published 1763; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 2
+    sign_classification:
+      iau_abbreviation: "Ant"
+      iau_area_sq_degrees: 239
+      brightest_star: "α Antliae"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Antlia"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "α Antliae"
+        bayer: "α Ant"
+        ra_j2000: "10h 27m 09s"
+        dec_j2000: "−31° 04′ 04″"
+        magnitude: 4.28
+    asterism_schematic: "Faint constellation south of Hydra and Pyxis; no stars brighter than magnitude 4.3; represents an air pump."
+    cultural_iconography: "Lacaille named it Antlia Pneumatica (air pump), honoring the scientific instrument invented by Robert Boyle and Denis Papin. Emblem of the Enlightenment drive to systematize nature."
+  primitive_association_hints:
+    suggested_attributes: ["mechanical", "Enlightenment science", "air/breath", "instrument", "invisible force"]
+    narrative_archetype: "tool of the natural philosopher; hidden mechanism"
+    game_design_notes: "Breath/air mechanic; pump = force amplification; Enlightenment-era instrument aesthetic for arcane-gadget class"
+  mythic_narrative: >
+    Antlia has no classical mythology. Nicolas Louis de Lacaille created it during his 1751–1752
+    survey of the southern sky from the Cape of Good Hope, naming it Antlia Pneumatica after the
+    air pump — a symbol of 18th-century scientific inquiry. Lacaille divided the ancient ship
+    constellation Argo Navis into Carina, Puppis, and Vela, and filled the remaining southern sky
+    with instruments of science and the arts.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Modern astronomical constellation; no mythological or cultural sensitivity concerns"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Antlia"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-003-apus"
+  sign_name:
+    primary: "Apus"
+    abbreviation: "Aps"
+    genitive: "Apodis"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "Netherlands (Petrus Plancius / Pieter Dirkszoon Keyser and Frederick de Houtman)"
+    period_range: "Created from observations 1595–1597 southern voyage; Plancius globe 1598; Bayer Uranometria 1603; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 3
+    sign_classification:
+      iau_abbreviation: "Aps"
+      iau_area_sq_degrees: 206
+      brightest_star: "α Apodis"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Apus"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "α Apodis"
+        bayer: "α Aps"
+        ra_j2000: "14h 47m 52s"
+        dec_j2000: "−79° 02′ 41″"
+        magnitude: 3.83
+    asterism_schematic: "Small faint constellation near the south celestial pole; represents a bird-of-paradise. Located between Triangulum Australe and Octans."
+    cultural_iconography: "Bird of paradise from New Guinea — symbol of exotic exploration-era discovery. Dutch navigators brought back specimens without legs, leading to belief they never landed (hence Apus = 'no foot' in Greek)."
+  primitive_association_hints:
+    suggested_attributes: ["exotic", "unreachable beauty", "perpetual flight", "paradise", "limbless grace"]
+    narrative_archetype: "creature of pure sky; unreachable ideal; colonial encounter with the unknown"
+    game_design_notes: "Perpetual-flight form; no-landing motif = untouchable/evasive archetype; paradise aesthetic for light-element spirit"
+  mythic_narrative: >
+    Apus (Bird of Paradise) was created by Dutch navigators Keyser and de Houtman from their
+    1595–1597 voyage to the East Indies. Bird-of-paradise skins traded from New Guinea arrived
+    in Europe with legs removed for preservation, generating the myth that these birds never
+    landed and lived their entire lives in flight. Petrus Plancius incorporated the constellation
+    on his 1598 celestial globe; Johann Bayer popularized it in Uranometria (1603).
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Colonial-era cartography; bird-of-paradise specimens connected to New Guinea trade routes. No active sensitivity concern for game design use."
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Apus"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-004-aquarius"
+  sign_name:
+    primary: "Aquarius"
+    abbreviation: "Aqr"
+    genitive: "Aquarii"
+    native_script: "♒"
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Babylonia / Greece / Mediterranean"
+    period_range: "Babylonian origin ~1200 BCE (GU.LA — great one); Ptolemy Almagest ~150 CE; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 4
+    sign_classification:
+      iau_abbreviation: "Aqr"
+      iau_area_sq_degrees: 980
+      brightest_star: "Sadalsuud (β Aquarii)"
+      ecliptic_proximity: "zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Aquarius_(constellation)"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "Sadalsuud (β Aquarii)"
+        bayer: "β Aqr"
+        ra_j2000: "21h 31m 34s"
+        dec_j2000: "−05° 34′ 16″"
+        magnitude: 2.87
+      - name: "Sadalmelik (α Aquarii)"
+        bayer: "α Aqr"
+        ra_j2000: "22h 05m 47s"
+        dec_j2000: "−00° 19′ 11″"
+        magnitude: 2.94
+    asterism_schematic: "Water-bearer pouring stream southward toward Piscis Austrinus; Y-shaped asterism forms the urn (jar); stream of water represented by chain of faint stars toward Fomalhaut."
+    cultural_iconography: "Water pourer — Ganymede (Trojan prince cup-bearer to the gods) or Deucalion (flood survivor). Zodiacal belt; Sun passes through Oct 22 – Nov 21. One of the largest constellations."
+  primitive_association_hints:
+    suggested_attributes: ["water", "flow", "generosity", "service to the divine", "flood/deluge", "knowledge dispensed"]
+    narrative_archetype: "divine cup-bearer; flood survivor; humanitarian; distributor of cosmic gifts"
+    game_design_notes: "Water-element spirit archetype; pouring mechanic = healing/buff distribution; flood narrative = area-denial or mass-effect skill"
+  mythic_narrative: >
+    In Greek tradition Aquarius represents Ganymede, the beautiful Trojan youth abducted by Zeus
+    (as an eagle) to serve as cup-bearer to the gods on Olympus, pouring nectar at divine feasts.
+    An alternate tradition identifies him as Deucalion, the Greek flood hero equivalent of Noah.
+    Babylonian precursor GU.LA (the Great One) associated the constellation with the rainy season
+    and the god Ea who poured water of knowledge. The star Sadalsuud means 'luckiest of the lucky'
+    in Arabic — it rose with the spring rains.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Classical Greco-Roman / Babylonian mythology; public domain"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Aquarius_(constellation)"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-005-aquila"
+  sign_name:
+    primary: "Aquila"
+    abbreviation: "Aql"
+    genitive: "Aquilae"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Greece / Mediterranean"
+    period_range: "Ancient Greek astronomy; Eudoxus ~4th c. BCE; Ptolemy Almagest ~150 CE; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 5
+    sign_classification:
+      iau_abbreviation: "Aql"
+      iau_area_sq_degrees: 652
+      brightest_star: "Altair (α Aquilae)"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "both"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Aquila_(constellation)"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "Altair (α Aquilae)"
+        bayer: "α Aql"
+        ra_j2000: "19h 50m 47s"
+        dec_j2000: "+08° 52′ 06″"
+        magnitude: 0.77
+      - name: "Tarazed (γ Aquilae)"
+        bayer: "γ Aql"
+        ra_j2000: "19h 46m 16s"
+        dec_j2000: "+10° 36′ 48″"
+        magnitude: 2.72
+    asterism_schematic: "Eagle in flight along Milky Way; Altair flanked by Tarazed and Alshain forms the bright 'shaft' of the Summer Triangle. Wings extend to either side."
+    cultural_iconography: "Zeus's eagle carrying the thunderbolt; abductor of Ganymede. Altair is one of the three stars of the Summer Triangle (with Vega and Deneb). Altair rotates so rapidly it is visibly oblate."
+  primitive_association_hints:
+    suggested_attributes: ["swift flight", "divine messenger", "imperial power", "thunderbolt carrier", "abductor"]
+    narrative_archetype: "king's weapon; divine raptor; speed incarnate; celestial enforcer"
+    game_design_notes: "Altair's extreme rotation speed = agility archetype; eagle = Zeus's agent = divine authority; lightning-carrier = thunder/storm elemental"
+  mythic_narrative: >
+    Aquila represents the eagle of Zeus — the king of birds who served as the god's messenger
+    and weapon-bearer. In one myth the eagle carried thunderbolts for Zeus; in another it was
+    Zeus himself transformed to abduct the youth Ganymede (Aquarius). The eagle was also said
+    to torment Prometheus daily. Altair, magnitude 0.77, is the 12th brightest star in the sky
+    and rotates in under 9 hours — so fast it bulges at the equator. In Chinese astronomy
+    Altair is the cowherd of the Qixi Festival legend.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Classical mythology; public domain"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Aquila_(constellation)"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-006-ara"
+  sign_name:
+    primary: "Ara"
+    abbreviation: "Ara"
+    genitive: "Arae"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Greece / Mediterranean"
+    period_range: "Ptolemy Almagest ~150 CE; one of the 48 classical constellations; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 6
+    sign_classification:
+      iau_abbreviation: "Ara"
+      iau_area_sq_degrees: 237
+      brightest_star: "β Arae"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Ara_(constellation)"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "β Arae"
+        bayer: "β Ara"
+        ra_j2000: "17h 25m 18s"
+        dec_j2000: "−55° 31′ 48″"
+        magnitude: 2.84
+      - name: "α Arae"
+        bayer: "α Ara"
+        ra_j2000: "17h 31m 51s"
+        dec_j2000: "−49° 52′ 34″"
+        magnitude: 2.95
+    asterism_schematic: "Small compact constellation in the southern Milky Way between Scorpius and Triangulum Australe; represents an altar with smoke rising toward the Milky Way."
+    cultural_iconography: "Altar of the gods; where Olympians swore oaths before the Titanomachy. The Milky Way above represents smoke from sacrificial fires. Sacred focal point of divine covenant."
+  primitive_association_hints:
+    suggested_attributes: ["sacred oath", "sacrifice", "covenant", "divine fire", "ritual center"]
+    narrative_archetype: "altar of vows; consecrated space; fire of the gods"
+    game_design_notes: "Sacred-fire mechanic; oath/covenant binding; ritual catalyst; divine authority node"
+  mythic_narrative: >
+    Ara, the Altar, was identified with the altar upon which the gods swore their oath of
+    alliance before the Titanomachy — the war between the Olympians and the Titans. According
+    to Hyginus, Zeus's thunderbolts rested here. Ara also appears as the altar built by
+    Centaurus (Centaurus constellation) sacrificing the wolf (Lupus). The smoke of its sacrificial
+    fires was imagined rising into the Milky Way. Located in the dense southern Milky Way,
+    the constellation is rich in star clusters and nebulae.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Classical mythology; public domain"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Ara_(constellation)"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-007-aries"
+  sign_name:
+    primary: "Aries"
+    abbreviation: "Ari"
+    genitive: "Arietis"
+    native_script: "♈"
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Babylonia / Greece / Mediterranean"
+    period_range: "Babylonian origin ~1200 BCE (MULIKU — Hired Man); Ptolemy Almagest ~150 CE; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 7
+    sign_classification:
+      iau_abbreviation: "Ari"
+      iau_area_sq_degrees: 441
+      brightest_star: "Hamal (α Arietis)"
+      ecliptic_proximity: "zodiacal"
+      hemisphere: "northern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Aries_(constellation)"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "Hamal (α Arietis)"
+        bayer: "α Ari"
+        ra_j2000: "02h 07m 10s"
+        dec_j2000: "+23° 27′ 45″"
+        magnitude: 2.01
+      - name: "Sheratan (β Arietis)"
+        bayer: "β Ari"
+        ra_j2000: "01h 54m 38s"
+        dec_j2000: "+20° 48′ 29″"
+        magnitude: 2.64
+    asterism_schematic: "Compact crouched ram with head turned back toward Taurus; three primary stars Hamal–Sheratan–Mesarthim form the ram's head. Vernal equinox was here ~2000 BCE (now precessed to Pisces)."
+    cultural_iconography: "Golden Ram of Greek myth; first sign of Western zodiac historically; site of vernal equinox in classical era; symbol of new beginnings and initiative."
+  primitive_association_hints:
+    suggested_attributes: ["fire", "initiative", "first mover", "golden fleece", "sacred ram", "vernal charge"]
+    narrative_archetype: "initiator; divine ram; first among signs; golden sacrifice"
+    game_design_notes: "Vernal equinox / renewal mechanic; fire-element spirit; ram charge = rush/assault archetype; golden fleece = legendary loot hook"
+  mythic_narrative: >
+    Aries represents the golden-fleeced ram Chrysomallus sent by Nephele (or Hermes) to rescue
+    her children Phrixus and Helle from sacrifice. Helle fell and drowned in the strait called
+    the Hellespont; Phrixus reached Colchis and sacrificed the ram to Zeus, hanging its fleece
+    in a sacred grove — the Golden Fleece later sought by Jason and the Argonauts. Zeus placed
+    the ram in the sky. The vernal equinox was in Aries ~2000 BCE, making it the 'first sign'
+    and 'first point of Aries' — a title now precessed to Pisces.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Classical mythology; also Western zodiac sign (see corpus-western-zodiac.yaml entry 001 for full zodiacal treatment)"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Aries_(constellation)"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-008-auriga"
+  sign_name:
+    primary: "Auriga"
+    abbreviation: "Aur"
+    genitive: "Aurigae"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Greece / Mediterranean"
+    period_range: "Ptolemy Almagest ~150 CE; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 8
+    sign_classification:
+      iau_abbreviation: "Aur"
+      iau_area_sq_degrees: 657
+      brightest_star: "Capella (α Aurigae)"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "northern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Auriga_(constellation)"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "Capella (α Aurigae)"
+        bayer: "α Aur"
+        ra_j2000: "05h 16m 41s"
+        dec_j2000: "+45° 59′ 53″"
+        magnitude: 0.08
+      - name: "Menkalinan (β Aurigae)"
+        bayer: "β Aur"
+        ra_j2000: "05h 59m 32s"
+        dec_j2000: "+44° 56′ 51″"
+        magnitude: 1.90
+    asterism_schematic: "Pentagonal shape in the winter sky; Capella (6th brightest star overall) anchors the top. The Kids — three faint stars Epsilon, Zeta, Eta — cluster near Capella. Rich Milky Way star fields."
+    cultural_iconography: "Charioteer carrying a goat and kids; Capella means 'little she-goat.' Associated with Erichthonius, legendary inventor of the four-horse chariot. Capella is actually a spectroscopic binary of two giant stars."
+  primitive_association_hints:
+    suggested_attributes: ["charioteer", "horsemanship", "innovation", "protective shepherd", "celestial goat", "speed and control"]
+    narrative_archetype: "master charioteer; inventor; protector of the vulnerable; swift travel"
+    game_design_notes: "Mount/vehicle archetype; Capella's binary nature = dual-aspect spirit; Kids stars = companion summon; innovation/craft class hook"
+  mythic_narrative: >
+    Auriga the Charioteer is most often identified with Erichthonius, son of Hephaestus and
+    legendary king of Athens who invented the four-horse chariot (quadriga) to conceal his
+    serpentine lower body from view. Zeus placed him in the sky in honor of the invention.
+    Capella (the Goat Star) represents the goat Amalthea who suckled Zeus — her broken horn
+    became the Cornucopia. The asterism of the Kids (Epsilon, Zeta, Eta Aurigae) represents
+    her offspring. Epsilon Aurigae is one of the most mysterious stars: its 27-year eclipse
+    cycle is caused by an opaque disk whose nature remains debated.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Classical mythology; public domain"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Auriga_(constellation)"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-009-bootes"
+  sign_name:
+    primary: "Boötes"
+    abbreviation: "Boo"
+    genitive: "Boötis"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Greece / Mediterranean"
+    period_range: "Homer Odyssey reference (~8th c. BCE); Ptolemy Almagest ~150 CE; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 9
+    sign_classification:
+      iau_abbreviation: "Boo"
+      iau_area_sq_degrees: 907
+      brightest_star: "Arcturus (α Boötis)"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "northern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Bo%C3%B6tes"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "Arcturus (α Boötis)"
+        bayer: "α Boo"
+        ra_j2000: "14h 15m 40s"
+        dec_j2000: "+19° 10′ 57″"
+        magnitude: -0.05
+      - name: "Izar (ε Boötis)"
+        bayer: "ε Boo"
+        ra_j2000: "14h 44m 59s"
+        dec_j2000: "+27° 04′ 27″"
+        magnitude: 2.35
+    asterism_schematic: "Kite or ice-cream-cone shape; Arcturus (4th brightest star overall, brightest in northern sky) at the base. Arc of the Big Dipper handle leads to Arcturus ('Arc to Arcturus')."
+    cultural_iconography: "Herdsman or plowman driving the Great Bear (Ursa Major) around the pole. Arcturus means 'Bear Guardian.' One of Homer's named stars — mentioned in the Odyssey as a navigational star."
+  primitive_association_hints:
+    suggested_attributes: ["guardian", "shepherd", "patient perseverance", "celestial herdsman", "north-star navigation", "seasonal keeper"]
+    narrative_archetype: "eternal guardian; patient watcher; keeper of the celestial order"
+    game_design_notes: "Arcturus's orange-giant warmth = fire/earth blended spirit; guardian archetype; herding/control skill set; navigation = path-finding ability"
+  mythic_narrative: >
+    Boötes the Herdsman drives the Great Bear (Ursa Major) around the celestial pole — the 'bears'
+    being the two bear constellations circling the pole without setting below the horizon in northern
+    latitudes. Homer's Odyssey mentions Arcturus as one of Odysseus's navigation stars. Greek
+    traditions variously identify Boötes as Arcas (son of Zeus and Callisto, nearly killing his
+    bear-transformed mother before Zeus intervened by placing both in the sky), or as the inventor
+    of the plow. Arcturus (magnitude −0.05) is the fourth brightest star and the brightest in the
+    northern celestial hemisphere — an old red giant moving rapidly through the Milky Way.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Classical mythology; public domain"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Bo%C3%B6tes"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-010-caelum"
+  sign_name:
+    primary: "Caelum"
+    abbreviation: "Cae"
+    genitive: "Caeli"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "France (Nicolas Louis de Lacaille)"
+    period_range: "Created by Lacaille 1751–1752; published 1763; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 10
+    sign_classification:
+      iau_abbreviation: "Cae"
+      iau_area_sq_degrees: 125
+      brightest_star: "α Caeli"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Caelum"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "α Caeli"
+        bayer: "α Cae"
+        ra_j2000: "04h 40m 34s"
+        dec_j2000: "−41° 51′ 50″"
+        magnitude: 4.45
+    asterism_schematic: "One of the smallest and faintest IAU constellations; no stars brighter than magnitude 4.4. Located between Eridanus and Columba. Represents an engraver's chisel or burin."
+    cultural_iconography: "Caelum Scalptorium — the sculptor's engraving chisel. Lacaille's tribute to the fine arts and craftsmanship. Original name abbreviated by later astronomers to simply Caelum."
+  primitive_association_hints:
+    suggested_attributes: ["precision craft", "engraving", "fine art", "the chisel-mark", "patient artistry"]
+    narrative_archetype: "master artisan; inciser of form; creator through subtraction"
+    game_design_notes: "Crafting/smithing archetype; precision mechanic; engraving = permanent mark / debuff inscription"
+  mythic_narrative: >
+    Caelum has no classical mythology. Nicolas Louis de Lacaille introduced it as Caelum
+    Scalptorium (the Engraver's Chisel) during his 1751–1752 southern sky survey from the
+    Cape of Good Hope. Lacaille filled the sparsely mapped southern sky with constellations
+    named for instruments of the arts and sciences. The name was later shortened to Caelum.
+    It is one of the least conspicuous constellations in the sky, with no star brighter than
+    fourth magnitude and no deep-sky objects of note.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Modern astronomical constellation; no sensitivity concerns"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Caelum"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-011-camelopardalis"
+  sign_name:
+    primary: "Camelopardalis"
+    abbreviation: "Cam"
+    genitive: "Camelopardalis"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "Netherlands (Petrus Plancius) / Germany (Jakob Bartsch)"
+    period_range: "Plancius 1612–1613 globe; Bartsch Usus Astronomicus 1624; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 11
+    sign_classification:
+      iau_abbreviation: "Cam"
+      iau_area_sq_degrees: 757
+      brightest_star: "β Camelopardalis"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "northern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Camelopardalis"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "β Camelopardalis"
+        bayer: "β Cam"
+        ra_j2000: "05h 03m 25s"
+        dec_j2000: "+60° 26′ 32″"
+        magnitude: 4.03
+      - name: "α Camelopardalis"
+        bayer: "α Cam"
+        ra_j2000: "04h 54m 03s"
+        dec_j2000: "+66° 20′ 34″"
+        magnitude: 4.29
+    asterism_schematic: "Large but very faint constellation near north celestial pole; no stars brighter than magnitude 4.0. Circumpolar from mid-northern latitudes. Represents a giraffe."
+    cultural_iconography: "Giraffe — 'camel-leopard' in Greek (camel's height, leopard's spots). Plancius identified it as the camel that carried Rebecca to Isaac in the Book of Genesis. Bartsch later popularized this Biblical identification."
+  primitive_association_hints:
+    suggested_attributes: ["exotic creature", "long-necked grace", "tall vision", "Biblical journey", "spotted pattern"]
+    narrative_archetype: "gentle giant; long-sighted watcher; exotic traveler"
+    game_design_notes: "Giraffe-form spirit; high vantage point = scouting/awareness ability; spotted pattern = camouflage or fire-pattern visual; northern circumpolar = endurance/persistence"
+  mythic_narrative: >
+    Camelopardalis (the Giraffe) was introduced by Petrus Plancius on a celestial globe of
+    1612–1613, and formalized by Jakob Bartsch in his 1624 star atlas. Plancius, a Dutch
+    Reformed minister, identified the giraffe as the camel that carried Rebecca from
+    Mesopotamia to Canaan to marry Isaac (Genesis 24). The name camelopardalis derives from
+    Greek — the ancient world's description of a giraffe as a 'camel-leopard' (camel's height
+    plus leopard's spots). It is one of the largest but faintest constellations, occupying
+    757 square degrees near the north celestial pole with no star brighter than magnitude 4.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Biblically-inspired modern constellation; no active sensitivity concern for game design"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Camelopardalis"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-012-cancer"
+  sign_name:
+    primary: "Cancer"
+    abbreviation: "Cnc"
+    genitive: "Cancri"
+    native_script: "♋"
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Babylonia / Greece / Mediterranean"
+    period_range: "Babylonian precursor ALLA (Crayfish) ~1200 BCE; Ptolemy Almagest ~150 CE; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 12
+    sign_classification:
+      iau_abbreviation: "Cnc"
+      iau_area_sq_degrees: 506
+      brightest_star: "Altarf (β Cancri)"
+      ecliptic_proximity: "zodiacal"
+      hemisphere: "northern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Cancer_(constellation)"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "Altarf (β Cancri)"
+        bayer: "β Cnc"
+        ra_j2000: "08h 16m 31s"
+        dec_j2000: "+09° 11′ 08″"
+        magnitude: 3.52
+      - name: "Asellus Australis (δ Cancri)"
+        bayer: "δ Cnc"
+        ra_j2000: "08h 44m 41s"
+        dec_j2000: "+18° 09′ 15″"
+        magnitude: 3.94
+    asterism_schematic: "Faint zodiacal constellation between Gemini and Leo; no star brighter than magnitude 3.5. Contains the Beehive Cluster (M44 / Praesepe) — a brilliant naked-eye open cluster at the center."
+    cultural_iconography: "Crab that bit Heracles during the Lernaean Hydra battle; summer solstice was here ~2000 BCE (Tropic of Cancer name). Beehive Cluster / Praesepe = ancient weather forecasting stars."
+  primitive_association_hints:
+    suggested_attributes: ["tenacity", "sideways approach", "sacrifice for the cause", "the small defending the great", "hidden treasure (Beehive)"]
+    narrative_archetype: "loyal footnote; tiny protector crushed by the hero; hidden collective"
+    game_design_notes: "Crab-form spirit; Beehive cluster = swarm mechanic / summon army; minor enemy who gains symbolic significance; water-element; tenacious grip debuff"
+  mythic_narrative: >
+    Cancer the Crab was sent by Hera to distract Heracles during his battle with the Lernaean
+    Hydra. The crab bit Heracles on the foot; Heracles crushed it underfoot. Hera, out of
+    gratitude for the crab's loyalty, placed it among the stars — a small constellation with
+    no bright stars, yet containing the brilliant Beehive Cluster (M44), one of the nearest
+    open clusters to Earth. The summer solstice was located in Cancer ~2000 BCE, giving its
+    name to the Tropic of Cancer; precession has since moved the solstice into Gemini.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Classical mythology; the word 'cancer' has medical associations but the constellation itself has no sensitivity concern"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Cancer_(constellation)"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-013-canes-venatici"
+  sign_name:
+    primary: "Canes Venatici"
+    abbreviation: "CVn"
+    genitive: "Canum Venaticorum"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "Poland (Johannes Hevelius)"
+    period_range: "Hevelius Firmamentum Sobiescianum 1687; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 13
+    sign_classification:
+      iau_abbreviation: "CVn"
+      iau_area_sq_degrees: 465
+      brightest_star: "Cor Caroli (α Canum Venaticorum)"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "northern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Canes_Venatici"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "Cor Caroli (α² CVn)"
+        bayer: "α² CVn"
+        ra_j2000: "12h 56m 02s"
+        dec_j2000: "+38° 19′ 06″"
+        magnitude: 2.90
+    asterism_schematic: "Two hunting dogs (Asterion and Chara) held on leash by Boötes, chasing the Great Bear Ursa Major around the pole. Contains the Whirlpool Galaxy (M51) and many other Virgo Cluster galaxies."
+    cultural_iconography: "Hunting dogs of the herdsman Boötes. Cor Caroli ('Heart of Charles') named by Edmund Halley in honor of King Charles II. M51 (Whirlpool Galaxy) = first galaxy whose spiral structure was discerned."
+  primitive_association_hints:
+    suggested_attributes: ["loyal companion", "hunter's partner", "pursuit", "pack instinct", "the leash and the chase"]
+    narrative_archetype: "faithful companion; pack hunter; guided pursuit"
+    game_design_notes: "Companion/familiar spirit; hunting-dog summon; leash mechanic = tether skill; M51's spiral = vortex/pull ability"
+  mythic_narrative: >
+    Canes Venatici (the Hunting Dogs) was created by the Polish astronomer Johannes Hevelius
+    in his 1687 star atlas, carved from unassigned stars between Ursa Major and Boötes. The
+    two dogs, Asterion (little star) and Chara (joy), are held on leash by Boötes the Herdsman
+    as he drives Ursa Major around the sky. The brightest star, Cor Caroli, was named by Edmund
+    Halley to honor King Charles II of England. The constellation contains an extraordinary
+    concentration of galaxies including M51 (Whirlpool Galaxy), where Lord Rosse first detected
+    spiral structure in 1845.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Modern constellation; royal honorific in star name; no sensitivity concern"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Canes_Venatici"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-014-canis-major"
+  sign_name:
+    primary: "Canis Major"
+    abbreviation: "CMa"
+    genitive: "Canis Majoris"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Greece / Mediterranean"
+    period_range: "Ptolemy Almagest ~150 CE; associated with the 'dog star' Sirius since antiquity; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 14
+    sign_classification:
+      iau_abbreviation: "CMa"
+      iau_area_sq_degrees: 380
+      brightest_star: "Sirius (α Canis Majoris)"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Canis_Major"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "Sirius (α Canis Majoris)"
+        bayer: "α CMa"
+        ra_j2000: "06h 45m 09s"
+        dec_j2000: "−16° 42′ 58″"
+        magnitude: -1.46
+      - name: "Adhara (ε Canis Majoris)"
+        bayer: "ε CMa"
+        ra_j2000: "06h 58m 38s"
+        dec_j2000: "−28° 58′ 20″"
+        magnitude: 1.50
+    asterism_schematic: "Hunter's faithful hound following Orion; Sirius at the dog's nose — brightest star in the entire night sky. Winter hexagon star. Dog Star's heliacal rising marked the Egyptian Nile flood and the Roman 'dog days.'"
+    cultural_iconography: "Orion's greater hunting dog; Sirius (Dog Star) = brightest star in sky at magnitude −1.46; Egyptian star Sopdet marking Nile flood; Roman canicularesdies (dog days of summer)."
+  primitive_association_hints:
+    suggested_attributes: ["loyal companion", "brightest light", "summer heat", "hunting excellence", "faithful guardian"]
+    narrative_archetype: "the brightest star; loyal to the end; heat and intensity"
+    game_design_notes: "Sirius's binary companion (Sirius B white dwarf) = hidden second form; brightest-star archetype = peak-intensity fire/light spirit; dog guardian summon"
+  mythic_narrative: >
+    Canis Major follows Orion the Hunter across the sky as his greater dog. Sirius (α CMa),
+    the Dog Star, is the brightest star in the night sky at magnitude −1.46. The ancient Egyptians
+    called it Sopdet (Sothis to the Greeks); its heliacal rising coincided with the annual Nile
+    flood, making it one of the most important stars in recorded history. The Romans associated
+    Sirius's summer prominence with oppressive heat — the 'dog days' (dies caniculares). In Greek
+    myth Canis Major may represent Laelaps, the hound given to Procris that was destined always
+    to catch its quarry; Zeus placed both Laelaps and its prey (Teumessian Fox) in the sky as an
+    eternal unsolvable chase.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Classical mythology; Egyptian astronomical heritage; public domain"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Canis_Major"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-015-canis-minor"
+  sign_name:
+    primary: "Canis Minor"
+    abbreviation: "CMi"
+    genitive: "Canis Minoris"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Greece / Mediterranean"
+    period_range: "Ptolemy Almagest ~150 CE; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 15
+    sign_classification:
+      iau_abbreviation: "CMi"
+      iau_area_sq_degrees: 183
+      brightest_star: "Procyon (α Canis Minoris)"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "northern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Canis_Minor"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "Procyon (α Canis Minoris)"
+        bayer: "α CMi"
+        ra_j2000: "07h 39m 18s"
+        dec_j2000: "+05° 13′ 30″"
+        magnitude: 0.34
+      - name: "Gomeisa (β Canis Minoris)"
+        bayer: "β CMi"
+        ra_j2000: "07h 27m 09s"
+        dec_j2000: "+08° 17′ 22″"
+        magnitude: 2.89
+    asterism_schematic: "Tiny constellation — essentially just two stars, Procyon and Gomeisa. Procyon is the 8th brightest star. Part of the Winter Triangle (Procyon, Sirius, Betelgeuse)."
+    cultural_iconography: "Orion's lesser dog; Procyon means 'before the dog' in Greek — it rises shortly before Sirius. Procyon has a white dwarf companion (Procyon B). Egyptian star of Gomeisa."
+  primitive_association_hints:
+    suggested_attributes: ["nimble forerunner", "precursor herald", "small but swift", "advance scout", "binary hidden depth"]
+    narrative_archetype: "the smaller loyal companion; the scout who arrives first"
+    game_design_notes: "Scout/advance archetype; 'arrives before' mechanic = initiative/first-strike ability; white dwarf companion = hidden power reserve"
+  mythic_narrative: >
+    Canis Minor (the Lesser Dog) is Orion's second hunting hound, following him with Canis Major
+    across the winter sky. The constellation is barely recognizable — just two stars, Procyon and
+    Gomeisa, form its extent. Procyon (from Greek pro-kyon, 'before the dog') rises about an hour
+    before Sirius in ancient Greek latitudes, heralding the Dog Star's approach. The 8th brightest
+    star overall, Procyon is a nearby binary system — Procyon B is a white dwarf, the burned-out
+    remnant of a once-larger star, orbiting the primary unseen.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Classical mythology; public domain"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Canis_Minor"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-016-capricornus"
+  sign_name:
+    primary: "Capricornus"
+    abbreviation: "Cap"
+    genitive: "Capricorni"
+    native_script: "♑"
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Babylonia / Greece / Mediterranean"
+    period_range: "Babylonian origin SUHUR-MASH-HA (~1200 BCE); Ptolemy Almagest ~150 CE; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 16
+    sign_classification:
+      iau_abbreviation: "Cap"
+      iau_area_sq_degrees: 414
+      brightest_star: "Deneb Algedi (δ Capricorni)"
+      ecliptic_proximity: "zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Capricornus"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "Deneb Algedi (δ Capricorni)"
+        bayer: "δ Cap"
+        ra_j2000: "21h 47m 02s"
+        dec_j2000: "−16° 07′ 38″"
+        magnitude: 2.85
+      - name: "Dabih (β Capricorni)"
+        bayer: "β Cap"
+        ra_j2000: "20h 21m 01s"
+        dec_j2000: "−14° 46′ 53″"
+        magnitude: 3.05
+    asterism_schematic: "Triangular or wedge shape; represents a sea-goat (goat's body, fish's tail). Faint zodiacal constellation in the 'sea' region of the sky alongside Aquarius, Pisces, Cetus. Winter solstice was here ~2000 BCE (Tropic of Capricorn name)."
+    cultural_iconography: "Sea-goat — creature with front half of goat and tail of fish. Pan transformed to escape Typhon. Babylonian precursor SUHUR-MASH = goat-fish, one of the oldest known astronomical symbols (~3000 BCE). Winter solstice marker historically."
+  primitive_association_hints:
+    suggested_attributes: ["hybrid nature", "transformation under pressure", "sea-and-land bridge", "Tropic of Capricorn", "ancient emblem"]
+    narrative_archetype: "the shape-shifter caught in mid-transformation; the oldest compound creature"
+    game_design_notes: "Dual-element (earth/water) hybrid form; transformation mechanic (goat → fish); ancient/primal archetype from earliest astronomy; solstice = turning-point mechanic"
+  mythic_narrative: >
+    Capricornus the Sea-Goat carries one of the oldest astronomical symbols known — the Babylonian
+    goat-fish (SUHUR-MASH) appears on kudurrus (boundary stones) from ~3000 BCE, associated with
+    the god Enki (Ea) who ruled the subterranean fresh-water ocean. In Greek myth the sea-goat is
+    Pan, who leapt into the Nile to escape the monster Typhon, transforming himself into a hybrid
+    creature (goat above, fish below). Zeus placed him in the sky in commemoration. The winter
+    solstice occurred in Capricornus ~2000 BCE, naming the Tropic of Capricorn.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Classical mythology / Babylonian precursor; public domain"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Capricornus"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-017-carina"
+  sign_name:
+    primary: "Carina"
+    abbreviation: "Car"
+    genitive: "Carinae"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "France (Nicolas Louis de Lacaille)"
+    period_range: "Lacaille subdivided ancient Argo Navis 1751–1752; formalized 1763; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 17
+    sign_classification:
+      iau_abbreviation: "Car"
+      iau_area_sq_degrees: 494
+      brightest_star: "Canopus (α Carinae)"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Carina_(constellation)"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "Canopus (α Carinae)"
+        bayer: "α Car"
+        ra_j2000: "06h 23m 57s"
+        dec_j2000: "−52° 41′ 45″"
+        magnitude: -0.74
+      - name: "Miaplacidus (β Carinae)"
+        bayer: "β Car"
+        ra_j2000: "09h 13m 12s"
+        dec_j2000: "−69° 43′ 02″"
+        magnitude: 1.67
+    asterism_schematic: "Keel of the Argo — the great ship of Jason's Argonauts. Contains Canopus (2nd brightest star overall). Contains the Eta Carinae Nebula — home to one of the most massive and luminous stars known. False Cross asterism shared with Vela."
+    cultural_iconography: "Keel of the ship Argo; Canopus named after the navigator/helmsman of Menelaus's fleet. Eta Carinae = hypernova candidate, one of the most extreme stars in the galaxy. Southern navigation star par excellence."
+  primitive_association_hints:
+    suggested_attributes: ["voyage", "deep south celestial pole", "extreme power", "ancient ship", "navigator's star", "cataclysm potential"]
+    narrative_archetype: "the great journey beneath the southern sky; the voyage keel; the barely-contained stellar monster"
+    game_design_notes: "Voyage/expedition archetype; Canopus = southern guide star (navigation ability); Eta Carinae's instability = unstable/berserk high-power form; ship hull = defense/ramming"
+  mythic_narrative: >
+    Carina (the Keel) was carved from the ancient mega-constellation Argo Navis by Nicolas
+    Louis de Lacaille, who judged the original too large for practical use and subdivided it
+    into Carina (keel), Puppis (poop deck), and Vela (sails) in 1763. Argo Navis represented
+    the ship of Jason and the Argonauts that sailed to Colchis for the Golden Fleece. Canopus,
+    the second brightest star in the sky at magnitude −0.74, is named after the pilot of
+    Menelaus's ships during the Trojan War. The constellation also contains Eta Carinae, a
+    hypernova candidate embedded in a brilliant nebula — one of the most unstable and luminous
+    stellar objects in the galaxy.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Greek mythology (Argonaut saga); modern subdivision; public domain"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Carina_(constellation)"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-018-cassiopeia"
+  sign_name:
+    primary: "Cassiopeia"
+    abbreviation: "Cas"
+    genitive: "Cassiopeiae"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Greece / Mediterranean"
+    period_range: "Ptolemy Almagest ~150 CE; one of the 48 classical constellations; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 18
+    sign_classification:
+      iau_abbreviation: "Cas"
+      iau_area_sq_degrees: 598
+      brightest_star: "Schedar (α Cassiopeiae)"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "northern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Cassiopeia_(constellation)"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "Schedar (α Cassiopeiae)"
+        bayer: "α Cas"
+        ra_j2000: "00h 40m 30s"
+        dec_j2000: "+56° 32′ 15″"
+        magnitude: 2.24
+      - name: "Caph (β Cassiopeiae)"
+        bayer: "β Cas"
+        ra_j2000: "00h 09m 11s"
+        dec_j2000: "+59° 08′ 59″"
+        magnitude: 2.28
+    asterism_schematic: "Distinctive W or M shape (depending on orientation) — one of the most recognizable northern constellations. Circumpolar at most northern latitudes; on opposite side of Polaris from Ursa Major. Tycho's Supernova (SN 1572) occurred here."
+    cultural_iconography: "Queen of Ethiopia; mother of Andromeda; vain queen punished by Poseidon. Cassiopeia's W = throne. Part of the Perseus narrative group. Tycho Brahe's 1572 supernova (now a radio source Cas A) challenged the idea of an unchanging heaven."
+  primitive_association_hints:
+    suggested_attributes: ["royal vanity", "divine punishment", "mother-protector", "eternal circling", "throne", "indelible mark"]
+    narrative_archetype: "vain queen; proud mother; one who is punished by the sky itself"
+    game_design_notes: "Royal/pride archetype; curse of vanity = debuff that grows with power; Cassiopeia's W = visual signature; supernova site = explosive-death-release mechanic"
+  mythic_narrative: >
+    Cassiopeia was queen of Ethiopia, wife of Cepheus and mother of Andromeda. Her fatal flaw
+    was vanity: she boasted that her own beauty (or her daughter Andromeda's) surpassed that of
+    the Nereids, sea nymphs who were daughters of the sea-god Nereus. The Nereids appealed to
+    Poseidon, who sent the sea monster Cetus to ravage the Ethiopian coast. As punishment
+    Cassiopeia was placed in the sky chained to a throne that rotates around the celestial pole —
+    half the time she hangs upside-down, eternally humiliated. The remnant of Tycho's supernova
+    of 1572 (now called Cas A) is the brightest radio source in the sky beyond the solar system.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Classical mythology; public domain"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Cassiopeia_(constellation)"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-019-centaurus"
+  sign_name:
+    primary: "Centaurus"
+    abbreviation: "Cen"
+    genitive: "Centauri"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Greece / Mediterranean"
+    period_range: "Ptolemy Almagest ~150 CE; one of the 48 classical constellations; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 19
+    sign_classification:
+      iau_abbreviation: "Cen"
+      iau_area_sq_degrees: 1060
+      brightest_star: "Rigil Kentaurus (α Centauri)"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Centaurus"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "Rigil Kentaurus (α Centauri A+B)"
+        bayer: "α Cen"
+        ra_j2000: "14h 39m 36s"
+        dec_j2000: "−60° 50′ 02″"
+        magnitude: -0.27
+      - name: "Hadar (β Centauri)"
+        bayer: "β Cen"
+        ra_j2000: "14h 03m 49s"
+        dec_j2000: "−60° 22′ 23″"
+        magnitude: 0.61
+    asterism_schematic: "Large southern constellation; centaur figure holding spear pointing at Lupus (the wolf). Alpha Centauri (3rd brightest star) is the closest star system to Earth at 4.37 light-years. Points to the Southern Cross."
+    cultural_iconography: "Chiron — the wise centaur, teacher of Achilles, Jason, and Asclepius; accidentally wounded by Heracles' poisoned arrow; voluntarily gave up immortality to end suffering. Proxima Centauri (nearest star) is Alpha's companion."
+  primitive_association_hints:
+    suggested_attributes: ["wisdom teacher", "duality of beast and sage", "noble sacrifice", "wound that cannot heal", "nearest star"]
+    narrative_archetype: "the wounded healer; the teacher who cannot be taught; duality of nature and civilization"
+    game_design_notes: "Chiron archetype = mentor class / support-healer; 'nearest star' = accessible cosmic depth; accidental wound = DoT curse mechanic; centaur hybrid = strength + wisdom synergy"
+  mythic_narrative: >
+    Centaurus is most often identified as Chiron, wisest of the centaurs and tutor to the greatest
+    Greek heroes — Achilles, Jason, Asclepius the healer, and Heracles. Unlike other savage centaurs,
+    Chiron embodied the reconciliation of animal nature with divine wisdom. Tragically he was struck
+    by one of Heracles' arrows tipped with the Hydra's incurable poison; being immortal, he could
+    not die yet could not stop suffering. Zeus permitted him to surrender his immortality to save
+    Prometheus, and placed him in the sky. Alpha Centauri is the nearest star system to our own
+    sun at 4.37 light-years, comprising three stars including Proxima Centauri.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Classical mythology; public domain"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Centaurus"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-020-cepheus"
+  sign_name:
+    primary: "Cepheus"
+    abbreviation: "Cep"
+    genitive: "Cephei"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Greece / Mediterranean"
+    period_range: "Ptolemy Almagest ~150 CE; one of the 48 classical constellations; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 20
+    sign_classification:
+      iau_abbreviation: "Cep"
+      iau_area_sq_degrees: 588
+      brightest_star: "Alderamin (α Cephei)"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "northern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Cepheus_(constellation)"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "Alderamin (α Cephei)"
+        bayer: "α Cep"
+        ra_j2000: "21h 18m 35s"
+        dec_j2000: "+62° 35′ 08″"
+        magnitude: 2.45
+      - name: "δ Cephei"
+        bayer: "δ Cep"
+        ra_j2000: "22h 29m 10s"
+        dec_j2000: "+58° 24′ 55″"
+        magnitude: "3.5–4.4 (variable)"
+    asterism_schematic: "Pentagonal house-shape near the north celestial pole; circumpolar. Delta Cephei is the prototype Cepheid variable star. Due to precession Alderamin will be the pole star around 7500 CE."
+    cultural_iconography: "King of Ethiopia, husband of Cassiopeia, father of Andromeda. Part of the Perseus narrative group. Delta Cephei = the 'standard candle' star — Cepheid variables are used to measure cosmic distances."
+  primitive_association_hints:
+    suggested_attributes: ["royal authority", "paternal figure", "helpless witness", "near the cosmic axis", "the measure of distance"]
+    narrative_archetype: "the king whose power is insufficient; witness to sacrifice; the one near the pole"
+    game_design_notes: "Father-king archetype; future pole star = destiny/fate mechanic; delta Cephei pulsation = rhythmic power cycling; cosmic distance measure = range/scaling ability"
+  mythic_narrative: >
+    Cepheus was king of Ethiopia, husband of vain Cassiopeia and father of Andromeda. When his
+    wife's boast enraged Poseidon and brought the sea monster Cetus to ravage their kingdom,
+    Cepheus was forced to chain his daughter Andromeda to a rock as sacrifice — an act of
+    helpless paternal anguish. Perseus rescued Andromeda, and the entire family was placed among
+    the stars. Delta Cephei, a pulsating variable star, is the prototype for Cepheid variables —
+    a class of stars whose pulsation period reveals their intrinsic luminosity, enabling astronomers
+    to measure distances across the universe. Delta Cep's discoverer was John Goodricke in 1784.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Classical mythology; public domain"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Cepheus_(constellation)"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-021-cetus"
+  sign_name:
+    primary: "Cetus"
+    abbreviation: "Cet"
+    genitive: "Ceti"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Greece / Mediterranean"
+    period_range: "Ptolemy Almagest ~150 CE; one of the 48 classical constellations; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 21
+    sign_classification:
+      iau_abbreviation: "Cet"
+      iau_area_sq_degrees: 1231
+      brightest_star: "Diphda (β Ceti)"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "both"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Cetus"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "Diphda (β Ceti)"
+        bayer: "β Cet"
+        ra_j2000: "00h 43m 35s"
+        dec_j2000: "−17° 59′ 12″"
+        magnitude: 2.04
+      - name: "Mira (ο Ceti)"
+        bayer: "ο Cet"
+        ra_j2000: "02h 19m 21s"
+        dec_j2000: "−02° 58′ 39″"
+        magnitude: "2.0–10.1 (LPV variable)"
+    asterism_schematic: "One of the largest constellations; sea monster body. Two distinct parts (head and body) connected by a long neck. Contains Mira (Omicron Ceti) — the first recognized long-period variable star. Contains Tau Ceti, a nearby Sun-like star and SETI candidate."
+    cultural_iconography: "Sea monster sent by Poseidon to ravage Ethiopia; slain by Perseus. Mira ('the Wonderful') = first recognized variable star (1596). Tau Ceti = nearby Sun-like star; prime SETI target; 11.9 light-years away."
+  primitive_association_hints:
+    suggested_attributes: ["primordial monster", "divine punishment tool", "the deep", "chaos from the sea", "the changeable star", "contact with the unknown (Tau Ceti)"]
+    narrative_archetype: "the sea beast; instrument of divine wrath; leviathan"
+    game_design_notes: "Sea-monster boss archetype; Mira's extreme variability = berserk/dormant cycle mechanic; Tau Ceti = alien/other-world portal hook; vast size = area-denial"
+  mythic_narrative: >
+    Cetus the Sea Monster was sent by Poseidon to devastate the coast of Ethiopia as punishment
+    for Cassiopeia's vanity. Andromeda was chained to a cliff as sacrifice to the monster when
+    Perseus arrived, having just slain Medusa. Perseus produced the severed Gorgon's head, turning
+    Cetus to stone, and rescued Andromeda. Cetus is one of the largest constellations (1231 sq°).
+    Mira (Omicron Ceti), discovered variable by David Fabricius in 1596, was the first recognized
+    long-period variable — ranging from naked-eye brightness to near-invisible over ~332 days.
+    Tau Ceti, 11.9 light-years away, is the most Sun-like nearby star and a major SETI target.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Classical mythology; public domain"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Cetus"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-022-chamaeleon"
+  sign_name:
+    primary: "Chamaeleon"
+    abbreviation: "Cha"
+    genitive: "Chamaeleontis"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "Netherlands (Petrus Plancius / Keyser and de Houtman)"
+    period_range: "Keyser and de Houtman 1595–1597 observations; Plancius globe 1598; Bayer Uranometria 1603; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 22
+    sign_classification:
+      iau_abbreviation: "Cha"
+      iau_area_sq_degrees: 132
+      brightest_star: "α Chamaeleontis"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Chamaeleon"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "α Chamaeleontis"
+        bayer: "α Cha"
+        ra_j2000: "08h 18m 32s"
+        dec_j2000: "−76° 55′ 11″"
+        magnitude: 4.07
+    asterism_schematic: "Small, faint southern constellation near the south celestial pole. No star brighter than magnitude 4. Bordered by Volans, Carina, Musca, Octans, Mensa. Represents a chameleon."
+    cultural_iconography: "Chameleon — introduced by Dutch navigators who encountered these exotic lizards in Africa. A creature of camouflage and adaptation, straddling land and perception. Adjacent to the Small Magellanic Cloud's region of sky."
+  primitive_association_hints:
+    suggested_attributes: ["camouflage", "adaptation", "color change", "patient predator", "invisibility"]
+    narrative_archetype: "the unseen watcher; the shapeshifter of color; patient ambush predator"
+    game_design_notes: "Stealth/invisibility archetype; color-change = element-shifting ability; slow patient predator = ambush mechanics; camouflage = evasion/dodge"
+  mythic_narrative: >
+    Chamaeleon has no classical mythology. It was created by Dutch navigators Keyser and de
+    Houtman based on exotic animals encountered during their 1595–1597 expedition to the East
+    Indies and southern Africa. Petrus Plancius placed it on his 1598 celestial globe, and
+    Johann Bayer popularized it in his 1603 Uranometria. The chameleon's famous ability to
+    change color and remain motionless while hunting made it an object of wonder to European
+    naturalists of the exploration era. This is a purely zoological-observational constellation
+    with no associated mythology.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Modern constellation; no sensitivity concerns"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Chamaeleon"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-023-circinus"
+  sign_name:
+    primary: "Circinus"
+    abbreviation: "Cir"
+    genitive: "Circini"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "France (Nicolas Louis de Lacaille)"
+    period_range: "Lacaille 1751–1752; published 1763; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 23
+    sign_classification:
+      iau_abbreviation: "Cir"
+      iau_area_sq_degrees: 93
+      brightest_star: "α Circini"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Circinus"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "α Circini"
+        bayer: "α Cir"
+        ra_j2000: "14h 42m 30s"
+        dec_j2000: "−64° 58′ 30″"
+        magnitude: 3.19
+    asterism_schematic: "Second smallest IAU constellation (93 sq°); compact triangle shape near Alpha and Beta Centauri in the southern Milky Way. Represents a drawing compass (draftsman's instrument). Contains Circinus Galaxy, a Seyfert galaxy."
+    cultural_iconography: "Draftsman's compass — surveyor's instrument for drawing circles and measuring distances. Lacaille's tribute to navigation and geometry. Adjacent to the Southern Cross and Alpha Centauri pointer stars."
+  primitive_association_hints:
+    suggested_attributes: ["precision", "geometric thinking", "measurement", "the drawn circle", "small but essential"]
+    narrative_archetype: "the measurer; the geometer; the tool that defines boundaries"
+    game_design_notes: "Circle/boundary mechanic; precision archetype; Circinus Galaxy = hidden cosmic depth in a small package; measurement = scaling/accuracy ability"
+  mythic_narrative: >
+    Circinus (the Drawing Compass) has no classical mythology. Nicolas Louis de Lacaille introduced
+    it during his 1751–1752 southern hemisphere survey, naming it after the draftsman's compass used
+    in geometry and navigation — reflecting the era's emphasis on scientific measurement and
+    exploration. It is the second smallest IAU constellation at 93 square degrees. Despite its
+    small size and faintness, its most notable deep-sky object is the Circinus Galaxy, a nearby
+    Seyfert active galaxy approximately 13 million light-years away, hidden behind Milky Way dust.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Modern constellation; Masonic compass symbolism exists in broader culture but no concern for game design use"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Circinus"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-024-columba"
+  sign_name:
+    primary: "Columba"
+    abbreviation: "Col"
+    genitive: "Columbae"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "Netherlands (Petrus Plancius)"
+    period_range: "Plancius 1592 globe; Bayer Uranometria 1603; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 24
+    sign_classification:
+      iau_abbreviation: "Col"
+      iau_area_sq_degrees: 270
+      brightest_star: "Phact (α Columbae)"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Columba_(constellation)"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "Phact (α Columbae)"
+        bayer: "α Col"
+        ra_j2000: "05h 39m 39s"
+        dec_j2000: "−34° 04′ 27″"
+        magnitude: 2.65
+      - name: "Wezn (β Columbae)"
+        bayer: "β Col"
+        ra_j2000: "05h 50m 58s"
+        dec_j2000: "−35° 46′ 06″"
+        magnitude: 3.12
+    asterism_schematic: "Compact southern constellation south of Lepus and Canis Major. Represents the dove Noah sent from the Ark (or the Argonauts' dove). Contains Mu Columbae — a runaway star fleeing at 100 km/s."
+    cultural_iconography: "Noah's dove carrying the olive branch; or the dove sent ahead of the Argo through the Clashing Rocks (Symplegades). Phact name from Arabic 'al-fākhtah' (ring-dove). Dove as peace messenger = universal symbol."
+  primitive_association_hints:
+    suggested_attributes: ["peace herald", "messenger", "flood survivor", "gentle guide", "olive branch", "navigational bird"]
+    narrative_archetype: "the dove sent ahead; the survivor's messenger; peace after catastrophe"
+    game_design_notes: "Scout/herald spirit; olive-branch = truce/buff mechanic; flood survival = endurance after wipeout; Argonaut dove = pathfinder ability for dangerous passages"
+  mythic_narrative: >
+    Columba the Dove was introduced by Petrus Plancius on his 1592 celestial globe, drawing on
+    Biblical and classical traditions. In one identification the dove is the bird Noah sent from
+    the Ark after the Flood — it returned with an olive branch signaling the waters had receded.
+    In another, it represents the dove the Argonauts sent ahead to test passage through the
+    Symplegades (Clashing Rocks); the dove's tail-feathers were clipped, but the rocks recoiled
+    and the Argo passed safely. Mu Columbae is a remarkable runaway star, ejected from the Orion
+    molecular cloud and now racing through space at ~100 km/s.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Dual Biblical/classical identification; universal dove-of-peace symbolism; no concern"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Columba_(constellation)"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-025-coma-berenices"
+  sign_name:
+    primary: "Coma Berenices"
+    abbreviation: "Com"
+    genitive: "Comae Berenices"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "Greece/Egypt (ancient informal group); formalized by Tycho Brahe / Caspar Vopel 1536"
+    period_range: "Known as an asterism in antiquity; first charted as constellation by Vopel 1536; Tycho Brahe's star catalogue 1602; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 25
+    sign_classification:
+      iau_abbreviation: "Com"
+      iau_area_sq_degrees: 386
+      brightest_star: "β Comae Berenices"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "northern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Coma_Berenices"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "β Comae Berenices"
+        bayer: "β Com"
+        ra_j2000: "13h 11m 53s"
+        dec_j2000: "+27° 52′ 41″"
+        magnitude: 4.26
+    asterism_schematic: "Scattered cluster of faint stars forming a loose diamond; the Coma Star Cluster (Melotte 111) is a naked-eye open cluster ~288 light-years away. Contains the Coma Cluster of galaxies — one of the densest galaxy concentrations known."
+    cultural_iconography: "Berenice's Hair — the locks of Queen Berenice II of Egypt (3rd c. BCE), offered at the temple of Aphrodite for her husband Ptolemy III's safe return from war; vanished from the temple and placed in the sky. Recorded by Callimachus."
+  primitive_association_hints:
+    suggested_attributes: ["royal sacrifice", "devotion", "the vow fulfilled by the gods", "scattered golden hair", "abundance of galaxies"]
+    narrative_archetype: "the queen's devotion; divine intervention fulfilling a mortal vow; sacrifice transformed into stars"
+    game_design_notes: "Devotion/sacrifice mechanic; golden-hair visual motif for light-element spirit; Coma galaxy cluster = hidden cosmic scale; vow-fulfillment = conditional buff"
+  mythic_narrative: >
+    Coma Berenices (Berenice's Hair) commemorates Queen Berenice II of Egypt (~267–221 BCE),
+    wife of Ptolemy III Euergetes. When her husband departed on a dangerous military campaign
+    against the Seleucid Empire, Berenice vowed to sacrifice her renowned golden hair to
+    Aphrodite if he returned safely. He did; she cut her hair and placed it in the temple.
+    The locks vanished overnight, and the court astronomer Conon of Samos proclaimed the gods
+    had placed them in the sky. The poet Callimachus memorialized the event. The constellation
+    contains the naked-eye Coma Star Cluster and, at its heart, the Coma Cluster of galaxies —
+    one of the most massive galaxy concentrations within 300 million light-years.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Historical royal figure; classical Egyptian-Greek tradition; public domain"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Coma_Berenices"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-026-corona-australis"
+  sign_name:
+    primary: "Corona Australis"
+    abbreviation: "CrA"
+    genitive: "Coronae Australis"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Greece / Mediterranean"
+    period_range: "Ptolemy Almagest ~150 CE; one of the 48 classical constellations; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 26
+    sign_classification:
+      iau_abbreviation: "CrA"
+      iau_area_sq_degrees: 128
+      brightest_star: "Meridiana (α Coronae Australis)"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Corona_Australis"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "Meridiana (α Coronae Australis)"
+        bayer: "α CrA"
+        ra_j2000: "19h 09m 28s"
+        dec_j2000: "−37° 54′ 16″"
+        magnitude: 4.10
+    asterism_schematic: "Small, compact arc of faint stars south of Sagittarius; mirror counterpart of Corona Borealis in the south. Contains one of the nearest star-forming regions, the Corona Australis molecular cloud (~430 light-years). No star brighter than magnitude 4.1."
+    cultural_iconography: "Southern Crown — less storied than its northern counterpart. Variously identified as a wreath fallen from Sagittarius, or a crown thrown into the sky by the centaur. Associated with star-forming nebulosity in nearby molecular cloud."
+  primitive_association_hints:
+    suggested_attributes: ["southern crown", "wreath fallen", "modest authority", "birthplace of stars", "mirror archetype"]
+    narrative_archetype: "the lesser twin; the crown misplaced or fallen; cradle of new suns"
+    game_design_notes: "Southern twin archetype; star-forming cloud = birth/creation mechanic; fallen crown = authority-stripped narrative; molecular cloud = fog/nebula visual motif"
+  mythic_narrative: >
+    Corona Australis (the Southern Crown) is one of Ptolemy's 48 original constellations.
+    Unlike the Northern Crown (Corona Borealis), it carries no single dominant myth — it was
+    variously identified as a wreath worn by a reclining figure in the southern sky, or as a
+    crown cast down by the centaur Sagittarius. Some ancient commentators connected it to Bacchus.
+    The constellation's most remarkable feature is not stellar but nebular: the Corona Australis
+    molecular cloud, one of the nearest and most active star-forming regions to Earth at only
+    ~430 light-years, lies within its boundaries, actively creating new stellar systems.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Classical constellation; public domain"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Corona_Australis"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-027-corona-borealis"
+  sign_name:
+    primary: "Corona Borealis"
+    abbreviation: "CrB"
+    genitive: "Coronae Borealis"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Greece / Mediterranean"
+    period_range: "Ptolemy Almagest ~150 CE; one of the 48 classical constellations; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 27
+    sign_classification:
+      iau_abbreviation: "CrB"
+      iau_area_sq_degrees: 179
+      brightest_star: "Alphecca (α Coronae Borealis)"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "northern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Corona_Borealis"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "Alphecca (α Coronae Borealis)"
+        bayer: "α CrB"
+        ra_j2000: "15h 34m 41s"
+        dec_j2000: "+26° 42′ 53″"
+        magnitude: 2.22
+      - name: "T Coronae Borealis"
+        bayer: "T CrB"
+        ra_j2000: "15h 59m 30s"
+        dec_j2000: "+25° 55′ 13″"
+        magnitude: "2.0 at nova peak (recurrent nova; normally ~10)"
+    asterism_schematic: "Perfect semi-circular arc of seven stars between Boötes and Hercules; one of the most recognizable small constellations. Contains T Coronae Borealis (the Blaze Star) — a recurrent nova that brightened to naked-eye in 1866 and 1946, expected to recur ~2024–2025."
+    cultural_iconography: "Crown of Ariadne (Minoan princess); Dionysus threw it to the sky after Ariadne's death. Alphecca = 'the bright one of the broken ring.' T CrB = recurrent nova — a binary system that periodically explosively brightens."
+  primitive_association_hints:
+    suggested_attributes: ["perfect arc", "abandoned beloved", "the crown returned to heaven", "periodic explosion", "the reliable return"]
+    narrative_archetype: "love's crown; the abandoned one's memorial; the predictable nova — death and return"
+    game_design_notes: "Crown archetype = authority/royalty; T CrB nova = periodic explosive ultimate (predictable timing = telegraphed mechanic); Ariadne abandonment = betrayal motif; arc shape = barrier/shield"
+  mythic_narrative: >
+    Corona Borealis (the Northern Crown) represents the jeweled crown of Ariadne, daughter of
+    King Minos of Crete. Ariadne helped Theseus slay the Minotaur and escape the Labyrinth with
+    her famous thread, then fled with him — only to be abandoned on the island of Naxos. The god
+    Dionysus (or Bacchus) found her there and made her his bride; at her death (or their marriage),
+    he threw her bejeweled crown into the sky where it became a constellation. The crown forms a
+    perfect semicircle of seven stars. T Coronae Borealis, the Blaze Star, is a recurrent nova —
+    a white dwarf in a binary system that periodically accretes enough matter to trigger a
+    thermonuclear explosion, brightening from magnitude 10 to 2, and was expected to recur ~2024–2025.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Classical mythology; public domain"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Corona_Borealis"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-028-corvus"
+  sign_name:
+    primary: "Corvus"
+    abbreviation: "Crv"
+    genitive: "Corvi"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Greece / Mediterranean"
+    period_range: "Ptolemy Almagest ~150 CE; one of the 48 classical constellations; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 28
+    sign_classification:
+      iau_abbreviation: "Crv"
+      iau_area_sq_degrees: 184
+      brightest_star: "Gienah (γ Corvi)"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Corvus_(constellation)"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "Gienah (γ Corvi)"
+        bayer: "γ Crv"
+        ra_j2000: "12h 15m 49s"
+        dec_j2000: "−17° 32′ 31″"
+        magnitude: 2.59
+      - name: "Algorab (δ Corvi)"
+        bayer: "δ Crv"
+        ra_j2000: "12h 29m 52s"
+        dec_j2000: "−16° 30′ 55″"
+        magnitude: 2.95
+    asterism_schematic: "Compact quadrilateral (trapezoid) of four 2nd–3rd magnitude stars south of Virgo; sits on the back of Hydra. The Antennae Galaxies (NGC 4038/4039) — two colliding galaxies forming spectacular tidal tails — lie within its boundaries."
+    cultural_iconography: "Apollo's raven / crow — banished to the sky for lying. Sacred bird of prophecy; originally white (or silver), blackened as punishment. Associated with Crater (the cup) and Hydra below — the raven failed to bring water."
+  primitive_association_hints:
+    suggested_attributes: ["deceptive messenger", "punishment by the divine", "prophetic bird", "blackening of the innocent", "liar's consequence"]
+    narrative_archetype: "the guilty messenger; the divine bird fallen from grace; prophetic voice turned against itself"
+    game_design_notes: "Deception archetype; blackened-crow = dark/shadow transformation; liar's punishment = corrupted-power mechanic; Antennae Galaxies collision = catastrophic meeting event"
+  mythic_narrative: >
+    Corvus the Crow was Apollo's sacred bird and messenger. In one myth Apollo sent the crow
+    with a cup (Crater) to fetch water, but the crow dallied, waiting for figs to ripen before
+    returning — then lied to Apollo, blaming a water snake (Hydra) for blocking the spring.
+    Apollo saw through the deception and in punishment placed the crow, cup, and snake together
+    in the sky — eternally the crow cannot drink from the cup, held back by the serpent.
+    In another version the crow reported Coronis's infidelity and was blackened from its
+    original white/silver color. The compact quadrilateral of Corvus is one of the most
+    distinctive shapes in the southern spring sky.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Classical mythology; public domain"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Corvus_(constellation)"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-029-crater"
+  sign_name:
+    primary: "Crater"
+    abbreviation: "Crt"
+    genitive: "Crateris"
+    native_script: ""
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Greece / Mediterranean"
+    period_range: "Ptolemy Almagest ~150 CE; one of the 48 classical constellations; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 29
+    sign_classification:
+      iau_abbreviation: "Crt"
+      iau_area_sq_degrees: 282
+      brightest_star: "δ Crateris"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Crater_(constellation)"
+    image_license: "Public Domain (IAU constellation map)"
+    star_coordinates:
+      - name: "δ Crateris"
+        bayer: "δ Crt"
+        ra_j2000: "11h 19m 21s"
+        dec_j2000: "−14° 46′ 43″"
+        magnitude: 3.56
+      - name: "α Crateris"
+        bayer: "α Crt"
+        ra_j2000: "10h 59m 46s"
+        dec_j2000: "−18° 17′ 56″"
+        magnitude: 4.07
+    asterism_schematic: "Cup-shaped group of faint stars on the back of Hydra, west of Corvus. Forms a chalice or goblet shape. Associated in the sky with the Corvus–Crater–Hydra trio — the crow's undelivered water, the cup, and the blocking serpent."
+    cultural_iconography: "Apollo's cup — the goblet the crow was sent to fill. The Greco-Roman wine-mixing vessel (krater). Sits on the body of Hydra beside the deceptive crow. The cup-bowl asterism reads as a sacred vessel of unfulfilled duty."
+  primitive_association_hints:
+    suggested_attributes: ["sacred vessel", "unfulfilled duty", "the cup withheld", "divine hospitality unpaid", "thirst and denial"]
+    narrative_archetype: "the sacred cup; denied refreshment; container of divine obligation"
+    game_design_notes: "Potion/vessel archetype; deny-drink mechanic = debuff (thirst/denial); sacred cup = quest-object / holy grail adjacent; unfulfilled duty = ongoing debuff loop; trio with Corvus+Hydra = narrative skill combo chain"
+  mythic_narrative: >
+    Crater the Cup represents the sacred drinking vessel that Apollo entrusted to his crow
+    (Corvus) to fill with fresh water for a sacrifice. The crow's dereliction of duty — dawdling
+    for figs and then lying — left the cup unfilled. Apollo placed the cup, crow, and water snake
+    (Hydra) together in the sky as an eternal object lesson: the crow is forever denied the
+    water in the cup, blocked by the serpent. In Greco-Roman culture the crater was the large
+    wine-mixing bowl central to symposia and religious ritual — one of the most culturally
+    charged vessels in the ancient world. Crater is one of the original 48 Ptolemaic constellations,
+    recognized across cultures as the celestial goblet or bowl.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Classical mythology; public domain"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Crater_(constellation)"
+      - "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    confidence: "high"

@@ -1,0 +1,1040 @@
+# corpus-mesopotamian.yaml
+# Legolas Mode B Corpus — Mesopotamian MUL.APIN Star Catalogue
+# Crawl date: 2026-06-09
+# Entry count: 18
+# Schema: MUL.APIN path-of-the-Moon asterisms (12 zodiacal) + 6 prominent non-zodiacal figures
+# Primary source: MUL.APIN tablets (c. 1000 BCE copies; traditions ~1800–500 BCE)
+# Key academic reference: Hunger & Pingree (1989) 'MUL.APIN: An Astronomical Compendium in Cuneiform'
+# Cultural sensitivity: none — ancient scholarly tradition; no living religious community
+---
+
+- sign_id: "mesopotamian-001-mul-iku"
+  sign_name:
+    primary: "MUL.IKU / MULLU.HUN.GA (The Hired Man)"
+    variants: ["MULLU.HUN.GA", "The Hired Man", "Lu.Hun.Ga"]
+    romanization: "MUL.IKU"
+    native_script: "𒀯𒀉𒆪"
+  cultural_tradition:
+    primary_culture: "Babylonian / Akkadian"
+    geographic_origin: "Mesopotamia (modern Iraq)"
+    period_range: "MUL.APIN tablets c. 1000 BCE (copies); astronomical tradition ~1800–500 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "MUL.APIN star catalogue"
+    total_signs_in_system: 18
+    position_in_system: 1
+    sign_classification:
+      western_zodiac_correspondence: "Aries"
+      deity_association: "Dumuzi (Tammuz) — shepherd-god of seasonal death/rebirth"
+      ecliptic_path: true
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/MUL.APIN"
+    star_coordinates:
+      - name: "β Arietis (Sheratan)"
+        ra_j2000: "01h 54m 38s"
+        dec_j2000: "+20° 48′ 29″"
+        magnitude: 2.64
+      - name: "α Arietis (Hamal)"
+        ra_j2000: "01h 46m 37s"
+        dec_j2000: "+23° 27′ 45″"
+        magnitude: 2.01
+    asterism_schematic: "2–3 star figure occupying modern Aries region; one of oldest recorded constellation names"
+    cultural_iconography: "Agricultural hired worker, depicted carrying tools of harvest labor; associated with Dumuzi (Tammuz), the shepherd-god who died each winter and was mourned by Inanna"
+  primitive_association_hints:
+    suggested_attributes: ["agricultural labor", "seasonal death/rebirth", "shepherd", "sacrifice", "cyclical renewal"]
+    narrative_archetype: "seasonal sacrifice; the worker who is consumed so that spring may return"
+    game_design_notes: "Direct ancestor of Western zodiac Aries; useful as 'ancient form' or pre-awakening manifestation; sacrifice-and-renewal motif gives strong design hooks"
+  mythic_narrative: >
+    The Hired Man (MUL.IKU or MULLU.HUN.GA) is among the oldest recorded constellation names,
+    appearing in MUL.APIN tablets dated to ~1000 BCE but reflecting traditions centuries older.
+    This constellation in the region of modern Aries was associated with Dumuzi (Tammuz),
+    the shepherd-god beloved of Inanna who descends to the underworld each winter — the earliest
+    recorded death-and-resurrection deity narrative tied to astronomical observation. His name
+    means "faithful son" or "true son" in Sumerian; his seasonal death was mourned in ritual
+    lament songs, making him the prototype for later dying-and-rising god traditions.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Ancient Mesopotamian scholarly tradition; purely academic sourcing; no living religious community"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/MUL.APIN"
+      - "https://en.wikipedia.org/wiki/Dumuzi"
+      - "Hunger & Pingree (1989) 'MUL.APIN: An Astronomical Compendium in Cuneiform'"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "mesopotamian-002-mul-gud-an-na"
+  sign_name:
+    primary: "MUL.GUD.AN.NA (Bull of Heaven)"
+    variants: ["The Heavenly Bull", "Gudanna"]
+    romanization: "MUL.GUD.AN.NA"
+    native_script: "𒀯𒄞𒀭𒈾"
+  cultural_tradition:
+    primary_culture: "Babylonian / Sumerian"
+    geographic_origin: "Mesopotamia (modern Iraq)"
+    period_range: "MUL.APIN tablets c. 1000 BCE; traditions ~2600–500 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "MUL.APIN star catalogue"
+    total_signs_in_system: 18
+    position_in_system: 2
+    sign_classification:
+      western_zodiac_correspondence: "Taurus"
+      deity_association: "Anu — sky god; the Bull sent by Anu at Ishtar's request to kill Gilgamesh"
+      ecliptic_path: true
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Taurus_(constellation)"
+    star_coordinates:
+      - name: "α Tauri (Aldebaran)"
+        ra_j2000: "04h 35m 55s"
+        dec_j2000: "+16° 30′ 33″"
+        magnitude: 0.86
+      - name: "η Tauri (Alcyone — Pleiades leader)"
+        ra_j2000: "03h 47m 29s"
+        dec_j2000: "+24° 06′ 18″"
+        magnitude: 2.87
+    asterism_schematic: "Bull's head formed by Hyades cluster; Pleiades at shoulder; Aldebaran marks the blood-red eye"
+    cultural_iconography: "Massive celestial bull with fiery breath and terrible horns; in the Gilgamesh Epic, Anu releases this bull at Ishtar's demand — Enkidu seizes it by the horns while Gilgamesh drives a sword between its shoulders"
+  primitive_association_hints:
+    suggested_attributes: ["divine wrath", "unstoppable force", "celestial power", "sacrifice of the divine beast"]
+    narrative_archetype: "the monster sent by the gods to punish hubris; defeated by heroic partnership"
+    game_design_notes: "One of earliest attested constellation myths with full narrative context (Gilgamesh Epic); killing the Bull of Heaven is a pivotal moment — divine retribution triggers Enkidu's death"
+  mythic_narrative: >
+    The Bull of Heaven (MUL.GUD.AN.NA) appears prominently in the Epic of Gilgamesh (Tablet VI).
+    When Gilgamesh spurns Ishtar's advances, she demands Anu release the Bull upon Uruk as punishment.
+    The Bull snorts three times, opening pits that swallow hundreds of warriors. Enkidu grabs it by
+    the horns while Gilgamesh drives a sword between the horns and neck. Enkidu then tears off the
+    Bull's thigh and flings it in Ishtar's face in defiance. This hubris — killing the Bull of Heaven —
+    leads directly to the gods' decree that Enkidu must die, setting in motion Gilgamesh's quest for
+    immortality. The Pleiades (Seven Sisters) also reside in this constellation, forming a distinct
+    sacred asterism recognized across world cultures.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Ancient Babylonian epic tradition; purely scholarly"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Bull_of_Heaven"
+      - "https://en.wikipedia.org/wiki/Epic_of_Gilgamesh"
+      - "Hunger & Pingree (1989) 'MUL.APIN: An Astronomical Compendium in Cuneiform'"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "mesopotamian-003-mul-mash-tab-ba"
+  sign_name:
+    primary: "MUL.MASH.TAB.BA.GAL.GAL (Great Twins)"
+    variants: ["The Great Twins", "MASH.TAB.BA"]
+    romanization: "MUL.MASH.TAB.BA.GAL.GAL"
+    native_script: "𒀯𒈦𒋰𒁀𒃲𒃲"
+  cultural_tradition:
+    primary_culture: "Babylonian / Akkadian"
+    geographic_origin: "Mesopotamia (modern Iraq)"
+    period_range: "MUL.APIN tablets c. 1000 BCE; traditions ~1800–500 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "MUL.APIN star catalogue"
+    total_signs_in_system: 18
+    position_in_system: 3
+    sign_classification:
+      western_zodiac_correspondence: "Gemini"
+      deity_association: "Lugalgirra and Meslamtaea — twin warrior deities, guardians of the underworld gate"
+      ecliptic_path: true
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Gemini_(constellation)"
+    star_coordinates:
+      - name: "α Geminorum (Castor)"
+        ra_j2000: "07h 34m 36s"
+        dec_j2000: "+31° 53′ 18″"
+        magnitude: 1.58
+      - name: "β Geminorum (Pollux)"
+        ra_j2000: "07h 45m 19s"
+        dec_j2000: "+28° 01′ 34″"
+        magnitude: 1.14
+    asterism_schematic: "Two parallel figures (Castor and Pollux) standing side by side; figure extended along ecliptic"
+    cultural_iconography: "Twin warrior-gods Lugalgirra and Meslamtaea, who stand guard at the gate between the living world and the underworld; depicted in profile facing each other, carrying weapons"
+  primitive_association_hints:
+    suggested_attributes: ["duality", "threshold guardians", "underworld gate", "warrior twins", "mirror-identity"]
+    narrative_archetype: "twin guardians standing between worlds; the two faces of a single cosmic principle"
+    game_design_notes: "Underworld gate guardians are distinct from Greek Castor/Pollux mythology — darker, more liminal; strong design hook for duality mechanics or threshold/portal themes"
+  mythic_narrative: >
+    The Great Twins (MUL.MASH.TAB.BA.GAL.GAL) identified in MUL.APIN with the stars Castor and Pollux
+    were associated with the Babylonian twin deities Lugalgirra and Meslamtaea, divine guardians
+    stationed at the gate of the underworld (the twin-peaked mountain Mashu). They are distinct from
+    the Greek Dioscuri myth; rather than heroic brotherhood, the Babylonian twins embody the threshold
+    between life and death — standing eternally at the entrance to the realm of Ereshkigal. Their
+    worship was centered at Cutha (modern Tell Ibrahim), a city sacred to the underworld, giving them
+    a chthonic weight absent from their later Hellenistic counterparts.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Ancient scholarly tradition"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Lugalgirra_and_Meslamtaea"
+      - "https://en.wikipedia.org/wiki/Gemini_(constellation)"
+      - "Hunger & Pingree (1989)"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "mesopotamian-004-mul-al-lul"
+  sign_name:
+    primary: "MUL.AL.LUL (The Crayfish)"
+    variants: ["The Crab", "The Crayfish", "AL.LUL"]
+    romanization: "MUL.AL.LUL"
+    native_script: "𒀯𒀜𒇻𒇻"
+  cultural_tradition:
+    primary_culture: "Babylonian / Akkadian"
+    geographic_origin: "Mesopotamia (modern Iraq)"
+    period_range: "MUL.APIN tablets c. 1000 BCE; traditions ~1800–500 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "MUL.APIN star catalogue"
+    total_signs_in_system: 18
+    position_in_system: 4
+    sign_classification:
+      western_zodiac_correspondence: "Cancer"
+      deity_association: "Associated with Anu and Enlil's path; sometimes linked to the god Nergal (underworld ruler)"
+      ecliptic_path: true
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Cancer_(constellation)"
+    star_coordinates:
+      - name: "β Cancri (Altarf)"
+        ra_j2000: "08h 16m 31s"
+        dec_j2000: "+09° 11′ 08″"
+        magnitude: 3.53
+      - name: "δ Cancri (Asellus Australis)"
+        ra_j2000: "08h 44m 41s"
+        dec_j2000: "+18° 09′ 15″"
+        magnitude: 3.94
+    asterism_schematic: "Faint constellation; notable for Praesepe (Beehive Cluster, M44) at its center — called 'the Manger' in later traditions"
+    cultural_iconography: "Crayfish or freshwater crab; a creature of the liminal zone between river and land; Praesepe cluster marked as 'the Manger' or feeding-place, suggesting agricultural bounty imagery"
+  primitive_association_hints:
+    suggested_attributes: ["liminal zone", "rivers and marshes", "protection through withdrawal", "hidden strength"]
+    narrative_archetype: "the creature that retreats sideways; strength through indirection"
+    game_design_notes: "Faintest zodiacal constellation — suits a 'hidden' or 'veiled' archetype; Praesepe cluster visually distinctive for game cosmograph"
+  mythic_narrative: >
+    MUL.AL.LUL (The Crayfish) is one of the fainter zodiacal asterisms in MUL.APIN. The name
+    reflects the riverine crayfish of Mesopotamian marshlands — creatures that inhabit the boundary
+    between water and earth, moving sideways as a defense mechanism. The prominent star cluster
+    Praesepe (M44) at the constellation's heart was called "the Manger" in later traditions.
+    Ancient Babylonian astrology associated this region of the sky with the summer solstice gate —
+    the point through which souls descended into incarnation in some later traditions — making it
+    a threshold constellation despite its faint appearance.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Ancient scholarly tradition"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Cancer_(constellation)"
+      - "https://en.wikipedia.org/wiki/MUL.APIN"
+      - "Hunger & Pingree (1989)"
+    crawl_date: "2026-06-09"
+    confidence: "medium"
+
+- sign_id: "mesopotamian-005-mul-ur-gu-la"
+  sign_name:
+    primary: "MUL.UR.GU.LA (The Lion)"
+    variants: ["The Great Lion", "UR.GU.LA"]
+    romanization: "MUL.UR.GU.LA"
+    native_script: "𒀯𒌨𒄖𒆷"
+  cultural_tradition:
+    primary_culture: "Babylonian / Akkadian"
+    geographic_origin: "Mesopotamia (modern Iraq)"
+    period_range: "MUL.APIN tablets c. 1000 BCE; traditions ~2800–500 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "MUL.APIN star catalogue"
+    total_signs_in_system: 18
+    position_in_system: 5
+    sign_classification:
+      western_zodiac_correspondence: "Leo"
+      deity_association: "Ishtar (Venus); the lion is sacred symbol of the goddess of love and war"
+      ecliptic_path: true
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Leo_(constellation)"
+    star_coordinates:
+      - name: "α Leonis (Regulus)"
+        ra_j2000: "10h 08m 22s"
+        dec_j2000: "+11° 58′ 02″"
+        magnitude: 1.35
+      - name: "β Leonis (Denebola)"
+        ra_j2000: "11h 49m 03s"
+        dec_j2000: "+14° 34′ 19″"
+        magnitude: 2.14
+      - name: "γ Leonis (Algieba)"
+        ra_j2000: "10h 19m 58s"
+        dec_j2000: "+19° 50′ 30″"
+        magnitude: 2.08
+    asterism_schematic: "Sickle of Leo forms the lion's head and mane; Regulus is the heart-star; Denebola is the tail"
+    cultural_iconography: "Sacred lion of the goddess Ishtar; lions flanked the Processional Way in Babylon; the lion represented royal power, solar energy at peak, and divine wrath; Regulus ('the Little King') was the royal star"
+  primitive_association_hints:
+    suggested_attributes: ["solar power at zenith", "royal authority", "divine wrath", "conquest", "sacred to war-goddess"]
+    narrative_archetype: "the apex predator; the king who rules by force of presence"
+    game_design_notes: "Regulus was considered the most royal star in Babylonian astrology; this sign's deity association (Ishtar) is dual-natured — love AND war; strong visual iconography (sickle/mane)"
+  mythic_narrative: >
+    MUL.UR.GU.LA (The Lion) was one of the most significant constellations in Babylonian astronomy,
+    hosting Regulus — called "the star that stands in the breast of the Lion" and identified with
+    kingship itself. In Babylonian thought, a planet conjunct Regulus at a king's birth was an omen
+    of royal destiny. The lion was the sacred animal of Ishtar, goddess of love and war, and lined
+    the Processional Way to the Ishtar Gate in glazed-brick relief. As the constellation of midsummer,
+    the Lion held the ecliptic position where the sun burned at its most powerful — a cosmic symbol
+    of unchecked power. Babylonian kings called themselves "the lion of Marduk" in royal inscriptions.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Ancient scholarly tradition"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Leo_(constellation)"
+      - "https://en.wikipedia.org/wiki/Regulus"
+      - "Hunger & Pingree (1989)"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "mesopotamian-006-mul-absin"
+  sign_name:
+    primary: "MUL.ABSIN (The Furrow / Goddess Shala)"
+    variants: ["MULLUGAL", "The Furrow", "Shala's Star", "Spica's constellation"]
+    romanization: "MUL.ABSIN"
+    native_script: "𒀯𒀊𒋛𒅔"
+  cultural_tradition:
+    primary_culture: "Babylonian / Akkadian"
+    geographic_origin: "Mesopotamia (modern Iraq)"
+    period_range: "MUL.APIN tablets c. 1000 BCE; traditions ~1800–500 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "MUL.APIN star catalogue"
+    total_signs_in_system: 18
+    position_in_system: 6
+    sign_classification:
+      western_zodiac_correspondence: "Virgo"
+      deity_association: "Shala — grain goddess; carries an ear of grain (marked by Spica)"
+      ecliptic_path: true
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Virgo_(constellation)"
+    star_coordinates:
+      - name: "α Virginis (Spica)"
+        ra_j2000: "13h 25m 11s"
+        dec_j2000: "-11° 09′ 41″"
+        magnitude: 0.97
+      - name: "γ Virginis (Porrima)"
+        ra_j2000: "12h 41m 40s"
+        dec_j2000: "-01° 26′ 58″"
+        magnitude: 2.74
+    asterism_schematic: "Spica (α Virginis) is the bright grain-ear held by the goddess figure; one of the sky's brightest stars"
+    cultural_iconography: "The goddess Shala (grain deity) holding an ear of grain; Spica is the grain itself — a bright first-magnitude star that provided a navigational anchor for ancient astronomers. Hipparchus used Spica to discover the precession of equinoxes."
+  primitive_association_hints:
+    suggested_attributes: ["harvest abundance", "grain-goddess", "agricultural cycle", "celestial fertility", "the grain held at season's turn"]
+    narrative_archetype: "the mother of the harvest; she who holds what sustains life"
+    game_design_notes: "Spica is one of the sky's 20 brightest stars — high visual presence; Shala is a grain-goddess with storm associations (distinct from Demeter); grain-as-sustenance vs. grain-as-weapon (threshing)"
+  mythic_narrative: >
+    MUL.ABSIN (The Furrow) refers to the grain furrow of the field, and the bright star Spica marks
+    the ear of grain held by the celestial goddess figure. In Babylonian tradition this was identified
+    with Shala, a grain and storm goddess of Akkadian origin who held grain in one hand and a
+    thunderbolt in the other — embodying both agricultural bounty and destructive weather. Spica was
+    so prominent that Hipparchus of Nicaea used it in ~127 BCE to discover the precession of the
+    equinoxes, comparing his observations to earlier Babylonian records. The furrow itself symbolized
+    the first act of civilization — the moment humans drew order from wild earth.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Ancient scholarly tradition"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Virgo_(constellation)"
+      - "https://en.wikipedia.org/wiki/Shala_(goddess)"
+      - "Hunger & Pingree (1989)"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "mesopotamian-007-mul-zi-ba-an-na"
+  sign_name:
+    primary: "MUL.ZI.BA.AN.NA (The Scales of Heaven)"
+    variants: ["The Balance", "ZI.BA.AN.NA", "Claws of the Scorpion"]
+    romanization: "MUL.ZI.BA.AN.NA"
+    native_script: "𒀯𒍣𒁀𒀭𒈾"
+  cultural_tradition:
+    primary_culture: "Babylonian / Akkadian"
+    geographic_origin: "Mesopotamia (modern Iraq)"
+    period_range: "MUL.APIN tablets c. 1000 BCE; traditions ~1800–500 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "MUL.APIN star catalogue"
+    total_signs_in_system: 18
+    position_in_system: 7
+    sign_classification:
+      western_zodiac_correspondence: "Libra"
+      deity_association: "Shamash (sun god of justice) — the scales weigh the deeds of the dead"
+      ecliptic_path: true
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Libra_(constellation)"
+    star_coordinates:
+      - name: "β Librae (Zubeneschamali)"
+        ra_j2000: "15h 17m 00s"
+        dec_j2000: "-09° 22′ 59″"
+        magnitude: 2.61
+      - name: "α Librae (Zubenelgenubi)"
+        ra_j2000: "14h 50m 41s"
+        dec_j2000: "-16° 02′ 30″"
+        magnitude: 2.75
+    asterism_schematic: "Two primary stars marking the balance pans; traditionally considered the claws of Scorpius before being formalized as separate Libra"
+    cultural_iconography: "The scales of divine justice wielded by Shamash; associated with the autumn equinox when day and night balance; the instrument that weighs the hearts of the dead against the feather of truth in later Egyptian parallel tradition"
+  primitive_association_hints:
+    suggested_attributes: ["divine justice", "balance of cosmic order", "judgment of souls", "the autumn equinox", "weighing of deeds"]
+    narrative_archetype: "the great weighing; the moment of reckoning between life and what follows"
+    game_design_notes: "Libra was originally 'the claws of the scorpion' — its stars' Arabic names (Zubenelgenubi/Zubeneschamali) still mean 'the southern/northern claw'; this split-identity is a rich design hook"
+  mythic_narrative: >
+    MUL.ZI.BA.AN.NA (The Scales of Heaven) were associated with Shamash, the Babylonian sun-god
+    of justice, who used scales to weigh the deeds of humans. This region of sky coincided with the
+    autumn equinox in ancient Babylonian times, when daylight and darkness stood in perfect balance —
+    a cosmic demonstration of the scales' function. Originally these stars were considered the front
+    claws of the Scorpion (MUL.GIR.TAB); their Arabic star names Zubenelgenubi ("the southern claw")
+    and Zubeneschamali ("the northern claw") preserve this ancient identity even after the Greeks
+    elevated them to a separate constellation. The concept of cosmic weighing scales became the
+    Egyptian psychostasia — the weighing of the heart against Ma'at's feather — showing how
+    Babylonian cosmology propagated westward.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Ancient scholarly tradition"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Libra_(constellation)"
+      - "https://en.wikipedia.org/wiki/Shamash"
+      - "Hunger & Pingree (1989)"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "mesopotamian-008-mul-gir-tab"
+  sign_name:
+    primary: "MUL.GIR.TAB (The Scorpion)"
+    variants: ["The Scorpion", "GIR.TAB"]
+    romanization: "MUL.GIR.TAB"
+    native_script: "𒀯𒄈𒋰"
+  cultural_tradition:
+    primary_culture: "Babylonian / Akkadian"
+    geographic_origin: "Mesopotamia (modern Iraq)"
+    period_range: "MUL.APIN tablets c. 1000 BCE; traditions ~2800–500 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "MUL.APIN star catalogue"
+    total_signs_in_system: 18
+    position_in_system: 8
+    sign_classification:
+      western_zodiac_correspondence: "Scorpius"
+      deity_association: "Ishhara — scorpion goddess; also Ishtar in her war aspect; sent by the gods to sting Orion/Gilgamesh"
+      ecliptic_path: true
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Scorpius"
+    star_coordinates:
+      - name: "α Scorpii (Antares)"
+        ra_j2000: "16h 29m 24s"
+        dec_j2000: "-26° 25′ 55″"
+        magnitude: 1.06
+      - name: "λ Scorpii (Shaula)"
+        ra_j2000: "17h 33m 36s"
+        dec_j2000: "-37° 06′ 14″"
+        magnitude: 1.62
+      - name: "θ Scorpii (Sargas)"
+        ra_j2000: "17h 37m 19s"
+        dec_j2000: "-42° 59′ 52″"
+        magnitude: 1.86
+    asterism_schematic: "One of the most recognizable constellations; Antares (the 'rival of Mars') marks the heart; sweeping curved tail with stinger at Shaula"
+    cultural_iconography: "Scorpion creature of divine punishment; Scorpion-men (girtablullû) guarded the twin gates of the sun's passage in the Epic of Gilgamesh; Antares glows red like burning coal in the heart"
+  primitive_association_hints:
+    suggested_attributes: ["divine punishment", "death's sting", "guardianship of thresholds", "the hidden enemy", "venom and transformation"]
+    narrative_archetype: "the assassin sent by the gods; death that comes from behind"
+    game_design_notes: "Scorpion-men (girtablullû) are hybrid guardian monsters in Babylonian cosmology — their torso human, lower body scorpion; they guard the mountain passes where the sun rises and sets; strong monster/guardian archetype"
+  mythic_narrative: >
+    MUL.GIR.TAB (The Scorpion) is one of the most visually striking constellations, with its heart
+    marked by the red supergiant Antares — so red that Arabs called it "the rival of Mars." In
+    Babylonian mythology, the Scorpion was associated with divine punishment and threshold guardianship.
+    The Scorpion-men (girtablullû) appear in the Epic of Gilgamesh stationed at the Twin Peaks
+    (Mashu) where the sun descends into the underworld each night — towering hybrid creatures whose
+    "terror is awesome" and whose "glance is death." The scorpion goddess Ishhara was invoked in
+    oath-taking; breaking sacred vows brought scorpion-death. Antares's opposition to Aldebaran
+    (Bull's Eye) across the sky made these two stars the celestial markers of midsummer and midwinter.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Ancient scholarly tradition"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Scorpius"
+      - "https://en.wikipedia.org/wiki/Girtablilu"
+      - "Hunger & Pingree (1989)"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "mesopotamian-009-mul-pa-bil-sag"
+  sign_name:
+    primary: "MUL.PA.BIL.SAG (Pabilsag the Composite)"
+    variants: ["Pabilsag", "The Centaur-Archer", "PA.BIL.SAG"]
+    romanization: "MUL.PA.BIL.SAG"
+    native_script: "𒀯𒉺𒁉𒊕"
+  cultural_tradition:
+    primary_culture: "Babylonian / Sumerian"
+    geographic_origin: "Mesopotamia (modern Iraq)"
+    period_range: "MUL.APIN tablets c. 1000 BCE; Pabilsag cult attested ~2600 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "MUL.APIN star catalogue"
+    total_signs_in_system: 18
+    position_in_system: 9
+    sign_classification:
+      western_zodiac_correspondence: "Sagittarius"
+      deity_association: "Pabilsag — composite god (human head, bird wings, scorpion tail, horse body); husband of Gula the healing goddess"
+      ecliptic_path: true
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Sagittarius_(constellation)"
+    star_coordinates:
+      - name: "ε Sagittarii (Kaus Australis)"
+        ra_j2000: "18h 24m 10s"
+        dec_j2000: "-34° 23′ 05″"
+        magnitude: 1.79
+      - name: "σ Sagittarii (Nunki)"
+        ra_j2000: "18h 55m 15s"
+        dec_j2000: "-26° 17′ 49″"
+        magnitude: 2.05
+    asterism_schematic: "The 'Teapot' asterism of modern Sagittarius; points toward the Galactic Center; Milky Way appears as steam from teapot spout"
+    cultural_iconography: "Composite deity: human upper body, wings of a bird, lower body of a horse or running dog, scorpion tail with stinger; depicted aiming a double-headed arrow at the Scorpion; one of the most complex composite figures in Babylonian iconography"
+  primitive_association_hints:
+    suggested_attributes: ["composite nature", "celestial hunter", "guardian-warrior", "divine medicine (via wife Gula)", "pointing toward galaxy center"]
+    narrative_archetype: "the composite being who embodies multiple natures; the archer who draws toward the cosmic center"
+    game_design_notes: "Pabilsag aims directly at Scorpius — the eternal chase across the sky echoes in many traditions (Orion/Scorpion myth). Composite being design (4 different creature parts) is visually striking for a spirit/form design"
+  mythic_narrative: >
+    MUL.PA.BIL.SAG represents Pabilsag, one of the most distinctively composite deities in
+    Babylonian cosmology — combining human head, eagle wings, horse or dog body, and scorpion tail
+    armed with a stinger. He was worshipped at Isin, where his consort was Gula, the great healing
+    goddess, making him an unusual combination of warrior and healer's companion. His composite
+    nature embodied the synthesis of sky, earth, and underworld domains. The arrow he draws aims
+    directly at Scorpius across the ecliptic, and this constellation points toward the very center
+    of the Milky Way galaxy — the densest region of stellar light. The ancient Babylonians noted
+    the unusual brightness of this region of sky without telescopic understanding of why.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Ancient scholarly tradition"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Pabilsag"
+      - "https://en.wikipedia.org/wiki/Sagittarius_(constellation)"
+      - "Hunger & Pingree (1989)"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "mesopotamian-010-mul-suhur-mas"
+  sign_name:
+    primary: "MUL.SUḪUR.MÁŠ (The Goat-Fish)"
+    variants: ["The Goat-Fish", "SUHUR.MAS", "Sea-Goat"]
+    romanization: "MUL.SUḪUR.MÁŠ"
+    native_script: "𒀯𒋢𒄷𒈧"
+  cultural_tradition:
+    primary_culture: "Babylonian / Sumerian"
+    geographic_origin: "Mesopotamia (modern Iraq)"
+    period_range: "MUL.APIN tablets c. 1000 BCE; Enki/Ea goat-fish imagery ~2500 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "MUL.APIN star catalogue"
+    total_signs_in_system: 18
+    position_in_system: 10
+    sign_classification:
+      western_zodiac_correspondence: "Capricorn"
+      deity_association: "Enki (Ea) — god of wisdom, sweet waters, and crafts; depicted riding or embodied as the Goat-Fish (suhurmashû)"
+      ecliptic_path: true
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Capricornus"
+    star_coordinates:
+      - name: "δ Capricorni (Deneb Algedi)"
+        ra_j2000: "21h 47m 02s"
+        dec_j2000: "-16° 07′ 38″"
+        magnitude: 2.85
+      - name: "β Capricorni (Dabih)"
+        ra_j2000: "20h 21m 01s"
+        dec_j2000: "-14° 46′ 53″"
+        magnitude: 3.05
+    asterism_schematic: "Wedge-shaped constellation; lower stars represent the fish tail; upper stars the goat head and forelegs"
+    cultural_iconography: "Suhurmashû — the goat-fish hybrid creature: front half mountain goat, rear half fish; iconic symbol of Enki/Ea; appears on Babylonian cylinder seals and kudurru boundary stones for ~2000 years; among the most persistent Mesopotamian iconic forms"
+  primitive_association_hints:
+    suggested_attributes: ["dual nature (land and water)", "wisdom of the deep", "boundary crossing", "craftsmanship", "the abzu (primordial sweet-water abyss)"]
+    narrative_archetype: "the wise one who moves between elements; master of what is hidden beneath"
+    game_design_notes: "Among the most iconographically durable Mesopotamian figures; Enki's goat-fish appears continuously for 2000 years on seals and monuments; the Abzu (freshwater ocean beneath the earth) is Enki's domain — a literal underworld sea"
+  mythic_narrative: >
+    MUL.SUḪUR.MÁŠ (The Goat-Fish) is the celestial emblem of Enki (Akkadian: Ea), the Sumerian
+    god of wisdom, sweet water, crafts, and magic. The Goat-Fish (suhurmashû) is one of the most
+    persistent images in Mesopotamian iconography, appearing on cylinder seals, kudurru (boundary
+    stones), and temple reliefs for over 2000 years. Enki resided in the Abzu — a primordial sweet-
+    water ocean beneath the earth from which all rivers sprang and in which the mê (divine decrees
+    governing civilization) were stored. He was the craftsman of the gods and humanity's most
+    consistent divine patron, repeatedly saving humans from divine floods and plagues through clever
+    workarounds. His dual goat-fish nature embodies the synthesis of mountain (sky-touching peaks)
+    and ocean (depth and hidden wisdom).
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Ancient scholarly tradition"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Capricornus"
+      - "https://en.wikipedia.org/wiki/Enki"
+      - "Hunger & Pingree (1989)"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "mesopotamian-011-mul-gu-la"
+  sign_name:
+    primary: "MUL.GU.LA (The Great One)"
+    variants: ["The Great Star", "GU.LA"]
+    romanization: "MUL.GU.LA"
+    native_script: "𒀯𒄖𒆷"
+  cultural_tradition:
+    primary_culture: "Babylonian / Akkadian"
+    geographic_origin: "Mesopotamia (modern Iraq)"
+    period_range: "MUL.APIN tablets c. 1000 BCE; traditions ~1800–500 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "MUL.APIN star catalogue"
+    total_signs_in_system: 18
+    position_in_system: 11
+    sign_classification:
+      western_zodiac_correspondence: "Aquarius"
+      deity_association: "Ea/Enki (the waters poured); also Gula the healing goddess (her name means 'the Great')"
+      ecliptic_path: true
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Aquarius_(constellation)"
+    star_coordinates:
+      - name: "α Aquarii (Sadalsuud)"
+        ra_j2000: "22h 05m 47s"
+        dec_j2000: "-00° 19′ 11″"
+        magnitude: 2.91
+      - name: "β Aquarii (Sadalmelik)"
+        ra_j2000: "21h 31m 34s"
+        dec_j2000: "-05° 34′ 16″"
+        magnitude: 2.87
+    asterism_schematic: "Figure pouring water from a jar; Y-shaped 'Water Jar' asterism above; stream of stars flowing down toward Piscis Austrinus (the Southern Fish)"
+    cultural_iconography: "The Great One (Gula or Ea) pouring the waters of life and wisdom from a vase; the outflowing stream feeds Piscis Austrinus below; associated with flooding Tigris/Euphrates which brought agricultural life; Sadalsuud ('luckiest of the lucky') the star of spring rains"
+  primitive_association_hints:
+    suggested_attributes: ["life-giving waters", "healing", "wisdom poured forth", "the great flood", "renewal through water"]
+    narrative_archetype: "the eternal giver; the one who pours without ceasing"
+    game_design_notes: "The Arabic star names in Aquarius (Sadalsuud, Sadalmelik) both contain 'sad' meaning luck/fortune — this region was called 'the lucky stars' in Babylonian astrology, associated with spring rains after dry winter"
+  mythic_narrative: >
+    MUL.GU.LA (The Great One) depicts the pouring of divine waters — attributed variously to Ea/Enki
+    the water-wisdom god, or to Gula the great healing goddess (whose name also means "the Great").
+    The figure stands pouring from a vase, with a stream of stars flowing down toward the bright star
+    Fomalhaut (the Southern Fish's mouth) below. In Babylonian astronomical lore, this region was
+    called "the Sea" — a vast section of sky associated with water deities. The two brightest stars,
+    Sadalsuud and Sadalmelik, were considered "the luckiest stars" because they rose in the early
+    morning sky during the season of spring rains in Mesopotamia, heralding the floods that fertilized
+    the fields. Water poured from the divine jar became the floods of the Tigris and Euphrates.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Ancient scholarly tradition"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Aquarius_(constellation)"
+      - "https://en.wikipedia.org/wiki/Gula_(goddess)"
+      - "Hunger & Pingree (1989)"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "mesopotamian-012-mul-zib-me"
+  sign_name:
+    primary: "MUL.ZIB.ME (The Tails)"
+    variants: ["The Fish Tails", "ZIB.ME", "The Tails of the Swallow"]
+    romanization: "MUL.ZIB.ME"
+    native_script: "𒀯𒍪𒈨"
+  cultural_tradition:
+    primary_culture: "Babylonian / Akkadian"
+    geographic_origin: "Mesopotamia (modern Iraq)"
+    period_range: "MUL.APIN tablets c. 1000 BCE; traditions ~1800–500 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "MUL.APIN star catalogue"
+    total_signs_in_system: 18
+    position_in_system: 12
+    sign_classification:
+      western_zodiac_correspondence: "Pisces"
+      deity_association: "Anunitum — a form of Ishtar; also associated with Nunu (the fish goddess)"
+      ecliptic_path: true
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Pisces_(constellation)"
+    star_coordinates:
+      - name: "η Piscium"
+        ra_j2000: "01h 31m 29s"
+        dec_j2000: "+15° 20′ 45″"
+        magnitude: 3.62
+      - name: "α Piscium (Alrescha)"
+        ra_j2000: "02h 02m 03s"
+        dec_j2000: "+02° 45′ 49″"
+        magnitude: 3.82
+    asterism_schematic: "Two fish connected by a cord; the cord-knot star is Alrescha; fish swim in perpendicular directions (one east-west, one north-south)"
+    cultural_iconography: "Two fish tails of Anunitum (the northern one, equinoctial fish) and Simmah (the fish of Ea); connected by a cord; the Babylonian saw two distinct fish where we see one constellation"
+  primitive_association_hints:
+    suggested_attributes: ["duality without resolution", "the cord binding opposites", "dissolution", "transition between ages", "the vernal equinox point (for ~1800 years)"]
+    narrative_archetype: "the two who swim in opposite directions, bound together; the paradox that cannot dissolve"
+    game_design_notes: "The vernal equinox (precession) spent ~2000 years in Pisces (roughly 68 BCE – 2597 CE), making this the 'Age of Pisces'; the two fish swimming against each other is a powerful duality symbol"
+  mythic_narrative: >
+    MUL.ZIB.ME (The Tails) depicted two fish — in Babylonian astronomical tradition, distinct
+    entities named Anunitum (a northern form of Ishtar, the equinoctial fish) and Simmah (a fish
+    of Ea's waters) — connected by a cord. The Babylonians saw these as two separate asterisms later
+    merged by Greek astronomers into one zodiacal sign. The northern fish stood near the vernal
+    equinox point, making Anunitum the fish that "held" the equinox in Babylonian times. The cord
+    binding opposite-swimming fish is a visual paradox — unity achieved by binding things that want
+    to go different directions. The last sign of the zodiac, Pisces marks the dissolving of all
+    form before the cycle restarts at the Hired Man (Aries).
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Ancient scholarly tradition"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Pisces_(constellation)"
+      - "Hunger & Pingree (1989)"
+    crawl_date: "2026-06-09"
+    confidence: "medium"
+
+- sign_id: "mesopotamian-013-mul-apin"
+  sign_name:
+    primary: "MUL.APIN (The Plough)"
+    variants: ["The Plow Star", "APIN", "star of Enlil's plough"]
+    romanization: "MUL.APIN"
+    native_script: "𒀯𒀳"
+  cultural_tradition:
+    primary_culture: "Babylonian / Sumerian"
+    geographic_origin: "Mesopotamia (modern Iraq)"
+    period_range: "MUL.APIN tablets c. 1000 BCE; the 'title star' giving name to the whole compendium"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "MUL.APIN star catalogue"
+    total_signs_in_system: 18
+    position_in_system: 13
+    sign_classification:
+      western_zodiac_correspondence: null
+      non_zodiacal: true
+      sky_region: "Triangulum + parts of Andromeda"
+      deity_association: "Enlil — chief of the Anunnaki gods; his plough inaugurates cultivation"
+      ecliptic_path: false
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/MUL.APIN"
+    star_coordinates:
+      - name: "α Trianguli (Mothallah)"
+        ra_j2000: "01h 53m 05s"
+        dec_j2000: "+29° 34′ 44″"
+        magnitude: 3.41
+      - name: "β Trianguli"
+        ra_j2000: "02h 09m 33s"
+        dec_j2000: "+34° 59′ 14″"
+        magnitude: 3.00
+    asterism_schematic: "Small triangle asterism (modern Triangulum) plus parts of Andromeda; the tablet title star — MUL.APIN is the first star listed in the first tablet, giving the whole compendium its name"
+    cultural_iconography: "The celestial plough of Enlil, god of wind and the sky's sovereign; the plough that broke the primordial earth; the act of tillage as cosmic sacred act"
+  primitive_association_hints:
+    suggested_attributes: ["the first act of civilization", "Enlil's sovereignty", "divine agriculture", "the instrument that transforms the wild"]
+    narrative_archetype: "the tool that made civilization possible; the sacred first cut"
+    game_design_notes: "MUL.APIN names the entire star catalogue — the 'title constellation'; that Enlil's plough gives its name to the text that organized Babylonian sky knowledge is itself a design insight about how agricultural societies organized cosmic knowledge"
+  mythic_narrative: >
+    MUL.APIN (The Plough) holds unique status: it is the first star listed in the first tablet of
+    the star catalogue that bears its name, making it the conceptual foundation of the entire
+    Babylonian astronomical tradition. The Plough belonged to Enlil, the supreme deity of the
+    Anunnaki pantheon who held the Tablet of Destinies and governed the air, wind, and agricultural
+    calendar. The plough (ard or scratch-plough) was the transformative technology that made
+    Mesopotamian civilization possible — turning wild marshland into the irrigated field systems
+    of Sumer and Akkad. By placing Enlil's plough at the head of their sky catalogue, Babylonian
+    astronomers encoded their deepest civilizational values in the stars.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Ancient scholarly tradition"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/MUL.APIN"
+      - "https://en.wikipedia.org/wiki/Enlil"
+      - "Hunger & Pingree (1989)"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "mesopotamian-014-mul-shupa"
+  sign_name:
+    primary: "MUL.SHUPA (The Crook / Enlil's Star)"
+    variants: ["The Crook", "Arcturus region", "SHUPA"]
+    romanization: "MUL.SHUPA"
+    native_script: "𒀯𒋗𒁀"
+  cultural_tradition:
+    primary_culture: "Babylonian / Akkadian"
+    geographic_origin: "Mesopotamia (modern Iraq)"
+    period_range: "MUL.APIN tablets c. 1000 BCE; traditions ~1800–500 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "MUL.APIN star catalogue"
+    total_signs_in_system: 18
+    position_in_system: 14
+    sign_classification:
+      western_zodiac_correspondence: null
+      non_zodiacal: true
+      sky_region: "Boötes (including Arcturus)"
+      deity_association: "Enlil — his shepherd's crook; Arcturus called 'the star that stands in the breast of Enlil'"
+      ecliptic_path: false
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Bo%C3%B6tes"
+    star_coordinates:
+      - name: "α Boötis (Arcturus)"
+        ra_j2000: "14h 15m 40s"
+        dec_j2000: "+19° 10′ 57″"
+        magnitude: -0.05
+    asterism_schematic: "Boötes constellation centered on brilliant Arcturus; the crook-shaped figure of the herdsman"
+    cultural_iconography: "Enlil's shepherd crook; Arcturus was one of the brightest stars in the Babylonian sky and was called 'the star of Enlil'; the crook (GÁM) was the symbol of divine shepherd-kingship"
+  primitive_association_hints:
+    suggested_attributes: ["divine kingship", "the shepherd-ruler", "guide of the flock", "Enlil's authority", "the brilliant marker of seasons"]
+    narrative_archetype: "the divine shepherd who holds the crook of authority; the ruler who guides through the sky"
+    game_design_notes: "Arcturus (-0.05 magnitude) is the 4th brightest star in the sky and among the brightest in the northern hemisphere — visually dominant; its association with Enlil's authority makes it a 'king star' comparable to Regulus"
+  mythic_narrative: >
+    MUL.SHUPA (The Crook) centers on Arcturus, one of the most brilliant stars in the sky, which
+    Babylonian astronomers called "the star that stands in the breast of Enlil." The crook (GÁM in
+    Sumerian) was the fundamental symbol of shepherd-kingship — the implement by which a ruler guided
+    and corrected the human flock. Enlil, supreme among the Anunnaki, used this crook to direct
+    the fates of nations. Arcturus's unusual position (it moves across the sky noticeably over human
+    lifetimes due to its high proper motion) may have made ancient astronomers aware something was
+    unusual about this star. It rises in the spring, making it a herald of the agricultural season —
+    Hesiod called it by name as a planting-season marker, showing how Babylonian astronomical
+    knowledge propagated into Greek agricultural practice.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Ancient scholarly tradition"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Arcturus"
+      - "https://en.wikipedia.org/wiki/Bo%C3%B6tes"
+      - "Hunger & Pingree (1989)"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "mesopotamian-015-mul-dingir-anna"
+  sign_name:
+    primary: "MUL.DINGIR.ANNA (The True Shepherd of Anu / Orion)"
+    variants: ["The True Shepherd of Anu", "DINGIR.ANNA", "Siba-zi-an-na"]
+    romanization: "MUL.DINGIR.ANNA"
+    native_script: "𒀯𒀭𒀭𒈾"
+  cultural_tradition:
+    primary_culture: "Babylonian / Sumerian"
+    geographic_origin: "Mesopotamia (modern Iraq)"
+    period_range: "MUL.APIN tablets c. 1000 BCE; Orion myths among world's oldest"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "MUL.APIN star catalogue"
+    total_signs_in_system: 18
+    position_in_system: 15
+    sign_classification:
+      western_zodiac_correspondence: null
+      non_zodiacal: true
+      sky_region: "Orion"
+      deity_association: "Divine shepherd of the sky-god Anu; a form of the deified shepherd-king"
+      ecliptic_path: false
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Orion_(constellation)"
+    star_coordinates:
+      - name: "α Orionis (Betelgeuse)"
+        ra_j2000: "05h 55m 10s"
+        dec_j2000: "+07° 24′ 25″"
+        magnitude: 0.42
+      - name: "β Orionis (Rigel)"
+        ra_j2000: "05h 14m 32s"
+        dec_j2000: "-08° 12′ 06″"
+        magnitude: 0.13
+      - name: "γ Orionis (Bellatrix)"
+        ra_j2000: "05h 25m 08s"
+        dec_j2000: "+06° 20′ 59″"
+        magnitude: 1.64
+    asterism_schematic: "One of the most recognizable constellations globally; Belt of three stars (Alnitak, Alnilam, Mintaka) is universal reference; Betelgeuse red supergiant at shoulder; Rigel blue supergiant at foot"
+    cultural_iconography: "The True Shepherd of the Sky (Anu) stands with a crook and weapon; Betelgeuse red as fire, Rigel brilliant white — the figure is dramatically two-colored; three-star belt is the most universally recognized asterism across world cultures"
+  primitive_association_hints:
+    suggested_attributes: ["divine shepherd of the sky", "the hunter in winter skies", "celestial warrior", "universal sky marker", "the eternal winter hunter"]
+    narrative_archetype: "the great hunter who rules winter skies; the mortal-become-constellation through divine act"
+    game_design_notes: "Orion is the single most cross-culturally recognized constellation — nearly every astronomical tradition names it; Mesopotamian shepherd framing is distinct from Greek hunter framing; red Betelgeuse vs. blue Rigel creates a built-in duality"
+  mythic_narrative: >
+    MUL.DINGIR.ANNA (The True Shepherd of Anu) is the Babylonian name for what we call Orion —
+    the most universally recognized constellation figure across world cultures. In Babylonian
+    astronomy, the figure was the divine shepherd of Anu, the sky-father, standing guard with a
+    crook. The three-star belt was noted in ancient records across Mesopotamia, Egypt, Greece, and
+    China. The contrast between Betelgeuse (a red supergiant, among the largest known stars, so
+    enormous it would engulf Jupiter's orbit) and Rigel (a blue supergiant, 120,000 times the
+    sun's luminosity) makes Orion visually unlike any other constellation. In a remarkable
+    cosmic coincidence, Betelgeuse is expected to supernova within the next 100,000 years —
+    potentially creating a second moon-bright object visible in daylight for weeks.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Ancient scholarly tradition"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Orion_(constellation)"
+      - "https://en.wikipedia.org/wiki/Betelgeuse"
+      - "Hunger & Pingree (1989)"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "mesopotamian-016-mul-shu-gi"
+  sign_name:
+    primary: "MUL.SHU.GI (The Old Man / Perseus)"
+    variants: ["The Old Man", "SHU.GI", "Shuggi"]
+    romanization: "MUL.SHU.GI"
+    native_script: "𒀯𒋗𒄀"
+  cultural_tradition:
+    primary_culture: "Babylonian / Akkadian"
+    geographic_origin: "Mesopotamia (modern Iraq)"
+    period_range: "MUL.APIN tablets c. 1000 BCE; traditions ~1800–500 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "MUL.APIN star catalogue"
+    total_signs_in_system: 18
+    position_in_system: 16
+    sign_classification:
+      western_zodiac_correspondence: null
+      non_zodiacal: true
+      sky_region: "Perseus"
+      deity_association: "The Old Man of the gods; an aged divine figure associated with wisdom and accumulated time"
+      ecliptic_path: false
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Perseus_(constellation)"
+    star_coordinates:
+      - name: "α Persei (Mirfak)"
+        ra_j2000: "03h 24m 19s"
+        dec_j2000: "+49° 51′ 40″"
+        magnitude: 1.79
+      - name: "β Persei (Algol)"
+        ra_j2000: "03h 08m 10s"
+        dec_j2000: "+40° 57′ 20″"
+        magnitude: 2.12
+    asterism_schematic: "Mirfak is the central bright star; Algol (the 'demon star') marks the Gorgon's head held by Perseus; Algol is a famous eclipsing binary, dims regularly"
+    cultural_iconography: "An aged divine figure — 'the Old Man of the gods'; Algol (β Persei) was called 'the Demon Star' in many traditions due to its regular dimming (eclipsing binary phenomenon noticed in antiquity); ancient star-cataloguers noted Algol's brightness variability"
+  primitive_association_hints:
+    suggested_attributes: ["accumulated wisdom", "the ancient one", "bearing the demon's head", "time's weight", "the variable star as omen"]
+    narrative_archetype: "the elder who carries a dangerous burden; wisdom that knows how to hold evil without being consumed"
+    game_design_notes: "Algol (β Persei) is the most-noticed variable star in history — Arabic 'Ra's al Ghul' (Demon's Head); its regular dimming was noted as a winking eye or blinking demon; powerful visual omen hook"
+  mythic_narrative: >
+    MUL.SHU.GI (The Old Man) corresponds to the Perseus region, with the prominent variable star
+    Algol (β Persei) — called "Ra's al Ghul" (the Demon's Head) in Arabic tradition — as the
+    most notable stellar feature. Algol is an eclipsing binary that dims significantly every 2.87
+    days, a phenomenon noticed by ancient stargazers who interpreted the regular winking as something
+    ominous. In Babylonian tradition, MUL.SHU.GI was an aged divine figure burdened with long
+    experience; the "Old Man" archetype recurs across Mesopotamian wisdom literature as the keeper
+    of accumulated knowledge that younger gods lack. The regular dimming of Algol was likely
+    interpreted as an omen cycle — a demon that periodically closes its eye, or a divine old man
+    whose vitality waxes and wanes on an inexorable schedule.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Ancient scholarly tradition"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Perseus_(constellation)"
+      - "https://en.wikipedia.org/wiki/Algol"
+      - "Hunger & Pingree (1989)"
+    crawl_date: "2026-06-09"
+    confidence: "medium"
+
+- sign_id: "mesopotamian-017-mul-gal-gallim"
+  sign_name:
+    primary: "MUL.GAL.GALLIM (The Stars / The Pleiades)"
+    variants: ["The Seven Stars", "The Stars", "MUL.MUL", "Kimah"]
+    romanization: "MUL.GAL.GALLIM"
+    native_script: "𒀯𒃲𒃲𒅎"
+  cultural_tradition:
+    primary_culture: "Babylonian / Sumerian"
+    geographic_origin: "Mesopotamia (modern Iraq)"
+    period_range: "MUL.APIN tablets c. 1000 BCE; Pleiades observation among oldest recorded star-lore (~2400 BCE cuneiform)"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "MUL.APIN star catalogue"
+    total_signs_in_system: 18
+    position_in_system: 17
+    sign_classification:
+      western_zodiac_correspondence: null
+      non_zodiacal: true
+      sky_region: "Pleiades (within Taurus)"
+      deity_association: "The Seven Anunnaki; also associated with Anu and the divine council; 'the most auspicious of Babylonian asterisms'"
+      ecliptic_path: false
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Pleiades"
+    star_coordinates:
+      - name: "η Tauri (Alcyone — brightest Pleiad)"
+        ra_j2000: "03h 47m 29s"
+        dec_j2000: "+24° 06′ 18″"
+        magnitude: 2.87
+      - name: "Pleiades cluster center"
+        ra_j2000: "03h 47m 00s"
+        dec_j2000: "+24° 07′ 00″"
+        magnitude: 1.60
+    asterism_schematic: "Tight cluster of 6–7 naked-eye stars in Taurus; the most studied open cluster; nicknamed 'the Seven Sisters' across cultures worldwide"
+    cultural_iconography: "The Seven — the most sacred asterism in Babylonian astronomy; associated with the seven Anunnaki (divine council) and with the seven-day week; the heliacal rising of the Pleiades in spring marked the start of the Babylonian agricultural year"
+  primitive_association_hints:
+    suggested_attributes: ["divine council of seven", "calendar anchor", "the most auspicious cluster", "heliacal spring rising", "universal cross-cultural recognition"]
+    narrative_archetype: "the seven who decide fate; the council that governs all"
+    game_design_notes: "The Pleiades are the most cross-culturally recognized star cluster in the world — named independently in Mesopotamian, Greek, Japanese, Aboriginal Australian, Maori, and many other traditions; the 'Seven Sisters' framing appears in cultures with no contact; this universality is a design asset"
+  mythic_narrative: >
+    MUL.GAL.GALLIM or MUL.MUL (literally "star of stars" or "the Stars") — the Pleiades — were
+    considered the most auspicious asterism in Babylonian astronomical tradition. Their heliacal
+    rising (first visible appearance before dawn) in spring marked the start of the Babylonian
+    agricultural and ritual calendar. The seven visible stars were identified with the seven
+    Anunnaki — the great divine council who decreed the fates of gods and humans. The number seven
+    pervaded Babylonian sacred mathematics: seven planets (visible to naked eye), seven days of
+    the week, seven gates of the underworld through which Inanna passed. The Pleiades are the
+    most universally named star cluster in the world — independently identified by Australian
+    Aboriginal, Maori, Japanese, Greek, and dozens of other cultures with no astronomical contact,
+    suggesting the cluster's tight visual grouping imprints on human perception across cultures.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Ancient scholarly tradition; Pleiades have living cultural significance in multiple traditions (Maori, Aboriginal) — context here is Babylonian only"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Pleiades"
+      - "https://en.wikipedia.org/wiki/Pleiades_in_folklore_and_literature"
+      - "Hunger & Pingree (1989)"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "mesopotamian-018-mul-ur-idim"
+  sign_name:
+    primary: "MUL.UR.IDIM (The Wild Dog / Lupus region)"
+    variants: ["The Mad Dog", "The Fierce Dog", "UR.IDIM"]
+    romanization: "MUL.UR.IDIM"
+    native_script: "𒀯𒌨𒅇𒅎"
+  cultural_tradition:
+    primary_culture: "Babylonian / Akkadian"
+    geographic_origin: "Mesopotamia (modern Iraq)"
+    period_range: "MUL.APIN tablets c. 1000 BCE; traditions ~1800–500 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "MUL.APIN star catalogue"
+    total_signs_in_system: 18
+    position_in_system: 18
+    sign_classification:
+      western_zodiac_correspondence: null
+      non_zodiacal: true
+      sky_region: "Lupus (the Wolf) constellation"
+      deity_association: "Associated with the god Nergal (disease, war, death); the rabid dog as divine punishment"
+      ecliptic_path: false
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Lupus_(constellation)"
+    star_coordinates:
+      - name: "α Lupi (Kakkab)"
+        ra_j2000: "14h 41m 56s"
+        dec_j2000: "-47° 23′ 17″"
+        magnitude: 2.30
+      - name: "β Lupi"
+        ra_j2000: "14h 58m 32s"
+        dec_j2000: "-43° 08′ 02″"
+        magnitude: 2.68
+    asterism_schematic: "Southern constellation adjacent to Scorpius and Centaurus; at the edge of Milky Way; appears impaled on Centaurus's spear in Greek depictions"
+    cultural_iconography: "The wild/mad dog (ur.idim) associated with disease and divine punishment; in Babylonian medical texts, rabies was 'the bite of the wild dog'; Nergal's domain included plague and the destructive summer heat; depicted as a snarling beast"
+  primitive_association_hints:
+    suggested_attributes: ["rabid fury", "divine punishment through disease", "the mad beast", "uncontrolled aggression", "Nergal's scourge"]
+    narrative_archetype: "the maddened creature that cannot distinguish friend from foe; the disease that thinks"
+    game_design_notes: "ur.idim (mad dog) is a Babylonian medical term for rabies — 'disease of the wild dog'; this gives a specific, visceral meaning to the constellation distinct from the Greek 'wolf'; Nergal connection ties it to plague mechanics design space"
+  mythic_narrative: >
+    MUL.UR.IDIM (The Wild/Mad Dog) occupies the region of what Greeks called Lupus (the Wolf),
+    south of Scorpius in the Milky Way's denser regions. The name ur.idim is Sumerian for a mad or
+    wild dog, and the same term appears in Babylonian medical cuneiform tablets describing symptoms
+    of rabies — "the bite of the wild dog" — making this constellation explicitly connected to
+    disease and madness. The deity association with Nergal (god of plague, death, the destructive
+    midday sun, and the underworld's male ruler) positions this constellation as a divine weapon —
+    the mad dog that Nergal unleashes to carry disease through the human world. In the Sumerian
+    descent of Inanna, Nergal governs the realm she enters; the wild dog circles the underworld's
+    perimeter. Its proximity to Scorpius in the sky clusters the death-and-plague constellations
+    together in Babylonian cosmographic thinking.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Ancient scholarly tradition"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Lupus_(constellation)"
+      - "https://en.wikipedia.org/wiki/Nergal"
+      - "Hunger & Pingree (1989)"
+    crawl_date: "2026-06-09"
+    confidence: "medium"
