@@ -18,37 +18,37 @@ PC hive-mind autonomous cycles surfaced two operational ceilings during 2026-06-
 1. **SSH session persistence is brittle** — connection drops mid-flight kill the David-H session (tmux not installed on PC; no Windows-native equivalent durable through SSH disconnect)
 2. **Permission allowlist is too narrow for autonomous operation** — every safe diagnostic operation (git ls-files, where commands, common PowerShell queries) triggers per-operation Matt approval; defeats autonomy purpose
 
-**Matt 2026-06-10 directive — TWO-PHASE APPROACH ratified:**
+**Matt 2026-06-10 directives (chronological refinement):**
+- Initial: "we dont need to solve for this session, but we do need to solve for the next session"
+- Refinement 1: "git is the main problem; let's do the git focused option and save the full tmux install for later"
+- Refinement 2: "would it make sense to search for common applicable patterns from our mac team's work?"
+- **Refinement 3 (LOAD-BEARING SUPERSESSION):** "Are you certain that we haven't just pre-set the mac team to run in danger mode/no permissions mode?" → investigation CONFIRMED Mac IS running `defaultMode: bypassPermissions` + `skipDangerousModePermissionPrompt: true` + explicit 17-entry deny list. **Phase 1 + Phase 1.5 elaborate allowlist refinement approach REPLACED by Phase 0 bypassPermissions configuration matching Mac model.**
 
-### Phase 1 + Phase 1.5 CONCURRENT (NEXT SESSION) — Settings refinement + script-wrapping
-**Just** refine PC `.claude/settings.local.json` to broad-allow safe operations + author small wrapper `.ps1` files for common compound scripts. **NO tmux install. NO WSL install. NO system-state changes.** Pure settings-file refinement + script authoring, additive only, reversible if needed.
+### Phase 0 (NEXT SESSION) — Set PC to bypassPermissions mode (matches Mac configuration)
+**Configure PC user-level `~/.claude/settings.json` to mirror Mac's bypass + deny-list model.** All operations auto-approved on PC EXCEPT explicit deny list for genuinely destructive operations (rm -rf, git push --force, sudo equivalents, format-volume, etc.).
 
-Rationale: Matt 2026-06-10 — "git is the main problem" + amendment "would it make sense to search for common applicable patterns from our mac team's work?" Investigation found:
-- Mac `.claude/settings.local.json` has accumulated broad wildcards over months (`Bash(git *)`, `Bash(python3 *)`, broad path globs); PC has not
-- Compound PowerShell scripts (RAM check, bridge polling) hit Claude Code's expandable-strings + subexpressions safety checks that allowlist refinement does NOT bypass
-- Phase 1 alone delivers ~50-60% friction reduction; Phase 1.5 (script-wrapping) eliminates the residual compound-script friction
-- Both fire CONCURRENTLY next session — no reason to defer Phase 1.5 to empirical trigger when authoring is bounded
+Rationale: Mac team has been operating under bypassPermissions since at least 2026-05-15 (per `~/.claude/settings.json` mtime). Audit discipline preserved at workstream-level (Sam Gate-2 + David-H wave-close memo + commit history), NOT at per-command-prompt level. PC team operating under narrow exact-string allowlist creates discipline ASYMMETRY between Mac + PC teams — federated PC team architecture commit 2026-06-07 explicitly states "PC team has identical autonomy" but the permission-mode mismatch contradicts this in practice.
 
-**Phase 1 scope (~30 min next session) — settings refinement:**
-- Read Mac `.claude/settings.local.json` for portable wildcard patterns per § 2.7 analysis
-- Append broad wildcards + PowerShell diagnostic patterns + tool-level patterns to PC `.claude/settings.local.json` per § 2.3
-- Commit settings change with `david-h` prefix per CLAUDE.md addendum
+Phase 0 restores symmetry. Single permission-model architecture across Mac + PC. Audit happens at workstream-level on both seams identically.
 
-**Phase 1.5 scope (~1-2 hour same session) — script-wrapping:**
-- Author 3-5 common compound PowerShell scripts as `agentic_orchestration/pc-scripts/*.ps1` files per § 2.6 Strategy A
-- Allowlist each script's invocation as a single fixed-string pattern
-- Commit + push both phases together per PC-seam standing wave-close pattern
-- Test next autonomous wave-cycle for friction reduction
+**Phase 0 scope (~30-45 min next session):**
+- Author PC user-level `~/.claude/settings.json` mirroring Mac structure
+- PC-equivalent deny list (Bash deny entries + PowerShell deny equivalents)
+- `additionalDirectories` for PC project paths (C:\dev\...)
+- Commit + push per PC-seam standing wave-close pattern
+- Test autonomous wave-cycle: should produce near-zero permission prompts (matching Mac experience)
 
 ### Phase 2 (DEFERRED — subsequent setup session)
-**Full PC infrastructure setup** — WSL2 + Ubuntu + tmux install + docs update + comprehensive autonomous-cycle test. **Fires only if Phase 1 proves insufficient** OR session-persistence friction becomes pressing (e.g., autonomous cycles need to run beyond Matt active-monitoring windows).
+**Full PC infrastructure setup** — WSL2 + Ubuntu + tmux install + docs update + comprehensive autonomous-cycle test. **Fires only if SSH session-persistence friction becomes pressing** (e.g., autonomous cycles need to run beyond Matt active-monitoring windows). Unchanged from prior plan.
 
 **Phase 2 scope (~1-2 hour focused session; deferred):**
 - Install WSL2 + Ubuntu + tmux on PC (~30-45 min; one-time admin + reboot)
 - Update CLAUDE.md + PC team OPs with new tmux-wrapped invocation pattern (~30 min gandalf authoring)
 - Test autonomous PC hive-mind cycle end-to-end with full infrastructure (~30 min)
 
-**This document captures BOTH phases.** Phase 1 fires next session per § 2.3 + § 4.2-α below. Phase 2 fires when triggered per § 4.2-β below.
+### What's SUPERSEDED from prior plan amendments
+
+§§ 2.1-2.7 below capture the elaborate allowlist-refinement + script-wrapping approach (Phase 1 + 1.5 prior framing). **These sections are HISTORICAL and OBSOLETE under Phase 0 bypassPermissions approach.** Preserved for amendment-trail discipline; do NOT execute against. Phase 0 (per § 2.0 NEW + § 4.2-0 NEW below) supersedes.
 
 ---
 
@@ -141,9 +141,130 @@ ssh -t mhwet@192.168.1.133 "<path-to-tmux> attach -t david-h-wave"
 
 ---
 
-## 2. Problem 2 — Permission allowlist refinement for autonomous PC operation
+## 2. Problem 2 — PC permission-mode mismatch with Mac (LOAD-BEARING; supersedes prior allowlist-refinement framing)
 
-### 2.1 The problem
+### 2.0 The actual root cause (discovered 2026-06-10 per Matt question)
+
+**Mac is running `defaultMode: bypassPermissions` since at least 2026-05-15.** Investigation of `~/.claude/settings.json` confirmed:
+
+```json
+{
+  "permissions": {
+    "allow": [ ... 100+ entries ... ],
+    "deny": [
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git push --force-with-lease*)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean -f*)",
+      "Bash(git clean -df*)",
+      "Bash(git clean -fd*)",
+      "Bash(git clean -xf*)",
+      "Bash(git branch -D*)",
+      "Bash(rm -rf*)",
+      "Bash(rm -r*)",
+      "Bash(rm -fr*)",
+      "Bash(rm -Rf*)",
+      "Bash(sudo *)",
+      "Bash(dd if=*)",
+      "Bash(mkfs*)",
+      "Bash(chown *)",
+      "Bash(chgrp *)"
+    ],
+    "defaultMode": "bypassPermissions",
+    "additionalDirectories": [
+      "/Users/admin/Games/reincarnated-collaboration",
+      "/Users/admin/Games/reincarnated-engine",
+      "/Users/admin/Games/reincarnated-demo",
+      "/Users/admin/Games/reincarnated-loadout"
+    ]
+  },
+  "skipDangerousModePermissionPrompt": true
+}
+```
+
+**The allow list of ~100 entries on Mac is largely vestigial** — accumulated before bypassPermissions was set, OR fallback for contexts where bypass mode is disabled. **Actual Mac operational behavior:** everything works; no per-command prompts; audit discipline lives at workstream-level.
+
+**PC has NONE of this configuration.** PC operates under default narrow exact-string allowlist mode. **This is the actual mismatch creating PC friction** — not Mac having "accumulated broad allowlists" as I initially framed.
+
+### 2.1 Recommended PC configuration (Phase 0)
+
+**Author PC user-level settings file at `C:\Users\mhwet\.claude\settings.json`** mirroring Mac structure with PC-equivalent deny entries:
+
+```json
+{
+  "permissions": {
+    "allow": [],
+    "deny": [
+      "Bash(rm -rf*)",
+      "Bash(rm -r*)",
+      "Bash(rm -fr*)",
+      "Bash(rm -Rf*)",
+      "PowerShell(Remove-Item * -Recurse*)",
+      "PowerShell(Remove-Item * -Force -Recurse*)",
+      "PowerShell(Remove-Item C:\\*)",
+      "PowerShell(rmdir /S*)",
+      "PowerShell(rd /S*)",
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git push --force-with-lease*)",
+      "PowerShell(git push --force*)",
+      "PowerShell(git push -f*)",
+      "PowerShell(git push --force-with-lease*)",
+      "Bash(git reset --hard*)",
+      "PowerShell(git reset --hard*)",
+      "Bash(git clean -f*)",
+      "Bash(git clean -df*)",
+      "Bash(git clean -fd*)",
+      "Bash(git clean -xf*)",
+      "PowerShell(git clean -f*)",
+      "PowerShell(git clean -df*)",
+      "PowerShell(git clean -fd*)",
+      "PowerShell(git clean -xf*)",
+      "Bash(git branch -D*)",
+      "PowerShell(git branch -D*)",
+      "Bash(sudo *)",
+      "PowerShell(Start-Process * -Verb RunAs*)",
+      "Bash(dd if=*)",
+      "Bash(mkfs*)",
+      "PowerShell(Format-Volume*)",
+      "PowerShell(Clear-Disk*)",
+      "PowerShell(Remove-Partition*)",
+      "Bash(chown *)",
+      "Bash(chgrp *)"
+    ],
+    "defaultMode": "bypassPermissions",
+    "additionalDirectories": [
+      "C:\\dev\\reincarnated-collaboration",
+      "C:\\dev\\reincarnated-unreal"
+    ]
+  },
+  "skipDangerousModePermissionPrompt": true
+}
+```
+
+### 2.2 What this preserves vs what it changes
+
+**PRESERVED:**
+- Audit discipline at workstream-level (Sam Gate-2 + David-H wave-close memo + commit history) — unchanged
+- Federated PC team architecture intent ("identical autonomy" per CLAUDE.md addendum) — now actually delivered
+- Hive-mind decision-routing (Matt 2026-05-23) — unchanged; bypassPermissions applies to in-scope operations, not scope-amendment
+- Discipline #5 (no-sleep-recommendations) + Discipline #6 (timezone-agnosticism) — unchanged
+- Scope-amendment commits still require fresh Matt-authorization per OP § 3.5 — bypassPermissions does NOT bypass this
+
+**CHANGED:**
+- PC operational behavior: from "per-operation Matt approval prompt" → "auto-approve except explicit deny list"
+- PC-side audit shifts from per-command-prompt layer to workstream-level (matching Mac)
+- Asymmetry between Mac + PC teams resolved — federated team operates under symmetric permission model
+- Settings.local.json refinement work I authored in §§ 2.3-2.7 below: OBSOLETE under Phase 0 approach
+
+### 2.3 NOTE — §§ 2.3-2.7 below are HISTORICAL (superseded by § 2.0 + 2.1 above)
+
+**The following sections (§§ 2.3 to 2.7) capture the prior allowlist-refinement + script-wrapping approach** authored under Phase 1 + Phase 1.5 framing. They are PRESERVED as amendment-trail discipline (cross-session continuity for understanding the design evolution) but **OBSOLETE OPERATIONALLY** under the Phase 0 bypassPermissions approach.
+
+**Do NOT execute against §§ 2.3-2.7. Execute against § 2.1 above.**
+
+### 2.HISTORICAL Specific recommended additions (SUPERSEDED — preserved for amendment-trail)
 
 `.claude/settings.local.json` on PC uses **narrow exact-string allowlist** discipline. 50+ specific entries built incrementally across Sessions 1+2 of PC team setup. Each new command outside the allowlist triggers a per-operation Matt approval prompt.
 
@@ -392,30 +513,28 @@ Append amendment section: "PC infrastructure refinement 2026-06-XX: WSL + tmux i
 - (Phase 1) NONE — settings refinement is gandalf-side authoring; no Matt-side prep needed
 - (Phase 2, deferred) Backup PC settings.local.json + identify good time window for PC reboot (WSL install requires it)
 
-### 4.2-α PHASE 1 + PHASE 1.5 CONCURRENT — Settings refinement + script-wrapping (NEXT SESSION; ~2-3 hour wall-clock)
+### 4.2-0 PHASE 0 — Set PC to bypassPermissions mode (NEXT SESSION; ~30-45 min wall-clock; SUPERSEDES Phase 1 + 1.5)
 
 | Step | Action | Owner | Time |
 |---|---|---|---|
-| 1 | Gandalf reads current PC `.claude/settings.local.json` via SSH | gandalf | ~5 min |
-| 2 | Gandalf reads Mac `.claude/settings.local.json` for portable wildcards per § 2.7 | gandalf | ~5 min |
-| 3 | Gandalf authors PC settings refinement: broad wildcards (`PowerShell(git *)` etc.) + tool-level patterns (WebSearch, WebFetch domains, Skills) + diagnostic patterns per § 2.3 | gandalf | ~15 min |
-| 4 | Gandalf authors 3-5 wrapper `.ps1` scripts at `agentic_orchestration/pc-scripts/` per § 2.6 Strategy A (check-ram.ps1 / poll-bridge-ready.ps1 / windowed-niagara-verify.ps1 / log-tail.ps1 / git-state-snapshot.ps1) | gandalf | ~60-90 min |
-| 5 | Gandalf appends per-script invocation allowlist entries to PC settings | gandalf | ~5 min |
-| 6 | Gandalf commits all changes with `david-h` prefix per CLAUDE.md addendum via SSH | gandalf via SSH | ~5 min |
-| 7 | Push per PC-seam standing wave-close pattern | gandalf via SSH | ~5 min |
-| 8 | Brief autonomous-cycle test: fire David-H with diagnostic tasks invoking both broad wildcards + wrapper scripts; verify ≤2 Matt-interruption prompts | gandalf + Matt monitors | ~15 min |
-| 9 | Gandalf updates ground-state oracle § 5 + this plan doc § 0 to note Phase 1 + 1.5 complete | gandalf | ~10 min |
+| 1 | Gandalf reads Mac `~/.claude/settings.json` as source-of-truth reference (already done 2026-06-10 — content captured in § 2.0 above) | gandalf | ~0 min (done) |
+| 2 | Gandalf authors PC user-level `C:\Users\mhwet\.claude\settings.json` per § 2.1 template (bypassPermissions + PC-equivalent deny list + additionalDirectories) | gandalf via SSH | ~15 min |
+| 3 | Gandalf verifies file written + parseable JSON via SSH (`Get-Content $env:USERPROFILE\.claude\settings.json \| ConvertFrom-Json`) | gandalf via SSH | ~5 min |
+| 4 | Brief autonomous-cycle test: fire David-H with a diagnostic task (RAM check + git status + bridge poll); verify near-zero Matt-interruption prompts (matching Mac experience) | gandalf + Matt monitors | ~10 min |
+| 5 | Gandalf updates ground-state oracle § 5 + this plan doc § 0 to note Phase 0 complete | gandalf | ~5 min |
+| 6 | (Optional) Gandalf authors brief Discipline-recognition sidecar for jack-ryan capturing the bypassPermissions symmetry pattern as PC team operational discipline | gandalf | ~10 min |
 
-**Phase 1 + 1.5 acceptance criteria:**
-- ✅ PC `.claude/settings.local.json` extended with broad wildcards (matching Mac precedent per § 2.7) + tool-level patterns + diagnostic patterns
-- ✅ Narrow exact-string allowlist preserved for write + scope-amendment operations per § 2.4
-- ✅ 3-5 wrapper `.ps1` scripts authored at `agentic_orchestration/pc-scripts/` covering common compound-PowerShell operations
-- ✅ Wrapper script invocations allowlisted as single fixed-string patterns
-- ✅ Settings + scripts committed + pushed via PC-seam standing wave-close pattern
-- ✅ Brief autonomous-cycle test shows friction reduction (≤2 Matt-interruption prompts on mixed diagnostic + script-invoking tasks; vs ~10-15 pre-refinement)
-- ✅ Ground-state oracle updated; this plan § 0 TL;DR notes Phase 1 + 1.5 complete
+**Phase 0 acceptance criteria:**
+- ✅ PC `C:\Users\mhwet\.claude\settings.json` authored per § 2.1 template
+- ✅ JSON parseable; permission mode `bypassPermissions`; deny list covers genuinely destructive operations (Bash + PowerShell equivalents)
+- ✅ `additionalDirectories` includes PC project paths
+- ✅ Brief autonomous-cycle test shows near-zero permission prompts (matching Mac operational experience)
+- ✅ Ground-state oracle updated; this plan § 0 TL;DR notes Phase 0 complete
+- ✅ Audit discipline at workstream-level explicitly preserved (Sam Gate-2 + David-H wave-close memo + commit history — unchanged)
 
-**Phase 1 + 1.5 done — return to design-trajectory work** (Pattern B icon design / WS2 commission authoring / etc. per `2026-06-09-next-session-plan-post-branch-A-lock.md`).
+**Phase 0 done — return to design-trajectory work** (Pattern B icon design / WS2 commission authoring / etc. per `2026-06-09-next-session-plan-post-branch-A-lock.md`).
+
+**Critical disposition reminder:** Phase 0 does NOT replace scope-amendment Matt-authorization discipline. The hive-mind decision-routing directive (Matt 2026-05-23) + scope-amendment fresh-authorization rule (OP § 3.5) remain in force. bypassPermissions auto-approves IN-SCOPE operations only; cross-cycle / scope-amendment commits still require fresh Matt-authorization. Audit discipline at workstream-level catches anything that exceeds PC seam authority + routes to Mac side via file-based message bus.
 
 ### 4.2-β PHASE 2 — Full infrastructure setup (DEFERRED; fires only on empirical trigger)
 
