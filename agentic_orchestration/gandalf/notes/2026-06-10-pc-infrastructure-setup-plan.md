@@ -24,7 +24,9 @@ PC hive-mind autonomous cycles surfaced two operational ceilings during 2026-06-
 - Refinement 2: "would it make sense to search for common applicable patterns from our mac team's work?"
 - **Refinement 3 (LOAD-BEARING SUPERSESSION):** "Are you certain that we haven't just pre-set the mac team to run in danger mode/no permissions mode?" → investigation CONFIRMED Mac IS running `defaultMode: bypassPermissions` + `skipDangerousModePermissionPrompt: true` + explicit 17-entry deny list. **Phase 1 + Phase 1.5 elaborate allowlist refinement approach REPLACED by Phase 0 bypassPermissions configuration matching Mac model.**
 
-### Phase 0 (NEXT SESSION) — Set PC to bypassPermissions mode (matches Mac configuration)
+### Phase 0 (DEPLOYED 2026-06-10) — Set PC to bypassPermissions mode (matches Mac configuration)
+
+**STATUS:** ✅ Settings file deployed to PC `C:\Users\mhwet\.claude\settings.json` per Matt 2026-06-10 directive "If you can, please do so now." Existing PC config preserved (mcpServers.ue-mcp + theme + autoUpdatesChannel); permissions block + skipDangerousModePermissionPrompt added per § 2.1 template. Backup at `C:\Users\mhwet\.claude\settings.json.bak-2026-06-10`. JSON verified parseable. **Operational activation pending next PC Claude Code session start** (current David-H session unaffected; uses prior config until restart).
 **Configure PC user-level `~/.claude/settings.json` to mirror Mac's bypass + deny-list model.** All operations auto-approved on PC EXCEPT explicit deny list for genuinely destructive operations (rm -rf, git push --force, sudo equivalents, format-volume, etc.).
 
 Rationale: Mac team has been operating under bypassPermissions since at least 2026-05-15 (per `~/.claude/settings.json` mtime). Audit discipline preserved at workstream-level (Sam Gate-2 + David-H wave-close memo + commit history), NOT at per-command-prompt level. PC team operating under narrow exact-string allowlist creates discipline ASYMMETRY between Mac + PC teams — federated PC team architecture commit 2026-06-07 explicitly states "PC team has identical autonomy" but the permission-mode mismatch contradicts this in practice.
