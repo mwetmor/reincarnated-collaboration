@@ -35,15 +35,32 @@ cd ~/Games/reincarnated-collaboration && claude --agent jack-ryan
 # === PC-resident team (SSH from Mac) ===
 # Connection target: mhwet@192.168.1.133 (passwordless SSH from Mac per matt_notes_handoff_docs/reincarnated-headless-ssh-handoff.md)
 
-# One-shot pattern (Warp-friendly; -t forces PTY for Claude Code TUI)
+# --- DEFAULT: tmux-wrapped WSL launch (disconnect-proof; established + verified 2026-06-10) ---
+# WSL2 + Ubuntu + tmux + claude-native-in-WSL are installed on the PC. tmux decouples the
+# session lifetime from the SSH connection, so an SSH drop no longer kills in-flight agent work
+# (this is what killed ~50 min of David-H work on 2026-06-09). Use this for ALL PC agent sessions,
+# especially long mantis UE orchestration. Run STEP BY STEP (interactive) — a single nested
+# one-liner mangles quotes through the Windows shell before WSL sees them.
+#
+# IMPORTANT path note: inside WSL the Windows C: drive is at /mnt/c/, so the repos are:
+#   collab repo : /mnt/c/dev/reincarnated-collaboration
+#   UE project  : /mnt/c/dev/reincarnated-unreal/Reincarnated
+ssh -t mhwet@192.168.1.133            # 1. connect (-t forces a PTY for the Claude Code TUI)
+wsl -d Ubuntu                         # 2. enter WSL Ubuntu
+tmux new-session -A -s pc-work        # 3. attach-or-create the persistent session (-A = resume if it exists)
+cd /mnt/c/dev/reincarnated-collaboration   # 4. (collab) — or /mnt/c/dev/reincarnated-unreal/Reincarnated for mantis
+claude --agent david-h                # 5. launch the agent (radagast / sam / david-h; mantis from the UE path)
+
+# Detach (leave claude running on the PC, safe to disconnect):  Ctrl-b then d
+# Reattach after any disconnect (clean OR unexpected):
+ssh -t mhwet@192.168.1.133 ; wsl -d Ubuntu ; tmux attach -t pc-work
+# An UNEXPECTED SSH drop leaves the session alive — just reattach. If `tmux attach` comes up
+# empty (session gone, not merely disconnected), THAT signals the work itself was killed
+# (resource exhaustion), not a connection drop — investigate PC RAM at that point.
+
+# --- FALLBACK: direct Windows launch (no persistence; fine for quick throwaway tasks only) ---
 ssh -t mhwet@192.168.1.133 "cd C:\dev\reincarnated-collaboration && claude --agent david-h"   # or radagast, sam
 ssh -t mhwet@192.168.1.133 "cd C:\dev\reincarnated-unreal\Reincarnated && claude --agent mantis"  # UE seam
-
-# Two-step pattern (any terminal)
-ssh mhwet@192.168.1.133
-# then on PC shell:
-cd C:\dev\reincarnated-collaboration
-claude --agent david-h   # or radagast, sam
 ```
 
 **CRITICAL — PC-side pull discipline at session-start.** PC clone is a git-tracked sibling of Mac clone. Mac-side commits do NOT reach PC until origin push + PC pull. PC agents MUST `git pull origin main` at session-start before reading task-specific dispatches. If session-opener prompt references files that don't exist after pull, the gap is Mac-side push-discipline failure, not authoring failure — surface clearly + halt; do NOT self-author cross-cutting artifacts to fill the gap.
