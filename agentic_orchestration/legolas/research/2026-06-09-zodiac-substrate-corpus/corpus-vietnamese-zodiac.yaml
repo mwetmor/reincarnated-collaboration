@@ -1,0 +1,840 @@
+# corpus-vietnamese-zodiac.yaml
+# Vietnamese Zodiac — Legolas Mode B Corpus
+# Crawl date: 2026-06-09
+# Source: https://en.wikipedia.org/wiki/Vietnamese_zodiac
+# 12 entries — sign_ids: vietnamese-zodiac-001 through vietnamese-zodiac-012
+# KEY VARIANT: Cat (Mèo) at position 4 replaces Chinese Rabbit; Water Buffalo at position 2 replaces Chinese Ox
+
+- sign_id: "vietnamese-zodiac-001"
+  sign_name:
+    primary: "Tý (Rat)"
+    variants: ["Chuột (Rat)"]
+    romanization: "Tý"
+    native_script: "Tý / Chuột"
+  cultural_tradition:
+    primary_culture: "Vietnamese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Vietnam (derived from Chinese calendar tradition via Sinicization)"
+    period_range: "Adopted during Chinese Han dynasty influence; consolidated during Bắc thuộc period (~111 BCE–939 CE)"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vietnamese Zodiac (Can Chi)"
+    total_signs_in_system: 12
+    position_in_system: 1
+    sign_classification:
+      element: "Water"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Winter / Midnight (23:00–01:00)"
+      other:
+        earthly_branch: "子 (Tý)"
+        yin_yang: "Yang"
+        hour_range: "23:00–01:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Vietnamese_zodiac_rat.jpg/320px-Vietnamese_zodiac_rat.jpg"
+      description: "Vietnamese zodiac Rat (Tý/Chuột) illustration in Vietnamese folk art style"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar/temporal system; no stellar coordinates applicable."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Rat (Tý/Chuột) is the first sign of the Vietnamese zodiac. Vietnamese New Year (Tết Nguyên Đán) celebrations feature the year's zodiac animal prominently in decorations, clothing, and traditional paintings. In Vietnamese culture, rats are described as bringers of good luck and abundance — their association with food stores and harvests gives them an agricultural significance. The Vietnamese 60-year cycle (hồi) begins with the Rat sign, making Tý years particularly significant as reset points in the grand calendar."
+      reference_sources: ["Wikipedia: Vietnamese zodiac"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Vietnamese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Water"
+    suggested_attribute: "AGI"
+    suggested_animal_form: "Rat"
+    suggested_object_form: ""
+    symbolic_role: "First sign; Tết anchor; lucky abundance bringer"
+    mythic_narrative_summary: "Tý (Rat) opens the Vietnamese zodiac. Rats bring good luck in Vietnamese folk belief; the 60-year hồi cycle begins with the Rat."
+  semantic_vocabulary:
+    symbolic_keywords: ["rat", "water", "yang", "Vietnamese", "Tý", "Tết", "lucky", "first", "abundance", "midnight"]
+    mythic_narrative: "The Rat (Tý / Chuột) is the first of the 12 Vietnamese zodiac signs, governing midnight hours 23:00–01:00. The Vietnamese zodiac descends from the Chinese zodiac system adopted during the prolonged period of Chinese political and cultural influence (Bắc thuộc). During Tết Nguyên Đán (Vietnamese Lunar New Year), the year's zodiac animal features across decorations, traditional paintings, and seasonal art. The Rat is welcomed as a bringer of good luck and prosperity in Vietnamese folk belief, its association with plentiful food stores carrying positive agricultural connotations."
+    visual_motifs: ["Tết decoration with rat motif", "Vietnamese folk painting Rat", "hồi cycle opening year art"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Vietnamese_zodiac"
+    secondary_sources: ["Wikipedia: Earthly Branches", "Wikipedia: Tết"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vietnamese-zodiac-002"
+  sign_name:
+    primary: "Sửu (Water Buffalo)"
+    variants: ["Trâu (Water Buffalo)", "Ngưu"]
+    romanization: "Sửu"
+    native_script: "Sửu / Trâu"
+  cultural_tradition:
+    primary_culture: "Vietnamese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Vietnam"
+    period_range: "Adopted Bắc thuộc period; Water Buffalo substitution reflects Vietnamese agricultural reality"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vietnamese Zodiac (Can Chi)"
+    total_signs_in_system: 12
+    position_in_system: 2
+    sign_classification:
+      element: "Earth"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Winter / Early Morning (01:00–03:00)"
+      other:
+        earthly_branch: "丑 (Sửu)"
+        yin_yang: "Yin"
+        hour_range: "01:00–03:00"
+        vietnamese_variant: "Water Buffalo (Trâu) replaces Chinese Ox (Niú)"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Vietnamese_zodiac_buffalo.jpg/320px-Vietnamese_zodiac_buffalo.jpg"
+      description: "Vietnamese zodiac Water Buffalo (Trâu) — a key Vietnamese cultural variant replacing the Chinese Ox"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Water Buffalo (Sửu/Trâu) replaces the Chinese Ox at position 2 — a Vietnamese-specific substitution that reflects the actual beast of burden in Vietnamese rice agriculture. The water buffalo (trâu) has been the most important agricultural animal in Vietnam for millennia: it pulls plows through flooded rice paddies, carries loads, and its labor is central to subsistence farming. Vietnamese folk paintings and pottery frequently depict water buffaloes, particularly in pastoral scenes with children riding them. This substitution is considered the most ecologically authentic version of the sign."
+      reference_sources: ["Wikipedia: Vietnamese zodiac"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Vietnamese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Water Buffalo"
+    suggested_object_form: ""
+    symbolic_role: "Vietnamese agricultural backbone; paddy-field laborer; riches through hard work"
+    mythic_narrative_summary: "Sửu (Water Buffalo) replaces the Chinese Ox — the water buffalo is the actual beast of burden in Vietnamese rice paddy agriculture, making this the ecologically authentic variant."
+  semantic_vocabulary:
+    symbolic_keywords: ["water buffalo", "earth", "yin", "Vietnamese", "Sửu", "Trâu", "agriculture", "rice paddy", "diligent", "folk art"]
+    mythic_narrative: "The Water Buffalo (Sửu / Trâu) is second in the Vietnamese zodiac, governing early morning hours 01:00–03:00. Vietnam substitutes the Chinese Ox with the native Water Buffalo — the actual animal that powers Vietnamese rice agriculture. The water buffalo (trâu) has been the most essential agricultural animal in Vietnamese history, pulling plows through flooded paddies that form the foundation of Vietnamese rice culture. This substitution makes the Vietnamese zodiac more ecologically grounded in local agricultural reality. Sửu-year individuals are associated with riches earned through patient, tireless hard work."
+    visual_motifs: ["Vietnamese child riding water buffalo folk painting", "trâu in rice paddy Tết art", "traditional Vietnamese water buffalo pottery motif"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Vietnamese_zodiac"
+    secondary_sources: ["Wikipedia: Water buffalo"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vietnamese-zodiac-003"
+  sign_name:
+    primary: "Dần (Tiger)"
+    variants: ["Hổ (Tiger)"]
+    romanization: "Dần"
+    native_script: "Dần / Hổ"
+  cultural_tradition:
+    primary_culture: "Vietnamese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Vietnam"
+    period_range: "Adopted Bắc thuộc period"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vietnamese Zodiac (Can Chi)"
+    total_signs_in_system: 12
+    position_in_system: 3
+    sign_classification:
+      element: "Wood"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Early Spring / Pre-dawn (03:00–05:00)"
+      other:
+        earthly_branch: "寅 (Dần)"
+        yin_yang: "Yang"
+        hour_range: "03:00–05:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Vietnamese_zodiac_tiger.svg/320px-Vietnamese_zodiac_tiger.svg.png"
+      description: "Vietnamese zodiac Tiger (Dần/Hổ) — styled Vietnamese zodiac illustration"
+      source: "Wikipedia Commons — Magipik"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary:
+      - url: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Vietnamese_Zodiac_Tiger_Illustration_-_Styled_by_Magipik.svg"
+        description: "Styled Vietnamese zodiac Tiger by Magipik (SVG)"
+        license: "Public Domain"
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Tiger (Dần/Hổ) was historically native to Vietnam — Indochinese tigers once inhabited Vietnamese forests, now critically endangered. In Vietnamese culture, the tiger is a symbol of courage, strength, and protection. Vietnamese folk belief includes tiger spirits as guardians of mountains and forests. Dần-year individuals are considered warm-hearted, fearless in danger, and natural leaders. Vietnamese temples sometimes feature tiger statues as protective guardians."
+      reference_sources: ["Wikipedia: Vietnamese zodiac"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Vietnamese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Wood"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Tiger"
+    suggested_object_form: ""
+    symbolic_role: "Forest guardian; brave protector; Indochinese tiger cultural resonance"
+    mythic_narrative_summary: "Dần (Tiger) is third — the Indochinese tiger is native to Vietnam, giving the Tiger sign deeper ecological resonance than in traditions where tigers are foreign animals."
+  semantic_vocabulary:
+    symbolic_keywords: ["tiger", "wood", "yang", "Vietnamese", "Dần", "Hổ", "brave", "forest guardian", "Indochinese tiger", "protection"]
+    mythic_narrative: "The Tiger (Dần / Hổ) is third in the Vietnamese zodiac, governing pre-dawn hours 03:00–05:00. Vietnam has its own tiger tradition: the Indochinese tiger (Panthera tigris corbetti) was once native to Vietnamese forests, though now critically endangered. Vietnamese folk belief includes mountain tiger spirits as powerful protective guardians of the natural world. Dần-year people are described as warm-hearted yet fearsome — courageous in the face of danger and respected as natural leaders."
+    visual_motifs: ["Tết Tiger folk painting", "Vietnamese temple tiger statue guardian", "Indochinese tiger art"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Vietnamese_zodiac"
+    secondary_sources: ["Wikipedia: Indochinese tiger"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vietnamese-zodiac-004"
+  sign_name:
+    primary: "Mão (Cat)"
+    variants: ["Mèo (Cat)", "Mẹo"]
+    romanization: "Mão / Mèo"
+    native_script: "Mão / Mèo"
+  cultural_tradition:
+    primary_culture: "Vietnamese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Vietnam"
+    period_range: "Adopted Bắc thuộc period; Cat substitution is Vietnam-specific (replaces Chinese Rabbit)"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vietnamese Zodiac (Can Chi)"
+    total_signs_in_system: 12
+    position_in_system: 4
+    sign_classification:
+      element: "Wood"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Spring / Dawn (05:00–07:00)"
+      other:
+        earthly_branch: "卯 (Mão)"
+        yin_yang: "Yin"
+        hour_range: "05:00–07:00"
+        vietnamese_variant: "Cat (Mèo) replaces Chinese Rabbit (Tù). THE DEFINING VIETNAMESE ZODIAC DISTINCTION."
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Vietnamese_zodiac_cat.jpg/320px-Vietnamese_zodiac_cat.jpg"
+      description: "Vietnamese zodiac Cat (Mèo) — the most distinctive Vietnamese zodiac variant, replacing Chinese Rabbit at position 4"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: |
+        THE CAT-FOR-RABBIT SUBSTITUTION — the single most important and distinctive feature of the Vietnamese zodiac vs. all other Chinese-derivative traditions.
+
+        LINGUISTIC ORIGIN: The Vietnamese word for the 4th Earthly Branch character (卯, Mão) sounds nearly identical to the Vietnamese word for cat (Mèo). This phonetic similarity is considered a primary factor in the substitution — the character 卯 in Vietnamese auditory culture became associated with Mèo (cat) rather than the Chinese tù (rabbit).
+
+        MYTHOLOGICAL NARRATIVE (Vietnamese tradition): Vietnamese legend differs fundamentally from the Chinese account of the zodiac race. In the Chinese version, the cat is excluded because the Rat tricked it into missing the boat, allowing Rat to cross the river first and Cat to miss the race entirely. In the Vietnamese version, the cat DOES complete the race and earns fourth place — it is the rabbit that is absent. Vietnamese legend holds that the cat was able to swim and took fourth position. The cat is thus an honored participant, not an excluded one.
+
+        WHAT CAT SYMBOLIZES IN VIETNAM (vs. Chinese Rabbit):
+        - The Year of the Rabbit (Chinese) is associated with peace, mild temperament, and gentleness
+        - The Year of the Cat (Vietnamese) is associated with strength, power, and LUCK — considered an extremely fortunate birth year
+        - Cats are believed to ward off evil spirits and bad luck in Vietnamese folk belief
+        - In the 2011 Year of the Cat, Vietnam recorded a baby boom — parents actively sought cat-year births for the luck association
+        - Cats' practical importance in rice agriculture (catching rats that threaten grain stores) grounds their cultural prestige
+
+        AGRICULTURAL SIGNIFICANCE: Vietnamese folk rhymes depict cats assisting farmers by chasing rats away from stored rice. Given the centrality of rice farming to Vietnamese culture, the cat's rat-catching function elevates it as a culturally necessary animal.
+
+        PERSONALITY TRAITS: Mão/Mèo individuals are described as tranquil, realistic, intelligent, and artistic — sharing some traits with the Chinese Rabbit but with added strength and protective qualities.
+      reference_sources: ["Wikipedia: Vietnamese zodiac", "Wikipedia: Cat (zodiac)"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Vietnamese_zodiac", "https://en.wikipedia.org/wiki/Cat_(zodiac)"]
+  primitive_association_hints:
+    suggested_element: "Wood"
+    suggested_attribute: "AGI"
+    suggested_animal_form: "Cat"
+    suggested_object_form: ""
+    symbolic_role: "Lucky guardian; evil-spirit warden; the defining Vietnamese zodiac variant"
+    mythic_narrative_summary: "Mão/Mèo (Cat) replaces the Chinese Rabbit at position 4 — the single most important Vietnamese zodiac distinction. Cat is lucky, powerful, and a protective spirit; the Vietnamese legend has the Cat completing the zodiac race (unlike the Chinese version where Cat is excluded)."
+  semantic_vocabulary:
+    symbolic_keywords: ["cat", "wood", "yin", "Vietnamese variant", "Mèo", "Mão", "lucky", "strength", "evil ward", "zodiac race", "rabbit substitute", "baby boom", "rice protector"]
+    mythic_narrative: |
+      The Cat (Mão / Mèo) is fourth in the Vietnamese zodiac and the tradition's single most celebrated distinction from the Chinese source. Where every other Chinese-derivative zodiac tradition (Japanese, Korean, Tibetan) retains the Rabbit at position 4, Vietnam substitutes the Cat.
+
+      Two explanations are documented. The linguistic account: the Vietnamese reading of the 4th Earthly Branch character (卯, Mão) is phonetically close to the Vietnamese word for cat (Mèo), leading to a cultural drift where the character became associated with cats rather than rabbits in Vietnamese oral tradition.
+
+      The mythological account: Vietnamese zodiac legend differs from the Chinese race story. In Chinese tradition, the Rat tricks the Cat into missing the boat race to the Jade Emperor, which is why Cat is excluded from the zodiac. In the Vietnamese version, the Cat successfully swims across and completes the race, earning fourth place — there is no Rabbit in Vietnamese mythology.
+
+      Culturally, the Cat (Mèo) carries far more potency than the Chinese Rabbit it replaces. Cats are considered lucky and protective in Vietnamese folk belief — they ward off evil spirits and guard homes. Their practical role as ratcatchers protecting rice stores from rodents anchors this prestige in agricultural reality. The 2011 Year of the Cat triggered a documented baby boom in Vietnam, as parents sought the auspicious birth-year for their children. Mão/Mèo individuals are described as tranquil, realistic, intelligent, artistic — and possessed of inner strength that the gentle Rabbit association lacks.
+    visual_motifs: ["Vietnamese zodiac Cat folk painting", "Tết Mèo decorations", "Cat chasing rat from rice storehouse folk art"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Standard cultural practice; Cat substitution is well-documented and culturally authorized"
+    source_authorization: "Wikipedia public domain — Vietnamese zodiac article + Cat zodiac article"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Vietnamese_zodiac"
+    secondary_sources:
+      - "Wikipedia: Cat (zodiac)"
+      - "Wikipedia: Earthly Branches"
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vietnamese-zodiac-005"
+  sign_name:
+    primary: "Thìn (Dragon)"
+    variants: ["Rồng (Dragon)"]
+    romanization: "Thìn"
+    native_script: "Thìn / Rồng"
+  cultural_tradition:
+    primary_culture: "Vietnamese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Vietnam"
+    period_range: "Adopted Bắc thuộc period"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vietnamese Zodiac (Can Chi)"
+    total_signs_in_system: 12
+    position_in_system: 5
+    sign_classification:
+      element: "Earth"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Spring / Morning (07:00–09:00)"
+      other:
+        earthly_branch: "辰 (Thìn)"
+        yin_yang: "Yang"
+        hour_range: "07:00–09:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Vietnamese_dragon.jpg/320px-Vietnamese_dragon.jpg"
+      description: "Vietnamese dragon (Rồng) — distinct sinuous form from Chinese dragon"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Dragon (Thìn/Rồng) is the most auspicious sign in Vietnamese zodiac, associated with imperial authority, yang energy, and celestial power. Vietnamese dragons (Rồng) have a distinctive form — more sinuous and elongated than Chinese dragons, often depicted in elaborate S-curves. The Lạc Long Quân (Dragon Lord of the Lạc) is the mythical dragon-ancestor of the Vietnamese people in origin myths. Vietnam's very identity is entwined with dragon mythology: according to legend, the Vietnamese descend from a union of a dragon and a fairy, born from 100 eggs."
+      reference_sources: ["Wikipedia: Vietnamese zodiac", "Wikipedia: Lạc Long Quân"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Vietnamese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Dragon"
+    suggested_object_form: ""
+    symbolic_role: "Ancestral origin myth; Lạc Long Quân dragon-founder; Vietnamese national identity"
+    mythic_narrative_summary: "Thìn (Dragon) is fifth — Vietnam's origin myth traces the Vietnamese people to a dragon ancestor (Lạc Long Quân), making the Dragon sign uniquely load-bearing for Vietnamese national identity."
+  semantic_vocabulary:
+    symbolic_keywords: ["dragon", "earth", "yang", "Vietnamese", "Thìn", "Rồng", "Lạc Long Quân", "ancestral", "imperial", "origin myth"]
+    mythic_narrative: "The Dragon (Thìn / Rồng) is fifth in the Vietnamese zodiac, governing morning hours 07:00–09:00. In Vietnamese cosmology, the dragon is not merely a zodiac sign but a national ancestor: Lạc Long Quân, the Dragon Lord of the Lạc, is the mythical progenitor of the Vietnamese people — who descended from his union with the fairy Âu Cơ, who gave birth to 100 eggs from which the Vietnamese nation sprang. This origin myth makes the Dragon sign uniquely weighted in Vietnamese cultural identity compared to other derivative traditions. Thìn-year individuals inherit the full imperial symbolism of the dragon: power, transformation, and divine mandate."
+    visual_motifs: ["Lạc Long Quân dragon ancestor art", "Vietnamese rồng sinuous dragon imperial motif", "Thìn Tết dragon decoration"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Vietnamese_zodiac"
+    secondary_sources: ["Wikipedia: Lạc Long Quân", "Wikipedia: Vietnamese dragon"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vietnamese-zodiac-006"
+  sign_name:
+    primary: "Tỵ (Snake)"
+    variants: ["Rắn (Snake)"]
+    romanization: "Tỵ"
+    native_script: "Tỵ / Rắn"
+  cultural_tradition:
+    primary_culture: "Vietnamese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Vietnam"
+    period_range: "Adopted Bắc thuộc period"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vietnamese Zodiac (Can Chi)"
+    total_signs_in_system: 12
+    position_in_system: 6
+    sign_classification:
+      element: "Fire"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Late Spring / Late Morning (09:00–11:00)"
+      other:
+        earthly_branch: "巳 (Tỵ)"
+        yin_yang: "Yin"
+        hour_range: "09:00–11:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Vietnamese_zodiac_snake.jpg/320px-Vietnamese_zodiac_snake.jpg"
+      description: "Vietnamese zodiac Snake (Tỵ/Rắn) illustration"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Snake (Tỵ/Rắn) in Vietnamese culture is associated with enigmatic wisdom, cunning intelligence, and quiet power. Vietnam has significant snake biodiversity including cobras and pythons, giving snake symbolism natural ecological grounding. Vietnamese folk medicine uses snake products, and snake imagery appears in traditional folk art. Tỵ-year individuals are described as enigmatic, wise, and possessing the tendency to live well and enjoy beauty."
+      reference_sources: ["Wikipedia: Vietnamese zodiac"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Vietnamese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Fire"
+    suggested_attribute: "INT"
+    suggested_animal_form: "Snake"
+    suggested_object_form: ""
+    symbolic_role: "Enigmatic wisdom; hidden intelligence; quiet refined power"
+    mythic_narrative_summary: "Tỵ (Snake) is sixth — associated with enigmatic wisdom and a preference for graceful living. Vietnamese biodiversity grounds snake symbolism in ecological reality."
+  semantic_vocabulary:
+    symbolic_keywords: ["snake", "fire", "yin", "Vietnamese", "Tỵ", "Rắn", "enigmatic", "wisdom", "cunning", "quiet power"]
+    mythic_narrative: "The Snake (Tỵ / Rắn) is sixth in the Vietnamese zodiac, governing late morning hours 09:00–11:00. Vietnam's diverse snake fauna — cobras, pythons, and many endemic species — gives the snake sign genuine ecological resonance. In Vietnamese folk medicine and culture, snakes are both feared and respected as symbols of potent hidden wisdom. Tỵ-year individuals are described as enigmatic, wise, and possessed of refined taste — they like to live well and appreciate beauty. The snake's association with quiet, patient intelligence makes it a complex and sophisticated zodiac archetype."
+    visual_motifs: ["Vietnamese zodiac snake folk art", "Tết snake decoration", "Vietnamese cobra folk medicine imagery"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Vietnamese_zodiac"
+    secondary_sources: ["Wikipedia: Earthly Branches"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vietnamese-zodiac-007"
+  sign_name:
+    primary: "Ngọ (Horse)"
+    variants: ["Ngựa (Horse)"]
+    romanization: "Ngọ"
+    native_script: "Ngọ / Ngựa"
+  cultural_tradition:
+    primary_culture: "Vietnamese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Vietnam"
+    period_range: "Adopted Bắc thuộc period"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vietnamese Zodiac (Can Chi)"
+    total_signs_in_system: 12
+    position_in_system: 7
+    sign_classification:
+      element: "Fire"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Summer / Noon (11:00–13:00)"
+      other:
+        earthly_branch: "午 (Ngọ)"
+        yin_yang: "Yang"
+        hour_range: "11:00–13:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Vietnamese_zodiac_horse.jpg/320px-Vietnamese_zodiac_horse.jpg"
+      description: "Vietnamese zodiac Horse (Ngọ/Ngựa) illustration"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Horse (Ngọ/Ngựa) in Vietnamese culture is associated with freedom, confidence, and unstoppable forward movement. The horse features in Vietnamese heroic traditions — legendary generals and heroes are often depicted on horseback, including the legendary Lady Triệu (Triệu Thị Trinh) and historical warriors. Ngọ-year individuals signify freedom and confidence according to Vietnamese zodiac tradition."
+      reference_sources: ["Wikipedia: Vietnamese zodiac"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Vietnamese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Fire"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Horse"
+    suggested_object_form: ""
+    symbolic_role: "Freedom; confidence; Vietnamese heroic warrior tradition"
+    mythic_narrative_summary: "Ngọ (Horse) is seventh — connected to Vietnamese heroic imagery. Ngọ-year individuals signify freedom and confidence."
+  semantic_vocabulary:
+    symbolic_keywords: ["horse", "fire", "yang", "Vietnamese", "Ngọ", "Ngựa", "freedom", "confidence", "hero", "noon"]
+    mythic_narrative: "The Horse (Ngọ / Ngựa) is seventh in the Vietnamese zodiac, governing noon hours 11:00–13:00. In Vietnamese historical culture, the horse is the mount of heroes and generals — figures like Lady Triệu, who legendarily rode an elephant but whose tradition connects to mounted warrior imagery. Ngọ-year individuals are considered free-spirited, confident, and energetically forward-moving. The noon hour assignment reinforces the horse's association with peak vitality and direct action."
+    visual_motifs: ["Vietnamese Tết horse decoration", "Vietnamese heroic warrior on horseback folk art", "Ngọ zodiac illustration"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Vietnamese_zodiac"
+    secondary_sources: ["Wikipedia: Earthly Branches"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vietnamese-zodiac-008"
+  sign_name:
+    primary: "Mùi (Goat)"
+    variants: ["Dê (Goat)"]
+    romanization: "Mùi"
+    native_script: "Mùi / Dê"
+  cultural_tradition:
+    primary_culture: "Vietnamese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Vietnam"
+    period_range: "Adopted Bắc thuộc period"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vietnamese Zodiac (Can Chi)"
+    total_signs_in_system: 12
+    position_in_system: 8
+    sign_classification:
+      element: "Earth"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Summer / Afternoon (13:00–15:00)"
+      other:
+        earthly_branch: "未 (Mùi)"
+        yin_yang: "Yin"
+        hour_range: "13:00–15:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Vietnamese_zodiac_goat.jpg/320px-Vietnamese_zodiac_goat.jpg"
+      description: "Vietnamese zodiac Goat (Mùi/Dê) illustration"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Goat (Mùi/Dê) in Vietnamese tradition is associated with creativity, good taste, and aesthetic refinement. Vietnamese zodiac specifically uses Dê (goat) with less of the sheep/goat ambiguity found in Korean tradition. Mùi-year individuals are described as creative individuals with strong aesthetic sensibilities and appreciation for beauty in art and life."
+      reference_sources: ["Wikipedia: Vietnamese zodiac"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Vietnamese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "INT"
+    suggested_animal_form: "Goat"
+    suggested_object_form: ""
+    symbolic_role: "Creativity; good taste; aesthetic refinement"
+    mythic_narrative_summary: "Mùi (Goat) is eighth — Vietnamese uses Dê (goat) with less ambiguity than Korean Yang. Associated with creativity and aesthetic good taste."
+  semantic_vocabulary:
+    symbolic_keywords: ["goat", "earth", "yin", "Vietnamese", "Mùi", "Dê", "creative", "aesthetic", "good taste", "afternoon"]
+    mythic_narrative: "The Goat (Mùi / Dê) is eighth in the Vietnamese zodiac, governing afternoon hours 13:00–15:00. Vietnamese tradition uses the specific term Dê (goat) at this position, with less of the sheep/goat ambiguity found in the Korean Yang. Mùi-year individuals are associated with creativity, refined aesthetic taste, and a gentle temperament. The goat's association with pastoral beauty and careful selection reflects this sign's emphasis on quality and discernment over quantity."
+    visual_motifs: ["Vietnamese Tết goat decoration", "Mùi zodiac goat folk art", "Vietnamese dê illustration"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Vietnamese_zodiac"
+    secondary_sources: ["Wikipedia: Earthly Branches"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vietnamese-zodiac-009"
+  sign_name:
+    primary: "Thân (Monkey)"
+    variants: ["Khỉ (Monkey)"]
+    romanization: "Thân"
+    native_script: "Thân / Khỉ"
+  cultural_tradition:
+    primary_culture: "Vietnamese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Vietnam"
+    period_range: "Adopted Bắc thuộc period"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vietnamese Zodiac (Can Chi)"
+    total_signs_in_system: 12
+    position_in_system: 9
+    sign_classification:
+      element: "Metal"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Late Summer / Late Afternoon (15:00–17:00)"
+      other:
+        earthly_branch: "申 (Thân)"
+        yin_yang: "Yang"
+        hour_range: "15:00–17:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Vietnamese_zodiac_monkey.jpg/320px-Vietnamese_zodiac_monkey.jpg"
+      description: "Vietnamese zodiac Monkey (Thân/Khỉ) illustration"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Monkey (Thân/Khỉ) in Vietnamese culture is associated with versatility, mischievousness, and inventive wit. Vietnam has native macaque species, giving monkey symbolism local ecological grounding. Vietnamese folk tradition links Thân-year individuals with inventors, entertainers, and mischievous characters. The monkey is described as versatile and mischievous — creative problem-solvers who sometimes bend rules."
+      reference_sources: ["Wikipedia: Vietnamese zodiac"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Vietnamese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Metal"
+    suggested_attribute: "AGI"
+    suggested_animal_form: "Monkey"
+    suggested_object_form: ""
+    symbolic_role: "Versatile inventor; mischievous wit; natural entertainer"
+    mythic_narrative_summary: "Thân (Monkey) is ninth — Vietnam has native macaques. Thân-year individuals are linked to inventors and entertainers in Vietnamese folk tradition."
+  semantic_vocabulary:
+    symbolic_keywords: ["monkey", "metal", "yang", "Vietnamese", "Thân", "Khỉ", "versatile", "mischievous", "inventor", "wit"]
+    mythic_narrative: "The Monkey (Thân / Khỉ) is ninth in the Vietnamese zodiac, governing late afternoon hours 15:00–17:00. Vietnam has native macaque species (including the rhesus macaque in northern regions), providing ecological grounding for monkey symbolism. Thân-year people are characterized as versatile and mischievous — linked to inventors and entertainers in Vietnamese folk tradition. The monkey's agility and adaptability make it a symbol of creative problem-solving and social intelligence."
+    visual_motifs: ["Vietnamese zodiac monkey folk art", "Tết monkey decoration", "Thân year illustration"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Vietnamese_zodiac"
+    secondary_sources: ["Wikipedia: Earthly Branches"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vietnamese-zodiac-010"
+  sign_name:
+    primary: "Dậu (Rooster)"
+    variants: ["Gà (Rooster/Chicken)"]
+    romanization: "Dậu"
+    native_script: "Dậu / Gà"
+  cultural_tradition:
+    primary_culture: "Vietnamese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Vietnam"
+    period_range: "Adopted Bắc thuộc period"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vietnamese Zodiac (Can Chi)"
+    total_signs_in_system: 12
+    position_in_system: 10
+    sign_classification:
+      element: "Metal"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Autumn / Early Evening (17:00–19:00)"
+      other:
+        earthly_branch: "酉 (Dậu)"
+        yin_yang: "Yin"
+        hour_range: "17:00–19:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Vietnamese_zodiac_rooster.jpg/320px-Vietnamese_zodiac_rooster.jpg"
+      description: "Vietnamese zodiac Rooster (Dậu/Gà) illustration"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Rooster (Dậu/Gà) is associated with bravery, resilience, and confident self-expression in Vietnamese tradition. Cockfighting (đá gà) is a traditional Vietnamese cultural practice, particularly associated with Tết celebrations, and the rooster's fighting spirit informs the sign's personality associations. Vietnamese folk art features roosters with vibrant plumage in auspicious compositions. Dậu-year individuals are described as brave and resilient but sometimes self-absorbed."
+      reference_sources: ["Wikipedia: Vietnamese zodiac"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Vietnamese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Metal"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Rooster"
+    suggested_object_form: ""
+    symbolic_role: "Brave fighter; resilient self-assertion; Vietnamese cockfighting cultural context"
+    mythic_narrative_summary: "Dậu (Rooster) is tenth — Vietnamese cockfighting (đá gà) tradition ties directly to this sign's warrior bravery associations."
+  semantic_vocabulary:
+    symbolic_keywords: ["rooster", "metal", "yin", "Vietnamese", "Dậu", "Gà", "brave", "resilient", "cockfighting", "đá gà", "self-assertion"]
+    mythic_narrative: "The Rooster (Dậu / Gà) is tenth in the Vietnamese zodiac, governing early evening hours 17:00–19:00. Vietnamese cockfighting (đá gà) is a traditional Tết activity that directly informs the rooster zodiac sign's personality associations — bravery, fighting spirit, and resilience under pressure. Dậu-year individuals are described as brave and resilient but with a tendency toward self-absorption. Colorful rooster imagery appears in Vietnamese folk art as a symbol of protection and masculine vitality."
+    visual_motifs: ["Vietnamese cockfighting illustration (đá gà)", "Vietnamese folk art rooster", "Tết Dậu decoration"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Cockfighting is a traditional cultural practice in Vietnam; documented for cultural completeness"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Vietnamese_zodiac"
+    secondary_sources: ["Wikipedia: Earthly Branches"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vietnamese-zodiac-011"
+  sign_name:
+    primary: "Tuất (Dog)"
+    variants: ["Chó (Dog)"]
+    romanization: "Tuất"
+    native_script: "Tuất / Chó"
+  cultural_tradition:
+    primary_culture: "Vietnamese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Vietnam"
+    period_range: "Adopted Bắc thuộc period"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vietnamese Zodiac (Can Chi)"
+    total_signs_in_system: 12
+    position_in_system: 11
+    sign_classification:
+      element: "Earth"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Autumn / Evening (19:00–21:00)"
+      other:
+        earthly_branch: "戌 (Tuất)"
+        yin_yang: "Yang"
+        hour_range: "19:00–21:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Vietnamese_zodiac_dog.jpg/320px-Vietnamese_zodiac_dog.jpg"
+      description: "Vietnamese zodiac Dog (Tuất/Chó) illustration"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Dog (Tuất/Chó) in Vietnamese zodiac is associated with loyalty, luck, and likeable sociability. In Vietnamese folk belief, dogs are considered lucky — a dog entering the home is an auspicious omen. Tuất-year individuals are described as loyal, lucky, and likeable. Vietnamese folk tradition holds the dog as a guardian of the home and a protector of family fortune."
+      reference_sources: ["Wikipedia: Vietnamese zodiac"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Vietnamese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Dog"
+    suggested_object_form: ""
+    symbolic_role: "Loyal lucky guardian; dog entering home is auspicious omen in Vietnamese folk belief"
+    mythic_narrative_summary: "Tuất (Dog) is eleventh — dogs entering the home are lucky omens in Vietnamese folk belief, making this a positively auspicious sign."
+  semantic_vocabulary:
+    symbolic_keywords: ["dog", "earth", "yang", "Vietnamese", "Tuất", "Chó", "loyal", "lucky", "likeable", "evening", "guardian"]
+    mythic_narrative: "The Dog (Tuất / Chó) is eleventh in the Vietnamese zodiac, governing evening hours 19:00–21:00. In Vietnamese folk tradition, a dog entering the house is considered a lucky omen — the opposite of many Western interpretations. Dogs are guardians of the home and bringers of good fortune. Tuất-year individuals are described as lucky, loyal, and naturally likeable — people who attract good relationships and social goodwill through genuine trustworthiness."
+    visual_motifs: ["Vietnamese zodiac dog folk art", "Tết dog decoration", "Tuất year illustration"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Vietnamese_zodiac"
+    secondary_sources: ["Wikipedia: Earthly Branches"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "vietnamese-zodiac-012"
+  sign_name:
+    primary: "Hợi (Pig)"
+    variants: ["Lợn (Pig)", "Heo"]
+    romanization: "Hợi"
+    native_script: "Hợi / Lợn / Heo"
+  cultural_tradition:
+    primary_culture: "Vietnamese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Vietnam"
+    period_range: "Adopted Bắc thuộc period"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Vietnamese Zodiac (Can Chi)"
+    total_signs_in_system: 12
+    position_in_system: 12
+    sign_classification:
+      element: "Water"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Winter / Night (21:00–23:00)"
+      other:
+        earthly_branch: "亥 (Hợi)"
+        yin_yang: "Yin"
+        hour_range: "21:00–23:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Vietnamese_zodiac_pig.jpg/320px-Vietnamese_zodiac_pig.jpg"
+      description: "Vietnamese zodiac Pig (Hợi/Lợn) illustration"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Pig (Hợi/Lợn) is associated with honesty, patient wealth-building, and virility in Vietnamese tradition. Pigs are deeply embedded in Vietnamese agricultural and festive culture — whole roasted pig (heo quay) is a centerpiece of Tết and wedding feasts. The pig's association with abundance and feasting makes Hợi a sign of prosperous plenty. Hợi-year individuals are described as honest, patient, and virile — associated with reliable material success."
+      reference_sources: ["Wikipedia: Vietnamese zodiac"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Vietnamese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Water"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Pig"
+    suggested_object_form: ""
+    symbolic_role: "Honest abundance; festive prosperity; Tết feast centerpiece animal"
+    mythic_narrative_summary: "Hợi (Pig) is twelfth — deeply embedded in Tết feasting culture (whole roast pig). Hợi-year individuals are honest, patient, and virile."
+  semantic_vocabulary:
+    symbolic_keywords: ["pig", "water", "yin", "Vietnamese", "Hợi", "Lợn", "honest", "patient", "abundance", "Tết feast", "virile"]
+    mythic_narrative: "The Pig (Hợi / Lợn) is the twelfth and final sign in the Vietnamese zodiac, governing night hours 21:00–23:00. In Vietnamese festive culture, the pig holds a place of honor: roasted whole pig (heo quay) is the centerpiece of Tết Nguyên Đán feasts, weddings, and ancestor offering ceremonies — its presence signals prosperity and celebration. Hợi-year individuals are characterized by honest patience and practical wisdom — they build wealth steadily and reliably, and carry an association with vitality and abundance."
+    visual_motifs: ["Vietnamese heo quay whole roasted pig Tết feast", "Hợi zodiac folk art", "Tết pig decoration"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Vietnamese_zodiac"
+    secondary_sources: ["Wikipedia: Earthly Branches", "Wikipedia: Tết"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"

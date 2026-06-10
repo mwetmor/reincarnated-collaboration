@@ -1,0 +1,812 @@
+# corpus-japanese-junishi.yaml
+# Japanese Jūnishi (十二支) Zodiac — Legolas Mode B Corpus
+# Crawl date: 2026-06-09
+# Source: https://en.wikipedia.org/wiki/Chinese_zodiac (Japanese section)
+# 12 entries — sign_ids: japanese-junishi-001 through japanese-junishi-012
+
+- sign_id: "japanese-junishi-001"
+  sign_name:
+    primary: "Ne (Rat)"
+    variants: ["Nezumi", "Shu (Chinese origin)"]
+    romanization: "Ne"
+    native_script: "子 / ねずみ (nezumi)"
+  cultural_tradition:
+    primary_culture: "Japanese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Japan (derived from Chinese calendar tradition)"
+    period_range: "Adopted during Nara period ~700 CE from Chinese calendar system"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Japanese Jūnishi (十二支)"
+    total_signs_in_system: 12
+    position_in_system: 1
+    sign_classification:
+      element: "Water"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Winter / Midnight (23:00–01:00)"
+      other:
+        earthly_branch: "子 (Ne)"
+        yin_yang: "Yang"
+        hour_range: "23:00–01:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Chinese_new_year_2008_rat.jpg/320px-Chinese_new_year_2008_rat.jpg"
+      description: "Zodiac Rat illustration representative of East Asian zodiac traditions including Japanese Jūnishi"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar/temporal system; not stellar. No star coordinates applicable."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "In Japan, each zodiac animal appears prominently in New Year (Oshōgatsu) culture. Ema votive plaques at Shinto shrines feature the year's zodiac animal; worshippers write prayers on the plaques. Nengajō (年賀状) New Year greeting cards traditionally display the year's animal. The Rat (子/Ne) carries Chinese-derived symbolism of resourcefulness, cleverness, and fertility — positively associated with abundance and good fortune in rat-years."
+      reference_sources: ["Wikipedia: Chinese zodiac", "Wikipedia: Ema (Shinto)"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Chinese_zodiac", "https://en.wikipedia.org/wiki/Ema_(Shinto)"]
+  primitive_association_hints:
+    suggested_element: "Water"
+    suggested_attribute: "AGI"
+    suggested_animal_form: "Rat"
+    suggested_object_form: ""
+    symbolic_role: "First mover; Japanese New Year zodiac anchor; resourceful intelligence"
+    mythic_narrative_summary: "Rat (Ne) is the first of the 12 Earthly Branches in the Japanese Jūnishi, representing the midnight hour and the turn of the year."
+  semantic_vocabulary:
+    symbolic_keywords: ["rat", "water", "yang", "first", "new year", "midnight", "Japanese", "ema", "nengajō", "resourceful"]
+    mythic_narrative: "The Japanese Jūnishi adopted the Chinese 12-animal zodiac during the Nara period (710–794 CE) when Chinese cultural influence was at its height in Japan. The Rat (子, Ne / ねずみ) retains its Chinese position as the first of the 12 Earthly Branches. In Japan, the zodiac is most visible in New Year traditions: the year's animal appears on ema votive plaques at shrines, nengajō greeting cards, and decorative items sold throughout the new year season. The Rat year is associated with new beginnings, resourcefulness, and adaptability. Japan marks New Year on January 1 per the Gregorian calendar since 1873, though the zodiac animal cycle retains traditional symbolic weight."
+    visual_motifs: ["ema wooden votive plaque with rat motif", "nengajō New Year cards", "traditional Japanese rat calligraphy"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources:
+      - "Wikipedia: Earthly Branches"
+      - "Wikipedia: Ema (Shinto)"
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "japanese-junishi-002"
+  sign_name:
+    primary: "Ushi (Ox)"
+    variants: ["Ushi", "Gyū (Chinese origin)"]
+    romanization: "Ushi"
+    native_script: "丑 / うし (ushi)"
+  cultural_tradition:
+    primary_culture: "Japanese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Japan"
+    period_range: "Adopted Nara period ~700 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Japanese Jūnishi (十二支)"
+    total_signs_in_system: 12
+    position_in_system: 2
+    sign_classification:
+      element: "Earth"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Winter / Early Morning (01:00–03:00)"
+      other:
+        earthly_branch: "丑 (Ushi)"
+        yin_yang: "Yin"
+        hour_range: "01:00–03:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Ushi.jpg/320px-Ushi.jpg"
+      description: "Ox zodiac representation in Japanese tradition"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar/temporal system; no stellar coordinates."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Ox (丑/Ushi) in Japanese zodiac culture represents diligence, dependability, and patient strength. Ema plaques for ox-years often feature Tenmangu shrines, as the ox is sacred to Tenjin (Sugawara no Michizane), the deity of scholarship. Ox-year nengajō cards are popular with imagery of calves and farm scenes. The Japanese Ushi carries connotations of steady, reliable hard work — a popular zodiac sign for students taking entrance exams in ox-years."
+      reference_sources: ["Wikipedia: Chinese zodiac", "Wikipedia: Tenjin (Shinto)"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Chinese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Ox"
+    suggested_object_form: ""
+    symbolic_role: "Patient strength; diligence; early morning persistence"
+    mythic_narrative_summary: "The Ox (Ushi) is second in the Jūnishi cycle, associated with the early morning hours, earth element, and steady reliable effort."
+  semantic_vocabulary:
+    symbolic_keywords: ["ox", "earth", "yin", "diligence", "strength", "Japanese", "Tenjin", "ema", "scholarship"]
+    mythic_narrative: "The Ox (丑, Ushi / うし) is second in the Japanese Jūnishi, governing the hours of 01:00–03:00. In Japanese culture, the ox is especially associated with Tenjin, the Shinto deity of scholarship and learning, through the sacred oxen kept at Tenmangu shrines. People born in Ox-years are considered methodical, trustworthy, and hardworking — qualities prized in Japanese cultural ethics. Ox-year ema are popular at academic shrines where students pray for success in entrance examinations."
+    visual_motifs: ["ema ox plaque at Tenmangu shrine", "sacred Tenjin ox statue", "nengajō ox calligraphy"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources: ["Wikipedia: Earthly Branches"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "japanese-junishi-003"
+  sign_name:
+    primary: "Tora (Tiger)"
+    variants: ["Tora", "Ko (Chinese origin)"]
+    romanization: "Tora"
+    native_script: "寅 / とら (tora)"
+  cultural_tradition:
+    primary_culture: "Japanese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Japan"
+    period_range: "Adopted Nara period ~700 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Japanese Jūnishi (十二支)"
+    total_signs_in_system: 12
+    position_in_system: 3
+    sign_classification:
+      element: "Wood"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Early Spring / Pre-dawn (03:00–05:00)"
+      other:
+        earthly_branch: "寅 (Tora)"
+        yin_yang: "Yang"
+        hour_range: "03:00–05:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Chang_dai-chien_tigers.jpg/320px-Chang_dai-chien_tigers.jpg"
+      description: "Tiger in East Asian zodiac artistic tradition"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Tiger (寅/Tora) holds special status in Japanese culture as the guardian of the west and a ward against evil spirits. Tiger imagery appears extensively in Japanese art, from Edo-period woodblock prints (ukiyo-e) to temple guardian paintings. Though tigers are not native to Japan, the tradition of tiger symbolism arrived via China and Korea. Daruma dolls and temple decorations in tiger-years reflect the boldness and bravery associated with the sign."
+      reference_sources: ["Wikipedia: Chinese zodiac", "Wikipedia: Tiger in mythology"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Chinese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Wood"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Tiger"
+    suggested_object_form: ""
+    symbolic_role: "Fierce protector; bravery; guardian energy"
+    mythic_narrative_summary: "Tiger (Tora) is third in the Jūnishi, representing pre-dawn boldness, protective force, and the wood element's assertive growth."
+  semantic_vocabulary:
+    symbolic_keywords: ["tiger", "wood", "yang", "brave", "guardian", "Japanese", "ukiyo-e", "pre-dawn", "fierce"]
+    mythic_narrative: "The Tiger (寅, Tora / とら) is third in the Japanese Jūnishi, governing the pre-dawn hours of 03:00–05:00. Tigers are not native to Japan but hold enormous cultural weight through Chinese-derived symbolism transmitted via Buddhism and Confucian learning. In Japanese art, the tiger is a favorite subject of Edo-period painters, often depicted against bamboo — symbolizing the meeting of fierce power and flexible resilience. Tiger-year individuals are considered courageous, passionate, and fiercely independent. The hour of the tiger (寅の刻) is considered auspicious for beginning new ventures."
+    visual_motifs: ["Edo-period ukiyo-e tiger woodblock print", "temple tiger guardian painting", "nengajō tiger calligraphy art"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources: ["Wikipedia: Earthly Branches"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "japanese-junishi-004"
+  sign_name:
+    primary: "U (Rabbit)"
+    variants: ["Usagi", "Bo (Chinese origin)"]
+    romanization: "U / Usagi"
+    native_script: "卯 / うさぎ (usagi)"
+  cultural_tradition:
+    primary_culture: "Japanese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Japan"
+    period_range: "Adopted Nara period ~700 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Japanese Jūnishi (十二支)"
+    total_signs_in_system: 12
+    position_in_system: 4
+    sign_classification:
+      element: "Wood"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Spring / Dawn (05:00–07:00)"
+      other:
+        earthly_branch: "卯 (U)"
+        yin_yang: "Yin"
+        hour_range: "05:00–07:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Rabbit_zodiac.jpg/320px-Rabbit_zodiac.jpg"
+      description: "Rabbit zodiac representation in Japanese tradition"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Rabbit (卯/Usagi) is deeply embedded in Japanese cultural imagery. The famous 'Moon Rabbit' (月のうさぎ, Tsuki no Usagi) — the rabbit seen in the moon making rice cakes — is a beloved Japanese folklore figure. Rabbit imagery appears on traditional crafts, kimono patterns, and New Year goods. Japan keeps the Rabbit at position 4 (unlike Vietnam, which substitutes a Cat). The rabbit is associated with gentleness, artistic sensibility, and good fortune."
+      reference_sources: ["Wikipedia: Chinese zodiac", "Wikipedia: Moon rabbit"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Chinese_zodiac", "https://en.wikipedia.org/wiki/Moon_rabbit"]
+  primitive_association_hints:
+    suggested_element: "Wood"
+    suggested_attribute: "AGI"
+    suggested_animal_form: "Rabbit"
+    suggested_object_form: ""
+    symbolic_role: "Gentle intuition; moon symbolism; artistic sensitivity"
+    mythic_narrative_summary: "The Rabbit (U/Usagi) at position 4 retains the Chinese form — Japan does not substitute Cat as Vietnam does. Connected to the Moon Rabbit folklore tradition."
+  semantic_vocabulary:
+    symbolic_keywords: ["rabbit", "wood", "yin", "moon rabbit", "gentle", "Japanese", "dawn", "tsuki no usagi", "artistic"]
+    mythic_narrative: "The Rabbit (卯, U / うさぎ) is fourth in the Japanese Jūnishi, governing the dawn hours of 05:00–07:00. Japan retains the Rabbit at this position — unlike Vietnam, which substitutes a Cat. The Rabbit connects to Japan's rich Moon Rabbit tradition (Tsuki no Usagi), in which a rabbit is seen in the markings of the moon, pounding mochi rice cakes. This lunar imagery saturates rabbit-year New Year iconography. Rabbit-year people are associated with elegance, artistic talent, and thoughtful diplomacy."
+    visual_motifs: ["Moon Rabbit (Tsuki no Usagi) illustration", "rabbit on kimono pattern", "nengajō rabbit motif"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources: ["Wikipedia: Moon rabbit", "Wikipedia: Earthly Branches"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "japanese-junishi-005"
+  sign_name:
+    primary: "Tatsu (Dragon)"
+    variants: ["Ryū", "Long (Chinese origin)"]
+    romanization: "Tatsu / Ryū"
+    native_script: "辰 / たつ (tatsu) / 龍 (ryū)"
+  cultural_tradition:
+    primary_culture: "Japanese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Japan"
+    period_range: "Adopted Nara period ~700 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Japanese Jūnishi (十二支)"
+    total_signs_in_system: 12
+    position_in_system: 5
+    sign_classification:
+      element: "Earth"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Spring / Morning (07:00–09:00)"
+      other:
+        earthly_branch: "辰 (Tatsu)"
+        yin_yang: "Yang"
+        hour_range: "07:00–09:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Japanese_dragon.jpg/320px-Japanese_dragon.jpg"
+      description: "Japanese dragon (Ryū) in traditional artistic style"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Dragon (辰/Tatsu) is the only mythical creature in the Jūnishi and holds the most prestigious position in the Japanese zodiac. Japanese dragons (Ryū) differ from Western dragons: they are benevolent water-serpents, associated with rainfall, rivers, seas, and imperial authority. Dragon motifs appear on shrines, castles, temples, and samurai armor. Dragon-year births are the most popular in East Asian cultures; Japanese parents actively time pregnancies for dragon years."
+      reference_sources: ["Wikipedia: Chinese zodiac", "Wikipedia: Japanese dragon"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Chinese_zodiac", "https://en.wikipedia.org/wiki/Japanese_dragon"]
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Dragon"
+    suggested_object_form: ""
+    symbolic_role: "Imperial prestige; benevolent water-power; the zodiac's mythical apex"
+    mythic_narrative_summary: "The Dragon (Tatsu/Ryū) is fifth in the Jūnishi — the only mythical animal, and the most auspicious position for birth-year planning in Japanese culture."
+  semantic_vocabulary:
+    symbolic_keywords: ["dragon", "earth", "yang", "imperial", "ryū", "water", "Japanese", "mythical", "auspicious", "castle"]
+    mythic_narrative: "The Dragon (辰, Tatsu / たつ, also Ryū / 龍) is fifth in the Japanese Jūnishi, governing 07:00–09:00. In Japanese tradition, Ryū are benevolent water serpents rather than the fire-breathing monsters of Western mythology — they bring rain, guard oceans and rivers, and serve as protectors of imperial and Buddhist sacred sites. Dragon imagery saturates Japanese architecture and art: castle eaves, temple ceilings, and samurai banners. Dragon-year births are the most sought-after in East Asian tradition, and Japan follows this pattern."
+    visual_motifs: ["Ryū ceiling painting in temple", "dragon on samurai armor", "nengajō dragon art"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources: ["Wikipedia: Japanese dragon", "Wikipedia: Earthly Branches"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "japanese-junishi-006"
+  sign_name:
+    primary: "Mi (Snake)"
+    variants: ["Hebi", "She (Chinese origin)"]
+    romanization: "Mi / Hebi"
+    native_script: "巳 / へび (hebi)"
+  cultural_tradition:
+    primary_culture: "Japanese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Japan"
+    period_range: "Adopted Nara period ~700 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Japanese Jūnishi (十二支)"
+    total_signs_in_system: 12
+    position_in_system: 6
+    sign_classification:
+      element: "Fire"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Late Spring / Late Morning (09:00–11:00)"
+      other:
+        earthly_branch: "巳 (Mi)"
+        yin_yang: "Yin"
+        hour_range: "09:00–11:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Japanese_zodiac_snake_ema.jpg/320px-Japanese_zodiac_snake_ema.jpg"
+      description: "Snake zodiac ema plaque from Japanese shrine"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Snake (巳/Hebi) in Japanese culture occupies a complex dual role: it is associated with wisdom, intuition, and divine mystery while also being feared. White snakes (shirohebi) are considered sacred messengers of Benzaiten, the goddess of water, music, and wisdom. Shrines associated with Benzaiten (e.g., Zeniarai Benzaiten in Kamakura) display snake imagery prominently. Snake ema are distinctive in their elegant, sinuous designs."
+      reference_sources: ["Wikipedia: Chinese zodiac", "Wikipedia: Benzaiten"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Chinese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Fire"
+    suggested_attribute: "INT"
+    suggested_animal_form: "Snake"
+    suggested_object_form: ""
+    symbolic_role: "Wisdom; divine mystery; Benzaiten's sacred messenger"
+    mythic_narrative_summary: "The Snake (Mi/Hebi) is sixth in the Jūnishi, linked to wisdom and the divine white snake tradition of Benzaiten worship."
+  semantic_vocabulary:
+    symbolic_keywords: ["snake", "fire", "yin", "wisdom", "Benzaiten", "white snake", "Japanese", "sacred", "intuition"]
+    mythic_narrative: "The Snake (巳, Mi / へび, Hebi) is sixth in the Japanese Jūnishi, governing late-morning hours 09:00–11:00. In Japanese religious tradition, the white snake (shirohebi) is a sacred animal — messenger of Benzaiten, the goddess of everything that flows: water, music, time, and eloquence. Major Benzaiten shrines display white snake imagery, and encounters with white snakes are considered omens of great fortune. Snake-year individuals are associated with deep wisdom, elegant intuition, and hidden depths."
+    visual_motifs: ["white snake shrine offering", "Benzaiten deity with serpent", "snake ema plaque"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources: ["Wikipedia: Benzaiten", "Wikipedia: Earthly Branches"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "japanese-junishi-007"
+  sign_name:
+    primary: "Uma (Horse)"
+    variants: ["Uma", "Ma (Chinese origin)"]
+    romanization: "Uma"
+    native_script: "午 / うま (uma)"
+  cultural_tradition:
+    primary_culture: "Japanese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Japan"
+    period_range: "Adopted Nara period ~700 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Japanese Jūnishi (十二支)"
+    total_signs_in_system: 12
+    position_in_system: 7
+    sign_classification:
+      element: "Fire"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Summer / Noon (11:00–13:00)"
+      other:
+        earthly_branch: "午 (Uma)"
+        yin_yang: "Yang"
+        hour_range: "11:00–13:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Ema_horse_plaque.jpg/320px-Ema_horse_plaque.jpg"
+      description: "Horse ema — the original ema was a horse votive plaque; Uma is historically the most fundamental ema image"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Horse (午/Uma) holds special significance in Japanese shrine culture because ema — the votive plaques used throughout the zodiac system — were originally horse paintings donated to shrines in place of live horses. The word 'ema' (絵馬) literally means 'picture horse.' Horses are associated with shrines dedicated to travel and victory. Noon (午の刻) is considered a potent hour. Uma-year people are considered energetic, free-spirited, and sociable."
+      reference_sources: ["Wikipedia: Ema (Shinto)", "Wikipedia: Chinese zodiac"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Ema_(Shinto)"]
+  primitive_association_hints:
+    suggested_element: "Fire"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Horse"
+    suggested_object_form: ""
+    symbolic_role: "Freedom; energy; the etymological origin of ema votive plaques"
+    mythic_narrative_summary: "The Horse (Uma) is seventh, governing noon. The entire ema-votive tradition originates from horse paintings — Uma is literally the root of the zodiac's most distinctive cultural practice."
+  semantic_vocabulary:
+    symbolic_keywords: ["horse", "fire", "yang", "noon", "ema", "freedom", "Japanese", "shrine", "travel", "energetic"]
+    mythic_narrative: "The Horse (午, Uma / うま) is seventh in the Japanese Jūnishi, governing the noon hours of 11:00–13:00. The horse occupies a unique etymological place in Japanese zodiac culture: the word 'ema' (絵馬) — the votive wooden plaques central to zodiac shrine worship — literally means 'picture horse.' Originally, live horses were donated to shrines; when this became impractical, painted horse tablets replaced them, and eventually the practice expanded to all zodiac animals. The Horse is thus the etymological ancestor of the entire ema-zodiac devotional form."
+    visual_motifs: ["ema horse plaque (絵馬) from Shinto shrine", "racing horse illustration", "nengajō horse art"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources: ["Wikipedia: Ema (Shinto)", "Wikipedia: Earthly Branches"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "japanese-junishi-008"
+  sign_name:
+    primary: "Hitsuji (Sheep)"
+    variants: ["Hitsuji", "Yō (Chinese origin)"]
+    romanization: "Hitsuji"
+    native_script: "未 / ひつじ (hitsuji)"
+  cultural_tradition:
+    primary_culture: "Japanese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Japan"
+    period_range: "Adopted Nara period ~700 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Japanese Jūnishi (十二支)"
+    total_signs_in_system: 12
+    position_in_system: 8
+    sign_classification:
+      element: "Earth"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Summer / Afternoon (13:00–15:00)"
+      other:
+        earthly_branch: "未 (Hitsuji)"
+        yin_yang: "Yin"
+        hour_range: "13:00–15:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Sheep_zodiac.jpg/320px-Sheep_zodiac.jpg"
+      description: "Sheep/Goat zodiac representation — Japan specifies Hitsuji (sheep) rather than goat"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Japan is explicit that the 8th sign is Hitsuji (羊, sheep) rather than yagi (goat), distinguishing itself from the Chinese 未 which can mean either. This distinction matters in Japanese cultural expression: sheep imagery in nengajō and ema features woolly sheep rather than mountain goats. Hitsuji-year individuals are associated with gentleness, artistic creativity, and group harmony. The sheep's association with pastoral tranquility fits the early afternoon hour assignment."
+      reference_sources: ["Wikipedia: Chinese zodiac"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Chinese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "INT"
+    suggested_animal_form: "Sheep"
+    suggested_object_form: ""
+    symbolic_role: "Gentle creativity; group harmony; Japanese Sheep-not-Goat distinction"
+    mythic_narrative_summary: "Hitsuji (Sheep) is eighth — Japan specifies sheep (not goat) at this position, a key Japanese-specific variant from Chinese and Korean traditions."
+  semantic_vocabulary:
+    symbolic_keywords: ["sheep", "earth", "yin", "gentle", "creative", "Japanese", "hitsuji", "afternoon", "harmony"]
+    mythic_narrative: "The Sheep (未, Hitsuji / ひつじ) is eighth in the Japanese Jūnishi, governing the afternoon hours of 13:00–15:00. Japan explicitly renders the 8th position as Hitsuji (羊, domestic sheep) rather than yagi (goat) — distinguishing it from the ambiguous Chinese 未 character that can encompass both. Sheep imagery in Japanese New Year art features the woolly domestic sheep, connoting gentleness, creativity, and the warmth of pastoral life. Hitsuji-year individuals are associated with artistic sensibility and cooperative spirit."
+    visual_motifs: ["woolly sheep nengajō illustration", "sheep ema plaque", "pastoral sheep New Year art"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources: ["Wikipedia: Earthly Branches"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "japanese-junishi-009"
+  sign_name:
+    primary: "Saru (Monkey)"
+    variants: ["Saru", "Shin (Chinese origin)"]
+    romanization: "Saru"
+    native_script: "申 / さる (saru)"
+  cultural_tradition:
+    primary_culture: "Japanese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Japan"
+    period_range: "Adopted Nara period ~700 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Japanese Jūnishi (十二支)"
+    total_signs_in_system: 12
+    position_in_system: 9
+    sign_classification:
+      element: "Metal"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Late Summer / Late Afternoon (15:00–17:00)"
+      other:
+        earthly_branch: "申 (Saru)"
+        yin_yang: "Yang"
+        hour_range: "15:00–17:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Monkey_zodiac.jpg/320px-Monkey_zodiac.jpg"
+      description: "Monkey zodiac representation from East Asian tradition"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Monkey (申/Saru) has a unique presence in Japanese culture through the Japanese macaque (snow monkey), actually native to the Japanese archipelago. The three wise monkeys (Mizaru, Kikazaru, Iwazaru — see no evil, hear no evil, speak no evil) carved at Nikkō Tōshō-gū shrine are perhaps the world's most famous monkey imagery. Saru also represents wit, cleverness, and rapid problem-solving. The word saru doubles as a homonym for 'to leave/depart,' creating both lucky and unlucky associations."
+      reference_sources: ["Wikipedia: Chinese zodiac", "Wikipedia: Three wise monkeys"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Chinese_zodiac", "https://en.wikipedia.org/wiki/Three_wise_monkeys"]
+  primitive_association_hints:
+    suggested_element: "Metal"
+    suggested_attribute: "AGI"
+    suggested_animal_form: "Monkey"
+    suggested_object_form: ""
+    symbolic_role: "Wit; cleverness; Nikkō's three wise monkeys"
+    mythic_narrative_summary: "Saru (Monkey) is ninth in the Jūnishi. Japan has native macaques; the three wise monkeys of Nikkō are a globally recognized monkey icon from Japanese culture."
+  semantic_vocabulary:
+    symbolic_keywords: ["monkey", "metal", "yang", "clever", "Japanese macaque", "three wise monkeys", "Nikkō", "wit", "saru"]
+    mythic_narrative: "The Monkey (申, Saru / さる) is ninth in the Japanese Jūnishi, governing late afternoon 15:00–17:00. Japan has a uniquely intimate relationship with monkeys through the Japanese macaque (Nihonzaru), the world's most northerly non-human primate. The three wise monkeys — see no evil, hear no evil, speak no evil — carved at Nikkō Tōshō-gū are among Japan's most globally recognized cultural exports. Saru-year individuals are associated with quick intelligence, adaptability, and inventive problem-solving. The homonym 'saru' (去る, to leave) creates superstitions around the word in certain contexts."
+    visual_motifs: ["three wise monkeys at Nikkō Tōshō-gū", "Japanese macaque snow monkey", "saru nengajō card"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources: ["Wikipedia: Three wise monkeys", "Wikipedia: Japanese macaque"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "japanese-junishi-010"
+  sign_name:
+    primary: "Tori (Rooster)"
+    variants: ["Niwatori", "Yu (Chinese origin)"]
+    romanization: "Tori / Niwatori"
+    native_script: "酉 / とり (tori) / にわとり (niwatori)"
+  cultural_tradition:
+    primary_culture: "Japanese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Japan"
+    period_range: "Adopted Nara period ~700 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Japanese Jūnishi (十二支)"
+    total_signs_in_system: 12
+    position_in_system: 10
+    sign_classification:
+      element: "Metal"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Autumn / Early Evening (17:00–19:00)"
+      other:
+        earthly_branch: "酉 (Tori)"
+        yin_yang: "Yin"
+        hour_range: "17:00–19:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Rooster_zodiac.jpg/320px-Rooster_zodiac.jpg"
+      description: "Rooster zodiac representation from East Asian tradition"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Rooster (酉/Tori) is associated with dawn, punctuality, and the crowing that dispels darkness. In Japan, roosters are sacred to many Shinto shrines — the white rooster is considered a divine messenger. The Tori (酉) reading also echoes torii (鳥居), the shrine gate, though these are etymologically distinct. Rooster-year ema and nengajō often feature elaborate decorative roosters with brilliant plumage. Tori-year individuals are associated with confidence, hard work, and attention to detail."
+      reference_sources: ["Wikipedia: Chinese zodiac"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Chinese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Metal"
+    suggested_attribute: "AGI"
+    suggested_animal_form: "Rooster"
+    suggested_object_form: ""
+    symbolic_role: "Dawn herald; punctuality; Shinto sacred bird"
+    mythic_narrative_summary: "Tori (Rooster) is tenth in the Jūnishi, governing the early evening hour. Sacred white roosters serve as Shinto divine messengers."
+  semantic_vocabulary:
+    symbolic_keywords: ["rooster", "metal", "yin", "dawn", "Shinto", "sacred bird", "Japanese", "punctuality", "tori", "evening"]
+    mythic_narrative: "The Rooster (酉, Tori / とり) is tenth in the Japanese Jūnishi, governing early evening 17:00–19:00. Despite governing evening hours, the rooster is fundamentally a dawn symbol — its crowing dispels night and marks the day's beginning. In Shinto tradition, white roosters (shiro niwatori) are considered sacred and kept as divine messengers at some shrines. Tori-year individuals are associated with diligence, confidence, and meticulous attention to appearance and presentation."
+    visual_motifs: ["sacred white rooster at Shinto shrine", "elaborate plumage rooster nengajō", "rooster ema plaque"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources: ["Wikipedia: Earthly Branches"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "japanese-junishi-011"
+  sign_name:
+    primary: "Inu (Dog)"
+    variants: ["Inu", "Xu (Chinese origin)"]
+    romanization: "Inu"
+    native_script: "戌 / いぬ (inu)"
+  cultural_tradition:
+    primary_culture: "Japanese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Japan"
+    period_range: "Adopted Nara period ~700 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Japanese Jūnishi (十二支)"
+    total_signs_in_system: 12
+    position_in_system: 11
+    sign_classification:
+      element: "Earth"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Autumn / Evening (19:00–21:00)"
+      other:
+        earthly_branch: "戌 (Inu)"
+        yin_yang: "Yang"
+        hour_range: "19:00–21:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Dog_zodiac.jpg/320px-Dog_zodiac.jpg"
+      description: "Dog zodiac representation from East Asian tradition"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Dog (戌/Inu) is associated with loyalty, protection, and safe childbirth in Japanese culture. The Inu no Hi (戌の日, Day of the Dog) is a significant pregnancy ritual: expectant mothers visit Inari shrines on dog-days during the fifth month to pray for safe delivery, tying on an iwata-obi (belly band). The Shiba Inu and other Japanese dog breeds are cultural icons. Inu-year individuals are considered loyal, honest, and protective — values highly prized in Japanese social culture."
+      reference_sources: ["Wikipedia: Chinese zodiac", "Wikipedia: Inu no Hi"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Chinese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Dog"
+    suggested_object_form: ""
+    symbolic_role: "Loyalty; protection; safe childbirth (Inu no Hi ritual)"
+    mythic_narrative_summary: "Inu (Dog) is eleventh in the Jūnishi. The Dog-day (Inu no Hi) is central to Japanese maternity ritual — pregnant women pray on dog-days for safe delivery."
+  semantic_vocabulary:
+    symbolic_keywords: ["dog", "earth", "yang", "loyal", "protective", "inu no hi", "Japanese", "pregnancy", "Shiba Inu", "evening"]
+    mythic_narrative: "The Dog (戌, Inu / いぬ) is eleventh in the Japanese Jūnishi, governing evening hours 19:00–21:00. In Japan, the dog carries deep associations with safe childbirth and maternal protection. The Inu no Hi (戌の日) — Dog Days — fall on the 5th month of pregnancy, when expectant mothers visit shrines to receive iwata-obi (belly sashes) blessed for safe delivery. This practice reflects the dog's legendary ease in giving birth. Dogs are also prized for loyalty, and the Shiba Inu and other Japanese breeds are embedded in national cultural identity."
+    visual_motifs: ["Inu no Hi shrine visit with iwata-obi", "Shiba Inu traditional illustration", "dog ema plaque"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources: ["Wikipedia: Earthly Branches"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "japanese-junishi-012"
+  sign_name:
+    primary: "I (Wild Boar)"
+    variants: ["Inoshishi", "Zhu (Chinese Pig — Japanese variant)"]
+    romanization: "I / Inoshishi"
+    native_script: "亥 / いのしし (inoshishi)"
+  cultural_tradition:
+    primary_culture: "Japanese"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Japan"
+    period_range: "Adopted Nara period ~700 CE; Boar substitution is Japan-specific"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Japanese Jūnishi (十二支)"
+    total_signs_in_system: 12
+    position_in_system: 12
+    sign_classification:
+      element: "Water"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Winter / Night (21:00–23:00)"
+      other:
+        earthly_branch: "亥 (I)"
+        yin_yang: "Yin"
+        hour_range: "21:00–23:00"
+        japanese_variant: "Wild Boar (Inoshishi) — replaces Chinese Pig (Buta)"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Inoshishi_zodiac_ema.jpg/320px-Inoshishi_zodiac_ema.jpg"
+      description: "Wild boar (Inoshishi) zodiac ema plaque — the distinctive Japanese variant at position 12"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Wild Boar (亥/Inoshishi) is the most distinctively Japanese variant in the Jūnishi — replacing the Chinese Pig (Buta/猪豚) with the native wild boar (Inoshishi/猪). Japan uses Inoshishi because wild boars were familiar and culturally significant in Japan (native wildlife, hunted for food, featured in mythology) while domestic pigs were less culturally resonant. The wild boar symbolizes fierce courage, determination, and straightforward action. It appears in Shinto ritual as a symbol of vitality and in hunting traditions throughout Japan."
+      reference_sources: ["Wikipedia: Chinese zodiac"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Chinese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Water"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Wild Boar"
+    suggested_object_form: ""
+    symbolic_role: "Fierce determination; straightforward action; the key Japan-specific variant"
+    mythic_narrative_summary: "Inoshishi (Wild Boar) replaces the Chinese Pig at position 12 — the defining Japanese-specific substitution. Boar symbolizes courageous direct action."
+  semantic_vocabulary:
+    symbolic_keywords: ["wild boar", "water", "yin", "inoshishi", "fierce", "courageous", "Japanese variant", "determination", "night"]
+    mythic_narrative: "The Wild Boar (亥, I / いのしし, Inoshishi) is the twelfth and final sign in the Japanese Jūnishi, governing the night hours of 21:00–23:00. This is the most notable Japan-specific variant from the Chinese zodiac: where China uses the domestic Pig (豚/Zhu), Japan uses the native Wild Boar (猪/Inoshishi). This substitution reflects Japan's ecological reality — wild boars were abundant native wildlife, culturally significant, and featured in ancient Shinto ritual and Japanese hunting traditions. The wild boar is associated with fierce courage, bold straightforward action, and unstoppable determination. Inoshishi-year individuals are considered passionate, brave, and relentlessly direct."
+    visual_motifs: ["wild boar Inoshishi nengajō art", "boar ema shrine plaque", "Shinto boar ritual imagery"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources: ["Wikipedia: Earthly Branches"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"

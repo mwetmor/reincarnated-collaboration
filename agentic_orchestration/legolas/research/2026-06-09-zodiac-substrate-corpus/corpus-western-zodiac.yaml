@@ -1,0 +1,1032 @@
+# corpus-western-zodiac.yaml
+# Legolas Mode B Corpus — Western Zodiac 12 Signs
+# Crawl date: 2026-06-09
+# Entry count: 12
+# Schema: full (element, modality, ruling planet, stars, image, iconography)
+
+- sign_id: "western-zodiac-001"
+  sign_name:
+    primary: "Aries"
+    variants: ["The Ram"]
+    romanization: "Aries"
+    native_script: "♈"
+  cultural_tradition:
+    primary_culture: "Hellenistic Western"
+    derivative_cultures: ["Roman", "Islamic Golden Age", "Modern Western"]
+    geographic_origin: "Babylonian / Hellenistic Greece"
+    period_range: "Babylonian origin ~700 BCE; Greek codification ~150 BCE Ptolemy"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Western zodiac"
+    total_signs_in_system: 12
+    position_in_system: 1
+    sign_classification:
+      element: "Fire"
+      modality: "Cardinal"
+      quadrant: "First"
+      deity_association: "Ares (Greek) / Mars (Roman)"
+      season: "Spring (Northern Hemisphere) — vernal equinox"
+      other:
+        ruling_planet: "Mars"
+        date_range: "March 21 – April 19"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Aries_IAU.svg"
+      description: "IAU official constellation boundary diagram for Aries"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Hamal (α Arietis)"
+          ra: "1h 46m 37s"
+          dec: "+23° 27′ 45″"
+          magnitude: 2.01
+        - name: "Sheratan (β Arietis)"
+          ra: "1h 54m 38s"
+          dec: "+20° 48′ 29″"
+          magnitude: 2.64
+        - name: "Mesarthim (γ Arietis)"
+          ra: "1h 53m 32s"
+          dec: "+19° 17′ 38″"
+          magnitude: 3.90
+        - name: "41 Arietis"
+          ra: "2h 49m 59s"
+          dec: "+27° 15′ 38″"
+          magnitude: 3.63
+      notes: "39th largest constellation; 441 square degrees; Northern celestial hemisphere"
+    asterism_schematic:
+      description: "Crouched wingless ram with head turned toward Taurus; three primary stars Hamal–Sheratan–Mesarthim form the ram's head region"
+      line_topology: "Hamal — Sheratan — Mesarthim; compact triangular cluster representing the head"
+    cultural_iconography:
+      description: "Ram in profile; golden fleece associations from Greek myth of Chrysomallus; first sign of zodiac representing vernal equinox and new beginnings"
+      reference_sources:
+        - "Wikipedia: Aries (constellation)"
+        - "Wikipedia: Aries (astrology)"
+        - "Britannica: Aries"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Aries_(constellation)"
+        - "https://en.wikipedia.org/wiki/Aries_(astrology)"
+  primitive_association_hints:
+    suggested_element: "Fire"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Ram"
+    suggested_object_form: ""
+    symbolic_role: "Initiator, first mover, aggressive opener, vernal energy"
+    mythic_narrative_summary: "First sign of Western zodiac; golden ram Chrysomallus rescued Phrixus and Helle on orders from Hermes; Helle fell into the Hellespont; Zeus placed ram in sky. Cardinal fire — initiating principle."
+  semantic_vocabulary:
+    symbolic_keywords: ["ram", "fire", "spring", "cardinal", "initiator", "aggressor", "first", "golden fleece"]
+    mythic_narrative: "In Greek mythology the golden ram Chrysomallus, sent by Nephele (or Hermes), flew Phrixus and Helle to Colchis. Helle fell and drowned in the strait called the Hellespont. The ram's golden fleece later became the object of Jason and the Argonauts' quest. Zeus placed the ram in the sky. Babylonian predecessor: MULIKU, the Hired Man."
+    visual_motifs: ["charging ram", "golden fleece ram", "ram's horns symbol ♈", "crouched ram profile"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Public domain Wikipedia + IAU + Britannica"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Aries_(constellation)"
+    secondary_sources:
+      - "Wikipedia: Aries (astrology)"
+      - "Britannica: Aries"
+      - "IAU constellation data"
+    academic_anchor: "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "western-zodiac-002"
+  sign_name:
+    primary: "Taurus"
+    variants: ["The Bull"]
+    romanization: "Taurus"
+    native_script: "♉"
+  cultural_tradition:
+    primary_culture: "Hellenistic Western"
+    derivative_cultures: ["Roman", "Islamic Golden Age", "Modern Western"]
+    geographic_origin: "Babylonian / Hellenistic Greece"
+    period_range: "One of the oldest constellations, Bronze Age origin ~4000 BCE; Greek codification Ptolemy ~150 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Western zodiac"
+    total_signs_in_system: 12
+    position_in_system: 2
+    sign_classification:
+      element: "Earth"
+      modality: "Fixed"
+      quadrant: "Second"
+      deity_association: "Aphrodite (Greek) / Venus (Roman)"
+      season: "Spring (Northern Hemisphere)"
+      other:
+        ruling_planet: "Venus"
+        date_range: "April 20 – May 20"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Taurus_IAU.svg"
+      description: "IAU official constellation boundary diagram for Taurus"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Aldebaran (α Tauri)"
+          ra: "4h 35m 55s"
+          dec: "+16° 30′ 33″"
+          magnitude: 0.87
+        - name: "Elnath (β Tauri)"
+          ra: "5h 26m 17s"
+          dec: "+28° 36′ 27″"
+          magnitude: 1.65
+        - name: "Alcyone (η Tauri)"
+          ra: "3h 47m 29s"
+          dec: "+24° 06′ 18″"
+          magnitude: 2.85
+        - name: "Tianguan (ζ Tauri)"
+          ra: "5h 37m 39s"
+          dec: "+21° 08′ 33″"
+          magnitude: 2.97
+      notes: "17th largest constellation; 797 square degrees; Hyades and Pleiades clusters within boundaries"
+    asterism_schematic:
+      description: "V or K-shaped asterism forming the profile of a bull's face; Aldebaran forms the bull's eye; Hyades star cluster forms the V of the face; Pleiades (Seven Sisters) cluster in the shoulder region"
+      line_topology: "Aldebaran at apex of V-shape (bull's eye); Hyades form V-shape of bull's face; Elnath marks northern horn tip"
+    cultural_iconography:
+      description: "Bull in profile, facing right; Aldebaran as glowing red eye; Pleiades (Seven Sisters) cluster on shoulder; associated with Zeus-as-bull abducting Europa; one of the oldest identified constellations"
+      reference_sources:
+        - "Wikipedia: Taurus (constellation)"
+        - "Wikipedia: Taurus (astrology)"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Taurus_(constellation)"
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "CON"
+    suggested_animal_form: "Bull"
+    suggested_object_form: ""
+    symbolic_role: "Builder, sustainer, fertile earth, stubborn endurance, material wealth"
+    mythic_narrative_summary: "Zeus transformed into white bull to abduct Phoenician princess Europa; alternatively associated with Io transformed into heifer. Bull of Heaven slain by Gilgamesh and Enkidu in Sumerian myth. Spring bull marked vernal equinox in 4000 BCE."
+  semantic_vocabulary:
+    symbolic_keywords: ["bull", "earth", "fertility", "fixed", "endurance", "wealth", "Europa", "Pleiades", "Hyades"]
+    mythic_narrative: "In Greek myth, Zeus became a magnificent white bull to abduct Europa, carrying her to Crete. Other traditions link Taurus to Io (transformed to heifer) or to the Bull of Heaven from Sumerian epic. The Pleiades (Seven Sisters, daughters of Atlas) ride his shoulder. Aldebaran — 'the follower' — follows the Pleiades. Babylonian predecessor: MUL.GUD.AN.NA, the Bull of Heaven."
+    visual_motifs: ["charging bull", "bull's head with horns ♉", "Pleiades cluster", "red giant Aldebaran as bull's eye"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Public domain Wikipedia + IAU"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Taurus_(constellation)"
+    secondary_sources:
+      - "Wikipedia: Taurus (astrology)"
+      - "IAU constellation data"
+    academic_anchor: "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "western-zodiac-003"
+  sign_name:
+    primary: "Gemini"
+    variants: ["The Twins"]
+    romanization: "Gemini"
+    native_script: "♊"
+  cultural_tradition:
+    primary_culture: "Hellenistic Western"
+    derivative_cultures: ["Roman", "Islamic Golden Age", "Modern Western"]
+    geographic_origin: "Babylonian / Hellenistic Greece"
+    period_range: "Babylonian origin ~700 BCE; codified by Ptolemy ~150 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Western zodiac"
+    total_signs_in_system: 12
+    position_in_system: 3
+    sign_classification:
+      element: "Air"
+      modality: "Mutable"
+      quadrant: "Third"
+      deity_association: "Hermes (Greek) / Mercury (Roman)"
+      season: "Spring/Summer (Northern Hemisphere)"
+      other:
+        ruling_planet: "Mercury"
+        date_range: "May 21 – June 20"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Gemini_IAU.svg"
+      description: "IAU official constellation boundary diagram for Gemini"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Castor (α Geminorum)"
+          ra: "7h 34m 36s"
+          dec: "+31° 53′ 18″"
+          magnitude: 1.60
+        - name: "Pollux (β Geminorum)"
+          ra: "7h 45m 19s"
+          dec: "+28° 01′ 34″"
+          magnitude: 1.14
+      notes: "514 square degrees; 85 visible stars; Castor is sextuple star system; Pollux has confirmed exoplanet"
+    asterism_schematic:
+      description: "Two parallel lines descending from the twin head stars Castor and Pollux; alternative visualization as two figures holding hands; rectangular body pattern with bright heads"
+      line_topology: "Castor and Pollux as twin heads (side by side); two parallel descending chains of stars form the bodies; Alhena marks the foot region"
+    cultural_iconography:
+      description: "Twin figures Castor and Pollux side by side; Pollux (β) is actually brighter despite α designation for Castor; divine twins — one immortal (Pollux, son of Zeus) one mortal (Castor, son of Tyndareus)"
+      reference_sources:
+        - "Wikipedia: Gemini (constellation)"
+        - "Wikipedia: Gemini (astrology)"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Gemini_(constellation)"
+  primitive_association_hints:
+    suggested_element: "Air"
+    suggested_attribute: "INT"
+    suggested_animal_form: ""
+    suggested_object_form: "Twin figures"
+    symbolic_role: "Duality, communication, intellectual curiosity, adaptability, mercurial wit"
+    mythic_narrative_summary: "Castor and Pollux (Dioscuri), twin sons of Leda; Pollux fathered by Zeus (immortal), Castor mortal. When Castor died Pollux shared his immortality, Zeus eternally united them as constellation. Patron sailors — St. Elmo's fire phenomenon associated with them."
+  semantic_vocabulary:
+    symbolic_keywords: ["twins", "air", "duality", "mutable", "communication", "intellect", "Dioscuri", "mercury"]
+    mythic_narrative: "The Dioscuri — Castor (mortal horseman) and Pollux (immortal boxer) — were inseparable sons of Leda. When Castor was killed in a cattle raid, Pollux begged Zeus to share his immortality. Zeus alternated them between Olympus and Hades, eventually uniting them forever as twin stars. They were patron deities of sailors; their appearance as St. Elmo's fire on ships' masts was a good omen. Babylonian predecessor: MUL.MASH.TAB.BA.GAL.GAL, the Great Twins."
+    visual_motifs: ["twin figures side by side ♊", "divine twins Castor and Pollux", "mirror-image symmetry"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Public domain Wikipedia + IAU"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Gemini_(constellation)"
+    secondary_sources:
+      - "Wikipedia: Gemini (astrology)"
+      - "IAU constellation data"
+    academic_anchor: "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "western-zodiac-004"
+  sign_name:
+    primary: "Cancer"
+    variants: ["The Crab"]
+    romanization: "Cancer"
+    native_script: "♋"
+  cultural_tradition:
+    primary_culture: "Hellenistic Western"
+    derivative_cultures: ["Roman", "Islamic Golden Age", "Modern Western"]
+    geographic_origin: "Babylonian / Hellenistic Greece"
+    period_range: "Babylonian origin ~700 BCE; codified by Ptolemy ~150 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Western zodiac"
+    total_signs_in_system: 12
+    position_in_system: 4
+    sign_classification:
+      element: "Water"
+      modality: "Cardinal"
+      quadrant: "Fourth"
+      deity_association: "Artemis (Greek) / Diana (Roman)"
+      season: "Summer (Northern Hemisphere) — summer solstice"
+      other:
+        ruling_planet: "Moon"
+        date_range: "June 21 – July 22"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Cancer_IAU.svg"
+      description: "IAU official constellation boundary diagram for Cancer"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Tarf (β Cancri / Altarf)"
+          ra: "8h 16m 31s"
+          dec: "+9° 11′ 08″"
+          magnitude: 3.53
+        - name: "Asellus Australis (δ Cancri)"
+          ra: "8h 44m 41s"
+          dec: "+18° 09′ 15″"
+          magnitude: 3.90
+        - name: "Asellus Borealis (γ Cancri)"
+          ra: "8h 43m 17s"
+          dec: "+21° 28′ 05″"
+          magnitude: 4.67
+        - name: "Acubens (α Cancri)"
+          ra: "8h 58m 30s"
+          dec: "+11° 51′ 28″"
+          magnitude: 4.26
+      notes: "31st largest constellation; 506 square degrees; dimmest of all zodiac signs — no stars above 3rd magnitude; contains Beehive Cluster (M44)"
+    asterism_schematic:
+      description: "Faint Y-shaped or crab-shaped pattern; central Beehive Cluster (M44 / Praesepe) flanked by Asellus Borealis and Asellus Australis (the Two Donkeys); four outer stars mark crab's claws"
+      line_topology: "Central Praesepe cluster; δ and γ Cancri (Two Donkeys) flank it; α and β Cancri mark the extremities of the crab body"
+    cultural_iconography:
+      description: "Crab that Hera sent to distract Heracles during the battle with the Lernaean Hydra; Heracles crushed it; Hera honored it with a place in the sky; contains Praesepe / Beehive Cluster (M44)"
+      reference_sources:
+        - "Wikipedia: Cancer (constellation)"
+        - "Wikipedia: Cancer (astrology)"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Cancer_(constellation)"
+  primitive_association_hints:
+    suggested_element: "Water"
+    suggested_attribute: "WIS"
+    suggested_animal_form: "Crab"
+    suggested_object_form: ""
+    symbolic_role: "Protector, nurturer, emotional depth, home and shell, lunar sensitivity"
+    mythic_narrative_summary: "Hera sent the crab Karkinos to distract Heracles fighting the Lernaean Hydra. Heracles crushed it underfoot. Hera honored the crab's loyalty by placing it among the stars. In ancient times the Sun was in Cancer at summer solstice — 'Tropic of Cancer' preserves this."
+  semantic_vocabulary:
+    symbolic_keywords: ["crab", "water", "cardinal", "moon", "home", "nurture", "shell", "Hydra", "solstice"]
+    mythic_narrative: "During Heracles' battle with the nine-headed Lernaean Hydra, Hera sent a giant crab (Karkinos) to distract him by pinching his foot. Heracles killed both the Hydra and the crab. Hera immortalized the crab in the sky as reward for its loyalty to her cause. When the constellation was named, the Sun stood in Cancer at the summer solstice, hence the Tropic of Cancer. Babylonian predecessor: MUL.AL.LUL, the Crayfish."
+    visual_motifs: ["sideways-moving crab ♋", "protective shell", "Beehive Cluster M44", "claws outstretched"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Public domain Wikipedia + IAU"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Cancer_(constellation)"
+    secondary_sources:
+      - "Wikipedia: Cancer (astrology)"
+      - "IAU constellation data"
+    academic_anchor: "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "western-zodiac-005"
+  sign_name:
+    primary: "Leo"
+    variants: ["The Lion"]
+    romanization: "Leo"
+    native_script: "♌"
+  cultural_tradition:
+    primary_culture: "Hellenistic Western"
+    derivative_cultures: ["Roman", "Islamic Golden Age", "Modern Western"]
+    geographic_origin: "Babylonian / Hellenistic Greece"
+    period_range: "Babylonian origin ~700 BCE; codified by Ptolemy ~150 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Western zodiac"
+    total_signs_in_system: 12
+    position_in_system: 5
+    sign_classification:
+      element: "Fire"
+      modality: "Fixed"
+      quadrant: "Fifth"
+      deity_association: "Apollo (Greek) / Sol (Roman)"
+      season: "Summer (Northern Hemisphere)"
+      other:
+        ruling_planet: "Sun"
+        date_range: "July 23 – August 22"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/5/56/Leo_IAU.svg"
+      description: "IAU official constellation boundary diagram for Leo"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Regulus (α Leonis)"
+          ra: "10h 08m 22s"
+          dec: "+11° 58′ 02″"
+          magnitude: 1.35
+        - name: "Denebola (β Leonis)"
+          ra: "11h 49m 03s"
+          dec: "+14° 34′ 19″"
+          magnitude: 2.14
+        - name: "Algieba (γ Leonis)"
+          ra: "10h 19m 58s"
+          dec: "+19° 50′ 30″"
+          magnitude: 2.08
+        - name: "Zosma (δ Leonis)"
+          ra: "11h 14m 06s"
+          dec: "+20° 31′ 25″"
+          magnitude: 2.56
+      notes: "12th largest constellation; 947 square degrees; Regulus is one of the four 'royal stars' of ancient Persia"
+    asterism_schematic:
+      description: "The Sickle asterism — six stars (Epsilon, Mu, Zeta, Gamma, Eta, Alpha Leonis) form a reversed question mark representing the lion's mane and head; Regulus at the bottom of the sickle is the heart; Denebola at the tail; Delta and Theta Leonis form an isosceles triangle for the body"
+      line_topology: "Sickle (reversed question mark) forms lion's mane/head with Regulus at base; diagonal line through body; Denebola marks tail"
+    cultural_iconography:
+      description: "The Nemean Lion slain by Heracles as his first labor; lion impervious to weapons, defeated by bare hands; Regulus ('little king') is one of the four Royal Stars; constellation visible in summer when Nile floods in Egypt"
+      reference_sources:
+        - "Wikipedia: Leo (constellation)"
+        - "Wikipedia: Leo (astrology)"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Leo_(constellation)"
+  primitive_association_hints:
+    suggested_element: "Fire"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Lion"
+    suggested_object_form: ""
+    symbolic_role: "Sovereign, performer, pride, solar radiance, theatrical courage, fixed fire"
+    mythic_narrative_summary: "The Nemean Lion was impervious to all weapons; Heracles defeated it through strangulation with bare hands as his first labor. Zeus placed it among the stars. Regulus ('the little king') was one of four ancient Royal Stars marking the four cardinal directions of the sky."
+  semantic_vocabulary:
+    symbolic_keywords: ["lion", "fire", "fixed", "sun", "royalty", "pride", "strength", "Nemean", "Regulus", "sickle"]
+    mythic_narrative: "The Nemean Lion had a hide impervious to mortal weapons and terrorized the region of Nemea. Heracles' first labor was to kill it — he accomplished this by strangling the beast with his bare hands and used its own claws to skin it. He wore the pelt as armor for all subsequent labors. Zeus commemorated the feat by placing the lion in the sky. Regulus — 'the little king' — was one of the four Royal Stars of ancient Persian astronomy. Babylonian predecessor: MUL.UR.GU.LA, the Great Dog (Lion in some readings)."
+    visual_motifs: ["lion with sickle mane ♌", "reversed question mark asterism", "Regulus as heart star", "lion rampant"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Public domain Wikipedia + IAU"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Leo_(constellation)"
+    secondary_sources:
+      - "Wikipedia: Leo (astrology)"
+      - "IAU constellation data"
+    academic_anchor: "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "western-zodiac-006"
+  sign_name:
+    primary: "Virgo"
+    variants: ["The Maiden", "The Virgin"]
+    romanization: "Virgo"
+    native_script: "♍"
+  cultural_tradition:
+    primary_culture: "Hellenistic Western"
+    derivative_cultures: ["Roman", "Islamic Golden Age", "Modern Western"]
+    geographic_origin: "Babylonian / Hellenistic Greece"
+    period_range: "Babylonian origin ~700 BCE (furrow/grain goddess Shala); codified Ptolemy ~150 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Western zodiac"
+    total_signs_in_system: 12
+    position_in_system: 6
+    sign_classification:
+      element: "Earth"
+      modality: "Mutable"
+      quadrant: "Sixth"
+      deity_association: "Demeter (Greek) / Ceres (Roman)"
+      season: "Summer/Autumn (Northern Hemisphere)"
+      other:
+        ruling_planet: "Mercury"
+        date_range: "August 23 – September 22"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/f/f5/Virgo_IAU.svg"
+      description: "IAU official constellation boundary diagram for Virgo"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Spica (α Virginis)"
+          ra: "13h 25m 12s"
+          dec: "−11° 09′ 41″"
+          magnitude: 0.98
+        - name: "Zavijava (β Virginis)"
+          ra: "11h 50m 42s"
+          dec: "+01° 45′ 53″"
+          magnitude: 3.61
+        - name: "Porrima (γ Virginis)"
+          ra: "12h 41m 40s"
+          dec: "−01° 26′ 58″"
+          magnitude: 2.74
+        - name: "Vindemiatrix (ε Virginis)"
+          ra: "13h 02m 11s"
+          dec: "+10° 57′ 33″"
+          magnitude: 2.83
+      notes: "2nd largest constellation overall; largest zodiac constellation; 1294 square degrees; Spica is a binary blue giant"
+    asterism_schematic:
+      description: "Seven main stars form two distinct patterns creating 'The Bowl of Virgo'; Y-shape with Spica at base and Theta Virginis at bowl; figure of maiden holding a sheaf of wheat (Spica = ear of grain)"
+      line_topology: "Y-shaped pattern; Spica (α) is the lowest bright point representing the grain; Porrima, Zavijava, Vindemiatrix form upper body; winged or robed female figure in traditional art"
+    cultural_iconography:
+      description: "Maiden holding a sheaf of grain (Spica); associated with Demeter/Ceres goddess of harvest; also Astraea (justice), Persephone (underworld descent); largest zodiac constellation spanning celestial equator"
+      reference_sources:
+        - "Wikipedia: Virgo (constellation)"
+        - "Wikipedia: Virgo (astrology)"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Virgo_(constellation)"
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "INT"
+    suggested_animal_form: ""
+    suggested_object_form: "Maiden with grain sheaf"
+    symbolic_role: "Harvest, analysis, precision, service, earthly order, purification"
+    mythic_narrative_summary: "Associated with Demeter mourning Persephone's descent to Hades — when Virgo sets in autumn, harvest season ends and winter begins. Also Astraea, last immortal to leave Earth at end of Golden Age, became constellation Virgo holding Libra scales. Babylonian: MUL.ABSIN, the Furrow."
+  semantic_vocabulary:
+    symbolic_keywords: ["maiden", "earth", "mutable", "mercury", "harvest", "grain", "precision", "purity", "Spica", "Demeter"]
+    mythic_narrative: "Multiple Greek identifications: (1) Demeter, goddess of grain, whose grief at Persephone's abduction by Hades causes winter; constellation sets as harvest arrives. (2) Astraea, goddess of justice, last of the immortals to leave Earth during the degeneration from Golden Age; she holds the scales of Libra. (3) Persephone herself, daughter of Demeter, descending to/ascending from Hades with the seasons. Babylonian predecessor: MUL.ABSIN, the Furrow — goddess of the grain-furrow."
+    visual_motifs: ["robed maiden with grain sheaf ♍", "Spica as ear of wheat", "Y-shaped asterism", "winged divine figure"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Public domain Wikipedia + IAU"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Virgo_(constellation)"
+    secondary_sources:
+      - "Wikipedia: Virgo (astrology)"
+      - "IAU constellation data"
+    academic_anchor: "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "western-zodiac-007"
+  sign_name:
+    primary: "Libra"
+    variants: ["The Scales", "The Balance"]
+    romanization: "Libra"
+    native_script: "♎"
+  cultural_tradition:
+    primary_culture: "Hellenistic Western"
+    derivative_cultures: ["Roman", "Islamic Golden Age", "Modern Western"]
+    geographic_origin: "Babylonian / Hellenistic Greece; Roman codification as independent sign"
+    period_range: "Ancient Babylonian as Scorpion's Claws; Roman era (~1st century BCE) as separate Libra"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Western zodiac"
+    total_signs_in_system: 12
+    position_in_system: 7
+    sign_classification:
+      element: "Air"
+      modality: "Cardinal"
+      quadrant: "Seventh"
+      deity_association: "Aphrodite (Greek) / Venus (Roman); also Astraea/Justice"
+      season: "Autumn (Northern Hemisphere) — autumnal equinox"
+      other:
+        ruling_planet: "Venus"
+        date_range: "September 23 – October 22"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/7/76/Libra_IAU.svg"
+      description: "IAU official constellation boundary diagram for Libra"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Zubeneschamali (β Librae)"
+          ra: "15h 17m 00s"
+          dec: "−09° 22′ 58″"
+          magnitude: 2.61
+        - name: "Zubenelgenubi (α Librae)"
+          ra: "14h 50m 53s"
+          dec: "−16° 02′ 30″"
+          magnitude: 2.75
+        - name: "Zubenelakrab (γ Librae)"
+          ra: "15h 35m 32s"
+          dec: "−14° 47′ 22″"
+          magnitude: 3.91
+      notes: "538 square degrees; 29th in size; originally part of Scorpius (scorpion's claws); only zodiac sign represented by an object rather than a living being"
+    asterism_schematic:
+      description: "Quadrangle of four stars representing a balance scale; α and β Librae represent the balance beam, γ and σ Librae are the weighing pans; the scale hangs suspended"
+      line_topology: "α Librae (Zubenelgenubi) and β Librae (Zubeneschamali) form upper beam; γ and σ form lower pan positions; roughly rectangular quadrangle"
+    cultural_iconography:
+      description: "Scales of justice; only zodiac sign represented by an inanimate object; ancient Greek name was 'Chelae' (Scorpion's Claws); Romans under Julius Caesar separated it to honor their civilization; sun at autumnal equinox when days and nights balanced"
+      reference_sources:
+        - "Wikipedia: Libra (constellation)"
+        - "Wikipedia: Libra (astrology)"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Libra_(constellation)"
+  primitive_association_hints:
+    suggested_element: "Air"
+    suggested_attribute: "WIS"
+    suggested_animal_form: ""
+    suggested_object_form: "Balance scales"
+    symbolic_role: "Justice, balance, harmony, diplomacy, cardinal air, autumnal equilibrium"
+    mythic_narrative_summary: "The only zodiac sign not representing a living being — the scales of divine justice. Held by Astraea (Virgo) or the goddess Dike. Babylonian: MUL.ZI.BA.AN.NA, the Scales of Heaven. Shamash (sun god) of truth and justice held the scales. Romans formally separated these stars from Scorpius to honor Caesar."
+  semantic_vocabulary:
+    symbolic_keywords: ["scales", "air", "cardinal", "justice", "balance", "Venus", "harmony", "diplomacy", "equinox"]
+    mythic_narrative: "In Babylonian tradition, these stars formed the scales (zibanitu) sacred to Shamash, sun god and patron of truth and justice. Ancient Greeks saw them as Chelae — the scorpion's claws of Scorpius. In the Roman era (~1st century BCE) they were separated into their own constellation, symbolizing the scales of justice associated with the goddess Astraea (Virgo). The autumnal equinox — when day and night are equal — fell in Libra when the constellation was named. Babylonian predecessor: MUL.ZI.BA.AN.NA, the Scales (also Zubenelgenubi and Zubeneschamali star names derive from Arabic for 'southern/northern claw')."
+    visual_motifs: ["hanging balance scales ♎", "scales of justice", "perfectly balanced beam", "autumnal equinox symmetry"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Public domain Wikipedia + IAU"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Libra_(constellation)"
+    secondary_sources:
+      - "Wikipedia: Libra (astrology)"
+      - "IAU constellation data"
+    academic_anchor: "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "western-zodiac-008"
+  sign_name:
+    primary: "Scorpio"
+    variants: ["Scorpius", "The Scorpion"]
+    romanization: "Scorpio (astrology) / Scorpius (astronomy)"
+    native_script: "♏"
+  cultural_tradition:
+    primary_culture: "Hellenistic Western"
+    derivative_cultures: ["Roman", "Islamic Golden Age", "Modern Western"]
+    geographic_origin: "Babylonian / Hellenistic Greece"
+    period_range: "Babylonian origin ~700 BCE; codified Ptolemy ~150 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Western zodiac"
+    total_signs_in_system: 12
+    position_in_system: 8
+    sign_classification:
+      element: "Water"
+      modality: "Fixed"
+      quadrant: "Eighth"
+      deity_association: "Ares (Greek) / Mars (Roman); also Pluto"
+      season: "Autumn (Northern Hemisphere)"
+      other:
+        ruling_planet: "Mars (traditional) / Pluto (modern)"
+        date_range: "October 23 – November 21"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/38/Scorpius_IAU.svg"
+      description: "IAU official constellation boundary diagram for Scorpius"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Antares (α Scorpii)"
+          ra: "16h 29m 24s"
+          dec: "−26° 25′ 55″"
+          magnitude: 0.96
+        - name: "Dschubba (δ Scorpii)"
+          ra: "16h 00m 20s"
+          dec: "−22° 37′ 18″"
+          magnitude: 2.32
+        - name: "Shaula (λ Scorpii)"
+          ra: "17h 33m 37s"
+          dec: "−37° 06′ 14″"
+          magnitude: 1.63
+        - name: "Lesath (υ Scorpii)"
+          ra: "17h 30m 46s"
+          dec: "−37° 17′ 45″"
+          magnitude: 2.69
+      notes: "497 square degrees; southern celestial hemisphere; Antares is 'rival of Mars' — red supergiant; 13 stars brighter than magnitude 3.0; Milky Way-rich region"
+    asterism_schematic:
+      description: "Long curved hook or fishhook shape; head region near Dschubba and Antares; curved tail sweeping south then curving upward at the tip with Shaula and Lesath as the sting; one of the most recognizable constellation shapes in summer southern sky"
+      line_topology: "Head: δ, π, β, σ Scorpii form claws/head region; heart: Antares (α) at center; tail: long curving chain sweeping south via τ, ε, μ, ζ, η, θ, ι, κ, λ (Shaula) — the distinctive scorpion tail with upturned sting"
+    cultural_iconography:
+      description: "Scorpion sent by Artemis/Gaia to kill Orion; placed opposite Orion in sky so they never rise together; Antares ('rival of Ares/Mars') is red supergiant marking scorpion's heart; one of the most visually striking zodiac constellations"
+      reference_sources:
+        - "Wikipedia: Scorpius"
+        - "Wikipedia: Scorpio (astrology)"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Scorpius"
+  primitive_association_hints:
+    suggested_element: "Water"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Scorpion"
+    suggested_object_form: ""
+    symbolic_role: "Transformation, death and rebirth, hidden depths, intensity, venomous sting"
+    mythic_narrative_summary: "Orion boasted he would kill all animals on Earth; Artemis/Gaia sent the scorpion to stop him. Both immortalized in opposite parts of the sky — Orion sets as Scorpius rises (they never share the sky). Antares means 'rival of Mars' — its red color matches Mars's warlike hue."
+  semantic_vocabulary:
+    symbolic_keywords: ["scorpion", "water", "fixed", "Mars", "Pluto", "transformation", "death", "intensity", "Antares", "sting"]
+    mythic_narrative: "The scorpion was sent either by Artemis (to punish Orion for boasting he would kill all beasts) or by Gaia (to protect Earth's animals). After the mortal combat, Zeus placed both in the sky but at opposite ends — when Scorpius rises in the east, Orion flees below the western horizon. They are eternal adversaries who never share the night sky. Antares — 'rival of Ares' — is a red supergiant 700× the size of our Sun. Babylonian predecessor: MUL.GIR.TAB, the Scorpion."
+    visual_motifs: ["curved scorpion with sting ♏", "Antares as red heart", "sweeping tail shape", "venom drop at tip"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Public domain Wikipedia + IAU"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Scorpius"
+    secondary_sources:
+      - "Wikipedia: Scorpio (astrology)"
+      - "IAU constellation data"
+    academic_anchor: "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "western-zodiac-009"
+  sign_name:
+    primary: "Sagittarius"
+    variants: ["The Archer", "The Centaur-Archer"]
+    romanization: "Sagittarius"
+    native_script: "♐"
+  cultural_tradition:
+    primary_culture: "Hellenistic Western"
+    derivative_cultures: ["Roman", "Islamic Golden Age", "Modern Western"]
+    geographic_origin: "Babylonian / Hellenistic Greece"
+    period_range: "Babylonian origin ~700 BCE (Pabilsag archer figure); codified Ptolemy ~150 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Western zodiac"
+    total_signs_in_system: 12
+    position_in_system: 9
+    sign_classification:
+      element: "Fire"
+      modality: "Mutable"
+      quadrant: "Ninth"
+      deity_association: "Zeus/Jupiter"
+      season: "Autumn/Winter (Northern Hemisphere)"
+      other:
+        ruling_planet: "Jupiter"
+        date_range: "November 22 – December 21"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/5/54/Sagittarius_IAU.svg"
+      description: "IAU official constellation boundary diagram for Sagittarius"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Kaus Australis (ε Sagittarii)"
+          ra: "18h 24m 10s"
+          dec: "−34° 23′ 05″"
+          magnitude: 1.85
+        - name: "Nunki (σ Sagittarii)"
+          ra: "18h 55m 16s"
+          dec: "−26° 17′ 49″"
+          magnitude: 2.08
+        - name: "Ascella (ζ Sagittarii)"
+          ra: "19h 02m 37s"
+          dec: "−29° 52′ 49″"
+          magnitude: 2.61
+      notes: "RA 19h, Dec -25 degrees; contains galactic center direction (Sagittarius A* area); rich in nebulae and star clusters; Teapot asterism; one of the most Milky Way-dense regions"
+    asterism_schematic:
+      description: "The Teapot: δ, ε, ζ, φ form the pot body; λ marks the lid; γ2 represents the spout tip; σ forms the handle; steam (Milky Way) pours from the spout toward Scorpius; original figure is archer drawing bow toward Scorpion"
+      line_topology: "Teapot asterism: bottom edge δ-ε-ζ-φ; spout γ2; lid λ; handle σ-τ; the archer's arrow aims toward Antares/Scorpius"
+    cultural_iconography:
+      description: "Centaur-archer aiming at Scorpius; the arrow points at Antares, the heart of Scorpius; the Milky Way is densest here near galactic center; contains Lagoon Nebula (M8), Trifid Nebula (M20), star cloud M24"
+      reference_sources:
+        - "Wikipedia: Sagittarius (constellation)"
+        - "Wikipedia: Sagittarius (astrology)"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Sagittarius_(constellation)"
+  primitive_association_hints:
+    suggested_element: "Fire"
+    suggested_attribute: "DEX"
+    suggested_animal_form: "Centaur"
+    suggested_object_form: "Bow and Arrow"
+    symbolic_role: "Philosopher-adventurer, truth-seeker, arrow of intention, expansive fire, galactic center"
+    mythic_narrative_summary: "The Teapot pattern dominates modern recognition; traditionally a centaur archer aiming at Scorpius. Identified with Crotus (satyr, inventor of archery) or Chiron (wise centaur tutor of heroes). Arrow points at the galactic center — the heart of the Milky Way."
+  semantic_vocabulary:
+    symbolic_keywords: ["archer", "centaur", "fire", "mutable", "Jupiter", "philosophy", "adventure", "galactic center", "teapot", "arrow"]
+    mythic_narrative: "Sagittarius is a centaur archer, identified variously with Crotus (son of Pan and Eupheme, invented archery on Mount Helicon) or the wise centaur Chiron (though Chiron is more commonly Centaurus). The archer's arrow is perpetually aimed at the heart of Scorpius (Antares). The Milky Way streams most densely through Sagittarius as we look toward the galactic center. Babylonian predecessor: MUL.PA.BIL.SAG — the Pabilsag archer figure, a centaur-like divine archer."
+    visual_motifs: ["centaur drawing bow ♐", "The Teapot asterism", "Milky Way steam from teapot spout", "arrow aimed at Scorpius"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Public domain Wikipedia + IAU"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Sagittarius_(constellation)"
+    secondary_sources:
+      - "Wikipedia: Sagittarius (astrology)"
+      - "IAU constellation data"
+    academic_anchor: "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "western-zodiac-010"
+  sign_name:
+    primary: "Capricorn"
+    variants: ["Capricornus", "The Sea-Goat", "The Goat-Fish"]
+    romanization: "Capricorn"
+    native_script: "♑"
+  cultural_tradition:
+    primary_culture: "Hellenistic Western"
+    derivative_cultures: ["Roman", "Islamic Golden Age", "Modern Western"]
+    geographic_origin: "Babylonian / Hellenistic Greece"
+    period_range: "Babylonian origin ~700 BCE (Enki goat-fish); codified Ptolemy ~150 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Western zodiac"
+    total_signs_in_system: 12
+    position_in_system: 10
+    sign_classification:
+      element: "Earth"
+      modality: "Cardinal"
+      quadrant: "Tenth"
+      deity_association: "Cronos (Greek) / Saturn (Roman)"
+      season: "Winter (Northern Hemisphere) — winter solstice"
+      other:
+        ruling_planet: "Saturn"
+        date_range: "December 22 – January 19"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/9/95/Capricornus_IAU.svg"
+      description: "IAU official constellation boundary diagram for Capricornus"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Deneb Algedi (δ Capricorni)"
+          ra: "21h 47m 02s"
+          dec: "−16° 07′ 38″"
+          magnitude: 2.85
+        - name: "Dabih (β Capricorni)"
+          ra: "20h 21m 01s"
+          dec: "−14° 46′ 53″"
+          magnitude: 3.05
+        - name: "Algedi (α Capricorni)"
+          ra: "20h 18m 03s"
+          dec: "−12° 32′ 41″"
+          magnitude: 3.57
+        - name: "Nashira (γ Capricorni)"
+          ra: "21h 40m 05s"
+          dec: "−16° 39′ 44″"
+          magnitude: 3.68
+      notes: "Smallest zodiac constellation; 414 square degrees; 40th overall; 'Tropic of Capricorn' named for this constellation's position at winter solstice when named"
+    asterism_schematic:
+      description: "Triangle shape with vertices at α Capricorni (Algedi), δ Capricorni (Deneb Algedi), and ω Capricorni; overall wedge or arrowhead shape representing the sea-goat body; goat's head at western end, fish tail at eastern end"
+      line_topology: "Broad triangular wedge; α and β Capricorni at the 'head' (western); δ Capricorni (Deneb Algedi) at eastern point of triangle; ω Capricorni completes the figure"
+    cultural_iconography:
+      description: "Mythical sea-goat: front half goat, rear half fish; Babylonian Enki (god of wisdom and sweet water) was the goat-fish Capricorn; Greek: Pan transformed into fish to escape Typhon, but only partially — one half goat one half fish; ancient winter solstice sign; 'Tropic of Capricorn' preserves its role"
+      reference_sources:
+        - "Wikipedia: Capricornus"
+        - "Wikipedia: Capricorn (astrology)"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Capricornus"
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "CON"
+    suggested_animal_form: "Sea-Goat (goat + fish hybrid)"
+    suggested_object_form: ""
+    symbolic_role: "Ambitious climber, cardinal earth, structural discipline, chimeric duality, winter solstice threshold"
+    mythic_narrative_summary: "Babylonian Enki was the primordial goat-fish, god of wisdom and subterranean sweet water. Greek: during the feast of the gods, Typhon attacked; Pan leaped into the Euphrates and tried to transform, but only half-succeeded — front half goat, rear half fish. Zeus immortalized the comical result. Winter solstice formerly fell in Capricorn."
+  semantic_vocabulary:
+    symbolic_keywords: ["sea-goat", "earth", "cardinal", "Saturn", "ambition", "discipline", "winter", "chimera", "Enki"]
+    mythic_narrative: "The goat-fish (Suhurmāšu) in Babylonian tradition represented the god Enki (Ea), deity of wisdom, magic, and the underground freshwater ocean (Abzu). In Greek myth, when the monster Typhon attacked the feast of the gods on the banks of the Euphrates, Pan leaped into the river to escape by transforming — but was only half submerged, resulting in a goat-headed fish-tailed chimera. Zeus was amused and placed this form among the stars. The winter solstice fell in Capricorn when the constellation was named — hence the 'Tropic of Capricorn.' Babylonian predecessor: MUL.SUḪUR.MAS, the Goat-Fish."
+    visual_motifs: ["sea-goat chimera ♑", "goat head fish tail", "Babylonian Enki emblem", "winter solstice threshold"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Public domain Wikipedia + IAU"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Capricornus"
+    secondary_sources:
+      - "Wikipedia: Capricorn (astrology)"
+      - "IAU constellation data"
+    academic_anchor: "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "western-zodiac-011"
+  sign_name:
+    primary: "Aquarius"
+    variants: ["The Water-Bearer"]
+    romanization: "Aquarius"
+    native_script: "♒"
+  cultural_tradition:
+    primary_culture: "Hellenistic Western"
+    derivative_cultures: ["Roman", "Islamic Golden Age", "Modern Western"]
+    geographic_origin: "Babylonian / Hellenistic Greece"
+    period_range: "Babylonian origin ~700 BCE (GU.LA the Great One); codified Ptolemy ~150 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Western zodiac"
+    total_signs_in_system: 12
+    position_in_system: 11
+    sign_classification:
+      element: "Air"
+      modality: "Fixed"
+      quadrant: "Eleventh"
+      deity_association: "Ganymede / Deucalion / Ea-Enki"
+      season: "Winter (Northern Hemisphere)"
+      other:
+        ruling_planet: "Saturn (traditional) / Uranus (modern)"
+        date_range: "January 20 – February 18"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/9/9c/Aquarius_IAU.svg"
+      description: "IAU official constellation boundary diagram for Aquarius"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Sadalsuud (β Aquarii)"
+          ra: "21h 31m 33s"
+          dec: "−05° 34′ 16″"
+          magnitude: 2.91
+        - name: "Sadalmelik (α Aquarii)"
+          ra: "22h 05m 47s"
+          dec: "−00° 19′ 11″"
+          magnitude: 2.94
+        - name: "Sadachbia (γ Aquarii)"
+          ra: "22h 21m 39s"
+          dec: "−01° 23′ 14″"
+          magnitude: 3.85
+        - name: "Skat (δ Aquarii)"
+          ra: "22h 54m 39s"
+          dec: "−15° 49′ 15″"
+          magnitude: 3.27
+      notes: "10th largest constellation; 980 square degrees; Water Jar asterism (Y-shape); region of sky anciently called 'The Sea' — contains Aquarius, Capricornus, Pisces, Cetus, Eridanus, Piscis Austrinus"
+    asterism_schematic:
+      description: "Y-shaped asterism known as the Water Jar (γ, π, η, ζ Aquarii) pours water downward toward Piscis Austrinus; water stream represented by zig-zag chain of stars; figure of man carrying/pouring water jar"
+      line_topology: "Water Jar Y-shape (γ, π, η, ζ Aqr) at upper center; long zig-zag stream of stars descending southward toward Fomalhaut in Piscis Austrinus"
+    cultural_iconography:
+      description: "Man pouring water from a jar; Babylonian GU.LA the Great One associated with flood waters; Greek identification with Ganymede (cup-bearer of the gods) or Deucalion (survivor of the flood); Sadalsuud means 'luckiest of the lucky' in Arabic; part of the ancient 'Sea' region of sky"
+      reference_sources:
+        - "Wikipedia: Aquarius (constellation)"
+        - "Wikipedia: Aquarius (astrology)"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Aquarius_(constellation)"
+  primitive_association_hints:
+    suggested_element: "Air"
+    suggested_attribute: "INT"
+    suggested_animal_form: ""
+    suggested_object_form: "Water-bearer with jar"
+    symbolic_role: "Humanitarian visionary, fixed air, flood mythologies, cup-bearer to gods, future-oriented outpourer"
+    mythic_narrative_summary: "Ganymede, beautiful youth carried off by Zeus as eagle to serve as cup-bearer to the gods on Olympus. Alternatively Deucalion, who survived the great flood Zeus sent to destroy mankind. Babylonian Ea/Enki poured the waters of wisdom from his jar. The whole sky region was called 'The Sea' in antiquity."
+  semantic_vocabulary:
+    symbolic_keywords: ["water-bearer", "air", "fixed", "Uranus", "Saturn", "humanitarian", "flood", "Ganymede", "jar", "wisdom"]
+    mythic_narrative: "Aquarius is the water-bearer — the divine cup-bearer Ganymede, abducted by Zeus (as an eagle) from Mount Ida to serve as cupbearer on Olympus. Alternatively identified with Deucalion, the Greek Noah who survived Zeus's great flood in an ark. In Babylonian tradition MUL.GU.LA — the Great One — was Ea (Enki), god of wisdom who poured the waters of knowledge. The ancient sky 'Sea' region (including Aquarius, Capricornus, Pisces, Cetus, Eridanus) reflects early awareness of rainy season constellations. Star name Sadalsuud (β) means 'luckiest of the lucky.'"
+    visual_motifs: ["man pouring water jar ♒", "Water Jar Y-asterism", "stream of stars flowing to Fomalhaut", "cup-bearer to the gods"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Public domain Wikipedia + IAU"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Aquarius_(constellation)"
+    secondary_sources:
+      - "Wikipedia: Aquarius (astrology)"
+      - "IAU constellation data"
+    academic_anchor: "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "western-zodiac-012"
+  sign_name:
+    primary: "Pisces"
+    variants: ["The Fish", "The Two Fish"]
+    romanization: "Pisces"
+    native_script: "♓"
+  cultural_tradition:
+    primary_culture: "Hellenistic Western"
+    derivative_cultures: ["Roman", "Islamic Golden Age", "Modern Western"]
+    geographic_origin: "Babylonian / Hellenistic Greece"
+    period_range: "Babylonian origin ~700 BCE (the Tails); codified Ptolemy ~150 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Western zodiac"
+    total_signs_in_system: 12
+    position_in_system: 12
+    sign_classification:
+      element: "Water"
+      modality: "Mutable"
+      quadrant: "Twelfth"
+      deity_association: "Poseidon (Greek) / Neptune (Roman); Aphrodite and Eros"
+      season: "Winter/Spring (Northern Hemisphere)"
+      other:
+        ruling_planet: "Jupiter (traditional) / Neptune (modern)"
+        date_range: "February 19 – March 20"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/2/21/Pisces_IAU.svg"
+      description: "IAU official constellation boundary diagram for Pisces"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Alrescha (α Piscium)"
+          ra: "2h 02m 03s"
+          dec: "+02° 45′ 50″"
+          magnitude: 3.62
+        - name: "Eta Piscium (Alpherg)"
+          ra: "1h 31m 29s"
+          dec: "+15° 20′ 45″"
+          magnitude: 3.62
+        - name: "Gamma Piscium"
+          ra: "23h 17m 09s"
+          dec: "+03° 16′ 56″"
+          magnitude: 3.70
+      notes: "14th largest constellation; 889 square degrees; vernal equinox currently in Pisces (precession moved it from Aries); contains M74 spiral galaxy; only 2 stars brighter than magnitude 4"
+    asterism_schematic:
+      description: "Two loops of stars connected by a cord at Alrescha; western fish loop points southward (Circlet of Pisces — γ, θ, ι, λ, κ Psc); eastern fish string points northward toward Andromeda; the two fish swim in opposite directions connected by a cord"
+      line_topology: "Two groups of stars connected at Alrescha (α Psc); 'The Circlet' (γ, θ, ι, λ, κ Psc) — western fish loop; elongated eastern fish chain ending near Andromeda; fish swim in opposite directions"
+    cultural_iconography:
+      description: "Two fish swimming in opposite directions, tied together by a cord; Aphrodite and Eros transformed into fish to escape Typhon by diving into the Euphrates; cord ensures they don't lose each other; vernal equinox currently resides in Pisces due to precession (Age of Pisces); Christian ichthys symbol intersection"
+      reference_sources:
+        - "Wikipedia: Pisces (constellation)"
+        - "Wikipedia: Pisces (astrology)"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Pisces_(constellation)"
+  primitive_association_hints:
+    suggested_element: "Water"
+    suggested_attribute: "WIS"
+    suggested_animal_form: "Fish (pair)"
+    suggested_object_form: "Two fish on a cord"
+    symbolic_role: "Dissolution, dream-world, mutable water, dual nature, connected opposites, transcendence"
+    mythic_narrative_summary: "Aphrodite and Eros escaped Typhon by transforming into fish and diving into the Euphrates; they tied themselves together with a cord to not be separated. The current vernal equinox (precessed from Aries) resides in Pisces — we live in the 'Age of Pisces' (~1 CE to ~2600 CE). Final sign of the zodiac — completion, dissolution, return to origin."
+  semantic_vocabulary:
+    symbolic_keywords: ["fish", "water", "mutable", "Neptune", "dissolution", "transcendence", "duality", "cord", "Aphrodite", "vernal equinox"]
+    mythic_narrative: "Aphrodite and her son Eros, attending a feast on the banks of the Euphrates, were surprised by the monster Typhon. They transformed into fish to escape by diving into the river, tying themselves together with a cord of rushes to avoid separation. The Syrian goddess Derceto (Atargatis) was also depicted as a fish-woman. The vernal equinox has precessed into Pisces over the past ~2,000 years, making Pisces the 'host' of the equinox point (the First Point of Aries by name but now in Pisces). The final sign — the 12th house — represents dissolution, transcendence, and return. Babylonian predecessor: MUL.ZIB.ME, the Tails (fish tails)."
+    visual_motifs: ["two fish swimming opposite directions ♓", "connected by cord", "fish diving into water", "ichthys symbol association"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Public domain Wikipedia + IAU"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Pisces_(constellation)"
+    secondary_sources:
+      - "Wikipedia: Pisces (astrology)"
+      - "IAU constellation data"
+    academic_anchor: "Ridpath, Ian. Star Tales. 2018."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"

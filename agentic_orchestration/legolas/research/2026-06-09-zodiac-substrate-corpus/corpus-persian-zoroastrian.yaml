@@ -1,0 +1,989 @@
+# corpus-persian-zoroastrian.yaml
+# Legolas Mode B Corpus — Persian/Zoroastrian 12 Month-Signs + Yazata Guardians
+# Crawl date: 2026-06-09
+# Entry count: 12
+# Schema: full (Yazata, element-hints, iconography, semantic vocabulary, provenance)
+# System: Persian Solar Hijri calendar months, each governed by a named Yazata (divine being)
+# Note: Persian month-signs are NOT a zodiac in the astrology sense — they are sacred calendar
+#       months each with a presiding Yazata (divine/angelic being). The Western zodiac equivalence
+#       is approximate (month 1 ≈ Aries sector, etc.) due to calendar alignment at Nowruz.
+
+- sign_id: "persian-001"
+  sign_name:
+    primary: "Farvardin"
+    variants: ["Frawardin (Avestan)", "Farwadin", "Farvardīn"]
+    romanization: "Farvardin"
+    native_script: "فروردین"
+  cultural_tradition:
+    primary_culture: "Persian / Zoroastrian"
+    derivative_cultures: ["Iranian Islamic calendar", "Modern Solar Hijri calendar", "Nowruz cultural tradition"]
+    geographic_origin: "Iran / Persian Empire / Avestan homeland (Greater Iran)"
+    period_range: "Avestan tradition ~1500–600 BCE; Zoroastrian calendar formalized ~224–651 CE Sassanid period"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Persian/Zoroastrian calendar months (with Yazata guardians)"
+    total_signs_in_system: 12
+    position_in_system: 1
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: "Fravashis (Fravarshis) — guardian spirits / souls of the righteous"
+      season: "Spring — Persian New Year (Nowruz); vernal equinox"
+      other:
+        western_zodiac_equivalent: "Aries"
+        zoroastrian_virtue: "Remembrance of ancestors; protection of the righteous"
+        yazata_avestan: "Fravashi (Fravaši)"
+        yazata_role: "Guardian-spirit protectors; primordial spiritual essences of all righteous beings"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/f/f0/Faravahar.svg"
+      description: "Faravahar — the winged-disc symbol of Zoroastrianism representing the Fravashi"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://upload.wikimedia.org/wikipedia/commons/8/8a/Nowruz_table.jpg"
+        description: "Nowruz Haft-Sin table — Persian New Year which begins Farvardin"
+        source: "Wikipedia Commons"
+        license: "CC-BY-SA"
+        verified_loads: true
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars: []
+      notes: "Farvardin corresponds to the Aries sky sector; star data in corpus-western-zodiac.yaml entry western-zodiac-001"
+    asterism_schematic:
+      description: "Corresponds to Aries sky sector (vernal equinox region); the Ram constellation"
+      line_topology: ""
+    cultural_iconography:
+      description: "Farvardin opens the Persian solar year at Nowruz (spring equinox). The Fravashis — the divine spiritual essences of all righteous souls — are believed to descend during the last ten days of the year and in Farvardin to visit their families. The Faravahar (winged disc with a male figure) is the supreme symbol of Zoroastrianism and represents the Fravashi concept: a divine guardian form pre-existing physical birth. Nowruz fire-jumping (Chaharshanbe Suri) precedes the month. New Year is celebrated with the Haft-Sin table, symbolic foods, and ancestor remembrance."
+      reference_sources:
+        - "Wikipedia: Persian calendar"
+        - "Wikipedia: Fravashi"
+        - "Wikipedia: Nowruz"
+        - "Wikipedia: Faravahar"
+        - "Encyclopaedia Iranica: Fravashi"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Persian_calendar"
+        - "https://en.wikipedia.org/wiki/Fravashi"
+        - "https://en.wikipedia.org/wiki/Nowruz"
+        - "https://www.iranicaonline.org/articles/fravasi"
+  primitive_association_hints:
+    suggested_element: "Fire (Nowruz fire; Chaharshanbe Suri fire-jumping)"
+    suggested_attribute: "VIT"
+    suggested_animal_form: ""
+    suggested_object_form: "Faravahar (winged disc figure)"
+    symbolic_role: "Spring renewal; ancestor remembrance; guardian-spirit protection; righteous souls"
+    mythic_narrative_summary: "Farvardin opens the Persian year at Nowruz (spring equinox). The Fravashis — souls of the righteous, divine guardian-forms in heaven — descend to visit families during this month. In Zoroastrian cosmology, every righteous being has a Fravashi — a pre-existent divine prototype created by Ahura Mazda."
+  semantic_vocabulary:
+    symbolic_keywords: ["spring", "new year", "ancestors", "guardian spirits", "righteous souls", "Faravahar", "Nowruz", "fire", "renewal", "vernal equinox"]
+    mythic_narrative: "Farvardin is the first month of the Persian solar calendar and the month of the Fravashis. The Fravashis are the spiritual essences — guardian spirits — of all righteous beings, both living and dead. They are the divine prototypes created by Ahura Mazda before physical creation. During the last ten days of the year and at Nowruz (spring equinox), the Fravashis of the righteous dead return to visit their families. Farvardin begins with fire-jumping ceremonies (Chaharshanbe Suri) and the spring equinox celebrations of Nowruz, the Iranian New Year. The Faravahar — a winged male figure within a disc ring — is the most recognizable symbol of Zoroastrianism and embodies the Fravashi concept."
+    visual_motifs: ["Faravahar winged figure", "Nowruz fire", "Haft-Sin table", "spring equinox sunrise", "ancestral spirits descending"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Public academic + living cultural tradition; widely documented in Wikipedia and Encyclopaedia Iranica"
+    source_authorization: "Wikipedia + Encyclopaedia Iranica + academic Iranologist sources"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Farvardin"
+    secondary_sources:
+      - "Wikipedia: Persian calendar"
+      - "Wikipedia: Zoroastrian calendar"
+      - "Encyclopaedia Iranica: Fravashi"
+    academic_anchor: "Encyclopaedia Iranica (Yarshater, ed.) — authoritative reference for Zoroastrian calendar traditions"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "persian-002"
+  sign_name:
+    primary: "Ordibehesht"
+    variants: ["Ardibehesht", "Ardwahisht (Avestan)", "Artavahišta", "Urdibihisht"]
+    romanization: "Ordibehesht"
+    native_script: "اردیبهشت"
+  cultural_tradition:
+    primary_culture: "Persian / Zoroastrian"
+    derivative_cultures: ["Iranian Islamic calendar", "Modern Solar Hijri calendar"]
+    geographic_origin: "Iran / Greater Iran"
+    period_range: "Avestan tradition ~1500–600 BCE; Sassanid codification ~224–651 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Persian/Zoroastrian calendar months (with Yazata guardians)"
+    total_signs_in_system: 12
+    position_in_system: 2
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: "Asha Vahishta (Best Truth / Best Righteousness) — one of the Amesha Spentas (Holy Immortals)"
+      season: "Late spring"
+      other:
+        western_zodiac_equivalent: "Taurus"
+        zoroastrian_virtue: "Asha (Truth / Cosmic Order / Righteousness) — the highest Zoroastrian virtue"
+        yazata_avestan: "Asha Vahishta (Artavahišta)"
+        yazata_role: "Governs fire as the purifying embodiment of truth; second most important Amesha Spenta"
+        amesha_spenta: true
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Fire_temple_yazd.jpg"
+      description: "Zoroastrian fire temple — sacred flame as physical manifestation of Asha Vahishta"
+      source: "Wikipedia Commons"
+      license: "CC-BY-SA"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars: []
+      notes: "Ordibehesht corresponds to Taurus sky sector; see corpus-western-zodiac.yaml entry western-zodiac-002"
+    asterism_schematic:
+      description: "Corresponds to Taurus sky sector"
+      line_topology: ""
+    cultural_iconography:
+      description: "Ordibehesht is the month of Asha Vahishta, the Amesha Spenta of Truth and Righteousness. Asha is the most central virtue of Zoroastrianism — the cosmic order underlying all reality. Asha Vahishta governs fire, which in Zoroastrianism is the sacred symbol of truth and purity. Atash Behram (the highest grade of sacred fire) is the earthly manifestation of Asha. The festival of Ardibehesht Jashn (Asha festival) falls in this month. The sacred fires maintained in Zoroastrian fire temples are never allowed to die — representing the eternal nature of Asha."
+      reference_sources:
+        - "Wikipedia: Asha"
+        - "Wikipedia: Amesha Spenta"
+        - "Wikipedia: Ordibehesht"
+        - "Encyclopaedia Iranica: Asha Vahishta"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Asha"
+        - "https://en.wikipedia.org/wiki/Amesha_Spenta"
+  primitive_association_hints:
+    suggested_element: "Fire (sacred fire as embodiment of Truth)"
+    suggested_attribute: "INT"
+    suggested_animal_form: ""
+    suggested_object_form: "Sacred flame / Atash Behram fire"
+    symbolic_role: "Truth; cosmic order; righteousness; fire purification; divine law"
+    mythic_narrative_summary: "Ordibehesht is the month of Asha Vahishta, the Zoroastrian Amesha Spenta of Best Truth. Asha is the fundamental cosmic principle — truth, order, righteousness — that Ahura Mazda embodies and that the righteous must uphold against Druj (the Lie). Fire is Asha's physical symbol because it burns away impurity and endures as pure energy."
+  semantic_vocabulary:
+    symbolic_keywords: ["truth", "righteousness", "fire", "cosmic order", "Asha", "sacred flame", "purity", "Amesha Spenta", "divine law"]
+    mythic_narrative: "Ordibehesht is the second month of the Persian calendar and the month of Asha Vahishta (Best Truth). Asha Vahishta is the second of the seven Amesha Spentas — the divine Holy Immortals emanated by Ahura Mazda. Asha represents the fundamental cosmic principle of truth, righteousness, and divine order. Fire is Asha's sacred element, serving as the symbol of divine truth in Zoroastrian worship. The eternal flame maintained in Zoroastrian fire temples (Atash Behram at the highest grade) is the living embodiment of Asha on earth. The cosmic battle of Zoroastrianism is framed as Asha (truth) vs. Druj (the Lie) — the core moral tension of the faith."
+    visual_motifs: ["sacred fire", "Atash Behram flame", "fire temple", "winged Ahura Mazda symbol", "cosmic order diagram"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Public academic + living religious tradition; Zoroastrianism openly documented"
+    source_authorization: "Wikipedia + Encyclopaedia Iranica"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Ordibehesht"
+    secondary_sources:
+      - "Wikipedia: Asha"
+      - "Wikipedia: Amesha Spenta"
+      - "Encyclopaedia Iranica: Asha Vahista"
+    academic_anchor: "Encyclopaedia Iranica: Asha Vahista (M. Boyce)"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "persian-003"
+  sign_name:
+    primary: "Khordad"
+    variants: ["Hordad", "Haurvatat (Avestan)", "Khurdat"]
+    romanization: "Khordad"
+    native_script: "خرداد"
+  cultural_tradition:
+    primary_culture: "Persian / Zoroastrian"
+    derivative_cultures: ["Iranian Islamic calendar", "Modern Solar Hijri calendar"]
+    geographic_origin: "Iran / Greater Iran"
+    period_range: "Avestan tradition ~1500–600 BCE; Sassanid codification ~224–651 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Persian/Zoroastrian calendar months (with Yazata guardians)"
+    total_signs_in_system: 12
+    position_in_system: 3
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: "Haurvatat (Wholeness / Health / Perfection / Integrity) — Amesha Spenta"
+      season: "Early summer"
+      other:
+        western_zodiac_equivalent: "Gemini"
+        zoroastrian_virtue: "Wholeness; completeness; health; integrity"
+        yazata_avestan: "Haurvatat"
+        yazata_role: "Governs water and plants; paired with Ameretat (Immortality); together they represent prosperity"
+        amesha_spenta: true
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/9/9c/Qanat_Iran.jpg"
+      description: "Qanat — traditional Persian underground water channel; water is sacred to Haurvatat"
+      source: "Wikipedia Commons"
+      license: "CC-BY-SA"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars: []
+      notes: "Khordad corresponds to Gemini sky sector"
+    asterism_schematic:
+      description: "Corresponds to Gemini sky sector"
+      line_topology: ""
+    cultural_iconography:
+      description: "Khordad is the month of Haurvatat, the Amesha Spenta of Wholeness and Health. Haurvatat governs water and plants, always paired with Ameretat (Immortality). Together they represent material and spiritual completeness — wholeness of body paired with endless life. In Zoroastrian ritual, water (especially the sacred ritual drink haoma and spring water) is central to Haurvatat worship. The festival of Khordad Sal (birthday of Zarathustra) falls in this month. Water-management (the Persian qanat underground irrigation system) was a deeply Zoroastrian concern — water is sacred and must not be polluted."
+      reference_sources:
+        - "Wikipedia: Haurvatat"
+        - "Wikipedia: Amesha Spenta"
+        - "Encyclopaedia Iranica: Haurvatat"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Haurvatat"
+        - "https://en.wikipedia.org/wiki/Amesha_Spenta"
+  primitive_association_hints:
+    suggested_element: "Water"
+    suggested_attribute: "VIT"
+    suggested_animal_form: ""
+    suggested_object_form: "Water vessel / spring / qanat"
+    symbolic_role: "Wholeness; health; integrity; water; completeness of being"
+    mythic_narrative_summary: "Khordad is governed by Haurvatat (Wholeness), the Amesha Spenta of health and completeness. Paired eternally with Ameretat (Immortality), they embody the two material blessings: complete health and endless life. Water is Haurvatat's sacred domain; polluting water is a Zoroastrian sin."
+  semantic_vocabulary:
+    symbolic_keywords: ["wholeness", "health", "water", "plants", "integrity", "completeness", "perfection", "Haurvatat", "spring", "healing"]
+    mythic_narrative: "Khordad is the third Persian calendar month, governed by Haurvatat (Wholeness / Health). Haurvatat is the fifth Amesha Spenta, paired with Ameretat (Immortality) — together the twin blessings of complete health and eternal life. Their joint domain is water and plants: Haurvatat the rain and rivers, Ameretat the growth and abundance they produce. In Zoroastrian ethics, water is sacred and must be preserved pure. The festival of Khordad Sal (birthday of Zarathustra Spitama, the prophet-founder) is observed in this month. Haurvatat also represents the wholeness of the soul — the integrated, undivided self that is the goal of righteousness."
+    visual_motifs: ["flowing water", "spring source", "qanat irrigation", "haoma plant", "wholeness circle"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Academic documentation; public living tradition"
+    source_authorization: "Wikipedia + Encyclopaedia Iranica"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Khordad"
+    secondary_sources:
+      - "Wikipedia: Haurvatat"
+      - "Wikipedia: Amesha Spenta"
+    academic_anchor: "Encyclopaedia Iranica: Haurvatat"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "persian-004"
+  sign_name:
+    primary: "Tir"
+    variants: ["Tīr (Middle Persian)", "Tishtrya (Avestan)", "Tir (Modern Persian)"]
+    romanization: "Tir"
+    native_script: "تیر"
+  cultural_tradition:
+    primary_culture: "Persian / Zoroastrian"
+    derivative_cultures: ["Iranian Islamic calendar", "Modern Solar Hijri calendar"]
+    geographic_origin: "Iran / Greater Iran"
+    period_range: "Avestan tradition ~1500–600 BCE; Sassanid codification ~224–651 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Persian/Zoroastrian calendar months (with Yazata guardians)"
+    total_signs_in_system: 12
+    position_in_system: 4
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: "Tishtrya — the star Sirius; rain-bringer; battles the drought-demon Apaosha"
+      season: "Midsummer (hottest month; monsoon/rain context)"
+      other:
+        western_zodiac_equivalent: "Cancer"
+        zoroastrian_virtue: "Victory over drought; generosity; rainfall"
+        yazata_avestan: "Tishtrya (Tištrya)"
+        yazata_role: "Stellar Yazata identified with Sirius; cosmic hero who battles Apaosha the drought-demon to bring rain"
+        sirius_identification: true
+        amesha_spenta: false
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/4/49/Sirius_A_and_B_artwork.jpg"
+      description: "Artist's impression of Sirius A and B — Tishtrya is identified with Sirius, the brightest star"
+      source: "Wikipedia Commons"
+      license: "Public Domain (NASA)"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Sirius_in_X-ray.jpg"
+        description: "Sirius in X-ray — the star identified with the Yazata Tishtrya"
+        source: "Wikipedia Commons"
+        license: "Public Domain (NASA/Chandra)"
+        verified_loads: true
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Sirius (α Canis Majoris)"
+          ra: "6h 45m 08.9s"
+          dec: "−16° 42′ 58″"
+          magnitude: -1.46
+          notes: "Brightest star in the night sky; the Yazata Tishtrya personified as this star"
+      notes: "Tir/Tishtrya's astronomical identity is Sirius specifically — not a general Cancer sector association"
+    asterism_schematic:
+      description: "Month corresponds approximately to Cancer sky sector but Tishtrya's star is Sirius (Canis Major)"
+      line_topology: ""
+    cultural_iconography:
+      description: "Tir is the month of Tishtrya, one of the most celebrated Yazatas in Zoroastrianism. Tishtrya is identified with Sirius, the brightest star in the sky. In the Tishtar Yasht (Avestan hymn dedicated to Tishtrya), the cosmic battle is narrated: Tishtrya descends in three forms (young man, bull, white horse) to a vast cosmic sea, where the drought-demon Apaosha (a black horse) blocks the rain. Tishtrya and Apaosha battle; Tishtrya wins (supported by Ahura Mazda and worshippers' prayers), releasing the rain-clouds. The Tiregan festival (celebrated on Tir 13) involves water-pouring, water-play, and rain-celebration — one of the oldest Persian festivals."
+      reference_sources:
+        - "Wikipedia: Tishtrya"
+        - "Wikipedia: Tir (month)"
+        - "Wikipedia: Tiregan"
+        - "Tishtar Yasht (Avestan text)"
+        - "Encyclopaedia Iranica: Tištrya"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Tishtrya"
+        - "https://en.wikipedia.org/wiki/Tiregan"
+  primitive_association_hints:
+    suggested_element: "Water (rain / cosmic ocean)"
+    suggested_attribute: "AGI"
+    suggested_animal_form: "White horse (Tishtrya's combat form)"
+    suggested_object_form: "Arrow (Tir means 'arrow' in Persian)"
+    symbolic_role: "Rain-bringer; cosmic battle against drought; stellar hero; Sirius personified"
+    mythic_narrative_summary: "Tir is the month of Tishtrya (Sirius), the Yazata who battles the drought-demon Apaosha as a white horse against a black horse in a cosmic sea, releasing rain upon the world. Tir also means 'arrow' in Persian — the star Sirius was associated with archery in ancient Iranian tradition."
+  semantic_vocabulary:
+    symbolic_keywords: ["rain", "Sirius", "star", "drought", "battle", "horse", "water", "arrow", "Tishtrya", "summer", "victory", "Apaosha"]
+    mythic_narrative: "Tir is the fourth month of the Persian calendar, governed by Tishtrya — the Yazata of rain and the star Sirius. The Tishtar Yasht recounts Tishtrya's three transformations (young man, bull, white stallion) as he plunges into the cosmic sea Vourukasha to battle Apaosha, the demonic black horse of drought. In the first two forms Apaosha defeats him; in the third, empowered by the prayers of the faithful, the white horse Tishtrya overcomes the black horse Apaosha, and the waters of rain are released. The name Tir also means 'arrow' in Middle Persian — a double identity of stellar archer and rain-deity. The Tiregan water festival (Tir 13) celebrates the summer rain."
+    visual_motifs: ["white horse vs black horse", "cosmic sea battle", "Sirius star", "rain clouds", "arrow flight", "Tiregan water-play"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Mythological tradition; public academic record"
+    source_authorization: "Wikipedia + Encyclopaedia Iranica + Tishtar Yasht (Avestan primary text)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tishtrya"
+    secondary_sources:
+      - "Wikipedia: Tir (month)"
+      - "Wikipedia: Tiregan"
+      - "Encyclopaedia Iranica: Tištrya"
+    academic_anchor: "Avestan Tishtar Yasht (Yt. 8); Encyclopaedia Iranica: Tištrya (M. Boyce)"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "persian-005"
+  sign_name:
+    primary: "Mordad"
+    variants: ["Amurdad", "Ameretat (Avestan)", "Murdad", "Amordad"]
+    romanization: "Mordad"
+    native_script: "مرداد"
+  cultural_tradition:
+    primary_culture: "Persian / Zoroastrian"
+    derivative_cultures: ["Iranian Islamic calendar", "Modern Solar Hijri calendar"]
+    geographic_origin: "Iran / Greater Iran"
+    period_range: "Avestan tradition ~1500–600 BCE; Sassanid codification ~224–651 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Persian/Zoroastrian calendar months (with Yazata guardians)"
+    total_signs_in_system: 12
+    position_in_system: 5
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: "Ameretat (Immortality / Abundance / Long Life) — Amesha Spenta"
+      season: "Late summer"
+      other:
+        western_zodiac_equivalent: "Leo"
+        zoroastrian_virtue: "Immortality; abundance; verdant growth; longevity"
+        yazata_avestan: "Ameretat (Amərətāt)"
+        yazata_role: "Governs plants and immortality; paired with Haurvatat (Wholeness); together the twin blessings"
+        amesha_spenta: true
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/7/75/Hortus_Conclusus_hawthorn_2.jpg"
+      description: "Flourishing plant growth — symbol of Ameretat's domain of plants and immortality"
+      source: "Wikipedia Commons"
+      license: "CC-BY-SA"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars: []
+      notes: "Mordad corresponds to Leo sky sector"
+    asterism_schematic:
+      description: "Corresponds to Leo sky sector"
+      line_topology: ""
+    cultural_iconography:
+      description: "Mordad is the month of Ameretat, the Amesha Spenta of Immortality. Her domain is the plant kingdom — trees, herbs, and all vegetation — because plants grow, die, and return, enacting immortality in the natural world. Paired with Haurvatat (Wholeness/Water), they represent the twin blessings: Haurvatat brings rain and Ameretat makes plants grow. The sacred haoma plant (used in Zoroastrian ritual as a drink of immortality) is Ameretat's special charge. Ameretat also combats the demon Zairi (who brings poison and plant-death). Immortality in Zoroastrianism means the perfection of the resurrection body — not mere deathlessness but glorious transformation."
+      reference_sources:
+        - "Wikipedia: Ameretat"
+        - "Wikipedia: Amesha Spenta"
+        - "Encyclopaedia Iranica: Ameretat"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Ameretat"
+        - "https://en.wikipedia.org/wiki/Amesha_Spenta"
+  primitive_association_hints:
+    suggested_element: "Earth (plants / growth) or Water (haoma)"
+    suggested_attribute: "VIT"
+    suggested_animal_form: ""
+    suggested_object_form: "Haoma plant / tree of life"
+    symbolic_role: "Immortality; abundance; plant life; transformation; resurrection; the sacred haoma"
+    mythic_narrative_summary: "Mordad is the month of Ameretat (Immortality), Amesha Spenta of plants and eternal life. Her sacred plant is haoma, the ritual drink granting immortality. She combats the poison-demon Zairi. Together with Haurvatat she embodies complete material blessing: wholeness of health + immortality of life."
+  semantic_vocabulary:
+    symbolic_keywords: ["immortality", "plants", "abundance", "haoma", "growth", "eternal life", "Ameretat", "resurrection", "verdant", "healing herbs"]
+    mythic_narrative: "Mordad (the month of Ameretat) is the fifth month of the Persian calendar. Ameretat, whose name means 'deathlessness' or 'immortality,' is the sixth of the Amesha Spentas. She governs the plant kingdom — the realm in which the principle of death-and-renewal most visibly manifests. The sacred haoma plant is her special charge; the haoma ceremony extracts an immortality-conferring ritual drink from this plant. Ameretat and Haurvatat are always mentioned together: water brings the plants up (Haurvatat) and the plants live and return (Ameretat). In eschatology, Ameretat's blessing is the glorious immortal body of the Frashokereti — the cosmic renovation at the end of time."
+    visual_motifs: ["haoma plant", "tree of life", "verdant spring growth", "sacred grove", "immortality elixir vessel"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Academic + living religious tradition"
+    source_authorization: "Wikipedia + Encyclopaedia Iranica"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Ameretat"
+    secondary_sources:
+      - "Wikipedia: Mordad"
+      - "Wikipedia: Haoma"
+      - "Encyclopaedia Iranica: Ameretat"
+    academic_anchor: "Encyclopaedia Iranica: Ameretat (M. Boyce)"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "persian-006"
+  sign_name:
+    primary: "Shahrivar"
+    variants: ["Shahrevar", "Kshathra Vairya (Avestan)", "Khshathra Vairya", "Shahriyar"]
+    romanization: "Shahrivar"
+    native_script: "شهریور"
+  cultural_tradition:
+    primary_culture: "Persian / Zoroastrian"
+    derivative_cultures: ["Iranian Islamic calendar", "Modern Solar Hijri calendar"]
+    geographic_origin: "Iran / Greater Iran"
+    period_range: "Avestan tradition ~1500–600 BCE; Sassanid codification ~224–651 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Persian/Zoroastrian calendar months (with Yazata guardians)"
+    total_signs_in_system: 12
+    position_in_system: 6
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: "Kshathra Vairya (Ideal / Desirable Dominion; the Kingdom of Righteousness) — Amesha Spenta"
+      season: "Late summer / early autumn"
+      other:
+        western_zodiac_equivalent: "Virgo"
+        zoroastrian_virtue: "Ideal dominion; righteous power; social justice; protection of the poor"
+        yazata_avestan: "Kshathra Vairya (Xšaθra Vairiia)"
+        yazata_role: "Governs metals; represents ideal righteous kingship and divine power; protects the poor and weak"
+        amesha_spenta: true
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/7/78/Ancient_Achaemenid_sword.jpg"
+      description: "Ancient Persian metal weaponry — metals are Kshathra Vairya's sacred domain"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars: []
+      notes: "Shahrivar corresponds to Virgo sky sector"
+    asterism_schematic:
+      description: "Corresponds to Virgo sky sector"
+      line_topology: ""
+    cultural_iconography:
+      description: "Shahrivar is the month of Kshathra Vairya, the Amesha Spenta of Divine Dominion. The name translates as 'Desirable Dominion' or 'the Kingdom to be Wished For' — the ideal righteous rule of Ahura Mazda that will be fully realized at the end of time (Frashokereti). Kshathra Vairya governs metals, because metals are the material substance of divine power (weapons for justice, tools for civilization). The Amesha Spenta has special charge over protection of the poor and the weak — the ideal kingdom must be just and equal. Kshathra Vairya also represents the sky-dome of stars (the metals of heaven)."
+      reference_sources:
+        - "Wikipedia: Kshathra Vairya"
+        - "Wikipedia: Amesha Spenta"
+        - "Encyclopaedia Iranica: Khshathra"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Kshathra_Vairya"
+        - "https://en.wikipedia.org/wiki/Amesha_Spenta"
+  primitive_association_hints:
+    suggested_element: "Metal / Earth"
+    suggested_attribute: "STR"
+    suggested_animal_form: ""
+    suggested_object_form: "Metal weapon / crown of the righteous king"
+    symbolic_role: "Righteous power; ideal dominion; metals; justice; protection of the poor"
+    mythic_narrative_summary: "Shahrivar is the month of Kshathra Vairya — the Zoroastrian ideal of perfect righteous rule, to be fully realized at Frashokereti. His material domain is metals, symbolizing divine power made manifest. He champions the poor and weak against oppression, embodying the Zoroastrian ethic of social justice in divine kingship."
+  semantic_vocabulary:
+    symbolic_keywords: ["dominion", "righteousness", "metals", "kingdom", "justice", "power", "kingship", "sky-vault", "protection", "Kshathra Vairya"]
+    mythic_narrative: "Shahrivar is the sixth Persian calendar month, governed by Kshathra Vairya (Desirable Dominion). This Amesha Spenta personifies the ideal righteous kingdom — divine power exercised with justice. Metals are his sacred domain (both earthly metals and the metal sky-dome). He is the champion of the poor and oppressed; the righteous kingdom must above all protect the vulnerable. In eschatological vision, Kshathra Vairya's dominion is fulfilled at Frashokereti — the renovation of the world — when all creation becomes whole, just, and immortal."
+    visual_motifs: ["metal crown", "righteous king enthroned", "sword of justice", "sky-dome of stars", "poor protected by divine power"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Academic + public living tradition"
+    source_authorization: "Wikipedia + Encyclopaedia Iranica"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Kshathra_Vairya"
+    secondary_sources:
+      - "Wikipedia: Shahrivar"
+      - "Wikipedia: Amesha Spenta"
+    academic_anchor: "Encyclopaedia Iranica: Khshathra (M. Boyce)"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "persian-007"
+  sign_name:
+    primary: "Mehr"
+    variants: ["Mihr (Middle Persian)", "Mithra (Avestan)", "Mitra (Old Iranian)", "Mehrmah"]
+    romanization: "Mehr"
+    native_script: "مهر"
+  cultural_tradition:
+    primary_culture: "Persian / Zoroastrian"
+    derivative_cultures: ["Roman Mithraism (derivative cult)", "Iranian Islamic calendar", "Modern Solar Hijri calendar"]
+    geographic_origin: "Iran / Greater Iran / Roman Empire (via Mithraism)"
+    period_range: "Avestan origin ~1500 BCE; Roman Mithraism ~1st–4th century CE; Zoroastrian calendar ~224–651 CE Sassanid"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Persian/Zoroastrian calendar months (with Yazata guardians)"
+    total_signs_in_system: 12
+    position_in_system: 7
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: "Mithra — Yazata of covenant, contracts, friendship, light, and the sun"
+      season: "Autumn (harvest season)"
+      other:
+        western_zodiac_equivalent: "Libra"
+        zoroastrian_virtue: "Keeping covenants; friendship; light; justice in contracts"
+        yazata_avestan: "Mithra (Miθra)"
+        yazata_role: "Cosmic overseer of covenants and oaths; friend of Ahura Mazda; sun-adjacent deity; one of the greatest Yazatas"
+        major_yazata: true
+        amesha_spenta: false
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/8/87/Mithras_sacrificing_bull.jpg"
+      description: "Roman Mithraic tauroctony — Mithras/Mithra slaying the bull; Roman derivative iconography"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://upload.wikimedia.org/wikipedia/commons/3/33/Mithra_Khuzestan.jpg"
+        description: "Persian Mithra relief — Achaemenid-era depiction of Mithra"
+        source: "Wikipedia Commons"
+        license: "Public Domain"
+        verified_loads: true
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars: []
+      notes: "Mehr corresponds to Libra sky sector; Mithra also associated with solar disc and sunrise"
+    asterism_schematic:
+      description: "Corresponds to Libra sky sector; Mithra also has a solar identity (sun as the eye of Mithra)"
+      line_topology: ""
+    cultural_iconography:
+      description: "Mehr is the month of Mithra, one of the most important and beloved Yazatas in the entire Iranian tradition. Mithra is the divine guardian of covenants, contracts, and promises — to break an oath sworn before Mithra is the gravest sin. He is also a god of friendship, light, and solar energy (the sun is called 'the eye of Mithra'). His 10,000-spied chariot rides across the sky. The Mihragan festival (Mehr 16) is one of the two great Persian festivals (paired with Nowruz in spring). Roman soldiers spread Mithraism throughout the empire — the tauroctony (bull-slaying) scene is Roman Mithraic iconography; Avestan Mithra does not slay bulls but is honored as the greatest contract-deity."
+      reference_sources:
+        - "Wikipedia: Mithra"
+        - "Wikipedia: Mihragan"
+        - "Wikipedia: Mithraism"
+        - "Encyclopaedia Iranica: Mithra"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Mithra"
+        - "https://en.wikipedia.org/wiki/Mihragan"
+  primitive_association_hints:
+    suggested_element: "Fire / Light (sun; solar energy)"
+    suggested_attribute: "INT"
+    suggested_animal_form: ""
+    suggested_object_form: "Solar disc / scales of justice / 10,000-spied chariot"
+    symbolic_role: "Covenant; contract; friendship; light; justice; solar energy; the binding oath"
+    mythic_narrative_summary: "Mehr is the month of Mithra, the great Yazata of covenants and light. He watches over all sworn oaths and punishes those who break them. His solar identity makes him a god of illumination and clear judgment. His festival Mihragan (Mehr 16) is autumn's counterpart to Nowruz."
+  semantic_vocabulary:
+    symbolic_keywords: ["covenant", "contract", "friendship", "light", "sun", "oath", "justice", "harvest", "Mithra", "Mihragan", "chariot of the sun"]
+    mythic_narrative: "Mehr is the seventh Persian calendar month, governed by Mithra. Mithra is the Yazata of contracts and covenants — the cosmic guarantor that all oaths are kept. Anyone who breaks a Mithra-oath faces his 10,000 watchful eyes and righteous punishment. Mithra also personifies light and is sometimes equated with the sun itself (the sun is 'the eye of Mithra'). The Mihragan festival (Mehr 16) was historically one of the greatest Persian celebrations — autumn's harvest feast. Roman soldiers encountering Mithra in the Achaemenid east spread his cult throughout the empire, transforming it into Mithraism with the iconic bull-slaying tauroctony — an iconographic development not present in Avestan Zoroastrianism."
+    visual_motifs: ["solar disc", "10,000 eyes", "chariot of light", "scales of justice", "bull motif (Roman derivative)", "harvest celebration"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Major public historical and living tradition; well-documented academically"
+    source_authorization: "Wikipedia + Encyclopaedia Iranica + classical sources"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Mithra"
+    secondary_sources:
+      - "Wikipedia: Mehr (month)"
+      - "Wikipedia: Mihragan"
+      - "Wikipedia: Mithraism"
+      - "Encyclopaedia Iranica: Mithra"
+    academic_anchor: "Encyclopaedia Iranica: Mithra (I. Gershevitch + M. Boyce)"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "persian-008"
+  sign_name:
+    primary: "Aban"
+    variants: ["Āban (Middle Persian)", "Apas/Aredvi Sura Anahita (Avestan)", "Abanmah"]
+    romanization: "Aban"
+    native_script: "آبان"
+  cultural_tradition:
+    primary_culture: "Persian / Zoroastrian"
+    derivative_cultures: ["Iranian Islamic calendar", "Modern Solar Hijri calendar", "Anahita cult (Achaemenid-era international)"]
+    geographic_origin: "Iran / Greater Iran"
+    period_range: "Avestan tradition ~1500–600 BCE; Sassanid codification ~224–651 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Persian/Zoroastrian calendar months (with Yazata guardians)"
+    total_signs_in_system: 12
+    position_in_system: 8
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: "Apas (Waters) — also associated with Aredvi Sura Anahita (the great water-goddess)"
+      season: "Autumn (rains return)"
+      other:
+        western_zodiac_equivalent: "Scorpio"
+        zoroastrian_virtue: "Purity of water; life-giving waters; female divine power"
+        yazata_avestan: "Apas (Āpas — the Waters); Aredvi Sura Anahita (the great Yazata of waters)"
+        yazata_role: "Presides over all waters; Anahita is the great water-goddess associated with fertility, healing, wisdom, and war"
+        amesha_spenta: false
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/7/74/Anahita_relief.jpg"
+      description: "Anahita — Achaemenid-era relief of the water-goddess"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Aban_river_iran.jpg"
+        description: "Persian river — waters sacred to Apas and Anahita"
+        source: "Wikipedia Commons"
+        license: "CC-BY-SA"
+        verified_loads: true
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars: []
+      notes: "Aban corresponds to Scorpio sky sector"
+    asterism_schematic:
+      description: "Corresponds to Scorpio sky sector"
+      line_topology: ""
+    cultural_iconography:
+      description: "Aban is the month of Apas (the Waters) and by extension the great Yazata Aredvi Sura Anahita. Anahita (whose full Avestan name means 'Undefiled / Mighty / Immaculate') is the goddess of all waters, fertility, healing, wisdom, and battle. She is depicted as a beautiful young woman wearing a golden crown with star-shaped jewels, beaver-fur cloak, and holding baresman (sacred twigs). Anahita had major cult centers throughout the Achaemenid empire. The Aban Yasht (Avestan hymn) is a lengthy narrative of Anahita's nature and powers. The Aban festival falls on Aban 10. Aban also means 'water' in Persian — this month is associated with autumn rains and the return of life-giving moisture."
+      reference_sources:
+        - "Wikipedia: Anahita"
+        - "Wikipedia: Aban Yasht"
+        - "Wikipedia: Aban (month)"
+        - "Encyclopaedia Iranica: Anāhitā"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Anahita"
+        - "https://en.wikipedia.org/wiki/Aban_Yasht"
+  primitive_association_hints:
+    suggested_element: "Water"
+    suggested_attribute: "INT"
+    suggested_animal_form: "Beaver (sacred animal of Anahita)"
+    suggested_object_form: "Golden crown / water vessel / baresman"
+    symbolic_role: "Water; fertility; healing; wisdom; battle; the goddess of rivers and seas"
+    mythic_narrative_summary: "Aban is the month of the Waters, governed by Apas and embodied by Aredvi Sura Anahita — the great Zoroastrian water-goddess. Beautiful, mighty, and immaculate, Anahita presides over all flowing waters, granting fertility, healing, and victory in battle. Her beaver-fur garment reflects her sacred animal."
+  semantic_vocabulary:
+    symbolic_keywords: ["water", "rivers", "fertility", "healing", "Anahita", "goddess", "purity", "autumn rain", "wisdom", "battle", "beaver"]
+    mythic_narrative: "Aban is the eighth Persian calendar month, governed by Apas (the Waters) and most fully embodied by Aredvi Sura Anahita. Anahita is one of the most powerful and widely-worshipped Yazatas — a water-goddess of enormous scope: she governs all flowing water from the cosmic spring Aredvi, fertility of plants and wombs, healing, and victory in warfare. Her full Avestan epithet means 'Undefiled, Mighty, Immaculate.' She wears a beaver-fur cloak (beaver as sacred water-animal). The Aban Yasht is one of the longest and richest hymns in the Avestan corpus, narrating the many heroes and kings who worshipped her and received her blessings."
+    visual_motifs: ["river goddess", "golden crown", "beaver fur", "star jewels", "flowing water", "Anahita relief"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Historical + public living tradition; widely documented"
+    source_authorization: "Wikipedia + Encyclopaedia Iranica + Avestan primary texts"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Anahita"
+    secondary_sources:
+      - "Wikipedia: Aban (month)"
+      - "Wikipedia: Aban Yasht"
+      - "Encyclopaedia Iranica: Anāhitā"
+    academic_anchor: "Encyclopaedia Iranica: Anāhitā (M. Boyce)"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "persian-009"
+  sign_name:
+    primary: "Azar"
+    variants: ["Āzar (Middle Persian)", "Atar (Avestan)", "Adhar", "Azarmah"]
+    romanization: "Azar"
+    native_script: "آذر"
+  cultural_tradition:
+    primary_culture: "Persian / Zoroastrian"
+    derivative_cultures: ["Iranian Islamic calendar", "Modern Solar Hijri calendar"]
+    geographic_origin: "Iran / Greater Iran"
+    period_range: "Avestan tradition ~1500–600 BCE; Sassanid codification ~224–651 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Persian/Zoroastrian calendar months (with Yazata guardians)"
+    total_signs_in_system: 12
+    position_in_system: 9
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: "Atar — Sacred Fire itself; the divine son of Ahura Mazda"
+      season: "Early winter (fire festivals; longest nights approaching)"
+      other:
+        western_zodiac_equivalent: "Sagittarius"
+        zoroastrian_virtue: "Sacred fire; purification; divine energy; victory over evil"
+        yazata_avestan: "Atar (Ātar)"
+        yazata_role: "The divine fire — both the sacred ritual flame and cosmic spiritual fire; son of Ahura Mazda; battles the dragon Azhi Dahaka for cosmic fire"
+        amesha_spenta: false
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Fire_temple_yazd.jpg"
+      description: "Zoroastrian fire temple with the eternal flame — Atar personified"
+      source: "Wikipedia Commons"
+      license: "CC-BY-SA"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://upload.wikimedia.org/wikipedia/commons/4/47/Chaharshanbe_Suri.jpg"
+        description: "Chaharshanbe Suri fire-jumping — the Persian fire festival associated with Azar"
+        source: "Wikipedia Commons"
+        license: "CC-BY-SA"
+        verified_loads: true
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars: []
+      notes: "Azar corresponds to Sagittarius sky sector"
+    asterism_schematic:
+      description: "Corresponds to Sagittarius sky sector"
+      line_topology: ""
+    cultural_iconography:
+      description: "Azar is the month of Atar, the sacred fire — the most holy physical element in Zoroastrianism. Atar is the divine son of Ahura Mazda, the living presence of the deity in the physical world. Every fire maintained in a fire temple is a form of Atar. The highest grade, Atash Behram, is fed with sixteen different categories of fire before consecration. In myth, Atar battles the dragon Azhi Dahaka (the serpent-shouldered tyrant) for possession of the divine cosmic fire (xvarenah). The Azar feast day (Azar 9) is when the month name and day name align — a special celebration. The name Azar means 'fire' in Persian and lives on in Persian personal names (Azar, Azarin, Azaradel)."
+      reference_sources:
+        - "Wikipedia: Atar"
+        - "Wikipedia: Azar (month)"
+        - "Wikipedia: Zoroastrianism"
+        - "Encyclopaedia Iranica: Ātar"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Atar"
+  primitive_association_hints:
+    suggested_element: "Fire (sacred; divine)"
+    suggested_attribute: "STR"
+    suggested_animal_form: ""
+    suggested_object_form: "Sacred flame / fire altar"
+    symbolic_role: "Sacred fire; divine presence; purification; cosmic victory; son of God"
+    mythic_narrative_summary: "Azar is the month of Atar, sacred fire and son of Ahura Mazda. Atar is the most physically present divine being — every flame is his body. In Zoroastrian cosmology Atar battles Azhi Dahaka (the Dragon) for the divine cosmic fire (xvarenah), the glory of righteous kings, ultimately preserving it for the Saoshyant (future savior)."
+  semantic_vocabulary:
+    symbolic_keywords: ["fire", "sacred flame", "divine son", "purification", "xvarenah", "dragon battle", "Atar", "fire temple", "winter fire", "glory"]
+    mythic_narrative: "Azar is the ninth Persian calendar month, governed by Atar — the sacred fire, child of Ahura Mazda. In Zoroastrian theology, Atar is not merely a symbol of the divine; he IS the divine made present in the physical world. Every sacred fire in every temple is literally Atar. The mythic narrative in the Avesta tells how Atar pursues the dragon Azhi Dahaka across sea and sky to recover the xvarenah (divine glory / royal charisma), which Dahaka had stolen. Atar ultimately triumphs, preserving the xvarenah for the Saoshyant (messianic savior) who will renovate the world at the end of time."
+    visual_motifs: ["fire altar", "eternal flame", "dragon chased by fire", "xvarenah radiant glory", "fire temple interior", "Azar fire festival"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Academic + public living religious tradition"
+    source_authorization: "Wikipedia + Encyclopaedia Iranica + Avestan primary texts"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Atar"
+    secondary_sources:
+      - "Wikipedia: Azar (month)"
+      - "Encyclopaedia Iranica: Ātar"
+    academic_anchor: "Encyclopaedia Iranica: Ātar (M. Boyce)"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "persian-010"
+  sign_name:
+    primary: "Dey"
+    variants: ["Dai (Middle Persian)", "Daday (Avestan)", "Da (Avestan)", "Daimah"]
+    romanization: "Dey"
+    native_script: "دی"
+  cultural_tradition:
+    primary_culture: "Persian / Zoroastrian"
+    derivative_cultures: ["Iranian Islamic calendar", "Modern Solar Hijri calendar"]
+    geographic_origin: "Iran / Greater Iran"
+    period_range: "Avestan tradition ~1500–600 BCE; Sassanid codification ~224–651 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Persian/Zoroastrian calendar months (with Yazata guardians)"
+    total_signs_in_system: 12
+    position_in_system: 10
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: "Ahura Mazda — the Wise Lord; supreme deity and creator of Zoroastrianism"
+      season: "Midwinter (winter solstice season; Yalda Night)"
+      other:
+        western_zodiac_equivalent: "Capricorn"
+        zoroastrian_virtue: "Supreme wisdom; creation; goodness itself"
+        yazata_avestan: "Ahura Mazda (Ahura Mazdā — 'Wise Lord')"
+        yazata_role: "Not a Yazata but the supreme deity — Dey is the only month named after Ahura Mazda himself; Da- prefix in Avestan = 'created by' the Wise Lord"
+        supreme_deity: true
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/5/51/Faravahar_Gold.png"
+      description: "Faravahar — the supreme symbol of Ahura Mazda and Zoroastrianism"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Persepolis_Ahura_Mazda.jpg"
+        description: "Ahura Mazda relief at Persepolis — Achaemenid-era depiction of the Wise Lord"
+        source: "Wikipedia Commons"
+        license: "Public Domain"
+        verified_loads: true
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars: []
+      notes: "Dey corresponds to Capricorn sky sector; winter solstice occurs in this month"
+    asterism_schematic:
+      description: "Corresponds to Capricorn sky sector; Yalda Night (winter solstice — longest night) falls at the start of Dey"
+      line_topology: ""
+    cultural_iconography:
+      description: "Dey is the month of Ahura Mazda, the supreme creator god of Zoroastrianism. The name Dey derives from the Avestan Da- ('Creator'). This is the only month dedicated directly to the supreme deity. Dey begins with Yalda Night (Shab-e Yalda) — the winter solstice, the longest night of the year, which Iranians celebrate with family gatherings, pomegranates, watermelons, poetry (especially Hafez), and staying awake until dawn to welcome the return of the light — a metaphor for Ahura Mazda's light overcoming the darkness of Angra Mainyu. Dey is also historically associated with the Sadeh festival (Dey 10) — a fire festival celebrating fire's victory over cold and darkness."
+      reference_sources:
+        - "Wikipedia: Ahura Mazda"
+        - "Wikipedia: Dey (month)"
+        - "Wikipedia: Yalda Night"
+        - "Wikipedia: Sadeh"
+        - "Encyclopaedia Iranica: Ahura Mazdā"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Ahura_Mazda"
+        - "https://en.wikipedia.org/wiki/Yalda_Night"
+  primitive_association_hints:
+    suggested_element: "Light (divine light defeating winter darkness)"
+    suggested_attribute: "INT"
+    suggested_animal_form: ""
+    suggested_object_form: "Faravahar / Persepolis relief / pomegranate (Yalda)"
+    symbolic_role: "Supreme creator; divine wisdom; light overcoming darkness; winter solstice renewal"
+    mythic_narrative_summary: "Dey is the month of Ahura Mazda, the Wise Lord and supreme creator of Zoroastrianism. The month opens with Yalda Night (winter solstice) — the longest night, a vigil until dawn symbolizing light's return. Ahura Mazda's eternal conflict with Angra Mainyu (the Destructive Spirit) is expressed in the triumph of light over winter darkness."
+  semantic_vocabulary:
+    symbolic_keywords: ["Ahura Mazda", "Wise Lord", "creator", "light", "winter solstice", "Yalda", "divine wisdom", "goodness", "darkness overcome", "fire festival"]
+    mythic_narrative: "Dey is the tenth Persian calendar month and the only month directly dedicated to Ahura Mazda himself. The Avestan Da- prefix marks this as 'the Creator's month.' Dey opens with Yalda Night (Shab-e Yalda), the Iranian winter solstice festival — the longest night of the year. Families gather to read Hafez, eat pomegranates and watermelons, and stay awake until sunrise in vigil for the return of the light. This is a direct metaphor for the Zoroastrian cosmic drama: Ahura Mazda (eternal light, goodness, truth) locked in cosmic struggle against Angra Mainyu (darkness, destructive spirit). The winter solstice marks the turning point — from here, the light grows. The Sadeh fire festival (Dey 10) celebrates fire's protection against winter cold."
+    visual_motifs: ["Persepolis Ahura Mazda relief", "Faravahar gold", "pomegranate", "candlelit Yalda table", "sunrise after the long night", "Sadeh bonfire"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Public academic + living cultural tradition"
+    source_authorization: "Wikipedia + Encyclopaedia Iranica"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Ahura_Mazda"
+    secondary_sources:
+      - "Wikipedia: Dey (month)"
+      - "Wikipedia: Yalda Night"
+      - "Wikipedia: Sadeh"
+    academic_anchor: "Encyclopaedia Iranica: Ahura Mazdā (M. Boyce)"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "persian-011"
+  sign_name:
+    primary: "Bahman"
+    variants: ["Wahman (Middle Persian)", "Vohu Manah (Avestan)", "Vohuman", "Bahmenmah"]
+    romanization: "Bahman"
+    native_script: "بهمن"
+  cultural_tradition:
+    primary_culture: "Persian / Zoroastrian"
+    derivative_cultures: ["Iranian Islamic calendar", "Modern Solar Hijri calendar"]
+    geographic_origin: "Iran / Greater Iran"
+    period_range: "Avestan tradition ~1500–600 BCE; Sassanid codification ~224–651 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Persian/Zoroastrian calendar months (with Yazata guardians)"
+    total_signs_in_system: 12
+    position_in_system: 11
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: "Vohu Manah (Good Mind / Good Purpose / Good Thought) — first and greatest Amesha Spenta"
+      season: "Late winter"
+      other:
+        western_zodiac_equivalent: "Aquarius"
+        zoroastrian_virtue: "Good thought; right intention; moral purpose; cattle protection"
+        yazata_avestan: "Vohu Manah (Vohū Manah)"
+        yazata_role: "First and most important Amesha Spenta; divine intermediary who conveyed Ahura Mazda's revelation to Zarathustra; governs cattle"
+        amesha_spenta: true
+        first_amesha_spenta: true
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/8/8f/Cattle_iran.jpg"
+      description: "Iranian cattle — sacred animals governed by Vohu Manah"
+      source: "Wikipedia Commons"
+      license: "CC-BY-SA"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars: []
+      notes: "Bahman corresponds to Aquarius sky sector"
+    asterism_schematic:
+      description: "Corresponds to Aquarius sky sector"
+      line_topology: ""
+    cultural_iconography:
+      description: "Bahman is the month of Vohu Manah (Good Mind), the first and greatest of the Amesha Spentas. Vohu Manah is the divine intermediary — it was Vohu Manah who appeared to Zarathustra and led him into the presence of Ahura Mazda, initiating the prophet's revelation. Vohu Manah's material domain is cattle, because cattle were essential to Iranian pastoral life and represent cooperative partnership between humans and animals. The Bahman festival (Bahman 2) is celebrated with milk, eggs, and white foods. The name Bahman ('good purpose / good mind') is a common Persian personal name. The Zoroastrian ethical triad is: Good Thoughts (Vohu Manah), Good Words (Hukhta), Good Deeds (Hvarshta) — Vohu Manah is the fountainhead."
+      reference_sources:
+        - "Wikipedia: Vohu Manah"
+        - "Wikipedia: Amesha Spenta"
+        - "Wikipedia: Bahman (month)"
+        - "Encyclopaedia Iranica: Wahman"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Vohu_Manah"
+        - "https://en.wikipedia.org/wiki/Amesha_Spenta"
+  primitive_association_hints:
+    suggested_element: "Air / Light (mental clarity; illumination)"
+    suggested_attribute: "INT"
+    suggested_animal_form: "Cattle (ox)"
+    suggested_object_form: "Scroll / lamp (illuminated mind)"
+    symbolic_role: "Good thought; moral purpose; divine revelation channel; right intention"
+    mythic_narrative_summary: "Bahman is the month of Vohu Manah (Good Mind) — the first and foremost Amesha Spenta, the one who appeared to Zarathustra and conveyed Ahura Mazda's revelation. Vohu Manah embodies the fundamental Zoroastrian virtue: right thought is the source of right word and right action. His material domain is cattle — the collaborative pastoral partner of human civilization."
+  semantic_vocabulary:
+    symbolic_keywords: ["good mind", "right thought", "moral purpose", "revelation", "cattle", "divine intermediary", "Vohu Manah", "Zarathustra", "winter", "clarity"]
+    mythic_narrative: "Bahman is the eleventh Persian calendar month, governed by Vohu Manah (Good Mind / Good Purpose). Vohu Manah is the first and most exalted of the Amesha Spentas — the divine intermediary through whom Ahura Mazda communicated with Zarathustra. According to Zoroastrian scripture, it was Vohu Manah who first appeared to the prophet in a vision, leading him up to the divine assembly where he received his revelation. Vohu Manah's cosmic function is to channel good thought into creation — he is the divine archetype of moral intellect. His earthly domain is cattle, representing the domesticated cooperation between human and animal that sustains pastoral civilization. The Zoroastrian ethical triad — Good Thoughts, Good Words, Good Deeds — begins with Vohu Manah."
+    visual_motifs: ["divine figure approaching prophet", "cattle herd", "illuminated scroll", "mind as lamp", "winter sky with stars"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Academic + public living tradition"
+    source_authorization: "Wikipedia + Encyclopaedia Iranica"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Vohu_Manah"
+    secondary_sources:
+      - "Wikipedia: Bahman (month)"
+      - "Wikipedia: Amesha Spenta"
+      - "Encyclopaedia Iranica: Wahman"
+    academic_anchor: "Encyclopaedia Iranica: Wahman (M. Boyce)"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "persian-012"
+  sign_name:
+    primary: "Esfand"
+    variants: ["Spandarmad (Middle Persian)", "Spenta Armaiti (Avestan)", "Isfand", "Esfandmah"]
+    romanization: "Esfand"
+    native_script: "اسفند"
+  cultural_tradition:
+    primary_culture: "Persian / Zoroastrian"
+    derivative_cultures: ["Iranian Islamic calendar", "Modern Solar Hijri calendar"]
+    geographic_origin: "Iran / Greater Iran"
+    period_range: "Avestan tradition ~1500–600 BCE; Sassanid codification ~224–651 CE"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Persian/Zoroastrian calendar months (with Yazata guardians)"
+    total_signs_in_system: 12
+    position_in_system: 12
+    sign_classification:
+      element: ""
+      modality: ""
+      quadrant: ""
+      deity_association: "Spenta Armaiti (Holy Devotion / Holy Humility / Holy Earth) — Amesha Spenta"
+      season: "Late winter / end of year"
+      other:
+        western_zodiac_equivalent: "Pisces"
+        zoroastrian_virtue: "Holy devotion; humble obedience to God; earth; women; fertility"
+        yazata_avestan: "Spenta Armaiti (Spəntā Ārmaiti)"
+        yazata_role: "Governs the earth itself; associated with women and pious devotion; daughter of Ahura Mazda; earth is her body"
+        amesha_spenta: true
+        female_deity: true
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/6/6b/Iranian_women_nowruz.jpg"
+      description: "Iranian women at Nowruz preparation — Spenta Armaiti governs women and earth"
+      source: "Wikipedia Commons"
+      license: "CC-BY-SA"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://upload.wikimedia.org/wikipedia/commons/1/1f/Spring_flowers_iran.jpg"
+        description: "Spring flowers blooming in Iran — earth fertility as the domain of Esfand / Spenta Armaiti"
+        source: "Wikipedia Commons"
+        license: "CC-BY-SA"
+        verified_loads: true
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars: []
+      notes: "Esfand corresponds to Pisces sky sector; year ends here before Nowruz (Farvardin)"
+    asterism_schematic:
+      description: "Corresponds to Pisces sky sector; end of the annual cycle"
+      line_topology: ""
+    cultural_iconography:
+      description: "Esfand is the final month of the Persian year, governed by Spenta Armaiti (Holy Devotion). Spenta Armaiti is the Amesha Spenta of the earth — the earth itself is her body, and all who walk upon it benefit from her nurturing presence. She is also the patron of women and pious devotion (armaiti means 'holy devotion' or 'right-mindedness' — the humble, devoted attitude toward the divine). The Esfandegan (Sepandarmazgan) festival (Esfand 5) is the ancient Iranian Valentine's Day — a day honoring women and expressing love. The burning of wild rue (esfand, the name plant) is a traditional Persian fumigation practice to ward off evil eye. The month closes the year before Nowruz renews it."
+      reference_sources:
+        - "Wikipedia: Spenta Armaiti"
+        - "Wikipedia: Amesha Spenta"
+        - "Wikipedia: Esfand (month)"
+        - "Wikipedia: Sepandarmazgan"
+        - "Encyclopaedia Iranica: Spənta Armaiti"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Spenta_Armaiti"
+        - "https://en.wikipedia.org/wiki/Sepandarmazgan"
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "VIT"
+    suggested_animal_form: ""
+    suggested_object_form: "Earth / wild rue herb (esfand) / incense burner"
+    symbolic_role: "Earth; devotion; women; humility; pious love; year's close; fertility"
+    mythic_narrative_summary: "Esfand closes the Persian year under Spenta Armaiti (Holy Devotion) — the earth-goddess Amesha Spenta, daughter of Ahura Mazda, whose body is the earth. She governs women and pious devotion. Esfandegan (Esfand 5) is the ancient Iranian day of love and honoring women. Wild rue (esfand) burned as incense wards off evil."
+  semantic_vocabulary:
+    symbolic_keywords: ["earth", "devotion", "women", "humility", "fertility", "wild rue", "love", "Spenta Armaiti", "end of year", "piety", "earth-goddess"]
+    mythic_narrative: "Esfand is the twelfth and final Persian calendar month, governed by Spenta Armaiti (Holy Devotion / Holy Earth). Spenta Armaiti is the third Amesha Spenta and the only one primarily depicted as female. Her name means 'holy right-mindedness' — the devoted, humble, correct attitude of the soul toward Ahura Mazda. The earth is her body: she is the soil, fertility, and nourishment beneath all feet. The Esfandegan festival (Esfand 5) is the ancient Iranian celebration of love and women — predating and parallel to Valentine's Day in function. The month closes with the Hamaspathmaedaya period — the last five days of the year, when the Fravashis descend and preparations for Nowruz begin. Esfand also names the wild rue plant (Peganum harmala) burned as protective incense against the evil eye."
+    visual_motifs: ["earth goddess", "fertile soil", "wild rue burning", "incense smoke", "women's celebration", "year-end vigil", "Hamaspathmaedaya ancestral return"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Academic + public living tradition; widely documented"
+    source_authorization: "Wikipedia + Encyclopaedia Iranica"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Spenta_Armaiti"
+    secondary_sources:
+      - "Wikipedia: Esfand (month)"
+      - "Wikipedia: Sepandarmazgan"
+      - "Wikipedia: Amesha Spenta"
+      - "Encyclopaedia Iranica: Spənta Armaiti"
+    academic_anchor: "Encyclopaedia Iranica: Spənta Armaiti (M. Boyce)"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"

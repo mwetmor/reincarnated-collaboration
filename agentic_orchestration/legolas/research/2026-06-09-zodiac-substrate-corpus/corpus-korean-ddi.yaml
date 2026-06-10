@@ -1,0 +1,810 @@
+# corpus-korean-ddi.yaml
+# Korean Ddi (띠) Zodiac — Legolas Mode B Corpus
+# Crawl date: 2026-06-09
+# Source: https://en.wikipedia.org/wiki/Chinese_zodiac (Korean section)
+# 12 entries — sign_ids: korean-ddi-001 through korean-ddi-012
+
+- sign_id: "korean-ddi-001"
+  sign_name:
+    primary: "Ja (Rat)"
+    variants: ["쥐 (Jwi)", "Ja (자)"]
+    romanization: "Ja"
+    native_script: "자 / 쥐 (jwi)"
+  cultural_tradition:
+    primary_culture: "Korean"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Korea (derived from Chinese calendar tradition)"
+    period_range: "Adopted from China during the Three Kingdoms period (~1st–7th century CE)"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Korean Ddi (띠)"
+    total_signs_in_system: 12
+    position_in_system: 1
+    sign_classification:
+      element: "Water"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Winter / Midnight (23:00–01:00)"
+      other:
+        earthly_branch: "子 (Ja)"
+        yin_yang: "Yang"
+        hour_range: "23:00–01:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Korean_zodiac_rat.jpg/320px-Korean_zodiac_rat.jpg"
+      description: "Korean zodiac Rat illustration — representative of Ddi tradition"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar/temporal system; no stellar coordinates applicable."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Korean Ddi (띠) zodiac is central to Korean cultural identity — individuals are described by their 'ddi' (띠, birth-year zodiac sign) in social contexts. The Rat (자/Jwi) is the first sign, associated with cleverness and sociability. In Korea, the zodiac is widely used in matchmaking (궁합, gunghap) to assess compatibility between partners. Rat-year people are considered resourceful, sociable, and quick-witted in Korean folk tradition."
+      reference_sources: ["Wikipedia: Chinese zodiac (Korean section)"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Chinese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Water"
+    suggested_attribute: "AGI"
+    suggested_animal_form: "Rat"
+    suggested_object_form: ""
+    symbolic_role: "First mover; sociable intelligence; Korean matchmaking zodiac anchor"
+    mythic_narrative_summary: "Ja (Rat) is first in the Korean Ddi cycle. The Ddi is central to Korean matchmaking culture (gunghap)."
+  semantic_vocabulary:
+    symbolic_keywords: ["rat", "water", "yang", "Korean", "ddi", "jwi", "first", "midnight", "gunghap", "matchmaking"]
+    mythic_narrative: "The Korean Ddi (띠) zodiac system descends from the Chinese 12-animal cycle, adopted through Chinese cultural influence during the Three Kingdoms period of Korean history. The Rat (자, Ja / 쥐, Jwi) is the first of the 12 signs, corresponding to the midnight hour. In Korean daily life, one's ddi is a routine part of social introduction and self-identification, used in matchmaking compatibility assessments (궁합, gunghap) and to informally reckon age in 12-year cohorts. Rat-year individuals are associated with sharp intelligence and social adaptability."
+    visual_motifs: ["Korean zodiac Rat folk art", "ddi matchmaking chart", "Korean New Year rat illustration"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources: ["Wikipedia: Earthly Branches"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "korean-ddi-002"
+  sign_name:
+    primary: "Chuk (Ox)"
+    variants: ["소 (So)", "Chuk (축)"]
+    romanization: "Chuk"
+    native_script: "축 / 소 (so)"
+  cultural_tradition:
+    primary_culture: "Korean"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Korea"
+    period_range: "Adopted Three Kingdoms period"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Korean Ddi (띠)"
+    total_signs_in_system: 12
+    position_in_system: 2
+    sign_classification:
+      element: "Earth"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Winter / Early Morning (01:00–03:00)"
+      other:
+        earthly_branch: "丑 (Chuk)"
+        yin_yang: "Yin"
+        hour_range: "01:00–03:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Korean_zodiac_ox.jpg/320px-Korean_zodiac_ox.jpg"
+      description: "Korean zodiac Ox illustration"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Ox (축/So) in Korean zodiac tradition is closely tied to agricultural heritage — Korea's rice farming culture revered the ox as the backbone of farming labor. Traditional Korean folk paintings (민화, minhwa) frequently depict oxen in pastoral farming scenes. Chuk-year individuals are associated with patience, diligence, and trustworthiness — values central to Confucian Korean social ethics."
+      reference_sources: ["Wikipedia: Chinese zodiac", "Wikipedia: Korean folk painting"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Chinese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Ox"
+    suggested_object_form: ""
+    symbolic_role: "Agricultural backbone; patient diligence; Korean farming heritage"
+    mythic_narrative_summary: "Chuk (Ox) is second in the Korean Ddi — deeply tied to Korea's rice farming culture where oxen were essential to agricultural labor."
+  semantic_vocabulary:
+    symbolic_keywords: ["ox", "earth", "yin", "Korean", "ddi", "so", "agriculture", "patient", "diligent", "minhwa"]
+    mythic_narrative: "The Ox (축, Chuk / 소, So) is second in the Korean Ddi, governing early morning hours 01:00–03:00. In Korean culture, the ox carries enormous cultural weight as the embodiment of agricultural diligence — Korea's traditional rice-farming economy depended on ox labor, and the ox appears frequently in Korean folk paintings (minhwa) depicting rural life. Chuk-year people are associated with steadfast reliability and hard work, values that resonate with Korea's Confucian cultural foundation."
+    visual_motifs: ["Korean minhwa ox folk painting", "ox in rice paddy scene", "Korean New Year ox illustration"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources: ["Wikipedia: Earthly Branches"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "korean-ddi-003"
+  sign_name:
+    primary: "In (Tiger)"
+    variants: ["호랑이 (Horangi)", "In (인)"]
+    romanization: "In"
+    native_script: "인 / 호랑이 (horangi)"
+  cultural_tradition:
+    primary_culture: "Korean"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Korea"
+    period_range: "Adopted Three Kingdoms period"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Korean Ddi (띠)"
+    total_signs_in_system: 12
+    position_in_system: 3
+    sign_classification:
+      element: "Wood"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Early Spring / Pre-dawn (03:00–05:00)"
+      other:
+        earthly_branch: "寅 (In)"
+        yin_yang: "Yang"
+        hour_range: "03:00–05:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Korean_tiger_minhwa.jpg/320px-Korean_tiger_minhwa.jpg"
+      description: "Korean folk painting (minhwa) tiger — one of the most beloved motifs in Korean art"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Tiger (인/Horangi) is arguably the most culturally prominent zodiac animal in Korea. The Korean tiger (호랑이) is a national symbol — the mascot of the Korean national sports teams, appearing in the 1988 Seoul Olympics mascot Hodori. Korean folk paintings (minhwa) depict tigers in playful or fearsome poses, often accompanied by a magpie (까치). Korean tigers were historically native; the last documented Korean tiger was killed in the early 20th century, giving the tiger a poignant cultural resonance."
+      reference_sources: ["Wikipedia: Chinese zodiac", "Wikipedia: Korean tiger", "Wikipedia: Hodori"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Chinese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Wood"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Tiger"
+    suggested_object_form: ""
+    symbolic_role: "National symbol; Korean folk art icon; fierce protective guardian"
+    mythic_narrative_summary: "In (Tiger) is third — Korea's most culturally loaded zodiac animal. The tiger is Korea's national symbol (1988 Olympics mascot Hodori) and central to Korean folk art tradition."
+  semantic_vocabulary:
+    symbolic_keywords: ["tiger", "wood", "yang", "Korean national symbol", "horangi", "minhwa", "Hodori", "1988 Olympics", "folk art"]
+    mythic_narrative: "The Tiger (인, In / 호랑이, Horangi) is third in the Korean Ddi, governing pre-dawn hours 03:00–05:00. In Korea, the tiger transcends zodiac status to become a national symbol. The Korean tiger (Amur tiger) was historically native to the peninsula; its extinction in the 20th century added a layer of cultural mourning to its iconic status. Korean folk paintings (minhwa) frequently depict tigers in bold, expressive folk-art style. The 1988 Seoul Olympics mascot Hodori — a friendly tiger cub — brought this tradition to global awareness. In-year individuals are considered brave, ambitious, and charismatic leaders."
+    visual_motifs: ["Korean minhwa tiger-magpie folk painting", "Hodori 1988 Olympics mascot", "Korean tiger national emblem"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources: ["Wikipedia: Korean tiger", "Wikipedia: Hodori"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "korean-ddi-004"
+  sign_name:
+    primary: "Myo (Rabbit)"
+    variants: ["토끼 (Tokki)", "Myo (묘)"]
+    romanization: "Myo"
+    native_script: "묘 / 토끼 (tokki)"
+  cultural_tradition:
+    primary_culture: "Korean"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Korea"
+    period_range: "Adopted Three Kingdoms period"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Korean Ddi (띠)"
+    total_signs_in_system: 12
+    position_in_system: 4
+    sign_classification:
+      element: "Wood"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Spring / Dawn (05:00–07:00)"
+      other:
+        earthly_branch: "卯 (Myo)"
+        yin_yang: "Yin"
+        hour_range: "05:00–07:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Korean_rabbit_zodiac.jpg/320px-Korean_rabbit_zodiac.jpg"
+      description: "Korean zodiac Rabbit illustration"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Rabbit (묘/Tokki) in Korean zodiac uses the Rabbit (not Cat as in Vietnam, not Boar as in Japan for position 12). Korean folk tales feature clever rabbits — the famous story of the Rabbit and the Dragon King (토끼와 용왕) depicts a rabbit outsmarting a sea dragon. The rabbit is associated with cleverness, speed, and diplomatic intelligence in Korean culture. Korean lunar New Year art for rabbit-years features white rabbits, often shown under the moon."
+      reference_sources: ["Wikipedia: Chinese zodiac", "Wikipedia: Korean folklore"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Chinese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Wood"
+    suggested_attribute: "AGI"
+    suggested_animal_form: "Rabbit"
+    suggested_object_form: ""
+    symbolic_role: "Clever diplomat; Korean folk trickster hero; graceful intelligence"
+    mythic_narrative_summary: "Myo (Rabbit) is fourth in Korean Ddi — Korea retains Rabbit at position 4 (unlike Vietnam's Cat). The rabbit is a folk-tale trickster hero who outwits the Dragon King."
+  semantic_vocabulary:
+    symbolic_keywords: ["rabbit", "wood", "yin", "Korean", "tokki", "clever", "Dragon King folk tale", "lunar", "dawn", "trickster"]
+    mythic_narrative: "The Rabbit (묘, Myo / 토끼, Tokki) is fourth in the Korean Ddi, governing dawn hours 05:00–07:00. Korea retains the Rabbit at this position, unlike Vietnam which substitutes a Cat. Korean folklore celebrates the rabbit as a clever trickster in the tale of the Rabbit and the Dragon King (토끼와 용왕), where a rabbit outwits the fearsome sea dragon through quick thinking. This tradition of the clever rabbit as a folk hero reinforces the Myo sign's associations with intelligence, adaptability, and diplomatic skill."
+    visual_motifs: ["Korean folk tale rabbit and Dragon King illustration", "white rabbit under moon art", "rabbit ddi New Year card"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources: ["Wikipedia: Korean folklore"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "korean-ddi-005"
+  sign_name:
+    primary: "Jin (Dragon)"
+    variants: ["용 (Yong)", "Jin (진)"]
+    romanization: "Jin"
+    native_script: "진 / 용 (yong)"
+  cultural_tradition:
+    primary_culture: "Korean"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Korea"
+    period_range: "Adopted Three Kingdoms period"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Korean Ddi (띠)"
+    total_signs_in_system: 12
+    position_in_system: 5
+    sign_classification:
+      element: "Earth"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Spring / Morning (07:00–09:00)"
+      other:
+        earthly_branch: "辰 (Jin)"
+        yin_yang: "Yang"
+        hour_range: "07:00–09:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Korean_dragon_celadon.jpg/320px-Korean_dragon_celadon.jpg"
+      description: "Korean dragon imagery on celadon pottery — Goryeo period"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Dragon (진/Yong) is the zodiac's most auspicious sign in Korean culture, as throughout East Asia. Korean dragons (용, Yong) are benevolent water spirits associated with rivers, seas, and rainfall — Korean folk belief includes Dragon Kings (용왕, Yongwang) who rule the underwater world. Dragon motifs appear on Goryeo celadon pottery, royal court artifacts, and Buddhist temple architecture. Dragon-year births are actively sought, with notable birth rate spikes in dragon years."
+      reference_sources: ["Wikipedia: Chinese zodiac", "Wikipedia: Korean dragon"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Chinese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Dragon"
+    suggested_object_form: ""
+    symbolic_role: "Most auspicious sign; Korean Dragon King (Yongwang) mythos; imperial water power"
+    mythic_narrative_summary: "Jin (Dragon) is fifth — the most auspicious Korean Ddi sign. Korean Yong dragons rule underwater kingdoms as Dragon Kings (용왕, Yongwang)."
+  semantic_vocabulary:
+    symbolic_keywords: ["dragon", "earth", "yang", "Korean", "yong", "yongwang", "Dragon King", "auspicious", "celadon", "water"]
+    mythic_narrative: "The Dragon (진, Jin / 용, Yong) is fifth in the Korean Ddi, governing morning hours 07:00–09:00. Korean dragons are benevolent water deities — the Dragon King (용왕, Yongwang) rules the seas and rivers, controlling rainfall and tides. This mythology permeates Korean literature, folk tales, and art. The Dragon King's underwater palace (용궁) is a recurring setting in Korean folk narrative. Dragon motifs appear across Korea's artistic heritage from Goryeo celadon to Joseon court paintings. Jin-year individuals are considered dynamic, ambitious, and destined for success."
+    visual_motifs: ["Korean Goryeo celadon dragon pottery", "Dragon King Yongwang folk art", "dragon on Korean royal robe"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources: ["Wikipedia: Korean dragon", "Wikipedia: Earthly Branches"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "korean-ddi-006"
+  sign_name:
+    primary: "Sa (Snake)"
+    variants: ["뱀 (Baem)", "Sa (사)"]
+    romanization: "Sa"
+    native_script: "사 / 뱀 (baem)"
+  cultural_tradition:
+    primary_culture: "Korean"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Korea"
+    period_range: "Adopted Three Kingdoms period"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Korean Ddi (띠)"
+    total_signs_in_system: 12
+    position_in_system: 6
+    sign_classification:
+      element: "Fire"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Late Spring / Late Morning (09:00–11:00)"
+      other:
+        earthly_branch: "巳 (Sa)"
+        yin_yang: "Yin"
+        hour_range: "09:00–11:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Korean_snake_zodiac.jpg/320px-Korean_snake_zodiac.jpg"
+      description: "Korean zodiac Snake illustration"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Snake (사/Baem) in Korean zodiac is associated with wisdom, intuition, and hidden knowledge. Korean folk beliefs include serpent spirits (구렁이, Guryeongi) as household guardian spirits — a large serpent living in the home was sometimes considered a protector rather than a threat. The snake represents deep intelligence and the capacity to discern truth. Sa-year individuals are associated with quiet determination and perceptive wisdom."
+      reference_sources: ["Wikipedia: Chinese zodiac", "Wikipedia: Korean folklore"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Chinese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Fire"
+    suggested_attribute: "INT"
+    suggested_animal_form: "Snake"
+    suggested_object_form: ""
+    symbolic_role: "Hidden wisdom; household guardian serpent spirit; quiet determination"
+    mythic_narrative_summary: "Sa (Snake) is sixth in Korean Ddi — Korean folk belief includes guardian serpents (구렁이, Guryeongi) as household spirit protectors."
+  semantic_vocabulary:
+    symbolic_keywords: ["snake", "fire", "yin", "Korean", "baem", "guryeongi", "guardian spirit", "wisdom", "household", "intuition"]
+    mythic_narrative: "The Snake (사, Sa / 뱀, Baem) is sixth in the Korean Ddi, governing late morning hours 09:00–11:00. Korean folk belief features a unique relationship with serpents: the Guryeongi (구렁이), a large household serpent, was traditionally regarded as a guardian spirit of the home — to harm it was considered bad luck. This tradition of the protective household snake gives the Korean Sa sign a warmer quality than its Chinese counterpart. Sa-year individuals are associated with deep wisdom, quiet power, and careful perceptiveness."
+    visual_motifs: ["Korean folk art guardian serpent", "Snake zodiac Korean illustration", "Guryeongi household spirit depiction"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources: ["Wikipedia: Korean folklore"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "korean-ddi-007"
+  sign_name:
+    primary: "O (Horse)"
+    variants: ["말 (Mal)", "O (오)"]
+    romanization: "O"
+    native_script: "오 / 말 (mal)"
+  cultural_tradition:
+    primary_culture: "Korean"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Korea"
+    period_range: "Adopted Three Kingdoms period"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Korean Ddi (띠)"
+    total_signs_in_system: 12
+    position_in_system: 7
+    sign_classification:
+      element: "Fire"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Summer / Noon (11:00–13:00)"
+      other:
+        earthly_branch: "午 (O)"
+        yin_yang: "Yang"
+        hour_range: "11:00–13:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Korean_horse_zodiac.jpg/320px-Korean_horse_zodiac.jpg"
+      description: "Korean zodiac Horse illustration"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Horse (오/Mal) is associated with freedom, speed, and vitality in Korean culture. The Jeju horse (제주마) — a hardy native breed from Jeju Island — is an important part of Korean cultural heritage. Korean folk art depicts galloping horses as symbols of good fortune and upward momentum. The image of horses running toward the viewer is considered auspicious — a common motif in Korean paintings given as gifts. O-year individuals are known for energy, independence, and spirited enthusiasm."
+      reference_sources: ["Wikipedia: Chinese zodiac", "Wikipedia: Jeju horse"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Chinese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Fire"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Horse"
+    suggested_object_form: ""
+    symbolic_role: "Speed; freedom; Korean Jeju horse heritage; auspicious gallop imagery"
+    mythic_narrative_summary: "O (Horse) is seventh in Korean Ddi — galloping horse imagery is a popular Korean auspicious motif. The Jeju horse is a distinct Korean breed connected to this sign."
+  semantic_vocabulary:
+    symbolic_keywords: ["horse", "fire", "yang", "Korean", "mal", "Jeju horse", "gallop", "freedom", "auspicious", "noon"]
+    mythic_narrative: "The Horse (오, O / 말, Mal) is seventh in the Korean Ddi, governing noon hours 11:00–13:00. In Korean culture, galloping horses are one of the most popular auspicious motifs — paintings of horses running toward the viewer are given as gifts to wish the recipient advancement and good fortune. The Jeju horse (제주마), a hardy native breed raised on Jeju Island since the Joseon era, is a point of regional pride and connects the Horse sign to tangible Korean natural heritage. O-year people are associated with vibrant energy and love of freedom."
+    visual_motifs: ["Korean galloping horse auspicious painting", "Jeju horse illustration", "horse ddi zodiac art"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources: ["Wikipedia: Jeju horse"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "korean-ddi-008"
+  sign_name:
+    primary: "Mi (Sheep)"
+    variants: ["양 (Yang)", "Mi (미)"]
+    romanization: "Mi"
+    native_script: "미 / 양 (yang)"
+  cultural_tradition:
+    primary_culture: "Korean"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Korea"
+    period_range: "Adopted Three Kingdoms period"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Korean Ddi (띠)"
+    total_signs_in_system: 12
+    position_in_system: 8
+    sign_classification:
+      element: "Earth"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Summer / Afternoon (13:00–15:00)"
+      other:
+        earthly_branch: "未 (Mi)"
+        yin_yang: "Yin"
+        hour_range: "13:00–15:00"
+        korean_note: "Yang (양) encompasses both sheep and goat; often rendered as sheep in modern usage"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Korean_sheep_zodiac.jpg/320px-Korean_sheep_zodiac.jpg"
+      description: "Korean zodiac Sheep illustration"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Sheep (미/Yang) in Korean tradition uses the word 양 (yang), which can encompass both sheep and goat — a noted linguistic ambiguity reflecting the Chinese source word's dual meaning. Korean zodiac art most commonly depicts the domestic sheep. Mi-year individuals are associated with artistic creativity, gentle temperament, and strong group loyalty. The sheep in Korean agricultural tradition was less central than the ox, making this a sign more defined by its symbolic rather than practical cultural weight."
+      reference_sources: ["Wikipedia: Chinese zodiac"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Chinese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "INT"
+    suggested_animal_form: "Sheep"
+    suggested_object_form: ""
+    symbolic_role: "Gentle creativity; group harmony; sheep/goat linguistic ambiguity in Korean"
+    mythic_narrative_summary: "Mi (Sheep) is eighth — Korea uses Yang (양) which is linguistically ambiguous between sheep and goat, mirroring the Chinese source ambiguity."
+  semantic_vocabulary:
+    symbolic_keywords: ["sheep", "earth", "yin", "Korean", "yang", "gentle", "creative", "ambiguous", "afternoon", "group loyalty"]
+    mythic_narrative: "The Sheep (미, Mi / 양, Yang) is eighth in the Korean Ddi, governing afternoon hours 13:00–15:00. The Korean word yang (양) inherits the Chinese ambiguity of the 未 character, encompassing both sheep and goat — modern Korean zodiac art typically depicts a woolly sheep. Wikipedia notes this linguistic overlap explicitly. Mi-year individuals are associated with gentle artistic sensibility, collaborative spirit, and a tendency toward empathy and creativity."
+    visual_motifs: ["Korean zodiac sheep illustration", "yang character zodiac art", "sheep New Year Korean card"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources: ["Wikipedia: Earthly Branches"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "korean-ddi-009"
+  sign_name:
+    primary: "Sin (Monkey)"
+    variants: ["원숭이 (Wonsungi)", "Sin (신)"]
+    romanization: "Sin"
+    native_script: "신 / 원숭이 (wonsungi)"
+  cultural_tradition:
+    primary_culture: "Korean"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Korea"
+    period_range: "Adopted Three Kingdoms period"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Korean Ddi (띠)"
+    total_signs_in_system: 12
+    position_in_system: 9
+    sign_classification:
+      element: "Metal"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Late Summer / Late Afternoon (15:00–17:00)"
+      other:
+        earthly_branch: "申 (Sin)"
+        yin_yang: "Yang"
+        hour_range: "15:00–17:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Korean_monkey_zodiac.jpg/320px-Korean_monkey_zodiac.jpg"
+      description: "Korean zodiac Monkey illustration"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Monkey (신/Wonsungi) in Korean zodiac is associated with wit, adaptability, and sharp intelligence. Unlike Japan (which has native macaques), Korean monkeys appear primarily through Chinese-derived cultural transmission in art and zodiac tradition. Sin-year individuals are considered clever, resourceful, and good at social navigation. Korean folk expression sometimes uses monkey imagery for mischievous cleverness."
+      reference_sources: ["Wikipedia: Chinese zodiac"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Chinese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Metal"
+    suggested_attribute: "AGI"
+    suggested_animal_form: "Monkey"
+    suggested_object_form: ""
+    symbolic_role: "Wit; adaptability; clever social navigation"
+    mythic_narrative_summary: "Sin (Monkey) is ninth in Korean Ddi — associated with clever adaptability and quick wit."
+  semantic_vocabulary:
+    symbolic_keywords: ["monkey", "metal", "yang", "Korean", "wonsungi", "clever", "adaptable", "wit", "afternoon"]
+    mythic_narrative: "The Monkey (신, Sin / 원숭이, Wonsungi) is ninth in the Korean Ddi, governing late afternoon hours 15:00–17:00. In Korean culture, the monkey is primarily known through Chinese-derived zodiac and folk symbolism rather than native wildlife — monkeys are not native to Korea. Sin-year individuals are associated with sharp wit, quick intelligence, and the ability to navigate complex social situations. The monkey's adaptability and problem-solving capacity are the dominant personality associations in Korean tradition."
+    visual_motifs: ["Korean zodiac monkey illustration", "monkey ddi folk art", "Sin year New Year card"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources: ["Wikipedia: Earthly Branches"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "korean-ddi-010"
+  sign_name:
+    primary: "Yu (Rooster)"
+    variants: ["닭 (Dak)", "Yu (유)"]
+    romanization: "Yu"
+    native_script: "유 / 닭 (dak)"
+  cultural_tradition:
+    primary_culture: "Korean"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Korea"
+    period_range: "Adopted Three Kingdoms period"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Korean Ddi (띠)"
+    total_signs_in_system: 12
+    position_in_system: 10
+    sign_classification:
+      element: "Metal"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Autumn / Early Evening (17:00–19:00)"
+      other:
+        earthly_branch: "酉 (Yu)"
+        yin_yang: "Yin"
+        hour_range: "17:00–19:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Korean_rooster_zodiac.jpg/320px-Korean_rooster_zodiac.jpg"
+      description: "Korean zodiac Rooster illustration"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Rooster (유/Dak) is associated with punctuality, confidence, and dawn in Korean culture. Korean folk art (minhwa) sometimes depicts colorful roosters as auspicious symbols — the rooster's crow is associated with driving away evil spirits at dawn. Yu-year individuals are considered confident, observant, and hardworking. The rooster also connects to Korean agricultural life through traditional cock-fighting (투계, tugye) festivals."
+      reference_sources: ["Wikipedia: Chinese zodiac", "Wikipedia: Korean minhwa"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Chinese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Metal"
+    suggested_attribute: "AGI"
+    suggested_animal_form: "Rooster"
+    suggested_object_form: ""
+    symbolic_role: "Dawn herald; evil-dispelling crow; confident attention to detail"
+    mythic_narrative_summary: "Yu (Rooster) is tenth in Korean Ddi — the rooster's crow at dawn dispels evil spirits in Korean folk belief."
+  semantic_vocabulary:
+    symbolic_keywords: ["rooster", "metal", "yin", "Korean", "dak", "dawn", "evil dispelling", "minhwa", "confident", "crow"]
+    mythic_narrative: "The Rooster (유, Yu / 닭, Dak) is tenth in the Korean Ddi, governing early evening hours 17:00–19:00. The rooster's crow at dawn carries protective significance in Korean folk belief — its call dispels evil spirits and ghosts who must retreat from daylight. Korean folk painting (minhwa) features roosters in colorful, decorative styles as auspicious household images. Yu-year individuals are associated with punctuality, confidence, and a forthright personality that brooks no ambiguity."
+    visual_motifs: ["Korean minhwa rooster folk painting", "rooster zodiac ddi illustration", "Korean auspicious rooster print"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources: ["Wikipedia: Korean minhwa"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "korean-ddi-011"
+  sign_name:
+    primary: "Sul (Dog)"
+    variants: ["개 (Gae)", "Sul (술)"]
+    romanization: "Sul"
+    native_script: "술 / 개 (gae)"
+  cultural_tradition:
+    primary_culture: "Korean"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Korea"
+    period_range: "Adopted Three Kingdoms period"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Korean Ddi (띠)"
+    total_signs_in_system: 12
+    position_in_system: 11
+    sign_classification:
+      element: "Earth"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Autumn / Evening (19:00–21:00)"
+      other:
+        earthly_branch: "戌 (Sul)"
+        yin_yang: "Yang"
+        hour_range: "19:00–21:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Korean_dog_zodiac.jpg/320px-Korean_dog_zodiac.jpg"
+      description: "Korean zodiac Dog illustration"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Dog (술/Gae) is associated with loyalty, bravery, and honest service in Korean culture. The Jindo dog (진돗개, Jindo-gae) — a native Korean breed from Jindo Island, designated a Korean National Treasure — is one of Korea's most iconic animals and embodies the Sul sign's values. Sul-year individuals are considered loyal, honest, and courageous guardians. Korean folk tradition holds dog-year births as auspicious for those needing protection and faithfulness."
+      reference_sources: ["Wikipedia: Chinese zodiac", "Wikipedia: Korean Jindo"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Chinese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Earth"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Dog"
+    suggested_object_form: ""
+    symbolic_role: "Loyalty; protection; Jindo dog — Korean National Treasure breed"
+    mythic_narrative_summary: "Sul (Dog) is eleventh — the Jindo dog (진돗개), a Korean National Treasure breed, embodies the Sul sign's loyalty and bravery."
+  semantic_vocabulary:
+    symbolic_keywords: ["dog", "earth", "yang", "Korean", "gae", "Jindo", "national treasure", "loyal", "evening", "protection"]
+    mythic_narrative: "The Dog (술, Sul / 개, Gae) is eleventh in the Korean Ddi, governing evening hours 19:00–21:00. Korea's relationship with dogs includes the Jindo dog (진돗개, Jindo-gae) — a native Korean breed from Jindo Island designated a Korean National Treasure and protected by law. The Jindo is celebrated for exceptional loyalty, returning to its original owner even after being relocated great distances — a legendary quality that perfectly embodies Sul's signature traits. Sul-year individuals are considered loyal to a fault, brave, and deeply principled."
+    visual_motifs: ["Jindo dog (진돗개) Korean National Treasure illustration", "Korean zodiac dog folk art", "Sul ddi New Year illustration"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources: ["Wikipedia: Korean Jindo"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "korean-ddi-012"
+  sign_name:
+    primary: "Hae (Pig)"
+    variants: ["돼지 (Dwaeji)", "Hae (해)"]
+    romanization: "Hae"
+    native_script: "해 / 돼지 (dwaeji)"
+  cultural_tradition:
+    primary_culture: "Korean"
+    derivative_cultures: ["Chinese zodiac"]
+    geographic_origin: "Korea"
+    period_range: "Adopted Three Kingdoms period"
+    status_in_modern_tradition: "active_living"
+  system_metadata:
+    system_name: "Korean Ddi (띠)"
+    total_signs_in_system: 12
+    position_in_system: 12
+    sign_classification:
+      element: "Water"
+      modality: ""
+      quadrant: ""
+      deity_association: ""
+      season: "Winter / Night (21:00–23:00)"
+      other:
+        earthly_branch: "亥 (Hae)"
+        yin_yang: "Yin"
+        hour_range: "21:00–23:00"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Korean_pig_zodiac.jpg/320px-Korean_pig_zodiac.jpg"
+      description: "Korean zodiac Pig illustration — Korea uses Pig (not Wild Boar as Japan does)"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: false
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "No stellar coordinates; calendar system."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "The Pig (해/Dwaeji) is one of the most auspicious signs in Korean zodiac tradition. In Korea, pigs dream (돼지꿈, dwaeji-kkum) are highly significant — dreaming of a pig is considered an extremely lucky omen foretelling wealth and prosperity; people who have pig dreams often buy lottery tickets. The Golden Pig Year (황금돼지의 해) concept drives birth rate spikes in certain pig-years. Korea uses Pig (not Wild Boar as Japan does), retaining the Chinese original at position 12. Hae-year individuals are associated with generosity, wealth, and good fortune."
+      reference_sources: ["Wikipedia: Chinese zodiac", "Wikipedia: Korean pig dream"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Chinese_zodiac"]
+  primitive_association_hints:
+    suggested_element: "Water"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Pig"
+    suggested_object_form: ""
+    symbolic_role: "Wealth omen; pig dreams (돼지꿈) — most auspicious dream in Korean folklore; generosity"
+    mythic_narrative_summary: "Hae (Pig) is twelfth — Korea uses Pig not Boar (unlike Japan). The pig dream (돼지꿈) is Korea's most auspicious omen, associated with incoming wealth."
+  semantic_vocabulary:
+    symbolic_keywords: ["pig", "water", "yin", "Korean", "dwaeji", "dwaeji-kkum", "pig dream", "wealth", "auspicious", "night", "golden pig"]
+    mythic_narrative: "The Pig (해, Hae / 돼지, Dwaeji) is the twelfth and final sign in the Korean Ddi, governing night hours 21:00–23:00. Korea uses the domestic Pig at this position, unlike Japan which substitutes the Wild Boar. The Pig holds exceptional auspicious status in Korean folk belief: dreaming of a pig (돼지꿈, dwaeji-kkum) is considered the single most fortunate dream omen, foretelling great wealth and prosperity — recipients of pig dreams traditionally purchase lottery tickets immediately upon waking. Golden Pig years drive notable birth rate increases. Hae-year individuals are considered generous, honest, and magnetically fortunate."
+    visual_motifs: ["Korean pig dream (돼지꿈) folk art", "Golden Pig Year illustration", "Hae ddi zodiac New Year card"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "none"
+    source_authorization: "Wikipedia public domain"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chinese_zodiac"
+    secondary_sources: ["Wikipedia: Earthly Branches"]
+    academic_anchor: ""
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
