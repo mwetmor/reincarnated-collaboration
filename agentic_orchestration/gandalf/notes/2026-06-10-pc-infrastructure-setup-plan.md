@@ -20,15 +20,24 @@ PC hive-mind autonomous cycles surfaced two operational ceilings during 2026-06-
 
 **Matt 2026-06-10 directive — TWO-PHASE APPROACH ratified:**
 
-### Phase 1 (NEXT SESSION) — Option α git-focused settings refinement
-**Just** refine PC `.claude/settings.local.json` to broad-allow git read operations + common PowerShell diagnostic patterns. **NO tmux install. NO WSL install. NO system-state changes.** Pure settings-file refinement, additive only, reversible if needed.
+### Phase 1 + Phase 1.5 CONCURRENT (NEXT SESSION) — Settings refinement + script-wrapping
+**Just** refine PC `.claude/settings.local.json` to broad-allow safe operations + author small wrapper `.ps1` files for common compound scripts. **NO tmux install. NO WSL install. NO system-state changes.** Pure settings-file refinement + script authoring, additive only, reversible if needed.
 
-Rationale: Matt 2026-06-10 verbatim "git is the main problem" — git friction was the actual operational pain point per 2026-06-09 evening cycle. Settings refinement alone delivers most autonomy benefit at much lower cost than full infrastructure setup. SSH-keepalive workflow remains current; sufficient for sessions where Matt is actively monitoring.
+Rationale: Matt 2026-06-10 — "git is the main problem" + amendment "would it make sense to search for common applicable patterns from our mac team's work?" Investigation found:
+- Mac `.claude/settings.local.json` has accumulated broad wildcards over months (`Bash(git *)`, `Bash(python3 *)`, broad path globs); PC has not
+- Compound PowerShell scripts (RAM check, bridge polling) hit Claude Code's expandable-strings + subexpressions safety checks that allowlist refinement does NOT bypass
+- Phase 1 alone delivers ~50-60% friction reduction; Phase 1.5 (script-wrapping) eliminates the residual compound-script friction
+- Both fire CONCURRENTLY next session — no reason to defer Phase 1.5 to empirical trigger when authoring is bounded
 
-**Phase 1 scope (~30 min next session):**
-- Append broad git read patterns + PowerShell diagnostic patterns to PC `.claude/settings.local.json` per § 2.3
+**Phase 1 scope (~30 min next session) — settings refinement:**
+- Read Mac `.claude/settings.local.json` for portable wildcard patterns per § 2.7 analysis
+- Append broad wildcards + PowerShell diagnostic patterns + tool-level patterns to PC `.claude/settings.local.json` per § 2.3
 - Commit settings change with `david-h` prefix per CLAUDE.md addendum
-- Push per PC-seam standing wave-close pattern
+
+**Phase 1.5 scope (~1-2 hour same session) — script-wrapping:**
+- Author 3-5 common compound PowerShell scripts as `agentic_orchestration/pc-scripts/*.ps1` files per § 2.6 Strategy A
+- Allowlist each script's invocation as a single fixed-string pattern
+- Commit + push both phases together per PC-seam standing wave-close pattern
 - Test next autonomous wave-cycle for friction reduction
 
 ### Phase 2 (DEFERRED — subsequent setup session)
@@ -295,7 +304,67 @@ Tradeoff: more verbose; more tool calls per operation; but each tool call passes
 
 The 3-5 prompts/cycle on compound scripts represent Claude Code surfacing the highest-risk operations for explicit Matt approval. Treating these as intentional Matt-approval moments preserves audit discipline. Strategy A reduces friction at cost of script authoring; Strategy B at cost of verbosity; Strategy C accepts friction in favor of audit clarity.
 
-**Phase 1.5 (DEFERRED) — Script-wrapping infrastructure:** if Phase 1 settings refinement still produces too much friction on compound scripts, fire a Phase 1.5 to author the most-common compound scripts as `.ps1` files + allowlist their invocations. Gandalf-side authoring (~1-2 hours). Empirical trigger: David-H + Sam + Mantis surface ≥3 distinct compound-script-types as recurring friction within 2 autonomous wave-cycles post-Phase-1.
+**Phase 1.5 PROMOTED TO CONCURRENT WITH PHASE 1 (per Matt 2026-06-10 amendment).** Author the most-common compound scripts as `.ps1` files in same session as Phase 1 settings refinement. Gandalf-side authoring (~1-2 hours). Concurrent firing rationale: bounded authoring; eliminates compound-script friction in 1 session vs waiting for empirical trigger (which would burn 2+ wave-cycles before fix lands).
+
+### 2.7 Mac team settings.local.json analysis — what ports to PC
+
+Investigation of Mac `.claude/settings.local.json` (102 lines / ~95 entries; accumulated since 2026-05-13) reveals what categories Mac team has allowlisted + what's portable to PC.
+
+#### 2.7.1 Mac patterns that PORT DIRECTLY (tool-level; not shell-specific)
+
+These apply identically on PC because they target Claude Code TOOLS, not specific shell commands. Should be added to PC settings verbatim or near-verbatim:
+
+```json
+"WebSearch",
+"WebFetch(domain:github.com)",
+"WebFetch(domain:pixijs.com)",
+"WebFetch(domain:www.poewiki.net)",
+"WebFetch(domain:maxroll.gg)",
+"WebFetch(domain:mobalytics.gg)",
+"WebFetch(domain:www.purediablo.com)",
+"WebFetch(domain:diablo.fandom.com)",
+"WebFetch(domain:wiki.projectdiablo2.com)",
+"WebFetch(domain:www.thegamer.com)",
+"WebFetch(domain:diablo2.wiki.fextralife.com)",
+"WebFetch(domain:www.poe-vault.com)",
+"WebFetch(domain:www.icy-veins.com)",
+"WebFetch(domain:pathofexile.fandom.com)",
+"Skill(update-config)"
+```
+
+**Net add:** 14 tool-level entries; immediate friction reduction on research / config operations.
+
+#### 2.7.2 Mac patterns that PORT BY ANALOGY (shell command equivalents)
+
+These are Bash patterns that PowerShell needs an equivalent for. The Mac team accepted BROAD wildcards here:
+
+| Mac (Bash) | PC equivalent (PowerShell) | Rationale |
+|---|---|---|
+| `Bash(git *)` | `PowerShell(git *)` | Mac accepted ANY git operation; matches operational pattern |
+| `Bash(python3 *)` | `PowerShell(python *)` + `PowerShell(node *)` | Mac broad-allows python3; PC equivalents per PC tooling |
+| `Bash(curl *)` (implicit via specific entries) | `PowerShell(Invoke-WebRequest*)` + `PowerShell(Invoke-RestMethod*)` | PowerShell HTTP cmdlets |
+
+**Observation:** Mac team broadened `Bash(git *)` rather than my originally-proposed split-by-read-vs-write. This is the actual operational truth: destructive git operations are rare; audit at workstream-monitoring layer, not per-command-prompt layer. PC team should follow the same broad pattern.
+
+**Recommendation amendment to § 2.3:** replace the granular git read patterns with single `PowerShell(git *)` matching Mac precedent. Audit discipline preserved at workstream-monitoring level (Sam Gate-2 + David-H wave-close memo) where it actually operates.
+
+#### 2.7.3 Mac patterns NOT useful for PC port
+
+- 70+ historical specific commands (sqlite3 queries against Mac-specific paths; specific cp/mv/sed/grep one-shots accumulated over months)
+- Mac-specific path Reads (`Read(//Users/admin/...)` — need C:\ translation)
+- Mac-specific shell idioms (`xargs`, `sed -i ''`, etc.)
+
+**Net:** ignore these; they're Mac-historical-noise.
+
+#### 2.7.4 Why Mac team has less friction than PC team (3 reasons)
+
+1. **Claude Code safety model is shell-specific.** Bash has fewer "this is dangerous syntax" warnings than PowerShell. PowerShell-specific safety checks (expandable strings, subexpressions `$()`, complex control flow) don't have direct Bash equivalents.
+
+2. **Cumulative settings.local.json maturity.** Mac team has been operating since ~2026-05-13 (1+ month); PC team since 2026-06-07 (3 days). Mac settings has accumulated ~95 entries through cumulative "Yes, and don't ask again" approvals. PC has narrow exact-string allowlist built incrementally over 1-2 sessions.
+
+3. **Operational pattern differences.** Mac team work is mostly Read/Edit/Write tool operations (bypass shell) + simple git + simple file commands. PC team work necessarily uses PowerShell because Windows tooling (UE Editor launch, log polling, hardware diagnostics) is PowerShell-native — and more compound PowerShell → more friction per Claude Code safety model.
+
+**Net implication for PC strategy:** PC team needs more BROADENING (Phase 1) + more SCRIPT-WRAPPING (Phase 1.5) than Mac team needed because the operational pattern is inherently PowerShell-compound-heavy. The plan reflects this reality.
 
 ---
 
@@ -323,24 +392,30 @@ Append amendment section: "PC infrastructure refinement 2026-06-XX: WSL + tmux i
 - (Phase 1) NONE — settings refinement is gandalf-side authoring; no Matt-side prep needed
 - (Phase 2, deferred) Backup PC settings.local.json + identify good time window for PC reboot (WSL install requires it)
 
-### 4.2-α PHASE 1 — Git-focused settings refinement (NEXT SESSION; ~30 min wall-clock)
+### 4.2-α PHASE 1 + PHASE 1.5 CONCURRENT — Settings refinement + script-wrapping (NEXT SESSION; ~2-3 hour wall-clock)
 
 | Step | Action | Owner | Time |
 |---|---|---|---|
 | 1 | Gandalf reads current PC `.claude/settings.local.json` via SSH | gandalf | ~5 min |
-| 2 | Gandalf authors broad git read pattern + PowerShell diagnostic pattern additions per § 2.3 | gandalf | ~10 min |
-| 3 | Gandalf commits settings update with `david-h` prefix per CLAUDE.md addendum via SSH (cd C:\dev\reincarnated-collaboration && git add + commit + push) | gandalf via SSH | ~5 min |
-| 4 | Brief autonomous-cycle test: fire David-H with a simple read-only diagnostic task; verify ≤2 Matt-interruption prompts | gandalf + Matt monitors | ~10 min |
-| 5 | Gandalf updates ground-state oracle § 5 + this plan doc § 0 to note Phase 1 complete | gandalf | ~5 min |
+| 2 | Gandalf reads Mac `.claude/settings.local.json` for portable wildcards per § 2.7 | gandalf | ~5 min |
+| 3 | Gandalf authors PC settings refinement: broad wildcards (`PowerShell(git *)` etc.) + tool-level patterns (WebSearch, WebFetch domains, Skills) + diagnostic patterns per § 2.3 | gandalf | ~15 min |
+| 4 | Gandalf authors 3-5 wrapper `.ps1` scripts at `agentic_orchestration/pc-scripts/` per § 2.6 Strategy A (check-ram.ps1 / poll-bridge-ready.ps1 / windowed-niagara-verify.ps1 / log-tail.ps1 / git-state-snapshot.ps1) | gandalf | ~60-90 min |
+| 5 | Gandalf appends per-script invocation allowlist entries to PC settings | gandalf | ~5 min |
+| 6 | Gandalf commits all changes with `david-h` prefix per CLAUDE.md addendum via SSH | gandalf via SSH | ~5 min |
+| 7 | Push per PC-seam standing wave-close pattern | gandalf via SSH | ~5 min |
+| 8 | Brief autonomous-cycle test: fire David-H with diagnostic tasks invoking both broad wildcards + wrapper scripts; verify ≤2 Matt-interruption prompts | gandalf + Matt monitors | ~15 min |
+| 9 | Gandalf updates ground-state oracle § 5 + this plan doc § 0 to note Phase 1 + 1.5 complete | gandalf | ~10 min |
 
-**Phase 1 acceptance criteria:**
-- ✅ PC `.claude/settings.local.json` extended with broad git read patterns + common PowerShell diagnostic patterns per § 2.3
+**Phase 1 + 1.5 acceptance criteria:**
+- ✅ PC `.claude/settings.local.json` extended with broad wildcards (matching Mac precedent per § 2.7) + tool-level patterns + diagnostic patterns
 - ✅ Narrow exact-string allowlist preserved for write + scope-amendment operations per § 2.4
-- ✅ Settings change committed + pushed via PC-seam standing wave-close pattern
-- ✅ Brief autonomous-cycle test shows friction reduction (≤2 Matt-interruption prompts on read-only diagnostic task; vs ~10-15 pre-refinement)
-- ✅ Ground-state oracle updated; this plan § 0 TL;DR notes Phase 1 complete
+- ✅ 3-5 wrapper `.ps1` scripts authored at `agentic_orchestration/pc-scripts/` covering common compound-PowerShell operations
+- ✅ Wrapper script invocations allowlisted as single fixed-string patterns
+- ✅ Settings + scripts committed + pushed via PC-seam standing wave-close pattern
+- ✅ Brief autonomous-cycle test shows friction reduction (≤2 Matt-interruption prompts on mixed diagnostic + script-invoking tasks; vs ~10-15 pre-refinement)
+- ✅ Ground-state oracle updated; this plan § 0 TL;DR notes Phase 1 + 1.5 complete
 
-**Phase 1 done — return to design-trajectory work** (Pattern B icon design / WS2 commission authoring / etc. per `2026-06-09-next-session-plan-post-branch-A-lock.md`).
+**Phase 1 + 1.5 done — return to design-trajectory work** (Pattern B icon design / WS2 commission authoring / etc. per `2026-06-09-next-session-plan-post-branch-A-lock.md`).
 
 ### 4.2-β PHASE 2 — Full infrastructure setup (DEFERRED; fires only on empirical trigger)
 
