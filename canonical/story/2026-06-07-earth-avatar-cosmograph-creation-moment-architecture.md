@@ -682,3 +682,237 @@ Per Matt 2026-06-09 ratification:
 **Composition with prior canonical commitments:** ALL preserved (Tal Rasha recognition 2026-06-09 + Earth-Avatar Creation Moment Architecture 2026-06-07 § 1-§ 10 + cosmograph-pivot 2026-06-05 + § 9 amendment 2026-06-06 + § 10 amendment 2026-06-09 + atomic-substrate-registry 2026-06-06 + hypothesis-flow 2026-05-31 CANONICAL + Season Archive Realm Expansion 2026-06-02 + federated PC team architecture 2026-06-07 + Earth Self meta-layer + spirit guide architecture canonical 17 + form library May 2026 + downstream delivery strategy canonical 38 + legacy categorical cleanup audit 2026-05-22 + marginal-lineage recognition records 2026-05-23 × 5). Branch B path (per Tal Rasha § 5 Trigger 3) is RETIRED — Branch A canonical commit fires per Trigger 2 satisfaction.
 
 **End of 2026-06-09 § 11 addendum.**
+
+---
+
+## 12. Spirit-Guide-Driven Elicitation Cascade + Cycling-Preview UX + iPad-Text / Sky-Runes Split (2026-06-10 addendum)
+
+**STATUS:** CURRENT (LOAD-BEARING addendum 2026-06-10) — captures architectural recognitions surfaced through Pattern B design dialogue 2026-06-10 evening; composes with § 1-§ 11 preserved verbatim.
+
+### 12.1 Recognition path (2026-06-10 Pattern B dialogue)
+
+Following the canonical Branch A landing 2026-06-09 (§ 10 + § 11), Pattern B design dialogue 2026-06-10 evening surfaced four sequential architectural simplifications that compose into the locked creation-moment user-experience pattern:
+
+| # | Recognition | Source |
+|---|---|---|
+| 1 | **Primitive layer is two-layer, not one** | Matt question — "What about experiential? Loot? What is the name of the design doc which represents our canonical engine groups/primitives?" → surfaced gandalf had not consulted `canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture.md` § 1.8 multi-axis experiential architecture; primitives span Layer 0 (atomic substrate; designer-writes) AND Layer 2 (experiential axes; player-names-experience) |
+| 2 | **INPUT primitives vs OUTPUT primitives** | Matt observation — "Attributes are an output of the weapon + BC cell inputs; off-hand is combinatorially chosen by the engine alongside the weapon input" → most primitives gandalf listed as VISIBLE were actually OUTPUTS not INPUTS; iconography for outputs is DISPLAY only; iconography for inputs is SELECTION only |
+| 3 | **Spirit-guide-driven precedent elicitation** (not fixed designer-imposed hierarchy) | Matt observation — "guide: 'what is most important for your journey this season?' answer may be race, may be power, may be element, etc" → player NAMES the precedent through spirit guide elicitation; designer does NOT pre-impose race-as-universal-precedent |
+| 4 | **Cycling mechanic + text-on-iPad + runes-only-in-sky** | Matt observation — "if we have the same cycling mechanic at every layer, then we can list text at every layer on the iPad, instead of icons. The only icons will be the runes in the sky denoting each cluster" → cognitive load splits cleanly between iPad (text) and sky (runes); per-primitive iconography RETIRED at the scope prior framing implied |
+
+### 12.2 The locked architecture — cognitive load splits between two surfaces
+
+| Surface | Carries | Visual register | Discipline composition |
+|---|---|---|---|
+| **iPad screen** | Text labels (cascade options at every layer); spirit guide narration zone | Hand-drawn HD-2D pixel typography per `canonical/story/style-register.md`; readable; scannable; D8 mobile-friendly | D8 (mobile-friendly-from-day-one); accessibility |
+| **Night sky / cosmograph** | Sky cluster regions; rune-anchors-in-sky denoting clusters | Large + atmospheric + light-edge brush-stroke + no color + drawn by light only (per § 11.2 Tal Rasha § 4.2 visual register) | Tal Rasha § 4.2 architecture; D7 AI-tell line; substrate-led discipline (#41) |
+
+**The runes-in-sky are the ONLY iconography in the player-facing architecture.** Per-primitive icons (Attributes / Off-hand / Sub-element / etc. — the ~80 icons gandalf was initially scoping for Pattern B) are RETIRED at that scope. Text labels at every cascade layer replace per-primitive iconography. The runes in the sky ARE the spatial anchors; the text on the iPad IS the cycling commitment surface.
+
+### 12.3 Tier 1 elicitation question + 7 anchor options (CANONICAL)
+
+**Opening question (spirit guide voice; templated; D7-compliant):**
+
+> *"What is most important for your journey this season?"*
+
+**7 Tier 1 anchor options (CANONICAL LIST):**
+
+| # | Anchor (text label on iPad) | Cosmograph response | What player commits if chosen |
+|---|---|---|---|
+| 1 | **Race / ancestry** | Race-tribal sub-clusters illuminate | Race becomes precedent; cosmograph focuses race-tribal region; subsequent cascade operates within race-substrate |
+| 2 | **Element / flow** | Element-cluster region illuminates; elemental colors saturate | Element becomes precedent; cosmograph focuses element-cluster region |
+| 3 | **Weapon / craft** | Weapon-form cluster region illuminates | Weapon-form-family becomes precedent |
+| 4 | **Power / mastery** | T4-strategy / endgame-power clusters illuminate | T4-strategic direction becomes precedent |
+| 5 | **Style / way** | Target-Pattern + Depth-vs-Breadth identity-axis clusters illuminate | Experiential identity-axis direction becomes precedent |
+| 6 | **Harvest / rewards** | Speedfarming + Loot-Focus sub-clusters illuminate | Loot-Focus becomes precedent |
+| 7 | **Horizon / goal** | Progression-Stage clusters illuminate | Progression-Stage becomes precedent |
+
+**7 sky cluster regions** correspond to the 7 anchors. Cosmograph spatial layout positions each cluster region in the celestial sphere; camera fly-through navigates between regions as player cycles options.
+
+### 12.4 Cycling-preview UX vocabulary (UNIFIED across all cascade layers)
+
+**The mechanic at every layer:**
+
+1. iPad displays text-only cycling list at current cascade layer
+2. Player cycles through options (touch-drag list, swipe, arrow taps)
+3. **Soft preview:** as each option is highlighted, the cosmograph sky region corresponding to that option illuminates / dims / zooms; camera focuses on relevant cluster
+4. **No commitment during cycling** — player browses freely; sky responds to attention
+5. Player commits via tap; cosmograph LOCKS focus on chosen region
+6. Spirit guide narrates the commitment (templated voice; D7-compliant)
+7. iPad text-list refreshes to next cascade layer
+
+**Cycling-preview properties (CANONICAL):**
+
+| Property | Behavior |
+|---|---|
+| Cycling != committing | Player can browse all options; sky shows each cluster; no commitment until tap |
+| Discoverable | Player learns substrate landscape by browsing; sees what each option means visually |
+| Reversible | Player can switch focus freely before committing; no undo needed |
+| Spirit guide silent during cycling | Guide narrates ONLY on commit; doesn't repeat-narrate each cycling step (avoid voice spam) |
+| Sky animation pace | Zoom + focus animates smoothly (~0.3-0.5 sec transitions) so player feels in control; not jarring |
+| Visual register | Cosmograph response per § 2.6 spherical-shell geometry; rune visual register per § 11.2 Tal Rasha § 4.2 (large + atmospheric + light-edge brush-stroke + no color) |
+
+### 12.5 Nested cascade — same mechanic at every layer
+
+**Cascade structure (recursive):**
+
+```
+TIER 1 — "What is most important for your journey this season?"
+  Player cycles 7 anchor options on iPad; sky responds; commits one
+       ↓
+TIER 2 — guide asks follow-up specific to Tier 1 commit
+  Example: if Race committed, "Which tradition calls?" with per-season race-set
+  Player cycles within precedent-constrained substrate; sky zooms further into specific sub-cluster
+       ↓
+TIER 3 — guide narrows further within precedent + Tier 2 commitments
+  Example: if Race=Dwarven + Element=Fire committed, "Within Dwarven-fire, your hands find which form?"
+  Player cycles weapon-form options within Dwarven-fire-substrate
+       ↓
+... cascade continues 3-5 layers deep ...
+       ↓
+Final emergence: spirit guide narrates matched-kit identity (nearest-kit-centroid lookup)
+"Three forms project this path: [Kit-A], [Kit-B], [Kit-C]. Your commitments shape [Kit-X] most closely. Accept this form, or refine?"
+```
+
+**Same cycling mechanic recursing at every layer.** Consistent UX vocabulary; substrate-led at every level; precedent-constrained substrate-search; no 0-match disruption because precedent gates the search space at each cascade step.
+
+### 12.6 Input vs Output primitive architecture (LOAD-BEARING)
+
+**INPUT primitives** (player explicitly selects via cascade; text labels on iPad):
+- Race / ancestry (precedent if player chooses)
+- Element / flow (precedent if player chooses)
+- Weapon-form-family (precedent if player chooses OR follow-up commit within race/element precedent)
+- Target-Pattern + Depth-vs-Breadth (Style / way; precedent if player chooses)
+- Loot-Focus sub-axis (Harvest / rewards; precedent if player chooses)
+- Progression-Stage (Horizon / goal; precedent if player chooses)
+- T4-strategy direction (Power / mastery; precedent if player chooses)
+
+**OUTPUT primitives** (engine emerges from inputs + nearest-kit-centroid lookup; surfaced via spirit guide narration; NO selection iconography needed):
+- Attributes (STR / INT / WIS / DEX) — emerges from weapon × element × skill-geometry composition
+- Sub-element / flavor — engine selects from element pool
+- Off-hand item — engine combinatorially chooses alongside weapon input
+- Specific T4 strategy (when player's Power-precedent narrows but doesn't pick specific T4)
+- Mechanic-altering passives — emergent from kit composition
+- Resource model — emerges from weapon × element × scaling interaction
+- Ailment types — emergent from element + mechanic-altering composition
+- Specific racial traits — engine selects from race-trait pool
+- Skill geometry palette items — emerge from kit
+- Modifier types — gear-layer emergence
+
+**Engine behavior:** when player inputs are committed, engine computes nearest kit centroid in BC space honoring precedent + search-direction priority. Output primitives are surfaced via spirit guide narration ("your form emerges as Forgewright of the Burning Anvil — Attribute focus STR, off-hand Anvil-Shield, T4 Geometry-Collapse...") rather than selectable iconography on iPad.
+
+### 12.7 Substrate-truth-wins discipline at the cascade layer
+
+When player commitments cascade into a substrate gap (e.g., precedent Race + search-direction Element has no exact kit):
+
+| Mechanism | Behavior |
+|---|---|
+| **Pre-display coverage** | At each cascade layer, only options with non-zero substrate coverage WITHIN precedent are shown (text label appears only if kits exist for that combination) |
+| **Spirit guide narrates emergence** | When player commits across multiple cascade layers and substrate-truth diverges from intent, guide neutrally narrates: "Your form emerges as [matched kit]. Your earlier commitments shape [output primitives] most closely — accept this form, or refine?" |
+| **Refine = step back in cascade** | Player can tap to revise prior commitment; cascade re-enters from that layer; substrate-search reruns |
+| **No 0-match disruption** | Because precedent gates search space, and pre-display coverage filters Tier 2+ options, player never reaches "no match" state mid-cycle |
+
+Composition: this is the substrate-honest graceful-degradation pattern (substrate-led discipline #41) applied at the user-experience layer.
+
+### 12.8 Path L (Lasso) + Path I (Drop ingredients) — unified vocabulary
+
+The cycling-mechanic + text-on-iPad + runes-only-in-sky architecture is the unified UX vocabulary that composes both creation paths per § 2.3:
+
+| Path | How cycling fits |
+|---|---|
+| **Path L (Lasso the sky)** | Player navigates cosmograph spatially; cycling-preview-via-attention is the pre-lasso exploration mechanism; lassoing a cluster region commits the precedent (equivalent to tapping an iPad option) |
+| **Path I (Drop ingredients)** | Player picks ingredients sequentially; cycling-preview is the pre-drop selection mechanism; dropping an ingredient commits via the same precedent-cascade |
+
+**Both paths converge** on the same nearest-kit-centroid lookup; both produce same final form emergence; both use same cycling vocabulary; differ only in INPUT MODALITY (spatial lasso vs ingredient drop).
+
+### 12.9 Spirit guide voice + D7 AI-tell line preservation
+
+Spirit guide narrates throughout the cascade per canonical 40 D28-D32 NEUTRAL OBSERVATION pattern:
+
+| Cascade moment | Guide voice |
+|---|---|
+| Opening Tier 1 | "What is most important for your journey this season?" |
+| Tier 1 commit response | "You are drawn to [anchor]. [Tier 2 follow-up question]." |
+| Tier 2 commit response | "[Tier 2 commitment narrated]. [Tier 3 follow-up question]." |
+| Final emergence | "Your form emerges as [matched kit]. Within [precedent + commits], your path projects most closely toward [kit identity]. Accept this form, or refine?" |
+| Substrate-gap encounter | "Your spirit's path projects no exact match in this season's pattern. Nearest available form: [matched kit] — your [precedent] is preserved, your [Tier-N commit] emerges as [output primitive]. Accept or refine?" |
+
+**All voices templated** (D7 AI-tell line preserved). Narrow LLM blanks fill in anchor name, kit identity, output primitive surfaces. No raw LLM dialogue generation; structured template absorbs Q18 vocabulary + Q19 + Tal Rasha sign-overloading semantic.
+
+### 12.10 What this RETIRES from prior framing scope
+
+| Prior framing | Status post-§-12 |
+|---|---|
+| ~30-40 input primitive icons + ~30-50 output display icons (~80 total iconography) | RETIRED — text labels replace per-primitive icons; only sky runes carry iconography |
+| 29 placeholder icons in Phase 4 amended deployment needing canonical icon replacement | DEPRECATED — placeholders get REMOVED (not replaced with canonical icons); Tier 2 panels become text-list cycling UI |
+| Per-primitive icon canonical design Pattern B session at the scope gandalf was initially proposing (~2-4 hour estimate) | DRAMATICALLY REDUCED to ~1 hour (just cluster-rune review + cascade-text-vocabulary + cosmograph spatial layout) |
+| Drax follow-on dispatch to replace placeholder icons with canonical icons | NOT NEEDED in the form initially framed; instead — Phase 5 amendment dispatch needed for substantially different scope (UI refactor to text-list cycling + cosmograph response animation) |
+| Fixed designer-imposed precedent hierarchy (race-as-universal-precedent) | RETIRED — player-named precedent via spirit guide elicitation; each player can have different precedent |
+
+### 12.11 Downstream workstream implications
+
+| Workstream | Implication |
+|---|---|
+| **Drax /forge Phase 4 amended deployment** | The 29 placeholder icons get REMOVED (not replaced). Tier 2 panels become text-list cycling UI. Cosmograph cycling-preview animation implemented (sky responds to text-list cycling). Phase 5 amendment dispatch needed for substantially different scope than prior implication. |
+| **Pattern B "icon design" session reframed** | Becomes "cascade text vocabulary + 7-anchor cluster naming + cluster spatial layout + Phase 4 rune-anchor canonical review" — substantially shorter scope (~1 hour vs ~2-4 hour prior estimate) |
+| **WS2 Niagara commission scope** | Rune-anchors-in-sky rendering at AAA fidelity (~7 sky cluster regions corresponding to 7 Tier 1 anchors). Per-primitive icon rendering NOT needed. Scope contracts. Sky-cluster spatial layout + camera fly-through animation specifications added. |
+| **Vertical-slice spike scope** | iPad text-list cycling UI + cycling-preview cosmograph response + spirit guide narration cascade + nearest-kit-centroid lookup + final form emergence narration. Major UX surface; design intent clear post-§-12. |
+| **Spirit guide canonical 17 + D28-D32** | Cascade voice patterns per § 12.9 compose with existing spirit guide architecture; spirit guide becomes the load-bearing UX cognitive scaffold for the creation moment |
+| **Kit-to-star-sign Phase 2 canonical semantic mapping** | Each kit's identity composes input-precedent commitments + output-primitive emergent profile; semantic mapping methodology gains clearer structure (kit identity = input commitments + output profile); Phase 1 hand-curation 3 mappings preserved; Phase 2 expansion can fire when manifestation-spike playtest data informs methodology |
+
+### 12.12 Composition with prior canonical commitments (preserved verbatim)
+
+| Canonical commitment | How this § 12 composes |
+|---|---|
+| § 1-§ 10 of this doc (Earth-Avatar Creation Moment Architecture base + Tal Rasha § 4.1 amendment) | Preserved verbatim; § 12 extends to creation-moment UX layer |
+| § 11 of this doc (Tal Rasha § 4.2 addendum 2026-06-09) | Preserved verbatim; § 12 composes with rune-per-group + two-tier + sign-overloading; cycling mechanic operates AT Tier 1 + recurses into Tier 2 nested cycling |
+| `canonical/story/2026-06-09-tal-rasha-glyphic-primitive-anchor-architecture-recognition.md` | Branch A architecture preserved; § 12 specifies the player-experience layer over Tal Rasha rune-anchor architecture |
+| `canonical/story/2026-06-05-cosmograph-pivot.md` § 10 (Tal Rasha § 4.1) | Cosmograph lookup model preserved; § 12 cascade IS the input/output mechanism the lookup model serves |
+| `canonical/story/2026-06-06-atomic-substrate-registry.md` | Layer 0 primitives preserved; § 12 surfaces which primitives become INPUT (cascade options) vs OUTPUT (emergence) |
+| `canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture.md` § 1.8 multi-axis architecture | Layer 2 experiential axes (Target-Pattern + Depth-vs-Breadth + Loot-Focus + Progression-Stage) integrated into the 7 Tier 1 anchors (Style + Harvest + Horizon) |
+| `canonical/story/2026-05-29-designer-writes-substrate-player-names-experience-principle.md` | Player-named precedent IS this principle applied at creation-moment UX layer |
+| Canonical 17 — Spirit Guide design | Spirit guide AS the load-bearing UX cognitive scaffold per § 12.9 voice patterns |
+| Canonical 40 D28-D32 — Spirit guide neutral data-oracle voice | Cascade narration voices template per D7 + neutral observation |
+| D7 AI-tell line | All cascade voices templated; narrow LLM blanks fill specific slots; no raw LLM dialogue generation |
+| D8 mobile-friendly-from-day-one | iPad text-list cycling natively mobile-friendly; cosmograph response per Earth-Avatar § 2.6 spherical-shell geometry composes natively with iPad gesture-framing |
+| Substrate-led discipline #41 | Player-named precedent + substrate-truth-wins graceful-degradation + cycling-preview pre-display coverage compose substrate-led at UX layer |
+| `canonical/story/style-register.md` | iPad text typography per HD-2D pixel-art register; sky rune visual register per § 11.2 Tal Rasha § 4.2 |
+| Recognition-validate-commit discipline | § 12 captures recognitions surfaced through Pattern B 2026-06-10; canonical commit fires per Matt 2026-06-10 ratification ("yes, ratify all three and author the addendum") |
+| Cycle 14 + 15 + downstream architectural commits | All preserved without modification; § 12 operates at creation-moment UX layer downstream of substrate generation |
+
+### 12.13 Open refinement deferred to subsequent design dialogue
+
+- Specific text vocabulary per Tier 2 / Tier 3 cascade questions (templated structure; specific phrasing per layer)
+- Spirit guide voice character (tone, register, narrative voice — matches existing canonical 17 spirit guide framing)
+- Cosmograph spatial layout specifics (exactly where in the celestial sphere each cluster region sits; camera path between regions)
+- Cycling animation timing tuning (~0.3-0.5 sec intent; final pacing per drax implementation + playtest)
+- Phase 5 drax amendment dispatch authoring (post-§-12 commit; bounded gandalf authoring; gates on style-register iPad typography review)
+- Cluster naming canonical lock per Tier 1 anchor (the 7 cluster names — "Race-cluster" or evocative-name? Pattern B follow-on)
+
+### 12.14 Sequencing per 2026-06-10 ratification
+
+Per Matt 2026-06-10 ratification:
+1. ✅ DONE — this § 12 addendum (canonical recognition + lock)
+2. PENDING — Phase 5 drax amendment dispatch authoring (gandalf seam; ~30-45 min; replaces prior Pattern B icon design session at the scope I'd initially proposed; new scope = text-list cycling UI + cosmograph response animation + cluster spatial layout + cluster naming)
+3. PENDING — WS2 commission scope authoring per refined scope (cluster-rune AAA-fidelity rendering at ~7 regions; per-primitive icon rendering NOT needed)
+4. PENDING — Pattern B cluster naming + cascade text vocabulary session (Matt + gandalf; ~1 hour vs prior ~2-4 hour estimate)
+5. PENDING — ground-state oracle § 1 row update for this § 12 addendum (cross-session continuity for next gandalf invocation)
+6-N. PENDING — Hotspot A-extension + Hotspot B + Hotspot C consultations (elrond seam; downstream of canonical primitive-group locks per gandalf Phase 4 review § 5 routing sequence) + post-canonical layout regeneration (drax seam)
+
+### 12.15 Sign-off on § 12 addendum
+
+**Authored:** gandalf 2026-06-10 per Matt 2026-06-10 ratification — "yes, ratify all three and author the addendum" (referring to 7 Tier 1 anchors + 7 sky cluster regions + § 12 addendum authoring).
+
+**Authority:** Matt 2026-06-10 ratification + recognition-validate-commit discipline (Pattern B dialogue surfaced 4 architectural recognitions; canonical capture fires per ratification).
+
+**Critique-pair status:** § 12 addendum fires under Matt direct authorization; critique-pair Gate-1 / Gate-2 review for substantive design recognitions of this kind typically routes through jack-ryan + gandalf (already gandalf-authored). Pattern E autonomous-pair ratification under Matt pre-authorization per CLAUDE.md Team commit + push discipline addendum applies: gandalf-authored design recognition with Matt explicit ratification fires without separate Gate-1 cycle.
+
+**Composition with prior canonical commitments:** ALL preserved (§ 1-§ 11 of this doc verbatim + Tal Rasha recognition 2026-06-09 + cosmograph-pivot § 9 + § 10 + atomic-substrate-registry + hypothesis-flow CANONICAL + Season Archive Realm Expansion + federated PC team architecture + Earth Self meta-layer + spirit guide canonical 17 + canonical 40 D28-D32 + form library + downstream delivery strategy + style register + legacy categorical cleanup audit + marginal-lineage recognition records + ARPG physical/magical ratio baseline 2026-06-09 + PC infrastructure setup plan Phase 0 deployed 2026-06-10).
+
+**Empirical-evidence triggers for downstream commitments per § 12.14:**
+- Phase 5 drax amendment dispatch authoring fires at next gandalf session (bounded)
+- WS2 commission authoring fires post-Mantis-windowed-mode-Niagara-verification (per Option A/B Matt decision queued from 2026-06-10 PC hive-mind close)
+- Pattern B cluster naming + cascade text vocabulary fires per Matt scheduling
+- Vertical-slice spike scope absorbs § 12 architecture as design intent
+
+**End of 2026-06-10 § 12 addendum.**
