@@ -86,6 +86,8 @@ Per **Discipline #18.2 refinement** (methodology consultation fires AFTER baseli
 ### 2.2 Primitive-anchor curated subset
 The 20 primitive families in atomic-substrate-registry are too many for Phase 3 visual test (visual chaos at 2D web rendering). **Curated subset for Phase 3 test:**
 
+**Discipline #41 rationale for pre-offered curated subset:** substrate-emergent test set requires Phase B-equivalent full-corpus analysis (UMAP / clustering / cohesion-judge pass) which is OUT OF SCOPE for Phase 3's visual-pattern test. Phase 3 prototype VALIDATES the architectural pattern (two-layer + buffer-space) with a representative subset; canonical primitive-curation (which 12-20 of 20 primitives become canonical visible anchors) is DEFERRED to post-Phase-3 Pattern B with Matt on substrate-led principles. The three pre-offered framings below are NOT canonical proposals; they are prototype-scoped test sets that drax can substitute at discretion. The canonical primitive-curation question is preserved for substrate-led resolution at the appropriate analysis layer.
+
 Suggested subset (gandalf-curated for Phase 3 testing; not canonical primitive-curation):
 - **7 primary elements** (fire / water / earth / wind / lightning / holy / shadow + physical = 8) — natural primitive-anchor candidates per existing canonical-7+1 element catalog
 - OR **5-7 weapon-form-family clusters** (blade / ranged / magical / brawl / hybrid) — alternative anchor framing
@@ -157,7 +159,22 @@ Phase 3 buffer-space populated by:
 | 9 | Touch-input lasso ergonomics functional | Test on actual iPad or browser-DevTools touch emulation |
 | 10 | 60 FPS at 2D web rendering layer | Browser performance profiler at Vercel preview |
 | 11 | No raw LLM player-facing content (D7 AI-tell line) | Code review (Phase 3 is engineering visualization; no LLM at runtime) |
-| 12 | No glyph-as-primitive-anchor implementation (Branch A deferred per Tal Rasha recognition record) | Code review; primitive-anchors are NOT abstract symbolic glyphs in Phase 3 |
+| 12 | No glyph-as-primitive-anchor implementation (Branch A deferred per Tal Rasha recognition record) — fences BOTH (a) visual register (primitive-anchors are NOT abstract symbolic glyphs) AND (b) interaction model (no sign-gesture / symbol-tracing input; Phase 3 lasso is spatial-selection only) | Code review: primitive-anchors render as figurative or nebula-cluster register; input gestures are lasso + pan + zoom + click; no glyph-tracing / sign-signing input model |
+
+---
+
+## 4.5 Quality criterion
+
+**Game-quality goal this dispatch serves:** Players discover marginal-lineage and cross-substrate kit combinations through buffer-space exploration without explicit tutorial — buffer scale carries semantic meaning ergonomically (tight lasso = related kits; cross-buffer lasso = unusual combinations; buffer-only exploration = rare discoveries), and the visual register distinction between primitive-anchors and kit-clusters reads categorically (regional marker vs constellation member) without explanation. The two-layer + buffer-space pattern produces the "I found something" moment that Diablo II rare-affix discovery and isekai exploration-as-revelation conventions both depend on; absent this, the cosmograph degenerates into a flat browseable catalog where rarity and cross-substrate combinations require explicit tutorial surfacing.
+
+**Refutation conditions** (sub-agent surfaces if any apply):
+- This dispatch contradicts canonical anchor X (e.g., Earth-Avatar Creation Moment Architecture 2026-06-07, atomic-substrate-registry 2026-06-06, cosmograph-pivot 2026-06-05 § 9 amendment, Tal Rasha glyphic primitive-anchor architecture recognition 2026-06-09)
+- Alternative execution Y serves the named quality goal better (e.g., single-layer with size-encoded primitive-vs-kit distinction; explicit mode-toggle UI for lasso semantics; no-buffer cluster-packing for spatial efficiency)
+- Acceptance criteria can pass without advancing the quality goal (e.g., two-layer renders distinctly + buffer exists + lasso works, yet players cannot intuit cross-substrate-discovery as a mechanic — gesture semantics fail to carry meaning)
+- Dispatch framing pre-commits to a decision Matt has not ratified (Branch A vs Branch B; primitive-curation lock; specific anchor count)
+- Dispatch introduces a pre-authored taxonomy without justification (#41 candidate — § 2.2 curated subset framings; see § 5.2 Discipline #41 rationale)
+- Dispatch introduces a scaffold value not flagged as pending-decision (#40 candidate — e.g., 60 FPS performance target; iPad-class viewport bound; "5-7 weapon-form-family clusters" count)
+- **Phase-3-specific:** Phase 3 results do NOT inform Branch A vs Branch B because they are structurally independent — surface if drax finds spatial-architecture results would require Branch A to validate, in which case the Branch decision composition with Phase 3 needs revisiting at close-report layer
 
 ---
 
@@ -224,6 +241,7 @@ Phase 3 IS empirical validation of the two-layer + buffer-space architecture pat
    - Methodology hotspots flagged for elrond consultation per #18.2
    - Phase 3 GREEN / YELLOW / RED verdict
    - Gap notes for UE-port scope (what Phase 3 cannot validate; what defers to UE)
+   - Subset-bias observation: did the chosen primitive-anchor subset (elements / weapon-forms / mixed) materially shift architectural-pattern findings? If yes, surface alternation hypothesis for canonical primitive-curation Pattern B input.
 3. **Code changes** in `reincarnated-loadout/` per drax seam; auto-commit per CLAUDE.md addendum
 
 ---
