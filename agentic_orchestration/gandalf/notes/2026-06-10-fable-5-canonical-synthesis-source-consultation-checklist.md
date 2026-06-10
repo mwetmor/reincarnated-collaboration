@@ -24,58 +24,58 @@ All paths verified present on disk 2026-06-10 prior to authoring this declaratio
 
 | # | Source | Read scope | Read? |
 |---|---|---|---|
-| A1 | `canonical/story/2026-06-06-atomic-substrate-registry.md` | FULL (Layer 0 atomic primitives, 20 families; Layer 0.5 combinatory operators; Layer 1 derivation chains; Naming Layer N1-N4) | ☐ |
-| A2 | `canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture.md` | FULL, with § 1.8 (multi-axis experiential) + § 3 (mathematical cell schema) flagged load-bearing | ☐ |
-| A3 | `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` | FULL (8 BC axes; 68,040 cells) | ☐ |
-| A4 | `canonical/story/multi-dim-convergence-algorithm-2026-05-21.md` | FULL (convergence algorithm; substrate-vector arithmetic) | ☐ |
-| A5 | `canonical/story/skill-system-2026-05-24.md` | FULL (skill system architecture; spirit-guide explainer pattern § 9) | ☐ |
-| A6 | `canonical/story/attribute-system-2026-05-24.md` | FULL (attribute system) | ☐ |
+| A1 | `canonical/story/2026-06-06-atomic-substrate-registry.md` | FULL (Layer 0 atomic primitives, 20 families; Layer 0.5 combinatory operators; Layer 1 derivation chains; Naming Layer N1-N4) | ☑ (full 613 lines) |
+| A2 | `canonical/story/2026-05-31-hypothesis-flow-pattern-library-architecture.md` | FULL, with § 1.8 (multi-axis experiential) + § 3 (mathematical cell schema) flagged load-bearing | ☑ (full 1,887 lines; chunked reads) |
+| A3 | `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` | FULL (8 BC axes; 68,040 cells) | ☑ (full 735 lines) |
+| A4 | `canonical/story/multi-dim-convergence-algorithm-2026-05-21.md` | FULL (convergence algorithm; substrate-vector arithmetic) | ☑ (full 1,115 lines; chunked reads) |
+| A5 | `canonical/story/skill-system-2026-05-24.md` | FULL (skill system architecture; spirit-guide explainer pattern § 9) | ☑ (full 765 lines) |
+| A6 | `canonical/story/attribute-system-2026-05-24.md` | FULL (attribute system) | ☑ (full 245 lines) |
 
 ### Block B — Generation pipeline + damage scaling
 
 | # | Source | Read scope | Read? |
 |---|---|---|---|
-| B1 | `canonical/39-qd-engine-end-to-end-workflow-2026-05-24.md` | FULL (Architecture B base; § 0.1 amendment-pass-record; 8-phase workflow; § 0.5 content lifecycle dependency chain) | ☐ |
-| B2 | `canonical/40-gear-balance-guide-architecture-2026-05-26.md` | FULL (D1-D86 across 5 design blocks; Cycle 14 SC-2 amendment pass) | ☐ |
-| B3 | `canonical/41-progression-framework-2026-05-27.md` | FULL (L50 hybrid progression framework) | ☐ |
-| B4 | `canonical/42-stat-sheet-modifier-partition-intent-2026-05-27.md` | FULL (9-cat × 11-slot affinity matrix; per-rarity × per-slot grid) | ☐ |
-| B5 | `canonical/43-t4-algorithm-wave-2-intent-2026-05-27.md` | FULL (T4 algorithm Wave 2 intent) | ☐ |
-| B6 | `canonical/44-t4-algorithm-wave-3-phase-3-intent-2026-05-27.md` | FULL (T4 algorithm Wave 3 Phase 3 intent) | ☐ |
-| B7 | `canonical/45-spec-driven-gear-gen-wave-4-rocket-track-intent-2026-05-27.md` | FULL (spec-driven gear gen rocket track) | ☐ |
-| B8 | `canonical/46-concentration-architecture-2026-05-27.md` | FULL (9-layer concentration architecture) | ☐ |
-| B9 | `canonical/47-damage-scaling-architecture-2026-05-27.md` | FULL (three-path damage routing; v1.2 amendments § 4.5 + § 4.6) | ☐ |
-| B10 | `canonical/50-bounded-viability-with-specialization-design-directive-2026-05-28.md` | FULL (Path α; 5 design targets; § 4.7 cross-reference) | ☐ |
-| B11 | `canonical/51-investment-scaling-6-pattern-architecture-2026-05-28.md` | FULL, with § 10.7.8 (two-layer T4 composition) + § 10.8.9 (Layer 2 strip-and-ship) flagged load-bearing | ☐ |
+| B1 | `canonical/39-qd-engine-end-to-end-workflow-2026-05-24.md` | FULL (Architecture B base; § 0.1 amendment-pass-record; 8-phase workflow; § 0.5 content lifecycle dependency chain) | ☑ (full 757 lines; chunked reads) |
+| B2 | `canonical/40-gear-balance-guide-architecture-2026-05-26.md` | FULL (D1-D86 across 5 design blocks; Cycle 14 SC-2 amendment pass) | ☑ (full; chunked reads) |
+| B3 | `canonical/41-progression-framework-2026-05-27.md` | FULL (L50 hybrid progression framework) | ☑ (full 203 lines) |
+| B4 | `canonical/42-stat-sheet-modifier-partition-intent-2026-05-27.md` | FULL (9-cat × 11-slot affinity matrix; per-rarity × per-slot grid) | ☑ (full 530 lines) |
+| B5 | `canonical/43-t4-algorithm-wave-2-intent-2026-05-27.md` | FULL (T4 algorithm Wave 2 intent) | ☑ (full 758 lines; chunked reads) |
+| B6 | `canonical/44-t4-algorithm-wave-3-phase-3-intent-2026-05-27.md` | FULL (T4 algorithm Wave 3 Phase 3 intent) | ☑ (full 565 lines; chunked reads) |
+| B7 | `canonical/45-spec-driven-gear-gen-wave-4-rocket-track-intent-2026-05-27.md` | FULL (spec-driven gear gen rocket track) | ☑ (full 655 lines; chunked reads) |
+| B8 | `canonical/46-concentration-architecture-2026-05-27.md` | FULL (9-layer concentration architecture) | ☑ (full; chunked reads) |
+| B9 | `canonical/47-damage-scaling-architecture-2026-05-27.md` | FULL (three-path damage routing; v1.2 amendments § 4.5 + § 4.6) | ☑ (full; chunked reads) |
+| B10 | `canonical/50-bounded-viability-with-specialization-design-directive-2026-05-28.md` | FULL (Path α; 5 design targets; § 4.7 cross-reference) | ☑ (full 533 lines) |
+| B11 | `canonical/51-investment-scaling-6-pattern-architecture-2026-05-28.md` | FULL, with § 10.7.8 (two-layer T4 composition) + § 10.8.9 (Layer 2 strip-and-ship) flagged load-bearing | ☑ (full 1,673 lines; chunked reads) |
 
 ### Block C — Player-facing creation moment
 
 | # | Source | Read scope | Read? |
 |---|---|---|---|
-| C1 | `canonical/story/2026-06-07-earth-avatar-cosmograph-creation-moment-architecture.md` | FULL, § 1–§ 12 inclusive; § 12 is the most recent canonical lock (two-layer + rune-per-group + spirit-guide cascade + cycling-preview) | ☐ |
-| C2 | `canonical/story/2026-06-09-tal-rasha-glyphic-primitive-anchor-architecture-recognition.md` | FULL (glyphic primitive-anchor recognition; Branch A; § 4.1 + § 4.2 amendment queue) | ☐ |
-| C3 | `canonical/story/2026-06-05-cosmograph-pivot.md` | FULL including § 9 amendment (primitive-as-star + kit-as-constellation) + § 10 amendment | ☐ |
+| C1 | `canonical/story/2026-06-07-earth-avatar-cosmograph-creation-moment-architecture.md` | FULL, § 1–§ 12 inclusive; § 12 is the most recent canonical lock (two-layer + rune-per-group + spirit-guide cascade + cycling-preview) | ☑ (full 918 lines; chunked reads) |
+| C2 | `canonical/story/2026-06-09-tal-rasha-glyphic-primitive-anchor-architecture-recognition.md` | FULL (glyphic primitive-anchor recognition; Branch A; § 4.1 + § 4.2 amendment queue) | ☑ (full 223 lines) |
+| C3 | `canonical/story/2026-06-05-cosmograph-pivot.md` | FULL including § 9 amendment (primitive-as-star + kit-as-constellation) + § 10 amendment | ☑ (full 469 lines) |
 
 ### Block D — Cross-cutting disciplines + strategic context
 
 | # | Source | Read scope | Read? |
 |---|---|---|---|
 | D1 | `canonical/38-downstream-delivery-strategy-2026-05-23.md` | FULL (D1-D10 keystone) — **read this session at session-start; counts as consultation-in-full** | ☑ (session-start read 2026-06-10) |
-| D2 | `canonical/37-engine-and-game-two-products.md` | FULL (Variant C lock) | ☐ |
-| D3 | `canonical/story/engine-as-general-serial-content-product-2026-05-22.md` | FULL (Variant C story-side) | ☐ |
-| D4 | `canonical/story/legacy-categorical-cleanup-audit-2026-05-22.md` | FULL (six Pattern retirements; substrate-led discipline anchor) | ☐ |
-| D5 | `canonical/story/2026-05-29-designer-writes-substrate-player-names-experience-principle.md` | FULL (designer-writes-substrate / player-names-experience principle) | ☐ |
-| D6 | `canonical/story/2026-06-02-season-archive-realm-expansion-pivot.md` | FULL (Season Archive Realm Expansion) | ☐ |
-| D7 | `canonical/story/2026-06-09-arpg-physical-magical-ratio-baseline.md` | FULL (empirical genre baseline; target-vs-watch-flag structure) | ☐ |
-| D8 | `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` | FULL (current discipline set; 3,037 lines) | ☐ |
-| D9 | `~/Games/reincarnated-engine/design/decisions/decisions-log.md` | FULL decision history (3,822 lines) — read for decision-lineage verification of synthesis claims | ☐ |
+| D2 | `canonical/37-engine-and-game-two-products.md` | FULL (Variant C lock) | ☑ (full 324 lines) |
+| D3 | `canonical/story/engine-as-general-serial-content-product-2026-05-22.md` | FULL (Variant C story-side) | ☑ (full 415 lines) |
+| D4 | `canonical/story/legacy-categorical-cleanup-audit-2026-05-22.md` | FULL (six Pattern retirements; substrate-led discipline anchor) | ☑ (full 611 lines) |
+| D5 | `canonical/story/2026-05-29-designer-writes-substrate-player-names-experience-principle.md` | FULL (designer-writes-substrate / player-names-experience principle) | ☑ (full 272 lines) |
+| D6 | `canonical/story/2026-06-02-season-archive-realm-expansion-pivot.md` | FULL (Season Archive Realm Expansion) | ☑ (full 449 lines) |
+| D7 | `canonical/story/2026-06-09-arpg-physical-magical-ratio-baseline.md` | FULL (empirical genre baseline; target-vs-watch-flag structure) | ☑ (full 202 lines) |
+| D8 | `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` | FULL (current discipline set; 3,037 lines) | ☑ (full 3,037 lines; chunked reads) |
+| D9 | `~/Games/reincarnated-engine/design/decisions/decisions-log.md` | FULL decision history (3,822 lines) — read for decision-lineage verification of synthesis claims | ☑ (full 3,822 lines; chunked reads) |
 
 ### Block E — Substrate + operational state
 
 | # | Source | Read scope | Read? |
 |---|---|---|---|
-| E1 | `canonical/story/2026-05-23-weapon-substrate-conclusion-declaration.md` | FULL (substrate v1.0 lock; 125 clusters) | ☐ |
-| E2 | `canonical/story/weapon-substrate-composition-policy-v1-2026-05-24.md` | FULL (composition policy v1; Stage 3 D1-D7) | ☐ |
-| E3 | `canonical/02-roadmap.md` | FULL — **§ 0–§ 2 + § 4–§ 5 read this session at session-start; § 3 visual flow + § 6–§ 8 to be read during synthesis pass** | ◐ (partial at session-start; completing during synthesis) |
+| E1 | `canonical/story/2026-05-23-weapon-substrate-conclusion-declaration.md` | FULL (substrate v1.0 lock; 125 clusters) | ☑ (full 153 lines) |
+| E2 | `canonical/story/weapon-substrate-composition-policy-v1-2026-05-24.md` | FULL (composition policy v1; Stage 3 D1-D7) | ☑ (full 566 lines) |
+| E3 | `canonical/02-roadmap.md` | FULL — **§ 0–§ 2 + § 4–§ 5 read this session at session-start; § 3 visual flow + § 6–§ 8 to be read during synthesis pass** | ☑ (full — § 0–§ 2 + § 4–§ 5 at session-start; § 3 + § 6–§ 8 during synthesis pass) |
 | E4 | `canonical/00-ground-state.md` | FULL — **read this session at session-start (header + TL;DR + § 1 row enumeration + § 2.5–§ 7)**; used for ORIENTATION + workstream state ONLY; explicitly NOT a synthesis source for architectural-commitment claims (the failure-pattern guard) | ☑ (session-start read; orientation-only role declared) |
 
 ---
