@@ -51,16 +51,16 @@
 **12 entries.** All 12 animals with full schema: earthly branch, fixed element, yin/yang, 2-hour periods, compatible signs, Jade Emperor race narrative per animal, Wikipedia Commons image URLs (M.A. N.Isis Alexandre "Zodiaque" series, CC-BY-SA 3.0). Cultural sensitivity: 2 low flags (Snake, Pig — minor cultural associations), 10 none. Notable: Snake/低 sensitivity flag noted because some cultures have mixed symbolism; Pig/猪 similar. Corpus file: `corpus-chinese-zodiac.yaml` (59 KB). YAML validated cleanly.
 
 ### Japanese Jūnishi — COMPLETE (2026-06-09)
-**12 entries.** Derivative from Chinese zodiac; distinct primary_culture = "Japanese." Key variant: 12th animal is Boar (Inoshishi/猪) not Pig — Japanese-specific. Corpus file: `corpus-japanese-junishi.yaml` (45 KB).
+**12 entries.** Distinct primary_culture = "Japanese." Key variant: position 12 is Wild Boar (Inoshishi) not Pig. Rich Japanese cultural layer documented: ema votive plaque tradition (Horse/Uma is the etymological origin of the ema system), Moon Rabbit, Nikkō's three wise monkeys, Benzaiten's white snake, Inu no Hi pregnancy ritual. Anti-collapse verified — no "East Asian zodiac" identity fields. Corpus file: `corpus-japanese-junishi.yaml` (45 KB).
 
 ### Korean Ddi (띠) — COMPLETE (2026-06-09)
-**12 entries.** Derivative from Chinese zodiac; distinct primary_culture = "Korean." Korean readings documented. Corpus file: `corpus-korean-ddi.yaml` (44 KB).
+**12 entries.** Distinct primary_culture = "Korean." Animal list identical to Chinese (Sheep at position 8). Korean cultural layer documented: gunghap matchmaking by zodiac, Tiger as national symbol (Hodori 1988 Olympics), Jindo dog as Korean National Treasure, **pig dream (돼지꿈)** as most auspicious Korean folklore omen, Dragon King Yongwang mythology. Corpus file: `corpus-korean-ddi.yaml` (44 KB).
 
 ### Vietnamese zodiac — COMPLETE (2026-06-09)
-**12 entries.** Derivative from Chinese zodiac; distinct primary_culture = "Vietnamese." Key variant: **Cat (Mèo) replaces Rabbit** at position 4 — documented with Vietnamese legend. Corpus file: `corpus-vietnamese-zodiac.yaml` (49 KB).
+**12 entries.** Distinct primary_culture = "Vietnamese." **Two substitutions from Chinese:** Water Buffalo (Trâu) at position 2; **Cat (Mèo/Mão) at position 4** — documented with phonetic motivation (卯/Mão ≈ Mèo), distinct Vietnamese origin legend, cultural resonance (cats ward evil, protect rice stores, documented 2011 baby boom). Lạc Long Quân dragon myth makes Dragon sign carry Vietnamese national-identity weight. Corpus file: `corpus-vietnamese-zodiac.yaml` (49 KB).
 
 ### Tibetan zodiac — COMPLETE (2026-06-09)
-**12 entries.** Derivative from Chinese zodiac; distinct primary_culture = "Tibetan." Dragon entry documents Nāga/Garuda variant framing in Tibetan-Buddhist context. Corpus file: `corpus-tibetan-zodiac.yaml` (49 KB).
+**12 entries.** Distinct primary_culture = "Tibetan." Four structural differences from Chinese source documented: (1) traditional sequence begins with Hare not Rat; (2) Dragon ('Brug) is Nāga-serpent hybrid; (3) five elements use Iron not Metal; (4) rich Buddhist-tantric layer throughout — Bhavachakra pig (ignorance/moha at Wheel of Life center), Yamantaka bull-headed deity, Garuda cosmic bird, Lungta Wind Horse, Bodhisattva-monkey origin myth. Corpus file: `corpus-tibetan-zodiac.yaml` (49 KB).
 
 ### Persian/Zoroastrian — COMPLETE (2026-06-09)
 **12 entries.** All 12 month-signs with named Yazata (divine beings): Farvardin/Fravashis, Ordibehesht/Asha Vahishta, Khordad/Haurvatat, Tir/Tishtrya (Sirius — astronomically specific), Mordad/Ameretat, Shahrivar/Kshathra Vairya, Mehr/Mithra (Roman Mithraism tauroctony distinguished as Roman derivative, not Avestan), Aban/Apas, Azar/Atar (sacred fire), Dey/Ahura Mazda, Bahman/Vohu Manah, Esfand/Spenta Armaiti. Faravahar symbol documented. Cultural sensitivity: none. Corpus file: `corpus-persian-zoroastrian.yaml` (65 KB).
