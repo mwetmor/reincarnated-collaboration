@@ -1,0 +1,756 @@
+# corpus-andean.yaml
+# Legolas Mode B Corpus — Andean Sky-Figures
+# Crawl date: 2026-06-09
+# Entry count: 9 (6 dark-cloud + 3 stellar/conventional)
+# Schema: full (constellation type, star coordinates, cultural iconography, sensitivity)
+# Cultural sensitivity protocol: MEDIUM — sourced from Wikipedia + Gary Urton academic + UNESCO
+# Sources: Wikipedia (Inca astronomy, Yacana, Chakana), Urton (1981) At the Crossroads of the
+#          Earth and Sky, Aveni (1981) Archaeoastronomy in Pre-Columbian America,
+#          Dearborn & Schreiber (1989)
+# Culture specificity: Quechua / Inca / Aymara specified per source — NOT collapsed to "Andean"
+
+# =============================================================================
+# DARK-CLOUD CONSTELLATIONS (yacana, atoq, mach'acuay, hanp'atu, yutu, kuntur)
+# Primary academic source: Urton, Gary. At the Crossroads of the Earth and Sky:
+#   An Andean Cosmology. University of Texas Press, 1981.
+# These figures are defined by DARK RIFTS in the Milky Way (interstellar dust lanes),
+# not by star patterns — a genuinely distinct astronomical tradition.
+# =============================================================================
+
+- sign_id: "andean-001"
+  sign_name:
+    primary: "Yacana (Llama)"
+    variants: ["Llamacniyoc", "Yacana", "dark-cloud llama", "Mayu Llama (river llama)"]
+    romanization: "Yacana"
+    native_script: "Yacana (Quechua)"
+  cultural_tradition:
+    primary_culture: "Quechua (Inca)"
+    derivative_cultures: ["Aymara (parallel dark-cloud traditions)", "Contemporary Andean communities (Peru, Bolivia, Ecuador)"]
+    geographic_origin: "Andean highlands — Peru / Bolivia (Inca Empire core territory)"
+    period_range: "Inca Empire peak ~1400–1533 CE; Quechua traditions extend earlier into pre-Inca cultures; contemporary Quechua and Aymara communities maintain tradition"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Andean dark-cloud constellations (pachatira / yacana system)"
+    total_signs_in_system: 0  # not a fixed-count system; documented set varies by source 6-9+
+    position_in_system: 1
+    sign_classification:
+      element: "Water (llama = water-carrier; Yacana descends to drink from sea)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Llama deity; associated with water, flood prevention, and llama herding"
+      season: "Visible in Southern Hemisphere autumn to early winter (March–June); Milky Way center in Sagittarius/Scorpius rises in the southeast"
+      other:
+        constellation_type: "dark_cloud"
+        milky_way_region: "Coalsack Nebula (near Southern Cross) extending toward Galactic center (Sagittarius direction)"
+        defining_feature: "Defined by ABSENCE of stars — the dark dust-lane rift in the Milky Way, not by star points"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/9/94/Milky_Way_Arch.jpg"
+      description: "Milky Way arch photograph showing the dark rift (dust lane) running through the galactic plane — the region where Yacana and other dark-cloud constellations are found"
+      source: "Wikipedia Commons"
+      license: "CC-BY-SA"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://upload.wikimedia.org/wikipedia/commons/9/9d/CruxCC.jpg"
+        description: "Southern Cross with adjacent Coalsack dark nebula (the 'head' region of Yacana / entrance to the dark rift)"
+        source: "Wikipedia Commons"
+        license: "CC-BY-SA"
+        verified_loads: true
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "α Centauri (Rigil Kentaurus) — Yacana's eye (one of a pair)"
+          ra: "14h 39m 36.5s"
+          dec: "−60° 50′ 02″"
+          magnitude: -0.27
+          notes: "One of the two 'eyes' of the Yacana llama. Nearest star system to Earth (4.24 light-years). Third-brightest star in the night sky. The two eyes are α and β Centauri flanking the llama's head."
+        - name: "β Centauri (Hadar / Agena) — Yacana's second eye"
+          ra: "14h 03m 49.4s"
+          dec: "−60° 22′ 22″"
+          magnitude: 0.61
+          notes: "Second eye of the Yacana llama. Blue giant. α and β Centauri are the 'Pointer Stars' that also point toward the Southern Cross."
+      notes: "The Yacana dark-cloud figure is defined primarily by the dark rift (absence of stars) in the Milky Way from near the Coalsack Nebula (adjacent to the Southern Cross, Dec ~−63°) toward the Galactic center (Sagittarius, Dec ~−29°). The 'eyes' (α and β Centauri) are the only star-point references — the body is purely the dark rift shape."
+    asterism_schematic:
+      description: "The Yacana llama is a dark-cloud constellation: its shape is the dark rift formed by interstellar dust lanes in the Milky Way. The llama's head appears near the Coalsack Nebula (adjacent to the Southern Cross); the body extends north (galacticward) along the dark lane toward the Galactic center in Sagittarius. The 'eyes' of the llama are the bright stars α and β Centauri, which flank the llama's head region. The entire figure spans approximately 40–50° of sky. Visible as a distinct shape only under dark skies with a clear Milky Way view."
+      line_topology: "Not a line-topology figure — defined by dark rift shape: elongated dark region from Dec ~−63° (Coalsack) extending toward Galactic center (Dec ~−29° in Sagittarius direction); width ~5–10° of sky"
+    cultural_iconography:
+      description: "In Quechua cosmology, the Yacana is a divine dark llama who lives in the Milky Way and descends to earth at midnight during the Pleiades' absence (when the Pleiades are not visible) to drink from the sea, preventing floods. If a sleeping person is 'hugged' by the descending Yacana (i.e., their llama falls asleep under this constellation), the herd will be blessed. The llama was the most economically and spiritually significant animal of the Andean highlands — providing wool, meat, transport, and ritual sacrifice. Its celestial counterpart governed pastoral prosperity and water cycles. The Yacana's appearance and orientation in the sky were used to predict rainfall amounts and agricultural cycles for the coming year. Gary Urton's fieldwork in Misminay (Peru) in the 1970s documented the living tradition of dark-cloud constellation observation."
+      reference_sources:
+        - "Urton, Gary. At the Crossroads of the Earth and Sky: An Andean Cosmology. University of Texas Press, 1981."
+        - "Wikipedia: Inca astronomy"
+        - "Wikipedia: Dark nebula"
+        - "Aveni, Anthony. Skywatchers of Ancient Mexico. 1980."
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Inca_astronomy"
+        - "https://en.wikipedia.org/wiki/Gary_Urton"
+  primitive_association_hints:
+    suggested_element: "Water / Earth"
+    suggested_attribute: "CON"
+    suggested_animal_form: "Llama"
+    suggested_object_form: ""
+    symbolic_role: "Divine herd-keeper; flood-preventer; abundance-provider; pastoral deity; water-cycle guardian"
+    mythic_narrative_summary: "The Yacana — the sky-llama in the Milky Way's dark rift — descends at midnight to drink from the sea and prevent floods. A dark-cloud constellation defined by absence-of-stars rather than star-pattern. The most important Andean sky-animal; associated with water, agriculture, and the cosmic pastoral order."
+  semantic_vocabulary:
+    symbolic_keywords: ["llama", "dark cloud", "Milky Way", "Andes", "water", "flood prevention", "pastoral", "Southern Hemisphere", "Coalsack", "Quechua", "dark rift"]
+    mythic_narrative: "The Yacana is the principal dark-cloud constellation of Andean cosmology. Unlike most constellation traditions worldwide which trace patterns between star-points, Andean astronomers saw figures in the dark rifts of the Milky Way — the spaces between stars where interstellar dust clouds block the light of background stars. The Yacana llama's body spans the dark rift from near the Southern Cross's Coalsack Nebula toward the Galactic center. Its 'eyes' are identified with the bright stars α and β Centauri. In Inca and Quechua mythology, the Yacana descends to earth at midnight during the Pleiades' absence to drink from the sea, preventing floods. Llamas were central to Inca economy (wool, meat, transport, religious sacrifice), and their celestial counterpart governed pastoral prosperity and water cycles. Gary Urton documented this living tradition in his 1981 fieldwork at Misminay, Peru."
+    visual_motifs: ["dark rift in Milky Way", "llama silhouette against stars", "Coalsack dark nebula", "α/β Centauri eye-stars", "Southern Hemisphere sky"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from Wikipedia and Gary Urton's At the Crossroads of the Earth and Sky (1981) — the primary peer-reviewed academic source for Andean dark-cloud astronomy. Andean sky traditions are living ceremonial practices in contemporary Quechua and Aymara communities. This entry documents only publicly-published academic material from Urton's fieldwork-based publication and Wikipedia."
+    source_authorization: "Urton (1981) academic + Wikipedia"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Inca_astronomy"
+    secondary_sources:
+      - "Urton, Gary. At the Crossroads of the Earth and Sky: An Andean Cosmology. University of Texas Press, 1981."
+      - "Wikipedia: Yacana — https://en.wikipedia.org/wiki/Yacana"
+    academic_anchor: "Urton, Gary. At the Crossroads of the Earth and Sky: An Andean Cosmology. University of Texas Press, 1981."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "andean-002"
+  sign_name:
+    primary: "Atoq (Fox)"
+    variants: ["Atoc", "dark-cloud fox", "Andean fox sky-figure"]
+    romanization: "Atoq"
+    native_script: "Atoq (Quechua)"
+  cultural_tradition:
+    primary_culture: "Quechua (Inca)"
+    derivative_cultures: ["Aymara"]
+    geographic_origin: "Andean highlands — Peru / Bolivia"
+    period_range: "Inca Empire ~1400–1533 CE; Quechua oral tradition extends earlier and continues today"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Andean dark-cloud constellations"
+    total_signs_in_system: 0
+    position_in_system: 2
+    sign_classification:
+      element: "Earth (fox as cunning predator)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Fox — trickster and predator figure in Andean mythology; follows the llama"
+      season: "Same visibility as Yacana — Southern Hemisphere autumn/winter sky"
+      other:
+        constellation_type: "dark_cloud"
+        milky_way_region: "Adjacent to / below Yacana; darker rift region below the llama figure"
+        defining_feature: "Dark rift following the Yacana llama; predator-prey relationship"
+        ecological_note: "The Andean fox (Pseudalopex culpaeus) is a real predator in the Andean ecosystem that preys on small livestock including young llamas"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/9/94/Milky_Way_Arch.jpg"
+      description: "Milky Way arch — the dark rift region housing both Yacana and Atoq; the fox follows the llama along the rift"
+      source: "Wikipedia Commons"
+      license: "CC-BY-SA"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars: []
+      notes: "Atoq is a dark-cloud figure with no star-point references documented in Urton (1981). The figure is defined entirely by the dark rift shape adjacent to and 'following' the Yacana."
+    asterism_schematic:
+      description: "The Atoq fox is a smaller dark-cloud figure following the Yacana llama along the Milky Way dark rift. Like Yacana, it is defined by the absence of stars in a dark dust-lane region. Its smaller dark-cloud shape trails below and adjacent to the larger llama figure — visually representing the ecological predator-prey relationship of fox following llama."
+      line_topology: "Dark rift shape — no line topology; smaller figure adjacent to Yacana"
+    cultural_iconography:
+      description: "Atoq (fox) is a dark-cloud constellation following the Yacana (llama) in the Milky Way dark rift. In Andean mythology and ecology, the fox is a cunning predator — a trickster figure who follows larger animals and opportunistically takes what it can. The sky-fox's pursuit of the sky-llama mirrors the earthly predator-prey relationship. In some Andean origin stories, the fox is an ambivalent figure — sometimes an ancestor, sometimes a nuisance. The fox's position in the sky, relative to the llama, was used in agricultural and ceremonial timing alongside the other dark-cloud figures."
+      reference_sources:
+        - "Urton, Gary. At the Crossroads of the Earth and Sky. 1981."
+        - "Wikipedia: Inca astronomy"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Inca_astronomy"
+  primitive_association_hints:
+    suggested_element: "Earth / Shadow"
+    suggested_attribute: "DEX / INT"
+    suggested_animal_form: "Andean fox (culpeo)"
+    suggested_object_form: ""
+    symbolic_role: "Trickster; cunning predator; pursuer of abundance; opportunistic follower"
+    mythic_narrative_summary: "Atoq the dark-cloud fox follows the sky-llama (Yacana) through the Milky Way's dark rift — the celestial predator tracking the celestial herd. A trickster and cunning figure whose presence in the sky marks the ecological tension between predator and pastoral abundance."
+  semantic_vocabulary:
+    symbolic_keywords: ["fox", "trickster", "predator", "dark cloud", "Milky Way", "Andes", "cunning", "pursuer", "Quechua"]
+    mythic_narrative: "Atoq (fox) is the dark-cloud figure following the Yacana llama through the Milky Way dark rift. The Andean fox (culpeo) is a real highland predator, and its sky-counterpart follows the celestial llama just as the earthly fox follows llama herds. In Andean mythological tradition, the fox is a trickster figure — clever, opportunistic, and sometimes an ancestor figure. The fox-llama pairing in the dark-cloud system creates a celestial ecology that mirrors the earthly Andean ecosystem."
+    visual_motifs: ["dark rift following llama", "smaller dark cloud", "predator shape", "Milky Way dust lane", "trickster fox"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from Urton (1981) academic and Wikipedia. Living ceremonial practices in Quechua/Aymara communities; only publicly-published academic material documented here."
+    source_authorization: "Urton (1981) academic + Wikipedia"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Inca_astronomy"
+    secondary_sources:
+      - "Urton, Gary. At the Crossroads of the Earth and Sky. 1981."
+    academic_anchor: "Urton, Gary. At the Crossroads of the Earth and Sky: An Andean Cosmology. University of Texas Press, 1981."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"  # documented shape but less detail than Yacana
+
+- sign_id: "andean-003"
+  sign_name:
+    primary: "Mach'acuay (Serpent)"
+    variants: ["Machacuay", "Yacumama (water mother/serpent in some traditions)", "dark-cloud serpent"]
+    romanization: "Mach'acuay"
+    native_script: "Mach'acuay (Quechua)"
+  cultural_tradition:
+    primary_culture: "Quechua (Inca)"
+    derivative_cultures: ["Aymara"]
+    geographic_origin: "Andean highlands — Peru / Bolivia"
+    period_range: "Inca Empire ~1400–1533 CE; Quechua oral tradition extends earlier and continues today"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Andean dark-cloud constellations"
+    total_signs_in_system: 0
+    position_in_system: 3
+    sign_classification:
+      element: "Water / Earth (serpent = water and earth in Andean cosmology)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Serpent deity — amaru (celestial serpent) is a major Andean cosmological figure"
+      season: "Southern Hemisphere winter sky visibility"
+      other:
+        constellation_type: "dark_cloud"
+        milky_way_region: "Elongated dark rift in the Milky Way; serpentine shape"
+        defining_feature: "Long, sinuous dark cloud; serpent shape from its elongated winding form"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/9/94/Milky_Way_Arch.jpg"
+      description: "Milky Way arch — the elongated dark rift region housing Mach'acuay serpent shape"
+      source: "Wikipedia Commons"
+      license: "CC-BY-SA"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars: []
+      notes: "Mach'acuay is a dark-cloud figure with no star-point anchors; defined entirely by elongated sinuous dark rift in the Milky Way."
+    asterism_schematic:
+      description: "The Mach'acuay (serpent) is a dark-cloud figure defined by the elongated, winding dark rift in the Milky Way. Its serpentine shape — long, sinuous, narrowing and widening — mirrors the appearance of a snake in the galaxy's dust-lane structure. The celestial serpent is one of the most powerful animal figures in Andean cosmology."
+      line_topology: "Sinuous dark rift — elongated shape, no specific line topology"
+    cultural_iconography:
+      description: "Mach'acuay (serpent) is a dark-cloud constellation in the Andean tradition. The serpent (amaru) is one of the most powerful cosmological figures in Andean belief — it mediates between the underworld and the upper world, associated with water (rivers, rain) and earth forces. The amaru is a great celestial serpent who is the source of rivers and water. The dark-cloud serpent in the Milky Way represents this cosmic mediating force. Serpents are central figures in pre-Columbian Andean art (Tiwanaku, Wari, Inca), appearing on ceramics, textiles, and architecture. The appearance and position of the sky-serpent was used for calendrical reckoning and agricultural timing."
+      reference_sources:
+        - "Urton, Gary. At the Crossroads of the Earth and Sky. 1981."
+        - "Wikipedia: Inca astronomy"
+        - "Wikipedia: Amaru (mythology)"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Inca_astronomy"
+        - "https://en.wikipedia.org/wiki/Amaru_(mythology)"
+  primitive_association_hints:
+    suggested_element: "Water / Earth"
+    suggested_attribute: "INT / CON"
+    suggested_animal_form: "Serpent (amaru)"
+    suggested_object_form: ""
+    symbolic_role: "World-mediator; water-source; underworld-upper world bridge; cosmic power"
+    mythic_narrative_summary: "Mach'acuay the sky-serpent — a sinuous dark cloud in the Milky Way. The amaru (celestial serpent) mediates between the underworld and the heavens, governs water and rivers, and is one of the most powerful cosmological figures in Andean tradition. Presence in the sky = source of rivers, rain, and transformative earth forces."
+  semantic_vocabulary:
+    symbolic_keywords: ["serpent", "amaru", "dark cloud", "Milky Way", "water", "underworld", "cosmic mediator", "Andes", "Quechua"]
+    mythic_narrative: "Mach'acuay (serpent) is the dark-cloud serpent constellation of the Milky Way. The amaru — the great celestial serpent — is one of the most important figures in Andean cosmology, appearing throughout pre-Columbian art and architecture. As a mediator between the underworld (ukhu pacha) and the upper world (hanan pacha), the serpent represents transformative power and the flow of water through the earth. The dark winding rift of the Milky Way provides the serpentine shape. Rivers are conceived as amaru emerging from the earth — earthly rivers are the amaru's pathway through the middle world."
+    visual_motifs: ["sinuous dark rift", "winding serpent shape", "Milky Way dust lane", "water-earth mediator", "pre-Columbian amaru iconography"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from Urton (1981) and Wikipedia. Living ceremonial practices; only academic public record documented."
+    source_authorization: "Urton (1981) academic + Wikipedia"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Inca_astronomy"
+    secondary_sources:
+      - "Urton, Gary. At the Crossroads of the Earth and Sky. 1981."
+      - "Wikipedia: Amaru (mythology)"
+    academic_anchor: "Urton, Gary. At the Crossroads of the Earth and Sky. University of Texas Press, 1981."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "andean-004"
+  sign_name:
+    primary: "Hanp'atu (Toad)"
+    variants: ["Hampatu", "Janp'atu", "dark-cloud toad", "dark-cloud frog"]
+    romanization: "Hanp'atu"
+    native_script: "Hanp'atu (Quechua)"
+  cultural_tradition:
+    primary_culture: "Quechua (Inca)"
+    derivative_cultures: ["Aymara"]
+    geographic_origin: "Andean highlands — Peru / Bolivia"
+    period_range: "Inca Empire ~1400–1533 CE; Quechua oral tradition extends earlier and continues today"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Andean dark-cloud constellations"
+    total_signs_in_system: 0
+    position_in_system: 4
+    sign_classification:
+      element: "Water / Earth (toad = water and fertility)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Toad/frog deity — associated with rain and fertility in Andean tradition"
+      season: "Southern Hemisphere winter sky"
+      other:
+        constellation_type: "dark_cloud"
+        milky_way_region: "Dark cloud figure near Milky Way center region"
+        defining_feature: "Compact dark cloud shape; squat toad/frog silhouette"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/9/94/Milky_Way_Arch.jpg"
+      description: "Milky Way arch — the dark rift region around the galactic center where Hanp'atu toad figure is located"
+      source: "Wikipedia Commons"
+      license: "CC-BY-SA"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars: []
+      notes: "Hanp'atu is a dark-cloud figure; no star-point anchors in academic documentation. Compact dark region near Milky Way center."
+    asterism_schematic:
+      description: "The Hanp'atu (toad/frog) is a compact dark-cloud figure — a roughly squat, rounded dark region in the Milky Way. The toad shape is shorter and wider than the serpent, reflecting the animal's compact silhouette. Position near the Milky Way center region."
+      line_topology: "Compact dark cloud — no line topology"
+    cultural_iconography:
+      description: "Hanp'atu (toad or frog) is a dark-cloud constellation in the Milky Way. Frogs and toads are important animals in Andean agricultural cosmology — their croaking signals rain, and their presence near water bodies is a sign of water abundance. The toad/frog is associated with rain-calling and fertility in Andean tradition. Small ceramic toad figures are found in Andean archaeological sites as rain-calling ritual objects. The sky-toad's appearance and behavior (orientation, brightness of surrounding Milky Way) was read for rainfall predictions."
+      reference_sources:
+        - "Urton, Gary. At the Crossroads of the Earth and Sky. 1981."
+        - "Wikipedia: Inca astronomy"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Inca_astronomy"
+  primitive_association_hints:
+    suggested_element: "Water / Earth"
+    suggested_attribute: "CON / WIS"
+    suggested_animal_form: "Toad / frog"
+    suggested_object_form: ""
+    symbolic_role: "Rain-caller; fertility herald; water abundance signal; compact earth-creature"
+    mythic_narrative_summary: "Hanp'atu the sky-toad — a compact dark cloud near the Milky Way center. Toads and frogs signal rain and water abundance in Andean tradition; the sky-toad was read to predict rainfall for the agricultural season. Small toad figures appear throughout Andean ritual ceramics as rain-calling objects."
+  semantic_vocabulary:
+    symbolic_keywords: ["toad", "frog", "rain", "fertility", "dark cloud", "Milky Way", "water abundance", "Andes", "compact figure"]
+    mythic_narrative: "Hanp'atu (toad/frog) is the compact dark-cloud constellation of the Milky Way, associated with rain and water fertility. In Andean highland tradition, frogs and toads are rain-heralds — their calls signal incoming rain, and their presence near water signals a healthy water cycle. The sky-toad's appearance in the Milky Way was read alongside the Pleiades (Suchu/Collca) and other sky-signs to predict the coming agricultural season's water supply."
+    visual_motifs: ["compact dark cloud", "squat rounded shape", "rain-caller", "toad silhouette", "Milky Way center"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from Urton (1981) and Wikipedia. Living ceremonial practices; only academic public record documented."
+    source_authorization: "Urton (1981) academic + Wikipedia"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Inca_astronomy"
+    secondary_sources:
+      - "Urton, Gary. At the Crossroads of the Earth and Sky. 1981."
+    academic_anchor: "Urton, Gary. At the Crossroads of the Earth and Sky. University of Texas Press, 1981."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "andean-005"
+  sign_name:
+    primary: "Yutu (Tinamou)"
+    variants: ["Yuthu", "dark-cloud partridge", "dark-cloud tinamou"]
+    romanization: "Yutu"
+    native_script: "Yutu (Quechua)"
+  cultural_tradition:
+    primary_culture: "Quechua (Inca)"
+    derivative_cultures: ["Aymara"]
+    geographic_origin: "Andean highlands — Peru / Bolivia"
+    period_range: "Inca Empire ~1400–1533 CE; Quechua oral tradition extends earlier and continues today"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Andean dark-cloud constellations"
+    total_signs_in_system: 0
+    position_in_system: 5
+    sign_classification:
+      element: "Earth / Wind (bird figure)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Tinamou bird; associated with highland game birds and hunting"
+      season: "Southern Hemisphere winter sky"
+      other:
+        constellation_type: "dark_cloud"
+        milky_way_region: "Dark cloud in the Milky Way; bird-shaped dark region"
+        defining_feature: "Bird-shaped dark cloud; compact body + small head silhouette of tinamou"
+        ecological_note: "The tinamou (yutu) is an Andean game bird — small, plump, runs rather than flies; an important food source in the highlands. Its small size and rounded shape match the dark cloud figure."
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/9/94/Milky_Way_Arch.jpg"
+      description: "Milky Way arch — the dark rift region housing the Yutu tinamou dark-cloud figure"
+      source: "Wikipedia Commons"
+      license: "CC-BY-SA"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars: []
+      notes: "Yutu is a dark-cloud figure with no star-point anchors documented in academic sources."
+    asterism_schematic:
+      description: "The Yutu (tinamou) is a bird-shaped dark cloud in the Milky Way — compact body with a small rounded head, matching the silhouette of the tinamou game bird. The tinamou is a distinctive Andean bird: plump, round-bodied, with a small head and short tail, usually running on the ground rather than flying."
+      line_topology: "Compact dark cloud — no line topology; bird-silhouette shape"
+    cultural_iconography:
+      description: "Yutu (tinamou / partridge) is a dark-cloud constellation representing the small Andean game bird. The tinamou is an important food source in the Andean highlands — small, plump, and hunted for meat. Its sky counterpart in the dark-cloud system represents the game birds that provide food from the highland puna. The Yutu's appearance in the sky was associated with the hunting season and the availability of game birds. Its compact rounded dark-cloud shape mirrors the distinctive silhouette of the tinamou."
+      reference_sources:
+        - "Urton, Gary. At the Crossroads of the Earth and Sky. 1981."
+        - "Wikipedia: Inca astronomy"
+        - "Wikipedia: Tinamou"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Inca_astronomy"
+        - "https://en.wikipedia.org/wiki/Tinamou"
+  primitive_association_hints:
+    suggested_element: "Earth / Wind"
+    suggested_attribute: "DEX / CON"
+    suggested_animal_form: "Tinamou (Andean game bird)"
+    suggested_object_form: ""
+    symbolic_role: "Game-bird herald; hunting season marker; highland food abundance; earth-bird"
+    mythic_narrative_summary: "Yutu the sky-tinamou — a compact bird-shaped dark cloud in the Milky Way. The tinamou is an important Andean highland game bird; its sky-counterpart marks the hunting season and the provision of game-bird food from the puna grasslands. Small, rounded, grounded bird."
+  semantic_vocabulary:
+    symbolic_keywords: ["tinamou", "partridge", "game bird", "dark cloud", "Milky Way", "hunting", "highland", "food", "Andes", "compact bird"]
+    mythic_narrative: "Yutu (tinamou) is the dark-cloud bird constellation of the Milky Way — a compact bird shape in the dust-lane rift. The tinamou (family Tinamidae) is an ancient bird family native to South America, important as a highland game food source. Small, round-bodied, mostly flightless, the tinamou's silhouette in the sky-rift was used in timing hunting seasons and predicting the year's game abundance. Each dark-cloud figure in the Andean system represents a real animal from the Andean ecosystem — the sky mirrors the earth in a comprehensive ecological cosmology."
+    visual_motifs: ["compact dark bird shape", "small round body", "Milky Way dust lane", "highland puna", "game-bird silhouette"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from Urton (1981) and Wikipedia. Living ceremonial practices; only academic public record documented."
+    source_authorization: "Urton (1981) academic + Wikipedia"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Inca_astronomy"
+    secondary_sources:
+      - "Urton, Gary. At the Crossroads of the Earth and Sky. 1981."
+    academic_anchor: "Urton, Gary. At the Crossroads of the Earth and Sky. University of Texas Press, 1981."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "andean-006"
+  sign_name:
+    primary: "Kuntur (Condor)"
+    variants: ["Condor", "Kuntur Wasi (condor's house)", "dark-cloud condor / stellar condor"]
+    romanization: "Kuntur"
+    native_script: "Kuntur (Quechua)"
+  cultural_tradition:
+    primary_culture: "Quechua (Inca)"
+    derivative_cultures: ["Aymara", "Contemporary Andean communities"]
+    geographic_origin: "Andean highlands — Peru / Bolivia / Colombia / Ecuador"
+    period_range: "Inca Empire ~1400–1533 CE; Quechua tradition extends to pre-Inca cultures (Tiwanaku, Wari); contemporary ceremonial significance throughout Andean communities"
+    status_in_modern_tradition: "living_ceremonial — condor is national symbol of multiple Andean nations"
+  system_metadata:
+    system_name: "Andean dark-cloud constellations + stellar constellations"
+    total_signs_in_system: 0
+    position_in_system: 6
+    sign_classification:
+      element: "Wind / Sky (condor = master of the sky)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Apu Kuntur — the great condor deity; lord of the sky and mountains; messenger between the living world and the apus (mountain spirits)"
+      season: "Year-round symbolic importance; specifically associated with mountain peaks and sky"
+      other:
+        constellation_type: "dark_cloud (primary) + may also be read as stellar figure in some traditions"
+        milky_way_region: "Large dark cloud region in Milky Way; condor's large wingspan shape"
+        defining_feature: "Large bird shape with wide wingspan; the condor as master of the sky"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/9/94/Milky_Way_Arch.jpg"
+      description: "Milky Way arch — the large dark cloud region housing the Kuntur (condor) sky figure"
+      source: "Wikipedia Commons"
+      license: "CC-BY-SA"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars: []
+      notes: "Kuntur as a dark-cloud figure has no star-point anchors. In some traditions, the Condor may also be associated with specific bright star patterns — academic documentation is less precise on Kuntur than on Yacana."
+    asterism_schematic:
+      description: "The Kuntur (Andean condor) is a large dark-cloud figure in the Milky Way — a wide-wingspan bird shape in the dust-lane region. The Andean condor is the largest flying bird in the world (wingspan up to 3.2 meters), and its sky counterpart is correspondingly the largest bird-figure in the dark-cloud system. Its spread wings create a distinctive wide-span dark shape in the galaxy."
+      line_topology: "Large dark cloud — no line topology; wide-wingspan bird shape"
+    cultural_iconography:
+      description: "Kuntur (Andean condor) is the master bird of the Andean sky — the lord of winds, mountains, and the upper world (hanan pacha). The Andean condor (Vultur gryphus) is the largest flying bird in the world by wingspan, soaring above the highest Andean peaks on thermal updrafts. In Inca and Quechua cosmology, the condor is the messenger between the living world and the mountain spirits (apus), and between the living and the dead. The condor is one of three sacred animals of the Andean cosmological trilogy: Kuntur (condor / upper world / air), Puma (middle world / earth), Amaru (serpent / lower world / water). The condor appears throughout Inca art and architecture — the layout of Cuzco was said to be in the shape of a puma, and condor imagery is pervasive in pre-Columbian Andean material culture."
+      reference_sources:
+        - "Urton, Gary. At the Crossroads of the Earth and Sky. 1981."
+        - "Wikipedia: Inca astronomy"
+        - "Wikipedia: Andean condor"
+        - "Wikipedia: Condor in mythology"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Inca_astronomy"
+        - "https://en.wikipedia.org/wiki/Andean_condor"
+  primitive_association_hints:
+    suggested_element: "Wind / Sky"
+    suggested_attribute: "STR / WIS"
+    suggested_animal_form: "Andean condor"
+    suggested_object_form: ""
+    symbolic_role: "Lord of the sky; mountain-messenger; upper-world bridge; death and rebirth intermediary; master of winds"
+    mythic_narrative_summary: "Kuntur — the great condor soars at the apex of the Andean sky, lord of the upper world, messenger between the living and mountain spirits. One of three sacred animals of the Andean cosmos (condor / puma / serpent). Its dark-cloud form in the Milky Way spans the sky with wide wings — the largest sky-creature in the Andean celestial ecology."
+  semantic_vocabulary:
+    symbolic_keywords: ["condor", "Andean condor", "sky lord", "upper world", "mountain messenger", "dark cloud", "Milky Way", "wingspan", "Quechua", "sacred trio"]
+    mythic_narrative: "Kuntur (condor) is the lord of the Andean sky — one of three sacred animals forming the Andean cosmological trinity: Kuntur (upper world / sky), Puma (middle world / earth), Amaru/Mach'acuay (lower world / water). The Andean condor soars above the highest peaks on thermal updrafts, serving as a living bridge between the world of the living and the apus (mountain spirits). As a dark-cloud figure in the Milky Way, the condor's wide wings form a large dark shape in the galactic dust lane — the master bird of the celestial ecology. The condor's presence as a sky-figure provided a sacred canopy over the entire dark-cloud constellation system."
+    visual_motifs: ["wide-wingspan silhouette", "large dark cloud", "high Andean peak", "thermal soaring", "condor overlook", "sacred-trio top figure"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from Urton (1981) and Wikipedia. The condor's cosmological role is broadly documented in academic and public sources. Living ceremonial significance in Andean communities; only academic public record documented."
+    source_authorization: "Urton (1981) academic + Wikipedia"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Inca_astronomy"
+    secondary_sources:
+      - "Urton, Gary. At the Crossroads of the Earth and Sky. 1981."
+      - "Wikipedia: Andean condor"
+    academic_anchor: "Urton, Gary. At the Crossroads of the Earth and Sky. University of Texas Press, 1981."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+# =============================================================================
+# STELLAR / CONVENTIONAL CONSTELLATIONS (chakana, collca/suchu, orqa)
+# These figures are defined by star patterns (conventional approach) OR
+# by star clusters — distinct from the dark-cloud figures above.
+# =============================================================================
+
+- sign_id: "andean-007"
+  sign_name:
+    primary: "Chakana (Andean Cross)"
+    variants: ["Chacana", "Andean cross", "Southern Cross (Western identifier)", "Crux — Inca interpretation"]
+    romanization: "Chakana"
+    native_script: "Chakana (Quechua)"
+  cultural_tradition:
+    primary_culture: "Quechua (Inca)"
+    derivative_cultures: ["Aymara", "Contemporary Andean communities", "Pan-Andean (cross-cultural Andean symbol)"]
+    geographic_origin: "Andean highlands — Peru / Bolivia"
+    period_range: "Pre-Inca through Inca Empire (~1400–1533 CE) through present; the stepped-cross Chakana symbol appears in Tiwanaku culture (~700–1000 CE) predating the Inca"
+    status_in_modern_tradition: "active_living — Chakana symbol widely used in contemporary Andean cultural identity"
+  system_metadata:
+    system_name: "Andean stellar constellations"
+    total_signs_in_system: 0
+    position_in_system: 7
+    sign_classification:
+      element: "All four — the Chakana represents the four cosmic directions and three worlds"
+      modality: ""
+      quadrant: ""
+      deity_association: "Cosmological structure figure — the Chakana is the bridge/ladder (chaka = bridge, -na = suffix) connecting the three worlds: hanan pacha (upper), kay pacha (middle), ukhu pacha (lower)"
+      season: "Year-round — Southern Cross is circumpolar from Andean highlands (~13–22°S); visible all year"
+      other:
+        constellation_type: "stellar"
+        primary_stars: "Southern Cross (Crux)"
+        cosmological_role: "Tripartite world axis — the cross that connects all three cosmic planes"
+        archaeological_note: "The stepped-cross (chakana) symbol appears at Tiwanaku (~700 CE), Inca masonry, and contemporary Andean art — a pre-astronomical symbol that converged with the Southern Cross"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/f/f2/Crux_IAU.svg"
+      description: "IAU constellation diagram for Crux (Southern Cross) — the four stars form the Chakana cross shape"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://upload.wikimedia.org/wikipedia/commons/9/9d/CruxCC.jpg"
+        description: "Photograph of the Southern Cross (Crux / Chakana) with the Coalsack dark nebula visible adjacent"
+        source: "Wikipedia Commons"
+        license: "CC-BY-SA"
+        verified_loads: true
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Acrux (α Crucis) — base of cross"
+          ra: "12h 26m 35.9s"
+          dec: "−63° 05′ 57″"
+          magnitude: 0.77
+          notes: "Brightest star of the Southern Cross; southernmost; marks bottom arm of the Chakana cross"
+        - name: "Mimosa (β Crucis) — left arm"
+          ra: "12h 47m 43.3s"
+          dec: "−59° 41′ 20″"
+          magnitude: 1.25
+          notes: "Second-brightest of Southern Cross; left (western) arm of the Chakana"
+        - name: "Gacrux (γ Crucis) — top of cross"
+          ra: "12h 31m 09.9s"
+          dec: "−57° 06′ 48″"
+          magnitude: 1.64
+          notes: "Red giant; top arm of the Chakana cross; long-axis line Gacrux–Acrux points south"
+        - name: "Imai (δ Crucis) — right arm"
+          ra: "12h 15m 08.7s"
+          dec: "−58° 44′ 56″"
+          magnitude: 2.79
+          notes: "Right (eastern) arm of the Chakana cross"
+      notes: "The Southern Cross (Crux) provides the four-armed cross shape of the Chakana. The Coalsack dark nebula is directly adjacent to the cross and is associated in Andean tradition with the head of the Yacana llama dark-cloud constellation — the Chakana and Yacana are spatially adjacent in the sky."
+    asterism_schematic:
+      description: "The Chakana is the Southern Cross (Crux) — four stars forming a compact cross shape. In the Andean sacred-cross interpretation, the four arms represent the four cosmic directions and the cross itself is the 'bridge' (chaka) between the three worlds. The traditional Chakana symbol is a stepped cross (the design has 12 steps / 3 steps per arm), which is a stylized version of the four-star cross pattern. The Southern Cross appears as a small, compact, brilliantly-marked cross in the southern sky."
+      line_topology: "Cross: Gacrux (top) — Acrux (bottom) long axis; Mimosa (left) — Imai (right) short axis. Total span ~6° of sky."
+    cultural_iconography:
+      description: "Chakana (lit. 'bridge' or 'ladder to cross') is the sacred Andean cross — one of the most important cosmological symbols in Andean tradition. It represents the bridge connecting the three levels of existence: hanan pacha (the upper world / celestial realm), kay pacha (the middle world / the present living world), and ukhu pacha (the lower world / underworld). The four arms of the cross represent the four cardinal directions and the balance of opposing forces. The center of the cross represents the axis mundi — the world-center. The stepped-cross version of the Chakana (with 12 steps) appears throughout pre-Columbian Andean art and architecture, including at the Tiwanaku ruins (~700 CE, predating the Inca). The Southern Cross (Crux) was identified with this already-existing sacred symbol, providing a celestial anchor for the cosmological cross. The Coalsack Nebula adjacent to the Southern Cross also becomes part of the Chakana system — the dark absence at the heart of the celestial cross."
+      reference_sources:
+        - "Wikipedia: Chakana"
+        - "Wikipedia: Inca astronomy"
+        - "Wikipedia: Crux"
+        - "Urton, Gary. At the Crossroads of the Earth and Sky. 1981."
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Chakana"
+        - "https://en.wikipedia.org/wiki/Inca_astronomy"
+  primitive_association_hints:
+    suggested_element: "All elements (four-directional cosmological axis)"
+    suggested_attribute: "WIS / INT"
+    suggested_animal_form: ""
+    suggested_object_form: "Sacred cross / stepped cross / world-axis"
+    symbolic_role: "World-bridge; three-world connector; four-direction anchor; cosmological axis; cultural identity symbol"
+    mythic_narrative_summary: "The Chakana — the sacred Andean cross, bridge between all three worlds. Four stars of the Southern Cross mark the four cosmic directions; the cross itself is the axis mundi connecting upper world, living world, and underworld. The most fundamental cosmological structure in Andean thought; its stepped-cross symbol predates the Inca by centuries."
+  semantic_vocabulary:
+    symbolic_keywords: ["Chakana", "sacred cross", "Southern Cross", "three worlds", "bridge", "axis mundi", "four directions", "Inca", "Andean", "cosmological structure"]
+    mythic_narrative: "Chakana (lit. 'bridge to cross over') is the Andean sacred cross — the Southern Cross (Crux) as the cosmological axis connecting the three planes of existence. The four arms of the Chakana represent the four cardinal directions; the center is the world-axis (axis mundi) through which the three worlds communicate. The stepped-cross design (12 steps, 3 per arm) appears throughout pre-Columbian Andean material culture from Tiwanaku (~700 CE) onward. In Inca cosmology, the Chakana provided the celestial anchor for this pre-existing sacred geometry — the stars of the Southern Cross completing the symbolic pattern already embedded in the culture's material tradition. The Coalsack dark nebula adjacent to the cross is associated with the Yacana llama's head — dark absence at the heart of the sacred cross."
+    visual_motifs: ["four-armed cross in sky", "compact Southern Cross", "stepped-cross geometric symbol", "three-world axis", "adjacent Coalsack darkness"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from Wikipedia and Urton (1981). The Chakana as a cosmological symbol is widely documented in academic and institutional sources. It is an active symbol of Andean cultural identity; treatment here documents publicly-known institutional knowledge without appropriating living ceremonial specifics."
+    source_authorization: "Urton (1981) academic + Wikipedia + academic institutional sources"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Chakana"
+    secondary_sources:
+      - "Wikipedia: Inca astronomy — https://en.wikipedia.org/wiki/Inca_astronomy"
+      - "Urton, Gary. At the Crossroads of the Earth and Sky. 1981."
+      - "Wikipedia: Crux — https://en.wikipedia.org/wiki/Crux"
+    academic_anchor: "Urton, Gary. At the Crossroads of the Earth and Sky: An Andean Cosmology. University of Texas Press, 1981."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "andean-008"
+  sign_name:
+    primary: "Collca / Suchu (Pleiades)"
+    variants: ["Collca", "Suchu", "Qullqa", "Pizqay Onqoy (the five sick ones)", "Pleiades (Western identifier)", "Seven Sisters"]
+    romanization: "Collca / Suchu"
+    native_script: "Collca / Suchu (Quechua)"
+  cultural_tradition:
+    primary_culture: "Quechua (Inca)"
+    derivative_cultures: ["Aymara", "Contemporary Andean communities"]
+    geographic_origin: "Andean highlands — Peru / Bolivia"
+    period_range: "Pre-Inca through Inca Empire (~1400–1533 CE) through present; the Pleiades' role in Andean agriculture was studied astronomically from at least ~1000 BCE (Chavín horizon)"
+    status_in_modern_tradition: "living_ceremonial — Pleiades-based agricultural forecasting documented as active in contemporary Andean communities"
+  system_metadata:
+    system_name: "Andean stellar constellations"
+    total_signs_in_system: 0
+    position_in_system: 8
+    sign_classification:
+      element: "Water / Earth (agricultural cycle)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Storehouse deity — Collca means 'storehouse / granary'; the Pleiades govern the storage and cycle of agricultural abundance"
+      season: "Heliacal rising in June (Southern Hemisphere winter) — most important Andean agricultural sky-event; size and brightness of cluster at heliacal rising predicts the year's harvest"
+      other:
+        constellation_type: "stellar_cluster"
+        primary_stars: "Pleiades (M45) — same star cluster as Hawaiian Makali'i and Maori Matariki; three DISTINCT traditions"
+        agricultural_function: "The SIZE and BRIGHTNESS of the cluster at heliacal rising was used by Andean communities to forecast crop yield for the year. Larger/brighter = better harvest. Modern research (Orlove et al. 2000) confirmed this as a proxy for El Niño cloud cover — a genuine empirical forecasting system."
+        modern_scientific_validation: "Orlove, Chiang & Cane (2000) in Nature confirmed Andean cloud-cover reading of Pleiades predicts El Niño patterns 6 months ahead — peer-reviewed validation of the traditional practice"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Pleiades_large.jpg"
+      description: "Photograph of the Pleiades cluster (Collca/Suchu) showing blue-white stars — same cluster as Matariki and Makali'i but distinct Andean cultural tradition"
+      source: "Wikipedia Commons"
+      license: "Public Domain (NASA/Palomar)"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "Alcyone (η Tauri) — brightest Pleiades star"
+          ra: "3h 47m 29.1s"
+          dec: "+24° 06′ 18″"
+          magnitude: 2.87
+          notes: "Brightest member; central anchor of the cluster. In Andean tradition, the cluster is assessed as a unit — not individual stars."
+        - name: "Atlas (27 Tauri)"
+          ra: "3h 49m 09.7s"
+          dec: "+24° 03′ 12″"
+          magnitude: 3.63
+        - name: "Electra (17 Tauri)"
+          ra: "3h 44m 52.5s"
+          dec: "+24° 06′ 48″"
+          magnitude: 3.72
+      notes: "The Pleiades cluster (M45) is the same Western astronomical object as Hawaiian Makali'i and Maori Matariki. Three fully distinct traditions attach to the same star cluster — do not collapse. In the Andean tradition, the cluster's appearance (size, clarity, number of visible stars) at heliacal rising was the primary agricultural forecasting tool."
+    asterism_schematic:
+      description: "Collca/Suchu (Pleiades) — the same tight blue-white star cluster as Hawaiian Makali'i and Maori Matariki, read in a distinctly Andean way. Rather than primarily marking a new year, the Andean tradition focused on the brightness and apparent size of the cluster at heliacal rising as a predictor of rainfall and crop yields for the year."
+      line_topology: "Dense cluster — no line topology; the cluster as a whole unit is the observational subject"
+    cultural_iconography:
+      description: "Collca (lit. 'storehouse' / 'granary') and Suchu are Quechua names for the Pleiades cluster. The cluster was the single most important astronomical reference for Andean agriculture. In June (winter in the Southern Hemisphere), the Pleiades rise just before dawn — their heliacal rising. Andean communities assessed the size and brightness of the cluster at this rising: a large, clear, bright cluster predicted a good harvest year; a small, faint, or hazy cluster predicted drought and poor yields. Modern research (Orlove, Chiang & Cane 2000, published in Nature) confirmed this as a genuine empirical forecasting system — cloud cover over the Pleiades at heliacal rising in June is a proxy for El Niño conditions, which affect Andean rainfall 6 months later. The Pleiades were also associated with the timing of potato planting and the marking of the Inca ceremonial calendar. 'Pizqay Onqoy' (the five sick ones) is another Quechua name referencing a historical epidemic period associated with the cluster's appearance."
+      reference_sources:
+        - "Wikipedia: Inca astronomy"
+        - "Urton, Gary. At the Crossroads of the Earth and Sky. 1981."
+        - "Orlove, B., Chiang, J.C.H., & Cane, M. 'Forecasting Andean rainfall and crop yield from the influence of El Niño on Pleiades visibility.' Nature 403: 68-71 (2000)."
+        - "Wikipedia: Pleiades in folklore and literature"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Inca_astronomy"
+        - "https://en.wikipedia.org/wiki/Pleiades_in_folklore_and_literature"
+  primitive_association_hints:
+    suggested_element: "Water / Earth"
+    suggested_attribute: "WIS / CON"
+    suggested_animal_form: ""
+    suggested_object_form: "Storehouse / granary / seed store"
+    symbolic_role: "Agricultural oracle; harvest predictor; storehouse of the year's abundance; El Niño proxy reader"
+    mythic_narrative_summary: "Collca (Pleiades) — the celestial storehouse. Its brightness at June heliacal rising predicts the year's harvest; a faint cluster means drought ahead. The Pleiades were the primary agricultural oracle of the Inca Empire and are still used for crop forecasting in contemporary Andean communities. Modern science confirmed the tradition: cloud cover predicts El Niño patterns 6 months ahead."
+  semantic_vocabulary:
+    symbolic_keywords: ["Pleiades", "storehouse", "granary", "harvest forecast", "El Niño", "June rising", "agricultural oracle", "Inca", "Quechua", "potato planting"]
+    mythic_narrative: "Collca (lit. 'storehouse/granary') is the primary Quechua name for the Pleiades cluster, reflecting its role as the celestial granary — the heavenly storehouse that governs the year's agricultural abundance. At its heliacal rising in June (Southern Hemisphere winter), Andean farmers assessed the cluster's brightness and apparent size. A large, brilliant cluster predicted ample rainfall and good harvest; a small, hazy, or cloud-obscured cluster warned of drought and famine ahead. This was not superstition: modern research by Orlove, Chiang & Cane (2000) published in Nature confirmed that cloud cover over the Pleiades at June heliacal rising is a genuine proxy for El Niño patterns, which affect Andean rainfall 6 months later. The Pleiades also set the timing for potato planting. While Hawaiian Makali'i and Maori Matariki are the same Western star cluster (M45), the Andean tradition is entirely distinct — agricultural oracle rather than New Year herald."
+    visual_motifs: ["tight blue-white cluster", "June winter dawn sky", "brightness assessment", "granary storehouse", "potato field", "harvest abundance"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from Wikipedia, Urton (1981), and Nature peer-reviewed publication (Orlove et al. 2000). The agricultural forecasting function is well-documented in academic and institutional sources including a Nature paper. Living ceremonial practices; documentation limited to academic public record."
+    source_authorization: "Urton (1981) academic + Orlove et al. (2000) Nature + Wikipedia"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Inca_astronomy"
+    secondary_sources:
+      - "Urton, Gary. At the Crossroads of the Earth and Sky. 1981."
+      - "Orlove, B., Chiang, J.C.H., & Cane, M. 'Forecasting Andean rainfall and crop yield from the influence of El Niño on Pleiades visibility.' Nature 403: 68-71 (2000)."
+      - "Wikipedia: Pleiades in folklore and literature"
+    academic_anchor: "Orlove, Benjamin, John C.H. Chiang, and Mark A. Cane. 'Forecasting Andean rainfall and crop yield from the influence of El Niño on Pleiades visibility.' Nature 403 (2000): 68-71."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "andean-009"
+  sign_name:
+    primary: "Orqa / Llama's Eye"
+    variants: ["Orqo", "Rigil Kentaurus (Western identifier)", "α Centauri", "Pointer Star (combined with β Cen)"]
+    romanization: "Orqa"
+    native_script: "Orqa (Quechua)"
+  cultural_tradition:
+    primary_culture: "Quechua (Inca)"
+    derivative_cultures: ["Aymara"]
+    geographic_origin: "Andean highlands — Peru / Bolivia"
+    period_range: "Inca Empire ~1400–1533 CE through present"
+    status_in_modern_tradition: "living_ceremonial"
+  system_metadata:
+    system_name: "Andean stellar constellations (interface with dark-cloud system)"
+    total_signs_in_system: 0
+    position_in_system: 9
+    sign_classification:
+      element: "Water / Earth (interface with Yacana llama)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Llama's eye — the bright star-points that define the face/eyes of the Yacana dark-cloud llama; the luminous eyes in the dark figure"
+      season: "Southern Hemisphere autumn–winter; same visibility as Yacana"
+      other:
+        constellation_type: "stellar (star-point reference for dark-cloud system)"
+        note: "Orqa / the llama's eyes are the star-point anchors (α and β Centauri) that give the otherwise purely-dark Yacana its eye-reference points. They are the one star-defined element of the Yacana figure."
+        pointer_star_dual_role: "α and β Centauri are also the 'Pointer Stars' used with the Southern Cross for south-finding — they serve dual cosmological functions: pointer stars for Chakana (south celestial pole) AND eyes of Yacana (dark-cloud llama)"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/9/9d/CruxCC.jpg"
+      description: "Southern Cross photograph showing the two Pointer Stars (α and β Centauri — Yacana's eyes) at right; the Coalsack dark nebula (Yacana's head region) at upper left"
+      source: "Wikipedia Commons"
+      license: "CC-BY-SA"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "α Centauri (Rigil Kentaurus) — primary Yacana eye"
+          ra: "14h 39m 36.5s"
+          dec: "−60° 50′ 02″"
+          magnitude: -0.27
+          notes: "Third-brightest star in the night sky; nearest star system to Earth (4.24 light-years). One of the two 'eyes' of the Yacana. Also one of the two 'Pointer Stars' pointing to the Southern Cross."
+        - name: "β Centauri (Hadar / Agena) — second Yacana eye"
+          ra: "14h 03m 49.4s"
+          dec: "−60° 22′ 22″"
+          magnitude: 0.61
+          notes: "Blue giant; second Yacana eye. With α Centauri forms the Pointer Stars pair. Both eyes together mark the 'face' of the dark-cloud llama."
+      notes: "α and β Centauri serve two simultaneous cosmological functions in the Andean sky: (1) as the bright eyes of the Yacana dark-cloud llama, and (2) as the Pointer Stars that guide to the Southern Cross (Chakana). This dual function makes them the interface point between the dark-cloud system and the stellar constellation system."
+    asterism_schematic:
+      description: "The Llama's Eye (Orqa) reference is not an asterism of its own — it is the star-point anchor pair (α and β Centauri) that gives the otherwise dark-cloud Yacana its only star-defined reference points. The two bright stars appear near the 'head' of the Yacana dark rift, creating the impression of luminous eyes in the dark llama body. The same star pair also serves as the Pointer Stars for the Southern Cross, creating a cosmological link between the Yacana and the Chakana."
+      line_topology: "Two-star pair — no extended asterism; the pair functions as an eye-set reference"
+    cultural_iconography:
+      description: "Orqa / the Llama's Eye represents the star-point interface within the dark-cloud constellation system. In Andean cosmological tradition, the Yacana's body is dark cloud, but its eyes are the two brilliant stars α and β Centauri — among the brightest stars in the Southern Hemisphere sky. These stars glow like luminous eyes in the body of the dark llama. The dual function of these stars as both llama-eyes (Yacana) and cross-pointers (Chakana) creates a structural link in the sky between the dark-cloud cosmological system and the stellar cross system — the most important Andean celestial figures are connected through these two stars. This convergence likely contributed to the richness of the Andean cosmological system as a whole."
+      reference_sources:
+        - "Urton, Gary. At the Crossroads of the Earth and Sky. 1981."
+        - "Wikipedia: Inca astronomy"
+        - "Wikipedia: Alpha Centauri"
+      reference_urls:
+        - "https://en.wikipedia.org/wiki/Inca_astronomy"
+        - "https://en.wikipedia.org/wiki/Alpha_Centauri"
+  primitive_association_hints:
+    suggested_element: "Water / Light"
+    suggested_attribute: "WIS / CON"
+    suggested_animal_form: "Llama (eye reference)"
+    suggested_object_form: "Eyes / luminous focus points"
+    symbolic_role: "Luminous anchor in dark figure; dual cosmological connector; eyes of the divine llama; bridge between dark-cloud and stellar systems"
+    mythic_narrative_summary: "Orqa — the llama's eyes. α and β Centauri are the only star-point anchors in the otherwise dark-cloud Yacana, shining like luminous eyes in the dark llama body. These same stars are also the Pointer Stars that guide to the Chakana (Southern Cross) — making them the single point of contact between the dark-cloud and stellar constellation systems of Andean cosmology."
+  semantic_vocabulary:
+    symbolic_keywords: ["llama's eye", "α Centauri", "β Centauri", "pointer stars", "dark-cloud interface", "Yacana", "Chakana", "luminous eyes", "nearest star", "dual function"]
+    mythic_narrative: "The Llama's Eye (Orqa) consists of the two brilliant stars α and β Centauri — the only star-point anchors within the dark-cloud Yacana llama. The Yacana's body is dark silence, but its eyes blaze with the light of the nearest and fourth-nearest star systems to Earth. α Centauri (Rigil Kentaurus) at magnitude −0.27 is the third-brightest star in the sky; paired with β Centauri (Hadar), these eyes glow in the face of the dark-cloud llama. The same pair of stars also serves as the Pointer Stars for the Southern Cross (Chakana) — linking the dark-cloud cosmological system directly to the stellar cross system. The two brightest stars of the Southern sky performing double duty as both dark-figure eyes and celestial cross-pointers is the cosmological nexus of the entire Andean sky tradition."
+    visual_motifs: ["two brilliant stars near Southern Cross", "eyes glowing in dark llama shape", "pointer star pair", "nearest star to Earth", "cosmological nexus"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from Urton (1981) and Wikipedia. The α/β Centauri identification as Yacana's eyes is academically documented. Living ceremonial practices; only academic public record documented."
+    source_authorization: "Urton (1981) academic + Wikipedia"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Inca_astronomy"
+    secondary_sources:
+      - "Urton, Gary. At the Crossroads of the Earth and Sky. 1981."
+      - "Wikipedia: Alpha Centauri — https://en.wikipedia.org/wiki/Alpha_Centauri"
+    academic_anchor: "Urton, Gary. At the Crossroads of the Earth and Sky: An Andean Cosmology. University of Texas Press, 1981."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"

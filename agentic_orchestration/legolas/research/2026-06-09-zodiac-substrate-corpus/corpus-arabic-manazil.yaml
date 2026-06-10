@@ -1,0 +1,1436 @@
+# Arabic Manazil al-Qamar — Legolas Mode B Corpus
+# 28 entries | crawl_date: 2026-06-09
+# Primary source: https://en.wikipedia.org/wiki/Lunar_mansion
+# Academic anchor: Al-Sufi, Book of Fixed Stars (964 CE); Abd al-Rahman al-Sufi
+# Wikipedia table used as authoritative canonical listing
+# NOTE: Wikipedia uses "ash-Sharatan" (not "Al-Sharatain") as the canonical romanization for Manzil 1;
+#   we follow Wikipedia romanization as primary, noting task-prompt variants in the variants field.
+# Stars and calendar dates sourced directly from Wikipedia table.
+
+---
+
+- sign_id: "arabic-manazil-001"
+  sign_name:
+    primary: "Ash-Sharatan"
+    variants: ["Al-Sharatain", "Al-Sharatyn", "Al-Nath (alt. Arabic tradition)"]
+    romanization: "Ash-Sharatan"
+    native_script: "الشرطان"
+    arabic_meaning: "The Two Signs / The Two Marks"
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition", "Mughal astronomical tradition", "Ottoman astronomical tradition", "Andalusian Islamic astronomy"]
+    geographic_origin: "Arabian Peninsula / Islamic Golden Age"
+    period_range: "Pre-Islamic Arabic astronomical origin ~400-600 CE; Islamic codification ~800-1100 CE; Al-Sufi Book of Fixed Stars 964 CE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 1
+    sign_classification:
+      western_constellation: "Aries"
+      season: "Spring"
+      begins_on_approx: "17 May (per Wikipedia table)"
+      ruling_angel: "Israfil (إِسْرَافِيل) — the angel of the trumpet / resurrection"
+      abjad_letter: "Alif (أ) — value 1"
+      other:
+        arabic_meaning: "The two signs / the two marks"
+        traditional_role: "Navigation, weather omen, agricultural timing"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg/250px-Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg"
+      description: "12th-century Iraqi manuscript of Al-Sufi's Book of Fixed Stars (Museum of Islamic Art, Doha) — primary visual reference for Arabic astronomical tradition"
+      source: "Wikipedia Commons / Museum of Islamic Art Doha"
+      license: "Public Domain (historical manuscript)"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Book_of_Fixed_Stars_%28Kit%C4%81b_suwar_al-kaw%C4%81kib_al-%E1%B9%AF%C4%81bita%29_by_%E2%80%9BAbd_al-Rahman_ibn_%E2%80%9BUmar_al-%E1%B9%A2%C5%ABf%C4%AB%2C_dated_1125_CE_-_manuscript_Doha_Museum_of_Islamic_Art_MS.2.1998.jpg/250px-thumbnail.jpg"
+        description: "Book of Fixed Stars, 1125 CE Doha manuscript (oldest surviving copy)"
+        source: "Wikipedia Commons"
+        license: "Public Domain"
+        verified_loads: true
+    star_coordinates:
+      coordinate_system: "IAU equatorial J2000"
+      primary_stars:
+        - name: "α Arietis (Hamal)"
+          notes: "Primary star per Wikipedia table (α Ari); note — Wikipedia lists α Ari + β Ari (Sheratan)"
+        - name: "β Arietis (Sheratan)"
+          ra: "01h 54m 38.4s"
+          dec: "+20° 48′ 29″"
+          magnitude: 2.64
+          notes: "The 'two marks' — β Ari (Sheratan) is the more visible component"
+      notes: "Wikipedia table lists 'α Ari, β Ari (Sheratan)' as the stars of Ash-Sharatan"
+    asterism_schematic:
+      description: "Two stars α and β Arietis — the 'two marks' that served as the primary reference point opening the 28 Manazil cycle"
+      line_topology: "α Ari — β Ari: two-star pair"
+    cultural_iconography:
+      description: "Ash-Sharatan marks the opening of the 28 Manazil cycle. In Arabic astronomical tradition, the Two Marks in Aries were used as the first anchor point for tracking the Moon's monthly journey. The cycle begins here in the spring sky. Al-Sufi's Book of Fixed Stars (964 CE) — the key academic anchor — catalogued these stars systematically. Arabic navigators and farmers used Manazil risings to predict seasonal weather, winds, and rain."
+      reference_urls: ["https://en.wikipedia.org/wiki/Lunar_mansion", "https://en.wikipedia.org/wiki/Book_of_Fixed_Stars"]
+  primitive_association_hints:
+    suggested_element: "Air / Wind"
+    suggested_object_form: "Two marks / signs"
+    symbolic_role: "Cycle opener; spring-rain omen; navigational first-point"
+    mythic_narrative_summary: "The Two Marks of Aries open the 28 Manazil cycle. The Moon's first station in its monthly sky-journey. Governed by the archangel Israfil — the angel who will blow the trumpet at the resurrection. An auspicious opening of the celestial reckoning."
+  semantic_vocabulary:
+    symbolic_keywords: ["two marks", "beginning", "spring", "Aries", "archangel Israfil", "resurrection trumpet", "cycle start", "lunar mansion first"]
+    mythic_narrative: "Ash-Sharatan (الشرطان, 'the two signs/marks') opens the 28 Arabic Manazil al-Qamar (stations of the Moon). Arabic navigators, farmers, and meteorologists used the heliacal rising of each Manzil to predict seasonal weather, winds, and rain. The system has cognates in the 28 Indian Nakshatras and the 28 Chinese Xiu — parallel cross-cultural systems tracking the Moon's daily sky-journey. Al-Sufi's Book of Fixed Stars (964 CE, Islamic Golden Age, Abbasid Caliphate) is the key scholarly anchor."
+    visual_motifs: ["two-star pair", "crescent Moon position marker", "Arabic manuscript star illustration", "Al-Sufi Book of Fixed Stars"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Islamic astronomical tradition; fully documented in academic Islamic astronomy history."
+    source_authorization: "Wikipedia + Al-Sufi Book of Fixed Stars (964 CE) + academic Islamic astronomy"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    secondary_sources: ["Wikipedia: Book of Fixed Stars", "Wikipedia: Abd al-Rahman al-Sufi"]
+    academic_anchor: "Al-Sufi, Book of Fixed Stars (964 CE)"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-002"
+  sign_name:
+    primary: "Al-Butayn"
+    variants: ["Al-Butayn", "Al-Butain", "البطين"]
+    romanization: "Al-Butayn"
+    native_script: "البطين"
+    arabic_meaning: "The Little Belly of the Lamb"
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition", "Ottoman astronomical tradition"]
+    geographic_origin: "Arabian Peninsula / Islamic Golden Age"
+    period_range: "Pre-Islamic origin ~400-600 CE; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 2
+    sign_classification:
+      western_constellation: "Aries"
+      season: "Spring"
+      begins_on_approx: "31 May"
+      ruling_angel: "Jibril (جِبْرَائِيل) — Gabriel"
+      abjad_letter: "Ba (ب) — value 2"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg/250px-Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg"
+      description: "Al-Sufi's Book of Fixed Stars — shared visual reference for all 28 Manazil"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "41 Arietis"
+          notes: "Primary star; Wikipedia lists 41 Ari, 39 Ari, 35 Ari"
+        - name: "39 Arietis"
+        - name: "35 Arietis"
+      notes: "The 'little belly' of Aries — a trio of fainter stars in the ram's belly region"
+  primitive_association_hints:
+    symbolic_role: "Lamb's belly; spring fertility; Gabriel association"
+    mythic_narrative_summary: "Second Manzil; the 'little belly of the lamb'. Governed by Gabriel (Jibril) — the archangel of revelation who brought the Quran to Muhammad. A spring station in Aries."
+  semantic_vocabulary:
+    symbolic_keywords: ["little belly", "lamb", "Aries", "Gabriel", "revelation", "spring fertility"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-003"
+  sign_name:
+    primary: "Ath-Thuraya"
+    variants: ["Al-Thurayya", "الثريا", "The Pleiades Manzil"]
+    romanization: "Ath-Thuraya"
+    native_script: "الثريا"
+    arabic_meaning: "The Little Abundant One (the Many Stars)"
+    notes: "The Pleiades — the most famous and widely celebrated of all 28 Manazil. 'Thuraya' is also a common Arabic female name meaning 'the stars' or 'the Pleiades'."
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition", "Ottoman astronomical tradition", "Bedouin astronomical tradition"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; used in Bedouin seasonal calendar from antiquity"
+    status_in_modern_tradition: "actively_used"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 3
+    sign_classification:
+      western_constellation: "Taurus"
+      season: "Spring"
+      begins_on_approx: "13 June"
+      ruling_angel: "Kalkail"
+      abjad_letter: "Jim (ج) — value 3"
+      other:
+        special_significance: "The Pleiades — universally important across Arabic, Greek, Indian, Chinese, and Pacific Island astronomical traditions"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg/250px-Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg"
+      description: "Al-Sufi's Book of Fixed Stars — shared visual reference"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "Pleiades star cluster (M45)"
+          notes: "The entire Pleiades open cluster; visible as a fuzzy patch to the naked eye, resolving to 6-7 stars"
+      notes: "The Pleiades are one of the most universally recognized asterisms in human astronomical history"
+  primitive_association_hints:
+    suggested_element: "Fire / Light (cluster brilliance)"
+    symbolic_role: "Seven sisters; abundance; navigation; universal sky landmark"
+    mythic_narrative_summary: "Third Manzil; the Pleiades cluster — the most celebrated of all lunar mansions. Arab astronomers tracked the Pleiades' seasonal appearances closely for agricultural and weather prediction. The Arabic name 'Thuraya' (little abundant one / many stars) reflects the cluster's visible richness."
+  semantic_vocabulary:
+    symbolic_keywords: ["Pleiades", "seven sisters", "abundance", "star cluster", "Taurus", "navigation landmark", "universal asterism", "Thuraya"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-004"
+  sign_name:
+    primary: "Ad-Dabaran"
+    variants: ["Al-Dabaran", "الدبران", "Aldebaran's Manzil"]
+    romanization: "Ad-Dabaran"
+    native_script: "الدبران"
+    arabic_meaning: "The Follower (of the Pleiades)"
+    notes: "The Arabic name Aldebaran — the bright red eye of Taurus — is derived directly from this Manzil name (al-Dabarān = the follower). One of the most famous Arabic star names still in use."
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition", "Western astronomy (star name Aldebaran preserved)"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Aldebaran as star name documented from Islamic Golden Age"
+    status_in_modern_tradition: "actively_used"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 4
+    sign_classification:
+      western_constellation: "Taurus"
+      season: "Spring / early summer"
+      begins_on_approx: "26 June"
+      ruling_angel: "Dardail"
+      abjad_letter: "Dal (د) — value 4"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Constellation_Taureau_-_al-Sufi.jpg/120px-Constellation_Taureau_-_al-Sufi.jpg"
+      description: "Al-Sufi's Taurus constellation illustration — directly relevant to Manazil 4 (Ad-Dabaran = Aldebaran in Taurus)"
+      source: "Wikipedia Commons"
+      license: "Public Domain (historical manuscript)"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "α Tauri (Aldebaran)"
+          ra: "04h 35m 55.2s"
+          dec: "+16° 30′ 33″"
+          magnitude: 0.87
+          notes: "Brightest star in Taurus; the red giant 'eye of the bull'. Arabic name Aldebaran = 'the follower' directly from this Manzil."
+  primitive_association_hints:
+    suggested_element: "Fire (red giant star color)"
+    symbolic_role: "The follower; red giant; Taurus eye; perseverance"
+    mythic_narrative_summary: "Fourth Manzil; Aldebaran — 'the follower of the Pleiades'. The red giant star α Tauri is one of the brightest stars in the night sky. It 'follows' the Pleiades across the sky. The name Aldebaran entered Western astronomy directly from Arabic, making this one of the most linguistically durable contributions of Islamic astronomy."
+  semantic_vocabulary:
+    symbolic_keywords: ["Aldebaran", "red giant", "follower", "Taurus eye", "bull", "red star", "perseverance", "Arabic star name"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-005"
+  sign_name:
+    primary: "Al-Haq'a"
+    variants: ["Al-Haq'ah", "الهقعة"]
+    romanization: "Al-Haq'a"
+    native_script: "الهقعة"
+    arabic_meaning: "The Hair Whorl / The White Spot (on a horse's forehead)"
+    notes: "Corresponds to Orion's head region (Meissa / λ Orionis area)"
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition", "Ottoman astronomical tradition"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 5
+    sign_classification:
+      western_constellation: "Orion"
+      season: "Early summer"
+      begins_on_approx: "9 July"
+      ruling_angel: "Duryail"
+      abjad_letter: "Ha (ه) — value 5"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Book_of_the_Fixed_Stars_Auv0333_Orion.jpg/250px-Book_of_the_Fixed_Stars_Auv0333_Orion.jpg"
+      description: "Al-Sufi's Orion constellation illustration from Book of Fixed Stars (Bodleian Library) — directly relevant to Manzil 5 (Orion head region)"
+      source: "Wikipedia Commons"
+      license: "Public Domain (historical manuscript)"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "λ Orionis (Meissa)"
+          notes: "Head of Orion; primary star of the Haq'a group"
+        - name: "φ¹ Orionis"
+        - name: "φ² Orionis"
+  primitive_association_hints:
+    symbolic_role: "Orion's head / hair whorl; summer Orion; white spot marking"
+    mythic_narrative_summary: "Fifth Manzil; Orion's head. The 'hair whorl' or 'white spot' refers to a marking on a horse's forehead — an Arab equestrian metaphor applied to this star grouping. Orion was a dominant figure in Arabic stellar tradition."
+  semantic_vocabulary:
+    symbolic_keywords: ["Orion head", "hair whorl", "Meissa", "white spot", "horse marking", "summer sky", "Orion"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-006"
+  sign_name:
+    primary: "Al-Han'a"
+    variants: ["Al-Hanah", "الهنعة"]
+    romanization: "Al-Han'a"
+    native_script: "الهنعة"
+    arabic_meaning: "The Neck Mark / The Brand Mark (on a camel's neck)"
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 6
+    sign_classification:
+      western_constellation: "Gemini"
+      season: "Summer"
+      begins_on_approx: "22 July"
+      ruling_angel: "Fatmail"
+      abjad_letter: "Waw (و) — value 6"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Constellation_Gemeaux_-_al-Sufi.jpg/120px-Constellation_Gemeaux_-_al-Sufi.jpg"
+      description: "Al-Sufi's Gemini constellation illustration — relevant to Manazil 6-7 in Gemini"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "γ Geminorum (Alhena)"
+          notes: "Wikipedia table: γ Gem (Alhena), ξ Gem"
+        - name: "ξ Geminorum"
+  primitive_association_hints:
+    symbolic_role: "Camel brand / neck mark; Gemini entry; pastoral imagery"
+    mythic_narrative_summary: "Sixth Manzil; the 'neck mark' or 'brand on a camel's neck'. A distinctly Bedouin pastoral metaphor — the camel was central to Arabian life, and stars were named with the vocabulary of the desert."
+  semantic_vocabulary:
+    symbolic_keywords: ["neck mark", "camel brand", "Bedouin pastoral", "Gemini", "Alhena", "summer sky"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-007"
+  sign_name:
+    primary: "Adh-Dhira'a"
+    variants: ["Al-Dhira", "الذراع", "Adh-Dhira'a al-Mabsuta"]
+    romanization: "Adh-Dhira'a"
+    native_script: "الذراعة المبسوطة"
+    arabic_meaning: "The Extended Forearm (of the Lion)"
+    notes: "Full name is Adh-Dhira'a al-Mabsuta (the extended forearm) — Castor and Pollux were seen as the lion's extended front paws reaching forward. The source of the star name 'Gomeisa' (β CMi) derives from related Arabic star-naming."
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition", "Western astronomy (Castor/Pollux star names)"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 7
+    sign_classification:
+      western_constellation: "Gemini"
+      season: "Summer"
+      begins_on_approx: "4 August"
+      ruling_angel: "Sharfail"
+      abjad_letter: "Zayn (ز) — value 7"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Constellation_Gemeaux_-_al-Sufi.jpg/120px-Constellation_Gemeaux_-_al-Sufi.jpg"
+      description: "Al-Sufi's Gemini constellation illustration"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "α Geminorum (Castor)"
+          notes: "One of the brightest stars; the 'extended forearm' pair"
+        - name: "β Geminorum (Pollux)"
+          notes: "Brighter of the twin stars"
+  primitive_association_hints:
+    symbolic_role: "Lion's extended forearm; Castor and Pollux; reaching-forward energy"
+    mythic_narrative_summary: "Seventh Manzil; Castor and Pollux as the lion's extended forearms. In Arabic celestial mythology, the Great Lion stretched from Gemini through Leo — these bright twin stars were its reaching front paws. The image conveys alert power, the predator mid-pounce."
+  semantic_vocabulary:
+    symbolic_keywords: ["Castor", "Pollux", "lion forearm", "twin stars", "Gemini", "extended paw", "predatory reach"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-008"
+  sign_name:
+    primary: "An-Nathrah"
+    variants: ["Al-Nathrah", "النثرة"]
+    romanization: "An-Nathrah"
+    native_script: "النثرة"
+    arabic_meaning: "The Tip of the Lion's Nose"
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 8
+    sign_classification:
+      western_constellation: "Cancer"
+      season: "Summer"
+      begins_on_approx: "17 August"
+      ruling_angel: "Tankafil"
+      abjad_letter: "Ha (ح) — value 8"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Constellation_Crabe_-_al-Sufi.jpg/120px-Constellation_Crabe_-_al-Sufi.jpg"
+      description: "Al-Sufi's Cancer constellation illustration — relevant to Manzil 8 (An-Nathrah in Cancer)"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "Praesepe (M44, Beehive Cluster)"
+          notes: "Open star cluster in Cancer; the central 'nose' element"
+        - name: "γ Cancri"
+        - name: "δ Cancri"
+  primitive_association_hints:
+    symbolic_role: "Lion's nose tip; Beehive cluster; Cancer sector"
+    mythic_narrative_summary: "Eighth Manzil; the tip of the lion's nose in Cancer. The Beehive Cluster (M44/Praesepe) is a naked-eye star cluster that Arabic astronomers used as the lion's nose. Cancer in Arabic celestial tradition was the lion's snout region."
+  semantic_vocabulary:
+    symbolic_keywords: ["lion's nose", "Beehive cluster", "Praesepe", "Cancer", "star cluster", "lion face"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-009"
+  sign_name:
+    primary: "At-Tarf"
+    variants: ["Al-Tarf", "الطرف", "At-Tarfah"]
+    romanization: "At-Tarf"
+    native_script: "الطرف"
+    arabic_meaning: "The Eyes / The Glance"
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 9
+    sign_classification:
+      western_constellation: "Leo / Cancer border"
+      season: "Late summer"
+      begins_on_approx: "30 August"
+      ruling_angel: "Hismail"
+      abjad_letter: "Ta (ط) — value 9"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg/250px-Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg"
+      description: "Al-Sufi's Book of Fixed Stars — shared visual reference"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "λ Leonis (Alterf)"
+          notes: "Wikipedia: λ Leo (Alterf), κ Cnc"
+        - name: "κ Cancri"
+  primitive_association_hints:
+    symbolic_role: "Lion's eyes; watchful gaze; boundary watcher"
+    mythic_narrative_summary: "Ninth Manzil; the lion's eyes. The Arabic great lion's eyes peer from the Cancer-Leo border. The image of the predator's eyes — watchful, fixed, intense."
+  semantic_vocabulary:
+    symbolic_keywords: ["lion eyes", "Alterf", "gaze", "watchful", "Leo border", "predator"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-010"
+  sign_name:
+    primary: "Al-Jabhah"
+    variants: ["Al-Jabha", "الجبهة"]
+    romanization: "Al-Jabhah"
+    native_script: "الجبهة"
+    arabic_meaning: "The Forehead (of the Lion)"
+    notes: "Contains Regulus (α Leonis) — one of the four Royal Stars of antiquity. Al-Jabhah is arguably the most prestigious of the Manazil due to Regulus."
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition", "Western astronomy (Regulus name preserved)"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "actively_used"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 10
+    sign_classification:
+      western_constellation: "Leo"
+      season: "Late summer / harvest"
+      begins_on_approx: "12 September"
+      ruling_angel: "Kitail"
+      abjad_letter: "Ya (ي) — value 10"
+      other:
+        special_significance: "Contains Regulus (α Leonis) — one of the four Royal Stars (Fomalhaut, Aldebaran, Regulus, Antares); the 'heart of the lion' in Western tradition"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg/250px-Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg"
+      description: "Al-Sufi's Book of Fixed Stars — shared visual reference"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "α Leonis (Regulus)"
+          magnitude: 1.35
+          notes: "Royal star; the 'little king'; one of the brightest stars in the sky"
+        - name: "η Leonis"
+        - name: "γ Leonis (Algieba)"
+        - name: "ζ Leonis"
+  primitive_association_hints:
+    suggested_element: "Fire (Regulus — royal star)"
+    symbolic_role: "Royal forehead; lion's crown; Regulus kingly power"
+    mythic_narrative_summary: "Tenth Manzil; the lion's forehead containing Regulus — the 'little king', one of antiquity's four Royal Stars. Al-Jabhah is the crown of the Arabic great lion's head, marking regal authority."
+  semantic_vocabulary:
+    symbolic_keywords: ["Regulus", "royal star", "lion forehead", "kingly power", "little king", "Leo", "crown"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-011"
+  sign_name:
+    primary: "Az-Zubrah"
+    variants: ["Al-Zubrah", "الزبرة", "Al-Kharatan (alt name)"]
+    romanization: "Az-Zubrah"
+    native_script: "الزبرة"
+    arabic_meaning: "The Mane (of the Lion)"
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 11
+    sign_classification:
+      western_constellation: "Leo"
+      season: "Autumn"
+      begins_on_approx: "25 September"
+      ruling_angel: "Haruzail"
+      abjad_letter: "Kaf (ك) — value 20"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg/250px-Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg"
+      description: "Al-Sufi's Book of Fixed Stars — shared visual reference"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "δ Leonis"
+          notes: "Wikipedia: δ Leo, θ Leo"
+        - name: "θ Leonis"
+  primitive_association_hints:
+    symbolic_role: "Lion's mane; wild power; flowing strength"
+    mythic_narrative_summary: "Eleventh Manzil; the lion's mane — δ and θ Leonis. The mane is the most visually striking attribute of the male lion, symbol of wild royal power."
+  semantic_vocabulary:
+    symbolic_keywords: ["lion mane", "wild power", "Leo", "flowing", "royal strength"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-012"
+  sign_name:
+    primary: "As-Sarfah"
+    variants: ["Al-Sarfah", "الصرفة"]
+    romanization: "As-Sarfah"
+    native_script: "الصرفة"
+    arabic_meaning: "The Weather Changer / The One Who Changes"
+    notes: "Denebola — the lion's tail. 'Al-Sarfah' means the changer — associated with the abrupt change of season (summer to autumn) when the Moon reaches this station."
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 12
+    sign_classification:
+      western_constellation: "Leo"
+      season: "Autumn"
+      begins_on_approx: "8 October"
+      ruling_angel: "Tatail"
+      abjad_letter: "Lam (ل) — value 30"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg/250px-Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg"
+      description: "Al-Sufi's Book of Fixed Stars — shared visual reference"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "β Leonis (Denebola)"
+          notes: "The lion's tail; 'Denebola' is an Arabic name meaning 'tail of the lion'"
+  primitive_association_hints:
+    symbolic_role: "Weather changer; Denebola lion's tail; seasonal transition"
+    mythic_narrative_summary: "Twelfth Manzil; Denebola (β Leonis) — the lion's tail. 'The changer' — this Manzil was associated with the dramatic autumn weather change. When the Moon is here, sudden shifts in wind and temperature were expected."
+  semantic_vocabulary:
+    symbolic_keywords: ["Denebola", "lion tail", "weather change", "seasonal shift", "autumn", "transformation"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-013"
+  sign_name:
+    primary: "Al-Awwa"
+    variants: ["Al-Awwa'", "العواء", "Al-Awa (howling dogs)"]
+    romanization: "Al-Awwa"
+    native_script: "العواء"
+    arabic_meaning: "The Howling Dogs / The Barking"
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 13
+    sign_classification:
+      western_constellation: "Virgo"
+      season: "Autumn"
+      begins_on_approx: "21 October"
+      ruling_angel: "Rumail"
+      abjad_letter: "Mim (م) — value 40"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg/250px-Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg"
+      description: "Al-Sufi's Book of Fixed Stars — shared visual reference"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "β Virginis"
+        - name: "η Virginis"
+        - name: "γ Virginis"
+        - name: "δ Virginis"
+        - name: "ε Virginis"
+  primitive_association_hints:
+    symbolic_role: "Howling dogs; Virgo; autumn winds; alarm"
+    mythic_narrative_summary: "Thirteenth Manzil; 'the howling dogs' — a five-star asterism in Virgo. The autumnal imagery of howling dogs suggests storm-wind warnings and the alarm-call of watchful animals. Arab farmers associated this Manzil with unsettled autumn weather."
+  semantic_vocabulary:
+    symbolic_keywords: ["howling dogs", "alarm", "Virgo", "autumn winds", "storm warning", "five stars"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-014"
+  sign_name:
+    primary: "As-Simak"
+    variants: ["Al-Simak", "السماك", "As-Simak al-A'zal (unarmed Simak)"]
+    romanization: "As-Simak"
+    native_script: "السماك الأعزل"
+    arabic_meaning: "The Unarmed Sky-Raiser / The Unarmed One"
+    notes: "Contains Spica (α Virginis) — one of the brightest stars in the sky. 'Unarmed' distinguishes this Simak from 'Armed Simak' = Arcturus (α Boötis), which was not part of the Manazil but was the sky-raising counterpart. One of the most important navigational stars in Arabic astronomy."
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition", "Western astronomy (Spica name preserved)"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "actively_used"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 14
+    sign_classification:
+      western_constellation: "Virgo"
+      season: "Autumn"
+      begins_on_approx: "3 November"
+      ruling_angel: "Hulail"
+      abjad_letter: "Nun (ن) — value 50"
+      other:
+        special_significance: "Spica (α Virginis) — first-magnitude star; key navigational star; used by Hipparchus to discover precession of equinoxes"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg/250px-Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg"
+      description: "Al-Sufi's Book of Fixed Stars — shared visual reference"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "α Virginis (Spica)"
+          magnitude: 0.97
+          notes: "First-magnitude star; brightest in Virgo; brilliant blue-white"
+  primitive_association_hints:
+    suggested_element: "Air (bright, high)"
+    symbolic_role: "Spica unarmed Simak; sky-raiser; brilliant navigation star; virtue"
+    mythic_narrative_summary: "Fourteenth Manzil; Spica — the brightest star of Virgo. 'The Unarmed Sky-Raiser' contrasts with Arcturus (Armed Simak) — the celestial figure raises the sky without weapons, suggesting peaceful power. Spica's brilliance made it a key navigational beacon."
+  semantic_vocabulary:
+    symbolic_keywords: ["Spica", "sky-raiser", "unarmed", "brilliant", "navigation", "Virgo", "peaceful power", "blue-white"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-015"
+  sign_name:
+    primary: "Al-Ghafr"
+    variants: ["Al-Ghafr", "الغفر"]
+    romanization: "Al-Ghafr"
+    native_script: "الغفر"
+    arabic_meaning: "The Covering / The Concealment"
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 15
+    sign_classification:
+      western_constellation: "Libra / Virgo border"
+      season: "Autumn"
+      begins_on_approx: "16 November"
+      ruling_angel: "Hamrakil"
+      abjad_letter: "Sin (س) — value 60"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg/250px-Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg"
+      description: "Al-Sufi's Book of Fixed Stars — shared visual reference"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "ι Virginis"
+        - name: "κ Virginis"
+        - name: "λ Virginis"
+  primitive_association_hints:
+    symbolic_role: "Covering/concealment; hidden things; Libra approach"
+    mythic_narrative_summary: "Fifteenth Manzil; 'the covering' — associated with concealment and hidden things. The Moon here was seen as under cover. This Manzil sits between the brilliant Spica (14) and the dramatic Libra claws (16), in a quieter region of sky."
+  semantic_vocabulary:
+    symbolic_keywords: ["covering", "concealment", "hidden", "Virgo end", "Libra approach", "quietude"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-016"
+  sign_name:
+    primary: "Az-Zubana"
+    variants: ["Al-Zubana", "الزبانى", "Az-Zubanayan (the two claws)"]
+    romanization: "Az-Zubana"
+    native_script: "الزبانى"
+    arabic_meaning: "The Claws / Pincers (of the Scorpion)"
+    notes: "The star names Zubenelgenubi (α Lib) and Zubeneschamali (β Lib) derive directly from this Manzil — 'southern claw' and 'northern claw'. These are the original claws of the scorpion before Libra was separated as its own constellation."
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition", "Western astronomy (Zuben star names preserved)"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "actively_used"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 16
+    sign_classification:
+      western_constellation: "Libra"
+      season: "Late autumn"
+      begins_on_approx: "29 November"
+      ruling_angel: "Lummail"
+      abjad_letter: "Ayn (ع) — value 70"
+      other:
+        historical_note: "Libra was originally Scorpius's claws in Greek/Babylonian astronomy; these stars retain the 'claw' name in Arabic tradition (Zubenelgenubi = southern claw, Zubeneschamali = northern claw)"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg/250px-Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg"
+      description: "Al-Sufi's Book of Fixed Stars — shared visual reference"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "β Librae (Zubeneschamali / northern claw)"
+          notes: "Northern claw of the scorpion; brightest star in Libra"
+        - name: "α Librae (Zubenelgenubi / southern claw)"
+          notes: "Southern claw; the name 'Zubenelgenubi' is directly from Arabic"
+  primitive_association_hints:
+    suggested_element: "Earth / Wind (scales balance)"
+    symbolic_role: "Scorpion claws; balance; justice; ancient zodiac transition point"
+    mythic_narrative_summary: "Sixteenth Manzil; the scorpion's claws — now called Libra (the Scales). This Manzil preserves an older cosmological truth: Libra was not always a separate constellation but was the claws of Scorpius. The Arabic names Zubenelgenubi and Zubeneschamali still carry this ancient meaning into modern star atlases."
+  semantic_vocabulary:
+    symbolic_keywords: ["scorpion claws", "Zubenelgenubi", "Zubeneschamali", "Libra", "ancient zodiac", "balance", "justice", "claw"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-017"
+  sign_name:
+    primary: "Al-Iklil"
+    variants: ["Al-Iklil", "الإكليل", "Al-Iklil al-Jabhah"]
+    romanization: "Al-Iklil"
+    native_script: "الإكليل"
+    arabic_meaning: "The Crown (of the Scorpion)"
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 17
+    sign_classification:
+      western_constellation: "Scorpius"
+      season: "Early winter"
+      begins_on_approx: "12 December"
+      ruling_angel: "Sarhamakil"
+      abjad_letter: "Fa (ف) — value 80"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg/250px-Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg"
+      description: "Al-Sufi's Book of Fixed Stars — shared visual reference"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "β Scorpii"
+        - name: "δ Scorpii"
+        - name: "π Scorpii"
+  primitive_association_hints:
+    symbolic_role: "Scorpion crown; royalty of the death-sign; winter entry"
+    mythic_narrative_summary: "Seventeenth Manzil; the crown of the scorpion — β, δ, π Scorpii just north of the main body. The scorpion wears a crown before its heart (Antares, Manzil 18) — the regal head of the death-bringer."
+  semantic_vocabulary:
+    symbolic_keywords: ["scorpion crown", "death-bringer crown", "Scorpius head", "winter entry", "regal danger"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-018"
+  sign_name:
+    primary: "Al-Qalb"
+    variants: ["Al-Qalb", "القلب"]
+    romanization: "Al-Qalb"
+    native_script: "القلب"
+    arabic_meaning: "The Heart (of the Scorpion)"
+    notes: "Contains Antares (α Scorpii) — one of the four Royal Stars of antiquity; the red supergiant heart of the scorpion. 'Antares' is Greek but the Arabic 'Al-Qalb' gave it its dominant cultural role. This is arguably the most dramatic Manzil."
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition", "Western astronomy (Antares awareness)"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "actively_used"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 18
+    sign_classification:
+      western_constellation: "Scorpius"
+      season: "Winter"
+      begins_on_approx: "25 December"
+      ruling_angel: "Ahjameil"
+      abjad_letter: "Sad (ص) — value 90"
+      other:
+        special_significance: "Antares — the red supergiant 'rival of Mars'; one of the four Royal Stars; near the galactic center region"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg/250px-Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg"
+      description: "Al-Sufi's Book of Fixed Stars — shared visual reference"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "α Scorpii (Antares)"
+          magnitude: 1.06
+          notes: "Red supergiant; 700x the sun's diameter; 'rival of Ares/Mars' in Greek. Royal star."
+  primitive_association_hints:
+    suggested_element: "Fire (red supergiant; Mars-rival)"
+    symbolic_role: "Heart of the scorpion; Antares; death-fire; Royal star; winter solstice adjacent"
+    mythic_narrative_summary: "Eighteenth Manzil; Antares — the blood-red heart of the scorpion. A Royal Star, rival of Mars in color and drama. At winter solstice time, the scorpion's heart burns in the night sky. Among all 28 Manazil, Al-Qalb contains the most visually dramatic star."
+  semantic_vocabulary:
+    symbolic_keywords: ["Antares", "heart of scorpion", "red supergiant", "Mars rival", "Royal star", "death-fire", "winter", "dramatic red"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-019"
+  sign_name:
+    primary: "Ash-Shawlah"
+    variants: ["Al-Shaulah", "الشولة"]
+    romanization: "Ash-Shawlah"
+    native_script: "الشولة"
+    arabic_meaning: "The Raised Tail / The Sting"
+    notes: "Contains Shaula (λ Scorpii) — the scorpion's sting tip. Star name 'Shaula' derived from this Manzil name."
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition", "Western astronomy (Shaula name preserved)"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "actively_used"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 19
+    sign_classification:
+      western_constellation: "Scorpius"
+      season: "Winter"
+      begins_on_approx: "3 January"
+      ruling_angel: "Athrail"
+      abjad_letter: "Qaf (ق) — value 100"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg/250px-Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg"
+      description: "Al-Sufi's Book of Fixed Stars — shared visual reference"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "λ Scorpii (Shaula)"
+          notes: "Scorpion's sting; the name 'Shaula' preserved in modern star catalogues"
+        - name: "υ Scorpii"
+  primitive_association_hints:
+    symbolic_role: "Scorpion sting; raised tail; venom; final blow"
+    mythic_narrative_summary: "Nineteenth Manzil; Shaula — the scorpion's sting. The raised tail is the scorpion's weapon, poised to strike. The name Shaula entered Western astronomy directly from this Manzil."
+  semantic_vocabulary:
+    symbolic_keywords: ["Shaula", "scorpion sting", "raised tail", "venom", "weapon", "Scorpius", "final blow"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-020"
+  sign_name:
+    primary: "An-Na'am"
+    variants: ["Al-Na'am", "النعائم"]
+    romanization: "An-Na'am"
+    native_script: "النعائم"
+    arabic_meaning: "The Ostriches"
+    notes: "A group of 8+ Sagittarius stars seen as ostriches approaching and departing a watering hole — a vividly Bedouin image of the desert."
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 20
+    sign_classification:
+      western_constellation: "Sagittarius"
+      season: "Winter"
+      begins_on_approx: "16 January"
+      ruling_angel: "Amwakil"
+      abjad_letter: "Ra (ر) — value 200"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg/250px-Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg"
+      description: "Al-Sufi's Book of Fixed Stars — shared visual reference"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "γ Sagittarii"
+        - name: "η Sagittarii"
+        - name: "ε Sagittarii"
+        - name: "δ Sagittarii"
+        - name: "multiple additional Sagittarius stars"
+      notes: "Wikipedia table lists γ, η, ε, δ, λ, φ, ζ, τ, σ Sgr — a rich multi-star Manzil spanning Sagittarius"
+  primitive_association_hints:
+    symbolic_role: "Desert ostriches; galactic center sky; Bedouin fauna imagery"
+    mythic_narrative_summary: "Twentieth Manzil; the ostriches in Sagittarius — near the galactic center, the densest star field in the visible sky. Arab astronomers saw two groups of ostriches: those going to the watering hole and those coming back. A purely Bedouin desert image of the richest patch of sky."
+  semantic_vocabulary:
+    symbolic_keywords: ["ostriches", "Sagittarius", "galactic center", "desert fauna", "Bedouin sky", "rich star field", "watering hole"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-021"
+  sign_name:
+    primary: "Al-Baldah"
+    variants: ["Al-Balda", "البلدة"]
+    romanization: "Al-Baldah"
+    native_script: "البلدة"
+    arabic_meaning: "The Empty Town / The Wasteland / The Space"
+    notes: "A notably empty region of sky near π Sagittarii — relatively few bright stars. The 'empty town' is a poetic description of the void before the dense star fields of Capricorn."
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 21
+    sign_classification:
+      western_constellation: "Sagittarius"
+      season: "Winter"
+      begins_on_approx: "29 January"
+      ruling_angel: "Hamrail"
+      abjad_letter: "Shin (ش) — value 300"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg/250px-Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg"
+      description: "Al-Sufi's Book of Fixed Stars — shared visual reference"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "π Sagittarii (Albaldah)"
+          notes: "The star 'Albaldah' takes its name directly from this Manzil (al-Baldah = the town/wasteland)"
+      notes: "A relatively sparse region; the Manzil is notable precisely FOR its emptiness"
+  primitive_association_hints:
+    symbolic_role: "Empty space; pause; the void between density; rest point"
+    mythic_narrative_summary: "Twenty-first Manzil; 'the empty town' — a Manzil defined not by bright stars but by absence. Arab astronomers noted this patch of sky as conspicuously empty relative to the rich Sagittarius star fields around it. A moment of stillness in the sky-journey."
+  semantic_vocabulary:
+    symbolic_keywords: ["empty town", "void", "stillness", "sparse sky", "pause", "Sagittarius end", "Albaldah"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-022"
+  sign_name:
+    primary: "Sa'd adh-Dhabih"
+    variants: ["Sa'd al-Dhabih", "سعد الذابح"]
+    romanization: "Sa'd adh-Dhabih"
+    native_script: "سعد الذابح"
+    arabic_meaning: "The Auspice of the Slaughterer / Good Fortune of the Sacrificer"
+    notes: "First of four 'Sa'd' (fortune) Manazil in Capricorn and Aquarius (22-25). Contains Algedi (α Cap) and Dabih (β Cap) — star names from Arabic. The Sa'd series are considered generally auspicious."
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 22
+    sign_classification:
+      western_constellation: "Capricornus"
+      season: "Late winter"
+      begins_on_approx: "11 February"
+      ruling_angel: "Azrail (عَزْرَائِيل) — the archangel of death"
+      abjad_letter: "Ta (ت) — value 400"
+      other:
+        sa'd_series: "First of the four Sa'd (fortune) Manazil (22-25)"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg/250px-Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg"
+      description: "Al-Sufi's Book of Fixed Stars — shared visual reference"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "α Capricorni (Algedi)"
+          notes: "'Algedi' = Arabic 'the kid (young goat)'; star name from this Manzil tradition"
+        - name: "β Capricorni (Dabih)"
+          notes: "'Dabih' = Arabic 'the slaughtered'; name from this Manzil's theme"
+  primitive_association_hints:
+    symbolic_role: "Ritual sacrifice; fortune through offering; Azrael death-angel; Capricorn"
+    mythic_narrative_summary: "Twenty-second Manzil; 'the fortune of the slaughterer'. Governed by Azrail — the angel of death in Islamic tradition. The star Dabih ('the slaughtered') preserves the sacrificial theme in its Arabic name. Ritual sacrifice as fortune-bringing — the offering that secures blessing."
+  semantic_vocabulary:
+    symbolic_keywords: ["slaughterer", "sacrifice", "fortune", "Azrail", "death angel", "Capricorn", "Dabih", "offering", "Sa'd fortune series"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-023"
+  sign_name:
+    primary: "Sa'd Bula"
+    variants: ["Sa'd Bul'", "سعد بلع", "Sa'd Bula"]
+    romanization: "Sa'd Bula"
+    native_script: "سعد بلع"
+    arabic_meaning: "The Voracious Fortune / Luck of the Swallower"
+    notes: "The star Albali (ε Aquarii) derives its name from this Manzil. 'Bul'' = to swallow voraciously. Second Sa'd fortune Manzil."
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 23
+    sign_classification:
+      western_constellation: "Aquarius"
+      season: "Late winter / pre-spring"
+      begins_on_approx: "26 February"
+      ruling_angel: "Mikail (مِيكَائِيل) — Michael"
+      abjad_letter: "Tha (ث) — value 500"
+      other:
+        sa'd_series: "Second of the four Sa'd fortune Manazil (22-25)"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg/250px-Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg"
+      description: "Al-Sufi's Book of Fixed Stars — shared visual reference"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "ε Aquarii (Albali)"
+          notes: "'Albali' from Arabic 'to swallow'; star name from this Manzil"
+        - name: "μ Aquarii"
+  primitive_association_hints:
+    symbolic_role: "Voracious fortune; swallowing abundance; Michael archangel"
+    mythic_narrative_summary: "Twenty-third Manzil; 'the fortune of the swallower'. Governed by the archangel Michael (Mikail) — the warrior-angel of Islamic tradition. 'Swallowing' fortune suggests abundance absorbed completely — consuming one's good fortune rather than restraining it."
+  semantic_vocabulary:
+    symbolic_keywords: ["swallower", "voracious", "fortune", "abundance", "Michael", "Aquarius", "Albali", "Sa'd series"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-024"
+  sign_name:
+    primary: "Sa'd as-Su'ud"
+    variants: ["Sa'd al-Su'ud", "سعد السعود"]
+    romanization: "Sa'd as-Su'ud"
+    native_script: "سعد السعود"
+    arabic_meaning: "The Luckiest of the Lucky / The Fortune of Fortunes"
+    notes: "Contains Sadalsuud (β Aquarii) — one of the most auspiciously named stars in Arabic tradition. 'Sa'd as-Su'd' = the most fortunate of all fortunes. Sadalsuud = 'the luckiest of the lucky'. Third Sa'd fortune Manzil and the most auspicious."
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition", "Western astronomy (Sadalsuud name preserved)"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "actively_used"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 24
+    sign_classification:
+      western_constellation: "Aquarius"
+      season: "Pre-spring"
+      begins_on_approx: "11 March"
+      ruling_angel: "Mahkail"
+      abjad_letter: "Kha (خ) — value 600"
+      other:
+        sa'd_series: "Third of the four Sa'd fortune Manazil; the most auspicious of all"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg/250px-Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg"
+      description: "Al-Sufi's Book of Fixed Stars — shared visual reference"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "β Aquarii (Sadalsuud)"
+          notes: "Star name Sadalsuud = 'luckiest of the lucky'; directly from this Manzil"
+        - name: "ξ Aquarii"
+  primitive_association_hints:
+    suggested_element: "Water (Aquarius / rain)"
+    symbolic_role: "Supremely fortunate; spring rain omen; the best possible outcome"
+    mythic_narrative_summary: "Twenty-fourth Manzil; 'the luckiest of the lucky' — the most auspicious Manzil in the entire system. When the Moon reaches Sa'd as-Su'ud, Arab farmers expected the best spring rains and the most fertile season. Sadalsuud's name has been preserved in Western star catalogues since Islamic Golden Age transmission."
+  semantic_vocabulary:
+    symbolic_keywords: ["Sadalsuud", "luckiest of lucky", "supreme fortune", "spring rain", "fertility", "best omen", "Aquarius"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-025"
+  sign_name:
+    primary: "Sa'd al-Akhbiyah"
+    variants: ["Sa'd al-Akhbiyyah", "سعد الأخبية"]
+    romanization: "Sa'd al-Akhbiyah"
+    native_script: "سعد الأخبية"
+    arabic_meaning: "The Auspice of the Woolen Tents / Fortune of the Tent Poles"
+    notes: "The star Sadachbia (γ Aquarii) derives its name from this Manzil. Fourth and final Sa'd fortune Manzil."
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition", "Western astronomy (Sadachbia name preserved)"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "actively_used"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 25
+    sign_classification:
+      western_constellation: "Aquarius"
+      season: "Early spring"
+      begins_on_approx: "24 March"
+      ruling_angel: "Ahrafil"
+      abjad_letter: "Dhal (ذ) — value 700"
+      other:
+        sa'd_series: "Fourth and final Sa'd fortune Manzil (22-25)"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg/250px-Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg"
+      description: "Al-Sufi's Book of Fixed Stars — shared visual reference"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "γ Aquarii (Sadachbia)"
+          notes: "'Sadachbia' = star name from this Manzil"
+        - name: "π Aquarii"
+        - name: "ζ Aquarii"
+        - name: "η Aquarii"
+  primitive_association_hints:
+    symbolic_role: "Tent fortune; shelter; Bedouin camp imagery; Sa'd series close"
+    mythic_narrative_summary: "Twenty-fifth Manzil; 'fortune of the woolen tents' — a distinctly Bedouin image of the nomadic desert camp. The tents represent shelter, family, and prosperity. This Manzil closes the four Sa'd fortune stations."
+  semantic_vocabulary:
+    symbolic_keywords: ["woolen tents", "Bedouin camp", "shelter", "fortune", "Sa'd series close", "Sadachbia", "Aquarius", "nomadic prosperity"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-026"
+  sign_name:
+    primary: "Al-Fargh al-Awal"
+    variants: ["Al-Fargh al-Mukdim", "الفرغ الأول", "Al-Fargh al-Muqdim"]
+    romanization: "Al-Fargh al-Awal"
+    native_script: "الفرغ الأول"
+    arabic_meaning: "The First Spout / The Preceding Spout (of the Water Bucket)"
+    notes: "Contains Markab (α Pegasi) and Scheat (β Pegasi) — the Great Square of Pegasus stars. The 'bucket spout' imagery refers to a celestial water vessel pouring."
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 26
+    sign_classification:
+      western_constellation: "Pegasus"
+      season: "Spring"
+      begins_on_approx: "6 April"
+      ruling_angel: "Atkail"
+      abjad_letter: "Dad (ض) — value 800"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg/250px-Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg"
+      description: "Al-Sufi's Book of Fixed Stars — shared visual reference"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "α Pegasi (Markab)"
+          notes: "Saddle of Pegasus; the 'first spout' leading star"
+        - name: "β Pegasi (Scheat)"
+  primitive_association_hints:
+    symbolic_role: "First water-bucket spout; Pegasus; pouring; cycle nearing end"
+    mythic_narrative_summary: "Twenty-sixth Manzil; 'the first bucket spout' — Markab and Scheat in Pegasus. The water-bucket imagery connects to the preceding Aquarius Sa'd stations (the water-bearer's domain). The cycle nears its end as Pegasus rises in the spring sky."
+  semantic_vocabulary:
+    symbolic_keywords: ["bucket spout", "water pouring", "Markab", "Scheat", "Pegasus", "spring", "cycle nearing end"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-027"
+  sign_name:
+    primary: "Al-Fargh ath-Thani"
+    variants: ["Al-Fargh al-Mu'akhkhar", "الفرغ الثاني", "Al-Fargh al-Muakhkhar"]
+    romanization: "Al-Fargh ath-Thani"
+    native_script: "الفرغ الثاني"
+    arabic_meaning: "The Second Spout / The Following Spout (of the Water Bucket)"
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition"]
+    geographic_origin: "Arabian Peninsula"
+    period_range: "Pre-Islamic origin; Islamic codification ~800-1100 CE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 27
+    sign_classification:
+      western_constellation: "Andromeda / Pegasus"
+      season: "Spring"
+      begins_on_approx: "19 April"
+      ruling_angel: "Turail"
+      abjad_letter: "Dha (ظ) — value 900"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg/250px-Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg"
+      description: "Al-Sufi's Book of Fixed Stars — shared visual reference"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "α Andromedae (Alpheratz / Sirrah)"
+          notes: "Shared between Andromeda and Pegasus Great Square; 'second spout' leading star"
+        - name: "γ Pegasi"
+  primitive_association_hints:
+    symbolic_role: "Second bucket spout; Andromeda; cycle nearing completion"
+    mythic_narrative_summary: "Twenty-seventh Manzil; 'the second bucket spout'. The Andromeda-Pegasus boundary stars. The cycle now has only one Manzil remaining before returning to Ash-Sharatan and the Aries spring opening."
+  semantic_vocabulary:
+    symbolic_keywords: ["second spout", "Andromeda", "Pegasus", "bucket", "penultimate", "spring return", "Alpheratz"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "arabic-manazil-028"
+  sign_name:
+    primary: "Al-Hut"
+    variants: ["Al-Risha", "الحوت", "الرشاء", "Batn al-Hut (belly of the fish)"]
+    romanization: "Al-Hut"
+    native_script: "الحوت"
+    arabic_meaning: "The Great Fish / The Rope of the Bucket"
+    notes: "Wikipedia table uses 'Al-Hut' (the fish); the task-prompt reference gives 'Al-Risha' (the rope). Wikipedia notes both names: 'Ar-Risha / Butn al-Hut' as alternate names. Primary star is β Andromedae (Mirach). Also associated with the Andromeda Galaxy (M31) — Al-Sufi in his Book of Fixed Stars made the FIRST RECORDED OBSERVATION of the Andromeda Galaxy, calling it a 'small cloud' (nebulae) near this Manzil's stars."
+  cultural_tradition:
+    primary_culture: "Arabic / Islamic"
+    derivative_cultures: ["Persian astronomical tradition", "Western astronomy (M31 first recorded by Al-Sufi)"]
+    geographic_origin: "Arabian Peninsula / Islamic Golden Age"
+    period_range: "Pre-Islamic origin; Al-Sufi's key observation of M31 recorded 964 CE in Book of Fixed Stars"
+    status_in_modern_tradition: "actively_used"
+  system_metadata:
+    system_name: "Arabic Manazil al-Qamar (مَنَازِل الْقَمَر)"
+    total_signs_in_system: 28
+    position_in_system: 28
+    sign_classification:
+      western_constellation: "Andromeda / Pisces"
+      season: "Spring"
+      begins_on_approx: "2 May"
+      ruling_angel: "Lukhail"
+      abjad_letter: "Ghayn (غ) — value 1000"
+      other:
+        special_significance: "Al-Sufi's Book of Fixed Stars (964 CE) contains the FIRST KNOWN RECORDED OBSERVATION of the Andromeda Galaxy (M31) near this Manzil's region — described as 'a little cloud'. This makes Al-Hut historically significant beyond the lunar mansion tradition."
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Folio_165_from_manuscript_of_as-Sufi_treatese_on_the_fixed_stars._1009-10._Bodleian_Library%2C_Oxford..jpg/120px-Folio_165_from_manuscript_of_as-Sufi_treatese_on_the_fixed_stars._1009-10._Bodleian_Library%2C_Oxford..jpg"
+      description: "Folio from Al-Sufi's Book of Fixed Stars manuscript, 1009-10 CE (Bodleian Library Oxford) — near the Andromeda/Pisces region of this final Manzil"
+      source: "Wikipedia Commons / Bodleian Library Oxford"
+      license: "Public Domain (historical manuscript)"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg/250px-Unknown%2C_Iraq_-_The_Book_of_Fixed_Stars_-_Google_Art_Project_%28cropped%29.jpg"
+        description: "Al-Sufi's Book of Fixed Stars — shared visual reference"
+        source: "Wikipedia Commons"
+        license: "Public Domain"
+        verified_loads: true
+    star_coordinates:
+      primary_stars:
+        - name: "β Andromedae (Mirach)"
+          notes: "Primary star of the Manzil; 'Mirach' is an Arabic-derived name"
+        - name: "M31 (Andromeda Galaxy)"
+          notes: "Not a star but first recorded by Al-Sufi in 964 CE near this Manzil — 'a little cloud'; the earliest known written record of the Andromeda Galaxy"
+  primitive_association_hints:
+    suggested_element: "Water (fish / rope / bucket)"
+    symbolic_role: "Cycle completion; great fish; Andromeda galaxy discovery site; rope binding"
+    mythic_narrative_summary: "Twenty-eighth and final Manzil; 'the great fish' or 'the rope of the bucket'. The cycle ends in Andromeda/Pisces before returning to Aries (Ash-Sharatan, Manzil 1). Al-Sufi's observation of the Andromeda Galaxy near this region (964 CE) is the EARLIEST KNOWN WRITTEN RECORD of a galaxy beyond the Milky Way. This Manzil carries the weight of the entire cycle's completion — the fish that holds the rope, the rope that pulls the bucket back to fill, the cycle that turns back to spring."
+  semantic_vocabulary:
+    symbolic_keywords: ["great fish", "rope", "bucket", "Andromeda galaxy", "M31", "first galaxy observation", "Al-Sufi", "cycle completion", "Mirach", "spring return"]
+    mythic_narrative: "Al-Hut (الحوت, 'the great fish') completes the 28 Manazil cycle. The Moon's last station before returning to Ash-Sharatan and the spring Aries opening. In Al-Sufi's Book of Fixed Stars (964 CE), this region of Andromeda contains his observation of 'a little cloud' — the earliest known written record of the Andromeda Galaxy (M31), 967 years before modern galaxies were understood. The 28 Manazil complete a circle: beginning with Two Signs (spring opening), ending with the Great Fish (spring return)."
+    visual_motifs: ["Andromeda figure", "great fish", "water bucket and rope", "Bodleian manuscript folio", "Al-Sufi Book of Fixed Stars"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Islamic astronomical tradition; fully documented in academic Islamic astronomy; Al-Sufi's Andromeda observation is a landmark in the history of astronomy."
+    source_authorization: "Wikipedia + Al-Sufi Book of Fixed Stars (964 CE) + Bodleian Library + academic Islamic astronomy"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Lunar_mansion"
+    secondary_sources:
+      - "Wikipedia: Book of Fixed Stars"
+      - "Wikipedia: Abd al-Rahman al-Sufi"
+      - "Al-Sufi, Book of Fixed Stars (964 CE) — primary academic source"
+      - "Wikipedia: Andromeda Galaxy (first observation history)"
+    academic_anchor: "Al-Sufi, Book of Fixed Stars (964 CE)"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"

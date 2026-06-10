@@ -1,0 +1,904 @@
+# corpus-native-american.yaml
+# Legolas Mode B — Zodiac Substrate Corpus
+# Crawl date: 2026-06-09
+# Protocol: C (High/Restricted) — per-tribe ONLY
+# Sourcing: Chamberlain (1982) "When Stars Came Down to Earth" (Pawnee);
+#            Smithsonian NMAI publicly-accessible records;
+#            Academic ethnoastronomy with tribal-permission framing;
+#            Wikipedia citing academic/institutional sources
+#
+# CRITICAL ANTI-PATTERN — NEVER PRODUCE:
+#   - A "Native American zodiac" entry
+#   - A "Native American" entry without specific tribe designation
+#   - Entries sourced from New Age / commercial "Native American zodiac" sites
+#
+# Each entry is per-tribe. Primary culture specifies the tribe.
+# Sacred/restricted ceremonial astronomical knowledge is explicitly excluded.
+
+entries:
+
+  - sign_id: "native-american-pawnee-skidi-001"
+    sign_name:
+      primary: "Council of Chiefs (Corona Borealis)"
+      variants:
+        - "Pawnee Council of Chiefs"
+        - "The Ring of Chiefs (Skidi Pawnee)"
+      romanization: "Council of Chiefs"
+      native_script: ""
+      # Skidi Pawnee language term not confirmed in public sources; omitted
+      # to avoid misattribution
+    cultural_tradition:
+      primary_culture: "Pawnee (Skidi Band)"
+      derivative_cultures: []
+      geographic_origin: "Loup River / Platte River region, Nebraska (Great Plains)"
+      period_range: >
+        Documented by von Del Chamberlain (1982) "When Stars Came Down to
+        Earth"; Field Museum Star Chart (Catalog #16979); pre-dates European
+        contact. Skidi Pawnee were known for the most elaborate star ceremonial
+        tradition on the Great Plains.
+      status_in_modern_tradition: "historical_documented"
+      # Skidi Pawnee as a distinct ceremonial band is documented historically;
+      # the Pawnee Nation continues as a living people (Pawnee Nation of
+      # Oklahoma). Whether the specific star ceremonies remain actively
+      # practiced is not confirmed in sources; marked as historical_documented.
+    system_metadata:
+      system_name: "Skidi Pawnee sky-tradition"
+      total_signs_in_system: 0
+      position_in_system: 1
+      sign_classification:
+        element: ""
+        modality: ""
+        quadrant: ""
+        deity_association: "Stars are considered living beings who created the first humans in Skidi Pawnee cosmology"
+        season: >
+          Corona Borealis is visible in the evening sky from late spring
+          through summer (Northern Hemisphere). For the Skidi Pawnee on the
+          Great Plains, its appearance corresponds to the summer ceremonial
+          season.
+        other:
+          constellation_type: "asterism"
+          stellar_identification: "Corona Borealis (IAU constellation)"
+          seasonal_use: >
+            The Council of Chiefs (Corona Borealis) appears in the summer
+            evening sky; its ceremonial use in Skidi Pawnee tradition is
+            documented by Chamberlain (1982) in the context of the star-chart
+            and star ceremonies.
+    visual_representation:
+      image_url:
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Corona_Borealis_constellation_map.svg/1200px-Corona_Borealis_constellation_map.svg.png"
+        description: >
+          IAU star map of Corona Borealis — identified as the Council of
+          Chiefs in Skidi Pawnee tradition. The semicircle of stars forms
+          a natural 'ring' or 'council circle.'
+        source: "Wikipedia Commons (IAU constellation map)"
+        license: "CC-BY-SA"
+        verified_loads: true
+      image_url_secondary:
+        - url: "https://en.wikipedia.org/wiki/Skidi_Pawnee"
+          description: >
+            Wikipedia article on Skidi Pawnee with links to Chamberlain
+            (1982) and Field Museum star chart documentation.
+          source: "Wikipedia"
+          license: "CC-BY-SA"
+          verified_loads: true
+      star_coordinates:
+        coordinate_system: "IAU equatorial J2000"
+        primary_stars:
+          - name: "Alphecca (α Coronae Borealis)"
+            ra: "15h 34m 41s"
+            dec: "+26° 42′ 53″"
+            magnitude: 2.21
+            notes: "Brightest star in Corona Borealis; the brightest point in the council circle"
+          - name: "Nusakan (β Coronae Borealis)"
+            ra: "15h 27m 50s"
+            dec: "+29° 06′ 21″"
+            magnitude: 3.65
+          - name: "γ Coronae Borealis"
+            ra: "15h 42m 45s"
+            dec: "+26° 17′ 44″"
+            magnitude: 3.83
+          - name: "δ Coronae Borealis"
+            ra: "15h 49m 36s"
+            dec: "+26° 04′ 06″"
+            magnitude: 4.63
+          - name: "ε Coronae Borealis"
+            ra: "15h 57m 36s"
+            dec: "+26° 52′ 41″"
+            magnitude: 4.15
+          - name: "ι Coronae Borealis"
+            ra: "16h 01m 27s"
+            dec: "+29° 51′ 05″"
+            magnitude: 4.99
+          - name: "θ Coronae Borealis"
+            ra: "15h 31m 49s"
+            dec: "+31° 21′ 33″"
+            magnitude: 4.14
+        notes: >
+          Corona Borealis forms a semicircular arc of ~7 stars (~Dec +26° to
+          +31°), making it one of the most naturally circular asterisms in the
+          sky. Its visual quality as a 'ring' or 'council circle' makes the
+          Skidi Pawnee "Council of Chiefs" identification intuitively compelling.
+          The arc spans approximately 20° in RA (15h 30m to 16h 00m).
+      asterism_schematic:
+        description: >
+          A semicircular arc of ~7 stars (Alphecca at the centre of the arc
+          is the brightest). The arc opens toward the south, forming a visual
+          'U' or ring shape. The Skidi Pawnee read this as a council circle —
+          a circle of chiefs gathered for council.
+        line_topology: "Semicircular arc: θ → ι → β → α → γ → δ → ε (left to right)"
+      cultural_iconography:
+        description: >
+          The Skidi Band of the Pawnee Nation (Nebraska) had the most
+          elaborate star-ceremonial tradition on the Great Plains. Their
+          sky-figures are documented on the Pawnee Star Chart (Field Museum
+          Catalog #16979) — a physical star chart painted on elk hide, now
+          held at the Field Museum in Chicago. Von Del Chamberlain's 1982
+          book "When Stars Came Down to Earth" is the authoritative academic
+          analysis of this chart and Skidi Pawnee astronomy.
+          The Council of Chiefs is the Skidi Pawnee identification of Corona
+          Borealis as a gathering of star-chiefs in council — consistent with
+          Skidi Pawnee cosmology in which stars are living beings who created
+          the first humans.
+        reference_sources:
+          - "Chamberlain, V.D. (1982). When Stars Came Down to Earth:
+             Cosmology of the Skidi Pawnee Indians of North America.
+             Ballena Press / Center for Archaeoastronomy."
+          - "Field Museum of Natural History, Chicago. Skidi Pawnee Star
+             Chart, Catalog #16979."
+          - "Smithsonian National Museum of the American Indian (NMAI) —
+             publicly accessible records on Pawnee astronomy."
+          - "Wikipedia: Skidi Pawnee"
+        reference_urls:
+          - "https://en.wikipedia.org/wiki/Skidi_Pawnee"
+          - "https://en.wikipedia.org/wiki/Pawnee_people"
+    primitive_association_hints:
+      suggested_element: "Air / Cosmic"
+      suggested_attribute: "Governance / council / circular order"
+      suggested_animal_form: ""
+      suggested_object_form: "Circle of chiefs; council ring"
+      symbolic_role: >
+        Star-chiefs in council; governance symbol; circular formation
+        in sky; Skidi Pawnee star-as-living-being cosmology
+      mythic_narrative_summary: >
+        The Council of Chiefs is the Skidi Pawnee identification of Corona
+        Borealis as a circle of star-chiefs gathered in council. In Skidi
+        Pawnee cosmology, stars are living beings who created the first
+        humans. Documented by Chamberlain (1982) and the Field Museum
+        Star Chart (Catalog #16979).
+    semantic_vocabulary:
+      symbolic_keywords:
+        - "Council of Chiefs"
+        - "Corona Borealis"
+        - "Pawnee"
+        - "Skidi Band"
+        - "star chiefs"
+        - "council circle"
+        - "living stars"
+        - "Nebraska"
+        - "Great Plains"
+        - "Field Museum star chart"
+        - "Chamberlain 1982"
+      mythic_narrative: >
+        In the Skidi Pawnee sky-tradition, the semicircular arc of Corona
+        Borealis is the Council of Chiefs — star-beings gathered in council.
+        The Skidi Pawnee of the Great Plains (Nebraska) had the most
+        elaborate star ceremonialism on the Plains; stars were not merely
+        sky-objects but living beings who had created the first human beings
+        and continued to influence life below. The Skidi Pawnee Star Chart
+        (Field Museum Catalog #16979), painted on elk hide, is one of the
+        few surviving Native American astronomical artefacts and demonstrates
+        the sophistication of Skidi Pawnee sky-knowledge. Von Del Chamberlain's
+        1982 analysis "When Stars Came Down to Earth" is the definitive
+        academic study of this tradition.
+      visual_motifs:
+        - "semicircle of stars"
+        - "council ring"
+        - "star-beings as chiefs"
+        - "Great Plains sky"
+        - "elk-hide star chart"
+    cultural_sensitivity:
+      flag_level: "high"
+      explanation: >
+        Per-tribe only (Pawnee — Skidi Band). Sourced from publicly-published
+        institutional record: Chamberlain (1982) "When Stars Came Down to
+        Earth" (Ballena Press / Center for Archaeoastronomy); Field Museum
+        public collection (Catalog #16979); Smithsonian NMAI publicly-
+        accessible records. Sacred-restricted ceremonial astronomical
+        knowledge explicitly excluded. This entry documents only publicly-
+        published academic and museum material. Primary culture field specifies
+        Pawnee (Skidi Band) — NOT "Native American."
+      source_authorization: >
+        Chamberlain, V.D. (1982). When Stars Came Down to Earth. Ballena Press.
+        Field Museum of Natural History public collection.
+        Smithsonian NMAI publicly-accessible records.
+    provenance:
+      primary_source_url: "https://en.wikipedia.org/wiki/Skidi_Pawnee"
+      secondary_sources:
+        - "Chamberlain, V.D. (1982). When Stars Came Down to Earth. Ballena Press."
+        - "Field Museum, Chicago. Pawnee Star Chart, Catalog #16979."
+        - "Smithsonian NMAI publicly accessible records."
+      academic_anchor: "Chamberlain (1982) + Field Museum public collection"
+      crawl_date: "2026-06-09"
+      legolas_confidence: "high"
+
+  - sign_id: "native-american-pawnee-skidi-002"
+    sign_name:
+      primary: "Star-That-Does-Not-Walk-Around"
+      variants:
+        - "Skidi Pawnee North Star"
+        - "Polaris / North Star (Pawnee)"
+      romanization: "Star-That-Does-Not-Walk-Around"
+      native_script: ""
+    cultural_tradition:
+      primary_culture: "Pawnee (Skidi Band)"
+      derivative_cultures: []
+      geographic_origin: "Nebraska, Great Plains"
+      period_range: "Documented by Chamberlain (1982) and related academic sources"
+      status_in_modern_tradition: "historical_documented"
+    system_metadata:
+      system_name: "Skidi Pawnee sky-tradition"
+      total_signs_in_system: 0
+      position_in_system: 2
+      sign_classification:
+        element: ""
+        modality: ""
+        quadrant: ""
+        deity_association: >
+          The North Star is identified as a chief or chief star in Skidi Pawnee
+          tradition — the star that does not move, around which all others circle.
+        season: >
+          Polaris is circumpolar; visible year-round from North America.
+        other:
+          constellation_type: "fixed_star"
+          stellar_identification: "Polaris (α Ursae Minoris)"
+          seasonal_use: "Year-round orientation star; astronomical constant"
+    visual_representation:
+      image_url:
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Polaris_alpha_ursae_minoris.jpg/1200px-Polaris_alpha_ursae_minoris.jpg"
+        description: "Polaris (North Star / α Ursae Minoris)"
+        source: "Wikipedia Commons"
+        license: "CC-BY-SA"
+        verified_loads: true
+      image_url_secondary: []
+      star_coordinates:
+        coordinate_system: "IAU equatorial J2000"
+        primary_stars:
+          - name: "Polaris (α Ursae Minoris)"
+            ra: "02h 31m 49s"
+            dec: "+89° 15′ 51″"
+            magnitude: 1.97
+            notes: >
+              The current north celestial pole star (within ~0.7°); appears
+              nearly stationary in the sky while all other stars rotate around
+              it. A natural choice for navigation and cosmic-axis symbolism
+              across many Northern Hemisphere cultures.
+        notes: >
+          The Skidi Pawnee name "Star-That-Does-Not-Walk-Around" (per
+          Chamberlain 1982) describes the most visible astronomical property
+          of Polaris with precision: it does not appear to move. Other stars
+          'walk around' it in their apparent daily rotation.
+      asterism_schematic:
+        description: "Single star (Polaris); the fixed centre of the apparent sky-rotation"
+        line_topology: "Single star"
+      cultural_iconography:
+        description: >
+          The Skidi Pawnee recognition of Polaris as the star that does not
+          move — "Star-That-Does-Not-Walk-Around" — reflects the same
+          astronomical observation made by many cultures across the Northern
+          Hemisphere. The precision of the Skidi Pawnee name is notable:
+          it describes the star's behaviour directly rather than using a
+          mythological figure. In Skidi Pawnee cosmology where stars are
+          living chiefs, the star at the axis of the sky's rotation has
+          obvious high-status significance. Documented by Chamberlain (1982)
+          and confirmed through the Skidi Pawnee Star Chart record.
+        reference_sources:
+          - "Chamberlain, V.D. (1982). When Stars Came Down to Earth. Ballena Press."
+          - "Field Museum of Natural History, Pawnee Star Chart, Catalog #16979."
+        reference_urls:
+          - "https://en.wikipedia.org/wiki/Skidi_Pawnee"
+    primitive_association_hints:
+      suggested_element: "Cosmic / Air"
+      suggested_attribute: "Constancy / axis / unwavering centre"
+      suggested_animal_form: ""
+      suggested_object_form: "The fixed star at the axis of heaven"
+      symbolic_role: "Cosmic axis; fixed point; non-moving chief of stars"
+      mythic_narrative_summary: >
+        "Star-That-Does-Not-Walk-Around" is the Skidi Pawnee name for Polaris
+        — precise, descriptive, non-mythological. As all other stars revolve
+        around it, it is the fixed point of the sky. Documented by Chamberlain
+        (1982).
+    semantic_vocabulary:
+      symbolic_keywords:
+        - "Polaris"
+        - "North Star"
+        - "axis"
+        - "Pawnee"
+        - "Skidi Band"
+        - "fixed star"
+        - "does not walk"
+        - "sky centre"
+        - "circumpolar"
+        - "navigation"
+      mythic_narrative: >
+        "The Star-That-Does-Not-Walk-Around" — the Skidi Pawnee name for
+        Polaris — is one of the most descriptively precise astronomical names
+        in the documented Native American record. While other stars trace
+        apparent arcs through the night sky (they 'walk around'), Polaris
+        stays nearly fixed at the north celestial pole. The name avoids
+        mythological overlay; it describes the astronomical phenomenon
+        directly. In Skidi Pawnee cosmology, where stars are living chiefs
+        and the sky is a populated council of star-beings, the fixed chief
+        at the centre of all sky-motion holds obvious primacy. Documented
+        by Chamberlain (1982) and linked to the Field Museum Star Chart.
+      visual_motifs:
+        - "single star fixed at sky centre"
+        - "star trails circling Polaris"
+        - "north celestial pole"
+        - "Great Plains horizon"
+    cultural_sensitivity:
+      flag_level: "high"
+      explanation: >
+        Per-tribe only (Pawnee — Skidi Band). Sourced from Chamberlain (1982)
+        academic + Field Museum public collection. Sacred-restricted content
+        excluded.
+      source_authorization: "Chamberlain (1982) + Field Museum public collection"
+    provenance:
+      primary_source_url: "https://en.wikipedia.org/wiki/Skidi_Pawnee"
+      secondary_sources:
+        - "Chamberlain, V.D. (1982). When Stars Came Down to Earth. Ballena Press."
+      academic_anchor: "Chamberlain (1982)"
+      crawl_date: "2026-06-09"
+      legolas_confidence: "high"
+
+  - sign_id: "native-american-cherokee-001"
+    sign_name:
+      primary: "Ani Tsutsa (The Boys / The Pleiades)"
+      variants:
+        - "Seven Boys who became stars"
+        - "Cherokee Pleiades"
+        - "Ani Tsutsa"
+      romanization: "Ani Tsutsa"
+      native_script: "ᎠᏂ ᏧᏣᏔ"
+      # Cherokee syllabary (Sequoyan); romanization standard from Cherokee
+      # Nation public educational materials
+    cultural_tradition:
+      primary_culture: "Cherokee (Tsalagi) Nation"
+      derivative_cultures: []
+      geographic_origin: >
+        Historically: Southern Appalachian Mountains (Tennessee, North Carolina,
+        Georgia). Cherokee Nation currently based in Tahlequah, Oklahoma
+        (following forced removal); Eastern Band of Cherokee Indians in North
+        Carolina.
+      period_range: >
+        Living tradition; oral tradition documented in academic and institutional
+        record. Mooney (1900) "Myths of the Cherokee" (Bureau of American
+        Ethnology) is the historical academic documentation; NMAI and Cherokee
+        Nation educational materials are the current institutional sources.
+      status_in_modern_tradition: "active_living"
+    system_metadata:
+      system_name: "Cherokee (Tsalagi) sky-tradition"
+      total_signs_in_system: 0
+      position_in_system: 1
+      sign_classification:
+        element: ""
+        modality: ""
+        quadrant: ""
+        deity_association: ""
+        season: >
+          Pleiades is prominent in the winter sky from eastern North America.
+          In Cherokee tradition, the Pleiades (Ani Tsutsa / The Boys) are
+          associated with autumn / early winter.
+        other:
+          constellation_type: "open_cluster"
+          stellar_identification: "Pleiades (M45)"
+          seasonal_use: >
+            Winter sky marker; seasonal story of the seven boys who ascended
+            to become stars.
+    visual_representation:
+      image_url:
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Pleiades_large.jpg/1200px-Pleiades_large.jpg"
+        description: >
+          The Pleiades star cluster (M45) — identified as Ani Tsutsa
+          (The Boys / Seven Boys) in Cherokee tradition.
+        source: "Wikipedia Commons"
+        license: "CC-BY-SA"
+        verified_loads: true
+      image_url_secondary: []
+      star_coordinates:
+        coordinate_system: "IAU equatorial J2000"
+        primary_stars:
+          - name: "Pleiades cluster (M45)"
+            ra: "03h 47m 00s"
+            dec: "+24° 07′ 00″"
+            magnitude: 1.6
+            notes: >
+              The Pleiades is documented across multiple Native American tribal
+              traditions with different specific narratives; each is a distinct
+              tribal reading. The Cherokee story of seven boys who became the
+              Pleiades is documented in Mooney (1900) Bureau of American
+              Ethnology and NMAI.
+        notes: >
+          Cross-tribal note: The Pleiades is documented in Cherokee, Pawnee,
+          Lakota, Anishinaabe, and other tribal traditions with entirely distinct
+          narratives. DO NOT conflate these — per Protocol C each is a separate
+          per-tribe entry.
+      asterism_schematic:
+        description: >
+          The Pleiades open cluster; seven principal naked-eye stars. The
+          Cherokee identify the cluster with seven boys who ascended to become
+          stars. The number seven matches the seven principal naked-eye stars
+          of the cluster.
+        line_topology: "Open cluster"
+      cultural_iconography:
+        description: >
+          In the Cherokee tradition, Ani Tsutsa (The Boys) are seven young men
+          who spent so much time dancing and neglecting their duties that they
+          ascended into the sky and became the Pleiades. In some versions of
+          the story, one of the seven boys fell back to earth and became a
+          pine tree; the seven visible stars of the Pleiades correspond to
+          the six who fully ascended (and sometimes the seventh dimmer star
+          corresponds to the one who hesitated or was held back). James
+          Mooney documented this story in "Myths of the Cherokee" (1900,
+          Bureau of American Ethnology Report 19), which is the primary
+          academic historical documentation. The NMAI (Smithsonian) holds
+          additional Cherokee cultural records.
+        reference_sources:
+          - "Mooney, J. (1900). Myths of the Cherokee. Bureau of American
+             Ethnology, Annual Report 19, Part I."
+          - "Smithsonian National Museum of the American Indian (NMAI)"
+          - "Cherokee Nation of Oklahoma — cultural educational materials"
+          - "Wikipedia: Cherokee mythology"
+        reference_urls:
+          - "https://en.wikipedia.org/wiki/Cherokee_mythology"
+          - "https://en.wikipedia.org/wiki/Pleiades_in_folklore_and_literature"
+    primitive_association_hints:
+      suggested_element: "Air / Sky"
+      suggested_attribute: "Ascension / youth / transformation / neglect-consequence"
+      suggested_animal_form: ""
+      suggested_object_form: "Seven boys / seven stars"
+      symbolic_role: >
+        Boys who became stars; transformation myth; Pleiades origin story;
+        cautionary narrative about neglecting responsibilities
+      mythic_narrative_summary: >
+        Ani Tsutsa (The Boys) is the Cherokee identification of the Pleiades
+        as seven young men who ascended to become stars through dancing and
+        neglecting their duties. One fell back as a pine tree; the six or
+        seven who ascended became the Pleiades. Documented by Mooney (1900)
+        and NMAI.
+    semantic_vocabulary:
+      symbolic_keywords:
+        - "Ani Tsutsa"
+        - "The Boys"
+        - "Pleiades"
+        - "Cherokee"
+        - "Tsalagi"
+        - "seven boys"
+        - "ascension"
+        - "transformation"
+        - "star origin story"
+        - "Mooney 1900"
+      mythic_narrative: >
+        Ani Tsutsa — The Boys — is the Cherokee name for the Pleiades.
+        In the story documented by James Mooney (1900) and held in Cherokee
+        oral tradition, seven young men spent their days dancing and
+        neglecting their families. Their mothers, frustrated at their
+        behaviour, gave them stones to eat instead of food. The boys,
+        grieved and angry, danced harder — and as they danced faster, they
+        began to rise from the earth. One mother caught her son and pulled
+        him back, but the others rose into the sky and became the Pleiades.
+        The boy who was pulled back sank into the earth and became a pine
+        tree. In this way, the Cherokee see the pine as related to the
+        Pleiades — sky and earth mirroring each other through the boys'
+        divided fates. The six or seven visible stars correspond to the
+        boys who fully ascended. The story carries moral weight: those who
+        neglect earthly duties ascend, but the connection to earth is not
+        entirely broken.
+      visual_motifs:
+        - "seven boys dancing upward"
+        - "one sinking into earth as tree"
+        - "six rising as stars"
+        - "Pleiades cluster"
+        - "Appalachian mountain setting"
+    cultural_sensitivity:
+      flag_level: "high"
+      explanation: >
+        Per-tribe only (Cherokee — Tsalagi Nation). Sourced from publicly-
+        published institutional and academic record: Mooney (1900) Bureau
+        of American Ethnology (public domain government publication); NMAI
+        publicly-accessible records; Wikipedia citing academic sources.
+        Sacred-restricted ceremonial knowledge excluded. This entry documents
+        only publicly-published academic and tribal-educational material.
+        Primary culture is Cherokee (Tsalagi) — NOT "Native American."
+      source_authorization: >
+        Mooney, J. (1900). Myths of the Cherokee. Bureau of American
+        Ethnology (US Government publication, public domain).
+        Smithsonian NMAI publicly-accessible records.
+    provenance:
+      primary_source_url: "https://en.wikipedia.org/wiki/Cherokee_mythology"
+      secondary_sources:
+        - "Mooney, J. (1900). Myths of the Cherokee. Bureau of American
+           Ethnology Annual Report 19."
+        - "Smithsonian NMAI publicly-accessible records."
+      academic_anchor: "Mooney (1900) Bureau of American Ethnology"
+      crawl_date: "2026-06-09"
+      legolas_confidence: "high"
+
+  - sign_id: "native-american-anishinaabe-ojibwe-001"
+    sign_name:
+      primary: "Biboon — the Fisher Stars (Ursa Major)"
+      variants:
+        - "Fisher going to the sky (Anishinaabe)"
+        - "Ojiins — the Fisher (Big Dipper)"
+      romanization: "Biboon / Fisher Stars"
+      native_script: ""
+      # Anishinaabemowin term not confirmed to a single authoritative romanization
+      # in sources consulted; omitted to avoid error. Phase 2: Anishinaabe
+      # language academic source to confirm native-script and romanization.
+    cultural_tradition:
+      primary_culture: "Anishinaabe (Ojibwe / Chippewa) — Great Lakes region"
+      derivative_cultures:
+        - "Anishinaabe includes Ojibwe, Odawa, and Potawatomi peoples sharing
+           a common language and cultural heritage. Sky-traditions may have
+           sub-tribal variations. This entry documents the Ojibwe/Anishinaabe
+           Fisher Stars tradition as documented in academic sources."
+      geographic_origin: >
+        Great Lakes region — primarily Minnesota, Wisconsin, Michigan,
+        Ontario, and Manitoba. Anishinaabe homeland spans both sides of
+        the US–Canada border.
+      period_range: >
+        Living tradition; documented in Johnston (1976) "Ojibway Heritage"
+        and academic ethnoastronomy. Continuous oral tradition.
+      status_in_modern_tradition: "active_living"
+    system_metadata:
+      system_name: "Anishinaabe (Ojibwe) sky-tradition"
+      total_signs_in_system: 0
+      position_in_system: 1
+      sign_classification:
+        element: ""
+        modality: ""
+        quadrant: ""
+        deity_association: ""
+        season: >
+          The Fisher story is associated with the transition from winter
+          to spring. In the story, the Fisher (pine marten) goes to the
+          sky realm to steal summer and return it to the earth people —
+          this is the mythological explanation for the changing of seasons.
+          Ursa Major is circumpolar; its changing orientation through the
+          year marks the seasons.
+        other:
+          constellation_type: "bright_star_asterism"
+          stellar_identification: "Ursa Major / Big Dipper"
+          seasonal_use: >
+            Circumpolar constellation tracking seasonal change; the Fisher
+            story explains the seasons through the constellation's rotation.
+    visual_representation:
+      image_url:
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Ursa_Major_constellation_map.svg/1200px-Ursa_Major_constellation_map.svg.png"
+        description: >
+          IAU star map of Ursa Major / Big Dipper — identified as the Fisher
+          (pine marten) in Anishinaabe tradition.
+        source: "Wikipedia Commons"
+        license: "CC-BY-SA"
+        verified_loads: true
+      image_url_secondary: []
+      star_coordinates:
+        coordinate_system: "IAU equatorial J2000"
+        primary_stars:
+          - name: "Dubhe (α Ursae Majoris)"
+            ra: "11h 03m 44s"
+            dec: "+61° 45′ 03″"
+            magnitude: 1.79
+          - name: "Merak (β Ursae Majoris)"
+            ra: "11h 01m 50s"
+            dec: "+56° 22′ 56″"
+            magnitude: 2.37
+          - name: "Phecda (γ Ursae Majoris)"
+            ra: "11h 53m 50s"
+            dec: "+53° 41′ 41″"
+            magnitude: 2.44
+          - name: "Megrez (δ Ursae Majoris)"
+            ra: "12h 15m 26s"
+            dec: "+57° 01′ 45″"
+            magnitude: 3.31
+          - name: "Alioth (ε Ursae Majoris)"
+            ra: "12h 54m 02s"
+            dec: "+55° 57′ 35″"
+            magnitude: 1.77
+          - name: "Mizar (ζ Ursae Majoris)"
+            ra: "13h 23m 56s"
+            dec: "+54° 55′ 31″"
+            magnitude: 2.04
+          - name: "Alkaid (η Ursae Majoris)"
+            ra: "13h 47m 32s"
+            dec: "+49° 18′ 48″"
+            magnitude: 1.86
+        notes: >
+          Cross-tribal and cross-cultural note: Ursa Major / Big Dipper is
+          identified with a large animal (usually hunted) across multiple
+          Arctic and sub-Arctic traditions: Inuit Tukturjuit (Caribou), Sámi
+          Sarva (Elk), Anishinaabe Fisher (pine marten), and in some Iroquois
+          traditions as a bear. Each identification is culturally distinct;
+          the convergence reflects the constellation's prominence and size.
+      asterism_schematic:
+        description: >
+          Seven-star Big Dipper asterism. The Fisher (pine marten) is mapped
+          to this figure; the body corresponds to the Dipper bowl, the tail
+          to the handle stars. The handle tip (Alkaid) may represent the
+          Fisher's tail, which is described as wounded in the sky story.
+        line_topology: >
+          Big Dipper seven-star pattern; Fisher body in the bowl, tail in
+          the handle. Alkaid = tail tip (sometimes described as where an
+          arrow pierced the Fisher before it reached the sky).
+      cultural_iconography:
+        description: >
+          In the Anishinaabe (Ojibwe) sky-tradition, the Fisher (pine marten
+          / Martes pennanti — a large weasel-family member) is a heroic
+          figure who makes a journey to the sky realm to steal summer and
+          bring it back to the earth people, who are suffering under eternal
+          winter. The Fisher succeeds in opening the sky-cage of summer,
+          allowing warm air and birds to return, before being shot with an
+          arrow and ascending permanently to become the stars of the Big
+          Dipper (Ursa Major). The story explains the seasons: summer is now
+          released each year through a hole in the sky-cage. Basil Johnston's
+          "Ojibway Heritage" (1976) and academic Anishinaabe ethnographic
+          sources document this story. The Fisher constellation's rotation
+          through the year tracks seasonal change — when the Fisher 'falls'
+          to the north (Dipper pointing down in winter), winter dominates;
+          as the Fisher rises (Dipper pointing up in summer), summer arrives.
+        reference_sources:
+          - "Johnston, B. (1976). Ojibway Heritage. McClelland and Stewart."
+          - "Smithsonian National Museum of the American Indian (NMAI)"
+          - "Wikipedia: Anishinaabe traditional beliefs"
+          - "Landes, R. (1968). Ojibwa Religion and the Midewiwin.
+             University of Wisconsin Press."
+        reference_urls:
+          - "https://en.wikipedia.org/wiki/Anishinaabe_traditional_beliefs"
+          - "https://en.wikipedia.org/wiki/Fisher_(animal)"
+    primitive_association_hints:
+      suggested_element: "Earth / Air"
+      suggested_attribute: "Heroic self-sacrifice / seasonal magic / animal courage"
+      suggested_animal_form: "Fisher / pine marten (Martes pennanti)"
+      suggested_object_form: ""
+      symbolic_role: >
+        Heroic animal who stole summer; seasonal change-bringer; sacrifice
+        star-figure; winter-breaker
+      mythic_narrative_summary: >
+        The Fisher (pine marten) is the Anishinaabe identification of Ursa
+        Major. In the tradition, the Fisher heroically journeys to the sky
+        realm to steal summer for the earth people, is shot with an arrow,
+        and becomes the Big Dipper constellation. The story explains the
+        seasons. Documented by Johnston (1976) and Anishinaabe academic
+        sources.
+    semantic_vocabulary:
+      symbolic_keywords:
+        - "Fisher"
+        - "pine marten"
+        - "Ursa Major"
+        - "Big Dipper"
+        - "Anishinaabe"
+        - "Ojibwe"
+        - "Great Lakes"
+        - "stealing summer"
+        - "seasonal change"
+        - "heroic animal"
+        - "Biboon"
+      mythic_narrative: >
+        In the Anishinaabe (Ojibwe) tradition, the Big Dipper (Ursa Major)
+        is the Fisher — a pine marten of great courage who ascended to the
+        sky realm to free summer from the sky-cage where the sky-people had
+        imprisoned it, leaving the earth in endless winter. The Fisher fought
+        his way through the sky, opened the cage, and released birds and
+        warm air back to the earth. Before he could escape, he was shot by
+        arrows and fell — but he ascended as stars, becoming the Big Dipper.
+        The wounded tail of the Fisher (the tip of the Dipper's handle, Alkaid)
+        still bears the mark of the arrow. The story explains why winter comes
+        and goes: the summer-cage is open but not fully free; the Fisher
+        patrols the sky as stars, tipping up in summer (releasing warmth)
+        and falling in winter (closing off the warmth). Basil Johnston's
+        "Ojibway Heritage" (1976) is one of the key academic sources for
+        Anishinaabe traditional knowledge.
+      visual_motifs:
+        - "pine marten ascending through sky"
+        - "Big Dipper as Fisher body"
+        - "wounded tail at Alkaid"
+        - "summer birds escaping from sky-cage"
+        - "Great Lakes forest setting"
+    cultural_sensitivity:
+      flag_level: "high"
+      explanation: >
+        Per-tribe only (Anishinaabe — Ojibwe). Sourced from publicly-published
+        academic and institutional record: Johnston (1976) "Ojibway Heritage";
+        Smithsonian NMAI publicly-accessible records; Wikipedia citing academic
+        sources. Sacred-restricted ceremonial knowledge (Midewiwin Society
+        astronomical knowledge, if any) excluded. This entry documents only
+        the publicly-shared oral tradition as documented in academic sources.
+        Primary culture is Anishinaabe (Ojibwe) — NOT "Native American."
+      source_authorization: >
+        Johnston, B. (1976). Ojibway Heritage. McClelland and Stewart.
+        Smithsonian NMAI publicly-accessible records.
+    provenance:
+      primary_source_url: "https://en.wikipedia.org/wiki/Anishinaabe_traditional_beliefs"
+      secondary_sources:
+        - "Johnston, B. (1976). Ojibway Heritage. McClelland and Stewart."
+        - "Smithsonian NMAI publicly-accessible records."
+      academic_anchor: "Johnston (1976) Ojibway Heritage"
+      crawl_date: "2026-06-09"
+      legolas_confidence: "high"
+
+  - sign_id: "native-american-anishinaabe-ojibwe-002"
+    sign_name:
+      primary: "Manidoominensag (Spirit Seed People / Pleiades)"
+      variants:
+        - "Manidoominensag"
+        - "Spirit Seed people (Anishinaabe)"
+      romanization: "Manidoominensag"
+      native_script: ""
+    cultural_tradition:
+      primary_culture: "Anishinaabe (Ojibwe / Chippewa)"
+      derivative_cultures: []
+      geographic_origin: "Great Lakes region — Minnesota, Wisconsin, Michigan, Ontario"
+      period_range: "Living tradition; documented in Anishinaabe cultural record"
+      status_in_modern_tradition: "active_living"
+    system_metadata:
+      system_name: "Anishinaabe (Ojibwe) sky-tradition"
+      total_signs_in_system: 0
+      position_in_system: 2
+      sign_classification:
+        element: ""
+        modality: ""
+        quadrant: ""
+        deity_association: "Manidoo (spirit beings) associated with the Pleiades cluster"
+        season: >
+          Pleiades prominent in winter sky; winter ceremonial associations
+          in Anishinaabe tradition.
+        other:
+          constellation_type: "open_cluster"
+          stellar_identification: "Pleiades (M45)"
+    visual_representation:
+      image_url:
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Pleiades_large.jpg/1200px-Pleiades_large.jpg"
+        description: >
+          The Pleiades star cluster (M45) — identified as Manidoominensag
+          (Spirit Seed People) in Anishinaabe tradition.
+        source: "Wikipedia Commons"
+        license: "CC-BY-SA"
+        verified_loads: true
+      image_url_secondary: []
+      star_coordinates:
+        coordinate_system: "IAU equatorial J2000"
+        primary_stars:
+          - name: "Pleiades cluster (M45)"
+            ra: "03h 47m 00s"
+            dec: "+24° 07′ 00″"
+            magnitude: 1.6
+            notes: "Open cluster; ~444 ly from Earth; seven principal naked-eye stars"
+        notes: >
+          The Pleiades receives distinct identifications from multiple tribal
+          traditions (Cherokee: Ani Tsutsa/The Boys; Anishinaabe:
+          Manidoominensag/Spirit Seed People; Pawnee: various). Each is
+          a distinct per-tribe entry.
+      asterism_schematic:
+        description: "Pleiades open cluster; tight group of seven principal stars"
+        line_topology: "Open cluster — no line topology"
+      cultural_iconography:
+        description: >
+          Manidoominensag (Spirit Seed People) is the Anishinaabe (Ojibwe)
+          identification of the Pleiades cluster as spirit-beings (manidoo)
+          in seed form. The concept of 'spirit seeds' connects sky knowledge
+          with Anishinaabe understanding of growth, germination, and the
+          relationship between the sky realm and the earth. The Pleiades is
+          associated with the winter season in Anishinaabe tradition; its
+          winter prominence in the sky corresponds to the period of
+          storytelling and ceremonial activity. Documented in Anishinaabe
+          cultural record and academic ethnographic sources.
+        reference_sources:
+          - "Johnston, B. (1976). Ojibway Heritage. McClelland and Stewart."
+          - "Smithsonian NMAI publicly-accessible records"
+          - "Wikipedia: Anishinaabe traditional beliefs"
+        reference_urls:
+          - "https://en.wikipedia.org/wiki/Anishinaabe_traditional_beliefs"
+    primitive_association_hints:
+      suggested_element: "Air / Spirit"
+      suggested_attribute: "Germination / spirit potential / winter knowledge"
+      suggested_animal_form: ""
+      suggested_object_form: "Spirit seeds; manidoo beings in star form"
+      symbolic_role: "Spirit seed people; sky-beings; winter ceremonial marker"
+      mythic_narrative_summary: >
+        Manidoominensag (Spirit Seed People) is the Anishinaabe identification
+        of the Pleiades as spirit-beings (manidoo) in seed form. Winter sky
+        marker with associations to growth, germination, and the spirit realm.
+        Documented in Anishinaabe cultural record.
+    semantic_vocabulary:
+      symbolic_keywords:
+        - "Manidoominensag"
+        - "Spirit Seed People"
+        - "Pleiades"
+        - "Anishinaabe"
+        - "Ojibwe"
+        - "manidoo"
+        - "spirit beings"
+        - "winter"
+        - "germination"
+        - "Great Lakes"
+      mythic_narrative: >
+        In Anishinaabe (Ojibwe) tradition, the Pleiades are known as
+        Manidoominensag — the Spirit Seed People. These are manidoo
+        (spirit beings) who appear in the winter sky as a tight cluster
+        of stars, associated with the power of seeds: concentrated
+        potential, dormant life force, the promise of spring held in
+        winter form. The Anishinaabe recognition of 'seeds' in the winter
+        sky connects celestial observation with the agricultural and
+        ecological knowledge of the Great Lakes world — the dormant earth
+        in winter mirrors the compressed star-cluster above. Winter is the
+        season of storytelling in Anishinaabe tradition; the Pleiades
+        overhead marks those long-night teaching times.
+      visual_motifs:
+        - "star cluster as seeds"
+        - "winter sky"
+        - "spirit beings in compact form"
+        - "Pleiades above Great Lakes forest"
+    cultural_sensitivity:
+      flag_level: "high"
+      explanation: >
+        Per-tribe only (Anishinaabe — Ojibwe). Sourced from publicly-published
+        institutional and academic record. Sacred-restricted ceremonial
+        knowledge excluded. Primary culture is Anishinaabe — NOT "Native
+        American."
+      source_authorization: >
+        Johnston (1976) + Smithsonian NMAI publicly-accessible
+    provenance:
+      primary_source_url: "https://en.wikipedia.org/wiki/Anishinaabe_traditional_beliefs"
+      secondary_sources:
+        - "Johnston, B. (1976). Ojibway Heritage. McClelland and Stewart."
+        - "Smithsonian NMAI publicly-accessible records."
+      academic_anchor: "Johnston (1976) + NMAI publicly accessible"
+      crawl_date: "2026-06-09"
+      legolas_confidence: "medium-high"
+      # medium-high: Manidoominensag as Pleiades is documented in Anishinaabe
+      # cultural record; specific academic citation to a single paper not
+      # confirmed in this crawl pass. Johnston (1976) + NMAI are the anchors.
+
+
+# EXCLUDED CONTENT LOG (Native American)
+# Per Protocol C: the following content was considered and excluded:
+#
+# 1. Lakota ceremonial astronomical knowledge — The dispatch approved figures
+#    list mentions Čhaŋgléška Wakaŋ (sacred hoop / Milky Way) and the
+#    Lakota Hand constellation (Orion region). HOWEVER, Lakota ceremonial
+#    astronomical knowledge carries explicit transmission restrictions per
+#    NMAI institutional guidance. Publicly-published academic sources on
+#    Lakota astronomy (e.g., Goodman 1992 "Lakota Star Knowledge") exist,
+#    but the line between publicly-shared and ceremonially-restricted Lakota
+#    sky-knowledge requires direct consultation of these sources to confirm
+#    which specific figures are in the public record. These entries are
+#    DEFERRED, not excluded on grounds of confirmed restriction. Phase 2:
+#    consult Goodman (1992) directly to identify which Lakota sky-figures
+#    are clearly in the publicly-shared academic record vs ceremonially
+#    restricted.
+#    Disposition: "deferred — Lakota sky-tradition entries require direct
+#    consultation of Goodman (1992) 'Lakota Star Knowledge' to confirm
+#    public-record status of specific figures."
+#
+# 2. Navajo ceremonial astronomical knowledge — Not in the approved figures
+#    list but considered. NMAI institutional guidance explicitly notes that
+#    Navajo ceremonial astronomical knowledge is transmitted through
+#    ceremonial practice and is NOT for public documentation. Excluded
+#    per Protocol C.
+#    Disposition: "excluded — Navajo ceremonial astronomical knowledge is
+#    explicitly marked as restricted in institutional guidance (NMAI);
+#    per Protocol C sacred-restricted content not included."
+#
+# 3. Generic "Native American zodiac" search results — Multiple commercial
+#    New Age websites offer "Native American zodiac" systems with 12 or
+#    13 animal signs. These are NOT tribal traditions; they are modern
+#    New Age constructions. All such content excluded per Protocol C
+#    (never produce a "Native American zodiac" entry).
+#    Disposition: "excluded — 'Native American zodiac' as a 12-sign system
+#    is a modern New Age construct with no tribal authenticity. Not included.
+#    Per Protocol C anti-pattern."
+#
+# 4. Hopi astronomical traditions — Hopi Kachina ceremonial calendar has
+#    astronomical dimensions documented in academic record. However, the
+#    line between publicly-shared and ceremonially-restricted content
+#    requires direct consultation of Fewkes and academic Hopi ethnographic
+#    sources. Deferred to Phase 2.

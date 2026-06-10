@@ -157,4 +157,95 @@ Default: flag higher + exclude if in doubt.
 
 *(entries excluded on cultural-sensitivity grounds listed here with rationale)*
 
-None recorded yet — crawl in progress.
+Last updated: 2026-06-09 (high-sensitivity tradition crawl — Aboriginal Australian, Inuit/Arctic, West African, Native American)
+
+---
+
+### Aboriginal Australian exclusions / dispositions
+
+**1. Yolngu ceremonial sky-figures**
+- **Disposition:** EXCLUDED (sensitivity) + DEFERRED (sourcing gap)
+- **Rationale:** AIATSIS guidance indicates Yolngu (Arnhem Land, NT) sky-knowledge includes ceremonially-restricted content. No specific publicly-published peer-reviewed academic source for distinct Yolngu sky-figure stellar identifications was confirmed in this crawl that carried clear public-record status separate from ceremonially-restricted material. The Emu in the Sky tradition is documented for multiple peoples including some in Yolngu country, but specific named Yolngu sky-figures are not in the publicly-accessible corpus from sources available for this crawl.
+- **Phase 2 path:** Direct consultation of Hamacher's Yolngu-specific publications and AIATSIS public-access database.
+
+**2. Wardaman sky-figures beyond Lightning Brothers**
+- **Disposition:** DEFERRED (sourcing limitation)
+- **Rationale:** "Dark Sparklers" (Cairns & Harney 2004) documents a rich Wardaman sky-tradition. Only the Lightning Brothers are documented in the corpus at this pass because stellar co-ordinates for specific Wardaman star figures were not confirmed in publicly-accessible online sources. The Lightning Brothers cultural frame is included; specific stellar identifications require library access to the book.
+- **Phase 2 path:** Obtain Cairns & Harney (2004) "Dark Sparklers" for complete Wardaman sky-figure catalog.
+
+**3. Adnyamathanha (Flinders Ranges, SA) sky-traditions**
+- **Disposition:** DEFERRED (sourcing gap)
+- **Rationale:** Mentioned in Norris & Hamacher (2011) context. No specific peer-reviewed public-record sky-figures identified for this crawl.
+- **Phase 2 path:** Norris & Hamacher (2011) IAU Symposium proceedings + direct Hamacher work on Adnyamathanha.
+
+**4. Marpeankurrk (Arcturus) and Collowgulloric-war (Canopus) — Boorong**
+- **Disposition:** DEFERRED (confidence limitation, not sensitivity exclusion)
+- **Rationale:** Both are in the Stanbridge (1857) academic record and in the approved figures list. Not excluded on sensitivity grounds. Stellar identifications (Arcturus, Canopus) for these specific figures are tentative in Hamacher (2012) at the confidence level confirmed in this crawl. Prioritised three higher-confidence Boorong entries.
+- **Phase 2 path:** Direct consultation of Hamacher (2012) PhD thesis for precise confidence assessment.
+
+---
+
+### Inuit / Arctic exclusions / dispositions
+
+**5. Qilluqiit (Orion's Belt — Eastern Arctic Inuit)**
+- **Disposition:** DEFERRED (quality-over-quantity, not sensitivity exclusion)
+- **Rationale:** In MacDonald (1998) and approved figures list. Not excluded on sensitivity grounds. Deferred per quality-over-quantity protocol; the four included entries (Tukturjuit, Aagjuuk, Sakiattiat, Sarva) were prioritised for depth over adding a fifth at lower completion.
+- **Phase 2 path:** Add from MacDonald (1998) with Orion's Belt stellar co-ordinates.
+
+**6. Favdna (Sámi Hunter / Arcturus)**
+- **Disposition:** DEFERRED (sourcing gap for specific citation)
+- **Rationale:** In approved figures list; documented in academic Sámi ethnography. Deferred to Phase 2 pending confirmation of a citable academic source specifically confirming Favdna = Arcturus identification.
+- **Phase 2 path:** Direct Sámi academic ethnoastronomy consultation.
+
+**7. West Alaska Yupik sky-traditions**
+- **Disposition:** DEFERRED (sourcing gap)
+- **Rationale:** Distinct from Inuit; no confirmed peer-reviewed source for specific sky-figures identified.
+- **Phase 2 path:** Identify Yupik-specific ethnoastronomy academic sources.
+
+---
+
+### West African exclusions / dispositions
+
+**8. Dogon Nommo sky-associations (Griaule-sourced)**
+- **Disposition:** EXCLUDED (Griaule controversy; no independent corroboration)
+- **Rationale:** Griaule described Nommo (water spirits / ancestral beings) as amphibious sky-beings linked to Sirius and Sirius B. Van Beek (1991) "Dogon Restudied" specifically challenged Nommo cosmological detail. Unlike Sigi tolo (where the Sirius religious significance is independently established) and the Sigui ceremony (where the 60-year cycle is documented by multiple ethnographers including Jean Rouch), the Nommo sky-associations appear exclusively in Griaule-sourced material with no independent academic corroboration. Per Protocol B, Griaule-only claims without corroboration are excluded.
+- **Exclusion authority:** Protocol B + van Beek (1991) as academic counter-study.
+
+**9. Yoruba sky-figures (Orunmila / Ifa)**
+- **Disposition:** DEFERRED (sourcing quality gate, not sensitivity exclusion)
+- **Rationale:** Academic sources on Yoruba ethnoastronomy specifically are sparse in the peer-reviewed record. Orunmila as Ifa deity with celestial associations is documented; specific sky-figures mapped to IAU stellar co-ordinates were not confirmed in peer-reviewed academic ethnoastronomy for this crawl.
+- **Phase 2 path:** Consult Drewal, Pemberton, and Yoruba-specific academic sources.
+
+**10. Akan (Ghana) sky-traditions**
+- **Disposition:** DEFERRED (outside approved scope; sourcing gap)
+- **Rationale:** Not in approved figures list; sourcing gap.
+- **Phase 2 path:** Identify Akan-specific academic ethnoastronomy.
+
+---
+
+### Native American exclusions / dispositions
+
+**11. Navajo ceremonial astronomical knowledge**
+- **Disposition:** EXCLUDED (restricted per institutional guidance)
+- **Rationale:** NMAI institutional guidance explicitly notes that Navajo ceremonial astronomical knowledge is transmitted through ceremonial practice and is not for public documentation. This is a clear Protocol C restriction.
+- **Exclusion authority:** Smithsonian NMAI institutional guidance + Protocol C.
+
+**12. Commercial "Native American zodiac" systems**
+- **Disposition:** EXCLUDED (modern New Age construct; not tribal tradition)
+- **Rationale:** Multiple commercial New Age websites offer "Native American zodiac" systems with 12 or 13 animal signs. These are modern constructions with no tribal authenticity. Protocol C anti-pattern: "NEVER produce a 'Native American zodiac' entry." Per-tribe only throughout.
+- **Exclusion authority:** Protocol C + dispatch § 4.3 anti-pattern.
+
+**13. Lakota ceremonial astronomical knowledge (Čhaŋgléška Wakaŋ / Lakota Hand)**
+- **Disposition:** DEFERRED (verification pending, not confirmed exclusion)
+- **Rationale:** In approved figures list; Goodman (1992) "Lakota Star Knowledge" documents some Lakota sky-figures publicly. However, Lakota ceremonial astronomical knowledge carries potential transmission restrictions per NMAI guidance. The specific figures in the approved list need direct Goodman (1992) consultation to confirm which are in the public record vs. ceremonially restricted.
+- **Phase 2 path:** Direct consultation of Goodman (1992) "Lakota Star Knowledge: Studies in Lakota Stellar Theology" (Sinte Gleska University, 1992).
+
+**14. Hopi astronomical traditions**
+- **Disposition:** DEFERRED (sourcing verification pending)
+- **Rationale:** Some material in academic record (Fewkes). The Kachina ceremonial calendar has astronomical dimensions, but the line between publicly-shared and ceremonially-restricted content requires verification.
+- **Phase 2 path:** Consult Fewkes and post-colonial Hopi academic ethnography sources.
+
+**15. Iroquois / Haudenosaunee bear constellation (Ursa Major)**
+- **Disposition:** DEFERRED (not excluded; per-nation specificity required)
+- **Rationale:** In academic record; not sensitivity-excluded. Would require per-Iroquois-nation specification (Seneca / Mohawk / Onondaga etc. are distinct nations). Deferred.
+- **Phase 2 path:** Identify specific Haudenosaunee nation + academic source for bear / Ursa Major identification.

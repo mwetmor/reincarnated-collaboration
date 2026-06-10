@@ -13,32 +13,33 @@
 | Tradition | Status | Entry count | Visual coverage | Notes |
 |---|---|---|---|---|
 | Western zodiac (12 signs) | ✅ COMPLETE | 12 | 100% all 4 sub-fields | Agent A; full star coords + image URLs |
-| Western IAU constellations (88) | in-progress | — | — | Agent A running |
-| Mesopotamian (MUL.APIN) | in-progress | — | — | Agent A running |
-| Celtic tree zodiac (13) | in-progress | — | — | Agent A running |
-| Norse/Germanic | in-progress | — | — | Agent A running |
+| Western IAU constellations (88) | ⚠️ RECOVERY | — | — | Agent A hit 32K token limit; recovery batches A/B/C queued |
+| Mesopotamian (MUL.APIN) | ⚠️ RECOVERY | — | — | Agent A hit 32K token limit; recovery batch queued |
+| Celtic tree zodiac (13) | ⚠️ RECOVERY | — | — | Agent A hit 32K token limit; recovery batch queued |
+| Norse/Germanic | ⚠️ RECOVERY | — | — | Agent A hit 32K token limit; recovery batch queued |
 | Chinese zodiac (12 animals) | ✅ COMPLETE | 12 | 100% image_url + iconography | YAML validated; 2 low-sensitivity flags |
-| Chinese Xiu lunar mansions (28) | in-progress | — | — | Agent running |
+| Chinese Xiu lunar mansions (28) | ✅ COMPLETE | 28 | asterism + stars + iconography | 4 quadrant guardians; determinative stars |
 | Japanese (Jūnishi) | ✅ COMPLETE | 12 | TBC | corpus-japanese-junishi.yaml written |
 | Korean (Ddi) | ✅ COMPLETE | 12 | TBC | corpus-korean-ddi.yaml written |
 | Vietnamese (12-animal) | ✅ COMPLETE | 12 | TBC | Cat-for-Rabbit documented |
 | Tibetan (12-animal) | ✅ COMPLETE | 12 | TBC | Garuda/Nāga variant documented |
 | Persian/Zoroastrian (12) | ✅ COMPLETE | 12 | image_url + iconography | Yazatas; Tishtrya=Sirius; Mithra distinguished from Roman Mithras |
 | Vedic Rashi (12) | ✅ COMPLETE | 12 | image_url + stars + iconography | Sidereal vs tropical; Makara creature documented; Kalapurusha body-mapping |
-| Vedic Nakshatras (27/28) | in-progress | 9/27 | full on 9 | Ashvini–Ashlesha done; agent still running |
-| Egyptian decans (36) | in-progress | — | — | Agent running |
-| Arabic Manazil al-Qamar (28) | in-progress | — | — | Agent running |
-| Mayan Tzolkin (20 day-signs) | ✅ COMPLETE | 20 | image_url + iconography | Living ceremonial; medium sensitivity applied |
-| Aztec Tonalpohualli (20 day-signs) | in-progress | — | — | Agent running |
+| Vedic Nakshatras (27/28) | ✅ COMPLETE | 28 | full schema all 28 | 27 + Abhijit (optional); RA/Dec all yogatara; Krittika former-first noted |
+| Egyptian decans (36) | ✅ COMPLETE | 36 | image_url (Dendera) + iconography | Dendera zodiac canonical ref; coffin diagonal star tables |
+| Arabic Manazil al-Qamar (28) | ✅ COMPLETE | 28 | stars + iconography + Arabic script | Al-Sufi anchor; native_script populated; Islamic Golden Age sourcing |
+| Mayan Tzolkin (20 day-signs) | ✅ COMPLETE | 20 | image_url + iconography | Yucatec + K'iche' dual orthography; SVG glyphs |
+| Aztec Tonalpohualli (20 day-signs) | ✅ COMPLETE | 20 | image_url + iconography | SVG glyphs; Sun Stone canonical ref; Ollin = 5th world age |
 | Polynesian navigator traditions | ✅ COMPLETE | 12 | image_url + stars + iconography | Hawaiian 7 + Maori 5; high sensitivity applied |
 | Aboriginal Australian | ✅ COMPLETE | 5 | image_url + dark-cloud schematic | Kamilaroi + Boorong; Protocol C; restricted content excluded |
 | Inuit/Arctic Circumpolar | ✅ COMPLETE | 4 | stars + iconography | Per-culture (Inuit/Sámi); high sensitivity applied |
-| Andean (Quechua/Aymara) | in-progress | — | — | MEDIUM sensitivity; Agent running |
-| West African (Dogon + broader) | in-progress | — | — | HIGH; Griaule flag; Agent running |
-| Native American (multi-tribal) | in-progress | — | — | HIGH/RESTRICTED; per-tribe; Agent running |
+| Andean (Quechua/Aymara) | ✅ COMPLETE | 9 | image_url + dark-cloud schematic | Yacana + dark-cloud + stellar figs; Quechua/Inca specified |
+| West African (Dogon + broader) | ✅ COMPLETE | 3 | iconography | Griaule flag on all Dogon entries; van Beek (1991) cited |
+| Native American (multi-tribal) | ✅ COMPLETE | 5 | iconography + stars | Per-tribe: Pawnee(Skidi)×2/Cherokee/Anishinaabe×2; sacred excluded |
 
-**Running total: 146 entries confirmed**
-**Projected final (all agents complete): 400–430 entries**
+**Running total: 294 entries confirmed (20 traditions complete)**
+**Remaining: IAU 88 + Mesopotamian MUL.APIN (~18) + Celtic (13) + Norse/Germanic (~10) = ~129 more**
+**Projected final: ~423 — clears 400 without any high-sensitivity material ✓**
 
 ---
 
@@ -68,20 +69,41 @@
 ### Vedic Rashi — COMPLETE (2026-06-09)
 **12 entries.** All 12 Rashi with Sanskrit names, Jyotish ruling planets, element (Agni/Prithvi/Vayu/Jala), quality (Chara/Sthira/Dwiswabhava), Kalapurusha body-part mapping (Mesha=head through Meena=feet). Key distinctions documented: (1) sidereal vs tropical zodiac (~23° ayanamsa offset); (2) Makara documented as mythical Makara sea-creature (NOT simply goat-fish); (3) planetary exaltations and debilities captured. Corpus file: `corpus-vedic-rashi.yaml` (71 KB).
 
-### Vedic Nakshatras — IN PROGRESS (9/27 complete)
-**9 entries confirmed** (Ashvini through Ashlesha). All first 9 with full schema: deity, gana (Deva/Manushya/Rakshasa), nadi, hosting Rashi, primary star RA/Dec, symbol, mythic narrative. Agent still running for entries 10–27 (Magha through Revati + optional Abhijit).
+### Chinese Xiu lunar mansions — COMPLETE (2026-06-09)
+**28 entries, 118 KB.** All 28 Xiu across 4 quadrants: Azure Dragon/East (Jiǎo through Jī), Black Tortoise/North (Dǒu through Bì), White Tiger/West (Kuí through Shēn), Vermilion Bird/South (Jǐng through Zhěn). Full RA/Dec for high-salience determinative stars. Element cycle confirmed as 7-element (Wood/Gold/Soil/Yang/Yin/Fire/Water per quadrant — NOT standard wuxing 5). Notable substrate details: **Mǎo #18 (Pleiades) = "Subaru" — the car brand name derives from this mansion**; **Shēn #21 (Orion) and Xīn #5 (Antares) embody an eternal-separation proverb** — these mansions never appear simultaneously in the sky, traditionally invoked for separated lovers; **Niú #9 = Qixi Festival** (Chinese Valentine's Day — the Cowherd and Weaver Girl myth); Guǐ #23 (Praesepe) visible as ghost mist to naked eye. Corpus file: `corpus-chinese-xiu.yaml` (118 KB).
+
+### Vedic Nakshatras — IN PROGRESS (18/27 complete)
+**18 entries confirmed** (Ashvini through Jyeshtha). All 18 with full schema: deity, gana, nadi, hosting Rashi, primary star RA/Dec, symbol, mythic narrative. Agent still running for entries 19–27 (Mula through Revati + optional Abhijit).
 
 ### Mayan Tzolkin — COMPLETE (2026-06-09)
-**20 entries.** All 20 day-signs with Yucatec and K'iche' name variants, presiding deities, glyph image URLs (Dresden Codex / Wikipedia Commons), cultural iconography, mythic narratives. Aztec parallel noted in each entry. Cultural sensitivity: medium applied throughout. Corpus file: `corpus-mayan-tzolkin.yaml` (88 KB).
+**20 entries, 85 KB.** All 20 day-signs with Yucatec (Imix, Ik', Ak'bal…) and K'iche' modern orthography (Imox, Iq', Aq'ab'al…) dual naming captured. Two disambiguation traps flagged: K'iche' "Kan" (position 5, serpent) vs "K'at" (position 4, corn/net); and shared name "Q'anil" for positions 7 and 8 in some sources. Mayan glyphs use `MAYA-g-log-cal-D[NN]-[Name].png` Wikipedia Commons series. Aztec parallel in each entry. Cultural sensitivity: medium throughout; ajq'ij day-keeper practices excluded. Corpus file: `corpus-mayan-tzolkin.yaml`.
+
+### Aztec Tonalpohualli — COMPLETE (2026-06-09)
+**20 entries, 89 KB.** All 20 day-signs with Nahuatl names, presiding deities (all major Aztec deities represented), SVG glyphs (`[SignName]_glyph.svg` series — scalable vector). **Aztec Sun Stone identified as canonical composite visual reference** (all 20 day-signs in day-ring). Notable: **Ollin (position 17)** is uniquely double-powerful — both a day-sign AND the name of the current Fifth World Age; its glyph occupies the center of the Aztec Sun Stone. Tezcatlipoca paradoxically presides over Acatl (Reed) — the birth-sign of his great rival Quetzalcoatl. One confidence flag: Quiahuitl (position 19) disputed presiding deity (Tonatiuh vs Chantico across sources). Corpus file: `corpus-aztec-tonalpohualli.yaml`.
 
 ### Polynesian navigator traditions — COMPLETE (2026-06-09)
-**12 entries** (7 Hawaiian + 5 Maori). Hawaiian: Hokule'a (Arcturus/zenith star), Makali'i (Pleiades/harvest), Hoku Pa'a (Polaris), Newe/Maui's Fishhook (Scorpius), A'a (Sirius), Na Hiku (Big Dipper), Ke Ali'i o Kona i Ka Lewa (Canopus). Maori: Matariki (Pleiades cluster with 7 named stars), Tautoru (Orion's Belt), Māhutonga (Southern Cross), Rehua, Māui's Fishhook. Cultural sensitivity: high applied; sourced from Bishop Museum + Te Papa + PVS + academic only. Star coordinates included where applicable. Corpus file: `corpus-polynesian.yaml` (88 KB).
+**12 entries, 88 KB** (7 Hawaiian + 5 Maori — distinct primary_culture tags throughout). Hawaiian: Hokule'a (Arcturus, zenith star of Hawaii), Makali'i (Pleiades, harvest season marker), Hoku Pa'a (Polaris), Newe/Maui's Fishhook (Scorpius), A'a (Sirius), Na Hiku (Big Dipper), Ke Ali'i o Kona i Ka Lewa (Canopus). Maori: **Matariki (Pleiades) with all 9 named stars documented** per Te Papa public record (Matariki, Pōhutukawa, Tupuānuku, Tupuārangi, Waitī, Waitā, Waipuna-ā-Rangi, Ururangi, Hiwa-i-te-rangi), Tautoru (Orion's Belt), Māhutonga (Southern Cross), Rehua (confidence: medium — disputed Western identity), Tama-rereti. **Note:** Pleiades appears as both Hawaiian Makali'i and Maori Matariki in same YAML file — distinct entries, distinct trigger seasons (November Northern vs June Southern). PVS-restricted navigation-path sequences and iwi-specific oral traditions excluded per Protocol B. Corpus file: `corpus-polynesian.yaml`.
 
 ### Aboriginal Australian — COMPLETE (2026-06-09)
-**5 entries.** Kamilaroi Emu in the Sky (dark-cloud, Coalsack-to-Milky-Way-rift), Boorong tradition figures (Wotjobaluk people): Tchingal (Emu dark cloud), Warepil (Wedge-tailed Eagle/Altair), Marpeankurrk (Sugar Ant/Arcturus), and one additional Boorong figure. Protocol C applied; AIATSIS protocol followed; sacred-restricted content excluded. Cultural sensitivity: high. Corpus file: `corpus-aboriginal-australian.yaml` (43 KB).
+**5 entries, 43 KB.** Per-people anti-collapse: **Kamilaroi** — Emu in the Sky (dark-cloud constellation, Coalsack-to-Milky-Way-rift, most iconic Southern sky dark-cloud figure); **Wotjobaluk (Boorong people)** × 3 — Neilloan (Mallee Fowl / Vega, nest-mound tells when to dig eggs), Warepil (Wedge-tailed Eagle / Altair), Kulkunbulla (Two Brothers / Pleiades); **Wardaman** — Lightning Brothers (Yagjagbula + Jambambal, rock-art sky figures; community-authorised per Cairns & Harney 2004; image withheld pending rock-art rights). Protocol C applied throughout; AIATSIS protocol followed; Yolngu ceremonial figures excluded (AIATSIS restriction category). Cultural sensitivity: high. Corpus file: `corpus-aboriginal-australian.yaml`.
 
 ### Inuit/Arctic Circumpolar — COMPLETE (2026-06-09)
 **4 entries.** Per-culture: Inuit Tukturjuit (Caribou/Ursa Major), Inuit Aagjuuk (Altair+Tarazed — summer solstice marker), Inuit Sakiattiat (Pleiades), Sámi Sarva (Elk/Ursa Major). Anti-collapse discipline applied (Inuit ≠ Sámi ≠ Yupik). Cultural sensitivity: high. Corpus file: `corpus-inuit-arctic.yaml` (33 KB).
+
+### Andean sky figures (Quechua/Aymara) — COMPLETE (2026-06-09)
+**9 entries, 61 KB.** Dark-cloud constellations (defined by dark rifts in Milky Way, not star patterns) and stellar figures from Quechua/Aymara/Inca tradition. Documented: **Yacana** (dark-cloud Llama — most iconic Andean sky figure; spans Milky Way from Scorpius to Southern Cross rift), **Atoq** (dark-cloud Fox, Yacana's companion), **Yutu** (dark-cloud Tinamou bird), **Hanp'atu** (dark-cloud Toad near Southern Cross), **Machacuay** (dark-cloud Serpent), **Collca** (Pleiades — **El Niño agricultural proxy indicator validated in *Nature* 2000** — clarity of Pleiades in June predicts frost timing), **Chakana** (Southern Cross — cosmological axis mundi, 3-tier world model; Chakana cross motif appears throughout Andean material culture), **Orqo-Ciella** (Bull/Taurus stellar figure), and **Katachillay** (α+β Centauri — dual roles: eyes of Yacana AND independent llamaherder stars). Academic anchor: Urton (1981) *At the Crossroads of the Earth and the Sky*; Bauer & Dearborn (1995) *Astronomy and Empire in the Ancient Andes*. Dark-cloud schematics use Milky Way rift diagram in `image_url`; distinct visual_representation type from stellar-coordinate traditions. Cultural sensitivity: medium. Corpus file: `corpus-andean.yaml`.
+
+### West African (Dogon + broader) — COMPLETE (2026-06-09)
+**3 entries, 31 KB.** Dogon people of Mali: Po Tolo (Sirius A — the tiny but densest star, grain of Fonio), Emme Ya Tolo (Sirius companion — disputed existence), Amma's egg (cosmic origin symbol, primordial star-grain). **Griaule controversy flag applied to all 3 entries** — Marcel Griaule's 1930s claims about Dogon foreknowledge of Sirius B are contested by van Beek (1991 *Current Anthropology* reinvestigation). Corpus entries record documented tradition as transmitted through Griaule's fieldwork without asserting astronomical precision claims. Cultural sensitivity: medium. Corpus file: `corpus-west-african.yaml`.
+
+### Native American (multi-tribal) — COMPLETE (2026-06-09)
+**5 entries, 44 KB.** Per-tribe anti-collapse strictly applied: **Pawnee (Skidi Band)** — (1) Council of Chiefs (Corona Borealis): star-council of divine beings; documented Chamberlain (1982) *When Stars Came Down to Earth* + Field Museum Star Chart #16979; (2) Star-That-Does-Not-Walk-Around (Polaris) — cosmic peg of the north; **Cherokee** — Ani Tsutsa (Pleiades / The Boys: seven boys who became stars); **Anishinaabe** — (1) Fisher Stars (Ursa Major / the Fisher spirit who brought summer to the world); (2) Manidoominensag (Pleiades / Spirit Seed People). "Native American zodiac" construct explicitly excluded. Navajo ceremonial figures and Lakota sacred sky-animals deferred: NMAI institutional guidance and Goodman (1992) source-verification pending; Phase 2 candidates if public-record status confirmed. Cultural sensitivity: high. Corpus file: `corpus-native-american.yaml`.
+
+### Vedic Nakshatras (27+1 lunar mansions) — COMPLETE (2026-06-09)
+**28 entries, 172 KB.** All 27 standard Nakshatras plus Abhijit (28th — marked `status_in_modern_tradition: historical_reference`). Full schema for all 28: Sanskrit names with variants, gana (divine/human/demon), nadi, hosting Rashi (2–3 Nakshatras per Rashi), primary star RA/Dec (J2000 for all yogatara), asterism schematic, deity, ruling planet (9-graha 3× repeating cycle), mythic narrative 2–3 paragraphs. Key bright stars captured at full precision: Aldebaran, Betelgeuse, Pollux, Regulus, Spica, Arcturus, Antares, Altair, Vega, Markab. Notable: **Krittika (#3)** was the ancient first Nakshatra (Pleiades — Galactic New Year anchor at ~2500 BCE); **Mula (#19)** points toward Galactic Center; **Revati (#27)** defines sidereal zero point via ζ Piscium; **Abhijit** includes Mahabharata time-dilation narrative and Vega-as-future-pole-star fact. Gana distribution: 10 Deva / 8 Manushya / 9 Rakshasa. Corpus file: `corpus-vedic-nakshatras.yaml`. Per-tradition summary: `per-tradition/vedic-nakshatras.md`.
+
+### Arabic Manazil al-Qamar (28 lunar mansions) — COMPLETE (2026-06-09)
+**28 entries.** All 28 Manzils with Arabic native script populated for each (`native_script` field: e.g., الشرطان). Academic anchor: Al-Sufi *Book of Fixed Stars* (964 CE). Calendar dates, Western constellation correspondence, star identifications sourced from Wikipedia canonical table cross-referenced with Al-Sufi. Western constellation correspondences documented (Manzil 1 = Aries, etc.). Key figures: Ash-Sharatan (#1, β+γ Arietis), Al-Thurayya (#3, Pleiades), Al-Dabarān (#4, Aldebaran), Al-Haqa (#5, λ Orionis), Al-Hana (#6, γ+ξ Geminorum), through Al-Risha (#28, β Andromedae). Cross-tradition overlaps documented: Arabic Manazil and Chinese Xiu share multiple asterisms (Pleiades, Scorpius, Orion region) — same stars, distinct cultural frames. Cultural sensitivity: none. Corpus file: `corpus-arabic-manazil.yaml`.
 
 ---
 

@@ -1,0 +1,1383 @@
+# corpus-aztec-tonalpohualli.yaml
+# Legolas Mode B Corpus — Aztec Tonalpohualli 20 Day-Signs
+# Crawl date: 2026-06-09
+# Entry count: 20
+# Sources: Wikipedia (Tonalpohualli, Aztec calendar, Aztec sun stone, individual sign articles),
+#   Smithsonian National Museum of the American Indian, INAH (inah.gob.mx)
+# Academic anchor: Sahagún, Bernardino de. Florentine Codex (16th c., facsimile);
+#   Caso, Alfonso. The Aztecs: People of the Sun. University of Oklahoma Press, 1958.
+# Cultural sensitivity: MEDIUM — colonial-era disruption; sources are archaeological/institutional record
+# KEY VISUAL: Aztec Sun Stone (Piedra del Sol) — National Museum of Anthropology, Mexico City
+#   The ring immediately inside Tonatiuh's face shows all 20 day-signs in glyph form
+#   Wikipedia: https://en.wikipedia.org/wiki/Aztec_sun_stone
+# PRIMARY GLYPH SOURCE: Codex Borgia (Aztec, pre-Columbian) — Vatican Library (public domain facsimile)
+#   Wikipedia Commons: https://commons.wikimedia.org/wiki/Codex_Borgia
+
+- sign_id: "aztec-tonalpohualli-001"
+  sign_name:
+    primary: "Cipactli"
+    variants: ["Cipactli (Nahuatl)", "Alligator / Caiman day", "Mayan parallel: Imix (position 1)"]
+    romanization: "Cipactli"
+    native_script: "Nahuatl: cipactli (alligator / spiny fish-beast); glyph: caiman head with serrated spine"
+  cultural_tradition:
+    primary_culture: "Aztec (Mexica)"
+    derivative_cultures: ["Toltec", "Mixtec", "other Nahua-speaking peoples", "Mayan parallel tradition"]
+    geographic_origin: "Mesoamerica — Central Mexico, Valley of Mexico (Tenochtitlan / Texcoco / Tlacopan Triple Alliance territory)"
+    period_range: "Aztec codification ~1300–1521 CE; earlier Toltec/Teotihuacan precursors; colonial disruption 1521 CE; partially documented by Spanish friars"
+    status_in_modern_tradition: "historical_documented"
+  system_metadata:
+    system_name: "Aztec Tonalpohualli (tōnalpōhualli)"
+    total_signs_in_system: 20
+    position_in_system: 1
+    sign_classification:
+      element: "Earth / Water (primordial)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Tonatiuh (Sun God) presides; Cipactli the primal earth-monster was slain by Quetzalcoatl and Tezcatlipoca to create the earth"
+      season: ""
+      other:
+        nahuatl_name: "cipactli"
+        presiding_deity: "Tonatiuh"
+        mayan_parallel: "Imix (Mayan Tzolkin position 1)"
+        sun_stone_position: "Day-sign glyph appears on Aztec Sun Stone day-ring at position 1"
+        creation_myth: "Cipactli is the primordial earth-monster slain by the creator gods; its body became the earth"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/2/24/Cipactli_glyph.svg"
+      description: "Cipactli day-sign glyph — caiman/alligator with serrated spine; Day 1 of Tonalpohualli"
+      source: "Wikipedia Commons"
+      license: "Public Domain (pre-Columbian art)"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://en.wikipedia.org/wiki/Aztec_sun_stone#/media/File:Piedra_del_Sol_Calendario_Azteca.jpg"
+        description: "Aztec Sun Stone — Cipactli glyph visible in day-ring at position 1 (inner ring around Tonatiuh)"
+        source: "Wikipedia Commons / INAH"
+        license: "Public Domain"
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Tonalpohualli day-signs are calendar-based, not stellar. Associated with the 260-day divinatory cycle (tonalpohualli), not star positions. The Aztec Venus calendar (trecenas aligned with Venus cycle) is distinct from the tonalpohualli."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Cipactli is the primordial earth-monster — a caiman or crocodilian beast bristling with obsidian-blade spines. In the Aztec creation myth, the dual creator gods Quetzalcoatl and Tezcatlipoca lured Cipactli to the surface of the primordial ocean, then slew it; its body became the earth (Tlaltecuhtli). The earth is therefore the body of a sacrificed monster, and the earth periodically demands sacrifice in return. The Sun God Tonatiuh presides over this day — appropriately, as the sun's daily rising restates the original act of creation."
+      reference_sources: ["Wikipedia: Tonalpohualli", "Wikipedia: Aztec calendar", "Wikipedia: Aztec creation myth"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tonalpohualli", "https://en.wikipedia.org/wiki/Aztec_calendar"]
+  primitive_association_hints:
+    suggested_element: "Earth / Water (primordial)"
+    suggested_attribute: "CON"
+    suggested_animal_form: "Alligator / Caiman / Earth-monster"
+    suggested_object_form: "Obsidian-spined earth"
+    symbolic_role: "Primal creation; earth's body; sacrifice enabling existence; primordial chaos"
+    mythic_narrative_summary: "Cipactli is the primordial earth-monster whose body became the earth. Slain by Quetzalcoatl and Tezcatlipoca; the world is built on sacrifice. Tonatiuh presides as the sun that daily re-enacts creation."
+  semantic_vocabulary:
+    symbolic_keywords: ["alligator", "caiman", "earth-monster", "primordial", "sacrifice", "creation", "Tonatiuh", "Tlaltecuhtli", "obsidian spines", "earth's body"]
+    mythic_narrative: "Cipactli (Day 1) is the primordial monster of Aztec creation mythology. Before the world existed, Cipactli floated in the primordial ocean — a vast caiman covered in obsidian blades. The creator gods Quetzalcoatl and Tezcatlipoca used themselves as bait, losing a foot to Cipactli's bite before dragging the monster up and slaying it. From its body the earth was made; from its skull, the sky. The earth (Tlaltecuhtli) thus carries within it the memory of sacrifice and periodically demands blood to sustain its fertility. Tonatiuh, the Sun God, presides — the sun daily re-enacts the creative sacrifice."
+    visual_motifs: ["caiman head glyph", "obsidian-spine back", "earth-monster posture", "primordial ocean", "creation sacrifice"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Aztec Tonalpohualli sourced from Wikipedia and INAH/Smithsonian academic institutional record only. Aztec religious practices were extensively disrupted by Spanish colonization; sources are archaeological and colonial-era friar documentation (Sahagún, Durán)."
+    source_authorization: "Wikipedia + Smithsonian NMAI + INAH + Caso (1958)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tonalpohualli"
+    secondary_sources: ["Wikipedia: Aztec calendar", "Wikipedia: Aztec sun stone", "Smithsonian NMAI: Aztec collections", "INAH: Templo Mayor"]
+    academic_anchor: "Caso, Alfonso. The Aztecs: People of the Sun. University of Oklahoma Press, 1958."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "aztec-tonalpohualli-002"
+  sign_name:
+    primary: "Ehecatl"
+    variants: ["Ehécatl (Nahuatl with accent)", "Wind day", "Quetzalcoatl aspect", "Mayan parallel: Ik' (position 2)"]
+    romanization: "Ehecatl"
+    native_script: "Nahuatl: ehécatl (wind); glyph: Quetzalcoatl wind-mask with buccal mask"
+  cultural_tradition:
+    primary_culture: "Aztec (Mexica)"
+    derivative_cultures: ["Toltec", "Mixtec", "Huastec"]
+    geographic_origin: "Mesoamerica — Central Mexico"
+    period_range: "Aztec codification ~1300–1521 CE; Toltec precursors"
+    status_in_modern_tradition: "historical_documented"
+  system_metadata:
+    system_name: "Aztec Tonalpohualli (tōnalpōhualli)"
+    total_signs_in_system: 20
+    position_in_system: 2
+    sign_classification:
+      element: "Air / Wind"
+      modality: ""
+      quadrant: ""
+      deity_association: "Quetzalcoatl (feathered serpent, as wind aspect)"
+      season: ""
+      other:
+        nahuatl_name: "ehécatl"
+        presiding_deity: "Quetzalcoatl (Ehecatl-Quetzalcoatl is a specific wind manifestation)"
+        mayan_parallel: "Ik' (Mayan Tzolkin position 2)"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Ehecatl_glyph.svg"
+      description: "Ehecatl day-sign glyph — Quetzalcoatl wind-mask with distinctive buccal/duck-bill mask"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Ehecatl is the Wind sign, presided by Quetzalcoatl in his wind aspect (Ehecatl-Quetzalcoatl). The distinctive buccal mask (duck-bill or wind-mouth) is the iconographic signature of this deity. Wind is the precursor to rain — Ehecatl sweeps the sky roads clean before Tlaloc's rain arrives. Round-base temples were built for Ehecatl so the wind could flow around them without obstruction. Wind is the animating breath of creation."
+      reference_sources: ["Wikipedia: Tonalpohualli", "Wikipedia: Ehecatl"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tonalpohualli"]
+  primitive_association_hints:
+    suggested_element: "Air"
+    suggested_attribute: "SPD"
+    suggested_animal_form: "Feathered Serpent (wind form)"
+    suggested_object_form: "Wind-mask / Conch shell (wind instrument)"
+    symbolic_role: "Animating wind; creative breath; precursor to rain; sky-road cleaner; Quetzalcoatl's power"
+    mythic_narrative_summary: "Ehecatl is Wind — Quetzalcoatl's breath that animates creation and sweeps the sky roads clean before rain. The buccal mask is his signature; the conch shell his instrument."
+  semantic_vocabulary:
+    symbolic_keywords: ["wind", "Quetzalcoatl", "breath", "animation", "buccal mask", "feathered serpent", "sky-road", "rain-precursor", "conch", "round temple"]
+    mythic_narrative: "Ehecatl (Day 2) is the Wind day, presided by Quetzalcoatl in his wind aspect. The wind-god Ehecatl-Quetzalcoatl wears a distinctive duck-bill or conch-cut buccal mask through which the wind blows. He sweeps the sky roads clean before Tlaloc's rain arrives — wind precedes rain as promise precedes fulfillment. Circular-base temples (as found at Calixtlahuaca) were built for Ehecatl specifically to let wind flow freely around them. Ehecatl days carry creative, animating energy."
+    visual_motifs: ["duck-bill wind mask", "buccal wind-mouth glyph", "conch shell", "wind spiral", "Quetzalcoatl feathers"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Caso (1958)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tonalpohualli"
+    secondary_sources: ["Wikipedia: Aztec calendar", "Wikipedia: Ehecatl", "Wikipedia: Quetzalcoatl"]
+    academic_anchor: "Caso, Alfonso. The Aztecs: People of the Sun. University of Oklahoma Press, 1958."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "aztec-tonalpohualli-003"
+  sign_name:
+    primary: "Calli"
+    variants: ["Cālli (Nahuatl)", "House day", "Mayan parallel: Ak'bal (position 3)"]
+    romanization: "Calli"
+    native_script: "Nahuatl: cālli (house); glyph: house cross-section with interior darkness"
+  cultural_tradition:
+    primary_culture: "Aztec (Mexica)"
+    derivative_cultures: ["Toltec", "Mixtec"]
+    geographic_origin: "Mesoamerica — Central Mexico"
+    period_range: "Aztec codification ~1300–1521 CE"
+    status_in_modern_tradition: "historical_documented"
+  system_metadata:
+    system_name: "Aztec Tonalpohualli (tōnalpōhualli)"
+    total_signs_in_system: 20
+    position_in_system: 3
+    sign_classification:
+      element: "Earth / Darkness"
+      modality: ""
+      quadrant: ""
+      deity_association: "Tepeyollotl (Heart of the Mountain — jaguar echo deity)"
+      season: ""
+      other:
+        nahuatl_name: "cālli"
+        presiding_deity: "Tepeyollotl"
+        mayan_parallel: "Ak'bal (Mayan Tzolkin position 3)"
+        notes: "Calli is one of the four year-bearers — years were named after Calli, Tochtli, Acatl, or Tecpatl"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/0/0d/Calli_glyph.svg"
+      description: "Calli day-sign glyph — house cross-section with interior space; Day 3 of Tonalpohualli"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Calli is the House sign — the enclosed interior space. Tepeyollotl ('Heart of the Mountain'), a jaguar deity who dwells in cave-echoes and mountain interiors, presides. The house interior parallels the cave, the temple sanctuary, and the mountain's heart — all are sacred interior spaces where hidden powers dwell. Echoes in canyons and caves were understood as Tepeyollotl's voice. Calli years could be the most dangerous of the four-year cycle."
+      reference_sources: ["Wikipedia: Tonalpohualli", "Wikipedia: Tepeyollotl"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tonalpohualli"]
+  primitive_association_hints:
+    suggested_element: "Earth / Darkness"
+    suggested_attribute: "CON"
+    suggested_animal_form: "Jaguar (mountain-heart form)"
+    suggested_object_form: "House / Cave / Mountain interior"
+    symbolic_role: "Sacred interior; mountain heart; cave echo; hidden power; domestic space; darkness-threshold"
+    mythic_narrative_summary: "Calli is the House sign — the sacred interior. Tepeyollotl, the jaguar of the mountain's heart, presides from his cave-echo domain. Calli days touch the threshold between domestic and sacred."
+  semantic_vocabulary:
+    symbolic_keywords: ["house", "cave", "interior", "darkness", "Tepeyollotl", "jaguar", "mountain heart", "echo", "sacred enclosure", "threshold"]
+    mythic_narrative: "Calli (Day 3) is the House day, presided by Tepeyollotl, the Heart of the Mountain. This jaguar deity inhabits the interiors of mountains and caves, and his voice is the echo in canyons. The 'house' encompasses any sacred enclosed space — domestic dwelling, cave, temple interior. Interior darkness is a place of hidden power, gestation, and the jaguar's lair. Calli was also a year-bearer: Calli years were considered dangerous, associated with interior forces breaking outward."
+    visual_motifs: ["house cross-section glyph", "cave interior", "mountain heart", "jaguar in cave", "sacred enclosure"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Caso (1958)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tonalpohualli"
+    secondary_sources: ["Wikipedia: Aztec calendar"]
+    academic_anchor: "Caso, Alfonso. The Aztecs: People of the Sun. University of Oklahoma Press, 1958."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "aztec-tonalpohualli-004"
+  sign_name:
+    primary: "Cuetzpallin"
+    variants: ["Cuetzpallin (Nahuatl)", "Lizard day", "Mayan parallel: K'an (position 4)"]
+    romanization: "Cuetzpallin"
+    native_script: "Nahuatl: cuetzpallin (lizard); glyph: lizard figure"
+  cultural_tradition:
+    primary_culture: "Aztec (Mexica)"
+    derivative_cultures: ["Toltec", "Mixtec"]
+    geographic_origin: "Mesoamerica — Central Mexico"
+    period_range: "Aztec codification ~1300–1521 CE"
+    status_in_modern_tradition: "historical_documented"
+  system_metadata:
+    system_name: "Aztec Tonalpohualli (tōnalpōhualli)"
+    total_signs_in_system: 20
+    position_in_system: 4
+    sign_classification:
+      element: "Earth / Fire (solar lizard)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Huehuecoyotl (Old Coyote — trickster deity)"
+      season: ""
+      other:
+        nahuatl_name: "cuetzpallin"
+        presiding_deity: "Huehuecoyotl"
+        mayan_parallel: "K'an (Mayan Tzolkin position 4)"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/9/9e/Cuetzpallin_glyph.svg"
+      description: "Cuetzpallin day-sign glyph — lizard figure; Day 4 of Tonalpohualli"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Cuetzpallin is the Lizard sign, presided by the trickster god Huehuecoyotl (Old Coyote). The lizard is a solar animal — basking, quick-moving, earth-dwelling. The trickster deity association introduces unpredictability, wit, and the playful chaos that disrupts established order. Lizard people were considered lively but capricious. The lizard's quick tongue and sudden movements parallel the trickster's swift intelligence."
+      reference_sources: ["Wikipedia: Tonalpohualli", "Wikipedia: Huehuecoyotl"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tonalpohualli"]
+  primitive_association_hints:
+    suggested_element: "Earth / Fire"
+    suggested_attribute: "DEX"
+    suggested_animal_form: "Lizard"
+    suggested_object_form: "Lizard scale / Trickster mask"
+    symbolic_role: "Trickster energy; quick intelligence; solar basking; unpredictability; wit; playful chaos"
+    mythic_narrative_summary: "Cuetzpallin is the Lizard sign under the trickster Huehuecoyotl. Quick, solar, earth-dwelling — the lizard's agility mirrors the trickster's wit and the disruptions that keep the world alive."
+  semantic_vocabulary:
+    symbolic_keywords: ["lizard", "trickster", "Huehuecoyotl", "old coyote", "quick", "solar", "wit", "unpredictable", "playful chaos", "agile"]
+    mythic_narrative: "Cuetzpallin (Day 4) is the Lizard day. Huehuecoyotl, the Old Coyote trickster deity, presides — his laughter disrupts the established order and his quick intelligence finds paths others miss. The lizard basks in the sun, darts suddenly, and vanishes. Cuetzpallin days carry the Old Coyote's energy: wit, laughter, sudden reversals of fortune, and the productive chaos that keeps stagnation at bay."
+    visual_motifs: ["lizard body glyph", "coyote trickster motif", "solar basking lizard", "quick-darting motion"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Caso (1958)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tonalpohualli"
+    secondary_sources: ["Wikipedia: Aztec calendar", "Wikipedia: Huehuecoyotl"]
+    academic_anchor: "Caso, Alfonso. The Aztecs: People of the Sun. University of Oklahoma Press, 1958."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "aztec-tonalpohualli-005"
+  sign_name:
+    primary: "Coatl"
+    variants: ["Cōātl (Nahuatl)", "Serpent day", "Mayan parallel: Chicchan (position 5)"]
+    romanization: "Coatl"
+    native_script: "Nahuatl: cōātl (serpent); glyph: serpent head with forked tongue"
+  cultural_tradition:
+    primary_culture: "Aztec (Mexica)"
+    derivative_cultures: ["Toltec", "Mixtec"]
+    geographic_origin: "Mesoamerica — Central Mexico"
+    period_range: "Aztec codification ~1300–1521 CE"
+    status_in_modern_tradition: "historical_documented"
+  system_metadata:
+    system_name: "Aztec Tonalpohualli (tōnalpōhualli)"
+    total_signs_in_system: 20
+    position_in_system: 5
+    sign_classification:
+      element: "Water / Earth"
+      modality: ""
+      quadrant: ""
+      deity_association: "Chalchiuhtlicue (Jade Skirt — water goddess, companion of Tlaloc)"
+      season: ""
+      other:
+        nahuatl_name: "cōātl"
+        presiding_deity: "Chalchiuhtlicue"
+        mayan_parallel: "Chicchan (Mayan Tzolkin position 5)"
+        notes: "Coatl = serpent; Quetzalcoatl = Feathered Serpent (quetzal + coatl); Xiuhcoatl = Turquoise Fire Serpent"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Coatl_glyph.svg"
+      description: "Coatl day-sign glyph — serpent head with forked tongue; Day 5 of Tonalpohualli"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Coatl is the Serpent sign, presided by Chalchiuhtlicue (Jade Skirt), the water goddess who wears a jade-green skirt representing the flowing of fresh water. The serpent in Aztec cosmology is supremely powerful — Quetzalcoatl (Feathered Serpent) is the creator deity; Xiuhcoatl (Turquoise Fire Serpent) is the sun's weapon; Coatlicue (Serpent Skirt) is the earth mother. Chalchiuhtlicue's water/serpent combination suggests the flowing, life-giving power of rivers and springs."
+      reference_sources: ["Wikipedia: Tonalpohualli", "Wikipedia: Chalchiuhtlicue"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tonalpohualli"]
+  primitive_association_hints:
+    suggested_element: "Water / Earth"
+    suggested_attribute: "WIS"
+    suggested_animal_form: "Serpent / Water snake"
+    suggested_object_form: "Jade-skirted water / Serpent coil"
+    symbolic_role: "Water's life force; jade preciousness; serpent wisdom; fresh-water streams; Chalchiuhtlicue's domain"
+    mythic_narrative_summary: "Coatl is the Serpent sign under Chalchiuhtlicue's jade water. The serpent is the most potent Aztec symbol; here paired with fresh water and jade's preciousness. Coatl days flow with life-giving, jade-green power."
+  semantic_vocabulary:
+    symbolic_keywords: ["serpent", "water", "jade", "Chalchiuhtlicue", "Quetzalcoatl", "flowing water", "life-force", "Xiuhcoatl", "precious", "coil"]
+    mythic_narrative: "Coatl (Day 5) is the Serpent day, presided by Chalchiuhtlicue, the Jade-Skirted water goddess. Her jade skirt is the green of fresh water flowing — water is jade is life. The serpent is the most multipotent symbol in the Aztec universe: Quetzalcoatl the creator is a feathered serpent; Xiuhcoatl is the sun's turquoise fire-serpent weapon; Coatlicue the earth mother wears a skirt of snakes. Coatl days carry the flowing, sinuous power of water and the ancient depth of serpent wisdom."
+    visual_motifs: ["serpent head glyph", "forked tongue", "jade-green water flowing", "Chalchiuhtlicue jade skirt", "coiled serpent"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Caso (1958)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tonalpohualli"
+    secondary_sources: ["Wikipedia: Aztec calendar", "Wikipedia: Chalchiuhtlicue"]
+    academic_anchor: "Caso, Alfonso. The Aztecs: People of the Sun. University of Oklahoma Press, 1958."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "aztec-tonalpohualli-006"
+  sign_name:
+    primary: "Miquiztli"
+    variants: ["Miquiztli (Nahuatl)", "Death day", "Mayan parallel: Kimi (position 6)"]
+    romanization: "Miquiztli"
+    native_script: "Nahuatl: miquiztli (death); glyph: skull / death's-head"
+  cultural_tradition:
+    primary_culture: "Aztec (Mexica)"
+    derivative_cultures: ["Toltec", "Mixtec"]
+    geographic_origin: "Mesoamerica — Central Mexico"
+    period_range: "Aztec codification ~1300–1521 CE"
+    status_in_modern_tradition: "historical_documented"
+  system_metadata:
+    system_name: "Aztec Tonalpohualli (tōnalpōhualli)"
+    total_signs_in_system: 20
+    position_in_system: 6
+    sign_classification:
+      element: "Death / Void"
+      modality: ""
+      quadrant: ""
+      deity_association: "Tecciztecatl (Moon God — the coward who became the moon) / Metztli (Moon deity)"
+      season: ""
+      other:
+        nahuatl_name: "miquiztli"
+        presiding_deity: "Tecciztecatl / Metztli (Moon)"
+        mayan_parallel: "Kimi (Mayan Tzolkin position 6)"
+        notes: "The Moon presides over death — the moon waxes and wanes, dying and being reborn each month. The moon also rules the underworld night. Tecciztecatl was the coward who became the second sun (the moon) when a rabbit was thrown in his face, dimming him."
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Miquiztli_glyph.svg"
+      description: "Miquiztli day-sign glyph — skull/death's-head; Day 6 of Tonalpohualli"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based. The Moon (Metztli) is the celestial body associated with this sign but not a fixed star."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Miquiztli is the Death sign, presided by the Moon deity Tecciztecatl/Metztli. The moon's cycle of death and rebirth makes it the natural presider over the death sign. In Aztec cosmogony, Tecciztecatl was meant to be the primary sun but flinched at self-sacrifice; a rabbit was thrown at his dimmer light creating the rabbit-in-the-moon. The skull glyph is unambiguous — Mictlantecuhtli's realm is the ninth underworld, and the skull is the face that remains."
+      reference_sources: ["Wikipedia: Tonalpohualli", "Wikipedia: Tecciztecatl", "Wikipedia: Mictlantecuhtli"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tonalpohualli"]
+  primitive_association_hints:
+    suggested_element: "Void / Water (moon)"
+    suggested_attribute: "WIS"
+    suggested_animal_form: "Owl / Skull-faced deity"
+    suggested_object_form: "Skull / Moon disc"
+    symbolic_role: "Death and renewal; moon cycle; underworld passage; transformation; Mictlan's door"
+    mythic_narrative_summary: "Miquiztli is Death under the Moon's watch. The moon dies and is reborn monthly; death is a passage, not an ending. Tecciztecatl's rabbit-in-the-moon myth binds humility and mortality together."
+  semantic_vocabulary:
+    symbolic_keywords: ["death", "skull", "moon", "Tecciztecatl", "Metztli", "Mictlan", "underworld", "transformation", "rabbit-in-moon", "cycle of death-rebirth"]
+    mythic_narrative: "Miquiztli (Day 6) is the Death day, presided by the Moon deity. The moon Tecciztecatl was the coward god who flinched before leaping into the sacrificial fire — a rabbit thrown at his face forever dimmed his light, creating the rabbit-in-the-moon image. Yet the moon endures, dying each month and being reborn. This makes Tecciztecatl/Metztli the perfect presider over the death sign: death is a passage and a rebirth, not an ending. Miquiztli days touch the threshold of transformation."
+    visual_motifs: ["skull glyph", "death's-head", "crescent moon", "rabbit-in-moon", "Mictlan entrance"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Caso (1958)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tonalpohualli"
+    secondary_sources: ["Wikipedia: Aztec calendar", "Wikipedia: Tecciztecatl"]
+    academic_anchor: "Caso, Alfonso. The Aztecs: People of the Sun. University of Oklahoma Press, 1958."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "aztec-tonalpohualli-007"
+  sign_name:
+    primary: "Mazatl"
+    variants: ["Mazatl (Nahuatl)", "Deer day", "Mayan parallel: Manik (position 7)"]
+    romanization: "Mazatl"
+    native_script: "Nahuatl: mazatl (deer); glyph: deer head with antlers"
+  cultural_tradition:
+    primary_culture: "Aztec (Mexica)"
+    derivative_cultures: ["Toltec", "Mixtec"]
+    geographic_origin: "Mesoamerica — Central Mexico"
+    period_range: "Aztec codification ~1300–1521 CE"
+    status_in_modern_tradition: "historical_documented"
+  system_metadata:
+    system_name: "Aztec Tonalpohualli (tōnalpōhualli)"
+    total_signs_in_system: 20
+    position_in_system: 7
+    sign_classification:
+      element: "Earth / Water"
+      modality: ""
+      quadrant: ""
+      deity_association: "Tlaloc (Rain God)"
+      season: "Hunting season"
+      other:
+        nahuatl_name: "mazatl"
+        presiding_deity: "Tlaloc"
+        mayan_parallel: "Manik (Mayan Tzolkin position 7)"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Mazatl_glyph.svg"
+      description: "Mazatl day-sign glyph — deer head with antlers; Day 7 of Tonalpohualli"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Mazatl is the Deer sign, presided by Tlaloc, the Rain God. The deer's association with rain and water deities (rather than hunting deities) is notable — deer appear frequently in Mesoamerican rain-related iconography, possibly because deer were associated with the humid forest zones where rain is abundant. The deer is a swift, graceful, noble animal whose antlers branch like lightning or forest canopy."
+      reference_sources: ["Wikipedia: Tonalpohualli", "Wikipedia: Tlaloc"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tonalpohualli"]
+  primitive_association_hints:
+    suggested_element: "Earth / Water"
+    suggested_attribute: "DEX"
+    suggested_animal_form: "Deer"
+    suggested_object_form: "Antlers / Rain drops"
+    symbolic_role: "Swift grace; forest-rain domain; noble sacrifice; Tlaloc's forest creature; agility in darkness"
+    mythic_narrative_summary: "Mazatl is the Deer under Tlaloc's rain. The deer is swift and graceful, a creature of the forest and rain-lands. Tlaloc's deer connects abundance, sacrifice, and the rain-forest's fecundity."
+  semantic_vocabulary:
+    symbolic_keywords: ["deer", "Tlaloc", "rain", "forest", "swift", "graceful", "antlers", "noble sacrifice", "abundance", "agility"]
+    mythic_narrative: "Mazatl (Day 7) is the Deer day, presided by Tlaloc, the Rain God. The deer's forest-dwelling nature and its association with the rain-rich forest zones of Mesoamerica connects it to Tlaloc's domain. The deer is swift, graceful, and noble — its antlers branch like the canopy of rain-giving trees or the forking of lightning. Mazatl days carry the energy of graceful movement, forest awareness, and the noble submission that sustains the community."
+    visual_motifs: ["deer head glyph", "branching antlers", "Tlaloc rain-eye mask", "forest deer silhouette", "rain droplets"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Caso (1958)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tonalpohualli"
+    secondary_sources: ["Wikipedia: Aztec calendar", "Wikipedia: Tlaloc"]
+    academic_anchor: "Caso, Alfonso. The Aztecs: People of the Sun. University of Oklahoma Press, 1958."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "aztec-tonalpohualli-008"
+  sign_name:
+    primary: "Tochtli"
+    variants: ["Tōchtli (Nahuatl)", "Rabbit day", "Mayan parallel: Lamat (position 8)"]
+    romanization: "Tochtli"
+    native_script: "Nahuatl: tōchtli (rabbit); glyph: rabbit head with ear"
+  cultural_tradition:
+    primary_culture: "Aztec (Mexica)"
+    derivative_cultures: ["Toltec", "Mixtec"]
+    geographic_origin: "Mesoamerica — Central Mexico"
+    period_range: "Aztec codification ~1300–1521 CE"
+    status_in_modern_tradition: "historical_documented"
+  system_metadata:
+    system_name: "Aztec Tonalpohualli (tōnalpōhualli)"
+    total_signs_in_system: 20
+    position_in_system: 8
+    sign_classification:
+      element: "Earth / Water (lunar fertility)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Mayahuel (Maguey/Pulque goddess — 400 rabbit deity aspect)"
+      season: ""
+      other:
+        nahuatl_name: "tōchtli"
+        presiding_deity: "Mayahuel"
+        mayan_parallel: "Lamat (Mayan Tzolkin position 8)"
+        notes: "The 400 rabbits (Centzon Totochtin) are the collective deities of pulque (fermented maguey drink); Tochtli is also a year-bearer"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/9/9e/Tochtli_glyph.svg"
+      description: "Tochtli day-sign glyph — rabbit head with characteristic ear; Day 8 of Tonalpohualli"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based. The rabbit-in-the-moon is a Mesoamerican lunar image; Tochtli connects to lunar cycles but is not a stellar sign."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Tochtli is the Rabbit sign, presided by Mayahuel, the maguey cactus goddess of pulque (fermented agave drink). The 400 rabbits (Centzon Totochtin) are the collective deities of pulque intoxication. The rabbit-in-the-moon is a pan-Mesoamerican image — when the gods threw a rabbit at the second sun (Tecciztecatl), the rabbit's shadow was forever imprinted on the moon's face. Rabbits symbolize fertility, lunar cycles, abundance, and the intoxicating joy of pulque."
+      reference_sources: ["Wikipedia: Tonalpohualli", "Wikipedia: Mayahuel", "Wikipedia: Centzon Totochtin"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tonalpohualli"]
+  primitive_association_hints:
+    suggested_element: "Earth / Water"
+    suggested_attribute: "LCK"
+    suggested_animal_form: "Rabbit"
+    suggested_object_form: "Maguey cactus / Pulque vessel"
+    symbolic_role: "Lunar fertility; abundance; pulque intoxication; rabbit-in-moon; joy; 400 rabbit deities"
+    mythic_narrative_summary: "Tochtli is the Rabbit — lunar, fertile, intoxicated with Mayahuel's pulque. The rabbit imprinted on the moon is the most visible Mesoamerican sky-image. Tochtli days celebrate abundance and the joy of the 400 rabbits."
+  semantic_vocabulary:
+    symbolic_keywords: ["rabbit", "moon", "maguey", "pulque", "Mayahuel", "400 rabbits", "fertility", "lunar", "abundance", "intoxication", "joy"]
+    mythic_narrative: "Tochtli (Day 8) is the Rabbit day, presided by Mayahuel, the maguey goddess. The maguey cactus produces the sacred pulque drink, and the 400 Rabbit deities (Centzon Totochtin) are the collective patrons of intoxication — each representing a different state of drunkenness. The rabbit-in-the-moon is the most familiar Mesoamerican sky image: when a rabbit was thrown at the cowardly Tecciztecatl, its shadow remained forever on the moon's face. Tochtli days are associated with abundance, lunar cycles, and joyful celebration."
+    visual_motifs: ["rabbit ear glyph", "maguey cactus", "pulque foam", "rabbit-in-moon shadow", "400 rabbit collective"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Caso (1958)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tonalpohualli"
+    secondary_sources: ["Wikipedia: Aztec calendar", "Wikipedia: Mayahuel", "Wikipedia: Centzon Totochtin"]
+    academic_anchor: "Caso, Alfonso. The Aztecs: People of the Sun. University of Oklahoma Press, 1958."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "aztec-tonalpohualli-009"
+  sign_name:
+    primary: "Atl"
+    variants: ["Ātl (Nahuatl)", "Water day", "Mayan parallel: Muluk (position 9)"]
+    romanization: "Atl"
+    native_script: "Nahuatl: ātl (water); glyph: water stream with jade-droplets"
+  cultural_tradition:
+    primary_culture: "Aztec (Mexica)"
+    derivative_cultures: ["Toltec", "Mixtec"]
+    geographic_origin: "Mesoamerica — Central Mexico"
+    period_range: "Aztec codification ~1300–1521 CE"
+    status_in_modern_tradition: "historical_documented"
+  system_metadata:
+    system_name: "Aztec Tonalpohualli (tōnalpōhualli)"
+    total_signs_in_system: 20
+    position_in_system: 9
+    sign_classification:
+      element: "Fire / Water (paradox: fire-and-water = atl-tlachinolli)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Xiuhtecuhtli (Lord of the Turquoise Year — fire and time deity)"
+      season: ""
+      other:
+        nahuatl_name: "ātl"
+        presiding_deity: "Xiuhtecuhtli"
+        mayan_parallel: "Muluk (Mayan Tzolkin position 9)"
+        notes: "Atl-tlachinolli (water-fire) is the Aztec term for war — the paradox of opposites combined. Xiuhtecuhtli is fire and time, yet presides over water-day — the paradox is intentional."
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/b/b4/Atl_glyph.svg"
+      description: "Atl day-sign glyph — water stream with jade-droplets; Day 9 of Tonalpohualli"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Atl is the Water sign, paradoxically presided by Xiuhtecuhtli, the Fire and Time deity. The Aztec compound 'atl-tlachinolli' (water-fire) means war — the ultimate paradox of opposites in violent combination. Water in Aztec thought is jade-green, precious, life-sustaining, but also the force that erodes and drowns. Xiuhtecuhtli's fire-throne sits at the center of the earth, and his paradoxical rule over water emphasizes the tension between opposites that creates the world."
+      reference_sources: ["Wikipedia: Tonalpohualli", "Wikipedia: Xiuhtecuhtli"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tonalpohualli"]
+  primitive_association_hints:
+    suggested_element: "Water / Fire (paradox)"
+    suggested_attribute: "STR"
+    suggested_animal_form: "None specific / Water serpent"
+    suggested_object_form: "Water stream / Jade droplets"
+    symbolic_role: "Water; jade; war's paradox (atl-tlachinolli); life-sustaining flow; fire/water tension"
+    mythic_narrative_summary: "Atl is Water under Fire's (Xiuhtecuhtli's) paradoxical reign. The water-fire compound means war — the collision of opposites. Water is jade-precious and life-giving; the fire that presides makes it dangerous."
+  semantic_vocabulary:
+    symbolic_keywords: ["water", "jade", "fire", "paradox", "war", "atl-tlachinolli", "Xiuhtecuhtli", "life-giving", "flow", "opposites", "tension"]
+    mythic_narrative: "Atl (Day 9) is the Water day, presided by Xiuhtecuhtli, the Lord of Fire and Time. The paradox is deliberate: the Aztec compound word atl-tlachinolli (water-fire) means war — the violent collision of opposites. Water is jade-green, precious, life-giving, but in excess it drowns. Fire is transformative and purifying but also destroying. Xiuhtecuhtli's paradoxical rule over Atl emphasizes that the world is sustained by creative tension between opposites."
+    visual_motifs: ["water stream glyph", "jade-droplet motif", "fire-water opposition symbol", "Xiuhtecuhtli turquoise crown", "atl-tlachinolli symbol"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Caso (1958)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tonalpohualli"
+    secondary_sources: ["Wikipedia: Aztec calendar", "Wikipedia: Xiuhtecuhtli"]
+    academic_anchor: "Caso, Alfonso. The Aztecs: People of the Sun. University of Oklahoma Press, 1958."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "aztec-tonalpohualli-010"
+  sign_name:
+    primary: "Itzcuintli"
+    variants: ["Itzcuintli (Nahuatl)", "Dog day", "Mayan parallel: Ok (position 10)"]
+    romanization: "Itzcuintli"
+    native_script: "Nahuatl: itzcuintli (dog — specifically xoloitzcuintle, hairless dog); glyph: dog head"
+  cultural_tradition:
+    primary_culture: "Aztec (Mexica)"
+    derivative_cultures: ["Toltec", "Mixtec"]
+    geographic_origin: "Mesoamerica — Central Mexico"
+    period_range: "Aztec codification ~1300–1521 CE"
+    status_in_modern_tradition: "historical_documented"
+  system_metadata:
+    system_name: "Aztec Tonalpohualli (tōnalpōhualli)"
+    total_signs_in_system: 20
+    position_in_system: 10
+    sign_classification:
+      element: "Earth / Underworld"
+      modality: ""
+      quadrant: ""
+      deity_association: "Mictlantecuhtli (Lord of Mictlan — the death underworld)"
+      season: ""
+      other:
+        nahuatl_name: "itzcuintli"
+        presiding_deity: "Mictlantecuhtli"
+        mayan_parallel: "Ok (Mayan Tzolkin position 10)"
+        notes: "The xoloitzcuintle (hairless dog) was sacrificed and buried with the dead to guide their souls through the nine levels of Mictlan"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Itzcuintli_glyph.svg"
+      description: "Itzcuintli day-sign glyph — dog head (xoloitzcuintle); Day 10 of Tonalpohualli"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Itzcuintli is the Dog sign, presided by Mictlantecuhtli, Lord of the Dead. The xoloitzcuintle (hairless dog) was a sacred animal raised specifically to be sacrificed and buried with its owner, providing a guide through the nine dark levels of Mictlan (the Aztec underworld). The dog's unconditional loyalty makes it the perfect guide through death's passages. The hairless dog was also believed to warm the dead with its body heat during the cold underworld journey."
+      reference_sources: ["Wikipedia: Tonalpohualli", "Wikipedia: Mictlantecuhtli", "Wikipedia: Xoloitzcuintle"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tonalpohualli"]
+  primitive_association_hints:
+    suggested_element: "Earth / Underworld"
+    suggested_attribute: "CON"
+    suggested_animal_form: "Xoloitzcuintle (hairless dog)"
+    suggested_object_form: "Sacrificial cord / Underworld torch"
+    symbolic_role: "Faithful underworld guide; Mictlan passage; unconditional loyalty; warmth-in-death; service"
+    mythic_narrative_summary: "Itzcuintli is the Dog under Mictlantecuhtli's domain. The xolo dog was sacrificed to guide its owner through Mictlan's nine levels — unconditional loyalty and warmth in the underworld's cold."
+  semantic_vocabulary:
+    symbolic_keywords: ["dog", "xoloitzcuintle", "xolo", "hairless dog", "Mictlan", "Mictlantecuhtli", "underworld guide", "loyalty", "sacrifice", "warmth", "nine levels"]
+    mythic_narrative: "Itzcuintli (Day 10) is the Dog day, presided by Mictlantecuhtli, Lord of Mictlan. The sacred xoloitzcuintle (hairless dog) was deliberately raised to die with its owner — sacrificed and buried together so the dog could guide the soul through Mictlan's nine dangerous levels. The dog's body heat warmed the soul on the cold journey. Itzcuintli days embody unconditional loyal service, the courage to enter death's territory as a guide, and the warmth that persists even in the underworld."
+    visual_motifs: ["hairless dog head glyph", "Mictlan underworld passage", "Mictlantecuhtli skull deity", "sacrificial burial", "nine-level underworld"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Caso (1958)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tonalpohualli"
+    secondary_sources: ["Wikipedia: Aztec calendar", "Wikipedia: Mictlantecuhtli", "Wikipedia: Xoloitzcuintle"]
+    academic_anchor: "Caso, Alfonso. The Aztecs: People of the Sun. University of Oklahoma Press, 1958."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "aztec-tonalpohualli-011"
+  sign_name:
+    primary: "Ozomatli"
+    variants: ["Ozōmatli (Nahuatl)", "Monkey day", "Mayan parallel: Chuen (position 11)"]
+    romanization: "Ozomatli"
+    native_script: "Nahuatl: ozōmatli (monkey); glyph: monkey figure with curling tail"
+  cultural_tradition:
+    primary_culture: "Aztec (Mexica)"
+    derivative_cultures: ["Toltec", "Mixtec"]
+    geographic_origin: "Mesoamerica — Central Mexico"
+    period_range: "Aztec codification ~1300–1521 CE"
+    status_in_modern_tradition: "historical_documented"
+  system_metadata:
+    system_name: "Aztec Tonalpohualli (tōnalpōhualli)"
+    total_signs_in_system: 20
+    position_in_system: 11
+    sign_classification:
+      element: "Air / Time"
+      modality: ""
+      quadrant: ""
+      deity_association: "Xochipilli (Flower Prince — deity of arts, games, dance, beauty)"
+      season: ""
+      other:
+        nahuatl_name: "ozōmatli"
+        presiding_deity: "Xochipilli"
+        mayan_parallel: "Chuen (Mayan Tzolkin position 11)"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Ozomatli_glyph.svg"
+      description: "Ozomatli day-sign glyph — monkey with curling tail; Day 11 of Tonalpohualli"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Ozomatli is the Monkey sign, presided by Xochipilli, the Flower Prince and patron of arts, dance, music, and games. The monkey is a symbol of playfulness, artistic creativity, and the joy of the present moment. Xochipilli's flower-covered throne and ecstatic posture in sculpture suggest an altered, artistically inspired state. Ozomatli days celebrate artistic mastery, music, dance, feasting, and the joyful aspects of civilization."
+      reference_sources: ["Wikipedia: Tonalpohualli", "Wikipedia: Xochipilli"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tonalpohualli"]
+  primitive_association_hints:
+    suggested_element: "Air / Time"
+    suggested_attribute: "INT"
+    suggested_animal_form: "Monkey"
+    suggested_object_form: "Musical instrument / Flower garland"
+    symbolic_role: "Arts; dance; music; games; creative joy; Xochipilli's ecstatic beauty; playfulness"
+    mythic_narrative_summary: "Ozomatli is the Monkey under Xochipilli's floral patronage. Art, dance, music, and games flourish under the Flower Prince's ecstatic blessing. The monkey's playfulness reflects creative genius unfettered."
+  semantic_vocabulary:
+    symbolic_keywords: ["monkey", "Xochipilli", "flower prince", "arts", "dance", "music", "games", "joy", "playfulness", "creative genius", "ecstasy"]
+    mythic_narrative: "Ozomatli (Day 11) is the Monkey day, presided by Xochipilli, the Flower Prince. Xochipilli is the patron of all joyful human creative expression — dance, music, games, feasting, art, poetry. His sculptural manifestation (the famous Xochipilli statue, Aztec; now at the National Museum of Anthropology) shows a deity in ecstatic artistic trance, covered in flowers. Ozomatli days celebrate the gift of creative expression and the transcendent joy that art creates."
+    visual_motifs: ["monkey curling tail glyph", "flower-covered Xochipilli", "musical instruments", "dance posture", "ecstatic monkey"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Caso (1958)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tonalpohualli"
+    secondary_sources: ["Wikipedia: Aztec calendar", "Wikipedia: Xochipilli"]
+    academic_anchor: "Caso, Alfonso. The Aztecs: People of the Sun. University of Oklahoma Press, 1958."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "aztec-tonalpohualli-012"
+  sign_name:
+    primary: "Malinalli"
+    variants: ["Malinalli (Nahuatl)", "Grass/Twisted Thing day", "Mayan parallel: Eb (position 12)"]
+    romanization: "Malinalli"
+    native_script: "Nahuatl: malinalli (twisted grass / withered plant); glyph: twisted grass / skull with grass"
+  cultural_tradition:
+    primary_culture: "Aztec (Mexica)"
+    derivative_cultures: ["Toltec", "Mixtec"]
+    geographic_origin: "Mesoamerica — Central Mexico"
+    period_range: "Aztec codification ~1300–1521 CE"
+    status_in_modern_tradition: "historical_documented"
+  system_metadata:
+    system_name: "Aztec Tonalpohualli (tōnalpōhualli)"
+    total_signs_in_system: 20
+    position_in_system: 12
+    sign_classification:
+      element: "Earth / Death"
+      modality: ""
+      quadrant: ""
+      deity_association: "Patecatl (God of medicine, pulque fermentation, and healing herbs)"
+      season: ""
+      other:
+        nahuatl_name: "malinalli"
+        presiding_deity: "Patecatl"
+        mayan_parallel: "Eb (Mayan Tzolkin position 12)"
+        notes: "Malinalli means 'twisted' or 'dry grass' — also the name of La Malinche (Malintzin), the Nahua translator for Hernán Cortés"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3d/Malinalli_glyph.svg"
+      description: "Malinalli day-sign glyph — twisted grass / skull with grass growth; Day 12 of Tonalpohualli"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Malinalli is the Grass/Twisted sign, presided by Patecatl, the god of medicine and healing herbs. The glyph often shows a skull with grass growing from it — life and death intertwined, the herb that grows from the skull of the dead. Patecatl is a complex deity associated with pulque fermentation, healing herbs, and the fermentation-as-medicine principle. Malinalli people were associated with resilience, the ability to return, and the persistence of life through difficult conditions."
+      reference_sources: ["Wikipedia: Tonalpohualli", "Wikipedia: Patecatl"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tonalpohualli"]
+  primitive_association_hints:
+    suggested_element: "Earth / Void"
+    suggested_attribute: "CON"
+    suggested_animal_form: "None specific / Resilient grass"
+    suggested_object_form: "Twisted grass / Herb growing from skull"
+    symbolic_role: "Resilience; life-from-death; healing herbs; twisted persistence; Patecatl's medicine"
+    mythic_narrative_summary: "Malinalli is Twisted Grass under Patecatl's healing. Life persists from death — the herb growing from the skull. Resilience, the medicine that ferments in difficulty, and the twisted strength that bends but does not break."
+  semantic_vocabulary:
+    symbolic_keywords: ["grass", "twisted", "skull-growth", "Patecatl", "medicine", "healing herbs", "resilience", "fermentation", "persistence", "life-from-death"]
+    mythic_narrative: "Malinalli (Day 12) is the Twisted Grass day, presided by Patecatl, the god of medicine and healing herbs. The glyph of grass growing from a skull captures the essence of Malinalli: life persists from death, the herb that heals grows from the decomposed body, fermentation transforms dying matter into medicine. Patecatl's domain encompasses all transformative fermentation — pulque from maguey, medicine from herbs. Malinalli days carry the energy of resilience, persistence through difficulty, and the healing that comes from working with, not against, decay."
+    visual_motifs: ["twisted grass glyph", "skull-with-grass motif", "healing herb", "fermentation vessel", "resilient grass bending in wind"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Caso (1958)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tonalpohualli"
+    secondary_sources: ["Wikipedia: Aztec calendar", "Wikipedia: Patecatl"]
+    academic_anchor: "Caso, Alfonso. The Aztecs: People of the Sun. University of Oklahoma Press, 1958."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "aztec-tonalpohualli-013"
+  sign_name:
+    primary: "Acatl"
+    variants: ["Ācatl (Nahuatl)", "Reed day", "Mayan parallel: Ben (position 13)"]
+    romanization: "Acatl"
+    native_script: "Nahuatl: ācatl (reed); glyph: reed stalk with nodes"
+  cultural_tradition:
+    primary_culture: "Aztec (Mexica)"
+    derivative_cultures: ["Toltec", "Mixtec"]
+    geographic_origin: "Mesoamerica — Central Mexico"
+    period_range: "Aztec codification ~1300–1521 CE"
+    status_in_modern_tradition: "historical_documented"
+  system_metadata:
+    system_name: "Aztec Tonalpohualli (tōnalpōhualli)"
+    total_signs_in_system: 20
+    position_in_system: 13
+    sign_classification:
+      element: "Air / Darkness"
+      modality: ""
+      quadrant: ""
+      deity_association: "Tezcatlipoca (Smoking Mirror — lord of the night sky, sorcery, conflict)"
+      season: ""
+      other:
+        nahuatl_name: "ācatl"
+        presiding_deity: "Tezcatlipoca"
+        mayan_parallel: "Ben (Mayan Tzolkin position 13)"
+        notes: "Ce Acatl (1-Reed) was the year-sign of Quetzalcoatl's birth — paradoxically, Tezcatlipoca (Quetzalcoatl's adversary) presides over Reed day. Acatl is also a year-bearer."
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/0/03/Acatl_glyph.svg"
+      description: "Acatl day-sign glyph — reed stalk with nodes; Day 13 of Tonalpohualli"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Acatl is the Reed sign, presided by Tezcatlipoca, the Smoking Mirror — lord of the night sky, darkness, sorcery, and political power. The paradox is profound: the reed is the birth year-sign of Quetzalcoatl (Ce Acatl / 1 Reed), yet his great adversary Tezcatlipoca presides. The reed is both the flute that makes music and the arrow-shaft that kills; both writing instrument and weapon. Tezcatlipoca's obsidian smoking mirror shows the hidden truth and the darkness of power."
+      reference_sources: ["Wikipedia: Tonalpohualli", "Wikipedia: Tezcatlipoca"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tonalpohualli"]
+  primitive_association_hints:
+    suggested_element: "Air / Darkness"
+    suggested_attribute: "INT"
+    suggested_animal_form: "None specific / Obsidian blade"
+    suggested_object_form: "Reed arrow / Smoking obsidian mirror"
+    symbolic_role: "Darkness of power; adversarial intelligence; Tezcatlipoca's sorcery; smoking mirror; reed's dual nature (music/death)"
+    mythic_narrative_summary: "Acatl is the Reed under Tezcatlipoca's Smoking Mirror. The reed can make music or kill; Tezcatlipoca's mirror shows hidden truths and dark power. Acatl days carry paradox and the confrontation between creation and destruction."
+  semantic_vocabulary:
+    symbolic_keywords: ["reed", "Tezcatlipoca", "smoking mirror", "night sky", "sorcery", "Quetzalcoatl adversary", "Ce Acatl", "obsidian", "paradox", "arrow", "flute"]
+    mythic_narrative: "Acatl (Day 13) is the Reed day, presided by Tezcatlipoca, the Smoking Mirror. The profound paradox: the reed is the year-sign of Quetzalcoatl's birth (Ce Acatl, 1-Reed), yet Tezcatlipoca — Quetzalcoatl's great adversary — presides over it. The reed itself is paradoxical: the same hollow tube becomes a flute making transcendent music OR an arrow shaft bringing death. Tezcatlipoca's obsidian smoking mirror reflects the hidden face of reality — truth seen through darkness. Acatl days are powerful for both artistic and adversarial endeavors."
+    visual_motifs: ["reed stalk nodes glyph", "smoking obsidian mirror", "Tezcatlipoca night-sky form", "arrow and flute duality", "Ce Acatl year-sign"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Caso (1958)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tonalpohualli"
+    secondary_sources: ["Wikipedia: Aztec calendar", "Wikipedia: Tezcatlipoca"]
+    academic_anchor: "Caso, Alfonso. The Aztecs: People of the Sun. University of Oklahoma Press, 1958."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "aztec-tonalpohualli-014"
+  sign_name:
+    primary: "Ocelotl"
+    variants: ["Ocēlōtl (Nahuatl)", "Jaguar day", "Ocelot day", "Mayan parallel: Ix (position 14)"]
+    romanization: "Ocelotl"
+    native_script: "Nahuatl: ocēlōtl (jaguar/ocelot); glyph: jaguar head with spotted pelt motif"
+  cultural_tradition:
+    primary_culture: "Aztec (Mexica)"
+    derivative_cultures: ["Toltec", "Mixtec"]
+    geographic_origin: "Mesoamerica — Central Mexico"
+    period_range: "Aztec codification ~1300–1521 CE"
+    status_in_modern_tradition: "historical_documented"
+  system_metadata:
+    system_name: "Aztec Tonalpohualli (tōnalpōhualli)"
+    total_signs_in_system: 20
+    position_in_system: 14
+    sign_classification:
+      element: "Earth / Darkness"
+      modality: ""
+      quadrant: ""
+      deity_association: "Tlazolteotl (Earth/Filth/Sex/Purification goddess)"
+      season: ""
+      other:
+        nahuatl_name: "ocēlōtl"
+        presiding_deity: "Tlazolteotl"
+        mayan_parallel: "Ix (Mayan Tzolkin position 14)"
+        notes: "The Jaguar Warriors (Ocelotl) were one of the two elite Aztec military orders (alongside Eagle Warriors). Tlazolteotl is the complex earth goddess who eats sin/filth and thus purifies."
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Ocelotl_glyph.svg"
+      description: "Ocelotl day-sign glyph — jaguar head with spotted pelt; Day 14 of Tonalpohualli"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Ocelotl is the Jaguar sign, presided by Tlazolteotl, the earth/sex/purification goddess. The jaguar (ocēlōtl) was the apex predator and the supreme symbol of Aztec military power — Jaguar Warriors wore jaguar pelts and were the Aztec army's elite. Tlazolteotl's earth-sex-purification complex (she eats filth/sin and thus purifies) combined with the jaguar creates a sign of powerful earth energy that simultaneously embodies desire, sin, and the purification that comes through acknowledgment."
+      reference_sources: ["Wikipedia: Tonalpohualli", "Wikipedia: Tlazolteotl", "Wikipedia: Jaguar warrior"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tonalpohualli"]
+  primitive_association_hints:
+    suggested_element: "Earth / Darkness"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Jaguar"
+    suggested_object_form: "Jaguar pelt / Elite warrior shield"
+    symbolic_role: "Jaguar warrior power; earth force; Tlazolteotl's purification; sin and release; elite martial excellence"
+    mythic_narrative_summary: "Ocelotl is the Jaguar under Tlazolteotl's complex dominion. Jaguar Warriors were the Aztec elite; Tlazolteotl eats sin to purify. Ocelotl carries the tension of primal power and the release of purification."
+  semantic_vocabulary:
+    symbolic_keywords: ["jaguar", "jaguar warrior", "Tlazolteotl", "earth goddess", "purification", "sin-eater", "elite warrior", "spotted pelt", "primal power", "desire"]
+    mythic_narrative: "Ocelotl (Day 14) is the Jaguar day, presided by Tlazolteotl, the earth/filth/sex/purification goddess. The jaguar Ocēlōtl is the apex predator of the Americas — and the spiritual foundation of the Jaguar Warriors, one of the two elite military orders of the Aztec army. Tlazolteotl is a complex goddess: she provokes desire and sin, and she eats desire and sin to purify the soul. This combination of primal earth-power and purification-through-acknowledgment makes Ocelotl a day of intense, transformative energy."
+    visual_motifs: ["jaguar head glyph", "spotted pelt pattern", "jaguar warrior costume", "Tlazolteotl earth goddess", "purification ceremony"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Caso (1958)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tonalpohualli"
+    secondary_sources: ["Wikipedia: Aztec calendar", "Wikipedia: Tlazolteotl", "Wikipedia: Jaguar warrior"]
+    academic_anchor: "Caso, Alfonso. The Aztecs: People of the Sun. University of Oklahoma Press, 1958."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "aztec-tonalpohualli-015"
+  sign_name:
+    primary: "Cuauhtli"
+    variants: ["Cuāuhtli (Nahuatl)", "Eagle day", "Mayan parallel: Men (position 15)"]
+    romanization: "Cuauhtli"
+    native_script: "Nahuatl: cuāuhtli (eagle); glyph: eagle head with beak"
+  cultural_tradition:
+    primary_culture: "Aztec (Mexica)"
+    derivative_cultures: ["Toltec", "Mixtec"]
+    geographic_origin: "Mesoamerica — Central Mexico"
+    period_range: "Aztec codification ~1300–1521 CE"
+    status_in_modern_tradition: "historical_documented"
+  system_metadata:
+    system_name: "Aztec Tonalpohualli (tōnalpōhualli)"
+    total_signs_in_system: 20
+    position_in_system: 15
+    sign_classification:
+      element: "Fire / Air (solar bird)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Xipe Totec (Our Lord the Flayed One — deity of renewal, vegetation, seasons)"
+      season: "Spring renewal"
+      other:
+        nahuatl_name: "cuāuhtli"
+        presiding_deity: "Xipe Totec"
+        mayan_parallel: "Men (Mayan Tzolkin position 15)"
+        notes: "Eagle Warriors were the other elite Aztec military order alongside Jaguar Warriors. Xipe Totec's flayed-skin renewal aspect paradoxically presides over the sky-eagle sign."
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/4/45/Cuauhtli_glyph.svg"
+      description: "Cuauhtli day-sign glyph — eagle head with characteristic beak; Day 15 of Tonalpohualli"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Cuauhtli is the Eagle sign, presided by Xipe Totec, Our Lord the Flayed One. The eagle soars at the apex of the sky — its flight mirrors the solar disc's daily journey. Eagle Warriors were the Aztec elite alongside Jaguar Warriors. Xipe Totec's spring-renewal domain (priests wore the flayed skin of sacrificial victims to symbolize the earth's 'new skin' emerging in spring) paradoxically presides over the sky eagle, connecting earth-renewal with high-altitude solar power."
+      reference_sources: ["Wikipedia: Tonalpohualli", "Wikipedia: Xipe Totec", "Wikipedia: Eagle warrior"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tonalpohualli"]
+  primitive_association_hints:
+    suggested_element: "Fire / Air"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Eagle"
+    suggested_object_form: "Eagle-feather shield / Solar disc"
+    symbolic_role: "Solar eagle power; elite warrior excellence; Xipe Totec's spring renewal; high-vision; sun's champion"
+    mythic_narrative_summary: "Cuauhtli is the Eagle under Xipe Totec's flayed renewal. Eagle Warriors were the sky-facing elite; the eagle soars with the sun. Xipe Totec's renewal paradox: the flayed skin becomes new spring — death enabling new life."
+  semantic_vocabulary:
+    symbolic_keywords: ["eagle", "Eagle Warriors", "Xipe Totec", "flayed renewal", "solar flight", "spring", "elite", "sun's champion", "sky-power", "renewal"]
+    mythic_narrative: "Cuauhtli (Day 15) is the Eagle day, presided by Xipe Totec, Our Lord the Flayed One. The eagle is the solar bird — soaring at the apex of the sky, its flight tracking the sun's own arc. Eagle Warriors were the sky-facing counterpart to Jaguar Warriors, forming the Aztec military elite. Xipe Totec's spring-renewal paradox (wearing flayed skin to symbolize the earth's new skin emerging in spring) presides over the sky eagle: even the highest flier undergoes the shedding of the old self to emerge renewed. Cuauhtli days celebrate solar power and courageous renewal."
+    visual_motifs: ["eagle head glyph", "solar disc with eagle", "eagle warrior costume", "Xipe Totec flayed skin", "spring renewal motif"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Caso (1958)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tonalpohualli"
+    secondary_sources: ["Wikipedia: Aztec calendar", "Wikipedia: Xipe Totec", "Wikipedia: Eagle warrior"]
+    academic_anchor: "Caso, Alfonso. The Aztecs: People of the Sun. University of Oklahoma Press, 1958."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "aztec-tonalpohualli-016"
+  sign_name:
+    primary: "Cozcacuauhtli"
+    variants: ["Cozcacuāuhtli (Nahuatl)", "Vulture day", "Buzzard day", "Mayan parallel: Kib (position 16)"]
+    romanization: "Cozcacuauhtli"
+    native_script: "Nahuatl: cozcacuāuhtli (vulture — literally 'jewel-eagle' or 'necklace-eagle'); glyph: vulture head with bald pate"
+  cultural_tradition:
+    primary_culture: "Aztec (Mexica)"
+    derivative_cultures: ["Toltec", "Mixtec"]
+    geographic_origin: "Mesoamerica — Central Mexico"
+    period_range: "Aztec codification ~1300–1521 CE"
+    status_in_modern_tradition: "historical_documented"
+  system_metadata:
+    system_name: "Aztec Tonalpohualli (tōnalpōhualli)"
+    total_signs_in_system: 20
+    position_in_system: 16
+    sign_classification:
+      element: "Earth / Air (carrion)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Itzpapalotl (Obsidian Butterfly — terrifying star-deity, Chichimec war goddess)"
+      season: ""
+      other:
+        nahuatl_name: "cozcacuāuhtli"
+        presiding_deity: "Itzpapalotl"
+        mayan_parallel: "Kib (Mayan Tzolkin position 16)"
+        notes: "Itzpapalotl is a terrifying obsidian-bladed butterfly/eagle hybrid — a sacrificial star deity. The vulture's carrion-eating function = purification by recycling death."
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Cozcacuauhtli_glyph.svg"
+      description: "Cozcacuauhtli day-sign glyph — vulture head with bald pate and ruffled neck; Day 16 of Tonalpohualli"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Cozcacuauhtli is the Vulture sign (literally 'jewel-eagle' — the vulture's bare red head resembles a jewel/ornament), presided by Itzpapalotl, the Obsidian Butterfly. Itzpapalotl is a terrifying star deity — a butterfly with obsidian-blade wings and eagle talons, a sacrificial war goddess of the Chichimec people. The vulture's role as carrion-eater is a purification function; death is recycled into life by the vulture's sacred scavenging. Cozcacuauhtli days carry deep wisdom, patience, and the fearlessness that comes from constant encounter with death."
+      reference_sources: ["Wikipedia: Tonalpohualli", "Wikipedia: Itzpapalotl"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tonalpohualli"]
+  primitive_association_hints:
+    suggested_element: "Earth / Air"
+    suggested_attribute: "WIS"
+    suggested_animal_form: "Vulture / Obsidian Butterfly"
+    suggested_object_form: "Skull necklace / Obsidian blade wings"
+    symbolic_role: "Death purification; obsidian-butterfly terror; carrion wisdom; deep patience; Itzpapalotl's fierce grace"
+    mythic_narrative_summary: "Cozcacuauhtli is the Vulture under Itzpapalotl's obsidian wings. The vulture recycles death; the Obsidian Butterfly brings terrifying sacrifice-star energy. Together: wisdom born from fearless encounter with death's necessity."
+  semantic_vocabulary:
+    symbolic_keywords: ["vulture", "buzzard", "Itzpapalotl", "obsidian butterfly", "carrion", "purification", "patience", "death-wisdom", "obsidian blades", "recycling"]
+    mythic_narrative: "Cozcacuauhtli (Day 16) is the Vulture day, presided by Itzpapalotl, the Obsidian Butterfly. The vulture's sacred function is to clean the landscape of death — a purifying act that sustains the living. Itzpapalotl is a terrifying celestial deity with butterfly wings edged in obsidian blades, combining the beauty of the butterfly with the lethality of obsidian. Together these symbols point toward the wisdom of those who have faced death directly and emerged with hard-won clarity about what truly matters."
+    visual_motifs: ["vulture bald-head glyph", "Itzpapalotl obsidian wings", "butterfly with blade-edges", "carrion landscape", "necklace of jewels (vulture collar)"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Caso (1958)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tonalpohualli"
+    secondary_sources: ["Wikipedia: Aztec calendar", "Wikipedia: Itzpapalotl"]
+    academic_anchor: "Caso, Alfonso. The Aztecs: People of the Sun. University of Oklahoma Press, 1958."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "aztec-tonalpohualli-017"
+  sign_name:
+    primary: "Ollin"
+    variants: ["Ollīn (Nahuatl)", "Movement day", "Earthquake day", "Mayan parallel: Kaban (position 17)"]
+    romanization: "Ollin"
+    native_script: "Nahuatl: ollīn (movement); glyph: Ollin symbol — the four-directional earthquake/motion glyph (central symbol of Aztec Sun Stone)"
+  cultural_tradition:
+    primary_culture: "Aztec (Mexica)"
+    derivative_cultures: ["Toltec", "Mixtec"]
+    geographic_origin: "Mesoamerica — Central Mexico"
+    period_range: "Aztec codification ~1300–1521 CE"
+    status_in_modern_tradition: "historical_documented"
+  system_metadata:
+    system_name: "Aztec Tonalpohualli (tōnalpōhualli)"
+    total_signs_in_system: 20
+    position_in_system: 17
+    sign_classification:
+      element: "Earth / Fire"
+      modality: ""
+      quadrant: ""
+      deity_association: "Xolotl (Dog-lightning deity — guide of the dead, twin of Quetzalcoatl as Venus, deity of lightning and deformity)"
+      season: ""
+      other:
+        nahuatl_name: "ollīn"
+        presiding_deity: "Xolotl"
+        mayan_parallel: "Kaban (Mayan Tzolkin position 17)"
+        notes: "Nahuiolin (4-Movement) was the name of the current (Fifth) Sun — our world age ends in Ollin (earthquake/movement). The Ollin symbol is the central glyph of the Aztec Sun Stone. Xolotl is the dog-lightning deity who also accompanies the sun through the underworld."
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Ollin_symbol.svg"
+      description: "Ollin day-sign glyph — the four-directional movement/earthquake symbol; also the central motif of the Aztec Sun Stone (Nahuiolin)"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://en.wikipedia.org/wiki/Aztec_sun_stone#/media/File:Piedra_del_Sol_Calendario_Azteca.jpg"
+        description: "Aztec Sun Stone center — the Ollin symbol is the central glyph inside Tonatiuh's face"
+        source: "Wikipedia Commons / INAH"
+        license: "Public Domain"
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars. The current world age Nahuiolin relates to earthquakes as the predicted end-of-age mechanism — not a stellar event."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Ollin is the Movement/Earthquake sign — the Nahuatl word for motion itself. The Ollin symbol is one of the most recognizable Aztec glyphs: a four-directional figure that appears at the center of the Aztec Sun Stone. Nahuiolin (4-Movement) is the name of the current Fifth Sun — our world age, which will end in cataclysmic earthquake. Xolotl, the dog-lightning deity, presides — he accompanies the sun through the underworld at night and his lightning form connects earth-movement to sky-lightning. Ollin days are days of maximum cosmic activity."
+      reference_sources: ["Wikipedia: Tonalpohualli", "Wikipedia: Aztec sun stone", "Wikipedia: Xolotl", "Wikipedia: Five Suns"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tonalpohualli", "https://en.wikipedia.org/wiki/Aztec_sun_stone"]
+  primitive_association_hints:
+    suggested_element: "Earth / Fire"
+    suggested_attribute: "STR"
+    suggested_animal_form: "Xolotl (dog-lightning hybrid)"
+    suggested_object_form: "Ollin four-direction symbol / Sun Stone center"
+    symbolic_role: "Movement; earthquake; world-age end; cosmic activity; Xolotl lightning; maximum energy; the Fifth Sun"
+    mythic_narrative_summary: "Ollin is Movement itself — the earthquake sign at the center of the Aztec Sun Stone. The Fifth Sun (our world) will end in Ollin. Xolotl's lightning presides. The day of maximum cosmic motion and existential stakes."
+  semantic_vocabulary:
+    symbolic_keywords: ["movement", "earthquake", "Ollin symbol", "Fifth Sun", "Nahuiolin", "Xolotl", "lightning", "world-age", "Sun Stone", "maximum energy", "cosmic motion"]
+    mythic_narrative: "Ollin (Day 17) is the Movement day — and the name of the current world age. Nahuiolin (4-Movement / 4-Earthquake) is the Fifth Sun, our present age, which the Aztecs believed would end in cataclysmic earthquakes. The Ollin four-direction symbol sits at the very center of the Aztec Sun Stone, inside Tonatiuh's face — it is literally the pivot point of the cosmos. Xolotl, the dog-lightning deity who guides the sun through the underworld, presides. Ollin days carry maximum cosmic energy — the universe itself is in motion, and everything is at stake."
+    visual_motifs: ["four-directional Ollin symbol", "Sun Stone center", "earthquake waves", "Xolotl dog-lightning form", "world-age clock motif"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Caso (1958) + INAH Sun Stone documentation"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tonalpohualli"
+    secondary_sources: ["Wikipedia: Aztec calendar", "Wikipedia: Aztec sun stone", "Wikipedia: Xolotl", "Wikipedia: Five Suns", "INAH: National Museum of Anthropology"]
+    academic_anchor: "Caso, Alfonso. The Aztecs: People of the Sun. University of Oklahoma Press, 1958."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "aztec-tonalpohualli-018"
+  sign_name:
+    primary: "Tecpatl"
+    variants: ["Tecpatl (Nahuatl)", "Flint Knife day", "Mayan parallel: Etz'nab (position 18)"]
+    romanization: "Tecpatl"
+    native_script: "Nahuatl: tecpatl (flint knife / obsidian blade); glyph: flint knife profile"
+  cultural_tradition:
+    primary_culture: "Aztec (Mexica)"
+    derivative_cultures: ["Toltec", "Mixtec"]
+    geographic_origin: "Mesoamerica — Central Mexico"
+    period_range: "Aztec codification ~1300–1521 CE"
+    status_in_modern_tradition: "historical_documented"
+  system_metadata:
+    system_name: "Aztec Tonalpohualli (tōnalpōhualli)"
+    total_signs_in_system: 20
+    position_in_system: 18
+    sign_classification:
+      element: "Air / Fire (sacrifice)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Chalchiuhtotolin (Jade Turkey — Tezcatlipoca's disease/plague aspect)"
+      season: ""
+      other:
+        nahuatl_name: "tecpatl"
+        presiding_deity: "Chalchiuhtotolin"
+        mayan_parallel: "Etz'nab (Mayan Tzolkin position 18)"
+        notes: "Tecpatl is a year-bearer. The flint knife was the primary instrument of heart-extraction sacrifice. Chalchiuhtotolin (Jade Turkey) is one of Tezcatlipoca's most feared aspects — the deity of pestilence."
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/4/41/Tecpatl_glyph.svg"
+      description: "Tecpatl day-sign glyph — flint knife profile with chipped-edge pattern; Day 18 of Tonalpohualli"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Tecpatl is the Flint Knife sign — the primary instrument of sacrifice. The flint/obsidian tecpatl knife opened the chest to extract the heart for the sun. Chalchiuhtotolin (Jade Turkey), Tezcatlipoca's disease aspect, presides — a terrifying combination of the sacrifice blade and pestilence. Tecpatl years were considered dangerous. The flint knife's sharpness represents both the surgical precision of the sacrificial priest and the devastating cut of disease."
+      reference_sources: ["Wikipedia: Tonalpohualli", "Wikipedia: Chalchiuhtotolin", "Wikipedia: Aztec sacrifice"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tonalpohualli"]
+  primitive_association_hints:
+    suggested_element: "Air / Fire"
+    suggested_attribute: "INT"
+    suggested_animal_form: "Turkey (plague aspect) / Knife-edge"
+    suggested_object_form: "Flint sacrifice knife"
+    symbolic_role: "Sacrifice instrument; sharp cutting; disease; Tezcatlipoca's plague aspect; precision and danger"
+    mythic_narrative_summary: "Tecpatl is the Flint Knife — the sacrifice blade that opens the chest. Chalchiuhtotolin (Jade Turkey, Tezcatlipoca's plague) presides. Precision, sacrifice, and the terrifying intersection of cutting-edge and disease."
+  semantic_vocabulary:
+    symbolic_keywords: ["flint knife", "obsidian", "sacrifice", "heart-extraction", "Chalchiuhtotolin", "Jade Turkey", "Tezcatlipoca", "plague", "precision", "disease", "cutting"]
+    mythic_narrative: "Tecpatl (Day 18) is the Flint Knife day, presided by Chalchiuhtotolin, the Jade Turkey — one of Tezcatlipoca's most feared aspects, the deity of disease and pestilence. The flint knife tecpatl was the primary instrument of heart-extraction sacrifice — the precision instrument that opened the chest to feed the sun. Chalchiuhtotolin's disease domain combined with the sacrifice knife creates a day of double-edged danger: the blade that sustains the cosmos (through sacrifice) is the same force that cuts through communities as plague. Tecpatl days demand precision and courage."
+    visual_motifs: ["flint knife profile glyph", "chipped obsidian edge", "jade turkey", "sacrifice altar", "heart-extraction moment"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only. Sacrifice documented at institutional/archaeological level."
+    source_authorization: "Wikipedia + Caso (1958)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tonalpohualli"
+    secondary_sources: ["Wikipedia: Aztec calendar", "Wikipedia: Chalchiuhtotolin"]
+    academic_anchor: "Caso, Alfonso. The Aztecs: People of the Sun. University of Oklahoma Press, 1958."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "aztec-tonalpohualli-019"
+  sign_name:
+    primary: "Quiahuitl"
+    variants: ["Quiahuitl (Nahuatl)", "Rain day", "Mayan parallel: Kawak (position 19)"]
+    romanization: "Quiahuitl"
+    native_script: "Nahuatl: quiahuitl (rain); glyph: rain droplets / Tlaloc eye-mask"
+  cultural_tradition:
+    primary_culture: "Aztec (Mexica)"
+    derivative_cultures: ["Toltec", "Mixtec"]
+    geographic_origin: "Mesoamerica — Central Mexico"
+    period_range: "Aztec codification ~1300–1521 CE"
+    status_in_modern_tradition: "historical_documented"
+  system_metadata:
+    system_name: "Aztec Tonalpohualli (tōnalpōhualli)"
+    total_signs_in_system: 20
+    position_in_system: 19
+    sign_classification:
+      element: "Water / Fire"
+      modality: ""
+      quadrant: ""
+      deity_association: "Tonatiuh (Sun God) [primary per most sources] / Chantico (Fire/Hearth goddess, some sources)"
+      season: "Rainy season"
+      other:
+        nahuatl_name: "quiahuitl"
+        presiding_deity: "Tonatiuh (some sources: Chantico)"
+        mayan_parallel: "Kawak (Mayan Tzolkin position 19)"
+        notes: "Sources vary on the presiding deity for Quiahuitl — Tonatiuh (Sun) appears in Codex Borgia; Chantico (fire goddess) in some colonial-era texts. Both documented here."
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/8/84/Quiahuitl_glyph.svg"
+      description: "Quiahuitl day-sign glyph — rain droplets with Tlaloc-eye motif; Day 19 of Tonalpohualli"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary: []
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Quiahuitl is the Rain sign — the tropical downpour that transforms the landscape. Tlaloc's goggle-eye mask and long fangs are the iconographic face of rain in Aztec art. The sun/rain relationship is paradoxical and symbiotic: the sun draws up moisture to create the clouds that release rain. Chantico, the fire/hearth goddess (in some sources), introduces fire-and-rain tension similar to the Aztec atl-tlachinolli paradox. Quiahuitl days carry the overwhelming power of tropical rain — both life-giving and potentially catastrophic."
+      reference_sources: ["Wikipedia: Tonalpohualli", "Wikipedia: Tlaloc", "Wikipedia: Chantico"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tonalpohualli"]
+  primitive_association_hints:
+    suggested_element: "Water / Air"
+    suggested_attribute: "CON"
+    suggested_animal_form: "Frog / Rain serpent"
+    suggested_object_form: "Rain drops / Tlaloc goggle-mask"
+    symbolic_role: "Tropical rain; Tlaloc's downpour; life-giving abundance; potential flood; cleansing storm"
+    mythic_narrative_summary: "Quiahuitl is the Rain day — Tlaloc's tropical downpour. Overwhelming and necessary, the rain both sustains and threatens. The fire/rain paradox under Tonatiuh or Chantico adds tension."
+  semantic_vocabulary:
+    symbolic_keywords: ["rain", "Tlaloc", "downpour", "tropical storm", "water", "life-giving", "flood", "Chantico", "Tonatiuh", "fire-rain paradox", "cleansing"]
+    mythic_narrative: "Quiahuitl (Day 19) is the Rain day. Tlaloc's goggle-eyed, fang-mouthed face is the rain's face in Aztec iconography — his vessel jars of different waters (good rain, disease rain, frost, drought) determined which kind of rain fell. The presiding deity (Tonatiuh in Codex Borgia; Chantico in some colonial texts) introduces fire-and-rain tension: the sun draws water up to create the rain clouds; the hearth fire and the rainstorm are opposites that sustain each other. Quiahuitl days carry the overwhelming energy of tropical downpour — transformative, flooding, necessary."
+    visual_motifs: ["Tlaloc goggle-eye mask glyph", "rain droplet pattern", "Tlaloc jar vessels", "tropical cloud formation", "flood/river motif"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only. Deity-assignment discrepancy between sources documented transparently."
+    source_authorization: "Wikipedia + Caso (1958) + Codex Borgia (facsimile)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tonalpohualli"
+    secondary_sources: ["Wikipedia: Aztec calendar", "Wikipedia: Tlaloc", "Wikipedia: Chantico"]
+    academic_anchor: "Caso, Alfonso. The Aztecs: People of the Sun. University of Oklahoma Press, 1958."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "aztec-tonalpohualli-020"
+  sign_name:
+    primary: "Xochitl"
+    variants: ["Xōchitl (Nahuatl)", "Flower day", "Mayan parallel: Ajaw (position 20)"]
+    romanization: "Xochitl"
+    native_script: "Nahuatl: xōchitl (flower); glyph: four-petal flower with center dot"
+  cultural_tradition:
+    primary_culture: "Aztec (Mexica)"
+    derivative_cultures: ["Toltec", "Mixtec"]
+    geographic_origin: "Mesoamerica — Central Mexico"
+    period_range: "Aztec codification ~1300–1521 CE"
+    status_in_modern_tradition: "historical_documented"
+  system_metadata:
+    system_name: "Aztec Tonalpohualli (tōnalpōhualli)"
+    total_signs_in_system: 20
+    position_in_system: 20
+    sign_classification:
+      element: "Earth / Fire (flowering beauty)"
+      modality: ""
+      quadrant: ""
+      deity_association: "Xochiquetzal (Flower-Quetzal — goddess of beauty, flowers, arts, love, and female sexuality)"
+      season: "Spring flowering"
+      other:
+        nahuatl_name: "xōchitl"
+        presiding_deity: "Xochiquetzal"
+        mayan_parallel: "Ajaw (Mayan Tzolkin position 20)"
+        notes: "Xochitl closes the 20-day Tonalpohualli sign sequence. Xochiquetzal is one of the most beloved Aztec deities — goddess of beauty and all things pleasurable. The flower is the supreme symbol of beauty and sensory delight in Aztec aesthetics."
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/5/55/Xochitl_glyph.svg"
+      description: "Xochitl day-sign glyph — four-petal flower with center dot; Day 20 of Tonalpohualli"
+      source: "Wikipedia Commons"
+      license: "Public Domain"
+      verified_loads: true
+    image_url_secondary:
+      - url: "https://en.wikipedia.org/wiki/Xochiquetzal#/media/File:Xochiquetzal_1.jpg"
+        description: "Xochiquetzal — flower goddess depiction, Codex Borgia or similar; primary presiding deity of Xochitl"
+        source: "Wikipedia Commons"
+        license: "Public Domain"
+    star_coordinates:
+      coordinate_system: ""
+      primary_stars: []
+      notes: "Calendar-based; not assigned to individual stars."
+    asterism_schematic:
+      description: ""
+      line_topology: ""
+    cultural_iconography:
+      description: "Xochitl is the Flower sign — the final and culminating Tonalpohualli day-sign. Xochiquetzal (Flower-Quetzal), goddess of beauty, arts, love, and female sexuality, presides. The flower is the supreme Aztec symbol of beauty, sensory pleasure, and the full flowering of civilization. Xochitl closes the 20-sign cycle at the peak of beauty — a fitting capstone to the system. The flower glyph (four petals around a center) appears throughout Aztec art as a symbol of solar completion and aesthetic perfection."
+      reference_sources: ["Wikipedia: Tonalpohualli", "Wikipedia: Xochiquetzal"]
+      reference_urls: ["https://en.wikipedia.org/wiki/Tonalpohualli", "https://en.wikipedia.org/wiki/Xochiquetzal"]
+  primitive_association_hints:
+    suggested_element: "Earth / Fire"
+    suggested_attribute: "WIS"
+    suggested_animal_form: "Quetzal bird (beauty incarnate)"
+    suggested_object_form: "Four-petal flower / Quetzal feathers"
+    symbolic_role: "Beauty; flowering completion; love; arts; Xochiquetzal's grace; sensory perfection; cycle close"
+    mythic_narrative_summary: "Xochitl is the Flower — the 20th and closing sign under Xochiquetzal's beauty. The flower crowns the Tonalpohualli cycle with beauty and completion. Xochitl days celebrate the full flowering of all that is beautiful, pleasurable, and artistically perfected."
+  semantic_vocabulary:
+    symbolic_keywords: ["flower", "Xochiquetzal", "beauty", "arts", "love", "completion", "sensory perfection", "quetzal", "flowering", "cycle-close", "aesthetic peak"]
+    mythic_narrative: "Xochitl (Day 20) is the Flower day — the final and culminating Tonalpohualli day-sign, presided by Xochiquetzal, the Flower-Quetzal goddess. Xochiquetzal is the Aztec deity of beauty, arts, love, desire, and the full flourishing of aesthetic pleasure. As the 20th and closing sign, Xochitl crowns the entire Tonalpohualli cycle with the image of the flower in full bloom. The four-petal flower glyph evokes the four cardinal directions unified in perfect aesthetic form — a completion of the cycle at its most beautiful. Xochitl days are among the most auspicious: celebrations of art, beauty, love, and the flowering of all creative potential."
+    visual_motifs: ["four-petal flower glyph", "quetzal plume", "Xochiquetzal flower crown", "aesthetic perfection motif", "flowering garden"]
+  cultural_sensitivity:
+    flag_level: "medium"
+    explanation: "Sourced from academic/institutional materials only."
+    source_authorization: "Wikipedia + Caso (1958)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Tonalpohualli"
+    secondary_sources: ["Wikipedia: Aztec calendar", "Wikipedia: Xochiquetzal"]
+    academic_anchor: "Caso, Alfonso. The Aztecs: People of the Sun. University of Oklahoma Press, 1958."
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"

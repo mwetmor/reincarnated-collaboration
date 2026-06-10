@@ -1,0 +1,1634 @@
+# Egyptian Decans — Legolas Mode B Corpus
+# 36 entries | crawl_date: 2026-06-09
+# Primary source: https://en.wikipedia.org/wiki/Decan
+# Academic anchor: Neugebauer & Parker, Egyptian Astronomical Texts (1969)
+# Decan names from Wikipedia's authoritative table (Budge transliterations + Greco-Egyptian)
+# Wikipedia table maps 36 decans across 12 zodiac signs (3 per sign)
+# Position numbering follows Wikipedia table order (position 1 = first decan = Cancer/decan 10 in table,
+#   but we renumber 1-36 sequentially as they appear in the Wikipedia table, Aries first)
+# NOTE: Wikipedia table uses a different sequence than Neugebauer-Parker;
+#   Wikipedia lists by Western zodiac sign (Aries through Pisces), 3 decans per sign.
+#   The "Original Decan Position" column in Wikipedia maps these to the ancient sequence (1-36).
+#   We use the Wikipedia zodiac-sign ordering as primary, noting ancient position.
+
+---
+
+- sign_id: "egyptian-decan-001"
+  sign_name:
+    primary: "Khent-kheru (First decan of Aries)"
+    variants: ["Khent-kher", "Xont-har", "Chenlachori"]
+    romanization: "Khent-kheru"
+    native_script: "bꜣkt.w (decan class)"
+    budge_transliteration: "Khent-kheru"
+    greco_egyptian_name: "Χont-har"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition", "Testament of Solomon demonology"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; First Intermediate Period coffin lids ~2100 BCE; Dendera codification Ptolemaic ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 1
+    ancient_sequence_position: 28
+    sign_classification:
+      western_zodiac_sign: "Aries"
+      degrees_of_zodiac: "0–10° Aries"
+      deity_association: "Arueris (Horus the Elder) — Coptic decan name"
+      testament_of_solomon_demon: "Rhyax / Ruax"
+      season: "Spring"
+      other:
+        greco_roman_zodiac_equivalent: "First 10° of Aries"
+        period_governed: "10-day dekad"
+        hour_star_role: "Marked nighttime hours in diagonal star tables (Middle Kingdom coffins)"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac ceiling panel (Louvre, Paris) — the primary visual reference for Egyptian celestial tradition including decans. Outer ring shows 36 decan figures."
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain (ancient artifact)"
+      verified_loads: true
+    star_coordinates:
+      notes: "Exact star correspondences for Egyptian decans are contested; see Neugebauer & Parker (1969). Ancient sequence position 28 places this decan near Leo-Virgo border in original Egyptian sky orientation."
+    cultural_iconography:
+      description: "Decan figures on the Dendera zodiac ceiling appear as 36 divine figures in procession around the outer ring. Each figure is typically shown as a human or sphinx form with deity attributes. On Middle Kingdom coffin lids (~2000 BCE), diagonal star tables recorded the sequential rising of each decan to mark nighttime hours for the deceased."
+      reference_urls: ["https://en.wikipedia.org/wiki/Decan", "https://en.wikipedia.org/wiki/Dendera_zodiac"]
+  primitive_association_hints:
+    symbolic_role: "Hour marker; 10-day period governor; nocturnal guide; coffin-art star-clock"
+    mythic_narrative_summary: "First decan of the Aries sector in the Greco-Roman mapping. In the original Egyptian sequence this was decan 28 of 36. Personified as Arueris (Horus the Elder) in the Coptic tradition; associated with the demon Rhyax in the Testament of Solomon demonological reinterpretation of the decan system."
+  semantic_vocabulary:
+    symbolic_keywords: ["hour-star", "sky-clock", "Aries", "Horus the Elder", "decan procession", "10-day period"]
+    mythic_narrative: "The Egyptian decan system (~2400 BCE) is one of humanity's earliest systematic astronomical frameworks. Thirty-six decan star-groups each governed a 10-day period (dekad) of the 360-day Egyptian calendar. Each decan star rose heliacally (just before sunrise) to mark its period. At night, sequential rising of decans across the horizon marked the passing of hours — a star-clock for ritual and funerary navigation. The Ptolemaic Dendera zodiac (now in the Louvre) shows all 36 decans as divine figures in procession."
+    visual_motifs: ["Dendera zodiac ceiling", "coffin diagonal star tables", "deity-head procession", "Louvre bas-relief"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Ancient Egyptian tradition; fully documented in major museum collections (Louvre, British Museum, Cairo Museum) and academic Egyptology."
+    source_authorization: "Wikipedia + Louvre + British Museum + Neugebauer & Parker (1969)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    secondary_sources:
+      - "Wikipedia: Dendera zodiac"
+      - "Wikipedia: Egyptian astronomy"
+      - "Neugebauer, O. & Parker, R.A. Egyptian Astronomical Texts Vol. 1-3 (1969)"
+    academic_anchor: "Neugebauer & Parker, Egyptian Astronomical Texts (1969)"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-002"
+  sign_name:
+    primary: "Qeṭ (Second decan of Aries)"
+    variants: ["Qet", "Xont-χre", "Mensour"]
+    romanization: "Qeṭ"
+    budge_transliteration: "Qeṭ"
+    greco_egyptian_name: "Xont-χre"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 2
+    ancient_sequence_position: 29
+    sign_classification:
+      western_zodiac_sign: "Aries"
+      degrees_of_zodiac: "10–20° Aries"
+      deity_association: "Anubis — Coptic decan name"
+      testament_of_solomon_demon: "Barsafael"
+      season: "Spring"
+      other:
+        greco_roman_zodiac_equivalent: "Second 10° of Aries"
+        period_governed: "10-day dekad"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference for all 36 Egyptian decans"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Hour marker; 10-day period governor; funerary star-guide"
+    mythic_narrative_summary: "Second decan of Aries sector; ancient sequence position 29. Coptic tradition associates with Anubis, the guide of souls through the underworld — fitting for a decan that marked nighttime hours on coffin lids."
+  semantic_vocabulary:
+    symbolic_keywords: ["Anubis", "soul-guide", "underworld", "hour-star", "Aries", "coffin star-table"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Ancient Egyptian tradition, fully documented in Egyptology."
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-003"
+  sign_name:
+    primary: "Sasaqeṭ (Third decan of Aries)"
+    variants: ["Sasaqet", "Si-ket", "Siket", "Carexon"]
+    romanization: "Sasaqeṭ"
+    budge_transliteration: "Sasaqeṭ"
+    greco_egyptian_name: "Si-ket"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 3
+    ancient_sequence_position: 30
+    sign_classification:
+      western_zodiac_sign: "Aries"
+      degrees_of_zodiac: "20–30° Aries"
+      deity_association: "Horus — Coptic decan name"
+      testament_of_solomon_demon: "Artosael / Arôtosael"
+      season: "Spring"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference for all 36 Egyptian decans"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Hour marker; 10-day period governor"
+    mythic_narrative_summary: "Third decan of Aries; ancient sequence position 30. Coptic name Horus connects this decan to the solar falcon-god."
+  semantic_vocabulary:
+    symbolic_keywords: ["Horus", "falcon-god", "solar", "hour-star", "Aries"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-004"
+  sign_name:
+    primary: "Ārt (First decan of Taurus)"
+    variants: ["Art", "Xau", "Gisan", "Soou"]
+    romanization: "Ārt"
+    budge_transliteration: "Ārt"
+    greco_egyptian_name: "Xau"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 4
+    ancient_sequence_position: 31
+    sign_classification:
+      western_zodiac_sign: "Taurus"
+      degrees_of_zodiac: "0–10° Taurus"
+      deity_association: "Serapis — Coptic decan name"
+      testament_of_solomon_demon: "Horopel"
+      season: "Spring"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Hour marker; Taurus sector opener"
+    mythic_narrative_summary: "First decan of Taurus; ancient sequence position 31. Associated with Serapis in Coptic tradition — the syncretic Greco-Egyptian deity combining Osiris and Apis."
+  semantic_vocabulary:
+    symbolic_keywords: ["Serapis", "Taurus", "Osiris-Apis", "syncretic", "hour-star"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-005"
+  sign_name:
+    primary: "Khau (Second decan of Taurus)"
+    variants: ["Khaw", "Arat", "Tourtour"]
+    romanization: "Khau"
+    budge_transliteration: "Khau"
+    greco_egyptian_name: "Arat"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 5
+    ancient_sequence_position: 32
+    sign_classification:
+      western_zodiac_sign: "Taurus"
+      degrees_of_zodiac: "10–20° Taurus"
+      deity_association: "Helitomenos — Coptic decan name"
+      testament_of_solomon_demon: "Kairoxanondalon / Iudal"
+      season: "Spring"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Hour marker; Taurus mid-sector"
+    mythic_narrative_summary: "Second decan of Taurus; ancient sequence position 32. Greco-Egyptian name Arat may relate to Orion (Sah) region associations in some Egyptian astronomical texts."
+  semantic_vocabulary:
+    symbolic_keywords: ["Taurus", "Orion region", "hour-star", "coffin star-table"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-006"
+  sign_name:
+    primary: "Remen-ḥeru-an-Saḥ (Third decan of Taurus)"
+    variants: ["Remen-haru-an-Sah", "Remen-hare", "Ballat", "Rhomenos"]
+    romanization: "Remen-ḥeru-an-Saḥ"
+    budge_transliteration: "Remen-ḥeru-an-Saḥ"
+    greco_egyptian_name: "Remen-hare"
+    notes: "Name means 'shoulder of Orion' (Saḥ = Orion in Egyptian); connects to Orion's shoulder stars"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 6
+    ancient_sequence_position: 33
+    sign_classification:
+      western_zodiac_sign: "Taurus"
+      degrees_of_zodiac: "20–30° Taurus"
+      deity_association: "Apopis (Apophis) — Coptic decan name; the chaos serpent"
+      testament_of_solomon_demon: "Sphendonael"
+      season: "Spring"
+      other:
+        sky_region: "Orion shoulder region (Saḥ = Orion in Egyptian astronomy)"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Orion shoulder marker; chaos-boundary decan"
+    mythic_narrative_summary: "Third decan of Taurus; 'shoulder of Orion (Saḥ)'. Orion/Saḥ was identified with Osiris in Egyptian astronomy — his belt and shoulder stars were key navigational decans. Coptic association with Apophis, the chaos serpent Ra must defeat each night, gives this decan a dark/liminal quality."
+  semantic_vocabulary:
+    symbolic_keywords: ["Orion shoulder", "Saḥ", "Osiris-Orion", "Apophis", "chaos", "liminal", "Taurus"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-007"
+  sign_name:
+    primary: "Mestcher-Saḥ (First decan of Gemini)"
+    variants: ["Mestcher-Sah", "Θosalk", "Thosalk", "Farsan"]
+    romanization: "Mestcher-Saḥ"
+    budge_transliteration: "Mestcher-Saḥ"
+    greco_egyptian_name: "Θosalk"
+    notes: "Name means 'forearm of Orion (Saḥ)'"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 7
+    ancient_sequence_position: 34
+    sign_classification:
+      western_zodiac_sign: "Gemini"
+      degrees_of_zodiac: "0–10° Gemini"
+      deity_association: "Tautus (Thoth) — Coptic decan name"
+      testament_of_solomon_demon: "Sphandor"
+      season: "Late spring"
+      other:
+        sky_region: "Orion forearm region / Gemini border"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Orion forearm; Thoth decan — writing, measurement, wisdom"
+    mythic_narrative_summary: "First decan of Gemini; 'forearm of Orion'. Coptic association with Thoth (Tautus) — the divine scribe and measurer of time, fitting for a decan that functioned as a precision sky-clock."
+  semantic_vocabulary:
+    symbolic_keywords: ["Orion forearm", "Saḥ", "Thoth", "writing", "measurement", "wisdom", "Gemini"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-008"
+  sign_name:
+    primary: "Remen-kher-Saḥ (Second decan of Gemini)"
+    variants: ["Remen-kher-Sah", "Uaret", "Vaspan"]
+    romanization: "Remen-kher-Saḥ"
+    budge_transliteration: "Remen-kher-Saḥ"
+    greco_egyptian_name: "Uaret"
+    notes: "Name means 'lower arm/shoulder of Orion (Saḥ)'"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 8
+    ancient_sequence_position: 35
+    sign_classification:
+      western_zodiac_sign: "Gemini"
+      degrees_of_zodiac: "10–20° Gemini"
+      deity_association: "Kybele variant — Coptic decan name (Greek influence)"
+      testament_of_solomon_demon: "Belbel"
+      season: "Late spring"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Orion lower arm; Gemini mid-sector"
+    mythic_narrative_summary: "Second decan of Gemini; 'lower arm of Orion'. Continues the Orion/Osiris body-segment mapping across decans 6-9."
+  semantic_vocabulary:
+    symbolic_keywords: ["Orion lower arm", "Osiris body-map", "Gemini", "hour-star"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-009"
+  sign_name:
+    primary: "A-Saḥ (Third decan of Gemini)"
+    variants: ["A-Sah", "Phu-hor", "Parquia", "Pepisoth"]
+    romanization: "A-Saḥ"
+    budge_transliteration: "A-Saḥ"
+    greco_egyptian_name: "Phu-hor"
+    notes: "Name may mean 'of Orion (Saḥ)' — the decan of Orion himself; also associated with the 37th position entry 'Saḥ' (Orion proper)"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 9
+    ancient_sequence_position: 36
+    sign_classification:
+      western_zodiac_sign: "Gemini"
+      degrees_of_zodiac: "20–30° Gemini"
+      deity_association: "Titan — Coptic decan name (Greek influence in Ptolemaic period)"
+      testament_of_solomon_demon: "Kourtael / Kurtaêl"
+      season: "Late spring / early summer"
+      other:
+        sky_region: "Orion core / Gemini-Cancer border"
+        special_note: "The 36th ancient-sequence decan; the final position before the cycle restarts. The Wikipedia table notes a 37th entry 'Saḥ' (Orion) at this position as an anomaly — possibly indicating that Orion himself was sometimes counted as an additional or transitional marker."
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Orion / Osiris decan; cycle endpoint; resurrection marker"
+    mythic_narrative_summary: "Third decan of Gemini; the 36th and final decan in the ancient sequence. Associated with Orion (Saḥ) himself — the celestial form of Osiris. The endpoint of the decan cycle has mythic resonance as the point of resurrection and renewal before the cycle begins again."
+  semantic_vocabulary:
+    symbolic_keywords: ["Orion", "Saḥ", "Osiris", "resurrection", "cycle-end", "renewal", "Gemini"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-010"
+  sign_name:
+    primary: "Sepṭet (First decan of Cancer)"
+    variants: ["Sopdet", "Sothis", "Sotheir", "Panem"]
+    romanization: "Sepṭet"
+    budge_transliteration: "Sepṭet"
+    greco_egyptian_name: "Sopdet (Sothis)"
+    notes: "SIRIUS — the most important single star in Egyptian astronomy. Sepṭet/Sopdet/Sothis = Sirius. Its heliacal rising marked the Egyptian New Year and the Nile flood. This is the foundational decan of the entire system and original position 1 in the ancient sequence."
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition", "Isiac tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; the Sirius rising was tracked from ~3200 BCE; Dendera Ptolemaic ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 10
+    ancient_sequence_position: 1
+    sign_classification:
+      western_zodiac_sign: "Cancer"
+      degrees_of_zodiac: "0° Cancer (boundary)"
+      deity_association: "Isis (Sopdet/Sothis = Sirius = Isis) / Apollun — Coptic decan name"
+      testament_of_solomon_demon: "Metathiax"
+      season: "Early summer / Egyptian New Year"
+      other:
+        sky_region: "Sirius (α Canis Majoris) — the brightest star in the night sky"
+        special_note: "POSITION 1 in the ancient Egyptian decan sequence. The heliacal rising of Sirius (Sopdet/Sothis) marked the Egyptian New Year, the annual flooding of the Nile, and the beginning of the decan cycle. Isis was identified with Sopdet/Sothis in the later religious synthesis."
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference for all Egyptian decans"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Sirius — Egyptian New Year star; Isis star; Nile flood herald; decan-sequence origin"
+    mythic_narrative_summary: "The most important decan. Sepṭet/Sopdet IS Sirius — the brightest star in the night sky. Its heliacal rising (reappearance just before dawn after 70 days of invisibility) marked the Egyptian New Year and the annual inundation of the Nile. Identified with Isis, Sopdet was depicted as a woman with a star on her head. In the Ptolemaic synthesis, Sothis = Isis = Sirius. This is ancient sequence position 1 — the decan that launched the entire 36-part sky-clock system."
+  semantic_vocabulary:
+    symbolic_keywords: ["Sirius", "Sopdet", "Sothis", "Isis", "New Year", "Nile flood", "brightest star", "heliacal rising", "cycle origin", "Cancer"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Ancient Egyptian tradition; Sirius is the most documented star in Egyptian astronomy."
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    secondary_sources: ["Wikipedia: Sopdet", "Wikipedia: Sothis", "Wikipedia: Sirius in culture"]
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "egyptian-decan-011"
+  sign_name:
+    primary: "Ṭepā-Kenmut (Second decan of Cancer)"
+    variants: ["Tepa-Kenmut", "Seta", "Catarno", "Ouphisit"]
+    romanization: "Ṭepā-Kenmut"
+    budge_transliteration: "Ṭepā-Kenmut"
+    greco_egyptian_name: "Seta"
+    notes: "Name means 'head of Kenmut' — Kenmut being a star group; 'Tepa' (head/first) indicates leading star of the Kenmut group"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 11
+    ancient_sequence_position: 2
+    sign_classification:
+      western_zodiac_sign: "Cancer"
+      degrees_of_zodiac: "10–20° Cancer"
+      deity_association: "Hecate — Coptic decan name (Greek influence)"
+      testament_of_solomon_demon: "Katanikotael"
+      season: "Early summer"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Head of Kenmut star-group; second in the ancient sequence"
+    mythic_narrative_summary: "Second decan in the ancient Egyptian sequence; 'head of the Kenmut group'. Follows directly after Sirius in the original sky-clock ordering."
+  semantic_vocabulary:
+    symbolic_keywords: ["Kenmut head", "early Cancer", "sky-clock second", "hour-star"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-012"
+  sign_name:
+    primary: "Kenmut (Third decan of Cancer)"
+    variants: ["Knmt", "Knum", "Hellors", "Chnouphos"]
+    romanization: "Kenmut"
+    budge_transliteration: "Kenmut"
+    greco_egyptian_name: "Knum"
+    notes: "The Kenmut star group itself — often associated with Khnum (the ram-headed creator god who shapes souls on his potter's wheel); ancient sequence position 3"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 12
+    ancient_sequence_position: 3
+    sign_classification:
+      western_zodiac_sign: "Cancer"
+      degrees_of_zodiac: "20–30° Cancer"
+      deity_association: "Mercophta — Coptic decan name; Khnum association (Knum = Khnum)"
+      testament_of_solomon_demon: "Saphthorael / Saphathoraél"
+      season: "Early summer"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Khnum creator-god association; soul-shaping; third in ancient sequence"
+    mythic_narrative_summary: "Third decan in the ancient sequence; 'Kenmut' — the star group associated with Khnum, the ram-headed god who shapes souls on his potter's wheel at the Nile source. This decan carries creation and soul-formation mythology."
+  semantic_vocabulary:
+    symbolic_keywords: ["Kenmut", "Khnum", "creation", "soul-shaping", "potter's wheel", "Cancer", "Nile source"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-013"
+  sign_name:
+    primary: "Kher-khept-Kenmut (First decan of Leo)"
+    variants: ["Kher-khept-Knmt", "Χar-Knum", "Jarea", "Chnoumos"]
+    romanization: "Kher-khept-Kenmut"
+    budge_transliteration: "Kher-khept-Kenmut"
+    greco_egyptian_name: "Χar-Knum"
+    notes: "Name means 'below/following Kenmut' — the decan group that follows the Kenmut cluster"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 13
+    ancient_sequence_position: 4
+    sign_classification:
+      western_zodiac_sign: "Leo"
+      degrees_of_zodiac: "0–10° Leo"
+      deity_association: "Typhon — Coptic decan name; the chaos monster of Greek-Egyptian myth"
+      testament_of_solomon_demon: "Phobothel / Bobêl"
+      season: "Summer"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Below-Kenmut follower; Leo opener; chaos-adjacent"
+    mythic_narrative_summary: "Fourth in the ancient sequence; first Leo decan. Coptic name Typhon identifies this with the Greek chaos monster — in Egyptian theology equated with Set, the desert storm god who dismembered Osiris."
+  semantic_vocabulary:
+    symbolic_keywords: ["Typhon", "Set", "chaos", "desert storm", "Leo", "Kenmut follower"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-014"
+  sign_name:
+    primary: "Ḥā-tchat (Second decan of Leo)"
+    variants: ["Ha-tchat", "Ha-tet", "Effraa", "Ipi"]
+    romanization: "Ḥā-tchat"
+    budge_transliteration: "Ḥā-tchat"
+    greco_egyptian_name: "Ha-tet"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 14
+    ancient_sequence_position: 5
+    sign_classification:
+      western_zodiac_sign: "Leo"
+      degrees_of_zodiac: "10–20° Leo"
+      deity_association: "Peroeus — Coptic decan name (Greek influence)"
+      testament_of_solomon_demon: "Leroel / Kumeatêl"
+      season: "Summer"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Leo mid-sector; summer heat peak"
+    mythic_narrative_summary: "Fifth in the ancient sequence; second Leo decan. The Leo sector in Egyptian tradition coincided with the peak of summer heat — the hottest season, when the Nile began rising under the influence of Sirius (already risen in Cancer)."
+  semantic_vocabulary:
+    symbolic_keywords: ["Leo", "summer heat", "Nile rising", "fifth decan", "hour-star"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-015"
+  sign_name:
+    primary: "Peḥui-tchat (Third decan of Leo)"
+    variants: ["Pehui-tchat", "Phu-Tet", "Hayas", "Phatiti"]
+    romanization: "Peḥui-tchat"
+    budge_transliteration: "Peḥui-tchat"
+    greco_egyptian_name: "Phu-Tet"
+    notes: "Name means 'end/back of tchat' — tchat being an uncertain star group name; 'Pehui' indicates the trailing or rear portion"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 15
+    ancient_sequence_position: 6
+    sign_classification:
+      western_zodiac_sign: "Leo"
+      degrees_of_zodiac: "20–30° Leo"
+      deity_association: "Nephthe (Nephthys) — Coptic decan name"
+      testament_of_solomon_demon: "Soubetti"
+      season: "Summer"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "End of Leo; Nephthys — goddess of the dead, twilight, protection"
+    mythic_narrative_summary: "Sixth in the ancient sequence; third Leo decan. Coptic association with Nephthys, twin sister of Isis and Lady of the House — goddess who protected the dead alongside Isis. Leo's end sector carries the transition from blazing summer into autumn."
+  semantic_vocabulary:
+    symbolic_keywords: ["Nephthys", "death guardian", "twilight", "protection", "Leo end", "summer transition"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-016"
+  sign_name:
+    primary: "Themat-ḥert (First decan of Virgo)"
+    variants: ["Themat-hert", "Tom", "Angaf", "Athoum"]
+    romanization: "Themat-ḥert"
+    budge_transliteration: "Themat-ḥert"
+    greco_egyptian_name: "Tom"
+    notes: "Name means 'upper Themat' — Themat being an uncertain star group; 'hert' = upper/northern"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 16
+    ancient_sequence_position: 7
+    sign_classification:
+      western_zodiac_sign: "Virgo"
+      degrees_of_zodiac: "0–10° Virgo"
+      deity_association: "Isis — Coptic decan name"
+      testament_of_solomon_demon: "Katrax / Atrax"
+      season: "Late summer / harvest"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Virgo opener; Isis; harvest-time; grain-maiden"
+    mythic_narrative_summary: "Seventh in the ancient sequence; first Virgo decan. Coptic association with Isis — the great mother-goddess who searched for the dismembered Osiris. Virgo's identification with the grain-maiden and harvest connects to Isis as provider of agriculture."
+  semantic_vocabulary:
+    symbolic_keywords: ["Isis", "grain-maiden", "harvest", "mother-goddess", "Virgo", "upper Themat"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-017"
+  sign_name:
+    primary: "Themat-khert (Second decan of Virgo)"
+    variants: ["Themat-khert", "Uste-bikot", "Bethapen", "Brysous"]
+    romanization: "Themat-khert"
+    budge_transliteration: "Themat-khert"
+    greco_egyptian_name: "Uste-bikot"
+    notes: "Name means 'lower Themat' — the southern/lower portion of the Themat group; 'khert' = lower/southern"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 17
+    ancient_sequence_position: 8
+    sign_classification:
+      western_zodiac_sign: "Virgo"
+      degrees_of_zodiac: "10–20° Virgo"
+      deity_association: "Piosiris (P-Osiris, 'he who is Osiris') — Coptic decan name"
+      testament_of_solomon_demon: "Jeropa / Ieropaêl"
+      season: "Late summer / harvest"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Lower Themat; Osiris embodiment; Virgo mid-sector"
+    mythic_narrative_summary: "Eighth in the ancient sequence; second Virgo decan. Coptic name Piosiris ('he who is Osiris') — this decan directly embodies the lord of the dead and resurrection. In the Isis-Osiris myth, Virgo contained the region where Osiris's dismembered body was scattered and reassembled."
+  semantic_vocabulary:
+    symbolic_keywords: ["Osiris", "resurrection", "lower Themat", "Virgo", "dismemberment myth", "reassembly"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-018"
+  sign_name:
+    primary: "Usthȧ (Third decan of Virgo)"
+    variants: ["Ustha", "Aposot", "Baroche", "Amphatham"]
+    romanization: "Usthȧ"
+    budge_transliteration: "Usthȧ"
+    greco_egyptian_name: "Aposot"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 18
+    ancient_sequence_position: 9
+    sign_classification:
+      western_zodiac_sign: "Virgo"
+      degrees_of_zodiac: "20–30° Virgo"
+      deity_association: "Cronus (Saturn) — Coptic decan name (Greek influence)"
+      testament_of_solomon_demon: "Modobel / Buldumêch"
+      season: "Early autumn"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Virgo endpoint; Cronus/time-god; autumn transition"
+    mythic_narrative_summary: "Ninth in the ancient sequence; third Virgo decan. Coptic association with Cronus (time and harvest god) — appropriate for the decan at the Virgo-Libra border as the harvest season ends and the balance of autumn equinox approaches."
+  semantic_vocabulary:
+    symbolic_keywords: ["Cronus", "time", "harvest end", "autumn equinox approach", "Virgo end"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-019"
+  sign_name:
+    primary: "Bekathȧ (First decan of Libra)"
+    variants: ["Bekatha", "Sob-χos", "Zercuris", "Sphoukou"]
+    romanization: "Bekathȧ"
+    budge_transliteration: "Bekathȧ"
+    greco_egyptian_name: "Sob-χos (Sobek)"
+    notes: "Greco-Egyptian name connects to Sobek (Sobekhos) — the crocodile god"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 19
+    ancient_sequence_position: 10
+    sign_classification:
+      western_zodiac_sign: "Libra"
+      degrees_of_zodiac: "0–10° Libra"
+      deity_association: "Sobek (Sobekhos) / Zeuda — Coptic decan name"
+      testament_of_solomon_demon: "Madero / Naôth"
+      season: "Autumn / equinox"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Sobek — crocodile god; Nile waters; Libra opener"
+    mythic_narrative_summary: "Tenth in the ancient sequence; first Libra decan. Associated with Sobek the crocodile god — lord of the Nile waters and fearsome guardian. The Libra sector marks the autumn equinox and the balance-point of the year."
+  semantic_vocabulary:
+    symbolic_keywords: ["Sobek", "crocodile", "Nile", "water power", "Libra", "autumn equinox", "balance"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-020"
+  sign_name:
+    primary: "Ṭepā-khentet (Second decan of Libra)"
+    variants: ["Tepa-khentet", "Tpa-χont", "Baham", "Nephthimes"]
+    romanization: "Ṭepā-khentet"
+    budge_transliteration: "Ṭepā-khentet"
+    greco_egyptian_name: "Tpa-χont"
+    notes: "Name means 'head/first of Khentet' — a star group in the southern sky"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 20
+    ancient_sequence_position: 11
+    sign_classification:
+      western_zodiac_sign: "Libra"
+      degrees_of_zodiac: "10–20° Libra"
+      deity_association: "Omphta — Coptic decan name"
+      testament_of_solomon_demon: "Nathotho / Marderô"
+      season: "Autumn"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Head of Khentet star-group; Libra mid-sector"
+    mythic_narrative_summary: "Eleventh in the ancient sequence; second Libra decan. 'Head of Khentet' — a southern star group whose identity is uncertain in modern scholarship."
+  semantic_vocabulary:
+    symbolic_keywords: ["Khentet head", "southern stars", "Libra", "autumn", "hour-star"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-021"
+  sign_name:
+    primary: "Khentet-ḥert (Third decan of Libra)"
+    variants: ["Khentet-hert", "Xont-har", "Pieret", "Phou"]
+    romanization: "Khentet-ḥert"
+    budge_transliteration: "Khentet-ḥert"
+    greco_egyptian_name: "Xont-har"
+    notes: "Name means 'upper Khentet' — northern portion of the Khentet star group. Note: Xont-har also appears as the Greco-Egyptian name for Decan 1 — this naming overlap indicates the complexity of decan name transmission across periods."
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 21
+    ancient_sequence_position: 12
+    sign_classification:
+      western_zodiac_sign: "Libra"
+      degrees_of_zodiac: "20–30° Libra"
+      deity_association: "Ophionius — Coptic decan name (serpent-form)"
+      testament_of_solomon_demon: "Alath"
+      season: "Autumn"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Upper Khentet; serpent-deity; Libra end"
+    mythic_narrative_summary: "Twelfth in the ancient sequence; third Libra decan. Coptic name Ophionius ('serpent one') — serpent deities were important in Egyptian cosmology as both protective (Wadjet, Ouroboros) and destructive (Apophis) forces."
+  semantic_vocabulary:
+    symbolic_keywords: ["serpent", "Ophionius", "upper Khentet", "Libra end", "protective-serpent", "chaos-serpent"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-022"
+  sign_name:
+    primary: "Khentet-khert (First decan of Scorpio)"
+    variants: ["Khentet-khert", "Spt-χne", "Haziza", "Name"]
+    romanization: "Khentet-khert"
+    budge_transliteration: "Khentet-khert"
+    greco_egyptian_name: "Spt-χne"
+    notes: "Name means 'lower Khentet' — southern portion of the Khentet group"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 22
+    ancient_sequence_position: 13
+    sign_classification:
+      western_zodiac_sign: "Scorpio"
+      degrees_of_zodiac: "0–10° Scorpio"
+      deity_association: "Arimanius — Coptic decan name (Persian Ahriman influence — the dark principle)"
+      testament_of_solomon_demon: "Audameoth"
+      season: "Late autumn"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Lower Khentet; dark principle; Scorpio opener; death-season"
+    mythic_narrative_summary: "Thirteenth in the ancient sequence; first Scorpio decan. Coptic name Arimanius (from Ahriman, the Zoroastrian dark principle) — evidence of Persian influence during the late period. Scorpio was the death-sign, associated with Selkis the scorpion goddess and funerary protection."
+  semantic_vocabulary:
+    symbolic_keywords: ["Ahriman", "dark principle", "Scorpio", "death", "Selkis", "scorpion goddess", "lower Khentet"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-023"
+  sign_name:
+    primary: "Themes-en-khentet (Second decan of Scorpio)"
+    variants: ["Themes-en-khentet", "Sesme", "Nacy", "Oustichos"]
+    romanization: "Themes-en-khentet"
+    budge_transliteration: "Themes-en-khentet"
+    greco_egyptian_name: "Sesme"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 23
+    ancient_sequence_position: 14
+    sign_classification:
+      western_zodiac_sign: "Scorpio"
+      degrees_of_zodiac: "10–20° Scorpio"
+      deity_association: "Merota — Coptic decan name"
+      testament_of_solomon_demon: "Nefthada"
+      season: "Late autumn"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Scorpio mid-sector; underworld depths"
+    mythic_narrative_summary: "Fourteenth in the ancient sequence; second Scorpio decan. The middle of Scorpio is the deepest underworld sector in Egyptian astral theology — where the sun-god Ra must navigate the most dangerous hours of the night journey."
+  semantic_vocabulary:
+    symbolic_keywords: ["Scorpio mid", "underworld depth", "Ra night journey", "danger", "darkness"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-024"
+  sign_name:
+    primary: "Sapt-khennu (Third decan of Scorpio)"
+    variants: ["Sapt-khenu", "Si-sesme", "Alleinac", "Aphebis"]
+    romanization: "Sapt-khennu"
+    budge_transliteration: "Sapt-khennu"
+    greco_egyptian_name: "Si-sesme"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 24
+    ancient_sequence_position: 15
+    sign_classification:
+      western_zodiac_sign: "Scorpio"
+      degrees_of_zodiac: "20–30° Scorpio"
+      deity_association: "Panotragus — Coptic decan name (goat-pan form)"
+      testament_of_solomon_demon: "Akton"
+      season: "Late autumn"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Scorpio end; boundary-crossing; transition toward Sagittarius"
+    mythic_narrative_summary: "Fifteenth in the ancient sequence; third Scorpio decan. Exit from the death-sector of Scorpio into Sagittarius — the archer-centaur who launches souls toward the galactic center."
+  semantic_vocabulary:
+    symbolic_keywords: ["Scorpio end", "death-sector exit", "boundary", "Sagittarius transition"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-025"
+  sign_name:
+    primary: "Ḥer-ab-uȧa (First decan of Sagittarius)"
+    variants: ["Her-ab-uia", "Hre-ua", "Ortusa", "Sebos"]
+    romanization: "Ḥer-ab-uȧa"
+    budge_transliteration: "Ḥer-ab-uȧa"
+    greco_egyptian_name: "Hre-ua"
+    notes: "Name may mean 'Horus in the middle of the boat' — ḥry-ỉb wỉꜣ in Hieroglyphic Egyptian; Sarah Symons notes this as one of the few decan names whose meaning can be translated with confidence"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 25
+    ancient_sequence_position: 16
+    sign_classification:
+      western_zodiac_sign: "Sagittarius"
+      degrees_of_zodiac: "0–10° Sagittarius"
+      deity_association: "Tolmophta — Coptic decan name"
+      testament_of_solomon_demon: "Anatreth"
+      season: "Early winter"
+      other:
+        scholarly_name_note: "Sarah Symons (cited in Wikipedia:Decan) identifies ḥry-ỉb wỉꜣ ('in the centre of the boat') as one of the few translatable decan names — the solar barque of Ra"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Horus in the solar barque; sky-navigation; Sagittarius opener"
+    mythic_narrative_summary: "Sixteenth in the ancient sequence; first Sagittarius decan. 'Horus in the centre of the barque' — one of the few decan names scholars can translate with confidence. Horus the falcon-god steers the solar barque of Ra through the sky. Sagittarius, the archer-centaur, aligns with the galactic center — the densest region of the Milky Way, which Egyptians may have associated with the celestial river/Nile."
+  semantic_vocabulary:
+    symbolic_keywords: ["Horus", "solar barque", "sky navigation", "galactic center", "Sagittarius", "Ra", "celestial boat"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    secondary_sources: ["Symons, S. (2007) — cited in Wikipedia:Decan for translatable name ḥry-ỉb wỉꜣ"]
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "egyptian-decan-026"
+  sign_name:
+    primary: "Shesmu (Second decan of Sagittarius)"
+    variants: ["Sesme", "Si-sesme", "Daha", "Teuchmos"]
+    romanization: "Shesmu"
+    budge_transliteration: "Shesmu"
+    greco_egyptian_name: "Sesme"
+    notes: "Shesmu is also the name of the Egyptian god of the wine press and perfume — a deity who crushes grapes/skulls, associated with both pleasure and violence. One of the more distinctly named decans."
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 26
+    ancient_sequence_position: 17
+    sign_classification:
+      western_zodiac_sign: "Sagittarius"
+      degrees_of_zodiac: "10–20° Sagittarius"
+      deity_association: "Shesmu — the wine-press god, perfume god; skull-crusher; Tomras — Coptic decan name"
+      testament_of_solomon_demon: "Enautha / Enenuth"
+      season: "Early winter"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Shesmu — wine-press, perfume, violent joy; duality of pleasure and destruction"
+    mythic_narrative_summary: "Seventeenth in the ancient sequence; second Sagittarius decan. Shesmu is a striking deity — he crushes grapes into wine AND crushes the heads of the unworthy dead. The wine-press is a metaphor for both intoxication and execution. His decan falls in mid-Sagittarius, the galactic center region."
+  semantic_vocabulary:
+    symbolic_keywords: ["Shesmu", "wine press", "perfume", "skull crusher", "duality", "Sagittarius", "violent joy", "galactic center"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "high"
+
+- sign_id: "egyptian-decan-027"
+  sign_name:
+    primary: "Kenmu (Third decan of Sagittarius)"
+    variants: ["Kenmu", "Konime", "Satan", "Chthisar"]
+    romanization: "Kenmu"
+    budge_transliteration: "Kenmu"
+    greco_egyptian_name: "Konime"
+    notes: "Testament of Solomon name 'Satan' for this decan is striking — a late-period demonological reinterpretation in the Jewish-Christian transmission of decan lore"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition", "Jewish demonological tradition (Testament of Solomon)"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 27
+    ancient_sequence_position: 18
+    sign_classification:
+      western_zodiac_sign: "Sagittarius"
+      degrees_of_zodiac: "20–30° Sagittarius"
+      deity_association: "Teraph — Coptic decan name (household idol reference); Testament of Solomon: 'Satan'"
+      season: "Winter solstice approach"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Adversarial principle; Sagittarius end; winter darkness approach"
+    mythic_narrative_summary: "Eighteenth in the ancient sequence; third Sagittarius decan. The demonological reception of Egyptian decans is most visible here — the Testament of Solomon assigns 'Satan' to this decan. The Sagittarius-Capricorn cusp approaches the winter solstice — the darkest point of the year."
+  semantic_vocabulary:
+    symbolic_keywords: ["adversary", "dark principle", "winter approach", "demonological tradition", "Sagittarius end", "Teraph"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-028"
+  sign_name:
+    primary: "Semṭet (First decan of Capricorn)"
+    variants: ["Semtet", "Smat", "Eracto", "Tair"]
+    romanization: "Semṭet"
+    budge_transliteration: "Semṭet"
+    greco_egyptian_name: "Smat"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 28
+    ancient_sequence_position: 19
+    sign_classification:
+      western_zodiac_sign: "Capricorn"
+      degrees_of_zodiac: "0–10° Capricorn"
+      deity_association: "Asklepios (Imhotep in Egyptian) — Coptic decan name; healing god"
+      testament_of_solomon_demon: "Hapax / Harpax"
+      season: "Winter solstice / midwinter"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Winter solstice opener; Asklepios/Imhotep healing; darkest season"
+    mythic_narrative_summary: "Nineteenth in the ancient sequence; first Capricorn decan. Coptic name Asklepios — the Greek healing god equated with Imhotep, the deified Egyptian physician and architect. The winter solstice begins in Capricorn — the sun is at its lowest and weakest, and healing energy marks the promised return of light."
+  semantic_vocabulary:
+    symbolic_keywords: ["Imhotep", "Asklepios", "healing", "winter solstice", "physician", "Capricorn", "light return"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-029"
+  sign_name:
+    primary: "Ṭepā-semṭ (Second decan of Capricorn)"
+    variants: ["Tepa-semet", "Srat", "Salac", "Epitek"]
+    romanization: "Ṭepā-semṭ"
+    budge_transliteration: "Ṭepā-semṭ"
+    greco_egyptian_name: "Srat"
+    notes: "Name means 'head/first of Semṭ' — a star group; 'Tepa' = head or first"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 29
+    ancient_sequence_position: 20
+    sign_classification:
+      western_zodiac_sign: "Capricorn"
+      degrees_of_zodiac: "10–20° Capricorn"
+      deity_association: "Hygieia — Coptic decan name (Greek goddess of health)"
+      testament_of_solomon_demon: "Anoster"
+      season: "Winter"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Head of Semet group; Hygieia health-goddess; Capricorn mid-winter"
+    mythic_narrative_summary: "Twentieth in the ancient sequence; second Capricorn decan. Coptic name Hygieia (goddess of health/sanitation) continues the healing theme of the Capricorn sector established by Asklepios in the preceding decan."
+  semantic_vocabulary:
+    symbolic_keywords: ["Hygieia", "health", "sanitation", "Capricorn", "winter healing", "head of Semet"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-030"
+  sign_name:
+    primary: "Sert (Third decan of Capricorn)"
+    variants: ["Sert", "Si-srat", "Seros", "Epichnaus"]
+    romanization: "Sert"
+    budge_transliteration: "Sert"
+    greco_egyptian_name: "Si-srat"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 30
+    ancient_sequence_position: 21
+    sign_classification:
+      western_zodiac_sign: "Capricorn"
+      degrees_of_zodiac: "20–30° Capricorn"
+      deity_association: "Tolma / Monuphta — Coptic decan name"
+      testament_of_solomon_demon: "Physikoreth / Alleborith"
+      season: "Late winter"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Capricorn end; winter passage; mountain-goat ascent"
+    mythic_narrative_summary: "Twenty-first in the ancient sequence; third Capricorn decan. The end of Capricorn marks the sun's climb back toward the horizon after the winter solstice nadir — metaphorically the mountain-goat climbing upward."
+  semantic_vocabulary:
+    symbolic_keywords: ["Capricorn end", "ascent", "winter passage", "mountain climb", "return of light"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-031"
+  sign_name:
+    primary: "Sasa-sert (First decan of Aquarius)"
+    variants: ["Sasa-sert", "Tpa-χu", "Tonghel", "Isi"]
+    romanization: "Sasa-sert"
+    budge_transliteration: "Sasa-sert"
+    greco_egyptian_name: "Tpa-χu"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 31
+    ancient_sequence_position: 22
+    sign_classification:
+      western_zodiac_sign: "Aquarius"
+      degrees_of_zodiac: "0–10° Aquarius"
+      deity_association: "Dike (justice/righteousness) — Coptic decan name (Greek influence)"
+      testament_of_solomon_demon: "Aleureth / Hephesimireth"
+      season: "Late winter / pre-spring"
+      other:
+        notes: "Aquarius = Hapi (the Nile flood god) in Egyptian tradition — Aquarius is depicted as a man pouring two vessels of water in Egyptian iconography"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Aquarius/Hapi opener; Nile flood anticipation; Dike justice"
+    mythic_narrative_summary: "Twenty-second in the ancient sequence; first Aquarius decan. In the Dendera zodiac, Aquarius is depicted as Hapi, the Egyptian Nile flood god, pouring two vessels of water. This decan opens the Aquarius sector — the Water-Bearer's anticipation of the Nile flood season."
+  semantic_vocabulary:
+    symbolic_keywords: ["Hapi", "Nile flood", "water pourer", "Aquarius", "justice", "Dike", "anticipation"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-032"
+  sign_name:
+    primary: "Kher-khept-sert (Second decan of Aquarius)"
+    variants: ["Kher-khept-sert", "Xu", "Anafa", "Sosomo"]
+    romanization: "Kher-khept-sert"
+    budge_transliteration: "Kher-khept-sert"
+    greco_egyptian_name: "Xu"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 32
+    ancient_sequence_position: 23
+    sign_classification:
+      western_zodiac_sign: "Aquarius"
+      degrees_of_zodiac: "10–20° Aquarius"
+      deity_association: "Phobos / Vucula — Coptic decan name"
+      testament_of_solomon_demon: "Ichthion"
+      season: "Late winter"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Below/following Sert group; Aquarius mid; water flow"
+    mythic_narrative_summary: "Twenty-third in the ancient sequence; second Aquarius decan. The Greco-Egyptian name 'Xu' is notably brief — possibly an abbreviated form of a longer star-group name lost in transmission."
+  semantic_vocabulary:
+    symbolic_keywords: ["Aquarius mid", "water flow", "Nile", "abbreviated name", "hour-star"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-033"
+  sign_name:
+    primary: "Khukhu (Third decan of Aquarius)"
+    variants: ["Khukhu", "Tpa-Biu", "Simos", "Chonoumous"]
+    romanization: "Khukhu"
+    budge_transliteration: "Khukhu"
+    greco_egyptian_name: "Tpa-Biu"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 33
+    ancient_sequence_position: 24
+    sign_classification:
+      western_zodiac_sign: "Aquarius"
+      degrees_of_zodiac: "20–30° Aquarius"
+      deity_association: "Osiris / Proteus — Coptic decan name"
+      testament_of_solomon_demon: "Achoneoth / Agchoniôn"
+      season: "Pre-spring"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Aquarius end; Osiris resurrection; spring approach"
+    mythic_narrative_summary: "Twenty-fourth in the ancient sequence; third Aquarius decan. Coptic association with Osiris (Tepisatras in one reading) and Proteus (the shape-shifter of Greek myth). Aquarius ends as the waters of the pre-spring sky give way to the fish of Pisces."
+  semantic_vocabulary:
+    symbolic_keywords: ["Osiris", "resurrection", "shape-shifter", "Aquarius end", "water", "pre-spring"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-034"
+  sign_name:
+    primary: "Baba (First decan of Pisces)"
+    variants: ["Baba", "Biu", "Achaf", "Tetimo"]
+    romanization: "Baba"
+    budge_transliteration: "Baba"
+    greco_egyptian_name: "Biu"
+    notes: "Baba is also an Egyptian deity — the fierce baboon god, associated with aggressive sexuality and violent power; first-born son of Osiris in some traditions"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 34
+    ancient_sequence_position: 25
+    sign_classification:
+      western_zodiac_sign: "Pisces"
+      degrees_of_zodiac: "0–10° Pisces"
+      deity_association: "Baba (baboon god, son of Osiris) / Okeanos — Coptic decan name (primordial ocean)"
+      testament_of_solomon_demon: "Autoth / Autothith"
+      season: "Early spring / renewal"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Baba baboon-god; primal force; Pisces opener; primordial ocean"
+    mythic_narrative_summary: "Twenty-fifth in the ancient sequence; first Pisces decan. Baba the baboon god is a vivid figure — aggressive, powerful, protective of Osiris. Coptic association with Okeanos (the primordial ocean encircling the world) fits Pisces as the final water sign preceding the rebirth of the cycle."
+  semantic_vocabulary:
+    symbolic_keywords: ["Baba", "baboon god", "primal force", "Osiris son", "Okeanos", "primordial ocean", "Pisces"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-035"
+  sign_name:
+    primary: "Khent-ḥeru (Second decan of Pisces)"
+    variants: ["Khent-heru", "Tpī-biu", "Xont-Har", "Larvata", "Sopphi"]
+    romanization: "Khent-ḥeru"
+    budge_transliteration: "Khent-ḥeru"
+    greco_egyptian_name: "Tpī-biu"
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 35
+    ancient_sequence_position: 26
+    sign_classification:
+      western_zodiac_sign: "Pisces"
+      degrees_of_zodiac: "10–20° Pisces"
+      deity_association: "Dolus (deception god) / Thopibui — Coptic decan name"
+      testament_of_solomon_demon: "Phtheneoth / Phthenoth"
+      season: "Early spring"
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Pisces mid; dissolution; trickster energy; spring approaching"
+    mythic_narrative_summary: "Twenty-sixth in the ancient sequence; second Pisces decan. Coptic name Dolus (the deception/trick deity) gives this decan a trickster quality — fitting for the dissolving, boundary-blurring nature of mid-Pisces."
+  semantic_vocabulary:
+    symbolic_keywords: ["Dolus", "deception", "trickster", "dissolution", "Pisces", "spring approach"]
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
+
+- sign_id: "egyptian-decan-036"
+  sign_name:
+    primary: "Ḥer-ȧb-khentu (Third decan of Pisces)"
+    variants: ["Her-ab-khentu", "Tpi-biu", "Biu", "Ajaras", "Syro"]
+    romanization: "Ḥer-ȧb-khentu"
+    budge_transliteration: "Ḥer-ȧb-khentu"
+    greco_egyptian_name: "Tpi-biu"
+    notes: "The 36th decan — end of the complete cycle. Ancient sequence position 27. The cycle ends here before returning to Sirius/Sepṭet at ancient position 1 (which falls in Cancer in the Western zodiac mapping). The final Pisces decan represents the dissolution of the old year into the cosmic ocean before the cycle's renewal."
+  cultural_tradition:
+    primary_culture: "Ancient Egyptian"
+    derivative_cultures: ["Greco-Roman / Hellenistic decan tradition", "Hermetic tradition"]
+    geographic_origin: "Egypt (Nile Valley)"
+    period_range: "Old Kingdom origin ~2400 BCE; Ptolemaic codification ~50 BCE"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Egyptian Decans (36-decan system)"
+    total_signs_in_system: 36
+    position_in_system: 36
+    ancient_sequence_position: 27
+    sign_classification:
+      western_zodiac_sign: "Pisces"
+      degrees_of_zodiac: "20–30° Pisces"
+      deity_association: "Elpis (Hope) / Atembui — Coptic decan name; final decan of the cycle"
+      testament_of_solomon_demon: "Bianakith"
+      season: "Spring equinox approach / year-end"
+      other:
+        special_note: "Final decan of the 36-entry cycle. The Pisces-Aries border marks the spring equinox and the annual rebirth of the solar year. In the original Egyptian sequence, this was position 27 of 36 — the sequence continues through 9 more decans (mapped to Aries/Taurus/Gemini) before completing at position 36 with A-Saḥ (decan of Orion)."
+  visual_representation:
+    image_url:
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg/250px-Zodiaque_de_Dend%C3%A9ra_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_Egyptiennes_D_38_%3B_E_13482.jpg"
+      description: "Dendera Zodiac — shared visual reference for all 36 Egyptian decans"
+      source: "Wikipedia Commons / Musée du Louvre"
+      license: "Public Domain"
+      verified_loads: true
+  primitive_association_hints:
+    symbolic_role: "Cycle completion; Hope; dissolution into renewal; spring equinox threshold"
+    mythic_narrative_summary: "Final decan in the Western zodiac ordering of the 36-decan system. Coptic name Elpis (Hope) — a strikingly positive name for the end of the dark winter cycle. Pisces dissolves into Aries; the cycle of decans prepares to begin again with the heliacal rising of Sirius (the true origin). In the Egyptian funerary tradition, this decan stood at the threshold of rebirth — after the deceased navigated all 36 decan-hours, they arrived at renewal."
+  semantic_vocabulary:
+    symbolic_keywords: ["Elpis", "Hope", "cycle completion", "renewal threshold", "Pisces end", "spring equinox", "rebirth", "dissolution"]
+    mythic_narrative: "The final decan of the 36-cycle. The Egyptian decan system began with Sirius — the star of Isis, herald of the Nile flood, bringer of the New Year. It ends (in this Western-zodiac ordering) with Hope (Elpis), as Pisces yields to Aries and the solar year restarts. The complete passage through all 36 decans traces a year of sky-time — at night, a complete journey through the underworld — and at death, the full navigation of the star-clock that guided the soul."
+    visual_motifs: ["Dendera zodiac final figure", "cycle renewal", "spring equinox threshold", "coffin star-table endpoint"]
+  cultural_sensitivity:
+    flag_level: "none"
+    explanation: "Ancient Egyptian tradition; fully documented in major museum collections and academic Egyptology."
+    source_authorization: "Wikipedia + Louvre + British Museum + Neugebauer & Parker (1969)"
+  provenance:
+    primary_source_url: "https://en.wikipedia.org/wiki/Decan"
+    secondary_sources:
+      - "Wikipedia: Dendera zodiac"
+      - "Wikipedia: Egyptian astronomy"
+      - "Neugebauer, O. & Parker, R.A. Egyptian Astronomical Texts Vol. 1-3 (1969)"
+      - "Symons, S. (2007) — decan identification scholarship"
+    academic_anchor: "Neugebauer & Parker, Egyptian Astronomical Texts (1969)"
+    crawl_date: "2026-06-09"
+    legolas_confidence: "medium"
