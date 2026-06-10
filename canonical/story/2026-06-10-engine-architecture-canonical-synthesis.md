@@ -1,6 +1,8 @@
 # Engine Architecture Canonical Synthesis — Fable-5 Phase 1
 
-> **STATUS:** CURRENT pending Gate-1 critique-pair review (Matt + jack-ryan) per Discipline #51 (`~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` #51 — synthesis-draft adversarial critique before canonical status firms)
+> **STATUS:** CURRENT (reference/navigation surface — NOT a lock) — Gate-1 PASS 2026-06-10 (jack-ryan QA-side PASS concordant with gandalf design-side PASS; finding `agentic_orchestration/qa/findings/2026-06-10-engine-architecture-synthesis-gate-1.md`, commit a58c19f; 7/7 citation fidelity, zero-contradiction headline survived stress-test, no defect papered over) per Discipline #51 (`~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` #51 — synthesis-draft adversarial critique before canonical status firms).
+>
+> **NAVIGATE-TO-SOURCE (Gate-1 INFO note 1):** this doc is a reference surface, not the canonical lock for any claim. Downstream consumers MUST navigate to the cited source doc before acting on a load-bearing claim; never treat this synthesis AS the lock. Where synthesis and source diverge, the source wins (see § 1).
 >
 > **Date:** 2026-06-10
 > **Author:** gandalf (story-and-design steward)
@@ -274,7 +276,7 @@ Per recognition-validate-commit discipline, each entry carries its empirical re-
 | 21 | VIT attribute; trait identity-modulators; max-8-active skill constraint | attribute-system § 1; cleanup-audit § 3; roadmap § 3 Phase 2a | v1.1+; v1.1+; Phase 2a work-unit |
 | 22 | BC-axis Pattern-6 revisit (axes derived vs assigned) | cleanup-audit § 4.2 | Post-axis-discovery (≥1,000-weapon PCA/factor analysis evidence) |
 
-**Contradiction count: zero.** Every apparent divergence surfaced during the 33-source read resolved as either layered vocabulary (§ 5.4), lineage supersession with explicit amendment record (§ 3.8, § 6.1), or estimate-vs-actual within range (composition-policy ~1,700–3,100 vs locked 2,293). This is itself a finding: the canon's amendment-pass discipline (STATUS stamps, § 0.1 amendment records, supersession-by-refinement) is holding.
+**Contradiction count: zero** — *scoped to cross-source contradictions surfaced during the 33-source read; this is a claim about reconciliation completeness, NOT about architectural completeness (open gaps remain — see the § 9 deferred register).* Every apparent divergence resolved as either layered vocabulary (§ 5.4), lineage supersession with explicit amendment record (§ 3.8, § 6.1), or estimate-vs-actual within range (composition-policy ~1,700–3,100 vs locked 2,293). This is itself a finding: the canon's amendment-pass discipline (STATUS stamps, § 0.1 amendment records, supersession-by-refinement) is holding.
 
 ---
 
