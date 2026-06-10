@@ -285,3 +285,185 @@ Together they form the cemented future-state architecture. The cosmograph is the
 **Authored:** gandalf 2026-06-06 per Matt verbatim ratification across multi-iteration design call (NA-substrate-blind framing-audit recognition + kit-as-star vs primitive-as-star Pattern A-deep verdict + hypothesis-flow doc identification as cemented future-state + atomic-substrate-registry authoring + race + skill-tree-position + seasonal-substrate-rotation + Depth-2 derivation + Naming Layer stack + Move B simulation authorization)
 
 **End of 2026-06-06 amendment.**
+
+---
+
+## 10. Amendment 2026-06-09 — primitive-as-glyph refinement + Branch A canonical commitment (Tal Rasha § 4.1)
+
+**STATUS:** CURRENT (load-bearing canonical commitment; supersedes § 9.1 anchor-as-star framing for primitive-anchor layer; preserves all other § 9 substantive content)
+**Authority:** Matt 2026-06-09 ratification of Drax /forge Phase 4 amended GREEN as the empirical-evidence trigger satisfying Tal Rasha recognition record § 5 Trigger 2 (Branch A architectural-commitment scope fires per § 4.1)
+**Recognition antecedent:** `canonical/story/2026-06-09-tal-rasha-glyphic-primitive-anchor-architecture-recognition.md` (commit `d3328e8`)
+**Empirical-evidence chain:**
+- Legolas Mode B zodiac substrate corpus completion (N=423 across 26 cross-cultural traditions; commit `d92ce29`)
+- Drax /forge Phase 3 close (`5ae75d3`) — bounded constellation kit-render + atmospheric foundation validated
+- Elrond Hotspot A substrate-vector proximity consultation (`5b28a12`) — methodology framing for downstream consultations
+- Drax /forge Phase 4 amended close (`347e6b5`) — rune-per-group + two-tier selection architecture GREEN; 12/12 acceptance criteria PASS; falsifiable floor cleared (Tier 1 for all 6 groups + Tier 2 beyond minimum + sign-as-input architectural intent validated on all 6 groups via Option γ Input:[tap/sign] toggle)
+- Gandalf Phase 3 design review (`150adb8`) + Phase 4 amended design review (`86f1351`) — both PASS-WITH-DESIGN-RECOMMENDATIONS; Branch A canonical authoring-lane READY
+- Jack-ryan Gate-2 Phase 3 (`c757964`) + Phase 4 amended (`0df2753`) — both PASS-WITH-INFO; critique-pair CONCUR
+
+**Final Vercel preview anchoring this commit:** `https://reincarnated-loadout-ql329yk9u-matthew-wetmore-s-projects.vercel.app`
+
+### 10.1 Primitive-anchor refinement — primitive-as-glyph + kit-as-constellation
+
+The § 9.1 substrate-architecture commitment is REFINED at the primitive-anchor visual register layer per Tal Rasha § 4.1:
+
+- **Stars** remain the rendering primitive at the kit-cluster layer (kits as constellations of stars per § 9.1; § 9.3 element-tint-via-primitives + T4-as-extra-bright unchanged at the in-constellation layer)
+- **Primitive-anchors are GLYPHS, not stars** — large atmospheric symbolic forms in a categorically distinct visual register from figurative constellations
+- **Constellations remain kits** — figurative star-figures bounded within the celestial sphere surface
+- **The two-layer + buffer-space architecture (2026-06-08 mobile-Claude dialogue) is the cognitive frame** the glyph-vs-constellation register operationalizes; the two layers are no longer "more vs less stars" — they are **figurative vs symbolic visual register**, categorically distinct without explanation
+
+This refines § 9.1 "primitive-as-star" framing where it concerns the primitive-anchor LAYER. § 9.1 stars-as-primitives at the in-constellation composition layer (the bright stars within a kit-constellation are the BDI-β-driving load-bearing primitives) is PRESERVED unchanged. The refinement targets the cross-group ANCHOR rendering surface, not the in-constellation composition.
+
+### 10.2 Visual register specification (Matt verbatim 2026-06-09)
+
+Primitive-glyph anchors render per the following load-bearing visual register, validated empirically at Phase 4 atmospheric rune render:
+
+- **Large.** Atmospheric footprint sized to "loom behind" kit clusters; Phase 4 empirical anchor: `atmospheric_radius=1800px` (~7× Phase 3 nebula footprint) at 11000×8500px world / 3×2 grid scale. UE 3D port scope adapts to spherical shell geometry per § 10.6 below.
+- **Atmospheric.** Diffuse outer halo + mid-haze + inner stroke glow; multi-layer compositional render; visible at 1× zoom against dark background; "looms" rather than "sits."
+- **Light-edge brush-stroke.** Glyph stroke rendered with outer glow + mid glow + main body + edge highlight; luminous emphasis on stroke edges; intensifies at zoom-in.
+- **No color.** Monochromatic luminous white/silver; element color reserved for kit-cluster stars; primitive-glyph categorically distinct from element-tinted constellations.
+- **Drawn by light only.** Glyph is a luminous form, not a solid object; no surface; no fill; emergence-from-darkness register.
+
+This visual register operationalizes the "sign in the night sky" architectural intent per Matt 2026-06-09 verbatim. The 2D web Phase 4 implementation (PIXI.Text + 4-layer atmospheric circular fills + 4-layer glyph text) is the floor; the UE 3D port (WS2 Niagara VFX scope) extends to SplineMesh + Emissive material + particle-based noise-driven diffusion per § 10.6.
+
+### 10.3 6 primitive-group anchor pattern
+
+The Phase 4 amended GREEN structure ships 6 primitive-group anchors (3×2 grid at 2D web layer; spherical-shell distribution at UE 3D port):
+
+| # | Group ID | Label | Primitives |
+|---|---|---|---|
+| 1 | `elements` | Elements | fire / water / earth / wind / lightning / holy / shadow / physical (8) |
+| 2 | `movement` | Movement | speed (slider) / leap-strike / teleport / dash / glide / step (6 controls) |
+| 3 | `combat_geometry` | Combat Geometry | single-target / AOE / line / cone / chain / multi-spawn (6) |
+| 4 | `resource_economy` | Resource Economy | mana / energy / stamina / fury (4) |
+| 5 | `attributes` | Attributes | STR / INT / WIS / DEX (4) |
+| 6 | `mechanic_altering` | Mechanic-Altering | on-hit / on-crit / cooldown / aura / counter / transformation (6) |
+
+**Drax-discretion-substitutable scope:** the 6-group structure is the empirically validated PROTOTYPE STRUCTURE per Phase 4 amended GREEN. Per § 10.5 below, canonical primitive-group LOCK is Pattern B deferred — the 6-group structure may be refined (5 or 7 groups also work structurally per subset-bias analysis in close report § "Subset-Bias Observation"; group naming + primitive-group-membership per primitive subject to canonical-lock substrate-led pass per Discipline #41).
+
+**Canonical primitive-group lock DEFERRED — Pattern B agenda item.** The architectural pattern is committed (primitive-anchors are groups; groups have rune-glyph anchors + per-primitive Tier 2 selection); the specific 6-group operational structure is the working scaffold pending canonical-lock substrate work.
+
+### 10.4 Two-tier selection architecture
+
+The Phase 4 amended GREEN selection mechanism is canonically committed at the architectural-pattern layer:
+
+**Tier 1 — Rune-glyph anchor selection (group commit):**
+- Player selects a primitive-group by interacting with its rune-glyph anchor on the cosmograph
+- Two input models validated at Phase 4 (Option γ — tap + gesture-draw via Input:[tap/sign] toggle):
+  - **Option α (tap):** tap/click within `atmospheric_radius` of nearest rune; toggle behavior (tap same rune = deselect); works at any zoom; pointer-events on mobile + iPad
+  - **Option β (gesture-draw / "sign"):** player draws a stroke in the atmospheric region of a rune; gesture centroid-proximity selects nearest rune; renders as luminous white stroke with outer glow while drawing (sign-as-light visual)
+- Canonical Tier 1 input model lock DEFERRED — Pattern B refinement (gandalf design review § 5 Trigger 2 + Hotspot C surfaced); current Phase 4 Option γ ships both with toggle
+
+**Tier 2 — Per-primitive value composition (group-internal commit):**
+- On Tier 1 anchor selection, Tier 2 panel surfaces with per-primitive controls for that group
+- Per-primitive control types: `icon_button` (toggle selection per primitive — multi-select within group at Phase 4 scope), `slider` (range value; Movement speed uses 1-10 placeholder range)
+- Commit + Reset affordances per group
+- Tier 2 surface: floating overlay panel (right-panel desktop ≥640px; bottom-sheet on mobile <640px max-height 55%; min-h-[44px] touch targets)
+- Canonical Tier 2 surface for UE 3D port: the earth avatar's tablet surface per Earth-Avatar Creation Moment Architecture § 2.6 (the 2D floating panel is a web-layer placeholder for the tablet)
+
+**Tier 2 placeholder icons FLAGGED — Pattern B canonical icon design deferred** (29 placeholder icons across 6 groups; cross-group collision map at drax close report § "Tier 2 Placeholder Icon List"; Matt verbatim register reference: water drop / lightning bolt / jumping man / portal man).
+
+### 10.5 Cross-system rune curation (Phase 4 scaffold)
+
+The Phase 4 amended GREEN ships the following per-group rune assignments — validated empirically against the "categorically distinct visual register" architectural intent:
+
+| Group | Rune | System | Semantic |
+|---|---|---|---|
+| Elements | ☰ Qián | I Ching | originating active principle from which differentiation flows; 3 unbroken yang lines = pure potency at source; categorically distinct visual (horizontal-stacked-strokes vs angular Elder Futhark) |
+| Movement | ᚱ Raidho | Elder Futhark | riding / journey / purposeful motion; diagonal stroke reads as forward momentum |
+| Combat Geometry | ᛇ Eihwaz | Elder Futhark | yew-as-axis / spatial form / form-bearing; death/passage layer composes well with combat semantics |
+| Resource Economy | ᚠ Fehu | Elder Futhark | wealth / flowing resource / cattle; branching upper strokes suggest flow |
+| Attributes | ᚢ Uruz | Elder Futhark | aurochs / raw vitality / primal constitution; intrinsic-nature register |
+| Mechanic-Altering | ᛟ Othala | Elder Futhark | ancestral estate / inherited law / fundamental rules; passive-as-inherited-modification fits ARPG-vernacular semantic |
+
+**System-concentration disposition (5 Elder Futhark + 1 I Ching):** ACCEPTED FOR PROTOTYPE per Matt 2026-06-09 ratification of gandalf design review § 2(b) verdict. Pattern B revisit reserved with the following constraint preserved:
+
+> **Elements-anchor visual categorical-distinction constraint.** Elements is semantically privileged (the "what is this spirit made of" question vs the 5 "how does it operate" questions); the cross-system Elements selection (I Ching ☰ horizontal-stacked-strokes against 5 Elder Futhark angular-stroke runes) is substrate-led categorical-distinction per Pattern 6 (substrate-led-coherence), NOT arbitrary drax-discretion artifact. Whatever cross-cultural diversification fires at canonical lock, **preserve the Elements-anchor visual categorical-distinction property** — whether via keeping I Ching ☰ specifically or via some other categorically-distinct selection is the canonical decision.
+
+**Canonical rune-per-group lock DEFERRED — Pattern B.** Recommended Pattern B input substrate: Legolas Mode B cross-cultural candidate-glyph corpus crawl (similar shape to zodiac substrate corpus N=423; commit `d92ce29`) across Cuneiform / I Ching / Elder Futhark / Egyptian / Vedic / Mesoamerican / Enochian / Adinkra / etc. per Tal Rasha § 4.3 commission scope.
+
+### 10.6 UE 3D port composition (forward-reference; canonical commit at this layer; specifics deferred WS2)
+
+The primitive-glyph + two-tier architecture composes natively with the spherical-shell cosmograph geometry locked at Earth-Avatar Creation Moment Architecture § 2.6:
+
+- **Spherical-shell distribution of rune-anchor glyphs:** 6 primitive-group rune glyphs distributed across the celestial sphere interior surface at adequate angular separation; spherical Fibonacci or Poisson-disk per WS2 implementation
+- **Buffer-space between glyph regions:** angular separation provides natural buffer between primitive-group anchors AND between glyph layer + figurative-constellation (kit) layer
+- **Atmospheric diffusion:** Niagara VFX particle-based noise-driven edge variation; replaces 2D circular fill-layers per drax UE-port gap notes
+- **Brush-stroke rendering:** SplineMesh + Emissive material; replaces PIXI.Text serif-font dependency
+- **Sign-as-input ergonomics:** UE stylus + pencil-on-iPad haptics; gesture-shape-matching algorithm consultation (Hotspot C) gated post-Pattern-B Tier 1 model lock
+
+**Canonical-commit scope at this layer:** the architectural pattern (primitive-glyph anchors on spherical shell + kit-constellations bounded within sphere surface + atmospheric-glyph register vs figurative-constellation register + Tier 2 panel on Earth-avatar tablet surface). **WS2 commission scope authoring** is gandalf's downstream authoring lane per gandalf Phase 4 review § 5 Trigger 4 — fires POST-canonical-amendments (THIS commit) + POST-Mantis-windowed-mode-verification-PASS.
+
+### 10.7 DP1-DP4 + DP5 amendments compositional with Phase 4
+
+§ 9.2 DP1-DP4 + § 9.3 amendments are PRESERVED. Phase 4 amended GREEN adds the following Phase A operational layer (compositional with § 9.4 PROVISIONAL constellation strategy):
+
+- **DP2 extension:** UMAP/t-SNE embedding over primitive space (§ 9.2 unchanged) feeds kit-cluster positioning WITHIN each primitive-group region; primitive-group anchors at scaffold positions (3×2 grid at 2D web; spherical Fibonacci at UE 3D); element→group displacement scaffold mapping pending Hotspot A-extension elrond consultation per gandalf review § 5 Trigger 3
+- **DP3 extension (visual encoding):** primitive-anchors render as monochromatic atmospheric glyphs per § 10.2 register; element-tinted constellations + T4-as-extra-bright + skill-tree-position-tier-weighting (§ 9.2 / § 9.3) preserved at IN-constellation composition layer
+- **DP4 extension (spirit-preview):** the two-tier selection mechanism (§ 10.4) operationalizes the lasso → constellation-overlap scoring → matched-kit-identity path at the user-interaction layer; Path L (lasso the sky) per Earth-Avatar Creation Moment Architecture § 2.3 composes with Path I (drop ingredients) where Tier 2 per-primitive selection is the EMPIRICALLY VALIDATED PRECURSOR PATTERN for Path I (§ 10.8 below)
+- **DP5 (hosting at /forge) PRESERVED.** Final Phase 4 deploy: `https://reincarnated-loadout-ql329yk9u-matthew-wetmore-s-projects.vercel.app`
+
+### 10.8 Composition with Earth-Avatar Creation Moment Architecture (forward-reference)
+
+Phase 4 Tier 2 per-primitive selection is the **empirically validated precursor pattern** for Path I (drop ingredients) per Earth-Avatar Creation Moment Architecture § 2.3 Path I mechanic. The compositional bridge:
+
+- Tier 1 rune-glyph anchor selection commits the player to a primitive GROUP (the "drop the first ingredient" beat at semantic-group resolution)
+- Tier 2 per-primitive selection refines the player's intent WITHIN that group (the "drop subsequent ingredients" beat at per-primitive-value resolution)
+- The two-tier mechanism makes the player feel they are *assembling a spirit from foundational categories* rather than picking from a flat list — which is the load-bearing Path I cognitive intent per Earth-Avatar Creation Moment Architecture § 2.3
+
+Full Path I + Path L architectural composition + the spirit-form-as-canvas-and-feedback layer + materialization cinematic at confirm-time is captured at `canonical/story/2026-06-07-earth-avatar-cosmograph-creation-moment-architecture.md` § 11 addendum (companion 2026-06-09 canonical commit).
+
+### 10.9 Cross-references
+
+- Recognition antecedent: `canonical/story/2026-06-09-tal-rasha-glyphic-primitive-anchor-architecture-recognition.md` (commit `d3328e8`)
+- Companion canonical addendum (Path I + Path L composition + spirit-form canvas + materialization cinematic): `canonical/story/2026-06-07-earth-avatar-cosmograph-creation-moment-architecture.md` § 11 (2026-06-09 addendum)
+- Drax Phase 3 close report: `agentic_orchestration/drax/notes/2026-06-09-forge-phase-3-close-report.md` (commit `5ae75d3`)
+- Drax Phase 4 amended close report: `agentic_orchestration/drax/notes/2026-06-09-forge-phase-4-amended-close-report.md` (commit `347e6b5`)
+- Gandalf Phase 3 design review: `agentic_orchestration/gandalf/notes/2026-06-09-drax-forge-phase-3-close-design-review.md` (commit `150adb8`)
+- Gandalf Phase 4 amended design review: `agentic_orchestration/gandalf/notes/2026-06-09-drax-forge-phase-4-amended-close-design-review.md` (commit `86f1351`)
+- Jack-ryan Gate-2 Phase 3: `agentic_orchestration/qa/findings/2026-06-09-jack-ryan-gate-2-drax-forge-phase-3-close.md` (commit `c757964`)
+- Jack-ryan Gate-2 Phase 4 amended: `agentic_orchestration/qa/findings/2026-06-09-jack-ryan-gate-2-drax-forge-phase-4-amended-close.md` (commit `0df2753`)
+- Elrond Hotspot A consultation: `agentic_orchestration/elrond/notes/2026-06-09-hotspot-a-substrate-vector-proximity-metric.md` (commit `5b28a12`)
+- Legolas Mode B zodiac substrate corpus completion: commit `d92ce29` (N=423 across 26 traditions; substrate-led discipline anchor for cross-cultural curation pattern reusable at Pattern B rune-curation crawl)
+- Decisions-log entry: commit `762205e` (Tal Rasha recognition; will be amended by jack-ryan post-Matt-ratification per Phase 4 Gate-2 INFO-2 disposition)
+
+### 10.10 Sequencing per 2026-06-09 ratification
+
+1. ✅ DONE — this § 10 amendment authored (Tal Rasha § 4.1 canonical commit fires per recognition-validate-commit discipline)
+2. CONCURRENT — Earth-Avatar Creation Moment Architecture § 11 addendum authored (Tal Rasha § 4.2 canonical commit; companion this session)
+3. PENDING — Pattern B canonical icon design session (Matt + gandalf; per gandalf Phase 4 review § 5 Trigger 2; 29 placeholder icons + system-concentration disposition + Elements-categorical-distinction preservation constraint + Tier 1 input model lock)
+4. PENDING — WS2 (Niagara VFX) commission scope authoring (gandalf seam; fires POST-this-amendment + POST-Mantis-windowed-mode-verification-PASS per Matt direction)
+5. PENDING — Hotspot A extension elrond consultation (substrate-vector proximity for canonical primitive-group lock; fires post-Pattern-B primitive-group lock)
+6. PENDING — Hotspot C elrond consultation (gesture-shape-matching algorithm; fires post-Pattern-B Tier 1 model lock)
+7. PENDING — Drax post-canonical-primitive-group-lock layout regeneration dispatch (corpus-assignment per group from first-principles per-primitive-group-membership; replaces element→group displacement scaffold)
+8. PENDING — Hotspot B UMAP vs force-directed consultation (queued)
+
+### 10.11 What this § 10 amendment LOCKS vs DEFERS
+
+**LOCKS (canonical commitments at this commit):**
+1. Primitive-anchor visual register: primitive-as-glyph (not primitive-as-star at the anchor layer)
+2. Visual register specification: large + atmospheric + light-edge brush-stroke + no color + drawn by light only
+3. 6 primitive-group anchor PATTERN (drax-discretion-substitutable specific group structure; canonical group-lock Pattern B)
+4. Two-tier selection ARCHITECTURE: Tier 1 rune-glyph anchor commit + Tier 2 per-primitive value composition
+5. Visual register A/B disposition: rune-only primary view + `?view=twolayer` Phase 3 nebula fallback (full-replacement, not simultaneous)
+6. Composition with Earth-Avatar Creation Moment Architecture spherical-shell geometry + Path I/Path L dual-creation mechanism
+
+**DEFERS (Pattern B canonical lock OR downstream commission):**
+1. Canonical 6-group structure (Pattern B with Matt; drax-discretion scaffold is operational)
+2. Canonical rune-per-group selection (Pattern B + Legolas Mode B cross-cultural candidate-glyph crawl; preserve Elements-anchor visual categorical-distinction constraint)
+3. Canonical Tier 2 per-primitive icon design (Pattern B with Matt; 29 placeholder icons surfaced)
+4. Canonical Tier 1 input model lock (tap-only vs gesture-draw-only vs Option γ both; Pattern B)
+5. Canonical Tier 2 multi-select vs single-select constraints per primitive (engine-integration question; Pattern B)
+6. Canonical commit payload schema (kit-builder integration; Pattern B + engine consultation)
+7. UE 3D specifics: spherical-shell radius + glyph distribution algorithm + Niagara VFX particle parameters + SplineMesh + Emissive material + custom-font vs SVG glyph asset path (WS2 commission scope; gandalf seam)
+8. Gesture-shape-matching algorithm (Hotspot C; post-Pattern-B Tier 1 lock)
+9. Substrate-vector proximity for canonical primitive-group lock (Hotspot A extension; post-Pattern-B primitive-group lock)
+10. Per-season glyph-system rotation under seasonal-substrate-rotation operator (Layer 0.5 atomic-substrate-registry composition; downstream cycle 15+ canonical lock decisions)
+
+### 10.12 Sign-off on § 10 amendment
+
+**Authored:** gandalf 2026-06-09 per Matt 2026-06-09 ratification of Drax /forge Phase 4 amended GREEN as Tal Rasha recognition record § 5 Trigger 2 empirical-evidence satisfaction. Branch A canonical authoring-lane fires per recognition-validate-commit discipline (recognition → validate → commit). § 9 substantive content (Move B simulation authorization, DP1-DP4 amendments, architectural-anchor lock on atomic-substrate-registry, hypothesis-flow CANONICAL, all prior 2026-06-06 substantive content) PRESERVED VERBATIM. § 10 REFINES § 9.1 primitive-anchor visual register from "primitive-as-star" to "primitive-as-glyph" at the cross-group anchor layer; in-constellation composition (stars within kit-constellations as BDI-β-driving load-bearing primitives) PRESERVED at § 9.1 unchanged.
+
+**Authority:** Matt 2026-06-09 ratification + Tal Rasha § 4.1 recognition-validate-commit discipline; critique-pair CONCUR (gandalf Phase 4 review PASS-WITH-DESIGN-RECOMMENDATIONS + jack-ryan Gate-2 PASS-WITH-INFO).
+
+**End of 2026-06-09 amendment.**

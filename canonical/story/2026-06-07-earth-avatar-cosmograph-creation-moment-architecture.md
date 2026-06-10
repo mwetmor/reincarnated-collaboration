@@ -478,3 +478,207 @@ Related: canonical/story/2026-06-07-earth-avatar-cosmograph-creation-moment-arch
 **Empirical-evidence trigger for first WS2 prototype:** mantis spike OVERALL GREEN + push-credential resolution + WS2 commission scoping dispatch authored. Estimate ~1-2 weeks wall-clock from spike close.
 
 **End of architectural commitment record.**
+
+---
+
+## 11. Addendum 2026-06-09 — Branch A glyphic primitive-anchor canonical commitment (Tal Rasha § 4.2)
+
+**STATUS:** CURRENT (load-bearing canonical addendum; extends the § 2-§ 10 architectural commitment with Phase 4 amended GREEN empirical validation findings + Branch A canonical commitments per Tal Rasha recognition record § 4.2)
+**Authority:** Matt 2026-06-09 ratification of Drax /forge Phase 4 amended GREEN as Tal Rasha recognition record § 5 Trigger 2 empirical-evidence satisfaction (Branch A architectural-commitment scope fires)
+**Recognition antecedent:** `canonical/story/2026-06-09-tal-rasha-glyphic-primitive-anchor-architecture-recognition.md` (commit `d3328e8`)
+**Companion canonical commit (this session):** `canonical/story/2026-06-05-cosmograph-pivot.md` § 10 (Tal Rasha § 4.1 — primitive-as-glyph + kit-as-constellation substrate-architecture refinement)
+**Empirical-evidence chain:** see § 11.7 cross-references below
+
+### 11.1 What this addendum absorbs (Tal Rasha § 4.2 commitments)
+
+Per Tal Rasha recognition record § 4.2 (Branch A canonical addendum scope), the following architectural commitments compose with the § 2-§ 10 architectural commitment:
+
+1. **Two-layer + buffer-space architecture** (§ 11.2) — load-bearing capture from 2026-06-08 Matt mobile-Claude dialogue + Drax Phase 3 GREEN + Drax Phase 4 amended GREEN
+2. **Glyph layer + constellation layer visual register distinction** (§ 11.3) — figurative vs symbolic; empirically validated at Phase 4 with atmospheric rune render
+3. **"Sign" semantic overloading at player-facing UX** (§ 11.4) — sign-as-noun-celestial / sign-as-verb-input / sign-as-signature / sign-as-The-Sign; Tier 1 gesture-draw Option β validates sign-as-verb-input architectural intent at 2D web layer
+4. **Path I drop-ingredients literal glyph-as-ingredient surface** (§ 11.5) — Phase 4 Tier 2 per-primitive selection is the EMPIRICALLY VALIDATED PRECURSOR PATTERN; 29 placeholder icons across 6 groups; canonical icon design DEFERRED Pattern B
+5. **Tal Rasha tomb sigil precedent + cross-cultural archaic glyph corpus framing** (§ 11.6) — empirically operationalized at Phase 4 with cross-system rune curation (5 Elder Futhark + 1 I Ching scaffold; canonical rune-curation Pattern B with Legolas Mode B cross-cultural candidate-glyph crawl)
+6. **Seasonal-substrate-rotation operator composition** (§ 11.7) — per-season glyph-system rotation reserved for canonical lock decisions downstream
+
+### 11.2 Two-layer + buffer-space architecture
+
+The § 2.1 scene + § 2.6 spherical shell geometry lock + § 9.3 / § 9.4 / § 9.5 cosmograph-pivot composition is REFINED at the dual-layer rendering register:
+
+- **Layer 1 — Primitive-anchor GLYPH layer (atmospheric symbolic register).** Large monochromatic atmospheric glyphs distributed across the celestial sphere interior surface; per § 10.2 visual register (large + atmospheric + light-edge brush-stroke + no color + drawn by light only); each glyph anchors a primitive-group region. Layer 1 reads as ELDER VOCABULARY at cosmograph scale.
+- **Layer 2 — Kit-constellation FIGURATIVE layer (bounded star-cluster register).** Figurative constellations of element-tinted stars bounded WITHIN each primitive-group region; per § 9.1 + § 9.3 (kit-as-constellation; element-primary tint via primitives; T4-as-extra-bright; skill-tree-position primitives weighted by tier). Layer 2 reads as KIT-AS-DISCOVERY at zoom-in.
+- **Buffer-space between layers.** Angular separation between primitive-group glyph regions provides natural empty-space buffer; between Layer 1 and Layer 2 within each region, the categorical visual register distinction (figurative vs symbolic) creates COGNITIVE buffer-space WITHOUT requiring additional empty-space buffer between the layers; the player reads the two layers as categorically distinct without explanation.
+
+This composes with the 2026-06-08 mobile-Claude dialogue's "two-layer + buffer-space architecture" original framing — the architecture was sound; what was unsolved at that dialogue layer was the visual-register distinction between primitive-anchors and kit-anchors. § 11.3 below operationalizes the resolution.
+
+### 11.3 Glyph layer + constellation layer visual register distinction (empirically validated Phase 4)
+
+The categorical visual register distinction between Layer 1 (primitive-anchors) and Layer 2 (kit-constellations) is empirically validated at Drax Phase 4 amended GREEN:
+
+| Property | Layer 1 (glyph) | Layer 2 (constellation) | Distinction operates without |
+|---|---|---|---|
+| Visual type | Symbolic | Figurative | explanation |
+| Color | Monochromatic luminous white/silver | Element-tinted (per kit primary element) | confusion |
+| Form | Abstract geometric (rune / sigil / archaic glyph) | Recognizable star-figure (named kit identity) | tutorial |
+| Atmospheric register | Large diffuse halo + multi-layer atmospheric diffusion ("looms behind") | Bounded compact star cluster within group region | additional UI |
+| Cognitive load | "What is this spirit MADE OF?" (primitive-group choice) | "What spirit am I BECOMING?" (kit identity) | overhead |
+| Phase 4 empirical anchor | atmospheric_radius=1800px (~7× Phase 3 nebula); 4-layer atmospheric + 4-layer glyph text | element-tinted kit dots within primitive-group region | scale-invariance |
+
+**Empirical validation:** at 0.5× zoom (full world visible), the 3×2 rune arrangement reads as elder-vocabulary distinct from the colored kit dots; the I Ching ☰ (horizontal-stacked-strokes) reads as visually different from the 5 Elder Futhark angular-stroke runes, which itself operates as categorical-distinction signal for the Elements anchor (semantically privileged "what is this spirit MADE OF" group). Categorical-distinction register is preserved at the cross-group ANCHOR layer AND between Anchor / Kit layers within each region.
+
+### 11.4 "Sign" semantic overloading at player-facing UX
+
+Per Tal Rasha recognition record § 1.2 — the "sign" word carries four cohesive meaning layers at the player-facing UX surface, each empirically operationalized by Phase 4 amended GREEN:
+
+| "Sign" reading | Semantic role | Phase 4 empirical anchor |
+|---|---|---|
+| Sign as **noun-celestial** (astrological sign; sign of the zodiac) | The thing in the sky | Layer 1 atmospheric glyph IS the sign in the night sky; locked at § 11.3 visual register |
+| Sign as **verb-input** (sign the glyph; trace the sigil with finger / stylus / mouse) | The player's input gesture | Tier 1 gesture-draw Option β — player draws a stroke in the atmospheric region of a rune; gesture renders as luminous white stroke with outer glow (sign-as-light visual); centroid-proximity selects nearest rune — VALIDATED at 2D web layer across all 6 groups per Phase 4 falsifiable floor condition #3 |
+| Sign as **signature** (signing one's name / commitment) | The act of committing to a build | Tier 1 anchor selection commits the player to a primitive-group; Tier 2 Commit affordance confirms per-primitive selection; the player has "signed" their build at the Commit beat |
+| Sign as **the Sign** (proper-noun mystical / portent / omen) | The mythic weight of the moment | Tal Rasha tomb sigil precedent (Diablo 2 Act 2) ports natively; atmospheric register operationalizes mythic weight (large + drawn by light only + no color + elder vocabulary); composes with Earth Self meta-layer anchor at first creation moment |
+
+**Architectural commitment at this layer:** the "sign" semantic overloading is canonical player-facing vocabulary at onboarding + UI copy + spirit-guide dialogue. Specific copy + tutorial language deferred to WS2 + onboarding-flow scope; the SEMANTIC ANCHOR is locked here.
+
+**Tier 1 input model lock — DEFERRED Pattern B.** Phase 4 amended GREEN ships Option γ (tap-α + gesture-draw-β via Input:[tap/sign] toggle); canonical lock between Option α (tap-only) / Option β (gesture-draw-only) / Option γ (both with toggle) fires at Pattern B. Sign-as-verb-input architectural intent is VALIDATED regardless of which canonical Tier 1 model is locked.
+
+### 11.5 Path I drop-ingredients literal glyph-as-ingredient surface (Phase 4 precursor)
+
+The § 2.3 Path I mechanic (drop substrate primitives into spirit form; celestial sphere progressively focuses on convergent constellation) gets a literal visual representation under Branch A canonical commit:
+
+**Tier 1 + Tier 2 as Path I precursor pattern (empirically validated Phase 4):**
+
+- **Tier 1 (glyph anchor selection)** is the player's commitment to a primitive-group — the "drop the first ingredient at semantic-group resolution" beat
+- **Tier 2 (per-primitive selection)** is the player's refinement within that group — the "drop subsequent ingredients at per-primitive-value resolution" beat
+- The two-tier mechanism makes the player feel they are *assembling a spirit from foundational categories* — which is the load-bearing Path I cognitive intent per § 2.3
+
+**Architectural composition with Path I § 2.3:**
+
+| Path I § 2.3 mechanic step | Phase 4 precursor empirical validation | Canonical commit at this layer |
+|---|---|---|
+| 1. Player has access to curated palette of substrate ingredients (atomic-substrate-registry primitives as potions/vials/tokens) | Phase 4 Tier 2 panels surface 29 placeholder icons across 6 groups (8 Elements + 6 Movement + 6 Combat Geometry + 4 Resource Economy + 4 Attributes + 6 Mechanic-Altering — minus 1 Movement slider that displaces 1 icon) | Curated palette IS Tier 2 per-primitive controls; canonical icon design deferred Pattern B |
+| 2. Player drops an ingredient onto the spirit form (drag-and-drop) | Phase 4 Tier 2 icon_button tap toggles per-primitive selection within group | Drop-mechanic UX surface deferred WS2 + iPad ergonomics; semantic intent locked here |
+| 3. Celestial sphere responds: constellations matching that ingredient brighten; non-matching fade | Phase 4 within-anchor selection mode (lasso centroid within stroke_radius=900px) targets the corresponding group's kit cluster | Constellation brightening on per-ingredient drop; canonical animation deferred WS2 |
+| 4. Iterative narrowing as ingredients accumulate; spirit form solidifies progressively | Phase 4 Tier 2 multi-select within group accumulates selection state; commit confirms | Spirit-form solidification logic per § 2.4 (ambiguous → partially defined → fully defined); canonical visual logic Q5 refinement deferred WS2 + son's input |
+| 5. Eventually one constellation (or tight cluster) is the convergent match; sphere has "focused in" | Phase 4 within-anchor classification targets matched kit; constellation-overlap scoring per § 9.4 / § 10.4 DP4 extension | Convergence criterion Q2 refinement (continuous vs threshold-snap vs tiered) deferred WS2 prototype playtest |
+| 6. Player can backtrack: remove an ingredient → sphere re-expands | Phase 4 Tier 2 icon_button toggle behavior (tap same icon = deselect); Reset affordance | Backtracking validated at Phase 4 floor level; canonical UX deferred WS2 |
+
+**Path I + Path L composition per § 2.3 / § 4.3 still LOCKED.** Both paths consume same substrate; both converge on same outcome; Path L (lasso the sky) for jump-in players + Path I (drop ingredients with two-tier glyph + per-primitive selection) for take-time players + Q3 path-composition refinement (lean: (d) full bidirectional compose) deferred WS2.
+
+**29 placeholder icons → canonical per-primitive icon design DEFERRED Pattern B.** Per gandalf Phase 4 design review § 5 Trigger 2; Matt verbatim register reference: water drop / lightning bolt / jumping man / portal man. Cross-group collision map at drax close report § "Tier 2 Placeholder Icon List." This is the canonical Path I "ingredient palette" curation lock that fires at the Pattern B session.
+
+### 11.6 Tal Rasha tomb sigil precedent + cross-cultural archaic glyph corpus
+
+Per Tal Rasha recognition record § 1.2.3 — the Diablo 2 Act 2 tomb sigil precedent ports natively into Reincarnated's primitive-anchor glyph layer:
+
+**Properties preserved at Phase 4 empirical anchor:**
+- Abstract symbolic (not figurative) → categorical visual distinction from kit constellations (validated § 11.3)
+- Ancient-feeling / elder-vocabulary tone → mythic weight without horoscope baggage (validated by I Ching trigram + Elder Futhark rune selections; sub-Roman / Bronze-Age cultural-tradition register)
+- Distinctly readable / recognizable → players can match-and-select without ambiguity (validated by per-glyph stroke distinction at cosmograph scale per close report § "Visual Register A/B Observations")
+- Mage-order / elder-tradition framing → composes with Reincarnated's cosmological frame (Earth Self viewing the sky + spirit-guide-as-future-self per § 3.5; locks composition with first-creation-moment Earth meta-layer per § 3.4)
+
+**Cross-cultural archaic glyph corpus operationalization (Phase 4 scaffold + Pattern B canonical):**
+
+Phase 4 amended GREEN ships 6 glyphs from 2 cross-cultural systems (5 Elder Futhark + 1 I Ching) per cosmograph-pivot § 10.5. The cross-system selection is DESIGNEDLY MEANINGFUL substrate-led-coherence (Pattern 6 from legacy-categorical-cleanup-audit-2026-05-22.md), NOT arbitrary drax-discretion artifact — the I Ching trigram's geometric simplicity (horizontal-stacked-strokes) reads at large scale better than most Elder Futhark glyphs would for the Elements anchor, which is semantically privileged.
+
+**System-concentration disposition (Matt 2026-06-09 ratification):** ACCEPTED for prototype; Pattern B revisit reserved with **Elements-anchor visual categorical-distinction constraint PRESERVED** (preserve the property whether via keeping I Ching ☰ specifically OR via some other categorically-distinct selection at canonical lock).
+
+**Pattern B canonical rune-curation crawl (recommended scope):** Legolas Mode B cross-cultural candidate-glyph corpus crawl (similar shape to zodiac substrate corpus N=423 / 26 traditions; commit `d92ce29`) across Cuneiform / I Ching / Elder Futhark / Egyptian / Vedic / Mesoamerican / Enochian / Adinkra / Theban / alchemical / etc. per Tal Rasha § 4.3 commission scope; substrate-led curation discipline per § 41 + Discipline #25 semantic-layer rep-audit; cultural-sensitivity protocol per zodiac commission § 4.2 shape.
+
+### 11.7 Seasonal-substrate-rotation operator composition
+
+The atomic-substrate-registry Layer 0.5 seasonal-substrate-rotation operator composes natively with the Branch A canonical primitive-glyph-anchor architecture:
+
+- Per-season glyph-system rotation: e.g. S1 (Tolkien-themed) → Elder Futhark + Norse; S2 (Warhammer-themed) → Egyptian Hieroglyph + Cuneiform; S3 (Mesoamerican-themed) → Mayan glyph blocks + I Ching trigrams; S4 (sub-Saharan-themed) → Adinkra + Ge'ez; etc.
+- Same architectural pattern as zodiac cultural-tradition rotation (per zodiac substrate corpus 26-tradition coverage)
+- Composes with Realm Expansion content rhythm (§ 3.7) — new seasonal Realm Expansion may add new primitive-glyph rotation set; player's prior seasonal glyph-system remains in form-library / spirit-guide history per § 3.6
+
+**Canonical per-season glyph-system lock DEFERRED — Cycle 15+ season-design Pattern B with Matt.** First cross-season validation at S2 launch per Tal Rasha recognition record § 3 P5 prediction.
+
+### 11.8 Composition with prior § 3 commitments
+
+§ 3 composition table is EXTENDED with the Branch A canonical commitments:
+
+| Prior § 3 commitment | Branch A composition |
+|---|---|
+| § 3.1 cosmograph-pivot § 9 (primitive-as-star + kit-as-constellation) | REFINED at primitive-anchor layer → primitive-as-glyph (atmospheric symbolic register per § 11.2 / § 11.3); kit-as-constellation PRESERVED; in-constellation stars-as-load-bearing-primitives PRESERVED |
+| § 3.2 atomic substrate registry (Layer 0 primitives) | Each Layer 0 primitive maps to a per-primitive Tier 2 control under its primitive-group's glyph anchor; canonical Layer 0 → primitive-group mapping deferred Pattern B (currently drax-discretion scaffold); seasonal-substrate-rotation operator composes natively per § 11.7 |
+| § 3.3 hypothesis-flow architecture (constellations as cells) | Cells (kit-constellations) render under primitive-group glyph anchors per § 11.2; PROVISIONAL / PLAYTEST-CONFIRMED / LIBRARY-LOCKED status renders per § 9.4 + § 10.7 DP3 |
+| § 3.4 Earth Self meta-layer (anchored HERE) | Tal Rasha tomb sigil precedent + atmospheric glyph layer + "sign-as-The-Sign" mythic-weight reading per § 11.4 OPERATIONALIZE the mythic register of the first creation moment; Earth Self anchor at first creation moment PRESERVED + DEEPENED |
+| § 3.5 spirit guide architecture (canonical 17) | Ambiguous spirit form → defined kit avatar transformation per § 2.4 + § 11.5 Path I precursor pattern; spirit-guide-as-future-self composes with sign-as-signature reading (the player has signed the future-self into being) |
+| § 3.6 form library | Path I two-tier composition + Path L lasso both add the selected kit to form library at confirm-time; PRESERVED unchanged |
+| § 3.7 Season Archive Realm Expansion pivot | Per-season glyph-system rotation per § 11.7 composes with Realm Expansion content release rhythm |
+| § 3.8 /forge 2D Mode B | EXTENDED — /forge ships Phase 3 (constellation kit-render at `?view=constellation` / `?view=twolayer` route) + Phase 4 amended (rune-glyph anchor primary view + Tier 2 per-primitive panel; production deploy `https://reincarnated-loadout-ql329yk9u-matthew-wetmore-s-projects.vercel.app`); the /forge web surface is the FUNCTIONAL precursor for both Path L (lasso) AND Path I (Tier 2 selection) at the 2D web layer; UE 3D AESTHETIC-IMMERSIVE surface inherits per § 3.9 / § 11.9 |
+| § 3.9 downstream delivery strategy (WS1 + WS2 inheritance) | WS2 commission scope EXPANDED — Niagara VFX particle-based atmospheric diffusion + SplineMesh + Emissive material rune brush-strokes + UE stylus + pencil-on-iPad gesture ergonomics + Tier 2 panel on Earth-avatar tablet surface; gandalf authors WS2 commission scope POST-canonical-amendments (this commit) + POST-Mantis-windowed-mode-verification-PASS per Matt direction |
+
+### 11.9 § 4 refinement questions — Phase 4 empirical disposition updates
+
+§ 4 Q1-Q5 refinement questions are PRESERVED. Phase 4 amended GREEN provides empirical disposition updates on several:
+
+- **Q1 (Ingredient inventory at creation moment):** Phase 4 amended GREEN ships 29 placeholder icons across 6 primitive-groups (option (b) curated palette empirically validated at this scope); canonical icon design + per-primitive engine constraints (multi-select vs single-select per primitive) deferred Pattern B; cycle 15+ playtest validation per § 4.1 trigger
+- **Q2 (Convergence criterion for Path I):** Phase 4 amended GREEN does NOT yet validate convergence criterion (Tier 2 commit is per-group; full Path I sphere-focuses-on-convergent-constellation pacing is a WS2 prototype scope question); gandalf lean (a) continuous narrowing + player-controlled confirm UNCHANGED
+- **Q3 (Path composition lasso + ingredient):** Phase 4 amended GREEN does NOT yet validate cross-Path composition (Tier 2 panel surfaces on Tier 1 anchor selection; full Path L lasso + Path I drop interleaving is WS2 scope); gandalf lean (d) full bidirectional compose UNCHANGED
+- **Q4 (Earth-avatar pre-existence):** UNCHANGED; gandalf lean (a) brief earlier scene; Pattern B with Matt + son
+- **Q5 (Spirit form visual logic ambiguous → defined):** UNCHANGED; gandalf lean (luminescent mist-cloud → color saturation + silhouette sharpening → full kit avatar); Pattern B + WS2 art-direction iteration
+
+### 11.10 Cross-references
+
+**Source artifacts (this addendum):**
+- Recognition antecedent: `canonical/story/2026-06-09-tal-rasha-glyphic-primitive-anchor-architecture-recognition.md` (commit `d3328e8`)
+- Companion canonical commit this session: `canonical/story/2026-06-05-cosmograph-pivot.md` § 10 (Tal Rasha § 4.1 — substrate-architecture refinement to primitive-as-glyph + kit-as-constellation)
+
+**Phase 3 + Phase 4 empirical artifacts (validation chain):**
+- Drax Phase 3 close report: `agentic_orchestration/drax/notes/2026-06-09-forge-phase-3-close-report.md` (commit `5ae75d3`) — bounded constellation kit-render + atmospheric foundation
+- Drax Phase 4 amended close report: `agentic_orchestration/drax/notes/2026-06-09-forge-phase-4-amended-close-report.md` (commit `347e6b5`) — rune-per-group + two-tier selection GREEN (6 group structure + 6 rune assignments + Tier 1 Option γ + Tier 2 placeholder catalog + classifyLasso re-validation + mobile-touch validation)
+- Gandalf Phase 3 design review: `agentic_orchestration/gandalf/notes/2026-06-09-drax-forge-phase-3-close-design-review.md` (commit `150adb8`)
+- Gandalf Phase 4 amended design review: `agentic_orchestration/gandalf/notes/2026-06-09-drax-forge-phase-4-amended-close-design-review.md` (commit `86f1351`) — PASS-WITH-DESIGN-RECOMMENDATIONS verdict + dispositions on system-concentration + visual register A/B + falsifiable floor
+- Jack-ryan Gate-2 Phase 3: `agentic_orchestration/qa/findings/2026-06-09-jack-ryan-gate-2-drax-forge-phase-3-close.md` (commit `c757964`)
+- Jack-ryan Gate-2 Phase 4 amended: `agentic_orchestration/qa/findings/2026-06-09-jack-ryan-gate-2-drax-forge-phase-4-amended-close.md` (commit `0df2753`) — PASS-WITH-INFO
+- Elrond Hotspot A substrate-vector proximity consultation: `agentic_orchestration/elrond/notes/2026-06-09-hotspot-a-substrate-vector-proximity-metric.md` (commit `5b28a12`)
+- Legolas Mode B zodiac substrate corpus completion: commit `d92ce29` (N=423 entries / 26 cross-cultural traditions; reference shape for Pattern B cross-cultural candidate-glyph corpus crawl)
+- Decisions-log entry: commit `762205e` (Tal Rasha recognition; will be amended by jack-ryan post-Matt-ratification per Phase 4 Gate-2 INFO-2 disposition)
+
+**Final Vercel preview anchoring this commit:** `https://reincarnated-loadout-ql329yk9u-matthew-wetmore-s-projects.vercel.app`
+
+### 11.11 What this § 11 addendum LOCKS vs DEFERS
+
+**LOCKS (canonical commitments at this commit):**
+1. Two-layer + buffer-space architecture: Layer 1 primitive-anchor glyph + Layer 2 kit-constellation figurative; categorical visual register distinction operates without explanation/tutorial/UI overhead
+2. Glyph layer + constellation layer visual register specifications (figurative vs symbolic; monochromatic vs element-tinted; atmospheric vs bounded; semantic distinction "what is this spirit MADE OF" vs "what spirit am I BECOMING")
+3. "Sign" semantic overloading at player-facing UX (4 reading layers — noun-celestial / verb-input / signature / The-Sign; canonical player-facing vocabulary anchor; specific copy deferred WS2 + onboarding-flow)
+4. Path I drop-ingredients literal glyph-as-ingredient SURFACE PATTERN: Tier 1 anchor commit + Tier 2 per-primitive composition; Phase 4 two-tier mechanism is the empirically validated precursor pattern for full Path I § 2.3 mechanic
+5. Tal Rasha tomb sigil precedent operationalized: abstract symbolic + ancient-feeling elder-vocabulary + distinctly readable + mage-order tradition framing PRESERVED at Phase 4 visual register + cross-cultural glyph corpus framing
+6. Seasonal-substrate-rotation operator composition: per-season glyph-system rotation architectural pattern locked; canonical per-season lock Cycle 15+ Pattern B
+7. Composition with Earth Self meta-layer + spirit guide architecture + form library + Season Archive Realm Expansion + /forge functional surface + WS2 commission scope PRESERVED + EXTENDED
+
+**DEFERS (Pattern B canonical lock OR downstream commission OR WS2):**
+1. Canonical Path I full convergence mechanic at WS2 prototype (continuous narrowing pacing per Q2; sphere-focuses-on-convergent-constellation animation; per-ingredient brightening/fading visual logic)
+2. Canonical Path L + Path I composition mode per Q3 (gandalf lean: (d) full bidirectional compose; deferred WS2 prototype playtest)
+3. Canonical Q1 ingredient palette curation: 29 placeholder icons + cross-group collision resolution + multi-select vs single-select constraints per primitive (Pattern B with Matt; engine integration consultation)
+4. Canonical Tier 1 input model lock (Option α tap-only / Option β gesture-draw-only / Option γ both with toggle); Pattern B with Matt
+5. Canonical Q4 Earth-avatar pre-existence scope (gandalf lean: (a) brief earlier scene; Pattern B with Matt + son)
+6. Canonical Q5 spirit form visual logic (luminescent mist-cloud → defined kit avatar transformation); Pattern B + WS2 art-direction iteration
+7. Canonical rune-per-group curation: 5 Elder Futhark + 1 I Ching scaffold; Pattern B with Matt + Legolas Mode B cross-cultural candidate-glyph crawl; preserve Elements-anchor visual categorical-distinction constraint
+8. Canonical 6-group primitive structure (drax-discretion-substitutable scaffold; canonical primitive-group lock Pattern B with Matt)
+9. Canonical Tier 2 commit payload schema (kit-builder engine integration question; Pattern B + engine consultation)
+10. UE 3D Niagara VFX specifics: SplineMesh + Emissive material + particle-based atmospheric diffusion + spherical Fibonacci glyph distribution + sphere radius + UE stylus + pencil-on-iPad ergonomics + Tier 2 panel as Earth-avatar tablet surface (WS2 commission scope; gandalf seam; fires POST-this-amendment + POST-Mantis-windowed-mode-verification-PASS)
+11. Per-season glyph-system rotation lock (Cycle 15+ season-design Pattern B with Matt; first cross-season validation S2 launch)
+12. Gesture-shape-matching algorithm (Hotspot C; post-Pattern-B Tier 1 model lock)
+
+### 11.12 Sequencing per 2026-06-09 ratification
+
+Per Matt 2026-06-09 ratification:
+1. ✅ DONE — § 10 cosmograph-pivot canonical amendment (Tal Rasha § 4.1 — substrate-architecture refinement)
+2. ✅ DONE — this § 11 addendum (Tal Rasha § 4.2 — player-experience + path I precursor + glyph-corpus framing)
+2.5. CONCURRENT — kit-to-star-sign Phase 2 elrond fires parallel to these amendments (downstream; not in scope of this commit)
+3. PENDING — Pattern B icon-design session scheduling (Matt + gandalf; per-primitive canonical icon design + cross-group collision + system-concentration disposition + Tier 1 input model lock + Elements-categorical-distinction preservation)
+4. PENDING — WS2 scope authoring (gandalf seam; fires POST-this-amendment + POST-Mantis-windowed-mode-verification-PASS per Matt direction)
+5-8. PENDING — Hotspot A-extension + Hotspot B + Hotspot C consultations (elrond seam; downstream of Pattern B locks per gandalf Phase 4 review § 5 routing sequence) + post-canonical-primitive-group-lock layout regeneration (drax seam)
+
+### 11.13 Sign-off on § 11 addendum
+
+**Authored:** gandalf 2026-06-09 per Matt 2026-06-09 ratification of Drax /forge Phase 4 amended GREEN as Tal Rasha recognition record § 5 Trigger 2 empirical-evidence satisfaction. Branch A canonical authoring-lane fires per recognition-validate-commit discipline (recognition → validate → commit). § 1-§ 10 substantive content PRESERVED VERBATIM. § 11 ADDS the Tal Rasha § 4.2 commitments composing with the Earth-Avatar Creation Moment architecture per Branch A canonical scope.
+
+**Authority:** Matt 2026-06-09 ratification + Tal Rasha § 4.2 recognition-validate-commit discipline; critique-pair CONCUR (gandalf Phase 4 review PASS-WITH-DESIGN-RECOMMENDATIONS + jack-ryan Gate-2 PASS-WITH-INFO).
+
+**Composition with prior canonical commitments:** ALL preserved (Tal Rasha recognition 2026-06-09 + Earth-Avatar Creation Moment Architecture 2026-06-07 § 1-§ 10 + cosmograph-pivot 2026-06-05 + § 9 amendment 2026-06-06 + § 10 amendment 2026-06-09 + atomic-substrate-registry 2026-06-06 + hypothesis-flow 2026-05-31 CANONICAL + Season Archive Realm Expansion 2026-06-02 + federated PC team architecture 2026-06-07 + Earth Self meta-layer + spirit guide architecture canonical 17 + form library May 2026 + downstream delivery strategy canonical 38 + legacy categorical cleanup audit 2026-05-22 + marginal-lineage recognition records 2026-05-23 × 5). Branch B path (per Tal Rasha § 5 Trigger 3) is RETIRED — Branch A canonical commit fires per Trigger 2 satisfaction.
+
+**End of 2026-06-09 § 11 addendum.**
