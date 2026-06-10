@@ -17,7 +17,7 @@
 | IAU constellations B (Crux–Octans, 29) | ✅ COMPLETE | 29 | image_url + stars all entries | Indus medium-sensitivity; Lupus SN 1006; Lyra/Vega future pole |
 | IAU constellations C (Ophiuchus–Vulpecula, 30) | ✅ COMPLETE | 30 | image_url + stars all entries | Ophiuchus 13th-sign hook; Orion; Sagittarius galactic center |
 | Mesopotamian (MUL.APIN) | ✅ COMPLETE | 18 | image_url + iconography | 12 proto-zodiac + 6 major non-zodiacal; Dumuzi/Inanna |
-| Celtic tree zodiac (13) | in-progress | — | — | Recovery batch running |
+| Celtic tree zodiac (13) | ✅ COMPLETE | 13 | image_url + iconography all | Graves (1948) modern-construction provenance noted; Ogham letters |
 | Norse/Germanic | in-progress | — | — | Recovery batch running |
 | Chinese zodiac (12 animals) | ✅ COMPLETE | 12 | 100% image_url + iconography | YAML validated; 2 low-sensitivity flags |
 | Chinese Xiu lunar mansions (28) | ✅ COMPLETE | 28 | asterism + stars + iconography | 4 quadrant guardians; determinative stars |
@@ -39,9 +39,9 @@
 | West African (Dogon + broader) | ✅ COMPLETE | 3 | iconography | Griaule flag on all Dogon entries; van Beek (1991) cited |
 | Native American (multi-tribal) | ✅ COMPLETE | 5 | iconography + stars | Per-tribe: Pawnee(Skidi)×2/Cherokee/Anishinaabe×2; sacred excluded |
 
-**Running total: ✅ 400 entries confirmed (24 traditions complete) — THRESHOLD MET**
-**Remaining: Celtic (13) + Norse (~10) = ~23 more (optional; corpus already above threshold)**
-**Projected final: ~423 — confirmed clears 400 without any high-sensitivity material ✓**
+**Running total: ✅ 413 entries confirmed (25 traditions complete) — THRESHOLD MET (400+)**
+**Remaining: Norse/Germanic (~10) = ~10 more (final tradition)**
+**Projected final: ~423**
 
 ---
 
@@ -118,6 +118,9 @@
 
 ### IAU Constellations batch B (Crux–Octans) — COMPLETE (2026-06-09)
 **29 entries, 98 KB.** Sign IDs 030–058. Crux through Octans alphabetically. All entries with full image_url + star_coordinates + asterism_schematic + cultural_iconography. Key entries and design hooks: **Crux** (Southern Cross — flags of 5 nations; Coalsack Nebula; Chakana cross-tradition parallel); **Cygnus** (Northern Cross; Deneb ~200,000 solar luminosities; Cygnus X-1 first black hole candidate); **Draco** (circumpolar; Thuban was pole star ~2787 BCE, Great Pyramid descending passage aligned to Thuban); **Gemini** (zodiacal; Castor = sextuple star system; Dioscuri mortal/immortal duality game hook); **Hercules** (M13 Great Globular Cluster + Arecibo Message 1974 — "the message-sent-to-the-stars" design hook; Twelve Labors archetype); **Lyra** (Vega will be pole star ~13,727 CE; Ring Nebula M57; Orpheus myth); **Leo** (zodiacal; Regulus 0.47° from ecliptic; Leonid meteor shower nexus); **Lupus** (SN 1006 = brightest recorded supernova magnitude −7.5 daytime-visible; supernovae design hook); **Norma** (lost alpha and beta stars to Scorpius at IAU 1930 — "the robbed constellation"; Great Attractor behind it); **Octans** (σ Octantis ~100× fainter than Polaris; Southern navigation uses Crux pointer instead — "the star that fails"). Cultural sensitivity: Indus (medium — colonial-era depiction of indigenous person). Corpus file: `corpus-iau-constellations-B.yaml`.
+
+### Celtic tree zodiac (Beth-Luis-Nion calendar) — COMPLETE (2026-06-09)
+**13 entries.** All 13 months of the Ogham tree calendar with Ogham letters (ᚁ through ᚏ), ruling planets, date ranges, tree species (Linnaean binomial), and mythic/ecological narratives. **Authenticity provenance explicitly documented**: Celtic tree zodiac is a modern construction attributed to Robert Graves (1948) *The White Goddess*, synthesized from disparate Celtic, classical, and other sources. Not attested in ancient Celtic astronomical records or manuscripts. Contemporary Neo-pagan and Druidic adoption is genuine but modern. Ogham script (4th–7th century CE) was historically used for names and inscriptions, not for a zodiacal calendar. This context is captured in every entry's `authenticity_note` field. Notable entries: **Birch (Beith, #1)** — pioneer species, winter solstice turning point; **Oak (Duir, #7)** — midsummer, Jupiter, Druid tree par excellence; **Elder (Ruis, #13)** — year's end, threshold/death/regeneration; **Ivy (Gort, #11)** — the only "non-tree" in the calendar. Cultural sensitivity: none/low. Corpus file: `corpus-celtic-zodiac.yaml`.
 
 ### Mesopotamian MUL.APIN (18 figures) — COMPLETE (2026-06-09)
 **18 entries, 59 KB.** 12 path-of-Moon asterisms (the proto-zodiac that became the Western 12 signs) + 6 major non-zodiacal Babylonian figures. Each with cuneiform transliteration, deity associations, Western zodiac correspondence, mythic narrative, and design hooks. Key entries: **MUL.IKU / MULLU.HUN.GA** (Hired Man → Aries) associated with Dumuzi/Tammuz — oldest recorded death-and-resurrection deity tied to astronomical observation; **MUL.GAL.GALLIM** (The Stars = Pleiades) — "the most auspicious asterism" in Babylonian tradition; **MUL.SUḪUR.MAS** (Goat-Fish → Capricorn) — one of the most distinctive Mesopotamian composite creatures; **MUL.DINGIR.ANNA** (True Shepherd of Anu = Orion) — the shepherd-of-heaven; **MUL.APIN** (The Plough) — the constellation the tablets are named after; **MUL.SHUPA** (The Crook = Boötes/Arcturus) — "the star of Enlil" most prominent Babylonian Enlil-star. Direct Babylonian → Western zodiac ancestry documented for all 12 proto-zodiac entries. Cultural sensitivity: none. Corpus file: `corpus-mesopotamian.yaml`.
