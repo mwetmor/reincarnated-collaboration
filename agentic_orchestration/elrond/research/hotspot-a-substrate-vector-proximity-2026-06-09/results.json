@@ -1,0 +1,430 @@
+{
+  "_meta": {
+    "date": "2026-06-09",
+    "author": "elrond",
+    "commission": "Hotspot A substrate-vector proximity (Discipline #18.2)",
+    "methodology_note": "agentic_orchestration/elrond/notes/2026-06-09-hotspot-a-substrate-vector-proximity-methodology.md",
+    "substrate_root": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/elrond/research/cosmograph-substrate-trace-2026-06-06",
+    "n_kits": 1000,
+    "n_primitives_in_universe": 366,
+    "family_weights": {
+      "element": 1.0,
+      "sub_element_flavor": 1.0,
+      "mechanic": 1.0,
+      "skill_geometry": 1.0,
+      "weapon_form_token": 1.0,
+      "cultural_tradition": 1.0,
+      "race_primitive": 1.0,
+      "attribute": 0.7,
+      "T4_strategy": 0.7,
+      "register": 0.7,
+      "historical_period": 0.7,
+      "off_hand_substrate": 0.7,
+      "chain_architecture": 0.3,
+      "investment_scaling_pattern": 0.3,
+      "skill_tree_position": 0.3,
+      "scaling_pattern_per_tier": 0.3,
+      "resource_model": 0.3
+    },
+    "default_family_weight": 0.5,
+    "n_pair_sample": 20000,
+    "k_nn": 5,
+    "seed": 20260609
+  },
+  "layouts": [
+    {
+      "layout_name": "radial_baseline",
+      "world_w": 11000.0,
+      "world_h": 8500.0,
+      "n_kits": 1000,
+      "pair_correlation": {
+        "n_pairs": 20000,
+        "spearman_r": 0.3133699331013845,
+        "spearman_p": 0.0,
+        "kendall_tau": 0.202641970761517,
+        "kendall_p": 2.4593606659310502e-102,
+        "substrate_dist_mean": 0.8602397475734186,
+        "substrate_dist_std": 0.04502232244567018,
+        "spatial_dist_mean": 4831.736695816462,
+        "spatial_dist_std": 2557.633674713723
+      },
+      "knn_purity": {
+        "k": 5,
+        "overall_purity_mean": 0.8155999999999999,
+        "overall_purity_median": 1.0,
+        "overall_knn_substrate_mean": 0.8205101211202572,
+        "overall_random_substrate_mean": 0.8599615223228491,
+        "overall_knn_over_random_ratio": 0.9541242251211085,
+        "per_element": {
+          "earth": {
+            "n_kits": 81,
+            "knn_purity": 0.708641975308642,
+            "knn_substrate_mean": 0.8221604119362179,
+            "random_substrate_mean": 0.8643257626558275,
+            "knn_over_random_ratio": 0.9512159043020453
+          },
+          "fire": {
+            "n_kits": 82,
+            "knn_purity": 0.7804878048780488,
+            "knn_substrate_mean": 0.816120879412805,
+            "random_substrate_mean": 0.8609728263193311,
+            "knn_over_random_ratio": 0.9479055023161779
+          },
+          "holy": {
+            "n_kits": 84,
+            "knn_purity": 0.692857142857143,
+            "knn_substrate_mean": 0.8307026905430581,
+            "random_substrate_mean": 0.8689976477724844,
+            "knn_over_random_ratio": 0.955932035802872
+          },
+          "lightning": {
+            "n_kits": 81,
+            "knn_purity": 0.8024691358024691,
+            "knn_substrate_mean": 0.817459011449526,
+            "random_substrate_mean": 0.8664743394574331,
+            "knn_over_random_ratio": 0.9434312987980701
+          },
+          "physical": {
+            "n_kits": 428,
+            "knn_purity": 0.9266355140186916,
+            "knn_substrate_mean": 0.8182559982407768,
+            "random_substrate_mean": 0.8535585345347237,
+            "knn_over_random_ratio": 0.9586407553019308
+          },
+          "shadow": {
+            "n_kits": 80,
+            "knn_purity": 0.5850000000000001,
+            "knn_substrate_mean": 0.8311590635200872,
+            "random_substrate_mean": 0.8617336356708629,
+            "knn_over_random_ratio": 0.9645196950830713
+          },
+          "water": {
+            "n_kits": 75,
+            "knn_purity": 0.7440000000000001,
+            "knn_substrate_mean": 0.8129422327759893,
+            "random_substrate_mean": 0.8656966878709833,
+            "knn_over_random_ratio": 0.9390612718818024
+          },
+          "wind": {
+            "n_kits": 89,
+            "knn_purity": 0.8067415730337079,
+            "knn_substrate_mean": 0.8238544935020957,
+            "random_substrate_mean": 0.8649679174802982,
+            "knn_over_random_ratio": 0.9524682671491813
+          }
+        }
+      },
+      "per_element_stress": {
+        "per_element": {
+          "earth": {
+            "n_kits": 81,
+            "n_pairs": 1500,
+            "kruskal_stress_1": 0.5151431463725541,
+            "spearman_within_element": 0.12659321486748304
+          },
+          "fire": {
+            "n_kits": 82,
+            "n_pairs": 1500,
+            "kruskal_stress_1": 0.492061764149068,
+            "spearman_within_element": 0.10656691652577877
+          },
+          "holy": {
+            "n_kits": 84,
+            "n_pairs": 1500,
+            "kruskal_stress_1": 0.5235845465251807,
+            "spearman_within_element": 0.11158847788735507
+          },
+          "lightning": {
+            "n_kits": 81,
+            "n_pairs": 1500,
+            "kruskal_stress_1": 0.5043317929014545,
+            "spearman_within_element": 0.09169555512667336
+          },
+          "physical": {
+            "n_kits": 428,
+            "n_pairs": 1500,
+            "kruskal_stress_1": 0.5203388984492068,
+            "spearman_within_element": 0.054273775973057325
+          },
+          "shadow": {
+            "n_kits": 80,
+            "n_pairs": 1500,
+            "kruskal_stress_1": 0.4656874433673813,
+            "spearman_within_element": 0.09009584197831293
+          },
+          "water": {
+            "n_kits": 75,
+            "n_pairs": 1500,
+            "kruskal_stress_1": 0.48404690426237534,
+            "spearman_within_element": 0.1405460480388512
+          },
+          "wind": {
+            "n_kits": 89,
+            "n_pairs": 1500,
+            "kruskal_stress_1": 0.5550775791511946,
+            "spearman_within_element": 0.08603981003298136
+          }
+        },
+        "mean_kruskal_stress_1": 0.5075340093973019,
+        "mean_within_element_spearman": 0.10092495505381163
+      },
+      "anchor_proximity": {
+        "per_anchor": {
+          "fire": {
+            "n_element_kits": 82,
+            "top100_match_count": 67,
+            "top200_match_count": 82,
+            "mean_distance_element_kits": 1735.086463954859,
+            "mean_distance_nonelement_kits": 7459.976490898887
+          },
+          "water": {
+            "n_element_kits": 75,
+            "top100_match_count": 54,
+            "top200_match_count": 68,
+            "mean_distance_element_kits": 1536.6180101821121,
+            "mean_distance_nonelement_kits": 5767.880707532429
+          },
+          "earth": {
+            "n_element_kits": 81,
+            "top100_match_count": 65,
+            "top200_match_count": 69,
+            "mean_distance_element_kits": 1326.9378595857154,
+            "mean_distance_nonelement_kits": 5234.588279356761
+          },
+          "wind": {
+            "n_element_kits": 89,
+            "top100_match_count": 75,
+            "top200_match_count": 82,
+            "mean_distance_element_kits": 1438.7836183907204,
+            "mean_distance_nonelement_kits": 6049.107480700386
+          },
+          "lightning": {
+            "n_element_kits": 81,
+            "top100_match_count": 62,
+            "top200_match_count": 79,
+            "mean_distance_element_kits": 1527.4808926949788,
+            "mean_distance_nonelement_kits": 6855.1947140976345
+          },
+          "holy": {
+            "n_element_kits": 84,
+            "top100_match_count": 61,
+            "top200_match_count": 64,
+            "mean_distance_element_kits": 1586.6841092525626,
+            "mean_distance_nonelement_kits": 4969.448140105644
+          },
+          "shadow": {
+            "n_element_kits": 80,
+            "top100_match_count": 48,
+            "top200_match_count": 48,
+            "mean_distance_element_kits": 1778.943273931541,
+            "mean_distance_nonelement_kits": 4117.992093911305
+          },
+          "physical": {
+            "n_element_kits": 428,
+            "top100_match_count": 100,
+            "top200_match_count": 200,
+            "mean_distance_element_kits": 1669.9127774557853,
+            "mean_distance_nonelement_kits": 6446.057830352761
+          }
+        }
+      }
+    },
+    {
+      "layout_name": "force_directed",
+      "world_w": 11000.0,
+      "world_h": 8500.0,
+      "n_kits": 1000,
+      "pair_correlation": {
+        "n_pairs": 20000,
+        "spearman_r": 0.3192004410529041,
+        "spearman_p": 0.0,
+        "kendall_tau": 0.20323073611103415,
+        "kendall_p": 6.402222183062361e-103,
+        "substrate_dist_mean": 0.8611379252488405,
+        "substrate_dist_std": 0.04447690873163665,
+        "spatial_dist_mean": 4830.637130706128,
+        "spatial_dist_std": 2559.6860908833637
+      },
+      "knn_purity": {
+        "k": 5,
+        "overall_purity_mean": 0.9154000000000001,
+        "overall_purity_median": 1.0,
+        "overall_knn_substrate_mean": 0.8190155483473934,
+        "overall_random_substrate_mean": 0.860152744978223,
+        "overall_knn_over_random_ratio": 0.9521745447294119,
+        "per_element": {
+          "earth": {
+            "n_kits": 81,
+            "knn_purity": 0.9037037037037038,
+            "knn_substrate_mean": 0.8121294816729652,
+            "random_substrate_mean": 0.863007494045897,
+            "knn_over_random_ratio": 0.9410456887988204
+          },
+          "fire": {
+            "n_kits": 82,
+            "knn_purity": 0.9243902439024392,
+            "knn_substrate_mean": 0.8152124170719701,
+            "random_substrate_mean": 0.8639380006111077,
+            "knn_over_random_ratio": 0.9436006015423891
+          },
+          "holy": {
+            "n_kits": 84,
+            "knn_purity": 0.8523809523809524,
+            "knn_substrate_mean": 0.8243378169057969,
+            "random_substrate_mean": 0.8665946829947586,
+            "knn_over_random_ratio": 0.9512380275137029
+          },
+          "lightning": {
+            "n_kits": 81,
+            "knn_purity": 0.9308641975308642,
+            "knn_substrate_mean": 0.815660090688205,
+            "random_substrate_mean": 0.8651809409074213,
+            "knn_over_random_ratio": 0.9427624351418586
+          },
+          "physical": {
+            "n_kits": 428,
+            "knn_purity": 0.969158878504673,
+            "knn_substrate_mean": 0.8203385055952995,
+            "random_substrate_mean": 0.8534989353971695,
+            "knn_over_random_ratio": 0.9611476612018983
+          },
+          "shadow": {
+            "n_kits": 80,
+            "knn_purity": 0.72,
+            "knn_substrate_mean": 0.8312742495562603,
+            "random_substrate_mean": 0.8657419176484712,
+            "knn_over_random_ratio": 0.9601871326898067
+          },
+          "water": {
+            "n_kits": 75,
+            "knn_purity": 0.8613333333333333,
+            "knn_substrate_mean": 0.8073326693661996,
+            "random_substrate_mean": 0.8668909414245227,
+            "knn_over_random_ratio": 0.9312966957983738
+          },
+          "wind": {
+            "n_kits": 89,
+            "knn_purity": 0.9258426966292136,
+            "knn_substrate_mean": 0.8192812090381599,
+            "random_substrate_mean": 0.8647066736699804,
+            "knn_over_random_ratio": 0.9474671978197807
+          }
+        }
+      },
+      "per_element_stress": {
+        "per_element": {
+          "earth": {
+            "n_kits": 81,
+            "n_pairs": 1500,
+            "kruskal_stress_1": 0.5243421667237722,
+            "spearman_within_element": 0.04306323542965546
+          },
+          "fire": {
+            "n_kits": 82,
+            "n_pairs": 1500,
+            "kruskal_stress_1": 0.5113225060592911,
+            "spearman_within_element": 0.052594020633075965
+          },
+          "holy": {
+            "n_kits": 84,
+            "n_pairs": 1500,
+            "kruskal_stress_1": 0.5387353895194534,
+            "spearman_within_element": 0.05319957581480518
+          },
+          "lightning": {
+            "n_kits": 81,
+            "n_pairs": 1500,
+            "kruskal_stress_1": 0.5253194770568609,
+            "spearman_within_element": 0.06707513379291617
+          },
+          "physical": {
+            "n_kits": 428,
+            "n_pairs": 1500,
+            "kruskal_stress_1": 0.5389418291749554,
+            "spearman_within_element": 0.07838158102400318
+          },
+          "shadow": {
+            "n_kits": 80,
+            "n_pairs": 1500,
+            "kruskal_stress_1": 0.4784241893696404,
+            "spearman_within_element": 0.12670952880776384
+          },
+          "water": {
+            "n_kits": 75,
+            "n_pairs": 1500,
+            "kruskal_stress_1": 0.4905577464761617,
+            "spearman_within_element": 0.11834641657418317
+          },
+          "wind": {
+            "n_kits": 89,
+            "n_pairs": 1500,
+            "kruskal_stress_1": 0.5778577986309714,
+            "spearman_within_element": 0.10125724303466434
+          }
+        },
+        "mean_kruskal_stress_1": 0.5231876378763882,
+        "mean_within_element_spearman": 0.08007834188888342
+      },
+      "anchor_proximity": {
+        "per_anchor": {
+          "fire": {
+            "n_element_kits": 82,
+            "top100_match_count": 71,
+            "top200_match_count": 82,
+            "mean_distance_element_kits": 1517.0943580424403,
+            "mean_distance_nonelement_kits": 7503.214269996292
+          },
+          "water": {
+            "n_element_kits": 75,
+            "top100_match_count": 54,
+            "top200_match_count": 75,
+            "mean_distance_element_kits": 1328.9265011583163,
+            "mean_distance_nonelement_kits": 5802.186965779803
+          },
+          "earth": {
+            "n_element_kits": 81,
+            "top100_match_count": 65,
+            "top200_match_count": 80,
+            "mean_distance_element_kits": 1164.0266441990145,
+            "mean_distance_nonelement_kits": 5264.179610732095
+          },
+          "wind": {
+            "n_element_kits": 89,
+            "top100_match_count": 78,
+            "top200_match_count": 87,
+            "mean_distance_element_kits": 1209.7408862060245,
+            "mean_distance_nonelement_kits": 6058.499990576426
+          },
+          "lightning": {
+            "n_element_kits": 81,
+            "top100_match_count": 76,
+            "top200_match_count": 80,
+            "mean_distance_element_kits": 1278.2388686325767,
+            "mean_distance_nonelement_kits": 6890.287771098036
+          },
+          "holy": {
+            "n_element_kits": 84,
+            "top100_match_count": 61,
+            "top200_match_count": 75,
+            "mean_distance_element_kits": 1393.9515606762402,
+            "mean_distance_nonelement_kits": 4993.970689394579
+          },
+          "shadow": {
+            "n_element_kits": 80,
+            "top100_match_count": 48,
+            "top200_match_count": 51,
+            "mean_distance_element_kits": 1581.9773057103846,
+            "mean_distance_nonelement_kits": 4098.910470419485
+          },
+          "physical": {
+            "n_element_kits": 428,
+            "top100_match_count": 100,
+            "top200_match_count": 200,
+            "mean_distance_element_kits": 1453.800005959929,
+            "mean_distance_nonelement_kits": 6446.246931027875
+          }
+        }
+      }
+    }
+  ]
+}
