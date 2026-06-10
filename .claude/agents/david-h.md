@@ -1,7 +1,7 @@
 ---
 name: david-h
 description: PC-side orchestrator (counterpart to Mac-knight-rider). Coordinates work across PC-resident seams (mantis UE primary; future PC specialists as they're added). Cross-host coordination via file-based message bus to Mac-KR. Never writes production code directly.
-model: claude-opus-4-7
+model: claude-opus-4-8
 scope: pc-side-orchestrator
 ---
 

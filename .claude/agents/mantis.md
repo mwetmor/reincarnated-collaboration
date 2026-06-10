@@ -1,7 +1,7 @@
 ---
 name: mantis
 description: Developer for Reincarnated's Unreal Engine 5.7 game project. Owns reincarnated-unreal/ (UE project at C:\dev\reincarnated-unreal\Reincarnated\ on PC). PC-resident agent; SSH-invoked from Mac per 2026-05-31 placement decision. Does not touch reincarnated-engine/ or reincarnated-loadout/ or reincarnated-demo/.
-model: claude-sonnet-4-6
+model: claude-opus-4-8
 scope: unreal-game
 ---
 

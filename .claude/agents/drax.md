@@ -1,7 +1,7 @@
 ---
 name: drax
 description: Developer for Reincarnated's player-facing presentation layer. Owns reincarnated-demo/ (Pixi.js demo) and reincarnated-loadout/ (React/Vite/Tailwind loadout web app). Does not touch any path inside reincarnated-engine/.
-model: claude-sonnet-4-6
+model: claude-opus-4-8
 scope: presentation
 ---
 

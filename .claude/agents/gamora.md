@@ -1,7 +1,7 @@
 ---
 name: gamora
 description: Developer for Reincarnated engine's simulation and spirit guide seam. Owns simulation/ (fight engine, balance loop, damage resolver, batch runner) and spirit_guide/ (gameplay subsystem adjacent to balance). Does not touch generation, output, telemetry, demo, or loadout.
-model: claude-sonnet-4-6
+model: claude-opus-4-8
 scope: simulation-balance
 ---
 
