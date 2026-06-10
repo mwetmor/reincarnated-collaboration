@@ -1,0 +1,540 @@
+# corpus-norse-germanic.yaml
+# Legolas Mode B Corpus — Norse and Germanic Sky Traditions
+# Crawl date: 2026-06-09
+# Entry count: 10
+# Note: Norse astronomical traditions are less systematically zodiacal than Greek or Chinese systems.
+# These entries document key named celestial figures from Old Norse and Germanic tradition —
+# deified sky bodies, mythologically significant star groups, and cosmographic axis figures.
+# Academic sources: Simek (1993) 'Dictionary of Northern Mythology'; Prose Edda (Snorri Sturluson,
+# c. 1220 CE); Poetic Edda (various, compiled c. 1270 CE but containing older material);
+# Cleasby & Vigfusson Old Norse Dictionary.
+# Cultural sensitivity: none — academic sources; living Norse neo-pagan practitioners exist
+# (Ásatrú, Heathenry) but the attested mythological content is public domain scholarly tradition.
+---
+
+- sign_id: "norse-germanic-001-sol"
+  sign_name:
+    primary: "Sól (The Sun)"
+    variants: ["Sol", "Sunna", "Old Norse: Sól", "Proto-Germanic: *Sōwilō"]
+    romanization: "Sól"
+    native_script: "ᛊ"
+    runic_association: "Sowilo rune (ᛊ) — the Sun rune"
+  cultural_tradition:
+    primary_culture: "Norse / Germanic"
+    variant_culture: "Old Norse (Icelandic / Scandinavian)"
+    geographic_origin: "Scandinavia; Iceland; Germanic territories"
+    period_range: "Prose Edda c. 1220 CE (Snorri Sturluson); Poetic Edda (Vafþrúðnismál, Grímnismál); Proto-Germanic traditions predating written records"
+    status_in_modern_tradition: "active_neopagan"
+    living_practitioners: "Ásatrú and Heathenry communities; public domain mythological content"
+  system_metadata:
+    system_name: "Norse / Germanic sky traditions"
+    total_signs_in_system: 10
+    position_in_system: 1
+    sign_classification:
+      celestial_body: "Sun"
+      personification: "female deity (unusually; sun is masculine in most Indo-European traditions)"
+      associated_rune: "Sowilo (ᛊ)"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/S%C3%B3l_(Norse_mythology)"
+    cultural_iconography: "Beautiful female figure riding a sky chariot drawn by the horses Árvakr (Early Waker) and Alsviðr (All-Swift); the shield Svalinn stands between her and Earth to prevent destruction by her full heat; the wolf Sköll chases her chariot eternally across the sky; at Ragnarök, Sköll catches her and she is devoured — but her daughter carries on the sun's path"
+  primitive_association_hints:
+    suggested_attributes: ["the pursued radiance", "light that cannot stop moving", "warmth that destroys at full intensity", "the generous giver who cannot pause", "the continuity beyond death (daughter follows)"]
+    narrative_archetype: "the one who cannot rest; light that is always being pursued and yet never caught"
+    game_design_notes: "Norse Sun-as-female is a rare inversion of standard Indo-European sun-as-male; the sun's heat requires Svalinn (the shield) to moderate it — raw solar power is too dangerous to experience directly; wolf Sköll = the thing that chases the light = an eternal threat-without-conclusion"
+  mythic_narrative: >
+    Sól (Old Norse for "Sun") is the solar deity of Norse mythology — notably female in a tradition
+    where the sun is male in most Indo-European systems (the German word "Sonne" is still grammatically
+    feminine, preserving this ancient gender). She drives the sun's chariot across the sky, pulled
+    by the horses Árvakr (Early Waker) and Alsviðr (All-Swift), who have bellows fixed to their
+    shoulders to cool them from the sun's heat. The shield Svalinn rides before the chariot; without
+    it, the sun's direct power would incinerate mountains and seas. The wolf Sköll chases her
+    chariot eternally from east to west across the sky — in Eddic cosmology, this is why the sun
+    appears to move: it is fleeing. At Ragnarök, Sköll catches her and devours her; but Sól's
+    daughter, already born and learning her mother's paths, takes over and the sun continues.
+    The Sowilo rune (ᛊ) encodes this solar force — victory, vitality, and the wheel of the sun
+    whose spokes are its rays.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Ásatrú and Heathenry are living religious traditions; this entry documents attested academic mythological content from Prose/Poetic Edda — public domain scholarly material"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/S%C3%B3l_(Norse_mythology)"
+      - "Prose Edda: Gylfaginning (Snorri Sturluson, c. 1220 CE)"
+      - "Poetic Edda: Vafþrúðnismál"
+      - "Simek, R. (1993) 'Dictionary of Northern Mythology' (translated by Angela Hall)"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "norse-germanic-002-mani"
+  sign_name:
+    primary: "Máni (The Moon)"
+    variants: ["Mani", "Old Norse: Máni", "Proto-Germanic: *Mēnô"]
+    romanization: "Máni"
+    native_script: "ᛗ"
+    runic_association: "Mannaz rune (ᛗ) — the Man rune; associated with the human under the moon's cycles"
+  cultural_tradition:
+    primary_culture: "Norse / Germanic"
+    variant_culture: "Old Norse (Icelandic / Scandinavian)"
+    geographic_origin: "Scandinavia; Iceland; Germanic territories"
+    period_range: "Prose Edda c. 1220 CE; Poetic Edda; Proto-Germanic traditions"
+    status_in_modern_tradition: "active_neopagan"
+    living_practitioners: "Ásatrú and Heathenry communities"
+  system_metadata:
+    system_name: "Norse / Germanic sky traditions"
+    total_signs_in_system: 10
+    position_in_system: 2
+    sign_classification:
+      celestial_body: "Moon"
+      personification: "male deity (unusually; moon is feminine in most Indo-European traditions)"
+      associated_rune: "associated with cycles and human measure"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/M%C3%A1ni"
+    cultural_iconography: "Young male figure riding a sky chariot with two stolen children: Hjúki and Bil, taken from Earth as he passed; the wolf Hati chases his chariot; at Ragnarök Hati catches the moon; Máni governs the phases, determines months and years; the children Hjúki and Bil are the origin of the Man-in-the-Moon image"
+  primitive_association_hints:
+    suggested_attributes: ["stolen children / abducted luminaries", "the waxing and waning cycle", "measure of time (months from 'moon')", "the one who cannot stop even to rest", "what is pursued and eventually caught"]
+    narrative_archetype: "the abductor who creates a family in the sky; the measurer of time who is himself time-limited"
+    game_design_notes: "Norse Moon-as-male inverts the standard Indo-European pattern; the stolen children Hjúki and Bil are the origin of Jack and Jill in some scholars' analyses; Hati (the chasing wolf) mirrors Sköll chasing the Sun — the twin pursuits give sky motion its mythic explanation"
+  mythic_narrative: >
+    Máni (Old Norse for "Moon") is the male lunar deity of Norse mythology — another gender inversion
+    relative to most Indo-European traditions where the moon is female. He drives the moon's chariot
+    and was said to have abducted two children from Earth — Hjúki and Bil — who can be seen on the
+    moon's face (the Man-in-the-Moon image). This abduction narrative is strikingly different from
+    the usual moon-deity mythology; the children were taken while carrying a water bucket from a
+    well, their names meaning "the waning" and "the waxing" in some interpretations, suggesting
+    they personify the moon's phases. The wolf Hati (meaning "the One Who Hates") chases Máni's
+    chariot eternally — the dark shadow that chases the moon from west to east across the sky.
+    The word for "month" in all Germanic languages derives from "moon" (*mēnô), making Máni the
+    father of measured time itself.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Academic mythological content from Prose/Poetic Edda"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/M%C3%A1ni"
+      - "Prose Edda: Gylfaginning (Snorri Sturluson, c. 1220 CE)"
+      - "Simek, R. (1993) 'Dictionary of Northern Mythology'"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "norse-germanic-003-aurvandil"
+  sign_name:
+    primary: "Aurvandill (The Evening Star / a Stellar Figure)"
+    variants: ["Aurvandil", "Earendel (Old English)", "Orendel (German)", "Aurvandill inn frakkni"]
+    romanization: "Aurvandill"
+    native_script: null
+  cultural_tradition:
+    primary_culture: "Norse / Germanic"
+    variant_culture: "Old Norse; cognates in Old English (Earendel) and Middle High German (Orendel)"
+    geographic_origin: "Scandinavia; Iceland; Germanic territories"
+    period_range: "Prose Edda c. 1220 CE; Old English 'Crist' poem by Cynewulf (c. 800 CE, 'Earendel'); Pre-Christian Germanic"
+    status_in_modern_tradition: "scholarly_reconstruction"
+    note: "The Aurvandil/Earendel figure was J.R.R. Tolkien's source for Eärendil in his mythology — the star-mariner whose light Sam sees in the Mirror of Galadriel"
+  system_metadata:
+    system_name: "Norse / Germanic sky traditions"
+    total_signs_in_system: 10
+    position_in_system: 3
+    sign_classification:
+      celestial_body: "A named star (Rigel or Arcturus — scholars debate); or Venus as Evening Star"
+      personification: "hero/stellar figure; his frozen toe becomes a star"
+      stellar_identification_debate: "Aurvandilstá (Aurvandil's Toe) identified with Rigel (β Orionis) by some scholars; others propose Arcturus or a circumpolar star"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Aurvandil"
+    cultural_iconography: "Þórr carries Aurvandil in a basket across the frozen rivers of the sky (Élivágar); Aurvandil's toe sticks out of the basket and freezes solid; Þórr breaks it off and throws it into the sky where it becomes a star — Aurvandilstá (Aurvandil's Toe). The frozen hero in the sky-basket is an image of difficult star-birth"
+  primitive_association_hints:
+    suggested_attributes: ["the transformed hero", "ascent through suffering", "the frozen fragment that becomes light", "carried by the champion", "naming-through-act"]
+    narrative_archetype: "the one who is carried across the impossible and arrives transformed; the hero who becomes a fixed point"
+    game_design_notes: "Tolkien's primary mythological source; the Earendel lineage is one of the most traceable examples of pre-Christian Germanic mythology → modern fantasy literature; 'the toe that freezes and becomes a star' is one of the most specifically odd mythological images in the corpus — exactly the kind of detail that has high game-design texture"
+  mythic_narrative: >
+    Aurvandill (Old Norse) — cognate with Old English "Earendel" (meaning approximately "shining
+    wanderer" or "dawn light") — is a dimly attested but evidently important figure in Germanic
+    mythology. The name appears in Cynewulf's Old English poem 'Crist' (c. 800 CE) where Earendel
+    is called "brightest of angels" — a pre-Christian stellar figure assimilated into Christian
+    verse. In the Prose Edda (Skáldskaparmál), Þórr carries Aurvandill in a basket across the
+    Élivágar (the primordial icy rivers of Niflheim) after rescuing him from the realm of the
+    frost giants. Aurvandill's toe sticks out of the basket and freezes; Þórr breaks it off and
+    throws it into the sky as a star called Aurvandilstá. The name captivated J.R.R. Tolkien,
+    who made "Eärendil the Mariner" one of his mythology's central figures — the star-bearer
+    whose light is bottled in the Phial of Galadriel, the last light in Sam's darkest hour.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Academic reconstruction; Tolkien connection is documented literary history, not religious claim"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Aurvandil"
+      - "Prose Edda: Skáldskaparmál (Snorri Sturluson, c. 1220 CE)"
+      - "Simek, R. (1993) 'Dictionary of Northern Mythology'"
+    crawl_date: "2026-06-09"
+    confidence: "medium"
+
+- sign_id: "norse-germanic-004-thiazi-eyes"
+  sign_name:
+    primary: "Þjazi's Eyes (Stars of Þjazi)"
+    variants: ["Thiazi's Eyes", "Þjazi stjǫrnur", "The Two Stars of the Giant"]
+    romanization: "Þjazi's Eyes"
+    native_script: null
+  cultural_tradition:
+    primary_culture: "Norse / Germanic"
+    variant_culture: "Old Norse (Icelandic)"
+    geographic_origin: "Iceland; Scandinavia"
+    period_range: "Prose Edda c. 1220 CE (Skáldskaparmál); pre-Christian Norse tradition"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Norse / Germanic sky traditions"
+    total_signs_in_system: 10
+    position_in_system: 4
+    sign_classification:
+      celestial_body: "Two named stars (identification disputed; Castor/Pollux or another pair)"
+      personification: "the eyes of the frost giant Þjazi, thrown into the sky by Odin"
+      stellar_identification_debate: "Specific stars unidentified; some scholars propose Castor and Pollux; others suggest two circumpolar stars"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Thjazi"
+    cultural_iconography: "Two bright stars in the sky, created from the eyes of the slain frost giant Þjazi; Odin takes the eyes from the eagle-corpse (Þjazi's form) and hurls them into the sky vault; an act that honors the giant's power and transforms his defeat into a permanent sky-mark"
+  primitive_association_hints:
+    suggested_attributes: ["the honored enemy", "the giant's gaze preserved", "power that persists after defeat", "Odin's act of recognition", "giant-sky interface"]
+    narrative_archetype: "the defeated one honored in death; the enemy whose power is too great to simply extinguish"
+    game_design_notes: "Odin creates stars from a slain giant's eyes — this is one of several 'cosmogony from giant's body-parts' instances in Norse myth (Ymir's skull = sky vault, Ymir's brains = clouds); the pattern of sky-creation from conquest has dark cosmogenic implications for game-world building"
+  mythic_narrative: >
+    Þjazi (the frost giant who kidnapped the goddess Iðunn and her apples of immortality) was
+    slain by the Æsir when he pursued them in eagle-form. In the aftermath, Skaði (his daughter,
+    who came to Ásgarðr to demand recompense for her father's death) was given the right to
+    choose a husband from among the gods — choosing by feet alone, she picked the wrong pair.
+    As additional recompense, Odin took Þjazi's eyes and threw them into the sky vault where
+    they became two stars — Þjazi's Eyes. This act is framed as honorable recognition of the
+    giant's power: too formidable to simply bury and forget, Þjazi's gaze is preserved in the
+    sky. The myth encodes the Eddic theme that the boundary between Æsir (gods) and Jötnar
+    (giants) is permeable — giants become stars, goddesses marry gods, the sky itself is made
+    from a giant's skull. The cosmos is built from the bodies of the defeated.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Academic mythological content from Prose Edda"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Thjazi"
+      - "Prose Edda: Skáldskaparmál — Haustlǫng kennings"
+      - "Simek, R. (1993) 'Dictionary of Northern Mythology'"
+    crawl_date: "2026-06-09"
+    confidence: "medium"
+
+- sign_id: "norse-germanic-005-irminsul"
+  sign_name:
+    primary: "Irminsul (The World Pillar)"
+    variants: ["Irmensul", "Irmin's Column", "The Great Pillar", "Old Saxon: Irminsûl"]
+    romanization: "Irminsul"
+    native_script: null
+  cultural_tradition:
+    primary_culture: "Norse / Germanic"
+    variant_culture: "Old Saxon / Continental Germanic"
+    geographic_origin: "Saxony (modern Germany); Eresburg (near Marsberg, Germany)"
+    period_range: "Attested 772 CE (destroyed by Charlemagne); likely pre-Christian centuries earlier"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Norse / Germanic sky traditions"
+    total_signs_in_system: 10
+    position_in_system: 5
+    sign_classification:
+      celestial_body: "Axis mundi / World Pillar (sky-earth connection)"
+      personification: "The great supporting column; 'Irmin' possibly = 'great/universal' or the god Irmin/Hermanus"
+      cosmological_role: "Axis connecting earth and sky; the pillar that holds the heavens aloft"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Irminsul"
+    cultural_iconography: "A massive wooden pillar or column — possibly a living tree — venerated outdoors; Charlemagne destroyed it during the Christianization of Saxony in 772 CE; in later reconstructed iconography it appears as a branching tree-pillar or a stylized column with spread branches representing heaven, a shaft representing earth's axis, and deep-sunk roots; functionally parallels Yggdrasil in Norse tradition"
+  primitive_association_hints:
+    suggested_attributes: ["the world's structural axis", "what holds the sky above the earth", "the point of heaven-earth connection", "what must not be cut (and was)", "the sacred site that organized the people's cosmos"]
+    narrative_archetype: "the axis; what everything else orients around; the thing whose destruction unmoors a cosmos"
+    game_design_notes: "Charlemagne's destruction of Irminsul in 772 CE is one of the most documented acts of forced religious conversion in early medieval history; the pillar that held the Saxon cosmos was literally cut down; the 'world pillar' destroyed = cosmological crisis design hook"
+  mythic_narrative: >
+    Irminsul (Old Saxon "Irminsûl") was a great pillar — possibly a living tree — venerated by
+    the Saxon peoples of continental Germany as the axis of the world, the column connecting
+    earth and sky. Its name derives from "irmin" (great, universal) and "sul" (pillar, column).
+    Charlemagne ordered its destruction in 772 CE during the forced Christianization of Saxony —
+    a deliberate act of symbolic domination: cut the axis, collapse the cosmos, prove the old
+    gods cannot protect their own most sacred object. The account survives in the Royal Frankish
+    Annals. Irminsul is the closest Continental Germanic parallel to the Norse Yggdrasil, though
+    the two are not identical; where Yggdrasil is a living ash tree in a complex mythological
+    system, Irminsul appears to have been a physical object (or site) rather than a narrative
+    figure. Its destruction left no written record of its mythology from practitioners — only
+    Christian accounts of what was eliminated.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "The destruction of Irminsul is historical record; Neo-pagan reconstructionists have revived interest but the iconography is genuinely uncertain; documented clearly as reconstruction"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Irminsul"
+      - "Royal Frankish Annals (Annales regni Francorum), 772 CE entry"
+      - "Simek, R. (1993) 'Dictionary of Northern Mythology'"
+    crawl_date: "2026-06-09"
+    confidence: "medium"
+
+- sign_id: "norse-germanic-006-yggdrasil"
+  sign_name:
+    primary: "Yggdrasill (The World Tree)"
+    variants: ["Yggdrasil", "Mimameiðr", "Læraðr", "The Ash of Yggr (Odin)"]
+    romanization: "Yggdrasill"
+    native_script: null
+  cultural_tradition:
+    primary_culture: "Norse / Germanic"
+    variant_culture: "Old Norse (Icelandic)"
+    geographic_origin: "Iceland (Eddic source); Scandinavia"
+    period_range: "Prose Edda c. 1220 CE; Poetic Edda (Völuspá, Grímnismál); pre-Christian Norse tradition"
+    status_in_modern_tradition: "active_neopagan"
+    living_practitioners: "Ásatrú and Heathenry communities widely invoke Yggdrasil"
+  system_metadata:
+    system_name: "Norse / Germanic sky traditions"
+    total_signs_in_system: 10
+    position_in_system: 6
+    sign_classification:
+      celestial_body: "Cosmic axis / World Tree (ash tree spanning all nine realms)"
+      personification: "The living cosmic structure; 'Yggr' = Odin (the Terrible); 'drasill' = horse or gallows; Yggdrasil = 'Odin's Horse' = the gallows tree from which Odin hung to gain runes"
+      cosmological_role: "The vertical axis connecting Niflheim (ice/death), Midgard (human world), and Asgard (gods); nine worlds distributed along its branches, trunk, and roots"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Yggdrasil"
+    star_coordinates:
+      - name: "Milky Way (interpreted as the tree's trunk in some modern readings)"
+        notes: "The visual 'column of heaven' the Milky Way creates aligns with World Tree concepts in multiple cultures"
+    cultural_iconography: "Immense ash tree; eagle with hawk Veðrfölnir between its eyes at the crown; Níðhöggr (serpent) gnawing the roots from Niflheim; four deer grazing the branches; the squirrel Ratatoskr running up and down carrying insults between eagle and serpent; Odin's ravens Huginn and Muninn fly from it; at Ragnarök the tree shakes but does not fall"
+  primitive_association_hints:
+    suggested_attributes: ["the living cosmos", "the axis that connects all realms", "what is constantly being gnawed but endures", "the site of Odin's self-sacrifice for wisdom", "the structure beneath all structures"]
+    narrative_archetype: "the world as living organism; the axis that survives when everything else falls"
+    game_design_notes: "The name 'Odin's Horse' = the gallows; Odin hung himself on Yggdrasil for nine days to gain the runes (self-sacrifice for wisdom); the cosmos itself = the gallows of the god = the most extreme compression of suffering-for-knowledge; Ratatoskr the gossip-squirrel is one of the more unusual cosmic figures — a chaos agent within the world's structure"
+  mythic_narrative: >
+    Yggdrasill (the World Tree) is the central cosmographic structure of Norse mythology — a
+    colossal ash tree whose three roots reach into Ásgarðr (the realm of gods and the Well of
+    Urðr), Jötunheimr (the realm of giants and Mimir's Well of Wisdom), and Niflheim (the realm
+    of ice and the dragon Níðhöggr). Nine worlds exist within and upon the tree. The name means
+    "Odin's Horse" — euphemism for the gallows tree, on which Odin hung himself, pierced by his
+    own spear, for nine days and nine nights without food or water to win the runes (the cosmic
+    writing system containing all knowledge). The universe was created from the body of the giant
+    Ymir, but it is sustained by the World Tree's structure. At Ragnarök, Níðhöggr's eternal
+    gnawing finally weakens it and Yggdrasil shakes — but in the renewal after Ragnarök, the
+    tree stands again and the surviving gods meet under its branches to remember and rebuild.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Core Norse mythology; attested in Prose and Poetic Edda; Ásatrú practitioners' living tradition does not restrict academic discussion of mythological content"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Yggdrasil"
+      - "Prose Edda: Gylfaginning (Snorri Sturluson, c. 1220 CE)"
+      - "Poetic Edda: Völuspá, Grímnismál"
+      - "Simek, R. (1993) 'Dictionary of Northern Mythology'"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "norse-germanic-007-ursa-major-wain"
+  sign_name:
+    primary: "Karlsvognen / Odin's Wain (Ursa Major)"
+    variants: ["Karlsvognen (Danish/Norwegian)", "Orvandels vagn (The Wain of Aurvandill)", "Charles's Wain (Old English)", "The Great Bear / Big Dipper"]
+    romanization: "Karlsvognen"
+    native_script: null
+  cultural_tradition:
+    primary_culture: "Norse / Germanic"
+    variant_culture: "Old Norse / Old English / Scandinavian folk tradition"
+    geographic_origin: "Scandinavia; British Isles (Germanic settlers)"
+    period_range: "Medieval Scandinavian; Old English attestation (Chaucer uses 'Charles' Wain'); pre-Christian folk tradition"
+    status_in_modern_tradition: "folk_tradition"
+  system_metadata:
+    system_name: "Norse / Germanic sky traditions"
+    total_signs_in_system: 10
+    position_in_system: 7
+    sign_classification:
+      celestial_body: "Ursa Major (Great Bear / Big Dipper)"
+      personification: "The Wain (wagon/chariot) — sometimes Odin's, sometimes 'Karl's' (the common man's), sometimes Aurvandill's"
+      navigation_role: "Circumpolar; never sets in northern latitudes; primary navigation star group; contains Dubhe and Merak pointing to Polaris (North Star)"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Ursa_Major"
+    star_coordinates:
+      - name: "α Ursae Majoris (Dubhe)"
+        ra_j2000: "11h 03m 44s"
+        dec_j2000: "+61° 45′ 03″"
+        magnitude: 1.79
+      - name: "β Ursae Majoris (Merak)"
+        ra_j2000: "11h 01m 50s"
+        dec_j2000: "+56° 22′ 57″"
+        magnitude: 2.37
+      - name: "η Ursae Majoris (Alkaid)"
+        ra_j2000: "13h 47m 32s"
+        dec_j2000: "+49° 18′ 48″"
+        magnitude: 1.86
+    asterism_schematic: "The Plough (UK) / Big Dipper (US) — seven bright stars forming a ladle or wagon; the two 'pointer stars' (Dubhe and Merak) indicate Polaris with high precision; circumpolar from northern latitudes"
+    cultural_iconography: "The Wain (wagon/chariot) that circles the North Pole without setting; never disappears below the horizon in northern Scandinavia; the sky's eternal circling vehicle; Dubhe and Merak as the oxen pulling the wagon"
+  primitive_association_hints:
+    suggested_attributes: ["the eternal circling", "navigation and finding the north", "never-setting reliability", "the heavenly vehicle", "Odin's sky chariot"]
+    narrative_archetype: "the reliable circler; the one who never stops, never sinks, the eternal reference point"
+    game_design_notes: "Ursa Major is the most universally used navigation tool in human history (until the compass); its Norse 'Wain/wagon' framing positions it as a vehicle rather than a beast; the connection to Aurvandill (sign 003) via 'Orvandels vagn' is a rich cross-referencing design detail"
+  mythic_narrative: >
+    The seven bright stars of Ursa Major were called "Karlsvognen" (the Man's Wagon/Wain) in
+    Scandinavian tradition and "Charles's Wain" in Old English — the latter term used by Chaucer
+    and persisting in British English today. In some traditions it was "Orvandels vagn" (the Wain
+    of Aurvandill), connecting it to the hero-made-star figure documented in sign 003. The
+    constellation is circumpolar from northern European latitudes — it never sets below the horizon,
+    rotating eternally around Polaris (the North Star) like a clock hand. The two pointer stars
+    (Dubhe and Merak) indicate Polaris with precision, making Ursa Major the primary navigation
+    tool for Norse sailors. Viking navigation across the North Atlantic used this constellation
+    and the position of the sun at noon; without it, the settlements of Iceland, Greenland, and
+    Vinland would have been impossible to find reliably. The eternal wagon circling the pole is
+    the sky's most permanent fixture — in northern Norway, it never disappears even in summer.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Folk astronomical tradition"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Ursa_Major"
+      - "https://en.wikipedia.org/wiki/Charles%27s_Wain"
+      - "Simek, R. (1993) 'Dictionary of Northern Mythology'"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "norse-germanic-008-elivagar"
+  sign_name:
+    primary: "Élivágar (The Primordial Rivers / The Milky Way)"
+    variants: ["Élivágar", "Elivágar", "The Ice-Wave Rivers", "the eleven rivers"]
+    romanization: "Élivágar"
+    native_script: null
+  cultural_tradition:
+    primary_culture: "Norse / Germanic"
+    variant_culture: "Old Norse (Icelandic)"
+    geographic_origin: "Iceland (Eddic source)"
+    period_range: "Prose Edda c. 1220 CE; Poetic Edda (Vafþrúðnismál); pre-Christian cosmogony"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Norse / Germanic sky traditions"
+    total_signs_in_system: 10
+    position_in_system: 8
+    sign_classification:
+      celestial_body: "Milky Way (scholarly identification; attested as primordial rivers in Edda)"
+      personification: "The Eleven Rivers flowing from Niflheim — the primordial icy waters whose venom congealed to form the first matter of creation"
+      cosmological_role: "Primordial creative substance; Ymir the first frost giant formed from the confluence of Élivágar's ice and Muspelheim's fire"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/%C3%89liv%C3%A1gar"
+    cultural_iconography: "The Milky Way as seen from Norse latitudes — a broad river of light crossing the sky; in Eddic cosmogony, before creation there was Ginnungagap (the void) with Niflheim (ice) to the north and Muspelheim (fire) to the south; Élivágar flowed from Niflheim into the void and its venom-ice met the fire, creating Ymir (first frost giant) and Auðumbla (the primordial cow)"
+  primitive_association_hints:
+    suggested_attributes: ["primordial creation", "the void before form", "venom that becomes the first substance", "the frozen origin of all things", "the Milky Way as cosmic river"]
+    narrative_archetype: "the source before the source; the primordial flow from which all things precipitate"
+    game_design_notes: "Élivágar = the Milky Way as cosmic river of creation-venom; the ice-rivers whose poison solidified into the first matter; creation through venom is a specifically Norse cosmogonic mode distinct from clay (Mesopotamian), breath (Abrahamic), or thought (Hindu); strong design hook for 'poison that is also life' mechanics"
+  mythic_narrative: >
+    Élivágar (the "ice-wave rivers" or "storm rivers") are the eleven primordial rivers of Norse
+    cosmogony, flowing from the world-spring Hvergelmir in Niflheim (the world of ice and death)
+    southward into Ginnungagap — the primordial void that existed before creation. The rivers
+    carried along a substance called eitr (cosmic venom or poison) that settled and hardened into
+    rime-frost as it traveled into the cold void. When the warmth from Muspelheim (the world of
+    fire) touched this condensed venom-ice at the center of Ginnungagap, the first drops of melt
+    formed Ymir, the primordial frost giant, and Auðumbla, the cosmic cow who licked him free.
+    Aurvandill was carried across Élivágar by Þórr (sign 003), positioning the rivers as a
+    literal border between the mortal/heroic realm and the cosmic north. Scholars have proposed
+    that the Milky Way, viewed from dark Scandinavian skies as a luminous river crossing the sky,
+    provided the visual anchor for this cosmographic rivers-in-the-void concept.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Academic cosmological reconstruction"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/%C3%89liv%C3%A1gar"
+      - "Prose Edda: Gylfaginning"
+      - "Poetic Edda: Vafþrúðnismál"
+      - "Simek, R. (1993) 'Dictionary of Northern Mythology'"
+    crawl_date: "2026-06-09"
+    confidence: "medium"
+
+- sign_id: "norse-germanic-009-eikthyrnir"
+  sign_name:
+    primary: "Eikþyrnir (The Oak-Antlered Stag)"
+    variants: ["Eikthyrnir", "Eikþyrnir", "The Stag of Valhǫll"]
+    romanization: "Eikþyrnir"
+    native_script: null
+  cultural_tradition:
+    primary_culture: "Norse / Germanic"
+    variant_culture: "Old Norse (Icelandic)"
+    geographic_origin: "Iceland (Eddic source)"
+    period_range: "Prose Edda c. 1220 CE (Grímnismál); pre-Christian Norse tradition"
+    status_in_modern_tradition: "scholarly_reconstruction"
+  system_metadata:
+    system_name: "Norse / Germanic sky traditions"
+    total_signs_in_system: 10
+    position_in_system: 9
+    sign_classification:
+      celestial_body: "Sky figure / cosmic creature (stag standing on Valhǫll roof)"
+      personification: "The cosmic stag whose antlers drip dew that feeds all the world's rivers; stands on top of Valhǫll beneath the Læraðr tree"
+      cosmological_role: "Source of the world's freshwater rivers through antler-dew; cosmic link between the sky and the world's water cycle"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Eikthyrnir"
+    cultural_iconography: "Massive stag standing on the roof of Valhǫll (Odin's feast hall for the battle-dead); his antlers bear leaves like oak-branches; from each tine of his antlers drips a liquid that falls into the world-spring Hvergelmir and feeds all the rivers of creation; the stag above the sky-hall dripping life-water downward is the image"
+  primitive_association_hints:
+    suggested_attributes: ["the source of all rivers from above", "the living connection between sky and water", "the antler that is also a branch", "Valhǫll's crown", "the cosmic condensation point"]
+    narrative_archetype: "the high creature whose overflowing feeds all below; abundance dripping from height"
+    game_design_notes: "Eikþyrnir = oak-antler stag — his antlers are like oak branches, connecting tree + animal + sky + water in one figure; the stag atop the sky-hall whose antler-drip feeds the world's rivers is one of the odder Norse cosmic figures; strong visual distinctiveness for game cosmograph"
+  mythic_narrative: >
+    Eikþyrnir (meaning "one with oak-like tines" or "oak-antlered") stands on the roof of
+    Valhǫll, Odin's hall for the honored dead, beside the tree Læraðr. His antlers bear leaves
+    like the branches of an oak, blurring the boundary between animal and tree. From his antlers
+    drops a liquid that runs down into the world-spring Hvergelmir in Niflheim, from which all
+    the world's rivers flow: the Edda lists dozens of rivers fed by this source. Eikþyrnir
+    therefore stands at the top of the world's water cycle — a cosmic stag on the roof of the
+    divine feast hall, providing the freshwater that sustains all life, dripping silently downward.
+    The image encodes something the Norse clearly perceived: that the sky produces the rain and
+    dew that feeds rivers and wells, though they located the mechanism in a cosmic stag rather
+    than in cloud physics. He is a sky creature whose biological overflow is the world's water supply.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Academic mythological content from Prose Edda"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Eikthyrnir"
+      - "Prose Edda: Grímnismál"
+      - "Simek, R. (1993) 'Dictionary of Northern Mythology'"
+    crawl_date: "2026-06-09"
+    confidence: "medium"
+
+- sign_id: "norse-germanic-010-hagalaz-hex-star"
+  sign_name:
+    primary: "Hagalaz / Germanic Hex Star (The Hailstone / Six-Rayed Star)"
+    variants: ["Hagalaz rune (ᚺ)", "Hagal (Elder Futhark)", "Hexenstern (German Hex Star)", "The Hailstone rune", "Hagal's eight-spoked form"]
+    romanization: "Hagalaz"
+    native_script: "ᚺ"
+    runic_association: "Hagalaz (ᚺ) — ninth rune of the Elder Futhark; associated with hail, disruption, and hidden pattern"
+  cultural_tradition:
+    primary_culture: "Norse / Germanic"
+    variant_culture: "Proto-Germanic / Old Norse / Northern European folk tradition"
+    geographic_origin: "Northern Europe (Germany; Scandinavia; Alpine regions)"
+    period_range: "Elder Futhark runic inscription c. 150–800 CE; folk hex-sign tradition (Pennsylvanian Dutch, Alpine German) 17th–20th century CE — note: hex star folk tradition is substantially later and geographically displaced from Eddic sources"
+    status_in_modern_tradition: "active_neopagan"
+    authenticity_note: "The Hagalaz rune is attested in Elder Futhark inscriptions; its cosmological interpretation (especially as seed-crystal or matrix of all runes) is primarily from modern runological scholarship (Ralph Blum, Edred Thorsson) and Norse neo-pagan tradition; the visual hex star / Hagalaz-as-six-rayed-star connection is a modern synthesis"
+  system_metadata:
+    system_name: "Norse / Germanic sky traditions"
+    total_signs_in_system: 10
+    position_in_system: 10
+    sign_classification:
+      celestial_body: "Stellar pattern / abstract cosmic figure (not a specific named star)"
+      personification: "Hagalaz — the hailstone; the disrupting pattern that is also the seed of transformation; the crystalline structure that contains all possible forms"
+      cosmological_role: "The cosmic matrix; Hagalaz in its eight-spoked or six-rayed form was interpreted as containing all other runes within it; the mother-rune of the Elder Futhark in some runic traditions"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Hagalaz"
+    cultural_iconography: "The Hagalaz rune appears in two forms: the Elder Futhark form (H-shape, like a capital H with a diagonal bar) and the Younger Futhark/medieval form (a six-rayed asterisk or snowflake crystal ✳). The six-rayed form was used as a hex star (Hexenstern) on Pennsylvania Dutch barns, Alpine houses, and Germanic folk art as a protective and luck-attracting symbol; the snowflake geometry is implicit in water-crystal formation"
+  primitive_association_hints:
+    suggested_attributes: ["the disrupting force that reveals hidden pattern", "transformation through impact", "the hailstone that destroys and also seeds the cloud", "the crystalline structure underlying chaos", "the ninth position — completion before the new cycle"]
+    narrative_archetype: "the bolt of ice that disrupts — but whose disruption reveals the structure that was always there"
+    game_design_notes: "Hagalaz = the 9th rune = the hailstone = the seed crystal; in Younger Futhark the rune becomes a six-pointed star/asterisk literally shaped like a snowflake cross-section; the 'storm that is also a pattern-revelation' is a strong disruption/transformation archetype; Pennsylvania Dutch hex stars on barns = protective sky-magic in folk practice persisting to present day"
+  mythic_narrative: >
+    Hagalaz (ᚺ) is the ninth rune of the Elder Futhark — the rune of hail, disruption, and
+    hidden cosmic pattern. In Germanic and Norse poetic tradition, hail is the "cold grain" or
+    "white seed" (Old Norse rune poems call it: "Hail is the coldest of grains / Christ shaped
+    the world in ancient times"). Its later Younger Futhark form transforms the angular H-rune
+    into a six-rayed asterisk — literally the crystalline geometry of a snowflake, the most
+    mathematically precise natural form. Some runic scholars interpret Hagalaz as the "mother
+    rune" containing all other runes within its structure when the six-rayed form is extended:
+    by rotating and superimposing, all 24 Elder Futhark runes can be derived from it. The
+    six-rayed star form migrated into Germanic folk tradition as the "Hexenstern" (hex star) —
+    used on barn doors, house beams, and household objects throughout Alpine Germany and among
+    Pennsylvania Dutch communities, where it served as a protective and luck-attracting symbol
+    into the 20th century. The cosmic pattern hidden in disruption — the hailstone's geometry
+    as seed-crystal of all form — positions Hagalaz as the Norse/Germanic equivalent of the
+    cosmic matrix: the mother of patterns.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Elder Futhark runic content is attested scholarship; modern runological interpretations (mother-rune theory) are clearly flagged as modern in authenticity_note; Pennsylvania Dutch hex star is documented folk tradition"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Hagalaz"
+      - "https://en.wikipedia.org/wiki/Hex_sign"
+      - "Simek, R. (1993) 'Dictionary of Northern Mythology'"
+      - "Page, R.I. (1987) 'Runes' — British Museum Press"
+    crawl_date: "2026-06-09"
+    confidence: "medium"
